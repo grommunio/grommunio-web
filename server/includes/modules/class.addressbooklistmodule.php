@@ -27,8 +27,8 @@ class AddressbookListModule extends ListModule {
 	/**
 	 * Executes all the actions in the $data variable.
 	 */
-	#[\Override]
-    public function execute() {
+	#[Override]
+	public function execute() {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
 				try {
@@ -41,13 +41,13 @@ class AddressbookListModule extends ListModule {
 					}
 
 					match ($actionType) {
-                        'list' => match ($subActionType) {
-                            'hierarchy' => $this->getHierarchy($action),
-                            'globaladdressbook' => $this->GABUsers($action, $subActionType),
-                            default => $this->handleUnknownActionType($actionType),
-                        },
-                        default => $this->handleUnknownActionType($actionType),
-                    };
+						'list' => match ($subActionType) {
+							'hierarchy' => $this->getHierarchy($action),
+							'globaladdressbook' => $this->GABUsers($action, $subActionType),
+							default => $this->handleUnknownActionType($actionType),
+						},
+						default => $this->handleUnknownActionType($actionType),
+					};
 				}
 				catch (MAPIException $e) {
 					$this->processException($e, $actionType, $store, $parententryid, $entryid, $action);
@@ -84,8 +84,10 @@ class AddressbookListModule extends ListModule {
 			$table = null;
 			$ab = $GLOBALS['mapisession']->getAddressbook(false, true);
 			$entryid = !empty($action['entryid']) ? hex2bin((string) $action['entryid']) : mapi_ab_getdefaultdir($ab);
+
 			try {
 				$dir = mapi_ab_openentry($ab, $entryid);
+
 				/**
 				 * @TODO: 'All Address Lists' on IABContainer gives MAPI_E_INVALID_PARAMETER,
 				 * as it contains subfolders only. When #7344 is fixed, MAPI will return error here,
@@ -98,7 +100,8 @@ class AddressbookListModule extends ListModule {
 				// and get the contents of the folder
 				if ($isSharedFolder) {
 					$sharedStore = $GLOBALS["mapisession"]->openMessageStore(
-						hex2bin((string) $action["sharedFolder"]["store_entryid"]));
+						hex2bin((string) $action["sharedFolder"]["store_entryid"])
+					);
 					$sharedContactsFolder = mapi_msgstore_openentry($sharedStore, $entryid);
 					$table = mapi_folder_getcontentstable($sharedContactsFolder, MAPI_DEFERRED_ERRORS);
 					$this->properties = $GLOBALS['properties']->getContactProperties();
@@ -152,9 +155,9 @@ class AddressbookListModule extends ListModule {
 						}
 
 						$item['email_address'] = match ($user_data[PR_DISPLAY_TYPE]) {
-                            DT_PRIVATE_DISTLIST => '',
-                            default => $user_data[$this->properties['email_address']],
-                        };
+							DT_PRIVATE_DISTLIST => '',
+							default => $user_data[$this->properties['email_address']],
+						};
 					}
 					elseif ($isSharedFolder && $sharedStore) {
 						// do not display private items
@@ -187,6 +190,7 @@ class AddressbookListModule extends ListModule {
 						if (!empty($user_data[$this->properties["email_address_type_3"]])) {
 							$abprovidertype |= 4;
 						}
+
 						switch ($abprovidertype) {
 							case 1:
 							case 3:
@@ -196,12 +200,14 @@ class AddressbookListModule extends ListModule {
 								$item['address_type'] = $user_data[$this->properties["email_address_type_1"]];
 								$item['email_address'] = $user_data[$this->properties["email_address_1"]];
 								break;
+
 							case 2:
 							case 6:
 								$item['entryid'] .= '02';
 								$item['address_type'] = $user_data[$this->properties["email_address_type_2"]];
 								$item['email_address'] = $user_data[$this->properties["email_address_2"]];
 								break;
+
 							case 4:
 								$item['entryid'] .= '03';
 								$item['address_type'] = $user_data[$this->properties["email_address_type_3"]];
@@ -231,7 +237,7 @@ class AddressbookListModule extends ListModule {
 								// The account property is used to fill in the fileas column, private dislist does not have that
 								$item['fileas'] = $user_data[$this->properties['account']];
 
-							// no break
+								// no break
 							case DT_PRIVATE_DISTLIST:
 								$item['email_address'] = $user_data[$this->properties['email_address']] ?? $user_data[$this->properties['account']];
 								// FIXME: shouldn't be needed, but atm this gives us an undefined offset error which makes the unittests fail.
@@ -245,7 +251,7 @@ class AddressbookListModule extends ListModule {
 								// The account property is used to fill in the fileas column, remote mailuser does not have that
 								$item['fileas'] = $user_data[$this->properties['account']];
 
-							// no break
+								// no break
 							case DT_REMOTE_MAILUSER:
 							default:
 								$item['email_address'] = $user_data[$this->properties['email_address']];
@@ -310,6 +316,7 @@ class AddressbookListModule extends ListModule {
 								$item['entryid'] = $entryid . '02';
 								array_push($items, ['props' => $item]);
 								break;
+
 							case 5:
 							case 6:
 								$item['address_type'] = $user_data[$this->properties["email_address_type_3"]];
@@ -318,6 +325,7 @@ class AddressbookListModule extends ListModule {
 								$item['entryid'] = $entryid . '03';
 								array_push($items, ['props' => $item]);
 								break;
+
 							case 7:
 								$item['address_type'] = $user_data[$this->properties["email_address_type_2"]];
 								$item['email_address'] = $user_data[$this->properties["email_address_2"]];
@@ -335,7 +343,7 @@ class AddressbookListModule extends ListModule {
 				}
 
 				function sorter($direction, $key) {
-					return fn($a, $b) => $direction == 'ASC' ?
+					return fn ($a, $b) => $direction == 'ASC' ?
 							strcasecmp($a['props'][$key] ?? '', $b['props'][$key] ?? '') :
 							strcasecmp($b['props'][$key] ?? '', $a['props'][$key] ?? '');
 				}
@@ -889,15 +897,14 @@ class AddressbookListModule extends ListModule {
 						// Do not show contacts' folders in the AB list view for which
 						// the user has permissions, but hasn't added them to the folder hierarchy.
 						if (!empty($sharedUserSetting) &&
-						    !isset($sharedUserSetting['all']) &&
-						    !isset($sharedUserSetting['contact']) &&
-						    in_array($mainUserEntryId, array_column($grants, 'userid'))) {
+							!isset($sharedUserSetting['all']) &&
+							!isset($sharedUserSetting['contact']) &&
+							in_array($mainUserEntryId, array_column($grants, 'userid'))) {
 							continue;
 						}
 						if (isset($sharedUserSetting['all']) ||
-						    isset($sharedUserSetting['contact']) ||
-						    in_array($mainUserEntryId, array_column($grants, 'userid')))
-						{
+							isset($sharedUserSetting['contact']) ||
+							in_array($mainUserEntryId, array_column($grants, 'userid'))) {
 							$this->addFolder($folders, [
 								// Postfix display name of every contact folder with respective owner name
 								// it is mandatory to keep display-name different
@@ -953,7 +960,7 @@ class AddressbookListModule extends ListModule {
 	}
 
 	/**
-	 * Returns the field which will be used to sort the ab items
+	 * Returns the field which will be used to sort the ab items.
 	 *
 	 * @param array  $action
 	 * @param array  $map
@@ -1118,9 +1125,9 @@ class AddressbookListModule extends ListModule {
 	/**
 	 * Returns the hiding users/groups restriction for the ab items.
 	 *
-	 * @param bool   $hide_users
-	 * @param bool   $hide_groups
-	 * @param bool   $hide_companies
+	 * @param bool $hide_users
+	 * @param bool $hide_groups
+	 * @param bool $hide_companies
 	 *
 	 * @return array
 	 */

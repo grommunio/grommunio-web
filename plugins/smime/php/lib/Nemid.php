@@ -135,7 +135,7 @@ class NemidCertificateCheck {
 		sizeof($certchain) == ($maxpathlength + 2) or trigger_error('Length of certificate chain is not ' . $maxpathlength, E_USER_ERROR);
 
 		foreach ($keyUsages as $usage) {
-			($certchain[$leaf]['tbsCertificate']['extensions']['keyUsage']['extnValue'][$usage]) or
+			$certchain[$leaf]['tbsCertificate']['extensions']['keyUsage']['extnValue'][$usage] or
 					trigger_error('Certificate has not keyUsage: ' . $usage, E_USER_ERROR);
 		}
 
@@ -150,14 +150,14 @@ class NemidCertificateCheck {
 					$now <= $certchain[$i]['tbsCertificate']['validity']['notAfter']) or
 					trigger_error('certificate is outside it\'s validity time', E_USER_ERROR);
 			$extensions = $certchain[$issuer]['tbsCertificate']['extensions'];
-			($extensions['basicConstraints']['extnValue']['cA']) or
+			$extensions['basicConstraints']['extnValue']['cA'] or
 					trigger_error('Issueing certificate has not cA = true', E_USER_ERROR);
 			if (isset($extensions['basicConstraints']['extnValue']['pathLenConstraint'])) {
 				$pathLenConstraint = @$extensions['basicConstraints']['extnValue']['pathLenConstraint'];
 			}
 			(empty($pathLenConstraint) || $pathLenConstraint >= $leaf - $issuer - 1) or
 					trigger_error('pathLenConstraint violated', E_USER_ERROR);
-			($extensions['keyUsage']['extnValue']['keyCertSign']) or
+			$extensions['keyUsage']['extnValue']['keyCertSign'] or
 					trigger_error('Issueing certificate has not keyUsage: keyCertSign', E_USER_ERROR);
 		}
 

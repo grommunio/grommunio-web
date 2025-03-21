@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file handles the delivery of javascript files.
  */

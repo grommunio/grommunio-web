@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This class offers functions to handle file backend accounts.
  *
@@ -31,8 +32,6 @@ class AccountStore {
 	}
 
 	/**
-	 * @param $name
-	 * @param $backend
 	 * @param array $backendConfig Backend specific account settings
 	 *                             like username, password, serveraddress, ...
 	 *
@@ -154,8 +153,6 @@ class AccountStore {
 	/**
 	 * Delete account from local store and from the MAPI settings.
 	 *
-	 * @param $accountId
-	 *
 	 * @return bool
 	 */
 	public function deleteAccount($accountId) {
@@ -171,8 +168,6 @@ class AccountStore {
 
 	/**
 	 * Return the instance of the local account.
-	 *
-	 * @param $accountId
 	 *
 	 * @return Account
 	 */
@@ -335,7 +330,6 @@ class AccountStore {
 	/**
 	 * Encrypt the given string.
 	 *
-	 * @param $value
 	 * @param $version the storage version used to identify what encryption to use
 	 *
 	 * @return string
@@ -357,7 +351,6 @@ class AccountStore {
 	/**
 	 * Decrypt the given string.
 	 *
-	 * @param $value
 	 * @param $version the storage version used to identify what encryption to use
 	 *
 	 * @return string

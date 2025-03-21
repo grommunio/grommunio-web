@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file contains functions which are used in plugin.smime.php and class.pluginsmimemodule.php and therefore
  * exists here to avoid code-duplication.
@@ -33,11 +34,11 @@ function getCertEmail($certificate) {
 /**
  * Function that will return the private certificate of the user from the user store where it is stored in pkcs#12 format.
  *
- * @param resource $store user's store
- * @param string $type of message_class
- * @param string $emailAddress emailaddress to specify
+ * @param resource $store        user's store
+ * @param string   $type         of message_class
+ * @param string   $emailAddress emailaddress to specify
  *
- * @return resource|bool the mapi message containing the private certificate, returns false if no certificate is found
+ * @return bool|resource the mapi message containing the private certificate, returns false if no certificate is found
  */
 function getMAPICert($store, $type = 'WebApp.Security.Private', $emailAddress = '') {
 	$root = mapi_msgstore_openentry($store);
@@ -81,9 +82,9 @@ function getMAPICert($store, $type = 'WebApp.Security.Private', $emailAddress = 
  * If multiple private certificates can be decrypted with the supplied password,
  * all of them will be returned, if $singleCert == false, otherwise only the first one.
  *
- * @param resource $store user's store
- * @param string $passphrase passphrase for private certificate
- * @param bool $singleCert if true, returns the first certificate, which was successfully decrypted with $passphrase
+ * @param resource $store      user's store
+ * @param string   $passphrase passphrase for private certificate
+ * @param bool     $singleCert if true, returns the first certificate, which was successfully decrypted with $passphrase
  *
  * @return mixed collection of certificates, empty if none if decrypting fails or stored private certificate isn't found
  */
@@ -98,8 +99,9 @@ function readPrivateCert($store, $passphrase, $singleCert = true) {
 	// Get messages from certificates
 	foreach ($privateCerts as $privateCert) {
 		$privateCertMessage = mapi_msgstore_openentry($store, $privateCert[PR_ENTRYID]);
-		if ($privateCertMessage === false)
+		if ($privateCertMessage === false) {
 			continue;
+		}
 		$pkcs12 = "";
 		$certs = [];
 		// Read pkcs12 cert from message
@@ -144,8 +146,8 @@ function der2pem($certificate) {
  * stored we, use stat() to determine if it is not very old (> 1 Month) and otherwise fetch the certificate and store it.
  *
  * @param string $certificate
- * @param array $extracerts an array of intermediate certificates
- * @param mixed $message
+ * @param array  $extracerts  an array of intermediate certificates
+ * @param mixed  $message
  *
  * @return bool true is OCSP verification has succeeded or when there is no OCSP support, false if it hasn't
  */

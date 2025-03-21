@@ -16,22 +16,22 @@ $loader = new FileLoader();
 
 		<?php
 			$loader->cssOrder();
-			echo Theming::getStyles($theme);
-			$iconsetStylesheet = Iconsets::getActiveStylesheet();
-		?>
+echo Theming::getStyles($theme);
+$iconsetStylesheet = Iconsets::getActiveStylesheet();
+?>
 	</head>
 
 	<body class="theme-<?php echo strtolower((string) $theme ?: 'basic'); ?>">
 		<?php
-			$jsTemplate = "\t\t<script src=\"{file}\"></script>";
-				if (DEBUG_LOADER === LOAD_RELEASE) {
-					$extjsFiles[] = "client/tinymce/tinymce.min.js";
-				}
-				else {
-					$extjsFiles[] = "client/tinymce/tinymce.js";
-				}
-			$loader->printFiles($extjsFiles, $jsTemplate);
-		?>
+	$jsTemplate = "\t\t<script src=\"{file}\"></script>";
+if (DEBUG_LOADER === LOAD_RELEASE) {
+	$extjsFiles[] = "client/tinymce/tinymce.min.js";
+}
+else {
+	$extjsFiles[] = "client/tinymce/tinymce.js";
+}
+$loader->printFiles($extjsFiles, $jsTemplate);
+?>
 		<link id="grommunio-iconset-stylesheet" rel="stylesheet" href="<?php echo $iconsetStylesheet; ?>" >
 		<script>
 

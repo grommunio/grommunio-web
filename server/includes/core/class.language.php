@@ -205,6 +205,7 @@ class Language {
 			if (empty($translations)) {
 				@shm_remove_var($memid, 0);
 				@shm_detach($memid);
+
 				return ['grommunio_web' => []];
 			}
 			@shm_detach($memid);
@@ -213,8 +214,10 @@ class Language {
 		}
 		$handle = opendir(LANGUAGE_DIR);
 		if ($handle == false) {
-			if ($memid)
+			if ($memid) {
 				@shm_detach($memid);
+			}
+
 			return ['grommunio_web' => []];
 		}
 		$last_id = 1;
@@ -240,8 +243,9 @@ class Language {
 				}
 			}
 			$cache_table[$entry] = $last_id;
-			if ($memid)
+			if ($memid) {
 				@shm_put_var($memid, $last_id, $translations);
+			}
 			if (strcmp($entry, $this->getSelected()) == 0) {
 				$ret_val = $translations;
 			}

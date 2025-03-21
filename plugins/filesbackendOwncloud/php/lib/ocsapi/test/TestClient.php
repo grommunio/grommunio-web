@@ -1,12 +1,14 @@
 <?php
 
+use OCSAPI\ocsclient;
+
 require_once __DIR__ . "/../class.ocsclient.php";
 
 $server = "https://cloud.test.at";
 $user = "testuser";
 $pass = "testpassword";
 
-$ocscloient = new \OCSAPI\ocsclient($server, $user, $pass);
+$ocscloient = new ocsclient($server, $user, $pass);
 
 echo "<br>################################## READING #######################<br>";
 

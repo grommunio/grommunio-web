@@ -7,6 +7,8 @@ require_once __DIR__ . "/class.accountstore.php";
 require_once __DIR__ . "/Util/class.pathutil.php";
 require_once __DIR__ . "/Util/class.logger.php";
 
+use Files\Backend\BackendStore;
+use Files\Backend\Exception;
 use Files\Core\Util\Logger;
 
 class RecipientHandler {
@@ -22,11 +24,11 @@ class RecipientHandler {
 		else {
 			$tmpId = $_GET["id"];
 		}
-		$accountID = substr((string) $tmpId, 3, (strpos((string) $tmpId, '/') - 3));
+		$accountID = substr((string) $tmpId, 3, strpos((string) $tmpId, '/') - 3);
 
 		// Initialize the account and backendstore
-		$accountStore = new \Files\Core\AccountStore();
-		$backendStore = \Files\Backend\BackendStore::getInstance();
+		$accountStore = new AccountStore();
+		$backendStore = BackendStore::getInstance();
 
 		$account = $accountStore->getAccount($accountID);
 
@@ -37,11 +39,11 @@ class RecipientHandler {
 		try {
 			$initializedBackend->open();
 		}
-		catch (\Files\Backend\Exception $e) {
+		catch (Exception $e) {
 			Logger::error(self::LOG_CONTEXT, "Could not open the backend: " . $e->getMessage());
 			echo json_encode(['success' => false, 'response' => $e->getCode(), 'message' => $e->getMessage()]);
 
-			exit();
+			exit;
 		}
 		$responsedata = $initializedBackend->getRecipients($_GET["query"]);
 		header('Content-Type: application/json');

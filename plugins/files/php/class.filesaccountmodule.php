@@ -9,7 +9,10 @@ require_once __DIR__ . "/Files/Backend/class.backendstore.php";
 require_once __DIR__ . "/Files/Core/Util/class.arrayutil.php";
 require_once __DIR__ . "/Files/Core/Util/class.logger.php";
 
+use Files\Backend\BackendStore;
+use Files\Backend\Exception;
 use Files\Backend\Exception as BackendException;
+use Files\Core\AccountStore;
 use Files\Core\Exception as AccountException;
 use Files\Core\Util\ArrayUtil;
 use Files\Core\Util\Logger;
@@ -19,9 +22,6 @@ class FilesAccountModule extends ListModule {
 
 	/**
 	 * @constructor
-	 *
-	 * @param $id
-	 * @param $data
 	 */
 	public function __construct($id, $data) {
 		parent::__construct($id, $data);
@@ -33,8 +33,8 @@ class FilesAccountModule extends ListModule {
 	 *
 	 * @return bool true on success or false on failure
 	 */
-	#[\Override]
-    public function execute() {
+	#[Override]
+	public function execute() {
 		$result = false;
 
 		foreach ($this->data as $actionType => $actionData) {
@@ -107,7 +107,7 @@ class FilesAccountModule extends ListModule {
 		$requestProperties = $actionData["props"];
 
 		// create a new account in our backend
-		$accountStore = new \Files\Core\AccountStore();
+		$accountStore = new AccountStore();
 		$newAccount = $accountStore->createAccount($requestProperties["name"], $requestProperties["backend"], $requestProperties["backend_config"]);
 
 		// create the response account object
@@ -139,17 +139,17 @@ class FilesAccountModule extends ListModule {
 	 * remove an account from the store and the MAPI settings.
 	 *
 	 * @param string $actionType
-	 * @param array $actionData
+	 * @param array  $actionData
 	 */
 	public function accountDelete($actionType, $actionData) {
 		$response = [];
 
 		// check if account needs to clean things up before it gets deleted
 		try {
-			$accountStore = new \Files\Core\AccountStore();
+			$accountStore = new AccountStore();
 			$accountStore->getAccount($actionData['entryid'])->beforeDelete();
 		}
-		catch (\Files\Backend\Exception) {
+		catch (Exception) {
 			// ignore errors here
 		}
 
@@ -165,13 +165,13 @@ class FilesAccountModule extends ListModule {
 	 * loads content of current folder - list of folders and files from the Files backend.
 	 *
 	 * @param string $actionType
-	 * @param array $actionData
+	 * @param array  $actionData
 	 */
 	public function accountList($actionType, $actionData) {
 		$response = [];
 
 		// get a list of all accounts
-		$accountStore = new \Files\Core\AccountStore();
+		$accountStore = new AccountStore();
 		$accounts = $accountStore->getAllAccounts();
 		$accountList = [];
 
@@ -230,7 +230,7 @@ class FilesAccountModule extends ListModule {
 		$response = [];
 
 		// create a new account in our backend
-		$accountStore = new \Files\Core\AccountStore();
+		$accountStore = new AccountStore();
 		$currentAccount = $accountStore->getAccount($actionData['entryid']);
 
 		// apply changes to the account object
@@ -282,7 +282,7 @@ class FilesAccountModule extends ListModule {
 	 */
 	public function backendInformation($actionType) {
 		// find all registered backends
-		$backendStore = \Files\Backend\BackendStore::getInstance();
+		$backendStore = BackendStore::getInstance();
 		$backendNames = $backendStore->getRegisteredBackendNames();
 
 		$data = [];
@@ -319,7 +319,7 @@ class FilesAccountModule extends ListModule {
 		$rootPath = $actionData["folder"];
 
 		// load the accountstore
-		$accountStore = new \Files\Core\AccountStore();
+		$accountStore = new AccountStore();
 		$currentAccount = $accountStore->getAccount($accountId);
 
 		// check if ID was valid, if not respond with error.
@@ -327,11 +327,11 @@ class FilesAccountModule extends ListModule {
 			throw new AccountException(_("Unknown account ID"));
 		}
 
-		$backendStore = \Files\Backend\BackendStore::getInstance();
+		$backendStore = BackendStore::getInstance();
 		$backendInstance = $backendStore->getInstanceOfBackend($currentAccount->getBackend());
 
 		// check if backend really supports this feature
-		if (!$backendInstance->supports(\Files\Backend\BackendStore::FEATURE_QUOTA)) {
+		if (!$backendInstance->supports(BackendStore::FEATURE_QUOTA)) {
 			throw new AccountException(_('Feature "Quota Information" is not supported by this backend!'));
 		}
 
@@ -367,7 +367,7 @@ class FilesAccountModule extends ListModule {
 		$accountId = $actionData["accountId"];
 
 		// load the accountstore
-		$accountStore = new \Files\Core\AccountStore();
+		$accountStore = new AccountStore();
 		$currentAccount = $accountStore->getAccount($accountId);
 
 		// check if ID was valid, if not respond with error.
@@ -375,11 +375,11 @@ class FilesAccountModule extends ListModule {
 			throw new AccountException(_("Unknown account ID"));
 		}
 
-		$backendStore = \Files\Backend\BackendStore::getInstance();
+		$backendStore = BackendStore::getInstance();
 		$backendInstance = $backendStore->getInstanceOfBackend($currentAccount->getBackend());
 
 		// check if backend really supports this feature
-		if (!$backendInstance->supports(\Files\Backend\BackendStore::FEATURE_VERSION)) {
+		if (!$backendInstance->supports(BackendStore::FEATURE_VERSION)) {
 			throw new AccountException(_('Feature "Version Information" is not supported by this backend!'));
 		}
 
@@ -415,7 +415,7 @@ class FilesAccountModule extends ListModule {
 		$accountId = $actionData["accountId"];
 
 		// load the accountstore
-		$accountStore = new \Files\Core\AccountStore();
+		$accountStore = new AccountStore();
 		$currentAccount = $accountStore->getAccount($accountId);
 
 		// check if ID was valid, if not respond with error.
@@ -423,11 +423,11 @@ class FilesAccountModule extends ListModule {
 			throw new AccountException(_("Unknown account ID"));
 		}
 
-		$backendStore = \Files\Backend\BackendStore::getInstance();
+		$backendStore = BackendStore::getInstance();
 		$backendInstance = $backendStore->getInstanceOfBackend($currentAccount->getBackend());
 
 		// check if backend really supports this feature
-		if (!$backendInstance->supports(\Files\Backend\BackendStore::FEATURE_OAUTH)) {
+		if (!$backendInstance->supports(BackendStore::FEATURE_OAUTH)) {
 			throw new AccountException(_('Feature "OAUTH" is not supported by this backend!'));
 		}
 
@@ -452,10 +452,11 @@ class FilesAccountModule extends ListModule {
 	 * @param object $exception the exception object which is generated
 	 *
 	 * @return array error data
+	 *
 	 * @overwrite
 	 */
-	#[\Override]
-    public function errorDetailsFromException($exception) {
+	#[Override]
+	public function errorDetailsFromException($exception) {
 		parent::errorDetailsFromException($exception);
 	}
 }

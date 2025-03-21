@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: chaas
@@ -8,5 +9,4 @@
 
 namespace OCSAPI\Exception;
 
-class ConnectionException extends \Exception {
-}
+class ConnectionException extends \Exception {}

@@ -131,15 +131,15 @@ class UploadAttachment {
 					$errorTitle = _("File is not imported successfully");
 
 					$errorTitle = match ($_FILES['attachments']['error'][$key]) {
-                        UPLOAD_ERR_INI_SIZE => _('The uploaded file exceeds the upload_max_filesize directive in php.ini.'),
-                        UPLOAD_ERR_FORM_SIZE => _('The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.'),
-                        UPLOAD_ERR_PARTIAL => _('The uploaded file was only partially uploaded.'),
-                        UPLOAD_ERR_NO_FILE => _('No file was uploaded. .'),
-                        UPLOAD_ERR_NO_TMP_DIR => _('Missing a temporary folder.'),
-                        UPLOAD_ERR_CANT_WRITE => _('Failed to write file to disk.'),
-                        UPLOAD_ERR_EXTENSION => _('A PHP extension stopped the file upload. PHP does not provide a way to ascertain which extension caused the file upload to stop; examining the list of loaded extensions with phpinfo() may help.'),
-                        default => throw new ZarafaException($errorTitle),
-                    };
+						UPLOAD_ERR_INI_SIZE => _('The uploaded file exceeds the upload_max_filesize directive in php.ini.'),
+						UPLOAD_ERR_FORM_SIZE => _('The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.'),
+						UPLOAD_ERR_PARTIAL => _('The uploaded file was only partially uploaded.'),
+						UPLOAD_ERR_NO_FILE => _('No file was uploaded. .'),
+						UPLOAD_ERR_NO_TMP_DIR => _('Missing a temporary folder.'),
+						UPLOAD_ERR_CANT_WRITE => _('Failed to write file to disk.'),
+						UPLOAD_ERR_EXTENSION => _('A PHP extension stopped the file upload. PHP does not provide a way to ascertain which extension caused the file upload to stop; examining the list of loaded extensions with phpinfo() may help.'),
+						default => throw new ZarafaException($errorTitle),
+					};
 
 					throw new ZarafaException($errorTitle);
 				}
@@ -294,7 +294,6 @@ class UploadAttachment {
 		}
 
 		return false;
-
 	}
 
 	/**
@@ -433,7 +432,7 @@ class UploadAttachment {
 		$props = [];
 
 		// Addresses field value.
-		$businessAddress = ($contactProps[$properties["business_address_street"]] ?? '' ) . "\n";
+		$businessAddress = ($contactProps[$properties["business_address_street"]] ?? '') . "\n";
 		$businessAddress .= ($contactProps[$properties["business_address_city"]] ?? '') . " ";
 		$businessAddress .= ($contactProps[$properties["business_address_state"]] ?? '') . " ";
 		$businessAddress .= ($contactProps[$properties["business_address_postal_code"]] ?? '') . "\n";
@@ -553,7 +552,7 @@ class UploadAttachment {
 				"commonend" => "PT_SYSTIME:PSETID_Common:0x8517",
 				"message_class" => PR_MESSAGE_CLASS,
 				"startdate" => "PT_SYSTIME:PSETID_Appointment:0x820d",
-				"duedate" => "PT_SYSTIME:PSETID_Appointment:0x820e"
+				"duedate" => "PT_SYSTIME:PSETID_Appointment:0x820e",
 			];
 			$properties = getPropIdsFromStrings($store, $propTags);
 			foreach ($events as $event) {
@@ -564,7 +563,7 @@ class UploadAttachment {
 				if (!isset($newMessageProps[$properties["commonstart"]], $newMessageProps[$properties["commonend"]])) {
 					mapi_setprops($event, [
 						$properties["commonstart"] => $newMessageProps[$properties["startdate"]],
-						$properties["commonend"] => $newMessageProps[$properties["duedate"]]
+						$properties["commonend"] => $newMessageProps[$properties["duedate"]],
 					]);
 				}
 
@@ -628,7 +627,6 @@ class UploadAttachment {
 	 * Function reads content of the given file and convert the same into
 	 * a webapp email into respective destination folder.
 	 *
-	 * @param string $attachTempName   a temporary file name of server location where it actually saved/available
 	 * @param string $filename         an actual file name
 	 * @param mixed  $attachmentStream
 	 *

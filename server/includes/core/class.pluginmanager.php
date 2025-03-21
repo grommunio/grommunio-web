@@ -203,7 +203,8 @@ class PluginManager {
 	 * for each subdir, we $this->processPlugin it as a plugin.
 	 *
 	 * @param $disabledPlugins Array The list of disabled plugins, the subfolders
-	 * named as any of the strings inside this list will not be processed
+	 *                         named as any of the strings inside this list will not be processed
+	 *
 	 * @returns Array The object containing all the processed plugins. The object is a key-value'
 	 * object where the key is the unique name of the plugin, and the value the parsed data.
 	 */
@@ -284,8 +285,8 @@ class PluginManager {
 			}
 
 			// If a plugin was removed because of a failed dependency or requirement,
-		// then we have to redo the cycle, because another plugin might have depended
-		// on the removed plugin.
+			// then we have to redo the cycle, because another plugin might have depended
+			// on the removed plugin.
 		}
 		while (!$success);
 
@@ -531,7 +532,7 @@ class PluginManager {
 	 *
 	 * This function allows the plugin to register their hooks.
 	 *
-	 * @param $eventID string Identifier of the event where this hook must be triggered
+	 * @param $eventID    string Identifier of the event where this hook must be triggered
 	 * @param $pluginName string Name of the plugin that is registering this hook
 	 */
 	public function registerHook($eventID, $pluginName) {
@@ -544,7 +545,7 @@ class PluginManager {
 	 * This function will call all the registered hooks when their event is triggered.
 	 *
 	 * @param $eventID string Identifier of the event that has just been triggered
-	 * @param $data mixed (Optional) Usually an array of data that the callback function can modify
+	 * @param $data    mixed (Optional) Usually an array of data that the callback function can modify
 	 *
 	 * @return mixed data that has been changed by plugins
 	 */
@@ -633,9 +634,8 @@ class PluginManager {
 	 * This calls getServerFilesForComponent() to obtain the files
 	 * for each component inside the requested plugin
 	 *
-	 * @param string $pluginname the name of the plugin for which the server files are requested
-	 * @param number $load       One of LOAD_RELEASE, LOAD_DEBUG, LOAD_SOURCE. This will filter
-	 *                           the files based on the 'load' attribute.
+	 * @param number $load One of LOAD_RELEASE, LOAD_DEBUG, LOAD_SOURCE. This will filter
+	 *                     the files based on the 'load' attribute.
 	 *
 	 * @return array list of paths to files
 	 */
@@ -847,7 +847,7 @@ class PluginManager {
 	 *
 	 * Extracts all the data from the Plugin XML manifest.
 	 *
-	 * @param $xml string XML manifest of plugin
+	 * @param $xml     string XML manifest of plugin
 	 * @param $dirname string name of the directory of the plugin
 	 *
 	 * @return array data from XML converted into array that the PluginManager can use

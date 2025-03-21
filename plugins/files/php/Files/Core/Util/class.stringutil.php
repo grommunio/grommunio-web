@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: zdev
@@ -14,7 +15,6 @@ class StringUtil {
 	 *
 	 * @static
 	 *
-	 * @param int   $filesize in bytes
 	 * @param int   $decimals digits
 	 * @param mixed $bytes
 	 *

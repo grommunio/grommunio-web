@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: zdev
@@ -13,6 +14,8 @@ require_once __DIR__ . "/class.accountstore.php";
 require_once __DIR__ . "/Util/class.pathutil.php";
 require_once __DIR__ . "/Util/class.logger.php";
 
+use Files\Backend\BackendStore;
+use Files\Backend\Exception;
 use Files\Core\Util\Logger;
 use Files\Core\Util\PathUtil;
 
@@ -29,11 +32,11 @@ class DownloadHandler {
 		else {
 			$tmpId = $_GET["id"];
 		}
-		$accountID = substr((string) $tmpId, 3, (strpos((string) $tmpId, '/') - 3));
+		$accountID = substr((string) $tmpId, 3, strpos((string) $tmpId, '/') - 3);
 
 		// Initialize the account and backendstore
-		$accountStore = new \Files\Core\AccountStore();
-		$backendStore = \Files\Backend\BackendStore::getInstance();
+		$accountStore = new AccountStore();
+		$backendStore = BackendStore::getInstance();
 
 		$account = $accountStore->getAccount($accountID);
 
@@ -44,7 +47,7 @@ class DownloadHandler {
 		try {
 			$initializedBackend->open();
 		}
-		catch (\Files\Backend\Exception $e) {
+		catch (Exception $e) {
 			Logger::error(self::LOG_CONTEXT, "Could not open the backend: " . $e->getMessage());
 
 			if ((isset($_GET["inline"]) && $_GET["inline"] == "false") || (isset($_GET["contentDispositionType"]) && $_GET["contentDispositionType"] == "attachment")) {
@@ -56,7 +59,7 @@ class DownloadHandler {
 				echo _('File backend not responding. Please try again later.');
 			}
 
-			exit();
+			exit;
 		}
 
 		try {
@@ -69,7 +72,7 @@ class DownloadHandler {
 					Logger::error(self::LOG_CONTEXT, "Zip creation failed: " . $res);
 					echo "<script>alert('" . _('Zip file generation failed. Please inform the administrator.') . "');</script>";
 
-					exit();
+					exit;
 				}
 				$i = 0;
 				$tmpfiles = [];
@@ -86,7 +89,7 @@ class DownloadHandler {
 						Logger::error(self::LOG_CONTEXT, "Zip addFile failed: " . $res . " file: " . $tmpfiles[$i] . " id: " . $relNodeId);
 						echo "<script>alert('" . _('Zip file generation failed. Please inform the administrator.') . "');</script>";
 
-						exit();
+						exit;
 					}
 				}
 				$zip->close();
@@ -103,13 +106,13 @@ class DownloadHandler {
 					unlink($tmpfile);
 				}
 
-				exit();
+				exit;
 			}
 			// relative node ID. We need to trim off the #R# and account ID
 			$relNodeId = substr((string) $_GET["id"], strpos((string) $_GET["id"], '/'));
 			$stream = false;
 
-			if (!$initializedBackend->supports(\Files\Backend\BackendStore::FEATURE_STREAMING)) {
+			if (!$initializedBackend->supports(BackendStore::FEATURE_STREAMING)) {
 				$tmpfile = tempnam(TMP_PATH, stripslashes(base64_encode($relNodeId)));
 				$initializedBackend->get_file($relNodeId, $tmpfile);
 				$filesize = filesize($tmpfile);
@@ -128,8 +131,8 @@ class DownloadHandler {
 			}
 
 			// no caching
-				header("Expires: 0"); // set expiration time
-				header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+			header("Expires: 0"); // set expiration time
+			header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 			header('Content-Length: ' . $filesize);
 			header('Content-Type: ' . $mime);
 			flush();
@@ -152,9 +155,9 @@ class DownloadHandler {
 				fclose($fh);
 			}
 
-			exit();
+			exit;
 		}
-		catch (\Files\Backend\Exception $e) {
+		catch (Exception $e) {
 			Logger::error(self::LOG_CONTEXT, "Downloading failed: " . $e->getMessage());
 
 			if (isset($_GET["inline"]) && $_GET["inline"] == "false") {
@@ -166,7 +169,7 @@ class DownloadHandler {
 				echo _('This file is no longer available. Please reload the folder.');
 			}
 
-			exit();
+			exit;
 		}
 	}
 }

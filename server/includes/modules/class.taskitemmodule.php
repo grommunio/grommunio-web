@@ -20,8 +20,8 @@ class TaskItemModule extends ItemModule {
 		$this->plaintext = true;
 	}
 
-	#[\Override]
-    public function open($store, $entryid, $action) {
+	#[Override]
+	public function open($store, $entryid, $action) {
 		$data = [];
 
 		$message = $GLOBALS['operations']->openMessage($store, $entryid);
@@ -93,8 +93,8 @@ class TaskItemModule extends ItemModule {
 	 * @param array  $action        the action data, sent by the client
 	 * @param mixed  $entryid
 	 */
-	#[\Override]
-    public function save($store, $parententryid, $entryid, $action) {
+	#[Override]
+	public function save($store, $parententryid, $entryid, $action) {
 		if (isset($action["props"])) {
 			if (!$store && !$parententryid) {
 				if (isset($action["props"]["message_class"])) {
@@ -146,8 +146,8 @@ class TaskItemModule extends ItemModule {
 	 * @param mixed  $entryids
 	 * @param array  $action        the action data, sent by the client
 	 */
-	#[\Override]
-    public function delete($store, $parententryid, $entryids, $action) {
+	#[Override]
+	public function delete($store, $parententryid, $entryids, $action) {
 		if ($store && $parententryid) {
 			$props = [];
 			$props[PR_PARENT_ENTRYID] = $parententryid;

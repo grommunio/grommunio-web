@@ -18,8 +18,6 @@ interface iFeatureSharing {
 	 *  )
 	 * )
 	 *
-	 * @param $path
-	 *
 	 * @return array
 	 */
 	public function getShares($path);
@@ -58,7 +56,6 @@ interface iFeatureSharing {
 	 *      "path2" => options2
 	 * )
 	 *
-	 * @param $shareparams
 	 * @param bool $update
 	 *
 	 * @return bool

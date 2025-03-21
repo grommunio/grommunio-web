@@ -27,12 +27,10 @@ class Log {
 	/**
 	 * Writes a log line.
 	 *
-	 * @param int        $loglevel       one of the defined LOGLEVELS
-	 * @param string        $message        The log message which we want to log in user specific log file
-	 * @param mixed $detailMessage  (optional) The detailed log message. it can be Error/Exception array.
-	 * @param mixed $request        (optional) The request log the the request data which sent by the user
-	 * @param mixed $exception
-	 * @param mixed $requestData
+	 * @param int    $loglevel    one of the defined LOGLEVELS
+	 * @param string $message     The log message which we want to log in user specific log file
+	 * @param mixed  $exception
+	 * @param mixed  $requestData
 	 */
 	public static function Write($loglevel, $message, $exception = false, $requestData = false) {
 		try {

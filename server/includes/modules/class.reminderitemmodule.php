@@ -24,8 +24,8 @@ class ReminderItemModule extends ItemModule {
 	 * @param string $entryid       entryid of the message
 	 * @param array  $action        the action data, sent by the client
 	 */
-	#[\Override]
-    public function save($store, $parententryid, $entryid, $action) {
+	#[Override]
+	public function save($store, $parententryid, $entryid, $action) {
 		$this->properties = $GLOBALS['properties']->getMailProperties();
 		$result = false;
 
@@ -60,8 +60,8 @@ class ReminderItemModule extends ItemModule {
 	 * @param string $entryid       entryid of the message
 	 * @param array  $action        the action data, sent by the client
 	 */
-	#[\Override]
-    public function delete($store, $parententryid, $entryid, $action) {
+	#[Override]
+	public function delete($store, $parententryid, $entryid, $action) {
 		$this->properties = $GLOBALS["properties"]->getReminderProperties();
 
 		if (!$store) {
@@ -222,8 +222,8 @@ class ReminderItemModule extends ItemModule {
 	 * @param string     $entryid       entryid of the message
 	 * @param array      $action        the action data, sent by the client
 	 */
-	#[\Override]
-    public function handleException(&$e, $actionType = null, $store = null, $parententryid = null, $entryid = null, $action = null) {
+	#[Override]
+	public function handleException(&$e, $actionType = null, $store = null, $parententryid = null, $entryid = null, $action = null) {
 		if (is_null($e->displayMessage)) {
 			switch ($actionType) {
 				case 'delete':

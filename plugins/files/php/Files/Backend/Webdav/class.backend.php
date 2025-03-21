@@ -11,6 +11,7 @@ use Files\Backend\Exception as BackendException;
 use Files\Backend\iFeatureQuota;
 use Files\Backend\iFeatureVersionInfo;
 use Files\Backend\Webdav\sabredav\FilesWebDavClient;
+use Sabre\DAV\Client;
 use Sabre\DAV\Exception;
 use Sabre\HTTP\ClientException;
 
@@ -18,6 +19,7 @@ use Sabre\HTTP\ClientException;
  * This is a file backend for webdav servers.
  *
  * @class   Backend
+ *
  * @extends AbstractBackend
  */
 class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionInfo {
@@ -206,8 +208,6 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 
 	/**
 	 * Initialize backend from $backend_config array.
-	 *
-	 * @param $backend_config
 	 */
 	public function init_backend($backend_config) {
 		$this->set_server($backend_config["server_address"]);
@@ -317,9 +317,9 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	/**
 	 * Opens the connection to the webdav server.
 	 *
-	 * @throws BackendException if connection is not successful
-	 *
 	 * @return bool true if action succeeded
+	 *
+	 * @throws BackendException if connection is not successful
 	 */
 	public function open() {
 		// check if curl is available
@@ -335,7 +335,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			'baseUri' => $this->webdavUrl(),
 			'userName' => $this->user,
 			'password' => $this->pass,
-			'authType' => \Sabre\DAV\Client::AUTH_BASIC,
+			'authType' => Client::AUTH_BASIC,
 		];
 
 		try {
@@ -362,13 +362,12 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	/**
 	 * show content of a directory.
 	 *
-	 * @param string $path      directory path
-	 * @param bool   $hidefirst Optional parameter to hide the root entry. Default true
-	 * @param mixed  $dir
-	 *
-	 * @throws BackendException if request is not successful
+	 * @param bool  $hidefirst Optional parameter to hide the root entry. Default true
+	 * @param mixed $dir
 	 *
 	 * @return mixed array with directory content
+	 *
+	 * @throws BackendException if request is not successful
 	 */
 	public function ls($dir, $hidefirst = true) {
 		$time_start = microtime(true);
@@ -454,9 +453,9 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	 *
 	 * @param string $dir directory path
 	 *
-	 * @throws BackendException if request is not successful
-	 *
 	 * @return bool true if action succeeded
+	 *
+	 * @throws BackendException if request is not successful
 	 */
 	public function mkcol($dir) {
 		$time_start = microtime(true);
@@ -491,9 +490,9 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	 *
 	 * @param string $path file/directory path
 	 *
-	 * @throws BackendException if request is not successful
-	 *
 	 * @return bool true if action succeeded
+	 *
+	 * @throws BackendException if request is not successful
 	 */
 	public function delete($path) {
 		$time_start = microtime(true);
@@ -528,13 +527,12 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	 * If you set param overwrite as true, the target will be overwritten.
 	 *
 	 * @param string $src_path  Source path
-	 * @param string $dest_path Destination path
 	 * @param bool   $overwrite Overwrite file if exists in $dest_path
 	 * @param mixed  $dst_path
 	 *
-	 * @throws BackendException if request is not successful
-	 *
 	 * @return bool true if action succeeded
+	 *
+	 * @throws BackendException if request is not successful
 	 */
 	public function move($src_path, $dst_path, $overwrite = false) {
 		$time_start = microtime(true);
@@ -579,9 +577,9 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	 *
 	 * @string mixed $data Any kind of data
 	 *
-	 * @throws BackendException if request is not successful
-	 *
 	 * @return bool true if action succeeded
+	 *
+	 * @throws BackendException if request is not successful
 	 */
 	public function put($path, $data) {
 		$time_start = microtime(true);
@@ -617,9 +615,9 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	 * @param string $path     Destination path on the server
 	 * @param string $filename Local filename for the file that should be uploaded
 	 *
-	 * @throws BackendException if request is not successful
-	 *
 	 * @return bool true if action succeeded
+	 *
+	 * @throws BackendException if request is not successful
 	 */
 	public function put_file($path, $filename) {
 		$buffer = file_get_contents($filename);
@@ -639,9 +637,9 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	 * @param string $path   The source path on the server
 	 * @param mixed  $buffer Buffer for the received data
 	 *
-	 * @throws BackendException if request is not successful
-	 *
 	 * @return bool true if action succeeded
+	 *
+	 * @throws BackendException if request is not successful
 	 */
 	public function get($path, &$buffer) {
 		$tmpfile = tempnam(TMP_PATH, stripslashes(base64_encode($path)));
@@ -659,9 +657,9 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	 * @param string $srcpath   Source path on server
 	 * @param string $localpath Destination path on local filesystem
 	 *
-	 * @throws BackendException if request is not successful
-	 *
 	 * @return bool true if action succeeded
+	 *
+	 * @throws BackendException if request is not successful
 	 */
 	public function get_file($srcpath, $localpath) {
 		$time_start = microtime(true);
@@ -699,13 +697,12 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	 * the target will be overwritten.
 	 *
 	 * @param string $src_path  Source path
-	 * @param string $dest_path Destination path
 	 * @param bool   $overwrite Overwrite if file exists in $dst_path
 	 * @param mixed  $dst_path
 	 *
-	 * @throws BackendException if request is not successful
-	 *
 	 * @return bool true if action succeeded
+	 *
+	 * @throws BackendException if request is not successful
 	 */
 	public function copy_file($src_path, $dst_path, $overwrite = false) {
 		return $this->copy($src_path, $dst_path, $overwrite, false);
@@ -720,13 +717,12 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	 * the target will be overwritten.
 	 *
 	 * @param string $src_path  Source path
-	 * @param string $dest_path Destination path
 	 * @param bool   $overwrite Overwrite if collection exists in $dst_path
 	 * @param mixed  $dst_path
 	 *
-	 * @throws BackendException if request is not successful
-	 *
 	 * @return bool true if action succeeded
+	 *
+	 * @throws BackendException if request is not successful
 	 */
 	public function copy_coll($src_path, $dst_path, $overwrite = false) {
 		return $this->copy($src_path, $dst_path, $overwrite, true);
@@ -737,9 +733,9 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	 *
 	 * @param string $path Path to file or folder
 	 *
-	 * @throws BackendException if request is not successful
-	 *
 	 * @return array directory info
+	 *
+	 * @throws BackendException if request is not successful
 	 */
 	public function gpi($path) {
 		$path = $this->removeSlash($path);
@@ -775,9 +771,9 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	/**
 	 * Gets server information.
 	 *
-	 * @throws BackendException if request is not successful
-	 *
 	 * @return array with all header fields returned from webdav server
+	 *
+	 * @throws BackendException if request is not successful
 	 */
 	public function options() {
 		$features = $this->sabre_client->options();
@@ -838,14 +834,13 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	 * the target will be overwritten.
 	 *
 	 * @param string $src_path  Source path
-	 * @param string $dest_path Destination path
 	 * @param bool   $overwrite Overwrite if collection exists in $dst_path
 	 * @param bool   $coll      set this to true if you want to copy a folder
 	 * @param mixed  $dst_path
 	 *
-	 * @throws BackendException if request is not successful
-	 *
 	 * @return bool true if action succeeded
+	 *
+	 * @throws BackendException if request is not successful
 	 */
 	private function copy($src_path, $dst_path, $overwrite, $coll) {
 		$time_start = microtime(true);
@@ -857,9 +852,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 		}
 		else {
 			$overwrite = 'F';
-		}
-
-		["Destination" => $dst_path, 'Overwrite' => $overwrite];
+		}["Destination" => $dst_path, 'Overwrite' => $overwrite];
 		if ($coll) {
 			$settings = ["Destination" => $dst_path, 'Depth' => 'Infinity'];
 		}
@@ -940,24 +933,22 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 		$msg = _('Unknown error');
 		$contactAdmin = _('Please contact your system administrator');
 
-		$msg = match ($error) {
-            CURLE_BAD_PASSWORD_ENTERED, self::WD_ERR_UNAUTHORIZED => _('Unauthorized. Wrong username or password.'),
-            CURLE_SSL_CONNECT_ERROR, CURLE_COULDNT_RESOLVE_HOST, CURLE_COULDNT_CONNECT, CURLE_OPERATION_TIMEOUTED, self::WD_ERR_UNREACHABLE => _('File server is not reachable. Please verify the connection.'),
-            self::WD_ERR_NOTALLOWED => _('File server is not reachable. Please verify the file server URL.'),
-            self::WD_ERR_FORBIDDEN => _('You don\'t have enough permissions to view this file or folder.'),
-            self::WD_ERR_NOTFOUND => _('The file or folder is not available anymore.'),
-            self::WD_ERR_TIMEOUT => _('Connection to the file server timed out. Please check again later.'),
-            self::WD_ERR_LOCKED => _('This file is locked by another user. Please try again later.'),
-            self::WD_ERR_FAILED_DEPENDENCY => _('The request failed.') . ' ' . $contactAdmin,
-            // This is a general error, might be thrown due to a wrong IP, but we don't know.
-            self::WD_ERR_INTERNAL => _('The file server encountered an internal problem.') . ' ' . $contactAdmin,
-            self::WD_ERR_TMP => _('We could not write to temporary directory.') . ' ' . $contactAdmin,
-            self::WD_ERR_FEATURES => _('We could not retrieve list of server features.') . ' ' . $contactAdmin,
-            self::WD_ERR_NO_CURL => _('PHP-Curl is not available.') . ' ' . $contactAdmin,
-            default => $msg,
-        };
-
-		return $msg;
+		return match ($error) {
+			CURLE_BAD_PASSWORD_ENTERED, self::WD_ERR_UNAUTHORIZED => _('Unauthorized. Wrong username or password.'),
+			CURLE_SSL_CONNECT_ERROR, CURLE_COULDNT_RESOLVE_HOST, CURLE_COULDNT_CONNECT, CURLE_OPERATION_TIMEOUTED, self::WD_ERR_UNREACHABLE => _('File server is not reachable. Please verify the connection.'),
+			self::WD_ERR_NOTALLOWED => _('File server is not reachable. Please verify the file server URL.'),
+			self::WD_ERR_FORBIDDEN => _('You don\'t have enough permissions to view this file or folder.'),
+			self::WD_ERR_NOTFOUND => _('The file or folder is not available anymore.'),
+			self::WD_ERR_TIMEOUT => _('Connection to the file server timed out. Please check again later.'),
+			self::WD_ERR_LOCKED => _('This file is locked by another user. Please try again later.'),
+			self::WD_ERR_FAILED_DEPENDENCY => _('The request failed.') . ' ' . $contactAdmin,
+			// This is a general error, might be thrown due to a wrong IP, but we don't know.
+			self::WD_ERR_INTERNAL => _('The file server encountered an internal problem.') . ' ' . $contactAdmin,
+			self::WD_ERR_TMP => _('We could not write to temporary directory.') . ' ' . $contactAdmin,
+			self::WD_ERR_FEATURES => _('We could not retrieve list of server features.') . ' ' . $contactAdmin,
+			self::WD_ERR_NO_CURL => _('PHP-Curl is not available.') . ' ' . $contactAdmin,
+			default => $msg,
+		};
 	}
 
 	public function getFormConfig() {
@@ -1028,9 +1019,9 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	/**
 	 * Return the version string of the server backend.
 	 *
-	 * @throws BackendException
-	 *
 	 * @return string
+	 *
+	 * @throws BackendException
 	 */
 	public function getServerVersion() {
 		// check if curl is available

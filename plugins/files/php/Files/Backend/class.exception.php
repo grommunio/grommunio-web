@@ -1,8 +1,10 @@
 <?php
+
 /**
  * A custom exception class for webdav exceptions.
  *
  * @class   BackendException
+ *
  * @extends Exception
  */
 

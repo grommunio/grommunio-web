@@ -14,23 +14,23 @@ $cssTemplate = "\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"{file}\">\
 
 		<?php
 			$extjsCssFiles = $loader->getExtjsCSSFiles(DEBUG_LOADER);
-			$loader->printFiles($extjsCssFiles, $cssTemplate);
+$loader->printFiles($extjsCssFiles, $cssTemplate);
 
-			$webappFiles = $loader->getCSSFiles(DEBUG_LOADER);
-			$loader->printFiles($webappFiles, $cssTemplate);
+$webappFiles = $loader->getCSSFiles(DEBUG_LOADER);
+$loader->printFiles($webappFiles, $cssTemplate);
 
-			$pluginFiles = $loader->getPluginCSSFiles(DEBUG_LOADER);
-			$loader->printFiles($pluginFiles, $cssTemplate);
+$pluginFiles = $loader->getPluginCSSFiles(DEBUG_LOADER);
+$loader->printFiles($pluginFiles, $cssTemplate);
 
-			$remoteFiles = $loader->getRemoteCSSFiles(DEBUG_LOADER);
-			$loader->printFiles($remoteFiles, $cssTemplate);
+$remoteFiles = $loader->getRemoteCSSFiles(DEBUG_LOADER);
+$loader->printFiles($remoteFiles, $cssTemplate);
 
-			/* Add the styling of the theme */
-			$css = Theming::getCss($theme);
-			foreach ($css as $file) {
-				echo '<link rel="stylesheet" type="text/css" href="' . $file . '">';
-			}
-		?>
+/* Add the styling of the theme */
+$css = Theming::getCss($theme);
+foreach ($css as $file) {
+	echo '<link rel="stylesheet" type="text/css" href="' . $file . '">';
+}
+?>
 	</head>
 
 	<body>

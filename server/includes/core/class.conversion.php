@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Conversion utility functions for converting various data types and structures.
  */
@@ -233,9 +234,9 @@ class Conversion {
 	 * @example json2property('subject') => 0x0037001e
 	 * @example this also works json2property('PR_SUBJECT') => 0x0037001e
 	 *
-	 * @param array $mapping props A mapping of property names to their corresponding MAPI property tags
-	 * @param string $prop property name
-	 * @param bool  $convertToSingleValued whether to convert the multi valued property tag to single valued or not
+	 * @param array  $mapping               props A mapping of property names to their corresponding MAPI property tags
+	 * @param string $prop                  property name
+	 * @param bool   $convertToSingleValued whether to convert the multi valued property tag to single valued or not
 	 *
 	 * @return int The property tag
 	 */
@@ -301,7 +302,7 @@ class Conversion {
 	 * Convert an JSON restriction structure into a MAPI SRestriction array.
 	 *
 	 * @param array $mapping An associative array mapping property keys to MAPI proptags
-	 * @param array $json The parsed JSON array data
+	 * @param array $json    The parsed JSON array data
 	 *
 	 * @return array MAPI restriction array compatible with MAPI extension restriction format
 	 */
@@ -794,6 +795,7 @@ class Conversion {
 		if ($charset !== false) {
 			return $charset;
 		}
+
 		// Trying every encoding from $_CODEPAGES is pointless. There
 		// is at least one encoding where all imaginable input byte
 		// sequences are valid, and a heuristic would pick that even if

@@ -15,8 +15,8 @@ class AppointmentListNotifier extends ListNotifier {
 	 *
 	 * @return array The properties mapping
 	 */
-	#[\Override]
-    protected function getPropertiesList() {
+	#[Override]
+	protected function getPropertiesList() {
 		return $GLOBALS["properties"]->getAppointmentListProperties();
 	}
 
@@ -28,8 +28,8 @@ class AppointmentListNotifier extends ListNotifier {
 	 * @param string $entryid entryid
 	 * @param mixed  $props
 	 */
-	#[\Override]
-    public function update($event, $entryid, $props) {
+	#[Override]
+	public function update($event, $entryid, $props) {
 		switch ($event) {
 			case TABLE_SAVE:
 				$data = [];

@@ -161,8 +161,8 @@ class EncryptionStore {
 	/**
 	 * Adds a key/value combination to the encryption store.
 	 *
-	 * @param string $key The key that will be added (or overwritten)
-	 * @param string $value The value that will be stored for the given $key
+	 * @param string $key        The key that will be added (or overwritten)
+	 * @param string $value      The value that will be stored for the given $key
 	 * @param string $expiration The expiration time in epoch for the given $key
 	 */
 	public function add($key, $value, $expiration = 0) {

@@ -30,15 +30,15 @@
 	<?php
 		$keycloak = KeyCloak::getInstance();
 		if (!is_null($keycloak) && (!defined('DISABLE_KEYCLOAK') || !DISABLE_KEYCLOAK)) {
-	?>
+			?>
 	<meta http-equiv='Refresh' content="1;URL='<?php echo $keycloak->login_url($keycloak->redirect_url); ?>'"/>
 	<?php
-			echo "<div id='form-container' class='loading' >";
+					echo "<div id='form-container' class='loading' >";
 		}
 		else {
 			echo "<div id='form-container'>";
 		}
-	?>
+		?>
 			<div id="bg"></div>
 			<div id="content">
 				<div class="left">
@@ -96,7 +96,8 @@
 		<div class="disclaimer">
 			<?php include '/etc/grommunio-web/disclaimer.html'; ?>
 		</div>
-		<?php } elseif (file_exists('disclaimer.html')) { ?>
+		<?php }
+		elseif (file_exists('disclaimer.html')) { ?>
 		<div class="disclaimer">
 			<?php include 'disclaimer.html'; ?>
 		</div>

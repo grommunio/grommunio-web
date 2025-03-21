@@ -8,6 +8,7 @@ return $config->
 	setIndent("\t")->
 	setRules([
 		'@PhpCsFixer' => true,
+		'native_constant_invocation' => false,
 		'blank_line_before_statement' => ['statements' => ['case', 'continue',
 			'declare', 'default', 'exit', 'goto', 'phpdoc', 'return', 'switch', 'throw', 'try', 'yield', ]],
 		'braces' => ['position_after_functions_and_oop_constructs' => 'same'],

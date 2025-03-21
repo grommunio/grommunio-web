@@ -12,8 +12,8 @@ class ListNotifier extends Notifier {
 	 *                by this notifier. The bitmask can consist of the
 	 *                OBJECT_SAVE, OBJECT_DELETE, TABLE_SAVE, TABLE_DELETE, REQUEST_START and REQUEST_END flags
 	 */
-	#[\Override]
-    public function getEvents() {
+	#[Override]
+	public function getEvents() {
 		return OBJECT_SAVE | TABLE_SAVE | TABLE_DELETE;
 	}
 
@@ -35,8 +35,8 @@ class ListNotifier extends Notifier {
 	 * @param string $entryid entryid
 	 * @param mixed  $props
 	 */
-	#[\Override]
-    public function update($event, $entryid, $props) {
+	#[Override]
+	public function update($event, $entryid, $props) {
 		switch ($event) {
 			case TABLE_SAVE:
 				$data = [];

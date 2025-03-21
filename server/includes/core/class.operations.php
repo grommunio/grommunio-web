@@ -569,7 +569,7 @@ class Operations {
 						// for with free/busy permission only opened shared calenders,
 						// so do not remove them from the IPM_COMMON_VIEWS
 						if ((isset($row[PR_WLINK_SECTION]) && $row[PR_WLINK_SECTION] != wbsidCalendar) ||
-						    !isset($row[PR_WLINK_SECTION])) {
+							!isset($row[PR_WLINK_SECTION])) {
 							array_push($faultyLinkMsg, $row[PR_ENTRYID]);
 						}
 
@@ -1795,9 +1795,9 @@ class Operations {
 		$msgprops = mapi_getprops($message, [PR_MESSAGE_CLASS]);
 
 		$html2text = match ($msgprops[PR_MESSAGE_CLASS]) {
-            'IPM.Note' => false,
-            default => true,
-        };
+			'IPM.Note' => false,
+			default => true,
+		};
 
 		$props = $this->getMessageProps($store, $message, $properties, $html2text);
 
@@ -1973,6 +1973,7 @@ class Operations {
 							$propertiesToDelete[] = $propTag;
 						}
 						break;
+
 					case PT_MV_STRING8:
 						// Empty multivalued string
 						if (empty($propVal)) {
@@ -2852,7 +2853,7 @@ class Operations {
 				$restriction = [RES_PROPERTY, [
 					RELOP => RELOP_EQ,
 					ULPROPTAG => PR_SEARCH_KEY,
-					VALUE => $tmp_props[PR_SEARCH_KEY]
+					VALUE => $tmp_props[PR_SEARCH_KEY],
 				]];
 				mapi_table_restrict($sentTable, $restriction);
 				$sentMessageProps = mapi_table_queryallrows($sentTable, [PR_ENTRYID, PR_SEARCH_KEY]);
@@ -3979,9 +3980,9 @@ class Operations {
 	 */
 	public function getObjectTypeFromDistlistType($distlistType) {
 		return match ($distlistType) {
-            DL_DIST, DL_DIST_AB => MAPI_DISTLIST,
-            default => MAPI_MAILUSER,
-        };
+			DL_DIST, DL_DIST_AB => MAPI_DISTLIST,
+			default => MAPI_MAILUSER,
+		};
 	}
 
 	/**
@@ -4199,12 +4200,13 @@ class Operations {
 				try {
 					$oneoff = mapi_parseoneoff($entryid);
 				}
-				catch(MAPIException $ex) {
+				catch (MAPIException $ex) {
 					error_log(sprintf(
 						"readReplyRecipientEntry unable to open AB entry and mapi_parseoneoff failed: %s - %s",
 						get_mapi_error_name($ex->getCode()),
 						$ex->getDisplayMessage()
 					));
+
 					continue;
 				}
 				if (!isset($oneoff['address'])) {
@@ -4212,7 +4214,7 @@ class Operations {
 						"readReplyRecipientEntry unable to open AB entry and oneoff address is not available: %s - %s ",
 						get_mapi_error_name($e->getCode()),
 						$e->getDisplayMessage()
-				));
+					));
 
 					continue;
 				}

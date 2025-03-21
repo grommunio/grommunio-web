@@ -112,7 +112,7 @@ class Theming {
 	 * @param string $theme the name of the theme for which the css will be returned.
 	 *                      Note: This is the directory name of the theme plugin.
 	 *
-	 * 	 * @return String|Boolean
+	 * 	 * @return bool|string
 	 */
 	public static function getFavicon($theme) {
 		$themePath = constant('THEME_PATH_' . DEBUG_LOADER);

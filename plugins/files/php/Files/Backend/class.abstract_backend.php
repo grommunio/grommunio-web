@@ -58,9 +58,9 @@ abstract class AbstractBackend {
 	/**
 	 * This function opens the backend connection. For instance it will open a new ftp connection.
 	 *
-	 * @throws \Files\Backend\Exception
-	 *
 	 * @return bool
+	 *
+	 * @throws Exception
 	 */
 	abstract public function open();
 
@@ -84,9 +84,9 @@ abstract class AbstractBackend {
 	 * @param string $dir
 	 * @param bool   $hidefirst
 	 *
-	 * @throws \Files\Backend\Exception
-	 *
 	 * @return array
+	 *
+	 * @throws Exception
 	 */
 	abstract public function ls($dir, $hidefirst = true);
 
@@ -95,9 +95,9 @@ abstract class AbstractBackend {
 	 *
 	 * @param string $dir
 	 *
-	 * @throws \Files\Backend\Exception
-	 *
 	 * @return bool
+	 *
+	 * @throws Exception
 	 */
 	abstract public function mkcol($dir);
 
@@ -106,9 +106,9 @@ abstract class AbstractBackend {
 	 *
 	 * @param string $path
 	 *
-	 * @throws \Files\Backend\Exception
-	 *
 	 * @return bool
+	 *
+	 * @throws Exception
 	 */
 	abstract public function delete($path);
 
@@ -117,13 +117,12 @@ abstract class AbstractBackend {
 	 * If you set param $overwrite as true, the target will be overwritten.
 	 *
 	 * @param string $src_path  Source path
-	 * @param string $dest_path Destination path
 	 * @param bool   $overwrite Overwrite file if exists in $dest_path
 	 * @param mixed  $dst_path
 	 *
-	 * @throws \Files\Backend\Exception
-	 *
 	 * @return bool
+	 *
+	 * @throws Exception
 	 */
 	abstract public function move($src_path, $dst_path, $overwrite = false);
 
@@ -133,9 +132,9 @@ abstract class AbstractBackend {
 	 * @param string $path
 	 * @param string $data
 	 *
-	 * @throws \Files\Backend\Exception
-	 *
 	 * @return bool
+	 *
+	 * @throws Exception
 	 */
 	abstract public function put($path, $data);
 
@@ -145,9 +144,9 @@ abstract class AbstractBackend {
 	 * @param string $path
 	 * @param string $filename
 	 *
-	 * @throws \Files\Backend\Exception
-	 *
 	 * @return bool
+	 *
+	 * @throws Exception
 	 */
 	abstract public function put_file($path, $filename);
 
@@ -157,7 +156,7 @@ abstract class AbstractBackend {
 	 * @param string $path
 	 * @param string $buffer
 	 *
-	 * @throws \Files\Backend\Exception
+	 * @throws Exception
 	 */
 	abstract public function get($path, &$buffer);
 
@@ -167,7 +166,7 @@ abstract class AbstractBackend {
 	 * @param string $srcpath
 	 * @param string $localpath
 	 *
-	 * @throws \Files\Backend\Exception
+	 * @throws Exception
 	 */
 	abstract public function get_file($srcpath, $localpath);
 
@@ -179,9 +178,9 @@ abstract class AbstractBackend {
 	 * @param string $dst_path
 	 * @param bool   $overwrite
 	 *
-	 * @throws \Files\Backend\Exception
-	 *
 	 * @return bool
+	 *
+	 * @throws Exception
 	 */
 	abstract public function copy_file($src_path, $dst_path, $overwrite = false);
 
@@ -193,9 +192,9 @@ abstract class AbstractBackend {
 	 * @param string $dst_path
 	 * @param bool   $overwrite
 	 *
-	 * @throws \Files\Backend\Exception
-	 *
 	 * @return bool
+	 *
+	 * @throws Exception
 	 */
 	abstract public function copy_coll($src_path, $dst_path, $overwrite = false);
 
@@ -215,9 +214,9 @@ abstract class AbstractBackend {
 	 *
 	 * @param string $path
 	 *
-	 * @throws \Files\Backend\Exception
-	 *
 	 * @return mixed
+	 *
+	 * @throws Exception
 	 */
 	abstract public function gpi($path);
 
@@ -227,9 +226,9 @@ abstract class AbstractBackend {
 	 *
 	 * @param string $path
 	 *
-	 * @throws \Files\Backend\Exception
-	 *
 	 * @return bool
+	 *
+	 * @throws Exception
 	 */
 	abstract public function is_file($path);
 
@@ -239,9 +238,9 @@ abstract class AbstractBackend {
 	 *
 	 * @param string $path
 	 *
-	 * @throws \Files\Backend\Exception
-	 *
 	 * @return bool
+	 *
+	 * @throws Exception
 	 */
 	abstract public function is_dir($path);
 
@@ -251,9 +250,9 @@ abstract class AbstractBackend {
 	 *
 	 * @param string $path
 	 *
-	 * @throws \Files\Backend\Exception
-	 *
 	 * @return bool
+	 *
+	 * @throws Exception
 	 */
 	abstract public function exists($path);
 
@@ -357,8 +356,6 @@ abstract class AbstractBackend {
 
 	/**
 	 * This function gets called before the backend-account is deleted.
-	 *
-	 * @param $account
 	 */
 	public function beforeDeleteAccount($account) {
 		// do nothing by default

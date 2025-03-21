@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Implementation of the missing (context) gettext functionalities in PHP. The
  * character \004 is used as glue to be able to use contexts in our translations.

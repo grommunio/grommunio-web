@@ -18,6 +18,7 @@ use OCSAPI\Exception\ConnectionException;
 use OCSAPI\Exception\FileNotFoundException;
 use OCSAPI\ocsclient;
 use OCSAPI\ocsshare;
+use Sabre\DAV\Client;
 use Sabre\DAV\Exception;
 use Sabre\HTTP\ClientException;
 
@@ -26,6 +27,7 @@ use Sabre\HTTP\ClientException;
  * It requires the Webdav File Backend!
  *
  * @class   Backend
+ *
  * @extends AbstractBackend
  */
 class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
@@ -149,12 +151,12 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 	/**
 	 * Opens the connection to the webdav server.
 	 *
-	 * @throws BackendException if connection is not successful
-	 *
 	 * @return bool true if action succeeded
+	 *
+	 * @throws BackendException if connection is not successful
 	 */
 	#[\Override]
-    public function open() {
+	public function open() {
 		// check if curl is available
 		$serverHasCurl = function_exists('curl_version');
 		if (!$serverHasCurl) {
@@ -168,7 +170,7 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 			'baseUri' => $this->webdavUrl(),
 			'userName' => $this->user,
 			'password' => $this->pass,
-			'authType' => \Sabre\DAV\Client::AUTH_BASIC,
+			'authType' => Client::AUTH_BASIC,
 		];
 
 		try {
@@ -206,9 +208,9 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 	 * @param bool   $overwrite Overwrite if collection exists in $dst_path
 	 * @param bool   $coll      set this to true if you want to copy a folder
 	 *
-	 * @throws BackendException if request is not successful
-	 *
 	 * @return bool true if action succeeded
+	 *
+	 * @throws BackendException if request is not successful
 	 */
 	private function copy($src_path, $dst_path, $overwrite, $coll) {
 		$time_start = microtime(true);
@@ -263,23 +265,21 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 		$msg = _('Unknown error');
 		$contactAdmin = _('Please contact your system administrator.');
 
-		$msg = match ($error) {
-            CURLE_BAD_PASSWORD_ENTERED, self::WD_ERR_UNAUTHORIZED => _('Unauthorized. Wrong username or password.'),
-            CURLE_SSL_CONNECT_ERROR, CURLE_COULDNT_RESOLVE_HOST, CURLE_COULDNT_CONNECT, CURLE_OPERATION_TIMEOUTED, self::WD_ERR_UNREACHABLE => _('File server is not reachable. Please verify the file server URL.'),
-            self::WD_ERR_FORBIDDEN => _('You don\'t have enough permissions to view this file or folder.'),
-            self::WD_ERR_NOTFOUND => _('The file or folder is not available anymore.'),
-            self::WD_ERR_TIMEOUT => _('Connection to the file server timed out. Please check again later.'),
-            self::WD_ERR_LOCKED => _('This file is locked by another user. Please try again later.'),
-            self::WD_ERR_FAILED_DEPENDENCY => _('The request failed.') . ' ' . $contactAdmin,
-            // This is a general error, might be thrown due to a wrong IP, but we don't know.
-            self::WD_ERR_INTERNAL => _('The file server encountered an internal problem.') . ' ' . $contactAdmin,
-            self::WD_ERR_TMP => _('We could not write to temporary directory.') . ' ' . $contactAdmin,
-            self::WD_ERR_FEATURES => _('We could not retrieve list of server features.') . ' ' . $contactAdmin,
-            self::WD_ERR_NO_CURL => _('PHP-Curl is not available.') . ' ' . $contactAdmin,
-            default => $msg,
-        };
-
-		return $msg;
+		return match ($error) {
+			CURLE_BAD_PASSWORD_ENTERED, self::WD_ERR_UNAUTHORIZED => _('Unauthorized. Wrong username or password.'),
+			CURLE_SSL_CONNECT_ERROR, CURLE_COULDNT_RESOLVE_HOST, CURLE_COULDNT_CONNECT, CURLE_OPERATION_TIMEOUTED, self::WD_ERR_UNREACHABLE => _('File server is not reachable. Please verify the file server URL.'),
+			self::WD_ERR_FORBIDDEN => _('You don\'t have enough permissions to view this file or folder.'),
+			self::WD_ERR_NOTFOUND => _('The file or folder is not available anymore.'),
+			self::WD_ERR_TIMEOUT => _('Connection to the file server timed out. Please check again later.'),
+			self::WD_ERR_LOCKED => _('This file is locked by another user. Please try again later.'),
+			self::WD_ERR_FAILED_DEPENDENCY => _('The request failed.') . ' ' . $contactAdmin,
+			// This is a general error, might be thrown due to a wrong IP, but we don't know.
+			self::WD_ERR_INTERNAL => _('The file server encountered an internal problem.') . ' ' . $contactAdmin,
+			self::WD_ERR_TMP => _('We could not write to temporary directory.') . ' ' . $contactAdmin,
+			self::WD_ERR_FEATURES => _('We could not retrieve list of server features.') . ' ' . $contactAdmin,
+			self::WD_ERR_NO_CURL => _('PHP-Curl is not available.') . ' ' . $contactAdmin,
+			default => $msg,
+		};
 	}
 
 	/**
@@ -315,7 +315,7 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 	 * @return string
 	 */
 	#[\Override]
-    public function getServerVersion() {
+	public function getServerVersion() {
 		// check if curl is available
 		$serverHasCurl = function_exists('curl_version');
 		if (!$serverHasCurl) {
@@ -364,8 +364,6 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 	 *      id1 => ....
 	 *  )
 	 * )
-	 *
-	 * @param $path
 	 *
 	 * @return array
 	 */
@@ -508,7 +506,6 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 	 *      "id1" => options1 (ONLY if $update = true)
 	 * )
 	 *
-	 * @param $shareparams
 	 * @param bool $update
 	 *
 	 * @return bool
@@ -552,11 +549,9 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 	/**
 	 * Disable sharing for the given files/folders.
 	 *
-	 * @param $idarray
-	 *
-	 * @throws \OCSAPI\Exception\ConnectionException
-	 *
 	 * @return bool
+	 *
+	 * @throws ConnectionException
 	 */
 	public function unshare($idarray) {
 		foreach ($idarray as $id) {

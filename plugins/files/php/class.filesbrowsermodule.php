@@ -15,7 +15,11 @@ require_once __DIR__ . "/Files/Core/Util/class.pathutil.php";
 
 require_once __DIR__ . "/vendor/autoload.php";
 
+use Files\Backend\AbstractBackend;
+use Files\Backend\BackendStore;
 use Files\Backend\Exception as BackendException;
+use Files\Backend\iFeatureSharing;
+use Files\Core\Account;
 use Files\Core\Exception as AccountException;
 use Files\Core\Util\ArrayUtil;
 use Files\Core\Util\Logger;
@@ -26,6 +30,7 @@ use Files\Core\Util\StringUtil;
  * This module handles all list and change requests for the files browser.
  *
  * @class FilesBrowserModule
+ *
  * @extends ListModule
  */
 class FilesBrowserModule extends FilesListModule {
@@ -45,8 +50,8 @@ class FilesBrowserModule extends FilesListModule {
 	 *
 	 * @return bool true on success or false on failure
 	 */
-	#[\Override]
-    public function execute() {
+	#[Override]
+	public function execute() {
 		$result = false;
 
 		foreach ($this->data as $actionType => $actionData) {
@@ -202,9 +207,9 @@ class FilesBrowserModule extends FilesListModule {
 	 * @param string $actionType name of the current action
 	 * @param array  $actionData all parameters contained in this request
 	 *
-	 * @throws BackendException if the backend request fails
-	 *
 	 * @return bool
+	 *
+	 * @throws BackendException if the backend request fails
 	 */
 	public function loadFiles($actionType, $actionData) {
 		$nodeId = $actionData['id'];
@@ -219,7 +224,7 @@ class FilesBrowserModule extends FilesListModule {
 			$accounts = $this->accountStore->getAllAccounts();
 			foreach ($accounts as $account) { // we have to load all accounts and their folders
 				// skip accounts that are not valid
-				if ($account->getStatus() != \Files\Core\Account::STATUS_OK) {
+				if ($account->getStatus() != Account::STATUS_OK) {
 					continue;
 				}
 				// build the real node id for this folder
@@ -269,13 +274,13 @@ class FilesBrowserModule extends FilesListModule {
 	 * Forms the structure needed for frontend
 	 * for the list of folders and files.
 	 *
-	 * @param string                        $nodeId          the name of the current root directory
-	 * @param Files\Backend\AbstractBackend $backendInstance
-	 * @param bool                          $onlyFiles       if true, get only files
-	 *
-	 * @throws BackendException if the backend request fails
+	 * @param string          $nodeId          the name of the current root directory
+	 * @param AbstractBackend $backendInstance
+	 * @param bool            $onlyFiles       if true, get only files
 	 *
 	 * @return array of nodes for current path folder
+	 *
+	 * @throws BackendException if the backend request fails
 	 */
 	public function getFolderContent($nodeId, $backendInstance, $onlyFiles = false) {
 		$nodes = [];
@@ -300,12 +305,12 @@ class FilesBrowserModule extends FilesListModule {
 
 		// FIXME: There is something issue with getting sharing information from owncloud.
 		// check if backend supports sharing and load the information
-		if ($backendInstance->supports(\Files\Backend\BackendStore::FEATURE_SHARING)) {
+		if ($backendInstance->supports(BackendStore::FEATURE_SHARING)) {
 			Logger::debug(self::LOG_CONTEXT, "Checking for shared folders! ({$relNodeId})");
 
 			$time_start = microtime(true);
 
-			/** @var \Files\Backend\iFeatureSharing $backendInstance */
+			/** @var iFeatureSharing $backendInstance */
 			$sharingInfo = $backendInstance->getShares($relNodeId);
 			$time_end = microtime(true);
 			$time = $time_end - $time_start;
@@ -448,9 +453,9 @@ class FilesBrowserModule extends FilesListModule {
 	 * @param string $actionType name of the current action
 	 * @param array  $actionData all parameters contained in this request
 	 *
-	 * @throws BackendException if the backend request fails
-	 *
 	 * @return bool
+	 *
+	 * @throws BackendException if the backend request fails
 	 */
 	private function delete($actionType, $actionData) {
 		// TODO: function is duplicate of class.hierarchylistmodule.php of delete function.
@@ -497,7 +502,7 @@ class FilesBrowserModule extends FilesListModule {
 			try {
 				$result = $initializedBackend->delete($relNodeId);
 			}
-			catch (\Files\Backend\Exception) {
+			catch (BackendException) {
 				// TODO: this might fails because the file was already deleted.
 				// fire error message if any other error occurred.
 				Logger::debug(self::LOG_CONTEXT, "deleted a directory that was no longer available");
@@ -558,8 +563,8 @@ class FilesBrowserModule extends FilesListModule {
 
 		// get dst and source account ids
 		// currently only moving within one account is supported
-		$srcAccountID = substr((string) $actionData['folder_id'], 3, (strpos((string) $actionData['folder_id'], '/') - 3)); // parse account id from node id
-		$dstAccountID = substr((string) $actionData['message_action']["destination_folder_id"], 3, (strpos((string) $actionData['message_action']["destination_folder_id"], '/') - 3)); // parse account id from node id
+		$srcAccountID = substr((string) $actionData['folder_id'], 3, strpos((string) $actionData['folder_id'], '/') - 3); // parse account id from node id
+		$dstAccountID = substr((string) $actionData['message_action']["destination_folder_id"], 3, strpos((string) $actionData['message_action']["destination_folder_id"], '/') - 3); // parse account id from node id
 
 		if ($srcAccountID !== $dstAccountID) {
 			$this->sendFeedback(false, [
@@ -642,9 +647,9 @@ class FilesBrowserModule extends FilesListModule {
 	 * @param string $actionType name of the current action
 	 * @param array  $actionData all parameters contained in this request
 	 *
-	 * @throws BackendException if the backend request fails
-	 *
 	 * @return bool
+	 *
+	 * @throws BackendException if the backend request fails
 	 */
 	public function rename($actionType, $actionData) {
 		$messageProps = $this->save($actionData);
@@ -663,9 +668,9 @@ class FilesBrowserModule extends FilesListModule {
 	 * @param array $records     which needs to be check for existence
 	 * @param array $destination where the given records needs to be moved, uploaded, or renamed
 	 *
-	 * @throws BackendException if the backend request fails
-	 *
 	 * @return bool True if duplicate found, false otherwise
+	 *
+	 * @throws BackendException if the backend request fails
 	 */
 	private function checkIfExists($records, $destination) {
 		$duplicate = false;
@@ -847,10 +852,10 @@ class FilesBrowserModule extends FilesListModule {
 	/**
 	 * Update the cache of selected directory.
 	 *
-	 * @param Files\Backend\AbstractBackend $backendInstance
-	 * @param string                        $dirName         The directory name
-	 * @param $filePath The file path
-	 * @param $actionData The action data
+	 * @param AbstractBackend $backendInstance
+	 * @param string          $dirName         The directory name
+	 * @param                 $filePath        The file path
+	 * @param                 $actionData      The action data
 	 *
 	 * @throws BackendException
 	 */
@@ -872,7 +877,6 @@ class FilesBrowserModule extends FilesListModule {
 	 * It will store the attachment to the TMP folder and return its temporary
 	 * path and filename as array.
 	 *
-	 * @param $items
 	 * @param mixed $item
 	 *
 	 * @return array (tmpname, filename) or false on error
@@ -927,7 +931,7 @@ class FilesBrowserModule extends FilesListModule {
 						}
 
 						// Open the attachment
-						$attachment = mapi_message_openattach($message, (int) $attachNum[(count($attachNum) - 1)]);
+						$attachment = mapi_message_openattach($message, (int) $attachNum[count($attachNum) - 1]);
 					}
 
 					// Check if the attachment is opened
@@ -1017,8 +1021,6 @@ class FilesBrowserModule extends FilesListModule {
 	/**
 	 * Store the email as eml to a temporary directory and return its temporary filename.
 	 *
-	 * @param string $actionType
-	 * @param array $actionData
 	 * @param mixed $item
 	 *
 	 * @return array (tmpname, filename) or false on error
@@ -1093,9 +1095,6 @@ class FilesBrowserModule extends FilesListModule {
 	/**
 	 * Get sharing information from the backend.
 	 *
-	 * @param $actionType
-	 * @param $actionData
-	 *
 	 * @return bool
 	 */
 	private function getSharingInformation($actionType, $actionData) {
@@ -1152,9 +1151,6 @@ class FilesBrowserModule extends FilesListModule {
 
 	/**
 	 * Create a new share.
-	 *
-	 * @param $actionType
-	 * @param $actionData
 	 *
 	 * @return bool
 	 */
@@ -1215,9 +1211,6 @@ class FilesBrowserModule extends FilesListModule {
 	/**
 	 * Update a existing share.
 	 *
-	 * @param $actionType
-	 * @param $actionData
-	 *
 	 * @return bool
 	 */
 	private function updateExistingShare($actionType, $actionData) {
@@ -1270,9 +1263,6 @@ class FilesBrowserModule extends FilesListModule {
 
 	/**
 	 * Delete one or more shares.
-	 *
-	 * @param $actionType
-	 * @param $actionData
 	 *
 	 * @return bool
 	 */

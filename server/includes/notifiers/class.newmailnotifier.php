@@ -9,8 +9,8 @@ class NewMailNotifier extends Notifier {
 	/**
 	 * @return Number the event which this module handles
 	 */
-	#[\Override]
-    public function getEvents() {
+	#[Override]
+	public function getEvents() {
 		return HIERARCHY_UPDATE;
 	}
 
@@ -22,8 +22,8 @@ class NewMailNotifier extends Notifier {
 	 * @param string $entryid entryid
 	 * @param mixed  $props
 	 */
-	#[\Override]
-    public function update($event, $entryid, $props) {
+	#[Override]
+	public function update($event, $entryid, $props) {
 		switch ($event) {
 			case HIERARCHY_UPDATE:
 				$this->updateFolderHierachy($props[0], $props[1]);

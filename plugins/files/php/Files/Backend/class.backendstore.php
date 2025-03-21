@@ -114,8 +114,6 @@ class BackendStore {
 	/**
 	 * Registration adds the backend to the list of plugins, and also
 	 * includes it's code into our runtime.
-	 *
-	 * @param $backend
 	 */
 	private function register($backend) {
 		require_once __DIR__ . self::BACKEND_DIR . $backend . "/class.backend.php";
@@ -125,8 +123,6 @@ class BackendStore {
 	/**
 	 * Registration adds the external backend to the list of plugins, and also
 	 * includes it's code into our runtime.
-	 *
-	 * @param $backend
 	 */
 	private function registerExternal($backend) {
 		require_once $this->EXTERNAL_BACKEND_DIR . self::EXTERNAL_BACKEND_PREFIX . $backend . "/php/class.backend.php";
@@ -135,8 +131,6 @@ class BackendStore {
 
 	/**
 	 * Check if a backend is registered.
-	 *
-	 * @param $backend
 	 *
 	 * @return bool
 	 */
@@ -154,8 +148,6 @@ class BackendStore {
 
 	/**
 	 * Creates a new Instance of the given backendtype.
-	 *
-	 * @param $backend
 	 *
 	 * @return AbstractBackend
 	 */

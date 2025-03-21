@@ -30,8 +30,8 @@ class StickyNoteListModule extends ListModule {
 	/**
 	 * Executes all the actions in the $data variable.
 	 */
-	#[\Override]
-    public function execute() {
+	#[Override]
+	public function execute() {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
 				try {
@@ -39,12 +39,12 @@ class StickyNoteListModule extends ListModule {
 					$entryid = $this->getActionEntryID($action);
 
 					match ($actionType) {
-                        "list" => $this->messageList($store, $entryid, $action, $actionType),
-                        "search" => $this->search($store, $entryid, $action, $actionType),
-                        "updatesearch" => $this->updatesearch($store, $entryid, $action),
-                        "stopsearch" => $this->stopSearch($store, $entryid, $action),
-                        default => $this->handleUnknownActionType($actionType),
-                    };
+						"list" => $this->messageList($store, $entryid, $action, $actionType),
+						"search" => $this->search($store, $entryid, $action, $actionType),
+						"updatesearch" => $this->updatesearch($store, $entryid, $action),
+						"stopsearch" => $this->stopSearch($store, $entryid, $action),
+						default => $this->handleUnknownActionType($actionType),
+					};
 				}
 				catch (MAPIException $e) {
 					$this->processException($e, $actionType);
@@ -62,8 +62,8 @@ class StickyNoteListModule extends ListModule {
 	 *
 	 * @return object item properties if its non private item otherwise empty array
 	 */
-	#[\Override]
-    public function processPrivateItem($item) {
+	#[Override]
+	public function processPrivateItem($item) {
 		return $item;
 	}
 }

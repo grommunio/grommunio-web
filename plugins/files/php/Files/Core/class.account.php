@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This class implements a files backend account.
  *
@@ -21,19 +22,11 @@ class Account {
 	public const STATUS_UNKNOWN = "unk";
 
 	/**
-	 * @param       $id
-	 * @param       $name
-	 * @param       $status
-	 * @param       $statusDescription
-	 * @param       $backend
-	 * @param       $backendConfig
 	 * @param array $features
 	 * @param mixed $sequence
 	 * @param mixed $cannot_change
 	 */
-	public function __construct(private $id, private $name, private $status, private $statusDescription, private $backend, private $backendConfig, private $features, private $sequence, private $cannot_change)
-    {
-    }
+	public function __construct(private $id, private $name, private $status, private $statusDescription, private $backend, private $backendConfig, private $features, private $sequence, private $cannot_change) {}
 
 	/**
 	 * @return mixed
@@ -137,8 +130,6 @@ class Account {
 	}
 
 	/**
-	 * @param $property
-	 *
 	 * @return mixed
 	 */
 	public function getConfigValue($property) {
@@ -149,10 +140,6 @@ class Account {
 		return false;
 	}
 
-	/**
-	 * @param $property
-	 * @param $value
-	 */
 	public function setConfigValue($property, $value) {
 		if (!is_array($this->backendConfig)) {
 			$this->backendConfig = [];

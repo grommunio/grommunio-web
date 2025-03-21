@@ -26,8 +26,8 @@ class CreateMailItemModule extends ItemModule {
 	 * @param string $entryid       entryid of the message
 	 * @param array  $action        the action data, sent by the client
 	 */
-	#[\Override]
-    public function save($store, $parententryid, $entryid, $action) {
+	#[Override]
+	public function save($store, $parententryid, $entryid, $action) {
 		$result = false;
 		$send = false;
 		$saveChanges = true;

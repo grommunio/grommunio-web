@@ -9,8 +9,7 @@ class PluginFilesbackendOwncloud extends Plugin {
 	/**
 	 * Constructor.
 	 */
-	public function __construct() {
-	}
+	public function __construct() {}
 
 	/**
 	 * Called to initialize the plugin and register for hooks.

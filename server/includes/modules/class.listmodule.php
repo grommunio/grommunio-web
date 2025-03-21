@@ -76,8 +76,8 @@ class ListModule extends Module {
 	/**
 	 * Executes all the actions in the $data variable.
 	 */
-	#[\Override]
-    public function execute() {
+	#[Override]
+	public function execute() {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
 				try {
@@ -114,8 +114,8 @@ class ListModule extends Module {
 	 * @param string     $entryid       entryid of the message/folder
 	 * @param array      $action        the action data, sent by the client
 	 */
-	#[\Override]
-    public function handleException(&$e, $actionType = null, $store = null, $parententryid = null, $entryid = null, $action = null) {
+	#[Override]
+	public function handleException(&$e, $actionType = null, $store = null, $parententryid = null, $entryid = null, $action = null) {
 		if (is_null($e->displayMessage)) {
 			$hexEntryid = $entryid != null ? bin2hex($entryid) : 'null';
 
@@ -280,10 +280,10 @@ class ListModule extends Module {
 			$errorInfo = [];
 
 			$errorInfo["error_message"] = match (mapi_last_hresult()) {
-                MAPI_E_NO_ACCESS => _("Unable to perform search query, no permissions to create search folder."),
-                MAPI_E_NOT_FOUND => _("Unable to perform search query, search folder not found."),
-                default => _("Unable to perform search query, store might not support searching."),
-            };
+				MAPI_E_NO_ACCESS => _("Unable to perform search query, no permissions to create search folder."),
+				MAPI_E_NOT_FOUND => _("Unable to perform search query, search folder not found."),
+				default => _("Unable to perform search query, store might not support searching."),
+			};
 
 			$errorInfo["original_error_message"] = _("Error in creating search folder.");
 

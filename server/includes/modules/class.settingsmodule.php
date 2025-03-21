@@ -17,8 +17,8 @@ class SettingsModule extends Module {
 	/**
 	 * Executes all the actions in the $data variable.
 	 */
-	#[\Override]
-    public function execute() {
+	#[Override]
+	public function execute() {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
 				try {
@@ -48,7 +48,7 @@ class SettingsModule extends Module {
 							$this->handleUnknownActionType($actionType);
 					}
 				}
-				catch (SettingsException|MAPIException $e) {
+				catch (MAPIException|SettingsException $e) {
 					$this->processException($e, $actionType);
 				}
 			}

@@ -15,8 +15,8 @@ class ContactListNotifier extends ListNotifier {
 	 *
 	 * @return array The properties mapping
 	 */
-	#[\Override]
-    protected function getPropertiesList() {
+	#[Override]
+	protected function getPropertiesList() {
 		return $GLOBALS["properties"]->getContactListProperties();
 	}
 }

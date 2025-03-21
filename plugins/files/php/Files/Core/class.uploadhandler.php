@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: zdev
@@ -14,6 +15,8 @@ require_once __DIR__ . "/Util/class.pathutil.php";
 require_once __DIR__ . "/Util/util.php";
 require_once __DIR__ . "/Util/class.logger.php";
 
+use Files\Backend\BackendStore;
+use Files\Backend\Exception;
 use Files\Core\Util\Logger;
 
 class UploadHandler {
@@ -32,18 +35,18 @@ class UploadHandler {
 				Logger::error(self::LOG_CONTEXT, "upload failed: No destination given");
 				echo json_encode(['success' => false, 'response' => 'No destination given', 'message' => 'No destination given']);
 
-				exit();
+				exit;
 			}
 		}
 
-		$accountID = substr((string) $dstID, 3, (strpos((string) $dstID, '/') - 3));
+		$accountID = substr((string) $dstID, 3, strpos((string) $dstID, '/') - 3);
 
 		// relative node ID. We need to trim off the #R# and account ID
 		$relNodeId = substr((string) $dstID, strpos((string) $dstID, '/'));
 
 		// Initialize the account and backendstore
-		$accountStore = new \Files\Core\AccountStore();
-		$backendStore = \Files\Backend\BackendStore::getInstance();
+		$accountStore = new AccountStore();
+		$backendStore = BackendStore::getInstance();
 
 		$account = $accountStore->getAccount($accountID);
 
@@ -54,18 +57,18 @@ class UploadHandler {
 		try {
 			$initializedBackend->open();
 		}
-		catch (\Files\Backend\Exception $e) {
+		catch (Exception $e) {
 			Logger::error(self::LOG_CONTEXT, "backend initialization failed: " . $e->getMessage());
 			echo json_encode(['success' => false, 'response' => $e->getCode(), 'message' => $e->getMessage()]);
 
-			exit();
+			exit;
 		}
 
 		// check if we are getting the file via the "new" method (ajax - XMLHttpRequest) or the standard way
 		if (isset($_SERVER['HTTP_X_FILE_NAME'], $_SERVER['HTTP_X_FILE_SIZE'])) { // use the ajax method
 			$targetPath = stringToUTF8Encode($relNodeId . $_SERVER['HTTP_X_FILE_NAME']);
 			// check if backend supports streaming - this is the preferred way to upload files!
-			if ($initializedBackend->supports(\Files\Backend\BackendStore::FEATURE_STREAMING)) {
+			if ($initializedBackend->supports(BackendStore::FEATURE_STREAMING)) {
 				$fileReader = fopen('php://input', "r");
 				$targetPath = UploadHandler::checkFilesNameConflict($targetPath, $initializedBackend, $relNodeId);
 				$fileWriter = $initializedBackend->getStreamwriter($targetPath);
@@ -109,7 +112,7 @@ class UploadHandler {
 			}
 			echo json_encode(['success' => true, 'parent' => $dstID, 'item' => $targetPath]);
 
-			exit();
+			exit;
 		}   // upload the standard way with $_FILES
 		$items = [];
 
@@ -120,7 +123,7 @@ class UploadHandler {
 
 				// upload the file
 				// check if backend supports streaming - this is the preferred way to upload files!
-				if ($initializedBackend->supports(\Files\Backend\BackendStore::FEATURE_STREAMING)) {
+				if ($initializedBackend->supports(BackendStore::FEATURE_STREAMING)) {
 					$fileReader = fopen($_FILES['attachments']['tmp_name'][$i], "r");
 					$fileWriter = $initializedBackend->getStreamwriter($targetPath);
 
@@ -144,13 +147,13 @@ class UploadHandler {
 			}
 			echo json_encode(['success' => true, 'parent' => $dstID, 'items' => $items]);
 
-			exit();
+			exit;
 		}
-		catch (\Files\Backend\Exception $e) {
+		catch (Exception $e) {
 			Logger::error(self::LOG_CONTEXT, "upload failed: " . $e->getMessage());
 			echo json_encode(['success' => false, 'response' => $e->getCode(), 'message' => $e->getMessage()]);
 
-			exit();
+			exit;
 		}
 	}
 

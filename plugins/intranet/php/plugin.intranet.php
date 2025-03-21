@@ -1,4 +1,5 @@
 <?php
+
 /**
  * intranet Plugin
  * Plugin which will enable desktop notifications for new mails.

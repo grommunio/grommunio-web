@@ -38,8 +38,8 @@ $serverConfig = [
 		<script><?php require BASE_PATH . 'client/fingerprint.js'; ?></script>
 		<?php
 			$loader->cssOrder();
-			echo Theming::getStyles($theme);
-		?>
+echo Theming::getStyles($theme);
+?>
 	</head>
 
 	<body class="zarafa-welcome theme-<?php echo strtolower((string) $theme ?: 'basic'); ?>">

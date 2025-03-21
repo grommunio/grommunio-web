@@ -1,7 +1,9 @@
 <?php
 
-if (class_exists(\PHPUnit\Framework\TestCase::class)) {
-	class_alias(\PHPUnit\Framework\TestCase::class, '\PHPUnit_Framework_TestCase');
+use PHPUnit\Framework\TestCase;
+
+if (class_exists(TestCase::class)) {
+	class_alias(TestCase::class, '\PHPUnit_Framework_TestCase');
 }
 
 if (!defined('OPENSSL_CONF_PATH')) {
@@ -13,9 +15,7 @@ define('LOGLEVEL_ERROR', 0);
 define('LOGLEVEL_INFO', 0);
 
 class Log {
-	public static function Write($level, $message) {
-	}
+	public static function Write($level, $message) {}
 }
 
-abstract class SMIMETest extends PHPUnit_Framework_TestCase {
-}
+abstract class SMIMETest extends PHPUnit_Framework_TestCase {}

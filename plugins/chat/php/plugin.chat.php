@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Chat Plugin
  * Plugin that adds Chat to grommunio Web.

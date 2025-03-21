@@ -1,12 +1,12 @@
 <?php
+
 /**
  * Passwd plugin.
  *
  * Allows to change user password from grommunio Web.
  */
 class Pluginpasswd extends Plugin {
-	public function __construct() {
-	}
+	public function __construct() {}
 
 	/**
 	 * Function initializes the Plugin and registers all hooks.

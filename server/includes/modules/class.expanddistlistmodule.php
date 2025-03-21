@@ -21,15 +21,15 @@ class ExpandDistlistModule extends Module {
 	/**
 	 * Executes all the actions in the $data variable.
 	 */
-	#[\Override]
-    public function execute() {
+	#[Override]
+	public function execute() {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
 				try {
 					match ($actionType) {
-                        'expand' => $this->expand($action),
-                        default => $this->handleUnknownActionType($actionType),
-                    };
+						'expand' => $this->expand($action),
+						default => $this->handleUnknownActionType($actionType),
+					};
 				}
 				catch (MAPIException $e) {
 					$this->processException($e, $actionType);

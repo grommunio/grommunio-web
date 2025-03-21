@@ -475,13 +475,12 @@ function sanitizePostValue($key, $default = '', $regex = false) {
 	return $default;
 }
 
-function parse_smime__join_xph(&$prop, $msg)
-{
+function parse_smime__join_xph(&$prop, $msg) {
 	$a = mapi_getprops($msg, [PR_TRANSPORT_MESSAGE_HEADERS]);
 	$a = $a === false ? "" : ($a[PR_TRANSPORT_MESSAGE_HEADERS] ?? "");
 	$prop[PR_TRANSPORT_MESSAGE_HEADERS] =
-		"# Outer headers:\n".($prop[PR_TRANSPORT_MESSAGE_HEADERS] ?? "").
-		"# Inner headers:\n".$a;
+		"# Outer headers:\n" . ($prop[PR_TRANSPORT_MESSAGE_HEADERS] ?? "") .
+		"# Inner headers:\n" . $a;
 }
 
 /**
@@ -492,9 +491,9 @@ function parse_smime__join_xph(&$prop, $msg)
  */
 function parse_smime($store, $message) {
 	$props = mapi_getprops($message, [PR_MESSAGE_CLASS, PR_MESSAGE_FLAGS,
-	PR_SENT_REPRESENTING_NAME, PR_SENT_REPRESENTING_ENTRYID, PR_SENT_REPRESENTING_SEARCH_KEY,
-	PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENT_REPRESENTING_SMTP_ADDRESS,
-	PR_SENT_REPRESENTING_ADDRTYPE, PR_CLIENT_SUBMIT_TIME, PR_TRANSPORT_MESSAGE_HEADERS]);
+		PR_SENT_REPRESENTING_NAME, PR_SENT_REPRESENTING_ENTRYID, PR_SENT_REPRESENTING_SEARCH_KEY,
+		PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENT_REPRESENTING_SMTP_ADDRESS,
+		PR_SENT_REPRESENTING_ADDRTYPE, PR_CLIENT_SUBMIT_TIME, PR_TRANSPORT_MESSAGE_HEADERS]);
 	$read = $props[PR_MESSAGE_FLAGS] & MSGFLAG_READ;
 
 	if (isset($props[PR_MESSAGE_CLASS]) && stripos((string) $props[PR_MESSAGE_CLASS], 'IPM.Note.SMIME.MultipartSigned') !== false) {
@@ -546,7 +545,7 @@ function parse_smime($store, $message) {
 				PR_SENT_REPRESENTING_SMTP_ADDRESS => $props[PR_SENT_REPRESENTING_SMTP_ADDRESS] ?? '',
 				PR_SENT_REPRESENTING_ADDRTYPE => $props[PR_SENT_REPRESENTING_ADDRTYPE] ?? 'SMTP',
 				PR_CLIENT_SUBMIT_TIME => $props[PR_CLIENT_SUBMIT_TIME] ?? time(),
-				PR_TRANSPORT_MESSAGE_HEADERS => ($props[PR_TRANSPORT_MESSAGE_HEADERS] ?? "").$inner_headers,
+				PR_TRANSPORT_MESSAGE_HEADERS => ($props[PR_TRANSPORT_MESSAGE_HEADERS] ?? "") . $inner_headers,
 			]);
 		}
 	}
@@ -637,9 +636,9 @@ function streamProperty($mapiobj, $proptag) {
  * Function will decode JSON string into objects.
  *
  * @param string $jsonString JSON data that should be decoded
- * @param bool $toAssoc flag to indicate that associative arrays should be
- * returned as objects or arrays, true means it will return associative array as arrays and
- * false will return associative arrays as objects
+ * @param bool   $toAssoc    flag to indicate that associative arrays should be
+ *                           returned as objects or arrays, true means it will return associative array as arrays and
+ *                           false will return associative arrays as objects
  *
  * @return object decoded data
  */
@@ -683,7 +682,7 @@ function json_decode_data($jsonString, $toAssoc = false) {
  * @param resource $store the store to retrieve IPM subtree from
  *
  * @return mixed false if the subtree is broken beyond quick repair,
- * the IPM subtree resource otherwise
+ *               the IPM subtree resource otherwise
  */
 function getSubTree($store) {
 	$storeProps = mapi_getprops($store, [PR_IPM_SUBTREE_ENTRYID]);
@@ -707,8 +706,8 @@ function getSubTree($store) {
  * the user has permission on the inbox folder, but no folder visible
  * rights on the rest of the store.
  *
- * @param string $username the user who's store to retrieve hierarchy counters from.
- * If no username is given, the currently logged in user's store will be used.
+ * @param string $username   the user who's store to retrieve hierarchy counters from.
+ *                           If no username is given, the currently logged in user's store will be used.
  * @param string $folderType if inbox use the inbox as root folder
  *
  * @return array folderStatCache a cache of the hierarchy folders

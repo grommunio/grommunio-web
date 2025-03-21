@@ -277,10 +277,10 @@ class ConfigCheck {
 
 		// convert $value_needed
 		$value = match ($value_needed) {
-            "on", "yes", "true" => 1,
-            "off", "no", "false" => 0,
-            default => $value_needed,
-        };
+			"on", "yes", "true" => 1,
+			"off", "no", "false" => 0,
+			default => $value_needed,
+		};
 
 		if (ini_get($setting) != $value) {
 			$this->error_security($setting, $value_needed, $help_msg);

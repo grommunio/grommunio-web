@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is used to set configuration options to a default value that have
  * not been set in the config.php.Each definition of a configuration value must

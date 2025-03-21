@@ -1,5 +1,8 @@
 <?php
 
+use WAYF\OCSP;
+use WAYF\X509;
+
 include_once 'lib/X509.php';
 include_once 'lib/Ocsp.php';
 
@@ -33,10 +36,10 @@ class OCSPException extends Exception {
 		}
 
 		return match ($this->status) {
-            'good' => OCSP_CERT_STATUS_GOOD,
-            'revoked' => OCSP_CERT_STATUS_REVOKED,
-            default => OCSP_CERT_STATUS_UNKOWN,
-        };
+			'good' => OCSP_CERT_STATUS_GOOD,
+			'revoked' => OCSP_CERT_STATUS_REVOKED,
+			default => OCSP_CERT_STATUS_UNKOWN,
+		};
 	}
 }
 
@@ -119,7 +122,7 @@ class Certificate {
 			$certEmailAddress = $this->data['subject']['emailAddress'];
 		}
 		elseif (isset($this->data['extensions'], $this->data['extensions']['subjectAltName'])
-			) {
+		) {
 			// Example [subjectAltName] => email:foo@bar.com
 			$tmp = explode('email:', $this->data['extensions']['subjectAltName']);
 			// Only get the first match
@@ -241,6 +244,7 @@ class Certificate {
 		else {
 			$fingerprint = md5($body);
 		}
+
 		// Format 1000AB as 10:00:AB
 		return strtoupper(implode(':', str_split($fingerprint, 2)));
 	}
@@ -323,11 +327,11 @@ class Certificate {
 		 */
 		set_error_handler("tempErrorHandler");
 
-		$x509 = new \WAYF\X509();
+		$x509 = new X509();
 		$issuer = $x509->certificate($issuer->der());
 		$certificate = $x509->certificate($this->der());
 
-		$ocspclient = new \WAYF\OCSP();
+		$ocspclient = new OCSP();
 		$certID = $ocspclient->certOcspID(
 			[
 				'issuerName' => $issuer['tbsCertificate']['subject_der'],

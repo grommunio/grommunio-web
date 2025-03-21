@@ -1,24 +1,24 @@
 <?php
-	header("Content-Type: text/javascript; charset=utf-8");
+header("Content-Type: text/javascript; charset=utf-8");
 
-	header('Expires: ' . gmdate('D, d M Y H:i:s', time() + EXPIRES_TIME) . ' GMT');
-	header('Cache-Control: max-age=' . EXPIRES_TIME . ',must-revalidate');
+header('Expires: ' . gmdate('D, d M Y H:i:s', time() + EXPIRES_TIME) . ' GMT');
+header('Cache-Control: max-age=' . EXPIRES_TIME . ',must-revalidate');
 
-	// Pragma: cache doesn't really exist. But since session_start() automatically
-	// outputs a Pragma: no-cache, the only way to override that is to output something else
-	// in that header. So that's what we do here. It might as well have read 'Pragma: foo'.
-	header('Pragma: cache');
+// Pragma: cache doesn't really exist. But since session_start() automatically
+// outputs a Pragma: no-cache, the only way to override that is to output something else
+// in that header. So that's what we do here. It might as well have read 'Pragma: foo'.
+header('Pragma: cache');
 
-	// compress output
-	ob_start("ob_gzhandler");
+// compress output
+ob_start("ob_gzhandler");
 
-	$translations = $Language->getTranslations();
+$translations = $Language->getTranslations();
 
 /**
  * Convert the charset to UTF-8. If it is an array it will loop through all it's
  * items and encodes each item.
  *
- * @param $source String|Array Input string or array with strings
+ * @param $source  String|Array Input string or array with strings
  * @param $charset String Original charset of the source string(s)
  *
  * @return string Source string encoded with the new charset

@@ -23,6 +23,9 @@ class KendoxModule extends Module {
 
 	/**
 	 * @constructor
+	 *
+	 * @param mixed $id
+	 * @param mixed $data
 	 */
 	public function __construct($id, $data) {
 		parent::__construct($id, $data);
@@ -35,8 +38,8 @@ class KendoxModule extends Module {
 	 *
 	 * @return bool true on success or false on failure
 	 */
-	#[\Override]
-    public function execute() {
+	#[Override]
+	public function execute() {
 		foreach ($this->data as $actionType => $actionData) {
 			if (isset($actionType)) {
 				try {
@@ -187,7 +190,8 @@ class KendoxModule extends Module {
 		// Read message properties
 		try {
 			$messageProps = mapi_getprops($this->mapiMessage, [PR_SUBJECT, PR_MESSAGE_CLASS]);
-		} catch (Exception $ex) {
+		}
+		catch (Exception $ex) {
 			$this->logErrorAndThrow("Error on getting MAPI message properties", $ex);
 		}
 
@@ -221,6 +225,7 @@ class KendoxModule extends Module {
 
 	private function createTempFilename() {
 		$tempPath = TMP_PATH;
+
 		return $tempPath . $this->getGUID() . ".tmp";
 	}
 
@@ -341,7 +346,7 @@ class KendoxModule extends Module {
 
 	/**
 	 * Function will obtain stream from the message, For email messages it will open email as
-	 * inet object and get the stream content as eml format
+	 * inet object and get the stream content as eml format.
 	 *
 	 * @param array $messageProps properties of this particular message
 	 *
@@ -349,6 +354,7 @@ class KendoxModule extends Module {
 	 */
 	public function getEmlStream($messageProps) {
 		$addrBook = $GLOBALS['mapisession']->getAddressbook();
+
 		return mapi_inetmapi_imtoinet($GLOBALS['mapisession']->getSession(), $addrBook, $this->mapiMessage, []);
 	}
 

@@ -8,15 +8,15 @@ class FreeBusyModule extends Module {
 		parent::__construct($id, $data);
 	}
 
-	#[\Override]
-    public function execute() {
+	#[Override]
+	public function execute() {
 		foreach ($this->data as $actionType => $selUser) {
 			if (isset($actionType)) {
 				try {
 					match ($actionType) {
-                        'list' => $this->addUserData($selUser),
-                        default => $this->handleUnknownActionType($actionType),
-                    };
+						'list' => $this->addUserData($selUser),
+						default => $this->handleUnknownActionType($actionType),
+					};
 				}
 				catch (MAPIException $e) {
 					$this->processException($e, $actionType);
@@ -57,8 +57,8 @@ class FreeBusyModule extends Module {
 	 * This function will get freebusy data for user based on the timeframe passed in arguments.
 	 *
 	 * @param string $entryID Entryid of the user for which we need to get freebusy data
-	 * @param int $start start offset for freebusy publish range
-	 * @param int $end end offset for freebusy publish range
+	 * @param int    $start   start offset for freebusy publish range
+	 * @param int    $end     end offset for freebusy publish range
 	 *
 	 * @return array freebusy blocks for passed publish range
 	 */

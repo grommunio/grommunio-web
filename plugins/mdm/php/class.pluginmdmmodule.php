@@ -205,8 +205,8 @@ class PluginMDMModule extends Module {
 	 *
 	 * @return bool true on success or false on failure
 	 */
-	#[\Override]
-    public function execute() {
+	#[Override]
+	public function execute() {
 		foreach ($this->data as $actionType => $actionData) {
 			if (isset($actionType)) {
 				try {
@@ -347,21 +347,18 @@ class PluginMDMModule extends Module {
 	/**
 	 * Function which is use to get general type like Mail,Calendar,Contacts,etc. from folder type.
 	 *
-	 * @param int    $type foldertype for a folder already known to the mobile
-	 * @param string $name folder name
+	 * @param int $type foldertype for a folder already known to the mobile
 	 *
 	 * @return string general folder type
 	 */
 	public function getSyncFolderType($type) {
-		$folderType = match ($type) {
-            SYNC_FOLDER_TYPE_APPOINTMENT, SYNC_FOLDER_TYPE_USER_APPOINTMENT => "Calendars",
-            SYNC_FOLDER_TYPE_CONTACT, SYNC_FOLDER_TYPE_USER_CONTACT => "Contacts",
-            SYNC_FOLDER_TYPE_TASK, SYNC_FOLDER_TYPE_USER_TASK => "Tasks",
-            SYNC_FOLDER_TYPE_NOTE, SYNC_FOLDER_TYPE_USER_NOTE => "Notes",
-            default => "Emails",
-        };
-
-		return $folderType;
+		return match ($type) {
+			SYNC_FOLDER_TYPE_APPOINTMENT, SYNC_FOLDER_TYPE_USER_APPOINTMENT => "Calendars",
+			SYNC_FOLDER_TYPE_CONTACT, SYNC_FOLDER_TYPE_USER_CONTACT => "Contacts",
+			SYNC_FOLDER_TYPE_TASK, SYNC_FOLDER_TYPE_USER_TASK => "Tasks",
+			SYNC_FOLDER_TYPE_NOTE, SYNC_FOLDER_TYPE_USER_NOTE => "Notes",
+			default => "Emails",
+		};
 	}
 
 	/**
@@ -727,21 +724,19 @@ class PluginMDMModule extends Module {
 	 */
 	public function getFolderTypeFromContainerClass($containerClass) {
 		return match ($containerClass) {
-            "IPF.Note" => SYNC_FOLDER_TYPE_USER_MAIL,
-            "IPF.Appointment" => SYNC_FOLDER_TYPE_USER_APPOINTMENT,
-            "IPF.Contact" => SYNC_FOLDER_TYPE_USER_CONTACT,
-            "IPF.StickyNote" => SYNC_FOLDER_TYPE_USER_NOTE,
-            "IPF.Task" => SYNC_FOLDER_TYPE_USER_TASK,
-            "IPF.Journal" => SYNC_FOLDER_TYPE_USER_JOURNAL,
-            default => SYNC_FOLDER_TYPE_UNKNOWN,
-        };
+			"IPF.Note" => SYNC_FOLDER_TYPE_USER_MAIL,
+			"IPF.Appointment" => SYNC_FOLDER_TYPE_USER_APPOINTMENT,
+			"IPF.Contact" => SYNC_FOLDER_TYPE_USER_CONTACT,
+			"IPF.StickyNote" => SYNC_FOLDER_TYPE_USER_NOTE,
+			"IPF.Task" => SYNC_FOLDER_TYPE_USER_TASK,
+			"IPF.Journal" => SYNC_FOLDER_TYPE_USER_JOURNAL,
+			default => SYNC_FOLDER_TYPE_UNKNOWN,
+		};
 	}
 
 	/**
 	 * Returns MAPIFolder object which contains the state information.
 	 * Creates this folder if it is not available yet.
-	 *
-	 * @param string $devid the device id
 	 *
 	 * @return MAPIFolder
 	 */

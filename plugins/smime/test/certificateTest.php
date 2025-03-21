@@ -6,6 +6,7 @@ require_once 'php/util.php';
 
 /**
  * @internal
+ *
  * @coversNothing
  */
 class CertificateTest extends SMIMETest {

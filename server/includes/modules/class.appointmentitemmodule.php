@@ -50,8 +50,8 @@ class AppointmentItemModule extends ItemModule {
 		$this->tzdefObj = false;
 	}
 
-	#[\Override]
-    public function open($store, $entryid, $action) {
+	#[Override]
+	public function open($store, $entryid, $action) {
 		if ($store && $entryid) {
 			$data = [];
 
@@ -81,6 +81,7 @@ class AppointmentItemModule extends ItemModule {
 
 			if (!empty($action["timezone_iana"])) {
 				$this->tziana = $action["timezone_iana"];
+
 				try {
 					$this->tzdef = mapi_ianatz_to_tzdef($action['timezone_iana']);
 				}
@@ -233,8 +234,8 @@ class AppointmentItemModule extends ItemModule {
 	 * @param string     $entryid       entryid of the message
 	 * @param array      $action        the action data, sent by the client
 	 */
-	#[\Override]
-    public function handleException(&$e, $actionType = null, $store = null, $parententryid = null, $entryid = null, $action = null) {
+	#[Override]
+	public function handleException(&$e, $actionType = null, $store = null, $parententryid = null, $entryid = null, $action = null) {
 		if (is_null($e->displayMessage)) {
 			switch ($actionType) {
 				case "save":
@@ -267,8 +268,8 @@ class AppointmentItemModule extends ItemModule {
 	 * @param array     $action        Action array containing json request
 	 * @param string    $actionType    The action type which triggered this action
 	 */
-	#[\Override]
-    public function save($store, $parententryid, $entryid, $action, $actionType = 'save') {
+	#[Override]
+	public function save($store, $parententryid, $entryid, $action, $actionType = 'save') {
 		$result = false;
 
 		// Save appointment (saveAppointment takes care of creating/modifying exceptions to recurring
@@ -290,12 +291,12 @@ class AppointmentItemModule extends ItemModule {
 		}
 		elseif (is_array($messageProps) && isset($messageProps['error'])) {
 			$errorMsg = match ($messageProps['error']) {
-                1 => sprintf(_('You marked \'%s\' as a resource. You cannot schedule a meeting with \'%s\' because you do not have the appropriate permissions for that account. Either enter the name as a required or optional attendee or talk to your administrator about giving you permission to schedule \'%s\'.'), $messageProps['displayname'], $messageProps['displayname'], $messageProps['displayname']),
-                2 => sprintf(_('\'%s\' has declined your meeting because \'%s\' does not automatically accept meeting requests.'), $messageProps['displayname'], $messageProps['displayname']),
-                3 => sprintf(_('\'%s\' has declined your meeting because it is recurring. You must book each meeting separately with this resource.'), $messageProps['displayname']),
-                4 => sprintf(_('\'%s\' is already booked for this specified time. You must use another time or find another resource.'), $messageProps['displayname']),
-                default => _('Meeting was not scheduled.'),
-            };
+				1 => sprintf(_('You marked \'%s\' as a resource. You cannot schedule a meeting with \'%s\' because you do not have the appropriate permissions for that account. Either enter the name as a required or optional attendee or talk to your administrator about giving you permission to schedule \'%s\'.'), $messageProps['displayname'], $messageProps['displayname'], $messageProps['displayname']),
+				2 => sprintf(_('\'%s\' has declined your meeting because \'%s\' does not automatically accept meeting requests.'), $messageProps['displayname'], $messageProps['displayname']),
+				3 => sprintf(_('\'%s\' has declined your meeting because it is recurring. You must book each meeting separately with this resource.'), $messageProps['displayname']),
+				4 => sprintf(_('\'%s\' is already booked for this specified time. You must use another time or find another resource.'), $messageProps['displayname']),
+				default => _('Meeting was not scheduled.'),
+			};
 		}
 		else {
 			// Recurring but non-existing exception (same as normal open, but add basedate, startdate and enddate)
@@ -390,12 +391,12 @@ class AppointmentItemModule extends ItemModule {
 				$this->tzdefObj = $GLOBALS['entryid']->createTimezoneDefinitionObject($this->tzdef);
 			}
 			$this->tzEffRuleIdx = getEffectiveTzreg($this->tzdefObj['rules']);
-			
+
 			$appTzDefStart = $GLOBALS['entryid']->createTimezoneDefinitionObject($tzdefstart);
-			
+
 			// Find TZRULE_FLAG_EFFECTIVE_TZREG rule for the appointment's timezone
 			$appTzEffRuleIdx = getEffectiveTzreg($appTzDefStart['rules']);
-			
+
 			if (is_null($this->tzEffRuleIdx) && !is_null($appTzEffRuleIdx)) {
 				return;
 			}

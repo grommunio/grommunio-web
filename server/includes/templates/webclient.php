@@ -74,13 +74,16 @@ if (defined('ADDITIONAL_CATEGORIES')) {
 		<link rel="stylesheet" href="client/resources/css/external/login.css" >
 		<?php
 			$loader->cssOrder();
-			echo Theming::getStyles($theme);
-			$iconsetStylesheet = Iconsets::getActiveStylesheet();
-		?>
+echo Theming::getStyles($theme);
+$iconsetStylesheet = Iconsets::getActiveStylesheet();
+?>
 		<link id="grommunio-iconset-stylesheet" rel="stylesheet" href="<?php echo $iconsetStylesheet; ?>" >
 	</head>
 
-	<body class="zarafa-webclient theme-<?php echo strtolower((string) $theme ?: 'basic'); echo ' ' . $hideFavorites; echo ' ' . $scrollFavorites; echo ' ' . $unreadBorders; ?>">
+	<body class="zarafa-webclient theme-<?php echo strtolower((string) $theme ?: 'basic');
+echo ' ' . $hideFavorites;
+echo ' ' . $scrollFavorites;
+echo ' ' . $unreadBorders; ?>">
 		<div id="loading-mask">
 			<div id="form-container" class="loading" style="visibility: hidden;">
 				<div id="bg"></div>
@@ -98,16 +101,16 @@ if (defined('ADDITIONAL_CATEGORIES')) {
 		<script src="index.php?version=<?php echo $loader->getVersion(); ?>&load=translations.js&lang=<?php echo $Language->getSelected(); ?>"></script>
 		<!-- JS Files -->
 		<?php
-			$loader->jsOrder();
-			// get URL data from session and dump it for client to use
-			$urlActionData = [];
-			if (!empty($_SESSION['url_action'])) {
-				$urlActionData = $_SESSION['url_action'];
+		$loader->jsOrder();
+// get URL data from session and dump it for client to use
+$urlActionData = [];
+if (!empty($_SESSION['url_action'])) {
+	$urlActionData = $_SESSION['url_action'];
 
-				// remove data from session so if user reloads webapp then we will again not execute url action
-				unset($_SESSION['url_action']);
-			}
-		?>
+	// remove data from session so if user reloads webapp then we will again not execute url action
+	unset($_SESSION['url_action']);
+}
+?>
 
 		<script><?php require BASE_PATH . 'client/resize.js'; ?></script>
 		<script>

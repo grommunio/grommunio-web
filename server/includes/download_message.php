@@ -17,8 +17,9 @@ class DownloadMessage extends DownloadBase {
 	 * It also sends the eml file to the client.
 	 */
 	public function downloadMessageAsFile() {
-		if (!$this->message || !$this->store)
+		if (!$this->message || !$this->store) {
 			return;
+		}
 		// get message properties.
 		$messageProps = mapi_getprops($this->message, [PR_SUBJECT, PR_MESSAGE_CLASS]);
 
@@ -49,8 +50,9 @@ class DownloadMessage extends DownloadBase {
 	 * Send ZIP to the client if all the requested eml files included successfully into the same.
 	 */
 	public function downloadMessageAsZipFile() {
-		if (!$this->store)
+		if (!$this->store) {
 			return;
+		}
 		// Generate random ZIP file name at default temporary path of PHP
 		$randomZipName = tempnam(sys_get_temp_dir(), 'zip');
 

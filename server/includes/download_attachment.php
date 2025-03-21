@@ -107,8 +107,8 @@ class DownloadAttachment extends DownloadBase {
 	 *
 	 * @param mixed $data
 	 */
-	#[\Override]
-    public function init($data) {
+	#[Override]
+	public function init($data) {
 		if (isset($data['store'])) {
 			$this->store = sanitizeValue($data['store'], '', ID_REGEX);
 		}
@@ -951,8 +951,8 @@ class DownloadAttachment extends DownloadBase {
 	 *
 	 * @param object $exception exception object
 	 */
-	#[\Override]
-    public function handleSaveMessageException($exception) {
+	#[Override]
+	public function handleSaveMessageException($exception) {
 		$return = [];
 
 		// MAPI_E_NOT_FOUND exception contains generalize exception message.

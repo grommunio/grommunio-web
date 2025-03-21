@@ -29,8 +29,8 @@ class AddressbookItemModule extends ItemModule {
 	 * @param string $entryid entryid of the message
 	 * @param array  $action  the action data, sent by the client
 	 */
-	#[\Override]
-    public function open($store, $entryid, $action) {
+	#[Override]
+	public function open($store, $entryid, $action) {
 		if ($entryid) {
 			$data = [];
 
@@ -50,6 +50,7 @@ class AddressbookItemModule extends ItemModule {
 						// unwrap ab entry id
 						$entryid = substr($entryid, 28);
 					}
+
 					try {
 						$contactItem = $GLOBALS['operations']->openMessage($GLOBALS['mapisession']->getDefaultMessageStore(), $entryid);
 					}

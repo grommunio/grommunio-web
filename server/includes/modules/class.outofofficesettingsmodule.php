@@ -19,18 +19,18 @@ class OutOfOfficeSettingsModule extends Module {
 	/**
 	 * Executes all the actions in the $data variable.
 	 */
-	#[\Override]
-    public function execute() {
+	#[Override]
+	public function execute() {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
 				try {
 					match ($actionType) {
-                        "list" => $this->getOofSettings(),
-                        "save" => $this->saveOofSettings($action),
-                        default => $this->handleUnknownActionType($actionType),
-                    };
+						"list" => $this->getOofSettings(),
+						"save" => $this->saveOofSettings($action),
+						default => $this->handleUnknownActionType($actionType),
+					};
 				}
-				catch (SettingsException|MAPIException $e) {
+				catch (MAPIException|SettingsException $e) {
 					$this->processException($e, $actionType);
 				}
 			}

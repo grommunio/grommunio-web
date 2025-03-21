@@ -6,15 +6,14 @@ class Plugin {
 	// holds session data of the plugin
 	private $sessionData = false;
 
-	public function __construct() {
-	}
+	public function __construct() {}
 
 	/**
 	 * setPluginName.
 	 *
 	 * Sets the identifying name of the plugin in a member variable.
 	 *
-	 *@param $name string Identifying name of the plugin
+	 * @param $name string Identifying name of the plugin
 	 */
 	public function setPluginName($name) {
 		$this->pluginname = $name;
@@ -25,7 +24,7 @@ class Plugin {
 	 *
 	 * Gets the identifying name of the plugin.
 	 *
-	 *@return string Identifying name of the plugin
+	 * @return string Identifying name of the plugin
 	 */
 	public function getPluginName() {
 		return $this->pluginname;
@@ -74,8 +73,8 @@ class Plugin {
 	 * This could be disabled for performance improvement, but this may cause data loss if the
 	 * data is never saved
 	 *
-	 * @param $key string Identifier in the session data
-	 * @param $value mixed data associated to the key
+	 * @param $key      string Identifier in the session data
+	 * @param $value    mixed data associated to the key
 	 * @param $autosave boolean By default all data is saved
 	 */
 	public function setData($key, $value, $autosave = true) {
@@ -121,9 +120,7 @@ class Plugin {
 	}
 
 	// Placeholder functions
-	public function execute($eventID, &$data) {
-	}
+	public function execute($eventID, &$data) {}
 
-	public function init() {
-	}
+	public function init() {}
 }

@@ -89,13 +89,13 @@ class WebAppAuthentication {
 	 */
 	public static function getErrorMessage() {
 		return match (WebAppAuthentication::getErrorCode()) {
-            NOERROR => '',
-            ecUnknownUser, MAPI_E_LOGON_FAILED, MAPI_E_UNCONFIGURED => _('Logon failed. Please verify your credentials and try again.'),
-            MAPI_E_NETWORK_ERROR => _('Cannot connect to Gromox.'),
-            MAPI_E_INVALID_WORKSTATION_ACCOUNT => _('Login did not work due to a duplicate session. The issue was automatically resolved, please log in again.'),
-            MAPI_E_END_OF_SESSION => '',
-            default => _('Unknown MAPI Error') . ': ' . get_mapi_error_name(WebAppAuthentication::getErrorCode()),
-        };
+			NOERROR => '',
+			ecUnknownUser, MAPI_E_LOGON_FAILED, MAPI_E_UNCONFIGURED => _('Logon failed. Please verify your credentials and try again.'),
+			MAPI_E_NETWORK_ERROR => _('Cannot connect to Gromox.'),
+			MAPI_E_INVALID_WORKSTATION_ACCOUNT => _('Login did not work due to a duplicate session. The issue was automatically resolved, please log in again.'),
+			MAPI_E_END_OF_SESSION => '',
+			default => _('Unknown MAPI Error') . ': ' . get_mapi_error_name(WebAppAuthentication::getErrorCode()),
+		};
 	}
 
 	/**

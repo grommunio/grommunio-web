@@ -386,13 +386,12 @@ class Pluginsmime extends Plugin {
 		unlink($tmpUserCert);
 	}
 
-	function join_xph(&$prop, $msg)
-	{
+	public function join_xph(&$prop, $msg) {
 		$a = mapi_getprops($msg, [PR_TRANSPORT_MESSAGE_HEADERS]);
 		$a = $a === false ? "" : ($a[PR_TRANSPORT_MESSAGE_HEADERS] ?? "");
 		$prop[PR_TRANSPORT_MESSAGE_HEADERS] =
-			"# Outer headers:\n".($prop[PR_TRANSPORT_MESSAGE_HEADERS] ?? "").
-			"# Inner headers:\n".$a;
+			"# Outer headers:\n" . ($prop[PR_TRANSPORT_MESSAGE_HEADERS] ?? "") .
+			"# Inner headers:\n" . $a;
 	}
 
 	/**
@@ -988,10 +987,9 @@ class Pluginsmime extends Plugin {
 		return !empty($rows);
 	}
 
-	public function clear_openssl_error()
-	{
+	public function clear_openssl_error() {
 		while (@openssl_error_string() !== false)
-			/* nothing */;
+		/* nothing */;
 	}
 
 	/**
@@ -1003,11 +1001,14 @@ class Pluginsmime extends Plugin {
 	 */
 	public function extract_openssl_error() {
 		$this->openssl_error = "";
-		while (($s = @openssl_error_string()) !== false)
-			if (strlen($this->openssl_error) == 0)
+		while (($s = @openssl_error_string()) !== false) {
+			if (strlen($this->openssl_error) == 0) {
 				$this->openssl_error = $s;
-			else
-				$this->openssl_error .= "\n".$s;
+			}
+			else {
+				$this->openssl_error .= "\n" . $s;
+			}
+		}
 		$openssl_error_code = 0;
 		if ($this->openssl_error) {
 			$openssl_error_list = explode(":", $this->openssl_error);

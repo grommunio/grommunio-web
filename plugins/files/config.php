@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This enables/disables the WHOLE plugin.
  */

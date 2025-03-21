@@ -29,6 +29,7 @@ class IndexSqlite extends SQLite3 {
 		$this->username = $username ?? $GLOBALS["mapisession"]->getSMTPAddress();
 		$this->session = $session ?? $GLOBALS["mapisession"]->getSession();
 		$this->store = $store ?? $GLOBALS["mapisession"]->getDefaultMessageStore();
+
 		try {
 			$this->open(SQLITE_INDEX_PATH . '/' . $this->username . '/index.sqlite3', SQLITE3_OPEN_READONLY);
 			$this->openResult = 0;
@@ -58,6 +59,7 @@ class IndexSqlite extends SQLite3 {
 			// abort if the entryid is not available
 			else {
 				error_log(sprintf("No entryid available, not possible to link the message %d.", $row['message_id']));
+
 				return;
 			}
 		}
@@ -160,7 +162,7 @@ class IndexSqlite extends SQLite3 {
 		else {
 			$first = true;
 			foreach ($search_patterns as $key => $search_pattern) {
-				switch($key) {
+				switch ($key) {
 					case 'message_classes':
 					case 'date_start':
 					case 'date_end':
@@ -168,6 +170,7 @@ class IndexSqlite extends SQLite3 {
 					case 'has_attachments':
 					case 'categories':
 						break;
+
 					default:
 						if (!is_null($search_pattern)) {
 							if ($first === true) {

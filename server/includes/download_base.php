@@ -1,4 +1,5 @@
 <?php
+
 /**
  * DownloadBase.
  *
@@ -155,17 +156,15 @@ abstract class DownloadBase {
 		$messageClass = '';
 
 		// Convert message class into human readable format, so user can easily understand the display message.
-		$messageClass = match ($this->getTrimmedMessageClass($mapiMessageClass)) {
-            'Appointment' => _('Appointment'),
-            'StickyNote' => _('Sticky Note'),
-            'Contact' => _('Contact'),
-            'DistList' => _('Distribution list'),
-            'Task' => _('Task'),
-            'TaskRequest' => _('Task Request'),
-            default => $mapiMessageClass,
-        };
-
-		return $messageClass;
+		return match ($this->getTrimmedMessageClass($mapiMessageClass)) {
+			'Appointment' => _('Appointment'),
+			'StickyNote' => _('Sticky Note'),
+			'Contact' => _('Contact'),
+			'DistList' => _('Distribution list'),
+			'Task' => _('Task'),
+			'TaskRequest' => _('Task Request'),
+			default => $mapiMessageClass,
+		};
 	}
 
 	/**

@@ -64,8 +64,8 @@ class AppointmentListModule extends ListModule {
 	/**
 	 * Executes all the actions in the $data variable.
 	 */
-	#[\Override]
-    public function execute() {
+	#[Override]
+	public function execute() {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
 				try {
@@ -73,13 +73,13 @@ class AppointmentListModule extends ListModule {
 					$entryid = $this->getActionEntryID($action);
 
 					match ($actionType) {
-                        "list" => $this->messageList($store, $entryid, $action, $actionType),
-                        // @FIXME add functionality to handle private items
-                        "search" => $this->search($store, $entryid, $action, $actionType),
-                        "updatesearch" => $this->updatesearch($store, $entryid, $action),
-                        "stopsearch" => $this->stopSearch($store, $entryid, $action),
-                        default => $this->handleUnknownActionType($actionType),
-                    };
+						"list" => $this->messageList($store, $entryid, $action, $actionType),
+						// @FIXME add functionality to handle private items
+						"search" => $this->search($store, $entryid, $action, $actionType),
+						"updatesearch" => $this->updatesearch($store, $entryid, $action),
+						"stopsearch" => $this->stopSearch($store, $entryid, $action),
+						default => $this->handleUnknownActionType($actionType),
+					};
 				}
 				catch (MAPIException $e) {
 					if (isset($action['suppress_exception']) && $action['suppress_exception'] === true) {
@@ -99,8 +99,8 @@ class AppointmentListModule extends ListModule {
 	 * @param array  $action     the action data, sent by the client
 	 * @param string $actionType the action type, sent by the client
 	 */
-	#[\Override]
-    public function messageList($store, $entryid, $action, $actionType) {
+	#[Override]
+	public function messageList($store, $entryid, $action, $actionType) {
 		if ($store && $entryid) {
 			// initialize start and due date with false value so it will not take values from previous request
 			$this->startdate = false;
@@ -118,6 +118,7 @@ class AppointmentListModule extends ListModule {
 
 			if (!empty($action["timezone_iana"])) {
 				$this->tziana = $action["timezone_iana"];
+
 				try {
 					$this->tzdef = mapi_ianatz_to_tzdef($action['timezone_iana']);
 				}
@@ -458,8 +459,8 @@ class AppointmentListModule extends ListModule {
 	 *
 	 * @return object item properties after processing private items
 	 */
-	#[\Override]
-    public function processPrivateItem($item) {
+	#[Override]
+	public function processPrivateItem($item) {
 		if ($this->startdate && $this->enddate) {
 			if ($this->checkPrivateItem($item)) {
 				$item['props']['subject'] = _('Private Appointment');
@@ -490,7 +491,8 @@ class AppointmentListModule extends ListModule {
 	public static function compareCalendarItems($a, $b) {
 		$start_a = $a["props"]["startdate"];
 		$start_b = $b["props"]["startdate"];
-        return $start_a <=> $start_b;
+
+		return $start_a <=> $start_b;
 	}
 
 	/**
@@ -532,16 +534,18 @@ class AppointmentListModule extends ListModule {
 			// if the appointment does not start at midnight
 			if ((int) $clientDate->format("His") != 0) {
 				$clientMidnight = DateTimeImmutable::createFromFormat(
-					"Y-m-d H:i:s", $clientDate->format("Y-m-d ") . "00:00:00",
-					$clientDate->getTimezone());
+					"Y-m-d H:i:s",
+					$clientDate->format("Y-m-d ") . "00:00:00",
+					$clientDate->getTimezone()
+				);
 				$interval = $clientDate->getTimestamp() - $clientMidnight->getTimestamp();
 				// The code here is based on assumption that if the interval
 				// is greater than 12 hours then the appointment takes place
 				// on the day before or after. This should be fine for all the
 				// timezones which do not exceed 12 hour difference to UTC.
 				$localStart = $interval > 0 ?
-					$calendaritem['props']['startdate'] - ($interval < 43200 ? $interval : $interval - 86400):
-					$calendaritem['props']['startdate'] + ($interval > -43200 ? $interval : $interval - 86400) ;
+					$calendaritem['props']['startdate'] - ($interval < 43200 ? $interval : $interval - 86400) :
+					$calendaritem['props']['startdate'] + ($interval > -43200 ? $interval : $interval - 86400);
 				$calendaritem['props']['startdate'] = $calendaritem['props']['commonstart'] = $localStart;
 				$calendaritem['props']['duedate'] = $calendaritem['props']['commonend'] = $localStart + $duration;
 			}
@@ -574,14 +578,14 @@ class AppointmentListModule extends ListModule {
 	}
 
 	/**
-	 * Adds items to return items list
+	 * Adds items to return items list.
 	 *
 	 * @param object $store
-	 * @param array  $calendaritem
 	 * @param array  $openedMessages
 	 * @param mixed  $start          startdate of the interval
 	 * @param mixed  $end            enddate of the interval
 	 * @param array  $items
+	 * @param mixed  $item
 	 */
 	private function addItems($store, &$item, &$openedMessages, $start, $end, &$items) {
 		$item = $this->processPrivateItem($item);
@@ -601,8 +605,8 @@ class AppointmentListModule extends ListModule {
 			// may have changed, so it's necessary to check again if they are
 			// still in the requested interval.
 			if (($start <= $item["props"]["startdate"] && $end > $item['props']['startdate']) ||
-			    ($start < $item["props"]["duedate"] && $end >= $item['props']['duedate']) ||
-			    ($start > $item["props"]["startdate"] && $end < $item['props']['duedate'])) {
+				($start < $item["props"]["duedate"] && $end >= $item['props']['duedate']) ||
+				($start > $item["props"]["startdate"] && $end < $item['props']['duedate'])) {
 				array_push($items, $item);
 			}
 		}

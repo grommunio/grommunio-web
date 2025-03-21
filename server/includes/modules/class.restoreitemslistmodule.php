@@ -19,8 +19,8 @@ class RestoreItemsListModule extends ListModule {
 	/**
 	 * Executes all the actions in the $data variable.
 	 */
-	#[\Override]
-    public function execute() {
+	#[Override]
+	public function execute() {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
 				try {
@@ -53,12 +53,12 @@ class RestoreItemsListModule extends ListModule {
 							$itemType = $action["message_action"]["action_type"];
 
 							match ($itemType) {
-                                "restorefolder" => $this->restoreFolder($store, $parententryid, $folderentryid),
-                                "deletefolder" => $this->deleteFolder($store, $parententryid, $action),
-                                "restoremessage" => $this->restoreItems($store, $parententryid, $action),
-                                "deletemessage" => $this->deleteItems($store, $parententryid, $action),
-                                default => $this->handleUnknownActionType($itemType),
-                            };
+								"restorefolder" => $this->restoreFolder($store, $parententryid, $folderentryid),
+								"deletefolder" => $this->deleteFolder($store, $parententryid, $action),
+								"restoremessage" => $this->restoreItems($store, $parententryid, $action),
+								"deletemessage" => $this->deleteItems($store, $parententryid, $action),
+								default => $this->handleUnknownActionType($itemType),
+							};
 							break;
 
 						default:

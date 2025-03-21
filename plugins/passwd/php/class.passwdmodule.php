@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Passwd module.
  * Module that will be used to change passwords of the user.
@@ -7,15 +8,15 @@ class PasswdModule extends Module {
 	/**
 	 * Process the incoming events that were fire by the client.
 	 */
-	#[\Override]
-    public function execute() {
+	#[Override]
+	public function execute() {
 		foreach ($this->data as $actionType => $actionData) {
 			if (isset($actionType)) {
 				try {
 					match ($actionType) {
-                        'save' => $this->save($actionData),
-                        default => $this->handleUnknownActionType($actionType),
-                    };
+						'save' => $this->save($actionData),
+						default => $this->handleUnknownActionType($actionType),
+					};
 				}
 				catch (MAPIException $e) {
 					$this->sendFeedback(false, $this->errorDetailsFromException($e));

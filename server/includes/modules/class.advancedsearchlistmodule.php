@@ -35,8 +35,8 @@ class AdvancedSearchListModule extends ListModule {
 	/**
 	 * Executes all the actions in the $data variable.
 	 */
-	#[\Override]
-    public function execute() {
+	#[Override]
+	public function execute() {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
 				try {
@@ -96,8 +96,8 @@ class AdvancedSearchListModule extends ListModule {
 	 * @param array  $action     the action data, sent by the client
 	 * @param string $actionType the action type, sent by the client
 	 */
-	#[\Override]
-    public function messageList($store, $entryid, $action, $actionType) {
+	#[Override]
+	public function messageList($store, $entryid, $action, $actionType) {
 		$this->searchFolderList = false; // Set to indicate this is not the search result, but a normal folder content
 		$data = [];
 
@@ -274,8 +274,8 @@ class AdvancedSearchListModule extends ListModule {
 	 * @param object $action     the action data, sent by the client
 	 * @param string $actionType the action type, sent by the client
 	 */
-	#[\Override]
-    public function search($store, $entryid, $action, $actionType) {
+	#[Override]
+	public function search($store, $entryid, $action, $actionType) {
 		$useSearchFolder = $action["use_searchfolder"] ?? false;
 		if (!$useSearchFolder) {
 			/*
@@ -323,16 +323,17 @@ class AdvancedSearchListModule extends ListModule {
 		if ($searchFolder === false) {
 			if ($store_props[PR_MDB_PROVIDER] == ZARAFA_STORE_DELEGATE_GUID) {
 				$this->messageList($store, $entryid, $action, "search");
+
 				return true;
 			}
 			// if error in creating search folder then send error to client
 			$errorInfo = [];
 
 			$errorInfo["error_message"] = match (mapi_last_hresult()) {
-                MAPI_E_NO_ACCESS => _("Unable to perform search query, no permissions to create search folder."),
-                MAPI_E_NOT_FOUND => _("Unable to perform search query, search folder not found."),
-                default => _("Unable to perform search query, store might not support searching."),
-            };
+				MAPI_E_NO_ACCESS => _("Unable to perform search query, no permissions to create search folder."),
+				MAPI_E_NOT_FOUND => _("Unable to perform search query, search folder not found."),
+				default => _("Unable to perform search query, store might not support searching."),
+			};
 
 			$errorInfo["original_error_message"] = _("Error in creating search folder.");
 
@@ -395,10 +396,12 @@ class AdvancedSearchListModule extends ListModule {
 		// Sort
 		$this->parseSortOrder($action);
 		// Initialize search patterns with default values
-		$search_patterns = array_fill_keys(['sender', 'sending', 'recipients',
-			'subject', 'content', 'attachments', 'others', 'message_classes',
-			'date_start', 'date_end', 'unread', 'has_attachments', 'categories'],
-			null);
+		$search_patterns = array_fill_keys(
+			['sender', 'sending', 'recipients',
+				'subject', 'content', 'attachments', 'others', 'message_classes',
+				'date_start', 'date_end', 'unread', 'has_attachments', 'categories'],
+			null
+		);
 		$this->parsePatterns($this->restriction, $search_patterns);
 		if (isset($search_patterns['message_classes']) &&
 			count($search_patterns['message_classes']) >= 7) {

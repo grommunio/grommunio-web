@@ -172,13 +172,13 @@ class MAPISession {
 			$user = $this->getUser($store_props[PR_USER_ENTRYID]);
 
 			// receive userdata
-			$user_props = [ PR_ASSISTANT, PR_ASSISTANT_TELEPHONE_NUMBER, PR_BUSINESS2_TELEPHONE_NUMBER, PR_BUSINESS_TELEPHONE_NUMBER,
+			$user_props = [PR_ASSISTANT, PR_ASSISTANT_TELEPHONE_NUMBER, PR_BUSINESS2_TELEPHONE_NUMBER, PR_BUSINESS_TELEPHONE_NUMBER,
 				PR_COMPANY_NAME, PR_COUNTRY, PR_DEPARTMENT_NAME, PR_DISPLAY_NAME,
 				PR_EMAIL_ADDRESS, PR_EMS_AB_THUMBNAIL_PHOTO, PR_GIVEN_NAME, PR_HOME2_TELEPHONE_NUMBER,
 				PR_STREET_ADDRESS, PR_HOME_TELEPHONE_NUMBER, PR_INITIALS, PR_LOCALITY,
 				PR_MOBILE_TELEPHONE_NUMBER, PR_OFFICE_LOCATION, PR_PAGER_TELEPHONE_NUMBER, PR_POSTAL_CODE,
 				PR_PRIMARY_FAX_NUMBER, PR_PRIMARY_TELEPHONE_NUMBER, PR_SEARCH_KEY, PR_SMTP_ADDRESS,
-				PR_STATE_OR_PROVINCE, PR_SURNAME, PR_TITLE ];
+				PR_STATE_OR_PROVINCE, PR_SURNAME, PR_TITLE];
 
 			$user_props = mapi_getprops($user, $user_props);
 
@@ -245,8 +245,8 @@ class MAPISession {
 	/**
 	 * Get MAPI addressbook object.
 	 *
-	 * @param bool $providerless When set to true it will return an addressbook resource
-	 *                           without any Contact Provider set on it, defaults to false
+	 * @param bool $providerless               When set to true it will return an addressbook resource
+	 *                                         without any Contact Provider set on it, defaults to false
 	 * @param bool $loadSharedContactsProvider when set to true it denotes that shared folders are
 	 *                                         required to be configured to load the contacts from
 	 *
@@ -320,6 +320,7 @@ class MAPISession {
 	 */
 	public function getUserEntryID() {
 		$this->retrieveUserData();
+
 		return $this->session_info["userentryid"] ?? '';
 	}
 
@@ -330,6 +331,7 @@ class MAPISession {
 	 */
 	public function getUserName() {
 		$encryptionStore = EncryptionStore::getInstance();
+
 		return $encryptionStore->get('username') ?: '';
 	}
 
@@ -340,6 +342,7 @@ class MAPISession {
 	 */
 	public function getFullName() {
 		$this->retrieveUserData();
+
 		return array_key_exists("fullname", $this->session_info) ? $this->session_info["fullname"] : false;
 	}
 
@@ -350,6 +353,7 @@ class MAPISession {
 	 */
 	public function getSMTPAddress() {
 		$this->retrieveUserData();
+
 		return array_key_exists("smtpaddress", $this->session_info) ? $this->session_info["smtpaddress"] : false;
 	}
 
@@ -360,6 +364,7 @@ class MAPISession {
 	 */
 	public function getEmailAddress() {
 		$this->retrieveUserData();
+
 		return array_key_exists("emailaddress", $this->session_info) ? $this->session_info["emailaddress"] : false;
 	}
 
@@ -370,6 +375,7 @@ class MAPISession {
 	 */
 	public function getUserImage() {
 		$this->retrieveUserData();
+
 		return array_key_exists("userimage", $this->session_info) ? $this->session_info["userimage"] : false;
 	}
 
@@ -381,111 +387,133 @@ class MAPISession {
 
 	public function getGivenName() {
 		$this->retrieveUserData();
+
 		return array_key_exists("given_name", $this->session_info) ? $this->session_info["given_name"] : false;
 	}
 
 	public function getInitials() {
 		$this->retrieveUserData();
+
 		return array_key_exists("initials", $this->session_info) ? $this->session_info["initials"] : false;
 	}
 
 	public function getSurname() {
 		$this->retrieveUserData();
+
 		return array_key_exists("surname", $this->session_info) ? $this->session_info["surname"] : false;
 	}
 
 	public function getStreetAddress() {
 		$this->retrieveUserData();
+
 		return array_key_exists("street_address", $this->session_info) ? $this->session_info["street_address"] : false;
 	}
 
 	public function getLocality() {
 		$this->retrieveUserData();
+
 		return array_key_exists("locality", $this->session_info) ? $this->session_info["locality"] : false;
 	}
 
 	public function getStateOrProvince() {
 		$this->retrieveUserData();
+
 		return array_key_exists("state_or_province", $this->session_info) ? $this->session_info["state_or_province"] : false;
 	}
 
 	public function getPostalCode() {
 		$this->retrieveUserData();
+
 		return array_key_exists("postal_code", $this->session_info) ? $this->session_info["postal_code"] : false;
 	}
 
 	public function getCountry() {
 		$this->retrieveUserData();
+
 		return array_key_exists("country", $this->session_info) ? $this->session_info["country"] : false;
 	}
 
 	public function getTitle() {
 		$this->retrieveUserData();
+
 		return array_key_exists("title", $this->session_info) ? $this->session_info["title"] : false;
 	}
 
 	public function getCompanyName() {
 		$this->retrieveUserData();
+
 		return array_key_exists("company_name", $this->session_info) ? $this->session_info["company_name"] : false;
 	}
 
 	public function getDepartmentName() {
 		$this->retrieveUserData();
+
 		return array_key_exists("department_name", $this->session_info) ? $this->session_info["department_name"] : false;
 	}
 
 	public function getOfficeLocation() {
 		$this->retrieveUserData();
+
 		return array_key_exists("office_location", $this->session_info) ? $this->session_info["office_location"] : false;
 	}
 
 	public function getAssistant() {
 		$this->retrieveUserData();
+
 		return array_key_exists("assistant", $this->session_info) ? $this->session_info["assistant"] : false;
 	}
 
 	public function getAssistantTelephoneNumber() {
 		$this->retrieveUserData();
+
 		return array_key_exists("assistant_telephone_number", $this->session_info) ? $this->session_info["assistant_telephone_number"] : false;
 	}
 
 	public function getOfficeTelephoneNumber() {
 		$this->retrieveUserData();
+
 		return array_key_exists("office_telephone_number", $this->session_info) ? $this->session_info["office_telephone_number"] : false;
 	}
 
 	public function getBusinessTelephoneNumber() {
 		$this->retrieveUserData();
+
 		return array_key_exists("business_telephone_number", $this->session_info) ? $this->session_info["business_telephone_number"] : false;
 	}
 
 	public function getBusiness2TelephoneNumber() {
 		$this->retrieveUserData();
+
 		return array_key_exists("business2_telephone_number", $this->session_info) ? $this->session_info["business2_telephone_number"] : false;
 	}
 
 	public function getPrimaryFaxNumber() {
 		$this->retrieveUserData();
+
 		return array_key_exists("primary_fax_number", $this->session_info) ? $this->session_info["primary_fax_number"] : false;
 	}
 
 	public function getHomeTelephoneNumber() {
 		$this->retrieveUserData();
+
 		return array_key_exists("home_telephone_number", $this->session_info) ? $this->session_info["home_telephone_number"] : false;
 	}
 
 	public function getHome2TelephoneNumber() {
 		$this->retrieveUserData();
+
 		return array_key_exists("home2_telephone_number", $this->session_info) ? $this->session_info["home2_telephone_number"] : false;
 	}
 
 	public function getMobileTelephoneNumber() {
 		$this->retrieveUserData();
+
 		return array_key_exists("mobile_telephone_number", $this->session_info) ? $this->session_info["mobile_telephone_number"] : false;
 	}
 
 	public function getPagerTelephoneNumber() {
 		$this->retrieveUserData();
+
 		return array_key_exists("pager_telephone_number", $this->session_info) ? $this->session_info["pager_telephone_number"] : false;
 	}
 
@@ -496,6 +524,7 @@ class MAPISession {
 	 */
 	public function isGwebEnabled() {
 		$store_props = mapi_getprops($this->getDefaultMessageStore(), [PR_EC_ENABLED_FEATURES_L]);
+
 		return $store_props[PR_EC_ENABLED_FEATURES_L] & UP_WEB;
 	}
 
@@ -581,6 +610,7 @@ class MAPISession {
 	 */
 	public function getSearchKey() {
 		$this->retrieveUserData();
+
 		return $this->session_info["searchkey"] ?? '';
 	}
 

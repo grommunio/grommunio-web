@@ -1,4 +1,5 @@
 <?php
+
 /**
  * suggestEmailAddressModule.
  *
@@ -19,8 +20,8 @@ class suggestEmailAddressModule extends Module {
 		parent::__construct($id, $data);
 	}
 
-	#[\Override]
-    public function execute() {
+	#[Override]
+	public function execute() {
 		try {
 			// Retrieve the recipient history
 			$storeProps = mapi_getprops($GLOBALS["mapisession"]->getDefaultMessageStore(), [PR_EC_RECIPIENT_HISTORY_JSON]);
@@ -78,7 +79,7 @@ class suggestEmailAddressModule extends Module {
 	 * in mapi property. it searches for deleteRecipients key in the action array which will
 	 * contain email addresses of recipients that should be deleted in semicolon separated format.
 	 *
-	 * @param array $action action data in associative array format
+	 * @param array $action            action data in associative array format
 	 * @param array $recipient_history recipient history stored in mapi property
 	 */
 	public function deleteRecipient($action, $recipient_history) {
@@ -115,8 +116,9 @@ class suggestEmailAddressModule extends Module {
 	 * Function is used to get recipient history from mapi property based
 	 * on the query specified by the client in action array.
 	 *
-	 * @param array $action action data in associative array format
+	 * @param array $action            action data in associative array format
 	 * @param array $recipient_history recipient history stored in mapi property
+	 *
 	 * @returns {Array} data holding recipients that matched the query.
 	 */
 	public function getRecipientList($action, $recipient_history) {
@@ -142,7 +144,7 @@ class suggestEmailAddressModule extends Module {
 				// Check if the string is present in name or email fields
 				if ($l_ibPosName !== false || $l_ibPosEmail !== false) {
 					// Check if the found string matches from the start of the word
-					if ($l_ibPosName === 0 || substr($l_sName, ($l_ibPosName - 1), 1) == ' ' || $l_ibPosEmail === 0 || substr($l_sEmail, ($l_ibPosEmail - 1), 1) == ' ') {
+					if ($l_ibPosName === 0 || substr($l_sName, $l_ibPosName - 1, 1) == ' ' || $l_ibPosEmail === 0 || substr($l_sEmail, $l_ibPosEmail - 1, 1) == ' ') {
 						array_push($l_aResult[0], [
 							'display_name' => $recipient_history['recipients'][$i]['display_name'],
 							'smtp_address' => $recipient_history['recipients'][$i]['smtp_address'],

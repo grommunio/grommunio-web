@@ -5,9 +5,10 @@ require_once 'php/util.php';
 
 /**
  * @internal
+ *
  * @coversNothing
  */
-class OCSPCertificateTest extends \PHPUnit_Framework_TestCase {
+class OCSPCertificateTest extends PHPUnit_Framework_TestCase {
 	protected $cert;
 
 	protected function setUp() {

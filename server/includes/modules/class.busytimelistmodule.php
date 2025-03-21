@@ -26,8 +26,8 @@ class BusyTimeListModule extends AppointmentListModule {
 	 * Creates the notifiers for this module,
 	 * and register them to the Bus.
 	 */
-	#[\Override]
-    public function createNotifiers() {
+	#[Override]
+	public function createNotifiers() {
 		// Keep empty, the BusyTimeListModule doesn't need notifiers.
 	}
 
@@ -42,8 +42,8 @@ class BusyTimeListModule extends AppointmentListModule {
 	 *
 	 * @return array $items processed items
 	 */
-	#[\Override]
-    public function processItems($calendaritems, $store, $entryid, $start, $end) {
+	#[Override]
+	public function processItems($calendaritems, $store, $entryid, $start, $end) {
 		$items = [];
 		foreach ($calendaritems as $calendaritem) {
 			if (isset($calendaritem[$this->properties["recurring"]]) && $calendaritem[$this->properties["recurring"]]) {

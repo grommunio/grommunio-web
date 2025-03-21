@@ -6,8 +6,7 @@
  * Makes possible to see contact location on openstreetmap
  */
 class Pluginmaps extends Plugin {
-	public function __construct() {
-	}
+	public function __construct() {}
 
 	/**
 	 * Function initializes the Plugin and registers all hooks.
@@ -43,8 +42,6 @@ class Pluginmaps extends Plugin {
 	/**
 	 * Function includes the the files necessary for using
 	 * leaflet.
-	 *
-	 *  @param $data
 	 */
 	public function addLeafletJsFile(&$data) {
 		// make sure to load remote files only when plugin is enabled
@@ -58,8 +55,6 @@ class Pluginmaps extends Plugin {
 	/**
 	 * Function includes the the files necessary for using
 	 * leaflet.
-	 *
-	 *  @param $data
 	 */
 	public function addLeafletCssFile(&$data) {
 		// make sure to load remote files only when plugin is enabled

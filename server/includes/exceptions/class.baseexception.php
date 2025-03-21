@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Defines a base exception class for all custom exceptions, so every exceptions that
  * is thrown/caught by this application should extend this base class and make use of it.
@@ -40,12 +41,11 @@ class BaseException extends Exception {
 	/**
 	 * Construct the exception.
 	 *
-	 * @param string    $errorMessage
-	 * @param int       $code
-	 * @param Exception $previous
-	 * @param string    $displayMessage
+	 * @param string $errorMessage
+	 * @param int    $code
+	 * @param string $displayMessage
 	 */
-	public function __construct($errorMessage, $code = 0, Exception $previous = null, public $displayMessage = null) {
+	public function __construct($errorMessage, $code = 0, ?Exception $previous = null, public $displayMessage = null) {
 		parent::__construct($errorMessage, (int) $code, $previous);
 	}
 

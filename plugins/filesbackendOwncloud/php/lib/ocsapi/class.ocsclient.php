@@ -71,32 +71,29 @@ class ocsclient {
 	];
 
 	/**
-     * Constructor.
-     *
-     * @param $baseurl
-     * @param $user
-     * @param $pass
-     * @param $allowSelfSignedCerts
-     *
-     * @throws ConnectionException
-     * @param string $baseurl
-     * @param string $user
-     * @param string $pass
-     * @param bool $allowSelfSignedCerts
-     */
-    public function __construct(/**
-     * @var string Server base URL
-     */
-    private $baseurl, /**
-     * @var string Username
-     */
-    private $user, /**
-     * @var string Password
-     */
-    private $pass, /**
-     * @var bool Allow self signed certs
-     */
-    private $allowSelfSignedCerts = false) {
+	 * Constructor.
+	 *
+	 * @param string $baseurl
+	 * @param string $user
+	 * @param string $pass
+	 * @param bool   $allowSelfSignedCerts
+	 *
+	 * @throws ConnectionException
+	 */
+	public function __construct(/**
+	 * @var string Server base URL
+	 */
+		private $baseurl, /**
+	 * @var string Username
+	 */
+		private $user, /**
+	 * @var string Password
+	 */
+		private $pass, /**
+	 * @var bool Allow self signed certs
+	 */
+		private $allowSelfSignedCerts = false
+	) {
 		// check if curl is available
 		$serverHasCurl = function_exists('curl_version');
 		if (!$serverHasCurl) {
@@ -130,13 +127,13 @@ class ocsclient {
 	/**
 	 * Execute curl request with parameters.
 	 *
-	 * @param $url string URL for the request
+	 * @param       $url         string URL for the request
 	 * @param mixed $curlOptions
+	 *
+	 * @return curl responsedata
 	 *
 	 * @throws ConnectionException
 	 * @throws InvalidResponseException
-	 *
-	 * @return curl responsedata
 	 */
 	private function doCurlRequest($url, $curlOptions) {
 		$ch = curl_init();
@@ -201,12 +198,10 @@ class ocsclient {
 	/**
 	 * Loads only one specific share defined by ID.
 	 *
-	 * @param $id
+	 * @return ocsshare or FALSE
 	 *
 	 * @throws ConnectionException
 	 * @throws InvalidResponseException
-	 *
-	 * @return ocsshare or FALSE
 	 */
 	public function loadShareByID($id) {
 		$url = $this->getOCSUrl() . "/" . $id;
@@ -219,12 +214,10 @@ class ocsclient {
 	/**
 	 * Loads one or more shares defined by path.
 	 *
-	 * @param $path
+	 * @return ocsshare[] or FALSE
 	 *
 	 * @throws ConnectionException
 	 * @throws InvalidResponseException
-	 *
-	 * @return ocsshare[] or FALSE
 	 */
 	public function loadShareByPath($path) {
 		$path = rtrim((string) $path, "/");
@@ -249,10 +242,10 @@ class ocsclient {
 	 *
 	 * @param mixed $search
 	 *
+	 * @return [] or FALSE
+	 *
 	 * @throws ConnectionException
 	 * @throws InvalidResponseException
-	 *
-	 * @return [] or FALSE
 	 */
 	public function getRecipients($search) {
 		$url = $this->baseurl . self::OCS_PATH . "/sharees?itemType=file&search=" . urlencode((string) $search);
@@ -302,8 +295,6 @@ class ocsclient {
 	/**
 	 * Returns one ocsshare specified by ID. Or FALSE if the ID was not found or store is not loaded yet.
 	 *
-	 * @param $id
-	 *
 	 * @return ocsshare or bool
 	 */
 	public function getShareByID($id) {
@@ -316,8 +307,6 @@ class ocsclient {
 
 	/**
 	 * Returns one or many ocsshare specified by Path. Or FALSE if path was not found or store is not loaded yet.
-	 *
-	 * @param $path
 	 *
 	 * @return ocsshare[] or bool
 	 */
@@ -349,13 +338,10 @@ class ocsclient {
 	 * Options has to include shareType (int),  ‘0’ = user; ‘1’ = group; ‘3’ = public link;
 	 * and shareWith for shareType 0 or 1.
 	 *
-	 * @param $path
-	 * @param $options
+	 * @return ocsshare
 	 *
 	 * @throws ConnectionException
 	 * @throws InvalidResponseException
-	 *
-	 * @return ocsshare
 	 */
 	public function createShare($path, $options) {
 		$url = $this->getOCSUrl();
@@ -385,14 +371,10 @@ class ocsclient {
 	/**
 	 * Update one value of the given share. ATTENTION: updating the password will change the share id.
 	 *
-	 * @param $id
-	 * @param $key
-	 * @param $value
+	 * @return ocsshare Returns a empty share
 	 *
 	 * @throws ConnectionException
 	 * @throws InvalidResponseException
-	 *
-	 * @return ocsshare Returns a empty share
 	 */
 	public function updateShare($id, $key, $value) {
 		$url = $this->getOCSUrl() . "/" . $id;
@@ -421,12 +403,10 @@ class ocsclient {
 	/**
 	 * Delete the given share.
 	 *
-	 * @param $id
+	 * @return ocsshare Returns a empty share
 	 *
 	 * @throws ConnectionException
 	 * @throws InvalidResponseException
-	 *
-	 * @return ocsshare Returns a empty share
 	 */
 	public function deleteShare($id) {
 		$url = $this->getOCSUrl() . "/" . $id;
@@ -441,15 +421,13 @@ class ocsclient {
 	/**
 	 * Parse the response of a create or modify request.
 	 *
-	 * @param $response
+	 * @return ocsshare
 	 *
 	 * @throws FileNotFoundException
 	 * @throws InvalidArgumentException
 	 * @throws InvalidRequestException
 	 * @throws InvalidResponseException
 	 * @throws PermissionDeniedException
-	 *
-	 * @return ocsshare
 	 */
 	private function parseModificationResponse($response) {
 		if ($response) {
@@ -486,8 +464,6 @@ class ocsclient {
 	/**
 	 * Parse the request response.
 	 *
-	 * @param $response
-	 *
 	 * @throws FileNotFoundException
 	 * @throws InvalidArgumentException
 	 * @throws InvalidRequestException
@@ -523,15 +499,13 @@ class ocsclient {
 	/**
 	 * Parse the response meta block and its error codes.
 	 *
-	 * @param $response
+	 * @return bool
 	 *
 	 * @throws FileNotFoundException
 	 * @throws InvalidArgumentException
 	 * @throws InvalidRequestException
 	 * @throws InvalidResponseException
 	 * @throws PermissionDeniedException
-	 *
-	 * @return bool
 	 */
 	private function parseResponseMeta($response) {
 		if ($response) {
@@ -544,12 +518,12 @@ class ocsclient {
 			}
 
 			match ($statuscode) {
-                400 => throw new InvalidArgumentException($message),
-                403 => throw new PermissionDeniedException($message),
-                404 => throw new FileNotFoundException($message),
-                999 => throw new InvalidRequestException($message),
-                default => throw new InvalidResponseException($message),
-            };
+				400 => throw new InvalidArgumentException($message),
+				403 => throw new PermissionDeniedException($message),
+				404 => throw new FileNotFoundException($message),
+				999 => throw new InvalidRequestException($message),
+				default => throw new InvalidResponseException($message),
+			};
 		}
 		else {
 			throw new InvalidResponseException("Response contains no meta block.");
