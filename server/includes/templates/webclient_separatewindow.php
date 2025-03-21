@@ -21,7 +21,7 @@ $loader = new FileLoader();
 		?>
 	</head>
 
-	<body class="theme-<?php echo strtolower($theme ?: 'basic'); ?>">
+	<body class="theme-<?php echo strtolower((string) $theme ?: 'basic'); ?>">
 		<?php
 			$jsTemplate = "\t\t<script src=\"{file}\"></script>";
 				if (DEBUG_LOADER === LOAD_RELEASE) {
