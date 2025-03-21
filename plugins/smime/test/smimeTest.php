@@ -1,7 +1,7 @@
 <?php
 
-if (class_exists('\PHPUnit\Framework\TestCase')) {
-	class_alias('\PHPUnit\Framework\TestCase', '\PHPUnit_Framework_TestCase');
+if (class_exists(\PHPUnit\Framework\TestCase::class)) {
+	class_alias(\PHPUnit\Framework\TestCase::class, '\PHPUnit_Framework_TestCase');
 }
 
 if (!defined('OPENSSL_CONF_PATH')) {
