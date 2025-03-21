@@ -51,26 +51,13 @@ class RestoreItemsListModule extends ListModule {
 						case "delete":
 							$itemType = $action["message_action"]["action_type"];
 
-							switch ($itemType) {
-								case "restorefolder" :
-									$this->restoreFolder($store, $parententryid, $folderentryid);
-									break;
-
-								case "deletefolder" :
-									$this->deleteFolder($store, $parententryid, $action);
-									break;
-
-								case "restoremessage" :
-									$this->restoreItems($store, $parententryid, $action);
-									break;
-
-								case "deletemessage" :
-									$this->deleteItems($store, $parententryid, $action);
-									break;
-
-								default:
-									$this->handleUnknownActionType($itemType);
-							}
+							match ($itemType) {
+                                "restorefolder" => $this->restoreFolder($store, $parententryid, $folderentryid),
+                                "deletefolder" => $this->deleteFolder($store, $parententryid, $action),
+                                "restoremessage" => $this->restoreItems($store, $parententryid, $action),
+                                "deletemessage" => $this->deleteItems($store, $parententryid, $action),
+                                default => $this->handleUnknownActionType($itemType),
+                            };
 							break;
 
 						default:

@@ -352,31 +352,13 @@ class PluginMDMModule extends Module {
 	 * @return string general folder type
 	 */
 	public function getSyncFolderType($type) {
-		switch ($type) {
-			case SYNC_FOLDER_TYPE_APPOINTMENT:
-			case SYNC_FOLDER_TYPE_USER_APPOINTMENT:
-				$folderType = "Calendars";
-				break;
-
-			case SYNC_FOLDER_TYPE_CONTACT:
-			case SYNC_FOLDER_TYPE_USER_CONTACT:
-				$folderType = "Contacts";
-				break;
-
-			case SYNC_FOLDER_TYPE_TASK:
-			case SYNC_FOLDER_TYPE_USER_TASK:
-				$folderType = "Tasks";
-				break;
-
-			case SYNC_FOLDER_TYPE_NOTE:
-			case SYNC_FOLDER_TYPE_USER_NOTE:
-				$folderType = "Notes";
-				break;
-
-			default:
-				$folderType = "Emails";
-				break;
-		}
+		$folderType = match ($type) {
+            SYNC_FOLDER_TYPE_APPOINTMENT, SYNC_FOLDER_TYPE_USER_APPOINTMENT => "Calendars",
+            SYNC_FOLDER_TYPE_CONTACT, SYNC_FOLDER_TYPE_USER_CONTACT => "Contacts",
+            SYNC_FOLDER_TYPE_TASK, SYNC_FOLDER_TYPE_USER_TASK => "Tasks",
+            SYNC_FOLDER_TYPE_NOTE, SYNC_FOLDER_TYPE_USER_NOTE => "Notes",
+            default => "Emails",
+        };
 
 		return $folderType;
 	}
@@ -743,28 +725,15 @@ class PluginMDMModule extends Module {
 	 * @return int folder type
 	 */
 	public function getFolderTypeFromContainerClass($containerClass) {
-		switch ($containerClass) {
-			case "IPF.Note":
-				return SYNC_FOLDER_TYPE_USER_MAIL;
-
-			case "IPF.Appointment":
-				return SYNC_FOLDER_TYPE_USER_APPOINTMENT;
-
-			case "IPF.Contact":
-				return SYNC_FOLDER_TYPE_USER_CONTACT;
-
-			case "IPF.StickyNote":
-				return SYNC_FOLDER_TYPE_USER_NOTE;
-
-			case "IPF.Task":
-				return SYNC_FOLDER_TYPE_USER_TASK;
-
-			case "IPF.Journal":
-				return SYNC_FOLDER_TYPE_USER_JOURNAL;
-
-			default:
-				return SYNC_FOLDER_TYPE_UNKNOWN;
-		}
+		return match ($containerClass) {
+            "IPF.Note" => SYNC_FOLDER_TYPE_USER_MAIL,
+            "IPF.Appointment" => SYNC_FOLDER_TYPE_USER_APPOINTMENT,
+            "IPF.Contact" => SYNC_FOLDER_TYPE_USER_CONTACT,
+            "IPF.StickyNote" => SYNC_FOLDER_TYPE_USER_NOTE,
+            "IPF.Task" => SYNC_FOLDER_TYPE_USER_TASK,
+            "IPF.Journal" => SYNC_FOLDER_TYPE_USER_JOURNAL,
+            default => SYNC_FOLDER_TYPE_UNKNOWN,
+        };
 	}
 
 	/**

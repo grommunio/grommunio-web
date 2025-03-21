@@ -19,42 +19,16 @@ class MAPIException extends BaseException {
 			return $this->displayMessage;
 		}
 
-		switch ($this->getCode()) {
-			case MAPI_E_NO_ACCESS:
-				return dgettext("zarafa", "You have insufficient privileges to open this object.");
-
-			case MAPI_E_LOGON_FAILED:
-			case MAPI_E_UNCONFIGURED:
-				return dgettext("zarafa", "Logon Failed. Please check your name/password.");
-
-			case MAPI_E_NETWORK_ERROR:
-				return dgettext("zarafa", "Can not connect to Gromox.");
-
-			case MAPI_E_UNKNOWN_ENTRYID:
-				return dgettext("zarafa", "Can not open object with provided id.");
-
-			case MAPI_E_NO_RECIPIENTS:
-				return dgettext("zarafa", "There are no recipients in the message.");
-
-			case MAPI_E_NOT_FOUND:
-				return dgettext("zarafa", "Can not find object.");
-
-			case MAPI_E_NOT_ENOUGH_MEMORY:
-				return dgettext("zarafa", "Operation failed: Server does not have enough memory.");
-
-			case MAPI_E_INTERFACE_NOT_SUPPORTED:
-			case MAPI_E_INVALID_PARAMETER:
-			case MAPI_E_INVALID_ENTRYID:
-			case MAPI_E_INVALID_OBJECT:
-			case MAPI_E_TOO_COMPLEX:
-			case MAPI_E_CORRUPT_DATA:
-			case MAPI_E_END_OF_SESSION:
-			case MAPI_E_AMBIGUOUS_RECIP:
-			case MAPI_E_COLLISION:
-			case MAPI_E_UNCONFIGURED:
-			default:
-				return sprintf(dgettext("zarafa", "Unknown MAPI Error: %s"), get_mapi_error_name($this->getCode()));
-		}
+		return match ($this->getCode()) {
+            MAPI_E_NO_ACCESS => dgettext("zarafa", "You have insufficient privileges to open this object."),
+            MAPI_E_LOGON_FAILED, MAPI_E_UNCONFIGURED => dgettext("zarafa", "Logon Failed. Please check your name/password."),
+            MAPI_E_NETWORK_ERROR => dgettext("zarafa", "Can not connect to Gromox."),
+            MAPI_E_UNKNOWN_ENTRYID => dgettext("zarafa", "Can not open object with provided id."),
+            MAPI_E_NO_RECIPIENTS => dgettext("zarafa", "There are no recipients in the message."),
+            MAPI_E_NOT_FOUND => dgettext("zarafa", "Can not find object."),
+            MAPI_E_NOT_ENOUGH_MEMORY => dgettext("zarafa", "Operation failed: Server does not have enough memory."),
+            default => sprintf(dgettext("zarafa", "Unknown MAPI Error: %s"), get_mapi_error_name($this->getCode())),
+        };
 	}
 }
 

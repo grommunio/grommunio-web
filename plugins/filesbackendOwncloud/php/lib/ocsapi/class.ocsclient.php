@@ -543,26 +543,13 @@ class ocsclient {
 				return true;
 			}
 
-			switch ($statuscode) {
-				case 400:
-					throw new InvalidArgumentException($message);
-					break;
-
-				case 403:
-					throw new PermissionDeniedException($message);
-					break;
-
-				case 404:
-					throw new FileNotFoundException($message);
-					break;
-
-				case 999:
-					throw new InvalidRequestException($message);
-					break;
-
-				default:
-					throw new InvalidResponseException($message);
-			}
+			match ($statuscode) {
+                400 => throw new InvalidArgumentException($message),
+                403 => throw new PermissionDeniedException($message),
+                404 => throw new FileNotFoundException($message),
+                999 => throw new InvalidRequestException($message),
+                default => throw new InvalidResponseException($message),
+            };
 		}
 		else {
 			throw new InvalidResponseException("Response contains no meta block.");

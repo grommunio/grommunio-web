@@ -23,18 +23,11 @@ class OutOfOfficeSettingsModule extends Module {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
 				try {
-					switch ($actionType) {
-						case "list" :
-							$this->getOofSettings();
-							break;
-
-						case "save" :
-							$this->saveOofSettings($action);
-							break;
-
-						default:
-							$this->handleUnknownActionType($actionType);
-					}
+					match ($actionType) {
+                        "list" => $this->getOofSettings(),
+                        "save" => $this->saveOofSettings($action),
+                        default => $this->handleUnknownActionType($actionType),
+                    };
 				}
 				catch (SettingsException $e) {
 					$this->processException($e, $actionType);

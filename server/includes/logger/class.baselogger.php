@@ -135,23 +135,18 @@ abstract class Logger {
 	 *
 	 * @return string
 	 */
-	protected function GetLogLevelString($loglevel) {
-		switch ($loglevel) {
-			case LOGLEVEL_OFF: return "";
-
-			case LOGLEVEL_FATAL: return "[FATAL]";
-
-			case LOGLEVEL_ERROR: return "[ERROR]";
-
-			case LOGLEVEL_WARN: return "[WARN]";
-
-			case LOGLEVEL_INFO: return "[INFO]";
-
-			case LOGLEVEL_DEBUG: return "[DEBUG]";
-		}
-
-		return "";
-	}
+	protected function GetLogLevelString($loglevel)
+    {
+        return match ($loglevel) {
+            LOGLEVEL_OFF => "",
+            LOGLEVEL_FATAL => "[FATAL]",
+            LOGLEVEL_ERROR => "[ERROR]",
+            LOGLEVEL_WARN => "[WARN]",
+            LOGLEVEL_INFO => "[INFO]",
+            LOGLEVEL_DEBUG => "[DEBUG]",
+            default => "",
+        };
+    }
 
 	/**
 	 * Writes a log message to the general log.

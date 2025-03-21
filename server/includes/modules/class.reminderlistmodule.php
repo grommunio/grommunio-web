@@ -27,14 +27,10 @@ class ReminderListModule extends ListModule {
 
 			if (isset($actionType)) {
 				try {
-					switch ($actionType) {
-						case "list":
-							$this->getReminders();
-							break;
-
-						default:
-							$this->handleUnknownActionType($actionType);
-					}
+					match ($actionType) {
+                        "list" => $this->getReminders(),
+                        default => $this->handleUnknownActionType($actionType),
+                    };
 				}
 				catch (MAPIException $e) {
 					$this->processException($e, $actionType, $store, null, null, $action);

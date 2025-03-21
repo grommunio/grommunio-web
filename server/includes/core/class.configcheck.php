@@ -276,22 +276,11 @@ class ConfigCheck {
 		$result = true;
 
 		// convert $value_needed
-		switch ($value_needed) {
-			case "on":
-			case "yes":
-			case "true":
-				$value = 1;
-				break;
-
-			case "off":
-			case "no":
-			case "false":
-				$value = 0;
-				break;
-
-			default:
-				$value = $value_needed;
-		}
+		$value = match ($value_needed) {
+            "on", "yes", "true" => 1,
+            "off", "no", "false" => 0,
+            default => $value_needed,
+        };
 
 		if (ini_get($setting) != $value) {
 			$this->error_security($setting, $value_needed, $help_msg);

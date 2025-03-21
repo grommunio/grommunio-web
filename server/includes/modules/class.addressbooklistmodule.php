@@ -39,25 +39,14 @@ class AddressbookListModule extends ListModule {
 						$subActionType = $action['subActionType'];
 					}
 
-					switch ($actionType) {
-						case 'list':
-							switch ($subActionType) {
-								case 'hierarchy':
-									$this->getHierarchy($action);
-									break;
-
-								case 'globaladdressbook':
-									$this->GABUsers($action, $subActionType);
-									break;
-
-								default:
-									$this->handleUnknownActionType($actionType);
-							}
-							break;
-
-						default:
-							$this->handleUnknownActionType($actionType);
-					}
+					match ($actionType) {
+                        'list' => match ($subActionType) {
+                            'hierarchy' => $this->getHierarchy($action),
+                            'globaladdressbook' => $this->GABUsers($action, $subActionType),
+                            default => $this->handleUnknownActionType($actionType),
+                        },
+                        default => $this->handleUnknownActionType($actionType),
+                    };
 				}
 				catch (MAPIException $e) {
 					$this->processException($e, $actionType, $store, $parententryid, $entryid, $action);
@@ -161,15 +150,10 @@ class AddressbookListModule extends ListModule {
 							$item['display_type_ex'] = DTE_FLAG_ACL_CAPABLE | DT_MAILUSER | DT_DISTLIST;
 						}
 
-						switch ($user_data[PR_DISPLAY_TYPE]) {
-							case DT_PRIVATE_DISTLIST:
-								$item['email_address'] = '';
-								break;
-
-							case DT_MAILUSER:
-							default:
-								$item['email_address'] = $user_data[$this->properties['email_address']];
-						}
+						$item['email_address'] = match ($user_data[PR_DISPLAY_TYPE]) {
+                            DT_PRIVATE_DISTLIST => '',
+                            default => $user_data[$this->properties['email_address']],
+                        };
 					}
 					elseif ($isSharedFolder && $sharedStore) {
 						// do not display private items

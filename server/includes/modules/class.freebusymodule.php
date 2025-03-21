@@ -12,14 +12,10 @@ class FreeBusyModule extends Module {
 		foreach ($this->data as $actionType => $selUser) {
 			if (isset($actionType)) {
 				try {
-					switch ($actionType) {
-						case 'list':
-							$this->addUserData($selUser);
-							break;
-
-						default:
-							$this->handleUnknownActionType($actionType);
-					}
+					match ($actionType) {
+                        'list' => $this->addUserData($selUser),
+                        default => $this->handleUnknownActionType($actionType),
+                    };
 				}
 				catch (MAPIException $e) {
 					$this->processException($e, $actionType);

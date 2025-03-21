@@ -280,18 +280,11 @@ class ListModule extends Module {
 			// if error in creating search folder then send error to client
 			$errorInfo = [];
 
-			switch (mapi_last_hresult()) {
-				case MAPI_E_NO_ACCESS:
-					$errorInfo["error_message"] = _("Unable to perform search query, no permissions to create search folder.");
-					break;
-
-				case MAPI_E_NOT_FOUND:
-					$errorInfo["error_message"] = _("Unable to perform search query, search folder not found.");
-					break;
-
-				default:
-					$errorInfo["error_message"] = _("Unable to perform search query, store might not support searching.");
-			}
+			$errorInfo["error_message"] = match (mapi_last_hresult()) {
+                MAPI_E_NO_ACCESS => _("Unable to perform search query, no permissions to create search folder."),
+                MAPI_E_NOT_FOUND => _("Unable to perform search query, search folder not found."),
+                default => _("Unable to perform search query, store might not support searching."),
+            };
 
 			$errorInfo["original_error_message"] = _("Error in creating search folder.");
 

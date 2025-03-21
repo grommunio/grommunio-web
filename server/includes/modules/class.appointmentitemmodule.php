@@ -286,27 +286,13 @@ class AppointmentItemModule extends ItemModule {
 			$errorMsg = _('Two occurrences cannot occur on the same day');
 		}
 		elseif (is_array($messageProps) && isset($messageProps['error'])) {
-			switch ($messageProps['error']) {
-				case 1:
-					$errorMsg = sprintf(_('You marked \'%s\' as a resource. You cannot schedule a meeting with \'%s\' because you do not have the appropriate permissions for that account. Either enter the name as a required or optional attendee or talk to your administrator about giving you permission to schedule \'%s\'.'), $messageProps['displayname'], $messageProps['displayname'], $messageProps['displayname']);
-					break;
-
-				case 2:
-					$errorMsg = sprintf(_('\'%s\' has declined your meeting because \'%s\' does not automatically accept meeting requests.'), $messageProps['displayname'], $messageProps['displayname']);
-					break;
-
-				case 3:
-					$errorMsg = sprintf(_('\'%s\' has declined your meeting because it is recurring. You must book each meeting separately with this resource.'), $messageProps['displayname']);
-					break;
-
-				case 4:
-					$errorMsg = sprintf(_('\'%s\' is already booked for this specified time. You must use another time or find another resource.'), $messageProps['displayname']);
-					break;
-
-				default:
-					$errorMsg = _('Meeting was not scheduled.');
-					break;
-			}
+			$errorMsg = match ($messageProps['error']) {
+                1 => sprintf(_('You marked \'%s\' as a resource. You cannot schedule a meeting with \'%s\' because you do not have the appropriate permissions for that account. Either enter the name as a required or optional attendee or talk to your administrator about giving you permission to schedule \'%s\'.'), $messageProps['displayname'], $messageProps['displayname'], $messageProps['displayname']),
+                2 => sprintf(_('\'%s\' has declined your meeting because \'%s\' does not automatically accept meeting requests.'), $messageProps['displayname'], $messageProps['displayname']),
+                3 => sprintf(_('\'%s\' has declined your meeting because it is recurring. You must book each meeting separately with this resource.'), $messageProps['displayname']),
+                4 => sprintf(_('\'%s\' is already booked for this specified time. You must use another time or find another resource.'), $messageProps['displayname']),
+                default => _('Meeting was not scheduled.'),
+            };
 		}
 		else {
 			// Recurring but non-existing exception (same as normal open, but add basedate, startdate and enddate)

@@ -32,16 +32,11 @@ class OCSPException extends Exception {
 			return;
 		}
 
-		switch ($this->status) {
-		case 'good':
-			return OCSP_CERT_STATUS_GOOD;
-
-		case 'revoked':
-			return OCSP_CERT_STATUS_REVOKED;
-
-		default:
-			return OCSP_CERT_STATUS_UNKOWN;
-		}
+		return match ($this->status) {
+            'good' => OCSP_CERT_STATUS_GOOD,
+            'revoked' => OCSP_CERT_STATUS_REVOKED,
+            default => OCSP_CERT_STATUS_UNKOWN,
+        };
 	}
 }
 

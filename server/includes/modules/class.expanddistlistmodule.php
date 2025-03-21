@@ -25,14 +25,10 @@ class ExpandDistlistModule extends Module {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
 				try {
-					switch ($actionType) {
-						case 'expand':
-							$this->expand($action);
-							break;
-
-						default:
-							$this->handleUnknownActionType($actionType);
-					}
+					match ($actionType) {
+                        'expand' => $this->expand($action),
+                        default => $this->handleUnknownActionType($actionType),
+                    };
 				}
 				catch (MAPIException $e) {
 					$this->processException($e, $actionType);

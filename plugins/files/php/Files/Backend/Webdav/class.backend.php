@@ -940,61 +940,22 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 		$msg = _('Unknown error');
 		$contactAdmin = _('Please contact your system administrator');
 
-		switch ($error) {
-			case CURLE_BAD_PASSWORD_ENTERED:
-			case self::WD_ERR_UNAUTHORIZED:
-				$msg = _('Unauthorized. Wrong username or password.');
-				break;
-
-			case CURLE_SSL_CONNECT_ERROR:
-			case CURLE_COULDNT_RESOLVE_HOST:
-			case CURLE_COULDNT_CONNECT:
-			case CURLE_OPERATION_TIMEOUTED:
-			case self::WD_ERR_UNREACHABLE:
-				$msg = _('File server is not reachable. Please verify the connection.');
-				break;
-
-			case self::WD_ERR_NOTALLOWED:
-				$msg = _('File server is not reachable. Please verify the file server URL.');
-				break;
-
-			case self::WD_ERR_FORBIDDEN:
-				$msg = _('You don\'t have enough permissions to view this file or folder.');
-				break;
-
-			case self::WD_ERR_NOTFOUND:
-				$msg = _('The file or folder is not available anymore.');
-				break;
-
-			case self::WD_ERR_TIMEOUT:
-				$msg = _('Connection to the file server timed out. Please check again later.');
-				break;
-
-			case self::WD_ERR_LOCKED:
-				$msg = _('This file is locked by another user. Please try again later.');
-				break;
-
-			case self::WD_ERR_FAILED_DEPENDENCY:
-				$msg = _('The request failed.') . ' ' . $contactAdmin;
-				break;
-
-			case self::WD_ERR_INTERNAL:
-				// This is a general error, might be thrown due to a wrong IP, but we don't know.
-				$msg = _('The file server encountered an internal problem.') . ' ' . $contactAdmin;
-				break;
-
-			case self::WD_ERR_TMP:
-				$msg = _('We could not write to temporary directory.') . ' ' . $contactAdmin;
-				break;
-
-			case self::WD_ERR_FEATURES:
-				$msg = _('We could not retrieve list of server features.') . ' ' . $contactAdmin;
-				break;
-
-			case self::WD_ERR_NO_CURL:
-				$msg = _('PHP-Curl is not available.') . ' ' . $contactAdmin;
-				break;
-		}
+		$msg = match ($error) {
+            CURLE_BAD_PASSWORD_ENTERED, self::WD_ERR_UNAUTHORIZED => _('Unauthorized. Wrong username or password.'),
+            CURLE_SSL_CONNECT_ERROR, CURLE_COULDNT_RESOLVE_HOST, CURLE_COULDNT_CONNECT, CURLE_OPERATION_TIMEOUTED, self::WD_ERR_UNREACHABLE => _('File server is not reachable. Please verify the connection.'),
+            self::WD_ERR_NOTALLOWED => _('File server is not reachable. Please verify the file server URL.'),
+            self::WD_ERR_FORBIDDEN => _('You don\'t have enough permissions to view this file or folder.'),
+            self::WD_ERR_NOTFOUND => _('The file or folder is not available anymore.'),
+            self::WD_ERR_TIMEOUT => _('Connection to the file server timed out. Please check again later.'),
+            self::WD_ERR_LOCKED => _('This file is locked by another user. Please try again later.'),
+            self::WD_ERR_FAILED_DEPENDENCY => _('The request failed.') . ' ' . $contactAdmin,
+            // This is a general error, might be thrown due to a wrong IP, but we don't know.
+            self::WD_ERR_INTERNAL => _('The file server encountered an internal problem.') . ' ' . $contactAdmin,
+            self::WD_ERR_TMP => _('We could not write to temporary directory.') . ' ' . $contactAdmin,
+            self::WD_ERR_FEATURES => _('We could not retrieve list of server features.') . ' ' . $contactAdmin,
+            self::WD_ERR_NO_CURL => _('PHP-Curl is not available.') . ' ' . $contactAdmin,
+            default => $msg,
+        };
 
 		return $msg;
 	}

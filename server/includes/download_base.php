@@ -155,34 +155,15 @@ abstract class DownloadBase {
 		$messageClass = '';
 
 		// Convert message class into human readable format, so user can easily understand the display message.
-		switch ($this->getTrimmedMessageClass($mapiMessageClass)) {
-			case 'Appointment':
-				$messageClass = _('Appointment');
-				break;
-
-			case 'StickyNote':
-				$messageClass = _('Sticky Note');
-				break;
-
-			case 'Contact':
-				$messageClass = _('Contact');
-				break;
-
-			case 'DistList':
-				$messageClass = _('Distribution list');
-				break;
-
-			case 'Task':
-				$messageClass = _('Task');
-				break;
-
-			case 'TaskRequest':
-				$messageClass = _('Task Request');
-				break;
-
-			default:
-				$messageClass = $mapiMessageClass;
-		}
+		$messageClass = match ($this->getTrimmedMessageClass($mapiMessageClass)) {
+            'Appointment' => _('Appointment'),
+            'StickyNote' => _('Sticky Note'),
+            'Contact' => _('Contact'),
+            'DistList' => _('Distribution list'),
+            'Task' => _('Task'),
+            'TaskRequest' => _('Task Request'),
+            default => $mapiMessageClass,
+        };
 
 		return $messageClass;
 	}

@@ -54,26 +54,13 @@ class DelegatesModule extends Module {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
 				try {
-					switch ($actionType) {
-						case 'list':
-							$this->delegateList();
-							break;
-
-						case 'open':
-							$this->openDelegate($action);
-							break;
-
-						case 'save':
-							$this->saveDelegates($action);
-							break;
-
-						case 'delete':
-							$this->deleteDelegates($action);
-							break;
-
-						default:
-							$this->handleUnknownActionType($actionType);
-					}
+					match ($actionType) {
+                        'list' => $this->delegateList(),
+                        'open' => $this->openDelegate($action),
+                        'save' => $this->saveDelegates($action),
+                        'delete' => $this->deleteDelegates($action),
+                        default => $this->handleUnknownActionType($actionType),
+                    };
 				}
 				catch (MAPIException $e) {
 					$this->processException($e, $actionType);

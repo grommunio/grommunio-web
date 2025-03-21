@@ -1794,14 +1794,10 @@ class Operations {
 	public function getEmbeddedMessageProps($store, $message, $properties, $parentMessage, $attach_num) {
 		$msgprops = mapi_getprops($message, [PR_MESSAGE_CLASS]);
 
-		switch ($msgprops[PR_MESSAGE_CLASS]) {
-			case 'IPM.Note':
-				$html2text = false;
-				break;
-
-			default:
-				$html2text = true;
-		}
+		$html2text = match ($msgprops[PR_MESSAGE_CLASS]) {
+            'IPM.Note' => false,
+            default => true,
+        };
 
 		$props = $this->getMessageProps($store, $message, $properties, $html2text);
 
@@ -3982,18 +3978,10 @@ class Operations {
 	 * @return int object type of distribution list
 	 */
 	public function getObjectTypeFromDistlistType($distlistType) {
-		switch ($distlistType) {
-			case DL_DIST :
-			case DL_DIST_AB :
-				return MAPI_DISTLIST;
-
-			case DL_USER :
-			case DL_USER2 :
-			case DL_USER3 :
-			case DL_USER_AB :
-			default:
-				return MAPI_MAILUSER;
-		}
+		return match ($distlistType) {
+            DL_DIST, DL_DIST_AB => MAPI_DISTLIST,
+            default => MAPI_MAILUSER,
+        };
 	}
 
 	/**

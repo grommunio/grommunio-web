@@ -453,35 +453,21 @@ class HierarchyModule extends Module {
 							}
 							else {
 								// Exception generated while renaming folder.
-								switch ($e->getCode()) {
-									case MAPI_E_NO_ACCESS:
-										$e->setDisplayMessage(_("You have insufficient privileges to rename this folder."));
-										break;
-
-									case MAPI_E_COLLISION:
-										$e->setDisplayMessage(_("A folder with this name already exists. Use another name."));
-										break;
-
-									default:
-										$e->setDisplayMessage(_("Could not rename folder."));
-								}
+								match ($e->getCode()) {
+                                    MAPI_E_NO_ACCESS => $e->setDisplayMessage(_("You have insufficient privileges to rename this folder.")),
+                                    MAPI_E_COLLISION => $e->setDisplayMessage(_("A folder with this name already exists. Use another name.")),
+                                    default => $e->setDisplayMessage(_("Could not rename folder.")),
+                                };
 							}
 						}
 					}
 					else {
 						// Exception generated while creating new folder.
-						switch ($e->getCode()) {
-							case MAPI_E_NO_ACCESS:
-								$e->setDisplayMessage(_("You have insufficient privileges to create this folder."));
-								break;
-
-							case MAPI_E_COLLISION:
-								$e->setDisplayMessage(_("A folder with this name already exists. Use another name."));
-								break;
-
-							default:
-								$e->setDisplayMessage(_("Could not create folder."));
-						}
+						match ($e->getCode()) {
+                            MAPI_E_NO_ACCESS => $e->setDisplayMessage(_("You have insufficient privileges to create this folder.")),
+                            MAPI_E_COLLISION => $e->setDisplayMessage(_("A folder with this name already exists. Use another name.")),
+                            default => $e->setDisplayMessage(_("Could not create folder.")),
+                        };
 					}
 					break;
 

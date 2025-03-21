@@ -37,26 +37,13 @@ class StickyNoteListModule extends ListModule {
 					$store = $this->getActionStore($action);
 					$entryid = $this->getActionEntryID($action);
 
-					switch ($actionType) {
-						case "list":
-							$this->messageList($store, $entryid, $action, $actionType);
-							break;
-
-						case "search":
-							$this->search($store, $entryid, $action, $actionType);
-							break;
-
-						case "updatesearch":
-							$this->updatesearch($store, $entryid, $action);
-							break;
-
-						case "stopsearch":
-							$this->stopSearch($store, $entryid, $action);
-							break;
-
-						default:
-							$this->handleUnknownActionType($actionType);
-					}
+					match ($actionType) {
+                        "list" => $this->messageList($store, $entryid, $action, $actionType),
+                        "search" => $this->search($store, $entryid, $action, $actionType),
+                        "updatesearch" => $this->updatesearch($store, $entryid, $action),
+                        "stopsearch" => $this->stopSearch($store, $entryid, $action),
+                        default => $this->handleUnknownActionType($actionType),
+                    };
 				}
 				catch (MAPIException $e) {
 					$this->processException($e, $actionType);

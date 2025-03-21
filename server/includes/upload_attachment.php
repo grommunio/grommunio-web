@@ -130,35 +130,16 @@ class UploadAttachment {
 				if (isset($_FILES['attachments']['error'][$key]) && $_FILES['attachments']['error'][$key] > 0) {
 					$errorTitle = _("File is not imported successfully");
 
-					switch ($_FILES['attachments']['error'][$key]) {
-						case UPLOAD_ERR_INI_SIZE:
-							$errorTitle = _('The uploaded file exceeds the upload_max_filesize directive in php.ini.');
-							break;
-
-						case UPLOAD_ERR_FORM_SIZE:
-							$errorTitle = _('The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.');
-							break;
-
-						case UPLOAD_ERR_PARTIAL:
-							$errorTitle = _('The uploaded file was only partially uploaded.');
-							break;
-
-						case UPLOAD_ERR_NO_FILE:
-							$errorTitle = _('No file was uploaded. .');
-							break;
-
-						case UPLOAD_ERR_NO_TMP_DIR:
-							$errorTitle = _('Missing a temporary folder.');
-							break;
-
-						case UPLOAD_ERR_CANT_WRITE:
-							$errorTitle = _('Failed to write file to disk.');
-							break;
-
-						case UPLOAD_ERR_EXTENSION:
-							$errorTitle = _('A PHP extension stopped the file upload. PHP does not provide a way to ascertain which extension caused the file upload to stop; examining the list of loaded extensions with phpinfo() may help.');
-							break;
-					}
+					$errorTitle = match ($_FILES['attachments']['error'][$key]) {
+                        UPLOAD_ERR_INI_SIZE => _('The uploaded file exceeds the upload_max_filesize directive in php.ini.'),
+                        UPLOAD_ERR_FORM_SIZE => _('The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.'),
+                        UPLOAD_ERR_PARTIAL => _('The uploaded file was only partially uploaded.'),
+                        UPLOAD_ERR_NO_FILE => _('No file was uploaded. .'),
+                        UPLOAD_ERR_NO_TMP_DIR => _('Missing a temporary folder.'),
+                        UPLOAD_ERR_CANT_WRITE => _('Failed to write file to disk.'),
+                        UPLOAD_ERR_EXTENSION => _('A PHP extension stopped the file upload. PHP does not provide a way to ascertain which extension caused the file upload to stop; examining the list of loaded extensions with phpinfo() may help.'),
+                        default => throw new ZarafaException($errorTitle),
+                    };
 
 					throw new ZarafaException($errorTitle);
 				}
