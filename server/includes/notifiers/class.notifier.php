@@ -44,7 +44,7 @@ class Notifier {
 	 * @return string notifier name
 	 */
 	public function getNotifierName() {
-		return strtolower($this::class);
+		return strtolower(static::class);
 	}
 
 	/**

@@ -121,7 +121,7 @@ class BaseException extends Exception {
 	 * @return string
 	 */
 	public function getName() {
-		return $this::class;
+		return static::class;
 	}
 
 	/**

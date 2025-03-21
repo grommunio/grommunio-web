@@ -459,7 +459,7 @@ class Module {
 	 * @return string module name
 	 */
 	public function getModuleName() {
-		return strtolower($this::class);
+		return strtolower(static::class);
 	}
 
 	/**

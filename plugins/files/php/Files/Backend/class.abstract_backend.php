@@ -344,7 +344,7 @@ abstract class AbstractBackend {
 	 * @return array
 	 */
 	public function getAvailableFeatures() {
-		$interfaces = class_implements($this::class);
+		$interfaces = class_implements(static::class);
 		$features = [];
 
 		// remove namespace and interface prefix
