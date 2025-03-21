@@ -55,11 +55,11 @@ class StringUtil {
 		// $chars - all allowed characters
 		$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
-		srand((float) microtime() * 1000000);
+		mt_srand((float) microtime() * 1000000);
 		$i = 0;
 		$pass = "";
 		while ($i < $length) {
-			$num = rand() % strlen($chars);
+			$num = random_int(0, mt_getrandmax()) % strlen($chars);
 			$tmp = substr($chars, $num, 1);
 			$pass = $pass . $tmp;
 			++$i;

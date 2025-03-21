@@ -249,7 +249,7 @@ class AttachmentState {
 	 */
 	public function addEmbeddedAttachment($message_id, $fileinfo) {
 		// generate a random number to be used as unique id of attachment
-		$tmpname = md5(rand());
+		$tmpname = md5(random_int(0, mt_getrandmax()));
 
 		$this->addAttachmentFile($message_id, $tmpname, $fileinfo);
 
