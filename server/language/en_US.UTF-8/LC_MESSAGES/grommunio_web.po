@@ -5875,7 +5875,7 @@ msgid "Uploading: "
 msgstr "Uploading files: "
 
 msgid "Upload status unavailable... please wait."
-msgstr "Upload stauts unavailable…"
+msgstr "Upload status unavailable…"
 
 msgid "Upload finished!"
 msgstr "Upload finished."
