@@ -4460,11 +4460,8 @@ class Operations {
 		}
 
 		$abprops = mapi_getprops($mailuser, [PR_SMTP_ADDRESS, PR_EMAIL_ADDRESS]);
-		if (isset($abprops[PR_SMTP_ADDRESS])) {
-			return $abprops[PR_SMTP_ADDRESS];
-		}
 
-		return $abprops[PR_EMAIL_ADDRESS] ?? "";
+		return $abprops[PR_SMTP_ADDRESS] ?? $abprops[PR_EMAIL_ADDRESS] ?? "";
 	}
 
 	/**
