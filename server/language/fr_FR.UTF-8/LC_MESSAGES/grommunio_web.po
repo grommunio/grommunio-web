@@ -6844,7 +6844,7 @@ msgid "S/MIME Message"
 msgstr "Message S/MIME"
 
 #, fuzzy
-msgid "Passphrase changed succesfully"
+msgid "Passphrase changed successfully"
 msgstr "Message décrypté avec succès"
 
 msgid "S/MIME Passphrase"
@@ -7115,7 +7115,7 @@ msgstr "Le certificat a été révoqué"
 msgid "Verification with Certificate Authority failed"
 msgstr "La vérification avec l'autorité de certification a échoué"
 
-msgid "Message decrypted succesfully"
+msgid "Message decrypted successfully"
 msgstr "Message décrypté avec succès"
 
 msgid "Message decryption failed"

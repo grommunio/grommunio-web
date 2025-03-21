@@ -6651,7 +6651,7 @@ msgstr "As frases-senha não correspondem. Tente novamente"
 msgid "S/MIME Message"
 msgstr "Mensagem S/MIME"
 
-msgid "Passphrase changed succesfully"
+msgid "Passphrase changed successfully"
 msgstr "A senha foi alterada com sucesso"
 
 msgid "S/MIME Passphrase"
@@ -6913,7 +6913,7 @@ msgstr "O certificado foi revogado"
 msgid "Verification with Certificate Authority failed"
 msgstr "Falha na verificação com a autoridade de certificação"
 
-msgid "Message decrypted succesfully"
+msgid "Message decrypted successfully"
 msgstr "Mensagem descriptografada com sucesso"
 
 msgid "Message decryption failed"

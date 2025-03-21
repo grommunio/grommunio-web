@@ -6469,7 +6469,7 @@ msgstr ""
 msgid "S/MIME Message"
 msgstr ""
 
-msgid "Passphrase changed succesfully"
+msgid "Passphrase changed successfully"
 msgstr ""
 
 msgid "S/MIME Passphrase"
@@ -6683,7 +6683,7 @@ msgstr ""
 msgid "Verification with Certificate Authority failed"
 msgstr ""
 
-msgid "Message decrypted succesfully"
+msgid "Message decrypted successfully"
 msgstr ""
 
 msgid "Message decryption failed"

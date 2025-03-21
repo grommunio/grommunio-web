@@ -6349,7 +6349,7 @@ msgstr "Salasõnad ei vasta. Palun proovige uuesti"
 msgid "S/MIME Message"
 msgstr "S/MIME sõnum"
 
-msgid "Passphrase changed succesfully"
+msgid "Passphrase changed successfully"
 msgstr "Salasõna muudetud edukalt"
 
 msgid "S/MIME Passphrase"
@@ -6597,7 +6597,7 @@ msgstr "Sertifikaat on tühistatud"
 msgid "Verification with Certificate Authority failed"
 msgstr "Sertifitseerimisasutusega kontrollimine ebaõnnestus"
 
-msgid "Message decrypted succesfully"
+msgid "Message decrypted successfully"
 msgstr "Sõnum edukalt dekrüpteeritud"
 
 msgid "Message decryption failed"

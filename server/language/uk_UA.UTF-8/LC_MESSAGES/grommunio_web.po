@@ -6401,7 +6401,7 @@ msgstr "Пароль не збігається. Будь ласка, спроб�
 msgid "S/MIME Message"
 msgstr "S/MIME-повідомлення"
 
-msgid "Passphrase changed succesfully"
+msgid "Passphrase changed successfully"
 msgstr "Вдало змінено парольну фразу"
 
 msgid "S/MIME Passphrase"
@@ -6653,7 +6653,7 @@ msgstr "Сертифікат анульовано"
 msgid "Verification with Certificate Authority failed"
 msgstr "Не вдалося пройти перевірку в центрі сертифікації"
 
-msgid "Message decrypted succesfully"
+msgid "Message decrypted successfully"
 msgstr "Повідомлення успішно розшифровано"
 
 msgid "Message decryption failed"

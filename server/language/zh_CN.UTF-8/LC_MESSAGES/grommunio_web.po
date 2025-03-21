@@ -6399,7 +6399,7 @@ msgid "S/MIME Message"
 msgstr "S/MIME信息"
 
 #, fuzzy
-msgid "Passphrase changed succesfully"
+msgid "Passphrase changed successfully"
 msgstr "密码锁成功更改"
 
 #, fuzzy
@@ -6674,7 +6674,7 @@ msgid "Verification with Certificate Authority failed"
 msgstr "与认证机构的验证失败"
 
 #, fuzzy
-msgid "Message decrypted succesfully"
+msgid "Message decrypted successfully"
 msgstr "信息被成功解密"
 
 #, fuzzy

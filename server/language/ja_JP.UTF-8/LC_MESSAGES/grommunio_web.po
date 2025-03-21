@@ -6745,7 +6745,7 @@ msgid "S/MIME Message"
 msgstr "S/MIME メッセージ"
 
 #, fuzzy
-msgid "Passphrase changed succesfully"
+msgid "Passphrase changed successfully"
 msgstr "メッセージの復号化に成功しました"
 
 msgid "S/MIME Passphrase"
@@ -6998,7 +6998,7 @@ msgstr "証明書は無効化されています"
 msgid "Verification with Certificate Authority failed"
 msgstr "証明書発行元の確認に失敗しました"
 
-msgid "Message decrypted succesfully"
+msgid "Message decrypted successfully"
 msgstr "メッセージの復号化に成功しました"
 
 msgid "Message decryption failed"

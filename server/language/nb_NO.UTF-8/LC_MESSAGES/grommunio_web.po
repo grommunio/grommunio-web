@@ -6368,7 +6368,7 @@ msgstr "Passordfrasen stemmer ikke overens. Vennligst prøv igjen"
 msgid "S/MIME Message"
 msgstr "S/MIME-melding"
 
-msgid "Passphrase changed succesfully"
+msgid "Passphrase changed successfully"
 msgstr "Passordfrasen ble vellykket endret"
 
 msgid "S/MIME Passphrase"
@@ -6622,7 +6622,7 @@ msgstr "Sertifikatet har blitt tilbakekalt"
 msgid "Verification with Certificate Authority failed"
 msgstr "Verifisering med sertifikatmyndighet mislyktes"
 
-msgid "Message decrypted succesfully"
+msgid "Message decrypted successfully"
 msgstr "Meldingen ble dekryptert"
 
 msgid "Message decryption failed"

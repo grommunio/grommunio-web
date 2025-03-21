@@ -7043,7 +7043,7 @@ msgid "S/MIME Message"
 msgstr "Sporočilo S/MIME"
 
 #, fuzzy
-msgid "Passphrase changed succesfully"
+msgid "Passphrase changed successfully"
 msgstr "Passphrase je bila uspešno spremenjena"
 
 #, fuzzy
@@ -7343,7 +7343,7 @@ msgid "Verification with Certificate Authority failed"
 msgstr "Preverjanje pri organu za potrjevanje ni uspelo"
 
 #, fuzzy
-msgid "Message decrypted succesfully"
+msgid "Message decrypted successfully"
 msgstr "Sporočilo je bilo uspešno dešifrirano"
 
 #, fuzzy

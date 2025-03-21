@@ -6779,7 +6779,7 @@ msgid "S/MIME Message"
 msgstr "S/MIME üzenet"
 
 #, fuzzy
-msgid "Passphrase changed succesfully"
+msgid "Passphrase changed successfully"
 msgstr "Az üzenetet sikerült visszafejteni"
 
 #, fuzzy
@@ -7057,7 +7057,7 @@ msgstr "A tanúsítványt visszavonták"
 msgid "Verification with Certificate Authority failed"
 msgstr "A hitelesítés sikertelen a Tanúsítvány-engedélyezővel"
 
-msgid "Message decrypted succesfully"
+msgid "Message decrypted successfully"
 msgstr "Az üzenetet sikerült visszafejteni"
 
 msgid "Message decryption failed"

@@ -6385,7 +6385,7 @@ msgstr "De wachtwoordzinnen komen niet overeen. Probeer het nogmaals"
 msgid "S/MIME Message"
 msgstr "S/MIME Bericht"
 
-msgid "Passphrase changed succesfully"
+msgid "Passphrase changed successfully"
 msgstr "Wachtwoordzin succesvol gewijzigd"
 
 msgid "S/MIME Passphrase"
@@ -6645,7 +6645,7 @@ msgstr "Certificaat is ingetrokken"
 msgid "Verification with Certificate Authority failed"
 msgstr "Verificatie met de Certificaat Authoritieit mislukt"
 
-msgid "Message decrypted succesfully"
+msgid "Message decrypted successfully"
 msgstr "Bericht succesvol ontsleuteld"
 
 msgid "Message decryption failed"

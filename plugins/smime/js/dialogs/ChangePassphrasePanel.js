@@ -133,7 +133,7 @@ Zarafa.plugins.smime.dialogs.ChangePassphrasePanel = Ext.extend(Ext.Panel, {
 	 */
 	onChangePassphraseRequest: function(response) {
 		if (response.code === Zarafa.plugins.smime.CHANGE_CERTIFICATE_SUCCESS) {
-			container.getNotifier().notify('info.saved', _('S/MIME Message'), _('Passphrase changed succesfully'));
+			container.getNotifier().notify('info.saved', _('S/MIME Message'), _('Passphrase changed successfully'));
 			this.dialog.close();
 		} else {
 			this.wrong_passphrase.show();

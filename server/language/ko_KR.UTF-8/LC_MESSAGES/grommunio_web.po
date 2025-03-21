@@ -6272,7 +6272,7 @@ msgstr "비밀번호가 일치하지 않습니다. 다시 시도해 주세요."
 msgid "S/MIME Message"
 msgstr "S/MIME 메시지"
 
-msgid "Passphrase changed succesfully"
+msgid "Passphrase changed successfully"
 msgstr "암호 구문 변경 성공"
 
 msgid "S/MIME Passphrase"
@@ -6514,7 +6514,7 @@ msgstr "인증서가 해지되었습니다."
 msgid "Verification with Certificate Authority failed"
 msgstr "인증 기관을 통한 확인 실패"
 
-msgid "Message decrypted succesfully"
+msgid "Message decrypted successfully"
 msgstr "메시지 해독에 성공했습니다."
 
 msgid "Message decryption failed"

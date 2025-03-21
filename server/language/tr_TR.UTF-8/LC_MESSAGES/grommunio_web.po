@@ -6346,7 +6346,7 @@ msgstr "Parolalar eşleşmiyor. Lütfen tekrar deneyin"
 msgid "S/MIME Message"
 msgstr "S/MIME İletisi"
 
-msgid "Passphrase changed succesfully"
+msgid "Passphrase changed successfully"
 msgstr "Parola başarıyla değiştirildi"
 
 msgid "S/MIME Passphrase"
@@ -6591,7 +6591,7 @@ msgstr "Sertifika iptal edildi"
 msgid "Verification with Certificate Authority failed"
 msgstr "Sertifika Yetkilisi ile doğrulama başarısız oldu"
 
-msgid "Message decrypted succesfully"
+msgid "Message decrypted successfully"
 msgstr "Mesajın şifresi başarıyla çözüldü"
 
 msgid "Message decryption failed"

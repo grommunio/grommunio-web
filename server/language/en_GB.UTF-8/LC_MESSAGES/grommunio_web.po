@@ -6356,8 +6356,8 @@ msgstr "The passphrases do not match. Try again."
 msgid "S/MIME Message"
 msgstr "S/MIME Message"
 
-msgid "Passphrase changed succesfully"
-msgstr "Passphrase changed succesfully"
+msgid "Passphrase changed successfully"
+msgstr "Passphrase changed successfully"
 
 msgid "S/MIME Passphrase"
 msgstr "S/MIME Passphrase"
@@ -6608,8 +6608,8 @@ msgstr "Certificate has been revoked"
 msgid "Verification with Certificate Authority failed"
 msgstr "Verification with Certificate Authority failed"
 
-msgid "Message decrypted succesfully"
-msgstr "Message decrypted succesfully"
+msgid "Message decrypted successfully"
+msgstr "Message decrypted successfully"
 
 msgid "Message decryption failed"
 msgstr "Message decryption failed"

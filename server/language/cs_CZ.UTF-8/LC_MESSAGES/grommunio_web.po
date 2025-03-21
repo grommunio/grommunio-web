@@ -6958,7 +6958,7 @@ msgid "S/MIME Message"
 msgstr "Zpráva S/MIME"
 
 #, fuzzy
-msgid "Passphrase changed succesfully"
+msgid "Passphrase changed successfully"
 msgstr "Úspěšná změna přístupové fráze"
 
 #, fuzzy
@@ -7259,7 +7259,7 @@ msgid "Verification with Certificate Authority failed"
 msgstr "Ověření pomocí certifikační autority se nezdařilo"
 
 #, fuzzy
-msgid "Message decrypted succesfully"
+msgid "Message decrypted successfully"
 msgstr "Zpráva byla úspěšně dešifrována"
 
 #, fuzzy

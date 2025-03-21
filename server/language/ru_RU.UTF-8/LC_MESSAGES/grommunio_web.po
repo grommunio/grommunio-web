@@ -6660,7 +6660,7 @@ msgstr "Парольные фразы не совпадают. Попробуй�
 msgid "S/MIME Message"
 msgstr "Сообщение S/MIME"
 
-msgid "Passphrase changed succesfully"
+msgid "Passphrase changed successfully"
 msgstr "Парольная фраза успешно изменена"
 
 msgid "S/MIME Passphrase"
@@ -6962,7 +6962,7 @@ msgid "Verification with Certificate Authority failed"
 msgstr "Проверка в центре сертификации не прошла"
 
 #, fuzzy
-msgid "Message decrypted succesfully"
+msgid "Message decrypted successfully"
 msgstr "Сообщение расшифровано успешно"
 
 #, fuzzy

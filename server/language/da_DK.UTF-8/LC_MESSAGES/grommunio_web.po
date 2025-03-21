@@ -6817,7 +6817,7 @@ msgid "S/MIME Message"
 msgstr "S/MIME-meddelelse"
 
 #, fuzzy
-msgid "Passphrase changed succesfully"
+msgid "Passphrase changed successfully"
 msgstr "Passphrase ændret med succes"
 
 #, fuzzy
@@ -7128,7 +7128,7 @@ msgid "Verification with Certificate Authority failed"
 msgstr "Verifikation med certifikatudstedende myndighed mislykkedes"
 
 #, fuzzy
-msgid "Message decrypted succesfully"
+msgid "Message decrypted successfully"
 msgstr "Meddelelsen er dekrypteret med succes"
 
 #, fuzzy

@@ -6632,7 +6632,7 @@ msgid "S/MIME Message"
 msgstr "Komunikat S/MIME"
 
 #, fuzzy
-msgid "Passphrase changed succesfully"
+msgid "Passphrase changed successfully"
 msgstr "Passphrase zmieniony pomyślnie"
 
 #, fuzzy
@@ -6935,7 +6935,7 @@ msgid "Verification with Certificate Authority failed"
 msgstr "Weryfikacja z urzędem certyfikacji nie powiodła się"
 
 #, fuzzy
-msgid "Message decrypted succesfully"
+msgid "Message decrypted successfully"
 msgstr "Wiadomość została odszyfrowana pomyślnie"
 
 #, fuzzy

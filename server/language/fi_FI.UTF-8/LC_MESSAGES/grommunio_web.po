@@ -7056,7 +7056,7 @@ msgid "S/MIME Message"
 msgstr "S/MIME-viesti"
 
 #, fuzzy
-msgid "Passphrase changed succesfully"
+msgid "Passphrase changed successfully"
 msgstr "Salasana vaihdettu onnistuneesti"
 
 #, fuzzy
@@ -7359,7 +7359,7 @@ msgid "Verification with Certificate Authority failed"
 msgstr "Varmentajan vahvistus epäonnistui"
 
 #, fuzzy
-msgid "Message decrypted succesfully"
+msgid "Message decrypted successfully"
 msgstr "Viesti purettu onnistuneesti"
 
 #, fuzzy

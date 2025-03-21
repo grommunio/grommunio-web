@@ -6436,7 +6436,7 @@ msgstr "Die Passphrasen stimmen nicht überein. Bitte versuchen Sie es erneut"
 msgid "S/MIME Message"
 msgstr "S/MIME-Nachricht"
 
-msgid "Passphrase changed succesfully"
+msgid "Passphrase changed successfully"
 msgstr "Passphrase erfolgreich geändert"
 
 msgid "S/MIME Passphrase"
@@ -6699,7 +6699,7 @@ msgstr "Das Zertifikat wurde widerrufen"
 msgid "Verification with Certificate Authority failed"
 msgstr "Überprüfung bei der Zertifizierungsstelle fehlgeschlagen"
 
-msgid "Message decrypted succesfully"
+msgid "Message decrypted successfully"
 msgstr "Nachricht wurde erfolgreich entschlüsselt"
 
 msgid "Message decryption failed"

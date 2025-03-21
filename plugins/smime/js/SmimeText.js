@@ -90,7 +90,7 @@ Zarafa.plugins.smime.SmimeText = function () {
 			case 5:
 				return _('Verification with Certificate Authority failed');
 			case 6:
-				return _('Message decrypted succesfully');
+				return _('Message decrypted successfully');
 			case 7:
 				return _('Message decryption failed');
 			case 8:

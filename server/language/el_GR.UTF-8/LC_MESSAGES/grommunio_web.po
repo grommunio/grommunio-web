@@ -7807,7 +7807,7 @@ msgid "S/MIME Message"
 msgstr "Μήνυμα S/MIME"
 
 #, fuzzy
-msgid "Passphrase changed succesfully"
+msgid "Passphrase changed successfully"
 msgstr "Η φράση πρόσβασης άλλαξε επιτυχώς"
 
 #, fuzzy
@@ -8129,7 +8129,7 @@ msgid "Verification with Certificate Authority failed"
 msgstr "Η επαλήθευση με την Αρχή Πιστοποιητικού απέτυχε"
 
 #, fuzzy
-msgid "Message decrypted succesfully"
+msgid "Message decrypted successfully"
 msgstr "Το μήνυμα αποκρυπτογραφήθηκε επιτυχώς"
 
 #, fuzzy
