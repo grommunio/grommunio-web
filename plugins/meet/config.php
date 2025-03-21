@@ -19,7 +19,7 @@ define('MEET_DEFAULTS', [
 	// Uncomment to disable protection of the url in the meeting location from automatic removal
 	// 'nolocationfix' => true,
 
-	// Uncomment to disable addition of the Message template to appontments
+	// Uncomment to disable addition of the Message template to appointments
 	// 'noinvitation' => true,
 
 	// Template for the meeting invitation, must contain %url% as a placeholder for the meeting url, text only

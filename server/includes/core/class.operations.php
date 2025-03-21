@@ -566,7 +566,7 @@ class Operations {
 					if (isset($row[PR_WLINK_STORE_ENTRYID]) && empty($row[PR_WLINK_STORE_ENTRYID]) ||
 						!isset($row[PR_WLINK_STORE_ENTRYID])) {
 						// Outlook apparently doesn't set PR_WLINK_STORE_ENTRYID
-						// for with free/busy permission only opened shared calenders,
+						// for with free/busy permission only opened shared calendars,
 						// so do not remove them from the IPM_COMMON_VIEWS
 						if ((isset($row[PR_WLINK_SECTION]) && $row[PR_WLINK_SECTION] != wbsidCalendar) ||
 							!isset($row[PR_WLINK_SECTION])) {
@@ -1672,8 +1672,8 @@ class Operations {
 					"item" => $attachments,
 				];
 				$cid_found = false;
-				foreach ($attachments as $attachement) {
-					if (isset($attachement["props"]["cid"])) {
+				foreach ($attachments as $attachment) {
+					if (isset($attachment["props"]["cid"])) {
 						$cid_found = true;
 					}
 				}
@@ -1684,11 +1684,11 @@ class Operations {
 						$replace = [];
 						foreach ($matches[1] as $match) {
 							$idx = -1;
-							foreach ($attachments as $key => $attachement) {
-								if (isset($attachement["props"]["cid"]) &&
-									strcasecmp($match, $attachement["props"]["cid"]) == 0) {
+							foreach ($attachments as $key => $attachment) {
+								if (isset($attachment["props"]["cid"]) &&
+									strcasecmp($match, $attachment["props"]["cid"]) == 0) {
 									$idx = $key;
-									$num = $attachement["props"]["attach_num"];
+									$num = $attachment["props"]["attach_num"];
 								}
 							}
 							if ($idx == -1) {
@@ -3661,7 +3661,7 @@ class Operations {
 					$props["attachment_contactphoto"] = $attachmentRow[PR_ATTACHMENT_CONTACTPHOTO];
 					$props["hidden"] = true;
 
-					// Open contact photo attachement in binary format.
+					// Open contact photo attachment in binary format.
 					$attach = mapi_message_openattach($message, $props["attach_num"]);
 				}
 
@@ -4169,7 +4169,7 @@ class Operations {
 			// We have the size, now can obtain the bytes
 			$entryid = unpack('a' . $position . '/V1cb/a' . $size['cb'] . 'entryid/a*', $flatEntryList);
 
-			// unpack() will remove the NULL characters, readd
+			// unpack() will remove the NULL characters, re-add
 			// them until we match the 'cb' length.
 			while ($entryid['cb'] > strlen((string) $entryid['entryid'])) {
 				$entryid['entryid'] .= chr(0x00);

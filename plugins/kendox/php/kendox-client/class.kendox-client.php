@@ -86,7 +86,7 @@ class Client {
 	 * Performs a user table query and fetch the result records.
 	 *
 	 * @param $userTableName       The name of the user table
-	 * @param $whereClauseElements Array with fields "ColumnName", "RelationalOperator" and "Value" for filter defintion of the query
+	 * @param $whereClauseElements Array with fields "ColumnName", "RelationalOperator" and "Value" for filter definition of the query
 	 * @param $addColumnHeaders    Add column headers to result?
 	 *
 	 * @return array The data result as an array

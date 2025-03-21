@@ -21,7 +21,7 @@
 require_once BASE_PATH . 'server/includes/core/class.response.php';
 require_once BASE_PATH . 'server/includes/core/class.webappauthentication.php';
 
-// This request only works whit GET
+// This request only works with GET
 if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 	Response::wrongMethod();
 }

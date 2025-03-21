@@ -509,7 +509,7 @@ class HierarchyModule extends Module {
 	}
 
 	/**
-	 * Add folder's properties to response data. This function doesn't add persmission details yet.
+	 * Add folder's properties to response data. This function doesn't add permission details yet.
 	 *
 	 * @param resource $store      mapi store of the folder
 	 * @param string   $entryid    entryid of the folder

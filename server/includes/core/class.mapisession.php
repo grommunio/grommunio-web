@@ -960,7 +960,7 @@ class MAPISession {
 
 	/**
 	 * Open a MAPI message using session object.
-	 * The function is used to open message when we dont' know
+	 * The function is used to open message when we don't know
 	 * the specific store and we want to open message using entryid.
 	 *
 	 * @param string $entryid entryid of the message

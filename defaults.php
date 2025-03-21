@@ -79,7 +79,7 @@ if (!defined("SQLITE_FTS_TOKENIZER")) {
 }
 
 /*
- * When set to true this enable the fitlering of the HTML body using DOMPurify.
+ * When set to true this enable the filtering of the HTML body using DOMPurify.
  */
 if (!defined("ENABLE_DOMPURIFY_FILTER")) {
 	define("ENABLE_DOMPURIFY_FILTER", true);

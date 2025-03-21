@@ -167,7 +167,7 @@ class MailListModule extends ListModule {
 	 *
 	 * @param mixed $force
 	 *
-	 * @return int the numer of unread items in the Inbox folder
+	 * @return int the number of unread items in the Inbox folder
 	 */
 	public function getInboxTotalUnread($force = false) {
 		if ($this->_inboxTotalUnread === null || $force) {

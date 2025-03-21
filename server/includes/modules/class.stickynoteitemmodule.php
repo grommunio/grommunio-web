@@ -2,7 +2,7 @@
 
 /**
  * StickyNote ItemModule
- * Module which openes, creates, saves and deletes an item. It
+ * Module which opens, creates, saves and deletes an item. It
  * extends the Module class.
  */
 class StickyNoteItemModule extends ItemModule {

@@ -635,7 +635,7 @@ class DownloadAttachment extends DownloadBase {
 	}
 
 	/**
-	 * Function will get the attachement and import it to the given MAPIFolder as webapp item.
+	 * Function will get the attachment and import it to the given MAPIFolder as webapp item.
 	 */
 	public function importAttachment() {
 		$addrBook = $GLOBALS['mapisession']->getAddressbook();

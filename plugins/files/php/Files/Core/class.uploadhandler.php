@@ -162,7 +162,7 @@ class UploadHandler {
 	 * wants to keep both on server.
 	 *
 	 * @param string $targetPath         targeted files path
-	 * @param object $initializedBackend Supported abstract backend object (i.e fpt,smb,owncloud etc.. )
+	 * @param object $initializedBackend Supported abstract backend object (i.e ftp,smb,owncloud etc.. )
 	 * @param string $relNodeId          relay node id
 	 *
 	 * @return string target file path

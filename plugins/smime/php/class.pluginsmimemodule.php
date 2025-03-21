@@ -126,7 +126,7 @@ class PluginSmimeModule extends Module {
 			$smtpAddress = $GLOBALS['mapisession']->getSMTPAddress();
 			for ($i = 0, $cnt = count($privateCerts); $i < $cnt; ++$i) {
 				// Check if certificate is still valid
-				// TODO: create a more generic function which verifyies if the certificate is valid
+				// TODO: create a more generic function which verifies if the certificate is valid
 				// And remove possible duplication from plugin.smime.php->onUploadCertificate
 				if ($privateCerts[$i][PR_MESSAGE_DELIVERY_TIME] < time()) { // validTo
 					$message = _('Private certificate has expired, unable to sign email');

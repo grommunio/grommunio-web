@@ -359,7 +359,7 @@ class KendoxModule extends Module {
 	}
 
 	/**
-	 * Funtion to get binary content of an a ttachment
+	 * Function to get binary content of an attachment
 	 * PR_ATTACH_DATA_BIN.
 	 *
 	 * @param string $tempFile         Path and file of temporary attachment file

@@ -2,7 +2,7 @@
 
 /**
  * Create Mail ItemModule
- * Module which openes, creates, saves and deletes an item. It
+ * Module which opens, creates, saves and deletes an item. It
  * extends the Module class.
  */
 class CreateMailItemModule extends ItemModule {
@@ -127,19 +127,19 @@ class CreateMailItemModule extends ItemModule {
 
 				if ($send) {
 					// Allowing to hook in just before the data sent away to be sent to the client
-					$succes = true;
+					$success = true;
 					$GLOBALS['PluginManager']->triggerHook('server.module.createmailitemmodule.beforesend', [
 						'moduleObject' => $this,
 						'store' => $store,
 						'entryid' => $entryid,
 						'action' => $action,
-						'success' => &$succes,
+						'success' => &$success,
 						'properties' => $this->properties,
 						'messageProps' => $messageProps,
 						'parententryid' => $parententryid,
 					]);
 					// Break out, hook should use sendFeedback to return a response to the client.
-					if (!$succes) {
+					if (!$success) {
 						return;
 					}
 
