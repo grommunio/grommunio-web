@@ -470,7 +470,7 @@ Main panel, message preview
 }
 
 /* Main panel, preview content (iframe) */
-/* This color is choosen because it is fairly dark, and can show white and black text */
+/* This color is chosen because it is fairly dark, and can show white and black text */
 /* This color is used when the message don't contain any HTML coloring */
 .mce-tinymce iframe,
 #zarafa-mainpanel .preview-iframe {
@@ -938,7 +938,7 @@ Main panel, message preview
 }
 
 /* Calendar border */
-/* Disable this extra border around the calender(s) */
+/* Disable this extra border around the calendar(s) */
 .zarafa-calendar.zarafa-calendar-border.zarafa-calendar-border-left,
 .zarafa-calendar.zarafa-calendar-border.zarafa-calendar-border-right {
 	border-color: transparent !important;
@@ -1001,7 +1001,7 @@ Main panel, message preview
 	background-color: var(--primary-paper-background) !important;
 }
 
-/* Day devider color */
+/* Day divider color */
 .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current table,
 .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header,
 .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-body {
@@ -1218,7 +1218,7 @@ Menus and buttons
 This includes dropdown menus, combobox menus, buttons everywhere below the top toolbar.
 
 NOTE that with the dropdown menu, the selected ".x-menu-item-selected" class is set on the "a" element, and not on the
-same element as the ".x-menu-item-active" class. Because of this, the colors are set on the "a" elements, to awoid
+same element as the ".x-menu-item-active" class. Because of this, the colors are set on the "a" elements, to avoid
 different lengths of the covered background color.
 ------------------------------------------------------------------------------*/
 .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus.x-btn-over.x-btn-click .x-btn-small,
@@ -1309,7 +1309,7 @@ different lengths of the covered background color.
 	background-color: var(--primary-paper-background) !important;
 }
 
-/* Seperated, so that big action buttons can be */
+/* Separated, so that big action buttons can be */
 .x-btn .x-btn-small button,
 .x-btn .x-btn-small {
 	background-color: transparent;
@@ -1797,7 +1797,7 @@ div.x-toolbar.x-small-editor.zarafa-dialogtoolbar.x-toolbar-layout-ct {
   grommunio overrides
 ------------------------------------------------------------------------------*/
 
-/* Adress Book -> email adress list items hover*/
+/* Address Book -> email address list items hover*/
 .x-list-over {
 	background-color: var(--primary-item-hover) !important;
 }
