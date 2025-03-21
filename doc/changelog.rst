@@ -126,7 +126,7 @@ grommunio-web 3.7 (2024-02-25)
 * The encryption icon was missing in the folder view and put back.
 * The calendar widget (left pane) was missing the right arrow icon, which has
   been restored.
-* Reenable X11 middle mouse pasting
+* Re-enable X11 middle mouse pasting
 
 grommunio-web 3.6 (2023-11-10)
 ==============================
@@ -159,10 +159,10 @@ grommunio-web 3.4 (2023-10-13)
 * ViewerJS uses correct CSS class
 * Update dompurify (XSS protection) to 3.0.6
 * Update tokenizr to 1.6.10
-* Remove incorrect filtering of PNG ressources
+* Remove incorrect filtering of PNG resources
 * Update maps plugin with newer libraries (leaflet 1.9.4, geosearch 3.10.0)
 * Update PDF viewer (pdf.js) to 3.11.174
-* optimize SVG ressources
+* optimize SVG resources
 * Modernized build process (no java components anymore)
 
 grommunio-web 3.3 (2023-09-23)
