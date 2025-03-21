@@ -74,7 +74,7 @@ class Language {
 		if (isset($GLOBALS['translations'])) {
 			return;
 		}
-		$lang = (empty($lang) || substr($lang, 0, 1) == '.' || $lang == "C") ? LANG : $lang; // default language fix
+		$lang = (empty($lang) || str_starts_with($lang, '.') || $lang == "C") ? LANG : $lang; // default language fix
 
 		if ($this->is_language($lang)) {
 			$this->lang = $lang;

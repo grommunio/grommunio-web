@@ -73,7 +73,7 @@ class Colors {
 	 * @return array An array with values for r, g, b
 	 */
 	public static function colorString2Object($color) {
-		if (substr($color, 0, 1) === '#') {
+		if (str_starts_with($color, '#')) {
 			$color = substr($color, 1);
 		}
 

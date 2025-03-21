@@ -286,7 +286,7 @@ class Conversion {
 		if (is_integer($property)) {
 			// Retrieve constants categories, zcore provides them in 'Core'
 			foreach (get_defined_constants(true)['Core'] as $key => $value) {
-				if ($property == $value && substr($key, 0, 3) == 'PR_') {
+				if ($property == $value && str_starts_with($key, 'PR_')) {
 					return $key;
 				}
 			}
@@ -498,7 +498,7 @@ class Conversion {
 			// if the string starts with '0x' then we have
 			// an acceptable propTag on which we can work
 			// to change the MV_flag value
-			if (substr($propTag, 0, 2) == '0x') {
+			if (str_starts_with($propTag, '0x')) {
 				$propTag = hexdec($propTag);
 				$propTag &= ~MV_FLAG;
 				$propTag = '0x' . strtoupper(str_pad((string) dechex_32($propTag), 8, '0', STR_PAD_LEFT));

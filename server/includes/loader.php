@@ -273,7 +273,7 @@ class FileLoader {
 		while (($file = readdir($dir)) !== false) {
 			$filepath = $path . '/' . $file;
 			// Skip entries like ".", ".." and ".svn"
-			if (substr($file, 0, 1) != "." && !in_array($filepath, $excludeFiles)) {
+			if (!str_starts_with($file, ".") && !in_array($filepath, $excludeFiles)) {
 				// Make sure we have files to include
 				$info = pathinfo($filepath, PATHINFO_EXTENSION);
 
@@ -353,7 +353,7 @@ class FileLoader {
 			$core = (str_contains($content, '#core')) ? true : false;
 
 			for ($j = 0, $lenJ = count($coreFiles); $j < $lenJ; ++$j) {
-				if (strpos((string) $filename, (string) $coreFiles[$j]) === 0) {
+				if (str_starts_with((string) $filename, (string) $coreFiles[$j])) {
 					$core = true;
 					break;
 				}
@@ -379,7 +379,7 @@ class FileLoader {
 			// First get the extended class dependencies. We also have to convert them into files names using the $classFileLookup.
 			for ($i = 0, $len = count($fileData['extends']); $i < $len; ++$i) {
 				// The check if it extends the Zarafa namespace is needed because we do not index other namespaces.
-				if (substr($fileData['extends'][$i], 0, strlen('Zarafa')) == 'Zarafa') {
+				if (str_starts_with($fileData['extends'][$i], 'Zarafa')) {
 					if (isset($libFileLookup[$fileData['extends'][$i]])) {
 						// The @extends is found in the library file.
 						// No need to update the dependencies
