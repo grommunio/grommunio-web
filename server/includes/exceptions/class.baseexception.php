@@ -23,11 +23,6 @@ class BaseException extends Exception {
 	public $isHandled = false;
 
 	/**
-	 * The exception message to show at client side.
-	 */
-	public $displayMessage;
-
-	/**
 	 * Flag for allow to exception details message or not.
 	 */
 	public $allowToShowDetailsMessage = false;
@@ -50,10 +45,7 @@ class BaseException extends Exception {
 	 * @param Exception $previous
 	 * @param string    $displayMessage
 	 */
-	public function __construct($errorMessage, $code = 0, Exception $previous = null, $displayMessage = null) {
-		// assign display message
-		$this->displayMessage = $displayMessage;
-
+	public function __construct($errorMessage, $code = 0, Exception $previous = null, public $displayMessage = null) {
 		parent::__construct($errorMessage, (int) $code, $previous);
 	}
 

@@ -7,13 +7,6 @@
  */
 class ZarafaErrorException extends BaseException {
 	/**
-	 * errcontext is an array that points to the active symbol table at the point the error occurred.
-	 * In other words, errcontext will contain an array of every variable that existed in the scope
-	 * the error was triggered in. User error handler must not modify error context.
-	 */
-	protected $errorContext;
-
-	/**
 	 * Constructs the Exception.
 	 *
 	 * @param string     $errorMessage   The exception message
@@ -23,9 +16,7 @@ class ZarafaErrorException extends BaseException {
 	 * @param string     $displayMessage the exception message to show at client side
 	 * @param null|mixed $errorContext
 	 */
-	public function __construct($errorMessage, $code, $filename, $lineno, $errorContext = null, $displayMessage = null) {
-		$this->errorContext = $errorContext;
-
+	public function __construct($errorMessage, $code, $filename, $lineno, protected $errorContext = null, $displayMessage = null) {
 		if (!$displayMessage) {
 			$displayMessage = _('Action is not performed correctly.');
 		}

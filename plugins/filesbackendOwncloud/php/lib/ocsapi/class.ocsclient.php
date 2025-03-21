@@ -37,26 +37,6 @@ class ocsclient {
 	public const OCS_TIMEOUT = 10;
 
 	/**
-	 * @var string Server base URL
-	 */
-	private $baseurl = "";
-
-	/**
-	 * @var string Username
-	 */
-	private $user = "";
-
-	/**
-	 * @var string Password
-	 */
-	private $pass = "";
-
-	/**
-	 * @var bool Allow self signed certs
-	 */
-	private $allowSelfSignedCerts = false;
-
-	/**
 	 * @var bool Defines if the store has been loaded
 	 */
 	private $loaded = false;
@@ -91,26 +71,37 @@ class ocsclient {
 	];
 
 	/**
-	 * Constructor.
-	 *
-	 * @param $baseurl
-	 * @param $user
-	 * @param $pass
-	 * @param $allowSelfSignedCerts
-	 *
-	 * @throws ConnectionException
-	 */
-	public function __construct($baseurl, $user, $pass, $allowSelfSignedCerts = false) {
+     * Constructor.
+     *
+     * @param $baseurl
+     * @param $user
+     * @param $pass
+     * @param $allowSelfSignedCerts
+     *
+     * @throws ConnectionException
+     * @param string $baseurl
+     * @param string $user
+     * @param string $pass
+     * @param bool $allowSelfSignedCerts
+     */
+    public function __construct(/**
+     * @var string Server base URL
+     */
+    private $baseurl, /**
+     * @var string Username
+     */
+    private $user, /**
+     * @var string Password
+     */
+    private $pass, /**
+     * @var bool Allow self signed certs
+     */
+    private $allowSelfSignedCerts = false) {
 		// check if curl is available
 		$serverHasCurl = function_exists('curl_version');
 		if (!$serverHasCurl) {
 			throw new ConnectionException("Curl not found!");
 		}
-
-		$this->baseurl = $baseurl;
-		$this->user = $user;
-		$this->pass = $pass;
-		$this->allowSelfSignedCerts = $allowSelfSignedCerts;
 
 		$this->shares = [];
 		$this->sharesByPath = [];

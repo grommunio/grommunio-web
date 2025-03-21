@@ -8,19 +8,9 @@ require_once __DIR__ . '/../exceptions/class.SearchException.php';
  */
 class Module {
 	/**
-	 * @var int unique id of the class
-	 */
-	public $id;
-
-	/**
 	 * @var string entryid, which will be registered by the bus object
 	 */
 	public $entryid;
-
-	/**
-	 * @var array list of all actions, which is received from the client
-	 */
-	public $data;
 
 	/**
 	 * @var array list of the results, which is send to the client
@@ -58,9 +48,7 @@ class Module {
 	 * @param int   $id   unique id
 	 * @param array $data list of all actions
 	 */
-	public function __construct($id, $data) {
-		$this->id = $id;
-		$this->data = $data;
+	public function __construct(public $id, public $data) {
 		$this->errors = [];
 		$this->responseData = [];
 		$this->sessionState = false;
@@ -72,7 +60,7 @@ class Module {
 		// It is requires for multi server environment where namespace differs.
 		// e.g. 'categories' => -2062020578, 'categories' => -2062610402,
 		if (isset($GLOBALS['properties'])) {
-			$GLOBALS['properties']->setStore($this->getActionStore($this->getActionData($data)));
+			$GLOBALS['properties']->setStore($this->getActionStore($this->getActionData($this->data)));
 		}
 	}
 

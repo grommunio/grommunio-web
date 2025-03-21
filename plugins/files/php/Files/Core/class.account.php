@@ -10,15 +10,7 @@ namespace Files\Core;
 use Files\Backend\BackendStore;
 
 class Account {
-	private $id;
-	private $name; // account name - for better usability
-	private $status;
-	private $statusDescription;
-	private $backend;
-	private $backendConfig; // This array will hold the backend configuration variables
-	private $features;
-	private $sequence; // for ordering
-	private $cannot_change; // for locking accounts
+	// for locking accounts
 
 	/**
 	 * Status variables.
@@ -39,17 +31,9 @@ class Account {
 	 * @param mixed $sequence
 	 * @param mixed $cannot_change
 	 */
-	public function __construct($id, $name, $status, $statusDescription, $backend, $backendConfig, $features, $sequence, $cannot_change) {
-		$this->id = $id;
-		$this->name = $name;
-		$this->status = $status;
-		$this->statusDescription = $statusDescription;
-		$this->backend = $backend;
-		$this->backendConfig = $backendConfig;
-		$this->features = $features;
-		$this->sequence = $sequence;
-		$this->cannot_change = $cannot_change;
-	}
+	public function __construct(private $id, private $name, private $status, private $statusDescription, private $backend, private $backendConfig, private $features, private $sequence, private $cannot_change)
+    {
+    }
 
 	/**
 	 * @return mixed

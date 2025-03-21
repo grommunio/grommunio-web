@@ -6,13 +6,10 @@
  */
 class ConfigCheck {
 	public $result;
-	public $haltOnError;
 	public $siteconfig;
 	public $phpini;
 
-	public function __construct($haltOnError = true) {
-		$this->haltOnError = $haltOnError;
-
+	public function __construct(public $haltOnError = true) {
 		$this->result = true;
 
 		// here we check our settings, changes to the config and
