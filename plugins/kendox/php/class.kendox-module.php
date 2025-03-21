@@ -330,7 +330,7 @@ class KendoxModule extends Module {
 	 * @param string    $displayMessage
 	 * @param Exception $ex
 	 */
-	public function logErrorAndThrow($displayMessage, $ex) {
+	public function logErrorAndThrow($displayMessage, $ex): never {
 		$errMsg = $displayMessage . ": " . $ex->getMessage();
 		error_log($errMsg);
 		error_log($ex->getTraceAsString());

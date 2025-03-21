@@ -7,7 +7,7 @@ class Response {
 	/**
 	 * Sends a 405 Method Not Allowed header and stops the script.
 	 */
-	public static function wrongMethod() {
+	public static function wrongMethod(): never {
 		header('HTTP/1.1 405 Method Not Allowed');
 
 		exit;
@@ -16,7 +16,7 @@ class Response {
 	/**
 	 * Sends a 404 Not Found header and stops the script.
 	 */
-	public static function notFound() {
+	public static function notFound(): never {
 		header('HTTP/1.1 404 Not Found');
 
 		exit;
@@ -25,7 +25,7 @@ class Response {
 	/**
 	 * Sends a 401 Unauthorized and stops the script.
 	 */
-	public static function unAuthorized() {
+	public static function unAuthorized(): never {
 		header('HTTP/1.1 401 Unauthorized');
 
 		exit;
