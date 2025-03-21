@@ -72,7 +72,7 @@ class X509Helper extends Der {
 			$mrdnd = '';
 			$r = "";
 			foreach ($rdn as $type => $value) {
-				if (substr((string) $type, -1) == '*') {
+				if (str_ends_with((string) $type, '*')) {
 					continue;
 				}
 				$type = empty($abbvrs[$type]) ? $type : $abbvrs[$type];

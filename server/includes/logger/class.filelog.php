@@ -16,7 +16,7 @@ class FileLog extends Logger {
 	 */
 	protected function Write($logLevel, $message, $detailMessage = false, $request = false) {
 		$dir = LOG_FILE_DIR;
-		if (substr(LOG_FILE_DIR, -1) != "/") {
+		if (!str_ends_with(LOG_FILE_DIR, "/")) {
 			$dir .= "/";
 		}
 

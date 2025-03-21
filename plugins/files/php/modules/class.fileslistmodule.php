@@ -495,7 +495,7 @@ class FilesListModule extends ListModule {
 			$parentEntryid = $actionData["parent_entryid"];
 
 			$isfolder = "";
-			if (substr((string) $folderId, -1) == '/') {
+			if (str_ends_with((string) $folderId, '/')) {
 				$isfolder = "/"; // we have a folder...
 			}
 

@@ -547,7 +547,7 @@ class FilesBrowserModule extends FilesListModule {
 		$isFolder = $actionData['message_action']["isFolder"] ?? false;
 
 		$pathPostfix = "";
-		if (substr((string) $actionData['folder_id'], -1) == '/') {
+		if (str_ends_with((string) $actionData['folder_id'], '/')) {
 			$pathPostfix = "/"; // we have a folder...
 		}
 

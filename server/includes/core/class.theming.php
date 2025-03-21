@@ -166,7 +166,7 @@ class Theming {
 			$iterator->rewind();
 			while ($iterator->valid()) {
 				$fileName = $iterator->getFilename();
-				if (!$iterator->isDir() && (strtolower($iterator->getExtension()) === 'css' || substr($fileName, -8) === '.css.php')) {
+				if (!$iterator->isDir() && (strtolower($iterator->getExtension()) === 'css' || str_ends_with($fileName, '.css.php'))) {
 					$cssFiles[] = substr((string) $iterator->key(), strlen(BASE_PATH));
 				}
 				$iterator->next();
