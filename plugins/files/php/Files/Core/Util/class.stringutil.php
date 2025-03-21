@@ -24,7 +24,7 @@ class StringUtil {
 		$sz = ' KMGTP';
 		$factor = (int) floor((strlen((string) $bytes) - 1) / 3);
 
-		return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . " " . @$sz[$factor] . "B";
+		return sprintf("%.{$decimals}f", $bytes / 1024 ** $factor) . " " . @$sz[$factor] . "B";
 	}
 
 	/**
