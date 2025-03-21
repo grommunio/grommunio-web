@@ -137,7 +137,7 @@ class WebAppSession {
 			return;
 		}
 
-		if (array_key_exists('HTTP_CONTENT_TYPE', $_SERVER) && strpos($_SERVER['HTTP_CONTENT_TYPE'], 'application/json') === false) {
+		if (array_key_exists('HTTP_CONTENT_TYPE', $_SERVER) && !str_contains($_SERVER['HTTP_CONTENT_TYPE'], 'application/json')) {
 			return;
 		}
 

@@ -324,13 +324,13 @@ class ConfigCheck {
 
 		if (is_dir($dir)) {
 			$states = strtolower($states);
-			if (strpos($states, "r") !== false) {
+			if (str_contains($states, "r")) {
 				if (!is_readable($dir)) {
 					$this->error_directory($dir, "isn't readable", $help_msg);
 					$result = false;
 				}
 			}
-			if (strpos($states, "w") !== false) {
+			if (str_contains($states, "w")) {
 				if (!is_writable($dir)) {
 					$this->error_directory($dir, "isn't writable", $help_msg);
 					$result = false;

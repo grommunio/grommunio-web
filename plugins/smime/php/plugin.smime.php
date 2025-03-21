@@ -444,7 +444,7 @@ class Pluginsmime extends Plugin {
 			$content = file_get_contents($tmpDecrypted);
 			// Handle OL empty body Outlook Signed & Encrypted mails.
 			// The S/MIME plugin has to extract the body from the signed message.
-			if (strpos($content, 'signed-data') !== false) {
+			if (str_contains($content, 'signed-data')) {
 				$this->message['type'] = 'encryptsigned';
 				$olcert = tempnam(sys_get_temp_dir(), true);
 				$olmsg = tempnam(sys_get_temp_dir(), true);
@@ -467,7 +467,7 @@ class Pluginsmime extends Plugin {
 
 			// mapi_inetmapi_imtomapi removes the PR_MESSAGE_CLASS = 'IPM.Note.SMIME.MultipartSigned'
 			// So we need to check if the message was also signed by looking at the MIME_TAG in the eml
-			if (strpos($content, 'multipart/signed') !== false || strpos($content, 'signed-data') !== false) {
+			if (str_contains($content, 'multipart/signed') || str_contains($content, 'signed-data')) {
 				$this->message['type'] = 'encryptsigned';
 				$this->verifyMessage($data['message'], $content);
 			}

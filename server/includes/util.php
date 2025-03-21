@@ -34,7 +34,7 @@ function appendDefaultDomain($user) {
 	if (empty($user)) {
 		return '';
 	}
-	if (!defined('DEFAULT_DOMAIN') || empty(DEFAULT_DOMAIN) || strpos($user, '@') !== false) {
+	if (!defined('DEFAULT_DOMAIN') || empty(DEFAULT_DOMAIN) || str_contains($user, '@')) {
 		return $user;
 	}
 
@@ -107,13 +107,13 @@ function getMaxUploadSize($as_string = false) {
 	 */
 
 	// calculate upload_max_value value to bytes
-	if (strpos($upload_max_value, "K") !== false) {
+	if (str_contains($upload_max_value, "K")) {
 		$upload_max_value = ((int) $upload_max_value) * 1024;
 	}
-	elseif (strpos($upload_max_value, "M") !== false) {
+	elseif (str_contains($upload_max_value, "M")) {
 		$upload_max_value = ((int) $upload_max_value) * 1024 * 1024;
 	}
-	elseif (strpos($upload_max_value, "G") !== false) {
+	elseif (str_contains($upload_max_value, "G")) {
 		$upload_max_value = ((int) $upload_max_value) * 1024 * 1024 * 1024;
 	}
 
@@ -153,13 +153,13 @@ function getMaxPostRequestSize() {
 	$post_max_value = strtoupper(ini_get('post_max_size'));
 
 	// calculate post_max_value value to bytes
-	if (strpos($post_max_value, "K") !== false) {
+	if (str_contains($post_max_value, "K")) {
 		$post_max_value = ((int) $post_max_value) * 1024;
 	}
-	elseif (strpos($post_max_value, "M") !== false) {
+	elseif (str_contains($post_max_value, "M")) {
 		$post_max_value = ((int) $post_max_value) * 1024 * 1024;
 	}
-	elseif (strpos($post_max_value, "G") !== false) {
+	elseif (str_contains($post_max_value, "G")) {
 		$post_max_value = ((int) $post_max_value) * 1024 * 1024 * 1024;
 	}
 
@@ -314,7 +314,7 @@ function browserDependingHTTPHeaderEncode($input) {
  * @return bool true if Edge is the requester, position of the word otherwise
  */
 function isEdge() {
-	return strpos($_SERVER['HTTP_USER_AGENT'], 'Edge') !== false;
+	return str_contains($_SERVER['HTTP_USER_AGENT'], 'Edge');
 }
 
 /**

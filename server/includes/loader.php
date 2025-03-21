@@ -350,7 +350,7 @@ class FileLoader {
 			preg_match_all('(@extends\W([^\n\r]*))', $content, $extends);
 			preg_match_all('(@class\W([^\n\r]*))', $content, $class);
 			preg_match_all('(#dependsFile\W([^\n\r\*]+))', $content, $dependsFile);
-			$core = (strpos($content, '#core') !== false) ? true : false;
+			$core = (str_contains($content, '#core')) ? true : false;
 
 			for ($j = 0, $lenJ = count($coreFiles); $j < $lenJ; ++$j) {
 				if (strpos($filename, $coreFiles[$j]) === 0) {

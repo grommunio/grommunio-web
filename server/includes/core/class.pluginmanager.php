@@ -1092,7 +1092,7 @@ class PluginManager {
 			}
 			else {
 				// Check if it contains a wildcard
-				if (strpos($pluginName, '*') !== false) {
+				if (str_contains($pluginName, '*')) {
 					$expandedPluginList = $this->_expandPluginNameWithWildcard($pluginName);
 					$pluginList = array_merge($pluginList, $expandedPluginList);
 				}

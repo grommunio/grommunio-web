@@ -3469,7 +3469,7 @@ class Operations {
 					}
 
 					$contentID = $props[PR_ATTACH_CONTENT_ID];
-					if (strpos($body, $contentID) === false) {
+					if (!str_contains($body, $contentID)) {
 						continue;
 					}
 				}
@@ -3771,7 +3771,7 @@ class Operations {
 	 * @return string email address if possible else return empty string
 	 */
 	public function getEmailAddressFromSearchKey($searchKey) {
-		if (strpos($searchKey, ':') !== false && strpos($searchKey, '@') !== false) {
+		if (str_contains($searchKey, ':') && str_contains($searchKey, '@')) {
 			return trim(strtolower(explode(':', $searchKey)[1]));
 		}
 
@@ -4585,7 +4585,7 @@ class Operations {
 
 		// Only load the DOM if the HTML contains a img or data:text/plain due to a bug
 		// in Chrome on Windows in combination with TinyMCE.
-		if (strpos($body, "img") !== false || strpos($body, "data:text/plain") !== false) {
+		if (str_contains($body, "img") || str_contains($body, "data:text/plain")) {
 			$doc = new DOMDocument();
 			$cpprops = mapi_message_getprops($message, [PR_INTERNET_CPID]);
 			$codepage = isset($cpprops[PR_INTERNET_CPID]) ? $cpprops[PR_INTERNET_CPID] : 1252;
@@ -4598,8 +4598,8 @@ class Operations {
 			foreach ($images as $image) {
 				$src = $image->getAttribute('src');
 
-				if (strpos($src, "cid:") === false && (strpos($src, "data:image") !== false ||
-					strpos($body, "data:text/plain") !== false)) {
+				if (!str_contains($src, "cid:") && (str_contains($src, "data:image") ||
+					str_contains($body, "data:text/plain"))) {
 					$saveChanges = true;
 
 					// Extract mime type data:image/jpeg;
@@ -4635,7 +4635,7 @@ class Operations {
 					mapi_stream_commit($stream);
 					mapi_savechanges($inlineImage);
 				}
-				elseif (strstr($src, "cid:") !== false) {
+				elseif (str_contains($src, "cid:")) {
 					// Check for the cid(there may be http: ) is in the image src. push the cid
 					// to $imageIDs array. which further used in clearDeletedInlineAttachments function.
 

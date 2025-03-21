@@ -395,13 +395,13 @@ class Language {
 				$translation_data[$i]['msgid'] = $orig_str['str'];	// unpack converts to array :S
 
 				// Find context in the original string
-				if (strpos($translation_data[$i]['msgid'], "\004") !== false) {
+				if (str_contains($translation_data[$i]['msgid'], "\004")) {
 					$contextSplit = explode("\004", $translation_data[$i]['msgid']);
 					$translation_data[$i]['msgctxt'] = $contextSplit[0];
 					$translation_data[$i]['msgid'] = $contextSplit[1];
 				}
 				// Find plural forms in the original string
-				if (strpos($translation_data[$i]['msgid'], "\0") !== false) {
+				if (str_contains($translation_data[$i]['msgid'], "\0")) {
 					$original = explode("\0", $translation_data[$i]['msgid']);
 					$translation_data[$i]['msgid'] = $original[0];
 					$translation_data[$i]['msgid_plural'] = $original[1];

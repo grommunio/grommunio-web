@@ -25,7 +25,7 @@ function create_arg($files) {
 
 // Only include extjs-mod
 function filter_extjsmod($file) {
-	return strpos($file, "extjs-mod") !== false;
+	return str_contains($file, "extjs-mod");
 }
 
 if ($argc < 3) {
