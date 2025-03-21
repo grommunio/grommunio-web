@@ -193,7 +193,7 @@ class UploadAttachment {
 
 					// import given files
 					if ($this->import) {
-						$importStatus = $this->importFiles($attachTempName, $filename, $_POST['has_icsvcs_file'] ?? false);
+						$importStatus = $this->importFiles($attachTempName, $filename);
 					}
 					elseif ($sourcetype === 'contactphoto' || $sourcetype === 'default') {
 						$fileData = [

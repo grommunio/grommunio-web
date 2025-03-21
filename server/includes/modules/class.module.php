@@ -180,9 +180,7 @@ class Module {
 			}
 			Log::Write(
 				LOGLEVEL_ERROR,
-				"Module::handleException():" . $actionType . ": " . $e->displayMessage,
-				$e,
-				$action
+				"Module::handleException():" . $actionType . ": " . $e->displayMessage
 			);
 		}
 	}
@@ -482,8 +480,7 @@ class Module {
 		);
 		Log::Write(
 			LOGLEVEL_ERROR,
-			"Module::handleUnknownActionType(): ERROR_ZARAFA : " . _("Could not process request data properly."),
-			sprintf(_("Unknown action type specified - %s"), $actionType)
+			"Module::handleUnknownActionType(): ERROR_ZARAFA : " . _("Could not process request data properly.")
 		);
 	}
 

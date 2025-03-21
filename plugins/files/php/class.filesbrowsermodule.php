@@ -693,15 +693,15 @@ class FilesBrowserModule extends FilesListModule {
 			if (isset($lsdata) && is_array($lsdata)) {
 				foreach ($records as $record) {
 					$relRecId = substr((string) $record["id"], strpos((string) $record["id"], '/'));
-					Logger::debug(self::LOG_CONTEXT, "Checking rec: " . $relRecId, "Core");
+					Logger::debug(self::LOG_CONTEXT, "Checking rec: " . $relRecId);
 					foreach ($lsdata as $argsid => $args) {
 						if (strcmp((string) $args['resourcetype'], "collection") == 0 && $record["isFolder"] && strcmp(basename($argsid), basename($relRecId)) == 0) { // we have a folder
-							Logger::debug(self::LOG_CONTEXT, "Duplicate folder found: " . $argsid, "Core");
+							Logger::debug(self::LOG_CONTEXT, "Duplicate folder found: " . $argsid);
 							$duplicate = true;
 							break;
 						}
 						if (strcmp((string) $args['resourcetype'], "collection") != 0 && !$record["isFolder"] && strcmp(basename($argsid), basename($relRecId)) == 0) {
-							Logger::debug(self::LOG_CONTEXT, "Duplicate file found: " . $argsid, "Core");
+							Logger::debug(self::LOG_CONTEXT, "Duplicate file found: " . $argsid);
 							$duplicate = true;
 							break;
 						}
@@ -709,7 +709,7 @@ class FilesBrowserModule extends FilesListModule {
 					}
 
 					if ($duplicate) {
-						Logger::debug(self::LOG_CONTEXT, "Duplicate entry: " . $relRecId, "Core");
+						Logger::debug(self::LOG_CONTEXT, "Duplicate entry: " . $relRecId);
 						break;
 					}
 				}
