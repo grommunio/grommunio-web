@@ -315,9 +315,7 @@ class HierarchyModule extends Module {
 						throw new MAPIException(null, MAPI_E_NO_ACCESS);
 					}
 
-					$noPermissionFolders = array_filter($data['item'][0]['folders']['item'], function ($item) {
-						return $item['props']['access'] === 0;
-					});
+					$noPermissionFolders = array_filter($data['item'][0]['folders']['item'], fn($item) => $item['props']['access'] === 0);
 					if (count($noPermissionFolders) >= $folders) {
 						// Throw an exception that we couldn't open the shared store,
 						// lets have processException() fill in our error message.

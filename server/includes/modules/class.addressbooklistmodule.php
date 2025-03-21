@@ -334,11 +334,9 @@ class AddressbookListModule extends ListModule {
 				}
 
 				function sorter($direction, $key) {
-					return function($a, $b) use ($direction, $key) {
-						return $direction == 'ASC' ?
+					return fn($a, $b) => $direction == 'ASC' ?
 							strcasecmp($a['props'][$key] ?? '', $b['props'][$key] ?? '') :
 							strcasecmp($b['props'][$key] ?? '', $a['props'][$key] ?? '');
-					};
 				}
 				usort($items, sorter($sortingDir, $sortingField));
 
