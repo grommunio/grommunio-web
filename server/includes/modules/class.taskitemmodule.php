@@ -110,7 +110,7 @@ class TaskItemModule extends ItemModule {
 				$messageProps = $this->saveTask($store, $parententryid, $entryid, $action);
 
 				if ($messageProps) {
-					$send = isset($action["message_action"]["send"]) ? $action["message_action"]["send"] : false;
+					$send = $action["message_action"]["send"] ?? false;
 					$message = $GLOBALS['operations']->openMessage($store, $messageProps[PR_ENTRYID]);
 					$data = $GLOBALS['operations']->getMessageProps($store, $message, $this->properties, $this->plaintext);
 
@@ -183,7 +183,7 @@ class TaskItemModule extends ItemModule {
 	public function deleteTask($store, $parententryid, $entryids, $action) {
 		$result = false;
 		$message = mapi_msgstore_openentry($store, $entryids);
-		$messageAction = isset($action["message_action"]["action_type"]) ? $action["message_action"]["action_type"] : false;
+		$messageAction = $action["message_action"]["action_type"] ?? false;
 		// If user wants to delete only occurrence then delete this occurrence
 		if (!is_array($entryids) && $messageAction) {
 			if ($message) {
@@ -219,7 +219,7 @@ class TaskItemModule extends ItemModule {
 			}
 
 			// If softdelete is set then set it in softDelete variable and pass it for deleting message.
-			$softDelete = isset($action['message_action']['soft_delete']) ? $action['message_action']['soft_delete'] : false;
+			$softDelete = $action['message_action']['soft_delete'] ?? false;
 			$result = $GLOBALS["operations"]->deleteMessages($store, $parententryid, $entryids, $softDelete);
 		}
 		else {
@@ -246,7 +246,7 @@ class TaskItemModule extends ItemModule {
 	public function saveTask($store, $parententryid, $entryid, $action) {
 		$properties = $this->properties;
 		$messageProps = [];
-		$send = isset($action["message_action"]["send"]) ? $action["message_action"]["send"] : false;
+		$send = $action["message_action"]["send"] ?? false;
 
 		if ($store && $parententryid) {
 			if (isset($action["props"])) {
@@ -280,7 +280,7 @@ class TaskItemModule extends ItemModule {
 
 						$messageProps = Conversion::mapXML2MAPI($properties, $props);
 
-						$message = $GLOBALS["operations"]->saveMessage($store, $entryid, $parententryid, $messageProps, $messageProps, $recips, isset($action['attachments']) ? $action['attachments'] : [], []);
+						$message = $GLOBALS["operations"]->saveMessage($store, $entryid, $parententryid, $messageProps, $messageProps, $recips, $action['attachments'] ?? [], []);
 
 						if (isset($msgProps) && $msgProps) {
 							$messageProps = $msgProps;
@@ -305,7 +305,7 @@ class TaskItemModule extends ItemModule {
 						$copyFromMessage = $GLOBALS['operations']->openMessage($copyFromStore, $copyFromMessage);
 					}
 
-					$message = $GLOBALS["operations"]->saveMessage($store, $entryid, $parententryid, $messageProps, $messageProps, $recips, isset($action['attachments']) ? $action['attachments'] : [], [], $copyFromMessage, $copyAttachments, false, false, false);
+					$message = $GLOBALS["operations"]->saveMessage($store, $entryid, $parententryid, $messageProps, $messageProps, $recips, $action['attachments'] ?? [], [], $copyFromMessage, $copyAttachments, false, false, false);
 
 					// Set recurrence
 					if (isset($action['props']['recurring']) && $action['props']['recurring'] == 1) {

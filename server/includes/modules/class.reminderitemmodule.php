@@ -38,7 +38,7 @@ class ReminderItemModule extends ItemModule {
 
 			// Set message flags
 			if (isset($action['props'], $action['props']['message_flags']) && $entryid) {
-				$msg_action = isset($action['message_action']) ? $action['message_action'] : false;
+				$msg_action = $action['message_action'] ?? false;
 				$result = $GLOBALS['operations']->setMessageFlag($store, $entryid, $action['props']['message_flags'], $msg_action, $messageProps);
 			}
 

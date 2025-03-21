@@ -1188,7 +1188,7 @@ class Pluginsmime extends Plugin {
 		}
 
 		$messageProps = mapi_getprops($mapiMessage, [PR_SENT_REPRESENTING_ENTRYID, PR_SENDER_ENTRYID]);
-		$senderEntryID = isset($messageProps[PR_SENT_REPRESENTING_ENTRYID]) ? $messageProps[PR_SENT_REPRESENTING_ENTRYID] : $messageProps[PR_SENDER_ENTRYID];
+		$senderEntryID = $messageProps[PR_SENT_REPRESENTING_ENTRYID] ?? $messageProps[PR_SENDER_ENTRYID];
 
 		try {
 			$senderUser = mapi_ab_openentry($GLOBALS["mapisession"]->getAddressbook(), $senderEntryID);

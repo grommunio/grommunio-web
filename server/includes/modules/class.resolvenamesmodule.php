@@ -159,10 +159,10 @@ class ResolveNamesModule extends Module {
 				}
 
 				$item = [];
-				$item['object_type'] = isset($user_data[PR_OBJECT_TYPE]) ? $user_data[PR_OBJECT_TYPE] : MAPI_MAILUSER;
+				$item['object_type'] = $user_data[PR_OBJECT_TYPE] ?? MAPI_MAILUSER;
 				$item['entryid'] = isset($user_data[PR_ENTRYID]) ? bin2hex($user_data[PR_ENTRYID]) : '';
-				$item['display_name'] = isset($user_data[PR_DISPLAY_NAME]) ? $user_data[PR_DISPLAY_NAME] : '';
-				$item['display_type'] = isset($user_data[PR_DISPLAY_TYPE]) ? $user_data[PR_DISPLAY_TYPE] : DT_MAILUSER;
+				$item['display_name'] = $user_data[PR_DISPLAY_NAME] ?? '';
+				$item['display_type'] = $user_data[PR_DISPLAY_TYPE] ?? DT_MAILUSER;
 
 				// Test whether the GUID in the entryid is from the Contact Provider
 				if ($GLOBALS['entryid']->hasContactProviderGUID($item['entryid'])) {
@@ -171,35 +171,35 @@ class ResolveNamesModule extends Module {
 						$item['address_type'] = 'MAPIPDL';
 						// The email_address is empty for DistList, using display name for resolving
 						$item['email_address'] = $item['display_name'];
-						$item['smtp_address'] = isset($item['smtp_address']) ? $item['smtp_address'] : '';
+						$item['smtp_address'] = $item['smtp_address'] ?? '';
 					}
 					else {
 						$item['address_type'] = $user_data[PR_ADDRTYPE] ?? 'SMTP';
 						if (isset($user_data['address_type']) && $user_data['address_type'] === 'EX') {
-							$item['email_address'] = isset($user_data[PR_EMAIL_ADDRESS]) ? $user_data[PR_EMAIL_ADDRESS] : '';
+							$item['email_address'] = $user_data[PR_EMAIL_ADDRESS] ?? '';
 						}
 						else {
 							// Fake being an EX account, since it's actually an SMTP addrtype the email address is in a different property.
-							$item['smtp_address'] = isset($user_data[PR_EMAIL_ADDRESS]) ? $user_data[PR_EMAIL_ADDRESS] : '';
+							$item['smtp_address'] = $user_data[PR_EMAIL_ADDRESS] ?? '';
 							// Keep the old scenario happy.
-							$item['email_address'] = isset($user_data[PR_EMAIL_ADDRESS]) ? $user_data[PR_EMAIL_ADDRESS] : '';
+							$item['email_address'] = $user_data[PR_EMAIL_ADDRESS] ?? '';
 						}
 					}
 				// It can be considered a GAB entry
 				}
 				else {
-					$item['user_name'] = isset($user_data[PR_ACCOUNT]) ? $user_data[PR_ACCOUNT] : $item['display_name'];
-					$item['display_type_ex'] = isset($user_data[PR_DISPLAY_TYPE_EX]) ? $user_data[PR_DISPLAY_TYPE_EX] : MAPI_MAILUSER;
-					$item['email_address'] = isset($user_data[PR_EMAIL_ADDRESS]) ? $user_data[PR_EMAIL_ADDRESS] : '';
-					$item['smtp_address'] = isset($user_data[PR_SMTP_ADDRESS]) ? $user_data[PR_SMTP_ADDRESS] : $item['email_address'];
-					$item['address_type'] = isset($user_data[PR_ADDRTYPE]) ? $user_data[PR_ADDRTYPE] : 'SMTP';
+					$item['user_name'] = $user_data[PR_ACCOUNT] ?? $item['display_name'];
+					$item['display_type_ex'] = $user_data[PR_DISPLAY_TYPE_EX] ?? MAPI_MAILUSER;
+					$item['email_address'] = $user_data[PR_EMAIL_ADDRESS] ?? '';
+					$item['smtp_address'] = $user_data[PR_SMTP_ADDRESS] ?? $item['email_address'];
+					$item['address_type'] = $user_data[PR_ADDRTYPE] ?? 'SMTP';
 				}
 
 				if (isset($user_data[PR_SEARCH_KEY])) {
 					$item['search_key'] = bin2hex($user_data[PR_SEARCH_KEY]);
 				}
 				else {
-					$emailAddress = isset($item['smtp_address']) ? $item['smtp_address'] : $item['email_address'];
+					$emailAddress = $item['smtp_address'] ?? $item['email_address'];
 					$item['search_key'] = bin2hex(strtoupper($item['address_type'] . ':' . $emailAddress)) . '00';
 				}
 

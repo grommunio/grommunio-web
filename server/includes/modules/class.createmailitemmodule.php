@@ -51,7 +51,7 @@ class CreateMailItemModule extends ItemModule {
 
 			// Set message flags first, because this has to be possible even if the user does not have write permissions
 			if (isset($action['props'], $action['props']['message_flags']) && $entryid) {
-				$msg_action = isset($action['message_action']) ? $action['message_action'] : false;
+				$msg_action = $action['message_action'] ?? false;
 				$result = $GLOBALS['operations']->setMessageFlag($store, $entryid, $action['props']['message_flags'], $msg_action, $messageProps);
 
 				unset($action['props']['message_flags']);
@@ -186,7 +186,7 @@ class CreateMailItemModule extends ItemModule {
 						$action["recipients"]["remove"] = $members["remove"];
 					}
 
-					$error = $GLOBALS['operations']->submitMessage($store, $entryid, Conversion::mapXML2MAPI($this->properties, $action['props']), $messageProps, isset($action['recipients']) ? $action['recipients'] : [], isset($action['attachments']) ? $action['attachments'] : [], $copyFromMessage, $copyAttachments, false, $copyInlineAttachmentsOnly, isset($action['props']['isHTML']) ? !$action['props']['isHTML'] : false);
+					$error = $GLOBALS['operations']->submitMessage($store, $entryid, Conversion::mapXML2MAPI($this->properties, $action['props']), $messageProps, $action['recipients'] ?? [], $action['attachments'] ?? [], $copyFromMessage, $copyAttachments, false, $copyInlineAttachmentsOnly, isset($action['props']['isHTML']) ? !$action['props']['isHTML'] : false);
 
 					// If draft is sent from the drafts folder, delete notification
 					if (!$error) {
@@ -250,7 +250,7 @@ class CreateMailItemModule extends ItemModule {
 						array_push($propertiesToDelete, PR_SENT_REPRESENTING_ENTRYID, PR_SENT_REPRESENTING_SEARCH_KEY);
 					}
 
-					$result = $GLOBALS['operations']->saveMessage($store, $entryid, $parententryid, $mapiProps, $messageProps, isset($action['recipients']) ? $action['recipients'] : [], isset($action['attachments']) ? $action['attachments'] : [], $propertiesToDelete, $copyFromMessage, $copyAttachments, false, $copyInlineAttachmentsOnly);
+					$result = $GLOBALS['operations']->saveMessage($store, $entryid, $parententryid, $mapiProps, $messageProps, $action['recipients'] ?? [], $action['attachments'] ?? [], $propertiesToDelete, $copyFromMessage, $copyAttachments, false, $copyInlineAttachmentsOnly);
 
 					// Update the client with the (new) entryid and parententryid to allow the draft message to be removed when submitting.
 					// this will also update rowids of attachments which is required when deleting attachments

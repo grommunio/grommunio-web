@@ -134,17 +134,17 @@ class AddressbookListModule extends ListModule {
 					$item = [];
 					$entryid = bin2hex((string) $user_data[$this->properties['entryid']]);
 					$item['entryid'] = $entryid;
-					$item['display_name'] = isset($user_data[$this->properties['display_name']]) ? $user_data[$this->properties['display_name']] : "";
-					$item['object_type'] = isset($user_data[$this->properties['object_type']]) ? $user_data[$this->properties['object_type']] : "";
-					$item['display_type'] = isset($user_data[PR_DISPLAY_TYPE]) ? $user_data[PR_DISPLAY_TYPE] : "";
-					$item['title'] = isset($user_data[PR_TITLE]) ? $user_data[PR_TITLE] : "";
-					$item['company_name'] = isset($user_data[PR_COMPANY_NAME]) ? $user_data[PR_COMPANY_NAME] : "";
+					$item['display_name'] = $user_data[$this->properties['display_name']] ?? "";
+					$item['object_type'] = $user_data[$this->properties['object_type']] ?? "";
+					$item['display_type'] = $user_data[PR_DISPLAY_TYPE] ?? "";
+					$item['title'] = $user_data[PR_TITLE] ?? "";
+					$item['company_name'] = $user_data[PR_COMPANY_NAME] ?? "";
 
 					// Test whether the GUID in the entryid is from the Contact Provider
 					if ($GLOBALS['entryid']->hasContactProviderGUID(bin2hex((string) $user_data[$this->properties['entryid']]))) {
 						// Use the original_display_name property to fill in the fileas column
 						$item['fileas'] = $user_data[$this->properties['original_display_name']] ?? $item['display_name'];
-						$item['address_type'] = isset($user_data[$this->properties['address_type']]) ? $user_data[$this->properties['address_type']] : 'SMTP';
+						$item['address_type'] = $user_data[$this->properties['address_type']] ?? 'SMTP';
 						// necessary to display the proper icon
 						if ($item['address_type'] === 'MAPIPDL') {
 							$item['display_type_ex'] = DTE_FLAG_ACL_CAPABLE | DT_MAILUSER | DT_DISTLIST;
@@ -172,8 +172,8 @@ class AddressbookListModule extends ListModule {
 						$item['display_type_ex'] = $isContact ? DT_MAILUSER : DT_MAILUSER | DT_PRIVATE_DISTLIST;
 						$item['display_type'] = $isContact ? DT_MAILUSER : DT_DISTLIST;
 						$item['fileas'] = $item['display_name'];
-						$item['surname'] = isset($user_data[PR_SURNAME]) ? $user_data[PR_SURNAME] : '';
-						$item['given_name'] = isset($user_data[$this->properties['given_name']]) ? $user_data[$this->properties['given_name']] : '';
+						$item['surname'] = $user_data[PR_SURNAME] ?? '';
+						$item['given_name'] = $user_data[$this->properties['given_name']] ?? '';
 						$item['object_type'] = $user_data[PR_ICON_INDEX] == 512 ? MAPI_MAILUSER : MAPI_DISTLIST;
 						$item['store_entryid'] = $action["sharedFolder"]["store_entryid"];
 						$item['is_shared'] = true;
@@ -210,13 +210,13 @@ class AddressbookListModule extends ListModule {
 					}
 					else {
 						// If display_type_ex is not set we can overwrite it with display_type
-						$item['display_type_ex'] = isset($user_data[PR_DISPLAY_TYPE_EX]) ? $user_data[PR_DISPLAY_TYPE_EX] : $user_data[PR_DISPLAY_TYPE];
+						$item['display_type_ex'] = $user_data[PR_DISPLAY_TYPE_EX] ?? $user_data[PR_DISPLAY_TYPE];
 						$item['fileas'] = $item['display_name'];
-						$item['mobile_telephone_number'] = isset($user_data[PR_MOBILE_TELEPHONE_NUMBER]) ? $user_data[PR_MOBILE_TELEPHONE_NUMBER] : '';
-						$item['home_telephone_number'] = isset($user_data[PR_HOME_TELEPHONE_NUMBER]) ? $user_data[PR_HOME_TELEPHONE_NUMBER] : '';
-						$item['pager_telephone_number'] = isset($user_data[PR_PAGER_TELEPHONE_NUMBER]) ? $user_data[PR_PAGER_TELEPHONE_NUMBER] : '';
-						$item['surname'] = isset($user_data[PR_SURNAME]) ? $user_data[PR_SURNAME] : '';
-						$item['given_name'] = isset($user_data[$this->properties['given_name']]) ? $user_data[$this->properties['given_name']] : '';
+						$item['mobile_telephone_number'] = $user_data[PR_MOBILE_TELEPHONE_NUMBER] ?? '';
+						$item['home_telephone_number'] = $user_data[PR_HOME_TELEPHONE_NUMBER] ?? '';
+						$item['pager_telephone_number'] = $user_data[PR_PAGER_TELEPHONE_NUMBER] ?? '';
+						$item['surname'] = $user_data[PR_SURNAME] ?? '';
+						$item['given_name'] = $user_data[$this->properties['given_name']] ?? '';
 
 						switch ($user_data[PR_DISPLAY_TYPE]) {
 							case DT_ORGANIZATION:
@@ -250,11 +250,11 @@ class AddressbookListModule extends ListModule {
 								$item['email_address'] = $user_data[$this->properties['email_address']];
 								$item['smtp_address'] = $user_data[$this->properties['smtp_address']];
 
-								$item['address_type'] = isset($user_data[$this->properties['address_type']]) ? $user_data[$this->properties['address_type']] : 'SMTP';
-								$item['department_name'] = isset($user_data[$this->properties['department_name']]) ? $user_data[$this->properties['department_name']] : '';
-								$item['office_telephone_number'] = isset($user_data[$this->properties['office_telephone_number']]) ? $user_data[$this->properties['office_telephone_number']] : '';
-								$item['office_location'] = isset($user_data[$this->properties['office_location']]) ? $user_data[$this->properties['office_location']] : '';
-								$item['primary_fax_number'] = isset($user_data[$this->properties['primary_fax_number']]) ? $user_data[$this->properties['primary_fax_number']] : '';
+								$item['address_type'] = $user_data[$this->properties['address_type']] ?? 'SMTP';
+								$item['department_name'] = $user_data[$this->properties['department_name']] ?? '';
+								$item['office_telephone_number'] = $user_data[$this->properties['office_telephone_number']] ?? '';
+								$item['office_location'] = $user_data[$this->properties['office_location']] ?? '';
+								$item['primary_fax_number'] = $user_data[$this->properties['primary_fax_number']] ?? '';
 								break;
 						}
 					}

@@ -82,7 +82,7 @@ class ItemModule extends Module {
 							case "declineMeetingRequest":
 							case "acceptMeetingRequest":
 								$message = $GLOBALS["operations"]->openMessage($store, $entryid);
-								$basedate = (isset($action['basedate']) ? $action['basedate'] : false);
+								$basedate = ($action['basedate'] ?? false);
 								$delete = false;
 
 								if ($basedate) {
@@ -118,16 +118,16 @@ class ItemModule extends Module {
 								// @FIXME: fix body
 								$body = false;
 								if (isset($action["props"]["isHTML"]) && $action["props"]["isHTML"] === true) {
-									$body = isset($action["props"]["html_body"]) ? $action["props"]["html_body"] : false;
+									$body = $action["props"]["html_body"] ?? false;
 								}
 								else {
-									$body = isset($action["props"]["body"]) ? $action["props"]["body"] : false;
+									$body = $action["props"]["body"] ?? false;
 								}
 
 								if ($action["message_action"]["action_type"] == "acceptMeetingRequest") {
 									$tentative = $action["message_action"]["responseType"] === olResponseTentative;
-									$newProposedStartTime = isset($action["message_action"]["proposed_starttime"]) ? $action["message_action"]["proposed_starttime"] : false;
-									$newProposedEndTime = isset($action["message_action"]["proposed_endtime"]) ? $action["message_action"]["proposed_endtime"] : false;
+									$newProposedStartTime = $action["message_action"]["proposed_starttime"] ?? false;
+									$newProposedEndTime = $action["message_action"]["proposed_endtime"] ?? false;
 
 									// We are accepting MR from preview-read-mail so set delete the actual mail flag.
 									$delete = $req->isMeetingRequest($originalMessageProps[PR_MESSAGE_CLASS]);
@@ -252,10 +252,10 @@ class ItemModule extends Module {
 								// @FIXME: may be we can remove this body check any get it while declining meeting 'body'
 								$body = false;
 								if (isset($action["props"]["isHTML"]) && $action["props"]["isHTML"] === true) {
-									$body = isset($action["props"]["html_body"]) ? $action["props"]["html_body"] : false;
+									$body = $action["props"]["html_body"] ?? false;
 								}
 								else {
-									$body = isset($action["props"]["body"]) ? $action["props"]["body"] : false;
+									$body = $action["props"]["body"] ?? false;
 								}
 								$req->doDecline(true, $basedate, $body);
 
@@ -848,7 +848,7 @@ class ItemModule extends Module {
 			$props['appointment_parent_entryid'] = bin2hex((string) $calendarItemProps[PR_PARENT_ENTRYID]);
 			$props['appointment_entryid'] = bin2hex((string) $calendarItemProps[PR_ENTRYID]);
 
-			$props['appointment_updatecounter'] = isset($calendarItemProps[$meetingRequestObject->proptags['updatecounter']]) ? $calendarItemProps[$meetingRequestObject->proptags['updatecounter']] : 0;
+			$props['appointment_updatecounter'] = $calendarItemProps[$meetingRequestObject->proptags['updatecounter']] ?? 0;
 
 			$messageProps = mapi_getprops($meetingRequestObject->message, [$meetingRequestObject->proptags['goid']]);
 
@@ -863,7 +863,7 @@ class ItemModule extends Module {
 				if ($exception !== false) {
 					// we are able to find the exception then get updatecounter
 					$exceptionProps = mapi_getprops($exception, [$meetingRequestObject->proptags['updatecounter']]);
-					$props['appointment_updatecounter'] = isset($exceptionProps[$meetingRequestObject->proptags['updatecounter']]) ? $exceptionProps[$meetingRequestObject->proptags['updatecounter']] : 0;
+					$props['appointment_updatecounter'] = $exceptionProps[$meetingRequestObject->proptags['updatecounter']] ?? 0;
 				}
 			}
 

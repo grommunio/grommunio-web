@@ -222,7 +222,7 @@ class ListModule extends Module {
 	 * @param string $actionType the action type, sent by the client
 	 */
 	public function search($store, $entryid, $action, $actionType) {
-		$useSearchFolder = isset($action["use_searchfolder"]) ? $action["use_searchfolder"] : false;
+		$useSearchFolder = $action["use_searchfolder"] ?? false;
 		if (!$useSearchFolder) {
 			/*
 			 * store doesn't support search folders so we can't use this
@@ -717,7 +717,7 @@ class ListModule extends Module {
 	 */
 	public function sendSearchErrorToClient($store, $entryid, $action, $errorInfo) {
 		if ($errorInfo) {
-			$exception = new SearchException(isset($errorInfo["original_error_message"]) ? $errorInfo["original_error_message"] : $errorInfo['error_message'], mapi_last_hresult());
+			$exception = new SearchException($errorInfo["original_error_message"] ?? $errorInfo['error_message'], mapi_last_hresult());
 			$exception->setDisplayMessage($errorInfo['error_message']);
 
 			// after sending error, remove error data

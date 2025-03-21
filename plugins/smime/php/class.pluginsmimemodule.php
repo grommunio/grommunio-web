@@ -284,7 +284,7 @@ class PluginSmimeModule extends Module {
 	 */
 	public function pkcs12_change_passphrase($certs, $new_passphrase) {
 		$cert = "";
-		$extracerts = isset($certs['extracerts']) ? $certs['extracerts'] : [];
+		$extracerts = $certs['extracerts'] ?? [];
 		if (openssl_pkcs12_export($certs['cert'], $cert, $certs['pkey'], $new_passphrase, ['extracerts' => $extracerts])) {
 			return $cert;
 		}

@@ -193,6 +193,6 @@ class Account {
 	 * @return bool
 	 */
 	public function getCannotChangeFlag() {
-		return isset($this->cannot_change) ? $this->cannot_change : false;
+		return $this->cannot_change ?? false;
 	}
 }

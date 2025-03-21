@@ -751,11 +751,11 @@ function updateHierarchyCounters($username = '', $folderType = '') {
 	$folderStatCache = [];
 	foreach ($rows as $folder) {
 		$folderStatCache[$folder[PR_DISPLAY_NAME]] = [
-			'commit_time' => isset($folder[PR_LOCAL_COMMIT_TIME_MAX]) ? $folder[PR_LOCAL_COMMIT_TIME_MAX] : "0000000000",
+			'commit_time' => $folder[PR_LOCAL_COMMIT_TIME_MAX] ?? "0000000000",
 			'entryid' => bin2hex((string) $folder[PR_ENTRYID]),
 			'store_entryid' => bin2hex((string) $folder[PR_STORE_ENTRYID]),
-			'content_count' => isset($folder[PR_CONTENT_COUNT]) ? $folder[PR_CONTENT_COUNT] : -1,
-			'content_unread' => isset($folder[PR_CONTENT_UNREAD]) ? $folder[PR_CONTENT_UNREAD] : -1,
+			'content_count' => $folder[PR_CONTENT_COUNT] ?? -1,
+			'content_unread' => $folder[PR_CONTENT_UNREAD] ?? -1,
 		];
 	}
 

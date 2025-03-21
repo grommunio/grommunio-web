@@ -219,7 +219,7 @@ function validateUploadedPKCS($certificate, $passphrase, $emailAddress) {
 	$data = [];
 	$privatekey = $certs['pkey'];
 	$publickey = $certs['cert'];
-	$extracerts = isset($certs['extracerts']) ? $certs['extracerts'] : [];
+	$extracerts = $certs['extracerts'] ?? [];
 	$publickeyData = openssl_x509_parse($publickey);
 	$imported = false;
 

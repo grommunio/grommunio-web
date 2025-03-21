@@ -99,9 +99,9 @@ class Operations {
 					"store_support_mask" => $msgstore_props[PR_STORE_SUPPORT_MASK],
 					"user_name" => $storeUserName,
 					"store_size" => round($msgstore_props[PR_MESSAGE_SIZE_EXTENDED] / 1024),
-					"quota_warning" => isset($msgstore_props[PR_QUOTA_WARNING_THRESHOLD]) ? $msgstore_props[PR_QUOTA_WARNING_THRESHOLD] : 0,
-					"quota_soft" => isset($msgstore_props[PR_QUOTA_SEND_THRESHOLD]) ? $msgstore_props[PR_QUOTA_SEND_THRESHOLD] : 0,
-					"quota_hard" => isset($msgstore_props[PR_QUOTA_RECEIVE_THRESHOLD]) ? $msgstore_props[PR_QUOTA_RECEIVE_THRESHOLD] : 0,
+					"quota_warning" => $msgstore_props[PR_QUOTA_WARNING_THRESHOLD] ?? 0,
+					"quota_soft" => $msgstore_props[PR_QUOTA_SEND_THRESHOLD] ?? 0,
+					"quota_hard" => $msgstore_props[PR_QUOTA_RECEIVE_THRESHOLD] ?? 0,
 					"common_view_entryid" => isset($msgstore_props[PR_COMMON_VIEWS_ENTRYID]) ? bin2hex((string) $msgstore_props[PR_COMMON_VIEWS_ENTRYID]) : "",
 					"finder_entryid" => isset($msgstore_props[PR_FINDER_ENTRYID]) ? bin2hex((string) $msgstore_props[PR_FINDER_ENTRYID]) : "",
 					"todolist_entryid" => bin2hex(TodoList::getEntryId()),
@@ -478,14 +478,14 @@ class Operations {
 			// Scalar properties
 			"props" => [
 				"display_name" => $folderProps[PR_DISPLAY_NAME],
-				"object_type" => isset($folderProps[PR_OBJECT_TYPE]) ? $folderProps[PR_OBJECT_TYPE] : MAPI_FOLDER, // FIXME: Why isn't this always set?
-				"content_count" => isset($folderProps[PR_CONTENT_COUNT]) ? $folderProps[PR_CONTENT_COUNT] : 0,
-				"content_unread" => isset($folderProps[PR_CONTENT_UNREAD]) ? $folderProps[PR_CONTENT_UNREAD] : 0,
-				"has_subfolder" => isset($folderProps[PR_SUBFOLDERS]) ? $folderProps[PR_SUBFOLDERS] : false,
-				"container_class" => isset($folderProps[PR_CONTAINER_CLASS]) ? $folderProps[PR_CONTAINER_CLASS] : "IPF.Note",
+				"object_type" => $folderProps[PR_OBJECT_TYPE] ?? MAPI_FOLDER, // FIXME: Why isn't this always set?
+				"content_count" => $folderProps[PR_CONTENT_COUNT] ?? 0,
+				"content_unread" => $folderProps[PR_CONTENT_UNREAD] ?? 0,
+				"has_subfolder" => $folderProps[PR_SUBFOLDERS] ?? false,
+				"container_class" => $folderProps[PR_CONTAINER_CLASS] ?? "IPF.Note",
 				"access" => $folderProps[PR_ACCESS],
-				"rights" => isset($folderProps[PR_RIGHTS]) ? $folderProps[PR_RIGHTS] : ecRightsNone,
-				"assoc_content_count" => isset($folderProps[PR_ASSOC_CONTENT_COUNT]) ? $folderProps[PR_ASSOC_CONTENT_COUNT] : 0,
+				"rights" => $folderProps[PR_RIGHTS] ?? ecRightsNone,
+				"assoc_content_count" => $folderProps[PR_ASSOC_CONTENT_COUNT] ?? 0,
 			],
 		];
 
@@ -1588,7 +1588,7 @@ class Operations {
 			$plaincontent = '';
 			if (!$plaintext && isset($tmpProps[PR_HTML])) {
 				$cpprops = mapi_message_getprops($message, [PR_INTERNET_CPID]);
-				$codepage = isset($cpprops[PR_INTERNET_CPID]) ? $cpprops[PR_INTERNET_CPID] : 65001;
+				$codepage = $cpprops[PR_INTERNET_CPID] ?? 65001;
 				$htmlcontent = Conversion::convertCodepageStringToUtf8($codepage, $tmpProps[PR_HTML]);
 				if (!empty($htmlcontent)) {
 					if ($html2text) {
@@ -1638,7 +1638,7 @@ class Operations {
 							'smtp_address' => $props['props']['sent_representing_email_address'],
 							'address_type' => $props['props']['sent_representing_address_type'],
 							'object_type' => MAPI_MAILUSER,
-							'search_key' => isset($props['props']['sent_representing_search_key']) ? $props['props']['sent_representing_search_key'] : '',
+							'search_key' => $props['props']['sent_representing_search_key'] ?? '',
 						],
 					];
 				}
@@ -2189,7 +2189,7 @@ class Operations {
 					else {
 						$oldProps = mapi_getprops($message, [$properties['startdate'], $properties['duedate']]);
 						// Modifying non-exception (the series) or normal appointment item
-						$message = $GLOBALS['operations']->saveMessage($store, $entryid, $parententryid, Conversion::mapXML2MAPI($properties, $action['props']), $messageProps, $recips ? $recips : [], isset($action['attachments']) ? $action['attachments'] : [], [], false, false, false, false, false, false, $send);
+						$message = $GLOBALS['operations']->saveMessage($store, $entryid, $parententryid, Conversion::mapXML2MAPI($properties, $action['props']), $messageProps, $recips ? $recips : [], $action['attachments'] ?? [], [], false, false, false, false, false, false, $send);
 
 						$recurrenceProps = mapi_getprops($message, [$properties['startdate_recurring'], $properties['enddate_recurring'], $properties["recurring"]]);
 						// Check if the meeting is recurring
@@ -2255,7 +2255,7 @@ class Operations {
 							}
 							// Act like the 'props' are the recurrence pattern; it has more information but that
 							// is ignored
-							$recur->setRecurrence(isset($tz) ? $tz : false, $action['props']);
+							$recur->setRecurrence($tz ?? false, $action['props']);
 						}
 					}
 
@@ -2303,7 +2303,7 @@ class Operations {
 					$this->setSenderAddress($store, $action);
 				}
 
-				$message = $this->saveMessage($store, $entryid, $parententryid, Conversion::mapXML2MAPI($properties, $action['props']), $messageProps, $recips ? $recips : [], isset($action['attachments']) ? $action['attachments'] : [], [], $sourceRecord, $copyAttachments, $hasRecipient, false, false, false, $send);
+				$message = $this->saveMessage($store, $entryid, $parententryid, Conversion::mapXML2MAPI($properties, $action['props']), $messageProps, $recips ? $recips : [], $action['attachments'] ?? [], [], $sourceRecord, $copyAttachments, $hasRecipient, false, false, false, $send);
 
 				if (isset($action['props']['timezone'])) {
 					$tzprops = ['timezone', 'timezonedst', 'dststartmonth', 'dststartweek', 'dststartday', 'dststarthour', 'dstendmonth', 'dstendweek', 'dstendday', 'dstendhour'];
@@ -3630,7 +3630,7 @@ class Operations {
 					$props["cid"] = $attachmentRow[PR_ATTACH_CONTENT_ID];
 				}
 
-				$props["hidden"] = isset($attachmentRow[PR_ATTACHMENT_HIDDEN]) ? $attachmentRow[PR_ATTACHMENT_HIDDEN] : false;
+				$props["hidden"] = $attachmentRow[PR_ATTACHMENT_HIDDEN] ?? false;
 				if ($excludeHidden && $props["hidden"]) {
 					continue;
 				}
@@ -3720,7 +3720,7 @@ class Operations {
 
 					// Get the SMTP address from the addressbook if no address is found
 					if (empty($props['smtp_address']) && ($recipientRow[PR_ADDRTYPE] == 'EX' || $props['address_type'] === 'ZARAFA')) {
-						$recipientSearchKey = isset($recipientRow[PR_SEARCH_KEY]) ? $recipientRow[PR_SEARCH_KEY] : false;
+						$recipientSearchKey = $recipientRow[PR_SEARCH_KEY] ?? false;
 						$props['smtp_address'] = $this->getEmailAddress($recipientRow[PR_ENTRYID], $recipientSearchKey);
 					}
 				}
@@ -4545,7 +4545,7 @@ class Operations {
 
 						// internal members in distribution list don't have smtp address so add add that property
 						$memberProps = $this->convertDistlistMemberToRecipient($store, $memberItem);
-						$memberItem['props']['smtp_address'] = isset($memberProps["smtp_address"]) ? $memberProps["smtp_address"] : $memberProps["email_address"];
+						$memberItem['props']['smtp_address'] = $memberProps["smtp_address"] ?? $memberProps["email_address"];
 					}
 
 					$items[] = $memberItem;
@@ -4576,7 +4576,7 @@ class Operations {
 		if (str_contains($body, "img") || str_contains($body, "data:text/plain")) {
 			$doc = new DOMDocument();
 			$cpprops = mapi_message_getprops($message, [PR_INTERNET_CPID]);
-			$codepage = isset($cpprops[PR_INTERNET_CPID]) ? $cpprops[PR_INTERNET_CPID] : 1252;
+			$codepage = $cpprops[PR_INTERNET_CPID] ?? 1252;
 			$hackEncoding = '<meta http-equiv="Content-Type" content="text/html; charset=' . Conversion::getCodepageCharset($codepage) . '">';
 			// TinyMCE does not generate valid HTML, so we must suppress warnings.
 			@$doc->loadHTML($hackEncoding . $body);

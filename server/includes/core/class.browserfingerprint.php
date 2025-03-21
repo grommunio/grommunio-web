@@ -12,9 +12,9 @@ class BrowserFingerprint {
 	public static function getFingerprint() {
 		$properties = [];
 
-		$properties['HTTP_ACCEPT_LANGUAGE'] = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? $_SERVER['HTTP_ACCEPT_LANGUAGE'] : 'HTTP_ACCEPT_LANGUAGE_NOT_FOUND';
-		$properties['HTTP_USER_AGENT'] = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'HTTP_USER_AGENT_NOT_FOUND';
-		$properties['REMOTE_USER'] = isset($_SERVER['REMOTE_USER']) ? $_SERVER['REMOTE_USER'] : 'REMOTE_USER_NOT_FOUND';
+		$properties['HTTP_ACCEPT_LANGUAGE'] = $_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? 'HTTP_ACCEPT_LANGUAGE_NOT_FOUND';
+		$properties['HTTP_USER_AGENT'] = $_SERVER['HTTP_USER_AGENT'] ?? 'HTTP_USER_AGENT_NOT_FOUND';
+		$properties['REMOTE_USER'] = $_SERVER['REMOTE_USER'] ?? 'REMOTE_USER_NOT_FOUND';
 
 		return md5(json_encode($properties));
 	}

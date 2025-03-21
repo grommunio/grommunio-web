@@ -71,7 +71,7 @@ if (isset($_COOKIE['webapp_title'])) {
 if (!WebAppAuthentication::isAuthenticated()) {
 	// Get language from the cookie, or from the language that is set by the admin
 	$Language = new Language();
-	$lang = isset($_COOKIE['lang']) ? $_COOKIE['lang'] : LANG;
+	$lang = $_COOKIE['lang'] ?? LANG;
 	$lang = $Language->resolveLanguage($lang);
 	$Language->setLanguage($lang);
 

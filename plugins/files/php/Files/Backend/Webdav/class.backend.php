@@ -408,13 +408,13 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 				}
 
 				$lsdata[$name] = [
-					"fileid" => isset($fields["{http://owncloud.org/ns}fileid"]) ? $fields["{http://owncloud.org/ns}fileid"] : '-1',
+					"fileid" => $fields["{http://owncloud.org/ns}fileid"] ?? '-1',
 					"resourcetype" => $type,
-					"getcontentlength" => isset($fields["{DAV:}getcontentlength"]) ? $fields["{DAV:}getcontentlength"] : null,
-					"getlastmodified" => isset($fields["{DAV:}getlastmodified"]) ? $fields["{DAV:}getlastmodified"] : null,
-					"getcontenttype" => isset($fields["{DAV:}getcontenttype"]) ? $fields["{DAV:}getcontenttype"] : null,
-					"quota-used-bytes" => isset($fields["{DAV:}quota-used-bytes"]) ? $fields["{DAV:}quota-used-bytes"] : null,
-					"quota-available-bytes" => isset($fields["{DAV:}quota-available-bytes"]) ? $fields["{DAV:}quota-available-bytes"] : null,
+					"getcontentlength" => $fields["{DAV:}getcontentlength"] ?? null,
+					"getlastmodified" => $fields["{DAV:}getlastmodified"] ?? null,
+					"getcontenttype" => $fields["{DAV:}getcontenttype"] ?? null,
+					"quota-used-bytes" => $fields["{DAV:}quota-used-bytes"] ?? null,
+					"quota-available-bytes" => $fields["{DAV:}quota-available-bytes"] ?? null,
 				];
 			}
 			$time_end = microtime(true);
@@ -762,13 +762,13 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 		}
 
 		return [
-			"fileid" => isset($response["{http://owncloud.org/ns}fileid"]) ? $response["{http://owncloud.org/ns}fileid"] : '-1',
+			"fileid" => $response["{http://owncloud.org/ns}fileid"] ?? '-1',
 			"resourcetype" => $type,
-			"getcontentlength" => isset($response["{DAV:}getcontentlength"]) ? $response["{DAV:}getcontentlength"] : null,
-			"getlastmodified" => isset($response["{DAV:}getlastmodified"]) ? $response["{DAV:}getlastmodified"] : null,
-			"getcontenttype" => isset($response["{DAV:}getcontenttype"]) ? $response["{DAV:}getcontenttype"] : null,
-			"quota-used-bytes" => isset($response["{DAV:}quota-used-bytes"]) ? $response["{DAV:}quota-used-bytes"] : null,
-			"quota-available-bytes" => isset($response["{DAV:}quota-available-bytes"]) ? $response["{DAV:}quota-available-bytes"] : null,
+			"getcontentlength" => $response["{DAV:}getcontentlength"] ?? null,
+			"getlastmodified" => $response["{DAV:}getlastmodified"] ?? null,
+			"getcontenttype" => $response["{DAV:}getcontenttype"] ?? null,
+			"quota-used-bytes" => $response["{DAV:}quota-used-bytes"] ?? null,
+			"quota-available-bytes" => $response["{DAV:}quota-available-bytes"] ?? null,
 		];
 	}
 

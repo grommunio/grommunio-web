@@ -165,7 +165,7 @@ class UploadHandler {
 	 * @return string target file path
 	 */
 	public static function checkFilesNameConflict($targetPath, $initializedBackend, $relNodeId) {
-		$keepBoth = isset($_REQUEST["keep_both"]) ? $_REQUEST["keep_both"] : false;
+		$keepBoth = $_REQUEST["keep_both"] ?? false;
 		// Check if file was already exist in directory and $keepBoth is true
 		// then append the counter in files name.
 		if (strtolower((string) $keepBoth) === 'true') {

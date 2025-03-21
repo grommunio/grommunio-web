@@ -187,7 +187,7 @@ class EncryptionStore {
 		$session_did_exists = $this->open_session();
 		// Remove expired entries before checking the $_SESSION
 		$this->removeExpiredEntries();
-		$values = isset($_SESSION[EncryptionStore::_SESSION_KEY][$key]) ? $_SESSION[EncryptionStore::_SESSION_KEY][$key] : null;
+		$values = $_SESSION[EncryptionStore::_SESSION_KEY][$key] ?? null;
 		if (!isset($values['val']) || is_null($values['val'])) {
 			return null;
 		}

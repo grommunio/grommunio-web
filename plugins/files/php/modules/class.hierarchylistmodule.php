@@ -95,7 +95,7 @@ class HierarchyListModule extends FilesListModule {
 	 * @param mixed $action
 	 */
 	public function hierarchyList($action) {
-		$isReload = isset($action['reload']) ? $action['reload'] : false;
+		$isReload = $action['reload'] ?? false;
 		$data = $this->getHierarchyList($isReload);
 		$this->addActionData("list", $data);
 		$GLOBALS["bus"]->addData($this->getResponseData());

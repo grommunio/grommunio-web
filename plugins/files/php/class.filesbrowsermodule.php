@@ -54,7 +54,7 @@ class FilesBrowserModule extends FilesListModule {
 					switch ($actionType) {
 						case "checkifexists":
 							$records = $actionData["records"];
-							$destination = isset($actionData["destination"]) ? $actionData["destination"] : false;
+							$destination = $actionData["destination"] ?? false;
 							$result = $this->checkIfExists($records, $destination);
 							$response = [];
 							$response['status'] = true;
@@ -207,7 +207,7 @@ class FilesBrowserModule extends FilesListModule {
 	 */
 	public function loadFiles($actionType, $actionData) {
 		$nodeId = $actionData['id'];
-		$onlyFiles = isset($actionData['only_files']) ? $actionData['only_files'] : false;
+		$onlyFiles = $actionData['only_files'] ?? false;
 		$response = [];
 		$nodes = [];
 
@@ -543,8 +543,8 @@ class FilesBrowserModule extends FilesListModule {
 	private function move($actionType, $actionData) {
 		$dst = rtrim((string) $actionData['message_action']["destination_folder_id"], '/');
 
-		$overwrite = isset($actionData['message_action']["overwrite"]) ? $actionData['message_action']["overwrite"] : true;
-		$isFolder = isset($actionData['message_action']["isFolder"]) ? $actionData['message_action']["isFolder"] : false;
+		$overwrite = $actionData['message_action']["overwrite"] ?? true;
+		$isFolder = $actionData['message_action']["isFolder"] ?? false;
 
 		$pathPostfix = "";
 		if (substr((string) $actionData['folder_id'], -1) == '/') {
@@ -647,7 +647,7 @@ class FilesBrowserModule extends FilesListModule {
 	 */
 	public function rename($actionType, $actionData) {
 		$messageProps = $this->save($actionData);
-		$notifySubFolders = isset($actionData['message_action']['isFolder']) ? $actionData['message_action']['isFolder'] : true;
+		$notifySubFolders = $actionData['message_action']['isFolder'] ?? true;
 		if (!empty($messageProps)) {
 			$GLOBALS["bus"]->notify(REQUEST_ENTRYID, OBJECT_SAVE, $messageProps);
 			if ($notifySubFolders) {

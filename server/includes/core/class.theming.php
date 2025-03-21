@@ -49,7 +49,7 @@ class Theming {
 				continue;
 			}
 
-			$themes[$info->getFileName()] = isset($themeProps['display-name']) ? $themeProps['display-name'] : $info->getFileName();
+			$themes[$info->getFileName()] = $themeProps['display-name'] ?? $info->getFileName();
 		}
 
 		return $themes;
@@ -215,7 +215,7 @@ class Theming {
 	public static function getPrimaryIconColor() {
 		$val = Theming::getThemeProperty('icons-primary-color');
 
-		return $val !== null ? $val : false;
+		return $val ?? false;
 	}
 
 	/**
@@ -230,7 +230,7 @@ class Theming {
 	public static function getSecondaryIconColor() {
 		$val = Theming::getThemeProperty('icons-secondary-color');
 
-		return $val !== null ? $val : false;
+		return $val ?? false;
 	}
 
 	/**

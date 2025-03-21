@@ -81,7 +81,7 @@ class MAPISession {
 
 		try {
 			$webapp_version = 'WebApp-' . trim(file_get_contents(BASE_PATH . 'version'));
-			$browser_version = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
+			$browser_version = $_SERVER['HTTP_USER_AGENT'] ?? '';
 			$this->session = mapi_logon_zarafa(
 				$username,
 				$password,
@@ -190,28 +190,28 @@ class MAPISession {
 				$this->session_info["searchkey"] = $user_props[PR_SEARCH_KEY];
 				$this->session_info["userimage"] = isset($user_props[PR_EMS_AB_THUMBNAIL_PHOTO]) ? "data:image/jpeg;base64," . base64_encode((string) $user_props[PR_EMS_AB_THUMBNAIL_PHOTO]) : "";
 
-				$this->session_info["given_name"] = isset($user_props[PR_GIVEN_NAME]) ? $user_props[PR_GIVEN_NAME] : '';
-				$this->session_info["initials"] = isset($user_props[PR_INITIALS]) ? $user_props[PR_INITIALS] : '';
-				$this->session_info["surname"] = isset($user_props[PR_SURNAME]) ? $user_props[PR_SURNAME] : '';
-				$this->session_info["street_address"] = isset($user_props[PR_STREET_ADDRESS]) ? $user_props[PR_STREET_ADDRESS] : '';
-				$this->session_info["locality"] = isset($user_props[PR_LOCALITY]) ? $user_props[PR_LOCALITY] : '';
-				$this->session_info["state_or_province"] = isset($user_props[PR_STATE_OR_PROVINCE]) ? $user_props[PR_STATE_OR_PROVINCE] : '';
-				$this->session_info["postal_code"] = isset($user_props[PR_POSTAL_CODE]) ? $user_props[PR_POSTAL_CODE] : '';
-				$this->session_info["country"] = isset($user_props[PR_COUNTRY]) ? $user_props[PR_COUNTRY] : '';
-				$this->session_info["title"] = isset($user_props[PR_TITLE]) ? $user_props[PR_TITLE] : '';
-				$this->session_info["company_name"] = isset($user_props[PR_COMPANY_NAME]) ? $user_props[PR_COMPANY_NAME] : '';
-				$this->session_info["department_name"] = isset($user_props[PR_DEPARTMENT_NAME]) ? $user_props[PR_DEPARTMENT_NAME] : '';
-				$this->session_info["office_location"] = isset($user_props[PR_OFFICE_LOCATION]) ? $user_props[PR_OFFICE_LOCATION] : '';
-				$this->session_info["assistant"] = isset($user_props[PR_ASSISTANT]) ? $user_props[PR_ASSISTANT] : '';
-				$this->session_info["assistant_telephone_number"] = isset($user_props[PR_ASSISTANT_TELEPHONE_NUMBER]) ? $user_props[PR_ASSISTANT_TELEPHONE_NUMBER] : '';
-				$this->session_info["office_telephone_number"] = isset($user_props[PR_PRIMARY_TELEPHONE_NUMBER]) ? $user_props[PR_PRIMARY_TELEPHONE_NUMBER] : '';
-				$this->session_info["business_telephone_number"] = isset($user_props[PR_BUSINESS_TELEPHONE_NUMBER]) ? $user_props[PR_BUSINESS_TELEPHONE_NUMBER] : '';
-				$this->session_info["business2_telephone_number"] = isset($user_props[PR_BUSINESS2_TELEPHONE_NUMBER]) ? $user_props[PR_BUSINESS2_TELEPHONE_NUMBER] : '';
-				$this->session_info["primary_fax_number"] = isset($user_props[PR_PRIMARY_FAX_NUMBER]) ? $user_props[PR_PRIMARY_FAX_NUMBER] : '';
-				$this->session_info["home_telephone_number"] = isset($user_props[PR_HOME_TELEPHONE_NUMBER]) ? $user_props[PR_HOME_TELEPHONE_NUMBER] : '';
-				$this->session_info["home2_telephone_number"] = isset($user_props[PR_HOME2_TELEPHONE_NUMBER]) ? $user_props[PR_HOME2_TELEPHONE_NUMBER] : '';
-				$this->session_info["mobile_telephone_number"] = isset($user_props[PR_MOBILE_TELEPHONE_NUMBER]) ? $user_props[PR_MOBILE_TELEPHONE_NUMBER] : '';
-				$this->session_info["pager_telephone_number"] = isset($user_props[PR_PAGER_TELEPHONE_NUMBER]) ? $user_props[PR_PAGER_TELEPHONE_NUMBER] : '';
+				$this->session_info["given_name"] = $user_props[PR_GIVEN_NAME] ?? '';
+				$this->session_info["initials"] = $user_props[PR_INITIALS] ?? '';
+				$this->session_info["surname"] = $user_props[PR_SURNAME] ?? '';
+				$this->session_info["street_address"] = $user_props[PR_STREET_ADDRESS] ?? '';
+				$this->session_info["locality"] = $user_props[PR_LOCALITY] ?? '';
+				$this->session_info["state_or_province"] = $user_props[PR_STATE_OR_PROVINCE] ?? '';
+				$this->session_info["postal_code"] = $user_props[PR_POSTAL_CODE] ?? '';
+				$this->session_info["country"] = $user_props[PR_COUNTRY] ?? '';
+				$this->session_info["title"] = $user_props[PR_TITLE] ?? '';
+				$this->session_info["company_name"] = $user_props[PR_COMPANY_NAME] ?? '';
+				$this->session_info["department_name"] = $user_props[PR_DEPARTMENT_NAME] ?? '';
+				$this->session_info["office_location"] = $user_props[PR_OFFICE_LOCATION] ?? '';
+				$this->session_info["assistant"] = $user_props[PR_ASSISTANT] ?? '';
+				$this->session_info["assistant_telephone_number"] = $user_props[PR_ASSISTANT_TELEPHONE_NUMBER] ?? '';
+				$this->session_info["office_telephone_number"] = $user_props[PR_PRIMARY_TELEPHONE_NUMBER] ?? '';
+				$this->session_info["business_telephone_number"] = $user_props[PR_BUSINESS_TELEPHONE_NUMBER] ?? '';
+				$this->session_info["business2_telephone_number"] = $user_props[PR_BUSINESS2_TELEPHONE_NUMBER] ?? '';
+				$this->session_info["primary_fax_number"] = $user_props[PR_PRIMARY_FAX_NUMBER] ?? '';
+				$this->session_info["home_telephone_number"] = $user_props[PR_HOME_TELEPHONE_NUMBER] ?? '';
+				$this->session_info["home2_telephone_number"] = $user_props[PR_HOME2_TELEPHONE_NUMBER] ?? '';
+				$this->session_info["mobile_telephone_number"] = $user_props[PR_MOBILE_TELEPHONE_NUMBER] ?? '';
+				$this->session_info["pager_telephone_number"] = $user_props[PR_PAGER_TELEPHONE_NUMBER] ?? '';
 			}
 
 			$this->userDataRetrieved = true;

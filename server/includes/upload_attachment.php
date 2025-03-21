@@ -149,7 +149,7 @@ class UploadAttachment {
 					$filename = mb_basename(stripslashes((string) $_FILES['attachments']['name'][$key]));
 
 					// set sourcetype as default if sourcetype is unset.
-					$sourcetype = isset($_POST['sourcetype']) ? $_POST['sourcetype'] : 'default';
+					$sourcetype = $_POST['sourcetype'] ?? 'default';
 
 					/**
 					 * content-type sent by browser for eml and ics attachments will be
@@ -193,7 +193,7 @@ class UploadAttachment {
 
 					// import given files
 					if ($this->import) {
-						$importStatus = $this->importFiles($attachTempName, $filename, isset($_POST['has_icsvcs_file']) ? $_POST['has_icsvcs_file'] : false);
+						$importStatus = $this->importFiles($attachTempName, $filename, $_POST['has_icsvcs_file'] ?? false);
 					}
 					elseif ($sourcetype === 'contactphoto' || $sourcetype === 'default') {
 						$fileData = [

@@ -273,7 +273,7 @@ class AdvancedSearchListModule extends ListModule {
 	 * @param string $actionType the action type, sent by the client
 	 */
 	public function search($store, $entryid, $action, $actionType) {
-		$useSearchFolder = isset($action["use_searchfolder"]) ? $action["use_searchfolder"] : false;
+		$useSearchFolder = $action["use_searchfolder"] ?? false;
 		if (!$useSearchFolder) {
 			/*
 			 * store doesn't support search folders so we can't use this

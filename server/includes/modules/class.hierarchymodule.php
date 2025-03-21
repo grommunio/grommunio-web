@@ -1111,7 +1111,7 @@ class HierarchyModule extends Module {
 	public function deleteFolder($store, $parententryid, $entryid, $action) {
 		$props = [];
 		$pubStore = $GLOBALS["mapisession"]->isPublicStore($action['store_entryid'] ?? '');
-		$result = $GLOBALS["operations"]->deleteFolder($store, $parententryid, $entryid, $props, isset($action['soft_delete']) ? $action['soft_delete'] : false, $pubStore ? true : false);
+		$result = $GLOBALS["operations"]->deleteFolder($store, $parententryid, $entryid, $props, $action['soft_delete'] ?? false, $pubStore ? true : false);
 
 		// Indicate if the delete succeedded
 		$this->sendFeedback($result);

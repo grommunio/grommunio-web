@@ -414,7 +414,7 @@ class PluginMDMModule extends Module {
 	 */
 	public function additionalFolderAdd($entryId, $folder) {
 		$client = $this->getSoapClient();
-		$containerClass = isset($folder[PR_CONTAINER_CLASS]) ? $folder[PR_CONTAINER_CLASS] : "IPF.Note";
+		$containerClass = $folder[PR_CONTAINER_CLASS] ?? "IPF.Note";
 		$folderId = bin2hex((string) $folder[PR_SOURCE_KEY]);
 		$userName = $folder["user"];
 		$folderName = $userName === "SYSTEM" ? $folder[PR_DISPLAY_NAME] : $folder[PR_DISPLAY_NAME] . " - " . $userName;

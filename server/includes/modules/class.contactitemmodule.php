@@ -316,7 +316,7 @@ class ContactItemModule extends ItemModule {
 
 			$messageProps = [];
 
-			$result = $GLOBALS['operations']->saveMessage($store, $entryid, $parententryid, $props, $messageProps, [], isset($action['attachments']) ? $action['attachments'] : [], $properiesToDelete);
+			$result = $GLOBALS['operations']->saveMessage($store, $entryid, $parententryid, $props, $messageProps, [], $action['attachments'] ?? [], $properiesToDelete);
 
 			if ($result) {
 				$GLOBALS['bus']->notify(bin2hex($parententryid), TABLE_SAVE, $messageProps);
@@ -353,18 +353,18 @@ class ContactItemModule extends ItemModule {
 			PR_COUNTRY,
 			PR_MOBILE_TELEPHONE_NUMBER,
 		]);
-		$action["props"]["company_name"] = isset($abItemProps[PR_COMPANY_NAME]) ? $abItemProps[PR_COMPANY_NAME] : '';
-		$action["props"]["assistant"] = isset($abItemProps[PR_ASSISTANT]) ? $abItemProps[PR_ASSISTANT] : '';
-		$action["props"]["business_telephone_number"] = isset($abItemProps[PR_BUSINESS_TELEPHONE_NUMBER]) ? $abItemProps[PR_BUSINESS_TELEPHONE_NUMBER] : '';
-		$action["props"]["business2_telephone_number"] = isset($abItemProps[PR_BUSINESS2_TELEPHONE_NUMBER]) ? $abItemProps[PR_BUSINESS2_TELEPHONE_NUMBER] : '';
-		$action["props"]["home2_telephone_number"] = isset($abItemProps[PR_HOME2_TELEPHONE_NUMBER]) ? $abItemProps[PR_HOME2_TELEPHONE_NUMBER] : '';
-		$action["props"]["home_address_street"] = isset($abItemProps[PR_STREET_ADDRESS]) ? $abItemProps[PR_STREET_ADDRESS] : '';
-		$action["props"]["home_address_city"] = isset($abItemProps[PR_LOCALITY]) ? $abItemProps[PR_LOCALITY] : '';
-		$action["props"]["home_address_state"] = isset($abItemProps[PR_STATE_OR_PROVINCE]) ? $abItemProps[PR_STATE_OR_PROVINCE] : '';
-		$action["props"]["home_address_postal_code"] = isset($abItemProps[PR_POSTAL_CODE]) ? $abItemProps[PR_POSTAL_CODE] : '';
-		$action["props"]["home_address_country"] = isset($abItemProps[PR_COUNTRY]) ? $abItemProps[PR_COUNTRY] : '';
+		$action["props"]["company_name"] = $abItemProps[PR_COMPANY_NAME] ?? '';
+		$action["props"]["assistant"] = $abItemProps[PR_ASSISTANT] ?? '';
+		$action["props"]["business_telephone_number"] = $abItemProps[PR_BUSINESS_TELEPHONE_NUMBER] ?? '';
+		$action["props"]["business2_telephone_number"] = $abItemProps[PR_BUSINESS2_TELEPHONE_NUMBER] ?? '';
+		$action["props"]["home2_telephone_number"] = $abItemProps[PR_HOME2_TELEPHONE_NUMBER] ?? '';
+		$action["props"]["home_address_street"] = $abItemProps[PR_STREET_ADDRESS] ?? '';
+		$action["props"]["home_address_city"] = $abItemProps[PR_LOCALITY] ?? '';
+		$action["props"]["home_address_state"] = $abItemProps[PR_STATE_OR_PROVINCE] ?? '';
+		$action["props"]["home_address_postal_code"] = $abItemProps[PR_POSTAL_CODE] ?? '';
+		$action["props"]["home_address_country"] = $abItemProps[PR_COUNTRY] ?? '';
 
-		$action["props"]["cellular_telephone_number"] = isset($abItemProps[PR_MOBILE_TELEPHONE_NUMBER]) ? $abItemProps[PR_MOBILE_TELEPHONE_NUMBER] : '';
+		$action["props"]["cellular_telephone_number"] = $abItemProps[PR_MOBILE_TELEPHONE_NUMBER] ?? '';
 
 		// Set the home_address property value
 		$props = ["street", "city", "state", "postal_code", "country"];

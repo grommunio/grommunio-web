@@ -166,9 +166,9 @@ class HierarchyNotifier extends Notifier {
 						$data["store_entryid"] = bin2hex((string) $storeProps[PR_STORE_ENTRYID]);
 						$data["props"]["object_type"] = $storeProps[PR_OBJECT_TYPE];
 						$data["props"]["store_size"] = $storeSize;
-						$data["props"]["quota_warning"] = isset($storeProps[PR_QUOTA_WARNING_THRESHOLD]) ? $storeProps[PR_QUOTA_WARNING_THRESHOLD] : 0;
-						$data["props"]["quota_soft"] = isset($storeProps[PR_PROHIBIT_SEND_QUOTA]) ? $storeProps[PR_PROHIBIT_SEND_QUOTA] : 0;
-						$data["props"]["quota_hard"] = isset($storeProps[PR_PROHIBIT_RECEIVE_QUOTA]) ? $storeProps[PR_PROHIBIT_RECEIVE_QUOTA] : 0;
+						$data["props"]["quota_warning"] = $storeProps[PR_QUOTA_WARNING_THRESHOLD] ?? 0;
+						$data["props"]["quota_soft"] = $storeProps[PR_PROHIBIT_SEND_QUOTA] ?? 0;
+						$data["props"]["quota_hard"] = $storeProps[PR_PROHIBIT_RECEIVE_QUOTA] ?? 0;
 
 						$this->addNotificationActionData("stores", ["item" => [$data]]);
 						$GLOBALS["bus"]->addData($this->createNotificationResponseData());

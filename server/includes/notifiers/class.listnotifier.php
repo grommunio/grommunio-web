@@ -75,7 +75,7 @@ class ListNotifier extends Notifier {
 				break;
 
 			case TABLE_DELETE:
-				$folderEntryID = isset($props[PR_PARENT_ENTRYID]) ? $props[PR_PARENT_ENTRYID] : false;
+				$folderEntryID = $props[PR_PARENT_ENTRYID] ?? false;
 
 				if (isset($props[PR_ENTRYID]) && $folderEntryID) {
 					$data = [];
