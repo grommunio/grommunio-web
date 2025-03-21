@@ -30,7 +30,7 @@ class Exception extends \Exception {
 	 * @return string Error code and message
 	 */
 	public function __toString() {
-		return __CLASS__ . ": [{$this->code}]: {$this->message}\n";
+		return self::class . ": [{$this->code}]: {$this->message}\n";
 	}
 
 	/**
