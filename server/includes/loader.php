@@ -564,7 +564,7 @@ class FileLoader {
 			ob_start();
 		}
 
-		list($extjsFiles, $webappFiles, $pluginFiles, $remoteFiles) = $this->getJsFiles();
+		[$extjsFiles, $webappFiles, $pluginFiles, $remoteFiles] = $this->getJsFiles();
 
 		$jsTemplate = "\t\t<script src=\"{file}\"></script>";
 		$this->printFiles($extjsFiles, $jsTemplate);
@@ -623,7 +623,7 @@ class FileLoader {
 	 * return boolean False if cache is outdated
 	 */
 	private function cacheExists() {
-		list($extjsFiles, $webappFiles, $pluginFiles, $remoteFiles) = $this->getJsFiles();
+		[$extjsFiles, $webappFiles, $pluginFiles, $remoteFiles] = $this->getJsFiles();
 		$files = [$extjsFiles, $webappFiles, $pluginFiles, $remoteFiles];
 		$md5 = md5(json_encode($files));
 

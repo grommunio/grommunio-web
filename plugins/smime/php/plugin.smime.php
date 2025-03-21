@@ -596,7 +596,7 @@ class Pluginsmime extends Plugin {
 
 		$certificate = file_get_contents($tmpname);
 		$emailAddress = $GLOBALS['mapisession']->getSMTPAddress();
-		list($message, $publickey, $publickeyData, $imported) = validateUploadedPKCS($certificate, $passphrase, $emailAddress);
+		[$message, $publickey, $publickeyData, $imported] = validateUploadedPKCS($certificate, $passphrase, $emailAddress);
 
 		// All checks completed successful
 		// Store private cert in users associated store (check for duplicates)

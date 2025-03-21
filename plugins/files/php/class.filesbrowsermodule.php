@@ -798,7 +798,7 @@ class FilesBrowserModule extends FilesListModule {
 
 		if ($actionData["type"] === "attachment") {
 			foreach ($actionData["items"] as $item) {
-				list($tmpname, $filename) = $this->prepareAttachmentForUpload($item);
+				[$tmpname, $filename] = $this->prepareAttachmentForUpload($item);
 
 				$dirName = substr((string) $actionData["destdir"], strpos((string) $actionData["destdir"], '/'));
 				$filePath = $dirName . $filename;
@@ -813,7 +813,7 @@ class FilesBrowserModule extends FilesListModule {
 		}
 		elseif ($actionData["type"] === "mail") {
 			foreach ($actionData["items"] as $item) {
-				list($tmpname, $filename) = $this->prepareEmailForUpload($item);
+				[$tmpname, $filename] = $this->prepareEmailForUpload($item);
 
 				$dirName = substr((string) $actionData["destdir"], strpos((string) $actionData["destdir"], '/'));
 				$filePath = $dirName . $filename;
