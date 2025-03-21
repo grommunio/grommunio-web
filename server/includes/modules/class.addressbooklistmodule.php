@@ -27,7 +27,8 @@ class AddressbookListModule extends ListModule {
 	/**
 	 * Executes all the actions in the $data variable.
 	 */
-	public function execute() {
+	#[\Override]
+    public function execute() {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
 				try {

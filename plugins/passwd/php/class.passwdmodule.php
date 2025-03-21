@@ -7,7 +7,8 @@ class PasswdModule extends Module {
 	/**
 	 * Process the incoming events that were fire by the client.
 	 */
-	public function execute() {
+	#[\Override]
+    public function execute() {
 		foreach ($this->data as $actionType => $actionData) {
 			if (isset($actionType)) {
 				try {

@@ -50,7 +50,8 @@ class AppointmentItemModule extends ItemModule {
 		$this->tzdefObj = false;
 	}
 
-	public function open($store, $entryid, $action) {
+	#[\Override]
+    public function open($store, $entryid, $action) {
 		if ($store && $entryid) {
 			$data = [];
 
@@ -232,7 +233,8 @@ class AppointmentItemModule extends ItemModule {
 	 * @param string     $entryid       entryid of the message
 	 * @param array      $action        the action data, sent by the client
 	 */
-	public function handleException(&$e, $actionType = null, $store = null, $parententryid = null, $entryid = null, $action = null) {
+	#[\Override]
+    public function handleException(&$e, $actionType = null, $store = null, $parententryid = null, $entryid = null, $action = null) {
 		if (is_null($e->displayMessage)) {
 			switch ($actionType) {
 				case "save":
@@ -265,7 +267,8 @@ class AppointmentItemModule extends ItemModule {
 	 * @param array     $action        Action array containing json request
 	 * @param string    $actionType    The action type which triggered this action
 	 */
-	public function save($store, $parententryid, $entryid, $action, $actionType = 'save') {
+	#[\Override]
+    public function save($store, $parententryid, $entryid, $action, $actionType = 'save') {
 		$result = false;
 
 		// Save appointment (saveAppointment takes care of creating/modifying exceptions to recurring

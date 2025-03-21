@@ -14,7 +14,8 @@ class MAPIException extends BaseException {
 	 *
 	 * @return string returns error-message that should be sent to client to display
 	 */
-	public function getDisplayMessage() {
+	#[\Override]
+    public function getDisplayMessage() {
 		if (!empty($this->displayMessage)) {
 			return $this->displayMessage;
 		}

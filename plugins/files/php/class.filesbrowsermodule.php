@@ -45,7 +45,8 @@ class FilesBrowserModule extends FilesListModule {
 	 *
 	 * @return bool true on success or false on failure
 	 */
-	public function execute() {
+	#[\Override]
+    public function execute() {
 		$result = false;
 
 		foreach ($this->data as $actionType => $actionData) {

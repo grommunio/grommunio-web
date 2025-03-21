@@ -15,7 +15,8 @@ class StickyNoteListNotifier extends ListNotifier {
 	 *
 	 * @return array The properties mapping
 	 */
-	protected function getPropertiesList() {
+	#[\Override]
+    protected function getPropertiesList() {
 		return $GLOBALS["properties"]->getStickyNoteListProperties();
 	}
 }

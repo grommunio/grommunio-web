@@ -35,7 +35,8 @@ class AdvancedSearchListModule extends ListModule {
 	/**
 	 * Executes all the actions in the $data variable.
 	 */
-	public function execute() {
+	#[\Override]
+    public function execute() {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
 				try {
@@ -95,7 +96,8 @@ class AdvancedSearchListModule extends ListModule {
 	 * @param array  $action     the action data, sent by the client
 	 * @param string $actionType the action type, sent by the client
 	 */
-	public function messageList($store, $entryid, $action, $actionType) {
+	#[\Override]
+    public function messageList($store, $entryid, $action, $actionType) {
 		$this->searchFolderList = false; // Set to indicate this is not the search result, but a normal folder content
 		$data = [];
 
@@ -272,7 +274,8 @@ class AdvancedSearchListModule extends ListModule {
 	 * @param object $action     the action data, sent by the client
 	 * @param string $actionType the action type, sent by the client
 	 */
-	public function search($store, $entryid, $action, $actionType) {
+	#[\Override]
+    public function search($store, $entryid, $action, $actionType) {
 		$useSearchFolder = $action["use_searchfolder"] ?? false;
 		if (!$useSearchFolder) {
 			/*

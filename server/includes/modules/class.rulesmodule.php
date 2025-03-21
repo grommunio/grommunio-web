@@ -26,7 +26,8 @@ class RulesModule extends Module {
 	/**
 	 * Executes all the actions in the $data variable.
 	 */
-	public function execute() {
+	#[\Override]
+    public function execute() {
 		foreach ($this->data as $actionType => $action) {
 			// Determine if the request contains multiple items or not. We couldn't add the storeEntryId to
 			// the action data if it contained items because it was an array, so the storeEntryId
@@ -308,7 +309,8 @@ class RulesModule extends Module {
 	 * @param string     $entryid       entryid of the message/folder
 	 * @param array      $action        the action data, sent by the client
 	 */
-	public function handleException(&$e, $actionType = null, $store = null, $parententryid = null, $entryid = null, $action = null) {
+	#[\Override]
+    public function handleException(&$e, $actionType = null, $store = null, $parententryid = null, $entryid = null, $action = null) {
 		if (is_null($e->displayMessage)) {
 			switch ($actionType) {
 				case 'list':

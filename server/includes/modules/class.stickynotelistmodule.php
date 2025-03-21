@@ -30,7 +30,8 @@ class StickyNoteListModule extends ListModule {
 	/**
 	 * Executes all the actions in the $data variable.
 	 */
-	public function execute() {
+	#[\Override]
+    public function execute() {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
 				try {
@@ -61,7 +62,8 @@ class StickyNoteListModule extends ListModule {
 	 *
 	 * @return object item properties if its non private item otherwise empty array
 	 */
-	public function processPrivateItem($item) {
+	#[\Override]
+    public function processPrivateItem($item) {
 		return $item;
 	}
 }

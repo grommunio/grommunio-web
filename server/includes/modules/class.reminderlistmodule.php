@@ -20,7 +20,8 @@ class ReminderListModule extends ListModule {
 		$this->properties = $GLOBALS["properties"]->getReminderProperties();
 	}
 
-	public function execute() {
+	#[\Override]
+    public function execute() {
 		foreach ($this->data as $actionType => $action) {
 			$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
 			$this->reminderEntryId = $this->getReminderFolderEntryId($store);

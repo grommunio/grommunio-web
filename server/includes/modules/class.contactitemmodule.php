@@ -27,7 +27,8 @@ class ContactItemModule extends ItemModule {
 	 * @param string $entryid entryid of the message
 	 * @param array  $action  the action data, sent by the client
 	 */
-	public function open($store, $entryid, $action) {
+	#[\Override]
+    public function open($store, $entryid, $action) {
 		$data = [];
 		$orEntryid = $entryid;
 
@@ -123,7 +124,8 @@ class ContactItemModule extends ItemModule {
 	 * @param string $entryid       entryid of the message
 	 * @param array  $action        the action data, sent by the client
 	 */
-	public function save($store, $parententryid, $entryid, $action) {
+	#[\Override]
+    public function save($store, $parententryid, $entryid, $action) {
 		$properiesToDelete = []; // create an array of properties which should be deleted
 		// this array is passed to $GLOBALS['operations']->saveMessage() function
 
@@ -390,7 +392,8 @@ class ContactItemModule extends ItemModule {
 	 * @param string $entryid       entryid of the message
 	 * @param array  $action        the action data, sent by the client
 	 */
-	public function delete($store, $parententryid, $entryid, $action) {
+	#[\Override]
+    public function delete($store, $parententryid, $entryid, $action) {
 		$message = false;
 		if (!$store && !$parententryid && $entryid) {
 			$data = $this->getStoreParentEntryIdFromEntryId($entryid);

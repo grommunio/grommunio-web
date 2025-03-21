@@ -153,7 +153,8 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 	 *
 	 * @return bool true if action succeeded
 	 */
-	public function open() {
+	#[\Override]
+    public function open() {
 		// check if curl is available
 		$serverHasCurl = function_exists('curl_version');
 		if (!$serverHasCurl) {
@@ -313,7 +314,8 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 	 *
 	 * @return string
 	 */
-	public function getServerVersion() {
+	#[\Override]
+    public function getServerVersion() {
 		// check if curl is available
 		$serverHasCurl = function_exists('curl_version');
 		if (!$serverHasCurl) {

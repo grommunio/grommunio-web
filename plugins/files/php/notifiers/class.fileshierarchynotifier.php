@@ -9,7 +9,8 @@ class FilesHierarchyNotifier extends Notifier {
 	/**
 	 * @return Number the event which this module handles
 	 */
-	public function getEvents() {
+	#[\Override]
+    public function getEvents() {
 		return OBJECT_DELETE | OBJECT_SAVE;
 	}
 
@@ -22,7 +23,8 @@ class FilesHierarchyNotifier extends Notifier {
 	 * @param array  $data    array of data
 	 * @param mixed  $props
 	 */
-	public function update($event, $entryid, $props) {
+	#[\Override]
+    public function update($event, $entryid, $props) {
 		switch ($event) {
 			case OBJECT_DELETE:
 				$props["folderdelete"] = 1;

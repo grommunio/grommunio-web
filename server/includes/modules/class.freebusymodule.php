@@ -8,7 +8,8 @@ class FreeBusyModule extends Module {
 		parent::__construct($id, $data);
 	}
 
-	public function execute() {
+	#[\Override]
+    public function execute() {
 		foreach ($this->data as $actionType => $selUser) {
 			if (isset($actionType)) {
 				try {

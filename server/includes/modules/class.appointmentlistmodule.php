@@ -64,7 +64,8 @@ class AppointmentListModule extends ListModule {
 	/**
 	 * Executes all the actions in the $data variable.
 	 */
-	public function execute() {
+	#[\Override]
+    public function execute() {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
 				try {
@@ -98,7 +99,8 @@ class AppointmentListModule extends ListModule {
 	 * @param array  $action     the action data, sent by the client
 	 * @param string $actionType the action type, sent by the client
 	 */
-	public function messageList($store, $entryid, $action, $actionType) {
+	#[\Override]
+    public function messageList($store, $entryid, $action, $actionType) {
 		if ($store && $entryid) {
 			// initialize start and due date with false value so it will not take values from previous request
 			$this->startdate = false;
@@ -456,7 +458,8 @@ class AppointmentListModule extends ListModule {
 	 *
 	 * @return object item properties after processing private items
 	 */
-	public function processPrivateItem($item) {
+	#[\Override]
+    public function processPrivateItem($item) {
 		if ($this->startdate && $this->enddate) {
 			if ($this->checkPrivateItem($item)) {
 				$item['props']['subject'] = _('Private Appointment');

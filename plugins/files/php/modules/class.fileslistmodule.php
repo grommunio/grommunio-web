@@ -754,7 +754,8 @@ class FilesListModule extends ListModule {
 	 *
 	 * @return object MAPI Message Store Object, false if storeid is not found in the $action variable
 	 */
-	public function getActionStore($action) {
+	#[\Override]
+    public function getActionStore($action) {
 		$store = false;
 
 		if (isset($action["store_entryid"]) && !empty($action["store_entryid"])) {

@@ -40,7 +40,8 @@ class MailListModule extends ListModule {
 	/**
 	 * Executes all the actions in the $data variable.
 	 */
-	public function execute() {
+	#[\Override]
+    public function execute() {
 		$GLOBALS['PluginManager']->triggerHook("server.module.maillistmodule.execute.before", ['moduleObject' => &$this]);
 
 		foreach ($this->data as $actionType => $action) {
@@ -188,7 +189,8 @@ class MailListModule extends ListModule {
 	 * @param string     $entryid       entryid of the message
 	 * @param array      $action        the action data, sent by the client
 	 */
-	public function handleException(&$e, $actionType = null, $store = null, $parententryid = null, $entryid = null, $action = null) {
+	#[\Override]
+    public function handleException(&$e, $actionType = null, $store = null, $parententryid = null, $entryid = null, $action = null) {
 		if (is_null($e->displayMessage)) {
 			switch ($actionType) {
 				case "list":
@@ -234,7 +236,8 @@ class MailListModule extends ListModule {
 	 * @param array|bool a custom set of properties to use instead of the properties stored in module
 	 * @param mixed $properties
 	 */
-	public function parseSortOrder($action, $map = false, $allow_multi_instance = false, $properties = false) {
+	#[\Override]
+    public function parseSortOrder($action, $map = false, $allow_multi_instance = false, $properties = false) {
 		if (isset($action['sort'])) {
 			// Check if the user wants to sort the maillist on flags.
 			// If so, we will rewrite the sorting a little

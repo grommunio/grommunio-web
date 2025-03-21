@@ -19,7 +19,8 @@ class suggestEmailAddressModule extends Module {
 		parent::__construct($id, $data);
 	}
 
-	public function execute() {
+	#[\Override]
+    public function execute() {
 		try {
 			// Retrieve the recipient history
 			$storeProps = mapi_getprops($GLOBALS["mapisession"]->getDefaultMessageStore(), [PR_EC_RECIPIENT_HISTORY_JSON]);

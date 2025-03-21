@@ -39,7 +39,8 @@ class HierarchyModule extends Module {
 	 *
 	 * @return array list of entryids
 	 */
-	public function getEntryID() {
+	#[\Override]
+    public function getEntryID() {
 		$entryids = [];
 		$storelist = $GLOBALS["mapisession"]->getAllMessageStores();
 
@@ -53,7 +54,8 @@ class HierarchyModule extends Module {
 	/**
 	 * Executes all the actions in the $data variable.
 	 */
-	public function execute() {
+	#[\Override]
+    public function execute() {
 		foreach ($this->data as $actionType => $action) {
 			if (!isset($actionType))
 				continue;
@@ -367,7 +369,8 @@ class HierarchyModule extends Module {
 	 * @param string     $entryid       entryid of the folder
 	 * @param array      $action        the action data, sent by the client
 	 */
-	public function handleException(&$e, $actionType = null, $store = null, $parententryid = null, $entryid = null, $action = null) {
+	#[\Override]
+    public function handleException(&$e, $actionType = null, $store = null, $parententryid = null, $entryid = null, $action = null) {
 		if (is_null($e->displayMessage)) {
 			switch ($actionType) {
 				case "list":

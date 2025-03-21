@@ -35,7 +35,8 @@ class KendoxModule extends Module {
 	 *
 	 * @return bool true on success or false on failure
 	 */
-	public function execute() {
+	#[\Override]
+    public function execute() {
 		foreach ($this->data as $actionType => $actionData) {
 			if (isset($actionType)) {
 				try {

@@ -22,7 +22,8 @@ class HierarchyListModule extends FilesListModule {
 	/**
 	 * @return bool|void
 	 */
-	public function execute() {
+	#[\Override]
+    public function execute() {
 		$result = false;
 		foreach ($this->data as $actionType => $actionData) {
 			if (isset($actionType)) {
@@ -123,7 +124,8 @@ class HierarchyListModule extends FilesListModule {
 	 *
 	 * @return array|void
 	 */
-	public function save($actionData) {
+	#[\Override]
+    public function save($actionData) {
 		$messageProps = parent::save($actionData);
 		if (!empty($messageProps)) {
 			// Notify all subfolders for update folder.

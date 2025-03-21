@@ -33,7 +33,8 @@ class FilesAccountModule extends ListModule {
 	 *
 	 * @return bool true on success or false on failure
 	 */
-	public function execute() {
+	#[\Override]
+    public function execute() {
 		$result = false;
 
 		foreach ($this->data as $actionType => $actionData) {
@@ -453,7 +454,8 @@ class FilesAccountModule extends ListModule {
 	 * @return array error data
 	 * @overwrite
 	 */
-	public function errorDetailsFromException($exception) {
+	#[\Override]
+    public function errorDetailsFromException($exception) {
 		parent::errorDetailsFromException($exception);
 	}
 }

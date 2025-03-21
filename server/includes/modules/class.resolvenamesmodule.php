@@ -17,7 +17,8 @@ class ResolveNamesModule extends Module {
 	/**
 	 * Executes all the actions in the $data variable.
 	 */
-	public function execute() {
+	#[\Override]
+    public function execute() {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
 				try {
@@ -351,7 +352,8 @@ class ResolveNamesModule extends Module {
 	 * @param string     $entryid       entryid of the message
 	 * @param array      $action        the action data, sent by the client
 	 */
-	public function handleException(&$e, $actionType = null, $store = null, $parententryid = null, $entryid = null, $action = null) {
+	#[\Override]
+    public function handleException(&$e, $actionType = null, $store = null, $parententryid = null, $entryid = null, $action = null) {
 		if (is_null($e->displayMessage)) {
 			switch ($actionType) {
 				case 'checknames':

@@ -9,7 +9,8 @@ class AddressBookNotifier extends Notifier {
 	/**
 	 * @return Number the event which this module handles
 	 */
-	public function getEvents() {
+	#[\Override]
+    public function getEvents() {
 		return OBJECT_SAVE;
 	}
 
@@ -22,7 +23,8 @@ class AddressBookNotifier extends Notifier {
 	 * @param array  $data    array of data
 	 * @param mixed  $props
 	 */
-	public function update($event, $entryid, $props) {
+	#[\Override]
+    public function update($event, $entryid, $props) {
 		switch ($event) {
 			case OBJECT_SAVE:
 				$this->addNotificationActionData("addressbook", true);
