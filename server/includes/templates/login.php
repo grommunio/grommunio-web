@@ -25,7 +25,7 @@
 		<script><?php require BASE_PATH . 'client/fingerprint.js'; ?></script>
 	</head>
 
-	<body class="login theme-<?php echo strtolower($theme ? $theme : 'basic'); ?>">
+	<body class="login theme-<?php echo strtolower($theme ?: 'basic'); ?>">
 
 	<?php
 		$keycloak = KeyCloak::getInstance();

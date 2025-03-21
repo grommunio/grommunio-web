@@ -42,7 +42,7 @@ $serverConfig = [
 		?>
 	</head>
 
-	<body class="zarafa-welcome theme-<?php echo strtolower($theme ? $theme : 'basic'); ?>">
+	<body class="zarafa-welcome theme-<?php echo strtolower($theme ?: 'basic'); ?>">
 		<div id="loading-mask">
 			<div id="form-container" class="loading" style="visibility: hidden;">
 				<div id="bg"></div>

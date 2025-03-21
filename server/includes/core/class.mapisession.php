@@ -330,7 +330,7 @@ class MAPISession {
 	 */
 	public function getUserName() {
 		$encryptionStore = EncryptionStore::getInstance();
-		return $encryptionStore->get('username') ? $encryptionStore->get('username') : '';
+		return $encryptionStore->get('username') ?: '';
 	}
 
 	/**

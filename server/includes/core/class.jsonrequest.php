@@ -40,7 +40,7 @@ class JSONRequest {
 			$GLOBALS["bus"]->notify(REQUEST_ENTRYID, REQUEST_START);
 
 			// Check if the JSON is parsed correctly into an array
-			$data = $data["zarafa"] ? $data["zarafa"] : false;
+			$data = $data["zarafa"] ?: false;
 
 			// @TODO throw exception if zarafa tag is not present
 			if (is_array($data)) {

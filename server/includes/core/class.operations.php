@@ -2189,7 +2189,7 @@ class Operations {
 					else {
 						$oldProps = mapi_getprops($message, [$properties['startdate'], $properties['duedate']]);
 						// Modifying non-exception (the series) or normal appointment item
-						$message = $GLOBALS['operations']->saveMessage($store, $entryid, $parententryid, Conversion::mapXML2MAPI($properties, $action['props']), $messageProps, $recips ? $recips : [], $action['attachments'] ?? [], [], false, false, false, false, false, false, $send);
+						$message = $GLOBALS['operations']->saveMessage($store, $entryid, $parententryid, Conversion::mapXML2MAPI($properties, $action['props']), $messageProps, $recips ?: [], $action['attachments'] ?? [], [], false, false, false, false, false, false, $send);
 
 						$recurrenceProps = mapi_getprops($message, [$properties['startdate_recurring'], $properties['enddate_recurring'], $properties["recurring"]]);
 						// Check if the meeting is recurring
@@ -2303,7 +2303,7 @@ class Operations {
 					$this->setSenderAddress($store, $action);
 				}
 
-				$message = $this->saveMessage($store, $entryid, $parententryid, Conversion::mapXML2MAPI($properties, $action['props']), $messageProps, $recips ? $recips : [], $action['attachments'] ?? [], [], $sourceRecord, $copyAttachments, $hasRecipient, false, false, false, $send);
+				$message = $this->saveMessage($store, $entryid, $parententryid, Conversion::mapXML2MAPI($properties, $action['props']), $messageProps, $recips ?: [], $action['attachments'] ?? [], [], $sourceRecord, $copyAttachments, $hasRecipient, false, false, false, $send);
 
 				if (isset($action['props']['timezone'])) {
 					$tzprops = ['timezone', 'timezonedst', 'dststartmonth', 'dststartweek', 'dststartday', 'dststarthour', 'dstendmonth', 'dstendweek', 'dstendday', 'dstendhour'];
@@ -2388,12 +2388,12 @@ class Operations {
 			if ($recips) {
 				if (isset($action['message_action']['send_update']) && $action['message_action']['send_update'] == 'modified') {
 					if (isset($recips['add']) && !empty($recips['add'])) {
-						$modifiedRecipients = $modifiedRecipients ? $modifiedRecipients : [];
+						$modifiedRecipients = $modifiedRecipients ?: [];
 						$modifiedRecipients = array_merge($modifiedRecipients, $this->createRecipientList($recips['add'], 'add'));
 					}
 
 					if (isset($recips['modify']) && !empty($recips['modify'])) {
-						$modifiedRecipients = $modifiedRecipients ? $modifiedRecipients : [];
+						$modifiedRecipients = $modifiedRecipients ?: [];
 						$modifiedRecipients = array_merge($modifiedRecipients, $this->createRecipientList($recips['modify'], 'modify'));
 					}
 				}
@@ -2402,10 +2402,10 @@ class Operations {
 				$lastUpdateCounter = $request->getLastUpdateCounter();
 				if ($lastUpdateCounter !== false && $lastUpdateCounter > 0) {
 					if (isset($recips['remove']) && !empty($recips['remove'])) {
-						$deletedRecipients = $deletedRecipients ? $deletedRecipients : [];
+						$deletedRecipients = $deletedRecipients ?: [];
 						$deletedRecipients = array_merge($deletedRecipients, $this->createRecipientList($recips['remove'], 'remove'));
 						if (isset($action['message_action']['send_update']) && $action['message_action']['send_update'] != 'all') {
-							$modifiedRecipients = $modifiedRecipients ? $modifiedRecipients : [];
+							$modifiedRecipients = $modifiedRecipients ?: [];
 						}
 					}
 				}
