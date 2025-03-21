@@ -82,17 +82,7 @@ class FilesAccountModule extends ListModule {
 				catch (MAPIException $e) {
 					$this->sendFeedback(false, $this->errorDetailsFromException($e));
 				}
-				catch (AccountException $e) {
-					$this->sendFeedback(false, [
-						'type' => ERROR_GENERAL,
-						'info' => [
-							'title' => $e->getTitle(),
-							'original_message' => $e->getMessage(),
-							'display_message' => $e->getMessage(),
-						],
-					]);
-				}
-				catch (BackendException $e) {
+				catch (AccountException|BackendException $e) {
 					$this->sendFeedback(false, [
 						'type' => ERROR_GENERAL,
 						'info' => [

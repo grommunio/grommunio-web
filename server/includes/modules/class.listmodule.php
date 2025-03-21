@@ -94,10 +94,7 @@ class ListModule extends Module {
 							$this->handleUnknownActionType($actionType);
 					}
 				}
-				catch (MAPIException $e) {
-					$this->processException($e, $actionType, $store, $parententryid, $entryid, $action);
-				}
-				catch (SearchException $e) {
+				catch (MAPIException|SearchException $e) {
 					$this->processException($e, $actionType, $store, $parententryid, $entryid, $action);
 				}
 			}

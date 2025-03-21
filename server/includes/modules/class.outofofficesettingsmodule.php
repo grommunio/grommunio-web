@@ -29,10 +29,7 @@ class OutOfOfficeSettingsModule extends Module {
                         default => $this->handleUnknownActionType($actionType),
                     };
 				}
-				catch (SettingsException $e) {
-					$this->processException($e, $actionType);
-				}
-				catch (MAPIException $e) {
+				catch (SettingsException|MAPIException $e) {
 					$this->processException($e, $actionType);
 				}
 			}

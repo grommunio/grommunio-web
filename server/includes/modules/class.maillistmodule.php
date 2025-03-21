@@ -86,10 +86,7 @@ class MailListModule extends ListModule {
 							$this->handleUnknownActionType($actionType);
 					}
 				}
-				catch (MAPIException $e) {
-					$this->processException($e, $actionType);
-				}
-				catch (SearchException $e) {
+				catch (MAPIException|SearchException $e) {
 					$this->processException($e, $actionType);
 				}
 			}
