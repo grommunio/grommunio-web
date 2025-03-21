@@ -7139,7 +7139,7 @@ msgstr ""
 msgid "Password has been changed successfully."
 msgstr "La password è stata modificata con successo."
 
-msgid "No certificate avaliable"
+msgid "No certificate available"
 msgstr "Nessun certificato disponibile"
 
 msgid "Private certificate has expired, unable to sign email"

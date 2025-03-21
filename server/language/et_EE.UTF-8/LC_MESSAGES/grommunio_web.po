@@ -6911,7 +6911,7 @@ msgstr "Viga salasõna muutmisel. Palun võta ühendust süsteemi haldajaga."
 msgid "Password has been changed successfully."
 msgstr "Salasõna on muutmine õnnestus."
 
-msgid "No certificate avaliable"
+msgid "No certificate available"
 msgstr "Sertifikaat puudub"
 
 msgid "Private certificate has expired, unable to sign email"

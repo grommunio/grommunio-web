@@ -7502,7 +7502,7 @@ msgstr ""
 msgid "Password has been changed successfully."
 msgstr "Le mot de passe a été mis à jour avec succès."
 
-msgid "No certificate avaliable"
+msgid "No certificate available"
 msgstr "Pas de certificat disponible"
 
 msgid "Private certificate has expired, unable to sign email"

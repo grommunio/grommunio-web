@@ -6907,7 +6907,7 @@ msgstr ""
 msgid "Password has been changed successfully."
 msgstr "Şifre başarıyla değiştirildi."
 
-msgid "No certificate avaliable"
+msgid "No certificate available"
 msgstr "Sertifika mevcut değil"
 
 msgid "Private certificate has expired, unable to sign email"

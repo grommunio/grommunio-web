@@ -7331,7 +7331,7 @@ msgid "Password has been changed successfully."
 msgstr "Пароль был успешно изменен."
 
 #, fuzzy
-msgid "No certificate avaliable"
+msgid "No certificate available"
 msgstr "Сертификат не выдается"
 
 msgid "Private certificate has expired, unable to sign email"

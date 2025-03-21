@@ -7732,7 +7732,7 @@ msgid "Password has been changed successfully."
 msgstr "Geslo je bilo uspešno spremenjeno."
 
 #, fuzzy
-msgid "No certificate avaliable"
+msgid "No certificate available"
 msgstr "Potrdilo ni na voljo"
 
 msgid "Private certificate has expired, unable to sign email"

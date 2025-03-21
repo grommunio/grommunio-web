@@ -8547,7 +8547,7 @@ msgid "Password has been changed successfully."
 msgstr "Ο κωδικός πρόσβασης άλλαξε με επιτυχία."
 
 #, fuzzy
-msgid "No certificate avaliable"
+msgid "No certificate available"
 msgstr "Δεν υπάρχει διαθέσιμο πιστοποιητικό"
 
 msgid "Private certificate has expired, unable to sign email"

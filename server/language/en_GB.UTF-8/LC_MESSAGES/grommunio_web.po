@@ -6918,8 +6918,8 @@ msgstr "Error changing password. Contact the system administrator."
 msgid "Password has been changed successfully."
 msgstr "Password has been changed successfully."
 
-msgid "No certificate avaliable"
-msgstr "No certificate avaliable"
+msgid "No certificate available"
+msgstr "No certificate available"
 
 msgid "Private certificate has expired, unable to sign email"
 msgstr ""

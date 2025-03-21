@@ -6940,7 +6940,7 @@ msgstr "Feil ved endring av passord. Vennligst kontakt systemadministratoren."
 msgid "Password has been changed successfully."
 msgstr "Passordet har blitt endret."
 
-msgid "No certificate avaliable"
+msgid "No certificate available"
 msgstr "Ingen sertifikat tilgjengelig"
 
 msgid "Private certificate has expired, unable to sign email"

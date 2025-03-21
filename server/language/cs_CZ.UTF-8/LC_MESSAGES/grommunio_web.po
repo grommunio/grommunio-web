@@ -7645,7 +7645,7 @@ msgid "Password has been changed successfully."
 msgstr "Heslo bylo úspěšně změněno."
 
 #, fuzzy
-msgid "No certificate avaliable"
+msgid "No certificate available"
 msgstr "Není k dispozici žádný certifikát"
 
 msgid "Private certificate has expired, unable to sign email"

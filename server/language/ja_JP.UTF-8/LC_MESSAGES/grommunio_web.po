@@ -7364,7 +7364,7 @@ msgstr "パスワードの変更に失敗しました。システム管理者に
 msgid "Password has been changed successfully."
 msgstr "パスワードの変更に成功しました。"
 
-msgid "No certificate avaliable"
+msgid "No certificate available"
 msgstr "証明書が存在しません"
 
 msgid "Private certificate has expired, unable to sign email"

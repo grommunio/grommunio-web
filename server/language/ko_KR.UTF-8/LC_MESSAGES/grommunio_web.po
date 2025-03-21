@@ -6824,7 +6824,7 @@ msgstr "비밀번호 변경 중 오류가 발생했습니다. 시스템 관리�
 msgid "Password has been changed successfully."
 msgstr "비밀번호가 성공적으로 변경되었습니다."
 
-msgid "No certificate avaliable"
+msgid "No certificate available"
 msgstr "사용 가능한 인증서 없음"
 
 msgid "Private certificate has expired, unable to sign email"

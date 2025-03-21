@@ -7513,7 +7513,7 @@ msgid "Password has been changed successfully."
 msgstr "Adgangskoden er blevet ændret med succes."
 
 #, fuzzy
-msgid "No certificate avaliable"
+msgid "No certificate available"
 msgstr "Intet certifikat tilgængeligt"
 
 msgid "Private certificate has expired, unable to sign email"

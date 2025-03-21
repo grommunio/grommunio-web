@@ -7020,7 +7020,7 @@ msgstr ""
 msgid "Password has been changed successfully."
 msgstr "Passwort wurde erfolgreich geändert."
 
-msgid "No certificate avaliable"
+msgid "No certificate available"
 msgstr "Kein Zertifikat verfügbar"
 
 msgid "Private certificate has expired, unable to sign email"

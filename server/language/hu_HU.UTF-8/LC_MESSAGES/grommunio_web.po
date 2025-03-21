@@ -7419,7 +7419,7 @@ msgstr ""
 msgid "Password has been changed successfully."
 msgstr "A jelszó módosítása sikeresen megtörtént."
 
-msgid "No certificate avaliable"
+msgid "No certificate available"
 msgstr "Nem áll rendelkezésre tanúsítvány"
 
 msgid "Private certificate has expired, unable to sign email"

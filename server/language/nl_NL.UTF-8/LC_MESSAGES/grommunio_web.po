@@ -6962,7 +6962,7 @@ msgstr "Fout bij wijzigen wachtwoord. Neem contact op met de systeembeheerder."
 msgid "Password has been changed successfully."
 msgstr "Wachtwoord is succesvol gewijzigd."
 
-msgid "No certificate avaliable"
+msgid "No certificate available"
 msgstr "Geen certificaat beschikbaar"
 
 msgid "Private certificate has expired, unable to sign email"

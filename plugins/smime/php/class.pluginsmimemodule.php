@@ -119,7 +119,7 @@ class PluginSmimeModule extends Module {
 
 		// No certificates
 		if (!$privateCerts || count($privateCerts) === 0) {
-			$message = _('No certificate avaliable');
+			$message = _('No certificate available');
 		}
 		else {
 			// For each certificate in MAPI store

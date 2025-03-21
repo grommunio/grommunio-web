@@ -7752,7 +7752,7 @@ msgid "Password has been changed successfully."
 msgstr "Salasana on vaihdettu onnistuneesti."
 
 #, fuzzy
-msgid "No certificate avaliable"
+msgid "No certificate available"
 msgstr "Todistusta ei ole saatavilla"
 
 msgid "Private certificate has expired, unable to sign email"

@@ -6973,7 +6973,7 @@ msgstr "Помилка при зміні пароля. Зверніться до
 msgid "Password has been changed successfully."
 msgstr "Пароль успішно змінено."
 
-msgid "No certificate avaliable"
+msgid "No certificate available"
 msgstr "Сертифікат відсутній"
 
 msgid "Private certificate has expired, unable to sign email"

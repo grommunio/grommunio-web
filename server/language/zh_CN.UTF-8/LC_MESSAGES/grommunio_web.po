@@ -7037,7 +7037,7 @@ msgid "Password has been changed successfully."
 msgstr "密码已被成功更改。"
 
 #, fuzzy
-msgid "No certificate avaliable"
+msgid "No certificate available"
 msgstr "没有可用的证书"
 
 msgid "Private certificate has expired, unable to sign email"
