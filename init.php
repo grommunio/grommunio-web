@@ -6,6 +6,6 @@
 	// Load the original source files (for developers)
 	define("LOAD_SOURCE", 3);
 	// Defines the base path on the server, terminated by a slash
-	define('BASE_PATH', realpath(dirname(__FILE__)) . '/');
+	define('BASE_PATH', realpath(__DIR__) . '/');
 	define('UMAPI_PATH', '/usr/share/php-mapi');
 	define('GROMOX_CONFIG_PATH', '/etc/gromox/');

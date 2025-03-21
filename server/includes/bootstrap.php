@@ -16,7 +16,7 @@
 // It would be better if we could just put the few lines of code that are in init.php
 // in this script. Unfortunately that would break plugins that include init.php on their
 // own. (e.g. the spellchecker plugin)
-require_once dirname(__FILE__) . '/../../init.php';
+require_once __DIR__ . '/../../init.php';
 
 // load configuration file
 if (!file_exists(BASE_PATH . 'config.php')) {
