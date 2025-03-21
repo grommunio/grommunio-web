@@ -547,7 +547,7 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	 * @return {Boolean} Returns true if the {@link Zarafa.core.data.AppointmentRecord AppointmentRecord} is
 	 * recurring occurrence appointment.
 	 */
-	isRecurringOccurence: function()
+	isRecurringOccurrence: function()
 	{
 		return Ext.isDate(this.get('basedate'));
 	},
@@ -569,7 +569,7 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	isSubMessage: function()
 	{
 		// Recurring occurrences can never be embedded message
-		if(this.isRecurringOccurence()) {
+		if(this.isRecurringOccurrence()) {
 			return false;
 		}
 
@@ -884,7 +884,7 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	 * so the record can be correctly identified as an occurrence record.
 	 * @return {Zarafa.core.data.IPMRecord} record that can be used to open occurrence of a series.
 	 */
-	convertToOccurenceRecord: function()
+	convertToOccurrenceRecord: function()
 	{
 		// only convert it when its a series record
 		if(this.hasIdProp('basedate') === false) {

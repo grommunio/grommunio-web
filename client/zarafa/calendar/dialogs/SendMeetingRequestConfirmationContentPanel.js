@@ -64,7 +64,7 @@ Zarafa.calendar.dialogs.SendMeetingRequestConfirmationContentPanel = Ext.extend(
 		 * meeting request then we have to remove base date from record because if record contains basedate then it
 		 * will be treated as exception on server side and requested operation carried out on single occurrence.
 		 */
-		if(this.record.isRecurringOccurence() && Ext.isDefined(this.buttonName) && this.buttonName === 'recurring') {
+		if(this.record.isRecurringOccurrence() && Ext.isDefined(this.buttonName) && this.buttonName === 'recurring') {
 			this.record.removeIdProp('basedate');
 			this.record.set('basedate', '');
 		}

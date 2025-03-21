@@ -226,7 +226,7 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 			icons.push('private');
 		}
 
-		if (record.isRecurringOccurence() === true) {
+		if (record.isRecurringOccurrence() === true) {
 			if (record.isRecurringException() === true) {
 				icons.push('exception');
 			} else {

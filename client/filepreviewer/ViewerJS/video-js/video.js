@@ -31729,7 +31729,7 @@
               'program-date-time'() {
                 if (typeof this.manifest.dateTimeString === 'undefined') {
                   // PROGRAM-DATE-TIME is a media-segment tag, but for backwards
-                  // compatibility, we add the first occurence of the PROGRAM-DATE-TIME tag
+                  // compatibility, we add the first occurrence of the PROGRAM-DATE-TIME tag
                   // to the manifest object
                   // TODO: Consider removing this in future major version
                   this.manifest.dateTimeString = entry.dateTimeString;
@@ -40130,7 +40130,7 @@
     return {
       locations: mpdAttributes.locations,
       contentSteeringInfo: generateContentSteeringInformation(contentSteeringNodes, eventHandler),
-      // TODO: There are occurences where this `representationInfo` array contains undesired
+      // TODO: There are occurrences where this `representationInfo` array contains undesired
       // duplicates. This generally occurs when there are multiple BaseURL nodes that are
       // direct children of the MPD node. When we attempt to resolve URLs from a combination of the
       // parent BaseURL and a child BaseURL, and the value does not resolve,

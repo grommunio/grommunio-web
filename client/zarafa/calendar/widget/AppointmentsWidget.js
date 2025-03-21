@@ -478,8 +478,8 @@ Zarafa.calendar.widget.AppointmentsWidget = Ext.extend(Zarafa.core.ui.widget.Abs
 		var record = grid.getSelectionModel().getSelected();
 		if (!Ext.isEmpty(record)) {
 			// FIXME what about recurring series records ?
-			if (record.isRecurringOccurence()) {
-				record = record.convertToOccurenceRecord();
+			if (record.isRecurringOccurrence()) {
+				record = record.convertToOccurrenceRecord();
 			}
 		}
 		Zarafa.core.data.UIFactory.openViewRecord(record);

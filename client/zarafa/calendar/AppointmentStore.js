@@ -43,9 +43,9 @@ Zarafa.calendar.AppointmentStore = Ext.extend(Zarafa.core.data.ListModuleStore, 
 	 */
 	getRecordKey: function(record)
 	{
-		// Check isRecurringOccurence exists because the user could have moved a non-appointment message to
+		// Check isRecurringOccurrence exists because the user could have moved a non-appointment message to
 		// the calendar
-		if ( Ext.isDefined(record.isRecurringOccurence) && record.isRecurringOccurence()) {
+		if ( Ext.isDefined(record.isRecurringOccurrence) && record.isRecurringOccurence()) {
 			return record.id + '' + record.get('basedate');
 		} else {
 			return record.id;
@@ -77,18 +77,18 @@ Zarafa.calendar.AppointmentStore = Ext.extend(Zarafa.core.data.ListModuleStore, 
 			// Search for all occurrences which belong to this recurrence.
 			// Note that 'record' is already removed from the store,
 			// so we don't risk of adding it again into the array.
-			var deleteOccurences = [];
+			var deleteOccurrences = [];
 			this.each(function(r) {
 				if (r.id === record.id) {
-					deleteOccurences.push(r);
+					deleteOccurrences.push(r);
 				}
 			});
 
 			// Now remove every occurrence from the store, before removing we
 			// push it into the 'removed' array to make sure that when we arrive
 			// inside this function again, the first if-statement will return.
-			for (var i = 0, len = deleteOccurences.length; i < len; i++) {
-				var occur = deleteOccurences[i];
+			for (var i = 0, len = deleteOccurrences.length; i < len; i++) {
+				var occur = deleteOccurrences[i];
 				this.removed.push(occur);
 				this.remove(occur);
 				this.removed.remove(occur);
@@ -135,7 +135,7 @@ Zarafa.calendar.AppointmentStore = Ext.extend(Zarafa.core.data.ListModuleStore, 
 
 			if (!record.isMessageClass('IPM.Appointment') && !record.isMessageClass('IPM.OLE.CLASS.{00061055-0000-0000-C000-000000000046}')) {
 				continue;
-			} else if (record.isRecurringOccurence()) {
+			} else if (record.isRecurringOccurrence()) {
 				// The appointment is an occurrence, this means we are
 				// updating an exception. Find the exact occurrence which
 				// was changed.

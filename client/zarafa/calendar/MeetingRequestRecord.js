@@ -98,7 +98,7 @@ Zarafa.calendar.MeetingRequestRecord = Ext.extend(Zarafa.calendar.AppointmentRec
 	 * recurring occurrence meeting.
 	 * @overridden
 	 */
-	isRecurringOccurence: function()
+	isRecurringOccurrence: function()
 	{
 		return Ext.isDate(this.get('appointment_basedate'));
 	},

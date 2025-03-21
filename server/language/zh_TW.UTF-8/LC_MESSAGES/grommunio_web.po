@@ -812,10 +812,10 @@ msgid "years"
 msgstr "年"
 
 msgid "Occurs every {0} effective {1} from {2} to {3}."
-msgstr "Occurs every %s effective %s for %s occurences."
+msgstr "Occurs every %s effective %s for %s occurrences."
 
 msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
-msgstr "Occurs every %s %s effective %s for %s occurences"
+msgstr "Occurs every %s %s effective %s for %s occurrences"
 
 msgid "Occurs every {0} effective {1}."
 msgstr "Occurs every %s effective %s."
@@ -842,10 +842,10 @@ msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
 msgstr[0] ""
 
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
-msgstr "Occurs every %s effective %s for %s occurences from %s to %s."
+msgstr "Occurs every %s effective %s for %s occurrences from %s to %s."
 
 msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
-msgstr "Occurs every %s effective %s for %s occurences from %s to %s."
+msgstr "Occurs every %s effective %s for %s occurrences from %s to %s."
 
 msgid "Occurs every {0} effective {1} until {2}."
 msgstr "Occurs every %s effective %s until %s"
@@ -1160,7 +1160,7 @@ msgstr "顯示成"
 msgid "Warning"
 msgstr "警告"
 
-msgid "Attachments cannot be modified for a single occurence"
+msgid "Attachments cannot be modified for a single occurrence"
 msgstr "無法單一修改附件"
 
 msgid "Type your message here…"
@@ -2569,7 +2569,7 @@ msgid "End by {A}"
 msgstr "結束於 {A}"
 
 #. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
-#. For example: 'Occurence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurence duration: 1 hour'
+#. For example: 'Occurrence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurence duration: 1 hour'
 msgid "Occurrence duration: {D} {H} {M}"
 msgstr "發生時間:{D} {H} {M}"
 

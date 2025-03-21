@@ -19,7 +19,7 @@ Zarafa.calendar.Actions = {
 		Ext.each(records, function(record) {
 			// If the appointment is a series, then we need to ask the user
 			// if he wants to open the occurrence or the series.
-			if (Ext.isDefined(record.isRecurringOccurence) && record.isRecurringOccurence()) {
+			if (Ext.isDefined(record.isRecurringOccurrence) && record.isRecurringOccurence()) {
 				Zarafa.common.Actions.openRecurringSelectionContent(record, function(button, radio) {
 					// Action cancelled.
 					if (button != 'ok') {
@@ -30,7 +30,7 @@ Zarafa.calendar.Actions = {
 					}
 					// Convert the record to the requested type
 					if (radio.id !== 'recurrence_series') {
-						record = record.convertToOccurenceRecord();
+						record = record.convertToOccurrenceRecord();
 					} else {
 						record = record.convertToSeriesRecord();
 					}
@@ -373,7 +373,7 @@ Zarafa.calendar.Actions = {
 	 * Function which show the {@link Zarafa.common.dialogs.MessageBox.select selectMessageBox} dialog
 	 * if selected record is recurring items and based on selected option record is converted to either
 	 * {@link Zarafa.calendar.AppointmentRecord.convertToSeriesRecord seriesRecord} or
-	 * {@link Zarafa.calendar.AppointmentRecord.convertToOccurenceRecord OccurenceRecord}. Also it will open
+	 * {@link Zarafa.calendar.AppointmentRecord.convertToOccurrenceRecord OccurenceRecord}. Also it will open
 	 * the record if it is not.
 	 *
 	 * @param {Zarafa.core.data.IPMRecord} record A selected calendar item in calendar view.
@@ -397,7 +397,7 @@ Zarafa.calendar.Actions = {
 				// So need to open it first.
 				forceOpen = !record.get("recurring");
 			} else {
-				clipBoardRecord = record.convertToOccurenceRecord();
+				clipBoardRecord = record.convertToOccurrenceRecord();
 			}
 
 			// Open record if record is not opened. we need to open record

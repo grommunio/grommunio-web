@@ -1144,7 +1144,7 @@ msgstr "表示"
 msgid "Warning"
 msgstr "警告"
 
-msgid "Attachments cannot be modified for a single occurence"
+msgid "Attachments cannot be modified for a single occurrence"
 msgstr "出席者は単独のイベントの修正をすることはできません"
 
 msgid "Type your message here…"
@@ -2672,7 +2672,7 @@ msgid "End by {A}"
 msgstr "{A}までに終了"
 
 #. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
-#. For example: 'Occurence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurence duration: 1 hour'
+#. For example: 'Occurrence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurence duration: 1 hour'
 msgid "Occurrence duration: {D} {H} {M}"
 msgstr "繰り返し間隔:{D}日{H}時間{M}分"
 

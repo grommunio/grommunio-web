@@ -528,7 +528,7 @@ Zarafa.common.Actions = {
 	 * Message.
 	 *
 	 * @param {Function} handler The handler which is invoked with the selected value
-	 * from the dialog. This function only takes one argument and is either 'recurrence_occurence'
+	 * from the dialog. This function only takes one argument and is either 'recurrence_occurrence'
 	 * when the single-occurrence was selected or 'recurrence_series' when the series was selected.
 	 * @param {Object} scope (optional) The scope on which the handler must be invoked.
 	 */
@@ -554,7 +554,7 @@ Zarafa.common.Actions = {
 		Zarafa.common.dialogs.MessageBox.select(
 			title, text, handler, scope, [{
 				boxLabel: _('Open this occurrence'),
-				id: 'recurrence_occurence',
+				id: 'recurrence_occurrence',
 				name: 'select',
 				checked: true
 			},{
@@ -571,7 +571,7 @@ Zarafa.common.Actions = {
 	 * appointment/meeting.
 	 *
 	 * @param {Function} handler The handler which is invoked with the selected value
-	 * from the dialog. This function only takes one argument and is either 'recurrence_occurence'
+	 * from the dialog. This function only takes one argument and is either 'recurrence_occurrence'
 	 * when the single-occurrence was selected or 'recurrence_series' when the series was selected.
 	 * @param {Object} scope (optional) The scope on which the handler must be invoked.
 	 */
@@ -591,7 +591,7 @@ Zarafa.common.Actions = {
 		Zarafa.common.dialogs.MessageBox.select(
 			title, text, handler, scope, [{
 				boxLabel: _('Paste this occurrence only'),
-				id: 'recurrence_occurence',
+				id: 'recurrence_occurrence',
 				name: 'select',
 				checked: true,
 				showButtonText: 'ok',
@@ -619,7 +619,7 @@ Zarafa.common.Actions = {
 	 * selecting if either a recurrence or the entire series must be deleted.
 	 *
 	 * @param {Function} handler The handler which is invoked with the selected value
-	 * from the dialog. This function only takes one argument and is either 'recurrence_occurence'
+	 * from the dialog. This function only takes one argument and is either 'recurrence_occurrence'
 	 * when the single-occurrence was selected or 'recurrence_series' when the series was selected.
 	 * @param {Object} scope (optional) The scope on which the handler must be invoked.
 	 */
@@ -645,7 +645,7 @@ Zarafa.common.Actions = {
 		Zarafa.common.dialogs.MessageBox.select(
 			title, text, handler, scope, [{
 				boxLabel: _('Delete this occurrence'),
-				id: 'recurrence_occurence',
+				id: 'recurrence_occurrence',
 				name: 'select',
 				checked: true
 			},{
@@ -773,7 +773,7 @@ Zarafa.common.Actions = {
 
 			// Check if the item is recurring, and if we need to ask the user
 			// if the occurrence or series must be deleted
-			var deleteRecurring = Ext.isFunction(record.isRecurringOccurence) && record.isRecurringOccurence() && askOcc !== false;
+			var deleteRecurring = Ext.isFunction(record.isRecurringOccurrence) && record.isRecurringOccurence() && askOcc !== false;
 
 			// Meeting and task requests are always deleted as normal,
 			// we don't care for the recurring state of the record.
@@ -932,7 +932,7 @@ Zarafa.common.Actions = {
 			}
 
 			if (radio.id != 'recurrence_series') {
-				record = record.convertToOccurenceRecord();
+				record = record.convertToOccurrenceRecord();
 			} else {
 				record = record.convertToSeriesRecord();
 			}

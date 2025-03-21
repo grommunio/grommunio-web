@@ -344,7 +344,7 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 		}
 
 		// if selected record is received simple meeting request then set the handler on each button.
-		if(record.isMeetingReceived() && !(record.isRecurringOccurence() || record.get('recurring'))) {
+		if(record.isMeetingReceived() && !(record.isRecurringOccurrence() || record.get('recurring'))) {
 			if(isProposeButton) {
 				item.setHandler(this.openProposeNewTimeContent, this);
 			} else {
@@ -352,7 +352,7 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 			}
 		}
 
-		if(record.isMeetingReceived() && (record.isRecurringOccurence() || record.get('recurring'))) {
+		if(record.isMeetingReceived() && (record.isRecurringOccurrence() || record.get('recurring'))) {
 			// Add sub menu item while selected received meeting request is recurring.
 			// it will show the two sub menu items which provide facility to user to accept, tentatively accept,
 			// decline recurring series or occurrence and allow user to propose new time for single occurrence

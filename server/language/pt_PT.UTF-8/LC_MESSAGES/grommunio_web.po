@@ -1153,7 +1153,7 @@ msgstr "Mostrar como"
 msgid "Warning"
 msgstr "Aviso"
 
-msgid "Attachments cannot be modified for a single occurence"
+msgid "Attachments cannot be modified for a single occurrence"
 msgstr "Anexos não podem ser modificados para uma única ocorrência"
 
 msgid "Type your message here…"
@@ -2583,7 +2583,7 @@ msgid "End by {A}"
 msgstr "Acaba em {A}"
 
 #. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
-#. For example: 'Occurence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurence duration: 1 hour'
+#. For example: 'Occurrence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurence duration: 1 hour'
 msgid "Occurrence duration: {D} {H} {M}"
 msgstr "Duração do evento: {D} {H} {M}"
 

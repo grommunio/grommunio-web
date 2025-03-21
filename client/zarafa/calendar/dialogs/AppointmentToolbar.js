@@ -204,10 +204,10 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 			// FIXME: Remove after WA-4880 is implemented
 			xtype: 'button',
 			disabled: true,
-			ref: 'occurenceAttachmentsButton',
+			ref: 'occurrenceAttachmentsButton',
 			overflowText: _('Add attachment'),
-			tooltip: _('Attachments cannot be modified for a single occurence'),
-			cls: 'tb-calendar-btn-occurence-attachment',
+			tooltip: _('Attachments cannot be modified for a single occurrence'),
+			cls: 'tb-calendar-btn-occurrence-attachment',
 			iconCls: 'icon_paperclip'
 		},{
 			xtype: 'button',
@@ -609,11 +609,11 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 
 		// FIXME: Remove after WA-4880 is implemented
 		if (contentReset === true) {
-			if (record.isRecurringOccurence()) {
-				this.occurenceAttachmentsButton.setVisible(true);
+			if (record.isRecurringOccurrence()) {
+				this.occurrenceAttachmentsButton.setVisible(true);
 				this.normalAttachmentsButton.setVisible(false);
 			} else {
-				this.occurenceAttachmentsButton.setVisible(false);
+				this.occurrenceAttachmentsButton.setVisible(false);
 				this.normalAttachmentsButton.setVisible(true);
 			}
 

@@ -88,7 +88,7 @@ Zarafa.calendar.ui.MeetingRequestButton = Ext.extend(Ext.Button, {
 		var isMeetingResponse = false;
 		var isMeetingProposal = false;
 		var isMeetingRecurring = false;
-		var isMeetingOccurence = false;
+		var isMeetingOccurrence = false;
 		var isMeetingUpdated = false;
 		var isMeetingCanceled = false;
 		var isMeetingOutOfDate = false;
@@ -123,8 +123,8 @@ Zarafa.calendar.ui.MeetingRequestButton = Ext.extend(Ext.Button, {
 			isMeeting = record.isMeeting();
 			isMeetingCanceled = record.isMeetingCanceled();
 			isMeetingRecurring = record.get('recurring');
-			isMeetingOccurence = record.hasIdProp('basedate');
-			isMeetingOutOfDate = isMeetingOccurence && record.get('duedate') < new Date();
+			isMeetingOccurrence = record.hasIdProp('basedate');
+			isMeetingOutOfDate = isMeetingOccurrence && record.get('duedate') < new Date();
 		}
 
 		switch(this.name) {
@@ -160,7 +160,7 @@ Zarafa.calendar.ui.MeetingRequestButton = Ext.extend(Ext.Button, {
 			case Zarafa.calendar.data.MeetingRequestButtonNames.PROPOSENEWTIME:
 				// A user can only propose a new time for non-recurring meetings, or occurrences. For the rest,
 				// the same rules apply as for accepting.
-				this.visible = isMeeting && !isSubMessage && (!isMeetingRecurring || isMeetingOccurence) && !senderIsReceiver && !isMeetingOutOfDate && !isMeetingCanceled && !senderIsStoreOwner && requestReceived;
+				this.visible = isMeeting && !isSubMessage && (!isMeetingRecurring || isMeetingOccurrence) && !senderIsReceiver && !isMeetingOutOfDate && !isMeetingCanceled && !senderIsStoreOwner && requestReceived;
 				break;
 			case Zarafa.calendar.data.MeetingRequestButtonNames.VIEWPROPOSALS:
 			case Zarafa.calendar.data.MeetingRequestButtonNames.ACCEPTPROPOSAL:

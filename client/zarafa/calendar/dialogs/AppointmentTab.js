@@ -563,13 +563,13 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			items: [{
 				// FIXME: Remove after WA-4880 is implemented
 				xtype: 'button',
-				ref: '../occurenceAttachmentsButton',
+				ref: '../occurrenceAttachmentsButton',
 				text: _('Attachments') + ':',
 				width: 100,
 				handler: function() {
 					Ext.MessageBox.show({
 						title: _('Warning'),
-						msg: _('Attachments cannot be modified for a single occurence'),
+						msg: _('Attachments cannot be modified for a single occurrence'),
 						buttons: Ext.Msg.OK,
 						cls: Ext.MessageBox.WARNING_CLS
 					});
@@ -739,13 +739,13 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 
 		// FIXME: Remove after WA-4880 is implemented
 		if (contentReset === true) {
-			if (record.isRecurringOccurence()) {
-				this.occurenceAttachmentsButton.setVisible(true);
+			if (record.isRecurringOccurrence()) {
+				this.occurrenceAttachmentsButton.setVisible(true);
 				this.normalAttachmentsButton.setVisible(false);
 
 				this.attachField.setEditable(false);
 			} else {
-				this.occurenceAttachmentsButton.setVisible(false);
+				this.occurrenceAttachmentsButton.setVisible(false);
 				this.normalAttachmentsButton.setVisible(true);
 
 				this.attachField.setEditable(true);
@@ -851,7 +851,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			if(!record.get('flagdueby') ||  record.isModifiedSinceLastUpdate('reminder_minutes') || record.get('reminder_time') !== record.get('startdate')) {
 				var reminderDate;
 
-				if (record.isRecurring() || record.isRecurringOccurence()) {
+				if (record.isRecurring() || record.isRecurringOccurrence()) {
 					reminderDate = record.get('startdate_recurring');
 				}
 
@@ -990,7 +990,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			if(!record.get('flagdueby') || record.isModifiedSinceLastUpdate('reminder_minutes') || record.isModifiedSinceLastUpdate('startdate')) {
 				var reminderDate;
 
-				if (record.isRecurring() || record.isRecurringOccurence()) {
+				if (record.isRecurring() || record.isRecurringOccurrence()) {
 					reminderDate = record.get('startdate_recurring');
 				}
 
@@ -1372,7 +1372,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 
 		var visible = this.setOldAppointmentInfo(el);
 
-		if(this.record.isRecurringOccurence()){
+		if(this.record.isRecurringOccurrence()){
 			visible = (this.setRecurrencePatternInfo(el) === true) ? true : visible;
 		}
 

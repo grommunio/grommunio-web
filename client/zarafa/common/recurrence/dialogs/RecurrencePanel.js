@@ -267,7 +267,7 @@ Zarafa.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 						items: [{
 							xtype: 'zarafa.spinnerfield',
 							plugins: [ 'zarafa.numberspinner' ],
-							ref: '../../../../endOccurencesSpinner',
+							ref: '../../../../endOccurrencesSpinner',
 							name: 'recurrence_numoccur',
 							labelSplitter: '{A}',
 							allowNegative: false,
@@ -340,7 +340,7 @@ Zarafa.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 		var minutes = Math.floor(duration);
 
 		// # TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
-		// # For example: 'Occurence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurence duration: 1 hour'
+		// # For example: 'Occurrence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurence duration: 1 hour'
 		var label = _('Occurrence duration: {D} {H} {M}');
 		if (days > 0) {
 			label = label.replace('{D}', String.format(ngettext('{0} day', '{0} days', days), days));
@@ -569,7 +569,7 @@ Zarafa.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 			case Zarafa.common.recurrence.data.RecurrenceEnd.NEVER:
 				// Only apply default values at the first update
 				if (contentReset === true) {
-					this.endOccurencesSpinner.setValue(10);
+					this.endOccurrencesSpinner.setValue(10);
 				}
 				if (contentReset === true || (record.isModifiedSinceLastUpdate('recurrence_start') && startDate > this.endOnDateField.getValue())) {
 					this.endOnDateField.setValue(startDate.clearTime(true));
@@ -578,7 +578,7 @@ Zarafa.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 			case Zarafa.common.recurrence.data.RecurrenceEnd.N_OCCURRENCES:
 				// Only apply default values at the first update
 				if (contentReset === true || record.isModifiedSinceLastUpdate('recurrence_numoccur')) {
-					this.endOccurencesSpinner.setValue(record.get('recurrence_numoccur'));
+					this.endOccurrencesSpinner.setValue(record.get('recurrence_numoccur'));
 				}
 				if (contentReset === true) {
 					this.endOnDateField.setValue(startDate.clearTime(true));
@@ -587,7 +587,7 @@ Zarafa.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 			case Zarafa.common.recurrence.data.RecurrenceEnd.ON_DATE:
 				// Only apply default values at the first update
 				if (contentReset === true) {
-					this.endOccurencesSpinner.setValue(10);
+					this.endOccurrencesSpinner.setValue(10);
 				}
 				if (contentReset === true || record.isModifiedSinceLastUpdate('recurrence_end')) {
 					this.endOnDateField.setValue(endDate.clearTime(true));
@@ -635,7 +635,7 @@ Zarafa.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 				record.set('recurrence_end', new Date('Jan 01 4501').fromUTC());
 				break;
 			case Zarafa.common.recurrence.data.RecurrenceEnd.N_OCCURRENCES:
-				record.set('recurrence_numoccur', this.endOccurencesSpinner.getValue());
+				record.set('recurrence_numoccur', this.endOccurrencesSpinner.getValue());
 				// The end is represented in UTC time,
 				// so convert it to local to get the time for the property
 				record.set('recurrence_end', new Date('Jan 01 4501').fromUTC());

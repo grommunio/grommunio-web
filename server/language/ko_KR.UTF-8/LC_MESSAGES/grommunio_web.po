@@ -1133,7 +1133,7 @@ msgstr "다른 이름으로 표시"
 msgid "Warning"
 msgstr "경고"
 
-msgid "Attachments cannot be modified for a single occurence"
+msgid "Attachments cannot be modified for a single occurrence"
 msgstr "첨부 파일은 한 번만 수정할 수 있습니다."
 
 msgid "Type your message here…"
@@ -2530,7 +2530,7 @@ msgid "End by {A}"
 msgstr "끝 {A}로 끝"
 
 #. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
-#. For example: 'Occurence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurence duration: 1 hour'
+#. For example: 'Occurrence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurence duration: 1 hour'
 msgid "Occurrence duration: {D} {H} {M}"
 msgstr "발생 기간: {D} {H} {M}"
 
