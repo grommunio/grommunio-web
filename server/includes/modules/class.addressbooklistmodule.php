@@ -438,12 +438,9 @@ class AddressbookListModule extends ListModule {
 					}
 				}
 
-				function sorter($direction, $key) {
-					return fn ($a, $b) => $direction == 'ASC' ?
-							strcasecmp($a['props'][$key] ?? '', $b['props'][$key] ?? '') :
-							strcasecmp($b['props'][$key] ?? '', $a['props'][$key] ?? '');
-				}
-				usort($items, sorter($sortingDir, $sortingField));
+				usort($items, fn ($a, $b) => $sortingDir == 'ASC' ?
+						strcasecmp($a['props'][$sortingField] ?? '', $b['props'][$sortingField] ?? '') :
+						strcasecmp($b['props'][$sortingField] ?? '', $a['props'][$sortingField] ?? ''));
 
 				// todo: fix paging stuff
 				$data['page']['start'] = 0;
