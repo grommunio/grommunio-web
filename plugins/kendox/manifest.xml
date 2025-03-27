@@ -22,7 +22,6 @@
 				<client>
 					<clientfile load="debug">js/kendox-debug.js</clientfile>
 					<clientfile load="release">js/kendox.js</clientfile>
-					<clientfile load="source">js/about.js</clientfile>			
 					<clientfile load="source">js/kendox-plugin.js</clientfile>
 					<clientfile load="source">js/kendox-settings.js</clientfile>	
 					<clientfile load="source">js/kendox-upload-dialog.js</clientfile>
