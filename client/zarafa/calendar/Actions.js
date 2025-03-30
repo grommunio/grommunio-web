@@ -19,7 +19,7 @@ Zarafa.calendar.Actions = {
 		Ext.each(records, function(record) {
 			// If the appointment is a series, then we need to ask the user
 			// if he wants to open the occurrence or the series.
-			if (Ext.isDefined(record.isRecurringOccurrence) && record.isRecurringOccurence()) {
+			if (Ext.isDefined(record.isRecurringOccurrence) && record.isRecurringOccurrence()) {
 				Zarafa.common.Actions.openRecurringSelectionContent(record, function(button, radio) {
 					// Action cancelled.
 					if (button != 'ok') {
@@ -373,7 +373,7 @@ Zarafa.calendar.Actions = {
 	 * Function which show the {@link Zarafa.common.dialogs.MessageBox.select selectMessageBox} dialog
 	 * if selected record is recurring items and based on selected option record is converted to either
 	 * {@link Zarafa.calendar.AppointmentRecord.convertToSeriesRecord seriesRecord} or
-	 * {@link Zarafa.calendar.AppointmentRecord.convertToOccurrenceRecord OccurenceRecord}. Also it will open
+	 * {@link Zarafa.calendar.AppointmentRecord.convertToOccurrenceRecord OccurrenceRecord}. Also it will open
 	 * the record if it is not.
 	 *
 	 * @param {Zarafa.core.data.IPMRecord} record A selected calendar item in calendar view.

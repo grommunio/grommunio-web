@@ -773,7 +773,7 @@ Zarafa.common.Actions = {
 
 			// Check if the item is recurring, and if we need to ask the user
 			// if the occurrence or series must be deleted
-			var deleteRecurring = Ext.isFunction(record.isRecurringOccurrence) && record.isRecurringOccurence() && askOcc !== false;
+			var deleteRecurring = Ext.isFunction(record.isRecurringOccurrence) && record.isRecurringOccurrence() && askOcc !== false;
 
 			// Meeting and task requests are always deleted as normal,
 			// we don't care for the recurring state of the record.

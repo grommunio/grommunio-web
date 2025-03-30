@@ -45,7 +45,7 @@ Zarafa.calendar.AppointmentStore = Ext.extend(Zarafa.core.data.ListModuleStore, 
 	{
 		// Check isRecurringOccurrence exists because the user could have moved a non-appointment message to
 		// the calendar
-		if ( Ext.isDefined(record.isRecurringOccurrence) && record.isRecurringOccurence()) {
+		if ( Ext.isDefined(record.isRecurringOccurrence) && record.isRecurringOccurrence()) {
 			return record.id + '' + record.get('basedate');
 		} else {
 			return record.id;

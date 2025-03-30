@@ -340,7 +340,7 @@ Zarafa.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 		var minutes = Math.floor(duration);
 
 		// # TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
-		// # For example: 'Occurrence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurence duration: 1 hour'
+		// # For example: 'Occurrence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurrence duration: 1 hour'
 		var label = _('Occurrence duration: {D} {H} {M}');
 		if (days > 0) {
 			label = label.replace('{D}', String.format(ngettext('{0} day', '{0} days', days), days));
