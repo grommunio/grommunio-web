@@ -3998,7 +3998,10 @@ class Operations {
 	public function expandDistList($distlistEntryid, $isRecursive = false) {
 		$properties = $GLOBALS['properties']->getDistListProperties();
 		$eidObj = $GLOBALS['entryid']->createABEntryIdObj($distlistEntryid);
-		$extidObj = $GLOBALS['entryid']->createMessageEntryIdObj($eidObj['extid']);
+		$isMuidGuid = !$GLOBALS['entryid']->hasNoMuid('', $eidObj);
+		$extidObj = $isMuidGuid ?
+			$GLOBALS['entryid']->createMessageEntryIdObj($eidObj['extid']) :
+			$GLOBALS['entryid']->createMessageEntryIdObj($GLOBALS['entryid']->createMessageEntryId($eidObj));
 
 		$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
 		$contactFolderId = $this->getPropertiesFromStoreRoot($store, [PR_IPM_CONTACT_ENTRYID]);
@@ -4008,15 +4011,19 @@ class Operations {
 			$storelist = $GLOBALS["mapisession"]->getAllMessageStores();
 			foreach ($storelist as $storeObj) {
 				$contactFolderId = $this->getPropertiesFromStoreRoot($storeObj, [PR_IPM_CONTACT_ENTRYID]);
-				$contactFolderidObj = $GLOBALS['entryid']->createFolderEntryIdObj(bin2hex((string) $contactFolderId[PR_IPM_CONTACT_ENTRYID]));
-				if ($contactFolderidObj['providerguid'] == $extidObj['providerguid'] && $contactFolderidObj['folderdbguid'] == $extidObj['folderdbguid']) {
-					$store = $storeObj;
-					break;
+				if (isset($contactFolderId[PR_IPM_CONTACT_ENTRYID])) {
+					$contactFolderidObj = $GLOBALS['entryid']->createFolderEntryIdObj(bin2hex((string) $contactFolderId[PR_IPM_CONTACT_ENTRYID]));
+					if ($contactFolderidObj['providerguid'] == $extidObj['providerguid'] && $contactFolderidObj['folderdbguid'] == $extidObj['folderdbguid']) {
+						$store = $storeObj;
+						break;
+					}
 				}
 			}
 		}
 
-		$distlistEntryid = $GLOBALS["entryid"]->unwrapABEntryIdObj($distlistEntryid);
+		if ($isMuidGuid) {
+			$distlistEntryid = $GLOBALS["entryid"]->unwrapABEntryIdObj($distlistEntryid);
+		}
 
 		try {
 			$distlist = $this->openMessage($store, hex2bin((string) $distlistEntryid));
