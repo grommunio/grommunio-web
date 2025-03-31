@@ -244,14 +244,14 @@ Zarafa.common.Actions = {
 	openViewRecipientContent: function(recipient, config)
 	{
 		if (recipient.isResolved()) {
-			if (recipient.isPersonalContact() || recipient.isSharedContact()) {
+			if (recipient.isPersonalContact() || recipient.isSharedRecord()) {
 				// A personal contact needs to be converted to a contact so the correct panel can be shown.
 				recipient = recipient.convertToContactRecord();
 				// FIXME: We put the abRecord into the ShadowStore to be able
 				// to open it, and obtain all details. However, we also need to
 				// find a point where we can remove it again.
 				container.getShadowStore().add(recipient);
-			} else if (recipient.isPersonalDistList()) {
+			} else if (recipient.isPersonalDistList() || recipient.isSharedRecord(Zarafa.core.mapi.ObjectType.MAPI_DISTLIST)) {
 				// A personal distlist needs to be converted to a distlist so the correct dialog can be shown.
 				recipient = recipient.convertToDistListRecord();
 				// FIXME: We put the abRecord into the ShadowStore to be able

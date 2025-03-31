@@ -709,16 +709,30 @@ class EntryId {
 	/**
 	 * Checks if the GUID part of the entryid has one of the known MUIDs.
 	 *
-	 * @param mixed $entryId Addressbook entryid
+	 * @param mixed $entryId    Addressbook entryid
+	 * @param array $entryIdObj Addressbook entryid object
 	 *
 	 * @return bool true if guid matches one of the known MUIDs else false
 	 */
-	public function hasNoMuid($entryId) {
-		$entryIdObj = $this->createABEntryIdObj($entryId);
+	public function hasNoMuid($entryId, $entryIdObj = []) {
+		if (empty($entryIdObj)) {
+			$entryIdObj = $this->createABEntryIdObj($entryId);
+		}
 
 		return $entryIdObj['guid'] != self::MUIDZCSAB &&
 			$entryIdObj['guid'] != self::MUIDECSAB &&
 			$entryIdObj['guid'] != self::MUIDEMSAB;
+	}
+
+	/**
+	 * Creates a message entryid from an entryid object.
+	 *
+	 * @param array $eidObj
+	 *
+	 * @return string message entry id
+	 */
+	public function createMessageEntryId($eidObj) {
+		return $eidObj['guid'] . $eidObj['version'] . $eidObj['type'] . $eidObj['id'] . $eidObj['extid'];
 	}
 }
 
