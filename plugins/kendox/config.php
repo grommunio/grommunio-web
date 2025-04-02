@@ -3,7 +3,7 @@
 /**
  * This enables/disables the WHOLE plugin.
  */
-define('PLUGIN_KENDOX_USER_DEFAULT_ENABLE', true);
+define('PLUGIN_KENDOX_USER_DEFAULT_ENABLE', false);
 
 /*
  * Kendox max. number of attachments for selected attachments
