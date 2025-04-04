@@ -1,3 +1,11 @@
+grommunio-web 3.12 (2025-04-05)
+===============================
+
+Fixes:
+
+* Allow using distribution lists stored in IPF.Contact folders in public stores
+
+
 grommunio-web 3.11 (2025-03-19)
 ===============================
 
