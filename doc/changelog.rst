@@ -1,10 +1,26 @@
+grommunio-web 3.13 (2025-04-16)
+===============================
+
+Fixes:
+
+* Enable sending to distribution lists from shared stores
+
+Enhancements:
+
+* Build optimizations
+
+Changes:
+
+* Update TinyMCE to 7.8.0
+* Update pdf.js to 5.1.91
+* Update dompurify to 3.2.5
+
 grommunio-web 3.12 (2025-04-05)
 ===============================
 
 Fixes:
 
 * Allow using distribution lists stored in IPF.Contact folders in public stores
-
 
 grommunio-web 3.11 (2025-03-19)
 ===============================
