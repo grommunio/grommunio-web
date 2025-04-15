@@ -109,7 +109,7 @@ js: $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(JSDEPLOY)/grommunio.js $(
 	rm $(DESTDIR)/client/extjs/ext-base.js $(DESTDIR)/client/extjs/ext-base-debug.js $(DESTDIR)/client/extjs/ext-all.js $(DESTDIR)/client/filepreviewer/pdfjs/web/debugger.js
 
 $(DESTDIR)/%.php: %.php
-	php -l $<
+	${PHP} -l $<
 	mkdir -p $$(dirname $@)
 	cp $< $@
 
