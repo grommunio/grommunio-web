@@ -344,11 +344,11 @@ tokenizr: node_modules
 
 .PHONY: plugins
 plugins:
-	make -C plugins
+	${MAKE} -C plugins
 
 .PHONY: clean
 clean:
-	make -C plugins clean
+	${MAKE} -C plugins clean
 	@rm -rf deploy
 	@rm -rf node_modules
 
