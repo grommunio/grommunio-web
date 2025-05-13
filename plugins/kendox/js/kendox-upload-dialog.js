@@ -142,7 +142,6 @@ Zarafa.plugins.kendox.UploadDialog = Ext.extend(Zarafa.core.ui.ContentPanel, {
 		this.configEnvironment = this.getEnv();
 		this.configApiUrl = this.getEnvSettingValue("api_url");
 		this.configDialogUrl = this.getEnvSettingValue("dialog_url");
-		this.configDialogUrl = this.getEnvSettingValue("dialog_url");
 		this.maxAttachmentsNumber = this.getSettingValue(
 			"max_attachments_number",
 			10,

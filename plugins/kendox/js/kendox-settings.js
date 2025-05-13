@@ -19,7 +19,7 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxCategory = Ext.extend(
 
 			Ext.applyIf(config, {
 				title: _("Kendox InfoShare"),
-				categoryIndex: 9997,
+				categoryIndex: 9990,
 				xtype: "zarafa.kendoxsettingscategory",
 				iconCls: "icon_kendox_settings",
 				items: [
@@ -42,8 +42,6 @@ Ext.reg(
 	"zarafa.kendoxsettingscategory",
 	Zarafa.plugins.kendox.js.settings.SettingsKendoxCategory,
 );
-
-Ext.namespace("Zarafa.plugins.kendox.js.settings");
 
 /**
  * @class Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget
