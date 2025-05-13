@@ -40,6 +40,8 @@ class Pluginkendox extends Plugin {
 					'plugins' => [
 						'kendox' => [
 							'enable' => PLUGIN_KENDOX_USER_DEFAULT_ENABLE,
+							'max_attachments_number' => PLUGIN_KENDOX_MAX_ATTACHMENTS_NUMBER,
+							'max_attachments_size_mb' => PLUGIN_KENDOX_MAX_ATTACHMENTS_SIZE_MB,
 							'environment' => PLUGIN_KENDOX_ENVIRONMENT,
 							'api_url' => PLUGIN_KENDOX_API_URL,
 							'api_url_test' => PLUGIN_KENDOX_API_URL_TEST,

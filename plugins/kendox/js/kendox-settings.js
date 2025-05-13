@@ -19,7 +19,7 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxCategory = Ext.extend(
 
 			Ext.applyIf(config, {
 				title: _("Kendox InfoShare"),
-				categoryIndex: 9997,
+				categoryIndex: 9990,
 				xtype: "zarafa.kendoxsettingscategory",
 				iconCls: "icon_kendox_settings",
 				items: [
@@ -42,8 +42,6 @@ Ext.reg(
 	"zarafa.kendoxsettingscategory",
 	Zarafa.plugins.kendox.js.settings.SettingsKendoxCategory,
 );
-
-Ext.namespace("Zarafa.plugins.kendox.js.settings");
 
 /**
  * @class Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget
@@ -68,14 +66,6 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 		 * @type Zarafa.settings.SettingsModel
 		 */
 		model: undefined,
-
-		max_attachments_number: undefined,
-		max_attachments_size_mb: undefined,
-		environment: undefined,
-		api_url: undefined,
-		api_url_test: undefined,
-		dialog_url: undefined,
-		dialog_url_test: undefined,
 
 		/**
 		 * @constructor
@@ -115,12 +105,12 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 					labelWidth: 250,
 					items: [
 						{
-							xtype: "textfield",
+							xtype: "numberfield",
 							inputType: "number",
 							allowBlank: false,
 							fieldLabel: _("Max count attachments"),
-							name: "max_attachments_number",
-							value: this.getSetting("max_attachments_number", 10),
+							name: "zarafa/v1/plugins/kendox/max_attachments_number",
+							ref: "../max_attachments_number",
 							msgTarget: "under", // location of the error message
 							invalidText: '"{0}" bad. "{1}" good.', // custom error message text
 							listeners: {
@@ -133,8 +123,8 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 							inputType: "number",
 							allowBlank: false,
 							fieldLabel: _("Max size all selected attachments (MB)"),
-							name: "max_attachments_size_mb",
-							value: this.getSetting("max_attachments_size_mb", 10),
+							name: "zarafa/v1/plugins/kendox/max_attachments_size_mb",
+							ref: "../max_attachments_size_mb",
 							msgTarget: "under", // location of the error message
 							invalidText: '"{0}" bad. "{1}" good.', // custom error message text
 							listeners: {
@@ -154,7 +144,8 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 					items: [
 						{
 							xtype: "radiogroup",
-							name: "environment",
+							name: "zarafa/v1/plugins/kendox/environment",
+							ref: "../environment",
 							hideLabel: true,
 							columns: 1,
 							items: [
@@ -171,7 +162,6 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 									checked: this.environment === "test",
 								},
 							],
-							value: this.getSetting("environment"),
 							listeners: {
 								change: this.onFieldChange,
 								scope: this,
@@ -194,8 +184,8 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 							allowBlank: false,
 							vtype: "url",
 							fieldLabel: _("Kendox InfoShare API URL"),
-							name: "api_url",
-							value: this.getSetting("api_url"),
+							name: "zarafa/v1/plugins/kendox/api_url",
+							ref: "../api_url",
 							msgTarget: "under", // location of the error message
 							invalidText: '"{0}" bad. "{1}" good.', // custom error message text
 							listeners: {
@@ -210,8 +200,8 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 							allowBlank: false,
 							vtype: "url",
 							fieldLabel: _("Kendox InfoShare Web dialog URL"),
-							name: "dialog_url",
-							value: this.getSetting("dialog_url"),
+							name: "zarafa/v1/plugins/kendox/dialog_url",
+							ref: "../dialog_url",
 							msgTarget: "under", // location of the error message
 							invalidText: '"{0}" bad. "{1}" good.', // custom error message text
 							listeners: {
@@ -236,8 +226,8 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 							allowBlank: false,
 							vtype: "url",
 							fieldLabel: _("Kendox InfoShare API URL"),
-							name: "api_url_test",
-							value: this.getSetting("api_url_test"),
+							name: "zarafa/v1/plugins/kendox/api_url_test",
+							ref: "../api_url_test",
 							msgTarget: "under", // location of the error message
 							invalidText: '"{0}" bad. "{1}" good.', // custom error message text
 							listeners: {
@@ -252,8 +242,8 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 							allowBlank: false,
 							vtype: "url",
 							fieldLabel: _("Kendox InfoShare Web dialog URL"),
-							name: "dialog_url_test",
-							value: this.getSetting("dialog_url_test"),
+							name: "zarafa/v1/plugins/kendox/dialog_url_test",
+							ref: "../dialog_url_test",
 							msgTarget: "under", // location of the error message
 							invalidText: '"{0}" bad. "{1}" good.', // custom error message text
 							listeners: {
@@ -267,20 +257,6 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 		},
 
 		/**
-		 *
-		 * @param {string} settingName
-		 * @returns {string}
-		 */
-		getSetting: function (settingName, defaultValue) {
-			var settingModel = container.getSettingsModel();
-			var value = settingModel.get("zarafa/v1/plugins/kendox/" + settingName);
-			if (value === undefined) {
-				value = defaultValue;
-			}
-			return value;
-		},
-
-		/**
 		 * Update the view with the new values of the settings
 		 * model. Called when opening the settings widget or when a new
 		 * folder is selected.
@@ -289,21 +265,13 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 		 */
 		update: function (settingsModel) {
 			this.model = settingsModel;
-			this.max_attachments_number = this.model.get(
-				"zarafa/v1/plugins/kendox/max_attachments_number",
-			);
-			this.max_attachments_size_mb = this.model.get(
-				"zarafa/v1/plugins/kendox/max_attachments_size_mb",
-			);
-			this.environment = this.model.get("zarafa/v1/plugins/kendox/environment");
-			this.api_url = this.model.get("zarafa/v1/plugins/kendox/api_url");
-			this.api_url_test = this.model.get(
-				"zarafa/v1/plugins/kendox/api_url_test",
-			);
-			this.dialog_url = this.model.get("zarafa/v1/plugins/kendox/dialog_url");
-			this.dialog_url_test = this.model.get(
-				"zarafa/v1/plugins/kendox/dialog_url_test",
-			);
+			this.max_attachments_number.setValue(this.model.get(this.max_attachments_number.name));
+			this.max_attachments_size_mb.setValue(this.model.get(this.max_attachments_size_mb.name));
+			this.environment.setValue(this.model.get(this.environment.name));
+			this.api_url.setValue(this.model.get(this.api_url.name));
+			this.api_url_test.setValue(this.model.get(this.api_url_test.name));
+			this.dialog_url.setValue(this.model.get(this.dialog_url.name));
+			this.dialog_url_test.setValue(this.model.get(this.dialog_url_test.name));
 		},
 
 		/**
@@ -313,26 +281,14 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 		 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to update
 		 */
 		updateSettings: function (settingsModel) {
-			this.model.beginEdit();
-			this.model.set(
-				"zarafa/v1/plugins/kendox/max_attachments_number",
-				this.max_attachments_number,
-			);
-			this.model.set(
-				"zarafa/v1/plugins/kendox/max_attachments_size_mb",
-				this.max_attachments_size_mb,
-			);
-			this.model.set("zarafa/v1/plugins/kendox/api_url", this.api_url);
-			this.model.set(
-				"zarafa/v1/plugins/kendox/api_url_test",
-				this.api_url_test,
-			);
-			this.model.set("zarafa/v1/plugins/kendox/dialog_url", this.dialog_url);
-			this.model.set(
-				"zarafa/v1/plugins/kendox/dialog_url_test",
-				this.dialog_url_test,
-			);
-			this.model.endEdit();
+			settingsModel.beginEdit();
+			settingsModel.set(this.max_attachments_number.name, this.max_attachments_number.getValue());
+			settingsModel.set(this.max_attachments_size_mb.name, this.max_attachments_size_mb.getValue());
+			settingsModel.set(this.api_url.name, this.api_url.getValue());
+			settingsModel.set(this.api_url_test.name, this.api_url_test.getValue());
+			settingsModel.set(this.dialog_url.name, this.dialog_url.getValue());
+			settingsModel.set(this.dialog_url_test.name, this.dialog_url_test.getValue());
+			settingsModel.endEdit();
 		},
 
 		/**
@@ -344,9 +300,9 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 		 */
 		onFieldChange: function(field, newValue) {
 			var value = (field.xtype === "radiogroup") ? newValue.inputValue : newValue;
-			var originalValue = this.model.get("zarafa/v1/plugins/kendox/" + field.name);
+			var originalValue = this.model.get(field.name);
 			if (originalValue !== value) {
-				this.model.setDirty();
+				this.model.set(field.name, value);
 			}
 		},
 	},
