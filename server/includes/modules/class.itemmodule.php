@@ -275,7 +275,7 @@ class ItemModule extends Module {
 								// generate an exception. So when the basedate is provided, we actually
 								// perform a save rather then delete.
 								if (isset($action['basedate']) && !empty($action['basedate'])) {
-									$this->save($store, $parententryid, $entryid, $action);
+									$this->save($store, $parententryid, $entryid, $action, "delete");
 								}
 								else {
 									$this->delete($store, $parententryid, $entryid, $action);
