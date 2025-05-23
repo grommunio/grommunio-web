@@ -848,7 +848,7 @@ msgstr "Findet im Zeitraum vom {1} bis {2} jeden {0} von {3} bis {4} statt."
 
 msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
 msgstr ""
-"Findet im Zeitruam vom {2} bis {3} jeden {0} {1} von {4} bis {5} statt."
+"Findet im Zeitraum vom {2} bis {3} jeden {0} {1} von {4} bis {5} statt."
 
 msgid "Occurs every {0} effective {1} until {2}."
 msgstr "Findet im Zeitraum vom {1} bis einschließlich {2} jeden {0} statt."
