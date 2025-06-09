@@ -2734,6 +2734,11 @@ class Operations {
 				mapi_folder_deletemessages($folder, [$oldEntryId], DELETE_HARD_DELETE);
 			}
 			if ($saveBoth || $saveRepresentee) {
+				if ($origStoreProps[PR_MDB_PROVIDER] === ZARAFA_STORE_PUBLIC_GUID) {
+					$userEntryid = $GLOBALS["mapisession"]->getStoreEntryIdOfUser(strtolower($props[PR_SENT_REPRESENTING_EMAIL_ADDRESS]));
+					$origStore = $GLOBALS["mapisession"]->openMessageStore($userEntryid);
+					$origStoreprops = mapi_getprops($origStore, [PR_IPM_SENTMAIL_ENTRYID]);
+				}
 				$destfolder = mapi_msgstore_openentry($origStore, $origStoreprops[PR_IPM_SENTMAIL_ENTRYID]);
 				$reprMessage = mapi_folder_createmessage($destfolder);
 				mapi_copyto($message, [], [], $reprMessage, 0);
