@@ -75,7 +75,7 @@ class PasswdModule extends Module {
 	 */
 	public function saveInDB($data) {
 		$errorMessage = '';
-		$userName = $data['username'];
+		$userName = $GLOBALS['mapisession']->getSMTPAddress();
 		$newPassword = $data['new_password'];
 		$sessionPass = '';
 
