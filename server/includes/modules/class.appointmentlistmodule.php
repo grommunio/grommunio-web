@@ -67,26 +67,26 @@ class AppointmentListModule extends ListModule {
 	#[Override]
 	public function execute() {
 		foreach ($this->data as $actionType => $action) {
-			if (isset($actionType)) {
-				try {
-					$store = $this->getActionStore($action);
-					$entryid = $this->getActionEntryID($action);
+			if (!isset($actionType))
+				continue;
+			try {
+				$store = $this->getActionStore($action);
+				$entryid = $this->getActionEntryID($action);
 
-					match ($actionType) {
-						"list" => $this->messageList($store, $entryid, $action, $actionType),
-						// @FIXME add functionality to handle private items
-						"search" => $this->search($store, $entryid, $action, $actionType),
-						"updatesearch" => $this->updatesearch($store, $entryid, $action),
-						"stopsearch" => $this->stopSearch($store, $entryid, $action),
-						default => $this->handleUnknownActionType($actionType),
-					};
+				match ($actionType) {
+					"list" => $this->messageList($store, $entryid, $action, $actionType),
+					// @FIXME add functionality to handle private items
+					"search" => $this->search($store, $entryid, $action, $actionType),
+					"updatesearch" => $this->updatesearch($store, $entryid, $action),
+					"stopsearch" => $this->stopSearch($store, $entryid, $action),
+					default => $this->handleUnknownActionType($actionType),
+				};
+			}
+			catch (MAPIException $e) {
+				if (isset($action['suppress_exception']) && $action['suppress_exception'] === true) {
+					$e->setNotificationType('console');
 				}
-				catch (MAPIException $e) {
-					if (isset($action['suppress_exception']) && $action['suppress_exception'] === true) {
-						$e->setNotificationType('console');
-					}
-					$this->processException($e, $actionType);
-				}
+				$this->processException($e, $actionType);
 			}
 		}
 	}
@@ -101,150 +101,150 @@ class AppointmentListModule extends ListModule {
 	 */
 	#[Override]
 	public function messageList($store, $entryid, $action, $actionType) {
-		if ($store && $entryid) {
-			// initialize start and due date with false value so it will not take values from previous request
-			$this->startdate = false;
-			$this->enddate = false;
+		if (!$store || !$entryid)
+			return;
+		// initialize start and due date with false value so it will not take values from previous request
+		$this->startdate = false;
+		$this->enddate = false;
 
-			if (isset($action["restriction"])) {
-				if (isset($action["restriction"]["startdate"])) {
-					$this->startdate = $action["restriction"]["startdate"];
-				}
-
-				if (isset($action["restriction"]["duedate"])) {
-					$this->enddate = $action["restriction"]["duedate"];
-				}
+		if (isset($action["restriction"])) {
+			if (isset($action["restriction"]["startdate"])) {
+				$this->startdate = $action["restriction"]["startdate"];
 			}
 
-			if (!empty($action["timezone_iana"])) {
-				$this->tziana = $action["timezone_iana"];
-
-				try {
-					$this->tzdef = mapi_ianatz_to_tzdef($action['timezone_iana']);
-				}
-				catch (Exception) {
-				}
-			}
-
-			if ($this->startdate && $this->enddate) {
-				$data = [];
-
-				if (is_array($entryid) && !empty($entryid)) {
-					$data["item"] = [];
-					for ($index = 0, $index2 = count($entryid); $index < $index2; ++$index) {
-						$this->getDelegateFolderInfo($store[$index]);
-
-						// Set the active store in properties class and get the props based on active store.
-						// we need to do this because of multi server env where shared store belongs to the different server.
-						// Here name space is different per server. e.g. There is user A and user B and both are belongs to
-						// different server and user B is shared store of user A because of that user A has 'categories' => -2062020578
-						// and user B 'categories' => -2062610402,
-						$GLOBALS["properties"]->setActiveStore($store[$index]);
-						$this->properties = $GLOBALS["properties"]->getAppointmentListProperties();
-
-						$data["item"] = array_merge($data["item"], $this->getCalendarItems($store[$index], $entryid[$index], $this->startdate, $this->enddate));
-					}
-				}
-				else {
-					$this->getDelegateFolderInfo($store);
-					$data["item"] = $this->getCalendarItems($store, $entryid, $this->startdate, $this->enddate);
-				}
-
-				$this->addActionData("list", $data);
-				$GLOBALS["bus"]->addData($this->getResponseData());
-			}
-			else {
-				// for list view in calendar as startdate and enddate is passed as false
-				// this will set sorting and paging for items in listview.
-
-				$this->getDelegateFolderInfo($store);
-
-				/* This is an override for parent::messageList(), which ignores an array of entryids / stores.
-				*	 The following block considers this possibly and merges the data of several folders / stores.
-				*/
-
-				$this->searchFolderList = false; // Set to indicate this is not the search result, but a normal folder content
-
-				if ($store && $entryid) {
-					// Restriction
-					$this->parseRestriction($action);
-
-					// Sort
-					$this->parseSortOrder($action, null, true);
-
-					$limit = false;
-					if (isset($action['restriction']['limit'])) {
-						$limit = $action['restriction']['limit'];
-					}
-					else {
-						$limit = $GLOBALS['settings']->get('zarafa/v1/main/page_size', 50);
-					}
-
-					$isSearchFolder = isset($action['search_folder_entryid']);
-					$entryid = $isSearchFolder ? hex2bin((string) $action['search_folder_entryid']) : $entryid;
-
-					if (!is_array($entryid) && !is_array($store)) {
-						$entryid = [$entryid];
-						$store = [$store];
-					}
-
-					// Get the table and merge the arrays
-					$data = [];
-					$items = [];
-					for ($i = 0, $c = count($entryid); $i < $c; ++$i) {
-						$newItems = $GLOBALS["operations"]->getTable($store[$i], $entryid[$i], $this->properties, $this->sort, $this->start, $limit, $this->restriction);
-						$items = array_merge($items, $newItems['item']);
-						if (isset($newItems['page']['totalrowcount']) && $newItems['page']['totalrowcount'] > $limit) {
-							$data['page'] = $newItems['page'];
-						}
-					}
-
-					// If the request come from search folder then no need to send folder information
-					if (!$isSearchFolder) {
-						$contentCount = 0;
-						$contentUnread = 0;
-
-						// For each folder
-						for ($i = 0, $c = count($entryid); $i < $c; ++$i) {
-							// Open folder
-							$folder = mapi_msgstore_openentry($store[$i], $entryid[$i]);
-							// Obtain some statistics from the folder contents
-							$content = mapi_getprops($folder, [PR_CONTENT_COUNT, PR_CONTENT_UNREAD]);
-							if (isset($content[PR_CONTENT_COUNT])) {
-								$contentCount += $content[PR_CONTENT_COUNT];
-							}
-
-							if (isset($content[PR_CONTENT_UNREAD])) {
-								$contentUnread += $content[PR_CONTENT_UNREAD];
-							}
-						}
-
-						$data["folder"] = [];
-						$data["folder"]["content_count"] = $contentCount;
-						$data["folder"]["content_unread"] = $contentUnread;
-					}
-
-					$items = $this->filterPrivateItems(['item' => $items]);
-					// unset will remove the value but will not regenerate array keys, so we need to
-					// do it here
-					$data["item"] = array_values($items["item"]);
-
-					for ($i = 0, $c = count($entryid); $i < $c; ++$i) {
-						// Allowing to hook in just before the data sent away to be sent to the client
-						$GLOBALS['PluginManager']->triggerHook('server.module.listmodule.list.after', [
-							'moduleObject' => &$this,
-							'store' => $store[$i],
-							'entryid' => $entryid[$i],
-							'action' => $action,
-							'data' => &$data,
-						]);
-					}
-
-					$this->addActionData($actionType, $data);
-					$GLOBALS["bus"]->addData($this->getResponseData());
-				}
+			if (isset($action["restriction"]["duedate"])) {
+				$this->enddate = $action["restriction"]["duedate"];
 			}
 		}
+
+		if (!empty($action["timezone_iana"])) {
+			$this->tziana = $action["timezone_iana"];
+
+			try {
+				$this->tzdef = mapi_ianatz_to_tzdef($action['timezone_iana']);
+			}
+			catch (Exception) {
+			}
+		}
+
+		if ($this->startdate && $this->enddate) {
+			$data = [];
+
+			if (is_array($entryid) && !empty($entryid)) {
+				$data["item"] = [];
+				for ($index = 0, $index2 = count($entryid); $index < $index2; ++$index) {
+					$this->getDelegateFolderInfo($store[$index]);
+
+					// Set the active store in properties class and get the props based on active store.
+					// we need to do this because of multi server env where shared store belongs to the different server.
+					// Here name space is different per server. e.g. There is user A and user B and both are belongs to
+					// different server and user B is shared store of user A because of that user A has 'categories' => -2062020578
+					// and user B 'categories' => -2062610402,
+					$GLOBALS["properties"]->setActiveStore($store[$index]);
+					$this->properties = $GLOBALS["properties"]->getAppointmentListProperties();
+
+					$data["item"] = array_merge($data["item"], $this->getCalendarItems($store[$index], $entryid[$index], $this->startdate, $this->enddate));
+				}
+			}
+			else {
+				$this->getDelegateFolderInfo($store);
+				$data["item"] = $this->getCalendarItems($store, $entryid, $this->startdate, $this->enddate);
+			}
+
+			$this->addActionData("list", $data);
+			$GLOBALS["bus"]->addData($this->getResponseData());
+			return;
+		}
+		// for list view in calendar as startdate and enddate is passed as false
+		// this will set sorting and paging for items in listview.
+
+		$this->getDelegateFolderInfo($store);
+
+		/* This is an override for parent::messageList(), which ignores an array of entryids / stores.
+		*	 The following block considers this possibly and merges the data of several folders / stores.
+		*/
+
+		$this->searchFolderList = false; // Set to indicate this is not the search result, but a normal folder content
+
+		if (!$store || !$entryid)
+			return;
+
+		// Restriction
+		$this->parseRestriction($action);
+
+		// Sort
+		$this->parseSortOrder($action, null, true);
+
+		$limit = false;
+		if (isset($action['restriction']['limit'])) {
+			$limit = $action['restriction']['limit'];
+		}
+		else {
+			$limit = $GLOBALS['settings']->get('zarafa/v1/main/page_size', 50);
+		}
+
+		$isSearchFolder = isset($action['search_folder_entryid']);
+		$entryid = $isSearchFolder ? hex2bin((string) $action['search_folder_entryid']) : $entryid;
+
+		if (!is_array($entryid) && !is_array($store)) {
+			$entryid = [$entryid];
+			$store = [$store];
+		}
+
+		// Get the table and merge the arrays
+		$data = [];
+		$items = [];
+		for ($i = 0, $c = count($entryid); $i < $c; ++$i) {
+			$newItems = $GLOBALS["operations"]->getTable($store[$i], $entryid[$i], $this->properties, $this->sort, $this->start, $limit, $this->restriction);
+			$items = array_merge($items, $newItems['item']);
+			if (isset($newItems['page']['totalrowcount']) && $newItems['page']['totalrowcount'] > $limit) {
+				$data['page'] = $newItems['page'];
+			}
+		}
+
+		// If the request come from search folder then no need to send folder information
+		if (!$isSearchFolder) {
+			$contentCount = 0;
+			$contentUnread = 0;
+
+			// For each folder
+			for ($i = 0, $c = count($entryid); $i < $c; ++$i) {
+				// Open folder
+				$folder = mapi_msgstore_openentry($store[$i], $entryid[$i]);
+				// Obtain some statistics from the folder contents
+				$content = mapi_getprops($folder, [PR_CONTENT_COUNT, PR_CONTENT_UNREAD]);
+				if (isset($content[PR_CONTENT_COUNT])) {
+					$contentCount += $content[PR_CONTENT_COUNT];
+				}
+
+				if (isset($content[PR_CONTENT_UNREAD])) {
+					$contentUnread += $content[PR_CONTENT_UNREAD];
+				}
+			}
+
+			$data["folder"] = [];
+			$data["folder"]["content_count"] = $contentCount;
+			$data["folder"]["content_unread"] = $contentUnread;
+		}
+
+		$items = $this->filterPrivateItems(['item' => $items]);
+		// unset will remove the value but will not regenerate array keys, so we need to
+		// do it here
+		$data["item"] = array_values($items["item"]);
+
+		for ($i = 0, $c = count($entryid); $i < $c; ++$i) {
+			// Allowing to hook in just before the data sent away to be sent to the client
+			$GLOBALS['PluginManager']->triggerHook('server.module.listmodule.list.after', [
+				'moduleObject' => &$this,
+				'store' => $store[$i],
+				'entryid' => $entryid[$i],
+				'action' => $action,
+				'data' => &$data,
+			]);
+		}
+
+		$this->addActionData($actionType, $data);
+		$GLOBALS["bus"]->addData($this->getResponseData());
 	}
 
 	/**
@@ -387,60 +387,61 @@ class AppointmentListModule extends ListModule {
 
 		foreach ($calendaritems as $calendaritem) {
 			$item = null;
-			// Fix for all-day events which have a different timezone than the user's browser
-			if (isset($calendaritem[$this->properties["recurring"]]) && $calendaritem[$this->properties["recurring"]]) {
-				$recurrence = new Recurrence($store, $calendaritem, $proptags);
-				$recuritems = $recurrence->getItems($start, $end);
-
-				foreach ($recuritems as $recuritem) {
-					$item = Conversion::mapMAPI2XML($this->properties, $recuritem);
-
-					// Single occurrences are never recurring
-					$item['props']['recurring'] = false;
-
-					if (isset($recuritem["exception"])) {
-						$item["props"]["exception"] = true;
-					}
-
-					if (isset($recuritem["basedate"])) {
-						$item["props"]["basedate"] = $recuritem["basedate"];
-					}
-
-					if (isset($recuritem["exception"])) {
-						// Add categories if they are set on the exception
-						// We will create a new Recurrence object with the opened message,
-						// so we can open the attachments. The attachments for this exception
-						// contains the categories property (if changed)
-						$msgEntryid = bin2hex((string) $calendaritem[$this->properties["entryid"]]);
-						if (!isset($openedMessages[$msgEntryid])) {
-							// Open the message and add it to the openedMessages property
-							$message = mapi_msgstore_openentry($store, $calendaritem[$this->properties["entryid"]]);
-							$openedMessages[$msgEntryid] = $message;
-						}
-						else {
-							// This message was already opened
-							$message = $openedMessages[$msgEntryid];
-						}
-						// Now create a Recurrence object with the mapi message (instead of the message props)
-						// so we can open the attachments
-						$recurrence = new Recurrence($store, $message, $proptags);
-						$exceptionatt = $recurrence->getExceptionAttachment($recuritem["basedate"]);
-						if ($exceptionatt) {
-							// Existing exception (open existing item, which includes basedate)
-							$exception = mapi_attach_openobj($exceptionatt, 0);
-							$exceptionProps = $GLOBALS['operations']->getMessageProps($store, $exception, ['categories' => $this->properties["categories"]]);
-
-							if (isset($exceptionProps['props']['categories'])) {
-								$item["props"]["categories"] = $exceptionProps['props']['categories'];
-							}
-						}
-					}
-
-					$this->addItems($store, $item, $openedMessages, $start, $end, $items);
-				}
-			}
-			else {
+			if (!isset($calendaritem[$this->properties["recurring"]]) ||
+			    !$calendaritem[$this->properties["recurring"]]) {
 				$item = Conversion::mapMAPI2XML($this->properties, $calendaritem);
+				$this->addItems($store, $item, $openedMessages, $start, $end, $items);
+				continue;
+			}
+
+			// Fix for all-day events which have a different timezone than the user's browser
+			$recurrence = new Recurrence($store, $calendaritem, $proptags);
+			$recuritems = $recurrence->getItems($start, $end);
+
+			foreach ($recuritems as $recuritem) {
+				$item = Conversion::mapMAPI2XML($this->properties, $recuritem);
+
+				// Single occurrences are never recurring
+				$item['props']['recurring'] = false;
+
+				if (isset($recuritem["exception"])) {
+					$item["props"]["exception"] = true;
+				}
+
+				if (isset($recuritem["basedate"])) {
+					$item["props"]["basedate"] = $recuritem["basedate"];
+				}
+
+				if (isset($recuritem["exception"])) {
+					// Add categories if they are set on the exception
+					// We will create a new Recurrence object with the opened message,
+					// so we can open the attachments. The attachments for this exception
+					// contains the categories property (if changed)
+					$msgEntryid = bin2hex((string) $calendaritem[$this->properties["entryid"]]);
+					if (!isset($openedMessages[$msgEntryid])) {
+						// Open the message and add it to the openedMessages property
+						$message = mapi_msgstore_openentry($store, $calendaritem[$this->properties["entryid"]]);
+						$openedMessages[$msgEntryid] = $message;
+					}
+					else {
+						// This message was already opened
+						$message = $openedMessages[$msgEntryid];
+					}
+					// Now create a Recurrence object with the mapi message (instead of the message props)
+					// so we can open the attachments
+					$recurrence = new Recurrence($store, $message, $proptags);
+					$exceptionatt = $recurrence->getExceptionAttachment($recuritem["basedate"]);
+					if ($exceptionatt) {
+						// Existing exception (open existing item, which includes basedate)
+						$exception = mapi_attach_openobj($exceptionatt, 0);
+						$exceptionProps = $GLOBALS['operations']->getMessageProps($store, $exception, ['categories' => $this->properties["categories"]]);
+
+						if (isset($exceptionProps['props']['categories'])) {
+							$item["props"]["categories"] = $exceptionProps['props']['categories'];
+						}
+					}
+				}
+
 				$this->addItems($store, $item, $openedMessages, $start, $end, $items);
 			}
 		}
@@ -461,24 +462,22 @@ class AppointmentListModule extends ListModule {
 	 */
 	#[Override]
 	public function processPrivateItem($item) {
-		if ($this->startdate && $this->enddate) {
-			if ($this->checkPrivateItem($item)) {
-				$item['props']['subject'] = _('Private Appointment');
-				$item['props']['normalized_subject'] = _('Private Appointment');
-				$item['props']['location'] = '';
-				$item['props']['reminder'] = 0;
-				$item['props']['access'] = 0;
-				$item['props']['sent_representing_name'] = '';
-				$item['props']['sender_name'] = '';
+		if (!$this->startdate || !$this->enddate)
+			// if we are in list view then we need to follow normal procedure of other listviews
+			return parent::processPrivateItem($item);
 
-				return $item;
-			}
-
+		if (!$this->checkPrivateItem($item))
 			return $item;
-		}
 
-		// if we are in list view then we need to follow normal procedure of other listviews
-		return parent::processPrivateItem($item);
+		$item['props']['subject'] = _('Private Appointment');
+		$item['props']['normalized_subject'] = _('Private Appointment');
+		$item['props']['location'] = '';
+		$item['props']['reminder'] = 0;
+		$item['props']['access'] = 0;
+		$item['props']['sent_representing_name'] = '';
+		$item['props']['sender_name'] = '';
+
+		return $item;
 	}
 
 	/**
@@ -591,24 +590,24 @@ class AppointmentListModule extends ListModule {
 		$item = $this->processPrivateItem($item);
 
 		// only add it in response if its not removed by above function
-		if (!empty($item)) {
-			if (empty($item["props"]["commonstart"]) && isset($item["props"]["startdate"])) {
-				$item["props"]["commonstart"] = $item["props"]["startdate"];
-			}
-			if (empty($item["props"]["commonend"]) && isset($item["props"]["duedate"])) {
-				$item["props"]["commonend"] = $item["props"]["duedate"];
-			}
-			if (isset($item["props"]["alldayevent"]) && $item["props"]["alldayevent"]) {
-				$this->processAllDayItem($store, $item, $openedMessages);
-			}
-			// After processing the all-day events, their start and due dates
-			// may have changed, so it's necessary to check again if they are
-			// still in the requested interval.
-			if (($start <= $item["props"]["startdate"] && $end > $item['props']['startdate']) ||
-				($start < $item["props"]["duedate"] && $end >= $item['props']['duedate']) ||
-				($start > $item["props"]["startdate"] && $end < $item['props']['duedate'])) {
-				array_push($items, $item);
-			}
+		if (empty($item))
+			return;
+		if (empty($item["props"]["commonstart"]) && isset($item["props"]["startdate"])) {
+			$item["props"]["commonstart"] = $item["props"]["startdate"];
+		}
+		if (empty($item["props"]["commonend"]) && isset($item["props"]["duedate"])) {
+			$item["props"]["commonend"] = $item["props"]["duedate"];
+		}
+		if (isset($item["props"]["alldayevent"]) && $item["props"]["alldayevent"]) {
+			$this->processAllDayItem($store, $item, $openedMessages);
+		}
+		// After processing the all-day events, their start and due dates
+		// may have changed, so it's necessary to check again if they are
+		// still in the requested interval.
+		if (($start <= $item["props"]["startdate"] && $end > $item['props']['startdate']) ||
+			($start < $item["props"]["duedate"] && $end >= $item['props']['duedate']) ||
+			($start > $item["props"]["startdate"] && $end < $item['props']['duedate'])) {
+			array_push($items, $item);
 		}
 	}
 
@@ -634,57 +633,58 @@ class AppointmentListModule extends ListModule {
 			$end = time() + 7776000;
 		}
 		$fbdata = mapi_getuserfreebusy($GLOBALS['mapisession']->getSession(), $storeProps[PR_MAILBOX_OWNER_ENTRYID], $start, $end);
-		if (!empty($fbdata['fbevents'])) {
-			foreach ($fbdata['fbevents'] as $fbEvent) {
-				// check if the event is in start - end range
-				if ($fbEvent['end'] < $start || $fbEvent['start'] > $end) {
-					continue;
-				}
-				$isPrivate = $fbEvent['private'] ?? false;
-				$items[] = [
-					// entryid is required, generate a fake one if a real is not available
-					'entryid' => isset($fbEvent['id']) ? bin2hex($fbEvent['id']) : bin2hex(random_bytes(16)),
-					'parent_entryid' => $folderEntryid,
-					'store_entryid' => $storeEntryid,
-					'props' => [
-						'access' => 0,
-						'subject' => $isPrivate ? _('Private Appointment') : ($fbEvent['subject'] ?? _('Busy')),
-						'normalized_subject' => $isPrivate ? _('Private Appointment') : ($fbEvent['subject'] ?? _('Busy')),
-						'location' => $isPrivate ? '' : ($fbEvent['location'] ?? ''),
-						'startdate' => $fbEvent['start'],
-						'duedate' => $fbEvent['end'],
-						'commonstart' => $fbEvent['start'],
-						'commonend' => $fbEvent['end'],
-						'message_class' => 'IPM.Appointment',
-						'object_type' => MAPI_MESSAGE,
-						'icon_index' => 1024,
-						'display_to' => '',
-						'display_cc' => '',
-						'display_bcc' => '',
-						'importance' => 1,
-						'sensitivity' => 0,
-						'message_size' => 0,
-						'hasattach' => false,
-						'sent_representing_entryid' => '',
-						'sent_representing_name' => '',
-						'sent_representing_address_type' => '',
-						'sent_representing_email_address' => '',
-						'sent_representing_search_key' => '',
-						'sender_email_address' => '',
-						'sender_name' => '',
-						'sender_address_type' => '',
-						'sender_entryid' => '',
-						'sender_search_key' => '',
-						'recurring' => false,
-						'recurring_data' => '',
-						'recurring_pattern' => '',
-						'meeting' => $fbEvent['meeting'] ?? false,
-						'reminder' => 0,
-						'reminder_minutes' => 0,
-						'private' => $isPrivate,
-					],
-				];
+		if (empty($fbdata['fbevents']))
+			return $items;
+
+		foreach ($fbdata['fbevents'] as $fbEvent) {
+			// check if the event is in start - end range
+			if ($fbEvent['end'] < $start || $fbEvent['start'] > $end) {
+				continue;
 			}
+			$isPrivate = $fbEvent['private'] ?? false;
+			$items[] = [
+				// entryid is required, generate a fake one if a real is not available
+				'entryid' => isset($fbEvent['id']) ? bin2hex($fbEvent['id']) : bin2hex(random_bytes(16)),
+				'parent_entryid' => $folderEntryid,
+				'store_entryid' => $storeEntryid,
+				'props' => [
+					'access' => 0,
+					'subject' => $isPrivate ? _('Private Appointment') : ($fbEvent['subject'] ?? _('Busy')),
+					'normalized_subject' => $isPrivate ? _('Private Appointment') : ($fbEvent['subject'] ?? _('Busy')),
+					'location' => $isPrivate ? '' : ($fbEvent['location'] ?? ''),
+					'startdate' => $fbEvent['start'],
+					'duedate' => $fbEvent['end'],
+					'commonstart' => $fbEvent['start'],
+					'commonend' => $fbEvent['end'],
+					'message_class' => 'IPM.Appointment',
+					'object_type' => MAPI_MESSAGE,
+					'icon_index' => 1024,
+					'display_to' => '',
+					'display_cc' => '',
+					'display_bcc' => '',
+					'importance' => 1,
+					'sensitivity' => 0,
+					'message_size' => 0,
+					'hasattach' => false,
+					'sent_representing_entryid' => '',
+					'sent_representing_name' => '',
+					'sent_representing_address_type' => '',
+					'sent_representing_email_address' => '',
+					'sent_representing_search_key' => '',
+					'sender_email_address' => '',
+					'sender_name' => '',
+					'sender_address_type' => '',
+					'sender_entryid' => '',
+					'sender_search_key' => '',
+					'recurring' => false,
+					'recurring_data' => '',
+					'recurring_pattern' => '',
+					'meeting' => $fbEvent['meeting'] ?? false,
+					'reminder' => 0,
+					'reminder_minutes' => 0,
+					'private' => $isPrivate,
+				],
+			];
 		}
 
 		return $items;
