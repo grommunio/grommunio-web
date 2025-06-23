@@ -663,3 +663,10 @@ if (!defined("LOG_FILE_DIR")) {
 if (!defined("LOG_SUCCESSFUL_LOGINS")) {
 	define("LOG_SUCCESSFUL_LOGINS", false);
 }
+
+// Default incoming email preview style:
+// true -> HTML
+// false -> Plain
+if (!defined("USE_HTML_EMAIL_PREVIEW")) {
+	define("USE_HTML_EMAIL_PREVIEW", true);
+}

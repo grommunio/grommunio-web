@@ -842,7 +842,14 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 * @property
 								 * @type String
 								 */
-								'delegate_sent_items_style': 'delegate'
+								'delegate_sent_items_style': 'delegate',
+
+								/**
+								 * zarafa/v1/contexts/mail/use_html_email_preview
+								 * @property
+								 * @type Boolean
+								 */
+								'use_html_email_preview': true
 							},
 
 							'task': {
