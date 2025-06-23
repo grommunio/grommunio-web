@@ -186,17 +186,6 @@ class Conversion {
 					$value = $result;
 					break;
 
-				case PT_SYSTIME:
-					# NOTE:
-					# This is a nice PHP bug. values smaller than this will produce a segfault in the strftime() call on 64bit systems.
-					# So, we cap it on this number. I've only seen it in irrelevant properties (FlagDueBy), which have a PT_SYSTIME of 0,
-					# which should represent 1-1-1601 00:00:00, which seems to be a default in a PST file?
-					# on 32bit systems, this is in other manners broken, but at least it doesn't segfault.
-					if ($value < -6847761600) {
-						$value = -6847761600;
-					}
-					break;
-
 				case PT_SRESTRICTION:
 					$value = Conversion::restriction2json($value);
 					break;
