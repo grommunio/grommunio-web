@@ -67,8 +67,10 @@ class AppointmentListModule extends ListModule {
 	#[Override]
 	public function execute() {
 		foreach ($this->data as $actionType => $action) {
-			if (!isset($actionType))
+			if (!isset($actionType)) {
 				continue;
+			}
+
 			try {
 				$store = $this->getActionStore($action);
 				$entryid = $this->getActionEntryID($action);
@@ -101,8 +103,9 @@ class AppointmentListModule extends ListModule {
 	 */
 	#[Override]
 	public function messageList($store, $entryid, $action, $actionType) {
-		if (!$store || !$entryid)
+		if (!$store || !$entryid) {
 			return;
+		}
 		// initialize start and due date with false value so it will not take values from previous request
 		$this->startdate = false;
 		$this->enddate = false;
@@ -153,6 +156,7 @@ class AppointmentListModule extends ListModule {
 
 			$this->addActionData("list", $data);
 			$GLOBALS["bus"]->addData($this->getResponseData());
+
 			return;
 		}
 		// for list view in calendar as startdate and enddate is passed as false
@@ -166,8 +170,9 @@ class AppointmentListModule extends ListModule {
 
 		$this->searchFolderList = false; // Set to indicate this is not the search result, but a normal folder content
 
-		if (!$store || !$entryid)
+		if (!$store || !$entryid) {
 			return;
+		}
 
 		// Restriction
 		$this->parseRestriction($action);
@@ -391,6 +396,7 @@ class AppointmentListModule extends ListModule {
 			    !$calendaritem[$this->properties["recurring"]]) {
 				$item = Conversion::mapMAPI2XML($this->properties, $calendaritem);
 				$this->addItems($store, $item, $openedMessages, $start, $end, $items);
+
 				continue;
 			}
 
@@ -462,12 +468,14 @@ class AppointmentListModule extends ListModule {
 	 */
 	#[Override]
 	public function processPrivateItem($item) {
-		if (!$this->startdate || !$this->enddate)
+		if (!$this->startdate || !$this->enddate) {
 			// if we are in list view then we need to follow normal procedure of other listviews
 			return parent::processPrivateItem($item);
+		}
 
-		if (!$this->checkPrivateItem($item))
+		if (!$this->checkPrivateItem($item)) {
 			return $item;
+		}
 
 		$item['props']['subject'] = _('Private Appointment');
 		$item['props']['normalized_subject'] = _('Private Appointment');
@@ -590,8 +598,9 @@ class AppointmentListModule extends ListModule {
 		$item = $this->processPrivateItem($item);
 
 		// only add it in response if its not removed by above function
-		if (empty($item))
+		if (empty($item)) {
 			return;
+		}
 		if (empty($item["props"]["commonstart"]) && isset($item["props"]["startdate"])) {
 			$item["props"]["commonstart"] = $item["props"]["startdate"];
 		}
@@ -633,8 +642,9 @@ class AppointmentListModule extends ListModule {
 			$end = time() + 7776000;
 		}
 		$fbdata = mapi_getuserfreebusy($GLOBALS['mapisession']->getSession(), $storeProps[PR_MAILBOX_OWNER_ENTRYID], $start, $end);
-		if (empty($fbdata['fbevents']))
+		if (empty($fbdata['fbevents'])) {
 			return $items;
+		}
 
 		foreach ($fbdata['fbevents'] as $fbEvent) {
 			// check if the event is in start - end range
