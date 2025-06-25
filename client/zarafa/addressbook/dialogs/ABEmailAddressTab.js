@@ -35,6 +35,7 @@ Zarafa.addressbook.dialogs.ABEmailAddressTab = Ext.extend(Ext.form.FormPanel, {
 			},{
 				xtype: 'panel',
 				flex: 1,
+				autoScroll: true,
 				items: [{
 					xtype: 'listview',
 					// initialize a dummy store
