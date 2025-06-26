@@ -38,7 +38,7 @@ Zarafa.calendar.printer.MonthViewRenderer = Ext.extend(Zarafa.calendar.printer.A
 		var folders = model.getFolders();
 		var foldersData = [];
 		var folderColor;
-		for (var i = 0; i < folders.length; i++) {
+		for (var i = 0; i < folders.length; ++i) {
 			folderColor = model.getColorScheme(folders[i].get('entryid')).base;
 			if (folders[i].getMAPIStore().get('display_name') === container.getUser().getDisplayName()) {
 				foldersData.push({folderName : folders[i].get('display_name'), folderColor : folderColor});
@@ -49,7 +49,7 @@ Zarafa.calendar.printer.MonthViewRenderer = Ext.extend(Zarafa.calendar.printer.A
 		data['folderList'] = foldersData;
 
 		var days = [];
-		for (var i = 0; i < 7; i++) {
+		for (var i = 0; i < 7; ++i) {
 			days.push({"day": startDate.add(Date.DAY,i).format("l")});
 		}
 
@@ -74,21 +74,27 @@ Zarafa.calendar.printer.MonthViewRenderer = Ext.extend(Zarafa.calendar.printer.A
 		var appointments = this.prepareAppointments(model);
 
 		var weekStartDate = startDate;
-		for(var i = 0; i < numDays / 7; i++) {
+		for(var i = 0; i < numDays / 7; ++i) {
 			var week = [];
-			for(var j = 0; j < 7; j++) {
+			var maxDayAppointments = 0;
+			for(var j = 0; j < 7; ++j) {
 				var date = weekStartDate.add(Date.DAY, j);
 				var result = this.findAppointmentsByDate(appointments, date);
 				// push day into week array.
 				week.push({
 					"date": this.getFormattedDate(date, startDate),
 					"appointments": result.items,
-					"overflowAppointment": result.overflowAppointment
 				});
+				if (result.items.length > maxDayAppointments) {
+					maxDayAppointments = result.items.length;
+				}
 			}
 
 			weekStartDate = date.add(Date.DAY, 1);
-			weeks.push({"week":week});
+			weeks.push({
+				"week": week,
+				"maxDayAppointments": Math.max(100, (maxDayAppointments + 1) * 25)
+			});
 		}
 
 		return weeks;
@@ -122,12 +128,13 @@ Zarafa.calendar.printer.MonthViewRenderer = Ext.extend(Zarafa.calendar.printer.A
 			var colorScheme = model.getColorScheme(entryID);
 			var folderColor = colorScheme.base;
 
-			if(dateRange.getNumDays() > 1) {
-				for(var i = 0; i < dateRange.getNumDays(); i++) {
+			if (dateRange.getNumDays() > 1) {
+				for(var i = 0; i < dateRange.getNumDays(); ++i) {
 					var date = startDate.add(Date.DAY, i).clearTime(true).getTime();
 					appointments.push({startDate: date, color: folderColor, text: text, busyStatus: status});
 				}
-			} else {
+			}
+			else {
 				appointments.push({startDate: startDate.clearTime(true).getTime(), color: folderColor, text: text, busyStatus: status});
 			}
 		}, this);
@@ -155,20 +162,17 @@ Zarafa.calendar.printer.MonthViewRenderer = Ext.extend(Zarafa.calendar.printer.A
 			var topPosition = 25;
 			var maxAppointment = 50;
 
-			for (var i = 0; i < appointments.length; i++) {
-
+			for (var i = 0; i < appointments.length; ++i) {
 				// Stop the loop when maximum amount of appointments is reached.
 				// In practice this will never be the case, due to high maximum and resizable print output.
 				if (i > maxAppointment - 1) {
 					break;
 				}
 
-				var top = topPosition * i;
-
 				var item = {};
 				item["appointment"] = {
 					text: appointments[i].text,
-					top: top,
+					top: topPosition * (i + 1),
 					color: appointments[i].color,
 					busyStatus: this.getAppointmentStatus(appointments[i].busyStatus)
 				};
@@ -232,63 +236,51 @@ Zarafa.calendar.printer.MonthViewRenderer = Ext.extend(Zarafa.calendar.printer.A
 	 */
 	generateBodyTemplate: function()
 	{
-		var html = '<div id="print-calendar">'
+		return '<table class="k-calendar-header" cellpadding=0 cellspacing=0>\n'
+			+		'<tr><td align="left" style="font-size: large;">{current_month}</td>'
+			+		'<td align="center">' +_('An overview of') + ' {fullname} '
+			+ 		'<tpl for="folderList">'
+			+				'<span class="circle" style="background-color: {values.folderColor};"></span>'
+			+				'<span>{values.folderName}</span>'
+			+			'</tpl>'
+			+ 	'</td>'
+			+		'<td align="center" valign="top" width="10%"><div id="datepicker_left"></div></td>'
+			+		'<td align="center" valign="top" width="10%"><div id="datepicker_right"></div></td></tr>\n'
+			+	'</table>\n'
 
-			// Top div
-			+ '<div id="top">'
-			+ 	'<div id="top-calendar-info">'
-			+		'<table>'
-			+			'<tr><td align="left" style="font-size: large;">{current_month}</td>'
-			+			'<tr> <td>'+ _('An overview of') + ': '
-			+ 					'<tpl for="folderList">'
-			+						'<span class="circle" style="background-color: {values.folderColor};"></span>'
-			+						'<span>{values.folderName}</span>'
-			+					'</tpl>'
-			+			'</td> </tr>'
-			+		'</table>'
-			+	'</div>'
-				// Datepicker_left is current month. Datepicker_right is next month.
-			+	'<div id="top-calendar-datepicker">'
-			+		'<tr align="right"><td><div id="datepicker_left"></div></td></tr>'
-			+		'<tr align="right"><td><div id="datepicker_right"></div></td></tr>'
-			+ 	'</div>'
-			+ '</div>'
-
-			// Middle table row
-			+ '<div id="middle">'
-			+	'<table class="k-calendar-days">'
-			+ 		'<tr>'
-			+			'<tpl for="days"><th class="date-header-days">{values.day}</th></tpl>'
-			+	 	'</tr>'
-			+		'<tpl for="weeks">'
-			+			'<tr class="k-appointment-block">'
-			+				'<tpl for="values.week">'
-			+					'<td style="position: relative;">'
-			+						'<span class="k-day">'
-			+							'{values.date}'
-			+						'</span>'
-			+						'<tpl for="values.appointments">'
-			+							'<div class="k-appointment" style="border:1px solid {values.appointment.color}; ">'
-			+								'{values.appointment.busyStatus}'
-			+								'<p>'
-			+									'{values.appointment.text}'
-			+								'</p>'
-			+							'</div>'
-			+						'</tpl>'
-			+					'</td>'
+			+'<table class="k-calendar-days">'
+			+	'<tr style="height:5px;">'
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+			+		'<tpl for="days"><th class="date-header-days">{values.day}</th></tpl>'
+			+	'</tr>'
+			+ '<tpl for="weeks">'
+			+	'<tr height="{values.maxDayAppointments}">'
+			+		'<tpl for="values.week">'
+			+			'<td style="position: relative;">'
+			+				'<span class="k-day">'
+			+					'{values.date}'
+			+				'</span>'
+			+				'<tpl for="values.appointments">'
+			+					'<div class="k-appointment" style="top:{values.appointment.top}px; border:1px solid {values.appointment.color};">'
+			+						'{values.appointment.busyStatus}'
+			+						'<p style="padding-left: 10px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; ">'
+			+							'{values.appointment.text}'
+			+						'</p>'
+			+					'</div>'
 			+				'</tpl>'
-			+			'</tr>'
-			+ 		'</tpl>'
-			+ 	'</table>'
-			+'</div>'
+			+			'</td>'
+			+		'</tpl>'
+			+	'</tr>'
+			+ '</tpl>'
+			+ '</table>\n'
 
-			// Bottom name and print date
-			+ '<table class="bottom">'
-			+	 '<tr>'
-					// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-			+ 		'<td align="left">'+_('Printed by') + ' ' + '{fullname}' + ' '+_('at') + ' ' + '{currenttime:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}</td>'
-			+ 	'</tr>'
-			+ '</table>';
-		return html;
+			// skipping page nr for now
+			+'<table id="bottom">'
+			+	'<tr>'
+			+		'<td class="nowrap" align="left">{fullname}</td>'
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+			+		'<td class="nowrap" align="right">{currenttime:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}</td>'
+			+	'</tr>'
+			+'</table>\n';
 	}
 });
