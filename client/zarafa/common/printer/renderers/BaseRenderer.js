@@ -73,14 +73,13 @@ Zarafa.common.printer.renderers.BaseRenderer = Ext.extend(Object, {
 	 * @return {String} An HTML fragment to be placed inside the print window
 	 */
 	generateHTML: function(objectToPrint) {
-
 		return new Ext.XTemplate(
 			this.cleanTemplate(
 				// no doctype, quicks mode works better for printing, especially in chrome.
 				'<html>\n' +
 				'<head>\n' +
 					'<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />\n' +
-					this.generateHeadTemplate(objectToPrint) +
+					this.generateHeadTemplate() +
 					'<title>' + _('grommunio Web print') + '</title>\n' +
 				'</head>\n' +
 				'<body>\n' +
@@ -109,11 +108,9 @@ Zarafa.common.printer.renderers.BaseRenderer = Ext.extend(Object, {
 
 	/**
 	 * Returns the HTML that will be placed into the <head> part of the print window.
-	 * @param {Zarafa.core.data.MAPIRecord|Zarafa.core.Context} objectToPrint The record(s)
-	 * that will be printed, or the context for which the items in the store will be printed.
 	 * @return {String} The HTML fragment to place inside the print window's <head> element
 	 */
-	generateHeadTemplate: function(objectToPrint) {
+	generateHeadTemplate: function() {
 		if ( !Ext.isString(this.customStylesheetPath) || Ext.isEmpty(this.customStylesheetPath) ) {
 			return '';
 		}
