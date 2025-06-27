@@ -26,6 +26,38 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.calendar.printer.Ab
 	},
 
 	/**
+	 * Function which is used to prepare the svg image based on the an appointment status.
+	 *
+	 * @param {Zarafa.core.mapi.BusyStatus} busyStatus the {@link Zarafa.core.mapi.BusyStatus busyStatus} of an appointment.
+	 * @return {String} return the svg icon which used to indicate the status of an appointment.
+	 */
+	getAppointmentStatus: function(busyStatus)
+	{
+		switch (busyStatus) {
+			case Zarafa.core.mapi.BusyStatus.FREE:
+				return '<svg width="7" height="20" class="k-appointment-status">'
+					+ '<rect x="0" y="0" rx="1" ry="1" width="7" height="20" style="fill:none; stroke:#FFF; stroke-width:1;" /> ' +
+					+'</svg>';
+			case Zarafa.core.mapi.BusyStatus.BUSY:
+				return '<svg width="7" height="20" class="k-appointment-status">'
+					+ '<rect x="0" y="0" rx="5" ry="1" width="7" height="20" style="fill:#0000FF; stroke:#0000FF; stroke-width:1;" /> ' +
+					+'</svg>';
+			case Zarafa.core.mapi.BusyStatus.OUTOFOFFICE:
+				return '<svg width="7" height="20" class="k-appointment-status">'
+					+ '<rect x="0" y="0" rx="5" ry="1" width="7" height="20" style="fill:#912787; stroke:#912787; stroke-width:0;" /> ' +
+					+'</svg>';
+			case Zarafa.core.mapi.BusyStatus.TENTATIVE:
+				return '<svg width="7" height="20" class="k-appointment-status">'
+					+ '<defs>'
+					+   '<pattern id="tentative" patternUnits="userSpaceOnUse" width="3" height="1" patternTransform="rotate(30)">'
+					+	'<rect width="1" height="20" fill="#0000FF" style="stroke-width:0;"/>'
+					+   '</pattern>'
+					+ '</defs>'
+					+ '<rect style="fill: url(#tentative);" x="0" y="0" rx="1" ry="1" width="7" height="20" ></rect>'
+					+ '</svg>';
+		}
+	},
+	/**
 	 * Prepares data suitable for use in an XTemplate from the component
 	 * @param {Ext.Component} component The component to acquire data from
 	 * @return {Array} An empty array (override this to prepare your own data)
@@ -157,7 +189,8 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.calendar.printer.Ab
 					multiTimeFormat = timeFormat;
 				}
 
-				append += '<td class="nowrap" style="' + this.timeStyle + '">'
+				append += '<td width=7 valign="center">' + this.getAppointmentStatus(items[i].get('busystatus')) + '</td>'
+					+ '<td class="nowrap" style="' + this.timeStyle + '">'
 					+ start.formatDefaultTime(multiTimeFormat) + ' - ' + end.formatDefaultTime(multiTimeFormat) + '</td>';
 			}
 
@@ -166,7 +199,7 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.calendar.printer.Ab
 			if (allday) {
 				subject = _('All day: ') + subject;
 			}
-			append += '<td class="calendar-item" colspan='+ (allday ? '2' : '1') +'>'
+			append += '<td class="calendar-item" colspan='+ (allday ? '3' : '2') +'>'
 				+ Ext.util.Format.htmlEncode(subject) + Ext.util.Format.htmlEncode(location) + '<i class="folder-location">'+Ext.util.Format.htmlEncode(folderLocation) + '</i></td></tr>';
 
 			var startday = showStart.getDay();
