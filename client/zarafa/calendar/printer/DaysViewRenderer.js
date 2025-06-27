@@ -11,6 +11,21 @@ Ext.namespace('Zarafa.calendar.printer');
 Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.calendar.printer.AbstractViewRenderer, {
 
 	/**
+	 * @constructor
+	 * @param {Object} config Configuration object
+	 */
+	constructor : function(config)
+	{
+		config = config || {};
+
+		Ext.applyIf(config, {
+			timeStyle : 'width:10%;'
+		});
+
+		Zarafa.calendar.printer.DaysViewRenderer.superclass.constructor.call(this, config);
+	},
+
+	/**
 	 * Prepares data suitable for use in an XTemplate from the component
 	 * @param {Ext.Component} component The component to acquire data from
 	 * @return {Array} An empty array (override this to prepare your own data)
@@ -173,80 +188,46 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.calendar.printer.Ab
 	 */
 	generateBodyTemplate: function()
 	{
-		/*
-		 * Top:
-		 * +--------------------------------------------+
-		 * |                   |      datpicker         |
-		 * | Calendar: [name]  |                        |
-		 * |                   |                        |
-		 * |                   |                        |
-		 * +--------------------------------------------+
+		/* +---------------------------------------------------------------+
+		 * | Overview of {fullname}     | datepicker_left datepicker_right |
+		 * | {foldernames}              | datepicker_left datepicker_right |
+		 * | Day                        |                                  |
+		 * +---------------------------------------------------------------+
+		 * +---------------------------------------------------------------+
+		 * |                              day                              |
+		 * +---------------------------------------------------------------+
+		 * |                                                               |
+		 * |                                                               |
+		 * |                                                               |
+		 * +---------------------------------------------------------------+
 		 *
-		 * Middle:
-		 * +--------------------------------------------+
-		 * |                     day                    |
-		 * +--------------------------------------------+
-		 * |                                            |
-		 * |                                            |
-		 * |                                            |
-		 * |                                            |
-		 * |                                            |
-		 * |                                            |
-		 * |                                            |
-		 * |                                            |
-		 * |                                            |
-		 * +--------------------------------------------+
-		 *
-		 * Bottom:
-		 * +--------------------------------------------+
-		 * |                                            |
-		 * | [name]                        [print date] |
-		 * |                                            |
-		 * +--------------------------------------------+
+		 * Printed by {fullname} at {date}
 		 */
-		var html = '<div id="print-calendar">'
 
-			// Top div
-			+ '<div id="top">'
-			+	'<div id="top-calendar-info">'
-			+		'<table>'
-			+			'<tr><td>' + _('An overview of') + ': ' + '{foldernames} </td><tr>'
-			+		'</table>'
-			+	'</div>'
-				// Datepicker_left is current month. Datepicker_right is next month.
-	        + 	'<div id="top-calendar-datepicker">'
-			+		'<tr align="right">'
-			+			'<td><div id="datepicker_left"></div></td>'
-			+		'</tr>'
-			+ 	'</div>'
-			+ '</div>'
-
-			// Middle table row
-			+ '<div id="middle">'
-			+	'<table class="k-day-view">'
-			+ 		'<tr>'
-						// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-			+ 			'<th class="date-header-center">{date1:date("' + _("l jS F") + '")}</th>'
-			+		'</tr>'
-			+		'<tr style="height:90%;">'
-			+			'<td valign="top">'
-			+				'<table id="date1">{date1_table_data}</table>'
-			+			'</td>'
-			+		'</tr>'
-			+	'</table>'
-			+ '</div>'
-
+		return '<table class="print-calendar" cellpadding=0 cellspacing=0>\n'
+			+	'<tr style="height:10%;"><td colspan=2>'
+			+		'<table id="top">\n'
+			+			'<tr><td align="center">' +_('An overview of') + ' {fullname} {foldernames}</td>'
+			+			'<td align="center" rowspan="2"valign="top" width="10%"><div id="datepicker_left"></div></td>'
+			+			'<td align="center" rowspan="2" valign="top" width="10%"><div id="datepicker_right"></div></td></tr>\n'
+			+			'<tr><td align="left" valign="top" style="font-size: large;">{startdate:date("' + _("l jS F Y") + '")}</td></tr>\n'
+			+		'</table>\n'
+			+ '</td></tr>\n'
+			+	'<tr style="height:40px;">'
+				// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
+			+		'<th class="date-header-center">{date1:date("' + _("l jS F") + '")}</th>'
+				// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
+			+	'</tr>\n'
+			+	'<tr style="height:90%;">'
+			+		'<td valign="top"><table id="date1">{date1_table_data}</table></td>'
+			+	'</tr>\n'
+			+	'</tr>\n</table>\n'
 			// Bottom name and print date
 			+ '<table class="bottom">'
-			+	'<tr>'
-					// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-			+		'<td align="left">'+_('Printed by') + ' ' + '{fullname}' + ' '+_('at') + ' ' + '{currenttime:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}</td>'
-			+	'</tr>'
-			+ '</table>'
-
-		// End of the print-calendar div
-		+ '</div>';
-
-		return html;
+			+		'<tr>'
+						// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
+			+			'<td>'+_('Printed by') + ' {fullname} ' + _('at') + ' {currenttime:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}</td>'
+			+		'</tr>'
+			+ '</table>';
 	}
 });
