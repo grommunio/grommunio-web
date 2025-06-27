@@ -142,7 +142,7 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.calendar.printer.Ab
 					multiTimeFormat = timeFormat;
 				}
 
-				append += '<td class="k-calendar-normal-time">'
+				append += '<td class="nowrap" style="' + this.timeStyle + '">'
 					+ start.formatDefaultTime(multiTimeFormat) + ' - ' + end.formatDefaultTime(multiTimeFormat) + '</td>';
 			}
 
