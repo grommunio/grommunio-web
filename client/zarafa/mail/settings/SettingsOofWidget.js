@@ -704,8 +704,10 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 		if (checked === true) {
 			var set = radio.inputValue === 'true';
 
-			if (this.record.get(radio.name) !== set) {
+			if (!!this.record.get(radio.name) !== set) {
 				this.record.set(radio.name, set);
+				// Ensure settings model is marked dirty when a field is changed
+				this.settingsContext.getModel().setDirty();
 			}
 
 			this.outOfOfficeDateTimeField.setDisabled(!set);
