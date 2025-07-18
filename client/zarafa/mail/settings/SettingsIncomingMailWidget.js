@@ -18,6 +18,19 @@ Zarafa.mail.settings.SettingsIncomingMailWidget = Ext.extend(Zarafa.settings.ui.
 	{
 		config = config || {};
 
+		var incomingStore = {
+			xtype: 'jsonstore',
+			autoDestroy: true,
+			fields: ['name', 'value'],
+			data: [{
+				'name': _('HTML'),
+				'value': 'html'
+			},{
+				'name': _('Plain Text'),
+				'value': 'plain'
+			}]
+		};
+
 		Ext.applyIf(config, {
 			title: _('Incoming mail'),
 			layout: 'form',
@@ -84,9 +97,23 @@ Zarafa.mail.settings.SettingsIncomingMailWidget = Ext.extend(Zarafa.settings.ui.
 					},
 					plugins: ['zarafa.numberspinner']
 				}]
-
-
-			}]
+			}, {
+				xtype: 'combo',
+				name: 'zarafa/v1/contexts/mail/use_html_email_preview',
+				ref: 'incomingCombo',
+				fieldLabel: _('View mail in this format'),
+				labelWidth: 400,
+				store: incomingStore,
+				mode: 'local',
+				triggerAction: 'all',
+				displayField: 'name',
+				valueField: 'value',
+				lazyInit: false,
+				forceSelection: true,
+				editable: false,
+				autoSelect: true,
+			}
+		]
 		});
 
 		Zarafa.mail.settings.SettingsIncomingMailWidget.superclass.constructor.call(this, config);
@@ -110,6 +137,9 @@ Zarafa.mail.settings.SettingsIncomingMailWidget = Ext.extend(Zarafa.settings.ui.
 		this.readReceiptGroup.setValue(settingsModel.get(this.readReceiptGroup.name));
 
 		this.readFlagTimeSpinner.setDisabled(!enabled);
+
+		var useHtml = settingsModel.get(this.incomingCombo.name);
+		this.incomingCombo.setValue(useHtml ? 'html' : 'plain');
 	},
 
 	/**
@@ -124,6 +154,7 @@ Zarafa.mail.settings.SettingsIncomingMailWidget = Ext.extend(Zarafa.settings.ui.
 		settingsModel.set(this.readReceiptGroup.name, this.readReceiptGroup.getValue().inputValue);
 		settingsModel.set(this.readFlagTimeCheckbox.name, this.readFlagTimeCheckbox.getValue());
 		settingsModel.set(this.readFlagTimeSpinner.name, this.readFlagTimeSpinner.getValue());
+		settingsModel.set(this.incomingCombo.name, this.incomingCombo.getValue() === 'html');
 		settingsModel.endEdit();
 	},
 
