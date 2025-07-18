@@ -2661,7 +2661,7 @@ class Operations {
 			// set properties for "on behalf of" mails
 			$origStoreProps = mapi_getprops($origStore, [PR_MAILBOX_OWNER_ENTRYID, PR_MDB_PROVIDER, PR_IPM_SENTMAIL_ENTRYID]);
 
-			// set PR_SENDER_* properties, which contains currently logged users data
+			// set PR_SENDER_* properties, which contains currently logged user's data
 			$ab = $GLOBALS['mapisession']->getAddressbook();
 			$abitem = mapi_ab_openentry($ab, $GLOBALS["mapisession"]->getUserEntryID());
 			$abitemprops = mapi_getprops($abitem, [PR_DISPLAY_NAME, PR_EMAIL_ADDRESS, PR_SEARCH_KEY]);
@@ -2672,30 +2672,12 @@ class Operations {
 			$props[PR_SENDER_ADDRTYPE] = "EX";
 			$props[PR_SENDER_SEARCH_KEY] = $abitemprops[PR_SEARCH_KEY];
 
-			/*
-			 * if delegate store then set PR_SENT_REPRESENTING_* properties
-			 * based on delegate store's owner data
-			 * if public store then set PR_SENT_REPRESENTING_* properties based on
-			 * default store's owner data
-			 */
-			if ($origStoreProps[PR_MDB_PROVIDER] === ZARAFA_STORE_DELEGATE_GUID) {
-				$abitem = mapi_ab_openentry($ab, $origStoreProps[PR_MAILBOX_OWNER_ENTRYID]);
-				$abitemprops = mapi_getprops($abitem, [PR_DISPLAY_NAME, PR_EMAIL_ADDRESS, PR_SEARCH_KEY]);
-
-				$props[PR_SENT_REPRESENTING_ENTRYID] = $origStoreProps[PR_MAILBOX_OWNER_ENTRYID];
-				$props[PR_SENT_REPRESENTING_NAME] = $abitemprops[PR_DISPLAY_NAME];
-				$props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] = $abitemprops[PR_EMAIL_ADDRESS];
-				$props[PR_SENT_REPRESENTING_ADDRTYPE] = "EX";
-				$props[PR_SENT_REPRESENTING_SEARCH_KEY] = $abitemprops[PR_SEARCH_KEY];
-			}
-			elseif ($origStoreProps[PR_MDB_PROVIDER] === ZARAFA_STORE_PUBLIC_GUID) {
-				$props[PR_SENT_REPRESENTING_ENTRYID] = $props[PR_SENDER_ENTRYID];
-				$props[PR_SENT_REPRESENTING_NAME] = $props[PR_SENDER_NAME];
-				$props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] = $props[PR_SENDER_EMAIL_ADDRESS];
-				$props[PR_SENT_REPRESENTING_ADDRTYPE] = $props[PR_SENDER_ADDRTYPE];
-				$props[PR_SENT_REPRESENTING_SEARCH_KEY] = $props[PR_SEARCH_KEY];
-			}
-
+			// Use the PR_SENT_REPRESENTING_* properties sent by the client or set to the currently logged user's data
+			$props[PR_SENT_REPRESENTING_ENTRYID] = $props[PR_SENT_REPRESENTING_ENTRYID] ?? $props[PR_SENDER_ENTRYID];
+			$props[PR_SENT_REPRESENTING_NAME] = $props[PR_SENT_REPRESENTING_NAME] ?? $props[PR_SENDER_NAME];
+			$props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] = $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] ?? $props[PR_SENDER_EMAIL_ADDRESS];
+			$props[PR_SENT_REPRESENTING_ADDRTYPE] = $props[PR_SENT_REPRESENTING_ADDRTYPE] ?? $props[PR_SENDER_ADDRTYPE];
+			$props[PR_SENT_REPRESENTING_SEARCH_KEY] = $props[PR_SENT_REPRESENTING_SEARCH_KEY] ?? $props[PR_SENDER_SEARCH_KEY];
 			/**
 			 * we are sending mail from delegate's account, so we can't use delegate's outbox and sent items folder
 			 * so we have to copy the mail from delegate's store to logged user's store and in outbox folder and then
@@ -2752,6 +2734,11 @@ class Operations {
 				mapi_folder_deletemessages($folder, [$oldEntryId], DELETE_HARD_DELETE);
 			}
 			if ($saveBoth || $saveRepresentee) {
+				if ($origStoreProps[PR_MDB_PROVIDER] === ZARAFA_STORE_PUBLIC_GUID) {
+					$userEntryid = $GLOBALS["mapisession"]->getStoreEntryIdOfUser(strtolower($props[PR_SENT_REPRESENTING_EMAIL_ADDRESS]));
+					$origStore = $GLOBALS["mapisession"]->openMessageStore($userEntryid);
+					$origStoreprops = mapi_getprops($origStore, [PR_IPM_SENTMAIL_ENTRYID]);
+				}
 				$destfolder = mapi_msgstore_openentry($origStore, $origStoreprops[PR_IPM_SENTMAIL_ENTRYID]);
 				$reprMessage = mapi_folder_createmessage($destfolder);
 				mapi_copyto($message, [], [], $reprMessage, 0);
