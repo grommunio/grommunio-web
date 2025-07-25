@@ -1,3 +1,32 @@
+grommunio-web 3.14 (2025-07-26)
+===============================
+
+Enhancements:
+
+* Emails written by a delegate can now be copied into the
+  representee's Sent Items.
+* Support password change (via Settings) even if an altname was used to log in
+  to the mailbox.
+* Add a config setting to select the email preview style (plaintext or HTML).
+
+Fixes:
+
+* Deletion of a recurrent appointment series's instance did not mark the
+  instance as deleted for Outlook; this was repaired.
+* When composing/sending a mail, the value in the  From: field was ignored,
+  even if the user had Send-As permission.
+* In the Out Of Settings configuration view, the "Apply" button now actually
+  does save changes even if only radio buttons were changed.
+
+Changes:
+
+* g-web clamped message dates on the low side to year 1753 to workaround a PHP5
+  bug. The workaround was removed, and the full MAPI time range (from year 1601
+  to 30827) can now be handled.
+* The print rendering of the calendar overview has been improved and fills the
+  entire paper page.
+
+
 grommunio-web 3.13 (2025-04-16)
 ===============================
 
