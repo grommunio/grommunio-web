@@ -1288,6 +1288,13 @@ Zarafa.common.Actions = {
 					}, record.get('entryid'));
 					record.addMessageAction('open_task', true);
 				}
+				// When a message has been opened before and the body has been
+				// cleared (e.g. after closing a tab in Firefox), the record is
+				// still marked as opened and won't be reloaded automatically.
+				// Force a reload when no body content is available.
+				if (record.isOpened() && Ext.isEmpty(record.get('body')) && Ext.isEmpty(record.get('html_body'))) {
+					record.open({forceLoad: true});
+				}
 				Zarafa.core.data.UIFactory.openViewRecord(record, config);
 			}
 		});
