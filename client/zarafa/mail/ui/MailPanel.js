@@ -74,13 +74,11 @@ Zarafa.mail.ui.MailPanel = Ext.extend(Zarafa.common.ui.ContextMainPanel, {
 			xtype: 'panel',
 			layout: 'zarafa.collapsible',
 			cls: 'zarafa-context-mainpanel',
-			minWidth: 500,
+			minWidth: 200,
 			minHeight: 200,
 			region: 'center',
 			collapsible: false,
 			split: true,
-			stateful: true,
-			stateId: 'mail-list-pane',
 			items: [{
 				xtype: 'zarafa.switchviewcontentcontainer',
 				ref: '../viewPanel',
@@ -174,6 +172,7 @@ Zarafa.mail.ui.MailPanel = Ext.extend(Zarafa.common.ui.ContextMainPanel, {
 			this.onViewChange(this.context, this.context.getCurrentView());
 			this.onViewModeChange(this.context, this.context.getCurrentViewMode());
 		}
+		Zarafa.mail.ui.MailPanel.superclass.initEvents.apply(this, arguments);
 	},
 
 	/**

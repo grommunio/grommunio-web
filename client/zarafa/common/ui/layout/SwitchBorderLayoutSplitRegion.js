@@ -77,13 +77,6 @@ Zarafa.common.ui.layout.SwitchBorderLayout.SwitchSplitRegion = Ext.extend(Ext.la
 	 */
 	getSize: function() {
 		var size = Zarafa.common.ui.layout.SwitchBorderLayout.SwitchSplitRegion.superclass.getSize.call(this);
-		if (this.lastSplitSize) {
-			if (this.position === 'north' || this.position === 'south') {
-				size.height = this.lastSplitSize;
-			} else {
-				size.width = this.lastSplitSize;
-			}
-		}
 		return this.restrictSize(size);
 	},
 
@@ -139,13 +132,12 @@ Zarafa.common.ui.layout.SwitchBorderLayout.SwitchSplitRegion = Ext.extend(Ext.la
 	{
 		var s = this.panel.getSize();
 		this.lastSplitSize = newSize;
-		if (this.lastSplitSize !== s.width) { // Only update if different
-			if (this.position == 'north' || this.position == 'south') {
-				this.panel.setSize(s.width, newSize);
-			} else {
-				this.panel.setSize(newSize, s.height);
-			}
-			this.panel.saveState();
+		if(this.position == 'north' || this.position == 'south'){
+			this.panel.setSize(s.width, newSize);
+			this.state.height = newSize;
+		} else {
+			this.panel.setSize(newSize, s.height);
+			this.state.width = newSize;
 		}
 		// Apply the doLayout on the container, this will
 		// ensure that all subchildren will also be laid

@@ -135,17 +135,6 @@ Zarafa.common.ui.layout.SwitchBorderLayout.SwitchRegion = Ext.extend(Ext.layout.
 			}
 		}
 
-		// Ensure the panel's minimum size is enforced
-		if (this.position === 'north' || this.position === 'south') {
-			if (panel.minHeight && size.height < panel.minHeight) {
-				size.height = panel.minHeight;
-			}
-		} else {
-			if (panel.minWidth && size.width < panel.minWidth) {
-				size.width = panel.minWidth;
-			}
-		}
-
 		return size;
 	}
 });
