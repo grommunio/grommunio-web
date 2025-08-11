@@ -332,8 +332,11 @@ pdfjs-editor-highlight-editor =
 # “Drawing” is a noun, the string is used on the editor for drawings.
 pdfjs-editor-ink-editor =
     .aria-label = Kresleński editor
-pdfjs-editor-signature-editor =
-    .aria-label = Editor signaturow
+# Used when a signature editor is selected/hovered.
+# Variables:
+#   $description (String) - a string describing/labeling the signature.
+pdfjs-editor-signature-editor1 =
+    .aria-description = Signaturowy editor: { $description }
 pdfjs-editor-stamp-editor =
     .aria-label = Wobrazowy editor
 
@@ -485,7 +488,6 @@ pdfjs-editor-new-alt-text-error-close-button = Zacyniś
 # Variables:
 #   $totalSize (Number) - the total size (in MB) of the AI model.
 #   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
-#   $percent (Number) - the percentage of the downloaded size.
 pdfjs-editor-new-alt-text-ai-model-downloading-progress = Model KI za alternatiwny tekst se ześěgujo ({ $downloadedSize } z { $totalSize } MB)
     .aria-valuetext = Model KI za alternatiwny tekst se ześěgujo ({ $downloadedSize } z { $totalSize } MB)
 # This is a button that users can click to edit the alt text they have already added.
@@ -606,9 +608,6 @@ pdfjs-editor-edit-signature-update-button = Aktualizěrowaś
 
 ## Main menu for adding/removing signatures
 
-pdfjs-editor-delete-signature-button =
-    .title = Signaturu wótwónoźeś
-pdfjs-editor-delete-signature-button-label = Signaturu wótwónoźeś
 pdfjs-editor-delete-signature-button1 =
     .title = Skłaźonu signaturu wótwónoźeś
 pdfjs-editor-delete-signature-button-label1 = Skłaźonu signaturu wótwónoźeś

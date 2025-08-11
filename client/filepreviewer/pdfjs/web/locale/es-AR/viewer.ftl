@@ -322,11 +322,17 @@ pdfjs-editor-signature-button-label = Agregar firma
 
 ## Default editor aria labels
 
+# “Highlight” is a noun, the string is used on the editor for highlights.
+pdfjs-editor-highlight-editor =
+    .aria-label = Editor de resaltado
 # “Drawing” is a noun, the string is used on the editor for drawings.
 pdfjs-editor-ink-editor =
     .aria-label = Editor de dibujos
-pdfjs-editor-signature-editor =
-    .aria-label = Editor de firmas
+# Used when a signature editor is selected/hovered.
+# Variables:
+#   $description (String) - a string describing/labeling the signature.
+pdfjs-editor-signature-editor1 =
+    .aria-description = Editor de firmas: { $description }
 pdfjs-editor-stamp-editor =
     .aria-label = Editor de imágenes
 
@@ -478,7 +484,6 @@ pdfjs-editor-new-alt-text-error-close-button = Cerrar
 # Variables:
 #   $totalSize (Number) - the total size (in MB) of the AI model.
 #   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
-#   $percent (Number) - the percentage of the downloaded size.
 pdfjs-editor-new-alt-text-ai-model-downloading-progress = Descargando modelo de IA de texto alternativo ({ $downloadedSize } de { $totalSize } MB)
     .aria-valuetext = Descargando modelo de IA de texto alternativo ({ $downloadedSize } de { $totalSize } MB)
 # This is a button that users can click to edit the alt text they have already added.
@@ -597,9 +602,6 @@ pdfjs-editor-edit-signature-update-button = Actualizar
 
 ## Main menu for adding/removing signatures
 
-pdfjs-editor-delete-signature-button =
-    .title = Eliminar firma
-pdfjs-editor-delete-signature-button-label = Eliminar firma
 pdfjs-editor-delete-signature-button1 =
     .title = Eliminar firma guardada
 pdfjs-editor-delete-signature-button-label1 = Eliminar firma guardada

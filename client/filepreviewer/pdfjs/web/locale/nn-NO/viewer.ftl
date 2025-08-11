@@ -322,8 +322,14 @@ pdfjs-editor-signature-button-label = Legg til signatur
 
 ## Default editor aria labels
 
-pdfjs-editor-signature-editor =
-    .aria-label = Signatur-redigerar
+# “Highlight” is a noun, the string is used on the editor for highlights.
+pdfjs-editor-highlight-editor =
+    .aria-label = Markeringsredigerar
+# Used when a signature editor is selected/hovered.
+# Variables:
+#   $description (String) - a string describing/labeling the signature.
+pdfjs-editor-signature-editor1 =
+    .aria-description = Signatur-redigerar: { $description }
 pdfjs-editor-stamp-editor =
     .aria-label = Bildredigerar
 
@@ -355,6 +361,8 @@ pdfjs-editor-stamp-add-image-button-label = Legg til bilde
 pdfjs-editor-free-highlight-thickness-input = Tjukn
 pdfjs-editor-free-highlight-thickness-title =
     .title = Endre tjukn når du markerer andre element enn tekst
+pdfjs-editor-add-signature-container =
+    .aria-label = Signaturkontroll og lagra signaturar
 pdfjs-editor-signature-add-signature-button =
     .title = Legg til ny signatur
 pdfjs-editor-signature-add-signature-button-label = Legg til ny signatur
@@ -473,7 +481,6 @@ pdfjs-editor-new-alt-text-error-close-button = Lat att
 # Variables:
 #   $totalSize (Number) - the total size (in MB) of the AI model.
 #   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
-#   $percent (Number) - the percentage of the downloaded size.
 pdfjs-editor-new-alt-text-ai-model-downloading-progress = Lastar ned AI-modell med alternativ tekst ({ $downloadedSize } av { $totalSize } MB)
     .aria-valuetext = Lastar ned AI-modell med alternativ tekst ({ $downloadedSize } av { $totalSize } MB)
 # This is a button that users can click to edit the alt text they have already added.
@@ -537,6 +544,7 @@ pdfjs-editor-undo-bar-close-button-label = Lat att
 
 ## Add a signature dialog
 
+pdfjs-editor-add-signature-dialog-label = Denne modalen lèt brukaren lage ein signatur for å leggje til eit PDF-dokument. Brukaren kan redigere namnet (som også fungerer som alt-teksten), og eventuelt lagre signaturen for gjenteken bruk.
 pdfjs-editor-add-signature-dialog-title = Legg til ein signatur
 
 ## Tab names
@@ -588,9 +596,6 @@ pdfjs-editor-edit-signature-update-button = Oppdater
 
 ## Main menu for adding/removing signatures
 
-pdfjs-editor-delete-signature-button =
-    .title = Fjern signatur
-pdfjs-editor-delete-signature-button-label = Fjern signatur
 pdfjs-editor-delete-signature-button1 =
     .title = Fjern lagra signatur
 pdfjs-editor-delete-signature-button-label1 = Fjern lagra signatur

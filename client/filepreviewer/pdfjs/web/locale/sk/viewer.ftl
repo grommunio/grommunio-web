@@ -332,8 +332,11 @@ pdfjs-editor-highlight-editor =
 # “Drawing” is a noun, the string is used on the editor for drawings.
 pdfjs-editor-ink-editor =
     .aria-label = Editor kreslenia
-pdfjs-editor-signature-editor =
-    .aria-label = Editor podpisov
+# Used when a signature editor is selected/hovered.
+# Variables:
+#   $description (String) - a string describing/labeling the signature.
+pdfjs-editor-signature-editor1 =
+    .aria-description = Editor podpisu: { $description }
 pdfjs-editor-stamp-editor =
     .aria-label = Editor obrázkov
 
@@ -485,7 +488,6 @@ pdfjs-editor-new-alt-text-error-close-button = Zavrieť
 # Variables:
 #   $totalSize (Number) - the total size (in MB) of the AI model.
 #   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
-#   $percent (Number) - the percentage of the downloaded size.
 pdfjs-editor-new-alt-text-ai-model-downloading-progress = Sťahuje sa model AI pre alternatívne texty ({ $downloadedSize } z { $totalSize } MB)
     .aria-valuetext = Sťahuje sa model AI pre alternatívne texty ({ $downloadedSize } z { $totalSize } MB)
 # This is a button that users can click to edit the alt text they have already added.
@@ -606,9 +608,6 @@ pdfjs-editor-edit-signature-update-button = Aktualizovať
 
 ## Main menu for adding/removing signatures
 
-pdfjs-editor-delete-signature-button =
-    .title = Odstrániť podpis
-pdfjs-editor-delete-signature-button-label = Odstrániť podpis
 pdfjs-editor-delete-signature-button1 =
     .title = Odstrániť uložený podpis
 pdfjs-editor-delete-signature-button-label1 = Odstrániť uložený podpis

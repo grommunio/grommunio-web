@@ -255,7 +255,7 @@ pdfjs-find-not-found = Hledaný text nenalezen
 ## Predefined zoom values
 
 pdfjs-page-scale-width = Podle šířky
-pdfjs-page-scale-fit = Podle výšky
+pdfjs-page-scale-fit = Podle stránky
 pdfjs-page-scale-auto = Automatická velikost
 pdfjs-page-scale-actual = Skutečná velikost
 # Variables:
@@ -332,8 +332,11 @@ pdfjs-editor-highlight-editor =
 # “Drawing” is a noun, the string is used on the editor for drawings.
 pdfjs-editor-ink-editor =
     .aria-label = Editor kresby
-pdfjs-editor-signature-editor =
-    .aria-label = Editor podpisu
+# Used when a signature editor is selected/hovered.
+# Variables:
+#   $description (String) - a string describing/labeling the signature.
+pdfjs-editor-signature-editor1 =
+    .aria-description = Editor podpisu: { $description }
 pdfjs-editor-stamp-editor =
     .aria-label = Editor obrázků
 
@@ -485,7 +488,6 @@ pdfjs-editor-new-alt-text-error-close-button = Zavřít
 # Variables:
 #   $totalSize (Number) - the total size (in MB) of the AI model.
 #   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
-#   $percent (Number) - the percentage of the downloaded size.
 pdfjs-editor-new-alt-text-ai-model-downloading-progress = Stahuje se model AI pro alternativní texty ({ $downloadedSize } z { $totalSize } MB)
     .aria-valuetext = Stahuje se model AI pro alternativní texty ({ $downloadedSize } z { $totalSize } MB)
 # This is a button that users can click to edit the alt text they have already added.
@@ -606,9 +608,6 @@ pdfjs-editor-edit-signature-update-button = Aktualizovat
 
 ## Main menu for adding/removing signatures
 
-pdfjs-editor-delete-signature-button =
-    .title = Odebrat podpis
-pdfjs-editor-delete-signature-button-label = Odebrat podpis
 pdfjs-editor-delete-signature-button1 =
     .title = Odebrat uložený podpis
 pdfjs-editor-delete-signature-button-label1 = Odebrat uložený podpis

@@ -328,8 +328,11 @@ pdfjs-editor-highlight-editor =
 # “Drawing” is a noun, the string is used on the editor for drawings.
 pdfjs-editor-ink-editor =
     .aria-label = עורך ציורים
-pdfjs-editor-signature-editor =
-    .aria-label = עורך חתימות
+# Used when a signature editor is selected/hovered.
+# Variables:
+#   $description (String) - a string describing/labeling the signature.
+pdfjs-editor-signature-editor1 =
+    .aria-description = עורך החתימות: { $description }
 pdfjs-editor-stamp-editor =
     .aria-label = עורך תמונות
 
@@ -481,7 +484,6 @@ pdfjs-editor-new-alt-text-error-close-button = סגירה
 # Variables:
 #   $totalSize (Number) - the total size (in MB) of the AI model.
 #   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
-#   $percent (Number) - the percentage of the downloaded size.
 pdfjs-editor-new-alt-text-ai-model-downloading-progress = בתהליך הורדת מודל AI של טקסט חלופי ({ $downloadedSize } מתוך { $totalSize } מ״ב)
     .aria-valuetext = בתהליך הורדת מודל AI של טקסט חלופי ({ $downloadedSize } מתוך { $totalSize } מ״ב)
 # This is a button that users can click to edit the alt text they have already added.
@@ -600,9 +602,6 @@ pdfjs-editor-edit-signature-update-button = עדכון
 
 ## Main menu for adding/removing signatures
 
-pdfjs-editor-delete-signature-button =
-    .title = הסרת חתימה
-pdfjs-editor-delete-signature-button-label = הסרת חתימה
 pdfjs-editor-delete-signature-button1 =
     .title = הסרת חתימה שמורה
 pdfjs-editor-delete-signature-button-label1 = הסרת חתימה שמורה

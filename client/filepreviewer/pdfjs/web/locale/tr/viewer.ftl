@@ -328,8 +328,11 @@ pdfjs-editor-highlight-editor =
 # “Drawing” is a noun, the string is used on the editor for drawings.
 pdfjs-editor-ink-editor =
     .aria-label = Çizim düzenleyici
-pdfjs-editor-signature-editor =
-    .aria-label = İmza düzenleyici
+# Used when a signature editor is selected/hovered.
+# Variables:
+#   $description (String) - a string describing/labeling the signature.
+pdfjs-editor-signature-editor1 =
+    .aria-description = İmza düzenleyici: { $description }
 pdfjs-editor-stamp-editor =
     .aria-label = Resim düzenleyici
 
@@ -481,7 +484,6 @@ pdfjs-editor-new-alt-text-error-close-button = Kapat
 # Variables:
 #   $totalSize (Number) - the total size (in MB) of the AI model.
 #   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
-#   $percent (Number) - the percentage of the downloaded size.
 pdfjs-editor-new-alt-text-ai-model-downloading-progress = Alt metin yapay zekâ modeli indiriliyor ({ $downloadedSize } / { $totalSize } MB)
     .aria-valuetext = Alt metin yapay zekâ modeli indiriliyor ({ $downloadedSize } / { $totalSize } MB)
 # This is a button that users can click to edit the alt text they have already added.
@@ -600,11 +602,8 @@ pdfjs-editor-edit-signature-update-button = Güncelle
 
 ## Main menu for adding/removing signatures
 
-pdfjs-editor-delete-signature-button =
-    .title = İmzayı kaldır
-pdfjs-editor-delete-signature-button-label = İmzayı kaldır
 pdfjs-editor-delete-signature-button1 =
-    .title = Kayıtlı imza kaldırdı
+    .title = Kayıtlı imzayı kaldır
 pdfjs-editor-delete-signature-button-label1 = Kayıtlı imzayı kaldır
 
 ## Editor toolbar

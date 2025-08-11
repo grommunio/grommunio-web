@@ -328,8 +328,11 @@ pdfjs-editor-highlight-editor =
 # “Drawing” is a noun, the string is used on the editor for drawings.
 pdfjs-editor-ink-editor =
     .aria-label = ਡਰਾਇੰਗ ਸੰਪਾਦਕ
-pdfjs-editor-signature-editor =
-    .aria-label = ਦਸਤਖ਼ਤ ਸੰਪਾਦਕ
+# Used when a signature editor is selected/hovered.
+# Variables:
+#   $description (String) - a string describing/labeling the signature.
+pdfjs-editor-signature-editor1 =
+    .aria-description = ਦਸਤਖ਼ਤ ਐਡੀਟਰ: { $description }
 pdfjs-editor-stamp-editor =
     .aria-label = ਚਿੱਤਰ ਸੰਪਾਦਕ
 
@@ -481,7 +484,6 @@ pdfjs-editor-new-alt-text-error-close-button = ਬੰਦ ਕਰੋ
 # Variables:
 #   $totalSize (Number) - the total size (in MB) of the AI model.
 #   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
-#   $percent (Number) - the percentage of the downloaded size.
 pdfjs-editor-new-alt-text-ai-model-downloading-progress = ਬਦਲਵਾਂ ਲਿਖਤ AI ਮਾਡਲ ਡਾਊਨਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ ({ $totalSize } MB ਵਿੱਚੋਂ { $downloadedSize })
     .aria-valuetext = ਬਦਲਵਾਂ ਲਿਖਤ AI ਮਾਡਲ ਡਾਊਨਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ ({ $totalSize } MB ਵਿੱਚੋਂ { $downloadedSize })
 # This is a button that users can click to edit the alt text they have already added.
@@ -600,9 +602,6 @@ pdfjs-editor-edit-signature-update-button = ਅੱਪਡੇਟ
 
 ## Main menu for adding/removing signatures
 
-pdfjs-editor-delete-signature-button =
-    .title = ਦਸਤਖ਼ਤ ਨੂੰ ਹਟਾਓ
-pdfjs-editor-delete-signature-button-label = ਦਸਤਖ਼ਤ ਨੂੰ ਹਟਾਓ
 pdfjs-editor-delete-signature-button1 =
     .title = ਸੰਭਾਲੇ ਹੋਏ ਦਸਤਖ਼ਤ ਨੂੰ ਹਟਾਓ
 pdfjs-editor-delete-signature-button-label1 = ਸੰਭਾਲੇ ਹੋਏ ਦਸਤਖ਼ਤ ਨੂੰ ਹਟਾਓ

@@ -330,8 +330,11 @@ pdfjs-editor-highlight-editor =
 # “Drawing” is a noun, the string is used on the editor for drawings.
 pdfjs-editor-ink-editor =
     .aria-label = Редактор изображений
-pdfjs-editor-signature-editor =
-    .aria-label = Редактор подписей
+# Used when a signature editor is selected/hovered.
+# Variables:
+#   $description (String) - a string describing/labeling the signature.
+pdfjs-editor-signature-editor1 =
+    .aria-description = Редактор подписи: { $description }
 pdfjs-editor-stamp-editor =
     .aria-label = Редактор изображений
 
@@ -483,7 +486,6 @@ pdfjs-editor-new-alt-text-error-close-button = Закрыть
 # Variables:
 #   $totalSize (Number) - the total size (in MB) of the AI model.
 #   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
-#   $percent (Number) - the percentage of the downloaded size.
 pdfjs-editor-new-alt-text-ai-model-downloading-progress = Загрузка модели ИИ для альтернативного текста ({ $downloadedSize } из { $totalSize } МБ)
     .aria-valuetext = Загрузка модели ИИ для альтернативного текста ({ $downloadedSize } из { $totalSize } МБ)
 # This is a button that users can click to edit the alt text they have already added.
@@ -603,9 +605,6 @@ pdfjs-editor-edit-signature-update-button = Обновить
 
 ## Main menu for adding/removing signatures
 
-pdfjs-editor-delete-signature-button =
-    .title = Удалить подпись
-pdfjs-editor-delete-signature-button-label = Удалить подпись
 pdfjs-editor-delete-signature-button1 =
     .title = Удалить сохранённую подпись
 pdfjs-editor-delete-signature-button-label1 = Удалить сохранённую подпись

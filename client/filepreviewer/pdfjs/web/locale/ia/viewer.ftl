@@ -328,8 +328,11 @@ pdfjs-editor-highlight-editor =
 # “Drawing” is a noun, the string is used on the editor for drawings.
 pdfjs-editor-ink-editor =
     .aria-label = Editor de designos
-pdfjs-editor-signature-editor =
-    .aria-label = Editor de signatura
+# Used when a signature editor is selected/hovered.
+# Variables:
+#   $description (String) - a string describing/labeling the signature.
+pdfjs-editor-signature-editor1 =
+    .aria-description = Editor de signaturas: { $description }
 pdfjs-editor-stamp-editor =
     .aria-label = Editor de imagines
 
@@ -481,7 +484,6 @@ pdfjs-editor-new-alt-text-error-close-button = Clauder
 # Variables:
 #   $totalSize (Number) - the total size (in MB) of the AI model.
 #   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
-#   $percent (Number) - the percentage of the downloaded size.
 pdfjs-editor-new-alt-text-ai-model-downloading-progress = Discargante modello de intelligentia artificial  del texto alternative ({ $downloadedSize } de { $totalSize } MB)
     .aria-valuetext = Discargante modello de intelligentia artificial  del texto alternative ({ $downloadedSize } de { $totalSize } MB)
 # This is a button that users can click to edit the alt text they have already added.
@@ -600,9 +602,6 @@ pdfjs-editor-edit-signature-update-button = Actualisar
 
 ## Main menu for adding/removing signatures
 
-pdfjs-editor-delete-signature-button =
-    .title = Remover signatura
-pdfjs-editor-delete-signature-button-label = Remover signatura
 pdfjs-editor-delete-signature-button1 =
     .title = Remover signatura salvate
 pdfjs-editor-delete-signature-button-label1 = Remover signatura salvate

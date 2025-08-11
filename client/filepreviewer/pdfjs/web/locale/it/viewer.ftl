@@ -328,8 +328,11 @@ pdfjs-editor-highlight-editor =
 # “Drawing” is a noun, the string is used on the editor for drawings.
 pdfjs-editor-ink-editor =
     .aria-label = Modifica disegni
-pdfjs-editor-signature-editor =
-    .aria-label = Modifica firme
+# Used when a signature editor is selected/hovered.
+# Variables:
+#   $description (String) - a string describing/labeling the signature.
+pdfjs-editor-signature-editor1 =
+    .aria-description = Editor firme: { $description }
 pdfjs-editor-stamp-editor =
     .aria-label = Modifica immagini
 
@@ -481,7 +484,6 @@ pdfjs-editor-new-alt-text-error-close-button = Chiudi
 # Variables:
 #   $totalSize (Number) - the total size (in MB) of the AI model.
 #   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
-#   $percent (Number) - the percentage of the downloaded size.
 pdfjs-editor-new-alt-text-ai-model-downloading-progress = Download in corso del modello IA per il testo alternativo ({ $downloadedSize } di { $totalSize } MB)
     .aria-valuetext = Download in corso del modello IA per il testo alternativo ({ $downloadedSize } di { $totalSize } MB)
 # This is a button that users can click to edit the alt text they have already added.
@@ -521,6 +523,14 @@ pdfjs-editor-alt-text-settings-editor-title = Modifica testo alternativo
 pdfjs-editor-alt-text-settings-show-dialog-button-label = Mostra l’editor del testo alternativo non appena si aggiunge un’immagine
 pdfjs-editor-alt-text-settings-show-dialog-description = Ti aiuta ad assicurarti che tutte le tue immagini abbiano il testo alternativo.
 pdfjs-editor-alt-text-settings-close-button = Chiudi
+
+## Accessibility labels (announced by screen readers) for objects added to the editor.
+
+pdfjs-editor-highlight-added-alert = Aggiunta evidenziazione
+pdfjs-editor-freetext-added-alert = Aggiunto testo
+pdfjs-editor-ink-added-alert = Aggiunto disegno
+pdfjs-editor-stamp-added-alert = Aggiunta immagine
+pdfjs-editor-signature-added-alert = Aggiunta firma
 
 ## "Annotations removed" bar
 
@@ -600,9 +610,6 @@ pdfjs-editor-edit-signature-update-button = Aggiorna
 
 ## Main menu for adding/removing signatures
 
-pdfjs-editor-delete-signature-button =
-    .title = Rimuovi firma
-pdfjs-editor-delete-signature-button-label = Rimuovi firma
 pdfjs-editor-delete-signature-button1 =
     .title = Rimuovi firma salvata
 pdfjs-editor-delete-signature-button-label1 = Rimuovi firma salvata
@@ -614,4 +621,3 @@ pdfjs-editor-add-signature-edit-button-label = Modifica descrizione
 ## Edit signature description dialog
 
 pdfjs-editor-edit-signature-dialog-title = Modifica descrizione
-

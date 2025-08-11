@@ -102,7 +102,7 @@ pdfjs-document-properties-mb = { $size_mb } എംബി ({ $size_b } ബൈറ�
 pdfjs-document-properties-title = തലക്കെട്ട്‌
 pdfjs-document-properties-author = രചയിതാവ്:
 pdfjs-document-properties-subject = വിഷയം:
-pdfjs-document-properties-keywords = മുഖ്യപദങ്ങൾ
+pdfjs-document-properties-keywords = പെരുമുരികൾ:
 pdfjs-document-properties-creation-date = പൂര്‍ത്തിയാകുന്ന തീയതി:
 pdfjs-document-properties-modification-date = മാറ്റം വരുത്തിയ തീയതി:
 # Variables:
@@ -263,8 +263,8 @@ pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", tim
 
 ## Password
 
-pdfjs-password-label = ഈ പിഡിഎഫ് ഫയല്‍ തുറക്കുന്നതിനു് രഹസ്യവാക്ക് നല്‍കുക.
-pdfjs-password-invalid = തെറ്റായ രഹസ്യവാക്ക്, ദയവായി വീണ്ടും ശ്രമിയ്ക്കുക.
+pdfjs-password-label = ഈ പിഡിഎഫ് ഫയല്‍ തുറക്കുന്നതിനു് ഒളിവാക്ക് നല്‍കുക.
+pdfjs-password-invalid = തെറ്റായ ഒളിവാക്ക്, ദയവായി വീണ്ടും ശ്രമിയ്ക്കുക.
 pdfjs-password-ok-button = ശരി
 pdfjs-password-cancel-button = റദ്ദാക്കുക
 pdfjs-web-fonts-disabled = വെബിനുള്ള അക്ഷരസഞ്ചയങ്ങള്‍ പ്രവര്‍ത്തന രഹിതം: എംബഡ്ഡ് ചെയ്ത പിഡിഎഫ് അക്ഷരസഞ്ചയങ്ങള്‍ ഉപയോഗിയ്ക്കുവാന്‍ സാധ്യമല്ല.
@@ -323,6 +323,11 @@ pdfjs-editor-free-highlight-thickness-input = കനം
 pdfjs-editor-signature-add-signature-button =
     .title = പുതിയ ഒപ്പു് ചേൎക്കുക
 pdfjs-editor-signature-add-signature-button-label = പുതിയ ഒപ്പു് ചേൎക്കുക
+# Used on the button to use an already saved signature.
+# Variables:
+#   $description (String) - a string describing/labeling the signature.
+pdfjs-editor-add-saved-signature-button =
+    .title = കരുതിവച്ച ഒപ്പു് : { $description }
 pdfjs-free-text-default-content = എഴുതാൻ തുടങ്ങുക…
 pdfjs-ink-canvas =
     .aria-label = ഉപയോക്താവ് ഉണ്ടാക്കിയ ചിത്രം
@@ -337,6 +342,9 @@ pdfjs-editor-alt-text-dialog-label = സാധ്യത തിരഞ്ഞെട
 pdfjs-editor-alt-text-add-description-label = ഒരു വിവരണം ചേർക്കുക
 pdfjs-editor-alt-text-cancel-button = റദ്ദാക്കുക
 pdfjs-editor-alt-text-save-button = കരുതിവയ്ക്കുക
+# .placeholder: This is a placeholder for the alt text input area
+pdfjs-editor-alt-text-textarea =
+    .placeholder = ഉദാഹരണം, “ഒരു ചെറുപ്പക്കാരൻ ഭക്ഷണം കഴിക്കാൻ മേശയിലിരുന്നു”
 # Alternative text (alt text) helps when people can't see the image.
 pdfjs-editor-alt-text-button =
     .aria-label = മറുയെഴുത്തു്
@@ -367,7 +375,7 @@ pdfjs-editor-colorpicker-green =
 pdfjs-editor-colorpicker-blue =
     .title = നീല
 pdfjs-editor-colorpicker-pink =
-    .title = പാടലവർണ്ണം
+    .title = പാടല
 pdfjs-editor-colorpicker-red =
     .title = ചുമന്ന
 
@@ -387,10 +395,13 @@ pdfjs-editor-new-alt-text-dialog-edit-label = മറുയെഴുത്തു�
 pdfjs-editor-new-alt-text-dialog-add-label = മറുയെഴുത്തു് ചേൎക്കുക (ചിത്ര വിവരണം)
 pdfjs-editor-new-alt-text-textarea =
     .placeholder = താങ്ങളുടെ വിവരണം ഇവിടെ എഴുതുക...
+# This is a required legal disclaimer that refers to the automatically created text inside the alt text box above this text. It disappears if the text is edited by a human.
+pdfjs-editor-new-alt-text-disclaimer1 = ഈ മറുയെഴുത്തു് തന്നെതാനെയുണ്ടാക്കിയതുകൊണ്ടു് തെറ്റായതാവാം.
 pdfjs-editor-new-alt-text-disclaimer-learn-more-url = കൂടുതല്‍ അറിയുക
 pdfjs-editor-new-alt-text-create-automatically-button-label = തന്നെതാനെ മറുയെഴുത്തു് ഉണ്ടാക്കുക
 pdfjs-editor-new-alt-text-not-now-button = ഇപ്പോഴല്ല
 pdfjs-editor-new-alt-text-error-title = തന്നെതാനെ മറുയെഴുത്തു് ഉണ്ടാക്കാൻ പറ്റിയില്ല
+pdfjs-editor-new-alt-text-error-description = തനതായ മറുയെഴുത്തു് ഇടുക അല്ലെങ്കിൽ പിന്നീടു് ശ്രമിയ്ക്കുക.
 pdfjs-editor-new-alt-text-error-close-button = അടയ്ക്കുക
 # This is a button that users can click to edit the alt text they have already added.
 pdfjs-editor-new-alt-text-added-button =
@@ -420,6 +431,7 @@ pdfjs-editor-alt-text-settings-create-model-button-label = തന്നെതാ
 pdfjs-editor-alt-text-settings-delete-model-button = മായ്ക്കുക
 pdfjs-editor-alt-text-settings-download-model-button = ഇറക്കിവയ്ക്കുക
 pdfjs-editor-alt-text-settings-downloading-model-button = ഇറക്കിവയ്ക്കുന്നു
+pdfjs-editor-alt-text-settings-show-dialog-description = താങ്ങളുടെ എല്ലാ പടങ്ങളിലും മറുയെഴുത്തുണ്ടെന്നു് തീൎച്ചപ്പെടുത്താൻ തുണയ്ക്കുന്നു.
 pdfjs-editor-alt-text-settings-close-button = അടയ്ക്കുക
 
 ## "Annotations removed" bar
@@ -499,9 +511,9 @@ pdfjs-editor-edit-signature-update-button = പുതുക്കുക
 
 ## Main menu for adding/removing signatures
 
-pdfjs-editor-delete-signature-button =
-    .title = ഒപ്പു് മാറ്റുക
-pdfjs-editor-delete-signature-button-label = ഒപ്പു് മാറ്റുക
+pdfjs-editor-delete-signature-button1 =
+    .title = കരുതിവച്ച ഒപ്പു് മാറ്റുക
+pdfjs-editor-delete-signature-button-label1 = കരുതിവച്ച ഒപ്പു് മാറ്റുക
 
 ## Editor toolbar
 

@@ -88,7 +88,7 @@ pdfjs-scroll-wrapped-button =
     .title = Χρήση κυκλικής κύλισης
 pdfjs-scroll-wrapped-button-label = Κυκλική κύλιση
 pdfjs-spread-none-button =
-    .title = Να μη γίνει σύνδεση επεκτάσεων σελίδων
+    .title = Να μην γίνει σύνδεση των επεκτάσεων σελίδων
 pdfjs-spread-none-button-label = Χωρίς επεκτάσεις
 pdfjs-spread-odd-button =
     .title = Σύνδεση επεκτάσεων σελίδων ξεκινώντας από τις μονές σελίδες
@@ -270,7 +270,7 @@ pdfjs-page-landmark =
 pdfjs-loading-error = Προέκυψε σφάλμα κατά τη φόρτωση του PDF.
 pdfjs-invalid-file-error = Μη έγκυρο ή κατεστραμμένο αρχείο PDF.
 pdfjs-missing-file-error = Λείπει αρχείο PDF.
-pdfjs-unexpected-response-error = Μη αναμενόμενη απόκριση από το διακομιστή.
+pdfjs-unexpected-response-error = Απρόσμενη απάντηση διακομιστή.
 pdfjs-rendering-error = Προέκυψε σφάλμα κατά την εμφάνιση της σελίδας.
 
 ## Annotations
@@ -328,8 +328,11 @@ pdfjs-editor-highlight-editor =
 # “Drawing” is a noun, the string is used on the editor for drawings.
 pdfjs-editor-ink-editor =
     .aria-label = Επεξεργασία σχεδίου
-pdfjs-editor-signature-editor =
-    .aria-label = Επεξεργασία υπογραφής
+# Used when a signature editor is selected/hovered.
+# Variables:
+#   $description (String) - a string describing/labeling the signature.
+pdfjs-editor-signature-editor1 =
+    .aria-description = Επεξεργασία υπογραφής: { $description }
 pdfjs-editor-stamp-editor =
     .aria-label = Επεξεργασία εικόνας
 
@@ -481,7 +484,6 @@ pdfjs-editor-new-alt-text-error-close-button = Κλείσιμο
 # Variables:
 #   $totalSize (Number) - the total size (in MB) of the AI model.
 #   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
-#   $percent (Number) - the percentage of the downloaded size.
 pdfjs-editor-new-alt-text-ai-model-downloading-progress = Λήψη μοντέλου ΤΝ εναλλακτικού κειμένου ({ $downloadedSize } από { $totalSize } MB)
     .aria-valuetext = Λήψη μοντέλου ΤΝ εναλλακτικού κειμένου ({ $downloadedSize } από { $totalSize } MB)
 # This is a button that users can click to edit the alt text they have already added.
@@ -600,9 +602,6 @@ pdfjs-editor-edit-signature-update-button = Ενημέρωση
 
 ## Main menu for adding/removing signatures
 
-pdfjs-editor-delete-signature-button =
-    .title = Αφαίρεση υπογραφής
-pdfjs-editor-delete-signature-button-label = Αφαίρεση υπογραφής
 pdfjs-editor-delete-signature-button1 =
     .title = Αφαίρεση αποθηκευμένης υπογραφής
 pdfjs-editor-delete-signature-button-label1 = Αφαίρεση αποθηκευμένης υπογραφής

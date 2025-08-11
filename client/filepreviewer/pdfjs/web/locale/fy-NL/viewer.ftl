@@ -328,8 +328,11 @@ pdfjs-editor-highlight-editor =
 # “Drawing” is a noun, the string is used on the editor for drawings.
 pdfjs-editor-ink-editor =
     .aria-label = Tekeningbewurker
-pdfjs-editor-signature-editor =
-    .aria-label = Hantekeningbewurker
+# Used when a signature editor is selected/hovered.
+# Variables:
+#   $description (String) - a string describing/labeling the signature.
+pdfjs-editor-signature-editor1 =
+    .aria-description = Undertekeningsbewurker: { $description }
 pdfjs-editor-stamp-editor =
     .aria-label = Ofbyldingsbewurker
 
@@ -481,7 +484,6 @@ pdfjs-editor-new-alt-text-error-close-button = Slute
 # Variables:
 #   $totalSize (Number) - the total size (in MB) of the AI model.
 #   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
-#   $percent (Number) - the percentage of the downloaded size.
 pdfjs-editor-new-alt-text-ai-model-downloading-progress = AI-model foar alternative tekst downloade ({ $downloadedSize } fan { $totalSize } MB)
     .aria-valuetext = AI-model foar alternative tekst downloade ({ $downloadedSize } fan { $totalSize } MB)
 # This is a button that users can click to edit the alt text they have already added.
@@ -600,9 +602,6 @@ pdfjs-editor-edit-signature-update-button = Bywurkje
 
 ## Main menu for adding/removing signatures
 
-pdfjs-editor-delete-signature-button =
-    .title = Hantekening fuortsmite
-pdfjs-editor-delete-signature-button-label = Hantekening fuortsmite
 pdfjs-editor-delete-signature-button1 =
     .title = Bewarre ûndertekening fuortsmite
 pdfjs-editor-delete-signature-button-label1 = Bewarre ûndertekening fuortsmite

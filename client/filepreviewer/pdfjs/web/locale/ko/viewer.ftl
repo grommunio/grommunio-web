@@ -320,8 +320,11 @@ pdfjs-editor-highlight-editor =
 # “Drawing” is a noun, the string is used on the editor for drawings.
 pdfjs-editor-ink-editor =
     .aria-label = 그리기 편집기
-pdfjs-editor-signature-editor =
-    .aria-label = 서명 편집기
+# Used when a signature editor is selected/hovered.
+# Variables:
+#   $description (String) - a string describing/labeling the signature.
+pdfjs-editor-signature-editor1 =
+    .aria-description = 서명 편집기: { $description }
 pdfjs-editor-stamp-editor =
     .aria-label = 이미지 편집기
 
@@ -473,7 +476,6 @@ pdfjs-editor-new-alt-text-error-close-button = 닫기
 # Variables:
 #   $totalSize (Number) - the total size (in MB) of the AI model.
 #   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
-#   $percent (Number) - the percentage of the downloaded size.
 pdfjs-editor-new-alt-text-ai-model-downloading-progress = 대체 텍스트 AI 모델 다운로드 중 ({ $downloadedSize } / { $totalSize } MB)
     .aria-valuetext = 대체 텍스트 AI 모델 다운로드 중 ({ $downloadedSize } / { $totalSize } MB)
 # This is a button that users can click to edit the alt text they have already added.
@@ -558,7 +560,7 @@ pdfjs-editor-add-signature-draw-thickness-range-label = 두께
 #   $thickness (Number) - the thickness (in pixels) of the line used to draw a signature.
 pdfjs-editor-add-signature-draw-thickness-range =
     .title = 그리기 두께: { $thickness }
-pdfjs-editor-add-signature-image-placeholder = 업로드할 파일을 여기로 끌어서 놓기
+pdfjs-editor-add-signature-image-placeholder = 이미지 파일을 여기에 끌어서 놓으세요
 pdfjs-editor-add-signature-image-browse-link =
     { PLATFORM() ->
         [macos] 또는 이미지 파일 찾아보기
@@ -588,9 +590,6 @@ pdfjs-editor-edit-signature-update-button = 업데이트
 
 ## Main menu for adding/removing signatures
 
-pdfjs-editor-delete-signature-button =
-    .title = 서명 제거
-pdfjs-editor-delete-signature-button-label = 서명 제거
 pdfjs-editor-delete-signature-button1 =
     .title = 저장된 서명 제거
 pdfjs-editor-delete-signature-button-label1 = 저장된 서명 제거

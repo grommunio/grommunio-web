@@ -328,8 +328,11 @@ pdfjs-editor-highlight-editor =
 # “Drawing” is a noun, the string is used on the editor for drawings.
 pdfjs-editor-ink-editor =
     .aria-label = Editur per dissegnar
-pdfjs-editor-signature-editor =
-    .aria-label = Editur per signaturas
+# Used when a signature editor is selected/hovered.
+# Variables:
+#   $description (String) - a string describing/labeling the signature.
+pdfjs-editor-signature-editor1 =
+    .aria-description = Editur da signatura: { $description }
 pdfjs-editor-stamp-editor =
     .aria-label = Editur per maletgs
 
@@ -481,7 +484,6 @@ pdfjs-editor-new-alt-text-error-close-button = Serrar
 # Variables:
 #   $totalSize (Number) - the total size (in MB) of the AI model.
 #   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
-#   $percent (Number) - the percentage of the downloaded size.
 pdfjs-editor-new-alt-text-ai-model-downloading-progress = Telechargiar il model IA da text alternativ ({ $downloadedSize } da { $totalSize } MB)
     .aria-valuetext = Telechargiar il model IA da text alternativ ({ $downloadedSize } da { $totalSize } MB)
 # This is a button that users can click to edit the alt text they have already added.
@@ -600,9 +602,6 @@ pdfjs-editor-edit-signature-update-button = Actualisar
 
 ## Main menu for adding/removing signatures
 
-pdfjs-editor-delete-signature-button =
-    .title = Allontanar la signatura
-pdfjs-editor-delete-signature-button-label = Allontanar la signatura
 pdfjs-editor-delete-signature-button1 =
     .title = Allontanar la signatura memorisada
 pdfjs-editor-delete-signature-button-label1 = Allontanar la signatura memorisada
