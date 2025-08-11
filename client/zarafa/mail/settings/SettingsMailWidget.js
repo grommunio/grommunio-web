@@ -23,6 +23,9 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 			autoDestroy: true,
 			fields: ['name', 'value'],
 			data: [{
+				'name': _('No preview'),
+				'value': Zarafa.mail.data.ViewModes.NO_PREVIEW
+			},{
 				'name': _('Right'),
 				'value': Zarafa.mail.data.ViewModes.RIGHT_PREVIEW
 			},{

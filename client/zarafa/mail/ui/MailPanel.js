@@ -76,9 +76,8 @@ Zarafa.mail.ui.MailPanel = Ext.extend(Zarafa.common.ui.ContextMainPanel, {
 			cls: 'zarafa-context-mainpanel',
 			minWidth: 500,
 			minHeight: 200,
-			region: 'west',
+			region: 'center',
 			collapsible: false,
-			floatable: false,
 			split: true,
 			stateful: true,
 			stateId: 'mail-list-pane',
@@ -152,11 +151,12 @@ Zarafa.mail.ui.MailPanel = Ext.extend(Zarafa.common.ui.ContextMainPanel, {
 		return {
 			xtype: 'zarafa.mailpreviewpanel',
 			id: 'zarafa-main-content-mail-preview',
-			region: 'center',
+			region: 'south',
 			split: true,
 			stateful: true,
 			stateId: 'mail-preview-pane',
-			context: context
+			context: context,
+			ref: 'previewPanel'
 		};
 	},
 
@@ -217,16 +217,25 @@ Zarafa.mail.ui.MailPanel = Ext.extend(Zarafa.common.ui.ContextMainPanel, {
 				orientation = Zarafa.common.ui.layout.SwitchBorderLayout.Orientation.OFF;
 				// Add a class for styling
 				el.removeClass('zarafa-preview-bottom').removeClass('zarafa-preview-right').addClass('zarafa-preview-off');
+				if (this.previewPanel) {
+					this.previewPanel.hide();
+				}
 				break;
 			case Zarafa.mail.data.ViewModes.RIGHT_PREVIEW:
 				orientation = Zarafa.common.ui.layout.SwitchBorderLayout.Orientation.HORIZONTAL;
 				// Add a class for styling
 				el.removeClass('zarafa-preview-bottom').removeClass('zarafa-preview-off').addClass('zarafa-preview-right');
+				if (this.previewPanel) {
+					this.previewPanel.show();
+				}
 				break;
 			case Zarafa.mail.data.ViewModes.BOTTOM_PREVIEW:
 				orientation = Zarafa.common.ui.layout.SwitchBorderLayout.Orientation.VERTICAL;
 				// Add a class for styling
 				el.removeClass('zarafa-preview-off').removeClass('zarafa-preview-right').addClass('zarafa-preview-bottom');
+				if (this.previewPanel) {
+					this.previewPanel.show();
+				}
 				break;
 			case Zarafa.mail.data.ViewModes.SEARCH:
 			case Zarafa.mail.data.ViewModes.LIVESCROLL:
