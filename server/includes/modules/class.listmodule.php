@@ -175,15 +175,7 @@ class ListModule extends Module {
 			$folder = mapi_msgstore_openentry($store, $entryid);
 			$data["folder"] = [];
 
-			// Obtain some statistics from the folder contents
-			$contentcount = mapi_getprops($folder, [PR_CONTENT_COUNT, PR_CONTENT_UNREAD]);
-			if (isset($contentcount[PR_CONTENT_COUNT])) {
-				$data["folder"]["content_count"] = $contentcount[PR_CONTENT_COUNT];
-			}
-
-			if (isset($contentcount[PR_CONTENT_UNREAD])) {
-				$data["folder"]["content_unread"] = $contentcount[PR_CONTENT_UNREAD];
-			}
+			// Skip content statistics to avoid expensive counts
 		}
 
 		$data = $this->filterPrivateItems($data);

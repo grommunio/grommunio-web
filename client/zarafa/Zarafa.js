@@ -618,11 +618,10 @@ Ext.apply(Zarafa, {
 
 		if ( loadingMask ) {
 			// Hide loading mask
-			loadingMask.fadeOut({
-				duration: 1,
-				remove: true,
-				callback: Ext.isFunction(callback) ? callback : Ext.EmptyFn
-			});
+			loadingMask.remove();
+			if (Ext.isFunction(callback)) {
+				callback();
+			}
 		}
 	},
 

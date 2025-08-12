@@ -1449,6 +1449,7 @@ class Operations {
 		$data["item"] = [];
 
 		$rows = mapi_table_queryrows($table, $properties, $start, $rowcount);
+		$actualCount = count($rows);
 		foreach ($rows as $row) {
 			$itemData = Conversion::mapMAPI2XML($properties, $row);
 
@@ -1474,7 +1475,10 @@ class Operations {
 		$data["page"] = [];
 		$data["page"]["start"] = $start;
 		$data["page"]["rowcount"] = $rowcount;
-		$data["page"]["totalrowcount"] = mapi_table_getrowcount($table);
+		$data["page"]["totalrowcount"] = $start + $actualCount;
+		if ($actualCount === $rowcount) {
+			$data["page"]["totalrowcount"]++;
+		}
 
 		return $data;
 	}
