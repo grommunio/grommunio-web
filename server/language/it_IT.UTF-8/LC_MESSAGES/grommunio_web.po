@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Italian (Italy)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-19 00:03+0100\n"
+"POT-Creation-Date: 2025-08-13 00:05+0200\n"
 "PO-Revision-Date: 2022-12-11 16:35+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/grommunio/"
@@ -1370,6 +1370,9 @@ msgid "All day: "
 msgstr "Tutto il giorno: "
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F Y"
+msgstr "l j F Y"
+
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F"
@@ -2363,10 +2366,6 @@ msgstr "Nessuna informazione freebusy disponibile per questa data"
 
 msgid "No suggestions available"
 msgstr "Nessun suggerimento disponibile"
-
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "l jS F Y"
-msgstr "l j F Y"
 
 msgid "Switch between different contexts e.g. inbox, calendar, etc."
 msgstr "Cambia contesto es. posta, calendario, etc."
@@ -4695,6 +4694,9 @@ msgstr "Chiedi sempre prima di inviare"
 msgid "{A}Automatically mark mail as read after {B} second(s)"
 msgstr ""
 "{A}Contrassegna automaticamente il messaggio come letto dopo {B} secondo/i"
+
+msgid "View mail in this format"
+msgstr ""
 
 msgid "Right"
 msgstr "A destra"
@@ -7115,10 +7117,6 @@ msgid "Account is empty."
 msgstr "Il conto è vuoto."
 
 #, fuzzy
-msgid "Current password does not match."
-msgstr "La password attuale non corrisponde."
-
-#, fuzzy
 msgid ""
 "Your password is wrong or you have insufficient permission to change password"
 msgstr ""
@@ -7129,11 +7127,10 @@ msgstr ""
 msgid "Password is not changed."
 msgstr "La password non viene modificata."
 
-#, fuzzy
-msgid "Error changing password. Please contact the system administrator."
+msgid ""
+"Error changing password. Please verify your password or contact the system "
+"administrator."
 msgstr ""
-"Errore nella modifica della password. Contattare l'amministratore del "
-"sistema."
 
 #, fuzzy
 msgid "Password has been changed successfully."
@@ -7628,9 +7625,9 @@ msgid ""
 "click the %1$s folder > properties > permissions)."
 msgstr ""
 "Non si dispone di privilegi sufficienti per aprire questa cartella %1$s. Il "
-"proprietario della cartella può impostarli utilizzando la scheda \"permessi"
-"\" delle proprietà della cartella (fare clic con il pulsante destro del "
-"mouse sulla cartella %1$s > proprietà > permessi)."
+"proprietario della cartella può impostarli utilizzando la scheda "
+"\"permessi\" delle proprietà della cartella (fare clic con il pulsante "
+"destro del mouse sulla cartella %1$s > proprietà > permessi)."
 
 msgid "default"
 msgstr "predefinito"

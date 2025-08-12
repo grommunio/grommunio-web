@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web German (Germany)\n"
-"Report-Msgid-Bugs-To: dev@grommunio.com\n"
-"POT-Creation-Date: 2025-03-19 00:03+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-13 00:05+0200\n"
 "PO-Revision-Date: 2025-03-30 04:00+0000\n"
 "Last-Translator: DeepL <noreply-mt-deepl@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/grommunio/"
@@ -1371,8 +1371,11 @@ msgstr "l jS M Y {0}"
 msgid "All day: "
 msgstr "Ganztägig: "
 
-# small L, not capital i
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F Y"
+msgstr "I j. F Y"
+
+# small L, not capital i
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F"
@@ -2355,10 +2358,6 @@ msgstr ""
 
 msgid "No suggestions available"
 msgstr "Keine Vorschläge vorhanden"
-
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "l jS F Y"
-msgstr "I j. F Y"
 
 msgid "Switch between different contexts e.g. inbox, calendar, etc."
 msgstr ""
@@ -4687,6 +4686,9 @@ msgstr "Vor dem Senden einer Antwort nachfragen"
 msgid "{A}Automatically mark mail as read after {B} second(s)"
 msgstr "{A}Wartezeit bevor die „gelesen“-Markierung gesezt wird: {B} Sekunden"
 
+msgid "View mail in this format"
+msgstr ""
+
 msgid "Right"
 msgstr "Rechts"
 
@@ -7004,9 +7006,6 @@ msgstr "Keine Daten erhalten."
 msgid "Account is empty."
 msgstr "Konto ist leer."
 
-msgid "Current password does not match."
-msgstr "Aktuelle Passwörter stimmen nicht überein."
-
 msgid ""
 "Your password is wrong or you have insufficient permission to change password"
 msgstr ""
@@ -7016,10 +7015,13 @@ msgstr ""
 msgid "Password is not changed."
 msgstr "Passwort ist unverändert."
 
-msgid "Error changing password. Please contact the system administrator."
+msgid ""
+"Error changing password. Please verify your password or contact the system "
+"administrator."
 msgstr ""
-"Fehler beim Ändern des Passwortes. Bitte kontaktieren Sie Ihren "
-"Systemadministrator."
+ msgstr ""
+"Fehler beim Ändern des Passwortes. Bitte prüfen Sie Ihr Passwort oder "
+"kontaktieren Sie Ihren Systemadministrator."
 
 msgid "Password has been changed successfully."
 msgstr "Passwort wurde erfolgreich geändert."

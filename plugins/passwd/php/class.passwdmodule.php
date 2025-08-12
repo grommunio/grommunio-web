@@ -77,23 +77,14 @@ class PasswdModule extends Module {
 		$errorMessage = '';
 		$userName = $GLOBALS['mapisession']->getSMTPAddress();
 		$newPassword = $data['new_password'];
-		$sessionPass = '';
 
-		// get current session password
-		// if this plugin is used on a webapp version with EncryptionStore,
-		// $_SESSION['password'] is no longer available. Uses EncryptionStore
-		// in this case.
-		if (class_exists("EncryptionStore")) {
-			$encryptionStore = EncryptionStore::getInstance();
-			$sessionPass = $encryptionStore->get("password");
-		}
-
-		if ($data['current_password'] !== $sessionPass) {
-			$errorMessage = _('Current password does not match.');
-		}
-		elseif (defined('PLUGIN_PASSWD_USE_ZCORE') && PLUGIN_PASSWD_USE_ZCORE) {
+		// When a session password is available it may not correspond to the user's
+		// actual password (e.g. when authenticated via grommunio-auth/Keycloak). We rely
+		// on the backend to verify the provided current password instead of validating it
+		// against the session value.
+		if (defined('PLUGIN_PASSWD_USE_ZCORE') && PLUGIN_PASSWD_USE_ZCORE) {
 			try {
-				$result = nsp_setuserpasswd($userName, $sessionPass, $newPassword);
+				$result = nsp_setuserpasswd($userName, $data['current_password'], $newPassword);
 				// password changed successfully
 				if ($result) {
 					$this->sendFeedback(true, [
@@ -138,7 +129,7 @@ class PasswdModule extends Module {
 			]));
 
 			if ($result === false) {
-				$errorMessage = _('Error changing password. Please contact the system administrator.');
+				$errorMessage = _('Error changing password. Please verify your password or contact the system administrator.');
 			}
 			else {
 				$this->sendFeedback(true, [

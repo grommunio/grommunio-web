@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Estonian (Estonia)\n"
-"Report-Msgid-Bugs-To: dev@grommunio.com\n"
-"POT-Creation-Date: 2025-03-19 00:03+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-13 00:05+0200\n"
 "PO-Revision-Date: 2025-05-21 10:01+0000\n"
 "Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/grommunio/"
@@ -1358,6 +1358,9 @@ msgid "All day: "
 msgstr "Kogu päeva: "
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F Y"
+msgstr "l jS F Y"
+
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F"
@@ -2330,10 +2333,6 @@ msgstr "Selle kuupäeva kohta ei leidu saadavuse teavet"
 
 msgid "No suggestions available"
 msgstr "Ettepanekud puuduvad"
-
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "l jS F Y"
-msgstr "l jS F Y"
 
 msgid "Switch between different contexts e.g. inbox, calendar, etc."
 msgstr "Vahetus erinevate kontekstide vahel, nt postkast, kalender jne."
@@ -4630,6 +4629,9 @@ msgstr "Küsige minult enne vastuse saatmist"
 msgid "{A}Automatically mark mail as read after {B} second(s)"
 msgstr "{A}Märgi e-kiri automaatselt loetuks pärast {B} sekundit"
 
+msgid "View mail in this format"
+msgstr ""
+
 msgid "Right"
 msgstr "Õigus"
 
@@ -6894,9 +6896,6 @@ msgstr "Andmeid ei ole saadud."
 msgid "Account is empty."
 msgstr "Konto on tühi."
 
-msgid "Current password does not match."
-msgstr "Praegune salasõna ei vasta."
-
 msgid ""
 "Your password is wrong or you have insufficient permission to change password"
 msgstr ""
@@ -6905,8 +6904,10 @@ msgstr ""
 msgid "Password is not changed."
 msgstr "Salasõna ei ole muudetud."
 
-msgid "Error changing password. Please contact the system administrator."
-msgstr "Viga salasõna muutmisel. Palun võta ühendust süsteemi haldajaga."
+msgid ""
+"Error changing password. Please verify your password or contact the system "
+"administrator."
+msgstr ""
 
 msgid "Password has been changed successfully."
 msgstr "Salasõna on muutmine õnnestus."

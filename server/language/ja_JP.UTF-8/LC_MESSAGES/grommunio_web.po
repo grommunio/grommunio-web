@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-19 00:03+0100\n"
+"POT-Creation-Date: 2025-08-13 00:05+0200\n"
 "PO-Revision-Date: 2022-12-12 13:00+0200\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/grommunio/"
@@ -1355,6 +1355,9 @@ msgid "All day: "
 msgstr "終日。"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F Y"
+msgstr "Y年Fj日 l"
+
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F"
@@ -2401,10 +2404,6 @@ msgstr "この日は空き時間の参照ができません"
 
 msgid "No suggestions available"
 msgstr "提案機能は使えません"
-
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "l jS F Y"
-msgstr "Y年Fj日 l"
 
 #, fuzzy
 msgid "Switch between different contexts e.g. inbox, calendar, etc."
@@ -4867,6 +4866,9 @@ msgstr "返信を送信前に確認する"
 #. The '{B}' represents the number of seconds which the user will type in.
 msgid "{A}Automatically mark mail as read after {B} second(s)"
 msgstr "{B}秒後に自動的に既読にする。"
+
+msgid "View mail in this format"
+msgstr ""
 
 msgid "Right"
 msgstr "右"
@@ -7344,10 +7346,6 @@ msgstr "データが受信されません。"
 msgid "Account is empty."
 msgstr "アカウントは空です。"
 
-#, fuzzy
-msgid "Current password does not match."
-msgstr "現在のパスワードが一致しません。"
-
 msgid ""
 "Your password is wrong or you have insufficient permission to change password"
 msgstr "パスワードが間違っているか、パスワードの変更権限が不足しています。"
@@ -7356,9 +7354,10 @@ msgstr "パスワードが間違っているか、パスワードの変更権限
 msgid "Password is not changed."
 msgstr "パスワードが変更されていない。"
 
-#, fuzzy
-msgid "Error changing password. Please contact the system administrator."
-msgstr "パスワードの変更に失敗しました。システム管理者に連絡してください。"
+msgid ""
+"Error changing password. Please verify your password or contact the system "
+"administrator."
+msgstr ""
 
 #, fuzzy
 msgid "Password has been changed successfully."

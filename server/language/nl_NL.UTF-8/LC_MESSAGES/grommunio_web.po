@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Dutch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-19 00:03+0100\n"
+"POT-Creation-Date: 2025-08-13 00:05+0200\n"
 "PO-Revision-Date: 2022-12-11 14:12+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/grommunio/"
@@ -1372,6 +1372,9 @@ msgid "All day: "
 msgstr "Gehele dag: "
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F Y"
+msgstr "l j F Y"
+
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F"
@@ -2348,10 +2351,6 @@ msgstr "Geen beschikbaarheidsinformatie aanwezig voor deze datum"
 
 msgid "No suggestions available"
 msgstr "Geen suggesties beschikbaar"
-
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "l jS F Y"
-msgstr "l j F Y"
 
 msgid "Switch between different contexts e.g. inbox, calendar, etc."
 msgstr ""
@@ -4654,6 +4653,9 @@ msgstr "Vraag mij voor het versturen van een antwoord"
 msgid "{A}Automatically mark mail as read after {B} second(s)"
 msgstr "{A}E-mail automatisch als gelezen markeren na {B} seconde(n)"
 
+msgid "View mail in this format"
+msgstr ""
+
 msgid "Right"
 msgstr "Rechts"
 
@@ -5721,8 +5723,8 @@ msgid ""
 "Accounts marked by your administrator as \"cannot be changed\" will not be "
 "removed."
 msgstr ""
-"Accounts door uw systeembeheerder gemarkeerd als \"kan niet gewijzigd worden"
-"\" zullen niet worden verwijderd."
+"Accounts door uw systeembeheerder gemarkeerd als \"kan niet gewijzigd "
+"worden\" zullen niet worden verwijderd."
 
 msgid ""
 "grommunio Web will automatically restart in order for these changes to take "
@@ -6944,9 +6946,6 @@ msgstr "Geen gegevens ontvangen."
 msgid "Account is empty."
 msgstr "De rekening is leeg."
 
-msgid "Current password does not match."
-msgstr "Huidig wachtwoord komt niet overeen."
-
 msgid ""
 "Your password is wrong or you have insufficient permission to change password"
 msgstr ""
@@ -6956,8 +6955,12 @@ msgstr ""
 msgid "Password is not changed."
 msgstr "Wachtwoord is niet gewijzigd."
 
-msgid "Error changing password. Please contact the system administrator."
-msgstr "Fout bij wijzigen wachtwoord. Neem contact op met de systeembeheerder."
+msgid ""
+"Error changing password. Please verify your password or contact the system "
+"administrator."
+msgstr ""
+"Fout bij het wijzigen van het wachtwoord. Controleer uw wachtwoord of neem "
+"contact op met de systeembeheerder."
 
 msgid "Password has been changed successfully."
 msgstr "Wachtwoord is succesvol gewijzigd."

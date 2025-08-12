@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Farsi (Iran)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-19 00:03+0100\n"
+"POT-Creation-Date: 2025-08-13 00:05+0200\n"
 "PO-Revision-Date: 2017-10-05 19:48+0200\n"
 "Last-Translator: import\n"
 "Language: fa_IR\n"
@@ -1325,6 +1325,9 @@ msgid "All day: "
 msgstr ""
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F Y"
+msgstr ""
+
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F"
@@ -2237,10 +2240,6 @@ msgid "No freebusy information available for this date"
 msgstr ""
 
 msgid "No suggestions available"
-msgstr ""
-
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "l jS F Y"
 msgstr ""
 
 msgid "Switch between different contexts e.g. inbox, calendar, etc."
@@ -4492,6 +4491,9 @@ msgstr ""
 msgid "{A}Automatically mark mail as read after {B} second(s)"
 msgstr ""
 
+msgid "View mail in this format"
+msgstr ""
+
 msgid "Right"
 msgstr ""
 
@@ -6668,9 +6670,6 @@ msgstr ""
 msgid "Account is empty."
 msgstr ""
 
-msgid "Current password does not match."
-msgstr ""
-
 msgid ""
 "Your password is wrong or you have insufficient permission to change password"
 msgstr ""
@@ -6678,7 +6677,9 @@ msgstr ""
 msgid "Password is not changed."
 msgstr ""
 
-msgid "Error changing password. Please contact the system administrator."
+msgid ""
+"Error changing password. Please verify your password or contact the system "
+"administrator."
 msgstr ""
 
 msgid "Password has been changed successfully."

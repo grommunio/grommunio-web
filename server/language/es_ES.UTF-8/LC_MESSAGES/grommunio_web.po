@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Spanish (Spain)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-19 00:03+0100\n"
+"POT-Creation-Date: 2025-08-13 00:05+0200\n"
 "PO-Revision-Date: 2024-01-03 16:10+0000\n"
 "Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/grommunio/"
@@ -1420,6 +1420,10 @@ msgid "All day: "
 msgstr "Todo el día: "
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#, fuzzy
+msgid "l jS F Y"
+msgstr "jS F Y"
+
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F"
@@ -2496,11 +2500,6 @@ msgstr "No hay información disponible de freebusy para esta fecha"
 
 msgid "No suggestions available"
 msgstr "No hay sugerencias disponibles"
-
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
-msgid "l jS F Y"
-msgstr "jS F Y"
 
 msgid "Switch between different contexts e.g. inbox, calendar, etc."
 msgstr ""
@@ -4999,6 +4998,9 @@ msgstr "Preguntarme antes de enviar respuesta"
 #. The '{B}' represents the number of seconds which the user will type in.
 msgid "{A}Automatically mark mail as read after {B} second(s)"
 msgstr "{A} Marcar automáticamente correo como leído después de {B} segundo(s)"
+
+msgid "View mail in this format"
+msgstr ""
 
 msgid "Right"
 msgstr "Derecho"
@@ -7644,9 +7646,6 @@ msgstr "No se han recibido datos."
 msgid "Account is empty."
 msgstr "La cuenta está vacía."
 
-msgid "Current password does not match."
-msgstr "Las contraseñas actuales no coinciden."
-
 #, fuzzy
 msgid ""
 "Your password is wrong or you have insufficient permission to change password"
@@ -7657,11 +7656,10 @@ msgstr ""
 msgid "Password is not changed."
 msgstr "La contraseña no se cambia."
 
-#, fuzzy
-msgid "Error changing password. Please contact the system administrator."
+msgid ""
+"Error changing password. Please verify your password or contact the system "
+"administrator."
 msgstr ""
-"Error al cambiar la contraseña. Póngase en contacto con el administrador del "
-"sistema."
 
 #, fuzzy
 msgid "Password has been changed successfully."
@@ -8178,9 +8176,9 @@ msgid ""
 "click the %1$s folder > properties > permissions)."
 msgstr ""
 "No tiene suficientes privilegios para abrir esta carpeta %1$s. El "
-"propietario de la carpeta puede establecerlos mediante la pestaña \"permisos"
-"\" de las propiedades de la carpeta (haga clic con el botón derecho en la "
-"carpeta %1$s > propiedades > permisos)."
+"propietario de la carpeta puede establecerlos mediante la pestaña "
+"\"permisos\" de las propiedades de la carpeta (haga clic con el botón "
+"derecho en la carpeta %1$s > propiedades > permisos)."
 
 msgid "default"
 msgstr "por defecto"
