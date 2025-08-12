@@ -7019,7 +7019,6 @@ msgid ""
 "Error changing password. Please verify your password or contact the system "
 "administrator."
 msgstr ""
- msgstr ""
 "Fehler beim Ändern des Passwortes. Bitte prüfen Sie Ihr Passwort oder "
 "kontaktieren Sie Ihren Systemadministrator."
 
