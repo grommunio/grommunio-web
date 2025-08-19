@@ -1493,13 +1493,19 @@ class Operations {
 	 * @deprecated This function is not used, because it is much too slow to run on all messages in your inbox
 	 */
 	public function hasOnlyInlineAttachments($message) {
-		$attachmentTable = mapi_message_getattachmenttable($message);
-		if ($attachmentTable) {
-			$attachments = mapi_table_queryallrows($attachmentTable, [PR_ATTACHMENT_HIDDEN]);
-			foreach ($attachments as $attachmentRow) {
-				if (!isset($attachmentRow[PR_ATTACHMENT_HIDDEN]) || !$attachmentRow[PR_ATTACHMENT_HIDDEN]) {
-					return false;
-				}
+		$attachmentTable = @mapi_message_getattachmenttable($message);
+		if (!$attachmentTable) {
+			return false;
+		}
+
+		$attachments = @mapi_table_queryallrows($attachmentTable, [PR_ATTACHMENT_HIDDEN]);
+		if (empty($attachments)) {
+			return false;
+		}
+
+		foreach ($attachments as $attachmentRow) {
+			if (!isset($attachmentRow[PR_ATTACHMENT_HIDDEN]) || !$attachmentRow[PR_ATTACHMENT_HIDDEN]) {
+				return false;
 			}
 		}
 
