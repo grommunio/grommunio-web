@@ -780,19 +780,19 @@ class Pluginsmime extends Plugin {
 		$encryptionStore = EncryptionStore::getInstance();
 		// Only the newest one is returned
 		$certs = readPrivateCert($this->getStore(), $encryptionStore->get('smime'));
-
 		// Retrieve intermediate CA's for verification, if available
+		$flags = PKCS7_DETACHED | PKCS7_TEXT;
 		if (isset($certs['extracerts'])) {
 			$tmpFile = tempnam(sys_get_temp_dir(), true);
 			file_put_contents($tmpFile, implode('', $certs['extracerts']));
-			$ok = openssl_pkcs7_sign($infile, $outfile, $certs['cert'], [$certs['pkey'], ''], [], PKCS7_DETACHED, $tmpFile);
+			$ok = openssl_pkcs7_sign($infile, $outfile, $certs['cert'], [$certs['pkey'], ''], [], $flags, $tmpFile);
 			if (!$ok) {
 				Log::Write(LOGLEVEL_ERROR, sprintf("[smime] Unable to sign message with intermediate certificates, openssl error: '%s'", @openssl_error_string()));
 			}
 			unlink($tmpFile);
 		}
 		else {
-			$ok = openssl_pkcs7_sign($infile, $outfile, $certs['cert'], [$certs['pkey'], ''], [], PKCS7_DETACHED);
+			$ok = openssl_pkcs7_sign($infile, $outfile, $certs['cert'], [$certs['pkey'], ''], [], $flags);
 			if (!$ok) {
 				Log::Write(LOGLEVEL_ERROR, sprintf("[smime] Unable to sign message, openssl error: '%s'", @openssl_error_string()));
 			}
