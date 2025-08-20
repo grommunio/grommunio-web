@@ -327,7 +327,9 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 					'user' : user.getSMTPAddress()
 				},
 				new Zarafa.plugins.smime.data.SmimeResponseHandler({
-					successCallback : plugin.onEncryptCertificateCallback.createDelegate(plugin, [dialog, button, newClass], true)
+					successCallback: function(response) {
+						plugin.onEncryptCertificateCallback(dialog, button, newClass, response);
+					}
 				})
 			);
 			break;
