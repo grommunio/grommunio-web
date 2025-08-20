@@ -290,23 +290,8 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 		var record = dialog.record;
 		if (!record)
 			return;
+
 		switch (record.get('message_class')) {
-		// Sign and Encrypt
-		case 'IPM.Note.deferSMIME.MultipartSigned':
-			record.set('message_class', 'IPM.Note.deferSMIME.SignedEncrypt');
-			button.setIconClass('icon_smime_encrypt_selected');
-
-			// Add event to check if all recipients have a public key
-			dialog.on('beforesendrecord', this.onBeforeSendRecord ,this);
-			break;
-		// We want to encrypt
-		case 'IPM.Note':
-			button.setIconClass('icon_smime_encrypt_selected');
-			record.set('message_class', 'IPM.Note.deferSMIME');
-
-			// Add event to check if all recipients have a public key
-			dialog.on('beforesendrecord', this.onBeforeSendRecord ,this);
-			break;
 		// Unselecting encrypt functionality
 		case 'IPM.Note.deferSMIME':
 		case 'IPM.Note.deferSMIME.SignedEncrypt':
@@ -324,9 +309,50 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 
 			// Remove event
 			dialog.un('beforesendrecord', this.onBeforeSendRecord ,this);
+			dialog.saveRecord();
+			break;
+
+		// We want to encrypt (possibly also sign + encrypt)
+		case 'IPM.Note.deferSMIME.MultipartSigned':
+		case 'IPM.Note':
+			var plugin = this;
+			var user = container.getUser();
+			var newClass = record.get('message_class') === 'IPM.Note' ?
+				'IPM.Note.deferSMIME' : 'IPM.Note.deferSMIME.SignedEncrypt';
+
+			container.getRequest().singleRequest(
+				'pluginsmimemodule',
+				'certificate',
+				{
+					'user' : user.getSMTPAddress()
+				},
+				new Zarafa.plugins.smime.data.SmimeResponseHandler({
+					successCallback : plugin.onEncryptCertificateCallback.createDelegate(plugin, [dialog, button, newClass], true)
+				})
+			);
 			break;
 		}
-		dialog.saveRecord();
+	},
+
+	/**
+	* successCallback function for the request to verify if a certificate exists for encryption.
+	* If the certificate exists we can set the message_class and icon, otherwise notify the user.
+	*
+	* @param {Zarafa.mailcreatecontentpanel} dialog
+	* @param {Ext.button} button
+	* @param {String} messageClass
+	* @param {Object} response Json object containing the response from PHP
+	*/
+	onEncryptCertificateCallback : function(dialog, button, messageClass, response) {
+		if (response.status) {
+			var record = dialog.record;
+			record.set('message_class', messageClass);
+			button.setIconClass('icon_smime_encrypt_selected');
+			dialog.on('beforesendrecord', this.onBeforeSendRecord ,this);
+			dialog.saveRecord();
+		} else {
+			container.getNotifier().notify('info.saved', _('S/MIME Message'), response.message);
+		}
 	},
 
 	/**
