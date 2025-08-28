@@ -43,11 +43,12 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 				case 'phrase':
 				case 'word':
 					if ( keyword === false ) {
-						if ( boolOps.indexOf(match[1]) > -1 ) {
-							ctx.accept('operator', {op: match[1]});
-						} else {
-							ctx.accept(rule.name, match[1]);
-						}
+						var op = match[1].toUpperCase();
+					if ( boolOps.indexOf(op) > -1 ) {
+						ctx.accept('operator', {op: op});
+					} else {
+						ctx.accept(rule.name, match[1]);
+					}
 					} else {
 						// We found an expression
 						ctx.accept('expression', {key: keyword, op: operator, val: match[1]});
@@ -55,12 +56,12 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 						operator = false;
 					}
 					break;
-				default:
-					if ( keyword ) {
-						ctx.accept('word', keyword);
-						keyword = false;
-						operator = false;
-					}
+			default:
+				if ( keyword ) {
+					ctx.accept('word', keyword);
+					keyword = false;
+					operator = false;
+				}
 			}
 		});
 
@@ -192,6 +193,19 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 	normalize: function(tokens) {
 		// make sure we don't change the original tokens
 		tokens = JSON.parse(JSON.stringify(tokens));
+
+		// Convert plain words or quoted phrases into expressions that
+		// search across all indexed fields. This allows queries like
+		// "foo AND bar" without specifying a field name.
+		tokens = tokens.map(function(token) {
+			if ( token.type === 'word' || token.type === 'phrase' ) {
+				return {
+					type: 'expression',
+					value: {key: 'any', op: ':', val: token.value}
+				};
+			}
+			return token;
+		});
 
 		var t = [];
 		var lastToken = null;
@@ -355,9 +369,20 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 			cc: [{type:'recipient', recipientType: Zarafa.core.mapi.RecipientType.MAPI_CC}],
 			bcc: [{type:'recipient', recipientType: Zarafa.core.mapi.RecipientType.MAPI_BCC}],
 			category: ['categories'],
-			attachment: [{type: 'attachment'}]
+			attachment: [{type: 'attachment'}],
+			// default search across multiple fields
+			any: [
+				'subject',
+				'body',
+				'sender_name',
+				'sender_email_address',
+				{type:'recipient', recipientType: Zarafa.core.mapi.RecipientType.MAPI_TO},
+				{type:'recipient', recipientType: Zarafa.core.mapi.RecipientType.MAPI_CC},
+				{type:'recipient', recipientType: Zarafa.core.mapi.RecipientType.MAPI_BCC},
+				{type: 'attachment'}
+			]
 		};
-		var res = [];
+		var restrictions = [];
 
 		// find the operator used in the restriction
 		var op = tokens.filter(function(t) {
@@ -376,8 +401,9 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 					return;
 				}
 				propMap[token.value.key].forEach(function(prop) {
+					var r;
 					if ( typeof prop === 'string' ) {
-						var r =	this.createStringRestriction(prop, token.value.val);
+						r = this.createStringRestriction(prop, token.value.val);
 					} else if ( typeof prop === 'object' && prop.type === 'recipient' ) {
 						r = this.createRecipientRestriction(prop.recipientType, token.value.val);
 					} else if ( typeof prop === 'object' && prop.type === 'attachment' ) {
@@ -390,28 +416,34 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 				curRes.push(this.createTokenRestriction(token.value));
 			}
 
+			if ( curRes.length === 0 ) {
+				return;
+			}
+
 			if ( curRes.length > 1 ) {
 				curRes = Zarafa.core.data.RestrictionFactory.createResOr(curRes);
-			} else if ( curRes.length === 1 ) {
+			} else {
 				curRes = curRes[0];
 			}
 
-			if ( curRes.length ) {
-				if ( token.negate ) {
-					curRes = Zarafa.core.data.RestrictionFactory.createResNot(curRes);
-				}
-
-				res.push(curRes);
+			if ( token.negate ) {
+				curRes = Zarafa.core.data.RestrictionFactory.createResNot(curRes);
 			}
+
+			restrictions.push(curRes);
 		}, this);
 
-		if ( op === 'OR' ) {
-			res = Zarafa.core.data.RestrictionFactory.createResOr(res);
-		} else {
-			res = Zarafa.core.data.RestrictionFactory.createResAnd(res);
+		if ( restrictions.length === 0 ) {
+			return false;
 		}
 
-		return res;
+		if ( op === 'OR' ) {
+			restrictions = Zarafa.core.data.RestrictionFactory.createResOr(restrictions);
+		} else {
+			restrictions = Zarafa.core.data.RestrictionFactory.createResAnd(restrictions);
+		}
+
+		return restrictions;
 	},
 
 	/**

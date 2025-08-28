@@ -953,11 +953,15 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 		}
 
 		var tokens = Zarafa.advancesearch.KQLParser.tokenize(textFieldValue);
+		var andRes = [];
 		if ( tokens ) {
 			var tokenRes = Zarafa.advancesearch.KQLParser.createTokenRestriction(tokens);
-			var andRes = [tokenRes];
-		} else {
-			andRes = [];
+			if ( tokenRes ) {
+				andRes = [tokenRes];
+			} else {
+				// treat malformed KQL as plain search text
+				tokens = false;
+			}
 		}
 
 		var finalRes = [];
