@@ -210,6 +210,7 @@ class AdvancedSearchListModule extends ListModule {
 
 				case PR_DISPLAY_TO:
 				case PR_DISPLAY_CC:
+				case PR_DISPLAY_BCC:
 					$patterns['recipients'] = $subres[VALUE][$subres[ULPROPTAG]];
 					break;
 
@@ -261,7 +262,24 @@ class AdvancedSearchListModule extends ListModule {
 		}
 		elseif ($type == RES_SUBRESTRICTION) {
 			$subres = $restriction[1];
-			$patterns['has_attachments'] = $subres[ULPROPTAG] == PR_MESSAGE_ATTACHMENTS;
+			if ($subres[ULPROPTAG] == PR_MESSAGE_ATTACHMENTS) {
+				$patterns['has_attachments'] = true;
+			}
+			elseif ($subres[ULPROPTAG] == PR_MESSAGE_RECIPIENTS) {
+				$inner = $subres[RESTRICTION] ?? null;
+				if (is_array($inner) && $inner[0] == RES_AND) {
+					foreach ($inner[1] as $res) {
+						if ($res[0] == RES_OR) {
+							foreach ($res[1] as $orRes) {
+								if ($orRes[0] == RES_CONTENT) {
+									$patterns['recipients'] = $orRes[1][VALUE][$orRes[1][ULPROPTAG]];
+									break 2;
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 
