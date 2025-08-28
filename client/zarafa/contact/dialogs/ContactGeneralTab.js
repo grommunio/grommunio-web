@@ -413,7 +413,8 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			title: _('Additional information'),
 			items: [{
 				xtype: 'zarafa.editorfield',
-				useHtml: false,
+				useHtml: true,
+				readOnly: false,
 				ref: '../editorField',
 				anchor: '99% 99%',
 				height: 120,
@@ -760,6 +761,9 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 		}
 
 		this.record = record;
+
+		this.editorField.setAllowEdit(true);
+		this.editorField.setReadOnly(false);
 
 		this.getForm().loadRecord(record);
 
@@ -1240,7 +1244,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	onBodyChange: function(field, newValue, oldValue)
 	{
 		var record = this.record;
-		var isHtmlEditor = field instanceof Ext.form.HtmlEditor;
+		var isHtmlEditor = field.isXType && field.isXType('zarafa.htmleditor');
 
 		record.beginEdit();
 		record.setBody(newValue, isHtmlEditor);

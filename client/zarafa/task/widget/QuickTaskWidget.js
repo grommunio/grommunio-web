@@ -78,7 +78,7 @@ Zarafa.task.widgets.QuickTaskWidget = Ext.extend(Zarafa.core.ui.widget.AbstractQ
 						plaintextName: 'body',
 						hideLabel: true,
 						flex: 1,
-						useHtml: false,
+						useHtml: true,
 						defaultValue: '',
 						listeners: {
 							change: this.onBodyChange,

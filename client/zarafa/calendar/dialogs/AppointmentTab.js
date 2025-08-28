@@ -614,7 +614,8 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				ref: '../editorField',
 				hideLabel: true,
 				flex: 1,
-				useHtml: false,
+				useHtml: true,
+				readonly: false,
 				listeners: {
 					// Use the afterrender event to place the placeholder attribute
 					afterrender: function(){
@@ -776,7 +777,15 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 	 */
 	update: function(record, contentReset)
 	{
+
 		this.record = record;
+		var meetingStatus = record.get('meeting');
+		var isOrganizer = record.get('responsestatus') === Zarafa.core.mapi.ResponseStatus.RESPONSE_ORGANIZED;
+		var isAttendee = Ext.isDefined(meetingStatus) && meetingStatus !== Zarafa.core.mapi.MeetingStatus.NONMEETING && !isOrganizer;
+
+		this.editorField.setAllowEdit(!isAttendee);
+		this.editorField.setReadOnly(isAttendee);
+
 		this.updateUI(record, contentReset);
 		this.getForm().loadRecord(record);
 
@@ -1040,7 +1049,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 	onBodyChange: function(field, newValue, oldValue)
 	{
 		var record = this.record;
-		var isHtmlEditor = field instanceof Ext.form.HtmlEditor;
+		var isHtmlEditor = field.isXType && field.isXType('zarafa.htmleditor')
 
 		record.beginEdit();
 		record.setBody(newValue, isHtmlEditor);

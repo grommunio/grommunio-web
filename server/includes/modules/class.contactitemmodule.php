@@ -17,7 +17,7 @@ class ContactItemModule extends ItemModule {
 
 		parent::__construct($id, $data);
 
-		$this->plaintext = true;
+		$this->plaintext = false;
 	}
 
 	/**

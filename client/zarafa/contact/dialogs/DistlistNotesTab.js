@@ -26,7 +26,8 @@ Zarafa.contact.dialogs.DistlistNotesTab = Ext.extend(Ext.form.FormPanel, {
 			layout: 'fit',
 			items: [{
 				xtype: 'zarafa.editorfield',
-				useHtml: false,
+				useHtml: true,
+				readOnly: false,
 				ref: 'editorField',
 				plaintextName: 'body',
 				listeners: {
@@ -58,6 +59,9 @@ Zarafa.contact.dialogs.DistlistNotesTab = Ext.extend(Ext.form.FormPanel, {
 		}
 
 		this.record = record;
+
+		this.editorField.setAllowEdit(true);
+		this.editorField.setReadOnly(false);
 
 		this.getForm().loadRecord(this.record);
 	},

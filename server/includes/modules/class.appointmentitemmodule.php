@@ -37,7 +37,7 @@ class AppointmentItemModule extends ItemModule {
 
 		$this->properties = $GLOBALS['properties']->getAppointmentProperties();
 
-		$this->plaintext = true;
+		$this->plaintext = false;
 		$this->skipCopyProperties = [
 			$this->properties['goid'],
 			$this->properties['goid2'],

@@ -113,7 +113,7 @@ Zarafa.contact.widget.QuickContactWidget = Ext.extend(Zarafa.core.ui.widget.Abst
 						plaintextName: 'body',
 						hideLabel: true,
 						flex: 1,
-						useHtml: false,
+						useHtml: true,
 						defaultValue: '',
 						listeners: {
 							change: this.onBodyChange,
@@ -290,7 +290,7 @@ Zarafa.contact.widget.QuickContactWidget = Ext.extend(Zarafa.core.ui.widget.Abst
 	onBodyChange: function(field, newValue, oldValue)
 	{
 		this.wrap.record.beginEdit();
-		if (field instanceof Ext.form.HtmlEditor) {
+		if (field.isXType && field.isXType('zarafa.htmleditor')) {
 			this.wrap.record.set('isHTML', true);
 		} else {
 			this.wrap.record.set('isHTML', false);

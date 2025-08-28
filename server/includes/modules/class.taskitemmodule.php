@@ -17,7 +17,7 @@ class TaskItemModule extends ItemModule {
 
 		$this->properties = $GLOBALS["properties"]->getTaskProperties();
 
-		$this->plaintext = true;
+		$this->plaintext = false;
 	}
 
 	#[Override]

@@ -31,6 +31,13 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	defaultFontSize: undefined,
 
 	/**
+	 * Reference to the document inside the TinyMCE iframe for event cleanup.
+	 * @property
+	 * @type Document
+	 */
+	editorDoc: null,
+
+	/**
 	 * @constructor
 	 * @param config configuration object
 	 * @cfg enableOverflow set {@link Ext.Toolbar.enableOverflow enableOverflow} on the toolbar.
@@ -120,7 +127,12 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		 * @param {String} correctedValue The new (by browser corrected) value
 		 * @param {String} originalValue The value as set by the caller of setValue
 		 */
-		"valuecorrection");
+		"valuecorrection",
+		/**
+		 * @event dblclick
+		 * Fired when the user double clicks inside the editor content.
+		 */
+		"dblclick");
 
 		Zarafa.common.ui.HtmlEditor.superclass.constructor.call(this, config);
 
@@ -145,6 +157,11 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 
 		tinymceEditor.on("keydown", this.onKeyDown.createDelegate(this), this);
 		tinymceEditor.on("mousedown", this.relayIframeEvent.createDelegate(this), this);
+
+		var doc = tinymceEditor.getDoc();
+		Ext.EventManager.on(doc, 'click', this.onEditorClick, this);
+		Ext.EventManager.on(doc, 'dblclick', this.onEditorDocDblClick, this);
+		this.editorDoc = doc;
 
 		if (Ext.isGecko) {
 			tinymceEditor.on("dblclick", this.onDBLClick.createDelegate(this));
@@ -209,8 +226,15 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	onBeforeDestroy: function()
 	{
 		var editor = this.getEditor();
+
+		if (this.editorDoc) {
+			Ext.EventManager.removeListener(this.editorDoc, 'click', this.onEditorClick, this);
+			Ext.EventManager.removeListener(this.editorDoc, 'dblclick', this.onEditorDocDblClick, this);
+			this.editorDoc = null;
+		}
+
 		// Check if the editor was activated
-				if (editor) {
+		if (editor) {
 			editor.remove();
 		}
 	},
@@ -325,6 +349,22 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	},
 
 	/**
+	* Toggle read only mode for the underlying TinyMCE editor without
+	* disabling the component.
+	* @param {Boolean} readOnly True to make the editor read-only
+	*/
+	setReadOnly: function(readOnly)
+	{
+		this.readOnly = readOnly;
+		this.withEd((function() {
+			var ed = this.getEditor();
+			if (ed && ed.mode && ed.mode.set) {
+				ed.mode.set(readOnly ? 'readonly' : 'design');
+			}
+		}), this);
+	},
+
+	/**
 	 * Enable this component by calling parent class {@link Ext.ux.form.TinyMCETextArea.enable enable} function.
 	 * It also call the {@link #addDefaultFormatting} function to add the default formatting.
 	 */
@@ -383,6 +423,41 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		if (element === editor.getBody().firstChild && isEmptyBody) {
 			editor.selection.setCursorLocation(element.firstChild.firstChild, 0);
 		}
+	},
+
+	/**
+	 * Handle click events inside the editor and open hyperlinks while in read-only mode.
+	 * @param {Object} event The click event fired by TinyMCE
+	 */
+	onEditorClick: function(event)
+	{
+		if (!event.target) {
+			return;
+		}
+
+		var node = event.target;
+		while (node && node.nodeName !== 'A') {
+			node = node.parentNode;
+		}
+
+		if (node && node.nodeName === 'A') {
+			var href = node.getAttribute('href');
+			if (href) {
+				if (event.preventDefault) {
+					event.preventDefault();
+				}
+				window.open(href, '_blank');
+			}
+		}
+	},
+
+	/**
+	* Relay double click events from the iframe document to the component.
+	* @param {Object} event The DOM event
+	*/
+	onEditorDocDblClick: function(event)
+	{
+		this.fireEvent('dblclick', this, event);
 	},
 
 	/**

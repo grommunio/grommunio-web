@@ -481,7 +481,8 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				ref: '../editorField',
 				hideLabel: true,
 				flex: 1,
-				useHtml: false,
+				useHtml: true,
+				readOnly: false,
 				listeners: {
 					change: this.onBodyChange,
 					scope: this
@@ -514,7 +515,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			this.taskInfoPanel.setVisible(true);
 			this.taskAttachInfo.setVisible(record.get('hasattach'));
 
-			this.editorField.getEditor().setReadOnly(taskMode !== Zarafa.core.mapi.TaskMode.DECLINE);
+			this.editorField.setReadOnly(taskMode !== Zarafa.core.mapi.TaskMode.DECLINE);
 
 			this.recipientPanel.setVisible(false);
 			this.taskRequestSettingPanel.setVisible(false);
@@ -529,7 +530,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				this.taskAttachInfo.setVisible(false);
 				this.taskRequestSettingPanel.setVisible(false);
 				this.recipientPanel.setVisible(false);
-				this.editorField.getEditor().setReadOnly(false);
+				this.editorField.setReadOnly(false);
 				this.attachmentPanel.setVisible(true);
 				this.datetimePanel.setVisible(true);
 				this.subjectPanel.setVisible(true);
@@ -578,7 +579,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			}
 		}
 
-		if ( this.editorField.getEditor().readOnly ){
+		if ( this.editorField.readOnly ){
 			this.editorField.getEditor().getEl().set({placeholder: ''});
 		} else {
 			this.editorField.getEditor().getEl().set({placeholder: _('Type your message here…')});

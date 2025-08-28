@@ -87,7 +87,7 @@ Zarafa.calendar.widget.QuickAppointmentWidget = Ext.extend(Zarafa.core.ui.widget
 						plaintextName: 'body',
 						hideLabel: true,
 						flex: 1,
-						useHtml: false,
+						useHtml: true,
 						defaultValue: '',
 						listeners: {
 							change: this.onBodyChange,

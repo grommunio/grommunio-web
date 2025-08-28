@@ -248,7 +248,7 @@ Zarafa.core.ui.widget.AbstractQuickItemWidget = Ext.extend(Zarafa.core.ui.widget
 	onBodyChange: function(field, newValue, oldValue)
 	{
 		this.wrap.record.beginEdit();
-		if (field instanceof Ext.form.HtmlEditor) {
+		if (field.isXType && field.isXType('zarafa.htmleditor')) {
 			this.wrap.record.set('isHTML', true);
 		} else {
 			this.wrap.record.set('isHTML', false);

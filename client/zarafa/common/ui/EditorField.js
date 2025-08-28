@@ -36,6 +36,11 @@ Zarafa.common.ui.EditorField = Ext.extend(Ext.Container, {
 	 */
 	plaintextName: '',
 	/**
+	 * @cfg {Boolean} readOnly Start the editor in read only mode. When enabled the
+	 * editor will switch to edit mode on double click.
+	 */
+	readOnly: false,
+	/**
 	 * @cfg {Object} componentConfig (optional) The configuration object which must be
 	 * used for the Editor component. This can be the configuration object for the
 	 * {@link Zarafa.common.ui.HtmlEditor HtmlEditor} and {@link Zarafa.common.ui.TextArea textarea}.
@@ -49,6 +54,12 @@ Zarafa.common.ui.EditorField = Ext.extend(Ext.Container, {
 	 * This allows the user to listen to events directly coming from the Editor.
 	 */
 	relayedEvents: ['change', 'valuecorrection','keypress', 'initialized'],
+	/**
+	 * @cfg {Boolean} allowEdit Allow switching from read only to edit mode by
+	 * double clicking the editor. When disabled the editor will remain
+	 * read only.
+	 */
+	allowEdit: true,
 	/**
 	 * @cfg {Boolean} enableSystemContextMenu Enable the browser's default contextmenu
 	 * to be opened on the {@link #items element}.
@@ -88,6 +99,8 @@ Zarafa.common.ui.EditorField = Ext.extend(Ext.Container, {
 
 		this.on('beforerender', this.onBeforeRender, this);
 		this.on('setAutoFocusCursor', this.onSetAutoFocusCursor, this);
+		this.on('initialized', this.onEditorInitialized, this);
+		this.on('show', this.onShow, this);
 	},
 
 	/**
@@ -168,6 +181,107 @@ Zarafa.common.ui.EditorField = Ext.extend(Ext.Container, {
 			this.items.each(function(item) {
 				this.relayEvents(item, this.relayedEvents);
 			}, this);
+		}
+	},
+
+	/**
+	 * Called when the underlying editor finished initializing. This will set the
+	 * configured readOnly state and register a double click handler to switch
+	 * to edit mode.
+	 */
+	onEditorInitialized: function()
+	{
+		this.setReadOnly(this.readOnly);
+
+		if (this.readOnly && this.allowEdit) {
+			var editor = this.getEditor();
+			this.dblClickListener = function() {
+				this.setReadOnly(false);
+			};
+			editor.on('dblclick', this.dblClickListener, this);
+		}
+	},
+
+	/**
+	 * Toggle read-only state on the current editor.
+	 * @param {Boolean} readOnly True to make the editor read-only
+	 */
+	setReadOnly: function(readOnly)
+	{
+		this.readOnly = readOnly;
+		var editor = this.getEditor();
+		editor.readOnly = readOnly;
+		if (Ext.isFunction(editor.setReadOnly)) {
+			editor.setReadOnly(readOnly);
+		} else if (readOnly && Ext.isFunction(editor.disable)) {
+			editor.disable();
+		} else if (!readOnly && Ext.isFunction(editor.enable)) {
+			editor.enable();
+		}
+
+		if (!readOnly && Ext.isFunction(editor.focus)) {
+			editor.focus(false, 50);
+		}
+
+		if (editor) {
+			if (!readOnly && this.dblClickListener) {
+				editor.un('dblclick', this.dblClickListener, this);
+				this.dblClickListener = null;
+			} else if (readOnly && this.allowEdit && !this.dblClickListener) {
+				this.dblClickListener = function() {
+					this.setReadOnly(false);
+				};
+				editor.on('dblclick', this.dblClickListener, this);
+			}
+		}
+	},
+
+	/**
+	 * Enable or disable switching to edit mode by double click.
+	 * @param {Boolean} allow True to allow editing
+	 */
+	setAllowEdit: function(allow)
+	{
+		this.allowEdit = allow;
+		var editor = this.getEditor();
+		if (editor) {
+			if (this.dblClickListener) {
+				editor.un('dblclick', this.dblClickListener, this);
+				this.dblClickListener = null;
+			}
+			if (allow && this.readOnly) {
+				this.dblClickListener = function() {
+					this.setReadOnly(false);
+				};
+				editor.on('dblclick', this.dblClickListener, this);
+			}
+		}
+	},
+
+	/**
+	 * Ensure the HTML editor is active when showing this field so HTML is rendered
+	 * instead of displayed as plain text after switching tabs.
+	 */
+	onShow: function()
+	{
+		var layout = this.getLayout();
+
+		// Ensure the HTML editor component is active so HTML is rendered
+		if (this.useHtml && layout.activeItem !== this.items.get(0)) {
+			var value = this.getValue();
+			this.setHtmlEditor(true, false);
+			this.setValue(value);
+		}
+
+		// When returning to this field, TinyMCE might have been hidden; reload it
+		var editor = this.getEditor();
+		if (editor && Ext.isFunction(editor.withEd)) {
+			editor.withEd(function() {
+				var ed = editor.getEditor();
+				if (ed && ed.isHidden()) {
+					ed.load();
+				}
+			});
 		}
 	},
 
