@@ -379,7 +379,6 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 				{type:'recipient', recipientType: Zarafa.core.mapi.RecipientType.MAPI_TO},
 				{type:'recipient', recipientType: Zarafa.core.mapi.RecipientType.MAPI_CC},
 				{type:'recipient', recipientType: Zarafa.core.mapi.RecipientType.MAPI_BCC},
-				{type: 'attachment'}
 			]
 		};
 		var restrictions = [];
