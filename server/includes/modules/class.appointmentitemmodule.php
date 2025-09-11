@@ -76,7 +76,7 @@ class AppointmentItemModule extends ItemModule {
 			}
 			else {
 				// add all standard properties from the series/normal message
-				$data['item'] = $GLOBALS['operations']->getMessageProps($store, $message, $this->properties, $this->plaintext);
+				$data['item'] = $GLOBALS['operations']->getMessageProps($store, $message, $this->properties, $this->plaintext, true);
 			}
 
 			if (!empty($action["timezone_iana"])) {
@@ -108,7 +108,7 @@ class AppointmentItemModule extends ItemModule {
 						$exception = mapi_attach_openobj($exceptionatt, 0);
 
 						// overwrite properties with the ones from the exception
-						$exceptionProps = $GLOBALS['operations']->getMessageProps($store, $exception, $this->properties, $this->plaintext);
+						$exceptionProps = $GLOBALS['operations']->getMessageProps($store, $exception, $this->properties, $this->plaintext, true);
 
 						/*
 						 * If recurring item has set reminder to true then

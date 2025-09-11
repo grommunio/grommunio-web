@@ -275,7 +275,7 @@ class CreateMailItemModule extends ItemModule {
 						$data['item'] = $GLOBALS['operations']->getEmbeddedMessageProps($store, $message, $this->properties, $savedMsg, $attachNum);
 					}
 					else {
-						$data = $GLOBALS['operations']->getMessageProps($store, $savedMsg, $this->properties, $this->plaintext);
+						$data = $GLOBALS['operations']->getMessageProps($store, $savedMsg, $this->properties, $this->plaintext, true);
 					}
 
 					/*

@@ -477,7 +477,7 @@ class ItemModule extends Module {
 		}
 		else {
 			// get message props of the message
-			$data['item'] = $GLOBALS['operations']->getMessageProps($store, $message, $this->properties, $this->plaintext);
+			$data['item'] = $GLOBALS['operations']->getMessageProps($store, $message, $this->properties, $this->plaintext, true);
 			$messageClass = $data['item']['props']['message_class'] ?? '';
 
 			// Check for meeting request, do processing if necessary

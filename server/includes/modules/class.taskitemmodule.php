@@ -44,7 +44,7 @@ class TaskItemModule extends ItemModule {
 			$data['item'] = $GLOBALS['operations']->getEmbeddedMessageProps($store, $message, $this->properties, $parentMessage, $attachNum);
 		}
 		else {
-			$data['item'] = $GLOBALS['operations']->getMessageProps($store, $message, $this->properties, $this->plaintext);
+			$data['item'] = $GLOBALS['operations']->getMessageProps($store, $message, $this->properties, $this->plaintext, true);
 
 			$tr = new TaskRequest($store, $message, $GLOBALS['mapisession']->getSession());
 			if ($tr->isTaskRequest() || $tr->isTaskRequestResponse()) {
@@ -80,7 +80,7 @@ class TaskItemModule extends ItemModule {
 		else {
 			$message = $GLOBALS['operations']->openMessage($store, $entryid);
 		}
-		$data['item'] = $GLOBALS['operations']->getMessageProps($store, $message, $this->properties, $this->plaintext);
+		$data['item'] = $GLOBALS['operations']->getMessageProps($store, $message, $this->properties, $this->plaintext, true);
 
 		return $data;
 	}
@@ -114,7 +114,7 @@ class TaskItemModule extends ItemModule {
 				if ($messageProps) {
 					$send = $action["message_action"]["send"] ?? false;
 					$message = $GLOBALS['operations']->openMessage($store, $messageProps[PR_ENTRYID]);
-					$data = $GLOBALS['operations']->getMessageProps($store, $message, $this->properties, $this->plaintext);
+					$data = $GLOBALS['operations']->getMessageProps($store, $message, $this->properties, $this->plaintext, true);
 
 					// taskupdates property true if assigner as checked "Keep copy of task in task list" checkbox.
 					// if it is not checked then it means user don't want assigned task copy in his task list.

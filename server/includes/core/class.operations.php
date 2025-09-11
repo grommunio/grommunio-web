@@ -1513,6 +1513,71 @@ class Operations {
 	}
 
 	/**
+	 * Retrieve and convert body content of a message.
+	 *
+	 * This function performs the heavy lifting of decompressing RTF, converting
+	 * code pages and extracting both the HTML and plain text bodies. It can be
+	 * called independently to lazily fetch body data when required.
+	 *
+	 * @param object $message   The MAPI Message Object
+	 * @param bool   $html2text true - body will be converted from html to text,
+	 *			    false - html body will be returned
+	 *
+	 * @return array associative array containing keys 'body', 'html_body' and 'isHTML'
+	 */
+	public function getMessageBody($message, $html2text = false) {
+		$result = [
+			'body' => '',
+			'isHTML' => false,
+		];
+
+		if (!$message) {
+			return $result;
+		}
+
+		$plaintext = $this->isPlainText($message);
+		$tmpProps = mapi_getprops($message, [PR_BODY, PR_HTML]);
+
+		if (empty($tmpProps[PR_HTML])) {
+			$tmpProps = mapi_getprops($message, [PR_BODY, PR_RTF_COMPRESSED]);
+			if (isset($tmpProps[PR_RTF_COMPRESSED])) {
+				$tmpProps[PR_HTML] = mapi_decompressrtf($tmpProps[PR_RTF_COMPRESSED]);
+			}
+		}
+
+		$htmlcontent = '';
+		if (!$plaintext && isset($tmpProps[PR_HTML])) {
+			$cpprops = mapi_message_getprops($message, [PR_INTERNET_CPID]);
+			$codepage = $cpprops[PR_INTERNET_CPID] ?? 65001;
+			$htmlcontent = Conversion::convertCodepageStringToUtf8($codepage, $tmpProps[PR_HTML]);
+			if (!empty($htmlcontent)) {
+				if ($html2text) {
+					$htmlcontent = '';
+				}
+				else {
+					$result['isHTML'] = true;
+				}
+			}
+
+			$htmlcontent = trim($htmlcontent, "\0");
+		}
+
+		if (isset($tmpProps[PR_BODY])) {
+			// only open property if it exists
+			$result['body'] = trim((string) mapi_message_openproperty($message, PR_BODY), "\0");
+		}
+		elseif ($html2text && isset($tmpProps[PR_HTML])) {
+			$result['body'] = strip_tags((string) $tmpProps[PR_HTML]);
+		}
+
+		if (!empty($htmlcontent)) {
+			$result['html_body'] = $htmlcontent;
+		}
+
+		return $result;
+	}
+
+	/**
 	 * Read message properties.
 	 *
 	 * Reads a message and returns the data as an XML array structure with all data from the message that is needed
@@ -1522,12 +1587,13 @@ class Operations {
 	 * @param object $message    The MAPI Message Object
 	 * @param array  $properties Mapping of properties that should be read
 	 * @param bool   $html2text  true - body will be converted from html to text, false - html body will be returned
+	 * @param bool   $loadBody   true - fetch body content, false - skip body retrieval
 	 *
 	 * @return array item properties
 	 *
 	 * @todo Function name is misleading as it doesn't just get message properties
 	 */
-	public function getMessageProps($store, $message, $properties, $html2text = false) {
+	public function getMessageProps($store, $message, $properties, $html2text = false, $loadBody = false) {
 		$props = [];
 
 		if ($message) {
@@ -1582,55 +1648,13 @@ class Operations {
 				$props["props"]["received_by_email_address"] = $this->getEmailAddress($smtpprops[PR_RECEIVED_BY_ENTRYID], $receivedSearchKey);
 			}
 
-			// Get body content
-			// TODO: Move retrieving the body to a separate function.
-			$plaintext = $this->isPlainText($message);
-			$tmpProps = mapi_getprops($message, [PR_BODY, PR_HTML]);
-
-			if (empty($tmpProps[PR_HTML])) {
-				$tmpProps = mapi_getprops($message, [PR_BODY, PR_RTF_COMPRESSED]);
-				if (isset($tmpProps[PR_RTF_COMPRESSED])) {
-					$tmpProps[PR_HTML] = mapi_decompressrtf($tmpProps[PR_RTF_COMPRESSED]);
-				}
+			$props['props']['isHTML'] = false;
+			$htmlcontent = null;
+			if ($loadBody) {
+				$body = $this->getMessageBody($message, $html2text);
+				$props['props'] = array_merge($props['props'], $body);
+				$htmlcontent = $body['html_body'] ?? null;
 			}
-
-			$htmlcontent = '';
-			$plaincontent = '';
-			if (!$plaintext && isset($tmpProps[PR_HTML])) {
-				$cpprops = mapi_message_getprops($message, [PR_INTERNET_CPID]);
-				$codepage = $cpprops[PR_INTERNET_CPID] ?? 65001;
-				$htmlcontent = Conversion::convertCodepageStringToUtf8($codepage, $tmpProps[PR_HTML]);
-				if (!empty($htmlcontent)) {
-					if ($html2text) {
-						$htmlcontent = '';
-					}
-					else {
-						$props["props"]["isHTML"] = true;
-					}
-				}
-
-				$htmlcontent = trim($htmlcontent, "\0");
-			}
-
-			if (isset($tmpProps[PR_BODY])) {
-				// only open property if it exists
-				$plaincontent = mapi_message_openproperty($message, PR_BODY);
-				$plaincontent = trim($plaincontent, "\0");
-			}
-			else {
-				if ($html2text && isset($tmpProps[PR_HTML])) {
-					$plaincontent = strip_tags((string) $tmpProps[PR_HTML]);
-				}
-			}
-
-			if (!empty($htmlcontent)) {
-				$props["props"]["html_body"] = $htmlcontent;
-				$props["props"]["isHTML"] = true;
-			}
-			else {
-				$props["props"]["isHTML"] = false;
-			}
-			$props["props"]["body"] = $plaincontent;
 
 			// Get reply-to information, otherwise consider the sender to be the reply-to person.
 			$props['reply-to'] = ['item' => []];
@@ -1687,7 +1711,7 @@ class Operations {
 						$cid_found = true;
 					}
 				}
-				if ($cid_found === true && isset($htmlcontent)) {
+				if ($loadBody && $cid_found === true && $htmlcontent !== null) {
 					preg_match_all('/src="cid:(.*)"/Uims', $htmlcontent, $matches);
 					if (count($matches) > 0) {
 						$search = [];
@@ -1809,7 +1833,7 @@ class Operations {
 			default => true,
 		};
 
-		$props = $this->getMessageProps($store, $message, $properties, $html2text);
+		$props = $this->getMessageProps($store, $message, $properties, $html2text, true);
 
 		// sub message will not be having entryid, so use parent's entryid
 		$parentProps = mapi_getprops($parentMessage, [PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID]);

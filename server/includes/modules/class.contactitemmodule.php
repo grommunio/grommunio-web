@@ -95,7 +95,7 @@ class ContactItemModule extends ItemModule {
 			}
 
 			// get message props of the message
-			$data['item'] = $GLOBALS['operations']->getMessageProps($store, $message, $this->properties, $this->plaintext);
+			$data['item'] = $GLOBALS['operations']->getMessageProps($store, $message, $this->properties, $this->plaintext, true);
 		}
 
 		// By openentry from address book, the entryid will differ, make it same as the origin
