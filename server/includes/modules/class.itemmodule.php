@@ -459,11 +459,20 @@ class ItemModule extends Module {
 			return;
 		}
 
-		// Decode smime signed messages on this message
-		parse_smime($store, $message);
+		// Detect whether S/MIME decoding or meeting request processing is required
+		$props = mapi_getprops($message, [PR_MESSAGE_CLASS]);
+		$messageClass = $props[PR_MESSAGE_CLASS] ?? '';
+		$requiresSmime = stripos($messageClass, 'SMIME') !== false;
+		$requiresMeeting = stripos($messageClass, 'IPM.Schedule.Meeting') !== false;
+
+		// Decode S/MIME signed messages only when needed
+		if ($requiresSmime) {
+			parse_smime($store, $message);
+		}
 
 		// Open embedded message if requested
 		$attachNum = !empty($action['attach_num']) ? $action['attach_num'] : false;
+
 		if ($attachNum) {
 			// get message props of sub message
 			$parentMessage = $message;
@@ -478,10 +487,15 @@ class ItemModule extends Module {
 		else {
 			// get message props of the message
 			$data['item'] = $GLOBALS['operations']->getMessageProps($store, $message, $this->properties, $this->plaintext, true);
-			$messageClass = $data['item']['props']['message_class'] ?? '';
+			$messageClass = $data['item']['props']['message_class'] ?? $messageClass;
+
+			// Determine again if meeting processing is required after parsing
+			if (!$requiresMeeting) {
+				$requiresMeeting = stripos($messageClass, 'IPM.Schedule.Meeting') !== false;
+			}
 
 			// Check for meeting request, do processing if necessary
-			if (stripos($messageClass, 'IPM.Schedule.Meeting') !== false) {
+			if ($requiresMeeting) {
 				$req = new Meetingrequest($store, $message, $GLOBALS['mapisession']->getSession(), $this->directBookingMeetingRequest);
 
 				try {
