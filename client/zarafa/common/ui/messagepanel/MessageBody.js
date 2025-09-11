@@ -246,8 +246,8 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 		// Add listener to enlarge image
 		this.setImageClickHandler(iframeDocument);
 
-		this.scanDOMForLinks(iframeDocument);
-		this.handleMailToLinks(iframeDocumentElement);
+		// Defer heavy DOM scanning to keep initial render responsive.
+		this.deferLinkification(iframeDocument, iframeDocumentElement);
 
 		var rootContainer = this.recordComponentUpdaterPlugin.rootContainer;
 		if(rootContainer) {
@@ -256,6 +256,29 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			// rootContainer as an argument in callback function.
 			Zarafa.core.KeyMapMgr.activate(rootContainer, 'global', iframeDocumentElement);
 			Zarafa.core.KeyMapMgr.activate(rootContainer, 'contentpanel.record.message.showmail', iframeDocumentElement);
+		}
+	},
+
+
+	/**
+	 * Schedule linkification of the message body when the browser is idle.
+	 * This avoids blocking the UI with expensive DOM operations during the
+	 * initial rendering of large messages.
+	 * @param {Document} doc The iframe document to scan
+	 * @param {Ext.Element} docEl The Ext.Element wrapper for the document
+	 * @private
+	 */
+	deferLinkification: function(doc, docEl)
+	{
+		var fn = function(){
+			this.scanDOMForLinks(doc);
+			this.handleMailToLinks(docEl);
+		}.createDelegate(this);
+
+		if (window.requestIdleCallback) {
+			window.requestIdleCallback(fn);
+		} else {
+			Ext.defer(fn, 0);
 		}
 	},
 
