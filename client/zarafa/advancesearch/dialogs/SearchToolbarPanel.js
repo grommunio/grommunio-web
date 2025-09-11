@@ -30,7 +30,7 @@ Zarafa.advancesearch.dialogs.SearchToolbarPanel = Ext.extend(Ext.Panel, {
 			plugins: [{
 				ptype: 'zarafa.recordcomponentplugin',
 				enableOpenLoadTask: true,
-				autoOpenLoadTaskDefer: 250
+				autoOpenLoadTaskDefer: 0
 			},{
 				ptype: 'zarafa.recordcomponentupdaterplugin'
 			}],

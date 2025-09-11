@@ -25,7 +25,7 @@ Zarafa.mail.ui.MailPreviewPanel = Ext.extend(Zarafa.core.ui.PreviewPanel, {
 				// Defer loading mail immediately, because the user
 				// might be quickly clicking through the list of mails.
 				enableOpenLoadTask: true,
-				autoOpenLoadTaskDefer: 250
+				autoOpenLoadTaskDefer: 0
 			}),
 			width: 600,
 			height: 400,
