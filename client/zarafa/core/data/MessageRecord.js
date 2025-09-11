@@ -46,6 +46,14 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	externalContent: false,
 
 	/**
+	 * Cached sanitized HTML body. This avoids running DOMPurify on the
+	 * same message body multiple times when a record is viewed repeatedly.
+	 * @property
+	 * @type String
+	 */
+	sanitizedHTMLBody: null,
+
+	/**
 	 * Function will check if {@link Zarafa.core.data.IPMRecord IPMRecord} contains external content
 	 * in the body property.
 	 * @param {String} body (optional) contents of body property of {@link Zarafa.core.data.IPMRecord IPMRecord}.
@@ -93,6 +101,27 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 		} else {
 			return actualBody;
 		}
+	},
+
+	/**
+	 * Return the sanitized HTML body. The result is cached to prevent
+	 * expensive sanitization on subsequent requests for the same record.
+	 *
+	 * @return {String} sanitized HTML body without the DOCTYPE prefix.
+	 */
+	getSanitizedHtmlBody: function()
+	{
+		if (!Ext.isEmpty(this.sanitizedHTMLBody) && !this.isModifiedSinceLastUpdate('html_body')) {
+			return this.sanitizedHTMLBody;
+		}
+
+		var body = this.getBody(true);
+		if (container.getServerConfig().getDOMPurifyEnabled()) {
+			body = DOMPurify.sanitize(body, {USE_PROFILES: {html: true}});
+		}
+		this.sanitizedHTMLBody = this.cleanupOutlookStyles(body);
+
+		return this.sanitizedHTMLBody;
 	},
 
 	/**
