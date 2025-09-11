@@ -1016,6 +1016,7 @@ class Properties {
 		$properties = $this->getMailProperties();
 
 		unset(
+			$properties['access'],
 			$properties['transport_message_headers'],
 			$properties['appointment_startdate'],
 			$properties['appointment_duedate'],
