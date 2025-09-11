@@ -135,8 +135,11 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	{
 		if (record && record.get('hasattach') && record.hasVisibleAttachments()) {
 			if (record.isOpened()) {
-				this.bindStore(record.getAttachmentStore());
-				this.setVisible(true);
+				// Defer binding the attachment store so message text renders first.
+				Ext.defer(function(){
+					this.bindStore(record.getAttachmentStore());
+					this.setVisible(true);
+				}, 100, this);
 			}
 		} else {
 			this.bindStore(null);

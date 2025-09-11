@@ -207,24 +207,44 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			Zarafa.core.KeyMapMgr.deactivate(iframeDocumentElement);
 		}
 
+
 		if (Ext.isDefined(record)) {
 			// Display a 'loading' message. If the message is in HTML we can directly render it,
 			// otherwise we have to surround it with HTML tags for displaying plain-text.
 			html = record.get('isHTML');
+			body = record.getBody(html);
 			if (html) {
-				body = "<!DOCTYPE html>" + record.getSanitizedHtmlBody();
-			} else {
-				body = record.getBody(html);
-				if (!body) {
-					body = '';
+				if (container.getServerConfig().getDOMPurifyEnabled()) {
+					body = "<!DOCTYPE html>" + record.cleanupOutlookStyles(DOMPurify.sanitize(body, {USE_PROFILES: {html: true}}));
 				} else {
-					body = this.plaintextTemplate.applyTemplate({ body: Ext.util.Format.htmlEncode(body) });
+					body = "<!DOCTYPE html>" + record.cleanupOutlookStyles(body);
 				}
+
+				// Defer loading of inline images so the text can be shown immediately.
+				body = body.replace(/<img([^>]+?)src="([^"]*download_attachment.php[^"]*)"([^>]*?)>/gi,
+					function(match, pre, src, post){
+						return '<img' + pre + 'src="' + Ext.BLANK_IMAGE_URL + '" data-src="' + src + '"' + post + '>';
+					});
+			}
+
+			if (!body) {
+				body = '';
+			} else if (html === false) {
+				body = this.plaintextTemplate.applyTemplate({ body: Ext.util.Format.htmlEncode(body) });
 			}
 		}
 
 		var htmlBody = iframeDocument.getElementsByTagName('body')[0];
 		htmlBody.innerHTML = body;
+
+		// Lazy load inline images after the text has been rendered
+		var inlineImgs = htmlBody.querySelectorAll('img[data-src]');
+		Ext.defer(function(){
+			Ext.each(inlineImgs, function(img){
+				img.setAttribute('src', img.getAttribute('data-src'));
+				img.removeAttribute('data-src');
+			});
+		}, 100);
 
 		// Restore the scroll position if the tab panel was deactivated
 		if ( this.scrollPos ){
