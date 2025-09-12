@@ -483,7 +483,7 @@ class Operations {
 				"content_unread" => $folderProps[PR_CONTENT_UNREAD] ?? 0,
 				"has_subfolder" => $folderProps[PR_SUBFOLDERS] ?? false,
 				"container_class" => $folderProps[PR_CONTAINER_CLASS] ?? "IPF.Note",
-				"access" => $folderProps[PR_ACCESS],
+				"access" => $folderProps[PR_ACCESS] ?? 0,
 				"rights" => $folderProps[PR_RIGHTS] ?? ecRightsNone,
 				"assoc_content_count" => $folderProps[PR_ASSOC_CONTENT_COUNT] ?? 0,
 			],
