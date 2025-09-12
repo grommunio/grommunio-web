@@ -1017,21 +1017,23 @@ class Properties {
 
 		unset(
 			$properties['access'],
-			$properties['transport_message_headers'],
-			$properties['appointment_startdate'],
 			$properties['appointment_duedate'],
-			$properties['appointment_location'],
-			$properties['appointment_recurring_pattern'],
-			$properties['appointment_startdate_recurring'],
 			$properties['appointment_enddate_recurring'],
 			$properties['appointment_exception'],
-			$properties['proposed_start_date'],
-			$properties['proposed_end_date'],
-			$properties['proposed_duration'],
-			$properties['responsestatus'],
-			$properties['meetingtype'],
+			$properties['appointment_location'],
+			$properties['appointment_recurring_pattern'],
+			$properties['appointment_startdate'],
+			$properties['appointment_startdate_recurring'],
 			$properties['goid'],
-			$properties['goid2']
+			$properties['goid2'],
+			$properties['meetingtype'],
+			$properties['proposed_duration'],
+			$properties['proposed_end_date'],
+			$properties['proposed_start_date'],
+			$properties['responsestatus'],
+			$properties['rights'],
+			$properties['source_key'],
+			$properties['transport_message_headers']
 		);
 
 		return $properties;
