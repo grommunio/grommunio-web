@@ -50,6 +50,7 @@ function tempErrorHandler($errno, $errstr, $errfile, $errline) {
 class Certificate {
 	private $cert;
 	private $data;
+ 	private $issuer;
 
 	public function __construct($cert, $issuer = '') {
 		// XXX: error handling
