@@ -42,6 +42,8 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 
 		if (container.getServerConfig().isPrefetchEnabled()) {
 			config.store.on('load', this.prefetchVisibleMailBodies, this, { buffer: 5 });
+			config.store.on('add', this.prefetchVisibleMailBodies, this, { buffer: 5 });
+			config.store.on('update', this.prefetchVisibleMailBodies, this);
 			config.store.on('open', this.onPrefetchedRecordOpened, this);
 		}
 	},
@@ -863,17 +865,34 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		}
 
 		const toOpen = records.filter(function(record) {
-			return (
-				!record.isOpened() &&
-				record.isMessageClass(['IPM.Note'], true) &&
-				!record.isMessageClass(['IPM.Note.SMIME'], true) &&
-				store.indexOf(record) >= 0
-			);
-		});
+			return this.shouldPrefetchMailRecord(record, store);
+		}, this);
 
 		if (!Ext.isEmpty(toOpen)) {
 			store.open(toOpen);
 		}
+	},
+
+	/**
+	 * Determine if a mail record should be prefetched.
+	 * @param {Ext.data.Record} record The record under consideration.
+	 * @param {Ext.data.Store} store The store that owns the record.
+	 * @return {Boolean} True if the record should be prefetched.
+	 */
+	shouldPrefetchMailRecord: function(record, store) {
+		if (!record || !Ext.isFunction(record.isMessageClass)) {
+			return false;
+		}
+
+		if (record.isOpened && record.isOpened()) {
+			return false;
+		}
+
+		if (!store || store.indexOf(record) < 0) {
+			return false;
+		}
+
+		return record.isMessageClass(['IPM.Note', 'IPM.Schedule.Meeting'], true);
 	},
 
 	/**
