@@ -319,6 +319,18 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
+	 * @return {Boolean} True when the client should prefetch the bodies of the mails that are currently visible.
+	 */
+	isPrefetchEnabled: function()
+	{
+		if (Ext.isDefined(this.meta.prefetch_email_enabled)) {
+			return this.meta.prefetch_email_enabled;
+		}
+
+		return this.getPrefetchTotalCount() > 0;
+	},
+
+	/**
 	 * @return {Number} return the amount of emails to load in the background
 	 */
 	getPrefetchTotalCount: function()

@@ -581,13 +581,22 @@ if (!defined("SHARED_STORE_POLLING_INTERVAL")) {
 }
 
 /*
- * Prefetch email count
+ * Enable background prefetching of message bodies for the mails that are visible in the
+ * mail list. When enabled the client will asynchronously fetch all visible messages so
+ * that opening a mail does not require an additional round-trip.
+ */
+if (!defined("PREFETCH_EMAIL_ENABLED")) {
+	define("PREFETCH_EMAIL_ENABLED", true);
+}
+
+/*
+ * Prefetch email count (deprecated - kept for backwards compatibility only).
  */
 if (!defined("PREFETCH_EMAIL_COUNT")) {
 	define("PREFETCH_EMAIL_COUNT", 10);
 }
 
-// Define the interval between loading of new emails in the background.
+// Define the interval between loading of new emails in the background (deprecated).
 if (!defined("PREFETCH_EMAIL_INTERVAL")) {
 	define("PREFETCH_EMAIL_INTERVAL", 30);
 }

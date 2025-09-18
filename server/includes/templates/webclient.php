@@ -36,6 +36,7 @@ $serverConfig = array_merge($serverConfig, [
 		'powerpaste_allow_local_images' => POWERPASTE_ALLOW_LOCAL_IMAGES,
 	],
 	'shared_store_polling_interval' => SHARED_STORE_POLLING_INTERVAL,
+	'prefetch_email_enabled' => PREFETCH_EMAIL_ENABLED,
 	'prefetch_email_count' => PREFETCH_EMAIL_COUNT,
 	'prefetch_email_interval' => PREFETCH_EMAIL_INTERVAL,
 	'enable_dompurify' => ENABLE_DOMPURIFY_FILTER,

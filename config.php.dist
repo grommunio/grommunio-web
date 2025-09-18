@@ -118,11 +118,9 @@
 	//  	array(_('B'))
 	// )));
 
-	// Define the amount of emails to load in the background, in batches of 10 emails per request every x seconds
-	// defined by PREFETCH_EMAIL_INTERVAL until the defined amount of items is loaded. Setting this value to zero
-	// disables this feature.
+	// Enable background prefetching of message bodies for the mails that are visible in the mail list.
 	// Overrides defaults.php
-	define("PREFETCH_EMAIL_COUNT", 0);
+	define("PREFETCH_EMAIL_ENABLED", true);
 
 	// The grommunio admin API status endpoint
 	define('ADMIN_API_STATUS_ENDPOINT', 'http://[::1]:8080/api/v1/status');
