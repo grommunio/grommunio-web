@@ -42,8 +42,6 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 
 		if (container.getServerConfig().isPrefetchEnabled()) {
 			config.store.on('load', this.prefetchVisibleMailBodies, this, { buffer: 5 });
-			config.store.on('add', this.prefetchVisibleMailBodies, this, { buffer: 5 });
-			config.store.on('update', this.prefetchVisibleMailBodies, this);
 			config.store.on('open', this.onPrefetchedRecordOpened, this);
 		}
 	},
