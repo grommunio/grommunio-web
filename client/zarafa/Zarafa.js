@@ -180,12 +180,13 @@ Ext.apply(Zarafa, {
 
 		// When the browser is unloading, all active requests will be aborted and
 		// If more than one browser windows are open then close all browser windows.
-		window.onunload = function () {
-			if(Zarafa.core.BrowserWindowMgr.browserWindows.length > 1){
+		const handlePageHide = function () {
+			if (Zarafa.core.BrowserWindowMgr.browserWindows.length > 1) {
 				Zarafa.core.BrowserWindowMgr.closeAllBrowserWindow();
 			}
 			container.getRequest().paralyze(Zarafa.core.data.ParalyzeReason.BROWSER_RELOADING);
 		};
+		window.addEventListener('pagehide', handlePageHide);
 
 		// Initialize the regular expressions that can be used to validate email addresses
 		this.reSingleEmailAddress = new RegExp('^' + this.emailAddressRegExpString + '$');
