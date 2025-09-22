@@ -206,22 +206,23 @@ Zarafa.common.ui.EditorField = Ext.extend(Ext.Container, {
 	 * Toggle read-only state on the current editor.
 	 * @param {Boolean} readOnly True to make the editor read-only
 	 */
-	setReadOnly: function(readOnly)
-	{
-		this.readOnly = readOnly;
-		var editor = this.getEditor();
-		editor.readOnly = readOnly;
-		if (Ext.isFunction(editor.setReadOnly)) {
-			editor.setReadOnly(readOnly);
-		} else if (readOnly && Ext.isFunction(editor.disable)) {
-			editor.disable();
-		} else if (!readOnly && Ext.isFunction(editor.enable)) {
-			editor.enable();
-		}
+        setReadOnly: function(readOnly)
+        {
+                var wasReadOnly = this.readOnly;
+                this.readOnly = readOnly;
+                var editor = this.getEditor();
+                editor.readOnly = readOnly;
+                if (Ext.isFunction(editor.setReadOnly)) {
+                        editor.setReadOnly(readOnly);
+                } else if (readOnly && Ext.isFunction(editor.disable)) {
+                        editor.disable();
+                } else if (!readOnly && Ext.isFunction(editor.enable)) {
+                        editor.enable();
+                }
 
-		if (!readOnly && Ext.isFunction(editor.focus)) {
-			editor.focus(false, 50);
-		}
+                if (wasReadOnly && !readOnly && Ext.isFunction(editor.focus)) {
+                        editor.focus(false, 50);
+                }
 
 		if (editor) {
 			if (!readOnly && this.dblClickListener) {
