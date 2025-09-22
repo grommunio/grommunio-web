@@ -342,17 +342,17 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 				this.calendar.onSelect(e, this.dateRange);
 				break;
 			case DragStates.DRAGGING:
-                               var record = data.target.record;
-                               var isCopyAction = e.ctrlKey === true;
-                               if ( record.isMeeting() && record.isMeetingReceived() ) {
-                                       var action = (isCopyAction || dd.calendar !== this.calendar) ? "drop" : "move";
-                                       this.showWarningMessageBox(e, dd, data.target, action);
-                               } else if (isCopyAction || dd.calendar !== this.calendar) {
-                                       this.calendar.onDrop(e, dd.calendar, data.target, this.dateRange);
-                               } else {
-                                       this.calendar.onMove(e, data.target, this.dateRange);
-                               }
-                               break;
+			       var record = data.target.record;
+			       var isCopyAction = e.ctrlKey === true;
+			       if ( record.isMeeting() && record.isMeetingReceived() ) {
+				       var action = (isCopyAction || dd.calendar !== this.calendar) ? "drop" : "move";
+				       this.showWarningMessageBox(e, dd, data.target, action);
+			       } else if (isCopyAction || dd.calendar !== this.calendar) {
+				       this.calendar.onDrop(e, dd.calendar, data.target, this.dateRange);
+			       } else {
+				       this.calendar.onMove(e, data.target, this.dateRange);
+			       }
+			       break;
 			case DragStates.RESIZING_START:
 			case DragStates.RESIZING_DUE:
 				var record = data.target.record;

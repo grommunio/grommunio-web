@@ -707,9 +707,9 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 				// formatting so default formatting gets lost. to overcome this problem
 				// we need to fire the focusin event of editor.
 				editor.dispatch("focusin", {
-                                        target: editor.getBody(),
-                                        relatedTarget: null
-                                });
+					target: editor.getBody(),
+					relatedTarget: null
+				});
 			}));
 		} else {
 			// if editor instance is not available yet to do auto focus than we have to reschedule the
