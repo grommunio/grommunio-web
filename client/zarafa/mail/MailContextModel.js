@@ -911,61 +911,65 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Ext.data.Record[]} records The records which were loaded from the store
 	 */
 	prefetchVisibleMailBodies: function(store, records) {
-		if (!container.getServerConfig().isPrefetchEnabled() || !this.usesViewportPrefetching()) {
-			return;
-		}
-
-		store = store || this.getStore();
-		if (!store) {
-			return;
-		}
-
-		this.ensureMailGridBindings(store);
-
-		const defaultFolder = this.getDefaultFolder();
-		if (defaultFolder && defaultFolder.getDefaultFolderKey() === 'outbox') {
-			return;
-		}
-
-		const visibleSpan = this.getVisibleIndexSpan(store);
-		if (!visibleSpan) {
-			return;
-		}
-
-		const budget = this.getPrefetchBudget(visibleSpan);
-		const buffer = this.calculatePrefetchBuffer(visibleSpan, budget);
-		const prefetchRange = this.getPrefetchRange(store, visibleSpan, buffer, budget);
-
-		if (!prefetchRange) {
-			return;
-		}
-
-		this.prunePrefetchedCache(store, prefetchRange, budget);
-
-		let toOpen = this.collectPrefetchCandidates(store, prefetchRange);
-		if (Ext.isEmpty(toOpen)) {
-			return;
-		}
-
-		const requiredSlots = this.getRequiredPrefetchSlots(toOpen.length, budget);
-		if (requiredSlots > 0) {
-			this.freePrefetchCacheSlots(requiredSlots, store);
-		}
-
-		const availableSlots = this.getAvailablePrefetchSlots(budget);
-		if (Ext.isNumber(availableSlots)) {
-			if (availableSlots <= 0) {
+		try {
+			if (!container.getServerConfig().isPrefetchEnabled() || !this.usesViewportPrefetching()) {
 				return;
 			}
 
-			if (toOpen.length > availableSlots) {
-				toOpen = toOpen.slice(0, availableSlots);
+			store = store || this.getStore();
+			if (!store) {
+				return;
 			}
-		}
 
-		if (!Ext.isEmpty(toOpen)) {
-			this.markMailRecordsPending(toOpen);
-			store.open(toOpen);
+			this.ensureMailGridBindings(store);
+
+			const defaultFolder = this.getDefaultFolder();
+			if (defaultFolder && defaultFolder.getDefaultFolderKey() === 'outbox') {
+				return;
+			}
+
+			const visibleSpan = this.getVisibleIndexSpan(store);
+			if (!visibleSpan) {
+				return;
+			}
+
+			const budget = this.getPrefetchBudget(visibleSpan);
+			const buffer = this.calculatePrefetchBuffer(visibleSpan, budget);
+			const prefetchRange = this.getPrefetchRange(store, visibleSpan, buffer, budget);
+
+			if (!prefetchRange) {
+				return;
+			}
+
+			this.prunePrefetchedCache(store, prefetchRange, budget);
+
+			let toOpen = this.collectPrefetchCandidates(store, prefetchRange);
+			if (Ext.isEmpty(toOpen)) {
+				return;
+			}
+
+			const requiredSlots = this.getRequiredPrefetchSlots(toOpen.length, budget);
+			if (requiredSlots > 0) {
+				this.freePrefetchCacheSlots(requiredSlots, store);
+			}
+
+			const availableSlots = this.getAvailablePrefetchSlots(budget);
+			if (Ext.isNumber(availableSlots)) {
+				if (availableSlots <= 0) {
+					return;
+				}
+
+				if (toOpen.length > availableSlots) {
+					toOpen = toOpen.slice(0, availableSlots);
+				}
+			}
+
+			if (!Ext.isEmpty(toOpen)) {
+				this.markMailRecordsPending(toOpen);
+				store.open(toOpen);
+			}
+		} finally {
+			this.refreshPrefetchDebugHighlights();
 		}
 	},
 
@@ -975,60 +979,64 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Ext.data.Record[]|Ext.data.Record} records The records to prefetch.
 	 */
 	prefetchMailRecords: function(store, records) {
-		if (!container.getServerConfig().isPrefetchEnabled()) {
-			return;
-		}
-
-		store = store || this.getStore();
-		if (!store) {
-			return;
-		}
-
-		const defaultFolder = this.getDefaultFolder();
-		if (defaultFolder && defaultFolder.getDefaultFolderKey() === 'outbox') {
-			return;
-		}
-
-		const list = Ext.isArray(records) ? records : [records];
-		const candidates = [];
-
-		for (let i = 0; i < list.length; i++) {
-			const record = list[i];
-			if (!record || !this.shouldPrefetchMailRecord(record, store) || this.isMailRecordCached(record)) {
-				continue;
-			}
-
-			candidates.push(record);
-		}
-
-		if (Ext.isEmpty(candidates)) {
-			return;
-		}
-
-		const visibleSpan = this.getVisibleIndexSpan(store);
-		const budget = this.getPrefetchBudget(visibleSpan);
-		const requiredSlots = this.getRequiredPrefetchSlots(candidates.length, budget);
-		if (requiredSlots > 0) {
-			this.freePrefetchCacheSlots(requiredSlots, store);
-		}
-
-		const availableSlots = this.getAvailablePrefetchSlots(budget);
-		if (Ext.isNumber(availableSlots)) {
-			if (availableSlots <= 0) {
+		try {
+			if (!container.getServerConfig().isPrefetchEnabled()) {
 				return;
 			}
 
-			if (candidates.length > availableSlots) {
-				candidates.splice(availableSlots, candidates.length - availableSlots);
+			store = store || this.getStore();
+			if (!store) {
+				return;
 			}
-		}
 
-		if (Ext.isEmpty(candidates)) {
-			return;
-		}
+			const defaultFolder = this.getDefaultFolder();
+			if (defaultFolder && defaultFolder.getDefaultFolderKey() === 'outbox') {
+				return;
+			}
 
-		this.markMailRecordsPending(candidates);
-		store.open(candidates);
+			const list = Ext.isArray(records) ? records : [records];
+			const candidates = [];
+
+			for (let i = 0; i < list.length; i++) {
+				const record = list[i];
+				if (!record || !this.shouldPrefetchMailRecord(record, store) || this.isMailRecordCached(record)) {
+					continue;
+				}
+
+				candidates.push(record);
+			}
+
+			if (Ext.isEmpty(candidates)) {
+				return;
+			}
+
+			const visibleSpan = this.getVisibleIndexSpan(store);
+			const budget = this.getPrefetchBudget(visibleSpan);
+			const requiredSlots = this.getRequiredPrefetchSlots(candidates.length, budget);
+			if (requiredSlots > 0) {
+				this.freePrefetchCacheSlots(requiredSlots, store);
+			}
+
+			const availableSlots = this.getAvailablePrefetchSlots(budget);
+			if (Ext.isNumber(availableSlots)) {
+				if (availableSlots <= 0) {
+					return;
+				}
+
+				if (candidates.length > availableSlots) {
+					candidates.splice(availableSlots, candidates.length - availableSlots);
+				}
+			}
+
+			if (Ext.isEmpty(candidates)) {
+				return;
+			}
+
+			this.markMailRecordsPending(candidates);
+			store.open(candidates);
+		} finally {
+			this.refreshPrefetchDebugHighlights();
+		}
 	},
 
 	/**
@@ -1036,45 +1044,49 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Ext.data.Store} store The store owning the records.
 	 */
 	prefetchSelectionContext: function(store) {
-		if (!this.usesInteractionPrefetching()) {
-			return;
-		}
+		try {
+			if (!this.usesInteractionPrefetching()) {
+				return;
+			}
 
-		store = store || this.getStore();
-		if (!store) {
-			return;
-		}
+			store = store || this.getStore();
+			if (!store) {
+				return;
+			}
 
-		const grid = this.prefetchMailGrid || this.getActiveMailGrid(store);
-		const selectionModel = grid ? grid.getSelectionModel() : null;
-		if (!selectionModel) {
-			return;
-		}
+			const grid = this.prefetchMailGrid || this.getActiveMailGrid(store);
+			const selectionModel = grid ? grid.getSelectionModel() : null;
+			if (!selectionModel) {
+				return;
+			}
 
-		const selected = Ext.isFunction(selectionModel.getSelected) ? selectionModel.getSelected() : null;
-		if (!selected) {
-			return;
-		}
+			const selected = Ext.isFunction(selectionModel.getSelected) ? selectionModel.getSelected() : null;
+			if (!selected) {
+				return;
+			}
 
-		const selectedIndex = store.indexOf(selected);
-		if (!Ext.isNumber(selectedIndex) || selectedIndex < 0) {
-			return;
-		}
+			const selectedIndex = store.indexOf(selected);
+			if (!Ext.isNumber(selectedIndex) || selectedIndex < 0) {
+				return;
+			}
 
-		const candidates = [];
-		const previous = selectedIndex > 0 ? store.getAt(selectedIndex - 1) : null;
-		const next = selectedIndex + 1 < store.getCount() ? store.getAt(selectedIndex + 1) : null;
+			const candidates = [];
+			const previous = selectedIndex > 0 ? store.getAt(selectedIndex - 1) : null;
+			const next = selectedIndex + 1 < store.getCount() ? store.getAt(selectedIndex + 1) : null;
 
-		if (previous) {
-			candidates.push(previous);
-		}
+			if (previous) {
+				candidates.push(previous);
+			}
 
-		if (next) {
-			candidates.push(next);
-		}
+			if (next) {
+				candidates.push(next);
+			}
 
-		if (!Ext.isEmpty(candidates)) {
-			this.prefetchMailRecords(store, candidates);
+			if (!Ext.isEmpty(candidates)) {
+				this.prefetchMailRecords(store, candidates);
+			}
+		} finally {
+			this.refreshPrefetchDebugHighlights();
 		}
 	},
 
@@ -1591,6 +1603,18 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		}
 	},
 
+	refreshPrefetchDebugHighlights: function() {
+		const store = this.getStore();
+		const grid = this.prefetchMailGrid || this.getActiveMailGrid(store);
+		const view = this.prefetchMailGridView || (grid ? grid.getView() : null);
+
+		if (!view) {
+			return;
+		}
+
+		this.applyPrefetchDebugHighlights(view);
+	},
+
 	clearAllPrefetchDebugHighlights: function() {
 		if (!this.prefetchMailGrid || !this.prefetchMailGrid.rendered) {
 			return;
@@ -1919,11 +1943,25 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @return {Boolean} True when the record is cached.
 	 */
 	isMailRecordCached: function(record) {
-		if (!record || !this.prefetchedMailCacheMap) {
+		if (!record) {
 			return false;
 		}
 
-		return this.prefetchedMailCacheMap[record.id] === true;
+		if (this.prefetchedMailCacheMap && this.prefetchedMailCacheMap[record.id] === true) {
+			return true;
+		}
+
+		if (record.isOpened && record.isOpened()) {
+			return true;
+		}
+
+		if (Ext.isDefined(record.sanitizedHTMLBody) && record.sanitizedHTMLBody !== null) {
+			if (!Ext.isFunction(record.isModifiedSinceLastUpdate) || !record.isModifiedSinceLastUpdate('html_body')) {
+				return true;
+			}
+		}
+
+		return false;
 	},
 
 	/**
@@ -2224,17 +2262,14 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * Handle scroll events from the mail grid by scheduling a lightweight prefetch update.
 	 */
 	onMailGridBodyScroll: function() {
+		this.refreshPrefetchDebugHighlights();
+
 		if (!container.getServerConfig().isPrefetchEnabled() || !this.usesViewportPrefetching()) {
 			return;
 		}
 
 		if (!this.mailPrefetchScrollTask) {
-			this.mailPrefetchScrollTask = new Ext.util.DelayedTask(function() {
-				const store = this.getStore();
-				if (store) {
-					this.prefetchVisibleMailBodies(store, null);
-				}
-			}, this);
+			this.mailPrefetchScrollTask = new Ext.util.DelayedTask(this.runMailPrefetchUpdate, this);
 		}
 
 		const store = this.getStore();
@@ -2242,7 +2277,18 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 			return;
 		}
 
-		this.mailPrefetchScrollTask.delay(75, this.prefetchVisibleMailBodies, this, [store, null]);
+		this.mailPrefetchScrollTask.delay(75, this.runMailPrefetchUpdate, this, [store]);
+	},
+
+	runMailPrefetchUpdate: function(store) {
+		store = store || this.getStore();
+
+		if (!store) {
+			this.refreshPrefetchDebugHighlights();
+			return;
+		}
+
+		this.prefetchVisibleMailBodies(store, null);
 	},
 
 	teardownMailGridViewListeners: function() {
@@ -2263,13 +2309,23 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	},
 
 	onMailGridViewRefresh: function(view) {
-		this.applyPrefetchDebugHighlights(view || this.prefetchMailGridView);
+		const targetView = view || this.prefetchMailGridView;
+
+		if (this.usesInteractionPrefetching()) {
+			this.setupInteractionViewListeners(targetView);
+		}
+
+		this.applyPrefetchDebugHighlights(targetView);
 	},
 
 	onMailGridViewRowsInserted: function(view, firstRow, lastRow) {
 		const targetView = view || this.prefetchMailGridView;
 		if (!targetView) {
 			return;
+		}
+
+		if (this.usesInteractionPrefetching()) {
+			this.setupInteractionViewListeners(targetView);
 		}
 
 		const start = Ext.isNumber(firstRow) ? firstRow : 0;
@@ -2280,15 +2336,29 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	onMailGridViewRowUpdated: function(view, rowIndex) {
 		const targetView = view || this.prefetchMailGridView;
 		if (!targetView || !Ext.isNumber(rowIndex)) {
+			if (this.usesInteractionPrefetching()) {
+				this.setupInteractionViewListeners(targetView);
+			}
+
 			this.applyPrefetchDebugHighlights(targetView);
 			return;
+		}
+
+		if (this.usesInteractionPrefetching()) {
+			this.setupInteractionViewListeners(targetView);
 		}
 
 		this.applyPrefetchDebugHighlightsForRange(targetView, rowIndex, rowIndex);
 	},
 
 	onMailGridViewRowRemoved: function(view) {
-		this.applyPrefetchDebugHighlights(view || this.prefetchMailGridView);
+		const targetView = view || this.prefetchMailGridView;
+
+		if (this.usesInteractionPrefetching()) {
+			this.setupInteractionViewListeners(targetView);
+		}
+
+		this.applyPrefetchDebugHighlights(targetView);
 	}
 
 });
