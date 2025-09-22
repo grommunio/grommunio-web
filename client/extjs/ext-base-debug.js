@@ -1870,6 +1870,8 @@ Ext.TaskMgr = new Ext.util.TaskRunner();(function(){
         SCROLLLEFT = 'scrollLeft',
         SCROLLTOP = 'scrollTop',
         UNLOAD = 'unload',
+        PAGEHIDE = 'pagehide',
+        BROWSER_UNLOAD_EVENT = (win.addEventListener && ('onpagehide' in win)) ? PAGEHIDE : UNLOAD,
         MOUSEOVER = 'mouseover',
         MOUSEOUT = 'mouseout',
         // private
@@ -2033,6 +2035,9 @@ Ext.TaskMgr = new Ext.util.TaskRunner();(function(){
         addListener: function(el, eventName, fn) {
             el = Ext.getDom(el);
             if (el && fn) {
+                if (eventName == PAGEHIDE) {
+                    eventName = UNLOAD;
+                }
                 if (eventName == UNLOAD) {
                     if (unloadListeners[el.id] === undefined) {
                         unloadListeners[el.id] = [];
@@ -2050,6 +2055,9 @@ Ext.TaskMgr = new Ext.util.TaskRunner();(function(){
             el = Ext.getDom(el);
             var i, len, li, lis;
             if (el && fn) {
+		if (eventName == PAGEHIDE) {
+                    eventName = UNLOAD;
+                }
                 if(eventName == UNLOAD){
                     if((lis = unloadListeners[el.id]) !== undefined){
                         for(i = 0, len = lis.length; i < len; i++){
@@ -2189,7 +2197,7 @@ Ext.TaskMgr = new Ext.util.TaskRunner();(function(){
 
             Ext.EventManager._unload();
 
-            doRemove(win, UNLOAD, EU._unload);
+            doRemove(win, BROWSER_UNLOAD_EVENT, EU._unload);
         }
     };
 
@@ -2201,7 +2209,7 @@ Ext.TaskMgr = new Ext.util.TaskRunner();(function(){
     } else {
         doAdd(win, "load", pub._load);
     }
-    doAdd(win, UNLOAD, pub._unload);
+    doAdd(win, BROWSER_UNLOAD_EVENT, pub._unload);
     _tryPreloadAttach();
 
     return pub;
