@@ -589,6 +589,10 @@ if (!defined("PREFETCH_EMAIL_ENABLED")) {
 	define("PREFETCH_EMAIL_ENABLED", true);
 }
 
+if (!defined("PREFETCH_EMAIL_STRATEGY")) {
+    define("PREFETCH_EMAIL_STRATEGY", 'VIEWPORT');
+}
+
 /*
  * Prefetch email count (deprecated - kept for backwards compatibility only).
  */
