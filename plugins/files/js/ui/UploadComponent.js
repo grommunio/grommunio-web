@@ -66,10 +66,13 @@ Zarafa.plugins.files.ui.UploadComponent = Ext.extend(Ext.Component, {
 	 * @private
 	 */
 	getUploadEl: function () {
+		var uploadInputId = Ext.id(null, 'zarafa-files-upload-input-');
 		var uploadEl = Ext.DomHelper.append(Ext.getBody(), {
 			cls : 'x-hidden',
 			tag : 'input',
-			type: 'file'
+			type: 'file',
+			id: uploadInputId,
+			name: uploadInputId
 		});
 
 		if (Ext.isDefined(this.multiple) && this.multiple) {

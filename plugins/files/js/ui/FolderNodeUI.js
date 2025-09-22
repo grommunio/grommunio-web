@@ -54,6 +54,11 @@ Zarafa.plugins.files.ui.FolderNodeUI  = Ext.extend(Ext.tree.TreeNodeUI, {
 		// add some indent caching, this helps performance when rendering a large tree
 		this.indentMarkup = n.parentNode ? n.parentNode.ui.getChildIndent() : '';
 		var cb = Ext.isBoolean(a.checked);
+		var checkboxMarkup = '';
+		if (cb) {
+			var checkboxId = Ext.id(null, 'zarafa-files-node-cb-');
+			checkboxMarkup = '<input class="x-tree-node-cb zarafa-hierarchy-node-cb" type="checkbox" id="' + checkboxId + '" name="' + checkboxId + '"' + (a.checked ? ' checked="checked"' : '') + ' />';
+		}
 		var icon = '<img src="' + (a.icon || this.emptyIcon) + '" class="x-tree-node-icon" unselectable="on" />',
 			nel,
 			href = a.href ? a.href : Ext.isGecko ? "" : "#",
@@ -64,7 +69,7 @@ Zarafa.plugins.files.ui.FolderNodeUI  = Ext.extend(Ext.tree.TreeNodeUI, {
 						// expand icon
 						'<img src="' + this.emptyIcon + '" class="x-tree-ec-icon x-tree-elbow" />' +
 						// checkbox
-						(cb ? '<input class="x-tree-node-cb zarafa-hierarchy-node-cb" type="checkbox" ' + (a.checked ? 'checked="checked" />' : '/>') : '') +
+						checkboxMarkup +
 						// node icon
 						icon +
 						// node element (this.elNode)

@@ -52,6 +52,12 @@ Zarafa.plugins.mdm.ui.MDMFolderNodeUI = Ext.extend(Zarafa.hierarchy.ui.FolderNod
 			}
 		}
 
+		var checkboxMarkup = '';
+		if (cb) {
+			var checkboxId = Ext.id(null, 'zarafa-mdm-node-cb-');
+			checkboxMarkup = '<input class="x-tree-node-cb zarafa-hierarchy-node-cb" type="checkbox" id="' + checkboxId + '" name="' + checkboxId + '"' + (config.checked ? ' checked="checked"' : '') + ' />';
+		}
+
 		var icon = '<img src="' + (config.icon || this.emptyIcon) + '" class="x-tree-node-icon" unselectable="on" />',
 		nel,
 		href = config.href ? config.href : Ext.isGecko ? "" : "#",
@@ -62,7 +68,7 @@ Zarafa.plugins.mdm.ui.MDMFolderNodeUI = Ext.extend(Zarafa.hierarchy.ui.FolderNod
 					// expand icon
 					'<img src="' + this.emptyIcon + '" class="x-tree-ec-icon x-tree-elbow" />' +
 					// checkbox
-					(cb ? '<input class="x-tree-node-cb zarafa-hierarchy-node-cb" type="checkbox" ' + (config.checked ? 'checked="checked" />' : '/>') : '') +
+					checkboxMarkup +
 					// node icon
 					(isCalenderNode ? calendarSVGIcon : icon) +
 					// node element (this.elNode)

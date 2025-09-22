@@ -305,7 +305,7 @@ Ext.MessageBox = Ext.extend(Object, {
 		this.dlg.getEl().addClass('x-window-dlg');
 		this.mask = this.dlg.mask;
 		this.bodyEl = this.dlg.body.createChild({
-			html:'<div class="ext-mb-icon"></div><div class="ext-mb-content"><span class="ext-mb-text"></span><br /><div class="ext-mb-fix-cursor"><input type="text" class="ext-mb-input" /><textarea class="ext-mb-textarea"></textarea></div></div>'
+			html:'<div class="ext-mb-icon"></div><div class="ext-mb-content"><span class="ext-mb-text"></span><br /><div class="ext-mb-fix-cursor"><input type="text" class="ext-mb-input" name="ext-mb-input" /><textarea class="ext-mb-textarea" name="ext-mb-textarea"></textarea></div></div>'
 		});
 		this.iconEl = Ext.get(this.bodyEl.dom.firstChild);
 		var contentEl = this.bodyEl.dom.childNodes[1];

@@ -69,10 +69,13 @@ Zarafa.common.attachment.ui.UploadAttachmentComponent = Ext.extend(Ext.Component
 	 */
 	getAttachmentEl: function()
 	{
+		var attachmentInputId = Ext.id(null, 'zarafa-attachment-input-');
 		var attachEl = Ext.DomHelper.append(Ext.getBody(), {
 			cls: 'x-hidden',
 			tag: 'input',
-			type: 'file'
+			type: 'file',
+			id: attachmentInputId,
+			name: attachmentInputId
 		});
 
 		if(Ext.isDefined(this.multiple) && this.multiple) {
