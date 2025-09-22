@@ -36,7 +36,11 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 
 		this.prefetchedMailCache = [];
 		this.prefetchedMailCacheMap = {};
+		this.prefetchPendingRecords = {};
 		this.prefetchMailGrid = null;
+		this.prefetchMailGridView = null;
+		this.prefetchInteractionBodyEl = null;
+		this.prefetchInteractionSelectionModel = null;
 		this.mailPrefetchScrollTask = null;
 		this.prefetchDebugHighlightState = null;
 		this.prefetchDebugStyleApplied = false;
@@ -48,7 +52,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		});
 
 		if (container.getServerConfig().isPrefetchEnabled()) {
-			config.store.on('load', this.prefetchVisibleMailBodies, this, { buffer: 5 });
+			config.store.on('load', this.onPrefetchStoreLoad, this, { buffer: 5 });
 			config.store.on('open', this.onPrefetchedRecordOpened, this);
 			config.store.on('remove', this.onPrefetchedRecordRemoved, this);
 			config.store.on('clear', this.onPrefetchStoreCleared, this);
@@ -851,12 +855,63 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	},
 
 	/**
+	 * Handle store load events for mail prefetching.
+	 * @param {Ext.data.Store} store The store which was loaded.
+	 * @param {Ext.data.Record[]} records The records which were loaded from the store.
+	 */
+	onPrefetchStoreLoad: function(store, records) {
+		if (!container.getServerConfig().isPrefetchEnabled()) {
+			return;
+		}
+
+		store = store || this.getStore();
+		if (!store) {
+			return;
+		}
+
+		this.ensureMailGridBindings(store);
+
+		if (this.usesViewportPrefetching()) {
+			this.prefetchVisibleMailBodies(store, records);
+		} else if (this.usesInteractionPrefetching()) {
+			this.prefetchSelectionContext(store);
+		}
+	},
+
+	/**
+	 * Determine which prefetch strategy should be used.
+	 * @return {String} The resolved strategy identifier.
+	 */
+	resolvePrefetchStrategy: function() {
+		const strategy = container.getServerConfig().getPrefetchStrategy();
+		if (!Ext.isString(strategy)) {
+			return 'VIEWPORT';
+		}
+
+		return strategy.toUpperCase();
+	},
+
+	/**
+	 * @return {Boolean} True when the viewport-based prefetching should be applied.
+	 */
+	usesViewportPrefetching: function() {
+		return this.resolvePrefetchStrategy() === 'VIEWPORT';
+	},
+
+	/**
+	 * @return {Boolean} True when the interaction-based prefetching should be applied.
+	 */
+	usesInteractionPrefetching: function() {
+		return this.resolvePrefetchStrategy() === 'INTERACTION';
+	},
+
+	/**
 	 * Prefetch message bodies for the records that are currently visible in the mail list.
 	 * @param {Ext.data.Store} store The store which was loaded
 	 * @param {Ext.data.Record[]} records The records which were loaded from the store
 	 */
 	prefetchVisibleMailBodies: function(store, records) {
-		if (!container.getServerConfig().isPrefetchEnabled()) {
+		if (!container.getServerConfig().isPrefetchEnabled() || !this.usesViewportPrefetching()) {
 			return;
 		}
 
@@ -909,7 +964,161 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		}
 
 		if (!Ext.isEmpty(toOpen)) {
+			this.markMailRecordsPending(toOpen);
 			store.open(toOpen);
+		}
+	},
+
+	/**
+	 * Prefetch the hovered mail or the neighbours of the selected mail when interaction mode is active.
+	 * @param {Ext.data.Store} store The store owning the records.
+	 * @param {Ext.data.Record[]|Ext.data.Record} records The records to prefetch.
+	 */
+	prefetchMailRecords: function(store, records) {
+		if (!container.getServerConfig().isPrefetchEnabled()) {
+			return;
+		}
+
+		store = store || this.getStore();
+		if (!store) {
+			return;
+		}
+
+		const defaultFolder = this.getDefaultFolder();
+		if (defaultFolder && defaultFolder.getDefaultFolderKey() === 'outbox') {
+			return;
+		}
+
+		const list = Ext.isArray(records) ? records : [records];
+		const candidates = [];
+
+		for (let i = 0; i < list.length; i++) {
+			const record = list[i];
+			if (!record || !this.shouldPrefetchMailRecord(record, store) || this.isMailRecordCached(record)) {
+				continue;
+			}
+
+			candidates.push(record);
+		}
+
+		if (Ext.isEmpty(candidates)) {
+			return;
+		}
+
+		const visibleSpan = this.getVisibleIndexSpan(store);
+		const budget = this.getPrefetchBudget(visibleSpan);
+		const requiredSlots = this.getRequiredPrefetchSlots(candidates.length, budget);
+		if (requiredSlots > 0) {
+			this.freePrefetchCacheSlots(requiredSlots, store);
+		}
+
+		const availableSlots = this.getAvailablePrefetchSlots(budget);
+		if (Ext.isNumber(availableSlots)) {
+			if (availableSlots <= 0) {
+				return;
+			}
+
+			if (candidates.length > availableSlots) {
+				candidates.splice(availableSlots, candidates.length - availableSlots);
+			}
+		}
+
+		if (Ext.isEmpty(candidates)) {
+			return;
+		}
+
+		this.markMailRecordsPending(candidates);
+		store.open(candidates);
+	},
+
+	/**
+	 * Prefetch the neighbours of the currently selected mail when interaction mode is active.
+	 * @param {Ext.data.Store} store The store owning the records.
+	 */
+	prefetchSelectionContext: function(store) {
+		if (!this.usesInteractionPrefetching()) {
+			return;
+		}
+
+		store = store || this.getStore();
+		if (!store) {
+			return;
+		}
+
+		const grid = this.prefetchMailGrid || this.getActiveMailGrid(store);
+		const selectionModel = grid ? grid.getSelectionModel() : null;
+		if (!selectionModel) {
+			return;
+		}
+
+		const selected = Ext.isFunction(selectionModel.getSelected) ? selectionModel.getSelected() : null;
+		if (!selected) {
+			return;
+		}
+
+		const selectedIndex = store.indexOf(selected);
+		if (!Ext.isNumber(selectedIndex) || selectedIndex < 0) {
+			return;
+		}
+
+		const candidates = [];
+		const previous = selectedIndex > 0 ? store.getAt(selectedIndex - 1) : null;
+		const next = selectedIndex + 1 < store.getCount() ? store.getAt(selectedIndex + 1) : null;
+
+		if (previous) {
+			candidates.push(previous);
+		}
+
+		if (next) {
+			candidates.push(next);
+		}
+
+		if (!Ext.isEmpty(candidates)) {
+			this.prefetchMailRecords(store, candidates);
+		}
+	},
+
+	/**
+	 * React to selection changes in the mail grid to prefetch neighbouring mails.
+	 * @param {Ext.grid.RowSelectionModel} selectionModel The selection model emitting the event.
+	 */
+	onMailGridSelectionChange: function(selectionModel) {
+		if (!this.usesInteractionPrefetching()) {
+			return;
+		}
+
+		this.prefetchSelectionContext(this.getStore());
+	},
+
+	/**
+	 * Prefetch mails that are hovered in the interaction-based strategy.
+	 * @param {Ext.EventObject} event The mouse event object.
+	 * @param {HTMLElement} target The hovered row element.
+	 */
+	onMailGridRowMouseOver: function(event, target) {
+		if (!this.usesInteractionPrefetching()) {
+			return;
+		}
+
+		const view = this.prefetchMailGridView || (this.prefetchMailGrid ? this.prefetchMailGrid.getView() : null);
+		const store = this.getStore();
+		if (!view || !store) {
+			return;
+		}
+
+		const row = target || (event ? event.getTarget('.x-grid3-row') : null);
+		if (!row) {
+			return;
+		}
+
+		const rowIndex = this.getRowIndexFromElement(view, row, store);
+		if (!Ext.isNumber(rowIndex) || rowIndex < 0) {
+			return;
+		}
+
+		const record = store.getAt(rowIndex);
+		if (record) {
+			this.prefetchMailRecords(store, record);
 		}
 	},
 
@@ -1651,6 +1860,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		}
 
 		const recordId = record.id;
+		this.clearMailRecordPending(record);
 		if (!this.prefetchedMailCacheMap) {
 			this.prefetchedMailCacheMap = {};
 		}
@@ -1698,6 +1908,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 			}
 		}
 
+		this.clearMailRecordPending(record);
 		this.clearRecordSanitizedBody(record);
 		this.togglePrefetchDebugHighlight(record, false, this.getStore());
 	},
@@ -1713,6 +1924,62 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		}
 
 		return this.prefetchedMailCacheMap[record.id] === true;
+	},
+
+	/**
+	 * Check if a record is currently pending prefetch.
+	 * @param {Ext.data.Record} record The record to inspect.
+	 * @return {Boolean} True when prefetching has already been scheduled for the record.
+	 */
+	isMailRecordPending: function(record) {
+		if (!record || !this.prefetchPendingRecords) {
+			return false;
+		}
+
+		return this.prefetchPendingRecords[record.id] === true;
+	},
+
+	/**
+	 * Remember that the given records are pending prefetch so duplicate work can be avoided.
+	 * @param {Ext.data.Record[]|Ext.data.Record} records Records to mark as pending.
+	 */
+	markMailRecordsPending: function(records) {
+		if (!records) {
+			return;
+		}
+
+		const list = Ext.isArray(records) ? records : [records];
+		for (let i = 0; i < list.length; i++) {
+			this.markMailRecordPending(list[i]);
+		}
+	},
+
+	/**
+	 * Mark a single record as pending prefetch.
+	 * @param {Ext.data.Record} record The record to mark.
+	 */
+	markMailRecordPending: function(record) {
+		if (!record) {
+			return;
+		}
+
+		if (!this.prefetchPendingRecords) {
+			this.prefetchPendingRecords = {};
+		}
+
+		this.prefetchPendingRecords[record.id] = true;
+	},
+
+	/**
+	 * Clear the pending state for a record once prefetching has completed or is cancelled.
+	 * @param {Ext.data.Record} record The record whose pending state should be cleared.
+	 */
+	clearMailRecordPending: function(record) {
+		if (!record || !this.prefetchPendingRecords) {
+			return;
+		}
+
+		delete this.prefetchPendingRecords[record.id];
 	},
 
 	/**
@@ -1744,6 +2011,10 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		}
 
 		if (record.isOpened && record.isOpened()) {
+			return false;
+		}
+
+		if (this.isMailRecordPending(record)) {
 			return false;
 		}
 
@@ -1782,6 +2053,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 			return;
 		}
 
+		this.clearMailRecordPending(record);
 		this.forgetPrefetchedRecord(record);
 	},
 
@@ -1799,6 +2071,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		}
 
 		this.prefetchedMailCacheMap = {};
+		this.prefetchPendingRecords = {};
 		this.clearAllPrefetchDebugHighlights();
 	},
 
@@ -1822,7 +2095,9 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 
 		this.prefetchMailGrid = grid;
 
-		grid.on('bodyscroll', this.onMailGridBodyScroll, this);
+		if (this.usesViewportPrefetching()) {
+			grid.on('bodyscroll', this.onMailGridBodyScroll, this);
+		}
 		grid.on('destroy', this.onMailGridDestroyed, this);
 
 		if (grid.viewReady) {
@@ -1830,6 +2105,38 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		} else {
 			grid.on('viewready', this.onMailGridViewReady, this, { single: true });
 		}
+
+		if (this.usesInteractionPrefetching()) {
+			const selectionModel = grid.getSelectionModel();
+			if (selectionModel) {
+				selectionModel.on('selectionchange', this.onMailGridSelectionChange, this);
+				this.prefetchInteractionSelectionModel = selectionModel;
+			}
+		}
+	},
+
+	setupInteractionViewListeners: function(view) {
+		if (!this.usesInteractionPrefetching()) {
+			return;
+		}
+
+		if (!view || !view.mainBody) {
+			return;
+		}
+
+		const body = view.mainBody;
+
+		if (this.prefetchInteractionBodyEl && this.prefetchInteractionBodyEl !== body) {
+			this.prefetchInteractionBodyEl.un('mouseover', this.onMailGridRowMouseOver, this);
+			this.prefetchInteractionBodyEl = null;
+		}
+
+		if (this.prefetchInteractionBodyEl === body) {
+			return;
+		}
+
+		this.prefetchInteractionBodyEl = body;
+		body.on('mouseover', this.onMailGridRowMouseOver, this, { delegate: '.x-grid3-row' });
 	},
 
 	/**
@@ -1843,6 +2150,10 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		this.prefetchMailGrid.un('bodyscroll', this.onMailGridBodyScroll, this);
 		this.prefetchMailGrid.un('destroy', this.onMailGridDestroyed, this);
 		this.prefetchMailGrid.un('viewready', this.onMailGridViewReady, this);
+		if (this.prefetchInteractionSelectionModel) {
+			this.prefetchInteractionSelectionModel.un('selectionchange', this.onMailGridSelectionChange, this);
+			this.prefetchInteractionSelectionModel = null;
+		}
 		this.prefetchMailGrid = null;
 
 		this.teardownMailGridViewListeners();
@@ -1881,11 +2192,19 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 			view.on('rowremoved', this.onMailGridViewRowRemoved, this);
 		}
 
+		if (this.usesInteractionPrefetching()) {
+			this.setupInteractionViewListeners(view);
+		}
+
 		this.applyPrefetchDebugHighlights(view);
 
 		const store = grid.getStore() || this.getStore();
 		if (store) {
-			this.prefetchVisibleMailBodies(store, null);
+			if (this.usesViewportPrefetching()) {
+				this.prefetchVisibleMailBodies(store, null);
+			} else if (this.usesInteractionPrefetching()) {
+				this.prefetchSelectionContext(store);
+			}
 		}
 	},
 
@@ -1905,7 +2224,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * Handle scroll events from the mail grid by scheduling a lightweight prefetch update.
 	 */
 	onMailGridBodyScroll: function() {
-		if (!container.getServerConfig().isPrefetchEnabled()) {
+		if (!container.getServerConfig().isPrefetchEnabled() || !this.usesViewportPrefetching()) {
 			return;
 		}
 
@@ -1936,6 +2255,11 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		this.prefetchMailGridView.un('rowupdated', this.onMailGridViewRowUpdated, this);
 		this.prefetchMailGridView.un('rowremoved', this.onMailGridViewRowRemoved, this);
 		this.prefetchMailGridView = null;
+
+		if (this.prefetchInteractionBodyEl) {
+			this.prefetchInteractionBodyEl.un('mouseover', this.onMailGridRowMouseOver, this);
+			this.prefetchInteractionBodyEl = null;
+		}
 	},
 
 	onMailGridViewRefresh: function(view) {

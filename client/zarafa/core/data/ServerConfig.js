@@ -339,6 +339,18 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
+	 * @return {String} return the strategy used for mail prefetching.
+	 */
+	getPrefetchStrategy: function()
+	{
+		if (!Ext.isString(this.meta.prefetch_email_strategy)) {
+			return 'VIEWPORT';
+		}
+
+		return this.meta.prefetch_email_strategy;
+	},
+
+	/**
 	 * @return {Number} return the interval in microseconds to load new emails in the background.
 	 */
 	getPrefetchInterval: function()
