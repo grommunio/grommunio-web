@@ -51,6 +51,23 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	expandSingleConversation: true,
 
 	/**
+	 * Delay in milliseconds before updating the preview record after a selection change.
+	 * This prevents rapid navigation (for example by holding the arrow keys) from
+	 * triggering excessive preview loads.
+	 * @property
+	 * @type Number
+	 */
+	previewRecordDelay: 50,
+
+	/**
+	 * Helper task which delays updating the preview panel for the currently selected record.
+	 * @property
+	 * @type Ext.util.DelayedTask
+	 * @private
+	 */
+	previewRecordTask: undefined,
+
+	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
@@ -472,9 +489,10 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 		//var depth = record.get('depth');
 
 		if (count === 0) {
-			this.model.setPreviewRecord(undefined);
+		        this.cancelPreviewRecordTask();
+		        this.model.setPreviewRecord(undefined);
 		} else if (count === 1 && selectionModel.getSelected() === record) {
-			this.model.setPreviewRecord(record);
+		        this.queuePreviewRecord(record);
 		}
 	},
 
@@ -492,8 +510,66 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 
 		this.model.setSelectedRecords(selections);
 		if (Ext.isEmpty(selections)) {
-			this.model.setPreviewRecord(undefined);
+		        this.cancelPreviewRecordTask();
+		        this.model.setPreviewRecord(undefined);
 		}
+	},
+
+	/**
+	 * Ensure the delayed task for updating the preview record exists.
+	 * @return {Ext.util.DelayedTask}
+	 * @private
+	 */
+	getPreviewRecordTask: function()
+	{
+		if (!this.previewRecordTask) {
+		        this.previewRecordTask = new Ext.util.DelayedTask(this.applyPreviewRecord, this);
+		}
+
+		return this.previewRecordTask;
+	},
+
+	/**
+	 * Queue updating the preview panel for the provided record.
+	 * @param {Ext.data.Record} record The record to preview.
+	 * @private
+	 */
+	queuePreviewRecord: function(record)
+	{
+		var task = this.getPreviewRecordTask();
+		task.cancel();
+		task.delay(this.previewRecordDelay, this.applyPreviewRecord, this, [record]);
+	},
+
+	/**
+	 * Cancel the delayed preview update task when no longer needed.
+	 * @private
+	 */
+	cancelPreviewRecordTask: function()
+	{
+		if (this.previewRecordTask) {
+		        this.previewRecordTask.cancel();
+		}
+	},
+
+	/**
+	 * Apply the record to the preview panel.
+	 * @param {Ext.data.Record} record The record to preview.
+	 * @private
+	 */
+	applyPreviewRecord: function(record)
+	{
+		this.model.setPreviewRecord(record);
+	},
+
+	/**
+	 * Cleanup any pending tasks before destroying the grid.
+	 * @private
+	 */
+	beforeDestroy: function()
+	{
+		this.cancelPreviewRecordTask();
+		Zarafa.mail.ui.MailGrid.superclass.beforeDestroy.apply(this, arguments);
 	},
 
 	/**
