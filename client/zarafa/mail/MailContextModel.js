@@ -34,6 +34,13 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 
 		Zarafa.mail.MailContextModel.superclass.constructor.call(this, config);
 
+		this.prefetchedMailCache = [];
+		this.prefetchedMailCacheMap = {};
+		this.prefetchMailGrid = null;
+		this.mailPrefetchScrollTask = null;
+		this.prefetchDebugHighlightState = null;
+		this.prefetchDebugStyleApplied = false;
+
 		this.on({
 			'searchstart': this.onSearchStart,
 			'searchstop': this.onSearchStop,
@@ -43,6 +50,8 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		if (container.getServerConfig().isPrefetchEnabled()) {
 			config.store.on('load', this.prefetchVisibleMailBodies, this, { buffer: 5 });
 			config.store.on('open', this.onPrefetchedRecordOpened, this);
+			config.store.on('remove', this.onPrefetchedRecordRemoved, this);
+			config.store.on('clear', this.onPrefetchStoreCleared, this);
 		}
 	},
 
@@ -489,7 +498,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 
 	/**
 	 * Initialize the {@link Zarafa.core.data.IPMRecord record} with attachments
-	 * in case of forward it the attachments will be copied to the  record.
+	 * in case of forward it the attachments will be copied to the record.
 	 * For reply it will be added if it is a inline image.
 	 *
 	 * @param {Zarafa.core.data.IPMRecord} record The record to initialize
@@ -851,24 +860,876 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 			return;
 		}
 
-		records = Array.isArray(records) ? records : (records ? [ records ] : []);
-
-		if (Ext.isEmpty(records)) {
+		store = store || this.getStore();
+		if (!store) {
 			return;
 		}
+
+		this.ensureMailGridBindings(store);
 
 		const defaultFolder = this.getDefaultFolder();
 		if (defaultFolder && defaultFolder.getDefaultFolderKey() === 'outbox') {
 			return;
 		}
 
-		const toOpen = records.filter(function(record) {
-			return this.shouldPrefetchMailRecord(record, store);
-		}, this);
+		const visibleSpan = this.getVisibleIndexSpan(store);
+		if (!visibleSpan) {
+			return;
+		}
+
+		const budget = this.getPrefetchBudget(visibleSpan);
+		const buffer = this.calculatePrefetchBuffer(visibleSpan, budget);
+		const prefetchRange = this.getPrefetchRange(store, visibleSpan, buffer, budget);
+
+		if (!prefetchRange) {
+			return;
+		}
+
+		this.prunePrefetchedCache(store, prefetchRange, budget);
+
+		let toOpen = this.collectPrefetchCandidates(store, prefetchRange);
+		if (Ext.isEmpty(toOpen)) {
+			return;
+		}
+
+		const requiredSlots = this.getRequiredPrefetchSlots(toOpen.length, budget);
+		if (requiredSlots > 0) {
+			this.freePrefetchCacheSlots(requiredSlots, store);
+		}
+
+		const availableSlots = this.getAvailablePrefetchSlots(budget);
+		if (Ext.isNumber(availableSlots)) {
+			if (availableSlots <= 0) {
+				return;
+			}
+
+			if (toOpen.length > availableSlots) {
+				toOpen = toOpen.slice(0, availableSlots);
+			}
+		}
 
 		if (!Ext.isEmpty(toOpen)) {
 			store.open(toOpen);
 		}
+	},
+
+	/**
+	 * Determine the store index range that should be prefetched based on the rows that are visible in the mail grid.
+	 * @param {Ext.data.Store} store The store under consideration.
+	 * @param {{start: Number, end: Number, count: Number}} visibleSpan The currently visible index span.
+	 * @param {Number} buffer The amount of extra records to include before and after the visible range.
+	 * @param {Number} budget Maximum number of records that should be prefetched at once.
+	 * @return {{start: Number, end: Number}|null} The inclusive start/end index range or null when it cannot be determined.
+	 */
+	getPrefetchRange: function(store, visibleSpan, buffer, budget) {
+		if (!store || !visibleSpan) {
+			return null;
+		}
+
+		const storeCount = store.getCount ? store.getCount() : 0;
+		if (storeCount === 0) {
+			return null;
+		}
+
+		buffer = Ext.isNumber(buffer) ? buffer : parseInt(buffer, 10);
+		buffer = isNaN(buffer) ? 0 : Math.max(buffer, 0);
+
+		let start = Math.max(visibleSpan.start - buffer, 0);
+		let end = Math.min(visibleSpan.end + buffer, storeCount - 1);
+
+		if (start > end) {
+			start = visibleSpan.start;
+			end = visibleSpan.end;
+		}
+
+		const rangeSize = end - start + 1;
+		if (Ext.isNumber(budget) && isFinite(budget) && budget > 0 && rangeSize > budget) {
+			const overflow = rangeSize - budget;
+			const trimStart = Math.min(Math.floor(overflow / 2), Math.max(start, 0));
+			const trimEnd = overflow - trimStart;
+
+			start = Math.min(start + trimStart, storeCount - 1);
+			end = Math.max(end - trimEnd, start);
+		}
+
+		return {
+			start: Math.max(start, 0),
+			end: Math.max(end, start)
+		};
+	},
+
+	/**
+	 * Retrieve the index span that corresponds to the rows currently visible in the active mail grid.
+	 * @param {Ext.data.Store} store The store to inspect.
+	 * @return {{start: Number, end: Number, count: Number}|null} The visible span or null when it cannot be determined.
+	 */
+	getVisibleIndexSpan: function(store) {
+		const grid = this.getActiveMailGrid(store);
+		if (!grid || !grid.rendered) {
+			return null;
+		}
+
+		const view = grid.getView();
+		if (!view || !view.scroller || !view.scroller.dom) {
+			return null;
+		}
+
+		const storeCount = store && Ext.isFunction(store.getCount) ? store.getCount() : 0;
+		if (storeCount <= 0) {
+			return null;
+		}
+
+		let span = this.getVisibleSpanFromView(view, store, storeCount);
+		if (!span) {
+			span = this.getVisibleSpanFromDom(view, store, storeCount);
+		}
+
+		if (!span) {
+			span = this.getVisibleSpanFromScroll(view, storeCount);
+		}
+
+		if (!span) {
+			return null;
+		}
+
+		const normalizedStart = Math.max(0, Math.min(span.start, storeCount - 1));
+		const normalizedEnd = Math.max(normalizedStart, Math.min(span.end, storeCount - 1));
+
+		return {
+			start: normalizedStart,
+			end: normalizedEnd,
+			count: normalizedEnd - normalizedStart + 1
+		};
+	},
+
+	getVisibleSpanFromView: function(view, store, storeCount) {
+		if (!view) {
+			return null;
+		}
+
+		if (Ext.isFunction(view.getVisibleRows)) {
+			const visibleRows = view.getVisibleRows();
+			if (visibleRows && Ext.isNumber(visibleRows.first) && Ext.isNumber(visibleRows.last)) {
+				return {
+					start: visibleRows.first,
+					end: visibleRows.last
+				};
+			}
+		}
+
+		if (Ext.isFunction(view.getVisibleRowCount)) {
+			const count = view.getVisibleRowCount();
+			if (Ext.isNumber(count) && count > 0) {
+				const estimate = this.getVisibleSpanFromScroll(view, storeCount, count);
+				if (estimate) {
+					return estimate;
+				}
+			}
+		}
+
+		return null;
+	},
+
+	getVisibleSpanFromDom: function(view, store, storeCount) {
+		if (!view || !Ext.isFunction(view.getRows)) {
+			return null;
+		}
+
+		const rows = view.getRows();
+		if (!rows || rows.length === 0) {
+			return null;
+		}
+
+		const scrollerDom = view.scroller.dom;
+		const scrollTop = scrollerDom.scrollTop;
+		const viewportBottom = scrollTop + scrollerDom.clientHeight;
+		const scrollerRect = scrollerDom.getBoundingClientRect ? scrollerDom.getBoundingClientRect() : null;
+
+		let firstVisibleIndex = null;
+		let lastVisibleIndex = null;
+
+		for (let i = 0; i < rows.length; i++) {
+			const row = rows[i];
+			if (!row) {
+				continue;
+			}
+
+			let rowTop;
+			let rowBottom;
+
+			if (scrollerRect && row.getBoundingClientRect) {
+				const rowRect = row.getBoundingClientRect();
+				rowTop = rowRect.top - scrollerRect.top + scrollTop;
+				rowBottom = rowRect.bottom - scrollerRect.top + scrollTop;
+			} else {
+				rowTop = row.offsetTop;
+				rowBottom = rowTop + row.offsetHeight;
+			}
+
+			if (rowBottom <= scrollTop || rowTop >= viewportBottom) {
+				continue;
+			}
+
+			const rowIndex = this.getRowIndexFromElement(view, row, store);
+			if (!Ext.isNumber(rowIndex) || rowIndex < 0 || rowIndex >= storeCount) {
+				continue;
+			}
+
+			if (firstVisibleIndex === null || rowIndex < firstVisibleIndex) {
+				firstVisibleIndex = rowIndex;
+			}
+
+			if (lastVisibleIndex === null || rowIndex > lastVisibleIndex) {
+				lastVisibleIndex = rowIndex;
+			}
+		}
+
+		if (firstVisibleIndex === null || lastVisibleIndex === null) {
+			return null;
+		}
+
+		return {
+			start: firstVisibleIndex,
+			end: lastVisibleIndex
+		};
+	},
+
+	getVisibleSpanFromScroll: function(view, storeCount, visibleCount) {
+		if (!view || !view.scroller || !view.scroller.dom) {
+			return null;
+		}
+
+		const rowHeight = this.getApproximateRowHeight(view);
+		if (!Ext.isNumber(rowHeight) || rowHeight <= 0) {
+			return null;
+		}
+
+		const scrollerDom = view.scroller.dom;
+		const scrollTop = scrollerDom.scrollTop;
+		const count = Ext.isNumber(visibleCount) && visibleCount > 0 ? visibleCount : Math.ceil(scrollerDom.clientHeight / rowHeight);
+		if (!Ext.isNumber(count) || count <= 0) {
+			return null;
+		}
+
+		const start = Math.floor(scrollTop / rowHeight);
+		const end = start + count - 1;
+
+		return {
+			start: start,
+			end: end
+		};
+	},
+
+	getApproximateRowHeight: function(view) {
+		if (!view) {
+			return 0;
+		}
+
+		if (Ext.isFunction(view.getCalculatedRowHeight)) {
+			const calculated = view.getCalculatedRowHeight();
+			if (Ext.isNumber(calculated) && calculated > 0) {
+				return calculated;
+			}
+		}
+
+		if (Ext.isFunction(view.getRows)) {
+			const rows = view.getRows();
+			if (rows && rows.length > 0) {
+				for (let i = 0; i < rows.length; i++) {
+					const height = rows[i] ? rows[i].offsetHeight : 0;
+					if (Ext.isNumber(height) && height > 0) {
+						return height;
+					}
+				}
+			}
+		}
+
+		return 0;
+	},
+
+	getRowIndexFromElement: function(view, row, store) {
+		if (!view || !row) {
+			return -1;
+		}
+
+		if (Ext.isFunction(view.findRowIndex)) {
+			const located = view.findRowIndex(row);
+			if (Ext.isNumber(located) && located >= 0) {
+				return located;
+			}
+		}
+
+		let record = null;
+		if (Ext.isFunction(view.getRecord)) {
+			record = view.getRecord(row);
+		}
+
+		if (!record) {
+			return -1;
+		}
+
+		if (Ext.isNumber(record.storeIndex) && record.storeIndex >= 0) {
+			return record.storeIndex;
+		}
+
+		if (Ext.isNumber(record.index) && record.index >= 0) {
+			return record.index;
+		}
+
+		if (store && Ext.isFunction(store.indexOf)) {
+			return store.indexOf(record);
+		}
+
+		return -1;
+	},
+
+	isPrefetchDebugEnabled: function() {
+		const resolved = this.resolvePrefetchDebugEnabled();
+		if (this.prefetchDebugHighlightState !== resolved) {
+			if (this.prefetchDebugHighlightState === true && resolved === false) {
+				this.clearAllPrefetchDebugHighlights();
+			}
+			this.prefetchDebugHighlightState = resolved;
+		}
+
+		return resolved === true;
+	},
+
+	resolvePrefetchDebugEnabled: function() {
+		let enabled = false;
+
+		try {
+			if (typeof window !== 'undefined') {
+				if (window.location && window.location.search) {
+					const search = window.location.search;
+					if (/[?&]prefetchDebug=(1|true)/i.test(search)) {
+						enabled = true;
+					}
+				}
+
+				if (!enabled && window.localStorage) {
+					const stored = window.localStorage.getItem('mailPrefetchDebug');
+					if (stored === '1' || stored === 'true') {
+						enabled = true;
+					}
+				}
+			}
+		} catch (error) {
+			// ignore
+		}
+
+		return enabled;
+	},
+
+	ensurePrefetchDebugStyle: function() {
+		if (this.prefetchDebugStyleApplied || typeof document === 'undefined') {
+			return;
+		}
+
+		try {
+			const style = document.createElement('style');
+			style.type = 'text/css';
+			style.id = 'mail-prefetch-debug-style';
+			style.appendChild(document.createTextNode('.prefetch-mail-debug-row{box-shadow:inset 0 0 0 9999px rgba(76,175,80,0.18);} .prefetch-mail-debug-row.x-grid3-row-selected{box-shadow:inset 0 0 0 9999px rgba(56,142,60,0.28);}'));
+
+			const head = document.head || document.getElementsByTagName('head')[0];
+			if (head) {
+				head.appendChild(style);
+				this.prefetchDebugStyleApplied = true;
+			}
+		} catch (error) {
+			// ignore
+		}
+	},
+
+	togglePrefetchDebugHighlight: function(record, highlight, store) {
+		if (!record) {
+			return;
+		}
+
+		const debugEnabled = this.isPrefetchDebugEnabled();
+		if (!debugEnabled && highlight !== false) {
+			return;
+		}
+
+		const grid = this.prefetchMailGrid || this.getActiveMailGrid(store || this.getStore());
+		if (!grid || !grid.rendered) {
+			return;
+		}
+
+		const view = grid.getView();
+		if (!view || !Ext.isFunction(view.getRow)) {
+			return;
+		}
+
+		const targetStore = store || grid.getStore() || this.getStore();
+		const index = targetStore && Ext.isFunction(targetStore.indexOf) ? targetStore.indexOf(record) : -1;
+		if (!Ext.isNumber(index) || index < 0) {
+			return;
+		}
+
+		const row = view.getRow(index);
+		if (!row) {
+			return;
+		}
+
+		const rowEl = Ext.get(row);
+		if (!rowEl) {
+			return;
+		}
+
+		if (highlight && debugEnabled) {
+			this.ensurePrefetchDebugStyle();
+			rowEl.addClass('prefetch-mail-debug-row');
+		} else {
+			rowEl.removeClass('prefetch-mail-debug-row');
+		}
+	},
+
+
+	applyPrefetchDebugHighlights: function(view) {
+		const grid = this.prefetchMailGrid || this.getActiveMailGrid(this.getStore());
+		const targetView = view || (grid ? grid.getView() : null);
+
+		if (!targetView || !Ext.isFunction(targetView.getRows)) {
+			return;
+		}
+
+		const rows = targetView.getRows();
+		if (!rows || rows.length === 0) {
+			return;
+		}
+
+		this.applyPrefetchDebugHighlightsForRange(targetView, 0, rows.length - 1);
+	},
+
+	applyPrefetchDebugHighlightsForRange: function(view, startRow, endRow) {
+		if (!view || !Ext.isFunction(view.getRow)) {
+			return;
+		}
+
+		let rows = null;
+		if (Ext.isFunction(view.getRows)) {
+			rows = view.getRows();
+		}
+
+		const maxIndex = rows && rows.length ? rows.length - 1 : null;
+		if (maxIndex !== null) {
+			if (maxIndex < 0) {
+				return;
+			}
+
+			startRow = Math.max(0, startRow);
+			endRow = Math.min(endRow, maxIndex);
+
+			if (startRow > maxIndex || startRow > endRow) {
+				return;
+			}
+		}
+
+		if (startRow > endRow) {
+			return;
+		}
+
+		const grid = this.prefetchMailGrid;
+		const store = grid && Ext.isFunction(grid.getStore) ? grid.getStore() : this.getStore();
+		const debugEnabled = this.isPrefetchDebugEnabled();
+
+		if (!debugEnabled) {
+			// When debug is disabled, ensure any residual styling is removed.
+			for (let index = startRow; index <= endRow; index++) {
+				const row = view.getRow(index);
+				if (!row) {
+					continue;
+				}
+
+				const rowEl = Ext.get(row);
+				if (rowEl) {
+					rowEl.removeClass('prefetch-mail-debug-row');
+				}
+			}
+
+			return;
+		}
+
+		this.ensurePrefetchDebugStyle();
+
+		for (let index = startRow; index <= endRow; index++) {
+			const row = view.getRow(index);
+			if (!row) {
+				continue;
+			}
+
+			let record = null;
+			if (Ext.isFunction(view.getRecord)) {
+				record = view.getRecord(row);
+			}
+
+			if (!record && store && Ext.isFunction(store.getAt)) {
+				record = store.getAt(index);
+			}
+
+			const rowEl = Ext.get(row);
+			if (!rowEl) {
+				continue;
+			}
+
+			if (record && this.isMailRecordCached(record)) {
+				rowEl.addClass('prefetch-mail-debug-row');
+			} else {
+				rowEl.removeClass('prefetch-mail-debug-row');
+			}
+		}
+	},
+
+	clearAllPrefetchDebugHighlights: function() {
+		if (!this.prefetchMailGrid || !this.prefetchMailGrid.rendered) {
+			return;
+		}
+
+		const view = this.prefetchMailGrid.getView();
+		if (!view || !Ext.isFunction(view.getRows)) {
+			return;
+		}
+
+		const rows = view.getRows();
+		if (!rows) {
+			return;
+		}
+
+		for (let i = 0; i < rows.length; i++) {
+			const row = rows[i];
+			if (row) {
+				Ext.fly(row).removeClass('prefetch-mail-debug-row');
+			}
+		}
+	},
+
+	/**
+	 * Obtain the mail grid that is currently visible for this context model.
+	 * @param {Ext.data.Store} store The store that should back the grid.
+	 * @return {Ext.grid.GridPanel|null} The grid when it is available, null otherwise.
+	 */
+	getActiveMailGrid: function(store) {
+		const currentContext = container.getCurrentContext();
+		if (!currentContext || currentContext.getModel() !== this) {
+			return null;
+		}
+
+		const contentPanel = container.getContentPanel();
+		if (!contentPanel) {
+			return null;
+		}
+
+		let gridPanel = null;
+		if (Ext.isFunction(contentPanel.getGridPanel)) {
+			gridPanel = contentPanel.getGridPanel();
+		} else if (Ext.isDefined(contentPanel.mailGrid)) {
+			gridPanel = contentPanel.mailGrid;
+		}
+
+		if (gridPanel && store && gridPanel.getStore() !== store) {
+			return null;
+		}
+
+		return gridPanel || null;
+	},
+
+	/**
+	 * Calculate the total number of records that may be prefetched based on configuration and visibility.
+	 * @param {{count: Number}} visibleSpan Information about the visible rows.
+	 * @return {Number} The calculated budget.
+	 */
+	getPrefetchBudget: function(visibleSpan) {
+		const configured = this.normalizePrefetchCount(container.getServerConfig().getPrefetchTotalCount());
+
+		if (!visibleSpan || !Ext.isNumber(visibleSpan.count) || visibleSpan.count <= 0) {
+			return configured > 0 ? configured : Number.POSITIVE_INFINITY;
+		}
+
+		if (configured <= 0) {
+			return visibleSpan.count;
+		}
+
+		return Math.max(configured, visibleSpan.count);
+	},
+
+	/**
+	 * Calculate the number of additional records that should be prefetched around the visible range.
+	 * @param {{count: Number}} visibleSpan The visible span information.
+	 * @param {Number} budget Maximum number of prefetched items.
+	 * @return {Number} The buffer size that should be applied before and after the visible range.
+	 */
+	calculatePrefetchBuffer: function(visibleSpan, budget) {
+		if (!visibleSpan || !Ext.isNumber(visibleSpan.count) || visibleSpan.count <= 0) {
+			return 0;
+		}
+
+		const visibleCount = visibleSpan.count;
+
+		if (!Ext.isNumber(budget) || !isFinite(budget) || budget <= 0) {
+			return Math.min(Math.ceil(visibleCount / 2), 50);
+		}
+
+		const slack = Math.max(budget - visibleCount, 0);
+		if (slack <= 0) {
+			return 0;
+		}
+
+		return Math.min(Math.ceil(visibleCount / 2), Math.floor(slack / 2), 50);
+	},
+
+	/**
+	 * Normalize the configured prefetch count so it can be used as a budget.
+	 * @param {Number} configuredCount The count retrieved from the server configuration.
+	 * @return {Number} The normalized amount or 0 when it is not a valid number.
+	 */
+	normalizePrefetchCount: function(configuredCount) {
+		const normalizedCount = Ext.isNumber(configuredCount) ? configuredCount : parseInt(configuredCount, 10);
+
+		if (isNaN(normalizedCount)) {
+			return 0;
+		}
+
+		return Math.max(normalizedCount, 0);
+	},
+
+	/**
+	 * Determine which records within the prefetch range still need to be loaded.
+	 * @param {Ext.data.Store} store The store owning the records.
+	 * @param {{start: Number, end: Number}} prefetchRange The target range.
+	 * @return {Ext.data.Record[]} The records that should be opened.
+	 */
+	collectPrefetchCandidates: function(store, prefetchRange) {
+		if (!store || !prefetchRange) {
+			return [];
+		}
+
+		const rangeRecords = store.getRange(prefetchRange.start, prefetchRange.end) || [];
+		const candidates = [];
+
+		for (let i = 0; i < rangeRecords.length; i++) {
+			const record = rangeRecords[i];
+			if (!record || !this.shouldPrefetchMailRecord(record, store) || this.isMailRecordCached(record)) {
+				continue;
+			}
+
+			candidates.push(record);
+		}
+
+		return candidates;
+	},
+
+	/**
+	 * Check how many additional prefetch slots are available.
+	 * @param {Number} budget The current prefetch budget.
+	 * @return {Number|null} The remaining slots or null when unlimited.
+	 */
+	getAvailablePrefetchSlots: function(budget) {
+		if (!Ext.isNumber(budget) || !isFinite(budget) || budget <= 0) {
+			return null;
+		}
+
+		return Math.max(budget - this.prefetchedMailCache.length, 0);
+	},
+
+	/**
+	 * Determine how many cache slots need to be freed before prefetching the given amount of records.
+	 * @param {Number} candidateCount Number of records considered for prefetching.
+	 * @param {Number} budget Prefetch budget.
+	 * @return {Number} Number of slots that must be cleared.
+	 */
+	getRequiredPrefetchSlots: function(candidateCount, budget) {
+		if (!Ext.isNumber(budget) || !isFinite(budget) || budget <= 0) {
+			return 0;
+		}
+
+		const available = this.getAvailablePrefetchSlots(budget);
+		if (available === null) {
+			return 0;
+		}
+
+		return Math.max(candidateCount - available, 0);
+	},
+
+	/**
+	 * Remove cached sanitized bodies for mails that are no longer needed.
+	 * @param {Ext.data.Store} store The store that owns the records.
+	 * @param {{start: Number, end: Number}} prefetchRange The current prefetch range.
+	 * @param {Number} budget Prefetch budget.
+	 */
+	prunePrefetchedCache: function(store, prefetchRange, budget) {
+		if (!this.prefetchedMailCache || this.prefetchedMailCache.length === 0) {
+			return;
+		}
+
+		const keep = [];
+		const newMap = {};
+
+		for (let i = 0; i < this.prefetchedMailCache.length; i++) {
+			const recordId = this.prefetchedMailCache[i];
+			const record = store ? store.getById(recordId) : null;
+
+			if (!record) {
+				continue;
+			}
+
+			const recordIndex = store.indexOf(record);
+			if (!prefetchRange || recordIndex < prefetchRange.start || recordIndex > prefetchRange.end) {
+				if (!record.isOpened || !record.isOpened()) {
+					this.clearRecordSanitizedBody(record);
+				}
+				this.togglePrefetchDebugHighlight(record, false, store);
+				continue;
+			}
+
+			keep.push(recordId);
+			newMap[recordId] = true;
+		}
+
+		this.prefetchedMailCache = keep;
+		this.prefetchedMailCacheMap = newMap;
+
+		if (Ext.isNumber(budget) && isFinite(budget) && budget > 0 && this.prefetchedMailCache.length > budget) {
+			this.freePrefetchCacheSlots(this.prefetchedMailCache.length - budget, store);
+		}
+	},
+
+	/**
+	 * Free the given amount of cache slots by removing the oldest prefetched records.
+	 * @param {Number} slots Number of slots to free.
+	 * @param {Ext.data.Store} store The store owning the records.
+	 */
+	freePrefetchCacheSlots: function(slots, store) {
+		if (!Ext.isNumber(slots) || slots <= 0 || !this.prefetchedMailCache || this.prefetchedMailCache.length === 0) {
+			return;
+		}
+
+		let remaining = slots;
+		let safetyCounter = 0;
+
+		while (remaining > 0 && this.prefetchedMailCache.length > 0 && safetyCounter < 1000) {
+			safetyCounter++;
+
+			const recordId = this.prefetchedMailCache.shift();
+			if (!recordId) {
+				continue;
+			}
+
+			delete this.prefetchedMailCacheMap[recordId];
+
+			const record = store ? store.getById(recordId) : null;
+
+			if (record && record.isOpened && record.isOpened()) {
+				this.prefetchedMailCache.push(recordId);
+				this.prefetchedMailCacheMap[recordId] = true;
+
+				if (safetyCounter > this.prefetchedMailCache.length) {
+					break;
+				}
+
+				continue;
+			}
+
+			if (record) {
+				this.clearRecordSanitizedBody(record);
+				this.togglePrefetchDebugHighlight(record, false, store);
+			}
+
+			remaining--;
+		}
+	},
+
+	/**
+	 * Remember that a record has been prefetched so that we can avoid duplicate work later on.
+	 * @param {Ext.data.Store} store The store owning the record.
+	 * @param {Ext.data.Record} record The record to remember.
+	 */
+	registerPrefetchedRecord: function(store, record) {
+		if (!record) {
+			return;
+		}
+
+		const recordId = record.id;
+		if (!this.prefetchedMailCacheMap) {
+			this.prefetchedMailCacheMap = {};
+		}
+
+		if (!this.prefetchedMailCache) {
+			this.prefetchedMailCache = [];
+		}
+
+		if (this.prefetchedMailCacheMap[recordId]) {
+			const existingIndex = this.prefetchedMailCache.indexOf(recordId);
+			if (existingIndex !== -1) {
+				this.prefetchedMailCache.splice(existingIndex, 1);
+			}
+		}
+
+		this.prefetchedMailCache.push(recordId);
+		this.prefetchedMailCacheMap[recordId] = true;
+		this.togglePrefetchDebugHighlight(record, true, store);
+
+		const budget = this.getPrefetchBudget(this.getVisibleIndexSpan(store));
+		if (Ext.isNumber(budget) && isFinite(budget) && budget > 0 && this.prefetchedMailCache.length > budget) {
+			this.freePrefetchCacheSlots(this.prefetchedMailCache.length - budget, store);
+		}
+	},
+
+	/**
+	 * Forget that a record was prefetched and drop its sanitized cache.
+	 * @param {Ext.data.Record} record The record to forget.
+	 */
+	forgetPrefetchedRecord: function(record) {
+		if (!record || !this.prefetchedMailCacheMap) {
+			return;
+		}
+
+		const recordId = record.id;
+
+		if (this.prefetchedMailCacheMap[recordId]) {
+			delete this.prefetchedMailCacheMap[recordId];
+		}
+
+		if (this.prefetchedMailCache && this.prefetchedMailCache.length > 0) {
+			const index = this.prefetchedMailCache.indexOf(recordId);
+			if (index !== -1) {
+				this.prefetchedMailCache.splice(index, 1);
+			}
+		}
+
+		this.clearRecordSanitizedBody(record);
+		this.togglePrefetchDebugHighlight(record, false, this.getStore());
+	},
+
+	/**
+	 * Check whether the given record is already cached.
+	 * @param {Ext.data.Record} record The record to inspect.
+	 * @return {Boolean} True when the record is cached.
+	 */
+	isMailRecordCached: function(record) {
+		if (!record || !this.prefetchedMailCacheMap) {
+			return false;
+		}
+
+		return this.prefetchedMailCacheMap[record.id] === true;
+	},
+
+	/**
+	 * Clear the sanitized HTML body that was cached for the given record.
+	 * @param {Ext.data.Record} record The record whose cache should be cleared.
+	 */
+	clearRecordSanitizedBody: function(record) {
+		if (!record) {
+			return;
+		}
+
+		if (Ext.isFunction(record.clearSanitizedHtmlBody)) {
+			record.clearSanitizedHtmlBody();
+		} else if (Ext.isDefined(record.sanitizedHTMLBody)) {
+			record.sanitizedHTMLBody = null;
+		}
+		this.togglePrefetchDebugHighlight(record, false, this.getStore());
 	},
 
 	/**
@@ -908,5 +1769,202 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		}
 
 		record.getSanitizedHtmlBody();
-        }
+		this.registerPrefetchedRecord(store, record);
+	},
+
+	/**
+	 * React to records being removed from the store so that the cache does not retain stale data.
+	 * @param {Ext.data.Store} store The store emitting the event.
+	 * @param {Ext.data.Record} record The record that was removed.
+	 */
+	onPrefetchedRecordRemoved: function(store, record) {
+		if (!container.getServerConfig().isPrefetchEnabled()) {
+			return;
+		}
+
+		this.forgetPrefetchedRecord(record);
+	},
+
+	/**
+	 * Clear the prefetch cache when the underlying store is cleared.
+	 * @param {Ext.data.Store} store The store emitting the event.
+	 */
+	onPrefetchStoreCleared: function(store) {
+		if (!container.getServerConfig().isPrefetchEnabled()) {
+			return;
+		}
+
+		if (this.prefetchedMailCache) {
+			this.prefetchedMailCache.length = 0;
+		}
+
+		this.prefetchedMailCacheMap = {};
+		this.clearAllPrefetchDebugHighlights();
+	},
+
+	/**
+	 * Ensure that the scroll events from the mail grid trigger prefetch updates.
+	 * @param {Ext.data.Store} store The store backing the grid.
+	 */
+	ensureMailGridBindings: function(store) {
+		const grid = this.getActiveMailGrid(store);
+		if (!grid) {
+			return;
+		}
+
+		if (this.prefetchMailGrid && this.prefetchMailGrid !== grid) {
+			this.teardownMailGridBindings();
+		}
+
+		if (this.prefetchMailGrid === grid) {
+			return;
+		}
+
+		this.prefetchMailGrid = grid;
+
+		grid.on('bodyscroll', this.onMailGridBodyScroll, this);
+		grid.on('destroy', this.onMailGridDestroyed, this);
+
+		if (grid.viewReady) {
+			this.onMailGridViewReady();
+		} else {
+			grid.on('viewready', this.onMailGridViewReady, this, { single: true });
+		}
+	},
+
+	/**
+	 * Stop listening for events from the previous grid.
+	 */
+	teardownMailGridBindings: function() {
+		if (!this.prefetchMailGrid) {
+			return;
+		}
+
+		this.prefetchMailGrid.un('bodyscroll', this.onMailGridBodyScroll, this);
+		this.prefetchMailGrid.un('destroy', this.onMailGridDestroyed, this);
+		this.prefetchMailGrid.un('viewready', this.onMailGridViewReady, this);
+		this.prefetchMailGrid = null;
+
+		this.teardownMailGridViewListeners();
+
+		if (this.mailPrefetchScrollTask) {
+			this.mailPrefetchScrollTask.cancel();
+			this.mailPrefetchScrollTask = null;
+		}
+
+		this.clearAllPrefetchDebugHighlights();
+	},
+
+	/**
+	 * Trigger a prefetch update once the mail grid view is ready.
+	 */
+	onMailGridViewReady: function() {
+		const grid = this.prefetchMailGrid || this.getActiveMailGrid(this.getStore());
+		if (!grid) {
+			return;
+		}
+
+		const view = grid.getView();
+		if (!view) {
+			return;
+		}
+
+		if (this.prefetchMailGridView && this.prefetchMailGridView !== view) {
+			this.teardownMailGridViewListeners();
+		}
+
+		if (this.prefetchMailGridView !== view) {
+			this.prefetchMailGridView = view;
+			view.on('refresh', this.onMailGridViewRefresh, this);
+			view.on('rowsinserted', this.onMailGridViewRowsInserted, this);
+			view.on('rowupdated', this.onMailGridViewRowUpdated, this);
+			view.on('rowremoved', this.onMailGridViewRowRemoved, this);
+		}
+
+		this.applyPrefetchDebugHighlights(view);
+
+		const store = grid.getStore() || this.getStore();
+		if (store) {
+			this.prefetchVisibleMailBodies(store, null);
+		}
+	},
+
+	/**
+	 * When the grid is destroyed we clean up listeners and pending tasks.
+	 * @param {Ext.Component} grid The grid instance being destroyed.
+	 */
+	onMailGridDestroyed: function(grid) {
+		if (grid !== this.prefetchMailGrid) {
+			return;
+		}
+
+		this.teardownMailGridBindings();
+	},
+
+	/**
+	 * Handle scroll events from the mail grid by scheduling a lightweight prefetch update.
+	 */
+	onMailGridBodyScroll: function() {
+		if (!container.getServerConfig().isPrefetchEnabled()) {
+			return;
+		}
+
+		if (!this.mailPrefetchScrollTask) {
+			this.mailPrefetchScrollTask = new Ext.util.DelayedTask(function() {
+				const store = this.getStore();
+				if (store) {
+					this.prefetchVisibleMailBodies(store, null);
+				}
+			}, this);
+		}
+
+		const store = this.getStore();
+		if (!store) {
+			return;
+		}
+
+		this.mailPrefetchScrollTask.delay(75, this.prefetchVisibleMailBodies, this, [store, null]);
+	},
+
+	teardownMailGridViewListeners: function() {
+		if (!this.prefetchMailGridView) {
+			return;
+		}
+
+		this.prefetchMailGridView.un('refresh', this.onMailGridViewRefresh, this);
+		this.prefetchMailGridView.un('rowsinserted', this.onMailGridViewRowsInserted, this);
+		this.prefetchMailGridView.un('rowupdated', this.onMailGridViewRowUpdated, this);
+		this.prefetchMailGridView.un('rowremoved', this.onMailGridViewRowRemoved, this);
+		this.prefetchMailGridView = null;
+	},
+
+	onMailGridViewRefresh: function(view) {
+		this.applyPrefetchDebugHighlights(view || this.prefetchMailGridView);
+	},
+
+	onMailGridViewRowsInserted: function(view, firstRow, lastRow) {
+		const targetView = view || this.prefetchMailGridView;
+		if (!targetView) {
+			return;
+		}
+
+		const start = Ext.isNumber(firstRow) ? firstRow : 0;
+		const end = Ext.isNumber(lastRow) ? lastRow : start;
+		this.applyPrefetchDebugHighlightsForRange(targetView, start, end);
+	},
+
+	onMailGridViewRowUpdated: function(view, rowIndex) {
+		const targetView = view || this.prefetchMailGridView;
+		if (!targetView || !Ext.isNumber(rowIndex)) {
+			this.applyPrefetchDebugHighlights(targetView);
+			return;
+		}
+
+		this.applyPrefetchDebugHighlightsForRange(targetView, rowIndex, rowIndex);
+	},
+
+	onMailGridViewRowRemoved: function(view) {
+		this.applyPrefetchDebugHighlights(view || this.prefetchMailGridView);
+	}
+
 });

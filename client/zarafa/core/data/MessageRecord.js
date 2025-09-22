@@ -125,6 +125,14 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	},
 
 	/**
+	 * Clear the cached sanitized HTML body so memory can be reclaimed when the record leaves the prefetch window.
+	 */
+	clearSanitizedHtmlBody: function()
+	{
+		this.sanitizedHTMLBody = null;
+	},
+
+	/**
 	 * Removes some weird styling that Outlook adds to html mails.
 	 *
 	 * @param {String} body The text that should be cleaned up
