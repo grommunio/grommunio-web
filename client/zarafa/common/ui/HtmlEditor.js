@@ -706,7 +706,10 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 				// when mail is reply/forward cursor set in first outer span which is not contains any
 				// formatting so default formatting gets lost. to overcome this problem
 				// we need to fire the focusin event of editor.
-				editor.dispatch("focusin", {});
+				editor.dispatch("focusin", {
+                                        target: editor.getBody(),
+                                        relatedTarget: null
+                                });
 			}));
 		} else {
 			// if editor instance is not available yet to do auto focus than we have to reschedule the
