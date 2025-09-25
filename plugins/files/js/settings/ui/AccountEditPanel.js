@@ -166,7 +166,8 @@ Zarafa.plugins.files.settings.ui.AccountEditPanel = Ext.extend(Ext.Panel, {
 			'load',
 			function (store) {
 				var backend = this.normalizeBackendName(this.currentBackend);
-				var record = store.findRecord('name', backend) || store.getAt(0);
+				var index = store.find('name', backend);
+				var record = index >= 0 ? store.getAt(index) : store.getAt(0);
 				if (record) {
 					backendCombo.setValue(record.get('name'));
 					this.currentBackend = record.get('name');
