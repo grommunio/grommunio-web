@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Estonian (Estonia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-13 00:05+0200\n"
+"POT-Creation-Date: 2025-09-26 01:37+0200\n"
 "PO-Revision-Date: 2025-05-21 10:01+0000\n"
 "Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/grommunio/"
@@ -5532,8 +5532,35 @@ msgstr "Töölaua teavituste pistikprogramm"
 msgid "Desktop Notifications"
 msgstr "Töölaua teated"
 
-msgid "Files: ownCloud Backend"
-msgstr "Failid: ownCloud Backend"
+msgid "Files: Default plugin"
+msgstr ""
+
+msgid "Loading users and groups"
+msgstr "Kasutajate ja rühmade laadimine"
+
+msgid "Add users or groups to share files."
+msgstr "Kasutajate või rühmade lisamine failide jagamiseks."
+
+msgid "Sort by: Type"
+msgstr "Järjestamine: Tüüp"
+
+msgid "Re-share"
+msgstr "Jaga uuesti"
+
+msgid "Change"
+msgstr "Muuda"
+
+msgid "Share with"
+msgstr "Jagage koos"
+
+msgid "Share Details"
+msgstr "Jaga üksikasjad"
+
+msgid "Type to search"
+msgstr "Tüüp otsinguks"
+
+msgid "No results"
+msgstr "Tulemusi ei ole"
 
 msgid "Share with user/group"
 msgstr "Jagage kasutajaga/grupiga"
@@ -5562,32 +5589,29 @@ msgstr "Olemas on rohkem kui 1 jagamislink. Näitab ainult viimast"
 msgid "Loading details…"
 msgstr "Laadime üksikasju…"
 
-msgid "Share Details"
-msgstr "Jaga üksikasjad"
+msgid "Files: Seafile Backend"
+msgstr ""
 
-msgid "Re-share"
-msgstr "Jaga uuesti"
+msgid "Copy link to clipboard"
+msgstr ""
 
-msgid "Change"
-msgstr "Muuda"
+msgid "Link copied to clipboard"
+msgstr ""
 
-msgid "Share with"
-msgstr "Jagage koos"
+msgid "Clipboard"
+msgstr ""
 
-msgid "Sort by: Type"
-msgstr "Järjestamine: Tüüp"
+msgid "Could not copy link automatically. Please copy it manually."
+msgstr ""
 
-msgid "Loading users and groups"
-msgstr "Kasutajate ja rühmade laadimine"
+msgid "Loading details..."
+msgstr ""
 
-msgid "Add users or groups to share files."
-msgstr "Kasutajate või rühmade lisamine failide jagamiseks."
+msgid "Share"
+msgstr "Jaga"
 
-msgid "Type to search"
-msgstr "Tüüp otsinguks"
-
-msgid "No results"
-msgstr "Tulemusi ei ole"
+msgid "Loading..."
+msgstr ""
 
 msgid "Add attachment from {0}"
 msgstr "Lisa manus alates {0}"
@@ -5676,6 +5700,9 @@ msgstr "Failid"
 msgid "Files Plugin"
 msgstr "Failide pistikprogramm"
 
+msgid "Default"
+msgstr ""
+
 msgid "Manage Accounts"
 msgstr "Halda kontosid"
 
@@ -5706,6 +5733,9 @@ msgstr "grommunio Web laadib ümber, Palun oota."
 msgid "Edit Account"
 msgstr "Konto muutmine"
 
+msgid "Backend"
+msgstr "Backend"
+
 msgid "Account Information"
 msgstr "Kontoteave"
 
@@ -5723,9 +5753,6 @@ msgstr "ID"
 
 msgid "Sort by: ID"
 msgstr "Järjestamine: ID"
-
-msgid "Backend"
-msgstr "Backend"
 
 msgid "Sort by: Backend"
 msgstr "Järjestamine: taustateenus"
@@ -5900,9 +5927,6 @@ msgstr "Büroodokumendi loomine"
 
 msgid "Download files"
 msgstr "Laadi failid alla"
-
-msgid "Share"
-msgstr "Jaga"
 
 msgid "Attach to mail"
 msgstr "Lisa e-kirjale"
@@ -6714,11 +6738,11 @@ msgstr ""
 "Vabandame, juurdepääs grommunio Webile ei ole selle kasutajakontoga "
 "saadaval. Palun võtke ühendust oma süsteemiadministraatoriga."
 
-msgid "With this backend, you can connect to any ownCloud server."
-msgstr "Selle backendiga saate luua ühenduse mis tahes ownCloudi serveriga."
+msgid "This backend provides the default WebDAV integration for Files."
+msgstr ""
 
-msgid "Files ownCloud Backend: "
-msgstr "ownCloudi taustateenus failidele: "
+msgid "Files Default Backend: "
+msgstr ""
 
 msgid "Server address"
 msgstr "Serveri aadress"
@@ -6789,6 +6813,50 @@ msgstr "Me ei suutnud saada serveri funktsioonide nimekirja."
 
 msgid "PHP-Curl is not available."
 msgstr "PHP-Curl ei ole saadaval."
+
+msgid "With this backend, you can connect to any Seafile server."
+msgstr ""
+
+msgid "Files "
+msgstr ""
+
+msgid "Use SSL"
+msgstr ""
+
+msgid "Seafile is not reachable. Correct backend address entered?"
+msgstr ""
+
+msgid "You don't have enough permissions for this operation."
+msgstr ""
+
+msgid "File is not available any more."
+msgstr ""
+
+msgid "Connection to server timed out. Retry later."
+msgstr ""
+
+msgid "This file is locked by another user."
+msgstr ""
+
+msgid "The request failed due to failure of a previous request."
+msgstr ""
+
+msgid "Seafile-server encountered a problem."
+msgstr ""
+
+msgid ""
+"Could not write to temporary directory. Contact the server administrator."
+msgstr ""
+
+msgid ""
+"Could not retrieve list of server features. Contact the server administrator."
+msgstr ""
+
+msgid "PHP-Curl is not available. Contact your system administrator."
+msgstr ""
+
+msgid "This function is not yet implemented."
+msgstr ""
 
 msgid "Unknown account ID"
 msgstr "Tundmatu konto ID"

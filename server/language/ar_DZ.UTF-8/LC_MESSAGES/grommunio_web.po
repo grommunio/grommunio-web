@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Arabic (Algeria)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-13 00:05+0200\n"
+"POT-Creation-Date: 2025-09-26 01:37+0200\n"
 "PO-Revision-Date: 2018-08-24 20:58+0200\n"
 "Last-Translator: import\n"
 "Language: ar_DZ\n"
@@ -5520,7 +5520,34 @@ msgstr ""
 msgid "Desktop Notifications"
 msgstr ""
 
-msgid "Files: ownCloud Backend"
+msgid "Files: Default plugin"
+msgstr ""
+
+msgid "Loading users and groups"
+msgstr ""
+
+msgid "Add users or groups to share files."
+msgstr ""
+
+msgid "Sort by: Type"
+msgstr ""
+
+msgid "Re-share"
+msgstr ""
+
+msgid "Change"
+msgstr ""
+
+msgid "Share with"
+msgstr ""
+
+msgid "Share Details"
+msgstr ""
+
+msgid "Type to search"
+msgstr ""
+
+msgid "No results"
 msgstr ""
 
 msgid "Share with user/group"
@@ -5550,31 +5577,28 @@ msgstr ""
 msgid "Loading details…"
 msgstr ""
 
-msgid "Share Details"
+msgid "Files: Seafile Backend"
 msgstr ""
 
-msgid "Re-share"
+msgid "Copy link to clipboard"
 msgstr ""
 
-msgid "Change"
+msgid "Link copied to clipboard"
 msgstr ""
 
-msgid "Share with"
+msgid "Clipboard"
 msgstr ""
 
-msgid "Sort by: Type"
+msgid "Could not copy link automatically. Please copy it manually."
 msgstr ""
 
-msgid "Loading users and groups"
+msgid "Loading details..."
 msgstr ""
 
-msgid "Add users or groups to share files."
+msgid "Share"
 msgstr ""
 
-msgid "Type to search"
-msgstr ""
-
-msgid "No results"
+msgid "Loading..."
 msgstr ""
 
 msgid "Add attachment from {0}"
@@ -5662,6 +5686,9 @@ msgstr ""
 msgid "Files Plugin"
 msgstr ""
 
+msgid "Default"
+msgstr ""
+
 msgid "Manage Accounts"
 msgstr ""
 
@@ -5690,6 +5717,9 @@ msgstr ""
 msgid "Edit Account"
 msgstr ""
 
+msgid "Backend"
+msgstr ""
+
 msgid "Account Information"
 msgstr ""
 
@@ -5706,9 +5736,6 @@ msgid "ID"
 msgstr ""
 
 msgid "Sort by: ID"
-msgstr ""
-
-msgid "Backend"
 msgstr ""
 
 msgid "Sort by: Backend"
@@ -5883,9 +5910,6 @@ msgid "Create office document"
 msgstr ""
 
 msgid "Download files"
-msgstr ""
-
-msgid "Share"
 msgstr ""
 
 msgid "Attach to mail"
@@ -6644,10 +6668,10 @@ msgid ""
 "Please contact your system administrator."
 msgstr ""
 
-msgid "With this backend, you can connect to any ownCloud server."
+msgid "This backend provides the default WebDAV integration for Files."
 msgstr ""
 
-msgid "Files ownCloud Backend: "
+msgid "Files Default Backend: "
 msgstr ""
 
 msgid "Server address"
@@ -6717,6 +6741,50 @@ msgid "We could not retrieve list of server features."
 msgstr ""
 
 msgid "PHP-Curl is not available."
+msgstr ""
+
+msgid "With this backend, you can connect to any Seafile server."
+msgstr ""
+
+msgid "Files "
+msgstr ""
+
+msgid "Use SSL"
+msgstr ""
+
+msgid "Seafile is not reachable. Correct backend address entered?"
+msgstr ""
+
+msgid "You don't have enough permissions for this operation."
+msgstr ""
+
+msgid "File is not available any more."
+msgstr ""
+
+msgid "Connection to server timed out. Retry later."
+msgstr ""
+
+msgid "This file is locked by another user."
+msgstr ""
+
+msgid "The request failed due to failure of a previous request."
+msgstr ""
+
+msgid "Seafile-server encountered a problem."
+msgstr ""
+
+msgid ""
+"Could not write to temporary directory. Contact the server administrator."
+msgstr ""
+
+msgid ""
+"Could not retrieve list of server features. Contact the server administrator."
+msgstr ""
+
+msgid "PHP-Curl is not available. Contact your system administrator."
+msgstr ""
+
+msgid "This function is not yet implemented."
 msgstr ""
 
 msgid "Unknown account ID"

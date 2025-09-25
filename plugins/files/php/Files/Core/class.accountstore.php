@@ -42,6 +42,7 @@ class AccountStore {
 
 		// create instance of backend to get features
 		$backendStore = BackendStore::getInstance();
+		$backend = $backendStore->normalizeBackendName($backend);
 		$backendInstance = $backendStore->getInstanceOfBackend($backend);
 		$features = $backendInstance->getAvailableFeatures();
 
@@ -94,7 +95,9 @@ class AccountStore {
 
 		// create instance of backend to get features
 		$backendStore = BackendStore::getInstance();
-		$backendInstance = $backendStore->getInstanceOfBackend($account->getBackend());
+		$normalizedBackend = $backendStore->normalizeBackendName($account->getBackend());
+		$account->setBackend($normalizedBackend);
+		$backendInstance = $backendStore->getInstanceOfBackend($normalizedBackend);
 		$features = $backendInstance->getAvailableFeatures();
 		$account->setFeatures($features);
 
@@ -188,6 +191,7 @@ class AccountStore {
 	private function initialiseAccounts() {
 		// Parse accounts from the Settings
 		$tmpAccs = $GLOBALS["settings"]->get(self::ACCOUNT_STORAGE_PATH);
+		$backendStore = BackendStore::getInstance();
 
 		if (is_array($tmpAccs)) {
 			$this->accounts = [];
@@ -231,12 +235,17 @@ class AccountStore {
 					Logger::error(self::LOG_CONTEXT, "Unsupported account version {$version}, unable to decrypt backend configuration");
 				}
 
+				$normalizedBackend = $backendStore->normalizeBackendName($acc["backend"]);
+				if ($normalizedBackend !== $acc["backend"]) {
+					$GLOBALS["settings"]->set(self::ACCOUNT_STORAGE_PATH . "/" . $acc["id"] . "/backend", $normalizedBackend);
+					$GLOBALS["settings"]->saveSettings();
+				}
 				$this->accounts[$acc["id"]] = new Account(
 					$acc["id"],
 					$acc["name"],
 					$acc["status"],
 					$acc["status_description"],
-					$acc["backend"],
+					$normalizedBackend,
 					$backend_config,
 					array_keys($acc["backend_features"]),
 					$acc["account_sequence"],

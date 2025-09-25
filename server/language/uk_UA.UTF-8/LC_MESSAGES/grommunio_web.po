@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Ukrainian (Ukraine)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-13 00:05+0200\n"
+"POT-Creation-Date: 2025-09-26 01:37+0200\n"
 "PO-Revision-Date: 2022-08-23 04:19+0000\n"
 "Last-Translator: Artem <artem@molotov.work>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/grommunio/"
@@ -5581,8 +5581,35 @@ msgstr "Плагін сповіщень для робочого столу"
 msgid "Desktop Notifications"
 msgstr "Сповіщення на робочому столі"
 
-msgid "Files: ownCloud Backend"
-msgstr "Файли: ownCloud Backend"
+msgid "Files: Default plugin"
+msgstr ""
+
+msgid "Loading users and groups"
+msgstr "Завантаження користувачів і груп"
+
+msgid "Add users or groups to share files."
+msgstr "Додайте користувачів або групи для спільного доступу до файлів."
+
+msgid "Sort by: Type"
+msgstr "Сортувати по: Тип"
+
+msgid "Re-share"
+msgstr "Перепостити"
+
+msgid "Change"
+msgstr "Зміна"
+
+msgid "Share with"
+msgstr "Поділіться з"
+
+msgid "Share Details"
+msgstr "Поділитися деталями"
+
+msgid "Type to search"
+msgstr "Введіть для пошуку"
+
+msgid "No results"
+msgstr "Немає результатів"
 
 msgid "Share with user/group"
 msgstr "Поділіться з користувачем/групою"
@@ -5611,32 +5638,29 @@ msgstr "Існує більше 1 посилання на спільний до�
 msgid "Loading details…"
 msgstr "Деталі завантаження..."
 
-msgid "Share Details"
-msgstr "Поділитися деталями"
+msgid "Files: Seafile Backend"
+msgstr ""
 
-msgid "Re-share"
-msgstr "Перепостити"
+msgid "Copy link to clipboard"
+msgstr ""
 
-msgid "Change"
-msgstr "Зміна"
+msgid "Link copied to clipboard"
+msgstr ""
 
-msgid "Share with"
-msgstr "Поділіться з"
+msgid "Clipboard"
+msgstr ""
 
-msgid "Sort by: Type"
-msgstr "Сортувати по: Тип"
+msgid "Could not copy link automatically. Please copy it manually."
+msgstr ""
 
-msgid "Loading users and groups"
-msgstr "Завантаження користувачів і груп"
+msgid "Loading details..."
+msgstr ""
 
-msgid "Add users or groups to share files."
-msgstr "Додайте користувачів або групи для спільного доступу до файлів."
+msgid "Share"
+msgstr "Поділіться"
 
-msgid "Type to search"
-msgstr "Введіть для пошуку"
-
-msgid "No results"
-msgstr "Немає результатів"
+msgid "Loading..."
+msgstr ""
 
 msgid "Add attachment from {0}"
 msgstr "Додати вкладення з {0}"
@@ -5725,6 +5749,9 @@ msgstr "Файли"
 msgid "Files Plugin"
 msgstr "Плагін для файлів"
 
+msgid "Default"
+msgstr ""
+
 msgid "Manage Accounts"
 msgstr "Керування рахунками"
 
@@ -5756,6 +5783,9 @@ msgstr "grommunio Web перезавантажується, будь ласка,
 msgid "Edit Account"
 msgstr "Редагувати обліковий запис"
 
+msgid "Backend"
+msgstr "Бекенд"
+
 msgid "Account Information"
 msgstr "Інформація про обліковий запис"
 
@@ -5773,9 +5803,6 @@ msgstr "ІДЕНТИФІКАТОР"
 
 msgid "Sort by: ID"
 msgstr "Сортувати по: ID"
-
-msgid "Backend"
-msgstr "Бекенд"
 
 msgid "Sort by: Backend"
 msgstr "Сортувати по: Бекенд"
@@ -5951,9 +5978,6 @@ msgstr "Створення офісного документа"
 
 msgid "Download files"
 msgstr "Завантажити файли"
-
-msgid "Share"
-msgstr "Поділіться"
 
 msgid "Attach to mail"
 msgstr "Прикріпити до листа"
@@ -6771,13 +6795,11 @@ msgstr ""
 "На жаль, доступ до grommunio Web недоступний для цього облікового запису. "
 "Будь ласка, зверніться до вашого системного адміністратора."
 
-msgid "With this backend, you can connect to any ownCloud server."
+msgid "This backend provides the default WebDAV integration for Files."
 msgstr ""
-"За допомогою цього бекенду ви можете підключитися до будь-якого сервера "
-"ownCloud."
 
-msgid "Files ownCloud Backend: "
-msgstr "Файли власного хмарного бекенду:"
+msgid "Files Default Backend: "
+msgstr ""
 
 msgid "Server address"
 msgstr "Адреса сервера"
@@ -6851,6 +6873,50 @@ msgstr "Ми не змогли отримати список функцій се
 
 msgid "PHP-Curl is not available."
 msgstr "PHP-Curl недоступний."
+
+msgid "With this backend, you can connect to any Seafile server."
+msgstr ""
+
+msgid "Files "
+msgstr ""
+
+msgid "Use SSL"
+msgstr ""
+
+msgid "Seafile is not reachable. Correct backend address entered?"
+msgstr ""
+
+msgid "You don't have enough permissions for this operation."
+msgstr ""
+
+msgid "File is not available any more."
+msgstr ""
+
+msgid "Connection to server timed out. Retry later."
+msgstr ""
+
+msgid "This file is locked by another user."
+msgstr ""
+
+msgid "The request failed due to failure of a previous request."
+msgstr ""
+
+msgid "Seafile-server encountered a problem."
+msgstr ""
+
+msgid ""
+"Could not write to temporary directory. Contact the server administrator."
+msgstr ""
+
+msgid ""
+"Could not retrieve list of server features. Contact the server administrator."
+msgstr ""
+
+msgid "PHP-Curl is not available. Contact your system administrator."
+msgstr ""
+
+msgid "This function is not yet implemented."
+msgstr ""
 
 msgid "Unknown account ID"
 msgstr "Невідомий ідентифікатор облікового запису"

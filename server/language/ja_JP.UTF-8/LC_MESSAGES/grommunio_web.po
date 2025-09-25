@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-13 00:05+0200\n"
+"POT-Creation-Date: 2025-09-26 01:37+0200\n"
 "PO-Revision-Date: 2022-12-12 13:00+0200\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/grommunio/"
@@ -5849,9 +5849,40 @@ msgstr "Desktop Notifications Plugin（デスクトップ通知プラグイン"
 msgid "Desktop Notifications"
 msgstr "デスクトップ通知"
 
+msgid "Files: Default plugin"
+msgstr ""
+
 #, fuzzy
-msgid "Files: ownCloud Backend"
-msgstr "ファイル：ownCloudバックエンド"
+msgid "Loading users and groups"
+msgstr "ユーザーとグループの読み込み"
+
+#, fuzzy
+msgid "Add users or groups to share files."
+msgstr "ファイルを共有するユーザーやグループを追加することができます。"
+
+msgid "Sort by: Type"
+msgstr "並べ替え順 : 種別"
+
+#, fuzzy
+msgid "Re-share"
+msgstr "共有"
+
+msgid "Change"
+msgstr "変更"
+
+#, fuzzy
+msgid "Share with"
+msgstr "共有する"
+
+#, fuzzy
+msgid "Share Details"
+msgstr "共有の詳細"
+
+msgid "Type to search"
+msgstr "入力して検索"
+
+msgid "No results"
+msgstr "結果なし"
 
 #, fuzzy
 msgid "Share with user/group"
@@ -5886,37 +5917,29 @@ msgstr "共有リンクが1つ以上存在する。最新のもののみ表示"
 msgid "Loading details…"
 msgstr "詳細を読み込む…"
 
-#, fuzzy
-msgid "Share Details"
-msgstr "共有の詳細"
+msgid "Files: Seafile Backend"
+msgstr ""
 
-#, fuzzy
-msgid "Re-share"
+msgid "Copy link to clipboard"
+msgstr ""
+
+msgid "Link copied to clipboard"
+msgstr ""
+
+msgid "Clipboard"
+msgstr ""
+
+msgid "Could not copy link automatically. Please copy it manually."
+msgstr ""
+
+msgid "Loading details..."
+msgstr ""
+
+msgid "Share"
 msgstr "共有"
 
-msgid "Change"
-msgstr "変更"
-
-#, fuzzy
-msgid "Share with"
-msgstr "共有する"
-
-msgid "Sort by: Type"
-msgstr "並べ替え順 : 種別"
-
-#, fuzzy
-msgid "Loading users and groups"
-msgstr "ユーザーとグループの読み込み"
-
-#, fuzzy
-msgid "Add users or groups to share files."
-msgstr "ファイルを共有するユーザーやグループを追加することができます。"
-
-msgid "Type to search"
-msgstr "入力して検索"
-
-msgid "No results"
-msgstr "結果なし"
+msgid "Loading..."
+msgstr ""
 
 msgid "Add attachment from {0}"
 msgstr "{0} から添付ファイルを追加"
@@ -6014,6 +6037,9 @@ msgstr "ファイル"
 msgid "Files Plugin"
 msgstr "ファイルプラグイン"
 
+msgid "Default"
+msgstr ""
+
 msgid "Manage Accounts"
 msgstr "アカウントを管理"
 
@@ -6046,6 +6072,9 @@ msgstr "grommunio Webを再読み込み中です。お待ちください。"
 msgid "Edit Account"
 msgstr "アカウントを編集"
 
+msgid "Backend"
+msgstr "バックエンド"
+
 msgid "Account Information"
 msgstr "アカウント情報"
 
@@ -6063,9 +6092,6 @@ msgstr "ID"
 
 msgid "Sort by: ID"
 msgstr "並べ替え順 : ID"
-
-msgid "Backend"
-msgstr "バックエンド"
 
 msgid "Sort by: Backend"
 msgstr "並べ替え順 : バックエンド"
@@ -6245,9 +6271,6 @@ msgstr "オフィスドキュメントの作成"
 
 msgid "Download files"
 msgstr "ダウンロードファイル"
-
-msgid "Share"
-msgstr "共有"
 
 msgid "Attach to mail"
 msgstr "メールへ添付"
@@ -7127,13 +7150,11 @@ msgstr ""
 "このユーザーアカウントでは、grommunio Webにアクセスすることはできません。シス"
 "テム管理者にお問い合わせください。"
 
-#, fuzzy
-msgid "With this backend, you can connect to any ownCloud server."
+msgid "This backend provides the default WebDAV integration for Files."
 msgstr ""
-"このバックエンドを使えば、どのownCloudサーバーにも接続することができます。"
 
-msgid "Files ownCloud Backend: "
-msgstr "ファイル ownCloud バックエンド。"
+msgid "Files Default Backend: "
+msgstr ""
 
 msgid "Server address"
 msgstr "サーバアドレス"
@@ -7221,6 +7242,54 @@ msgstr "サーバーの機能一覧を取得することができませんでし
 #, fuzzy
 msgid "PHP-Curl is not available."
 msgstr "PHP-Curlは使用できません。"
+
+msgid "With this backend, you can connect to any Seafile server."
+msgstr ""
+
+msgid "Files "
+msgstr ""
+
+msgid "Use SSL"
+msgstr "SSLを使用する"
+
+msgid "Seafile is not reachable. Correct backend address entered?"
+msgstr ""
+
+msgid "You don't have enough permissions for this operation."
+msgstr "このフォルダを操作する十分な権限がありません."
+
+msgid "File is not available any more."
+msgstr "ファイルはこれ以上,存在していません."
+
+msgid "Connection to server timed out. Retry later."
+msgstr "サーバへの接続がタイムアウトしました.改めてお試しください."
+
+msgid "This file is locked by another user."
+msgstr "このファイルは,他のユーザによりロックされています."
+
+msgid "The request failed due to failure of a previous request."
+msgstr "このリクエストは前回のリクエストによる失敗により,失敗しました."
+
+msgid "Seafile-server encountered a problem."
+msgstr ""
+
+msgid ""
+"Could not write to temporary directory. Contact the server administrator."
+msgstr ""
+"TEMPディレクトリへ書き込むことができません.システム管理者へお問い合わせくださ"
+"い."
+
+msgid ""
+"Could not retrieve list of server features. Contact the server administrator."
+msgstr ""
+"サーバ機能の一覧を取り込むことができませんでした.システム管理者へお問い合わせ"
+"ください."
+
+msgid "PHP-Curl is not available. Contact your system administrator."
+msgstr "PHP-Curlが有効ではありません.システム管理者へご連絡ください."
+
+msgid "This function is not yet implemented."
+msgstr ""
 
 msgid "Unknown account ID"
 msgstr "アカウントＩＤが不明です"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Simplified)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-13 00:05+0200\n"
+"POT-Creation-Date: 2025-09-26 01:37+0200\n"
 "PO-Revision-Date: 2022-07-26 18:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -5456,9 +5456,40 @@ msgstr "桌面通知插件"
 msgid "Desktop Notifications"
 msgstr "桌面通知"
 
+msgid "Files: Default plugin"
+msgstr ""
+
 #, fuzzy
-msgid "Files: ownCloud Backend"
-msgstr "文件：ownCloud后台"
+msgid "Loading users and groups"
+msgstr "加载用户和组"
+
+#, fuzzy
+msgid "Add users or groups to share files."
+msgstr "添加用户或组来共享文件。"
+
+#, fuzzy
+msgid "Sort by: Type"
+msgstr "排序方式。类型"
+
+#, fuzzy
+msgid "Re-share"
+msgstr "再分享"
+
+msgid "Change"
+msgstr "更改"
+
+msgid "Share with"
+msgstr "分享到"
+
+#, fuzzy
+msgid "Share Details"
+msgstr "分享详情"
+
+msgid "Type to search"
+msgstr "搜索类型"
+
+msgid "No results"
+msgstr "没有结果"
 
 #, fuzzy
 msgid "Share with user/group"
@@ -5492,37 +5523,29 @@ msgstr "存在1个以上的分享链接。只显示最新的一个"
 msgid "Loading details…"
 msgstr "正在加载详细信息…"
 
-#, fuzzy
-msgid "Share Details"
-msgstr "分享详情"
+msgid "Files: Seafile Backend"
+msgstr ""
 
-#, fuzzy
-msgid "Re-share"
-msgstr "再分享"
+msgid "Copy link to clipboard"
+msgstr ""
 
-msgid "Change"
-msgstr "更改"
+msgid "Link copied to clipboard"
+msgstr ""
 
-msgid "Share with"
-msgstr "分享到"
+msgid "Clipboard"
+msgstr ""
 
-#, fuzzy
-msgid "Sort by: Type"
-msgstr "排序方式。类型"
+msgid "Could not copy link automatically. Please copy it manually."
+msgstr ""
 
-#, fuzzy
-msgid "Loading users and groups"
-msgstr "加载用户和组"
+msgid "Loading details..."
+msgstr ""
 
-#, fuzzy
-msgid "Add users or groups to share files."
-msgstr "添加用户或组来共享文件。"
+msgid "Share"
+msgstr "分享"
 
-msgid "Type to search"
-msgstr "搜索类型"
-
-msgid "No results"
-msgstr "没有结果"
+msgid "Loading..."
+msgstr ""
 
 #, fuzzy
 msgid "Add attachment from {0}"
@@ -5630,6 +5653,9 @@ msgstr "文件"
 msgid "Files Plugin"
 msgstr "文件插件"
 
+msgid "Default"
+msgstr ""
+
 #, fuzzy
 msgid "Manage Accounts"
 msgstr "管理账户"
@@ -5665,6 +5691,9 @@ msgstr "grommunio 网站正在重新加载，请稍候。"
 msgid "Edit Account"
 msgstr "编辑帐户"
 
+msgid "Backend"
+msgstr "后端"
+
 msgid "Account Information"
 msgstr "账户信息"
 
@@ -5683,9 +5712,6 @@ msgstr "ID"
 #, fuzzy
 msgid "Sort by: ID"
 msgstr "按以下方式排序。ID"
-
-msgid "Backend"
-msgstr "后端"
 
 #, fuzzy
 msgid "Sort by: Backend"
@@ -5890,9 +5916,6 @@ msgstr "创建办公室文件"
 
 msgid "Download files"
 msgstr "下载文件"
-
-msgid "Share"
-msgstr "分享"
 
 #, fuzzy
 msgid "Attach to mail"
@@ -6796,12 +6819,11 @@ msgid ""
 "Please contact your system administrator."
 msgstr "抱歉，此用户账户无法访问grommunio Web。请与您的系统管理员联系。"
 
-#, fuzzy
-msgid "With this backend, you can connect to any ownCloud server."
-msgstr "有了这个后端，你可以连接到任何一个ownCloud服务器。"
+msgid "This backend provides the default WebDAV integration for Files."
+msgstr ""
 
-msgid "Files ownCloud Backend: "
-msgstr "文件 ownCloud 后台。 "
+msgid "Files Default Backend: "
+msgstr ""
 
 msgid "Server address"
 msgstr "服务器地址"
@@ -6887,6 +6909,50 @@ msgstr "我们无法检索到服务器的功能列表。"
 #, fuzzy
 msgid "PHP-Curl is not available."
 msgstr "PHP-Curl是不可用的。"
+
+msgid "With this backend, you can connect to any Seafile server."
+msgstr ""
+
+msgid "Files "
+msgstr ""
+
+msgid "Use SSL"
+msgstr ""
+
+msgid "Seafile is not reachable. Correct backend address entered?"
+msgstr ""
+
+msgid "You don't have enough permissions for this operation."
+msgstr ""
+
+msgid "File is not available any more."
+msgstr ""
+
+msgid "Connection to server timed out. Retry later."
+msgstr ""
+
+msgid "This file is locked by another user."
+msgstr ""
+
+msgid "The request failed due to failure of a previous request."
+msgstr ""
+
+msgid "Seafile-server encountered a problem."
+msgstr ""
+
+msgid ""
+"Could not write to temporary directory. Contact the server administrator."
+msgstr ""
+
+msgid ""
+"Could not retrieve list of server features. Contact the server administrator."
+msgstr ""
+
+msgid "PHP-Curl is not available. Contact your system administrator."
+msgstr ""
+
+msgid "This function is not yet implemented."
+msgstr ""
 
 #, fuzzy
 msgid "Unknown account ID"

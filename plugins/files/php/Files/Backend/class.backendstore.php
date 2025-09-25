@@ -20,6 +20,15 @@ class BackendStore {
 	public const LOG_CONTEXT = "BackendStore"; // Context for the Logger
 
 	/**
+	 * Mapping of legacy backend names to their canonical replacements.
+	 *
+	 * @var array<string, string>
+	 */
+	private $backendAliases = [
+		'Owncloud' => 'Default',
+	];
+
+	/**
 	 * Feature variables.
 	 */
 	public const FEATURE_QUOTA = "Quota";
@@ -135,8 +144,9 @@ class BackendStore {
 	 * @return bool
 	 */
 	public function backendExists($backend) {
+		$canonical = $this->normalizeBackendName($backend);
 		foreach ($this->backends as $registeredbackend) {
-			if ($backend === $registeredbackend) {
+			if ($canonical === $registeredbackend) {
 				return true;
 			}
 		}
@@ -152,13 +162,24 @@ class BackendStore {
 	 * @return AbstractBackend
 	 */
 	public function getInstanceOfBackend($backend) {
-		if ($this->backendExists($backend)) {
-			$class = "\\Files\\Backend\\{$backend}\\Backend";
+		$canonical = $this->normalizeBackendName($backend);
+		if ($this->backendExists($canonical)) {
+			$class = "\\Files\\Backend\\{$canonical}\\Backend";
 
 			return new $class();
 		}
 
 		return false; // return false if the backend does not exist
+	}
+
+	/**
+	 * Normalize backend identifier to canonical name.
+	 *
+	 * @param string $backend
+	 * @return string
+	 */
+	public function normalizeBackendName($backend) {
+		return $this->backendAliases[$backend] ?? $backend;
 	}
 
 	/**

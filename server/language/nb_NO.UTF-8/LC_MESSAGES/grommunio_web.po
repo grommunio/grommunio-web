@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-13 00:05+0200\n"
+"POT-Creation-Date: 2025-09-26 01:37+0200\n"
 "PO-Revision-Date: 2023-09-06 16:56+0000\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -5547,8 +5547,35 @@ msgstr "Plugin for skrivebordsvarsler"
 msgid "Desktop Notifications"
 msgstr "Skrivebordsvarsler"
 
-msgid "Files: ownCloud Backend"
-msgstr "Filer: ownCloud serverdel"
+msgid "Files: Default plugin"
+msgstr ""
+
+msgid "Loading users and groups"
+msgstr "Laster inn brukere og grupper"
+
+msgid "Add users or groups to share files."
+msgstr "Legg til brukere eller grupper for deling av filer."
+
+msgid "Sort by: Type"
+msgstr "Sorter på: type"
+
+msgid "Re-share"
+msgstr "Del igjen"
+
+msgid "Change"
+msgstr "Endre"
+
+msgid "Share with"
+msgstr "Del med"
+
+msgid "Share Details"
+msgstr "Del detaljer"
+
+msgid "Type to search"
+msgstr "Skriv for å søke"
+
+msgid "No results"
+msgstr "Ingen resultater"
 
 msgid "Share with user/group"
 msgstr "Del med bruker/gruppe"
@@ -5577,32 +5604,29 @@ msgstr "Det finnes mer enn én delingslenke. Viser bare den siste"
 msgid "Loading details…"
 msgstr "Laster inn detaljer…"
 
-msgid "Share Details"
-msgstr "Del detaljer"
+msgid "Files: Seafile Backend"
+msgstr ""
 
-msgid "Re-share"
-msgstr "Del igjen"
+msgid "Copy link to clipboard"
+msgstr ""
 
-msgid "Change"
-msgstr "Endre"
+msgid "Link copied to clipboard"
+msgstr ""
 
-msgid "Share with"
-msgstr "Del med"
+msgid "Clipboard"
+msgstr ""
 
-msgid "Sort by: Type"
-msgstr "Sorter på: type"
+msgid "Could not copy link automatically. Please copy it manually."
+msgstr ""
 
-msgid "Loading users and groups"
-msgstr "Laster inn brukere og grupper"
+msgid "Loading details..."
+msgstr ""
 
-msgid "Add users or groups to share files."
-msgstr "Legg til brukere eller grupper for deling av filer."
+msgid "Share"
+msgstr "Del"
 
-msgid "Type to search"
-msgstr "Skriv for å søke"
-
-msgid "No results"
-msgstr "Ingen resultater"
+msgid "Loading..."
+msgstr ""
 
 msgid "Add attachment from {0}"
 msgstr "Legg til vedlegg fra {0}"
@@ -5690,6 +5714,9 @@ msgstr "Filer"
 msgid "Files Plugin"
 msgstr "Filer Plugin"
 
+msgid "Default"
+msgstr ""
+
 msgid "Manage Accounts"
 msgstr "Behandle konto"
 
@@ -5724,6 +5751,9 @@ msgstr "grommunio Nettet lastes inn på nytt, vennligst vent."
 msgid "Edit Account"
 msgstr "Rediger konto"
 
+msgid "Backend"
+msgstr "backend"
+
 msgid "Account Information"
 msgstr "Kontoinformasjon"
 
@@ -5741,9 +5771,6 @@ msgstr "ID"
 
 msgid "Sort by: ID"
 msgstr "Sorter på: ID"
-
-msgid "Backend"
-msgstr "backend"
 
 msgid "Sort by: Backend"
 msgstr "Sorter på: serverdel"
@@ -5918,9 +5945,6 @@ msgstr "Opprett kontordokument"
 
 msgid "Download files"
 msgstr "Last ned filer"
-
-msgid "Share"
-msgstr "Del"
 
 msgid "Attach to mail"
 msgstr "Legg ved e-post"
@@ -6739,12 +6763,11 @@ msgstr ""
 "Beklager, tilgang til grommunio Web er ikke mulig for denne brukeren. Ta "
 "kontakt med din systemadministrator."
 
-msgid "With this backend, you can connect to any ownCloud server."
+msgid "This backend provides the default WebDAV integration for Files."
 msgstr ""
-"Med denne bakenden kan du koble deg til en hvilken som helst ownCloud-server."
 
-msgid "Files ownCloud Backend: "
-msgstr "Filer ownCloud Backend:"
+msgid "Files Default Backend: "
+msgstr ""
 
 msgid "Server address"
 msgstr "Serveradresse"
@@ -6817,6 +6840,54 @@ msgstr "Vi kunne ikke hente listen over serverfunksjoner."
 
 msgid "PHP-Curl is not available."
 msgstr "PHP-Curl er ikke tilgjengelig."
+
+msgid "With this backend, you can connect to any Seafile server."
+msgstr ""
+
+msgid "Files "
+msgstr ""
+
+msgid "Use SSL"
+msgstr "Bruk SSL"
+
+msgid "Seafile is not reachable. Correct backend address entered?"
+msgstr ""
+
+msgid "You don't have enough permissions for this operation."
+msgstr "Du har ikke tilstrekkelige rettigheter til denne handlingen."
+
+msgid "File is not available any more."
+msgstr "Filen er ikke lenger tilgjengelig."
+
+msgid "Connection to server timed out. Retry later."
+msgstr "Forbindelsen til serveren har utløpt. Forsøk igjen senere."
+
+msgid "This file is locked by another user."
+msgstr "Denne filen er låst av en annen bruker."
+
+msgid "The request failed due to failure of a previous request."
+msgstr "Handlingen feilet pga feil ved en tidligere handling."
+
+msgid "Seafile-server encountered a problem."
+msgstr ""
+
+msgid ""
+"Could not write to temporary directory. Contact the server administrator."
+msgstr ""
+"Kunne ikke skrive til midlertidig katalog. Ta kontakt med administrator av "
+"serveren."
+
+msgid ""
+"Could not retrieve list of server features. Contact the server administrator."
+msgstr ""
+"Kunne ikke hente listen med serveregenskaper. Ta kontakt med administrator "
+"av serveren."
+
+msgid "PHP-Curl is not available. Contact your system administrator."
+msgstr "PHP-Curl er ikke tilgjengelig. Kontakt din systemadministrator."
+
+msgid "This function is not yet implemented."
+msgstr ""
 
 msgid "Unknown account ID"
 msgstr "Ukjent konto-ID"

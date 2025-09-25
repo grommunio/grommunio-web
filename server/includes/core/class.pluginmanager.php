@@ -58,6 +58,15 @@ class PluginManager {
 	public $notifiers;
 
 	/**
+	 * Mapping of legacy plugin identifiers to their canonical replacements.
+	 *
+	 * @var array<string, string>
+	 */
+	private $pluginAliases = [
+		'filesbackendOwncloud' => 'filesbackendDefault',
+	];
+
+	/**
 	 * List of sessiondata from plugins.
 	 * [pluginname] = sessiondata.
 	 */
@@ -149,18 +158,20 @@ class PluginManager {
 		if (!DEBUG_PLUGINS_DISABLE_CACHE) {
 			$this->plugindata = $pluginState->read("plugindata");
 			$pluginOrder = $pluginState->read("pluginorder");
-			$this->pluginorder = empty($pluginOrder) ? [] : $pluginOrder;
+			$this->plugindata = $this->normalizePluginData($this->plugindata ?? []);
+			$this->pluginorder = $this->normalizePluginOrder(empty($pluginOrder) ? [] : $pluginOrder);
 		}
 
 		// If no plugindata has been stored yet, get it from the plugins dir.
 		if (!$this->plugindata || !$this->pluginorder) {
 			$disabledPlugins = [];
 			if (!empty($disabled)) {
-				$disabledPlugins = explode(';', $disabled);
+				$disabledPlugins = array_map([$this, 'normalizePluginName'], explode(';', $disabled));
 			}
 
 			// Read all plugins from the plugins folders.
 			$this->plugindata = $this->readPluginFolder($disabledPlugins);
+			$this->plugindata = $this->normalizePluginData($this->plugindata);
 
 			// Check if any plugin directories found or not
 			if (!empty($this->plugindata)) {
@@ -171,7 +182,7 @@ class PluginManager {
 					// Generate the order in which the plugins should be loaded,
 					// this uses the $this->plugindata as base.
 					$pluginOrder = $this->buildPluginDependencyOrder();
-					$this->pluginorder = empty($pluginOrder) ? [] : $pluginOrder;
+					$this->pluginorder = $this->normalizePluginOrder(empty($pluginOrder) ? [] : $pluginOrder);
 				}
 			}
 		}
@@ -194,6 +205,103 @@ class PluginManager {
 
 		// Free the state again.
 		$pluginState->close();
+	}
+
+	/**
+	 * Convert legacy plugin identifiers to their canonical replacements.
+	 *
+	 * @param string $pluginname
+	 * @return string
+	 */
+	private function normalizePluginName($pluginname) {
+		return $this->pluginAliases[$pluginname] ?? $pluginname;
+	}
+
+	/**
+	 * Normalize the plugindata array by applying legacy aliases.
+	 *
+	 * @param array $plugindata
+	 * @return array
+	 */
+	private function normalizePluginData(array $plugindata) {
+		foreach ($this->pluginAliases as $legacy => $canonical) {
+			$legacyData = $plugindata[$legacy] ?? null;
+			$canonicalData = $plugindata[$canonical] ?? null;
+			$freshData = $this->processPlugin($canonical);
+			if ($freshData !== null) {
+				$canonicalData = $freshData;
+			}
+			elseif ($canonicalData === null && $legacyData !== null) {
+				$canonicalData = $legacyData;
+			}
+
+			if ($canonicalData !== null) {
+				$canonicalData['pluginname'] = $canonical;
+				$canonicalData = $this->migrateLegacyFileReferences($canonicalData, $legacy, $canonical);
+				$plugindata[$canonical] = $canonicalData;
+			}
+
+			if ($legacyData !== null) {
+				unset($plugindata[$legacy]);
+			}
+		}
+
+		return $plugindata;
+	}
+
+	/**
+	 * Replace legacy filenames inside plugin metadata so cached state stays in sync with the new canonical plugin.
+	 *
+	 * @param array  $pluginData
+	 * @param string $legacy
+	 * @param string $canonical
+	 * @return array
+	 */
+	private function migrateLegacyFileReferences(array $pluginData, $legacy, $canonical) {
+		$search = $legacy;
+		$replace = $canonical;
+		if (!isset($pluginData['components'])) {
+			return $pluginData;
+		}
+
+		foreach ($pluginData['components'] as $componentIndex => $component) {
+			foreach (['clientfiles', 'resourcefiles', 'serverfiles'] as $group) {
+				if (empty($component[$group])) {
+					continue;
+				}
+				foreach ($component[$group] as $load => $files) {
+					if (empty($files) || !is_array($files)) {
+						continue;
+					}
+					foreach ($files as $fileIndex => $file) {
+						if (!is_array($file) || !isset($file['file'])) {
+							continue;
+						}
+						$pluginData['components'][$componentIndex][$group][$load][$fileIndex]['file'] = str_replace($search, $replace, $file['file']);
+					}
+				}
+			}
+		}
+
+		return $pluginData;
+	}
+
+	/**
+	 * Normalize a list of plugin names by applying legacy aliases.
+	 *
+	 * @param array $pluginorder
+	 * @return array
+	 */
+	private function normalizePluginOrder(array $pluginorder) {
+		$normalized = [];
+		foreach ($pluginorder as $pluginname) {
+			$canonical = $this->normalizePluginName($pluginname);
+			if (!in_array($canonical, $normalized, true)) {
+				$normalized[] = $canonical;
+			}
+		}
+
+		return $normalized;
 	}
 
 	/**
@@ -447,6 +555,8 @@ class PluginManager {
 	 * @param $pluginname string Identifier of the plugin
 	 */
 	public function loadSessionData($pluginname) {
+		$canonicalName = $this->normalizePluginName($pluginname);
+
 		// lazy reading of sessionData
 		if (!$this->sessionData) {
 			$sessState = new State('plugin_sessiondata');
@@ -457,11 +567,18 @@ class PluginManager {
 			}
 			$sessState->close();
 		}
-		if ($this->pluginExists($pluginname)) {
-			if (!isset($this->sessionData[$pluginname])) {
-				$this->sessionData[$pluginname] = [];
+
+		if ($pluginname !== $canonicalName && isset($this->sessionData[$pluginname])) {
+			// migrate legacy session data key to canonical name
+			$this->sessionData[$canonicalName] = $this->sessionData[$pluginname];
+			unset($this->sessionData[$pluginname]);
+		}
+
+		if ($this->pluginExists($canonicalName)) {
+			if (!isset($this->sessionData[$canonicalName])) {
+				$this->sessionData[$canonicalName] = [];
 			}
-			$this->plugins[$pluginname]->setSessionData($this->sessionData[$pluginname]);
+			$this->plugins[$canonicalName]->setSessionData($this->sessionData[$canonicalName]);
 		}
 	}
 
@@ -473,8 +590,9 @@ class PluginManager {
 	 * @param $pluginname string Identifier of the plugin
 	 */
 	public function saveSessionData($pluginname) {
-		if ($this->pluginExists($pluginname)) {
-			$this->sessionData[$pluginname] = $this->plugins[$pluginname]->getSessionData();
+		$canonicalName = $this->normalizePluginName($pluginname);
+		if ($this->pluginExists($canonicalName)) {
+			$this->sessionData[$canonicalName] = $this->plugins[$canonicalName]->getSessionData();
 		}
 		if ($this->sessionData) {
 			$sessState = new State('plugin_sessiondata');
@@ -494,7 +612,8 @@ class PluginManager {
 	 * @return bool true when plugin exists, false when it does not
 	 */
 	public function pluginExists($pluginname) {
-		if (isset($this->plugindata[$pluginname])) {
+		$canonicalName = $this->normalizePluginName($pluginname);
+		if (isset($this->plugindata[$canonicalName])) {
 			return true;
 		}
 
@@ -536,7 +655,8 @@ class PluginManager {
 	 * @param $pluginName string Name of the plugin that is registering this hook
 	 */
 	public function registerHook($eventID, $pluginName) {
-		$this->hooks[$eventID][$pluginName] = $pluginName;
+		$canonicalName = $this->normalizePluginName($pluginName);
+		$this->hooks[$eventID][$canonicalName] = $canonicalName;
 	}
 
 	/**
@@ -595,6 +715,7 @@ class PluginManager {
 	 * @return array list of paths to the files in this component
 	 */
 	public function getServerFilesForComponent($pluginname, $component, $load) {
+		$pluginname = $this->normalizePluginName($pluginname);
 		$componentfiles = [
 			'server' => [],
 			'modules' => [],
@@ -693,6 +814,7 @@ class PluginManager {
 	 * @return array list of paths to the files in this component
 	 */
 	public function getClientFilesForComponent($pluginname, $component, $load) {
+		$pluginname = $this->normalizePluginName($pluginname);
 		$componentfiles = [];
 
 		foreach ($component['clientfiles'][$load] as &$file) {
@@ -765,6 +887,7 @@ class PluginManager {
 	 * @return array list of paths to the files in this component
 	 */
 	public function getResourceFilesForComponent($pluginname, $component, $load) {
+		$pluginname = $this->normalizePluginName($pluginname);
 		$componentfiles = [];
 
 		foreach ($component['resourcefiles'][$load] as &$file) {
@@ -829,11 +952,12 @@ class PluginManager {
 		$paths = [];
 
 		foreach ($this->pluginorder as $pluginname) {
+			$canonicalName = $this->normalizePluginName($pluginname);
 			$plugin = &$this->plugindata[$pluginname];
 			if ($plugin['translationsdir']) {
-				$translationPath = $this->pluginpath . DIRECTORY_SEPARATOR . $pluginname . DIRECTORY_SEPARATOR . $plugin['translationsdir']['dir'];
+				$translationPath = $this->pluginpath . DIRECTORY_SEPARATOR . $canonicalName . DIRECTORY_SEPARATOR . $plugin['translationsdir']['dir'];
 				if (is_dir($translationPath)) {
-					$paths[$pluginname] = $translationPath;
+					$paths[$canonicalName] = $translationPath;
 				}
 			}
 		}
@@ -1087,8 +1211,12 @@ class PluginManager {
 		$pluginList = [];
 		foreach ($pluginNames as $pluginName) {
 			$pluginName = trim($pluginName);
-			if (array_key_exists($pluginName, $this->plugindata)) {
-				$pluginList[] = $pluginName;
+			if ($pluginName === '') {
+				continue;
+			}
+			$canonicalName = $this->normalizePluginName($pluginName);
+			if (array_key_exists($canonicalName, $this->plugindata)) {
+				$pluginList[] = $canonicalName;
 			}
 			else {
 				// Check if it contains a wildcard

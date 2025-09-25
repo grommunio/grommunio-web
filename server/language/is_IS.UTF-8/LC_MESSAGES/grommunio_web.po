@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Icelandic (Iceland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-13 00:05+0200\n"
+"POT-Creation-Date: 2025-09-26 01:37+0200\n"
 "PO-Revision-Date: 2019-12-01 02:07+0000\n"
 "Last-Translator: import\n"
 "Language: is_IS\n"
@@ -5518,8 +5518,35 @@ msgstr ""
 msgid "Desktop Notifications"
 msgstr ""
 
-msgid "Files: ownCloud Backend"
-msgstr "Skrár: ownCloud bakendi"
+msgid "Files: Default plugin"
+msgstr ""
+
+msgid "Loading users and groups"
+msgstr "Hleð notendum og hópum"
+
+msgid "Add users or groups to share files."
+msgstr "Bættu við notendum eða hópum til að deila skrám með þeim."
+
+msgid "Sort by: Type"
+msgstr "Raða eftir gerð"
+
+msgid "Re-share"
+msgstr "Endurdeila"
+
+msgid "Change"
+msgstr "Breyta"
+
+msgid "Share with"
+msgstr "Deila með"
+
+msgid "Share Details"
+msgstr "Deila nánari upplýsingum"
+
+msgid "Type to search"
+msgstr "Skrifaðu til að leita"
+
+msgid "No results"
+msgstr "Engar niðurstöður"
 
 msgid "Share with user/group"
 msgstr "Deila með notanda/hóp"
@@ -5548,32 +5575,29 @@ msgstr ""
 msgid "Loading details…"
 msgstr "Hleð nánari upplýsingum…"
 
-msgid "Share Details"
-msgstr "Deila nánari upplýsingum"
+msgid "Files: Seafile Backend"
+msgstr ""
 
-msgid "Re-share"
-msgstr "Endurdeila"
+msgid "Copy link to clipboard"
+msgstr ""
 
-msgid "Change"
-msgstr "Breyta"
+msgid "Link copied to clipboard"
+msgstr ""
 
-msgid "Share with"
-msgstr "Deila með"
+msgid "Clipboard"
+msgstr ""
 
-msgid "Sort by: Type"
-msgstr "Raða eftir gerð"
+msgid "Could not copy link automatically. Please copy it manually."
+msgstr ""
 
-msgid "Loading users and groups"
-msgstr "Hleð notendum og hópum"
+msgid "Loading details..."
+msgstr ""
 
-msgid "Add users or groups to share files."
-msgstr "Bættu við notendum eða hópum til að deila skrám með þeim."
+msgid "Share"
+msgstr "Deila"
 
-msgid "Type to search"
-msgstr "Skrifaðu til að leita"
-
-msgid "No results"
-msgstr "Engar niðurstöður"
+msgid "Loading..."
+msgstr ""
 
 msgid "Add attachment from {0}"
 msgstr ""
@@ -5660,6 +5684,9 @@ msgstr ""
 msgid "Files Plugin"
 msgstr ""
 
+msgid "Default"
+msgstr ""
+
 msgid "Manage Accounts"
 msgstr ""
 
@@ -5688,6 +5715,9 @@ msgstr ""
 msgid "Edit Account"
 msgstr ""
 
+msgid "Backend"
+msgstr ""
+
 msgid "Account Information"
 msgstr ""
 
@@ -5704,9 +5734,6 @@ msgid "ID"
 msgstr "Auðkenni"
 
 msgid "Sort by: ID"
-msgstr ""
-
-msgid "Backend"
 msgstr ""
 
 msgid "Sort by: Backend"
@@ -5882,9 +5909,6 @@ msgstr ""
 
 msgid "Download files"
 msgstr ""
-
-msgid "Share"
-msgstr "Deila"
 
 msgid "Attach to mail"
 msgstr ""
@@ -6646,10 +6670,10 @@ msgstr ""
 "Því miður er aðgangur að grommunio vefviðmóti ekki til fyrir þennan "
 "notandaaðgang. Vinsamlegast ræddu við kerfisstjórn."
 
-msgid "With this backend, you can connect to any ownCloud server."
+msgid "This backend provides the default WebDAV integration for Files."
 msgstr ""
 
-msgid "Files ownCloud Backend: "
+msgid "Files Default Backend: "
 msgstr ""
 
 msgid "Server address"
@@ -6719,6 +6743,50 @@ msgid "We could not retrieve list of server features."
 msgstr ""
 
 msgid "PHP-Curl is not available."
+msgstr ""
+
+msgid "With this backend, you can connect to any Seafile server."
+msgstr ""
+
+msgid "Files "
+msgstr ""
+
+msgid "Use SSL"
+msgstr ""
+
+msgid "Seafile is not reachable. Correct backend address entered?"
+msgstr ""
+
+msgid "You don't have enough permissions for this operation."
+msgstr ""
+
+msgid "File is not available any more."
+msgstr ""
+
+msgid "Connection to server timed out. Retry later."
+msgstr ""
+
+msgid "This file is locked by another user."
+msgstr ""
+
+msgid "The request failed due to failure of a previous request."
+msgstr ""
+
+msgid "Seafile-server encountered a problem."
+msgstr ""
+
+msgid ""
+"Could not write to temporary directory. Contact the server administrator."
+msgstr ""
+
+msgid ""
+"Could not retrieve list of server features. Contact the server administrator."
+msgstr ""
+
+msgid "PHP-Curl is not available. Contact your system administrator."
+msgstr ""
+
+msgid "This function is not yet implemented."
 msgstr ""
 
 msgid "Unknown account ID"

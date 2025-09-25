@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Spanish (Spain)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-13 00:05+0200\n"
+"POT-Creation-Date: 2025-09-26 01:37+0200\n"
 "PO-Revision-Date: 2024-01-03 16:10+0000\n"
 "Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/grommunio/"
@@ -6006,9 +6006,40 @@ msgstr "Plugin de notificaciones de escritorio"
 msgid "Desktop Notifications"
 msgstr "Notificaciones de Escritorio"
 
+msgid "Files: Default plugin"
+msgstr ""
+
 #, fuzzy
-msgid "Files: ownCloud Backend"
-msgstr "Archivos: ownCloud Backend"
+msgid "Loading users and groups"
+msgstr "Carga de usuarios y grupos"
+
+#, fuzzy
+msgid "Add users or groups to share files."
+msgstr "Añade usuarios o grupos para compartir archivos."
+
+#, fuzzy
+msgid "Sort by: Type"
+msgstr "Ordenar por: Tipo"
+
+#, fuzzy
+msgid "Re-share"
+msgstr "Volver a compartir"
+
+msgid "Change"
+msgstr "Cambiar"
+
+msgid "Share with"
+msgstr "Compartir con"
+
+#, fuzzy
+msgid "Share Details"
+msgstr "Compartir detalles"
+
+msgid "Type to search"
+msgstr "Escribe para buscar"
+
+msgid "No results"
+msgstr "No hay resultados"
 
 #, fuzzy
 msgid "Share with user/group"
@@ -6042,37 +6073,29 @@ msgstr "Existe más de un enlace para compartir. Sólo se muestra el último"
 msgid "Loading details…"
 msgstr "Cargando detalles…"
 
-#, fuzzy
-msgid "Share Details"
-msgstr "Compartir detalles"
+msgid "Files: Seafile Backend"
+msgstr ""
 
-#, fuzzy
-msgid "Re-share"
-msgstr "Volver a compartir"
+msgid "Copy link to clipboard"
+msgstr ""
 
-msgid "Change"
-msgstr "Cambiar"
+msgid "Link copied to clipboard"
+msgstr ""
 
-msgid "Share with"
-msgstr "Compartir con"
+msgid "Clipboard"
+msgstr ""
 
-#, fuzzy
-msgid "Sort by: Type"
-msgstr "Ordenar por: Tipo"
+msgid "Could not copy link automatically. Please copy it manually."
+msgstr ""
 
-#, fuzzy
-msgid "Loading users and groups"
-msgstr "Carga de usuarios y grupos"
+msgid "Loading details..."
+msgstr ""
 
-#, fuzzy
-msgid "Add users or groups to share files."
-msgstr "Añade usuarios o grupos para compartir archivos."
+msgid "Share"
+msgstr "Compartir"
 
-msgid "Type to search"
-msgstr "Escribe para buscar"
-
-msgid "No results"
-msgstr "No hay resultados"
+msgid "Loading..."
+msgstr ""
 
 #, fuzzy
 msgid "Add attachment from {0}"
@@ -6187,6 +6210,9 @@ msgstr "Archivos"
 msgid "Files Plugin"
 msgstr "Plugin de archivos"
 
+msgid "Default"
+msgstr ""
+
 msgid "Manage Accounts"
 msgstr "Gestionar Cuentas"
 
@@ -6225,6 +6251,9 @@ msgstr "grommunio La web se está recargando, por favor espere."
 msgid "Edit Account"
 msgstr "Editar cuenta"
 
+msgid "Backend"
+msgstr "Backend"
+
 msgid "Account Information"
 msgstr "Información de la Cuenta"
 
@@ -6243,9 +6272,6 @@ msgstr "ID"
 
 msgid "Sort by: ID"
 msgstr "Ordenar por ID"
-
-msgid "Backend"
-msgstr "Backend"
 
 #, fuzzy
 msgid "Sort by: Backend"
@@ -6451,9 +6477,6 @@ msgstr "Crear un documento de oficina"
 
 msgid "Download files"
 msgstr "Descargar archivos"
-
-msgid "Share"
-msgstr "Compartir"
 
 #, fuzzy
 msgid "Attach to mail"
@@ -7411,12 +7434,11 @@ msgstr ""
 "Lo sentimos, el acceso a grommunio Web no está disponible con esta cuenta de "
 "usuario. Por favor, póngase en contacto con el administrador del sistema."
 
-#, fuzzy
-msgid "With this backend, you can connect to any ownCloud server."
-msgstr "Con este backend, puedes conectarte a cualquier servidor ownCloud."
+msgid "This backend provides the default WebDAV integration for Files."
+msgstr ""
 
-msgid "Files ownCloud Backend: "
-msgstr "Archivos ownCloud Backend: "
+msgid "Files Default Backend: "
+msgstr ""
 
 msgid "Server address"
 msgstr "Dirección del servidor"
@@ -7508,6 +7530,50 @@ msgstr "No hemos podido recuperar la lista de características del servidor."
 #, fuzzy
 msgid "PHP-Curl is not available."
 msgstr "PHP-Curl no está disponible."
+
+msgid "With this backend, you can connect to any Seafile server."
+msgstr ""
+
+msgid "Files "
+msgstr ""
+
+msgid "Use SSL"
+msgstr ""
+
+msgid "Seafile is not reachable. Correct backend address entered?"
+msgstr ""
+
+msgid "You don't have enough permissions for this operation."
+msgstr ""
+
+msgid "File is not available any more."
+msgstr ""
+
+msgid "Connection to server timed out. Retry later."
+msgstr ""
+
+msgid "This file is locked by another user."
+msgstr ""
+
+msgid "The request failed due to failure of a previous request."
+msgstr ""
+
+msgid "Seafile-server encountered a problem."
+msgstr ""
+
+msgid ""
+"Could not write to temporary directory. Contact the server administrator."
+msgstr ""
+
+msgid ""
+"Could not retrieve list of server features. Contact the server administrator."
+msgstr ""
+
+msgid "PHP-Curl is not available. Contact your system administrator."
+msgstr ""
+
+msgid "This function is not yet implemented."
+msgstr ""
 
 #, fuzzy
 msgid "Unknown account ID"

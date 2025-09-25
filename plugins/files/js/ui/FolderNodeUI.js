@@ -39,8 +39,7 @@ Ext.namespace('Zarafa.plugins.files.ui');
  </div>
  </code></pre>
  */
-Zarafa.plugins.files.ui.FolderNodeUI  = Ext.extend(Ext.tree.TreeNodeUI, {
-
+Zarafa.plugins.files.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 	/**
 	 * Function will render {@link Zarafa.hierarchy.ui.FolderNode FolderNode} based on modified template for
 	 * our custom needs.
@@ -49,45 +48,70 @@ Zarafa.plugins.files.ui.FolderNodeUI  = Ext.extend(Ext.tree.TreeNodeUI, {
 	 * @param {Ext.Element} targetNode element in which {@link Zarafa.hierarchy.ui.FolderNode FolderNode} will be rendered.
 	 * @param {Boolean} bulkRender
 	 */
-	renderElements : function(n, a, targetNode, bulkRender)
-	{
+	renderElements: function (n, a, targetNode, bulkRender) {
 		// add some indent caching, this helps performance when rendering a large tree
 		this.indentMarkup = n.parentNode ? n.parentNode.ui.getChildIndent() : '';
 		var cb = Ext.isBoolean(a.checked);
 		var checkboxMarkup = '';
 		if (cb) {
 			var checkboxId = Ext.id(null, 'zarafa-files-node-cb-');
-			checkboxMarkup = '<input class="x-tree-node-cb zarafa-hierarchy-node-cb" type="checkbox" id="' + checkboxId + '" name="' + checkboxId + '"' + (a.checked ? ' checked="checked"' : '') + ' />';
+			checkboxMarkup =
+				'<input class="x-tree-node-cb zarafa-hierarchy-node-cb" type="checkbox" id="' +
+				checkboxId +
+				'" name="' +
+				checkboxId +
+				'"' +
+				(a.checked ? ' checked="checked"' : '') +
+				' />';
 		}
-		var icon = '<img src="' + (a.icon || this.emptyIcon) + '" class="x-tree-node-icon" unselectable="on" />',
+		var icon =
+				'<img src="' +
+				(a.icon || this.emptyIcon) +
+				'" class="x-tree-node-icon" unselectable="on" />',
 			nel,
-			href = a.href ? a.href : Ext.isGecko ? "" : "#",
-			buf = '<li class="x-tree-node">' +
-					'<div ext:tree-node-id="' + n.id + '" class="x-tree-node-el x-tree-node-leaf x-unselectable zarafa-hierarchy-node" unselectable="on">' +
-						// indent space
-						'<span class="x-tree-node-indent">' + this.indentMarkup + "</span>" +
-						// expand icon
-						'<img src="' + this.emptyIcon + '" class="x-tree-ec-icon x-tree-elbow" />' +
-						// checkbox
-						checkboxMarkup +
-						// node icon
-						icon +
-						// node element (this.elNode)
-						'<a hidefocus="on" class="x-tree-node-anchor zarafa-hierarchy-node-anchor" ' +
-						'href="' + href + '" tabIndex="1" ' +
-						(a.hrefTarget ? ' target="' + a.hrefTarget + '"' : "") + ">" +
-							// hierarchy node text (this.textNode)
-							'<span unselectable="on">' + (n.tpl ? n.tpl.apply(a) : n.text) + '</span>' +
-							'<span class="zarafa-hierarchy-node-backend" unselectable="on"></span>'+
-						"</a>" +
-					"</div>" +
-					'<ul class="x-tree-node-ct" style="display:none;"></ul>' +
-				"</li>";
+			href = a.href ? a.href : Ext.isGecko ? '' : '#',
+			buf =
+				'<li class="x-tree-node">' +
+				'<div ext:tree-node-id="' +
+				n.id +
+				'" class="x-tree-node-el x-tree-node-leaf x-unselectable zarafa-hierarchy-node" unselectable="on">' +
+				// indent space
+				'<span class="x-tree-node-indent">' +
+				this.indentMarkup +
+				'</span>' +
+				// expand icon
+				'<img src="' +
+				this.emptyIcon +
+				'" class="x-tree-ec-icon x-tree-elbow" />' +
+				// checkbox
+				checkboxMarkup +
+				// node icon
+				icon +
+				// node element (this.elNode)
+				'<a hidefocus="on" class="x-tree-node-anchor zarafa-hierarchy-node-anchor" ' +
+				'href="' +
+				href +
+				'" tabIndex="1" ' +
+				(a.hrefTarget ? ' target="' + a.hrefTarget + '"' : '') +
+				'>' +
+				// hierarchy node text (this.textNode)
+				'<span unselectable="on">' +
+				(n.tpl ? n.tpl.apply(a) : n.text) +
+				'</span>' +
+				'<span class="zarafa-hierarchy-node-backend" unselectable="on"></span>' +
+				'</a>' +
+				'</div>' +
+				'<ul class="x-tree-node-ct" style="display:none;"></ul>' +
+				'</li>';
 
-		if (bulkRender !== true && n.nextSibling && (nel = n.nextSibling.ui.getEl())) {
-			this.wrap = Ext.DomHelper.insertHtml("beforeBegin", nel, buf);
-		}else{
-			this.wrap = Ext.DomHelper.insertHtml("beforeEnd", targetNode, buf);
+		if (
+			bulkRender !== true &&
+			n.nextSibling &&
+			(nel = n.nextSibling.ui.getEl())
+		) {
+			this.wrap = Ext.DomHelper.insertHtml('beforeBegin', nel, buf);
+		} else {
+			this.wrap = Ext.DomHelper.insertHtml('beforeEnd', targetNode, buf);
 		}
 
 		this.elNode = this.wrap.childNodes[0];
@@ -135,9 +159,8 @@ Zarafa.plugins.files.ui.FolderNodeUI  = Ext.extend(Ext.tree.TreeNodeUI, {
 	 * @param {String} cls The class which must be applied to the {@link #iconNode}
 	 * @private
 	 */
-	onContainerClsChange : function(node, cls, oldCls)
-	{
-		if(this.rendered) {
+	onContainerClsChange: function (node, cls, oldCls) {
+		if (this.rendered) {
 			var containerNode = Ext.get(this.wrap);
 			if (!Ext.isEmpty(oldCls)) {
 				containerNode.replaceClass(oldCls, cls);
@@ -154,10 +177,11 @@ Zarafa.plugins.files.ui.FolderNodeUI  = Ext.extend(Ext.tree.TreeNodeUI, {
 	 * @param {String} oldText The previous text which was set on the node
 	 * @private
 	 */
-	onTextChange : function(node, text, oldText)
-	{
+	onTextChange: function (node, text, oldText) {
 		if (this.rendered) {
-			this.textNode.innerHTML = node.tpl ? node.tpl.apply(node.attributes) : text;
+			this.textNode.innerHTML = node.tpl
+				? node.tpl.apply(node.attributes)
+				: text;
 		}
 	},
 
@@ -168,8 +192,7 @@ Zarafa.plugins.files.ui.FolderNodeUI  = Ext.extend(Ext.tree.TreeNodeUI, {
 	 * @param {String} oldIconCls The old iconCls which must be removed from the {@link #iconNode}.
 	 * @private
 	 */
-	onIconChange : function(node, iconCls, oldIconCls)
-	{
+	onIconChange: function (node, iconCls, oldIconCls) {
 		if (this.rendered) {
 			var iconNode = Ext.get(this.iconNode);
 			if (!Ext.isEmpty(oldIconCls)) {
@@ -184,8 +207,7 @@ Zarafa.plugins.files.ui.FolderNodeUI  = Ext.extend(Ext.tree.TreeNodeUI, {
 	 * Function is used to show backend name along with {@link Zarafa.plugins.files.data.FilesFolderRecord folder} folder name.
 	 * @param {Zarafa.plugins.files.ui.FilesFolderNode} node which has to show backend name.
 	 */
-	showFolderBackend : function (node)
-	{
+	showFolderBackend: function (node) {
 		var folder = node.getFolder();
 
 		if (!Ext.isDefined(folder) || !folder.isSubTreeFolder()) {
@@ -195,12 +217,12 @@ Zarafa.plugins.files.ui.FolderNodeUI  = Ext.extend(Ext.tree.TreeNodeUI, {
 		var ownerNode = Ext.get(this.folderBackendNode);
 		var store = folder.getFilesStore();
 		var backendName = store.getBackend();
-		if (backendName === 'Owncloud') {
-			backendName = 'grommunio';
+		if (backendName === 'Owncloud' || backendName === 'Default') {
+			backendName = _('Default');
 		}
 		var ownerName = ' - ' + backendName;
 
 		ownerNode.update(ownerName);
 		ownerNode.repaint();
-	}
+	},
 });

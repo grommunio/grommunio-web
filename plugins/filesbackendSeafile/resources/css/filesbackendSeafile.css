@@ -1,0 +1,73 @@
+.icon_16_Seafile {
+  background-image: url(../icons/seafile16.png) !important;
+  background-repeat: no-repeat;
+}
+.icon_24_Seafile {
+  background-image: url(../icons/seafile24.png) !important;
+  background-repeat: no-repeat;
+}
+.icon_256_Seafile {
+  background-image: url(../icons/seafile256.png) !important;
+  background-repeat: no-repeat;
+}
+.icon_16_logo_Seafile {
+  background-image: url(../icons/seafile_logo16.png) !important;
+  background-repeat: no-repeat;
+}
+.shareicon_16_user {
+  background-image: url(../icons/usericon.png) !important;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.shareicon_16_group {
+  background-image: url(../icons/groupicon.png) !important;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.shareicon_16_yes {
+  background-image: url(../icons/icon_yes.png) !important;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.shareicon_16_no {
+  background-image: url(../icons/icon_no.png) !important;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.icon_copy_clipboard {
+  background-image: url(../icons/clipboard.png) !important;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.ugpredic_search_item {
+  font:
+    normal 11px tahoma,
+    arial,
+    helvetica,
+    sans-serif;
+  padding: 3px 10px 3px 10px;
+  border: 1px solid #fff;
+  border-bottom: 1px solid #eee;
+  white-space: normal;
+  color: #555;
+}
+.ugpredic_search_item h3 {
+  display: block;
+  font: inherit;
+  font-weight: 700;
+  color: #222;
+}
+.ugpredic_search_item h3 span {
+  float: left;
+  padding: 0 10px 0 0;
+  font-weight: 400;
+  width: 20px;
+  display: block;
+  clear: none;
+}
+input[name="permissionChange"],
+input[name="permissionCreate"],
+input[name="permissionDelete"],
+input[name="permissionShare"] {
+  margin-top: 5px;
+}

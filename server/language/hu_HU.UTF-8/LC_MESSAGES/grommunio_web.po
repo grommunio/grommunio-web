@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-13 00:05+0200\n"
+"POT-Creation-Date: 2025-09-26 01:37+0200\n"
 "PO-Revision-Date: 2022-07-26 16:08+0200\n"
 "Last-Translator: f3rr31 <5920873@disroot.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/grommunio/"
@@ -5887,8 +5887,38 @@ msgstr "Asztali értesítések plugin"
 msgid "Desktop Notifications"
 msgstr "Asztali értesítések"
 
-msgid "Files: ownCloud Backend"
-msgstr "Fájlok: ownCloud beépülő"
+msgid "Files: Default plugin"
+msgstr ""
+
+msgid "Loading users and groups"
+msgstr "Felhasználók és csoportok betöltése"
+
+#, fuzzy
+msgid "Add users or groups to share files."
+msgstr "Felhasználók vagy csoportok hozzáadása a fájlok megosztásához."
+
+msgid "Sort by: Type"
+msgstr "Rendezés: Típus"
+
+#, fuzzy
+msgid "Re-share"
+msgstr "Újra megosztás"
+
+msgid "Change"
+msgstr "Változtat"
+
+msgid "Share with"
+msgstr "Megosztás ezzel"
+
+#, fuzzy
+msgid "Share Details"
+msgstr "Megosztás részleteinek szerkesztése"
+
+msgid "Type to search"
+msgstr "Írj a kereséshez"
+
+msgid "No results"
+msgstr "Nincs találat"
 
 msgid "Share with user/group"
 msgstr "Megosztás felhasználóval/csoporttal"
@@ -5918,35 +5948,29 @@ msgstr "Több mint 1 megosztási link létezik. Csak a legutóbbi jelenik meg"
 msgid "Loading details…"
 msgstr "Részletek betöltése…"
 
-#, fuzzy
-msgid "Share Details"
-msgstr "Megosztás részleteinek szerkesztése"
+msgid "Files: Seafile Backend"
+msgstr ""
 
-#, fuzzy
-msgid "Re-share"
-msgstr "Újra megosztás"
+msgid "Copy link to clipboard"
+msgstr ""
 
-msgid "Change"
-msgstr "Változtat"
+msgid "Link copied to clipboard"
+msgstr ""
 
-msgid "Share with"
-msgstr "Megosztás ezzel"
+msgid "Clipboard"
+msgstr ""
 
-msgid "Sort by: Type"
-msgstr "Rendezés: Típus"
+msgid "Could not copy link automatically. Please copy it manually."
+msgstr ""
 
-msgid "Loading users and groups"
-msgstr "Felhasználók és csoportok betöltése"
+msgid "Loading details..."
+msgstr ""
 
-#, fuzzy
-msgid "Add users or groups to share files."
-msgstr "Felhasználók vagy csoportok hozzáadása a fájlok megosztásához."
+msgid "Share"
+msgstr "Megosztás"
 
-msgid "Type to search"
-msgstr "Írj a kereséshez"
-
-msgid "No results"
-msgstr "Nincs találat"
+msgid "Loading..."
+msgstr ""
 
 msgid "Add attachment from {0}"
 msgstr "Melléklet hozzáadása innen: {0}"
@@ -6044,6 +6068,9 @@ msgstr "Fájlok"
 msgid "Files Plugin"
 msgstr "Fájlok bővítmény"
 
+msgid "Default"
+msgstr ""
+
 msgid "Manage Accounts"
 msgstr "Fiókok kezelése"
 
@@ -6080,6 +6107,9 @@ msgstr "grommunio A web újratöltődik, várjon."
 msgid "Edit Account"
 msgstr "Fiók szerkesztése"
 
+msgid "Backend"
+msgstr "Típus"
+
 msgid "Account Information"
 msgstr "Fiók információ"
 
@@ -6097,9 +6127,6 @@ msgstr "ID"
 
 msgid "Sort by: ID"
 msgstr "Rendezés: ID"
-
-msgid "Backend"
-msgstr "Típus"
 
 msgid "Sort by: Backend"
 msgstr "Rendezés: Típus"
@@ -6279,9 +6306,6 @@ msgstr "Irodai dokumentum létrehozása"
 
 msgid "Download files"
 msgstr "Fájlok letöltése"
-
-msgid "Share"
-msgstr "Megosztás"
 
 msgid "Attach to mail"
 msgstr "Emailhez csatolás"
@@ -7182,12 +7206,11 @@ msgstr ""
 "Sajnáljuk, a grommunio Web nem érhető el ezzel a felhasználói fiókkal. "
 "Kérjük, lépjen kapcsolatba a rendszergazdával."
 
-#, fuzzy
-msgid "With this backend, you can connect to any ownCloud server."
-msgstr "Ezzel a háttértárral bármelyik ownCloud-kiszolgálóhoz csatlakozhat."
+msgid "This backend provides the default WebDAV integration for Files."
+msgstr ""
 
-msgid "Files ownCloud Backend: "
-msgstr "Fájlok ownCloud Backend: "
+msgid "Files Default Backend: "
+msgstr ""
 
 msgid "Server address"
 msgstr "Szerver címe"
@@ -7276,6 +7299,57 @@ msgstr "Nem tudtuk lekérdezni a kiszolgáló jellemzőinek listáját."
 #, fuzzy
 msgid "PHP-Curl is not available."
 msgstr "A PHP-Curl nem érhető el."
+
+msgid "With this backend, you can connect to any Seafile server."
+msgstr ""
+
+msgid "Files "
+msgstr ""
+
+msgid "Use SSL"
+msgstr "SSL használata"
+
+msgid "Seafile is not reachable. Correct backend address entered?"
+msgstr ""
+
+msgid "You don't have enough permissions for this operation."
+msgstr "Nincsen jogosultsága ehhez a művelethez."
+
+msgid "File is not available any more."
+msgstr "A fájl többé már nem elérhető."
+
+msgid "Connection to server timed out. Retry later."
+msgstr ""
+"A szerverrel a kapcsolat időtúllépés miatt megszakadt. Próbálja később."
+
+msgid "This file is locked by another user."
+msgstr "Ez a fájl egy másik felhasználó által zárolva van."
+
+msgid "The request failed due to failure of a previous request."
+msgstr "A kérés meghiúsult egy előző kérés hibája miatt."
+
+msgid "Seafile-server encountered a problem."
+msgstr ""
+
+msgid ""
+"Could not write to temporary directory. Contact the server administrator."
+msgstr ""
+"Nem sikerült írni az átmeneti könyvtárat. Vegye fel a kapcsolatot a szerver "
+"rendszergazdájával."
+
+msgid ""
+"Could not retrieve list of server features. Contact the server administrator."
+msgstr ""
+"Nem sikerült betölteni a szerver képességeit. Vegye fel a kapcsolatot a "
+"szerver rendszergazdájával."
+
+msgid "PHP-Curl is not available. Contact your system administrator."
+msgstr ""
+"A PHP-Curl nem elérhető. Vegye fel a kapcsolatot a szerver "
+"rendszergazdájával."
+
+msgid "This function is not yet implemented."
+msgstr ""
 
 msgid "Unknown account ID"
 msgstr "Ismeretlen fiók ID"

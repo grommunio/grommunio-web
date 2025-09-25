@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+	<info>
+		<version>2.0.68</version>
+		<name>filesbackendSeafile</name>
+		<title>Seafile backend for grommunio Files</title>
+		<author>grommunio</author>
+		<authorURL>https://www.grommunio.com</authorURL>
+		<description>This backend for Files provides seafile support</description>
+	</info>
+	<dependencies>
+		<depends type="depends">
+			<dependsname>files</dependsname>
+		</depends>
+	</dependencies>
+	<components>
+		<component>
+			<files>
+				<server>
+					<serverfile>php/class.pluginseafile.php</serverfile>
+				</server>
+				<client>
+					<clientfile load="release">js/filesbackendSeafile.js</clientfile>
+					<clientfile load="debug">js/filesbackendSeafile-debug.js</clientfile>
+					<clientfile load="source">src/js/SeafileBackend.js</clientfile>
+					<clientfile load="source">src/js/ui/FilesShareDialogPanel.js</clientfile>
+					<clientfile load="source">src/js/ui/FilesShareUserEditPanel.js</clientfile>
+					<clientfile load="source">src/js/ui/FilesShareUserEditContentPanel.js</clientfile>
+					<clientfile load="source">src/js/ui/FilesShareUserGrid.js</clientfile>
+					<clientfile load="source">src/js/ui/FilesShareUserGridColumnModel.js</clientfile>
+					<clientfile load="source">src/js/ui/UserGroupPredictorField.js</clientfile>
+					<clientfile load="source">src/js/data/ShareGridStore.js</clientfile>
+					<clientfile load="source">src/js/data/ResponseHandler.js</clientfile>
+					<clientfile load="source">src/js/data/ShareGridRecord.js</clientfile>
+					<clientfile load="source">src/js/data/singleton/ShareStore.js</clientfile>
+					<clientfile load="source">src/js/data/RecipientTypes.js</clientfile>
+				</client>
+				<resources>
+					<resourcefile load="release">resources/css/filesbackendSeafile.css</resourcefile>
+					<resourcefile load="debug">resources/css/filesbackendSeafile.css</resourcefile>
+					<resourcefile load="source">resources/css/filesbackendSeafile.css</resourcefile>
+				</resources>
+			</files>
+		</component>
+	</components>
+</plugin>

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Korean (Korea)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-13 00:05+0200\n"
+"POT-Creation-Date: 2025-09-26 01:37+0200\n"
 "PO-Revision-Date: 2017-10-05 20:07+0200\n"
 "Last-Translator: import\n"
 "Language: ko_KR\n"
@@ -5465,8 +5465,35 @@ msgstr "데스크톱 알림 플러그인"
 msgid "Desktop Notifications"
 msgstr "데스크톱 알림"
 
-msgid "Files: ownCloud Backend"
-msgstr "파일: ownCloud 백엔드"
+msgid "Files: Default plugin"
+msgstr ""
+
+msgid "Loading users and groups"
+msgstr "사용자 및 그룹 로드"
+
+msgid "Add users or groups to share files."
+msgstr "파일을 공유할 사용자 또는 그룹을 추가합니다."
+
+msgid "Sort by: Type"
+msgstr "정렬 기준: 유형"
+
+msgid "Re-share"
+msgstr "다시 공유"
+
+msgid "Change"
+msgstr "변경"
+
+msgid "Share with"
+msgstr "공유 대상"
+
+msgid "Share Details"
+msgstr "세부 정보 공유"
+
+msgid "Type to search"
+msgstr "검색할 항목 입력"
+
+msgid "No results"
+msgstr "결과 없음"
 
 msgid "Share with user/group"
 msgstr "사용자/그룹과 공유"
@@ -5495,32 +5522,29 @@ msgstr "공유 링크가 1개 이상 존재합니다. 최신 링크만 표시"
 msgid "Loading details…"
 msgstr "세부 정보 로드 중..."
 
-msgid "Share Details"
-msgstr "세부 정보 공유"
+msgid "Files: Seafile Backend"
+msgstr ""
 
-msgid "Re-share"
-msgstr "다시 공유"
+msgid "Copy link to clipboard"
+msgstr ""
 
-msgid "Change"
-msgstr "변경"
+msgid "Link copied to clipboard"
+msgstr ""
 
-msgid "Share with"
-msgstr "공유 대상"
+msgid "Clipboard"
+msgstr ""
 
-msgid "Sort by: Type"
-msgstr "정렬 기준: 유형"
+msgid "Could not copy link automatically. Please copy it manually."
+msgstr ""
 
-msgid "Loading users and groups"
-msgstr "사용자 및 그룹 로드"
+msgid "Loading details..."
+msgstr ""
 
-msgid "Add users or groups to share files."
-msgstr "파일을 공유할 사용자 또는 그룹을 추가합니다."
+msgid "Share"
+msgstr "공유"
 
-msgid "Type to search"
-msgstr "검색할 항목 입력"
-
-msgid "No results"
-msgstr "결과 없음"
+msgid "Loading..."
+msgstr ""
 
 msgid "Add attachment from {0}"
 msgstr "0}에서 첨부 파일 추가"
@@ -5607,6 +5631,9 @@ msgstr "파일"
 msgid "Files Plugin"
 msgstr "파일 플러그인"
 
+msgid "Default"
+msgstr ""
+
 msgid "Manage Accounts"
 msgstr "계정 관리"
 
@@ -5635,6 +5662,9 @@ msgstr "그로뮤니오 웹이 로드 중입니다 잠시만 기다려주세요.
 msgid "Edit Account"
 msgstr "계정 수정"
 
+msgid "Backend"
+msgstr "백엔드"
+
 msgid "Account Information"
 msgstr "계정 정보"
 
@@ -5652,9 +5682,6 @@ msgstr "ID"
 
 msgid "Sort by: ID"
 msgstr "정렬 기준: ID"
-
-msgid "Backend"
-msgstr "백엔드"
 
 msgid "Sort by: Backend"
 msgstr "정렬 기준: 백엔드"
@@ -5829,9 +5856,6 @@ msgstr "오피스 문서 만들기"
 
 msgid "Download files"
 msgstr "파일 다운로드"
-
-msgid "Share"
-msgstr "공유"
 
 msgid "Attach to mail"
 msgstr "메일에 첨부"
@@ -6631,11 +6655,11 @@ msgstr ""
 "죄송합니다. 이 사용자 계정으로는 그로뮤니오 웹에 액세스할 수 없습니다. 시스"
 "템 관리자에게 문의하세요."
 
-msgid "With this backend, you can connect to any ownCloud server."
-msgstr "이 백엔드를 사용하면 모든 자체 클라우드 서버에 연결할 수 있습니다."
+msgid "This backend provides the default WebDAV integration for Files."
+msgstr ""
 
-msgid "Files ownCloud Backend: "
-msgstr "파일 소유클라우드 백엔드:"
+msgid "Files Default Backend: "
+msgstr ""
 
 msgid "Server address"
 msgstr "서버 주소"
@@ -6706,6 +6730,50 @@ msgstr "서버 기능 목록을 검색할 수 없습니다."
 
 msgid "PHP-Curl is not available."
 msgstr "PHP-Curl을 사용할 수 없습니다."
+
+msgid "With this backend, you can connect to any Seafile server."
+msgstr ""
+
+msgid "Files "
+msgstr ""
+
+msgid "Use SSL"
+msgstr ""
+
+msgid "Seafile is not reachable. Correct backend address entered?"
+msgstr ""
+
+msgid "You don't have enough permissions for this operation."
+msgstr ""
+
+msgid "File is not available any more."
+msgstr ""
+
+msgid "Connection to server timed out. Retry later."
+msgstr ""
+
+msgid "This file is locked by another user."
+msgstr ""
+
+msgid "The request failed due to failure of a previous request."
+msgstr ""
+
+msgid "Seafile-server encountered a problem."
+msgstr ""
+
+msgid ""
+"Could not write to temporary directory. Contact the server administrator."
+msgstr ""
+
+msgid ""
+"Could not retrieve list of server features. Contact the server administrator."
+msgstr ""
+
+msgid "PHP-Curl is not available. Contact your system administrator."
+msgstr ""
+
+msgid "This function is not yet implemented."
+msgstr ""
 
 msgid "Unknown account ID"
 msgstr "알 수 없는 계정 ID"

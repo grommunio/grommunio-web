@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web English (United States)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-13 00:05+0200\n"
+"POT-Creation-Date: 2025-09-26 01:37+0200\n"
 "PO-Revision-Date: 2024-04-30 06:29+0000\n"
 "Last-Translator: Mike Williams <mike.williams@grommunio.com>\n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
@@ -5539,8 +5539,35 @@ msgstr "Desktop Notifications Plugin"
 msgid "Desktop Notifications"
 msgstr "Desktop Notifications"
 
-msgid "Files: ownCloud Backend"
-msgstr "Files: ownCloud Backend"
+msgid "Files: Default plugin"
+msgstr ""
+
+msgid "Loading users and groups"
+msgstr "Loading users and groups"
+
+msgid "Add users or groups to share files."
+msgstr "Add users or groups to share files."
+
+msgid "Sort by: Type"
+msgstr "Sort by: Type"
+
+msgid "Re-share"
+msgstr "Re-share"
+
+msgid "Change"
+msgstr "Change"
+
+msgid "Share with"
+msgstr "Share with"
+
+msgid "Share Details"
+msgstr "Share Details"
+
+msgid "Type to search"
+msgstr "Type to search"
+
+msgid "No results"
+msgstr "No results"
 
 msgid "Share with user/group"
 msgstr "Share with user/group"
@@ -5569,32 +5596,29 @@ msgstr "More than 1 share link exists. Only showing the latest one"
 msgid "Loading details…"
 msgstr "Loading details…"
 
-msgid "Share Details"
-msgstr "Share Details"
+msgid "Files: Seafile Backend"
+msgstr ""
 
-msgid "Re-share"
-msgstr "Re-share"
+msgid "Copy link to clipboard"
+msgstr ""
 
-msgid "Change"
-msgstr "Change"
+msgid "Link copied to clipboard"
+msgstr ""
 
-msgid "Share with"
-msgstr "Share with"
+msgid "Clipboard"
+msgstr ""
 
-msgid "Sort by: Type"
-msgstr "Sort by: Type"
+msgid "Could not copy link automatically. Please copy it manually."
+msgstr ""
 
-msgid "Loading users and groups"
-msgstr "Loading users and groups"
+msgid "Loading details..."
+msgstr ""
 
-msgid "Add users or groups to share files."
-msgstr "Add users or groups to share files."
+msgid "Share"
+msgstr "Share"
 
-msgid "Type to search"
-msgstr "Type to search"
-
-msgid "No results"
-msgstr "No results"
+msgid "Loading..."
+msgstr ""
 
 msgid "Add attachment from {0}"
 msgstr "Add attachment from {0}"
@@ -5682,6 +5706,9 @@ msgstr "Files"
 msgid "Files Plugin"
 msgstr "Files Plugin"
 
+msgid "Default"
+msgstr ""
+
 msgid "Manage Accounts"
 msgstr "Manage Accounts"
 
@@ -5714,6 +5741,9 @@ msgstr "grommunio Web is reloading…"
 msgid "Edit Account"
 msgstr "Edit Account"
 
+msgid "Backend"
+msgstr "Files Backend"
+
 msgid "Account Information"
 msgstr "Account Information"
 
@@ -5731,9 +5761,6 @@ msgstr "ID"
 
 msgid "Sort by: ID"
 msgstr "Sort by: ID"
-
-msgid "Backend"
-msgstr "Files Backend"
 
 msgid "Sort by: Backend"
 msgstr "Sort by: Backend"
@@ -5908,9 +5935,6 @@ msgstr "Create office document"
 
 msgid "Download files"
 msgstr "Download files"
-
-msgid "Share"
-msgstr "Share"
 
 msgid "Attach to mail"
 msgstr "Attach to mail"
@@ -6724,11 +6748,11 @@ msgstr ""
 "Access to grommunio Web is not available with this user account. Contact "
 "your system administrator."
 
-msgid "With this backend, you can connect to any ownCloud server."
-msgstr "With this backend, you can connect to any ownCloud server."
+msgid "This backend provides the default WebDAV integration for Files."
+msgstr ""
 
-msgid "Files ownCloud Backend: "
-msgstr "Files ownCloud Backend: "
+msgid "Files Default Backend: "
+msgstr ""
 
 msgid "Server address"
 msgstr "Server address"
@@ -6798,6 +6822,50 @@ msgstr "We could not retrieve list of server features."
 
 msgid "PHP-Curl is not available."
 msgstr "php-curl is not available."
+
+msgid "With this backend, you can connect to any Seafile server."
+msgstr ""
+
+msgid "Files "
+msgstr ""
+
+msgid "Use SSL"
+msgstr ""
+
+msgid "Seafile is not reachable. Correct backend address entered?"
+msgstr ""
+
+msgid "You don't have enough permissions for this operation."
+msgstr ""
+
+msgid "File is not available any more."
+msgstr ""
+
+msgid "Connection to server timed out. Retry later."
+msgstr ""
+
+msgid "This file is locked by another user."
+msgstr ""
+
+msgid "The request failed due to failure of a previous request."
+msgstr ""
+
+msgid "Seafile-server encountered a problem."
+msgstr ""
+
+msgid ""
+"Could not write to temporary directory. Contact the server administrator."
+msgstr ""
+
+msgid ""
+"Could not retrieve list of server features. Contact the server administrator."
+msgstr ""
+
+msgid "PHP-Curl is not available. Contact your system administrator."
+msgstr ""
+
+msgid "This function is not yet implemented."
+msgstr ""
 
 msgid "Unknown account ID"
 msgstr "Unknown account ID"
