@@ -59,7 +59,8 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			border: false,
 			listeners: {
 				scope: this,
-				render: this.onRenderMessageBody
+				render: this.onRenderMessageBody,
+				afterrender: this.onAfterRender
 			}
 		});
 
@@ -84,6 +85,24 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 		var tabPanel = this.findParentByType('tabpanel');
 		if ( tabPanel ){
 			this.mon(tabPanel, 'beforetabchange', this.onBeforeTabChange, this);
+		}
+	},
+
+	/**
+	 * Event handler for the {@link Ext.Component.afterrender} event. Will add listener to the
+	 * {@link Zarafa.core.ui.MainContentTabPanel.beforetabchange} event if the MessageBody
+	 * is rendered inside a tab panel of the {@link Zarafa.core.ui.MainContentTabPanel}.
+	 */
+	onAfterRender: function()
+	{
+		// In Firefox, the frame's content seems to not be recognized when no
+		// initial content has been set.
+		if (Ext.isGecko) {
+			var iframeWindow = this.getEl().dom.contentWindow;
+			var iframeDocument = iframeWindow.document;
+			iframeDocument.open();
+			iframeDocument.write('<!DOCTYPE html><html><body><p>&nbsp;</p></body></html>');
+			iframeDocument.close();
 		}
 	},
 
