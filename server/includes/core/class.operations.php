@@ -4354,9 +4354,15 @@ class Operations {
 	 * @param array $recipients list of recipients
 	 */
 	public function addRecipientsToRecipientHistory($recipients) {
-		$emailAddress = [];
-		foreach ($recipients as $key => $value) {
-			$emailAddresses[] = $value['props'];
+		if (empty($recipients) || !is_array($recipients)) {
+			return;
+		}
+
+		$emailAddresses = [];
+		foreach ($recipients as $recipient) {
+			if (isset($recipient['props']) && is_array($recipient['props'])) {
+				$emailAddresses[] = $recipient['props'];
+			}
 		}
 
 		if (empty($emailAddresses)) {
@@ -4376,78 +4382,27 @@ class Operations {
 			}
 		}
 
-		$l_aNewHistoryItems = [];
-		// Loop through all new recipients
-		for ($i = 0, $len = count($emailAddresses); $i < $len; ++$i) {
-			if ($emailAddresses[$i]['address_type'] == 'SMTP') {
-				$emailAddress = $emailAddresses[$i]['smtp_address'];
-				if (empty($emailAddress)) {
-					$emailAddress = $emailAddresses[$i]['email_address'];
-				}
-			}
-			else { // address_type == 'EX' || address_type == 'MAPIPDL'
-				$emailAddress = $emailAddresses[$i]['email_address'];
-				if (empty($emailAddress)) {
-					$emailAddress = $emailAddresses[$i]['smtp_address'];
-				}
-			}
+		if (!isset($recipient_history['recipients']) || !is_array($recipient_history['recipients'])) {
+			$recipient_history['recipients'] = [];
+		}
 
-			// If no email address property is found, then we can't
-			// generate a valid suggestion.
-			if (empty($emailAddress)) {
+		$l_aNewHistoryItems = [];
+		foreach ($emailAddresses as $emailProps) {
+			$emailAddress = $this->resolveEmailAddressFromProps($emailProps);
+			if ($emailAddress === '') {
 				continue;
 			}
 
-			$l_bFoundInHistory = false;
-			// Loop through all the recipients in history
-			if (is_array($recipient_history) && !empty($recipient_history['recipients'])) {
-				for ($j = 0, $lenJ = count($recipient_history['recipients']); $j < $lenJ; ++$j) {
-					// Email address already found in history
-					$l_bFoundInHistory = false;
-
-					// The address_type property must exactly match,
-					// when it does, a recipient matches the suggestion
-					// if it matches to either the email_address or smtp_address.
-					if ($emailAddresses[$i]['address_type'] === $recipient_history['recipients'][$j]['address_type']) {
-						if ($emailAddress == $recipient_history['recipients'][$j]['email_address'] ||
-							$emailAddress == $recipient_history['recipients'][$j]['smtp_address']) {
-							$l_bFoundInHistory = true;
-						}
-					}
-
-					if ($l_bFoundInHistory === true) {
-						// Check if a name has been supplied.
-						$newDisplayName = trim((string) $emailAddresses[$i]['display_name']);
-						if (!empty($newDisplayName)) {
-							$oldDisplayName = trim((string) $recipient_history['recipients'][$j]['display_name']);
-
-							// Check if the name is not the same as the email address
-							if ($newDisplayName != $emailAddresses[$i]['smtp_address']) {
-								$recipient_history['recipients'][$j]['display_name'] = $newDisplayName;
-							// Check if the recipient history has no name for this email
-							}
-							elseif (empty($oldDisplayName)) {
-								$recipient_history['recipients'][$j]['display_name'] = $newDisplayName;
-							}
-						}
-						++$recipient_history['recipients'][$j]['count'];
-						$recipient_history['recipients'][$j]['last_used'] = time();
-						break;
-					}
-				}
+			$timestamp = time();
+			if ($this->updateRecipientHistoryEntry($recipient_history['recipients'], $emailProps, $emailAddress, $timestamp)) {
+				continue;
 			}
-			if (!$l_bFoundInHistory && !isset($l_aNewHistoryItems[$emailAddress])) {
-				$l_aNewHistoryItems[$emailAddress] = [
-					'display_name' => $emailAddresses[$i]['display_name'],
-					'smtp_address' => $emailAddresses[$i]['smtp_address'],
-					'email_address' => $emailAddresses[$i]['email_address'],
-					'address_type' => $emailAddresses[$i]['address_type'],
-					'count' => 1,
-					'last_used' => time(),
-					'object_type' => $emailAddresses[$i]['object_type'],
-				];
+
+			if (!isset($l_aNewHistoryItems[$emailAddress])) {
+				$l_aNewHistoryItems[$emailAddress] = $this->buildRecipientHistoryEntry($emailProps, $timestamp);
 			}
 		}
+
 		if (!empty($l_aNewHistoryItems)) {
 			foreach ($l_aNewHistoryItems as $l_aValue) {
 				$recipient_history['recipients'][] = $l_aValue;
@@ -4461,6 +4416,109 @@ class Operations {
 		mapi_stream_write($stream, $l_sNewRecipientHistoryJSON);
 		mapi_stream_commit($stream);
 		mapi_savechanges($store);
+	}
+
+	/**
+	 * Resolve the effective email address from a recipient property set.
+	 *
+	 * @param array $props raw properties extracted from the recipient row
+	 *
+	 * @return string trimmed email address or empty string when none available
+	 */
+	private function resolveEmailAddressFromProps(array $props) {
+		$addressType = $props['address_type'] ?? '';
+		if ($addressType === 'SMTP') {
+			$emailAddress = $props['smtp_address'] ?? '';
+			if ($emailAddress === '') {
+				$emailAddress = $props['email_address'] ?? '';
+			}
+		}
+		else {
+			$emailAddress = $props['email_address'] ?? '';
+			if ($emailAddress === '') {
+				$emailAddress = $props['smtp_address'] ?? '';
+			}
+		}
+
+		return trim((string) $emailAddress);
+	}
+
+	/**
+	 * Update an existing history entry when the address already exists.
+	 *
+	 * @param array  &$historyRecipients Reference to the recipient history array
+	 * @param array  $emailProps         current recipient properties
+	 * @param string $emailAddress       resolved email address
+	 * @param int    $timestamp          current timestamp used for counters
+	 *
+	 * @return bool TRUE when a matching history entry was updated, FALSE otherwise
+	 */
+	private function updateRecipientHistoryEntry(array &$historyRecipients, array $emailProps, $emailAddress, $timestamp) {
+		if (empty($historyRecipients)) {
+			return false;
+		}
+
+		foreach ($historyRecipients as &$recipient) {
+			if (($emailProps['address_type'] ?? null) !== ($recipient['address_type'] ?? null)) {
+				continue;
+			}
+
+			if (
+				$emailAddress !== ($recipient['email_address'] ?? '') &&
+				$emailAddress !== ($recipient['smtp_address'] ?? '')
+			) {
+				continue;
+			}
+
+			$this->updateRecipientDisplayName($emailProps, $recipient);
+			$recipient['count'] = isset($recipient['count']) ? $recipient['count'] + 1 : 1;
+			$recipient['last_used'] = $timestamp;
+
+			return true;
+		}
+		unset($recipient);
+
+		return false;
+	}
+
+	/**
+	 * Refresh the display name on a history entry when a better candidate is available.
+	 *
+	 * @param array $emailProps current recipient properties
+	 * @param array &$recipient Matched history entry to update
+	 */
+	private function updateRecipientDisplayName(array $emailProps, array &$recipient) {
+		$newDisplayName = trim((string) ($emailProps['display_name'] ?? ''));
+		if ($newDisplayName === '') {
+			return;
+		}
+
+		$oldDisplayName = trim((string) ($recipient['display_name'] ?? ''));
+		$smtpAddress = $emailProps['smtp_address'] ?? '';
+
+		if ($newDisplayName !== $smtpAddress || $oldDisplayName === '') {
+			$recipient['display_name'] = $newDisplayName;
+		}
+	}
+
+	/**
+	 * Create a new history entry structure for a recipient address.
+	 *
+	 * @param array $emailProps recipient properties used for the entry
+	 * @param int   $timestamp  creation timestamp that seeds usage metrics
+	 *
+	 * @return array normalized recipient history entry payload
+	 */
+	private function buildRecipientHistoryEntry(array $emailProps, $timestamp) {
+		return [
+			'display_name' => $emailProps['display_name'] ?? '',
+			'smtp_address' => $emailProps['smtp_address'] ?? '',
+			'email_address' => $emailProps['email_address'] ?? '',
+			'address_type' => $emailProps['address_type'] ?? '',
+			'count' => 1,
+			'last_used' => $timestamp,
+			'object_type' => $emailProps['object_type'] ?? null,
+		];
 	}
 
 	/**
