@@ -1095,6 +1095,9 @@ class FilesBrowserModule extends FilesListModule {
 	/**
 	 * Get sharing information from the backend.
 	 *
+	 * @param mixed $actionType
+	 * @param mixed $actionData
+	 *
 	 * @return bool
 	 */
 	private function getSharingInformation($actionType, $actionData) {
@@ -1151,6 +1154,9 @@ class FilesBrowserModule extends FilesListModule {
 
 	/**
 	 * Create a new share.
+	 *
+	 * @param mixed $actionType
+	 * @param mixed $actionData
 	 *
 	 * @return bool
 	 */
@@ -1211,6 +1217,9 @@ class FilesBrowserModule extends FilesListModule {
 	/**
 	 * Update a existing share.
 	 *
+	 * @param mixed $actionType
+	 * @param mixed $actionData
+	 *
 	 * @return bool
 	 */
 	private function updateExistingShare($actionType, $actionData) {
@@ -1263,6 +1272,9 @@ class FilesBrowserModule extends FilesListModule {
 
 	/**
 	 * Delete one or more shares.
+	 *
+	 * @param mixed $actionType
+	 * @param mixed $actionData
 	 *
 	 * @return bool
 	 */

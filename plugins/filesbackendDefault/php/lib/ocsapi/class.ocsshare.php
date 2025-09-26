@@ -28,6 +28,8 @@ class ocsshare {
 	/**
 	 * Constructor.
 	 * Parse a new ocsshare object out of the xml client response.
+	 *
+	 * @param mixed $xmlelement
 	 */
 	public function __construct($xmlelement) {
 		$this->id = intval($xmlelement->id);

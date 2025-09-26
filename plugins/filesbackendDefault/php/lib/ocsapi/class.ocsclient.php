@@ -198,6 +198,8 @@ class ocsclient {
 	/**
 	 * Loads only one specific share defined by ID.
 	 *
+	 * @param mixed $id
+	 *
 	 * @return ocsshare or FALSE
 	 *
 	 * @throws ConnectionException
@@ -213,6 +215,8 @@ class ocsclient {
 
 	/**
 	 * Loads one or more shares defined by path.
+	 *
+	 * @param mixed $path
 	 *
 	 * @return ocsshare[] or FALSE
 	 *
@@ -295,6 +299,8 @@ class ocsclient {
 	/**
 	 * Returns one ocsshare specified by ID. Or FALSE if the ID was not found or store is not loaded yet.
 	 *
+	 * @param mixed $id
+	 *
 	 * @return ocsshare or bool
 	 */
 	public function getShareByID($id) {
@@ -307,6 +313,8 @@ class ocsclient {
 
 	/**
 	 * Returns one or many ocsshare specified by Path. Or FALSE if path was not found or store is not loaded yet.
+	 *
+	 * @param mixed $path
 	 *
 	 * @return ocsshare[] or bool
 	 */
@@ -337,6 +345,9 @@ class ocsclient {
 	 *
 	 * Options has to include shareType (int),  ‘0’ = user; ‘1’ = group; ‘3’ = public link;
 	 * and shareWith for shareType 0 or 1.
+	 *
+	 * @param mixed $path
+	 * @param mixed $options
 	 *
 	 * @return ocsshare
 	 *
@@ -371,6 +382,10 @@ class ocsclient {
 	/**
 	 * Update one value of the given share. ATTENTION: updating the password will change the share id.
 	 *
+	 * @param mixed $id
+	 * @param mixed $key
+	 * @param mixed $value
+	 *
 	 * @return ocsshare Returns a empty share
 	 *
 	 * @throws ConnectionException
@@ -403,6 +418,8 @@ class ocsclient {
 	/**
 	 * Delete the given share.
 	 *
+	 * @param mixed $id
+	 *
 	 * @return ocsshare Returns a empty share
 	 *
 	 * @throws ConnectionException
@@ -420,6 +437,8 @@ class ocsclient {
 
 	/**
 	 * Parse the response of a create or modify request.
+	 *
+	 * @param mixed $response
 	 *
 	 * @return ocsshare
 	 *
@@ -464,6 +483,8 @@ class ocsclient {
 	/**
 	 * Parse the request response.
 	 *
+	 * @param mixed $response
+	 *
 	 * @throws FileNotFoundException
 	 * @throws InvalidArgumentException
 	 * @throws InvalidRequestException
@@ -498,6 +519,8 @@ class ocsclient {
 
 	/**
 	 * Parse the response meta block and its error codes.
+	 *
+	 * @param mixed $response
 	 *
 	 * @return bool
 	 *

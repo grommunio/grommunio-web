@@ -25,6 +25,12 @@ class Account {
 	 * @param array $features
 	 * @param mixed $sequence
 	 * @param mixed $cannot_change
+	 * @param mixed $id
+	 * @param mixed $name
+	 * @param mixed $status
+	 * @param mixed $statusDescription
+	 * @param mixed $backend
+	 * @param mixed $backendConfig
 	 */
 	public function __construct(private $id, private $name, private $status, private $statusDescription, private $backend, private $backendConfig, private $features, private $sequence, private $cannot_change) {}
 
@@ -130,6 +136,8 @@ class Account {
 	}
 
 	/**
+	 * @param mixed $property
+	 *
 	 * @return mixed
 	 */
 	public function getConfigValue($property) {

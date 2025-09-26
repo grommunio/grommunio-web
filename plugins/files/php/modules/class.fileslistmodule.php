@@ -58,6 +58,9 @@ class FilesListModule extends ListModule {
 
 	/**
 	 * @constructor
+	 *
+	 * @param mixed $id
+	 * @param mixed $data
 	 */
 	public function __construct($id, $data) {
 		parent::__construct($id, $data);
@@ -358,7 +361,9 @@ class FilesListModule extends ListModule {
 	 * Function will check that given folder has sub folder or not.
 	 * This will retrurn null when there's an exception retrieving folder data.
 	 *
-	 * @param string $id The $id is id of selected folder
+	 * @param string $id        The $id is id of selected folder
+	 * @param mixed  $accountID
+	 * @param mixed  $backend
 	 *
 	 * @return bool or null when unable to access folder data
 	 */
@@ -411,6 +416,8 @@ class FilesListModule extends ListModule {
 	}
 
 	/**
+	 * @param mixed $actionData
+	 *
 	 * @throws Files\Backend\Exception
 	 */
 	public function save($actionData) {

@@ -34,6 +34,8 @@ class AccountStore {
 	/**
 	 * @param array $backendConfig Backend specific account settings
 	 *                             like username, password, serveraddress, ...
+	 * @param mixed $name
+	 * @param mixed $backend
 	 *
 	 * @return Account
 	 */
@@ -156,6 +158,8 @@ class AccountStore {
 	/**
 	 * Delete account from local store and from the MAPI settings.
 	 *
+	 * @param mixed $accountId
+	 *
 	 * @return bool
 	 */
 	public function deleteAccount($accountId) {
@@ -171,6 +175,8 @@ class AccountStore {
 
 	/**
 	 * Return the instance of the local account.
+	 *
+	 * @param mixed $accountId
 	 *
 	 * @return Account
 	 */
@@ -339,7 +345,8 @@ class AccountStore {
 	/**
 	 * Encrypt the given string.
 	 *
-	 * @param $version the storage version used to identify what encryption to use
+	 * @param       $version the storage version used to identify what encryption to use
+	 * @param mixed $value
 	 *
 	 * @return string
 	 */
@@ -360,7 +367,8 @@ class AccountStore {
 	/**
 	 * Decrypt the given string.
 	 *
-	 * @param $version the storage version used to identify what encryption to use
+	 * @param       $version the storage version used to identify what encryption to use
+	 * @param mixed $value
 	 *
 	 * @return string
 	 */

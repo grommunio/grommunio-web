@@ -393,7 +393,7 @@ class AppointmentListModule extends ListModule {
 		foreach ($calendaritems as $calendaritem) {
 			$item = null;
 			if (!isset($calendaritem[$this->properties["recurring"]]) ||
-			    !$calendaritem[$this->properties["recurring"]]) {
+				!$calendaritem[$this->properties["recurring"]]) {
 				$item = Conversion::mapMAPI2XML($this->properties, $calendaritem);
 				$this->addItems($store, $item, $openedMessages, $start, $end, $items);
 

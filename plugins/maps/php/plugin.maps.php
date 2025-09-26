@@ -42,6 +42,8 @@ class Pluginmaps extends Plugin {
 	/**
 	 * Function includes the the files necessary for using
 	 * leaflet.
+	 *
+	 * @param mixed $data
 	 */
 	public function addLeafletJsFile(&$data) {
 		// make sure to load remote files only when plugin is enabled
@@ -55,6 +57,8 @@ class Pluginmaps extends Plugin {
 	/**
 	 * Function includes the the files necessary for using
 	 * leaflet.
+	 *
+	 * @param mixed $data
 	 */
 	public function addLeafletCssFile(&$data) {
 		// make sure to load remote files only when plugin is enabled

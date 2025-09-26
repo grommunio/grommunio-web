@@ -1518,7 +1518,7 @@ class Operations {
 	 *
 	 * @param object $message   The MAPI Message Object
 	 * @param bool   $html2text true - body will be converted from html to text,
-	 *			    false - html body will be returned
+	 *                          false - html body will be returned
 	 *
 	 * @return array associative array containing keys 'body', 'html_body' and 'isHTML'
 	 */
@@ -2709,6 +2709,7 @@ class Operations {
 			$props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] = $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] ?? $props[PR_SENDER_EMAIL_ADDRESS];
 			$props[PR_SENT_REPRESENTING_ADDRTYPE] = $props[PR_SENT_REPRESENTING_ADDRTYPE] ?? $props[PR_SENDER_ADDRTYPE];
 			$props[PR_SENT_REPRESENTING_SEARCH_KEY] = $props[PR_SENT_REPRESENTING_SEARCH_KEY] ?? $props[PR_SENDER_SEARCH_KEY];
+
 			/**
 			 * we are sending mail from delegate's account, so we can't use delegate's outbox and sent items folder
 			 * so we have to copy the mail from delegate's store to logged user's store and in outbox folder and then

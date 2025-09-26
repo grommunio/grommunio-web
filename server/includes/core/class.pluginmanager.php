@@ -211,6 +211,7 @@ class PluginManager {
 	 * Convert legacy plugin identifiers to their canonical replacements.
 	 *
 	 * @param string $pluginname
+	 *
 	 * @return string
 	 */
 	private function normalizePluginName($pluginname) {
@@ -220,7 +221,6 @@ class PluginManager {
 	/**
 	 * Normalize the plugindata array by applying legacy aliases.
 	 *
-	 * @param array $plugindata
 	 * @return array
 	 */
 	private function normalizePluginData(array $plugindata) {
@@ -252,9 +252,9 @@ class PluginManager {
 	/**
 	 * Replace legacy filenames inside plugin metadata so cached state stays in sync with the new canonical plugin.
 	 *
-	 * @param array  $pluginData
 	 * @param string $legacy
 	 * @param string $canonical
+	 *
 	 * @return array
 	 */
 	private function migrateLegacyFileReferences(array $pluginData, $legacy, $canonical) {
@@ -289,7 +289,6 @@ class PluginManager {
 	/**
 	 * Normalize a list of plugin names by applying legacy aliases.
 	 *
-	 * @param array $pluginorder
 	 * @return array
 	 */
 	private function normalizePluginOrder(array $pluginorder) {

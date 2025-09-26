@@ -590,7 +590,7 @@ if (!defined("PREFETCH_EMAIL_ENABLED")) {
 }
 
 if (!defined("PREFETCH_EMAIL_STRATEGY")) {
-    define("PREFETCH_EMAIL_STRATEGY", 'VIEWPORT');
+	define("PREFETCH_EMAIL_STRATEGY", 'VIEWPORT');
 }
 
 /*

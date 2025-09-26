@@ -356,6 +356,8 @@ abstract class AbstractBackend {
 
 	/**
 	 * This function gets called before the backend-account is deleted.
+	 *
+	 * @param mixed $account
 	 */
 	public function beforeDeleteAccount($account) {
 		// do nothing by default

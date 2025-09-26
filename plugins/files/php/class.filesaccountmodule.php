@@ -22,6 +22,9 @@ class FilesAccountModule extends ListModule {
 
 	/**
 	 * @constructor
+	 *
+	 * @param mixed $id
+	 * @param mixed $data
 	 */
 	public function __construct($id, $data) {
 		parent::__construct($id, $data);

@@ -208,6 +208,8 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 
 	/**
 	 * Initialize backend from $backend_config array.
+	 *
+	 * @param mixed $backend_config
 	 */
 	public function init_backend($backend_config) {
 		$this->set_server($backend_config["server_address"]);

@@ -365,6 +365,8 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 	 *  )
 	 * )
 	 *
+	 * @param mixed $path
+	 *
 	 * @return array
 	 */
 	public function getShares($path) {
@@ -506,7 +508,8 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 	 *      "id1" => options1 (ONLY if $update = true)
 	 * )
 	 *
-	 * @param bool $update
+	 * @param bool  $update
+	 * @param mixed $shareparams
 	 *
 	 * @return bool
 	 */
@@ -548,6 +551,8 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 
 	/**
 	 * Disable sharing for the given files/folders.
+	 *
+	 * @param mixed $idarray
 	 *
 	 * @return bool
 	 *

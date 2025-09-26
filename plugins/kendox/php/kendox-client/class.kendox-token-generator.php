@@ -151,8 +151,7 @@ class TokenGenerator {
 			$data = iconv('utf-8', 'utf-16le', (string) $signedInfoXml);
 			$privateKey = RSA::loadFormat('PKCS8', $this->CertPrivateKey)->
 				withPadding(RSA::SIGNATURE_PKCS1)->
-				withHash('sha512')
-			;
+				withHash('sha512');
 
 			return base64_encode((string) $privateKey->sign($data));
 		}
