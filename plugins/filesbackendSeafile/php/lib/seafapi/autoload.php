@@ -12,7 +12,7 @@ if (!is_callable('spl_autoload_register')) {
 	static function ($className) {
 		$namespacePrefix = __NAMESPACE__ . '\\';
 		$basePath = __DIR__ . '/';
-		if (strpos($className, $namespacePrefix) !== 0) {
+		if (!str_starts_with($className, $namespacePrefix)) {
 			return;
 		}
 

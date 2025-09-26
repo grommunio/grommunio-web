@@ -2704,11 +2704,11 @@ class Operations {
 			$props[PR_SENDER_SEARCH_KEY] = $abitemprops[PR_SEARCH_KEY];
 
 			// Use the PR_SENT_REPRESENTING_* properties sent by the client or set to the currently logged user's data
-			$props[PR_SENT_REPRESENTING_ENTRYID] = $props[PR_SENT_REPRESENTING_ENTRYID] ?? $props[PR_SENDER_ENTRYID];
-			$props[PR_SENT_REPRESENTING_NAME] = $props[PR_SENT_REPRESENTING_NAME] ?? $props[PR_SENDER_NAME];
-			$props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] = $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] ?? $props[PR_SENDER_EMAIL_ADDRESS];
-			$props[PR_SENT_REPRESENTING_ADDRTYPE] = $props[PR_SENT_REPRESENTING_ADDRTYPE] ?? $props[PR_SENDER_ADDRTYPE];
-			$props[PR_SENT_REPRESENTING_SEARCH_KEY] = $props[PR_SENT_REPRESENTING_SEARCH_KEY] ?? $props[PR_SENDER_SEARCH_KEY];
+			$props[PR_SENT_REPRESENTING_ENTRYID] ??= $props[PR_SENDER_ENTRYID];
+			$props[PR_SENT_REPRESENTING_NAME] ??= $props[PR_SENDER_NAME];
+			$props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] ??= $props[PR_SENDER_EMAIL_ADDRESS];
+			$props[PR_SENT_REPRESENTING_ADDRTYPE] ??= $props[PR_SENDER_ADDRTYPE];
+			$props[PR_SENT_REPRESENTING_SEARCH_KEY] ??= $props[PR_SENDER_SEARCH_KEY];
 
 			/**
 			 * we are sending mail from delegate's account, so we can't use delegate's outbox and sent items folder
@@ -2767,7 +2767,7 @@ class Operations {
 			}
 			if ($saveBoth || $saveRepresentee) {
 				if ($origStoreProps[PR_MDB_PROVIDER] === ZARAFA_STORE_PUBLIC_GUID) {
-					$userEntryid = $GLOBALS["mapisession"]->getStoreEntryIdOfUser(strtolower($props[PR_SENT_REPRESENTING_EMAIL_ADDRESS]));
+					$userEntryid = $GLOBALS["mapisession"]->getStoreEntryIdOfUser(strtolower((string) $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS]));
 					$origStore = $GLOBALS["mapisession"]->openMessageStore($userEntryid);
 					$origStoreprops = mapi_getprops($origStore, [PR_IPM_SENTMAIL_ENTRYID]);
 				}
@@ -2829,7 +2829,7 @@ class Operations {
 			$message = $this->saveMessage($store, $entryid, $storeprops[PR_IPM_OUTBOX_ENTRYID], $props, $messageProps, $recipients, $attachments, [], $copyFromMessage, $copyAttachments, $copyRecipients, $copyInlineAttachmentsOnly, true, true, $isPlainText);
 			// Sending as delegate from drafts folder
 			if ($sendingAsDelegate && ($saveBoth || $saveRepresentee)) {
-				$userEntryid = $GLOBALS["mapisession"]->getStoreEntryIdOfUser(strtolower($props[PR_SENT_REPRESENTING_EMAIL_ADDRESS]));
+				$userEntryid = $GLOBALS["mapisession"]->getStoreEntryIdOfUser(strtolower((string) $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS]));
 				$origStore = $GLOBALS["mapisession"]->openMessageStore($userEntryid);
 				if ($origStore) {
 					$origStoreprops = mapi_getprops($origStore, [PR_ENTRYID, PR_IPM_SENTMAIL_ENTRYID]);

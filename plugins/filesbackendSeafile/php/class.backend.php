@@ -36,12 +36,12 @@ use Throwable;
  * REST API {@link https://download.seafile.com/published/web-api}.
  */
 final class Backend extends AbstractBackend implements iFeatureVersionInfo {
-	public const LOG_CONTEXT = "SeafileBackend"; // Context for the Logger
+	public const string LOG_CONTEXT = "SeafileBackend"; // Context for the Logger
 
 	/**
 	 * @const string gettext domain
 	 */
-	private const GT_DOMAIN = 'plugin_filesbackendSeafile';
+	private const string GT_DOMAIN = 'plugin_filesbackendSeafile';
 
 	/**
 	 * Seafile "usage" number ("bytes") to Grommunio usage display number ("bytes") multiplier.
@@ -50,7 +50,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 	 *
 	 * (Seafile Usage "Bytes" U) / 1000 / 1000 * 1024 * 1024 (1.048576)
 	 */
-	private const QUOTA_MULTIPLIER_SEAFILE_TO_GROMMUNIO = 1.048576;
+	private const float QUOTA_MULTIPLIER_SEAFILE_TO_GROMMUNIO = 1.048576;
 
 	/**
 	 * Error codes.
@@ -58,19 +58,19 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 	 * @see parseErrorCodeToMessage for description
 	 * @see Backend::backendException() for Seafile API handling
 	 */
-	private const SFA_ERR_UNAUTHORIZED = 401;
-	private const SFA_ERR_FORBIDDEN = 403;
-	private const SFA_ERR_NOTFOUND = 404;
-	private const SFA_ERR_NOTALLOWED = 405;
-	private const SFA_ERR_TIMEOUT = 408;
-	private const SFA_ERR_LOCKED = 423;
-	private const SFA_ERR_FAILED_DEPENDENCY = 423;
-	private const SFA_ERR_INTERNAL = 500;
-	private const SFA_ERR_UNREACHABLE = 800;
-	private const SFA_ERR_TMP = 801;
-	private const SFA_ERR_FEATURES = 802;
-	private const SFA_ERR_NO_CURL = 803;
-	private const SFA_ERR_UNIMPLEMENTED = 804;
+	private const int SFA_ERR_UNAUTHORIZED = 401;
+	private const int SFA_ERR_FORBIDDEN = 403;
+	private const int SFA_ERR_NOTFOUND = 404;
+	private const int SFA_ERR_NOTALLOWED = 405;
+	private const int SFA_ERR_TIMEOUT = 408;
+	private const int SFA_ERR_LOCKED = 423;
+	private const int SFA_ERR_FAILED_DEPENDENCY = 423;
+	private const int SFA_ERR_INTERNAL = 500;
+	private const int SFA_ERR_UNREACHABLE = 800;
+	private const int SFA_ERR_TMP = 801;
+	private const int SFA_ERR_FEATURES = 802;
+	private const int SFA_ERR_NO_CURL = 803;
+	private const int SFA_ERR_UNIMPLEMENTED = 804;
 
 	/**
 	 * @var ?SeafileApi the Seafile API client
@@ -87,7 +87,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 	 */
 	private bool $debug = false;
 
-	private Config $config;
+	private readonly Config $config;
 
 	private ?SsoBackend $sso = null;
 
@@ -318,7 +318,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 		$this->log("[MOVE] '{$src_path}' -> '{$dst_path}'");
 
 		// check if the move operation would move src into itself - error condition
-		if (strpos($dst_path, $src_path . '/') === 0) {
+		if (str_starts_with($dst_path, $src_path . '/')) {
 			$this->backendError(self::SFA_ERR_FORBIDDEN, 'Moving failed');
 		}
 
@@ -473,7 +473,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 	 */
 	public function put($path, $data) {
 		$timer = new Timer();
-		$this->log(sprintf("[PUT] start: path: %s (%d)", $path, strlen($data)));
+		$this->log(sprintf("[PUT] start: path: %s (%d)", $path, strlen((string) $data)));
 
 		$target = $this->splitGrommunioPath($path);
 
@@ -545,6 +545,8 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 
 	/**
 	 * Initialize backend from $backend_config array.
+	 *
+	 * @param mixed $backend_config
 	 */
 	public function init_backend($backend_config) {
 		$config = $backend_config;
@@ -587,7 +589,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 			$json = json_encode($this->metaConfig, JSON_THROW_ON_ERROR);
 		}
 		catch (\JsonException $e) {
-			$this->log(sprintf('[%s]: %s', get_class($e), $e->getMessage()));
+			$this->log(sprintf('[%s]: %s', $e::class, $e->getMessage()));
 			$json = false;
 		}
 
@@ -869,7 +871,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 	 */
 	private function splitGrommunioPath(string $grommunioPath): object {
 		static $libraries;
-		$libraries = $libraries ?? array_column($this->seafapi->listLibraries(), null, 'name');
+		$libraries ??= array_column($this->seafapi->listLibraries(), null, 'name');
 
 		[, $libName, $path] = explode('/', $grommunioPath, 3) + [null, null, null];
 		if ($path !== null) {
@@ -910,7 +912,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 	 *
 	 * @throws BackendException
 	 */
-	private function backendErrorThrow(string $title, string $message, int $code = 0) {
+	private function backendErrorThrow(string $title, string $message, int $code = 0): never {
 		/** {@see BackendException} */
 		$exception = new BackendException($message, $code);
 		$exception->setTitle($title);
@@ -934,7 +936,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 		[$callSite, $inFunc] = debug_backtrace();
 		$logLabel = "{$inFunc['function']}:{$callSite['line']}";
 
-		$class = get_class($t);
+		$class = $t::class;
 		$message = $t->getMessage();
 		$this->log(sprintf('%s: [%s] #%s: %s', $logLabel, $class, $t->getCode(), $message));
 
@@ -965,9 +967,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 			$messages = $exception->tryApiErrorMessages();
 			$messages === null || $apiErrorMessagesHtml = implode(
 				"<br/>\n",
-				array_map(static function (string $subject) {
-					return htmlspecialchars($subject, ENT_QUOTES | ENT_HTML5);
-				}, $messages)
+				array_map(static fn (string $subject) => htmlspecialchars($subject, ENT_QUOTES | ENT_HTML5), $messages)
 			) . "<br/>\n";
 		}
 
@@ -1002,65 +1002,21 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 	private function parseErrorCodeToMessage(int $error_code) {
 		$error = $error_code;
 
-		switch ($error) {
-			case CURLE_BAD_PASSWORD_ENTERED:
-			case self::SFA_ERR_UNAUTHORIZED:
-				$msg = dgettext(self::GT_DOMAIN, 'Unauthorized. Wrong username or password.');
-				break;
-
-			case CURLE_SSL_CONNECT_ERROR:
-			case CURLE_COULDNT_RESOLVE_HOST:
-			case CURLE_COULDNT_CONNECT:
-			case CURLE_OPERATION_TIMEOUTED:
-			case self::SFA_ERR_UNREACHABLE:
-				$msg = dgettext(self::GT_DOMAIN, 'Seafile is not reachable. Correct backend address entered?');
-				break;
-
-			case self::SFA_ERR_FORBIDDEN:
-				$msg = dgettext(self::GT_DOMAIN, 'You don\'t have enough permissions for this operation.');
-				break;
-
-			case self::SFA_ERR_NOTFOUND:
-				$msg = dgettext(self::GT_DOMAIN, 'File is not available any more.');
-				break;
-
-			case self::SFA_ERR_TIMEOUT:
-				$msg = dgettext(self::GT_DOMAIN, 'Connection to server timed out. Retry later.');
-				break;
-
-			case self::SFA_ERR_LOCKED:
-				$msg = dgettext(self::GT_DOMAIN, 'This file is locked by another user.');
-				break;
-
-			case self::SFA_ERR_FAILED_DEPENDENCY:
-				$msg = dgettext(self::GT_DOMAIN, 'The request failed due to failure of a previous request.');
-				break;
-
-			case self::SFA_ERR_INTERNAL:
-				$msg = dgettext(self::GT_DOMAIN, 'Seafile-server encountered a problem.');
-				break;
-
-			case self::SFA_ERR_TMP:
-				$msg = dgettext(self::GT_DOMAIN, 'Could not write to temporary directory. Contact the server administrator.');
-				break;
-
-			case self::SFA_ERR_FEATURES:
-				$msg = dgettext(self::GT_DOMAIN, 'Could not retrieve list of server features. Contact the server administrator.');
-				break;
-
-			case self::SFA_ERR_NO_CURL:
-				$msg = dgettext(self::GT_DOMAIN, 'PHP-Curl is not available. Contact your system administrator.');
-				break;
-
-			case self::SFA_ERR_UNIMPLEMENTED:
-				$msg = dgettext(self::GT_DOMAIN, 'This function is not yet implemented.');
-				break;
-
-			default:
-				$msg = dgettext(self::GT_DOMAIN, 'Unknown error');
-		}
-
-		return $msg;
+		return match ($error) {
+			CURLE_BAD_PASSWORD_ENTERED, self::SFA_ERR_UNAUTHORIZED => dgettext(self::GT_DOMAIN, 'Unauthorized. Wrong username or password.'),
+			CURLE_SSL_CONNECT_ERROR, CURLE_COULDNT_RESOLVE_HOST, CURLE_COULDNT_CONNECT, CURLE_OPERATION_TIMEOUTED, self::SFA_ERR_UNREACHABLE => dgettext(self::GT_DOMAIN, 'Seafile is not reachable. Correct backend address entered?'),
+			self::SFA_ERR_FORBIDDEN => dgettext(self::GT_DOMAIN, 'You don\'t have enough permissions for this operation.'),
+			self::SFA_ERR_NOTFOUND => dgettext(self::GT_DOMAIN, 'File is not available any more.'),
+			self::SFA_ERR_TIMEOUT => dgettext(self::GT_DOMAIN, 'Connection to server timed out. Retry later.'),
+			self::SFA_ERR_LOCKED => dgettext(self::GT_DOMAIN, 'This file is locked by another user.'),
+			self::SFA_ERR_FAILED_DEPENDENCY => dgettext(self::GT_DOMAIN, 'The request failed due to failure of a previous request.'),
+			self::SFA_ERR_INTERNAL => dgettext(self::GT_DOMAIN, 'Seafile-server encountered a problem.'),
+			self::SFA_ERR_TMP => dgettext(self::GT_DOMAIN, 'Could not write to temporary directory. Contact the server administrator.'),
+			self::SFA_ERR_FEATURES => dgettext(self::GT_DOMAIN, 'Could not retrieve list of server features. Contact the server administrator.'),
+			self::SFA_ERR_NO_CURL => dgettext(self::GT_DOMAIN, 'PHP-Curl is not available. Contact your system administrator.'),
+			self::SFA_ERR_UNIMPLEMENTED => dgettext(self::GT_DOMAIN, 'This function is not yet implemented.'),
+			default => dgettext(self::GT_DOMAIN, 'Unknown error'),
+		};
 	}
 
 	// ///////////////////////////////////////////////////////////
@@ -1084,7 +1040,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 		$callPoint = $backtrace[$backSteps];
 		$path = $callPoint['file'];
 		$shortPath = $path;
-		if (strpos($path, $baseDir) === 0) {
+		if (str_starts_with($path, $baseDir)) {
 			$shortPath = substr($path, strlen($baseDir));
 		}
 		// TODO(tk): track if the parent function is log() or not, not only the number of back-steps (or check all call points)

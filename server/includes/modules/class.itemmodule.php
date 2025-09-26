@@ -275,7 +275,7 @@ class ItemModule extends Module {
 								// generate an exception. So when the basedate is provided, we actually
 								// perform a save rather then delete.
 								if (isset($action['basedate']) && !empty($action['basedate'])) {
-									$this->save($store, $parententryid, $entryid, $action, "delete");
+									$this->save($store, $parententryid, $entryid, $action);
 								}
 								else {
 									$this->delete($store, $parententryid, $entryid, $action);
@@ -462,8 +462,8 @@ class ItemModule extends Module {
 		// Detect whether S/MIME decoding or meeting request processing is required
 		$props = mapi_getprops($message, [PR_MESSAGE_CLASS]);
 		$messageClass = $props[PR_MESSAGE_CLASS] ?? '';
-		$requiresSmime = stripos($messageClass, 'SMIME') !== false;
-		$requiresMeeting = stripos($messageClass, 'IPM.Schedule.Meeting') !== false;
+		$requiresSmime = stripos((string) $messageClass, 'SMIME') !== false;
+		$requiresMeeting = stripos((string) $messageClass, 'IPM.Schedule.Meeting') !== false;
 
 		// Decode S/MIME signed messages only when needed
 		if ($requiresSmime) {

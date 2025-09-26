@@ -17,36 +17,36 @@ use Datamate\SeafileApi\Exception\UnexpectedJsonTextResponseException as JsonDec
  * @see https://manual.seafile.com/develop/web_api_v2.1.html
  */
 final class SeafileApi {
-	public const USER_PREFIX_AUTH_TOKEN = '@auth:token:';
+	public const string USER_PREFIX_AUTH_TOKEN = '@auth:token:';
 
-	public const TYPE_DIR = 'dir';
-	public const TYPE_FILE = 'file';
-	public const TYPE_REPO = 'repo';
-	public const TYPE_SREPO = 'srepo';
-	public const TYPE_GREPO = 'grepo';
+	public const string TYPE_DIR = 'dir';
+	public const string TYPE_FILE = 'file';
+	public const string TYPE_REPO = 'repo';
+	public const string TYPE_SREPO = 'srepo';
+	public const string TYPE_GREPO = 'grepo';
 
 	public const TYPES = self::TYPES_FILE + self::TYPES_DIR_LIKE;
 	public const TYPES_DIR_LIKE = self::TYPES_DIR + self::TYPES_REPO;
-	public const TYPES_DIR = [self::TYPE_DIR => self::TYPE_DIR];
-	public const TYPES_FILE = [self::TYPE_FILE => self::TYPE_FILE];
-	public const TYPES_REPO = [self::TYPE_REPO => self::TYPE_REPO, self::TYPE_SREPO => self::TYPE_SREPO, self::TYPE_GREPO => self::TYPE_GREPO];
+	public const array TYPES_DIR = [self::TYPE_DIR => self::TYPE_DIR];
+	public const array TYPES_FILE = [self::TYPE_FILE => self::TYPE_FILE];
+	public const array TYPES_REPO = [self::TYPE_REPO => self::TYPE_REPO, self::TYPE_SREPO => self::TYPE_SREPO, self::TYPE_GREPO => self::TYPE_GREPO];
 
 	/**
 	 * @const string
 	 */
-	public const STRING_SUCCESS = 'success';
+	public const string STRING_SUCCESS = 'success';
 
 	/**
 	 * Error codes.
 	 */
-	public const ERROR_CODE_FEATURES = 802;
-	public const ERROR_CODE_NO_CURL = 803;
-	public const ERROR_CODE_FILE_IO = 808;
+	public const int ERROR_CODE_FEATURES = 802;
+	public const int ERROR_CODE_NO_CURL = 803;
+	public const int ERROR_CODE_FILE_IO = 808;
 
 	/**
 	 * default curl options.
 	 */
-	private const CURL_OPTION_DEFAULTS = [
+	private const array CURL_OPTION_DEFAULTS = [
 		CURLOPT_AUTOREFERER => true,
 		CURLOPT_TIMEOUT => 10,
 		CURLOPT_RETURNTRANSFER => true,
@@ -63,42 +63,27 @@ final class SeafileApi {
 	 *
 	 * @see jsonDecode
 	 */
-	private const JSON_DECODE_ACCEPT_MASK = 31;                         # 1 1111 accept bitmask (five bits with the msb flags)
-	private const JSON_DECODE_ACCEPT_JSON = 16;                         # 1 0000 JSON text
-	private const JSON_DECODE_ACCEPT_DEFAULT = 23;                      # 1 0111 default: string, array or object
-	private const JSON_DECODE_ACCEPT_OBJECT = 17;                       # 1 0001 object
-	private const JSON_DECODE_ACCEPT_ARRAY = 18;                        # 1 0010 array
-	private const JSON_DECODE_ACCEPT_STRING = 20;                       # 1 0100 string
-	private const JSON_DECODE_ACCEPT_ARRAY_OF_OBJECTS = 24;             # 1 1000 array with only objects (incl. none)
-	private const JSON_DECODE_ACCEPT_ARRAY_SINGLE_OBJECT = 25;          # 1 1001 array with one single object, return that item
-	private const JSON_DECODE_ACCEPT_ARRAY_SINGLE_OBJECT_NULLABLE = 26; # 1 1010 array with one single object, return that item, or empty array, return null
-	private const JSON_DECODE_ACCEPT_SUCCESS_STRING = 28;               # 1 1100 string "success"
-	private const JSON_DECODE_ACCEPT_SUCCESS_OBJECT = 29;               # 1 1101 object with single "success" property and value true
+	private const int JSON_DECODE_ACCEPT_MASK = 31;                         # 1 1111 accept bitmask (five bits with the msb flags)
+	private const int JSON_DECODE_ACCEPT_JSON = 16;                         # 1 0000 JSON text
+	private const int JSON_DECODE_ACCEPT_DEFAULT = 23;                      # 1 0111 default: string, array or object
+	private const int JSON_DECODE_ACCEPT_OBJECT = 17;                       # 1 0001 object
+	private const int JSON_DECODE_ACCEPT_ARRAY = 18;                        # 1 0010 array
+	private const int JSON_DECODE_ACCEPT_STRING = 20;                       # 1 0100 string
+	private const int JSON_DECODE_ACCEPT_ARRAY_OF_OBJECTS = 24;             # 1 1000 array with only objects (incl. none)
+	private const int JSON_DECODE_ACCEPT_ARRAY_SINGLE_OBJECT = 25;          # 1 1001 array with one single object, return that item
+	private const int JSON_DECODE_ACCEPT_ARRAY_SINGLE_OBJECT_NULLABLE = 26; # 1 1010 array with one single object, return that item, or empty array, return null
+	private const int JSON_DECODE_ACCEPT_SUCCESS_STRING = 28;               # 1 1100 string "success"
+	private const int JSON_DECODE_ACCEPT_SUCCESS_OBJECT = 29;               # 1 1101 object with single "success" property and value true
 
 	/**
 	 * @const string ASCII upper-case characters part of a hexit
 	 */
-	private const HEX_ALPHA_UPPER = 'ABCDEF';
+	private const string HEX_ALPHA_UPPER = 'ABCDEF';
 
 	/**
 	 * @const string ASCII lower-case characters part of a hexit
 	 */
-	private const HEX_ALPHA_LOWER = 'abcdef';
-
-	/**
-	 * @var string Server base URL
-	 */
-	private string $baseurl;
-
-	/**
-	 * @var string Username
-	 */
-	private string $user;
-
-	/**
-	 * @var string Password
-	 */
-	private string $pass;
+	private const string HEX_ALPHA_LOWER = 'abcdef';
 
 	private ?\CurlHandle $handle = null;
 
@@ -107,14 +92,21 @@ final class SeafileApi {
 	/**
 	 * constructor.
 	 */
-	public function __construct(string $baseurl, string $user, string $pass, ?string $otp = null) {
+	public function __construct(/**
+	 * @var string Server base URL
+	 */
+		private readonly string $baseurl, /**
+	 * @var string Username
+	 */
+		private string $user, /**
+	 * @var string Password
+	 */
+		private readonly string $pass,
+		?string $otp = null
+	) {
 		if (!function_exists('curl_version')) {
 			throw new ConnectionException('PHP-CURL not installed', self::ERROR_CODE_NO_CURL);
 		}
-
-		$this->baseurl = $baseurl;
-		$this->user = $user;
-		$this->pass = $pass;
 		// trigger_error(sprintf("ctor: %s:%s", $user, $pass), E_USER_NOTICE);
 
 		$this->setTokenByUsernameAndPassword($otp);
@@ -394,7 +386,7 @@ final class SeafileApi {
 		if ($permissions !== null) {
 			try {
 				$fields['permissions'] = json_encode($permissions, JSON_THROW_ON_ERROR);
-			} /* @noinspection PhpMultipleClassDeclarationsInspection */ catch (\JsonException $ex) {
+			} /* @noinspection PhpMultipleClassDeclarationsInspection */ catch (\JsonException) {
 				throw new InvalidArgumentException('permissions');
 			}
 		}
@@ -1027,7 +1019,7 @@ final class SeafileApi {
 	): object {
 		$parentDir = $this->normalizePath($parentDir);
 		$relativePath = ltrim('/', $this->normalizePath($relativePath));
-		$fileName = $fileName ?? basename($path);
+		$fileName ??= basename($path);
 
 		$fields = [
 			'file' => new \CURLFile($path, 'application/octet-stream', $fileName),
@@ -1295,7 +1287,7 @@ final class SeafileApi {
 	 */
 	private function setTokenByUsernameAndPassword(?string $otp = null): void {
 		// @auth:token:<email> : password is auth token
-		if (strpos($this->user, $needle = self::USER_PREFIX_AUTH_TOKEN) === 0) {
+		if (str_starts_with($this->user, $needle = self::USER_PREFIX_AUTH_TOKEN)) {
 			$this->user = \substr($this->user, strlen($needle)) ?: '';
 			$this->token = $this->pass;
 			if ($this->ping() !== 'pong') {

@@ -7,7 +7,7 @@ namespace Files\Backend\Seafile\Model;
 /**
  * Simple Timer.
  */
-final class Timer {
+final readonly class Timer implements \Stringable {
 	private float $start;
 
 	public function __construct() {

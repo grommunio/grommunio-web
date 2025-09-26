@@ -22,7 +22,7 @@ final class ConnectionException extends Exception {
 	 */
 	private ?string $responseBodyRaw = null;
 
-	private const HTTP_STATUS = [
+	private const array HTTP_STATUS = [
 		200 => 'OK',
 		201 => 'Created',
 		202 => 'Accepted',
@@ -65,7 +65,7 @@ final class ConnectionException extends Exception {
 		$isKnownHttpCode = $isHttpCode && isset(self::HTTP_STATUS[$code]);
 		$isKnownCode = $code === -1 || $isKnownHttpCode;
 		$this->responseCode = $isHttpCode ? $code : null;
-		$isKnownCode || trigger_error(sprintf("%s: Unknown code: %s (%s)", __CLASS__, $code, gettype($code)), E_USER_NOTICE);
+		$isKnownCode || trigger_error(sprintf("%s: Unknown code: %s (%s)", self::class, $code, gettype($code)), E_USER_NOTICE);
 
 		parent::__construct($message, $code, $previous);
 	}
