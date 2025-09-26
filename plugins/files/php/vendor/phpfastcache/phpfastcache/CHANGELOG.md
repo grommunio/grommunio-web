@@ -1,3 +1,10 @@
+## 9.2.4
+##### 30 april 2025
+- __Core__
+  - PHP 8.4 compatibility (@khoaofgod, @CHANCENY) 
+- __Drivers__
+  - Redis: Refactor Redis driver to read all keys efficiently (@mapcentia)
+
 ## 9.2.3
 ##### 11 january 2024
 - __Drivers__

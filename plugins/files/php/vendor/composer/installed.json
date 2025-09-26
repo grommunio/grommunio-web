@@ -2,17 +2,17 @@
     "packages": [
         {
             "name": "phpfastcache/phpfastcache",
-            "version": "9.2.3",
-            "version_normalized": "9.2.3.0",
+            "version": "9.2.4",
+            "version_normalized": "9.2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPSocialNetwork/phpfastcache.git",
-                "reference": "372d62e0bbab5bcfac6404dc912040b038a3afb7"
+                "reference": "7c24491baf23ffb637b18e485f517144cd9af203"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPSocialNetwork/phpfastcache/zipball/372d62e0bbab5bcfac6404dc912040b038a3afb7",
-                "reference": "372d62e0bbab5bcfac6404dc912040b038a3afb7",
+                "url": "https://api.github.com/repos/PHPSocialNetwork/phpfastcache/zipball/7c24491baf23ffb637b18e485f517144cd9af203",
+                "reference": "7c24491baf23ffb637b18e485f517144cd9af203",
                 "shasum": ""
             },
             "require": {
@@ -58,7 +58,7 @@
                 "phpfastcache/solr-extension": "^9.2",
                 "predis/predis": "^2.0"
             },
-            "time": "2024-01-13T06:26:00+00:00",
+            "time": "2025-04-30T05:08:26+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
