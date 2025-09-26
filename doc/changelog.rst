@@ -1,3 +1,40 @@
+grommunio-web 3.15 (2025-09-26)
+===============================
+
+Additions:
+
+* The new Seafile backend can be used as files backend
+
+Enhancements:
+
+* TinyMCE 8.1.2 has received a major upgrade with better performance and
+  compatibility
+* Full HTML support for appointments and contacts as well
+* Calendar coalescing improves performance with large calendar setups
+  (>= 5 calendars in store)
+* Introduce object preloading, noticably enhancing performance by preloading
+  objects in the users visibility area
+* Calendar objects can now be copied with CTRL+drag (OL-like behavior)
+* Updated pdf.js enhances the pdf handling experience with better
+  performance and compatibility
+* Various performance improvements (e.g. skip processing over S/MIME where
+  applicable and deferring of certain actions to non-block the user)
+* Various search improvements
+
+Fixes:
+
+* Spurious blank pages with Firefox have been addressed
+* The main focus does not switch to the editor, instead jumps naturally to
+  the first elements position
+* The mailbox position/counters have been restored
+* Avoid erroneously hiding attachments with inline attachments in the object
+  with S/MIME based mails
+
+Changes:
+
+* From 3.15 on, no php<=8.1 installations are supported anymore
+* grommunio Web does not use any more deprecated web listeners
+
 grommunio-web 3.14 (2025-07-26)
 ===============================
 
