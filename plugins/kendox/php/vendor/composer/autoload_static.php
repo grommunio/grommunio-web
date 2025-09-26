@@ -25,10 +25,6 @@ class ComposerStaticInit5b20f148b0225e8ccbfb5657292600ee
             'ZBateson\\MbWrapper\\' => 19,
             'ZBateson\\MailMimeParser\\' => 24,
         ),
-        'Y' => 
-        array (
-            'YourNamespace\\' => 14,
-        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
@@ -75,10 +71,6 @@ class ComposerStaticInit5b20f148b0225e8ccbfb5657292600ee
         'ZBateson\\MailMimeParser\\' => 
         array (
             0 => __DIR__ . '/..' . '/zbateson/mail-mime-parser/src',
-        ),
-        'YourNamespace\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
         ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (

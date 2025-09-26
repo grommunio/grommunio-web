@@ -2,17 +2,17 @@
     "packages": [
         {
             "name": "guzzlehttp/psr7",
-            "version": "2.7.0",
-            "version_normalized": "2.7.0.0",
+            "version": "2.8.0",
+            "version_normalized": "2.8.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "a70f5c95fb43bc83f07c9c948baa0dc1829bf201"
+                "reference": "21dc724a0583619cd1652f673303492272778051"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/a70f5c95fb43bc83f07c9c948baa0dc1829bf201",
-                "reference": "a70f5c95fb43bc83f07c9c948baa0dc1829bf201",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/21dc724a0583619cd1652f673303492272778051",
+                "reference": "21dc724a0583619cd1652f673303492272778051",
                 "shasum": ""
             },
             "require": {
@@ -28,12 +28,12 @@
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.8.2",
                 "http-interop/http-factory-tests": "0.9.0",
-                "phpunit/phpunit": "^8.5.39 || ^9.6.20"
+                "phpunit/phpunit": "^8.5.44 || ^9.6.25"
             },
             "suggest": {
                 "laminas/laminas-httphandlerrunner": "Emit PSR-7 responses"
             },
-            "time": "2024-07-18T11:15:46+00:00",
+            "time": "2025-08-23T21:21:41+00:00",
             "type": "library",
             "extra": {
                 "bamarni-bin": {
@@ -101,7 +101,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/2.7.0"
+                "source": "https://github.com/guzzle/psr7/tree/2.8.0"
             },
             "funding": [
                 {
@@ -121,34 +121,34 @@
         },
         {
             "name": "laravel/serializable-closure",
-            "version": "v1.3.7",
-            "version_normalized": "1.3.7.0",
+            "version": "v2.0.5",
+            "version_normalized": "2.0.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/serializable-closure.git",
-                "reference": "4f48ade902b94323ca3be7646db16209ec76be3d"
+                "reference": "3832547db6e0e2f8bb03d4093857b378c66eceed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/serializable-closure/zipball/4f48ade902b94323ca3be7646db16209ec76be3d",
-                "reference": "4f48ade902b94323ca3be7646db16209ec76be3d",
+                "url": "https://api.github.com/repos/laravel/serializable-closure/zipball/3832547db6e0e2f8bb03d4093857b378c66eceed",
+                "reference": "3832547db6e0e2f8bb03d4093857b378c66eceed",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.3|^8.0"
+                "php": "^8.1"
             },
             "require-dev": {
-                "illuminate/support": "^8.0|^9.0|^10.0|^11.0",
-                "nesbot/carbon": "^2.61|^3.0",
-                "pestphp/pest": "^1.21.3",
-                "phpstan/phpstan": "^1.8.2",
-                "symfony/var-dumper": "^5.4.11|^6.2.0|^7.0.0"
+                "illuminate/support": "^10.0|^11.0|^12.0",
+                "nesbot/carbon": "^2.67|^3.0",
+                "pestphp/pest": "^2.36|^3.0",
+                "phpstan/phpstan": "^2.0",
+                "symfony/var-dumper": "^6.2.0|^7.0.0"
             },
-            "time": "2024-11-14T18:34:49+00:00",
+            "time": "2025-09-22T17:29:40+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.x-dev"
+                    "dev-master": "2.x-dev"
                 }
             },
             "installation-source": "dist",
@@ -185,27 +185,29 @@
         },
         {
             "name": "paragonie/constant_time_encoding",
-            "version": "v3.0.0",
-            "version_normalized": "3.0.0.0",
+            "version": "v3.1.3",
+            "version_normalized": "3.1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/constant_time_encoding.git",
-                "reference": "df1e7fde177501eee2037dd159cf04f5f301a512"
+                "reference": "d5b01a39b3415c2cd581d3bd3a3575c1ebbd8e77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/constant_time_encoding/zipball/df1e7fde177501eee2037dd159cf04f5f301a512",
-                "reference": "df1e7fde177501eee2037dd159cf04f5f301a512",
+                "url": "https://api.github.com/repos/paragonie/constant_time_encoding/zipball/d5b01a39b3415c2cd581d3bd3a3575c1ebbd8e77",
+                "reference": "d5b01a39b3415c2cd581d3bd3a3575c1ebbd8e77",
                 "shasum": ""
             },
             "require": {
                 "php": "^8"
             },
             "require-dev": {
-                "phpunit/phpunit": "^9",
-                "vimeo/psalm": "^4|^5"
+                "infection/infection": "^0",
+                "nikic/php-fuzzer": "^0",
+                "phpunit/phpunit": "^9|^10|^11",
+                "vimeo/psalm": "^4|^5|^6"
             },
-            "time": "2024-05-08T12:36:18+00:00",
+            "time": "2025-09-24T15:06:41+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -303,17 +305,17 @@
         },
         {
             "name": "php-di/invoker",
-            "version": "2.3.6",
-            "version_normalized": "2.3.6.0",
+            "version": "2.3.7",
+            "version_normalized": "2.3.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-DI/Invoker.git",
-                "reference": "59f15608528d8a8838d69b422a919fd6b16aa576"
+                "reference": "3c1ddfdef181431fbc4be83378f6d036d59e81e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-DI/Invoker/zipball/59f15608528d8a8838d69b422a919fd6b16aa576",
-                "reference": "59f15608528d8a8838d69b422a919fd6b16aa576",
+                "url": "https://api.github.com/repos/PHP-DI/Invoker/zipball/3c1ddfdef181431fbc4be83378f6d036d59e81e1",
+                "reference": "3c1ddfdef181431fbc4be83378f6d036d59e81e1",
                 "shasum": ""
             },
             "require": {
@@ -323,9 +325,9 @@
             "require-dev": {
                 "athletic/athletic": "~0.1.8",
                 "mnapoli/hard-mode": "~0.3.0",
-                "phpunit/phpunit": "^9.0"
+                "phpunit/phpunit": "^9.0 || ^10 || ^11 || ^12"
             },
-            "time": "2025-01-17T12:49:27+00:00",
+            "time": "2025-08-30T10:22:22+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -349,7 +351,7 @@
             ],
             "support": {
                 "issues": "https://github.com/PHP-DI/Invoker/issues",
-                "source": "https://github.com/PHP-DI/Invoker/tree/2.3.6"
+                "source": "https://github.com/PHP-DI/Invoker/tree/2.3.7"
             },
             "funding": [
                 {
@@ -361,17 +363,17 @@
         },
         {
             "name": "php-di/php-di",
-            "version": "7.0.9",
-            "version_normalized": "7.0.9.0",
+            "version": "7.1.1",
+            "version_normalized": "7.1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-DI/PHP-DI.git",
-                "reference": "d8480267f5cf239650debba704f3ecd15b638cde"
+                "reference": "f88054cc052e40dbe7b383c8817c19442d480352"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-DI/PHP-DI/zipball/d8480267f5cf239650debba704f3ecd15b638cde",
-                "reference": "d8480267f5cf239650debba704f3ecd15b638cde",
+                "url": "https://api.github.com/repos/PHP-DI/PHP-DI/zipball/f88054cc052e40dbe7b383c8817c19442d480352",
+                "reference": "f88054cc052e40dbe7b383c8817c19442d480352",
                 "shasum": ""
             },
             "require": {
@@ -387,13 +389,13 @@
                 "friendsofphp/php-cs-fixer": "^3",
                 "friendsofphp/proxy-manager-lts": "^1",
                 "mnapoli/phpunit-easymock": "^1.3",
-                "phpunit/phpunit": "^9.6",
+                "phpunit/phpunit": "^9.6 || ^10 || ^11",
                 "vimeo/psalm": "^5|^6"
             },
             "suggest": {
                 "friendsofphp/proxy-manager-lts": "Install it if you want to use lazy injection (version ^1)"
             },
-            "time": "2025-02-28T12:46:35+00:00",
+            "time": "2025-08-16T11:10:48+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -421,7 +423,7 @@
             ],
             "support": {
                 "issues": "https://github.com/PHP-DI/PHP-DI/issues",
-                "source": "https://github.com/PHP-DI/PHP-DI/tree/7.0.9"
+                "source": "https://github.com/PHP-DI/PHP-DI/tree/7.1.1"
             },
             "funding": [
                 {
@@ -437,17 +439,17 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "3.0.43",
-            "version_normalized": "3.0.43.0",
+            "version": "3.0.46",
+            "version_normalized": "3.0.46.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "709ec107af3cb2f385b9617be72af8cf62441d02"
+                "reference": "56483a7de62a6c2a6635e42e93b8a9e25d4f0ec6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/709ec107af3cb2f385b9617be72af8cf62441d02",
-                "reference": "709ec107af3cb2f385b9617be72af8cf62441d02",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/56483a7de62a6c2a6635e42e93b8a9e25d4f0ec6",
+                "reference": "56483a7de62a6c2a6635e42e93b8a9e25d4f0ec6",
                 "shasum": ""
             },
             "require": {
@@ -465,7 +467,7 @@
                 "ext-mcrypt": "Install the Mcrypt extension in order to speed up a few other cryptographic operations.",
                 "ext-openssl": "Install the OpenSSL extension in order to speed up a wide variety of cryptographic operations."
             },
-            "time": "2024-12-14T21:12:59+00:00",
+            "time": "2025-06-26T16:29:55+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -530,7 +532,7 @@
             ],
             "support": {
                 "issues": "https://github.com/phpseclib/phpseclib/issues",
-                "source": "https://github.com/phpseclib/phpseclib/tree/3.0.43"
+                "source": "https://github.com/phpseclib/phpseclib/tree/3.0.46"
             },
             "funding": [
                 {
@@ -865,17 +867,17 @@
         },
         {
             "name": "symfony/polyfill-iconv",
-            "version": "v1.31.0",
-            "version_normalized": "1.31.0.0",
+            "version": "v1.33.0",
+            "version_normalized": "1.33.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-iconv.git",
-                "reference": "48becf00c920479ca2e910c22a5a39e5d47ca956"
+                "reference": "5f3b930437ae03ae5dff61269024d8ea1b3774aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-iconv/zipball/48becf00c920479ca2e910c22a5a39e5d47ca956",
-                "reference": "48becf00c920479ca2e910c22a5a39e5d47ca956",
+                "url": "https://api.github.com/repos/symfony/polyfill-iconv/zipball/5f3b930437ae03ae5dff61269024d8ea1b3774aa",
+                "reference": "5f3b930437ae03ae5dff61269024d8ea1b3774aa",
                 "shasum": ""
             },
             "require": {
@@ -887,7 +889,7 @@
             "suggest": {
                 "ext-iconv": "For best performance"
             },
-            "time": "2024-09-09T11:45:10+00:00",
+            "time": "2024-09-17T14:58:18+00:00",
             "type": "library",
             "extra": {
                 "thanks": {
@@ -928,7 +930,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-iconv/tree/v1.31.0"
+                "source": "https://github.com/symfony/polyfill-iconv/tree/v1.33.0"
             },
             "funding": [
                 {
@@ -940,6 +942,10 @@
                     "type": "github"
                 },
                 {
+                    "url": "https://github.com/nicolas-grekas",
+                    "type": "github"
+                },
+                {
                     "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
                     "type": "tidelift"
                 }
@@ -948,20 +954,21 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.31.0",
-            "version_normalized": "1.31.0.0",
+            "version": "v1.33.0",
+            "version_normalized": "1.33.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "85181ba99b2345b0ef10ce42ecac37612d9fd341"
+                "reference": "6d857f4d76bd4b343eac26d6b539585d2bc56493"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/85181ba99b2345b0ef10ce42ecac37612d9fd341",
-                "reference": "85181ba99b2345b0ef10ce42ecac37612d9fd341",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/6d857f4d76bd4b343eac26d6b539585d2bc56493",
+                "reference": "6d857f4d76bd4b343eac26d6b539585d2bc56493",
                 "shasum": ""
             },
             "require": {
+                "ext-iconv": "*",
                 "php": ">=7.2"
             },
             "provide": {
@@ -970,7 +977,7 @@
             "suggest": {
                 "ext-mbstring": "For best performance"
             },
-            "time": "2024-09-09T11:45:10+00:00",
+            "time": "2024-12-23T08:48:59+00:00",
             "type": "library",
             "extra": {
                 "thanks": {
@@ -1011,7 +1018,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.31.0"
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.33.0"
             },
             "funding": [
                 {
@@ -1023,6 +1030,10 @@
                     "type": "github"
                 },
                 {
+                    "url": "https://github.com/nicolas-grekas",
+                    "type": "github"
+                },
+                {
                     "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
                     "type": "tidelift"
                 }
@@ -1031,17 +1042,17 @@
         },
         {
             "name": "zbateson/mail-mime-parser",
-            "version": "3.0.3",
-            "version_normalized": "3.0.3.0",
+            "version": "3.0.4",
+            "version_normalized": "3.0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zbateson/mail-mime-parser.git",
-                "reference": "e0d4423fe27850c9dd301190767dbc421acc2f19"
+                "reference": "f0ccec9290a5b9cf014d7b7ea3401d2a4a626e9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zbateson/mail-mime-parser/zipball/e0d4423fe27850c9dd301190767dbc421acc2f19",
-                "reference": "e0d4423fe27850c9dd301190767dbc421acc2f19",
+                "url": "https://api.github.com/repos/zbateson/mail-mime-parser/zipball/f0ccec9290a5b9cf014d7b7ea3401d2a4a626e9a",
+                "reference": "f0ccec9290a5b9cf014d7b7ea3401d2a4a626e9a",
                 "shasum": ""
             },
             "require": {
@@ -1062,7 +1073,7 @@
                 "ext-iconv": "For best support/performance",
                 "ext-mbstring": "For best support/performance"
             },
-            "time": "2024-08-10T18:44:09+00:00",
+            "time": "2025-09-03T17:18:36+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {

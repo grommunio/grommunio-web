@@ -18,7 +18,9 @@ use DI\Definition\Source\ReflectionBasedAutowiring;
 use DI\Definition\Source\SourceChain;
 use DI\Definition\ValueDefinition;
 use DI\Invoker\DefinitionParameterResolver;
+use DI\Proxy\NativeProxyFactory;
 use DI\Proxy\ProxyFactory;
+use DI\Proxy\ProxyFactoryInterface;
 use InvalidArgumentException;
 use Invoker\Invoker;
 use Invoker\InvokerInterface;
@@ -66,7 +68,7 @@ class Container implements ContainerInterface, FactoryInterface, InvokerInterfac
      */
     protected ContainerInterface $delegateContainer;
 
-    protected ProxyFactory $proxyFactory;
+    protected ProxyFactoryInterface $proxyFactory;
 
     public static function create(
         array $definitions,
@@ -89,7 +91,7 @@ class Container implements ContainerInterface, FactoryInterface, InvokerInterfac
      */
     public function __construct(
         array|MutableDefinitionSource $definitions = [],
-        ?ProxyFactory $proxyFactory = null,
+        ?ProxyFactoryInterface $proxyFactory = null,
         ?ContainerInterface $wrapperContainer = null,
     ) {
         if (is_array($definitions)) {
@@ -99,7 +101,11 @@ class Container implements ContainerInterface, FactoryInterface, InvokerInterfac
         }
 
         $this->delegateContainer = $wrapperContainer ?: $this;
-        $this->proxyFactory = $proxyFactory ?: new ProxyFactory;
+
+        if ($proxyFactory === null) {
+            $proxyFactory = (\PHP_VERSION_ID >= 80400) ? new NativeProxyFactory : new ProxyFactory;
+        }
+        $this->proxyFactory = $proxyFactory;
         $this->definitionResolver = new ResolverDispatcher($this->delegateContainer, $this->proxyFactory);
 
         // Auto-register the container
