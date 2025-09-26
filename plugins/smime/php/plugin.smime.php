@@ -250,9 +250,9 @@ class Pluginsmime extends Plugin {
 	/**
 	 * Retrieve public certificate from the GAB when available for the sender.
 	 *
-	 * @param array $userProps Sender related MAPI properties.
+	 * @param array $userProps sender related MAPI properties
 	 *
-	 * @return array Two-element array with GAB flag and certificate list.
+	 * @return array two-element array with GAB flag and certificate list
 	 */
 	private function collectGabCertificate(array $userProps) {
 		$certificates = [];
@@ -285,10 +285,10 @@ class Pluginsmime extends Plugin {
 	/**
 	 * Derive sender SMTP address through message or fallback properties.
 	 *
-	 * @param mixed $message MAPI message resource.
-	 * @param array $userProps Sender related MAPI properties.
+	 * @param mixed $message   MAPI message resource
+	 * @param array $userProps sender related MAPI properties
 	 *
-	 * @return string|null SMTP address when resolved, null otherwise.
+	 * @return null|string SMTP address when resolved, null otherwise
 	 */
 	private function resolveSenderEmail($message, array $userProps) {
 		$senderAddressArray = $this->getSenderAddress($message);
@@ -326,13 +326,13 @@ class Pluginsmime extends Plugin {
 	/**
 	 * Fetch and decode public certificates stored in the user store for an address.
 	 *
-	 * @param string $emailAddr SMTP address of the sender.
+	 * @param string $emailAddr SMTP address of the sender
 	 *
-	 * @return array List of decoded certificates.
+	 * @return array list of decoded certificates
 	 */
 	private function getUserStoreCertificates($emailAddr) {
-		$userCerts = $this->getPublicKey($emailAddr, true);
-		if (!is_array($userCerts)) {
+		$userCerts = (array) $this->getPublicKey($emailAddr, true);
+		if ($userCerts === []) {
 			return [];
 		}
 
@@ -350,12 +350,12 @@ class Pluginsmime extends Plugin {
 	/**
 	 * Attempt verification using certificates already known to the system.
 	 *
-	 * @param array  $certs        Candidate certificates in PEM format.
-	 * @param string $messageFile  Temporary file containing the message payload.
-	 * @param string $outCertFile  Temporary file to receive the extracted certificate.
-	 * @param string $tmpUserCert  Temporary file for passing certificates to OpenSSL.
+	 * @param array  $certs       candidate certificates in PEM format
+	 * @param string $messageFile temporary file containing the message payload
+	 * @param string $outCertFile temporary file to receive the extracted certificate
+	 * @param string $tmpUserCert temporary file for passing certificates to OpenSSL
 	 *
-	 * @return array Verification result metadata.
+	 * @return array verification result metadata
 	 */
 	private function verifyUsingCertificates(array $certs, $messageFile, $outCertFile, $tmpUserCert) {
 		if (empty($certs)) {
@@ -390,8 +390,8 @@ class Pluginsmime extends Plugin {
 			$caCerts = $caCerts ?? $this->extractCAs($messageFile);
 
 			if (
-				is_array($parsedImport) &&
-				is_array($parsedUser) &&
+				$parsedImport !== false &&
+				$parsedUser !== false &&
 				($parsedImport['validTo'] ?? '') > ($parsedUser['validTo'] ?? '') &&
 				($parsedImport['validFrom'] ?? '') > ($parsedUser['validFrom'] ?? '') &&
 				getCertEmail($parsedImport) === getCertEmail($parsedUser) &&
@@ -416,10 +416,10 @@ class Pluginsmime extends Plugin {
 	/**
 	 * Fallback verification that relies on the certificate bundled with the message.
 	 *
-	 * @param string $messageFile Temporary file containing the message payload.
-	 * @param string $outCertFile Temporary file for certificate extraction.
+	 * @param string $messageFile temporary file containing the message payload
+	 * @param string $outCertFile temporary file for certificate extraction
 	 *
-	 * @return array Verification result metadata.
+	 * @return array verification result metadata
 	 */
 	private function verifyUsingMessageCertificate($messageFile, $outCertFile) {
 		$caBundle = explode(';', PLUGIN_SMIME_CACERTS);
@@ -442,7 +442,7 @@ class Pluginsmime extends Plugin {
 		$parsedImport = openssl_x509_parse($importCert);
 		$caCerts = $this->extractCAs($messageFile);
 
-		if (!is_array($parsedImport) || !verifyOCSP($importCert, $caCerts, $this->message)) {
+		if ($parsedImport === false || !verifyOCSP($importCert, $caCerts, $this->message)) {
 			return ['status' => 'skip', 'importCert' => null, 'parsedImportCert' => null, 'caCerts' => $caCerts];
 		}
 
@@ -452,8 +452,8 @@ class Pluginsmime extends Plugin {
 	/**
 	 * Import a verified certificate into the user store with force-overwrite semantics.
 	 *
-	 * @param string $rawCertificate Certificate body in PEM format.
-	 * @param array  $parsedCertificate Parsed certificate meta data from OpenSSL.
+	 * @param string $rawCertificate    certificate body in PEM format
+	 * @param array  $parsedCertificate parsed certificate meta data from OpenSSL
 	 */
 	private function importVerifiedCertificate($rawCertificate, array $parsedCertificate) {
 		$certEmail = getCertEmail($parsedCertificate);
@@ -474,12 +474,12 @@ class Pluginsmime extends Plugin {
 	/**
 	 * Remove temporary files with defensive existence checks.
 	 *
-	 * @param array $paths Paths scheduled for cleanup.
+	 * @param array $paths paths scheduled for cleanup
 	 */
 	private function cleanupTempFiles(array $paths) {
 		foreach ($paths as $path) {
-			if (is_string($path) && $path !== '' && file_exists($path)) {
-				@unlink($path);
+			if (is_string($path) && $path !== '' && file_exists($path) && !unlink($path)) {
+				Log::write(LOGLEVEL_WARN, sprintf('[smime] Failed to remove temporary file %s', $path));
 			}
 		}
 	}
@@ -487,9 +487,9 @@ class Pluginsmime extends Plugin {
 	/**
 	 * Create a unique temp file using the supplied prefix.
 	 *
-	 * @param string $prefix File name prefix.
+	 * @param string $prefix file name prefix
 	 *
-	 * @return string Path to the created temp file.
+	 * @return string path to the created temp file
 	 */
 	private function createTempFile($prefix) {
 		return tempnam(sys_get_temp_dir(), $prefix);
