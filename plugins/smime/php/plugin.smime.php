@@ -216,174 +216,283 @@ class Pluginsmime extends Plugin {
 	 * @param mixed $eml
 	 */
 	public function verifyMessage($message, $eml) {
-		$userCert = '';
-		$tmpUserCert = tempnam(sys_get_temp_dir(), true);
-		$importMessageCert = true;
+		$userProps = mapi_getprops($message, [PR_SENT_REPRESENTING_ENTRYID, PR_SENT_REPRESENTING_NAME]);
+		$tmpUserCert = $this->createTempFile('smime_cert_');
+		$tmpMessageFile = $this->createTempFile('smime_msg_');
+		$tmpOutCert = $this->createTempFile('smime_out_');
+
+		file_put_contents($tmpMessageFile, $eml);
+
+		[$fromGAB, $availableCerts] = $this->collectGabCertificate($userProps);
+
+		if (!$fromGAB && isset($GLOBALS['operations'])) {
+			$emailAddr = $this->resolveSenderEmail($message, $userProps);
+			if (!empty($emailAddr)) {
+				$availableCerts = array_merge($availableCerts, $this->getUserStoreCertificates($emailAddr));
+			}
+		}
+
+		try {
+			$verification = $this->verifyUsingCertificates($availableCerts, $tmpMessageFile, $tmpOutCert, $tmpUserCert);
+			if ($verification['status'] === 'retry') {
+				$verification = $this->verifyUsingMessageCertificate($tmpMessageFile, $tmpOutCert);
+			}
+
+			if ($verification['status'] === 'import' && !$fromGAB && !empty($verification['parsedImportCert'])) {
+				$this->importVerifiedCertificate($verification['importCert'], $verification['parsedImportCert']);
+			}
+		}
+		finally {
+			$this->cleanupTempFiles([$tmpOutCert, $tmpMessageFile, $tmpUserCert]);
+		}
+	}
+
+	/**
+	 * Retrieve public certificate from the GAB when available for the sender.
+	 *
+	 * @param array $userProps Sender related MAPI properties.
+	 *
+	 * @return array Two-element array with GAB flag and certificate list.
+	 */
+	private function collectGabCertificate(array $userProps) {
+		$certificates = [];
 		$fromGAB = false;
 
-		// TODO: worth to split fetching public certificate in a separate function?
-
-		// If user entry exists in GAB, try to retrieve public cert
-		// Public certificate from GAB in combination with LDAP saved in PR_EMS_AB_X509_CERT
-		$userProps = mapi_getprops($message, [PR_SENT_REPRESENTING_ENTRYID, PR_SENT_REPRESENTING_NAME]);
-		if (isset($userProps[PR_SENT_REPRESENTING_ENTRYID])) {
-			try {
-				$user = mapi_ab_openentry($GLOBALS['mapisession']->getAddressbook(), $userProps[PR_SENT_REPRESENTING_ENTRYID]);
-				$gabCert = $this->getGABCert($user);
-				if (!empty($gabCert)) {
-					$fromGAB = true;
-					// Put empty string into file? dafuq?
-					file_put_contents($tmpUserCert, $userCert);
-				}
-			}
-			catch (MAPIException) {
-				$msg = "[smime] Unable to open PR_SENT_REPRESENTING_ENTRYID. Maybe %s was does not exists or deleted from server.";
-				Log::write(LOGLEVEL_ERROR, sprintf($msg, $userProps[PR_SENT_REPRESENTING_NAME]));
-				error_log("[smime] Unable to open PR_SENT_REPRESENTING_NAME: " . print_r($userProps[PR_SENT_REPRESENTING_NAME], true));
-				$this->message['success'] = SMIME_NOPUB;
-				$this->message['info'] = SMIME_USER_DETECT_FAILURE;
-			}
+		if (!isset($userProps[PR_SENT_REPRESENTING_ENTRYID])) {
+			return [$fromGAB, $certificates];
 		}
 
-		// When downloading an email as eml, $GLOBALS['operations'] isn't set, so add a check so that downloading works
-		// If the certificate is already fetch from the GAB, skip checking the userStore.
-		if (!$fromGAB && isset($GLOBALS['operations'])) {
-			$senderAddressArray = $this->getSenderAddress($message);
-			$senderAddressArray = $senderAddressArray['props'];
-			if ($senderAddressArray['address_type'] === 'SMTP') {
-				$emailAddr = $senderAddressArray['email_address'];
-			}
-			else {
-				$emailAddr = $senderAddressArray['smtp_address'];
-			}
-
-			// User not in AB,
-			// so get email address from either PR_SENT_REPRESENTING_NAME, PR_SEARCH_KEY or PR_SENT_REPRESENTING_SEARCH_KEY
-			// of the message
-			if (!$emailAddr) {
-				if (!empty($userProps[PR_SENT_REPRESENTING_NAME])) {
-					$emailAddr = $userProps[PR_SENT_REPRESENTING_NAME];
-				}
-				else {
-					$searchKeys = mapi_getprops($message, [PR_SEARCH_KEY, PR_SENT_REPRESENTING_SEARCH_KEY]);
-					$searchKey = $searchKeys[PR_SEARCH_KEY] ?? $searchKeys[PR_SENT_REPRESENTING_SEARCH_KEY];
-					if ($searchKey) {
-						$sk = strtolower(explode(':', (string) $searchKey)[1]);
-						$emailAddr = trim($sk);
-					}
-				}
-			}
-
-			if ($emailAddr) {
-				// Get all public certificates of $emailAddr stored on the server
-				$userCerts = $this->getPublicKey($emailAddr, true);
+		try {
+			$user = mapi_ab_openentry($GLOBALS['mapisession']->getAddressbook(), $userProps[PR_SENT_REPRESENTING_ENTRYID]);
+			$gabCert = $this->getGABCert($user);
+			if (!empty($gabCert)) {
+				$fromGAB = true;
+				$certificates[] = $gabCert;
 			}
 		}
+		catch (MAPIException $exception) {
+			$exception->setHandled();
+			$msg = "[smime] Unable to open PR_SENT_REPRESENTING_ENTRYID. Maybe %s was does not exists or deleted from server.";
+			Log::write(LOGLEVEL_ERROR, sprintf($msg, $userProps[PR_SENT_REPRESENTING_NAME] ?? ''));
+			error_log("[smime] Unable to open PR_SENT_REPRESENTING_NAME: " . var_export($userProps[PR_SENT_REPRESENTING_NAME] ?? null, true));
+			$this->message['success'] = SMIME_NOPUB;
+			$this->message['info'] = SMIME_USER_DETECT_FAILURE;
+		}
 
-		// Save signed message in a random file
-		$tmpfname = tempnam(sys_get_temp_dir(), true);
-		file_put_contents($tmpfname, $eml);
+		return [$fromGAB, $certificates];
+	}
 
-		// Create random file for saving the signed message
-		$outcert = tempnam(sys_get_temp_dir(), true);
+	/**
+	 * Derive sender SMTP address through message or fallback properties.
+	 *
+	 * @param mixed $message MAPI message resource.
+	 * @param array $userProps Sender related MAPI properties.
+	 *
+	 * @return string|null SMTP address when resolved, null otherwise.
+	 */
+	private function resolveSenderEmail($message, array $userProps) {
+		$senderAddressArray = $this->getSenderAddress($message);
+		$senderProps = $senderAddressArray['props'] ?? [];
+		$addressType = $senderProps['address_type'] ?? '';
+		$emailAddr = '';
 
-		// Verify signed message
-		// Returns True if verified, False if tampered or signing certificate invalid OR -1 on error
-		if (count($userCerts) > 0) {
-			// Try to verify a certificate in the MAPI store
-			foreach ($userCerts as $userCert) {
-				$userCert = base64_decode((string) $userCert);
-				// Save signed message in a random file
-				$tmpfname = tempnam(sys_get_temp_dir(), true);
-				file_put_contents($tmpfname, $eml);
-
-				// Create random file for saving the signed message
-				$outcert = tempnam(sys_get_temp_dir(), true);
-
-				if (!empty($userCert)) { // Check MAPI UserStore
-					file_put_contents($tmpUserCert, $userCert);
-				}
-				$this->clear_openssl_error();
-				$signed_ok = openssl_pkcs7_verify($tmpfname, PKCS7_NOINTERN, $outcert, explode(';', PLUGIN_SMIME_CACERTS), $tmpUserCert);
-				$openssl_error_code = $this->extract_openssl_error();
-				$this->validateSignedMessage($signed_ok, $openssl_error_code);
-				// Check if we need to import a newer certificate
-				$importCert = file_get_contents($outcert);
-				$parsedImportCert = openssl_x509_parse($importCert);
-				$parsedUserCert = openssl_x509_parse($userCert);
-				if (!$signed_ok || $openssl_error_code === OPENSSL_CA_VERIFY_FAIL) {
-					continue;
-				}
-
-				// CA Checks out
-				$caCerts = $this->extractCAs($tmpfname);
-				// If validTo and validFrom are more in the future, emailAddress matches and OCSP check is valid, import newer certificate
-				if (is_array($parsedImportCert) && is_array($parsedUserCert) &&
-					$parsedImportCert['validTo'] > $parsedUserCert['validTo'] &&
-					$parsedImportCert['validFrom'] > $parsedUserCert['validFrom'] &&
-					getCertEmail($parsedImportCert) === getCertEmail($parsedUserCert) &&
-					verifyOCSP($importCert, $caCerts, $this->message) &&
-					$importMessageCert !== false) {
-					// Redundant
-					$importMessageCert = true;
-				}
-				else {
-					$importMessageCert = false;
-					verifyOCSP($userCert, $caCerts, $this->message);
-					break;
-				}
-			}
+		if ($addressType === 'SMTP') {
+			$emailAddr = $senderProps['email_address'] ?? '';
 		}
 		else {
-			// Works. Just leave it.
-			$this->clear_openssl_error();
-			$signed_ok = openssl_pkcs7_verify($tmpfname, PKCS7_NOSIGS, $outcert, explode(';', PLUGIN_SMIME_CACERTS));
-			$openssl_error_code = $this->extract_openssl_error();
-			$this->validateSignedMessage($signed_ok, $openssl_error_code);
-
-			// OCSP check
-			if ($signed_ok && $openssl_error_code !== OPENSSL_CA_VERIFY_FAIL) { // CA Checks out
-				$userCert = file_get_contents($outcert);
-				$parsedImportCert = openssl_x509_parse($userCert);
-
-				$caCerts = $this->extractCAs($tmpfname);
-				if (!is_array($parsedImportCert) || !verifyOCSP($userCert, $caCerts, $this->message)) {
-					$importMessageCert = false;
-				}
-			// We don't have a certificate from the MAPI UserStore or LDAP, so we will set $userCert to $importCert
-			// so that we can verify the message according to the be imported certificate.
-			}
-			else { // No pubkey
-				$importMessageCert = false;
-				Log::write(LOGLEVEL_INFO, sprintf("[smime] Unable to verify message without public key, openssl error: '%s'", $this->openssl_error));
-				$this->message['success'] = SMIME_STATUS_FAIL;
-				$this->message['info'] = SMIME_CA;
-			}
+			$emailAddr = $senderProps['smtp_address'] ?? '';
 		}
-		// Certificate is newer or not yet imported to the user store and not revoked
-		// If certificate is from the GAB, then don't import it.
-		if ($importMessageCert && !$fromGAB) {
-			$this->clear_openssl_error();
-			$signed_ok = openssl_pkcs7_verify($tmpfname, PKCS7_NOSIGS, $outcert, explode(';', PLUGIN_SMIME_CACERTS));
-			$openssl_error_code = $this->extract_openssl_error();
-			$this->validateSignedMessage($signed_ok, $openssl_error_code);
-			$userCert = file_get_contents($outcert);
-			$parsedImportCert = openssl_x509_parse($userCert);
-			// FIXME: doing this in importPublicKey too...
-			$certEmail = getCertEmail($parsedImportCert);
-			if (!empty($certEmail)) {
-				$this->importCertificate($userCert, $parsedImportCert, 'public', true);
+
+		if (!empty($emailAddr)) {
+			return $emailAddr;
+		}
+
+		if (!empty($userProps[PR_SENT_REPRESENTING_NAME])) {
+			return $userProps[PR_SENT_REPRESENTING_NAME];
+		}
+
+		$searchKeys = mapi_getprops($message, [PR_SEARCH_KEY, PR_SENT_REPRESENTING_SEARCH_KEY]);
+		$searchKey = $searchKeys[PR_SEARCH_KEY] ?? $searchKeys[PR_SENT_REPRESENTING_SEARCH_KEY] ?? null;
+		if ($searchKey) {
+			$parts = explode(':', (string) $searchKey, 2);
+			if (count($parts) === 2) {
+				return trim(strtolower($parts[1]));
 			}
 		}
 
-		// Remove extracted certificate from openssl_pkcs7_verify
-		unlink($outcert);
+		return null;
+	}
 
-		// remove the temporary file
-		unlink($tmpfname);
+	/**
+	 * Fetch and decode public certificates stored in the user store for an address.
+	 *
+	 * @param string $emailAddr SMTP address of the sender.
+	 *
+	 * @return array List of decoded certificates.
+	 */
+	private function getUserStoreCertificates($emailAddr) {
+		$userCerts = $this->getPublicKey($emailAddr, true);
+		if (!is_array($userCerts)) {
+			return [];
+		}
 
-		// Clean up temp cert
-		unlink($tmpUserCert);
+		$decoded = [];
+		foreach ($userCerts as $cert) {
+			$decodedCert = base64_decode((string) $cert);
+			if (!empty($decodedCert)) {
+				$decoded[] = $decodedCert;
+			}
+		}
+
+		return $decoded;
+	}
+
+	/**
+	 * Attempt verification using certificates already known to the system.
+	 *
+	 * @param array  $certs        Candidate certificates in PEM format.
+	 * @param string $messageFile  Temporary file containing the message payload.
+	 * @param string $outCertFile  Temporary file to receive the extracted certificate.
+	 * @param string $tmpUserCert  Temporary file for passing certificates to OpenSSL.
+	 *
+	 * @return array Verification result metadata.
+	 */
+	private function verifyUsingCertificates(array $certs, $messageFile, $outCertFile, $tmpUserCert) {
+		if (empty($certs)) {
+			return ['status' => 'retry', 'importCert' => null, 'parsedImportCert' => null, 'caCerts' => null];
+		}
+
+		$caBundle = explode(';', PLUGIN_SMIME_CACERTS);
+		$caCerts = null;
+
+		foreach ($certs as $cert) {
+			if (empty($cert)) {
+				continue;
+			}
+
+			file_put_contents($tmpUserCert, $cert);
+			$this->clear_openssl_error();
+			$signedOk = openssl_pkcs7_verify($messageFile, PKCS7_NOINTERN, $outCertFile, $caBundle, $tmpUserCert);
+			$opensslError = $this->extract_openssl_error();
+			$this->validateSignedMessage($signedOk, $opensslError);
+
+			if (!$signedOk || $opensslError === OPENSSL_CA_VERIFY_FAIL) {
+				continue;
+			}
+
+			$importCert = file_get_contents($outCertFile);
+			if ($importCert === false || $importCert === '') {
+				continue;
+			}
+
+			$parsedImport = openssl_x509_parse($importCert);
+			$parsedUser = openssl_x509_parse($cert);
+			$caCerts = $caCerts ?? $this->extractCAs($messageFile);
+
+			if (
+				is_array($parsedImport) &&
+				is_array($parsedUser) &&
+				($parsedImport['validTo'] ?? '') > ($parsedUser['validTo'] ?? '') &&
+				($parsedImport['validFrom'] ?? '') > ($parsedUser['validFrom'] ?? '') &&
+				getCertEmail($parsedImport) === getCertEmail($parsedUser) &&
+				verifyOCSP($importCert, $caCerts, $this->message)
+			) {
+				return [
+					'status' => 'import',
+					'importCert' => $importCert,
+					'parsedImportCert' => $parsedImport,
+					'caCerts' => $caCerts,
+				];
+			}
+
+			verifyOCSP($cert, $caCerts, $this->message);
+
+			return ['status' => 'skip', 'importCert' => null, 'parsedImportCert' => null, 'caCerts' => $caCerts];
+		}
+
+		return ['status' => 'retry', 'importCert' => null, 'parsedImportCert' => null, 'caCerts' => null];
+	}
+
+	/**
+	 * Fallback verification that relies on the certificate bundled with the message.
+	 *
+	 * @param string $messageFile Temporary file containing the message payload.
+	 * @param string $outCertFile Temporary file for certificate extraction.
+	 *
+	 * @return array Verification result metadata.
+	 */
+	private function verifyUsingMessageCertificate($messageFile, $outCertFile) {
+		$caBundle = explode(';', PLUGIN_SMIME_CACERTS);
+		$this->clear_openssl_error();
+		$signedOk = openssl_pkcs7_verify($messageFile, PKCS7_NOSIGS, $outCertFile, $caBundle);
+		$opensslError = $this->extract_openssl_error();
+		$this->validateSignedMessage($signedOk, $opensslError);
+
+		if (!$signedOk || $opensslError === OPENSSL_CA_VERIFY_FAIL) {
+			$this->handleMissingPublicKey();
+
+			return ['status' => 'skip', 'importCert' => null, 'parsedImportCert' => null, 'caCerts' => null];
+		}
+
+		$importCert = file_get_contents($outCertFile);
+		if ($importCert === false || $importCert === '') {
+			return ['status' => 'skip', 'importCert' => null, 'parsedImportCert' => null, 'caCerts' => null];
+		}
+
+		$parsedImport = openssl_x509_parse($importCert);
+		$caCerts = $this->extractCAs($messageFile);
+
+		if (!is_array($parsedImport) || !verifyOCSP($importCert, $caCerts, $this->message)) {
+			return ['status' => 'skip', 'importCert' => null, 'parsedImportCert' => null, 'caCerts' => $caCerts];
+		}
+
+		return ['status' => 'import', 'importCert' => $importCert, 'parsedImportCert' => $parsedImport, 'caCerts' => $caCerts];
+	}
+
+	/**
+	 * Import a verified certificate into the user store with force-overwrite semantics.
+	 *
+	 * @param string $rawCertificate Certificate body in PEM format.
+	 * @param array  $parsedCertificate Parsed certificate meta data from OpenSSL.
+	 */
+	private function importVerifiedCertificate($rawCertificate, array $parsedCertificate) {
+		$certEmail = getCertEmail($parsedCertificate);
+		if (!empty($certEmail)) {
+			$this->importCertificate($rawCertificate, $parsedCertificate, 'public', true);
+		}
+	}
+
+	/**
+	 * Record diagnostics when a message cannot be verified due to missing keys.
+	 */
+	private function handleMissingPublicKey() {
+		Log::write(LOGLEVEL_INFO, sprintf("[smime] Unable to verify message without public key, openssl error: '%s'", $this->openssl_error));
+		$this->message['success'] = SMIME_STATUS_FAIL;
+		$this->message['info'] = SMIME_CA;
+	}
+
+	/**
+	 * Remove temporary files with defensive existence checks.
+	 *
+	 * @param array $paths Paths scheduled for cleanup.
+	 */
+	private function cleanupTempFiles(array $paths) {
+		foreach ($paths as $path) {
+			if (is_string($path) && $path !== '' && file_exists($path)) {
+				@unlink($path);
+			}
+		}
+	}
+
+	/**
+	 * Create a unique temp file using the supplied prefix.
+	 *
+	 * @param string $prefix File name prefix.
+	 *
+	 * @return string Path to the created temp file.
+	 */
+	private function createTempFile($prefix) {
+		return tempnam(sys_get_temp_dir(), $prefix);
 	}
 
 	public function join_xph(&$prop, $msg) {
