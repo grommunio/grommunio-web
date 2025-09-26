@@ -30,289 +30,422 @@ class CreateMailItemModule extends ItemModule {
 	 */
 	#[Override]
 	public function save($store, $parententryid, $entryid, $action) {
+		$messageProps = [];
 		$result = false;
-		$send = false;
-		$saveChanges = true;
 
+		$store = $this->resolveStore($store, $action);
 		if (!$store) {
-			$store = $GLOBALS['mapisession']->getDefaultMessageStore();
+			return;
 		}
-		if (!$parententryid) {
-			if (isset($action['props'], $action['props']['message_class'])) {
-				$parententryid = $this->getDefaultFolderEntryID($store, $action['props']['message_class']);
+
+		$parententryid = $this->resolveParentEntryId($store, $parententryid, $action);
+
+		$attachments = !empty($action['attachments']) ? $action['attachments'] : [];
+		$recipients = !empty($action['recipients']) ? $action['recipients'] : [];
+
+		$result = $this->applyMessageFlags($store, $entryid, $action, $messageProps);
+		$send = $this->shouldSendMessage($action);
+		$saveChanges = $this->shouldPersistMessage($send, $action, $attachments, $recipients);
+
+		if ($saveChanges) {
+			$copyContext = $this->createCopyContext($store, $action, $send);
+			$store = $copyContext['store'];
+			$copyFromMessage = $copyContext['copyFromMessage'];
+			$copyAttachments = $copyContext['copyAttachments'];
+			$copyInlineAttachmentsOnly = $copyContext['copyInlineAttachmentsOnly'];
+
+			if ($send) {
+				$sendOutcome = $this->handleSend($store, $entryid, $parententryid, $action, $recipients, $messageProps, $copyFromMessage, $copyAttachments, $copyInlineAttachmentsOnly);
+				if ($sendOutcome['aborted']) {
+					return;
+				}
+				$result = $sendOutcome['result'];
 			}
 			else {
-				$parententryid = $this->getDefaultFolderEntryID($store, '');
+				$draftOutcome = $this->handleDraftSave($store, $entryid, $parententryid, $action, $messageProps, $copyFromMessage, $copyAttachments, $copyInlineAttachmentsOnly);
+				if ($draftOutcome['aborted']) {
+					return;
+				}
+				$result = $draftOutcome['result'];
 			}
 		}
 
+		if ($result === false && isset($action['message_action']['soft_delete'])) {
+			$result = true;
+		}
+
+		if ($result && !$send && isset($messageProps[PR_PARENT_ENTRYID])) {
+			$GLOBALS['bus']->notify(bin2hex($messageProps[PR_PARENT_ENTRYID]), TABLE_SAVE, $messageProps);
+		}
+
+		if ($send) {
+			$this->addActionData('update', ['item' => Conversion::mapMAPI2XML($this->properties, $messageProps)]);
+		}
+
+		$this->sendFeedback($result ? true : false, [], true);
+	}
+
+	/**
+	 * Resolve the message store that should be used for the save operation.
+	 *
+	 * @param mixed $store
+	 *
+	 * @return mixed
+	 */
+	private function resolveStore($store, array $action) {
 		if ($store) {
-			// Reference to an array which will be filled with PR_ENTRYID, PR_STORE_ENTRYID and PR_PARENT_ENTRYID of the message
-			$messageProps = [];
-			$attachments = !empty($action['attachments']) ? $action['attachments'] : [];
-			$recipients = !empty($action['recipients']) ? $action['recipients'] : [];
-
-			// Set message flags first, because this has to be possible even if the user does not have write permissions
-			if (isset($action['props'], $action['props']['message_flags']) && $entryid) {
-				$msg_action = $action['message_action'] ?? false;
-				$result = $GLOBALS['operations']->setMessageFlag($store, $entryid, $action['props']['message_flags'], $msg_action, $messageProps);
-
-				unset($action['props']['message_flags']);
-			}
-
-			if (isset($action['message_action'], $action['message_action']['send'])) {
-				$send = $action['message_action']['send'];
-			}
-
-			// if we are sending mail then no need to check if anything is modified or not just send the mail
-			if (!$send) {
-				// If there is any property changed then save
-				$saveChanges = !empty($action['props']);
-
-				// Check if we are dealing with drafts and recipients or attachments information is modified
-				if (!$saveChanges) {
-					// check for changes in attachments
-					if (isset($attachments['dialog_attachments'])) {
-						$attachment_state = new AttachmentState();
-						$attachment_state->open();
-						$saveChanges = $attachment_state->isChangesPending($attachments['dialog_attachments']);
-						$attachment_state->close();
-					}
-
-					// check for changes in recipients info
-					$saveChanges = $saveChanges || !empty($recipients);
-				}
-			}
-
-			// check we should send/save mail
-			if ($saveChanges) {
-				$copyAttachments = false;
-				$copyFromStore = false;
-				$copyFromMessage = false;
-				$copyInlineAttachmentsOnly = false;
-
-				if (isset($action['message_action'], $action['message_action']['action_type'])) {
-					$actions = ['reply', 'replyall', 'forward', 'edit_as_new'];
-					if (array_search($action['message_action']['action_type'], $actions) !== false) {
-						/**
-						 * we need to copy the original attachments when it is a forwarded message, or an "edit as new" message
-						 * OR
-						 * we need to copy ONLY original inline(HIDDEN) attachments when it is reply/replyall message.
-						 */
-						$copyFromMessage = hex2bin((string) $action['message_action']['source_entryid']);
-						$copyFromStore = hex2bin((string) $action['message_action']['source_store_entryid']);
-						$copyFromAttachNum = !empty($action['message_action']['source_attach_num']) ? $action['message_action']['source_attach_num'] : false;
-						$copyAttachments = true;
-
-						// get resources of store and message
-						$copyFromStore = $GLOBALS['mapisession']->openMessageStore($copyFromStore);
-						$copyFromMessage = $GLOBALS['operations']->openMessage($copyFromStore, $copyFromMessage, $copyFromAttachNum);
-						if ($copyFromStore && $send) {
-							$store = $copyFromStore;
-						}
-
-						// Decode smime signed messages on this message
-						parse_smime($copyFromStore, $copyFromMessage);
-
-						if ($action['message_action']['action_type'] === 'reply' || $action['message_action']['action_type'] === 'replyall') {
-							$copyInlineAttachmentsOnly = true;
-						}
-					}
-				}
-				elseif (isset($action['props']['sent_representing_email_address'], $action['props']['sent_representing_address_type']) &&
-					strcasecmp($action['props']['sent_representing_address_type'], 'EX') == 0) {
-					$otherstore = $GLOBALS["mapisession"]->addUserStore($action['props']['sent_representing_email_address']);
-					if ($otherstore && $send) {
-						$store = $otherstore;
-					}
-				}
-
-				if ($send) {
-					// Allowing to hook in just before the data sent away to be sent to the client
-					$success = true;
-					$GLOBALS['PluginManager']->triggerHook('server.module.createmailitemmodule.beforesend', [
-						'moduleObject' => $this,
-						'store' => $store,
-						'entryid' => $entryid,
-						'action' => $action,
-						'success' => &$success,
-						'properties' => $this->properties,
-						'messageProps' => $messageProps,
-						'parententryid' => $parententryid,
-					]);
-					// Break out, hook should use sendFeedback to return a response to the client.
-					if (!$success) {
-						return;
-					}
-
-					if (!(isset($action['message_action']['action_type']) && $action['message_action']['action_type'] === 'edit_as_new')) {
-						$this->setReplyForwardInfo($action);
-					}
-
-					$savedUnsavedRecipients = [];
-
-					/*
-					 * If message was saved then open that message and retrieve
-					 * all recipients from message and prepare array under "saved" key
-					 */
-					if ($entryid) {
-						$message = $GLOBALS['operations']->openMessage($store, $entryid);
-						$savedRecipients = $GLOBALS['operations']->getRecipientsInfo($message);
-						foreach ($savedRecipients as $recipient) {
-							$savedUnsavedRecipients["saved"][] = $recipient['props'];
-						}
-					}
-
-					/*
-					 * If message some unsaved recipients then prepare array under the "unsaved"
-					 * key.
-					 */
-					if (!empty($recipients) && !empty($recipients["add"])) {
-						foreach ($recipients["add"] as $recipient) {
-							$savedUnsavedRecipients["unsaved"][] = $recipient;
-						}
-					}
-
-					$remove = [];
-					if (!empty($recipients) && !empty($recipients["remove"])) {
-						$remove = $recipients["remove"];
-					}
-
-					$members = $GLOBALS['operations']->convertLocalDistlistMembersToRecipients($savedUnsavedRecipients, $remove);
-
-					$action["recipients"]["add"] = $members["add"];
-
-					if (!empty($remove)) {
-						$action["recipients"]["remove"] = array_merge($action["recipients"]["remove"], $members["remove"]);
-					}
-					else {
-						$action["recipients"]["remove"] = $members["remove"];
-					}
-
-					$error = $GLOBALS['operations']->submitMessage($store, $entryid, Conversion::mapXML2MAPI($this->properties, $action['props']), $messageProps, $action['recipients'] ?? [], $action['attachments'] ?? [], $copyFromMessage, $copyAttachments, false, $copyInlineAttachmentsOnly, isset($action['props']['isHTML']) ? !$action['props']['isHTML'] : false);
-
-					// If draft is sent from the drafts folder, delete notification
-					if (!$error) {
-						$result = true;
-						$GLOBALS['operations']->parseDistListAndAddToRecipientHistory($savedUnsavedRecipients, $remove);
-
-						if (isset($entryid) && !empty($entryid)) {
-							$props = [];
-							$props[PR_ENTRYID] = $entryid;
-							$props[PR_PARENT_ENTRYID] = $parententryid;
-
-							$storeprops = mapi_getprops($store, [PR_ENTRYID]);
-							$props[PR_STORE_ENTRYID] = $storeprops[PR_ENTRYID];
-
-							$GLOBALS['bus']->addData($this->getResponseData());
-							$GLOBALS['bus']->notify(bin2hex($parententryid), TABLE_DELETE, $props);
-						}
-						$this->sendFeedback($result ? true : false, [], false);
-					}
-					else {
-						if ($error === 'MAPI_E_NO_ACCESS') {
-							// Handling error: not able to handle this type of object
-							$data = [];
-							$data["type"] = 1; // MAPI
-							$data["info"] = [];
-							$data["info"]['title'] = _("Insufficient permissions");
-							$data["info"]['display_message'] = _("You don't have the permission to complete this action");
-							$this->addActionData("error", $data);
-						}
-						if ($error === "ecQuotaExceeded") {
-							// Handling error: Send quota error
-							$data = [];
-							$data["type"] = 1; // MAPI
-							$data["info"] = [];
-							$data["info"]['title'] = _("Quota error");
-							$data["info"]['display_message'] = _("Send quota limit reached");
-							$this->addActionData("error", $data);
-						}
-						if ($error === "ecRpcFailed") {
-							// Handling error: mapi_message_submitmessage failed
-							$data = [];
-							$data["type"] = 1; // MAPI
-							$data["info"] = [];
-							$data["info"]['title'] = _("Operation failed");
-							$data["info"]['display_message'] = _("Email sending failed. Check the log files for more information.");
-							$this->addActionData("error", $data);
-						}
-					}
-				}
-				else {
-					$propertiesToDelete = [];
-					$mapiProps = Conversion::mapXML2MAPI($this->properties, $action['props']);
-
-					/*
-					 * PR_SENT_REPRESENTING_ENTRYID and PR_SENT_REPRESENTING_SEARCH_KEY properties needs to be deleted while user removes
-					 * any previously configured recipient from FROM field.
-					 * This property was simply ignored by Conversion::mapXML2MAPI function
-					 * as it is configured with empty string in request.
-					 */
-					if (isset($action['props']['sent_representing_entryid']) && empty($action['props']['sent_representing_entryid'])) {
-						array_push($propertiesToDelete, PR_SENT_REPRESENTING_ENTRYID, PR_SENT_REPRESENTING_SEARCH_KEY);
-					}
-
-					$result = $GLOBALS['operations']->saveMessage($store, $entryid, $parententryid, $mapiProps, $messageProps, $action['recipients'] ?? [], $action['attachments'] ?? [], $propertiesToDelete, $copyFromMessage, $copyAttachments, false, $copyInlineAttachmentsOnly);
-
-					// Update the client with the (new) entryid and parententryid to allow the draft message to be removed when submitting.
-					// this will also update rowids of attachments which is required when deleting attachments
-					$props = [];
-					$props = mapi_getprops($result, [PR_ENTRYID]);
-					$savedMsg = $GLOBALS['operations']->openMessage($store, $props[PR_ENTRYID]);
-
-					$attachNum = !empty($action['attach_num']) ? $action['attach_num'] : false;
-
-					// If embedded message is being saved currently than we need to obtain all the
-					// properties of 'embedded' message instead of simple message and send it in response
-					if ($attachNum) {
-						$message = $GLOBALS['operations']->openMessage($store, $props[PR_ENTRYID], $attachNum);
-
-						if (empty($message)) {
-							return;
-						}
-
-						$data['item'] = $GLOBALS['operations']->getEmbeddedMessageProps($store, $message, $this->properties, $savedMsg, $attachNum);
-					}
-					else {
-						$data = $GLOBALS['operations']->getMessageProps($store, $savedMsg, $this->properties, $this->plaintext, true);
-					}
-
-					/*
-					 * html filter modifies body of the message when opening the message
-					 * but we have just saved the message and even if there are changes in body because of html filter
-					 * we shouldn't send updated body to client otherwise it will mark it as changed
-					 */
-					unset($data['props']['body'], $data['props']['html_body'], $data['props']['isHTML']);
-
-					$GLOBALS['PluginManager']->triggerHook('server.module.createmailitemmodule.aftersave', [
-						'data' => &$data,
-						'entryid' => $props[PR_ENTRYID],
-						'action' => $action,
-						'properties' => $this->properties,
-						'messageProps' => $messageProps,
-						'parententryid' => $parententryid,
-					]);
-
-					$this->addActionData('update', ['item' => $data]);
-				}
-			}
-			if ($result === false && isset($action['message_action']['soft_delete'])) {
-				$result = true;
-			}
-
-			// Feedback for successful save (without send)
-			if ($result && !$send && isset($messageProps[PR_PARENT_ENTRYID])) {
-				$GLOBALS['bus']->notify(bin2hex($messageProps[PR_PARENT_ENTRYID]), TABLE_SAVE, $messageProps);
-			}
-
-			// Feedback for send
-			if ($send) {
-				$this->addActionData('update', ['item' => Conversion::mapMAPI2XML($this->properties, $messageProps)]);
-			}
-
-			$this->sendFeedback($result ? true : false, [], true);
+			return $store;
 		}
+
+		return $GLOBALS['mapisession']->getDefaultMessageStore();
+	}
+
+	/**
+	 * Resolve parent entry id based on provided data or defaults.
+	 *
+	 * @param mixed  $store
+	 * @param string $parententryid
+	 *
+	 * @return string
+	 */
+	private function resolveParentEntryId($store, $parententryid, array $action) {
+		if ($parententryid) {
+			return $parententryid;
+		}
+
+		$messageClass = $action['props']['message_class'] ?? '';
+
+		return $this->getDefaultFolderEntryID($store, $messageClass);
+	}
+
+	/**
+	 * Apply message flag updates if requested by the client.
+	 *
+	 * @param mixed $store
+	 * @param mixed $entryid
+	 *
+	 * @return bool
+	 */
+	private function applyMessageFlags($store, $entryid, array &$action, array &$messageProps) {
+		if (!isset($action['props']['message_flags']) || !$entryid) {
+			return false;
+		}
+
+		$msgAction = $action['message_action'] ?? false;
+		$result = $GLOBALS['operations']->setMessageFlag($store, $entryid, $action['props']['message_flags'], $msgAction, $messageProps);
+
+		unset($action['props']['message_flags']);
+
+		return (bool) $result;
+	}
+
+	/**
+	 * Determine whether the current action requests sending the message.
+	 *
+	 * @return bool
+	 */
+	private function shouldSendMessage(array $action) {
+		return isset($action['message_action']['send']) ? (bool) $action['message_action']['send'] : false;
+	}
+
+	/**
+	 * Decide if the message requires saving based on provided data.
+	 *
+	 * @param bool $send
+	 *
+	 * @return bool
+	 */
+	private function shouldPersistMessage($send, array $action, array $attachments, array $recipients) {
+		if ($send) {
+			return true;
+		}
+
+		if (!empty($action['props'])) {
+			return true;
+		}
+
+		if ($this->hasAttachmentChanges($attachments)) {
+			return true;
+		}
+
+		return !empty($recipients);
+	}
+
+	/**
+	 * Check if attachment updates are pending in the attachment state.
+	 *
+	 * @return bool
+	 */
+	private function hasAttachmentChanges(array $attachments) {
+		if (!isset($attachments['dialog_attachments'])) {
+			return false;
+		}
+
+		$attachmentState = new AttachmentState();
+		$attachmentState->open();
+		$hasChanges = $attachmentState->isChangesPending($attachments['dialog_attachments']);
+		$attachmentState->close();
+
+		return $hasChanges;
+	}
+
+	/**
+	 * Prepare context data when the new message should copy content from another message.
+	 *
+	 * @param mixed $store
+	 * @param bool  $send
+	 *
+	 * @return array
+	 */
+	private function createCopyContext($store, array $action, $send) {
+		$context = [
+			'store' => $store,
+			'copyAttachments' => false,
+			'copyFromMessage' => false,
+			'copyInlineAttachmentsOnly' => false,
+		];
+
+		if (isset($action['message_action']['action_type'])) {
+			$actionType = $action['message_action']['action_type'];
+			$requiresCopy = in_array($actionType, ['reply', 'replyall', 'forward', 'edit_as_new'], true);
+
+			if ($requiresCopy) {
+				$copyFromMessageId = (string) ($action['message_action']['source_entryid'] ?? '');
+				$copyFromStoreId = (string) ($action['message_action']['source_store_entryid'] ?? '');
+				$copyFromAttachNum = !empty($action['message_action']['source_attach_num']) ? $action['message_action']['source_attach_num'] : false;
+
+				$copyStoreBinary = $copyFromStoreId !== '' ? $this->hexToBinOrFalse($copyFromStoreId) : false;
+				$copyMessageBinary = $copyFromMessageId !== '' ? $this->hexToBinOrFalse($copyFromMessageId) : false;
+				$copyFromStore = $copyStoreBinary !== false ? $GLOBALS['mapisession']->openMessageStore($copyStoreBinary) : false;
+				$copyFromMessage = false;
+
+				if ($copyFromStore && $copyMessageBinary !== false) {
+					$copyFromMessage = $GLOBALS['operations']->openMessage($copyFromStore, $copyMessageBinary, $copyFromAttachNum);
+				}
+
+				if ($copyFromStore && $send) {
+					$context['store'] = $copyFromStore;
+				}
+
+				if ($copyFromStore && $copyFromMessage) {
+					parse_smime($copyFromStore, $copyFromMessage);
+				}
+
+				$context['copyAttachments'] = true;
+				$context['copyFromMessage'] = $copyFromMessage;
+				$context['copyInlineAttachmentsOnly'] = in_array($actionType, ['reply', 'replyall'], true);
+			}
+		}
+		elseif (isset($action['props']['sent_representing_email_address'], $action['props']['sent_representing_address_type']) && strcasecmp($action['props']['sent_representing_address_type'], 'EX') === 0) {
+			$otherStore = $GLOBALS['mapisession']->addUserStore($action['props']['sent_representing_email_address']);
+			if ($otherStore && $send) {
+				$context['store'] = $otherStore;
+			}
+		}
+
+		return $context;
+	}
+
+	/**
+	 * Handle the send flow including plugin hooks and recipient processing.
+	 *
+	 * @param mixed $store
+	 * @param mixed $entryid
+	 * @param mixed $parententryid
+	 * @param mixed $copyFromMessage
+	 * @param bool  $copyAttachments
+	 * @param bool  $copyInlineAttachmentsOnly
+	 *
+	 * @return array
+	 */
+	private function handleSend($store, $entryid, $parententryid, array &$action, array $recipients, array &$messageProps, $copyFromMessage, $copyAttachments, $copyInlineAttachmentsOnly) {
+		$success = true;
+		$GLOBALS['PluginManager']->triggerHook('server.module.createmailitemmodule.beforesend', [
+			'moduleObject' => $this,
+			'store' => $store,
+			'entryid' => $entryid,
+			'action' => $action,
+			'success' => &$success,
+			'properties' => $this->properties,
+			'messageProps' => $messageProps,
+			'parententryid' => $parententryid,
+		]);
+
+		if (!$success) {
+			return ['result' => false, 'aborted' => true];
+		}
+
+		if (!isset($action['message_action']['action_type']) || $action['message_action']['action_type'] !== 'edit_as_new') {
+			$this->setReplyForwardInfo($action);
+		}
+
+		$savedUnsavedRecipients = [];
+		if ($entryid) {
+			$message = $GLOBALS['operations']->openMessage($store, $entryid);
+			$savedRecipients = $GLOBALS['operations']->getRecipientsInfo($message);
+			foreach ($savedRecipients as $recipient) {
+				$savedUnsavedRecipients['saved'][] = $recipient['props'];
+			}
+		}
+
+		if (!empty($recipients['add'])) {
+			foreach ($recipients['add'] as $recipient) {
+				$savedUnsavedRecipients['unsaved'][] = $recipient;
+			}
+		}
+
+		$remove = !empty($recipients['remove']) ? $recipients['remove'] : [];
+		$members = $GLOBALS['operations']->convertLocalDistlistMembersToRecipients($savedUnsavedRecipients, $remove);
+		$action['recipients'] = $action['recipients'] ?? [];
+		$action['recipients']['add'] = $members['add'];
+		$action['recipients']['remove'] = !empty($remove) ? array_merge($action['recipients']['remove'] ?? [], $members['remove']) : $members['remove'];
+
+		$error = $GLOBALS['operations']->submitMessage(
+			$store,
+			$entryid,
+			Conversion::mapXML2MAPI($this->properties, $action['props']),
+			$messageProps,
+			$action['recipients'] ?? [],
+			$action['attachments'] ?? [],
+			$copyFromMessage,
+			$copyAttachments,
+			false,
+			$copyInlineAttachmentsOnly,
+			isset($action['props']['isHTML']) ? !$action['props']['isHTML'] : false
+		);
+
+		if (!$error) {
+			$GLOBALS['operations']->parseDistListAndAddToRecipientHistory($savedUnsavedRecipients, $remove);
+			if ($entryid) {
+				$props = [];
+				$props[PR_ENTRYID] = $entryid;
+				$props[PR_PARENT_ENTRYID] = $parententryid;
+				$storeProps = mapi_getprops($store, [PR_ENTRYID]);
+				$props[PR_STORE_ENTRYID] = $storeProps[PR_ENTRYID];
+				$GLOBALS['bus']->addData($this->getResponseData());
+				$GLOBALS['bus']->notify(bin2hex($parententryid), TABLE_DELETE, $props);
+			}
+			$this->sendFeedback(true, [], false);
+
+			return ['result' => true, 'aborted' => false];
+		}
+
+		if ($error === 'MAPI_E_NO_ACCESS') {
+			$data = [];
+			$data['type'] = 1;
+			$data['info'] = [];
+			$data['info']['title'] = _('Insufficient permissions');
+			$data['info']['display_message'] = _("You don't have the permission to complete this action");
+			$this->addActionData('error', $data);
+		}
+		if ($error === 'ecQuotaExceeded') {
+			$data = [];
+			$data['type'] = 1;
+			$data['info'] = [];
+			$data['info']['title'] = _('Quota error');
+			$data['info']['display_message'] = _('Send quota limit reached');
+			$this->addActionData('error', $data);
+		}
+		if ($error === 'ecRpcFailed') {
+			$data = [];
+			$data['type'] = 1;
+			$data['info'] = [];
+			$data['info']['title'] = _('Operation failed');
+			$data['info']['display_message'] = _('Email sending failed. Check the log files for more information.');
+			$this->addActionData('error', $data);
+		}
+
+		return ['result' => false, 'aborted' => false];
+	}
+
+	/**
+	 * Handle the draft save flow including attachment and plugin updates.
+	 *
+	 * @param mixed $store
+	 * @param mixed $entryid
+	 * @param mixed $parententryid
+	 * @param mixed $copyFromMessage
+	 * @param bool  $copyAttachments
+	 * @param bool  $copyInlineAttachmentsOnly
+	 *
+	 * @return array
+	 */
+	private function handleDraftSave($store, $entryid, $parententryid, array $action, array &$messageProps, $copyFromMessage, $copyAttachments, $copyInlineAttachmentsOnly) {
+		$propertiesToDelete = [];
+		$mapiProps = Conversion::mapXML2MAPI($this->properties, $action['props']);
+		if (isset($action['props']['sent_representing_entryid']) && empty($action['props']['sent_representing_entryid'])) {
+			$propertiesToDelete[] = PR_SENT_REPRESENTING_ENTRYID;
+			$propertiesToDelete[] = PR_SENT_REPRESENTING_SEARCH_KEY;
+		}
+
+		$result = $GLOBALS['operations']->saveMessage(
+			$store,
+			$entryid,
+			$parententryid,
+			$mapiProps,
+			$messageProps,
+			$action['recipients'] ?? [],
+			$action['attachments'] ?? [],
+			$propertiesToDelete,
+			$copyFromMessage,
+			$copyAttachments,
+			false,
+			$copyInlineAttachmentsOnly
+		);
+
+		if (!$result) {
+			return ['result' => false, 'aborted' => false];
+		}
+
+		$props = mapi_getprops($result, [PR_ENTRYID]);
+		$savedMsg = $GLOBALS['operations']->openMessage($store, $props[PR_ENTRYID]);
+		$attachNum = !empty($action['attach_num']) ? $action['attach_num'] : false;
+		$data = [];
+
+		if ($attachNum) {
+			$message = $GLOBALS['operations']->openMessage($store, $props[PR_ENTRYID], $attachNum);
+			if (empty($message)) {
+				return ['result' => false, 'aborted' => true];
+			}
+			$data['item'] = $GLOBALS['operations']->getEmbeddedMessageProps($store, $message, $this->properties, $savedMsg, $attachNum);
+		}
+		else {
+			$data = $GLOBALS['operations']->getMessageProps($store, $savedMsg, $this->properties, $this->plaintext, true);
+		}
+
+		unset($data['props']['body'], $data['props']['html_body'], $data['props']['isHTML']);
+
+		$GLOBALS['PluginManager']->triggerHook('server.module.createmailitemmodule.aftersave', [
+			'data' => &$data,
+			'entryid' => $props[PR_ENTRYID],
+			'action' => $action,
+			'properties' => $this->properties,
+			'messageProps' => $messageProps,
+			'parententryid' => $parententryid,
+		]);
+
+		$this->addActionData('update', ['item' => $data]);
+
+		return ['result' => $result, 'aborted' => false];
+	}
+
+	/**
+	 * Convert a hexadecimal string to binary data, returning false when invalid.
+	 *
+	 * @param string $value
+	 *
+	 * @return false|string
+	 */
+	private function hexToBinOrFalse($value) {
+		if ($value === '') {
+			return '';
+		}
+
+		if ((strlen($value) % 2) !== 0 || !ctype_xdigit($value)) {
+			return false;
+		}
+
+		return hex2bin($value);
 	}
 
 	/**
