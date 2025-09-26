@@ -1450,8 +1450,10 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 */
 	beforeAppointmentsLoad: function(store, options)
 	{
-		// Destroy all appointments.
-		this.clearAppointments(true);
+		// Keep existing appointments visible until fresh data arrives so the user
+		// sees the previous snapshot instead of a blank calendar during loading.
+		// Appointments are cleared just before new records are rendered in
+		// onAppointmentsLoad().
 	},
 
 	/**

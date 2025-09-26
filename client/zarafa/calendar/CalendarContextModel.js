@@ -119,6 +119,7 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 		});
 
 		this.calculateDateRange(this.date);
+		this.pendingLoadTask = new Ext.util.DelayedTask(this.onPendingLoad, this);
 	},
 
 	/**
@@ -140,6 +141,16 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 		if (suspended !== true) {
 			this.resumeLoading();
 		}
+	},
+
+	disable: function()
+	{
+		if (this.pendingLoadTask) {
+			this.pendingLoadTask.cancel();
+			delete this._pendingLoadData;
+		}
+
+		Zarafa.calendar.CalendarContextModel.superclass.disable.apply(this, arguments);
 	},
 
 	/*
@@ -255,12 +266,33 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 	/**
 	 * Loads the store with new data, based on the list of currently selected folders and selected date range.
 	 */
-	load: function()
+	load: function(data, immediate)
 	{
+		if (immediate === true || !this.pendingLoadTask) {
+			if (this.pendingLoadTask) {
+				this.pendingLoadTask.cancel();
+			}
+			delete this._pendingLoadData;
+			return this._loadInternal(data);
+		}
+
+		this._pendingLoadData = data;
+		this.pendingLoadTask.cancel();
+		this.pendingLoadTask.delay(50);
+		return false;
+	},
+
+	_loadInternal: function(data)
+	{
+		if (Ext.isDefined(data)) {
+			return Zarafa.calendar.CalendarContextModel.superclass.load.call(this, data);
+		}
+
 		if (this.ignoreDateRange) {
-			Zarafa.calendar.CalendarContextModel.superclass.load.call(this);
-		} else {
-			Zarafa.calendar.CalendarContextModel.superclass.load.call(this, {
+			return Zarafa.calendar.CalendarContextModel.superclass.load.call(this);
+		}
+
+		return Zarafa.calendar.CalendarContextModel.superclass.load.call(this, {
 				params: {
 					restriction: {
 						startdate: this.dateRange.getStartTime() / 1000,
@@ -268,7 +300,13 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 					}
 				}
 			});
-		}
+	},
+
+	onPendingLoad: function()
+	{
+		var data = this._pendingLoadData;
+		delete this._pendingLoadData;
+		this._loadInternal(data);
 	},
 
 	/**
