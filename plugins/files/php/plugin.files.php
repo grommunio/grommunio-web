@@ -68,8 +68,14 @@ class Pluginfiles extends Plugin {
 						$backendstore = BackendStore::getInstance();
 
 						if ($backendstore->backendExists($backend)) {
-							$backendInstance = $backendstore->getInstanceOfBackend($backend);
-							$formdata = $backendInstance->getFormConfig();
+							try {
+								$backendInstance = $backendstore->getInstanceOfBackend($backend);
+								$formdata = $backendInstance->getFormConfig();
+							}
+							catch (Throwable $t) {
+								error_log('[Files][Form] ' . $t->getMessage());
+								$formdata = json_encode(['success' => false, 'message' => 'Unable to load backend form']);
+							}
 
 							exit($formdata);
 						}

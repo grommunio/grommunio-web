@@ -352,13 +352,21 @@ class AccountStore {
 	 */
 	private function encryptBackendConfigProperty($value, $version = 0) {
 		if ($version == self::ACCOUNT_VERSION && !is_bool($value)) {
+			// Guard against missing libsodium extension on PHP 8.1/8.2
+			if (!defined('SODIUM_CRYPTO_SECRETBOX_NONCEBYTES') || !function_exists('sodium_crypto_secretbox')) {
+				// Keep original value to avoid fatals; features may be limited
+				error_log('[Files][AccountStore] Libsodium not available for encryption; storing value as-is.');
+
+				return $value;
+			}
+
 			$nonce = random_bytes(SODIUM_CRYPTO_SECRETBOX_NONCEBYTES);
 			$key = $GLOBALS["operations"]->getFilesEncryptionKey();
 			$encrypted = sodium_crypto_secretbox((string) $value, $nonce, (string) $key);
 			$value = bin2hex($nonce) . bin2hex($encrypted);
 		}
 		elseif ($version !== self::ACCOUNT_VERSION) {
-			throw Exception("Unable to encrypt backend configuration unsupported version {$version}");
+			throw new Exception("Unable to encrypt backend configuration unsupported version {$version}");
 		}
 
 		return $value;
@@ -378,6 +386,14 @@ class AccountStore {
 		}
 
 		if ($version == self::ACCOUNT_VERSION) {
+			// Guard against missing libsodium extension to avoid fatal errors
+			if (!defined('SODIUM_CRYPTO_SECRETBOX_NONCEBYTES') || !function_exists('sodium_crypto_secretbox_open')) {
+				// Return input as-is to avoid breaking the request path.
+				error_log('[Files][AccountStore] Libsodium not available for decryption; returning raw value.');
+
+				return $value;
+			}
+
 			$value = hex2bin((string) $value);
 			$nonce = substr($value, 0, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES);
 			$encrypted = substr($value, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES, strlen($value));

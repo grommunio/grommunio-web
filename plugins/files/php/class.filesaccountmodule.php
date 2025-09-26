@@ -205,9 +205,9 @@ class FilesAccountModule extends ListModule {
 		$sortKey = "account_sequence";
 		$sortDir = "ASC";
 
-		if (isset($data['sort'])) {
-			$sortKey = $data['sort'][0]['field'];
-			$sortDir = $data['sort'][0]['direction'];
+		if (isset($actionData['sort'])) {
+			$sortKey = $actionData['sort'][0]['field'];
+			$sortDir = $actionData['sort'][0]['direction'];
 		}
 
 		Logger::debug(self::LOG_CONTEXT, "Sorting by " . $sortKey . " in direction: " . $sortDir);

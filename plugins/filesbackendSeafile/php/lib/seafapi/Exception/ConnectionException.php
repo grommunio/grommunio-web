@@ -22,7 +22,7 @@ final class ConnectionException extends Exception {
 	 */
 	private ?string $responseBodyRaw = null;
 
-	private const array HTTP_STATUS = [
+	private const HTTP_STATUS = [
 		200 => 'OK',
 		201 => 'Created',
 		202 => 'Accepted',

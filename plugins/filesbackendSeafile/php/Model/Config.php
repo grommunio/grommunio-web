@@ -18,7 +18,7 @@ use ArrayAccess;
  * @property string sso_auth_user_token Token for SSO user authentication
  */
 class Config implements \ArrayAccess {
-	private const array DEF = [
+	private const DEF = [
 		'server' => 'server_address',
 		'port' => 'server_port',
 		'ssl' => 'server_ssl',
@@ -28,7 +28,7 @@ class Config implements \ArrayAccess {
 		'sso_auth_user_token' => 'sso_auth_user_token',
 	];
 
-	private const array SCHEMA = [
+	private const SCHEMA = [
 		self::DEF['server'] => [
 			'filter' => FILTER_VALIDATE_DOMAIN,
 			'flags' => FILTER_FLAG_HOSTNAME,

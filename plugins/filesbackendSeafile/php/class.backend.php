@@ -36,12 +36,12 @@ use Throwable;
  * REST API {@link https://download.seafile.com/published/web-api}.
  */
 final class Backend extends AbstractBackend implements iFeatureVersionInfo {
-	public const string LOG_CONTEXT = "SeafileBackend"; // Context for the Logger
+	public const LOG_CONTEXT = "SeafileBackend"; // Context for the Logger
 
 	/**
 	 * @const string gettext domain
 	 */
-	private const string GT_DOMAIN = 'plugin_filesbackendSeafile';
+	private const GT_DOMAIN = 'plugin_filesbackendSeafile';
 
 	/**
 	 * Seafile "usage" number ("bytes") to Grommunio usage display number ("bytes") multiplier.
@@ -50,7 +50,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 	 *
 	 * (Seafile Usage "Bytes" U) / 1000 / 1000 * 1024 * 1024 (1.048576)
 	 */
-	private const float QUOTA_MULTIPLIER_SEAFILE_TO_GROMMUNIO = 1.048576;
+	private const QUOTA_MULTIPLIER_SEAFILE_TO_GROMMUNIO = 1.048576;
 
 	/**
 	 * Error codes.
@@ -58,19 +58,19 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 	 * @see parseErrorCodeToMessage for description
 	 * @see Backend::backendException() for Seafile API handling
 	 */
-	private const int SFA_ERR_UNAUTHORIZED = 401;
-	private const int SFA_ERR_FORBIDDEN = 403;
-	private const int SFA_ERR_NOTFOUND = 404;
-	private const int SFA_ERR_NOTALLOWED = 405;
-	private const int SFA_ERR_TIMEOUT = 408;
-	private const int SFA_ERR_LOCKED = 423;
-	private const int SFA_ERR_FAILED_DEPENDENCY = 423;
-	private const int SFA_ERR_INTERNAL = 500;
-	private const int SFA_ERR_UNREACHABLE = 800;
-	private const int SFA_ERR_TMP = 801;
-	private const int SFA_ERR_FEATURES = 802;
-	private const int SFA_ERR_NO_CURL = 803;
-	private const int SFA_ERR_UNIMPLEMENTED = 804;
+	private const SFA_ERR_UNAUTHORIZED = 401;
+	private const SFA_ERR_FORBIDDEN = 403;
+	private const SFA_ERR_NOTFOUND = 404;
+	private const SFA_ERR_NOTALLOWED = 405;
+	private const SFA_ERR_TIMEOUT = 408;
+	private const SFA_ERR_LOCKED = 423;
+	private const SFA_ERR_FAILED_DEPENDENCY = 423;
+	private const SFA_ERR_INTERNAL = 500;
+	private const SFA_ERR_UNREACHABLE = 800;
+	private const SFA_ERR_TMP = 801;
+	private const SFA_ERR_FEATURES = 802;
+	private const SFA_ERR_NO_CURL = 803;
+	private const SFA_ERR_UNIMPLEMENTED = 804;
 
 	/**
 	 * @var ?SeafileApi the Seafile API client

@@ -18,6 +18,15 @@
 // own. (e.g. the spellchecker plugin)
 require_once __DIR__ . '/../../init.php';
 
+// Polyfill for PHP 8.3's built-in #[\Override] attribute on PHP 8.1/8.2
+// Define only if it doesn't already exist (i.e., when running on < 8.3).
+if (!class_exists('Override')) {
+	if (class_exists('Attribute')) {
+		#[Attribute(Attribute::TARGET_METHOD)]
+		class Override {}
+	}
+}
+
 // load configuration file
 if (!file_exists(BASE_PATH . 'config.php')) {
 	exit("<strong>config.php is missing!</strong>");

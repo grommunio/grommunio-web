@@ -45,7 +45,9 @@ class BackendStore {
 
 	// Make it a singleton
 	private function __construct() {
-		$this->EXTERNAL_BACKEND_DIR = BASE_PATH . PATH_PLUGIN_DIR . "/";
+		// Be tolerant if PATH_PLUGIN_DIR is not defined in config.php
+		$pluginsDir = defined('PATH_PLUGIN_DIR') ? constant('PATH_PLUGIN_DIR') : 'plugins';
+		$this->EXTERNAL_BACKEND_DIR = BASE_PATH . rtrim($pluginsDir, '/') . "/";
 
 		Logger::debug(self::LOG_CONTEXT, "Searching for external backends in " . $this->EXTERNAL_BACKEND_DIR);
 	}

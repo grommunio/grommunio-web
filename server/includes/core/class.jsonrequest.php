@@ -119,5 +119,22 @@ class JSONRequest {
 
 			return json_encode(["zarafa" => $data], $jsonflags);
 		}
+		catch (Throwable $e) {
+			// Catch PHP Errors/TypeErrors as JSON to avoid HTTP 500s
+			dump($e);
+
+			$data = [
+				"error" => [
+					"type" => ERROR_GENERAL,
+					"info" => [
+						"file" => basename($e->getFile()) . ':' . $e->getLine(),
+						"display_message" => _('An unexpected error has occurred'),
+						"original_message" => $e->getMessage(),
+					],
+				],
+			];
+
+			return json_encode(["zarafa" => $data], $jsonflags);
+		}
 	}
 }
