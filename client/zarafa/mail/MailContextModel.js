@@ -943,10 +943,12 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 
 			this.prunePrefetchedCache(store, prefetchRange, budget);
 
-			let toOpen = this.collectPrefetchCandidates(store, prefetchRange);
-			if (Ext.isEmpty(toOpen)) {
+			const toOpenCandidates = this.collectPrefetchCandidates(store, prefetchRange);
+			if (Ext.isEmpty(toOpenCandidates)) {
 				return;
 			}
+
+			let toOpen = toOpenCandidates;
 
 			const requiredSlots = this.getRequiredPrefetchSlots(toOpen.length, budget);
 			if (requiredSlots > 0) {
@@ -1675,16 +1677,31 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 */
 	getPrefetchBudget: function(visibleSpan) {
 		const configured = this.normalizePrefetchCount(container.getServerConfig().getPrefetchTotalCount());
+		const marginAllowance = Math.max(this.getViewportPrefetchMargin(), 0) * 2;
 
 		if (!visibleSpan || !Ext.isNumber(visibleSpan.count) || visibleSpan.count <= 0) {
-			return configured > 0 ? configured : Number.POSITIVE_INFINITY;
+			if (configured > 0) {
+				return configured;
+			}
+
+			if (marginAllowance > 0) {
+				return marginAllowance;
+			}
+
+			return Number.POSITIVE_INFINITY;
 		}
+
+		const minimum = visibleSpan.count + marginAllowance;
 
 		if (configured <= 0) {
-			return visibleSpan.count;
+			return minimum > 0 ? minimum : visibleSpan.count;
 		}
 
-		return Math.max(configured, visibleSpan.count);
+		return Math.max(configured, minimum > 0 ? minimum : visibleSpan.count);
+	},
+
+	getViewportPrefetchMargin: function() {
+		return 5;
 	},
 
 	/**
@@ -1694,22 +1711,27 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @return {Number} The buffer size that should be applied before and after the visible range.
 	 */
 	calculatePrefetchBuffer: function(visibleSpan, budget) {
+		const baseBuffer = Math.max(this.getViewportPrefetchMargin(), 0);
+
 		if (!visibleSpan || !Ext.isNumber(visibleSpan.count) || visibleSpan.count <= 0) {
-			return 0;
+			return baseBuffer;
 		}
 
 		const visibleCount = visibleSpan.count;
 
 		if (!Ext.isNumber(budget) || !isFinite(budget) || budget <= 0) {
-			return Math.min(Math.ceil(visibleCount / 2), 50);
+			const preferred = Math.max(Math.ceil(visibleCount / 2), baseBuffer);
+			return Math.min(preferred, 50);
 		}
 
 		const slack = Math.max(budget - visibleCount, 0);
-		if (slack <= 0) {
-			return 0;
+		const halfSlack = Math.floor(slack / 2);
+		if (halfSlack <= 0) {
+			return Math.min(baseBuffer, halfSlack);
 		}
 
-		return Math.min(Math.ceil(visibleCount / 2), Math.floor(slack / 2), 50);
+		const preferred = Math.max(Math.ceil(visibleCount / 2), baseBuffer);
+		return Math.min(preferred, halfSlack, 50);
 	},
 
 	/**
@@ -1734,15 +1756,16 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @return {Ext.data.Record[]} The records that should be opened.
 	 */
 	collectPrefetchCandidates: function(store, prefetchRange) {
-		if (!store || !prefetchRange) {
+		if (!store || !Ext.isFunction(store.getAt) || !prefetchRange) {
 			return [];
 		}
 
-		const rangeRecords = store.getRange(prefetchRange.start, prefetchRange.end) || [];
 		const candidates = [];
+		const start = Math.max(prefetchRange.start, 0);
+		const end = Math.max(prefetchRange.end, start);
 
-		for (let i = 0; i < rangeRecords.length; i++) {
-			const record = rangeRecords[i];
+		for (let index = start; index <= end; index++) {
+			const record = store.getAt(index);
 			if (!record || !this.shouldPrefetchMailRecord(record, store) || this.isMailRecordCached(record)) {
 				continue;
 			}
