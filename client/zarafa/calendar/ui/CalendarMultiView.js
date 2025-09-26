@@ -1222,9 +1222,61 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 			this.manageCalendarViews();
 		}
 
+		var hasRecords = Array.isArray(records) && records.length > 0;
+		// Bucket appointments by folder so we don't iterate the full dataset for every calendar view.
+		var recordsByFolder = {};
+		// Preserve store ordering when multiple folders share the same calendar.
+		var recordOrder = {};
+		var getRecordKey = function(record) {
+			if (store && Ext.isFunction(store.getRecordKey)) {
+				return store.getRecordKey(record);
+			}
+			return Ext.isDefined(record.internalId) ? record.internalId : record.id;
+		};
+
+		if (hasRecords) {
+			for (var index = 0; index < records.length; index++) {
+				var record = records[index];
+				var folderId = record.get('parent_entryid');
+				if (folderId) {
+					if (!recordsByFolder[folderId]) {
+						recordsByFolder[folderId] = [];
+					}
+					recordsByFolder[folderId].push(record);
+				}
+
+				recordOrder[getRecordKey(record)] = index;
+			}
+		}
+
 		// forward the event to the individual calendar views
 		for (var i = 0, len = this.calendars.length; i < len; i++) {
-			this.calendars[i].onAppointmentsLoad(store, records, options);
+			var calendar = this.calendars[i];
+			var filteredRecords = [];
+
+			if (hasRecords) {
+				var folderIds = calendar.getFolderIds();
+				for (var j = 0; j < folderIds.length; j++) {
+					var folderRecords = recordsByFolder[folderIds[j]];
+					if (folderRecords && folderRecords.length) {
+						for (var r = 0; r < folderRecords.length; r++) {
+							filteredRecords.push(folderRecords[r]);
+						}
+					}
+				}
+
+				if (filteredRecords.length > 1) {
+					filteredRecords.sort(function(a, b) {
+						var orderA = recordOrder[getRecordKey(a)];
+						var orderB = recordOrder[getRecordKey(b)];
+						orderA = Ext.isNumber(orderA) ? orderA : Number.MAX_VALUE;
+						orderB = Ext.isNumber(orderB) ? orderB : Number.MAX_VALUE;
+						return orderA - orderB;
+					});
+				}
+			}
+
+			calendar.onAppointmentsLoad(store, filteredRecords, options);
 		}
 
 		this.layout();
