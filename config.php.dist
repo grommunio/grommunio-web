@@ -162,6 +162,9 @@
 	// Overrides defaults.php
 	define("LOG_USER_LEVEL", LOGLEVEL_DEBUG);
 
+	// Uncomment to log detailed full-text search diagnostics to the PHP error log.
+	//define("DEBUG_FULLTEXT_SEARCH", true);
+
 	/**************************************\
 	* Languages                            *
 	\**************************************/

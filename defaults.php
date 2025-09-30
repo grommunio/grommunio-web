@@ -634,6 +634,10 @@ if (!defined("MAX_FTS_RESULT_ITEMS")) {
 if (!defined("DEBUG_LOADER")) {
 	define("DEBUG_LOADER", LOAD_RELEASE);
 }
+// Enable additional logging around the SQLite full-text search pipeline when troubleshooting search issues.
+if (!defined("DEBUG_FULLTEXT_SEARCH")) {
+	define("DEBUG_FULLTEXT_SEARCH", false);
+}
 if (!defined("DEBUG_JSONOUT")) {
 	define("DEBUG_JSONOUT", false);
 }
