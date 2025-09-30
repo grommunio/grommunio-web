@@ -56,6 +56,12 @@ Zarafa.common.categories.Util = {
 	 */
 	getCategories: function(record)
 	{
+		// It can happen that callers pass a null/undefined record when clearing a view.
+		// Guard the helper so it quietly returns an empty array instead of crashing.
+		if (!record || typeof record.get !== 'function') {
+			return [];
+		}
+
 		var categories = [];
 		if ( !Ext.isEmpty(record.get('categories')) ){
 			categories = record.get('categories').replace(/;?\s*$/, '').split('; ');
