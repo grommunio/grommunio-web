@@ -182,105 +182,239 @@ class AdvancedSearchListModule extends ListModule {
 		}
 	}
 
-	private function parsePatterns($restriction, &$patterns) {
-		if (empty($restriction)) {
-			return;
+	private function initFtsFilterState() {
+		return [
+			'message_classes' => [],
+			'date_start' => null,
+			'date_end' => null,
+			'unread' => false,
+			'has_attachments' => false,
+		];
+	}
+
+	private function mergeFtsFilterState(array $base, array $delta) {
+		$base['message_classes'] = array_merge($base['message_classes'], $delta['message_classes']);
+		if ($delta['date_start'] !== null) {
+			$base['date_start'] = $base['date_start'] === null ? $delta['date_start'] : max($base['date_start'], $delta['date_start']);
 		}
+		if ($delta['date_end'] !== null) {
+			$base['date_end'] = $base['date_end'] === null ? $delta['date_end'] : min($base['date_end'], $delta['date_end']);
+		}
+		$base['unread'] = $base['unread'] || $delta['unread'];
+		$base['has_attachments'] = $base['has_attachments'] || $delta['has_attachments'];
+
+		return $base;
+	}
+
+	private function buildFtsDescriptor($restriction) {
+		[$ast, $filters] = $this->convertRestrictionToAst($restriction);
+
+		$filters['message_classes'] = array_values(array_unique($filters['message_classes']));
+
+		return [
+			'ast' => $ast,
+			'message_classes' => $filters['message_classes'],
+			'date_start' => $filters['date_start'],
+			'date_end' => $filters['date_end'],
+			'unread' => $filters['unread'],
+			'has_attachments' => $filters['has_attachments'],
+		];
+	}
+
+	private function convertRestrictionToAst($restriction, $context = null) {
+		$filters = $this->initFtsFilterState();
+
+		if (!is_array($restriction) || empty($restriction)) {
+			return [null, $filters];
+		}
+
 		$type = $restriction[0];
-		if ($type == RES_CONTENT) {
-			$subres = $restriction[1];
-
-			switch ($subres[ULPROPTAG]) {
-				case PR_SUBJECT:
-					$patterns['subject'] = $subres[VALUE][$subres[ULPROPTAG]];
-					break;
-
-				case PR_BODY:
-					$patterns['content'] = $subres[VALUE][$subres[ULPROPTAG]];
-					$patterns['attachments'] = $subres[VALUE][$subres[ULPROPTAG]];
-					break;
-
-				case PR_SENDER_NAME:
-					$patterns['sender'] = $subres[VALUE][$subres[ULPROPTAG]];
-					break;
-
-				case PR_SENT_REPRESENTING_NAME:
-					$patterns['sending'] = $subres[VALUE][$subres[ULPROPTAG]];
-					break;
-
-				case PR_DISPLAY_TO:
-				case PR_DISPLAY_CC:
-				case PR_DISPLAY_BCC:
-					$patterns['recipients'] = $subres[VALUE][$subres[ULPROPTAG]];
-					break;
-
-				case PR_MESSAGE_CLASS:
-					if (empty($patterns['message_classes'])) {
-						$patterns['message_classes'] = [];
-					}
-					$patterns['message_classes'][] = $subres[VALUE][$subres[ULPROPTAG]];
-					break;
-
-				case PR_DISPLAY_NAME:
-					$patterns['others'] = $subres[VALUE][$subres[ULPROPTAG]];
-					break;
-
-				case $this->properties['categories']:
-					if (!isset($patterns['categories'])) {
-						$patterns['categories'] = [];
-					}
-					if (isset($subres[VALUE][$subres[ULPROPTAG]][0])) {
-						$patterns['categories'][] = $subres[VALUE][$subres[ULPROPTAG]][0];
-					}
-					break;
-			}
-		}
-		elseif ($type == RES_AND || $type == RES_OR) {
-			foreach ($restriction[1] as $subres) {
-				$this->parsePatterns($subres, $patterns);
-			}
-		}
-		elseif ($type == RES_BITMASK) {
-			$subres = $restriction[1];
-			if ($subres[ULPROPTAG] == PR_MESSAGE_FLAGS && $subres[ULTYPE] == BMR_EQZ) {
-				$patterns['unread'] = MSGFLAG_READ & $subres[ULMASK];
-			}
-		}
-		elseif ($type == RES_PROPERTY) {
-			$subres = $restriction[1];
-			if ($subres[ULPROPTAG] == PR_MESSAGE_DELIVERY_TIME ||
-				$subres[ULPROPTAG] == PR_LAST_MODIFICATION_TIME) {
-				if ($subres[RELOP] == RELOP_LT ||
-					$subres[RELOP] == RELOP_LE) {
-					$patterns['date_end'] = $subres[VALUE][$subres[ULPROPTAG]];
-				}
-				elseif ($subres[RELOP] == RELOP_GT ||
-					$subres[RELOP] == RELOP_GE) {
-					$patterns['date_start'] = $subres[VALUE][$subres[ULPROPTAG]];
-				}
-			}
-		}
-		elseif ($type == RES_SUBRESTRICTION) {
-			$subres = $restriction[1];
-			if ($subres[ULPROPTAG] == PR_MESSAGE_ATTACHMENTS) {
-				$patterns['has_attachments'] = true;
-			}
-			elseif ($subres[ULPROPTAG] == PR_MESSAGE_RECIPIENTS) {
-				$inner = $subres[RESTRICTION] ?? null;
-				if (is_array($inner) && $inner[0] == RES_AND) {
-					foreach ($inner[1] as $res) {
-						if ($res[0] == RES_OR) {
-							foreach ($res[1] as $orRes) {
-								if ($orRes[0] == RES_CONTENT) {
-									$patterns['recipients'] = $orRes[1][VALUE][$orRes[1][ULPROPTAG]];
-									break 2;
-								}
-							}
+		switch ($type) {
+			case RES_AND:
+			case RES_OR:
+				$children = [];
+				$subRestrictions = $restriction[1] ?? [];
+				if (is_array($subRestrictions)) {
+					foreach ($subRestrictions as $subRestriction) {
+						[$childAst, $childFilters] = $this->convertRestrictionToAst($subRestriction, $context);
+						$filters = $this->mergeFtsFilterState($filters, $childFilters);
+						if ($childAst !== null) {
+							$children[] = $childAst;
 						}
 					}
 				}
+				if (empty($children)) {
+					return [null, $filters];
+				}
+				if (count($children) === 1) {
+					return [$children[0], $filters];
+				}
+				return [[
+					'op' => $type == RES_AND ? 'AND' : 'OR',
+					'children' => $children,
+				], $filters];
+
+			case RES_NOT:
+				$sub = $restriction[1][0] ?? null;
+				[$childAst, $childFilters] = $this->convertRestrictionToAst($sub, $context);
+				$filters = $this->mergeFtsFilterState($filters, $childFilters);
+				if ($childAst === null) {
+					return [null, $filters];
+				}
+				return [[
+					'op' => 'NOT',
+					'children' => [$childAst],
+				], $filters];
+
+			case RES_CONTENT:
+				$subres = $restriction[1];
+				$propTag = $subres[ULPROPTAG] ?? null;
+				if ($propTag === null) {
+					return [null, $filters];
+				}
+
+				if ($propTag == PR_MESSAGE_CLASS) {
+					$value = $subres[VALUE][$propTag] ?? null;
+					if ($value !== null) {
+						$filters['message_classes'][] = $value;
+					}
+					return [null, $filters];
+				}
+
+				$fields = $this->mapPropTagToFtsFields($propTag, $context);
+				$value = $subres[VALUE][$propTag] ?? null;
+				if (empty($fields) || $value === null) {
+					return [null, $filters];
+				}
+
+				$terms = [];
+				if (is_array($value)) {
+					foreach ($value as $entry) {
+						if ($entry !== '' && $entry !== null) {
+							$terms[] = [
+								'type' => 'term',
+								'fields' => $fields,
+								'value' => (string) $entry,
+							];
+						}
+					}
+				} else {
+					$terms[] = [
+						'type' => 'term',
+						'fields' => $fields,
+						'value' => (string) $value,
+					];
+				}
+
+				if (empty($terms)) {
+					return [null, $filters];
+				}
+				if (count($terms) === 1) {
+					return [$terms[0], $filters];
+				}
+				return [[
+					'op' => 'OR',
+					'children' => $terms,
+				], $filters];
+
+			case RES_PROPERTY:
+				$subres = $restriction[1];
+				$propTag = $subres[ULPROPTAG] ?? null;
+				if ($propTag === null) {
+					return [null, $filters];
+				}
+
+				if ($propTag == PR_MESSAGE_DELIVERY_TIME || $propTag == PR_LAST_MODIFICATION_TIME) {
+					$value = $subres[VALUE][$propTag] ?? null;
+					if ($value !== null) {
+						if ($subres[RELOP] == RELOP_LT || $subres[RELOP] == RELOP_LE) {
+							$filters['date_end'] = $value;
+						} elseif ($subres[RELOP] == RELOP_GT || $subres[RELOP] == RELOP_GE) {
+							$filters['date_start'] = $value;
+						}
+					}
+					return [null, $filters];
+				}
+
+				if (isset($this->properties['hide_attachments']) && $propTag == $this->properties['hide_attachments']) {
+					$filters['has_attachments'] = true;
+				}
+
+				return [null, $filters];
+
+			case RES_BITMASK:
+				$subres = $restriction[1];
+				if (($subres[ULPROPTAG] ?? null) == PR_MESSAGE_FLAGS && ($subres[ULTYPE] ?? null) == BMR_EQZ) {
+					$filters['unread'] = true;
+				}
+				return [null, $filters];
+
+			case RES_SUBRESTRICTION:
+				$subres = $restriction[1];
+				$propTag = $subres[ULPROPTAG] ?? null;
+				if ($propTag == PR_MESSAGE_ATTACHMENTS) {
+					$filters['has_attachments'] = true;
+					$inner = $subres[RESTRICTION] ?? null;
+					[$childAst, $childFilters] = $this->convertRestrictionToAst($inner, 'attachments');
+					$filters = $this->mergeFtsFilterState($filters, $childFilters);
+					return [$childAst, $filters];
+				}
+				if ($propTag == PR_MESSAGE_RECIPIENTS) {
+					$inner = $subres[RESTRICTION] ?? null;
+					[$childAst, $childFilters] = $this->convertRestrictionToAst($inner, 'recipients');
+					$filters = $this->mergeFtsFilterState($filters, $childFilters);
+					return [$childAst, $filters];
+				}
+				$inner = $subres[RESTRICTION] ?? null;
+				[$childAst, $childFilters] = $this->convertRestrictionToAst($inner, $context);
+				$filters = $this->mergeFtsFilterState($filters, $childFilters);
+				return [$childAst, $filters];
+
+			case RES_COMMENT:
+				$inner = $restriction[1][RESTRICTION] ?? null;
+				[$childAst, $childFilters] = $this->convertRestrictionToAst($inner, $context);
+				$filters = $this->mergeFtsFilterState($filters, $childFilters);
+				return [$childAst, $filters];
+
+			default:
+				return [null, $filters];
+		}
+	}
+
+	private function mapPropTagToFtsFields($propTag, $context = null) {
+		if ($context === 'attachments') {
+			return ['attachments'];
+		}
+		if ($context === 'recipients') {
+			return ['recipients'];
+		}
+
+		static $map = null;
+		if ($map === null) {
+			$map = [
+				PR_SUBJECT => ['subject'],
+				PR_BODY => ['content', 'attachments'],
+				PR_SENDER_NAME => ['sender'],
+				PR_SENDER_EMAIL_ADDRESS => ['sender'],
+				PR_SENT_REPRESENTING_NAME => ['sending'],
+				PR_SENT_REPRESENTING_EMAIL_ADDRESS => ['sending'],
+				PR_DISPLAY_TO => ['recipients'],
+				PR_DISPLAY_CC => ['recipients'],
+				PR_DISPLAY_BCC => ['recipients'],
+				PR_EMAIL_ADDRESS => ['recipients'],
+				PR_SMTP_ADDRESS => ['recipients'],
+				PR_DISPLAY_NAME => ['others'],
+				PR_ATTACH_LONG_FILENAME => ['attachments'],
+			];
+			if (defined('PR_NORMALIZED_SUBJECT')) {
+				$map[PR_NORMALIZED_SUBJECT] = ['subject'];
+			}
+			if (isset($this->properties['categories'])) {
+				$map[$this->properties['categories']] = ['others'];
 			}
 		}
+
+		return $map[$propTag] ?? [];
 	}
 
 	/**
@@ -295,7 +429,15 @@ class AdvancedSearchListModule extends ListModule {
 	#[Override]
 	public function search($store, $entryid, $action, $actionType) {
 		$useSearchFolder = $action["use_searchfolder"] ?? false;
+		$this->logFtsDebug('Search requested', [
+			'store_entryid' => $action['store_entryid'] ?? null,
+			'entryid' => $this->formatEntryIdForLog($entryid),
+			'subfolders' => $action['subfolders'] ?? null,
+			'use_searchfolder' => (bool) $useSearchFolder,
+			'restriction_present' => array_key_exists('restriction', $action),
+		]);
 		if (!$useSearchFolder) {
+			$this->logFtsDebug('Search fallback: store does not support search folders', []);
 			/*
 			 * store doesn't support search folders so we can't use this
 			 * method instead we will pass restriction to messageList and
@@ -304,11 +446,17 @@ class AdvancedSearchListModule extends ListModule {
 			return parent::messageList($store, $entryid, $action, "list");
 		}
 		$store_props = mapi_getprops($store, [PR_MDB_PROVIDER, PR_DEFAULT_STORE, PR_IPM_SUBTREE_ENTRYID]);
+		$this->logFtsDebug('Resolved store properties for search', [
+			'provider' => isset($store_props[PR_MDB_PROVIDER]) ? bin2hex((string) $store_props[PR_MDB_PROVIDER]) : null,
+			'default_store' => $store_props[PR_DEFAULT_STORE] ?? null,
+		]);
 		if ($store_props[PR_MDB_PROVIDER] == ZARAFA_STORE_PUBLIC_GUID) {
+			$this->logFtsDebug('Search fallback: public store does not support search folders', []);
 			// public store does not support search folders
 			return parent::messageList($store, $entryid, $action, "search");
 		}
 		if ($GLOBALS['entryid']->compareEntryIds(bin2hex($entryid), bin2hex(TodoList::getEntryId()))) {
+			$this->logFtsDebug('Search fallback: todo list uses legacy restriction path', []);
 			// todo list do not need to perform full text index search
 			return parent::messageList($store, $entryid, $action, "list");
 		}
@@ -319,6 +467,9 @@ class AdvancedSearchListModule extends ListModule {
 		// Parse Restriction
 		$this->parseRestriction($action);
 		if ($this->restriction == false) {
+			$this->logFtsDebug('Restriction parsing failed', [
+				'action_type' => $actionType,
+			]);
 			// if error in creating restriction then send error to client
 			$errorInfo = [];
 			$errorInfo["error_message"] = _("Error in search, please try again") . ".";
@@ -326,6 +477,23 @@ class AdvancedSearchListModule extends ListModule {
 
 			return $this->sendSearchErrorToClient($store, $entryid, $action, $errorInfo);
 		}
+		$ftsDescriptor = $this->buildFtsDescriptor($this->restriction);
+		if (empty($ftsDescriptor['ast'])) {
+			$this->logFtsDebug('Failed to translate restriction to FTS descriptor', [
+				'restriction_sample' => array_keys($this->restriction),
+			]);
+			$errorInfo = [];
+			$errorInfo["error_message"] = _("Error in search, please try again") . ".";
+			$errorInfo["original_error_message"] = "Unable to translate search query to full-text expression.";
+
+			return $this->sendSearchErrorToClient($store, $entryid, $action, $errorInfo);
+		}
+		$serializedRestriction = serialize($this->restriction);
+		$restrictionSignature = md5($serializedRestriction);
+		$this->logFtsDebug('Restriction parsed for full-text search', [
+			'restriction_signature' => $restrictionSignature,
+			'fts_descriptor' => $ftsDescriptor,
+		]);
 
 		$isSetSearchFolderEntryId = isset($action['search_folder_entryid']);
 		if ($isSetSearchFolderEntryId) {
@@ -375,7 +543,7 @@ class AdvancedSearchListModule extends ListModule {
 		$searchFolderEntryId = $this->sessionData['searchFolderEntryId'];
 
 		// check if searchcriteria has changed
-		$restrictionCheck = md5(serialize($this->restriction) . $searchFolderEntryId . $subfolder_flag);
+		$restrictionCheck = md5($serializedRestriction . $searchFolderEntryId . $subfolder_flag);
 
 		// check if there is need to set searchcriteria again
 		if (!isset($this->sessionData['searchCriteriaCheck']) || $restrictionCheck != $this->sessionData['searchCriteriaCheck']) {
@@ -399,6 +567,12 @@ class AdvancedSearchListModule extends ListModule {
 			}
 			// we never start the search folder because we will populate the search folder by ourselves
 			mapi_folder_setsearchcriteria($searchFolder, $this->restriction, $entryids, $subfolder_flag | STOP_SEARCH);
+			$this->logFtsDebug('Search criteria updated', [
+				'search_folder_entryid' => $searchFolderEntryId,
+				'restriction_signature' => $restrictionSignature,
+				'recursive' => $recursive,
+				'scope_entryids' => $this->formatEntryIdForLog($entryids),
+			]);
 			$this->sessionData['searchCriteriaCheck'] = $restrictionCheck;
 		}
 
@@ -408,24 +582,24 @@ class AdvancedSearchListModule extends ListModule {
 				$this->sessionData['searchOriginalEntryids'][0] = $folderEntryid;
 				// we never start the search folder because we will populate the search folder by ourselves
 				mapi_folder_setsearchcriteria($searchFolder, $this->restriction, [$entryid], $subfolder_flag | STOP_SEARCH);
+				$this->logFtsDebug('Search criteria refreshed for active folder', [
+					'search_folder_entryid' => $searchFolderEntryId,
+					'restriction_signature' => $restrictionSignature,
+					'target_entryid' => $this->formatEntryIdForLog($entryid),
+					'recursive' => $recursive,
+				]);
 			}
 		}
 
 		// Sort
 		$this->parseSortOrder($action);
 		// Initialize search patterns with default values
-		$search_patterns = array_fill_keys(
-			['sender', 'sending', 'recipients',
-				'subject', 'content', 'attachments', 'others', 'message_classes',
-				'date_start', 'date_end', 'unread', 'has_attachments', 'categories'],
-			null
-		);
-		$this->parsePatterns($this->restriction, $search_patterns);
-		if (isset($search_patterns['message_classes']) &&
-			count($search_patterns['message_classes']) >= 7) {
-			$search_patterns['message_classes'] = null;
+		if (is_array($ftsDescriptor['message_classes']) &&
+			count($ftsDescriptor['message_classes']) >= 7) {
+			$ftsDescriptor['message_classes'] = null;
 		}
 
+		$username = null;
 		if ($store_props[PR_MDB_PROVIDER] == ZARAFA_STORE_DELEGATE_GUID) {
 			$eidObj = $GLOBALS["entryid"]->createMsgStoreEntryIdObj(hex2bin((string) $action['store_entryid']));
 			$username = $eidObj['ServerShortname'];
@@ -438,31 +612,55 @@ class AdvancedSearchListModule extends ListModule {
 		else {
 			$indexDB = new IndexSqlite();
 		}
+		$this->logFtsDebug('Dispatching search to index backend', [
+			'search_folder_entryid' => $searchFolderEntryId,
+			'restriction_signature' => $restrictionSignature,
+			'recursive' => $recursive,
+			'delegate_username' => $username,
+			'message_classes' => $ftsDescriptor['message_classes'] ?? null,
+			'filters' => [
+				'date_start' => $ftsDescriptor['date_start'] ?? null,
+				'date_end' => $ftsDescriptor['date_end'] ?? null,
+				'unread' => !empty($ftsDescriptor['unread']),
+				'has_attachments' => !empty($ftsDescriptor['has_attachments']),
+			],
+			'ast' => $ftsDescriptor['ast'] ?? null,
+		]);
 
-		$search_result = $indexDB->search(hex2bin((string) $searchFolderEntryId), $search_patterns, $entryid, $recursive);
-		// Use the query search if search in index fails or is not available.
+		$search_result = $indexDB->search(hex2bin((string) $searchFolderEntryId), $ftsDescriptor, $entryid, $recursive);
 		if ($search_result == false) {
-			// Search in the inbox instead of Top of Information Store
-			if (isset($store_props[PR_IPM_SUBTREE_ENTRYID]) &&
-				$GLOBALS['entryid']->compareEntryIds(bin2hex($entryid), bin2hex((string) $store_props[PR_IPM_SUBTREE_ENTRYID]))) {
-				$inbox = mapi_msgstore_getreceivefolder($store);
-				$inboxProps = mapi_getprops($inbox, [PR_ENTRYID]);
-				$entryid = $inboxProps[PR_ENTRYID];
-			}
+			$this->logFtsDebug('Index search returned no data', [
+				'search_folder_entryid' => $searchFolderEntryId,
+				'restriction_signature' => $restrictionSignature,
+				'recursive' => $recursive,
+			]);
+			$errorInfo = [];
+			$errorInfo["error_message"] = _("Unable to perform search query, store might not support searching.");
+			$errorInfo["original_error_message"] = "Full-text search backend returned no result set.";
 
-			return parent::messageList($store, $entryid, $action, "search");
+			return $this->sendSearchErrorToClient($store, $entryid, $action, $errorInfo);
 		}
 
 		unset($action["restriction"]);
 
 		// Get the table and merge the arrays
 		$table = $GLOBALS["operations"]->getTable($store, hex2bin((string) $searchFolderEntryId), $this->properties, $this->sort, $this->start);
+		$this->logFtsDebug('Search folder table retrieved', [
+			'search_folder_entryid' => $searchFolderEntryId,
+			'table_item_count' => isset($table['item']) ? count($table['item']) : null,
+			'start' => $this->start,
+			'sort' => $this->sort,
+		]);
 		// Create the data array, which will be send back to the client
 		$data = [];
 		$data = array_merge($data, $table);
 
 		$this->getDelegateFolderInfo($store);
 		$data = $this->filterPrivateItems($data);
+		$this->logFtsDebug('Search results filtered for privacy', [
+			'search_folder_entryid' => $searchFolderEntryId,
+			'item_count_after_filter' => isset($data['item']) ? count($data['item']) : null,
+		]);
 
 		// remember which entryid's are send to the client
 		$searchResults = [];
@@ -476,8 +674,16 @@ class AdvancedSearchListModule extends ListModule {
 			$this->sessionData['searchResults'] = [];
 		}
 		$this->sessionData['searchResults'][$searchFolderEntryId] = $searchResults;
+		$this->logFtsDebug('Search results stored in session', [
+			'search_folder_entryid' => $searchFolderEntryId,
+			'result_count' => count($searchResults),
+		]);
 
 		$result = mapi_folder_getsearchcriteria($searchFolder);
+		$this->logFtsDebug('Search folder state retrieved', [
+			'search_folder_entryid' => $searchFolderEntryId,
+			'searchstate' => $result['searchstate'] ?? null,
+		]);
 
 		$data["search_meta"] = [];
 		$data["search_meta"]["searchfolder_entryid"] = $searchFolderEntryId;
@@ -491,11 +697,57 @@ class AdvancedSearchListModule extends ListModule {
 		$storeProps = mapi_getprops($searchFolder, [PR_EC_SUGGESTION]);
 		if (isset($storeProps[PR_EC_SUGGESTION])) {
 			$data["search_meta"]["suggestion"] = $storeProps[PR_EC_SUGGESTION];
+			$this->logFtsDebug('Search suggestion ready', [
+				'search_folder_entryid' => $searchFolderEntryId,
+				'suggestion' => $storeProps[PR_EC_SUGGESTION],
+			]);
 		}
 
 		$this->addActionData("search", $data);
 		$GLOBALS["bus"]->addData($this->getResponseData());
 
+		$this->logFtsDebug('Search response dispatched to client', [
+			'search_folder_entryid' => $searchFolderEntryId,
+			'items_returned' => isset($data['item']) ? count($data['item']) : null,
+			'search_meta' => $data['search_meta'] ?? null,
+		]);
 		return true;
+	}
+
+	private function logFtsDebug(string $message, array $context = []): void {
+		if (!DEBUG_FULLTEXT_SEARCH) {
+			return;
+		}
+		$prefix = '[fts-debug][module] ';
+		if (!empty($context)) {
+			$encoded = json_encode($context, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+			if ($encoded === false) {
+				$encoded = 'context_encoding_failed';
+			}
+			error_log($prefix . $message . ' ' . $encoded);
+		}
+		else {
+			error_log($prefix . $message);
+		}
+	}
+
+	private function formatEntryIdForLog($entryid) {
+		if ($entryid === null) {
+			return null;
+		}
+		if (is_array($entryid)) {
+			return array_map([$this, 'formatEntryIdForLog'], $entryid);
+		}
+		if (!is_string($entryid)) {
+			return $entryid;
+		}
+		if ($entryid === '') {
+			return '';
+		}
+		if (preg_match('/[^\x20-\x7E]/', $entryid)) {
+			return bin2hex($entryid);
+		}
+
+		return $entryid;
 	}
 }
