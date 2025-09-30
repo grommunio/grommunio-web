@@ -13,6 +13,53 @@ class IndexSqlite extends SQLite3 {
 	private $session;
 	private $openResult;
 
+	private const DEBUG_SAMPLE_LIMIT = 5;
+
+	private function logDebug(string $message, array $context = []): void {
+		if (!DEBUG_FULLTEXT_SEARCH) {
+			return;
+		}
+		$prefix = '[fts-debug][index] ';
+		if (!empty($context)) {
+			$encoded = json_encode($context, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+			if ($encoded === false) {
+				$encoded = 'context_encoding_failed';
+			}
+			error_log($prefix . $message . ' ' . $encoded);
+		}
+		else {
+			error_log($prefix . $message);
+		}
+	}
+
+	private static function formatEntryIdForLog($entryid) {
+		if ($entryid === null) {
+			return null;
+		}
+		if (is_array($entryid)) {
+			return array_map([self::class, 'formatEntryIdForLog'], $entryid);
+		}
+		if (!is_string($entryid)) {
+			return $entryid;
+		}
+
+		return bin2hex($entryid);
+	}
+
+	private static function formatBinaryFieldForLog($value) {
+		if ($value === null) {
+			return null;
+		}
+		if (!is_string($value)) {
+			return $value;
+		}
+		if (preg_match('/[^\x20-\x7E]/', $value)) {
+			return bin2hex($value);
+		}
+
+		return $value;
+	}
+
 	private static function get_gc_value($eid) {
 		$r0 = ($eid >> 56) & 0xFF;
 		$r1 = ($eid >> 48) & 0xFF;
@@ -29,14 +76,20 @@ class IndexSqlite extends SQLite3 {
 		$this->username = $username ?? $GLOBALS["mapisession"]->getSMTPAddress();
 		$this->session = $session ?? $GLOBALS["mapisession"]->getSession();
 		$this->store = $store ?? $GLOBALS["mapisession"]->getDefaultMessageStore();
+		$indexPath = SQLITE_INDEX_PATH . '/' . $this->username . '/index.sqlite3';
 
 		try {
-			$this->open(SQLITE_INDEX_PATH . '/' . $this->username . '/index.sqlite3', SQLITE3_OPEN_READONLY);
+			$this->open($indexPath, SQLITE3_OPEN_READONLY);
 			$this->openResult = 0;
+			$this->logDebug('Opened index database', ['path' => $indexPath]);
 		}
 		catch (Exception $e) {
 			error_log(sprintf("Error opening the index database: %s", $e));
 			$this->openResult = 1;
+			$this->logDebug('Failed to open index database', [
+				'path' => $indexPath,
+				'error' => $e->getMessage(),
+			]);
 		}
 	}
 
@@ -55,15 +108,21 @@ class IndexSqlite extends SQLite3 {
 			$row1 = $results->fetchArray(SQLITE3_NUM);
 			if ($row1 && !empty($row1[0])) {
 				$row['entryid'] = $row1[0];
+				$this->logDebug('Recovered missing entryid from msg_content', [
+					'message_id' => $row['message_id'],
+				]);
 			}
 			// abort if the entryid is not available
 			else {
 				error_log(sprintf("No entryid available, not possible to link the message %d.", $row['message_id']));
+				$this->logDebug('Missing entryid prevents linking message', [
+					'message_id' => $row['message_id'],
+				]);
 
 				return;
 			}
 		}
-		if (isset($message_classes)) {
+		if (is_array($message_classes) && $message_classes !== []) {
 			$found = false;
 			foreach ($message_classes as $message_class) {
 				if (strncasecmp((string) $row['message_class'], (string) $message_class, strlen((string) $message_class)) == 0) {
@@ -72,26 +131,57 @@ class IndexSqlite extends SQLite3 {
 				}
 			}
 			if (!$found) {
+				$this->logDebug('Skipping message because message class is filtered out', [
+					'message_id' => $row['message_id'] ?? null,
+					'message_class' => $row['message_class'] ?? null,
+				]);
 				return;
 			}
 		}
-		if (isset($date_start) && $row['date'] < $date_start) {
+		if ($date_start !== null && $row['date'] < $date_start) {
+			$this->logDebug('Skipping message before start date filter', [
+				'message_id' => $row['message_id'] ?? null,
+				'message_date' => $row['date'] ?? null,
+				'date_start' => $date_start,
+			]);
 			return;
 		}
-		if (isset($date_end) && $row['date'] > $date_end) {
+		if ($date_end !== null && $row['date'] > $date_end) {
+			$this->logDebug('Skipping message after end date filter', [
+				'message_id' => $row['message_id'] ?? null,
+				'message_date' => $row['date'] ?? null,
+				'date_end' => $date_end,
+			]);
 			return;
 		}
-		if (isset($unread) && $row['readflag']) {
+		if ($unread && $row['readflag']) {
+			$this->logDebug('Skipping message because unread flag filter is active', [
+				'message_id' => $row['message_id'] ?? null,
+				'readflag' => $row['readflag'] ?? null,
+			]);
 			return;
 		}
-		if (isset($has_attachments) && !$row['attach_indexed']) {
+		if ($has_attachments && !$row['attach_indexed']) {
+			$this->logDebug('Skipping message because attachment filter is active', [
+				'message_id' => $row['message_id'] ?? null,
+				'attach_indexed' => $row['attach_indexed'] ?? null,
+			]);
 			return;
 		}
 
 		try {
 			mapi_linkmessage($this->session, $search_entryid, $row['entryid']);
 		}
-		catch (Exception) {
+		catch (Exception $e) {
+			$details = [
+				'message_id' => $row['message_id'],
+				'entryid' => self::formatBinaryFieldForLog($row['entryid']),
+				'error' => $e->getMessage(),
+			];
+			if (function_exists('mapi_last_hresult')) {
+				$details['hresult'] = mapi_last_hresult();
+			}
+			$this->logDebug('MAPI linkmessage failed', $details);
 			return;
 		}
 		++$this->count;
@@ -101,8 +191,17 @@ class IndexSqlite extends SQLite3 {
 		return $this->count >= MAX_FTS_RESULT_ITEMS;
 	}
 
-	public function search($search_entryid, $search_patterns, $folder_entryid, $recursive) {
+	public function search($search_entryid, $descriptor, $folder_entryid, $recursive) {
+		$startTime = microtime(true);
+		$this->logDebug('Search invoked', [
+			'user' => $this->username,
+			'search_entryid' => self::formatEntryIdForLog($search_entryid),
+			'folder_entryid' => self::formatEntryIdForLog($folder_entryid),
+			'recursive' => (bool) $recursive,
+			'descriptor' => $descriptor,
+		]);
 		if ($this->openResult) {
+			$this->logDebug('Search aborted: index database unavailable', ['open_result' => $this->openResult]);
 			return false;
 		}
 		$whereFolderids = '';
@@ -122,9 +221,14 @@ class IndexSqlite extends SQLite3 {
 					$this->getWhereFolderids($folder, $whereFolderids);
 				}
 				$whereFolderids = substr($whereFolderids, 0, -2) . ") AND ";
+				$this->logDebug('Folder scope resolved', [
+					'root_folder_gc_id' => $folder_id,
+					'folder_clause' => rtrim($whereFolderids),
+				]);
 			}
 			catch (Exception $e) {
 				error_log(sprintf("Index: error getting folder information %s - %s", $this->username, $e));
+				$this->logDebug('Failed to resolve folder scope', ['error' => $e->getMessage()]);
 
 				return false;
 			}
@@ -137,65 +241,45 @@ class IndexSqlite extends SQLite3 {
 		if (!empty($whereFolderids)) {
 			$sql_string .= $whereFolderids;
 		}
-		$sql_string .= "messages MATCH '";
-		$this->count = 0;
-		// Extract search_patterns into separate variables
-		[
-			'sender' => $sender,
-			'sending' => $sending,
-			'recipients' => $recipients,
-			'subject' => $subject,
-			'content' => $content,
-			'attachments' => $attachments,
-			'others' => $others,
-			'message_classes' => $message_classes,
-			'date_start' => $date_start,
-			'date_end' => $date_end,
+		$ftsAst = $descriptor['ast'] ?? null;
+		$message_classes = $descriptor['message_classes'] ?? null;
+		$date_start = $descriptor['date_start'] ?? null;
+		$date_end = $descriptor['date_end'] ?? null;
+		$unread = !empty($descriptor['unread']);
+		$has_attachments = !empty($descriptor['has_attachments']);
+		$this->logDebug('Search filters resolved', [
 			'unread' => $unread,
 			'has_attachments' => $has_attachments,
-			'categories' => $categories,
-		] = $search_patterns;
-		if (isset($sender) && $sender == $sending && $sending == $recipients && $recipients == $subject &&
-			$subject == $content && $content == $attachments && $attachments == $others && empty($categories)) {
-			$sql_string .= SQLite3::escapeString($this->quote_words($sender)) . "'";
-		}
-		else {
-			$first = true;
-			foreach ($search_patterns as $key => $search_pattern) {
-				switch ($key) {
-					case 'message_classes':
-					case 'date_start':
-					case 'date_end':
-					case 'unread':
-					case 'has_attachments':
-					case 'categories':
-						break;
+			'date_start' => $date_start,
+			'date_end' => $date_end,
+			'message_classes_count' => is_array($message_classes) ? count($message_classes) : null,
+		]);
 
-					default:
-						if (!is_null($search_pattern)) {
-							if ($first === true) {
-								$first = false;
-							}
-							else {
-								$sql_string .= " OR ";
-							}
-							$sql_string .= $key . ':' . SQLite3::escapeString($this->quote_words($search_pattern));
-						}
-				}
-			}
-			if ($first) {
-				return false;
-			}
-			$sql_string .= "'";
-			if (!empty($categories)) {
-				foreach ($categories as $category) {
-					$sql_string .= " AND messages MATCH 'others:" . SQLite3::escapeString($this->quote_words($category)) . "'";
-				}
-			}
+		$ftsQuery = $this->compileFtsExpression($ftsAst);
+		if ($ftsQuery === null || $ftsQuery === '') {
+			$this->logDebug('FTS query compilation returned empty expression', [
+				'ast' => $ftsAst,
+			]);
+			return false;
 		}
+
+		$sql_string .= "messages MATCH '" . $ftsQuery . "'";
+		$this->count = 0;
 		$sql_string .= " ORDER BY c.date DESC LIMIT " . MAX_FTS_RESULT_ITEMS;
+		$this->logDebug('Executing SQLite FTS query', ['sql' => $sql_string]);
 		$results = $this->query($sql_string);
+		if ($results === false) {
+			$this->logDebug('SQLite query execution failed', [
+				'error_code' => $this->lastErrorCode(),
+				'error_message' => $this->lastErrorMsg(),
+			]);
+			return false;
+		}
+		$matchedRows = 0;
+		$sampleRows = [];
 		while (($row = $results->fetchArray(SQLITE3_ASSOC)) && !$this->result_full()) {
+			++$matchedRows;
+			$previousCount = $this->count;
 			$this->try_insert_content(
 				$search_entryid,
 				$row,
@@ -205,9 +289,82 @@ class IndexSqlite extends SQLite3 {
 				$unread,
 				$has_attachments
 			);
+			if ($this->count > $previousCount && count($sampleRows) < self::DEBUG_SAMPLE_LIMIT) {
+				$sampleRows[] = [
+					'message_id' => $row['message_id'] ?? null,
+					'entryid' => self::formatBinaryFieldForLog($row['entryid'] ?? null),
+					'message_class' => $row['message_class'] ?? null,
+					'date' => $row['date'] ?? null,
+					'readflag' => $row['readflag'] ?? null,
+					'attach_indexed' => $row['attach_indexed'] ?? null,
+				];
+			}
 		}
+		$durationMs = (int) round((microtime(true) - $startTime) * 1000);
+		$this->logDebug('Search completed', [
+			'fts_query' => $ftsQuery,
+			'matched_rows' => $matchedRows,
+			'linked_messages' => $this->count,
+			'limit_reached' => $this->result_full(),
+			'folder_clause' => $whereFolderids !== '' ? rtrim($whereFolderids) : null,
+			'sample_messages' => $sampleRows,
+			'duration_ms' => $durationMs,
+		]);
 
 		return true;
+	}
+
+	private function compileFtsExpression($ast) {
+		if ($ast === null) {
+			return null;
+		}
+
+		if (isset($ast['type']) && $ast['type'] === 'term') {
+			$fields = $ast['fields'] ?? [];
+			if (empty($fields)) {
+				return null;
+			}
+			$escaped = SQLite3::escapeString($this->quote_words($ast['value'] ?? ''));
+			$segments = [];
+			foreach ($fields as $field) {
+				$segments[] = $field . ':' . $escaped;
+			}
+			if (count($segments) === 1) {
+				return $segments[0];
+			}
+			return '(' . implode(' OR ', $segments) . ')';
+		}
+
+		$operator = $ast['op'] ?? null;
+		$children = $ast['children'] ?? [];
+		if ($operator === 'NOT') {
+			$child = $this->compileFtsExpression($children[0] ?? null);
+			if ($child === null) {
+				return null;
+			}
+			return 'NOT (' . $child . ')';
+		}
+		if ($operator === 'AND' || $operator === 'OR') {
+			$parts = [];
+			foreach ($children as $child) {
+				$compiled = $this->compileFtsExpression($child);
+				if ($compiled !== null) {
+					$parts[] = $compiled;
+				}
+			}
+			if (empty($parts)) {
+				return null;
+			}
+			if (count($parts) === 1) {
+				return $parts[0];
+			}
+			$wrapped = array_map(function ($segment) {
+				return '(' . $segment . ')';
+			}, $parts);
+			return implode(' ' . $operator . ' ', $wrapped);
+		}
+
+		return null;
 	}
 
 	private function quote_words($search_string) {
