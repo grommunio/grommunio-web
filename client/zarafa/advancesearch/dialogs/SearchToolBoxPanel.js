@@ -170,9 +170,10 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 	{
 		var searchTextField = this.ownerCt.searchToolbar.contextMainPanelToolbar.searchFieldContainer.searchTextField;
 		var query = searchTextField.getValue();
-		var isKqlQuery = Zarafa.advancesearch.KQLParser.isKqlQuery(query);
+		var tokens = Zarafa.advancesearch.KQLParser.tokenize(query);
+		var usesAdvancedSyntax = Zarafa.advancesearch.KQLParser.usesExplicitSyntax(tokens);
 
-		if ( isKqlQuery ) {
+		if ( usesAdvancedSyntax ) {
 			this.searchInFieldset.disable();
 			this.categoryFilterFieldSet.disable();
 		} else {
@@ -952,10 +953,12 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			return [];
 		}
 
+		var searchFieldPreference = Ext.isArray(this.searchCriteria['search_fields']) ? this.searchCriteria['search_fields'].slice(0) : [];
 		var tokens = Zarafa.advancesearch.KQLParser.tokenize(textFieldValue);
+		var usesAdvancedSyntax = Zarafa.advancesearch.KQLParser.usesExplicitSyntax(tokens);
 		var andRes = [];
 		if ( tokens ) {
-			var tokenRes = Zarafa.advancesearch.KQLParser.createTokenRestriction(tokens);
+			var tokenRes = Zarafa.advancesearch.KQLParser.createTokenRestriction(tokens, usesAdvancedSyntax ? null : searchFieldPreference);
 			if ( tokenRes ) {
 				andRes = [tokenRes];
 			} else {

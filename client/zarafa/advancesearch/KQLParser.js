@@ -181,6 +181,37 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 		return expressionOrOperatorFound;
 	},
 
+	usesExplicitSyntax: function(tokens) {
+		if ( typeof tokens === 'string' ) {
+			tokens = this.tokenize(tokens);
+		}
+
+		if ( !Array.isArray(tokens) ) {
+			return false;
+		}
+
+		return tokens.some(function(token) {
+			if (!token || typeof token !== 'object') {
+				return false;
+			}
+
+			if (token.type === 'operator') {
+				var op = token.value && token.value.op;
+				return op === 'AND' || op === 'OR' || op === 'NOT' || op === '+' || op === '-';
+			}
+
+			if (token.type === 'expression') {
+				return true;
+			}
+
+			if (token.type === 'word' && typeof token.value === 'string') {
+				return /^[+-]/.test(token.value);
+			}
+
+			return false;
+		});
+	},
+
 	/**
 	 * Normalize the tokens if necessary
 	 * We want something like <expression> <operator> <expression> <operator> etc
@@ -357,7 +388,7 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 	 * @param {Array} tokens An array of token objects
 	 * @return {Array} A Restriction array
 	 */
-	createTokenRestriction: function(tokens) {
+	createTokenRestriction: function(tokens, anyFieldPreference) {
 		tokens = this.flatten(this.normalize(tokens));
 
 		var propMap = {
@@ -377,10 +408,41 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 				'sender_name',
 				'sender_email_address',
 				{type:'recipient', recipientType: Zarafa.core.mapi.RecipientType.MAPI_TO},
-				{type:'recipient', recipientType: Zarafa.core.mapi.RecipientType.MAPI_CC},
-				{type:'recipient', recipientType: Zarafa.core.mapi.RecipientType.MAPI_BCC},
+			{type:'recipient', recipientType: Zarafa.core.mapi.RecipientType.MAPI_CC},
+			{type:'recipient', recipientType: Zarafa.core.mapi.RecipientType.MAPI_BCC},
 			]
 		};
+		if (Ext.isArray(anyFieldPreference) && anyFieldPreference.length) {
+			var anyFields = [];
+			var seen = {};
+			Ext.each(anyFieldPreference, function(field) {
+				if (Ext.isEmpty(field)) {
+					return;
+				}
+				var entry;
+				switch (field) {
+					case 'display_to':
+						entry = {type:'recipient', recipientType: Zarafa.core.mapi.RecipientType.MAPI_TO};
+						break;
+					case 'display_cc':
+						entry = {type:'recipient', recipientType: Zarafa.core.mapi.RecipientType.MAPI_CC};
+						break;
+					case 'display_bcc':
+						entry = {type:'recipient', recipientType: Zarafa.core.mapi.RecipientType.MAPI_BCC};
+						break;
+					default:
+						entry = field;
+				}
+				var key = Ext.isObject(entry) ? entry.type + ':' + entry.recipientType : entry;
+				if (!seen[key]) {
+					anyFields.push(entry);
+					seen[key] = true;
+				}
+			});
+			if (anyFields.length) {
+				propMap.any = anyFields;
+			}
+		}
 		var restrictions = [];
 
 		// find the operator used in the restriction
@@ -412,7 +474,7 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 					curRes.push(r);
 				}, this);
 			} else if ( token.type === 'subquery' ) {
-				curRes.push(this.createTokenRestriction(token.value));
+				curRes.push(this.createTokenRestriction(token.value, anyFieldPreference));
 			}
 
 			if ( curRes.length === 0 ) {
