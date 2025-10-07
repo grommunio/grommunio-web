@@ -485,5 +485,33 @@ Zarafa.core.EntryId = (function()
 
 			return entryIdObj.guid === MUIDEMSAB;
 		},
+
+		/**
+		 * Format an entryid into the Object ID text shown in the mail properties dialog.
+		 * @param {String} entryId Entryid of the message record
+		 * @return {String|undefined} Object ID representation or undefined when formatting fails
+		 */
+		formatObjectId: function(entryId)
+		{
+			if (!Ext.isString(entryId) || entryId.length < 136) {
+				return undefined;
+			}
+
+			var provider = entryId.substr(8, 32);
+			var folderGcvHex = entryId.substr(76, 12);
+			var databaseGuid = entryId.substr(92, 32);
+			var messageGcvHex = entryId.substr(124, 12);
+
+			var folderGcv = parseInt(folderGcvHex, 16);
+			var messageGcv = parseInt(messageGcvHex, 16);
+
+			if (isNaN(folderGcv) || isNaN(messageGcv)) {
+				return undefined;
+			}
+
+			return messageGcv + '/0x' + messageGcv.toString(16) +
+				'; folder=' + folderGcv + '/0x' + folderGcv.toString(16) +
+				'; dbguid=' + databaseGuid + '; store=' + provider;
+		},
 	};
 })();

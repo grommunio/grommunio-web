@@ -293,14 +293,10 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 
 		var entryid = record.get('entryid');
 		if (entryid) {
-			var provider = entryid.substr(8, 32);
-			var fdguid   = entryid.substr(44, 32);
-			var fidgcv   = parseInt(entryid.substr(76, 12), 16);
-			var mdguid   = entryid.substr(92, 32);
-			var midgcv   = parseInt(entryid.substr(124, 12), 16);
-			record.set('x_midtext', midgcv + "/0x" + midgcv.toString(16) +
-				"; folder=" + fidgcv + "/0x" + fidgcv.toString(16) +
-				"; dbguid=" + mdguid + "; store=" + provider);
+			var objectIdText = Zarafa.core.EntryId.formatObjectId(entryid);
+			if (objectIdText) {
+				record.set('x_midtext', objectIdText);
+			}
 		}
 
 		var isVisible = false;
