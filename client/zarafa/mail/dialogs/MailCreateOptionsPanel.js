@@ -32,6 +32,8 @@ Zarafa.mail.dialogs.MailCreateOptionsPanel = Ext.extend(Ext.Panel, {
 				xtype: 'zarafa.mailoptionssettingspanel'
 			},{
 				xtype: 'zarafa.mailoptionstrackingpanel'
+			},{
+				xtype: 'zarafa.mailoptionsmsgidpanel'
 			}]
 		});
 
