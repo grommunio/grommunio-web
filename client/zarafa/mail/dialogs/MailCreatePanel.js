@@ -503,18 +503,44 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 	setSignatureInEditor: function(signatureId)
 	{
 		var model = this.dialog.getContextModel();
-		var signatureData = model.getSignatureData(this.editorField.isHtmlEditor(), signatureId, false);
-		if (!Ext.isEmpty(signatureData)) {
-			if (this.editorField.isHtmlEditor() && Ext.isFunction(this.editorField.getEditor().selectBySelector)) {
-				// isTextSelected is true when signature exists outside of blockquote and selected else it will be false,
-				// Which indicates that there is no existing signature.
-				var isTextSelected = this.editorField.selectBySelector("body > .signatureContainer > .signature");
-				if (!isTextSelected) {
-					signatureData = model.wrapSignature(signatureData);
+		var useHtmlEditor = this.editorField.isHtmlEditor();
+		var signatureData = model.getSignatureData(useHtmlEditor, signatureId, false);
+
+		if (Ext.isEmpty(signatureData)) {
+			return;
+		}
+
+		if (useHtmlEditor) {
+			var editorComponent = this.editorField.getEditor();
+			if (editorComponent && Ext.isFunction(editorComponent.getEditor)) {
+				var tinyMceEditor = editorComponent.getEditor();
+				if (tinyMceEditor && tinyMceEditor.dom) {
+					var bodyElement = tinyMceEditor.getBody();
+					var existingSignature = null;
+
+					Ext.each(tinyMceEditor.dom.select('.signatureContainer') || [], function(node) {
+						if (node.parentNode === bodyElement) {
+							existingSignature = node;
+							return false;
+						}
+					});
+
+					if (existingSignature) {
+						// Replace the content of the existing signature container instead of appending a new one.
+						tinyMceEditor.dom.setHTML(existingSignature, signatureData);
+						tinyMceEditor.selection.select(existingSignature);
+						tinyMceEditor.selection.collapse(false);
+						this.editorField.currentSignatureHtml = tinyMceEditor.dom.getOuterHTML(existingSignature);
+						return;
+					}
 				}
 			}
-			this.editorField.insertAtCursor(signatureData);
+
+			signatureData = model.wrapSignature(signatureData);
+			this.editorField.currentSignatureHtml = signatureData;
 		}
+
+		this.editorField.insertAtCursor(signatureData);
 	},
 
 	/**
