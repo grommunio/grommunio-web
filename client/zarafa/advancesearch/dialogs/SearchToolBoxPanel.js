@@ -1075,7 +1075,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			}
 
 			// category restriction
-			if (!tokens && key === 'categories' && !Ext.isEmpty(values)) {
+			if (key === 'categories' && !Ext.isEmpty(values)) {
 				Ext.each(values, function (value) {
 					andResCategory.push(
 						Zarafa.core.data.RestrictionFactory.dataResContent(
