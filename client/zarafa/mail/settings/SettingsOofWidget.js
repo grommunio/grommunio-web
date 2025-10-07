@@ -754,11 +754,18 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 	 */
 	onWillBeBackCheck: function(field, check)
 	{
-		if(!check) {
-			this.record.set('until',0);
-		} else {
-			var backDateTimeValue = this.backDateTimeField.getValue().getTime()/1000;
-			this.record.set('until', backDateTimeValue);
+		if (!!this.record) {
+			var currentValue = this.record.get('until');
+			var nextValue = 0;
+			if (check) {
+				var backDateValue = this.backDateTimeField.getValue();
+				nextValue = backDateValue ? backDateValue.getTime()/1000 : 0;
+			}
+
+			if (currentValue !== nextValue) {
+				this.record.set('until', nextValue);
+				this.settingsContext.getModel().setDirty();
+			}
 		}
 
 		this.backDateTimeField.setDisabled(!check);
