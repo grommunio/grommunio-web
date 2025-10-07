@@ -133,6 +133,14 @@ if (!defined("ENABLE_SHARED_CONTACT_FOLDERS")) {
 }
 
 /*
+ * When enabled, the ResolveNames module will perform extra lookups to include
+ * hidden address book entries. Disabled by default to avoid additional load.
+ */
+if (!defined("ENABLE_RESOLVE_HIDDEN_USERS")) {
+	define("ENABLE_RESOLVE_HIDDEN_USERS", false);
+}
+
+/*
  * Limit the amount of members shown in the addressbook details dialog for a distlist. If the list
  * is too great the browser will hang loading and rendering all the items. By default set to 0
  * which means it loads all members.

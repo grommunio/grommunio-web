@@ -121,7 +121,12 @@ class ResolveNamesModule extends Module {
 			}
 			elseif ($e->getCode() == MAPI_E_NOT_FOUND) {
 				$rows = [];
-				if ($query['address_type'] === 'SMTP') {
+
+				if (defined('ENABLE_RESOLVE_HIDDEN_USERS') && ENABLE_RESOLVE_HIDDEN_USERS) {
+					$rows = $this->resolveHiddenExactMatches($ab, $query);
+				}
+
+				if (empty($rows) && (($query['address_type'] ?? '') === 'SMTP')) {
 					// If we still can't find anything, and we were searching for a SMTP user
 					// we can generate a oneoff entry which contains the information of the user.
 					if (!empty($query['email_address'])) {
@@ -136,6 +141,9 @@ class ResolveNamesModule extends Module {
 					else {
 						$this->searchContactsFolders($ab, $ab_dir, $searchstr, $rows);
 					}
+				}
+				elseif (empty($rows)) {
+					$this->searchContactsFolders($ab, $ab_dir, $searchstr, $rows);
 				}
 			}
 			else {
@@ -209,6 +217,88 @@ class ResolveNamesModule extends Module {
 		}
 
 		return $items;
+	}
+
+	/**
+	 * Try to resolve a hidden user by matching the provided query exactly against
+	 * common address book properties. Hidden entries are not returned in regular
+	 * searches, but the EMS_AB_ADDRESS_LOOKUP flag allows us to perform an exact
+	 * lookup that also returns hidden entries.
+	 *
+	 * @param resource $ab    The addressbook
+	 * @param array    $query Resolve query sent by the client
+	 *
+	 * @return array
+	 */
+	protected function resolveHiddenExactMatches($ab, $query) {
+		if (!defined('ENABLE_RESOLVE_HIDDEN_USERS') || !ENABLE_RESOLVE_HIDDEN_USERS) {
+			return [];
+		}
+
+		$candidates = [];
+
+		if (!empty($query['display_name'])) {
+			$candidates[] = trim((string) $query['display_name']);
+		}
+
+		if (!empty($query['email_address'])) {
+			$candidates[] = trim((string) $query['email_address']);
+		}
+
+		$candidates = array_values(array_unique(array_filter($candidates, 'strlen')));
+		$addressType = strtoupper((string) ($query['address_type'] ?? ''));
+
+		foreach ($candidates as $candidate) {
+			$lookups = [PR_DISPLAY_NAME];
+
+			if ($addressType === 'EX') {
+				$lookups[] = PR_ACCOUNT;
+			}
+
+			if (str_contains($candidate, '@')) {
+				$lookups[] = PR_EMAIL_ADDRESS;
+				$lookups[] = PR_SMTP_ADDRESS;
+
+				if ($addressType !== 'EX') {
+					$lookups[] = PR_ACCOUNT;
+				}
+			}
+
+			foreach (array_unique($lookups) as $property) {
+				$rows = $this->resolveNameByProperty($ab, $property, $candidate);
+				if (!empty($rows)) {
+					return $rows;
+				}
+			}
+		}
+
+		return [];
+	}
+
+	/**
+	 * Execute an exact resolve against the GAB for the provided property.
+	 *
+	 * @param resource $ab       The addressbook
+	 * @param int      $property Property tag used for the lookup
+	 * @param string   $value    Search value
+	 *
+	 * @return array
+	 */
+	protected function resolveNameByProperty($ab, $property, $value) {
+		if ($value === '') {
+			return [];
+		}
+
+		try {
+			return mapi_ab_resolvename($ab, [[$property => $value]], EMS_AB_ADDRESS_LOOKUP);
+		}
+		catch (MAPIException $e) {
+			if ($e->getCode() == MAPI_E_NOT_FOUND || $e->getCode() == MAPI_E_AMBIGUOUS_RECIP) {
+				return [];
+			}
+
+			throw $e;
+		}
 	}
 
 	/**

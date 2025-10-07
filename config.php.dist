@@ -27,6 +27,10 @@
 	// Enable shared rules
 	define("ENABLE_SHARED_RULES", TRUE);
 
+	// Enable resolving hidden address book entries (disabled by default).
+	// Overrides defaults.php
+	//define("ENABLE_RESOLVE_HIDDEN_USERS", true);
+
 	// The timeout (in seconds) for the session. User will be logged out of grommunio Web
 	// when he has not actively used grommunio Web for this time.
 	// Set to 0 (or remove) for no timeout during browser session.
