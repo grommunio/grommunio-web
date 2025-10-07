@@ -69,10 +69,9 @@ Zarafa.advancesearch.dialogs.SearchCategoriesContentPanel = Ext.extend(Zarafa.co
 		var existingCategories = this.searchCategoryStore.getCategories();
 
 		// Find removed categories (unchecked by user) and remove this from {@link #searchCategoryStore store}.
-		var removedCategories = existingCategories.filter(
-			function (category) {
-				return categories.indexOf(category);
-			});
+		var removedCategories = existingCategories.filter(function (category) {
+			return categories.indexOf(category) === -1;
+		});
 		if (!Ext.isEmpty(removedCategories)) {
 			this.searchCategoryStore.removeCategories(removedCategories);
 		}

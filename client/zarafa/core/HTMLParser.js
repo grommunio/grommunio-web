@@ -724,14 +724,14 @@ Zarafa.core.HTMLParser = (function() {
 				if(imgCid) {
 					var url = container.getBaseURL();
 					url = Ext.urlAppend(url, 'load=download_attachment');
-					url = Ext.urlAppend(url, 'attachCid=' + imgCid);
-					url = Ext.urlAppend(url, 'store=' + storeEntryId);
-					url = Ext.urlAppend(url, 'entryid=' + entryId);
+					url = Ext.urlAppend(url, 'attachCid=' + encodeURIComponent(imgCid));
+					url = Ext.urlAppend(url, 'store=' + encodeURIComponent(storeEntryId));
+					url = Ext.urlAppend(url, 'entryid=' + encodeURIComponent(entryId));
 					url = Ext.urlAppend(url, 'contentDispositionType=inline');
 					if(!Ext.isEmpty(attachNum)) {
 						for (var i = 0; i< attachNum.length; i++)
 						{
-							url = Ext.urlAppend(url, 'attachNum[]=' + attachNum[i]);
+							url = Ext.urlAppend(url, 'attachNum[]=' + encodeURIComponent(attachNum[i]));
 						}
 					}
 

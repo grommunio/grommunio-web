@@ -158,11 +158,12 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 				// add attachment number of parent sub messages
 				attachNum.push(attachmentRecord.get('attach_num'));
 
+				// Encode each attachment number so special characters in temp names survive the query string
 				for(var index = 0, len = attachNum.length; index < len; index++) {
-					url = Ext.urlAppend(url, 'attachNum[]=' + attachNum[index]);
+					url = Ext.urlAppend(url, 'attachNum[]=' + encodeURIComponent(attachNum[index]));
 				}
 			} else {
-				url = Ext.urlAppend(url, 'attachNum[]=' + attachmentRecord.get('tmpname'));
+				url = Ext.urlAppend(url, 'attachNum[]=' + encodeURIComponent(attachmentRecord.get('tmpname')));
 			}
 		}
 
@@ -171,7 +172,7 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 			if(isSubMessage){
 				url = Ext.urlAppend(url, 'isSubMessage=true');
 			}
-			url = Ext.urlAppend(url, 'subject='+parentRecord.get('subject'));
+			url = Ext.urlAppend(url, 'subject=' + encodeURIComponent(parentRecord.get('subject') || ''));
 		}
 
 		// fire the 'attachmentstorebeforegetbaseurl' event.

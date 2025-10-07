@@ -237,7 +237,7 @@ Zarafa.contact.ui.ContactCardView = Ext.extend(Zarafa.common.ui.DraggableDataVie
 					url = Ext.urlAppend(url, 'store=' + values.store_entryid);
 					url = Ext.urlAppend(url, 'entryid=' + values.entryid);
 					url = Ext.urlAppend(url, 'load=download_attachment');
-					url = Ext.urlAppend(url, 'attachNum[]=' + values.contact_photo_attach_num);
+					url = Ext.urlAppend(url, 'attachNum[]=' + encodeURIComponent(values.contact_photo_attach_num));
 					url = Ext.urlAppend(url, 'contentDispositionType=inline');
 
 					return `<div class="k-contact_cardview_photo">
