@@ -752,9 +752,9 @@ class MAPISession {
 		}
 		catch (Exception $e) {
 			// mapi_openmsgstore seems to not only throw MAPIException
-			error_log('Failed to open store. ' . $this->session_info["username"] .
-					  ' requested ' . bin2hex($entryid) . ($name ? " ({$name})" : ''));
-
+			error_log(sprintf("openmsgstore %s failed (actor:%s, name:%s): %s",
+				bin2hex($entryid), $this->session_info["username"], $name,
+				$e->getDisplayMessage()));
 			return $e->getCode();
 		}
 
