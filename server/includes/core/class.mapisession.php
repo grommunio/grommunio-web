@@ -750,15 +750,8 @@ class MAPISession {
 			$this->stores[$entryid] = $store;
 			$this->userstores[$name] = $entryid;
 		}
-		catch (MAPIException $e) {
-			error_log('Failed to open store. ' . $this->session_info["username"] .
-					  ' requested ' . bin2hex($entryid) . ($name ? " ({$name})" : ''));
-
-			return $e->getCode();
-		}
 		catch (Exception $e) {
-			// mapi_openmsgstore seems to throw another exception than MAPIException
-			// sometimes, so we add a safety net.
+			// mapi_openmsgstore seems to not only throw MAPIException
 			error_log('Failed to open store. ' . $this->session_info["username"] .
 					  ' requested ' . bin2hex($entryid) . ($name ? " ({$name})" : ''));
 
