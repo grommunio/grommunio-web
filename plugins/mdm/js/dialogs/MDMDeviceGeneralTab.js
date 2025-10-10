@@ -64,6 +64,10 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceGeneralTab = Ext.extend(Ext.form.FormPanel, 
 				fieldLabel: _('Last updated'),
 				value: String.format(_('{0}'), new Date(config.record.get('lastupdatetime')).format(_('d F Y, H:i')))
 			}, {
+				fieldLabel: _('Last connect'),
+				value: String.format('{0}', new Date(config.record.get('lastconnecttime')).format(_('d F Y, H:i')))
+
+			}, {
 				fieldLabel: _('Status'),
 				listeners: {
 					afterrender: this.onAfterRenderStatus,
@@ -78,7 +82,7 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceGeneralTab = Ext.extend(Ext.form.FormPanel, 
 	 * @private
 	 */
 	createFolderInfoPanel: function ()
-	{
+		 {
 		return {
 			cls: 'mdm-device-panel mdm-field-sep',
 			defaultType: 'displayfield',
@@ -118,7 +122,7 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceGeneralTab = Ext.extend(Ext.form.FormPanel, 
 					fieldLabel: _('Tasks'),
 					name: 'tasksfolder'
 				},
-				// this.createSharedFolderInfoPanel()
+					// this.createSharedFolderInfoPanel()
 				]
 			}]
 		};
@@ -133,9 +137,9 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceGeneralTab = Ext.extend(Ext.form.FormPanel, 
 		return {
 			xtype: 'panel',
 			border: false,
-            cls: 'mdm-synchronize-shared-panel',
+			cls: 'mdm-synchronize-shared-panel',
 			height: 50,
-            disabled: false,
+			disabled: false,
 			layout: {
 				type: 'hbox',
 				align: 'stretch',

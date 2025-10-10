@@ -15,6 +15,7 @@ Zarafa.plugins.mdm.data.MDMDeviceRecordFields = [
 	{name: 'firstsynctime', type: 'date', dateFormat: 'timestamp'},
 	{name: 'lastsynctime', type: 'date', dateFormat: 'timestamp'},
 	{name: 'lastupdatetime', type: 'date', dateFormat: 'timestamp'},
+	{name: 'lastconnecttime', type: 'date', dateFormat: 'timestamp'},
 	{name: 'wipestatus', type: 'string'},
 	{name: 'policyname', type: 'string'},
 	{name: 'sharedfolders', type: 'string'},

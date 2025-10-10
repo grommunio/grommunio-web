@@ -298,6 +298,7 @@ class PluginMDMModule extends Module {
 			}
 		}
 		$item['wipestatus'] = $this->getProvisioningWipeStatus($device->deviceid);
+		$item['lastconnecttime'] = $this->getLastConnectionTime($device->deviceid, $item['lastupdatetime']);
 
 		return array_merge($item, $this->getSyncFoldersProps($device));
 	}
@@ -803,6 +804,27 @@ class PluginMDMModule extends Module {
 				],
 			],
 		]];
+	}
+
+	/**
+	 * Returns the last connection time of a device.
+	 *
+	 * @param mixed $deviceid
+	 * @param int   $fallback
+	 *
+	 * @return int returns the last connection time (epoch) of a device
+	 */
+	public function getLastConnectionTime($deviceid, $fallback) {
+		// retrieve the LAST CONNECT from the Admin API
+		$api_response = file_get_contents(PLUGIN_MDM_ADMIN_API_LASTCONNECT_ENDPOINT . $GLOBALS["mapisession"]->getUserName() . "?devices=" . $deviceid);
+		if ($api_response) {
+			$data = json_decode($api_response, true);
+			if (isset($data['data'][$deviceid]["lastconnecttime"])) {
+				return $data['data'][$deviceid]["lastconnecttime"];
+			}
+		}
+
+		return $fallback;
 	}
 
 	/**
