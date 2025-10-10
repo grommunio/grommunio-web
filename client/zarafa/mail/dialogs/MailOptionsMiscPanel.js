@@ -119,10 +119,19 @@ Zarafa.mail.dialogs.MailOptionsMsgidPanel = Ext.extend(Ext.form.FormPanel, {
 	{
 		this.record = record;
 
-		if (record)
+		if (record) {
+			var objectIdText = record.get('x_midtext');
+			if (!objectIdText) {
+				objectIdText = Zarafa.core.EntryId.formatObjectId(record.get('entryid'));
+				if (objectIdText && record.get('x_midtext') !== objectIdText) {
+					record.set('x_midtext', objectIdText);
+				}
+			}
+
 			this.getForm().loadRecord(record);
-		else
+		} else {
 			this.headersTextArea.setValue('');
+		}
 	},
 
 	/**
