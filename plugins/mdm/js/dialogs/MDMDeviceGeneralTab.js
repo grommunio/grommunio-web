@@ -82,7 +82,7 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceGeneralTab = Ext.extend(Ext.form.FormPanel, 
 	 * @private
 	 */
 	createFolderInfoPanel: function ()
-		 {
+	{
 		return {
 			cls: 'mdm-device-panel mdm-field-sep',
 			defaultType: 'displayfield',
@@ -122,7 +122,7 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceGeneralTab = Ext.extend(Ext.form.FormPanel, 
 					fieldLabel: _('Tasks'),
 					name: 'tasksfolder'
 				},
-					// this.createSharedFolderInfoPanel()
+				// this.createSharedFolderInfoPanel()
 				]
 			}]
 		};
