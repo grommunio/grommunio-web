@@ -61,8 +61,8 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 						header : _('Provisioning Status'),
 						renderer : Zarafa.plugins.mdm.ui.Renderers.provisioningStatus
 					},{
-						dataIndex : 'lastupdatetime',
-						header : _('Last Update'),
+						dataIndex : 'lastconnecttime',
+						header : _('Last Connect'),
 						renderer : Ext.util.Format.htmlEncode
 					},{
 						dataIndex : 'entryid',
