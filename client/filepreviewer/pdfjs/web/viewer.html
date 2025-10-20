@@ -188,8 +188,9 @@ See https://github.com/adobe-type-tools/cmap-resources
                     <button id="editorCommentButton" class="toolbarButton" type="button" tabindex="0" disabled="disabled" role="radio" aria-expanded="false" aria-haspopup="true" aria-controls="editorCommentParamsToolbar" data-l10n-id="pdfjs-editor-comment-button">
                       <span data-l10n-id="pdfjs-editor-comment-button-label"></span>
                     </button>
-                    <div class="editorParamsToolbar sidebar hidden menu" id="editorCommentParamsToolbar">
-                      <div id="editorCommentsSidebar" class="menuContainer" role="landmark" aria-labelledby="editorCommentsSidebarHeader">
+                    <div class="editorParamsToolbar hidden menu" id="editorCommentParamsToolbar">
+                      <div id="editorCommentsSidebar" class="menuContainer comment sidebar" role="landmark" aria-labelledby="editorCommentsSidebarHeader">
+                        <div id="editorCommentsSidebarResizer" class="sidebarResizer"></div>
                         <div id="editorCommentsSidebarHeader" role="heading" aria-level="2">
                           <span class="commentCount">
                             <span id="editorCommentsSidebarTitle" data-l10n-id="pdfjs-editor-comments-sidebar-title" data-l10n-args='{ "count": 0 }'></span>
@@ -199,7 +200,9 @@ See https://github.com/adobe-type-tools/cmap-resources
                             <span data-l10n-id="pdfjs-editor-comments-sidebar-close-button-label"></span>
                           </button>
                         </div>
-                        <ul id="editorCommentsSidebarList"></ul>
+                        <div id="editorCommentsSidebarListContainer" tabindex="-1">
+                          <ul id="editorCommentsSidebarList"></ul>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -233,8 +236,8 @@ See https://github.com/adobe-type-tools/cmap-resources
                         <div id="editorHighlightVisibility">
                           <div class="divider"></div>
                           <div class="toggler">
-                            <span id="editorHighlightShowAllLabel" class="editorParamsLabel" data-l10n-id="pdfjs-editor-highlight-show-all-button-label"></span>
-                            <button id="editorHighlightShowAll" class="toggle-button" type="button" data-l10n-id="pdfjs-editor-highlight-show-all-button" aria-pressed="true" aria-labelledby="editorHighlightShowAllLabel" tabindex="0"></button>
+                            <label for="editorHighlightShowAll" class="editorParamsLabel" data-l10n-id="pdfjs-editor-highlight-show-all-button-label"></label>
+                            <button id="editorHighlightShowAll" class="toggle-button" type="button" data-l10n-id="pdfjs-editor-highlight-show-all-button" aria-pressed="true" tabindex="0"></button>
                           </div>
                         </div>
                       </div>
@@ -556,8 +559,8 @@ See https://github.com/adobe-type-tools/cmap-resources
                   <div id="newAltTextDisclaimer" role="note"><div><span data-l10n-id="pdfjs-editor-new-alt-text-disclaimer1"></span> <a href="https://support.mozilla.org/en-US/kb/pdf-alt-text" target="_blank" rel="noopener noreferrer" id="newAltTextLearnMore" data-l10n-id="pdfjs-editor-new-alt-text-disclaimer-learn-more-url" tabindex="0"></a></div></div>
                 </div>
                 <div id="newAltTextCreateAutomatically" class="toggler">
-                  <span id="newAltTextCreateAutomaticallyLabel" class="togglerLabel" data-l10n-id="pdfjs-editor-new-alt-text-create-automatically-button-label"></span>
-                  <button id="newAltTextCreateAutomaticallyButton" class="toggle-button" type="button" aria-pressed="true" aria-labelledby="newAltTextCreateAutomaticallyLabel" tabindex="0"></button>
+                  <button id="newAltTextCreateAutomaticallyButton" class="toggle-button" type="button" aria-pressed="true" tabindex="0"></button>
+                  <label for="newAltTextCreateAutomaticallyButton" class="togglerLabel" data-l10n-id="pdfjs-editor-new-alt-text-create-automatically-button-label"></label>
                 </div>
                 <div id="newAltTextDownloadModel" class="hidden">
                   <span id="newAltTextDownloadModelDescription" data-l10n-id="pdfjs-editor-new-alt-text-ai-model-downloading-progress" aria-valuemin="0" data-l10n-args='{ "totalSize": 0, "downloadedSize": 0 }'></span>
@@ -592,8 +595,8 @@ See https://github.com/adobe-type-tools/cmap-resources
               <div id="automaticSettings">
                 <div id="createModelSetting">
                   <div class="toggler">
-                    <span id="createModelButtonLabel" class="togglerLabel" data-l10n-id="pdfjs-editor-alt-text-settings-create-model-button-label"></span>
-                    <button id="createModelButton" type="button" class="toggle-button" aria-pressed="true" aria-labelledby="createModelButtonLabel" tabindex="0"></button>
+                    <button id="createModelButton" type="button" class="toggle-button" aria-pressed="true" tabindex="0"></button>
+                    <label for="createModelButton" class="togglerLabel" data-l10n-id="pdfjs-editor-alt-text-settings-create-model-button-label"></label>
                   </div>
                   <div id="createModelDescription" class="description">
                     <span data-l10n-id="pdfjs-editor-alt-text-settings-create-model-description"></span> <a href="https://support.mozilla.org/en-US/kb/pdf-alt-text" target="_blank" rel="noopener noreferrer" id="altTextSettingsLearnMore" data-l10n-id="pdfjs-editor-new-alt-text-disclaimer-learn-more-url" tabindex="0"></a>
@@ -616,8 +619,8 @@ See https://github.com/adobe-type-tools/cmap-resources
               <span data-l10n-id="pdfjs-editor-alt-text-settings-editor-title"></span>
               <div id="showAltTextEditor">
                 <div class="toggler">
-                  <span id="showAltTextDialogButtonLabel" class="togglerLabel" data-l10n-id="pdfjs-editor-alt-text-settings-show-dialog-button-label"></span>
-                  <button id="showAltTextDialogButton" type="button" class="toggle-button" aria-pressed="true" aria-labelledby="showAltTextDialogButtonLabel" tabindex="0"></button>
+                  <button id="showAltTextDialogButton" type="button" class="toggle-button" aria-pressed="true" tabindex="0"></button>
+                  <label for="showAltTextDialogButton" class="togglerLabel" data-l10n-id="pdfjs-editor-alt-text-settings-show-dialog-button-label"></label>
                 </div>
                 <div id="showAltTextDialogDescription" class="description">
                   <span data-l10n-id="pdfjs-editor-alt-text-settings-show-dialog-description"></span>
@@ -722,32 +725,18 @@ See https://github.com/adobe-type-tools/cmap-resources
         </div>
       </dialog>
 
-      <dialog class="dialog commentManager" id="commentManagerDialog">
+      <dialog class="dialog commentManager" id="commentManagerDialog" aria-labelledby="commentManagerTitle">
         <div class="mainContainer">
-          <div id="commentManagerToolbar">
-            <button id="commentActionsButton" class="toolbarButton" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="commentActionsMenu" tabindex="0" data-l10n-id="pdfjs-editor-edit-comment-actions-button">
-              <span data-l10n-id="pdfjs-editor-edit-comment-actions-button-label"></span>
-            </button>
-            <menu class="hidden" role="menu" id="commentActionsMenu">
-              <button id="commentActionsEditButton" role="menuitem" type="button" tabindex="0">
-                <span data-l10n-id="pdfjs-editor-edit-comment-actions-edit-button-label"></span>
-              </button>
-              <button id="commentActionsDeleteButton" role="menuitem" type="button" tabindex="0">
-                <span data-l10n-id="pdfjs-editor-edit-comment-actions-delete-button-label"></span>
-              </button>
-            </menu>
-            <button id="commentCloseButton" class="toolbarButton" type="button" tabindex="0" data-l10n-id="pdfjs-editor-edit-comment-close-button">
-              <span data-l10n-id="pdfjs-editor-edit-comment-close-button-label"></span>
-            </button>
+          <div class="title" id="commentManagerToolbar">
+            <span id="commentManagerTitle" role="sectionhead" data-l10n-id="pdfjs-editor-edit-comment-dialog-title-when-adding"></span>
           </div>
-          <textarea class="hidden" id="commentManagerTextInput" data-l10n-id="pdfjs-editor-edit-comment-manager-text-input"></textarea>
-          <div class="hidden" id="commentManagerTextView"></div>
+          <textarea id="commentManagerTextInput" data-l10n-id="pdfjs-editor-edit-comment-dialog-text-input" tabindex="0"></textarea>
           <div class="dialogButtonsGroup">
             <button id="commentManagerCancelButton" type="button" class="secondaryButton" tabindex="0">
-              <span data-l10n-id="pdfjs-editor-edit-comment-manager-cancel-button"></span>
+              <span data-l10n-id="pdfjs-editor-edit-comment-dialog-cancel-button"></span>
             </button>
             <button id="commentManagerSaveButton" type="button" class="primaryButton" disabled tabindex="0">
-              <span data-l10n-id="pdfjs-editor-edit-comment-manager-save-button"></span>
+              <span data-l10n-id="pdfjs-editor-edit-comment-dialog-save-button-when-adding"></span>
             </button>
           </div>
         </div>
