@@ -504,6 +504,9 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 
 			// Don't call store.save if cloneSourceNodes is empty array.
 		if(!Ext.isEmpty(cloneSourceNodes)) {
+			if (!isCtrlKeyPress) {
+				Zarafa.common.Actions.ensureStoreReloadOnEmpty(store);
+			}
 			store.save(cloneSourceNodes);
 		}
 		}

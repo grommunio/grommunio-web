@@ -130,7 +130,46 @@ Zarafa.common.Actions = {
 			resolved.push(record);
 		}
 
-		return resolved;
+	return resolved;
+	},
+
+	/**
+	 * Ensure that the given store reloads its content when it becomes empty after a write operation while
+	 * more data is still available on the backend (e.g. after moving all currently loaded mails).
+	 *
+	 * @param {Ext.data.Store} store The store to monitor.
+	 */
+	ensureStoreReloadOnEmpty: function(store)
+	{
+		if (!store || !Ext.isFunction(store.getCount)) {
+			return;
+		}
+
+		if (store._reloadGuardActive === true) {
+			return;
+		}
+
+		store._reloadGuardActive = true;
+
+		var handler = function(st, action) {
+			st.un('write', handler, this);
+			delete st._reloadGuardActive;
+
+			if (action !== 'destroy' && action !== 'update') {
+				return;
+			}
+
+			Ext.defer(function() {
+				if (!Ext.isFunction(st.getCount) || st.getCount() !== 0) {
+					return;
+				}
+
+				var options = st.lastOptions ? Ext.apply({}, st.lastOptions) : undefined;
+				st.reload(options);
+			}, 50);
+		};
+
+		store.on('write', handler, this, { single: true });
 	},
 
 	/**

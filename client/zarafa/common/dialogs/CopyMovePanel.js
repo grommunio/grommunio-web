@@ -574,6 +574,7 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 		}
 
 		if (!Ext.isEmpty(moveRecords)) {
+			Zarafa.common.Actions.ensureStoreReloadOnEmpty(this.store);
 			Ext.each(moveRecords, function(record) {
 				record.moveTo(folder);
 			});
