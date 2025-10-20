@@ -10,9 +10,17 @@
 		display: table-header-group;
 	}
 
+	html,
+	body {
+		/* Let the printed document size itself to the actual content height. */
+		height: auto;
+		min-height: 0;
+	}
+
 	#pagemargin {
-		min-height: 100%;
-		margin: 5;
+		/* Keep content tight to the body size to avoid blank trailing pages. */
+		min-height: 0;
+		margin: 5px;
 	}
 }
 
@@ -31,7 +39,7 @@ address,caption,cite,code,dfn,th,var {
 
 html, body {
 	width: 100%;
-	height: 100%;
+	height: auto;
 }
 
 caption,th {
