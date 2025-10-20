@@ -704,10 +704,8 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 		if (checked === true) {
 			var set = radio.inputValue === 'true';
 
-			if (!!this.record.get(radio.name) !== set) {
+			if (this.record.get(radio.name) !== set) {
 				this.record.set(radio.name, set);
-				// Ensure settings model is marked dirty when a field is changed
-				this.settingsContext.getModel().setDirty();
 			}
 
 			this.outOfOfficeDateTimeField.setDisabled(!set);
@@ -754,18 +752,11 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 	 */
 	onWillBeBackCheck: function(field, check)
 	{
-		if (!!this.record) {
-			var currentValue = this.record.get('until');
-			var nextValue = 0;
-			if (check) {
-				var backDateValue = this.backDateTimeField.getValue();
-				nextValue = backDateValue ? backDateValue.getTime()/1000 : 0;
-			}
-
-			if (currentValue !== nextValue) {
-				this.record.set('until', nextValue);
-				this.settingsContext.getModel().setDirty();
-			}
+		if(!check) {
+			this.record.set('until',0);
+		} else {
+			var backDateTimeValue = this.backDateTimeField.getValue().getTime()/1000;
+			this.record.set('until', backDateTimeValue);
 		}
 
 		this.backDateTimeField.setDisabled(!check);
@@ -783,11 +774,6 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 	onFieldChange: function(field, value)
 	{
 		this.record.set(field.name, value || field.emptyText);
-
-		// Ensure settings model is marked dirty when a field is changed
-		var model = this.settingsContext.getModel();
-		model.setDirty();
-
 	},
 
 	/**
@@ -884,18 +870,9 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 	{
 		if (operation !== Ext.data.Record.COMMIT) {
 			var contextModel = this.settingsContext.getModel();
-
-			if (!store.isLoaded || (store.isInitializing && !this.savingSettings)) {
-				return;
-			}
-
-			if (operation !== Ext.data.Record.COMMIT) {
-				var contextModel = this.settingsContext.getModel();
-				contextModel.setDirty();
-			}
+			contextModel.setDirty();
 		}
 	},
-
 
 	/**
 	 * Function will be used to reload data in the {@link Zarafa.common.outofoffice.data.OofStore OofStore}.
@@ -913,16 +890,8 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 	 */
 	onSaveSettings: function()
 	{
-		var store = this.getOofStore();
-
-		// Ensure store is fully initialized before saving
-		if (store.isInitializing) {
-			store.isInitializing = false;
-		}
-
-		store.save();
+		this.getOofStore().save();
 	}
-
 });
 
 Ext.reg('zarafa.settingsoofwidget', Zarafa.mail.settings.SettingsOofWidget);
