@@ -758,15 +758,22 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 			return;
 		}
 
-		var selectedRecords = [];
-		this.selectedRecords.forEach(function(item) {
-			if (Ext.isEmpty(item.store)) {
-				selectedRecords.push(this.getById(item.id));
-			 } else {
-				selectedRecords.push(item);
-			 }
-		}, this.getStore());
-		return selectedRecords;
+		var store = this.getStore();
+		var records = this.selectedRecords;
+
+		if (!Ext.isArray(records)) {
+			if (records && Ext.isFunction(records.getRange)) {
+				records = records.getRange();
+			} else if (records && Ext.isDefined(records.items)) {
+				records = records.items.slice();
+			} else if (records) {
+				records = [records];
+			} else {
+				records = [];
+			}
+		}
+
+		return Zarafa.common.Actions.resolveRecords(records, store);
 	},
 
 	/**

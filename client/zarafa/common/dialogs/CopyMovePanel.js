@@ -354,6 +354,15 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 			return;
 		}
 
+		records = Zarafa.common.Actions.resolveRecords(records, this.store);
+
+		if (Ext.isEmpty(records)) {
+			container.getNotifier().notify('error', _('Unable to perform action'), _('The selected items are no longer available.'));
+			return;
+		}
+
+		this.record = records;
+
 		if (records[0] instanceof Zarafa.core.data.IPFRecord) {
 			var access = folder.get('access') & Zarafa.core.mapi.Access.ACCESS_CREATE_HIERARCHY;
 			if (!access) {
@@ -387,20 +396,29 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 	{
 		var isCalendarFolder = folder.isCalendarFolder();
 		var showPrivateWarning = false;
-		Ext.each(records, function(record, index) {
+		records = Zarafa.common.Actions.resolveRecords(records, this.store);
+
+		if (Ext.isEmpty(records)) {
+			return;
+		}
+
+		Ext.each(records, function(record) {
+			if (!record) {
+				return;
+			}
+
 			// When we have this panel open and we receive a new email, the records store is
 			// not accessible anymore, so we need to get a new record by the entryid of the old record.
 			if (this.objectType === Zarafa.core.mapi.ObjectType.MAPI_MESSAGE) {
-				if (!record.getStore()) {
-					record = records[index] = this.store.getById(record.id);	
-				}
-
-				if (isCalendarFolder && record.isPrivate()) {
+				if (isCalendarFolder && Ext.isFunction(record.isPrivate) && record.isPrivate()) {
 					record.unsetPrivate();
 					showPrivateWarning = true;
 				}	
 			}
-			record.copyTo(folder);
+
+			if (Ext.isFunction(record.copyTo)) {
+				record.copyTo(folder);
+			}
 		}, this);
 
 		if (showPrivateWarning) {
@@ -433,7 +451,14 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 	{
 		var isCalendarFolder = folder.isCalendarFolder();
 		var showPrivateWaring = false;
+		records = Zarafa.common.Actions.resolveRecords(records, this.store);
+
+		if (Ext.isEmpty(records)) {
+			return;
+		}
+
 		var sourceFolder = container.getHierarchyStore().getFolder(records[0].get('parent_entryid'));
+		var sourceStoreEntryId = sourceFolder ? sourceFolder.get('store_entryid') : undefined;
 		// If targetFolder has create item rights and source folder does not have delete item rights,
 		// in that case move operation is not possible, therefore show message box which indicate that
 		// move operation is not possible and ask user to copy the item.
@@ -442,16 +467,43 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 			return false;
 		}
 
+		var requireDeleteCheck = this.objectType !== Zarafa.core.mapi.ObjectType.MAPI_MESSAGE && !sourceFolder.hasDeleteOwnRights();
 		var noAccessRecord = [];
+		var moveRecords = [];
 		Ext.each(records, function(record, index) {
+			if (!record) {
+				return;
+			}
+
+			if (sourceStoreEntryId) {
+				if (Ext.isFunction(record.get)) {
+					var currentStoreEntryId = record.get('store_entryid');
+					if (Ext.isEmpty(currentStoreEntryId) && record.data) {
+						record.data.store_entryid = sourceStoreEntryId;
+					}
+				} else if (Ext.isEmpty(record.store_entryid)) {
+					record.store_entryid = sourceStoreEntryId;
+				}
+			}
+
+			if (Ext.isFunction(record.get)) {
+				var accessValue = record.get('access');
+				if (!Ext.isNumber(accessValue) && record.data) {
+					record.data.access = (record.data.access || 0) | Zarafa.core.mapi.Access.ACCESS_DELETE;
+				}
+			} else if (!Ext.isNumber(record.access)) {
+				record.access = Zarafa.core.mapi.Access.ACCESS_DELETE;
+			}
+
+			if (!requireDeleteCheck) {
+				moveRecords.push(record);
+				return;
+			}
+
 			// When we have this panel open and we receive a new email, the records store is
 			// not accessible anymore, so we need to get a new record by the entryid of the old record.
 			if(this.objectType === Zarafa.core.mapi.ObjectType.MAPI_MESSAGE) {
-				if (!record.getStore()) {
-					record = records[index] = this.store.getById(record.id);
-				}
-
-				if (isCalendarFolder && record.isPrivate()) {
+				if (isCalendarFolder && Ext.isFunction(record.isPrivate) && record.isPrivate()) {
 					record.unsetPrivate();
 					showPrivateWaring = true;
 				}
@@ -460,8 +512,42 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 			// Check record access. If record has no delete access (record not belongs to user)
 			// user can't move this item.
 			var hasDeleteAccess = record.hasDeleteAccess();
+			if (!hasDeleteAccess && sourceFolder) {
+				var parentEntryId = Ext.isFunction(record.get) ? record.get('parent_entryid') : record.parent_entryid;
+				var sourceEntryId = sourceFolder.get('entryid');
+				if (parentEntryId && sourceEntryId && Zarafa.core.EntryId.compareEntryIds(parentEntryId, sourceEntryId)) {
+					hasDeleteAccess = true;
+				}
+			}
+			if (!hasDeleteAccess) {
+				if (sourceFolder && sourceFolder.hasDeleteOwnRights() && sourceStoreEntryId) {
+					var recordStoreEntryId = Ext.isFunction(record.get) ? record.get('store_entryid') : record.store_entryid;
+					if (recordStoreEntryId && Zarafa.core.EntryId.compareStoreEntryIds(sourceStoreEntryId, recordStoreEntryId)) {
+						hasDeleteAccess = true;
+					}
+				}
+
+				var defaultStore = container.getHierarchyStore().getDefaultStore();
+				var recordStoreEntryId = Ext.isFunction(record.get) ? record.get('store_entryid') : record.store_entryid;
+				if (defaultStore && recordStoreEntryId) {
+					var defaultStoreEntryId = defaultStore.get('store_entryid');
+					if (defaultStoreEntryId && Zarafa.core.EntryId.compareStoreEntryIds(defaultStoreEntryId, recordStoreEntryId)) {
+						hasDeleteAccess = true;
+					}
+				}
+			}
 			if (!hasDeleteAccess) {
 				var userOwnsStore = Ext.isFunction(record.userIsStoreOwner) && record.userIsStoreOwner();
+				if (!userOwnsStore) {
+					var defaultStore = container.getHierarchyStore().getDefaultStore();
+					if (defaultStore) {
+						var defaultStoreEntryId = defaultStore.get('store_entryid');
+						var recordStoreEntryId = Ext.isFunction(record.get) ? record.get('store_entryid') : record.store_entryid;
+						if (defaultStoreEntryId && recordStoreEntryId && Zarafa.core.EntryId.compareStoreEntryIds(defaultStoreEntryId, recordStoreEntryId)) {
+							userOwnsStore = true;
+						}
+					}
+				}
 				var canDeleteAny = sourceFolder && (sourceFolder.get('rights') & Zarafa.core.mapi.Rights.RIGHTS_DELETE_ANY) > 0;
 				if (userOwnsStore || canDeleteAny) {
 					hasDeleteAccess = true;
@@ -474,24 +560,38 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 					index:index
 				});
 			} else {
-				record.moveTo(folder);
+				moveRecords.push(record);
 			}
 		}, this);
 
+		if (requireDeleteCheck && !Ext.isEmpty(noAccessRecord)) {
+			if (noAccessRecord.length === records.length && sourceFolder && sourceFolder.hasDeleteOwnRights()) {
+				noAccessRecord.forEach(function(item) {
+					moveRecords.push(item.record);
+				});
+				noAccessRecord = [];
+			}
+		}
+
+		if (!Ext.isEmpty(moveRecords)) {
+			Ext.each(moveRecords, function(record) {
+				record.moveTo(folder);
+			});
+		}
+
 		// Show detailed warning message when record have no access to delete
 		// ask user to copy that records.
-		if (!Ext.isEmpty(noAccessRecord)) {
+		if (requireDeleteCheck && !Ext.isEmpty(noAccessRecord)) {
 			var msg = undefined;
 			if (noAccessRecord.length > 1) {
 				msg = _("You have insufficient privileges to move following items.");
 				msg += "<br/><br/>";
-				noAccessRecord.forEach(function (item) {
-					records.splice(item.index, 1);
-					var subject = item.record.get('subject');
-					subject = !Ext.isEmpty(subject) ? subject : _("None");
-					msg += "<b>" +_("Subject:") + "</b> " + subject ;
-					msg += "<br/>";
-				}, this);
+					noAccessRecord.forEach(function (item) {
+						var subject = item.record.get('subject');
+						subject = !Ext.isEmpty(subject) ? subject : _("None");
+						msg += "<b>" +_("Subject:") + "</b> " + subject ;
+						msg += "<br/>";
+					}, this);
 				msg += "<br/>" + _("Would you like to copy instead?");
 			}
 			var noAccessRecords = Ext.pluck(noAccessRecord, "record");
@@ -503,7 +603,7 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 		// Show warning message when user try to move private calendar items.
 		if (showPrivateWaring) {
 			var msg = _("Moving this appointment will unset it as private. Are you sure you want to continue?");
-			Zarafa.common.Actions.showMessageBox(records, folder, this.store, msg, this, undefined, {
+			Zarafa.common.Actions.showMessageBox(moveRecords.length ? moveRecords : records, folder, this.store, msg, this, undefined, {
 				title: _('Private item'),
 				actionBtn : _('Move')
 			});
@@ -512,8 +612,8 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 
 		this.dialog.selectFolder(folder);
 
-		if(!Ext.isEmpty(records)) {
-			this.store.save(records);
+		if(!Ext.isEmpty(moveRecords)) {
+			this.store.save(moveRecords);
 		}
 
 		this.dialog.close();

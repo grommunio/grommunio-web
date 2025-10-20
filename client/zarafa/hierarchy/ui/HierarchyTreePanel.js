@@ -434,6 +434,12 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 			var store = sourceNodes[0].getStore();
 
 			var cloneSourceNodes = sourceNodes.clone();
+			cloneSourceNodes = Zarafa.common.Actions.resolveRecords(cloneSourceNodes, store);
+
+			if (Ext.isEmpty(cloneSourceNodes)) {
+				return false;
+			}
+
 			var isCtrlKeyPress = dropEvent.rawEvent.ctrlKey;
 			var noAccessRecord = [];
 
@@ -449,11 +455,12 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 
 			var sourceNode = this.getNodeById(cloneSourceNodes[0].get('parent_entryid'));
 			var sourceFolder = sourceNode.getFolder();
+			var requireDeleteCheck = cloneSourceNodes[0].get('object_type') !== Zarafa.core.mapi.ObjectType.MAPI_MESSAGE && !sourceFolder.hasDeleteOwnRights();
 
 			// If targetFolder has create item rights and source folder does not have delete item rights,
 			// in that case move operation is not possible, therefore show message box which indicate that
 			// move operation is not possible and ask user to copy the item.
-			if (targetFolder.hasCreateRights() && !sourceFolder.hasDeleteOwnRights() && !isCtrlKeyPress) {
+			if (requireDeleteCheck && targetFolder.hasCreateRights() && !sourceFolder.hasDeleteOwnRights() && !isCtrlKeyPress) {
 				Zarafa.common.Actions.showMessageBox(cloneSourceNodes, targetFolder, store, undefined, this);
 				return false;
 			}
@@ -464,7 +471,7 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 				} else {
 					// Check record access. If record has no delete access (record not belongs to user)
 					// user can't move this item.
-					if (!sourceNode.hasDeleteAccess()) {
+					if (requireDeleteCheck && !sourceNode.hasDeleteAccess()) {
 						noAccessRecord.push({
 							record: sourceNode,
 							index:index
@@ -477,7 +484,7 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 
 			// Show detailed warning message when record have no access to delete
 			// ask user to copy that records.
-			if (!Ext.isEmpty(noAccessRecord)) {
+			if (requireDeleteCheck && !Ext.isEmpty(noAccessRecord)) {
 				var msg = undefined;
 				if (noAccessRecord.length > 1) {
 					msg = _("You have insufficient privileges to move following items.");
@@ -496,9 +503,9 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 			}
 
 			// Don't call store.save if cloneSourceNodes is empty array.
-			if(!Ext.isEmpty(cloneSourceNodes)) {
-				store.save(cloneSourceNodes);
-			}
+		if(!Ext.isEmpty(cloneSourceNodes)) {
+			store.save(cloneSourceNodes);
+		}
 		}
 	},
 

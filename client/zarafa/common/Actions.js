@@ -61,6 +61,79 @@ Zarafa.common.Actions = {
 	},
 
 	/**
+	 * Ensure that the given records remain operable by reattaching them to the provided store when needed.
+	 *
+	 * @param {Zarafa.core.data.MAPIRecord/Zarafa.core.data.MAPIRecord[]} records The record or records to normalize.
+	 * @param {Zarafa.core.data.MAPIStore} store The store that should own the records.
+	 * @return {Zarafa.core.data.MAPIRecord[]} Array containing the resolved records, excluding falsy entries.
+	 */
+	resolveRecords: function(records, store)
+	{
+		if (!Ext.isArray(records)) {
+			records = Ext.isDefined(records) ? [ records ] : [];
+		}
+
+		var resolved = [];
+
+		for (var i = 0, len = records.length; i < len; i++) {
+			var record = records[i];
+
+			if (!record) {
+				continue;
+			}
+
+			if (store) {
+				var storeEntryId = store.storeEntryId;
+
+				if (!storeEntryId && Ext.isDefined(store.folder) && store.folder) {
+					storeEntryId = store.folder.get('store_entryid');
+				}
+
+				if (!storeEntryId && Ext.isFunction(store.getFolder)) {
+					var storeFolder = store.getFolder();
+					if (storeFolder) {
+						storeEntryId = storeFolder.get('store_entryid');
+					}
+				}
+
+				var recordStore = Ext.isFunction(record.getStore) ? record.getStore() : record.store;
+
+				if (!recordStore) {
+					var storeRecord = Ext.isFunction(store.getById) ? store.getById(record.id) : undefined;
+
+					if (storeRecord) {
+						record = storeRecord;
+						records[i] = storeRecord;
+						recordStore = Ext.isFunction(storeRecord.getStore) ? storeRecord.getStore() : store;
+					} else if (Ext.isFunction(record.join)) {
+						record.join(store);
+						recordStore = Ext.isFunction(record.getStore) ? record.getStore() : store;
+					} else {
+						record.store = store;
+						recordStore = store;
+					}
+				}
+
+				if (!recordStore) {
+					record.store = store;
+				}
+
+				if (storeEntryId && (!Ext.isFunction(record.get) || Ext.isEmpty(record.get('store_entryid')))) {
+					if (record.data) {
+						record.data.store_entryid = storeEntryId;
+					} else if (Ext.isFunction(record.set)) {
+						record.set('store_entryid', storeEntryId);
+					}
+				}
+			}
+
+			resolved.push(record);
+		}
+
+		return resolved;
+	},
+
+	/**
 	 * Opens a {@link Zarafa.common.recurrence.dialogs.RecurrenceContentPanel RecurrenceContentPanel} for configuring
 	 * the recurrence of the given {@link Zarafa.core.data.IPMRecord record}.
 	 *
@@ -1169,13 +1242,16 @@ Zarafa.common.Actions = {
 					// So other external changes should not affect the record.
 					function(buttonClicked) {
 					// If the mailgrid has reloaded, retrieve the newly updated record.
-						var record = this;
-						if (!record.getStore()) {
-							record = store.getById(record.id);
+						var resolved = Zarafa.common.Actions.resolveRecords([this], store);
+						var targetRecord = resolved.length > 0 ? resolved[0] : this;
+
+						if (!targetRecord) {
+							return;
 						}
-						record.setReadFlags(read);
-						record.addMessageAction('send_read_receipt', buttonClicked !== 'no');
-						record.save();
+
+						targetRecord.setReadFlags(read);
+						targetRecord.addMessageAction('send_read_receipt', buttonClicked !== 'no');
+						targetRecord.save();
 					},
 					scope: record
 				});
@@ -1774,6 +1850,11 @@ Zarafa.common.Actions = {
 			actionButton = Ext.isDefined(options.actionBtn) ? options.actionBtn : actionButton;
 		}
 
+		records = this.resolveRecords(records, store);
+		if (Ext.isEmpty(records)) {
+			return;
+		}
+
 		Zarafa.common.dialogs.MessageBox.addCustomButtons({
 			title: title,
 			msg: message,
@@ -1785,20 +1866,24 @@ Zarafa.common.Actions = {
 					return;
 				}
 
-				Ext.each(records, function(record, index) {
-					// When we have this panel open and we receive a new email, the records store is
-					// not accessible anymore, so we need to get a new record by the entryid of the old record.
-					if(this.objectType === Zarafa.core.mapi.ObjectType.MAPI_MESSAGE && !record.getStore()) {
-						record = records[index] = store.getById(record.id);
+				var actionableRecords = Zarafa.common.Actions.resolveRecords(records, store);
+
+				Ext.each(actionableRecords, function(record) {
+					if (!record) {
+						return;
 					}
 
-					if (Ext.isFunction(record[button + "To"])) {
-						record[button + "To"](targetFolder);
-					} else {
+					var fnName = button + "To";
+					if (Ext.isFunction(record[fnName])) {
+						record[fnName](targetFolder);
+					} else if (Ext.isFunction(record.copyTo)) {
 						record.copyTo(targetFolder);
 					}
 				}, this);
-				store.save(records);
+
+				if (store && Ext.isFunction(store.save)) {
+					store.save(actionableRecords);
+				}
 
 				if (this.dialog) {
 					this.dialog.close();
