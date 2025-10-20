@@ -71,6 +71,17 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 				compiled: true
 			});
 		}
+
+		/**
+		 * Remember the last rendered record and format so we can avoid replacing HTML
+		 * bodies with plain text while asynchronous loading is still in progress.
+		 * @type {Object}
+		 * @private
+		 */
+		this.currentRenderInfo = {
+			entryId: null,
+			renderedHtml: false
+		};
 	},
 
 	/**
@@ -220,6 +231,8 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 		var iframeDocumentElement = new Ext.Element(iframeDocument);
 		var body = '';
 		var html;
+		var entryId = Ext.isDefined(record) ? record.get('entryid') : null;
+		var sameRecordAsBefore = this.currentRenderInfo && this.currentRenderInfo.entryId === entryId;
 
 		if (!Ext.isEmpty(iframeDocument.body)) {
 			// Remove and disable old keymaps that are registered on the document element.
@@ -228,17 +241,42 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 
 
 		if (Ext.isDefined(record)) {
-			// Display a 'loading' message. If the message is in HTML we can directly render it,
-			// otherwise we have to surround it with HTML tags for displaying plain-text.
-			html = record.get('isHTML');
-			body = record.getBody(html);
-			if (html) {
+			// Display a 'loading' message. Prefer cached sanitized HTML when available so we can render
+			// immediately, otherwise fall back to sanitizing or the plain-text representation.
+			var preferHtml = record.get('isHTML');
+			var sanitizedBody = null;
+
+			if (Ext.isFunction(record.getSanitizedHtmlBody)) {
+				// Use a cached sanitized body when possible to avoid redundant DOMPurify work.
+				if (!Ext.isEmpty(record.sanitizedHTMLBody)) {
+					sanitizedBody = record.sanitizedHTMLBody;
+				} else if (preferHtml === true) {
+					sanitizedBody = record.getSanitizedHtmlBody();
+				}
+			}
+
+			if (sanitizedBody) {
+				html = true;
+				body = "<!DOCTYPE html>" + sanitizedBody;
+			} else if (preferHtml === true) {
+				html = true;
+				var rawHtmlBody = record.getBody(true) || '';
+
 				if (container.getServerConfig().getDOMPurifyEnabled()) {
-					body = "<!DOCTYPE html>" + record.cleanupOutlookStyles(DOMPurify.sanitize(body, {USE_PROFILES: {html: true}}));
-				} else {
-					body = "<!DOCTYPE html>" + record.cleanupOutlookStyles(body);
+					rawHtmlBody = DOMPurify.sanitize(rawHtmlBody, { USE_PROFILES: { html: true } });
 				}
 
+				body = "<!DOCTYPE html>" + record.cleanupOutlookStyles(rawHtmlBody);
+			} else {
+				var plainBody = record.getBody(false) || '';
+				if (Ext.isEmpty(plainBody)) {
+					body = '';
+				} else {
+					body = this.plaintextTemplate.applyTemplate({ body: Ext.util.Format.htmlEncode(plainBody) });
+				}
+			}
+
+			if (html && body) {
 				// Defer loading of inline images so the text can be shown immediately.
 				body = body.replace(/<img([^>]+?)src="([^"]*download_attachment.php[^"]*)"([^>]*?)>/gi,
 					function(match, pre, src, post){
@@ -246,11 +284,25 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 					});
 			}
 
-			if (!body) {
-				body = '';
-			} else if (html === false) {
-				body = this.plaintextTemplate.applyTemplate({ body: Ext.util.Format.htmlEncode(body) });
+			if (html !== true && sameRecordAsBefore && this.currentRenderInfo.renderedHtml === true) {
+				// Keep the previously rendered HTML instead of flashing the plain-text fallback
+				// while the HTML body is still loading.
+				return;
 			}
+
+			this.currentRenderInfo = {
+				entryId: entryId,
+				renderedHtml: html === true
+			};
+		} else {
+			this.currentRenderInfo = {
+				entryId: null,
+				renderedHtml: false
+			};
+		}
+
+		if (!body) {
+			body = '';
 		}
 
 		var htmlBody = iframeDocument.getElementsByTagName('body')[0];

@@ -459,7 +459,16 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 
 			// Check record access. If record has no delete access (record not belongs to user)
 			// user can't move this item.
-			if (!record.hasDeleteAccess()) {
+			var hasDeleteAccess = record.hasDeleteAccess();
+			if (!hasDeleteAccess) {
+				var userOwnsStore = Ext.isFunction(record.userIsStoreOwner) && record.userIsStoreOwner();
+				var canDeleteAny = sourceFolder && (sourceFolder.get('rights') & Zarafa.core.mapi.Rights.RIGHTS_DELETE_ANY) > 0;
+				if (userOwnsStore || canDeleteAny) {
+					hasDeleteAccess = true;
+				}
+			}
+
+			if (!hasDeleteAccess) {
 				noAccessRecord.push({
 					record: record,
 					index:index
