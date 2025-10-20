@@ -7,7 +7,6 @@ JSFILES = js/kendox-plugin.js \
           js/kendox-upload-dialog.js
 
 COPYFILES = manifest.xml config.php \
-        $(wildcard resources/*.pfx) \
         $(shell find php/ -type f -name '*.php')
 
 CSSFILES = resources/kendox.css

@@ -31,3 +31,11 @@ define('PLUGIN_KENDOX_API_URL_TEST', "");
  */
 define('PLUGIN_KENDOX_DIALOG_URL', "");
 define('PLUGIN_KENDOX_DIALOG_URL_TEST', "");
+
+/*
+ * Kendox certificate (.pfx) locations and passwords
+ */
+define('PLUGIN_KENDOX_PFX_FILE', "");
+define('PLUGIN_KENDOX_PFX_PASSWORD', "");
+define('PLUGIN_KENDOX_PFX_FILE_TEST', "");
+define('PLUGIN_KENDOX_PFX_PASSWORD_TEST', "");

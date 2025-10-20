@@ -6,15 +6,14 @@ require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . "/kendox-client/class.kendox-client.php";
 require_once __DIR__ . "/class.attachment-info.php";
 require_once __DIR__ . "/class.uploadfile.php";
+require_once __DIR__ . '/../config.php';
 
 class KendoxModule extends Module {
-	// Certificate prod environment
-	public $pfxFile = __DIR__ . '/../resources/KendoxCertificate.pfx';
-	public $pfxPw = 'KxTest';
-
-	// Certificate test environment
-	public $pfxFileTest = __DIR__ . '/../resources/KendoxCertificate.pfx';
-	public $pfxPwTest = 'KxTest';
+	// Certificate paths/passwords for prod and test environments
+	public $pfxFile = '';
+	public $pfxPw = '';
+	public $pfxFileTest = '';
+	public $pfxPwTest = '';
 
 	public $dialogUrl;
 	public $mapiMessage;
@@ -30,6 +29,17 @@ class KendoxModule extends Module {
 	public function __construct($id, $data) {
 		parent::__construct($id, $data);
 		$this->store = $GLOBALS['mapisession']->getDefaultMessageStore();
+		$this->pfxFile = $this->resolvePfxPath($this->getConfigValue('PLUGIN_KENDOX_PFX_FILE'));
+		$this->pfxPw = $this->getConfigValue('PLUGIN_KENDOX_PFX_PASSWORD');
+		$this->pfxFileTest = $this->resolvePfxPath($this->getConfigValue('PLUGIN_KENDOX_PFX_FILE_TEST'));
+		$this->pfxPwTest = $this->getConfigValue('PLUGIN_KENDOX_PFX_PASSWORD_TEST');
+
+		if ($this->pfxFileTest === '') {
+			$this->pfxFileTest = $this->pfxFile;
+		}
+		if ($this->pfxPwTest === '') {
+			$this->pfxPwTest = $this->pfxPw;
+		}
 	}
 
 	/**
@@ -291,14 +301,20 @@ class KendoxModule extends Module {
 	 */
 	private function sendFiles($environment, $uploadFiles, $apiUrl, $userEMail) {
 		try {
-			$pfx = $this->pfxFile;
-			$pfxPw = $this->pfxPw;
-			if ($environment != "prod") {
-				$pfx = $this->pfxFileTest;
-				$pfxPw = $this->pfxPwTest;
+			$targetEnvironment = strtolower((string) $environment) === "prod" ? "prod" : "test";
+			$pfx = $targetEnvironment === "prod" ? $this->pfxFile : $this->pfxFileTest;
+			$pfxPw = $targetEnvironment === "prod" ? $this->pfxPw : $this->pfxPwTest;
+			if ($pfx === '') {
+				throw new Exception(_("Kendox certificate path is not configured."));
+			}
+			if ($pfxPw === '') {
+				throw new Exception(_("Kendox certificate password is not configured."));
 			}
 			if (!file_exists($pfx)) {
 				throw new Exception(_("Kendox certificate is not available."));
+			}
+			if (!is_readable($pfx)) {
+				throw new Exception(_("Kendox certificate is not readable."));
 			}
 			$this->kendoxClient = new Client($apiUrl);
 			$uid = $this->kendoxClient->loginWithToken($pfx, $pfxPw, "svc_grommunio");
@@ -328,6 +344,28 @@ class KendoxModule extends Module {
 		catch (Exception $ex) {
 			$this->logErrorAndThrow("Sending files failed", $ex);
 		}
+	}
+
+	private function getConfigValue($constantName) {
+		if (!defined($constantName)) {
+			return '';
+		}
+
+		$value = constant($constantName);
+
+		return is_string($value) ? trim($value) : '';
+	}
+
+	private function resolvePfxPath($path) {
+		if ($path === '') {
+			return '';
+		}
+
+		if ($path[0] === '/' || preg_match('/^[A-Za-z]:[\\\\\\/]/', $path) === 1) {
+			return $path;
+		}
+
+		return dirname(__DIR__) . '/' . ltrim(str_replace('\\', '/', $path), '/');
 	}
 
 	/**
