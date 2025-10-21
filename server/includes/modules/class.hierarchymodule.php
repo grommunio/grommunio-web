@@ -851,8 +851,8 @@ class HierarchyModule extends Module {
 		if ($user) {
 			$props = mapi_getprops($user, [PR_ACCOUNT, PR_DISPLAY_NAME, PR_OBJECT_TYPE]);
 
-			$grant["fullname"] = $props[PR_DISPLAY_NAME];
-			$grant["username"] = $props[PR_ACCOUNT];
+			$grant["fullname"] = $props[PR_DISPLAY_NAME] ?? _("unknown");
+			$grant["username"] = $props[PR_ACCOUNT] ?? _("unknown");
 			$grant["entryid"] = bin2hex((string) $grant["userid"]);
 
 			return $grant;
