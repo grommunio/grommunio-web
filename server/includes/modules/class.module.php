@@ -115,7 +115,7 @@ class Module {
 					else {
 						$e->setDisplayMessage(_("Could not save message."));
 					}
-					$e->allowToShowDetailMessage = true;
+					$e->allowToShowDetailsMessage = true;
 					break;
 
 				case "delete":
