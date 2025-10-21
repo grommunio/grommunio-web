@@ -1404,14 +1404,21 @@ class Operations {
 	 * @return array XML array structure with row data
 	 */
 	public function getTable($store, $entryid, $properties, $sort, $start, $rowcount = false, $restriction = false, $getHierarchy = false, $flags = MAPI_DEFERRED_ERRORS) {
-		$data = [];
+		$data = ["item" => []];
 		$folder = mapi_msgstore_openentry($store, $entryid);
 
 		if (!$folder) {
 			return $data;
 		}
 
-		$table = $getHierarchy ? mapi_folder_gethierarchytable($folder, $flags) : mapi_folder_getcontentstable($folder, $flags);
+		try {
+			$table = $getHierarchy ? mapi_folder_gethierarchytable($folder, $flags) : mapi_folder_getcontentstable($folder, $flags);
+		}
+		catch (Exception $e) {
+			error_log(sprintf("Unable to open table: '%s' (0x%08X)", $e->getMessage(), mapi_last_hresult()));
+
+			return $data;
+		}
 
 		if (!$rowcount) {
 			$rowcount = $GLOBALS['settings']->get('zarafa/v1/main/page_size', 50);
@@ -1445,8 +1452,6 @@ class Operations {
 
 			mapi_table_sort($table, $sort, TBL_BATCH);
 		}
-
-		$data["item"] = [];
 
 		$rows = mapi_table_queryrows($table, $properties, $start, $rowcount);
 
