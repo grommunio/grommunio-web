@@ -313,19 +313,19 @@ class HierarchyModule extends Module {
 						$data = $GLOBALS["operations"]->getHierarchyList($this->list_properties, HIERARCHY_GET_ONE, $store, $options, $username);
 
 						if (empty($data["item"][0]["folders"]["item"])) {
-							throw new MAPIException(null, MAPI_E_NO_ACCESS);
+							throw new MAPIException(_("Could not load the hierarchy."), MAPI_E_NO_ACCESS);
 						}
 
 						$folders = count($data["item"][0]["folders"]["item"]);
 						if ($folders === 0) {
-							throw new MAPIException(null, MAPI_E_NO_ACCESS);
+							throw new MAPIException(_("Could not load the hierarchy."), MAPI_E_NO_ACCESS);
 						}
 
 						$noPermissionFolders = array_filter($data['item'][0]['folders']['item'], fn ($item) => $item['props']['access'] === 0);
 						if (count($noPermissionFolders) >= $folders) {
 							// Throw an exception that we couldn't open the shared store,
 							// lets have processException() fill in our error message.
-							throw new MAPIException(null, MAPI_E_NO_ACCESS);
+							throw new MAPIException(_("Could not load the hierarchy."), MAPI_E_NO_ACCESS);
 						}
 
 						$this->addActionData("list", $data);
