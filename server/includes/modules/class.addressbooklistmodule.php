@@ -121,6 +121,12 @@ class AddressbookListModule extends ListModule {
 
 				$rowCount = mapi_table_getrowcount($table);
 
+				// Try to find hidden users if enabled and searching
+				$hiddenUserRows = [];
+				if (defined('ENABLE_RESOLVE_HIDDEN_USERS') && ENABLE_RESOLVE_HIDDEN_USERS && !empty($searchstring) && $folderType === 'gab') {
+					$hiddenUserRows = $this->resolveHiddenGABUsers($ab, $searchstring, $hide_users, $hide_groups);
+				}
+
 				if (is_int(MAX_GAB_RESULTS) && MAX_GAB_RESULTS > 0 && $rowCount > MAX_GAB_RESULTS) {
 					// Create a response that contains an error message that there are too much results
 					$data['error'] = ['code' => 'listexceederror', 'max_gab_users' => MAX_GAB_RESULTS];
@@ -129,6 +135,12 @@ class AddressbookListModule extends ListModule {
 				}
 				else {
 					$rows = mapi_table_queryallrows($table, $this->properties);
+				}
+
+				// Merge hidden user results
+				if (!empty($hiddenUserRows)) {
+					$rows = array_merge($rows, $hiddenUserRows);
+					$rowCount += count($hiddenUserRows);
 				}
 
 				for ($i = 0, $len = $rowCount; $i < $len; ++$i) {
@@ -1158,5 +1170,64 @@ class AddressbookListModule extends ListModule {
 		}
 
 		return $userGroupRestriction;
+	}
+
+	/**
+	 * Try to resolve hidden GAB users by exact match when ENABLE_RESOLVE_HIDDEN_USERS is enabled.
+	 * This allows finding users that are hidden from the GAB when the search string exactly matches
+	 * their display name, email address, or account name.
+	 *
+	 * @param resource $ab          The addressbook resource
+	 * @param string   $searchstr   The search string to match exactly
+	 * @param bool     $hide_users  Whether to exclude users from results
+	 * @param bool     $hide_groups Whether to exclude groups from results
+	 *
+	 * @return array Array of user rows in the same format as table query results
+	 */
+	protected function resolveHiddenGABUsers($ab, $searchstr, $hide_users, $hide_groups) {
+		if (!defined('ENABLE_RESOLVE_HIDDEN_USERS') || !ENABLE_RESOLVE_HIDDEN_USERS) {
+			return [];
+		}
+
+		$searchstr = trim($searchstr);
+		if (empty($searchstr)) {
+			return [];
+		}
+
+		// Try to find exact matches by different properties
+		$properties = [PR_DISPLAY_NAME, PR_ACCOUNT];
+		if (str_contains($searchstr, '@')) {
+			$properties[] = PR_EMAIL_ADDRESS;
+			$properties[] = PR_SMTP_ADDRESS;
+		}
+
+		foreach ($properties as $property) {
+			try {
+				$rows = mapi_ab_resolvename($ab, [[$property => $searchstr]], EMS_AB_ADDRESS_LOOKUP);
+				if (!empty($rows)) {
+					// Filter based on hide_users and hide_groups flags
+					$filteredRows = [];
+					foreach ($rows as $row) {
+						$objectType = $row[PR_OBJECT_TYPE] ?? MAPI_MAILUSER;
+						if ($hide_users && $objectType === MAPI_MAILUSER) {
+							continue;
+						}
+						if ($hide_groups && $objectType === MAPI_DISTLIST) {
+							continue;
+						}
+						$filteredRows[] = $row;
+					}
+					return $filteredRows;
+				}
+			}
+			catch (MAPIException $e) {
+				// NOT_FOUND or AMBIGUOUS - try next property
+				if ($e->getCode() != MAPI_E_NOT_FOUND && $e->getCode() != MAPI_E_AMBIGUOUS_RECIP) {
+					error_log("RESOLVE_HIDDEN_GAB: Error resolving by property " . $property . ": " . $e->getMessage());
+				}
+			}
+		}
+
+		return [];
 	}
 }

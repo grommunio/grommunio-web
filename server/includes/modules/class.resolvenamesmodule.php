@@ -102,6 +102,15 @@ class ResolveNamesModule extends Module {
 		try {
 			// First, try an addressbook lookup
 			$rows = mapi_ab_resolvename($ab, [[PR_DISPLAY_NAME => $searchstr]], $flags);
+
+			// If the lookup succeeded but we should also check for exact hidden matches
+			if (defined('ENABLE_RESOLVE_HIDDEN_USERS') && ENABLE_RESOLVE_HIDDEN_USERS && !($flags & EMS_AB_ADDRESS_LOOKUP)) {
+				$hiddenRows = $this->resolveHiddenExactMatches($ab, $query);
+				if (!empty($hiddenRows)) {
+					$rows = $this->mergeAndDeduplicateRows($rows, $hiddenRows);
+				}
+			}
+
 			$this->searchContactsFolders($ab, $ab_dir, $searchstr, $rows);
 		}
 		catch (MAPIException $e) {
@@ -118,6 +127,14 @@ class ResolveNamesModule extends Module {
 				$rows = mapi_table_queryallrows($table, [PR_ACCOUNT, PR_ADDRTYPE, PR_DISPLAY_NAME, PR_ENTRYID, PR_SEARCH_KEY, PR_OBJECT_TYPE, PR_SMTP_ADDRESS, PR_DISPLAY_TYPE_EX, PR_EMAIL_ADDRESS, PR_OBJECT_TYPE, PR_DISPLAY_TYPE]);
 
 				$rows = array_merge($rows, $this->getAmbigiousContactResolveResults($ab, $searchstr, $excludeGABGroups));
+
+				// Also check for hidden users if enabled and this is an exact match
+				if (defined('ENABLE_RESOLVE_HIDDEN_USERS') && ENABLE_RESOLVE_HIDDEN_USERS) {
+					$hiddenRows = $this->resolveHiddenExactMatches($ab, $query);
+					if (!empty($hiddenRows)) {
+						$rows = $this->mergeAndDeduplicateRows($rows, $hiddenRows);
+					}
+				}
 			}
 			elseif ($e->getCode() == MAPI_E_NOT_FOUND) {
 				$rows = [];
@@ -299,6 +316,39 @@ class ResolveNamesModule extends Module {
 
 			throw $e;
 		}
+	}
+
+	/**
+	 * Merge two arrays of rows and remove duplicates based on entryid.
+	 * This prevents the same user from appearing multiple times when they're
+	 * found through both normal and hidden user resolution.
+	 *
+	 * @param array $existingRows Existing rows from table/resolve queries
+	 * @param array $newRows      New rows from hidden user resolution
+	 *
+	 * @return array Merged array with duplicates removed
+	 */
+	protected function mergeAndDeduplicateRows($existingRows, $newRows) {
+		// Build a map of existing entryids
+		$entryidMap = [];
+		foreach ($existingRows as $row) {
+			if (isset($row[PR_ENTRYID])) {
+				$entryidMap[bin2hex($row[PR_ENTRYID])] = true;
+			}
+		}
+
+		// Add new rows only if they don't already exist
+		foreach ($newRows as $row) {
+			if (isset($row[PR_ENTRYID])) {
+				$entryidHex = bin2hex($row[PR_ENTRYID]);
+				if (!isset($entryidMap[$entryidHex])) {
+					$existingRows[] = $row;
+					$entryidMap[$entryidHex] = true;
+				}
+			}
+		}
+
+		return $existingRows;
 	}
 
 	/**
