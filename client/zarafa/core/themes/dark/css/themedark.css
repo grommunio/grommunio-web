@@ -1943,3 +1943,17 @@ body.login #form-container #logo,
 .zarafa-calendar-container-body .k-html-body-appointment {
     color: var(--primary-background-color)!important;
 }
+
+/*-----------------------------------------------------------------------------
+  Settings Panel Headers - Dark Mode
+-----------------------------------------------------------------------------*/
+#zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .x-panel-header {
+  background: linear-gradient(to bottom, #1e1e1e, #1a1a1a) !important;
+  border-bottom: 1px solid #333 !important;
+  color: var(--primary-foreground-color) !important;
+}
+
+#zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-widget {
+  background: var(--primary-paper-background) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+}
