@@ -24,21 +24,7 @@ define("HIERARCHY_GET_ALL", 0);
 define("HIERARCHY_GET_DEFAULT", 1);
 define("HIERARCHY_GET_ONE", 2);
 
-// used by distribution lists
-define("WAB_GUID", pack("H*", "C091ADD3519DCF11A4A900AA0047FAA4"));
-define("DL_USER", 0xC3);		//	195
-define("DL_USER2", 0xD3);		//	211
-define("DL_USER3", 0xE3);		//	227
-/*
- * According to Exchange protocol, type property for oneoff contact
- * will be 0x00.
- */
-define("DL_EXTERNAL_MEMBER", 0x00);		//	0
-define("DL_DIST", 0xB4);		//	180
-define("DL_USER_AB", 0xB5);		//	181
-define("DL_DIST_AB", 0xB6);		//	182
-
-// @FIXME these needs to be changed in mapitags.php
+// Distribution list constants moved to mapi-header-php/mapidefs.php
 
 // Constants are used to indicate error type on client
 define("ERROR_MAPI", 1);
