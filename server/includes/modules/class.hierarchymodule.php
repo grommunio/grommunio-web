@@ -10,6 +10,11 @@ class HierarchyModule extends Module {
 	private $store_entryid;
 
 	/**
+	 * Whether the current user has the permissions to view detailed store/folder information.
+	 */
+	private $showStoreDetails = true;
+
+	/**
 	 * Constructor.
 	 *
 	 * @param int   $id   unique id
@@ -144,7 +149,6 @@ class HierarchyModule extends Module {
 							break;
 						}
 						$result = $this->deleteSearchFolder($store, $parententryid, $entryid, $action);
-						dump($result, '$result');
 						if ($result) {
 							$this->sendFeedback(true);
 						}
@@ -313,19 +317,19 @@ class HierarchyModule extends Module {
 						$data = $GLOBALS["operations"]->getHierarchyList($this->list_properties, HIERARCHY_GET_ONE, $store, $options, $username);
 
 						if (empty($data["item"][0]["folders"]["item"])) {
-							throw new MAPIException(null, MAPI_E_NO_ACCESS);
+							throw new MAPIException(_("Could not load the hierarchy."), MAPI_E_NO_ACCESS);
 						}
 
 						$folders = count($data["item"][0]["folders"]["item"]);
 						if ($folders === 0) {
-							throw new MAPIException(null, MAPI_E_NO_ACCESS);
+							throw new MAPIException(_("Could not load the hierarchy."), MAPI_E_NO_ACCESS);
 						}
 
 						$noPermissionFolders = array_filter($data['item'][0]['folders']['item'], fn ($item) => $item['props']['access'] === 0);
 						if (count($noPermissionFolders) >= $folders) {
 							// Throw an exception that we couldn't open the shared store,
 							// lets have processException() fill in our error message.
-							throw new MAPIException(null, MAPI_E_NO_ACCESS);
+							throw new MAPIException(_("Could not load the hierarchy."), MAPI_E_NO_ACCESS);
 						}
 
 						$this->addActionData("list", $data);
@@ -566,35 +570,40 @@ class HierarchyModule extends Module {
 			$data["props"]["container_class"] = "IPF.Note";
 		}
 
+		$permissions = $this->getFolderPermissions($folder);
+
 		// replace "IPM_SUBTREE" with the display name of the store, and use the store message size
 		$store_props = mapi_getprops($store, [PR_IPM_SUBTREE_ENTRYID]);
 		if ($data["entryid"] == bin2hex((string) $store_props[PR_IPM_SUBTREE_ENTRYID])) {
-			$store_props = mapi_getprops($store, [PR_DISPLAY_NAME, PR_MESSAGE_SIZE_EXTENDED,
-				PR_CONTENT_COUNT, PR_QUOTA_WARNING_THRESHOLD, PR_PROHIBIT_SEND_QUOTA, PR_PROHIBIT_RECEIVE_QUOTA, ]);
+			$store_props = mapi_getprops($store, [PR_MAILBOX_OWNER_ENTRYID, PR_DISPLAY_NAME, PR_MESSAGE_SIZE_EXTENDED,
+			PR_CONTENT_COUNT, PR_QUOTA_WARNING_THRESHOLD, PR_PROHIBIT_SEND_QUOTA, PR_PROHIBIT_RECEIVE_QUOTA, ]);
+			if (!$GLOBALS['entryid']->compareEntryIds($store_props[PR_MAILBOX_OWNER_ENTRYID], $GLOBALS['mapisession']->getUserEntryID())) {
+				$permissions = $this->getStoreGrants($permissions);
+			}
 			$data["props"]["display_name"] = $store_props[PR_DISPLAY_NAME];
-			$data["props"]["message_size"] = round($store_props[PR_MESSAGE_SIZE_EXTENDED]);
-			$data["props"]["content_count"] = $store_props[PR_CONTENT_COUNT];
-			$data["props"]["store_size"] = round($store_props[PR_MESSAGE_SIZE_EXTENDED]);
+			$data["props"]["message_size"] = $this->showStoreDetails ? round($store_props[PR_MESSAGE_SIZE_EXTENDED]) : 0;
+			$data["props"]["content_count"] = $this->showStoreDetails ? $store_props[PR_CONTENT_COUNT] : 0;
+			$data["props"]["store_size"] = $this->showStoreDetails ? round($store_props[PR_MESSAGE_SIZE_EXTENDED]) : 0;
 
 			if (isset($store_props[PR_QUOTA_WARNING_THRESHOLD])) {
-				$data["props"]["quota_warning"] = round($store_props[PR_QUOTA_WARNING_THRESHOLD]);
+				$data["props"]["quota_warning"] = $this->showStoreDetails ? round($store_props[PR_QUOTA_WARNING_THRESHOLD]) : 0;
 			}
 			if (isset($store_props[PR_PROHIBIT_SEND_QUOTA])) {
-				$data["props"]["quota_soft"] = round($store_props[PR_PROHIBIT_SEND_QUOTA]);
+				$data["props"]["quota_soft"] = $this->showStoreDetails ? round($store_props[PR_PROHIBIT_SEND_QUOTA]) : 0;
 			}
 			if (isset($store_props[PR_PROHIBIT_RECEIVE_QUOTA])) {
-				$data["props"]["quota_hard"] = round($store_props[PR_PROHIBIT_RECEIVE_QUOTA]);
+				$data["props"]["quota_hard"] = $this->showStoreDetails ? round($store_props[PR_PROHIBIT_RECEIVE_QUOTA]) : 0;
 			}
 		}
 
 		// calculating missing message_size
 		if (!isset($data["props"]["message_size"])) {
-			$data["props"]["message_size"] = round($GLOBALS["operations"]->calcFolderMessageSize($folder, false));
+			$data["props"]["message_size"] = $this->showStoreDetails ? round($GLOBALS["operations"]->calcFolderMessageSize($folder, false)) : 0;
 		}
 
 		// retrieving folder permissions
 		$data["permissions"] = [
-			"item" => $this->getFolderPermissions($folder),
+			"item" => $permissions,
 		];
 
 		return $data;
@@ -704,6 +713,7 @@ class HierarchyModule extends Module {
 			$rights["props"]["object_type"] = $userinfo["type"];
 			$rights["props"]["entryid"] = $userinfo["entryid"];
 			$rights["props"]["rights"] = $grant["rights"];
+			$rights["props"]["memberid"] = $grant["memberid"];
 
 			$grants[$id] = $rights;
 		}
@@ -1345,5 +1355,34 @@ class HierarchyModule extends Module {
 			// Add all response data to Bus
 			$GLOBALS["bus"]->addData($this->getResponseData());
 		}
+	}
+
+	/**
+	 * Returns the visible permissions of the store for the current user.
+	 *
+	 * @param array $permissions
+	 *
+	 * @return array of grants
+	 */
+	public function getStoreGrants(array $permissions): array {
+		$mainUserEntryId = bin2hex($GLOBALS['mapisession']->getUserEntryID());
+		$grants = [];
+		foreach ($permissions as $grant) {
+			if ($grant['entryid'] == $mainUserEntryId) {
+				// user has owner rights, return all permissions
+				if ($grant['props']['rights'] == ecRightsFolderAccess || $grant['props']['rights'] == ecRightsGromoxStoreOwner) {
+					unset($grants);
+					return $permissions;
+				}
+				$grants[] = $grant;
+			}
+			// anonymous and default permissions are always visible
+			elseif ($grant['props']['memberid'] == 0 || $grant['props']['memberid'] == 0xFFFFFFFF) {
+				$grants[] = $grant;
+			}
+		}
+		$this->showStoreDetails = false;
+
+		return $grants;
 	}
 }

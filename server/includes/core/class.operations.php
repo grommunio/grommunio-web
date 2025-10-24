@@ -2394,7 +2394,7 @@ class Operations {
 			if ($request->checkFolderWriteAccess($parententryid, $store) !== true) {
 				// Throw an exception that we don't have write permissions on calendar folder,
 				// error message will be filled by module
-				throw new MAPIException(null, MAPI_E_NO_ACCESS);
+				throw new MAPIException(_("Insufficient permissions"), MAPI_E_NO_ACCESS);
 			}
 
 			$request->updateMeetingRequest($basedate);
