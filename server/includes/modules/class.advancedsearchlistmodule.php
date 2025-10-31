@@ -116,9 +116,26 @@ class AdvancedSearchListModule extends ListModule {
 			if ($actionType == 'search') {
 				$rows = [[PR_ENTRYID => $entryid]];
 				if (isset($action['subfolders']) && $action['subfolders']) {
-					$folder = mapi_msgstore_openentry($store, $entryid);
-					$htable = mapi_folder_gethierarchytable($folder, CONVENIENT_DEPTH | MAPI_DEFERRED_ERRORS);
-					$rows = mapi_table_queryallrows($htable, [PR_ENTRYID]);
+					$folder = null;
+					$inboxEntryId = null;
+					try {
+						$folder = mapi_msgstore_openentry($store, $entryid);
+					}
+					catch(Exception) {
+						// Probably trying to open a store without having appropriate permissions.
+						// Try to open the inbox instead.
+						$folder = mapi_msgstore_getreceivefolder($store);
+						$props = mapi_getprops($folder, [PR_ENTRYID]);
+						$inboxEntryId = $props[PR_ENTRYID];
+					}
+					if (!is_null($folder)) {
+						$htable = mapi_folder_gethierarchytable($folder, CONVENIENT_DEPTH | MAPI_DEFERRED_ERRORS);
+						$rows = mapi_table_queryallrows($htable, [PR_ENTRYID]);
+					}
+					// The inbox itself is not the hierarchy list, add it to the begin.
+					if (!is_null($inboxEntryId)) {
+						array_unshift($rows, [PR_ENTRYID => $inboxEntryId]);
+					}
 				}
 				$data['item'] = [];
 				foreach ($rows as $row) {
