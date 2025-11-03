@@ -170,6 +170,9 @@ class AddressbookListModule extends ListModule {
 							DT_PRIVATE_DISTLIST => '',
 							default => $user_data[$this->properties['email_address']],
 						};
+						if (!isset($item['smtp_address']) && $item['address_type'] === 'SMTP') {
+							$item['smtp_address'] = $item['email_address'];
+						}
 					}
 					elseif ($isSharedFolder && $sharedStore) {
 						// do not display private items
