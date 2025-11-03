@@ -3899,6 +3899,9 @@ class Operations {
 			$recipient[PR_DISPLAY_TYPE_EX] = $recipientItem["display_type_ex"];
 			$recipient[PR_EMAIL_ADDRESS] = $recipientItem["email_address"];
 			$recipient[PR_SMTP_ADDRESS] = $recipientItem["smtp_address"];
+			if (empty($recipient[PR_SMTP_ADDRESS]) && $recipientItem["address_type"] === 'SMTP') {
+				$recipient[PR_SMTP_ADDRESS] = $recipient[PR_EMAIL_ADDRESS];
+			}
 			if (isset($recipientItem["search_key"])) {
 				$recipient[PR_SEARCH_KEY] = $recipientItem["search_key"];
 			}
