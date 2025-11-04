@@ -43,8 +43,6 @@ final class ConnectionException extends Exception {
 	 * @param int         $code       HTTP status code, e.g. curl_getinfo($curl)['http_code']
 	 * @param bool|string $curlResult return value from curl_exec();
 	 *
-	 * @return no-return
-	 *
 	 * @throws ConnectionException
 	 */
 	public static function throwCurlResult(int $code, bool|string $curlResult): never {

@@ -32,7 +32,7 @@ final class SeafileApi {
 	public const TYPES_REPO = [self::TYPE_REPO => self::TYPE_REPO, self::TYPE_SREPO => self::TYPE_SREPO, self::TYPE_GREPO => self::TYPE_GREPO];
 
 	/**
-	 * @const string
+	 * @var string
 	 */
 	public const STRING_SUCCESS = 'success';
 
@@ -76,12 +76,12 @@ final class SeafileApi {
 	private const JSON_DECODE_ACCEPT_SUCCESS_OBJECT = 29;               # 1 1101 object with single "success" property and value true
 
 	/**
-	 * @const string ASCII upper-case characters part of a hexit
+	 * @var string ASCII upper-case characters part of a hexit
 	 */
 	private const HEX_ALPHA_UPPER = 'ABCDEF';
 
 	/**
-	 * @const string ASCII lower-case characters part of a hexit
+	 * @var string ASCII lower-case characters part of a hexit
 	 */
 	private const HEX_ALPHA_LOWER = 'abcdef';
 

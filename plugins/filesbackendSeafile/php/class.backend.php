@@ -39,7 +39,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 	public const LOG_CONTEXT = "SeafileBackend"; // Context for the Logger
 
 	/**
-	 * @const string gettext domain
+	 * @var string gettext domain
 	 */
 	private const GT_DOMAIN = 'plugin_filesbackendSeafile';
 
@@ -114,7 +114,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 		$this->backendDisplayName = "Seafile";
 
 		// set backend version
-		$this->backendVersion = "2.0.68";
+		$this->backendVersion = "2.0.69";
 
 		// set backend name used in translations
 		$this->backendTransName = dgettext(self::GT_DOMAIN, 'Files ' . $this->backendDisplayName . ' Backend: ');
@@ -551,7 +551,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 	public function init_backend($backend_config) {
 		$config = $backend_config;
 
-		if ($backend_config["use_zarafa_credentials"]) {
+		if (!empty($config["use_grommunio_credentials"])) {
 			// For backward compatibility we will check if the Encryption store exists. If not,
 			// we will fall back to the old way of retrieving the password from the session.
 			if (class_exists('EncryptionStore')) {
@@ -565,9 +565,29 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 			else {
 				$config['user'] = ConfigUtil::loadSmtpAddress();
 				$password = $_SESSION['password'];
-				if (function_exists('openssl_decrypt')) {
-					/* @noinspection PhpUndefinedConstantInspection */
-					$config['password'] = openssl_decrypt($password, "des-ede3-cbc", PASSWORD_KEY, 0, PASSWORD_IV);
+				// Prefer plugin-specific KEY/IV if defined, then legacy names; otherwise, fall back
+				$key = null;
+				$iv = null;
+				if (\defined('FILES_PASSWORD_KEY')) {
+					$key = \constant('FILES_PASSWORD_KEY');
+				}
+				elseif (\defined('PASSWORD_KEY')) {
+					$key = \constant('PASSWORD_KEY');
+				}
+				if (\defined('FILES_PASSWORD_IV')) {
+					$iv = \constant('FILES_PASSWORD_IV');
+				}
+				elseif (\defined('PASSWORD_IV')) {
+					$iv = \constant('PASSWORD_IV');
+				}
+
+				if (\function_exists('openssl_decrypt') && is_string($key) && is_string($iv) && $key !== '' && $iv !== '') {
+					$dec = \openssl_decrypt($password, 'des-ede3-cbc', $key, 0, $iv);
+					$config['password'] = ($dec !== false) ? $dec : $password;
+				}
+				else {
+					// If no KEY/IV configured, assume plaintext session password
+					$config['password'] = $password;
 				}
 			}
 		}
@@ -823,7 +843,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 						],
 					],
 					[
-						"name" => "use_zarafa_credentials",
+						"name" => "use_grommunio_credentials",
 						"fieldLabel" => dgettext(self::GT_DOMAIN, 'Use grommunio credentials'),
 						"editor" => [
 							"xtype" => "checkbox",
@@ -849,7 +869,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 				"server_port" => "443",
 				"server_ssl" => "1",
 				"server_path" => "",
-				"use_zarafa_credentials" => "0",
+				"use_grommunio_credentials" => "0",
 				"user" => "",
 				"password" => "",
 			],
@@ -895,7 +915,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 	 * @param int     $errorCode one of the Backend::SFA_ERR_* codes, e.g. {@see Backend::SFA_ERR_INTERNAL}
 	 * @param ?string $title     msg-id from the plugin_files domain, e.g. 'PHP-CURL not installed'
 	 *
-	 * @return no-return
+	 * @return never
 	 *
 	 * @throws BackendException
 	 */
@@ -907,8 +927,6 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 
 	/**
 	 * Throw a BackendException w/ title, message and code.
-	 *
-	 * @return no-return
 	 *
 	 * @throws BackendException
 	 */
@@ -923,7 +941,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 	/**
 	 * Turn a throwable/exception with the Seafile API into a Backend exception.
 	 *
-	 * @return no-return
+	 * @return never
 	 *
 	 * @throws BackendException
 	 */
