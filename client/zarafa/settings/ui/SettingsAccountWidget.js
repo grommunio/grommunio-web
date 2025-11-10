@@ -343,9 +343,8 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 	},
 
 	/**
-	 * Event handler which is fired when a language in the {@link Ext.form.ComboBox combobox}
-	 * has been selected. This will inform the user that this setting requires a reload of the
-	 * webapp to become active.
+	 * Event handler which is fired when a theme in the {@link Ext.form.ComboBox combobox}
+	 * has been selected. This will dynamically apply the new theme without requiring a reload.
 	 * @param {Ext.form.ComboBox} combo The combobox which fired the event
 	 * @param {Ext.data.Record} record The selected record in the combobox
 	 * @param {Number} index The selected index in the store
@@ -356,10 +355,39 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 		var value = record.get(combo.valueField);
 
 		if (this.activeTheme !== value) {
-			this.model.requiresReload = true;
+			// Dynamically switch theme by updating the body class
+			var bodyEl = Ext.getBody();
 
+			// Remove ALL existing theme-* classes
+			// This handles switching from any theme to any other theme
+			var bodyClasses = bodyEl.dom.className.split(' ');
+			for (var i = 0; i < bodyClasses.length; i++) {
+				if (bodyClasses[i].indexOf('theme-') === 0) {
+					bodyEl.removeClass(bodyClasses[i]);
+				}
+			}
+
+			// Remove dark theme CSS if switching away from dark theme
+			if (this.activeTheme === 'dark') {
+				this.removeDarkThemeCSS();
+			}
+
+			// Add new theme class if not 'basic'
+			// Basic theme uses no theme class and falls back to the original hardcoded colors in the CSS
+			if (value && value !== 'basic') {
+				var newThemeClass = 'theme-' + value;
+				bodyEl.addClass(newThemeClass);
+
+				// Load dark theme CSS if switching to dark theme
+				if (value === 'dark') {
+					this.loadDarkThemeCSS();
+				}
+			}
+
+			// Update the active theme reference
+			this.activeTheme = value;
 		}
-		
+
 		if (this.model) {
 			this.model.set(combo.name, value);
 		}
@@ -369,6 +397,98 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 			value === 'dark' ? '{"id":"theme-dark","type":"dark"}' : '{"id":"theme-light","type":"light"}');
 		window.localStorage.setItem('ui-theme-id',
 			value === 'dark' ? 'theme-dark' : 'theme-light');
+	},
+
+	/**
+	 * Dynamically loads the dark theme CSS file by injecting a link element into the page.
+	 * @private
+	 */
+	loadDarkThemeCSS: function()
+	{
+		// Check if dark theme CSS is already loaded (either by id or by href)
+		var existingLink = this.findDarkThemeCSS();
+		if (existingLink) {
+			// Tag it with our id so we can manage it later
+			existingLink.id = 'dark-theme-stylesheet';
+			return;
+		}
+
+		// Determine the correct path based on build mode
+		// In SOURCE mode: client/zarafa/core/themes/dark/css/themedark.css
+		// In DEBUG/RELEASE mode: client/themes/dark/css/themedark.css
+		var cssPath = this.detectThemePath();
+
+		// Create and inject the dark theme CSS link
+		var link = document.createElement('link');
+		link.id = 'dark-theme-stylesheet';
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = cssPath;
+		document.head.appendChild(link);
+	},
+
+	/**
+	 * Detects the correct path for theme CSS files based on existing link tags.
+	 * Falls back to built version path if detection fails.
+	 * @return {String} The path to the dark theme CSS file
+	 * @private
+	 */
+	detectThemePath: function()
+	{
+		// Check existing CSS link tags to detect the theme path structure
+		var links = document.getElementsByTagName('link');
+		for (var i = 0; i < links.length; i++) {
+			var href = links[i].href;
+			if (href && href.indexOf('grommunio.css') !== -1) {
+				// Found main CSS, check if it's in client/resources/ (built) or client/zarafa/ (source)
+				if (href.indexOf('client/zarafa/') !== -1) {
+					// SOURCE mode
+					return 'client/zarafa/core/themes/dark/css/themedark.css';
+				} else {
+					// DEBUG/RELEASE mode (built)
+					return 'client/themes/dark/css/themedark.css';
+				}
+			}
+		}
+
+		// Default to built version path
+		return 'client/themes/dark/css/themedark.css';
+	},
+
+	/**
+	 * Removes the dark theme CSS file from the page.
+	 * @private
+	 */
+	removeDarkThemeCSS: function()
+	{
+		var darkStylesheet = this.findDarkThemeCSS();
+		if (darkStylesheet) {
+			darkStylesheet.parentNode.removeChild(darkStylesheet);
+		}
+	},
+
+	/**
+	 * Finds the dark theme CSS link element in the page.
+	 * @return {HTMLLinkElement} The dark theme link element, or null if not found
+	 * @private
+	 */
+	findDarkThemeCSS: function()
+	{
+		// First try to find by id
+		var link = document.getElementById('dark-theme-stylesheet');
+		if (link) {
+			return link;
+		}
+
+		// If not found by id, search all link elements for the dark theme CSS
+		var links = document.getElementsByTagName('link');
+		for (var i = 0; i < links.length; i++) {
+			if (links[i].href && links[i].href.indexOf('themedark.css') !== -1) {
+				return links[i];
+			}
+		}
+
+		return null;
 	},
 
 	/**

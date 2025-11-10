@@ -4881,6 +4881,19 @@ input.x-tree-node-cb {
  * Each theme defines its own color palette using CSS variables
  ********************************************************************************************/
 
+/* Basic Theme (Default) - matches original hardcoded colors */
+body {
+  --theme-primary-color: #1976d2;
+  --theme-primary-hover: #1976d2;
+  --theme-primary-dark: #065fa5;
+  --theme-selection-bg: #d5e8f7;
+  --theme-border-color: #90caf9;
+  --theme-border-hover: #64b5f6;
+  --theme-panel-bg: #90caf9;
+  --theme-gradient-start: #009FFD;
+  --theme-gradient-end: #2a2a72;
+}
+
 /* Purple Theme */
 body.theme-purple {
   --theme-primary-color: #702277;
