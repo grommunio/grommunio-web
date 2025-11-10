@@ -540,31 +540,31 @@ button::-moz-focus-inner {
   padding-right: 14px; }
   .x-btn.zarafa-action .x-btn-small em.x-btn-split button, .x-btn.zarafa-action .x-btn-small em.x-btn-arrow button {
     border: none;
-    border-right: 1px solid white; }
+    border-right: 1px solid #ccc; }
 
 /**************************************
  * Action buttons
  *************************************/
 /* Normal and Disable button */
 .x-btn.zarafa-action .x-btn-small, .x-btn.zarafa-action .x-btn-medium, .x-btn.zarafa-action .x-btn-large {
-  background: #5ebb4b !important;
+  background: var(--theme-primary-color) !important;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2); }
   .x-btn.zarafa-action .x-btn-small button, .x-btn.zarafa-action .x-btn-medium button, .x-btn.zarafa-action .x-btn-large button {
     color: #ffffff !important; }
 
 /* hovered button */
 .x-btn.zarafa-action.x-btn-over .x-btn-small, .x-btn.zarafa-action.x-btn-over .x-btn-medium, .x-btn.zarafa-action.x-btn-over .x-btn-large {
-  background: #59b147 !important;
+  background: var(--theme-primary-hover) !important;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25); }
 
 /* focused action button */
 .x-btn.zarafa-action.x-btn-focus .x-btn-small, .x-btn.zarafa-action.x-btn-focus .x-btn-medium, .x-btn.zarafa-action.x-btn-focus .x-btn-large {
-  background: #59b147 !important;
-  box-shadow: 0 0 0 2px rgba(94, 187, 75, 0.3); }
+  background: var(--theme-primary-hover) !important;
+  box-shadow: 0 0 0 2px rgba(var(--theme-primary-color-rgb, 94, 187, 75), 0.3); }
 
 /* active button */
 .x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-small, .x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-medium, .x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-large, .x-btn.zarafa-action.x-btn-click .x-btn-small, .x-btn.zarafa-action.x-btn-click .x-btn-medium, .x-btn.zarafa-action.x-btn-click .x-btn-large {
-  background: #5ebb4b !important;
+  background: var(--theme-primary-color) !important;
   box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.2); }
   .x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-small button, .x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-medium button, .x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-large button, .x-btn.zarafa-action.x-btn-click .x-btn-small button, .x-btn.zarafa-action.x-btn-click .x-btn-medium button, .x-btn.zarafa-action.x-btn-click .x-btn-large button {
     color: #ffffff; }
@@ -604,7 +604,7 @@ button::-moz-focus-inner {
   .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small,
   .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-medium,
   .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-large {
-    background: #5ebb4b !important; }
+    background: var(--theme-primary-color) !important; }
     .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small button, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-medium button, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-large button,
     .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small button,
     .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-medium button,
@@ -626,7 +626,7 @@ button::-moz-focus-inner {
   .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-small,
   .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-medium,
   .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-large {
-    background: #59b147 !important; }
+    background: var(--theme-primary-hover) !important; }
   .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-small, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-medium, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-large,
   .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-small,
   .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-medium,
@@ -649,7 +649,7 @@ button::-moz-focus-inner {
   .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-small,
   .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-medium,
   .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-large {
-    background: #5ebb4b !important; }
+    background: var(--theme-primary-color) !important; }
   .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-normal) .x-btn-small, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-normal) .x-btn-medium, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-normal) .x-btn-large,
   .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-normal) .x-btn-small,
   .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-normal) .x-btn-medium,
@@ -1736,6 +1736,16 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
   .zarafa-maintoolbar .x-btn,
   .zarafa-maintoolbar .x-btn.zarafa-action {
     margin-right: 9px; }
+  /* Make main toolbar buttons (except zarafa-action) neutral */
+  .zarafa-maintoolbar .x-btn:not(.zarafa-action) .x-btn-large {
+    background: #e6e6e6 !important; }
+    .zarafa-maintoolbar .x-btn:not(.zarafa-action) .x-btn-large button {
+      color: #000000 !important; }
+  .zarafa-maintoolbar .x-btn:not(.zarafa-action).x-btn-over .x-btn-large {
+    background: #dadada !important; }
+  .zarafa-maintoolbar .x-btn:not(.zarafa-action).x-btn-click .x-btn-large,
+  .zarafa-maintoolbar .x-btn:not(.zarafa-action).x-btn-over.x-btn-click .x-btn-large {
+    background: #e6e6e6 !important; }
 
 ul.x-tab-strip {
   padding-top: 8px;
@@ -1744,13 +1754,13 @@ ul.x-tab-strip {
   ul.x-tab-strip li {
     display: inline-block;
     margin: 0 4px 0 0;
-    border: 1px solid #d0d0d0 !important;
+    border: 1px solid transparent !important;
     border-bottom-color: #e6e6e6 !important;
     border-radius: 4px 4px 0 0;
     overflow: hidden;
-    transition: border-color 0.15s ease; }
+    transition: border-color 0.15s ease, background-color 0.15s ease; }
     ul.x-tab-strip li .x-tab-right {
-      background: #f5f5f5;
+      background: transparent;
       padding-left: 10px;
       padding-right: 10px;
       border-radius: 4px 4px 0 0;
@@ -1767,25 +1777,27 @@ ul.x-tab-strip {
             /* 1px for the border) */
             line-height: 23px;
             padding: 0;
-            font-weight: 500; }
+            font-weight: 400;
+            color: #666; }
   ul.x-tab-strip li:hover:not(.x-tab-strip-active) .x-tab-right {
-    background: #ececec; }
+    background: #f5f5f5; }
   ul.x-tab-strip li.x-tab-strip-active {
     position: relative;
     z-index: 10;
-    border-color: #d0d0d0;
+    border: 1px solid var(--theme-primary-color) !important;
     border-bottom-color: #ffffff !important;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.06); }
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.08); }
     ul.x-tab-strip li.x-tab-strip-active .x-tab-right {
-      background: #ffffff; }
+      background: var(--theme-primary-color); }
       ul.x-tab-strip li.x-tab-strip-active .x-tab-right .x-tab-left .x-tab-strip-inner .x-tab-strip-text {
-        font-weight: 600; }
+        font-weight: 600;
+        color: #ffffff; }
       ul.x-tab-strip li.x-tab-strip-active .x-tab-right .x-tab-left .x-tab-strip-inner .x-tab-strip-text {
         padding-bottom: 1px;
         /* Active tab is styled bold by ExtJS */
-        font-weight: normal; }
+        font-weight: 600; }
   ul.x-tab-strip li:not(.x-tab-strip-active):hover .x-tab-right {
-    background-color: #dadada; }
+    background-color: #f5f5f5; }
   ul.x-tab-strip li.x-tab-strip-closable .x-tab-right {
     /* close cross is 7x7 px */
     padding-right: 25px; }
@@ -4959,17 +4971,17 @@ body.theme-highcontrast {
   --theme-gradient-end: #323232;
 }
 
-/* Blue Theme - Material Design Blue */
-body.theme-blue {
-  --theme-primary-color: #1976d2;
-  --theme-primary-hover: #1565c0;
-  --theme-primary-dark: #0d47a1;
-  --theme-selection-bg: #bbdefb;
-  --theme-border-color: #90caf9;
-  --theme-border-hover: #64b5f6;
-  --theme-panel-bg: #90caf9;
-  --theme-gradient-start: #1565c0;
-  --theme-gradient-end: #42a5f5;
+/* Cyan Theme - Material Design Cyan */
+body.theme-cyan {
+  --theme-primary-color: #00bcd4;
+  --theme-primary-hover: #00acc1;
+  --theme-primary-dark: #0097a7;
+  --theme-selection-bg: #b2ebf2;
+  --theme-border-color: #80deea;
+  --theme-border-hover: #4dd0e1;
+  --theme-panel-bg: #80deea;
+  --theme-gradient-start: #00acc1;
+  --theme-gradient-end: #26c6da;
 }
 
 /* Teal Theme - Material Design Teal */
@@ -5024,17 +5036,17 @@ body.theme-green {
   --theme-gradient-end: #43a047;
 }
 
-/* Amber Theme - Material Design Amber/Orange */
-body.theme-amber {
-  --theme-primary-color: #f57c00;
-  --theme-primary-hover: #ef6c00;
-  --theme-primary-dark: #e65100;
-  --theme-selection-bg: #ffe0b2;
-  --theme-border-color: #ffcc80;
-  --theme-border-hover: #ffb74d;
-  --theme-panel-bg: #ffcc80;
-  --theme-gradient-start: #ef6c00;
-  --theme-gradient-end: #fb8c00;
+/* Brown Theme - Material Design Brown */
+body.theme-brown {
+  --theme-primary-color: #795548;
+  --theme-primary-hover: #6d4c41;
+  --theme-primary-dark: #5d4037;
+  --theme-selection-bg: #d7ccc8;
+  --theme-border-color: #bcaaa4;
+  --theme-border-hover: #a1887f;
+  --theme-panel-bg: #bcaaa4;
+  --theme-gradient-start: #6d4c41;
+  --theme-gradient-end: #8d6e63;
 }
 
 /*********************************************************************************************
@@ -5065,10 +5077,10 @@ body.login.theme-magenta:after,
 body.theme-magenta #loading-mask:after,
 body.theme-magenta #bg:after,
 body.theme-magenta zarafa-welcome:after,
-body.login.theme-blue:after,
-body.theme-blue #loading-mask:after,
-body.theme-blue #bg:after,
-body.theme-blue zarafa-welcome:after,
+body.login.theme-cyan:after,
+body.theme-cyan #loading-mask:after,
+body.theme-cyan #bg:after,
+body.theme-cyan zarafa-welcome:after,
 body.login.theme-teal:after,
 body.theme-teal #loading-mask:after,
 body.theme-teal #bg:after,
@@ -5085,10 +5097,10 @@ body.login.theme-green:after,
 body.theme-green #loading-mask:after,
 body.theme-green #bg:after,
 body.theme-green zarafa-welcome:after,
-body.login.theme-amber:after,
-body.theme-amber #loading-mask:after,
-body.theme-amber #bg:after,
-body.theme-amber zarafa-welcome:after {
+body.login.theme-brown:after,
+body.theme-brown #loading-mask:after,
+body.theme-brown #bg:after,
+body.theme-brown zarafa-welcome:after {
   content: '';
   position: absolute;
   top: 0;
@@ -5154,58 +5166,9 @@ body.theme-highcontrast #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct #main
 /****************************************************************************
  * Action color - for call-to-action buttons, current day, etc.
  ****************************************************************************/
-/* normal state */
-.x-btn.zarafa-action .x-btn-small,
-.x-btn.zarafa-action .x-btn-medium,
-.x-btn.zarafa-action .x-btn-large,
-/* active state */
-.x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-small,
-.x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-medium,
-.x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-large,
-.x-btn.zarafa-action.x-btn-click .x-btn-small,
-.x-btn.zarafa-action.x-btn-click .x-btn-medium,
-.x-btn.zarafa-action.x-btn-click .x-btn-large,
-/* Special case: Popup, Windows, or Messageboxes */
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small,
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-large,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-large,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-large,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-large,
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-small,
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-large,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-small,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-large,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-small,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-large,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-small,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-large,
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-small,
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-large,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-small,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-large,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-small,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-large,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-small,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-large,
-/* action button in reminder popout */
-.k-reminderpanel .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small,
-.k-reminderpanel .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-small,
-.k-reminderpanel .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-small,
+/* NOTE: Action button colors are intentionally set to neutral gray in the base styles above.
+   Only calendar and date picker elements use theme colors for visual distinction. */
+
 /* Current day in the calendar */
 .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current table tr.x-freebusy-timeline-day td,
 /* The date pickers */
@@ -5215,33 +5178,7 @@ body.theme-highcontrast #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct #main
   background: var(--theme-primary-color) !important;
 }
 
-/* focused action button */
-.x-btn.zarafa-action.x-btn-focus .x-btn-small,
-.x-btn.zarafa-action.x-btn-focus .x-btn-medium,
-.x-btn.zarafa-action.x-btn-focus .x-btn-large {
-  background: var(--theme-primary-color) !important;
-}
-
-/* hover state */
-.x-btn.zarafa-action.x-btn-over .x-btn-small,
-.x-btn.zarafa-action.x-btn-over .x-btn-medium,
-.x-btn.zarafa-action.x-btn-over .x-btn-large,
-/* Special case: Popup, Windows, or Messageboxes */
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-small,
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-large,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-small,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-large,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-small,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-large,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-small,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-large,
-/* action button in reminder popout */
-.k-reminderpanel .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-small,
-/* The date pickers */
+/* The date pickers hover */
 .x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-ok:hover {
   background: var(--theme-primary-hover) !important;
 }
@@ -5277,15 +5214,15 @@ body.theme-highcontrast #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct #main
  *********************************************************************/
 #zarafa-navigationpanel .x-panel-header,
 .zarafa-widgetpanel .x-panel-header {
-  background-color: var(--theme-panel-bg);
-  border: 1px solid var(--theme-panel-bg);
+  background-color: #e6e6e6;
+  border: 1px solid #e6e6e6;
 }
 
 /* Orange theme does not define border for side panels */
 body.theme-orange #zarafa-navigationpanel .x-panel-header,
 body.theme-orange .zarafa-widgetpanel .x-panel-header {
-  background-color: var(--theme-border-color);
-  border-color: var(--theme-border-color);
+  background-color: #e6e6e6;
+  border-color: #e6e6e6;
 }
 
 /*********************************************************************
@@ -5469,6 +5406,34 @@ ul.x-tab-strip li .x-tab-right,
 .x-btn.x-btn-click .x-btn-medium,
 .x-btn.x-btn-click .x-btn-large {
   background-color: var(--theme-border-color) !important;
+}
+
+/* Neutralize To/CC/BCC/From/Attachments buttons in mail create panel */
+.zarafa-mailcreatepanel-field-from .x-btn .x-btn-small,
+.zarafa-mailcreatepanel-field-from-large .x-btn .x-btn-small,
+.zarafa-mailcreatepanel-field-to .x-btn .x-btn-small,
+.zarafa-mailcreatepanel-field-cc .x-btn .x-btn-small,
+.zarafa-mailcreatepanel-field-bcc .x-btn .x-btn-small,
+.zarafa-mailcreatepanel-field-attachments .x-btn .x-btn-small {
+  background-color: #e6e6e6 !important;
+}
+
+.zarafa-mailcreatepanel-field-from .x-btn.x-btn-over .x-btn-small,
+.zarafa-mailcreatepanel-field-from-large .x-btn.x-btn-over .x-btn-small,
+.zarafa-mailcreatepanel-field-to .x-btn.x-btn-over .x-btn-small,
+.zarafa-mailcreatepanel-field-cc .x-btn.x-btn-over .x-btn-small,
+.zarafa-mailcreatepanel-field-bcc .x-btn.x-btn-over .x-btn-small,
+.zarafa-mailcreatepanel-field-attachments .x-btn.x-btn-over .x-btn-small {
+  background-color: #dadada !important;
+}
+
+.zarafa-mailcreatepanel-field-from .x-btn.x-btn-click .x-btn-small,
+.zarafa-mailcreatepanel-field-from-large .x-btn.x-btn-click .x-btn-small,
+.zarafa-mailcreatepanel-field-to .x-btn.x-btn-click .x-btn-small,
+.zarafa-mailcreatepanel-field-cc .x-btn.x-btn-click .x-btn-small,
+.zarafa-mailcreatepanel-field-bcc .x-btn.x-btn-click .x-btn-small,
+.zarafa-mailcreatepanel-field-attachments .x-btn.x-btn-click .x-btn-small {
+  background-color: #cccccc !important;
 }
 
 /* Selected x-menu */

@@ -17,12 +17,12 @@ Zarafa.core.Themes = {
 		{ name: 'lime', displayName: _('Lime') },
 		{ name: 'magenta', displayName: _('Magenta') },
 		{ name: 'highcontrast', displayName: _('High Contrast') },
-		{ name: 'blue', displayName: _('Blue') },
+		{ name: 'cyan', displayName: _('Cyan') },
 		{ name: 'teal', displayName: _('Teal') },
 		{ name: 'indigo', displayName: _('Indigo') },
 		{ name: 'red', displayName: _('Red') },
 		{ name: 'green', displayName: _('Green') },
-		{ name: 'amber', displayName: _('Amber') },
+		{ name: 'brown', displayName: _('Brown') },
 		{ name: 'dark', displayName: _('Dark') }
 	],
 
