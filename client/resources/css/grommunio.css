@@ -4946,6 +4946,84 @@ body.theme-highcontrast {
   --theme-gradient-end: #323232;
 }
 
+/* Blue Theme - Material Design Blue */
+body.theme-blue {
+  --theme-primary-color: #1976d2;
+  --theme-primary-hover: #1565c0;
+  --theme-primary-dark: #0d47a1;
+  --theme-selection-bg: #bbdefb;
+  --theme-border-color: #90caf9;
+  --theme-border-hover: #64b5f6;
+  --theme-panel-bg: #90caf9;
+  --theme-gradient-start: #1565c0;
+  --theme-gradient-end: #42a5f5;
+}
+
+/* Teal Theme - Material Design Teal */
+body.theme-teal {
+  --theme-primary-color: #009688;
+  --theme-primary-hover: #00796b;
+  --theme-primary-dark: #00695c;
+  --theme-selection-bg: #b2dfdb;
+  --theme-border-color: #80cbc4;
+  --theme-border-hover: #4db6ac;
+  --theme-panel-bg: #80cbc4;
+  --theme-gradient-start: #00796b;
+  --theme-gradient-end: #26a69a;
+}
+
+/* Indigo Theme - Material Design Indigo */
+body.theme-indigo {
+  --theme-primary-color: #3f51b5;
+  --theme-primary-hover: #303f9f;
+  --theme-primary-dark: #283593;
+  --theme-selection-bg: #c5cae9;
+  --theme-border-color: #9fa8da;
+  --theme-border-hover: #7986cb;
+  --theme-panel-bg: #9fa8da;
+  --theme-gradient-start: #303f9f;
+  --theme-gradient-end: #5c6bc0;
+}
+
+/* Red Theme - Material Design Red */
+body.theme-red {
+  --theme-primary-color: #d32f2f;
+  --theme-primary-hover: #c62828;
+  --theme-primary-dark: #b71c1c;
+  --theme-selection-bg: #ffcdd2;
+  --theme-border-color: #ef9a9a;
+  --theme-border-hover: #e57373;
+  --theme-panel-bg: #ef9a9a;
+  --theme-gradient-start: #c62828;
+  --theme-gradient-end: #e53935;
+}
+
+/* Green Theme - Material Design Green */
+body.theme-green {
+  --theme-primary-color: #388e3c;
+  --theme-primary-hover: #2e7d32;
+  --theme-primary-dark: #1b5e20;
+  --theme-selection-bg: #c8e6c9;
+  --theme-border-color: #a5d6a7;
+  --theme-border-hover: #81c784;
+  --theme-panel-bg: #a5d6a7;
+  --theme-gradient-start: #2e7d32;
+  --theme-gradient-end: #43a047;
+}
+
+/* Amber Theme - Material Design Amber/Orange */
+body.theme-amber {
+  --theme-primary-color: #f57c00;
+  --theme-primary-hover: #ef6c00;
+  --theme-primary-dark: #e65100;
+  --theme-selection-bg: #ffe0b2;
+  --theme-border-color: #ffcc80;
+  --theme-border-hover: #ffb74d;
+  --theme-panel-bg: #ffcc80;
+  --theme-gradient-start: #ef6c00;
+  --theme-gradient-end: #fb8c00;
+}
+
 /*********************************************************************************************
  * Login Screen and Welcome Screen
  ********************************************************************************************/
@@ -4973,7 +5051,31 @@ body.theme-lime zarafa-welcome:after,
 body.login.theme-magenta:after,
 body.theme-magenta #loading-mask:after,
 body.theme-magenta #bg:after,
-body.theme-magenta zarafa-welcome:after {
+body.theme-magenta zarafa-welcome:after,
+body.login.theme-blue:after,
+body.theme-blue #loading-mask:after,
+body.theme-blue #bg:after,
+body.theme-blue zarafa-welcome:after,
+body.login.theme-teal:after,
+body.theme-teal #loading-mask:after,
+body.theme-teal #bg:after,
+body.theme-teal zarafa-welcome:after,
+body.login.theme-indigo:after,
+body.theme-indigo #loading-mask:after,
+body.theme-indigo #bg:after,
+body.theme-indigo zarafa-welcome:after,
+body.login.theme-red:after,
+body.theme-red #loading-mask:after,
+body.theme-red #bg:after,
+body.theme-red zarafa-welcome:after,
+body.login.theme-green:after,
+body.theme-green #loading-mask:after,
+body.theme-green #bg:after,
+body.theme-green zarafa-welcome:after,
+body.login.theme-amber:after,
+body.theme-amber #loading-mask:after,
+body.theme-amber #bg:after,
+body.theme-amber zarafa-welcome:after {
   content: '';
   position: absolute;
   top: 0;

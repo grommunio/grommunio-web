@@ -146,9 +146,9 @@ class Theming {
 		$themePathCoreThemes = BASE_PATH . constant('THEME_PATH_' . DEBUG_LOADER);
 		$cssFiles = [];
 
-		// Unified themes (purple, orange, lime, magenta, highcontrast) are now in grommunio.css
+		// Unified themes (purple, orange, lime, magenta, highcontrast, blue, teal, indigo, red, green, amber) are now in grommunio.css
 		// Only the dark theme still loads its own CSS file
-		$unifiedThemes = ['purple', 'orange', 'lime', 'magenta', 'highcontrast'];
+		$unifiedThemes = ['purple', 'orange', 'lime', 'magenta', 'highcontrast', 'blue', 'teal', 'indigo', 'red', 'green', 'amber'];
 		if (in_array($theme, $unifiedThemes)) {
 			return [];
 		}
