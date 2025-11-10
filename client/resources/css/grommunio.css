@@ -1784,11 +1784,11 @@ ul.x-tab-strip {
   ul.x-tab-strip li.x-tab-strip-active {
     position: relative;
     z-index: 10;
-    border: 1px solid var(--theme-primary-color) !important;
+    border: 1px solid color-mix(in srgb, var(--theme-primary-color) 85%, white) !important;
     border-bottom-color: #ffffff !important;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.08); }
     ul.x-tab-strip li.x-tab-strip-active .x-tab-right {
-      background: var(--theme-primary-color); }
+      background: color-mix(in srgb, var(--theme-primary-color) 75%, white); }
       ul.x-tab-strip li.x-tab-strip-active .x-tab-right .x-tab-left .x-tab-strip-inner .x-tab-strip-text {
         font-weight: 600;
         color: #ffffff; }
@@ -4899,9 +4899,9 @@ body {
   --theme-primary-hover: #1976d2;
   --theme-primary-dark: #065fa5;
   --theme-selection-bg: #d5e8f7;
-  --theme-border-color: #90caf9;
+  --theme-border-color: #e3f2fd;
   --theme-border-hover: #64b5f6;
-  --theme-panel-bg: #90caf9;
+  --theme-panel-bg: #e3f2fd;
   --theme-gradient-start: #009FFD;
   --theme-gradient-end: #2a2a72;
 }
@@ -4912,9 +4912,9 @@ body.theme-purple {
   --theme-primary-hover: #541959;
   --theme-primary-dark: #490e67;
   --theme-selection-bg: #e9ddf1;
-  --theme-border-color: #e2dfe3;
+  --theme-border-color: #f3f1f4;
   --theme-border-hover: #d7d3d9;
-  --theme-panel-bg: #e2dfe3;
+  --theme-panel-bg: #f3f1f4;
   --theme-gradient-start: #5a1b5f;
   --theme-gradient-end: #952d9d;
 }
@@ -4925,9 +4925,9 @@ body.theme-orange {
   --theme-primary-hover: #d06c00;
   --theme-primary-dark: #ec8354;
   --theme-selection-bg: #fce8ce;
-  --theme-border-color: #facfac;
+  --theme-border-color: #fef3e9;
   --theme-border-hover: #f8c49a;
-  --theme-panel-bg: #facfac;
+  --theme-panel-bg: #fef3e9;
   --theme-gradient-start: #9c5000;
   --theme-gradient-end: #dc7100;
 }
@@ -4938,9 +4938,9 @@ body.theme-lime {
   --theme-primary-hover: #5d8907;
   --theme-primary-dark: #82ba00;
   --theme-selection-bg: #e1f5b2;
-  --theme-border-color: #c5e875;
+  --theme-border-color: #f0f8db;
   --theme-border-hover: #b3e048;
-  --theme-panel-bg: #c5e875;
+  --theme-panel-bg: #f0f8db;
   --theme-gradient-start: #456505;
   --theme-gradient-end: #6da208;
 }
@@ -4951,9 +4951,9 @@ body.theme-magenta {
   --theme-primary-hover: #800645;
   --theme-primary-dark: #b8005e;
   --theme-selection-bg: #fcdce9;
-  --theme-border-color: #f8c4d8;
+  --theme-border-color: #fef0f5;
   --theme-border-hover: #f5b3cc;
-  --theme-panel-bg: #f8c4d8;
+  --theme-panel-bg: #fef0f5;
   --theme-gradient-start: #e20074;
   --theme-gradient-end: #e20074;
 }
@@ -4964,9 +4964,9 @@ body.theme-highcontrast {
   --theme-primary-hover: #1a1a1a;
   --theme-primary-dark: #323232;
   --theme-selection-bg: #b9dcf5;
-  --theme-border-color: #cfd2dc;
+  --theme-border-color: #eff0f4;
   --theme-border-hover: #c3c7d3;
-  --theme-panel-bg: #cfd2dc;
+  --theme-panel-bg: #eff0f4;
   --theme-gradient-start: #191919;
   --theme-gradient-end: #323232;
 }
@@ -4977,9 +4977,9 @@ body.theme-cyan {
   --theme-primary-hover: #00acc1;
   --theme-primary-dark: #0097a7;
   --theme-selection-bg: #b2ebf2;
-  --theme-border-color: #80deea;
+  --theme-border-color: #e0f7fa;
   --theme-border-hover: #4dd0e1;
-  --theme-panel-bg: #80deea;
+  --theme-panel-bg: #e0f7fa;
   --theme-gradient-start: #00acc1;
   --theme-gradient-end: #26c6da;
 }
@@ -4990,9 +4990,9 @@ body.theme-teal {
   --theme-primary-hover: #00796b;
   --theme-primary-dark: #00695c;
   --theme-selection-bg: #b2dfdb;
-  --theme-border-color: #80cbc4;
+  --theme-border-color: #e0f2f1;
   --theme-border-hover: #4db6ac;
-  --theme-panel-bg: #80cbc4;
+  --theme-panel-bg: #e0f2f1;
   --theme-gradient-start: #00796b;
   --theme-gradient-end: #26a69a;
 }
@@ -5003,9 +5003,9 @@ body.theme-indigo {
   --theme-primary-hover: #303f9f;
   --theme-primary-dark: #283593;
   --theme-selection-bg: #c5cae9;
-  --theme-border-color: #9fa8da;
+  --theme-border-color: #dee3ff;
   --theme-border-hover: #7986cb;
-  --theme-panel-bg: #9fa8da;
+  --theme-panel-bg: #dee3ff;
   --theme-gradient-start: #303f9f;
   --theme-gradient-end: #5c6bc0;
 }
@@ -5016,9 +5016,9 @@ body.theme-red {
   --theme-primary-hover: #c62828;
   --theme-primary-dark: #b71c1c;
   --theme-selection-bg: #ffcdd2;
-  --theme-border-color: #ef9a9a;
+  --theme-border-color: #ffebee;
   --theme-border-hover: #e57373;
-  --theme-panel-bg: #ef9a9a;
+  --theme-panel-bg: #ffebee;
   --theme-gradient-start: #c62828;
   --theme-gradient-end: #e53935;
 }
@@ -5029,9 +5029,9 @@ body.theme-green {
   --theme-primary-hover: #2e7d32;
   --theme-primary-dark: #1b5e20;
   --theme-selection-bg: #c8e6c9;
-  --theme-border-color: #a5d6a7;
+  --theme-border-color: #e8f5e9;
   --theme-border-hover: #81c784;
-  --theme-panel-bg: #a5d6a7;
+  --theme-panel-bg: #e8f5e9;
   --theme-gradient-start: #2e7d32;
   --theme-gradient-end: #43a047;
 }
@@ -5042,9 +5042,9 @@ body.theme-brown {
   --theme-primary-hover: #6d4c41;
   --theme-primary-dark: #5d4037;
   --theme-selection-bg: #d7ccc8;
-  --theme-border-color: #bcaaa4;
+  --theme-border-color: #efebe9;
   --theme-border-hover: #a1887f;
-  --theme-panel-bg: #bcaaa4;
+  --theme-panel-bg: #efebe9;
   --theme-gradient-start: #6d4c41;
   --theme-gradient-end: #8d6e63;
 }
@@ -5464,3 +5464,17 @@ input.x-form-text.x-form-field.x-form-focus {
   border: 1px solid var(--theme-primary-color) !important;
 }
 /*# sourceMappingURL=grommunio.css.map */
+
+
+
+/* Hover effect for inactive tabs - make text lighter (white) like active tabs */
+ul.x-tab-strip li:not(.x-tab-strip-active):hover .x-tab-strip-text {
+  color: #ffffff !important;
+  transition: color 0.2s ease;
+}
+
+/* Also add a subtle background color on hover to show the theme color */
+ul.x-tab-strip li:not(.x-tab-strip-active):hover .x-tab-right {
+  background: color-mix(in srgb, var(--theme-primary-color) 60%, white) !important;
+  transition: background-color 0.2s ease;
+}
