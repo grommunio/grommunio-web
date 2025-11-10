@@ -66,6 +66,9 @@ class Theming {
 		$theme = false;
 		$themePath = BASE_PATH . constant('THEME_PATH_' . DEBUG_LOADER);
 
+		// List of unified themes that don't require separate directories
+		$unifiedThemes = ['purple', 'orange', 'lime', 'magenta', 'highcontrast', 'blue', 'teal', 'indigo', 'red', 'green', 'amber'];
+
 		// First check if a theme was set by this user in his settings
 		if (WebAppAuthentication::isAuthenticated()) {
 			if (ENABLE_THEMES === false) {
@@ -77,13 +80,10 @@ class Theming {
 
 			// If a theme was found, check if the theme is still installed
 			// Remember that 'basic' is not a real theme, but the name for the default look of grommunio Web
-			// Note 1: We will first try to find the a core theme with this name, only
-			// when we don't find one, we will try to find a theme plugin.
-			// Note 2: we do not use the pluginExists method of the PluginManager, because that
-			// would not find packs with multiple plugins in it. So instead we just check if
-			// the directory exists.
+			// Unified themes don't require directories, so we skip the directory check for them
 			if (
 				isset($theme) && !empty($theme) && $theme !== 'basic' &&
+				!in_array($theme, $unifiedThemes) &&
 				!is_dir($themePath . '/' . $theme) &&
 				!is_dir(BASE_PATH . PATH_PLUGIN_DIR . '/' . $theme)
 			) {
@@ -94,7 +94,13 @@ class Theming {
 		// If a valid theme was not found in the settings of the user, let's see if a valid theme
 		// was defined by the admin.
 		if (!$theme && defined('THEME') && THEME) {
-			$theme = is_dir($themePath . '/' . THEME) || is_dir(BASE_PATH . PATH_PLUGIN_DIR . '/' . THEME) ? THEME : false;
+			// Check if it's a unified theme or if the directory exists
+			if (in_array(THEME, $unifiedThemes)) {
+				$theme = THEME;
+			}
+			else {
+				$theme = is_dir($themePath . '/' . THEME) || is_dir(BASE_PATH . PATH_PLUGIN_DIR . '/' . THEME) ? THEME : false;
+			}
 		}
 
 		if (Theming::isJsonTheme($theme) && !is_array(Theming::getJsonThemeProps($theme))) {
