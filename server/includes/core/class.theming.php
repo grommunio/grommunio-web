@@ -67,7 +67,7 @@ class Theming {
 		$themePath = BASE_PATH . constant('THEME_PATH_' . DEBUG_LOADER);
 
 		// List of unified themes that don't require separate directories
-		$unifiedThemes = ['purple', 'orange', 'lime', 'magenta', 'highcontrast', 'blue', 'teal', 'indigo', 'red', 'green', 'amber'];
+		$unifiedThemes = ['purple', 'orange', 'lime', 'magenta', 'highcontrast', 'blue', 'teal', 'indigo', 'red', 'green', 'amber', 'brown', 'cyan'];
 
 		// First check if a theme was set by this user in his settings
 		if (WebAppAuthentication::isAuthenticated()) {
@@ -152,9 +152,9 @@ class Theming {
 		$themePathCoreThemes = BASE_PATH . constant('THEME_PATH_' . DEBUG_LOADER);
 		$cssFiles = [];
 
-		// Unified themes (purple, orange, lime, magenta, highcontrast, blue, teal, indigo, red, green, amber) are now in grommunio.css
+		// Unified themes (purple, orange, lime, magenta, highcontrast, blue, teal, indigo, red, green, amber, brown, cyan) are now in grommunio.css
 		// Only the dark theme still loads its own CSS file
-		$unifiedThemes = ['purple', 'orange', 'lime', 'magenta', 'highcontrast', 'blue', 'teal', 'indigo', 'red', 'green', 'amber'];
+		$unifiedThemes = ['purple', 'orange', 'lime', 'magenta', 'highcontrast', 'blue', 'teal', 'indigo', 'red', 'green', 'amber', 'brown', 'cyan'];
 		if (in_array($theme, $unifiedThemes)) {
 			return [];
 		}
