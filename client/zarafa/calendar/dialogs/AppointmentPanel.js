@@ -80,10 +80,6 @@ Zarafa.calendar.dialogs.AppointmentPanel = Ext.extend(Ext.Panel, {
 				title: _('Appointment'),
 				ref: '../appointmentTab'
 			},{
-				xtype: 'zarafa.appointmentpreviewtab',
-				title: _('Preview'),
-				ref: '../appointmentPreviewTab'
-			},{
 				xtype: 'zarafa.freebusytab',
 				title: _('Scheduling'),
 				ref: '../schedulingTab'
