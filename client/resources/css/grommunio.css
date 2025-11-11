@@ -5467,14 +5467,23 @@ input.x-form-text.x-form-field.x-form-focus {
 
 
 
-/* Hover effect for inactive tabs - make text lighter (white) like active tabs */
-ul.x-tab-strip li:not(.x-tab-strip-active):hover .x-tab-strip-text {
-  color: #ffffff !important;
-  transition: color 0.2s ease;
-}
-
-/* Also add a subtle background color on hover to show the theme color */
+/* Add a subtle background color on hover to show the theme color */
 ul.x-tab-strip li:not(.x-tab-strip-active):hover .x-tab-right {
   background: color-mix(in srgb, var(--theme-primary-color) 60%, white) !important;
   transition: background-color 0.2s ease;
+}
+
+/* Make tab icons white when tab is active */
+/* The filter inverts both icon and text, so we set text to black first so it becomes white after inversion */
+ul.x-tab-strip li.x-tab-strip-active .x-tab-strip-text {
+  color: #000000 !important;
+  filter: brightness(0) invert(1);
+}
+
+/* Make tab icons white when tab is hovered */
+/* The filter inverts both icon and text, so we set text to black first so it becomes white after inversion */
+ul.x-tab-strip li:not(.x-tab-strip-active):hover .x-tab-strip-text {
+  color: #000000 !important;
+  filter: brightness(0) invert(1);
+  transition: color 0.2s ease, filter 0.2s ease;
 }
