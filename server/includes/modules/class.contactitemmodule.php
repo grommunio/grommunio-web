@@ -125,7 +125,7 @@ class ContactItemModule extends ItemModule {
 	 * @param array  $action        the action data, sent by the client
 	 */
 	#[Override]
-	public function save($store, $parententryid, $entryid, $action) {
+	public function save($store, $parententryid, $entryid, $action, $actonType = 'save') {
 		$properiesToDelete = []; // create an array of properties which should be deleted
 		// this array is passed to $GLOBALS['operations']->saveMessage() function
 

@@ -94,7 +94,7 @@ class TaskItemModule extends ItemModule {
 	 * @param mixed  $entryid
 	 */
 	#[Override]
-	public function save($store, $parententryid, $entryid, $action) {
+	public function save($store, $parententryid, $entryid, $action, $actionType = 'save') {
 		if (isset($action["props"])) {
 			if (!$store && !$parententryid) {
 				if (isset($action["props"]["message_class"])) {
