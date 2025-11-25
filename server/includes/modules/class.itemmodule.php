@@ -275,7 +275,7 @@ class ItemModule extends Module {
 								// generate an exception. So when the basedate is provided, we actually
 								// perform a save rather then delete.
 								if (isset($action['basedate']) && !empty($action['basedate'])) {
-									$this->save($store, $parententryid, $entryid, $action);
+									$this->save($store, $parententryid, $entryid, $action, "delete");
 								}
 								else {
 									$this->delete($store, $parententryid, $entryid, $action);
@@ -645,10 +645,11 @@ class ItemModule extends Module {
 	 *
 	 * @param object $store         MAPI Message Store Object
 	 * @param string $parententryid parent entryid of the message
+	 * @param mixed  $entryid       entryid of the message
 	 * @param array  $action        the action data, sent by the client
-	 * @param mixed  $entryid
+	 * @param string $actionType    The action type which triggered this action
 	 */
-	public function save($store, $parententryid, $entryid, $action) {
+	public function save($store, $parententryid, $entryid, $action, $actionType = 'save') {
 		$result = false;
 
 		if (isset($action["props"])) {
