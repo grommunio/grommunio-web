@@ -645,10 +645,11 @@ class ItemModule extends Module {
 	 *
 	 * @param object $store         MAPI Message Store Object
 	 * @param string $parententryid parent entryid of the message
+	 * @param mixed  $entryid       entryid of the message
 	 * @param array  $action        the action data, sent by the client
-	 * @param mixed  $entryid
+	 * @param string $actionType    The action type which triggered this action
 	 */
-	public function save($store, $parententryid, $entryid, $action) {
+	public function save($store, $parententryid, $entryid, $action, $actionType = 'save') {
 		$result = false;
 
 		if (isset($action["props"])) {
