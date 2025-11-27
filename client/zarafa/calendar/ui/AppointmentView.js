@@ -226,6 +226,14 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 			icons.push('private');
 		}
 
+		if (record.get('importance') === Zarafa.core.mapi.Importance.URGENT) {
+			icons.push('importance');
+		}
+
+		if (record.get('importance') === Zarafa.core.mapi.Importance.NONURGENT) {
+			icons.push('importance_low');
+		}
+
 		if (record.isRecurringOccurrence() === true) {
 			if (record.isRecurringException() === true) {
 				icons.push('exception');
