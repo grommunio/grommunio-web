@@ -46,6 +46,13 @@ Zarafa.core.mapi.BusyStatus = Zarafa.core.Enum.create({
 	OUTOFOFFICE: 3,
 
 	/**
+	 * Denotes that there is no data regarding the owner/participants status for the duration of appointment.
+	 * @property
+	 * @type Number
+	 */
+	BLUR: 4,
+
+	/**
 	 * Return the display name for the given busy status
 	 * @param {Zarafa.core.mapi.BusyStatus} busystatus The given busy Status
 	 * @return {String} The display name for the busy status
@@ -63,6 +70,8 @@ Zarafa.core.mapi.BusyStatus = Zarafa.core.Enum.create({
 				return _('Busy');
 			case Zarafa.core.mapi.BusyStatus.OUTOFOFFICE:
 				return _('Out of Office');
+			case Zarafa.core.mapi.BusyStatus.BLUR:
+				return _('No Information');
 		}
 	}
 });

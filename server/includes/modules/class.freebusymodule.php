@@ -64,14 +64,23 @@ class FreeBusyModule extends Module {
 	 */
 	public function getFreeBusyInfo($entryID, $start, $end) {
 		$result = [];
-
-		$fbdata = mapi_getuserfreebusy($GLOBALS['mapisession']->getSession(), hex2bin($entryID), $start, $end);
-
-		foreach ($fbdata['fbevents'] as $event) {
+		try {
+			$fbdata = mapi_getuserfreebusy($GLOBALS['mapisession']->getSession(), hex2bin($entryID), $start, $end);
+	
+			foreach ($fbdata['fbevents'] as $event) {
+				$result[] = [
+					'start' => $event['start'],
+					'end' => $event['end'],
+					'status' => $event['busystatus'],
+				];
+			}
+		}
+		catch (Exception $e) {
+			error_log(sprintf("getFreeBusyInfo exception: %s (0x%08X)", $e->getMessage(), $e->getCode()));
 			$result[] = [
-				'start' => $event['start'],
-				'end' => $event['end'],
-				'status' => $event['busystatus'],
+				'start' => $start,
+				'end' => $end,
+				'status' => fbNoData,
 			];
 		}
 
