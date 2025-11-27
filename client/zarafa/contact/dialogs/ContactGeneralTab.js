@@ -417,7 +417,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				readOnly: false,
 				ref: '../editorField',
 				anchor: '99% 99%',
-				height: 120,
+				height: 218,
 				listeners: {
 					change: this.onBodyChange,
 					scope: this
