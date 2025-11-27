@@ -192,6 +192,12 @@ Zarafa.calendar.ui.CalendarGridColumnModel = Ext.extend(Zarafa.common.ui.grid.Co
 			width: 160,
 			renderer: Zarafa.common.ui.grid.Renderers.sensitivity,
 			hidden: true
-		}];
+		},{
+			header: _('Importance'),
+			dataIndex: 'importance',
+			tooltip: _('Sort by: Importance'),
+			width: 160,
+			renderer: Zarafa.common.ui.grid.Renderers.importance,
+			hidden: true}];
 	}
 });
