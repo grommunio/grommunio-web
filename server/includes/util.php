@@ -493,7 +493,7 @@ function parse_smime($store, $message) {
 	$props = mapi_getprops($message, [PR_MESSAGE_CLASS, PR_MESSAGE_FLAGS,
 		PR_SENT_REPRESENTING_NAME, PR_SENT_REPRESENTING_ENTRYID, PR_SENT_REPRESENTING_SEARCH_KEY,
 		PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENT_REPRESENTING_SMTP_ADDRESS,
-		PR_SENT_REPRESENTING_ADDRTYPE, PR_CLIENT_SUBMIT_TIME, PR_TRANSPORT_MESSAGE_HEADERS]);
+		PR_SENT_REPRESENTING_ADDRTYPE, PR_CLIENT_SUBMIT_TIME, PR_TRANSPORT_MESSAGE_HEADERS, PR_REPLY_RECIPIENT_ENTRIES]);
 	$read = $props[PR_MESSAGE_FLAGS] & MSGFLAG_READ;
 
 	if (isset($props[PR_MESSAGE_CLASS]) && stripos((string) $props[PR_MESSAGE_CLASS], 'IPM.Note.SMIME.MultipartSigned') !== false) {
@@ -536,7 +536,7 @@ function parse_smime($store, $message) {
 				mapi_message_modifyrecipients($message, MODRECIP_ADD, $origRecipients);
 			}
 
-			mapi_setprops($message, [
+			$tmpprops = [
 				PR_MESSAGE_CLASS => $props[PR_MESSAGE_CLASS],
 				PR_SENT_REPRESENTING_NAME => $props[PR_SENT_REPRESENTING_NAME],
 				PR_SENT_REPRESENTING_ENTRYID => $props[PR_SENT_REPRESENTING_ENTRYID],
@@ -545,8 +545,12 @@ function parse_smime($store, $message) {
 				PR_SENT_REPRESENTING_SMTP_ADDRESS => $props[PR_SENT_REPRESENTING_SMTP_ADDRESS] ?? '',
 				PR_SENT_REPRESENTING_ADDRTYPE => $props[PR_SENT_REPRESENTING_ADDRTYPE] ?? 'SMTP',
 				PR_CLIENT_SUBMIT_TIME => $props[PR_CLIENT_SUBMIT_TIME] ?? time(),
-				PR_TRANSPORT_MESSAGE_HEADERS => ($props[PR_TRANSPORT_MESSAGE_HEADERS] ?? "") . $inner_headers,
-			]);
+				PR_TRANSPORT_MESSAGE_HEADERS => ($props[PR_TRANSPORT_MESSAGE_HEADERS] ?? ""),
+			];
+			if (isset($props[PR_REPLY_RECIPIENT_ENTRIES])) {
+				$tmpprops[PR_REPLY_RECIPIENT_ENTRIES] = $props[PR_REPLY_RECIPIENT_ENTRIES];
+			}
+			mapi_setprops($message, $tmpprops);
 		}
 	}
 	elseif (isset($props[PR_MESSAGE_CLASS]) && stripos((string) $props[PR_MESSAGE_CLASS], 'IPM.Note.SMIME') !== false) {
