@@ -29,7 +29,7 @@ Zarafa.hierarchy.dialogs.FolderPropertiesContentPanel = Ext.extend(Zarafa.core.u
 			}),
 			closeOnSave: true,
 			width: 425,
-			height: 480,
+			height: 550,
 			items: [{
 				xtype: 'zarafa.folderpropertiespanel',
 				activeTab: Ext.isDefined(config.activeTab) ? config.activeTab : 0,
