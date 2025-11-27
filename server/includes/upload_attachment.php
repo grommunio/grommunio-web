@@ -641,8 +641,23 @@ class UploadAttachment {
 		$ok = mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $this->store, $addrBook, $newMessage, $attachmentStream, []);
 
 		if ($ok === true) {
-			mapi_message_savechanges($newMessage);
-
+			// Manually set PR_MESSAGE_DELIVERY_TIME to sent time, since mapi_inetmapi_imtomapi does not set delivery-time
+			// Either use PR_CLIENT_SUBMIT_TIME or extract date from EML and set PR_MESSAGE_DELIVERY_TIME
+	 		$props = mapi_getprops($newMessage, [PR_CLIENT_SUBMIT_TIME, PR_MESSAGE_DELIVERY_TIME]);
+                        if (empty($props[PR_MESSAGE_DELIVERY_TIME])) {
+				if (!empty($props[PR_CLIENT_SUBMIT_TIME]))
+                                	mapi_setprops($newMessage, [PR_MESSAGE_DELIVERY_TIME => $props[PR_CLIENT_SUBMIT_TIME]]);
+				else {
+					if (preg_match('/^Date:\s*(.+)$/mi', $attachmentStream, $matches)) {
+                				$deliverytime = strtotime(trim($matches[1]));
+                				if ($deliverytime) 
+							mapi_setprops($newMessage, [PR_MESSAGE_DELIVERY_TIME => $deliverytime]);
+        
+        				}
+				}
+				mapi_message_savechanges($newMessage);
+			}
+		
 			return bin2hex((string) mapi_getprops($newMessage, [PR_ENTRYID])[PR_ENTRYID]);
 		}
 
