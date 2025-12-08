@@ -1867,7 +1867,7 @@ class Operations {
 	 * @param object $store       MAPI Message Store Object
 	 * @param string $entryid     entryid of the message
 	 * @param array  $attach_num  a list of attachment numbers (aka 2,1 means 'attachment nr 1 of attachment nr 2')
-	 * @param bool   $parse_smime (optional) call parse_smime on the opened message or not
+	 * @param bool   $parse_smime (optional) call parse_smime on the opened message or not IFF it's an SMIME message
 	 *
 	 * @return object MAPI Message
 	 */
@@ -1876,7 +1876,9 @@ class Operations {
 
 		// Needed for S/MIME messages with embedded message attachments
 		if ($parse_smime) {
-			parse_smime($store, $message);
+			$p = mapi_getprops($message, [PR_MESSAGE_CLASS]);
+			if ($p && stripos($p[PR_MESSAGE_CLASS], "SMIME") !== false)
+				parse_smime($store, $message);
 		}
 
 		if ($message && $attach_num) {
