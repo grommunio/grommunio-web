@@ -462,8 +462,8 @@ class ItemModule extends Module {
 		// Detect whether S/MIME decoding or meeting request processing is required
 		$props = mapi_getprops($message, [PR_MESSAGE_CLASS]);
 		$messageClass = $props[PR_MESSAGE_CLASS] ?? '';
-		$requiresSmime = stripos((string) $messageClass, 'SMIME') !== false;
-		$requiresMeeting = stripos((string) $messageClass, 'IPM.Schedule.Meeting') !== false;
+		$requiresSmime = stripos((string) $messageClass, 'SMIME') !== false; /* infix match(!), cannot use class_match_prefix */
+		$requiresMeeting = class_match_prefix($messageClass, "IPM.Schedule.Meeting");
 
 		// Decode S/MIME signed messages only when needed
 		if ($requiresSmime) {
@@ -491,7 +491,7 @@ class ItemModule extends Module {
 
 			// Determine again if meeting processing is required after parsing
 			if (!$requiresMeeting) {
-				$requiresMeeting = stripos($messageClass, 'IPM.Schedule.Meeting') !== false;
+				$requiresMeeting = class_match_prefix($messageClass, "IPM.Schedule.Meeting");
 			}
 
 			// Check for meeting request, do processing if necessary
@@ -600,7 +600,7 @@ class ItemModule extends Module {
 					$data['item']['props']['appointment_recurring_pattern'] = $recurr->saveRecurrencePattern();
 				}
 			}
-			elseif (stripos($messageClass, 'REPORT.IPM.NOTE.NDR') !== false) {
+			elseif (class_match_prefix($messageClass, "REPORT.IPM.NOTE.NDR")) {
 				// check if this message is a NDR (mail)message, if so, generate a new body message
 				$data['item']['props']['isHTML'] = false;
 				$data['item']['props']['body'] = $this->getNDRbody($message);

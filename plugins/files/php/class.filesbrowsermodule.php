@@ -1050,12 +1050,10 @@ class FilesBrowserModule extends FilesListModule {
 		if ($message && $store) {
 			// get message properties.
 			$messageProps = mapi_getprops($message, [PR_SUBJECT, PR_MESSAGE_CLASS]);
-
-			$isSupportedMessage = (
-				(stripos((string) $messageProps[PR_MESSAGE_CLASS], 'IPM.Note') === 0) ||
-				(stripos((string) $messageProps[PR_MESSAGE_CLASS], 'Report.IPM.Note') === 0) ||
-				(stripos((string) $messageProps[PR_MESSAGE_CLASS], 'IPM.Schedule') === 0)
-			);
+			$cls = $messageProps[PR_MESSAGE_CLASS];
+			$isSupportedMessage = class_match_prefix($cls, "IPM.Note") ||
+			                      class_match_prefix($cls, "Report.IPM.Note") ||
+			                      class_match_prefix($cls, "IPM.Schedule");
 
 			if ($isSupportedMessage) {
 				// Get addressbook for current session

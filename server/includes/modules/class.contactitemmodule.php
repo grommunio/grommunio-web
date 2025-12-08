@@ -78,10 +78,9 @@ class ContactItemModule extends ItemModule {
 			// Check if message is distlist then we need to use different set of properties
 			$props = mapi_getprops($message, [PR_MESSAGE_CLASS]);
 
-			if (stripos((string) $props[PR_MESSAGE_CLASS], 'IPM.Distlist') !== false) {
+			if (class_match_prefix($props[PR_MESSAGE_CLASS], "IPM.Distlist"))
 				// for distlist we need to use different set of properties
 				$this->properties = $GLOBALS['properties']->getDistListProperties();
-			}
 
 			$data['item'] = $GLOBALS['operations']->getEmbeddedMessageProps($store, $message, $this->properties, $parentMessage, $attachNum);
 		}
@@ -89,10 +88,9 @@ class ContactItemModule extends ItemModule {
 			// Check if message is distlist then we need to use different set of properties
 			$props = mapi_getprops($message, [PR_MESSAGE_CLASS]);
 
-			if (stripos((string) $props[PR_MESSAGE_CLASS], 'IPM.Distlist') !== false) {
+			if (class_match_prefix($props[PR_MESSAGE_CLASS], "IPM.Distlist"))
 				// for distlist we need to use different set of properties
 				$this->properties = $GLOBALS['properties']->getDistListProperties();
-			}
 
 			// get message props of the message
 			$data['item'] = $GLOBALS['operations']->getMessageProps($store, $message, $this->properties, $this->plaintext, true);

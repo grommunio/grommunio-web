@@ -774,10 +774,9 @@ class Pluginsmime extends Plugin {
 		if (!isset($messageClass)) {
 			return;
 		}
-		if (stripos((string) $messageClass, 'IPM.Note.deferSMIME') === false &&
-			stripos((string) $messageClass, 'IPM.Note.SMIME') === false) {
+		if (!class_match_prefix($messageClass, "IPM.Note.deferSMIME") &&
+		    !class_match_prefix($messageClass, "IPM.Note.SMIME"))
 			return;
-		}
 
 		// FIXME: for now return when we are going to sign but we don't have the passphrase set
 		// This should never happen sign
