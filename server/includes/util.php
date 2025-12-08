@@ -496,7 +496,7 @@ function parse_smime($store, $message) {
 		PR_SENT_REPRESENTING_ADDRTYPE, PR_CLIENT_SUBMIT_TIME, PR_TRANSPORT_MESSAGE_HEADERS]);
 	$read = $props[PR_MESSAGE_FLAGS] & MSGFLAG_READ;
 
-	if (isset($props[PR_MESSAGE_CLASS]) && stripos((string) $props[PR_MESSAGE_CLASS], 'IPM.Note.SMIME.MultipartSigned') !== false) {
+	if (class_match_prefix($props[PR_MESSAGE_CLASS], "IPM.Note.SMIME.MultipartSigned")) {
 		// this is a signed message. decode it.
 		$atable = mapi_message_getattachmenttable($message);
 
@@ -549,7 +549,7 @@ function parse_smime($store, $message) {
 			]);
 		}
 	}
-	elseif (isset($props[PR_MESSAGE_CLASS]) && stripos((string) $props[PR_MESSAGE_CLASS], 'IPM.Note.SMIME') !== false) {
+	elseif (class_match_prefix($props[PR_MESSAGE_CLASS], "IPM.Note.SMIME")) {
 		// this is a encrypted message. decode it.
 		$attachTable = mapi_message_getattachmenttable($message);
 
@@ -583,10 +583,9 @@ function parse_smime($store, $message) {
 			// after decrypting $message is a IPM.Note message,
 			// deleting an attachment removes an actual attachment of the message
 			$mprops = mapi_getprops($message, [PR_MESSAGE_CLASS]);
-			if (isSmimePluginEnabled() && isset($mprops[PR_MESSAGE_CLASS]) &&
-				stripos((string) $mprops[PR_MESSAGE_CLASS], 'IPM.Note.SMIME') !== false) {
+			if (isSmimePluginEnabled() &&
+			    class_match_prefix($mprops[PR_MESSAGE_CLASS], "IPM.Note.SMIME"))
 				mapi_message_deleteattach($message, $attnum);
-			}
 
 			$decapRcptTable = mapi_message_getrecipienttable($message);
 			$decapRecipients = mapi_table_queryallrows($decapRcptTable, $GLOBALS["properties"]->getRecipientProperties());
@@ -1008,4 +1007,19 @@ function getLocalStart($ts, $tz) {
 	}
 
 	return $ts;
+}
+
+/**
+ * @h:	PR_MESSAGE_CLASS value
+ * @n:	prefix to test for
+ */
+function class_match_prefix($h, $n)
+{
+	if (!isset($h))
+		return false;
+	$z = strlen($n);
+	$r = strncasecmp($h, $n, $z);
+	if ($r != 0)
+		return false;
+	return strlen($h) == $z || $h[$z] == '.' ? true : false;
 }
