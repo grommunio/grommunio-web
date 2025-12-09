@@ -187,7 +187,7 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 
 			// Render the folder location
 			var folder = container.getHierarchyStore().getFolder(record.get('parent_entryid'));
-			var folderName = folder.getDisplayName();
+			var folderName = folder?.getDisplayName() || '';
 
 			var folderLocation= String.format('<div class="k-folder-location-container">' +
 				'<div class="k-folder-location" ext:qtip="{0}" ext:qwidth="100%">' +
