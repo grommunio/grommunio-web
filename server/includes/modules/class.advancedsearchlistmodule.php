@@ -118,10 +118,11 @@ class AdvancedSearchListModule extends ListModule {
 				if (isset($action['subfolders']) && $action['subfolders']) {
 					$folder = null;
 					$inboxEntryId = null;
+
 					try {
 						$folder = mapi_msgstore_openentry($store, $entryid);
 					}
-					catch(Exception) {
+					catch (Exception) {
 						// Probably trying to open a store without having appropriate permissions.
 						// Try to open the inbox instead.
 						$folder = mapi_msgstore_getreceivefolder($store);
@@ -129,7 +130,18 @@ class AdvancedSearchListModule extends ListModule {
 						$inboxEntryId = $props[PR_ENTRYID];
 					}
 					if (!is_null($folder)) {
-						$htable = mapi_folder_gethierarchytable($folder, CONVENIENT_DEPTH | MAPI_DEFERRED_ERRORS);
+						$flags = MAPI_DEFERRED_ERRORS;
+						$eidObj = $GLOBALS["entryid"]->createMsgStoreEntryIdObj(hex2bin((string) $action['store_entryid']));
+						if (isset($eidObj['MailboxDN'])) {
+							$sharedUserSetting = $GLOBALS["settings"]->get(
+								"zarafa/v1/contexts/hierarchy/shared_stores/" . bin2hex(strtolower((string) $eidObj['MailboxDN']))
+							);
+							if (isset($sharedUserSetting['all']) ||
+							   (isset($sharedUserSetting['inbox']['show_subfolders']) && $sharedUserSetting['inbox']['show_subfolders'])) {
+								$flags |= CONVENIENT_DEPTH;
+							}
+						}
+						$htable = mapi_folder_gethierarchytable($folder, $flags);
 						$rows = mapi_table_queryallrows($htable, [PR_ENTRYID]);
 					}
 					// The inbox itself is not the hierarchy list, add it to the begin.
