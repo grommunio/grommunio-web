@@ -144,7 +144,7 @@ Zarafa.calendar.MeetingRequestRecord = Ext.extend(Zarafa.calendar.AppointmentRec
 	 * @return {String} generated body message.
 	 * @overridden
 	 */
-	generateMeetingTimeInfo: function(responseText)
+	generateMeetingTimeInfo: function(responseText, is_html)
 	{
 		var messageBody = responseText || '';
 		var startDate = this.get('appointment_startdate');
@@ -164,9 +164,13 @@ Zarafa.calendar.MeetingRequestRecord = Ext.extend(Zarafa.calendar.AppointmentRec
 		}
 
 		meetingTimeInfo += _('Where') + ': '  + meetingLocation + '\n\n';
-		meetingTimeInfo += '*~*~*~*~*~*~*~*~*~*\n\n' + messageBody;
+		meetingTimeInfo += '*~*~*~*~*~*~*~*~*~*\n\n';
+		if (is_html) {
+			meetingTimeInfo = meetingTimeInfo.replace(/[\u00A0-\u9999<>\&]/g, i => '&#' + i.charCodeAt(0) + ';'); /* htmlspecialchars() */
+			meetingTimeInfo = "<pre>" + meetingTimeInfo + "</pre>";
+		}
 
-		return meetingTimeInfo;
+		return meetingTimeInfo + messageBody;
 	},
 
 	/**

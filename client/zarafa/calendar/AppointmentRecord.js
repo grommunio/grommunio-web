@@ -313,7 +313,7 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	 * Generates meeting time details which will be added to meeting response body.
 	 * @return {String} generated body message.
 	 */
-	generateMeetingTimeInfo: function(responseText)
+	generateMeetingTimeInfo: function(responseText, is_html)
 	{
 		var messageBody = responseText || '';
 		var startDate = this.get('startdate');
@@ -333,9 +333,13 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 		}
 
 		meetingTimeInfo += _('Where') + ': '  + meetingLocation + '\n\n';
-		meetingTimeInfo += '*~*~*~*~*~*~*~*~*~*\n\n' + messageBody;
+		meetingTimeInfo += '*~*~*~*~*~*~*~*~*~*\n\n';
+		if (is_html) {
+			meetingTimeInfo = meetingTimeInfo.replace(/[\u00A0-\u9999<>\&]/g, i => '&#' + i.charCodeAt(0) + ';'); /* htmlspecialchars() */
+			meetingTimeInfo = "<pre>" + meetingTimeInfo + "</pre>";
+		}
 
-		return meetingTimeInfo;
+		return meetingTimeInfo + messageBody;
 	},
 
 	/**
@@ -375,9 +379,11 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	 * @param {String} comment user's extra comments to response
 	 * @param {Boolean} sendResponse send response to organizer
 	 */
-	respondToMeetingRequest: function(responseType, comment, sendResponse)
+	respondToMeetingRequest: function(responseType, comment, com_is_html, sendResponse)
 	{
-		this.sendMeetingRequestResponse(responseType, this.generateMeetingTimeInfo(comment), sendResponse);
+		this.sendMeetingRequestResponse(responseType,
+			this.generateMeetingTimeInfo(comment, com_is_html),
+			com_is_html, sendResponse);
 	},
 
 	/**
@@ -420,10 +426,11 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	 * Function cancels Meeting invitation and sends Meeting Cancellation message.
 	 * @param {String} Meeting Time Information shown in message body.
 	 */
-	cancelInvitation: function(meetingTimeInfo)
+	cancelInvitation: function(comment, com_is_html)
 	{
 		this.addMessageAction('action_type', 'cancelInvitation');
-		this.addMessageAction('meetingTimeInfo', this.generateMeetingTimeInfo(meetingTimeInfo));
+		this.addMessageAction('meetingTimeInfo', this.generateMeetingTimeInfo(comment, com_is_html));
+		this.addMessageAction('mti_html', com_is_html);
 
 		var store = this.getStore();
 		store.remove(this);
@@ -673,7 +680,9 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	{
 		Zarafa.calendar.AppointmentRecord.superclass.addMessageAction.apply(this, arguments);
 		if (name === 'send') {
-			this.addMessageAction('meetingTimeInfo', this.generateMeetingTimeInfo(this.getBody()));
+			var is_html = !!this.get('isHTML');
+			this.addMessageAction('meetingTimeInfo', this.generateMeetingTimeInfo(this.getBody(), is_html));
+			this.addMessageAction('mti_html', is_html);
 		}
 		if (name === 'meetingTimeInfo') {
 			// If the record has not been opened yet, the body will not be part of the
@@ -696,7 +705,9 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	afterEdit: function()
 	{
 		if (this.isMeeting() && this.hasMessageAction('send')) {
-			this.addMessageAction('meetingTimeInfo', this.generateMeetingTimeInfo(this.getBody()));
+			var is_html = !!this.get('isHTML');
+			this.addMessageAction('meetingTimeInfo', this.generateMeetingTimeInfo(this.getBody(), is_html));
+			this.addMessageAction('mti_html', is_html);
 		}
 		this.set('timezone_iana', Intl.DateTimeFormat().resolvedOptions().timeZone);
 		Zarafa.calendar.AppointmentRecord.superclass.afterEdit.apply(this, arguments);

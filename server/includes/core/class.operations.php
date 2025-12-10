@@ -2406,19 +2406,18 @@ class Operations {
 
 			// Update extra body information
 			if (isset($action['message_action']['meetingTimeInfo']) && !empty($action['message_action']['meetingTimeInfo'])) {
+				$tag = $action['message_action']['mti_html'] ? PR_HTML : PR_BODY;
 				// Append body if the request action requires this
 				if (isset($action['message_action'], $action['message_action']['append_body'])) {
-					$bodyProps = mapi_getprops($message, [PR_BODY]);
-					if (isset($bodyProps[PR_BODY]) || propIsError(PR_BODY, $bodyProps) == MAPI_E_NOT_ENOUGH_MEMORY) {
-						$bodyProps[PR_BODY] = streamProperty($message, PR_BODY);
-					}
-
-					if (isset($action['message_action']['meetingTimeInfo'], $bodyProps[PR_BODY])) {
-						$action['message_action']['meetingTimeInfo'] .= $bodyProps[PR_BODY];
-					}
+					$bodyProps = mapi_getprops($message, [$tag]);
+					if (isset($bodyProps[$tag]) || propIsError($tag, $bodyProps) == MAPI_E_NOT_ENOUGH_MEMORY)
+						$bodyProps[$tag] = streamProperty($message, $tag);
+					if (isset($action['message_action']['meetingTimeInfo'], $bodyProps[$tag]))
+						$action['message_action']['meetingTimeInfo'] .= $bodyProps[$tag];
 				}
 
-				$request->setMeetingTimeInfo($action['message_action']['meetingTimeInfo']);
+				$request->setMeetingTimeInfo($action['message_action']['meetingTimeInfo'],
+					$action['message_action']['mti_html'] ?? false); /* cf. mapi-header-php */
 				unset($action['message_action']['meetingTimeInfo']);
 			}
 

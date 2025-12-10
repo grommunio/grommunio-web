@@ -106,7 +106,8 @@ class ItemModule extends Module {
 
 								// Update extra body information
 								if (isset($action["message_action"]['meetingTimeInfo']) && !empty($action["message_action"]['meetingTimeInfo'])) {
-									$req->setMeetingTimeInfo($action["message_action"]['meetingTimeInfo']);
+									$req->setMeetingTimeInfo($action["message_action"]['meetingTimeInfo'],
+										$action["message_action"]['mti_html'] ?? false);
 									unset($action["message_action"]['meetingTimeInfo']);
 								}
 
@@ -947,7 +948,8 @@ class ItemModule extends Module {
 
 		// Update extra body information
 		if (isset($action['message_action']['meetingTimeInfo']) && !empty($action['message_action']['meetingTimeInfo'])) {
-			$req->setMeetingTimeInfo($action["message_action"]['meetingTimeInfo']);
+			$req->setMeetingTimeInfo($action["message_action"]['meetingTimeInfo'],
+				$action["message_action"]['mti_html'] ?? false);
 			unset($action["message_action"]['meetingTimeInfo']);
 		}
 
