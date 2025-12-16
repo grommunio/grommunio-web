@@ -1,3 +1,48 @@
+grommunio-web 3.16 (2025-12-16)
+===============================
+
+Fixes:
+
+* HTML tags in meeting requests' bodies
+* Search in shared stores
+* Open read-only embedded messages
+* Use correct Reply-To email address
+* Handle mapi_getuserfreebusy exceptions
+* Delete an occurrence from a series
+* Fallback to email_address if smtp_address is not set
+* Do not over-extend body to second page when printing
+* The OOF widget marks settings dirty with dates
+* Inconsistent storing of the OOF settings
+* Attachment display and preview with ampersand
+
+Enhancements:
+
+* Proper PR_MESSAGE_CLASS matching
+* Enlarge Contact notes textarea
+* Enlarge size of permissions dialog by default
+* Add more breeze-icons (importance, private, exception, ...)
+* Importance column in calendar list view
+* "No information" option in busy status
+* Various style improvements
+* Live themes (no application reload required)
+* New themes amber, blue, green, indigo, red, and teal
+* Crypto handling for seafile backends
+* Improve prefetch and eliminate race conditions
+* Better error reporting on openmsgstore failure
+* Show last connect time of a mobile device in MDM
+* ObjectID field in draft mail options panel
+* Consistently apply category detection (and restriction)
+* KQL/advanced search term handling
+* Index FTS diagnostics and respect search filters
+* SMIME verification flow and temp handling
+* Recipient history update path
+
+Behavioral changes:
+
+* Display folder rights for granted users only
+* Find hidden user in GAB if search is a exact match
+
+
 grommunio-web 3.15 (2025-09-26)
 ===============================
 
