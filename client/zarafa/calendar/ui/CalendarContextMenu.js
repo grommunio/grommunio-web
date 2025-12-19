@@ -53,7 +53,9 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 				{ xtype: 'menuseparator' },
 				this.createContextOptionsItems(config.records),
 				{ xtype: 'menuseparator' },
-				container.populateInsertionPoint('context.calendar.contextmenu.options', this)
+				container.populateInsertionPoint('context.calendar.contextmenu.options', this),
+				{ xtype: 'menuseparator' },
+				this.createOptionsMenuItem()
 			],
 			listeners: {
 				scope: this,
@@ -587,6 +589,35 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 	{
 		var mailModel = container.getContextByName('mail').getModel();
 		Zarafa.mail.Actions.openCreateMailResponseContent(this.records, mailModel, button.responseMode, {"attachAsIcs":true});
+	},
+
+	/**
+	 * Create the Options menu entry.
+	 * @return {Object} Menu item configuration
+	 * @private
+	 */
+	createOptionsMenuItem: function()
+	{
+		return {
+			xtype: 'zarafa.conditionalitem',
+			text: _('Options'),
+			iconCls: 'icon_cogwheel',
+			beforeShow: this.beforeShowNonPhantom,
+			singleSelectOnly: true,
+			handler: this.onContextItemOptions,
+			scope: this
+		};
+	},
+
+	/**
+	 * Open the options dialog for the selected record.
+	 * @private
+	 */
+	onContextItemOptions: function()
+	{
+		Zarafa.calendar.Actions.openOptionsContent(this.records, {
+			autoSave: true
+		});
 	}
 });
 
