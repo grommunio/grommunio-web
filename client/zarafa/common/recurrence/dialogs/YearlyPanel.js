@@ -30,6 +30,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 				height: 25
 			},
 			items: [
+				this.createEveryNYearssPanel(),
 				this.createEveryNWeekdayPanel(),
 				this.createEveryMonthPanel(),
 				this.createRegeneratePanel()
@@ -37,6 +38,42 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 		});
 
 		Zarafa.common.recurrence.dialogs.YearlyPanel.superclass.constructor.call(this, config);
+	},
+
+	/**
+	 * Creates the configuration object for the "Every N Years Panel",
+	 * this panel allows Messages to recur the every N years.
+	 *
+	 * @return {Object} Configuration object for the panel
+	 * @private
+	 */
+	createEveryNYearssPanel: function()
+	{
+		return {
+			xtype: 'panel',
+			layout: 'column',
+			items: [{
+				xtype: 'zarafa.compositefield',
+				plugins: [ 'zarafa.splitfieldlabeler' ],
+				fieldLabel: _('Every {A} years(s) on') + ':',
+				labelWidth: 140,
+				columnWidth: 1,
+				items: [{
+					xtype: 'zarafa.spinnerfield',
+					plugins: [ 'zarafa.numberspinner' ],
+					ref: '../../everyNYearsSpinner',
+					name: 'recurrence_everyn',
+					labelSplitter: '{A}',
+					allowNegative: false,
+					minValue: 1,
+					width: 50,
+					listeners: {
+						change: this.onYearlyChange,
+						scope: this
+					}
+				}]
+			}]
+		};
 	},
 
 	/**
@@ -64,7 +101,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 			},{
 				xtype: 'zarafa.compositefield',
 				plugins: [ 'zarafa.splitfieldlabeler' ],
-				fieldLabel: _('Every {A} {B}'),
+				fieldLabel: _('{A} {B}'),
 				labelWidth: 50,
 				columnWidth: 1,
 				items: [{
@@ -262,6 +299,19 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 
 	/**
 	 * Event handler which is fired when one of the components belonging to the
+	 * {@link Zarafa.common.recurrence.data.RecurrenceSubtype#YEARLY_N} recurrence type has been changed.
+	 * This will call {@link #onSubtypePropertyChange}.
+	 * @param {Ext.form.Field} field The field which was changed
+	 * @param {Mixed} value The new value of the field
+	 * @private
+	 */
+	onYearlyChange: function(field, value)
+	{
+		this.onSubtypePropertyChange(Zarafa.common.recurrence.data.RecurrenceSubtype.YEARLY_N, field, value);
+	},
+
+	/**
+	 * Event handler which is fired when one of the components belonging to the
 	 * {@link Zarafa.common.recurrence.data.RecurrenceSubtype#YEARLY_MONTH} recurrence type has been changed.
 	 * This will call {@link #onSubtypePropertyChange}.
 	 * @param {Ext.form.Field} field The field which was changed
@@ -318,6 +368,20 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 			this.monthDaySpinner.setValue(value);
 		}
 		this.monthDaySpinner.maxValue = value;
+	},
+
+	/**
+	 * Apply the values for the "Every N Years Panel",
+	 *
+	 * @param {Zarafa.core.data.IPMRecord} record The record which is loaded in this panel
+	 * @param {Boolean} useDefaultValues True if defaultValues should be used rather then the
+	 * data from the Record.
+	 * @private
+	 */
+	updateEveryNYearsValues: function(record, useDefaultValues)
+	{
+		var everyn = useDefaultValues ? 1: record.get('recurrence_everyn');
+		this.everyNYearsSpinner.setValue(everyn);
 	},
 
 	/**
@@ -436,6 +500,9 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 	{
 		var subTypes = Zarafa.common.recurrence.data.RecurrenceSubtype;
 
+		if (this.isSubtype(subTypes.YEARLY_N, pattern)) {
+			this.updateEveryNYearsValues(record, useDefaultValues);
+		}
 		if (this.isSubtype(subTypes.YEARLY_MONTH, pattern)) {
 			this.updateEveryNWeekdayValues(record, useDefaultValues);
 		} else if (this.isSubtype(subTypes.YEARLY_N_WEEKDAY, pattern)) {
@@ -459,13 +526,13 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 		var subTypes = Zarafa.common.recurrence.data.RecurrenceSubtype;
 
 		if (this.isSubtype(subTypes.YEARLY_MONTH, pattern)) {
-			record.set('recurrence_everyn', 12);
+			record.set('recurrence_everyn', this.everyNYearsSpinner.getValue());
 			record.set('recurrence_nday', undefined);
 			record.set('recurrence_weekdays', undefined);
 			record.set('recurrence_month', this.monthCombo.getValue());
 			record.set('recurrence_monthday', this.monthDaySpinner.getValue());
 		} else if (this.isSubtype(subTypes.YEARLY_N_WEEKDAY, pattern)) {
-			record.set('recurrence_everyn', 12);
+			record.set('recurrence_everyn', this.everyNYearsSpinner.getValue());
 			record.set('recurrence_nday', this.dayRankCombo.getValue());
 			record.set('recurrence_weekdays', this.weekdayCombo.getValue());
 			record.set('recurrence_month', this.monthWeekdayCombo.getValue());
