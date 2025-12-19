@@ -96,5 +96,13 @@ Zarafa.common.recurrence.data.RecurrenceSubtype = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Object
 	 */
-	YEARLY_REGENERATE: { type: 2, regen: 1 }
+	YEARLY_REGENERATE: { type: 2, regen: 1 },
+  /**
+	 * For yearly recurrence, every N years.
+	 * Use in combination with {@link Zarafa.common.recurrence.data.RecurrenceType.YEARLY YEARLY}.
+	 *
+	 * @property
+	 * @type Object
+	 */
+	YEARLY_N: { type: 2, regen: 0 }
 });
