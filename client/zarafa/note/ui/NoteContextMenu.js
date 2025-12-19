@@ -43,7 +43,9 @@ Zarafa.note.ui.NoteContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 				{ xtype: 'menuseparator' },
 				container.populateInsertionPoint('context.note.contextmenu.actions', this),
 				{ xtype: 'menuseparator' },
-				container.populateInsertionPoint('context.note.contextmenu.options', this)
+				container.populateInsertionPoint('context.note.contextmenu.options', this),
+				{ xtype: 'menuseparator' },
+				this.createOptionsMenuItem()
 			],
 			defaults: {
 				xtype: 'zarafa.conditionalitem',
@@ -138,6 +140,33 @@ Zarafa.note.ui.NoteContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 	onContextItemCategories: function()
 	{
 		Zarafa.common.Actions.openCategoriesContent(this.records);
+	},
+
+	/**
+	 * Create the Options menu entry.
+	 * @return {Object} Menu item configuration
+	 * @private
+	 */
+	createOptionsMenuItem: function()
+	{
+		return {
+			text: _('Options'),
+			iconCls: 'icon_cogwheel',
+			scope: this,
+			singleSelectOnly: true,
+			handler: this.onContextItemOptions
+		};
+	},
+
+	/**
+	 * Open the options dialog for the selected record.
+	 * @private
+	 */
+	onContextItemOptions: function()
+	{
+		Zarafa.note.Actions.openOptionsContent(this.records, {
+			autoSave: true
+		});
 	},
 
 	/**

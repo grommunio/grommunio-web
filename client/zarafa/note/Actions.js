@@ -35,5 +35,30 @@ Zarafa.note.Actions = {
 	{
 		var record = model.createRecord();
 		Zarafa.core.data.UIFactory.openCreateRecord(record, config);
+	},
+
+	/**
+	 * Opens the options dialog for a note record.
+	 *
+	 * @param {Zarafa.core.data.IPMRecord|Zarafa.core.data.IPMRecord[]} records
+	 * The record(s) for which the options are requested.
+	 * @param {Object} config (optional) Configuration object used to create the Content Panel.
+	 */
+	openOptionsContent: function(records, config)
+	{
+		if (Array.isArray(records)) {
+			records = records[0];
+		}
+
+		if (!records) {
+			return;
+		}
+
+		config = Ext.applyIf(config || {}, {
+			modal: true
+		});
+
+		var componentType = Zarafa.core.data.SharedComponentType['note.dialog.options'];
+		Zarafa.core.data.UIFactory.openLayerComponent(componentType, records, config);
 	}
 };
