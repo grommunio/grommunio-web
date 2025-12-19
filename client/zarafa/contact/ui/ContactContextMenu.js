@@ -42,7 +42,9 @@ Zarafa.contact.ui.ContactContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditiona
 				container.populateInsertionPoint('context.contact.contextmenu.actions', this),
 				this.createContextExportItems(config),
 				{ xtype: 'menuseparator' },
-				container.populateInsertionPoint('context.contact.contextmenu.options', this)
+				container.populateInsertionPoint('context.contact.contextmenu.options', this),
+				{ xtype: 'menuseparator' },
+				this.createOptionsMenuItem()
 			],
 			defaults: {
 				xtype: 'zarafa.conditionalitem',
@@ -159,6 +161,33 @@ Zarafa.contact.ui.ContactContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditiona
 	},
 
 	/**
+	 * Create the Options menu entry.
+	 * @return {Object} Menu item configuration
+	 * @private
+	*/
+	createOptionsMenuItem: function()
+	{
+		return {
+			text: _('Options'),
+			iconCls: 'icon_cogwheel',
+			scope: this,
+			singleSelectOnly: true,
+			handler: this.onContextItemOptions
+		};
+	},
+	
+		/**
+		 * Open the options dialog for the selected record.
+		 * @private
+		 */
+		onContextItemOptions: function()
+		{
+			Zarafa.contact.Actions.openOptionsContent(this.records, {
+				autoSave: true
+			});
+		},
+
+		/**
 	 * Event handler which is called when the user selects the 'Delete'
 	 * item in the context menu. This will delete selected contacts from view.
 	 * @private
