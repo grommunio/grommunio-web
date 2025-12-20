@@ -74,6 +74,7 @@ Zarafa.contact.ContactContext = Ext.extend(Zarafa.core.Context, {
 		Zarafa.core.data.SharedComponentType.addProperty('contact.dialog.contact.addressdetails');
 		Zarafa.core.data.SharedComponentType.addProperty('contact.dialog.contact.phonedetails');
 		Zarafa.core.data.SharedComponentType.addProperty('contact.dialog.distlist.externalmember');
+		Zarafa.core.data.SharedComponentType.addProperty('contact.dialog.options');
 
 		// If additional prefix added by user in config.php file than append it into existing prefix's list
 		var prefix = container.getServerConfig().getContactPrefix();
@@ -171,6 +172,11 @@ Zarafa.contact.ContactContext = Ext.extend(Zarafa.core.Context, {
 			case Zarafa.core.data.SharedComponentType['contact.dialog.distlist.externalmember']:
 				bid = 1;
 				break;
+			case Zarafa.core.data.SharedComponentType['contact.dialog.options']:
+				if (record instanceof Zarafa.core.data.IPMRecord && record.isMessageClass([ 'IPM.Contact', 'IPM.DistList' ], true)) {
+					bid = 1;
+				}
+				break;
 			case Zarafa.core.data.SharedComponentType['common.contextmenu']:
 				if (record instanceof Zarafa.core.data.IPMRecord && record.isMessageClass([ 'IPM.Contact', 'IPM.DistList' ], true)) {
 					bid = 1;
@@ -252,6 +258,9 @@ Zarafa.contact.ContactContext = Ext.extend(Zarafa.core.Context, {
 				break;
 			case Zarafa.core.data.SharedComponentType['contact.dialog.distlist.externalmember']:
 				component = Zarafa.contact.dialogs.DistlistExternalMemberContentPanel;
+				break;
+			case Zarafa.core.data.SharedComponentType['contact.dialog.options']:
+				component = Zarafa.contact.dialogs.ContactOptionsContentPanel;
 				break;
 			case Zarafa.core.data.SharedComponentType['common.contextmenu']:
 				if (record instanceof Zarafa.core.data.IPMAttachmentRecord && record.isContactPhoto()){

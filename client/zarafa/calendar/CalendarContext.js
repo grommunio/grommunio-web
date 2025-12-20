@@ -102,6 +102,7 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 		Zarafa.core.data.SharedComponentType.addProperty('calendar.dialogs.proposenewtimecontentpanel');
 		Zarafa.core.data.SharedComponentType.addProperty('calendar.dialogs.sendmeetingrequestconfirmation');
 		Zarafa.core.data.SharedComponentType.addProperty('calendar.dialogs.sendmeetingrequestcancellation');
+		Zarafa.core.data.SharedComponentType.addProperty('calendar.dialog.options');
 	},
 
 	/**
@@ -234,6 +235,7 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 			case Zarafa.core.data.SharedComponentType['calendar.dialogs.sendmeetingrequestconfirmation']:
 			case Zarafa.core.data.SharedComponentType['calendar.dialogs.sendmeetingrequestcancellation']:
 			case Zarafa.core.data.SharedComponentType['calendar.dialogs.proposenewtimecontentpanel']:
+			case Zarafa.core.data.SharedComponentType['calendar.dialog.options']:
 				if (record instanceof Zarafa.core.data.IPMRecord && record.get('object_type') == Zarafa.core.mapi.ObjectType.MAPI_MESSAGE) {
 					if (record.isMessageClass([ 'IPM.Appointment', 'IPM.Schedule.Meeting', 'IPM.OLE.CLASS.{00061055-0000-0000-C000-000000000046}' ], true)) {
 						bid = 1;
@@ -303,6 +305,9 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 				break;
 			case Zarafa.core.data.SharedComponentType['calendar.dialogs.sendmeetingrequestcancellation']:
 				component = Zarafa.calendar.dialogs.SendMeetingRequestCancellationContentPanel;
+				break;
+			case Zarafa.core.data.SharedComponentType['calendar.dialog.options']:
+				component = Zarafa.calendar.dialogs.CalendarOptionsContentPanel;
 				break;
 			case Zarafa.core.data.SharedComponentType['common.printer.renderer']:
 				if (record instanceof Zarafa.core.data.IPMRecord) {

@@ -64,6 +64,8 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 		// Add a tree control showing a list of note folders to the navigation panel.
 		// The control will be shown when the user selects the note context from the button panel.
 		this.registerInsertionPoint('navigation.center', this.createNoteNavigationPanel, this);
+
+		Zarafa.core.data.SharedComponentType.addProperty('note.dialog.options');
 	},
 
 	/**
@@ -170,6 +172,11 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 					}
 				}
 				break;
+			case Zarafa.core.data.SharedComponentType['note.dialog.options']:
+				if (record instanceof Zarafa.core.data.IPMRecord && record.isMessageClass('IPM.StickyNote', true)) {
+					bid = 1;
+				}
+				break;
 		}
 		return bid;
 	},
@@ -191,6 +198,9 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 				break;
 			case Zarafa.core.data.SharedComponentType['common.contextmenu']:
 				component = Zarafa.note.ui.NoteContextMenu;
+				break;
+			case Zarafa.core.data.SharedComponentType['note.dialog.options']:
+				component = Zarafa.note.dialogs.NoteOptionsContentPanel;
 				break;
 			case Zarafa.core.data.SharedComponentType['common.printer.renderer']:
 				if (record instanceof Zarafa.core.data.IPMRecord && record.get('object_type') === Zarafa.core.mapi.ObjectType.MAPI_MESSAGE) {

@@ -235,6 +235,31 @@ Zarafa.calendar.Actions = {
 	},
 
 	/**
+	 * Opens the calendar options dialog for the given record.
+	 *
+	 * @param {Zarafa.core.data.IPMRecord|Zarafa.core.data.IPMRecord[]} records
+	 * The record(s) for which the options are requested.
+	 * @param {Object} config (optional) Configuration object used to create the Content Panel.
+	 */
+	openOptionsContent: function(records, config)
+	{
+		if (Array.isArray(records)) {
+			records = records[0];
+		}
+
+		if (!records) {
+			return;
+		}
+
+		config = Ext.applyIf(config || {}, {
+			modal: true
+		});
+
+		var componentType = Zarafa.core.data.SharedComponentType['calendar.dialog.options'];
+		Zarafa.core.data.UIFactory.openLayerComponent(componentType, records, config);
+	},
+
+	/**
 	 * Opens a {@link Zarafa.calendar.dialogs.SendMeetingRequestConfirmationContentPanel}
 	 * @param {Ext.data.Record} record The record, or records, for which the categories must be configured
 	 * @param {Object} config (optional) Configuration object used to create the ContentPanel

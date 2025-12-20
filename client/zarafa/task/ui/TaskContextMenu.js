@@ -50,7 +50,9 @@ Zarafa.task.ui.TaskContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 				{ xtype: 'menuseparator' },
 				this.createContextOptionsItems(),
 				{ xtype: 'menuseparator' },
-				container.populateInsertionPoint('context.task.contextmenu.options', this)
+				container.populateInsertionPoint('context.task.contextmenu.options', this),
+				{ xtype: 'menuseparator' },
+				this.createOptionsMenuItem()
 			]
 		});
 
@@ -204,6 +206,34 @@ Zarafa.task.ui.TaskContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 	onCopyMove: function()
 	{
 		Zarafa.common.Actions.openCopyMoveContent(this.records);
+	},
+
+	/**
+	 * Create the Options menu entry.
+	 * @return {Object} Menu item configuration
+	 * @private
+	 */
+	createOptionsMenuItem: function()
+	{
+		return {
+			xtype: 'zarafa.conditionalitem',
+			text: _('Options'),
+			iconCls: 'icon_cogwheel',
+			singleSelectOnly: true,
+			handler: this.onContextItemOptions,
+			scope: this
+		};
+	},
+
+	/**
+	 * Open the options dialog for the selected record.
+	 * @private
+	 */
+	onContextItemOptions: function()
+	{
+		Zarafa.task.Actions.openOptionsContent(this.records, {
+			autoSave: true
+		});
 	},
 
 	/**
