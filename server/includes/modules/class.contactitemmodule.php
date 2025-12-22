@@ -513,7 +513,7 @@ class ContactItemModule extends ItemModule {
 			'start' => $startDate,
 			'end' => $dueDate,
 			'term' => 35,
-			'everyn' => 12,
+			'everyn' => 1,
 			'subtype' => 2,
 			'type' => 13,
 			'regen' => 0,
