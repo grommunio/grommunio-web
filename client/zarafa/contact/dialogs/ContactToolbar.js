@@ -146,6 +146,7 @@ Zarafa.contact.dialogs.ContactToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	 */
 	onSave: function()
 	{
+		this.record.updateTimezoneInformation();
 		this.dialog.saveRecord();
 	},
 
