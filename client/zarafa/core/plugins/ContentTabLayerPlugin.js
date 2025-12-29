@@ -18,6 +18,17 @@ Zarafa.core.plugins.ContentTabLayerPlugin = Ext.extend(Zarafa.core.plugins.Conte
 	focus: function()
 	{
 		container.getTabPanel().setActiveTab(this.field);
+
+		// Also move keyboard focus into the panel so its keymap works immediately
+		// (e.g. Ctrl+Alt+W to close) without requiring a click.
+		if (Ext.isFunction(this.field.focus)) {
+			if (this.field.rendered) {
+				this.field.focus();
+			}
+			else {
+				this.field.on('afterrender', this.field.focus, this.field, { single: true });
+			}
+		}
 	}
 });
 
