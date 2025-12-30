@@ -380,7 +380,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 	 */
 	updateEveryNYearsValues: function(record, useDefaultValues)
 	{
-		var everyn = useDefaultValues ? 1: record.get('recurrence_everyn');
+		var everyn = useDefaultValues ? 1: record.get('recurrence_everyn') / 12;
 		this.everyNYearsSpinner.setValue(everyn);
 	},
 
