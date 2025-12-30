@@ -26,7 +26,7 @@ Zarafa.addressbook.ui.GABPersonalColumnModel = Ext.extend(Zarafa.common.ui.grid.
 			columns: [{
 				dataIndex: 'icon_index',
 				headerCls: 'zarafa-icon-column icon',
-				header: _('Icon'),
+				header: '',
 				sortable: true,
 				tooltip: _('Sort by: Icon'),
 				width: 25,
