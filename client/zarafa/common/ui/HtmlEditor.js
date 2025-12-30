@@ -559,9 +559,8 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 			// indent of UL/OL instead of adding four white spaces.
 			if (!listElement) {
 				event.preventDefault();
-				var bookmark = editor.selection.getBookmark(2);
 				editor.execCommand("mceInsertContent", false, "&nbsp;&nbsp;&nbsp;&nbsp;");
-				editor.selection.moveToBookmark(bookmark);
+				editor.selection.collapse(false);
 			}
 			return;
 		}
