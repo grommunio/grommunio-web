@@ -40,7 +40,7 @@ Zarafa.addressbook.ui.GABColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMo
 		var defaultItems = [{
 			dataIndex: 'icon_index',
 			headerCls: 'zarafa-icon-column',
-			header: _('Icon'),
+			header: '',
 			sortable: true,
 			tooltip: _('Sort by: Icon'),
 			width: 25,
