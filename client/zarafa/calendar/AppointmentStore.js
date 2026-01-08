@@ -195,9 +195,11 @@ Zarafa.calendar.AppointmentStore = Ext.extend(Zarafa.core.data.ListModuleStore, 
 				if (storeRec) {
 					results.records.push(storeRec);
 					results.updatedRecords.push(record);
+				} else {
+					// Record not found in store, reload to pick up
+					// newly visible appointments (e.g. moved into view).
+					this.reload();
 				}
-
-				this.reload();
 			}
 		}
 
@@ -222,7 +224,6 @@ Zarafa.calendar.AppointmentStore = Ext.extend(Zarafa.core.data.ListModuleStore, 
 	onNotifyObjectdeleted: function(action, records, data, timestamp, success)
 	{
 		Zarafa.calendar.AppointmentStore.superclass.onNotifyObjectdeleted.apply(this, arguments);
-		this.reload();
 	},
 
 	/**
