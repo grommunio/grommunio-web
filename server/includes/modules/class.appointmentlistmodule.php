@@ -484,6 +484,9 @@ class AppointmentListModule extends ListModule {
 		$item['props']['access'] = 0;
 		$item['props']['sent_representing_name'] = '';
 		$item['props']['sender_name'] = '';
+		$item['props']['display_to'] = '';
+		$item['props']['display_cc'] = '';
+		$item['props']['display_bcc'] = '';
 
 		return $item;
 	}
