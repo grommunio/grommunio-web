@@ -146,7 +146,7 @@ class AppointmentListModule extends ListModule {
 					$GLOBALS["properties"]->setActiveStore($store[$index]);
 					$this->properties = $GLOBALS["properties"]->getAppointmentListProperties();
 
-					$data["item"] = array_merge($data["item"], $this->getCalendarItems($store[$index], $entryid[$index], $this->startdate, $this->enddate));
+					array_push($data["item"], ...$this->getCalendarItems($store[$index], $entryid[$index], $this->startdate, $this->enddate));
 				}
 			}
 			else {
@@ -201,7 +201,7 @@ class AppointmentListModule extends ListModule {
 		$items = [];
 		for ($i = 0, $c = count($entryid); $i < $c; ++$i) {
 			$newItems = $GLOBALS["operations"]->getTable($store[$i], $entryid[$i], $this->properties, $this->sort, $this->start, $limit, $this->restriction);
-			$items = array_merge($items, $newItems['item']);
+			array_push($items, ...$newItems['item']);
 			if (isset($newItems['page']['totalrowcount']) && $newItems['page']['totalrowcount'] > $limit) {
 				$data['page'] = $newItems['page'];
 			}
@@ -403,8 +403,12 @@ class AppointmentListModule extends ListModule {
 			// Fix for all-day events which have a different timezone than the user's browser
 			$recurrence = new Recurrence($store, $calendaritem, $proptags);
 			$recuritems = $recurrence->getItems($start, $end);
+			$msgRecurrence = null;
 
 			foreach ($recuritems as $recuritem) {
+				// Recurrence blob is not needed for occurrence display
+				unset($recuritem[$this->properties['recurring_data']]);
+
 				$item = Conversion::mapMAPI2XML($this->properties, $recuritem);
 
 				// Single occurrences are never recurring
@@ -419,24 +423,22 @@ class AppointmentListModule extends ListModule {
 				}
 
 				if (isset($recuritem["exception"])) {
-					// Add categories if they are set on the exception
-					// We will create a new Recurrence object with the opened message,
-					// so we can open the attachments. The attachments for this exception
-					// contains the categories property (if changed)
-					$msgEntryid = bin2hex((string) $calendaritem[$this->properties["entryid"]]);
-					if (!isset($openedMessages[$msgEntryid])) {
-						// Open the message and add it to the openedMessages property
-						$message = mapi_msgstore_openentry($store, $calendaritem[$this->properties["entryid"]]);
-						$openedMessages[$msgEntryid] = $message;
+					// Add categories if they are set on the exception.
+					// We need a Recurrence object backed by the mapi message
+					// (not just props) so we can open the exception attachments.
+					// Create it once per series and reuse for all exceptions.
+					if ($msgRecurrence === null) {
+						$msgEntryid = bin2hex((string) $calendaritem[$this->properties["entryid"]]);
+						if (!isset($openedMessages[$msgEntryid])) {
+							$message = mapi_msgstore_openentry($store, $calendaritem[$this->properties["entryid"]]);
+							$openedMessages[$msgEntryid] = $message;
+						}
+						else {
+							$message = $openedMessages[$msgEntryid];
+						}
+						$msgRecurrence = new Recurrence($store, $message, $proptags);
 					}
-					else {
-						// This message was already opened
-						$message = $openedMessages[$msgEntryid];
-					}
-					// Now create a Recurrence object with the mapi message (instead of the message props)
-					// so we can open the attachments
-					$recurrence = new Recurrence($store, $message, $proptags);
-					$exceptionatt = $recurrence->getExceptionAttachment($recuritem["basedate"]);
+					$exceptionatt = $msgRecurrence->getExceptionAttachment($recuritem["basedate"]);
 					if ($exceptionatt) {
 						// Existing exception (open existing item, which includes basedate)
 						$exception = mapi_attach_openobj($exceptionatt, 0);
