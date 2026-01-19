@@ -1462,7 +1462,6 @@ final class SeafileApi {
 		}
 		$result = curl_exec($this->handle);
 		$this->curlExecHandleResult($result);
-		curl_close($this->handle);
 
 		return $result;
 	}
