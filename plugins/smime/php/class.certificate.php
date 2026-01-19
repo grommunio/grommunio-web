@@ -285,7 +285,6 @@ class Certificate {
 		else {
 			Log::Write(LOGLEVEL_ERROR, sprintf("[smime] Error when downloading internmediate certificate '%s', http status: '%s'", $curl_error, $http_status));
 		}
-		curl_close($ch);
 
 		return new Certificate($cert);
 	}
