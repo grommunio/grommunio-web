@@ -115,7 +115,7 @@ class Pluginfiles extends Plugin {
 					],
 					'plugins' => [
 						'files' => [
-							'enable' => PLUGIN_FILES_USER_DEFAULT_ENABLE,
+							'enable' => PLUGIN_FILES_USER_DEFAULT_ENABLE || stripos(ALWAYS_ENABLED_PLUGINS_LIST, 'files') !== false,
 							'onlyoffice_enabled' => PLUGIN_FILES_ONLYOFFICE_ENABLE,
 							'onlyoffice_filetypes' => PLUGIN_FILES_ONLYOFFICE_FILETYPES,
 						],
