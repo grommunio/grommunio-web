@@ -633,10 +633,6 @@ class UploadAttachment {
 	 * @return bool true if the import is successful, false otherwise
 	 */
 	public function importEMLFile($attachmentStream, $filename) {
-		if (isBrokenEml($attachmentStream)) {
-			throw new ZarafaException(sprintf(_("Unable to import '%s'. "), $filename) . _("The EML is not valid"));
-		}
-
 		$this->destinationFolder = $this->getDestinationFolder();
 
 		$newMessage = mapi_folder_createmessage($this->destinationFolder);
