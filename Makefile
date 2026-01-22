@@ -94,6 +94,18 @@ css:
 svgo: node_modules
 	find client plugins -type f -name "*.svg" -exec $(SVGCOMPRESS) --multipass {} \;
 
+.PHONY: build-icons
+build-icons: node_modules svgo
+	node tools/build-icons.js
+
+.PHONY: sync-images
+sync-images: node_modules
+	node tools/sync-images.js --extract
+
+.PHONY: sync-images-report
+sync-images-report: node_modules
+	node tools/sync-images.js --report
+
 clearartifacts:
 	find $(DESTDIR) -iname "*readme*" -exec rm -f {} \;
 	find $(DESTDIR) -iname "*license*.txt" -exec rm -f {} \;
