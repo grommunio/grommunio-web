@@ -474,6 +474,28 @@ Zarafa.calendar.Actions = {
 	openHandler: function(store, record, model)
 	{
 		var newAppointmentRecord = record.convertToAppointment(model.getDefaultFolder());
+		// Ensure organizer/sender fields are initialized for the new appointment.
+		Zarafa.core.data.MessageRecordPhantomHandler(newAppointmentRecord);
+		// Treat the new record as opened so substores exist for scheduling/recipients.
+		newAppointmentRecord.afterOpen();
+		// Ensure we have a valid start/due date; if not, round up to the next slot.
+		if (!Ext.isDate(newAppointmentRecord.get('startdate')) || !Ext.isDate(newAppointmentRecord.get('duedate'))) {
+			var settingsModel = container.getSettingsModel();
+			var zoomLevel = settingsModel.get('zarafa/v1/contexts/calendar/default_zoom_level');
+			var defaultPeriod = settingsModel.get('zarafa/v1/contexts/calendar/default_appointment_period');
+
+			var startDate = new Date().ceil(Date.MINUTE, zoomLevel);
+			var dueDate = startDate.add(Date.MINUTE, defaultPeriod);
+
+			newAppointmentRecord.beginEdit();
+			newAppointmentRecord.set('startdate', startDate, true);
+			newAppointmentRecord.set('duedate', dueDate, true);
+			newAppointmentRecord.set('commonstart', startDate);
+			newAppointmentRecord.set('commonend', dueDate);
+			newAppointmentRecord.set('duration', defaultPeriod);
+			newAppointmentRecord.set('alldayevent', false);
+			newAppointmentRecord.endEdit();
+		}
 		Zarafa.core.data.UIFactory.openCreateRecord(newAppointmentRecord);
 	}
 };
