@@ -638,7 +638,7 @@ class UploadAttachment {
 		$newMessage = mapi_folder_createmessage($this->destinationFolder);
 		$addrBook = $GLOBALS['mapisession']->getAddressbook();
 		// Convert an RFC822-formatted e-mail to a MAPI Message
-		$ok = mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $this->store, $addrBook, $newMessage, $attachmentStream, []);
+		$ok = mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $this->store, $addrBook, $newMessage, $attachmentStream, ["add_rcvd_timestamp"=>1]);
 
 		if ($ok === true) {
 			mapi_message_savechanges($newMessage);
