@@ -45,6 +45,7 @@ $serverConfig = array_merge($serverConfig, [
 	'enable_themes' => ENABLE_THEMES,
 	'enable_iconsets' => ENABLE_ICONSETS,
 	'enable_widgets' => ENABLE_WIDGETS,
+	'show_logout_button' => SHOW_LOGOUT_BUTTON,
 ]);
 if (CONTACT_PREFIX) {
 	$serverConfig['contact_prefix'] = json_decode(CONTACT_PREFIX);
