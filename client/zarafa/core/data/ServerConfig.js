@@ -396,5 +396,13 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	isWidgetEnabled : function()
 	{
 		return this.meta.enable_widgets;
+	},
+
+	/**
+	 * @return {Boolean} True if grommunio Web shows the logout button
+	 */
+	showLogoutButton: function()
+	{
+		return this.meta.show_logout_button;
 	}
 });

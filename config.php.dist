@@ -134,6 +134,10 @@
 	// The grommunio admin API status endpoint
 	define('ADMIN_API_STATUS_ENDPOINT', 'http://[::1]:8080/api/v1/status');
 
+	// Whether to show the Logout button in grommunio-web (true or false).
+	// Show per default.
+	define('SHOW_LOGOUT_BUTTON', true);
+
 	/**************************************\
 	* Memory usage and timeouts            *
 	\**************************************/
