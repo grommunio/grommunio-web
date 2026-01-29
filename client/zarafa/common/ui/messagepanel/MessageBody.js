@@ -246,7 +246,7 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			var preferHtml = record.get('isHTML');
 			var sanitizedBody = null;
 
-			if (Ext.isFunction(record.getSanitizedHtmlBody)) {
+			if (Ext.isFunction(record.getSanitizedHtmlBody) && !record.checkBlockStatus()) {
 				// Use a cached sanitized body when possible to avoid redundant DOMPurify work.
 				if (!Ext.isEmpty(record.sanitizedHTMLBody)) {
 					sanitizedBody = record.sanitizedHTMLBody;
