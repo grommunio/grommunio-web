@@ -57,12 +57,7 @@ Zarafa.common.ui.messagepanel.ExtraInfoContextMenu = Ext.extend(Zarafa.core.ui.m
 	 */
 	showPictures: function()
 	{
-		var blockStatusValue = this.records.calculateBlockStatus();
-
-		if (blockStatusValue) {
-			this.records.set('block_status', blockStatusValue);
-			this.records.save();
-		}
+		this.setBlockStatus();
 	},
 
 	/**
@@ -116,6 +111,16 @@ Zarafa.common.ui.messagepanel.ExtraInfoContextMenu = Ext.extend(Zarafa.core.ui.m
 
 		// @FIXME any good way to update record contents without changing it?
 		this.records.afterEdit();
+	},
+
+	setBlockStatus: function()
+	{
+		var blockStatusValue = this.records.calculateBlockStatus();
+
+		if (blockStatusValue) {
+			this.records.set('block_status', blockStatusValue);
+			this.records.save();
+		}
 	}
 });
 
