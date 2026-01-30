@@ -78,6 +78,7 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 			xtype : 'button',
 			text : _('Sign'),
 			tooltip: {
+				cls: 'smime-tooltip',
 				title: _('Sign message'),
 				text: _('Ensure the authenticity of the message by adding a digital signature to this message. Any changes to the message will invalidate the signature.')
 			},
@@ -104,6 +105,7 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 			xtype : 'button',
 			text : _('Encrypt'),
 			tooltip: {
+				cls: 'smime-tooltip',
 				title: _('Encrypt message'),
 				text: _('Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it.')
 			},
