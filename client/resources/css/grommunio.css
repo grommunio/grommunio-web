@@ -4690,6 +4690,12 @@ body .k-category-block {
   /* calculation of Ext is incorrect */
   white-space: nowrap; }
 
+/* Allow multi-line text for S/MIME button tooltips */
+.x-tip.smime-tooltip .x-tip-body {
+  white-space: normal;
+  height: auto;
+}
+
 /* Seemingly unused icon, removed so we do not load the ExtJS image */
 .x-tip-anchor.x-tip-anchor-top {
   background-image: none; }
