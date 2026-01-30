@@ -93,7 +93,7 @@ class ResolveNamesModule extends Module {
 		// Prefer resolving the email_address. This allows the user
 		// to resolve recipients with a display name that matches a EX
 		// user with an alternative (external) email address.
-		$searchstr = empty($query['email_address']) ? $query['display_name'] : $query['email_address'];
+		$searchstr = $query['email_address'] ?? $query['display_name'];
 		// If the address_type is 'EX' then we are resolving something which must be found in
 		// the GAB as an exact match. So add the flag EMS_AB_ADDRESS_LOOKUP to ensure we will not
 		// get multiple results when multiple items have a partial match.
@@ -170,6 +170,7 @@ class ResolveNamesModule extends Module {
 		}
 
 		$items = [];
+		$searchstr = 'smtp:' . strtolower($searchstr);
 		if ($rows) {
 			foreach ($rows as $user_data) {
 				$item = [];
@@ -227,6 +228,14 @@ class ResolveNamesModule extends Module {
 				else {
 					$emailAddress = $item['smtp_address'] ?? $item['email_address'];
 					$item['search_key'] = bin2hex(strtoupper($item['address_type'] . ':' . $emailAddress)) . '00';
+				}
+				// Check for aliases
+				if (isset($user_data[PR_EMS_AB_PROXY_ADDRESSES]) &&
+					is_array($user_data[PR_EMS_AB_PROXY_ADDRESSES]) &&
+					in_array($searchstr, array_map('strtolower', $user_data[PR_EMS_AB_PROXY_ADDRESSES])) &&
+					$flags === 0) {
+					$item['email_address'] = $item['smtp_address'] = substr($searchstr, 5);
+					$item['address_type'] = 'SMTP';
 				}
 
 				array_push($items, $item);
