@@ -2831,6 +2831,20 @@ class Operations {
 				$props[PR_SENT_REPRESENTING_SEARCH_KEY] = $abitemprops[PR_SEARCH_KEY];
 				$sendingAsDelegate = true;
 			}
+			elseif (isset($props[PR_SENT_REPRESENTING_EMAIL_ADDRESS], $props[PR_SENDER_EMAIL_ADDRESS], $props[PR_SENT_REPRESENTING_ENTRYID]) &&
+				strcasecmp((string) $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS], (string) $props[PR_SENDER_EMAIL_ADDRESS]) != 0) {
+				// preserve sending from an alias
+				$ab = $GLOBALS['mapisession']->getAddressbook();
+				$abitem = mapi_ab_openentry($ab, $props[PR_SENT_REPRESENTING_ENTRYID]);
+				$abitemprops = mapi_getprops($abitem, [PR_EMS_AB_PROXY_ADDRESSES]);
+				$searchstr = 'smtp:' . $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS];
+				if (isset($abitemprops[PR_EMS_AB_PROXY_ADDRESSES]) &&
+					is_array($abitemprops[PR_EMS_AB_PROXY_ADDRESSES]) &&
+					in_array($searchstr, array_map('strtolower', $abitemprops[PR_EMS_AB_PROXY_ADDRESSES]))) {
+					$props[PR_SENT_REPRESENTING_SMTP_ADDRESS] = $props[PR_SENDER_EMAIL_ADDRESS] = $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS];
+					$props[PR_SENDER_ADDRTYPE] = 'SMTP';
+				}
+			}
 			// Save the new message properties
 			$message = $this->saveMessage($store, $entryid, $storeprops[PR_IPM_OUTBOX_ENTRYID], $props, $messageProps, $recipients, $attachments, [], $copyFromMessage, $copyAttachments, $copyRecipients, $copyInlineAttachmentsOnly, true, true, $isPlainText);
 			// Sending as delegate from drafts folder
