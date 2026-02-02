@@ -495,6 +495,7 @@ function parse_smime($store, $message) {
 		PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENT_REPRESENTING_SMTP_ADDRESS,
 		PR_SENT_REPRESENTING_ADDRTYPE, PR_CLIENT_SUBMIT_TIME, PR_TRANSPORT_MESSAGE_HEADERS, PR_REPLY_RECIPIENT_ENTRIES]);
 	$read = $props[PR_MESSAGE_FLAGS] & MSGFLAG_READ;
+	$smimeMessage = false;
 
 	if (class_match_prefix($props[PR_MESSAGE_CLASS], "IPM.Note.SMIME.MultipartSigned")) {
 		// this is a signed message. decode it.
@@ -552,6 +553,7 @@ function parse_smime($store, $message) {
 			}
 			mapi_setprops($message, $tmpprops);
 		}
+		$smimeMessage = true;
 	}
 	elseif (class_match_prefix($props[PR_MESSAGE_CLASS], "IPM.Note.SMIME")) {
 		// this is a encrypted message. decode it.
@@ -597,9 +599,10 @@ function parse_smime($store, $message) {
 				mapi_message_modifyrecipients($message, MODRECIP_ADD, $origRecipients);
 			}
 		}
+		$smimeMessage = true;
 	}
 	// mark the message as read if the main message has read flag
-	if ($read) {
+	if ($smimeMessage && $read) {
 		$mprops = mapi_getprops($message, [PR_MESSAGE_FLAGS]);
 		mapi_setprops($message, [PR_MESSAGE_FLAGS => $mprops[PR_MESSAGE_FLAGS] | MSGFLAG_READ]);
 	}
