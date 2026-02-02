@@ -1635,19 +1635,19 @@ class Operations {
 			if (isset($smtpprops[PR_SENT_REPRESENTING_ENTRYID], $props["props"]["sent_representing_email_address"])) {
 				$props["props"]["sent_representing_username"] = $props["props"]["sent_representing_email_address"];
 				$sentRepresentingSearchKey = isset($props['props']['sent_representing_search_key']) ? hex2bin($props['props']['sent_representing_search_key']) : false;
-				$props["props"]["sent_representing_email_address"] = $this->getEmailAddress($smtpprops[PR_SENT_REPRESENTING_ENTRYID], $sentRepresentingSearchKey);
+				$props["props"]["sent_representing_email_address"] ??= $this->getEmailAddress($smtpprops[PR_SENT_REPRESENTING_ENTRYID], $sentRepresentingSearchKey);
 			}
 
 			if (isset($smtpprops[PR_SENDER_ENTRYID], $props["props"]["sender_email_address"])) {
 				$props["props"]["sender_username"] = $props["props"]["sender_email_address"];
 				$senderSearchKey = isset($props['props']['sender_search_key']) ? hex2bin($props['props']['sender_search_key']) : false;
-				$props["props"]["sender_email_address"] = $this->getEmailAddress($smtpprops[PR_SENDER_ENTRYID], $senderSearchKey);
+				$props["props"]["sender_email_address"] ??= $this->getEmailAddress($smtpprops[PR_SENDER_ENTRYID], $senderSearchKey);
 			}
 
 			if (isset($smtpprops[PR_RECEIVED_BY_ENTRYID], $props["props"]["received_by_email_address"])) {
 				$props["props"]["received_by_username"] = $props["props"]["received_by_email_address"];
 				$receivedSearchKey = isset($props['props']['received_by_search_key']) ? hex2bin($props['props']['received_by_search_key']) : false;
-				$props["props"]["received_by_email_address"] = $this->getEmailAddress($smtpprops[PR_RECEIVED_BY_ENTRYID], $receivedSearchKey);
+				$props["props"]["received_by_email_address"] ??= $this->getEmailAddress($smtpprops[PR_RECEIVED_BY_ENTRYID], $receivedSearchKey);
 			}
 
 			$props['props']['isHTML'] = false;
@@ -2830,6 +2830,20 @@ class Operations {
 				$props[PR_SENT_REPRESENTING_ADDRTYPE] = "EX";
 				$props[PR_SENT_REPRESENTING_SEARCH_KEY] = $abitemprops[PR_SEARCH_KEY];
 				$sendingAsDelegate = true;
+			}
+			elseif (isset($props[PR_SENT_REPRESENTING_EMAIL_ADDRESS], $props[PR_SENDER_EMAIL_ADDRESS], $props[PR_SENT_REPRESENTING_ENTRYID]) &&
+				strcasecmp((string) $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS], (string) $props[PR_SENDER_EMAIL_ADDRESS]) != 0) {
+				// preserve sending from an alias
+				$ab = $GLOBALS['mapisession']->getAddressbook();
+				$abitem = mapi_ab_openentry($ab, $props[PR_SENT_REPRESENTING_ENTRYID]);
+				$abitemprops = mapi_getprops($abitem, [PR_EMS_AB_PROXY_ADDRESSES]);
+				$searchstr = 'smtp:' . $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS];
+				if (isset($abitemprops[PR_EMS_AB_PROXY_ADDRESSES]) &&
+					is_array($abitemprops[PR_EMS_AB_PROXY_ADDRESSES]) &&
+					in_array($searchstr, array_map('strtolower', $abitemprops[PR_EMS_AB_PROXY_ADDRESSES]))) {
+					$props[PR_SENT_REPRESENTING_SMTP_ADDRESS] = $props[PR_SENDER_EMAIL_ADDRESS] = $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS];
+					$props[PR_SENDER_ADDRTYPE] = 'SMTP';
+				}
 			}
 			// Save the new message properties
 			$message = $this->saveMessage($store, $entryid, $storeprops[PR_IPM_OUTBOX_ENTRYID], $props, $messageProps, $recipients, $attachments, [], $copyFromMessage, $copyAttachments, $copyRecipients, $copyInlineAttachmentsOnly, true, true, $isPlainText);
