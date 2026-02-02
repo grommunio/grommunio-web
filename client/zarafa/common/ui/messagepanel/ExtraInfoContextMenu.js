@@ -57,12 +57,7 @@ Zarafa.common.ui.messagepanel.ExtraInfoContextMenu = Ext.extend(Zarafa.core.ui.m
 	 */
 	showPictures: function()
 	{
-		var blockStatusValue = this.records.calculateBlockStatus();
-
-		if (blockStatusValue) {
-			this.records.set('block_status', blockStatusValue);
-			this.records.save();
-		}
+		this.setBlockStatus();
 	},
 
 	/**
@@ -87,8 +82,7 @@ Zarafa.common.ui.messagepanel.ExtraInfoContextMenu = Ext.extend(Zarafa.core.ui.m
 
 		container.getSettingsModel().set('zarafa/v1/contexts/mail/safe_senders_list', safeSenders);
 
-		// @FIXME any good way to update record contents without changing it?
-		this.records.afterEdit();
+		this.setBlockStatus();
 	},
 
 	/**
@@ -114,8 +108,17 @@ Zarafa.common.ui.messagepanel.ExtraInfoContextMenu = Ext.extend(Zarafa.core.ui.m
 
 		container.getSettingsModel().set('zarafa/v1/contexts/mail/safe_senders_list', safeSenders);
 
-		// @FIXME any good way to update record contents without changing it?
-		this.records.afterEdit();
+		this.setBlockStatus();
+	},
+
+	setBlockStatus: function()
+	{
+		var blockStatusValue = this.records.calculateBlockStatus();
+
+		if (blockStatusValue) {
+			this.records.set('block_status', blockStatusValue);
+			this.records.save();
+		}
 	}
 });
 
