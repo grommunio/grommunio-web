@@ -1635,19 +1635,19 @@ class Operations {
 			if (isset($smtpprops[PR_SENT_REPRESENTING_ENTRYID], $props["props"]["sent_representing_email_address"])) {
 				$props["props"]["sent_representing_username"] = $props["props"]["sent_representing_email_address"];
 				$sentRepresentingSearchKey = isset($props['props']['sent_representing_search_key']) ? hex2bin($props['props']['sent_representing_search_key']) : false;
-				$props["props"]["sent_representing_email_address"] = $this->getEmailAddress($smtpprops[PR_SENT_REPRESENTING_ENTRYID], $sentRepresentingSearchKey);
+				$props["props"]["sent_representing_email_address"] ??= $this->getEmailAddress($smtpprops[PR_SENT_REPRESENTING_ENTRYID], $sentRepresentingSearchKey);
 			}
 
 			if (isset($smtpprops[PR_SENDER_ENTRYID], $props["props"]["sender_email_address"])) {
 				$props["props"]["sender_username"] = $props["props"]["sender_email_address"];
 				$senderSearchKey = isset($props['props']['sender_search_key']) ? hex2bin($props['props']['sender_search_key']) : false;
-				$props["props"]["sender_email_address"] = $this->getEmailAddress($smtpprops[PR_SENDER_ENTRYID], $senderSearchKey);
+				$props["props"]["sender_email_address"] ??= $this->getEmailAddress($smtpprops[PR_SENDER_ENTRYID], $senderSearchKey);
 			}
 
 			if (isset($smtpprops[PR_RECEIVED_BY_ENTRYID], $props["props"]["received_by_email_address"])) {
 				$props["props"]["received_by_username"] = $props["props"]["received_by_email_address"];
 				$receivedSearchKey = isset($props['props']['received_by_search_key']) ? hex2bin($props['props']['received_by_search_key']) : false;
-				$props["props"]["received_by_email_address"] = $this->getEmailAddress($smtpprops[PR_RECEIVED_BY_ENTRYID], $receivedSearchKey);
+				$props["props"]["received_by_email_address"] ??= $this->getEmailAddress($smtpprops[PR_RECEIVED_BY_ENTRYID], $receivedSearchKey);
 			}
 
 			$props['props']['isHTML'] = false;
