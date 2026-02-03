@@ -633,9 +633,10 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		var fontFamily = container.getSettingsModel().get('zarafa/v1/main/default_font');
 		var fontSize = Zarafa.common.ui.htmleditor.Fonts.getDefaultFontSize();
 
-		return '<p style="font-family:'+fontFamily+'; font-size:'+fontSize+'; padding: 0; margin: 0;"><br/></p>' +
-			'<p style="font-family:'+fontFamily+'; font-size:'+fontSize+'; padding: 0; margin: 0;"><br/></p>' +
-			'<div class="signatureContainer">'+signature+'</div>';
+		var lineStyle = 'font-family:'+fontFamily+'; font-size:'+fontSize+'; padding: 0; margin: 0;';
+		var emptyLine = '<p style="' + lineStyle + '"><span><br/></span></p>';
+
+		return emptyLine + emptyLine + '<div class="signatureContainer">'+signature+'</div>';
 	},
 
 	/**
