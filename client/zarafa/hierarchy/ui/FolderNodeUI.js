@@ -346,10 +346,18 @@ Zarafa.hierarchy.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 	{
 		var folder = this.node.getFolder();
 		if (!container.getServerConfig().isWidgetEnabled() && folder.isOwnRoot()){
-			e.preventDefault();
-			folder = folder.getMAPIStore().getDefaultFolder("inbox");
-			this.node.getOwnerTree().getNodeById(folder.get('entryid')).getUI().elNode.click();
-			return;
+			var ownerTree = this.node.getOwnerTree();
+			var store = folder.getMAPIStore();
+			var inboxFolder = store ? store.getDefaultFolder("inbox") : undefined;
+
+			if (ownerTree && inboxFolder) {
+				e.preventDefault();
+				if (Ext.isFunction(ownerTree.selectFolderInTree)) {
+					ownerTree.selectFolderInTree(inboxFolder, true);
+				}
+				Zarafa.hierarchy.Actions.openFolder(inboxFolder);
+				return;
+			}
 		}
 
 		Zarafa.hierarchy.ui.FolderNodeUI.superclass.onClick.apply(this, arguments);
