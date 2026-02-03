@@ -1085,12 +1085,12 @@ body.Safari input[type="radio"] {
 .col-move-bottom, .col-move-top {
   background-image: none !important; }
 
-/* column headers */
+/* column headers - modern flat style */
 .x-grid3-header {
-  background: #ffffff;
-  border-bottom: 1px solid #e6e6e6;
+  background: #fafafa;
+  border-bottom: 1px solid #e0e0e0;
   padding: 0;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04); }
+  box-shadow: none; }
 
 #mail-grid .x-grid3-header {
   padding-left: 3px; }
@@ -1099,25 +1099,27 @@ td.x-grid3-hd-over .x-grid3-hd-inner,
 td.sort-desc .x-grid3-hd-inner,
 td.sort-asc .x-grid3-hd-inner,
 td.x-grid3-hd-menu-open .x-grid3-hd-inner {
-  background: #ffffff; }
+  background: transparent; }
 
 .x-grid3-hd-row {
   /* Icon only columns */ }
   .x-grid3-hd-row td {
-    padding: 6px 0;
-    border-color: #ffffff;
+    padding: 8px 0;
+    border-color: transparent;
     position: relative; }
     .x-grid3-hd-row td .x-grid3-hd-inner {
       line-height: 20px;
       display: inline-block;
-      border: 1px solid #ffffff;
+      border: 1px solid transparent;
       border-radius: 2px;
       padding: 1px 6px;
-      /* subtract 2px for the borders */
-      font-weight: bold;
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: #666;
       overflow: visible;
-      /* needed for the .x-grid3-hd-btn to be visible when we place it outside of the button */
-      background: #ffffff;
+      background: transparent;
       max-width: 100%;
       box-sizing: border-box; }
       .x-grid3-hd-row td .x-grid3-hd-inner .zarafa-x-grid3-hd-title {
@@ -1126,25 +1128,24 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
         .x-grid3-hd-row td .x-grid3-hd-inner .zarafa-x-grid3-hd-title .x-grid3-hd-checker {
           width: 15px; }
       .x-grid3-hd-row td .x-grid3-hd-inner .x-grid3-hd-btn {
-        border: 1px solid #e6e6e6;
+        border: 1px solid transparent;
         border-radius: 2px;
-        background-color: #ffffff;
+        background-color: transparent;
         width: 16px;
         height: 22px !important;
-        /* overwriting the inline styled height that extjs gives this element */
         right: -20px;
-        top: -1px;
-        /* needed because the parent has a border */ }
+        top: -1px; }
   .x-grid3-hd-row td:hover .x-grid3-hd-inner,
   .x-grid3-hd-row td:hover .x-grid3-hd-inner .x-grid3-hd-btn {
-    border-color: #dadada; }
+    border-color: transparent;
+    background-color: #f0f0f0; }
   .x-grid3-hd-row td:not(.k-unsortable):active .x-grid3-hd-inner,
   .x-grid3-hd-row td:not(.k-unsortable):active .x-grid3-hd-inner .x-grid3-hd-btn {
-    background-color: #f8f8f8; }
+    background-color: #e8e8e8; }
   .x-grid3-hd-row td.sort-desc .x-grid3-hd-inner,
   .x-grid3-hd-row td.sort-asc .x-grid3-hd-inner {
     padding-right: 21px;
-    /* some extra padding to place the sort icon */ }
+    color: #333; }
   .x-grid3-hd-row td.sort-desc .x-grid3-sort-icon,
   .x-grid3-hd-row td.sort-asc .x-grid3-sort-icon {
     width: 9px;
@@ -1156,33 +1157,65 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   .x-grid3-hd-row td.sort-asc .x-grid3-hd-inner,
   .x-grid3-hd-row td.sort-desc .x-grid3-hd-inner .x-grid3-hd-btn,
   .x-grid3-hd-row td.sort-asc .x-grid3-hd-inner .x-grid3-hd-btn {
-    border-color: #e6e6e6;
-    background-color: #f8f8f8; }
+    border-color: transparent;
+    background-color: #f0f0f0; }
   .x-grid3-hd-row td.sort-desc:not(.k-unsortable):active .x-grid3-hd-inner,
   .x-grid3-hd-row td.sort-asc:not(.k-unsortable):active .x-grid3-hd-inner,
   .x-grid3-hd-row td.sort-desc:not(.k-unsortable):active .x-grid3-hd-inner .x-grid3-hd-btn,
   .x-grid3-hd-row td.sort-asc:not(.k-unsortable):active .x-grid3-hd-inner .x-grid3-hd-btn {
-    background-color: #f2f2f2; }
+    background-color: #e8e8e8; }
   .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner {
-    height: 24px;
+    height: auto;
     width: 22px;
-    padding: 0;
-    text-align: center; }
+    padding: 2px 0;
+    text-align: center;
+    border: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
     .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner .zarafa-x-grid3-hd-title {
-      text-overflow: clip;
-      /* reposition the icon headers */ }
+      text-overflow: clip; }
       .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner .zarafa-x-grid3-hd-title p {
         position: relative;
         display: inline-block;
         min-width: 20px; }
         .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner .zarafa-x-grid3-hd-title p .title {
           display: none; }
+  /* Hide the "Icon" (first) column header content - keep the column space */
+  .x-grid3-hd-row td.zarafa-icon-column.icon .x-grid3-hd-inner {
+    visibility: hidden; }
+  .x-grid3-hd-row td.zarafa-icon-column.icon {
+    pointer-events: none; }
+  /* Icon columns (importance, attachment, flag, smime): hide dropdown menu button */
+  .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner .x-grid3-hd-btn {
+    display: none !important; }
+  /* Icon columns: no hover effect */
+  .x-grid3-hd-row td.zarafa-icon-column:hover .x-grid3-hd-inner {
+    background: transparent !important;
+    border-color: transparent !important; }
+  /* Icon columns: sort indicator - show below the icon */
   .x-grid3-hd-row td.zarafa-icon-column.sort-asc p,
   .x-grid3-hd-row td.zarafa-icon-column.sort-desc p {
     display: none; }
+  .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner {
+    overflow: visible !important; }
   .x-grid3-hd-row td.zarafa-icon-column.sort-asc .x-grid3-sort-icon,
   .x-grid3-hd-row td.zarafa-icon-column.sort-desc .x-grid3-sort-icon {
-    margin: 0; }
+    margin: 0;
+    width: 9px;
+    height: 9px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: auto;
+    bottom: 0; }
+  /* Icon columns: sorted state - no border, no background change, extra bottom padding for sort icon */
+  .x-grid3-hd-row td.zarafa-icon-column.sort-asc .x-grid3-hd-inner,
+  .x-grid3-hd-row td.zarafa-icon-column.sort-desc .x-grid3-hd-inner {
+    background: transparent !important;
+    border: none !important;
+    padding-bottom: 12px;
+    position: relative; }
 
 /****************************************************************************
  * Icons in the 'Show columns' menu
@@ -1397,6 +1430,8 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 /* x-grid-3 should have a little more padding */
 .x-grid3-row {
   padding-right: 3px; }
+.x-grid3-row > table {
+  padding-left: 3px; }
 
 /* hover read item */
 .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-over > table, .x-grid3-row.x-grid3-row-collapsed.mail_read.x-grid3-row-over > table {
