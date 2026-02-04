@@ -167,10 +167,9 @@ Zarafa.calendar.MeetingRequestRecord = Ext.extend(Zarafa.calendar.AppointmentRec
 		meetingTimeInfo += '*~*~*~*~*~*~*~*~*~*\n\n';
 		if (is_html) {
 			meetingTimeInfo = meetingTimeInfo.replace(/[\u00A0-\u9999<>\&]/g, i => '&#' + i.charCodeAt(0) + ';'); /* htmlspecialchars() */
-			meetingTimeInfo = "<pre>" + meetingTimeInfo + "</pre>";
 		}
 
-		return meetingTimeInfo + messageBody;
+		return meetingTimeInfo + '\n\n' + messageBody;
 	},
 
 	/**
