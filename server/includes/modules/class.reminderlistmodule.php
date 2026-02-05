@@ -275,21 +275,32 @@ class ReminderListModule extends ListModule {
 				 * Add the reminder_minutes (default 15 minutes for calendar, 0 for tasks) to check over the gap between FlagDueBy and the start time of the
 				 * occurrence, if "now" would be in between these values.
 				 */
-				$remindertimeinseconds = $row[$this->properties["reminder_minutes"]] * 60;
-				$occurrences = $recur->getItems($row[$this->properties["flagdueby"]], time() + $remindertimeinseconds, 0, true);
-
-				if (empty($occurrences)) {
-					continue;
+				$remindertimeinseconds = (int) ($row[$this->properties["reminder_minutes"]] ?? 0) * 60;
+				$flagDueBy = $row[$this->properties["flagdueby"]] ?? null;
+				if (!is_numeric($flagDueBy)) {
+					$flagDueBy = $row[$this->properties["reminder_time"]]
+						?? $row[$this->properties["appointment_startdate"]]
+						?? null;
 				}
+				$flagDueBy = is_numeric($flagDueBy) ? (int) $flagDueBy : null;
 
-				// More than one occurrence, use the last one instead of the first one after flagdueby
-				$occ = $occurrences[count($occurrences) - 1];
+				$occurrences = null;
+				if ($flagDueBy !== null) {
+					$occurrences = $recur->getItems($flagDueBy, time() + $remindertimeinseconds, 0, true);
 
-				// Bydefault, on occurrence reminder is true but if reminder value is set to false then we don't send popup reminder for this occurrence
-				if (!(isset($occ[$this->properties['reminder']]) && $occ[$this->properties['reminder']] == 0)) {
-					$row[$this->properties["reminder_time"]] = $occ[$this->properties["appointment_startdate"]];
-					$row[$this->properties["appointment_startdate"]] = $occ[$this->properties["appointment_startdate"]];
-					$row[$this->properties["appointment_enddate"]] = $occ[$this->properties["appointment_startdate"]];
+					if (empty($occurrences)) {
+						continue;
+					}
+
+					// More than one occurrence, use the last one instead of the first one after flagdueby
+					$occ = $occurrences[count($occurrences) - 1];
+
+					// Bydefault, on occurrence reminder is true but if reminder value is set to false then we don't send popup reminder for this occurrence
+					if (!(isset($occ[$this->properties['reminder']]) && $occ[$this->properties['reminder']] == 0)) {
+						$row[$this->properties["reminder_time"]] = $occ[$this->properties["appointment_startdate"]];
+						$row[$this->properties["appointment_startdate"]] = $occ[$this->properties["appointment_startdate"]];
+						$row[$this->properties["appointment_enddate"]] = $occ[$this->properties["appointment_startdate"]];
+					}
 				}
 			}
 
