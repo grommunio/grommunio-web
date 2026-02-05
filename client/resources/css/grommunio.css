@@ -2222,47 +2222,8 @@ Note: Does not work in IE11 */
   border-bottom: 1px solid #e6e6e6; }
 
 /***************************************
- *  scrollbars for Webkit
+ *  scrollbars for Webkit (legacy block removed — unified scrollbar below)
  ***************************************/
-.preview-header ::-webkit-scrollbar {
-  width: 15px;
-  height: 15px; }
-
-.preview-header ::-webkit-scrollbar-button:vertical {
-  border: 1px solid #fff;
-  background-color: #fff;
-  background-repeat: no-repeat;
-  height: 15px;
-  border-radius: 2px; }
-
-.preview-header ::-webkit-scrollbar-button:vertical:hover {
-  border: 1px solid #dadada; }
-
-.preview-header ::-webkit-scrollbar-button:vertical:increment {
-  /* this is the arrow_down_s.png icon */
-  /* putting this webkit rule in app-icons.extensions.json would break the rule on IE11 */
-  /* so we're cheating a little and adding this one here */
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAADCAYAAABbNsX4AAAAHElEQVR4AWMKDAz8j46ZGBgYGBlQASMTjIFMAwD7JAnFXwG1BAAAAABJRU5ErkJggg==);
-  background-repeat: no-repeat;
-  background-position: center center; }
-
-.preview-header ::-webkit-scrollbar-button:vertical:decrement {
-  /* this is the arrow_up_s.png icon */
-  /* putting this webkit rule in app-icons.extensions.json would break the rule on IE11 */
-  /* so we're cheating a little and adding this one here */
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAADCAYAAABbNsX4AAAAGElEQVR4AWMIDAyE4f8wNkIAgRnAAugYAIFDFzUC5hyIAAAAAElFTkSuQmCC);
-  background-repeat: no-repeat;
-  background-position: center center; }
-
-.preview-header ::-webkit-scrollbar-button:vertical:increment:disabled {
-  background-color: red; }
-
-.preview-header ::-webkit-scrollbar-button:vertical:active {
-  background-color: #f8f8f8; }
-
-.preview-header ::-webkit-scrollbar-thumb {
-  border: none;
-  border-radius: 2px; }
 
 /* the expand/collapse button */
 .preview-header-collapse {
@@ -4824,34 +4785,7 @@ body .k-category-block {
 .preview-recipient-data .zarafa-recipient-link:not(:first-child) .zarafa-presence-status-icon {
   margin-left: 3px; }
 
-/* modern scrollbar */
-* {
-  scrollbar-color: #1f1f1f transparent;
-}
-
-*::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-  background: transparent;
-}
-
-*::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #c0c0c0;
-  border-radius: 20px;
-  min-height: 100px;
-}
-
-.x-grid3-scroller {
-  overflow-y: hidden !important;
-}
-
-.x-grid3-scroller:hover {
-  overflow-y: auto !important;
-}
+/* (legacy scrollbar block removed — unified scrollbar defined at end of file) */
 
 input.x-tree-node-cb {
     height: 36px;
@@ -5532,4 +5466,28 @@ ul.x-tab-strip li:not(.x-tab-strip-active):hover .x-tab-strip-text {
   color: #000000 !important;
   filter: brightness(0) invert(1);
   transition: color 0.2s ease, filter 0.2s ease;
+}
+
+/*********************************************************************************************
+ * Scrollbars - modern thin overlay style
+ * No reserved space, appears on hover/scroll, works in both light and dark mode.
+ ********************************************************************************************/
+/*****************************
+ * Unified scrollbar styling
+ * Uses standard scrollbar-width/scrollbar-color (supported in Chrome 94+, Firefox 64+).
+ * These scale with browser zoom unlike ::-webkit-scrollbar pseudo-elements.
+ *****************************/
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+}
+
+/* Grid scroller — hide scrollbar until hover (same pattern as hierarchy tree) */
+.x-grid3-scroller {
+  overflow-y: hidden !important;
+  overflow-x: hidden !important;
+}
+
+.x-grid3-scroller:hover {
+  overflow-y: auto !important;
 }
