@@ -336,16 +336,13 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 			// Otherwise is has already been added
 			return;
 		}
-		if (!this.isDisabled() && this.record && this.record.phantom) {
-			var focusedElement = document.activeElement;
-			tinymceEditor.selection.setCursorLocation(tinymceEditor.getBody().firstChild, 0);
-			this.composeDefaultFormatting(tinymceEditor);
-			// HTML styles will be applied while selecting default values from comboboxes.
-			// We need to set those styles into the record to avoid change detection in record.
-			this.checkValueCorrection(this, "");
-			// Remove all the undo level from tinymce, so that user can't rollback the default HTML styles.
-			tinymceEditor.undoManager.clear();
-		}
+		tinymceEditor.selection.setCursorLocation(tinymceEditor.getBody().firstChild, 0);
+		this.composeDefaultFormatting(tinymceEditor);
+		// HTML styles will be applied while selecting default values from comboboxes.
+		// We need to set those styles into the record to avoid change detection in record.
+		this.checkValueCorrection(this, "");
+		// Remove all the undo level from tinymce, so that user can't rollback the default HTML styles.
+		tinymceEditor.undoManager.clear();
 	},
 
 	/**
