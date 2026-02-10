@@ -2926,8 +2926,9 @@ span.preview-header-sender-image {
     z-index: 10;
     margin-left: 1px; }
   .zarafa-calendar-boxview .zarafa-calendar-container-body .k-html-body-background .k-action-border {
-    border-color: #5ebb4b !important; }
+    border-right-color: #5ebb4b !important; }
   .zarafa-calendar-boxview .zarafa-calendar-container-body .k-html-body-background .k-today {
+    border-color: #5ebb4b !important;
     border-left-width: 2px;
     border-right-width: 3px;
     border-bottom-width: 3px; }
