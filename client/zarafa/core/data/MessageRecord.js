@@ -43,7 +43,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 * @property
 	 * @type Boolean
 	 */
-	externalContent: false,
+	externalContent: null,
 
 	/**
 	 * Cached sanitized HTML body. This avoids running DOMPurify on the
@@ -61,15 +61,17 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 */
 	hasExternalContent: function(body)
 	{
-		body = Ext.isDefined(body) ? body : this.getBody();
+		var hasBodyArgument = Ext.isDefined(body);
+		body = hasBodyArgument ? body : this.getBody();
 
-		// plain text mails can not have external content
-		if(!this.get('isHTML')) {
+		if (Ext.isEmpty(body)) {
 			this.externalContent = false;
 			return this.externalContent;
 		}
 
-		if(!this.externalContent || this.isModifiedSinceLastUpdate('html_body')) {
+		// Re-evaluate whenever a specific body was provided or message body fields changed.
+		// This avoids races where isHTML is temporarily stale while html_body is already available.
+		if(hasBodyArgument || !Ext.isBoolean(this.externalContent) || this.isModifiedSinceLastUpdate('html_body') || this.isModifiedSinceLastUpdate('body')) {
 			this.externalContent = Zarafa.core.HTMLParser.hasExternalContent(body);
 		}
 
@@ -301,6 +303,20 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 			return false;
 		}
 
+		if(!this.shouldBlockExternalContent()) {
+			return false;
+		}
+
+		return this.hasExternalContent(body);
+	},
+
+	/**
+	 * Determine if external resources should be blocked for this message,
+	 * regardless of whether external URLs were already detected in the body.
+	 * @return {Boolean} true when policy requires blocking external content.
+	 */
+	shouldBlockExternalContent: function()
+	{
 		// check settings
 		if(!container.getSettingsModel().get('zarafa/v1/contexts/mail/block_external_content')) {
 			return false;
@@ -308,8 +324,9 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 
 		var blockExternalContent = true;
 		var ignoreChecks = false;
-		var senderSMTPAddress = (this.get('sent_representing_email_address') || this.get('sender_email_address')).toLowerCase();
-		var safeSenders = container.getSettingsModel().get('zarafa/v1/contexts/mail/safe_senders_list', true).map(function(s){return s.toLowerCase();});
+		var senderSMTPAddress = (this.get('sent_representing_email_address') || this.get('sender_email_address') || '').toLowerCase();
+		var safeSenders = container.getSettingsModel().get('zarafa/v1/contexts/mail/safe_senders_list', true);
+		safeSenders = Ext.isArray(safeSenders) ? safeSenders.map(function(s){ return String(s).toLowerCase(); }) : [];
 
 		// if block_status property is set correctly then ignore all settings and show external content
 		if(this.checkBlockStatus()) {
@@ -334,11 +351,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 			}
 		}
 
-		if(blockExternalContent && this.hasExternalContent(body)) {
-			return true;
-		}
-
-		return false;
+		return blockExternalContent;
 	},
 
 	/**

@@ -26,6 +26,205 @@ Zarafa.core.HTMLParser = (function() {
 	// regular expression to convert url for inline images to outlook style url
 	var urlToCidRe = /(src\s*=\s*[\"\']?)\S*attachCid=([^ &\"\']*)[^ \"\']*([\"\']?)/igm;
 
+	var cssUrlRe = /url\(\s*(['"]?)([^'")]+)\1\s*\)/igm;
+	var cssImportRe = /@import\s+(?:url\(\s*)?(['"]?)([^'")\s;]+)\1\s*\)?/igm;
+	var hrefResourceTags = {
+		image: true,
+		use: true,
+		feimage: true,
+		iframe: true,
+		frame: true,
+		script: true,
+		embed: true,
+		audio: true,
+		video: true,
+		source: true,
+		track: true
+	};
+
+	function isExternalResourceUrl(url)
+	{
+		if (Ext.isEmpty(url)) {
+			return false;
+		}
+
+		url = String(url).trim();
+		url = url.replace(/^['"]|['"]$/g, '');
+
+		if (!url || url === '#' || url.indexOf('cid:') === 0 || url.indexOf('data:') === 0 ||
+			url.indexOf('blob:') === 0 || url.indexOf('about:') === 0 || url.indexOf('mailto:') === 0 ||
+			url.indexOf('tel:') === 0 || url.indexOf('javascript:') === 0) {
+			return false;
+		}
+
+		// Relative urls are considered local.
+		if (!/^(https?:|ftp:)?\/\//i.test(url)) {
+			return false;
+		}
+
+		var baseUrl = container.getBaseURL();
+		var parser = document.createElement('a');
+
+		parser.href = baseUrl;
+		var baseOrigin = parser.protocol + '//' + parser.host;
+
+		if (url.indexOf('//') === 0) {
+			url = window.location.protocol + url;
+		}
+
+		parser.href = url;
+		var urlOrigin = parser.protocol + '//' + parser.host;
+
+		return (urlOrigin !== baseOrigin);
+	}
+
+	function sanitizeCssExternalUrls(cssText)
+	{
+		if (Ext.isEmpty(cssText)) {
+			return cssText;
+		}
+
+		cssText = String(cssText).replace(cssUrlRe, function(match, quote, url) {
+			if (isExternalResourceUrl(url)) {
+				return 'url("")';
+			}
+			return match;
+		});
+
+		cssText = cssText.replace(cssImportRe, function(match, quote, url) {
+			if (isExternalResourceUrl(url)) {
+				return '';
+			}
+			return match;
+		});
+
+		return cssText;
+	}
+
+	function hasExternalCssUrls(cssText)
+	{
+		if (Ext.isEmpty(cssText)) {
+			return false;
+		}
+
+		var hasExternalUrl = false;
+		String(cssText).replace(cssUrlRe, function(match, quote, url) {
+			if (isExternalResourceUrl(url)) {
+				hasExternalUrl = true;
+			}
+			return match;
+		});
+
+		if (hasExternalUrl) {
+			return true;
+		}
+
+		String(cssText).replace(cssImportRe, function(match, quote, url) {
+			if (isExternalResourceUrl(url)) {
+				hasExternalUrl = true;
+			}
+			return match;
+		});
+
+		return hasExternalUrl;
+	}
+
+	function hasExternalSrcset(srcset)
+	{
+		if (Ext.isEmpty(srcset)) {
+			return false;
+		}
+
+		var entries = String(srcset).split(',');
+		for (var i = 0; i < entries.length; i++) {
+			var entry = entries[i].trim();
+			if (Ext.isEmpty(entry)) {
+				continue;
+			}
+
+			var url = entry.split(/\s+/)[0];
+			if (isExternalResourceUrl(url)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	function sanitizeSrcset(srcset)
+	{
+		if (Ext.isEmpty(srcset)) {
+			return srcset;
+		}
+
+		var keptEntries = [];
+		var entries = String(srcset).split(',');
+		for (var i = 0; i < entries.length; i++) {
+			var entry = entries[i].trim();
+			if (Ext.isEmpty(entry)) {
+				continue;
+			}
+
+			var parts = entry.split(/\s+/);
+			var url = parts[0];
+			if (!isExternalResourceUrl(url)) {
+				keptEntries.push(entry);
+			}
+		}
+
+		return keptEntries.join(', ');
+	}
+
+	function parseInertHtml(data)
+	{
+		// Parse in an inert document so external resources are not fetched while
+		// we only inspect/sanitize the markup.
+		if (window.DOMParser) {
+			var parsedDoc = new DOMParser().parseFromString('<!doctype html><html><body>' + data + '</body></html>', 'text/html');
+			return {
+				root: parsedDoc.body,
+				toHtml: function() {
+					return parsedDoc.body.innerHTML;
+				}
+			};
+		}
+
+		// Fallback for older engines.
+		var inertDoc = document.implementation.createHTMLDocument('');
+		inertDoc.body.innerHTML = data;
+		return {
+			root: inertDoc.body,
+			toHtml: function() {
+				return inertDoc.body.innerHTML;
+			}
+		};
+	}
+
+	function hasExternalHrefResource(node, tagName)
+	{
+		if (!hrefResourceTags[tagName]) {
+			return false;
+		}
+
+		return isExternalResourceUrl(node.getAttribute('href')) ||
+			isExternalResourceUrl(node.getAttribute('xlink:href'));
+	}
+
+	function sanitizeExternalHrefResource(node, tagName)
+	{
+		if (!hrefResourceTags[tagName]) {
+			return;
+		}
+
+		if (isExternalResourceUrl(node.getAttribute('href'))) {
+			node.setAttribute('href', '');
+		}
+
+		if (isExternalResourceUrl(node.getAttribute('xlink:href'))) {
+			node.setAttribute('xlink:href', '');
+		}
+	}
+
 	return {
 		/**
 		 * Strips all style tags, and also remove its contents
@@ -252,23 +451,66 @@ Zarafa.core.HTMLParser = (function() {
 				return false;
 			}
 
-			var hasExternalImage = this.handleExternalImage(data, function (srcs) {
-				var basePath = container.getBasePath();
+			var parsed = parseInertHtml(data);
+			var nodes = parsed.root.querySelectorAll('*');
+			for (var i = 0; i < nodes.length; i++) {
+				var node = nodes[i];
+				var tagName = (node.tagName || '').toLowerCase();
 
-				// It will return true if data contains some external image. if image src
-				// is not start with basePath then we consider it to external image.
-				return srcs.some(function (src) {
-					return src.search("&attachCid=") === -1 && (src.startsWith("src=\"" + basePath) === false || src.startsWith("background=\"" + basePath) === false);
-				});
-			});
+				var src = node.getAttribute('src');
+				if (isExternalResourceUrl(src)) {
+					return true;
+				}
 
-			if (hasExternalImage) {
-				return true;
+				var background = node.getAttribute('background');
+				if (isExternalResourceUrl(background)) {
+					return true;
+				}
+
+				var poster = node.getAttribute('poster');
+				if (isExternalResourceUrl(poster)) {
+					return true;
+				}
+
+				var srcset = node.getAttribute('srcset');
+				if (hasExternalSrcset(srcset)) {
+					return true;
+				}
+
+				var dataAttr = node.getAttribute('data');
+				if (isExternalResourceUrl(dataAttr)) {
+					return true;
+				}
+
+				if (hasExternalHrefResource(node, tagName)) {
+					return true;
+				}
+
+				var styleAttr = node.getAttribute('style');
+				if (hasExternalCssUrls(styleAttr)) {
+					return true;
+				}
+
+				// <link href> can auto-fetch fonts/stylesheets.
+				if (tagName === 'link' && isExternalResourceUrl(node.getAttribute('href'))) {
+					return true;
+				}
+
+				// refresh meta tags can trigger remote navigation.
+				if (tagName === 'meta' && ((node.getAttribute('http-equiv') || '').toLowerCase() === 'refresh')) {
+					var refreshContent = node.getAttribute('content') || '';
+					var urlMatch = /url\s*=\s*([^;]+)/i.exec(refreshContent);
+					if (urlMatch && isExternalResourceUrl(urlMatch[1])) {
+						return true;
+					}
+				}
 			}
 
-			// check tags whose attributes contains style attribute with external url
-			if(data.search(/(style)\s*=(\S*)(url)\(([\'\"]*?)\s*(https*:.*[^\'\"])([\'\"]*?)\)/igm) !== -1) {
-				return true;
+			var styleTags = parsed.root.querySelectorAll('style');
+			for (var j = 0; j < styleTags.length; j++) {
+				if (hasExternalCssUrls(styleTags[j].textContent || styleTags[j].innerHTML)) {
+					return true;
+				}
 			}
 
 			return false;
@@ -285,21 +527,62 @@ Zarafa.core.HTMLParser = (function() {
 				return data;
 			}
 
-			data = this.handleExternalImage(data, function (srcs) {
-				var basePath = container.getBasePath();
-				for (var i = 0; i < srcs.length; i++) {
-					// Replace src url to empty string if image is external image and not inline image.
-					if (srcs[i].search("&attachCid=") === -1 && (srcs[i].startsWith("src=\"" + basePath) === false || srcs[i].startsWith("background=\"" + basePath) === false)) {
-					data = data.replace(srcs[i], srcs[i].startsWith("b") ? "background=\"\"" : "src=\"\"");
-					}
+			var parsed = parseInertHtml(data);
+			var nodes = parsed.root.querySelectorAll('*');
+			for (var i = 0; i < nodes.length; i++) {
+				var node = nodes[i];
+				var tagName = (node.tagName || '').toLowerCase();
+
+				if (isExternalResourceUrl(node.getAttribute('src'))) {
+					node.setAttribute('src', '');
 				}
-				return data;
-			});
 
-			// @TODO more work needs for these regular expressions or else a dom based html parser
-			data = data.replace(/(style)\s*=(\S*)(url)\(([\'\"]*?)\s*(https*:.*[^\'\"])([\'\"]*?)\)/igm, "$1=$2$3($4$6)");
+				if (isExternalResourceUrl(node.getAttribute('background'))) {
+					node.setAttribute('background', '');
+				}
 
-			return data;
+				if (isExternalResourceUrl(node.getAttribute('poster'))) {
+					node.setAttribute('poster', '');
+				}
+
+				if (isExternalResourceUrl(node.getAttribute('data'))) {
+					node.setAttribute('data', '');
+				}
+
+				sanitizeExternalHrefResource(node, tagName);
+
+				var srcset = node.getAttribute('srcset');
+				if (!Ext.isEmpty(srcset)) {
+					node.setAttribute('srcset', sanitizeSrcset(srcset));
+				}
+
+				var styleAttr = node.getAttribute('style');
+				if (!Ext.isEmpty(styleAttr)) {
+					node.setAttribute('style', sanitizeCssExternalUrls(styleAttr));
+				}
+
+				// <link href> auto-fetches styles/fonts.
+				if (tagName === 'link' && isExternalResourceUrl(node.getAttribute('href'))) {
+					node.setAttribute('href', '');
+				}
+
+				if (tagName === 'meta' && ((node.getAttribute('http-equiv') || '').toLowerCase() === 'refresh')) {
+					node.setAttribute('content', '');
+				}
+			}
+
+			var styleTags = parsed.root.querySelectorAll('style');
+			for (var j = 0; j < styleTags.length; j++) {
+				var cssText = styleTags[j].textContent || styleTags[j].innerHTML || '';
+				var sanitizedCss = sanitizeCssExternalUrls(cssText);
+				if (Ext.isDefined(styleTags[j].textContent)) {
+					styleTags[j].textContent = sanitizedCss;
+				} else {
+					styleTags[j].innerHTML = sanitizedCss;
+				}
+			}
+
+			return parsed.toHtml();
 		},
 
 		/**
