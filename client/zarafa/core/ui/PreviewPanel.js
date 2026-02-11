@@ -58,6 +58,12 @@ Zarafa.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 	isLoadMaskShown: false,
 
 	/**
+	 * @cfg {Number} loadMaskDelay Delay in milliseconds before showing the loading mask.
+	 * Set to 0 to show immediately.
+	 */
+	loadMaskDelay: 0,
+
+	/**
 	 * The LoadMask object which will be shown when the {@link #record} is being opened, and
 	 * the dialog is waiting for the server to respond with the desired data. This will only
 	 * be set if {@link #showLoadMask} is true.
@@ -65,6 +71,13 @@ Zarafa.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 	 * @type Zarafa.common.ui.LoadMask
 	 */
 	loadMask: undefined,
+
+	/**
+	 * Deferred task which can be used to delay showing of the load mask.
+	 * @property
+	 * @type Ext.util.DelayedTask
+	 */
+	loadMaskTask: undefined,
 
 	/**
 	 * @constructor
@@ -308,6 +321,8 @@ Zarafa.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 	 */
 	showLoadMask: function(errorMask)
 	{
+		this.cancelLoadMaskTask();
+
 		if (this.isLoadMaskShown && !errorMask) {
 			return;
 		}
@@ -318,8 +333,20 @@ Zarafa.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 		if (errorMask) {
 			this.loadMask.showError();
 		} else {
-			this.loadMask.show();
-			this.isLoadMaskShown = true;
+			if (this.loadMaskDelay > 0) {
+				this.loadMaskTask = this.loadMaskTask || new Ext.util.DelayedTask(function() {
+					if (this.isDestroyed || this.isLoadMaskShown) {
+						return;
+					}
+
+					this.loadMask.show();
+					this.isLoadMaskShown = true;
+				}, this);
+				this.loadMaskTask.delay(this.loadMaskDelay);
+			} else {
+				this.loadMask.show();
+				this.isLoadMaskShown = true;
+			}
 		}
 	},
 
@@ -331,6 +358,8 @@ Zarafa.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 	 */
 	hideLoadMask: function()
 	{
+		this.cancelLoadMaskTask();
+
 		if (this.isLoadMaskShown === false) {
 			return;
 		}
@@ -338,6 +367,17 @@ Zarafa.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 		if (this.loadMask) {
 			this.loadMask.hide();
 			this.isLoadMaskShown = false;
+		}
+	},
+
+	/**
+	 * Cancel any pending delayed show of the loading mask.
+	 * @protected
+	 */
+	cancelLoadMaskTask: function()
+	{
+		if (this.loadMaskTask) {
+			this.loadMaskTask.cancel();
 		}
 	},
 
@@ -400,6 +440,12 @@ Zarafa.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 				this.showRecordInPanel(record);
 			}
 		}
+	},
+
+	beforeDestroy: function()
+	{
+		this.cancelLoadMaskTask();
+		Zarafa.core.ui.PreviewPanel.superclass.beforeDestroy.apply(this, arguments);
 	},
 
 	/**

@@ -21,6 +21,7 @@ Zarafa.mail.ui.MailPreviewPanel = Ext.extend(Zarafa.core.ui.PreviewPanel, {
 		Ext.applyIf(config, {
 			xtype: 'zarafa.mailpreviewpanel',
 			cls: 'zarafa-previewpanel zarafa-context-mainpanel',
+			loadMaskDelay: 250,
 			recordComponentPluginConfig: Ext.applyIf(config.recordComponentPluginConfig || {}, {
 				// Defer loading mail immediately, because the user
 				// might be quickly clicking through the list of mails.
@@ -150,4 +151,3 @@ Zarafa.mail.ui.MailPreviewPanel = Ext.extend(Zarafa.core.ui.PreviewPanel, {
 });
 
 Ext.reg('zarafa.mailpreviewpanel', Zarafa.mail.ui.MailPreviewPanel);
-
