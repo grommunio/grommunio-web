@@ -3417,14 +3417,21 @@ div.zarafa-contact-cardview-selected {
 /* Reminder dialog */
 .zarafa-reminder-dialog-active-reminder-icon {
   width: 24px;
-  height: 25px;
-  float: left; }
+  height: 24px;
+  float: left;
+  margin-right: 8px;
+  margin-top: 2px; }
 
 .zarafa-reminder-dialog-active-reminder-subject {
-  font-weight: bold; }
+  font-weight: bold;
+  margin-bottom: 2px; }
 
 .zarafa-reminder-dialog-snooze, .zarafa-reminder-dialog-active-reminder {
-  padding: 8px; }
+  padding: 10px 12px; }
+
+/* Reminder grid - "due in" column shrink to fit */
+.zarafa-reminder-dialog-snooze .x-grid3-col-1 {
+  white-space: nowrap; }
 
 /* Address book dialog */
 .k-abuserselectionpanel > .x-panel-bwrap > .x-panel-body,
