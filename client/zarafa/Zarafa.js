@@ -905,12 +905,21 @@ Ext.apply(Zarafa, {
 		}
 		var me = this;
 
-		document.addEventListener('click', function(){
+		var clickHandler = function(){
 			me.idleTime = 0;
-		}, true);
-		document.addEventListener('mousemove', function(){
+		};
+		var moveHandler = function(){
 			me.idleTime = 0;
-		}, true);
+		};
+
+		try {
+			document.addEventListener('click', clickHandler, { capture: true, passive: true });
+			document.addEventListener('mousemove', moveHandler, { capture: true, passive: true });
+		} catch (ex) {
+			document.addEventListener('click', clickHandler, true);
+			document.addEventListener('mousemove', moveHandler, true);
+		}
+
 		document.addEventListener('keydown', function(){
 			me.idleTime = 0;
 		}, true);

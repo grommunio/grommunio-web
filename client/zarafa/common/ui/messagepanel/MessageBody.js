@@ -168,7 +168,21 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 	relayIframeEvent: function(iframeElement, events)
 	{
 		events.forEach(function(event){
-			iframeElement.addEventListener(event, this.relayEventHandlers.createDelegate(this), true);
+			var options = true;
+
+			// Let wheel listeners be passive to avoid scroll-blocking warnings.
+			if (event === 'wheel') {
+				options = {
+					capture: true,
+					passive: true
+				};
+			}
+
+			try {
+				iframeElement.addEventListener(event, this.relayEventHandlers.createDelegate(this), options);
+			} catch (ex) {
+				iframeElement.addEventListener(event, this.relayEventHandlers.createDelegate(this), true);
+			}
 		}, this);
 	},
 
@@ -204,15 +218,63 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			return;
 		}
 
-		iframeDocument.addEventListener('click', function(){
+		var clickHandler = function(){
 			Zarafa.idleTime = 0;
-		}, true);
-		iframeDocument.addEventListener('mousemove', function(){
+		};
+		var moveHandler = function(){
 			Zarafa.idleTime = 0;
-		}, true);
+		};
+
+		try {
+			iframeDocument.addEventListener('click', clickHandler, { capture: true, passive: true });
+			iframeDocument.addEventListener('mousemove', moveHandler, { capture: true, passive: true });
+		} catch (ex) {
+			iframeDocument.addEventListener('click', clickHandler, true);
+			iframeDocument.addEventListener('mousemove', moveHandler, true);
+		}
+
 		iframeDocument.addEventListener('keydown', function(){
 			Zarafa.idleTime = 0;
 		}, true);
+	},
+
+	/**
+	 * Remove document-level tags which are irrelevant in preview and can trigger
+	 * browser parser warnings (e.g. malformed/obsolete viewport directives).
+	 *
+	 * @param {String} html The HTML markup to clean.
+	 * @return {String} HTML safe for iframe body injection.
+	 */
+	sanitizePreviewMarkup: function(html)
+	{
+		if (Ext.isEmpty(html)) {
+			return html;
+		}
+
+		var markup = String(html);
+
+		try {
+			var doc;
+			if (window.DOMParser) {
+				doc = new DOMParser().parseFromString('<!doctype html><html><body>' + markup + '</body></html>', 'text/html');
+			} else {
+				doc = document.implementation.createHTMLDocument('');
+				doc.body.innerHTML = markup;
+			}
+
+			Ext.each(doc.body.querySelectorAll('meta, base'), function(node) {
+				if (node && node.parentNode) {
+					node.parentNode.removeChild(node);
+				}
+			});
+
+			return doc.body.innerHTML;
+		} catch (ex) {
+			// Fallback for malformed markup/parser failures.
+			return markup
+				.replace(/<meta\b[^>]*>(?:\s*<\/meta>)?/gi, '')
+				.replace(/<base\b[^>]*>(?:\s*<\/base>)?/gi, '');
+		}
 	},
 
 	/**
@@ -233,20 +295,49 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 		var html;
 		var entryId = Ext.isDefined(record) ? record.get('entryid') : null;
 		var sameRecordAsBefore = this.currentRenderInfo && this.currentRenderInfo.entryId === entryId;
+		var recordIsOpened = Ext.isDefined(record) && Ext.isFunction(record.isOpened) && record.isOpened();
 
 		if (!Ext.isEmpty(iframeDocument.body)) {
 			// Remove and disable old keymaps that are registered on the document element.
 			Zarafa.core.KeyMapMgr.deactivate(iframeDocumentElement);
 		}
 
+		if (Ext.isDefined(record) && !recordIsOpened) {
+			// Avoid rendering speculative plain-text body before the full message body is loaded.
+			// This prevents text-to-HTML flicker when the opened record later provides HTML content.
+			if (!sameRecordAsBefore) {
+				var pendingHtmlBody = iframeDocument.getElementsByTagName('body')[0];
+				if (pendingHtmlBody) {
+					pendingHtmlBody.innerHTML = '';
+				}
+
+				this.currentRenderInfo = {
+					entryId: entryId,
+					renderedHtml: false
+				};
+			}
+
+			return;
+		}
+
 
 		if (Ext.isDefined(record)) {
 			// Display a 'loading' message. Prefer cached sanitized HTML when available so we can render
 			// immediately, otherwise fall back to sanitizing or the plain-text representation.
-			var preferHtml = record.get('isHTML');
+			// During fast record switches, 'isHTML' can temporarily lag behind while
+			// the opened payload is being applied to the shadow record.
+			// If html_body is present, prefer rendering HTML to avoid incorrect
+			// fallback to plain text for HTML messages.
+			var hasHtmlBody = !Ext.isEmpty(record.get('html_body'));
+			var preferHtml = (record.get('isHTML') === true) || hasHtmlBody;
 			var sanitizedBody = null;
 
-			if (Ext.isFunction(record.getSanitizedHtmlBody) && !record.checkBlockStatus()) {
+			// getSanitizedHtmlBody() internally relies on getBody(true), which in turn
+			// depends on isHTML. If isHTML is stale/false while html_body is already
+			// available, that path can incorrectly sanitize/render plain text.
+			// Therefore only use cached/sanitized helper when record explicitly marks
+			// itself as HTML.
+			if (record.get('isHTML') === true && Ext.isFunction(record.getSanitizedHtmlBody) && !record.checkBlockStatus()) {
 				// Use a cached sanitized body when possible to avoid redundant DOMPurify work.
 				if (!Ext.isEmpty(record.sanitizedHTMLBody)) {
 					sanitizedBody = record.sanitizedHTMLBody;
@@ -256,11 +347,26 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			}
 
 			if (sanitizedBody) {
+				sanitizedBody = this.sanitizePreviewMarkup(sanitizedBody);
 				html = true;
 				body = "<!DOCTYPE html>" + sanitizedBody;
 			} else if (preferHtml === true) {
 				html = true;
-				var rawHtmlBody = record.getBody(true) || '';
+
+				// Prefer html_body directly to avoid races on isHTML while switching mails.
+				var rawHtmlBody = hasHtmlBody ? (record.get('html_body') || '') : (record.getBody(true) || '');
+				if (hasHtmlBody && Ext.isFunction(record.inlineImgOutlookToZarafa)) {
+					rawHtmlBody = record.inlineImgOutlookToZarafa(rawHtmlBody);
+				}
+				rawHtmlBody = this.sanitizePreviewMarkup(rawHtmlBody);
+				if (hasHtmlBody &&
+					Ext.isFunction(record.shouldBlockExternalContent) &&
+					record.shouldBlockExternalContent() &&
+					Ext.isDefined(Zarafa.core) &&
+					Ext.isDefined(Zarafa.core.HTMLParser) &&
+					Ext.isFunction(Zarafa.core.HTMLParser.blockExternalContent)) {
+					rawHtmlBody = Zarafa.core.HTMLParser.blockExternalContent(rawHtmlBody);
+				}
 
 				if (container.getServerConfig().getDOMPurifyEnabled()) {
 					rawHtmlBody = DOMPurify.sanitize(rawHtmlBody, { USE_PROFILES: { html: true } });
