@@ -592,7 +592,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 		// to work properly
 
 		// Notify modification change, but do not send a notification to the UI (since no UI has changed)
-		if(Ext.isDefined(this.store) && this.store.modified.indexOf(this) == -1){
+		if(this.store && this.store.modified && this.store.modified.indexOf(this) == -1){
 			this.store.modified.push(this);
 		}
 	},
