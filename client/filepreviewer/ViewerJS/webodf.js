@@ -3,7 +3,7 @@
  This is a generated file. DO NOT EDIT.
 
  Copyright (C) 2010-2015 KO GmbH <copyright@kogmbh.com>
- Copyright (C) 2020-2022 grommunio GmbH <dev@grommunio.com>
+ Copyright (C) 2020-2026 grommunio GmbH <dev@grommunio.com>
 
  @licstart
  This file is the compiled version of the WebODF library.

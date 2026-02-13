@@ -1,6 +1,6 @@
 /**
  * OfficePaste for TinyMCE Plugin
- * Copyright (C) 2020-2024 grommunio GmbH <dev@grommunio.com>
+ * Copyright (C) 2020-2026 grommunio GmbH <dev@grommunio.com>
  */
 (function (root, factory) {
   if (typeof exports === 'object' && typeof module === 'object')

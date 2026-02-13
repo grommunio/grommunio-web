@@ -1,6 +1,6 @@
 /**
  * Copyright (C) 2012 KO GmbH <copyright@kogmbh.com>
- * Copyright (C) 2020-2022 grommunio GmbH <dev@grommunio.com>
+ * Copyright (C) 2020-2026 grommunio GmbH <dev@grommunio.com>
  *
  * @licstart
  * This file is part of ViewerJS.
