@@ -192,6 +192,21 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	},
 
 	/**
+	 * Check whether the given action type belongs to reply/forward style compose actions.
+	 * @param {String} actionType The message action type.
+	 * @return {Boolean}
+	 * @private
+	 */
+	isResponseAction: function(actionType)
+	{
+		return actionType === Zarafa.mail.data.ActionTypes.REPLY ||
+			actionType === Zarafa.mail.data.ActionTypes.REPLYALL ||
+			actionType === Zarafa.mail.data.ActionTypes.FORWARD ||
+			actionType === Zarafa.mail.data.ActionTypes.FORWARD_ATTACH ||
+			actionType === Zarafa.mail.data.ActionTypes.EDIT_AS_NEW;
+	},
+
+	/**
 	 * Set event listeners on the iframe that will reset the
 	 * {@link Zarafa#idleTime idle time} when the user performs
 	 * an action in the iframe (i.e. click, mousemove, keydown)
@@ -208,12 +223,21 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 			*/
 			return;
 		}
-		doc.addEventListener("click", (function() {
+		var clickHandler = (function() {
 			Zarafa.idleTime = 0;
-		}), true);
-		doc.addEventListener("mousemove", (function() {
+		});
+		var mouseMoveHandler = (function() {
 			Zarafa.idleTime = 0;
-		}), true);
+		});
+
+		try {
+			doc.addEventListener("click", clickHandler, { capture: true, passive: true });
+			doc.addEventListener("mousemove", mouseMoveHandler, { capture: true, passive: true });
+		} catch (ex) {
+			doc.addEventListener("click", clickHandler, true);
+			doc.addEventListener("mousemove", mouseMoveHandler, true);
+		}
+
 		doc.addEventListener("keydown", (function() {
 			Zarafa.idleTime = 0;
 		}), true);
@@ -299,16 +323,13 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	 */
 	setValue: function(value)
 	{
-		if (Ext.isEmpty(value)) {
-			return;
-		}
 		var self = this;
 		this.withEd((function() {
-			var setValue = value;
+			var setValue = Ext.isDefined(value) ? value : '';
 			var editor = self.getEditor();
 			if (editor) {
 				var currentValue = editor.getContent();
-				if (currentValue === value) {
+				if (currentValue === setValue) {
 					// No changes, so we don't need to update
 					return;
 				}
@@ -317,7 +338,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 			if (self.rendered) {
 				// checkValueCorrection function will be only called when editor is created and
 				// initialized. Otherwise, it will it wait for that.
-				self.checkValueCorrection(this, value);
+				self.checkValueCorrection(this, setValue);
 			}
 		}));
 	},
@@ -340,7 +361,12 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		this.composeDefaultFormatting(tinymceEditor);
 		// HTML styles will be applied while selecting default values from comboboxes.
 		// We need to set those styles into the record to avoid change detection in record.
-		this.checkValueCorrection(this, "");
+		// For reply/forward records, don't push this temporary default formatting into
+		// the bound record as it can race with quoted body initialization.
+		var actionType = this.record && Ext.isFunction(this.record.getMessageAction) ? this.record.getMessageAction('action_type') : null;
+		if (!this.isResponseAction(actionType)) {
+			this.checkValueCorrection(this, "");
+		}
 		// Remove all the undo level from tinymce, so that user can't rollback the default HTML styles.
 		tinymceEditor.undoManager.clear();
 	},

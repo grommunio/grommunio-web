@@ -205,6 +205,29 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 				me.editor = ed;
 				func.call(me);
 			}
+		} else {
+			// TinyMCE instance might not exist yet; queue callbacks until initialization.
+			this.pendingWithEdQueue = this.pendingWithEdQueue || [];
+			this.pendingWithEdQueue.push(func);
+
+			if (!this.pendingWithEdHooked) {
+				this.pendingWithEdHooked = true;
+				this.on("initialized", (function() {
+					var queue = this.pendingWithEdQueue || [];
+					this.pendingWithEdQueue = [];
+					this.pendingWithEdHooked = false;
+
+					Ext.each(queue, function(callback) {
+						me.withEd(callback);
+					});
+				}), me, {
+					single: true
+				});
+			}
+
+			if (this.rendered && !this.intializationInProgress && !this.wysiwygIntialized) {
+				this.initEditor();
+			}
 		}
 	},
 
@@ -340,6 +363,9 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 			ed.on("init", (function(e) {
 				me.wysiwygIntialized = true;
 				me.intializationInProgress = false;
+				if (Ext.isDefined(me.value)) {
+					me.setContent(ed, me.value);
+				}
 				if (me.disableEditor || me.isDisabled()) {
 					me.disable();
 				}
@@ -400,27 +426,16 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	setValue: function(v)
 	{
 		var me = this;
-		if (me.wysiwygIntialized) {
-			if (this.value !== v) {
-				this.value = v;
-				if (this.rendered) {
-					var ed = me.getEditor();
-					if (!ed) {
-						var editorGlobalInstance = me.getEditorOwnerWindow().tinymce;
-						editorGlobalInstance.EditorManager.on("AddEditor", (function() {
-							me.withEd((function() {
-								var ed = me.getEditor();
-								if (!ed.isDirty()) {
-									me.setContent(ed, v);
-								}
-							}));
-						}), this);
-					} else {
-						me.setContent(ed, v);
-					}
-				}
+		this.value = v;
+		Ext.ux.form.TinyMCETextArea.superclass.setValue.call(this, v);
+
+		if (this.rendered && me.wysiwygIntialized) {
+			var ed = me.getEditor();
+			if (ed) {
+				me.setContent(ed, v);
 			}
 		}
+
 		return this.value;
 	},
 
