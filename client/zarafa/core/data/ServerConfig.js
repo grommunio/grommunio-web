@@ -319,46 +319,6 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
-	 * @return {Boolean} True when the client should prefetch the bodies of the mails that are currently visible.
-	 */
-	isPrefetchEnabled: function()
-	{
-		if (Ext.isDefined(this.meta.prefetch_email_enabled)) {
-			return this.meta.prefetch_email_enabled;
-		}
-
-		return this.getPrefetchTotalCount() > 0;
-	},
-
-	/**
-	 * @return {Number} return the amount of emails to load in the background
-	 */
-	getPrefetchTotalCount: function()
-	{
-		return this.meta.prefetch_email_count;
-	},
-
-	/**
-	 * @return {String} return the strategy used for mail prefetching.
-	 */
-	getPrefetchStrategy: function()
-	{
-		if (!Ext.isString(this.meta.prefetch_email_strategy)) {
-			return 'VIEWPORT';
-		}
-
-		return this.meta.prefetch_email_strategy;
-	},
-
-	/**
-	 * @return {Number} return the interval in microseconds to load new emails in the background.
-	 */
-	getPrefetchInterval: function()
-	{
-		return this.meta.prefetch_email_interval * 1000;
-	},
-
-	/**
 	 * @returns {Boolean} True if DOMPurify is enabled by admin(from config.php) else false.
 	 */
 	getDOMPurifyEnabled: function ()

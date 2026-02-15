@@ -122,15 +122,6 @@
 	//  	array(_('B'))
 	// )));
 
-	// Enable background prefetching of message bodies for the mails that are visible in the mail list.
-	// Overrides defaults.php
-	define("PREFETCH_EMAIL_ENABLED", true);
-
-	// Select how mails should be prefetched when the feature is enabled.
-	// Accepted values: 'VIEWPORT' to prefetch based on the visible rows in the mail list
-	// or 'INTERACTION' to prefetch the hovered mail and the neighbours of the selected mail.
-	define("PREFETCH_EMAIL_STRATEGY", 'VIEWPORT');
-
 	// The grommunio admin API status endpoint
 	define('ADMIN_API_STATUS_ENDPOINT', 'http://[::1]:8080/api/v1/status');
 
