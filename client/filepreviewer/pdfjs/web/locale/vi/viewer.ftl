@@ -602,18 +602,6 @@ pdfjs-show-comment-button =
 
 ##  Edit a comment dialog
 
-pdfjs-editor-edit-comment-actions-button-label = Hành động
-pdfjs-editor-edit-comment-actions-button =
-    .title = Hành động
-pdfjs-editor-edit-comment-close-button-label = Đóng
-pdfjs-editor-edit-comment-close-button =
-    .title = Đóng
-pdfjs-editor-edit-comment-actions-edit-button-label = Chỉnh sửa
-pdfjs-editor-edit-comment-actions-delete-button-label = Xóa
-pdfjs-editor-edit-comment-manager-text-input =
-    .placeholder = Nhập chú thích của bạn
-pdfjs-editor-edit-comment-manager-cancel-button = Hủy bỏ
-pdfjs-editor-edit-comment-manager-save-button = Lưu
 # An existing comment is edited
 pdfjs-editor-edit-comment-dialog-title-when-editing = Chỉnh sửa chú thích
 pdfjs-editor-edit-comment-dialog-save-button-when-editing = Cập nhật
@@ -626,8 +614,6 @@ pdfjs-editor-edit-comment-dialog-cancel-button = Hủy bỏ
 
 ## Edit a comment button in the editor toolbar
 
-pdfjs-editor-edit-comment-button =
-    .title = Chỉnh sửa chú thích
 pdfjs-editor-add-comment-button =
     .title = Thêm chú thích
 

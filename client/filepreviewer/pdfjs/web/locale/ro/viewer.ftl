@@ -37,8 +37,8 @@ pdfjs-open-file-button =
     .title = Deschide un fișier
 pdfjs-open-file-button-label = Deschide
 pdfjs-print-button =
-    .title = Listează
-pdfjs-print-button-label = Listează
+    .title = Printează
+pdfjs-print-button-label = Printează
 pdfjs-save-button =
     .title = Salvează
 pdfjs-save-button-label = Salvează
@@ -156,13 +156,13 @@ pdfjs-document-properties-close-button = Închide
 
 ## Print
 
-pdfjs-print-progress-message = Se pregătește documentul pentru listare…
+pdfjs-print-progress-message = Se pregătește documentul pentru printare…
 # Variables:
 #   $progress (Number) - percent value
 pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = Anulează
-pdfjs-printing-not-supported = Avertisment: Listarea nu este suportată complet de acest browser.
-pdfjs-printing-not-ready = Avertisment: PDF-ul nu este încărcat complet pentru listare.
+pdfjs-printing-not-supported = Avertisment: Printarea nu este suportată complet de acest browser.
+pdfjs-printing-not-ready = Avertisment: PDF-ul nu este încărcat complet pentru printare.
 
 ## Tooltips and alt text for side panel toolbar buttons
 
@@ -172,7 +172,7 @@ pdfjs-toggle-sidebar-notification-button =
     .title = Comută bara laterală (documentul conține schițe/atașamente/straturi)
 pdfjs-toggle-sidebar-button-label = Comută bara laterală
 pdfjs-document-outline-button =
-    .title = Afișează schița documentului (dublu-clic pentru a extinde/restrânge toate elementele)
+    .title = Afișează schița documentului (dă dublu clic pentru a extinde/restrânge toate elementele)
 pdfjs-document-outline-button-label = Schiță a documentului
 pdfjs-attachments-button =
     .title = Afișează atașamentele
@@ -621,18 +621,6 @@ pdfjs-show-comment-button =
 
 ##  Edit a comment dialog
 
-pdfjs-editor-edit-comment-actions-button-label = Acțiuni
-pdfjs-editor-edit-comment-actions-button =
-    .title = Acțiuni
-pdfjs-editor-edit-comment-close-button-label = Închide
-pdfjs-editor-edit-comment-close-button =
-    .title = Închide
-pdfjs-editor-edit-comment-actions-edit-button-label = Editează
-pdfjs-editor-edit-comment-actions-delete-button-label = Șterge
-pdfjs-editor-edit-comment-manager-text-input =
-    .placeholder = Introdu comentariul
-pdfjs-editor-edit-comment-manager-cancel-button = Anulează
-pdfjs-editor-edit-comment-manager-save-button = Salvează
 # An existing comment is edited
 pdfjs-editor-edit-comment-dialog-title-when-editing = Editează comentariul
 pdfjs-editor-edit-comment-dialog-save-button-when-editing = Actualizează
@@ -645,8 +633,6 @@ pdfjs-editor-edit-comment-dialog-cancel-button = Anulează
 
 ## Edit a comment button in the editor toolbar
 
-pdfjs-editor-edit-comment-button =
-    .title = Editează comentariul
 pdfjs-editor-add-comment-button =
     .title = Adaugă un comentariu
 

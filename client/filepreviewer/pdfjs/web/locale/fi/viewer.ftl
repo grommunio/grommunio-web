@@ -618,18 +618,6 @@ pdfjs-show-comment-button =
 
 ##  Edit a comment dialog
 
-pdfjs-editor-edit-comment-actions-button-label = Toiminnot
-pdfjs-editor-edit-comment-actions-button =
-    .title = Toiminnot
-pdfjs-editor-edit-comment-close-button-label = Sulje
-pdfjs-editor-edit-comment-close-button =
-    .title = Sulje
-pdfjs-editor-edit-comment-actions-edit-button-label = Muokkaa
-pdfjs-editor-edit-comment-actions-delete-button-label = Poista
-pdfjs-editor-edit-comment-manager-text-input =
-    .placeholder = Kirjoita kommenttisi
-pdfjs-editor-edit-comment-manager-cancel-button = Peruuta
-pdfjs-editor-edit-comment-manager-save-button = Tallenna
 # An existing comment is edited
 pdfjs-editor-edit-comment-dialog-title-when-editing = Muokkaa kommenttia
 pdfjs-editor-edit-comment-dialog-save-button-when-editing = Päivitä
@@ -642,8 +630,6 @@ pdfjs-editor-edit-comment-dialog-cancel-button = Peruuta
 
 ## Edit a comment button in the editor toolbar
 
-pdfjs-editor-edit-comment-button =
-    .title = Muokkaa kommenttia
 pdfjs-editor-add-comment-button =
     .title = Lisää kommentti
 

@@ -44,10 +44,10 @@ pdfjs-save-button =
 pdfjs-save-button-label = Сохранить
 # Used in Firefox for Android as a tooltip for the download button (“download” is a verb).
 pdfjs-download-button =
-    .title = Загрузить
+    .title = Скачать
 # Used in Firefox for Android as a label for the download button (“download” is a verb).
 # Length of the translation matters since we are in a mobile context, with limited screen estate.
-pdfjs-download-button-label = Загрузить
+pdfjs-download-button-label = Скачать
 pdfjs-bookmark-button =
     .title = Текущая страница (просмотр URL-адреса с текущей страницы)
 pdfjs-bookmark-button-label = Текущая страница
@@ -70,10 +70,10 @@ pdfjs-page-rotate-ccw-button =
     .title = Повернуть против часовой стрелки
 pdfjs-page-rotate-ccw-button-label = Повернуть против часовой стрелки
 pdfjs-cursor-text-select-tool-button =
-    .title = Включить Инструмент «Выделение текста»
+    .title = Включить инструмент «Выделение текста»
 pdfjs-cursor-text-select-tool-button-label = Инструмент «Выделение текста»
 pdfjs-cursor-hand-tool-button =
-    .title = Включить Инструмент «Рука»
+    .title = Включить инструмент «Рука»
 pdfjs-cursor-hand-tool-button-label = Инструмент «Рука»
 pdfjs-scroll-page-button =
     .title = Использовать прокрутку страниц
@@ -363,7 +363,7 @@ pdfjs-editor-free-highlight-thickness-input = Толщина
 pdfjs-editor-free-highlight-thickness-title =
     .title = Изменить толщину при выделении элементов, кроме текста
 pdfjs-editor-add-signature-container =
-    .aria-label = Управление подписями и сохраненные подписи
+    .aria-label = Управление подписями и сохранённые подписи
 pdfjs-editor-signature-add-signature-button =
     .title = Добавить новую подпись
 pdfjs-editor-signature-add-signature-button-label = Добавить новую подпись
@@ -515,7 +515,7 @@ pdfjs-editor-alt-text-settings-create-model-description = Предлагает �
 pdfjs-editor-alt-text-settings-download-model-label = ИИ-модель альтернативного текста ({ $totalSize } МБ)
 pdfjs-editor-alt-text-settings-ai-model-description = Запускается локально на вашем устройстве, поэтому ваши данные остаются конфиденциальными. Требуется для автоматического альтернативного текста.
 pdfjs-editor-alt-text-settings-delete-model-button = Удалить
-pdfjs-editor-alt-text-settings-download-model-button = Загрузить
+pdfjs-editor-alt-text-settings-download-model-button = Скачать
 pdfjs-editor-alt-text-settings-downloading-model-button = Загрузка…
 pdfjs-editor-alt-text-settings-editor-title = Редактор альтернативного текста
 pdfjs-editor-alt-text-settings-show-dialog-button-label = Сразу показывать редактор альтернативного текста при добавлении изображения
@@ -622,18 +622,6 @@ pdfjs-show-comment-button =
 
 ##  Edit a comment dialog
 
-pdfjs-editor-edit-comment-actions-button-label = Действия
-pdfjs-editor-edit-comment-actions-button =
-    .title = Действия
-pdfjs-editor-edit-comment-close-button-label = Закрыть
-pdfjs-editor-edit-comment-close-button =
-    .title = Закрыть
-pdfjs-editor-edit-comment-actions-edit-button-label = Изменить
-pdfjs-editor-edit-comment-actions-delete-button-label = Удалить
-pdfjs-editor-edit-comment-manager-text-input =
-    .placeholder = Введите ваш комментарий
-pdfjs-editor-edit-comment-manager-cancel-button = Отмена
-pdfjs-editor-edit-comment-manager-save-button = Сохранить
 # An existing comment is edited
 pdfjs-editor-edit-comment-dialog-title-when-editing = Редактировать комментарий
 pdfjs-editor-edit-comment-dialog-save-button-when-editing = Обновить
@@ -646,8 +634,6 @@ pdfjs-editor-edit-comment-dialog-cancel-button = Отмена
 
 ## Edit a comment button in the editor toolbar
 
-pdfjs-editor-edit-comment-button =
-    .title = Редактировать комментарий
 pdfjs-editor-add-comment-button =
     .title = Добавить комментарий
 

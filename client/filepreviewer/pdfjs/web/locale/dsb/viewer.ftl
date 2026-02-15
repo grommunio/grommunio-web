@@ -167,10 +167,10 @@ pdfjs-printing-not-ready = Warnowanje: PDF njejo se za śišćanje dopołnje zac
 ## Tooltips and alt text for side panel toolbar buttons
 
 pdfjs-toggle-sidebar-button =
-    .title = Bócnicu pokazaś/schowaś
+    .title = Bocnicu pokazaś/schowaś
 pdfjs-toggle-sidebar-notification-button =
     .title = Bocnicu pśešaltowaś (dokument rozrědowanje/pśipiski/warstwy wopśimujo)
-pdfjs-toggle-sidebar-button-label = Bócnicu pokazaś/schowaś
+pdfjs-toggle-sidebar-button-label = Bocnicu pokazaś/schowaś
 pdfjs-document-outline-button =
     .title = Dokumentowe naraźenje pokazaś (dwójne kliknjenje, aby se wšykne zapiski pokazali/schowali)
 pdfjs-document-outline-button-label = Dokumentowa struktura
@@ -389,9 +389,9 @@ pdfjs-editor-comments-sidebar-title =
        *[other] { $count } komentarow
     }
 pdfjs-editor-comments-sidebar-close-button =
-    .title = Bócnicu zacyniś
-    .aria-label = Bócnicu zacyniś
-pdfjs-editor-comments-sidebar-close-button-label = Bócnicu zacyniś
+    .title = Bocnicu zacyniś
+    .aria-label = Bocnicu zacyniś
+pdfjs-editor-comments-sidebar-close-button-label = Bocnicu zacyniś
 # Instructional copy to add a comment by selecting text or an annotations.
 pdfjs-editor-comments-sidebar-no-comments1 = Wiźiśo něco wobspomnjeśa gódnego? Wuzwigniśo to a zawóstajśo komentar.
 pdfjs-editor-comments-sidebar-no-comments-link = Dalšne informacije
@@ -626,18 +626,6 @@ pdfjs-show-comment-button =
 
 ##  Edit a comment dialog
 
-pdfjs-editor-edit-comment-actions-button-label = Akcije
-pdfjs-editor-edit-comment-actions-button =
-    .title = Akcije
-pdfjs-editor-edit-comment-close-button-label = Zacyniś
-pdfjs-editor-edit-comment-close-button =
-    .title = Zacyniś
-pdfjs-editor-edit-comment-actions-edit-button-label = Wobźěłaś
-pdfjs-editor-edit-comment-actions-delete-button-label = Lašowaś
-pdfjs-editor-edit-comment-manager-text-input =
-    .placeholder = Zapódajśo swój komentar
-pdfjs-editor-edit-comment-manager-cancel-button = Pśetergnuś
-pdfjs-editor-edit-comment-manager-save-button = Składowaś
 # An existing comment is edited
 pdfjs-editor-edit-comment-dialog-title-when-editing = Komentar wobźěłaś
 pdfjs-editor-edit-comment-dialog-save-button-when-editing = Aktualizěrowaś
@@ -650,8 +638,6 @@ pdfjs-editor-edit-comment-dialog-cancel-button = Pśetergnuś
 
 ## Edit a comment button in the editor toolbar
 
-pdfjs-editor-edit-comment-button =
-    .title = Komentar wobźěłaś
 pdfjs-editor-add-comment-button =
     .title = Komentar pśidaś
 

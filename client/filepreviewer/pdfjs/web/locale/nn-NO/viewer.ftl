@@ -386,6 +386,8 @@ pdfjs-editor-comments-sidebar-close-button =
     .title = Lat att sidestolpen
     .aria-label = Lat att sidestolpen
 pdfjs-editor-comments-sidebar-close-button-label = Lat att sidestolpen
+# Instructional copy to add a comment by selecting text or an annotations.
+pdfjs-editor-comments-sidebar-no-comments1 = Ser du noko som er verdt å merke seg? Marker det og legg igjen ein kommentar.
 pdfjs-editor-comments-sidebar-no-comments-link = Les meir
 
 ## Alt-text dialog
@@ -616,18 +618,6 @@ pdfjs-show-comment-button =
 
 ##  Edit a comment dialog
 
-pdfjs-editor-edit-comment-actions-button-label = Handlingar
-pdfjs-editor-edit-comment-actions-button =
-    .title = Handlingar
-pdfjs-editor-edit-comment-close-button-label = Lat att
-pdfjs-editor-edit-comment-close-button =
-    .title = Lat att
-pdfjs-editor-edit-comment-actions-edit-button-label = Rediger
-pdfjs-editor-edit-comment-actions-delete-button-label = Slett
-pdfjs-editor-edit-comment-manager-text-input =
-    .placeholder = Skriv inn kommentaren din
-pdfjs-editor-edit-comment-manager-cancel-button = Avbryt
-pdfjs-editor-edit-comment-manager-save-button = Lagre
 # An existing comment is edited
 pdfjs-editor-edit-comment-dialog-title-when-editing = Rediger kommentar
 pdfjs-editor-edit-comment-dialog-save-button-when-editing = Oppdater
@@ -640,8 +630,8 @@ pdfjs-editor-edit-comment-dialog-cancel-button = Avbryt
 
 ## Edit a comment button in the editor toolbar
 
-pdfjs-editor-edit-comment-button =
-    .title = Rediger kommentar
+pdfjs-editor-add-comment-button =
+    .title = Legg til kommentar
 
 ## Main menu for adding/removing signatures
 

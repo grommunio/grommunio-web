@@ -626,18 +626,6 @@ pdfjs-show-comment-button =
 
 ##  Edit a comment dialog
 
-pdfjs-editor-edit-comment-actions-button-label = Akcie
-pdfjs-editor-edit-comment-actions-button =
-    .title = Akcie
-pdfjs-editor-edit-comment-close-button-label = Zavrieť
-pdfjs-editor-edit-comment-close-button =
-    .title = Zavrieť
-pdfjs-editor-edit-comment-actions-edit-button-label = Upraviť
-pdfjs-editor-edit-comment-actions-delete-button-label = Odstrániť
-pdfjs-editor-edit-comment-manager-text-input =
-    .placeholder = Zadajte svoj komentár
-pdfjs-editor-edit-comment-manager-cancel-button = Zrušiť
-pdfjs-editor-edit-comment-manager-save-button = Uložiť
 # An existing comment is edited
 pdfjs-editor-edit-comment-dialog-title-when-editing = Upraviť komentár
 pdfjs-editor-edit-comment-dialog-save-button-when-editing = Aktualizovať
@@ -650,8 +638,6 @@ pdfjs-editor-edit-comment-dialog-cancel-button = Zrušiť
 
 ## Edit a comment button in the editor toolbar
 
-pdfjs-editor-edit-comment-button =
-    .title = Upraviť komentár
 pdfjs-editor-add-comment-button =
     .title = Pridať komentár
 

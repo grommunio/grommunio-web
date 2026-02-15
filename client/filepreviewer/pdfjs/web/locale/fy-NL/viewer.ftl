@@ -181,8 +181,8 @@ pdfjs-layers-button =
     .title = Lagen toane (dûbelklik om alle lagen nei de standertsteat werom te setten)
 pdfjs-layers-button-label = Lagen
 pdfjs-thumbs-button =
-    .title = Foarbylden toane
-pdfjs-thumbs-button-label = Foarbylden
+    .title = Miniatueren toane
+pdfjs-thumbs-button-label = Miniatueren
 pdfjs-current-outline-item-button =
     .title = Aktueel item yn ynhâldsopjefte sykje
 pdfjs-current-outline-item-button-label = Aktueel item yn ynhâldsopjefte
@@ -200,7 +200,7 @@ pdfjs-thumb-page-title =
 # Variables:
 #   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = Foarbyld fan side { $page }
+    .aria-label = Miniatuer fan side { $page }
 
 ## Find panel button title and messages
 
@@ -618,18 +618,6 @@ pdfjs-show-comment-button =
 
 ##  Edit a comment dialog
 
-pdfjs-editor-edit-comment-actions-button-label = Aksjes
-pdfjs-editor-edit-comment-actions-button =
-    .title = Aksjes
-pdfjs-editor-edit-comment-close-button-label = Slute
-pdfjs-editor-edit-comment-close-button =
-    .title = Slute
-pdfjs-editor-edit-comment-actions-edit-button-label = Bewurkje
-pdfjs-editor-edit-comment-actions-delete-button-label = Fuortsmite
-pdfjs-editor-edit-comment-manager-text-input =
-    .placeholder = Fier jo opmerking yn
-pdfjs-editor-edit-comment-manager-cancel-button = Annulearje
-pdfjs-editor-edit-comment-manager-save-button = Bewarje
 # An existing comment is edited
 pdfjs-editor-edit-comment-dialog-title-when-editing = Opmerking bewurkje
 pdfjs-editor-edit-comment-dialog-save-button-when-editing = Bywurkje
@@ -642,8 +630,6 @@ pdfjs-editor-edit-comment-dialog-cancel-button = Annulearje
 
 ## Edit a comment button in the editor toolbar
 
-pdfjs-editor-edit-comment-button =
-    .title = Opmerking bewurkje
 pdfjs-editor-add-comment-button =
     .title = Opmerking tafoegje
 
