@@ -108,7 +108,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 		$this->init_form();
 
 		// set backend description
-		$this->backendDescription = dgettext(self::GT_DOMAIN, "With this backend, you can connect to any Seafile server.");
+		$this->backendDescription = _("With this backend, you can connect to any Seafile server.");
 
 		// set backend display name
 		$this->backendDisplayName = "Seafile";
@@ -117,7 +117,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 		$this->backendVersion = "2.0.69";
 
 		// set backend name used in translations
-		$this->backendTransName = dgettext(self::GT_DOMAIN, 'Files ' . $this->backendDisplayName . ' Backend: ');
+		$this->backendTransName = _('Files ' . $this->backendDisplayName . ' Backend: ');
 	}
 
 	// //////////////////////////////////////////////////////////////////////////
@@ -804,14 +804,14 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 				"fields" => [
 					[
 						"name" => "server_address",
-						"fieldLabel" => dgettext(self::GT_DOMAIN, 'Server address'),
+						"fieldLabel" => _('Server address'),
 						"editor" => [
 							"allowBlank" => false,
 						],
 					],
 					[
 						"name" => "server_port",
-						"fieldLabel" => dgettext(self::GT_DOMAIN, 'Server port'),
+						"fieldLabel" => _('Server port'),
 						"editor" => [
 							"ref" => "../../portField",
 							"allowBlank" => false,
@@ -819,7 +819,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 					],
 					[
 						"name" => "server_ssl",
-						"fieldLabel" => dgettext(self::GT_DOMAIN, 'Use SSL'),
+						"fieldLabel" => _('Use SSL'),
 						"editor" => [
 							"xtype" => "checkbox",
 							"listeners" => [
@@ -829,14 +829,14 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 					],
 					[
 						"name" => "user",
-						"fieldLabel" => dgettext(self::GT_DOMAIN, 'Username'),
+						"fieldLabel" => _('Username'),
 						"editor" => [
 							"ref" => "../../usernameField",
 						],
 					],
 					[
 						"name" => "password",
-						"fieldLabel" => dgettext(self::GT_DOMAIN, 'Password'),
+						"fieldLabel" => _('Password'),
 						"editor" => [
 							"ref" => "../../passwordField",
 							"inputType" => "password",
@@ -844,7 +844,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 					],
 					[
 						"name" => "use_grommunio_credentials",
-						"fieldLabel" => dgettext(self::GT_DOMAIN, 'Use grommunio credentials'),
+						"fieldLabel" => _('Use grommunio credentials'),
 						"editor" => [
 							"xtype" => "checkbox",
 							"listeners" => [
@@ -1021,19 +1021,19 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 		$error = $error_code;
 
 		return match ($error) {
-			CURLE_BAD_PASSWORD_ENTERED, self::SFA_ERR_UNAUTHORIZED => dgettext(self::GT_DOMAIN, 'Unauthorized. Wrong username or password.'),
-			CURLE_SSL_CONNECT_ERROR, CURLE_COULDNT_RESOLVE_HOST, CURLE_COULDNT_CONNECT, CURLE_OPERATION_TIMEOUTED, self::SFA_ERR_UNREACHABLE => dgettext(self::GT_DOMAIN, 'Seafile is not reachable. Correct backend address entered?'),
-			self::SFA_ERR_FORBIDDEN => dgettext(self::GT_DOMAIN, 'You don\'t have enough permissions for this operation.'),
-			self::SFA_ERR_NOTFOUND => dgettext(self::GT_DOMAIN, 'File is not available any more.'),
-			self::SFA_ERR_TIMEOUT => dgettext(self::GT_DOMAIN, 'Connection to server timed out. Retry later.'),
-			self::SFA_ERR_LOCKED => dgettext(self::GT_DOMAIN, 'This file is locked by another user.'),
-			self::SFA_ERR_FAILED_DEPENDENCY => dgettext(self::GT_DOMAIN, 'The request failed due to failure of a previous request.'),
-			self::SFA_ERR_INTERNAL => dgettext(self::GT_DOMAIN, 'Seafile-server encountered a problem.'),
-			self::SFA_ERR_TMP => dgettext(self::GT_DOMAIN, 'Could not write to temporary directory. Contact the server administrator.'),
-			self::SFA_ERR_FEATURES => dgettext(self::GT_DOMAIN, 'Could not retrieve list of server features. Contact the server administrator.'),
-			self::SFA_ERR_NO_CURL => dgettext(self::GT_DOMAIN, 'PHP-Curl is not available. Contact your system administrator.'),
-			self::SFA_ERR_UNIMPLEMENTED => dgettext(self::GT_DOMAIN, 'This function is not yet implemented.'),
-			default => dgettext(self::GT_DOMAIN, 'Unknown error'),
+			CURLE_BAD_PASSWORD_ENTERED, self::SFA_ERR_UNAUTHORIZED => _('Unauthorized. Wrong username or password.'),
+			CURLE_SSL_CONNECT_ERROR, CURLE_COULDNT_RESOLVE_HOST, CURLE_COULDNT_CONNECT, CURLE_OPERATION_TIMEOUTED, self::SFA_ERR_UNREACHABLE => _('Seafile is not reachable. Correct backend address entered?'),
+			self::SFA_ERR_FORBIDDEN => _('You don\'t have enough permissions for this operation.'),
+			self::SFA_ERR_NOTFOUND => _('File is not available any more.'),
+			self::SFA_ERR_TIMEOUT => _('Connection to server timed out. Retry later.'),
+			self::SFA_ERR_LOCKED => _('This file is locked by another user.'),
+			self::SFA_ERR_FAILED_DEPENDENCY => _('The request failed due to failure of a previous request.'),
+			self::SFA_ERR_INTERNAL => _('Seafile-server encountered a problem.'),
+			self::SFA_ERR_TMP => _('Could not write to temporary directory. Contact the server administrator.'),
+			self::SFA_ERR_FEATURES => _('Could not retrieve list of server features. Contact the server administrator.'),
+			self::SFA_ERR_NO_CURL => _('PHP-Curl is not available. Contact your system administrator.'),
+			self::SFA_ERR_UNIMPLEMENTED => _('This function is not yet implemented.'),
+			default => _('Unknown error'),
 		};
 	}
 

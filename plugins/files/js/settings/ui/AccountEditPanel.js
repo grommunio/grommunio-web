@@ -249,7 +249,7 @@ Zarafa.plugins.files.settings.ui.AccountEditPanel = Ext.extend(Ext.Panel, {
 			this.dialog.metaForm.bindData(this.item.data.backend_config);
 
 			// enable the save button
-			saveButton.setText(dgettext('files_plugin', 'Update'));
+			saveButton.setText(_('Update', 'files_plugin'));
 			saveButton.enable();
 		} else {
 			this.saveBtn.enable();

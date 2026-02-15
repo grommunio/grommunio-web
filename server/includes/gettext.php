@@ -44,42 +44,4 @@ if (!function_exists('pgettext')) {
 		return $translation;
 	}
 
-	/**
-	 * Gettext function.
-	 *
-	 * @param string $domain  The Domain
-	 * @param string $msgctxt The Context
-	 * @param string $msgid   The message
-	 *
-	 * @return string The translation
-	 */
-	function dpgettext($domain, $msgctxt, $msgid) {
-		$contextString = "{$msgctxt}\004{$msgid}";
-		$translation = dcgettext($domain, $contextString, LC_MESSAGES);
-		if ($translation == $contextString) {
-			return $msgid;
-		}
-
-		return $translation;
-	}
-
-	/**
-	 * Gettext function.
-	 *
-	 * @param string $domain   The Domain
-	 * @param string $msgctxt  The Context
-	 * @param string $msgid    The message
-	 * @param int    $category The category
-	 *
-	 * @return string The translation
-	 */
-	function dcpgettext($domain, $msgctxt, $msgid, $category) {
-		$contextString = "{$msgctxt}\004{$msgid}";
-		$translation = dcgettext($domain, $contextString, $category);
-		if ($translation == $contextString) {
-			return $msgid;
-		}
-
-		return $translation;
-	}
 }

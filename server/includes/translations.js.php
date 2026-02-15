@@ -241,18 +241,6 @@ function _(key, domain)
 	return Translations.getTranslation(domain, undefined, key);
 }
 
-/**
- * Gettext function.
- * @param domain {string} The Domain
- * @param msgid {string} The message
- * @return {string} The translation
- */
-function dgettext(domain, msgid)
-{
-	var msgctxt, msgid_plural, n;
-	return Translations.getTranslation(domain, msgctxt, msgid, msgid_plural, n);
-}
-
 // ngettext, plural
 /**
  * Gettext function.
@@ -266,20 +254,6 @@ function ngettext(msgid, msgid_plural, count)
 	var domain, msgctxt;
 	return Translations.getTranslation(domain, msgctxt, msgid, msgid_plural, count);
 }
-/**
- * Gettext function.
- * @param domain {string} The Domain
- * @param msgid {string} The message
- * @param msgid_plural {string} The plural text
- * @param count {Number} The count
- * @return {string} The translation
- */
-function dngettext(domain, msgid, msgid_plural, count)
-{
-	var msgctxt;
-	return Translations.getTranslation(domain, msgctxt, msgid, msgid_plural, count);
-}
-
 // pgettext, context
 /**
  * Gettext function.
@@ -292,19 +266,6 @@ function pgettext(msgctxt, msgid)
 	var domain, msgid_plural, count;
 	return Translations.getTranslation(domain, msgctxt, msgid, msgid_plural, count);
 }
-/**
- * Gettext function.
- * @param domain {string} The Domain
- * @param msgctxt {string} The Context
- * @param msgid {string} The message
- * @return {string} The translation
- */
-function dpgettext(domain, msgctxt, msgid)
-{
-	var msgid_plural, count;
-	return Translations.getTranslation(domain, msgctxt, msgid, msgid_plural, count);
-}
-
 // npgettext, plural and context
 /**
  * Gettext function.
@@ -317,18 +278,5 @@ function dpgettext(domain, msgctxt, msgid)
 function npgettext(msgctxt, msgid, msgid_plural, count)
 {
 	var domain;
-	return Translations.getTranslation(domain, msgctxt, msgid, msgid_plural, count);
-}
-/**
- * Gettext function.
- * @param domain {string} The Domain
- * @param msgctxt {string} The Context
- * @param msgid {string} The message
- * @param msgid_plural {string} The plural text
- * @param count {Number} The count
- * @return {string} The translation
- */
-function dnpgettext(domain, msgctxt, msgid, msgid_plural, count)
-{
 	return Translations.getTranslation(domain, msgctxt, msgid, msgid_plural, count);
 }
