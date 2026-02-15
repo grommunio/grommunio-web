@@ -774,20 +774,6 @@ function isBrokenEml($attachment) {
 }
 
 /**
- * Function returns the IP address of the client.
- *
- * @return string the IP address of the client
- */
-function getClientIPAddress() {
-	// Here, there is a scenario where the server is behind a proxy, when that
-	// happens, 'REMOTE_ADDR' will not return the real IP, there is another variable
-	// 'HTTP_X_FORWARDED_FOR' which is set by a proxy server. But the risk in using that
-	// is that it can be easily forged. 'REMOTE_ADDR' is the only reliable thing
-	// as it is nearly impossible to be altered.
-	return $_SERVER['REMOTE_ADDR'];
-}
-
-/**
  * Helper function which return the webapp version.
  *
  * @return string webapp version
