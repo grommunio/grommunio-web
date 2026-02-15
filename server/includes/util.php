@@ -371,50 +371,6 @@ function storeURLDataToSession() {
 	}
 }
 
-/**
- * Checks if the given url is allowed as redirect url.
- *
- * @param string $url The url that will be checked
- *
- * @return bool True is the url is allowed as redirect url,
- *              false otherwise
- */
-function isContinueRedirectAllowed($url) {
-	// First check the protocol
-	$selfProtocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] ? 'https' : 'http';
-	$parsed = parse_url($url);
-	if ($parsed === false || !isset($parsed['scheme']) || strtolower($parsed['scheme']) !== $selfProtocol) {
-		return false;
-	}
-
-	// The same domain as grommunio Web is always allowed
-	if ($parsed['host'] === $_SERVER['HTTP_HOST']) {
-		return true;
-	}
-
-	// Check if the domain is white listed
-	$allowedDomains = explode(' ', (string) preg_replace('/\s+/', ' ', REDIRECT_ALLOWED_DOMAINS));
-	if (count($allowedDomains) && !empty($allowedDomains[0])) {
-		foreach ($allowedDomains as $domain) {
-			$parsedDomain = parse_url($domain);
-
-			// Handle invalid configuration options
-			if (!isset($parsedDomain['scheme']) || !isset($parsedDomain['host'])) {
-				error_log("Invalid 'REDIRECT_ALLOWED_DOMAINS' " . $domain);
-
-				continue;
-			}
-
-			if ($parsedDomain['scheme'] . '://' . $parsedDomain['host'] === $parsed['scheme'] . '://' . $parsed['host']) {
-				// This domain was allowed to redirect to by the administrator
-				return true;
-			}
-		}
-	}
-
-	return false;
-}
-
 // Constants for regular expressions which are used in get method to verify the input string
 define("ID_REGEX", "/^[a-z0-9_]+$/im");
 define("STRING_REGEX", "/^[a-z0-9_\\s()@]+$/im");
