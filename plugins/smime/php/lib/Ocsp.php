@@ -28,21 +28,6 @@ class OCSP extends X509 {
 		return "\x04" . $this->len($s) . $s;
 	}
 
-	/** serialNumber is now in DER encoding - no need to convert from bc to DER
-	 * so this is not used any more.
-	 *
-	 * @param mixed $d
-	 */
-	private function d2i($d) {
-		$der = '';
-		while ($d) {
-			$der .= chr(bcmod((string) $d, 256));
-			$d = bcdiv((string) $d, 256, 0);
-		}
-
-		return "\x02" . $this->len($der) . strrev($der);
-	}
-
 	private function len($i) {
 		$i = strlen((string) $i);
 		if ($i <= 127) {
