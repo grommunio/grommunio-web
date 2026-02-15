@@ -274,20 +274,40 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 	{
 		this.record = record;
 		this.getForm().loadRecord(record);
-		// record will contain body only when its already opened
-		if(record.isOpened()) {
-			if(contentReset) {
-				this.editorField.setHtmlEditor(this.useHtml, false);
-				this.editorField.bindRecord(record);
+		if(contentReset) {
+			this.editorField.setHtmlEditor(this.useHtml, false);
+			this.editorField.bindRecord(record);
 
-				var body;
-				if (this.useHtml) {
-					body = record.getSanitizedHtmlBody();
-				} else {
-					body = record.getBody(this.useHtml);
+			var body = '';
+			if (this.useHtml) {
+				// Prefer explicit html_body for compose to avoid timing races on isOpened/isHTML.
+				body = record.get('html_body');
+				if (Ext.isEmpty(body) && Ext.isFunction(record.getBody)) {
+					body = record.getBody(true);
 				}
-				this.editorField.setValue(body);
+				if (Ext.isEmpty(body)) {
+					body = Zarafa.core.HTMLParser.convertPlainToHTML(record.get('body') || '');
+				}
+			} else if (Ext.isFunction(record.getBody)) {
+				body = record.getBody(false);
+			} else {
+				body = record.get('body');
 			}
+
+			var applyBody = function() {
+				var editorCurrentValue = this.editorField.getValue();
+				if (!Ext.isEmpty(body) || Ext.isEmpty(editorCurrentValue)) {
+					this.editorField.setValue(body || '');
+				}
+			};
+
+			applyBody.call(this);
+
+			// Re-apply once after editor initialization to avoid timing races where
+			// TinyMCE init/default-formatting wins over the first setValue().
+			this.editorField.on('initialized', function() {
+				applyBody.call(this);
+			}, this, { single: true });
 		}
 
 		if (contentReset) {

@@ -234,6 +234,50 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	},
 
 	/**
+	 * Get the best available plain-text body from a record.
+	 * @param {Zarafa.core.data.IPMRecord} record
+	 * @return {String}
+	 * @private
+	 */
+	getRecordPlainBody: function(record)
+	{
+		return record.getBody(false) || record.get('body') || '';
+	},
+
+	/**
+	 * Get the best available HTML body from a record with robust fallbacks.
+	 * @param {Zarafa.core.data.IPMRecord} record
+	 * @param {String} htmlBody preferred HTML body candidate
+	 * @param {String} plainBody plain-text fallback body
+	 * @return {String}
+	 * @private
+	 */
+	getBestEffortHtmlBody: function(record, htmlBody, plainBody)
+	{
+		htmlBody = htmlBody || '';
+
+		if (Ext.isEmpty(htmlBody)) {
+			var rawHtmlBody = record.get('html_body') || '';
+			if (!Ext.isEmpty(rawHtmlBody) && Ext.isFunction(record.inlineImgOutlookToZarafa)) {
+				rawHtmlBody = record.inlineImgOutlookToZarafa(rawHtmlBody);
+			}
+			if (!Ext.isEmpty(rawHtmlBody) && container.getServerConfig().getDOMPurifyEnabled()) {
+				rawHtmlBody = DOMPurify.sanitize(rawHtmlBody, { USE_PROFILES: { html: true } });
+			}
+			if (!Ext.isEmpty(rawHtmlBody) && Ext.isFunction(record.cleanupOutlookStyles)) {
+				rawHtmlBody = record.cleanupOutlookStyles(rawHtmlBody);
+			}
+			htmlBody = rawHtmlBody;
+		}
+
+		if (Ext.isEmpty(htmlBody)) {
+			htmlBody = Zarafa.core.HTMLParser.convertPlainToHTML(plainBody || this.getRecordPlainBody(record));
+		}
+
+		return String(htmlBody);
+	},
+
+	/**
 	 * Initialize the {@link Zarafa.core.data.IPMRecord record} with an updated
 	 * body. This will quote the previous body as plain-text or html depending
 	 * on the editors preferences.
@@ -280,8 +324,16 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 			}
 		}
 
-		// Initialize HTML body
-		respondData.body = origRecord.getSanitizedHtmlBody();
+		var plainBody = this.getRecordPlainBody(origRecord);
+		// Initialize HTML body. Prefer sanitized body, but fall back aggressively
+		// to avoid empty compose editor content when switching quickly.
+		var quotedHtmlBody = '';
+		if (Ext.isFunction(origRecord.getSanitizedHtmlBody)) {
+			quotedHtmlBody = origRecord.getSanitizedHtmlBody() || '';
+		}
+		quotedHtmlBody = this.getBestEffortHtmlBody(origRecord, quotedHtmlBody, plainBody);
+
+		respondData.body = quotedHtmlBody;
 		respondData.signatureData = this.getSignatureData(true, signatureId);
 		respondData.fontFamily = container.getSettingsModel().get('zarafa/v1/main/default_font');
 		respondData.fontSize = Zarafa.common.ui.htmleditor.Fonts.getDefaultFontSize();
@@ -289,7 +341,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		record.set('html_body', Zarafa.mail.data.Templates.htmlQuotedTemplate.apply(respondData));
 
 		// Initialize plain-text body
-		respondData.body = origRecord.getBody(false);
+		respondData.body = plainBody;
 		respondData.signatureData = this.getSignatureData(false, signatureId);
 
 		// Prefix each line with the '> ' sign to indicate
@@ -441,9 +493,11 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	copyRecordBody: function(record, origRecord)
 	{
 		// We can simply copy the contents of the plain text body
-		record.set('body', origRecord.getBody(false));
+		var plainBody = this.getRecordPlainBody(origRecord);
+		record.set('body', plainBody);
 
 		var htmlBody = origRecord.getBody(true);
+		htmlBody = this.getBestEffortHtmlBody(origRecord, htmlBody, plainBody);
 
 		// Remove the comments
 		htmlBody = htmlBody.replace(/<\!\-\-.*?\-\->/gi, '');
