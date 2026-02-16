@@ -141,13 +141,13 @@ Zarafa.core.ui.MainContentTabPanel = Ext.extend(Ext.TabPanel, {
 	 */
 	onTabClose: function(tab)
 	{
-		if (this.fireEvent('beforeclose', tab)!==false) {
-			this.remove(tab);
-			this.openedTabs = this.openedTabs.filterBy(function (item) {
-				return item !== tab.getId();
-			});
-			this.fireEvent('close', tab);
-		}
+		// The tab's own close lifecycle already handled beforeclose/confirm logic.
+		// Avoid a second beforeclose veto here, otherwise confirmed discard can be blocked.
+		this.remove(tab);
+		this.openedTabs = this.openedTabs.filterBy(function (item) {
+			return item !== tab.getId();
+		});
+		this.fireEvent('close', tab);
 	},
 
 	/**

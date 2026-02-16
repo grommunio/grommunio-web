@@ -754,6 +754,21 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 		// if it doesn't the record is deleted and there are no unsaved changes. Otherwise
 		// the 'dirty' flag will warn us about unsaved changes.
 		if (this.confirmClose && this.recordComponentPlugin.isChangedByUser === true) {
+			return this.showCloseConfirmationDialog();
+		}
+		Zarafa.core.ui.RecordContentPanel.superclass.doClose.call(this);
+	},
+
+	/**
+	 * Show an isolated confirmation window for discard-on-close.
+	 * This avoids relying on the global Ext.MessageBox singleton state.
+	 *
+	 * @return {Zarafa.common.dialogs.CustomMessageBox}
+	 * @private
+	 */
+	showCloseConfirmationDialog: function()
+	{
+		if (!(Zarafa.common && Zarafa.common.dialogs && Zarafa.common.dialogs.CustomMessageBox)) {
 			return Ext.MessageBox.show({
 				title: _('Unsaved changes'),
 				cls: Ext.MessageBox.WARNING_CLS,
@@ -763,7 +778,43 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 				scope: this
 			});
 		}
-		Zarafa.core.ui.RecordContentPanel.superclass.doClose.call(this);
+
+		if (this.closeConfirmDialog && Ext.isFunction(this.closeConfirmDialog.isVisible) && this.closeConfirmDialog.isVisible()) {
+			return this.closeConfirmDialog;
+		}
+
+		var confirmMsg = this.unSaveWarningMessage || _('You will lose all unsaved work. Are you sure you want to close this window?');
+		confirmMsg = '<div style="color:#222222;line-height:1.4;white-space:normal;">' + confirmMsg + '</div>';
+
+		this.closeConfirmDialog = new Zarafa.common.dialogs.CustomMessageBox({
+			title: _('Unsaved changes'),
+			msg: confirmMsg,
+			icon: '',
+			contentPanel: this,
+			fn: function(button) {
+				var action = (button && (button.name || button.itemId)) || 'cancel';
+				if (this.contentPanel) {
+					this.contentPanel.onConfirmClose(action);
+					this.contentPanel.closeConfirmDialog = undefined;
+				}
+			},
+			customButtons: [{
+				name: 'yes',
+				text: _('Yes'),
+				cls: 'zarafa-action'
+			}, {
+				name: 'no',
+				text: _('No')
+			}]
+		});
+
+		this.closeConfirmDialog.on('close', function(win) {
+			if (win.contentPanel) {
+				win.contentPanel.closeConfirmDialog = undefined;
+			}
+		});
+
+		return this.closeConfirmDialog;
 	},
 
 	/**
@@ -775,6 +826,9 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	onConfirmClose: function(btn)
 	{
 		if (btn === 'yes') {
+			if (this.recordComponentPlugin && Ext.isFunction(this.recordComponentPlugin.resetUserChangeTracker)) {
+				this.recordComponentPlugin.resetUserChangeTracker();
+			}
 			this.record.reject();
 			Zarafa.core.ui.RecordContentPanel.superclass.doClose.call(this);
 		}
