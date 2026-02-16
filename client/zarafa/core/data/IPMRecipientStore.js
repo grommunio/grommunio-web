@@ -52,6 +52,13 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 	allowResolvingToGABGroups: true,
 
 	/**
+	 * @cfg {Boolean} preferDisplayNameForResolve True to prefer display_name based resolving for
+	 * name-like input. This is useful in dialogs where users are expected to type a GAL display name.
+	 * Defaults to false.
+	 */
+	preferDisplayNameForResolve: false,
+
+	/**
 	 * The proxy that handles the expand requests.
 	 * @property
 	 * @type Zarafa.core.data.IPMRecipientResolveProxy
@@ -282,10 +289,19 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 				emailAddress = emailAddress.trim();
 			}
 
+			var preferDisplayNameLookup = this.preferDisplayNameForResolve &&
+				!Ext.isEmpty(displayName) &&
+				!Zarafa.core.Util.validateEmailAddress(displayName);
+
+			// Prefer resolving by display_name in name-centric dialogs.
+			if (preferDisplayNameLookup) {
+				emailAddress = '';
+			}
+
 			// Prefer sending the email_address property,
 			// if not set send smtp address but only if it is a valid address.
 			if (Ext.isEmpty(emailAddress)) {
-				if (Zarafa.core.Util.validateEmailAddress(smtpAddress)) {
+				if (!preferDisplayNameLookup && Zarafa.core.Util.validateEmailAddress(smtpAddress)) {
 					emailAddress = smtpAddress;
 				} else {
 					emailAddress = '';
