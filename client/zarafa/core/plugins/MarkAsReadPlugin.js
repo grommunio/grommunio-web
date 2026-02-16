@@ -76,6 +76,7 @@ Zarafa.core.plugins.MarkAsReadPlugin = Ext.extend(Object, {
 		this.field.on({
 			'setrecord': this.onSetRecord,
 			'beforesetrecord': this.onBeforeSetRecord,
+			'beforeloadrecord': this.onBeforeLoadRecord,
 			'loadrecord': this.onLoadRecord,
 			'close': this.onDestroy,
 			'destroy': this.onDestroy,
@@ -175,8 +176,54 @@ Zarafa.core.plugins.MarkAsReadPlugin = Ext.extend(Object, {
 	},
 
 	/**
+	 * Event handler for the {@link Zarafa.core.plugins.RecordComponentPlugin#beforeloadrecord beforeloadrecord}
+	 * event on the {@link #field}. When the record is unread and about to be
+	 * opened, this piggybacks a mark_read message action onto the open request
+	 * so the server can set the read flag in the same round-trip. This avoids
+	 * a separate save request from {@link #onLoadRecord}/{@link #markAsRead}.
+	 * @param {Ext.Component} field The component which fired the event
+	 * @param {Zarafa.core.data.MAPIRecord} record The (shadow) record about to be loaded
+	 * @private
+	 */
+	onBeforeLoadRecord: function(field, record)
+	{
+		if (!record || record.phantom || record.isRead() || record.isOpened()) {
+			return;
+		}
+
+		// If mark_read was already added (e.g. by openMessageContent), skip.
+		if (record.getMessageAction('mark_read')) {
+			return;
+		}
+
+		// Task requests are excluded because they are transformed into
+		// task records by openMessageContent.
+		if (record.isMessageClass('IPM.TaskRequest', true)) {
+			return;
+		}
+
+		if (!record.needsReadReceipt()) {
+			record.addMessageAction('mark_read', true);
+		} else {
+			var handling = container.getSettingsModel().get('zarafa/v1/contexts/mail/readreceipt_handling');
+			if (handling === 'never') {
+				record.addMessageAction('mark_read', true);
+				record.addMessageAction('send_read_receipt', false);
+			} else if (handling === 'always') {
+				record.addMessageAction('mark_read', true);
+				record.addMessageAction('send_read_receipt', true);
+			}
+			// 'ask': don't piggyback, let onLoadRecord handle it so
+			// the user gets the read-receipt confirmation dialog.
+		}
+	},
+
+	/**
 	 * Event handler for the {@link Zarafa.core.plugins.RecordComponentPlugin#loadrecord loadrecord} event
 	 * on the {@link #field}. This will {@link #startReadFlagTimer start} the {@link #readFlagTimer}.
+	 * If the record was already marked as read by a piggybacked mark_read action
+	 * on the open request, this synchronizes the read flag to the original record
+	 * in the list store so that the grid updates without a separate server request.
 	 * @param {Ext.Component} field The component which fired the event
 	 * @param {Zarafa.core.data.MAPIRecord} record The record which was updated
 	 * @private
@@ -189,6 +236,17 @@ Zarafa.core.plugins.MarkAsReadPlugin = Ext.extend(Object, {
 				this.markAsRead();
 			} else {
 				this.startReadFlagTimer();
+			}
+		} else if (record && record.isRead() && this.record &&
+			Ext.isFunction(this.record.isRead) && !this.record.isRead()) {
+			// The server already marked the message as read (via
+			// piggybacked mark_read on the open request).  Sync the
+			// read flag to the original record so the list grid
+			// reflects the new state without a separate save request.
+			var flags = this.record.get('message_flags') | Zarafa.core.mapi.MessageFlags.MSGFLAG_READ;
+			this.record.data['message_flags'] = flags;
+			if (this.record.store) {
+				this.record.store.fireEvent('update', this.record.store, this.record, Ext.data.Record.COMMIT);
 			}
 		}
 	},

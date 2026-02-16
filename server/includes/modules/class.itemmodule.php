@@ -486,6 +486,23 @@ class ItemModule extends Module {
 			$data['item'] = $GLOBALS['operations']->getEmbeddedMessageProps($store, $message, $this->properties, $parentMessage, $attachNum);
 		}
 		else {
+			// Mark as read if requested by the client.  This combines the
+			// open + mark-as-read into a single HTTP round-trip by setting
+			// the read flag BEFORE getMessageProps(), so the returned
+			// message_flags already includes MSGFLAG_READ.
+			if (isset($action['message_action']['mark_read'])) {
+				$flag = MAPI_DEFERRED_ERRORS;
+				if (isset($action['message_action']['send_read_receipt']) &&
+					$action['message_action']['send_read_receipt'] == false) {
+					$flag |= SUPPRESS_RECEIPT;
+				}
+				mapi_message_setreadflag($message, $flag);
+
+				// Notify the mail list so it updates the unread state / counter.
+				$notifyProps = mapi_getprops($message, [PR_ENTRYID, PR_STORE_ENTRYID, PR_PARENT_ENTRYID]);
+				$GLOBALS['bus']->notify(bin2hex((string) $notifyProps[PR_PARENT_ENTRYID]), TABLE_SAVE, $notifyProps);
+			}
+
 			// get message props of the message
 			$data['item'] = $GLOBALS['operations']->getMessageProps($store, $message, $this->properties, $this->plaintext, true);
 			$messageClass = $data['item']['props']['message_class'] ?? $messageClass;

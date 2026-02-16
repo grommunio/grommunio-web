@@ -1394,6 +1394,31 @@ Zarafa.common.Actions = {
 			if (record.isUnsent() && !record.isFaultyMessage()) {
 				Zarafa.core.data.UIFactory.openCreateRecord(record, config);
 			} else {
+				// Combine open + mark-as-read into one request when
+				// the message is unread.  Content panels always use
+				// ignoreReadFlagTimer: true, so the MarkAsReadPlugin
+				// would fire a second save request immediately after
+				// the open response.  By piggybacking mark_read on
+				// the open, we avoid that extra HTTP round-trip.
+				// Task requests are excluded because they are
+				// transformed into task records below.
+				if (!record.isRead() && !record.isMessageClass('IPM.TaskRequest', true)) {
+					if (!record.needsReadReceipt()) {
+						record.addMessageAction('mark_read', true);
+					} else {
+						var handling = container.getSettingsModel().get('zarafa/v1/contexts/mail/readreceipt_handling');
+						if (handling === 'never') {
+							record.addMessageAction('mark_read', true);
+							record.addMessageAction('send_read_receipt', false);
+						} else if (handling === 'always') {
+							record.addMessageAction('mark_read', true);
+							record.addMessageAction('send_read_receipt', true);
+						}
+						// 'ask': let MarkAsReadPlugin handle it so the
+						// user gets the read-receipt confirmation dialog.
+					}
+				}
+
 				if(record.isMessageClass('IPM.TaskRequest', true)) {
 					record = Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.Task', {
 						entryid: record.get('entryid'),
