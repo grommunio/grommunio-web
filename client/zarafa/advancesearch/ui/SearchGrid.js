@@ -403,6 +403,7 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 	 */
 	onRowDblClick: function(grid, rowIndex, e)
 	{
+		this.cancelPreviewRecordTask();
 		Zarafa.common.Actions.openMessageContent(this.getSelectionModel().getSelected());
 	},
 
@@ -421,9 +422,10 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 		var count = selectionModel.getCount();
 
 		if (count === 0) {
+			this.cancelPreviewRecordTask();
 			this.model.setPreviewRecord(undefined);
 		} else if (count == 1 && selectionModel.getSelected() === record) {
-			this.model.setPreviewRecord(record);
+			this.queuePreviewRecord(record);
 		}
 	},
 
@@ -441,8 +443,55 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 
 		this.model.setSelectedRecords(selections);
 		if (Ext.isEmpty(selections)) {
+			this.cancelPreviewRecordTask();
 			this.model.setPreviewRecord(undefined);
 		}
+	},
+
+	/**
+	 * Lazily create and return the delayed task used for preview updates.
+	 * @return {Ext.util.DelayedTask}
+	 * @private
+	 */
+	getPreviewRecordTask: function()
+	{
+		if (!this.previewRecordTask) {
+			this.previewRecordTask = new Ext.util.DelayedTask(this.applyPreviewRecord, this);
+		}
+		return this.previewRecordTask;
+	},
+
+	/**
+	 * Queue updating the preview panel for the provided record.
+	 * @param {Ext.data.Record} record The record to preview.
+	 * @private
+	 */
+	queuePreviewRecord: function(record)
+	{
+		var task = this.getPreviewRecordTask();
+		task.cancel();
+		task.delay(50, this.applyPreviewRecord, this, [record]);
+	},
+
+	/**
+	 * Cancel the delayed preview update task when no longer needed.
+	 * @private
+	 */
+	cancelPreviewRecordTask: function()
+	{
+		if (this.previewRecordTask) {
+			this.previewRecordTask.cancel();
+		}
+	},
+
+	/**
+	 * Apply the record to the preview panel.
+	 * @param {Ext.data.Record} record The record to preview.
+	 * @private
+	 */
+	applyPreviewRecord: function(record)
+	{
+		this.model.setPreviewRecord(record);
 	},
 
 	/**
@@ -573,6 +622,16 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 		var compact = newViewMode === Zarafa.mail.data.ViewModes.RIGHT_PREVIEW;
 		this.getView().enableRowBody = compact;
 		this.getColumnModel().setCompactView(compact);
+	},
+
+	/**
+	 * Cleanup any pending tasks before destroying the grid.
+	 * @private
+	 */
+	beforeDestroy: function()
+	{
+		this.cancelPreviewRecordTask();
+		Zarafa.advancesearch.ui.SearchGrid.superclass.beforeDestroy.apply(this, arguments);
 	}
 });
 
