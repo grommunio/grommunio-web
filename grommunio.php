@@ -99,6 +99,22 @@ $GLOBALS["settings"] = new Settings($Language);
 // Set the correct language
 $Language->setLanguage($session_lang);
 
+// Eagerly initialize settings before the state lock.  Init() loads
+// settings from the MAPI store (network I/O to Gromox) and does not
+// depend on the per-subsystem bus/properties, so running it here
+// keeps those MAPI round-trips out of the critical lock section.
+$GLOBALS["settings"]->Init();
+
+// Create new request object and read input data before acquiring the
+// state lock — neither depends on state and this keeps the lock duration
+// as short as possible.
+$request = new JSONRequest();
+$json = readData();
+
+if (DEBUG_JSONOUT) {
+	dump_json($json, "in"); // debugging
+}
+
 // Get the state information for this subsystem
 $subsystem = sanitizeGetValue('subsystem', 'anonymous', ID_REGEX);
 
@@ -132,16 +148,6 @@ $GLOBALS["properties"] = $properties;
 // Reset any spurious information in the properties state
 $GLOBALS["properties"]->reset();
 
-// Create new request object
-$request = new JSONRequest();
-
-// Get the JSON that the client sent with the request
-$json = readData();
-
-if (DEBUG_JSONOUT) {
-	dump_json($json, "in"); // debugging
-}
-
 // Execute the request
 try {
 	$json = $request->execute($json);
@@ -150,6 +156,18 @@ catch (Exception $e) {
 	// invalid requestdata exception
 	dump($e);
 }
+
+// Save bus and properties back to state, flush to disk, and release the
+// lock before doing any I/O (gzip + echo).  This lets the next request
+// from the same subsystem proceed while we compress and transmit.
+$GLOBALS["bus"]->reset();
+$state->write("bus", $GLOBALS["bus"], false);
+
+$GLOBALS["properties"]->reset();
+$state->write("properties", $GLOBALS["properties"], false);
+
+$state->flush();
+$state->close();
 
 if (DEBUG_JSONOUT) {
 	dump_json($json, "out"); // debugging
@@ -164,18 +182,3 @@ if (ENABLE_RESPONSE_COMPRESSION && function_exists("gzencode") && isset($_SERVER
 else {
 	echo $json;
 }
-
-// Reset the BUS, and save it to the state file
-$GLOBALS["bus"]->reset();
-$state->write("bus", $GLOBALS["bus"], false);
-
-// Reset the properties and save it to the state file
-$GLOBALS["properties"]->reset();
-$state->write("properties", $GLOBALS["properties"], false);
-
-// Write all changes to disk
-$state->flush();
-
-// You can skip this as well because the lock is freed after the PHP script ends
-// anyway. (only for PHP < 5.3.2)
-$state->close();
