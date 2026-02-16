@@ -123,6 +123,9 @@ if (!empty($_SESSION['url_action'])) {
 			version 		= <?php echo json_encode($versionInfo); ?>;
 			serverconfig 		= <?php echo json_encode($serverConfig); ?>;
 			urlActionData 		= <?php echo json_encode($urlActionData); ?>;
+<?php if (!empty($prefetchedHierarchy)) { ?>
+			prefetchedHierarchy	= <?php echo json_encode($prefetchedHierarchy); ?>;
+<?php } ?>
 
 			Ext.onReady(Zarafa.loadWebclient, Zarafa);
 		</script>

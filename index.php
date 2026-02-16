@@ -159,6 +159,18 @@ $GLOBALS["settings"] = new Settings();
 // Create global operations object
 $GLOBALS["operations"] = new Operations();
 
+// Prefetch hierarchy for inline delivery to the client, eliminating
+// the first AJAX round-trip after page load.
+$prefetchedHierarchy = null;
+try {
+	$properties = new Properties();
+	$properties->Init();
+	$listProperties = $properties->getFolderListProperties();
+	$prefetchedHierarchy = $GLOBALS["operations"]->getHierarchyList($listProperties);
+} catch (Exception $e) {
+	// If prefetch fails, client falls back to normal AJAX load
+}
+
 // If webapp feature is not enabled for the user,
 // we will show the login page with appropriated error message.
 if ($GLOBALS['mapisession']->isWebappDisableAsFeature()) {

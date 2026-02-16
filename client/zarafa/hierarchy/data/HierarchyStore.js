@@ -116,6 +116,27 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 */
 	load: function(options)
 	{
+		// Use server-prefetched hierarchy data when available.
+		// This eliminates the first AJAX round-trip after login.
+		if (window.prefetchedHierarchy) {
+			var prefetched = window.prefetchedHierarchy;
+			delete window.prefetchedHierarchy;
+
+			if (!Ext.isObject(options)) {
+				options = {};
+			}
+			Ext.applyIf(options, {
+				actionType: Zarafa.core.Actions['list']
+			});
+
+			var items = prefetched['item'] || [];
+			var rawData = { count: items.length, item: items };
+
+			var o = this.reader.readRecords(rawData);
+			this.loadRecords(o, options, true);
+			return;
+		}
+
 		if (!Ext.isObject(options)) {
 			options = {};
 		}
