@@ -820,6 +820,11 @@ Ext.apply(Zarafa, {
 	 */
 	startDeferredServices: function()
 	{
+		// Flush any settings saves that were accumulated during boot.
+		// This is done here (1 s after hierarchy load) so the critical
+		// hierarchy and mail-list requests finish first.
+		container.getSettingsModel().setReady();
+
 		// Out-of-office check
 		var oofStore = container.getOutOfOfficeStore();
 		oofStore.on('load', this.onOofStoreLoad, this, { single: true });

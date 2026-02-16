@@ -92,6 +92,16 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	requiresReload: false,
 
 	/**
+	 * True during application startup.  While booting, automatic
+	 * settings saves are suppressed so they do not compete with
+	 * critical initial requests for the PHP state-file lock.
+	 * Cleared by {@link #setReady}.
+	 * @property
+	 * @type Boolean
+	 */
+	booting: true,
+
+	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
@@ -263,11 +273,31 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 * dramatically reduces the number of HTTP round-trips during
 	 * initialization when many stateful components save their state
 	 * in quick succession.
+	 *
+	 * During the {@link #booting boot phase} the timer is not started
+	 * at all; changes accumulate in {@link #modified}/{@link #deleted}
+	 * and are flushed once by {@link #setReady}.
 	 * @private
 	 */
 	scheduleSave: function()
 	{
+		if (this.booting) {
+			return;
+		}
 		this.saveTask.delay(300);
+	},
+
+	/**
+	 * Signal that the application has finished its initial load.
+	 * Any settings changes that were accumulated during boot are
+	 * flushed to the server in a single batched request.
+	 */
+	setReady: function()
+	{
+		this.booting = false;
+		if (!Ext.isEmpty(this.modified) || !Ext.isEmpty(this.deleted) || !Ext.isEmpty(this.resetSettings)) {
+			this.save();
+		}
 	},
 
 	/**
@@ -383,23 +413,70 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	},
 
 	/**
-	 * Save the settings to the server, this will call {@link #execute} for
-	 * the different {@link Zarafa.core.Actions actions} which are supposed
-	 * to be executed on the server.
+	 * Save the settings to the server.  All pending actions (delete,
+	 * set, reset) are batched into a single HTTP request so they
+	 * acquire the PHP state-file lock only once.
 	 */
 	save: function()
 	{
-		if (!Ext.isEmpty(this.deleted)) {
-			this.execute(Zarafa.core.Actions['delete'], this.deleted);
+		var hasDeleted = !Ext.isEmpty(this.deleted);
+		var hasModified = !Ext.isEmpty(this.modified);
+		var hasReset = !Ext.isEmpty(this.resetSettings);
+
+		if (!hasDeleted && !hasModified && !hasReset) {
+			return;
 		}
 
-		if (!Ext.isEmpty(this.modified)) {
-			this.execute(Zarafa.core.Actions['set'], this.modified);
+		var request = container.getRequest();
+		var moduleName = Zarafa.core.ModuleNames.getListName('settings');
+		var queued = false;
+
+		request.reset();
+
+		if (hasDeleted) {
+			queued = this.addSaveAction(request, moduleName, Zarafa.core.Actions['delete'], this.deleted) || queued;
 		}
 
-		if (!Ext.isEmpty(this.resetSettings)) {
-			this.execute(Zarafa.core.Actions['reset'], this.resetSettings);
+		if (hasModified) {
+			queued = this.addSaveAction(request, moduleName, Zarafa.core.Actions['set'], this.modified) || queued;
 		}
+
+		if (hasReset) {
+			queued = this.addSaveAction(request, moduleName, Zarafa.core.Actions['reset'], this.resetSettings) || queued;
+		}
+
+		if (queued) {
+			request.send();
+		}
+	},
+
+	/**
+	 * Add a single settings action to the given request batch.
+	 * @param {Zarafa.core.Request} request The request to add to
+	 * @param {String} moduleName The settings module name
+	 * @param {Zarafa.core.Actions} action The action to perform
+	 * @param {Object} parameters The action parameters
+	 * @return {Boolean} True if the action was queued
+	 * @private
+	 */
+	addSaveAction: function(request, moduleName, action, parameters)
+	{
+		if (this.fireEvent('beforesave', this, { action: parameters }) === false) {
+			return false;
+		}
+
+		request.addRequest(moduleName, action,
+			{ 'setting': parameters },
+			new Zarafa.core.data.ProxyResponseHandler({
+				proxy: this,
+				action: Ext.data.Api.actions['update'],
+				options: { action: action, parameters: parameters, requiresReload: this.requiresReload },
+				callback: this.onExecuteComplete,
+				scope: this
+			})
+		);
+
+		return true;
 	},
 
 	/**
