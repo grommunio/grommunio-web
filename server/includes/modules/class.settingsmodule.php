@@ -16,9 +16,18 @@ class SettingsModule extends Module {
 
 	/**
 	 * Executes all the actions in the $data variable.
+	 *
+	 * All setting mutations (set, delete, reset) are applied first and
+	 * then flushed to the MAPI store in a single saveSettings() /
+	 * savePersistentSettings() call at the end, avoiding redundant
+	 * MAPI round-trips when multiple action types arrive in the same
+	 * HTTP request (e.g. a batched delete + set).
 	 */
 	#[Override]
 	public function execute() {
+		$needsSave = false;
+		$needsPersistentSave = false;
+
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
 				try {
@@ -29,10 +38,12 @@ class SettingsModule extends Module {
 
 						case "set":
 							if (isset($action["setting"])) {
-								$this->set($action["setting"], false);
+								$this->set($action["setting"], false, false);
+								$needsSave = true;
 							}
 							if (isset($action["persistentSetting"])) {
-								$this->set($action["persistentSetting"], true);
+								$this->set($action["persistentSetting"], true, false);
+								$needsPersistentSave = true;
 							}
 							break;
 
@@ -41,7 +52,8 @@ class SettingsModule extends Module {
 							$userStore = $GLOBALS['mapisession']->getDefaultMessageStore();
 							$inbox = mapi_msgstore_getreceivefolder($userStore);
 							mapi_deleteprops($inbox, [PR_ADDITIONAL_REN_ENTRYIDS_EX, PR_ADDITIONAL_REN_ENTRYIDS]);
-							$this->delete($action["setting"]);
+							$this->delete($action["setting"], false);
+							$needsSave = true;
 							break;
 
 						default:
@@ -52,6 +64,14 @@ class SettingsModule extends Module {
 					$this->processException($e, $actionType);
 				}
 			}
+		}
+
+		// Flush all accumulated mutations to the MAPI store in one go.
+		if ($needsSave) {
+			$GLOBALS['settings']->saveSettings();
+		}
+		if ($needsPersistentSave) {
+			$GLOBALS['settings']->savePersistentSettings();
 		}
 	}
 
@@ -75,8 +95,11 @@ class SettingsModule extends Module {
 	 *                          which must be modified
 	 * @param bool  $persistent If true the settings will be stored in the persistent settings
 	 *                          as opposed to the normal settings
+	 * @param bool  $save       If true the settings will be saved to the MAPI store
+	 *                          immediately.  Pass false to defer saving (caller is
+	 *                          responsible for calling saveSettings()).
 	 */
-	public function set($settings, $persistent = false) {
+	public function set($settings, $persistent = false, $save = true) {
 		if (isset($settings)) {
 			// we will set the settings but wait with saving until the entire batch has been applied.
 			if (is_array($settings)) {
@@ -100,12 +123,14 @@ class SettingsModule extends Module {
 				}
 			}
 
-			// Finally save the settings, this can throw exception when it fails saving settings
-			if ((bool) $persistent) {
-				$GLOBALS['settings']->savePersistentSettings();
-			}
-			else {
-				$GLOBALS['settings']->saveSettings();
+			if ($save) {
+				// Save the settings to the MAPI store.
+				if ((bool) $persistent) {
+					$GLOBALS['settings']->savePersistentSettings();
+				}
+				else {
+					$GLOBALS['settings']->saveSettings();
+				}
 			}
 
 			// send success notification to client
@@ -117,8 +142,10 @@ class SettingsModule extends Module {
 	 * Function will delete a setting indicated by setting path.
 	 *
 	 * @param $path string/array path of the setting that needs to be deleted
+	 * @param bool $save If true the settings will be saved to the MAPI store
+	 *                   immediately.  Pass false to defer saving.
 	 */
-	public function delete($path) {
+	public function delete($path, $save = true) {
 		if (isset($path)) {
 			// we will delete the settings but wait with saving until the entire batch has been applied.
 			if (is_array($path)) {
@@ -130,8 +157,10 @@ class SettingsModule extends Module {
 				$GLOBALS['settings']->delete($path);
 			}
 
-			// Finally save the settings, this can throw exception when it fails saving settings
-			$GLOBALS['settings']->saveSettings();
+			if ($save) {
+				// Save the settings to the MAPI store.
+				$GLOBALS['settings']->saveSettings();
+			}
 
 			// send success notification to client
 			$this->sendFeedback(true);
