@@ -11,6 +11,11 @@ require_once BASE_PATH . 'server/includes/exceptions/class.JSONException.php';
  * @return string data
  */
 function readData() {
+	static $cache = null;
+	if ($cache !== null) {
+		return $cache;
+	}
+
 	$data = "";
 	$putData = fopen("php://input", "r");
 
@@ -19,6 +24,8 @@ function readData() {
 	}
 
 	fclose($putData);
+
+	$cache = $data;
 
 	return $data;
 }
