@@ -54,7 +54,7 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 					'<span class="zarafa-presence-status {[Zarafa.core.data.PresenceStatus.getCssClass(values.sent_representing_presence_status)]}">'+
 						'<span class="zarafa-presence-status-icon"></span>' +
 						'{sent_representing_name:htmlEncodeElide(this.ellipsisStringStartLength, this.ellipsisStringEndLength)}&nbsp;' +
-						'<tpl if="!Ext.isEmpty(values.sent_representing_email_address)">' +
+						'<tpl if="this.shouldRenderAddress(values.sent_representing_email_address, values.record_is_opened)">' +
 							'&lt;{sent_representing_email_address:htmlEncode}&gt;'+
 						'</tpl>' +
 					'</span>' +
@@ -73,7 +73,7 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 				'</tpl>'+
 				'<span class="zarafa-emailaddress-link zarafa-sentinfo-link">' +
 					'{sender_name:htmlEncodeElide(this.ellipsisStringStartLength, this.ellipsisStringEndLength)}&nbsp;' +
-					'<tpl if="!Ext.isEmpty(values.sender_email_address)">' +
+					'<tpl if="this.shouldRenderAddress(values.sender_email_address, values.record_is_opened)">' +
 						'&lt;{sender_email_address:htmlEncode}&gt;'+
 					'</tpl>' +
 				'</span>' +
@@ -148,6 +148,22 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 					var dateFormat = container.settingsModel.get('zarafa/v1/main/datetime_display_format');
 					return (dateFormat === 'short');
 				},
+
+				/**
+				 * Hide unresolved EX/X500 addresses while the preview record is still unopened
+				 * to avoid showing a transient wrong sender address.
+				 */
+				shouldRenderAddress: function(address, recordIsOpened) {
+					if (Ext.isEmpty(address)) {
+						return false;
+					}
+
+					if (recordIsOpened === true) {
+						return true;
+					}
+
+					return !/^\s*\/[Oo]=/.test(address);
+				},
 			});
 		}
 	},
@@ -202,6 +218,7 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 				if (Ext.isFunction(record.getSenderInitials)) {
 					record.data.sender_initials = record.getSenderInitials();
 				}
+				record.data.record_is_opened = Ext.isFunction(record.isOpened) && record.isOpened();
 
 				this.senderTemplate.overwrite(senderElem, record.data);
 				//bind click events after template has been populated
