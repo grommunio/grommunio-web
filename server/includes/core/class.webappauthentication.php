@@ -178,6 +178,14 @@ class WebAppAuthentication {
 	 * @return int
 	 */
 	public static function login($username, $pass) {
+		// Release the PHP session file lock before any blocking MAPI
+		// calls so concurrent requests from the same session are not
+		// serialized behind this one.  EncryptionStore re-opens the
+		// session briefly when it needs to read or write credentials.
+		if (session_status() === PHP_SESSION_ACTIVE) {
+			session_write_close();
+		}
+
 		if (!WebAppAuthentication::_restoreMAPISession()) {
 			// TODO: move logon from MAPISession to here
 
@@ -413,6 +421,11 @@ class WebAppAuthentication {
 
 			// Give the session a new id
 			session_regenerate_id();
+		}
+
+		// Release the session lock before the blocking MAPI logon.
+		if (session_status() === PHP_SESSION_ACTIVE) {
+			session_write_close();
 		}
 
 		WebAppAuthentication::$_errorCode = WebAppAuthentication::getMAPISession()->logon(
