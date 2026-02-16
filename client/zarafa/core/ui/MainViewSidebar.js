@@ -45,7 +45,9 @@ Zarafa.core.ui.MainViewSidebar = Ext.extend(Ext.Panel, {
 			collapsed: false,
 			split: true,
 			width: 300,
-			minSize: 150
+			minSize: 150,
+			// Persist user-driven splitbar width and collapse changes.
+			stateEvents: ['resize', 'collapse', 'expand']
 		});
 
 		Zarafa.core.ui.MainViewSidebar.superclass.constructor.call(this, config);

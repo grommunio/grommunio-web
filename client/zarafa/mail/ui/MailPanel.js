@@ -74,8 +74,8 @@ Zarafa.mail.ui.MailPanel = Ext.extend(Zarafa.common.ui.ContextMainPanel, {
 			xtype: 'panel',
 			layout: 'zarafa.collapsible',
 			cls: 'zarafa-context-mainpanel',
-			minWidth: 200,
-			minHeight: 200,
+			minWidth: 400,
+			minHeight: 400,
 			region: 'center',
 			collapsible: false,
 			split: true,
@@ -259,4 +259,3 @@ Zarafa.mail.ui.MailPanel = Ext.extend(Zarafa.common.ui.ContextMainPanel, {
 });
 
 Ext.reg('zarafa.mailpanel', Zarafa.mail.ui.MailPanel);
-

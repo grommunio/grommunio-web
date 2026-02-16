@@ -78,7 +78,7 @@ Zarafa.core.ui.MainViewport = Ext.extend(Ext.Viewport, {
 			region: 'west',
 			stateful: true,
 			statefulName: 'hierarchybar',
-			statefulRelativeDimensions: false
+			statefulRelativeDimensions: true
 		});
 		return this.navigationPanel;
 	},
@@ -108,7 +108,7 @@ Zarafa.core.ui.MainViewport = Ext.extend(Ext.Viewport, {
 			numColumns: 1,
 			stateful: true,
 			statefulName: 'todaybar',
-			statefulRelativeDimensions: false,
+			statefulRelativeDimensions: true,
 			settingsPath: 'zarafa/v1/contexts/today/sidebar',
 			hidden: hide,
 			collapsed: true

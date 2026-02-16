@@ -90,6 +90,7 @@ Zarafa.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 		config = Ext.applyIf(config, {
 			layout: 'fit',
 			stateful: true,
+			stateEvents: ['resize', 'collapse', 'expand'],
 			minWidth: 200,
 			minHeight: 200,
 			xtype: 'zarafa.previewpanel'

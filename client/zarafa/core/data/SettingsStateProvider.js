@@ -143,7 +143,32 @@ Zarafa.core.data.SettingsStateProvider = Ext.extend(Ext.state.Provider, {
 			value = Math.min(Math.max(value, minSize || 0), maxSize || value);
 		}
 
+		if (type === 'Width') {
+			value = this.clampSidebarWidthToViewport(component, value, body);
+		}
+
 		return value;
+	},
+
+	/**
+	 * Keep main sidebars in a usable range when restoring state on smaller screens.
+	 * @param {Ext.Component} component The component for which the width is restored.
+	 * @param {Number} value The calculated width.
+	 * @param {Number} viewportWidth Width of the browser viewport.
+	 * @return {Number} The clamped width.
+	 * @private
+	 */
+	clampSidebarWidthToViewport: function(component, value, viewportWidth)
+	{
+		if (!component || !Ext.isFunction(component.isXType) || !component.isXType('mainviewsidebar')) {
+			return value;
+		}
+
+		// Keep at least this much room for center content.
+		var minCenterWidth = 320;
+		var maxSidebarWidth = Math.max(component.minSize || 0, viewportWidth - minCenterWidth);
+
+		return Math.min(value, maxSidebarWidth);
 	},
 
 	/**

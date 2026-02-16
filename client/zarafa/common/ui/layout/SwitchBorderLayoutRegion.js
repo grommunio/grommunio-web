@@ -100,8 +100,21 @@ Zarafa.common.ui.layout.SwitchBorderLayout.SwitchRegion = Ext.extend(Ext.layout.
 		var center = this.layout.center.panel;
 		var targetEl = this.targetEl;
 		var splitEl = this.splitEl;
+		var splitSize = 0;
+
+		if (splitEl && splitEl.dom) {
+			splitSize = (this.position === 'north' || this.position === 'south') ?
+				splitEl.dom.offsetHeight :
+				splitEl.dom.offsetWidth;
+		}
 
 		if (this.position === 'north' || this.position === 'south') {
+			// Ensure enough room remains for the center panel.
+			var maxHeight = targetEl.getHeight() - (center.minHeight || center.height) - splitSize;
+			if (Ext.isNumber(maxHeight)) {
+				size.height = Math.min(size.height, Math.max(maxHeight, 0));
+			}
+
 			// Check if the given height is larger then the target
 			if (size.height >= targetEl.getHeight()) {
 				if (panel.height) {
@@ -115,9 +128,15 @@ Zarafa.common.ui.layout.SwitchBorderLayout.SwitchRegion = Ext.extend(Ext.layout.
 				}
 
 				// Take something off for the split element
-				size.height -= splitEl.dom.offsetHeight;
+				size.height -= splitSize;
 			}
 		} else {
+			// Ensure enough room remains for the center panel.
+			var maxWidth = targetEl.getWidth() - (center.minWidth || center.width) - splitSize;
+			if (Ext.isNumber(maxWidth)) {
+				size.width = Math.min(size.width, Math.max(maxWidth, 0));
+			}
+
 			// Check if the given width is larger then the target
 			if (size.width >= targetEl.getWidth()) {
 				if (panel.width) {
@@ -131,7 +150,7 @@ Zarafa.common.ui.layout.SwitchBorderLayout.SwitchRegion = Ext.extend(Ext.layout.
 				}
 
 				// Take something off for the split element
-				size.width -= splitEl.dom.offsetWidth;
+				size.width -= splitSize;
 			}
 		}
 
