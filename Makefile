@@ -41,10 +41,7 @@ IS_SUPPORTED_BUILD ?= $(if $(filter 1, $(SUPPORTED_BUILD)), supported validate-s
 CSS = $(wildcard client/resources/css/*.* client/resources/css/*/*.* client/extjs/ux/css/ux-all.css client/extjs/resources/css/*.css)
 CSSDEST = $(addprefix $(DESTDIR)/, $(CSS))
 IMAGEDIR = client/resources/images
-APPICONS = $(wildcard $(IMAGEDIR)/app-icons/*.*)
-APPICONSSCSS = client/resources/scss/base/_icons.scss
-APPICONSEXTENSIONSFILE = client/resources/images/app-icons.extensions.json
-IMAGES = $(filter-out $(APPICONSEXTENSIONSFILE), $(wildcard $(IMAGEDIR)/*.*))
+IMAGES = $(filter-out client/resources/images/app-icons.extensions.json, $(wildcard $(IMAGEDIR)/*.*))
 IMAGESDEST = $(addprefix $(DESTDIR)/, $(IMAGES))
 EXTJSMODFILES = $(wildcard client/extjs-mod/*.js)
 ICONEXTENSIONSFILE = client/resources/iconsets/extensions.json
@@ -87,7 +84,6 @@ client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) html js
 	cp -r client/resources/fonts $(DESTDIR)/client/resources/
 	cp -r client/zarafa/core/themes $(DESTDIR)/client/
 	rm -rf $(DESTDIR)/client/themes/*/js
-	cp -r client/resources/scss $(DESTDIR)/client/resources/scss
 
 css:
 	find $(DESTDIR)/client -name "*.css" \
@@ -320,15 +316,6 @@ iconsets: $(ICONS) node_modules
 # something has changed.
 #$(ICONSETSCSS): $$(@D)/src/png/*/*.png $(ICONEXTENSIONSFILE) node_modules
 #	$(NPM) run iconsets:$(notdir $(@D))
-
-# this rule creates the file client/resources/scss/base/_icons.scss
-# since the scss files are not compiled during the build (yet),
-# this rule can only be used locally for now.
-.PHONY: app-icons
-app-icons: $(APPICONSSCSS)
-
-$(APPICONSSCSS): $(APPICONS) $(APPICONSEXTENSIONSFILE) node_modules
-	$(NPM) run app-icons
 
 # Tokenizr library
 

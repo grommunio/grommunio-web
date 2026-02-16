@@ -8,7 +8,6 @@
 		"phplint": "phpmd server text .phpmd.xml || true",
 		"lint": "eslint client/zarafa",
 		"phplintci": "phpmd server xml .phpmd.xml --ignore-violations-on-exit | python tools/violations_to_junit.py > phpmd.xml",
-		"app-icons": "ikode --out client/resources/scss/base/_icons.scss --css --important --yes --ext client/resources/images/app-icons.extensions.json client/resources/images/app-icons",
 		"iconsets:classic": "ikode --out client/resources/iconsets/classic/classic-icons.css --css --important --yes --ext client/resources/iconsets/extensions.json -d client/resources/iconsets/classic/src/png/16x16 client/resources/iconsets/classic/src/png/large -d client/resources/iconsets/classic/src/svg/16x16",
 		"iconsets:breeze": "ikode --out client/resources/iconsets/breeze/breeze-icons.css --css --important --yes --ext client/resources/iconsets/extensions.json --ext client/resources/iconsets/breeze/extensions-breeze.json -d client/resources/iconsets/breeze/src/svg/16x16 client/resources/iconsets/breeze/src/svg/large",
 		"iconsets": "\"$npm_execpath\" run iconsets:classic && \"$npm_execpath\" run iconsets:breeze"
