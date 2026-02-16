@@ -44,23 +44,36 @@ class JSONRequest {
 
 			// @TODO throw exception if zarafa tag is not present
 			if (is_array($data)) {
-				// iterate over all module names
-				foreach ($data as $moduleName => $modules) {
-					// each module can contain multiple requests using different module ids
-					foreach ($modules as $moduleId => $moduleData) {
-						// Create the module via the Dispatcher
-						$moduleObj = $GLOBALS["dispatcher"]->loadModule($moduleName, $moduleId, $moduleData);
+				// Open the module session state once for all modules.
+				// This avoids repeated fopen/flock/unserialize/serialize/
+				// fclose cycles when a request contains multiple modules.
+				$moduleSessionState = new State('module_sessiondata');
+				$moduleSessionState->open();
 
-						// Check if the module is loaded
-						if (is_object($moduleObj)) {
-							$moduleObj->loadSessionData();
+				try {
+					// iterate over all module names
+					foreach ($data as $moduleName => $modules) {
+						// each module can contain multiple requests using different module ids
+						foreach ($modules as $moduleId => $moduleData) {
+							// Create the module via the Dispatcher
+							$moduleObj = $GLOBALS["dispatcher"]->loadModule($moduleName, $moduleId, $moduleData);
 
-							// Execute the actions in the module
-							$moduleObj->execute();
+							// Check if the module is loaded
+							if (is_object($moduleObj)) {
+								$moduleObj->loadSessionData($moduleSessionState);
 
-							$moduleObj->saveSessionData();
+								// Execute the actions in the module
+								$moduleObj->execute();
+
+								$moduleObj->saveSessionData();
+							}
 						}
 					}
+				}
+				finally {
+					// Flush and release the shared module session state.
+					$moduleSessionState->flush();
+					$moduleSessionState->close();
 				}
 			}
 

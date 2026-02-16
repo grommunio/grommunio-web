@@ -486,10 +486,21 @@ class Module {
 
 	/**
 	 * Loads sessiondata of the module from state file on disk.
+	 *
+	 * @param State $sharedState optional shared State object so that
+	 *                           multiple modules can reuse a single lock
+	 *                           and avoid repeated open/serialize/close cycles.
 	 */
-	public function loadSessionData() {
-		$this->sessionState = new State('module_sessiondata');
-		$this->sessionState->open();
+	public function loadSessionData($sharedState = null) {
+		if ($sharedState) {
+			$this->sessionState = $sharedState;
+			$this->_sharedSessionState = true;
+		}
+		else {
+			$this->sessionState = new State('module_sessiondata');
+			$this->sessionState->open();
+			$this->_sharedSessionState = false;
+		}
 		$this->sessionData = $this->sessionState->read($this->getModuleName());
 	}
 
@@ -498,8 +509,12 @@ class Module {
 	 */
 	public function saveSessionData() {
 		if ($this->sessionData !== false) {
-			$this->sessionState->write($this->getModuleName(), $this->sessionData);
+			// When using a shared state, defer flush to the caller.
+			$this->sessionState->write($this->getModuleName(), $this->sessionData, false);
 		}
-		$this->sessionState->close();
+		if (empty($this->_sharedSessionState)) {
+			$this->sessionState->flush();
+			$this->sessionState->close();
+		}
 	}
 }
