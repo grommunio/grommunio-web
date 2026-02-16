@@ -93,7 +93,12 @@ class ResolveNamesModule extends Module {
 		// Prefer resolving the email_address. This allows the user
 		// to resolve recipients with a display name that matches a EX
 		// user with an alternative (external) email address.
-		$searchstr = $query['email_address'] ?? $query['display_name'];
+		$emailAddress = trim((string) ($query['email_address'] ?? ''));
+		$displayName = trim((string) ($query['display_name'] ?? ''));
+		$searchstr = $emailAddress !== '' ? $emailAddress : $displayName;
+		if ($searchstr === '') {
+			return [];
+		}
 		// If the address_type is 'EX' then we are resolving something which must be found in
 		// the GAB as an exact match. So add the flag EMS_AB_ADDRESS_LOOKUP to ensure we will not
 		// get multiple results when multiple items have a partial match.
