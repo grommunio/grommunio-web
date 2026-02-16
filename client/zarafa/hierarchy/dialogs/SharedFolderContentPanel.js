@@ -31,7 +31,8 @@ Zarafa.hierarchy.dialogs.SharedFolderContentPanel = Ext.extend(Zarafa.core.ui.Co
 		if (!config.store) {
 			config.store = new Zarafa.core.data.IPMRecipientStore({
 				allowResolvingToLocalContacts: false,
-				allowResolvingToGABGroups: false
+				allowResolvingToGABGroups: false,
+				preferDisplayNameForResolve: true
 			});
 		}
 
@@ -98,7 +99,8 @@ Zarafa.hierarchy.dialogs.SharedFolderContentPanel = Ext.extend(Zarafa.core.ui.Co
 					buttons: Ext.MessageBox.OK
 				});
 				return;
-			} else if (recipient.get('email_address') === container.getUser().getEmailAddress()) {
+			} else if ((recipient.get('smtp_address') || recipient.get('email_address') || '').toLowerCase() ===
+				(container.getUser().getEmailAddress() || '').toLowerCase()) {
 				Ext.MessageBox.show({
 					title: _('Own store'),
 					msg: _('It is not possible to open your own store twice.'),
@@ -107,7 +109,7 @@ Zarafa.hierarchy.dialogs.SharedFolderContentPanel = Ext.extend(Zarafa.core.ui.Co
 				return;
 			}
 
-			var name = recipient.get('email_address');
+			var name = recipient.get('smtp_address') || recipient.get('email_address');
 			var options = this.sharedFolderPanel.getFolderOptions();
 
 			// Check if we are able to open the Shared Store, if not
