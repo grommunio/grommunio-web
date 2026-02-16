@@ -90,7 +90,9 @@ client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) html js
 	cp -r client/resources/scss $(DESTDIR)/client/resources/scss
 
 css:
-	find $(DESTDIR)/client -name "*.css" -exec $(CSSCOMPILER) $(CSSOPTIONS) --output {}.min {} \; -exec mv {}.min {} \;
+	find $(DESTDIR)/client -name "*.css" \
+		! -path "$(DESTDIR)/client/filepreviewer/pdfjs/web/viewer.css" \
+		-exec $(CSSCOMPILER) $(CSSOPTIONS) --output {}.min {} \; -exec mv {}.min {} \;
 	find $(DESTDIR)/plugins -name "*.css" -exec $(CSSCOMPILER) $(CSSOPTIONS) --output {}.min {} \; -exec mv {}.min {} \;
 
 svgo: node_modules

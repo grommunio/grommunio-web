@@ -288,6 +288,9 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 				if (Ext.isEmpty(body)) {
 					body = Zarafa.core.HTMLParser.convertPlainToHTML(record.get('body') || '');
 				}
+				if (!Ext.isEmpty(body) && container.getServerConfig().getDOMPurifyEnabled()) {
+					body = DOMPurify.sanitize(body, { USE_PROFILES: { html: true } });
+				}
 			} else if (Ext.isFunction(record.getBody)) {
 				body = record.getBody(false);
 			} else {

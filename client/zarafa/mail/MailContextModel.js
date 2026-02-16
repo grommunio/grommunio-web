@@ -274,6 +274,10 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 			htmlBody = Zarafa.core.HTMLParser.convertPlainToHTML(plainBody || this.getRecordPlainBody(record));
 		}
 
+		if (!Ext.isEmpty(htmlBody) && container.getServerConfig().getDOMPurifyEnabled()) {
+			htmlBody = DOMPurify.sanitize(htmlBody, { USE_PROFILES: { html: true } });
+		}
+
 		return String(htmlBody);
 	},
 
