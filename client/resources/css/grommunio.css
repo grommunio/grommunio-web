@@ -2252,10 +2252,15 @@ Note: Does not work in IE11 */
 
 /* Subject field */
 .preview-header-title .preview-title {
-  font-weight: bold; }
+  font-weight: bold;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
 
 .preview-header-titlebox {
-  padding: 8px 0; }
+  padding: 8px 0;
+  overflow: hidden; }
 
 .preview-header-senderbox .preview-from {
   display: block;
