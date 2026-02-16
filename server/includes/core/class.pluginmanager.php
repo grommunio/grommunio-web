@@ -185,7 +185,18 @@ class PluginManager {
 					$this->pluginorder = $this->normalizePluginOrder(empty($pluginOrder) ? [] : $pluginOrder);
 				}
 			}
+
+			// Write the newly built plugin data back to the state.
+			if (!DEBUG_PLUGINS_DISABLE_CACHE) {
+				$pluginState->write("plugindata", $this->plugindata, false);
+				$pluginState->write("pluginorder", $this->pluginorder);
+			}
 		}
+
+		// Release the plugin state lock as early as possible.
+		// On a cache hit no write is needed, so we avoid the
+		// serialize-and-compare overhead inside State::flush().
+		$pluginState->close();
 
 		// Decide whether to show password plugin in settings:
 		// - show if the users are in a db
@@ -196,15 +207,6 @@ class PluginManager {
 				unset($this->pluginorder[$passwdKey]);
 			}
 		}
-
-		// Write the plugindata back to the state
-		if (!DEBUG_PLUGINS_DISABLE_CACHE) {
-			$pluginState->write("plugindata", $this->plugindata);
-			$pluginState->write("pluginorder", $this->pluginorder);
-		}
-
-		// Free the state again.
-		$pluginState->close();
 	}
 
 	/**
