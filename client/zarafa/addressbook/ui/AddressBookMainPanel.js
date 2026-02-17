@@ -95,6 +95,10 @@ Zarafa.addressbook.ui.AddressBookMainPanel = Ext.extend(Ext.Panel, {
 		// Load the address book
 		this.initDialog();
 
+		// When a contact or distlist is saved from a sub-dialog opened via
+		// the AB, reload the grid to reflect the changes.
+		this.mon(container.getShadowStore(), 'write', this.onShadowStoreWrite, this);
+
 		// When shared stores are added/removed in the hierarchy, keep the
 		// AB hierarchy dropdown in sync.
 		this.hierarchyStore = container.getHierarchyStore();
@@ -180,6 +184,17 @@ Zarafa.addressbook.ui.AddressBookMainPanel = Ext.extend(Ext.Panel, {
 				return;
 			}
 		}
+	},
+
+	/**
+	 * Called when a record is saved via the ShadowStore (e.g. the user edited
+	 * a contact or distribution list opened from this dialog). Reloads the
+	 * grid to reflect the changes.
+	 * @private
+	 */
+	onShadowStoreWrite: function()
+	{
+		this.onSearchButtonClick();
 	},
 
 	/**
