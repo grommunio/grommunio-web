@@ -504,9 +504,8 @@ Zarafa.hierarchy.data.MAPIFolderRecord = Ext.extend(Zarafa.core.data.IPFRecord, 
 
 		if ((extendedFlags & Zarafa.core.mapi.FolderExtendedFlags.DEFAULT) === Zarafa.core.mapi.FolderExtendedFlags.DEFAULT) {
 			// ExtendedFlags are either not set on folder or it should use default implementation
-			// Drafts and Outbox intentionally display total item count.
-			// Junk should follow regular unread-count behavior.
-			var isSpecial = this.isSpecialFolder('drafts') || this.isSpecialFolder('outbox');
+			// Drafts, Outbox, and Junk intentionally display total item count.
+			var isSpecial = this.isSpecialFolder('drafts') || this.isSpecialFolder('outbox') || this.isSpecialFolder('junk');
 
 			if (isSpecial && this.get('content_count') > 0) {
 				return Zarafa.hierarchy.data.CounterTypes.TOTAL;
