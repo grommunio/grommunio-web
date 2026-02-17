@@ -56,6 +56,7 @@ Zarafa.addressbook.AddressBookRecordFields = [
 	{name: 'comment'},
 	{name: 'icon_index'},
 	{name: 'is_shared'},
+	{name: 'is_contact_item'},
 ];
 
 Zarafa.core.data.RecordFactory.addFieldToObjectType(Zarafa.core.mapi.ObjectType.MAPI_MAILUSER, Zarafa.addressbook.AddressBookRecordFields);
@@ -205,8 +206,16 @@ Zarafa.addressbook.AddressBookRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	{
 		if(Zarafa.core.MessageClass.isClass(this.get('message_class'), 'IPM.CONTACT', true)){
 			return true;
-		}else if (this.get('object_type') == Zarafa.core.mapi.ObjectType.MAPI_MAILUSER && Zarafa.core.EntryId.hasContactProviderGUID(this.get('entryid'))){
-			return true;
+		}
+		if (this.get('object_type') == Zarafa.core.mapi.ObjectType.MAPI_MAILUSER) {
+			if (Zarafa.core.EntryId.hasContactProviderGUID(this.get('entryid'))) {
+				return true;
+			}
+			// Contact folder items have the is_contact_item flag set
+			// by the server (both personal and shared contact folders).
+			if (this.get('is_contact_item')) {
+				return true;
+			}
 		}
 		return false;
 	},
@@ -222,8 +231,16 @@ Zarafa.addressbook.AddressBookRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	{
 		if(Zarafa.core.MessageClass.isClass(this.get('message_class'), 'IPM.DISTLIST', true)){
 			return true;
-		}else if (this.get('object_type') == Zarafa.core.mapi.ObjectType.MAPI_DISTLIST && Zarafa.core.EntryId.hasContactProviderGUID(this.get('entryid'))){
-			return true;
+		}
+		if (this.get('object_type') == Zarafa.core.mapi.ObjectType.MAPI_DISTLIST) {
+			if (Zarafa.core.EntryId.hasContactProviderGUID(this.get('entryid'))) {
+				return true;
+			}
+			// Contact folder items have the is_contact_item flag set
+			// by the server (both personal and shared contact folders).
+			if (this.get('is_contact_item')) {
+				return true;
+			}
 		}
 		return false;
 	},

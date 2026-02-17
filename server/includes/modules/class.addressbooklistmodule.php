@@ -194,6 +194,7 @@ class AddressbookListModule extends ListModule {
 						// These are real contact items from a MAPI folder, not
 						// AB entries, so they use contact properties instead of
 						// AB list properties.
+						$item['is_contact_item'] = true;
 
 						// Do not display private items from shared folders
 						if ($isSharedFolder && isset($user_data[$this->properties['private']]) && $user_data[$this->properties['private']] === true) {
