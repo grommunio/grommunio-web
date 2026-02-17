@@ -67,7 +67,7 @@ class Pluginsmime extends Plugin {
 		$this->registerHook('server.module.createmailitemmodule.beforesend');
 		$this->registerHook('server.index.load.custom');
 
-		if (version_compare(phpversion(), '5.4', '<')) {
+		if (version_compare(phpversion(), '5.4', '>=')) {
 			$this->cipher = OPENSSL_CIPHER_AES_256_CBC;
 		}
 	}
@@ -192,11 +192,11 @@ class Pluginsmime extends Plugin {
 			return;
 		}
 
-		function missingMyself($email) {
+		$missingMyself = function ($email) {
 			return $GLOBALS['mapisession']->getSMTPAddress() === $email;
-		}
+		};
 
-		if (array_filter($missingCerts, "missingMyself") === []) {
+		if (array_filter($missingCerts, $missingMyself) === []) {
 			$errorMsg = _('Missing public certificates for the following recipients: ') . implode(', ', $missingCerts) . _('. Please contact your system administrator for details');
 		}
 		else {
