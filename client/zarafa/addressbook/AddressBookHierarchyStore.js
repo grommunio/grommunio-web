@@ -89,14 +89,44 @@ Zarafa.onUIReady(function(){
 	if ( typeof Zarafa.addressbook.AddressBookHierarchyStore === 'function' ){
 		Zarafa.addressbook.AddressBookHierarchyStore = new Zarafa.addressbook.AddressBookHierarchyStore();
 		Zarafa.addressbook.AddressBookHierarchyStore.on('load', function(){
+			// Filter out shared contact folders from delegate stores that are
+			// no longer open in the hierarchy (e.g. auto-hooked stores that
+			// the user has closed within this session). After a full reload
+			// the stores reappear in the hierarchy, so they pass the filter.
+			var hierarchyStore = container.getHierarchyStore();
+			if (hierarchyStore) {
+				var closedStoreRecords = [];
+				Zarafa.addressbook.AddressBookHierarchyStore.each(function(record) {
+					var storeEntryId = record.get('store_entryid');
+					if (record.get('type') === 'sharedcontacts' &&
+						record.get('depth') > 0 && storeEntryId) {
+						var storeFound = false;
+						hierarchyStore.each(function(mapiStore) {
+							if (Zarafa.core.EntryId.compareEntryIds(
+								mapiStore.get('store_entryid'), storeEntryId)) {
+								storeFound = true;
+								return false;
+							}
+						});
+						if (!storeFound) {
+							closedStoreRecords.push(record);
+						}
+					}
+				});
+				Ext.each(closedStoreRecords, function(record) {
+					Zarafa.addressbook.AddressBookHierarchyStore.remove(record);
+				});
+			}
+
 			// Add a property to identify group headers and remove group headers that don't
 			// have any group members (e.g. All Address Lists)
 			var removeRecords = [];
+			var storeCount = Zarafa.addressbook.AddressBookHierarchyStore.getCount();
 			Zarafa.addressbook.AddressBookHierarchyStore.each(function(record, index){
 				// The GAB has index 0
 				if ( index>0 && record.get('depth')===0 ){
 					if (
-						index === Zarafa.addressbook.AddressBookHierarchyStore.getCount() ||
+						index === storeCount - 1 ||
 						Zarafa.addressbook.AddressBookHierarchyStore.getAt(index+1).get('depth') === 0
 					){
 						removeRecords.push(record);

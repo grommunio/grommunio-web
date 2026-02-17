@@ -95,9 +95,104 @@ Zarafa.addressbook.ui.AddressBookMainPanel = Ext.extend(Ext.Panel, {
 		// Load the address book
 		this.initDialog();
 
+		// When shared stores are added/removed in the hierarchy, keep the
+		// AB hierarchy dropdown in sync.
+		this.hierarchyStore = container.getHierarchyStore();
+		this.hierarchyStore.on('remove', this.onHierarchyStoreRemove, this);
+		this.hierarchyStore.on('addFolder', this.onHierarchyFolderChange, this);
+		this.hierarchyStore.on('removeFolder', this.onHierarchyFolderChange, this);
+
 		// When the MainPanel is destroyed, also destroy the store,
 		// this ensures that any pending requests will be cancelled.
-		this.on('destroy', this.addressBookStore.destroy, this.addressBookStore);
+		this.on('destroy', this.onMainPanelDestroy, this);
+	},
+
+	/**
+	 * Called when a shared store is removed from the hierarchy (e.g. user
+	 * closes a shared store). Directly removes matching entries from the
+	 * AB hierarchy store to avoid a race condition with the server-side
+	 * closesharedfolder action.
+	 *
+	 * @param {Zarafa.hierarchy.data.HierarchyStore} store The hierarchy store
+	 * @param {Zarafa.hierarchy.data.MAPIStoreRecord} record The removed store record
+	 * @param {Number} index The index from where the record was removed
+	 * @private
+	 */
+	onHierarchyStoreRemove: function(store, record)
+	{
+		var storeEntryId = record.get('store_entryid');
+		if (!storeEntryId) {
+			return;
+		}
+
+		// Find all AB hierarchy entries that belong to the removed store
+		var toRemove = [];
+		Zarafa.addressbook.AddressBookHierarchyStore.each(function(r) {
+			if (r.get('store_entryid') === storeEntryId) {
+				toRemove.push(r);
+			}
+		});
+
+		if (toRemove.length > 0) {
+			Zarafa.addressbook.AddressBookHierarchyStore.remove(toRemove);
+
+			// Clean up group headers that no longer have any children
+			var emptyHeaders = [];
+			var count = Zarafa.addressbook.AddressBookHierarchyStore.getCount();
+			Zarafa.addressbook.AddressBookHierarchyStore.each(function(r, index) {
+				if (index > 0 && r.get('depth') === 0) {
+					if (index === count - 1 ||
+						Zarafa.addressbook.AddressBookHierarchyStore.getAt(index + 1).get('depth') === 0) {
+						emptyHeaders.push(r);
+					}
+				}
+			});
+
+			if (emptyHeaders.length > 0) {
+				Zarafa.addressbook.AddressBookHierarchyStore.remove(emptyHeaders);
+			}
+		}
+	},
+
+	/**
+	 * Called when a folder is added to or removed from the hierarchy.
+	 * Reloads the AB hierarchy from the server if the folder is a
+	 * contact folder (IPF.Contact).
+	 *
+	 * @param {Zarafa.hierarchy.data.HierarchyStore} hierarchyStore The hierarchy store
+	 * @param {Zarafa.hierarchy.data.MAPIStoreRecord} storeRecord The store containing the folder
+	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord/Array} records The added/removed folder(s)
+	 * @private
+	 */
+	onHierarchyFolderChange: function(hierarchyStore, storeRecord, records)
+	{
+		if (!records) {
+			return;
+		}
+		if (!Array.isArray(records)) {
+			records = [records];
+		}
+
+		for (var i = 0; i < records.length; i++) {
+			var containerClass = records[i].get ? records[i].get('container_class') : '';
+			if (containerClass && containerClass.indexOf('IPF.Contact') === 0) {
+				Zarafa.addressbook.AddressBookHierarchyStore.loadAddressBookHierarchy();
+				return;
+			}
+		}
+	},
+
+	/**
+	 * Cleanup handler when the panel is destroyed. Removes hierarchy store
+	 * listeners and destroys the address book store.
+	 * @private
+	 */
+	onMainPanelDestroy: function()
+	{
+		this.hierarchyStore.un('remove', this.onHierarchyStoreRemove, this);
+		this.hierarchyStore.un('addFolder', this.onHierarchyFolderChange, this);
+		this.hierarchyStore.un('removeFolder', this.onHierarchyFolderChange, this);
+		this.addressBookStore.destroy();
 	},
 
 	/**
