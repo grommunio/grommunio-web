@@ -1,3 +1,70 @@
+grommunio-web 3.17 (2025-02-17)
+===============================
+
+Fixes:
+
+* Address book contact folders are now loaded from store hierarchy with proper
+  properties, hidden-folder filtering, and reliable item type detection
+* Opening contact-folder entries now validates distribution-list item types
+* Recurring occurrence tabs now close correctly under rare circumstances
+* Shared-user resolution by display name has been repaired and stabilized,
+  including a resolver regression fix
+* X500 resolution (sent items) no longer causes mail preview flicker
+* Reply bodies are preserved during compose initialization, and TinyMCE value
+  initialization races were fixed
+* Message actions now guard against unavailable stores
+* HTML preview rendering is stabilized while switching records, and short
+  load-mask flashes are avoided
+* External resource blocking in mail preview was hardened, including correct
+  block-state recalculation and sanitized-body cache handling
+* BaseRecurrence handling no longer fails on reminder lists with null starts
+* Meeting request time info no longer receives spurious ``pre`` tags
+* Empty lines in mail bodies are preserved
+* EML import/upload no longer rejects messages due to header prechecks
+* Yearly recurrence interval handling was corrected (including every-N-year
+  patterns), and contact birthday/anniversary intervals were fixed
+* Contact timezone data is refreshed before saving
+* Private meetings now hide attendees as expected
+* UI click handling now guards DOM access to avoid runtime errors
+* S/MIME read-flag updates are now restricted to S/MIME messages only
+* Deprecated implicit class-member declarations in the S/MIME plugin were
+  fixed
+
+Enhancements:
+
+* Address book UI now uses the GAB column model across views, reloads hierarchy
+  when dialogs open, synchronizes dropdown stores on hierarchy changes, and
+  refreshes grids after contact edits
+* Address book item rows now omit redundant icon captions
+* Mail list and panel split sizes are persisted, with a minimum mail list
+  width enforced
+* Header subjects in non-wrapping mail preview now use ellipsis
+* ``From`` handling now preserves aliases and consistently sets SMTP/email
+  address properties when sending from aliases
+* TinyMCE default formatting no longer uses a stale phantom-record check
+* Appointment creation from emails now populates fields more completely
+* A configuration option ``SHOW_LOGOUT_BUTTON`` allows hiding the logout
+  button
+* Files plugin activation now honors ``ALWAYS_ENABLED_PLUGINS_LIST``
+* Object ID panels are now available for calendar, contact, note, and task
+  records
+* Tab focus behavior and tab-space cursor movement were improved in the client
+* S/MIME tooltip texts were improved
+
+Changes:
+
+* Default configuration now disables shared/public contact-folder providers
+* TinyMCE was upgraded to 8.3.2
+* pdf.js was upgraded to 5.4.624
+* DOMPurify was updated to 3.3.1 and alternative HTML handling paths were
+  hardened
+* Legacy ``dgettext`` wrappers were removed in favor of ``_``
+* Unused SCSS assets and several unused helper functions were removed
+* Security headers are now included directly in web
+* Image delivery sizes were optimized
+* Legacy mail prefetch logic was removed
+
+
 grommunio-web 3.16 (2025-12-16)
 ===============================
 
