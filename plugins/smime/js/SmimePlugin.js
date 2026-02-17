@@ -207,6 +207,10 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 		smimeInfoBox.removeClass('smime-info-partial');
 		smimeInfoBox.removeClass('smime-info-info');
 
+		if (!record) {
+			return;
+		}
+
 		// retrieve smime json object
 		var smimeInfo = record.get('smime');
 		if (!record.isOpened() || !smimeInfo)
