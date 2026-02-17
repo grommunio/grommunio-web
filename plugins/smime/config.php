@@ -8,7 +8,7 @@ define('PLUGIN_SMIME_CACERTS', '/etc/ssl/certs');
 
 // Set preferred encryption cipher, check http://www.php.net/manual/en/openssl.ciphers.php for the available ciphers.
 // Recommended is OPENSSL_CIPHER_AES_128_CBC or higher
-define('PLUGIN_SMIME_CIPHER', OPENSSL_CIPHER_3DES);
+define('PLUGIN_SMIME_CIPHER', OPENSSL_CIPHER_AES_256_CBC);
 
 // Allow the browser to remember the passphrase
 define('PLUGIN_SMIME_PASSPHRASE_REMEMBER_BROWSER', true);

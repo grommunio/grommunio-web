@@ -67,9 +67,7 @@ class Pluginsmime extends Plugin {
 		$this->registerHook('server.module.createmailitemmodule.beforesend');
 		$this->registerHook('server.index.load.custom');
 
-		if (version_compare(phpversion(), '5.4', '>=')) {
-			$this->cipher = OPENSSL_CIPHER_AES_256_CBC;
-		}
+		// cipher is set from PLUGIN_SMIME_CIPHER (config.php)
 	}
 
 	/**
