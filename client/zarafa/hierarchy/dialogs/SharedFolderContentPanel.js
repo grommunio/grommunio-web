@@ -1,5 +1,6 @@
 /*
  * #dependsFile client/zarafa/hierarchy/data/SharedFolderTypes.js
+ * #dependsFile client/zarafa/core/mapi/ObjectType.js
  */
 Ext.namespace('Zarafa.hierarchy.dialogs');
 
@@ -92,7 +93,7 @@ Zarafa.hierarchy.dialogs.SharedFolderContentPanel = Ext.extend(Zarafa.core.ui.Co
 					buttons: Ext.MessageBox.OK
 				});
 				return;
-			} else if (recipient.get('display_type') !== Zarafa.core.mapi.DisplayType.DT_MAILUSER) {
+			} else if (recipient.get('object_type') !== Zarafa.core.mapi.ObjectType.MAPI_MAILUSER) {
 				Ext.MessageBox.show({
 					title: _('Invalid user'),
 					msg: String.format(_('Username \'{0}\' is not a valid user.'), recipient.get('display_name')),

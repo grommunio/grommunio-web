@@ -67,10 +67,7 @@ Zarafa.hierarchy.dialogs.SharedFolderPanel = Ext.extend(Ext.Panel, {
 				ref: '../userField',
 				boxStore: store,
 				flex: 1,
-				boxLimit: 1,
-				boxConfig: {
-					validDisplayType: Zarafa.core.mapi.DisplayType.DT_MAILUSER
-				}
+				boxLimit: 1
 			}]
 		};
 	},
