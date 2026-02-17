@@ -310,7 +310,7 @@ class HierarchyModule extends Module {
 						$username = strtolower((string) $action["user_name"]);
 						$store = $GLOBALS["mapisession"]->addUserStore($username);
 						if (!$store) {
-							break;
+							throw new MAPIException(_("Could not open the store."), MAPI_E_NO_ACCESS);
 						}
 
 						$options = [$username => [$action["folder_type"] => $action]];
@@ -383,6 +383,10 @@ class HierarchyModule extends Module {
 			switch ($actionType) {
 				case "list":
 					$e->setDisplayMessage(_("Could not load the hierarchy."));
+					break;
+
+				case "opensharedfolder":
+					$e->setDisplayMessage(_("Could not open the shared store."));
 					break;
 
 				case "open":

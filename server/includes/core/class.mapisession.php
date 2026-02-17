@@ -754,8 +754,9 @@ class MAPISession {
 			// mapi_openmsgstore seems to not only throw MAPIException
 			error_log(sprintf("openmsgstore %s failed (actor:%s, name:%s): %s",
 				bin2hex($entryid), $this->session_info["username"], $name,
-				$e->getDisplayMessage()));
-			return $e->getCode();
+				method_exists($e, 'getDisplayMessage') ? $e->getDisplayMessage() : $e->getMessage()));
+
+			return false;
 		}
 
 		return $store;
@@ -781,8 +782,8 @@ class MAPISession {
 					$user_entryid = mapi_msgstore_createentryid($this->getDefaultMessageStore(), $username);
 
 					$sharedStore = $this->openMessageStore($user_entryid, $username);
-					if ($sharedStore === false && $sharedStore === ecLoginPerm &&
-						$sharedStore === MAPI_E_CALL_FAILED && $sharedStore === MAPI_E_NOT_FOUND) {
+					if ($sharedStore === false || $sharedStore === ecLoginPerm ||
+						$sharedStore === MAPI_E_CALL_FAILED || $sharedStore === MAPI_E_NOT_FOUND) {
 						$storeOk = false;
 					}
 				}

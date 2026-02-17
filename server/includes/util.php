@@ -678,10 +678,14 @@ function updateHierarchyCounters($username = '', $folderType = '') {
 	// Open the correct store
 	if ($username) {
 		$userEntryid = $GLOBALS["mapisession"]->getStoreEntryIdOfUser($username);
-		$store = $GLOBALS["mapisession"]->openMessageStore($userEntryid);
+		$store = $userEntryid ? $GLOBALS["mapisession"]->openMessageStore($userEntryid) : false;
 	}
 	else {
 		$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
+	}
+
+	if (!$store) {
+		return [];
 	}
 
 	$props = [PR_DISPLAY_NAME, PR_LOCAL_COMMIT_TIME_MAX, PR_CONTENT_COUNT, PR_CONTENT_UNREAD, PR_ENTRYID, PR_STORE_ENTRYID];
