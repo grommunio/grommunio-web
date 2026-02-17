@@ -255,17 +255,23 @@ class Certificate {
 	/**
 	 * The issuer of this certificate.
 	 *
-	 * @return Certificate the issuer certificate
+	 * @return null|Certificate the issuer certificate, or null when unavailable
 	 */
 	public function issuer() {
 		if (!empty($this->issuer)) {
 			return $this->issuer;
 		}
-		$cert = '';
+
+		$caUrl = $this->caURL();
+		if (empty($caUrl)) {
+			return null;
+		}
+
 		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL, $this->caURL());
+		curl_setopt($ch, CURLOPT_URL, $caUrl);
 		curl_setopt($ch, CURLOPT_FAILONERROR, true);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_TIMEOUT, 10);
 
 		// HTTP Proxy settings
 		if (defined('PLUGIN_SMIME_PROXY') && PLUGIN_SMIME_PROXY != '') {
@@ -281,15 +287,26 @@ class Certificate {
 		$output = curl_exec($ch);
 		$http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 		$curl_error = curl_error($ch);
-		if (!$curl_error && $http_status === 200) {
-			$cert = $this->der2pem($output);
-		}
-		else {
-			Log::Write(LOGLEVEL_ERROR, sprintf("[smime] Error when downloading internmediate certificate '%s', http status: '%s'", $curl_error, $http_status));
-		}
 		curl_close($ch);
 
-		return new Certificate($cert);
+		if ($curl_error || $http_status !== 200 || empty($output)) {
+			Log::Write(LOGLEVEL_ERROR, sprintf("[smime] Error when downloading intermediate certificate '%s', http status: '%s'", $curl_error, $http_status));
+
+			return null;
+		}
+
+		// Detect PEM vs DER format — AIA URLs typically serve DER, but
+		// some CAs return PEM.
+		if (strpos($output, '-----BEGIN CERTIFICATE-----') !== false) {
+			$cert = $output;
+		}
+		else {
+			$cert = $this->der2pem($output);
+		}
+
+		$this->issuer = new Certificate($cert);
+
+		return $this->issuer;
 	}
 
 	/**

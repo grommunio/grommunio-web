@@ -165,30 +165,40 @@ function verifyOCSP($certificate, $extracerts, &$message) {
 	$pubcert = new Certificate($certificate);
 
 	/*
-	 * Walk over the provided extra intermediate certificates and setup the issuer
-	 * chain.
+	 * Walk over the provided extra intermediate certificates and setup the
+	 * issuer chain.  Certificates inside a PKCS#7 structure are not
+	 * guaranteed to be in order, so we iteratively match issuers until the
+	 * chain is fully built or no more progress can be made.
 	 */
 	$parent = $pubcert;
 	if (!isset($extracerts) || !is_array($extracerts)) {
 		$extracerts = [];
 	}
-	while ($cert = array_shift($extracerts)) {
-		$cert = new Certificate($cert);
-
-		if ($cert->getName() === $pubcert->getName()) {
-			continue;
+	$remaining = [];
+	foreach ($extracerts as $pem) {
+		$cert = new Certificate($pem);
+		if ($cert->getName() !== $pubcert->getName()) {
+			$remaining[] = $cert;
 		}
-
-		if ($cert->getName() === $parent->getIssuerName()) {
-			$parent->setIssuer($cert);
-			$parent = $cert;
+	}
+	$changed = true;
+	while ($changed && !empty($remaining)) {
+		$changed = false;
+		foreach ($remaining as $i => $cert) {
+			if ($cert->getName() === $parent->getIssuerName()) {
+				$parent->setIssuer($cert);
+				$parent = $cert;
+				unset($remaining[$i]);
+				$changed = true;
+				break;
+			}
 		}
 	}
 
 	try {
 		$pubcert->verify();
 		$issuer = $pubcert->issuer();
-		if ($issuer->issuer()) {
+		if ($issuer && $issuer->issuer()) {
 			$issuer->verify();
 		}
 	}
