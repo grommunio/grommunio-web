@@ -404,7 +404,7 @@ ul.x-tab-strip-top {
 .x-layout-split {
   width: 3px;
   height: 3px;
-  z-index: 9999; }
+  z-index: 5; }
 
 /* Common emptytext for empty grids. Overwriting x-grid-empty in some cases */
 .emptytext {
@@ -881,7 +881,7 @@ div.x-btn-group-bc {
   border-color: #e6e6e6; }
 
 #zarafa-mainpanel {
-  margin-left: -3px; }
+  margin-left: 0; }
 
 /* Remove some borders for specific panels so we don't get double borders */
 #zarafa-mainpanel-contentpanel-mail .zarafa-context-mainpanel > .x-panel-bwrap > .x-panel-body {
@@ -2434,6 +2434,7 @@ span.preview-header-sender-image {
     border-bottom: 1px solid #e6e6e6;
     border-left: none;
     border-right: none;
+    border-radius: 0 !important;
     font-size: 15px !important; }
   .zarafa-mailcreatepanel > .x-panel-bwrap > .x-panel-body .zarafa-mailcreatepanel-field-attachments {
     padding-top: 6px; }
@@ -4186,7 +4187,14 @@ div.zarafa-contact-cardview-selected {
     background: transparent;
     border: none;
     border-top: 1px solid #e6e6e6;
-    padding: 6px 0; }
+    padding: 6px 12px; }
+    .x-date-picker .x-date-bottom .x-btn {
+      display: block; }
+      .x-date-picker .x-date-bottom .x-btn .x-btn-small {
+        display: block; }
+        .x-date-picker .x-date-bottom .x-btn .x-btn-small em,
+        .x-date-picker .x-date-bottom .x-btn .x-btn-small button {
+          width: 100%; }
   .x-date-picker .x-date-mp {
     background: white; }
     .x-date-picker .x-date-mp table td a {

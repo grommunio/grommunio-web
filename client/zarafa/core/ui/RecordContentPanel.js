@@ -784,7 +784,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 		}
 
 		var confirmMsg = this.unSaveWarningMessage || _('You will lose all unsaved work. Are you sure you want to close this window?');
-		confirmMsg = '<div style="color:#222222;line-height:1.4;white-space:normal;">' + confirmMsg + '</div>';
+		confirmMsg = '<div style="line-height:1.4;white-space:normal;">' + confirmMsg + '</div>';
 
 		this.closeConfirmDialog = new Zarafa.common.dialogs.CustomMessageBox({
 			title: _('Unsaved changes'),
