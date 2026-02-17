@@ -400,9 +400,9 @@ class Certificate {
 		 * - check if issuerKeyHash is the same from response
 		 * - check if serialNumber is the same from response
 		 */
-		if ($resp['certID']['hashAlgorithm'] !== 'sha1' &&
-			$resp['certID']['issuerNameHash'] !== $certID['issuerNameHash'] &&
-			$resp['certID']['issuerKeyHash'] !== $certID['issuerKeyHash'] &&
+		if ($resp['certID']['hashAlgorithm'] !== 'sha1' ||
+			$resp['certID']['issuerNameHash'] !== $certID['issuerNameHash'] ||
+			$resp['certID']['issuerKeyHash'] !== $certID['issuerKeyHash'] ||
 			$resp['certID']['serialNumber'] !== $certID['serialNumber']) {
 			// OCSP Revocation, mismatch between original and checked certificate
 			throw new OCSPException('Certificate mismatch', OCSP_CERT_MISMATCH);
