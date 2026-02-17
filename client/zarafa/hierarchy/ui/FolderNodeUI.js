@@ -234,10 +234,9 @@ Zarafa.hierarchy.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 			case Zarafa.hierarchy.data.CounterTypes.TOTAL:
 				// update total count, only update the CSS classes when something has changed.
 				if (!Ext.isDefined(currentCounterType)) {
-					elNode.addClass(['zarafa-hierarchy-node-total-count', 'zarafa-hierarchy-node-withcounter']);
+					elNode.addClass('zarafa-hierarchy-node-total-count');
 				} else if (currentCounterType !== newCounterType) {
 					elNode.replaceClass('zarafa-hierarchy-node-unread-count', 'zarafa-hierarchy-node-total-count');
-					elNode.addClass('zarafa-hierarchy-node-withcounter');
 				}
 				counterNode.removeClass('zarafa-hierarchy-node-nopadding');
 				counterNode.update("[" + folder.getCounterValue() + "]");
@@ -246,10 +245,9 @@ Zarafa.hierarchy.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 			case Zarafa.hierarchy.data.CounterTypes.UNREAD:
 				// update unread count, only update the CSS classes when something has changed.
 				if (!Ext.isDefined(currentCounterType)) {
-					elNode.addClass(['zarafa-hierarchy-node-unread-count', 'zarafa-hierarchy-node-withcounter']);
+					elNode.addClass('zarafa-hierarchy-node-unread-count');
 				} else if (currentCounterType !== newCounterType) {
 					elNode.replaceClass('zarafa-hierarchy-node-total-count', 'zarafa-hierarchy-node-unread-count');
-					elNode.addClass('zarafa-hierarchy-node-withcounter');
 				}
 				counterNode.removeClass('zarafa-hierarchy-node-nopadding');
 				counterNode.update(folder.getCounterValue());
@@ -261,7 +259,6 @@ Zarafa.hierarchy.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 				// remove values from counter node, only update the CSS classes when something has changed.
 				if (Ext.isDefined(currentCounterType) && currentCounterType !== newCounterType) {
 					elNode.removeClass(['zarafa-hierarchy-node-total-count', 'zarafa-hierarchy-node-unread-count']);
-					elNode.removeClass('zarafa-hierarchy-node-withcounter');
 				}
 				counterNode.addClass('zarafa-hierarchy-node-nopadding');
 				counterNode.update('');
@@ -269,6 +266,14 @@ Zarafa.hierarchy.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 				break;
 		}
 		this.currentCounterType = newCounterType;
+
+		// Bold is driven by unread count, independent of counter type.
+		var hasUnread = folder.get('content_unread') > 0;
+		if (hasUnread) {
+			elNode.addClass('zarafa-hierarchy-node-withcounter');
+		} else {
+			elNode.removeClass('zarafa-hierarchy-node-withcounter');
+		}
 	},
 
 	/**
