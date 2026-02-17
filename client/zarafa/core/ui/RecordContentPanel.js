@@ -904,7 +904,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	onBeforeUnload: function()
 	{
 		if (this.fireEvent('beforeclose', this) !== false) {
-			if(this.recordComponentPlugin.isChangedByUser && this.record.dirty){
+			if (this.recordComponentPlugin && this.recordComponentPlugin.isChangedByUser === true) {
 				return this.unSaveWarningMessage;
 			}
 		}

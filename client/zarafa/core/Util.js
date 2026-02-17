@@ -613,17 +613,44 @@ Zarafa.core.Util =
 	},
 
 	/**
+	 * Check if one of the opened content panels contains unsaved user changes.
+	 * @return {Boolean} true if there are unsaved changes.
+	 */
+	hasUnsavedContentPanels: function()
+	{
+		var contentPanels = Zarafa.core.data.ContentPanelMgr && Zarafa.core.data.ContentPanelMgr.contentPanels;
+
+		if (!(contentPanels instanceof Ext.util.MixedCollection)) {
+			return false;
+		}
+
+		return contentPanels.findIndexBy(function(contentPanel) {
+			return (
+				contentPanel &&
+				contentPanel.isDestroyed !== true &&
+				Ext.isFunction(contentPanel.isXType) &&
+				contentPanel.isXType('zarafa.recordcontentpanel') &&
+				contentPanel.recordComponentPlugin &&
+				contentPanel.recordComponentPlugin.isChangedByUser === true
+			);
+		}) !== -1;
+	},
+
+	/**
 	 * Function which is show confirm dialog when user trying to leave the page.
 	 * It will also check the value of {#Zarafa.core.Util.skipRequester skipRequester}
 	 * If it's true then it will not show the confirm dialog.
+	 * It only shows the confirm dialog when there are unsaved changes.
 	 */
 	onBeforeUnload: function()
 	{
-		if(!this.skipRequester) {
-			return _('Your changes will be lost if you leave this page now.');
-		} else {
+		if(this.skipRequester) {
 			this.skipRequester = false;
 			return;
+		}
+
+		if (this.hasUnsavedContentPanels()) {
+			return _('Your changes will be lost if you leave this page now.');
 		}
 	},
 
