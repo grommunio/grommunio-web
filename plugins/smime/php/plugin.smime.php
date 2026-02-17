@@ -534,6 +534,38 @@ class Pluginsmime extends Plugin {
 		fwrite($fp, "Content-Description: S/MIME Encrypted Message\n\n");
 		fwrite($fp, chunk_split(base64_encode((string) $data['data']), 72) . "\n");
 		fclose($fp);
+
+		// Detect opaque-signed messages (signed-data) arriving through
+		// the encrypted hook.  Both opaque-signed and encrypted use the
+		// same IPM.Note.SMIME message class, but only signed-data can
+		// be processed by openssl_pkcs7_verify.
+		$opaqueMsg = $this->createTempFile('smime_opaque_');
+		$opaqueCert = $this->createTempFile('smime_opcert_');
+		$isOpaqueSigned = openssl_pkcs7_verify($tmpFile, PKCS7_NOVERIFY, $opaqueCert, [], $opaqueCert, $opaqueMsg);
+		$opaqueContent = ($isOpaqueSigned === true) ? file_get_contents($opaqueMsg) : '';
+		$this->cleanupTempFiles([$opaqueMsg, $opaqueCert]);
+
+		if ($isOpaqueSigned === true && !empty($opaqueContent)) {
+			$this->message['type'] = 'signed';
+			$copyProps = mapi_getprops($data['message'], [PR_MESSAGE_DELIVERY_TIME, PR_SENDER_ENTRYID, PR_SENT_REPRESENTING_ENTRYID, PR_TRANSPORT_MESSAGE_HEADERS]);
+			mapi_inetmapi_imtomapi(
+				$GLOBALS['mapisession']->getSession(),
+				$data['store'],
+				$GLOBALS['mapisession']->getAddressbook(),
+				$data['message'],
+				$opaqueContent,
+				['parse_smime_signed' => true]
+			);
+			$this->join_xph($copyProps, $data['message']);
+			mapi_setprops($data['message'], $copyProps);
+
+			$eml = file_get_contents($tmpFile);
+			$this->cleanupTempFiles([$tmpFile]);
+			$this->verifyMessage($data['message'], $eml);
+
+			return;
+		}
+
 		if (isset($pass) && !empty($pass)) {
 			$certs = readPrivateCert($this->getStore(), $pass, false);
 			// create random file for saving the encrypted and body message
@@ -559,8 +591,13 @@ class Pluginsmime extends Plugin {
 			$content = file_get_contents($tmpDecrypted);
 			// Handle OL empty body Outlook Signed & Encrypted mails.
 			// The S/MIME plugin has to extract the body from the signed message.
+			// Keep the original decrypted EML for signature verification,
+			// since the extraction below replaces $content with the
+			// unwrapped body that no longer contains 'signed-data'.
+			$signedEml = '';
 			if (str_contains($content, 'signed-data')) {
 				$this->message['type'] = 'encryptsigned';
+				$signedEml = $content;
 				$olcert = tempnam(sys_get_temp_dir(), true);
 				$olmsg = tempnam(sys_get_temp_dir(), true);
 				openssl_pkcs7_verify($tmpDecrypted, PKCS7_NOVERIFY, $olcert);
@@ -586,6 +623,9 @@ class Pluginsmime extends Plugin {
 				$this->message['type'] = 'encryptsigned';
 				$this->verifyMessage($data['message'], $content);
 			}
+			elseif (!empty($signedEml)) {
+				$this->verifyMessage($data['message'], $signedEml);
+			}
 			elseif ($decryptStatus) {
 				$this->message['info'] = SMIME_DECRYPT_SUCCESS;
 				$this->message['success'] = SMIME_STATUS_SUCCESS;
@@ -598,12 +638,15 @@ class Pluginsmime extends Plugin {
 			}
 		}
 		else {
-			// it might also be a signed message only. Verify it.
-			$msg = tempnam(sys_get_temp_dir(), true);
+			// Opaque-signed messages are normally caught by the early
+			// detection above.  This branch acts as a defensive
+			// fallback and handles the encrypted-without-passphrase
+			// case ("unlock cert").
+			$msg = $this->createTempFile('smime_fallback_');
 			$ret = openssl_pkcs7_verify($tmpFile, PKCS7_NOVERIFY, null, [], null, $msg);
 			$content = file_get_contents($msg);
-			unlink($tmpFile);
-			unlink($msg);
+			$eml = file_get_contents($tmpFile);
+			$this->cleanupTempFiles([$tmpFile, $msg]);
 			if ($ret === true && !empty($content)) {
 				$copyProps = mapi_getprops($data['message'], [PR_MESSAGE_DELIVERY_TIME, PR_SENDER_ENTRYID, PR_SENT_REPRESENTING_ENTRYID, PR_TRANSPORT_MESSAGE_HEADERS]);
 				mapi_inetmapi_imtomapi(
@@ -615,11 +658,9 @@ class Pluginsmime extends Plugin {
 					['parse_smime_signed' => true]
 				);
 				$this->join_xph($copyProps, $data['message']);
-				// Manually set time back to the received time, since mapi_inetmapi_imtomapi overwrites this
 				mapi_setprops($data['message'], $copyProps);
-				$this->message['type'] = 'encryptsigned';
-				$this->message['info'] = SMIME_DECRYPT_SUCCESS;
-				$this->message['success'] = SMIME_STATUS_SUCCESS;
+				$this->message['type'] = 'signed';
+				$this->verifyMessage($data['message'], $eml);
 			}
 			else {
 				$this->message['info'] = SMIME_UNLOCK_CERT;
