@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Estonian (Estonia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-26 01:37+0200\n"
+"POT-Creation-Date: 2026-02-17 17:54+0100\n"
 "PO-Revision-Date: 2025-05-21 10:01+0000\n"
 "Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/grommunio/"
@@ -347,9 +347,6 @@ msgstr "Märkmed"
 
 msgid "Members"
 msgstr "Liikmed"
-
-msgid "Icon"
-msgstr "Ikoon"
 
 msgid "Email Address"
 msgstr "E-posti aadress"
@@ -1052,9 +1049,6 @@ msgstr "Hõivatud osalejad"
 msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr "Üks või mitu osalejat on hõivatud. Kas olete kindel, et kutsute?"
 
-msgid "Preview"
-msgstr "Eelvaade"
-
 msgid "Scheduling"
 msgstr "Ajaplaneerimine"
 
@@ -1223,6 +1217,9 @@ msgstr "Isiklik"
 
 msgid "Mark this appointment as private"
 msgstr "Märgi see kohtumine eraviisiliseks"
+
+msgid "Message Options"
+msgstr "Sõnumi valikud"
 
 msgid "Proposed Date and Time"
 msgstr "Kavandatud kuupäev ja kellaaeg"
@@ -1486,11 +1483,17 @@ msgstr "Kohtumist ei leitud"
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "See kohtumine on ümber paigutatud või kustutatud, kas soovite jätkata?"
 
+msgid "Options"
+msgstr "Valikud"
+
 msgid "All Day"
 msgstr "Kogu päev"
 
 msgid "Sort by: All Day"
 msgstr "Sorteerimine: Kogu päev"
+
+msgid "Icon"
+msgstr "Ikoon"
 
 msgid "Recurring"
 msgstr "Korduvad"
@@ -1563,6 +1566,9 @@ msgstr "Sorteerimine: Meeldetuletus"
 
 msgid "Sort by: Sensitivity"
 msgstr "Sorteerimine: Tundlikkus"
+
+msgid "Sort by: Importance"
+msgstr "Sorteerimine: Olulisus"
 
 msgid "Loading appointments"
 msgstr "Kohtumiste laadimine"
@@ -2007,6 +2013,9 @@ msgstr "Faili üleslaadimine"
 msgid "Attach item"
 msgstr "Kinnitage objekt"
 
+msgid "Preview"
+msgstr "Eelvaade"
+
 msgid "Download"
 msgstr "Laadi alla"
 
@@ -2222,6 +2231,12 @@ msgstr[1] "{0} sõnumit on valitud."
 msgid "Folder '{0}' selected."
 msgstr "Kaust '{0}' valitud."
 
+msgid "Unable to perform action"
+msgstr "Toimingut ei saa teha"
+
+msgid "The selected items are no longer available."
+msgstr "Valitud üksused pole enam saadaval."
+
 msgid ""
 "You have insufficient privileges to move this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
@@ -2249,6 +2264,12 @@ msgstr "Kas soovid hoopis kopeerida?"
 
 msgid "Do not show this message again."
 msgstr "Ära näita seda teadet uuesti."
+
+msgid "Properties"
+msgstr "Omadused"
+
+msgid "Object ID"
+msgstr "Objekti ID"
 
 msgid "ICS"
 msgstr "ICS"
@@ -2578,8 +2599,11 @@ msgstr "Iga {A} nädala(de) kohta"
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr "Loo uus ülesanne {A} nädal(at) pärast iga ülesande täitmist uuesti"
 
-msgid "Every {A} {B}"
-msgstr "Iga {A} {B}"
+msgid "Every {A} years(s) on"
+msgstr "Iga {A} aasta tagant kuupäeval"
+
+msgid "{A} {B}"
+msgstr "{A} {B}"
 
 msgid "The {A} {B} of {C}"
 msgstr "{A} {B} {C}"
@@ -3841,11 +3865,11 @@ msgstr "Oodake teist isikut"
 msgid "Deferred"
 msgstr "Edasilükatud"
 
-msgid "Dark"
-msgstr "Tume"
+msgid "Purple"
+msgstr "Lilla"
 
-msgid "High Contrast"
-msgstr "Suur kontrast"
+msgid "Orange"
+msgstr "Oranž"
 
 msgid "Lime"
 msgstr "Lime"
@@ -3853,11 +3877,26 @@ msgstr "Lime"
 msgid "Magenta"
 msgstr "Magenta"
 
-msgid "Orange"
-msgstr "Oranž"
+msgid "High Contrast"
+msgstr "Suur kontrast"
 
-msgid "Purple"
-msgstr "Lilla"
+msgid "Cyan"
+msgstr "Tsüaan"
+
+msgid "Teal"
+msgstr "Sinakasroheline"
+
+msgid "Indigo"
+msgstr "Indigo"
+
+msgid "Red"
+msgstr "Punane"
+
+msgid "Brown"
+msgstr "Pruun"
+
+msgid "Dark"
+msgstr "Tume"
 
 msgid "Logout"
 msgstr "Välju"
@@ -4114,17 +4153,11 @@ msgstr "Sihtkoht puudub"
 msgid "You must select a destination folder."
 msgstr "Peate valima sihtkausta."
 
-msgid "Properties"
-msgstr "Omadused"
-
 msgid "Type"
 msgstr "Tüüp"
 
 msgid "Description"
 msgstr "Kirjeldus"
-
-msgid "Object ID"
-msgstr "Objekti ID"
 
 msgid "Folder size"
 msgstr "Kausta suurus"
@@ -4369,18 +4402,12 @@ msgstr "CC"
 msgid "BCC"
 msgstr "BCC"
 
-msgid "Sort by: Importance"
-msgstr "Sorteerimine: Olulisus"
-
 msgid "Sort by: To"
 msgstr "Järjesta: saaja alusel"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Sent"
 msgstr "Saadetud"
-
-msgid "Red"
-msgstr "Punane"
 
 msgid "Original message"
 msgstr "Algne sõnum"
@@ -4433,9 +4460,6 @@ msgstr "Salvestatud aadressil {0}"
 msgid "Saving failed"
 msgstr "Salvestamine ei õnnestunud"
 
-msgid "Message Options"
-msgstr "Sõnumi valikud"
-
 msgid "This message will be flagged for follow up when it is sent."
 msgstr "See sõnum märgitakse peale saatmist jätkutoiminguteks."
 
@@ -4450,9 +4474,6 @@ msgstr "Lisage sellele e-kirjale manuseid"
 
 msgid "Add signature"
 msgstr "Allkirja lisamine"
-
-msgid "Options"
-msgstr "Valikud"
 
 msgid "Open options dialog"
 msgstr "Avage valikute dialoog"
@@ -6169,6 +6190,9 @@ msgstr "Viimati uuendatud"
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
 
+msgid "Last connect"
+msgstr "Viimane ühendus"
+
 msgid "Synchronize"
 msgstr "Sünkroniseeri"
 
@@ -6207,8 +6231,8 @@ msgstr "Teie kontoga ei ole ühendatud ühtegi seadet"
 msgid "Provisioning Status"
 msgstr "Provisionimise staatus"
 
-msgid "Last Update"
-msgstr "Viimane uuendus"
+msgid "Last Connect"
+msgstr "Viimane ühendus"
 
 msgid "Device ID"
 msgstr "Seadme ID"
@@ -6944,8 +6968,17 @@ msgstr "Zip-faili genereerimine ebaõnnestus. Palun teavitage administraatorit."
 msgid "This file is no longer available. Please reload the folder."
 msgstr "See fail ei ole enam saadaval. Palun laadi kaust uuesti."
 
+msgid "Kendox certificate path is not configured."
+msgstr "Kendoxi sertifikaadi tee pole seadistatud."
+
+msgid "Kendox certificate password is not configured."
+msgstr "Kendoxi sertifikaadi parool pole seadistatud."
+
 msgid "Kendox certificate is not available."
 msgstr "Kendoxi sertifikaat ei ole saadaval."
+
+msgid "Kendox certificate is not readable."
+msgstr "Kendoxi sertifikaati ei saa lugeda."
 
 msgid "Mobile device management plugin"
 msgstr "Mobiilse seadme haldamise plugin"
@@ -7149,34 +7182,6 @@ msgstr "Ülesande taotlus"
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "Ei leidnud sõnumit, kas see on ümber paigutatud või kustutatud."
 
-msgid "Request is not available."
-msgstr "Taotlus ei ole saadaval."
-
-msgid "You have insufficient privileges to open this object."
-msgstr "Teil ei ole selle objekti avamiseks piisavalt õigusi."
-
-msgid "Logon Failed. Please check your name/password."
-msgstr "Sisselogimine ei õnnestunud, palun kontrolli oma nime ja/või salasõna."
-
-msgid "Can not connect to Gromox."
-msgstr "Ei saa ühendust Gromoxi serveriga."
-
-msgid "Can not open object with provided id."
-msgstr "Ei saa antud id-ga objekti avada."
-
-msgid "There are no recipients in the message."
-msgstr "Sõnumis ei ole ühtegi adressaati."
-
-msgid "Can not find object."
-msgstr "Ei leia objekti."
-
-msgid "Operation failed: Server does not have enough memory."
-msgstr "Operatsioon ebaõnnestus: Serveril ei ole piisavalt mälu."
-
-#, php-format
-msgid "Unknown MAPI Error: %s"
-msgstr "Tundmatu MAPI viga: %s"
-
 msgid "Action is not performed correctly."
 msgstr "Tegevus ei ole korrektselt sooritatud."
 
@@ -7185,6 +7190,18 @@ msgstr "Seda tüüpi objekti ei saanud käsitleda."
 
 msgid "Could not open this object."
 msgstr "Seda objekti ei saanud avada."
+
+msgid "Domain Contact Folders"
+msgstr "Domeeni kontaktikaustad"
+
+msgid "Personal Contact Folders"
+msgstr "Isiklikud kontaktikaustad"
+
+msgid "Shared Contact Folders"
+msgstr "Jagatud kontaktikaustad"
+
+msgid "Public Contact Folders"
+msgstr "Avalikud kontaktikaustad"
 
 msgid "Error in search, please try again"
 msgstr "Viga otsingus, palun proovige uuesti"
@@ -7653,9 +7670,6 @@ msgstr "grommunio Web ei toeta selle versiooniga mitme VCF-i importimist."
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr "grommunio Web ei toeta selle versiooniga mitme ICS-i importimist."
-
-msgid "The EML is not valid"
-msgstr "EML ei ole kehtiv"
 
 msgid "GB"
 msgstr "GB"

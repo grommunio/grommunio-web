@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Spanish (Spain)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-26 01:37+0200\n"
+"POT-Creation-Date: 2026-02-17 17:54+0100\n"
 "PO-Revision-Date: 2024-01-03 16:10+0000\n"
 "Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/grommunio/"
@@ -311,8 +311,8 @@ msgstr "falso"
 msgid ""
 "This field should be an e-mail address in the format \"user@example.com\""
 msgstr ""
-"Este campo debe tener una dirección de email con el formato \"user@example."
-"com\""
+"Este campo debe tener una dirección de email con el formato "
+"\"user@example.com\""
 
 msgid "This field should be a URL in the format \"{0}\""
 msgstr "Este campo debe tener una URL en el formato \"{0}\""
@@ -349,9 +349,6 @@ msgstr "Notas"
 
 msgid "Members"
 msgstr "Miembros"
-
-msgid "Icon"
-msgstr "Icono"
 
 msgid "Email Address"
 msgstr "Dirección de correo electrónico"
@@ -1099,9 +1096,6 @@ msgstr ""
 "Uno o más asistentes que usted ha invitado están ocupados. ¿Está usted "
 "seguro de invitarlos?"
 
-msgid "Preview"
-msgstr "Vista Previa"
-
 msgid "Scheduling"
 msgstr "Programación"
 
@@ -1275,6 +1269,9 @@ msgstr "Privado"
 
 msgid "Mark this appointment as private"
 msgstr "Marcar esta cita como privada"
+
+msgid "Message Options"
+msgstr "Opciones de Mensaje"
 
 msgid "Proposed Date and Time"
 msgstr "Propuesta de fecha y hora"
@@ -1552,11 +1549,17 @@ msgstr "Turno no encontrado"
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Esta cita ha sido movida o borrada, ¿desea continuar?"
 
+msgid "Options"
+msgstr "Opciones"
+
 msgid "All Day"
 msgstr "Todo el día"
 
 msgid "Sort by: All Day"
 msgstr "Ordenar por: Todo el día"
+
+msgid "Icon"
+msgstr "Icono"
 
 msgid "Recurring"
 msgstr "Recurrente"
@@ -1637,6 +1640,9 @@ msgstr "Ordenar por: Recordatorio de Tiempo"
 
 msgid "Sort by: Sensitivity"
 msgstr "Ordenar por: Sensibilidad"
+
+msgid "Sort by: Importance"
+msgstr "Ordenar por: Importancia"
 
 msgid "Loading appointments"
 msgstr "Cargando citas"
@@ -2137,6 +2143,9 @@ msgstr "Subir archivo"
 msgid "Attach item"
 msgstr "Adjuntar elemento"
 
+msgid "Preview"
+msgstr "Vista Previa"
+
 msgid "Download"
 msgstr "Descarga"
 
@@ -2377,6 +2386,12 @@ msgstr[1] "Hay {0} mensajes seleccionados."
 msgid "Folder '{0}' selected."
 msgstr "Carpeta '{0}' seleccionada."
 
+msgid "Unable to perform action"
+msgstr "No se puede realizar la acción"
+
+msgid "The selected items are no longer available."
+msgstr "Los elementos seleccionados ya no están disponibles."
+
 #, fuzzy
 msgid ""
 "You have insufficient privileges to move this folder. Ask the folder owner "
@@ -2409,6 +2424,12 @@ msgstr "¿Quiere copiar en su lugar?"
 #, fuzzy
 msgid "Do not show this message again."
 msgstr "No vuelva a mostrar este mensaje."
+
+msgid "Properties"
+msgstr "Propiedades"
+
+msgid "Object ID"
+msgstr "ID del objeto"
 
 msgid "ICS"
 msgstr "ICS"
@@ -2774,8 +2795,11 @@ msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr ""
 "Regenerar una nueva tarea {A} semana(s) después que cada tarea sea completada"
 
-msgid "Every {A} {B}"
-msgstr "Cada {A} {B}"
+msgid "Every {A} years(s) on"
+msgstr "Cada {A} año(s) el"
+
+msgid "{A} {B}"
+msgstr "{A} {B}"
 
 msgid "The {A} {B} of {C}"
 msgstr "El {A} {B} de {C}"
@@ -4142,11 +4166,11 @@ msgstr "Espere a otra persona"
 msgid "Deferred"
 msgstr "Postergada"
 
-msgid "Dark"
-msgstr "Oscuro"
+msgid "Purple"
+msgstr "Violeta"
 
-msgid "High Contrast"
-msgstr "Alto contraste"
+msgid "Orange"
+msgstr "Naranja"
 
 msgid "Lime"
 msgstr "Lima"
@@ -4154,11 +4178,26 @@ msgstr "Lima"
 msgid "Magenta"
 msgstr "Magenta"
 
-msgid "Orange"
-msgstr "Naranja"
+msgid "High Contrast"
+msgstr "Alto contraste"
 
-msgid "Purple"
-msgstr "Violeta"
+msgid "Cyan"
+msgstr "Cian"
+
+msgid "Teal"
+msgstr "Verde azulado"
+
+msgid "Indigo"
+msgstr "Índigo"
+
+msgid "Red"
+msgstr "Rojo"
+
+msgid "Brown"
+msgstr "Marrón"
+
+msgid "Dark"
+msgstr "Oscuro"
 
 msgid "Logout"
 msgstr "Salir"
@@ -4444,17 +4483,11 @@ msgstr "Sin Información"
 msgid "You must select a destination folder."
 msgstr "Ud. debe seleccionar una carpeta destino."
 
-msgid "Properties"
-msgstr "Propiedades"
-
 msgid "Type"
 msgstr "Tipo"
 
 msgid "Description"
 msgstr "Descripción"
-
-msgid "Object ID"
-msgstr "ID del objeto"
 
 msgid "Folder size"
 msgstr "Tamaño carpeta"
@@ -4711,18 +4744,12 @@ msgstr "CC"
 msgid "BCC"
 msgstr "CCO"
 
-msgid "Sort by: Importance"
-msgstr "Ordenar por: Importancia"
-
 msgid "Sort by: To"
 msgstr "Ordenar por: Para"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Sent"
 msgstr "Enviado"
-
-msgid "Red"
-msgstr "Rojo"
 
 msgid "Original message"
 msgstr "Mensaje original"
@@ -4784,9 +4811,6 @@ msgstr "Mensaje guardado a las {0}"
 msgid "Saving failed"
 msgstr "Error al guardar"
 
-msgid "Message Options"
-msgstr "Opciones de Mensaje"
-
 #, fuzzy
 msgid "This message will be flagged for follow up when it is sent."
 msgstr "Este mensaje se marcará para su seguimiento cuando se envíe."
@@ -4804,9 +4828,6 @@ msgstr "Añadir adjuntos a este Correo Electrónico"
 
 msgid "Add signature"
 msgstr "Añadir Firma"
-
-msgid "Options"
-msgstr "Opciones"
 
 msgid "Open options dialog"
 msgstr "Abrir cuadro de diálogo de Opciones"
@@ -6747,6 +6768,9 @@ msgstr "Última actualización"
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
 
+msgid "Last connect"
+msgstr "Última conexión"
+
 msgid "Synchronize"
 msgstr "Sincronizar"
 
@@ -6793,8 +6817,8 @@ msgstr "No hay dispositivos conectados a su cuenta"
 msgid "Provisioning Status"
 msgstr "Estado de aprovisionamiento"
 
-msgid "Last Update"
-msgstr "Última Actualización"
+msgid "Last Connect"
+msgstr "Última conexión"
 
 msgid "Device ID"
 msgstr "ID de dispositivo"
@@ -7689,8 +7713,17 @@ msgid "This file is no longer available. Please reload the folder."
 msgstr ""
 "Este archivo ya no está disponible. Por favor, vuelva a cargar la carpeta."
 
+msgid "Kendox certificate path is not configured."
+msgstr "La ruta del certificado de Kendox no está configurada."
+
+msgid "Kendox certificate password is not configured."
+msgstr "La contraseña del certificado de Kendox no está configurada."
+
 msgid "Kendox certificate is not available."
 msgstr ""
+
+msgid "Kendox certificate is not readable."
+msgstr "El certificado de Kendox no se puede leer."
 
 #, fuzzy
 msgid "Mobile device management plugin"
@@ -7944,39 +7977,6 @@ msgstr ""
 "No se ha podido encontrar el mensaje, o bien se ha movido o se ha borrado."
 
 #, fuzzy
-msgid "Request is not available."
-msgstr "La solicitud no está disponible."
-
-msgid "You have insufficient privileges to open this object."
-msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta."
-
-msgid "Logon Failed. Please check your name/password."
-msgstr "Registro fallido. Por favor compruebe su nombre/contraseña."
-
-#, fuzzy
-msgid "Can not connect to Gromox."
-msgstr "No se ha podido conectar con el servidor de grommunio."
-
-#, fuzzy
-msgid "Can not open object with provided id."
-msgstr "No se puede abrir el objeto con el id proporcionado."
-
-#, fuzzy
-msgid "There are no recipients in the message."
-msgstr "No hay destinatarios en el mensaje."
-
-msgid "Can not find object."
-msgstr "No se ha podido encontrar el objeto."
-
-#, fuzzy
-msgid "Operation failed: Server does not have enough memory."
-msgstr "Operación fallida: El servidor no tiene suficiente memoria."
-
-#, fuzzy, php-format
-msgid "Unknown MAPI Error: %s"
-msgstr "Error MAPI desconocido: %s"
-
-#, fuzzy
 msgid "Action is not performed correctly."
 msgstr "La acción no se realiza correctamente."
 
@@ -7987,6 +7987,18 @@ msgstr "No se puede manejar este tipo de objeto."
 #, fuzzy
 msgid "Could not open this object."
 msgstr "No se ha podido abrir este objeto."
+
+msgid "Domain Contact Folders"
+msgstr "Carpetas de contactos del dominio"
+
+msgid "Personal Contact Folders"
+msgstr "Carpetas de contactos personales"
+
+msgid "Shared Contact Folders"
+msgstr "Carpetas de contactos compartidas"
+
+msgid "Public Contact Folders"
+msgstr "Carpetas de contactos públicas"
 
 #, fuzzy
 msgid "Error in search, please try again"
@@ -8582,10 +8594,6 @@ msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
 "grommunio Web no soporta la importación de múltiples ICS con esta versión."
-
-#, fuzzy
-msgid "The EML is not valid"
-msgstr "El EML no es válido"
 
 msgid "GB"
 msgstr "GB"

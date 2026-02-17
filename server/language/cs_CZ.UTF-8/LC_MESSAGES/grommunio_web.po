@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-26 01:37+0200\n"
+"POT-Creation-Date: 2026-02-17 17:54+0100\n"
 "PO-Revision-Date: 2022-07-26 14:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -360,9 +360,6 @@ msgstr "Poznámky"
 
 msgid "Members"
 msgstr "Členové"
-
-msgid "Icon"
-msgstr "Ikona"
 
 msgid "Email Address"
 msgstr "E-mailová adresa"
@@ -1093,9 +1090,6 @@ msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr ""
 "Jeden či více pozvaných účastníků je zaneprázdněno. Chcete přesto pozvat?"
 
-msgid "Preview"
-msgstr "Náhled"
-
 msgid "Scheduling"
 msgstr "Plánování"
 
@@ -1267,6 +1261,9 @@ msgstr "Soukromé"
 
 msgid "Mark this appointment as private"
 msgstr "Označit tuto schůzku jako soukromou"
+
+msgid "Message Options"
+msgstr "Možnosti zpráv"
 
 msgid "Proposed Date and Time"
 msgstr "Navrhované datum a čas"
@@ -1539,11 +1536,17 @@ msgstr "Termín"
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Tato schůzka byla přesunuta nebo smazána, chcete pokračovat?"
 
+msgid "Options"
+msgstr "Možnosti"
+
 msgid "All Day"
 msgstr "Celodenní"
 
 msgid "Sort by: All Day"
 msgstr "Třídit podle: Celodenní"
+
+msgid "Icon"
+msgstr "Ikona"
 
 msgid "Recurring"
 msgstr "Opakování"
@@ -1620,6 +1623,9 @@ msgstr "Třídit podle: Připomínka"
 
 msgid "Sort by: Sensitivity"
 msgstr "Třídit podle: Důvěrnost"
+
+msgid "Sort by: Importance"
+msgstr "Třídit podle: Důležitost"
 
 msgid "Loading appointments"
 msgstr "Načítání schůzek"
@@ -2105,6 +2111,9 @@ msgstr "Nahrát soubor"
 msgid "Attach item"
 msgstr "Přidat přílohu"
 
+msgid "Preview"
+msgstr "Náhled"
+
 msgid "Download"
 msgstr "Stáhnout"
 
@@ -2335,6 +2344,12 @@ msgstr[2] "Je vybráno {0} zpráv."
 msgid "Folder '{0}' selected."
 msgstr "Vybrána složka '{0}'."
 
+msgid "Unable to perform action"
+msgstr "Akci se nepodařilo provést"
+
+msgid "The selected items are no longer available."
+msgstr "Vybrané položky již nejsou k dispozici."
+
 #, fuzzy
 msgid ""
 "You have insufficient privileges to move this folder. Ask the folder owner "
@@ -2364,6 +2379,12 @@ msgstr "Chcete místo toho kopírovat?"
 
 msgid "Do not show this message again."
 msgstr "Tuto zprávu již nezobrazovat."
+
+msgid "Properties"
+msgstr "Vlastnosti"
+
+msgid "Object ID"
+msgstr "ID objektu"
 
 msgid "ICS"
 msgstr "ICS"
@@ -2718,8 +2739,11 @@ msgstr "Každý {A} týden(y) na"
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr "Znovu vytvořit nový úkol {A} týden(y) po každém dokončení úkolu"
 
-msgid "Every {A} {B}"
-msgstr "Každý {A} {B}"
+msgid "Every {A} years(s) on"
+msgstr "Každých {A} let dne"
+
+msgid "{A} {B}"
+msgstr "{A} {B}"
 
 msgid "The {A} {B} of {C}"
 msgstr "{A} {B} v {C}"
@@ -4072,11 +4096,11 @@ msgstr "Čekat na jinou osobu"
 msgid "Deferred"
 msgstr "Odloženo"
 
-msgid "Dark"
-msgstr "Tmavý"
+msgid "Purple"
+msgstr "Fialová"
 
-msgid "High Contrast"
-msgstr "Vysoký kontrast"
+msgid "Orange"
+msgstr "Oranžová"
 
 msgid "Lime"
 msgstr "Citrónová"
@@ -4084,11 +4108,26 @@ msgstr "Citrónová"
 msgid "Magenta"
 msgstr "Magenta"
 
-msgid "Orange"
-msgstr "Oranžová"
+msgid "High Contrast"
+msgstr "Vysoký kontrast"
 
-msgid "Purple"
-msgstr "Fialová"
+msgid "Cyan"
+msgstr "Azurová"
+
+msgid "Teal"
+msgstr "Modrozelená"
+
+msgid "Indigo"
+msgstr "Indigová"
+
+msgid "Red"
+msgstr "Červená"
+
+msgid "Brown"
+msgstr "Hnědá"
+
+msgid "Dark"
+msgstr "Tmavý"
 
 msgid "Logout"
 msgstr "Odhlásit"
@@ -4382,17 +4421,11 @@ msgstr "Žádné informace"
 msgid "You must select a destination folder."
 msgstr "Musíte označit cílovou složku."
 
-msgid "Properties"
-msgstr "Vlastnosti"
-
 msgid "Type"
 msgstr "Typ"
 
 msgid "Description"
 msgstr "Popis"
-
-msgid "Object ID"
-msgstr "ID objektu"
 
 msgid "Folder size"
 msgstr "Velikost složky"
@@ -4655,18 +4688,12 @@ msgstr "Kopie"
 msgid "BCC"
 msgstr "Skrytá kopie"
 
-msgid "Sort by: Importance"
-msgstr "Třídit podle: Důležitost"
-
 msgid "Sort by: To"
 msgstr "Třídit podle: Komu"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Sent"
 msgstr "Odesláno"
-
-msgid "Red"
-msgstr "Červená"
 
 msgid "Original message"
 msgstr "Původní zpráva"
@@ -4729,9 +4756,6 @@ msgstr "Zpráva byla uložena o {0}."
 msgid "Saving failed"
 msgstr "Uložení se nezdařilo"
 
-msgid "Message Options"
-msgstr "Možnosti zpráv"
-
 #, fuzzy
 msgid "This message will be flagged for follow up when it is sent."
 msgstr "Tato zpráva bude po odeslání označena jako následná."
@@ -4749,9 +4773,6 @@ msgstr "Přidat přílohy k této zprávě"
 
 msgid "Add signature"
 msgstr "Přidat podpis"
-
-msgid "Options"
-msgstr "Možnosti"
 
 msgid "Open options dialog"
 msgstr "Otevřít dialog možností"
@@ -6730,6 +6751,9 @@ msgstr "Naposledy aktualizováno"
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
 
+msgid "Last connect"
+msgstr "Poslední připojení"
+
 msgid "Synchronize"
 msgstr "Synchronizovat"
 
@@ -6777,8 +6801,8 @@ msgstr "Žádná zařízení připojená k vašemu účtu"
 msgid "Provisioning Status"
 msgstr "Stav zajištění"
 
-msgid "Last Update"
-msgstr "Poslední aktualizace"
+msgid "Last Connect"
+msgstr "Poslední připojení"
 
 msgid "Device ID"
 msgstr "ID přístroje"
@@ -7667,8 +7691,17 @@ msgstr "Generování souboru Zip se nezdařilo. Informujte prosím správce."
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Tento soubor již není k dispozici. Prosím, načtěte složku znovu."
 
+msgid "Kendox certificate path is not configured."
+msgstr "Cesta k certifikátu Kendox není nakonfigurována."
+
+msgid "Kendox certificate password is not configured."
+msgstr "Heslo certifikátu Kendox není nakonfigurováno."
+
 msgid "Kendox certificate is not available."
 msgstr ""
+
+msgid "Kendox certificate is not readable."
+msgstr "Certifikát Kendox nelze číst."
 
 #, fuzzy
 msgid "Mobile device management plugin"
@@ -7910,37 +7943,6 @@ msgid "Could not find message, either it has been moved or deleted."
 msgstr "Zprávu se nepodařilo najít, buď byla přesunuta, nebo smazána."
 
 #, fuzzy
-msgid "Request is not available."
-msgstr "Požadavek není k dispozici."
-
-msgid "You have insufficient privileges to open this object."
-msgstr "Nemáte oprávnění otevřít tento předmět."
-
-msgid "Logon Failed. Please check your name/password."
-msgstr "Přihlášení selhalo. Zkontrolujte prosím vaše uživatelské jméno/heslo."
-
-#, fuzzy
-msgid "Can not connect to Gromox."
-msgstr "Nelze se připojit k grommunio serveru."
-
-msgid "Can not open object with provided id."
-msgstr "Nelze otevřít předmět s uvedenou identifikací."
-
-msgid "There are no recipients in the message."
-msgstr "Zpráva neobsahuje žádné příjemce."
-
-msgid "Can not find object."
-msgstr "Předmět nenalezen."
-
-#, fuzzy
-msgid "Operation failed: Server does not have enough memory."
-msgstr "Operace se nezdařila: Server nemá dostatek paměti."
-
-#, php-format
-msgid "Unknown MAPI Error: %s"
-msgstr "Neznámá MAPI chyba: %s"
-
-#, fuzzy
 msgid "Action is not performed correctly."
 msgstr "Akce není provedena správně."
 
@@ -7951,6 +7953,18 @@ msgstr "Tento typ objektu se nepodařilo zpracovat."
 #, fuzzy
 msgid "Could not open this object."
 msgstr "Tento objekt se nepodařilo otevřít."
+
+msgid "Domain Contact Folders"
+msgstr "Složky kontaktů domény"
+
+msgid "Personal Contact Folders"
+msgstr "Osobní složky kontaktů"
+
+msgid "Shared Contact Folders"
+msgstr "Sdílené složky kontaktů"
+
+msgid "Public Contact Folders"
+msgstr "Veřejné složky kontaktů"
 
 #, fuzzy
 msgid "Error in search, please try again"
@@ -8510,10 +8524,6 @@ msgstr "grommunio Web v této verzi nepodporuje import více VCF."
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr "grommunio Web v této verzi nepodporuje import více ICS."
-
-#, fuzzy
-msgid "The EML is not valid"
-msgstr "EML není platný"
 
 msgid "GB"
 msgstr "Stanovení zisků pro 4/3 banky"

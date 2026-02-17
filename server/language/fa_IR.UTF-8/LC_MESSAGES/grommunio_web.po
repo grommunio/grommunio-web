@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Farsi (Iran)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-26 01:37+0200\n"
+"POT-Creation-Date: 2026-02-17 17:54+0100\n"
 "PO-Revision-Date: 2017-10-05 19:48+0200\n"
 "Last-Translator: import\n"
 "Language: fa_IR\n"
@@ -334,9 +334,6 @@ msgid "Notes"
 msgstr ""
 
 msgid "Members"
-msgstr ""
-
-msgid "Icon"
 msgstr ""
 
 msgid "Email Address"
@@ -1030,9 +1027,6 @@ msgstr ""
 msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr ""
 
-msgid "Preview"
-msgstr ""
-
 msgid "Scheduling"
 msgstr ""
 
@@ -1197,6 +1191,9 @@ msgstr ""
 
 msgid "Mark this appointment as private"
 msgstr ""
+
+msgid "Message Options"
+msgstr "گزینه‌های پیام"
 
 msgid "Proposed Date and Time"
 msgstr ""
@@ -1452,11 +1449,17 @@ msgstr ""
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr ""
 
+msgid "Options"
+msgstr "گزینه‌ها"
+
 msgid "All Day"
 msgstr ""
 
 msgid "Sort by: All Day"
 msgstr ""
+
+msgid "Icon"
+msgstr "آیکون"
 
 msgid "Recurring"
 msgstr ""
@@ -1529,6 +1532,9 @@ msgstr ""
 
 msgid "Sort by: Sensitivity"
 msgstr ""
+
+msgid "Sort by: Importance"
+msgstr "مرتب‌سازی بر اساس: اهمیت"
 
 msgid "Loading appointments"
 msgstr ""
@@ -1935,6 +1941,9 @@ msgstr ""
 msgid "Attach item"
 msgstr ""
 
+msgid "Preview"
+msgstr "پیش‌نمایش"
+
 msgid "Download"
 msgstr ""
 
@@ -2136,6 +2145,12 @@ msgstr[0] ""
 msgid "Folder '{0}' selected."
 msgstr ""
 
+msgid "Unable to perform action"
+msgstr "انجام عملیات ممکن نیست"
+
+msgid "The selected items are no longer available."
+msgstr "موارد انتخاب‌شده دیگر در دسترس نیستند."
+
 msgid ""
 "You have insufficient privileges to move this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
@@ -2157,6 +2172,12 @@ msgstr ""
 
 msgid "Do not show this message again."
 msgstr ""
+
+msgid "Properties"
+msgstr "ویژگی‌ها"
+
+msgid "Object ID"
+msgstr "شناسهٔ شیء"
 
 msgid "ICS"
 msgstr ""
@@ -2481,8 +2502,11 @@ msgstr ""
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr ""
 
-msgid "Every {A} {B}"
-msgstr ""
+msgid "Every {A} years(s) on"
+msgstr "هر {A} سال در"
+
+msgid "{A} {B}"
+msgstr "{A} {B}"
 
 msgid "The {A} {B} of {C}"
 msgstr ""
@@ -3717,23 +3741,38 @@ msgstr ""
 msgid "Deferred"
 msgstr ""
 
-msgid "Dark"
-msgstr ""
-
-msgid "High Contrast"
-msgstr ""
-
-msgid "Lime"
-msgstr ""
-
-msgid "Magenta"
+msgid "Purple"
 msgstr ""
 
 msgid "Orange"
 msgstr ""
 
-msgid "Purple"
+msgid "Lime"
+msgstr "سبز لیمویی"
+
+msgid "Magenta"
 msgstr ""
+
+msgid "High Contrast"
+msgstr ""
+
+msgid "Cyan"
+msgstr "فیروزه‌ای"
+
+msgid "Teal"
+msgstr "سبزآبی"
+
+msgid "Indigo"
+msgstr "نیلی"
+
+msgid "Red"
+msgstr "قرمز"
+
+msgid "Brown"
+msgstr "قهوه‌ای"
+
+msgid "Dark"
+msgstr "تیره"
 
 msgid "Logout"
 msgstr ""
@@ -3982,16 +4021,10 @@ msgstr ""
 msgid "You must select a destination folder."
 msgstr ""
 
-msgid "Properties"
-msgstr ""
-
 msgid "Type"
 msgstr ""
 
 msgid "Description"
-msgstr ""
-
-msgid "Object ID"
 msgstr ""
 
 msgid "Folder size"
@@ -4231,17 +4264,11 @@ msgstr ""
 msgid "BCC"
 msgstr ""
 
-msgid "Sort by: Importance"
-msgstr ""
-
 msgid "Sort by: To"
 msgstr ""
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Sent"
-msgstr ""
-
-msgid "Red"
 msgstr ""
 
 msgid "Original message"
@@ -4295,9 +4322,6 @@ msgstr ""
 msgid "Saving failed"
 msgstr ""
 
-msgid "Message Options"
-msgstr ""
-
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 
@@ -4311,9 +4335,6 @@ msgid "Add attachments to this email"
 msgstr ""
 
 msgid "Add signature"
-msgstr ""
-
-msgid "Options"
 msgstr ""
 
 msgid "Open options dialog"
@@ -5999,6 +6020,9 @@ msgstr ""
 msgid "d F Y, H:i"
 msgstr ""
 
+msgid "Last connect"
+msgstr "آخرین اتصال"
+
 msgid "Synchronize"
 msgstr ""
 
@@ -6033,8 +6057,8 @@ msgstr ""
 msgid "Provisioning Status"
 msgstr ""
 
-msgid "Last Update"
-msgstr ""
+msgid "Last Connect"
+msgstr "آخرین اتصال"
 
 msgid "Device ID"
 msgstr ""
@@ -6720,8 +6744,17 @@ msgstr ""
 msgid "This file is no longer available. Please reload the folder."
 msgstr ""
 
+msgid "Kendox certificate path is not configured."
+msgstr "مسیر گواهی Kendox پیکربندی نشده است."
+
+msgid "Kendox certificate password is not configured."
+msgstr "گذرواژهٔ گواهی Kendox پیکربندی نشده است."
+
 msgid "Kendox certificate is not available."
 msgstr ""
+
+msgid "Kendox certificate is not readable."
+msgstr "گواهی Kendox قابل خواندن نیست."
 
 msgid "Mobile device management plugin"
 msgstr ""
@@ -6914,42 +6947,26 @@ msgstr ""
 msgid "Could not find message, either it has been moved or deleted."
 msgstr ""
 
-msgid "Request is not available."
-msgstr ""
-
-msgid "You have insufficient privileges to open this object."
-msgstr ""
-
-msgid "Logon Failed. Please check your name/password."
-msgstr ""
-
-msgid "Can not connect to Gromox."
-msgstr ""
-
-msgid "Can not open object with provided id."
-msgstr ""
-
-msgid "There are no recipients in the message."
-msgstr ""
-
-msgid "Can not find object."
-msgstr ""
-
-msgid "Operation failed: Server does not have enough memory."
-msgstr ""
-
-#, php-format
-msgid "Unknown MAPI Error: %s"
-msgstr ""
-
 msgid "Action is not performed correctly."
 msgstr ""
 
 msgid "Could not handle this type of object."
-msgstr ""
+msgstr "امکان پردازش این نوع شیء وجود ندارد."
 
 msgid "Could not open this object."
-msgstr ""
+msgstr "امکان باز کردن این شیء وجود ندارد."
+
+msgid "Domain Contact Folders"
+msgstr "پوشه‌های مخاطبان دامنه"
+
+msgid "Personal Contact Folders"
+msgstr "پوشه‌های مخاطبان شخصی"
+
+msgid "Shared Contact Folders"
+msgstr "پوشه‌های مخاطبان مشترک"
+
+msgid "Public Contact Folders"
+msgstr "پوشه‌های مخاطبان عمومی"
 
 msgid "Error in search, please try again"
 msgstr ""
@@ -7384,9 +7401,6 @@ msgstr ""
 
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
-msgstr ""
-
-msgid "The EML is not valid"
 msgstr ""
 
 msgid "GB"

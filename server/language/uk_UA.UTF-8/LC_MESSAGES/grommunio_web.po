@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Ukrainian (Ukraine)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-26 01:37+0200\n"
+"POT-Creation-Date: 2026-02-17 17:54+0100\n"
 "PO-Revision-Date: 2022-08-23 04:19+0000\n"
 "Last-Translator: Artem <artem@molotov.work>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/grommunio/"
@@ -358,9 +358,6 @@ msgstr "Примітки"
 
 msgid "Members"
 msgstr "Учасники"
-
-msgid "Icon"
-msgstr "Значок"
 
 msgid "Email Address"
 msgstr "Адреса ел. пошти"
@@ -1069,9 +1066,6 @@ msgstr "Зайняті учасники"
 msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr "Один або більше учасників зайняті. Ви впевнені, що слід запросити?"
 
-msgid "Preview"
-msgstr "Попередній перегляд"
-
 msgid "Scheduling"
 msgstr "Планування"
 
@@ -1240,6 +1234,9 @@ msgstr "Особисте"
 
 msgid "Mark this appointment as private"
 msgstr "Позначте цю зустріч як приватну"
+
+msgid "Message Options"
+msgstr "Параметри повідомлення"
 
 msgid "Proposed Date and Time"
 msgstr "Пропонована дата та час проведення"
@@ -1503,11 +1500,17 @@ msgstr "Зустріч не знайдено"
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Ця зустріч була перенесена або видалена, ви хочете продовжити?"
 
+msgid "Options"
+msgstr "Параметри"
+
 msgid "All Day"
 msgstr "Весь день"
 
 msgid "Sort by: All Day"
 msgstr "Сортувати по: Весь день"
+
+msgid "Icon"
+msgstr "Значок"
 
 msgid "Recurring"
 msgstr "Повторюється"
@@ -1580,6 +1583,9 @@ msgstr "Сортувати по: Нагадування"
 
 msgid "Sort by: Sensitivity"
 msgstr "Сортувати по: Чутливість"
+
+msgid "Sort by: Importance"
+msgstr "Сортувати по: Важливість"
 
 msgid "Loading appointments"
 msgstr "Завантаження зустрічей"
@@ -2023,6 +2029,9 @@ msgstr "Відвантаження файлу"
 msgid "Attach item"
 msgstr "Прикріпити елемент"
 
+msgid "Preview"
+msgstr "Попередній перегляд"
+
 msgid "Download"
 msgstr "Завантажити"
 
@@ -2243,6 +2252,12 @@ msgstr[2] ""
 msgid "Folder '{0}' selected."
 msgstr "Вибрано папку '{0}'."
 
+msgid "Unable to perform action"
+msgstr "Неможливо виконати дію"
+
+msgid "The selected items are no longer available."
+msgstr "Вибрані елементи більше недоступні."
+
 msgid ""
 "You have insufficient privileges to move this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
@@ -2268,6 +2283,12 @@ msgstr "Бажаєте скопіювати замість цього?"
 
 msgid "Do not show this message again."
 msgstr "Більше не показувати це повідомлення."
+
+msgid "Properties"
+msgstr "Властивості"
+
+msgid "Object ID"
+msgstr "Ідентифікатор об'єкта"
 
 msgid "ICS"
 msgstr "ICS"
@@ -2602,8 +2623,11 @@ msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr ""
 "Повторно створювати завдання через {A} тиждень(ів) після його завершення"
 
-msgid "Every {A} {B}"
-msgstr "Кожного дня {B}"
+msgid "Every {A} years(s) on"
+msgstr "Кожні {A} рок(и) у"
+
+msgid "{A} {B}"
+msgstr "{A} {B}"
 
 msgid "The {A} {B} of {C}"
 msgstr "{A} {B} з {C}"
@@ -3879,11 +3903,11 @@ msgstr "Зачекайте на іншу людину"
 msgid "Deferred"
 msgstr "Відкладено"
 
-msgid "Dark"
-msgstr "Темнота."
+msgid "Purple"
+msgstr "Фіолетовий."
 
-msgid "High Contrast"
-msgstr "Висока контрастність"
+msgid "Orange"
+msgstr "Помаранчевий"
 
 msgid "Lime"
 msgstr "Вапно."
@@ -3891,11 +3915,26 @@ msgstr "Вапно."
 msgid "Magenta"
 msgstr "Пурпурний."
 
-msgid "Orange"
-msgstr "Помаранчевий"
+msgid "High Contrast"
+msgstr "Висока контрастність"
 
-msgid "Purple"
-msgstr "Фіолетовий."
+msgid "Cyan"
+msgstr "Ціан"
+
+msgid "Teal"
+msgstr "Синьо-зелений"
+
+msgid "Indigo"
+msgstr "Індиго"
+
+msgid "Red"
+msgstr "Червоний"
+
+msgid "Brown"
+msgstr "Коричневий"
+
+msgid "Dark"
+msgstr "Темнота."
 
 msgid "Logout"
 msgstr "Вийти з системи"
@@ -4153,17 +4192,11 @@ msgstr "Немає призначення"
 msgid "You must select a destination folder."
 msgstr "Ви повинні вибрати папку призначення."
 
-msgid "Properties"
-msgstr "Властивості"
-
 msgid "Type"
 msgstr "Тип"
 
 msgid "Description"
 msgstr "Опис"
-
-msgid "Object ID"
-msgstr "Ідентифікатор об'єкта"
 
 msgid "Folder size"
 msgstr "Розмір папки"
@@ -4407,18 +4440,12 @@ msgstr "CC"
 msgid "BCC"
 msgstr "BCC"
 
-msgid "Sort by: Importance"
-msgstr "Сортувати по: Важливість"
-
 msgid "Sort by: To"
 msgstr "Сортувати по: До"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Sent"
 msgstr "Відправлено"
-
-msgid "Red"
-msgstr "Червоний"
 
 msgid "Original message"
 msgstr "Оригінальне повідомлення"
@@ -4472,9 +4499,6 @@ msgstr "Збережено в {0}"
 msgid "Saving failed"
 msgstr "Збереження не вдалося"
 
-msgid "Message Options"
-msgstr "Параметри повідомлення"
-
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 "Це повідомлення буде позначено як таке, що потребує подальших дій, коли воно "
@@ -4491,9 +4515,6 @@ msgstr "Додайте вкладення до цього листа"
 
 msgid "Add signature"
 msgstr "Додати підпис"
-
-msgid "Options"
-msgstr "Параметри"
 
 msgid "Open options dialog"
 msgstr "Відкрийте діалогове вікно параметрів"
@@ -6219,6 +6240,9 @@ msgstr "Останнє оновлення"
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
 
+msgid "Last connect"
+msgstr "Останнє підключення"
+
 msgid "Synchronize"
 msgstr "Синхронізувати"
 
@@ -6258,8 +6282,8 @@ msgstr "До вашого облікового запису не підключ�
 msgid "Provisioning Status"
 msgstr "Статус резервування"
 
-msgid "Last Update"
-msgstr "Останнє оновлення"
+msgid "Last Connect"
+msgstr "Останнє підключення"
 
 msgid "Device ID"
 msgstr "Ідентифікатор пристрою"
@@ -7005,8 +7029,17 @@ msgstr ""
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Цей файл більше не доступний. Будь ласка, перезавантажте папку."
 
+msgid "Kendox certificate path is not configured."
+msgstr "Шлях до сертифіката Kendox не налаштовано."
+
+msgid "Kendox certificate password is not configured."
+msgstr "Пароль сертифіката Kendox не налаштовано."
+
 msgid "Kendox certificate is not available."
 msgstr ""
+
+msgid "Kendox certificate is not readable."
+msgstr "Сертифікат Kendox неможливо прочитати."
 
 msgid "Mobile device management plugin"
 msgstr "Плагін для керування мобільними пристроями"
@@ -7213,36 +7246,6 @@ msgid "Could not find message, either it has been moved or deleted."
 msgstr ""
 "Не вдалося знайти повідомлення, або воно було переміщене, або видалене."
 
-msgid "Request is not available."
-msgstr "Запит не доступний."
-
-msgid "You have insufficient privileges to open this object."
-msgstr "У вас недостатньо прав, щоб відкрити цей об'єкт."
-
-#, fuzzy
-msgid "Logon Failed. Please check your name/password."
-msgstr "Вхід не вдався. Будь ласка, перевірте ваші ім'я та пароль."
-
-#, fuzzy
-msgid "Can not connect to Gromox."
-msgstr "Неможливо підключитися до сервера grommunio."
-
-msgid "Can not open object with provided id."
-msgstr "Не вдається відкрити об'єкт з наданим ідентифікатором."
-
-msgid "There are no recipients in the message."
-msgstr "У повідомленні немає одержувачів."
-
-msgid "Can not find object."
-msgstr "Не можу знайти об'єкт."
-
-msgid "Operation failed: Server does not have enough memory."
-msgstr "Не вдалося виконати операцію: На сервері недостатньо пам'яті."
-
-#, php-format
-msgid "Unknown MAPI Error: %s"
-msgstr "Невідома помилка MAPI: %s"
-
 msgid "Action is not performed correctly."
 msgstr "Дія виконується некоректно."
 
@@ -7251,6 +7254,18 @@ msgstr "Не зміг впоратися з таким типом об'єкті�
 
 msgid "Could not open this object."
 msgstr "Не вдалося відкрити цей об'єкт."
+
+msgid "Domain Contact Folders"
+msgstr "Папки контактів домену"
+
+msgid "Personal Contact Folders"
+msgstr "Особисті папки контактів"
+
+msgid "Shared Contact Folders"
+msgstr "Спільні папки контактів"
+
+msgid "Public Contact Folders"
+msgstr "Загальнодоступні папки контактів"
 
 msgid "Error in search, please try again"
 msgstr "Помилка пошуку, спробуйте ще раз"
@@ -7557,9 +7572,9 @@ msgid ""
 msgid_plural ""
 "%s occurrences of this recurring appointment conflicts with other "
 "appointments."
-msgstr[0] "% поява цього повторюваного прийому суперечить іншим прийомам."
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%s повторювана подія цієї зустрічі конфліктує з іншою зустріччю."
+msgstr[1] "%s повторювані події цієї зустрічі конфліктують з іншими зустрічами."
+msgstr[2] "%s повторюваних подій цієї зустрічі конфліктують з іншими зустрічами."
 
 msgid "Your message did not reach some or all of the intended recipients"
 msgstr "Ваше повідомлення не досягло деяких або всіх адресатів"
@@ -7723,9 +7738,6 @@ msgstr "grommunio Web не підтримує імпорт декількох VC
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr "grommunio Web не підтримує імпорт декількох ICS у цій версії."
-
-msgid "The EML is not valid"
-msgstr "EML не є дійсним"
 
 msgid "GB"
 msgstr "ГБ"

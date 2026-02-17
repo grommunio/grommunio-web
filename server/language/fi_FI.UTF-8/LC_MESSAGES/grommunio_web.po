@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-26 01:37+0200\n"
+"POT-Creation-Date: 2026-02-17 17:54+0100\n"
 "PO-Revision-Date: 2022-07-26 15:25+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -352,9 +352,6 @@ msgstr "Merkinnät"
 
 msgid "Members"
 msgstr "Jäsenet"
-
-msgid "Icon"
-msgstr "Kuvake"
 
 msgid "Email Address"
 msgstr "Sähköpostiosoite"
@@ -1110,9 +1107,6 @@ msgstr ""
 "Yksi tai useampi kutsutuista osallistujista on varattu. Haluatko varmasti "
 "kutsua?"
 
-msgid "Preview"
-msgstr "Esikatselu"
-
 msgid "Scheduling"
 msgstr "Aikataulu"
 
@@ -1287,6 +1281,9 @@ msgstr "Yksityinen"
 
 msgid "Mark this appointment as private"
 msgstr "Merkitse tämä tapaaminen yksityiseksi"
+
+msgid "Message Options"
+msgstr "Viestivalinnat"
 
 msgid "Proposed Date and Time"
 msgstr "Ehdotettu päivä ja aika"
@@ -1567,11 +1564,17 @@ msgstr "Tapaaminen"
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Tapaaminen on siirretty tai poistettu, haluatko jatkaa?"
 
+msgid "Options"
+msgstr "Valinnat"
+
 msgid "All Day"
 msgstr "Koko päivä"
 
 msgid "Sort by: All Day"
 msgstr "Järjestä: Koko päivä"
+
+msgid "Icon"
+msgstr "Kuvake"
 
 msgid "Recurring"
 msgstr "Toistuva"
@@ -1649,6 +1652,9 @@ msgstr "Järjestä: Muistutus"
 
 msgid "Sort by: Sensitivity"
 msgstr "Järjestä: Herkkyys"
+
+msgid "Sort by: Importance"
+msgstr "Järjestä: Tärkeys"
 
 msgid "Loading appointments"
 msgstr "Ladataan tapaamisia"
@@ -2150,6 +2156,9 @@ msgstr "Tiedoston lataus"
 msgid "Attach item"
 msgstr "Kiinnitä tuote"
 
+msgid "Preview"
+msgstr "Esikatselu"
+
 msgid "Download"
 msgstr "Lataus"
 
@@ -2389,6 +2398,12 @@ msgstr[1] "{0} viestiä on valittu."
 msgid "Folder '{0}' selected."
 msgstr "Kansio '{0}' on valittu."
 
+msgid "Unable to perform action"
+msgstr "Toimintoa ei voitu suorittaa"
+
+msgid "The selected items are no longer available."
+msgstr "Valitut kohteet eivät ole enää käytettävissä."
+
 #, fuzzy
 msgid ""
 "You have insufficient privileges to move this folder. Ask the folder owner "
@@ -2419,6 +2434,12 @@ msgstr "Haluaisitko kopioida sen sijaan?"
 #, fuzzy
 msgid "Do not show this message again."
 msgstr "Älä näytä tätä viestiä uudelleen."
+
+msgid "Properties"
+msgstr "Ominaisuudet"
+
+msgid "Object ID"
+msgstr "Kohteen ID"
 
 #, fuzzy
 msgid "ICS"
@@ -2793,8 +2814,11 @@ msgstr "Joka {A} viikko(a) viikonpäivänä"
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr "Luo uusi tehtävä {A} viikkoa kunkin tehtävän suorittamisen jälkeen"
 
-msgid "Every {A} {B}"
-msgstr "Joka {A} {B}"
+msgid "Every {A} years(s) on"
+msgstr "Joka {A}. vuosi päivänä"
+
+msgid "{A} {B}"
+msgstr "{A} {B}"
 
 msgid "The {A} {B} of {C}"
 msgstr "{A} {B} {C}:sta"
@@ -4177,11 +4201,11 @@ msgstr "Odota toista henkilöä"
 msgid "Deferred"
 msgstr "Lykätty"
 
-msgid "Dark"
-msgstr "Tumma"
+msgid "Purple"
+msgstr "Violetti"
 
-msgid "High Contrast"
-msgstr "Suuri kontrasti"
+msgid "Orange"
+msgstr "Oranssi"
 
 msgid "Lime"
 msgstr "Lime"
@@ -4190,11 +4214,26 @@ msgstr "Lime"
 msgid "Magenta"
 msgstr "Magenta"
 
-msgid "Orange"
-msgstr "Oranssi"
+msgid "High Contrast"
+msgstr "Suuri kontrasti"
 
-msgid "Purple"
-msgstr "Violetti"
+msgid "Cyan"
+msgstr "Syaani"
+
+msgid "Teal"
+msgstr "Sinivihreä"
+
+msgid "Indigo"
+msgstr "Indigo"
+
+msgid "Red"
+msgstr "Punainen"
+
+msgid "Brown"
+msgstr "Ruskea"
+
+msgid "Dark"
+msgstr "Tumma"
 
 msgid "Logout"
 msgstr "Kirjaudu ulos"
@@ -4487,17 +4526,11 @@ msgstr "Ei tietoja"
 msgid "You must select a destination folder."
 msgstr "Kohdekansio on valittava."
 
-msgid "Properties"
-msgstr "Ominaisuudet"
-
 msgid "Type"
 msgstr "Kirjoita"
 
 msgid "Description"
 msgstr "Kuvaus"
-
-msgid "Object ID"
-msgstr "Kohteen ID"
 
 msgid "Folder size"
 msgstr "Kansion koko"
@@ -4761,18 +4794,12 @@ msgstr "Kopio"
 msgid "BCC"
 msgstr "Piilokopio"
 
-msgid "Sort by: Importance"
-msgstr "Järjestä: Tärkeys"
-
 msgid "Sort by: To"
 msgstr "Järjestä: Vastaanottaja"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Sent"
 msgstr "Lähetetty"
-
-msgid "Red"
-msgstr "Punainen"
 
 msgid "Original message"
 msgstr "Alkuperäinen viesti"
@@ -4834,9 +4861,6 @@ msgstr "Siirrä kohteeseen {0}"
 msgid "Saving failed"
 msgstr "Tallentaminen epäonnistui"
 
-msgid "Message Options"
-msgstr "Viestivalinnat"
-
 #, fuzzy
 msgid "This message will be flagged for follow up when it is sent."
 msgstr "Tämä viesti merkitään seurantaa varten, kun se lähetetään."
@@ -4854,9 +4878,6 @@ msgstr "Lisää liitetiedostoja sähköpostiin"
 
 msgid "Add signature"
 msgstr "Lisää allekirjoitus"
-
-msgid "Options"
-msgstr "Valinnat"
 
 msgid "Open options dialog"
 msgstr "Avaa valintaruutu"
@@ -5149,8 +5170,8 @@ msgid ""
 "\"Add to safe sender list\" functionality in an opened email."
 msgstr ""
 "Yksityisyytesi suojaamiseksi sähköpostiosoitteita tai verkkotunnuksia voi "
-"lisätä vain avatun sähköpostin \"Lisää turvallisen lähettäjän luetteloon\" -"
-"toiminnon kautta."
+"lisätä vain avatun sähköpostin \"Lisää turvallisen lähettäjän luetteloon\" "
+"-toiminnon kautta."
 
 #, fuzzy
 msgid "Delete all"
@@ -6826,6 +6847,9 @@ msgstr "Päivitetty viimeksi"
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
 
+msgid "Last connect"
+msgstr "Viimeisin yhteys"
+
 msgid "Synchronize"
 msgstr "Synkronoida"
 
@@ -6873,8 +6897,8 @@ msgstr "Tiliin ei ole yhdistetty laitteita"
 msgid "Provisioning Status"
 msgstr "Käyttöönoton tila"
 
-msgid "Last Update"
-msgstr "Viimeisin päivitys"
+msgid "Last Connect"
+msgstr "Viimeisin yhteys"
 
 msgid "Device ID"
 msgstr "Laitteen ID"
@@ -7772,8 +7796,17 @@ msgstr "Zip-tiedoston luominen epäonnistui. Ilmoita asiasta ylläpitäjälle."
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Tämä tiedosto ei ole enää saatavilla. Lataa kansio uudelleen."
 
+msgid "Kendox certificate path is not configured."
+msgstr "Kendox-varmenteen polkua ei ole määritetty."
+
+msgid "Kendox certificate password is not configured."
+msgstr "Kendox-varmenteen salasanaa ei ole määritetty."
+
 msgid "Kendox certificate is not available."
 msgstr ""
+
+msgid "Kendox certificate is not readable."
+msgstr "Kendox-varmennetta ei voi lukea."
 
 #, fuzzy
 msgid "Mobile device management plugin"
@@ -8018,37 +8051,6 @@ msgid "Could not find message, either it has been moved or deleted."
 msgstr "Viestiä ei löydy, joko se on siirretty tai poistettu."
 
 #, fuzzy
-msgid "Request is not available."
-msgstr "Pyyntö ei ole käytettävissä."
-
-msgid "You have insufficient privileges to open this object."
-msgstr "Sinulla ei ole tarpeeksi oikeuksia avata kohdetta."
-
-msgid "Logon Failed. Please check your name/password."
-msgstr "Sisäänkirjautuminen epäonnistui Tarkista nimesi/salasanasi."
-
-#, fuzzy
-msgid "Can not connect to Gromox."
-msgstr "Yhteyttä grommunion palvelimeen ei saada."
-
-msgid "Can not open object with provided id."
-msgstr "Kohdetta ei voida avata annetulla ID:llä."
-
-msgid "There are no recipients in the message."
-msgstr "Viestillä ei ole vastaanottajia."
-
-msgid "Can not find object."
-msgstr "Kohdetta ei löydy."
-
-#, fuzzy
-msgid "Operation failed: Server does not have enough memory."
-msgstr "Operaatio epäonnistui: Palvelimella ei ole tarpeeksi muistia."
-
-#, php-format
-msgid "Unknown MAPI Error: %s"
-msgstr "Tuntematon MAPI-virhe: %s"
-
-#, fuzzy
 msgid "Action is not performed correctly."
 msgstr "Toimintaa ei suoriteta oikein."
 
@@ -8059,6 +8061,18 @@ msgstr "Tätä objektityyppiä ei voitu käsitellä."
 #, fuzzy
 msgid "Could not open this object."
 msgstr "Tätä kohdetta ei voitu avata."
+
+msgid "Domain Contact Folders"
+msgstr "Toimialueen yhteystietokansiot"
+
+msgid "Personal Contact Folders"
+msgstr "Henkilökohtaiset yhteystietokansiot"
+
+msgid "Shared Contact Folders"
+msgstr "Jaetut yhteystietokansiot"
+
+msgid "Public Contact Folders"
+msgstr "Julkiset yhteystietokansiot"
 
 #, fuzzy
 msgid "Error in search, please try again"
@@ -8519,8 +8533,8 @@ msgid ""
 "you no longer need, delete them and cleanup your Deleted Items folder."
 msgstr ""
 "Jos haluat vähentää tämän viestivaraston tietomäärää, valitse joitakin "
-"kohteita, joita et enää tarvitse, poista ne ja siivoa Poistetut kohteet -"
-"kansio."
+"kohteita, joita et enää tarvitse, poista ne ja siivoa Poistetut kohteet "
+"-kansio."
 
 #, fuzzy
 msgid "The message store has exceeded its soft quota limit."
@@ -8623,10 +8637,6 @@ msgstr "grommunio Web ei tue useiden VCF-tiedostojen tuomista tässä versiossa.
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr "grommunio Web ei tue useiden ICS:ien tuomista tässä versiossa."
-
-#, fuzzy
-msgid "The EML is not valid"
-msgstr "EML ei ole voimassa"
 
 msgid "GB"
 msgstr "GB"

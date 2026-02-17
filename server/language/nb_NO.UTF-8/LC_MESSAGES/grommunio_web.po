@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-26 01:37+0200\n"
+"POT-Creation-Date: 2026-02-17 17:54+0100\n"
 "PO-Revision-Date: 2023-09-06 16:56+0000\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -347,9 +347,6 @@ msgstr "Notater"
 
 msgid "Members"
 msgstr "Medlemmer"
-
-msgid "Icon"
-msgstr "Ikoner"
 
 msgid "Email Address"
 msgstr "E-postadresse"
@@ -1055,9 +1052,6 @@ msgstr ""
 "En eller flere deltakere du har invitert er opptatt. Vil du allikevel "
 "invitere?"
 
-msgid "Preview"
-msgstr "Forhåndsvisning"
-
 msgid "Scheduling"
 msgstr "Planlegging"
 
@@ -1226,6 +1220,9 @@ msgstr "Privat"
 
 msgid "Mark this appointment as private"
 msgstr "Marker denne avtalen som privat"
+
+msgid "Message Options"
+msgstr "Meldingsalternativer"
 
 msgid "Proposed Date and Time"
 msgstr "Foreslå ny dato og tid"
@@ -1490,11 +1487,17 @@ msgstr "Kunne ikke finne avtalen"
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Denne avtalen har blitt flyttet eller slettet, vil du fortsette?"
 
+msgid "Options"
+msgstr "Alternativer"
+
 msgid "All Day"
 msgstr "Heldagshendelse"
 
 msgid "Sort by: All Day"
 msgstr "Sorter på: heldags"
+
+msgid "Icon"
+msgstr "Ikoner"
 
 msgid "Recurring"
 msgstr "Regelmessighet"
@@ -1567,6 +1570,9 @@ msgstr "Sorter på: påminnelse"
 
 msgid "Sort by: Sensitivity"
 msgstr "Sorter på: sensitivitet"
+
+msgid "Sort by: Importance"
+msgstr "Sorter på: viktighet"
 
 msgid "Loading appointments"
 msgstr "Laster inn avtaler"
@@ -2016,6 +2022,9 @@ msgstr "Last opp fil"
 msgid "Attach item"
 msgstr "Legg ved element"
 
+msgid "Preview"
+msgstr "Forhåndsvisning"
+
 msgid "Download"
 msgstr "Last ned"
 
@@ -2232,6 +2241,12 @@ msgstr[1] "Det er {0} meldinger valgt."
 msgid "Folder '{0}' selected."
 msgstr "Mappe «{0}» valgt."
 
+msgid "Unable to perform action"
+msgstr "Kan ikke utføre handlingen"
+
+msgid "The selected items are no longer available."
+msgstr "De valgte elementene er ikke lenger tilgjengelige."
+
 msgid ""
 "You have insufficient privileges to move this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
@@ -2257,6 +2272,12 @@ msgstr "Ønsker du å kopierer istedenfor?"
 
 msgid "Do not show this message again."
 msgstr "Ikke vis denne meldingen igjen."
+
+msgid "Properties"
+msgstr "Egenskaper"
+
+msgid "Object ID"
+msgstr "Objekt-ID"
 
 msgid "ICS"
 msgstr "ICS"
@@ -2587,8 +2608,11 @@ msgstr "Hver {A} uke på"
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr "Generer ny oppgaven {A} uke(r) etter at hver oppgave er fullført"
 
-msgid "Every {A} {B}"
-msgstr "Hver {A} {B}"
+msgid "Every {A} years(s) on"
+msgstr "Hvert {A}. år den"
+
+msgid "{A} {B}"
+msgstr "{A} {B}"
 
 msgid "The {A} {B} of {C}"
 msgstr "Hver {A} {B} i {C}"
@@ -3852,11 +3876,11 @@ msgstr "Venter på annen person"
 msgid "Deferred"
 msgstr "Utsatt"
 
-msgid "Dark"
-msgstr "Mørk"
+msgid "Purple"
+msgstr "Purpur"
 
-msgid "High Contrast"
-msgstr "Høykontrast"
+msgid "Orange"
+msgstr "Oransje"
 
 msgid "Lime"
 msgstr "Limegrønn"
@@ -3864,11 +3888,26 @@ msgstr "Limegrønn"
 msgid "Magenta"
 msgstr "Magenta"
 
-msgid "Orange"
-msgstr "Oransje"
+msgid "High Contrast"
+msgstr "Høykontrast"
 
-msgid "Purple"
-msgstr "Purpur"
+msgid "Cyan"
+msgstr "Cyan"
+
+msgid "Teal"
+msgstr "Blågrønn"
+
+msgid "Indigo"
+msgstr "Indigo"
+
+msgid "Red"
+msgstr "Rød"
+
+msgid "Brown"
+msgstr "Brun"
+
+msgid "Dark"
+msgstr "Mørk"
 
 msgid "Logout"
 msgstr "Logg ut"
@@ -4125,17 +4164,11 @@ msgstr "Mangler mål"
 msgid "You must select a destination folder."
 msgstr "Du må velge målmappe."
 
-msgid "Properties"
-msgstr "Egenskaper"
-
 msgid "Type"
 msgstr "Type"
 
 msgid "Description"
 msgstr "beskrivning"
-
-msgid "Object ID"
-msgstr ""
 
 msgid "Folder size"
 msgstr "Mappestørrelse"
@@ -4380,18 +4413,12 @@ msgstr "kopi"
 msgid "BCC"
 msgstr "BCC"
 
-msgid "Sort by: Importance"
-msgstr "Sorter på: viktighet"
-
 msgid "Sort by: To"
 msgstr "Sorter på: til"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Sent"
 msgstr "Sendt"
-
-msgid "Red"
-msgstr "Rød"
 
 msgid "Original message"
 msgstr "Opprinnelig melding"
@@ -4444,9 +4471,6 @@ msgstr "Melding lagret {0}"
 msgid "Saving failed"
 msgstr "Lagring feilet"
 
-msgid "Message Options"
-msgstr "Meldingsalternativer"
-
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 "Denne meldingen vil bli markert for oppfølging etter at den har blitt sendt."
@@ -4462,9 +4486,6 @@ msgstr "Legg til et vedlegg til denne e-posten"
 
 msgid "Add signature"
 msgstr "Legg til signatur"
-
-msgid "Options"
-msgstr "Alternativer"
 
 msgid "Open options dialog"
 msgstr "Åpne dialogboksen Meldingsalternativer"
@@ -6186,6 +6207,9 @@ msgstr "Forrige oppdatering"
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
 
+msgid "Last connect"
+msgstr "Siste tilkobling"
+
 msgid "Synchronize"
 msgstr "Synkronisere"
 
@@ -6225,8 +6249,8 @@ msgstr "Ingen enheter er knyttet til din konto"
 msgid "Provisioning Status"
 msgstr "Klargjøringsstatus"
 
-msgid "Last Update"
-msgstr "Forrige oppdatering"
+msgid "Last Connect"
+msgstr "Siste tilkobling"
 
 msgid "Device ID"
 msgstr "Enhet ID"
@@ -6975,8 +6999,17 @@ msgid "This file is no longer available. Please reload the folder."
 msgstr ""
 "Denne filen er ikke lenger tilgjengelig. Vennligst last inn mappa på nytt."
 
+msgid "Kendox certificate path is not configured."
+msgstr "Stien til Kendox-sertifikatet er ikke konfigurert."
+
+msgid "Kendox certificate password is not configured."
+msgstr "Passordet til Kendox-sertifikatet er ikke konfigurert."
+
 msgid "Kendox certificate is not available."
 msgstr ""
+
+msgid "Kendox certificate is not readable."
+msgstr "Kendox-sertifikatet er ikke lesbart."
 
 msgid "Mobile device management plugin"
 msgstr "Plugin for administrasjon av mobile enheter"
@@ -7179,34 +7212,6 @@ msgstr "Forespørsel om oppgave"
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "Fant ikke meldingen, enten er den flyttet eller slettet."
 
-msgid "Request is not available."
-msgstr "Forespørselen er ikke tilgjengelig."
-
-msgid "You have insufficient privileges to open this object."
-msgstr "Du har ikke tilstrekkelige rettigheter til å åpne dette objektet."
-
-msgid "Logon Failed. Please check your name/password."
-msgstr "Pålogging mislyktes. Vennligst sjekk ditt brukernavn/passord."
-
-msgid "Can not connect to Gromox."
-msgstr "Kunne ikke koble til Gromox."
-
-msgid "Can not open object with provided id."
-msgstr "Kan ikke åpne objektet med den oppgitte id."
-
-msgid "There are no recipients in the message."
-msgstr "Det er ingen mottakere i denne meldingen."
-
-msgid "Can not find object."
-msgstr "Kunne ikke finne objekt."
-
-msgid "Operation failed: Server does not have enough memory."
-msgstr "Operasjon feilet: Serveren har ikke nok minne."
-
-#, php-format
-msgid "Unknown MAPI Error: %s"
-msgstr "Ukjent MAPI feil: %s"
-
 msgid "Action is not performed correctly."
 msgstr "Handlingen er ikke utført korrekt."
 
@@ -7215,6 +7220,18 @@ msgstr "Kunne ikke håndtere denne typen objekt."
 
 msgid "Could not open this object."
 msgstr "Kunne ikke åpne dette objektet."
+
+msgid "Domain Contact Folders"
+msgstr "Domenekontaktmapper"
+
+msgid "Personal Contact Folders"
+msgstr "Personlige kontaktmapper"
+
+msgid "Shared Contact Folders"
+msgstr "Delte kontaktmapper"
+
+msgid "Public Contact Folders"
+msgstr "Offentlige kontaktmapper"
 
 msgid "Error in search, please try again"
 msgstr "Feil i søket, vennligst prøv igjen"
@@ -7711,9 +7728,6 @@ msgstr ""
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr "grommunio Web støtter ikke import av flere ICS med denne versjonen."
-
-msgid "The EML is not valid"
-msgstr "EML-en er ikke gyldig"
 
 msgid "GB"
 msgstr "GB"

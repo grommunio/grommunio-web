@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Turkish\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-26 01:37+0200\n"
+"POT-Creation-Date: 2026-02-17 17:54+0100\n"
 "PO-Revision-Date: 2022-12-10 22:44+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/grommunio/"
@@ -347,9 +347,6 @@ msgstr "Notlar"
 
 msgid "Members"
 msgstr "Üyeler"
-
-msgid "Icon"
-msgstr "Simge"
 
 msgid "Email Address"
 msgstr "E-posta adresi"
@@ -1056,9 +1053,6 @@ msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr ""
 "Bir veya daha fazla katılımcı meşgul. Davet edeceğinizden emin misiniz?"
 
-msgid "Preview"
-msgstr "Önizleme"
-
 msgid "Scheduling"
 msgstr "Zamanlama"
 
@@ -1229,6 +1223,9 @@ msgstr "Özel"
 
 msgid "Mark this appointment as private"
 msgstr "Bu randevuyu özel olarak işaretle"
+
+msgid "Message Options"
+msgstr "Mesaj ayarları"
 
 msgid "Proposed Date and Time"
 msgstr "Önerilen Tarih ve Saat"
@@ -1492,11 +1489,17 @@ msgstr "Randevu bulunamadı"
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Bu randevu taşındı veya silindi, devam etmek istiyor musun?"
 
+msgid "Options"
+msgstr "Ayarlar"
+
 msgid "All Day"
 msgstr "Tüm Gün"
 
 msgid "Sort by: All Day"
 msgstr "Sıralama: Tüm Gün"
+
+msgid "Icon"
+msgstr "Simge"
 
 msgid "Recurring"
 msgstr "Tekrar Eden"
@@ -1569,6 +1572,9 @@ msgstr "Sıralama: Hatırlatma Zamanı"
 
 msgid "Sort by: Sensitivity"
 msgstr "Sıralama: Önem Derecesi"
+
+msgid "Sort by: Importance"
+msgstr "Sıralama: Önemi"
 
 msgid "Loading appointments"
 msgstr "Randevular yükleniyor"
@@ -2012,6 +2018,9 @@ msgstr "Dosya ekle"
 msgid "Attach item"
 msgstr "Öğeyi ekleyin"
 
+msgid "Preview"
+msgstr "Önizleme"
+
 msgid "Download"
 msgstr "Indir"
 
@@ -2229,6 +2238,12 @@ msgstr[1] "{0} mesaj seçilmiş bulunmaktadır."
 msgid "Folder '{0}' selected."
 msgstr "Klasör '{0}' seçildi."
 
+msgid "Unable to perform action"
+msgstr "İşlem gerçekleştirilemedi"
+
+msgid "The selected items are no longer available."
+msgstr "Seçilen öğeler artık kullanılamıyor."
+
 msgid ""
 "You have insufficient privileges to move this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
@@ -2254,6 +2269,12 @@ msgstr "Bunun yerine kopyalamak ister misiniz?"
 
 msgid "Do not show this message again."
 msgstr "Bu mesajı tekrar gösterme"
+
+msgid "Properties"
+msgstr "Özellikleri"
+
+msgid "Object ID"
+msgstr "Nesne Kimliği"
 
 msgid "ICS"
 msgstr "ICS"
@@ -2585,8 +2606,11 @@ msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr ""
 "{A} her görev sonrası hafta (lar) tamamlanır yeni görev yeniden oluştur"
 
-msgid "Every {A} {B}"
-msgstr "Her {A} {B}"
+msgid "Every {A} years(s) on"
+msgstr "Her {A} yılda bir"
+
+msgid "{A} {B}"
+msgstr "{A} {B}"
 
 msgid "The {A} {B} of {C}"
 msgstr "{A} {B} / {C}"
@@ -3842,11 +3866,11 @@ msgstr "Diğer kişi için bekleyin"
 msgid "Deferred"
 msgstr "Ertelendi"
 
-msgid "Dark"
-msgstr "Koyu"
+msgid "Purple"
+msgstr "Mor"
 
-msgid "High Contrast"
-msgstr "Yüksek Kontrast"
+msgid "Orange"
+msgstr "Turuncu"
 
 msgid "Lime"
 msgstr "Limon"
@@ -3854,11 +3878,26 @@ msgstr "Limon"
 msgid "Magenta"
 msgstr "Eflatun"
 
-msgid "Orange"
-msgstr "Turuncu"
+msgid "High Contrast"
+msgstr "Yüksek Kontrast"
 
-msgid "Purple"
-msgstr "Mor"
+msgid "Cyan"
+msgstr "Camgöbeği"
+
+msgid "Teal"
+msgstr "Turkuaz"
+
+msgid "Indigo"
+msgstr "Çivit mavisi"
+
+msgid "Red"
+msgstr "Kırmızı"
+
+msgid "Brown"
+msgstr "Kahverengi"
+
+msgid "Dark"
+msgstr "Koyu"
 
 msgid "Logout"
 msgstr "Oturumu kapat"
@@ -4114,17 +4153,11 @@ msgstr "Hedef yok"
 msgid "You must select a destination folder."
 msgstr "Bir hedef klasörü seçmelisiniz."
 
-msgid "Properties"
-msgstr "Özellikleri"
-
 msgid "Type"
 msgstr "Tür"
 
 msgid "Description"
 msgstr "Açıklama"
-
-msgid "Object ID"
-msgstr "Nesne Kimliği"
 
 msgid "Folder size"
 msgstr "Klasör boyutu"
@@ -4368,18 +4401,12 @@ msgstr "CC"
 msgid "BCC"
 msgstr "Gizli kopya"
 
-msgid "Sort by: Importance"
-msgstr "Sıralama: Önemi"
-
 msgid "Sort by: To"
 msgstr "Sıralama: Kime"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Sent"
 msgstr "Gönderildi"
-
-msgid "Red"
-msgstr "Kırmızı"
 
 msgid "Original message"
 msgstr "Orijinal mesaj"
@@ -4432,9 +4459,6 @@ msgstr "Mesaj {0}'da kaydedildi"
 msgid "Saving failed"
 msgstr "Kaydetme başarısız oldu"
 
-msgid "Message Options"
-msgstr "Mesaj ayarları"
-
 msgid "This message will be flagged for follow up when it is sent."
 msgstr "Bu mesaj gönderildiğinde takip için işaretlenecektir."
 
@@ -4450,9 +4474,6 @@ msgstr "Bu e-postaya eklentiler ekleyin"
 
 msgid "Add signature"
 msgstr "Imza ekle"
-
-msgid "Options"
-msgstr "Ayarlar"
 
 msgid "Open options dialog"
 msgstr "Seçenekler penceresini açın"
@@ -6165,6 +6186,9 @@ msgstr "Son güncelleme"
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
 
+msgid "Last connect"
+msgstr "Son bağlantı"
+
 msgid "Synchronize"
 msgstr "Eşitle"
 
@@ -6203,8 +6227,8 @@ msgstr "Hesabınıza bağlı cihaz yok"
 msgid "Provisioning Status"
 msgstr "Provizyon Durumu"
 
-msgid "Last Update"
-msgstr "Son Güncelleme"
+msgid "Last Connect"
+msgstr "Son bağlantı"
 
 msgid "Device ID"
 msgstr "Cihaz Kimliği"
@@ -6940,8 +6964,17 @@ msgstr "Zip dosyası oluşturma başarısız oldu. Lütfen yöneticiyi bilgilend
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Bu dosya artık mevcut değil. Lütfen klasörü yeniden yükleyin."
 
+msgid "Kendox certificate path is not configured."
+msgstr "Kendox sertifika yolu yapılandırılmamış."
+
+msgid "Kendox certificate password is not configured."
+msgstr "Kendox sertifika parolası yapılandırılmamış."
+
 msgid "Kendox certificate is not available."
 msgstr ""
+
+msgid "Kendox certificate is not readable."
+msgstr "Kendox sertifikası okunamıyor."
 
 msgid "Mobile device management plugin"
 msgstr "Mobil cihaz yönetimi eklentisi"
@@ -7141,34 +7174,6 @@ msgstr "Görev Talebi"
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "Mesaj bulunamadı, ya taşındı ya da silindi."
 
-msgid "Request is not available."
-msgstr "İstek mevcut değil."
-
-msgid "You have insufficient privileges to open this object."
-msgstr "Bu nesneyi açmak için yeterli yetkiye sahip değilsiniz."
-
-msgid "Logon Failed. Please check your name/password."
-msgstr "Oturum açma başarısız. Lütfen adınızı / şifrenizi kontrol edin."
-
-msgid "Can not connect to Gromox."
-msgstr "Gromox'a bağlanılamıyor."
-
-msgid "Can not open object with provided id."
-msgstr "Verilen kimliğe sahip nesne açılamıyor."
-
-msgid "There are no recipients in the message."
-msgstr "Mesajda alıcı yok."
-
-msgid "Can not find object."
-msgstr "Nesne bulunamıyor."
-
-msgid "Operation failed: Server does not have enough memory."
-msgstr "İşlem başarısız: Sunucuda yeterli bellek yok."
-
-#, php-format
-msgid "Unknown MAPI Error: %s"
-msgstr "Bilinmeyen MAPI hatası: %s"
-
 msgid "Action is not performed correctly."
 msgstr "Eylem doğru şekilde gerçekleştirilmemiştir."
 
@@ -7177,6 +7182,18 @@ msgstr "Bu tür bir nesne işlenemedi."
 
 msgid "Could not open this object."
 msgstr "Bu nesne açılamadı."
+
+msgid "Domain Contact Folders"
+msgstr "Etki alanı kişi klasörleri"
+
+msgid "Personal Contact Folders"
+msgstr "Kişisel kişi klasörleri"
+
+msgid "Shared Contact Folders"
+msgstr "Paylaşılan kişi klasörleri"
+
+msgid "Public Contact Folders"
+msgstr "Genel kişi klasörleri"
 
 msgid "Error in search, please try again"
 msgstr "Aramada hata oluştu, lütfen tekrar deneyin"
@@ -7653,9 +7670,6 @@ msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
 "grommunio Web bu sürümde birden fazla ICS'nin içe aktarılmasını desteklemez."
-
-msgid "The EML is not valid"
-msgstr "EML geçerli değil"
 
 msgid "GB"
 msgstr "GB"

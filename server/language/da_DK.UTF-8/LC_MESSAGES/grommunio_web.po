@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Danish (Denmark)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-26 01:37+0200\n"
+"POT-Creation-Date: 2026-02-17 17:54+0100\n"
 "PO-Revision-Date: 2022-07-26 14:28+0200\n"
 "Last-Translator: Mike Williams <mike.williams@grammm.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/grommunio/"
@@ -348,9 +348,6 @@ msgstr "Noter"
 
 msgid "Members"
 msgstr "Medlemmer"
-
-msgid "Icon"
-msgstr "Ikon"
 
 msgid "Email Address"
 msgstr "Email adresse"
@@ -1081,9 +1078,6 @@ msgstr ""
 "En eller flere deltagere, du har inviteret, er optaget. Er du sikker på du "
 "vil invitere?"
 
-msgid "Preview"
-msgstr "Forhåndsvisning"
-
 msgid "Scheduling"
 msgstr "Planlægning"
 
@@ -1256,6 +1250,9 @@ msgstr "Privat"
 
 msgid "Mark this appointment as private"
 msgstr "Marker denne aftale som privat"
+
+msgid "Message Options"
+msgstr "Meddelelses muligheder"
 
 msgid "Proposed Date and Time"
 msgstr "Foreslået dato og tid"
@@ -1530,11 +1527,17 @@ msgstr "Aftale"
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Denne aftale er blevet flyttet eller slettet, vil du fortsætte?"
 
+msgid "Options"
+msgstr "Muligheder"
+
 msgid "All Day"
 msgstr "Hele dagen"
 
 msgid "Sort by: All Day"
 msgstr "Sorter efter: Hele dagen"
+
+msgid "Icon"
+msgstr "Ikon"
 
 msgid "Recurring"
 msgstr "Tilbagevendende"
@@ -1611,6 +1614,9 @@ msgstr "Sorter efter: Påmindelse"
 
 msgid "Sort by: Sensitivity"
 msgstr "Sorter efter: Følsomhed"
+
+msgid "Sort by: Importance"
+msgstr "Sorter efter: Vigtighed"
 
 msgid "Loading appointments"
 msgstr "Henter aftaler"
@@ -2096,6 +2102,9 @@ msgstr "Fil upload"
 msgid "Attach item"
 msgstr "Vedhæft element"
 
+msgid "Preview"
+msgstr "Forhåndsvisning"
+
 msgid "Download"
 msgstr "Download"
 
@@ -2329,6 +2338,12 @@ msgstr[1] "{0} meddelelser er valgt."
 msgid "Folder '{0}' selected."
 msgstr "Mappen '{0}' er valgt."
 
+msgid "Unable to perform action"
+msgstr "Kunne ikke udføre handlingen"
+
+msgid "The selected items are no longer available."
+msgstr "De valgte elementer er ikke længere tilgængelige."
+
 #, fuzzy
 msgid ""
 "You have insufficient privileges to move this folder. Ask the folder owner "
@@ -2361,6 +2376,12 @@ msgstr "Vil du gerne kopiere i stedet?"
 
 msgid "Do not show this message again."
 msgstr "Vis ikke denne meddelelse igen."
+
+msgid "Properties"
+msgstr "Egenskaber"
+
+msgid "Object ID"
+msgstr "Objekt-ID"
 
 msgid "ICS"
 msgstr "ICS"
@@ -2716,8 +2737,11 @@ msgstr "Hver {A} uge(r) på"
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr "Generer ny opgave {A} uge(r) efter at hver opgave er fuldført"
 
-msgid "Every {A} {B}"
-msgstr "Hver {A} {B}"
+msgid "Every {A} years(s) on"
+msgstr "Hvert {A}. år den"
+
+msgid "{A} {B}"
+msgstr "{A} {B}"
 
 msgid "The {A} {B} of {C}"
 msgstr "Den {A} {B} af {C}"
@@ -4030,11 +4054,11 @@ msgstr "Vent på anden person"
 msgid "Deferred"
 msgstr "Udsat"
 
-msgid "Dark"
-msgstr "Mørk"
+msgid "Purple"
+msgstr "Lilla"
 
-msgid "High Contrast"
-msgstr "Høj kontrast"
+msgid "Orange"
+msgstr "Orange"
 
 msgid "Lime"
 msgstr "Limegrøn"
@@ -4042,11 +4066,26 @@ msgstr "Limegrøn"
 msgid "Magenta"
 msgstr "Magenta"
 
-msgid "Orange"
-msgstr "Orange"
+msgid "High Contrast"
+msgstr "Høj kontrast"
 
-msgid "Purple"
-msgstr "Lilla"
+msgid "Cyan"
+msgstr "Cyan"
+
+msgid "Teal"
+msgstr "Blågrøn"
+
+msgid "Indigo"
+msgstr "Indigo"
+
+msgid "Red"
+msgstr "Rød"
+
+msgid "Brown"
+msgstr "Brun"
+
+msgid "Dark"
+msgstr "Mørk"
 
 msgid "Logout"
 msgstr "Log ud"
@@ -4325,17 +4364,11 @@ msgstr "Ingen information"
 msgid "You must select a destination folder."
 msgstr "Du skal vælge en destinations mappe."
 
-msgid "Properties"
-msgstr "Egenskaber"
-
 msgid "Type"
 msgstr "Type"
 
 msgid "Description"
 msgstr "Beskrivelse"
-
-msgid "Object ID"
-msgstr "Objekt-ID"
 
 msgid "Folder size"
 msgstr "Mappestørrelse"
@@ -4591,18 +4624,12 @@ msgstr "CC"
 msgid "BCC"
 msgstr "BCC"
 
-msgid "Sort by: Importance"
-msgstr "Sorter efter: Vigtighed"
-
 msgid "Sort by: To"
 msgstr "Sorter efter: Til"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Sent"
 msgstr "Sendt"
-
-msgid "Red"
-msgstr "Rød"
 
 msgid "Original message"
 msgstr "Original meddelelse"
@@ -4657,9 +4684,6 @@ msgstr "Meddelelsen er gemt på {0}."
 msgid "Saving failed"
 msgstr "Gemning fejlede"
 
-msgid "Message Options"
-msgstr "Meddelelses muligheder"
-
 #, fuzzy
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
@@ -4677,9 +4701,6 @@ msgstr "Tilføj vedhæftning til denne email"
 
 msgid "Add signature"
 msgstr "Tilføj signatur"
-
-msgid "Options"
-msgstr "Muligheder"
 
 msgid "Open options dialog"
 msgstr "Åbne dialogboksen Muligheder"
@@ -6589,6 +6610,9 @@ msgstr "Sidst opdateret"
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
 
+msgid "Last connect"
+msgstr "Sidste forbindelse"
+
 msgid "Synchronize"
 msgstr "Synkroniser"
 
@@ -6636,8 +6660,8 @@ msgstr "Ingen enheder er forbundet til din konto"
 msgid "Provisioning Status"
 msgstr "Status for tilrådighedsstillelse"
 
-msgid "Last Update"
-msgstr "Seneste opdatering"
+msgid "Last Connect"
+msgstr "Sidste forbindelse"
 
 msgid "Device ID"
 msgstr "Enheds id"
@@ -7532,8 +7556,17 @@ msgstr "Generering af zip-fil mislykkedes. Informer venligst administratoren."
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Denne fil er ikke længere tilgængelig. Genindlæs venligst mappen igen."
 
+msgid "Kendox certificate path is not configured."
+msgstr "Stien til Kendox-certifikatet er ikke konfigureret."
+
+msgid "Kendox certificate password is not configured."
+msgstr "Adgangskoden til Kendox-certifikatet er ikke konfigureret."
+
 msgid "Kendox certificate is not available."
 msgstr ""
+
+msgid "Kendox certificate is not readable."
+msgstr "Kendox-certifikatet kan ikke læses."
 
 #, fuzzy
 msgid "Mobile device management plugin"
@@ -7773,35 +7806,6 @@ msgstr ""
 "Kunne ikke finde meddelelsen, enten er den blevet flyttet eller slettet."
 
 #, fuzzy
-msgid "Request is not available."
-msgstr "Anmodning er ikke tilgængelig."
-
-msgid "You have insufficient privileges to open this object."
-msgstr "Du har ikke tilstrækkelige rettigheder til at åbne dette objekt."
-
-msgid "Logon Failed. Please check your name/password."
-msgstr "Login mislykkedes. Tjek venligst dit brugernavn/password."
-
-msgid "Can not connect to Gromox."
-msgstr "Kan ikke forbinde til Gromox."
-
-msgid "Can not open object with provided id."
-msgstr "Kan ikke åbne objektet med det angivne id."
-
-msgid "There are no recipients in the message."
-msgstr "Der er ingen modtagere i denne meddelelse."
-
-msgid "Can not find object."
-msgstr "Kan ikke finde objekt."
-
-msgid "Operation failed: Server does not have enough memory."
-msgstr "Operation fejlet: Serveren har ikke nok hukommelse."
-
-#, php-format
-msgid "Unknown MAPI Error: %s"
-msgstr "Ukendt MAPI fejl: %s"
-
-#, fuzzy
 msgid "Action is not performed correctly."
 msgstr "Handlingen er ikke udført korrekt."
 
@@ -7812,6 +7816,18 @@ msgstr "Kunne ikke håndtere denne type objekt."
 #, fuzzy
 msgid "Could not open this object."
 msgstr "Kunne ikke åbne dette objekt."
+
+msgid "Domain Contact Folders"
+msgstr "Domænekontaktmapper"
+
+msgid "Personal Contact Folders"
+msgstr "Personlige kontaktmapper"
+
+msgid "Shared Contact Folders"
+msgstr "Delte kontaktmapper"
+
+msgid "Public Contact Folders"
+msgstr "Offentlige kontaktmapper"
 
 #, fuzzy
 msgid "Error in search, please try again"
@@ -8412,10 +8428,6 @@ msgstr ""
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr "grommunio Web understøtter ikke import af flere ICS med denne version."
-
-#, fuzzy
-msgid "The EML is not valid"
-msgstr "EML er ikke gyldig"
 
 msgid "GB"
 msgstr "GB"

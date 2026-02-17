@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-26 01:37+0200\n"
+"POT-Creation-Date: 2026-02-17 17:54+0100\n"
 "PO-Revision-Date: 2022-07-26 19:05+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -371,9 +371,6 @@ msgstr "Zapiski"
 
 msgid "Members"
 msgstr "Člani"
-
-msgid "Icon"
-msgstr "Ikona"
 
 msgid "Email Address"
 msgstr "Elektronski naslov"
@@ -1140,9 +1137,6 @@ msgstr ""
 "Eden ali več povabljencev, ki ste jih povabili, so zasedeni. Ali ste "
 "prepričani, da jih želite povabiti?"
 
-msgid "Preview"
-msgstr "Predogled"
-
 msgid "Scheduling"
 msgstr "Razporejanje"
 
@@ -1317,6 +1311,9 @@ msgstr "Zasebno"
 
 msgid "Mark this appointment as private"
 msgstr "Označi ta sestanek kot zaseben"
+
+msgid "Message Options"
+msgstr "Možnosti sporočila"
 
 msgid "Proposed Date and Time"
 msgstr "Predlagan datum in čas"
@@ -1598,11 +1595,17 @@ msgstr "Sestanek"
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Ta sestanek je bil premaknjen ali izbrisan, ali želite nadaljevati?"
 
+msgid "Options"
+msgstr "Možnosti"
+
 msgid "All Day"
 msgstr "Cel dan"
 
 msgid "Sort by: All Day"
 msgstr "Razvrsti po: Celi dan"
+
+msgid "Icon"
+msgstr "Ikona"
 
 msgid "Recurring"
 msgstr "Ponavljajoče se"
@@ -1680,6 +1683,9 @@ msgstr "Razvrsti po: Opomnik"
 
 msgid "Sort by: Sensitivity"
 msgstr "Razvrsti po: Občutljivost"
+
+msgid "Sort by: Importance"
+msgstr "Razvrsti po: Pomembnost"
 
 msgid "Loading appointments"
 msgstr "Nalagam sestanke"
@@ -2181,6 +2187,9 @@ msgstr "Nalaganje datoteke"
 msgid "Attach item"
 msgstr "Pripni datoteko"
 
+msgid "Preview"
+msgstr "Predogled"
+
 msgid "Download"
 msgstr "Naloži"
 
@@ -2420,6 +2429,12 @@ msgstr[3] "Izbranih je {0} sporočil."
 msgid "Folder '{0}' selected."
 msgstr "Izbrana '{0}' mapa."
 
+msgid "Unable to perform action"
+msgstr "Dejanja ni mogoče izvesti"
+
+msgid "The selected items are no longer available."
+msgstr "Izbrani elementi niso več na voljo."
+
 #, fuzzy
 msgid ""
 "You have insufficient privileges to move this folder. Ask the folder owner "
@@ -2450,6 +2465,12 @@ msgstr "Ali želite namesto tega kopirati?"
 #, fuzzy
 msgid "Do not show this message again."
 msgstr "Tega sporočila ne prikažite več."
+
+msgid "Properties"
+msgstr "Lastnosti"
+
+msgid "Object ID"
+msgstr "ID predmeta"
 
 #, fuzzy
 msgid "ICS"
@@ -2814,8 +2835,11 @@ msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr ""
 "Obnovi novo nalogo {A} teden (tednov) po tem, ko je vsaka naloga končana"
 
-msgid "Every {A} {B}"
-msgstr "Vsakih {A} {B}"
+msgid "Every {A} years(s) on"
+msgstr "Vsakih {A} let na"
+
+msgid "{A} {B}"
+msgstr "{A} {B}"
 
 msgid "The {A} {B} of {C}"
 msgstr "{A} {B} od {C}"
@@ -4179,11 +4203,11 @@ msgstr "Počakaj na drugo osebo"
 msgid "Deferred"
 msgstr "Odloženo"
 
-msgid "Dark"
-msgstr "Temno"
+msgid "Purple"
+msgstr "Vijolična"
 
-msgid "High Contrast"
-msgstr "Velik kontrast"
+msgid "Orange"
+msgstr "Oranžna"
 
 msgid "Lime"
 msgstr "Limeta"
@@ -4192,11 +4216,26 @@ msgstr "Limeta"
 msgid "Magenta"
 msgstr "Magenta"
 
-msgid "Orange"
-msgstr "Oranžna"
+msgid "High Contrast"
+msgstr "Velik kontrast"
 
-msgid "Purple"
-msgstr "Vijolična"
+msgid "Cyan"
+msgstr "Cijan"
+
+msgid "Teal"
+msgstr "Modrozelena"
+
+msgid "Indigo"
+msgstr "Indigo"
+
+msgid "Red"
+msgstr "Beri"
+
+msgid "Brown"
+msgstr "Rjava"
+
+msgid "Dark"
+msgstr "Temno"
 
 msgid "Logout"
 msgstr "Odjava"
@@ -4483,17 +4522,11 @@ msgstr "Ni informacije"
 msgid "You must select a destination folder."
 msgstr "Izbrati morate mapo."
 
-msgid "Properties"
-msgstr "Lastnosti"
-
 msgid "Type"
 msgstr "Tip"
 
 msgid "Description"
 msgstr "Opis"
-
-msgid "Object ID"
-msgstr "ID predmeta"
 
 msgid "Folder size"
 msgstr "Velikost mape"
@@ -4751,18 +4784,12 @@ msgstr "Kp"
 msgid "BCC"
 msgstr "Skp"
 
-msgid "Sort by: Importance"
-msgstr "Razvrsti po: Pomembnost"
-
 msgid "Sort by: To"
 msgstr "Razvrsti po: Za"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Sent"
 msgstr "Poslano"
-
-msgid "Red"
-msgstr "Beri"
 
 msgid "Original message"
 msgstr "Originalno sporočilo"
@@ -4823,9 +4850,6 @@ msgstr "Sporočilo je bilo shranjeno dne {0}."
 msgid "Saving failed"
 msgstr "Shranjevanje ni uspelo"
 
-msgid "Message Options"
-msgstr "Možnosti sporočila"
-
 #, fuzzy
 msgid "This message will be flagged for follow up when it is sent."
 msgstr "To sporočilo bo ob pošiljanju označeno za nadaljnje ukrepanje."
@@ -4843,9 +4867,6 @@ msgstr "Dodaj priloge k tem sporočilu"
 
 msgid "Add signature"
 msgstr "Dodaj podpis"
-
-msgid "Options"
-msgstr "Možnosti"
 
 msgid "Open options dialog"
 msgstr "Odpri dialog Možnosti"
@@ -6812,6 +6833,9 @@ msgstr "Zadnjič posodobljeno"
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
 
+msgid "Last connect"
+msgstr "Zadnja povezava"
+
 msgid "Synchronize"
 msgstr "Sinhroniziraj"
 
@@ -6859,8 +6883,8 @@ msgstr "V račun ni povezanih nobenih naprav"
 msgid "Provisioning Status"
 msgstr "Stanje zagotavljanja"
 
-msgid "Last Update"
-msgstr "Zadnja posodobitev"
+msgid "Last Connect"
+msgstr "Zadnja povezava"
 
 #, fuzzy
 msgid "Device ID"
@@ -7754,8 +7778,17 @@ msgstr "Generiranje datoteke Zip ni uspelo. O tem obvestite skrbnika."
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Ta datoteka ni več na voljo. Ponovno naložite mapo."
 
+msgid "Kendox certificate path is not configured."
+msgstr "Pot certifikata Kendox ni nastavljena."
+
+msgid "Kendox certificate password is not configured."
+msgstr "Geslo certifikata Kendox ni nastavljeno."
+
 msgid "Kendox certificate is not available."
 msgstr ""
+
+msgid "Kendox certificate is not readable."
+msgstr "Certifikat Kendox ni berljiv."
 
 #, fuzzy
 msgid "Mobile device management plugin"
@@ -8000,37 +8033,6 @@ msgid "Could not find message, either it has been moved or deleted."
 msgstr "Sporočila ni bilo mogoče najti, ker je bilo premaknjeno ali izbrisano."
 
 #, fuzzy
-msgid "Request is not available."
-msgstr "Zahteva ni na voljo."
-
-msgid "You have insufficient privileges to open this object."
-msgstr "Nimate dovolj dovoljenj za odprtje tega predmeta."
-
-msgid "Logon Failed. Please check your name/password."
-msgstr "Prijava neuspešna. Prosim preverite vaše ime/geslo."
-
-#, fuzzy
-msgid "Can not connect to Gromox."
-msgstr "Ne morem se povezati na grommunio server."
-
-msgid "Can not open object with provided id."
-msgstr "Z danim id ne morem odpreti predmeta."
-
-msgid "There are no recipients in the message."
-msgstr "V tem sporočilu ni prejemnikov."
-
-msgid "Can not find object."
-msgstr "Ne morem najti predmeta."
-
-#, fuzzy
-msgid "Operation failed: Server does not have enough memory."
-msgstr "Operacija ni uspela: Strežnik nima dovolj pomnilnika."
-
-#, php-format
-msgid "Unknown MAPI Error: %s"
-msgstr "Neznana MAPI napaka: %s"
-
-#, fuzzy
 msgid "Action is not performed correctly."
 msgstr "Ukrep se ne izvede pravilno."
 
@@ -8041,6 +8043,18 @@ msgstr "Te vrste predmeta ni bilo mogoče obdelati."
 #, fuzzy
 msgid "Could not open this object."
 msgstr "Tega predmeta ni bilo mogoče odpreti."
+
+msgid "Domain Contact Folders"
+msgstr "Mape stikov domene"
+
+msgid "Personal Contact Folders"
+msgstr "Osebne mape stikov"
+
+msgid "Shared Contact Folders"
+msgstr "Skupne mape stikov"
+
+msgid "Public Contact Folders"
+msgstr "Javne mape stikov"
 
 #, fuzzy
 msgid "Error in search, please try again"
@@ -8603,10 +8617,6 @@ msgstr "grommunio Web v tej različici ne podpira uvoza več VCF."
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr "grommunio Web v tej različici ne podpira uvoza več ICS."
-
-#, fuzzy
-msgid "The EML is not valid"
-msgstr "EML ni veljaven"
 
 msgid "GB"
 msgstr "GB"

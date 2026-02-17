@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Korean (Korea)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-26 01:37+0200\n"
+"POT-Creation-Date: 2026-02-17 17:54+0100\n"
 "PO-Revision-Date: 2017-10-05 20:07+0200\n"
 "Last-Translator: import\n"
 "Language: ko_KR\n"
@@ -336,9 +336,6 @@ msgstr "참고"
 
 msgid "Members"
 msgstr "회원"
-
-msgid "Icon"
-msgstr "아이콘"
 
 msgid "Email Address"
 msgstr "이메일 주소"
@@ -1037,9 +1034,6 @@ msgstr "바쁜 참석자"
 msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr "한 명 이상의 참석자가 바쁩니다. 초대하시겠습니까?"
 
-msgid "Preview"
-msgstr "미리 보기"
-
 msgid "Scheduling"
 msgstr "일정 예약"
 
@@ -1206,6 +1200,9 @@ msgstr "비공개"
 
 msgid "Mark this appointment as private"
 msgstr "이 약속을 비공개로 표시"
+
+msgid "Message Options"
+msgstr "메시지 옵션"
 
 msgid "Proposed Date and Time"
 msgstr "제안된 날짜 및 시간"
@@ -1466,11 +1463,17 @@ msgstr "약속을 찾을 수 없습니다."
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "이 약속이 이동 또는 삭제되었는데 계속 진행하시겠습니까?"
 
+msgid "Options"
+msgstr "옵션"
+
 msgid "All Day"
 msgstr "하루 종일"
 
 msgid "Sort by: All Day"
 msgstr "정렬 기준 하루 종일"
+
+msgid "Icon"
+msgstr "아이콘"
 
 msgid "Recurring"
 msgstr "반복"
@@ -1543,6 +1546,9 @@ msgstr "정렬 기준: 알림"
 
 msgid "Sort by: Sensitivity"
 msgstr "정렬 기준: 감도"
+
+msgid "Sort by: Importance"
+msgstr "정렬 기준: 중요도"
 
 msgid "Loading appointments"
 msgstr "약속 로드 중"
@@ -1975,6 +1981,9 @@ msgstr "파일 업로드"
 msgid "Attach item"
 msgstr "항목 첨부"
 
+msgid "Preview"
+msgstr "미리 보기"
+
 msgid "Download"
 msgstr "다운로드"
 
@@ -2186,6 +2195,12 @@ msgstr[0] "0} 메시지가 선택되었습니다."
 msgid "Folder '{0}' selected."
 msgstr "폴더 '{0}'이 선택되었습니다."
 
+msgid "Unable to perform action"
+msgstr "작업을 수행할 수 없습니다"
+
+msgid "The selected items are no longer available."
+msgstr "선택한 항목을 더 이상 사용할 수 없습니다."
+
 msgid ""
 "You have insufficient privileges to move this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
@@ -2211,6 +2226,12 @@ msgstr "대신 복사하시겠습니까?"
 
 msgid "Do not show this message again."
 msgstr "이 메시지를 다시 표시하지 마세요."
+
+msgid "Properties"
+msgstr "속성"
+
+msgid "Object ID"
+msgstr "객체 ID"
 
 msgid "ICS"
 msgstr "ICS"
@@ -2539,8 +2560,11 @@ msgstr "매주 {A}주마다"
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr "각 작업이 완료된 후 {A} 주에 새 작업 재생성"
 
-msgid "Every {A} {B}"
-msgstr "모든 {A} {B}"
+msgid "Every {A} years(s) on"
+msgstr "매 {A}년마다"
+
+msgid "{A} {B}"
+msgstr "{A} {B}"
 
 msgid "The {A} {B} of {C}"
 msgstr "A} {C}의 {B}"
@@ -3795,11 +3819,11 @@ msgstr "다른 사람을 기다리기"
 msgid "Deferred"
 msgstr "지연"
 
-msgid "Dark"
-msgstr "Dark"
+msgid "Purple"
+msgstr "보라색"
 
-msgid "High Contrast"
-msgstr "높은 명암비"
+msgid "Orange"
+msgstr "오렌지"
 
 msgid "Lime"
 msgstr "Lime"
@@ -3807,11 +3831,26 @@ msgstr "Lime"
 msgid "Magenta"
 msgstr "마젠타"
 
-msgid "Orange"
-msgstr "오렌지"
+msgid "High Contrast"
+msgstr "높은 명암비"
 
-msgid "Purple"
-msgstr "보라색"
+msgid "Cyan"
+msgstr "시안"
+
+msgid "Teal"
+msgstr "청록"
+
+msgid "Indigo"
+msgstr "인디고"
+
+msgid "Red"
+msgstr "빨간색"
+
+msgid "Brown"
+msgstr "갈색"
+
+msgid "Dark"
+msgstr "Dark"
 
 msgid "Logout"
 msgstr "로그아웃"
@@ -4061,17 +4100,11 @@ msgstr "목적지 없음"
 msgid "You must select a destination folder."
 msgstr "대상 폴더를 선택해야 합니다."
 
-msgid "Properties"
-msgstr "속성"
-
 msgid "Type"
 msgstr "유형"
 
 msgid "Description"
 msgstr "설명"
-
-msgid "Object ID"
-msgstr "객체 ID"
 
 msgid "Folder size"
 msgstr "폴더 크기"
@@ -4312,18 +4345,12 @@ msgstr "CC"
 msgid "BCC"
 msgstr "BCC"
 
-msgid "Sort by: Importance"
-msgstr "정렬 기준: 중요도"
-
 msgid "Sort by: To"
 msgstr "정렬 기준: To"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Sent"
 msgstr "보낸"
-
-msgid "Red"
-msgstr "빨간색"
 
 msgid "Original message"
 msgstr "원본 메시지"
@@ -4376,9 +4403,6 @@ msgstr "0}에 저장됨"
 msgid "Saving failed"
 msgstr "저장 실패"
 
-msgid "Message Options"
-msgstr "메시지 옵션"
-
 msgid "This message will be flagged for follow up when it is sent."
 msgstr "이 메시지는 전송 시 후속 조치를 위해 플래그가 지정됩니다."
 
@@ -4393,9 +4417,6 @@ msgstr "이 이메일에 첨부 파일 추가"
 
 msgid "Add signature"
 msgstr "서명 추가"
-
-msgid "Options"
-msgstr "옵션"
 
 msgid "Open options dialog"
 msgstr "옵션 대화 상자 열기"
@@ -6095,6 +6116,9 @@ msgstr "마지막 업데이트"
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
 
+msgid "Last connect"
+msgstr "마지막 연결"
+
 msgid "Synchronize"
 msgstr "동기화"
 
@@ -6133,8 +6157,8 @@ msgstr "계정에 연결된 디바이스가 없습니다."
 msgid "Provisioning Status"
 msgstr "프로비저닝 상태"
 
-msgid "Last Update"
-msgstr "최근 업데이트"
+msgid "Last Connect"
+msgstr "마지막 연결"
 
 msgid "Device ID"
 msgstr "장치 ID"
@@ -6859,8 +6883,17 @@ msgstr "Zip 파일 생성에 실패했습니다. 관리자에게 알려주세요
 msgid "This file is no longer available. Please reload the folder."
 msgstr "이 파일은 더 이상 사용할 수 없습니다. 폴더를 다시 로드하세요."
 
+msgid "Kendox certificate path is not configured."
+msgstr "Kendox 인증서 경로가 구성되지 않았습니다."
+
+msgid "Kendox certificate password is not configured."
+msgstr "Kendox 인증서 비밀번호가 구성되지 않았습니다."
+
 msgid "Kendox certificate is not available."
 msgstr ""
+
+msgid "Kendox certificate is not readable."
+msgstr "Kendox 인증서를 읽을 수 없습니다."
 
 msgid "Mobile device management plugin"
 msgstr "모바일 기기 관리 플러그인"
@@ -6978,7 +7011,7 @@ msgstr "할 일 목록"
 #.
 #, php-format
 msgid "%1$s of %2$s"
-msgstr "1$s의 %2$s"
+msgstr "%2$s의 %1$s"
 
 msgid "Error retrieving existing settings"
 msgstr "기존 설정을 검색하는 동안 오류가 발생했습니다."
@@ -7058,34 +7091,6 @@ msgstr "작업 요청"
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "메시지가 이동되었거나 삭제되어 찾을 수 없습니다."
 
-msgid "Request is not available."
-msgstr "요청을 사용할 수 없습니다."
-
-msgid "You have insufficient privileges to open this object."
-msgstr "이 개체를 열 수 있는 권한이 부족합니다."
-
-msgid "Logon Failed. Please check your name/password."
-msgstr "로그온에 실패했습니다. 이름/비밀번호를 확인해 주세요."
-
-msgid "Can not connect to Gromox."
-msgstr "Gromox에 연결할 수 없습니다."
-
-msgid "Can not open object with provided id."
-msgstr "제공된 ID로 개체를 열 수 없습니다."
-
-msgid "There are no recipients in the message."
-msgstr "메시지에 받는 사람이 없습니다."
-
-msgid "Can not find object."
-msgstr "개체를 찾을 수 없습니다."
-
-msgid "Operation failed: Server does not have enough memory."
-msgstr "작업이 실패했습니다: 서버의 메모리가 부족합니다."
-
-#, php-format
-msgid "Unknown MAPI Error: %s"
-msgstr "알 수 없는 MAPI 오류: %s"
-
 msgid "Action is not performed correctly."
 msgstr "작업이 올바르게 수행되지 않습니다."
 
@@ -7094,6 +7099,18 @@ msgstr "이 유형의 개체를 처리할 수 없습니다."
 
 msgid "Could not open this object."
 msgstr "이 개체를 열 수 없습니다."
+
+msgid "Domain Contact Folders"
+msgstr "도메인 연락처 폴더"
+
+msgid "Personal Contact Folders"
+msgstr "개인 연락처 폴더"
+
+msgid "Shared Contact Folders"
+msgstr "공유 연락처 폴더"
+
+msgid "Public Contact Folders"
+msgstr "공용 연락처 폴더"
 
 msgid "Error in search, please try again"
 msgstr "검색 중 오류가 발생했습니다. 다시 시도하세요."
@@ -7185,11 +7202,11 @@ msgstr "개인 예약"
 
 #, php-format
 msgid "%s's Birthday"
-msgstr "s의 생일"
+msgstr "%s의 생일"
 
 #, php-format
 msgid "%s's Anniversary"
-msgstr "의 기념일"
+msgstr "%s의 기념일"
 
 msgid "You don't have the permission to complete this action"
 msgstr "이 작업을 완료할 수 있는 권한이 없습니다."
@@ -7554,9 +7571,6 @@ msgstr ""
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr "그로뮤니오 웹은 이 버전에서 여러 ICS 가져오기를 지원하지 않습니다."
-
-msgid "The EML is not valid"
-msgstr "EML이 유효하지 않습니다."
 
 msgid "GB"
 msgstr "GB"

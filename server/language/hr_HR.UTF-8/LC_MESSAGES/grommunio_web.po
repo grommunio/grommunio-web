@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Croatian (Croatia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-26 01:37+0200\n"
+"POT-Creation-Date: 2026-02-17 17:54+0100\n"
 "PO-Revision-Date: 2025-02-25 15:04+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/grommunio/"
@@ -357,9 +357,6 @@ msgstr "Bilješke"
 
 msgid "Members"
 msgstr "Članovi"
-
-msgid "Icon"
-msgstr "Ikona"
 
 msgid "Email Address"
 msgstr "E-mail adresa"
@@ -1062,9 +1059,6 @@ msgstr ""
 msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr ""
 
-msgid "Preview"
-msgstr ""
-
 msgid "Scheduling"
 msgstr ""
 
@@ -1229,6 +1223,9 @@ msgstr ""
 
 msgid "Mark this appointment as private"
 msgstr ""
+
+msgid "Message Options"
+msgstr "Mogućnosti poruke"
 
 msgid "Proposed Date and Time"
 msgstr ""
@@ -1486,11 +1483,17 @@ msgstr ""
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr ""
 
+msgid "Options"
+msgstr "Mogućnosti"
+
 msgid "All Day"
 msgstr "Cijeli dan"
 
 msgid "Sort by: All Day"
 msgstr "Razvrstaj po: Cijeli dan"
+
+msgid "Icon"
+msgstr "Ikona"
 
 msgid "Recurring"
 msgstr ""
@@ -1563,6 +1566,9 @@ msgstr "Razvrstaj po: Podsjetnik"
 
 msgid "Sort by: Sensitivity"
 msgstr "Razvrstaj po: Povjerljivost"
+
+msgid "Sort by: Importance"
+msgstr "Razvrstaj po: Važnost"
 
 msgid "Loading appointments"
 msgstr "Učitavanje termina"
@@ -1970,6 +1976,9 @@ msgstr ""
 msgid "Attach item"
 msgstr ""
 
+msgid "Preview"
+msgstr "Pregled"
+
 msgid "Download"
 msgstr ""
 
@@ -2173,6 +2182,12 @@ msgstr[2] ""
 msgid "Folder '{0}' selected."
 msgstr ""
 
+msgid "Unable to perform action"
+msgstr "Nije moguće izvršiti radnju"
+
+msgid "The selected items are no longer available."
+msgstr "Odabrane stavke više nisu dostupne."
+
 msgid ""
 "You have insufficient privileges to move this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
@@ -2194,6 +2209,12 @@ msgstr ""
 
 msgid "Do not show this message again."
 msgstr "Ovu poruku više nemoj prikazivati."
+
+msgid "Properties"
+msgstr "Svojstva"
+
+msgid "Object ID"
+msgstr "ID objekta"
 
 msgid "ICS"
 msgstr "ICS"
@@ -2518,8 +2539,11 @@ msgstr ""
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr ""
 
-msgid "Every {A} {B}"
-msgstr ""
+msgid "Every {A} years(s) on"
+msgstr "Svakih {A} godina na"
+
+msgid "{A} {B}"
+msgstr "{A} {B}"
 
 msgid "The {A} {B} of {C}"
 msgstr ""
@@ -3760,11 +3784,11 @@ msgstr "Čekaj na druge osobe"
 msgid "Deferred"
 msgstr ""
 
-msgid "Dark"
-msgstr "Tamna"
+msgid "Purple"
+msgstr "Ljubičasta"
 
-msgid "High Contrast"
-msgstr "Visok kontrast"
+msgid "Orange"
+msgstr "Narančasta"
 
 msgid "Lime"
 msgstr "Limunasta"
@@ -3772,11 +3796,26 @@ msgstr "Limunasta"
 msgid "Magenta"
 msgstr "Magenta"
 
-msgid "Orange"
-msgstr "Narančasta"
+msgid "High Contrast"
+msgstr "Visok kontrast"
 
-msgid "Purple"
-msgstr "Ljubičasta"
+msgid "Cyan"
+msgstr "Cijan"
+
+msgid "Teal"
+msgstr "Plavozelena"
+
+msgid "Indigo"
+msgstr "Indigo"
+
+msgid "Red"
+msgstr "Crvena"
+
+msgid "Brown"
+msgstr "Smeđa"
+
+msgid "Dark"
+msgstr "Tamna"
 
 msgid "Logout"
 msgstr "Odjava"
@@ -4029,16 +4068,10 @@ msgstr ""
 msgid "You must select a destination folder."
 msgstr ""
 
-msgid "Properties"
-msgstr ""
-
 msgid "Type"
 msgstr ""
 
 msgid "Description"
-msgstr ""
-
-msgid "Object ID"
 msgstr ""
 
 msgid "Folder size"
@@ -4278,17 +4311,11 @@ msgstr "CC"
 msgid "BCC"
 msgstr "BCC"
 
-msgid "Sort by: Importance"
-msgstr "Razvrstaj po: Važnost"
-
 msgid "Sort by: To"
 msgstr "Razvrstaj po: Prima"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Sent"
-msgstr ""
-
-msgid "Red"
 msgstr ""
 
 msgid "Original message"
@@ -4342,9 +4369,6 @@ msgstr ""
 msgid "Saving failed"
 msgstr ""
 
-msgid "Message Options"
-msgstr ""
-
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 
@@ -4359,9 +4383,6 @@ msgstr "Dodaj privitke ovom e-mailu"
 
 msgid "Add signature"
 msgstr ""
-
-msgid "Options"
-msgstr "Mogućnosti"
 
 msgid "Open options dialog"
 msgstr ""
@@ -6048,6 +6069,9 @@ msgstr "Zadnje aktualiziranje"
 msgid "d F Y, H:i"
 msgstr "d. F Y., H:i"
 
+msgid "Last connect"
+msgstr "Zadnje povezivanje"
+
 msgid "Synchronize"
 msgstr "Sinkroniziraj"
 
@@ -6082,8 +6106,8 @@ msgstr ""
 msgid "Provisioning Status"
 msgstr ""
 
-msgid "Last Update"
-msgstr ""
+msgid "Last Connect"
+msgstr "Zadnje povezivanje"
 
 msgid "Device ID"
 msgstr "ID uređaja"
@@ -6769,8 +6793,17 @@ msgstr ""
 msgid "This file is no longer available. Please reload the folder."
 msgstr ""
 
+msgid "Kendox certificate path is not configured."
+msgstr "Putanja Kendox certifikata nije konfigurirana."
+
+msgid "Kendox certificate password is not configured."
+msgstr "Lozinka Kendox certifikata nije konfigurirana."
+
 msgid "Kendox certificate is not available."
 msgstr ""
+
+msgid "Kendox certificate is not readable."
+msgstr "Kendox certifikat nije čitljiv."
 
 msgid "Mobile device management plugin"
 msgstr ""
@@ -6963,42 +6996,26 @@ msgstr ""
 msgid "Could not find message, either it has been moved or deleted."
 msgstr ""
 
-msgid "Request is not available."
-msgstr ""
-
-msgid "You have insufficient privileges to open this object."
-msgstr ""
-
-msgid "Logon Failed. Please check your name/password."
-msgstr ""
-
-msgid "Can not connect to Gromox."
-msgstr ""
-
-msgid "Can not open object with provided id."
-msgstr ""
-
-msgid "There are no recipients in the message."
-msgstr ""
-
-msgid "Can not find object."
-msgstr ""
-
-msgid "Operation failed: Server does not have enough memory."
-msgstr ""
-
-#, php-format
-msgid "Unknown MAPI Error: %s"
-msgstr ""
-
 msgid "Action is not performed correctly."
 msgstr ""
 
 msgid "Could not handle this type of object."
-msgstr ""
+msgstr "Nije moguće obraditi ovu vrstu objekta."
 
 msgid "Could not open this object."
-msgstr ""
+msgstr "Nije moguće otvoriti ovaj objekt."
+
+msgid "Domain Contact Folders"
+msgstr "Mape kontakata domene"
+
+msgid "Personal Contact Folders"
+msgstr "Osobne mape kontakata"
+
+msgid "Shared Contact Folders"
+msgstr "Dijeljene mape kontakata"
+
+msgid "Public Contact Folders"
+msgstr "Javne mape kontakata"
 
 msgid "Error in search, please try again"
 msgstr ""
@@ -7435,9 +7452,6 @@ msgstr ""
 
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
-msgstr ""
-
-msgid "The EML is not valid"
 msgstr ""
 
 msgid "GB"

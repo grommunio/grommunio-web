@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-26 01:37+0200\n"
+"POT-Creation-Date: 2026-02-17 17:54+0100\n"
 "PO-Revision-Date: 2022-07-26 16:08+0200\n"
 "Last-Translator: f3rr31 <5920873@disroot.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/grommunio/"
@@ -354,9 +354,6 @@ msgstr "Jegyzetek"
 
 msgid "Members"
 msgstr "Tagok"
-
-msgid "Icon"
-msgstr "Ikon"
 
 msgid "Email Address"
 msgstr "Email cím"
@@ -1100,9 +1097,6 @@ msgstr "Résztvevők meghívása"
 msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr "Egy, vagy több meghívott elfoglalt. Biztosan meghívja őket?"
 
-msgid "Preview"
-msgstr "Előnézet"
-
 msgid "Scheduling"
 msgstr "Ütemezés"
 
@@ -1276,6 +1270,9 @@ msgstr "Személyes"
 
 msgid "Mark this appointment as private"
 msgstr "Találkozó magánjellegűnek jelölése"
+
+msgid "Message Options"
+msgstr "Üzenet beállítások"
 
 msgid "Proposed Date and Time"
 msgstr "Ajánlott dátum és idő"
@@ -1554,11 +1551,17 @@ msgstr "Találkozó"
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "A találkozót áthelyezték, vagy törölték, kívánja folytatni?"
 
+msgid "Options"
+msgstr "Lehetőségek"
+
 msgid "All Day"
 msgstr "Teljes nap"
 
 msgid "Sort by: All Day"
 msgstr "Rendezés: Egész napos események"
+
+msgid "Icon"
+msgstr "Ikon"
 
 msgid "Recurring"
 msgstr "Ismétlődés"
@@ -1635,6 +1638,9 @@ msgstr "Rendezés: Emlékeztető szerint"
 
 msgid "Sort by: Sensitivity"
 msgstr "Rendezés: Érzékenység szerint"
+
+msgid "Sort by: Importance"
+msgstr "Rendezés: Fontosság szerint"
 
 msgid "Loading appointments"
 msgstr "Találkozók betöltése"
@@ -2125,6 +2131,9 @@ msgstr "Fájl feltöltés"
 msgid "Attach item"
 msgstr "Elem csatolása"
 
+msgid "Preview"
+msgstr "Előnézet"
+
 msgid "Download"
 msgstr "Letöltés"
 
@@ -2360,6 +2369,12 @@ msgstr[1] "{0} üzenet kiválasztva."
 msgid "Folder '{0}' selected."
 msgstr "'{0}' mappa kiválasztva."
 
+msgid "Unable to perform action"
+msgstr "A művelet nem hajtható végre"
+
+msgid "The selected items are no longer available."
+msgstr "A kiválasztott elemek már nem érhetők el."
+
 #, fuzzy
 msgid ""
 "You have insufficient privileges to move this folder. Ask the folder owner "
@@ -2389,6 +2404,12 @@ msgstr "Szeretne inkább másolni?"
 
 msgid "Do not show this message again."
 msgstr "Ne mutassa ezt az üzenetet többet."
+
+msgid "Properties"
+msgstr "Tulajdonságok"
+
+msgid "Object ID"
+msgstr "Objektum azonosító"
 
 #, fuzzy
 msgid "ICS"
@@ -2744,8 +2765,11 @@ msgstr "Minden {A} héten"
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr "Feladat újragenerálása {A} héttel később a feladatok elvégzése után"
 
-msgid "Every {A} {B}"
-msgstr "Minden {A} {B}"
+msgid "Every {A} years(s) on"
+msgstr "Minden {A}. évben ekkor:"
+
+msgid "{A} {B}"
+msgstr "{A} {B}"
 
 msgid "The {A} {B} of {C}"
 msgstr "A(z) {A} {B} a(z) {C}"
@@ -4074,11 +4098,11 @@ msgstr "Másik személyre vár"
 msgid "Deferred"
 msgstr "Elhalasztott"
 
-msgid "Dark"
-msgstr "Sötét"
+msgid "Purple"
+msgstr "Bíbor"
 
-msgid "High Contrast"
-msgstr "Magas kontraszt"
+msgid "Orange"
+msgstr "Narancs"
 
 msgid "Lime"
 msgstr "Lime"
@@ -4086,11 +4110,26 @@ msgstr "Lime"
 msgid "Magenta"
 msgstr "Magenta"
 
-msgid "Orange"
-msgstr "Narancs"
+msgid "High Contrast"
+msgstr "Magas kontraszt"
 
-msgid "Purple"
-msgstr "Bíbor"
+msgid "Cyan"
+msgstr "Cián"
+
+msgid "Teal"
+msgstr "Kékeszöld"
+
+msgid "Indigo"
+msgstr "Indigó"
+
+msgid "Red"
+msgstr "Vörös"
+
+msgid "Brown"
+msgstr "Barna"
+
+msgid "Dark"
+msgstr "Sötét"
 
 msgid "Logout"
 msgstr "Kijelentkezés"
@@ -4373,17 +4412,11 @@ msgstr "Nincs információ"
 msgid "You must select a destination folder."
 msgstr "Meg kell adnia a célmappát."
 
-msgid "Properties"
-msgstr "Tulajdonságok"
-
 msgid "Type"
 msgstr "Típus"
 
 msgid "Description"
 msgstr "Leírás"
-
-msgid "Object ID"
-msgstr "Objektum azonosító"
 
 msgid "Folder size"
 msgstr "Mappa méret"
@@ -4638,18 +4671,12 @@ msgstr "CC"
 msgid "BCC"
 msgstr "BCC"
 
-msgid "Sort by: Importance"
-msgstr "Rendezés: Fontosság szerint"
-
 msgid "Sort by: To"
 msgstr "Rendezés: Címzett szerint"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Sent"
 msgstr "Elküldött"
-
-msgid "Red"
-msgstr "Vörös"
 
 msgid "Original message"
 msgstr "Eredeti üzenet"
@@ -4706,9 +4733,6 @@ msgstr "Üzenet elmentve ekkor: {0}."
 msgid "Saving failed"
 msgstr "Művelet sikertelen"
 
-msgid "Message Options"
-msgstr "Üzenet beállítások"
-
 #, fuzzy
 msgid "This message will be flagged for follow up when it is sent."
 msgstr "Ez az üzenet elküldésekor nyomon követésre lesz jelölve."
@@ -4724,9 +4748,6 @@ msgstr "Mellékletek hozzáadása az emailhez"
 
 msgid "Add signature"
 msgstr "Aláírás hozzáadása"
-
-msgid "Options"
-msgstr "Lehetőségek"
 
 msgid "Open options dialog"
 msgstr "Beállítások párbeszédpanel megnyitása"
@@ -6560,6 +6581,9 @@ msgstr "Utolsó frissítés"
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
 
+msgid "Last connect"
+msgstr "Utolsó kapcsolódás"
+
 #, fuzzy
 msgid "Synchronize"
 msgstr "Szinkronizálás"
@@ -6605,8 +6629,8 @@ msgstr "Nincsenek eszközök kapcsolva a fiókjához"
 msgid "Provisioning Status"
 msgstr "Feltöltési állapot"
 
-msgid "Last Update"
-msgstr "Utolsó frissítés"
+msgid "Last Connect"
+msgstr "Utolsó kapcsolódás"
 
 msgid "Device ID"
 msgstr "Eszközazonosító"
@@ -7448,8 +7472,17 @@ msgstr "A zip fájl készítése sikertelen. Kérjük értesítse a rendszergazd
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Ez a fájl már nem elérhető. Frissítse a mappát."
 
+msgid "Kendox certificate path is not configured."
+msgstr "A Kendox tanúsítvány elérési útja nincs beállítva."
+
+msgid "Kendox certificate password is not configured."
+msgstr "A Kendox tanúsítvány jelszava nincs beállítva."
+
 msgid "Kendox certificate is not available."
 msgstr ""
+
+msgid "Kendox certificate is not readable."
+msgstr "A Kendox tanúsítvány nem olvasható."
 
 #, fuzzy
 msgid "Mobile device management plugin"
@@ -7688,35 +7721,6 @@ msgid "Could not find message, either it has been moved or deleted."
 msgstr "Nem találta az üzenetet, vagy áthelyezték, vagy törölték."
 
 #, fuzzy
-msgid "Request is not available."
-msgstr "A kérelem nem áll rendelkezésre."
-
-msgid "You have insufficient privileges to open this object."
-msgstr "Nincs elegendő jogosultsága az elem megnyitásához."
-
-msgid "Logon Failed. Please check your name/password."
-msgstr "Bejelentkezés nem sikerült. Ellenőrizze felhasználónevét/jelszavát."
-
-msgid "Can not connect to Gromox."
-msgstr "Nem lehet a grommunio kiszolgálóhoz csatlakozni."
-
-msgid "Can not open object with provided id."
-msgstr "Nem nyitható meg a megadott azonosítójú elem."
-
-msgid "There are no recipients in the message."
-msgstr "Nincsenek címzettek megjelölve az üzenetben."
-
-msgid "Can not find object."
-msgstr "Elem nem található."
-
-msgid "Operation failed: Server does not have enough memory."
-msgstr "Művelet sikertelen: A kiszolgáló nem rendelkezik elegendő memóriával."
-
-#, php-format
-msgid "Unknown MAPI Error: %s"
-msgstr "Ismeretlen MAPI hiba: %s"
-
-#, fuzzy
 msgid "Action is not performed correctly."
 msgstr "A művelet nem megfelelően történik."
 
@@ -7727,6 +7731,18 @@ msgstr "Nem tudta kezelni ezt az objektumtípust."
 #, fuzzy
 msgid "Could not open this object."
 msgstr "Nem sikerült megnyitni ezt az objektumot."
+
+msgid "Domain Contact Folders"
+msgstr "Tartományi névjegymappák"
+
+msgid "Personal Contact Folders"
+msgstr "Személyes névjegymappák"
+
+msgid "Shared Contact Folders"
+msgstr "Megosztott névjegymappák"
+
+msgid "Public Contact Folders"
+msgstr "Nyilvános névjegymappák"
 
 #, fuzzy
 msgid "Error in search, please try again"
@@ -8298,10 +8314,6 @@ msgstr "a grommunio Web ebben a verzióban nem támogatja több VCF importálás
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr "a grommunio Web ebben a verzióban nem támogatja több ICS importálását."
-
-#, fuzzy
-msgid "The EML is not valid"
-msgstr "Az EML nem érvényes"
 
 msgid "GB"
 msgstr "GB"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-26 01:37+0200\n"
+"POT-Creation-Date: 2026-02-17 17:54+0100\n"
 "PO-Revision-Date: 2022-12-12 13:00+0200\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/grommunio/"
@@ -345,9 +345,6 @@ msgstr "メモ"
 
 msgid "Members"
 msgstr "メンバー"
-
-msgid "Icon"
-msgstr "アイコン"
 
 msgid "Email Address"
 msgstr "電子メールアドレス"
@@ -1046,9 +1043,6 @@ msgstr "多忙な出席者"
 msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr "招待した出席者の中に既に予定ありの人がいます。招待しますか？"
 
-msgid "Preview"
-msgstr "プレビュー"
-
 msgid "Scheduling"
 msgstr "スケジュール"
 
@@ -1217,6 +1211,9 @@ msgstr "プライベート"
 
 msgid "Mark this appointment as private"
 msgstr "この予約をプライベートにする"
+
+msgid "Message Options"
+msgstr "メッセージのオプション"
 
 msgid "Proposed Date and Time"
 msgstr "提案日時"
@@ -1489,11 +1486,18 @@ msgstr "予定"
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "この予定は変更になったか削除されました。続行しますか？"
 
+# オプション
+msgid "Options"
+msgstr "オプション"
+
 msgid "All Day"
 msgstr "終日イベント"
 
 msgid "Sort by: All Day"
 msgstr "並び替え：繰り返し"
+
+msgid "Icon"
+msgstr "アイコン"
 
 msgid "Recurring"
 msgstr "繰り返し"
@@ -1571,6 +1575,9 @@ msgstr "並べ替え：リマインダー"
 
 msgid "Sort by: Sensitivity"
 msgstr "並べ替え：Sensitivity"
+
+msgid "Sort by: Importance"
+msgstr "並べ替え: 重要度"
 
 msgid "Loading appointments"
 msgstr "予定を読み込み中"
@@ -2051,6 +2058,9 @@ msgstr "ファイルアップロード"
 msgid "Attach item"
 msgstr "添付ファイル"
 
+msgid "Preview"
+msgstr "プレビュー"
+
 msgid "Download"
 msgstr "ダウンロード"
 
@@ -2285,6 +2295,12 @@ msgstr[0] "{0}メッセージが選択されています。"
 msgid "Folder '{0}' selected."
 msgstr "「{0}」フォルダが選択されています。"
 
+msgid "Unable to perform action"
+msgstr "操作を実行できません"
+
+msgid "The selected items are no longer available."
+msgstr "選択した項目は利用できなくなりました。"
+
 #, fuzzy
 msgid ""
 "You have insufficient privileges to move this folder. Ask the folder owner "
@@ -2314,6 +2330,12 @@ msgstr "代わりにコピーしますか？"
 
 msgid "Do not show this message again."
 msgstr "次回からこのメッセージを表示しない。"
+
+msgid "Properties"
+msgstr "プロパティ"
+
+msgid "Object ID"
+msgstr "オブジェクトID"
 
 msgid "ICS"
 msgstr "ICS"
@@ -2681,8 +2703,11 @@ msgstr "毎{A}週毎に"
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr "全タスクが完了してから{A}週間後に新しいタスクを再生成する"
 
-msgid "Every {A} {B}"
-msgstr "毎{A}{B}"
+msgid "Every {A} years(s) on"
+msgstr "毎{A}年の"
+
+msgid "{A} {B}"
+msgstr "{A} {B}"
 
 msgid "The {A} {B} of {C}"
 msgstr "{A} と {B} と {C}"
@@ -4017,11 +4042,11 @@ msgstr "他の人を待つ"
 msgid "Deferred"
 msgstr "延期"
 
-msgid "Dark"
-msgstr "ダーク"
+msgid "Purple"
+msgstr "紫"
 
-msgid "High Contrast"
-msgstr "ハイコントラスト"
+msgid "Orange"
+msgstr "オレンジ"
 
 msgid "Lime"
 msgstr "ライム"
@@ -4029,11 +4054,26 @@ msgstr "ライム"
 msgid "Magenta"
 msgstr "マゼンタ"
 
-msgid "Orange"
-msgstr "オレンジ"
+msgid "High Contrast"
+msgstr "ハイコントラスト"
 
-msgid "Purple"
-msgstr "紫"
+msgid "Cyan"
+msgstr "シアン"
+
+msgid "Teal"
+msgstr "ティール"
+
+msgid "Indigo"
+msgstr "インディゴ"
+
+msgid "Red"
+msgstr "赤"
+
+msgid "Brown"
+msgstr "ブラウン"
+
+msgid "Dark"
+msgstr "ダーク"
 
 msgid "Logout"
 msgstr "ログアウト"
@@ -4321,17 +4361,11 @@ msgstr "目的地なし"
 msgid "You must select a destination folder."
 msgstr "フォルダの移動先を選択して下さい。"
 
-msgid "Properties"
-msgstr "プロパティ"
-
 msgid "Type"
 msgstr "タイプ"
 
 msgid "Description"
 msgstr "説明"
-
-msgid "Object ID"
-msgstr "オブジェクトID"
 
 msgid "Folder size"
 msgstr "フォルダサイズ"
@@ -4586,18 +4620,12 @@ msgstr "シーシー"
 msgid "BCC"
 msgstr "Bcc"
 
-msgid "Sort by: Importance"
-msgstr "並べ替え: 重要度"
-
 msgid "Sort by: To"
 msgstr "並べ替え: に"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Sent"
 msgstr "送信"
-
-msgid "Red"
-msgstr "赤"
 
 msgid "Original message"
 msgstr "オリジナル本文"
@@ -4654,9 +4682,6 @@ msgstr "{0}にメッセージを保存しました。"
 msgid "Saving failed"
 msgstr "保存に失敗しました"
 
-msgid "Message Options"
-msgstr "メッセージのオプション"
-
 msgid "This message will be flagged for follow up when it is sent."
 msgstr "このメッセージは、送信時にフォローアップのためにフラグが立てられます。"
 
@@ -4672,10 +4697,6 @@ msgstr "このメールに添付ファイルを追加する"
 
 msgid "Add signature"
 msgstr "署名を追加する"
-
-# オプション
-msgid "Options"
-msgstr "オプション"
 
 msgid "Open options dialog"
 msgstr "オプションダイアログを開く"
@@ -6530,6 +6551,9 @@ msgstr "最終更新日"
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
 
+msgid "Last connect"
+msgstr "最終接続"
+
 msgid "Synchronize"
 msgstr "同期する"
 
@@ -6575,8 +6599,8 @@ msgstr "アカウントに接続されているデバイスがない"
 msgid "Provisioning Status"
 msgstr "プロビジョニングステータス"
 
-msgid "Last Update"
-msgstr "最終更新日"
+msgid "Last Connect"
+msgstr "最終接続"
 
 msgid "Device ID"
 msgstr "デバイス ID"
@@ -7393,8 +7417,17 @@ msgstr "ZIPファイルの生成に失敗しました.システム管理者へ�
 msgid "This file is no longer available. Please reload the folder."
 msgstr "このファイルは存在していません.フォルダを再読み込みしてください."
 
+msgid "Kendox certificate path is not configured."
+msgstr "Kendox証明書のパスが設定されていません。"
+
+msgid "Kendox certificate password is not configured."
+msgstr "Kendox証明書のパスワードが設定されていません。"
+
 msgid "Kendox certificate is not available."
 msgstr ""
+
+msgid "Kendox certificate is not readable."
+msgstr "Kendox証明書を読み取れません。"
 
 #, fuzzy
 msgid "Mobile device management plugin"
@@ -7626,37 +7659,6 @@ msgid "Could not find message, either it has been moved or deleted."
 msgstr "メッセージが見つかりません。移動されたか削除されたかのどちらかです。"
 
 #, fuzzy
-msgid "Request is not available."
-msgstr "リクエストはできません。"
-
-msgid "You have insufficient privileges to open this object."
-msgstr "このオブジェクトを開くための十分な権限がありません。"
-
-msgid "Logon Failed. Please check your name/password."
-msgstr ""
-"ログオンに失敗しました。ユーザ名とパスワードが正しいかを確認して下さい。"
-
-msgid "Can not connect to Gromox."
-msgstr "Gromoxに接続できない。"
-
-msgid "Can not open object with provided id."
-msgstr "そのIDではオブジェクトを開くことができません。"
-
-msgid "There are no recipients in the message."
-msgstr "宛先が設定されていません。"
-
-msgid "Can not find object."
-msgstr "オブジェクトを見つけることができません。"
-
-#, fuzzy
-msgid "Operation failed: Server does not have enough memory."
-msgstr "操作に失敗しました。Server does not have enough memory."
-
-#, php-format
-msgid "Unknown MAPI Error: %s"
-msgstr "不明なMAPIエラー:%s"
-
-#, fuzzy
 msgid "Action is not performed correctly."
 msgstr "動作が正しく行われない。"
 
@@ -7667,6 +7669,18 @@ msgstr "このタイプのオブジェクトを扱えませんでした。"
 #, fuzzy
 msgid "Could not open this object."
 msgstr "このオブジェクトを開くことができませんでした。"
+
+msgid "Domain Contact Folders"
+msgstr "ドメイン連絡先フォルダー"
+
+msgid "Personal Contact Folders"
+msgstr "個人連絡先フォルダー"
+
+msgid "Shared Contact Folders"
+msgstr "共有連絡先フォルダー"
+
+msgid "Public Contact Folders"
+msgstr "公開連絡先フォルダー"
 
 #, fuzzy
 msgid "Error in search, please try again"
@@ -8222,10 +8236,6 @@ msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
 "grommunio Web は、本バージョンで複数の ICS のインポートに対応していません。"
-
-#, fuzzy
-msgid "The EML is not valid"
-msgstr "EMLが有効でない"
 
 msgid "GB"
 msgstr "GB"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Dutch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-26 01:37+0200\n"
+"POT-Creation-Date: 2026-02-17 17:54+0100\n"
 "PO-Revision-Date: 2022-12-11 14:12+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/grommunio/"
@@ -354,9 +354,6 @@ msgstr "Notities"
 
 msgid "Members"
 msgstr "Leden"
-
-msgid "Icon"
-msgstr "Icoon"
 
 msgid "Email Address"
 msgstr "E-mailadres"
@@ -1063,9 +1060,6 @@ msgstr "Bezette genodigden"
 msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr "Een of meerdere genodigden zijn bezig. Wilt u hen alsnog uitnodigen?"
 
-msgid "Preview"
-msgstr "Voorbeeld"
-
 msgid "Scheduling"
 msgstr "Planning"
 
@@ -1236,6 +1230,9 @@ msgstr "Privé"
 
 msgid "Mark this appointment as private"
 msgstr "Markeer deze afspraak als privé"
+
+msgid "Message Options"
+msgstr "Berichtopties"
 
 msgid "Proposed Date and Time"
 msgstr "Voorgestelde Datum en Tijd"
@@ -1500,11 +1497,17 @@ msgstr "Kalenderafspraak niet gevonden"
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Deze afspraak is verplaatst of verwijderd, wilt u doorgaan?"
 
+msgid "Options"
+msgstr "Opties"
+
 msgid "All Day"
 msgstr "Hele dag"
 
 msgid "Sort by: All Day"
 msgstr "Sorteer op: Hele dag"
+
+msgid "Icon"
+msgstr "Icoon"
 
 msgid "Recurring"
 msgstr "Terugkerend"
@@ -1577,6 +1580,9 @@ msgstr "Sorteer op: Herinnering"
 
 msgid "Sort by: Sensitivity"
 msgstr "Sorteer op: Prive"
+
+msgid "Sort by: Importance"
+msgstr "Sorteer op: Belangrijkheid"
 
 msgid "Loading appointments"
 msgstr "Afspraken laden"
@@ -2024,6 +2030,9 @@ msgstr "Bestand uploaden"
 msgid "Attach item"
 msgstr "Item invoegen"
 
+msgid "Preview"
+msgstr "Voorbeeld"
+
 msgid "Download"
 msgstr "Downloaden"
 
@@ -2242,6 +2251,12 @@ msgstr[1] "Er zijn {0} berichten geselecteerd."
 msgid "Folder '{0}' selected."
 msgstr "Map '{0}' geselecteerd."
 
+msgid "Unable to perform action"
+msgstr "Kan actie niet uitvoeren"
+
+msgid "The selected items are no longer available."
+msgstr "De geselecteerde items zijn niet langer beschikbaar."
+
 msgid ""
 "You have insufficient privileges to move this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
@@ -2267,6 +2282,12 @@ msgstr "Wil je de items kopiëren?"
 
 msgid "Do not show this message again."
 msgstr "Toon dit bericht niet meer."
+
+msgid "Properties"
+msgstr "Eigenschappen"
+
+msgid "Object ID"
+msgstr "Object ID"
 
 msgid "ICS"
 msgstr "ICS"
@@ -2599,8 +2620,11 @@ msgstr "Elke {A} we(e)k(en) op"
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr "Maak nieuwe taak {A} we(e)k(en) nadat elke taak is afgerond"
 
-msgid "Every {A} {B}"
-msgstr "Elke {A} {B}"
+msgid "Every {A} years(s) on"
+msgstr "Elke {A} jaar op"
+
+msgid "{A} {B}"
+msgstr "{A} {B}"
 
 msgid "The {A} {B} of {C}"
 msgstr "De {A} {B} van {C}"
@@ -3864,11 +3888,11 @@ msgstr "Wacht op iemand anders"
 msgid "Deferred"
 msgstr "Uitgesteld"
 
-msgid "Dark"
-msgstr "Donker"
+msgid "Purple"
+msgstr "Paars"
 
-msgid "High Contrast"
-msgstr "Hoog contrast"
+msgid "Orange"
+msgstr "Oranje"
 
 msgid "Lime"
 msgstr "Limoen"
@@ -3876,11 +3900,26 @@ msgstr "Limoen"
 msgid "Magenta"
 msgstr "Magenta"
 
-msgid "Orange"
-msgstr "Oranje"
+msgid "High Contrast"
+msgstr "Hoog contrast"
 
-msgid "Purple"
-msgstr "Paars"
+msgid "Cyan"
+msgstr "Cyaan"
+
+msgid "Teal"
+msgstr "Blauwgroen"
+
+msgid "Indigo"
+msgstr "Indigo"
+
+msgid "Red"
+msgstr "Rood"
+
+msgid "Brown"
+msgstr "Bruin"
+
+msgid "Dark"
+msgstr "Donker"
 
 msgid "Logout"
 msgstr "Afmelden"
@@ -4137,17 +4176,11 @@ msgstr "Geen bestemming"
 msgid "You must select a destination folder."
 msgstr "U moet een bestemmingsmap selecteren."
 
-msgid "Properties"
-msgstr "Eigenschappen"
-
 msgid "Type"
 msgstr "Type"
 
 msgid "Description"
 msgstr "Omschrijving"
-
-msgid "Object ID"
-msgstr "Object ID"
 
 msgid "Folder size"
 msgstr "Mapgrootte"
@@ -4392,18 +4425,12 @@ msgstr "CC"
 msgid "BCC"
 msgstr "BCC"
 
-msgid "Sort by: Importance"
-msgstr "Sorteer op: Belangrijkheid"
-
 msgid "Sort by: To"
 msgstr "Sorteer op: Aan"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Sent"
 msgstr "Verstuurd"
-
-msgid "Red"
-msgstr "Rood"
 
 msgid "Original message"
 msgstr "Oorspronkelijk bericht"
@@ -4456,9 +4483,6 @@ msgstr "Email opgeslagen om {0}"
 msgid "Saving failed"
 msgstr "Opslaan mislukt"
 
-msgid "Message Options"
-msgstr "Berichtopties"
-
 msgid "This message will be flagged for follow up when it is sent."
 msgstr "Dit bericht wordt gemarkeerd voor opvolging als het is verstuurd."
 
@@ -4474,9 +4498,6 @@ msgstr "Voeg bijlagen toe aan deze e-mail"
 
 msgid "Add signature"
 msgstr "Voeg handtekening toe"
-
-msgid "Options"
-msgstr "Opties"
 
 msgid "Open options dialog"
 msgstr "Open het optievenster"
@@ -6201,6 +6222,9 @@ msgstr "Laatst bijgewerkt"
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
 
+msgid "Last connect"
+msgstr "Laatste verbinding"
+
 msgid "Synchronize"
 msgstr "Synchroniseren"
 
@@ -6240,8 +6264,8 @@ msgstr "Geen apparaten verbonden met het account"
 msgid "Provisioning Status"
 msgstr "Configuratie status"
 
-msgid "Last Update"
-msgstr "Laatste update"
+msgid "Last Connect"
+msgstr "Laatste verbinding"
 
 msgid "Device ID"
 msgstr "Apparaat ID"
@@ -6997,8 +7021,17 @@ msgstr ""
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Dit bestand is niet langer beschikbaar. Herlaad de map."
 
+msgid "Kendox certificate path is not configured."
+msgstr "Pad van Kendox-certificaat is niet geconfigureerd."
+
+msgid "Kendox certificate password is not configured."
+msgstr "Wachtwoord van Kendox-certificaat is niet geconfigureerd."
+
 msgid "Kendox certificate is not available."
 msgstr ""
+
+msgid "Kendox certificate is not readable."
+msgstr "Kendox-certificaat is niet leesbaar."
 
 msgid "Mobile device management plugin"
 msgstr "Mobiel apparaatbeheer plugin"
@@ -7207,34 +7240,6 @@ msgstr "Toegewezen taak"
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "Bericht niet kunnen vinden, ofwel is het verplaatst of verwijderd."
 
-msgid "Request is not available."
-msgstr "Request is niet beschikbaar."
-
-msgid "You have insufficient privileges to open this object."
-msgstr "U heeft onvoldoende rechten om dit object te openen."
-
-msgid "Logon Failed. Please check your name/password."
-msgstr "Inloggen mislukt. Controleer naam/wachtwoord."
-
-msgid "Can not connect to Gromox."
-msgstr "Kan geen verbinding maken met de grommunio server."
-
-msgid "Can not open object with provided id."
-msgstr "Kan object met opgegeven id niet openen."
-
-msgid "There are no recipients in the message."
-msgstr "Er zijn geen geadresseerden in het bericht."
-
-msgid "Can not find object."
-msgstr "Kan object niet vinden."
-
-msgid "Operation failed: Server does not have enough memory."
-msgstr "Operatie mislukt: Server heeft onvoldoende beschikbaar geheugen."
-
-#, php-format
-msgid "Unknown MAPI Error: %s"
-msgstr "Onbekende MAPI-Fout: %s"
-
 msgid "Action is not performed correctly."
 msgstr "Actie is niet correct uitgevoerd."
 
@@ -7243,6 +7248,18 @@ msgstr "Kon dit type object niet verwerken."
 
 msgid "Could not open this object."
 msgstr "Kon dit object niet openen."
+
+msgid "Domain Contact Folders"
+msgstr "Domeincontactmappen"
+
+msgid "Personal Contact Folders"
+msgstr "Persoonlijke contactmappen"
+
+msgid "Shared Contact Folders"
+msgstr "Gedeelde contactmappen"
+
+msgid "Public Contact Folders"
+msgstr "Openbare contactmappen"
 
 msgid "Error in search, please try again"
 msgstr "Fout bij het zoeken, probeer opnieuw"
@@ -7686,8 +7703,8 @@ msgstr "Bestand is niet succesvol geïmporteerd"
 
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
-"Het geüploade bestand overschrijdt de upload_max_filesize richtlijn in php."
-"ini."
+"Het geüploade bestand overschrijdt de upload_max_filesize richtlijn in "
+"php.ini."
 
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
@@ -7731,9 +7748,6 @@ msgid ""
 msgstr ""
 "grommunio Web ondersteunt het importeren van meerdere ICS in één bestand "
 "niet in deze versie."
-
-msgid "The EML is not valid"
-msgstr "De EML is ongeldig"
 
 msgid "GB"
 msgstr "GB"

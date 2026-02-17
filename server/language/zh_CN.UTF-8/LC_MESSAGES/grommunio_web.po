@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Simplified)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-26 01:37+0200\n"
+"POT-Creation-Date: 2026-02-17 17:54+0100\n"
 "PO-Revision-Date: 2022-07-26 18:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -338,9 +338,6 @@ msgstr "便签"
 
 msgid "Members"
 msgstr "成员"
-
-msgid "Icon"
-msgstr "图标"
 
 msgid "Email Address"
 msgstr "电子邮件地址"
@@ -1034,9 +1031,6 @@ msgstr "忙碌的与会者"
 msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr "一个或多个与会者为忙碌状态。您是否确定邀请他们？"
 
-msgid "Preview"
-msgstr "预览"
-
 msgid "Scheduling"
 msgstr "时序安排"
 
@@ -1202,6 +1196,9 @@ msgstr "私人"
 
 msgid "Mark this appointment as private"
 msgstr "将此预约标记为私人"
+
+msgid "Message Options"
+msgstr "消息选项"
 
 msgid "Proposed Date and Time"
 msgstr "提议的日期和时间"
@@ -1461,11 +1458,17 @@ msgstr "未找到任何预约"
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "此预约已被移动或删除，您是否继续？"
 
+msgid "Options"
+msgstr "选项"
+
 msgid "All Day"
 msgstr "全天"
 
 msgid "Sort by: All Day"
 msgstr "排序方式：全天"
+
+msgid "Icon"
+msgstr "图标"
 
 msgid "Recurring"
 msgstr "重复发生"
@@ -1542,6 +1545,9 @@ msgstr "排序方式：提醒"
 
 msgid "Sort by: Sensitivity"
 msgstr "排序方式：敏感性"
+
+msgid "Sort by: Importance"
+msgstr "排序方式：重要性"
 
 msgid "Loading appointments"
 msgstr "加载预约"
@@ -1957,6 +1963,9 @@ msgstr "文件上传"
 msgid "Attach item"
 msgstr "附加项目"
 
+msgid "Preview"
+msgstr "预览"
+
 msgid "Download"
 msgstr "下载"
 
@@ -2164,6 +2173,12 @@ msgstr[0] "已有{0}条选择消息。"
 msgid "Folder '{0}' selected."
 msgstr "已选择文件夹'{0}'。"
 
+msgid "Unable to perform action"
+msgstr "无法执行操作"
+
+msgid "The selected items are no longer available."
+msgstr "所选项目不再可用。"
+
 msgid ""
 "You have insufficient privileges to move this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
@@ -2187,6 +2202,12 @@ msgstr "您是否欲复制这些项目？"
 
 msgid "Do not show this message again."
 msgstr "不再显示此消息。"
+
+msgid "Properties"
+msgstr "属性"
+
+msgid "Object ID"
+msgstr "对象ID"
 
 msgid "ICS"
 msgstr "ICS"
@@ -2519,8 +2540,11 @@ msgstr "每{A}周"
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr "每项任务完成后{A}周重新生成新任务"
 
-msgid "Every {A} {B}"
-msgstr "每个{A}{B}"
+msgid "Every {A} years(s) on"
+msgstr "每 {A} 年的"
+
+msgid "{A} {B}"
+msgstr "{A} {B}"
 
 msgid "The {A} {B} of {C}"
 msgstr "{C}的{A}{B}"
@@ -3768,11 +3792,11 @@ msgstr "等待其他人"
 msgid "Deferred"
 msgstr "已延期"
 
-msgid "Dark"
-msgstr "暗色"
+msgid "Purple"
+msgstr "紫色"
 
-msgid "High Contrast"
-msgstr "常用联系人高对比度"
+msgid "Orange"
+msgstr "橙色"
 
 msgid "Lime"
 msgstr "绿黄色"
@@ -3780,11 +3804,26 @@ msgstr "绿黄色"
 msgid "Magenta"
 msgstr "洋红"
 
-msgid "Orange"
-msgstr "橙色"
+msgid "High Contrast"
+msgstr "常用联系人高对比度"
 
-msgid "Purple"
-msgstr "紫色"
+msgid "Cyan"
+msgstr "青色"
+
+msgid "Teal"
+msgstr "蓝绿色"
+
+msgid "Indigo"
+msgstr "靛蓝"
+
+msgid "Red"
+msgstr "红色"
+
+msgid "Brown"
+msgstr "棕色"
+
+msgid "Dark"
+msgstr "暗色"
 
 msgid "Logout"
 msgstr "登出"
@@ -4040,17 +4079,11 @@ msgstr "无目的地"
 msgid "You must select a destination folder."
 msgstr "您必须选择一个目标文件夹。"
 
-msgid "Properties"
-msgstr "属性"
-
 msgid "Type"
 msgstr "类型"
 
 msgid "Description"
 msgstr "说明"
-
-msgid "Object ID"
-msgstr "对象ID"
 
 msgid "Folder size"
 msgstr "文件夹大小"
@@ -4294,18 +4327,12 @@ msgstr "抄送对象"
 msgid "BCC"
 msgstr "暗抄送对象"
 
-msgid "Sort by: Importance"
-msgstr "排序方式：重要性"
-
 msgid "Sort by: To"
 msgstr "排序方式：收件人"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Sent"
 msgstr "已发送"
-
-msgid "Red"
-msgstr "红色"
 
 msgid "Original message"
 msgstr "原始消息"
@@ -4358,9 +4385,6 @@ msgstr "保存时间{0}"
 msgid "Saving failed"
 msgstr "保存失败"
 
-msgid "Message Options"
-msgstr "消息选项"
-
 msgid "This message will be flagged for follow up when it is sent."
 msgstr "发送此消息时，通过标记跟进此消息。"
 
@@ -4375,9 +4399,6 @@ msgstr "在这封电子邮件中添加附件"
 
 msgid "Add signature"
 msgstr "添加签名"
-
-msgid "Options"
-msgstr "选项"
 
 msgid "Open options dialog"
 msgstr "打开选项对话框"
@@ -6184,6 +6205,9 @@ msgstr "最近更新"
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
 
+msgid "Last connect"
+msgstr "最后连接"
+
 msgid "Synchronize"
 msgstr "同步"
 
@@ -6228,8 +6252,8 @@ msgstr "没有设备连接到你的账户"
 msgid "Provisioning Status"
 msgstr "供应状态"
 
-msgid "Last Update"
-msgstr "最后更新"
+msgid "Last Connect"
+msgstr "最后连接"
 
 msgid "Device ID"
 msgstr "设备ID"
@@ -7063,8 +7087,17 @@ msgstr "Zip文件生成失败。请通知管理员。"
 msgid "This file is no longer available. Please reload the folder."
 msgstr "该文件已不再可用。请重新加载该文件夹。"
 
+msgid "Kendox certificate path is not configured."
+msgstr "未配置 Kendox 证书路径。"
+
+msgid "Kendox certificate password is not configured."
+msgstr "未配置 Kendox 证书密码。"
+
 msgid "Kendox certificate is not available."
 msgstr ""
+
+msgid "Kendox certificate is not readable."
+msgstr "Kendox 证书不可读取。"
 
 #, fuzzy
 msgid "Mobile device management plugin"
@@ -7286,34 +7319,6 @@ msgstr "任务要求"
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "找不到信息，不是被转移就是被删除。"
 
-msgid "Request is not available."
-msgstr "请求不可用。"
-
-msgid "You have insufficient privileges to open this object."
-msgstr "您无足够的权限打开此对象。"
-
-msgid "Logon Failed. Please check your name/password."
-msgstr "登录失败。请检查您的姓名/密码。"
-
-msgid "Can not connect to Gromox."
-msgstr "无法连接Gromox。"
-
-msgid "Can not open object with provided id."
-msgstr "无法打开包含所提供ID的对象。"
-
-msgid "There are no recipients in the message."
-msgstr "消息中无收件人。"
-
-msgid "Can not find object."
-msgstr "找不到对象。"
-
-msgid "Operation failed: Server does not have enough memory."
-msgstr "操作失败：服务器无足够内存。"
-
-#, php-format
-msgid "Unknown MAPI Error: %s"
-msgstr "未知的邮件应用程序编程接口（MAPI）错误：%s"
-
 #, fuzzy
 msgid "Action is not performed correctly."
 msgstr "行动没有正确执行。"
@@ -7325,6 +7330,18 @@ msgstr "无法处理这种类型的对象。"
 #, fuzzy
 msgid "Could not open this object."
 msgstr "无法打开此对象。"
+
+msgid "Domain Contact Folders"
+msgstr "域联系人文件夹"
+
+msgid "Personal Contact Folders"
+msgstr "个人联系人文件夹"
+
+msgid "Shared Contact Folders"
+msgstr "共享联系人文件夹"
+
+msgid "Public Contact Folders"
+msgstr "公共联系人文件夹"
 
 #, fuzzy
 msgid "Error in search, please try again"
@@ -7848,10 +7865,6 @@ msgstr "grommunio Web不支持使用此版本导入多个VCF。"
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr "grommunio Web在这个版本中不支持导入多个ICS。"
-
-#, fuzzy
-msgid "The EML is not valid"
-msgstr "EML是无效的"
 
 msgid "GB"
 msgstr "GB"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Russian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-26 01:37+0200\n"
+"POT-Creation-Date: 2026-02-17 17:54+0100\n"
 "PO-Revision-Date: 2022-07-26 17:59+0200\n"
 "Last-Translator: Artem <Localizer_in_Russian@protonmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/grommunio/"
@@ -359,9 +359,6 @@ msgstr "Заметки"
 
 msgid "Members"
 msgstr "Участники"
-
-msgid "Icon"
-msgstr "Иконка"
 
 msgid "Email Address"
 msgstr "Адрес эл. почты"
@@ -1087,9 +1084,6 @@ msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr ""
 "Один или несколько приглашенных участников заняты. Подтверждаете приглашение?"
 
-msgid "Preview"
-msgstr "Предосмотр"
-
 msgid "Scheduling"
 msgstr "Планирование"
 
@@ -1261,6 +1255,9 @@ msgstr "Частное"
 
 msgid "Mark this appointment as private"
 msgstr "Отметит эту встречу как «Частная»"
+
+msgid "Message Options"
+msgstr "Параметры сообщения"
 
 msgid "Proposed Date and Time"
 msgstr "Предложены дата и время"
@@ -1532,11 +1529,17 @@ msgstr "Встреча"
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Эта встреча была удалена или перемещена, хотите продолжить?"
 
+msgid "Options"
+msgstr "Свойства"
+
 msgid "All Day"
 msgstr "Весь день"
 
 msgid "Sort by: All Day"
 msgstr "Сортировка по: Весь день"
+
+msgid "Icon"
+msgstr "Иконка"
 
 msgid "Recurring"
 msgstr "Повторение"
@@ -1613,6 +1616,9 @@ msgstr "Сортировать по: Наличию напоминания"
 
 msgid "Sort by: Sensitivity"
 msgstr "Сортировка по: Конфиденциальности"
+
+msgid "Sort by: Importance"
+msgstr "Сортировать по важности"
 
 msgid "Loading appointments"
 msgstr "Загрузка встреч"
@@ -2092,6 +2098,9 @@ msgstr "Выгрузка файла"
 msgid "Attach item"
 msgstr "Вложить элемент"
 
+msgid "Preview"
+msgstr "Предосмотр"
+
 msgid "Download"
 msgstr "Загрузить"
 
@@ -2318,6 +2327,12 @@ msgstr[2] "{0} сообщений выбрано."
 msgid "Folder '{0}' selected."
 msgstr "Выбрана папка «{0}»."
 
+msgid "Unable to perform action"
+msgstr "Не удалось выполнить действие"
+
+msgid "The selected items are no longer available."
+msgstr "Выбранные элементы больше недоступны."
+
 #, fuzzy
 msgid ""
 "You have insufficient privileges to move this folder. Ask the folder owner "
@@ -2347,6 +2362,12 @@ msgstr "Не хотите ли вы сделать копию?"
 
 msgid "Do not show this message again."
 msgstr "Больше не показывать это сообщение."
+
+msgid "Properties"
+msgstr "Свойства"
+
+msgid "Object ID"
+msgstr "Идентификатор объекта"
 
 msgid "ICS"
 msgstr "ICS"
@@ -2699,8 +2720,11 @@ msgstr "Каждые {A} недели на"
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr "Восстанавливать задачу через {A} недели(ль) после выполнения задачи"
 
-msgid "Every {A} {B}"
-msgstr "Каждые {A} {B}"
+msgid "Every {A} years(s) on"
+msgstr "Каждые {A} год(а) в"
+
+msgid "{A} {B}"
+msgstr "{A} {B}"
 
 msgid "The {A} {B} of {C}"
 msgstr "{A} {B} из {C}"
@@ -4013,11 +4037,11 @@ msgstr "В ожидании других участников"
 msgid "Deferred"
 msgstr "Отклонено"
 
-msgid "Dark"
-msgstr "Тёмная"
+msgid "Purple"
+msgstr "Фиолетовый"
 
-msgid "High Contrast"
-msgstr "Высококонтрастная"
+msgid "Orange"
+msgstr "Оранжевый"
 
 msgid "Lime"
 msgstr "Лайм"
@@ -4025,11 +4049,26 @@ msgstr "Лайм"
 msgid "Magenta"
 msgstr "Пурпурный"
 
-msgid "Orange"
-msgstr "Оранжевый"
+msgid "High Contrast"
+msgstr "Высококонтрастная"
 
-msgid "Purple"
-msgstr "Фиолетовый"
+msgid "Cyan"
+msgstr "Голубой"
+
+msgid "Teal"
+msgstr "Сине-зелёный"
+
+msgid "Indigo"
+msgstr "Индиго"
+
+msgid "Red"
+msgstr "Красный"
+
+msgid "Brown"
+msgstr "Коричневый"
+
+msgid "Dark"
+msgstr "Тёмная"
 
 msgid "Logout"
 msgstr "Выйти"
@@ -4307,17 +4346,11 @@ msgstr "Нет информации"
 msgid "You must select a destination folder."
 msgstr "Выберите каталог назначения."
 
-msgid "Properties"
-msgstr "Свойства"
-
 msgid "Type"
 msgstr "Тип"
 
 msgid "Description"
 msgstr "Описание"
-
-msgid "Object ID"
-msgstr "Идентификатор объекта"
 
 msgid "Folder size"
 msgstr "Размер каталога"
@@ -4566,18 +4599,12 @@ msgstr "Копия"
 msgid "BCC"
 msgstr "СК"
 
-msgid "Sort by: Importance"
-msgstr "Сортировать по важности"
-
 msgid "Sort by: To"
 msgstr "Сортировать по «Куда»"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Sent"
 msgstr "Отправлено"
-
-msgid "Red"
-msgstr "Красный"
 
 msgid "Original message"
 msgstr "Оригинальное сообщение"
@@ -4632,9 +4659,6 @@ msgstr "Письмо сохранено в {0}."
 msgid "Saving failed"
 msgstr "Ошибка сохранения"
 
-msgid "Message Options"
-msgstr "Параметры сообщения"
-
 msgid "This message will be flagged for follow up when it is sent."
 msgstr "При отправке сообщение будет помечено флагом для отслеживания."
 
@@ -4649,9 +4673,6 @@ msgstr "Вложить файлы в это письмо"
 
 msgid "Add signature"
 msgstr "Добавить подпись"
-
-msgid "Options"
-msgstr "Свойства"
 
 msgid "Open options dialog"
 msgstr "Открыть диалог настроек"
@@ -6454,6 +6475,9 @@ msgstr "Последнее изменение"
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
 
+msgid "Last connect"
+msgstr "Последнее подключение"
+
 msgid "Synchronize"
 msgstr "Синхронизировать"
 
@@ -6495,8 +6519,8 @@ msgstr "Нет устройств, подключенных к вашей уче
 msgid "Provisioning Status"
 msgstr "Статус инициализации"
 
-msgid "Last Update"
-msgstr "Последнее обновление"
+msgid "Last Connect"
+msgstr "Последнее подключение"
 
 msgid "Device ID"
 msgstr "ID устройства"
@@ -7357,8 +7381,17 @@ msgstr "Не удалось создать Zip файл. Пожалуйста, �
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Файл больше недоступен. Пожалуйста, обновите папку."
 
+msgid "Kendox certificate path is not configured."
+msgstr "Путь к сертификату Kendox не настроен."
+
+msgid "Kendox certificate password is not configured."
+msgstr "Пароль сертификата Kendox не настроен."
+
 msgid "Kendox certificate is not available."
 msgstr ""
+
+msgid "Kendox certificate is not readable."
+msgstr "Сертификат Kendox недоступен для чтения."
 
 #, fuzzy
 msgid "Mobile device management plugin"
@@ -7602,36 +7635,6 @@ msgstr "Запрос Задания"
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "Не удалось найти сообщение, либо оно было перемещено, либо удалено."
 
-#, fuzzy
-msgid "Request is not available."
-msgstr "Запрос недоступен."
-
-msgid "You have insufficient privileges to open this object."
-msgstr "У вас недостаточно привилегий для открытия этого объекта."
-
-msgid "Logon Failed. Please check your name/password."
-msgstr "Войти не удалось. Проверьте ваши имя и пароль."
-
-#, fuzzy
-msgid "Can not connect to Gromox."
-msgstr "Невозможно подключиться к серверу grommunio."
-
-msgid "Can not open object with provided id."
-msgstr "Не удалось открыть объект с предоставленным ID."
-
-msgid "There are no recipients in the message."
-msgstr "Нет получателей этого сообщения."
-
-msgid "Can not find object."
-msgstr "Объект не удалось найти."
-
-msgid "Operation failed: Server does not have enough memory."
-msgstr "Операция не удалась: недостаточно памяти на сервере."
-
-#, php-format
-msgid "Unknown MAPI Error: %s"
-msgstr "Неизвестная ошибка MAPI: %s"
-
 msgid "Action is not performed correctly."
 msgstr "Действие не завершено корректно."
 
@@ -7642,6 +7645,18 @@ msgstr "Не удалось обработать объект данного т�
 #, fuzzy
 msgid "Could not open this object."
 msgstr "Не удалось открыть этот объект."
+
+msgid "Domain Contact Folders"
+msgstr "Папки контактов домена"
+
+msgid "Personal Contact Folders"
+msgstr "Личные папки контактов"
+
+msgid "Shared Contact Folders"
+msgstr "Общие папки контактов"
+
+msgid "Public Contact Folders"
+msgstr "Общедоступные папки контактов"
 
 #, fuzzy
 msgid "Error in search, please try again"
@@ -8212,10 +8227,6 @@ msgstr "grommunio Web не поддерживает импорт несколь�
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr "grommunio Web не поддерживает импорт нескольких ICS в этой версии."
-
-#, fuzzy
-msgid "The EML is not valid"
-msgstr "EML недействителен"
 
 msgid "GB"
 msgstr "Гб"

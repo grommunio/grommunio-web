@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hebrew (Israel)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-26 01:37+0200\n"
+"POT-Creation-Date: 2026-02-17 17:54+0100\n"
 "PO-Revision-Date: 2017-10-03 22:09+0200\n"
 "Last-Translator: import\n"
 "Language: he_IL\n"
@@ -351,10 +351,6 @@ msgstr "פתקים"
 
 msgid "Members"
 msgstr "חברים"
-
-#, fuzzy
-msgid "Icon"
-msgstr "סמלים"
 
 msgid "Email Address"
 msgstr "כתובת דואר אלקטרוני"
@@ -1084,9 +1080,6 @@ msgstr "הזמן משתתפים"
 msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr "אחד או יותר מהמשתתפים שהזמנת עסוקים. האם אתה בטוח שברצונך להזמין?"
 
-msgid "Preview"
-msgstr ""
-
 msgid "Scheduling"
 msgstr "מכניס ללוח הזמנים"
 
@@ -1257,6 +1250,9 @@ msgstr "פרטי"
 
 msgid "Mark this appointment as private"
 msgstr "סמן פגישה זו כפרטית"
+
+msgid "Message Options"
+msgstr "אפשרויות הודעה"
 
 msgid "Proposed Date and Time"
 msgstr "תאריך וזמן הוצעו"
@@ -1537,12 +1533,19 @@ msgstr "פגישה"
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr ""
 
+msgid "Options"
+msgstr "אפשרויות"
+
 #, fuzzy
 msgid "All Day"
 msgstr "אירוע של יום שלם"
 
 msgid "Sort by: All Day"
 msgstr ""
+
+#, fuzzy
+msgid "Icon"
+msgstr "סמלים"
 
 #, fuzzy
 msgid "Recurring"
@@ -1618,6 +1621,9 @@ msgstr ""
 
 msgid "Sort by: Sensitivity"
 msgstr ""
+
+msgid "Sort by: Importance"
+msgstr "מיין לפי: חשיבות"
 
 msgid "Loading appointments"
 msgstr ""
@@ -2046,6 +2052,9 @@ msgstr ""
 msgid "Attach item"
 msgstr ""
 
+msgid "Preview"
+msgstr "תצוגה מקדימה"
+
 msgid "Download"
 msgstr ""
 
@@ -2252,6 +2261,12 @@ msgstr[1] "{0} הודעות נבחרו."
 msgid "Folder '{0}' selected."
 msgstr "תיקיית '{0}' נבחרה."
 
+msgid "Unable to perform action"
+msgstr "לא ניתן לבצע את הפעולה"
+
+msgid "The selected items are no longer available."
+msgstr "הפריטים שנבחרו אינם זמינים עוד."
+
 msgid ""
 "You have insufficient privileges to move this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
@@ -2273,6 +2288,12 @@ msgstr ""
 
 msgid "Do not show this message again."
 msgstr ""
+
+msgid "Properties"
+msgstr "מאפיינים"
+
+msgid "Object ID"
+msgstr "מזהה אובייקט"
 
 msgid "ICS"
 msgstr ""
@@ -2616,8 +2637,11 @@ msgstr "כל {A} שבועות ב"
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr "צור מחדש משימה חדש {A} שבועות לאחר שהמשימה הושלמה"
 
-msgid "Every {A} {B}"
-msgstr "בכל {B} {A}"
+msgid "Every {A} years(s) on"
+msgstr "כל {A} שנים בתאריך"
+
+msgid "{A} {B}"
+msgstr "{A} {B}"
 
 msgid "The {A} {B} of {C}"
 msgstr "ה {B} {A} ל {C}"
@@ -3916,24 +3940,39 @@ msgstr "חכה לאדם השני"
 msgid "Deferred"
 msgstr "דחוי"
 
-msgid "Dark"
+msgid "Purple"
+msgstr "סגול"
+
+msgid "Orange"
+msgstr "כתום"
+
+msgid "Lime"
+msgstr "ליים"
+
+msgid "Magenta"
 msgstr ""
 
 #, fuzzy
 msgid "High Contrast"
 msgstr "אנשי קשר \"חמים\""
 
-msgid "Lime"
-msgstr ""
+msgid "Cyan"
+msgstr "ציאן"
 
-msgid "Magenta"
-msgstr ""
+msgid "Teal"
+msgstr "טורקיז"
 
-msgid "Orange"
-msgstr "כתום"
+msgid "Indigo"
+msgstr "אינדיגו"
 
-msgid "Purple"
-msgstr "סגול"
+msgid "Red"
+msgstr "אדום"
+
+msgid "Brown"
+msgstr "חום"
+
+msgid "Dark"
+msgstr "כהה"
 
 msgid "Logout"
 msgstr ""
@@ -4204,17 +4243,11 @@ msgstr "אין מידע"
 msgid "You must select a destination folder."
 msgstr "עליך לבחור תיקיית יעד."
 
-msgid "Properties"
-msgstr "מאפיינים"
-
 msgid "Type"
 msgstr "סוג"
 
 msgid "Description"
 msgstr "תיאור"
-
-msgid "Object ID"
-msgstr ""
 
 msgid "Folder size"
 msgstr "גודל התיקיה"
@@ -4473,18 +4506,12 @@ msgstr "עותק נוסף"
 msgid "BCC"
 msgstr "עותק סודי"
 
-msgid "Sort by: Importance"
-msgstr "מיין לפי: חשיבות"
-
 msgid "Sort by: To"
 msgstr "מיין לפי: אל"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Sent"
 msgstr "נשלח"
-
-msgid "Red"
-msgstr "אדום"
 
 msgid "Original message"
 msgstr "הודעה מקורית"
@@ -4537,9 +4564,6 @@ msgstr ""
 msgid "Saving failed"
 msgstr ""
 
-msgid "Message Options"
-msgstr "אפשרויות הודעה"
-
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 
@@ -4554,9 +4578,6 @@ msgstr "הוסף קבצים מצורפים לדואר זה"
 
 msgid "Add signature"
 msgstr "הוסף חתימה"
-
-msgid "Options"
-msgstr "אפשרויות"
 
 msgid "Open options dialog"
 msgstr "פתח את תיבת האפשרויות"
@@ -6300,6 +6321,9 @@ msgstr ""
 msgid "d F Y, H:i"
 msgstr ""
 
+msgid "Last connect"
+msgstr "התחברות אחרונה"
+
 msgid "Synchronize"
 msgstr ""
 
@@ -6334,8 +6358,8 @@ msgstr ""
 msgid "Provisioning Status"
 msgstr ""
 
-msgid "Last Update"
-msgstr ""
+msgid "Last Connect"
+msgstr "התחברות אחרונה"
 
 msgid "Device ID"
 msgstr ""
@@ -7021,8 +7045,17 @@ msgstr ""
 msgid "This file is no longer available. Please reload the folder."
 msgstr ""
 
+msgid "Kendox certificate path is not configured."
+msgstr "נתיב אישור Kendox לא מוגדר."
+
+msgid "Kendox certificate password is not configured."
+msgstr "סיסמת אישור Kendox לא מוגדרת."
+
 msgid "Kendox certificate is not available."
 msgstr ""
+
+msgid "Kendox certificate is not readable."
+msgstr "לא ניתן לקרוא את אישור Kendox."
 
 msgid "Mobile device management plugin"
 msgstr ""
@@ -7220,45 +7253,26 @@ msgstr ""
 msgid "Could not find message, either it has been moved or deleted."
 msgstr ""
 
-msgid "Request is not available."
-msgstr ""
-
-#, fuzzy
-msgid "You have insufficient privileges to open this object."
-msgstr "אין ברשותך הרשאות מספקות בכדי להעביר תיקיה."
-
-#, fuzzy
-msgid "Logon Failed. Please check your name/password."
-msgstr "התחברות נכשלה , אנא בדוק את השם/סיסמא שלך."
-
-#, fuzzy
-msgid "Can not connect to Gromox."
-msgstr "לא ניתן להתחבר לשרת של grommunio."
-
-msgid "Can not open object with provided id."
-msgstr ""
-
-msgid "There are no recipients in the message."
-msgstr ""
-
-msgid "Can not find object."
-msgstr ""
-
-msgid "Operation failed: Server does not have enough memory."
-msgstr ""
-
-#, php-format
-msgid "Unknown MAPI Error: %s"
-msgstr ""
-
 msgid "Action is not performed correctly."
 msgstr ""
 
 msgid "Could not handle this type of object."
-msgstr ""
+msgstr "לא ניתן לטפל בסוג אובייקט זה."
 
 msgid "Could not open this object."
-msgstr ""
+msgstr "לא ניתן לפתוח אובייקט זה."
+
+msgid "Domain Contact Folders"
+msgstr "תיקיות אנשי קשר של הדומיין"
+
+msgid "Personal Contact Folders"
+msgstr "תיקיות אנשי קשר אישיות"
+
+msgid "Shared Contact Folders"
+msgstr "תיקיות אנשי קשר משותפות"
+
+msgid "Public Contact Folders"
+msgstr "תיקיות אנשי קשר ציבוריות"
 
 msgid "Error in search, please try again"
 msgstr ""
@@ -7700,9 +7714,6 @@ msgstr ""
 
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
-msgstr ""
-
-msgid "The EML is not valid"
 msgstr ""
 
 msgid "GB"
