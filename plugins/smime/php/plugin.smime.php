@@ -363,14 +363,22 @@ class Pluginsmime extends Plugin {
 		}
 
 		$caBundle = explode(';', PLUGIN_SMIME_CACERTS);
-		$caCerts = null;
+		$caCerts = $this->extractCAs($messageFile);
+
+		// Collect intermediate certificates so OpenSSL can build the full
+		// chain even with PKCS7_NOINTERN (which excludes message-embedded
+		// certificates).
+		$intermediatesPem = '';
+		if (!empty($caCerts)) {
+			$intermediatesPem = "\n" . implode("\n", $caCerts);
+		}
 
 		foreach ($certs as $cert) {
 			if (empty($cert)) {
 				continue;
 			}
 
-			file_put_contents($tmpUserCert, $cert);
+			file_put_contents($tmpUserCert, $cert . $intermediatesPem);
 			$this->clear_openssl_error();
 			$signedOk = openssl_pkcs7_verify($messageFile, PKCS7_NOINTERN, $outCertFile, $caBundle, $tmpUserCert);
 			$opensslError = $this->extract_openssl_error();
@@ -387,8 +395,6 @@ class Pluginsmime extends Plugin {
 
 			$parsedImport = openssl_x509_parse($importCert);
 			$parsedUser = openssl_x509_parse($cert);
-			$caCerts = $caCerts ?? $this->extractCAs($messageFile);
-
 			if (
 				$parsedImport !== false &&
 				$parsedUser !== false &&
@@ -415,6 +421,7 @@ class Pluginsmime extends Plugin {
 
 	/**
 	 * Fallback verification that relies on the certificate bundled with the message.
+	 * Performs full signature and CA chain verification (flags=0).
 	 *
 	 * @param string $messageFile temporary file containing the message payload
 	 * @param string $outCertFile temporary file for certificate extraction
@@ -424,7 +431,7 @@ class Pluginsmime extends Plugin {
 	private function verifyUsingMessageCertificate($messageFile, $outCertFile) {
 		$caBundle = explode(';', PLUGIN_SMIME_CACERTS);
 		$this->clear_openssl_error();
-		$signedOk = openssl_pkcs7_verify($messageFile, PKCS7_NOSIGS, $outCertFile, $caBundle);
+		$signedOk = openssl_pkcs7_verify($messageFile, 0, $outCertFile, $caBundle);
 		$opensslError = $this->extract_openssl_error();
 		$this->validateSignedMessage($signedOk, $opensslError);
 
