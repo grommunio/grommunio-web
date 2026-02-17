@@ -55,6 +55,9 @@ if (defined('ADDITIONAL_COLOR_SCHEMES')) {
 if (defined('ADDITIONAL_CATEGORIES')) {
 	$serverConfig['additional_default_categories'] = json_decode((string) ADDITIONAL_CATEGORIES);
 }
+if ($GLOBALS['settings']->get('zarafa/v1/contexts/mail/attachment_reminder_enable') === true) {
+	$serverConfig['attachment_reminder_keywords'] = ATTACHMENT_REMINDER_KEYWORDS;
+}
 ?>
 <!DOCTYPE html>
 <html>

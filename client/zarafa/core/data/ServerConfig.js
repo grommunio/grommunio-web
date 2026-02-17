@@ -364,5 +364,14 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	showLogoutButton: function()
 	{
 		return this.meta.show_logout_button;
+	},
+
+	/**
+	 * @return {String} Comma-separated list of attachment reminder keywords,
+	 * or empty string if the feature is disabled.
+	 */
+	getAttachmentReminderKeywords: function()
+	{
+		return this.meta.attachment_reminder_keywords || '';
 	}
 });

@@ -45,6 +45,44 @@ if (!defined("ENABLE_FILE_PREVIEWER")) {
 }
 
 /*
+ * Comma-separated list of keywords that trigger an attachment reminder when
+ * composing a message. The check is case-insensitive. Admins can override
+ * this list in config.php to add or remove keywords for their environment.
+ */
+if (!defined("ATTACHMENT_REMINDER_KEYWORDS")) {
+	define("ATTACHMENT_REMINDER_KEYWORDS",
+		// English
+		"see attached,see attachment,see the attached,see the attachment," .
+		"attached is,attached are,attached you will find," .
+		"find attached,find the attached,found attached," .
+		"i attached,i have attached,i've attached," .
+		"please find attached,please see attached," .
+		// German
+		"im anhang,im anlage,anbei,als anlage,in der anlage," .
+		"beigefügt,angehängt,anhängend," .
+		// French
+		"ci-joint,ci-jointe,ci-joints,ci-jointes," .
+		"vous trouverez ci-joint,veuillez trouver ci-joint," .
+		"pièce jointe,pièces jointes," .
+		// Spanish
+		"adjunto,adjunta,adjuntamos,adjuntado," .
+		"archivo adjunto,documento adjunto," .
+		// Italian
+		"in allegato,in allegati,allegato,allegati," .
+		// Portuguese
+		"em anexo,segue em anexo,segue anexo," .
+		// Dutch
+		"in bijlage,bijgevoegd,als bijlage," .
+		// Polish
+		"w załączeniu,w załączniku,załączam," .
+		// Czech
+		"v příloze,přikládám," .
+		// Turkish
+		"ekte,ilişikte"
+	);
+}
+
+/*
  * Enable iconsets.
  */
 if (!defined("ENABLE_ICONSETS")) {

@@ -849,7 +849,14 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 * @property
 								 * @type Boolean
 								 */
-								'use_html_email_preview': true
+								'use_html_email_preview': true,
+
+								/**
+								 * zarafa/v1/contexts/mail/attachment_reminder_enable
+								 * @property
+								 * @type Boolean
+								 */
+								'attachment_reminder_enable': false
 							},
 
 							'task': {

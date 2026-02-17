@@ -176,6 +176,8 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 		this.sendValidationQueue.add(this.validateEmptyRecipients, this);
 		// Add a validation step to determine if a subject was provided
 		this.sendValidationQueue.add(this.validateEmptySubject, this);
+		// Add a validation step to warn about missing attachments when keywords are found
+		this.sendValidationQueue.add(this.validateMissingAttachment, this);
 		// Add a validation step to determine if all recipients are resolved
 		this.sendValidationQueue.add(this.validateResolvedRecipients, this);
 		// Add a validation step to determine if all attachments are uploaded
@@ -444,6 +446,76 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 					text: _('Send Anyway'),
 					name: 'sendanyway'
 				}]
+			});
+		} else {
+			callback(true);
+		}
+	},
+
+	/**
+	 * Validation function for the {@link #sendValidationQueue} to check if the Message
+	 * body contains attachment-related keywords but no files are attached. If the user
+	 * has enabled the attachment reminder setting and a keyword match is found, a
+	 * confirmation dialog is shown before sending.
+	 *
+	 * @param {Function} callback The callback to call to continue in the queue
+	 * @private
+	 */
+	validateMissingAttachment: function(callback)
+	{
+		// Only run when the user has opted in
+		if (container.getSettingsModel().get('zarafa/v1/contexts/mail/attachment_reminder_enable') !== true) {
+			callback(true);
+			return;
+		}
+
+		// Count non-hidden attachments (inline images DO count as real attachments)
+		var attachmentStore = this.record.getAttachmentStore();
+		var realAttachments = 0;
+		attachmentStore.each(function(attach) {
+			if (!attach.isHidden()) {
+				realAttachments++;
+			}
+		}, this);
+
+		if (realAttachments > 0) {
+			callback(true);
+			return;
+		}
+
+		// Get plain-text body for keyword matching
+		var body = this.record.getBody(false);
+		if (Ext.isEmpty(body)) {
+			callback(true);
+			return;
+		}
+
+		var keywordsStr = container.getServerConfig().getAttachmentReminderKeywords();
+		if (Ext.isEmpty(keywordsStr)) {
+			callback(true);
+			return;
+		}
+
+		var keywords = keywordsStr.split(',');
+		var bodyLower = body.toLowerCase();
+		var found = false;
+		for (var i = 0; i < keywords.length; i++) {
+			var kw = keywords[i].trim().toLowerCase();
+			if (kw && bodyLower.indexOf(kw) !== -1) {
+				found = true;
+				break;
+			}
+		}
+
+		if (found) {
+			Ext.MessageBox.show({
+				title: _('Missing attachment'),
+				msg: _('Your message appears to reference an attachment but no file is attached. Send anyway?'),
+				buttons: Ext.MessageBox.YESNO,
+				fn: function(buttonClicked) {
+					callback(buttonClicked === 'yes');
+				},
+				scope: this
 			});
 		} else {
 			callback(true);

@@ -199,6 +199,16 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 					scope: this
 				}
 			},{
+				xtype: 'checkbox',
+				name: 'zarafa/v1/contexts/mail/attachment_reminder_enable',
+				ref: 'attachmentReminderBox',
+				boxLabel: _('Activate attachment reminder'),
+				hideLabel: true,
+				listeners: {
+					check: this.onFieldChange,
+					scope: this
+				}
+			},{
 				xtype: 'zarafa.compositefield',
 				defaultMargins: '0 0 0 0',
 				plugins: [ 'zarafa.splitfieldlabeler' ],
@@ -318,6 +328,7 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 		this.delegateSentItemsStyleCombo.setValue(settingsModel.get(this.delegateSentItemsStyleCombo.name));
 
 		this.readBox.setValue(settingsModel.get(this.readBox.name));
+		this.attachmentReminderBox.setValue(settingsModel.get(this.attachmentReminderBox.name));
 
 		// Set values in autoSave checkbox and textfield.
 		var enabled = settingsModel.get(this.autoSaveBox.name);

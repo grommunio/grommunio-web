@@ -388,6 +388,8 @@ Zarafa.mail.dialogs.MailCreateContentPanel = Ext.extend(Zarafa.core.ui.MessageCo
 
 		// Add a validation step to determine if there are recipients
 		this.sendLaterValidationQueue.add(this.validateEmptyRecipients, this);
+		// Add a validation step to warn about missing attachments when keywords are found
+		this.sendLaterValidationQueue.add(this.validateMissingAttachment, this);
 		// Add a validation step to determine if all recipients are resolved
 		this.sendLaterValidationQueue.add(this.validateResolvedRecipients, this);
 	},
