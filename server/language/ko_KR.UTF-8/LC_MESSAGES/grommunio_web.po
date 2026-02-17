@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Korean (Korea)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 20:49+0100\n"
+"POT-Creation-Date: 2026-02-17 21:32+0100\n"
 "PO-Revision-Date: 2017-10-05 20:07+0200\n"
 "Last-Translator: import\n"
 "Language: ko_KR\n"
@@ -4763,6 +4763,9 @@ msgstr "후속 조치"
 msgid "Move to Junk Folder"
 msgstr "정크 폴더로 이동"
 
+msgid "Not Junk Email"
+msgstr "스팸 메일 아님"
+
 msgid "Send to"
 msgstr "다음 주소로 보내기"
 
@@ -6010,6 +6013,9 @@ msgstr ""
 
 msgid "Start archive"
 msgstr ""
+
+msgid "embedded"
+msgstr "내장됨"
 
 msgid "Reading attachment information failed"
 msgstr ""

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Dutch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 20:49+0100\n"
+"POT-Creation-Date: 2026-02-17 21:32+0100\n"
 "PO-Revision-Date: 2022-12-11 14:12+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/grommunio/"
@@ -4845,6 +4845,9 @@ msgstr "Opvolgen"
 msgid "Move to Junk Folder"
 msgstr "Verplaats naar Junk Folder"
 
+msgid "Not Junk Email"
+msgstr "Geen ongewenste e-mail"
+
 msgid "Send to"
 msgstr "Verzenden naar"
 
@@ -6116,6 +6119,9 @@ msgstr ""
 
 msgid "Start archive"
 msgstr ""
+
+msgid "embedded"
+msgstr "ingesloten"
 
 msgid "Reading attachment information failed"
 msgstr ""

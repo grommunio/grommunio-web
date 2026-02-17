@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Spanish (Spain)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 20:49+0100\n"
+"POT-Creation-Date: 2026-02-17 21:32+0100\n"
 "PO-Revision-Date: 2024-01-03 16:10+0000\n"
 "Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/grommunio/"
@@ -5216,6 +5216,9 @@ msgstr "Seguimiento"
 msgid "Move to Junk Folder"
 msgstr "Mover a Papelera"
 
+msgid "Not Junk Email"
+msgstr "No es correo no deseado"
+
 msgid "Send to"
 msgstr "Enviar a"
 
@@ -6648,6 +6651,9 @@ msgstr ""
 
 msgid "Start archive"
 msgstr ""
+
+msgid "embedded"
+msgstr "incrustado"
 
 msgid "Reading attachment information failed"
 msgstr ""

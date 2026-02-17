@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 20:49+0100\n"
+"POT-Creation-Date: 2026-02-17 21:32+0100\n"
 "PO-Revision-Date: 2022-07-26 14:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -5171,6 +5171,9 @@ msgstr "Následná opatření"
 msgid "Move to Junk Folder"
 msgstr "Přesunout do složky Nevyžádané"
 
+msgid "Not Junk Email"
+msgstr "Není nevyžádaná pošta"
+
 msgid "Send to"
 msgstr "Poslat na"
 
@@ -6630,6 +6633,9 @@ msgstr ""
 
 msgid "Start archive"
 msgstr ""
+
+msgid "embedded"
+msgstr "vložený"
 
 msgid "Reading attachment information failed"
 msgstr ""

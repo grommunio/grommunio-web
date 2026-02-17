@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 20:49+0100\n"
+"POT-Creation-Date: 2026-02-17 21:32+0100\n"
 "PO-Revision-Date: 2023-09-06 16:56+0000\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -4835,6 +4835,9 @@ msgstr "Oppfølging"
 msgid "Move to Junk Folder"
 msgstr "Flytt til Søppel E-post"
 
+msgid "Not Junk Email"
+msgstr "Ikke søppelpost"
+
 msgid "Send to"
 msgstr "Send til"
 
@@ -6101,6 +6104,9 @@ msgstr ""
 
 msgid "Start archive"
 msgstr ""
+
+msgid "embedded"
+msgstr "innebygd"
 
 msgid "Reading attachment information failed"
 msgstr ""

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Ukrainian (Ukraine)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 20:49+0100\n"
+"POT-Creation-Date: 2026-02-17 21:32+0100\n"
 "PO-Revision-Date: 2022-08-23 04:19+0000\n"
 "Last-Translator: Artem <artem@molotov.work>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/grommunio/"
@@ -4864,6 +4864,9 @@ msgstr "Подальші дії"
 msgid "Move to Junk Folder"
 msgstr "Перемістити до папки \"Смітник"
 
+msgid "Not Junk Email"
+msgstr "Не спам"
+
 msgid "Send to"
 msgstr "Надсилайте на адресу"
 
@@ -6134,6 +6137,9 @@ msgstr ""
 
 msgid "Start archive"
 msgstr ""
+
+msgid "embedded"
+msgstr "вбудований"
 
 msgid "Reading attachment information failed"
 msgstr ""

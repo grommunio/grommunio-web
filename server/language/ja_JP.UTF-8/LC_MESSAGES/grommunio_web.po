@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 20:49+0100\n"
+"POT-Creation-Date: 2026-02-17 21:32+0100\n"
 "PO-Revision-Date: 2022-12-12 13:00+0200\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/grommunio/"
@@ -5074,6 +5074,9 @@ msgstr "ファローアップ"
 msgid "Move to Junk Folder"
 msgstr "ジャンクフォルダに移動"
 
+msgid "Not Junk Email"
+msgstr "迷惑メールではない"
+
 msgid "Send to"
 msgstr "送信先"
 
@@ -6430,6 +6433,9 @@ msgstr ""
 
 msgid "Start archive"
 msgstr ""
+
+msgid "embedded"
+msgstr "埋め込み"
 
 msgid "Reading attachment information failed"
 msgstr ""

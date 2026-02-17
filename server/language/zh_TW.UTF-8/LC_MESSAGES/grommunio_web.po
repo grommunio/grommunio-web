@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 20:49+0100\n"
+"POT-Creation-Date: 2026-02-17 21:32+0100\n"
 "PO-Revision-Date: 2022-08-27 18:15+0000\n"
 "Last-Translator: Hugel <qihu@nfschina.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -4890,6 +4890,9 @@ msgstr ""
 msgid "Move to Junk Folder"
 msgstr "移動到垃圾郵件資料夾"
 
+msgid "Not Junk Email"
+msgstr "非垃圾郵件"
+
 #, fuzzy
 msgid "Send to"
 msgstr "傳送"
@@ -6219,6 +6222,9 @@ msgstr ""
 
 msgid "Start archive"
 msgstr ""
+
+msgid "embedded"
+msgstr "內嵌"
 
 msgid "Reading attachment information failed"
 msgstr ""

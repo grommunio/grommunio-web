@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web French (France)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 20:49+0100\n"
+"POT-Creation-Date: 2026-02-17 21:32+0100\n"
 "PO-Revision-Date: 2022-12-11 16:35+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/grommunio/"
@@ -5097,6 +5097,9 @@ msgstr "Suivi"
 msgid "Move to Junk Folder"
 msgstr "Déplacer vers le dossier 'Courrier indésirable'"
 
+msgid "Not Junk Email"
+msgstr "Courriel non indésirable"
+
 msgid "Send to"
 msgstr "Envoyer à"
 
@@ -6521,6 +6524,9 @@ msgstr ""
 
 msgid "Start archive"
 msgstr ""
+
+msgid "embedded"
+msgstr "intégré"
 
 msgid "Reading attachment information failed"
 msgstr ""

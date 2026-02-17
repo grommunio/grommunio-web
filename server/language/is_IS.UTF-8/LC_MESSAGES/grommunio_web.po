@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Icelandic (Iceland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 20:49+0100\n"
+"POT-Creation-Date: 2026-02-17 21:32+0100\n"
 "PO-Revision-Date: 2019-12-01 02:07+0000\n"
 "Last-Translator: import\n"
 "Language: is_IS\n"
@@ -4809,6 +4809,9 @@ msgstr "Eftirfylgni"
 msgid "Move to Junk Folder"
 msgstr "Færa í ruslpóst"
 
+msgid "Not Junk Email"
+msgstr "Ekki ruslpóstur"
+
 msgid "Send to"
 msgstr "Senda til"
 
@@ -6063,6 +6066,9 @@ msgstr ""
 
 msgid "Start archive"
 msgstr ""
+
+msgid "embedded"
+msgstr "innfellt"
 
 msgid "Reading attachment information failed"
 msgstr ""

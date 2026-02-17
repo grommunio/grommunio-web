@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Russian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 20:49+0100\n"
+"POT-Creation-Date: 2026-02-17 21:32+0100\n"
 "PO-Revision-Date: 2022-07-26 17:59+0200\n"
 "Last-Translator: Artem <Localizer_in_Russian@protonmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/grommunio/"
@@ -5043,6 +5043,9 @@ msgstr "Отслеживание"
 msgid "Move to Junk Folder"
 msgstr "Отправить в папку «Нежел. почта»"
 
+msgid "Not Junk Email"
+msgstr "Не спам"
+
 msgid "Send to"
 msgstr "Отправить как вложение"
 
@@ -6367,6 +6370,9 @@ msgstr ""
 
 msgid "Start archive"
 msgstr ""
+
+msgid "embedded"
+msgstr "встроенный"
 
 msgid "Reading attachment information failed"
 msgstr ""

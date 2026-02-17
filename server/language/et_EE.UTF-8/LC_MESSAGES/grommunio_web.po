@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Estonian (Estonia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 20:49+0100\n"
+"POT-Creation-Date: 2026-02-17 21:32+0100\n"
 "PO-Revision-Date: 2025-05-21 10:01+0000\n"
 "Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/grommunio/"
@@ -4822,6 +4822,9 @@ msgstr "Järelmeetmed"
 msgid "Move to Junk Folder"
 msgstr "Liiguta prügikausta Junk Folder"
 
+msgid "Not Junk Email"
+msgstr "Pole rämpspost"
+
 msgid "Send to"
 msgstr "Saada aadressil"
 
@@ -6083,6 +6086,9 @@ msgstr "Kirjas poel manuseid"
 
 msgid "Start archive"
 msgstr "Loo arhiiv"
+
+msgid "embedded"
+msgstr "manustatud"
 
 msgid "Reading attachment information failed"
 msgstr "Ei õnnestunud lugeda manuse teavet"

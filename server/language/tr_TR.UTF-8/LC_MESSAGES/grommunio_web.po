@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Turkish\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 20:49+0100\n"
+"POT-Creation-Date: 2026-02-17 21:32+0100\n"
 "PO-Revision-Date: 2022-12-10 22:44+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/grommunio/"
@@ -4824,6 +4824,9 @@ msgstr "Takip et"
 msgid "Move to Junk Folder"
 msgstr "Önemsiz klasöre taşı"
 
+msgid "Not Junk Email"
+msgstr "Önemsiz E-posta Değil"
+
 msgid "Send to"
 msgstr "Gönderildi"
 
@@ -6080,6 +6083,9 @@ msgstr ""
 
 msgid "Start archive"
 msgstr ""
+
+msgid "embedded"
+msgstr "gömülü"
 
 msgid "Reading attachment information failed"
 msgstr ""

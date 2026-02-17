@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Greek\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 20:49+0100\n"
+"POT-Creation-Date: 2026-02-17 21:32+0100\n"
 "PO-Revision-Date: 2022-07-26 14:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -5903,6 +5903,9 @@ msgstr "Συνέχεια"
 msgid "Move to Junk Folder"
 msgstr "Μετακίνηση σε φάκελο Junk"
 
+msgid "Not Junk Email"
+msgstr "Όχι ανεπιθύμητο email"
+
 msgid "Send to"
 msgstr "Στείλε σε"
 
@@ -7471,6 +7474,9 @@ msgstr ""
 
 msgid "Start archive"
 msgstr ""
+
+msgid "embedded"
+msgstr "ενσωματωμένο"
 
 msgid "Reading attachment information failed"
 msgstr ""

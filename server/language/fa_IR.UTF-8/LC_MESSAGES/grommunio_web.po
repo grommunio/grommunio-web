@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Farsi (Iran)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 20:49+0100\n"
+"POT-Creation-Date: 2026-02-17 21:32+0100\n"
 "PO-Revision-Date: 2017-10-05 19:48+0200\n"
 "Last-Translator: import\n"
 "Language: fa_IR\n"
@@ -4681,6 +4681,9 @@ msgstr ""
 msgid "Move to Junk Folder"
 msgstr ""
 
+msgid "Not Junk Email"
+msgstr "هرزنامه نیست"
+
 msgid "Send to"
 msgstr ""
 
@@ -5914,6 +5917,9 @@ msgstr ""
 
 msgid "Start archive"
 msgstr ""
+
+msgid "embedded"
+msgstr "تعبیه‌شده"
 
 msgid "Reading attachment information failed"
 msgstr ""

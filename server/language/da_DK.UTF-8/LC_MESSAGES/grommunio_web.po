@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Danish (Denmark)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 20:49+0100\n"
+"POT-Creation-Date: 2026-02-17 21:32+0100\n"
 "PO-Revision-Date: 2022-07-26 14:28+0200\n"
 "Last-Translator: Mike Williams <mike.williams@grammm.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/grommunio/"
@@ -5077,6 +5077,9 @@ msgstr "Opfølgning"
 msgid "Move to Junk Folder"
 msgstr "Flyt til spam mappen"
 
+msgid "Not Junk Email"
+msgstr "Ikke spam-mail"
+
 msgid "Send to"
 msgstr "Send til"
 
@@ -6488,6 +6491,9 @@ msgstr ""
 
 msgid "Start archive"
 msgstr ""
+
+msgid "embedded"
+msgstr "indlejret"
 
 msgid "Reading attachment information failed"
 msgstr ""

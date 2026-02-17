@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Arabic (Algeria)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 20:49+0100\n"
+"POT-Creation-Date: 2026-02-17 21:32+0100\n"
 "PO-Revision-Date: 2018-08-24 20:58+0200\n"
 "Last-Translator: import\n"
 "Language: ar_DZ\n"
@@ -4819,6 +4819,9 @@ msgstr ""
 msgid "Move to Junk Folder"
 msgstr ""
 
+msgid "Not Junk Email"
+msgstr "بريد إلكتروني غير مزعج"
+
 msgid "Send to"
 msgstr ""
 
@@ -6065,6 +6068,9 @@ msgstr ""
 
 msgid "Start archive"
 msgstr ""
+
+msgid "embedded"
+msgstr "مضمن"
 
 msgid "Reading attachment information failed"
 msgstr ""

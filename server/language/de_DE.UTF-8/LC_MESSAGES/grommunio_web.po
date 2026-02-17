@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 20:49+0100\n"
+"POT-Creation-Date: 2026-02-17 21:32+0100\n"
 "PO-Revision-Date: 2025-03-30 04:00+0000\n"
 "Last-Translator: DeepL <noreply-mt-deepl@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/grommunio/"
@@ -4883,6 +4883,9 @@ msgstr "Nachverfolgung"
 msgid "Move to Junk Folder"
 msgstr "Nach Junk-E-Mail verschieben"
 
+msgid "Not Junk Email"
+msgstr "Keine Junk-E-Mail"
+
 msgid "Send to"
 msgstr "Senden an"
 
@@ -6167,6 +6170,9 @@ msgstr "Keine Anhänge verfügbar in E-Mail"
 
 msgid "Start archive"
 msgstr "Archivierung starten"
+
+msgid "embedded"
+msgstr "eingebettet"
 
 msgid "Reading attachment information failed"
 msgstr "Abrufen der Anhangsinformation fehlgeschlagen"

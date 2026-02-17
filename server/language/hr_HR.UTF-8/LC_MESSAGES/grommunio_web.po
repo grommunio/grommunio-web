@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Croatian (Croatia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 20:49+0100\n"
+"POT-Creation-Date: 2026-02-17 21:32+0100\n"
 "PO-Revision-Date: 2025-02-25 15:04+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/grommunio/"
@@ -4727,6 +4727,9 @@ msgstr ""
 msgid "Move to Junk Folder"
 msgstr "Premjesti u mapu smeća"
 
+msgid "Not Junk Email"
+msgstr "Nije neželjena pošta"
+
 msgid "Send to"
 msgstr ""
 
@@ -5963,6 +5966,9 @@ msgstr ""
 
 msgid "Start archive"
 msgstr ""
+
+msgid "embedded"
+msgstr "ugrađeno"
 
 msgid "Reading attachment information failed"
 msgstr ""

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 20:49+0100\n"
+"POT-Creation-Date: 2026-02-17 21:32+0100\n"
 "PO-Revision-Date: 2022-07-26 19:05+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -5260,6 +5260,9 @@ msgstr "Spremljanje"
 msgid "Move to Junk Folder"
 msgstr "Premakni v mapo Vsiljena pošta"
 
+msgid "Not Junk Email"
+msgstr "Ni neželena pošta"
+
 msgid "Send to"
 msgstr "Pošlji ga"
 
@@ -6710,6 +6713,9 @@ msgstr ""
 
 msgid "Start archive"
 msgstr ""
+
+msgid "embedded"
+msgstr "vgrajen"
 
 msgid "Reading attachment information failed"
 msgstr ""

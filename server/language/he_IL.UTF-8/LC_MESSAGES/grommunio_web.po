@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hebrew (Israel)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 20:49+0100\n"
+"POT-Creation-Date: 2026-02-17 21:32+0100\n"
 "PO-Revision-Date: 2017-10-03 22:09+0200\n"
 "Last-Translator: import\n"
 "Language: he_IL\n"
@@ -4935,6 +4935,9 @@ msgstr ""
 msgid "Move to Junk Folder"
 msgstr "העבר לתיקית זבל"
 
+msgid "Not Junk Email"
+msgstr "לא דואר זבל"
+
 #, fuzzy
 msgid "Send to"
 msgstr "נשלח"
@@ -6215,6 +6218,9 @@ msgstr ""
 
 msgid "Start archive"
 msgstr ""
+
+msgid "embedded"
+msgstr "מוטמע"
 
 msgid "Reading attachment information failed"
 msgstr ""

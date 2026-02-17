@@ -202,6 +202,13 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 			beforeShow: this.onMoveToJunkBeforeShow,
 			handler: this.onContextItemJunk,
 			scope: this
+		},{
+			xtype: 'zarafa.conditionalitem',
+			text: _('Not Junk Email'),
+			iconCls: 'icon_folder_default_inbox',
+			beforeShow: this.onNotJunkBeforeShow,
+			handler: this.onContextItemNotJunk,
+			scope: this
 		}];
 	},
 
@@ -346,6 +353,23 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 	},
 
 	/**
+	 * Event handler which determines if the 'Not Junk Email' menu item should be visible or not.
+	 * If context menu is opened in the "Junk Items" folder, it will show the menu item.
+	 *
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The item to enable/disable
+	 * @param {Zarafa.core.data.IPMRecord[]} records The records which must be checked
+	 * to see if the item must be enabled or disabled.
+	 * @private
+	 */
+	onNotJunkBeforeShow: function(item, records)
+	{
+		if ( this.model ){
+			var defaultFolder = this.model.getDefaultFolder();
+			item.setVisible(defaultFolder.isSpecialFolder('junk'));
+		}
+	},
+
+	/**
 	 * Open the {@link Zarafa.common.dialogs.CopyMoveContentPanel CopyMoveContentPanel} for copying
 	 * or moving the currently selected folders.
 	 * @private
@@ -412,6 +436,36 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 		}, this);
 
 		store.save(this.records);
+	},
+
+	/**
+	 * Event handler which is called when the user selects the "Not Junk Email"
+	 * item in the context menu. This will strip common spam subject prefixes
+	 * and move all selected items from the junk folder to the inbox.
+	 * @private
+	 */
+	onContextItemNotJunk: function()
+	{
+		var inboxFolder = container.getHierarchyStore().getDefaultFolder('inbox');
+		var store;
+
+		Ext.each(this.records, function(record) {
+			store = record.store;
+
+			// Strip common spam subject prefixes
+			var subject = record.get('subject');
+			if (subject) {
+				var cleanSubject = subject.replace(/^(\s*(\*{1,3}\s*SPAM\s*\*{1,3}|\[SPAM\])\s*)+/i, '');
+				if (cleanSubject !== subject) {
+					record.set('subject', cleanSubject);
+				}
+			}
+
+			record.moveTo(inboxFolder);
+		}, this);
+
+		store.save(this.records);
+		container.selectFolder(inboxFolder);
 	},
 
 	/**

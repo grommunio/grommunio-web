@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Simplified)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 20:49+0100\n"
+"POT-Creation-Date: 2026-02-17 21:32+0100\n"
 "PO-Revision-Date: 2022-07-26 18:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -4751,6 +4751,9 @@ msgstr "跟进"
 msgid "Move to Junk Folder"
 msgstr "移至垃圾邮件文件夹"
 
+msgid "Not Junk Email"
+msgstr "非垃圾邮件"
+
 msgid "Send to"
 msgstr "发送至"
 
@@ -6087,6 +6090,9 @@ msgstr ""
 
 msgid "Start archive"
 msgstr ""
+
+msgid "embedded"
+msgstr "内嵌"
 
 msgid "Reading attachment information failed"
 msgstr ""

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Portuguese (Brazil)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 20:49+0100\n"
+"POT-Creation-Date: 2026-02-17 21:32+0100\n"
 "PO-Revision-Date: 2017-10-03 21:54+0200\n"
 "Last-Translator: import\n"
 "Language: pt_BR\n"
@@ -5069,6 +5069,9 @@ msgstr "Acompanhamento"
 msgid "Move to Junk Folder"
 msgstr "Mover para pasta de lixo eletrônico"
 
+msgid "Not Junk Email"
+msgstr "Não é spam"
+
 #, fuzzy
 msgid "Send to"
 msgstr "Enviar"
@@ -6385,6 +6388,9 @@ msgstr ""
 
 msgid "Start archive"
 msgstr ""
+
+msgid "embedded"
+msgstr "incorporado"
 
 msgid "Reading attachment information failed"
 msgstr ""

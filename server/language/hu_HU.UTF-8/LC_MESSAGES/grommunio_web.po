@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 20:49+0100\n"
+"POT-Creation-Date: 2026-02-17 21:32+0100\n"
 "PO-Revision-Date: 2022-07-26 16:08+0200\n"
 "Last-Translator: f3rr31 <5920873@disroot.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/grommunio/"
@@ -5125,6 +5125,9 @@ msgstr "Utánkövetés"
 msgid "Move to Junk Folder"
 msgstr "Levélszemét mappába mozgatás"
 
+msgid "Not Junk Email"
+msgstr "Nem levélszemét"
+
 msgid "Send to"
 msgstr "Továbbítás mellékletként"
 
@@ -6465,6 +6468,9 @@ msgstr ""
 
 msgid "Start archive"
 msgstr ""
+
+msgid "embedded"
+msgstr "beágyazott"
 
 msgid "Reading attachment information failed"
 msgstr ""

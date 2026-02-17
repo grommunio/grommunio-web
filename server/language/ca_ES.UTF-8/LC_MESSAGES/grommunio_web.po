@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Spanish (Catalan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 20:49+0100\n"
+"POT-Creation-Date: 2026-02-17 21:32+0100\n"
 "PO-Revision-Date: 2025-05-01 05:29+0000\n"
 "Last-Translator: Roger VC <rogervilarasau@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/grommunio/"
@@ -4988,6 +4988,9 @@ msgstr ""
 msgid "Move to Junk Folder"
 msgstr "Mover a Papelera"
 
+msgid "Not Junk Email"
+msgstr "No és correu brossa"
+
 #, fuzzy
 msgid "Send to"
 msgstr "Enviar"
@@ -6269,6 +6272,9 @@ msgstr ""
 
 msgid "Start archive"
 msgstr ""
+
+msgid "embedded"
+msgstr "incrustat"
 
 msgid "Reading attachment information failed"
 msgstr ""
