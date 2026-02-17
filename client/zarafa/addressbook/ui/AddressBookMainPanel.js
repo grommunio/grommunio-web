@@ -267,23 +267,37 @@ Zarafa.addressbook.ui.AddressBookMainPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Initializes the dialog by selecting the default address book in the dropdown
-	 * and triggering a search to fill the grid.
+	 * Initializes the dialog by reloading the AB hierarchy (to pick up any
+	 * shared store changes), selecting the default address book in the
+	 * dropdown, and triggering a search to fill the grid.
 	 * @private
 	 */
 	initDialog: function()
 	{
-		var record;
-
 		// Check that addressBookSelectionCB is created
 		if (!Ext.isDefined(this.addressBookSelectionCB)) {
 			return;
 		}
 
+		// Always reload the AB hierarchy to pick up changes (shared stores
+		// opened/closed, contact folders created/deleted since last load).
+		Zarafa.addressbook.AddressBookHierarchyStore.on('load', this.selectDefaultAddressBook, this, {single: true});
+		Zarafa.addressbook.AddressBookHierarchyStore.loadAddressBookHierarchy();
+	},
+
+	/**
+	 * Selects the default address book in the combo box and triggers the
+	 * initial search. Called after the AB hierarchy store has been reloaded.
+	 * @private
+	 */
+	selectDefaultAddressBook: function()
+	{
 		// Check that we have at least obtained one item
 		if (Zarafa.addressbook.AddressBookHierarchyStore.getCount() === 0) {
 			return;
 		}
+
+		var record;
 
 		// Get the entryId of default address book configured in setting
 		var folderEntryId = container.getSettingsModel().get('zarafa/v1/main/default_addressbook');
@@ -312,7 +326,11 @@ Zarafa.addressbook.ui.AddressBookMainPanel = Ext.extend(Ext.Panel, {
 		// emptyText to jump because of this we will make sure the store
 		// fires the load event when the grid is rendered and not before
 		// it is rendered.
-		this.viewPanel.on('render', this.onSearchButtonClick, this);
+		if (this.viewPanel.rendered) {
+			this.onSearchButtonClick();
+		} else {
+			this.viewPanel.on('render', this.onSearchButtonClick, this);
+		}
 	},
 
 	/**
@@ -352,15 +370,30 @@ Zarafa.addressbook.ui.AddressBookMainPanel = Ext.extend(Ext.Panel, {
 
 		if (folderType === 'contacts' || folderType === 'sharedcontacts') {
 			var folderId = selectedFolder.get("entryid");
-			var unwrappedEntryID = Zarafa.core.EntryId.unwrapContactProviderEntryId(folderId);
-			var folder = folderType === 'contacts' ?
-				container.getHierarchyStore().getFolder(unwrappedEntryID) :
-				container.getHierarchyStore().getFolder(folderId);
-			var isSharedStore = folder.getMAPIStore().isSharedStore() || folder.getMAPIStore().isPublicStore();
-			if (isSharedStore) {
-				params["isSharedFolder"] = isSharedStore;
+			var lookupEntryId;
+
+			// Only unwrap entry IDs that are wrapped by the AB Contact Provider.
+			// Direct store entry IDs (raw) should be used as-is.
+			if (folderType === 'contacts' && Zarafa.core.EntryId.hasContactProviderGUID(folderId)) {
+				lookupEntryId = Zarafa.core.EntryId.unwrapContactProviderEntryId(folderId);
+			} else {
+				lookupEntryId = folderId;
+			}
+
+			var folder = container.getHierarchyStore().getFolder(lookupEntryId);
+			if (folder) {
+				var isSharedStore = folder.getMAPIStore().isSharedStore() || folder.getMAPIStore().isPublicStore();
+				if (isSharedStore) {
+					params["isSharedFolder"] = isSharedStore;
+					params["sharedFolder"] = {
+						store_entryid: folder.get("store_entryid")
+					};
+				}
+			} else if (folderType === 'sharedcontacts' && selectedFolder.get('store_entryid')) {
+				// Fallback: use store_entryid from the addressbook hierarchy record
+				params["isSharedFolder"] = true;
 				params["sharedFolder"] = {
-					store_entryid: folder.get("store_entryid")
+					store_entryid: selectedFolder.get("store_entryid")
 				};
 			}
 		}
