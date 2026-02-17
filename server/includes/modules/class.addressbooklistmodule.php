@@ -79,32 +79,47 @@ class AddressbookListModule extends ListModule {
 		$folderType = $action['folderType'];
 		$sharedStore = null;
 		$isSharedFolder = $folderType === 'sharedcontacts' && isset($action["sharedFolder"]["store_entryid"]);
+		$isContactFolder = ($folderType === 'contacts' || $folderType === 'sharedcontacts');
 
 		if (($folderType !== 'gab' || ENABLE_FULL_GAB) || !empty($searchstring)) {
 			$table = null;
 			$ab = $GLOBALS['mapisession']->getAddressbook(false, true);
 			$entryid = !empty($action['entryid']) ? hex2bin((string) $action['entryid']) : mapi_ab_getdefaultdir($ab);
 
-			try {
-				$dir = mapi_ab_openentry($ab, $entryid);
-
-				/**
-				 * @TODO: 'All Address Lists' on IABContainer gives MAPI_E_INVALID_PARAMETER,
-				 * as it contains subfolders only. When #7344 is fixed, MAPI will return error here,
-				 * handle it here and return false.
-				 */
-				$table = mapi_folder_getcontentstable($dir, MAPI_DEFERRED_ERRORS);
+			if ($folderType === 'contacts') {
+				// Personal contact folder: open directly from the default store.
+				// These use raw entry IDs (not AB-wrapped), so we must not go
+				// through mapi_ab_openentry which may partially succeed but
+				// return incomplete data.
+				$contactsFolder = mapi_msgstore_openentry(
+					$GLOBALS['mapisession']->getDefaultMessageStore(), $entryid
+				);
+				$table = mapi_folder_getcontentstable($contactsFolder, MAPI_DEFERRED_ERRORS);
+				$this->properties = $GLOBALS['properties']->getContactProperties();
 			}
-			catch (MAPIException) {
-				// for the shared and public contact folders open the store
-				// and get the contents of the folder
-				if ($isSharedFolder) {
-					$sharedStore = $GLOBALS["mapisession"]->openMessageStore(
-						hex2bin((string) $action["sharedFolder"]["store_entryid"])
-					);
-					$sharedContactsFolder = mapi_msgstore_openentry($sharedStore, $entryid);
-					$table = mapi_folder_getcontentstable($sharedContactsFolder, MAPI_DEFERRED_ERRORS);
-					$this->properties = $GLOBALS['properties']->getContactProperties();
+			elseif ($isSharedFolder) {
+				// Shared/public contact folder: open from the specified store
+				$sharedStore = $GLOBALS["mapisession"]->openMessageStore(
+					hex2bin((string) $action["sharedFolder"]["store_entryid"])
+				);
+				$sharedContactsFolder = mapi_msgstore_openentry($sharedStore, $entryid);
+				$table = mapi_folder_getcontentstable($sharedContactsFolder, MAPI_DEFERRED_ERRORS);
+				$this->properties = $GLOBALS['properties']->getContactProperties();
+			}
+			else {
+				// GAB or other AB entry: open through the address book
+				try {
+					$dir = mapi_ab_openentry($ab, $entryid);
+
+					/**
+					 * @TODO: 'All Address Lists' on IABContainer gives MAPI_E_INVALID_PARAMETER,
+					 * as it contains subfolders only. When #7344 is fixed, MAPI will return error here,
+					 * handle it here and return false.
+					 */
+					$table = mapi_folder_getcontentstable($dir, MAPI_DEFERRED_ERRORS);
+				}
+				catch (MAPIException) {
+					// AB entry could not be opened
 				}
 			}
 
@@ -174,28 +189,51 @@ class AddressbookListModule extends ListModule {
 							$item['smtp_address'] = $item['email_address'];
 						}
 					}
-					elseif ($isSharedFolder && $sharedStore) {
-						// do not display private items
-						if (isset($user_data[$this->properties['private']]) && $user_data[$this->properties['private']] === true) {
+					elseif ($isContactFolder) {
+						// Contact folder item (personal or shared).
+						// These are real contact items from a MAPI folder, not
+						// AB entries, so they use contact properties instead of
+						// AB list properties.
+
+						// Do not display private items from shared folders
+						if ($isSharedFolder && isset($user_data[$this->properties['private']]) && $user_data[$this->properties['private']] === true) {
 							continue;
 						}
-						// do not display items without an email address
-						// a shared contact is either a single contact item or a distribution list
-						$isContact = strcasecmp((string) $user_data[$this->properties['message_class']], 'IPM.Contact') === 0;
+
+						// Determine if this is a single contact or a distribution list
+						$isContact = strcasecmp((string) ($user_data[$this->properties['message_class']] ?? ''), 'IPM.Contact') === 0;
+
+						// Do not display contacts without any email address
 						if ($isContact &&
 							empty($user_data[$this->properties["email_address_1"]]) &&
 							empty($user_data[$this->properties["email_address_2"]]) &&
 							empty($user_data[$this->properties["email_address_3"]])) {
 							continue;
 						}
+
 						$item['display_type_ex'] = $isContact ? DT_MAILUSER : DT_MAILUSER | DT_PRIVATE_DISTLIST;
 						$item['display_type'] = $isContact ? DT_MAILUSER : DT_DISTLIST;
 						$item['fileas'] = $item['display_name'];
 						$item['surname'] = $user_data[PR_SURNAME] ?? '';
 						$item['given_name'] = $user_data[$this->properties['given_name']] ?? '';
-						$item['object_type'] = $user_data[PR_ICON_INDEX] == 512 ? MAPI_MAILUSER : MAPI_DISTLIST;
-						$item['store_entryid'] = $action["sharedFolder"]["store_entryid"];
-						$item['is_shared'] = true;
+						$item['object_type'] = ($user_data[$this->properties['icon_index']] ?? 0) == 512 ? MAPI_MAILUSER : MAPI_DISTLIST;
+
+						// Map contact properties to fields expected by the GAB column model
+						$item['department_name'] = $user_data[$this->properties['department_name']] ?? '';
+						$item['office_telephone_number'] = $user_data[$this->properties['business_telephone_number']] ?? '';
+						$item['mobile_telephone_number'] = $user_data[$this->properties['cellular_telephone_number']] ?? '';
+						$item['home_telephone_number'] = $user_data[$this->properties['home_telephone_number']] ?? '';
+						$item['pager_telephone_number'] = $user_data[$this->properties['pager_telephone_number']] ?? '';
+						$item['office_location'] = $user_data[$this->properties['office_location']] ?? '';
+						$item['primary_fax_number'] = $user_data[$this->properties['business_fax_number']]
+							?? $user_data[$this->properties['primary_fax_number']] ?? '';
+
+						if ($isSharedFolder) {
+							$item['store_entryid'] = $action["sharedFolder"]["store_entryid"];
+							$item['is_shared'] = true;
+						}
+
+						// Determine which email addresses are available
 						if (!empty($user_data[$this->properties["email_address_type_1"]])) {
 							$abprovidertype |= 1;
 						}
@@ -228,6 +266,11 @@ class AddressbookListModule extends ListModule {
 								$item['address_type'] = $user_data[$this->properties["email_address_type_3"]];
 								$item['email_address'] = $user_data[$this->properties["email_address_3"]];
 								break;
+						}
+
+						// Set smtp_address for GAB column compatibility
+						if (!empty($item['email_address']) && ($item['address_type'] ?? '') === 'SMTP') {
+							$item['smtp_address'] = $item['email_address'];
 						}
 					}
 					else {
@@ -322,11 +365,12 @@ class AddressbookListModule extends ListModule {
 					}
 
 					array_push($items, ['props' => $item]);
-					if ($isSharedFolder && $sharedStore) {
+					if ($isContactFolder) {
 						switch ($abprovidertype) {
 							case 3:
 								$item['address_type'] = $user_data[$this->properties["email_address_type_2"]];
 								$item['email_address'] = $user_data[$this->properties["email_address_2"]];
+								$item['smtp_address'] = ($item['address_type'] === 'SMTP') ? $item['email_address'] : '';
 								$item['search_key'] = bin2hex(strtoupper($item['address_type'] . ':' . $item['email_address'])) . '00';
 								$item['entryid'] = $entryid . '02';
 								array_push($items, ['props' => $item]);
@@ -336,6 +380,7 @@ class AddressbookListModule extends ListModule {
 							case 6:
 								$item['address_type'] = $user_data[$this->properties["email_address_type_3"]];
 								$item['email_address'] = $user_data[$this->properties["email_address_3"]];
+								$item['smtp_address'] = ($item['address_type'] === 'SMTP') ? $item['email_address'] : '';
 								$item['search_key'] = bin2hex(strtoupper($item['address_type'] . ':' . $item['email_address'])) . '00';
 								$item['entryid'] = $entryid . '03';
 								array_push($items, ['props' => $item]);
@@ -344,11 +389,13 @@ class AddressbookListModule extends ListModule {
 							case 7:
 								$item['address_type'] = $user_data[$this->properties["email_address_type_2"]];
 								$item['email_address'] = $user_data[$this->properties["email_address_2"]];
+								$item['smtp_address'] = ($item['address_type'] === 'SMTP') ? $item['email_address'] : '';
 								$item['search_key'] = bin2hex(strtoupper($item['address_type'] . ':' . $item['email_address'])) . '00';
 								$item['entryid'] = $entryid . '02';
 								array_push($items, ['props' => $item]);
 								$item['address_type'] = $user_data[$this->properties["email_address_type_3"]];
 								$item['email_address'] = $user_data[$this->properties["email_address_3"]];
+								$item['smtp_address'] = ($item['address_type'] === 'SMTP') ? $item['email_address'] : '';
 								$item['search_key'] = bin2hex(strtoupper($item['address_type'] . ':' . $item['email_address'])) . '00';
 								$item['entryid'] = $entryid . '03';
 								array_push($items, ['props' => $item]);
@@ -935,6 +982,9 @@ class AddressbookListModule extends ListModule {
 
 	/**
 	 * Gets the shared contacts folders from all open delegate stores.
+	 * getOtherUserStore() returns stores that are either auto-hooked
+	 * delegate stores or explicitly opened by the user, filtering out
+	 * any that were explicitly closed via hidden_delegate_stores setting.
 	 *
 	 * @param array $folders list of folders
 	 */
