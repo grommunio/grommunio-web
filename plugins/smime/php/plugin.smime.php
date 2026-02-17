@@ -889,7 +889,7 @@ class Pluginsmime extends Plugin {
 		// Only the newest one is returned
 		$certs = readPrivateCert($this->getStore(), $encryptionStore->get('smime'));
 		// Retrieve intermediate CA's for verification, if available
-		$flags = PKCS7_DETACHED | PKCS7_TEXT;
+		$flags = PKCS7_DETACHED;
 		if (isset($certs['extracerts'])) {
 			$tmpFile = tempnam(sys_get_temp_dir(), true);
 			file_put_contents($tmpFile, implode('', $certs['extracerts']));
