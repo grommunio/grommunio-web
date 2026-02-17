@@ -1115,14 +1115,37 @@ class MAPISession {
 	 * @return array an array in which founded contact-folders will be pushed
 	 */
 	public function getContactFolders($store, $folderEntryid, $depthSearch) {
-		$restriction = [RES_CONTENT,
+		$restriction = [RES_AND,
 			[
-				// Fuzzylevel PF_PREFIX also allows IPF.Contact.Custom folders to be included.
-				// Otherwise FL_FULLSTRING would only allow IPF.Contact folders.
-				FUZZYLEVEL => FL_PREFIX,
-				ULPROPTAG => PR_CONTAINER_CLASS,
-				VALUE => [
-					PR_CONTAINER_CLASS => "IPF.Contact",
+				[RES_CONTENT,
+					[
+						// Fuzzylevel PF_PREFIX also allows IPF.Contact.Custom folders to be included.
+						// Otherwise FL_FULLSTRING would only allow IPF.Contact folders.
+						FUZZYLEVEL => FL_PREFIX,
+						ULPROPTAG => PR_CONTAINER_CLASS,
+						VALUE => [
+							PR_CONTAINER_CLASS => "IPF.Contact",
+						],
+					],
+				],
+				// Exclude hidden folders (PR_ATTR_HIDDEN == false or not set)
+				[RES_OR,
+					[
+						[RES_PROPERTY,
+							[
+								RELOP => RELOP_EQ,
+								ULPROPTAG => PR_ATTR_HIDDEN,
+								VALUE => [PR_ATTR_HIDDEN => false],
+							],
+						],
+						[RES_NOT,
+							[
+								[RES_EXIST,
+									[ULPROPTAG => PR_ATTR_HIDDEN],
+								],
+							],
+						],
+					],
 				],
 			],
 		];
