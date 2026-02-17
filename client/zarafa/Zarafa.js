@@ -799,9 +799,36 @@ Ext.apply(Zarafa, {
 			// Start the keepalive to make sure we stay logged into the zarafa-server,
 			// the keepalive is also used to get notifications back to the client.
 			store.startKeepAlive();
+
+			// Defer non-critical initialization so the mail-list load
+			// (triggered by the context enable above) gets through the
+			// PHP state-file lock first.  This avoids serialization
+			// contention that would otherwise delay the first user
+			// interaction after login.
+			this.startDeferredServices.defer(1000, this);
 		} else {
 			this.setErrorLoadingMask(_('Error'), _('Loading model from server failed'));
 		}
+	},
+
+	/**
+	 * Start services that are not required for the initial UI render.
+	 * Called with a short delay after {@link #onHierarchyLoad} so the
+	 * critical mail-list request can claim the PHP state-file lock
+	 * first, keeping the first user interaction responsive.
+	 * @private
+	 */
+	startDeferredServices: function()
+	{
+		// Out-of-office check
+		var oofStore = container.getOutOfOfficeStore();
+		oofStore.on('load', this.onOofStoreLoad, this, { single: true });
+
+		// Reminder polling
+		container.getReminderStore().initializeReminderInterval();
+
+		// Shared stores unread email poller
+		this.startSharedStoresHierarchyChecker();
 	},
 
 	/**
@@ -850,16 +877,8 @@ Ext.apply(Zarafa, {
 		// Start loading all plugins
 		Zarafa.fireReady();
 
-		// We need to register the event handler for outOfOfficeStore on load to check if user is out of office
-		// and ask them if they want to switch it off.
-		var oofStore = container.getOutOfOfficeStore();
-		oofStore.on('load', this.onOofStoreLoad, this, { single: true });
-
 		// Initialize context - check if there is one selected in settings
 		this.initContext();
-
-		// Start polling the server to get reminders data back to client
-		container.getReminderStore().initializeReminderInterval();
 
 		// Setup the hierarchy, this will complete the initialization
 		// and allow the Main Viewport to be opened
@@ -869,8 +888,13 @@ Ext.apply(Zarafa, {
 		// as only during the first time we have to remove the load mask.
 		hierarchyStore.on('load', this.onHierarchyLoad, this, { single: true });
 
-		// Load the folder hierarchy
+		// Load the folder hierarchy as the first and only request during
+		// boot.  Non-critical requests (OOF, reminders, shared-store
+		// updates) are deferred to onHierarchyLoad so they do not
+		// compete for the PHP state-file lock while the hierarchy and
+		// the initial mail-list load are still in progress.
 		hierarchyStore.load();
+
 		// When a client timeout has been defined, we will start keeping track
 		// of idle time.
 		var server = container.getServerConfig();
@@ -878,9 +902,6 @@ Ext.apply(Zarafa, {
 		if (clientTimeout){
 			this.startIdleTimeChecker(clientTimeout);
 		}
-
-		// Starts shared stores unread email poller.
-		this.startSharedStoresHierarchyChecker();
 	},
 
 	/**
