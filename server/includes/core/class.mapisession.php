@@ -731,7 +731,7 @@ class MAPISession {
 	 * @param string $entryid string representation of the binary entryid of the store
 	 * @param string $name    The name of the store. Will be logged when opening fails.
 	 *
-	 * @return mapistore The opened store on success, false otherwise
+	 * @return mapistore|false The opened store on success, false otherwise
 	 */
 	public function openMessageStore($entryid, $name = '') {
 		// Check the cache before opening
