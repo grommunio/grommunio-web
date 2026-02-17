@@ -21,4 +21,11 @@ class AttachmentInfo {
 	 * @var int
 	 */
 	public $size;
+
+	/**
+	 * Whether attachment is an inline/embedded image.
+	 *
+	 * @var bool
+	 */
+	public $hidden = false;
 }

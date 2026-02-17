@@ -88,12 +88,24 @@ class KendoxModule extends Module {
 		$this->loadMapiMessage($storeId, $mailEntryId);
 		$items = [];
 		$attachmentTable = mapi_message_getattachmenttable($this->mapiMessage);
-		$messageAttachments = mapi_table_queryallrows($attachmentTable, [PR_ATTACH_NUM, PR_ATTACH_SIZE, PR_ATTACH_LONG_FILENAME]);
+		$messageAttachments = mapi_table_queryallrows($attachmentTable, [PR_ATTACH_NUM, PR_ATTACH_SIZE, PR_ATTACH_LONG_FILENAME, PR_ATTACH_FILENAME, PR_DISPLAY_NAME, PR_ATTACHMENT_HIDDEN]);
 		foreach ($messageAttachments as $att) {
 			$item = new AttachmentInfo();
 			$item->id = $att[PR_ATTACH_NUM];
-			$item->name = $att[PR_ATTACH_LONG_FILENAME];
+			if (isset($att[PR_ATTACH_LONG_FILENAME])) {
+				$item->name = $att[PR_ATTACH_LONG_FILENAME];
+			}
+			elseif (isset($att[PR_ATTACH_FILENAME])) {
+				$item->name = $att[PR_ATTACH_FILENAME];
+			}
+			elseif (isset($att[PR_DISPLAY_NAME])) {
+				$item->name = $att[PR_DISPLAY_NAME];
+			}
+			else {
+				$item->name = "untitled";
+			}
 			$item->size = $att[PR_ATTACH_SIZE];
+			$item->hidden = $att[PR_ATTACHMENT_HIDDEN] ?? false;
 			$items[] = $item;
 		}
 		$response = [];

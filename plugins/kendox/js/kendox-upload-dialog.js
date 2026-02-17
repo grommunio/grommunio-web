@@ -316,6 +316,7 @@ Zarafa.plugins.kendox.UploadDialog = Ext.extend(Zarafa.core.ui.ContentPanel, {
 					id: att.data.attach_num,
 					name: att.data.name,
 					size: att.data.size,
+					hidden: att.data.hidden || false,
 				});
 			});
 		} else {
@@ -339,7 +340,7 @@ Zarafa.plugins.kendox.UploadDialog = Ext.extend(Zarafa.core.ui.ContentPanel, {
 				xtype: "checkbox",
 				ref: "checkboxAttachment" + a.id,
 				boxLabel:
-					a.name + " (" + (a.size / 1024 / 1000).toLocaleString() + " MB)",
+					a.name + (a.hidden ? " (" + _("embedded") + ")" : "") + " (" + (a.size / 1024 / 1000).toLocaleString() + " MB)",
 				style: {
 					margin: "10px 0px 0px 0px",
 				},
