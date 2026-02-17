@@ -20,11 +20,14 @@ function getCertEmail($certificate) {
 		$certEmailAddress = $certificate['subject']['emailAddress'];
 	}
 	elseif (isset($certificate['extensions'], $certificate['extensions']['subjectAltName'])) {
-		// Example [subjectAltName] => email:foo@bar.com
-		$tmp = explode('email:', $certificate['extensions']['subjectAltName']);
-		// Only get the first match
-		if (isset($tmp[1]) && !empty($tmp[1])) {
-			$certEmailAddress = $tmp[1];
+		// Example [subjectAltName] => email:foo@bar.com, DNS:example.com
+		$altNames = explode(',', $certificate['extensions']['subjectAltName']);
+		foreach ($altNames as $altName) {
+			$altName = trim($altName);
+			if (strpos($altName, 'email:') === 0) {
+				$certEmailAddress = substr($altName, 6);
+				break;
+			}
 		}
 	}
 

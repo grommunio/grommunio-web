@@ -122,13 +122,15 @@ class Certificate {
 		if (isset($this->data['subject']['emailAddress'])) {
 			$certEmailAddress = $this->data['subject']['emailAddress'];
 		}
-		elseif (isset($this->data['extensions'], $this->data['extensions']['subjectAltName'])
-		) {
-			// Example [subjectAltName] => email:foo@bar.com
-			$tmp = explode('email:', $this->data['extensions']['subjectAltName']);
-			// Only get the first match
-			if (isset($tmp[1]) && !empty($tmp[1])) {
-				$certEmailAddress = $tmp[1];
+		elseif (isset($this->data['extensions'], $this->data['extensions']['subjectAltName'])) {
+			// Example [subjectAltName] => email:foo@bar.com, DNS:example.com
+			$altNames = explode(',', $this->data['extensions']['subjectAltName']);
+			foreach ($altNames as $altName) {
+				$altName = trim($altName);
+				if (strpos($altName, 'email:') === 0) {
+					$certEmailAddress = substr($altName, 6);
+					break;
+				}
 			}
 		}
 
