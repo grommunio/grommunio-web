@@ -161,6 +161,8 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 		this.deleted = [];
 		this.resetSettings = [];
 
+		this.saveTask = new Ext.util.DelayedTask(this.save, this);
+
 		// Relays the exception event to the DataProxy
 		Ext.data.DataProxy.relayEvents(this, ['exception']);
 	},
@@ -251,8 +253,21 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 		}
 
 		if (needsSave === true && this.autoSave !== false) {
-			this.save();
+			this.scheduleSave();
 		}
+	},
+
+	/**
+	 * Schedule a debounced {@link #save}. Multiple rapid calls within the
+	 * delay window are collapsed into a single server request, which
+	 * dramatically reduces the number of HTTP round-trips during
+	 * initialization when many stateful components save their state
+	 * in quick succession.
+	 * @private
+	 */
+	scheduleSave: function()
+	{
+		this.saveTask.delay(300);
 	},
 
 	/**
