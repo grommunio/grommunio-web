@@ -1058,34 +1058,56 @@ Ext.apply(Zarafa, {
 			return;
 		}
 
-		// Get the stylesheet element that contains the icons as background images
-		// and check all rules in it for SVG icons we can recolor
+		// Pre-compile the color regexes once instead of per-rule.
+		var primaryRe = activeIconset['primary-color'] ?
+			new RegExp(activeIconset['primary-color'], 'gi') : null;
+		var secondaryRe = activeIconset['secondary-color'] ?
+			new RegExp(activeIconset['secondary-color'], 'gi') : null;
+
+		// Collect the full CSS text of the iconset stylesheet in memory,
+		// recoloring SVG data URIs as we go.  This avoids per-rule
+		// deleteRule/insertRule calls that each trigger a CSSOM
+		// recalculation — with ~700 SVG rules that caused a multi-
+		// second UI freeze.
 		var sheet = document.getElementById('grommunio-iconset-stylesheet');
-		for ( var i=0; i<sheet.sheet.cssRules.length; i++ ) {
-			var rule = sheet.sheet.cssRules[i];
+		var rules = sheet.sheet.cssRules;
+		var svgUrlRe = /url\("data:image\/svg\+xml;base64,(.+?)"\)/;
+		var parts = new Array(rules.length);
 
-			// Check the rule to see if it contains an SVG background image
-			// (we can only recolor SVG icons)
-			var matches = (/url\("data:image\/svg\+xml;base64,(.+?)"\)/).exec(rule.cssText);
+		for ( var i = 0; i < rules.length; i++ ) {
+			var ruleText = rules[i].cssText;
+			var matches = svgUrlRe.exec(ruleText);
+
 			if ( matches !== null ) {
-				// base64 decode the SVG image
 				var svg = atob(matches[1]);
+				var svgRecolored = svg;
+				if ( primaryRe ) {
+					svgRecolored = svgRecolored.replace(
+						primaryRe, themeIconsPrimaryColor);
+				}
+				if ( secondaryRe ) {
+					svgRecolored = svgRecolored.replace(
+						secondaryRe, themeIconsSecondaryColor);
+				}
 
-				// Simply replace the color codes
-				var svgRecolored = svg.replace(new RegExp(activeIconset['primary-color'], 'gi'), themeIconsPrimaryColor).replace(new RegExp(activeIconset['secondary-color'], 'gi'), themeIconsSecondaryColor);
-
-				// If we changed anything, replace the CSS rule to use the base64 encoded SVG
-				// with the new color(s)
 				if ( svg !== svgRecolored ) {
-					var cssText = rule.cssText.replace(
+					ruleText = ruleText.replace(
 						/url\("data:image\/svg\+xml;base64,(.+)"\)/,
-						'url("data:image/svg+xml;base64,' + btoa(svgRecolored) + '")'
+						'url("data:image/svg+xml;base64,' +
+							btoa(svgRecolored) + '")'
 					);
-					sheet.sheet.deleteRule(i);
-					sheet.sheet.insertRule(cssText, i);
 				}
 			}
+
+			parts[i] = ruleText;
 		}
+
+		// Replace the <link> with a <style> element in one DOM
+		// operation so the browser only recalculates styles once.
+		var newStyle = document.createElement('style');
+		newStyle.id = sheet.id;
+		newStyle.textContent = parts.join('\n');
+		sheet.parentNode.replaceChild(newStyle, sheet);
 	},
 
 	/**
