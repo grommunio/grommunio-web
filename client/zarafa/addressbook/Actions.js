@@ -32,16 +32,18 @@ Zarafa.addressbook.Actions = {
 		if (Array.isArray(records) && !Ext.isEmpty(records)) {
 			records = records[0];
 		}
-		if (records.isPersonalContact() || records.isSharedContact()) {
-			// A personal contact needs to be converted to a contact so the correct panel can be shown.
-			records = records.convertToContactRecord();
+		if (records.isPersonalDistList()) {
+			// A personal distlist needs to be converted to a distlist so the correct panel can be shown.
+			// This must be checked before isSharedContact() because shared distlists also
+			// have is_shared set and would incorrectly be opened as contacts.
+			records = records.convertToDistListRecord();
 			// FIXME: We put the abRecord into the ShadowStore to be able
 			// to open it, and obtain all details. However, we also need to
 			// find a point where we can remove it again.
 			container.getShadowStore().add(records);
-		} else if (records.isPersonalDistList()) {
-			// A personal distlist needs to be converted to a distlist so the correct panel can be shown.
-			records = records.convertToDistListRecord();
+		} else if (records.isPersonalContact() || records.isSharedContact()) {
+			// A personal contact needs to be converted to a contact so the correct panel can be shown.
+			records = records.convertToContactRecord();
 			// FIXME: We put the abRecord into the ShadowStore to be able
 			// to open it, and obtain all details. However, we also need to
 			// find a point where we can remove it again.
