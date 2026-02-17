@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hebrew (Israel)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 17:54+0100\n"
+"POT-Creation-Date: 2026-02-17 20:49+0100\n"
 "PO-Revision-Date: 2017-10-03 22:09+0200\n"
 "Last-Translator: import\n"
 "Language: he_IL\n"
@@ -6203,6 +6203,9 @@ msgstr ""
 
 msgid "Everything - Store mail in original format"
 msgstr ""
+
+msgid "Email only - Store mail without attachments"
+msgstr "דואר אלקטרוני בלבד - שמור דואר ללא קבצים מצורפים"
 
 msgid "Separate - Store attachments separately"
 msgstr ""

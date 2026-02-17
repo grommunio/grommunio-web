@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Polish (Poland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 17:54+0100\n"
+"POT-Creation-Date: 2026-02-17 20:49+0100\n"
 "PO-Revision-Date: 2022-07-26 17:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -6295,6 +6295,9 @@ msgstr ""
 
 msgid "Everything - Store mail in original format"
 msgstr ""
+
+msgid "Email only - Store mail without attachments"
+msgstr "Tylko e-mail - Zapisz wiadomość bez załączników"
 
 msgid "Separate - Store attachments separately"
 msgstr ""

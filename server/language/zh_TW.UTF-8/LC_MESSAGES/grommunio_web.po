@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 17:54+0100\n"
+"POT-Creation-Date: 2026-02-17 20:49+0100\n"
 "PO-Revision-Date: 2022-08-27 18:15+0000\n"
 "Last-Translator: Hugel <qihu@nfschina.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -6207,6 +6207,9 @@ msgstr ""
 
 msgid "Everything - Store mail in original format"
 msgstr ""
+
+msgid "Email only - Store mail without attachments"
+msgstr "僅電子郵件 - 儲存不含附件的郵件"
 
 msgid "Separate - Store attachments separately"
 msgstr ""

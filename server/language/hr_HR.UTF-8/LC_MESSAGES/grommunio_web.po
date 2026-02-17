@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Croatian (Croatia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 17:54+0100\n"
+"POT-Creation-Date: 2026-02-17 20:49+0100\n"
 "PO-Revision-Date: 2025-02-25 15:04+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/grommunio/"
@@ -5951,6 +5951,9 @@ msgstr ""
 
 msgid "Everything - Store mail in original format"
 msgstr ""
+
+msgid "Email only - Store mail without attachments"
+msgstr "Samo e-pošta - Spremi poštu bez privitaka"
 
 msgid "Separate - Store attachments separately"
 msgstr ""

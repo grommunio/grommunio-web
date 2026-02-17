@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Estonian (Estonia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 17:54+0100\n"
+"POT-Creation-Date: 2026-02-17 20:49+0100\n"
 "PO-Revision-Date: 2025-05-21 10:01+0000\n"
 "Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/grommunio/"
@@ -6071,6 +6071,9 @@ msgstr "MB)"
 
 msgid "Everything - Store mail in original format"
 msgstr "Kõik - hoiusta e-kirjad algsetena"
+
+msgid "Email only - Store mail without attachments"
+msgstr "Ainult e-kiri - hoiusta e-kirjad ilma manusteta"
 
 msgid "Separate - Store attachments separately"
 msgstr "Eraldi - hoiusta manused eraldi"

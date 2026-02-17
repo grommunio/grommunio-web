@@ -135,6 +135,19 @@ class KendoxModule extends Module {
 			$file->kendoxFileId = null;
 			$uploadFiles[] = $file;
 		}
+		elseif ($uploadType == "emailOnly") {
+			$emlFile = $this->createTempEmlFileWithoutAttachments($mailEntryId);
+			if (!file_exists($emlFile)) {
+				throw new Exception("EML file " . $emlFile . " not available.");
+			}
+			$file = new UploadFile();
+			$file->tempFile = $emlFile;
+			$file->fileType = "email";
+			$file->fileName = "email.eml";
+			$file->fileLength = filesize($emlFile);
+			$file->kendoxFileId = null;
+			$uploadFiles[] = $file;
+		}
 		if ($uploadType == "attachmentsOnly") {
 			$uploadFiles = $this->getUploadFilesFromSelectedAttachments($selectedAttachments);
 		}
@@ -221,6 +234,50 @@ class KendoxModule extends Module {
 			$fileLength = $stat['cb'];
 			$tempFile = $this->createTempFilename();
 			// Read stream for whole message
+			for ($i = 0; $i < $fileLength; $i += BLOCK_SIZE) {
+				$appendData = mapi_stream_read($stream, BLOCK_SIZE);
+				file_put_contents($tempFile, $appendData, FILE_APPEND);
+			}
+
+			return $tempFile;
+		}
+		catch (Exception $ex) {
+			$this->logErrorAndThrow("Error on writing temporary EML file", $ex);
+		}
+	}
+
+	private function createTempEmlFileWithoutAttachments($mailEntryId) {
+		try {
+			$messageProps = mapi_getprops($this->mapiMessage, [PR_SUBJECT, PR_MESSAGE_CLASS]);
+		}
+		catch (Exception $ex) {
+			$this->logErrorAndThrow("Error on getting MAPI message properties", $ex);
+		}
+
+		// Remove all attachments from the in-memory message (not saved to store)
+		try {
+			$attachmentTable = mapi_message_getattachmenttable($this->mapiMessage);
+			$attachments = mapi_table_queryallrows($attachmentTable, [PR_ATTACH_NUM]);
+			foreach ($attachments as $att) {
+				mapi_message_deleteattach($this->mapiMessage, $att[PR_ATTACH_NUM]);
+			}
+		}
+		catch (Exception $ex) {
+			$this->logErrorAndThrow("Error on removing attachments from MAPI message", $ex);
+		}
+
+		// Create EML stream from the attachment-stripped message
+		try {
+			$stream = $this->getEmlStream($messageProps);
+			$stat = mapi_stream_stat($stream);
+		}
+		catch (Exception $ex) {
+			$this->logErrorAndThrow("Error on reading EML stream from MAPI Message", $ex);
+		}
+
+		try {
+			$fileLength = $stat['cb'];
+			$tempFile = $this->createTempFilename();
 			for ($i = 0; $i < $fileLength; $i += BLOCK_SIZE) {
 				$appendData = mapi_stream_read($stream, BLOCK_SIZE);
 				file_put_contents($tempFile, $appendData, FILE_APPEND);

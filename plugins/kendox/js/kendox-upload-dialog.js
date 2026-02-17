@@ -208,6 +208,12 @@ Zarafa.plugins.kendox.UploadDialog = Ext.extend(Zarafa.core.ui.ContentPanel, {
 									checked: this.uploadType === "fullEmail",
 								},
 								{
+									boxLabel: _("Email only - Store mail without attachments"),
+									name: "uploadType",
+									inputValue: "emailOnly",
+									checked: this.uploadType === "emailOnly",
+								},
+								{
 									boxLabel: _("Separate - Store attachments separately"),
 									name: "uploadType",
 									inputValue: "attachmentsOnly",

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web English (United States)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 17:54+0100\n"
+"POT-Creation-Date: 2026-02-17 20:49+0100\n"
 "PO-Revision-Date: 2024-04-30 06:29+0000\n"
 "Last-Translator: Mike Williams <mike.williams@grommunio.com>\n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
@@ -6077,6 +6077,9 @@ msgid "MB total size)"
 msgstr ""
 
 msgid "Everything - Store mail in original format"
+msgstr ""
+
+msgid "Email only - Store mail without attachments"
 msgstr ""
 
 msgid "Separate - Store attachments separately"

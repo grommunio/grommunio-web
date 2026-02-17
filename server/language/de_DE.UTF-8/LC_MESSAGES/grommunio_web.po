@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 17:54+0100\n"
+"POT-Creation-Date: 2026-02-17 20:49+0100\n"
 "PO-Revision-Date: 2025-03-30 04:00+0000\n"
 "Last-Translator: DeepL <noreply-mt-deepl@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/grommunio/"
@@ -6155,6 +6155,9 @@ msgstr "MB Gesamtgröße"
 
 msgid "Everything - Store mail in original format"
 msgstr "Alles - Archiviere E-Mail im Originalformat"
+
+msgid "Email only - Store mail without attachments"
+msgstr "Nur E-Mail - E-Mail ohne Anhänge speichern"
 
 msgid "Separate - Store attachments separately"
 msgstr "Separat - Anhänge separat speichern"
