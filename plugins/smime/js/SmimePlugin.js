@@ -228,8 +228,12 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 				smimeInfoBox.update('<div class="icon_smime_encr_content"></div> ' + message);
 				break;
 			}
-			var smimeInfoIcon = isDecryptedSuccessfully ? 'icon_smime_decr_content' : 'icon_smime_encr_content';
-			smimeInfoBox.update(String.format(' {0} &lt{1}&gt <div class="{2}"></div> {3}', sender.get('display_name'), sender.get('smtp_address'), smimeInfoIcon, message));
+			if (isDecryptedSuccessfully) {
+				// Decrypted messages are implicitly verified — show both badges
+				smimeInfoBox.update(String.format('{0} &lt{1}&gt <div class="icon_smime_sign_content"></div><div class="icon_smime_decr_content"></div> {2}', sender.get('display_name'), sender.get('smtp_address'), message));
+			} else {
+				smimeInfoBox.update(String.format('{0} &lt{1}&gt <div class="icon_smime_encr_content"></div> {2}', sender.get('display_name'), sender.get('smtp_address'), message));
+			}
 			// Force the Attachmentlinks component to update, to view the attachments
 			this.ownerCt.findByType('zarafa.attachmentlinks')[0].update(record, true);
 			break;
@@ -238,7 +242,8 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 			break;
 		case 'encryptsigned':
 			smimeInfoBox.update(String.format('{0} &lt{1}&gt <div class="icon_smime_sign_content"></div> <div class="icon_smime_decr_content"></div> {2}', sender.get('display_name'), sender.get('smtp_address'), message));
-			if (smimeInfo.success !== Zarafa.plugins.smime.SMIME_STATUS_BAD) {
+			if (smimeInfo.success !== Zarafa.plugins.smime.SMIME_STATUS_BAD &&
+			smimeInfo.success !== Zarafa.plugins.smime.SMIME_STATUS_PARTIAL) {
 				// Force the Attachmentlinks component to update, to view the attachments
 				this.ownerCt.findByType('zarafa.attachmentlinks')[0].update(record, true);
 			}
@@ -552,8 +557,8 @@ Zarafa.core.data.RecordFactory.addFieldToMessageClass('IPM.Note', [{name: 'smime
 
 Zarafa.onReady(function() {
 	Zarafa.plugins.smime.SMIME_STATUS_GOOD = 0;
-	Zarafa.plugins.smime.SMIME_STATUS_PARTIAL = 2;
-	Zarafa.plugins.smime.SMIME_STATUS_FATAL = 2;
+	Zarafa.plugins.smime.SMIME_STATUS_PARTIAL = 1;
+	Zarafa.plugins.smime.SMIME_STATUS_BAD = 2;
 	Zarafa.plugins.smime.SMIME_DECRYPT_SUCCESS = 6;
 	Zarafa.plugins.smime.SMIME_STATUS_INFO = 3;
 	Zarafa.plugins.smime.CHANGE_CERTIFICATE_SUCCESS = 1;

@@ -5,7 +5,7 @@
 	color: #222;
         width: 100%;
         height: 34px;
-        padding: 10px 40px 0px 10px;
+        padding: 10px 65px 0px 10px;
         text-overflow: ellipsis;
         overflow: hidden;
         box-sizing: border-box;
@@ -110,8 +110,13 @@
 .icon_smime_decr_content:before {
    content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iIzIxMjEyMSIgZD0iTTEyIDIuMDA0YzEuODc1IDAgMy4zMzQgMS4yMDYgMy45MjggMy4wMDNhLjc1Ljc1IDAgMSAxLTEuNDI1LjQ3QzE0LjEwMiA0LjI2MiAxMy4xODUgMy41MDQgMTIgMy41MDRjLTEuNDA3IDAtMi40Mi45NTgtMi40OTYgMi41NTFsLS4wMDUuMTk1djEuNzQ5aDguMjUxYTIuMjUgMi4yNSAwIDAgMSAyLjI0NSAyLjA5N2wuMDA1LjE1NHY5LjQ5NmEyLjI1IDIuMjUgMCAwIDEtMi4wOTYgMi4yNDVsLS4xNTQuMDA1SDYuMjVBMi4yNSAyLjI1IDAgMCAxIDQuMDA1IDE5LjlMNCAxOS43NDZWMTAuMjVhMi4yNSAyLjI1IDAgMCAxIDIuMDk2LTIuMjQ1TDYuMjUgOGwxLjc0OS0uMDAxdi0xLjc1QzggMy43MTIgOS43MSAyLjAwNSAxMiAyLjAwNVpNMTcuNzUgOS41SDYuMjVhLjc1Ljc1IDAgMCAwLS43NDMuNjQ4bC0uMDA3LjEwMnY5LjQ5NmMwIC4zOC4yODIuNjkzLjY0OC43NDNsLjEwMi4wMDdoMTEuNWEuNzUuNzUgMCAwIDAgLjc0My0uNjQ4bC4wMDctLjEwMlYxMC4yNWEuNzUuNzUgMCAwIDAtLjY0OC0uNzQ0TDE3Ljc1IDkuNVptLTUuNzUgNGExLjQ5OSAxLjQ5OSAwIDEgMSAwIDIuOTk2IDEuNDk5IDEuNDk5IDAgMCAxIDAtMi45OTdaIi8+PC9zdmc+);
    position: absolute;
-   right: 35px;
+   right: 10px;
    bottom: 2px;
+}
+
+/* When both sign and decrypted badges are shown, shift the lock left */
+.icon_smime_sign_content + .icon_smime_decr_content:before {
+   right: 35px;
 }
 
 .icon_smime_decr_content {
