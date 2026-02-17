@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Polish (Poland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 21:32+0100\n"
+"POT-Creation-Date: 2026-02-17 23:43+0100\n"
 "PO-Revision-Date: 2022-07-26 17:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -4027,6 +4027,14 @@ msgstr "Nie wysyłaj"
 msgid "Send Anyway"
 msgstr "Mimo to wyślij"
 
+msgid "Missing attachment"
+msgstr "Brak załącznika"
+
+msgid ""
+"Your message appears to reference an attachment but no file is attached. "
+"Send anyway?"
+msgstr "Wygląda na to, że Twoja wiadomość zawiera odniesienie do załącznika, ale nie załączono żadnego pliku. Wysłać mimo to?"
+
 msgid "No subject"
 msgstr "Brak tematu"
 
@@ -4717,6 +4725,9 @@ msgstr "Zapisywanie wiadomości e-mail wysłanych przez delegata"
 
 msgid "Always request a read receipt"
 msgstr "Zawsze żądaj potwierdzenia odczytu przez odbiorcę"
+
+msgid "Activate attachment reminder"
+msgstr "Aktywuj przypomnienie o załącznikach"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
@@ -7795,9 +7806,15 @@ msgstr "Nie można usunąć delegata."
 msgid "Can not get list of delegates."
 msgstr "Nie można uzyskać listy delegatów."
 
+msgid "Could not open the store."
+msgstr "Nie udało się otworzyć sklepu."
+
 #, fuzzy
 msgid "Could not load the hierarchy."
 msgstr "Nie można załadować hierarchii."
+
+msgid "Could not open the shared store."
+msgstr "Nie można otworzyć udostępnionego sklepu."
 
 #, fuzzy
 msgid "Could not load folder properties."

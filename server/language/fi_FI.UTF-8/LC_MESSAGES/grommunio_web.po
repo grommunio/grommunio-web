@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 21:32+0100\n"
+"POT-Creation-Date: 2026-02-17 23:43+0100\n"
 "PO-Revision-Date: 2022-07-26 15:25+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -4280,6 +4280,14 @@ msgstr "Älä lähetä"
 msgid "Send Anyway"
 msgstr "Lähetä joka tapauksessa"
 
+msgid "Missing attachment"
+msgstr "Puuttuu liite"
+
+msgid ""
+"Your message appears to reference an attachment but no file is attached. "
+"Send anyway?"
+msgstr "Viestisi näyttää viittaavan liitteeseen, mutta tiedostoa ei ole liitetty. Lähetetäänkö silti?"
+
 msgid "No subject"
 msgstr "Ei aihetta"
 
@@ -5035,6 +5043,9 @@ msgstr "Tallenna valtuutetun lähettämät sähköpostit"
 
 msgid "Always request a read receipt"
 msgstr "Pyydä aina lukukuittaus"
+
+msgid "Activate attachment reminder"
+msgstr "Ota liitemuistutus käyttöön"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
@@ -8225,9 +8236,15 @@ msgstr "Valtuutettua ei voitu poistaa."
 msgid "Can not get list of delegates."
 msgstr "En saa luetteloa valtuutetuista."
 
+msgid "Could not open the store."
+msgstr "Kauppaa ei voitu avata."
+
 #, fuzzy
 msgid "Could not load the hierarchy."
 msgstr "Hierarkiaa ei voitu ladata."
+
+msgid "Could not open the shared store."
+msgstr "Jaettua kauppaa ei voitu avata."
 
 #, fuzzy
 msgid "Could not load folder properties."

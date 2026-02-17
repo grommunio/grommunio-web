@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Dutch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 21:32+0100\n"
+"POT-Creation-Date: 2026-02-17 23:43+0100\n"
 "PO-Revision-Date: 2022-12-11 14:12+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/grommunio/"
@@ -3960,6 +3960,14 @@ msgstr "Niet verzenden"
 msgid "Send Anyway"
 msgstr "Toch verzenden"
 
+msgid "Missing attachment"
+msgstr "Ontbrekende bijlage"
+
+msgid ""
+"Your message appears to reference an attachment but no file is attached. "
+"Send anyway?"
+msgstr "Het lijkt erop dat uw bericht naar een bijlage verwijst, maar er is geen bestand bijgevoegd. Toch versturen?"
+
 msgid "No subject"
 msgstr "Geen onderwerp"
 
@@ -4639,6 +4647,9 @@ msgstr "E-mails opslaan die zijn verzonden door afgevaardigde"
 
 msgid "Always request a read receipt"
 msgstr "Vraag altijd om een leesbevestiging"
+
+msgid "Activate attachment reminder"
+msgstr "Activeer bijlageherinnering"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
@@ -7394,8 +7405,14 @@ msgstr "Kon de delegatie niet verwijderen."
 msgid "Can not get list of delegates."
 msgstr "Ik kan de lijst van afgevaardigden niet krijgen."
 
+msgid "Could not open the store."
+msgstr "Kon de winkel niet openen."
+
 msgid "Could not load the hierarchy."
 msgstr "Kon de hiërarchie niet laden."
+
+msgid "Could not open the shared store."
+msgstr "Kan de gedeelde winkel niet openen."
 
 msgid "Could not load folder properties."
 msgstr "Kon de map eigenschappen niet laden."

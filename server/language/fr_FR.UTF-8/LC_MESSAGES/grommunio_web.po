@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web French (France)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 21:32+0100\n"
+"POT-Creation-Date: 2026-02-17 23:43+0100\n"
 "PO-Revision-Date: 2022-12-11 16:35+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/grommunio/"
@@ -4135,6 +4135,14 @@ msgstr "Ne pas envoyer"
 msgid "Send Anyway"
 msgstr "Envoyer quand même"
 
+msgid "Missing attachment"
+msgstr "Pièce jointe manquante"
+
+msgid ""
+"Your message appears to reference an attachment but no file is attached. "
+"Send anyway?"
+msgstr "Votre message semble faire référence à une pièce jointe mais aucun fichier n'est joint. Envoyer quand même ?"
+
 msgid "No subject"
 msgstr "Aucun Sujet"
 
@@ -4866,6 +4874,9 @@ msgstr "Sauvegarder les courriels envoyés par le délégué"
 
 msgid "Always request a read receipt"
 msgstr "Toujours demander un accusé de réception"
+
+msgid "Activate attachment reminder"
+msgstr "Activer le rappel des pièces jointes"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
@@ -7970,9 +7981,15 @@ msgstr "Impossible de supprimer le délégué."
 msgid "Can not get list of delegates."
 msgstr "Impossible d'obtenir la liste des délégués."
 
+msgid "Could not open the store."
+msgstr "Impossible d'ouvrir le magasin."
+
 #, fuzzy
 msgid "Could not load the hierarchy."
 msgstr "Impossible de charger la hiérarchie."
+
+msgid "Could not open the shared store."
+msgstr "Impossible d'ouvrir le magasin partagé."
 
 #, fuzzy
 msgid "Could not load folder properties."

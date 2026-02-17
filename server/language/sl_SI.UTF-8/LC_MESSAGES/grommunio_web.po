@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 21:32+0100\n"
+"POT-Creation-Date: 2026-02-17 23:43+0100\n"
 "PO-Revision-Date: 2022-07-26 19:05+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -4278,6 +4278,14 @@ msgstr "Ne pošlji"
 msgid "Send Anyway"
 msgstr "Pošlji v vsakem primeru"
 
+msgid "Missing attachment"
+msgstr "Manjka priloga"
+
+msgid ""
+"Your message appears to reference an attachment but no file is attached. "
+"Send anyway?"
+msgstr "Zdi se, da se vaše sporočilo sklicuje na prilogo, vendar ni priložena nobena datoteka. Vseeno poslati?"
+
 msgid "No subject"
 msgstr "Ni predmeta"
 
@@ -5021,6 +5029,9 @@ msgstr "Shranjevanje e-poštnih sporočil, ki jih je poslal delegat"
 
 msgid "Always request a read receipt"
 msgstr "Vedno zahtevaj potrdilo o branju"
+
+msgid "Activate attachment reminder"
+msgstr "Aktiviraj opomnik za prilogo"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
@@ -8209,9 +8220,15 @@ msgstr "Delegata ni bilo mogoče izbrisati."
 msgid "Can not get list of delegates."
 msgstr "Ne morem dobiti seznama delegatov."
 
+msgid "Could not open the store."
+msgstr "Trgovine ni bilo mogoče odpreti."
+
 #, fuzzy
 msgid "Could not load the hierarchy."
 msgstr "Ni bilo mogoče naložiti hierarhije."
+
+msgid "Could not open the shared store."
+msgstr "Trgovine v skupni rabi ni bilo mogoče odpreti."
 
 #, fuzzy
 msgid "Could not load folder properties."

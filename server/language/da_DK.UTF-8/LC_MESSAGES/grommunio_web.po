@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Danish (Denmark)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 21:32+0100\n"
+"POT-Creation-Date: 2026-02-17 23:43+0100\n"
 "PO-Revision-Date: 2022-07-26 14:28+0200\n"
 "Last-Translator: Mike Williams <mike.williams@grammm.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/grommunio/"
@@ -4129,6 +4129,14 @@ msgstr "Send ikke"
 msgid "Send Anyway"
 msgstr "Send alligevel"
 
+msgid "Missing attachment"
+msgstr "Manglende vedhæftet fil"
+
+msgid ""
+"Your message appears to reference an attachment but no file is attached. "
+"Send anyway?"
+msgstr "Din besked ser ud til at referere til en vedhæftet fil, men der er ikke vedhæftet nogen fil. Send alligevel?"
+
 msgid "No subject"
 msgstr "Intet emne"
 
@@ -4850,6 +4858,9 @@ msgstr "Gem e-mails sendt af en delegeret"
 
 msgid "Always request a read receipt"
 msgstr "Bed altid om kvittering for læsning"
+
+msgid "Activate attachment reminder"
+msgstr "Aktiver påmindelse om vedhæftede filer"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
@@ -7984,9 +7995,15 @@ msgstr "Kunne ikke slette delegat."
 msgid "Can not get list of delegates."
 msgstr "Kan ikke få en liste over delegerede."
 
+msgid "Could not open the store."
+msgstr "Kunne ikke åbne butikken."
+
 #, fuzzy
 msgid "Could not load the hierarchy."
 msgstr "Kunne ikke indlæse hierarkiet."
+
+msgid "Could not open the shared store."
+msgstr "Kunne ikke åbne den delte butik."
 
 #, fuzzy
 msgid "Could not load folder properties."

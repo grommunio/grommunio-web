@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Arabic (Algeria)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 21:32+0100\n"
+"POT-Creation-Date: 2026-02-17 23:43+0100\n"
 "PO-Revision-Date: 2018-08-24 20:58+0200\n"
 "Last-Translator: import\n"
 "Language: ar_DZ\n"
@@ -3936,6 +3936,14 @@ msgstr ""
 msgid "Send Anyway"
 msgstr ""
 
+msgid "Missing attachment"
+msgstr "مرفق مفقود"
+
+msgid ""
+"Your message appears to reference an attachment but no file is attached. "
+"Send anyway?"
+msgstr "يبدو أن رسالتك تشير إلى مرفق ولكن لا يوجد ملف مرفق. إرسال على أية حال؟"
+
 #, fuzzy
 msgid "No subject"
 msgstr "الموضوع"
@@ -4616,6 +4624,9 @@ msgstr ""
 
 msgid "Always request a read receipt"
 msgstr ""
+
+msgid "Activate attachment reminder"
+msgstr "تفعيل التذكير بالمرفقات"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
@@ -7238,8 +7249,14 @@ msgstr ""
 msgid "Can not get list of delegates."
 msgstr ""
 
+msgid "Could not open the store."
+msgstr "لا يمكن فتح المتجر."
+
 msgid "Could not load the hierarchy."
 msgstr ""
+
+msgid "Could not open the shared store."
+msgstr "لا يمكن فتح المتجر المشترك."
 
 msgid "Could not load folder properties."
 msgstr ""

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Portuguese (Brazil)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 21:32+0100\n"
+"POT-Creation-Date: 2026-02-17 23:43+0100\n"
 "PO-Revision-Date: 2017-10-03 21:54+0200\n"
 "Last-Translator: import\n"
 "Language: pt_BR\n"
@@ -4126,6 +4126,14 @@ msgstr "Não enviar"
 msgid "Send Anyway"
 msgstr "Enviar de qualquer forma"
 
+msgid "Missing attachment"
+msgstr "Anexo ausente"
+
+msgid ""
+"Your message appears to reference an attachment but no file is attached. "
+"Send anyway?"
+msgstr "Sua mensagem parece fazer referência a um anexo, mas nenhum arquivo está anexado. Enviar mesmo assim?"
+
 #, fuzzy
 msgid "No subject"
 msgstr "sem assunto"
@@ -4850,6 +4858,9 @@ msgstr "Salvar e-mails enviados pelo delegado"
 
 msgid "Always request a read receipt"
 msgstr "Sempre solicitar a confirmação de leitura"
+
+msgid "Activate attachment reminder"
+msgstr "Ativar lembrete de anexo"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
@@ -7679,8 +7690,14 @@ msgstr "Não foi possível excluir o delegado."
 msgid "Can not get list of delegates."
 msgstr "Não é possível obter a lista de delegados."
 
+msgid "Could not open the store."
+msgstr "Não foi possível abrir a loja."
+
 msgid "Could not load the hierarchy."
 msgstr "Não foi possível carregar a hierarquia."
+
+msgid "Could not open the shared store."
+msgstr "Não foi possível abrir a loja compartilhada."
 
 msgid "Could not load folder properties."
 msgstr "Não foi possível carregar as propriedades da pasta."

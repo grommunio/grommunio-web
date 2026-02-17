@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Turkish\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 21:32+0100\n"
+"POT-Creation-Date: 2026-02-17 23:43+0100\n"
 "PO-Revision-Date: 2022-12-10 22:44+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/grommunio/"
@@ -3938,6 +3938,14 @@ msgstr "Gönderme"
 msgid "Send Anyway"
 msgstr "Her Neyse Gönder"
 
+msgid "Missing attachment"
+msgstr "Eksik ek"
+
+msgid ""
+"Your message appears to reference an attachment but no file is attached. "
+"Send anyway?"
+msgstr "Mesajınız bir eke gönderme yapıyor gibi görünüyor ancak eklenmiş bir dosya yok. Yine de gönderilsin mi?"
+
 msgid "No subject"
 msgstr "Konu yok"
 
@@ -4615,6 +4623,9 @@ msgstr "Temsilci tarafından gönderilen e-postaları kaydetme"
 
 msgid "Always request a read receipt"
 msgstr "Her zaman okundu bilgisi istemek"
+
+msgid "Activate attachment reminder"
+msgstr "Ek hatırlatıcıyı etkinleştir"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
@@ -7327,8 +7338,14 @@ msgstr "Temsilci silinemedi."
 msgid "Can not get list of delegates."
 msgstr "Delegelerin listesi alınamıyor."
 
+msgid "Could not open the store."
+msgstr "Mağaza açılamadı."
+
 msgid "Could not load the hierarchy."
 msgstr "Hiyerarşi yüklenemedi."
+
+msgid "Could not open the shared store."
+msgstr "Paylaşılan mağaza açılamadı."
 
 msgid "Could not load folder properties."
 msgstr "Klasör özellikleri yüklenemedi."

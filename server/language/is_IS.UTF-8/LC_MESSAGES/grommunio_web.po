@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Icelandic (Iceland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 21:32+0100\n"
+"POT-Creation-Date: 2026-02-17 23:43+0100\n"
 "PO-Revision-Date: 2019-12-01 02:07+0000\n"
 "Last-Translator: import\n"
 "Language: is_IS\n"
@@ -3925,6 +3925,14 @@ msgstr "Ekki senda"
 msgid "Send Anyway"
 msgstr "Senda samt"
 
+msgid "Missing attachment"
+msgstr "Vantar viðhengi"
+
+msgid ""
+"Your message appears to reference an attachment but no file is attached. "
+"Send anyway?"
+msgstr "Skilaboðin þín virðast vísa til viðhengis en engin skrá er viðhengi. Senda samt?"
+
 msgid "No subject"
 msgstr "Ekkert málefni"
 
@@ -4603,6 +4611,9 @@ msgstr ""
 
 msgid "Always request a read receipt"
 msgstr "Alltaf biðja um lestrarkvittun"
+
+msgid "Activate attachment reminder"
+msgstr "Virkjaðu áminningu um viðhengi"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
@@ -7241,8 +7252,14 @@ msgstr ""
 msgid "Can not get list of delegates."
 msgstr ""
 
+msgid "Could not open the store."
+msgstr "Ekki tókst að opna verslunina."
+
 msgid "Could not load the hierarchy."
 msgstr ""
+
+msgid "Could not open the shared store."
+msgstr "Gat ekki opnað sameiginlegu verslunina."
 
 msgid "Could not load folder properties."
 msgstr ""

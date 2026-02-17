@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Ukrainian (Ukraine)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 21:32+0100\n"
+"POT-Creation-Date: 2026-02-17 23:43+0100\n"
 "PO-Revision-Date: 2022-08-23 04:19+0000\n"
 "Last-Translator: Artem <artem@molotov.work>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/grommunio/"
@@ -3975,6 +3975,14 @@ msgstr "Не надсилати"
 msgid "Send Anyway"
 msgstr "Відправляйте в будь-якому випадку"
 
+msgid "Missing attachment"
+msgstr "Відсутнє вкладення"
+
+msgid ""
+"Your message appears to reference an attachment but no file is attached. "
+"Send anyway?"
+msgstr "Здається, ваше повідомлення містить посилання на вкладення, але жодного файлу не вкладено. Все одно надіслати?"
+
 msgid "No subject"
 msgstr "Немає теми"
 
@@ -4656,6 +4664,9 @@ msgstr "Зберегти електронні листи, надіслані д�
 
 msgid "Always request a read receipt"
 msgstr "Завжди вимагайте прочитання квитанції"
+
+msgid "Activate attachment reminder"
+msgstr "Активувати нагадування про вкладення"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
@@ -7400,8 +7411,14 @@ msgstr "Не вдалося видалити делегата."
 msgid "Can not get list of delegates."
 msgstr "Не можу отримати список делегатів."
 
+msgid "Could not open the store."
+msgstr "Не вдалося відкрити магазин."
+
 msgid "Could not load the hierarchy."
 msgstr "Не вдалося завантажити ієрархію."
+
+msgid "Could not open the shared store."
+msgstr "Не вдалося відкрити спільний магазин."
 
 msgid "Could not load folder properties."
 msgstr "Не вдалося завантажити властивості теки."

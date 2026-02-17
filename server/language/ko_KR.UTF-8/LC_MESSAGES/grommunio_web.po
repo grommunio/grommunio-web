@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Korean (Korea)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 21:32+0100\n"
+"POT-Creation-Date: 2026-02-17 23:43+0100\n"
 "PO-Revision-Date: 2017-10-05 20:07+0200\n"
 "Last-Translator: import\n"
 "Language: ko_KR\n"
@@ -3891,6 +3891,14 @@ msgstr "전송하지 않음"
 msgid "Send Anyway"
 msgstr "아무튼 보내기"
 
+msgid "Missing attachment"
+msgstr "첨부파일 누락"
+
+msgid ""
+"Your message appears to reference an attachment but no file is attached. "
+"Send anyway?"
+msgstr "메시지가 첨부 파일을 참조하는 것으로 보이지만 첨부된 파일이 없습니다. 그래도 보내시겠습니까?"
+
 msgid "No subject"
 msgstr "제목 없음"
 
@@ -4558,6 +4566,9 @@ msgstr "대리인이 보낸 이메일 저장"
 
 msgid "Always request a read receipt"
 msgstr "항상 읽기 영수증 요청하기"
+
+msgid "Activate attachment reminder"
+msgstr "첨부파일 알림 활성화"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
@@ -7241,8 +7252,14 @@ msgstr "대리인을 삭제할 수 없습니다."
 msgid "Can not get list of delegates."
 msgstr "대리인 목록을 가져올 수 없습니다."
 
+msgid "Could not open the store."
+msgstr "매장을 열 수 없습니다."
+
 msgid "Could not load the hierarchy."
 msgstr "계층 구조를 로드할 수 없습니다."
+
+msgid "Could not open the shared store."
+msgstr "공유 스토어를 열 수 없습니다."
 
 msgid "Could not load folder properties."
 msgstr "폴더 속성을 로드할 수 없습니다."

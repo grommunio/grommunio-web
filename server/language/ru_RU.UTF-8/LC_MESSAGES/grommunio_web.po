@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Russian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 21:32+0100\n"
+"POT-Creation-Date: 2026-02-17 23:43+0100\n"
 "PO-Revision-Date: 2022-07-26 17:59+0200\n"
 "Last-Translator: Artem <Localizer_in_Russian@protonmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/grommunio/"
@@ -4111,6 +4111,14 @@ msgstr "Не отправлять"
 msgid "Send Anyway"
 msgstr "Всё равно отправить"
 
+msgid "Missing attachment"
+msgstr "Отсутствует вложение"
+
+msgid ""
+"Your message appears to reference an attachment but no file is attached. "
+"Send anyway?"
+msgstr "Ваше сообщение содержит ссылку на вложение, но файл не прикреплен. Все равно отправить?"
+
 msgid "No subject"
 msgstr "Без темы"
 
@@ -4820,6 +4828,9 @@ msgstr "Сохраняйте электронные письма, отправл
 
 msgid "Always request a read receipt"
 msgstr "Всегда отправлять запрос на прочтение"
+
+msgid "Activate attachment reminder"
+msgstr "Активировать напоминание о вложении"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
@@ -7816,9 +7827,15 @@ msgstr "Не удалось удалить делегата."
 msgid "Can not get list of delegates."
 msgstr "Не удается получить список делегатов."
 
+msgid "Could not open the store."
+msgstr "Не удалось открыть магазин."
+
 #, fuzzy
 msgid "Could not load the hierarchy."
 msgstr "Не удалось загрузить иерархию."
+
+msgid "Could not open the shared store."
+msgstr "Не удалось открыть общий магазин."
 
 #, fuzzy
 msgid "Could not load folder properties."

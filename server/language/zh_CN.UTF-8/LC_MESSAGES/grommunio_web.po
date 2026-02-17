@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Simplified)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 21:32+0100\n"
+"POT-Creation-Date: 2026-02-17 23:43+0100\n"
 "PO-Revision-Date: 2022-07-26 18:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -3864,6 +3864,14 @@ msgstr "不发送"
 msgid "Send Anyway"
 msgstr "在任何情况下均发送"
 
+msgid "Missing attachment"
+msgstr "缺少附件"
+
+msgid ""
+"Your message appears to reference an attachment but no file is attached. "
+"Send anyway?"
+msgstr "您的邮件似乎引用了附件，但没有附加任何文件。还是发送？"
+
 msgid "No subject"
 msgstr "无主题"
 
@@ -4541,6 +4549,9 @@ msgstr "保存代表发送的电子邮件"
 
 msgid "Always request a read receipt"
 msgstr "始终请求已读回执"
+
+msgid "Activate attachment reminder"
+msgstr "激活附件提醒"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
@@ -7482,9 +7493,15 @@ msgstr "无法删除委托人。"
 msgid "Can not get list of delegates."
 msgstr "无法获得代表的名单。"
 
+msgid "Could not open the store."
+msgstr "无法打开商店。"
+
 #, fuzzy
 msgid "Could not load the hierarchy."
 msgstr "无法加载层次结构。"
+
+msgid "Could not open the shared store."
+msgstr "无法打开共享商店。"
 
 #, fuzzy
 msgid "Could not load folder properties."

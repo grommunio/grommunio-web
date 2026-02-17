@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web English (United States)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 21:32+0100\n"
+"POT-Creation-Date: 2026-02-17 23:43+0100\n"
 "PO-Revision-Date: 2024-04-30 06:29+0000\n"
 "Last-Translator: Mike Williams <mike.williams@grommunio.com>\n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
@@ -3946,6 +3946,14 @@ msgstr "Do Not Send"
 msgid "Send Anyway"
 msgstr "Send Anyway"
 
+msgid "Missing attachment"
+msgstr "Missing attachment"
+
+msgid ""
+"Your message appears to reference an attachment but no file is attached. "
+"Send anyway?"
+msgstr "Your message appears to reference an attachment but no file is attached. Send anyway?"
+
 msgid "No subject"
 msgstr "No subject"
 
@@ -4623,6 +4631,9 @@ msgstr "Save emails sent by delegate"
 
 msgid "Always request a read receipt"
 msgstr "Always request a read receipt"
+
+msgid "Activate attachment reminder"
+msgstr "Activate attachment reminder"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
@@ -7336,8 +7347,14 @@ msgstr "Could not delete delegate."
 msgid "Can not get list of delegates."
 msgstr "Can not get list of delegates."
 
+msgid "Could not open the store."
+msgstr "Could not open the store."
+
 msgid "Could not load the hierarchy."
 msgstr "Could not load the hierarchy."
+
+msgid "Could not open the shared store."
+msgstr "Could not open the shared store."
 
 msgid "Could not load folder properties."
 msgstr "Could not load folder properties."

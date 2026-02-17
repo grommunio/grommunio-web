@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Farsi (Iran)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 21:32+0100\n"
+"POT-Creation-Date: 2026-02-17 23:43+0100\n"
 "PO-Revision-Date: 2017-10-05 19:48+0200\n"
 "Last-Translator: import\n"
 "Language: fa_IR\n"
@@ -3813,6 +3813,14 @@ msgstr ""
 msgid "Send Anyway"
 msgstr ""
 
+msgid "Missing attachment"
+msgstr "پیوست گم شده است"
+
+msgid ""
+"Your message appears to reference an attachment but no file is attached. "
+"Send anyway?"
+msgstr "به نظر می رسد پیام شما به یک پیوست اشاره دارد اما هیچ فایلی پیوست نشده است. به هر حال ارسال شود؟"
+
 msgid "No subject"
 msgstr ""
 
@@ -4477,6 +4485,9 @@ msgstr ""
 
 msgid "Always request a read receipt"
 msgstr ""
+
+msgid "Activate attachment reminder"
+msgstr "فعال کردن یادآور پیوست"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
@@ -7085,8 +7096,14 @@ msgstr ""
 msgid "Can not get list of delegates."
 msgstr ""
 
+msgid "Could not open the store."
+msgstr "فروشگاه باز نشد"
+
 msgid "Could not load the hierarchy."
 msgstr ""
+
+msgid "Could not open the shared store."
+msgstr "فروشگاه مشترک باز نشد."
 
 msgid "Could not load folder properties."
 msgstr ""

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 21:32+0100\n"
+"POT-Creation-Date: 2026-02-17 23:43+0100\n"
 "PO-Revision-Date: 2022-07-26 16:08+0200\n"
 "Last-Translator: f3rr31 <5920873@disroot.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/grommunio/"
@@ -4174,6 +4174,14 @@ msgstr "Ne Küldje"
 msgid "Send Anyway"
 msgstr "Küldés Mindenképp"
 
+msgid "Missing attachment"
+msgstr "Hiányzó melléklet"
+
+msgid ""
+"Your message appears to reference an attachment but no file is attached. "
+"Send anyway?"
+msgstr "Úgy tűnik, hogy az üzenet egy mellékletre hivatkozik, de nincs csatolva fájl. Amúgy elküldöd?"
+
 msgid "No subject"
 msgstr "Nincs tárgy"
 
@@ -4899,6 +4907,9 @@ msgstr "A küldött által küldött e-mailek mentése"
 
 msgid "Always request a read receipt"
 msgstr "Mindig kérjen olvasási visszaigazolást"
+
+msgid "Activate attachment reminder"
+msgstr "Melléklet emlékeztető aktiválása"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
@@ -7901,9 +7912,15 @@ msgstr "Nem sikerült törölni a delegáltat."
 msgid "Can not get list of delegates."
 msgstr "Nem kapja meg a küldöttek listáját."
 
+msgid "Could not open the store."
+msgstr "Nem sikerült kinyitni az üzletet."
+
 #, fuzzy
 msgid "Could not load the hierarchy."
 msgstr "Nem sikerült betölteni a hierarchiát."
+
+msgid "Could not open the shared store."
+msgstr "Nem sikerült megnyitni a megosztott áruházat."
 
 #, fuzzy
 msgid "Could not load folder properties."

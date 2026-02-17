@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 21:32+0100\n"
+"POT-Creation-Date: 2026-02-17 23:43+0100\n"
 "PO-Revision-Date: 2023-09-06 16:56+0000\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -3948,6 +3948,14 @@ msgstr "Ikke send"
 msgid "Send Anyway"
 msgstr "Send allikevel"
 
+msgid "Missing attachment"
+msgstr "Mangler vedlegg"
+
+msgid ""
+"Your message appears to reference an attachment but no file is attached. "
+"Send anyway?"
+msgstr "Meldingen din ser ut til å referere til et vedlegg, men ingen fil er vedlagt. Sende likevel?"
+
 msgid "No subject"
 msgstr "Inget emne"
 
@@ -4627,6 +4635,9 @@ msgstr ""
 
 msgid "Always request a read receipt"
 msgstr "Alltid be om lesebekreftelse"
+
+msgid "Activate attachment reminder"
+msgstr "Aktiver vedleggspåminnelse"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
@@ -7364,8 +7375,14 @@ msgstr "Kunne ikke slette delegaten."
 msgid "Can not get list of delegates."
 msgstr "Kan ikke få en liste over delegater."
 
+msgid "Could not open the store."
+msgstr "Kunne ikke åpne butikken."
+
 msgid "Could not load the hierarchy."
 msgstr "Kunne ikke laste inn hierarkiet."
+
+msgid "Could not open the shared store."
+msgstr "Kunne ikke åpne den delte butikken."
 
 msgid "Could not load folder properties."
 msgstr "Kunne ikke laste inn mappeegenskaper."

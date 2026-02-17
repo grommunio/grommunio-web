@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Croatian (Croatia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 21:32+0100\n"
+"POT-Creation-Date: 2026-02-17 23:43+0100\n"
 "PO-Revision-Date: 2025-02-25 15:04+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/grommunio/"
@@ -3856,6 +3856,14 @@ msgstr "Nemoj poslati"
 msgid "Send Anyway"
 msgstr "Svejedno pošalji"
 
+msgid "Missing attachment"
+msgstr "Nedostaje privitak"
+
+msgid ""
+"Your message appears to reference an attachment but no file is attached. "
+"Send anyway?"
+msgstr "Čini se da vaša poruka upućuje na privitak, ali nema priložene datoteke. Svejedno poslati?"
+
 msgid "No subject"
 msgstr "Bez predmeta"
 
@@ -4524,6 +4532,9 @@ msgstr ""
 
 msgid "Always request a read receipt"
 msgstr ""
+
+msgid "Activate attachment reminder"
+msgstr "Aktiviraj podsjetnik za privitak"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
@@ -7134,8 +7145,14 @@ msgstr ""
 msgid "Can not get list of delegates."
 msgstr ""
 
+msgid "Could not open the store."
+msgstr "Nije moguće otvoriti trgovinu."
+
 msgid "Could not load the hierarchy."
 msgstr ""
+
+msgid "Could not open the shared store."
+msgstr "Nije moguće otvoriti dijeljenu trgovinu."
 
 msgid "Could not load folder properties."
 msgstr ""

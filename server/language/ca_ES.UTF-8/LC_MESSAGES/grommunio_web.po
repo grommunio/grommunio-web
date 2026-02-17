@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Spanish (Catalan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 21:32+0100\n"
+"POT-Creation-Date: 2026-02-17 23:43+0100\n"
 "PO-Revision-Date: 2025-05-01 05:29+0000\n"
 "Last-Translator: Roger VC <rogervilarasau@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/grommunio/"
@@ -4058,6 +4058,14 @@ msgstr ""
 msgid "Send Anyway"
 msgstr ""
 
+msgid "Missing attachment"
+msgstr "Falta un fitxer adjunt"
+
+msgid ""
+"Your message appears to reference an attachment but no file is attached. "
+"Send anyway?"
+msgstr "Sembla que el vostre missatge fa referència a un fitxer adjunt, però no hi ha cap fitxer adjunt. Enviar de totes maneres?"
+
 #, fuzzy
 msgid "No subject"
 msgstr "Sin asunto"
@@ -4775,6 +4783,9 @@ msgstr ""
 
 msgid "Always request a read receipt"
 msgstr "Solicitar siempre confirmación de lectura"
+
+msgid "Activate attachment reminder"
+msgstr "Activa el recordatori de fitxers adjunts"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
@@ -7446,8 +7457,14 @@ msgstr ""
 msgid "Can not get list of delegates."
 msgstr ""
 
+msgid "Could not open the store."
+msgstr "No s'ha pogut obrir la botiga."
+
 msgid "Could not load the hierarchy."
 msgstr ""
+
+msgid "Could not open the shared store."
+msgstr "No s'ha pogut obrir la botiga compartida."
 
 msgid "Could not load folder properties."
 msgstr ""

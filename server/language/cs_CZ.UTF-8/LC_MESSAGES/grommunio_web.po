@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 21:32+0100\n"
+"POT-Creation-Date: 2026-02-17 23:43+0100\n"
 "PO-Revision-Date: 2022-07-26 14:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -4174,6 +4174,14 @@ msgstr "Neposílejte"
 msgid "Send Anyway"
 msgstr "Odeslat v každém případě"
 
+msgid "Missing attachment"
+msgstr "Chybí příloha"
+
+msgid ""
+"Your message appears to reference an attachment but no file is attached. "
+"Send anyway?"
+msgstr "Zdá se, že vaše zpráva odkazuje na přílohu, ale není připojen žádný soubor. Přesto odeslat?"
+
 msgid "No subject"
 msgstr "Bez předmětu"
 
@@ -4932,6 +4940,9 @@ msgstr "Uložení e-mailů odeslaných delegátem"
 
 msgid "Always request a read receipt"
 msgstr "Vždy vyžádat potvrzení o přečtení"
+
+msgid "Activate attachment reminder"
+msgstr "Aktivujte připomenutí přílohy"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
@@ -8119,9 +8130,15 @@ msgstr "Delegáta se nepodařilo odstranit."
 msgid "Can not get list of delegates."
 msgstr "Nelze získat seznam delegátů."
 
+msgid "Could not open the store."
+msgstr "Obchod se nepodařilo otevřít."
+
 #, fuzzy
 msgid "Could not load the hierarchy."
 msgstr "Hierarchii se nepodařilo načíst."
+
+msgid "Could not open the shared store."
+msgstr "Nelze otevřít sdílený obchod."
 
 #, fuzzy
 msgid "Could not load folder properties."

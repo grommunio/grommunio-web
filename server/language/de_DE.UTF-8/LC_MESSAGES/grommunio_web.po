@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 21:32+0100\n"
+"POT-Creation-Date: 2026-02-17 23:43+0100\n"
 "PO-Revision-Date: 2025-03-30 04:00+0000\n"
 "Last-Translator: DeepL <noreply-mt-deepl@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/grommunio/"
@@ -3986,6 +3986,14 @@ msgstr "Nicht senden"
 msgid "Send Anyway"
 msgstr "Trotzdem senden"
 
+msgid "Missing attachment"
+msgstr "Fehlender Anhang"
+
+msgid ""
+"Your message appears to reference an attachment but no file is attached. "
+"Send anyway?"
+msgstr "Ihre Nachricht scheint auf einen Anhang zu verweisen, es ist jedoch keine Datei angehängt. Trotzdem senden?"
+
 msgid "No subject"
 msgstr "Kein Betreff"
 
@@ -4672,6 +4680,9 @@ msgstr "Vom Delegierten gesendete E-Mails speichern"
 
 msgid "Always request a read receipt"
 msgstr "Immer eine Empfangsbestätigung anfordern"
+
+msgid "Activate attachment reminder"
+msgstr "Anhang-Erinnerung aktivieren"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
@@ -7459,8 +7470,14 @@ msgstr "Konnte Stellvertreter nicht löschen."
 msgid "Can not get list of delegates."
 msgstr "Konnte die Stellvertreterliste nicht abrufen."
 
+msgid "Could not open the store."
+msgstr "Der Shop konnte nicht geöffnet werden."
+
 msgid "Could not load the hierarchy."
 msgstr "Konnte die Hierarchie nicht laden."
+
+msgid "Could not open the shared store."
+msgstr "Der freigegebene Store konnte nicht geöffnet werden."
 
 msgid "Could not load folder properties."
 msgstr "Konnte die Ordnereigenschaften nicht laden."

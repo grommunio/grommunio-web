@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Greek\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 21:32+0100\n"
+"POT-Creation-Date: 2026-02-17 23:43+0100\n"
 "PO-Revision-Date: 2022-07-26 14:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -4795,6 +4795,14 @@ msgstr "Μην στέλνετε"
 msgid "Send Anyway"
 msgstr "Στείλτε οπωσδήποτε"
 
+msgid "Missing attachment"
+msgstr "Λείπει το συνημμένο"
+
+msgid ""
+"Your message appears to reference an attachment but no file is attached. "
+"Send anyway?"
+msgstr "Το μήνυμά σας φαίνεται να αναφέρεται σε συνημμένο, αλλά δεν υπάρχει συνημμένο αρχείο. Αποστολή πάντως;"
+
 msgid "No subject"
 msgstr "Χωρίς θέμα"
 
@@ -5647,6 +5655,9 @@ msgstr ""
 #, fuzzy
 msgid "Always request a read receipt"
 msgstr "Να ζητάτε πάντα απόδειξη ανάγνωσης"
+
+msgid "Activate attachment reminder"
+msgstr "Ενεργοποίηση υπενθύμισης συνημμένου"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
@@ -9044,9 +9055,15 @@ msgstr "Δεν μπόρεσε να διαγράψει τον αντιπρόσω�
 msgid "Can not get list of delegates."
 msgstr "Δεν μπορώ να πάρω τη λίστα των αντιπροσώπων."
 
+msgid "Could not open the store."
+msgstr "Δεν ήταν δυνατό να ανοίξει το κατάστημα."
+
 #, fuzzy
 msgid "Could not load the hierarchy."
 msgstr "Δεν μπόρεσε να φορτώσει την ιεραρχία."
+
+msgid "Could not open the shared store."
+msgstr "Δεν ήταν δυνατό το άνοιγμα του κοινόχρηστου καταστήματος."
 
 #, fuzzy
 msgid "Could not load folder properties."

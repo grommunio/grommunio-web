@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hebrew (Israel)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 21:32+0100\n"
+"POT-Creation-Date: 2026-02-17 23:43+0100\n"
 "PO-Revision-Date: 2017-10-03 22:09+0200\n"
 "Last-Translator: import\n"
 "Language: he_IL\n"
@@ -4018,6 +4018,14 @@ msgstr ""
 msgid "Send Anyway"
 msgstr ""
 
+msgid "Missing attachment"
+msgstr "חסר קובץ מצורף"
+
+msgid ""
+"Your message appears to reference an attachment but no file is attached. "
+"Send anyway?"
+msgstr "נראה שההודעה שלך מתייחסת לקובץ מצורף אך לא מצורף קובץ. לשלוח בכל זאת?"
+
 #, fuzzy
 msgid "No subject"
 msgstr "נושא"
@@ -4725,6 +4733,9 @@ msgstr ""
 
 msgid "Always request a read receipt"
 msgstr ""
+
+msgid "Activate attachment reminder"
+msgstr "הפעל תזכורת לקובץ מצורף"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
@@ -7391,8 +7402,14 @@ msgstr ""
 msgid "Can not get list of delegates."
 msgstr ""
 
+msgid "Could not open the store."
+msgstr "לא ניתן היה לפתוח את החנות."
+
 msgid "Could not load the hierarchy."
 msgstr ""
+
+msgid "Could not open the shared store."
+msgstr "לא ניתן היה לפתוח את החנות המשותפת."
 
 msgid "Could not load folder properties."
 msgstr ""

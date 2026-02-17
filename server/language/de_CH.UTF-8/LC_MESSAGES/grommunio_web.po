@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web German (Swiss)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 21:32+0100\n"
+"POT-Creation-Date: 2026-02-17 23:43+0100\n"
 "PO-Revision-Date: 2021-03-02 15:12+0000\n"
 "Last-Translator: import\n"
 "Language: de_CH\n"
@@ -3984,6 +3984,14 @@ msgstr "nicht senden"
 msgid "Send Anyway"
 msgstr "trotzdem senden"
 
+msgid "Missing attachment"
+msgstr "Fehlender Anhang"
+
+msgid ""
+"Your message appears to reference an attachment but no file is attached. "
+"Send anyway?"
+msgstr "Ihre Nachricht scheint auf einen Anhang zu verweisen, es ist jedoch keine Datei angehängt. Trotzdem senden?"
+
 msgid "No subject"
 msgstr "kein Betreff"
 
@@ -4670,6 +4678,9 @@ msgstr "Vom Delegierten gesendete E-Mails speichern"
 
 msgid "Always request a read receipt"
 msgstr "Immer eine Empfangsbestätigung anfordern"
+
+msgid "Activate attachment reminder"
+msgstr "Anhang-Erinnerung aktivieren"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
@@ -7453,8 +7464,14 @@ msgstr "Konnte Stellvertreter nicht löschen."
 msgid "Can not get list of delegates."
 msgstr "Konnte die Stellvertreterliste nicht abrufen."
 
+msgid "Could not open the store."
+msgstr "Der Shop konnte nicht geöffnet werden."
+
 msgid "Could not load the hierarchy."
 msgstr "Konnte die Hierarchie nicht laden."
+
+msgid "Could not open the shared store."
+msgstr "Der freigegebene Store konnte nicht geöffnet werden."
 
 msgid "Could not load folder properties."
 msgstr "Konnte die Ordnereigenschaften nicht laden."

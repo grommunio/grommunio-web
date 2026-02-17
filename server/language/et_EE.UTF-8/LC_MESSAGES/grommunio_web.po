@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Estonian (Estonia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 21:32+0100\n"
+"POT-Creation-Date: 2026-02-17 23:43+0100\n"
 "PO-Revision-Date: 2025-05-21 10:01+0000\n"
 "Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/grommunio/"
@@ -3937,6 +3937,14 @@ msgstr "Ärge saatke"
 msgid "Send Anyway"
 msgstr "Saada niikuinii"
 
+msgid "Missing attachment"
+msgstr "Manus puudub"
+
+msgid ""
+"Your message appears to reference an attachment but no file is attached. "
+"Send anyway?"
+msgstr "Teie sõnum näib viitavat manusele, kuid faili pole manustatud. Kas ikkagi saata?"
+
 msgid "No subject"
 msgstr "Teema puudub"
 
@@ -4615,6 +4623,9 @@ msgstr "Salvesta delegaadi saadetud e-kirjad"
 
 msgid "Always request a read receipt"
 msgstr "Alati nõuda lugemiskviitungi"
+
+msgid "Activate attachment reminder"
+msgstr "Aktiveerige manuse meeldetuletus"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
@@ -7333,8 +7344,14 @@ msgstr "Ei saanud delegaati kustutada."
 msgid "Can not get list of delegates."
 msgstr "Ei saa delegaatide nimekirja."
 
+msgid "Could not open the store."
+msgstr "Poodi ei saanud avada."
+
 msgid "Could not load the hierarchy."
 msgstr "Ei saanud hierarhiat laadida."
+
+msgid "Could not open the shared store."
+msgstr "Ühispoodi ei saanud avada."
 
 msgid "Could not load folder properties."
 msgstr "Ei saanud laadida kausta omadusi."
