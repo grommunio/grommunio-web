@@ -1,3 +1,32 @@
+grommunio-web 3.17.x (development)
+==================================
+
+Fixes:
+
+* Settings auto-save is now debounced to batch HTTP requests
+* UI update handlers now guard against undefined records
+* S/MIME signing was fixed by removing the ``PKCS7_TEXT`` flag
+* Shared store operations now provide improved error handling
+* Opening shared items no longer fails on RTF decompression errors
+* Folder bold styling is now decoupled from counter type
+* Hierarchy now treats Junk as a special folder for total item count
+* Closing grommunio-web is no longer blocked when there are no unsaved changes
+
+Enhancements:
+
+* Non-critical services are now deferred until after hierarchy load
+* Spam mails can now be un-flagged directly from the Junk folder
+* Shared stores can now be opened for rooms and equipment
+* A reminder for missing attachments is now shown before sending
+* Kendox now supports uploading e-mails without attachments
+* Kendox now supports archiving embedded images
+
+Changes:
+
+* Translation catalogs were updated
+* Swedish translation was added
+
+
 grommunio-web 3.17 (2025-02-17)
 ===============================
 
