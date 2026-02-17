@@ -1543,7 +1543,12 @@ class Operations {
 		if (empty($tmpProps[PR_HTML])) {
 			$tmpProps = mapi_getprops($message, [PR_BODY, PR_RTF_COMPRESSED]);
 			if (isset($tmpProps[PR_RTF_COMPRESSED])) {
-				$tmpProps[PR_HTML] = mapi_decompressrtf($tmpProps[PR_RTF_COMPRESSED]);
+				try {
+					$tmpProps[PR_HTML] = mapi_decompressrtf($tmpProps[PR_RTF_COMPRESSED]);
+				}
+				catch (MAPIException $e) {
+					$e->setHandled();
+				}
 			}
 		}
 
