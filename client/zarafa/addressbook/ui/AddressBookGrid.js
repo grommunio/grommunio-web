@@ -106,12 +106,7 @@ Zarafa.addressbook.ui.AddressBookGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 	 */
 	onStoreLoad: function(store, records, options)
 	{
-		var columnModel;
-		if (options && options.params && options.params.folderType === 'gab') {
-			columnModel = new Zarafa.addressbook.ui.GABColumnModel();
-		} else {
-			columnModel = new Zarafa.addressbook.ui.GABPersonalColumnModel();
-		}
+		var columnModel = new Zarafa.addressbook.ui.GABColumnModel();
 
 		// reconfigure grid with new column model
 		if(this.colModel.name !== columnModel.name) {
