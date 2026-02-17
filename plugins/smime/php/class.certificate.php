@@ -427,19 +427,19 @@ class Certificate {
 			throw new OCSPException('Certificate mismatch', OCSP_CERT_MISMATCH);
 		}
 
-		// check if OCSP revocation update is recent
+		// RFC 2560: response is current if thisUpdate <= now <= nextUpdate
 		$now = new DateTime(gmdate('YmdHis\Z'));
 		$thisUpdate = new DateTime($resp['thisUpdate']);
 
-		// Check if update time is earlier then our own time
-		if (!isset($resp['nextupdate']) && $thisUpdate > $now) {
-			throw new OCSPException('Update time earlier then our own time', OCSP_RESPONSE_TIME_EARLY);
+		if ($thisUpdate > $now) {
+			throw new OCSPException('OCSP response thisUpdate is in the future', OCSP_RESPONSE_TIME_EARLY);
 		}
 
-		// Current time should be between thisUpdate and nextUpdate.
-		if ($thisUpdate > $now && $now > new DateTime($resp['nextUpdate'])) {
-			// OCSP Revocation status not current
-			throw new OCSPException('Current time not between thisUpdate and nextUpdate', OCSP_RESPONSE_TIME_INVALID);
+		if (isset($resp['nextUpdate'])) {
+			$nextUpdate = new DateTime($resp['nextUpdate']);
+			if ($now > $nextUpdate) {
+				throw new OCSPException('OCSP response has expired (now > nextUpdate)', OCSP_RESPONSE_TIME_INVALID);
+			}
 		}
 	}
 }
