@@ -1291,6 +1291,9 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 
 		for (var i=0, folder; folder=this.folders[i]; i++) {
 			var tab = this.tabs[folder.get('entryid')];
+			if (!tab) {
+				continue;
+			}
 			tab.setSelected(this.selectedFolder == folder, this.active);
 			tab.setShowMergeIcon(this.canMerge);
 			tab.setShowSeparateIcon(this.folders.length > 1);
