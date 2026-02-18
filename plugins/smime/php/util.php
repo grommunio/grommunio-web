@@ -209,7 +209,7 @@ function verifyOCSP($certificate, $extracerts, &$message) {
 		}
 	}
 	catch (OCSPException $e) {
-		if ($e->getCode() === OCSP_CERT_STATUS && $e->getCertStatus() == OCSP_CERT_STATUS_REVOKED) {
+		if ($e->getCode() === OCSP_CERT_STATUS && $e->getCertStatus() === OCSP_CERT_STATUS_REVOKED) {
 			$message['info'] = SMIME_REVOKED;
 			$message['success'] = SMIME_STATUS_PARTIAL;
 

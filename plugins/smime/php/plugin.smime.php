@@ -1193,7 +1193,7 @@ class Pluginsmime extends Plugin {
 	public function extract_openssl_error() {
 		$this->openssl_error = "";
 		while (($s = @openssl_error_string()) !== false) {
-			if (strlen($this->openssl_error) == 0) {
+			if ($this->openssl_error === '') {
 				$this->openssl_error = $s;
 			}
 			else {
@@ -1262,7 +1262,7 @@ class Pluginsmime extends Plugin {
 		// TODO: write these properties down.
 		mapi_setprops($assocMessage, [
 			PR_SUBJECT => $certEmail,
-			PR_MESSAGE_CLASS => $type == 'public' ? 'WebApp.Security.Public' : 'WebApp.Security.Private',
+			PR_MESSAGE_CLASS => $type === 'public' ? 'WebApp.Security.Public' : 'WebApp.Security.Private',
 			PR_MESSAGE_DELIVERY_TIME => $certData['validTo_time_t'],
 			PR_CLIENT_SUBMIT_TIME => $certData['validFrom_time_t'],
 			PR_SENDER_NAME => $certData['serialNumber'], // serial

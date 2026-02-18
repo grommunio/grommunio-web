@@ -233,7 +233,7 @@ class PluginSmimeModule extends Module {
 			$item['issued_to'] = $cert[PR_SUBJECT_PREFIX];
 			$item['fingerprint_sha1'] = $cert[PR_RECEIVED_BY_NAME];
 			$item['fingerprint_md5'] = $cert[PR_INTERNET_MESSAGE_ID];
-			$item['type'] = strtolower((string) $cert[PR_MESSAGE_CLASS]) == 'webapp.security.public' ? 'public' : 'private';
+			$item['type'] = strtolower((string) $cert[PR_MESSAGE_CLASS]) === 'webapp.security.public' ? 'public' : 'private';
 			array_push($items, ['props' => $item]);
 		}
 		$data['page']['start'] = 0;
