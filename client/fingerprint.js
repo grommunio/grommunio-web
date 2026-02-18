@@ -4,10 +4,9 @@
  * from data gathered about:
  * - the navigator (user agent)
  * - available fonts
- * - available plugins
- * The fingerrpint should be sent to the server from the login page. When
+ * The fingerprint should be sent to the server from the login page. When
  * the user is not authenticated, the fingerprint will be stored in the
- * session. After login with credentials stored in the session the 
+ * session. After login with credentials stored in the session the
  * fingerprint should be sent again and checked. If they are not the same
  * the session should be destroyed.
  *************************************************************************/
@@ -25,18 +24,16 @@ const fingerprint = (function(){
 			vendor : navigator.vendor || ''
 		};
 	}
-	
+
 	/**
 	 * Returns an array with fonts that are available on
 	 * the system.
 	 */
 	function _getFonts(){
-		// First we define a list of fonts that we will check
-		// for availability.
 		const fonts = [
 			// General
 			'Arial',
-		
+
 			// Microsoft windows
 			'Aldhabi',
 			'Andalus',
@@ -57,7 +54,7 @@ const fingerprint = (function(){
 			'Franklin Gothic Medium',
 			'Century Gothic',
 			'Impact',
-			
+
 			// Apple
 			'Arial Rounded MT Bold',
 			'Lucida Bright',
@@ -68,20 +65,19 @@ const fingerprint = (function(){
 			'Futura',
 			'Trebuchet MS',
 			'Helvetica',
-			
+
 			// Adobe fonts
 			'Adobe Text',
 			'Myriad Arabic',
 			'Source Sans',
 			'Garamond Premier',
-			
+
 			// Some rare fonts
 			'Century Schoolbook',
 			'Gautami',
 			'Andale Mono',
-			'Lucida Bright',
 			'Charcoal',
-			
+
 			// High availability on linux
 			'Utopia',
 			'New Century Schoolbook',
@@ -90,9 +86,14 @@ const fingerprint = (function(){
 			'Bitstream Charter',
 			'Ubuntu'
 		];
-    return window.checkfont.installed(fonts);
+		if (!document.fonts || !document.fonts.check) {
+			return fonts;
+		}
+		return fonts.filter(function(font) {
+			return document.fonts.check('16px "' + font + '"');
+		});
 	}
-	
+
 	/**
 	 * Creates a 32 bit integer hash from a string
 	 */
@@ -111,8 +112,8 @@ const fingerprint = (function(){
 
 	return {
 		/**
-		 * Returns a fingerprint based on the navigator info, the
-		 * installed plugins, and available fonts.
+		 * Returns a fingerprint based on the navigator info
+		 * and available fonts.
 		 */
 		get: function() {
 			var navInfo = _getNavigatorInfo();
@@ -122,7 +123,7 @@ const fingerprint = (function(){
 		}
 	};
 })();
-	
+
 const sendKeepAlive = (function(){
 	/**
 	 * Sends a request to the backend to keep the php session alive.
@@ -148,136 +149,6 @@ const sendKeepAlive = (function(){
 	};
 })();
 
-
-/**
-*
-*  JFont Checker
-*  Derek Leung
-*  Original Date: 2010.8.23
-*  Current: Jan, 2015
-*  
-*  This piece of code checks for the existence of a specified font.
-*  It ultilizes the font fallback mechanism in CSS for font checking.
-*  
-*  Compatibility:
-*  Tested on Chrome, Firefox, IE6+
-*  Requires CSS and JS
-*  
-* The MIT License (MIT)
-*
-* Copyright (c) 2015 Derek Leung
-* 
-* Permission is hereby granted, free of charge, to any person obtaining a copy
-* of this software and associated documentation files (the "Software"), to deal
-* in the Software without restriction, including without limitation the rights
-* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-* copies of the Software, and to permit persons to whom the Software is
-* furnished to do so, subject to the following conditions:
-* 
-* The above copyright notice and this permission notice shall be included in all
-* copies or substantial portions of the Software.
-* 
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-* SOFTWARE.
-
-**/
-window.checkfont = (function() {
-	var containerA;
-  var arialWidth;
-  var monospaceWidth;
-  var arialHeight;
-  var monospaceHeight;
-
-	function checkArial() {
-		return containerA.offsetWidth === arialWidth &&
-				containerA.offsetHeight === arialHeight;
-	}
-
-	function checkMonospace() {
-		return containerA.offsetWidth === monospaceWidth &&
-				containerA.offsetHeight === monospaceHeight;
-	}
-
-  function setupContainer() {
-		var container = document.createElement("span");
-    const html = document.getElementsByTagName("html")[0];
-		container.textContent = "random_words_#_!@#$^&*()_+mdvejreu_RANDOM_WORDS";
-    const styles = {
-      margin: "0",
-      padding: "0",
-      fontSize: "32px",
-      position: "absolute",
-      left: '-10000px',
-      top: '-10000px',
-      zIndex: "-1"
-    };
-
-		for (var key in styles) {
-			if(styles.hasOwnProperty(key)){
-				container.style[key] = styles[key];
-			}
-		}
-
-		html.appendChild(container);
-    return container;
-  }
-
-  /**
-   * Initialize the width and height of both fonts.
-   */
-  function initModule() {
-    var containerB = setupContainer();
-    containerB.style.fontFamily = "monospace";
-    monospaceHeight = containerB.offsetHeight;
-    monospaceWidth = containerB.offsetWidth;
-
-    containerB.style.fontFamily = "Arial";
-    arialWidth = containerB.offsetWidth;
-    arialHeight = containerB.offsetHeight;
-
-    containerB.parentNode.removeChild(containerB);
-  }
-
-  function exists(font) {
-    //First Check
-    containerA.style.fontFamily = font + ",monospace";
-
-    if (checkMonospace()) {
-      //Assume Arial exists, Second Check
-      containerA.style.fontFamily = font + ",Arial";
-      return !checkArial();
-    }
-
-    return true;
-  }
-
-  initModule();
-
-  return {
-     /**
-     * Returns a filtered list of installed fonts.
-     * @param array list of fonts to check
-     * @return array filtered array of installed fonts
-     */
-    installed: function(fonts) {
-      containerA = setupContainer();
-      const result = fonts.filter(exists);
-			containerA.parentNode.removeChild(containerA);
-      return result;
-    },
-		exists: function(font) {
-			return this.installed([font]).some(function(res) {
-				return font === res;
-			});
-		}
-  };
-})();
-
 // Send a fingerprint request when the document is loaded
 // When the user has not been authenticated (i.e. is on the login page),
 // the backend will store the fingerprint in the session.
@@ -291,7 +162,7 @@ window.addEventListener('load', function(){
 	// Add the fingerprint to the content body of the request
 	var params = 'fingerprint='+fingerprint.get();
 	request.send(params);
-	
+
 	// Start sending keep-alive requests after a reasonable initial delay.
 	// The fingerprint POST above already refreshes the session, so we
 	// only need the first keep-alive to bootstrap the session timeout.
