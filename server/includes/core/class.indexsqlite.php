@@ -324,15 +324,24 @@ class IndexSqlite extends SQLite3 {
 			if (empty($fields)) {
 				return null;
 			}
-			$escaped = SQLite3::escapeString($this->quote_words($ast['value'] ?? ''));
+			$words = $this->quoteWordsArray($ast['value'] ?? '');
+			if (empty($words)) {
+				return null;
+			}
 			$segments = [];
 			foreach ($fields as $field) {
-				$segments[] = $field . ':' . $escaped;
+				$fieldWords = [];
+				foreach ($words as $word) {
+					$fieldWords[] = $field . ':' . $word;
+				}
+				$segments[] = implode(' ', $fieldWords);
 			}
 			if (count($segments) === 1) {
 				return $segments[0];
 			}
-			return '(' . implode(' OR ', $segments) . ')';
+			return '(' . implode(' OR ', array_map(function ($s) {
+				return '(' . $s . ')';
+			}, $segments)) . ')';
 		}
 
 		$operator = $ast['op'] ?? null;
@@ -367,8 +376,18 @@ class IndexSqlite extends SQLite3 {
 		return null;
 	}
 
-	private function quote_words($search_string) {
-		return '"' . preg_replace("/(\\s+)/", '*" "', trim((string) $search_string)) . '"*';
+	private function sanitizeFtsInput($value) {
+		return preg_replace('/["*(){}:^~]/', '', (string) $value);
+	}
+
+	private function quoteWordsArray($search_string) {
+		$sanitized = $this->sanitizeFtsInput($search_string);
+		$words = preg_split('/\s+/', trim($sanitized), -1, PREG_SPLIT_NO_EMPTY);
+		$quoted = [];
+		foreach ($words as $word) {
+			$quoted[] = '"' . SQLite3::escapeString($word) . '"*';
+		}
+		return $quoted;
 	}
 
 	/**

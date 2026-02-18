@@ -447,7 +447,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 					scope: this
 				},
 				items: [{
-					name: ['sender_name', 'sender_email_address'],
+					name: ['sender_name', 'sender_email_address', 'sent_representing_name', 'sent_representing_email_address'],
 					itemId: 'sender',
 					boxLabel: _('Sender'),
 					checked: Ext.isDefined(searchInCheckBoxSetting['sender'])

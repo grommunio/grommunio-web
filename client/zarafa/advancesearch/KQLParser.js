@@ -308,10 +308,13 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 					if ( subqueryTokens.length > 1 ) {
 						t.push({
 							type: 'subquery',
-							value: this.normalize(subqueryTokens),
+							value: subqueryTokens,
 							negate: token.negate
 						});
 					} else if (subqueryTokens.length === 1 ) {
+						if ( token.negate ) {
+							subqueryTokens[0].negate = !subqueryTokens[0].negate;
+						}
 						t.push(subqueryTokens[0]);
 					}
 				}
@@ -341,45 +344,53 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 	 * @return {Object[]} Array of token objects
 	 */
 	flatten: function(tokens) {
-		var pos = 0;
-		var lastOperator;
-		var lastOperatorPos;
-		while ( pos < tokens.length ) {
-			var token = tokens[pos];
+		// Recursively flatten any existing subqueries first
+		tokens.forEach(function(token) {
 			if ( token.type === 'subquery' ) {
 				token.value = this.flatten(token.value);
 			}
-			if ( token.type === 'operator' && (token.value.op === 'AND' || token.value.op === 'OR') ) {
-				if ( lastOperator && lastOperator !== token.value.op ) {
-					// We must create a subquery
-					if ( lastOperator === 'AND' ) {
-						var subqueryTokens = tokens.splice(lastOperatorPos-1, pos+1);
-						tokens.splice(lastOperatorPos-1, 0, {
-							type: 'subquery',
-							value: subqueryTokens
-						});
-						pos = pos - subqueryTokens.length + 1;
-					} else {
-						subqueryTokens = [];
-						// eslint-disable-next-line max-depth
-						while ( tokens[pos-1] && (!tokens[pos] || !(tokens[pos].type === 'operator' && tokens[pos].value === 'OR')) ) {
-							subqueryTokens = subqueryTokens.concat(tokens.splice(pos-1, 1));
-						}
-						tokens.splice(pos-1, 0, {
-							type: 'subquery',
-							value: subqueryTokens
-						});
-						pos--;
-					}
-				} else {
-					lastOperator = token.value.op;
-					lastOperatorPos = pos;
-				}
+		}, this);
+
+		// Only need to flatten when both AND and OR are present
+		var hasAnd = false;
+		var hasOr = false;
+		tokens.forEach(function(token) {
+			if ( token.type === 'operator' ) {
+				if ( token.value.op === 'AND' ) { hasAnd = true; }
+				if ( token.value.op === 'OR' ) { hasOr = true; }
 			}
-			pos++;
+		});
+		if ( !hasAnd || !hasOr ) {
+			return tokens;
 		}
 
-		return tokens;
+		// AND has higher precedence than OR, so split at OR boundaries
+		// and wrap AND groups as subqueries
+		var result = [];
+		var currentGroup = [];
+
+		tokens.forEach(function(token) {
+			if ( token.type === 'operator' && token.value.op === 'OR' ) {
+				if ( currentGroup.length > 1 ) {
+					result.push({type: 'subquery', value: currentGroup});
+				} else if ( currentGroup.length === 1 ) {
+					result.push(currentGroup[0]);
+				}
+				result.push(token);
+				currentGroup = [];
+			} else {
+				currentGroup.push(token);
+			}
+		});
+
+		// Don't forget the last group
+		if ( currentGroup.length > 1 ) {
+			result.push({type: 'subquery', value: currentGroup});
+		} else if ( currentGroup.length === 1 ) {
+			result.push(currentGroup[0]);
+		}
+
+		return result;
 	},
 
 	/**
@@ -394,8 +405,8 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 		var propMap = {
 			subject: ['subject'],
 			body: ['body'],
-			sender: ['sender_name', 'sender_email_address'],
-			from: ['sender_name', 'sender_email_address'],
+			sender: ['sender_name', 'sender_email_address', 'sent_representing_name', 'sent_representing_email_address'],
+			from: ['sender_name', 'sender_email_address', 'sent_representing_name', 'sent_representing_email_address'],
 			to: [{type:'recipient', recipientType: Zarafa.core.mapi.RecipientType.MAPI_TO}],
 			cc: [{type:'recipient', recipientType: Zarafa.core.mapi.RecipientType.MAPI_CC}],
 			bcc: [{type:'recipient', recipientType: Zarafa.core.mapi.RecipientType.MAPI_BCC}],
@@ -407,6 +418,8 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 				'body',
 				'sender_name',
 				'sender_email_address',
+				'sent_representing_name',
+				'sent_representing_email_address',
 				{type:'recipient', recipientType: Zarafa.core.mapi.RecipientType.MAPI_TO},
 			{type:'recipient', recipientType: Zarafa.core.mapi.RecipientType.MAPI_CC},
 			{type:'recipient', recipientType: Zarafa.core.mapi.RecipientType.MAPI_BCC},
