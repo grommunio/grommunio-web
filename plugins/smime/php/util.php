@@ -112,6 +112,9 @@ function readPrivateCert($store, $passphrase, $singleCert = true) {
 		$certs = [];
 		// Read pkcs12 cert from message
 		$stream = mapi_openproperty($privateCertMessage, PR_BODY, IID_IStream, 0, 0);
+		if (!$stream) {
+			continue;
+		}
 		$stat = mapi_stream_stat($stream);
 		mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
 		for ($i = 0; $i < $stat['cb']; $i += 1024) {

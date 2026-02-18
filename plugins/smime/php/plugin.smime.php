@@ -1005,23 +1005,25 @@ class Pluginsmime extends Plugin {
 			error_log("[smime] unable to encrypt message, openssl error: " . print_r(@openssl_error_string(), true));
 			Log::Write(LOGLEVEL_ERROR, sprintf("[smime] unable to encrypt message, openssl error: '%s'", @openssl_error_string()));
 		}
-		$tmpEml = file_get_contents($outfile);
+		if ($ok) {
+			$tmpEml = file_get_contents($outfile);
 
-		// Extract base64 body after the MIME headers.  The header/body
-		// boundary is a blank line; handle both LF and CRLF.
-		$bodyStart = strpos($tmpEml, "\r\n\r\n");
-		if ($bodyStart !== false) {
-			$bodyStart += 4;
-		}
-		else {
-			$bodyStart = strpos($tmpEml, "\n\n");
-			$bodyStart = ($bodyStart !== false) ? $bodyStart + 2 : 0;
-		}
-		$base64 = str_replace(["\r", "\n"], '', substr($tmpEml, $bodyStart));
-		file_put_contents($outfile, base64_decode($base64));
+			// Extract base64 body after the MIME headers.  The header/body
+			// boundary is a blank line; handle both LF and CRLF.
+			$bodyStart = strpos($tmpEml, "\r\n\r\n");
+			if ($bodyStart !== false) {
+				$bodyStart += 4;
+			}
+			else {
+				$bodyStart = strpos($tmpEml, "\n\n");
+				$bodyStart = ($bodyStart !== false) ? $bodyStart + 2 : 0;
+			}
+			$base64 = str_replace(["\r", "\n"], '', substr($tmpEml, $bodyStart));
+			file_put_contents($outfile, base64_decode($base64));
 
-		// Empty the body
-		mapi_setprops($message, [PR_BODY => ""]);
+			// Empty the body
+			mapi_setprops($message, [PR_BODY => ""]);
+		}
 
 		return $ok;
 	}
@@ -1335,6 +1337,9 @@ class Pluginsmime extends Plugin {
 	 */
 	public function getGABCert($user) {
 		$cert = '';
+		if (!$user) {
+			return $cert;
+		}
 		$userCertArray = mapi_getprops($user, [PR_EMS_AB_X509_CERT]);
 		if (!isset($userCertArray[PR_EMS_AB_X509_CERT])) {
 			return $cert;
