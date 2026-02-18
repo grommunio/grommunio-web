@@ -24,11 +24,6 @@ const resizeLoginBox = (function() {
 		bgEl.style.left = -left + 'px';
 	}
 
-	// Add some classes to the body tag, so we can change styles (for IE)
-	bodyEl.className += (bodyEl.className.length>0 ? ' ' : '') +
-		navigator.sayswho.split(' ')[0] + ' ' +
-		navigator.sayswho.replace(' ','');
-
 	var img = document.createElement('img');
 	img.onload = function() {
 		cntEl.style.visibility = 'visible';
