@@ -107,7 +107,7 @@ Zarafa.plugins.smime.settings.PublickeyGrid = Ext.extend(Ext.grid.GridPanel, {
 					'both': _('Sign & Encrypt'),
 					'unknown': _('Unknown')
 				};
-				return Ext.util.Format.htmlEncode(labels[value] || value);
+				return labels[value] ? labels[value] : Ext.util.Format.htmlEncode(value);
 			}
 		}];
 	},
@@ -244,7 +244,7 @@ Zarafa.plugins.smime.settings.PublickeyGrid = Ext.extend(Ext.grid.GridPanel, {
 			_('Issued by') + ": " + enc(certificate.get('issued_by')) + "<br>" +
 			_('Issued to') + ": " + enc(certificate.get('issued_to')) + "<br>" +
 			_('Key Type') + ": " + enc(keyInfo) + "<br>" +
-			_('Purpose') + ": " + enc(purposeLabels[purpose] || purpose) + "<br>" +
+			_('Purpose') + ": " + (purposeLabels[purpose] || enc(purpose)) + "<br>" +
 			_('SHA-256 Fingerprint') + ": " + enc(certificate.get('fingerprint_md5')) + "<br>" +
 			_('SHA-1 Fingerprint') + ": " + enc(certificate.get('fingerprint_sha1')) + "<br>";
 
