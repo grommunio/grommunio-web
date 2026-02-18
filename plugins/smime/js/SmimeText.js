@@ -65,6 +65,24 @@ Zarafa.plugins.smime.SmimeText = function () {
 			// User
 			case 13:
 				return Zarafa.plugins.smime.SmimeText.createMessage(_('Sender is removed from the server.'));
+			// CRL revoked
+			case 14:
+				return Zarafa.plugins.smime.SmimeText.createMessage(_('The digital certificate used to sign this message has been revoked according to the Certificate Revocation List (CRL).'));
+			// CRL unavailable
+			case 15:
+				return Zarafa.plugins.smime.SmimeText.createMessage(_('The revocation status of the certificate could not be verified because the CRL Distribution Point is unavailable.'));
+			// Weak RSA key
+			case 16:
+				return Zarafa.plugins.smime.SmimeText.createMessage(_('The RSA key size used in this certificate is below the recommended minimum of 2048 bits. Consider upgrading to a stronger certificate.'));
+			// Key usage mismatch
+			case 17:
+				return Zarafa.plugins.smime.SmimeText.createMessage(_('The certificate\'s Key Usage extension does not permit this operation. The certificate may be intended for signing only or encryption only.'));
+			// EFAIL CBC warning
+			case 18:
+				return _('This message was encrypted using CBC mode (not authenticated encryption). While it was decrypted successfully, AES-GCM (authenticated encryption) provides stronger protection against modification attacks. Consider asking the sender to upgrade their S/MIME configuration.');
+			// Signing time skew
+			case 19:
+				return Zarafa.plugins.smime.SmimeText.createMessage(_('The signing time in the digital signature differs significantly from the expected time. This may indicate a clock synchronization issue or message tampering.'));
 			default:
 				return '';
 			}
@@ -107,6 +125,18 @@ Zarafa.plugins.smime.SmimeText = function () {
 				return _('Unable to decrypt this message. Certificate does not match');
 			case 13:
 				return _('Verification failed. User is removed from the server.');
+			case 14:
+				return _('Certificate has been revoked (CRL)');
+			case 15:
+				return _('Cannot check revocation status (CRL unavailable)');
+			case 16:
+				return _('RSA key size below recommended minimum');
+			case 17:
+				return _('Certificate not valid for this operation (key usage mismatch)');
+			case 18:
+				return _('Decrypted (CBC mode - consider AES-GCM for stronger protection)');
+			case 19:
+				return _('Signing time differs from expected time');
 			default:
 				return '';
 			}
@@ -150,6 +180,55 @@ Zarafa.plugins.smime.SmimeText = function () {
 			default:
 				return '';
 			}
+		},
+
+		/**
+		 * Format algorithm details for the popup dialog (verbose, multi-line).
+		 *
+		 * @param {Object} algos algorithm details from the backend (may be undefined)
+		 * @return {String} formatted HTML string, or empty string if no data
+		 */
+		formatAlgorithms: function (algos) {
+			if (!algos) {
+				return '';
+			}
+			var parts = [];
+			if (algos.digest) {
+				parts.push(_('Digest') + ': ' + algos.digest.toUpperCase());
+			}
+			if (algos.signature) {
+				parts.push(_('Signature') + ': ' + algos.signature);
+			}
+			if (algos.encryption) {
+				parts.push(_('Cipher') + ': ' + algos.encryption.toUpperCase());
+			}
+			if (algos.key_transport) {
+				parts.push(_('Key transport') + ': ' + algos.key_transport);
+			}
+			return parts.join('<br>');
+		},
+
+		/**
+		 * Format a short algorithm tag for the info bar (compact, single-line).
+		 *
+		 * @param {Object} algos algorithm details from the backend (may be undefined)
+		 * @return {String} formatted HTML string like " [SHA-256, AES-256-GCM]", or empty
+		 */
+		formatAlgorithmTag: function (algos) {
+			if (!algos) {
+				return '';
+			}
+			var parts = [];
+			if (algos.digest) {
+				parts.push(algos.digest.toUpperCase());
+			}
+			if (algos.encryption) {
+				parts.push(algos.encryption.toUpperCase());
+			}
+			if (parts.length === 0) {
+				return '';
+			}
+			return ' <span class="smime-algo-tag">[' + parts.join(', ') + ']</span>';
 		}
 	};
 }();

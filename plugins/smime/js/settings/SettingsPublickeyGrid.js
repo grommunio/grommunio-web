@@ -80,6 +80,35 @@ Zarafa.plugins.smime.settings.PublickeyGrid = Ext.extend(Ext.grid.GridPanel, {
 			sortable: true,
 			header : _('Type'),
 			renderer : Ext.util.Format.htmlEncode
+		},{
+			dataIndex : 'key_type',
+			sortable: true,
+			header : _('Key Type'),
+			width : 90,
+			renderer : function(value, meta, record) {
+				var bits = record.get('key_bits');
+				var curve = record.get('curve_name');
+				if (value === 'EC' && curve) {
+					return Ext.util.Format.htmlEncode(value + ' ' + curve);
+				} else if (value === 'RSA' && bits > 0) {
+					return Ext.util.Format.htmlEncode(value + ' ' + bits);
+				}
+				return Ext.util.Format.htmlEncode(value || 'unknown');
+			}
+		},{
+			dataIndex : 'purpose',
+			sortable: true,
+			header : _('Purpose'),
+			width : 80,
+			renderer : function(value) {
+				var labels = {
+					'sign': _('Sign'),
+					'encrypt': _('Encrypt'),
+					'both': _('Sign & Encrypt'),
+					'unknown': _('Unknown')
+				};
+				return Ext.util.Format.htmlEncode(labels[value] || value);
+			}
 		}];
 	},
 
@@ -191,12 +220,38 @@ Zarafa.plugins.smime.settings.PublickeyGrid = Ext.extend(Ext.grid.GridPanel, {
 		// TODO: use ExtJS form?
 		
 		var enc = Ext.util.Format.htmlEncode;
-		var text = "Email: " + enc(certificate.get('email')) + "<br>" +
-			"Serial: " + enc(certificate.get('serial')) + "<br>" +
-			"Issued by: " + enc(certificate.get('issued_by')) + "<br>" +
-			"Issued to: " + enc(certificate.get('issued_to')) + "<br>" +
-			"SHA1 Fingerprint: " + enc(certificate.get('fingerprint_sha1')) + "<br>" +
-			"MD5 Fingerprint: " + enc(certificate.get('fingerprint_md5')) + "<br>";
+		var keyType = certificate.get('key_type') || 'unknown';
+		var keyBits = certificate.get('key_bits') || 0;
+		var curveName = certificate.get('curve_name') || '';
+		var purpose = certificate.get('purpose') || 'both';
+
+		var keyInfo = keyType;
+		if (keyType === 'EC' && curveName) {
+			keyInfo = keyType + ' ' + curveName;
+		} else if (keyType === 'RSA' && keyBits > 0) {
+			keyInfo = keyType + ' ' + keyBits + ' bits';
+		}
+
+		var purposeLabels = {
+			'sign': _('Signing'),
+			'encrypt': _('Encryption'),
+			'both': _('Signing & Encryption'),
+			'unknown': _('Unknown')
+		};
+
+		var text = _('Email') + ": " + enc(certificate.get('email')) + "<br>" +
+			_('Serial') + ": " + enc(certificate.get('serial')) + "<br>" +
+			_('Issued by') + ": " + enc(certificate.get('issued_by')) + "<br>" +
+			_('Issued to') + ": " + enc(certificate.get('issued_to')) + "<br>" +
+			_('Key Type') + ": " + enc(keyInfo) + "<br>" +
+			_('Purpose') + ": " + enc(purposeLabels[purpose] || purpose) + "<br>" +
+			_('SHA-256 Fingerprint') + ": " + enc(certificate.get('fingerprint_md5')) + "<br>" +
+			_('SHA-1 Fingerprint') + ": " + enc(certificate.get('fingerprint_sha1')) + "<br>";
+
+		if (keyType === 'RSA' && keyBits > 0 && keyBits < 2048) {
+			text += "<br><b style='color:red'>" + _('Warning: RSA key size is below 2048 bits. Consider upgrading to a stronger certificate.') + "</b>";
+		}
+
 		Ext.Msg.alert(_('Certificate details'), text);
 	}
 

@@ -43,6 +43,53 @@ Zarafa.plugins.smime.settings.SettingsSmimeWidget = Ext.extend(Zarafa.settings.u
 				fieldLabel : this.defaultButtonLabel,
 				labelSeparator: '',
 				handler : this.changePassphrase
+			},{
+				xtype: 'combo',
+				fieldLabel: _('Default encryption algorithm'),
+				ref: 'cipherCombo',
+				store: new Ext.data.ArrayStore({
+					fields: ['value', 'display'],
+					data: [
+						['aes-256-gcm', 'AES-256-GCM (' + _('Recommended') + ')'],
+						['aes-128-gcm', 'AES-128-GCM'],
+						['aes-256-cbc', 'AES-256-CBC (' + _('Legacy') + ')'],
+						['aes-128-cbc', 'AES-128-CBC (' + _('Legacy') + ')']
+					]
+				}),
+				valueField: 'value',
+				displayField: 'display',
+				mode: 'local',
+				triggerAction: 'all',
+				editable: false,
+				value: container.getSettingsModel().get('zarafa/v1/plugins/smime/default_cipher', 'aes-256-gcm'),
+				listeners: {
+					select: function(combo, record) {
+						container.getSettingsModel().set('zarafa/v1/plugins/smime/default_cipher', record.get('value'));
+					}
+				}
+			},{
+				xtype: 'combo',
+				fieldLabel: _('Default signing digest'),
+				ref: 'digestCombo',
+				store: new Ext.data.ArrayStore({
+					fields: ['value', 'display'],
+					data: [
+						['sha256', 'SHA-256 (' + _('Recommended') + ')'],
+						['sha384', 'SHA-384'],
+						['sha512', 'SHA-512']
+					]
+				}),
+				valueField: 'value',
+				displayField: 'display',
+				mode: 'local',
+				triggerAction: 'all',
+				editable: false,
+				value: container.getSettingsModel().get('zarafa/v1/plugins/smime/default_digest', 'sha256'),
+				listeners: {
+					select: function(combo, record) {
+						container.getSettingsModel().set('zarafa/v1/plugins/smime/default_digest', record.get('value'));
+					}
+				}
 			}]
 		});
 

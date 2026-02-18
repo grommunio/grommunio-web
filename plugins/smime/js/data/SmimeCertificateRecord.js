@@ -15,7 +15,11 @@ Zarafa.plugins.smime.data.SmimeCertificateRecordFields = [
 	{name: 'validto', type: 'date', dateFormat: 'timestamp', defaultValue: null},
 	{name: 'validfrom', type: 'date', dateFormat: 'timestamp', defaultValue: null},
 	{name: 'fingerprint_sha1', type: 'string'},
-	{name: 'fingerprint_md5', type: 'string'}
+	{name: 'fingerprint_md5', type: 'string'},
+	{name: 'key_type', type: 'string', defaultValue: 'unknown'},
+	{name: 'key_bits', type: 'int', defaultValue: 0},
+	{name: 'curve_name', type: 'string', defaultValue: ''},
+	{name: 'purpose', type: 'string', defaultValue: 'both'}
 ];
 
 /**

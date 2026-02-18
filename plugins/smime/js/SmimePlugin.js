@@ -74,8 +74,10 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 	 */
 	showSignButton : function()
 	{
+		var defaultDigest = container.getSettingsModel().get('zarafa/v1/plugins/smime/default_digest', 'sha256');
+		var groupId = 'smime-digest-' + Ext.id();
 		return {
-			xtype : 'button',
+			xtype : 'splitbutton',
 			text : _('Sign'),
 			tooltip: {
 				cls: 'smime-tooltip',
@@ -89,7 +91,34 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 				scope : this
 			},
 			handler : this.onSignButton,
-			scope : this
+			scope : this,
+			menu : {
+				items : [{
+					xtype : 'menucheckitem',
+					text : 'SHA-256',
+					digest : 'sha256',
+					group : groupId,
+					checked : defaultDigest === 'sha256',
+					handler : this.onDigestSelect,
+					scope : this
+				},{
+					xtype : 'menucheckitem',
+					text : 'SHA-384',
+					digest : 'sha384',
+					group : groupId,
+					checked : defaultDigest === 'sha384',
+					handler : this.onDigestSelect,
+					scope : this
+				},{
+					xtype : 'menucheckitem',
+					text : 'SHA-512',
+					digest : 'sha512',
+					group : groupId,
+					checked : defaultDigest === 'sha512',
+					handler : this.onDigestSelect,
+					scope : this
+				}]
+			}
 		};
 	},
 
@@ -101,8 +130,10 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 	 */
 	showEncryptButton : function()
 	{
+		var defaultCipher = container.getSettingsModel().get('zarafa/v1/plugins/smime/default_cipher', 'aes-256-gcm');
+		var groupId = 'smime-cipher-' + Ext.id();
 		return {
-			xtype : 'button',
+			xtype : 'splitbutton',
 			text : _('Encrypt'),
 			tooltip: {
 				cls: 'smime-tooltip',
@@ -116,7 +147,34 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 				scope : this
 			},
 			handler : this.onEncryptButton,
-			scope : this
+			scope : this,
+			menu : {
+				items : [{
+					xtype : 'menucheckitem',
+					text : 'AES-256-GCM',
+					cipher : 'aes-256-gcm',
+					group : groupId,
+					checked : defaultCipher === 'aes-256-gcm',
+					handler : this.onCipherSelect,
+					scope : this
+				},{
+					xtype : 'menucheckitem',
+					text : 'AES-128-GCM',
+					cipher : 'aes-128-gcm',
+					group : groupId,
+					checked : defaultCipher === 'aes-128-gcm',
+					handler : this.onCipherSelect,
+					scope : this
+				},{
+					xtype : 'menucheckitem',
+					text : 'AES-256-CBC (' + _('Legacy') + ')',
+					cipher : 'aes-256-cbc',
+					group : groupId,
+					checked : defaultCipher === 'aes-256-cbc',
+					handler : this.onCipherSelect,
+					scope : this
+				}]
+			}
 		};
 	},
 
@@ -180,8 +238,13 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 			break;
 		case 'signed':
 		case 'encryptsigned':
+			var popupText = Zarafa.plugins.smime.SmimeText.getPopupText(smimeInfo.info);
+			var algoText = Zarafa.plugins.smime.SmimeText.formatAlgorithms(smimeInfo.algorithms);
+			if (algoText) {
+				popupText += '<br><br><b>' + _('Algorithms used') + '</b><br>' + algoText;
+			}
 			container.getNotifier().notify(Zarafa.plugins.smime.SmimeText.getPopupStatus(smimeInfo.success),
-					_('What\'s going on with my email?'), Zarafa.plugins.smime.SmimeText.getPopupText(smimeInfo.info));
+					_('What\'s going on with my email?'), popupText);
 			break;
 		}
 	},
@@ -220,6 +283,7 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 		// FIXME: refactor success, to status since that's probably a better description of the variable
 		smimeInfoBox.addClass(Zarafa.plugins.smime.SmimeText.getStatusMessageClass(smimeInfo.success));
 		var message = Zarafa.plugins.smime.SmimeText.getMessageInfo(smimeInfo.info);
+		var algoTag = Zarafa.plugins.smime.SmimeText.formatAlgorithmTag(smimeInfo.algorithms);
 		var isDecryptedSuccessfully = (smimeInfo.info === Zarafa.plugins.smime.SMIME_DECRYPT_SUCCESS);
 		switch (smimeInfo.type) {
 		case 'encrypted':
@@ -229,19 +293,23 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 				break;
 			}
 			if (isDecryptedSuccessfully) {
+				var efailNote = '';
+				if (smimeInfo.efail_warning) {
+					efailNote = ' <span class="smime-efail-note">(' + _('CBC mode') + ')</span>';
+				}
 				// Decrypted messages are implicitly verified — show both badges
-				smimeInfoBox.update(String.format('{0} &lt{1}&gt <div class="icon_smime_sign_content"></div><div class="icon_smime_decr_content"></div> {2}', sender.get('display_name'), sender.get('smtp_address'), message));
+				smimeInfoBox.update(String.format('{0} &lt{1}&gt <div class="icon_smime_sign_content"></div><div class="icon_smime_decr_content"></div> {2}{3}{4}', sender.get('display_name'), sender.get('smtp_address'), message, efailNote, algoTag));
 			} else {
-				smimeInfoBox.update(String.format('{0} &lt{1}&gt <div class="icon_smime_encr_content"></div> {2}', sender.get('display_name'), sender.get('smtp_address'), message));
+				smimeInfoBox.update(String.format('{0} &lt{1}&gt <div class="icon_smime_encr_content"></div> {2}{3}', sender.get('display_name'), sender.get('smtp_address'), message, algoTag));
 			}
 			// Force the Attachmentlinks component to update, to view the attachments
 			this.ownerCt.findByType('zarafa.attachmentlinks')[0].update(record, true);
 			break;
 		case 'signed':
-			smimeInfoBox.update(String.format('{0} &lt{1}&gt <div class="icon_smime_sign_content"></div> {2}', sender.get('display_name'), sender.get('smtp_address'), message));
+			smimeInfoBox.update(String.format('{0} &lt{1}&gt <div class="icon_smime_sign_content"></div> {2}{3}', sender.get('display_name'), sender.get('smtp_address'), message, algoTag));
 			break;
 		case 'encryptsigned':
-			smimeInfoBox.update(String.format('{0} &lt{1}&gt <div class="icon_smime_sign_content"></div> <div class="icon_smime_decr_content"></div> {2}', sender.get('display_name'), sender.get('smtp_address'), message));
+			smimeInfoBox.update(String.format('{0} &lt{1}&gt <div class="icon_smime_sign_content"></div> <div class="icon_smime_decr_content"></div> {2}{3}', sender.get('display_name'), sender.get('smtp_address'), message, algoTag));
 			if (smimeInfo.success !== Zarafa.plugins.smime.SMIME_STATUS_BAD &&
 			smimeInfo.success !== Zarafa.plugins.smime.SMIME_STATUS_PARTIAL) {
 				// Force the Attachmentlinks component to update, to view the attachments
@@ -284,6 +352,16 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 			);
 		}, this);
 		dialog.record.set('smime', recipients);
+
+		// Pass algorithm selections to the backend
+		var cipher = record.get('smime_cipher') || container.getSettingsModel().get('zarafa/v1/plugins/smime/default_cipher', '');
+		var digest = record.get('smime_digest') || container.getSettingsModel().get('zarafa/v1/plugins/smime/default_digest', '');
+		if (cipher) {
+			dialog.record.set('smime_cipher', cipher);
+		}
+		if (digest) {
+			dialog.record.set('smime_digest', digest);
+		}
 
 		return true;
 	},
@@ -532,6 +610,50 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 	},
 
 	/**
+	 * Handler for digest algorithm selection from the split button menu.
+	 * Stores the selection and enables signing if not already active.
+	 *
+	 * @param {Ext.menu.CheckItem} item the selected menu item
+	 */
+	onDigestSelect : function(item)
+	{
+		var dialog = this.getRespectiveDialog(item);
+		if (!dialog || !dialog.record) {
+			return;
+		}
+		dialog.record.set('smime_digest', item.digest);
+
+		// Enable signing if not already active
+		var mc = dialog.record.get('message_class');
+		if (mc !== 'IPM.Note.deferSMIME.MultipartSigned' && mc !== 'IPM.Note.deferSMIME.SignedEncrypt') {
+			var splitBtn = item.parentMenu.ownerCt;
+			this.onSignButton(splitBtn);
+		}
+	},
+
+	/**
+	 * Handler for cipher algorithm selection from the split button menu.
+	 * Stores the selection and enables encryption if not already active.
+	 *
+	 * @param {Ext.menu.CheckItem} item the selected menu item
+	 */
+	onCipherSelect : function(item)
+	{
+		var dialog = this.getRespectiveDialog(item);
+		if (!dialog || !dialog.record) {
+			return;
+		}
+		dialog.record.set('smime_cipher', item.cipher);
+
+		// Enable encryption if not already active
+		var mc = dialog.record.get('message_class');
+		if (mc !== 'IPM.Note.deferSMIME' && mc !== 'IPM.Note.deferSMIME.SignedEncrypt') {
+			var splitBtn = item.parentMenu.ownerCt;
+			this.onEncryptButton(splitBtn);
+		}
+	},
+
+	/**
 	 * Helper function to retrieve dialog.
 	 *
 	 * @param {Ext.button} button Which just gets rendered
@@ -542,18 +664,28 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 
 		if (button.ownerCt instanceof Zarafa.core.ui.Toolbar) {
 			parentToolbar = button.ownerCt;
-		} else {
-			// This is the case where button belongs to the "more" menu.
-			// Get the dialog from menu.
-			var moreMenu = button.parentMenu;
-			parentToolbar = moreMenu.ownerCt.ownerCt;
+		} else if (button.parentMenu) {
+			// This handles split button menu items and "more" menu items.
+			// Walk up: menu item -> menu -> split button/menu button -> toolbar
+			var menuOwner = button.parentMenu.ownerCt;
+			if (menuOwner instanceof Zarafa.core.ui.Toolbar) {
+				parentToolbar = menuOwner;
+			} else if (menuOwner && menuOwner.ownerCt instanceof Zarafa.core.ui.Toolbar) {
+				parentToolbar = menuOwner.ownerCt;
+			} else if (menuOwner && menuOwner.ownerCt && menuOwner.ownerCt.ownerCt) {
+				parentToolbar = menuOwner.ownerCt.ownerCt;
+			}
 		}
-		return parentToolbar.dialog;
+		return parentToolbar ? parentToolbar.dialog : false;
 	}
 });
 
 // Add property to record to MailRecord, where extra information is stored about S/MIME messages
-Zarafa.core.data.RecordFactory.addFieldToMessageClass('IPM.Note', [{name: 'smime', defaultValue: ''}]);
+Zarafa.core.data.RecordFactory.addFieldToMessageClass('IPM.Note', [
+	{name: 'smime', defaultValue: ''},
+	{name: 'smime_cipher', type: 'string', defaultValue: ''},
+	{name: 'smime_digest', type: 'string', defaultValue: ''}
+]);
 
 Zarafa.onReady(function() {
 	Zarafa.plugins.smime.SMIME_STATUS_GOOD = 0;

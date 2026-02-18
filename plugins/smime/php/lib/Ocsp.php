@@ -2,15 +2,19 @@
 
 namespace WAYF;
 
+require_once __DIR__ . '/DerEncoder.php';
+
 /**
  * OCSP is able to encode OCSPRequests and decode OCSPResponses - just enough for NemID use.
+ *
+ * Encoding methods delegate to the shared DerEncoder class.
  */
 class OCSP extends X509 {
 	public function request($certids = []) {
 		$certids_der = '';
 		foreach ($certids as $certid) {
 			$certids_der .= $this->sequence(
-				$this->sequence($this->s2oid($certid['hash_alg'])) .
+				DerEncoder::algorithmIdentifier($certid['hash_alg']) .
 							$this->octetstring($certid['issuerNameHash']) .
 							$this->octetstring($certid['issuerKeyHash']) .
 							$certid['serialNumber_der']
@@ -21,47 +25,15 @@ class OCSP extends X509 {
 	}
 
 	private function sequence($pdu) {
-		return "\x30" . self::len($pdu) . $pdu;
+		return DerEncoder::sequence($pdu);
 	}
 
 	protected function octetstring($s) {
-		return "\x04" . $this->len($s) . $s;
-	}
-
-	private function len($i) {
-		$i = strlen((string) $i);
-		if ($i <= 127) {
-			$res = pack('C', $i);
-		}
-		elseif ($i <= 255) {
-			$res = pack('CC', 0x81, $i);
-		}
-		elseif ($i <= 65535) {
-			$res = pack('Cn', 0x82, $i);
-		}
-		else {
-			$res = pack('CN', 0x84, $i);
-		}
-
-		return $res;
+		return DerEncoder::octetString($s);
 	}
 
 	protected function s2oid($s) {
-		$e = explode('.', (string) $s);
-		$der = chr(40 * $e[0] + $e[1]);
-
-		foreach (array_slice($e, 2) as $c) {
-			$mask = 0;
-			$derrev = '';
-			while ($c) {
-				$derrev .= chr(bcmod($c, 128) + $mask);
-				$c = bcdiv($c, 128, 0);
-				$mask = 128;
-			}
-			$der .= strrev($derrev);
-		}
-
-		return "\x06" . $this->len($der) . $der;
+		return DerEncoder::oid((string) $s);
 	}
 
 	public function certOcspID($certid = [], $hash_alg = 'sha256') {

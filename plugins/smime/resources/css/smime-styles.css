@@ -133,3 +133,31 @@
 .zarafa-smime-invalid-text {
 	color: #e40023;
 }
+
+/* Algorithm tag in the S/MIME info bar */
+.smime-algo-tag {
+	font-size: 11px;
+	color: #666;
+	margin-left: 4px;
+}
+
+/* EFAIL note styling */
+.smime-efail-note {
+	font-size: 11px;
+	color: #b45309;
+}
+
+/* Radio-style appearance for S/MIME algorithm menu items */
+.x-menu-group-item .x-menu-item-icon {
+	width: 16px;
+	height: 16px;
+	border: 2px solid #888;
+	border-radius: 50%;
+	background: transparent !important;
+	box-sizing: border-box;
+}
+
+.x-menu-item-checked .x-menu-group-item .x-menu-item-icon {
+	border-color: #0078d4;
+	background: radial-gradient(circle, #0078d4 40%, transparent 45%) !important;
+}

@@ -254,26 +254,40 @@ function validateUploadedPKCS($certificate, $passphrase, $emailAddress) {
 			$message = _('Private key can\'t be used to sign email');
 		}
 		// Check if the certificate owner matches the grommunio Web users email address
-		elseif (strcasecmp((string) $certEmailAddress, (string) $emailAddress) !== 0) {
+		elseif (!emailMatchesCert((string) $certEmailAddress, (string) $emailAddress)) {
 			$message = _('Certificate email address doesn\'t match grommunio Web account ') . $certEmailAddress;
 		}
+		// Check RSA key size
+		elseif (defined('PLUGIN_SMIME_WARN_WEAK_RSA') && PLUGIN_SMIME_WARN_WEAK_RSA) {
+			$keyInfo = getKeyTypeInfo($publickey);
+			if ($keyInfo['type'] === 'RSA' && $keyInfo['bits'] < (defined('PLUGIN_SMIME_MIN_RSA_BITS') ? PLUGIN_SMIME_MIN_RSA_BITS : 2048)) {
+				$message = sprintf(_('RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported.'), $keyInfo['bits'], PLUGIN_SMIME_MIN_RSA_BITS);
+				$imported = true;
+			}
+			elseif ($keyInfo['type'] === 'Ed25519' && !SmimeCapabilities::getInstance()->supportsEddsa) {
+				$message = _('EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully supported. Certificate was imported.');
+				$imported = true;
+			}
+		}
 		// Check if certificate is not expired, still import the certificate since a user wants to decrypt his old email
-		elseif ($validTo < time()) {
-			$message = _('Certificate was expired on ') . date('Y-m-d', $validTo) . '. ' . _('Certificate was imported.');
-			$imported = true;
-		}
-		// Check if the certificate is validFrom date is not in the future
-		elseif ($validFrom > time()) {
-			$message = _('Certificate is not yet valid ') . date('Y-m-d', $validFrom) . '. ' . _('Certificate has not been imported');
-		}
-		// We allow users to import private certificate which have no OCSP support
-		elseif (!verifyOCSP($certs['cert'], $extracerts, $data)) {
-			$message = _('Certificate is revoked, but was imported.');
-			$imported = true;
-		}
-		else {
-			$imported = true;
-			$message = _('Certificate was imported.');
+		if (!$imported && $message === '') {
+			if ($validTo < time()) {
+				$message = _('Certificate was expired on ') . date('Y-m-d', $validTo) . '. ' . _('Certificate was imported.');
+				$imported = true;
+			}
+			// Check if the certificate is validFrom date is not in the future
+			elseif ($validFrom > time()) {
+				$message = _('Certificate is not yet valid ') . date('Y-m-d', $validFrom) . '. ' . _('Certificate has not been imported');
+			}
+			// We allow users to import private certificate which have no OCSP support
+			elseif (!verifyOCSP($certs['cert'], $extracerts, $data)) {
+				$message = _('Certificate is revoked, but was imported.');
+				$imported = true;
+			}
+			else {
+				$imported = true;
+				$message = _('Certificate was imported.');
+			}
 		}
 	}
 	else { // Can't parse public certificate pkcs#12 file might be corrupt
@@ -281,6 +295,179 @@ function validateUploadedPKCS($certificate, $passphrase, $emailAddress) {
 	}
 
 	return [$message, $publickey, $publickeyData, $imported];
+}
+
+/**
+ * Get key type information from a certificate or public key.
+ *
+ * @param mixed $cert PEM certificate string or OpenSSL resource
+ *
+ * @return array ['type' => 'RSA'|'EC'|'Ed25519'|'unknown', 'bits' => int, 'curve' => string|null]
+ */
+function getKeyTypeInfo($cert) {
+	$result = ['type' => 'unknown', 'bits' => 0, 'curve' => null];
+
+	$pubkey = openssl_pkey_get_public($cert);
+	if ($pubkey === false) {
+		return $result;
+	}
+
+	$details = openssl_pkey_get_details($pubkey);
+	if ($details === false) {
+		return $result;
+	}
+
+	$result['bits'] = $details['bits'] ?? 0;
+
+	switch ($details['type'] ?? -1) {
+		case OPENSSL_KEYTYPE_RSA:
+			$result['type'] = 'RSA';
+			break;
+
+		case OPENSSL_KEYTYPE_EC:
+			$result['type'] = 'EC';
+			$result['curve'] = $details['ec']['curve_name'] ?? null;
+			break;
+
+		default:
+			// Check for Ed25519 (type value 6 on some PHP versions)
+			if (defined('OPENSSL_KEYTYPE_ED25519') && ($details['type'] ?? -1) === OPENSSL_KEYTYPE_ED25519) {
+				$result['type'] = 'Ed25519';
+				$result['bits'] = 256;
+			}
+			break;
+	}
+
+	return $result;
+}
+
+/**
+ * Get Key Usage flags from a certificate.
+ *
+ * @param mixed $cert PEM certificate string
+ *
+ * @return array key usage flags as associative array
+ */
+function getKeyUsage($cert) {
+	$parsed = openssl_x509_parse($cert);
+	if ($parsed === false || !isset($parsed['extensions']['keyUsage'])) {
+		return [];
+	}
+
+	$usages = [];
+	$raw = $parsed['extensions']['keyUsage'];
+	$parts = array_map('trim', explode(',', $raw));
+	foreach ($parts as $part) {
+		$usages[$part] = true;
+	}
+
+	return $usages;
+}
+
+/**
+ * Get Extended Key Usage OIDs from a certificate.
+ *
+ * @param mixed $cert PEM certificate string
+ *
+ * @return array EKU names/OIDs
+ */
+function getExtendedKeyUsage($cert) {
+	$parsed = openssl_x509_parse($cert);
+	if ($parsed === false || !isset($parsed['extensions']['extendedKeyUsage'])) {
+		return [];
+	}
+
+	return array_map('trim', explode(',', $parsed['extensions']['extendedKeyUsage']));
+}
+
+/**
+ * Determine certificate purpose from Key Usage extension.
+ *
+ * @param mixed $cert PEM certificate string
+ *
+ * @return string 'sign', 'encrypt', 'both', or 'unknown'
+ */
+function getCertPurpose($cert) {
+	$ku = getKeyUsage($cert);
+	$canSign = isset($ku['Digital Signature']) || isset($ku['Non Repudiation']);
+	$canEncrypt = isset($ku['Key Encipherment']) || isset($ku['Key Agreement']);
+
+	if ($canSign && $canEncrypt) {
+		return 'both';
+	}
+	if ($canSign) {
+		return 'sign';
+	}
+	if ($canEncrypt) {
+		return 'encrypt';
+	}
+
+	// No Key Usage extension or unrecognized — assume dual-purpose
+	return empty($ku) ? 'both' : 'unknown';
+}
+
+/**
+ * Compare email addresses for certificate matching with internationalization support.
+ *
+ * Per RFC 8550: local-part is case-insensitive for matching purposes,
+ * domain is always case-insensitive.
+ *
+ * @param string $certEmail  email from certificate
+ * @param string $userEmail  email to match against
+ *
+ * @return bool true if emails match
+ */
+function emailMatchesCert(string $certEmail, string $userEmail): bool {
+	return strcasecmp($certEmail, $userEmail) === 0;
+}
+
+/**
+ * Verify certificate revocation status using OCSP first, then CRL as fallback.
+ *
+ * @param string $certificate PEM certificate
+ * @param array  $extracerts  intermediate certificates
+ * @param array  $message     reference to status message array
+ *
+ * @return bool true if certificate is not revoked (or revocation checking is disabled)
+ */
+function verifyRevocation($certificate, $extracerts, &$message) {
+	// Try OCSP first
+	$ocspResult = verifyOCSP($certificate, $extracerts, $message);
+
+	// If OCSP succeeded (good or disabled), return that result
+	if ($ocspResult) {
+		return true;
+	}
+
+	// If OCSP indicates revocation, trust that
+	if (isset($message['info']) && $message['info'] === SMIME_REVOKED) {
+		return false;
+	}
+
+	// OCSP failed/unavailable — try CRL if enabled
+	if (defined('PLUGIN_SMIME_ENABLE_CRL') && PLUGIN_SMIME_ENABLE_CRL) {
+		if (class_exists('CrlManager')) {
+			$crlManager = new CrlManager();
+			$pubcert = new Certificate($certificate);
+			$revoked = $crlManager->isRevoked($pubcert);
+
+			if ($revoked === true) {
+				$message['info'] = SMIME_CRL_REVOKED;
+				$message['success'] = SMIME_STATUS_FAIL;
+
+				return false;
+			}
+			if ($revoked === null) {
+				$message['info'] = SMIME_CRL_UNAVAILABLE;
+				$message['success'] = SMIME_STATUS_PARTIAL;
+
+				// CRL unavailable is not a hard failure
+				return true;
+			}
+		}
+	}
+
+	return $ocspResult;
 }
 
 /**

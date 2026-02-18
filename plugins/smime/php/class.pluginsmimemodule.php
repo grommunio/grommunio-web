@@ -1,6 +1,8 @@
 <?php
 
 include_once 'util.php';
+require_once 'class.cmsoperations.php';
+require_once 'class.smimecapabilities.php';
 
 define('CHANGE_PASSPHRASE_SUCCESS', 1);
 define('CHANGE_PASSPHRASE_ERROR', 2);
@@ -84,6 +86,30 @@ class PluginSmimeModule extends Module {
 						$this->sendFeedback(true);
 						break;
 
+					case 'algorithms':
+						$data = $this->getSupportedAlgorithms();
+						$this->addActionData('algorithms', $data);
+						$GLOBALS['bus']->addData($this->getResponseData());
+						break;
+
+					case 'certsonly':
+						$data = $this->generateCertsOnlyMessage($actionData);
+						$this->addActionData('certsonly', $data);
+						$GLOBALS['bus']->addData($this->getResponseData());
+						break;
+
+					case 'danelookup':
+						$data = $this->lookupDaneCertificates($actionData);
+						$this->addActionData('danelookup', $data);
+						$GLOBALS['bus']->addData($this->getResponseData());
+						break;
+
+					case 'ldaplookup':
+						$data = $this->lookupLdapCertificates($actionData);
+						$this->addActionData('ldaplookup', $data);
+						$GLOBALS['bus']->addData($this->getResponseData());
+						break;
+
 					default:
 						$this->handleUnknownActionType($actionType);
 				}
@@ -149,6 +175,22 @@ class PluginSmimeModule extends Module {
 				'validFrom' => $privateCerts[$certIdx][PR_CLIENT_SUBMIT_TIME] ?? '',
 				'subject' => $privateCerts[$certIdx][PR_SUBJECT] ?? 'Unknown',
 			];
+
+			// Try to get key type info from the actual certificate
+			$certBody = $this->readCertificateBody($privateCerts[$certIdx][PR_ENTRYID]);
+			if ($certBody !== '') {
+				$certs = [];
+				if (openssl_pkcs12_read(base64_decode($certBody), $certs, '')) {
+					// Can't read without passphrase, key type info will be added from MAPI props
+				}
+				// Add basic key type from stored metadata if available
+				$keyTypeInfo = $this->getStoredKeyType($privateCerts[$certIdx]);
+				if ($keyTypeInfo !== null) {
+					$data['key_type'] = $keyTypeInfo['type'];
+					$data['key_bits'] = $keyTypeInfo['bits'];
+					$data['curve_name'] = $keyTypeInfo['curve'];
+				}
+			}
 		}
 
 		return [
@@ -232,8 +274,18 @@ class PluginSmimeModule extends Module {
 			$item['issued_by'] = $cert[PR_SENDER_EMAIL_ADDRESS];
 			$item['issued_to'] = $cert[PR_SUBJECT_PREFIX];
 			$item['fingerprint_sha1'] = $cert[PR_RECEIVED_BY_NAME];
-			$item['fingerprint_md5'] = $cert[PR_INTERNET_MESSAGE_ID];
-			$item['type'] = strtolower((string) $cert[PR_MESSAGE_CLASS]) === 'webapp.security.public' ? 'public' : 'private';
+			$item['fingerprint_md5'] = $cert[PR_INTERNET_MESSAGE_ID]; // Now stores SHA-256 (field name kept for backward compat)
+			$msgClass = strtolower((string) $cert[PR_MESSAGE_CLASS]);
+			$item['type'] = ($msgClass === 'webapp.security.public') ? 'public' : 'private';
+
+			// Extract key type info from the certificate body
+			$certBody = $this->readCertificateBody($cert[PR_ENTRYID]);
+			$keyTypeInfo = $this->getKeyTypeFromBody($certBody, $item['type']);
+			$item['key_type'] = $keyTypeInfo['type'] ?? 'unknown';
+			$item['key_bits'] = $keyTypeInfo['bits'] ?? 0;
+			$item['curve_name'] = $keyTypeInfo['curve'] ?? '';
+			$item['purpose'] = $keyTypeInfo['purpose'] ?? 'both';
+
 			array_push($items, ['props' => $item]);
 		}
 		$data['page']['start'] = 0;
@@ -278,6 +330,244 @@ class PluginSmimeModule extends Module {
 		mapi_message_savechanges($privateCert);
 
 		return CHANGE_PASSPHRASE_SUCCESS;
+	}
+
+	/**
+	 * Return supported algorithms from SmimeCapabilities.
+	 *
+	 * @return array algorithms data
+	 */
+	public function getSupportedAlgorithms() {
+		$caps = SmimeCapabilities::getInstance();
+
+		return [
+			'encryption' => $caps->getSupportedEncryptionAlgorithms(),
+			'signature' => $caps->getSupportedSignatureAlgorithms(),
+			'digest' => $caps->getSupportedDigestAlgorithms(),
+			'environment' => $caps->getEnvironmentInfo(),
+		];
+	}
+
+	/**
+	 * Read certificate body from MAPI store.
+	 *
+	 * @param string $entryid binary entry ID
+	 *
+	 * @return string base64-encoded certificate body or empty string
+	 */
+	private function readCertificateBody($entryid) {
+		$msg = mapi_msgstore_openentry($this->store, $entryid);
+		if ($msg === false) {
+			return '';
+		}
+
+		$stream = mapi_openproperty($msg, PR_BODY, IID_IStream, 0, 0);
+		if (!$stream) {
+			return '';
+		}
+
+		$stat = mapi_stream_stat($stream);
+		mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
+		$body = '';
+		for ($i = 0; $i < $stat['cb']; $i += 1024) {
+			$body .= mapi_stream_read($stream, 1024);
+		}
+
+		return $body;
+	}
+
+	/**
+	 * Get key type information from a certificate body.
+	 *
+	 * @param string $certBody base64-encoded certificate
+	 * @param string $type     'public' or 'private'
+	 *
+	 * @return array key type info
+	 */
+	private function getKeyTypeFromBody($certBody, $type) {
+		$result = ['type' => 'unknown', 'bits' => 0, 'curve' => null, 'purpose' => 'both'];
+
+		if (empty($certBody)) {
+			return $result;
+		}
+
+		$decoded = base64_decode($certBody);
+		if ($decoded === false) {
+			return $result;
+		}
+
+		if ($type === 'public') {
+			// Public cert is PEM
+			$pem = $decoded;
+			if (strpos($pem, '-----BEGIN') === false) {
+				$pem = "-----BEGIN CERTIFICATE-----\n" . chunk_split(base64_encode($decoded), 64, "\n") . "-----END CERTIFICATE-----\n";
+			}
+		}
+		else {
+			// Private is PKCS#12 — can't read without passphrase for key type
+			// Try to read just the cert part
+			$pem = $decoded;
+		}
+
+		$keyInfo = getKeyTypeInfo($pem);
+		if ($keyInfo['type'] !== 'unknown') {
+			$result['type'] = $keyInfo['type'];
+			$result['bits'] = $keyInfo['bits'];
+			$result['curve'] = $keyInfo['curve'];
+			$result['purpose'] = getCertPurpose($pem);
+		}
+
+		return $result;
+	}
+
+	/**
+	 * Get stored key type metadata from MAPI properties.
+	 *
+	 * @param array $certProps MAPI certificate properties
+	 *
+	 * @return null|array key type info or null
+	 */
+	private function getStoredKeyType($certProps) {
+		// Key type metadata is stored in PR_SUBJECT_PREFIX as JSON
+		$prefix = $certProps[PR_SUBJECT_PREFIX] ?? '';
+		if (empty($prefix)) {
+			return null;
+		}
+
+		$data = json_decode($prefix, true);
+		if (!is_array($data) || !isset($data['type'])) {
+			return null;
+		}
+
+		return $data;
+	}
+
+	/**
+	 * Generate a certs-only PKCS7 message for certificate exchange.
+	 *
+	 * @param array $actionData action data with 'email' key
+	 *
+	 * @return array result with certs-only data
+	 */
+	private function generateCertsOnlyMessage($actionData) {
+		$email = $actionData['email'] ?? '';
+		if (empty($email)) {
+			return ['status' => false, 'message' => _('No email address specified')];
+		}
+
+		// Collect public certs for this email
+		$certs = getMAPICert($this->store, 'WebApp.Security.Public', $email);
+		if (!$certs || count($certs) === 0) {
+			return ['status' => false, 'message' => _('No certificates found for this email address')];
+		}
+
+		$certPems = [];
+		foreach ($certs as $cert) {
+			$msg = mapi_msgstore_openentry($this->store, $cert[PR_ENTRYID]);
+			if ($msg === false) {
+				continue;
+			}
+			$stream = mapi_openproperty($msg, PR_BODY, IID_IStream, 0, 0);
+			if (!$stream) {
+				continue;
+			}
+			$stat = mapi_stream_stat($stream);
+			mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
+			$body = '';
+			for ($i = 0; $i < $stat['cb']; $i += 1024) {
+				$body .= mapi_stream_read($stream, 1024);
+			}
+			$decoded = base64_decode($body);
+			if (!empty($decoded)) {
+				$certPems[] = $decoded;
+			}
+		}
+
+		if (empty($certPems)) {
+			return ['status' => false, 'message' => _('Unable to read certificates')];
+		}
+
+		$cms = new CmsOperations();
+		$tmpOut = tempnam(sys_get_temp_dir(), 'smime_co_');
+		$ok = $cms->generateCertsOnly($certPems, $tmpOut);
+
+		if (!$ok) {
+			@unlink($tmpOut);
+
+			return ['status' => false, 'message' => _('Unable to generate certs-only message')];
+		}
+
+		$content = file_get_contents($tmpOut);
+		@unlink($tmpOut);
+
+		return [
+			'status' => true,
+			'data' => base64_encode($content),
+			'content_type' => 'application/pkcs7-mime; smime-type=certs-only; name="smime.p7c"',
+		];
+	}
+
+	/**
+	 * Look up certificates for an email via DANE/SMIMEA (RFC 8162).
+	 *
+	 * @param array $actionData action data with 'email' key
+	 *
+	 * @return array lookup result
+	 */
+	private function lookupDaneCertificates($actionData) {
+		$email = $actionData['email'] ?? '';
+		if (empty($email)) {
+			return ['status' => false, 'records' => []];
+		}
+
+		require_once __DIR__ . '/class.dane.php';
+		$dane = new DaneLookup();
+		$records = $dane->lookup($email);
+
+		return [
+			'status' => !empty($records),
+			'records' => array_map(function ($r) {
+				return [
+					'usage' => $r['usage'],
+					'selector' => $r['selector'],
+					'matching_type' => $r['matching_type'],
+					'data' => base64_encode($r['data']),
+				];
+			}, $records),
+		];
+	}
+
+	/**
+	 * Look up certificates for an email via LDAP.
+	 *
+	 * @param array $actionData action data with 'email' and optional LDAP config
+	 *
+	 * @return array lookup result
+	 */
+	private function lookupLdapCertificates($actionData) {
+		$email = $actionData['email'] ?? '';
+		if (empty($email)) {
+			return ['status' => false, 'certs' => []];
+		}
+
+		require_once __DIR__ . '/class.ldapcerts.php';
+
+		$ldapUri = $actionData['ldap_uri'] ?? (defined('PLUGIN_SMIME_LDAP_URI') ? PLUGIN_SMIME_LDAP_URI : '');
+		$baseDn = $actionData['base_dn'] ?? (defined('PLUGIN_SMIME_LDAP_BASE_DN') ? PLUGIN_SMIME_LDAP_BASE_DN : '');
+		$bindDn = defined('PLUGIN_SMIME_LDAP_BIND_DN') ? PLUGIN_SMIME_LDAP_BIND_DN : '';
+		$bindPw = defined('PLUGIN_SMIME_LDAP_BIND_PASSWORD') ? PLUGIN_SMIME_LDAP_BIND_PASSWORD : '';
+
+		if (empty($ldapUri) || empty($baseDn)) {
+			return ['status' => false, 'certs' => [], 'message' => _('LDAP not configured')];
+		}
+
+		$ldap = new LdapCertLookup($ldapUri, $baseDn, $bindDn, $bindPw);
+		$certs = $ldap->lookup($email);
+
+		return [
+			'status' => !empty($certs),
+			'certs' => array_map('base64_encode', $certs),
+		];
 	}
 
 	/**

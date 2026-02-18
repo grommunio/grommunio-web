@@ -2,6 +2,9 @@
 
 include_once 'util.php';
 require_once 'class.certificate.php';
+require_once 'class.cmsoperations.php';
+require_once 'class.smimecapabilities.php';
+require_once 'class.signedattributes.php';
 
 // Green, everything was good
 define('SMIME_STATUS_SUCCESS', 0);
@@ -26,6 +29,12 @@ define('SMIME_OCSP_DISABLED', 10);
 define('SMIME_OCSP_FAILED', 11);
 define('SMIME_DECRYPT_CERT_MISMATCH', 12);
 define('SMIME_USER_DETECT_FAILURE', 13);
+define('SMIME_CRL_REVOKED', 14);
+define('SMIME_CRL_UNAVAILABLE', 15);
+define('SMIME_WEAK_RSA', 16);
+define('SMIME_KEY_USAGE_MISMATCH', 17);
+define('SMIME_EFAIL_CBC_WARNING', 18);
+define('SMIME_SIGNING_TIME_SKEW', 19);
 
 // OpenSSL Error Constants
 // openssl_error_string() returns error codes when an operation fails, since we return custom error strings
@@ -50,9 +59,24 @@ class Pluginsmime extends Plugin {
 	private $openssl_error = "";
 
 	/**
-	 * Cipher to use.
+	 * Cipher name (string). Default from PLUGIN_SMIME_CIPHER_NAME.
 	 */
-	private $cipher = PLUGIN_SMIME_CIPHER;
+	private string $cipher;
+
+	/**
+	 * Digest algorithm name. Default from PLUGIN_SMIME_DIGEST_ALG.
+	 */
+	private string $digest;
+
+	/**
+	 * Whether cipher/digest were overridden by per-message selection.
+	 */
+	private bool $hasMessageOverride = false;
+
+	/**
+	 * CMS operations wrapper.
+	 */
+	private CmsOperations $cms;
 
 	/**
 	 * Called to initialize the plugin and register for hooks.
@@ -67,7 +91,30 @@ class Pluginsmime extends Plugin {
 		$this->registerHook('server.module.createmailitemmodule.beforesend');
 		$this->registerHook('server.index.load.custom');
 
-		// cipher is set from PLUGIN_SMIME_CIPHER (config.php)
+		$this->cms = new CmsOperations();
+		$this->cipher = $this->resolveCipher();
+		$this->digest = defined('PLUGIN_SMIME_DIGEST_ALG') ? PLUGIN_SMIME_DIGEST_ALG : 'sha256';
+	}
+
+	/**
+	 * Resolve the cipher to use.
+	 * Prefers PLUGIN_SMIME_CIPHER_NAME (string), falls back to PLUGIN_SMIME_CIPHER (integer).
+	 */
+	private function resolveCipher(): string {
+		if (defined('PLUGIN_SMIME_CIPHER_NAME')) {
+			$name = PLUGIN_SMIME_CIPHER_NAME;
+			// Validate GCM availability
+			if ($this->cms->isGcmCipher($name) && !$this->cms->supportsAesGcm()) {
+				error_log("[smime] AES-GCM cipher '{$name}' not available, falling back to aes-256-cbc");
+
+				return 'aes-256-cbc';
+			}
+
+			return $name;
+		}
+
+		// Map legacy integer constant to string
+		return $this->cms->normalizeCipher(PLUGIN_SMIME_CIPHER);
 	}
 
 	/**
@@ -152,6 +199,24 @@ class Pluginsmime extends Plugin {
 	 * @param array $data Reference to the data of the triggered hook
 	 */
 	public function onCertificateCheck($data) {
+		// Extract per-message algorithm preferences before any early return.
+		// These are set by the frontend when the user selects from the dropdown.
+		$props = $data['action']['props'] ?? [];
+		if (!empty($props['smime_digest']) && is_string($props['smime_digest'])) {
+			$allowed = ['sha256', 'sha384', 'sha512'];
+			if (in_array($props['smime_digest'], $allowed, true)) {
+				$this->digest = $props['smime_digest'];
+				$this->hasMessageOverride = true;
+			}
+		}
+		if (!empty($props['smime_cipher']) && is_string($props['smime_cipher'])) {
+			$allowed = ['aes-256-gcm', 'aes-128-gcm', 'aes-256-cbc', 'aes-128-cbc'];
+			if (in_array($props['smime_cipher'], $allowed, true)) {
+				$this->cipher = $props['smime_cipher'];
+				$this->hasMessageOverride = true;
+			}
+		}
+
 		$entryid = $data['entryid'];
 		// FIXME: unittests, save trigger will pass $entryid is 0 (which will open the root folder and not the message we want)
 		if ($entryid === false) {
@@ -220,6 +285,12 @@ class Pluginsmime extends Plugin {
 		$tmpOutCert = $this->createTempFile('smime_out_');
 
 		file_put_contents($tmpMessageFile, $eml);
+
+		// Extract algorithm details for display in the frontend
+		$algos = $this->extractCmsAlgorithms($tmpMessageFile);
+		if (!empty($algos)) {
+			$this->message['algorithms'] = $algos;
+		}
 
 		[$fromGAB, $availableCerts] = $this->collectGabCertificate($userProps);
 
@@ -378,7 +449,7 @@ class Pluginsmime extends Plugin {
 
 			file_put_contents($tmpUserCert, $cert . $intermediatesPem);
 			$this->clear_openssl_error();
-			$signedOk = openssl_pkcs7_verify($messageFile, PKCS7_NOINTERN, $outCertFile, $caBundle, $tmpUserCert);
+			$signedOk = $this->cms->verify($messageFile, PKCS7_NOINTERN, $outCertFile, $caBundle, $tmpUserCert);
 			$opensslError = $this->extract_openssl_error();
 			$this->validateSignedMessage($signedOk, $opensslError);
 
@@ -429,7 +500,7 @@ class Pluginsmime extends Plugin {
 	private function verifyUsingMessageCertificate($messageFile, $outCertFile) {
 		$caBundle = explode(';', PLUGIN_SMIME_CACERTS);
 		$this->clear_openssl_error();
-		$signedOk = openssl_pkcs7_verify($messageFile, 0, $outCertFile, $caBundle);
+		$signedOk = $this->cms->verify($messageFile, 0, $outCertFile, $caBundle);
 		$opensslError = $this->extract_openssl_error();
 		$this->validateSignedMessage($signedOk, $opensslError);
 
@@ -500,6 +571,23 @@ class Pluginsmime extends Plugin {
 		return tempnam(sys_get_temp_dir(), $prefix);
 	}
 
+	/**
+	 * Detect if raw DER data is an AuthEnvelopedData structure (AES-GCM).
+	 *
+	 * AuthEnvelopedData OID: 1.2.840.113549.1.9.16.1.23
+	 * DER encoding of this OID: 06 0B 2A 86 48 86 F7 0D 01 09 10 01 17
+	 *
+	 * @param string $derData raw DER binary
+	 *
+	 * @return bool true if AuthEnvelopedData
+	 */
+	private function isAuthEnvelopedData(string $derData): bool {
+		// AuthEnvelopedData OID in DER: 2a 86 48 86 f7 0d 01 09 10 01 17
+		$authEnvOid = "\x06\x0B\x2A\x86\x48\x86\xF7\x0D\x01\x09\x10\x01\x17";
+
+		return str_contains($derData, $authEnvOid);
+	}
+
 	public function join_xph(&$prop, $msg) {
 		$a = mapi_getprops($msg, [PR_TRANSPORT_MESSAGE_HEADERS]);
 		$a = $a === false ? "" : ($a[PR_TRANSPORT_MESSAGE_HEADERS] ?? "");
@@ -525,13 +613,22 @@ class Pluginsmime extends Plugin {
 		$pass = $encryptionStore->get('smime');
 
 		$tmpFile = $this->createTempFile('smime_enc_');
-		// Write mime header. Because it's not provided in the attachment, otherwise openssl won't parse it
+		// Write mime header. Because it's not provided in the attachment, otherwise openssl won't parse it.
+		// Detect AuthEnvelopedData (AES-GCM) by checking OID in raw DER data.
+		$isAuthEnveloped = $this->isAuthEnvelopedData($data['data']);
+		$smimeType = $isAuthEnveloped ? 'authEnveloped-data' : 'enveloped-data';
 		$fp = fopen($tmpFile, 'w');
-		fwrite($fp, "Content-Type: application/pkcs7-mime; name=\"smime.p7m\"; smime-type=enveloped-data\n");
+		fwrite($fp, "Content-Type: application/pkcs7-mime; name=\"smime.p7m\"; smime-type={$smimeType}\n");
 		fwrite($fp, "Content-Transfer-Encoding: base64\nContent-Disposition: attachment; filename=\"smime.p7m\"\n");
 		fwrite($fp, "Content-Description: S/MIME Encrypted Message\n\n");
 		fwrite($fp, chunk_split(base64_encode((string) $data['data']), 72) . "\n");
 		fclose($fp);
+
+		// Extract algorithm details for display in the frontend
+		$algos = $this->extractCmsAlgorithms($tmpFile);
+		if (!empty($algos)) {
+			$this->message['algorithms'] = $algos;
+		}
 
 		// Detect opaque-signed messages (signed-data) arriving through
 		// the encrypted hook.  Both opaque-signed and encrypted use the
@@ -539,7 +636,7 @@ class Pluginsmime extends Plugin {
 		// be processed by openssl_pkcs7_verify.
 		$opaqueMsg = $this->createTempFile('smime_opaque_');
 		$opaqueCert = $this->createTempFile('smime_opcert_');
-		$isOpaqueSigned = openssl_pkcs7_verify($tmpFile, PKCS7_NOVERIFY, $opaqueCert, [], $opaqueCert, $opaqueMsg);
+		$isOpaqueSigned = $this->cms->verify($tmpFile, PKCS7_NOVERIFY, $opaqueCert, [], $opaqueCert, $opaqueMsg);
 		$opaqueContent = ($isOpaqueSigned === true) ? file_get_contents($opaqueMsg) : '';
 		$this->cleanupTempFiles([$opaqueMsg, $opaqueCert]);
 
@@ -574,7 +671,7 @@ class Pluginsmime extends Plugin {
 			if (!isset($certs['cert']) && !empty($certs)) {
 				foreach ($certs as $cert) {
 					$this->clear_openssl_error();
-					$decryptStatus = openssl_pkcs7_decrypt($tmpFile, $tmpDecrypted, $cert['cert'], [$cert['pkey'], $pass]);
+					$decryptStatus = $this->cms->decrypt($tmpFile, $tmpDecrypted, $cert['cert'], [$cert['pkey'], $pass]);
 					if ($decryptStatus !== false) {
 						break;
 					}
@@ -582,7 +679,7 @@ class Pluginsmime extends Plugin {
 			}
 			elseif (isset($certs['cert'])) {
 				$this->clear_openssl_error();
-				$decryptStatus = openssl_pkcs7_decrypt($tmpFile, $tmpDecrypted, $certs['cert'], [$certs['pkey'], $pass]);
+				$decryptStatus = $this->cms->decrypt($tmpFile, $tmpDecrypted, $certs['cert'], [$certs['pkey'], $pass]);
 			}
 
 			$ossl_error = $this->extract_openssl_error();
@@ -601,8 +698,8 @@ class Pluginsmime extends Plugin {
 				$signedEml = $content;
 				$olcert = $this->createTempFile('smime_olcert_');
 				$olmsg = $this->createTempFile('smime_olmsg_');
-				openssl_pkcs7_verify($tmpDecrypted, PKCS7_NOVERIFY, $olcert);
-				openssl_pkcs7_verify($tmpDecrypted, PKCS7_NOVERIFY, $olcert, [], $olcert, $olmsg);
+				$this->cms->verify($tmpDecrypted, PKCS7_NOVERIFY, $olcert);
+				$this->cms->verify($tmpDecrypted, PKCS7_NOVERIFY, $olcert, [], $olcert, $olmsg);
 				$content = file_get_contents($olmsg);
 				if ($content === false) {
 					$content = '';
@@ -631,6 +728,10 @@ class Pluginsmime extends Plugin {
 			elseif ($decryptStatus) {
 				$this->message['info'] = SMIME_DECRYPT_SUCCESS;
 				$this->message['success'] = SMIME_STATUS_SUCCESS;
+				// EFAIL mitigation: warn when CBC-mode encryption was used
+				if (!$isAuthEnveloped) {
+					$this->message['efail_warning'] = true;
+				}
 			}
 			elseif ($ossl_error === OPENSSL_RECIPIENT_CERTIFICATE_MISMATCH) {
 				error_log("[smime] Error when decrypting email, openssl error: " . print_r($this->openssl_error, true));
@@ -645,7 +746,7 @@ class Pluginsmime extends Plugin {
 			// fallback and handles the encrypted-without-passphrase
 			// case ("unlock cert").
 			$msg = $this->createTempFile('smime_fallback_');
-			$ret = openssl_pkcs7_verify($tmpFile, PKCS7_NOVERIFY, null, [], null, $msg);
+			$ret = $this->cms->verify($tmpFile, PKCS7_NOVERIFY, null, [], null, $msg);
 			$content = file_get_contents($msg);
 			$eml = file_get_contents($tmpFile);
 			$this->cleanupTempFiles([$tmpFile, $msg]);
@@ -828,6 +929,21 @@ class Pluginsmime extends Plugin {
 		    !class_match_prefix($messageClass, "IPM.Note.SMIME"))
 			return;
 
+		// Apply user settings as fallback when no per-message override was set
+		// by onCertificateCheck (e.g. for sign-only messages).
+		if (!$this->hasMessageOverride && isset($GLOBALS['settings'])) {
+			$userDigest = $GLOBALS['settings']->get('zarafa/v1/plugins/smime/default_digest');
+			$userCipher = $GLOBALS['settings']->get('zarafa/v1/plugins/smime/default_cipher');
+			$allowedDigests = ['sha256', 'sha384', 'sha512'];
+			$allowedCiphers = ['aes-256-gcm', 'aes-128-gcm', 'aes-256-cbc', 'aes-128-cbc'];
+			if ($userDigest && in_array($userDigest, $allowedDigests, true)) {
+				$this->digest = $userDigest;
+			}
+			if ($userCipher && in_array($userCipher, $allowedCiphers, true)) {
+				$this->cipher = $userCipher;
+			}
+		}
+
 		// FIXME: for now return when we are going to sign but we don't have the passphrase set
 		// This should never happen sign
 		$encryptionStore = EncryptionStore::getInstance();
@@ -954,14 +1070,14 @@ class Pluginsmime extends Plugin {
 		if (isset($certs['extracerts'])) {
 			$tmpFile = $this->createTempFile('smime_xtra_');
 			file_put_contents($tmpFile, implode('', $certs['extracerts']));
-			$ok = openssl_pkcs7_sign($infile, $outfile, $certs['cert'], [$certs['pkey'], ''], [], $flags, $tmpFile);
+			$ok = $this->cms->sign($infile, $outfile, $certs['cert'], [$certs['pkey'], ''], [], $flags, $tmpFile, $this->digest);
 			if (!$ok) {
 				Log::Write(LOGLEVEL_ERROR, sprintf("[smime] Unable to sign message with intermediate certificates, openssl error: '%s'", @openssl_error_string()));
 			}
 			$this->cleanupTempFiles([$tmpFile]);
 		}
 		else {
-			$ok = openssl_pkcs7_sign($infile, $outfile, $certs['cert'], [$certs['pkey'], ''], [], $flags);
+			$ok = $this->cms->sign($infile, $outfile, $certs['cert'], [$certs['pkey'], ''], [], $flags, null, $this->digest);
 			if (!$ok) {
 				Log::Write(LOGLEVEL_ERROR, sprintf("[smime] Unable to sign message, openssl error: '%s'", @openssl_error_string()));
 			}
@@ -1000,7 +1116,7 @@ class Pluginsmime extends Plugin {
 			array_push($publicCerts, $cert);
 		}
 
-		$ok = openssl_pkcs7_encrypt($infile, $outfile, $publicCerts, [], 0, $this->cipher);
+		$ok = $this->cms->encrypt($infile, $outfile, $publicCerts, [], 0, $this->cipher);
 		if (!$ok) {
 			error_log("[smime] unable to encrypt message, openssl error: " . print_r(@openssl_error_string(), true));
 			Log::Write(LOGLEVEL_ERROR, sprintf("[smime] unable to encrypt message, openssl error: '%s'", @openssl_error_string()));
@@ -1223,12 +1339,12 @@ class Pluginsmime extends Plugin {
 		$certfile = $this->createTempFile('smime_cacert_');
 		$outfile = $this->createTempFile('smime_caout_');
 		$p7bfile = $this->createTempFile('smime_p7b_');
-		openssl_pkcs7_verify($emlfile, PKCS7_NOVERIFY, $certfile);
-		openssl_pkcs7_verify($emlfile, PKCS7_NOVERIFY, $certfile, [], $certfile, $outfile, $p7bfile);
+		$this->cms->verify($emlfile, PKCS7_NOVERIFY, $certfile);
+		$this->cms->verify($emlfile, PKCS7_NOVERIFY, $certfile, [], $certfile, $outfile, $p7bfile);
 
 		$p7b = file_get_contents($p7bfile);
 		if ($p7b !== false) {
-			openssl_pkcs7_read($p7b, $cas);
+			$this->cms->read($p7b, $cas);
 		}
 		$this->cleanupTempFiles([$certfile, $outfile, $p7bfile]);
 
@@ -1257,9 +1373,21 @@ class Pluginsmime extends Plugin {
 			$issued_by .= $key . '=' . $certData['issuer'][$key] . "\n";
 		}
 
+		// Get key type metadata for storage
+		$keyTypeJson = '';
+		if ($type === 'public' || is_string($cert)) {
+			$keyInfo = getKeyTypeInfo($cert);
+			$purpose = getCertPurpose($cert);
+			$keyTypeJson = json_encode([
+				'type' => $keyInfo['type'],
+				'bits' => $keyInfo['bits'],
+				'curve' => $keyInfo['curve'],
+				'purpose' => $purpose,
+			]);
+		}
+
 		$root = mapi_msgstore_openentry($this->getStore());
 		$assocMessage = mapi_folder_createmessage($root, MAPI_ASSOCIATED);
-		// TODO: write these properties down.
 		mapi_setprops($assocMessage, [
 			PR_SUBJECT => $certEmail,
 			PR_MESSAGE_CLASS => $type === 'public' ? 'WebApp.Security.Public' : 'WebApp.Security.Private',
@@ -1267,9 +1395,9 @@ class Pluginsmime extends Plugin {
 			PR_CLIENT_SUBMIT_TIME => $certData['validFrom_time_t'],
 			PR_SENDER_NAME => $certData['serialNumber'], // serial
 			PR_SENDER_EMAIL_ADDRESS => $issued_by, // Issuer To
-			PR_SUBJECT_PREFIX => '',
-			PR_RECEIVED_BY_NAME => $this->fingerprint_cert($cert, 'sha1'), // SHA1 Fingerprint
-			PR_INTERNET_MESSAGE_ID => $this->fingerprint_cert($cert), // MD5 FingerPrint
+			PR_SUBJECT_PREFIX => $keyTypeJson, // Key type metadata (JSON)
+			PR_RECEIVED_BY_NAME => $this->fingerprint_cert($cert, 'sha1'), // SHA-1 Fingerprint
+			PR_INTERNET_MESSAGE_ID => $this->fingerprint_cert($cert, 'sha256'), // SHA-256 Fingerprint (primary)
 		]);
 		// Save attachment
 		$msgBody = base64_encode($cert);
@@ -1283,24 +1411,230 @@ class Pluginsmime extends Plugin {
 	/**
 	 * Function which returns the fingerprint (hash) of the certificate.
 	 *
-	 * @param string $hash optional hash algorithm
-	 * @param mixed  $body
+	 * @param string $body PEM certificate body
+	 * @param string $hash hash algorithm ('sha256', 'sha1', 'md5')
+	 *
+	 * @return string formatted fingerprint
 	 */
-	public function fingerprint_cert($body, $hash = 'md5') {
-		// TODO: Note for PHP > 5.6 we can use openssl_x509_fingerprint
+	public function fingerprint_cert($body, $hash = 'sha256') {
+		// Prefer openssl_x509_fingerprint() when available
+		if (function_exists('openssl_x509_fingerprint')) {
+			$fp = openssl_x509_fingerprint($body, $hash);
+			if ($fp !== false) {
+				return strtoupper(implode(':', str_split($fp, 2)));
+			}
+		}
+
 		$body = str_replace('-----BEGIN CERTIFICATE-----', '', $body);
 		$body = str_replace('-----END CERTIFICATE-----', '', $body);
 		$body = base64_decode($body);
-
-		if ($hash === 'sha1') {
-			$fingerprint = sha1($body);
-		}
-		else {
-			$fingerprint = md5($body);
-		}
+		$fingerprint = hash($hash, $body);
 
 		// Format 1000AB as 10:00:AB
 		return strtoupper(implode(':', str_split($fingerprint, 2)));
+	}
+
+	/**
+	 * Extract algorithm details from a CMS/PKCS7 message using openssl cms -cmsout -print.
+	 *
+	 * Returns an associative array with the algorithms used in the message:
+	 * - digest: hash algorithm for signing (e.g. "sha256", "sha384", "sha512")
+	 * - signature: signature algorithm (e.g. "rsaEncryption", "rsaPSS", "ecdsa-with-SHA256")
+	 * - encryption: content encryption cipher (e.g. "aes-256-cbc", "aes-256-gcm")
+	 * - key_transport: key encryption algorithm (e.g. "rsaEncryption", "rsaesOaep")
+	 *
+	 * @param string $emlfile path to the MIME message file
+	 *
+	 * @return array algorithm details (keys may be absent if not found)
+	 */
+	public function extractCmsAlgorithms(string $emlfile): array {
+		$result = [];
+
+		if (!$this->cms->hasCmsCli()) {
+			return $result;
+		}
+
+		$cmd = sprintf(
+			'%s cms -cmsout -print -in %s -inform SMIME 2>/dev/null',
+			escapeshellarg($this->cms->getOpensslBin()),
+			escapeshellarg($emlfile)
+		);
+
+		$output = @shell_exec($cmd);
+		if (empty($output)) {
+			return $result;
+		}
+
+		// Digest algorithm from signer info (signed messages)
+		// Matches: "digestAlgorithm:" or "digest_alg:" followed by "algorithm: sha512 (...)"
+		if (preg_match('/digestAlgorithm:\s*\n\s*algorithm:\s*(\S+)/s', $output, $m) ||
+			preg_match('/digest_alg:\s*\n\s*algorithm:\s*(\S+)/s', $output, $m)) {
+			$result['digest'] = strtolower(preg_replace('/\s*\(.*\)/', '', $m[1]));
+		}
+
+		// Signature algorithm from signer info
+		// Matches: "signatureAlgorithm:" or "sign_alg:"
+		if (preg_match('/signatureAlgorithm:\s*\n\s*algorithm:\s*(\S+)/s', $output, $m) ||
+			preg_match('/sign_alg:\s*\n\s*algorithm:\s*(\S+)/s', $output, $m)) {
+			$result['signature'] = preg_replace('/\s*\(.*\)/', '', $m[1]);
+		}
+
+		// Content encryption algorithm (encrypted messages)
+		// Matches: "contentEncryptionAlgorithm:" or "enc_data:" section
+		if (preg_match('/contentEncryptionAlgorithm:\s*\n\s*algorithm:\s*(\S+)/s', $output, $m) ||
+			preg_match('/enc_data:.*?algorithm:\s*\n\s*algorithm:\s*(\S+)/s', $output, $m)) {
+			$result['encryption'] = strtolower(preg_replace('/\s*\(.*\)/', '', $m[1]));
+		}
+
+		// Key transport algorithm (from recipientInfos)
+		// Matches: "keyEncryptionAlgorithm:" or "key_enc_alg:"
+		if (preg_match('/keyEncryptionAlgorithm:\s*\n\s*algorithm:\s*(\S+)/s', $output, $m) ||
+			preg_match('/key_enc_alg:\s*\n\s*algorithm:\s*(\S+)/s', $output, $m)) {
+			$result['key_transport'] = preg_replace('/\s*\(.*\)/', '', $m[1]);
+		}
+
+		return $result;
+	}
+
+	/**
+	 * Verify signing-time attribute from a signed message.
+	 *
+	 * Checks that the signing-time (if present) is within acceptable
+	 * clock skew of the current time.  Per RFC 8551, signing-time
+	 * SHOULD be checked.
+	 *
+	 * @param string $emlfile path to signed message file
+	 * @param int    $maxSkew maximum allowed clock skew in seconds (default 5 min)
+	 *
+	 * @return null|bool true = valid, false = excessive skew, null = no signing-time present
+	 */
+	public function verifySigningTime(string $emlfile, int $maxSkew = 300): ?bool {
+		if (!$this->cms->hasCmsCli()) {
+			return null;
+		}
+
+		// Use openssl cms -cmsout to dump the CMS structure
+		$cmd = sprintf(
+			'%s cms -cmsout -print -in %s -inform SMIME 2>/dev/null',
+			escapeshellarg($this->cms->getOpensslBin()),
+			escapeshellarg($emlfile)
+		);
+
+		$output = @shell_exec($cmd);
+		if (empty($output)) {
+			return null;
+		}
+
+		// Look for signingTime attribute in the output
+		if (preg_match('/signingTime.*?:\s*([A-Z][a-z]{2}\s+\d{1,2}\s+\d{2}:\d{2}:\d{2}\s+\d{4}\s+\w+)/s', $output, $matches)) {
+			$signingTimeStr = trim($matches[1]);
+			$signingTime = @strtotime($signingTimeStr);
+			if ($signingTime === false) {
+				return null;
+			}
+
+			$now = time();
+			$skew = abs($now - $signingTime);
+
+			if ($skew > $maxSkew) {
+				error_log(sprintf("[smime] Signing-time skew of %d seconds exceeds maximum of %d", $skew, $maxSkew));
+
+				return false;
+			}
+
+			return true;
+		}
+
+		return null;
+	}
+
+	/**
+	 * Triple-wrap a message: sign → encrypt → sign (RFC 2634 Section 3.3).
+	 *
+	 * Produces a signed envelope where the inner content is encrypted,
+	 * and that encrypted content is itself signed.
+	 *
+	 * @param string $infile       original plain-text input file
+	 * @param string $outfile      output file for the triple-wrapped message
+	 * @param object $message      MAPI message object
+	 * @param object $signedAttach attachment for the signed message
+	 * @param array  $smimeProps   MAPI properties for the attachment
+	 *
+	 * @return bool true on success
+	 */
+	public function tripleWrap(&$infile, &$outfile, &$message, &$signedAttach, $smimeProps) {
+		$tmpSignedInner = $this->createTempFile('smime_tw_s1_');
+		$tmpEncrypted = $this->createTempFile('smime_tw_enc_');
+
+		// Step 1: Inner sign
+		$ok = $this->sign($infile, $tmpSignedInner, $message, $signedAttach, $smimeProps);
+		if (!$ok) {
+			$this->cleanupTempFiles([$tmpSignedInner, $tmpEncrypted]);
+
+			return false;
+		}
+
+		// Step 2: Encrypt the signed message
+		$ok = $this->encrypt($tmpSignedInner, $tmpEncrypted, $message, $signedAttach, $smimeProps);
+		if (!$ok) {
+			$this->cleanupTempFiles([$tmpSignedInner, $tmpEncrypted]);
+
+			return false;
+		}
+
+		// Step 3: Outer sign over the encrypted content
+		$ok = $this->sign($tmpEncrypted, $outfile, $message, $signedAttach, $smimeProps);
+
+		$this->cleanupTempFiles([$tmpSignedInner, $tmpEncrypted]);
+
+		return $ok;
+	}
+
+	/**
+	 * Generate a certs-only message for certificate exchange.
+	 *
+	 * Produces an application/pkcs7-mime; smime-type=certs-only message
+	 * per RFC 8551 Section 3.2.2.
+	 *
+	 * @param array $certPems list of PEM certificates to include
+	 *
+	 * @return null|string MIME message content, or null on failure
+	 */
+	public function generateCertsOnlyMessage(array $certPems): ?string {
+		$tmpOut = $this->createTempFile('smime_certsonly_');
+		$ok = $this->cms->generateCertsOnly($certPems, $tmpOut);
+
+		if (!$ok) {
+			$this->cleanupTempFiles([$tmpOut]);
+
+			return null;
+		}
+
+		$p7b = file_get_contents($tmpOut);
+		$this->cleanupTempFiles([$tmpOut]);
+
+		if ($p7b === false || empty($p7b)) {
+			return null;
+		}
+
+		// Build MIME message
+		$mime = "Content-Type: application/pkcs7-mime; smime-type=certs-only; name=\"smime.p7c\"\r\n";
+		$mime .= "Content-Transfer-Encoding: base64\r\n";
+		$mime .= "Content-Disposition: attachment; filename=\"smime.p7c\"\r\n";
+		$mime .= "\r\n";
+
+		// Extract DER from PEM, re-encode as base64
+		$derStart = strpos($p7b, '-----BEGIN PKCS7-----');
+		if ($derStart !== false) {
+			$p7b = substr($p7b, $derStart + strlen('-----BEGIN PKCS7-----'));
+			$p7b = substr($p7b, 0, strpos($p7b, '-----END PKCS7-----'));
+			$mime .= chunk_split(trim($p7b), 76, "\r\n");
+		}
+		else {
+			$mime .= chunk_split(base64_encode($p7b), 76, "\r\n");
+		}
+
+		return $mime;
 	}
 
 	/**
@@ -1387,6 +1721,8 @@ class Pluginsmime extends Plugin {
 						'smime' => [
 							'enable' => defined('PLUGIN_SMIME_USER_DEFAULT_ENABLE_SMIME') && PLUGIN_SMIME_USER_DEFAULT_ENABLE_SMIME,
 							'passphrase_cache' => defined('PLUGIN_SMIME_PASSPHRASE_REMEMBER_BROWSER') && PLUGIN_SMIME_PASSPHRASE_REMEMBER_BROWSER,
+							'default_cipher' => 'aes-256-gcm',
+							'default_digest' => 'sha256',
 						],
 					],
 				],

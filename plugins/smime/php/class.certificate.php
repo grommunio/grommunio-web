@@ -230,23 +230,115 @@ class Certificate {
 	}
 
 	/**
+	 * Get key type information.
+	 *
+	 * @return array ['type' => string, 'bits' => int, 'curve' => string|null]
+	 */
+	public function keyType(): array {
+		return getKeyTypeInfo($this->cert);
+	}
+
+	/**
+	 * Get the number of bits in the key.
+	 *
+	 * @return int key size in bits
+	 */
+	public function keyBits(): int {
+		$info = $this->keyType();
+
+		return $info['bits'];
+	}
+
+	/**
+	 * Get the EC curve name (if applicable).
+	 *
+	 * @return null|string curve name or null for non-EC keys
+	 */
+	public function curveName(): ?string {
+		$info = $this->keyType();
+
+		return $info['curve'];
+	}
+
+	/**
+	 * Get Key Usage flags.
+	 *
+	 * @return array key usage flags
+	 */
+	public function keyUsage(): array {
+		return getKeyUsage($this->cert);
+	}
+
+	/**
+	 * Get Extended Key Usage.
+	 *
+	 * @return array EKU names
+	 */
+	public function extendedKeyUsage(): array {
+		return getExtendedKeyUsage($this->cert);
+	}
+
+	/**
+	 * Get the Subject Key Identifier.
+	 *
+	 * @return string hex-encoded SKI or empty string
+	 */
+	public function subjectKeyIdentifier(): string {
+		if (!isset($this->data['extensions']['subjectKeyIdentifier'])) {
+			return '';
+		}
+
+		return $this->data['extensions']['subjectKeyIdentifier'];
+	}
+
+	/**
+	 * Get certificate purpose based on Key Usage.
+	 *
+	 * @return string 'sign', 'encrypt', 'both', or 'unknown'
+	 */
+	public function purpose(): string {
+		return getCertPurpose($this->cert);
+	}
+
+	/**
+	 * Get CRL Distribution Point URLs.
+	 *
+	 * @return array list of CRL URLs
+	 */
+	public function crlURLs(): array {
+		if (!isset($this->data['extensions']['crlDistributionPoints'])) {
+			return [];
+		}
+
+		$urls = [];
+		$raw = $this->data['extensions']['crlDistributionPoints'];
+		if (preg_match_all('/URI:(https?:\/\/[^\s,]+)/i', $raw, $matches)) {
+			$urls = $matches[1];
+		}
+
+		return $urls;
+	}
+
+	/**
 	 * The fingerprint (hash) of the certificate body.
 	 *
-	 * @param string hash_algorithm either sha1 or md5
-	 * @param mixed $hash_algorithm
+	 * @param string $hash_algorithm hash algorithm: 'sha256', 'sha1', or 'md5'
 	 *
-	 * @return string the hash of the certificate's body
+	 * @return string the formatted hash of the certificate's DER body
 	 */
-	public function fingerprint($hash_algorithm = "md5") {
+	public function fingerprint($hash_algorithm = "sha256") {
+		// Prefer openssl_x509_fingerprint() when available (PHP 5.6+)
+		if (function_exists('openssl_x509_fingerprint')) {
+			$fp = openssl_x509_fingerprint($this->cert, $hash_algorithm);
+			if ($fp !== false) {
+				return strtoupper(implode(':', str_split($fp, 2)));
+			}
+		}
+
 		$body = str_replace('-----BEGIN CERTIFICATE-----', '', $this->cert);
 		$body = str_replace('-----END CERTIFICATE-----', '', $body);
 		$body = base64_decode($body);
-		if ($hash_algorithm === 'sha1') {
-			$fingerprint = sha1($body);
-		}
-		else {
-			$fingerprint = md5($body);
-		}
+		$fingerprint = hash($hash_algorithm, $body);
 
 		// Format 1000AB as 10:00:AB
 		return strtoupper(implode(':', str_split($fingerprint, 2)));

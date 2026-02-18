@@ -146,13 +146,38 @@ Zarafa.plugins.smime.settings.UploadCertificateWidget = Ext.extend(Zarafa.settin
 	onUpdate : function(store, record)
 	{
 		if(record.get('cert')) {
-			container.getNotifier().notify('info.saved', _('S/MIME Message'), record.get('cert_warning'));
+			var message = record.get('cert_warning');
+			// Show key type information when available
+			var keyType = record.get('cert_key_type');
+			var keyBits = record.get('cert_key_bits');
+			var curveName = record.get('cert_curve_name');
+			var purpose = record.get('cert_purpose');
+			if (keyType) {
+				var keyInfo = keyType;
+				if (keyType === 'EC' && curveName) {
+					keyInfo = keyType + ' ' + curveName;
+				} else if (keyType === 'RSA' && keyBits > 0) {
+					keyInfo = keyType + ' ' + keyBits + ' ' + _('bits');
+				}
+				var purposeLabels = {
+					'sign': _('signing'),
+					'encrypt': _('encryption'),
+					'both': _('signing & encryption')
+				};
+				var purposeText = purposeLabels[purpose] || purpose || '';
+				message += ' (' + keyInfo;
+				if (purposeText) {
+					message += ', ' + purposeText;
+				}
+				message += ')';
+			}
+			container.getNotifier().notify('info.saved', _('S/MIME Message'), message);
 			this.store.load();
 			this.passphrase.reset();
 			this.certificate.setText(this.certificate.defaultValue);
 		} else {
 			container.getNotifier().notify('error.connection', _('S/MIME Message'), record.get('cert_warning'));
-		} 
+		}
 
 	},
 
