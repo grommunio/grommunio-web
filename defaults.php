@@ -674,6 +674,13 @@ if (!defined("DEBUG_PLUGINS")) {
 if (!defined("DEBUG_PLUGINS_DISABLE_CACHE")) {
 	define("DEBUG_PLUGINS_DISABLE_CACHE", false);
 }
+// Disable browser fingerprint validation on every request.
+// Useful for running automated tools like Lighthouse that change
+// the User-Agent or available fonts between requests.
+// WARNING: disabling this weakens session-hijacking protection.
+if (!defined("DISABLE_FINGERPRINT_CHECK")) {
+	define("DISABLE_FINGERPRINT_CHECK", false);
+}
 if (!defined("DEBUG_DUMP_FILE")) {
 	define("DEBUG_DUMP_FILE", "debug.txt");
 }

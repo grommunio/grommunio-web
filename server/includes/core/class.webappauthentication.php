@@ -477,7 +477,7 @@ class WebAppAuthentication {
 
 		// Check if the browser fingerprint is the same as that of the browser that was
 		// used to login in the first place.
-		if ($_SESSION['fingerprint'] !== BrowserFingerprint::getFingerprint()) {
+		if (!DISABLE_FINGERPRINT_CHECK && $_SESSION['fingerprint'] !== BrowserFingerprint::getFingerprint()) {
 			// Something bad has happened. This must be someone who stole a session cookie!!!
 			// We will delete the session and stop the script without any error message
 			WebAppAuthentication::$_phpSession->destroy();
