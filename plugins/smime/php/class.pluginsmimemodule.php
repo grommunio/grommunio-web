@@ -29,10 +29,6 @@ class PluginSmimeModule extends Module {
 	public function execute() {
 		foreach ($this->data as $actionType => $actionData) {
 			try {
-				if (!isset($actionType)) {
-					continue;
-				}
-
 				switch ($actionType) {
 					case 'certificate':
 						$data = $this->verifyCertificate($actionData);
@@ -141,18 +137,24 @@ class PluginSmimeModule extends Module {
 					$status = true;
 					$message = '';
 					$certIdx = $i;
+					break;
 				}
 			}
+		}
+
+		$data = [];
+		if ($certIdx >= 0) {
+			$data = [
+				'validto' => $privateCerts[$certIdx][PR_MESSAGE_DELIVERY_TIME] ?? '',
+				'validFrom' => $privateCerts[$certIdx][PR_CLIENT_SUBMIT_TIME] ?? '',
+				'subject' => $privateCerts[$certIdx][PR_SUBJECT] ?? 'Unknown',
+			];
 		}
 
 		return [
 			'message' => $message,
 			'status' => $status,
-			'data' => [
-				'validto' => $privateCerts[$certIdx][PR_MESSAGE_DELIVERY_TIME] ?? '',
-				'validFrom' => $privateCerts[$certIdx][PR_CLIENT_SUBMIT_TIME] ?? '',
-				'subject' => $privateCerts[$certIdx][PR_SUBJECT] ?? 'Unknown',
-			],
+			'data' => $data,
 		];
 	}
 
@@ -242,7 +244,7 @@ class PluginSmimeModule extends Module {
 	}
 
 	/*
-	 * Changes the passphrase of an already stored certificatem by generating
+	 * Changes the passphrase of an already stored certificate by generating
 	 * a new PKCS12 container.
 	 *
 	 * @param Array $actionData contains the passphrase and new passphrase
