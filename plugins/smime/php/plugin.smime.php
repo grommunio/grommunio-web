@@ -524,7 +524,7 @@ class Pluginsmime extends Plugin {
 		$encryptionStore = EncryptionStore::getInstance();
 		$pass = $encryptionStore->get('smime');
 
-		$tmpFile = tempnam(sys_get_temp_dir(), true);
+		$tmpFile = $this->createTempFile('smime_enc_');
 		// Write mime header. Because it's not provided in the attachment, otherwise openssl won't parse it
 		$fp = fopen($tmpFile, 'w');
 		fwrite($fp, "Content-Type: application/pkcs7-mime; name=\"smime.p7m\"; smime-type=enveloped-data\n");
@@ -567,7 +567,7 @@ class Pluginsmime extends Plugin {
 		if (isset($pass) && !empty($pass)) {
 			$certs = readPrivateCert($this->getStore(), $pass, false);
 			// create random file for saving the encrypted and body message
-			$tmpDecrypted = tempnam(sys_get_temp_dir(), true);
+			$tmpDecrypted = $this->createTempFile('smime_dec_');
 
 			$decryptStatus = false;
 			// If multiple private certs were decrypted with supplied password
@@ -587,6 +587,9 @@ class Pluginsmime extends Plugin {
 
 			$ossl_error = $this->extract_openssl_error();
 			$content = file_get_contents($tmpDecrypted);
+			if ($content === false) {
+				$content = '';
+			}
 			// Handle OL empty body Outlook Signed & Encrypted mails.
 			// The S/MIME plugin has to extract the body from the signed message.
 			// Keep the original decrypted EML for signature verification,
@@ -596,13 +599,15 @@ class Pluginsmime extends Plugin {
 			if (str_contains($content, 'signed-data')) {
 				$this->message['type'] = 'encryptsigned';
 				$signedEml = $content;
-				$olcert = tempnam(sys_get_temp_dir(), true);
-				$olmsg = tempnam(sys_get_temp_dir(), true);
+				$olcert = $this->createTempFile('smime_olcert_');
+				$olmsg = $this->createTempFile('smime_olmsg_');
 				openssl_pkcs7_verify($tmpDecrypted, PKCS7_NOVERIFY, $olcert);
 				openssl_pkcs7_verify($tmpDecrypted, PKCS7_NOVERIFY, $olcert, [], $olcert, $olmsg);
 				$content = file_get_contents($olmsg);
-				unlink($olmsg);
-				unlink($olcert);
+				if ($content === false) {
+					$content = '';
+				}
+				$this->cleanupTempFiles([$olmsg, $olcert]);
 			}
 
 			$copyProps = mapi_getprops($data['message'], [PR_MESSAGE_DELIVERY_TIME, PR_SENDER_ENTRYID, PR_SENT_REPRESENTING_ENTRYID, PR_TRANSPORT_MESSAGE_HEADERS]);
@@ -612,8 +617,7 @@ class Pluginsmime extends Plugin {
 			mapi_setprops($data['message'], $copyProps);
 
 			// remove temporary files
-			unlink($tmpFile);
-			unlink($tmpDecrypted);
+			$this->cleanupTempFiles([$tmpFile, $tmpDecrypted]);
 
 			// mapi_inetmapi_imtomapi removes the PR_MESSAGE_CLASS = 'IPM.Note.SMIME.MultipartSigned'
 			// So we need to check if the message was also signed by looking at the MIME_TAG in the eml
@@ -834,8 +838,9 @@ class Pluginsmime extends Plugin {
 			!$encryptionStore->get('smime')) {
 			return;
 		}
-		// NOTE: setting message class to IPM.Note, so that mapi_inetmapi_imtoinet converts the message to plain email
-		// and doesn't fail when handling the attachments.
+		// Temporarily set IPM.Note so mapi_inetmapi_imtoinet produces
+		// a plain RFC822 stream.  Restore on failure.
+		$origMessageClass = $messageClass;
 		mapi_setprops($message, [PR_MESSAGE_CLASS => 'IPM.Note']);
 		mapi_savechanges($message);
 
@@ -851,8 +856,8 @@ class Pluginsmime extends Plugin {
 		}
 
 		// create temporary files
-		$tmpSendEmail = tempnam(sys_get_temp_dir(), true);
-		$tmpSendSmimeEmail = tempnam(sys_get_temp_dir(), true);
+		$tmpSendEmail = $this->createTempFile('smime_send_');
+		$tmpSendSmimeEmail = $this->createTempFile('smime_out_');
 
 		// Save message stream to a file
 		$stat = mapi_stream_stat($emlMessageStream);
@@ -876,25 +881,37 @@ class Pluginsmime extends Plugin {
 			PR_ATTACHMENT_HIDDEN => true,
 		];
 
+		$tmpExtra = [];
+		$ok = false;
 		// Sign then Encrypt email
 		switch ($messageClass) {
 			case 'IPM.Note.deferSMIME.SignedEncrypt':
 			case 'IPM.Note.SMIME.SignedEncrypt':
-				$tmpFile = tempnam(sys_get_temp_dir(), true);
-				$this->sign($tmpSendEmail, $tmpFile, $message, $signedAttach, $smimeProps);
-				$this->encrypt($tmpFile, $tmpSendSmimeEmail, $message, $signedAttach, $smimeProps);
-				unlink($tmpFile);
+				$tmpFile = $this->createTempFile('smime_se_');
+				$tmpExtra[] = $tmpFile;
+				$ok = $this->sign($tmpSendEmail, $tmpFile, $message, $signedAttach, $smimeProps);
+				if ($ok !== false) {
+					$ok = $this->encrypt($tmpFile, $tmpSendSmimeEmail, $message, $signedAttach, $smimeProps);
+				}
 				break;
 
 			case 'IPM.Note.deferSMIME.MultipartSigned':
 			case 'IPM.Note.SMIME.MultipartSigned':
-				$this->sign($tmpSendEmail, $tmpSendSmimeEmail, $message, $signedAttach, $smimeProps);
+				$ok = $this->sign($tmpSendEmail, $tmpSendSmimeEmail, $message, $signedAttach, $smimeProps);
 				break;
 
 			case 'IPM.Note.deferSMIME':
 			case 'IPM.Note.SMIME':
-				$this->encrypt($tmpSendEmail, $tmpSendSmimeEmail, $message, $signedAttach, $smimeProps);
+				$ok = $this->encrypt($tmpSendEmail, $tmpSendSmimeEmail, $message, $signedAttach, $smimeProps);
 				break;
+		}
+
+		if ($ok === false) {
+			mapi_setprops($message, [PR_MESSAGE_CLASS => $origMessageClass]);
+			mapi_savechanges($message);
+			$this->cleanupTempFiles(array_merge([$tmpSendEmail, $tmpSendSmimeEmail], $tmpExtra));
+
+			return;
 		}
 
 		// Save the signed message as attachment of the send email
@@ -908,9 +925,7 @@ class Pluginsmime extends Plugin {
 
 		mapi_stream_commit($stream);
 
-		// remove tmp files
-		unlink($tmpSendSmimeEmail);
-		unlink($tmpSendEmail);
+		$this->cleanupTempFiles(array_merge([$tmpSendEmail, $tmpSendSmimeEmail], $tmpExtra));
 
 		mapi_savechanges($signedAttach);
 		mapi_savechanges($message);
@@ -924,6 +939,8 @@ class Pluginsmime extends Plugin {
 	 * @param object $message      Mapi Message Object
 	 * @param object $signedAttach
 	 * @param array  $smimeProps
+	 *
+	 * @return bool true on success, false on failure
 	 */
 	public function sign(&$infile, &$outfile, &$message, &$signedAttach, $smimeProps) {
 		// Set mesageclass back to IPM.Note.SMIME.MultipartSigned
@@ -932,18 +949,16 @@ class Pluginsmime extends Plugin {
 
 		// Obtain private certificate
 		$encryptionStore = EncryptionStore::getInstance();
-		// Only the newest one is returned
 		$certs = readPrivateCert($this->getStore(), $encryptionStore->get('smime'));
-		// Retrieve intermediate CA's for verification, if available
 		$flags = PKCS7_DETACHED;
 		if (isset($certs['extracerts'])) {
-			$tmpFile = tempnam(sys_get_temp_dir(), true);
+			$tmpFile = $this->createTempFile('smime_xtra_');
 			file_put_contents($tmpFile, implode('', $certs['extracerts']));
 			$ok = openssl_pkcs7_sign($infile, $outfile, $certs['cert'], [$certs['pkey'], ''], [], $flags, $tmpFile);
 			if (!$ok) {
 				Log::Write(LOGLEVEL_ERROR, sprintf("[smime] Unable to sign message with intermediate certificates, openssl error: '%s'", @openssl_error_string()));
 			}
-			unlink($tmpFile);
+			$this->cleanupTempFiles([$tmpFile]);
 		}
 		else {
 			$ok = openssl_pkcs7_sign($infile, $outfile, $certs['cert'], [$certs['pkey'], ''], [], $flags);
@@ -951,6 +966,8 @@ class Pluginsmime extends Plugin {
 				Log::Write(LOGLEVEL_ERROR, sprintf("[smime] Unable to sign message, openssl error: '%s'", @openssl_error_string()));
 			}
 		}
+
+		return $ok;
 	}
 
 	/**
@@ -961,6 +978,8 @@ class Pluginsmime extends Plugin {
 	 * @param object $message      Mapi Message Object
 	 * @param object $signedAttach
 	 * @param array  $smimeProps
+	 *
+	 * @return bool true on success, false on failure
 	 */
 	public function encrypt(&$infile, &$outfile, &$message, &$signedAttach, $smimeProps) {
 		mapi_setprops($message, [PR_MESSAGE_CLASS => 'IPM.Note.SMIME']);
@@ -988,14 +1007,23 @@ class Pluginsmime extends Plugin {
 		}
 		$tmpEml = file_get_contents($outfile);
 
-		// Grab the base64 data, since MAPI requires it saved as decoded base64 string.
-		// FIXME: we can do better here
-		$matches = explode("\n\n", $tmpEml);
-		$base64 = str_replace("\n", "", $matches[1]);
+		// Extract base64 body after the MIME headers.  The header/body
+		// boundary is a blank line; handle both LF and CRLF.
+		$bodyStart = strpos($tmpEml, "\r\n\r\n");
+		if ($bodyStart !== false) {
+			$bodyStart += 4;
+		}
+		else {
+			$bodyStart = strpos($tmpEml, "\n\n");
+			$bodyStart = ($bodyStart !== false) ? $bodyStart + 2 : 0;
+		}
+		$base64 = str_replace(["\r", "\n"], '', substr($tmpEml, $bodyStart));
 		file_put_contents($outfile, base64_decode($base64));
 
 		// Empty the body
 		mapi_setprops($message, [PR_BODY => ""]);
+
+		return $ok;
 	}
 
 	/**
