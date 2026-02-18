@@ -65,6 +65,8 @@ Zarafa.plugins.smime.SmimeText = function () {
 			// User
 			case 13:
 				return Zarafa.plugins.smime.SmimeText.createMessage(_('Sender is removed from the server.'));
+			default:
+				return '';
 			}
 		},
 
@@ -105,6 +107,8 @@ Zarafa.plugins.smime.SmimeText = function () {
 				return _('Unable to decrypt this message. Certificate does not match');
 			case 13:
 				return _('Verification failed. User is removed from the server.');
+			default:
+				return '';
 			}
 		},
 
@@ -124,6 +128,8 @@ Zarafa.plugins.smime.SmimeText = function () {
 				return 'smime-info-fatal';
 			case 3:
 				return 'smime-info-info';
+			default:
+				return 'smime-info-info';
 			}
 		},
 
@@ -141,6 +147,8 @@ Zarafa.plugins.smime.SmimeText = function () {
 				return 'warning';
 			case 2:
 				return 'error';
+			default:
+				return '';
 			}
 		}
 	};

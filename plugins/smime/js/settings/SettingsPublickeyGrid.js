@@ -190,12 +190,13 @@ Zarafa.plugins.smime.settings.PublickeyGrid = Ext.extend(Ext.grid.GridPanel, {
 			return;
 		// TODO: use ExtJS form?
 		
-		var text = "Email: " + certificate.get('email') + "</br>" +
-			"Serial: " + certificate.get('serial') + "</br>" +
-			"Issued by: " + certificate.get('issued_by') + "</br>" +
-			"Issued to: " + certificate.get('issued_to') + "</br>" +
-			"SHA1 Fingerprint: " + certificate.get('fingerprint_sha1') + "</br>" +
-			"MD5 Fingerprint: " + certificate.get('fingerprint_md5') + "</br>";
+		var enc = Ext.util.Format.htmlEncode;
+		var text = "Email: " + enc(certificate.get('email')) + "<br>" +
+			"Serial: " + enc(certificate.get('serial')) + "<br>" +
+			"Issued by: " + enc(certificate.get('issued_by')) + "<br>" +
+			"Issued to: " + enc(certificate.get('issued_to')) + "<br>" +
+			"SHA1 Fingerprint: " + enc(certificate.get('fingerprint_sha1')) + "<br>" +
+			"MD5 Fingerprint: " + enc(certificate.get('fingerprint_md5')) + "<br>";
 		Ext.Msg.alert(_('Certificate details'), text);
 	}
 

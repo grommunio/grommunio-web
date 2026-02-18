@@ -491,13 +491,13 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 			sortable : false,
 			renderer :  function(value, p, record) {
 				var messageClass = record.get('message_class');
-				if (messageClass == 'IPM.Note.SMIME' ||
-				    messageClass == 'IPM.Note.deferSMIME' ||
-				    messageClass == 'IPM.Note.SMIME.SignedEncrypt' ||
-				    messageClass == 'IPM.Note.deferSMIME.SignedEncrypt') {
+				if (messageClass === 'IPM.Note.SMIME' ||
+				    messageClass === 'IPM.Note.deferSMIME' ||
+				    messageClass === 'IPM.Note.SMIME.SignedEncrypt' ||
+				    messageClass === 'IPM.Note.deferSMIME.SignedEncrypt') {
 					p.css = 'icon_smime_encrypt';
-				} else if (messageClass == 'IPM.Note.SMIME.MultipartSigned' ||
-				    messageClass == 'IPM.Note.deferSMIME.MultipartSigned') {
+				} else if (messageClass === 'IPM.Note.SMIME.MultipartSigned' ||
+				    messageClass === 'IPM.Note.deferSMIME.MultipartSigned') {
 					p.css = 'icon_smime_sign';
 				}
 				return '';
@@ -518,13 +518,13 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 	showMessageClass : function(insertionPoint, record) {
 		var messageClass = record.get('message_class');
 		var icon = "";
-		if (messageClass == 'IPM.Note.SMIME' ||
-		    messageClass == 'IPM.Note.deferSMIME' ||
-		    messageClass == 'IPM.Note.SMIME.SignedEncrypt' ||
-		    messageClass == 'IPM.Note.deferSMIME.SignedEncrypt') {
+		if (messageClass === 'IPM.Note.SMIME' ||
+		    messageClass === 'IPM.Note.deferSMIME' ||
+		    messageClass === 'IPM.Note.SMIME.SignedEncrypt' ||
+		    messageClass === 'IPM.Note.deferSMIME.SignedEncrypt') {
 			icon = 'icon_smime_encrypt';
-		} else if (messageClass == 'IPM.Note.SMIME.MultipartSigned' ||
-		    messageClass == 'IPM.Note.deferSMIME.MultipartSigned') {
+		} else if (messageClass === 'IPM.Note.SMIME.MultipartSigned' ||
+		    messageClass === 'IPM.Note.deferSMIME.MultipartSigned') {
 			icon = 'icon_smime_sign';
 		}
 
