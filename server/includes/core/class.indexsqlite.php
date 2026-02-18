@@ -264,6 +264,29 @@ class IndexSqlite extends SQLite3 {
 		}
 
 		$sql_string .= "messages MATCH '" . $ftsQuery . "'";
+
+		// Push filters into SQL so LIMIT applies to already-filtered rows.
+		// PHP-side filtering in try_insert_content() is kept as a safety net.
+		if ($date_start !== null) {
+			$sql_string .= " AND c.date >= " . intval($date_start);
+		}
+		if ($date_end !== null) {
+			$sql_string .= " AND c.date <= " . intval($date_end);
+		}
+		if ($unread) {
+			$sql_string .= " AND (c.readflag IS NULL OR c.readflag = 0)";
+		}
+		if ($has_attachments) {
+			$sql_string .= " AND c.attach_indexed = 1";
+		}
+		if (is_array($message_classes) && $message_classes !== []) {
+			$classConditions = [];
+			foreach ($message_classes as $mc) {
+				$classConditions[] = "c.message_class LIKE '" . SQLite3::escapeString((string) $mc) . "%'";
+			}
+			$sql_string .= " AND (" . implode(" OR ", $classConditions) . ")";
+		}
+
 		$this->count = 0;
 		$sql_string .= " ORDER BY c.date DESC LIMIT " . MAX_FTS_RESULT_ITEMS;
 		$this->logDebug('Executing SQLite FTS query', ['sql' => $sql_string]);
