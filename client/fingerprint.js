@@ -1,20 +1,3 @@
-navigator.sayswho = (function(){
-	var ua= navigator.userAgent, tem,
-	M= ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
-	if(/trident/i.test(M[1])){
-		tem=  /\brv[ :]+(\d+)/g.exec(ua) || [];
-		return 'MSIE '+(tem[1] || '');
-    }
-	if(M[1]=== 'Chrome'){
-		tem= ua.match(/\b(OPR|Edge)\/(\d+)/);
-		if(tem!= null) return tem.slice(1).join(' ').replace('OPR', 'Opera');
-	}
-	M= M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
-	if((tem= ua.match(/version\/(\d+)/i))!= null) M.splice(1, 1, tem[1]);
-
-	return M.join(' ');
-})();
-
 (function() {
 /**************************************************************************
  * This module handles fingerprinting the user. It will create a fingerprint
@@ -35,16 +18,11 @@ const fingerprint = (function(){
 	 */
 	function _getNavigatorInfo(){
 		return {
-			appCodeName : navigator.appCodeName || '',
 			appName : navigator.appName || '',
 			appVersion : navigator.appVersion || '',
 			platform : navigator.platform || '',
-			product : navigator.product || '',
-			productSub : navigator.productSub || '',
-			sayswho : navigator.sayswho || '',
 			userAgent : navigator.userAgent || '',
-			vendor : navigator.vendor || '',
-			vendorSub : navigator.vendorSub || ''
+			vendor : navigator.vendor || ''
 		};
 	}
 	
@@ -116,29 +94,6 @@ const fingerprint = (function(){
 	}
 	
 	/**
-	 * Returns a list of available plugins
-	 */
-	function _getPlugins(){
-		if ( !navigator || !navigator.plugins ){
-			return [];
-		}
-		
-		var plugins = [];
-		for ( var i in navigator.plugins ){
-			if ( navigator.plugins.hasOwnProperty(i) ){
-				plugins.push({
-					description: navigator.plugins[i].description,
-					name: navigator.plugins[i].name,
-					filename: navigator.plugins[i].filename,
-					version: navigator.plugins[i].version || 0
-				});
-			}
-		}
-
-		return plugins;
-	}
-	
-	/**
 	 * Creates a 32 bit integer hash from a string
 	 */
 	function _hashCode(str) {
@@ -162,9 +117,8 @@ const fingerprint = (function(){
 		get: function() {
 			var navInfo = _getNavigatorInfo();
 			var fonts = _getFonts();
-			var plugins = _getPlugins();
 
-			return _hashCode(JSON.stringify([navInfo, fonts, plugins]));
+			return _hashCode(JSON.stringify([navInfo, fonts]));
 		}
 	};
 })();
