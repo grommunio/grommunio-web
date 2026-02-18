@@ -191,7 +191,7 @@ class Pluginsmime extends Plugin {
 		}
 
 		$missingMyself = function ($email) {
-			return $GLOBALS['mapisession']->getSMTPAddress() === $email;
+			return strcasecmp($GLOBALS['mapisession']->getSMTPAddress(), $email) === 0;
 		};
 
 		if (array_filter($missingCerts, $missingMyself) === []) {
@@ -396,9 +396,9 @@ class Pluginsmime extends Plugin {
 			if (
 				$parsedImport !== false &&
 				$parsedUser !== false &&
-				($parsedImport['validTo'] ?? '') > ($parsedUser['validTo'] ?? '') &&
-				($parsedImport['validFrom'] ?? '') > ($parsedUser['validFrom'] ?? '') &&
-				getCertEmail($parsedImport) === getCertEmail($parsedUser) &&
+				($parsedImport['validTo_time_t'] ?? 0) > ($parsedUser['validTo_time_t'] ?? 0) &&
+				($parsedImport['validFrom_time_t'] ?? 0) > ($parsedUser['validFrom_time_t'] ?? 0) &&
+				strcasecmp(getCertEmail($parsedImport), getCertEmail($parsedUser)) === 0 &&
 				verifyOCSP($importCert, $caCerts, $this->message)
 			) {
 				return [
