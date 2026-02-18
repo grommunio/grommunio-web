@@ -155,7 +155,7 @@ const sendKeepAlive = (function(){
 // When the user has been authenticated, the backend will check if the
 // sent fingerprint matches the one stored in the session. If they do not
 // match, the session will be destroyed.
-window.addEventListener('load', function(){
+window.addEventListener('DOMContentLoaded', function(){
 	var request = new XMLHttpRequest();
 	request.open('POST', 'grommunio.php?service=fingerprint');
 	request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
