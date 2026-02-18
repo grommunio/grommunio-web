@@ -292,8 +292,10 @@ window.addEventListener('load', function(){
 	var params = 'fingerprint='+fingerprint.get();
 	request.send(params);
 	
-	// Start sending keep-alive requests. The first one will be sent immediately
-	sendKeepAlive(0);
+	// Start sending keep-alive requests after a reasonable initial delay.
+	// The fingerprint POST above already refreshes the session, so we
+	// only need the first keep-alive to bootstrap the session timeout.
+	sendKeepAlive(60000);
 });
 
 })();
