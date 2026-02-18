@@ -52,6 +52,11 @@ Enhancements:
 * FTS search filters (date, message class, unread, attachments) are
   pushed into the SQL query so the result limit no longer silently
   discards valid matches
+* FTS queries that could exhaust PHP-FPM CPU are now guarded: search
+  terms shorter than 3 characters are skipped with the trigram tokenizer,
+  the number of terms is capped at ``MAX_FTS_QUERY_TERMS``, and a
+  per-search execution time limit (``MAX_FTS_EXECUTION_TIME``) aborts
+  runaway queries gracefully
 
 Changes:
 

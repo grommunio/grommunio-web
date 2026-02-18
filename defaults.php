@@ -649,6 +649,18 @@ if (!defined("MAX_FTS_RESULT_ITEMS")) {
 	define("MAX_FTS_RESULT_ITEMS", 1000);
 }
 
+// Maximum number of search terms in a single FTS query (0 = unlimited).
+if (!defined("MAX_FTS_QUERY_TERMS")) {
+	define("MAX_FTS_QUERY_TERMS", 20);
+}
+
+// Maximum wall-clock time (seconds) for a single search operation.
+// When exceeded the search is aborted gracefully. 0 = no dedicated limit
+// (falls back to global max_execution_time).
+if (!defined("MAX_FTS_EXECUTION_TIME")) {
+	define("MAX_FTS_EXECUTION_TIME", 10);
+}
+
 /*
  * The following options are taken from the debug.php
  */

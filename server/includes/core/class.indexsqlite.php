@@ -290,38 +290,65 @@ class IndexSqlite extends SQLite3 {
 		$this->count = 0;
 		$sql_string .= " ORDER BY c.date DESC LIMIT " . MAX_FTS_RESULT_ITEMS;
 		$this->logDebug('Executing SQLite FTS query', ['sql' => $sql_string]);
-		$results = $this->query($sql_string);
-		if ($results === false) {
-			$this->logDebug('SQLite query execution failed', [
-				'error_code' => $this->lastErrorCode(),
-				'error_message' => $this->lastErrorMsg(),
-			]);
-			return false;
+
+		// Tighten PHP's execution-time limit for the duration of the
+		// query + result processing so a single expensive search cannot
+		// monopolise a PHP-FPM worker for the full max_execution_time.
+		$prevTimeLimit = (int) ini_get('max_execution_time');
+		if (MAX_FTS_EXECUTION_TIME > 0) {
+			set_time_limit(MAX_FTS_EXECUTION_TIME);
 		}
-		$matchedRows = 0;
-		$sampleRows = [];
-		while (($row = $results->fetchArray(SQLITE3_ASSOC)) && !$this->result_full()) {
-			++$matchedRows;
-			$previousCount = $this->count;
-			$this->try_insert_content(
-				$search_entryid,
-				$row,
-				$message_classes,
-				$date_start,
-				$date_end,
-				$unread,
-				$has_attachments
-			);
-			if ($this->count > $previousCount && count($sampleRows) < self::DEBUG_SAMPLE_LIMIT) {
-				$sampleRows[] = [
-					'message_id' => $row['message_id'] ?? null,
-					'entryid' => self::formatBinaryFieldForLog($row['entryid'] ?? null),
-					'message_class' => $row['message_class'] ?? null,
-					'date' => $row['date'] ?? null,
-					'readflag' => $row['readflag'] ?? null,
-					'attach_indexed' => $row['attach_indexed'] ?? null,
-				];
+		$deadline = MAX_FTS_EXECUTION_TIME > 0 ? microtime(true) + MAX_FTS_EXECUTION_TIME : 0;
+
+		try {
+			$results = $this->query($sql_string);
+			if ($results === false) {
+				$this->logDebug('SQLite query execution failed', [
+					'error_code' => $this->lastErrorCode(),
+					'error_message' => $this->lastErrorMsg(),
+				]);
+				return false;
 			}
+			$matchedRows = 0;
+			$sampleRows = [];
+			while (($row = $results->fetchArray(SQLITE3_ASSOC)) && !$this->result_full()) {
+				// Graceful abort when the wall-clock deadline is reached
+				// so we return partial results instead of letting PHP
+				// kill the process via max_execution_time.
+				if ($deadline > 0 && microtime(true) >= $deadline) {
+					$this->logDebug('Search aborted: execution time limit reached', [
+						'limit_seconds' => MAX_FTS_EXECUTION_TIME,
+						'matched_rows' => $matchedRows,
+						'linked_messages' => $this->count,
+					]);
+					break;
+				}
+				++$matchedRows;
+				$previousCount = $this->count;
+				$this->try_insert_content(
+					$search_entryid,
+					$row,
+					$message_classes,
+					$date_start,
+					$date_end,
+					$unread,
+					$has_attachments
+				);
+				if ($this->count > $previousCount && count($sampleRows) < self::DEBUG_SAMPLE_LIMIT) {
+					$sampleRows[] = [
+						'message_id' => $row['message_id'] ?? null,
+						'entryid' => self::formatBinaryFieldForLog($row['entryid'] ?? null),
+						'message_class' => $row['message_class'] ?? null,
+						'date' => $row['date'] ?? null,
+						'readflag' => $row['readflag'] ?? null,
+						'attach_indexed' => $row['attach_indexed'] ?? null,
+					];
+				}
+			}
+		}
+		finally {
+			// Always restore the original time limit, even after an error.
+			set_time_limit($prevTimeLimit);
 		}
 		$durationMs = (int) round((microtime(true) - $startTime) * 1000);
 		$this->logDebug('Search completed', [
@@ -406,9 +433,28 @@ class IndexSqlite extends SQLite3 {
 	private function quoteWordsArray($search_string) {
 		$sanitized = $this->sanitizeFtsInput($search_string);
 		$words = preg_split('/\s+/', trim($sanitized), -1, PREG_SPLIT_NO_EMPTY);
+		// With the trigram tokenizer terms shorter than 3 characters cause a
+		// full table scan instead of an index lookup.  Skip them to avoid
+		// excessive CPU usage.
+		$minLength = (SQLITE_FTS_TOKENIZER === 'trigram') ? 3 : 1;
 		$quoted = [];
 		foreach ($words as $word) {
+			if (mb_strlen($word) < $minLength) {
+				$this->logDebug('Skipping short search term', [
+					'term' => $word,
+					'min_length' => $minLength,
+					'tokenizer' => SQLITE_FTS_TOKENIZER,
+				]);
+				continue;
+			}
 			$quoted[] = '"' . SQLite3::escapeString($word) . '"*';
+			if (MAX_FTS_QUERY_TERMS > 0 && count($quoted) >= MAX_FTS_QUERY_TERMS) {
+				$this->logDebug('Search term limit reached', [
+					'limit' => MAX_FTS_QUERY_TERMS,
+					'total_words' => count($words),
+				]);
+				break;
+			}
 		}
 		return $quoted;
 	}
