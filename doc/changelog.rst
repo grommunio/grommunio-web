@@ -6,15 +6,32 @@ Fixes:
 * Settings auto-save is now debounced to batch HTTP requests
 * UI update handlers now guard against undefined records
 * S/MIME signing was fixed by removing the ``PKCS7_TEXT`` flag
+* S/MIME certificate chain verification now handles intermediate and
+  out-of-order certificates
+* OCSP response validation corrected for RFC 2560 compliance
+* S/MIME encrypt/decrypt now handles opaque-signed messages and various
+  edge cases around temp files and missing certificates
+* Certificate fields in the S/MIME detail popup are sanitized to prevent
+  stored XSS
+* S/MIME status badge display and status constants were corrected
 * Shared store operations now provide improved error handling
 * Opening shared items no longer fails on RTF decompression errors
 * Folder bold styling is now decoupled from counter type
 * Hierarchy now treats Junk as a special folder for total item count
-* Closing grommunio-web is no longer blocked when there are no unsaved changes
+* Closing grommunio-web is no longer blocked when there are no unsaved
+  changes
 
 Enhancements:
 
 * Non-critical services are now deferred until after hierarchy load
+* PHP session and state file locks are released earlier, reducing request
+  serialization on concurrent connections
+* Hierarchy is prefetched on page load, saving an initial round-trip
+* Mark-as-read is piggybacked on the message open request
+* Search result preview loading is debounced during keyboard navigation
+* Icon recoloring is batched into a single stylesheet swap, eliminating a
+  multi-second freeze on login
+* Server-side settings mutations are batched into a single MAPI save
 * Spam mails can now be un-flagged directly from the Junk folder
 * Shared stores can now be opened for rooms and equipment
 * A reminder for missing attachments is now shown before sending
@@ -23,6 +40,8 @@ Enhancements:
 
 Changes:
 
+* Default S/MIME cipher changed from 3DES to AES-256-CBC
+* New ``DISABLE_FINGERPRINT_CHECK`` option for automated tooling
 * Translation catalogs were updated
 * Swedish translation was added
 
