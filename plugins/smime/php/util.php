@@ -230,7 +230,7 @@ function verifyOCSP($certificate, $extracerts, &$message) {
  */
 function validateUploadedPKCS($certificate, $passphrase, $emailAddress) {
 	if (!openssl_pkcs12_read($certificate, $certs, $passphrase)) {
-		return [_('Unable to decrypt certificate'), '', ''];
+		return [_('Unable to decrypt certificate'), '', '', false];
 	}
 
 	$message = '';

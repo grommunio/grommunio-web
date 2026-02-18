@@ -270,7 +270,7 @@ class Pluginsmime extends Plugin {
 		}
 		catch (MAPIException $exception) {
 			$exception->setHandled();
-			$msg = "[smime] Unable to open PR_SENT_REPRESENTING_ENTRYID. Maybe %s was does not exists or deleted from server.";
+			$msg = "[smime] Unable to open PR_SENT_REPRESENTING_ENTRYID. Maybe %s does not exist or was deleted from server.";
 			Log::write(LOGLEVEL_ERROR, sprintf($msg, $userProps[PR_SENT_REPRESENTING_NAME] ?? ''));
 			error_log("[smime] Unable to open PR_SENT_REPRESENTING_NAME: " . var_export($userProps[PR_SENT_REPRESENTING_NAME] ?? null, true));
 			$this->message['success'] = SMIME_NOPUB;
@@ -1109,11 +1109,14 @@ class Pluginsmime extends Plugin {
 			foreach ($certs as $cert) {
 				$pubkey = mapi_msgstore_openentry($this->getStore(), $cert[PR_ENTRYID]);
 				$certificate = "";
-				if ($pubkey == false) {
+				if ($pubkey === false) {
 					continue;
 				}
 				// retrieve pkcs#11 certificate from body
 				$stream = mapi_openproperty($pubkey, PR_BODY, IID_IStream, 0, 0);
+				if (!$stream) {
+					continue;
+				}
 				$stat = mapi_stream_stat($stream);
 				mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
 				for ($i = 0; $i < $stat['cb']; $i += 1024) {
