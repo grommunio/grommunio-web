@@ -571,7 +571,7 @@ class Pluginsmime extends Plugin {
 
 			$decryptStatus = false;
 			// If multiple private certs were decrypted with supplied password
-			if (!$certs['cert'] && count($certs) > 0) {
+			if (!isset($certs['cert']) && !empty($certs)) {
 				foreach ($certs as $cert) {
 					$this->clear_openssl_error();
 					$decryptStatus = openssl_pkcs7_decrypt($tmpFile, $tmpDecrypted, $cert['cert'], [$cert['pkey'], $pass]);
@@ -580,7 +580,7 @@ class Pluginsmime extends Plugin {
 					}
 				}
 			}
-			else {
+			elseif (isset($certs['cert'])) {
 				$this->clear_openssl_error();
 				$decryptStatus = openssl_pkcs7_decrypt($tmpFile, $tmpDecrypted, $certs['cert'], [$certs['pkey'], $pass]);
 			}
@@ -761,7 +761,7 @@ class Pluginsmime extends Plugin {
 		if ($imported) {
 			$certMessage = getMAPICert($this->getStore());
 			// TODO: update to serialNumber check
-			if ($certMessage && $certMessage[0][PR_MESSAGE_DELIVERY_TIME] == $publickeyData['validTo_time_t']) {
+			if ($certMessage && $certMessage[0][PR_MESSAGE_DELIVERY_TIME] === $publickeyData['validTo_time_t']) {
 				$message = _('Certificate is already stored on the server');
 			}
 			else {
@@ -1399,20 +1399,24 @@ class Pluginsmime extends Plugin {
 		}
 
 		$messageProps = mapi_getprops($mapiMessage, [PR_SENT_REPRESENTING_ENTRYID, PR_SENDER_ENTRYID]);
-		$senderEntryID = $messageProps[PR_SENT_REPRESENTING_ENTRYID] ?? $messageProps[PR_SENDER_ENTRYID];
+		$senderEntryID = $messageProps[PR_SENT_REPRESENTING_ENTRYID] ?? ($messageProps[PR_SENDER_ENTRYID] ?? null);
+		$senderStructure = [];
+
+		if (!$senderEntryID) {
+			return $senderStructure;
+		}
 
 		try {
 			$senderUser = mapi_ab_openentry($GLOBALS["mapisession"]->getAddressbook(), $senderEntryID);
 			if ($senderUser) {
 				$userprops = mapi_getprops($senderUser, [PR_ADDRTYPE, PR_DISPLAY_NAME, PR_EMAIL_ADDRESS, PR_SMTP_ADDRESS, PR_OBJECT_TYPE, PR_RECIPIENT_TYPE, PR_DISPLAY_TYPE, PR_DISPLAY_TYPE_EX, PR_ENTRYID]);
 
-				$senderStructure = [];
 				$senderStructure["props"]['entryid'] = isset($userprops[PR_ENTRYID]) ? bin2hex((string) $userprops[PR_ENTRYID]) : '';
 				$senderStructure["props"]['display_name'] = $userprops[PR_DISPLAY_NAME] ?? '';
 				$senderStructure["props"]['email_address'] = $userprops[PR_EMAIL_ADDRESS] ?? '';
 				$senderStructure["props"]['smtp_address'] = $userprops[PR_SMTP_ADDRESS] ?? '';
 				$senderStructure["props"]['address_type'] = $userprops[PR_ADDRTYPE] ?? '';
-				$senderStructure["props"]['object_type'] = $userprops[PR_OBJECT_TYPE];
+				$senderStructure["props"]['object_type'] = $userprops[PR_OBJECT_TYPE] ?? MAPI_MAILUSER;
 				$senderStructure["props"]['recipient_type'] = MAPI_TO;
 				$senderStructure["props"]['display_type'] = $userprops[PR_DISPLAY_TYPE] ?? MAPI_MAILUSER;
 				$senderStructure["props"]['display_type_ex'] = $userprops[PR_DISPLAY_TYPE_EX] ?? MAPI_MAILUSER;

@@ -95,6 +95,9 @@ function readPrivateCert($store, $passphrase, $singleCert = true) {
 	$unlockedCerts = [];
 	// Get all private certificates saved in the store
 	$privateCerts = getMAPICert($store);
+	if (!is_array($privateCerts)) {
+		return [];
+	}
 	if ($singleCert) {
 		$privateCerts = [$privateCerts[0]];
 	}
