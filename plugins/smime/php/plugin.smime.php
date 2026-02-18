@@ -1065,8 +1065,12 @@ class Pluginsmime extends Plugin {
 		$gabCert = '';
 
 		foreach ($recips as $recip) {
-			$emailAddr = $recip[PR_SMTP_ADDRESS];
-			$addrType = $recip[PR_ADDRTYPE];
+			$emailAddr = $recip[PR_SMTP_ADDRESS] ?? '';
+			$addrType = $recip[PR_ADDRTYPE] ?? '';
+
+			if (empty($emailAddr)) {
+				continue;
+			}
 
 			if ($addrType === "ZARAFA" || $addrType === "EX") {
 				$user = $this->getGABUser($emailAddr);
@@ -1153,9 +1157,9 @@ class Pluginsmime extends Plugin {
 					VALUE => [PR_MESSAGE_CLASS => "WebApp.Security.Public"],
 				],
 			],
-			[RES_PROPERTY,
+			[RES_CONTENT,
 				[
-					RELOP => RELOP_EQ,
+					FUZZYLEVEL => FL_FULLSTRING | FL_IGNORECASE,
 					ULPROPTAG => PR_SUBJECT,
 					VALUE => [PR_SUBJECT => $emailAddress],
 				],
@@ -1211,18 +1215,17 @@ class Pluginsmime extends Plugin {
 	 */
 	public function extractCAs($emlfile) {
 		$cas = [];
-		$certfile = tempnam(sys_get_temp_dir(), true);
-		$outfile = tempnam(sys_get_temp_dir(), true);
-		$p7bfile = tempnam(sys_get_temp_dir(), true);
+		$certfile = $this->createTempFile('smime_cacert_');
+		$outfile = $this->createTempFile('smime_caout_');
+		$p7bfile = $this->createTempFile('smime_p7b_');
 		openssl_pkcs7_verify($emlfile, PKCS7_NOVERIFY, $certfile);
 		openssl_pkcs7_verify($emlfile, PKCS7_NOVERIFY, $certfile, [], $certfile, $outfile, $p7bfile);
 
 		$p7b = file_get_contents($p7bfile);
-
-		openssl_pkcs7_read($p7b, $cas);
-		unlink($certfile);
-		unlink($outfile);
-		unlink($p7bfile);
+		if ($p7b !== false) {
+			openssl_pkcs7_read($p7b, $cas);
+		}
+		$this->cleanupTempFiles([$certfile, $outfile, $p7bfile]);
 
 		return $cas;
 	}
@@ -1330,8 +1333,33 @@ class Pluginsmime extends Plugin {
 	public function getGABCert($user) {
 		$cert = '';
 		$userCertArray = mapi_getprops($user, [PR_EMS_AB_X509_CERT]);
-		if (isset($userCertArray[PR_EMS_AB_X509_CERT])) {
-			$cert = der2pem($userCertArray[PR_EMS_AB_X509_CERT][0]);
+		if (!isset($userCertArray[PR_EMS_AB_X509_CERT])) {
+			return $cert;
+		}
+
+		$certs = $userCertArray[PR_EMS_AB_X509_CERT];
+		if (count($certs) === 1) {
+			return der2pem($certs[0]);
+		}
+
+		$bestExpiry = 0;
+		$now = time();
+		foreach ($certs as $derCert) {
+			$pem = der2pem($derCert);
+			$parsed = openssl_x509_parse($pem);
+			if ($parsed === false) {
+				continue;
+			}
+			$validFrom = $parsed['validFrom_time_t'] ?? 0;
+			$validTo = $parsed['validTo_time_t'] ?? 0;
+			if ($now >= $validFrom && $now < $validTo && $validTo > $bestExpiry) {
+				$bestExpiry = $validTo;
+				$cert = $pem;
+			}
+		}
+
+		if (empty($cert)) {
+			$cert = der2pem($certs[0]);
 		}
 
 		return $cert;
