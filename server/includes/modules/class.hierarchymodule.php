@@ -355,6 +355,14 @@ class HierarchyModule extends Module {
 						$this->sendFeedback(true);
 						break;
 
+					case "emptyfolder_batch":
+						if ($store && $entryid) {
+							$batchSize = isset($action["batch_size"]) ? (int) $action["batch_size"] : 500;
+							$batchSize = max(50, min(2000, $batchSize));
+							$this->emptyFolderBatch($store, $entryid, $batchSize);
+						}
+						break;
+
 					default:
 						$this->handleUnknownActionType($actionType);
 				}
@@ -481,6 +489,15 @@ class HierarchyModule extends Module {
 							MAPI_E_COLLISION => $e->setDisplayMessage(_("A folder with this name already exists. Use another name.")),
 							default => $e->setDisplayMessage(_("Could not create folder.")),
 						};
+					}
+					break;
+
+				case "emptyfolder_batch":
+					if ($e->getCode() == MAPI_E_NO_ACCESS) {
+						$e->setDisplayMessage(_("You have insufficient privileges to delete items."));
+					}
+					else {
+						$e->setDisplayMessage(_("Could not empty folder."));
 					}
 					break;
 
@@ -1222,6 +1239,94 @@ class HierarchyModule extends Module {
 
 			// Add all response data to Bus
 			$GLOBALS["bus"]->addData($this->getResponseData());
+		}
+	}
+
+	/**
+	 * Deletes messages in a folder in batches, reporting progress after each batch.
+	 *
+	 * @param object $store     message Store Object
+	 * @param string $entryid   entryid of the folder
+	 * @param int    $batchSize number of messages to delete per batch
+	 */
+	public function emptyFolderBatch($store, $entryid, $batchSize) {
+		$folder = mapi_msgstore_openentry($store, $entryid);
+		$table = mapi_folder_getcontentstable($folder, MAPI_DEFERRED_ERRORS);
+		$totalCount = mapi_table_getrowcount($table);
+
+		if ($totalCount === 0) {
+			$this->emptyFolderBatchFinalize($store, $entryid);
+
+			$this->addActionData("progress", [
+				"remaining_items" => 0,
+				"deleted_count" => 0,
+				"done" => true,
+			]);
+			$this->addFolderToResponseData($store, $entryid, "folders");
+			$GLOBALS["bus"]->addData($this->getResponseData());
+
+			return;
+		}
+
+		$rows = mapi_table_queryrows($table, [PR_ENTRYID], 0, $batchSize);
+		$deletedCount = count($rows);
+
+		$entryids = [];
+		foreach ($rows as $row) {
+			$entryids[] = $row[PR_ENTRYID];
+		}
+
+		mapi_folder_deletemessages($folder, $entryids, DELETE_HARD_DELETE);
+
+		$remaining = $totalCount - $deletedCount;
+		$done = $remaining <= 0;
+
+		if ($done) {
+			$this->emptyFolderBatchFinalize($store, $entryid);
+
+			$this->addActionData("progress", [
+				"remaining_items" => 0,
+				"deleted_count" => $deletedCount,
+				"done" => true,
+			]);
+			$this->addFolderToResponseData($store, $entryid, "folders");
+		}
+		else {
+			$this->addActionData("progress", [
+				"remaining_items" => $remaining,
+				"deleted_count" => $deletedCount,
+				"done" => false,
+			]);
+		}
+
+		$GLOBALS["bus"]->addData($this->getResponseData());
+	}
+
+	/**
+	 * Performs final cleanup after all messages have been batch-deleted from a folder.
+	 * For Wastebasket and Junk folders, this also removes subfolders and associated content.
+	 *
+	 * @param object $store   message Store Object
+	 * @param string $entryid entryid of the folder
+	 */
+	private function emptyFolderBatchFinalize($store, $entryid) {
+		$emptySubFolders = false;
+		$storeProps = mapi_getprops($store, [PR_IPM_WASTEBASKET_ENTRYID]);
+
+		if (isset($storeProps[PR_IPM_WASTEBASKET_ENTRYID]) && $storeProps[PR_IPM_WASTEBASKET_ENTRYID] === $entryid) {
+			$emptySubFolders = true;
+		}
+		else {
+			$root = mapi_msgstore_openentry($store);
+			$rootProps = mapi_getprops($root, [PR_ADDITIONAL_REN_ENTRYIDS]);
+			if (isset($rootProps[PR_ADDITIONAL_REN_ENTRYIDS]) && is_array($rootProps[PR_ADDITIONAL_REN_ENTRYIDS])) {
+				$emptySubFolders = $GLOBALS['entryid']->compareEntryIds($rootProps[PR_ADDITIONAL_REN_ENTRYIDS][4], $entryid);
+			}
+		}
+
+		if ($emptySubFolders) {
+			$props = [];
+			$GLOBALS["operations"]->emptyFolder($store, $entryid, $props, false, true);
 		}
 	}
 

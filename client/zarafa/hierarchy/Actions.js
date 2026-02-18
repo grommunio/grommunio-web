@@ -185,5 +185,76 @@ Zarafa.hierarchy.Actions = {
 
       Ext.getDoc().dom.title = title;
     }
+	},
+
+	/**
+	 * Empty a folder using batched deletion with progress notifications.
+	 * Used for folders with many items (>= 500) to provide user feedback
+	 * instead of a single long-running request that freezes the UI.
+	 *
+	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The folder to empty
+	 * @param {Number} batchSize (optional) Number of items to delete per batch, defaults to 500
+	 */
+	emptyFolderBatched: function(folder, batchSize)
+	{
+		batchSize = batchSize || 500;
+		var totalItems = folder.get('content_count') || 0;
+		var deletedSoFar = 0;
+		var folderName = Ext.util.Format.htmlEncode(folder.get('display_name'));
+
+		// Show persistent progress notification
+		var notifyRef = container.getNotifier().notify('info.emptyfolder',
+			_('Empty folder'),
+			String.format(_('Emptying {0}\u2026 (0%)'), folderName),
+			{ persistent: true }
+		);
+
+		var sendBatch = function() {
+			var responseHandler = new Zarafa.core.data.AbstractResponseHandler();
+			responseHandler.doProgress = function(response) {
+				deletedSoFar += response.deleted_count;
+
+				if (response.done) {
+					// Destroy persistent notification and show transient success
+					container.getNotifier().notify('info.emptyfolder', null, null, {
+						destroy: true,
+						reference: notifyRef
+					});
+					container.getNotifier().notify('info.emptyfolder',
+						_('Empty folder'),
+						String.format(_('Successfully emptied {0}. ({1} items removed)'), folderName, deletedSoFar)
+					);
+				} else {
+					// Update progress notification in-place
+					var pct = totalItems > 0 ? Math.round(deletedSoFar / totalItems * 100) : 0;
+					container.getNotifier().notify('info.emptyfolder',
+						_('Empty folder'),
+						String.format(_('Emptying {0}\u2026 ({1}%)'), folderName, pct),
+						{ update: true, reference: notifyRef }
+					);
+					// Send next batch
+					sendBatch();
+				}
+			};
+			responseHandler.doFolders = function() {
+				// Folder update is handled by the bus notification system
+			};
+
+			var request = container.getRequest();
+			request.addRequest(
+				'hierarchymodule',
+				'emptyfolder_batch',
+				{
+					entryid: folder.get('entryid'),
+					store_entryid: folder.get('store_entryid'),
+					parent_entryid: folder.get('parent_entryid'),
+					batch_size: batchSize
+				},
+				responseHandler
+			);
+			request.send();
+		};
+
+		sendBatch();
 	}
 };

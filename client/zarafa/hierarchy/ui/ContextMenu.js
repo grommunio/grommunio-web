@@ -618,8 +618,12 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 			buttons: Ext.MessageBox.YESNO,
 			fn: function(buttonClicked) {
 				if (buttonClicked == 'yes') {
-					this.records.emptyFolder();
-					this.records.save();
+					if (this.records.get('content_count') >= 500) {
+						Zarafa.hierarchy.Actions.emptyFolderBatched(this.records);
+					} else {
+						this.records.emptyFolder();
+						this.records.save();
+					}
 				}
 			},
 			scope: this
