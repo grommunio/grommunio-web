@@ -14,12 +14,21 @@ Fixes:
 * Certificate fields in the S/MIME detail popup are sanitized to prevent
   stored XSS
 * S/MIME status badge display and status constants were corrected
+* Double-encoded ampersand in certificate purpose label was fixed
 * Shared store operations now provide improved error handling
 * Opening shared items no longer fails on RTF decompression errors
 * Folder bold styling is now decoupled from counter type
 * Hierarchy now treats Junk as a special folder for total item count
 * Closing grommunio-web is no longer blocked when there are no unsaved
   changes
+* FTS multi-word search now scopes every word to the specified column,
+  fixing incomplete results when searching names in sender fields
+* KQL parser AND/OR precedence handling was rewritten to correctly group
+  mixed boolean queries
+* KQL parenthesized expressions no longer lose NOT negation when they
+  contain a single term
+* Sender and from search fields now include ``sent_representing_*``
+  properties, matching emails sent on behalf of someone
 
 Enhancements:
 
@@ -37,11 +46,18 @@ Enhancements:
 * A reminder for missing attachments is now shown before sending
 * Kendox now supports uploading e-mails without attachments
 * Kendox now supports archiving embedded images
+* S/MIME plugin migrated to CMS (RFC 5652) with AES-GCM encryption,
+  per-message cipher/digest selection, RSASSA-PSS signing, algorithm
+  introspection and DANE/SMIMEA certificate lookup
+* FTS search filters (date, message class, unread, attachments) are
+  pushed into the SQL query so the result limit no longer silently
+  discards valid matches
 
 Changes:
 
 * Default S/MIME cipher changed from 3DES to AES-256-CBC
 * New ``DISABLE_FINGERPRINT_CHECK`` option for automated tooling
+* SHA-256 replaces MD5 as default certificate fingerprint
 * Translation catalogs were updated
 * Swedish translation was added
 
