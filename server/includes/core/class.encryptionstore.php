@@ -166,7 +166,7 @@ class EncryptionStore {
 	 * @param string $expiration The expiration time in epoch for the given $key
 	 */
 	public function add($key, $value, $expiration = 0) {
-		$session_did_exists = $this->open_session();
+		$session_did_exists = $this->open_session(true);
 		$encryptedValue = openssl_encrypt($value, EncryptionStore::_CIPHER_METHOD, EncryptionStore::$_encryptionKey, 0, EncryptionStore::$_initializionVector);
 		$_SESSION[EncryptionStore::_SESSION_KEY][$key] = ['val' => $encryptedValue];
 		if ($expiration) {
@@ -204,8 +204,14 @@ class EncryptionStore {
 	 *
 	 * @return bool return if the session was opened or not
 	 */
-	private function open_session() {
+	private function open_session($forWrite = false) {
 		if (!$this->session_exists()) {
+			// For read-only access, if session data was loaded into
+			// memory (e.g. via read_and_close), skip reopening to
+			// avoid the session file lock.
+			if (!$forWrite && isset($_SESSION[self::_SESSION_KEY])) {
+				return false;
+			}
 			session_start();
 
 			return true;

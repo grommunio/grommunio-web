@@ -154,7 +154,14 @@ class WebAppAuthentication {
 				$user = $_keycloak_auth->access_token->get_claims('email');
 				WebAppAuthentication::_storeCredentialsInSession($user, $token);
 				$_keycloak_auth->set_last_refresh_time(time());
+				// Persist the updated Keycloak auth to the session.
+				// After read_and_close the session is not active, so
+				// briefly reopen it for writing.
+				if (session_status() !== PHP_SESSION_ACTIVE) {
+					session_start();
+				}
 				$_SESSION['_keycloak_auth'] = $_keycloak_auth;
+				session_write_close();
 			}
 		}
 	}

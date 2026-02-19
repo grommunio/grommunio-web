@@ -40,15 +40,24 @@ class WebAppSession {
 		$domain = ini_get('session.cookie_domain');
 		session_set_cookie_params($lifetime, $path, $domain, $secure, true);
 
-		// Start the session so we can use it for timeout checking
 		$this->start();
 
-		if (basename((string) $_SERVER['PHP_SELF']) != 'grommunio.php') {
+		// For grommunio.php, release the session file lock early
+		// so parallel requests from the same browser session are
+		// not serialized behind it.  Service requests (e.g.
+		// fingerprint) still need a writable session, so skip
+		// the early close for those — grommunio.php line 50
+		// closes the session for services after they finish.
+		$isGrommunioPhp = basename((string) $_SERVER['PHP_SELF']) === 'grommunio.php';
+		if (!$isGrommunioPhp) {
 			// We will only check for timeout in the grommunio.php page
 			$this->setStartTime();
 		}
 		else {
 			$this->checkForTimeout();
+			if (!isset($_GET['service'])) {
+				session_write_close();
+			}
 		}
 	}
 
@@ -165,7 +174,6 @@ class WebAppSession {
 			$isDestroySessionRequest = $this->isDestroySessionRequest($requestJson);
 
 			if (!$isReminderlistRequest && !$isDestroySessionRequest) {
-				// Set a new session start time
 				$this->setStartTime();
 			}
 			elseif ($isDestroySessionRequest) {
