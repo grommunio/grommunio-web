@@ -379,7 +379,6 @@ class Certificate {
 		$output = curl_exec($ch);
 		$http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 		$curl_error = curl_error($ch);
-		curl_close($ch);
 
 		if ($curl_error || $http_status !== 200 || empty($output)) {
 			Log::Write(LOGLEVEL_ERROR, sprintf("[smime] Error when downloading intermediate certificate '%s', http status: '%s'", $curl_error, $http_status));

@@ -157,7 +157,6 @@ class ocsclient {
 		else {
 			$message = $httpcode;
 		}
-		curl_close($ch);
 
 		if ($httpcode && $httpcode == "200") {
 			$this->loaded = true;
@@ -263,7 +262,6 @@ class ocsclient {
 		curl_setopt($ch, CURLOPT_USERPWD, $this->user . ":" . $this->pass);
 		$responsedata = curl_exec($ch);
 		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-		curl_close($ch);
 
 		if ($httpcode === 200) {
 			try {

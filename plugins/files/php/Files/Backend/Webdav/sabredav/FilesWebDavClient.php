@@ -93,8 +93,6 @@ class FilesWebDavClient extends Client {
 
 		$statusCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
-		curl_close($curl);
-
 		$response = [
 			'statusCode' => $statusCode,
 		];
