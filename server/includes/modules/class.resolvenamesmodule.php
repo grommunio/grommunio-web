@@ -238,8 +238,10 @@ class ResolveNamesModule extends Module {
 				if (isset($user_data[PR_EMS_AB_PROXY_ADDRESSES]) &&
 					is_array($user_data[PR_EMS_AB_PROXY_ADDRESSES]) &&
 					in_array($searchstr, array_map('strtolower', $user_data[PR_EMS_AB_PROXY_ADDRESSES])) &&
+					!str_ends_with($searchstr, $user_data[PR_SMTP_ADDRESS]) &&
 					$flags === 0) {
 					$item['email_address'] = $item['smtp_address'] = substr($searchstr, 5);
+					$item['display_name'] .= ' <' . $item['smtp_address'] . '>';
 					$item['address_type'] = 'SMTP';
 				}
 
