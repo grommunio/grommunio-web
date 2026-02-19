@@ -3,6 +3,7 @@ grommunio-web 3.17.x (development)
 
 Fixes:
 
+* Sending from drafts no longer fails when ``mapi_copyto`` encounters an error
 * Settings auto-save is now debounced to batch HTTP requests
 * UI update handlers now guard against undefined records
 * S/MIME signing was fixed by removing the ``PKCS7_TEXT`` flag
