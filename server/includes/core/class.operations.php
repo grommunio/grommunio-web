@@ -2806,24 +2806,43 @@ class Operations {
 			$entryid = $newprops[PR_ENTRYID];
 
 			if (!empty($oldEntryId)) {
-				$message = mapi_msgstore_openentry($store, $oldEntryId);
-				// Copy the entire message
-				mapi_copyto($message, [], [], $newmessage);
-				$tmpProps = mapi_getprops($message);
-				$oldParentEntryId = $tmpProps[PR_PARENT_ENTRYID];
-				if ($storeprops[PR_IPM_OUTBOX_ENTRYID] == $oldParentEntryId) {
-					$folder = $outbox;
+				try {
+					$message = mapi_msgstore_openentry($store, $oldEntryId);
 				}
-				else {
-					$folder = mapi_msgstore_openentry($store, $oldParentEntryId);
+				catch (MAPIException $e) {
+					$e->setHandled();
+					$message = false;
 				}
 
-				// Copy message_class for S/MIME plugin
-				if (isset($tmpProps[PR_MESSAGE_CLASS])) {
-					$props[PR_MESSAGE_CLASS] = $tmpProps[PR_MESSAGE_CLASS];
+				if ($message) {
+					// Copy the entire message into the outbox as a
+					// starting point.  If the copy fails (corrupt
+					// message, transient Gromox error, …), carry on
+					// — saveMessage() below rebuilds from client data.
+					try {
+						mapi_copyto($message, [], [], $newmessage);
+					}
+					catch (MAPIException $e) {
+						error_log('submitMessage: mapi_copyto from draft failed: ' . get_mapi_error_name($e->getCode()));
+						$e->setHandled();
+					}
+
+					$tmpProps = mapi_getprops($message);
+					$oldParentEntryId = $tmpProps[PR_PARENT_ENTRYID];
+					if ($storeprops[PR_IPM_OUTBOX_ENTRYID] == $oldParentEntryId) {
+						$folder = $outbox;
+					}
+					else {
+						$folder = mapi_msgstore_openentry($store, $oldParentEntryId);
+					}
+
+					// Copy message_class for S/MIME plugin
+					if (isset($tmpProps[PR_MESSAGE_CLASS])) {
+						$props[PR_MESSAGE_CLASS] = $tmpProps[PR_MESSAGE_CLASS];
+					}
+					// Delete the old message
+					mapi_folder_deletemessages($folder, [$oldEntryId]);
 				}
-				// Delete the old message
-				mapi_folder_deletemessages($folder, [$oldEntryId]);
 			}
 
 			// save changes to new message created in outbox
