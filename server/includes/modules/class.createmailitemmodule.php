@@ -281,10 +281,15 @@ class CreateMailItemModule extends ItemModule {
 
 		$savedUnsavedRecipients = [];
 		if ($entryid) {
-			$message = $GLOBALS['operations']->openMessage($store, $entryid);
-			$savedRecipients = $GLOBALS['operations']->getRecipientsInfo($message);
-			foreach ($savedRecipients as $recipient) {
-				$savedUnsavedRecipients['saved'][] = $recipient['props'];
+			try {
+				$message = $GLOBALS['operations']->openMessage($store, $entryid);
+				$savedRecipients = $GLOBALS['operations']->getRecipientsInfo($message);
+				foreach ($savedRecipients as $recipient) {
+					$savedUnsavedRecipients['saved'][] = $recipient['props'];
+				}
+			}
+			catch (MAPIException $e) {
+				$e->setHandled();
 			}
 		}
 
@@ -477,7 +482,16 @@ class CreateMailItemModule extends ItemModule {
 			$store = $GLOBALS['mapisession']->openMessageStore($storeEntryid);
 
 			$entryid = hex2bin((string) $action['entryid']);
-			$message = $GLOBALS['operations']->openMessage($store, $entryid);
+
+			try {
+				$message = $GLOBALS['operations']->openMessage($store, $entryid);
+			}
+			catch (MAPIException $e) {
+				$e->setHandled();
+
+				return false;
+			}
+
 			$messageProps = mapi_getprops($message);
 
 			$props = Conversion::mapMAPI2XML($this->properties, $messageProps);
