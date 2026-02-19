@@ -43,6 +43,11 @@ class Module {
 	public $list_properties;
 
 	/**
+	 * @var bool whether the session state is shared
+	 */
+	public $_sharedSessionState;
+
+	/**
 	 * Constructor.
 	 *
 	 * @param int   $id   unique id
