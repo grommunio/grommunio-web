@@ -1641,7 +1641,11 @@ class Operations {
 				$props["props"]["sent_representing_username"] = $props["props"]["sent_representing_email_address"];
 				$sentRepresentingSearchKey = isset($props['props']['sent_representing_search_key']) ? hex2bin($props['props']['sent_representing_search_key']) : false;
 				if (empty($props["props"]["sent_representing_email_address"]) || strcasecmp((string) ($props["props"]["sent_representing_address_type"] ?? ''), 'SMTP') !== 0) {
-					$props["props"]["sent_representing_email_address"] = $this->getEmailAddress($smtpprops[PR_SENT_REPRESENTING_ENTRYID], $sentRepresentingSearchKey);
+					$smtpAddr = $this->getEmailAddress($smtpprops[PR_SENT_REPRESENTING_ENTRYID], $sentRepresentingSearchKey);
+					if (!empty($smtpAddr)) {
+						$props["props"]["sent_representing_email_address"] = $smtpAddr;
+						$props["props"]["sent_representing_address_type"] = 'SMTP';
+					}
 				}
 			}
 
@@ -1649,7 +1653,11 @@ class Operations {
 				$props["props"]["sender_username"] = $props["props"]["sender_email_address"];
 				$senderSearchKey = isset($props['props']['sender_search_key']) ? hex2bin($props['props']['sender_search_key']) : false;
 				if (empty($props["props"]["sender_email_address"]) || strcasecmp((string) ($props["props"]["sender_address_type"] ?? ''), 'SMTP') !== 0) {
-					$props["props"]["sender_email_address"] = $this->getEmailAddress($smtpprops[PR_SENDER_ENTRYID], $senderSearchKey);
+					$smtpAddr = $this->getEmailAddress($smtpprops[PR_SENDER_ENTRYID], $senderSearchKey);
+					if (!empty($smtpAddr)) {
+						$props["props"]["sender_email_address"] = $smtpAddr;
+						$props["props"]["sender_address_type"] = 'SMTP';
+					}
 				}
 			}
 
@@ -1657,7 +1665,11 @@ class Operations {
 				$props["props"]["received_by_username"] = $props["props"]["received_by_email_address"];
 				$receivedSearchKey = isset($props['props']['received_by_search_key']) ? hex2bin($props['props']['received_by_search_key']) : false;
 				if (empty($props["props"]["received_by_email_address"]) || strcasecmp((string) ($props["props"]["received_by_address_type"] ?? ''), 'SMTP') !== 0) {
-					$props["props"]["received_by_email_address"] = $this->getEmailAddress($smtpprops[PR_RECEIVED_BY_ENTRYID], $receivedSearchKey);
+					$smtpAddr = $this->getEmailAddress($smtpprops[PR_RECEIVED_BY_ENTRYID], $receivedSearchKey);
+					if (!empty($smtpAddr)) {
+						$props["props"]["received_by_email_address"] = $smtpAddr;
+						$props["props"]["received_by_address_type"] = 'SMTP';
+					}
 				}
 			}
 
