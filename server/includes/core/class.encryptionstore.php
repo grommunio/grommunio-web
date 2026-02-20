@@ -167,6 +167,17 @@ class EncryptionStore {
 	 */
 	public function add($key, $value, $expiration = 0) {
 		$session_did_exists = $this->open_session(true);
+
+		// When the session was closed early (e.g. by WebAppSession for
+		// grommunio.php), the IV that was created in __construct() only
+		// lives in the static variable — $_SESSION was already written
+		// to disk before the IV existed.  Re-opening the session above
+		// reloaded $_SESSION from the file, losing the IV.  Persist it
+		// now so that future requests can find it.
+		if (!empty(EncryptionStore::$_initializionVector)) {
+			$_SESSION['encryption-store-iv'] = bin2hex(EncryptionStore::$_initializionVector);
+		}
+
 		$encryptedValue = openssl_encrypt($value, EncryptionStore::_CIPHER_METHOD, EncryptionStore::$_encryptionKey, 0, EncryptionStore::$_initializionVector);
 		$_SESSION[EncryptionStore::_SESSION_KEY][$key] = ['val' => $encryptedValue];
 		if ($expiration) {
