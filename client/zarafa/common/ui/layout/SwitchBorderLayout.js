@@ -111,6 +111,20 @@ Zarafa.common.ui.layout.SwitchBorderLayout = Ext.extend(Ext.layout.BorderLayout,
 			}
 			this.rendered = true;
 
+			// Seed region state from panel dimensions so getState()
+			// still includes them after a context-switch recreate.
+			if (this.verticalRegion && this[this.verticalRegion]) {
+				var p = this[this.verticalRegion].panel;
+				if (p) {
+					if (Ext.isNumber(p.height)) {
+						this[this.verticalRegion].state.height = p.height;
+					}
+					if (Ext.isNumber(p.width) && this[this.horizontalRegion]) {
+						this[this.horizontalRegion].state.width = p.width;
+					}
+				}
+			}
+
 			// We just rendered everything, ensure
 			// we apply the currently configured orientation
 			var orientation = this.orientation;
