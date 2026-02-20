@@ -335,30 +335,23 @@ class CreateMailItemModule extends ItemModule {
 			return ['result' => true, 'aborted' => false];
 		}
 
+		$data = [];
+		$data['type'] = 1;
+		$data['info'] = [];
+
 		if ($error === 'MAPI_E_NO_ACCESS') {
-			$data = [];
-			$data['type'] = 1;
-			$data['info'] = [];
 			$data['info']['title'] = _('Insufficient permissions');
 			$data['info']['display_message'] = _("You don't have the permission to complete this action");
-			$this->addActionData('error', $data);
 		}
-		if ($error === 'ecQuotaExceeded') {
-			$data = [];
-			$data['type'] = 1;
-			$data['info'] = [];
+		elseif ($error === 'ecQuotaExceeded') {
 			$data['info']['title'] = _('Quota error');
 			$data['info']['display_message'] = _('Send quota limit reached');
-			$this->addActionData('error', $data);
 		}
-		if ($error === 'ecRpcFailed') {
-			$data = [];
-			$data['type'] = 1;
-			$data['info'] = [];
+		else {
 			$data['info']['title'] = _('Operation failed');
-			$data['info']['display_message'] = _('Email sending failed. Check the log files for more information.');
-			$this->addActionData('error', $data);
+			$data['info']['display_message'] = sprintf(_('Email sending failed (%s). Check the log files for more information.'), $error);
 		}
+		$this->addActionData('error', $data);
 
 		return ['result' => false, 'aborted' => false];
 	}
