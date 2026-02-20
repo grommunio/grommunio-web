@@ -2839,6 +2839,13 @@ class Operations {
 						$e->setHandled();
 					}
 
+					// mapi_copyto may not transfer the recipient table;
+					// verify and copy explicitly if needed.
+					$recipientTable = mapi_message_getrecipienttable($newmessage);
+					if (mapi_table_getrowcount($recipientTable) === 0) {
+						$this->copyRecipients($newmessage, $message);
+					}
+
 					$tmpProps = mapi_getprops($message);
 					$oldParentEntryId = $tmpProps[PR_PARENT_ENTRYID];
 					if ($storeprops[PR_IPM_OUTBOX_ENTRYID] == $oldParentEntryId) {
