@@ -149,10 +149,18 @@ class FilesListModule extends ListModule {
 				],
 			];
 
-			$initializedBackend = $this->initializeBackend($account, true);
+			try {
+				$initializedBackend = $this->initializeBackend($account, true);
 
-			// Get sub folder of root folder.
-			$subFolders = $this->getSubFolders($realNodeId, $initializedBackend);
+				// Get sub folder of root folder.
+				$subFolders = $this->getSubFolders($realNodeId, $initializedBackend);
+			}
+			catch (\Exception $e) {
+				Logger::error(self::LOG_CONTEXT, "Failed to load account '{$accountName}': " . $e->getMessage());
+				$nodes["props"]["status"] = Account::STATUS_ERROR;
+				$nodes["props"]["status_description"] = $e->getMessage();
+				$subFolders = [];
+			}
 
 			array_push($subFolders, [
 				'id' => $realNodeId,

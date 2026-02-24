@@ -279,7 +279,7 @@ class AccountStore {
 			$backendInstance->ls("/");
 			$status = Account::STATUS_OK;
 		}
-		catch (BackendException $e) {
+		catch (\Exception $e) {
 			$status = Account::STATUS_ERROR;
 			$description = $e->getMessage();
 

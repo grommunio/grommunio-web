@@ -195,6 +195,17 @@ class FilesBrowserModule extends FilesListModule {
 						],
 					]);
 				}
+				catch (Exception $e) {
+					$this->sendFeedback(false, [
+						'type' => ERROR_GENERAL,
+						'info' => [
+							'title' => _('Unknown error'),
+							'original_message' => $e->getMessage(),
+							'display_message' => $e->getMessage(),
+							'code' => $e->getCode(),
+						],
+					]);
+				}
 			}
 		}
 
