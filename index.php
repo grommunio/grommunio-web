@@ -23,7 +23,7 @@ function getFavicon($theme) {
 
 	return $favicon;
 }
-
+$webappTitle = defined('WEBAPP_TITLE') && WEBAPP_TITLE ? WEBAPP_TITLE : 'grommunio Web';
 // If the user wants to logout (and is not using single-signon)
 // then destroy the session and redirect to this page, so the login page
 // will be shown
@@ -41,6 +41,7 @@ if (isset($_GET['logout'])) {
 		header('Location: ' . $location . ($username ? '?user=' . rawurlencode((string) $username) : ''), true, 303);
 	}
 	$webappSession->destroy();
+	setcookie('webapp_title', $webappTitle, ['expires' => time() + 31536000, 'path' => '/', 'domain' => '', 'secure' => true, 'httponly' => true, 'samesite' => 'Strict']);
 
 	exit;
 }
@@ -62,7 +63,6 @@ if (isset($_GET['continue']) && !empty($_GET['continue']) && !isset($_GET['wacon
 // Try to authenticate the user
 WebAppAuthentication::authenticate();
 
-$webappTitle = defined('WEBAPP_TITLE') && WEBAPP_TITLE ? WEBAPP_TITLE : 'grommunio Web';
 if (isset($_COOKIE['webapp_title'])) {
 	$webappTitle .= " – " . $_COOKIE['webapp_title'];
 }
