@@ -360,6 +360,10 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 				// Here it will visible the 'Modified' column in mail grid,
 				// if selected folder is unsent folder type.
 				column.hidden = !isUnsentFolderType;
+			} else if (column.dataIndex === 'deferred_send_time') {
+				// Here it will visible the 'Scheduled' column in mail grid,
+				// if selected folder is Sent folder type.
+				column.hidden = !isSentFolderType;
 			}
 		}
 

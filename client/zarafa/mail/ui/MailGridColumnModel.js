@@ -137,6 +137,15 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			tooltip: _('Sort by: Sent'),
 			groupRenderer : this.groupHeaderByDate.createDelegate(this, ['client_submit_time'], 0)
 		},{
+			header: _('Scheduled'),
+			dataIndex: 'deferred_send_time',
+			width: 160,
+			// Setting the renderer with createDelegate to be able to pass a meta object to the renderer.
+			// This way we can add a css-class to the element (used by Selenium tests)
+			renderer: Zarafa.common.ui.grid.Renderers.datetime.createDelegate(null, [{css: 'mail-sent'}], true),
+			tooltip: _('Sort by: Scheduled'),
+			groupRenderer : this.groupHeaderByDate.createDelegate(this, ['deferred_send_time'], 0)
+		},{
 			header: _('Modified'),
 			dataIndex: 'last_modification_time',
 			width: 160,
@@ -215,6 +224,15 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			renderer: Zarafa.common.ui.grid.Renderers.datetime.createDelegate(null, [{css: 'mail-sent'}], true),
 			tooltip: _('Sort by: Sent'),
 			groupRenderer: this.groupHeaderByDate.createDelegate(this, ['client_submit_time'], 0)
+		},{
+			header: _('Scheduled'),
+			dataIndex: 'deferred_send_time',
+			width: 160,
+			// Setting the renderer with createDelegate to be able to pass a meta object to the renderer.
+			// This way we can add a css-class to the element (used by Selenium tests)
+			renderer: Zarafa.common.ui.grid.Renderers.datetime.createDelegate(null, [{css: 'mail-sent'}], true),
+			tooltip: _('Sort by: Scheduled'),
+			groupRenderer: this.groupHeaderByDate.createDelegate(this, ['deferred_send_time'], 0)
 		},{
 			header: _('Modified'),
 			dataIndex: 'last_modification_time',

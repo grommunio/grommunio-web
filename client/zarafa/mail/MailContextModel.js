@@ -855,8 +855,10 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 
 			if(folderKey === 'drafts') {
 				field = 'last_modification_time';
-			} else if(folderKey === 'sent' || folderKey === 'outbox') {
+			} else if(folderKey === 'sent' ) {
 				field = 'client_submit_time';
+			} else if(folderKey === 'outbox') {
+				field = 'deferred_send_time';
 			}
 
 			this.store.defaultSortInfo.field = field;
