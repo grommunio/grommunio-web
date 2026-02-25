@@ -392,7 +392,18 @@ class Properties {
 	public function getAppointmentListProperties() {
 		$properties = $this->getAppointmentProperties();
 
-		unset($properties["goid"], $properties["goid2"]);
+		unset(
+			$properties["goid"],
+			$properties["goid2"],
+			$properties["deleted_on"],
+			$properties["message_size"],
+			$properties["message_flags"],
+			$properties["intendedbusystatus"],
+			$properties["last_modification_time"],
+			$properties["updatecounter"],
+			$properties["commonassign"],
+			$properties["normalized_subject"]
+		);
 
 		return $properties;
 	}

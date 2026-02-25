@@ -651,6 +651,34 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	},
 
 	/**
+	 * Calculate both body and header overlaps in a single pass over the appointments array.
+	 * More efficient than calling calculateBodyOverlaps() and calculateHeaderOverlaps()
+	 * separately, as appointments are partitioned in one iteration.
+	 * @private
+	 */
+	calculateAllOverlaps: function()
+	{
+		var bodyAppointments = [];
+		var headerAppointments = [];
+
+		Ext.each(this.appointments, function(appointment) {
+			if (this.isHeaderRange(appointment.getDateRange())) {
+				headerAppointments.push(appointment);
+			} else {
+				bodyAppointments.push(appointment);
+			}
+		}, this);
+
+		var clusters = this.getAppointmentClusters(bodyAppointments);
+		clusters.forEach(function(cluster) {
+			this.doGreedyColoring(cluster, false);
+		}, this);
+
+		this.doGreedyColoring(headerAppointments, true);
+		this.rowCount = (headerAppointments.length > 0) ? headerAppointments[0].slotCount : 0;
+	},
+
+	/**
 	 * Called by the {@link #parentView} when the {@link Zarafa.core.data.IPMStore#load load} event
 	 * has been fired from the appointment {@link Zarafa.calendar.ui.CalendarMultiView#store store}.
 	 * After all appointments have been added to the calendar, the {@link #calculateBodyOverlaps body overlaps}
@@ -663,9 +691,8 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	{
 		Zarafa.calendar.ui.AbstractCalendarDaysView.superclass.onAppointmentsLoad.apply(this, arguments);
 
-		// Appointments have been loaded, we must recalculate the overlaps in the body and header
-		this.calculateBodyOverlaps();
-		this.calculateHeaderOverlaps();
+		// Appointments have been loaded, recalculate all overlaps in a single pass
+		this.calculateAllOverlaps();
 	},
 
 	/**
@@ -718,8 +745,5 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	onBeforeLayout: function()
 	{
 		Zarafa.calendar.ui.AbstractCalendarDaysView.superclass.onBeforeLayout.apply(this, arguments);
-
-		this.calculateBodyOverlaps();
-		this.calculateHeaderOverlaps();
 	}
 });
