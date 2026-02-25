@@ -1391,7 +1391,7 @@ Zarafa.common.Actions = {
 			if (suppressException) {
 				record.suppressException();
 			}
-			if (record.isUnsent() && !record.isFaultyMessage()) {
+			if ((record.isUnsent() || record.isScheduled()) && !record.isFaultyMessage()) {
 				Zarafa.core.data.UIFactory.openCreateRecord(record, config);
 			} else {
 				// Combine open + mark-as-read into one request when
