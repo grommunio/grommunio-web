@@ -192,6 +192,36 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 			});
 		}
 
+		// Dark mode toggle: light / dark / system
+		var darkModeStore = new Ext.data.ArrayStore({
+			fields: ['id', 'displayName'],
+			idIndex: 0,
+			data: [
+				['light', _('Light')],
+				['dark', _('Dark')],
+				['system', _('System')]
+			]
+		});
+
+		config.items.push({
+			xtype: 'combo',
+			width: 200,
+			editable: false,
+			forceSelection: true,
+			triggerAction: 'all',
+			store: darkModeStore,
+			fieldLabel: _('Appearance'),
+			mode: 'local',
+			valueField: 'id',
+			displayField: 'displayName',
+			ref: 'darkModeCombo',
+			name: 'zarafa/v1/main/dark_mode',
+			listeners: {
+				select: this.onDarkModeSelect,
+				scope: this
+			}
+		});
+
 		// We always have more than one iconset (grommunio Web ships with the classic and breeze icon sets)
 		config.items.push({
 			xtype: 'combo',
@@ -359,7 +389,6 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 			var bodyEl = Ext.getBody();
 
 			// Remove ALL existing theme-* classes
-			// This handles switching from any theme to any other theme
 			var bodyClasses = bodyEl.dom.className.split(' ');
 			for (var i = 0; i < bodyClasses.length; i++) {
 				if (bodyClasses[i].indexOf('theme-') === 0) {
@@ -367,128 +396,34 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 				}
 			}
 
-			// Remove dark theme CSS if switching away from dark theme
-			if (this.activeTheme === 'dark') {
-				this.removeDarkThemeCSS();
-			}
-
 			// Add new theme class if not 'basic'
-			// Basic theme uses no theme class and falls back to the original hardcoded colors in the CSS
 			if (value && value !== 'basic') {
-				var newThemeClass = 'theme-' + value;
-				bodyEl.addClass(newThemeClass);
-
-				// Load dark theme CSS if switching to dark theme
-				if (value === 'dark') {
-					this.loadDarkThemeCSS();
-				}
+				bodyEl.addClass('theme-' + value);
 			}
 
-			// Update the active theme reference
 			this.activeTheme = value;
 		}
 
 		if (this.model) {
 			this.model.set(combo.name, value);
 		}
-
-		// Set Onlyoffice theme
-		window.localStorage.setItem('ui-theme',
-			value === 'dark' ? '{"id":"theme-dark","type":"dark"}' : '{"id":"theme-light","type":"light"}');
-		window.localStorage.setItem('ui-theme-id',
-			value === 'dark' ? 'theme-dark' : 'theme-light');
 	},
 
 	/**
-	 * Dynamically loads the dark theme CSS file by injecting a link element into the page.
+	 * Event handler for dark mode combo selection.
+	 * @param {Ext.form.ComboBox} combo
+	 * @param {Ext.data.Record} record
+	 * @param {Number} index
 	 * @private
 	 */
-	loadDarkThemeCSS: function()
+	onDarkModeSelect: function(combo, record, index)
 	{
-		// Check if dark theme CSS is already loaded (either by id or by href)
-		var existingLink = this.findDarkThemeCSS();
-		if (existingLink) {
-			// Tag it with our id so we can manage it later
-			existingLink.id = 'dark-theme-stylesheet';
-			return;
+		var value = record.get(combo.valueField);
+		Zarafa.core.DarkMode.setMode(value);
+
+		if (this.model) {
+			this.model.set(combo.name, value);
 		}
-
-		// Determine the correct path based on build mode
-		// In SOURCE mode: client/zarafa/core/themes/dark/css/themedark.css
-		// In DEBUG/RELEASE mode: client/themes/dark/css/themedark.css
-		var cssPath = this.detectThemePath();
-
-		// Create and inject the dark theme CSS link
-		var link = document.createElement('link');
-		link.id = 'dark-theme-stylesheet';
-		link.rel = 'stylesheet';
-		link.type = 'text/css';
-		link.href = cssPath;
-		document.head.appendChild(link);
-	},
-
-	/**
-	 * Detects the correct path for theme CSS files based on existing link tags.
-	 * Falls back to built version path if detection fails.
-	 * @return {String} The path to the dark theme CSS file
-	 * @private
-	 */
-	detectThemePath: function()
-	{
-		// Check existing CSS link tags to detect the theme path structure
-		var links = document.getElementsByTagName('link');
-		for (var i = 0; i < links.length; i++) {
-			var href = links[i].href;
-			if (href && href.indexOf('grommunio.css') !== -1) {
-				// Found main CSS, check if it's in client/resources/ (built) or client/zarafa/ (source)
-				if (href.indexOf('client/zarafa/') !== -1) {
-					// SOURCE mode
-					return 'client/zarafa/core/themes/dark/css/themedark.css';
-				} else {
-					// DEBUG/RELEASE mode (built)
-					return 'client/themes/dark/css/themedark.css';
-				}
-			}
-		}
-
-		// Default to built version path
-		return 'client/themes/dark/css/themedark.css';
-	},
-
-	/**
-	 * Removes the dark theme CSS file from the page.
-	 * @private
-	 */
-	removeDarkThemeCSS: function()
-	{
-		var darkStylesheet = this.findDarkThemeCSS();
-		if (darkStylesheet) {
-			darkStylesheet.parentNode.removeChild(darkStylesheet);
-		}
-	},
-
-	/**
-	 * Finds the dark theme CSS link element in the page.
-	 * @return {HTMLLinkElement} The dark theme link element, or null if not found
-	 * @private
-	 */
-	findDarkThemeCSS: function()
-	{
-		// First try to find by id
-		var link = document.getElementById('dark-theme-stylesheet');
-		if (link) {
-			return link;
-		}
-
-		// If not found by id, search all link elements for the dark theme CSS
-		var links = document.getElementsByTagName('link');
-		for (var i = 0; i < links.length; i++) {
-			if (links[i].href && links[i].href.indexOf('themedark.css') !== -1) {
-				return links[i];
-			}
-		}
-
-		return null;
 	},
 
 	/**
@@ -549,6 +484,10 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 			this.activeIconset = container.getServerConfig().getActiveIconset();
 		}
 		this.iconsetCombo.setValue(this.activeIconset);
+
+		// Set the dark mode combo value
+		var darkMode = settingsModel.get(this.darkModeCombo.name) || Zarafa.core.DarkMode.getMode();
+		this.darkModeCombo.setValue(darkMode);
 	},
 
 	/**
@@ -573,6 +512,7 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 		}
 
 		settingsModel.set(this.iconsetCombo.name, this.iconsetCombo.getValue());
+		settingsModel.set(this.darkModeCombo.name, this.darkModeCombo.getValue());
 		settingsModel.endEdit();
 	}
 });

@@ -16,6 +16,7 @@
 		<link rel="shortcut icon" href="<?php echo $favicon; ?>" type="image/x-icon">
 
 		<link rel="stylesheet" type="text/css" href="client/resources/css/external/login.css">
+		<link rel="stylesheet" type="text/css" href="client/resources/css/darkmode.css">
 
 		<?php
 			/* Add the styling of the theme */

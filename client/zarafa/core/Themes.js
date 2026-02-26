@@ -22,8 +22,7 @@ Zarafa.core.Themes = {
 		{ name: 'indigo', displayName: _('Indigo') },
 		{ name: 'red', displayName: _('Red') },
 		{ name: 'green', displayName: _('Green') },
-		{ name: 'brown', displayName: _('Brown') },
-		{ name: 'dark', displayName: _('Dark') }
+		{ name: 'brown', displayName: _('Brown') }
 	],
 
 	/**

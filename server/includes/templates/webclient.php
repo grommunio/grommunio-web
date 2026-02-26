@@ -71,9 +71,20 @@ if ($GLOBALS['settings']->get('zarafa/v1/contexts/mail/attachment_reminder_enabl
 		<link rel="shortcut icon" href="<?php echo $favicon; ?>" type="image/x-icon">
 
 		<script><?php require BASE_PATH . 'client/fingerprint.js'; ?></script>
+		<script>
+		// Resolve system dark mode preference before CSS loads to prevent flash
+		(function() {
+			document.addEventListener('DOMContentLoaded', function() {
+				if (document.body.classList.contains('dark-mode-system') && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+					document.body.classList.add('dark-mode');
+				}
+			});
+		})();
+		</script>
 
 		<!-- load the login css first as we need it immediately! -->
 		<link rel="stylesheet" href="client/resources/css/external/login.css" >
+		<link rel="stylesheet" href="client/resources/css/darkmode.css" >
 		<?php
 			$loader->cssOrder();
 echo Theming::getStyles($theme);
@@ -85,7 +96,14 @@ $iconsetStylesheet = Iconsets::getActiveStylesheet();
 	<body class="zarafa-webclient theme-<?php echo strtolower((string) $theme ?: 'basic');
 echo ' ' . $hideFavorites;
 echo ' ' . $scrollFavorites;
-echo ' ' . $unreadBorders; ?>">
+echo ' ' . $unreadBorders;
+$darkMode = WebAppAuthentication::isAuthenticated() ? $GLOBALS['settings']->get('zarafa/v1/main/dark_mode') : 'light';
+if ($darkMode === 'dark') {
+	echo ' dark-mode';
+} elseif ($darkMode === 'system') {
+	echo ' dark-mode-system';
+}
+?>">
 		<div id="loading-mask">
 			<div id="form-container" class="loading" style="visibility: hidden;">
 				<div id="bg"></div>

@@ -204,12 +204,8 @@ Ext.apply(Zarafa, {
 		container.getSettingsModel().initialize(settings);
 		delete settings;
 
-		// Set Onlyoffice theme
-		const activeTheme = container.getSettingsModel().get('zarafa/v1/main/active_theme');
-		window.localStorage.setItem('ui-theme',
-			activeTheme === 'dark' ? '{"id":"theme-dark","type":"dark"}' : '{"id":"theme-light","type":"light"}');
-		window.localStorage.setItem('ui-theme-id',
-			activeTheme === 'dark' ? 'theme-dark' : 'theme-light');
+		// Initialize dark mode system (handles OnlyOffice theme, TinyMCE, mail preview)
+		Zarafa.core.DarkMode.init();
 
 		// Load all persistent settings (i.e. settings that will not be deleted when the user resets his settings)
 		// Persistent settings are not added to the welcome screen, so check if they exist first.
