@@ -404,23 +404,44 @@ class IndexSqlite extends SQLite3 {
 			return 'NOT (' . $child . ')';
 		}
 		if ($operator === 'AND' || $operator === 'OR') {
-			$parts = [];
+			// In FTS5, NOT is a binary infix operator (a NOT b), not a
+			// unary prefix.  When an AND node contains NOT children we
+			// must emit them with the FTS5 NOT operator instead of
+			// producing the invalid "a AND (NOT b)" form.
+			$positiveParts = [];
+			$negativeParts = [];
 			foreach ($children as $child) {
-				$compiled = $this->compileFtsExpression($child);
-				if ($compiled !== null) {
-					$parts[] = $compiled;
+				if ($operator === 'AND' && isset($child['op']) && $child['op'] === 'NOT') {
+					$compiled = $this->compileFtsExpression($child['children'][0] ?? null);
+					if ($compiled !== null) {
+						$negativeParts[] = $compiled;
+					}
+				} else {
+					$compiled = $this->compileFtsExpression($child);
+					if ($compiled !== null) {
+						$positiveParts[] = $compiled;
+					}
 				}
 			}
-			if (empty($parts)) {
+			if (empty($positiveParts) && empty($negativeParts)) {
 				return null;
 			}
-			if (count($parts) === 1) {
-				return $parts[0];
+			if (empty($positiveParts)) {
+				// FTS5 NOT requires a left-hand operand
+				return null;
 			}
-			$wrapped = array_map(function ($segment) {
-				return '(' . $segment . ')';
-			}, $parts);
-			return implode(' ' . $operator . ' ', $wrapped);
+			if (count($positiveParts) === 1) {
+				$result = $positiveParts[0];
+			} else {
+				$wrapped = array_map(function ($segment) {
+					return '(' . $segment . ')';
+				}, $positiveParts);
+				$result = implode(' ' . $operator . ' ', $wrapped);
+			}
+			foreach ($negativeParts as $neg) {
+				$result = '(' . $result . ') NOT (' . $neg . ')';
+			}
+			return $result;
 		}
 
 		return null;
