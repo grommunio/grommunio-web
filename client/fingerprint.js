@@ -26,75 +26,6 @@ const fingerprint = (function(){
 	}
 
 	/**
-	 * Returns an array with fonts that are available on
-	 * the system.
-	 */
-	function _getFonts(){
-		const fonts = [
-			// General
-			'Arial',
-
-			// Microsoft windows
-			'Aldhabi',
-			'Andalus',
-			'Aparajita',
-			'Arabic Typesetting',
-			'Arial Black',
-			'Bodoni MT',
-			'Baskerville Old Face',
-			'Goudy Old Style',
-			'Constantia',
-			'Cambria',
-			'Garamond',
-			'Book Antiqua',
-			'Palatino Linotype',
-			'Segoe UI',
-			'Candara',
-			'Calibri',
-			'Franklin Gothic Medium',
-			'Century Gothic',
-			'Impact',
-
-			// Apple
-			'Arial Rounded MT Bold',
-			'Lucida Bright',
-			'Palatino',
-			'Big Caslon',
-			'Didot',
-			'Optima',
-			'Futura',
-			'Trebuchet MS',
-			'Helvetica',
-
-			// Adobe fonts
-			'Adobe Text',
-			'Myriad Arabic',
-			'Source Sans',
-			'Garamond Premier',
-
-			// Some rare fonts
-			'Century Schoolbook',
-			'Gautami',
-			'Andale Mono',
-			'Charcoal',
-
-			// High availability on linux
-			'Utopia',
-			'New Century Schoolbook',
-			'Zapf Chancery',
-			'Nimbus Sans L',
-			'Bitstream Charter',
-			'Ubuntu'
-		];
-		if (!document.fonts || !document.fonts.check) {
-			return fonts;
-		}
-		return fonts.filter(function(font) {
-			return document.fonts.check('16px "' + font + '"');
-		});
-	}
-
-	/**
 	 * Creates a 32 bit integer hash from a string
 	 */
 	function _hashCode(str) {
@@ -112,14 +43,12 @@ const fingerprint = (function(){
 
 	return {
 		/**
-		 * Returns a fingerprint based on the navigator info
-		 * and available fonts.
+		 * Returns a fingerprint based on the navigator info.
 		 */
 		get: function() {
 			var navInfo = _getNavigatorInfo();
-			var fonts = _getFonts();
 
-			return _hashCode(JSON.stringify([navInfo, fonts]));
+			return _hashCode(JSON.stringify(navInfo));
 		}
 	};
 })();

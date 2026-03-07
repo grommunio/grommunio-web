@@ -35,10 +35,21 @@ class WebAppSession {
 				session_name(COOKIE_NAME);
 			}
 		}
-		$lifetime = ini_get('session.cookie_lifetime');
-		$path = ini_get('session.cookie_path');
-		$domain = ini_get('session.cookie_domain');
-		session_set_cookie_params($lifetime, $path, $domain, $secure, true);
+		// Keycloak/OAuth requires SameSite=None so the session cookie
+		// survives the cross-site redirect back from the identity provider.
+		// Firefox strictly enforces SameSite=Lax on cross-site redirects
+		// and would otherwise drop the session cookie, causing a login loop.
+		$keycloakEnabled = !defined('DISABLE_KEYCLOAK') || !DISABLE_KEYCLOAK;
+		$samesite = $keycloakEnabled && $secure ? 'None' : 'Lax';
+
+		session_set_cookie_params([
+			'lifetime' => (int) ini_get('session.cookie_lifetime'),
+			'path'     => ini_get('session.cookie_path') ?: '/',
+			'domain'   => ini_get('session.cookie_domain') ?: '',
+			'secure'   => $secure,
+			'httponly'  => true,
+			'samesite' => $samesite,
+		]);
 
 		$this->start();
 

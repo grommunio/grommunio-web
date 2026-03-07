@@ -41,7 +41,7 @@ if (isset($_GET['logout'])) {
 		header('Location: ' . $location . ($username ? '?user=' . rawurlencode((string) $username) : ''), true, 303);
 	}
 	$webappSession->destroy();
-	setcookie('webapp_title', $webappTitle, ['expires' => time() + 31536000, 'path' => '/', 'domain' => '', 'secure' => true, 'httponly' => true, 'samesite' => 'Strict']);
+	setcookie('webapp_title', $webappTitle, ['expires' => time() + 31536000, 'path' => '/', 'domain' => '', 'secure' => true, 'httponly' => true, 'samesite' => 'Lax']);
 
 	exit;
 }
@@ -222,7 +222,7 @@ setcookie('lang', (string) $lang, [
 	'domain' => '',
 	'secure' => true,
 	'httponly' => true,
-	'samesite' => 'Strict',
+	'samesite' => 'Lax',
 ]);
 
 // add extra header

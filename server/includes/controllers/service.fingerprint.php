@@ -56,9 +56,13 @@ if (!WebAppAuthentication::isAuthenticated()) {
 	exit;
 }
 
-// Single sign on will never go through the login page. So we cannot check
-// the fingerprint there!
-if (!DISABLE_FINGERPRINT_CHECK && (!isset($_SESSION['frontend-fingerprint']) || $_POST['fingerprint'] !== $_SESSION['frontend-fingerprint'])) {
+// If the frontend fingerprint was never stored (e.g. SSO/Keycloak where
+// the login page is skipped or the fingerprint request was cancelled
+// during redirect), store it now instead of killing the session.
+if (!isset($_SESSION['frontend-fingerprint'])) {
+	$_SESSION['frontend-fingerprint'] = $_POST['fingerprint'];
+}
+elseif (!DISABLE_FINGERPRINT_CHECK && $_POST['fingerprint'] !== $_SESSION['frontend-fingerprint']) {
 	error_log('frontend-fingerprint did not match. Session terminated. ' . WebAppAuthentication::getUserName());
 	$phpSession->destroy();
 	Response::unAuthorized();
