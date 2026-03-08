@@ -1,0 +1,2656 @@
+/*********************************************************************************************
+ * grommunio Web - Dark Mode
+ *
+ * This stylesheet provides dark mode support using body.dark-mode on the body element.
+ * It works alongside any accent color theme (theme-purple, theme-cyan, etc.).
+ * The "system" mode uses prefers-color-scheme to auto-detect.
+ *
+ * Architecture:
+ * - Dark mode overrides use body.dark-mode selector
+ * - System mode uses @media (prefers-color-scheme: dark) + body.dark-mode-system
+ * - Accent color themes remain independent (theme-* classes)
+ * - Icons using mask-image adapt automatically via --icon-color
+ * - Legacy background-image icons use filter for inversion
+ ********************************************************************************************/
+
+/*=============================================================================
+  Dark Mode CSS Variables
+=============================================================================*/
+body.dark-mode {
+	/* Surface colors */
+	--dm-bg: #121212;
+	--dm-bg-paper: #1e1e1e;
+	--dm-bg-elevated: #2a2a2e;
+	--dm-bg-input: color-mix(in srgb, var(--theme-primary-color) 8%, #252525);
+
+	/* Foreground / text */
+	--dm-fg: #d4d4d4;
+	--dm-fg-secondary: #b0b0b0;
+	--dm-fg-muted: #808080;
+	--dm-fg-inverse: #1e1e1e;
+
+	/* Interactive states - derived from the active accent color theme */
+	--dm-hover: color-mix(in srgb, var(--theme-primary-color) 50%, #1e1e1e);
+	--dm-selected: color-mix(in srgb, var(--theme-primary-color) 35%, #121212);
+	--dm-border: #3a3a3a;
+	--dm-border-strong: #555;
+	--dm-focus: color-mix(in srgb, var(--theme-primary-color) 30%, #1e1e1e);
+
+	/* Icon color for mask-image based icons */
+	--icon-color: #e0e0e0;
+
+	/* Override theme variables for dark surfaces */
+	--theme-selection-bg: color-mix(in srgb, var(--theme-primary-color) 40%, #1e1e1e);
+	--theme-border-color: var(--dm-bg-elevated);
+	--theme-border-hover: var(--dm-border-strong);
+	--theme-panel-bg: var(--dm-bg-paper);
+}
+
+/*=============================================================================
+  System preference auto-detection
+=============================================================================*/
+@media (prefers-color-scheme: dark) {
+	body.dark-mode-system {
+		--dm-bg: #121212;
+		--dm-bg-paper: #1e1e1e;
+		--dm-bg-elevated: #2a2a2e;
+		--dm-bg-input: color-mix(in srgb, var(--theme-primary-color) 8%, #252525);
+		--dm-fg: #d4d4d4;
+		--dm-fg-secondary: #b0b0b0;
+		--dm-fg-muted: #808080;
+		--dm-fg-inverse: #1e1e1e;
+		--dm-hover: color-mix(in srgb, var(--theme-primary-color) 50%, #1e1e1e);
+		--dm-selected: color-mix(in srgb, var(--theme-primary-color) 35%, #121212);
+		--dm-border: #3a3a3a;
+		--dm-border-strong: #555;
+		--dm-focus: color-mix(in srgb, var(--theme-primary-color) 30%, #1e1e1e);
+		--icon-color: #e0e0e0;
+		--theme-selection-bg: color-mix(in srgb, var(--theme-primary-color) 40%, #1e1e1e);
+		--theme-border-color: var(--dm-bg-elevated);
+		--theme-border-hover: var(--dm-border-strong);
+		--theme-panel-bg: var(--dm-bg-paper);
+	}
+}
+
+/* Convenience: all dark selectors in one. We use :is() for brevity */
+/* postcss-preset-env will handle this for older browsers */
+
+/*=============================================================================
+  Page / Body
+=============================================================================*/
+body.dark-mode.zarafa-webclient,
+body.dark-mode .ext-el-mask {
+	background-color: var(--dm-bg) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+	body.dark-mode-system.zarafa-webclient,
+	body.dark-mode-system .ext-el-mask {
+		background-color: var(--dm-bg) !important;
+	}
+}
+
+/*=============================================================================
+  Top Toolbar
+=============================================================================*/
+body.dark-mode #zarafa-maintoolbar .x-toolbar {
+	background-color: var(--dm-bg-paper) !important;
+}
+
+body.dark-mode #zarafa-maintoolbar .x-btn .x-btn-small,
+body.dark-mode #zarafa-maintoolbar .x-btn .x-btn-medium,
+body.dark-mode #zarafa-maintoolbar .x-btn .x-btn-large {
+	background-color: var(--dm-bg-paper) !important;
+	background-image: none !important;
+	box-shadow: none !important;
+}
+
+body.dark-mode #zarafa-maintoolbar .x-btn .x-btn-small button,
+body.dark-mode #zarafa-maintoolbar .x-btn .x-btn-medium button,
+body.dark-mode #zarafa-maintoolbar .x-btn .x-btn-large button {
+	background-color: transparent !important;
+}
+
+body.dark-mode #zarafa-maintoolbar .x-btn .x-btn-small button.x-btn-text,
+body.dark-mode #zarafa-maintoolbar .x-btn .x-btn-medium button.x-btn-text,
+body.dark-mode #zarafa-maintoolbar .x-btn .x-btn-large button.x-btn-text {
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode #zarafa-maintoolbar .x-btn.x-btn-over .x-btn-small,
+body.dark-mode #zarafa-maintoolbar .x-btn.x-btn-over .x-btn-medium,
+body.dark-mode #zarafa-maintoolbar .x-btn.x-btn-over .x-btn-large {
+	background-color: #3a3a3a !important;
+}
+
+body.dark-mode #zarafa-maintoolbar .x-btn.x-btn-over .x-btn-small button,
+body.dark-mode #zarafa-maintoolbar .x-btn.x-btn-over .x-btn-medium button,
+body.dark-mode #zarafa-maintoolbar .x-btn.x-btn-over .x-btn-large button {
+	background-color: transparent !important;
+}
+
+body.dark-mode #zarafa-maintoolbar .x-btn.zarafa-action.x-btn-over .x-btn-small,
+body.dark-mode #zarafa-maintoolbar .x-btn.zarafa-action.x-btn-over .x-btn-medium,
+body.dark-mode #zarafa-maintoolbar .x-btn.zarafa-action.x-btn-over .x-btn-large {
+	background-color: var(--theme-primary-hover) !important;
+}
+
+body.dark-mode #zarafa-maintoolbar .x-btn.zarafa-action.x-btn-over .x-btn-small button,
+body.dark-mode #zarafa-maintoolbar .x-btn.zarafa-action.x-btn-over .x-btn-medium button,
+body.dark-mode #zarafa-maintoolbar .x-btn.zarafa-action.x-btn-over .x-btn-large button {
+	background-color: transparent !important;
+}
+
+body.dark-mode #zarafa-maintoolbar .x-btn em.x-btn-split button {
+	border-right-color: var(--dm-selected);
+}
+
+/* Toolbar action button overrides - use accent color */
+body.dark-mode #zarafa-maintoolbar .x-btn.zarafa-action .x-btn-small,
+body.dark-mode #zarafa-maintoolbar .x-btn.zarafa-action .x-btn-medium,
+body.dark-mode #zarafa-maintoolbar .x-btn.zarafa-action .x-btn-large {
+	background: var(--theme-primary-color) !important;
+	border-color: transparent !important;
+}
+
+body.dark-mode #zarafa-maintoolbar .x-btn.zarafa-action .x-btn-small button,
+body.dark-mode #zarafa-maintoolbar .x-btn.zarafa-action .x-btn-medium button,
+body.dark-mode #zarafa-maintoolbar .x-btn.zarafa-action .x-btn-large button {
+	color: #fff !important;
+	background-color: transparent !important;
+}
+
+/* Logo area dark variant - full grommunio logo from the original dark theme */
+body.dark-mode .zarafa-maintoolbar {
+	background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MjAgMTQwIj48cGF0aCBmaWxsPSIjZGZkZmRmIiBkPSJNMTg2LjY3IDUzLjE4cS0xMS4xNCAwLTEzLjI4IDE2LjIxLTEuMTEgOC40MiAxLjI4IDEyLjU3YTguMzMgOC4zMyAwIDAgMCA3LjY3IDQuMTUgMTIuMTMgMTIuMTMgMCAwIDAgOC4yMy0zLjI0IDExLjkyIDExLjkyIDAgMCAwIDQuMzQtNy42bDEuNDQtMTFhOS40MyA5LjQzIDAgMCAwLTIuMy03LjkgOS4zMiA5LjMyIDAgMCAwLTcuMzgtMy4yNHptLTkuOTIgNDMuMDZxLTguOTIgMC0xMy42Ni03LjA5VDE2MCA2OS4zOXExLjY3LTEyLjU3IDcuOTQtMTkuNDVhMjAuNjUgMjAuNjUgMCAwIDEgMTUuOC02LjkgMTggMTggMCAwIDEgOC4xOCAxLjczIDE4LjgzIDE4LjgzIDAgMCAxIDYuNDQgNS43Ny4yNC4yNCAwIDAgMCAuMTkuMS4xLjEgMCAwIDAgLjExLS4xbC4xLS43MWE2LjYgNi42IDAgMCAxIDIuMzUtNCA2LjQ0IDYuNDQgMCAwIDEgNC4zOC0xLjcyaDEuMTJhNC41MiA0LjUyIDAgMCAxIDMuNzIgMS43MiA0LjkgNC45IDAgMCAxIDEuMTkgNGwtNS42MyA0Mi44N3EtMy42IDI3LjM2LTMxIDI3LjM2YTY2LjY4IDY2LjY4IDAgMCAxLTEwLjEzLS44MSA1LjM5IDUuMzkgMCAwIDEtMy43My0yLjQzIDYuMzQgNi4zNCAwIDAgMS0uOTQtNC40NiA0LjUzIDQuNTMgMCAwIDEgMi4wNS0zLjI1IDQuODYgNC44NiAwIDAgMSAzLjgzLS42IDM5Ljc2IDM5Ljc2IDAgMCAwIDEwIDEuMjFxNy41IDAgMTEuNDctNCAzLjk3LTQgNS4xMy0xMi43MmwuNDItMy4xNGMwLS4wNyAwLS4xLS4wOS0uMWEuMzMuMzMgMCAwIDAtLjIyLjEgMjIuNzggMjIuNzggMCAwIDEtMTUuOTQgNi4zOHptMzguNjEuNTFhNC44MyA0LjgzIDAgMCAxLTMuODItMS43NSA0LjkxIDQuOTEgMCAwIDEtMS4xOS00bDUuNDItNDEuMTRhNi40IDYuNCAwIDAgMSAyLjI1LTQgNi4zMiA2LjMyIDAgMCAxIDQuMjgtMS43MmgyYTQuODIgNC44MiAwIDAgMSAzLjgyIDEuNzIgNC45IDQuOSAwIDAgMSAxLjE5IDRsLS41NiA0LjI2YzAgLjA3IDAgLjEuMDkuMXMuMjEgMCAuMjItLjFhMjYuODYgMjYuODYgMCAwIDEgOC41Ny02LjU5IDMwLjQzIDMwLjQzIDAgMCAxIDEwLjg2LTMuMjQgMy43MiAzLjcyIDAgMCAxIDMuNTEgMS4zOSA0LjQyIDQuNDIgMCAwIDEgMSAzLjY1IDUuNzUgNS43NSAwIDAgMS0yIDMuNjcgNi43IDYuNyAwIDAgMS0zLjg3IDEuNzNRMjI5IDU2LjExIDIyNi44MSA3Mi45NGwtMi4zOCAxOGE2LjQgNi40IDAgMCAxLTIuMjUgNC4wNiA2LjMyIDYuMzIgMCAwIDEtNC4yOCAxLjcyem02OS40OS0zOS42MnEtMi4zOS00LjI2LTguMzYtNC4yNmExMS45MiAxMS45MiAwIDAgMC05LjU4IDQuMjZxLTMuNDggNC4xNS00LjY4IDEzLjI3LTEuMiA5LjEyIDEuMTggMTMuMzggMi40OSA0LjE2IDguNDcgNC4xNmExMS43IDExLjcgMCAwIDAgOS40Ni00LjE2cTMuNi00LjI2IDQuOC0xMy4zOCAxLjItOS4xMi0xLjI5LTEzLjI3em01LjUyIDMzLjU0cS03LjY0IDcuMS0xOS43OSA3LjA5LTEyLjE1LS4wMS0xOC03LjA5LTUuNzQtNy4yLTQtMjAuMjcgMS43NC0xMy4wNyA5LjM0LTIwLjE2IDcuNzQtNy4yIDE5LjktNy4yIDEyLjE2IDAgMTcuOSA3LjIgNS44NSA3LjA5IDQuMTMgMjAuMTYtMS43MiAxMy4wNy05LjQ4IDIwLjI3em0xNC43NiA2LjA4YTQuODIgNC44MiAwIDAgMS0zLjgyLTEuNzUgNS4xIDUuMSAwIDAgMS0xLjA5LTRsNS40Mi00MS4xNGE2LjU5IDYuNTkgMCAwIDEgMi4xNS00IDYuMzIgNi4zMiAwIDAgMSA0LjI4LTEuNzJoMS40MmE0LjcyIDQuNzIgMCAwIDEgMy43NCAxLjYyIDQuOTIgNC45MiAwIDAgMSAxLjMgNGwtLjA5LjcxYzAgLjA3IDAgLjEuMDkuMXMuMiAwIC4yMS0uMXE2Ljk0LTcuMjkgMTQuNDQtNy4zYTEyLjM3IDEyLjM3IDAgMCAxIDcuMDcgMS43M3EyLjYxIDEuNzEgNC4xNiA2LjA0YzAgLjA2LjA2LjEuMTkuMWEuMzkuMzkgMCAwIDAgLjIyLS4xUTM1Mi4yMyA0MyAzNjAuMjQgNDNxOC40IDAgMTEuNDUgNC41NiAzLjA1IDQuNTYgMS42OCAxNS43MUwzNjkuNzMgOTFhNi40IDYuNCAwIDAgMS0yLjI1IDQgNiA2IDAgMCAxLTQuMTggMS43MmgtMS43M2E0LjgzIDQuODMgMCAwIDEtMy44Mi0xLjcyIDQuOTEgNC45MSAwIDAgMS0xLjE5LTRsMy4zNy0yNS42M2MuNjUtNC45My42MS04LjE4LS4xMy05Ljczcy0yLjQ3LTIuMzMtNS4xNy0yLjMzYTkgOSAwIDAgMC01LjYzIDIuNHEtMyAyLjQzLTMuMjcgNC44NmwtNCAzMC40YTYuNCA2LjQgMCAwIDEtMi4yMiA0LjAzIDYuMzIgNi4zMiAwIDAgMS00LjI4IDEuNzJoLTEuNzNhNC44MyA0LjgzIDAgMCAxLTMuODItMS43MiA1LjE0IDUuMTQgMCAwIDEtMS4wOS00TDMzMiA2NS4zNHExLTcuMzEtLjI2LTkuNjMtMS4yNi0yLjMyLTUuMTUtMi40M2E5IDkgMCAwIDAtNS41OSAyLjQzcS0zIDIuNDMtMy4yNyA0Ljg2bC00IDMwLjRhNi40IDYuNCAwIDAgMS0yLjI5IDQuMDMgNi4zMiA2LjMyIDAgMCAxLTQuMjggMS43MnptNzMuNTEgMGE0LjgyIDQuODIgMCAwIDEtMy44Mi0xLjc1IDUuMSA1LjEgMCAwIDEtMS4wOS00bDUuNDEtNDEuMTRhNi42NSA2LjY1IDAgMCAxIDIuMTYtNCA2LjMyIDYuMzIgMCAwIDEgNC4yOC0xLjcySDM4N2E0LjcyIDQuNzIgMCAwIDEgMy43NCAxLjYyIDQuOTIgNC45MiAwIDAgMSAxLjMgNGwtLjA5LjcxYzAgLjA3IDAgLjEuMDguMXMuMjEgMCAuMjItLjFxNi45NC03LjI5IDE0LjQ0LTcuM2ExMi4zOSAxMi4zOSAwIDAgMSA3LjA3IDEuNzNxMi42MSAxLjcxIDQuMTYgNi4wOGMwIC4wNi4wNi4xLjE5LjFhLjM5LjM5IDAgMCAwIC4yMi0uMVE0MjUuNzQgNDMgNDMzLjc0IDQzcTguNDIgMCAxMS40NiA0LjU2IDMuMDQgNC41NiAxLjY4IDE1LjcxTDQ0My4yNCA5MWE2LjQgNi40IDAgMCAxLTIuMjQgNCA2IDYgMCAwIDEtNC4xOCAxLjcyaC0xLjczYTQuODIgNC44MiAwIDAgMS0zLjgzLTEuNzIgNC45MSA0LjkxIDAgMCAxLTEuMTktNGwzLjM3LTI1LjYzYy42NS00LjkzLjYxLTguMTgtLjE0LTkuNzNzLTIuNDYtMi4zMy01LjE2LTIuMzNhOSA5IDAgMCAwLTUuNTkgMi40M3EtMyAyLjQzLTMuMjcgNC44NmwtNCAzMC40YTYuNCA2LjQgMCAwIDEtMi4yOCA0IDYuMzIgNi4zMiAwIDAgMS00LjI4IDEuNzJINDA3YTQuODIgNC44MiAwIDAgMS0zLjgxLTEuNzIgNS4xNCA1LjE0IDAgMCAxLTEuMDktNGwzLjM4LTI1LjYzcTEtNy4zMS0uMjYtOS42My0xLjI2LTIuMzItNS4xNS0yLjQzYTkgOSAwIDAgMC01LjU5IDIuNDNxLTMgMi40My0zLjI3IDQuODZsLTQgMzAuNGE2LjQgNi40IDAgMCAxLTIuMjEgNCA2LjMyIDYuMzIgMCAwIDEtNC4yOCAxLjcyek00NjMgOTcuNzZxLTguOTEgMC0xMi4zMy00Ljg2dC0xLjg1LTE2LjcybDMuNDctMjYuMzVhNi40MiA2LjQyIDAgMCAxIDIuMjYtNCA2LjMxIDYuMzEgMCAwIDEgNC4yOC0xLjcyaDEuNjJhNC44MiA0LjgyIDAgMCAxIDMuODIgMS43MiA0LjkgNC45IDAgMCAxIDEuMTkgNGwtMy4yOCAyNC45M3EtLjkzIDcuMDkuNjMgOS44M2MxLjA1IDEuODIgMy4wOSAyLjc0IDYuMTMgMi43NCAyLjc3IDAgNS40OS0xLjE5IDguMTctMy41NXM0LjI5LTQuOSA0LjY0LTcuNmwzLjQ3LTI2LjM1YTYuNDYgNi40NiAwIDAgMSAyLjI2LTQgNi4zMiA2LjMyIDAgMCAxIDQuMjgtMS43MmgyYTQuNTQgNC41NCAwIDAgMSAzLjcyIDEuNzIgNC45NCA0Ljk0IDAgMCAxIDEuMTkgNEw0OTMuMjggOTFhNi40IDYuNCAwIDAgMS0yLjI4IDQgNiA2IDAgMCAxLTQuMTggMS43MmgtMS4zMmE1LjE0IDUuMTQgMCAwIDEtMy45NC0xLjYyIDUuNTggNS41OCAwIDAgMS0xLjE1LTQuMXYtLjdjMC0uMDcgMC0uMTEtLjA5LS4xMWEuMzUuMzUgMCAwIDAtLjIyLjExcS03Ljg3IDcuNDktMTcuMSA3LjQ5em0zOC4yMS0xYTQuODIgNC44MiAwIDAgMS0zLjgyLTEuNzYgNC45MSA0LjkxIDAgMCAxLTEuMTktNGw1LjQxLTQxLjE0YTYuNDYgNi40NiAwIDAgMSAyLjI2LTQgNi4zMiA2LjMyIDAgMCAxIDQuMjgtMS43MmgxLjMyYTQuNjQgNC42NCAwIDAgMSAzLjgyIDEuNzIgNSA1IDAgMCAxIDEuMjkgNGwtLjA5LjcxYzAgLjA3IDAgLjEuMDkuMWEuMzEuMzEgMCAwIDAgLjIxLS4xcTcuODktNy41IDE3LjEtNy41dDEyLjY5IDUuMjdxMy41NyA1LjE3IDIgMTcuMzNMNTQzLjIxIDkxYTYuOTEgNi45MSAwIDAgMS02LjUzIDUuNzhINTM1YTQuODcgNC44NyAwIDAgMS0zLjg3LTEuNzggNS4xNCA1LjE0IDAgMCAxLTEuMTMtNGwzLjItMjQuMzJxMS03LjU5LS42Ni0xMC4zM2MtMS0xLjg5LTMuMjQtMi44NC02LjYyLTIuODRxLTQuMTUgMC04LjE3IDMuNTV0LTQuNTUgNy42TDUwOS43NyA5MWE2LjQgNi40IDAgMCAxLTIuMjUgNCA2LjMyIDYuMzIgMCAwIDEtNC4yOCAxLjcyem01MS4xMSAwYTQuODQgNC44NCAwIDAgMS0zLjgzLTEuNzYgNSA1IDAgMCAxLTEuMTktNGw1LjQyLTQxLjE0YTYuNCA2LjQgMCAwIDEgMi4yNS00IDYuMzIgNi4zMiAwIDAgMSA0LjI4LTEuNzJoMi42NGE0LjgyIDQuODIgMCAwIDEgMy44MiAxLjcyIDQuOSA0LjkgMCAwIDEgMS4xOSA0TDU2MS40OSA5MWE2LjQ2IDYuNDYgMCAwIDEtMi4yNiA0IDYuMzIgNi4zMiAwIDAgMS00LjIzIDEuNzV6bTUyLjMyLTM5LjYzcS0yLjM5LTQuMjYtOC4zNi00LjI2YTExLjkxIDExLjkxIDAgMCAwLTkuNTggNC4yNnEtMy40OCA0LjE2LTQuNyAxMy4yNy0xLjIyIDkuMTEgMS4xOCAxMy4zOCAyLjQ5IDQuMTYgOC40NyA0LjE2YTExLjcyIDExLjcyIDAgMCAwIDkuNDctNC4xNnEzLjYtNC4yNiA0LjgtMTMuMzggMS4yLTkuMTItMS4yOC0xMy4yN3ptNS41MSAzMy41NHEtNy42MiA3LjEtMTkuNzggNy4wOS0xMi4xNi0uMDEtMTgtNy4wOS01LjczLTcuMi00LTIwLjI3IDEuNzMtMTMuMDcgOS4zNC0yMC4xNiA3Ljc0LTcuMiAxOS44OS03LjJ0MTcuOSA3LjJxNS44NyA3LjA5IDQuMTQgMjAuMTYtMS43MyAxMy4wNy05LjQ5IDIwLjI3eiIvPjxwYXRoIGZpbGw9IiMyZGNhZmYiIGQ9Im01NTIuNzEgMTkuOTQgNy43MSAxNy4zMyAxMi4yOS0xNy4zM1oiLz48cGF0aCBmaWxsPSIjZGZkZmRmIiBkPSJtMTU5IDcuNjktNDQuMzYgMjAgMTcgMjguMjNMMTU5IDguNnpNNDMuMTQgMzIuODcgNDYuMTIgMEgxLjM1eiIvPjxwYXRoIGZpbGw9IiMyZGNhZmYiIGQ9Im00NC4wOCA3Mi43MSAyNi4xMiAzLTIwLjU4LTIzLjE2em0tMi40OS0yOC40MkwwIDExLjU3bDM0LjI4IDU5LjM3em0xMS4yNi04LjU5TDEwMS43MSAyMiA5NyAwSDU2LjA5em00Ni43My0yLjhMNTYuMjMgNDUuMDZsMjcuNjMgMzEuMDd6bTExLjUyLTE0LjQ0TDE1MS45NCAwaC00NC44MXpNOTUgNzQuNmwyOS4zMi01LjgyIDEuNzMtM0wxMDguNjYgMzd6Ii8+PHBhdGggZmlsbD0iI2RmZGZkZiIgZD0ibTc3LjMxIDg2LjUyLTM2LjQ2LTQuMTlMNzQuMTUgMTQweiIvPjxwYXRoIGZpbGw9IiMyZGNhZmYiIGQ9Im04Ny4wOCA4OS41Ni0yLjg4IDQ4LjY2IDE4LjQyLTMxLjl6TTk2IDg0LjUzbDExLjg2IDEyLjc5IDkuODgtMTcuMTF6Ii8+PC9zdmc+) no-repeat right 12px center !important;
+	background-size: 115px 26px !important;
+}
+
+/*=============================================================================
+  Navigation Panel (Tree)
+=============================================================================*/
+body.dark-mode #zarafa-navigationpanel > div {
+	border-color: transparent !important;
+	background-color: transparent !important;
+}
+
+body.dark-mode #zarafa-navigationpanel,
+body.dark-mode #zarafa-navigationpanel .zarafa-hierarchy-treepanel,
+body.dark-mode #zarafa-navigationpanel .x-panel,
+body.dark-mode #zarafa-navigationpanel .x-panel-body {
+	border-right: none !important;
+}
+
+/* Splitter between hierarchy and main panel - keep default width, just dark color */
+body.dark-mode #zarafa-navigationpanel-xsplit {
+	background-color: var(--dm-border) !important;
+}
+
+/* Main panel left border - use dark border color instead of removing */
+body.dark-mode #zarafa-mainpanel > .x-tab-panel-bwrap > .x-tab-panel-body > div > .x-panel {
+	border-left-color: var(--dm-border) !important;
+}
+
+body.dark-mode #zarafa-navigationpanel .x-panel-body {
+	background-color: var(--dm-bg) !important;
+}
+
+body.dark-mode #zarafa-navigationpanel .x-panel-header {
+	background-color: var(--dm-bg-elevated) !important;
+	border-bottom: 1px solid var(--dm-border) !important;
+}
+
+body.dark-mode #zarafa-navigationpanel .x-panel-header-text {
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode #zarafa-navigationpanel .zarafa-hierarchy-treepanel {
+	background-color: var(--dm-bg-paper);
+}
+
+body.dark-mode #zarafa-navigationpanel .zarafa-hierarchy-treepanel .zarafa-hierarchy-treepanel-tbar .x-toolbar {
+	background-color: var(--dm-bg-paper);
+	color: var(--dm-fg);
+}
+
+body.dark-mode #zarafa-navigationpanel .zarafa-hierarchy-node-counter {
+	color: #ffd700 !important;
+}
+
+body.dark-mode #zarafa-navigationpanel .zarafa-hierarchy-treepanel .zarafa-hierarchy-treepanel-tbar .x-toolbar,
+body.dark-mode #zarafa-navigationpanel .zarafa-hierarchy-treepanel-bottombar {
+	border-color: var(--dm-border) !important;
+}
+
+/*=============================================================================
+  Main Panel
+=============================================================================*/
+body.dark-mode #zarafa-mainpanel .zarafa-note-iconview,
+body.dark-mode #zarafa-mainpanel .x-border-panel,
+body.dark-mode #zarafa-mainpanel .x-panel-body,
+body.dark-mode #zarafa-mainpanel .x-grid3,
+body.dark-mode #zarafa-mainpanel .x-grid3-body,
+body.dark-mode #zarafa-mainpanel .x-grid3-scroller,
+body.dark-mode .zarafa-files-iconview {
+	background-color: var(--dm-bg-paper) !important;
+}
+
+body.dark-mode .zarafa-files-iconview-subject {
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .zarafa-files-iconview-over {
+	background-color: var(--dm-fg-muted) !important;
+}
+
+body.dark-mode .zarafa-files-iconview-thumb {
+	border: 2px solid var(--dm-bg-paper) !important;
+}
+
+body.dark-mode .zarafa-files-iconview-selected {
+	background-color: var(--dm-selected) !important;
+}
+
+body.dark-mode #zarafa-mainpanel .emptytext {
+	color: var(--dm-fg);
+}
+
+/* Main panel borders */
+body.dark-mode #zarafa-mainpanel > .x-tab-panel-bwrap > .x-tab-panel-body > div > .x-panel,
+body.dark-mode #zarafa-mainpanel .x-panel,
+body.dark-mode #zarafa-mainpanel .x-tab-strip.x-tab-strip-top,
+body.dark-mode #zarafa-mainpanel-contentpanel-today,
+body.dark-mode #zarafa-mainpanel-contentpanel-mail .x-border-panel,
+body.dark-mode #zarafa-mainpanel-contentpanel-calendar,
+body.dark-mode #zarafa-mainpanel-contentpanel-contacts,
+body.dark-mode #zarafa-mainpanel-contentpanel-tasks,
+body.dark-mode #zarafa-mainpanel-contentpanel-notes,
+body.dark-mode #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-panel,
+body.dark-mode #zarafa-mainpanel-contentpanel-settings {
+	border-color: #2c2c2c !important;
+}
+
+/* Toolbar */
+body.dark-mode #zarafa-mainpanel .zarafa-main-header.x-panel-header,
+body.dark-mode #zarafa-mainpanel .x-toolbar {
+	background-color: var(--dm-bg-paper) !important;
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode #zarafa-mainpanel .x-toolbar,
+body.dark-mode #zarafa-mainpanel .x-grid3-cell {
+	border-left-color: transparent !important;
+	border-right-color: transparent !important;
+	border-bottom-color: var(--dm-border) !important;
+}
+
+/* Table headers - dark mode */
+body.dark-mode .x-grid3-header {
+	background: var(--dm-bg-elevated) !important;
+	border-bottom: 1px solid var(--dm-border) !important;
+	box-shadow: none !important;
+}
+
+body.dark-mode .x-grid3-header-inner {
+	background: transparent !important;
+}
+
+body.dark-mode .x-grid3-hd-row td {
+	border-color: transparent !important;
+	background: transparent !important;
+}
+
+body.dark-mode .x-grid3-hd-row td .x-grid3-hd-inner {
+	border-color: transparent !important;
+	background: transparent !important;
+	color: var(--dm-fg-muted) !important;
+}
+
+body.dark-mode .x-grid3-hd-row td .x-grid3-hd-inner .x-grid3-hd-btn {
+	border-color: transparent !important;
+	background-color: transparent !important;
+}
+
+body.dark-mode .x-grid3-hd-row td:hover .x-grid3-hd-inner,
+body.dark-mode .x-grid3-hd-row td:hover .x-grid3-hd-inner .x-grid3-hd-btn {
+	background-color: var(--dm-bg-paper) !important;
+	border-color: transparent !important;
+}
+
+body.dark-mode .x-grid3-hd-row td:active .x-grid3-hd-inner,
+body.dark-mode .x-grid3-hd-row td:active .x-grid3-hd-inner .x-grid3-hd-btn {
+	background-color: #333 !important;
+}
+
+body.dark-mode .x-grid3-hd-row td.sort-desc .x-grid3-hd-inner,
+body.dark-mode .x-grid3-hd-row td.sort-asc .x-grid3-hd-inner {
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .x-grid3-hd-row td.sort-desc .x-grid3-hd-inner,
+body.dark-mode .x-grid3-hd-row td.sort-asc .x-grid3-hd-inner,
+body.dark-mode .x-grid3-hd-row td.sort-desc .x-grid3-hd-inner .x-grid3-hd-btn,
+body.dark-mode .x-grid3-hd-row td.sort-asc .x-grid3-hd-inner .x-grid3-hd-btn {
+	border-color: transparent !important;
+	background-color: var(--dm-bg-paper) !important;
+}
+
+body.dark-mode .x-grid3-hd-row td.sort-desc .x-grid3-sort-icon,
+body.dark-mode .x-grid3-hd-row td.sort-asc .x-grid3-sort-icon {
+	filter: invert(0.88);
+}
+
+/* Icon columns sorted state in dark mode */
+body.dark-mode .x-grid3-hd-row td.zarafa-icon-column.sort-asc .x-grid3-hd-inner,
+body.dark-mode .x-grid3-hd-row td.zarafa-icon-column.sort-desc .x-grid3-hd-inner {
+	background: transparent !important;
+	border: none !important;
+}
+
+/* Icon column header icons in dark mode */
+body.dark-mode .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner .zarafa-x-grid3-hd-title p {
+	filter: invert(0.88);
+}
+
+/* Status bar */
+body.dark-mode .zarafa-notifier-eventdropdown-item,
+body.dark-mode .zarafa-notifier-popup-item,
+body.dark-mode .zarafa-notifier-dropdown-item,
+body.dark-mode .ext-el-mask,
+body.dark-mode #zarafa-mainpanel .k-slider {
+	border-color: var(--dm-selected);
+	background-color: var(--dm-selected);
+	color: var(--dm-fg);
+}
+
+/* Panel background - removed broad .x-panel bg override that caused gray input boxes */
+
+/* Text panels */
+body.dark-mode .x-form-textarea.x-form-field.zarafa-contextmenu-enabled[placeholder] {
+	background-color: var(--dm-bg-paper) !important;
+	color: var(--dm-fg) !important;
+}
+
+/*=============================================================================
+  Tabs
+=============================================================================*/
+body.dark-mode #zarafa-mainpanel .x-tab-strip.x-tab-strip-top {
+	background-color: var(--dm-bg) !important;
+}
+
+body.dark-mode #zarafa-mainpanel > .x-tab-panel-header ul.x-tab-strip-top {
+	border-bottom-color: var(--dm-bg);
+}
+
+body.dark-mode #zarafa-mainpanel .x-tab-strip .x-tab-right {
+	background-color: var(--dm-bg-paper) !important;
+}
+
+body.dark-mode #zarafa-mainpanel .x-tab-strip li {
+	border-color: var(--dm-bg) !important;
+}
+
+body.dark-mode #zarafa-mainpanel .x-tab-strip-text {
+	color: var(--dm-fg);
+}
+
+body.dark-mode #zarafa-mainpanel .x-tab-strip-over .x-tab-right,
+body.dark-mode #zarafa-mainpanel .x-tab-strip-active.x-tab-strip-over .x-tab-right {
+	background-color: var(--dm-hover) !important;
+}
+
+body.dark-mode #zarafa-mainpanel .x-tab-strip-active .x-tab-right {
+	background-color: var(--dm-selected) !important;
+}
+
+body.dark-mode #zarafa-mainpanel .x-tab-strip-active .x-tab-strip-text,
+body.dark-mode #zarafa-mainpanel .x-tab-strip-over .x-tab-strip-text {
+	color: var(--dm-fg);
+}
+
+/* Tab strip scroll arrows (when too many tabs) */
+body.dark-mode .x-tab-scroller-left,
+body.dark-mode .x-tab-scroller-right {
+	filter: invert(0.88) !important;
+}
+
+
+/* Main panel tabs: icons need invert(1) to flip black icons to white.
+   Only apply to #zarafa-mainpanel tabs, not settings/dialog inner tabs. */
+body.dark-mode #zarafa-mainpanel > .x-tab-panel-header ul.x-tab-strip li .x-tab-strip-text {
+	filter: invert(1) !important;
+	color: #000 !important;
+}
+
+/* Tab close button (X) - do NOT invert, breeze iconset uses ::before with mask-image.
+   Active tab already gets white from breeze. Non-active tabs need lighter color. */
+body.dark-mode.dark-mode.dark-mode ul.x-tab-strip li a.x-tab-strip-close {
+	filter: none !important;
+}
+
+body.dark-mode ul.x-tab-strip li:not(.x-tab-strip-active).x-tab-strip-closable a.x-tab-strip-close::before {
+	background-color: var(--dm-fg-muted) !important;
+}
+
+/* The + button to add tabs */
+body.dark-mode ul.x-tab-strip .x-tab-add {
+	filter: invert(1) !important;
+}
+
+body.dark-mode ul.x-tab-strip li:not(.x-tab-strip-active):hover .x-tab-right {
+	background: var(--dm-hover) !important;
+}
+
+/*=============================================================================
+  Search
+=============================================================================*/
+body.dark-mode #zarafa-mainpanel .zarafa-search-toolbox {
+	background-color: var(--dm-bg-paper) !important;
+	color: var(--dm-fg);
+}
+
+body.dark-mode #zarafa-mainpanel .x-fieldset-header-text {
+	color: var(--dm-fg-muted);
+}
+
+/*=============================================================================
+  Content Lists (Grid Rows)
+=============================================================================*/
+body.dark-mode #zarafa-mainpanel .x-grid-group-hd {
+	background-color: var(--dm-bg-paper) !important;
+}
+
+body.dark-mode #zarafa-mainpanel .x-grid-group-hd div.x-grid-group-title {
+	color: var(--dm-fg-muted);
+}
+
+body.dark-mode #zarafa-mainpanel .x-grid3-row {
+	border-color: var(--dm-bg-paper) !important;
+	border-top-color: var(--dm-border) !important;
+	border-bottom-color: var(--dm-border) !important;
+	background-color: var(--dm-bg-paper) !important;
+}
+
+body.dark-mode #zarafa-mainpanel .x-grid3-cell-inner {
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode #zarafa-mainpanel .grid_compact_subject_cell {
+	color: var(--dm-fg) !important;
+}
+
+/* Hovered row */
+body.dark-mode #zarafa-mainpanel .x-grid3-row.x-grid3-row-over,
+body.dark-mode #zarafa-mainpanel .x-grid3-row.x-grid3-row-selected.x-grid3-row-over {
+	border-color: var(--dm-hover) !important;
+	border-top-color: var(--dm-border) !important;
+	border-bottom-color: var(--dm-border) !important;
+	background-color: var(--dm-hover) !important;
+}
+
+/* Selected row */
+body.dark-mode #zarafa-mainpanel .x-grid3-row.x-grid3-row-selected {
+	border-color: var(--dm-selected);
+	border-top-color: var(--dm-border);
+	border-bottom-color: var(--dm-border);
+	background-color: var(--dm-selected) !important;
+}
+
+/*=============================================================================
+  Message Preview
+=============================================================================*/
+body.dark-mode #zarafa-mainpanel .x-panel.preview-header {
+	border-bottom-color: var(--dm-border) !important;
+	background-color: var(--dm-bg-paper) !important;
+}
+
+body.dark-mode #zarafa-mainpanel .preview-header-titlebox {
+	color: var(--dm-fg);
+}
+
+body.dark-mode #zarafa-mainpanel .preview-from,
+body.dark-mode #zarafa-mainpanel .zarafa-sentinfo-link {
+	color: var(--theme-primary-color);
+}
+
+body.dark-mode #zarafa-mainpanel .preview-from:hover,
+body.dark-mode #zarafa-mainpanel .zarafa-sentinfo-link:hover {
+	color: #ffd700;
+}
+
+body.dark-mode #zarafa-mainpanel .preview-timestamp-title,
+body.dark-mode #zarafa-mainpanel .preview-recipient-title,
+body.dark-mode #zarafa-mainpanel .preview-attachment-title {
+	color: var(--dm-fg-muted);
+}
+
+body.dark-mode #zarafa-mainpanel .preview-timestamp {
+	color: var(--dm-fg);
+}
+
+body.dark-mode #zarafa-mainpanel .preview-recipient-data,
+body.dark-mode #zarafa-mainpanel .zarafa-recipient-link {
+	color: var(--theme-primary-color);
+}
+
+body.dark-mode #zarafa-mainpanel .preview-attachment-data {
+	background-color: var(--dm-bg-paper);
+}
+
+body.dark-mode #zarafa-mainpanel .zarafa-attachment-link {
+	border: 1px solid var(--dm-border);
+	background-color: var(--dm-bg-paper);
+	color: var(--dm-fg);
+}
+
+body.dark-mode #zarafa-mainpanel .zarafa-attachment-link:hover {
+	background-color: var(--dm-bg-elevated);
+	color: #ffd700;
+}
+
+/* Extra info box - use dark tint of theme color */
+body.dark-mode #zarafa-mainpanel .preview-header-extrainfobox,
+body.dark-mode #zarafa-mainpanel .preview-header-extrainfobox-item,
+body.dark-mode .preview-header-extrainfobox,
+body.dark-mode .preview-header-extrainfobox-item {
+	background: color-mix(in srgb, var(--theme-primary-color) 25%, #1e1e1e) !important;
+	color: var(--dm-fg);
+}
+
+/* Preview iframe - dark background so it doesn't flash white before content loads */
+body.dark-mode .preview-body > iframe.preview-iframe {
+	background-color: var(--dm-bg-paper) !important;
+}
+
+/* Preview body container */
+body.dark-mode .preview-body {
+	background-color: var(--dm-bg-paper) !important;
+}
+
+/* Meeting request / appointment preview buttons - monochrome icons get
+   filter:invert(0.88) from the icon block below. Set text color to near-black
+   so it inverts to match var(--dm-fg) (#d4d4d4). */
+body.dark-mode.dark-mode .zarafa-previewpanel-toolbar .x-btn.x-btn-text-icon .x-btn-small button.x-btn-text {
+	color: #101010 !important;
+}
+/* Colored icons in preview toolbar should not be inverted;
+   their button text uses var(--dm-fg) directly. */
+body.dark-mode.dark-mode .zarafa-previewpanel-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_calendar_appt_accept,
+body.dark-mode.dark-mode .zarafa-previewpanel-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_calendar_appt_cancelled,
+body.dark-mode.dark-mode .zarafa-previewpanel-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_calendar_appt_tentative {
+	filter: none !important;
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .preview-header-sender-initial {
+	color: var(--dm-fg);
+}
+
+/*=============================================================================
+  Message Editor
+=============================================================================*/
+body.dark-mode .x-zarafa-boxfield-recipient-item.x-zarafa-boxfield-item {
+	border-color: var(--dm-selected) !important;
+	background-color: var(--dm-selected) !important;
+	color: var(--dm-fg);
+}
+
+body.dark-mode .x-zarafa-boxfield-recipient-item.x-zarafa-boxfield-item-hover {
+	border-color: var(--dm-border) !important;
+	background-color: var(--dm-selected) !important;
+	color: var(--dm-fg);
+}
+
+/* Mail compose buttons */
+body.dark-mode .zarafa-mailcreatepanel-field-from .x-btn .x-btn-small,
+body.dark-mode .zarafa-mailcreatepanel-field-from-large .x-btn .x-btn-small,
+body.dark-mode .zarafa-mailcreatepanel-field-to .x-btn .x-btn-small,
+body.dark-mode .zarafa-mailcreatepanel-field-cc .x-btn .x-btn-small,
+body.dark-mode .zarafa-mailcreatepanel-field-bcc .x-btn .x-btn-small,
+body.dark-mode .zarafa-mailcreatepanel-field-attachments .x-btn .x-btn-small {
+	background-color: var(--dm-bg-elevated) !important;
+}
+
+body.dark-mode .zarafa-mailcreatepanel-field-from .x-btn.x-btn-over .x-btn-small,
+body.dark-mode .zarafa-mailcreatepanel-field-from-large .x-btn.x-btn-over .x-btn-small,
+body.dark-mode .zarafa-mailcreatepanel-field-to .x-btn.x-btn-over .x-btn-small,
+body.dark-mode .zarafa-mailcreatepanel-field-cc .x-btn.x-btn-over .x-btn-small,
+body.dark-mode .zarafa-mailcreatepanel-field-bcc .x-btn.x-btn-over .x-btn-small,
+body.dark-mode .zarafa-mailcreatepanel-field-attachments .x-btn.x-btn-over .x-btn-small {
+	background-color: #3a3a3a !important;
+}
+
+/* Subject field and all text inputs - prevent "pop out" on focus in dark mode */
+body.dark-mode.dark-mode .x-form-text.x-form-focus:not(.x-trigger-noedit) {
+	border-color: var(--dm-focus) !important;
+	box-shadow: none !important;
+	z-index: auto;
+}
+
+/* Attachment field wrapper - hide visible border in dark mode */
+body.dark-mode .zarafa-mailcreatepanel-field-attachments .zarafa-attachmentfield {
+	border-color: transparent !important;
+	background-color: transparent !important;
+}
+
+body.dark-mode .zarafa-mailcreatepanel-field-attachments .x-form-field-wrap {
+	border-color: transparent !important;
+	background-color: transparent !important;
+}
+
+/* Compose/dialog toolbar - ensure all buttons have dark bg and visible text */
+body.dark-mode .zarafa-dialogtoolbar .x-btn .x-btn-small,
+body.dark-mode .zarafa-dialogtoolbar .x-btn .x-btn-medium {
+	background-color: var(--dm-bg-elevated) !important;
+	background-image: none !important;
+	box-shadow: none !important;
+	border-color: transparent !important;
+}
+
+body.dark-mode .zarafa-dialogtoolbar .x-btn .x-btn-small button,
+body.dark-mode .zarafa-dialogtoolbar .x-btn .x-btn-medium button {
+	color: var(--dm-fg) !important;
+}
+
+
+body.dark-mode .zarafa-dialogtoolbar .x-btn.x-btn-over .x-btn-small,
+body.dark-mode .zarafa-dialogtoolbar .x-btn.x-btn-over .x-btn-medium {
+	background-color: #3a3a3a !important;
+}
+
+/* hover state inherits from parent wrapper, no button override needed */
+
+
+/*=============================================================================
+  Calendar
+=============================================================================*/
+/* Calendar tab panel */
+body.dark-mode #zarafa-mainpanel-contentpanel-calendar .zarafa-calendar-container-tabarea {
+	background-color: var(--dm-bg-paper) !important;
+}
+
+body.dark-mode #zarafa-mainpanel-contentpanel-calendar .zarafa-calendar-tab,
+body.dark-mode #zarafa-mainpanel-contentpanel-calendar .zarafa-calendar-tabarea-stroke {
+	border-top-color: transparent !important;
+}
+
+/* Calendar tabs - let each calendar's own color show through from inline styles.
+   Use opacity to distinguish active/passive. Don't force text/icon colors -
+   the calendar already handles contrast based on its color (isDark logic). */
+body.dark-mode #zarafa-mainpanel-contentpanel-calendar .zarafa-calendar.zarafa-calendar-tab {
+	opacity: 0.55;
+}
+
+body.dark-mode #zarafa-mainpanel-contentpanel-calendar .zarafa-calendar.zarafa-calendar-tab:hover {
+	opacity: 0.75;
+}
+
+body.dark-mode #zarafa-mainpanel-contentpanel-calendar .zarafa-calendar.zarafa-with-close-icon.zarafa-calendar-tab-selected {
+	opacity: 1;
+}
+
+/* Calendar date picker */
+body.dark-mode .x-date-picker,
+body.dark-mode .x-date-picker .x-date-left,
+body.dark-mode .x-date-picker .x-date-middle,
+body.dark-mode .x-date-picker .x-date-right {
+	background-color: var(--dm-bg-paper) !important;
+}
+
+body.dark-mode .x-date-picker {
+	border-color: var(--dm-border) !important;
+}
+
+body.dark-mode .x-date-picker .x-date-bottom {
+	border-top-color: var(--dm-border) !important;
+}
+
+body.dark-mode .x-date-picker .x-date-weeknumber {
+	border-right-color: var(--dm-border) !important;
+}
+
+/* Date picker left/right navigation arrows */
+body.dark-mode .x-date-picker .x-date-left a,
+body.dark-mode .x-date-picker .x-date-right a {
+	filter: invert(0.88);
+}
+
+/* Date picker month button */
+body.dark-mode.dark-mode .x-date-picker .x-date-middle .x-btn .x-btn-small {
+	background-color: var(--dm-bg-paper) !important;
+	border-color: transparent !important;
+	box-shadow: none !important;
+}
+
+body.dark-mode.dark-mode .x-date-picker .x-date-middle .x-btn .x-btn-small em {
+	background-color: transparent !important;
+}
+
+body.dark-mode.dark-mode .x-date-picker .x-date-middle .x-btn .x-btn-small em button {
+	color: var(--dm-fg) !important;
+	background-color: transparent !important;
+}
+
+/* Date picker "Today" button - styled like "Add shared calendar" button */
+body.dark-mode.dark-mode .x-date-picker .x-date-bottom .x-btn .x-btn-small {
+	background-color: var(--dm-selected) !important;
+	border-color: transparent !important;
+	box-shadow: none !important;
+	display: block;
+}
+
+body.dark-mode.dark-mode .x-date-picker .x-date-bottom .x-btn .x-btn-small em,
+body.dark-mode.dark-mode .x-date-picker .x-date-bottom .x-btn .x-btn-small em button {
+	color: var(--dm-fg) !important;
+	background-color: transparent !important;
+	width: 100%;
+}
+
+/* Month/Year picker (dropdown) */
+body.dark-mode .x-date-mp {
+	background-color: var(--dm-bg-paper) !important;
+}
+
+body.dark-mode .x-date-mp td a {
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .x-date-mp table td.x-date-mp-sep {
+	border-right-color: var(--dm-border) !important;
+}
+
+body.dark-mode .x-date-mp table tr.x-date-mp-btns td {
+	border-color: var(--dm-border) !important;
+}
+
+body.dark-mode .x-date-mp-btns button {
+	background-color: var(--dm-bg-elevated) !important;
+	color: var(--dm-fg) !important;
+	border-color: var(--dm-border) !important;
+	box-shadow: none !important;
+}
+
+body.dark-mode .x-date-mp-btns button.x-date-mp-ok {
+	background-color: var(--theme-primary-color) !important;
+	color: #fff !important;
+}
+
+body.dark-mode .x-date-mp-btns button:hover {
+	background-color: #3a3a3a !important;
+}
+
+body.dark-mode .x-date-mp-btns button.x-date-mp-ok:hover {
+	background-color: var(--dm-hover) !important;
+}
+
+body.dark-mode .x-date-mp-ybtn a {
+	filter: invert(0.88);
+}
+
+body.dark-mode .x-date-picker .x-date-inner th {
+	border-color: transparent !important;
+	background-color: var(--dm-bg-paper) !important;
+	color: var(--dm-fg) !important;
+}
+
+/* Remove all cell borders in date picker - fixes ugly thick white borders */
+body.dark-mode .x-date-picker .x-date-inner td {
+	border-color: transparent !important;
+	background-color: var(--dm-bg-paper) !important;
+}
+
+body.dark-mode .x-date-picker .x-date-inner td a {
+	border-color: transparent !important;
+}
+
+body.dark-mode .x-date-picker .x-date-inner td:not(.x-date-weeknumber) a {
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .x-date-picker .x-date-inner td.x-date-prevday a,
+body.dark-mode .x-date-picker .x-date-inner td.x-date-nextday a {
+	color: var(--dm-fg-muted) !important;
+}
+
+body.dark-mode .x-date-picker .x-date-inner td.x-date-weeknumber a {
+	color: #ff0000 !important;
+}
+
+body.dark-mode .x-date-picker .x-date-inner td.x-date-today .x-date-date {
+	color: #ffd700 !important;
+}
+
+/* Disabled dates (outside min/max range) - override ExtJS #eee bg + #bbb text */
+body.dark-mode .x-date-picker .x-date-inner .x-date-disabled a {
+	background-color: var(--dm-bg-paper) !important;
+	color: var(--dm-fg-muted) !important;
+}
+
+body.dark-mode .x-date-picker .x-date-inner td a:hover {
+	background-color: var(--dm-hover) !important;
+}
+
+body.dark-mode .x-date-picker .x-date-inner td.x-date-selected:not(.x-date-today) a {
+	background-color: var(--dm-selected) !important;
+}
+
+/* Calendar month view cells */
+body.dark-mode [class*="k-day-"][class*="k-week-"] {
+	border-color: var(--dm-border) !important;
+	background-color: var(--dm-bg-paper) !important;
+}
+
+/* Calendar day/week view cells - invert+hue-rotate to create dark versions
+   of the calendar color scheme colors while preserving working/non-working distinction.
+   Must use longhand border properties to override inline border-bottom-color/border-color.
+   #555 pre-inversion → visible grid line after filter, lighter than inverted cell backgrounds. */
+body.dark-mode [class*="k-day-"][class*="k-line-"] {
+	border-top-color: #aaa !important;
+	border-right-color: #aaa !important;
+	border-bottom-color: #aaa !important;
+	border-left-color: #aaa !important;
+	filter: invert(0.85) hue-rotate(180deg);
+}
+
+/* Today column highlighting in day/week view - green vertical borders.
+   Use pre-inverted green (#007b00) that becomes ~#5ebb4b after the cell's
+   invert(0.85) hue-rotate(180deg) filter. Only left/right borders. */
+body.dark-mode.dark-mode [class*="k-day-"][class*="k-line-"].k-active-border {
+	border-right-color: #007b00 !important;
+}
+body.dark-mode.dark-mode [class*="k-day-"][class*="k-line-"].k-today.k-day-0 {
+	border-left-color: #007b00 !important;
+}
+
+body.dark-mode .k-header {
+	background-color: var(--dm-bg-paper) !important;
+	color: var(--dm-fg);
+}
+
+/* Calendar time strip */
+body.dark-mode .zarafa-calendar-timestrip-line {
+	background-color: var(--dm-fg) !important;
+}
+
+body.dark-mode .zarafa-calendar-timestrip-element div {
+	color: var(--dm-fg);
+}
+
+body.dark-mode .k-calendar-timestrip-indicator-line {
+	background-color: #ffd700;
+}
+
+/* Calendar current day */
+body.dark-mode .zarafa-calendar-container-header .k-html-header-background .k-today .k-cal-header-title,
+body.dark-mode .zarafa-calendar-boxview .zarafa-calendar-container-body .k-html-body-background .k-today .k-header {
+	background-color: var(--dm-selected) !important;
+}
+
+/* Calendar borders */
+body.dark-mode .zarafa-calendar.zarafa-calendar-border {
+	border-color: transparent !important;
+}
+
+/* Calendar appointments - they sit on top of the inverted background grid.
+   Let the calendar's own color scheme handle text color (isDark/k-dark logic). */
+body.dark-mode .k-appointment-box {
+	border-color: var(--dm-fg-muted) !important;
+}
+
+/* Calendar drag selection - gray like in light mode */
+body.dark-mode .zarafa-calendar-selection-dragging {
+	background-color: rgba(255, 255, 255, 0.15) !important;
+	color: var(--dm-fg);
+}
+
+/* Calendar header - let inline colors work, just ensure dark mode borders */
+body.dark-mode .zarafa-calendar-container-header .k-html-header-background {
+	border-color: var(--dm-border) !important;
+}
+
+/* Calendar day/week headers - keep original color scheme colors,
+   just ensure date text is always readable with a text shadow for contrast */
+body.dark-mode .zarafa-calendar-container-header .k-html-header-background .k-cal-header-title {
+	color: #fff !important;
+	text-shadow: 0 0 3px rgba(0, 0, 0, 0.7), 0 0 6px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Calendar header appointments layer - no filter needed since header background
+   is no longer filtered */
+
+/* Calendar appointment icons - cancel inversion since appointment bg is from color scheme,
+   not dark mode. Icons should match the appointment's own text color. */
+body.dark-mode .k-appointment-box [class*="icon_"],
+body.dark-mode .k-html-header-appointment [class*="icon_"] {
+	filter: none !important;
+}
+
+/* Calendar private/recurring appointment icons in the grid - these inherit the
+   appointment color scheme contrast, don't invert them */
+body.dark-mode .zarafa-calendar-container-body .icon_private,
+body.dark-mode .zarafa-calendar-container-body .icon_recurrence,
+body.dark-mode .zarafa-calendar-container-header .icon_private,
+body.dark-mode .zarafa-calendar-container-header .icon_recurrence {
+	filter: none !important;
+}
+
+/* Calendar extra info */
+body.dark-mode .k-appointmentcreatetab .zarafa-calendar-appointment-extrainfo div {
+	background: color-mix(in srgb, var(--theme-primary-color) 25%, #1e1e1e) !important;
+	color: var(--dm-fg);
+}
+
+/*=============================================================================
+  Appointment / Task create form
+=============================================================================*/
+/* White separators → dark borders */
+body.dark-mode .k-appointmentcreatetab .k-field-to,
+body.dark-mode .k-taskgeneraltab .k-field-to,
+body.dark-mode .k-appointmentcreatetab .k-subject-panel,
+body.dark-mode .k-appointmentcreatetab .k-createin-panel,
+body.dark-mode .k-appointmentcreatetab .k-location-panel,
+body.dark-mode .k-taskgeneraltab .k-subject-panel,
+body.dark-mode .k-taskgeneraltab .k-createin-panel,
+body.dark-mode .k-taskgeneraltab .k-location-panel,
+body.dark-mode .k-appointmentcreatetab .k-taskrequestsettings,
+body.dark-mode .k-taskgeneraltab .k-taskrequestsettings,
+body.dark-mode .k-appointmentcreatetab .k-body-panel textarea,
+body.dark-mode .k-taskgeneraltab .k-body-panel textarea {
+	border-color: var(--dm-border) !important;
+}
+
+body.dark-mode .k-appointmentcreatetab .k-datetime-panel table tr:nth-child(2),
+body.dark-mode .k-taskgeneraltab .k-datetime-panel table tr:nth-child(2) {
+	border-bottom-color: var(--dm-border) !important;
+}
+
+/* Left-border separators (after Show as, etc.) */
+body.dark-mode .k-appointmentcreatetab .k-busystatus-panel,
+body.dark-mode .k-appointmentcreatetab .k-label-panel,
+body.dark-mode .k-appointmentcreatetab .k-status-panel,
+body.dark-mode .k-appointmentcreatetab .k-priority-complete-panel,
+body.dark-mode .k-taskgeneraltab .k-busystatus-panel,
+body.dark-mode .k-taskgeneraltab .k-label-panel,
+body.dark-mode .k-taskgeneraltab .k-status-panel,
+body.dark-mode .k-taskgeneraltab .k-priority-complete-panel,
+body.dark-mode .k-appointmentcreatetab .filler,
+body.dark-mode .k-taskgeneraltab .filler {
+	border-left-color: var(--dm-border) !important;
+}
+
+/* Form field wrappers - remove the lighter gray box around inputs.
+   Match background to the surrounding panel so inputs blend in seamlessly. */
+body.dark-mode .k-appointmentcreatetab .x-form-field-wrap,
+body.dark-mode .k-appointmentcreatetab .x-form-field-trigger-wrap,
+body.dark-mode .k-taskgeneraltab .x-form-field-wrap,
+body.dark-mode .k-taskgeneraltab .x-form-field-trigger-wrap {
+	background-color: transparent !important;
+	border-color: transparent !important;
+}
+
+body.dark-mode .k-appointmentcreatetab .x-form-text,
+body.dark-mode .k-taskgeneraltab .x-form-text {
+	background-color: transparent !important;
+	border-color: var(--dm-border) !important;
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .k-appointmentcreatetab .x-form-trigger,
+body.dark-mode .k-taskgeneraltab .x-form-trigger {
+	background-color: transparent !important;
+	border-color: var(--dm-border) !important;
+}
+
+/* Attachment bar - hide visible border/background like in mail compose */
+body.dark-mode .k-appointmentcreatetab .k-field-attachments .zarafa-attachmentfield,
+body.dark-mode .k-taskgeneraltab .k-field-attachments .zarafa-attachmentfield {
+	border-color: transparent !important;
+	background-color: transparent !important;
+}
+
+body.dark-mode .k-appointmentcreatetab .k-field-attachments .x-form-field-wrap,
+body.dark-mode .k-taskgeneraltab .k-field-attachments .x-form-field-wrap {
+	border-color: transparent !important;
+	background-color: transparent !important;
+}
+
+/*=============================================================================
+  Free/Busy Panel
+=============================================================================*/
+body.dark-mode .zarafa-freebusy-panel .x-freebusy-timeline-day {
+	background-color: var(--dm-bg-paper) !important;
+	color: var(--dm-fg);
+}
+
+/* Day header cells (date labels like "Friday, March 6, 2026") */
+body.dark-mode .zarafa-freebusy-panel .x-freebusy-timeline-day table tr.x-freebusy-timeline-day td {
+	background-color: var(--dm-bg-elevated) !important;
+	color: var(--dm-fg) !important;
+}
+
+/* Hour cells in the header */
+body.dark-mode .zarafa-freebusy-panel .x-freebusy-timeline-day table tr.x-freebusy-timeline-hour td {
+	border-color: var(--dm-border) !important;
+}
+
+body.dark-mode .zarafa-freebusy-panel .x-freebusy-timeline-day {
+	border-right-color: var(--dm-border) !important;
+}
+
+body.dark-mode .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header,
+body.dark-mode .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-body {
+	border-color: transparent;
+	background-color: var(--dm-bg-paper) !important;
+}
+
+body.dark-mode .zarafa-freebusy-panel .x-freebusy-timeline-day.x-freebusy-timeline-day-current {
+	background-color: var(--dm-selected) !important;
+	color: var(--dm-fg);
+}
+
+/* Current day header cells keep accent color */
+body.dark-mode .zarafa-freebusy-panel .x-freebusy-timeline-day.x-freebusy-timeline-day-current table tr.x-freebusy-timeline-day td {
+	background-color: var(--theme-primary-color) !important;
+	color: #fff !important;
+}
+
+body.dark-mode .zarafa-freebusy-panel .x-freebusy-timeline-hour {
+	background-color: var(--dm-bg-paper) !important;
+	color: var(--dm-fg);
+}
+
+body.dark-mode .zarafa-freebusy-panel .x-freebusy-timeline-day-sum {
+	background-color: var(--dm-bg-paper) !important;
+}
+
+/* Body grid area borders */
+body.dark-mode .zarafa-freebusy-panel .x-freebusy-body .x-freebusy-background .x-freebusy-timeline-day {
+	border-right-color: var(--dm-border) !important;
+	background-image: none !important;
+}
+
+body.dark-mode .zarafa-freebusy-panel .x-freebusy-body .x-freebusy-background .x-freebusy-timeline-day td {
+	border-left-color: var(--dm-border) !important;
+}
+
+/* Free status blocks - subtle border instead of solid white */
+body.dark-mode .zarafa-freebusy-panel .x-freebusy-timeline-block-free {
+	background-color: transparent !important;
+	border: 1px solid var(--dm-border-strong) !important;
+}
+
+/* Tentative blocks - adjust stripe pattern for dark mode */
+body.dark-mode .zarafa-freebusy-panel .x-freebusy-timeline-block-tentative {
+	background: repeating-linear-gradient(-45deg, #0f70bd 0px, #0f70bd 2.8284px, var(--dm-bg-paper) 2.8284px, var(--dm-bg-paper) 5.65685px) !important;
+}
+
+/* Suggestion list panel header, body, and footer */
+body.dark-mode .zarafa-freebusy-panel .zarafa-freebusy-suggestionlist .x-panel-header {
+	background-color: var(--dm-bg-paper) !important;
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .zarafa-freebusy-panel .zarafa-freebusy-suggestionlist .x-panel-body,
+body.dark-mode .zarafa-freebusy-panel .zarafa-freebusy-suggestionlist .x-panel-footer {
+	background-color: var(--dm-bg-paper) !important;
+}
+
+/* User list panel in freebusy */
+body.dark-mode .zarafa-freebusy-panel .x-freebusy-userlist .x-panel-header {
+	background-color: var(--dm-bg-paper) !important;
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .zarafa-freebusy-panel .x-panel.suggestionlist .x-btn.zarafa-freebusy-suggestionrow .x-btn-small em button {
+	background-color: var(--dm-bg);
+}
+
+/*=============================================================================
+  Contacts
+=============================================================================*/
+body.dark-mode div.zarafa-contact-cardview-card {
+	border-color: transparent;
+	background-color: transparent !important;
+}
+
+body.dark-mode #contact-cardview .x-panel-header {
+	background-color: var(--dm-bg-paper) !important;
+}
+
+body.dark-mode #contact-cardview .x-panel-header-text {
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode #contact-cardview .x-panel-body {
+	background-color: var(--dm-bg-paper) !important;
+}
+
+body.dark-mode #contact-cardview .zarafa-card-body {
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode #contact-cardview .contact-card-label {
+	color: var(--dm-fg-muted) !important;
+}
+
+body.dark-mode #contact-cardview .zarafa-contact-cardview-card:hover .x-panel-header,
+body.dark-mode #contact-cardview .zarafa-contact-cardview-card:hover .x-panel-body {
+	background-color: var(--dm-hover) !important;
+}
+
+body.dark-mode #contact-cardview .zarafa-contact-cardview-selected .x-panel-body {
+	background-color: var(--dm-selected) !important;
+}
+
+/*=============================================================================
+  Sticky Notes
+=============================================================================*/
+body.dark-mode .zarafa-note-iconview-thumb {
+	border-color: var(--dm-border) !important;
+	background-color: var(--dm-bg-paper) !important;
+	color: var(--dm-fg);
+}
+
+body.dark-mode .zarafa-note-iconview-over {
+	border-color: var(--dm-hover) !important;
+	background-color: var(--dm-hover) !important;
+}
+
+body.dark-mode .zarafa-note-iconview-selected {
+	border-color: var(--dm-selected) !important;
+	background-color: var(--dm-selected) !important;
+}
+
+/* Sticky note color variants */
+body.dark-mode .x-form-textarea.stickynote_dialog_blue { background-color: #00233b !important; color: var(--dm-fg) !important; }
+body.dark-mode .x-form-textarea.stickynote_dialog_green { background-color: #113a00 !important; color: var(--dm-fg) !important; }
+body.dark-mode .x-form-textarea.stickynote_dialog_pink { background-color: #684363 !important; color: var(--dm-fg) !important; }
+body.dark-mode .x-form-textarea.stickynote_dialog_yellow { background-color: #4e4d00 !important; color: var(--dm-fg) !important; }
+body.dark-mode .x-form-textarea.stickynote_dialog_white { background-color: #5c5c5c !important; color: var(--dm-fg) !important; }
+
+/*=============================================================================
+  Settings
+=============================================================================*/
+body.dark-mode .zarafa-settings-widget-extrainfo {
+	background: color-mix(in srgb, var(--theme-primary-color) 25%, #1e1e1e) !important;
+	color: var(--dm-fg);
+}
+
+body.dark-mode .zarafa-settings-about-text a,
+body.dark-mode .zarafa-settings-about-text a:visited {
+	background-color: var(--dm-bg-paper) !important;
+	color: var(--dm-fg);
+}
+
+body.dark-mode .zarafa-settings-about-text a:hover {
+	background-color: var(--dm-hover) !important;
+}
+
+body.dark-mode .zarafa-settings-keyboard-shortcut-row {
+	border-color: var(--dm-bg-paper) !important;
+	background-color: var(--dm-bg-paper) !important;
+}
+
+body.dark-mode .zarafa-settings-keyboard-shortcut-row .x-form-item-label,
+body.dark-mode .zarafa-settings-keyboard-shortcut-row .x-form-display-field {
+	color: var(--dm-fg) !important;
+}
+
+/* Settings panel main header */
+body.dark-mode #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .x-panel-header {
+	background: var(--dm-bg-elevated) !important;
+	border-bottom: 1px solid var(--dm-border) !important;
+	border-left: none !important;
+	border-right: none !important;
+	border-top: none !important;
+	color: var(--dm-fg) !important;
+}
+
+/* Settings widgets */
+body.dark-mode #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-widget {
+	background: var(--dm-bg-paper) !important;
+	box-shadow: none !important;
+	border-color: var(--dm-border) !important;
+}
+
+/* Settings widget headers */
+body.dark-mode #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-widget .x-panel-header {
+	background: var(--dm-bg-elevated) !important;
+	border-color: var(--dm-border) !important;
+	border-left: none !important;
+	border-right: none !important;
+	border-top: none !important;
+	color: var(--dm-fg) !important;
+}
+
+/* Settings left sidebar category tabs */
+body.dark-mode #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-panel .zarafa-settings-category-tab {
+	background-color: var(--dm-bg-paper) !important;
+	color: var(--dm-fg) !important;
+	border-color: var(--dm-border) !important;
+}
+
+body.dark-mode #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-panel .zarafa-settings-category-tab-over {
+	background-color: #3a3a3a !important;
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-panel .zarafa-settings-category-tab-active {
+	background-color: var(--dm-selected) !important;
+	color: var(--dm-fg) !important;
+}
+
+/* Settings and dialog inner tab strips - blend naturally */
+body.dark-mode .x-window .x-tab-strip.x-tab-strip-top,
+body.dark-mode #zarafa-mainpanel-contentpanel-settings .x-tab-strip.x-tab-strip-top {
+	background-color: var(--dm-bg-paper) !important;
+}
+
+body.dark-mode .x-window .x-tab-strip .x-tab-right,
+body.dark-mode #zarafa-mainpanel-contentpanel-settings .x-tab-strip .x-tab-right {
+	background-color: var(--dm-bg-elevated) !important;
+}
+
+body.dark-mode .x-window .x-tab-strip-active .x-tab-right,
+body.dark-mode #zarafa-mainpanel-contentpanel-settings .x-tab-strip-active .x-tab-right {
+	background-color: var(--dm-selected) !important;
+}
+
+body.dark-mode .x-window .x-tab-strip-over .x-tab-right,
+body.dark-mode #zarafa-mainpanel-contentpanel-settings .x-tab-strip-over .x-tab-right {
+	background-color: #3a3a3a !important;
+}
+
+body.dark-mode .x-window .x-tab-strip-text,
+body.dark-mode #zarafa-mainpanel-contentpanel-settings .x-tab-strip-text {
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .x-window .x-tab-panel-body,
+body.dark-mode #zarafa-mainpanel-contentpanel-settings .x-tab-panel-body {
+	border-color: var(--dm-border) !important;
+}
+
+body.dark-mode .x-window ul.x-tab-strip li,
+body.dark-mode #zarafa-mainpanel-contentpanel-settings ul.x-tab-strip li {
+	border-color: var(--dm-bg-paper) !important;
+}
+
+/* Settings category icon */
+body.dark-mode .zarafa-settings-category-tab .k-settings-category-icon {
+	filter: invert(0.88);
+}
+
+/*=============================================================================
+  Menus and Context Menus
+=============================================================================*/
+body.dark-mode .x-combo-list,
+body.dark-mode .x-menu.x-menu-floating {
+	border-color: var(--dm-border) !important;
+}
+
+body.dark-mode .x-combo-list,
+body.dark-mode .x-combo-list .x-combo-list-inner,
+body.dark-mode .x-menu.x-menu-floating {
+	background-color: var(--dm-bg-paper) !important;
+}
+
+body.dark-mode .x-combo-list .x-combo-list-item,
+body.dark-mode .x-menu .x-menu-list li.x-menu-list-item:not(.x-menu-date-item) a {
+	background-color: var(--dm-bg-paper) !important;
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .x-combo-list .x-combo-list-item:hover,
+body.dark-mode .x-menu .x-menu-list li.x-menu-list-item.x-menu-item-active a {
+	background-color: var(--dm-hover) !important;
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .x-combo-list .x-combo-list-item.x-combo-selected,
+body.dark-mode .x-menu .x-menu-list li.x-menu-list-item a.x-menu-item-selected {
+	background-color: var(--dm-selected) !important;
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .x-menu .x-menu-list li.x-menu-sep-li .x-menu-sep {
+	background-color: var(--dm-border) !important;
+}
+
+body.dark-mode .x-menu .x-menu-list li.x-menu-list-item.x-item-disabled a {
+	background-color: var(--dm-bg-paper) !important;
+}
+
+body.dark-mode .x-menu .x-menu-list li.x-menu-list-item.x-item-disabled .x-menu-item-text {
+	color: var(--dm-fg-muted) !important;
+}
+
+/*=============================================================================
+  Buttons
+=============================================================================*/
+/* Master button reset for dark mode - override all light theme backgrounds/borders/shadows.
+   Double body selector for higher specificity to beat grommunio.css !important rules. */
+body.dark-mode.dark-mode .x-btn .x-btn-small,
+body.dark-mode.dark-mode .x-btn .x-btn-medium,
+body.dark-mode.dark-mode .x-btn .x-btn-large,
+body.dark-mode.dark-mode .x-btn.x-btn-over .x-btn-small,
+body.dark-mode.dark-mode .x-btn.x-btn-over .x-btn-medium,
+body.dark-mode.dark-mode .x-btn.x-btn-over .x-btn-large,
+body.dark-mode.dark-mode .x-btn.x-btn-focus .x-btn-small,
+body.dark-mode.dark-mode .x-btn.x-btn-focus .x-btn-medium,
+body.dark-mode.dark-mode .x-btn.x-btn-focus .x-btn-large,
+body.dark-mode.dark-mode .x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-click) .x-btn-small,
+body.dark-mode.dark-mode .x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-click) .x-btn-medium,
+body.dark-mode.dark-mode .x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-click) .x-btn-large,
+body.dark-mode.dark-mode .x-btn.x-btn-click .x-btn-small,
+body.dark-mode.dark-mode .x-btn.x-btn-click .x-btn-medium,
+body.dark-mode.dark-mode .x-btn.x-btn-click .x-btn-large,
+body.dark-mode.dark-mode .x-btn.x-btn-over.x-btn-click .x-btn-small,
+body.dark-mode.dark-mode .x-btn.x-btn-over.x-btn-click .x-btn-medium,
+body.dark-mode.dark-mode .x-btn.x-btn-over.x-btn-click .x-btn-large,
+body.dark-mode.dark-mode .x-toolbar .x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-noicon) .x-btn-small {
+	border: 1px solid transparent !important;
+	box-shadow: none !important;
+}
+
+/* Make outer .x-btn wrapper transparent so its bg doesn't peek through
+   the inner div's border-radius as a fake "border".
+   Triple class for max specificity to beat ExtJS ext-all.css rules. */
+body.dark-mode.dark-mode.dark-mode .x-btn,
+body.dark-mode.dark-mode.dark-mode .x-btn.x-btn-over,
+body.dark-mode.dark-mode.dark-mode .x-btn.x-btn-click,
+body.dark-mode.dark-mode.dark-mode .x-btn.x-btn-focus,
+body.dark-mode.dark-mode.dark-mode .x-btn.x-btn-icon,
+body.dark-mode.dark-mode.dark-mode .x-btn.x-btn-noicon,
+body.dark-mode.dark-mode.dark-mode .x-btn.x-btn-text-icon,
+body.dark-mode.dark-mode.dark-mode .x-btn.x-btn-over.x-btn-click,
+body.dark-mode.dark-mode .x-toolbar .x-btn.x-btn-over:not(.zarafa-action):not(.x-btn-noicon):not(.x-btn-pressed) {
+	background-color: transparent !important;
+	outline: none !important;
+}
+
+body.dark-mode .x-btn .x-btn-small,
+body.dark-mode .x-btn .x-btn-medium,
+body.dark-mode .x-btn .x-btn-large {
+	background: var(--dm-bg-elevated) !important;
+}
+
+body.dark-mode .x-btn .x-btn-small button,
+body.dark-mode .x-btn .x-btn-medium button,
+body.dark-mode .x-btn .x-btn-large button {
+	color: var(--dm-fg) !important;
+	background-color: transparent !important;
+}
+
+body.dark-mode .x-btn.x-btn-over .x-btn-small,
+body.dark-mode .x-btn.x-btn-over .x-btn-medium,
+body.dark-mode .x-btn.x-btn-over .x-btn-large {
+	background: #3a3a3a !important;
+	border: 1px solid transparent !important;
+	box-shadow: none !important;
+}
+
+body.dark-mode .x-btn.x-btn-over .x-btn-small button,
+body.dark-mode .x-btn.x-btn-over .x-btn-medium button,
+body.dark-mode .x-btn.x-btn-over .x-btn-large button {
+	background-color: transparent !important;
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .x-btn.x-btn-over.x-btn-click .x-btn-small,
+body.dark-mode .x-btn.x-btn-over.x-btn-click .x-btn-medium,
+body.dark-mode .x-btn.x-btn-over.x-btn-click .x-btn-large,
+body.dark-mode .x-btn.x-btn-click .x-btn-small,
+body.dark-mode .x-btn.x-btn-click .x-btn-medium,
+body.dark-mode .x-btn.x-btn-click .x-btn-large {
+	background: #444 !important;
+	border: 1px solid transparent !important;
+	box-shadow: none !important;
+}
+
+body.dark-mode .x-btn.x-btn-focus:not(.zarafa-action) .x-btn-small,
+body.dark-mode .x-btn.x-btn-focus:not(.zarafa-action) .x-btn-medium,
+body.dark-mode .x-btn.x-btn-focus:not(.zarafa-action) .x-btn-large {
+	border: 1px solid transparent !important;
+	box-shadow: none !important;
+}
+
+body.dark-mode .x-btn.x-btn-over.x-btn-click .x-btn-small button,
+body.dark-mode .x-btn.x-btn-over.x-btn-click .x-btn-medium button,
+body.dark-mode .x-btn.x-btn-over.x-btn-click .x-btn-large button {
+	color: var(--dm-hover) !important;
+}
+
+body.dark-mode .x-btn.x-item-disabled .x-btn-small,
+body.dark-mode .x-btn.x-item-disabled .x-btn-medium,
+body.dark-mode .x-btn.x-item-disabled .x-btn-large {
+	background-color: var(--dm-bg-paper) !important;
+}
+
+body.dark-mode .x-btn.x-item-disabled .x-btn-small button,
+body.dark-mode .x-btn.x-item-disabled .x-btn-medium button,
+body.dark-mode .x-btn.x-item-disabled .x-btn-large button {
+	color: var(--dm-fg-muted) !important;
+}
+
+/* Selected buttons */
+body.dark-mode .x-btn.x-btn-selected .x-btn-small,
+body.dark-mode .x-btn.x-btn-selected .x-btn-medium,
+body.dark-mode .x-btn.x-btn-selected .x-btn-large {
+	background-color: var(--dm-selected) !important;
+}
+
+/* Pressed/toggled buttons (high/low importance, private, etc.) */
+body.dark-mode.dark-mode .x-toolbar .x-btn.x-btn-pressed:not(.zarafa-action):not(.x-btn-noicon) {
+	background-color: var(--dm-selected) !important;
+}
+
+body.dark-mode.dark-mode .x-toolbar .x-btn.x-btn-pressed:not(.zarafa-action):not(.x-btn-noicon) .x-btn-small {
+	background-color: var(--dm-selected) !important;
+	border: 1px solid var(--dm-border-strong) !important;
+}
+
+/* Text-icon buttons (non-action): invert(1) flips icon+text together.
+   Set text to dark so invert makes it light. Exclude action buttons - they have white icons already. */
+body.dark-mode .x-btn.x-btn-text-icon:not(.zarafa-action) .x-btn-small button.x-btn-text,
+body.dark-mode .x-btn.x-btn-text-icon:not(.zarafa-action) .x-btn-medium button.x-btn-text,
+body.dark-mode .x-btn.x-btn-text-icon:not(.zarafa-action) .x-btn-large button.x-btn-text {
+	color: #1a1a1a !important;
+}
+
+/* Action text-icon buttons: white text + no invert (icon is already _white variant) */
+body.dark-mode .x-btn.zarafa-action.x-btn-text-icon .x-btn-small button.x-btn-text,
+body.dark-mode .x-btn.zarafa-action.x-btn-text-icon .x-btn-medium button.x-btn-text,
+body.dark-mode .x-btn.zarafa-action.x-btn-text-icon .x-btn-large button.x-btn-text {
+	color: #fff !important;
+	filter: none !important;
+}
+
+/* Action icon-only buttons: no invert - mask-image icons use currentColor which is already light */
+body.dark-mode .x-btn.zarafa-action.x-btn-icon .x-btn-small button.x-btn-text,
+body.dark-mode .x-btn.zarafa-action.x-btn-icon .x-btn-medium button.x-btn-text,
+body.dark-mode .x-btn.zarafa-action.x-btn-icon .x-btn-large button.x-btn-text {
+	color: #fff !important;
+	filter: none !important;
+}
+
+/* Action buttons (Send, Save & Close, etc.) - keep accent color */
+body.dark-mode .x-btn.zarafa-action .x-btn-small,
+body.dark-mode .x-btn.zarafa-action .x-btn-medium,
+body.dark-mode .x-btn.zarafa-action .x-btn-large {
+	background: var(--theme-primary-color) !important;
+	border-color: transparent !important;
+}
+
+body.dark-mode .x-btn.zarafa-action .x-btn-small button,
+body.dark-mode .x-btn.zarafa-action .x-btn-medium button,
+body.dark-mode .x-btn.zarafa-action .x-btn-large button {
+	color: #fff !important;
+	background-color: transparent !important;
+}
+
+body.dark-mode .x-btn.zarafa-action.x-btn-over .x-btn-small,
+body.dark-mode .x-btn.zarafa-action.x-btn-over .x-btn-medium,
+body.dark-mode .x-btn.zarafa-action.x-btn-over .x-btn-large {
+	background: var(--theme-primary-hover) !important;
+}
+
+body.dark-mode .x-btn.zarafa-action.x-btn-over .x-btn-small button,
+body.dark-mode .x-btn.zarafa-action.x-btn-over .x-btn-medium button,
+body.dark-mode .x-btn.zarafa-action.x-btn-over .x-btn-large button {
+	background-color: transparent !important;
+}
+
+/* Action button hover border - match regular button hover style */
+body.dark-mode .x-btn.zarafa-action.x-btn-over .x-btn-small,
+body.dark-mode .x-btn.zarafa-action.x-btn-over .x-btn-medium,
+body.dark-mode .x-btn.zarafa-action.x-btn-over .x-btn-large {
+	box-shadow: none !important;
+}
+
+/* Action split/arrow: keep the dropdown arrow visible, only clear background-color */
+body.dark-mode .x-btn.zarafa-action em.x-btn-split,
+body.dark-mode .x-btn.zarafa-action em.x-btn-arrow {
+	background-color: transparent !important;
+}
+
+/* Dialog footer action buttons (first button in dialogs) */
+body.dark-mode .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small,
+body.dark-mode .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small {
+	background: var(--theme-primary-color) !important;
+	border-color: transparent !important;
+}
+
+body.dark-mode .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small button,
+body.dark-mode .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small button {
+	color: #fff !important;
+	background-color: transparent !important;
+}
+
+/* Split button separator - subtle, not bright white */
+body.dark-mode.dark-mode .x-btn em.x-btn-split button,
+body.dark-mode.dark-mode .x-btn em.x-btn-arrow button,
+body.dark-mode.dark-mode .x-btn .x-btn-small em.x-btn-split button,
+body.dark-mode.dark-mode .x-btn .x-btn-small em.x-btn-arrow button {
+	border-right-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Layout splitters (between panels) - use border color */
+body.dark-mode .x-layout-split {
+	background-color: var(--dm-border) !important;
+}
+
+/* Ensure windows are above splitters */
+body.dark-mode .x-window {
+	z-index: 9000;
+}
+
+/* Toolbar separators */
+body.dark-mode .xtb-sep {
+	border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Hierarchy tree bottom bar separator */
+body.dark-mode .zarafa-hierarchy-treepanel-bottombar {
+	border-top-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Dialog secondary buttons (No, Cancel, etc.) - need very high specificity */
+body.dark-mode.dark-mode .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn .x-btn-small,
+body.dark-mode.dark-mode .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn .x-btn-small,
+body.dark-mode.dark-mode .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn .x-btn-small,
+body.dark-mode.dark-mode .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn .x-btn-small {
+	background: var(--dm-bg-elevated) !important;
+}
+
+body.dark-mode.dark-mode .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn .x-btn-small button,
+body.dark-mode.dark-mode .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn .x-btn-small button,
+body.dark-mode.dark-mode .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn .x-btn-small button,
+body.dark-mode.dark-mode .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn .x-btn-small button {
+	color: var(--dm-fg) !important;
+	background-color: transparent !important;
+}
+
+body.dark-mode.dark-mode .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over .x-btn-small,
+body.dark-mode.dark-mode .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over .x-btn-small {
+	background: #3a3a3a !important;
+}
+
+/* MessageBox text and icon */
+body.dark-mode .x-window-dlg .ext-mb-text,
+body.dark-mode .x-window .ext-mb-text {
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .x-window-dlg .ext-mb-icon {
+	filter: invert(0.88);
+}
+
+/* Favorites separator from mailboxes */
+body.dark-mode .zarafa-tree-ipm-subtree-favorites-container {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Arrow/dropdown icon override for dark mode */
+body.dark-mode .arrow_down_s,
+body.dark-mode .x-btn .x-btn-arrow,
+body.dark-mode .x-btn .x-btn-split,
+body.dark-mode .x-form-spinner-trigger,
+body.dark-mode .x-form-trigger {
+	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPjxwYXRoIGZpbGw9IiNGRkYiIGQ9Ik0xLjQzIDIuNzY2YS4zMy4zMyAwIDAgMSAuNDcyIDBMNCA0Ljg2M2wyLjA5OC0yLjA5N2EuMzMzLjMzMyAwIDAgMSAuMzI0LS4wOTQuMzQxLjM0MSAwIDAgMSAuMjM4LjIzOC4zMzEuMzMxIDAgMCAxLS4wOS4zMjRMNC4yMzQgNS41N2EuMzMyLjMzMiAwIDAgMS0uNDY4IDBMMS40MyAzLjIzNGEuMzMyLjMzMiAwIDAgMSAwLS40NjhabTAgMCIvPjwvc3ZnPgo=) !important;
+}
+
+/*=============================================================================
+  Form Fields, Dropdowns, Comboboxes
+=============================================================================*/
+/* Combobox/dropdown wrapper and trigger */
+body.dark-mode .x-form-field-wrap {
+	background-color: var(--dm-bg-input) !important;
+	border-color: var(--dm-border) !important;
+}
+
+body.dark-mode .x-form-field-wrap .x-form-trigger {
+	background-color: var(--dm-bg-elevated) !important;
+	border-color: var(--dm-border) !important;
+}
+
+body.dark-mode .x-form-field-wrap .x-form-trigger:hover {
+	background-color: #3a3a3a !important;
+}
+
+/* Trigger noedit (readonly combobox) text */
+body.dark-mode .x-form-field-wrap .x-form-text.x-trigger-noedit {
+	background-color: var(--dm-bg-input) !important;
+	color: var(--dm-fg) !important;
+}
+
+/*=============================================================================
+  Text Inputs
+=============================================================================*/
+body.dark-mode .x-form-text,
+body.dark-mode textarea.x-form-field {
+	border-color: var(--dm-border) !important;
+	background-color: var(--dm-bg-input);
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .x-form-text:hover,
+body.dark-mode textarea.x-form-field:hover {
+	border-color: var(--dm-hover) !important;
+}
+
+body.dark-mode .x-form-text:not(.x-trigger-noedit):focus,
+body.dark-mode .x-form-text:not(.x-trigger-noedit).x-form-focus,
+body.dark-mode textarea.x-form-field:focus {
+	border-color: var(--dm-focus) !important;
+	color: var(--dm-fg) !important;
+}
+
+/* Labels */
+body.dark-mode .zarafa-widget-item,
+body.dark-mode .k-settings-label-minor,
+body.dark-mode .x-fieldset legend,
+body.dark-mode .x-window .ext-mb-text,
+body.dark-mode .x-form-display-field,
+body.dark-mode .x-form-item-label {
+	color: var(--dm-fg) !important;
+}
+
+/* Checkbox */
+body.dark-mode .x-form-check-wrap.x-form-item {
+	background-color: var(--dm-bg-paper) !important;
+	color: var(--dm-fg) !important;
+}
+
+/*=============================================================================
+  Panels, Dialogs, Windows
+=============================================================================*/
+body.dark-mode .x-fieldset,
+body.dark-mode .x-panel .x-panel-body {
+	border-color: var(--dm-border);
+}
+
+/* Window chrome: override ALL the ExtJS background images on tl/tr/tc/ml/mr/bl/br/bc */
+body.dark-mode .x-window .x-window-tl,
+body.dark-mode .x-window .x-window-tr,
+body.dark-mode .x-window .x-window-tc,
+body.dark-mode .x-window .x-window-ml,
+body.dark-mode .x-window .x-window-mr,
+body.dark-mode .x-window .x-window-bl,
+body.dark-mode .x-window .x-window-br,
+body.dark-mode .x-window .x-window-bc {
+	background-image: none !important;
+	background-color: var(--dm-bg-paper) !important;
+}
+
+body.dark-mode .x-window .x-window-tl .x-window-tr .x-window-tc,
+body.dark-mode .x-window-header {
+	background-color: var(--dm-bg-elevated) !important;
+	background-image: none !important;
+	color: var(--dm-fg) !important;
+	border-bottom: 1px solid var(--dm-border);
+}
+
+body.dark-mode .x-panel .x-panel-header {
+	background-color: var(--dm-bg-paper) !important;
+	background-image: none !important;
+	color: var(--dm-fg) !important;
+}
+
+/* Window header text must be visible */
+body.dark-mode .x-window-header-text {
+	color: var(--dm-fg) !important;
+}
+
+/* Window close/minimize/maximize tools */
+body.dark-mode .x-window .x-tool {
+	filter: invert(0.88);
+}
+
+body.dark-mode .x-grid3,
+body.dark-mode .x-panel-body,
+body.dark-mode .x-window .x-window-bwrap {
+	background-color: var(--dm-bg-paper) !important;
+}
+
+body.dark-mode .x-window-footer,
+body.dark-mode .x-panel .x-panel-footer {
+	border-color: var(--dm-bg-paper) !important;
+	background-color: var(--dm-bg-paper) !important;
+}
+
+
+/* Dialog header fade */
+body.dark-mode .x-window .x-window-tl .x-window-tr .x-window-tc .x-window-header .fade {
+	background: linear-gradient(to right, rgba(30, 30, 30, 0) 0%, var(--dm-bg-paper) 50%, var(--dm-bg-paper) 100%);
+}
+
+/* Dragged/resizing panel and window proxy */
+body.dark-mode .x-panel-ghost,
+body.dark-mode .x-panel-ghost *,
+body.dark-mode .x-window-proxy,
+body.dark-mode .x-resizable-proxy {
+	background-color: var(--dm-bg-elevated) !important;
+	background-image: none !important;
+	color: var(--dm-fg) !important;
+	border-color: var(--dm-border) !important;
+}
+
+/*=============================================================================
+  Widget Panel
+=============================================================================*/
+body.dark-mode .zarafa-widgetpanel > div {
+	border-color: transparent;
+}
+
+body.dark-mode .zarafa-widgetpanel .x-panel-body {
+	background-color: var(--dm-bg) !important;
+}
+
+body.dark-mode .zarafa-widgetpanel .x-panel.x-portlet {
+	border-color: var(--dm-border);
+	background-color: var(--dm-bg-paper) !important;
+}
+
+body.dark-mode .zarafa-widgetpanel .x-panel .x-panel-mc,
+body.dark-mode .zarafa-widgetpanel .x-panel.x-portlet .x-panel-body {
+	background-color: var(--dm-bg-paper) !important;
+}
+
+/*=============================================================================
+  General Tabs
+=============================================================================*/
+body.dark-mode ul.x-tab-strip li {
+	border-color: transparent !important;
+}
+
+body.dark-mode .x-tab-strip.x-tab-strip-top {
+	background-color: var(--dm-bg-paper) !important;
+}
+
+body.dark-mode .x-tab-strip .x-tab-right {
+	background-color: var(--dm-bg-elevated) !important;
+}
+
+body.dark-mode .x-tab-strip-text {
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .x-tab-strip-over .x-tab-right {
+	background-color: var(--dm-hover) !important;
+}
+
+body.dark-mode .x-tab-strip-active .x-tab-right {
+	background-color: var(--dm-selected) !important;
+}
+
+body.dark-mode .x-tab-panel-body {
+	border-color: var(--dm-bg-paper) !important;
+}
+
+/*=============================================================================
+  Tree Views
+=============================================================================*/
+body.dark-mode .x-grid3 .x-grid3-row .zarafa-grid-button-container,
+body.dark-mode .x-treegrid-text,
+body.dark-mode .x-tree-node,
+body.dark-mode .x-tree-node a,
+body.dark-mode .x-tree-node a span {
+	background-color: inherit !important;
+	color: inherit !important;
+}
+
+body.dark-mode .x-tree-node .x-tree-node-collapsed,
+body.dark-mode .x-tree-node .x-tree-node-expanded,
+body.dark-mode .x-tree-node .x-tree-node-leaf {
+	background-color: var(--dm-bg-paper) !important;
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .x-tree-node .x-tree-node-over,
+body.dark-mode .x-tree-node .x-tree-node-over.x-tree-selected {
+	background-color: var(--dm-hover) !important;
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .x-tree-node .x-tree-selected {
+	background-color: var(--dm-selected) !important;
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .x-treegrid-col {
+	border-color: var(--dm-bg-paper) !important;
+}
+
+/*=============================================================================
+  Reminders and Popout Windows
+=============================================================================*/
+body.dark-mode .x-panel.zarafa-reminder-dialog-active-reminder {
+	color: var(--dm-fg);
+}
+
+body.dark-mode .x-panel-body.x-panel-body-noborder,
+body.dark-mode .x-panel.preview-header.x-panel-noborder,
+body.dark-mode .x-toolbar.x-small-editor.zarafa-dialogtoolbar {
+	background-color: var(--dm-bg-paper) !important;
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .x-panel-noborder.x-panel-tbar-noborder.x-toolbar {
+	border-color: #2c2c2c !important;
+}
+
+body.dark-mode .x-combo-list-inner {
+	color: var(--dm-fg) !important;
+}
+
+/*=============================================================================
+  Unread Items
+=============================================================================*/
+body.dark-mode .x-grid3-row.x-grid3-row-expanded.mail_read > table,
+body.dark-mode .x-grid3-row.x-grid3-row-collapsed.mail_read > table {
+	border-left: 4px solid var(--dm-bg-paper) !important;
+}
+
+body.dark-mode .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-over > table,
+body.dark-mode .x-grid3-row.x-grid3-row-collapsed.mail_read.x-grid3-row-over > table {
+	border-left: 4px solid var(--dm-hover) !important;
+}
+
+body.dark-mode .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected > table,
+body.dark-mode .x-grid3-row.x-grid3-row-collapsed.mail_read.x-grid3-row-selected > table,
+body.dark-mode .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected.x-grid3-row-over > table,
+body.dark-mode .x-grid3-row.x-grid3-row-collapsed.mail_read.x-grid3-row-selected.x-grid3-row-over > table {
+	border-left: 4px solid var(--dm-selected) !important;
+}
+
+
+/* Address book and all list/grid row hovers */
+body.dark-mode .x-list-over {
+	background-color: #3a3a3a !important;
+}
+
+body.dark-mode .x-list-selected {
+	background-color: var(--dm-selected) !important;
+	color: var(--dm-fg) !important;
+}
+
+/* Grid rows in dialogs (address book, etc.) */
+body.dark-mode .x-grid3-row-over {
+	background-color: #3a3a3a !important;
+}
+
+body.dark-mode .x-grid3-row-selected {
+	background-color: var(--dm-selected) !important;
+}
+
+body.dark-mode .x-grid3-row {
+	border-color: var(--dm-border) !important;
+}
+
+body.dark-mode .x-grid3-row td {
+	color: var(--dm-fg) !important;
+}
+
+/* Address book / GAB icons - invert dark icons to light */
+body.dark-mode .k-addressbookmainpanel-grid .x-grid3-cell .x-grid3-cell-inner img,
+body.dark-mode .x-list-body .x-list-selected,
+body.dark-mode .icon_contact_user,
+body.dark-mode .icon_contact_distlist,
+body.dark-mode .icon_contact_room,
+body.dark-mode .icon_contact_equipment,
+body.dark-mode .icon_contact_group {
+	filter: invert(0.88);
+}
+
+/* Address book search button */
+body.dark-mode .k-addressbookmainpanel-grid .x-toolbar .x-btn .x-btn-small {
+	background: var(--dm-bg-elevated) !important;
+}
+
+body.dark-mode .k-addressbookmainpanel-grid .x-toolbar .x-btn .x-btn-small button {
+	color: var(--dm-fg) !important;
+	background-color: transparent !important;
+}
+
+/* Address book list area */
+body.dark-mode .x-list-body,
+body.dark-mode .x-list-header {
+	background-color: var(--dm-bg-paper) !important;
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .x-list-header-inner div em {
+	color: var(--dm-fg-muted) !important;
+	border-left-color: var(--dm-border) !important;
+}
+
+/* Grid numberer */
+body.dark-mode .x-grid3-body .x-grid3-td-numberer {
+	background-image: none !important;
+}
+
+/* Hierarchy open shared folder button */
+body.dark-mode .zarafa-hierarchy-treepanel-footer-opensharedfolder > .x-btn-small .x-btn-text {
+	background-color: var(--dm-selected) !important;
+}
+
+/* Uploaded attachment */
+body.dark-mode .x-zarafa-boxfield-attachment-item-uploaded {
+	background-color: var(--dm-bg) !important;
+}
+
+/*=============================================================================
+  Icon Filter for Background-Image Icons
+  Inverts all monochrome icons to light color for dark backgrounds.
+  Colored icons (flags, priority) are explicitly excluded.
+=============================================================================*/
+
+/* Flat selector list matching the old dark theme - proven to work with cssnano */
+body.dark-mode .x-tree-node-collapsed .x-tree-node-icon,
+body.dark-mode .x-tree-node-expanded .x-tree-node-icon,
+body.dark-mode .x-tree-node-leaf .x-tree-node-icon,
+body.dark-mode .icon_small_addressbook,
+body.dark-mode .icon_floppy,
+body.dark-mode .icon_checknames,
+body.dark-mode .icon_delete,
+body.dark-mode .icon_new_email,
+body.dark-mode .icon_reply_all,
+body.dark-mode .icon_forward,
+body.dark-mode .icon_cogwheel,
+body.dark-mode .icon_read_receipt,
+body.dark-mode .icon_more,
+body.dark-mode .icon_showbcc,
+body.dark-mode .icon_showfrom,
+body.dark-mode .icon_smime_sign,
+body.dark-mode .icon_smime_encrypt,
+body.dark-mode .icon_popout,
+body.dark-mode .icon_contact_user,
+body.dark-mode .icon_magnifier,
+body.dark-mode .icon_folder_default_inbox,
+body.dark-mode .icon_mail_unread,
+body.dark-mode .icon_mail_read,
+body.dark-mode .icon_importance,
+body.dark-mode .icon_paperclip,
+body.dark-mode .icon_flag,
+body.dark-mode .icon_smime_settings,
+body.dark-mode .icon_open,
+body.dark-mode .icon_reply,
+body.dark-mode .icon_edit_as_new_mail,
+body.dark-mode .icon_categories,
+body.dark-mode .icon_copy,
+body.dark-mode .icon_folder_default_junk,
+body.dark-mode .icon_embed_attachment,
+body.dark-mode .icon_export,
+body.dark-mode .zarafa-settings-category-rules,
+body.dark-mode .icon_flag_Reminder,
+body.dark-mode .icon_large_addressbook,
+body.dark-mode .icon_large_refresh,
+body.dark-mode .icon_large_print,
+body.dark-mode .icon_large_view,
+body.dark-mode .icon_contact_distlist,
+body.dark-mode .icon_download,
+body.dark-mode .icon_print,
+body.dark-mode .icon_private,
+body.dark-mode .icon_invite_attendees,
+body.dark-mode .icon_meetingrequest_organizer,
+body.dark-mode .icon_meetingrequest_requiredattendee,
+body.dark-mode .icon_meetingrequest_optionalattendee,
+body.dark-mode .icon_meetingrequest_resource,
+body.dark-mode .icon_calendar_appt_cancelled,
+body.dark-mode .icon_appt_meeting_cancel,
+body.dark-mode .icon_appt_meeting_outofdate,
+body.dark-mode .icon_appt_meeting_recurring,
+body.dark-mode .icon_appt_meeting_newtime,
+body.dark-mode .icon_calendar_mr,
+body.dark-mode .icon_calendar_blue,
+body.dark-mode .icon_no_response_required,
+body.dark-mode .x-menu-item-icon,
+body.dark-mode .icon_folder_create,
+body.dark-mode .icon_folder_delete,
+body.dark-mode .icon_restore,
+body.dark-mode .icon_favorites,
+body.dark-mode .icon_share,
+body.dark-mode .icon_import_attachment,
+body.dark-mode .icon_remove_favorites,
+body.dark-mode .icon_refresh,
+body.dark-mode .icon_folder_rename,
+body.dark-mode .icon_store_close,
+body.dark-mode .icon_print_appt,
+body.dark-mode .x-tool,
+body.dark-mode .x-tab-strip-close,
+body.dark-mode .k-category-close,
+body.dark-mode .icon_tools_cogwheel,
+body.dark-mode .x-tool.x-tool-gear,
+body.dark-mode .icon_tools_minimize,
+body.dark-mode .x-tool.x-tool-minimize,
+body.dark-mode .minimize_button,
+body.dark-mode .plus,
+body.dark-mode .x-tab-add,
+body.dark-mode .x-tool.x-tool-plus,
+body.dark-mode .zarafa-rules-add,
+body.dark-mode .x-zarafa-boxfield-item-expand,
+body.dark-mode .triangle_left,
+body.dark-mode .x-tbar-page-prev,
+body.dark-mode .triangle_left_outline,
+body.dark-mode .x-item-disabled .x-tbar-page-prev,
+body.dark-mode .triangle_left_stop,
+body.dark-mode .x-tbar-page-first,
+body.dark-mode .triangle_left_stop_outline,
+body.dark-mode .x-item-disabled .x-tbar-page-first,
+body.dark-mode .triangle_right,
+body.dark-mode .x-tbar-page-next,
+body.dark-mode .triangle_right_outline,
+body.dark-mode .x-item-disabled .x-tbar-page-next,
+body.dark-mode .triangle_right_stop,
+body.dark-mode .x-tbar-page-last,
+body.dark-mode .triangle_right_stop_outline,
+body.dark-mode .x-item-disabled .x-tbar-page-last,
+body.dark-mode img.x-tree-ec-icon.x-tree-elbow-plus,
+body.dark-mode img.x-tree-ec-icon.x-tree-elbow-minus,
+body.dark-mode img.x-tree-ec-icon.x-tree-elbow-end-plus,
+body.dark-mode img.x-tree-ec-icon.x-tree-elbow-end-minus,
+body.dark-mode .x-menu-item-icon.icon_new_email,
+body.dark-mode .x-menu-item-icon.icon_new_appointment,
+body.dark-mode .x-menu-item-icon.icon_new_task,
+body.dark-mode .x-menu-item-icon.icon_new_meeting_request,
+body.dark-mode .x-menu-item-icon.icon_new_contact,
+body.dark-mode .x-menu-item-icon.icon_new_distlist,
+body.dark-mode .x-menu-item-icon.icon_new-task_request,
+body.dark-mode .x-menu-item-icon.icon_new_note,
+body.dark-mode .x-menu-item-icon.icon_files_category,
+body.dark-mode .x-menu-item-icon.icon_contact_list,
+body.dark-mode .x-menu-item-icon.icon_note_icon_view,
+body.dark-mode .x-menu-item-icon.icon_previewpanel_off,
+body.dark-mode .x-menu-item-icon.icon_previewpanel_right,
+body.dark-mode .x-menu-item-icon.icon_previewpanel_bottom,
+body.dark-mode .x-menu-item-icon.icon_print,
+body.dark-mode .x-menu-item-icon.icon_embedded_attachment,
+body.dark-mode .icon_folder_default_calendar,
+body.dark-mode .icon_chat,
+body.dark-mode .icon_archive,
+body.dark-mode .icon_intranet,
+body.dark-mode .icon_intranet_1,
+body.dark-mode .icon_intranet_2,
+body.dark-mode .icon_intranet_3,
+body.dark-mode .icon_large_calendar_view_day,
+body.dark-mode .icon_large_calendar_view_workweek,
+body.dark-mode .icon_large_calendar_view_week,
+body.dark-mode .icon_large_calendar_view_month,
+body.dark-mode .icon_large_list_view,
+body.dark-mode .icon_viewswitch,
+body.dark-mode .icon_folder_note,
+body.dark-mode .icon_appt_appointment,
+body.dark-mode .icon_all_day,
+body.dark-mode .icon_recurrence,
+body.dark-mode .icon_unchecked,
+body.dark-mode .icon_checked,
+body.dark-mode .x-grid3-check-col,
+body.dark-mode .x-grid3-check-col-on,
+body.dark-mode .x-grid3-row .x-grid3-row-checker,
+body.dark-mode .x-menu-item.x-menu-check-item .x-menu-item-icon,
+body.dark-mode .icon_folder_default_todolist,
+body.dark-mode .icon_folder_default_contact,
+body.dark-mode .icon_signature,
+body.dark-mode .icon_task,
+body.dark-mode .icon_reminder,
+body.dark-mode .icon_complete,
+body.dark-mode .icon_task_active,
+body.dark-mode .icon_calendar,
+body.dark-mode .icon_calendar_appt_newtime,
+body.dark-mode .icon_calendar_appt_proposals,
+body.dark-mode .icon_256_Owncloud,
+body.dark-mode .files_navbar_home,
+body.dark-mode .files_icon_action_upload,
+body.dark-mode .files_icon_action_new_folder,
+body.dark-mode .files_icon_action_download,
+body.dark-mode .files_icon_action_share,
+body.dark-mode .files_icon_action_attach_to_mail,
+body.dark-mode .files_icon_action_attach_to_mail_link,
+body.dark-mode .files_icon_action_edit,
+body.dark-mode .files_icon_action_delete,
+body.dark-mode .files_icon_action_home,
+body.dark-mode .files_icon_action_fullscreen,
+body.dark-mode .icon_new_note,
+body.dark-mode .files16icon_folder,
+body.dark-mode .files48icon_folder,
+body.dark-mode .files48icon_blank,
+body.dark-mode .files16icon_blank,
+body.dark-mode .files_icon_12_share,
+body.dark-mode .filesplugin_icon_add,
+body.dark-mode .filesplugin_icon_delete,
+body.dark-mode .k-settings-category-icon,
+body.dark-mode .zarafa-rules-sequence-up,
+body.dark-mode .zarafa-rules-sequence-down,
+body.dark-mode .zarafa-files-feature-spacer,
+body.dark-mode .icon_filter,
+body.dark-mode .icon_contact_smtp,
+body.dark-mode .icon_meet,
+body.dark-mode .icon_meet_32,
+body.dark-mode .icon_mdm_settings,
+body.dark-mode .icon_passwd_settings,
+body.dark-mode .icon_kendox,
+body.dark-mode .icon_desktopnotifications,
+body.dark-mode .icon_256_Default,
+body.dark-mode .icon_256_Owncloud,
+body.dark-mode .icon_256_Seafile {
+	filter: invert(0.88);
+}
+
+/* Exclude colored icons from filter - these have their own colors baked in */
+body.dark-mode .icon_flag_red,
+body.dark-mode .icon_flag_orange,
+body.dark-mode .icon_flag_yellow,
+body.dark-mode .icon_flag_complete,
+body.dark-mode .icon_flag_purple,
+body.dark-mode .icon_importance_urgent,
+body.dark-mode .icon_importance_nonurgent,
+body.dark-mode .icon_priority_high,
+body.dark-mode .icon_priority_low,
+body.dark-mode .icon_importance_white {
+	filter: none !important;
+}
+
+body.dark-mode .x-grid3-body .x-grid3-td-numberer {
+	background-image: none !important;
+}
+
+/*=============================================================================
+  Login and Welcome Screen Dark Mode
+  Login page has no JS to set dark-mode class, so use prefers-color-scheme.
+=============================================================================*/
+body.dark-mode.login,
+body.dark-mode #loading-mask,
+body.dark-mode #bg,
+body.dark-mode.zarafa-welcome {
+	background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJMYXllcl8xIiB2aWV3Qm94PSIwIDAgMTkyMCAxMDgwIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2NjYztvcGFjaXR5Oi4wNX08L3N0eWxlPjwvZGVmcz48cGF0aCBkPSJNMCAwaDE5MjB2MTA4MEgweiIgc3R5bGU9ImZpbGw6IzI5MmIzMCIvPjxwYXRoIGQ9Ik0wIDI2NS4xNnMyLjU3LTIuOTMgMjEuNjEgMTUuOTNsMzY0Ljg0IDM2MS41NyAzNjQuODQgMzYxLjU3YzMwLjcxIDMwLjQzIDI4LjM4IDc1Ljc0IDI4LjM4IDc1Ljc0SDBWMjY1LjE2WiIgY2xhc3M9ImNscy0xIi8+PHBhdGggZD0iTTAgMHY2MjRsMTM0LjM5IDEzMy4wN2MxOS4wMyAxOC44NiA0My45OCAyOC4zIDY4LjkzIDI4LjNzNDkuOS05LjQzIDY4LjkzLTI4LjNMNjM3LjA5IDM5NS41bDM2NC44NC0zNjEuNThDMTAyOC4yOSAxMS42NiAxMDI0IDAgMTAyNCAwSDBaTTE5MjAgMTA4MGgtMzc3bC0xNDUuNzEtMTQ2LjFjLTE4Ljk0LTE5LjEyLTI4LjQyLTQ0LjE3LTI4LjQyLTY5LjIyIDAtMjUuMDUgOS40Ny01MC4xMSAyOC40Mi02OS4yMkwxOTIwIDI2OHY4MTJaIiBjbGFzcz0iY2xzLTEiLz48L3N2Zz4=) no-repeat center center;
+	background-size: cover;
+}
+
+body.dark-mode.login #form-container #content,
+body.dark-mode #loading-mask #form-container #content {
+	background: rgba(50, 51, 56, 1.0);
+}
+
+body.dark-mode.login #form-container #logo,
+body.dark-mode #loading-mask #form-container #logo {
+	filter: invert(1) hue-rotate(180deg);
+}
+
+@media (prefers-color-scheme: dark) {
+	body.login,
+	body.login #bg {
+		background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJMYXllcl8xIiB2aWV3Qm94PSIwIDAgMTkyMCAxMDgwIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2NjYztvcGFjaXR5Oi4wNX08L3N0eWxlPjwvZGVmcz48cGF0aCBkPSJNMCAwaDE5MjB2MTA4MEgweiIgc3R5bGU9ImZpbGw6IzI5MmIzMCIvPjxwYXRoIGQ9Ik0wIDI2NS4xNnMyLjU3LTIuOTMgMjEuNjEgMTUuOTNsMzY0Ljg0IDM2MS41NyAzNjQuODQgMzYxLjU3YzMwLjcxIDMwLjQzIDI4LjM4IDc1Ljc0IDI4LjM4IDc1Ljc0SDBWMjY1LjE2WiIgY2xhc3M9ImNscy0xIi8+PHBhdGggZD0iTTAgMHY2MjRsMTM0LjM5IDEzMy4wN2MxOS4wMyAxOC44NiA0My45OCAyOC4zIDY4LjkzIDI4LjNzNDkuOS05LjQzIDY4LjkzLTI4LjNMNjM3LjA5IDM5NS41bDM2NC44NC0zNjEuNThDMTAyOC4yOSAxMS42NiAxMDI0IDAgMTAyNCAwSDBaTTE5MjAgMTA4MGgtMzc3bC0xNDUuNzEtMTQ2LjFjLTE4Ljk0LTE5LjEyLTI4LjQyLTQ0LjE3LTI4LjQyLTY5LjIyIDAtMjUuMDUgOS40Ny01MC4xMSAyOC40Mi02OS4yMkwxOTIwIDI2OHY4MTJaIiBjbGFzcz0iY2xzLTEiLz48L3N2Zz4=) no-repeat center center !important;
+		background-size: cover !important;
+	}
+
+	body.login #form-container #content {
+		background: rgba(50, 51, 56, 1.0) !important;
+	}
+
+	body.login #form-container #logo {
+		filter: invert(1) hue-rotate(180deg);
+	}
+}
+
+/*=============================================================================
+  Fix: Double Icon on Action Split Buttons (Send, Save & Close)
+  The icon shows twice: once via background-image on the button class,
+  and once via ::before pseudo-element with mask-image.
+  Remove the background-image since ::before is the correct rendering.
+  This is NOT dark-mode specific - applies to both light and dark.
+=============================================================================*/
+.x-btn.zarafa-action button.x-btn-text[class*="icon_"]::before {
+	/* When ::before exists, it handles the icon - remove bg duplicate */
+}
+.x-btn.zarafa-action.x-btn-text-icon button.x-btn-text {
+	background-image: none !important;
+}
+
+/*=============================================================================
+  TinyMCE Dark Mode
+=============================================================================*/
+body.dark-mode .mce-tinymce iframe,
+body.dark-mode .tox .tox-edit-area__iframe {
+	background-color: var(--dm-bg-paper) !important;
+}
+
+body.dark-mode .tox .tox-toolbar__primary,
+body.dark-mode .tox .tox-toolbar__overflow,
+body.dark-mode .tox .tox-toolbar-overlord,
+body.dark-mode .tox .tox-menubar {
+	background-color: var(--dm-bg-paper) !important;
+	background-image: none !important;
+}
+
+body.dark-mode .tox .tox-toolbar__group {
+	border-color: var(--dm-border) !important;
+}
+
+body.dark-mode .tox .tox-sidebar-wrap {
+	background-color: var(--dm-bg-paper) !important;
+}
+
+/* TinyMCE input fields (font size input, etc.) */
+body.dark-mode.dark-mode .tox .tox-input-wrapper input,
+body.dark-mode.dark-mode .tox .tox-number-input .tox-input-wrapper input,
+body.dark-mode.dark-mode .tox .tox-number-input .tox-input-wrapper,
+body.dark-mode.dark-mode .tox .tox-textfield,
+body.dark-mode.dark-mode .tox .tox-selectfield select {
+	background-color: var(--dm-bg-input) !important;
+	color: var(--dm-fg) !important;
+	border-color: var(--dm-border) !important;
+}
+
+/* TinyMCE toolbar buttons */
+body.dark-mode.dark-mode .tox .tox-tbtn {
+	color: var(--dm-fg) !important;
+	background-color: transparent !important;
+}
+
+body.dark-mode.dark-mode .tox .tox-tbtn svg {
+	fill: var(--dm-fg) !important;
+}
+
+body.dark-mode.dark-mode .tox .tox-tbtn:hover {
+	background-color: #3a3a3a !important;
+}
+
+/* TinyMCE split button chevrons */
+body.dark-mode.dark-mode .tox .tox-split-button__chevron svg {
+	fill: var(--dm-fg) !important;
+}
+
+/* TinyMCE select label */
+body.dark-mode.dark-mode .tox .tox-tbtn__select-label {
+	color: var(--dm-fg) !important;
+}
+
+/* TinyMCE number input - style ALL buttons inside number input */
+body.dark-mode.dark-mode .tox .tox-number-input button {
+	background-color: var(--dm-bg-elevated) !important;
+	background-image: none !important;
+	border-color: var(--dm-border) !important;
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode.dark-mode .tox .tox-number-input button svg {
+	fill: var(--dm-fg) !important;
+}
+
+body.dark-mode.dark-mode .tox .tox-number-input button:hover {
+	background-color: #3a3a3a !important;
+}
+
+/* TinyMCE number input container */
+body.dark-mode.dark-mode .tox .tox-number-input {
+	background-color: var(--dm-bg-elevated) !important;
+	border-color: var(--dm-border) !important;
+	border-radius: 3px;
+}
+
+/* TinyMCE edit area border - use theme color on focus like light mode */
+body.dark-mode.dark-mode .tox .tox-edit-area {
+	border-color: var(--dm-border) !important;
+}
+
+body.dark-mode.dark-mode .tox .tox-edit-area::before {
+	border: 1px solid var(--theme-primary-color) !important;
+}
+
+/* TinyMCE comprehensive dark override */
+body.dark-mode.dark-mode .tox.tox-tinymce {
+	border-color: var(--dm-border) !important;
+}
+
+body.dark-mode.dark-mode .tox .tox-editor-header {
+	background-color: var(--dm-bg-paper) !important;
+	background-image: none !important;
+	border-bottom-color: var(--dm-border) !important;
+	box-shadow: none !important;
+	/* Prevent toolbar from overlapping the left border */
+	position: relative;
+	z-index: 1;
+}
+
+body.dark-mode.dark-mode .tox .tox-toolbar__group {
+	border-color: var(--dm-border) !important;
+}
+
+body.dark-mode.dark-mode .tox .tox-tbtn--disabled svg,
+body.dark-mode.dark-mode .tox .tox-tbtn--disabled {
+	color: var(--dm-fg-muted) !important;
+}
+
+body.dark-mode.dark-mode .tox .tox-tbtn--disabled svg {
+	fill: var(--dm-fg-muted) !important;
+}
+
+body.dark-mode.dark-mode .tox .tox-tbtn--enabled,
+body.dark-mode.dark-mode .tox .tox-tbtn--enabled:hover {
+	background-color: #3a3a3a !important;
+}
+
+body.dark-mode.dark-mode .tox .tox-split-button:hover {
+	box-shadow: none !important;
+}
+
+body.dark-mode.dark-mode .tox .tox-tbtn__select-chevron svg {
+	fill: var(--dm-fg) !important;
+}
+
+body.dark-mode.dark-mode .tox .tox-tbtn--bespoke {
+	background-color: var(--dm-bg-elevated) !important;
+}
+
+body.dark-mode.dark-mode .tox .tox-tbtn--bespoke .tox-tbtn__select-label {
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode.dark-mode .tox .tox-tbtn--bespoke:hover {
+	background-color: #3a3a3a !important;
+}
+
+body.dark-mode.dark-mode .tox .tox-anchorbar {
+	background-color: var(--dm-bg-paper) !important;
+}
+
+body.dark-mode.dark-mode .tox .tox-bottom-anchorbar {
+	background-color: var(--dm-bg-paper) !important;
+}
+
+/* TinyMCE split button */
+body.dark-mode.dark-mode .tox .tox-split-button {
+	border-color: transparent !important;
+	box-shadow: none !important;
+}
+
+body.dark-mode.dark-mode .tox .tox-split-button .tox-tbtn {
+	background-color: transparent !important;
+}
+
+body.dark-mode.dark-mode .tox .tox-split-button:hover .tox-tbtn {
+	background-color: #3a3a3a !important;
+}
+
+/* TinyMCE color swatch indicator */
+body.dark-mode.dark-mode .tox .tox-icon-highlight-bg-color__color,
+body.dark-mode.dark-mode .tox .tox-icon-text-color__color {
+	/* keep as-is, these are user-selected colors */
+}
+
+/*-----------------------------------------------------------------------------
+  TinyMCE Popups, Dropdowns, Tooltips, Dialogs
+  These are rendered in .tox-silver-sink outside the .tox-tinymce container
+-----------------------------------------------------------------------------*/
+/* Tooltips */
+body.dark-mode .tox .tox-tooltip {
+	background-color: #444 !important;
+}
+
+body.dark-mode .tox .tox-tooltip__body {
+	background-color: #444 !important;
+	color: var(--dm-fg) !important;
+	padding: 4px 8px !important;
+	line-height: 1.4 !important;
+	max-height: none !important;
+	height: auto !important;
+}
+
+/* Dropdown menus (font selector, color picker, etc.) */
+body.dark-mode .tox .tox-menu,
+body.dark-mode .tox .tox-collection,
+body.dark-mode .tox .tox-collection__group {
+	background-color: var(--dm-bg-paper) !important;
+	border-color: var(--dm-border) !important;
+}
+
+body.dark-mode .tox .tox-collection__item {
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .tox .tox-collection__item--active,
+body.dark-mode .tox .tox-collection__item:hover {
+	background-color: #3a3a3a !important;
+}
+
+body.dark-mode .tox .tox-collection__item--enabled {
+	background-color: var(--dm-selected) !important;
+}
+
+body.dark-mode .tox .tox-collection__item-icon svg {
+	fill: var(--dm-fg) !important;
+}
+
+body.dark-mode .tox .tox-collection__item-accessory {
+	color: var(--dm-fg-muted) !important;
+}
+
+body.dark-mode .tox .tox-collection__item-label {
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .tox .tox-collection__group-heading {
+	background-color: var(--dm-bg-elevated) !important;
+	color: var(--dm-fg-muted) !important;
+}
+
+/* TinyMCE Dialogs (Find & Replace, Insert Link, etc.) */
+body.dark-mode .tox .tox-dialog-wrap__backdrop {
+	background-color: rgba(0, 0, 0, 0.6) !important;
+}
+
+body.dark-mode .tox .tox-dialog {
+	background-color: var(--dm-bg-paper) !important;
+	border-color: var(--dm-border) !important;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+body.dark-mode .tox .tox-dialog__header {
+	background-color: var(--dm-bg-elevated) !important;
+	color: var(--dm-fg) !important;
+	border-bottom-color: var(--dm-border) !important;
+}
+
+body.dark-mode .tox .tox-dialog__title {
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .tox .tox-dialog__body {
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .tox .tox-dialog__body-nav-item {
+	color: var(--dm-fg-muted) !important;
+}
+
+body.dark-mode .tox .tox-dialog__body-nav-item--active {
+	color: var(--dm-fg) !important;
+	border-bottom-color: var(--theme-primary-color) !important;
+}
+
+body.dark-mode .tox .tox-dialog__body-content {
+	background-color: var(--dm-bg-paper) !important;
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .tox .tox-dialog__footer {
+	background-color: var(--dm-bg-elevated) !important;
+	border-top-color: var(--dm-border) !important;
+}
+
+/* Dialog buttons */
+body.dark-mode .tox .tox-button {
+	background-color: var(--theme-primary-color) !important;
+	border-color: var(--theme-primary-color) !important;
+	color: #fff !important;
+}
+
+body.dark-mode .tox .tox-button:hover {
+	background-color: var(--theme-primary-hover) !important;
+}
+
+body.dark-mode .tox .tox-button--secondary {
+	background-color: var(--dm-bg-elevated) !important;
+	border-color: var(--dm-border) !important;
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .tox .tox-button--secondary:hover {
+	background-color: #3a3a3a !important;
+}
+
+body.dark-mode .tox .tox-button--naked {
+	background-color: transparent !important;
+	border-color: transparent !important;
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .tox .tox-button--naked:hover {
+	background-color: #3a3a3a !important;
+}
+
+body.dark-mode .tox .tox-button--naked svg {
+	fill: var(--dm-fg) !important;
+}
+
+/* Dialog form elements */
+body.dark-mode .tox .tox-textfield,
+body.dark-mode .tox .tox-textarea,
+body.dark-mode .tox .tox-selectfield select {
+	background-color: var(--dm-bg-input) !important;
+	border-color: var(--dm-border) !important;
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .tox .tox-label,
+body.dark-mode .tox .tox-toolbar-label {
+	color: var(--dm-fg-muted) !important;
+}
+
+body.dark-mode .tox .tox-checkbox__icons svg {
+	fill: var(--dm-fg) !important;
+}
+
+body.dark-mode .tox .tox-checkbox__label {
+	color: var(--dm-fg) !important;
+}
+
+/* Color picker */
+body.dark-mode .tox .tox-swatches__picker-btn svg {
+	fill: var(--dm-fg) !important;
+}
+
+body.dark-mode .tox .tox-color-input span {
+	border-color: var(--dm-border) !important;
+}
+
+/* Autocompleter */
+body.dark-mode .tox .tox-autocompleter {
+	background-color: var(--dm-bg-paper) !important;
+	border-color: var(--dm-border) !important;
+}
+
+/* Status bar (if visible) */
+body.dark-mode .tox .tox-statusbar {
+	background-color: var(--dm-bg-elevated) !important;
+	border-top-color: var(--dm-border) !important;
+	color: var(--dm-fg-muted) !important;
+}
+
+body.dark-mode .tox .tox-statusbar a {
+	color: var(--dm-fg-muted) !important;
+}
+
+/*=============================================================================
+  Scrollbars - dark mode
+=============================================================================*/
+body.dark-mode * {
+	scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
+/*=============================================================================
+  Plugin Support
+=============================================================================*/
+/* Plugin: Maps - dark mode via CSS filter inversion */
+body.dark-mode .leaflet-container {
+	filter: invert(1) hue-rotate(180deg);
+}
+
+/* Re-invert map markers and controls so they look normal */
+body.dark-mode .leaflet-container .leaflet-marker-icon,
+body.dark-mode .leaflet-container .leaflet-marker-shadow,
+body.dark-mode .leaflet-container .leaflet-control {
+	filter: invert(1) hue-rotate(180deg);
+}
+
+/* Plugin: Files - account view */
+body.dark-mode .zarafa-files-accountview-container {
+	background-color: var(--dm-bg-paper) !important;
+	border-color: var(--dm-border) !important;
+}
+
+body.dark-mode .zarafa-files-accountview-over {
+	background-color: #3a3a3a !important;
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .zarafa-files-accountview-selected {
+	background-color: var(--dm-selected) !important;
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .zarafa-files-account-info {
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .zarafa-files-account-background {
+	border-color: var(--dm-border) !important;
+}
+
+/* Plugin: Files - navbar dark mode */
+body.dark-mode .files_navbar_button button {
+	background-color: var(--dm-bg-elevated) !important;
+	border-color: var(--dm-border) !important;
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .files_navbar_button.files_navbar_button_active button {
+	background-color: var(--dm-bg-paper) !important;
+}
+
+body.dark-mode .files_navbar_button_last button {
+	background-color: var(--theme-primary-color) !important;
+}
+
+/* Plugin: S/MIME info bars */
+body.dark-mode .zarafa-smime-info-good {
+	background-color: #1a3d1a !important;
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .zarafa-smime-info-fatal {
+	background-color: #3d1a1a !important;
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .zarafa-smime-info-partial {
+	background-color: #3d331a !important;
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .zarafa-smime-info-block {
+	background-color: #1a2a3d !important;
+	color: var(--dm-fg) !important;
+}
+
+/* Plugin: MDM - error buttons */
+body.dark-mode .mdm-auth-error-button .x-btn-small {
+	background-color: #8b2500 !important;
+}
+
+/* Plugin: Files backend Seafile */
+body.dark-mode .seafile-treegrid-userrole,
+body.dark-mode .seafile-treegrid-grouprole {
+	filter: invert(0.88);
+}

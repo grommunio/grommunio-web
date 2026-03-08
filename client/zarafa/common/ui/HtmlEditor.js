@@ -51,7 +51,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		var baseUrl = container.getServerConfig().getBaseUrl();
 		const cacheBuster = "8.1.2.369";
 
-		var themeIsDark = container.getSettingsModel().get("zarafa/v1/main/active_theme") === "dark";
+		var themeIsDark = Zarafa.core.DarkMode.isDark();
 
 		this.defaultFontFamily = container.getSettingsModel().get("zarafa/v1/main/default_font");
 		this.defaultFontSize = Zarafa.common.ui.htmleditor.Fonts.getDefaultFontSize();
@@ -92,7 +92,9 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 				forced_root_block_attrs: {
 					'style': 'padding: 0; margin: 0; '
 				},
-				content_style: "body{ " + "word-wrap: break-word; margin: 1rem !important;" + "}",
+				content_style: "body{ word-wrap: break-word; margin: 1rem !important;" +
+					(themeIsDark ? " background-color: #1e1e1e !important; color: #e0e0e0 !important;" : "") +
+					"}",
 				setup: function(editor) {
 					editor.on("PostProcess", function (e) {
 						if (e.get) {

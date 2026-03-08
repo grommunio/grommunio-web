@@ -34,6 +34,7 @@ $serverConfig = [
 
 		<!-- load the login css first as we need it immediately! -->
 		<link rel="stylesheet" href="client/resources/css/external/login.css" >
+		<link rel="stylesheet" href="client/resources/css/darkmode.css" >
 
 		<script><?php require BASE_PATH . 'client/fingerprint.js'; ?></script>
 		<?php

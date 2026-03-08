@@ -404,7 +404,7 @@ ul.x-tab-strip-top {
 .x-layout-split {
   width: 3px;
   height: 3px;
-  z-index: 9999; }
+  z-index: 5; }
 
 /* Common emptytext for empty grids. Overwriting x-grid-empty in some cases */
 .emptytext {
@@ -881,7 +881,7 @@ div.x-btn-group-bc {
   border-color: #e6e6e6; }
 
 #zarafa-mainpanel {
-  margin-left: -3px; }
+  margin-left: 0; }
 
 /* Remove some borders for specific panels so we don't get double borders */
 #zarafa-mainpanel-contentpanel-mail .zarafa-context-mainpanel > .x-panel-bwrap > .x-panel-body {
@@ -1085,12 +1085,12 @@ body.Safari input[type="radio"] {
 .col-move-bottom, .col-move-top {
   background-image: none !important; }
 
-/* column headers */
+/* column headers - modern flat style */
 .x-grid3-header {
-  background: #ffffff;
-  border-bottom: 1px solid #e6e6e6;
+  background: #fafafa;
+  border-bottom: 1px solid #e0e0e0;
   padding: 0;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04); }
+  box-shadow: none; }
 
 #mail-grid .x-grid3-header {
   padding-left: 3px; }
@@ -1099,25 +1099,27 @@ td.x-grid3-hd-over .x-grid3-hd-inner,
 td.sort-desc .x-grid3-hd-inner,
 td.sort-asc .x-grid3-hd-inner,
 td.x-grid3-hd-menu-open .x-grid3-hd-inner {
-  background: #ffffff; }
+  background: transparent; }
 
 .x-grid3-hd-row {
   /* Icon only columns */ }
   .x-grid3-hd-row td {
-    padding: 6px 0;
-    border-color: #ffffff;
+    padding: 8px 0;
+    border-color: transparent;
     position: relative; }
     .x-grid3-hd-row td .x-grid3-hd-inner {
       line-height: 20px;
       display: inline-block;
-      border: 1px solid #ffffff;
+      border: 1px solid transparent;
       border-radius: 2px;
       padding: 1px 6px;
-      /* subtract 2px for the borders */
-      font-weight: bold;
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: #666;
       overflow: visible;
-      /* needed for the .x-grid3-hd-btn to be visible when we place it outside of the button */
-      background: #ffffff;
+      background: transparent;
       max-width: 100%;
       box-sizing: border-box; }
       .x-grid3-hd-row td .x-grid3-hd-inner .zarafa-x-grid3-hd-title {
@@ -1126,25 +1128,24 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
         .x-grid3-hd-row td .x-grid3-hd-inner .zarafa-x-grid3-hd-title .x-grid3-hd-checker {
           width: 15px; }
       .x-grid3-hd-row td .x-grid3-hd-inner .x-grid3-hd-btn {
-        border: 1px solid #e6e6e6;
+        border: 1px solid transparent;
         border-radius: 2px;
-        background-color: #ffffff;
+        background-color: transparent;
         width: 16px;
         height: 22px !important;
-        /* overwriting the inline styled height that extjs gives this element */
         right: -20px;
-        top: -1px;
-        /* needed because the parent has a border */ }
+        top: -1px; }
   .x-grid3-hd-row td:hover .x-grid3-hd-inner,
   .x-grid3-hd-row td:hover .x-grid3-hd-inner .x-grid3-hd-btn {
-    border-color: #dadada; }
+    border-color: transparent;
+    background-color: #f0f0f0; }
   .x-grid3-hd-row td:not(.k-unsortable):active .x-grid3-hd-inner,
   .x-grid3-hd-row td:not(.k-unsortable):active .x-grid3-hd-inner .x-grid3-hd-btn {
-    background-color: #f8f8f8; }
+    background-color: #e8e8e8; }
   .x-grid3-hd-row td.sort-desc .x-grid3-hd-inner,
   .x-grid3-hd-row td.sort-asc .x-grid3-hd-inner {
     padding-right: 21px;
-    /* some extra padding to place the sort icon */ }
+    color: #333; }
   .x-grid3-hd-row td.sort-desc .x-grid3-sort-icon,
   .x-grid3-hd-row td.sort-asc .x-grid3-sort-icon {
     width: 9px;
@@ -1156,33 +1157,65 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   .x-grid3-hd-row td.sort-asc .x-grid3-hd-inner,
   .x-grid3-hd-row td.sort-desc .x-grid3-hd-inner .x-grid3-hd-btn,
   .x-grid3-hd-row td.sort-asc .x-grid3-hd-inner .x-grid3-hd-btn {
-    border-color: #e6e6e6;
-    background-color: #f8f8f8; }
+    border-color: transparent;
+    background-color: #f0f0f0; }
   .x-grid3-hd-row td.sort-desc:not(.k-unsortable):active .x-grid3-hd-inner,
   .x-grid3-hd-row td.sort-asc:not(.k-unsortable):active .x-grid3-hd-inner,
   .x-grid3-hd-row td.sort-desc:not(.k-unsortable):active .x-grid3-hd-inner .x-grid3-hd-btn,
   .x-grid3-hd-row td.sort-asc:not(.k-unsortable):active .x-grid3-hd-inner .x-grid3-hd-btn {
-    background-color: #f2f2f2; }
+    background-color: #e8e8e8; }
   .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner {
-    height: 24px;
+    height: auto;
     width: 22px;
-    padding: 0;
-    text-align: center; }
+    padding: 2px 0;
+    text-align: center;
+    border: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
     .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner .zarafa-x-grid3-hd-title {
-      text-overflow: clip;
-      /* reposition the icon headers */ }
+      text-overflow: clip; }
       .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner .zarafa-x-grid3-hd-title p {
         position: relative;
         display: inline-block;
         min-width: 20px; }
         .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner .zarafa-x-grid3-hd-title p .title {
           display: none; }
+  /* Hide the "Icon" (first) column header content - keep the column space */
+  .x-grid3-hd-row td.zarafa-icon-column.icon .x-grid3-hd-inner {
+    visibility: hidden; }
+  .x-grid3-hd-row td.zarafa-icon-column.icon {
+    pointer-events: none; }
+  /* Icon columns (importance, attachment, flag, smime): hide dropdown menu button */
+  .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner .x-grid3-hd-btn {
+    display: none !important; }
+  /* Icon columns: no hover effect */
+  .x-grid3-hd-row td.zarafa-icon-column:hover .x-grid3-hd-inner {
+    background: transparent !important;
+    border-color: transparent !important; }
+  /* Icon columns: sort indicator - show below the icon */
   .x-grid3-hd-row td.zarafa-icon-column.sort-asc p,
   .x-grid3-hd-row td.zarafa-icon-column.sort-desc p {
     display: none; }
+  .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner {
+    overflow: visible !important; }
   .x-grid3-hd-row td.zarafa-icon-column.sort-asc .x-grid3-sort-icon,
   .x-grid3-hd-row td.zarafa-icon-column.sort-desc .x-grid3-sort-icon {
-    margin: 0; }
+    margin: 0;
+    width: 9px;
+    height: 9px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: auto;
+    bottom: 0; }
+  /* Icon columns: sorted state - no border, no background change, extra bottom padding for sort icon */
+  .x-grid3-hd-row td.zarafa-icon-column.sort-asc .x-grid3-hd-inner,
+  .x-grid3-hd-row td.zarafa-icon-column.sort-desc .x-grid3-hd-inner {
+    background: transparent !important;
+    border: none !important;
+    padding-bottom: 12px;
+    position: relative; }
 
 /****************************************************************************
  * Icons in the 'Show columns' menu
@@ -1397,6 +1430,8 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 /* x-grid-3 should have a little more padding */
 .x-grid3-row {
   padding-right: 3px; }
+.x-grid3-row > table {
+  padding-left: 3px; }
 
 /* hover read item */
 .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-over > table, .x-grid3-row.x-grid3-row-collapsed.mail_read.x-grid3-row-over > table {
@@ -2187,47 +2222,8 @@ Note: Does not work in IE11 */
   border-bottom: 1px solid #e6e6e6; }
 
 /***************************************
- *  scrollbars for Webkit
+ *  scrollbars for Webkit (legacy block removed — unified scrollbar below)
  ***************************************/
-.preview-header ::-webkit-scrollbar {
-  width: 15px;
-  height: 15px; }
-
-.preview-header ::-webkit-scrollbar-button:vertical {
-  border: 1px solid #fff;
-  background-color: #fff;
-  background-repeat: no-repeat;
-  height: 15px;
-  border-radius: 2px; }
-
-.preview-header ::-webkit-scrollbar-button:vertical:hover {
-  border: 1px solid #dadada; }
-
-.preview-header ::-webkit-scrollbar-button:vertical:increment {
-  /* this is the arrow_down_s.png icon */
-  /* putting this webkit rule in app-icons.extensions.json would break the rule on IE11 */
-  /* so we're cheating a little and adding this one here */
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAADCAYAAABbNsX4AAAAHElEQVR4AWMKDAz8j46ZGBgYGBlQASMTjIFMAwD7JAnFXwG1BAAAAABJRU5ErkJggg==);
-  background-repeat: no-repeat;
-  background-position: center center; }
-
-.preview-header ::-webkit-scrollbar-button:vertical:decrement {
-  /* this is the arrow_up_s.png icon */
-  /* putting this webkit rule in app-icons.extensions.json would break the rule on IE11 */
-  /* so we're cheating a little and adding this one here */
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAADCAYAAABbNsX4AAAAGElEQVR4AWMIDAyE4f8wNkIAgRnAAugYAIFDFzUC5hyIAAAAAElFTkSuQmCC);
-  background-repeat: no-repeat;
-  background-position: center center; }
-
-.preview-header ::-webkit-scrollbar-button:vertical:increment:disabled {
-  background-color: red; }
-
-.preview-header ::-webkit-scrollbar-button:vertical:active {
-  background-color: #f8f8f8; }
-
-.preview-header ::-webkit-scrollbar-thumb {
-  border: none;
-  border-radius: 2px; }
 
 /* the expand/collapse button */
 .preview-header-collapse {
@@ -2438,6 +2434,7 @@ span.preview-header-sender-image {
     border-bottom: 1px solid #e6e6e6;
     border-left: none;
     border-right: none;
+    border-radius: 0 !important;
     font-size: 15px !important; }
   .zarafa-mailcreatepanel > .x-panel-bwrap > .x-panel-body .zarafa-mailcreatepanel-field-attachments {
     padding-top: 6px; }
@@ -2930,8 +2927,9 @@ span.preview-header-sender-image {
     z-index: 10;
     margin-left: 1px; }
   .zarafa-calendar-boxview .zarafa-calendar-container-body .k-html-body-background .k-action-border {
-    border-color: #5ebb4b !important; }
+    border-right-color: #5ebb4b !important; }
   .zarafa-calendar-boxview .zarafa-calendar-container-body .k-html-body-background .k-today {
+    border-color: #5ebb4b !important;
     border-left-width: 2px;
     border-right-width: 3px;
     border-bottom-width: 3px; }
@@ -3420,14 +3418,21 @@ div.zarafa-contact-cardview-selected {
 /* Reminder dialog */
 .zarafa-reminder-dialog-active-reminder-icon {
   width: 24px;
-  height: 25px;
-  float: left; }
+  height: 24px;
+  float: left;
+  margin-right: 8px;
+  margin-top: 2px; }
 
 .zarafa-reminder-dialog-active-reminder-subject {
-  font-weight: bold; }
+  font-weight: bold;
+  margin-bottom: 2px; }
 
 .zarafa-reminder-dialog-snooze, .zarafa-reminder-dialog-active-reminder {
-  padding: 8px; }
+  padding: 10px 12px; }
+
+/* Reminder grid - "due in" column shrink to fit */
+.zarafa-reminder-dialog-snooze .x-grid3-col-1 {
+  white-space: nowrap; }
 
 /* Address book dialog */
 .k-abuserselectionpanel > .x-panel-bwrap > .x-panel-body,
@@ -4182,7 +4187,14 @@ div.zarafa-contact-cardview-selected {
     background: transparent;
     border: none;
     border-top: 1px solid #e6e6e6;
-    padding: 6px 0; }
+    padding: 6px 12px; }
+    .x-date-picker .x-date-bottom .x-btn {
+      display: block; }
+      .x-date-picker .x-date-bottom .x-btn .x-btn-small {
+        display: block; }
+        .x-date-picker .x-date-bottom .x-btn .x-btn-small em,
+        .x-date-picker .x-date-bottom .x-btn .x-btn-small button {
+          width: 100%; }
   .x-date-picker .x-date-mp {
     background: white; }
     .x-date-picker .x-date-mp table td a {
@@ -4789,34 +4801,7 @@ body .k-category-block {
 .preview-recipient-data .zarafa-recipient-link:not(:first-child) .zarafa-presence-status-icon {
   margin-left: 3px; }
 
-/* modern scrollbar */
-* {
-  scrollbar-color: #1f1f1f transparent;
-}
-
-*::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-  background: transparent;
-}
-
-*::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #c0c0c0;
-  border-radius: 20px;
-  min-height: 100px;
-}
-
-.x-grid3-scroller {
-  overflow-y: hidden !important;
-}
-
-.x-grid3-scroller:hover {
-  overflow-y: auto !important;
-}
+/* (legacy scrollbar block removed — unified scrollbar defined at end of file) */
 
 input.x-tree-node-cb {
     height: 36px;
@@ -5497,4 +5482,28 @@ ul.x-tab-strip li:not(.x-tab-strip-active):hover .x-tab-strip-text {
   color: #000000 !important;
   filter: brightness(0) invert(1);
   transition: color 0.2s ease, filter 0.2s ease;
+}
+
+/*********************************************************************************************
+ * Scrollbars - modern thin overlay style
+ * No reserved space, appears on hover/scroll, works in both light and dark mode.
+ ********************************************************************************************/
+/*****************************
+ * Unified scrollbar styling
+ * Uses standard scrollbar-width/scrollbar-color (supported in Chrome 94+, Firefox 64+).
+ * These scale with browser zoom unlike ::-webkit-scrollbar pseudo-elements.
+ *****************************/
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+}
+
+/* Grid scroller — hide scrollbar until hover (same pattern as hierarchy tree) */
+.x-grid3-scroller {
+  overflow-y: hidden !important;
+  overflow-x: hidden !important;
+}
+
+.x-grid3-scroller:hover {
+  overflow-y: auto !important;
 }

@@ -36,6 +36,14 @@ Zarafa.calendar.ui.CalendarGridColumnModel = Ext.extend(Zarafa.common.ui.grid.Co
 	createColumns: function()
 	{
 		return [{
+			header: '<p class="icon_index">&nbsp;<span class="title">' + _('Icon') + '</span></p>',
+			headerCls: 'zarafa-icon-column icon',
+			dataIndex: 'icon_index',
+			tooltip: _('Sort by: Icon'),
+			width: 24,
+			renderer: Zarafa.common.ui.grid.Renderers.icon,
+			fixed: true
+		},{
 			xtype: 'checkcolumn',
 			headerCls: 'zarafa-icon-column',
 			header: '<p class="icon_all_day">&nbsp;<span class="title">' + _('All Day') + '</span></p>',
@@ -45,14 +53,6 @@ Zarafa.calendar.ui.CalendarGridColumnModel = Ext.extend(Zarafa.common.ui.grid.Co
 			fixed: true,
 			// disable checkbox selection
 			processEvent: Ext.emptyFn
-		},{
-			header: '<p class="icon_index">&nbsp;<span class="title">' + _('Icon') + '</span></p>',
-			headerCls: 'zarafa-icon-column',
-			dataIndex: 'icon_index',
-			tooltip: _('Sort by: Icon'),
-			width: 24,
-			renderer: Zarafa.common.ui.grid.Renderers.icon,
-			fixed: true
 		},{
 			header: '<p class="icon_recurrence">&nbsp;<span class="title">' + _('Recurring') + '</span></p>',
 			headerCls: 'zarafa-icon-column',
