@@ -1077,12 +1077,14 @@ class HierarchyModule extends Module {
 
 			return mapi_folder_deletefolder($finderFolder, $entryid, DEL_FOLDERS | DEL_MESSAGES | DELETE_HARD_DELETE);
 		}
-		// Rename search folder to default search folder name otherwise,
-		// It will not be picked up by our search folder cleanup logic.
+		// Rename the search folder so that date-based cleanup will remove it
+		// the next day. Use yesterday's date to make it eligible for immediate
+		// cleanup on the next search creation in any session.
 		$storeProps = mapi_getprops($store, [PR_FINDER_ENTRYID]);
 		$props = [];
 		$folder = mapi_msgstore_openentry($store, $storeProps[PR_FINDER_ENTRYID]);
-		$folderName = $GLOBALS["operations"]->checkFolderNameConflict($store, $folder, "grommunio Web Search Folder");
+		$staleName = ListModule::SEARCH_FOLDER_PREFIX . gmdate('Ymd', strtotime('-1 day')) . '-' . bin2hex(random_bytes(4));
+		$folderName = $GLOBALS["operations"]->checkFolderNameConflict($store, $folder, $staleName);
 
 		return $GLOBALS["operations"]->renameFolder($store, $entryid, $folderName, $props);
 	}
