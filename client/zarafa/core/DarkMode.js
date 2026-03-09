@@ -65,6 +65,39 @@ Zarafa.core.DarkMode = {
 			container.getSettingsModel().set('zarafa/v1/main/dark_mode', mode);
 			container.getSettingsModel().endEdit();
 		}
+
+		this.syncSettingsCombo(mode);
+		this.syncToolbarButton(mode);
+	},
+
+	/**
+	 * Sync the Appearance combo in the settings panel if it is currently rendered.
+	 * @param {String} mode The new mode value
+	 * @private
+	 */
+	syncSettingsCombo: function(mode)
+	{
+		var combo = Ext.getCmp('darkmode-combo');
+		if (combo) {
+			combo.setValue(mode);
+		}
+	},
+
+	/**
+	 * Sync the dark mode toolbar button icon and tooltip if it is currently rendered.
+	 * @param {String} mode The new mode value
+	 * @private
+	 */
+	syncToolbarButton: function(mode)
+	{
+		var btn = Ext.getCmp('mainmenu-button-darkmode');
+		if (btn && btn.getEl()) {
+			var tabbar = btn.findParentByType('zarafa.maintabbar');
+			if (tabbar) {
+				btn.getEl().setStyle('backgroundImage', 'url(\'' + tabbar.getDarkModeIcon(mode) + '\')');
+				btn.setTooltip(tabbar.getDarkModeTooltip(mode));
+			}
+		}
 	},
 
 	/**

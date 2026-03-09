@@ -205,6 +205,7 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 
 		config.items.push({
 			xtype: 'combo',
+			id: 'darkmode-combo',
 			width: 200,
 			editable: false,
 			forceSelection: true,
