@@ -91,6 +91,109 @@ body.dark-mode .ext-el-mask {
 }
 
 /*=============================================================================
+  Top Menu Bar — keep light-mode appearance in dark mode
+  The gradient bar should look identical regardless of dark mode state.
+  These rules counteract the generic dark-mode .x-btn overrides below.
+=============================================================================*/
+/* Outer .x-btn wrapper — must stay transparent with no outline shift */
+body.dark-mode #zarafa-mainmenu .x-btn {
+	background-color: transparent !important;
+	outline: none !important;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+/* Inner button table — match light-mode: transparent, no border, no shadow */
+body.dark-mode #zarafa-mainmenu .x-btn .x-btn-small,
+body.dark-mode #zarafa-mainmenu .x-btn .x-btn-medium,
+body.dark-mode #zarafa-mainmenu .x-btn .x-btn-large {
+	background: transparent !important;
+	background-color: transparent !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: auto !important;
+	margin: 0 !important;
+}
+
+body.dark-mode #zarafa-mainmenu .x-btn .x-btn-small button,
+body.dark-mode #zarafa-mainmenu .x-btn .x-btn-medium button,
+body.dark-mode #zarafa-mainmenu .x-btn .x-btn-large button {
+	color: #ffffff !important;
+	background-color: transparent !important;
+}
+
+/* Hover */
+body.dark-mode #zarafa-mainmenu .x-btn.x-btn-over,
+body.dark-mode #zarafa-mainmenu .x-btn.x-btn-over.x-btn-click {
+	background-color: var(--theme-primary-color) !important;
+}
+
+body.dark-mode #zarafa-mainmenu .x-btn.x-btn-over .x-btn-small,
+body.dark-mode #zarafa-mainmenu .x-btn.x-btn-over .x-btn-medium,
+body.dark-mode #zarafa-mainmenu .x-btn.x-btn-over .x-btn-large,
+body.dark-mode #zarafa-mainmenu .x-btn.x-btn-over.x-btn-click .x-btn-small,
+body.dark-mode #zarafa-mainmenu .x-btn.x-btn-over.x-btn-click .x-btn-medium,
+body.dark-mode #zarafa-mainmenu .x-btn.x-btn-over.x-btn-click .x-btn-large,
+body.dark-mode #zarafa-mainmenu .x-btn.x-btn-click .x-btn-small,
+body.dark-mode #zarafa-mainmenu .x-btn.x-btn-click .x-btn-medium,
+body.dark-mode #zarafa-mainmenu .x-btn.x-btn-click .x-btn-large {
+	background: transparent !important;
+	border: none !important;
+	box-shadow: none !important;
+}
+
+body.dark-mode #zarafa-mainmenu .x-btn.x-btn-over .x-btn-small button,
+body.dark-mode #zarafa-mainmenu .x-btn.x-btn-over .x-btn-medium button,
+body.dark-mode #zarafa-mainmenu .x-btn.x-btn-over .x-btn-large button,
+body.dark-mode #zarafa-mainmenu .x-btn.x-btn-over.x-btn-click .x-btn-small button,
+body.dark-mode #zarafa-mainmenu .x-btn.x-btn-over.x-btn-click .x-btn-medium button,
+body.dark-mode #zarafa-mainmenu .x-btn.x-btn-over.x-btn-click .x-btn-large button {
+	color: #ffffff !important;
+	background-color: transparent !important;
+}
+
+/* Active tab */
+body.dark-mode #zarafa-mainmenu .zarafa-maintabbar-maintab-active,
+body.dark-mode #zarafa-mainmenu .zarafa-maintabbar-maintab-active.x-btn-over,
+body.dark-mode #zarafa-mainmenu .zarafa-maintabbar-maintab-active.x-btn-over.x-btn-click {
+	background-color: var(--theme-primary-color) !important;
+}
+
+body.dark-mode #zarafa-mainmenu .zarafa-maintabbar-maintab-active .x-btn-small,
+body.dark-mode #zarafa-mainmenu .zarafa-maintabbar-maintab-active.x-btn-over .x-btn-small,
+body.dark-mode #zarafa-mainmenu .zarafa-maintabbar-maintab-active.x-btn-over.x-btn-click .x-btn-small {
+	background: transparent !important;
+	border: none !important;
+}
+
+body.dark-mode #zarafa-mainmenu .zarafa-maintabbar-maintab-active button.x-btn-text,
+body.dark-mode #zarafa-mainmenu .zarafa-maintabbar-maintab-active.x-btn-over button.x-btn-text,
+body.dark-mode #zarafa-mainmenu .zarafa-maintabbar-maintab-active.x-btn-over.x-btn-click button.x-btn-text {
+	color: #ffffff !important;
+	opacity: 1;
+}
+
+/* Focus — no border or shadow */
+body.dark-mode #zarafa-mainmenu .x-btn.x-btn-focus .x-btn-small,
+body.dark-mode #zarafa-mainmenu .x-btn.x-btn-focus .x-btn-medium,
+body.dark-mode #zarafa-mainmenu .x-btn.x-btn-focus .x-btn-large {
+	border: none !important;
+	box-shadow: none !important;
+}
+
+/* Disabled */
+body.dark-mode #zarafa-mainmenu .x-btn.x-item-disabled .x-btn-small,
+body.dark-mode #zarafa-mainmenu .x-btn.x-item-disabled .x-btn-medium,
+body.dark-mode #zarafa-mainmenu .x-btn.x-item-disabled .x-btn-large {
+	background-color: transparent !important;
+}
+
+body.dark-mode #zarafa-mainmenu #mainmenu-logintext {
+	color: #ffffff !important;
+	opacity: 0.7;
+}
+
+/*=============================================================================
   Top Toolbar
 =============================================================================*/
 body.dark-mode #zarafa-maintoolbar .x-toolbar {
