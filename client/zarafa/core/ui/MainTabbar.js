@@ -103,7 +103,9 @@ Zarafa.core.ui.MainTabBar = Ext.extend(Ext.Toolbar, {
 			scope: this
 		};
 
-		this.add(leftItems, {xtype: 'tbfill'}, loginText, reminder, rightItems);
+		var darkModeSwitcher = this.createDarkModeSwitcher();
+
+		this.add(leftItems, {xtype: 'tbfill'}, loginText, reminder, darkModeSwitcher, rightItems);
 
 		// Don't show the logout button when using SSO or if it's disabled in the config, but always show it in DeskApp
 		if ( !(container.getServerConfig().usingSSO() || !container.getServerConfig().showLogoutButton()) || Zarafa.isDeskApp ){
@@ -115,6 +117,77 @@ Zarafa.core.ui.MainTabBar = Ext.extend(Ext.Toolbar, {
 
 			this.add(logoutButton);
 		}
+	},
+
+	/**
+	 * Create an SVG data URI for the dark mode switcher icon.
+         * Icons are optimized, secondary pass not required
+	 * @param {String} mode One of 'light', 'dark', 'system'
+	 * @return {String} SVG data URI
+	 * @private
+	 */
+	getDarkModeIcon: function(mode)
+	{
+		var svg;
+		if (mode === 'light') {
+			// Sun icon
+			svg = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+		} else if (mode === 'dark') {
+			// Moon icon
+			svg = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79"/></svg>';
+		} else {
+			// Auto icon: sun-moon combo
+			svg = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3V1m0 22v-2m9-9h2M1 12h2m15.78-7.78L20.2 2.8M4.22 19.78l1.42-1.42m12.72 1.42 1.42 1.42M4.22 4.22l1.42 1.42"/><circle cx="12" cy="12" r="4"/><path fill="#fff" stroke="none" d="M12 8a4 4 0 0 1 0 8z"/></svg>';
+		}
+		return 'data:image/svg+xml;charset=utf8,' + encodeURIComponent(svg);
+	},
+
+	/**
+	 * Get the tooltip text for the dark mode switcher.
+	 * @param {String} mode One of 'light', 'dark', 'system'
+	 * @return {String} tooltip text
+	 * @private
+	 */
+	getDarkModeTooltip: function(mode)
+	{
+		switch (mode) {
+			case 'light': return _('Appearance') + ': ' + _('Light');
+			case 'dark': return _('Appearance') + ': ' + _('Dark');
+			default: return _('Appearance') + ': ' + _('Automatic');
+		}
+	},
+
+	/**
+	 * Create the dark mode 3-way switcher button config.
+	 * Cycles through light -> system -> dark -> light.
+	 * @return {Object} Ext button config
+	 * @private
+	 */
+	createDarkModeSwitcher: function()
+	{
+		var currentMode = Zarafa.core.DarkMode.getMode();
+		return {
+			width: 30,
+			id: 'mainmenu-button-darkmode',
+			tooltip: this.getDarkModeTooltip(currentMode),
+			handler: function() {
+				var mode = Zarafa.core.DarkMode.getMode();
+				// Cycle: light -> system -> dark -> light
+				if (mode === 'light') {
+					mode = 'system';
+				} else if (mode === 'system') {
+					mode = 'dark';
+				} else {
+					mode = 'light';
+				}
+				Zarafa.core.DarkMode.setMode(mode);
+			},
+			style: {
+				backgroundImage: 'url(\'' + this.getDarkModeIcon(currentMode) + '\')',
+				backgroundRepeat: 'no-repeat',
+				backgroundPosition: 'center'
+			}
+		};
 	},
 
 	/**
