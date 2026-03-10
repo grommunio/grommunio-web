@@ -2832,7 +2832,10 @@ class Operations {
 					// message, transient Gromox error, …), carry on
 					// — saveMessage() below rebuilds from client data.
 					try {
-						mapi_copyto($message, [], [], $newmessage);
+						// Do not copy PR_MESSAGE_FLAGS because we want a new message.
+						// gromox will only defer sending if MSGFLAG_SUBMIT is not set and
+						// setting PR_MESSAGE_FLAGS with mapi_setprops currently is not possible.
+						mapi_copyto($message, [], [PR_MESSAGE_FLAGS], $newmessage);
 					}
 					catch (MAPIException $e) {
 						error_log('submitMessage: mapi_copyto from draft failed: ' . get_mapi_error_name($e->getCode()));
