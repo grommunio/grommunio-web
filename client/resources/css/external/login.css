@@ -1,5 +1,3 @@
-@keyframes rotate{to{transform:rotate(360deg)}}
-
 html,body {
   height:100%;
   font-size:13px
@@ -128,8 +126,8 @@ body.login #form-container.loading,
 
 body.login #form-container.loading .right,
 #loading-mask #form-container.loading .right {
-  background:url(../../images/load.gif) no-repeat center center;
-  animation:rotate 1.3s 0s infinite ease
+  background:url(../../images/spinner.svg) no-repeat center center;
+  background-size: 48px 48px
 }
 
 body.login #form-container.loading .right h1,
