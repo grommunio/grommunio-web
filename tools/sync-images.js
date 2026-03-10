@@ -26,7 +26,6 @@ const reportOnly = args.includes('--report') || !doExtract;
 // CSS files to scan for base64-encoded images
 const CSS_SCAN_PATHS = [
 	'client/resources/css/grommunio.css',
-	'client/zarafa/core/themes/dark/css/themedark.css',
 	'plugins/files/resources/css/files-main.css',
 	'plugins/files/resources/css/icons.css',
 	'plugins/files/resources/css/navbar.css',

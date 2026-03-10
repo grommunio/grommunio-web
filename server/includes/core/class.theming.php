@@ -78,6 +78,18 @@ class Theming {
 				$theme = $GLOBALS['settings']->get('zarafa/v1/main/active_theme');
 			}
 
+			// Migrate legacy "dark" theme users: the dark theme directory
+			// has been removed. Switch them to basic theme + dark mode.
+			if ($theme === 'dark') {
+				$darkMode = $GLOBALS['settings']->get('zarafa/v1/main/dark_mode');
+				if (empty($darkMode) || $darkMode === 'light') {
+					$GLOBALS['settings']->set('zarafa/v1/main/dark_mode', 'dark');
+				}
+				$GLOBALS['settings']->set('zarafa/v1/main/active_theme', 'basic');
+				$GLOBALS['settings']->saveSettings();
+				$theme = 'basic';
+			}
+
 			// If a theme was found, check if the theme is still installed
 			// Remember that 'basic' is not a real theme, but the name for the default look of grommunio Web
 			// Unified themes don't require directories, so we skip the directory check for them

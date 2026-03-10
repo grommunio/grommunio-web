@@ -14,14 +14,23 @@ $loader = new FileLoader();
 		<link rel="icon" href="client/resources/images/favicon.ico?v2.2.0" type="image/x-icon">
 		<link rel="shortcut icon" href="client/resources/images/favicon.ico?v2.2.0" type="image/x-icon">
 
+		<link rel="stylesheet" href="client/resources/css/darkmode.css" >
 		<?php
 			$loader->cssOrder();
 echo Theming::getStyles($theme);
 $iconsetStylesheet = Iconsets::getActiveStylesheet();
 ?>
+		<link id="grommunio-iconset-stylesheet" rel="stylesheet" href="<?php echo $iconsetStylesheet; ?>" >
 	</head>
 
-	<body class="theme-<?php echo strtolower((string) $theme ?: 'basic'); ?>">
+	<body class="zarafa-webclient theme-<?php echo strtolower((string) $theme ?: 'basic');
+$darkMode = WebAppAuthentication::isAuthenticated() ? $GLOBALS['settings']->get('zarafa/v1/main/dark_mode') : 'light';
+if ($darkMode === 'dark') {
+	echo ' dark-mode';
+} elseif ($darkMode === 'system') {
+	echo ' dark-mode-system';
+}
+?>">
 		<?php
 	$jsTemplate = "\t\t<script src=\"{file}\"></script>";
 if (DEBUG_LOADER === LOAD_RELEASE) {
@@ -32,7 +41,6 @@ else {
 }
 $loader->printFiles($extjsFiles, $jsTemplate);
 ?>
-		<link id="grommunio-iconset-stylesheet" rel="stylesheet" href="<?php echo $iconsetStylesheet; ?>" >
 		<script>
 
 			/**
