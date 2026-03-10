@@ -373,5 +373,13 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	getAttachmentReminderKeywords: function()
 	{
 		return this.meta.attachment_reminder_keywords || '';
+	},
+
+	/**
+	 * @return {String} The authentication method used: 'oidc' or 'basic'
+	 */
+	getAuthMethod: function()
+	{
+		return this.meta.auth_method || 'basic';
 	}
 });

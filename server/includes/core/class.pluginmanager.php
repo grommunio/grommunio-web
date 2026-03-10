@@ -199,9 +199,11 @@ class PluginManager {
 		$pluginState->close();
 
 		// Decide whether to show password plugin in settings:
-		// - show if the users are in a db
-		// - don't show if the users are in ldap
-		if (isset($this->plugindata['passwd'], $GLOBALS['usersinldap']) && $GLOBALS['usersinldap']) {
+		// - show if the users are in a db with basic auth
+		// - don't show if the users are in ldap or authenticated via OIDC
+		$hidePasswd = (isset($GLOBALS['usersinldap']) && $GLOBALS['usersinldap']) ||
+			!empty($_SESSION['_keycloak_auth']);
+		if (isset($this->plugindata['passwd']) && $hidePasswd) {
 			unset($this->plugindata['passwd']);
 			if (($passwdKey = array_search('passwd', $this->pluginorder)) !== false) {
 				unset($this->pluginorder[$passwdKey]);
