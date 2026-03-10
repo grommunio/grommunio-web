@@ -34,6 +34,7 @@ Zarafa.advancesearch.dialogs.SearchContentPanel = Ext.extend(Zarafa.core.ui.Cont
 				searchTabId: advanceSearchTabName,
 				searchFolder: config.searchFolder,
 				searchText: config.searchText,
+				virtualTokens: config.virtualTokens,
 				searchContentPanel: this
 			}]
 		});

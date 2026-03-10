@@ -182,6 +182,17 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 	{
 		var cssClass = (Ext.isFunction(record.isRead) && !record.isRead() ? 'mail_unread' : 'mail_read');
 
+		// Client-side fallback: hide records that don't match the unread filter.
+		// Uses CSS hiding instead of store removal to avoid breaking live scroll.
+		var unreadState = this.grid.getUnreadFilterState();
+		if (unreadState && Ext.isFunction(record.isRead)) {
+			if (unreadState === 'unread' && record.isRead()) {
+				cssClass += ' k-search-filtered-out';
+			} else if (unreadState === 'read' && !record.isRead()) {
+				cssClass += ' k-search-filtered-out';
+			}
+		}
+
 		if (this.enableRowBody) {
 			rowParams.body = '<div class="zarafa-grid-body-container">';
 
@@ -571,6 +582,32 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 	},
 
 	/**
+	 * Checks the unread filter state in the search tool box.
+	 * @return {String|false} 'unread' if filtering for unread, 'read' if negated
+	 * (NOT Unread = show read only), or false if no unread filter is active.
+	 * @private
+	 */
+	getUnreadFilterState: function()
+	{
+		var searchPanel = this.searchCenterPanel && this.searchCenterPanel.searchPanel;
+		var toolBox = searchPanel && searchPanel.searchToolBox;
+		if (!toolBox || !toolBox.searchCriteria) {
+			return false;
+		}
+		// Check for normal unread filter (checkbox checked)
+		if (Ext.isArray(toolBox.searchCriteria['extra_fields']) &&
+			toolBox.searchCriteria['extra_fields'].indexOf('message_flags') !== -1) {
+			return 'unread';
+		}
+		// Check for negated unread filter (NOT Unread:Yes)
+		if (Ext.isArray(toolBox.searchCriteria['negated_extra_fields']) &&
+			toolBox.searchCriteria['negated_extra_fields'].indexOf('unread') !== -1) {
+			return 'read';
+		}
+		return false;
+	},
+
+	/**
 	 * Event handler for the {@link Zarafa.core.ContextModel#searchstop searchstop} event.
 	 * This will {@link Zarafa.common.ui.LoadMask#hide hide} the {@link Zarafa.common.ui.LoadMask loadmask}, if any.
 	 * @param {Zarafa.core.ContextModel} model The model which fired the event
@@ -579,6 +616,11 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 	onSearchStop: function(model)
 	{
 		this.loadMask.hide();
+		// Clear the grid when search is stopped
+		var store = this.getStore();
+		if (store && store.getCount() > 0) {
+			store.removeAll();
+		}
 	},
 
 	/**
