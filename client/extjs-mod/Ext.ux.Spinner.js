@@ -50,6 +50,23 @@
 			this.initTrigger();
 			this.initSpinner();
 		},
+		initTrigger: function() {
+			// Only add click visual feedback, skip addClassOnOver
+			// so hover highlighting is handled per-half by onMouseOver/onMouseMove
+			this.trigger.addClassOnClick('x-form-trigger-click');
+		},
+		onMouseMove: function() {
+			if (this.disabled) {
+				return;
+			}
+			var middle = this.getMiddle();
+			var newClass = (Ext.EventObject.getPageY() < middle) ? 'x-form-spinner-overup' : 'x-form-spinner-overdown';
+			if (newClass !== this.tmpHoverClass) {
+				this.trigger.removeClass(this.tmpHoverClass);
+				this.tmpHoverClass = newClass;
+				this.trigger.addClass(this.tmpHoverClass);
+			}
+		},
 		initSpinner: function() {
 			this.field.addEvents({
 				'spin': true,
