@@ -55,9 +55,6 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 		var checked = Ext.isDefined(config.showAllFoldersDefaultValue) ?
 			config.showAllFoldersDefaultValue: this.showAllFoldersDefaultValue;
 
-		// Check user setting to add treeFIlter.
-		var treeFilter = container.getSettingsModel().get('zarafa/v1/contexts/hierarchy/show_searchbar', true, false);
-
 		Ext.applyIf(config, {
 			xtype: 'zarafa.hierarchytreepanel',
 			baseCls: 'zarafa-hierarchy-treepanel',
@@ -70,23 +67,18 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 				xtype: 'checkbox',
 				cls: 'zarafa-hierarchy-treepanel-showallfolders',
 				ref: '../showAllFoldersCheckbox',
-				boxLabel: treeFilter ? _('Show All'): _('Show all folders'),
+				boxLabel: _('Show All'),
 				checked: checked,
 				listeners: {
 					beforerender: this.reviseCheckboxDisablity,
 					check: this.onCheckShowAllFoldersCheckbox,
 					scope: this
 				}
-			}, {
-				xtype: 'tbspacer',
-				hidden: !treeFilter,
-				width: 20
-			}, {
+			},
+			{
 				xtype: 'textfield',
-				emptyText: _('Search…'),
 				cls: 'k-searchfolder-field',
 				doLayout: this.onLayoutSearchField.createDelegate(this),
-				hidden: !treeFilter,
 				enableKeyEvents: true,
 				ref: '../../../filterSearchTextBox',
 				listeners: {
@@ -99,7 +91,7 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 			}],
 			loadMask: true,
 			treeSorter: true,
-			treeFilter: treeFilter,
+			treeFilter: true,
 			trackMouseOver: true,
 			containerScroll: true,
 			// Default values for the Drag&Drop objects.
@@ -304,14 +296,12 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 		var filterSearchTextBox = this.getTopToolbar().findByType('textfield')[0];
 
 		if (filterSearchTextBox.isVisible()) {
-			// Get the width of the container without the padding
 			var containerWidth = this.el.getStyleSize().width;
-			var tbspacer = 20;
 			var showFolderCheckFieldWidth = this.showAllFoldersCheckbox.getWidth();
-			var extraContainerPadding = 24;
-			var adjWidth = containerWidth - showFolderCheckFieldWidth;
+			// Fill remaining space: container - checkbox - left padding
+			var adjWidth = containerWidth - showFolderCheckFieldWidth - 8;
 
-			filterSearchTextBox.setWidth(adjWidth - extraContainerPadding - tbspacer);
+			filterSearchTextBox.setWidth(adjWidth);
 
 			this.setSearchFilter(filterSearchTextBox.getValue());
 		}
@@ -631,7 +621,8 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 		}
 
 		// Select the node of selected folder.
-		if (folder) {
+		// Guard against non-MAPI folder objects (e.g. from the files plugin)
+		if (folder && Ext.isFunction(folder.getMAPIStore)) {
 			this.selectFolderInTree(folder);
 		}
 	},
