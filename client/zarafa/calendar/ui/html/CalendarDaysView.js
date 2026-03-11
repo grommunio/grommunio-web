@@ -237,9 +237,11 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 		this.headerAppointmentLayer.setSize(width, height);
 		this.headerAppointmentLayer.dom.innerHTML = '';
 
-		// Set the background color
+		// Set the background gradient
+		var headerColor = this.calendarColorScheme.header;
+		var lighterColor = Zarafa.core.ColorSchemes.createLightColor(this.calendarColorScheme.base, 1.4);
 		this.headerBackgroundLayer.setStyle({
-			'background-color': this.calendarColorScheme.header
+			'background': 'linear-gradient(to bottom, ' + headerColor + ', ' + lighterColor + ')'
 		});
 
 		// Check if we have a light or dark color
@@ -248,6 +250,13 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 			this.headerBackgroundLayer.addClass('k-dark');
 		} else {
 			this.headerBackgroundLayer.removeClass('k-dark');
+		}
+
+		// Mark inactive calendars so CSS can mute them
+		if ( this.active ){
+			this.headerBackgroundLayer.removeClass('k-inactive-calendar');
+		} else {
+			this.headerBackgroundLayer.addClass('k-inactive-calendar');
 		}
 
 		// Set the correct number of css grid columns for the header, with the correct width
