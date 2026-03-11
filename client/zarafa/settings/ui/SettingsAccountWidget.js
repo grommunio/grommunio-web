@@ -92,106 +92,6 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 			}
 		});
 
-		Ext.applyIf(config, {
-			title : String.format(_('Account information - {0}'), user.getDisplayName()),
-			layout : 'form',
-			items : [{
-				xtype : 'box',
-				fieldLabel : _('Profile Picture'),
-				style : 'object-fit: cover; cursor: pointer',
-				width : 72,
-				height : 72,
-				autoEl : {
-					tag : 'img',
-					src : user.getUserImage()
-				},
-				border : false,
-				name : 'zarafa/v1/main/thumbnail_photo',
-				ref : 'thumbnail_photo',
-				listeners : {
-					afterrender : this.onAfterRender,
-					scope : this
-				}
-			},{
-				xtype : 'displayfield',
-				fieldLabel : _('Display Name'),
-				value : user.getDisplayName(),
-				htmlEncode : true
-			},{
-				xtype: 'displayfield',
-				fieldLabel: _('Email'),
-				value: user.getSMTPAddress(),
-				htmlEncode: true
-			},{
-				xtype: 'zarafa.compositefield',
-				fieldLabel: _('Language'),
-				items: [{
-					xtype: 'combo',
-					name: 'zarafa/v1/main/language',
-					ref: '../languageCombo',
-					width: 200,
-					store: languageStore,
-					mode: 'local',
-					triggerAction: 'all',
-					displayField: 'name',
-					valueField: 'lang',
-					lazyInit: false,
-					forceSelection: true,
-					editable: false,
-					autoSelect: true,
-					listeners: {
-						select: this.onLanguageSelect,
-						scope: this
-					}
-				},{
-					xtype: 'displayfield',
-					cls: 'zarafa-settings-reload-warning',
-					ref: '../languageWarning'
-				}]
-			},{
-				xtype: 'combo',
-				fieldLabel: _('Startup folder'),
-				name: 'zarafa/v1/main/default_context',
-				ref: 'startupCombo',
-				width: 200,
-				store: startupStore,
-				mode: 'local',
-				triggerAction: 'all',
-				displayField: 'text',
-				valueField: 'context',
-				lazyInit: false,
-				forceSelection: true,
-				editable: false,
-				autoSelect: true,
-				listeners: {
-					select: this.onStartupSelect,
-					scope: this
-				}
-			}]
-		});
-
-		if ( themeStore.data.length > 1  && container.getServerConfig().isThemingEnabled()){
-			// We have more than just the basic theme and Admin allows user to configure theme, only then enabled theme dropdown.
-			config.items.push({
-				xtype: 'combo',
-				width: 200,
-				editable: false,
-				forceSelection: true,
-				triggerAction: 'all',
-				store: themeStore,
-				fieldLabel: _('Theme'),
-				mode: 'local',
-				valueField: 'name',
-				displayField: 'displayName',
-				ref: 'themeCombo',
-				name: 'zarafa/v1/main/active_theme',
-				listeners: {
-					select: this.onThemeSelect,
-					scope: this
-				}
-			});
-		}
-
 		// Dark mode toggle: light / dark / system
 		var darkModeStore = new Ext.data.ArrayStore({
 			fields: ['id', 'displayName'],
@@ -203,7 +103,75 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 			]
 		});
 
-		config.items.push({
+		var formItems = [{
+			xtype: 'zarafa.compositefield',
+			fieldLabel: _('Language'),
+			items: [{
+				xtype: 'combo',
+				name: 'zarafa/v1/main/language',
+				ref: '../../languageCombo',
+				width: 200,
+				store: languageStore,
+				mode: 'local',
+				triggerAction: 'all',
+				displayField: 'name',
+				valueField: 'lang',
+				lazyInit: false,
+				forceSelection: true,
+				editable: false,
+				autoSelect: true,
+				listeners: {
+					select: this.onLanguageSelect,
+					scope: this
+				}
+			},{
+				xtype: 'displayfield',
+				cls: 'zarafa-settings-reload-warning',
+				ref: '../../languageWarning'
+			}]
+		},{
+			xtype: 'combo',
+			fieldLabel: _('Startup folder'),
+			name: 'zarafa/v1/main/default_context',
+			ref: '../startupCombo',
+			width: 200,
+			store: startupStore,
+			mode: 'local',
+			triggerAction: 'all',
+			displayField: 'text',
+			valueField: 'context',
+			lazyInit: false,
+			forceSelection: true,
+			editable: false,
+			autoSelect: true,
+			listeners: {
+				select: this.onStartupSelect,
+				scope: this
+			}
+		}];
+
+		if ( themeStore.data.length > 1 && container.getServerConfig().isThemingEnabled()){
+			formItems.push({
+				xtype: 'combo',
+				width: 200,
+				editable: false,
+				forceSelection: true,
+				triggerAction: 'all',
+				store: themeStore,
+				fieldLabel: _('Theme'),
+				mode: 'local',
+				valueField: 'name',
+				displayField: 'displayName',
+				ref: '../themeCombo',
+				name: 'zarafa/v1/main/active_theme',
+				listeners: {
+					select: this.onThemeSelect,
+					scope: this
+				}
+			});
+		}
+
+		formItems.push({
 			xtype: 'combo',
 			id: 'darkmode-combo',
 			width: 200,
@@ -215,7 +183,7 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 			mode: 'local',
 			valueField: 'id',
 			displayField: 'displayName',
-			ref: 'darkModeCombo',
+			ref: '../darkModeCombo',
 			name: 'zarafa/v1/main/dark_mode',
 			listeners: {
 				select: this.onDarkModeSelect,
@@ -223,8 +191,7 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 			}
 		});
 
-		// We always have more than one iconset (grommunio Web ships with the classic and breeze icon sets)
-		config.items.push({
+		formItems.push({
 			xtype: 'combo',
 			width: 200,
 			editable: false,
@@ -236,7 +203,7 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 			hidden: !container.getServerConfig().isIconSetsEnabled(),
 			valueField: 'id',
 			displayField: 'displayName',
-			ref: 'iconsetCombo',
+			ref: '../iconsetCombo',
 			name: 'zarafa/v1/main/active_iconset',
 			listeners: {
 				select: this.onIconsetSelect,
@@ -244,53 +211,119 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 			}
 		});
 
-		// Insertion point at the end of the account information widget
-		config.items.push(
+		formItems.push(
 			container.populateInsertionPoint('settings.account.last')
 		);
 
+		Ext.applyIf(config, {
+			title: _('Profile'),
+			cls: 'zarafa-settings-widget k-settings-profile-widget',
+			items: [{
+				xtype: 'container',
+				cls: 'k-settings-profile-header',
+				items: [{
+					xtype: 'box',
+					cls: 'k-settings-profile-photo-wrap',
+					autoEl: {
+						tag: 'img',
+						cls: 'k-settings-profile-photo',
+						src: user.getUserImage()
+					},
+					name: 'zarafa/v1/main/thumbnail_photo',
+					ref: '../thumbnail_photo',
+					listeners: {
+						afterrender: this.onAfterRender,
+						scope: this
+					}
+				},{
+					xtype: 'container',
+					cls: 'k-settings-profile-info',
+					items: [{
+						xtype: 'box',
+						autoEl: {
+							tag: 'div',
+							cls: 'k-settings-profile-name',
+							html: Ext.util.Format.htmlEncode(user.getDisplayName())
+						}
+					},{
+						xtype: 'box',
+						autoEl: {
+							tag: 'div',
+							cls: 'k-settings-profile-email',
+							html: Ext.util.Format.htmlEncode(user.getSMTPAddress())
+						}
+					},{
+						xtype: 'button',
+						cls: 'k-settings-profile-details-btn',
+						text: _('Personal information'),
+						handler: this.onOpenPersonalInfo,
+						scope: this
+					}]
+				}]
+			},{
+				xtype: 'container',
+				cls: 'k-settings-profile-form',
+				layout: 'form',
+				labelWidth: 200,
+				items: formItems
+			}]
+		});
+
 		Zarafa.settings.ui.SettingsAccountWidget.superclass.constructor.call(this, config);
 	},
-	
+
 	/**
 	 * Event handler which is fired after the {@link Ext.form.FormPanel FormPanel}
-	 * has been {@link Ext.Component#afterrender rendered}. Here thumbnail photo box has 
+	 * has been {@link Ext.Component#afterrender rendered}. Here thumbnail photo box has
 	 * listen {@link Ext.Element#click single click}, {@link Ext.Element#dblclick double click} and
-	 * {@link Ext.Element#contextmenu context menu} evetns. 
+	 * {@link Ext.Element#contextmenu context menu} evetns.
 	 * @param {Ext.Component} thumbnailPhotoBox which show the thumbnail picture.
 	 * @private
 	 */
 	onAfterRender : function(thumbnailPhotoBox)
 	{
-		var imageFieldCt = thumbnailPhotoBox.getEl();
-		this.mon(imageFieldCt, {
-			'click' : this.onSingleClick, 
+		var el = thumbnailPhotoBox.getEl();
+		var imgEl = el.child('img.k-settings-profile-photo') || el;
+		this.mon(imgEl, {
+			'click' : this.onSingleClick,
 			'dblclick' : this.onDoubleClick,
 			'scope' : this
 		});
 	},
-	
+
+	/**
+	 * Helper to get the profile photo img element.
+	 * @return {HTMLElement} The img DOM element
+	 * @private
+	 */
+	getPhotoImgEl : function()
+	{
+		var el = this.thumbnail_photo.getEl();
+		var imgEl = el.child('img.k-settings-profile-photo');
+		return imgEl ? imgEl.dom : el.dom;
+	},
+
 	/**
 	 * Callback function for {@link Zarafa.common.attachment.ui.UploadAttachmentComponent}.
-	 * 
+	 *
 	 * @param {Object/Array} files The files is contains file information.
 	 * @param {Object} form the form is contains {@link Ext.form.BasicForm bacisform} info.
 	 */
 	uploadThumbnailPhotoCallback : function(files, form)
 	{
 		try {
-			let imageFieldCt = this.thumbnail_photo.getEl();
+			var imgDom = this.getPhotoImgEl();
 			var file = files[0]
 			const fr = new FileReader(file)
 			fr.readAsDataURL(file)
 			fr.onload = function () {
-			 	imageFieldCt.dom.src = this.result;
+			 	imgDom.src = this.result;
 			}
 		}  catch(e) {
 			console.log('File Upload not supported: ${e}');
 		}
 	},
-	
+
 	/**
 	 * Event handler for opening the Browser's file selection dialog.
 	 * See {@link #onFileInputChange} for the handling of the selected files.
@@ -306,12 +339,12 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 
 		attachComponent.openAttachmentDialog();
 	},
-	
+
 	/**
 	 * Event handler which is fired when the thumbnail
-	 * picture field is being clicked this will call the 
+	 * picture field is being clicked this will call the
 	 * {@link #uploadThumbnailPhoto} function to open upload dialog.
-	 * 
+	 *
 	 * @param {Ext.EventObject} eventObj eventObj object of the event
 	 * @param {Element} target Event target
 	 * @param {Object} object Configuration object
@@ -324,8 +357,8 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 	/**
 	 * Event handler which is fired when thumbnail picture field is being
 	 * double-clicked and this will call the {@link #uploadThumbnailPhoto}
-	 * function to open upload dialog. 
-	 * 
+	 * function to open upload dialog.
+	 *
 	 * @param {Ext.EventObject} eventObj eventObj object of the event
 	 * @param {Element} target Event target
 	 * @param {Object} object Configuration object
@@ -333,6 +366,26 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 	onDoubleClick : function(eventObj, target, object)
 	{
 		this.uploadThumbnailPhoto();
+	},
+
+	/**
+	 * Opens the current user's address book detail dialog showing
+	 * full personal information from the GAL.
+	 * @private
+	 */
+	onOpenPersonalInfo : function()
+	{
+		var user = container.getUser();
+		var entryid = user.getEntryId();
+		var record = Zarafa.core.data.RecordFactory.createRecordObjectByObjectType(
+			Zarafa.core.mapi.ObjectType.MAPI_MAILUSER, {
+				entryid: entryid,
+				display_name: user.getDisplayName(),
+				object_type: Zarafa.core.mapi.ObjectType.MAPI_MAILUSER
+			}, entryid);
+
+		container.getShadowStore().add(record);
+		Zarafa.core.data.UIFactory.openViewRecord(record, { modal: true });
 	},
 
 	/**
@@ -502,8 +555,9 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 
 		settingsModel.beginEdit();
 		var user = container.getUser();
-		user.setUserImage(this.thumbnail_photo.getEl().dom.src);
-		settingsModel.set(this.thumbnail_photo.name, this.thumbnail_photo.getEl().dom.src);
+		var photoSrc = this.getPhotoImgEl().src;
+		user.setUserImage(photoSrc);
+		settingsModel.set(this.thumbnail_photo.name, photoSrc);
 		settingsModel.set(this.languageCombo.name, this.languageCombo.getValue());
 		settingsModel.set(this.startupCombo.name, this.startupCombo.getValue());
 

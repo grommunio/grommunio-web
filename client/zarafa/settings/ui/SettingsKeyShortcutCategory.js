@@ -117,7 +117,7 @@ Zarafa.settings.ui.SettingsKeyShortcutCategory = Ext.extend(Zarafa.settings.ui.S
 		Ext.iterate(categoryDescription, function(descKey, description) {
 			categoryRows.push({
 				xtype: 'displayfield',
-				fieldLabel: description.fieldLabel,
+				hideLabel: true,
 				html: this.generateDisplayValue(description)
 			});
 		},this);
@@ -126,22 +126,30 @@ Zarafa.settings.ui.SettingsKeyShortcutCategory = Ext.extend(Zarafa.settings.ui.S
 	},
 
 	/**
-	 * Generates a span which contains the description of the keybinding, which can have
-	 * an extra block "Basic" when it is a basic keybinding.
+	 * Generates the HTML for a keyboard shortcut row with level chiplet,
+	 * key combination styled as keyboard keys, and description.
 	 *
 	 * @param {Object} description The object containing the description of a keybinding
 	 * @private
 	 */
 	generateDisplayValue: function(description)
 	{
-		var html;
-		if (description.basicShortcut) {
-			html = '<span class="keyboard-desc" style="width: 300px"> ' + description.shortcutDesc + '</span>';
-			html += '<span class="keyboard-type" title="' + _('Part of basic keyboard shortcuts') + '">' + _('Basic') + '</span>';
-		} else {
-			html = '<span class="keyboard-desc"> ' + description.shortcutDesc + '</span>';
-		}
+		var levelCls = description.basicShortcut ? 'k-kbd-level-basic' : 'k-kbd-level-extended';
+		var levelText = description.basicShortcut ? _('Basic') : _('Extended');
+		var html = '<span class="k-kbd-level ' + levelCls + '">' + levelText + '</span>';
 
+		// Style each key in the combination as a key cap
+		var keys = description.fieldLabel.split(' + ');
+		html += '<span class="k-kbd-keys">';
+		for (var i = 0; i < keys.length; i++) {
+			if (i > 0) {
+				html += '<span class="k-kbd-plus">+</span>';
+			}
+			html += '<kbd>' + Ext.util.Format.htmlEncode(keys[i]) + '</kbd>';
+		}
+		html += '</span>';
+
+		html += '<span class="keyboard-desc">' + description.shortcutDesc + '</span>';
 		return html;
 	},
 

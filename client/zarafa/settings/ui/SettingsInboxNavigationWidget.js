@@ -91,7 +91,7 @@ Zarafa.settings.ui.SettingsInboxNavigationWidget = Ext.extend(Zarafa.settings.ui
 					xtype: 'combo',
 					name: 'zarafa/v1/main/page_size',
 					ref: 'pageSize',
-					width: 55,
+					width: 70,
 					hideLabel: true,
 					store: pageSizeStore,
 					mode: 'local',

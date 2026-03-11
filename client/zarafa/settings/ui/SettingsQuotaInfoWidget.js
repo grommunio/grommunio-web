@@ -66,6 +66,7 @@ Zarafa.settings.ui.SettingsQuotaInfoWidget = Ext.extend(Zarafa.settings.ui.Setti
 		if(softQuota || hardQuota) {
 			// If soft or hard quota is set then show quotabar.
 			this.quotaBar.setVisible(true);
+			this.quotaBar.updateQuotaBar();
 			this.unavailableQuotaInfo.setVisible(false);
 
 			// Add soft or hard quota info in quota-info string.

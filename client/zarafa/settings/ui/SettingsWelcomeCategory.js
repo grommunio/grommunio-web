@@ -29,13 +29,18 @@ Zarafa.settings.ui.SettingsWelcomeCategory = Ext.extend(Zarafa.settings.ui.Setti
 		Ext.applyIf(config, {
 			categoryIndex: 0,
 			iconCls: 'zarafa-settings-category-welcome',
+			layout: 'column',
 			defaults: {
 				cls: 'zarafa-settings-widget-welcome'
 			},
 			items: [{
-				xtype: 'zarafa.settingsaccountwidget'
+				xtype: 'zarafa.settingsaccountwidget',
+				width: 450,
+				style: 'padding-right: 6px;'
 			},{
-				xtype: 'zarafa.settingscalendarwidget'
+				xtype: 'zarafa.settingscalendarwidget',
+				columnWidth: 1,
+				style: 'padding-left: 6px;'
 			},
 			container.populateInsertionPoint('context.settings.category.welcome', this)
 			]

@@ -42,7 +42,7 @@ Zarafa.settings.ui.SettingsKeyShortcutWidget = Ext.extend(Zarafa.settings.ui.Set
 						inputValue: Zarafa.settings.data.KeyboardSettings.BASIC_KEYBOARD_SHORTCUTS
 					},{
 						xtype: 'radio',
-						boxLabel: _('All keyboard shortcuts on'),
+						boxLabel: _('Extended shortcuts on'),
 						name: 'keyboardshortcut',
 						inputValue: Zarafa.settings.data.KeyboardSettings.ALL_KEYBOARD_SHORTCUTS
 					}],

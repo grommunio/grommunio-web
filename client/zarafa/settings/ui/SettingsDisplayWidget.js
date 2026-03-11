@@ -29,8 +29,9 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 			layout: 'form',
 			items: [{
 				xtype: 'displayfield',
+				cls: 'k-settings-section-header',
 				hideLabel: true,
-				value: _('I want to display date and time in this format:')
+				value: _('Date & Time')
 			},{
 				xtype: 'radiogroup',
 				name: 'zarafa/v1/main/datetime_display_format',
@@ -52,10 +53,6 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 					change: this.onRadioChange,
 					scope: this
 				}
-			},{
-				xtype: 'displayfield',
-				hideLabel: true,
-				value: _('Time format:')
 			},{
 				xtype: 'radiogroup',
 				name: 'zarafa/v1/main/datetime_time_format',
@@ -81,8 +78,9 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 				}
 			},{
 				xtype: 'displayfield',
+				cls: 'k-settings-section-header',
 				hideLabel: true,
-				value: _('Favorite settings')
+				value: _('Favorites')
 			},{
 				xtype: 'checkbox',
 				name: 'zarafa/v1/contexts/hierarchy/hide_favorites',
@@ -105,8 +103,9 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 				}
 			},{
 				xtype: 'displayfield',
+				cls: 'k-settings-section-header',
 				hideLabel: true,
-				value: _('Other')
+				value: _('Interface')
 			},{
 				xtype: 'checkbox',
 				name: 'zarafa/v1/main/unread_borders',
@@ -155,17 +154,6 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 					change: this.onFieldChange,
 					scope: this
 				}
-			},{
-				xtype: 'checkbox',
-				name: 'zarafa/v1/contexts/hierarchy/show_searchbar',
-				ref: 'showSearchBar',
-				requiresReload: true,
-				hideLabel: true,
-				boxLabel: _('Show search bar above folder list'),
-				listeners: {
-					change: this.onFieldChange,
-					scope: this
-				}
 			},
 
 			// Insertion point at the end of the display widget
@@ -191,8 +179,6 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 		this.scrollFavorites.setValue(settingsModel.get(this.scrollFavorites.name));
 		this.unreadBorders.setValue(settingsModel.get(this.unreadBorders.name));
 		this.hideWidgetpanel.setValue(settingsModel.get(this.hideWidgetpanel.name));
-		this.showSearchBar.setValue(settingsModel.get(this.showSearchBar.name));
-
 		// Check if help manual plugin's settings available else check main settings.
 		var helpManualPluginSetting = settingsModel.get(this.helpManual.pluginSettingPath);
 		this.helpManual.appliedPluginSetting = Ext.isDefined(helpManualPluginSetting);
@@ -220,7 +206,6 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 		settingsModel.set(this.scrollFavorites.name, this.scrollFavorites.getValue());
 		settingsModel.set(this.unreadBorders.name, this.unreadBorders.getValue());
 		settingsModel.set(this.hideWidgetpanel.name, this.hideWidgetpanel.getValue());
-		settingsModel.set(this.showSearchBar.name, this.showSearchBar.getValue());
 
 		// Remove webapp manual plugin settings.
 		if (this.helpManual.appliedPluginSetting) {
