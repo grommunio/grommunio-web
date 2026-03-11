@@ -31,6 +31,33 @@ Zarafa.mail.settings.SettingsMailCategory = Ext.extend(Zarafa.settings.ui.Settin
 			},{
 				xtype: 'zarafa.settingscomposewidget',
 				settingsContext: config.settingsContext
+			},{
+				xtype: 'zarafa.settingswidget',
+				title: _('Cc recipients'),
+				cls: 'zarafa-settings-widget k-settings-nogap',
+				height: 400,
+				layout: {
+					type: 'fit'
+				},
+				items: [{
+					xtype: 'zarafa.manageccpanel',
+					settingsContext: config.settingsContext
+				}],
+				getCcPanel: function() {
+					return this.findByType('zarafa.manageccpanel')[0];
+				},
+				update: function(settingsModel) {
+					var panel = this.getCcPanel();
+					if (panel) {
+						panel.update(settingsModel);
+					}
+				},
+				updateSettings: function(settingsModel) {
+					var panel = this.getCcPanel();
+					if (panel) {
+						panel.updateSettings(settingsModel);
+					}
+				}
 			},
 			container.populateInsertionPoint('context.settings.category.mail.aftercomposesettings', this),
 			{

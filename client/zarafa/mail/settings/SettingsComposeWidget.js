@@ -86,6 +86,8 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 			}]
 		};
 
+		var editorStore = this.createEditorStore();
+
 		Ext.applyIf(config, {
 			title: _('Compose mail settings'),
 			layout: 'form',
@@ -114,7 +116,7 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 				fieldLabel: _('Editor'),
 				ref: 'editorCombo',
 				width: 400,
-				store: this.createEditorStore(),
+				store: editorStore,
 				mode: 'local',
 				allowBlank: false,
 				triggerAction: 'all',
@@ -124,6 +126,7 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 				forceSelection: true,
 				editable: false,
 				autoSelect: true,
+				hidden: editorStore.getCount() <= 1,
 				listeners: {
 					select: this.onSelectComboItem,
 					scope: this
@@ -233,9 +236,11 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 				},{
 					xtype: 'zarafa.spinnerfield',
 					labelSplitter: '{B}',
+					cls: 'k-settings-spinner-narrow',
 					vtype: 'naturalInteger',
 					name: 'zarafa/v1/contexts/mail/autosave_time',
 					ref: '../autoSaveTimeSpinner',
+					width: 60,
 					incrementValue: 1,
 					defaultValue: 1,
 					minValue: 1,
@@ -248,10 +253,6 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 					},
 					plugins: ['zarafa.numberspinner']
 				}]
-			},{
-				xtype: 'zarafa.manageccpanel',
-				ref: 'manageCcPanel',
-				settingsContext: config.settingsContext
 			}]
 		});
 
@@ -336,7 +337,6 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 		this.autoSaveBox.setValue(enabled);
 		this.autoSaveTimeSpinner.setValue(settingsModel.get(this.autoSaveTimeSpinner.name) / 60);
 
-		this.manageCcPanel.update(settingsModel);
 	},
 
 	/**
@@ -362,7 +362,6 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 		settingsModel.set(this.autoSaveTimeSpinner.name, spinnerValue);
 		settingsModel.endEdit();
 
-		this.manageCcPanel.updateSettings(settingsModel);
 	},
 
 	/**

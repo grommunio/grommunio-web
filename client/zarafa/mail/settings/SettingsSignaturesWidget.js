@@ -60,6 +60,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 
 		Ext.applyIf(config, {
 			title: _('Signatures'),
+			cls: 'k-settings-signatures-widget',
 			items: [{
 				xtype: 'container',
 				layout: 'column',
