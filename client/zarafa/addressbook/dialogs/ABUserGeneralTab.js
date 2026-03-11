@@ -22,181 +22,137 @@ Zarafa.addressbook.dialogs.ABUserGeneralTab = Ext.extend(Ext.form.FormPanel, {
 
 		Ext.applyIf(config, {
 			xtype: 'zarafa.abusergeneraltab',
-			title: _('General'),	
-			layout: 'column',
-			autoHeight: true,
+			title: _('General'),
 			autoScroll: true,
 			border: false,
-			layoutConfig: {
-				columns: 2
-			},
-			defaults: {
-				xtype: 'fieldset',
-				columnWidth: 0.5,
-				cls: 'k-fieldset',
-				hideBorders: true
-			},
-			items: [
-				this.createNameFieldset(),
-				this.createPhotoFieldset(),
-				this.createAddressFieldset(),
-				this.createOfficeFieldset()
-			]
+			cls: 'k-ab-general-tab',
+			items: [{
+				xtype: 'container',
+				cls: 'k-ab-identity',
+				items: [{
+					xtype: 'panel',
+					border: false,
+					layout: 'form',
+					cls: 'k-ab-name-fields',
+					labelSeparator: '',
+					defaults: {
+						anchor: '100%',
+						readOnly: true
+					},
+					items: [{
+						xtype: 'textfield',
+						fieldLabel: _('First name'),
+						name: 'given_name'
+					},{
+						xtype: 'textfield',
+						fieldLabel: _('Last name'),
+						name: 'surname'
+					},{
+						xtype: 'textfield',
+						fieldLabel: _('Initials'),
+						name: 'initials'
+					},{
+						xtype: 'textfield',
+						fieldLabel: _('Display'),
+						name: 'display_name'
+					},{
+						xtype: 'textfield',
+						fieldLabel: _('Alias'),
+						name: 'account'
+					}]
+				},{
+					xtype: 'container',
+					cls: 'k-ab-photo-ct',
+					items: [{
+						xtype: 'box',
+						cls: 'contact_photo_box default_contact_photo k-ab-photo',
+						autoEl: {
+							tag: 'img',
+							src: Ext.BLANK_IMAGE_URL
+						},
+						ref: '../../contactPhotoBox'
+					}]
+				}]
+			},{
+				xtype: 'container',
+				layout: 'column',
+				cls: 'k-ab-details',
+				items: [{
+					xtype: 'panel',
+					columnWidth: 0.5,
+					layout: 'form',
+					border: false,
+					cls: 'k-ab-detail-col',
+					title: _('Address'),
+					labelSeparator: '',
+					defaults: {
+						anchor: '100%',
+						readOnly: true
+					},
+					items: [{
+						xtype: 'textarea',
+						fieldLabel: _('Street'),
+						name: 'street_address',
+						height: 62
+					},{
+						xtype: 'textfield',
+						fieldLabel: _('City'),
+						name: 'locality'
+					},{
+						xtype: 'textfield',
+						fieldLabel: _('State'),
+						name: 'state_or_province'
+					},{
+						xtype: 'textfield',
+						fieldLabel: _('Zip Code'),
+						name: 'postal_code'
+					},{
+						xtype: 'textfield',
+						fieldLabel: _('Country'),
+						name: 'country'
+					}]
+				},{
+					xtype: 'panel',
+					columnWidth: 0.5,
+					layout: 'form',
+					border: false,
+					cls: 'k-ab-detail-col',
+					title: _('Professional'),
+					labelSeparator: '',
+					defaults: {
+						anchor: '100%',
+						readOnly: true
+					},
+					items: [{
+						xtype: 'textfield',
+						fieldLabel: _('Title'),
+						name: 'title'
+					},{
+						xtype: 'textfield',
+						fieldLabel: _('Company'),
+						name: 'company_name'
+					},{
+						xtype: 'textfield',
+						fieldLabel: _('Department'),
+						name: 'department_name'
+					},{
+						xtype: 'textfield',
+						fieldLabel: _('Office'),
+						name: 'office_location'
+					},{
+						xtype: 'textfield',
+						fieldLabel: _('Assistant'),
+						name: 'assistant'
+					},{
+						xtype: 'textfield',
+						fieldLabel: _('Phone'),
+						name: 'business_telephone_number'
+					}]
+				}]
+			}]
 		});
 
 		Zarafa.addressbook.dialogs.ABUserGeneralTab.superclass.constructor.call(this, config);
-	},
-
-	/**
-	 * Creates the name fieldset for general tab of form panel.
-	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
-	 * @private
-	 */
-	createNameFieldset: function()
-	{
-		return {
-			defaults: {
-				anchor: '100%',
-				readOnly: true,
-			},
-			items: [{
-				xtype: 'textfield',
-				fieldLabel: _('First name'),
-				name: 'given_name',
-			}, {
-				xtype: 'textfield',
-				flex: 1,
-				fieldLabel: _('Last name'),
-				name: 'surname'
-			},{
-				xtype: 'textfield',
-				flex: 1,
-				fieldLabel: _('Initials'),
-				name: 'initials'
-			},{
-				xtype: 'textfield',
-				flex: 1,
-				fieldLabel:_('Display'),
-				name: 'display_name'
-			},{
-				xtype: 'textfield',
-				flex: 1,
-				fieldLabel: _('Alias'),
-				name: 'account'
-			}]
-		};
-	},
-
-	/**
-	 * Creates the photo fieldset for general tab of form panel.
-	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
-	 * @private
-	 */
-	createPhotoFieldset: function()
-	{
-		return {
-			border: false,
-			layout: {
-				type: 'hbox',
-				flex: 1
-			},
-			items: {
-				xtype: 'box',
-				cls: 'contact_photo_box default_contact_photo',
-				ctCls: 'contact_photo_box_ct',
-				autoEl: {
-					tag: 'img',
-					height: 135,
-					src: Ext.BLANK_IMAGE_URL
-				},
-				ref: '../contactPhotoBox'
-			}
-		};
-	},
-
-	/**
-	 * Creates fieldset for general tab of tab panel.
-	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
-	 * @private
-	 */
-	createAddressFieldset: function()
-	{
-		return {
-			xtype: 'fieldset',
-			defaultType: 'textfield',
-			title: _('Addresses'),
-			border: false,
-			defaults: {
-				anchor:'100%',
-				readOnly: true
-			},
-			items: [{
-				xtype: 'textarea',
-				fieldLabel: _('Address'),
-				name: 'street_address',
-				flex: 1,
-				height: 51
-			},{
-				fieldLabel: _('City'),
-				flex: 1,
-				name: 'locality'
-			},{
-				fieldLabel: _('State'),
-				flex: 1,
-				name: 'state_or_province'
-			},{
-				fieldLabel: _('Zip Code'),
-				flex: 1,
-				name: 'postal_code'
-			},{
-				fieldLabel: _('Country'),
-				flex: 1,
-				name: 'country'
-			}]
-		};
-	},
-
-	/**
-	 * Creates fieldset for general tab of tab panel.
-	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
-	 * @private
-	 */
-	createOfficeFieldset: function()
-	{
-		return {
-			xtype: 'fieldset',
-			defaultType: 'textfield',
-			title: _('Professional'),
-			defaults: {
-				anchor: '100%',
-				readOnly: true
-			},
-			items: [{
-				fieldLabel: _('Title'),
-				flex: 1,
-				name: 'title'
-			},{
-				fieldLabel: _('Company'),
-				flex: 1,
-				name: 'company_name'
-			},{
-				fieldLabel: _('Department'),
-				flex: 1,
-				name: 'department_name'
-			},{
-				fieldLabel: _('Office'),
-				flex: 1,
-				name: 'office_location'
-			},{
-				fieldLabel: _('Assistant'),
-				flex: 1,
-				name: 'assistant'
-			},{
-				fieldLabel: _('Phone'),
-				flex: 1,
-				name: 'business_telephone_number'
-			}]
-		};
 	},
 
 	/**
@@ -215,7 +171,6 @@ Zarafa.addressbook.dialogs.ABUserGeneralTab = Ext.extend(Ext.form.FormPanel, {
 		this.getForm().loadRecord(record);
 
 		if (record.isOpened() && contentReset) {
-			// Show GAB contact photo.
 			var abThumbnail = record.get('ems_ab_thumbnail_photo');
 			if (!Ext.isEmpty(abThumbnail)) {
 				var imageField = this.contactPhotoBox.getEl();

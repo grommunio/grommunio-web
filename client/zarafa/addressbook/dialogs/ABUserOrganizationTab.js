@@ -23,38 +23,38 @@ Zarafa.addressbook.dialogs.ABUserOrganizationTab = Ext.extend(Ext.form.FormPanel
 			xtype: 'zarafa.abuserorganizationtab',
 			title: _('Organization'),
 			selModel: this.initSelectionModel(),
-			padding: 5,
+			bodyStyle: 'padding: 5px;',
 			layout: {
 				type: 'vbox',
 				align: 'stretch'
 			},
 			autoScroll: true,
-			items: [
-				this.createManagerFieldset(),
-				this.createDirectReportFieldset()
-			]
+			items: [{
+				xtype: 'fieldset',
+				title: _('Manager'),
+				border: true,
+				cls: 'zarafa-fieldset',
+				flex: 1,
+				layout: 'fit',
+				items: [{
+					xtype: 'zarafa.abitemgrid',
+					ref: '../managerList'
+				}]
+			},{
+				xtype: 'fieldset',
+				title: _('Direct reports'),
+				border: true,
+				cls: 'zarafa-fieldset',
+				flex: 1,
+				layout: 'fit',
+				items: [{
+					xtype: 'zarafa.abitemgrid',
+					ref: '../reportList'
+				}]
+			}]
 		});
 
 		Zarafa.addressbook.dialogs.ABUserOrganizationTab.superclass.constructor.call(this, config);
-	},
-
-	/**
-	 * Creates manager fieldset for organization tab
-	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
-	 * @private
-	 */
-	createManagerFieldset: function()
-	{
-		return [{
-			xtype: 'displayfield',
-			margins: '0 0 5 0',
-			value: _('Manager') + ':',
-			hideLabel: true
-		},{
-			xtype: 'zarafa.abitemgrid',
-			ref: 'managerList',
-			autoHeight: true
-		}];
 	},
 
 	/**
@@ -67,25 +67,6 @@ Zarafa.addressbook.dialogs.ABUserOrganizationTab = Ext.extend(Ext.form.FormPanel
 		return new Ext.grid.RowSelectionModel({
 			singleSelect: false
 		});
-	},
-
-	/**
-	 * Creates the direct report fieldset for organization tab of form panel.
-	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
-	 * @private
-	 */
-	createDirectReportFieldset: function()
-	{
-		return [{
-			xtype: 'displayfield',
-			margins: '5 0',
-			value: _('Direct reports') + ':',
-			hideLabel: true
-		},{
-			xtype: 'zarafa.abitemgrid',
-			ref: 'reportList',
-			flex: 1
-		}];
 	},
 
 	/**

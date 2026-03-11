@@ -25,6 +25,11 @@ Zarafa.addressbook.dialogs.ABGroupGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			title: _('General'),
 			layout: 'column',
 			autoScroll: true,
+			bodyStyle: 'padding: 5px;',
+			defaults: {
+				border: false,
+				style: 'padding: 2px 5px; margin: 0;'
+			},
 			items: [
 				this.createNameFieldset(),
 				this.createMembersFieldset()
@@ -42,36 +47,21 @@ Zarafa.addressbook.dialogs.ABGroupGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	createNameFieldset: function()
 	{
 		return {
-			xtype: 'fieldset',
+			xtype: 'panel',
 			columnWidth: 0.5,
-			border: false,
-			cls: 'zarafa-fieldset',
-			autoHeight: true,
+			layout: 'form',
 			items: [{
 				xtype: 'textfield',
 				fieldLabel: _('Display Name'),
 				name: 'display_name',
 				anchor: '100%',
-				border: false,
 				readOnly: true
 			},{
 				xtype: 'textfield',
 				fieldLabel: _('Alias'),
 				name: 'account',
 				anchor: '100%',
-				border: false,
 				readOnly: true
-			},{
-				xtype: 'displayfield',
-				value: _('Owner') + ':',
-				hideLabel: true
-			},{
-				xtype: 'zarafa.abitemgrid',
-				ref: '../ownerList',
-				anchor: '100%',
-				bwrapStyle: 'width: 100%',
-				autoHeight: true,
-				border: false
 			},{
 				xtype: 'displayfield',
 				value: _('Notes') + ':',
@@ -80,9 +70,8 @@ Zarafa.addressbook.dialogs.ABGroupGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				xtype: 'textarea',
 				hideLabel: true,
 				name: 'comment',
-				flex: 1,
 				anchor: '100%',
-				border: false,
+				height: 120,
 				readOnly: true
 			}]
 		};
@@ -96,20 +85,14 @@ Zarafa.addressbook.dialogs.ABGroupGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	createMembersFieldset: function()
 	{
 		return {
-			xtype: 'fieldset',
+			xtype: 'panel',
 			columnWidth: 0.5,
-			border: true,
+			layout: 'fit',
 			title: _('Members'),
-			cls: 'zarafa-fieldset',
-			autoHeight: true,
 			items: [{
 				xtype: 'zarafa.abitemgrid',
-				autoWidth: true,
-				border: true,
-				height: 225,
-				ref: '../groupMembersList',
-				flex: 1,
-				readOnly: true
+				height: 250,
+				ref: '../groupMembersList'
 			}]
 		};
 	},
@@ -128,11 +111,6 @@ Zarafa.addressbook.dialogs.ABGroupGeneralTab = Ext.extend(Ext.form.FormPanel, {
 		var membersSubStore = record.getSubStore('members');
 		if (membersSubStore && this.groupMembersList.getStore() !== membersSubStore) {
 			this.groupMembersList.reconfigure(membersSubStore, this.groupMembersList.getColumnModel());
-		}
-
-		var ownerSubStore = record.getSubStore('ems_ab_owner');
-		if (ownerSubStore && this.ownerList.getStore() !== ownerSubStore) {
-			this.ownerList.reconfigure(ownerSubStore, this.ownerList.getColumnModel());
 		}
 	}
 });

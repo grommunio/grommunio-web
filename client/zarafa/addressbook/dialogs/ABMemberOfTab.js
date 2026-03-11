@@ -22,19 +22,22 @@ Zarafa.addressbook.dialogs.ABMemberOfTab = Ext.extend(Ext.form.FormPanel, {
 		Ext.applyIf(config, {
 			xtype: 'zarafa.abmemberoftab',
 			title: _('Member Of'),
-			style: 'padding: 8px;',
+			bodyStyle: 'padding: 5px;',
 			layout: {
 				type: 'vbox',
 				align: 'stretch'
 			},
 			items: [{
-				xtype: 'displayfield',
-				value: _('Group Membership') + ':',
-				hideLabel: true
-			},{
-				xtype: 'zarafa.abitemgrid',
-				ref: 'memberOfList',
-				flex: 1
+				xtype: 'fieldset',
+				title: _('Group Membership'),
+				border: true,
+				cls: 'zarafa-fieldset',
+				flex: 1,
+				layout: 'fit',
+				items: [{
+					xtype: 'zarafa.abitemgrid',
+					ref: '../memberOfList'
+				}]
 			}]
 		});
 

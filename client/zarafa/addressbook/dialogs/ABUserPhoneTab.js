@@ -28,6 +28,7 @@ Zarafa.addressbook.dialogs.ABUserPhoneTab = Ext.extend(Ext.form.FormPanel, {
 				align: 'stretch'
 			},
 			autoScroll: true,
+			bodyStyle: 'padding: 5px;',
 			items: [
 				this.createPhonenumberFieldset(),
 				this.createNoteFieldset()
@@ -56,6 +57,7 @@ Zarafa.addressbook.dialogs.ABUserPhoneTab = Ext.extend(Ext.form.FormPanel, {
 			items: [{
 				xtype: 'container',
 				layout: 'form',
+				labelSeparator: '',
 				columnWidth	: 0.5,
 				border: false,
 				defaults: {
@@ -70,7 +72,7 @@ Zarafa.addressbook.dialogs.ABUserPhoneTab = Ext.extend(Ext.form.FormPanel, {
 				},{
 					xtype: 'combo',
 					mode: 'local',
-					fieldLabel:_('Business2'),
+					fieldLabel:_('Business 2'),
 					store: new Zarafa.addressbook.AddressBookTelephoneNumberSubStore(),
 					autoSelect: true,
 					forceSelection: true,
@@ -93,6 +95,7 @@ Zarafa.addressbook.dialogs.ABUserPhoneTab = Ext.extend(Ext.form.FormPanel, {
 			},{
 				xtype: 'container',
 				layout: 'form',
+				labelSeparator: '',
 				columnWidth	: 0.5,
 				border: false,
 				defaults: {
@@ -107,7 +110,7 @@ Zarafa.addressbook.dialogs.ABUserPhoneTab = Ext.extend(Ext.form.FormPanel, {
 				},{
 					xtype: 'combo',
 					mode: 'local',
-					fieldLabel:_('Home2'),
+					fieldLabel:_('Home 2'),
 					store: new Zarafa.addressbook.AddressBookTelephoneNumberSubStore(),
 					forceSelection: true,
 					lazyInit: false,
