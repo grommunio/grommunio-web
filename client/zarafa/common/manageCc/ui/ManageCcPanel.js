@@ -19,8 +19,8 @@ Zarafa.common.manageCc.ui.ManageCcPanel = Ext.extend(Ext.Panel, {
 		config = config || {};
 		Ext.applyIf(config, {
 			xtype: 'zarafa.manageccpanel',
-			height: 300,
-			title: _("Manage Cc recipients"),
+			border: false,
+			autoScroll: false,
 			layout: {
 				type: 'vbox',
 				align: 'stretch',
@@ -41,10 +41,6 @@ Zarafa.common.manageCc.ui.ManageCcPanel = Ext.extend(Ext.Panel, {
 	createPanelItems: function()
 	{
 		return [{
-			xtype: 'displayfield',
-			value: _('Cc recipients can be used to set a default Cc user in new mail, replies or both.'),
-			flex:0.1,
-		},{
 			xtype: 'container',
 			flex: 1,
 			layout: {
@@ -67,23 +63,26 @@ Zarafa.common.manageCc.ui.ManageCcPanel = Ext.extend(Ext.Panel, {
 				items: [{
 					xtype: 'button',
 					text: _('Address Book') + '...',
+					width: 130,
 					handler: this.onClickAddressBookBtn,
 					scope: this
 				},{
 					xtype: 'spacer',
-					height: 20
+					height: 10
 				},{
 					xtype: 'button',
 					text: _('Add') + '...',
+					width: 130,
 					ref: '../../addButton',
 					handler: this.onClickAdd,
 					scope: this
 				},{
 					xtype: 'spacer',
-					height: 20
+					height: 10
 				},{
 					xtype: 'button',
 					text: _('Remove') + '...',
+					width: 130,
 					disabled: true,
 					ref: '../../removeButton',
 					handler: this.onClickRemove,

@@ -137,7 +137,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	/**
 	 * @cfg {Number} inputFieldHeight The default height for the {@link #el input field}.
 	 */
-	inputFieldHeight: 20,
+	inputFieldHeight: 24,
 
 	/**
 	 * @cfg {Boolean} enableAnim Enable special {@link Ext.Fx FX} effects for

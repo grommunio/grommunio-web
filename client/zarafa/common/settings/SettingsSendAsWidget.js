@@ -21,6 +21,7 @@ Zarafa.common.settings.SettingsSendAsWidget = Ext.extend(Zarafa.settings.ui.Sett
 		Ext.applyIf(config, {
 			height: 400,
 			title: _('From Addresses settings'),
+			cls: 'zarafa-settings-widget k-settings-nogap',
 			xtype: 'zarafa.settingssendaswidget',
 			layout: {
 				// override from SettingsWidget

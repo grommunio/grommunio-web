@@ -21,6 +21,7 @@ Zarafa.common.settings.SettingsDelegateWidget = Ext.extend(Zarafa.settings.ui.Se
 		Ext.applyIf(config, {
 			height: 400,
 			title: _('Delegate settings'),
+			cls: 'zarafa-settings-widget k-settings-nogap',
 			xtype: 'zarafa.settingsdelegatewidget',
 			layout: {
 				// override from SettingsWidget

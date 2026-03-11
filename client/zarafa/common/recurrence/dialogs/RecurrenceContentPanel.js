@@ -37,6 +37,7 @@ Zarafa.common.recurrence.dialogs.RecurrenceContentPanel = Ext.extend(Zarafa.core
 		config = Ext.applyIf(config, {
 			// Override from Ext.Component
 			xtype: 'zarafa.recurrencecontentpanel',
+			cls: 'k-recurrence-dialog',
 			// Override from Ext.Component
 			layout: 'fit',
 			title: _('Appointment Recurrence'),
@@ -49,8 +50,8 @@ Zarafa.common.recurrence.dialogs.RecurrenceContentPanel = Ext.extend(Zarafa.core
 				border: false
 			},
 			autoSave: false,
-			width: 600,
-			height: 500,
+			width: 720,
+			height: 480,
 			items: [{
 				xtype: 'zarafa.recurrencepanel',
 				ref: 'recurrencePanel',
