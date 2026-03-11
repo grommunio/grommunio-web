@@ -100,14 +100,30 @@ Zarafa.plugins.meet.SettingsWidget = Ext.extend(Zarafa.settings.ui.SettingsWidge
         },{
           xtype: 'displayfield',
           hideLabel: true,
-          style: 'margin-top: 5px',
-          value: _('Invitation text') + ': <span class="k-settings-label-minor">(' + _('must contain %url% as a placeholder for the meeting link, empty the textbox to reset to default') + ')</span>',
+          style: 'margin-top: 10px',
+          value: _('Invitation text (plain text)') + ': <span class="k-settings-label-minor">(' + _('used when composing in plain text, must contain %url%, empty to reset to default') + ')</span>',
         },{
           xtype: 'textarea',
           ref: 'invitationEditor',
           hideLabel: true,
           grow: true,
           anchor: '100%',
+        },{
+          xtype: 'displayfield',
+          hideLabel: true,
+          style: 'margin-top: 10px',
+          value: _('Invitation template (HTML)') + ': <span class="k-settings-label-minor">(' + _('used when composing in HTML, must contain %url%, empty to reset to default') + ')</span>',
+        },{
+          xtype: 'zarafa.editorfield',
+          ref: 'invitationHtmlEditor',
+          cls: 'k-meet-html-editor',
+          hideLabel: true,
+          name: 'invitationhtml',
+          htmlName: 'invitationhtml',
+          plaintextName: 'invitationhtml',
+          anchor: '100%',
+          height: 300,
+          useHtml: true
         }
       ]
     });
@@ -121,6 +137,7 @@ Zarafa.plugins.meet.SettingsWidget = Ext.extend(Zarafa.settings.ui.SettingsWidge
     this.locationFixCheckbox.setValue(!settingsModel.get('zarafa/v1/plugins/meet/nolocationfix'));
     this.addInvitationCheckbox.setValue(!settingsModel.get('zarafa/v1/plugins/meet/noinvitation'));
     this.invitationEditor.setValue(settingsModel.get('zarafa/v1/plugins/meet/invitationmessage') || '');
+    this.invitationHtmlEditor.setValue(settingsModel.get('zarafa/v1/plugins/meet/invitationhtml') || '');
     this.mnameAddSubject.setValue(!container.getSettingsModel().get('zarafa/v1/plugins/meet/mname_nosubject'));
     this.mnameAddOrganizer.setValue(!container.getSettingsModel().get('zarafa/v1/plugins/meet/mname_noorganizer'));
   },
@@ -143,6 +160,15 @@ Zarafa.plugins.meet.SettingsWidget = Ext.extend(Zarafa.settings.ui.SettingsWidge
       }
     }else{
       settingsModel.remove('zarafa/v1/plugins/meet/invitationmessage');
+      settingsModel.requiresReload = true;
+    }
+    var htmlVal = this.invitationHtmlEditor.getValue();
+    if(htmlVal){
+      if(htmlVal != settingsModel.get('zarafa/v1/plugins/meet/invitationhtml')){
+        settingsModel.set('zarafa/v1/plugins/meet/invitationhtml', htmlVal);
+      }
+    }else{
+      settingsModel.remove('zarafa/v1/plugins/meet/invitationhtml');
       settingsModel.requiresReload = true;
     }
     settingsModel.endEdit();

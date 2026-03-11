@@ -99,13 +99,20 @@ Zarafa.plugins.meet.ui.AddMeetingDialog = Ext.extend(Zarafa.core.ui.ContentPanel
           }
       }
       if(edf){
-        var iurl = this.source.record.jitsiCurrentUrl;
-        var itpl = container.getSettingsModel().get('zarafa/v1/plugins/meet/invitationmessage') || '\n%url%\n';
+        var meetUrl = this.source.record.jitsiCurrentUrl;
         if(edf.isHtmlEditor()){
-          iurl = '<a href=' + iurl + '>' + iurl + '</a>';
-          itpl = itpl.replace(/(\r\n|\n|\r)/gm, '<br/>');
+          var htmlTpl = container.getSettingsModel().get('zarafa/v1/plugins/meet/invitationhtml');
+          if(htmlTpl){
+            edf.insertAtCursor('<p>&nbsp;</p>' + htmlTpl.replace(/%url%/g, Ext.util.Format.htmlEncode(meetUrl)) + '<p>&nbsp;</p>');
+          }else{
+            var itpl = container.getSettingsModel().get('zarafa/v1/plugins/meet/invitationmessage') || '\n%url%\n';
+            itpl = itpl.replace(/(\r\n|\n|\r)/gm, '<br/>');
+            edf.insertAtCursor(itpl.replace(/%url%/g, '<a href="' + Ext.util.Format.htmlEncode(meetUrl) + '">' + Ext.util.Format.htmlEncode(meetUrl) + '</a>'));
+          }
+        }else{
+          var itpl = container.getSettingsModel().get('zarafa/v1/plugins/meet/invitationmessage') || '\n%url%\n';
+          edf.insertAtCursor(itpl.replace(/%url%/g, meetUrl));
         }
-        edf.insertAtCursor(itpl.replace(/%url%/g, iurl));
       }
     }
     this.doClose()
