@@ -82,8 +82,6 @@ server: mos $(LANGTXTDEST) $(PHPFILES) $(DISTFILES) $(DESTDIR)/version $(SERVERR
 
 client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) html js
 	cp -r client/resources/fonts $(DESTDIR)/client/resources/
-	cp -r client/zarafa/core/themes $(DESTDIR)/client/
-	rm -rf $(DESTDIR)/client/themes/*/js
 
 css:
 	find $(DESTDIR)/client -name "*.css" \
