@@ -26,6 +26,10 @@ class AdvancedSearchListModule extends ListModule {
 			'creation_time' => PR_CREATION_TIME,
 			"task_duedate" => "PT_SYSTIME:PSETID_Task:" . PidLidTaskDueDate,
 		]);
+		$useHtmlPreview = $GLOBALS['settings']->get('zarafa/v1/contexts/mail/use_html_email_preview', USE_HTML_EMAIL_PREVIEW);
+		if (!$useHtmlPreview) {
+			unset($this->properties['html_body']);
+		}
 		$this->properties = getPropIdsFromStrings($GLOBALS["mapisession"]->getDefaultMessageStore(), $this->properties);
 		$this->sort = [
 			PR_MESSAGE_DELIVERY_TIME => TABLE_SORT_DESCEND,
