@@ -115,18 +115,19 @@ class PluginMDMModule extends Module {
 	 * @return bool true if the request was successful, false otherwise
 	 */
 	public function wipeDevice($deviceid, $password, $wipeType = SYNC_PROVISION_RWSTATUS_PENDING) {
+		$payload = [
+			'remoteIP' => '[::1]',
+			'status' => $wipeType,
+			'time' => time(),
+		];
+		if (!empty($password)) {
+			$payload['password'] = $password;
+		}
 		$opts = ['http' => [
 			'method' => 'POST',
 			'header' => 'Content-Type: application/json',
 			'ignore_errors' => true,
-			'content' => json_encode(
-				[
-					'password' => $password,
-					'remoteIP' => '[::1]',
-					'status' => $wipeType,
-					'time' => time(),
-				]
-			),
+			'content' => json_encode($payload),
 		],
 		];
 		$ret = file_get_contents(PLUGIN_MDM_ADMIN_API_WIPE_ENDPOINT . $GLOBALS["mapisession"]->getUserName() . "?devices=" . $deviceid, false, stream_context_create($opts));
@@ -152,18 +153,19 @@ class PluginMDMModule extends Module {
 
 			try {
 				mapi_folder_deletefolder($stateFolder, $props[PR_ENTRYID], DEL_MESSAGES);
+				$payload = [
+					'remoteIP' => '[::1]',
+					'status' => SYNC_PROVISION_RWSTATUS_NA,
+					'time' => time(),
+				];
+				if (!empty($password)) {
+					$payload['password'] = $password;
+				}
 				$opts = ['http' => [
 					'method' => 'POST',
 					'header' => 'Content-Type: application/json',
 					'ignore_errors' => true,
-					'content' => json_encode(
-						[
-							'password' => $password,
-							'remoteIP' => '[::1]',
-							'status' => SYNC_PROVISION_RWSTATUS_NA,
-							'time' => time(),
-						]
-					),
+					'content' => json_encode($payload),
 				],
 				];
 				$ret = file_get_contents(PLUGIN_MDM_ADMIN_API_WIPE_ENDPOINT . $GLOBALS["mapisession"]->getUserName() . "?devices=" . $deviceid, false, stream_context_create($opts));
@@ -214,7 +216,7 @@ class PluginMDMModule extends Module {
 						case 'wipe':
 							$this->addActionData('wipe', [
 								'type' => 3,
-								'wipe' => $this->wipeDevice($actionData['deviceid'], $actionData['password'], $actionData['wipetype']),
+								'wipe' => $this->wipeDevice($actionData['deviceid'], $actionData['password'] ?? '', $actionData['wipetype']),
 							]);
 							$GLOBALS['bus']->addData($this->getResponseData());
 							break;
@@ -230,7 +232,7 @@ class PluginMDMModule extends Module {
 						case 'remove':
 							$this->addActionData('remove', [
 								'type' => 3,
-								'remove' => $this->removeDevice($actionData['deviceid'], $actionData['password']),
+								'remove' => $this->removeDevice($actionData['deviceid'], $actionData['password'] ?? ''),
 							]);
 							$GLOBALS['bus']->addData($this->getResponseData());
 							break;

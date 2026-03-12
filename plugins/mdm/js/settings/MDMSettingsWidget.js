@@ -17,6 +17,7 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 		var store = new Zarafa.plugins.mdm.data.MDMDeviceStore();
 		Ext.applyIf(config, {
 			title : _('Mobile Devices'),
+			cls : 'zarafa-settings-widget k-settings-nogap',
 			items : [{
 				xtype : 'panel',
 				layout: 'fit',
@@ -201,6 +202,7 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 	{
 		var customCfg = {};
 		var isAuthenticateAction = actionType === 'authenticate';
+		var isSSO = container.getServerConfig().getAuthMethod() === 'oidc';
 		customCfg['customButtons'] = [{
 			name: isAuthenticateAction ? 'ok' : 'yes',
 			cls: 'zarafa-action',
@@ -211,16 +213,33 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 			text: isAuthenticateAction ? _('Close') : _('No')
 		}];
 
-		let customItems = [{
-			xtype: 'textfield',
-			allowBlank: false,
-			inputType: 'password',
-			boxLabel : '',
-			hideLabel : true,
-			emptyText: _('Password'),
-			name: 'passwordField',
-			ref: 'passwordField'
-		}];
+		var confirmWord = actionType === 'wipe' ? 'WIPE' : 'REMOVE';
+		let customItems;
+		if (isSSO && !isAuthenticateAction) {
+			customItems = [{
+				xtype: 'textfield',
+				allowBlank: false,
+				boxLabel : '',
+				hideLabel : true,
+				emptyText: String.format(_('Type {0} to confirm'), confirmWord),
+				name: 'confirmField',
+				ref: 'confirmField',
+				validator: function(value) {
+					return value === confirmWord ? true : String.format(_('Please type {0} to confirm'), confirmWord);
+				}
+			}];
+		} else {
+			customItems = [{
+				xtype: 'textfield',
+				allowBlank: false,
+				inputType: 'password',
+				boxLabel : '',
+				hideLabel : true,
+				emptyText: _('Password'),
+				name: 'passwordField',
+				ref: 'passwordField'
+			}];
+		}
 
 		var asVersion = scope?.deviceGrid?.getSelectionModel()?.getSelected()?.get('asversion');
 		if (asVersion !== undefined && parseFloat(asVersion) >= 16.1 && actionType === 'wipe') {
@@ -308,7 +327,10 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 	 */
 	onWipeBtn : function()
 	{
-		var message = _('Do you really want to wipe your device?\n Enter your password to confirm.');
+		var isSSO = container.getServerConfig().getAuthMethod() === 'oidc';
+		var message = isSSO ?
+			_('Do you really want to wipe your device?\n Type WIPE to confirm.') :
+			_('Do you really want to wipe your device?\n Enter your password to confirm.');
 		this.showPasswordMessageBox(message, this.onWipeDevice, 'wipe');
 	},
 
@@ -331,16 +353,19 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 			var selectionModel = mdmWidgetScope.deviceGrid.getSelectionModel();
 			var record = selectionModel.getSelected();
 			if (record) {
+				var requestData = {
+					'deviceid' : record.get('entryid'),
+					'wipetype': inputValues.wipeType == 'accountonly' ?
+						Zarafa.plugins.mdm.data.ProvisioningStatus.WIPE_PENDING_ACCOUNT_ONLY :
+						Zarafa.plugins.mdm.data.ProvisioningStatus.WIPE_PENDING
+				};
+				if (inputValues.passwordField) {
+					requestData['password'] = inputValues.passwordField;
+				}
 				container.getRequest().singleRequest(
 					'pluginmdmmodule',
 					'wipe',
-					{
-						'deviceid' : record.get('entryid'),
-						'password': inputValues.passwordField,
-						'wipetype': inputValues.wipeType == 'accountonly' ?
-							Zarafa.plugins.mdm.data.ProvisioningStatus.WIPE_PENDING_ACCOUNT_ONLY :
-							Zarafa.plugins.mdm.data.ProvisioningStatus.WIPE_PENDING
-					},
+					requestData,
 					new Zarafa.plugins.mdm.data.MDMResponseHandler({
 						successCallback : mdmWidgetScope.refreshGrid,
 						failureCallback : mdmWidgetScope.checkAuthentication,
@@ -378,10 +403,13 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * handled by the onRemoveDevice function.
 	 */
 	onRemoveBtn : function()
- {
-	 var message = _('Do you really want to remove your device?\n Enter your password to confirm.');
-	 this.showPasswordMessageBox(message, this.onRemoveDevice, 'remove');
- },
+	{
+		var isSSO = container.getServerConfig().getAuthMethod() === 'oidc';
+		var message = isSSO ?
+			_('Do you really want to remove your device?\n Type REMOVE to confirm.') :
+			_('Do you really want to remove your device?\n Enter your password to confirm.');
+		this.showPasswordMessageBox(message, this.onRemoveDevice, 'remove');
+	},
 
 	/**
 	 * Remove all state data for a device, essentially resyncing it. Also resets
@@ -402,10 +430,14 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 			var selectionModel = mdmWidgetScope.deviceGrid.getSelectionModel();
 			var record = selectionModel.getSelected();
 			if (record) {
+				var requestData = { 'deviceid' : record.get('entryid') };
+				if (inputValues.passwordField) {
+					requestData['password'] = inputValues.passwordField;
+				}
 				container.getRequest().singleRequest(
 					'pluginmdmmodule',
 					'remove',
-					{ 'deviceid' : record.get('entryid'), 'password': inputValues.passwordField },
+					requestData,
 					new Zarafa.plugins.mdm.data.MDMResponseHandler({
 						successCallback : mdmWidgetScope.removeDone.createDelegate(this, [record], true),
 						failureCallback : mdmWidgetScope.checkAuthentication,
