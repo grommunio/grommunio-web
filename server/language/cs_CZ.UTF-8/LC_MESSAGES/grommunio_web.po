@@ -332,11 +332,9 @@ msgstr "Toto pole má obsahovat pouze písmena a _"
 msgid "This field should only contain letters, numbers and _"
 msgstr "Toto pole má obsahovat pouze písmena, čísla a _"
 
-#, fuzzy
 msgid "Email Addresses"
 msgstr "E-mailové adresy"
 
-#, fuzzy
 msgid "Email addresses"
 msgstr "E-mailové adresy"
 
@@ -385,7 +383,6 @@ msgstr "Jméno"
 msgid "Last name"
 msgstr "Příjmení"
 
-#, fuzzy
 msgid "Initials"
 msgstr "Iniciály"
 
@@ -479,11 +476,9 @@ msgstr "Vybrat"
 msgid "Show Details"
 msgstr "Ukázat detaily"
 
-#, fuzzy
 msgid "Copy contact"
 msgstr "Kopírovat kontakt"
 
-#, fuzzy
 msgid "Copy contacts"
 msgstr "Kopírování kontaktů"
 
@@ -578,7 +573,6 @@ msgstr "Třídit podle: Místo"
 msgid "Sort by: Fax"
 msgstr "Třídit podle: Fax"
 
-#, fuzzy
 msgid "Print single item"
 msgstr "Tisk jednotlivých položek"
 
@@ -588,7 +582,6 @@ msgstr "Tisknout vybrané položky"
 msgid "Print"
 msgstr "Tisk"
 
-#, fuzzy
 msgid "No item selected"
 msgstr "Není vybrána žádná položka"
 
@@ -628,9 +621,8 @@ msgstr "Přidat k oblíbeným"
 msgid "Add"
 msgstr "Přidat"
 
-#, fuzzy
 msgid "Empty folder name"
-msgstr "Vyprázdnit složku"
+msgstr "Prázdný název složky"
 
 msgid "You must specify a name."
 msgstr "Musíte uvést název."
@@ -659,9 +651,8 @@ msgstr "Odpovědět všem"
 msgid "Forward"
 msgstr "Přeposlat"
 
-#, fuzzy
 msgid "Edit as New"
-msgstr "Upravit jako novou zprávu"
+msgstr "Upravit jako nový"
 
 msgid "Search tools"
 msgstr "Vyhledávací nástroje"
@@ -707,9 +698,8 @@ msgctxt "search.date"
 msgid "To"
 msgstr "Do"
 
-#, fuzzy
 msgid "Filter category…"
-msgstr "Filtrovat…"
+msgstr "Filtrovat kategorii.."
 
 msgid "Sender"
 msgstr "Odesílatel"
@@ -834,36 +824,31 @@ msgstr "Opakuje se vždy {0} počínaje {1}."
 msgid "Occurs every {0} {1} effective {2}."
 msgstr "Opakuje se vždy {0} {1} počínaje {2}."
 
-#, fuzzy
 msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural ""
 "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] "Nastává každých {0} účinných {1} pro {2} výskyt od {3} do {4}."
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Vyskytuje se každý {0} účinný {1} pro {2} výskyt od {3} do {4}."
+msgstr[1] "Vyskytuje se každý {0} účinný {1} pro {2} výskyty od {3} do {4}."
+msgstr[2] "Vyskytuje se každý {0} účinný {1} pro {2} výskyty od {3} do {4}."
 
-#, fuzzy
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
 msgid_plural ""
 "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
-msgstr[0] ""
-"Vyskytuje se každých {0} {1} účinný {2} pro {3} výskyt od {4} do {5}."
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Vyskytuje se každý {0} {1} účinný {2} pro {3} výskyt od {4} do {5}."
+msgstr[1] "Vyskytuje se každý {0} {1} účinný {2} pro {3} výskyt {4} až {5}."
+msgstr[2] "Vyskytuje se každý {0} {1} účinný {2} pro {3} výskyt {4} až {5}."
 
-#, fuzzy
 msgid "Occurs every {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
-msgstr[0] "Nastává každý {0} účinný {1} pro {2} výskyt."
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Vyskytuje se každý {0} účinný {1} pro {2} výskyt."
+msgstr[1] "Objevuje se každý {0} účinný {1} pro {2} výskyt."
+msgstr[2] "Objevuje se každý {0} účinný {1} pro {2} výskyt."
 
-#, fuzzy
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
 msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
-msgstr[0] "Vyskytuje se každé {0} {1} efektivní {2} pro {3} výskyt."
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Vyskytuje se každý {0} {1} účinný {2} pro {3} výskyt."
+msgstr[1] "Vyskytuje se každý {0} {1} účinný {2} pro {3} výskyt."
+msgstr[2] "Vyskytuje se každý {0} {1} účinný {2} pro {3} výskyt."
 
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
 msgstr "Opakuje se vždy {0} počínaje {1} do {2}, od {3} do {4}."
@@ -881,7 +866,6 @@ msgid "When"
 msgstr "Kdy"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
 msgid "l jS F Y {0}"
 msgstr "l jS F Y {0}"
 
@@ -912,7 +896,6 @@ msgstr "Třídit podle: Počáteční datum"
 msgid "End Date"
 msgstr "Konečné datum"
 
-#, fuzzy
 msgid "Sort by: End Date"
 msgstr "Seřadit podle: Datum ukončení"
 
@@ -976,7 +959,6 @@ msgstr "Přijmout návrh"
 msgid "Accept Proposed Time"
 msgstr "Přijmout navrhovaný čas"
 
-#, fuzzy
 msgid "View in calendar"
 msgstr "Zobrazit v kalendáři"
 
@@ -1059,11 +1041,9 @@ msgctxt "calendar.dialog"
 msgid "Resources have been planned"
 msgstr "Zdroje byly naplánovány"
 
-#, fuzzy
 msgid "Send update"
-msgstr "Konečné datum"
+msgstr "Odeslat aktualizaci"
 
-#, fuzzy
 msgid "Do you want to send an update to all recipients?"
 msgstr "Chcete poslat aktualizaci všem příjemcům?"
 
@@ -1081,14 +1061,11 @@ msgstr "Odeslat aktualizace pouze přidaným nebo odebraným účastníkům."
 msgid "Send updates to all attendees."
 msgstr "Odeslat aktualizace všem účastníkům."
 
-#, fuzzy
 msgid "Busy attendees"
-msgstr "Pozvat účastníky"
+msgstr "Zaneprázdnění účastníci"
 
-#, fuzzy
 msgid "One or more attendees are busy. Are you sure to invite?"
-msgstr ""
-"Jeden či více pozvaných účastníků je zaneprázdněno. Chcete přesto pozvat?"
+msgstr "Jeden nebo více účastníků jsou zaneprázdněni. Jste si jisti, že máte pozvat?"
 
 msgid "Scheduling"
 msgstr "Plánování"
@@ -1164,7 +1141,6 @@ msgstr ""
 "Vezměte prosím na vědomí, že veškeré změny, které provedete, budou přepsány "
 "organizatorem v případě aktualizace této žádosti o schůzku"
 
-#, fuzzy
 msgid "Create in"
 msgstr "Vytvořit v"
 
@@ -1200,7 +1176,6 @@ msgid ""
 msgstr "Přejete si aktualizovat místo\"{0}\" novým místem \"{1}\"?"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
 msgid "jS F Y {0}"
 msgstr "jS F Y {0}"
 
@@ -1228,7 +1203,6 @@ msgstr "Ověřit jména"
 msgid "Addressbook"
 msgstr "Adresář"
 
-#, fuzzy
 msgid "Open addressbook"
 msgstr "Otevřít adresář"
 
@@ -1363,7 +1337,6 @@ msgstr "Kopírovat vybranou položku"
 msgid "Paste selected item"
 msgstr "Vložit vybranou položku"
 
-#, fuzzy
 msgid "An overview of"
 msgstr "Přehled"
 
@@ -1377,7 +1350,6 @@ msgstr "Konec"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
-#, fuzzy
 msgid "Printed by"
 msgstr "Vytiskl"
 
@@ -1390,11 +1362,9 @@ msgstr "ze"
 msgid "Location: "
 msgstr "Místo:"
 
-#, fuzzy
 msgid "j M {0}"
 msgstr "j M {0}"
 
-#, fuzzy
 msgid "l jS M Y {0}"
 msgstr "l jS M Y {0}"
 
@@ -1431,7 +1401,6 @@ msgstr "Důvěrnost"
 msgid "Importance"
 msgstr "Důležitost"
 
-#, fuzzy
 msgid "M j"
 msgstr "M j"
 
@@ -1456,11 +1425,9 @@ msgstr "Rozlišení kalendáře"
 msgid "Default appointment duration {A} minutes"
 msgstr "Výchozí doba trvání události {A} minut"
 
-#, fuzzy
 msgid "Duration must be between 1 and 120 minutes."
-msgstr "Doba trvání musí být mezi 1 a 120 minutami."
+msgstr "Doba trvání musí být v rozmezí 1 až 120 minut."
 
-#, fuzzy
 msgid "Default status for all day appointment"
 msgstr "Výchozí stav pro celodenní schůzku"
 
@@ -1519,7 +1486,6 @@ msgstr "Kopírovat/Přesunout"
 msgid "Send to…"
 msgstr "Odeslat…"
 
-#, fuzzy
 msgid "Export as"
 msgstr "Exportovat jako"
 
@@ -1529,9 +1495,8 @@ msgstr "Další výskyt"
 msgid "Series"
 msgstr "Série"
 
-#, fuzzy
 msgid "Appointment not found"
-msgstr "Termín"
+msgstr "Schůzka nebyla nalezena"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Tato schůzka byla přesunuta nebo smazána, chcete pokračovat?"
@@ -1596,19 +1561,15 @@ msgstr "Třídit podle: Nepovinná účast"
 msgid "Sort by: Resources"
 msgstr "Třídit podle: Zdroje"
 
-#, fuzzy
 msgid "Recurring Start Date"
 msgstr "Opakující se datum zahájení"
 
-#, fuzzy
 msgid "Sort by: Recurring Start Date"
 msgstr "Seřadit podle: Opakující se datum zahájení"
 
-#, fuzzy
 msgid "Recurring End Date"
 msgstr "Opakující se datum ukončení"
 
-#, fuzzy
 msgid "Sort by: Recurring End Date"
 msgstr "Seřadit podle: Opakující se Datum ukončení"
 
@@ -1633,12 +1594,10 @@ msgstr "Načítání schůzek"
 msgid "Attendees"
 msgstr "Účastníci"
 
-#, fuzzy
 msgid "Optional attendees"
 msgstr "Nepovinní účastníci"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
 msgid "jS F {0}"
 msgstr "jS F {0}"
 
@@ -1673,7 +1632,6 @@ msgstr ""
 "Zkopírováním této schůzky se zruší její nastavení jako soukromé. Určitě "
 "chcete pokračovat?"
 
-#, fuzzy
 msgid "Private item"
 msgstr "Soukromá položka"
 
@@ -1691,11 +1649,9 @@ msgstr ""
 msgid "Move"
 msgstr "Přesunout"
 
-#, fuzzy
 msgid "Update recipients"
-msgstr "Upravit příjemce"
+msgstr "Příjemci aktualizace"
 
-#, fuzzy
 msgid "The time of the meeting has changed. What would you like to do?"
 msgstr "Čas schůzky se změnil. Co byste chtěli dělat?"
 
@@ -1705,11 +1661,8 @@ msgstr "Uložit změny a odesat aktualizaci všem příjemcům"
 msgid "Open meeting request with changes"
 msgstr "Otevřít změněnu žádost o schůzku"
 
-#, fuzzy
 msgid "grommunio Web"
-msgstr ""
-"grommunio WebbApp\n"
-"grommunio Web"
+msgstr "webové stránky"
 
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
@@ -1718,11 +1671,9 @@ msgstr ""
 "Vezměte prosím na vědomí, že veškeré změny, které provedete, budou přepsány "
 "organizatorem v případě aktualizace této žádosti o schůzku?"
 
-#, fuzzy
 msgid "Don't move"
 msgstr "Nehýbejte se"
 
-#, fuzzy
 msgid "Switch to day view to see all appointments"
 msgstr "Přepnutím na denní zobrazení zobrazíte všechny schůzky"
 
@@ -1741,9 +1692,8 @@ msgctxt "mail.previewpanel"
 msgid "Location"
 msgstr "Místo"
 
-#, fuzzy
 msgid "No additional response required"
-msgstr "Odpověď není nutná"
+msgstr "Žádná další odpověď není nutná"
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -1755,7 +1705,6 @@ msgstr ""
 msgid "Loading appointments…"
 msgstr "Načítání schůzek…"
 
-#, fuzzy
 msgid "Please select a calendar via widget settings"
 msgstr "Vyberte kalendář prostřednictvím nastavení widgetu"
 
@@ -1765,50 +1714,40 @@ msgstr "Expirační doba"
 msgid "day(s)"
 msgstr "den"
 
-#, fuzzy
 msgid "{0}"
 msgstr "{0}"
 
 msgid "Upcoming Appointments"
 msgstr "Nadcházející rezervace"
 
-#, fuzzy
 msgid "Appointments of {0}"
 msgstr "Jmenování {0}"
 
-#, fuzzy
 msgid "Appointments of {0} - {1}"
 msgstr "Jmenování {0} - {1}"
 
-#, fuzzy
 msgid "No appointments"
-msgstr "Nový termín"
+msgstr "Žádné schůzky"
 
-#, fuzzy
 msgid "Today {0} - {1}"
-msgstr "Dnes: {A} {0}"
+msgstr "Dnes {0} - {1}"
 
-#, fuzzy
 msgid "Today (all day)"
 msgstr "Dnes (celý den)"
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
 #. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
-#, fuzzy
 msgid "{0} - {1}"
-msgstr "{0} v {1}"
+msgstr "{0} - {1}"
 
-#, fuzzy
 msgid "d/m/y {0}"
 msgstr "d/m/y {0}"
 
-#, fuzzy
 msgid "{0} - {1} (all day)"
-msgstr "{0} - {1} (celý den)"
+msgstr "{0} - {1} (po celý den)"
 
-#, fuzzy
 msgid "d/m/y"
-msgstr "d. m. Y"
+msgstr "d/m/y"
 
 msgid "Select one…"
 msgstr "Vybrat jednu…"
@@ -1878,9 +1817,8 @@ msgstr "Otevřít pouze toto"
 msgid "Open the series"
 msgstr "Otevřít celou sérii"
 
-#, fuzzy
 msgid "Paste Recurring {0}"
-msgstr "Vložit opakující se {0}"
+msgstr "Vložit Opakující se {0}"
 
 #, fuzzy
 msgid ""
@@ -1897,7 +1835,6 @@ msgstr "žádost o schůzku"
 msgid "appointment"
 msgstr "událost"
 
-#, fuzzy
 msgid "Paste this occurrence only"
 msgstr "Vložte pouze tento výskyt"
 
@@ -1954,22 +1891,19 @@ msgstr "Odstranit bez odesílání"
 msgid "Insufficient permissions"
 msgstr "Nedostatečná oprávnění"
 
-#, fuzzy
 msgid "You have insufficient privileges to delete items in this folder."
 msgstr "Nemáte dostatečná oprávnění k odstraňování položek v této složce."
 
-#, fuzzy
 msgid "Notify recipients"
-msgstr "Upravit příjemce"
+msgstr "Upozornit příjemce"
 
 msgid ""
 "A cancellation message will be sent to all recipients, do you wish to "
 "continue?"
 msgstr "Zpráva o zrušení bude odeslána všem příjemcům. Přejete si pokračovat?"
 
-#, fuzzy
 msgid "Notify sender"
-msgstr "Třídit podle: Připomínka"
+msgstr "Upozornit odesílatele"
 
 msgid ""
 "{0} has requested a notification be sent when message \"{1}\" is deleted "
@@ -1981,29 +1915,23 @@ msgstr ""
 msgid "Delete Incomplete Task"
 msgstr "Smazat nekompletní úlohu"
 
-#, fuzzy
 msgid "The task \"{0}\" has not been completed. What do you want to do?"
-msgstr "Úkol \"{0}\" nebyl dokončen. Co chcete dělat?"
+msgstr "Úkol \"{0}\" nebyl dokončen. Co chcete udělat?"
 
-#, fuzzy
 msgid "Decline and delete"
-msgstr "Odmítnout žádost o schůzku"
+msgstr "Odmítnout a odstranit"
 
-#, fuzzy
 msgid "Mark complete and delete"
 msgstr "Označit jako dokončené a odstranit"
 
-#, fuzzy
 msgid "Following recipients are already exists"
-msgstr "Nebyla doručena následujícímu příjemci/příjemcům"
+msgstr "Následující příjemci již existují"
 
-#, fuzzy
 msgid "Duplicate recipients"
-msgstr "Upravit příjemce"
+msgstr "Duplicitní příjemci"
 
-#, fuzzy
 msgid "Duplicate recipient"
-msgstr "Upravit příjemce"
+msgstr "Duplicitní příjemce"
 
 msgid "Recipient already exists."
 msgstr "Uživatel již existuje."
@@ -2022,15 +1950,12 @@ msgstr "Import"
 msgid "Successfully imported item(s) to {0}"
 msgstr "Položky byly úspěšně importovány do {0}"
 
-#, fuzzy
 msgid "Failed to import item(s) to {0}"
 msgstr "Nepodařilo se importovat položku(y) do {0}"
 
-#, fuzzy
 msgid "Import error"
-msgstr "Důležitý"
+msgstr "Chyba importu"
 
-#, fuzzy
 msgid "Unable to import \"{0}\". The file is not valid"
 msgstr "Nelze importovat \"{0}\". Soubor není platný"
 
@@ -2077,9 +2002,8 @@ msgstr "Přiložit položku"
 msgid "No message selected"
 msgstr "Nebyla vybrána žádná zpráva"
 
-#, fuzzy
 msgid "Import to"
-msgstr "Importovat do"
+msgstr "Import do"
 
 msgid "New folder"
 msgstr "Nová složka"
@@ -2120,9 +2044,8 @@ msgstr "Stáhnout"
 msgid "Download all as ZIP"
 msgstr "Stáhnout vše jako ZIP"
 
-#, fuzzy
 msgid "Import to folder"
-msgstr "Importovat do složky"
+msgstr "Import do složky"
 
 #, fuzzy
 msgid ""
@@ -2146,7 +2069,6 @@ msgstr "Chyba přílohy"
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
 msgstr "Nelze vytvořit ZIP, maximální povolená velikost je 30 MB."
 
-#, fuzzy
 msgid "Unable to download"
 msgstr "Nelze stáhnout"
 
@@ -2179,14 +2101,12 @@ msgstr ""
 msgid "Rename Category"
 msgstr "Přejmenovat kategorii"
 
-#, fuzzy
 msgid "A category named \""
 msgstr "Kategorie s názvem \""
 
 msgid "Create New Category"
 msgstr "Vytvořit novou kategorii"
 
-#, fuzzy
 msgid "Pin to quick access"
 msgstr "Připnutí k rychlému přístupu"
 
@@ -2200,9 +2120,8 @@ msgstr ""
 "Předtím než vytvoříte tuto kategorii, musíte aplikovat změny, které jste "
 "provedli v kategoriích."
 
-#, fuzzy
 msgid "You already have a category named '{0}'. Please use another name."
-msgstr "Máte již kategorii s názvem \"{0}\". Použijte prosím jiné jméno."
+msgstr "Již máte kategorii s názvem '{0}'. Použijte prosím jiný název."
 
 #, fuzzy
 msgid ""
@@ -2293,9 +2212,8 @@ msgstr "Zástupce dostává kopie zpráv týkajících se schůzek odeslaných m
 msgid "Other"
 msgstr "Další"
 
-#, fuzzy
 msgid "No delegates configured"
-msgstr "Nejsou nastaveny podpisy"
+msgstr "Nejsou nakonfigurováni žádní delegáti"
 
 msgid "Loading delegates"
 msgstr "Načítání zástupců"
@@ -2303,7 +2221,6 @@ msgstr "Načítání zástupců"
 msgid "Please select a delegate."
 msgstr "Vyberte prosím zástupce."
 
-#, fuzzy
 msgid "Delegates can send items on your behalf."
 msgstr "Delegáti mohou odesílat položky vaším jménem."
 
@@ -2319,9 +2236,8 @@ msgstr ""
 msgid "Permission"
 msgstr "Oprávnění"
 
-#, fuzzy
 msgid "Duplicate delegate"
-msgstr "Odmítnout žádost o schůzku"
+msgstr "Duplicitní delegát"
 
 msgid "Delegate already exists in the list."
 msgstr "Zástupce je již na seznamu."
@@ -2366,14 +2282,12 @@ msgstr ""
 "Ke kopírování této složky nemáte dostatečná práva. Požádejte vlastníka "
 "složky o udělení oprávnění nebo se obraťte na správce systému."
 
-#, fuzzy
 msgid "You have insufficient privileges to move following items."
 msgstr "Nemáte dostatečná oprávnění k přesunu následujících položek."
 
 msgid "Subject:"
 msgstr "Předmět:"
 
-#, fuzzy
 msgid "Would you like to copy instead?"
 msgstr "Chcete místo toho kopírovat?"
 
@@ -2389,9 +2303,8 @@ msgstr "ID objektu"
 msgid "ICS"
 msgstr "ICS"
 
-#, fuzzy
 msgid "Set custom flag"
-msgstr "Nastavit štítek"
+msgstr "Nastavení vlastní vlajky"
 
 msgid "Start date"
 msgstr "Počáteční datum"
@@ -2432,20 +2345,17 @@ msgstr "příští týden"
 msgid "Edit recipient"
 msgstr "Upravit příjemce"
 
-#, fuzzy
 msgid "Copy email address"
-msgstr "Nová e-mailová adresa"
+msgstr "Kopírovat e-mailovou adresu"
 
 msgid "Set as required"
 msgstr "Nastavit jako povinné"
 
-#, fuzzy
 msgid "Set as optional"
-msgstr "Nepovinné"
+msgstr "Nastavit jako volitelné"
 
-#, fuzzy
 msgid "Set as resource"
-msgstr "Třídit podle: Zdroje"
+msgstr "Nastavit jako zdroj"
 
 msgid "Select attendees"
 msgstr "Vybrat účastníky"
@@ -2536,37 +2446,29 @@ msgstr ""
 "Odstranit vybranou položku, aniž byste ji přesunuli do složky Odstraněné "
 "položky. Vymazaná položka může být obnovena."
 
-#, fuzzy
 msgid "Add/Edit Cc recipient"
-msgstr "Upravit příjemce"
+msgstr "Přidat/upravit příjemce Cc"
 
-#, fuzzy
 msgid "Disable for new mail"
 msgstr "Zakázat pro novou poštu"
 
-#, fuzzy
 msgid "Enable for new mail"
 msgstr "Povolení pro novou poštu"
 
-#, fuzzy
 msgid "Disable for replies"
 msgstr "Zakázat odpovědi"
 
-#, fuzzy
 msgid "Enable for replies"
 msgstr "Povolení odpovědí"
 
-#, fuzzy
 msgid "No Cc recipient configured"
-msgstr "Nejsou nastaveny podpisy"
+msgstr "Není nakonfigurován příjemce Cc"
 
-#, fuzzy
 msgid "Loading Cc recipients"
-msgstr "Upravit příjemce"
+msgstr "Načítání příjemců Cc"
 
-#, fuzzy
 msgid "Reply Mail"
-msgstr "Odpovědět všem"
+msgstr "Odpovědět Mail"
 
 msgid "New Mail"
 msgstr "Nová zpráva"
@@ -2574,9 +2476,8 @@ msgstr "Nová zpráva"
 msgid "Please select a Cc recipient record."
 msgstr "Vyberte prosím příjemce."
 
-#, fuzzy
 msgid "Manage Cc recipients"
-msgstr "Upravit příjemce"
+msgstr "Správa příjemců Cc"
 
 #, fuzzy
 msgid ""
@@ -2589,26 +2490,21 @@ msgstr ""
 msgid "Help"
 msgstr "Nápověda"
 
-#, fuzzy
 msgid "Web Manual"
 msgstr "Webová příručka"
 
-#, fuzzy
 msgid "Item data"
 msgstr "Údaje o položce"
 
 msgid "INSERT"
 msgstr "VLOŽIT"
 
-#, fuzzy
 msgid "Sort by: context.mail.griddefaultcolumn"
 msgstr "Seřadit podle: context.mail.griddefaultcolumn"
 
-#, fuzzy
 msgid "ZDeveloper"
 msgstr "ZDeveloper"
 
-#, fuzzy
 msgid "grommunio Web print"
 msgstr "grommunio Web print"
 
@@ -2618,9 +2514,8 @@ msgstr "Zobrazené jméno"
 msgid "Email address"
 msgstr "E-mailová adresa"
 
-#, fuzzy
 msgid "Expand distribution list"
-msgstr "Nový distribuční seznam"
+msgstr "Rozšíření distribučního seznamu"
 
 msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
@@ -2631,9 +2526,8 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Upravit Příjemce"
 
-#, fuzzy
 msgid "Copy email addresses"
-msgstr "Nová e-mailová adresa"
+msgstr "Kopírování e-mailových adres"
 
 msgid "Send email"
 msgstr "Odeslat zprávu"
@@ -2641,7 +2535,6 @@ msgstr "Odeslat zprávu"
 msgid "Delete recipient from suggestion list"
 msgstr "Odstranit distribuční seznam"
 
-#, fuzzy
 msgid "Copy all email addresses"
 msgstr "Zkopírujte všechny e-mailové adresy"
 
@@ -2693,13 +2586,11 @@ msgstr "Opakování termínu"
 msgid "Remove Recurrence"
 msgstr "Odstranit opakování"
 
-#, fuzzy
 msgid "Reset recurring"
-msgstr "Opakování"
+msgstr "Obnovení opakovaného"
 
-#, fuzzy
 msgid "This will reset every exception. Do you want to continue?"
-msgstr "Tato schůzka byla přesunuta nebo smazána, chcete pokračovat?"
+msgstr "Tím se vynulují všechny výjimky. Chcete pokračovat?"
 
 msgid "Task Recurrence"
 msgstr "Opakování úkolu"
@@ -2757,19 +2648,17 @@ msgstr "Informace"
 msgid "Not supported at the moment."
 msgstr "Momentálně nepodporováno."
 
-#, fuzzy
 msgid "There is {0} reminder"
 msgid_plural "There are {0} reminders"
-msgstr[0] "Existuje {0} připomínka"
-msgstr[1] "Existuje {0} připomínka"
-msgstr[2] "Existuje {0} připomínka"
+msgstr[0] "Na adrese {0} je připomínka"
+msgstr[1] "Na adrese {0} najdete připomínky"
+msgstr[2] "Na adrese {0} najdete připomínky"
 
 msgid "Reminders"
 msgstr "Připomínky"
 
-#, fuzzy
 msgid "There are no reminders"
-msgstr "Existuje {0} připomínka"
+msgstr "Neexistují žádné upomínky"
 
 msgid "Due In"
 msgstr "Dokončit během"
@@ -2827,17 +2716,14 @@ msgstr "Zprávy"
 msgid "Delete all items"
 msgstr "Odstranit všechny položky"
 
-#, fuzzy
 msgid "Are you sure you want to permanently delete all items?"
-msgstr "Jse si jist, že chcete trvale vymazat všechny položky?"
+msgstr "Jste si jisti, že chcete trvale odstranit všechny položky?"
 
-#, fuzzy
 msgid "Restore all items"
-msgstr "Obnovit položky"
+msgstr "Obnovení všech položek"
 
-#, fuzzy
 msgid "Are you sure you want to restore all items?"
-msgstr "Jste si jist, že chcete obnovit všechny položky?"
+msgstr "Jste si jisti, že chcete obnovit všechny položky?"
 
 msgid "Total {0} recoverable item"
 msgid_plural "Total {0} recoverable items"
@@ -2872,108 +2758,84 @@ msgstr "Velikost"
 msgid "Sort by: Size"
 msgstr "Třídit podle: Velikost"
 
-#, fuzzy
 msgid "Move the message to folder…"
-msgstr "Přesunout zprávu do složky…"
+msgstr "Přesunutí zprávy do složky.."
 
-#, fuzzy
 msgid "Copy the message to folder…"
-msgstr "Kopírovat zprávu do složky…"
+msgstr "Zkopírujte zprávu do složky.."
 
 msgid "Delete the message"
 msgstr "Vymazat zprávu"
 
-#, fuzzy
 msgid "Redirect the message to…"
-msgstr "Přesměrovat zprávu k…"
+msgstr "Přesměrování zprávy na.."
 
-#, fuzzy
 msgid "Forward the message to…"
-msgstr "Přeposlat zprávu k…"
+msgstr "Zprávu přepošlete na adresu.."
 
-#, fuzzy
 msgid "Forward the message as attachment to…"
-msgstr "Přeposlat zprávu jako přílohu k …"
+msgstr "Zprávu přepošlete jako přílohu na adresu.."
 
-#, fuzzy
 msgid "Mark the message as read…"
-msgstr "Přeposlat zprávu k…"
+msgstr "Označte zprávu jako přečtenou.."
 
-#, fuzzy
 msgid "is received from…"
-msgstr "je přijato od…"
+msgstr "je obdržena od.."
 
-#, fuzzy
 msgid "includes these words in the sender's address…"
-msgstr "obsahuje tato slova v adese odesílatele…"
+msgstr "obsahuje tato slova v adrese odesílatele.."
 
-#, fuzzy
 msgid "includes these words in the recipient's address…"
-msgstr "obsahuje tato slova v adese odesílatele…"
+msgstr "obsahuje tato slova v adrese příjemce.."
 
-#, fuzzy
 msgid "includes these words in the subject…"
-msgstr "obsahuje tato slova v předmětu…"
+msgstr "obsahuje tato slova v předmětu.."
 
-#, fuzzy
 msgid "includes these words in the body…"
-msgstr "obsahuje tato slova v obsahu…"
+msgstr "obsahuje tato slova v těle.."
 
-#, fuzzy
 msgid "includes these words in the transport headers…"
-msgstr "obsahuje tato slova v obsahu…"
+msgstr "obsahuje tato slova v přepravních záhlavích.."
 
-#, fuzzy
 msgid "has importance…"
-msgstr "má důležitost…"
+msgstr "má význam.."
 
-#, fuzzy
 msgid "has an attachment"
 msgstr "má přílohu"
 
-#, fuzzy
 msgid "is sent to…"
-msgstr "je poslán…"
+msgstr "je odeslána na.."
 
 msgid "is sent only to me"
 msgstr "je poslán pouze mně"
 
-#, fuzzy
 msgid "has my name in the Cc field"
 msgstr "má v poli Cc moje jméno"
 
-#, fuzzy
 msgid "does not have my name in the To or Cc field"
 msgstr "neobsahuje mé jméno v poli To nebo Cc"
 
-#, fuzzy
 msgid "has my name in the To or Cc field"
 msgstr "má mé jméno v poli To nebo Cc"
 
 msgid "has sensitivity…"
 msgstr "Důvěrnost…"
 
-#, fuzzy
 msgid "is received after…"
-msgstr "je přijato od…"
+msgstr "je obdržena po.."
 
-#, fuzzy
 msgid "is received before…"
-msgstr "je přijato od…"
+msgstr "obdrží před.."
 
-#, fuzzy
 msgid "size is at least…"
-msgstr "velikost je minimálně…"
+msgstr "velikost je minimálně.."
 
-#, fuzzy
 msgid "size is at most…"
-msgstr "velikost je maximálně…"
+msgstr "velikost je maximálně.."
 
-#, fuzzy
 msgid "has my name in the To field"
 msgstr "je v poli Komu uvedeno mé jméno"
 
-#, fuzzy
 msgid "is received (all messages)"
 msgstr "je přijata (všechny zprávy)"
 
@@ -3016,20 +2878,17 @@ msgstr "Provést následující"
 msgid "Exceptions"
 msgstr "Výjimky"
 
-#, fuzzy
 msgid "Apply only when Out of Office is active"
 msgstr "Použít pouze v případě, že je aktivní funkce Out of Office"
 
 msgid "Stop processing more rules"
 msgstr "Zastavit zpracování dalších pravidel"
 
-#, fuzzy
 msgid "Add exception"
-msgstr "Přidat akci"
+msgstr "Přidat výjimku"
 
-#, fuzzy
 msgid "Remove exception"
-msgstr "Odstranit akci"
+msgstr "Odstranění výjimky"
 
 msgid "Specify Words or Phrases"
 msgstr "Specifikovat slova nebo fráze"
@@ -3056,7 +2915,6 @@ msgstr "Žádné pravidlo neexistuje"
 msgid "Active"
 msgstr "Aktivní"
 
-#, fuzzy
 msgid "Out of office"
 msgstr "Mimo kancelář"
 
@@ -3075,27 +2933,21 @@ msgstr "Pravidlo již má nejvyšší prioritu."
 msgid "Rule already has lowest priority."
 msgstr "Pravidlo již má nejnižší prioritu."
 
-#, fuzzy
 msgid "Always move messages from {0}"
-msgstr "Vždy přesunout zprávy z {0}"
+msgstr "Vždy přesouvejte zprávy z {0}"
 
-#, fuzzy
 msgid "Always move messages that are sent to <recipients>"
 msgstr "Zprávy odeslané do <recipients>"
 
-#, fuzzy
 msgid "Always move messages with this subject"
 msgstr "Vždy přesouvejte zprávy s tímto předmětem"
 
-#, fuzzy
 msgid "Create rule…"
-msgstr "Vytvořit pravidlo…"
+msgstr "Vytvořit pravidlo.."
 
-#, fuzzy
 msgid "myself"
 msgstr "sám"
 
-#, fuzzy
 msgid "Update rules for"
 msgstr "Aktualizace pravidel pro"
 
@@ -3105,9 +2957,8 @@ msgstr "Použít změny"
 msgid "Do you wish to apply the changes?"
 msgstr "Chcete použít tyto změny?"
 
-#, fuzzy
 msgid "All folders"
-msgstr "Všechny moje složky"
+msgstr "Všechny složky"
 
 msgid "Other…"
 msgstr "Další…"
@@ -3115,9 +2966,8 @@ msgstr "Další…"
 msgid "Search in…"
 msgstr "Hledat v…"
 
-#, fuzzy
 msgid "Folder does not exist"
-msgstr "Obsah složky"
+msgstr "Složka neexistuje"
 
 #, fuzzy
 msgid ""
@@ -3125,31 +2975,24 @@ msgid ""
 "folder"
 msgstr "Složka, ve které hledáte, již neexistuje. Vyberte prosím jinou složku"
 
-#, fuzzy
 msgid "Add/Edit sender"
 msgstr "Přidat/upravit odesílatele"
 
-#, fuzzy
 msgid "No from addresses configured"
 msgstr "Žádné z nakonfigurovaných adres"
 
-#, fuzzy
 msgid "Loading from addresses"
 msgstr "Načítání z adres"
 
-#, fuzzy
 msgid "Forward Mail"
 msgstr "Přeposílání pošty"
 
-#, fuzzy
 msgid "Please select a from address record."
 msgstr "Vyberte prosím ze záznamu adresy."
 
-#, fuzzy
 msgid "Add/Edit From recipient"
 msgstr "Přidat/upravit Od příjemce"
 
-#, fuzzy
 msgid "Manage the recipients used in the 'From' field"
 msgstr "Správa příjemců použitých v poli \"Od"
 
@@ -3165,31 +3008,24 @@ msgstr "Zástupce"
 msgid "Delegate settings"
 msgstr "Nastavení zástupce"
 
-#, fuzzy
 msgid "Desktop Notifications Settings"
 msgstr "Nastavení oznámení na ploše"
 
-#, fuzzy
 msgid "We need permissions to enable desktop notifications."
 msgstr "Potřebujeme oprávnění k povolení oznámení na ploše."
 
-#, fuzzy
 msgid "Request Permissions"
 msgstr "Žádost o oprávnění"
 
-#, fuzzy
 msgid "Enable desktop notifications for new mail"
 msgstr "Povolení oznámení o nové poště na ploše"
 
-#, fuzzy
 msgid "Enable desktop notifications for reminders"
 msgstr "Povolení upozornění na ploše pro připomenutí"
 
-#, fuzzy
 msgid "{A} Auto-hide desktop notification after second(s) {B}"
 msgstr "{A} Automatické skrytí oznámení na ploše po sekundě (sekundách) {B}"
 
-#, fuzzy
 msgid "Disable sound"
 msgstr "Zakázat zvuk"
 
@@ -3199,11 +3035,9 @@ msgstr "Oznámení"
 msgid "Rules"
 msgstr "Pravidla"
 
-#, fuzzy
 msgid "From Addresses"
 msgstr "Z adres"
 
-#, fuzzy
 msgid "From Addresses settings"
 msgstr "Nastavení Od adres"
 
@@ -3222,7 +3056,6 @@ msgstr "Webová stránka"
 msgid "IM Address"
 msgstr "IM adresa"
 
-#, fuzzy
 msgid "D, d-m-Y, {0}"
 msgstr "D, d-m-Y, {0}"
 
@@ -3232,7 +3065,6 @@ msgstr[0] "{0} vybraný řádek"
 msgstr[1] "{0} vybrané řádky"
 msgstr[2] "{0} vybraných řádků"
 
-#, fuzzy
 msgid "Reminder is set on: {0}, {1}"
 msgstr "Připomenutí je nastaveno na: {0}, {1}"
 
@@ -3242,11 +3074,9 @@ msgstr "d-m-Y"
 msgid "l d/m/Y"
 msgstr "l d. m. Y"
 
-#, fuzzy
 msgid "l d/m/Y {0}"
 msgstr "l d/m/Y {0}"
 
-#, fuzzy
 msgid "d-m-Y {0}"
 msgstr "d-m-Y {0}"
 
@@ -3262,7 +3092,6 @@ msgstr "{0} zpožděný"
 msgid "Loading…"
 msgstr "Načítám…"
 
-#, fuzzy
 msgid "Message could not be loaded"
 msgstr "Zprávu se nepodařilo načíst"
 
@@ -3418,37 +3247,29 @@ msgctxt "mail.previewpanel"
 msgid "You forwarded this message on {0}."
 msgstr "Přeposlal(a) jste tuto zprávu dne {0}."
 
-#, fuzzy
 msgid "Assigned by {0} on {1}."
-msgstr "Přijal {0} na {1}"
+msgstr "Přiřazeno na {0} na {1}."
 
-#, fuzzy
 msgid "Waiting for response from recipient"
-msgstr "Žádat potvrzení o přečtení od příjemců"
+msgstr "Čekání na odpověď příjemce"
 
-#, fuzzy
 msgid "Accepted by {0} on {1}."
-msgstr "Přijal {0} na {1}"
+msgstr "Přijato na {0} na {1}."
 
-#, fuzzy
 msgid "{0} has accepted on behalf of {1} {2}."
-msgstr "{0} přijalo v zastoupení {1}."
+msgstr "{0} přijala jménem {1} {2} ."
 
-#, fuzzy
 msgid "Declined by {0} on {1}."
-msgstr "Přijal {0} na {1}"
+msgstr "Odmítnuto {0} na {1}."
 
-#, fuzzy
 msgid "{0} has declined on behalf of {1} {2}."
-msgstr "{0} zamítnul(a) v zastoupení {1}."
+msgstr "{0} odmítla jménem {1} {2} ."
 
-#, fuzzy
 msgid "Last update sent on {0}."
-msgstr "Poslední aktualizace byla odeslána dne {0}."
+msgstr "Poslední aktualizace odeslána na {0}."
 
-#, fuzzy
 msgid "{0} has updated on behalf of {1} {2}."
-msgstr "{0} přijalo v zastoupení {1}."
+msgstr "{0} aktualizoval jménem {1} {2} ."
 
 msgid "Fix message"
 msgstr "Zpráva"
@@ -3457,7 +3278,6 @@ msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
 msgstr "Nyní proběhne pokus o opravu poškozené zprávy, chcete pokračovat?"
 
-#, fuzzy
 msgid "The matching task was not found in your task list."
 msgstr "Odpovídající úkol nebyl ve vašem seznamu úkolů nalezen."
 
@@ -3492,9 +3312,8 @@ msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "Žádný"
 
-#, fuzzy
 msgid "Pop-out"
-msgstr "Pop-out"
+msgstr "Vysouvací"
 
 msgid "Mark as read"
 msgstr "Označit za přečtené"
@@ -3535,9 +3354,8 @@ msgstr "Telefon do zaměstnání"
 msgid "Business 2 Phone"
 msgstr "Telefon 2 do zaměstnání"
 
-#, fuzzy
 msgid "Assistant Phone"
-msgstr "Telefon asistenta"
+msgstr "Telefonní asistent"
 
 msgid "Company Main Phone"
 msgstr "Hlavní telefon společnosti"
@@ -3575,9 +3393,8 @@ msgstr "Další fax"
 msgid "Home Fax"
 msgstr "Fax domů"
 
-#, fuzzy
 msgid "Email Display As"
-msgstr "Ukázat E-mail jako"
+msgstr "E-mail zobrazit jako"
 
 msgid "Email 2"
 msgstr "E-mail 2"
@@ -3588,9 +3405,8 @@ msgstr "E-mail 2 ukázat jako"
 msgid "Email 3"
 msgstr "E-mail 3"
 
-#, fuzzy
 msgid "Email3 Display As"
-msgstr "E-mail 3 ukázat jako"
+msgstr "Email3 Zobrazit jako"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Birthday"
@@ -3768,7 +3584,6 @@ msgstr "Distribuční seznam"
 msgid "Mark this Distribution list as private"
 msgstr "Označit tento Distribuční seznam jako soukromý"
 
-#, fuzzy
 msgid "New email address"
 msgstr "Nová e-mailová adresa"
 
@@ -3790,13 +3605,11 @@ msgstr "Nový kontakt"
 msgid "New distribution list"
 msgstr "Nový distribuční seznam"
 
-#, fuzzy
 msgid "Email 2 Display As"
-msgstr "E-mail 2 ukázat jako"
+msgstr "E-mail 2 Zobrazit jako"
 
-#, fuzzy
 msgid "Email 3 Display As"
-msgstr "E-mail 3 ukázat jako"
+msgstr "E-mail 3 Zobrazit jako"
 
 msgid "Loading contacts"
 msgstr "Načítání kontaktů"
@@ -3808,11 +3621,9 @@ msgstr ""
 "V tomto seznamu nejsou žádné položky k zobrazení. Aktualizujte filtr, abyste "
 "získali další výsledky."
 
-#, fuzzy
 msgid "[Group]"
 msgstr "[Skupina]"
 
-#, fuzzy
 msgid "Work:"
 msgstr "Práce:"
 
@@ -3954,7 +3765,6 @@ msgstr "Změnit obrázek"
 msgid "Remove Picture"
 msgstr "Odstranit obrázek"
 
-#, fuzzy
 msgid "VCF file(s)"
 msgstr "Soubor(y) VCF"
 
@@ -4144,33 +3954,27 @@ msgstr "Odesílání…"
 msgid "Sent successfully"
 msgstr "Odesláno úspěšně"
 
-#, fuzzy
 msgid "No recipient"
-msgstr "Upravit příjemce"
+msgstr "Žádný příjemce"
 
-#, fuzzy
 msgid "Please specify at least one recipient"
-msgstr "Uveďte prosím příjemce"
+msgstr "Uveďte prosím alespoň jednoho příjemce"
 
 msgid "Please specify a recipient"
 msgstr "Uveďte prosím příjemce"
 
-#, fuzzy
 msgid "The attached files are not uploaded yet."
 msgstr "Přiložené soubory ještě nejsou nahrány."
 
-#, fuzzy
 msgid "Do you want to send this message without attachments?"
 msgstr "Chcete tuto zprávu odeslat bez příloh?"
 
 msgid "Attachments not uploaded yet"
 msgstr "Přidat přílohy k tomuto kontaktu"
 
-#, fuzzy
 msgid "Don't Send"
 msgstr "Neposílejte"
 
-#, fuzzy
 msgid "Send Anyway"
 msgstr "Odeslat v každém případě"
 
@@ -4188,9 +3992,8 @@ msgstr "Bez předmětu"
 msgid "Send this message without a subject?"
 msgstr "Odeslat tuto zprávu bez uvedení předmětu?"
 
-#, fuzzy
 msgid "Unresolved recipients"
-msgstr "Upravit příjemce"
+msgstr "Nevyřešení příjemci"
 
 msgid "Not all recipients could be resolved"
 msgstr "Ne všechny příjemce lze rozlišit"
@@ -4198,21 +4001,18 @@ msgstr "Ne všechny příjemce lze rozlišit"
 msgid "Collapse hierarchy"
 msgstr "Nelze načíst hierarchii"
 
-#, fuzzy
 msgid "Expand hierarchy"
 msgstr "Rozšířit hierarchii"
 
 msgid "Folders List"
 msgstr "Seznam složek"
 
-#, fuzzy
 msgid "Copy Details"
-msgstr "Ukázat detaily"
+msgstr "Kopírovat podrobnosti"
 
 msgid "Hide Details"
 msgstr "Skrýt detaily"
 
-#, fuzzy
 msgid "Loaded {0} of {1}"
 msgstr "Načteno {0} z {1}"
 
@@ -4238,28 +4038,23 @@ msgstr "grommunio Hlavní panel"
 msgid "Delete item"
 msgstr "Smazat položku"
 
-#, fuzzy
 msgid "This item has been changed. Are you sure you want to delete it?"
 msgstr "Tato položka byla změněna. Opravdu ji chcete odstranit?"
 
-#, fuzzy
 msgid "Unsaved changes"
 msgstr "Neuložené změny"
 
-#, fuzzy
 msgid "Welcome to grommunio Web"
 msgstr "Vítejte na webu grommunio"
 
 msgid "This is the first time you are using grommunio Web. "
 msgstr "Tentokrát používáte web grommunio poprvé. "
 
-#, fuzzy
 msgid "Please check the following settings before continuing."
 msgstr "Před pokračováním zkontrolujte následující nastavení."
 
-#, fuzzy
 msgid "Widget height"
-msgstr "Přidat prvky"
+msgstr "Výška widgetu"
 
 msgid "pixels"
 msgstr "body"
@@ -4267,16 +4062,14 @@ msgstr "body"
 msgid "Configure widget"
 msgstr "Nastavit prvek"
 
-#, fuzzy
 msgid "Reload interval"
 msgstr "Interval načítání"
 
 msgid "seconds"
 msgstr "sekund"
 
-#, fuzzy
 msgid "Open in new tab"
-msgstr "Otevřit v novém okně prohlížeče"
+msgstr "Otevřít na nové kartě"
 
 msgid "Add widgets"
 msgstr "Přidat prvky"
@@ -4284,44 +4077,35 @@ msgstr "Přidat prvky"
 msgid "No widgets installed."
 msgstr "Nejsou nainstalovány žádné prvky."
 
-#, fuzzy
 msgid "Remove widget"
-msgstr "Odstranit obrázek"
+msgstr "Odstranění widgetu"
 
 msgid "Collapse widget"
 msgstr "Nelze načíst hierarchii"
 
-#, fuzzy
 msgid "Expand widget"
-msgstr "Přidat prvky"
+msgstr "Rozbalit widget"
 
-#, fuzzy
 msgid "About this widget"
 msgstr "O tomto widgetu"
 
-#, fuzzy
 msgid "Add new widget"
-msgstr "Přidat prvky"
+msgstr "Přidání nového widgetu"
 
-#, fuzzy
 msgid "Collapse widget panel"
 msgstr "Sbalení panelu widgetů"
 
-#, fuzzy
 msgid "Expand widget panel"
 msgstr "Rozbalení panelu widgetů"
 
-#, fuzzy
 msgid "Your changes will be lost if you leave this page now."
 msgstr "Pokud nyní opustíte tuto stránku, vaše změny budou ztraceny."
 
-#, fuzzy
 msgid "D {0}"
 msgstr "D {0}"
 
-#, fuzzy
 msgid "D d-m"
-msgstr "d-m"
+msgstr "D d-m"
 
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
@@ -4337,19 +4121,17 @@ msgstr ""
 "Není k dispozici oprávnění k otevření této složky, přejete si odstranit ji "
 "ze systému?"
 
-#, fuzzy
 msgid "Insufficient Permissions"
-msgstr "Nedostatečná práva"
+msgstr "Nedostatečná oprávnění"
 
 msgid "Not enough permissions to open this folder."
 msgstr "Není k dispozici oprávnění otevřít tuto složku."
 
-#, fuzzy
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
-msgstr[0] "Ve složce {1} je {0} nepřečtená zpráva"
-msgstr[1] "Ve složce {1} jsou {0} nepřečtené zprávy"
-msgstr[2] "Ve složce {1} je {0} nepřečtených zpráv"
+msgstr[0] "Ve složce {1} je {0} nepřečtená zpráva {2}"
+msgstr[1] "Ve složce {1} je {0} nepřečtených zpráv {2}"
+msgstr[2] "Ve složce {1} je {0} nepřečtených zpráv {2}"
 
 msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
@@ -4378,19 +4160,15 @@ msgstr "Recenzent"
 msgid "Contributor"
 msgstr "Přispěvatel"
 
-#, fuzzy
 msgid "Free/Busy time, subject, location"
 msgstr "Volný/nezaměstnaný čas, předmět, místo"
 
-#, fuzzy
 msgid "Free/Busy time"
 msgstr "Volný čas/čas zaneprázdněnosti"
 
-#, fuzzy
 msgid "Unable to import:"
 msgstr "Nelze importovat:"
 
-#, fuzzy
 msgid "The files are not valid"
 msgstr "Soubory nejsou platné"
 
@@ -4418,13 +4196,11 @@ msgstr "Položky Úkolů"
 msgid "Select where to place the folder"
 msgstr "Vyberte umístění složky"
 
-#, fuzzy
 msgid "No folder name"
-msgstr "Název složky"
+msgstr "Žádný název složky"
 
-#, fuzzy
 msgid "No destination"
-msgstr "Žádné informace"
+msgstr "Žádné místo určení"
 
 msgid "You must select a destination folder."
 msgstr "Musíte označit cílovou složku."
@@ -4489,7 +4265,6 @@ msgstr "Kontakt složky"
 msgid "Folder visible"
 msgstr "Viditelná složka"
 
-#, fuzzy
 msgid "Apply (copy) changed permissions recursively"
 msgstr "Rekurzivní použití (kopírování) změněných oprávnění"
 
@@ -4535,23 +4310,20 @@ msgstr "Třídit podle: Celková velikost (včetně podsložek)"
 msgid "Open Shared Folders"
 msgstr "Otevřít Sdílené složky"
 
-#, fuzzy
 msgid "Unresolved user"
 msgstr "Nevyřešený uživatel"
 
 msgid "Username '{0}' could not be resolved."
 msgstr "Jméno uživatele '{0}' nebylo možné rozpoznat."
 
-#, fuzzy
 msgid "Invalid user"
 msgstr "Neplatný uživatel"
 
 msgid "Username '{0}' is not a valid user."
 msgstr "Uživatel '{0}' není platným uživatelem."
 
-#, fuzzy
 msgid "Own store"
-msgstr "Obnovit"
+msgstr "Vlastní obchod"
 
 msgid "It is not possible to open your own store twice."
 msgstr "Nelze otevřít vaše vlastní úložiště dvakrát."
@@ -4562,7 +4334,6 @@ msgstr "Tato sdílená složka je již otevřena"
 msgid "This shared folder is already open."
 msgstr "Tato sdílená složka je již otevřena."
 
-#, fuzzy
 msgid "No user"
 msgstr "Žádný uživatel"
 
@@ -4575,25 +4346,20 @@ msgstr "Typ složky"
 msgid "Show subfolders"
 msgstr "Ukázat podsložky"
 
-#, fuzzy
 msgid "Open shared folder/store"
 msgstr "Otevření sdílené složky/úložiště"
 
-#, fuzzy
 msgid "Rename folder"
 msgstr "Přejmenování složky"
 
-#, fuzzy
 msgid "Empty folder"
-msgstr "Vyprázdnit složku"
+msgstr "Prázdná složka"
 
-#, fuzzy
 msgid "Empty Junk Email"
 msgstr "Prázdný nevyžádaný e-mail"
 
-#, fuzzy
 msgid "Empty Deleted Items"
-msgstr "Odstraněné položky"
+msgstr "Prázdné odstraněné položky"
 
 msgid "Rename Folder"
 msgstr "Přejmenovat složku"
@@ -4619,43 +4385,35 @@ msgstr "Znovu načíst"
 msgid "Restore items"
 msgstr "Obnovit položky"
 
-#, fuzzy
 msgid "Select color"
-msgstr "Vybrat složku"
+msgstr "Vyberte barvu"
 
 msgid "Add to Favorites"
 msgstr "Přidat do oblíbených"
 
-#, fuzzy
 msgid "Remove From Favorites"
-msgstr "Odstranit z kalendáře"
+msgstr "Odstranění z oblíbených položek"
 
 msgid "Share folder…"
 msgstr "Výchozí adresář…"
 
-#, fuzzy
 msgid "Import emails"
-msgstr "Důležitý"
+msgstr "Import e-mailů"
 
-#, fuzzy
 msgid "Import appointments"
-msgstr "Nový termín"
+msgstr "Import schůzek"
 
-#, fuzzy
 msgid "Import contacts"
 msgstr "Import kontaktů"
 
-#, fuzzy
 msgid "Properties of {0}"
-msgstr "Vlastnosti"
+msgstr "Vlastnosti {0}"
 
-#, fuzzy
 msgid "Share {0} with…"
-msgstr "Sdílejte {0} s…"
+msgstr "Sdílejte {0} s.."
 
-#, fuzzy
 msgid "Properties of {0} - {1}"
-msgstr "Vlastnosti"
+msgstr "Vlastnosti {0} - {1}"
 
 msgid ""
 "Are you sure you want to permanently delete all the items and subfolders in "
@@ -4706,18 +4464,15 @@ msgstr "Odesláno"
 msgid "Original message"
 msgstr "Původní zpráva"
 
-#, fuzzy
 msgid "Schedule mail to be sent out"
 msgstr "Naplánujte odesílání pošty"
 
-#, fuzzy
 msgid "Scheduled Items"
 msgstr "Naplánované položky"
 
 msgid "Your message will be sent at "
 msgstr "Vaše zpráva bude odeslána na adresu "
 
-#, fuzzy
 msgid "Go to your Outbox to edit your email."
 msgstr "Přejděte do složky Doručená pošta a upravte svůj e-mail."
 
@@ -4727,11 +4482,9 @@ msgstr "hodiny"
 msgid "month(s)"
 msgstr "měsíc(e)"
 
-#, fuzzy
 msgid "at a specific time"
 msgstr "v určitý čas"
 
-#, fuzzy
 msgid "The time you entered is in the past. Please reschedule your mail."
 msgstr ""
 "Čas, který jste zadali, je již minulostí. Změňte prosím termín odeslání "
@@ -4746,33 +4499,27 @@ msgstr "zítra v "
 msgid "{0} at "
 msgstr "{0} na "
 
-#, fuzzy
 msgid "at {0}"
-msgstr "na {0}"
+msgstr "na adrese {0}"
 
-#, fuzzy
 msgid "Your email will be sent {0}{1}"
 msgstr "Váš e-mail bude odeslán {0}{1}"
 
 msgid "Saving…"
 msgstr "Ukládám…"
 
-#, fuzzy
 msgid "Saved at {0}"
-msgstr "Zpráva byla uložena o {0}."
+msgstr "Uloženo na {0}"
 
 msgid "Saving failed"
 msgstr "Uložení se nezdařilo"
 
-#, fuzzy
 msgid "This message will be flagged for follow up when it is sent."
 msgstr "Tato zpráva bude po odeslání označena jako následná."
 
-#, fuzzy
 msgid "Send Later"
 msgstr "Odeslat později"
 
-#, fuzzy
 msgid "Schedule your mail to be sent on a specific date and time"
 msgstr "Naplánujte odeslání pošty na konkrétní datum a čas"
 
@@ -4791,11 +4538,9 @@ msgstr "Nastavit štítek"
 msgid "Set flag on this email"
 msgstr "Nastavit štítek na tuto zprávu"
 
-#, fuzzy
 msgid "Mark this mail as high priority"
 msgstr "Označte tuto poštu jako vysoce prioritní"
 
-#, fuzzy
 msgid "Mark this mail as low priority"
 msgstr "Označte tuto poštu jako poštu s nízkou prioritou"
 
@@ -4808,15 +4553,12 @@ msgstr "Žádat potvrzení o přečtení od příjemců"
 msgid "Show Bcc"
 msgstr "Ukázat Skryté kopie"
 
-#, fuzzy
 msgid "Show Bcc field"
-msgstr "Ukázat Skryté kopie"
+msgstr "Zobrazit pole Bcc"
 
-#, fuzzy
 msgid "Show From field"
-msgstr "Ukázat Od koho"
+msgstr "Zobrazit pole Od"
 
-#, fuzzy
 msgid "Cannot save while attachment is being uploaded"
 msgstr "Nelze uložit při nahrávání přílohy"
 
@@ -4847,35 +4589,29 @@ msgstr "Označit jako přečtené"
 msgid "Mark Unread"
 msgstr "Označit jako nepřečtené"
 
-#, fuzzy
 msgid "New mail"
-msgstr "Nová zpráva"
+msgstr "Nová pošta"
 
 msgid "Mail"
 msgstr "Pošta"
 
-#, fuzzy
 msgid "Reply all"
 msgstr "Odpovědět všem"
 
-#, fuzzy
 msgid "Toggle read/unread"
 msgstr "Přepínání přečtení/nepřečtení"
 
-#, fuzzy
 msgid "Toggle red/complete flag"
 msgstr "Přepínání červeného/úplného praporku"
 
 msgid "Open Shared Mails"
 msgstr "Otevřít sdílenou poštu"
 
-#, fuzzy
 msgid "Print single email"
-msgstr "Tisknout jedinou zprávu"
+msgstr "Tisk jednoho e-mailu"
 
-#, fuzzy
 msgid "Print selected email"
-msgstr "Tisknout vybrané položky"
+msgstr "Tisk vybraného e-mailu"
 
 msgid "Filter"
 msgstr "Filtr"
@@ -4886,23 +4622,18 @@ msgstr "Fwd"
 msgid "Re"
 msgstr "Re"
 
-#, fuzzy
 msgid "on behalf of"
 msgstr "jménem"
 
-#, fuzzy
 msgid "Safe Senders list is empty"
 msgstr "Seznam bezpečných odesílatelů je prázdný"
 
-#, fuzzy
 msgid "Please select a safe sender record."
 msgstr "Vyberte bezpečný záznam odesílatele."
 
-#, fuzzy
 msgid "Delete all safe senders"
 msgstr "Odstranění všech bezpečných odesílatelů"
 
-#, fuzzy
 msgid "Are you sure you want to delete all safe senders?"
 msgstr "Určitě chcete odstranit všechny bezpečné odesílatele?"
 
@@ -4927,11 +4658,9 @@ msgstr "Vytvořit nastavení pošty"
 msgid "Compose mail in this format"
 msgstr "Vytvořit poštu v tomto formátu"
 
-#, fuzzy
 msgid "Default font"
 msgstr "Výchozí písmo"
 
-#, fuzzy
 msgid "Default font size"
 msgstr "Výchozí velikost písma"
 
@@ -4946,19 +4675,15 @@ msgstr "Aktivujte připomenutí přílohy"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
-#, fuzzy
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A}AutoSave Neodeslaná pošta každou {B} minutu(y)"
 
-#, fuzzy
 msgid "Conversation view settings"
 msgstr "Nastavení zobrazení konverzace"
 
-#, fuzzy
 msgid "Enable conversation view"
 msgstr "Povolení zobrazení konverzace"
 
-#, fuzzy
 msgid "Collapse conversation when selecting a different email"
 msgstr "Sbalení konverzace při výběru jiného e-mailu"
 
@@ -4983,7 +4708,7 @@ msgid "{A}Automatically mark mail as read after {B} second(s)"
 msgstr "{A}Zpráva označená automaticky jako přečtená za {B} sekund(y)"
 
 msgid "View mail in this format"
-msgstr ""
+msgstr "Zobrazit poštu v tomto formátu"
 
 msgid "Right"
 msgstr "Vpravo"
@@ -4991,44 +4716,36 @@ msgstr "Vpravo"
 msgid "Bottom"
 msgstr "Dole"
 
-#, fuzzy
 msgid "Location of preview pane"
-msgstr "Panel náhledu umístění"
+msgstr "Umístění podokna náhledu"
 
 msgid "Use subject prefixes in accordance with RFC 5256/5322"
 msgstr "Používejte předpony předmětů v souladu s RFC 5256/5322."
 
-#, fuzzy
 msgid "Close original message on reply or forward"
 msgstr "Zavření původní zprávy při odpovědi nebo přeposlání"
 
 msgid "General mail settings"
 msgstr "Hlavní nastavení pošty"
 
-#, fuzzy
 msgid "Open or compose a mail item in a"
 msgstr "Otevření nebo sestavení poštovní položky v"
 
-#, fuzzy
 msgid "grommunio Web tab"
-msgstr "grommunio Web"
+msgstr "webová karta grommunio"
 
-#, fuzzy
 msgid "Browser window"
-msgstr "Prohlížet"
+msgstr "Okno prohlížeče"
 
-#, fuzzy
 msgid "Update Out of Office settings for"
 msgstr "Aktualizace nastavení Mimo kancelář pro"
 
 msgid "I am currently in the office"
 msgstr "Jsem právě v kanceláři"
 
-#, fuzzy
 msgid "I am out of the office from"
-msgstr "Jsem právě mimo kancelář"
+msgstr "Jsem mimo kancelář od"
 
-#, fuzzy
 msgid "I will be back on"
 msgstr "Vrátím se na"
 
@@ -5036,28 +4753,23 @@ msgid "Automatically reply with the following message:"
 msgstr "Automatická odpověďět následujícím textem:"
 
 msgid "(The frequency of replies is dependent on server configuration.)"
-msgstr ""
+msgstr "(Četnost odpovědí závisí na konfiguraci serveru.)"
 
-#, fuzzy
 msgid "Inside My Organization"
 msgstr "Uvnitř mé organizace"
 
 msgid "User is currently out of office."
 msgstr "Uživatel je právě mimo kancelář."
 
-#, fuzzy
 msgid "Outside My Organization"
 msgstr "Mimo mou organizaci"
 
-#, fuzzy
 msgid "Auto-reply to people outside my organization"
 msgstr "Automatická odpověď lidem mimo mou organizaci"
 
-#, fuzzy
 msgid "My contacts only"
 msgstr "Pouze mé kontakty"
 
-#, fuzzy
 msgid "Anyone outside my organization"
 msgstr "Kdokoli mimo mou organizaci"
 
@@ -5066,7 +4778,6 @@ msgid ""
 "The time you entered is before the out of office date. Please reschedule."
 msgstr "Zadaný čas je před datem ukončení provozu. Změňte prosím termín."
 
-#, fuzzy
 msgid "Safe Senders"
 msgstr "Bezpeční odesílatelé"
 
@@ -5088,21 +4799,17 @@ msgstr "Podpisy"
 msgid "No signatures configured"
 msgstr "Nejsou nastaveny podpisy"
 
-#, fuzzy
 msgid "New messages"
 msgstr "Nové zprávy"
 
-#, fuzzy
 msgid "Replies/forwards"
 msgstr "Odpovědi/předání"
 
-#, fuzzy
 msgid "Signature name:"
 msgstr "Podpisové jméno:"
 
-#, fuzzy
 msgid "Save Signature"
-msgstr "Podpisy"
+msgstr "Uložit podpis"
 
 msgid "You have unsaved changes. Do you wish to save the changes?"
 msgstr "Změny nebyly uloženy. Přejete si uložit změny?"
@@ -5110,13 +4817,11 @@ msgstr "Změny nebyly uloženy. Přejete si uložit změny?"
 msgid "New signature"
 msgstr "Nový podpis"
 
-#, fuzzy
 msgid "EML file(s)"
 msgstr "Soubor(y) EML"
 
-#, fuzzy
 msgid "ZIP file"
-msgstr "Profil"
+msgstr "Soubor ZIP"
 
 msgid "max. "
 msgstr "max. "
@@ -5127,20 +4832,17 @@ msgstr "Třídit podle: Odeslané"
 msgid "Modified"
 msgstr "Změněno"
 
-#, fuzzy
 msgid "Sort by: Modified"
 msgstr "Seřadit podle: Upraveno"
 
 msgid "Flag"
 msgstr "Vlajka"
 
-#, fuzzy
 msgid "Sort by: flag"
 msgstr "Seřadit podle: vlajka"
 
-#, fuzzy
 msgid "Older"
-msgstr "Složka"
+msgstr "Starší"
 
 msgid "Yesterday"
 msgstr "Včera"
@@ -5148,11 +4850,9 @@ msgstr "Včera"
 msgid "Last Week"
 msgstr "Poslední týden"
 
-#, fuzzy
 msgid "Two Weeks Ago"
 msgstr "Před dvěma týdny"
 
-#, fuzzy
 msgid "Three Weeks Ago"
 msgstr "Před třemi týdny"
 
@@ -5168,14 +4868,12 @@ msgstr "Střední"
 msgid "Large"
 msgstr "Velký"
 
-#, fuzzy
 msgid "Very large"
 msgstr "Velmi velký"
 
 msgid "Huge"
 msgstr "Obrovské"
 
-#, fuzzy
 msgid "Follow up"
 msgstr "Následná opatření"
 
@@ -5200,14 +4898,12 @@ msgstr "Nepřečtená pošta"
 msgid "Quick Mail"
 msgstr "Rychlá pošta"
 
-#, fuzzy
 msgid "Print note"
-msgstr "Vytisknout tuto poznámku"
+msgstr "Poznámka k tisku"
 
 msgid "Color"
 msgstr "Barva"
 
-#, fuzzy
 msgid "New note"
 msgstr "Nová poznámka"
 
@@ -5217,13 +4913,11 @@ msgstr "Otevřít sdílené poznámky"
 msgid "Sticky note"
 msgstr "Rychlá poznámka"
 
-#, fuzzy
 msgid "Print selected note"
-msgstr "Tisknout vybrané úlohy"
+msgstr "Tisk vybrané poznámky"
 
-#, fuzzy
 msgid "No note selected"
-msgstr "Žádná úloha není zvolena"
+msgstr "Nebyla vybrána žádná poznámka"
 
 msgid "Icons"
 msgstr "Ikony"
@@ -5269,7 +4963,6 @@ msgstr "Nastavení"
 msgid "Basic"
 msgstr "Základní"
 
-#, fuzzy
 msgid "Account information - {0}"
 msgstr "Informace o účtu - {0}"
 
@@ -5285,7 +4978,6 @@ msgstr "Výchozí adresář"
 msgid "Theme"
 msgstr "Šablona"
 
-#, fuzzy
 msgid "Select Default Folder"
 msgstr "Vyberte výchozí složku"
 
@@ -5295,18 +4987,14 @@ msgstr "Pokročilé"
 msgid "Advanced settings"
 msgstr "Pokročilé nastavení"
 
-#, fuzzy
 msgid "Developer tools"
 msgstr "Nástroje pro vývojáře"
 
-#, fuzzy
 msgid "Show insertion points in grommunio Web"
 msgstr "Zobrazit body vložení v grommunio Web"
 
-#, fuzzy
 msgid "Show \"item data\" button in context menu (mail only)"
-msgstr ""
-"Zobrazení tlačítka \"údaje o položce\" v kontextové nabídce (pouze pošta)"
+msgstr "Zobrazení tlačítka \"údaje o položce\" v kontextové nabídce (pouze pošta)"
 
 msgid "Edit setting"
 msgstr "Upravit nastavení"
@@ -5317,14 +5005,12 @@ msgstr "Nastavit výchozí"
 msgid "Delete settings"
 msgstr "Odstranit nastavení"
 
-#, fuzzy
 msgid "{0} Iconset"
-msgstr "Ikony"
+msgstr "{0} Sada ikon"
 
 msgid "About"
 msgstr "O nás"
 
-#, fuzzy
 msgid "I want to display date and time in this format:"
 msgstr "Chci zobrazit datum a čas v tomto formátu:"
 
@@ -5337,84 +5023,66 @@ msgstr "Dlouhé"
 msgid "Time format:"
 msgstr "Formát času:"
 
-#, fuzzy
 msgid "12h clock"
 msgstr "12h hodiny"
 
-#, fuzzy
 msgid "24h clock"
 msgstr "24 hodin denně"
 
-#, fuzzy
 msgid "Favorite settings"
-msgstr "Nastavení zástupce"
+msgstr "Oblíbená nastavení"
 
-#, fuzzy
 msgid "Hide favorites"
-msgstr "Přidat k oblíbeným"
+msgstr "Skrýt oblíbené položky"
 
-#, fuzzy
 msgid "Unpin favorites from top"
 msgstr "Zrušení připnutí oblíbených položek shora"
 
-#, fuzzy
 msgid "Give unread items a colored border"
 msgstr "Přidat nepřečteným položkám barevný rámeček"
 
-#, fuzzy
 msgid "Show 'help' button in top-right corner"
 msgstr "Zobrazení tlačítka nápovědy v pravém horním rohu"
 
-#, fuzzy
 msgid "Show unread mail counter in application title"
 msgstr "Zobrazení počítadla nepřečtené pošty v názvu aplikace"
 
-#, fuzzy
 msgid "Hide widget panel"
 msgstr "Skrytí panelu widgetů"
 
-#, fuzzy
 msgid "Show search bar above folder list"
 msgstr "Zobrazení vyhledávacího panelu nad seznamem složek"
 
 msgid "Auto"
 msgstr "Automaticky"
 
-#, fuzzy
 msgid "Actual size"
 msgstr "Skutečná velikost"
 
 msgid "Page width"
 msgstr "Šířka stránky"
 
-#, fuzzy
 msgid "Attachment preview (PDF and Open formats)"
 msgstr "Náhled přílohy (formáty PDF a Open)"
 
-#, fuzzy
 msgid "Document default zoom"
 msgstr "Výchozí zvětšení dokumentu"
 
-#, fuzzy
 msgid "PDF zoom"
 msgstr "Přiblížení ve formátu PDF"
 
-#, fuzzy
 msgid "File previewing"
 msgstr "Náhled souborů"
 
-#, fuzzy
 msgid "Inbox navigation"
 msgstr "Navigace ve složce Doručená pošta"
 
-#, fuzzy
 msgid "I want to navigate through my items by using:"
 msgstr "Chci procházet své položky pomocí:"
 
 msgid "Infinite Scroll"
 msgstr "Nekonečné načítání"
 
-#, fuzzy
 msgid "grommunio Web automatically loads additional items when you scroll down"
 msgstr "grommunio Web automaticky načítá další položky při posouvání dolů"
 
@@ -5429,34 +5097,27 @@ msgstr ""
 "grommunio Web zobrazuje položky na stránkách a k navigaci můžete použít "
 "navigační ovládací prvky"
 
-#, fuzzy
 msgid "Load items in blocks of {A}"
 msgstr "Načtení položek v blocích {A}"
 
-#, fuzzy
 msgid "Load {A} items per page."
 msgstr "Načíst {A} položek na stránku."
 
 msgid "Keyboard Shortcuts"
 msgstr "Klávesové zkratky"
 
-#, fuzzy
 msgid "Part of basic keyboard shortcuts"
 msgstr "Součást základních klávesových zkratek"
 
-#, fuzzy
 msgid "Keyboard shortcuts off"
 msgstr "Vypnutí klávesových zkratek"
 
-#, fuzzy
 msgid "Basic keyboard shortcuts on"
 msgstr "Základní klávesové zkratky na"
 
-#, fuzzy
 msgid "All keyboard shortcuts on"
 msgstr "Všechny klávesové zkratky na"
 
-#, fuzzy
 msgid "This change requires a reload of grommunio Web"
 msgstr "Tato změna vyžaduje opětovné načtení aplikace grommunio Web"
 
@@ -5466,32 +5127,27 @@ msgstr "Zásuvné moduly"
 msgid "Available plugins"
 msgstr "Dostupné pluginy"
 
-#, fuzzy
 msgid "No plugins available"
 msgstr "Nejsou k dispozici žádné pluginy"
 
 msgid "Version"
 msgstr "Verze"
 
-#, fuzzy
 msgid "This plugin cannot be disabled"
 msgstr "Tento zásuvný modul nelze zakázat"
 
-#, fuzzy
 msgid "This plugin cannot be enabled"
 msgstr "Tento zásuvný modul nelze povolit"
 
 msgid "Mailbox Usage"
 msgstr "Používání Poštovní schránky"
 
-#, fuzzy
 msgid "A quota is not set on your store."
 msgstr "Ve vašem obchodě není nastavena kvóta."
 
 msgid "{0} of mailbox space is used."
 msgstr "{0} z kapacity poštovní chránky je použito."
 
-#, fuzzy
 msgid "You have exceeded hard quota, you can not send or receive mails."
 msgstr "Překročili jste tvrdou kvótu, nemůžete odesílat ani přijímat e-maily."
 
@@ -5506,9 +5162,8 @@ msgstr ""
 "Nemůžete odesílat e-maily, protože jste překročili měkkou kvótu, při {0} "
 "nebudete moci přijímat e-maily."
 
-#, fuzzy
 msgid "At {0} you won't be able to send or receive mails."
-msgstr "Při {0} nebudete moci odesílat ani přijímat e-maily."
+msgstr "Na adrese {0} nebude možné odesílat ani přijímat e-maily."
 
 msgid "You can not send mails as you have exceeded soft quota."
 msgstr "Nemůžete odesílat zprávy, neboť jste překročili měkkou kvótu."
@@ -5516,7 +5171,6 @@ msgstr "Nemůžete odesílat zprávy, neboť jste překročili měkkou kvótu."
 msgid "Reset settings"
 msgstr "Obnovit nastavení"
 
-#, fuzzy
 msgid "Reset settings to their original defaults."
 msgstr "Obnovení původních výchozích nastavení."
 
@@ -5537,7 +5191,6 @@ msgstr "grommunio Web se automaticky znovu načte, aby se tyto změny projevily"
 msgid "Reset"
 msgstr "Resetovat"
 
-#, fuzzy
 msgid "Reloading, Please wait."
 msgstr "Nabíjení, počkejte prosím."
 
@@ -5553,15 +5206,12 @@ msgstr "Informace o verzi"
 msgid "Gromox"
 msgstr "Gromox"
 
-#, fuzzy
 msgid "Delete confirmation"
 msgstr "Odstranění potvrzení"
 
-#, fuzzy
 msgid "Deleting the item(s) will also delete the original item(s)."
 msgstr "Odstraněním položky (položek) se odstraní i původní položka (položky)."
 
-#, fuzzy
 msgid "Do you want to delete the item(s)?"
 msgstr "Chcete položku (položky) odstranit?"
 
@@ -5607,11 +5257,9 @@ msgstr "Fakturační informace"
 msgid "Mileage"
 msgstr "Vzdálenost"
 
-#, fuzzy
 msgid "Accepting Task"
-msgstr "Průběžné úkoly"
+msgstr "Přijetí úkolu"
 
-#, fuzzy
 msgid "Declining Task"
 msgstr "Klesající úkol"
 
@@ -5637,7 +5285,6 @@ msgstr "Odeslat odpověď nyní"
 msgid "Date Complete"
 msgstr "Datum dokončení"
 
-#, fuzzy
 msgid "Multiple companies name must be separated by"
 msgstr "Název více společností musí být oddělen"
 
@@ -5650,17 +5297,14 @@ msgstr "Vytvořit nepřidělenou kopii"
 msgid "copy"
 msgstr "kopírovat"
 
-#, fuzzy
 msgid "Unable to send task request"
 msgstr "Nelze odeslat požadavek na úlohu"
 
-#, fuzzy
 msgid "You cannot send a task request to yourself."
 msgstr "Požadavek na úkol nemůžete odeslat sami sobě."
 
-#, fuzzy
 msgid "Multiple recipients"
-msgstr "Zobrazit příjemce"
+msgstr "Více příjemců"
 
 msgid "A task request can only have one recipient."
 msgstr "Vždy vyžádat potvrzení o přečtení."
@@ -5674,23 +5318,19 @@ msgstr "Priorita"
 msgid "% Complete"
 msgstr "% Dokončeno"
 
-#, fuzzy
 msgid "Track progress"
-msgstr "Probíhá"
+msgstr "Sledování pokroku"
 
-#, fuzzy
 msgid "Keep updated copy of task and receive automated status reports"
 msgstr ""
 "Uchovávejte aktualizovanou kopii úkolu a dostávejte automatické zprávy o "
 "stavu"
 
-#, fuzzy
 msgid "Send task to assignees"
-msgstr "Odeslat úkol pověřené osobě"
+msgstr "Odeslání úkolu příkazcům"
 
-#, fuzzy
 msgid "Restore to Task List"
-msgstr "Nastavit výchozí"
+msgstr "Obnovení seznamu úkolů"
 
 msgid "Delete this task"
 msgstr "Smazat tuto položku"
@@ -5704,9 +5344,8 @@ msgstr "Označit jako Dokončené"
 msgid "Mark this task as complete"
 msgstr "Označit tento úkol jako dokončený"
 
-#, fuzzy
 msgid "Print this task"
-msgstr "Tisknout tuto zprávu"
+msgstr "Vytisknout tento úkol"
 
 msgid "Assign Task"
 msgstr "Přidělit úkol"
@@ -5717,7 +5356,6 @@ msgstr "Zrušit přidělení"
 msgid "Mark this task as private"
 msgstr "Označit tento kontakt jako soukromý"
 
-#, fuzzy
 msgid "New task"
 msgstr "Nový úkol"
 
@@ -5749,7 +5387,6 @@ msgstr "{vlastní práce} hodin"
 msgid "Open Shared Tasks"
 msgstr "Otevřít sdílené úkoly"
 
-#, fuzzy
 msgid "Simple view"
 msgstr "Jednoduchý pohled"
 
@@ -5768,7 +5405,6 @@ msgstr "Žádná úloha není zvolena"
 msgid "Print task list"
 msgstr "Tisknout seznam úloh"
 
-#, fuzzy
 msgid "Create task"
 msgstr "Vytvořit úkol"
 
@@ -5784,13 +5420,11 @@ msgstr "Označit jako dokončené"
 msgid "Mark Incomplete"
 msgstr "Označit jako nedokončené"
 
-#, fuzzy
 msgid "Remove from To-Do List"
-msgstr "Odstranit z kalendáře"
+msgstr "Odstranění ze seznamu úkolů"
 
-#, fuzzy
 msgid "Changes to assigned task"
-msgstr "Odeslat úkol pověřené osobě"
+msgstr "Změny přiděleného úkolu"
 
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
@@ -5817,18 +5451,15 @@ msgstr "Třídit podle: Přidělení"
 msgid "Sort by: Owner"
 msgstr "Třídit podle: Vlastník"
 
-#, fuzzy
 msgid "Sort by: Percentage Completed"
-msgstr "Třídit podle: Dokončeno procent"
+msgstr "Seřadit podle: Procento dokončených"
 
-#, fuzzy
 msgid "Assigned task changes"
-msgstr "Přidělit úkol"
+msgstr "Změny přiřazených úkolů"
 
 msgid "Loading tasks"
 msgstr "Načítání úkolů"
 
-#, fuzzy
 msgid "Date completed"
 msgstr "Datum dokončení"
 
@@ -5838,13 +5469,11 @@ msgstr "hodin"
 msgid "Billing information"
 msgstr "Fakturační údaje"
 
-#, fuzzy
 msgid "Update list"
-msgstr "Aktualizovat seznam"
+msgstr "Aktualizace seznamu"
 
-#, fuzzy
 msgid "D d-m-Y"
-msgstr "d-m-Y"
+msgstr "D d-m-Y"
 
 msgid "none"
 msgstr "žádný"
@@ -5855,11 +5484,9 @@ msgstr "Rychlý úkol"
 msgid "No tasks."
 msgstr "Žádné úkoly."
 
-#, fuzzy
 msgid "Tasks / To-Do"
 msgstr "Úkoly / To-Do"
 
-#, fuzzy
 msgid "Click the link to open the URL in a new window."
 msgstr "Kliknutím na odkaz otevřete adresu URL v novém okně."
 
@@ -5869,7 +5496,6 @@ msgstr "Server na váš dotaz hlásí neznámou chybu."
 msgid "The server reported an unspecified error on your request."
 msgstr "Server na váš dotaz hlásí nespecifikovanou chybu."
 
-#, fuzzy
 msgid "The session has expired, reauthentication is required."
 msgstr "Platnost relace vypršela, je nutné provést opětovné ověření."
 
@@ -5881,54 +5507,42 @@ msgstr ""
 "Relace v aktuálním okně prohlížeče byla ukončena z jiného okna nebo karty "
 "prohlížeče."
 
-#, fuzzy
 msgid "Session expired"
 msgstr "Relace vypršela"
 
-#, fuzzy
 msgid "Do you wish to be redirected to the logon page?"
 msgstr "Chcete být přesměrováni na přihlašovací stránku?"
 
-#, fuzzy
 msgid "Reauthentication required, click here to go to back to logon page."
 msgstr ""
 "Vyžaduje se opětovné ověření, kliknutím sem se vrátíte na přihlašovací "
 "stránku."
 
-#, fuzzy
 msgid "Connection problem"
 msgstr "Problém s připojením"
 
-#, fuzzy
 msgid "Could not connect to server, retrying in {0} second(s)"
-msgstr "Nelze se připojit k serveru, opakujeme pokus za {0} sekundu(y)"
+msgstr "Nepodařilo se připojit k serveru, opakovaný pokus za {0} sekund(y)"
 
-#, fuzzy
 msgid "Click to retry now"
 msgstr "Klikněte pro opakování pokusu"
 
-#, fuzzy
 msgid "Connection restored"
 msgstr "Obnovení připojení"
 
-#, fuzzy
 msgid "Connection with server has been restored"
 msgstr "Spojení se serverem bylo obnoveno"
 
 #. TRANSLATORS: Example: HTTP 404
-#, fuzzy
 msgid "HTTP {0}"
 msgstr "HTTP {0}"
 
-#, fuzzy
 msgid "Invalid data received from the server"
 msgstr "Neplatná data přijatá ze serveru"
 
-#, fuzzy
 msgid "Missing store"
 msgstr "Chybějící obchod"
 
-#, fuzzy
 msgid "The default store is missing from the hierarchy."
 msgstr "V hierarchii chybí výchozí sklad."
 
@@ -5984,21 +5598,18 @@ msgctxt "hierarchy.foldername"
 msgid "Junk Email"
 msgstr "E-mail"
 
-#, fuzzy
 msgid "Missing folders"
 msgstr "Chybějící složky"
 
-#, fuzzy
 msgid "The following required folder is missing in the hierarchy: {0}"
 msgid_plural "The following required folders are missing in the hierarchy: {0}"
 msgstr[0] "V hierarchii chybí následující požadovaná složka: {0}"
-msgstr[1] ""
-msgstr[2] ""
+msgstr[1] "V hierarchii chybí následující požadované složky: {0}"
+msgstr[2] "V hierarchii chybí následující požadované složky: {0}"
 
 msgid "Loading model from server failed"
 msgstr "Selhalo načítání ze serveru"
 
-#, fuzzy
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Funkce Out of Office je v současné době aktivována. Chcete ji vypnout?"
 
@@ -6008,41 +5619,33 @@ msgstr "Archiv"
 msgid "Open Chat at start"
 msgstr "Otevření chatu po spuštění"
 
-#, fuzzy
 msgid "Desktop Notifications Plugin"
 msgstr "Plugin Oznámení na plochu"
 
-#, fuzzy
 msgid "Desktop Notifications"
 msgstr "Oznámení na ploše"
 
 msgid "Files: Default plugin"
-msgstr ""
+msgstr "Soubory: Výchozí zásuvný modul"
 
-#, fuzzy
 msgid "Loading users and groups"
 msgstr "Načítání uživatelů a skupin"
 
-#, fuzzy
 msgid "Add users or groups to share files."
 msgstr "Přidání uživatelů nebo skupin pro sdílení souborů."
 
-#, fuzzy
 msgid "Sort by: Type"
 msgstr "Seřadit podle: Typ"
 
-#, fuzzy
 msgid "Re-share"
 msgstr "Opětovné sdílení"
 
 msgid "Change"
 msgstr "Změnit"
 
-#, fuzzy
 msgid "Share with"
 msgstr "Sdílet s"
 
-#, fuzzy
 msgid "Share Details"
 msgstr "Sdílet podrobnosti"
 
@@ -6052,160 +5655,133 @@ msgstr "Napište, co hledáte"
 msgid "No results"
 msgstr "Žádné výsledky"
 
-#, fuzzy
 msgid "Share with user/group"
 msgstr "Sdílení s uživatelem/skupinou"
 
-#, fuzzy
 msgid "Share via link"
 msgstr "Sdílet prostřednictvím odkazu"
 
-#, fuzzy
 msgid "Public link"
 msgstr "Veřejný odkaz"
 
-#, fuzzy
 msgid "Password protect"
 msgstr "Ochrana heslem"
 
 msgid "Password"
 msgstr "Heslo"
 
-#, fuzzy
 msgid "Public upload"
 msgstr "Veřejné nahrávání"
 
 msgid "Expiration date"
 msgstr "Datum expirace"
 
-#, fuzzy
 msgid "More than 1 share link exists. Only showing the latest one"
-msgstr ""
-"Existuje více než 1 odkaz na sdílení. Zobrazuje se pouze ten nejnovější"
+msgstr "Existuje více než 1 odkaz na sdílení. Zobrazuje se pouze ten nejnovější"
 
-#, fuzzy
 msgid "Loading details…"
-msgstr "Načítání podrobností…"
+msgstr "Načítání podrobností.."
 
 msgid "Files: Seafile Backend"
-msgstr ""
+msgstr "Soubory: Backend mořského souboru"
 
 msgid "Copy link to clipboard"
-msgstr ""
+msgstr "Kopírování odkazu do schránky"
 
 msgid "Link copied to clipboard"
-msgstr ""
+msgstr "Odkaz zkopírovaný do schránky"
 
 msgid "Clipboard"
-msgstr ""
+msgstr "Schránka"
 
 msgid "Could not copy link automatically. Please copy it manually."
-msgstr ""
+msgstr "Odkaz se nepodařilo automaticky zkopírovat. Zkopírujte jej prosím ručně."
 
 msgid "Loading details..."
-msgstr ""
+msgstr "Načítání podrobností..."
 
 msgid "Share"
 msgstr "Sdílet"
 
 msgid "Loading..."
-msgstr ""
+msgstr "Načítání..."
 
-#, fuzzy
 msgid "Add attachment from {0}"
 msgstr "Přidat přílohu z {0}"
 
 msgid "Confirm deletion"
 msgstr "Potvrdit smazání"
 
-#, fuzzy
 msgid "Are you sure you want to delete {0}?"
-msgstr "Opravdu chcete odstranit {0}?"
+msgstr "Jste si jisti, že chcete odstranit adresu {0}?"
 
-#, fuzzy
 msgid "Are you sure you want to delete {0} and all of its contents?"
-msgstr "Jste si jisti, že chcete odstranit {0} a celý jeho obsah?"
+msgstr "Jste si jisti, že chcete odstranit stránku {0} a veškerý její obsah?"
 
-#, fuzzy
 msgid "Are you sure you want to delete {0} files?"
 msgstr "Jste si jisti, že chcete odstranit soubory {0}?"
 
-#, fuzzy
 msgid "Are you sure want to delete {0} folders and all of their contents?"
-msgstr "Určitě chcete odstranit složky {0} a veškerý jejich obsah?"
+msgstr "Opravdu chcete odstranit složky {0} a veškerý jejich obsah?"
 
 #, fuzzy
 msgid ""
 "Are you sure want to delete the selected items and all of their contents?"
 msgstr "Opravdu chcete odstranit vybrané položky a veškerý jejich obsah?"
 
-#, fuzzy
 msgid "Confirm overwrite"
 msgstr "Potvrzení přepsání"
 
-#, fuzzy
 msgid "File already exists. Do you want to overwrite it?"
 msgstr "Soubor již existuje. Chcete jej přepsat?"
 
-#, fuzzy
 msgid "Please enter a new name"
 msgstr "Zadejte prosím nové jméno"
 
-#, fuzzy
 msgid "Rename record"
 msgstr "Přejmenování záznamu"
 
-#, fuzzy
 msgid "A file name should not be empty."
 msgstr "Název souboru by neměl být prázdný."
 
-#, fuzzy
 msgid "Rename item"
 msgstr "Přejmenování položky"
 
-#, fuzzy
 msgid "A file named \"{0}\" already exists. Please enter a different name."
 msgstr "Soubor s názvem \"{0}\" již existuje. Zadejte prosím jiný název."
 
 msgid "Downloading"
 msgstr "Stahuji"
 
-#, fuzzy
 msgid "Download started... please wait!"
 msgstr "Stahování bylo zahájeno... počkejte prosím!"
 
 msgid "Upload"
 msgstr "Nahrát"
 
-#, fuzzy
 msgid "At least one file is too large! Maximum allowed filesize: {0}."
 msgstr ""
-"Minimálně jeden soubor je příliš velký! Maximální povolená velikost souboru: "
-"{0}."
+"Minimálně jeden soubor je příliš velký! Maximální povolená velikost "
+"souboru: {0}."
 
-#, fuzzy
 msgid "Keep both"
 msgstr "Ponechte si oba"
 
 msgid "Overwrite"
 msgstr "Přepsat"
 
-#, fuzzy
 msgid "l d/m/Y G:i"
 msgstr "l d/m/Y G:i"
 
 msgid "Never"
 msgstr "Nikdy"
 
-#, fuzzy
 msgid "Add from Files"
 msgstr "Přidat ze souborů"
 
-#, fuzzy
 msgid "Add attachment from Files"
 msgstr "Přidání přílohy ze souborů"
 
-#, fuzzy
 msgid "Add to Files"
 msgstr "Přidat do souborů"
 
@@ -6215,26 +5791,21 @@ msgstr "Nahrát soubor"
 msgid "Files"
 msgstr "Soubory"
 
-#, fuzzy
 msgid "Files Plugin"
 msgstr "Soubory Plugin"
 
 msgid "Default"
-msgstr ""
+msgstr "Výchozí"
 
-#, fuzzy
 msgid "Manage Accounts"
 msgstr "Správa účtů"
 
-#, fuzzy
 msgid "Reset Files settings"
 msgstr "Obnovení nastavení souborů"
 
-#, fuzzy
 msgid "Resets Files settings to their original defaults"
 msgstr "Obnovení původních výchozích nastavení souborů"
 
-#, fuzzy
 msgid "Are you sure to remove all settings and accounts?"
 msgstr "Jste si jisti, že jste odstranili všechna nastavení a účty?"
 
@@ -6251,9 +5822,8 @@ msgid ""
 msgstr ""
 "aby se tyto změny projevily, bude grommunio Web automaticky restartován."
 
-#, fuzzy
 msgid "grommunio Web is reloading, Please wait."
-msgstr "grommunio Web se načítá, počkejte prosím."
+msgstr "grommunio Web se načítá, vyčkejte prosím."
 
 msgid "Edit Account"
 msgstr "Upravit účet"
@@ -6267,7 +5837,6 @@ msgstr "Informace o účtu"
 msgid "Account name"
 msgstr "Název účtu"
 
-#, fuzzy
 msgid "Account Configuration"
 msgstr "Konfigurace účtu"
 
@@ -6277,57 +5846,45 @@ msgstr "Aktualizovat"
 msgid "ID"
 msgstr "ID"
 
-#, fuzzy
 msgid "Sort by: ID"
 msgstr "Seřadit podle: ID"
 
-#, fuzzy
 msgid "Sort by: Backend"
 msgstr "Seřadit podle: Backend"
 
 msgid "Features"
 msgstr "Vlastnosti"
 
-#, fuzzy
 msgid "Shows all available features of the backend."
 msgstr "Zobrazí všechny dostupné funkce backendu."
 
-#, fuzzy
 msgid "Show quota information"
 msgstr "Zobrazit informace o kvótách"
 
-#, fuzzy
 msgid "Show version information"
 msgstr "Zobrazit informace o verzi"
 
-#, fuzzy
 msgid "Share files"
 msgstr "Sdílení souborů"
 
-#, fuzzy
 msgid "Fast Down/Upload"
 msgstr "Rychlé stahování/nahrávání"
 
-#, fuzzy
 msgid "No account created!"
 msgstr "Žádný účet nebyl vytvořen!"
 
 msgid "Add Account"
 msgstr "Přidat účet"
 
-#, fuzzy
 msgid "Remove Account"
 msgstr "Odebrat účet"
 
-#, fuzzy
 msgid "Loading accounts"
 msgstr "Načítání účtů"
 
-#, fuzzy
 msgid "Do you really want to delete the account \"{0}\"?"
-msgstr "Opravdu chcete odstranit účet \"{0}\"?"
+msgstr "Opravdu chcete smazat účet \"{0}\"?"
 
-#, fuzzy
 msgid "Quota Information"
 msgstr "Informace o kvótách"
 
@@ -6337,52 +5894,42 @@ msgstr "Použití"
 msgid "Total"
 msgstr "Celkem"
 
-#, fuzzy
 msgid "Version Information"
 msgstr "Informace o verzi"
 
 msgid "Filename"
 msgstr "Název souboru"
 
-#, fuzzy
 msgid "Sort by: Filename"
 msgstr "Seřadit podle: Název souboru"
 
-#, fuzzy
 msgid "Loading files"
 msgstr "Načítání souborů"
 
-#, fuzzy
 msgid "The file {0} is too large!"
 msgstr "Soubor {0} je příliš velký!"
 
 msgid "max"
 msgstr "max"
 
-#, fuzzy
 msgid "You have to choose at least one file!"
 msgstr "Musíte si vybrat alespoň jeden soubor!"
 
 msgid "Create New "
 msgstr "Vytvořit nový "
 
-#, fuzzy
 msgid "Incorrect filename"
 msgstr "Nesprávný název souboru"
 
-#, fuzzy
 msgid "Error reaching office backend"
 msgstr "Chyba při dosažení backendu kanceláře"
 
-#, fuzzy
 msgid "Folder already exists"
 msgstr "Složka již existuje"
 
-#, fuzzy
 msgid "Incorrect foldername"
 msgstr "Nesprávný název složky"
 
-#, fuzzy
 msgid "File information"
 msgstr "Informace o souboru"
 
@@ -6395,27 +5942,21 @@ msgstr "Maximální velikost uploadovaného souboru"
 msgid "Browse"
 msgstr "Procházet"
 
-#, fuzzy
 msgid "Select upload folder"
 msgstr "Vyberte složku pro nahrávání"
 
-#, fuzzy
 msgid "File \"{0}\" is too large! Maximum allowed filesize: {1}."
-msgstr ""
-"Soubor \"{0}\" je příliš velký! Maximální povolená velikost souboru: {1}."
+msgstr "Soubor \"{0}\" je příliš velký! Maximální povolená velikost souboru: {1}."
 
-#, fuzzy
 msgid "Add item to Files"
 msgstr "Přidat položku do souborů"
 
-#, fuzzy
 msgid "You have to choose a folder!"
 msgstr "Musíte si vybrat složku!"
 
 msgid "Uploaded"
 msgstr "Nahráno"
 
-#, fuzzy
 msgid "Attachment successfully stored in Files"
 msgstr "Příloha úspěšně uložena v Souborech"
 
@@ -6425,44 +5966,36 @@ msgstr "Nahrání selhalo"
 msgid "Attachment could not be stored in Files! Error: "
 msgstr "Přílohu nelze uložit do Souborů! Chyba: "
 
-#, fuzzy
 msgid "Share Files"
 msgstr "Sdílet soubory"
 
 msgid "Uploading files to "
 msgstr "Nahrávání souborů do "
 
-#, fuzzy
 msgid "Starting upload"
 msgstr "Zahájení nahrávání"
 
 msgid "Cancel upload"
 msgstr "Zrušit nahrávání"
 
-#, fuzzy
 msgid "- seconds left"
 msgstr "- zbývající sekundy"
 
-#, fuzzy
 msgid " seconds left"
 msgstr " zbývající sekundy"
 
-#, fuzzy
 msgid " minutes left"
 msgstr " zbývající minuty"
 
 msgid "Uploading: "
 msgstr "Nahrávání: "
 
-#, fuzzy
 msgid "Upload status unavailable... please wait."
 msgstr "Stav nahrávání není k dispozici... počkejte prosím."
 
-#, fuzzy
 msgid "Upload finished!"
 msgstr "Nahrávání dokončeno!"
 
-#, fuzzy
 msgid "Upload aborted!"
 msgstr "Nahrávání přerušeno!"
 
@@ -6481,34 +6014,27 @@ msgstr "Tabulky"
 msgid "Upload files"
 msgstr "Nahrát soubory"
 
-#, fuzzy
 msgid "Create document"
 msgstr "Vytvořit dokument"
 
-#, fuzzy
 msgid "Create office document"
 msgstr "Vytvoření kancelářského dokumentu"
 
-#, fuzzy
 msgid "Download files"
 msgstr "Soubory ke stažení"
 
-#, fuzzy
 msgid "Attach to mail"
 msgstr "Přiložte k poště"
 
-#, fuzzy
 msgid "Attach to mail as link"
 msgstr "Přiložte k mailu jako odkaz"
 
 msgid "Attaching"
 msgstr "Připojení"
 
-#, fuzzy
 msgid "Creating email... Please wait!"
 msgstr "Vytváření e-mailových... Počkejte prosím!"
 
-#, fuzzy
 msgid "Edit share"
 msgstr "Upravit sdílení"
 
@@ -6525,143 +6051,131 @@ msgstr "Velikost souboru"
 msgid "Last modified"
 msgstr "Poslední změna"
 
-#, fuzzy
 msgid "Is shared"
 msgstr "Je sdílená"
 
-#, fuzzy
 msgid "File preview"
 msgstr "Náhled souboru"
 
-#, fuzzy
 msgid "Your browser does not support previewing of audio files!"
 msgstr "Váš prohlížeč nepodporuje náhled zvukových souborů!"
 
-#, fuzzy
 msgid "Your browser does not support previewing of video files!"
 msgstr "Váš prohlížeč nepodporuje náhled video souborů!"
 
-#, fuzzy
 msgid "d.m.Y G:i"
 msgstr "d.m.Y G:i"
 
 msgid "Folder"
 msgstr "Složka"
 
-#, fuzzy
 msgid "File ({0})"
 msgstr "Soubor ({0})"
 
-#, fuzzy
 msgid "Sort by: Path"
 msgstr "Seřadit podle: Cesta"
 
-#, fuzzy
 msgid "Sort by: Last modified"
 msgstr "Seřadit podle: Naposledy upraveno"
 
-#, fuzzy
 msgid "Sort by: Shared"
 msgstr "Seřadit podle: Sdílené"
 
-#, fuzzy
 msgid "There are no items to show in this view"
 msgstr "V tomto zobrazení nejsou zobrazeny žádné položky"
 
 msgid "files selected"
 msgstr "souborů vybráno"
 
-#, fuzzy
 msgid "Authentication required, when using grommunio-files for the first time"
-msgstr "Při prvním použití grommunio-files je vyžadováno ověření totožnosti"
+msgstr "Při prvním použití grommunio-files je vyžadováno ověření pravosti"
 
-#, fuzzy
 msgid "Intranet"
 msgstr "Intranet"
 
 msgid "Archive to InfoShare"
-msgstr ""
+msgstr "Archiv na InfoShare"
 
 msgid "Kendox InfoShare"
-msgstr ""
+msgstr "Kendox InfoShare"
 
 msgid "Constraints for single attachment archiving"
-msgstr ""
+msgstr "Omezení pro archivaci jednotlivých příloh"
 
 msgid "Max count attachments"
-msgstr ""
+msgstr "Maximální počet nástavců"
 
 msgid "Max size all selected attachments (MB)"
-msgstr ""
+msgstr "Maximální velikost všech vybraných příloh (MB)"
 
 msgid "Selection Kendox InfoShare environment"
-msgstr ""
+msgstr "Výběr prostředí Kendox InfoShare"
 
 msgid "Production"
-msgstr ""
+msgstr "Výroba"
 
 msgid "Test"
-msgstr ""
+msgstr "Test"
 
 msgid "URLs for production environment"
-msgstr ""
+msgstr "Adresy URL pro produkční prostředí"
 
 msgid "Kendox InfoShare API URL"
-msgstr ""
+msgstr "Adresa URL rozhraní API Kendox InfoShare"
 
 msgid "Kendox InfoShare Web dialog URL"
-msgstr ""
+msgstr "Webový dialog Kendox InfoShare URL"
 
 msgid "URLs for test environment"
-msgstr ""
+msgstr "Adresy URL pro testovací prostředí"
 
 msgid "Mail/Document archive to Kendox InfoShare"
-msgstr ""
+msgstr "Mail/archiv dokumentů do služby Kendox InfoShare"
 
 msgid "Attachment information is requested"
-msgstr ""
+msgstr "Požadují se informace o přílohách"
 
 msgid "Please select the type of Archive (max"
-msgstr ""
+msgstr "Vyberte typ archivu (max"
 
 msgid "files, max"
-msgstr ""
+msgstr "soubory, max"
 
 msgid "MB total size)"
-msgstr ""
+msgstr "MB celkové velikosti)"
 
 msgid "Everything - Store mail in original format"
-msgstr ""
+msgstr "Vše - Ukládání pošty v původním formátu"
 
 msgid "Email only - Store mail without attachments"
 msgstr "Pouze e-mail - Uložit poštu bez příloh"
 
 msgid "Separate - Store attachments separately"
-msgstr ""
+msgstr "Oddělit - ukládání příloh odděleně"
 
 msgid "No attachments available in mail"
-msgstr ""
+msgstr "V poště nejsou k dispozici žádné přílohy"
 
 msgid "Start archive"
-msgstr ""
+msgstr "Spustit archiv"
 
 msgid "embedded"
 msgstr "vložený"
 
 msgid "Reading attachment information failed"
-msgstr ""
+msgstr "Čtení informací o příloze se nezdařilo"
 
 msgid "Files are sent to Kendox InfoShare"
-msgstr ""
+msgstr "Soubory jsou odesílány do služby Kendox InfoShare"
 
 msgid "With the selection of separate attachments a maximum of"
-msgstr ""
+msgstr "S výběrem samostatných příloh je možné použít maximálně"
 
 msgid "attachments can be selected. There have been"
-msgstr ""
+msgstr "lze vybrat přílohy. Byly"
 
 msgid "attachments selected"
-msgstr ""
+msgstr "vybrané přílohy"
 
 msgid ""
 "With the selection of separate attachments the total size of all attachments "
@@ -6669,15 +6183,14 @@ msgid ""
 msgstr ""
 
 msgid "MB. There have been"
-msgstr ""
+msgstr "MB. Byly"
 
 msgid "MB selected."
-msgstr ""
+msgstr "MB vybráno."
 
 msgid "Sending of mail failed"
-msgstr ""
+msgstr "Odeslání pošty se nezdařilo"
 
-#, fuzzy
 msgid "Openstreetmap"
 msgstr "Openstreetmap"
 
@@ -6685,19 +6198,15 @@ msgstr "Openstreetmap"
 msgid "Map"
 msgstr "Mapa"
 
-#, fuzzy
 msgid "Mobile Device Manager"
 msgstr "Správce mobilních zařízení"
 
-#, fuzzy
 msgid "Wiping device"
 msgstr "Stírací zařízení"
 
-#, fuzzy
 msgid "Password incorrect"
 msgstr "Nesprávné heslo"
 
-#, fuzzy
 msgid "Full resync in progress"
 msgstr "Probíhá úplná resynchronizace"
 
@@ -6707,15 +6216,12 @@ msgstr "Jméno nebo heslo jsou nesprávné"
 msgid "Not Applicable"
 msgstr "Není použitelný"
 
-#, fuzzy
 msgid "Wipe Pending"
 msgstr "Otření čeká na vyřízení"
 
-#, fuzzy
 msgid "Wipe Requested"
 msgstr "Požadované utření"
 
-#, fuzzy
 msgid "Wipe Executed"
 msgstr "Vymazání provedeno"
 
@@ -6740,34 +6246,27 @@ msgstr "Operační systém"
 msgid "User Agent"
 msgstr "Uživatelský agent"
 
-#, fuzzy
 msgid "MDM Plugin"
 msgstr "Zásuvný modul MDM"
 
-#, fuzzy
 msgid "Active Sync Version"
 msgstr "Verze Active Sync"
 
-#, fuzzy
 msgid "grommunio-sync Version"
 msgstr "grommunio-sync Verze"
 
-#, fuzzy
 msgid "Policy name"
 msgstr "Název politiky"
 
-#, fuzzy
 msgid "Connected since"
 msgstr "Připojeno od"
 
-#, fuzzy
 msgid "d F Y"
 msgstr "d F Y"
 
 msgid "Last updated"
 msgstr "Naposledy aktualizováno"
 
-#, fuzzy
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
 
@@ -6777,7 +6276,6 @@ msgstr "Poslední připojení"
 msgid "Synchronize"
 msgstr "Synchronizovat"
 
-#, fuzzy
 msgid "Manage Shared Folders"
 msgstr "Správa sdílených složek"
 
@@ -6790,15 +6288,12 @@ msgstr ""
 "zařízením. Chcete-li do seznamu přidat další poštovní schránky, otevřete je "
 "nejprve v aplikaci grommunio Web."
 
-#, fuzzy
 msgid "grommunio-sync"
 msgstr "grommunio-sync"
 
-#, fuzzy
 msgid "Mobile device management"
 msgstr "Správa mobilních zařízení"
 
-#, fuzzy
 msgid "Mobile Devices"
 msgstr "Mobilní zařízení"
 
@@ -6813,11 +6308,9 @@ msgstr ""
 msgid "Devices"
 msgstr "Zařízení"
 
-#, fuzzy
 msgid "No devices connected to your account"
 msgstr "Žádná zařízení připojená k vašemu účtu"
 
-#, fuzzy
 msgid "Provisioning Status"
 msgstr "Stav zajištění"
 
@@ -6827,27 +6320,21 @@ msgstr "Poslední připojení"
 msgid "Device ID"
 msgstr "ID přístroje"
 
-#, fuzzy
 msgid "Device OS"
 msgstr "Operační systém zařízení"
 
-#, fuzzy
 msgid "Device Info"
 msgstr "Informace o zařízení"
 
-#, fuzzy
 msgid "First Sync time"
 msgstr "Čas první synchronizace"
 
-#, fuzzy
 msgid "Wipe Device"
 msgstr "Zařízení na stírání"
 
-#, fuzzy
 msgid "Full resync"
 msgstr "Úplná resynchronizace"
 
-#, fuzzy
 msgid "Remove device"
 msgstr "Odstranění zařízení"
 
@@ -6879,47 +6366,36 @@ msgstr ""
 "Opravdu chcete zařízení odstranit?\n"
 " Pro potvrzení zadejte své heslo."
 
-#, fuzzy
 msgid "Add meeting"
 msgstr "Přidat schůzku"
 
-#, fuzzy
 msgid "Room name:"
 msgstr "Název pokoje:"
 
-#, fuzzy
 msgid "Room URL:"
 msgstr "Adresa URL pokoje:"
 
-#, fuzzy
 msgid "Shift-click for advanced settings"
 msgstr "Kliknutím na Shift získáte pokročilá nastavení"
 
-#, fuzzy
 msgid "Join webmeeting"
 msgstr "Připojte se k webové schůzce"
 
-#, fuzzy
 msgid "Open meeting in:"
 msgstr "Otevřená schůze v:"
 
-#, fuzzy
 msgid "Web tab"
 msgstr "Webová karta"
 
-#, fuzzy
 msgid "Hide the button in the main toolbar"
 msgstr "Skrytí tlačítka na hlavním panelu nástrojů"
 
-#, fuzzy
 msgid "Add the subject to the room name"
 msgstr "Přidání předmětu k názvu místnosti"
 
-#, fuzzy
 msgid "Add the organizer name to the room name"
 msgstr "Přidání jména organizátora k názvu místnosti"
 
-#, fuzzy
 msgid "Add the URL to the meeting location rather than overwriting it"
 msgstr "Přidání adresy URL do umístění schůzky namísto jejího přepsání"
 
@@ -6931,16 +6407,12 @@ msgstr ""
 "Zabránit automatickému přepsání adresy URL v místě schůzky (např. při "
 "přidávání zasedací místnosti)"
 
-#, fuzzy
 msgid "If you have problems when creating meetings, try disabling this setting"
-msgstr ""
-"Pokud máte při vytváření schůzek problémy, zkuste toto nastavení vypnout"
+msgstr "Pokud máte při vytváření schůzek problémy, zkuste toto nastavení vypnout"
 
-#, fuzzy
 msgid "Add an invitation to the appointment description"
 msgstr "Přidání pozvánky do popisu schůzky"
 
-#, fuzzy
 msgid "Invitation text"
 msgstr "Text pozvánky"
 
@@ -6952,11 +6424,9 @@ msgstr ""
 "musí obsahovat %url% jako zástupný znak pro odkaz na schůzku, vyprázdněte "
 "textové pole, aby se obnovilo výchozí nastavení"
 
-#, fuzzy
 msgid "An unknown error occurred while changing password."
 msgstr "Při změně hesla došlo k neznámé chybě."
 
-#, fuzzy
 msgid "Password is changed successfully."
 msgstr "Heslo bylo úspěšně změněno."
 
@@ -6978,15 +6448,12 @@ msgstr "Opětovné zadání nového hesla"
 msgid "New passwords do not match."
 msgstr "Nová hesla se neshodují."
 
-#, fuzzy
 msgid "Current password is empty."
 msgstr "Aktuální heslo je prázdné."
 
-#, fuzzy
 msgid "New password is empty."
 msgstr "Nové heslo je prázdné."
 
-#, fuzzy
 msgid "One or more fields does contain errors."
 msgstr "Jedno nebo více polí obsahuje chyby."
 
@@ -6998,54 +6465,42 @@ msgstr ""
 "Heslo je slabé. Heslo by mělo obsahovat velká a malá písmena a číslice. "
 "Heslo by mělo mít 8 až 20 znaků."
 
-#, fuzzy
 msgid "Change passphrase"
 msgstr "Změna přístupové fráze"
 
-#, fuzzy
 msgid "Old passphrase"
 msgstr "Stará přístupová fráze"
 
-#, fuzzy
 msgid "Wrong passphrase. Please try again"
 msgstr "Špatná přístupová fráze. Zkuste to prosím znovu"
 
-#, fuzzy
 msgid "New passphrase"
 msgstr "Nová přístupová fráze"
 
-#, fuzzy
 msgid "Confirm new passphrase"
 msgstr "Potvrzení nové přístupové fráze"
 
-#, fuzzy
 msgid "The passphrases don't match. Please try again"
 msgstr "Přístupové fráze se neshodují. Zkuste to prosím znovu"
 
-#, fuzzy
 msgid "S/MIME Message"
 msgstr "Zpráva S/MIME"
 
-#, fuzzy
 msgid "Passphrase changed successfully"
 msgstr "Úspěšná změna přístupové fráze"
 
-#, fuzzy
 msgid "S/MIME Passphrase"
 msgstr "Přístupová fráze S/MIME"
 
 msgid "Submit"
 msgstr "Odeslat"
 
-#, fuzzy
 msgid "Certificate passphrase"
 msgstr "Přístupová fráze certifikátu"
 
-#, fuzzy
 msgid "The passphrase you typed is incorrect. Please try again."
 msgstr "Zadaná přístupová fráze je nesprávná. Zkuste to prosím znovu."
 
-#, fuzzy
 msgid "No certificates imported, please upload your private certificate"
 msgstr ""
 "Žádné certifikáty nejsou importovány, nahrajte prosím svůj soukromý "
@@ -7057,15 +6512,12 @@ msgstr "Platné od"
 msgid "Expires"
 msgstr "Vyprší"
 
-#, fuzzy
 msgid "Loading certificates"
 msgstr "Načítání certifikátů"
 
-#, fuzzy
 msgid "S/MIME Plugin"
 msgstr "Zásuvný modul S/MIME"
 
-#, fuzzy
 msgid "Please select a certificate."
 msgstr "Vyberte certifikát."
 
@@ -7077,7 +6529,6 @@ msgstr ""
 "Opravdu chcete odebrat svůj soukromý certifikát? Pokud svůj certifikát "
 "odstraníte, nebudete moci podepisovat ani dešifrovat e-maily S/MIME."
 
-#, fuzzy
 msgid "Certificate details"
 msgstr "Podrobnosti o certifikátu"
 
@@ -7089,35 +6540,27 @@ msgstr ""
 "Níže můžete zobrazit a odstranit veřejné a soukromé certifikáty uložené na "
 "serveru."
 
-#, fuzzy
 msgid "Filter on Email"
 msgstr "Filtr na e-mailu"
 
-#, fuzzy
 msgid "Public & Private certificates"
 msgstr "Veřejné a soukromé certifikáty"
 
-#, fuzzy
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#, fuzzy
 msgid "You don't have a valid certificate corresponding to your account"
 msgstr "Nemáte platný certifikát odpovídající vašemu účtu"
 
-#, fuzzy
 msgid "Personal certificate"
 msgstr "Osobní certifikát"
 
-#, fuzzy
 msgid "Change passphrase for last certificate"
 msgstr "Změna přístupové fráze pro poslední certifikát"
 
-#, fuzzy
 msgid "You have a valid certificate corresponding to your account"
 msgstr "Máte platný certifikát odpovídající vašemu účtu"
 
-#, fuzzy
 msgid "Upload your certificate"
 msgstr "Nahrajte svůj certifikát"
 
@@ -7131,24 +6574,18 @@ msgstr ""
 "Web přijímá pouze platné certifikáty a na serveru ukládá pouze jeden "
 "soukromý certifikát."
 
-#, fuzzy
 msgid "Private certificate"
 msgstr "Soukromý certifikát"
 
-#, fuzzy
 msgid "You must fill in the certificate passphrase to upload your certificate."
-msgstr ""
-"Pro nahrání certifikátu je nutné vyplnit přístupovou frázi certifikátu."
+msgstr "Pro nahrání certifikátu musíte vyplnit přístupovou frázi certifikátu."
 
-#, fuzzy
 msgid "You must first select a valid private certificate in PKCS#12 format."
 msgstr "Nejprve je třeba vybrat platný soukromý certifikát ve formátu PKCS#12."
 
-#, fuzzy
 msgid "Sign"
 msgstr "Podepsat"
 
-#, fuzzy
 msgid "Sign message"
 msgstr "Zpráva na znamení"
 
@@ -7163,7 +6600,6 @@ msgstr ""
 msgid "Encrypt"
 msgstr "Zakódovat"
 
-#, fuzzy
 msgid "Encrypt message"
 msgstr "Šifrování zprávy"
 
@@ -7175,7 +6611,6 @@ msgstr ""
 "Zajistěte soukromí zprávy zašifrováním jejího obsahu. Zprávu bude moci "
 "otevřít pouze její příjemce."
 
-#, fuzzy
 msgid "What's going on with my email?"
 msgstr "Co se děje s mým e-mailem?"
 
@@ -7193,19 +6628,15 @@ msgid ""
 "You are seeing this message because the verification of the digital signature"
 msgstr "Tato zpráva se zobrazuje, protože ověření digitálního podpisu"
 
-#, fuzzy
 msgid " has failed"
 msgstr " selhala"
 
-#, fuzzy
 msgid " for this message."
 msgstr " pro tuto zprávu."
 
-#, fuzzy
 msgid "What caused this issue?"
 msgstr "Co tento problém způsobilo?"
 
-#, fuzzy
 msgid "What should I do?"
 msgstr "Co mám dělat?"
 
@@ -7244,7 +6675,6 @@ msgid ""
 "message."
 msgstr "Ověření digitálního podpisu bylo u této e-mailové zprávy úspěšné."
 
-#, fuzzy
 msgid "grommunio Web could not find a public certificate for the recipient."
 msgstr "grommunio Web nemohl najít veřejný certifikát pro příjemce."
 
@@ -7256,7 +6686,6 @@ msgstr ""
 "Identita odesílatele a pravost obsahu zprávy byly ověřeny, ale platnost "
 "certifikátu použitého k podpisu zprávy vypršela dne [d-m-Y]."
 
-#, fuzzy
 msgid "The digital signature could not be verified for unknown reasons."
 msgstr "Digitální podpis nebylo možné z neznámých důvodů ověřit."
 
@@ -7295,43 +6724,33 @@ msgstr ""
 "Stav odvolání digitálního certifikátu použitého k podpisu tohoto e-mailu je "
 "zakázán (OCSP). Platnost certifikátu se nepodařilo ověřit."
 
-#, fuzzy
 msgid "The certificate verification server (OCSP) is temporarily offline."
 msgstr "Server pro ověřování certifikátů (OCSP) je dočasně offline."
 
-#, fuzzy
 msgid "Sender is removed from the server."
-msgstr "Odesílatel je ze serveru odstraněn."
+msgstr "Odesílatel je odstraněn ze serveru."
 
-#, fuzzy
 msgid "Signature verified successfully"
 msgstr "Podpis byl úspěšně ověřen"
 
-#, fuzzy
 msgid "Could not verify signature, missing public certificate"
 msgstr "Nelze ověřit podpis, chybí veřejný certifikát"
 
-#, fuzzy
 msgid "Signature verification successful, but certificate is expired"
 msgstr "Ověření podpisu proběhlo úspěšně, ale platnost certifikátu vypršela"
 
-#, fuzzy
 msgid "Signature could not be verified"
 msgstr "Podpis se nepodařilo ověřit"
 
-#, fuzzy
 msgid "Certificate has been revoked"
 msgstr "Certifikát byl zrušen"
 
-#, fuzzy
 msgid "Verification with Certificate Authority failed"
 msgstr "Ověření pomocí certifikační autority se nezdařilo"
 
-#, fuzzy
 msgid "Message decrypted successfully"
 msgstr "Zpráva byla úspěšně dešifrována"
 
-#, fuzzy
 msgid "Message decryption failed"
 msgstr "Dešifrování zprávy se nezdařilo"
 
@@ -7341,65 +6760,51 @@ msgstr "Prosím"
 msgid "click here"
 msgstr "klikněte sem"
 
-#, fuzzy
 msgid "to unlock your certificate"
 msgstr "odemknout certifikát"
 
-#, fuzzy
 msgid "Cannot determine revocation status of certificate"
 msgstr "Nelze určit stav odvolání certifikátu"
 
-#, fuzzy
 msgid "Signature verified"
-msgstr "Ověření podpisu"
+msgstr "Ověřený podpis"
 
-#, fuzzy
 msgid "Unable to decrypt this message. Certificate does not match"
 msgstr "Tuto zprávu nelze dešifrovat. Certifikát neodpovídá"
 
-#, fuzzy
 msgid "Verification failed. User is removed from the server."
 msgstr "Ověření se nezdařilo. Uživatel je ze serveru odstraněn."
 
-#, fuzzy
 msgid "Charm pink"
 msgstr "Okouzlující růžová"
 
-#, fuzzy
 msgid "Cadmium red"
 msgstr "Kadmiově červená"
 
-#, fuzzy
 msgid "Apricot"
 msgstr "Meruňka"
 
 msgid "California"
 msgstr "Kalifornie"
 
-#, fuzzy
 msgid "Soft green"
 msgstr "Měkká zelená"
 
 msgid "Mint"
 msgstr "Mint"
 
-#, fuzzy
 msgid "Pearl aqua"
 msgstr "Pearl aqua"
 
-#, fuzzy
 msgid "Grommunio blue"
 msgstr "Grommunio modrá"
 
-#, fuzzy
 msgid "Baby blue"
 msgstr "Dětská modrá"
 
-#, fuzzy
 msgid "Mauve"
 msgstr "Mauve"
 
-#, fuzzy
 msgid "Silver sand"
 msgstr "Stříbrný písek"
 
@@ -7460,10 +6865,10 @@ msgstr ""
 "dostupný. Obraťte se prosím na správce systému."
 
 msgid "This backend provides the default WebDAV integration for Files."
-msgstr ""
+msgstr "Tento backend poskytuje výchozí integraci WebDAV pro soubory."
 
 msgid "Files Default Backend: "
-msgstr ""
+msgstr "Soubory Výchozí backend: "
 
 msgid "Server address"
 msgstr "Adresa serveru"
@@ -7474,117 +6879,99 @@ msgstr "Port serveru"
 msgid "Use TLS"
 msgstr "Použít TLS"
 
-#, fuzzy
 msgid "Webdav base path"
 msgstr "Základní cesta Webdav"
 
-#, fuzzy
 msgid "Use grommunio credentials"
 msgstr "Použijte pověření grommunio"
 
-#, fuzzy
 msgid "php-curl is not available"
 msgstr "php-curl není k dispozici"
 
 msgid "Access denied"
 msgstr "Přístup zamítnut"
 
-#, fuzzy
 msgid "Connection failed"
 msgstr "Připojení se nezdařilo"
 
-#, fuzzy
 msgid "Sabre error"
 msgstr "Chyba společnosti Sabre"
 
-#, fuzzy
 msgid "Copying failed"
 msgstr "Kopírování se nezdařilo"
 
 msgid "Unknown error"
 msgstr "Neznámá chyba"
 
-#, fuzzy
 msgid "Please contact your system administrator."
 msgstr "Obraťte se na správce systému."
 
-#, fuzzy
 msgid "Unauthorized. Wrong username or password."
 msgstr "Neoprávněné. Špatné uživatelské jméno nebo heslo."
 
-#, fuzzy
 msgid "File server is not reachable. Please verify the file server URL."
 msgstr ""
 "Souborový server není dosažitelný. Ověřte prosím adresu URL souborového "
 "serveru."
 
-#, fuzzy
 msgid "You don't have enough permissions to view this file or folder."
 msgstr "K zobrazení tohoto souboru nebo složky nemáte dostatečná oprávnění."
 
-#, fuzzy
 msgid "The file or folder is not available anymore."
 msgstr "Soubor nebo složka již nejsou k dispozici."
 
-#, fuzzy
 msgid "Connection to the file server timed out. Please check again later."
 msgstr ""
 "Připojení k souborovému serveru bylo časově přerušeno. Zkontrolujte to "
 "prosím později."
 
-#, fuzzy
 msgid "This file is locked by another user. Please try again later."
 msgstr "Tento soubor je uzamčen jiným uživatelem. Zkuste to prosím později."
 
-#, fuzzy
 msgid "The request failed."
 msgstr "Žádost nebyla úspěšná."
 
-#, fuzzy
 msgid "The file server encountered an internal problem."
 msgstr "Souborový server narazil na vnitřní problém."
 
-#, fuzzy
 msgid "We could not write to temporary directory."
 msgstr "Do dočasného adresáře se nám nepodařilo zapsat."
 
-#, fuzzy
 msgid "We could not retrieve list of server features."
 msgstr "Nepodařilo se nám načíst seznam funkcí serveru."
 
-#, fuzzy
 msgid "PHP-Curl is not available."
 msgstr "PHP-Curl není k dispozici."
 
 msgid "With this backend, you can connect to any Seafile server."
-msgstr ""
+msgstr "Pomocí tohoto backendu se můžete připojit k libovolnému serveru Seafile."
 
 msgid "Files "
-msgstr ""
+msgstr "Soubory "
 
 msgid "Use SSL"
-msgstr ""
+msgstr "Použití protokolu SSL"
 
 msgid "Seafile is not reachable. Correct backend address entered?"
-msgstr ""
+msgstr "Seafile není dostupný. Je zadána správná adresa backendu?"
 
 msgid "You don't have enough permissions for this operation."
-msgstr ""
+msgstr "Pro tuto operaci nemáte dostatečná oprávnění."
 
 msgid "File is not available any more."
-msgstr ""
+msgstr "Soubor již není k dispozici."
 
 msgid "Connection to server timed out. Retry later."
-msgstr ""
+msgstr "Připojení k serveru bylo časově přerušeno. Zkuste to později."
 
 msgid "This file is locked by another user."
-msgstr ""
+msgstr "Tento soubor je uzamčen jiným uživatelem."
 
 msgid "The request failed due to failure of a previous request."
-msgstr ""
+msgstr "Požadavek se nezdařil z důvodu selhání předchozího požadavku."
 
 msgid "Seafile-server encountered a problem."
-msgstr ""
+msgstr "Seafile-server narazil na problém."
 
 msgid ""
 "Could not write to temporary directory. Contact the server administrator."
@@ -7595,119 +6982,92 @@ msgid ""
 msgstr ""
 
 msgid "PHP-Curl is not available. Contact your system administrator."
-msgstr ""
+msgstr "PHP-Curl není k dispozici. Obraťte se na správce systému."
 
 msgid "This function is not yet implemented."
-msgstr ""
+msgstr "Tato funkce zatím není implementována."
 
-#, fuzzy
 msgid "Unknown account ID"
 msgstr "Neznámé ID účtu"
 
-#, fuzzy
 msgid "Feature \"Quota Information\" is not supported by this backend!"
 msgstr "Funkce \"Informace o kvótách\" není tímto backendem podporována!"
 
-#, fuzzy
 msgid "Feature \"Version Information\" is not supported by this backend!"
 msgstr "Funkce \"Informace o verzi\" není tímto backendem podporována!"
 
-#, fuzzy
 msgid "Feature \"OAUTH\" is not supported by this backend!"
 msgstr "Funkce \"OAUTH\" není tímto backendem podporována!"
 
-#, fuzzy
 msgid "Moving between accounts is not implemented"
 msgstr "Přesun mezi účty není implementován"
 
-#, fuzzy
 msgid "Files plugin"
 msgstr "Zásuvný modul Soubory"
 
-#, fuzzy
 msgid "Unknown type - cannot save this file to the Files backend!"
 msgstr "Neznámý typ - tento soubor nelze uložit do Backend Files!"
 
-#, fuzzy
 msgid "No record given!"
 msgstr "Nebyl uveden žádný záznam!"
 
-#, fuzzy
 msgid "Fetching sharing information failed"
 msgstr "Nepovedlo se načtení informací o sdílení"
 
-#, fuzzy
 msgid "Sharing failed"
 msgstr "Sdílení se nezdařilo"
 
-#, fuzzy
 msgid "Updating share failed"
 msgstr "Aktualizace sdílené složky se nezdařila"
 
-#, fuzzy
 msgid "Deleting share failed"
 msgstr "Odstranění sdílené složky se nezdařilo"
 
-#, fuzzy
 msgid "With this backend, you can connect to any WebDAV server."
-msgstr ""
-"Pomocí tohoto backendu se můžete připojit k libovolnému serveru WebDAV."
+msgstr "Pomocí tohoto backendu se můžete připojit k libovolnému serveru WebDAV."
 
 msgid "Files WebDAV Backend: "
 msgstr "Soubory WebDAV Backend: "
 
-#, fuzzy
 msgid "PHP-CURL is not installed"
 msgstr "PHP-CURL není nainstalován"
 
-#, fuzzy
 msgid "Directory creation failed"
 msgstr "Vytvoření adresáře se nezdařilo"
 
-#, fuzzy
 msgid "Deletion failed"
 msgstr "Odstranění se nezdařilo"
 
-#, fuzzy
 msgid "Moving failed"
 msgstr "Stěhování se nezdařilo"
 
-#, fuzzy
 msgid "Temporary directory problems"
 msgstr "Problémy s dočasnými adresáři"
 
-#, fuzzy
 msgid "File or folder not found"
 msgstr "Soubor nebo složka nebyly nalezeny"
 
 msgid "Not implemented"
 msgstr "Neimplementováno"
 
-#, fuzzy
 msgid "Please contact your system administrator"
 msgstr "Obraťte se na správce systému"
 
-#, fuzzy
 msgid "File server is not reachable. Please verify the connection."
 msgstr "Souborový server není dosažitelný. Ověřte prosím připojení."
 
-#, fuzzy
 msgid "PHP-CURL not installed"
 msgstr "PHP-CURL není nainstalován"
 
-#, fuzzy
 msgid "Account is ready to use."
 msgstr "Účet je připraven k použití."
 
-#, fuzzy
 msgid "File backend not responding. Please try again later."
 msgstr "Backend souborů neodpovídá. Zkuste to prosím později."
 
-#, fuzzy
 msgid "Zip file generation failed. Please inform the administrator."
 msgstr "Generování souboru Zip se nezdařilo. Informujte prosím správce."
 
-#, fuzzy
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Tento soubor již není k dispozici. Prosím, načtěte složku znovu."
 
@@ -7718,12 +7078,11 @@ msgid "Kendox certificate password is not configured."
 msgstr "Heslo certifikátu Kendox není nakonfigurováno."
 
 msgid "Kendox certificate is not available."
-msgstr ""
+msgstr "Certifikát Kendox není k dispozici."
 
 msgid "Kendox certificate is not readable."
 msgstr "Certifikát Kendox nelze číst."
 
-#, fuzzy
 msgid "Mobile device management plugin"
 msgstr "Zásuvný modul pro správu mobilních zařízení"
 
@@ -7735,11 +7094,9 @@ msgstr ""
 "Došlo k neočekávané chybě. Obraťte se prosím na správce systému. Kód chyby: "
 "%s"
 
-#, fuzzy
 msgid "No data received."
 msgstr "Nebyla přijata žádná data."
 
-#, fuzzy
 msgid "Account is empty."
 msgstr "Účet je prázdný."
 
@@ -7748,7 +7105,6 @@ msgid ""
 "Your password is wrong or you have insufficient permission to change password"
 msgstr "Vaše heslo je špatné nebo nemáte dostatečné oprávnění ke změně hesla"
 
-#, fuzzy
 msgid "Password is not changed."
 msgstr "Heslo se nemění."
 
@@ -7757,29 +7113,24 @@ msgid ""
 "administrator."
 msgstr ""
 
-#, fuzzy
 msgid "Password has been changed successfully."
 msgstr "Heslo bylo úspěšně změněno."
 
-#, fuzzy
 msgid "No certificate available"
-msgstr "Není k dispozici žádný certifikát"
+msgstr "Certifikát není k dispozici"
 
 msgid "Private certificate has expired, unable to sign email"
-msgstr ""
+msgstr "Soukromý certifikát vypršel, nelze podepsat e-mail"
 
-#, fuzzy
 msgid "Private certificate is not valid yet, unable to sign email"
 msgstr "Soukromý certifikát ještě není platný, nelze podepsat e-mail"
 
-#, fuzzy
 msgid "Private certificate does not match email address"
 msgstr "Soukromý certifikát neodpovídá e-mailové adrese"
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "Chybějící veřejné certifikáty pro následující příjemce: "
 
-#, fuzzy
 msgid ". Please contact your system administrator for details"
 msgstr ". Podrobnosti získáte od správce systému"
 
@@ -7791,15 +7142,12 @@ msgstr ""
 "Váš veřejný certifikát není nainstalován. Bez tohoto certifikátu nebudete "
 "moci číst zašifrované zprávy, které jste odeslali ostatním."
 
-#, fuzzy
 msgid "Certificate is already stored on the server"
 msgstr "Certifikát je již uložen na serveru"
 
-#, fuzzy
 msgid "Unable to decrypt certificate"
 msgstr "Nelze dešifrovat certifikát"
 
-#, fuzzy
 msgid "Private key can't be used to sign email"
 msgstr "Soukromý klíč nelze použít k podpisu e-mailu"
 
@@ -7815,26 +7163,22 @@ msgstr "Certifikát byl importován."
 msgid "Certificate is not yet valid "
 msgstr "Certifikát ještě není platný "
 
-#, fuzzy
 msgid "Certificate has not been imported"
 msgstr "Certifikát nebyl importován"
 
 msgid "Certificate is revoked, but was imported."
 msgstr "Certifikát je odvolán, ale byl importován."
 
-#, fuzzy
 msgid "Unable to read public certificate"
 msgstr "Nelze přečíst veřejný certifikát"
 
-#, fuzzy
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "Nelze přidat data do sběrnice, ve sběrnici je stejný typ akce"
 
-#, fuzzy
 msgid "Response data requested from bus but it doesn't have any data."
 msgstr "Odpovědní data požadovaná ze sběrnice, která však nemá žádná data."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Unknown module '%s' with id '%s'"
 msgstr "Neznámý modul '%s' s id '%s'"
 
@@ -7844,15 +7188,13 @@ msgid ""
 msgstr ""
 "Server narazil na nějaký problém, takže nebyl schopen požadavek zpracovat."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Unknown notifier '%s'"
 msgstr "Neznámý oznamovatel '%s'"
 
-#, fuzzy
 msgid "An unexpected error has occurred"
 msgstr "Došlo k neočekávané chybě"
 
-#, fuzzy
 msgid "To-Do List"
 msgstr "Seznam úkolů"
 
@@ -7864,21 +7206,19 @@ msgstr "Seznam úkolů"
 msgid "%1$s of %2$s"
 msgstr "%1$s v %2$s"
 
-#, fuzzy
 msgid "Error retrieving existing settings"
 msgstr "Chyba při načítání existujících nastavení"
 
-#, fuzzy
 msgid "Error retrieving existing persistent settings"
 msgstr "Chyba při načítání existujících trvalých nastavení"
 
-#, fuzzy
 msgid "Logon failed. Please verify your credentials and try again."
-msgstr "Přihlášení selhalo. Zkontrolujte prosím vaše uživatelské jméno/heslo."
+msgstr ""
+"Přihlášení se nezdařilo. Ověřte prosím své přihlašovací údaje a zkuste to "
+"znovu."
 
-#, fuzzy
 msgid "Cannot connect to Gromox."
-msgstr "Nelze se připojit k grommunio serveru."
+msgstr "Nelze se připojit ke službě Gromox."
 
 #, fuzzy
 msgid ""
@@ -7888,23 +7228,18 @@ msgstr ""
 "Přihlášení nefungovalo kvůli duplicitní relaci. Problém byl automaticky "
 "vyřešen, přihlaste se znovu."
 
-#, fuzzy
 msgid "Unknown MAPI Error"
-msgstr "Neznámá MAPI chyba: %s"
+msgstr "Neznámá chyba MAPI"
 
-#, fuzzy
 msgid "Destination folder not found."
 msgstr "Cílová složka nebyla nalezena."
 
-#, fuzzy
 msgid "Eml is corrupted"
 msgstr "Eml je poškozený"
 
-#, fuzzy
 msgid "The eml Attachment is not imported successfully"
 msgstr "Příloha eml není úspěšně importována"
 
-#, fuzzy
 msgid "The vcf attachment is not imported successfully"
 msgstr "Příloha vcf není úspěšně importována"
 
@@ -7912,11 +7247,9 @@ msgstr "Příloha vcf není úspěšně importována"
 msgid "Unable to import '%s' to '%s'. "
 msgstr "Nelze importovat '%s' do '%s'. "
 
-#, fuzzy
 msgid "There is no appointment found in this file."
-msgstr "Tato schůzka již proběhla."
+msgstr "V tomto souboru nebyla nalezena žádná schůzka."
 
-#, fuzzy
 msgid "The file is corrupt."
 msgstr "Soubor je poškozený."
 
@@ -7927,50 +7260,39 @@ msgstr "{0} není platný čas."
 msgid "Unable to import '%s'. "
 msgstr "Nelze importovat '%s'. "
 
-#, fuzzy
 msgid "Attachment is not imported successfully"
 msgstr "Příloha není úspěšně importována"
 
-#, fuzzy
 msgid "Embedded attachment not found."
 msgstr "Vložená příloha nebyla nalezena."
 
-#, fuzzy
 msgid "ZIP is not created successfully"
 msgstr "ZIP nebyl úspěšně vytvořen"
 
-#, fuzzy
 msgid "Attachments can not be downloaded"
 msgstr "Přílohy nelze stáhnout"
 
-#, fuzzy
 msgid "Could not find attachment."
 msgstr "Nepodařilo se najít přílohu."
 
-#, fuzzy
 msgid "Operation failed"
 msgstr "Operace se nezdařila"
 
 msgid "Sticky Note"
 msgstr "Poznámka: Slepá poznámka"
 
-#, fuzzy
 msgid "Task Request"
 msgstr "Žádost o úkol"
 
-#, fuzzy
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "Zprávu se nepodařilo najít, buď byla přesunuta, nebo smazána."
 
-#, fuzzy
 msgid "Action is not performed correctly."
 msgstr "Akce není provedena správně."
 
-#, fuzzy
 msgid "Could not handle this type of object."
 msgstr "Tento typ objektu se nepodařilo zpracovat."
 
-#, fuzzy
 msgid "Could not open this object."
 msgstr "Tento objekt se nepodařilo otevřít."
 
@@ -7986,41 +7308,32 @@ msgstr "Sdílené složky kontaktů"
 msgid "Public Contact Folders"
 msgstr "Veřejné složky kontaktů"
 
-#, fuzzy
 msgid "Error in search, please try again"
 msgstr "Chyba ve vyhledávání, zkuste to prosím znovu"
 
-#, fuzzy
 msgid "Unable to perform search query, no permissions to create search folder."
 msgstr ""
 "Nelze provést vyhledávací dotaz, chybí oprávnění k vytvoření vyhledávací "
 "složky."
 
-#, fuzzy
 msgid "Unable to perform search query, search folder not found."
 msgstr "Nelze provést vyhledávací dotaz, hledaná složka nebyla nalezena."
 
-#, fuzzy
 msgid "Unable to perform search query, store might not support searching."
 msgstr "Nelze provést vyhledávací dotaz, obchod možná nepodporuje vyhledávání."
 
-#, fuzzy
 msgid "Error in creating search folder."
 msgstr "Chyba při vytváření vyhledávací složky."
 
-#, fuzzy
 msgid "Could not open occurrence."
 msgstr "Výskyt se nepodařilo otevřít."
 
-#, fuzzy
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr "Nelze otevřít výskyt, konkrétní výskyt je pravděpodobně smazán."
 
-#, fuzzy
 msgid "a meeting request"
 msgstr "žádost o schůzku"
 
-#, fuzzy
 msgid "an appointment"
 msgstr "schůzku"
 
@@ -8035,7 +7348,6 @@ msgstr ""
 "Nelze nastavit, aby se připomenutí zobrazilo před předchozím výskytem. "
 "Obnovení připomenutí pro uložení změny"
 
-#, fuzzy
 msgid "Two occurrences cannot occur on the same day"
 msgstr "Dvě události nemohou nastat ve stejný den"
 
@@ -8075,31 +7387,26 @@ msgstr ""
 "'%s' je na tento čas již rezervován. Musíte použít jiný čas nebo najít jiný "
 "zdroj."
 
-#, fuzzy
 msgid "Meeting was not scheduled."
 msgstr "Schůzka nebyla naplánována."
 
-#, fuzzy
 msgid "Meeting could not be sent."
 msgstr "Schůzku nebylo možné odeslat."
 
-#, fuzzy
 msgid "Meeting could not be saved."
 msgstr "Setkání se nepodařilo zachránit."
 
-#, fuzzy
 msgid "Private Appointment"
 msgstr "Soukromá schůzka"
 
-#, fuzzy, php-format
+#, php-format
 msgid "%s's Birthday"
-msgstr "narozeniny %s"
+msgstr "%snarozeniny"
 
-#, fuzzy, php-format
+#, php-format
 msgid "%s's Anniversary"
-msgstr "výročí %s"
+msgstr "%s's Anniversary"
 
-#, fuzzy
 msgid "You don't have the permission to complete this action"
 msgstr "K dokončení této akce nemáte oprávnění"
 
@@ -8114,73 +7421,57 @@ msgstr ""
 "Odeslání e-mailu se nezdařilo. Další informace naleznete v souborech "
 "protokolu."
 
-#, fuzzy
 msgid "Unknown user/group"
 msgstr "Neznámý uživatel/skupina"
 
-#, fuzzy
 msgid "Could not save delegate information."
 msgstr "Nepodařilo se uložit informace o delegátovi."
 
-#, fuzzy
 msgid "Could not delete delegate."
 msgstr "Delegáta se nepodařilo odstranit."
 
-#, fuzzy
 msgid "Can not get list of delegates."
 msgstr "Nelze získat seznam delegátů."
 
 msgid "Could not open the store."
 msgstr "Obchod se nepodařilo otevřít."
 
-#, fuzzy
 msgid "Could not load the hierarchy."
 msgstr "Hierarchii se nepodařilo načíst."
 
 msgid "Could not open the shared store."
 msgstr "Nelze otevřít sdílený obchod."
 
-#, fuzzy
 msgid "Could not load folder properties."
 msgstr "Nepodařilo se načíst vlastnosti složky."
 
-#, fuzzy
 msgid "Could not remove folder from favorites."
 msgstr "Nepodařilo se odstranit složku z oblíbených položek."
 
-#, fuzzy
 msgid "You have insufficient privileges to delete folder."
 msgstr "Nemáte dostatečná práva k odstranění složky."
 
-#, fuzzy
 msgid "Could not delete folder."
 msgstr "Složku se nepodařilo odstranit."
 
-#, fuzzy
 msgid "You have insufficient privileges to copy folder."
 msgstr "Nemáte dostatečná práva ke kopírování složky."
 
-#, fuzzy
 msgid "Could not copy folder."
 msgstr "Složku se nepodařilo zkopírovat."
 
-#, fuzzy
 msgid "You have insufficient privileges to move this folder."
 msgstr "K přesunu této složky nemáte dostatečná oprávnění."
 
-#, fuzzy
 msgid "Could not move folder."
 msgstr "Složku se nepodařilo přesunout."
 
-#, fuzzy
 msgid "You have insufficient privileges to delete items."
 msgstr "Nemáte dostatečná oprávnění k odstraňování položek."
 
-#, fuzzy
 msgid "Could not empty folder."
 msgstr "Nepodařilo se vyprázdnit složku."
 
-#, fuzzy
 msgid "Could not perform action correctly."
 msgstr "Akci se nepodařilo provést správně."
 
@@ -8190,43 +7481,33 @@ msgid ""
 msgstr ""
 "Oblíbená složka s tímto názvem již existuje, použijte prosím jiný název."
 
-#, fuzzy
 msgid "Could not add folder to favorites."
 msgstr "Nepodařilo se přidat složku do oblíbených položek."
 
-#, fuzzy
 msgid "You have insufficient privileges to set permissions for this folder."
 msgstr "Nemáte dostatečná práva k nastavení oprávnění pro tuto složku."
 
-#, fuzzy
 msgid "Could not set folder permissions."
 msgstr "Nepodařilo se nastavit oprávnění složky."
 
-#, fuzzy
 msgid "You have insufficient privileges to rename this folder."
 msgstr "K přejmenování této složky nemáte dostatečná práva."
 
-#, fuzzy
 msgid "A folder with this name already exists. Use another name."
 msgstr "Složka s tímto názvem již existuje. Použijte jiný název."
 
-#, fuzzy
 msgid "Could not rename folder."
 msgstr "Nepodařilo se přejmenovat složku."
 
-#, fuzzy
 msgid "You have insufficient privileges to create this folder."
 msgstr "K vytvoření této složky nemáte dostatečná práva."
 
-#, fuzzy
 msgid "Could not create folder."
 msgstr "Nepodařilo se vytvořit složku."
 
-#, fuzzy
 msgid "Could not close shared folder."
 msgstr "Nelze zavřít sdílenou složku."
 
-#, fuzzy
 msgid "User could not be resolved."
 msgstr "Uživatele se nepodařilo vyřešit."
 
@@ -8249,15 +7530,12 @@ msgstr "anonymní"
 msgid "unknown"
 msgstr "neznámý"
 
-#, fuzzy
 msgid "Could not move folder"
 msgstr "Nepodařilo se přesunout složku"
 
-#, fuzzy
 msgid "Could not copy folder"
 msgstr "Nepodařilo se zkopírovat složku"
 
-#, fuzzy
 msgid "You have insufficient privileges to open this message."
 msgstr "K otevření této zprávy nemáte dostatečná práva."
 
@@ -8301,13 +7579,11 @@ msgstr ""
 "Zpráva již není ve frontě odchozích zpráv, obvykle proto, že již byla "
 "odeslána."
 
-#, fuzzy
 msgid "Message cannot be aborted"
 msgstr "Zprávu nelze přerušit"
 
-#, fuzzy
 msgid "You have insufficient privileges to delete items in this folder"
-msgstr "Nemáte oprávnění uložit položky v této složce"
+msgstr "Nemáte dostatečná práva k odstranění položek v této složce"
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "Nemáte oprávnění připojit položku jako přílohu."
@@ -8354,11 +7630,9 @@ msgstr "Vaše zpráva nebyla doručena některému anebo všem uvedeným příje
 msgid "The following recipient(s) could not be reached"
 msgstr "Nebyla doručena následujícímu příjemci/příjemcům"
 
-#, fuzzy
 msgid "You have insufficient privileges to see the contents of this folder."
-msgstr "K zobrazení obsahu této složky nemáte dostatečná práva."
+msgstr "K zobrazení obsahu této složky nemáte dostatečná oprávnění."
 
-#, fuzzy
 msgid "Could not load the contents of this folder."
 msgstr "Obsah této složky se nepodařilo načíst."
 
@@ -8368,75 +7642,57 @@ msgid ""
 msgstr ""
 "Nemáte dostatečná oprávnění k provádění vyhledávacích operací v této složce."
 
-#, fuzzy
 msgid "Could not update search results."
 msgstr "Nelze aktualizovat výsledky vyhledávání."
 
-#, fuzzy
 msgid "Could not stop search operation."
 msgstr "Nepodařilo se zastavit vyhledávací operaci."
 
-#, fuzzy
 msgid "You have insufficient privileges to save this message."
 msgstr "K uložení této zprávy nemáte dostatečná práva."
 
-#, fuzzy
 msgid "Could not save message."
 msgstr "Zprávu se nepodařilo uložit."
 
-#, fuzzy
 msgid "You have insufficient privileges to delete this message."
 msgstr "Nemáte dostatečná práva k odstranění této zprávy."
 
-#, fuzzy
 msgid "Could not delete message."
 msgstr "Zprávu se nepodařilo odstranit."
 
-#, fuzzy
 msgid "You have insufficient privileges to cancel this Meeting Request."
 msgstr "Nemáte dostatečná práva ke zrušení této žádosti o schůzku."
 
-#, fuzzy
 msgid "Could not cancel Meeting Request."
 msgstr "Nelze zrušit žádost o schůzku."
 
-#, fuzzy
 msgid "You have insufficient privileges to decline this Meeting Request."
 msgstr "Nemáte dostatečná práva k odmítnutí této žádosti o schůzku."
 
-#, fuzzy
 msgid "Could not decline Meeting Request."
 msgstr "Nelze odmítnout žádost o schůzku."
 
-#, fuzzy
 msgid "You have insufficient privileges to accept this Meeting Request."
 msgstr "Nemáte dostatečná oprávnění k přijetí této žádosti o schůzku."
 
-#, fuzzy
 msgid "Could not accept Meeting Request."
 msgstr "Nelze přijmout žádost o schůzku."
 
-#, fuzzy
 msgid "You have insufficient privileges to cancel Meeting Request invitation."
 msgstr "Nemáte dostatečná oprávnění ke zrušení pozvánky na žádost o schůzku."
 
-#, fuzzy
 msgid "Could not cancel Meeting Request invitations."
 msgstr "Nelze zrušit pozvánky na žádost o schůzku."
 
-#, fuzzy
 msgid "You can not continue search operation on this folder."
 msgstr "V této složce nelze pokračovat ve vyhledávání."
 
-#, fuzzy
 msgid "Error in search, please try again."
 msgstr "Chyba ve vyhledávání, zkuste to prosím znovu."
 
-#, fuzzy
 msgid "Error in distribution list expansion."
 msgstr "Chyba v rozšíření distribučního seznamu."
 
-#, fuzzy
 msgid "The message store has exceeded its hard quota limit."
 msgstr "Úložiště zpráv překročilo svůj pevný limit kvóty."
 
@@ -8449,59 +7705,46 @@ msgstr ""
 "položky, které již nepotřebujete, odstraňte je a vyčistěte složku Odstraněné "
 "položky."
 
-#, fuzzy
 msgid "The message store has exceeded its soft quota limit."
 msgstr "Úložiště zpráv překročilo svůj limit měkké kvóty."
 
-#, fuzzy
 msgid "Could not process request data properly."
 msgstr "Nepodařilo se správně zpracovat data požadavku."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Unknown action type specified - %s"
 msgstr "Zadán neznámý typ akce - %s"
 
-#, fuzzy
 msgid "Cannot snooze the reminder. You may be reminded again."
 msgstr "Připomínku nelze odložit. Připomenutí se může opakovat."
 
-#, fuzzy
 msgid "Cannot dismiss the reminder. You may be reminded again."
 msgstr "Připomínku nelze odmítnout. Můžete být znovu upozorněni."
 
-#, fuzzy
 msgid "You have insufficient privileges to perform this action."
 msgstr "K provedení této akce nemáte dostatečná oprávnění."
 
-#, fuzzy
 msgid "Could not resolve user."
 msgstr "Nepodařilo se vyřešit uživatele."
 
-#, fuzzy
 msgid "Setting mail filters on the stores of other users is not allowed."
-msgstr ""
-"Nastavování poštovních filtrů na úložištích jiných uživatelů není povoleno."
+msgstr "Nastavování poštovních filtrů na úložištích jiných uživatelů není povoleno."
 
-#, fuzzy
 msgid "Untitled rule"
 msgstr "Pravidlo bez názvu"
 
-#, fuzzy
 msgid "Could not load rules."
 msgstr "Nelze načíst pravidla."
 
-#, fuzzy
 msgid "Could not save rules."
 msgstr "Pravidla se nepodařilo uložit."
 
-#, fuzzy
 msgid "Task Request:"
 msgstr "Požadavek na úkol:"
 
 msgid "Sign in"
 msgstr "Přihlásit se"
 
-#, fuzzy
 msgid "File is not imported successfully"
 msgstr "Soubor se nepodařilo úspěšně importovat"
 
@@ -8537,7 +7780,6 @@ msgstr ""
 "zjistit, které rozšíření způsobilo zastavení nahrávání souboru; pomoci může "
 "prozkoumání seznamu načtených rozšíření pomocí funkce phpinfo()."
 
-#, fuzzy
 msgid "There is no contact found in this file."
 msgstr "V tomto souboru nebyl nalezen žádný kontakt."
 
@@ -8563,23 +7805,18 @@ msgstr "KB"
 msgid "B"
 msgstr "B"
 
-#, fuzzy
 msgid "The maximum stack depth has been exceeded"
 msgstr "Byla překročena maximální hloubka zásobníku"
 
-#, fuzzy
 msgid "Control character error, possibly incorrectly encoded"
 msgstr "Chyba řídicího znaku, pravděpodobně nesprávně zakódovaná"
 
-#, fuzzy
 msgid "Invalid or malformed JSON"
 msgstr "Neplatný nebo chybný JSON"
 
-#, fuzzy
 msgid "Syntax error"
 msgstr "Syntaktická chyba"
 
-#, fuzzy
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "Chybné znaky UTF-8, pravděpodobně nesprávně kódované"
 

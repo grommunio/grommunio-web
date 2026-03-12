@@ -4671,7 +4671,7 @@ msgid "{A}Automatically mark mail as read after {B} second(s)"
 msgstr "{A}Automatically mark mail as read after {B} second(s)"
 
 msgid "View mail in this format"
-msgstr ""
+msgstr "View mail in this format"
 
 msgid "Right"
 msgstr "Right"
@@ -5576,7 +5576,7 @@ msgid "Desktop Notifications"
 msgstr "Desktop Notifications"
 
 msgid "Files: Default plugin"
-msgstr ""
+msgstr "Files: Default plugin"
 
 msgid "Loading users and groups"
 msgstr "Loading users and groups"
@@ -5633,28 +5633,28 @@ msgid "Loading details…"
 msgstr "Loading details…"
 
 msgid "Files: Seafile Backend"
-msgstr ""
+msgstr "Files: Seafile Backend"
 
 msgid "Copy link to clipboard"
-msgstr ""
+msgstr "Copy link to clipboard"
 
 msgid "Link copied to clipboard"
-msgstr ""
+msgstr "Link copied to clipboard"
 
 msgid "Clipboard"
-msgstr ""
+msgstr "Clipboard"
 
 msgid "Could not copy link automatically. Please copy it manually."
-msgstr ""
+msgstr "Could not copy link automatically. Please copy it manually."
 
 msgid "Loading details..."
-msgstr ""
+msgstr "Loading details..."
 
 msgid "Share"
 msgstr "Share"
 
 msgid "Loading..."
-msgstr ""
+msgstr "Loading..."
 
 msgid "Add attachment from {0}"
 msgstr "Add attachment from {0}"
@@ -5743,7 +5743,7 @@ msgid "Files Plugin"
 msgstr "Files Plugin"
 
 msgid "Default"
-msgstr ""
+msgstr "Default"
 
 msgid "Manage Accounts"
 msgstr "Manage Accounts"
@@ -6041,88 +6041,88 @@ msgid "Intranet"
 msgstr "Intranet"
 
 msgid "Archive to InfoShare"
-msgstr ""
+msgstr "Archive to InfoShare"
 
 msgid "Kendox InfoShare"
-msgstr ""
+msgstr "Kendox InfoShare"
 
 msgid "Constraints for single attachment archiving"
-msgstr ""
+msgstr "Constraints for single attachment archiving"
 
 msgid "Max count attachments"
-msgstr ""
+msgstr "Max count attachments"
 
 msgid "Max size all selected attachments (MB)"
-msgstr ""
+msgstr "Max size all selected attachments (MB)"
 
 msgid "Selection Kendox InfoShare environment"
-msgstr ""
+msgstr "Selection Kendox InfoShare environment"
 
 msgid "Production"
-msgstr ""
+msgstr "Production"
 
 msgid "Test"
-msgstr ""
+msgstr "Test"
 
 msgid "URLs for production environment"
-msgstr ""
+msgstr "URLs for production environment"
 
 msgid "Kendox InfoShare API URL"
-msgstr ""
+msgstr "Kendox InfoShare API URL"
 
 msgid "Kendox InfoShare Web dialog URL"
-msgstr ""
+msgstr "Kendox InfoShare Web dialog URL"
 
 msgid "URLs for test environment"
-msgstr ""
+msgstr "URLs for test environment"
 
 msgid "Mail/Document archive to Kendox InfoShare"
-msgstr ""
+msgstr "Mail/Document archive to Kendox InfoShare"
 
 msgid "Attachment information is requested"
-msgstr ""
+msgstr "Attachment information is requested"
 
 msgid "Please select the type of Archive (max"
-msgstr ""
+msgstr "Please select the type of Archive (max"
 
 msgid "files, max"
-msgstr ""
+msgstr "files, max"
 
 msgid "MB total size)"
-msgstr ""
+msgstr "MB total size)"
 
 msgid "Everything - Store mail in original format"
-msgstr ""
+msgstr "Everything - Store mail in original format"
 
 msgid "Email only - Store mail without attachments"
-msgstr ""
+msgstr "Email only - Store mail without attachments"
 
 msgid "Separate - Store attachments separately"
-msgstr ""
+msgstr "Separate - Store attachments separately"
 
 msgid "No attachments available in mail"
-msgstr ""
+msgstr "No attachments available in mail"
 
 msgid "Start archive"
-msgstr ""
+msgstr "Start archive"
 
 msgid "embedded"
 msgstr "embedded"
 
 msgid "Reading attachment information failed"
-msgstr ""
+msgstr "Reading attachment information failed"
 
 msgid "Files are sent to Kendox InfoShare"
-msgstr ""
+msgstr "Files are sent to Kendox InfoShare"
 
 msgid "With the selection of separate attachments a maximum of"
-msgstr ""
+msgstr "With the selection of separate attachments a maximum of"
 
 msgid "attachments can be selected. There have been"
-msgstr ""
+msgstr "attachments can be selected. There have been"
 
 msgid "attachments selected"
-msgstr ""
+msgstr "attachments selected"
 
 msgid ""
 "With the selection of separate attachments the total size of all attachments "
@@ -6130,13 +6130,13 @@ msgid ""
 msgstr ""
 
 msgid "MB. There have been"
-msgstr ""
+msgstr "MB. There have been"
 
 msgid "MB selected."
-msgstr ""
+msgstr "MB selected."
 
 msgid "Sending of mail failed"
-msgstr ""
+msgstr "Sending of mail failed"
 
 msgid "Openstreetmap"
 msgstr "Openstreetmap"
@@ -6794,10 +6794,10 @@ msgstr ""
 "your system administrator."
 
 msgid "This backend provides the default WebDAV integration for Files."
-msgstr ""
+msgstr "This backend provides the default WebDAV integration for Files."
 
 msgid "Files Default Backend: "
-msgstr ""
+msgstr "Files Default Backend: "
 
 msgid "Server address"
 msgstr "Server address"
@@ -6869,34 +6869,34 @@ msgid "PHP-Curl is not available."
 msgstr "php-curl is not available."
 
 msgid "With this backend, you can connect to any Seafile server."
-msgstr ""
+msgstr "With this backend, you can connect to any Seafile server."
 
 msgid "Files "
-msgstr ""
+msgstr "Files "
 
 msgid "Use SSL"
-msgstr ""
+msgstr "Use SSL"
 
 msgid "Seafile is not reachable. Correct backend address entered?"
-msgstr ""
+msgstr "Seafile is not reachable. Correct backend address entered?"
 
 msgid "You don't have enough permissions for this operation."
-msgstr ""
+msgstr "You don't have enough permissions for this operation."
 
 msgid "File is not available any more."
-msgstr ""
+msgstr "File is not available any more."
 
 msgid "Connection to server timed out. Retry later."
-msgstr ""
+msgstr "Connection to server timed out. Retry later."
 
 msgid "This file is locked by another user."
-msgstr ""
+msgstr "This file is locked by another user."
 
 msgid "The request failed due to failure of a previous request."
-msgstr ""
+msgstr "The request failed due to failure of a previous request."
 
 msgid "Seafile-server encountered a problem."
-msgstr ""
+msgstr "Seafile-server encountered a problem."
 
 msgid ""
 "Could not write to temporary directory. Contact the server administrator."
@@ -6907,10 +6907,10 @@ msgid ""
 msgstr ""
 
 msgid "PHP-Curl is not available. Contact your system administrator."
-msgstr ""
+msgstr "PHP-Curl is not available. Contact your system administrator."
 
 msgid "This function is not yet implemented."
-msgstr ""
+msgstr "This function is not yet implemented."
 
 msgid "Unknown account ID"
 msgstr "Unknown account ID"
@@ -7003,7 +7003,7 @@ msgid "Kendox certificate password is not configured."
 msgstr "Kendox certificate password is not configured."
 
 msgid "Kendox certificate is not available."
-msgstr ""
+msgstr "Kendox certificate is not available."
 
 msgid "Kendox certificate is not readable."
 msgstr "Kendox certificate is not readable."
@@ -7044,7 +7044,7 @@ msgid "No certificate available"
 msgstr "No certificate available"
 
 msgid "Private certificate has expired, unable to sign email"
-msgstr ""
+msgstr "Private certificate has expired, unable to sign email"
 
 msgid "Private certificate is not valid yet, unable to sign email"
 msgstr "Private certificate is not valid yet, unable to sign email"

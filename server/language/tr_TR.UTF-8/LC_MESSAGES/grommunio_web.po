@@ -4662,7 +4662,7 @@ msgid "{A}Automatically mark mail as read after {B} second(s)"
 msgstr "{A} Otomatik bütün iletileri okunmuş göster {B} saniye sonra"
 
 msgid "View mail in this format"
-msgstr ""
+msgstr "Postaları bu biçimde görüntüleyin"
 
 msgid "Right"
 msgstr "Sağ"
@@ -4707,7 +4707,7 @@ msgid "Automatically reply with the following message:"
 msgstr "Gönderene otomatik metinle yanıtla:"
 
 msgid "(The frequency of replies is dependent on server configuration.)"
-msgstr ""
+msgstr "(Yanıtların sıklığı sunucu yapılandırmasına bağlıdır.)"
 
 msgid "Inside My Organization"
 msgstr "Kuruluşumun içinde"
@@ -5565,7 +5565,7 @@ msgid "Desktop Notifications"
 msgstr "Masaüstü Bildirimleri"
 
 msgid "Files: Default plugin"
-msgstr ""
+msgstr "Dosyalar: Varsayılan eklenti"
 
 msgid "Loading users and groups"
 msgstr "Kullanıcıları ve grupları yükleme"
@@ -5622,28 +5622,28 @@ msgid "Loading details…"
 msgstr "Detaylar yükleniyor…"
 
 msgid "Files: Seafile Backend"
-msgstr ""
+msgstr "Dosyalar Seafile Arka Uç"
 
 msgid "Copy link to clipboard"
-msgstr ""
+msgstr "Bağlantıyı panoya kopyala"
 
 msgid "Link copied to clipboard"
-msgstr ""
+msgstr "Panoya kopyalanan bağlantı"
 
 msgid "Clipboard"
-msgstr ""
+msgstr "Pano"
 
 msgid "Could not copy link automatically. Please copy it manually."
-msgstr ""
+msgstr "Bağlantı otomatik olarak kopyalanamadı. Lütfen manuel olarak kopyalayın."
 
 msgid "Loading details..."
-msgstr ""
+msgstr "Detaylar yükleniyor..."
 
 msgid "Share"
 msgstr "Paylaş"
 
 msgid "Loading..."
-msgstr ""
+msgstr "Yükleniyor..."
 
 msgid "Add attachment from {0}"
 msgstr "Şuradan ek ekleyin {0}"
@@ -5732,7 +5732,7 @@ msgid "Files Plugin"
 msgstr "Dosyalar Eklentisi"
 
 msgid "Default"
-msgstr ""
+msgstr "Varsayılan"
 
 msgid "Manage Accounts"
 msgstr "Hesapları yönet"
@@ -6030,88 +6030,88 @@ msgid "Intranet"
 msgstr "İntranet"
 
 msgid "Archive to InfoShare"
-msgstr ""
+msgstr "InfoShare Arşivi"
 
 msgid "Kendox InfoShare"
-msgstr ""
+msgstr "Kendox InfoShare"
 
 msgid "Constraints for single attachment archiving"
-msgstr ""
+msgstr "Tek ek arşivleme için kısıtlamalar"
 
 msgid "Max count attachments"
-msgstr ""
+msgstr "Maksimum ataşman sayısı"
 
 msgid "Max size all selected attachments (MB)"
-msgstr ""
+msgstr "Seçilen tüm eklerin maksimum boyutu (MB)"
 
 msgid "Selection Kendox InfoShare environment"
-msgstr ""
+msgstr "Kendox InfoShare ortamının seçimi"
 
 msgid "Production"
-msgstr ""
+msgstr "Üretim"
 
 msgid "Test"
-msgstr ""
+msgstr "Test"
 
 msgid "URLs for production environment"
-msgstr ""
+msgstr "Üretim ortamı için URL'ler"
 
 msgid "Kendox InfoShare API URL"
-msgstr ""
+msgstr "Kendox InfoShare API URL'si"
 
 msgid "Kendox InfoShare Web dialog URL"
-msgstr ""
+msgstr "Kendox InfoShare Web iletişim kutusu URL'si"
 
 msgid "URLs for test environment"
-msgstr ""
+msgstr "Test ortamı için URL'ler"
 
 msgid "Mail/Document archive to Kendox InfoShare"
-msgstr ""
+msgstr "Kendox InfoShare'e Posta/Belge arşivi"
 
 msgid "Attachment information is requested"
-msgstr ""
+msgstr "Ek bilgileri talep edilmektedir"
 
 msgid "Please select the type of Archive (max"
-msgstr ""
+msgstr "Lütfen Arşiv türünü seçin (maks"
 
 msgid "files, max"
-msgstr ""
+msgstr "dosyalar, maks"
 
 msgid "MB total size)"
-msgstr ""
+msgstr "MB toplam boyut)"
 
 msgid "Everything - Store mail in original format"
-msgstr ""
+msgstr "Her şey - Postaları orijinal formatında saklayın"
 
 msgid "Email only - Store mail without attachments"
 msgstr "Sadece e-posta - E-postayı ekler olmadan depola"
 
 msgid "Separate - Store attachments separately"
-msgstr ""
+msgstr "Ayrı - Ekleri ayrı olarak saklayın"
 
 msgid "No attachments available in mail"
-msgstr ""
+msgstr "Postada ekler mevcut değil"
 
 msgid "Start archive"
-msgstr ""
+msgstr "Arşivi başlat"
 
 msgid "embedded"
 msgstr "gömülü"
 
 msgid "Reading attachment information failed"
-msgstr ""
+msgstr "Ek bilgileri okunamadı"
 
 msgid "Files are sent to Kendox InfoShare"
-msgstr ""
+msgstr "Dosyalar Kendox InfoShare'e gönderilir"
 
 msgid "With the selection of separate attachments a maximum of"
-msgstr ""
+msgstr "Ayrı ataşmanların seçilmesi ile maksimum"
 
 msgid "attachments can be selected. There have been"
-msgstr ""
+msgstr "ekler seçilebilir. Orada olmuştur"
 
 msgid "attachments selected"
-msgstr ""
+msgstr "seçilen ekler"
 
 msgid ""
 "With the selection of separate attachments the total size of all attachments "
@@ -6119,13 +6119,13 @@ msgid ""
 msgstr ""
 
 msgid "MB. There have been"
-msgstr ""
+msgstr "MB. Daha önce"
 
 msgid "MB selected."
-msgstr ""
+msgstr "MB seçildi."
 
 msgid "Sending of mail failed"
-msgstr ""
+msgstr "Posta gönderimi başarısız oldu"
 
 msgid "Openstreetmap"
 msgstr "Açık sokak haritası"
@@ -6777,10 +6777,10 @@ msgstr ""
 "sistem yöneticinizle iletişime geçin."
 
 msgid "This backend provides the default WebDAV integration for Files."
-msgstr ""
+msgstr "Bu arka uç, Dosyalar için varsayılan WebDAV entegrasyonunu sağlar."
 
 msgid "Files Default Backend: "
-msgstr ""
+msgstr "Dosyalar Varsayılan Arka Uç: "
 
 msgid "Server address"
 msgstr "Sunucu adresi"
@@ -6857,34 +6857,34 @@ msgid "PHP-Curl is not available."
 msgstr "PHP-Curl mevcut değildir."
 
 msgid "With this backend, you can connect to any Seafile server."
-msgstr ""
+msgstr "Bu arka uç ile herhangi bir Seafile sunucusuna bağlanabilirsiniz."
 
 msgid "Files "
-msgstr ""
+msgstr "Dosyalar "
 
 msgid "Use SSL"
-msgstr ""
+msgstr "SSL kullanın"
 
 msgid "Seafile is not reachable. Correct backend address entered?"
-msgstr ""
+msgstr "Seafile'a ulaşılamıyor. Doğru arka uç adresi girildi mi?"
 
 msgid "You don't have enough permissions for this operation."
-msgstr ""
+msgstr "Bu işlem için yeterli izniniz yok."
 
 msgid "File is not available any more."
-msgstr ""
+msgstr "Dosya artık mevcut değil."
 
 msgid "Connection to server timed out. Retry later."
-msgstr ""
+msgstr "Sunucuya bağlantı zaman aşımına uğradı. Daha sonra tekrar deneyin."
 
 msgid "This file is locked by another user."
-msgstr ""
+msgstr "Bu dosya başka bir kullanıcı tarafından kilitlendi."
 
 msgid "The request failed due to failure of a previous request."
-msgstr ""
+msgstr "Önceki bir talebin başarısız olması nedeniyle talep başarısız oldu."
 
 msgid "Seafile-server encountered a problem."
-msgstr ""
+msgstr "Seafile-server bir sorunla karşılaştı."
 
 msgid ""
 "Could not write to temporary directory. Contact the server administrator."
@@ -6895,10 +6895,10 @@ msgid ""
 msgstr ""
 
 msgid "PHP-Curl is not available. Contact your system administrator."
-msgstr ""
+msgstr "PHP-Curl mevcut değil. Sistem yöneticinize başvurun."
 
 msgid "This function is not yet implemented."
-msgstr ""
+msgstr "Bu işlev henüz uygulanmamıştır."
 
 msgid "Unknown account ID"
 msgstr "Bilinmeyen hesap kimliği"
@@ -6991,7 +6991,7 @@ msgid "Kendox certificate password is not configured."
 msgstr "Kendox sertifika parolası yapılandırılmamış."
 
 msgid "Kendox certificate is not available."
-msgstr ""
+msgstr "Kendox sertifikası mevcut değildir."
 
 msgid "Kendox certificate is not readable."
 msgstr "Kendox sertifikası okunamıyor."
@@ -7032,7 +7032,7 @@ msgid "No certificate available"
 msgstr "Sertifika mevcut değil"
 
 msgid "Private certificate has expired, unable to sign email"
-msgstr ""
+msgstr "Özel sertifikanın süresi doldu, e-posta imzalanamıyor"
 
 msgid "Private certificate is not valid yet, unable to sign email"
 msgstr "Özel sertifika henüz geçerli değil, e-posta imzalanamıyor"

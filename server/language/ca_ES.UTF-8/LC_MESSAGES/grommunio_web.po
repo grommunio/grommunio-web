@@ -18,20 +18,19 @@ msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
-msgstr ""
+msgstr "Set"
 
 msgid "Now"
 msgstr "Ara"
 
 msgid "Value must be between 0% to 100%"
-msgstr ""
+msgstr "El valor ha d'estar entre el 0% i el 100%"
 
 msgid "Number must be higher than zero"
-msgstr ""
+msgstr "El nombre ha de ser superior a zero"
 
-#, fuzzy
 msgid "More options"
-msgstr "Opciones de Mensaje"
+msgstr "Més opcions"
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -103,25 +102,25 @@ msgid "Saturday"
 msgstr "Dissabte"
 
 msgid "Sun"
-msgstr ""
+msgstr "Sol"
 
 msgid "Mon"
-msgstr ""
+msgstr "Dl"
 
 msgid "Tue"
-msgstr ""
+msgstr "Dt"
 
 msgid "Wed"
-msgstr ""
+msgstr "Dc"
 
 msgid "Thu"
-msgstr ""
+msgstr "Dj"
 
 msgid "Fri"
-msgstr ""
+msgstr "dv"
 
 msgid "Sat"
-msgstr ""
+msgstr "ds"
 
 msgid "January"
 msgstr "Gener"
@@ -323,13 +322,11 @@ msgstr "Este campo sólo debe contener letras y _"
 msgid "This field should only contain letters, numbers and _"
 msgstr "Este campo sólo debe contener letras, números y _"
 
-#, fuzzy
 msgid "Email Addresses"
-msgstr "Direcciones de correo electrónico"
+msgstr "Adreces de correu electrònic"
 
-#, fuzzy
 msgid "Email addresses"
-msgstr "Direcciones de correo electrónico"
+msgstr "Adreces de correu electrònic"
 
 msgid "Group details"
 msgstr "Detalles del grupo"
@@ -371,13 +368,13 @@ msgid "User details"
 msgstr "Detalles de usuario"
 
 msgid "First name"
-msgstr ""
+msgstr "Nom de pila"
 
 msgid "Last name"
-msgstr ""
+msgstr "Cognom"
 
 msgid "Initials"
-msgstr ""
+msgstr "Inicials"
 
 msgid "Display"
 msgstr "Mostrar"
@@ -401,7 +398,7 @@ msgid "Country"
 msgstr "País"
 
 msgid "Professional"
-msgstr ""
+msgstr "Professional"
 
 msgid "Title"
 msgstr "Título"
@@ -454,9 +451,8 @@ msgstr "Móvil"
 msgid "Pager"
 msgstr "Buscapersonas"
 
-#, fuzzy
 msgid "No user selected"
-msgstr "No hay tareas seleccionadas"
+msgstr "No s'ha seleccionat cap usuari"
 
 msgid "You must select one or more users."
 msgstr "Debe seleccionar uno o más usuarios."
@@ -471,28 +467,26 @@ msgid "Show Details"
 msgstr "Mostrar Detalles"
 
 msgid "Copy contact"
-msgstr ""
+msgstr "Copia el contacte"
 
 msgid "Copy contacts"
-msgstr ""
+msgstr "Copia els contactes"
 
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
 
 msgid "Use the search bar to get results"
-msgstr ""
+msgstr "Utilitzeu la barra de cerca per obtenir resultats"
 
-#, fuzzy
 msgid "There are no items to show in this list"
-msgstr "No hay elementos para mostrar en esta vista"
+msgstr "No hi ha elements per mostrar en aquesta llista"
 
 msgid "Show Names from the"
 msgstr "Mostrar nombres de la"
 
-#, fuzzy
 msgid "Search…"
-msgstr "Buscar…"
+msgstr "Cerca…"
 
 msgid "Sort by: Icon"
 msgstr "Ordenar por. Icono"
@@ -513,14 +507,13 @@ msgid "First Name"
 msgstr "Nombre"
 
 msgid "Sort by: First Name"
-msgstr ""
+msgstr "Ordena per: Nom"
 
 msgid "Last Name"
 msgstr "Apellido"
 
-#, fuzzy
 msgid "Sort by: Last Name"
-msgstr "Ordenar por: Nombre"
+msgstr "Ordena per: Cognoms"
 
 msgid "Sort by: Email Address"
 msgstr "Ordenar por: Dirección de correo electrónico"
@@ -546,9 +539,8 @@ msgstr "Teléfono de Trabajo"
 msgid "Sort by: Office Phone"
 msgstr "Ordenar por: Teléfono de Trabajo"
 
-#, fuzzy
 msgid "Sort by: Mobile"
-msgstr "Ordenar por: Empleo"
+msgstr "Ordena per: mòbil"
 
 msgid "Home Phone"
 msgstr "Teléfono Casa"
@@ -569,17 +561,16 @@ msgid "Sort by: Fax"
 msgstr "Ordenar por: Fax"
 
 msgid "Print single item"
-msgstr ""
+msgstr "Imprimeix un sol element"
 
-#, fuzzy
 msgid "Print selected item"
-msgstr "Imprimir tareas seleccionadas"
+msgstr "Imprimeix l'element seleccionat"
 
 msgid "Print"
 msgstr "Imprimir"
 
 msgid "No item selected"
-msgstr ""
+msgstr "No s'ha seleccionat cap element"
 
 msgid "No preview"
 msgstr "Sin vista previa"
@@ -590,61 +581,53 @@ msgstr "Vista previa"
 msgid "Bottom preview"
 msgstr "Botón vista previa"
 
-#, fuzzy
 msgid "Any date"
-msgstr "Fecha de finalización"
+msgstr "Qualsevol data"
 
-#, fuzzy
 msgid "Past week"
-msgstr "Semana"
+msgstr "La setmana passada"
 
 msgid "Past 2 weeks"
-msgstr ""
+msgstr "Últimes 2 setmanes"
 
-#, fuzzy
 msgid "Past month"
-msgstr "Mes"
+msgstr "El mes passat"
 
 msgid "Past 6 month"
-msgstr ""
+msgstr "Darrers 6 mesos"
 
-#, fuzzy
 msgid "Past year"
-msgstr "año"
+msgstr "L'any passat"
 
-#, fuzzy
 msgid "Custom date"
-msgstr "Fecha de vencimiento"
+msgstr "Data personalitzada"
 
 msgid "Add to favorites"
-msgstr ""
+msgstr "Afegeix als preferits"
 
 msgid "Add"
 msgstr "Añadir"
 
-#, fuzzy
 msgid "Empty folder name"
-msgstr "Carpeta vacía"
+msgstr "Nom de la carpeta buida"
 
 msgid "You must specify a name."
 msgstr "Ud. debe especificar un nombre."
 
 msgid "Add a folder to favorites based on search query"
-msgstr ""
+msgstr "Afegiu una carpeta als preferits en funció de la consulta de cerca"
 
 msgid "Folder name"
-msgstr ""
+msgstr "Nom de la carpeta"
 
-#, fuzzy
 msgid "Select Category"
-msgstr "Establecer categoría"
+msgstr "Seleccioneu la categoria"
 
 msgid "Apply"
 msgstr "Aplicar"
 
-#, fuzzy
 msgid "All folders are selected"
-msgstr "No seleccionado mensaje"
+msgstr "Totes les carpetes estan seleccionades"
 
 msgid "Reply"
 msgstr "Responder"
@@ -655,33 +638,26 @@ msgstr "Responder a todos"
 msgid "Forward"
 msgstr "Reenviar"
 
-#, fuzzy
 msgid "Edit as New"
-msgstr "Mensaje Correo Electrónico"
+msgstr "Edita com a nou"
 
-#, fuzzy
 msgid "Search tools"
-msgstr "Buscar en"
+msgstr "Eines de cerca"
 
-#, fuzzy
 msgid "Folders"
-msgstr "Carpeta"
+msgstr "Carpetes"
 
-#, fuzzy
 msgid "Include subfolders"
-msgstr "Crear subcarpetas"
+msgstr "Inclou subcarpetes"
 
-#, fuzzy
 msgid "Show…"
-msgstr "Mostrar…"
+msgstr "Mostra..."
 
-#, fuzzy
 msgid "Mails"
-msgstr "Correo"
+msgstr "Correus"
 
-#, fuzzy
 msgid "Appointments"
-msgstr "Cita"
+msgstr "Cites"
 
 msgid "Contacts"
 msgstr "Contactos"
@@ -690,7 +666,7 @@ msgid "Tasks"
 msgstr "Tareas"
 
 msgid "Filter…"
-msgstr ""
+msgstr "Filtra..."
 
 msgid "Unread"
 msgstr "Sin leer"
@@ -711,23 +687,20 @@ msgctxt "search.date"
 msgid "To"
 msgstr "A"
 
-#, fuzzy
 msgid "Filter category…"
-msgstr "Establecer categoría…"
+msgstr "Filtra categoria..."
 
 msgid "Sender"
 msgstr "Remitente"
 
-#, fuzzy
 msgid "Recipients"
-msgstr "Editar recipiente"
+msgstr "Destinataris"
 
 msgid "Subject"
 msgstr "Asunto"
 
-#, fuzzy
 msgid "Body & Attachments"
-msgstr "Adjuntos"
+msgstr "Cos i accessoris"
 
 msgid "Favorites"
 msgstr "Favoritos"
@@ -736,18 +709,16 @@ msgid "Select Folder"
 msgstr "Seleccionar Carpeta"
 
 msgid "Delete search folder"
-msgstr ""
+msgstr "Esborra la carpeta de cerca"
 
-#, fuzzy
 msgid "Sort by: Date"
-msgstr "Ordenar por. Fecha de vencimiento"
+msgstr "Ordena per: Data"
 
-#, fuzzy
 msgid "Loading Search results"
-msgstr "Cargando notas"
+msgstr "S'estan carregant els resultats de la cerca"
 
 msgid "Sorting tip"
-msgstr ""
+msgstr "Consell per classificar"
 
 msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
@@ -755,16 +726,16 @@ msgid ""
 msgstr ""
 
 msgid "Did you mean"
-msgstr ""
+msgstr "Volíeu dir?"
 
 msgid "With"
-msgstr ""
+msgstr "Amb"
 
 msgid "To"
 msgstr "A"
 
 msgid "No date"
-msgstr ""
+msgstr "Sense data"
 
 msgid "Error"
 msgstr "Error"
@@ -812,7 +783,7 @@ msgid "weeks"
 msgstr "Semanas"
 
 msgid " on "
-msgstr ""
+msgstr "activat"
 
 msgid "month"
 msgstr "Mes"
@@ -841,24 +812,24 @@ msgstr "Ocurre cada {0} {1} efectivo {2}."
 msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural ""
 "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Es produeix cada{0}efectiu{1}per a l'aparició de{2}de{3}a{4}."
+msgstr[1] "Es produeix cada{1}efectiu de{0}per a les ocurrències de{2}de{3}a{4}."
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
 msgid_plural ""
 "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Es produeix cada{0}{1}efectiu per a l'aparició de{3}de{4}a{5}."
+msgstr[1] "Es produeix cada{0}{1}{2}efectiu per a les ocurrències de{3}{4}a{5}."
 
 msgid "Occurs every {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Es produeix cada{0}{1}efectiu per a l'aparició de{2}."
+msgstr[1] "Es produeix cada{0}{1}efectiu per a les ocurrències de{2}."
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
 msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Es produeix cada{0}{1}{2}efectiu per a l'aparició de{3}."
+msgstr[1] "Es produeix cada{0}{1}{2}efectiu per a les ocurrències de{3}."
 
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
 msgstr "Ocurre cada {0} efectivo {1} mientras  {2} de {3} a {4}."
@@ -877,7 +848,7 @@ msgstr "Cuando"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y {0}"
-msgstr ""
+msgstr "l jS F Y{0}"
 
 msgid "Where"
 msgstr "Donde"
@@ -886,7 +857,7 @@ msgid "New Meeting Time Proposed"
 msgstr "Nueva hora de reunión propuesta"
 
 msgid "and "
-msgstr ""
+msgstr "i"
 
 msgid "Sort by: Attachment"
 msgstr "Ordenar por. Adjunto"
@@ -903,12 +874,11 @@ msgstr "Fecha de inicio"
 msgid "Sort by: Start Date"
 msgstr "Ordenar por. Fecha de inicio"
 
-#, fuzzy
 msgid "End Date"
-msgstr "Fecha de finalización"
+msgstr "Data de finalització"
 
 msgid "Sort by: End Date"
-msgstr ""
+msgstr "Ordena per: data de finalització"
 
 msgid "Organizer"
 msgstr "Organizador"
@@ -928,9 +898,8 @@ msgstr "Patrón de repetición"
 msgid "All Day Event"
 msgstr "Evento para todo el día"
 
-#, fuzzy
 msgid "Add Shared Calendar"
-msgstr "Abrir Calendarios Compartidos"
+msgstr "Afegeix un calendari compartit"
 
 msgid "Remove From Calendar"
 msgstr "Eliminar del calendario"
@@ -971,9 +940,8 @@ msgstr "Aceptar la Propuesta"
 msgid "Accept Proposed Time"
 msgstr "Aceptar la hora propuesta"
 
-#, fuzzy
 msgid "View in calendar"
-msgstr "Ver varios calendarios en"
+msgstr "Veure al calendari"
 
 msgid "Day"
 msgstr "Día"
@@ -1005,16 +973,14 @@ msgstr "No hay citas seleccionadas"
 msgid "Print overview"
 msgstr "Vista previa"
 
-#, fuzzy
 msgid "Create Appointment"
-msgstr "Nueva cita"
+msgstr "Crear cita"
 
 msgid "Calendar"
 msgstr "Calendario"
 
-#, fuzzy
 msgid "Create in other calendar"
-msgstr "Ver varios calendarios en"
+msgstr "Crear en un altre calendari"
 
 msgid ""
 "The selected calendar has \"read-only\" permissions. Instead you can create "
@@ -1022,11 +988,10 @@ msgid ""
 msgstr ""
 
 msgid "What would you like?"
-msgstr ""
+msgstr "Què t'agradaria?"
 
-#, fuzzy
 msgid "Own calendar"
-msgstr "Ver varios calendarios en"
+msgstr "Calendari propi"
 
 msgid "F Y"
 msgstr "F Y"
@@ -1055,12 +1020,11 @@ msgctxt "calendar.dialog"
 msgid "Resources have been planned"
 msgstr "Los recursos han sido planificados."
 
-#, fuzzy
 msgid "Send update"
-msgstr "Fecha de finalización"
+msgstr "Envia actualització"
 
 msgid "Do you want to send an update to all recipients?"
-msgstr ""
+msgstr "Voleu enviar una actualització a tots els destinataris?"
 
 msgid "Send update to attendees"
 msgstr "Enviar actualización a los asistentes"
@@ -1075,15 +1039,11 @@ msgstr "Enviar actualizaciones solamente a los asistentes añadidos o borrados."
 msgid "Send updates to all attendees."
 msgstr "Enviar actualizaciones a todos los asistentes."
 
-#, fuzzy
 msgid "Busy attendees"
-msgstr "Invitar asistentes"
+msgstr "Assistents ocupats"
 
-#, fuzzy
 msgid "One or more attendees are busy. Are you sure to invite?"
-msgstr ""
-"Uno o más asistentes que usted ha invitado están ocupados. ¿Está usted "
-"seguro de invitarlos?"
+msgstr "Un o més assistents estan ocupats. Segur que convidaràs?"
 
 msgid "Scheduling"
 msgstr "Programación"
@@ -1158,16 +1118,15 @@ msgid ""
 "request is updated by the organizer"
 msgstr ""
 
-#, fuzzy
 msgid "Create in"
-msgstr "Creado en"
+msgstr "Crear en"
 
 # hora
 msgid "Time"
 msgstr "Tiempo"
 
 msgid "until"
-msgstr ""
+msgstr "fins que"
 
 msgid "Recurrence"
 msgstr "Repetición"
@@ -1185,11 +1144,10 @@ msgid "Attachments cannot be modified for a single occurrence"
 msgstr "Los adjuntos no se pueden modificar para una sola ocurrencia."
 
 msgid "Type your message here…"
-msgstr ""
+msgstr "Escriu el teu missatge aquí..."
 
-#, fuzzy
 msgid "Update location"
-msgstr "Actualizar Lista"
+msgstr "Actualitza la ubicació"
 
 msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
@@ -1197,7 +1155,7 @@ msgstr "¿Desea actualizar la ubicación \"{0}\" con la nueva ubicación \"{1}\"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y {0}"
-msgstr ""
+msgstr "jS F Y{0}"
 
 msgid "None"
 msgstr "Nada"
@@ -1221,10 +1179,10 @@ msgid "Check names"
 msgstr "Comprobar nombres"
 
 msgid "Addressbook"
-msgstr ""
+msgstr "Llibreta d'adreces"
 
 msgid "Open addressbook"
-msgstr ""
+msgstr "Obre la llibreta d'adreces"
 
 msgid "Invite attendees"
 msgstr "Invitar asistentes"
@@ -1326,9 +1284,8 @@ msgstr ""
 "Esta reunión ha sido rechazada y será trasladada a su papelera de reciclaje. "
 "¿Quiere incluir comentarios con su respuesta?"
 
-#, fuzzy
 msgid "Edit the response before sending"
-msgstr "Editar respuesta antes de ser enviada."
+msgstr "Editeu la resposta abans d'enviar-la"
 
 msgid "Send the response now."
 msgstr "Enviar respuesta ahora."
@@ -1345,28 +1302,26 @@ msgstr "Asistencia"
 msgid "Response"
 msgstr "Respuesta"
 
-#, fuzzy
 msgid "New appointment"
-msgstr "Nueva cita"
+msgstr "Nova cita"
 
 msgid "Creating an item"
-msgstr ""
+msgstr "Creació d'un element"
 
-#, fuzzy
 msgid "New meeting request"
-msgstr "Nueva solicitud de Reunión"
+msgstr "Nova sol·licitud de reunió"
 
 msgid "Switch calendar range back and forth"
-msgstr ""
+msgstr "Canvia l'interval del calendari d'anada i tornada"
 
 msgid "Copy selected item"
-msgstr ""
+msgstr "Copia l'element seleccionat"
 
 msgid "Paste selected item"
-msgstr ""
+msgstr "Enganxa l'element seleccionat"
 
 msgid "An overview of"
-msgstr ""
+msgstr "Una visió general de"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Start"
@@ -1379,31 +1334,29 @@ msgstr "Fin"
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
 msgid "Printed by"
-msgstr ""
+msgstr "Imprès per"
 
 msgid "at"
-msgstr ""
+msgstr "a les"
 
 msgid "of"
-msgstr ""
+msgstr "de"
 
-#, fuzzy
 msgid "Location: "
-msgstr "Ubicación"
+msgstr "Ubicació:"
 
 msgid "j M {0}"
-msgstr ""
+msgstr "j M{0}"
 
 msgid "l jS M Y {0}"
-msgstr ""
+msgstr "l jS M Y{0}"
 
 msgid "All day: "
-msgstr ""
+msgstr "Tot el dia:"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
 msgid "l jS F Y"
-msgstr "jS F Y"
+msgstr "l jS F Y"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
@@ -1432,11 +1385,10 @@ msgid "Importance"
 msgstr "Importacia"
 
 msgid "M j"
-msgstr ""
+msgstr "M j"
 
-#, fuzzy
 msgid "j"
-msgstr "jS"
+msgstr "j"
 
 msgid "General calendar settings"
 msgstr "Opciones generales de Calendario"
@@ -1453,18 +1405,17 @@ msgstr "Fin día de trabajo"
 msgid "Calendar resolution"
 msgstr "Resolución del Calendario"
 
-#, fuzzy
 msgid "Default appointment duration {A} minutes"
-msgstr "Hora por defecto del recordatorio Todo el Día"
+msgstr "Durada predeterminada de la cita {A} minuts"
 
 msgid "Duration must be between 1 and 120 minutes."
-msgstr ""
+msgstr "La durada ha d'estar entre 1 i 120 minuts."
 
 msgid "Default status for all day appointment"
-msgstr ""
+msgstr "Estat predeterminat per a la cita de tot el dia"
 
 msgid "Working days"
-msgstr ""
+msgstr "Dies laborables"
 
 msgid "Show busy dates as bold in the date picker"
 msgstr "Mostrar fechas ocupadas en negrita en el selector de fechas"
@@ -1514,24 +1465,20 @@ msgstr "Abrir"
 msgid "Copy/Move"
 msgstr "Copiar/Mover"
 
-#, fuzzy
 msgid "Send to…"
-msgstr "Enviar…"
+msgstr "Envia a…"
 
 msgid "Export as"
-msgstr ""
+msgstr "Exporta com a"
 
-#, fuzzy
 msgid "Occurrence"
-msgstr "Repetición"
+msgstr "Ocurrència"
 
-#, fuzzy
 msgid "Series"
-msgstr "Categorías"
+msgstr "Sèrie"
 
-#, fuzzy
 msgid "Appointment not found"
-msgstr "Cita"
+msgstr "No s'ha trobat la cita"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Esta cita ha sido movida o borrada, ¿desea continuar?."
@@ -1539,24 +1486,20 @@ msgstr "Esta cita ha sido movida o borrada, ¿desea continuar?."
 msgid "Options"
 msgstr "Opciones"
 
-#, fuzzy
 msgid "All Day"
-msgstr "Evento para todo el día"
+msgstr "Tot el dia"
 
 msgid "Sort by: All Day"
 msgstr "Ordenar por: Todo el día"
 
-#, fuzzy
 msgid "Icon"
-msgstr "Iconos"
+msgstr "Icona"
 
-#, fuzzy
 msgid "Recurring"
-msgstr "Repetición"
+msgstr "Recurrent"
 
-#, fuzzy
 msgid "Sort by: Duration"
-msgstr "Ordenar por: Ubicación"
+msgstr "Ordena per: Durada"
 
 msgid "Meeting Status"
 msgstr "Estado de la Reunión"
@@ -1565,7 +1508,7 @@ msgid "Sort by: Meeting Status"
 msgstr "Ordenar por: Estado de la Reunión"
 
 msgid "Sort by: Show as"
-msgstr ""
+msgstr "Ordena per: Mostra com"
 
 msgid "Sort by: Categories"
 msgstr "Ordenar por. Categorías"
@@ -1585,9 +1528,8 @@ msgstr "Ordenar por: Fecha de vencimiento"
 msgid "Label"
 msgstr "Etiqueta"
 
-#, fuzzy
 msgid "Sort by: Label"
-msgstr "Ordenar por: Tamaño"
+msgstr "Ordena per: Etiqueta"
 
 msgid "Sort by: Organizer"
 msgstr "Ordenar por. Organizador"
@@ -1602,16 +1544,16 @@ msgid "Sort by: Resources"
 msgstr "Ordenar por: Recursos"
 
 msgid "Recurring Start Date"
-msgstr ""
+msgstr "Data d'inici recurrent"
 
 msgid "Sort by: Recurring Start Date"
-msgstr ""
+msgstr "Ordena per: Data d'inici recurrent"
 
 msgid "Recurring End Date"
-msgstr ""
+msgstr "Data de finalització recurrent"
 
 msgid "Sort by: Recurring End Date"
-msgstr ""
+msgstr "Ordena per: data de finalització recurrent"
 
 msgid "Recurring Pattern"
 msgstr "Patrón recurrente"
@@ -1619,9 +1561,8 @@ msgstr "Patrón recurrente"
 msgid "Sort by: Recurring Pattern"
 msgstr "Ordenar por: Patrón Recurrente"
 
-#, fuzzy
 msgid "Sort by: Reminder"
-msgstr "Ordenar por: Recordatorio de Tiempo"
+msgstr "Ordena per: recordatori"
 
 msgid "Sort by: Sensitivity"
 msgstr "Ordenar por: Sensibilidad"
@@ -1633,14 +1574,14 @@ msgid "Loading appointments"
 msgstr "Cargando citas"
 
 msgid "Attendees"
-msgstr ""
+msgstr "Els assistents"
 
 msgid "Optional attendees"
-msgstr ""
+msgstr "Assistents opcionals"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F {0}"
-msgstr ""
+msgstr "jS F{0}"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y"
@@ -1656,9 +1597,8 @@ msgid ""
 "grant you permissions or contact your system administrator."
 msgstr ""
 
-#, fuzzy
 msgid "Insufficient privileges"
-msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta"
+msgstr "Privilegis insuficients"
 
 msgid ""
 "Copying this appointment will unset it as private. Are you sure you want to "
@@ -1666,7 +1606,7 @@ msgid ""
 msgstr ""
 
 msgid "Private item"
-msgstr ""
+msgstr "Element privat"
 
 msgid "Copy"
 msgstr "Copiar"
@@ -1679,18 +1619,17 @@ msgstr ""
 msgid "Move"
 msgstr "Mover"
 
-#, fuzzy
 msgid "Update recipients"
-msgstr "Editar recipiente"
+msgstr "Actualitzar els destinataris"
 
 msgid "The time of the meeting has changed. What would you like to do?"
-msgstr ""
+msgstr "L'hora de la reunió ha canviat. Què t'agradaria fer?"
 
 msgid "Save changes and send an update to all recipients"
-msgstr ""
+msgstr "Desa els canvis i envia una actualització a tots els destinataris"
 
 msgid "Open meeting request with changes"
-msgstr ""
+msgstr "Sol·licitud de reunió oberta amb canvis"
 
 msgid "grommunio Web"
 msgstr "grommunio Web"
@@ -1701,10 +1640,10 @@ msgid ""
 msgstr ""
 
 msgid "Don't move"
-msgstr ""
+msgstr "No et moguis"
 
 msgid "Switch to day view to see all appointments"
-msgstr ""
+msgstr "Canvia a la vista diària per veure totes les cites"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
@@ -1721,9 +1660,8 @@ msgctxt "mail.previewpanel"
 msgid "Location"
 msgstr "Ubicación"
 
-#, fuzzy
 msgid "No additional response required"
-msgstr "La respuesta no es requerida"
+msgstr "No cal cap resposta addicional"
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -1732,70 +1670,64 @@ msgstr ""
 "Su calendario ha sido actualizado automáticamente. Esta solicitud de reunión "
 "ahora se eliminará."
 
-#, fuzzy
 msgid "Loading appointments…"
-msgstr "Cargando citas…"
+msgstr "S'estan carregant les cites..."
 
 msgid "Please select a calendar via widget settings"
-msgstr ""
+msgstr "Seleccioneu un calendari mitjançant la configuració del widget"
 
 msgid "Number of days"
-msgstr ""
+msgstr "Nombre de dies"
 
 msgid "day(s)"
-msgstr ""
+msgstr "dia(s)"
 
 msgid "{0}"
-msgstr ""
+msgstr "{0}"
 
-#, fuzzy
 msgid "Upcoming Appointments"
-msgstr "Cargando citas"
+msgstr "Properes Cites"
 
 msgid "Appointments of {0}"
-msgstr ""
+msgstr "Nomenaments de{0}"
 
 msgid "Appointments of {0} - {1}"
-msgstr ""
+msgstr "Cites de{0}-{1}"
 
-#, fuzzy
 msgid "No appointments"
-msgstr "Nueva cita"
+msgstr "Sense cites"
 
-#, fuzzy
 msgid "Today {0} - {1}"
-msgstr "Página {A} de {0}"
+msgstr "Avui{0}-{1}"
 
 msgid "Today (all day)"
-msgstr ""
+msgstr "Avui (tot el dia)"
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
 #. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
-#, fuzzy
 msgid "{0} - {1}"
-msgstr "{0} en {1}"
+msgstr "{0}-{1}"
 
 msgid "d/m/y {0}"
-msgstr ""
+msgstr "d/m/a{0}"
 
 msgid "{0} - {1} (all day)"
-msgstr ""
+msgstr "{0}-{1}(tot el dia)"
 
-#, fuzzy
 msgid "d/m/y"
-msgstr "d/m/aa"
+msgstr "d/m/a"
 
 msgid "Select one…"
-msgstr ""
+msgstr "Seleccioneu-ne un..."
 
 msgid "Unnamed folder"
-msgstr ""
+msgstr "Carpeta sense nom"
 
 msgid "Discard"
 msgstr "Descartar"
 
 msgid "Quick Appointment"
-msgstr ""
+msgstr "Cita ràpida"
 
 msgid "Printing of multiple items has not been implemented."
 msgstr "La impresión de múltiples elementos no esta soportada."
@@ -1829,9 +1761,8 @@ msgstr ""
 "Esta es una cita recurrente. ¿Desea abrir solamente esta ocurrencia o la "
 "serie?"
 
-#, fuzzy
 msgid "Recurring Meeting Request"
-msgstr "Rechazar solicitud de reunión"
+msgstr "Sol·licitud de reunió recurrent"
 
 msgid ""
 "This is a recurring meeting request. Do you want to open only this "
@@ -1857,7 +1788,7 @@ msgid "Open the series"
 msgstr "Abrir la serie"
 
 msgid "Paste Recurring {0}"
-msgstr ""
+msgstr "Enganxa{0}recurrent"
 
 msgid ""
 "This is a recurring {0}. Do you want to paste only this occurrence or the "
@@ -1865,19 +1796,19 @@ msgid ""
 msgstr ""
 
 msgid "message"
-msgstr ""
+msgstr "missatge"
 
 msgid "meeting request"
-msgstr ""
+msgstr "petició de reunió"
 
 msgid "appointment"
-msgstr ""
+msgstr "cita"
 
 msgid "Paste this occurrence only"
-msgstr ""
+msgstr "Enganxeu només aquesta ocurrència"
 
 msgid "Paste the series…"
-msgstr ""
+msgstr "Enganxeu la sèrie..."
 
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
@@ -1928,16 +1859,14 @@ msgstr "Borrar y enviar una respuesta al organizador de la reunión"
 msgid "Delete without sending"
 msgstr "Borrar sin enviar"
 
-#, fuzzy
 msgid "Insufficient permissions"
-msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta"
+msgstr "Permisos insuficients"
 
 msgid "You have insufficient privileges to delete items in this folder."
-msgstr ""
+msgstr "No tens privilegis suficients per suprimir elements d'aquesta carpeta."
 
-#, fuzzy
 msgid "Notify recipients"
-msgstr "Editar recipiente"
+msgstr "Notificar als destinataris"
 
 msgid ""
 "A cancellation message will be sent to all recipients, do you wish to "
@@ -1946,44 +1875,37 @@ msgstr ""
 "Se enviará un mensaje de cancelación a todos los destinatarios, ¿desea "
 "continuar?"
 
-#, fuzzy
 msgid "Notify sender"
-msgstr "Ordenar por: Recordatorio de Tiempo"
+msgstr "Notificar al remitent"
 
 msgid ""
 "{0} has requested a notification be sent when message \"{1}\" is deleted "
 "without having been read. Do you want to send a receipt?"
 msgstr ""
 
-#, fuzzy
 msgid "Delete Incomplete Task"
-msgstr "Tareas completadas"
+msgstr "Suprimeix la tasca incompleta"
 
 msgid "The task \"{0}\" has not been completed. What do you want to do?"
-msgstr ""
+msgstr "La tasca \"{0}\" no s'ha completat. Què vols fer?"
 
-#, fuzzy
 msgid "Decline and delete"
-msgstr "Rechazar solicitud de reunión"
+msgstr "Rebutja i elimina"
 
-#, fuzzy
 msgid "Mark complete and delete"
-msgstr "Marcar como Completado"
+msgstr "Marca com completat i elimina"
 
 msgid "Following recipients are already exists"
-msgstr ""
+msgstr "Els destinataris següents ja existeixen"
 
-#, fuzzy
 msgid "Duplicate recipients"
-msgstr "Editar recipiente"
+msgstr "Destinataris duplicats"
 
-#, fuzzy
 msgid "Duplicate recipient"
-msgstr "Editar recipiente"
+msgstr "Destinatari duplicat"
 
-#, fuzzy
 msgid "Recipient already exists."
-msgstr "Ya existe este Usuario"
+msgstr "El destinatari ja existeix."
 
 #, fuzzy
 msgid ""
@@ -1993,22 +1915,20 @@ msgstr ""
 "El emisor de este mensaje ha solicitado la notificación al leer este "
 "mensaje. ¿Desea enviar la notificación?"
 
-#, fuzzy
 msgid "Import"
-msgstr "Importante"
+msgstr "Importar"
 
 msgid "Successfully imported item(s) to {0}"
-msgstr ""
+msgstr "Elements importats correctament a{0}"
 
 msgid "Failed to import item(s) to {0}"
-msgstr ""
+msgstr "No s'han pogut importar els elements a{0}"
 
-#, fuzzy
 msgid "Import error"
-msgstr "Importante"
+msgstr "Error d'importació"
 
 msgid "Unable to import \"{0}\". The file is not valid"
-msgstr ""
+msgstr "No es pot importar \"{0}\". El fitxer no és vàlid"
 
 msgid ""
 "You have insufficient privileges to move these items. Would you like to copy "
@@ -2030,35 +1950,31 @@ msgid "From"
 msgstr "De"
 
 msgid "Insert item"
-msgstr ""
+msgstr "Insereix l'element"
 
 msgid "Insert as"
-msgstr ""
+msgstr "Insereix com a"
 
 msgid "Text only"
-msgstr ""
+msgstr "Només text"
 
-#, fuzzy
 msgid "Attachment"
-msgstr "Adjuntos"
+msgstr "Adjunt"
 
 msgid "Attach Item"
-msgstr ""
+msgstr "Adjunta l'element"
 
 msgid "No message selected"
 msgstr "No seleccionado mensaje"
 
-#, fuzzy
 msgid "Import to"
-msgstr "Importante"
+msgstr "Importa a"
 
-#, fuzzy
 msgid "New folder"
-msgstr "Nueva Carpeta"
+msgstr "Carpeta nova"
 
-#, fuzzy
 msgid "Download as ZIP"
-msgstr "Descarga"
+msgstr "Descarrega com a ZIP"
 
 msgid "Continue"
 msgstr "Continuar"
@@ -2069,7 +1985,7 @@ msgid ""
 msgstr ""
 
 msgid "Would you like to continue downloading without adding these files?"
-msgstr ""
+msgstr "Voleu continuar baixant sense afegir aquests fitxers?"
 
 msgid ""
 "Always continue download of ZIP files without adding unsupported file types."
@@ -2079,7 +1995,7 @@ msgid "File upload"
 msgstr "Subir archivo"
 
 msgid "Attach item"
-msgstr ""
+msgstr "Adjunta l'element"
 
 msgid "Preview"
 msgstr "Vista Previa"
@@ -2088,11 +2004,10 @@ msgid "Download"
 msgstr "Descarga"
 
 msgid "Download all as ZIP"
-msgstr ""
+msgstr "Baixeu-ho tot com a ZIP"
 
-#, fuzzy
 msgid "Import to folder"
-msgstr "Carpeta vacía"
+msgstr "Importa a la carpeta"
 
 msgid ""
 "In order to use the vCard import feature, upgrade your Gromox to version 0 "
@@ -2108,29 +2023,28 @@ msgid "Attachment error"
 msgstr "Error"
 
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
-msgstr ""
+msgstr "No es pot crear ZIP, la mida màxima permesa és de 30 MB."
 
 msgid "Unable to download"
-msgstr ""
+msgstr "No es pot descarregar"
 
 msgid "Picture format is not supported. "
-msgstr ""
+msgstr "El format d'imatge no és compatible."
 
 msgid "Supported format for contact pictures are"
-msgstr ""
+msgstr "El format compatible per a les imatges de contacte és"
 
-#, fuzzy
 msgid "Attachment Error"
-msgstr "Error"
+msgstr "Error en el fitxer adjunt"
 
 msgid "Manage Categories"
-msgstr ""
+msgstr "Gestiona les categories"
 
 msgid "New"
 msgstr "Nuevo"
 
 msgid "Delete Category"
-msgstr ""
+msgstr "Suprimeix la categoria"
 
 msgid ""
 "Are you sure you want to delete the category \"{0}\"? Other items keep this "
@@ -2138,19 +2052,19 @@ msgid ""
 msgstr ""
 
 msgid "Rename Category"
-msgstr ""
+msgstr "Canvia el nom de la categoria"
 
 msgid "A category named \""
-msgstr ""
+msgstr "Una categoria anomenada \""
 
 msgid "Create New Category"
-msgstr ""
+msgstr "Crea una nova categoria"
 
 msgid "Pin to quick access"
-msgstr ""
+msgstr "Fixeu-vos per accedir ràpidament"
 
 msgid "Create"
-msgstr ""
+msgstr "Crear"
 
 msgid ""
 "You must apply the changes you have made to the categories before you can "
@@ -2159,6 +2073,8 @@ msgstr ""
 
 msgid "You already have a category named '{0}'. Please use another name."
 msgstr ""
+"Ja teniu una categoria anomenada \"{0}\". Si us plau, utilitzeu un altre "
+"nom."
 
 msgid ""
 "You already have a category named '{0}' in your pending changes. Please use "
@@ -2166,13 +2082,13 @@ msgid ""
 msgstr ""
 
 msgid "Rename"
-msgstr ""
+msgstr "Canvia el nom"
 
 msgid "This is the first time you have used \"{0}\" category."
-msgstr ""
+msgstr "Aquesta és la primera vegada que utilitzeu la categoria \"{0}\"."
 
 msgid "Do you want to rename it?"
-msgstr ""
+msgstr "Vols canviar-li el nom?"
 
 msgid ""
 "The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
@@ -2180,7 +2096,7 @@ msgid ""
 msgstr ""
 
 msgid "Merge"
-msgstr ""
+msgstr "Fusionar"
 
 msgid "Remove"
 msgstr "Eliminar"
@@ -2189,23 +2105,22 @@ msgid "Check Names"
 msgstr "Comprobar Nombres"
 
 msgid "Select an address to use"
-msgstr ""
+msgstr "Seleccioneu una adreça que voleu utilitzar"
 
 msgid "Email"
 msgstr "Correo Electrónico"
 
 msgid "More than one '{0}' found."
-msgstr ""
+msgstr "S'ha trobat més d'un \"{0}\"."
 
 msgid "Alert"
 msgstr "Advertencia"
 
-#, fuzzy
 msgid "Please select a recipient"
-msgstr "Por favor, especifique un destinatario"
+msgstr "Seleccioneu un destinatari"
 
 msgid "Mail and Post"
-msgstr ""
+msgstr "Correu i Correus"
 
 msgid "Contact"
 msgstr "Contacto"
@@ -2248,9 +2163,8 @@ msgstr ""
 msgid "Other"
 msgstr "Otro"
 
-#, fuzzy
 msgid "No delegates configured"
-msgstr "Firmas no configuradas"
+msgstr "No s'ha configurat cap delegat"
 
 msgid "Loading delegates"
 msgstr "Cargando delegados"
@@ -2259,20 +2173,18 @@ msgid "Please select a delegate."
 msgstr "Por favor, seleccione un delegado."
 
 msgid "Delegates can send items on your behalf."
-msgstr ""
+msgstr "Els delegats poden enviar articles en nom vostre."
 
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
 "the context menu and click on \"Share folder…\""
 msgstr ""
 
-#, fuzzy
 msgid "Permission"
-msgstr "Permisos"
+msgstr "Permís"
 
-#, fuzzy
 msgid "Duplicate delegate"
-msgstr "Rechazar solicitud de reunión"
+msgstr "Delegat duplicat"
 
 msgid "Delegate already exists in the list."
 msgstr "El delegado ya existe en la lista."
@@ -2288,11 +2200,11 @@ msgstr "Carpeta de Destino"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Hi ha un missatge{0}seleccionat."
+msgstr[1] "Hi ha missatges{0}seleccionats."
 
 msgid "Folder '{0}' selected."
-msgstr ""
+msgstr "Carpeta \"{0}\" seleccionada."
 
 msgid "Unable to perform action"
 msgstr "No s'ha pogut executar l'acció"
@@ -2311,16 +2223,16 @@ msgid ""
 msgstr ""
 
 msgid "You have insufficient privileges to move following items."
-msgstr ""
+msgstr "No tens privilegis suficients per moure els elements següents."
 
 msgid "Subject:"
-msgstr ""
+msgstr "Assumpte:"
 
 msgid "Would you like to copy instead?"
-msgstr ""
+msgstr "Voleu copiar-la?"
 
 msgid "Do not show this message again."
-msgstr ""
+msgstr "No tornis a mostrar aquest missatge."
 
 msgid "Properties"
 msgstr "Propiedades"
@@ -2329,11 +2241,10 @@ msgid "Object ID"
 msgstr "ID de l'objecte"
 
 msgid "ICS"
-msgstr ""
+msgstr "ICS"
 
-#, fuzzy
 msgid "Set custom flag"
-msgstr "Establecer bandera"
+msgstr "Estableix una bandera personalitzada"
 
 msgid "Start date"
 msgstr "Fecha de inicio"
@@ -2342,55 +2253,49 @@ msgid "End date"
 msgstr "Fecha de finalización"
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "Demà"
 
 msgid "This week"
-msgstr ""
+msgstr "Aquesta setmana"
 
 msgid "Next week"
-msgstr ""
+msgstr "La setmana vinent"
 
-#, fuzzy
 msgid "Custom"
-msgstr "Fecha de vencimiento"
+msgstr "Personalitzat"
 
-#, fuzzy
 msgid "Set reminder"
-msgstr "Recordatorio"
+msgstr "Estableix un recordatori"
 
 msgid "Complete"
 msgstr "Completo"
 
 msgid "today"
-msgstr ""
+msgstr "avui"
 
 msgid "tomorrow"
-msgstr ""
+msgstr "demà"
 
 msgid "this week"
-msgstr ""
+msgstr "aquesta setmana"
 
 msgid "next week"
-msgstr ""
+msgstr "la setmana vinent"
 
 msgid "Edit recipient"
 msgstr "Editar recipiente"
 
-#, fuzzy
 msgid "Copy email address"
-msgstr "Nueva dirección de correo electrónico"
+msgstr "Copia l'adreça de correu electrònic"
 
-#, fuzzy
 msgid "Set as required"
-msgstr "Este campo es obligatorio"
+msgstr "Estableix segons sigui necessari"
 
-#, fuzzy
 msgid "Set as optional"
-msgstr "Opcional"
+msgstr "Estableix com a opcional"
 
-#, fuzzy
 msgid "Set as resource"
-msgstr "Ordenar por: Recursos"
+msgstr "Estableix com a recurs"
 
 msgid "Select attendees"
 msgstr "Seleccionar asistentes "
@@ -2407,118 +2312,109 @@ msgstr "Fuera de la oficina"
 msgid "No Information"
 msgstr "sin Información"
 
-#, fuzzy
 msgid "Show non-working hours"
-msgstr "Solo mostrar horas de trabajo"
+msgstr "Mostra els horaris no laborals"
 
 msgid "Hide non-working hours"
 msgstr "No mostrar en horas de trabajo"
 
 msgid "No freebusy information available for this date"
-msgstr ""
+msgstr "No hi ha informació de freebusy disponible per a aquesta data"
 
 msgid "No suggestions available"
 msgstr "No hay sugerencias disponibles"
 
 msgid "Switch between different contexts e.g. inbox, calendar, etc."
-msgstr ""
+msgstr "Canviar entre diferents contextos, p. safata d'entrada, calendari, etc."
 
 msgid "Basic navigation"
-msgstr ""
+msgstr "Navegació bàsica"
 
 msgid "Switch between different views"
-msgstr ""
+msgstr "Canvia entre diferents vistes"
 
 msgid "New item"
 msgstr "Nuevo ítem"
 
 msgid "All views"
-msgstr ""
+msgstr "Totes les vistes"
 
 msgid "Close tab"
-msgstr ""
+msgstr "Tanca la pestanya"
 
 msgid "Print item"
-msgstr ""
+msgstr "Imprimeix l'element"
 
 msgid "Items"
 msgstr "Elementos"
 
 msgid "Save an item e.g. mail, contact, etc."
-msgstr ""
+msgstr "Desa un element, p. correu, contacte, etc."
 
 msgid "Send an item e.g. mail, meeting request, etc."
-msgstr ""
+msgstr "Envieu un article, p. correu electrònic, sol·licitud de reunió, etc."
 
 msgid "Select all items"
-msgstr ""
+msgstr "Seleccioneu tots els elements"
 
 msgid "Extend the selection to the first item in the list"
-msgstr ""
+msgstr "Amplieu la selecció al primer element de la llista"
 
 msgid "Extend the selection to the last item in the list"
-msgstr ""
+msgstr "Amplieu la selecció fins a l'últim element de la llista"
 
-#, fuzzy
 msgid "Open selected item"
-msgstr "{0} ítem seleccionado"
+msgstr "Obre l'element seleccionat"
 
 msgid "Open dialog to categorize selected item"
-msgstr ""
+msgstr "Obre el diàleg per categoritzar l'element seleccionat"
 
 msgid "Print list"
-msgstr ""
+msgstr "Imprimir llista"
 
 msgid "Open copy/move dialog"
-msgstr ""
+msgstr "Obre el diàleg de copiar/mou"
 
-#, fuzzy
 msgid "Delete selected item"
-msgstr "{0} ítem seleccionado"
+msgstr "Suprimeix l'element seleccionat"
 
 msgid ""
 "Delete selected item without moving it to the Deleted Items folder. The "
 "deleted item can still be restored."
 msgstr ""
 
-#, fuzzy
 msgid "Add/Edit Cc recipient"
-msgstr "Editar recipiente"
+msgstr "Afegeix/Edita el destinatari Cc"
 
 msgid "Disable for new mail"
-msgstr ""
+msgstr "Desactiva el correu nou"
 
 msgid "Enable for new mail"
-msgstr ""
+msgstr "Habilita per a correu nou"
 
 msgid "Disable for replies"
-msgstr ""
+msgstr "Desactiva les respostes"
 
 msgid "Enable for replies"
-msgstr ""
+msgstr "Habilita per a les respostes"
 
-#, fuzzy
 msgid "No Cc recipient configured"
-msgstr "Firmas no configuradas"
+msgstr "No s'ha configurat cap destinatari Cc"
 
-#, fuzzy
 msgid "Loading Cc recipients"
-msgstr "Editar recipiente"
+msgstr "S'estan carregant els destinataris Cc"
 
-#, fuzzy
 msgid "Reply Mail"
-msgstr "Responder a todos"
+msgstr "Correu de resposta"
 
 msgid "New Mail"
 msgstr "Nuevo Correo"
 
-#, fuzzy
 msgid "Please select a Cc recipient record."
-msgstr "Por favor, especifique un destinatario"
+msgstr "Seleccioneu un registre de destinatari Cc."
 
-#, fuzzy
 msgid "Manage Cc recipients"
-msgstr "Editar recipiente"
+msgstr "Gestionar destinataris Cc"
 
 msgid ""
 "Cc recipients can be used to set a default Cc user in new mail, replies or "
@@ -2526,25 +2422,25 @@ msgid ""
 msgstr ""
 
 msgid "Help"
-msgstr ""
+msgstr "Ajuda"
 
 msgid "Web Manual"
-msgstr ""
+msgstr "Manual web"
 
 msgid "Item data"
-msgstr ""
+msgstr "Dades de l'article"
 
 msgid "INSERT"
 msgstr "INSERTAR"
 
 msgid "Sort by: context.mail.griddefaultcolumn"
-msgstr ""
+msgstr "Ordena per: context.mail.griddefaultcolumn"
 
 msgid "ZDeveloper"
-msgstr ""
+msgstr "ZDeveloper"
 
 msgid "grommunio Web print"
-msgstr ""
+msgstr "grommunio impressió web"
 
 msgid "Display name"
 msgstr "Mostrar nombre"
@@ -2552,32 +2448,28 @@ msgstr "Mostrar nombre"
 msgid "Email address"
 msgstr "Correo Electrónico"
 
-#, fuzzy
 msgid "Expand distribution list"
-msgstr "Imprimir lista de Distribución"
+msgstr "Amplieu la llista de distribució"
 
 msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
 "collapse it again."
 msgstr ""
 
-#, fuzzy
 msgid "Edit Recipient"
-msgstr "Editar recipiente"
+msgstr "Edita el destinatari"
 
-#, fuzzy
 msgid "Copy email addresses"
-msgstr "Nueva dirección de correo electrónico"
+msgstr "Copia les adreces de correu electrònic"
 
 msgid "Send email"
 msgstr "Enviar Correo Electrónico"
 
-#, fuzzy
 msgid "Delete recipient from suggestion list"
-msgstr "Borrar la Lista de Distribución."
+msgstr "Suprimeix el destinatari de la llista de suggeriments"
 
 msgid "Copy all email addresses"
-msgstr ""
+msgstr "Copieu totes les adreces de correu electrònic"
 
 msgid "View recipient"
 msgstr "Ver recipiente"
@@ -2610,33 +2502,31 @@ msgid "Every weekday"
 msgstr "Cada Día de la Semana"
 
 msgid "Regenerate new task {A} day(s) after each task is completed"
-msgstr ""
+msgstr "Regenera una tasca nova {A} dies després de completar cada tasca"
 
 msgid "Day {A} of every {B} month(s)"
-msgstr ""
+msgstr "Dia {A} de cada {B} mesos"
 
 msgid "The {A} {B} of every {C} month(s)"
-msgstr ""
+msgstr "El {A} {B} de cada {C} mesos"
 
 msgid "Regenerate new task {A} month(s) after each task is completed"
-msgstr ""
+msgstr "Regenera una tasca nova {A} mesos després de completar cada tasca"
 
 msgid "Appointment Recurrence"
-msgstr ""
+msgstr "Repetició de la cita"
 
 msgid "Remove Recurrence"
-msgstr ""
+msgstr "Elimina la recurrència"
 
-#, fuzzy
 msgid "Reset recurring"
-msgstr "Repetición"
+msgstr "Restablir recurrent"
 
-#, fuzzy
 msgid "This will reset every exception. Do you want to continue?"
-msgstr "Esta cita ha sido movida o borrada, ¿desea continuar?."
+msgstr "Això restablirà totes les excepcions. Vols continuar?"
 
 msgid "Task Recurrence"
-msgstr ""
+msgstr "Recurrència de tasques"
 
 msgid "Daily"
 msgstr "Diario"
@@ -2657,7 +2547,7 @@ msgid "No end date"
 msgstr "Sin fecha de finalización"
 
 msgid "End after {A} occurrences"
-msgstr ""
+msgstr "Finalitza després de {A} ocurrències"
 
 msgid "End by {A}"
 msgstr "Finalizar por {A}"
@@ -2665,13 +2555,13 @@ msgstr "Finalizar por {A}"
 #. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
 #. For example: 'Occurrence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurrence duration: 1 hour'
 msgid "Occurrence duration: {D} {H} {M}"
-msgstr ""
+msgstr "Durada de l'ocurrència: {D} {H} {M}"
 
 msgid "Every {A} week(s) on"
 msgstr "Cada {A} semana(s) en"
 
 msgid "Regenerate new task {A} week(s) after each task is completed"
-msgstr ""
+msgstr "Regenera una tasca nova {A} setmanes després de completar cada tasca"
 
 msgid "Every {A} years(s) on"
 msgstr "Cada {A} any(s) el"
@@ -2683,7 +2573,7 @@ msgid "The {A} {B} of {C}"
 msgstr "El {A} {B} de {C}"
 
 msgid "Regenerate new task {A} year(s) after each task is completed"
-msgstr ""
+msgstr "Regenera una tasca nova {A} any(s) després de completar cada tasca"
 
 msgid "Info"
 msgstr "Info"
@@ -2691,56 +2581,53 @@ msgstr "Info"
 msgid "Not supported at the moment."
 msgstr "No soportado por el momento."
 
-#, fuzzy
 msgid "There is {0} reminder"
 msgid_plural "There are {0} reminders"
-msgstr[0] "Hay {0} mensaje no leido en la carpeta {1}"
-msgstr[1] "Hay {0} mensajes no leidos en la carpeta {1}"
+msgstr[0] "Hi ha un recordatori de{0}"
+msgstr[1] "Hi ha recordatoris{0}"
 
-#, fuzzy
 msgid "Reminders"
-msgstr "Recordatorio"
+msgstr "Recordatoris"
 
 msgid "There are no reminders"
-msgstr ""
+msgstr "No hi ha recordatoris"
 
 msgid "Due In"
-msgstr ""
+msgstr "Degut a"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Due"
 msgstr "Vencimiento"
 
-#, fuzzy
 msgid "Reminder time"
-msgstr "Recordatorio de Tiempo"
+msgstr "Hora de recordatori"
 
 msgid "Dismiss All"
-msgstr ""
+msgstr "Descarta-ho tot"
 
 msgid "Open Item"
 msgstr "Abrir Elemento"
 
 msgid "Dismiss"
-msgstr ""
+msgstr "Descartar"
 
 msgid "Click Snooze to be reminded again in"
-msgstr ""
+msgstr "Feu clic a Posposa per tornar a rebre un recordatori"
 
 msgid "Snooze"
-msgstr ""
+msgstr "Posposa"
 
 msgctxt "reminder.dialog"
 msgid "{0} reminder is selected."
 msgid_plural "{0} reminders are selected."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "El recordatori{0}està seleccionat."
+msgstr[1] "Els recordatoris{0}estan seleccionats."
 
 msgid "Restore Softdeleted Items"
-msgstr ""
+msgstr "Restaura els elements suprimits suaument"
 
 msgid "Restore From {0}"
-msgstr ""
+msgstr "Restaura des de{0}"
 
 msgid "Restore"
 msgstr "Restaurar"
@@ -2752,47 +2639,39 @@ msgid "Permanent Delete"
 msgstr "Eliminar permante"
 
 msgid "Delete All"
-msgstr ""
+msgstr "Suprimeix-ho tot"
 
-#, fuzzy
 msgid "Messages"
-msgstr "Mensaje"
+msgstr "Missatges"
 
-#, fuzzy
 msgid "Delete all items"
-msgstr "Elementos eliminados"
+msgstr "Suprimeix tots els elements"
 
-#, fuzzy
 msgid "Are you sure you want to permanently delete all items?"
-msgstr ""
-"¿Esta seguro de que desea eliminar permanentemente todos los elementos y "
-"subcarpetas de la carpeta \"{0}\"?"
+msgstr "Esteu segur que voleu suprimir tots els elements permanentment?"
 
-#, fuzzy
 msgid "Restore all items"
-msgstr "Restaurar elementos"
+msgstr "Restaura tots els elements"
 
-#, fuzzy
 msgid "Are you sure you want to restore all items?"
-msgstr "¿Esta seguro de que desea vaciar {0}?"
+msgstr "Esteu segur que voleu restaurar tots els elements?"
 
 msgid "Total {0} recoverable item"
 msgid_plural "Total {0} recoverable items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Element total recuperable{0}"
+msgstr[1] "Total d'elements recuperables{0}"
 
 msgid "Deleted On"
-msgstr ""
+msgstr "Suprimit a"
 
-#, fuzzy
 msgid "Sort by: Deleted On"
-msgstr "Ordenar por: Creado"
+msgstr "Ordena per: Eliminat a"
 
 msgid "Item Count"
-msgstr ""
+msgstr "Recompte d'articles"
 
 msgid "Sort by: Item Count"
-msgstr ""
+msgstr "Ordena per: Recompte d'articles"
 
 msgid "Sort by: From"
 msgstr "Ordenar por: De"
@@ -2809,156 +2688,146 @@ msgstr "Tamaño"
 msgid "Sort by: Size"
 msgstr "Ordenar por. Tamaño"
 
-#, fuzzy
 msgid "Move the message to folder…"
-msgstr "Marcar todos los mensajes como leídos…"
+msgstr "Mou el missatge a la carpeta..."
 
-#, fuzzy
 msgid "Copy the message to folder…"
-msgstr "Marcar todos los mensajes como leídos…"
+msgstr "Copia el missatge a la carpeta..."
 
 msgid "Delete the message"
-msgstr ""
+msgstr "Esborra el missatge"
 
-#, fuzzy
 msgid "Redirect the message to…"
-msgstr "Marcar todos los mensajes como leídos…"
+msgstr "Redirigeix ​​el missatge a..."
 
-#, fuzzy
 msgid "Forward the message to…"
-msgstr "Marcar todos los mensajes como leídos…"
+msgstr "Reenvia el missatge a..."
 
-#, fuzzy
 msgid "Forward the message as attachment to…"
-msgstr "Marcar todos los mensajes como leídos…"
+msgstr "Reenvia el missatge com a fitxer adjunt a..."
 
-#, fuzzy
 msgid "Mark the message as read…"
-msgstr "Marcar todos los mensajes como leídos…"
+msgstr "Marca el missatge com a llegit..."
 
 msgid "is received from…"
-msgstr ""
+msgstr "es rep de…"
 
 msgid "includes these words in the sender's address…"
-msgstr ""
+msgstr "inclou aquestes paraules a l'adreça del remitent..."
 
 msgid "includes these words in the recipient's address…"
-msgstr ""
+msgstr "inclou aquestes paraules a l'adreça del destinatari..."
 
 msgid "includes these words in the subject…"
-msgstr ""
+msgstr "inclou aquestes paraules al tema..."
 
 msgid "includes these words in the body…"
-msgstr ""
+msgstr "inclou aquestes paraules al cos..."
 
 msgid "includes these words in the transport headers…"
-msgstr ""
+msgstr "inclou aquestes paraules a les capçaleres de transport..."
 
-#, fuzzy
 msgid "has importance…"
-msgstr "Importacia…"
+msgstr "té importància..."
 
 msgid "has an attachment"
-msgstr ""
+msgstr "té un adjunt"
 
 msgid "is sent to…"
-msgstr ""
+msgstr "s'envia a..."
 
 msgid "is sent only to me"
-msgstr ""
+msgstr "s'envia només a mi"
 
 msgid "has my name in the Cc field"
-msgstr ""
+msgstr "té el meu nom al camp Cc"
 
 msgid "does not have my name in the To or Cc field"
-msgstr ""
+msgstr "no té el meu nom al camp A o Cc"
 
 msgid "has my name in the To or Cc field"
-msgstr ""
+msgstr "té el meu nom al camp A o Cc"
 
-#, fuzzy
 msgid "has sensitivity…"
-msgstr "Sensibilidad…"
+msgstr "té sensibilitat..."
 
 msgid "is received after…"
-msgstr ""
+msgstr "es rep després de..."
 
 msgid "is received before…"
-msgstr ""
+msgstr "es rep abans..."
 
 msgid "size is at least…"
-msgstr ""
+msgstr "la mida és almenys..."
 
 msgid "size is at most…"
-msgstr ""
+msgstr "la mida és com a màxim..."
 
 msgid "has my name in the To field"
-msgstr ""
+msgstr "té el meu nom al camp A"
 
 msgid "is received (all messages)"
-msgstr ""
+msgstr "es rep (tots els missatges)"
 
 msgid "Unknown condition"
-msgstr ""
+msgstr "Estat desconegut"
 
 msgid "This condition for the current rule is unknown"
-msgstr ""
+msgstr "Aquesta condició per a la regla actual és desconeguda"
 
 msgid "Add action"
-msgstr ""
+msgstr "Afegeix acció"
 
 msgid "Remove action"
-msgstr ""
+msgstr "Elimina l'acció"
 
 msgid "Unknown action"
-msgstr ""
+msgstr "Acció desconeguda"
 
 msgid "This action for the current rule is unknown"
-msgstr ""
+msgstr "Aquesta acció per a la regla actual és desconeguda"
 
 msgid "Add condition"
-msgstr ""
+msgstr "Afegeix condició"
 
 msgid "Remove condition"
-msgstr ""
+msgstr "Elimina la condició"
 
 msgid "Inbox Rule"
-msgstr ""
+msgstr "Regla de la safata d'entrada"
 
 msgid "Rule name"
-msgstr ""
+msgstr "Nom de la regla"
 
 msgid "When the message"
-msgstr ""
+msgstr "Quan el missatge"
 
 msgid "Do the following"
-msgstr ""
+msgstr "Feu el següent"
 
-#, fuzzy
 msgid "Exceptions"
-msgstr "Opciones"
+msgstr "Excepcions"
 
 msgid "Apply only when Out of Office is active"
-msgstr ""
+msgstr "Sol·liciteu-lo només quan la funció Fora de l'oficina estigui activa"
 
 msgid "Stop processing more rules"
-msgstr ""
+msgstr "Deixeu de processar més regles"
 
 msgid "Add exception"
-msgstr ""
+msgstr "Afegeix una excepció"
 
-#, fuzzy
 msgid "Remove exception"
-msgstr "Eliminar"
+msgstr "Elimina l'excepció"
 
 msgid "Specify Words or Phrases"
-msgstr ""
+msgstr "Especifiqueu paraules o frases"
 
 msgid "Edit"
-msgstr ""
+msgstr "Edita"
 
 msgid "and"
-msgstr ""
+msgstr "i"
 
 msgid ""
 "Distribution lists are not supported in rules, would you like to replace the "
@@ -2966,75 +2835,67 @@ msgid ""
 msgstr ""
 
 msgid "or"
-msgstr ""
+msgstr "o"
 
 msgid "No rule exists"
-msgstr ""
+msgstr "No existeix cap regla"
 
 msgid "Active"
-msgstr ""
+msgstr "Actius"
 
-#, fuzzy
 msgid "Out of office"
-msgstr "Fuera de la oficina"
+msgstr "Fora de l'oficina"
 
-#, fuzzy
 msgid "Rule"
-msgstr "Reglas"
+msgstr "Regla"
 
-#, fuzzy
 msgid "Loading rules"
-msgstr "Cargando notas"
+msgstr "Regles de càrrega"
 
-#, fuzzy
 msgid "Please select a rule."
-msgstr "Por favor, seleccione un delegado."
+msgstr "Seleccioneu una regla."
 
 msgid "Rule already has highest priority."
-msgstr ""
+msgstr "La regla ja té la màxima prioritat."
 
 msgid "Rule already has lowest priority."
-msgstr ""
+msgstr "La regla ja té la prioritat més baixa."
 
 msgid "Always move messages from {0}"
-msgstr ""
+msgstr "Mou sempre els missatges de{0}"
 
 msgid "Always move messages that are sent to <recipients>"
-msgstr ""
+msgstr "Mou sempre els missatges que s'envien a <destinataris>"
 
 msgid "Always move messages with this subject"
-msgstr ""
+msgstr "Mou sempre els missatges amb aquest assumpte"
 
 msgid "Create rule…"
-msgstr ""
+msgstr "Crea una regla..."
 
 msgid "myself"
-msgstr ""
+msgstr "jo mateix"
 
 msgid "Update rules for"
-msgstr ""
+msgstr "Actualitzar les regles per"
 
 msgid "Apply changes"
-msgstr ""
+msgstr "Aplicar canvis"
 
 msgid "Do you wish to apply the changes?"
 msgstr "¿ Desea aplicar los cambios ?"
 
-#, fuzzy
 msgid "All folders"
-msgstr "Todas las carpetas"
+msgstr "Totes les carpetes"
 
-#, fuzzy
 msgid "Other…"
-msgstr "Otro…"
+msgstr "Altres…"
 
-#, fuzzy
 msgid "Search in…"
-msgstr "Buscar en…"
+msgstr "Cerca a..."
 
-#, fuzzy
 msgid "Folder does not exist"
-msgstr "Contenido de carpeta"
+msgstr "La carpeta no existeix"
 
 msgid ""
 "The folder you are searching through no longer exists. Please select another "
@@ -3042,31 +2903,31 @@ msgid ""
 msgstr ""
 
 msgid "Add/Edit sender"
-msgstr ""
+msgstr "Afegeix/Edita el remitent"
 
 msgid "No from addresses configured"
-msgstr ""
+msgstr "No de les adreces configurades"
 
 msgid "Loading from addresses"
-msgstr ""
+msgstr "Càrrega des d'adreces"
 
 msgid "Forward Mail"
-msgstr ""
+msgstr "Reenvia el correu"
 
 msgid "Please select a from address record."
-msgstr ""
+msgstr "Seleccioneu un registre d'adreça."
 
 msgid "Add/Edit From recipient"
-msgstr ""
+msgstr "Afegeix/Edita del destinatari"
 
 msgid "Manage the recipients used in the 'From' field"
-msgstr ""
+msgstr "Gestioneu els destinataris utilitzats al camp \"De\"."
 
 msgid "View"
-msgstr ""
+msgstr "Veure"
 
 msgid "Please select a sendas record."
-msgstr ""
+msgstr "Seleccioneu un registre de sendas."
 
 msgid "Delegates"
 msgstr "Delegados"
@@ -3075,42 +2936,40 @@ msgid "Delegate settings"
 msgstr "Configurar Delegados"
 
 msgid "Desktop Notifications Settings"
-msgstr ""
+msgstr "Configuració de notificacions d'escriptori"
 
 msgid "We need permissions to enable desktop notifications."
-msgstr ""
+msgstr "Necessitem permisos per habilitar les notificacions d'escriptori."
 
 msgid "Request Permissions"
-msgstr ""
+msgstr "Sol·licitar permisos"
 
 msgid "Enable desktop notifications for new mail"
-msgstr ""
+msgstr "Activa les notificacions d'escriptori per a correu nou"
 
 msgid "Enable desktop notifications for reminders"
-msgstr ""
+msgstr "Activa les notificacions d'escriptori per als recordatoris"
 
 msgid "{A} Auto-hide desktop notification after second(s) {B}"
-msgstr ""
+msgstr "{A} Amaga automàticament la notificació d'escriptori al cap de segons {B}"
 
 msgid "Disable sound"
-msgstr ""
+msgstr "Desactiva el so"
 
 msgid "Notifications"
-msgstr ""
+msgstr "Notificacions"
 
-#, fuzzy
 msgid "Rules"
-msgstr "Reglas"
+msgstr "Normes"
 
 msgid "From Addresses"
-msgstr ""
+msgstr "Des d'Adreces"
 
 msgid "From Addresses settings"
-msgstr ""
+msgstr "Des de la configuració d'adreces"
 
-#, fuzzy
 msgid "Full name"
-msgstr "Nombre Completo"
+msgstr "Nom complet"
 
 msgid "Phone Numbers"
 msgstr "Números de Teléfono"
@@ -3125,16 +2984,15 @@ msgid "IM Address"
 msgstr "Dirección IM"
 
 msgid "D, d-m-Y, {0}"
-msgstr ""
+msgstr "D, d-m-Y,{0}"
 
-#, fuzzy
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
-msgstr[0] "{0} ítem seleccionado"
-msgstr[1] "{0} ítems seleccionados"
+msgstr[0] "{0}fila seleccionada"
+msgstr[1] "{0}files seleccionades"
 
 msgid "Reminder is set on: {0}, {1}"
-msgstr ""
+msgstr "El recordatori està configurat a:{0},{1}"
 
 msgid "d-m-Y"
 msgstr "d-m-A"
@@ -3143,26 +3001,25 @@ msgid "l d/m/Y"
 msgstr "l d/m/Y"
 
 msgid "l d/m/Y {0}"
-msgstr ""
+msgstr "l d/m/Y{0}"
 
 msgid "d-m-Y {0}"
-msgstr ""
+msgstr "d-m-Y{0}"
 
 msgid "Unknown"
 msgstr "Desconocido"
 
-#, fuzzy
 msgid "Meeting Organizer"
-msgstr "Organizador de conferencia"
+msgstr "Organitzador de la reunió"
 
 msgid "{0} overdue"
-msgstr ""
+msgstr "{0}vençut"
 
 msgid "Loading…"
 msgstr "Cargando…"
 
 msgid "Message could not be loaded"
-msgstr ""
+msgstr "No s'ha pogut carregar el missatge"
 
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
@@ -3173,10 +3030,10 @@ msgid "Download Pictures"
 msgstr "Descargar Fotos"
 
 msgid "Add Sender to Safe Senders List"
-msgstr ""
+msgstr "Afegeix un remitent a la llista de remitents segurs"
 
 msgid "Add Domain to Safe Senders List"
-msgstr ""
+msgstr "Afegeix un domini a la llista de remitents segurs"
 
 #. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates with which
 #. importance the message was sent. For example:
@@ -3184,7 +3041,7 @@ msgstr ""
 #. 'This message was sent with low importance.'
 msgctxt "mail.previewpanel"
 msgid "This message was sent with {0} importance."
-msgstr ""
+msgstr "Aquest missatge s'ha enviat amb importància{0}."
 
 #. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates which
 #. sensitivity level applies to the message. For example:
@@ -3209,7 +3066,7 @@ msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "{0} has accepted."
-msgstr ""
+msgstr "{0}ha acceptat."
 
 msgctxt "mail.previewpanel"
 msgid "{0} has accepted on behalf of {1}."
@@ -3217,15 +3074,15 @@ msgstr "{0} ha aceptado el nombre de {1}."
 
 msgctxt "mail.previewpanel"
 msgid "{0} has tentatively accepted."
-msgstr ""
+msgstr "{0}ha acceptat provisionalment."
 
 msgctxt "mail.previewpanel"
 msgid "{0} has tentatively accepted on behalf of {1}."
-msgstr ""
+msgstr "{0}ha acceptat provisionalment en nom de{1}."
 
 msgctxt "mail.previewpanel"
 msgid "{0} has declined."
-msgstr ""
+msgstr "{0}ha rebutjat."
 
 #, fuzzy
 msgctxt "mail.previewpanel"
@@ -3235,6 +3092,8 @@ msgstr "{0} ha aceptado el nombre de {1}."
 msgctxt "mail.previewpanel"
 msgid "{0} tentatively accepted and proposed a new time for this meeting."
 msgstr ""
+"{0}va acceptar provisionalment i va proposar una nova hora per a aquesta "
+"reunió."
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -3244,15 +3103,15 @@ msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "{0} declined and proposed a new time for this meeting."
-msgstr ""
+msgstr "{0}va declinar i va proposar una nova hora per a aquesta reunió."
 
 msgctxt "mail.previewpanel"
 msgid "{0} declined on behalf of {1} and proposed a new time for this meeting."
-msgstr ""
+msgstr "{0}va declinar en nom de{1}i va proposar una nova hora per a aquesta reunió."
 
 msgctxt "mail.previewpanel"
 msgid "This meeting is not in the Calendar; it may have been moved or deleted."
-msgstr ""
+msgstr "Aquesta reunió no està al Calendari; pot haver-se mogut o suprimit."
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -3262,11 +3121,11 @@ msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "As the meeting organizer, you do not need to respond to the meeting"
-msgstr ""
+msgstr "Com a organitzador de la reunió, no cal que respongueu a la reunió"
 
 msgctxt "mail.previewpanel"
 msgid "The meeting was updated after the attendee sent this response"
-msgstr ""
+msgstr "La reunió es va actualitzar després que l'assistent enviés aquesta resposta"
 
 msgctxt "mail.previewpanel"
 msgid "This appointment occurs in the past."
@@ -3279,18 +3138,20 @@ msgstr "Por favor, responda."
 msgctxt "mail.previewpanel"
 msgid "This is an update of a previously sent meeting request."
 msgstr ""
+"Aquesta és una actualització d'una sol·licitud de reunió enviada "
+"anteriorment."
 
 msgctxt "mail.previewpanel"
 msgid "Received for {0}."
-msgstr ""
+msgstr "Rebut per{0}."
 
 msgctxt "mail.previewpanel"
 msgid "You replied to this message."
-msgstr ""
+msgstr "Has respost a aquest missatge."
 
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message."
-msgstr ""
+msgstr "Has reenviat aquest missatge."
 
 #, fuzzy
 msgctxt "mail.previewpanel"
@@ -3299,49 +3160,41 @@ msgstr "Ha propuesto un nuevo tiempo para esta reunión en {0}"
 
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message on {0}."
-msgstr ""
+msgstr "Has reenviat aquest missatge a{0}."
 
-#, fuzzy
 msgid "Assigned by {0} on {1}."
-msgstr "Aceptado por {0} en {1}"
+msgstr "Assignat per{0}a{1}."
 
-#, fuzzy
 msgid "Waiting for response from recipient"
-msgstr "Solicitar confirmación de lectura de los destinatarios"
+msgstr "S'està esperant la resposta del destinatari"
 
-#, fuzzy
 msgid "Accepted by {0} on {1}."
-msgstr "Aceptado por {0} en {1}"
+msgstr "Acceptat per{0}a{1}."
 
-#, fuzzy
 msgid "{0} has accepted on behalf of {1} {2}."
-msgstr "{0} ha aceptado el nombre de {1}."
+msgstr "{0}ha acceptat en nom de{1}{2}."
 
-#, fuzzy
 msgid "Declined by {0} on {1}."
-msgstr "Aceptado por {0} en {1}"
+msgstr "Rebutjat per{0}a{1}."
 
-#, fuzzy
 msgid "{0} has declined on behalf of {1} {2}."
-msgstr "{0} ha aceptado el nombre de {1}."
+msgstr "{0}s'ha rebutjat en nom de{1}{2}."
 
 msgid "Last update sent on {0}."
-msgstr ""
+msgstr "Darrera actualització enviada a{0}."
 
-#, fuzzy
 msgid "{0} has updated on behalf of {1} {2}."
-msgstr "{0} ha aceptado el nombre de {1}."
+msgstr "{0}s'ha actualitzat en nom de{1}{2}."
 
-#, fuzzy
 msgid "Fix message"
-msgstr "Mensaje original"
+msgstr "Corregir el missatge"
 
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
 msgstr ""
 
 msgid "The matching task was not found in your task list."
-msgstr ""
+msgstr "La tasca que coincideix no s'ha trobat a la vostra llista de tasques."
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3357,17 +3210,17 @@ msgstr "Cco"
 
 msgctxt "mail.previewpanel"
 msgid "Categories"
-msgstr ""
+msgstr "Categories"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Recipients"
-msgstr ""
+msgstr "Destinataris"
 
 #. TRANSLATORS: check if the mail is send by some delegator or not. if then display "on behalf of".
 msgctxt "mail.previewpanel"
 msgid "on behalf of"
-msgstr ""
+msgstr "en nom de"
 
 #. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
 msgctxt "mail.previewpanel"
@@ -3375,24 +3228,22 @@ msgid "None"
 msgstr "Nada"
 
 msgid "Pop-out"
-msgstr ""
+msgstr "Pop-out"
 
-#, fuzzy
 msgid "Mark as read"
-msgstr "Marcar como no Leído"
+msgstr "Marca com a llegit"
 
-#, fuzzy
 msgid "Mark as unread"
-msgstr "Marcar como no Leído"
+msgstr "Marca com a no llegit"
 
 msgid "in"
-msgstr ""
+msgstr "en"
 
 msgid "Root"
 msgstr "Adminstarador"
 
 msgid "Datepicker"
-msgstr ""
+msgstr "Selector de dates"
 
 msgid "File As"
 msgstr "Archivar como"
@@ -3415,20 +3266,17 @@ msgstr "Otras Direcciones"
 msgid "Business Phone"
 msgstr "Teléfono Trabajo"
 
-#, fuzzy
 msgid "Business 2 Phone"
-msgstr "Teléfono Trabajo"
+msgstr "Telèfon empresarial 2"
 
-#, fuzzy
 msgid "Assistant Phone"
-msgstr "Teléfono Asistente"
+msgstr "Telèfon de l'Assistent"
 
 msgid "Company Main Phone"
-msgstr ""
+msgstr "Telèfon principal de l'empresa"
 
-#, fuzzy
 msgid "Home 2 Phone"
-msgstr "Teléfono Casa"
+msgstr "Casa 2 Telèfon"
 
 msgid "Car Phone"
 msgstr "Teléfono Coche"
@@ -3436,15 +3284,14 @@ msgstr "Teléfono Coche"
 msgid "Radio"
 msgstr "Radio"
 
-#, fuzzy
 msgid "Callback Phone"
-msgstr "Teléfono en espera"
+msgstr "Telèfon de retorn de trucada"
 
 msgid "Other Phone"
 msgstr "Otro Teléfono"
 
 msgid "Primary Phone"
-msgstr ""
+msgstr "Telèfon principal"
 
 msgid "Telex"
 msgstr "Télex"
@@ -3461,30 +3308,27 @@ msgstr "Otro Fax"
 msgid "Home Fax"
 msgstr "Fax Casa"
 
-#, fuzzy
 msgid "Email Display As"
-msgstr "Mostrar E-mail como"
+msgstr "Mostra el correu electrònic com a"
 
 msgid "Email 2"
 msgstr "Correo Electrónico 2"
 
-#, fuzzy
 msgid "Email2 Display As"
-msgstr "Mortrar E-Mail 2 como"
+msgstr "Correu electrònic2 Mostra com a"
 
 msgid "Email 3"
 msgstr "Correo Electrónico 3"
 
-#, fuzzy
 msgid "Email3 Display As"
-msgstr "Mostrar E-Mail 3 como"
+msgstr "Correu electrònic3 Mostra com a"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Birthday"
 msgstr "Cumpleaños"
 
 msgid "Wedding Anniversary"
-msgstr ""
+msgstr "Aniversari de casament"
 
 msgid "Spouse/Partner"
 msgstr "Cónyuge/Pareja"
@@ -3495,9 +3339,8 @@ msgstr "Profesión"
 msgid "Assistant's Name"
 msgstr "Nombre Asistente"
 
-#, fuzzy
 msgid "Distribution List Name"
-msgstr "Lista de distribución"
+msgstr "Nom de la llista de distribució"
 
 msgid "Open Shared Contacts"
 msgstr "Abrir Contactos Compartidos"
@@ -3509,7 +3352,7 @@ msgid "Phone List"
 msgstr "Lista de Teléfonos"
 
 msgid "Add to contacts"
-msgstr ""
+msgstr "Afegeix als contactes"
 
 msgid "Print selected contact"
 msgstr "Imprimir contacto seleccionado"
@@ -3532,7 +3375,6 @@ msgstr "Sr."
 msgid "Mrs."
 msgstr "Sra."
 
-#, fuzzy
 msgid "Ms."
 msgstr "Sra."
 
@@ -3569,9 +3411,8 @@ msgstr "Mostrar de nuevo si la dirección es incompleta o indefinida."
 msgid "Details"
 msgstr "Detalles"
 
-#, fuzzy
 msgid "Office location"
-msgstr "Ubicación Oficina"
+msgstr "Ubicació de l'oficina"
 
 msgid "Manager's name"
 msgstr "Nombre del gerente"
@@ -3598,9 +3439,8 @@ msgstr "Información adicional"
 msgid "Business 2"
 msgstr "Trabajo 2"
 
-#, fuzzy
 msgid "Callback"
-msgstr "Callback"
+msgstr "Devolució de trucada"
 
 msgid "Car"
 msgstr "Coche"
@@ -3626,9 +3466,8 @@ msgstr "Medio"
 msgid "Last"
 msgstr "Último"
 
-#, fuzzy
 msgid "Show this again when name is incomplete or unclear."
-msgstr "Mostrar de nuevo si la dirección es incompleta o indefinida."
+msgstr "Torna a mostrar-ho quan el nom no estigui complet o no estigui clar."
 
 msgid "Check phone number"
 msgstr "Comprobar número de teléfono"
@@ -3648,28 +3487,23 @@ msgstr "Extensión"
 msgid "Add Attachment"
 msgstr "Añadir adjunto"
 
-#, fuzzy
 msgid "Add attachments to this contact"
-msgstr "Añadir adjuntos a esta tarea"
+msgstr "Afegeix fitxers adjunts a aquest contacte"
 
-#, fuzzy
 msgid "Mark this contact as private"
-msgstr "Marcar esta cita como privada."
+msgstr "Marca aquest contacte com a privat"
 
 msgid "Distribution List"
 msgstr "Lista de distribución"
 
-#, fuzzy
 msgid "Mark this Distribution list as private"
-msgstr "Marcar esta lista de distribución como privada."
+msgstr "Marqueu aquesta llista de distribució com a privada"
 
-#, fuzzy
 msgid "New email address"
-msgstr "Nueva dirección de correo electrónico"
+msgstr "Nova adreça de correu electrònic"
 
-#, fuzzy
 msgid "Please enter a valid email address"
-msgstr "Por favor, introduzca una dirección de correo electrónico valida"
+msgstr "Introduïu una adreça de correu electrònic vàlida"
 
 msgid "Select Members"
 msgstr "Seleccionar Miembros"
@@ -3678,22 +3512,19 @@ msgid "Add New"
 msgstr "Añadir Nuevo"
 
 msgid "Type your note here…"
-msgstr ""
+msgstr "Escriu la teva nota aquí..."
 
 msgid "New contact"
-msgstr ""
+msgstr "Contacte nou"
 
-#, fuzzy
 msgid "New distribution list"
-msgstr "Imprimir lista de Distribución"
+msgstr "Nova llista de distribució"
 
-#, fuzzy
 msgid "Email 2 Display As"
-msgstr "Mortrar E-Mail 2 como"
+msgstr "Correu electrònic 2 Mostra com"
 
-#, fuzzy
 msgid "Email 3 Display As"
-msgstr "Mostrar E-Mail 3 como"
+msgstr "Correu electrònic 3 Mostra com a"
 
 msgid "Loading contacts"
 msgstr "Cargando Contactos"
@@ -3703,16 +3534,16 @@ msgid ""
 msgstr ""
 
 msgid "[Group]"
-msgstr ""
+msgstr "[Grup]"
 
 msgid "Work:"
-msgstr ""
+msgstr "Treball:"
 
 msgid "Primary:"
-msgstr ""
+msgstr "Primària:"
 
 msgid "Mobile:"
-msgstr ""
+msgstr "Mòbil:"
 
 msgid "Sort by: Full Name"
 msgstr "Ordenar por: Nombre Completo"
@@ -3841,19 +3672,19 @@ msgid "Sort by: Telex Phone"
 msgstr "Ordenar por: Teléfono Télex"
 
 msgid "Change Picture"
-msgstr ""
+msgstr "Canvia imatge"
 
 msgid "Remove Picture"
-msgstr ""
+msgstr "Elimina la imatge"
 
 msgid "VCF file(s)"
-msgstr ""
+msgstr "Fitxers VCF"
 
 msgid "Quick Contact"
-msgstr ""
+msgstr "Contacte ràpid"
 
 msgid "Open in new browser window"
-msgstr ""
+msgstr "Obre en una nova finestra del navegador"
 
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
@@ -3861,7 +3692,7 @@ msgid ""
 msgstr ""
 
 msgid "Untitled"
-msgstr ""
+msgstr "Sense títol"
 
 msgid ""
 "Cannot upload attachment, only {0} attachments are allowed to be added to "
@@ -3976,9 +3807,8 @@ msgstr "En Progreso"
 msgid "Wait for other person"
 msgstr "Espere a que otra persona"
 
-#, fuzzy
 msgid "Deferred"
-msgstr "diferido"
+msgstr "Ajornat"
 
 msgid "Purple"
 msgstr "Violeta"
@@ -3990,11 +3820,10 @@ msgid "Lime"
 msgstr "Verd llima"
 
 msgid "Magenta"
-msgstr ""
+msgstr "Magenta"
 
-#, fuzzy
 msgid "High Contrast"
-msgstr "Contactos usuales"
+msgstr "Alt contrast"
 
 msgid "Cyan"
 msgstr "Cian"
@@ -4020,43 +3849,38 @@ msgstr "Salir"
 msgid "Switch view"
 msgstr "Cambiar vista"
 
-#, fuzzy
 msgid "Widgets"
-msgstr "Añadir widgets"
+msgstr "Ginys"
 
-#, fuzzy
 msgid "Sending…"
-msgstr "Enviando…"
+msgstr "S'està enviant…"
 
 msgid "Sent successfully"
 msgstr "Envio finalizado"
 
-#, fuzzy
 msgid "No recipient"
-msgstr "Editar recipiente"
+msgstr "Cap destinatari"
 
-#, fuzzy
 msgid "Please specify at least one recipient"
-msgstr "Por favor, especifique un destinatario"
+msgstr "Especifiqueu almenys un destinatari"
 
 msgid "Please specify a recipient"
 msgstr "Por favor, especifique un destinatario"
 
 msgid "The attached files are not uploaded yet."
-msgstr ""
+msgstr "Els fitxers adjunts encara no s'han penjat."
 
 msgid "Do you want to send this message without attachments?"
-msgstr ""
+msgstr "Vols enviar aquest missatge sense fitxers adjunts?"
 
-#, fuzzy
 msgid "Attachments not uploaded yet"
-msgstr "Los adjuntos no se pueden modificar para una sola ocurrencia."
+msgstr "Els fitxers adjunts encara no s'han penjat"
 
 msgid "Don't Send"
-msgstr ""
+msgstr "No envieu"
 
 msgid "Send Anyway"
-msgstr ""
+msgstr "Envieu de totes maneres"
 
 msgid "Missing attachment"
 msgstr "Falta un fitxer adjunt"
@@ -4066,40 +3890,35 @@ msgid ""
 "Send anyway?"
 msgstr "Sembla que el vostre missatge fa referència a un fitxer adjunt, però no hi ha cap fitxer adjunt. Enviar de totes maneres?"
 
-#, fuzzy
 msgid "No subject"
-msgstr "Sin asunto"
+msgstr "Sense tema"
 
 msgid "Send this message without a subject?"
 msgstr "¿ Enviar este mensaje sin asunto ?"
 
-#, fuzzy
 msgid "Unresolved recipients"
-msgstr "Editar recipiente"
+msgstr "Destinataris no resolts"
 
 msgid "Not all recipients could be resolved"
 msgstr "No todos los destinatarios pueden ser resueltos"
 
 msgid "Collapse hierarchy"
-msgstr ""
+msgstr "Col·lapse la jerarquia"
 
 msgid "Expand hierarchy"
-msgstr ""
+msgstr "Ampliar la jerarquia"
 
 msgid "Folders List"
 msgstr "Lista de carpetas"
 
-#, fuzzy
 msgid "Copy Details"
-msgstr "Mostrar Detalles"
+msgstr "Detalls de la còpia"
 
-#, fuzzy
 msgid "Hide Details"
-msgstr "Detalles"
+msgstr "Amaga els detalls"
 
-#, fuzzy
 msgid "Loaded {0} of {1}"
-msgstr "Página {A} de {0}"
+msgstr "S'ha carregat{0}de{1}"
 
 msgid "Saving"
 msgstr "Grabando"
@@ -4120,43 +3939,41 @@ msgstr ""
 msgid "grommunio Content Panel"
 msgstr "Panel de Contenido grommunio"
 
-#, fuzzy
 msgid "Delete item"
-msgstr "Elementos eliminados"
+msgstr "Suprimeix l'element"
 
 msgid "This item has been changed. Are you sure you want to delete it?"
-msgstr ""
+msgstr "Aquest element s'ha canviat. Esteu segur que voleu suprimir-lo?"
 
 msgid "Unsaved changes"
-msgstr ""
+msgstr "Canvis no desats"
 
 msgid "Welcome to grommunio Web"
-msgstr ""
+msgstr "Benvingut a grommunio Web"
 
 msgid "This is the first time you are using grommunio Web. "
-msgstr ""
+msgstr "Aquesta és la primera vegada que feu servir grommunio Web."
 
 msgid "Please check the following settings before continuing."
-msgstr ""
+msgstr "Si us plau, comproveu la configuració següent abans de continuar."
 
-#, fuzzy
 msgid "Widget height"
-msgstr "Añadir widgets"
+msgstr "Alçada del widget"
 
 msgid "pixels"
-msgstr ""
+msgstr "píxels"
 
 msgid "Configure widget"
 msgstr "Configurar widget"
 
 msgid "Reload interval"
-msgstr ""
+msgstr "Interval de recàrrega"
 
 msgid "seconds"
-msgstr ""
+msgstr "segons"
 
 msgid "Open in new tab"
-msgstr ""
+msgstr "Obre en una pestanya nova"
 
 msgid "Add widgets"
 msgstr "Añadir widgets"
@@ -4164,40 +3981,35 @@ msgstr "Añadir widgets"
 msgid "No widgets installed."
 msgstr "No hay widgets instalados"
 
-#, fuzzy
 msgid "Remove widget"
-msgstr "Eliminar"
+msgstr "Elimina el giny"
 
-#, fuzzy
 msgid "Collapse widget"
-msgstr "Configurar widget"
+msgstr "Col·lapse el giny"
 
-#, fuzzy
 msgid "Expand widget"
-msgstr "Añadir widgets"
+msgstr "Amplieu el giny"
 
 msgid "About this widget"
-msgstr ""
+msgstr "Sobre aquest giny"
 
-#, fuzzy
 msgid "Add new widget"
-msgstr "Añadir widgets"
+msgstr "Afegeix un widget nou"
 
 msgid "Collapse widget panel"
-msgstr ""
+msgstr "Replega el panell de widgets"
 
 msgid "Expand widget panel"
-msgstr ""
+msgstr "Amplieu el panell de widgets"
 
 msgid "Your changes will be lost if you leave this page now."
-msgstr ""
+msgstr "Els vostres canvis es perdran si abandoneu aquesta pàgina ara."
 
 msgid "D {0}"
-msgstr ""
+msgstr "D{0}"
 
-#, fuzzy
 msgid "D d-m"
-msgstr "d-m-A"
+msgstr "D d-m"
 
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
@@ -4213,18 +4025,16 @@ msgstr ""
 "No dispone de suficientes permisos para abrir la carpeta, ¿desea eliminarla "
 "de la jerarquía?"
 
-#, fuzzy
 msgid "Insufficient Permissions"
-msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta"
+msgstr "Permisos insuficients"
 
 msgid "Not enough permissions to open this folder."
 msgstr "Privilegios insuficientes para abrir la carpeta."
 
-#, fuzzy
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
-msgstr[0] "Hay {0} mensaje no leido en la carpeta {1}"
-msgstr[1] "Hay {0} mensajes no leidos en la carpeta {1}"
+msgstr[0] "Hi ha un missatge no llegit{0}a la carpeta{1}de{2}"
+msgstr[1] "Hi ha missatges{0}no llegits a la carpeta{1}de{2}"
 
 msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
@@ -4253,16 +4063,16 @@ msgid "Contributor"
 msgstr "Contribuïdor"
 
 msgid "Free/Busy time, subject, location"
-msgstr ""
+msgstr "Temps lliure/ocupat, tema, ubicació"
 
 msgid "Free/Busy time"
-msgstr ""
+msgstr "Temps lliure/ocupat"
 
 msgid "Unable to import:"
-msgstr ""
+msgstr "No es pot importar:"
 
 msgid "The files are not valid"
-msgstr ""
+msgstr "Els fitxers no són vàlids"
 
 msgid "Create New Folder"
 msgstr "Crear nueva carpeta"
@@ -4274,7 +4084,7 @@ msgid "Calendar Items"
 msgstr "Elementos de Calendario"
 
 msgid "Mail and Post Items"
-msgstr ""
+msgstr "Correus i articles de correu"
 
 msgid "Contacts Items"
 msgstr "Elementos de Contacto"
@@ -4288,13 +4098,11 @@ msgstr "Elementos de Tareas"
 msgid "Select where to place the folder"
 msgstr "Seleccionar donde alojar carpeta"
 
-#, fuzzy
 msgid "No folder name"
-msgstr "Nombre carpeta"
+msgstr "Sense nom de carpeta"
 
-#, fuzzy
 msgid "No destination"
-msgstr "sin Información"
+msgstr "Sense destinació"
 
 msgid "You must select a destination folder."
 msgstr "Ud. debe seleccionar un destino para la carpeta."
@@ -4360,7 +4168,7 @@ msgid "Folder visible"
 msgstr "Carpeta visible"
 
 msgid "Apply (copy) changed permissions recursively"
-msgstr ""
+msgstr "Aplicar (copiar) els permisos modificats de forma recursiva"
 
 msgid "User already exists"
 msgstr "Ya existe este Usuario"
@@ -4401,43 +4209,38 @@ msgstr "Tamaño Total"
 msgid "Sort by: Total size (including subfolders)"
 msgstr "Ordenar por: Tamaño Total (subcarpetas incluidas)"
 
-#, fuzzy
 msgid "Open Shared Folders"
-msgstr "Abrir notas compartidas"
+msgstr "Obriu Carpetes compartides"
 
 msgid "Unresolved user"
-msgstr ""
+msgstr "Usuari no resolt"
 
 msgid "Username '{0}' could not be resolved."
 msgstr "No se pudo resolver el usuario '{0}'."
 
 msgid "Invalid user"
-msgstr ""
+msgstr "Usuari no vàlid"
 
 msgid "Username '{0}' is not a valid user."
 msgstr "El usuario '{0}' no es un usuario válido."
 
-#, fuzzy
 msgid "Own store"
-msgstr "Caja no encontrada"
+msgstr "Botiga pròpia"
 
-#, fuzzy
 msgid "It is not possible to open your own store twice."
-msgstr "No es posible abrir su propio buzón dos veces."
+msgstr "No és possible obrir la teva pròpia botiga dues vegades."
 
-#, fuzzy
 msgid "Folder already open"
-msgstr "La carpeta compartida ya se encuentra abierta."
+msgstr "La carpeta ja està oberta"
 
 msgid "This shared folder is already open."
 msgstr "La carpeta compartida ya se encuentra abierta."
 
 msgid "No user"
-msgstr ""
+msgstr "Cap usuari"
 
-#, fuzzy
 msgid "You must specify a user"
-msgstr "Ud. debe especificar un nombre."
+msgstr "Heu d'especificar un usuari"
 
 msgid "Folder type"
 msgstr "Tipo de carpeta"
@@ -4446,22 +4249,19 @@ msgid "Show subfolders"
 msgstr "Mostrar subcarpetas"
 
 msgid "Open shared folder/store"
-msgstr ""
+msgstr "Obre la carpeta/botiga compartida"
 
 msgid "Rename folder"
-msgstr ""
+msgstr "Canvia el nom de la carpeta"
 
-#, fuzzy
 msgid "Empty folder"
-msgstr "Carpeta vacía"
+msgstr "Carpeta buida"
 
-#, fuzzy
 msgid "Empty Junk Email"
-msgstr "papelera de reciclaje"
+msgstr "Correu electrònic no desitjat buit"
 
-#, fuzzy
 msgid "Empty Deleted Items"
-msgstr "Elementos eliminados"
+msgstr "Elements suprimits buits"
 
 msgid "Rename Folder"
 msgstr "Renombrar Carpeta"
@@ -4487,43 +4287,35 @@ msgstr "Refrescar"
 msgid "Restore items"
 msgstr "Restaurar elementos"
 
-#, fuzzy
 msgid "Select color"
-msgstr "Seleccionar Carpeta"
+msgstr "Seleccioneu el color"
 
-#, fuzzy
 msgid "Add to Favorites"
-msgstr "Añadir a Carpeta favoritos"
+msgstr "Afegeix a Preferits"
 
-#, fuzzy
 msgid "Remove From Favorites"
-msgstr "Eliminar del calendario"
+msgstr "Elimina dels preferits"
 
-#, fuzzy
 msgid "Share folder…"
-msgstr "Carpeta de inicio…"
+msgstr "Comparteix la carpeta..."
 
-#, fuzzy
 msgid "Import emails"
-msgstr "Importante"
+msgstr "Importa correus electrònics"
 
-#, fuzzy
 msgid "Import appointments"
-msgstr "Nueva cita"
+msgstr "Importa cites"
 
 msgid "Import contacts"
-msgstr ""
+msgstr "Importa contactes"
 
-#, fuzzy
 msgid "Properties of {0}"
-msgstr "Propiedades"
+msgstr "Propietats de{0}"
 
 msgid "Share {0} with…"
-msgstr ""
+msgstr "Comparteix{0}amb..."
 
-#, fuzzy
 msgid "Properties of {0} - {1}"
-msgstr "Propiedades"
+msgstr "Propietats de{0}-{1}"
 
 msgid ""
 "Are you sure you want to permanently delete all the items and subfolders in "
@@ -4539,15 +4331,14 @@ msgstr ""
 "¿Esta seguro de que desea eliminar la carpeta \"{0}\" y mover todo su "
 "contenido a la carpeta de Elementos Eliminados?"
 
-#, fuzzy
 msgid "Delete folder"
-msgstr "Borrar Carpeta"
+msgstr "Esborra la carpeta"
 
 msgid "Are you sure you want to empty {0}?"
 msgstr "¿Esta seguro de que desea vaciar {0}?"
 
 msgid "Show All"
-msgstr ""
+msgstr "Mostra-ho tot"
 
 msgid "Show all folders"
 msgstr "Mostrar todo"
@@ -4574,62 +4365,63 @@ msgid "Original message"
 msgstr "Mensaje original"
 
 msgid "Schedule mail to be sent out"
-msgstr ""
+msgstr "Programeu l'enviament del correu"
 
 msgid "Scheduled Items"
-msgstr ""
+msgstr "Elements programats"
 
 msgid "Your message will be sent at "
-msgstr ""
+msgstr "El teu missatge s'enviarà a"
 
 msgid "Go to your Outbox to edit your email."
-msgstr ""
+msgstr "Aneu a la vostra bústia de sortida per editar el vostre correu electrònic."
 
 msgid "hour(s)"
-msgstr ""
+msgstr "hores"
 
 msgid "month(s)"
-msgstr ""
+msgstr "mesos"
 
 msgid "at a specific time"
-msgstr ""
+msgstr "en un moment concret"
 
 msgid "The time you entered is in the past. Please reschedule your mail."
 msgstr ""
+"L'hora que heu introduït és del passat. Si us plau, reprograma el teu "
+"correu."
 
 msgid "today  at "
-msgstr ""
+msgstr "avui a les"
 
 msgid "tomorrow  at "
-msgstr ""
+msgstr "demà a les"
 
 msgid "{0} at "
-msgstr ""
+msgstr "{0}a"
 
 msgid "at {0}"
-msgstr ""
+msgstr "a{0}"
 
 msgid "Your email will be sent {0}{1}"
-msgstr ""
+msgstr "El vostre correu electrònic s'enviarà{0}{1}"
 
 msgid "Saving…"
-msgstr ""
+msgstr "S'està desant…"
 
 msgid "Saved at {0}"
-msgstr ""
+msgstr "Desat a{0}"
 
-#, fuzzy
 msgid "Saving failed"
-msgstr "Cargando correo"
+msgstr "S'ha produït un error en desar"
 
 msgid "This message will be flagged for follow up when it is sent."
-msgstr ""
+msgstr "Aquest missatge es marcarà per al seguiment quan s'enviï."
 
 msgid "Send Later"
-msgstr ""
+msgstr "Enviar més tard"
 
 msgid "Schedule your mail to be sent on a specific date and time"
-msgstr ""
+msgstr "Programeu l'enviament del vostre correu en una data i hora concretes"
 
 msgid "Add attachments to this email"
 msgstr "Añadir adjuntos a este Correo Electrónico"
@@ -4647,10 +4439,10 @@ msgid "Set flag on this email"
 msgstr "Establecer bandera en este correo electrónico"
 
 msgid "Mark this mail as high priority"
-msgstr ""
+msgstr "Marca aquest correu com a de prioritat alta"
 
 msgid "Mark this mail as low priority"
-msgstr ""
+msgstr "Marca aquest correu com a de baixa prioritat"
 
 msgid "Set read receipt"
 msgstr "Establecer como leído"
@@ -4661,16 +4453,14 @@ msgstr "Solicitar confirmación de lectura de los destinatarios"
 msgid "Show Bcc"
 msgstr "Mostrar Cco"
 
-#, fuzzy
 msgid "Show Bcc field"
-msgstr "Mostrar Cco"
+msgstr "Mostra el camp Cco"
 
-#, fuzzy
 msgid "Show From field"
-msgstr "Mostrar De"
+msgstr "Mostra des del camp"
 
 msgid "Cannot save while attachment is being uploaded"
-msgstr ""
+msgstr "No es pot desar mentre s'està carregant el fitxer adjunt"
 
 msgid "Internet Headers"
 msgstr "Encabezados de Internet"
@@ -4691,7 +4481,7 @@ msgid "Set Category"
 msgstr "Establecer categoría"
 
 msgid "Pop-Out"
-msgstr ""
+msgstr "Pop-Out"
 
 msgid "Mark Read"
 msgstr "Marcar como leído"
@@ -4699,36 +4489,32 @@ msgstr "Marcar como leído"
 msgid "Mark Unread"
 msgstr "Marcar como no Leído"
 
-#, fuzzy
 msgid "New mail"
-msgstr "Nuevo Correo"
+msgstr "Correu nou"
 
 msgid "Mail"
 msgstr "Correo"
 
-#, fuzzy
 msgid "Reply all"
-msgstr "Responder a todos"
+msgstr "Respon a tots"
 
 msgid "Toggle read/unread"
-msgstr ""
+msgstr "Commuta llegit/no llegit"
 
 msgid "Toggle red/complete flag"
-msgstr ""
+msgstr "Commuta la bandera vermella/completa"
 
 msgid "Open Shared Mails"
 msgstr "Abrir correos compartidos"
 
-#, fuzzy
 msgid "Print single email"
-msgstr "Imprimir solo este correo electrónico"
+msgstr "Imprimeix un sol correu electrònic"
 
-#, fuzzy
 msgid "Print selected email"
-msgstr "Imprimir tareas seleccionadas"
+msgstr "Imprimeix el correu electrònic seleccionat"
 
 msgid "Filter"
-msgstr ""
+msgstr "Filtre"
 
 msgid "Fwd"
 msgstr "RV"
@@ -4737,19 +4523,19 @@ msgid "Re"
 msgstr "RE"
 
 msgid "on behalf of"
-msgstr ""
+msgstr "en nom de"
 
 msgid "Safe Senders list is empty"
-msgstr ""
+msgstr "La llista de remitents segurs està buida"
 
 msgid "Please select a safe sender record."
-msgstr ""
+msgstr "Seleccioneu un registre de remitent segur."
 
 msgid "Delete all safe senders"
-msgstr ""
+msgstr "Suprimeix tots els remitents segurs"
 
 msgid "Are you sure you want to delete all safe senders?"
-msgstr ""
+msgstr "Esteu segur que voleu suprimir tots els remitents segurs?"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4758,13 +4544,13 @@ msgid "Plain Text"
 msgstr "Texto Plano"
 
 msgid "In both representee's and delegate's Sent Items"
-msgstr ""
+msgstr "En els elements enviats tant del representant com del delegat"
 
 msgid "Only in delegate's Sent Items"
-msgstr ""
+msgstr "Només als elements enviats del delegat"
 
 msgid "Only in representee's Sent Items"
-msgstr ""
+msgstr "Només als elements enviats del representant"
 
 msgid "Compose mail settings"
 msgstr "Opciones composición correo"
@@ -4773,13 +4559,13 @@ msgid "Compose mail in this format"
 msgstr "Crear correo en este formato"
 
 msgid "Default font"
-msgstr ""
+msgstr "Tipus de lletra per defecte"
 
 msgid "Default font size"
-msgstr ""
+msgstr "Mida de lletra per defecte"
 
 msgid "Save emails sent by delegate"
-msgstr ""
+msgstr "Guarda els correus electrònics enviats pel delegat"
 
 msgid "Always request a read receipt"
 msgstr "Solicitar siempre confirmación de lectura"
@@ -4790,16 +4576,16 @@ msgstr "Activa el recordatori de fitxers adjunts"
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
-msgstr ""
+msgstr "{A}Desa automàticament el correu no enviat cada {B} minut(s)"
 
 msgid "Conversation view settings"
-msgstr ""
+msgstr "Configuració de la visualització de la conversa"
 
 msgid "Enable conversation view"
-msgstr ""
+msgstr "Activa la vista de conversa"
 
 msgid "Collapse conversation when selecting a different email"
-msgstr ""
+msgstr "Replega la conversa en seleccionar un correu electrònic diferent"
 
 msgid "Incoming mail"
 msgstr "Correo entrante"
@@ -4822,7 +4608,7 @@ msgid "{A}Automatically mark mail as read after {B} second(s)"
 msgstr "{A} Marcar automáticamente correo como leído después de {B} segundo(s)"
 
 msgid "View mail in this format"
-msgstr ""
+msgstr "Visualitza el correu en aquest format"
 
 msgid "Right"
 msgstr "Derecho"
@@ -4830,74 +4616,69 @@ msgstr "Derecho"
 msgid "Bottom"
 msgstr "Abajo"
 
-#, fuzzy
 msgid "Location of preview pane"
-msgstr "Ubicación del panel de vista previa"
+msgstr "Ubicació del panell de previsualització"
 
 msgid "Use subject prefixes in accordance with RFC 5256/5322"
-msgstr ""
+msgstr "Utilitzeu prefixos d'assumpte d'acord amb la RFC 5256/5322"
 
 msgid "Close original message on reply or forward"
-msgstr ""
+msgstr "Tanca el missatge original en respondre o reenviar"
 
 msgid "General mail settings"
 msgstr "Opciones generales de correo"
 
 msgid "Open or compose a mail item in a"
-msgstr ""
+msgstr "Obre o redacta un element de correu en a"
 
-#, fuzzy
 msgid "grommunio Web tab"
-msgstr "grommunio Web"
+msgstr "pestanya web de grommunio"
 
-#, fuzzy
 msgid "Browser window"
-msgstr "Examinar"
+msgstr "Finestra del navegador"
 
 msgid "Update Out of Office settings for"
-msgstr ""
+msgstr "Actualitza la configuració fora de l'oficina per a"
 
 msgid "I am currently in the office"
 msgstr "En la oficina"
 
-#, fuzzy
 msgid "I am out of the office from"
-msgstr "Fuera de la oficina"
+msgstr "Estic fora de l'oficina de"
 
 msgid "I will be back on"
-msgstr ""
+msgstr "Tornaré a posar-me"
 
-#, fuzzy
 msgid "Automatically reply with the following message:"
-msgstr "Respuesta automática con el siguiente texto:"
+msgstr "Respon automàticament amb el missatge següent:"
 
 msgid "(The frequency of replies is dependent on server configuration.)"
-msgstr ""
+msgstr "(La freqüència de les respostes depèn de la configuració del servidor.)"
 
 msgid "Inside My Organization"
-msgstr ""
+msgstr "Dins de la meva organització"
 
 msgid "User is currently out of office."
-msgstr ""
+msgstr "Actualment l'usuari està fora de l'oficina."
 
 msgid "Outside My Organization"
-msgstr ""
+msgstr "Fora de la meva organització"
 
 msgid "Auto-reply to people outside my organization"
-msgstr ""
+msgstr "Resposta automàtica a persones fora de la meva organització"
 
 msgid "My contacts only"
-msgstr ""
+msgstr "Només els meus contactes"
 
 msgid "Anyone outside my organization"
-msgstr ""
+msgstr "Qualsevol persona fora de la meva organització"
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
 msgstr ""
 
 msgid "Safe Senders"
-msgstr ""
+msgstr "Remitents segurs"
 
 msgid ""
 "To protect your privacy email addresses or domains can only be added via the "
@@ -4905,7 +4686,7 @@ msgid ""
 msgstr ""
 
 msgid "Delete all"
-msgstr ""
+msgstr "Suprimeix-ho tot"
 
 msgid "Signatures"
 msgstr "Firmas"
@@ -4914,17 +4695,16 @@ msgid "No signatures configured"
 msgstr "Firmas no configuradas"
 
 msgid "New messages"
-msgstr ""
+msgstr "Missatges nous"
 
 msgid "Replies/forwards"
-msgstr ""
+msgstr "Respostes/enviaments"
 
 msgid "Signature name:"
-msgstr ""
+msgstr "Nom de la signatura:"
 
-#, fuzzy
 msgid "Save Signature"
-msgstr "Firmas"
+msgstr "Desa la signatura"
 
 msgid "You have unsaved changes. Do you wish to save the changes?"
 msgstr "Tiene cambios sin guardar.¿Quiere guardar los cambios?"
@@ -4933,68 +4713,64 @@ msgid "New signature"
 msgstr "Nueva firma"
 
 msgid "EML file(s)"
-msgstr ""
+msgstr "Fitxer(s) EML"
 
-#, fuzzy
 msgid "ZIP file"
-msgstr "Perfil"
+msgstr "Fitxer ZIP"
 
 msgid "max. "
-msgstr ""
+msgstr "màx."
 
 msgid "Sort by: Sent"
 msgstr "Ordenar por: Enviado"
 
 msgid "Modified"
-msgstr ""
+msgstr "Modificat"
 
 msgid "Sort by: Modified"
-msgstr ""
+msgstr "Ordena per: Modificat"
 
 msgid "Flag"
-msgstr ""
+msgstr "Bandera"
 
 msgid "Sort by: flag"
-msgstr ""
+msgstr "Ordena per: bandera"
 
-#, fuzzy
 msgid "Older"
-msgstr "Carpeta"
+msgstr "Més vell"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Ahir"
 
-#, fuzzy
 msgid "Last Week"
-msgstr "Semana"
+msgstr "La setmana passada"
 
 msgid "Two Weeks Ago"
-msgstr ""
+msgstr "Fa dues setmanes"
 
 msgid "Three Weeks Ago"
-msgstr ""
+msgstr "Fa tres setmanes"
 
-#, fuzzy
 msgid "Last Month"
-msgstr "Mes"
+msgstr "El mes passat"
 
 msgid "Small"
-msgstr ""
+msgstr "Petit"
 
 msgid "Medium"
-msgstr ""
+msgstr "Mitjana"
 
 msgid "Large"
-msgstr ""
+msgstr "Gran"
 
 msgid "Very large"
-msgstr ""
+msgstr "Molt gran"
 
 msgid "Huge"
-msgstr ""
+msgstr "Enorme"
 
 msgid "Follow up"
-msgstr ""
+msgstr "Seguiment"
 
 msgid "Move to Junk Folder"
 msgstr "Mover a Papelera"
@@ -5002,31 +4778,29 @@ msgstr "Mover a Papelera"
 msgid "Not Junk Email"
 msgstr "No és correu brossa"
 
-#, fuzzy
 msgid "Send to"
-msgstr "Enviar"
+msgstr "Enviar a"
 
 msgid "Loading mail"
 msgstr "Cargando correo"
 
 msgid "No unread mail."
-msgstr ""
+msgstr "No hi ha correu no llegit."
 
 msgid "Unread Mail"
 msgstr "Correo no leído"
 
 msgid "Quick Mail"
-msgstr ""
+msgstr "Correu ràpid"
 
-#, fuzzy
 msgid "Print note"
-msgstr "Imprimir esta nota"
+msgstr "Imprimeix nota"
 
 msgid "Color"
 msgstr "Color"
 
 msgid "New note"
-msgstr ""
+msgstr "Nova nota"
 
 msgid "Open Shared Notes"
 msgstr "Abrir notas compartidas"
@@ -5034,13 +4808,11 @@ msgstr "Abrir notas compartidas"
 msgid "Sticky note"
 msgstr "Nota"
 
-#, fuzzy
 msgid "Print selected note"
-msgstr "Imprimir tareas seleccionadas"
+msgstr "Imprimeix la nota seleccionada"
 
-#, fuzzy
 msgid "No note selected"
-msgstr "No hay tareas seleccionadas"
+msgstr "No s'ha seleccionat cap nota"
 
 msgid "Icons"
 msgstr "Iconos"
@@ -5052,7 +4824,7 @@ msgid "List Last Seven Days"
 msgstr "Listar los últimos siete días"
 
 msgid "Created"
-msgstr ""
+msgstr "Creat"
 
 msgid "Sort by: Created"
 msgstr "Ordenar por. Creado"
@@ -5074,21 +4846,20 @@ msgid ""
 "changes will be lost."
 msgstr ""
 
-#, fuzzy
 msgid "Reload grommunio Web"
-msgstr "grommunio Web"
+msgstr "Torna a carregar grommunio Web"
 
 msgid "Settings"
 msgstr "Configuración"
 
 msgid "Basic"
-msgstr ""
+msgstr "Bàsica"
 
 msgid "Account information - {0}"
-msgstr ""
+msgstr "Informació del compte -{0}"
 
 msgid "Profile Picture"
-msgstr ""
+msgstr "Imatge de perfil"
 
 msgid "Language"
 msgstr "Lenguaje"
@@ -5097,10 +4868,10 @@ msgid "Startup folder"
 msgstr "Carpeta de inicio"
 
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 msgid "Select Default Folder"
-msgstr ""
+msgstr "Seleccioneu Carpeta predeterminada"
 
 msgid "Advanced"
 msgstr "Avanzado"
@@ -5109,13 +4880,15 @@ msgid "Advanced settings"
 msgstr "Ajustes Avanzados"
 
 msgid "Developer tools"
-msgstr ""
+msgstr "Eines per a desenvolupadors"
 
 msgid "Show insertion points in grommunio Web"
-msgstr ""
+msgstr "Mostra els punts d'inserció a grommunio Web"
 
 msgid "Show \"item data\" button in context menu (mail only)"
 msgstr ""
+"Mostra el botó \"dades de l'element\" al menú contextual (només correu "
+"electrònic)"
 
 msgid "Edit setting"
 msgstr "Editar ajustes"
@@ -5126,94 +4899,91 @@ msgstr "Restaurar por defecto"
 msgid "Delete settings"
 msgstr "Eliminar ajustes"
 
-#, fuzzy
 msgid "{0} Iconset"
-msgstr "Iconos"
+msgstr "Conjunt d'icones{0}"
 
 msgid "About"
 msgstr "Acerca"
 
 msgid "I want to display date and time in this format:"
-msgstr ""
+msgstr "Vull mostrar la data i l'hora en aquest format:"
 
 msgid "Short"
-msgstr ""
+msgstr "Curt"
 
 msgid "Long"
-msgstr ""
+msgstr "Llarg"
 
 msgid "Time format:"
-msgstr ""
+msgstr "Format d'hora:"
 
 msgid "12h clock"
-msgstr ""
+msgstr "rellotge 12h"
 
 msgid "24h clock"
-msgstr ""
+msgstr "rellotge 24h"
 
-#, fuzzy
 msgid "Favorite settings"
-msgstr "Configurar Delegados"
+msgstr "Configuració preferida"
 
-#, fuzzy
 msgid "Hide favorites"
-msgstr "Favoritos"
+msgstr "Amaga els preferits"
 
 msgid "Unpin favorites from top"
-msgstr ""
+msgstr "Elimina els preferits de dalt"
 
 msgid "Give unread items a colored border"
-msgstr ""
+msgstr "Doneu als elements no llegits una vora de colors"
 
 msgid "Show 'help' button in top-right corner"
-msgstr ""
+msgstr "Mostra el botó \"ajuda\" a l'extrem superior dret"
 
 msgid "Show unread mail counter in application title"
-msgstr ""
+msgstr "Mostra el comptador de correu no llegit al títol de l'aplicació"
 
 msgid "Hide widget panel"
-msgstr ""
+msgstr "Amaga el panell de widgets"
 
 msgid "Show search bar above folder list"
-msgstr ""
+msgstr "Mostra la barra de cerca a sobre de la llista de carpetes"
 
 msgid "Auto"
-msgstr ""
+msgstr "Automàtic"
 
 msgid "Actual size"
-msgstr ""
+msgstr "Mida real"
 
 msgid "Page width"
-msgstr ""
+msgstr "Amplada de la pàgina"
 
 msgid "Attachment preview (PDF and Open formats)"
-msgstr ""
+msgstr "Vista prèvia dels fitxers adjunts (formats PDF i Open)"
 
 msgid "Document default zoom"
-msgstr ""
+msgstr "Zoom predeterminat del document"
 
 msgid "PDF zoom"
-msgstr ""
+msgstr "Zoom PDF"
 
 msgid "File previewing"
-msgstr ""
+msgstr "Vista prèvia del fitxer"
 
-#, fuzzy
 msgid "Inbox navigation"
-msgstr "Enviar invitación"
+msgstr "Navegació de la safata d'entrada"
 
 msgid "I want to navigate through my items by using:"
-msgstr ""
+msgstr "Vull navegar pels meus elements mitjançant:"
 
 msgid "Infinite Scroll"
-msgstr ""
+msgstr "Desplaçament infinit"
 
 msgid "grommunio Web automatically loads additional items when you scroll down"
 msgstr ""
+"grommunio Web carrega automàticament elements addicionals quan us desplaceu "
+"cap avall"
 
-#, fuzzy
 msgid "Pagination"
-msgstr "Organización"
+msgstr "Paginació"
 
 msgid ""
 "grommunio Web displays items on pages and you can use navigation controls to "
@@ -5221,28 +4991,28 @@ msgid ""
 msgstr ""
 
 msgid "Load items in blocks of {A}"
-msgstr ""
+msgstr "Carrega elements en blocs de {A}"
 
 msgid "Load {A} items per page."
-msgstr ""
+msgstr "Carregueu {A} elements per pàgina."
 
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Dreceres de teclat"
 
 msgid "Part of basic keyboard shortcuts"
-msgstr ""
+msgstr "Part de les dreceres bàsiques del teclat"
 
 msgid "Keyboard shortcuts off"
-msgstr ""
+msgstr "Dreceres de teclat desactivades"
 
 msgid "Basic keyboard shortcuts on"
-msgstr ""
+msgstr "Dreceres bàsiques de teclat activades"
 
 msgid "All keyboard shortcuts on"
-msgstr ""
+msgstr "Totes les tecles de drecera activades"
 
 msgid "This change requires a reload of grommunio Web"
-msgstr ""
+msgstr "Aquest canvi requereix una recàrrega de grommunio Web"
 
 msgid "Plugins"
 msgstr "Módulos"
@@ -5253,27 +5023,26 @@ msgstr "Plugins disponibles"
 msgid "No plugins available"
 msgstr "Plugins no disponibles"
 
-#, fuzzy
 msgid "Version"
-msgstr "Permisos"
+msgstr "Versió"
 
 msgid "This plugin cannot be disabled"
-msgstr ""
+msgstr "Aquest connector no es pot desactivar"
 
 msgid "This plugin cannot be enabled"
-msgstr ""
+msgstr "Aquest connector no es pot activar"
 
 msgid "Mailbox Usage"
 msgstr "Uso del Buzón"
 
 msgid "A quota is not set on your store."
-msgstr ""
+msgstr "No s'ha establert cap quota a la vostra botiga."
 
 msgid "{0} of mailbox space is used."
 msgstr "{0} de espacio del buzón usado."
 
 msgid "You have exceeded hard quota, you can not send or receive mails."
-msgstr ""
+msgstr "Heu superat la quota fixa, no podeu enviar ni rebre correus."
 
 msgid "At {0} you won't be able to send mails."
 msgstr "A [0] no está autorizado para enviar correos electrónicos"
@@ -5284,19 +5053,18 @@ msgid ""
 msgstr ""
 
 msgid "At {0} you won't be able to send or receive mails."
-msgstr ""
+msgstr "A{0}no podreu enviar ni rebre correus."
 
 msgid "You can not send mails as you have exceeded soft quota."
 msgstr ""
 "Usted no puede enviar correos electrónicos, ha excedido su espacio máximo "
 "permitido"
 
-#, fuzzy
 msgid "Reset settings"
-msgstr "Eliminar ajustes"
+msgstr "Restableix la configuració"
 
 msgid "Reset settings to their original defaults."
-msgstr ""
+msgstr "Restableix la configuració als seus valors predeterminats originals."
 
 msgid ""
 "This will close all opened shared stores and resets all settings to the "
@@ -5309,10 +5077,10 @@ msgid ""
 msgstr ""
 
 msgid "Reset"
-msgstr ""
+msgstr "Restableix"
 
 msgid "Reloading, Please wait."
-msgstr ""
+msgstr "S'està tornant a carregar, espereu."
 
 msgid "Setting"
 msgstr "Ajuste"
@@ -5323,18 +5091,17 @@ msgstr "El ajuste '{0}' no puede ser editado"
 msgid "Version information"
 msgstr "Información de la Versión"
 
-#, fuzzy
 msgid "Gromox"
-msgstr "grommunio"
+msgstr "Gromox"
 
 msgid "Delete confirmation"
-msgstr ""
+msgstr "Suprimeix la confirmació"
 
 msgid "Deleting the item(s) will also delete the original item(s)."
-msgstr ""
+msgstr "Si suprimiu els elements, també se suprimiran els elements originals."
 
 msgid "Do you want to delete the item(s)?"
-msgstr ""
+msgstr "Voleu suprimir els elements?"
 
 msgid "Sort by: Priority"
 msgstr "Ordenar por. Prioridad"
@@ -5358,7 +5125,7 @@ msgid "Sort by: Percent Completed"
 msgstr "Ordenar por. Porcentaje completado"
 
 msgid "Task Status"
-msgstr ""
+msgstr "Estat de la tasca"
 
 msgid "Percent Complete"
 msgstr "Porcentaje Completado"
@@ -5378,12 +5145,11 @@ msgstr "Información de facturación"
 msgid "Mileage"
 msgstr "Kilometraje"
 
-#, fuzzy
 msgid "Accepting Task"
-msgstr "Tareas activas"
+msgstr "Acceptació de la tasca"
 
 msgid "Declining Task"
-msgstr ""
+msgstr "Tasca declinant"
 
 #, fuzzy
 msgid ""
@@ -5401,15 +5167,14 @@ msgstr ""
 "Esta reunión ha sido rechazada y será trasladada a su papelera de reciclaje. "
 "¿Quiere incluir comentarios con su respuesta?"
 
-#, fuzzy
 msgid "Send the response now"
-msgstr "Enviar respuesta ahora."
+msgstr "Envieu la resposta ara"
 
 msgid "Date Complete"
 msgstr "Fecha Completada"
 
 msgid "Multiple companies name must be separated by"
-msgstr ""
+msgstr "El nom de diverses empreses ha d'estar separat per"
 
 msgid "Update List"
 msgstr "Actualizar Lista"
@@ -5418,21 +5183,19 @@ msgid "Create Unassigned Copy"
 msgstr "Crear copia sin asignar"
 
 msgid "copy"
-msgstr ""
+msgstr "còpia"
 
 msgid "Unable to send task request"
-msgstr ""
+msgstr "No es pot enviar la sol·licitud de tasca"
 
 msgid "You cannot send a task request to yourself."
-msgstr ""
+msgstr "No podeu enviar-vos una sol·licitud de tasca."
 
-#, fuzzy
 msgid "Multiple recipients"
-msgstr "Ver recipiente"
+msgstr "Múltiples destinataris"
 
-#, fuzzy
 msgid "A task request can only have one recipient."
-msgstr "Solicitar siempre confirmación de lectura"
+msgstr "Una sol·licitud de tasca només pot tenir un destinatari."
 
 msgid "Due date"
 msgstr "Fecha de vencimiento"
@@ -5443,24 +5206,22 @@ msgstr "Prioridad"
 msgid "% Complete"
 msgstr "% Completado"
 
-#, fuzzy
 msgid "Track progress"
-msgstr "En Progreso"
+msgstr "Seguiment del progrés"
 
 msgid "Keep updated copy of task and receive automated status reports"
 msgstr ""
+"Mantingueu una còpia actualitzada de la tasca i rebeu informes d'estat "
+"automatitzats"
 
-#, fuzzy
 msgid "Send task to assignees"
-msgstr "Enviar la tarea al agente"
+msgstr "Envia la tasca als encarregats"
 
-#, fuzzy
 msgid "Restore to Task List"
-msgstr "Restaurar por defecto"
+msgstr "Restaura a la llista de tasques"
 
-#, fuzzy
 msgid "Delete this task"
-msgstr "Borrar este elemento."
+msgstr "Suprimeix aquesta tasca"
 
 msgid "Add attachments to this task"
 msgstr "Añadir adjunto a esta tarea"
@@ -5471,9 +5232,8 @@ msgstr "Marcar como Completado"
 msgid "Mark this task as complete"
 msgstr "Marcar esta tarea como competada"
 
-#, fuzzy
 msgid "Print this task"
-msgstr "Imprimir este correo electrónico"
+msgstr "Imprimeix aquesta tasca"
 
 msgid "Assign Task"
 msgstr "Asignar Tarea"
@@ -5481,25 +5241,21 @@ msgstr "Asignar Tarea"
 msgid "Cancel Assignment"
 msgstr "Cancelar Asignación"
 
-#, fuzzy
 msgid "Mark this task as private"
-msgstr "Marcar esta cita como privada."
+msgstr "Marca aquesta tasca com a privada"
 
 msgid "New task"
-msgstr ""
+msgstr "Nova tasca"
 
-#, fuzzy
 msgid "Completed"
-msgstr "Completo"
+msgstr "Completat"
 
-#, fuzzy
 msgid "Printed by: "
-msgstr "Ordenar por: Para"
+msgstr "Imprès per:"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
 msgid "Printed on: "
-msgstr "Imprimir esta nota"
+msgstr "Imprès a:"
 
 msgid "Percent complete"
 msgstr "Porcentaje completado"
@@ -5520,14 +5276,13 @@ msgid "Open Shared Tasks"
 msgstr "Abrir tareas compartidas"
 
 msgid "Simple view"
-msgstr ""
+msgstr "Vista senzilla"
 
 msgid "Detailed view"
-msgstr ""
+msgstr "Vista detallada"
 
-#, fuzzy
 msgid "Task request"
-msgstr "Solicitud de Tarea Recurrente"
+msgstr "Sol·licitud de tasca"
 
 msgid "Print selected task"
 msgstr "Imprimir tareas seleccionadas"
@@ -5538,29 +5293,26 @@ msgstr "No hay tareas seleccionadas"
 msgid "Print task list"
 msgstr "Imprimir lista de tareas"
 
-#, fuzzy
 msgid "Create task"
-msgstr "Crear elementos"
+msgstr "Crea una tasca"
 
 msgid "Upcoming"
-msgstr ""
+msgstr "Properament"
 
 msgid "Overdue"
-msgstr ""
+msgstr "Endarrerit"
 
 msgid "Mark Complete"
-msgstr ""
+msgstr "Marcar com a complet"
 
 msgid "Mark Incomplete"
-msgstr ""
+msgstr "Marcar incomplet"
 
-#, fuzzy
 msgid "Remove from To-Do List"
-msgstr "Eliminar del calendario"
+msgstr "Eliminar de la llista de tasques pendents"
 
-#, fuzzy
 msgid "Changes to assigned task"
-msgstr "Enviar la tarea al agente"
+msgstr "Canvis a la tasca assignada"
 
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
@@ -5585,50 +5337,44 @@ msgstr "Ordenar por. Titular"
 msgid "Sort by: Owner"
 msgstr "Ordenar por. Propietario"
 
-#, fuzzy
 msgid "Sort by: Percentage Completed"
-msgstr "Ordenar por. Porcentaje completado"
+msgstr "Ordena per: Percentatge completat"
 
-#, fuzzy
 msgid "Assigned task changes"
-msgstr "Asignar Tarea"
+msgstr "Canvis de tasques assignades"
 
 msgid "Loading tasks"
 msgstr "Cargando tareas"
 
-#, fuzzy
 msgid "Date completed"
-msgstr "Fecha de terminación"
+msgstr "Data finalitzada"
 
 msgid "hours"
 msgstr "Horas"
 
-#, fuzzy
 msgid "Billing information"
-msgstr "Información de facturación"
+msgstr "Informació de facturació"
 
-#, fuzzy
 msgid "Update list"
-msgstr "Actualizar Lista"
+msgstr "Actualitzar llista"
 
-#, fuzzy
 msgid "D d-m-Y"
-msgstr "d-m-A"
+msgstr "D d-m-Y"
 
 msgid "none"
-msgstr ""
+msgstr "cap"
 
 msgid "Quick Task"
-msgstr ""
+msgstr "Tasca ràpida"
 
 msgid "No tasks."
-msgstr ""
+msgstr "Sense tasques."
 
 msgid "Tasks / To-Do"
-msgstr ""
+msgstr "Tasques / Tasques pendents"
 
 msgid "Click the link to open the URL in a new window."
-msgstr ""
+msgstr "Feu clic a l'enllaç per obrir l'URL en una finestra nova."
 
 msgid "The server reported an unknown error on your request."
 msgstr "El servidor ha reportado un error desconocido con su solicitud"
@@ -5636,9 +5382,8 @@ msgstr "El servidor ha reportado un error desconocido con su solicitud"
 msgid "The server reported an unspecified error on your request."
 msgstr "El servidor ha reportado un error no especificado con su solicitud"
 
-#, fuzzy
 msgid "The session has expired, reauthentication is required."
-msgstr "La session a espirado , necesita una autentificarte."
+msgstr "La sessió ha caducat, cal tornar a autenticar."
 
 msgid ""
 "The session in the current browser window has been closed from another "
@@ -5648,9 +5393,8 @@ msgstr ""
 msgid "Session expired"
 msgstr "Sesión expirada"
 
-#, fuzzy
 msgid "Do you wish to be redirected to the logon page?"
-msgstr "Deja de ser rediredicionado a la pagina de logeo"
+msgstr "Voleu ser redirigit a la pàgina d'inici de sessió?"
 
 msgid "Reauthentication required, click here to go to back to logon page."
 msgstr "autentificacion necesaria, volver ala pagina de logeo."
@@ -5672,16 +5416,16 @@ msgstr "La conexión con el servidor fue restablecida"
 
 #. TRANSLATORS: Example: HTTP 404
 msgid "HTTP {0}"
-msgstr ""
+msgstr "HTTP{0}"
 
 msgid "Invalid data received from the server"
-msgstr ""
+msgstr "Les dades rebudes del servidor no són vàlides"
 
 msgid "Missing store"
 msgstr "Caja no encontrada"
 
 msgid "The default store is missing from the hierarchy."
-msgstr ""
+msgstr "Falta la botiga per defecte a la jerarquia."
 
 msgid ""
 "Not all functionality of grommunio Web might be working properly because of "
@@ -5745,200 +5489,204 @@ msgid "Loading model from server failed"
 msgstr "La carga del modelo desde el servidor, ha fallado"
 
 msgid "Out of Office is currently activated. Would you like to turn it off?"
-msgstr ""
+msgstr "Fora de l'oficina està activat actualment. Voleu desactivar-lo?"
 
 msgid "Archive"
-msgstr ""
+msgstr "Arxiu"
 
 msgid "Open Chat at start"
-msgstr ""
+msgstr "Obre el xat a l'inici"
 
 msgid "Desktop Notifications Plugin"
-msgstr ""
+msgstr "Connector de notificacions d'escriptori"
 
 msgid "Desktop Notifications"
-msgstr ""
+msgstr "Notificacions d'escriptori"
 
 msgid "Files: Default plugin"
-msgstr ""
+msgstr "Fitxers: connector predeterminat"
 
 msgid "Loading users and groups"
-msgstr ""
+msgstr "Carregant usuaris i grups"
 
 msgid "Add users or groups to share files."
-msgstr ""
+msgstr "Afegiu usuaris o grups per compartir fitxers."
 
 msgid "Sort by: Type"
-msgstr ""
+msgstr "Ordena per: Tipus"
 
 msgid "Re-share"
-msgstr ""
+msgstr "Torna a compartir"
 
 msgid "Change"
-msgstr ""
+msgstr "Canviar"
 
 msgid "Share with"
-msgstr ""
+msgstr "Comparteix amb"
 
 msgid "Share Details"
-msgstr ""
+msgstr "Comparteix detalls"
 
 msgid "Type to search"
-msgstr ""
+msgstr "Escriviu per cercar"
 
 msgid "No results"
-msgstr ""
+msgstr "Sense resultats"
 
 msgid "Share with user/group"
-msgstr ""
+msgstr "Comparteix amb usuari/grup"
 
 msgid "Share via link"
-msgstr ""
+msgstr "Comparteix mitjançant l'enllaç"
 
 msgid "Public link"
-msgstr ""
+msgstr "Enllaç públic"
 
 msgid "Password protect"
-msgstr ""
+msgstr "Protegir amb contrasenya"
 
 msgid "Password"
 msgstr "Contrasenya"
 
 msgid "Public upload"
-msgstr ""
+msgstr "Pujada pública"
 
 msgid "Expiration date"
-msgstr ""
+msgstr "Data de caducitat"
 
 msgid "More than 1 share link exists. Only showing the latest one"
-msgstr ""
+msgstr "Existeix més d'1 enllaç per compartir. Només es mostra l'últim"
 
 msgid "Loading details…"
-msgstr ""
+msgstr "S'estan carregant els detalls..."
 
 msgid "Files: Seafile Backend"
-msgstr ""
+msgstr "Fitxers: Backend de Seafile"
 
 msgid "Copy link to clipboard"
-msgstr ""
+msgstr "Copia l'enllaç al porta-retalls"
 
 msgid "Link copied to clipboard"
-msgstr ""
+msgstr "S'ha copiat l'enllaç al porta-retalls"
 
 msgid "Clipboard"
-msgstr ""
+msgstr "Porta-retalls"
 
 msgid "Could not copy link automatically. Please copy it manually."
 msgstr ""
+"No s'ha pogut copiar l'enllaç automàticament. Si us plau, copieu-lo "
+"manualment."
 
 msgid "Loading details..."
-msgstr ""
+msgstr "S'estan carregant els detalls..."
 
 msgid "Share"
-msgstr ""
+msgstr "Comparteix"
 
 msgid "Loading..."
-msgstr ""
+msgstr "Carregant..."
 
 msgid "Add attachment from {0}"
-msgstr ""
+msgstr "Afegeix un fitxer adjunt de{0}"
 
 msgid "Confirm deletion"
-msgstr ""
+msgstr "Confirmeu la supressió"
 
 msgid "Are you sure you want to delete {0}?"
-msgstr ""
+msgstr "Esteu segur que voleu suprimir{0}?"
 
 msgid "Are you sure you want to delete {0} and all of its contents?"
-msgstr ""
+msgstr "Esteu segur que voleu suprimir{0}i tot el seu contingut?"
 
 msgid "Are you sure you want to delete {0} files?"
-msgstr ""
+msgstr "Esteu segur que voleu suprimir els fitxers{0}?"
 
 msgid "Are you sure want to delete {0} folders and all of their contents?"
-msgstr ""
+msgstr "Confirmes que vols suprimir les carpetes{0}i tot el seu contingut?"
 
 msgid ""
 "Are you sure want to delete the selected items and all of their contents?"
 msgstr ""
 
 msgid "Confirm overwrite"
-msgstr ""
+msgstr "Confirmeu la sobreescritura"
 
 msgid "File already exists. Do you want to overwrite it?"
-msgstr ""
+msgstr "El fitxer ja existeix. Voleu sobreescriure-lo?"
 
 msgid "Please enter a new name"
-msgstr ""
+msgstr "Introduïu un nom nou"
 
 msgid "Rename record"
-msgstr ""
+msgstr "Canvia el nom del registre"
 
 msgid "A file name should not be empty."
-msgstr ""
+msgstr "El nom del fitxer no ha d'estar buit."
 
 msgid "Rename item"
-msgstr ""
+msgstr "Canvia el nom de l'element"
 
 msgid "A file named \"{0}\" already exists. Please enter a different name."
-msgstr ""
+msgstr "Ja existeix un fitxer anomenat \"{0}\". Introduïu un nom diferent."
 
 msgid "Downloading"
-msgstr ""
+msgstr "Descàrrega"
 
 msgid "Download started... please wait!"
-msgstr ""
+msgstr "La descàrrega ha començat... espereu!"
 
 msgid "Upload"
-msgstr ""
+msgstr "Carrega"
 
 msgid "At least one file is too large! Maximum allowed filesize: {0}."
-msgstr ""
+msgstr "Almenys un fitxer és massa gran! Mida màxima permesa dels fitxers:{0}."
 
 msgid "Keep both"
-msgstr ""
+msgstr "Mantingueu tots dos"
 
 msgid "Overwrite"
-msgstr ""
+msgstr "Sobreescriure"
 
 msgid "l d/m/Y G:i"
-msgstr ""
+msgstr "l d/m/Y G:i"
 
 msgid "Never"
-msgstr ""
+msgstr "Mai"
 
 msgid "Add from Files"
-msgstr ""
+msgstr "Afegeix des de fitxers"
 
 msgid "Add attachment from Files"
-msgstr ""
+msgstr "Afegeix un fitxer adjunt des de Fitxers"
 
 msgid "Add to Files"
-msgstr ""
+msgstr "Afegeix als fitxers"
 
 msgid "Upload file"
-msgstr ""
+msgstr "Carrega el fitxer"
 
 msgid "Files"
-msgstr ""
+msgstr "Fitxers"
 
 msgid "Files Plugin"
-msgstr ""
+msgstr "Connector de fitxers"
 
 msgid "Default"
-msgstr ""
+msgstr "Per defecte"
 
 msgid "Manage Accounts"
-msgstr ""
+msgstr "Gestionar comptes"
 
 msgid "Reset Files settings"
-msgstr ""
+msgstr "Restableix la configuració dels fitxers"
 
 msgid "Resets Files settings to their original defaults"
 msgstr ""
+"Restableix la configuració dels fitxers als seus valors predeterminats "
+"originals"
 
 msgid "Are you sure to remove all settings and accounts?"
-msgstr ""
+msgstr "Esteu segur que suprimiu tota la configuració i tots els comptes?"
 
 msgid ""
 "Accounts marked by your administrator as \"cannot be changed\" will not be "
@@ -5951,356 +5699,358 @@ msgid ""
 msgstr ""
 
 msgid "grommunio Web is reloading, Please wait."
-msgstr ""
+msgstr "grommunio Web s'està tornant a carregar, espereu."
 
 msgid "Edit Account"
-msgstr ""
+msgstr "Edita el compte"
 
 msgid "Backend"
-msgstr ""
+msgstr "Backend"
 
 msgid "Account Information"
-msgstr ""
+msgstr "Informació del compte"
 
 msgid "Account name"
-msgstr ""
+msgstr "Nom del compte"
 
 msgid "Account Configuration"
-msgstr ""
+msgstr "Configuració del compte"
 
 msgid "Update"
-msgstr ""
+msgstr "Actualització"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Sort by: ID"
-msgstr ""
+msgstr "Ordena per: ID"
 
 msgid "Sort by: Backend"
-msgstr ""
+msgstr "Ordena per: Backend"
 
 msgid "Features"
-msgstr ""
+msgstr "Característiques"
 
 msgid "Shows all available features of the backend."
-msgstr ""
+msgstr "Mostra totes les funcions disponibles del backend."
 
 msgid "Show quota information"
-msgstr ""
+msgstr "Mostra la informació de la quota"
 
 msgid "Show version information"
-msgstr ""
+msgstr "Mostra la informació de la versió"
 
 msgid "Share files"
-msgstr ""
+msgstr "Comparteix fitxers"
 
 msgid "Fast Down/Upload"
-msgstr ""
+msgstr "Baixada/Pujada ràpida"
 
 msgid "No account created!"
-msgstr ""
+msgstr "No s'ha creat cap compte!"
 
 msgid "Add Account"
-msgstr ""
+msgstr "Afegeix un compte"
 
 msgid "Remove Account"
-msgstr ""
+msgstr "Elimina el compte"
 
 msgid "Loading accounts"
-msgstr ""
+msgstr "Càrrega de comptes"
 
 msgid "Do you really want to delete the account \"{0}\"?"
-msgstr ""
+msgstr "Segur que voleu suprimir el compte \"{0}\"?"
 
 msgid "Quota Information"
-msgstr ""
+msgstr "Informació de quota"
 
 msgid "Used"
-msgstr ""
+msgstr "Usat"
 
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 msgid "Version Information"
-msgstr ""
+msgstr "Informació de la versió"
 
 msgid "Filename"
-msgstr ""
+msgstr "Nom del fitxer"
 
 msgid "Sort by: Filename"
-msgstr ""
+msgstr "Ordena per: Nom del fitxer"
 
 msgid "Loading files"
-msgstr ""
+msgstr "S'estan carregant fitxers"
 
 msgid "The file {0} is too large!"
-msgstr ""
+msgstr "El fitxer{0}és massa gran!"
 
 msgid "max"
-msgstr ""
+msgstr "màx"
 
 msgid "You have to choose at least one file!"
-msgstr ""
+msgstr "Has de triar almenys un fitxer!"
 
 msgid "Create New "
-msgstr ""
+msgstr "Crea nou"
 
 msgid "Incorrect filename"
-msgstr ""
+msgstr "Nom de fitxer incorrecte"
 
 msgid "Error reaching office backend"
-msgstr ""
+msgstr "S'ha produït un error en arribar al backend de l'oficina"
 
 msgid "Folder already exists"
-msgstr ""
+msgstr "La carpeta ja existeix"
 
 msgid "Incorrect foldername"
-msgstr ""
+msgstr "Nom de carpeta incorrecte"
 
 msgid "File information"
-msgstr ""
+msgstr "Informació del fitxer"
 
 msgid "Select a file"
-msgstr ""
+msgstr "Seleccioneu un fitxer"
 
 msgid "Maximum upload size"
-msgstr ""
+msgstr "Mida màxima de càrrega"
 
 msgid "Browse"
-msgstr ""
+msgstr "Navega"
 
 msgid "Select upload folder"
-msgstr ""
+msgstr "Seleccioneu la carpeta de càrrega"
 
 msgid "File \"{0}\" is too large! Maximum allowed filesize: {1}."
-msgstr ""
+msgstr "El fitxer \"{0}\" és massa gran! Mida màxima permesa dels fitxers:{1}."
 
 msgid "Add item to Files"
-msgstr ""
+msgstr "Afegeix un element a Fitxers"
 
 msgid "You have to choose a folder!"
-msgstr ""
+msgstr "Has de triar una carpeta!"
 
 msgid "Uploaded"
-msgstr ""
+msgstr "Penjat"
 
 msgid "Attachment successfully stored in Files"
-msgstr ""
+msgstr "S'ha emmagatzemat correctament el fitxer adjunt a Fitxers"
 
 msgid "Upload Failed"
-msgstr ""
+msgstr "La càrrega ha fallat"
 
 msgid "Attachment could not be stored in Files! Error: "
-msgstr ""
+msgstr "El fitxer adjunt no s'ha pogut desar a Fitxers! Error:"
 
 msgid "Share Files"
-msgstr ""
+msgstr "Compartir fitxers"
 
 msgid "Uploading files to "
-msgstr ""
+msgstr "Penjant fitxers a"
 
 msgid "Starting upload"
-msgstr ""
+msgstr "S'està iniciant la càrrega"
 
 msgid "Cancel upload"
-msgstr ""
+msgstr "Cancel·la la càrrega"
 
 msgid "- seconds left"
-msgstr ""
+msgstr "- Queden segons"
 
 msgid " seconds left"
-msgstr ""
+msgstr "queden segons"
 
 msgid " minutes left"
-msgstr ""
+msgstr "minuts queden"
 
 msgid "Uploading: "
-msgstr ""
+msgstr "Càrrega:"
 
 msgid "Upload status unavailable... please wait."
-msgstr ""
+msgstr "L'estat de càrrega no està disponible... espereu."
 
 msgid "Upload finished!"
-msgstr ""
+msgstr "S'ha acabat la càrrega!"
 
 msgid "Upload aborted!"
-msgstr ""
+msgstr "Pujada avortada!"
 
 msgid "Upload failed!"
-msgstr ""
+msgstr "La pujada ha fallat!"
 
 msgid "Document"
-msgstr ""
+msgstr "Document"
 
 msgid "Presentation"
-msgstr ""
+msgstr "Presentació"
 
 msgid "Spreadsheet"
-msgstr ""
+msgstr "Full de càlcul"
 
 msgid "Upload files"
-msgstr ""
+msgstr "Carregueu fitxers"
 
 msgid "Create document"
-msgstr ""
+msgstr "Crear document"
 
 msgid "Create office document"
-msgstr ""
+msgstr "Crear document d'oficina"
 
 msgid "Download files"
-msgstr ""
+msgstr "Descarregar fitxers"
 
 msgid "Attach to mail"
-msgstr ""
+msgstr "Adjuntar al correu"
 
 msgid "Attach to mail as link"
-msgstr ""
+msgstr "Adjunta al correu com a enllaç"
 
 msgid "Attaching"
-msgstr ""
+msgstr "Adjuntant"
 
 msgid "Creating email... Please wait!"
-msgstr ""
+msgstr "S'està creant el correu electrònic... Espereu!"
 
 msgid "Edit share"
-msgstr ""
+msgstr "Edita la compartició"
 
 msgid ""
 "There are no accounts added. Go to settings, Files tab and add an account"
 msgstr ""
 
 msgid "Filesize"
-msgstr ""
+msgstr "Mida del fitxer"
 
 msgid "Last modified"
-msgstr ""
+msgstr "Última modificació"
 
 msgid "Is shared"
-msgstr ""
+msgstr "Es comparteix"
 
 msgid "File preview"
-msgstr ""
+msgstr "Vista prèvia del fitxer"
 
 msgid "Your browser does not support previewing of audio files!"
-msgstr ""
+msgstr "El vostre navegador no admet la vista prèvia dels fitxers d'àudio!"
 
 msgid "Your browser does not support previewing of video files!"
-msgstr ""
+msgstr "El vostre navegador no admet la vista prèvia dels fitxers de vídeo!"
 
 msgid "d.m.Y G:i"
-msgstr ""
+msgstr "d.m.Y G:i"
 
 msgid "Folder"
-msgstr ""
+msgstr "Carpeta"
 
 msgid "File ({0})"
-msgstr ""
+msgstr "Fitxer ({0})"
 
 msgid "Sort by: Path"
-msgstr ""
+msgstr "Ordena per: Camí"
 
 msgid "Sort by: Last modified"
-msgstr ""
+msgstr "Ordena per: Darrera modificació"
 
 msgid "Sort by: Shared"
-msgstr ""
+msgstr "Ordena per: Compartit"
 
 msgid "There are no items to show in this view"
-msgstr ""
+msgstr "No hi ha elements per mostrar en aquesta vista"
 
 msgid "files selected"
-msgstr ""
+msgstr "fitxers seleccionats"
 
 msgid "Authentication required, when using grommunio-files for the first time"
 msgstr ""
+"Es requereix autenticació quan s'utilitzen els fitxers grommunio per "
+"primera vegada"
 
 msgid "Intranet"
-msgstr ""
+msgstr "Intranet"
 
 msgid "Archive to InfoShare"
-msgstr ""
+msgstr "Arxiu a InfoShare"
 
 msgid "Kendox InfoShare"
-msgstr ""
+msgstr "Kendox InfoShare"
 
 msgid "Constraints for single attachment archiving"
-msgstr ""
+msgstr "Restriccions per a l'arxiu d'un únic fitxer adjunt"
 
 msgid "Max count attachments"
-msgstr ""
+msgstr "Recompte màxim d'arxius adjunts"
 
 msgid "Max size all selected attachments (MB)"
-msgstr ""
+msgstr "Mida màxima de tots els fitxers adjunts seleccionats (MB)"
 
 msgid "Selection Kendox InfoShare environment"
-msgstr ""
+msgstr "Selecció de l'entorn Kendox InfoShare"
 
 msgid "Production"
-msgstr ""
+msgstr "Producció"
 
 msgid "Test"
-msgstr ""
+msgstr "Prova"
 
 msgid "URLs for production environment"
-msgstr ""
+msgstr "URL per a l'entorn de producció"
 
 msgid "Kendox InfoShare API URL"
-msgstr ""
+msgstr "URL de l'API Kendox InfoShare"
 
 msgid "Kendox InfoShare Web dialog URL"
-msgstr ""
+msgstr "URL del diàleg web de Kendox InfoShare"
 
 msgid "URLs for test environment"
-msgstr ""
+msgstr "URL per a l'entorn de prova"
 
 msgid "Mail/Document archive to Kendox InfoShare"
-msgstr ""
+msgstr "Arxiu de correu/document a Kendox InfoShare"
 
 msgid "Attachment information is requested"
-msgstr ""
+msgstr "Es demana informació adjunta"
 
 msgid "Please select the type of Archive (max"
-msgstr ""
+msgstr "Seleccioneu el tipus d'arxiu (màx"
 
 msgid "files, max"
-msgstr ""
+msgstr "fitxers, màx"
 
 msgid "MB total size)"
-msgstr ""
+msgstr "Mida total de MB)"
 
 msgid "Everything - Store mail in original format"
-msgstr ""
+msgstr "Tot: emmagatzema el correu en format original"
 
 msgid "Email only - Store mail without attachments"
 msgstr "Només correu electrònic - Desa el correu sense adjunts"
 
 msgid "Separate - Store attachments separately"
-msgstr ""
+msgstr "Separat: emmagatzema els fitxers adjunts per separat"
 
 msgid "No attachments available in mail"
-msgstr ""
+msgstr "No hi ha fitxers adjunts disponibles al correu"
 
 msgid "Start archive"
-msgstr ""
+msgstr "Inicieu l'arxiu"
 
 msgid "embedded"
 msgstr "incrustat"
 
 msgid "Reading attachment information failed"
-msgstr ""
+msgstr "No s'ha pogut llegir la informació dels fitxers adjunts"
 
 msgid "Files are sent to Kendox InfoShare"
-msgstr ""
+msgstr "Els fitxers s'envien a Kendox InfoShare"
 
 msgid "With the selection of separate attachments a maximum of"
-msgstr ""
+msgstr "Amb la selecció de fitxers adjunts separats com a màxim"
 
 msgid "attachments can be selected. There have been"
-msgstr ""
+msgstr "es poden seleccionar fitxers adjunts. N'hi ha hagut"
 
 msgid "attachments selected"
-msgstr ""
+msgstr "fitxers adjunts seleccionats"
 
 msgid ""
 "With the selection of separate attachments the total size of all attachments "
@@ -6308,101 +6058,101 @@ msgid ""
 msgstr ""
 
 msgid "MB. There have been"
-msgstr ""
+msgstr "MB. N'hi ha hagut"
 
 msgid "MB selected."
-msgstr ""
+msgstr "MB seleccionats."
 
 msgid "Sending of mail failed"
-msgstr ""
+msgstr "L'enviament del correu ha fallat"
 
 msgid "Openstreetmap"
-msgstr ""
+msgstr "Openstreetmap"
 
 #. TRANSLATORS: The map of earth
 msgid "Map"
-msgstr ""
+msgstr "Mapa"
 
 msgid "Mobile Device Manager"
-msgstr ""
+msgstr "Gestor de dispositius mòbils"
 
 msgid "Wiping device"
-msgstr ""
+msgstr "Dispositiu de neteja"
 
 msgid "Password incorrect"
-msgstr ""
+msgstr "La contrasenya és incorrecta"
 
 msgid "Full resync in progress"
-msgstr ""
+msgstr "Resincronització completa en curs"
 
 msgid "Username or password incorrect"
-msgstr ""
+msgstr "Nom d'usuari o contrasenya incorrectes"
 
 msgid "Not Applicable"
-msgstr ""
+msgstr "No aplicable"
 
 msgid "Wipe Pending"
-msgstr ""
+msgstr "Esborra pendent"
 
 msgid "Wipe Requested"
-msgstr ""
+msgstr "Neteja sol·licitada"
 
 msgid "Wipe Executed"
-msgstr ""
+msgstr "Neteja executada"
 
 msgid "Account Only Wipe Pending"
-msgstr ""
+msgstr "Només esborra el compte pendent"
 
 msgid "Account Only Wipe Requested"
-msgstr ""
+msgstr "Només s'ha sol·licitat l'esborrat del compte"
 
 msgid "Account Only Wipe Executed"
-msgstr ""
+msgstr "Esborra només el compte executat"
 
 msgid "Not Available"
-msgstr ""
+msgstr "No disponible"
 
 msgid "Device"
-msgstr ""
+msgstr "Dispositiu"
 
 msgid "Operating System"
-msgstr ""
+msgstr "Sistema operatiu"
 
 msgid "User Agent"
-msgstr ""
+msgstr "Agent d'usuari"
 
 msgid "MDM Plugin"
-msgstr ""
+msgstr "Connector MDM"
 
 msgid "Active Sync Version"
-msgstr ""
+msgstr "Versió de sincronització activa"
 
 msgid "grommunio-sync Version"
-msgstr ""
+msgstr "Versió grommunio-sync"
 
 msgid "Policy name"
-msgstr ""
+msgstr "Nom de la política"
 
 msgid "Connected since"
-msgstr ""
+msgstr "Connectat des de llavors"
 
 msgid "d F Y"
-msgstr ""
+msgstr "d F Y"
 
 msgid "Last updated"
-msgstr ""
+msgstr "Última actualització"
 
 msgid "d F Y, H:i"
-msgstr ""
+msgstr "d F Y, H:i"
 
 msgid "Last connect"
 msgstr "Darrera connexió"
 
 msgid "Synchronize"
-msgstr ""
+msgstr "Sincronitza"
 
 msgid "Manage Shared Folders"
-msgstr ""
+msgstr "Gestionar les carpetes compartides"
 
 msgid ""
 "Select folders to sync to your device from the list below. To add additional "
@@ -6410,13 +6160,13 @@ msgid ""
 msgstr ""
 
 msgid "grommunio-sync"
-msgstr ""
+msgstr "grommunio-sync"
 
 msgid "Mobile device management"
-msgstr ""
+msgstr "Gestió de dispositius mòbils"
 
 msgid "Mobile Devices"
-msgstr ""
+msgstr "Dispositius mòbils"
 
 msgid ""
 "Unable to connect to the grommunio-sync server. Click {0} to enter your "
@@ -6424,46 +6174,46 @@ msgid ""
 msgstr ""
 
 msgid "Devices"
-msgstr ""
+msgstr "Dispositius"
 
 msgid "No devices connected to your account"
-msgstr ""
+msgstr "No hi ha cap dispositiu connectat al vostre compte"
 
 msgid "Provisioning Status"
-msgstr ""
+msgstr "Estat d'aprovisionament"
 
 msgid "Last Connect"
 msgstr "Darrera connexió"
 
 msgid "Device ID"
-msgstr ""
+msgstr "ID del dispositiu"
 
 msgid "Device OS"
-msgstr ""
+msgstr "OS del dispositiu"
 
 msgid "Device Info"
-msgstr ""
+msgstr "Informació del dispositiu"
 
 msgid "First Sync time"
-msgstr ""
+msgstr "Primera hora de sincronització"
 
 msgid "Wipe Device"
-msgstr ""
+msgstr "Esborra el dispositiu"
 
 msgid "Full resync"
-msgstr ""
+msgstr "Resincronització completa"
 
 msgid "Remove device"
-msgstr ""
+msgstr "Elimina el dispositiu"
 
 msgid "Please enter your username and password"
-msgstr ""
+msgstr "Introduïu el vostre nom d'usuari i contrasenya"
 
 msgid "Wipe only data related to this account"
-msgstr ""
+msgstr "Esborra només les dades relacionades amb aquest compte"
 
 msgid "Wipe all data"
-msgstr ""
+msgstr "Netegeu totes les dades"
 
 msgid "Username"
 msgstr "Nom d'usuari"
@@ -6479,37 +6229,37 @@ msgid ""
 msgstr ""
 
 msgid "Add meeting"
-msgstr ""
+msgstr "Afegeix una reunió"
 
 msgid "Room name:"
-msgstr ""
+msgstr "Nom de l'habitació:"
 
 msgid "Room URL:"
-msgstr ""
+msgstr "URL de la sala:"
 
 msgid "Shift-click for advanced settings"
-msgstr ""
+msgstr "Feu clic amb Majúscules per a la configuració avançada"
 
 msgid "Join webmeeting"
-msgstr ""
+msgstr "Uneix-te a la reunió web"
 
 msgid "Open meeting in:"
-msgstr ""
+msgstr "Reunió oberta a:"
 
 msgid "Web tab"
-msgstr ""
+msgstr "Pestanya web"
 
 msgid "Hide the button in the main toolbar"
-msgstr ""
+msgstr "Amaga el botó a la barra d'eines principal"
 
 msgid "Add the subject to the room name"
-msgstr ""
+msgstr "Afegeix l'assumpte al nom de la sala"
 
 msgid "Add the organizer name to the room name"
-msgstr ""
+msgstr "Afegeix el nom de l'organitzador al nom de la sala"
 
 msgid "Add the URL to the meeting location rather than overwriting it"
-msgstr ""
+msgstr "Afegiu l'URL a la ubicació de la reunió en lloc de sobreescriure-lo"
 
 msgid ""
 "Prevent the URL in the meeting location from being overridden automatically "
@@ -6518,12 +6268,14 @@ msgstr ""
 
 msgid "If you have problems when creating meetings, try disabling this setting"
 msgstr ""
+"Si teniu problemes en crear reunions, proveu de desactivar aquesta "
+"configuració"
 
 msgid "Add an invitation to the appointment description"
-msgstr ""
+msgstr "Afegiu una invitació a la descripció de la cita"
 
 msgid "Invitation text"
-msgstr ""
+msgstr "Text d'invitació"
 
 msgid ""
 "must contain %url% as a placeholder for the meeting link, empty the textbox "
@@ -6531,37 +6283,37 @@ msgid ""
 msgstr ""
 
 msgid "An unknown error occurred while changing password."
-msgstr ""
+msgstr "S'ha produït un error desconegut en canviar la contrasenya."
 
 msgid "Password is changed successfully."
-msgstr ""
+msgstr "La contrasenya s'ha canviat correctament."
 
 msgid "Success"
-msgstr ""
+msgstr "Èxit"
 
 msgid "Change Password"
-msgstr ""
+msgstr "Canvia la contrasenya"
 
 msgid "Current password"
-msgstr ""
+msgstr "Contrasenya actual"
 
 msgid "New password"
-msgstr ""
+msgstr "Contrasenya nova"
 
 msgid "Retype new password"
-msgstr ""
+msgstr "Torneu a escriure la contrasenya nova"
 
 msgid "New passwords do not match."
-msgstr ""
+msgstr "Les contrasenyes noves no coincideixen."
 
 msgid "Current password is empty."
-msgstr ""
+msgstr "La contrasenya actual és buida."
 
 msgid "New password is empty."
-msgstr ""
+msgstr "La contrasenya nova està buida."
 
 msgid "One or more fields does contain errors."
-msgstr ""
+msgstr "Un o més camps conté errors."
 
 msgid ""
 "Password is weak. Password should contain capital, non-capital letters and "
@@ -6569,58 +6321,58 @@ msgid ""
 msgstr ""
 
 msgid "Change passphrase"
-msgstr ""
+msgstr "Canvia la contrasenya"
 
 msgid "Old passphrase"
-msgstr ""
+msgstr "Antiga frase de contrasenya"
 
 msgid "Wrong passphrase. Please try again"
-msgstr ""
+msgstr "Frase de contrasenya incorrecta. Si us plau, torna-ho a provar"
 
 msgid "New passphrase"
-msgstr ""
+msgstr "Nova contrasenya"
 
 msgid "Confirm new passphrase"
-msgstr ""
+msgstr "Confirmeu la frase de contrasenya nova"
 
 msgid "The passphrases don't match. Please try again"
-msgstr ""
+msgstr "Les frases de contrasenya no coincideixen. Si us plau, torna-ho a provar"
 
 msgid "S/MIME Message"
-msgstr ""
+msgstr "Missatge S/MIME"
 
 msgid "Passphrase changed successfully"
-msgstr ""
+msgstr "La contrasenya ha canviat correctament"
 
 msgid "S/MIME Passphrase"
-msgstr ""
+msgstr "Frase de contrasenya S/MIME"
 
 msgid "Submit"
-msgstr ""
+msgstr "Envia"
 
 msgid "Certificate passphrase"
-msgstr ""
+msgstr "Frase de contrasenya del certificat"
 
 msgid "The passphrase you typed is incorrect. Please try again."
-msgstr ""
+msgstr "La contrasenya que heu escrit és incorrecta. Si us plau, torna-ho a provar."
 
 msgid "No certificates imported, please upload your private certificate"
-msgstr ""
+msgstr "No s'ha importat cap certificat, carregueu el vostre certificat privat"
 
 msgid "Valid from"
-msgstr ""
+msgstr "Vàlid des de"
 
 msgid "Expires"
-msgstr ""
+msgstr "Caduca"
 
 msgid "Loading certificates"
-msgstr ""
+msgstr "Càrrega de certificats"
 
 msgid "S/MIME Plugin"
-msgstr ""
+msgstr "Connector S/MIME"
 
 msgid "Please select a certificate."
-msgstr ""
+msgstr "Seleccioneu un certificat."
 
 msgid ""
 "Do you really want to remove your private certificate? If you remove your "
@@ -6628,7 +6380,7 @@ msgid ""
 msgstr ""
 
 msgid "Certificate details"
-msgstr ""
+msgstr "Detalls del certificat"
 
 msgid ""
 "Below you can view and delete public & private certificate(s) stored on the "
@@ -6636,28 +6388,28 @@ msgid ""
 msgstr ""
 
 msgid "Filter on Email"
-msgstr ""
+msgstr "Filtra per correu electrònic"
 
 msgid "Public & Private certificates"
-msgstr ""
+msgstr "Certificats públics i privats"
 
 msgid "S/MIME"
-msgstr ""
+msgstr "S/MIME"
 
 msgid "You don't have a valid certificate corresponding to your account"
-msgstr ""
+msgstr "No teniu cap certificat vàlid corresponent al vostre compte"
 
 msgid "Personal certificate"
-msgstr ""
+msgstr "Certificat personal"
 
 msgid "Change passphrase for last certificate"
-msgstr ""
+msgstr "Canvia la contrasenya de l'últim certificat"
 
 msgid "You have a valid certificate corresponding to your account"
-msgstr ""
+msgstr "Teniu un certificat vàlid corresponent al vostre compte"
 
 msgid "Upload your certificate"
-msgstr ""
+msgstr "Carregueu el vostre certificat"
 
 msgid ""
 "Below you can upload your private certificate in PKCS#12 format. grommunio "
@@ -6666,19 +6418,21 @@ msgid ""
 msgstr ""
 
 msgid "Private certificate"
-msgstr ""
+msgstr "Certificat privat"
 
 msgid "You must fill in the certificate passphrase to upload your certificate."
 msgstr ""
+"Heu d'omplir la contrasenya del certificat per carregar el vostre "
+"certificat."
 
 msgid "You must first select a valid private certificate in PKCS#12 format."
-msgstr ""
+msgstr "Primer heu de seleccionar un certificat privat vàlid en format PKCS#12."
 
 msgid "Sign"
-msgstr ""
+msgstr "Signar"
 
 msgid "Sign message"
-msgstr ""
+msgstr "Signar missatge"
 
 msgid ""
 "Ensure the authenticity of the message by adding a digital signature to this "
@@ -6686,10 +6440,10 @@ msgid ""
 msgstr ""
 
 msgid "Encrypt"
-msgstr ""
+msgstr "Xifrar"
 
 msgid "Encrypt message"
-msgstr ""
+msgstr "Xifra el missatge"
 
 msgid ""
 "Ensure the privacy of the message by encrypting its contents. Only the "
@@ -6697,7 +6451,7 @@ msgid ""
 msgstr ""
 
 msgid "What's going on with my email?"
-msgstr ""
+msgstr "Què passa amb el meu correu electrònic?"
 
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
@@ -6710,16 +6464,16 @@ msgid ""
 msgstr ""
 
 msgid " has failed"
-msgstr ""
+msgstr "ha fracassat"
 
 msgid " for this message."
-msgstr ""
+msgstr "per aquest missatge."
 
 msgid "What caused this issue?"
-msgstr ""
+msgstr "Què va causar aquest problema?"
 
 msgid "What should I do?"
-msgstr ""
+msgstr "Què he de fer?"
 
 msgid ""
 "You can continue to work. However, you should keep in mind that the identity "
@@ -6747,7 +6501,7 @@ msgid ""
 msgstr ""
 
 msgid "grommunio Web could not find a public certificate for the recipient."
-msgstr ""
+msgstr "grommunio Web no ha pogut trobar un certificat públic per al destinatari."
 
 msgid ""
 "The identity of the sender and authenticity of the message content have been "
@@ -6755,7 +6509,7 @@ msgid ""
 msgstr ""
 
 msgid "The digital signature could not be verified for unknown reasons."
-msgstr ""
+msgstr "La signatura digital no s'ha pogut verificar per motius desconeguts."
 
 msgid ""
 "The digital certificate used to sign this message has been revoked (i.e. the "
@@ -6781,88 +6535,91 @@ msgstr ""
 
 msgid "The certificate verification server (OCSP) is temporarily offline."
 msgstr ""
+"El servidor de verificació de certificats (OCSP) està temporalment fora de "
+"línia."
 
 msgid "Sender is removed from the server."
-msgstr ""
+msgstr "El remitent s'elimina del servidor."
 
 msgid "Signature verified successfully"
-msgstr ""
+msgstr "La signatura s'ha verificat correctament"
 
 msgid "Could not verify signature, missing public certificate"
-msgstr ""
+msgstr "No s'ha pogut verificar la signatura, falta el certificat públic"
 
 msgid "Signature verification successful, but certificate is expired"
 msgstr ""
+"La verificació de la signatura ha estat correcta, però el certificat ha "
+"caducat"
 
 msgid "Signature could not be verified"
-msgstr ""
+msgstr "No s'ha pogut verificar la signatura"
 
 msgid "Certificate has been revoked"
-msgstr ""
+msgstr "El certificat ha estat revocat"
 
 msgid "Verification with Certificate Authority failed"
-msgstr ""
+msgstr "La verificació amb l'autoritat de certificació ha fallat"
 
 msgid "Message decrypted successfully"
-msgstr ""
+msgstr "El missatge s'ha desxifrat correctament"
 
 msgid "Message decryption failed"
-msgstr ""
+msgstr "No s'ha pogut desxifrar el missatge"
 
 msgid "Please"
-msgstr ""
+msgstr "Si us plau"
 
 msgid "click here"
-msgstr ""
+msgstr "feu clic aquí"
 
 msgid "to unlock your certificate"
-msgstr ""
+msgstr "per desbloquejar el vostre certificat"
 
 msgid "Cannot determine revocation status of certificate"
-msgstr ""
+msgstr "No es pot determinar l'estat de revocació del certificat"
 
 msgid "Signature verified"
-msgstr ""
+msgstr "Signatura verificada"
 
 msgid "Unable to decrypt this message. Certificate does not match"
-msgstr ""
+msgstr "No es pot desxifrar aquest missatge. El certificat no coincideix"
 
 msgid "Verification failed. User is removed from the server."
-msgstr ""
+msgstr "La verificació ha fallat. L'usuari s'elimina del servidor."
 
 msgid "Charm pink"
-msgstr ""
+msgstr "Encant rosa"
 
 msgid "Cadmium red"
-msgstr ""
+msgstr "Vermell de cadmi"
 
-#, fuzzy
 msgid "Apricot"
-msgstr "Abril"
+msgstr "Albercoc"
 
 msgid "California"
-msgstr ""
+msgstr "Califòrnia"
 
 msgid "Soft green"
-msgstr ""
+msgstr "Verd suau"
 
 msgid "Mint"
-msgstr ""
+msgstr "Menta"
 
 msgid "Pearl aqua"
-msgstr ""
+msgstr "Perla aqua"
 
 msgid "Grommunio blue"
-msgstr ""
+msgstr "Grommunio blau"
 
 msgid "Baby blue"
-msgstr ""
+msgstr "Blau bebè"
 
 msgid "Mauve"
-msgstr ""
+msgstr "Malva"
 
 msgid "Silver sand"
-msgstr ""
+msgstr "Sorra platejada"
 
 msgid "Competition"
 msgstr "Competencia"
@@ -6919,108 +6676,116 @@ msgstr ""
 
 msgid "This backend provides the default WebDAV integration for Files."
 msgstr ""
+"Aquest backend proporciona la integració WebDAV predeterminada per a "
+"fitxers."
 
 msgid "Files Default Backend: "
-msgstr ""
+msgstr "Backend predeterminat dels fitxers:"
 
 msgid "Server address"
-msgstr ""
+msgstr "Adreça del servidor"
 
 msgid "Server port"
-msgstr ""
+msgstr "Port del servidor"
 
 msgid "Use TLS"
-msgstr ""
+msgstr "Utilitzeu TLS"
 
 msgid "Webdav base path"
-msgstr ""
+msgstr "Ruta base de Webdav"
 
 msgid "Use grommunio credentials"
-msgstr ""
+msgstr "Utilitzeu les credencials de grommunio"
 
 msgid "php-curl is not available"
-msgstr ""
+msgstr "php-curl no està disponible"
 
 msgid "Access denied"
-msgstr ""
+msgstr "Accés denegat"
 
 msgid "Connection failed"
-msgstr ""
+msgstr "La connexió ha fallat"
 
 msgid "Sabre error"
-msgstr ""
+msgstr "Error de sabre"
 
 msgid "Copying failed"
-msgstr ""
+msgstr "No s'ha pogut copiar"
 
 msgid "Unknown error"
-msgstr ""
+msgstr "Error desconegut"
 
 msgid "Please contact your system administrator."
-msgstr ""
+msgstr "Poseu-vos en contacte amb l'administrador del vostre sistema."
 
 msgid "Unauthorized. Wrong username or password."
-msgstr ""
+msgstr "No autoritzat. Nom d'usuari o contrasenya incorrectes."
 
 msgid "File server is not reachable. Please verify the file server URL."
 msgstr ""
+"No es pot accedir al servidor de fitxers. Verifiqueu l'URL del servidor de "
+"fitxers."
 
 msgid "You don't have enough permissions to view this file or folder."
-msgstr ""
+msgstr "No teniu prou permisos per veure aquest fitxer o carpeta."
 
 msgid "The file or folder is not available anymore."
-msgstr ""
+msgstr "El fitxer o la carpeta ja no estan disponibles."
 
 msgid "Connection to the file server timed out. Please check again later."
 msgstr ""
+"La connexió al servidor de fitxers s'ha esgotat. Si us plau, torneu a "
+"comprovar més tard."
 
 msgid "This file is locked by another user. Please try again later."
 msgstr ""
+"Aquest fitxer està bloquejat per un altre usuari. Si us plau, torna-ho a "
+"provar més tard."
 
 msgid "The request failed."
-msgstr ""
+msgstr "La sol·licitud ha fallat."
 
 msgid "The file server encountered an internal problem."
-msgstr ""
+msgstr "El servidor de fitxers ha trobat un problema intern."
 
 msgid "We could not write to temporary directory."
-msgstr ""
+msgstr "No hem pogut escriure al directori temporal."
 
 msgid "We could not retrieve list of server features."
-msgstr ""
+msgstr "No hem pogut recuperar la llista de funcions del servidor."
 
 msgid "PHP-Curl is not available."
-msgstr ""
+msgstr "PHP-Curl no està disponible."
 
 msgid "With this backend, you can connect to any Seafile server."
-msgstr ""
+msgstr "Amb aquest backend, podeu connectar-vos a qualsevol servidor de Seafile."
 
 msgid "Files "
-msgstr ""
+msgstr "Fitxers"
 
 msgid "Use SSL"
-msgstr ""
+msgstr "Utilitzeu SSL"
 
 msgid "Seafile is not reachable. Correct backend address entered?"
-msgstr ""
+msgstr "Seafile no és accessible. Heu introduït l'adreça de backend correcta?"
 
 msgid "You don't have enough permissions for this operation."
-msgstr ""
+msgstr "No teniu prou permisos per a aquesta operació."
 
 msgid "File is not available any more."
-msgstr ""
+msgstr "El fitxer ja no està disponible."
 
 msgid "Connection to server timed out. Retry later."
-msgstr ""
+msgstr "La connexió al servidor s'ha esgotat. Torna-ho a provar més tard."
 
 msgid "This file is locked by another user."
-msgstr ""
+msgstr "Aquest fitxer està bloquejat per un altre usuari."
 
 msgid "The request failed due to failure of a previous request."
-msgstr ""
+msgstr "La sol·licitud ha fallat a causa de la fallada d'una sol·licitud anterior."
 
 msgid "Seafile-server encountered a problem."
-msgstr ""
+msgstr "Seafile-server ha trobat un problema."
 
 msgid ""
 "Could not write to temporary directory. Contact the server administrator."
@@ -7032,93 +6797,95 @@ msgstr ""
 
 msgid "PHP-Curl is not available. Contact your system administrator."
 msgstr ""
+"PHP-Curl no està disponible. Contacteu amb l'administrador del vostre "
+"sistema."
 
 msgid "This function is not yet implemented."
-msgstr ""
+msgstr "Aquesta funció encara no està implementada."
 
 msgid "Unknown account ID"
-msgstr ""
+msgstr "ID del compte desconegut"
 
 msgid "Feature \"Quota Information\" is not supported by this backend!"
-msgstr ""
+msgstr "La funció \"Informació de quota\" no és compatible amb aquest backend!"
 
 msgid "Feature \"Version Information\" is not supported by this backend!"
-msgstr ""
+msgstr "La funció \"Informació de la versió\" no és compatible amb aquest backend!"
 
 msgid "Feature \"OAUTH\" is not supported by this backend!"
-msgstr ""
+msgstr "La funció \"OAUTH\" no és compatible amb aquest backend!"
 
 msgid "Moving between accounts is not implemented"
-msgstr ""
+msgstr "El moviment entre comptes no està implementat"
 
 msgid "Files plugin"
-msgstr ""
+msgstr "Connector de fitxers"
 
 msgid "Unknown type - cannot save this file to the Files backend!"
-msgstr ""
+msgstr "Tipus desconegut: no es pot desar aquest fitxer al fons de fitxers!"
 
 msgid "No record given!"
-msgstr ""
+msgstr "No s'ha donat cap registre!"
 
 msgid "Fetching sharing information failed"
-msgstr ""
+msgstr "No s'ha pogut obtenir la informació compartida"
 
 msgid "Sharing failed"
-msgstr ""
+msgstr "No s'ha pogut compartir"
 
 msgid "Updating share failed"
-msgstr ""
+msgstr "S'ha produït un error en actualitzar la compartició"
 
 msgid "Deleting share failed"
-msgstr ""
+msgstr "No s'ha pogut suprimir la compartició"
 
 msgid "With this backend, you can connect to any WebDAV server."
-msgstr ""
+msgstr "Amb aquest backend, podeu connectar-vos a qualsevol servidor WebDAV."
 
 msgid "Files WebDAV Backend: "
-msgstr ""
+msgstr "Fitxers WebDAV Backend:"
 
 msgid "PHP-CURL is not installed"
-msgstr ""
+msgstr "PHP-CURL no està instal·lat"
 
 msgid "Directory creation failed"
-msgstr ""
+msgstr "La creació del directori ha fallat"
 
 msgid "Deletion failed"
-msgstr ""
+msgstr "S'ha produït un error en la supressió"
 
 msgid "Moving failed"
-msgstr ""
+msgstr "No s'ha pogut moure"
 
 msgid "Temporary directory problems"
-msgstr ""
+msgstr "Problemes de directori temporals"
 
 msgid "File or folder not found"
-msgstr ""
+msgstr "No s'ha trobat el fitxer o la carpeta"
 
 msgid "Not implemented"
-msgstr ""
+msgstr "No implementat"
 
 msgid "Please contact your system administrator"
-msgstr ""
+msgstr "Poseu-vos en contacte amb l'administrador del vostre sistema"
 
 msgid "File server is not reachable. Please verify the connection."
-msgstr ""
+msgstr "No es pot accedir al servidor de fitxers. Verifiqueu la connexió."
 
 msgid "PHP-CURL not installed"
-msgstr ""
+msgstr "PHP-CURL no instal·lat"
 
 msgid "Account is ready to use."
-msgstr ""
+msgstr "El compte està llest per utilitzar."
 
 msgid "File backend not responding. Please try again later."
-msgstr ""
+msgstr "El backend del fitxer no respon. Si us plau, torna-ho a provar més tard."
 
 msgid "Zip file generation failed. Please inform the administrator."
-msgstr ""
+msgstr "La generació del fitxer zip ha fallat. Si us plau, informeu l'administrador."
 
 msgid "This file is no longer available. Please reload the folder."
-msgstr ""
+msgstr "Aquest fitxer ja no està disponible. Torneu a carregar la carpeta."
 
 msgid "Kendox certificate path is not configured."
 msgstr "El camí del certificat de Kendox no està configurat."
@@ -7127,13 +6894,13 @@ msgid "Kendox certificate password is not configured."
 msgstr "La contrasenya del certificat de Kendox no està configurada."
 
 msgid "Kendox certificate is not available."
-msgstr ""
+msgstr "El certificat Kendox no està disponible."
 
 msgid "Kendox certificate is not readable."
 msgstr "El certificat de Kendox no es pot llegir."
 
 msgid "Mobile device management plugin"
-msgstr ""
+msgstr "Complement de gestió de dispositius mòbils"
 
 #, php-format
 msgid ""
@@ -7142,17 +6909,17 @@ msgid ""
 msgstr ""
 
 msgid "No data received."
-msgstr ""
+msgstr "No s'han rebut dades."
 
 msgid "Account is empty."
-msgstr ""
+msgstr "El compte està buit."
 
 msgid ""
 "Your password is wrong or you have insufficient permission to change password"
 msgstr ""
 
 msgid "Password is not changed."
-msgstr ""
+msgstr "La contrasenya no es modifica."
 
 msgid ""
 "Error changing password. Please verify your password or contact the system "
@@ -7160,25 +6927,29 @@ msgid ""
 msgstr ""
 
 msgid "Password has been changed successfully."
-msgstr ""
+msgstr "La contrasenya s'ha canviat correctament."
 
 msgid "No certificate available"
-msgstr ""
+msgstr "No hi ha cap certificat disponible"
 
 msgid "Private certificate has expired, unable to sign email"
-msgstr ""
+msgstr "El certificat privat ha caducat, no es pot signar el correu electrònic"
 
 msgid "Private certificate is not valid yet, unable to sign email"
 msgstr ""
+"El certificat privat encara no és vàlid, no es pot signar el correu "
+"electrònic"
 
 msgid "Private certificate does not match email address"
-msgstr ""
+msgstr "El certificat privat no coincideix amb l'adreça de correu electrònic"
 
 msgid "Missing public certificates for the following recipients: "
-msgstr ""
+msgstr "Falten certificats públics per als següents destinataris:"
 
 msgid ". Please contact your system administrator for details"
 msgstr ""
+". Si us plau, poseu-vos en contacte amb el vostre administrador del sistema "
+"per obtenir més informació"
 
 msgid ""
 "Your public certificate is not installed. Without this certificate, you will "
@@ -7186,44 +6957,46 @@ msgid ""
 msgstr ""
 
 msgid "Certificate is already stored on the server"
-msgstr ""
+msgstr "El certificat ja està emmagatzemat al servidor"
 
 msgid "Unable to decrypt certificate"
-msgstr ""
+msgstr "No es pot desxifrar el certificat"
 
 msgid "Private key can't be used to sign email"
-msgstr ""
+msgstr "La clau privada no es pot utilitzar per signar el correu electrònic"
 
 msgid "Certificate email address doesn't match grommunio Web account "
 msgstr ""
+"L'adreça electrònica del certificat no coincideix amb el compte web de "
+"grommunio"
 
 msgid "Certificate was expired on "
-msgstr ""
+msgstr "El certificat va caducar el"
 
 msgid "Certificate was imported."
-msgstr ""
+msgstr "S'ha importat el certificat."
 
 msgid "Certificate is not yet valid "
-msgstr ""
+msgstr "El certificat encara no és vàlid"
 
 msgid "Certificate has not been imported"
-msgstr ""
+msgstr "El certificat no s'ha importat"
 
 msgid "Certificate is revoked, but was imported."
-msgstr ""
+msgstr "El certificat s'ha revocat, però s'ha importat."
 
 msgid "Unable to read public certificate"
-msgstr ""
+msgstr "No es pot llegir el certificat públic"
 
 msgid "Can't add data to bus, same action type is present in bus"
-msgstr ""
+msgstr "No es poden afegir dades al bus, hi ha el mateix tipus d'acció al bus"
 
 msgid "Response data requested from bus but it doesn't have any data."
-msgstr ""
+msgstr "S'han sol·licitat dades de resposta a l'autobús però no té cap dada."
 
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
-msgstr ""
+msgstr "Mòdul desconegut \"%s\" amb identificador \"%s\""
 
 msgid ""
 "Server encountered some problem, so it was not able to handle the request."
@@ -7231,13 +7004,13 @@ msgstr ""
 
 #, php-format
 msgid "Unknown notifier '%s'"
-msgstr ""
+msgstr "Notificador desconegut \"%s\""
 
 msgid "An unexpected error has occurred"
-msgstr ""
+msgstr "S'ha produït un error inesperat"
 
 msgid "To-Do List"
-msgstr ""
+msgstr "Llista de tasques pendents"
 
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
@@ -7245,91 +7018,88 @@ msgstr ""
 #.
 #, php-format
 msgid "%1$s of %2$s"
-msgstr ""
+msgstr "%1$sde%2$s"
 
 msgid "Error retrieving existing settings"
-msgstr ""
+msgstr "S'ha produït un error en recuperar la configuració existent"
 
 msgid "Error retrieving existing persistent settings"
-msgstr ""
+msgstr "S'ha produït un error en recuperar la configuració persistent existent"
 
-#, fuzzy
 msgid "Logon failed. Please verify your credentials and try again."
-msgstr "Registro fallido. Por favor compruebe su nombre/contraseña."
+msgstr ""
+"L'inici de sessió ha fallat. Verifiqueu les vostres credencials i torneu-ho "
+"a provar."
 
-#, fuzzy
 msgid "Cannot connect to Gromox."
-msgstr "No se ha podido conectar con el servidor de grommunio."
+msgstr "No es pot connectar a Gromox."
 
 msgid ""
 "Login did not work due to a duplicate session. The issue was automatically "
 "resolved, please log in again."
 msgstr ""
 
-#, fuzzy
 msgid "Unknown MAPI Error"
-msgstr "Usuario/Grupo desconocido"
+msgstr "Error MAPI desconegut"
 
 msgid "Destination folder not found."
-msgstr ""
+msgstr "No s'ha trobat la carpeta de destinació."
 
 msgid "Eml is corrupted"
-msgstr ""
+msgstr "Eml està corrupte"
 
 msgid "The eml Attachment is not imported successfully"
-msgstr ""
+msgstr "El fitxer adjunt eml no s'ha importat correctament"
 
 msgid "The vcf attachment is not imported successfully"
-msgstr ""
+msgstr "El fitxer adjunt vcf no s'ha importat correctament"
 
 #, php-format
 msgid "Unable to import '%s' to '%s'. "
-msgstr ""
+msgstr "No es pot importar \"%s\" a \"%s\"."
 
-#, fuzzy
 msgid "There is no appointment found in this file."
-msgstr "Esta cita ha tenido lugar en el pasado."
+msgstr "No s'ha trobat cap cita en aquest fitxer."
 
 msgid "The file is corrupt."
-msgstr ""
+msgstr "El fitxer està corrupte."
 
-#, fuzzy
 msgid "The file is invalid."
-msgstr "{0} no es una hora válida"
+msgstr "El fitxer no és vàlid."
 
 #, php-format
 msgid "Unable to import '%s'. "
-msgstr ""
+msgstr "No es pot importar \"%s\"."
 
 msgid "Attachment is not imported successfully"
-msgstr ""
+msgstr "El fitxer adjunt no s'ha importat correctament"
 
 msgid "Embedded attachment not found."
-msgstr ""
+msgstr "No s'ha trobat el fitxer adjunt incrustat."
 
 msgid "ZIP is not created successfully"
-msgstr ""
+msgstr "El ZIP no s'ha creat correctament"
 
 msgid "Attachments can not be downloaded"
-msgstr ""
+msgstr "Els fitxers adjunts no es poden descarregar"
 
 msgid "Could not find attachment."
-msgstr ""
+msgstr "No s'ha pogut trobar el fitxer adjunt."
 
 msgid "Operation failed"
-msgstr ""
+msgstr "L'operació ha fallat"
 
 msgid "Sticky Note"
-msgstr ""
+msgstr "Nota adhesiva"
 
 msgid "Task Request"
-msgstr ""
+msgstr "Sol·licitud de tasca"
 
 msgid "Could not find message, either it has been moved or deleted."
-msgstr ""
+msgstr "No s'ha pogut trobar el missatge, ja s'ha mogut o s'ha suprimit."
 
 msgid "Action is not performed correctly."
-msgstr ""
+msgstr "L'acció no es realitza correctament."
 
 msgid "Could not handle this type of object."
 msgstr "No s'ha pogut gestionar aquest tipus d'objecte."
@@ -7350,34 +7120,42 @@ msgid "Public Contact Folders"
 msgstr "Carpetes de contactes públiques"
 
 msgid "Error in search, please try again"
-msgstr ""
+msgstr "S'ha produït un error en la cerca, torneu-ho a provar"
 
 msgid "Unable to perform search query, no permissions to create search folder."
 msgstr ""
+"No es pot realitzar la consulta de cerca, no hi ha permís per crear una "
+"carpeta de cerca."
 
 msgid "Unable to perform search query, search folder not found."
 msgstr ""
+"No es pot realitzar la consulta de cerca, no s'ha trobat la carpeta de "
+"cerca."
 
 msgid "Unable to perform search query, store might not support searching."
 msgstr ""
+"No es pot realitzar la consulta de cerca, és possible que la botiga no "
+"admeti la cerca."
 
 msgid "Error in creating search folder."
-msgstr ""
+msgstr "Error en crear la carpeta de cerca."
 
 msgid "Could not open occurrence."
-msgstr ""
+msgstr "No s'ha pogut obrir l'ocurrència."
 
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr ""
+"No s'ha pogut obrir l'ocurrència, probablement s'ha suprimit una ocurrència "
+"específica."
 
 msgid "a meeting request"
-msgstr ""
+msgstr "una sol·licitud de reunió"
 
 msgid "an appointment"
-msgstr ""
+msgstr "una cita"
 
 msgid "You have insufficient privileges to move "
-msgstr ""
+msgstr "No tens privilegis suficients per moure't"
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "
@@ -7385,7 +7163,7 @@ msgid ""
 msgstr ""
 
 msgid "Two occurrences cannot occur on the same day"
-msgstr ""
+msgstr "No es poden produir dues ocurrències el mateix dia"
 
 #, php-format
 msgid ""
@@ -7414,124 +7192,126 @@ msgid ""
 msgstr ""
 
 msgid "Meeting was not scheduled."
-msgstr ""
+msgstr "La reunió no estava programada."
 
 msgid "Meeting could not be sent."
-msgstr ""
+msgstr "No s'ha pogut enviar la reunió."
 
 msgid "Meeting could not be saved."
-msgstr ""
+msgstr "No s'ha pogut desar la reunió."
 
 msgid "Private Appointment"
-msgstr ""
+msgstr "Cita privada"
 
 #, php-format
 msgid "%s's Birthday"
-msgstr ""
+msgstr "Aniversari de%s"
 
 #, php-format
 msgid "%s's Anniversary"
-msgstr ""
+msgstr "Aniversari de%s"
 
 msgid "You don't have the permission to complete this action"
-msgstr ""
+msgstr "No teniu permís per completar aquesta acció"
 
 msgid "Quota error"
-msgstr ""
+msgstr "Error de quota"
 
 msgid "Send quota limit reached"
-msgstr ""
+msgstr "S'ha arribat al límit de quota d'enviament"
 
 msgid "Email sending failed. Check the log files for more information."
 msgstr ""
+"No s'ha pogut enviar el correu electrònic. Consulteu els fitxers de "
+"registre per obtenir més informació."
 
 msgid "Unknown user/group"
-msgstr ""
+msgstr "Usuari/grup desconegut"
 
 msgid "Could not save delegate information."
-msgstr ""
+msgstr "No s'ha pogut desar la informació del delegat."
 
 msgid "Could not delete delegate."
-msgstr ""
+msgstr "No s'ha pogut suprimir el delegat."
 
 msgid "Can not get list of delegates."
-msgstr ""
+msgstr "No es pot obtenir la llista de delegats."
 
 msgid "Could not open the store."
 msgstr "No s'ha pogut obrir la botiga."
 
 msgid "Could not load the hierarchy."
-msgstr ""
+msgstr "No s'ha pogut carregar la jerarquia."
 
 msgid "Could not open the shared store."
 msgstr "No s'ha pogut obrir la botiga compartida."
 
 msgid "Could not load folder properties."
-msgstr ""
+msgstr "No s'han pogut carregar les propietats de la carpeta."
 
 msgid "Could not remove folder from favorites."
-msgstr ""
+msgstr "No s'ha pogut eliminar la carpeta dels preferits."
 
 msgid "You have insufficient privileges to delete folder."
-msgstr ""
+msgstr "No tens privilegis suficients per suprimir la carpeta."
 
 msgid "Could not delete folder."
-msgstr ""
+msgstr "No s'ha pogut suprimir la carpeta."
 
 msgid "You have insufficient privileges to copy folder."
-msgstr ""
+msgstr "No tens privilegis suficients per copiar la carpeta."
 
 msgid "Could not copy folder."
-msgstr ""
+msgstr "No s'ha pogut copiar la carpeta."
 
 msgid "You have insufficient privileges to move this folder."
-msgstr ""
+msgstr "No tens privilegis suficients per moure aquesta carpeta."
 
 msgid "Could not move folder."
-msgstr ""
+msgstr "No s'ha pogut moure la carpeta."
 
 msgid "You have insufficient privileges to delete items."
-msgstr ""
+msgstr "No tens privilegis suficients per suprimir elements."
 
 msgid "Could not empty folder."
-msgstr ""
+msgstr "No s'ha pogut buidar la carpeta."
 
 msgid "Could not perform action correctly."
-msgstr ""
+msgstr "No s'ha pogut realitzar l'acció correctament."
 
 msgid ""
 "A favorite folder with this name already exists, please use another name."
 msgstr ""
 
 msgid "Could not add folder to favorites."
-msgstr ""
+msgstr "No s'ha pogut afegir la carpeta als preferits."
 
 msgid "You have insufficient privileges to set permissions for this folder."
-msgstr ""
+msgstr "No tens privilegis suficients per establir permisos per a aquesta carpeta."
 
 msgid "Could not set folder permissions."
-msgstr ""
+msgstr "No s'han pogut establir els permisos de la carpeta."
 
 msgid "You have insufficient privileges to rename this folder."
-msgstr ""
+msgstr "No tens privilegis suficients per canviar el nom d'aquesta carpeta."
 
 msgid "A folder with this name already exists. Use another name."
-msgstr ""
+msgstr "Ja existeix una carpeta amb aquest nom. Utilitzeu un altre nom."
 
 msgid "Could not rename folder."
-msgstr ""
+msgstr "No s'ha pogut canviar el nom de la carpeta."
 
 msgid "You have insufficient privileges to create this folder."
-msgstr ""
+msgstr "No tens privilegis suficients per crear aquesta carpeta."
 
 msgid "Could not create folder."
-msgstr ""
+msgstr "No s'ha pogut crear la carpeta."
 
 msgid "Could not close shared folder."
-msgstr ""
+msgstr "No s'ha pogut tancar la carpeta compartida."
 
 msgid "User could not be resolved."
-msgstr ""
+msgstr "No s'ha pogut resoldre l'usuari."
 
 #, php-format
 msgid ""
@@ -7541,22 +7321,22 @@ msgid ""
 msgstr ""
 
 msgid "default"
-msgstr ""
+msgstr "per defecte"
 
 msgid "anonymous"
-msgstr ""
+msgstr "anònim"
 
 msgid "unknown"
-msgstr ""
+msgstr "desconegut"
 
 msgid "Could not move folder"
-msgstr ""
+msgstr "No s'ha pogut moure la carpeta"
 
 msgid "Could not copy folder"
-msgstr ""
+msgstr "No s'ha pogut copiar la carpeta"
 
 msgid "You have insufficient privileges to open this message."
-msgstr ""
+msgstr "No tens privilegis suficients per obrir aquest missatge."
 
 msgid ""
 "Could not find message, either it has been moved or deleted or you don't "
@@ -7566,13 +7346,11 @@ msgstr ""
 msgid "Could not open message."
 msgstr "No se puede abrir mensaje"
 
-#, fuzzy
 msgid "You have insufficient privileges to decline this Meeting Request"
-msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta"
+msgstr "No tens privilegis suficients per rebutjar aquesta sol·licitud de reunió"
 
-#, fuzzy
 msgid "You have insufficient privileges to accept this Meeting Request"
-msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta"
+msgstr "No tens privilegis suficients per acceptar aquesta sol·licitud de reunió"
 
 msgid "Could not copy message"
 msgstr "No se puede copiar el mensaje"
@@ -7595,17 +7373,16 @@ msgid ""
 msgstr ""
 
 msgid "Message cannot be aborted"
-msgstr ""
+msgstr "El missatge no es pot cancel·lar"
 
-#, fuzzy
 msgid "You have insufficient privileges to delete items in this folder"
-msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta"
+msgstr "No tens privilegis suficients per suprimir elements d'aquesta carpeta"
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "No tiene privilegios necesarios para añadir objeto como un adjunto."
 
 msgid "Could not attach item as an attachment."
-msgstr ""
+msgstr "No s'ha pogut adjuntar l'element com a fitxer adjunt."
 
 msgid ""
 "You have insufficient privileges to reclaim the ownership for the Task "
@@ -7613,24 +7390,22 @@ msgid ""
 msgstr ""
 
 msgid "Could not reclaim the ownership for the Task Request."
-msgstr ""
+msgstr "No s'ha pogut reclamar la propietat de la sol·licitud de tasques."
 
-#, fuzzy
 msgid "You have insufficient privileges to accept this Task Request."
-msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta"
+msgstr "No tens privilegis suficients per acceptar aquesta sol·licitud de tasca."
 
 msgid "Could not accept Task Request."
-msgstr ""
+msgstr "No s'ha pogut acceptar la sol·licitud de tasca."
 
-#, fuzzy
 msgid "You have insufficient privileges to decline this Task Request."
-msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta"
+msgstr "No teniu prou privilegis per rebutjar aquesta sol·licitud de tasca."
 
 msgid "Could not decline Task Request."
-msgstr ""
+msgstr "No s'ha pogut rebutjar la sol·licitud de tasca."
 
 msgid "Conflicts with another appointment."
-msgstr ""
+msgstr "Conflictes amb una altra cita."
 
 #, php-format
 msgid ""
@@ -7643,73 +7418,77 @@ msgstr[1] ""
 
 msgid "Your message did not reach some or all of the intended recipients"
 msgstr ""
+"El vostre missatge no ha arribat a alguns o a tots els destinataris "
+"previstos"
 
 msgid "The following recipient(s) could not be reached"
-msgstr ""
+msgstr "No s'ha pogut contactar amb els destinataris següents"
 
 msgid "You have insufficient privileges to see the contents of this folder."
-msgstr ""
+msgstr "No tens privilegis suficients per veure el contingut d'aquesta carpeta."
 
 msgid "Could not load the contents of this folder."
-msgstr ""
+msgstr "No s'ha pogut carregar el contingut d'aquesta carpeta."
 
 msgid ""
 "You have insufficient privileges to perform search operation in this folder."
 msgstr ""
 
 msgid "Could not update search results."
-msgstr ""
+msgstr "No s'han pogut actualitzar els resultats de la cerca."
 
 msgid "Could not stop search operation."
-msgstr ""
+msgstr "No s'ha pogut aturar l'operació de cerca."
 
 msgid "You have insufficient privileges to save this message."
-msgstr ""
+msgstr "No tens privilegis suficients per desar aquest missatge."
 
 msgid "Could not save message."
-msgstr ""
+msgstr "No s'ha pogut desar el missatge."
 
 msgid "You have insufficient privileges to delete this message."
-msgstr ""
+msgstr "No tens privilegis suficients per suprimir aquest missatge."
 
 msgid "Could not delete message."
-msgstr ""
+msgstr "No s'ha pogut suprimir el missatge."
 
 msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr ""
+msgstr "No teniu prou privilegis per cancel·lar aquesta sol·licitud de reunió."
 
 msgid "Could not cancel Meeting Request."
-msgstr ""
+msgstr "No s'ha pogut cancel·lar la sol·licitud de reunió."
 
 msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr ""
+msgstr "No tens privilegis suficients per rebutjar aquesta sol·licitud de reunió."
 
 msgid "Could not decline Meeting Request."
-msgstr ""
+msgstr "No s'ha pogut rebutjar la sol·licitud de reunió."
 
 msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr ""
+msgstr "No tens privilegis suficients per acceptar aquesta sol·licitud de reunió."
 
 msgid "Could not accept Meeting Request."
-msgstr ""
+msgstr "No s'ha pogut acceptar la sol·licitud de reunió."
 
 msgid "You have insufficient privileges to cancel Meeting Request invitation."
 msgstr ""
+"No tens privilegis suficients per cancel·lar la invitació a la sol·licitud "
+"de reunió."
 
 msgid "Could not cancel Meeting Request invitations."
-msgstr ""
+msgstr "No s'han pogut cancel·lar les invitacions a la sol·licitud de reunió."
 
 msgid "You can not continue search operation on this folder."
-msgstr ""
+msgstr "No podeu continuar l'operació de cerca en aquesta carpeta."
 
 msgid "Error in search, please try again."
-msgstr ""
+msgstr "S'ha produït un error en la cerca, torneu-ho a provar."
 
 msgid "Error in distribution list expansion."
-msgstr ""
+msgstr "Error en l'ampliació de la llista de distribució."
 
 msgid "The message store has exceeded its hard quota limit."
-msgstr ""
+msgstr "El magatzem de missatges ha superat el seu límit de quota fixa."
 
 msgid ""
 "To reduce the amount of data in this message store, select some items that "
@@ -7717,50 +7496,50 @@ msgid ""
 msgstr ""
 
 msgid "The message store has exceeded its soft quota limit."
-msgstr ""
+msgstr "El magatzem de missatges ha superat el seu límit de quota suau."
 
 msgid "Could not process request data properly."
-msgstr ""
+msgstr "No s'han pogut processar correctament les dades de la sol·licitud."
 
 #, php-format
 msgid "Unknown action type specified - %s"
-msgstr ""
+msgstr "S'ha especificat el tipus d'acció desconegut:%s"
 
 msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr ""
+msgstr "No es pot posposar el recordatori. És possible que se us torni a recordar."
 
 msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr ""
+msgstr "No es pot ignorar el recordatori. És possible que se us torni a recordar."
 
 msgid "You have insufficient privileges to perform this action."
-msgstr ""
+msgstr "No tens privilegis suficients per dur a terme aquesta acció."
 
 msgid "Could not resolve user."
-msgstr ""
+msgstr "No s'ha pogut resoldre l'usuari."
 
 msgid "Setting mail filters on the stores of other users is not allowed."
-msgstr ""
+msgstr "No es permet establir filtres de correu a les botigues d'altres usuaris."
 
 msgid "Untitled rule"
-msgstr ""
+msgstr "Regla sense títol"
 
 msgid "Could not load rules."
-msgstr ""
+msgstr "No s'han pogut carregar les regles."
 
 msgid "Could not save rules."
-msgstr ""
+msgstr "No s'han pogut desar les regles."
 
 msgid "Task Request:"
-msgstr ""
+msgstr "Sol·licitud de tasca:"
 
 msgid "Sign in"
-msgstr ""
+msgstr "Inicia sessió"
 
 msgid "File is not imported successfully"
-msgstr ""
+msgstr "El fitxer no s'ha importat correctament"
 
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr ""
+msgstr "El fitxer penjat supera la directiva upload_max_filesize a php.ini."
 
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
@@ -7768,16 +7547,16 @@ msgid ""
 msgstr ""
 
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "El fitxer penjat només s'ha penjat parcialment."
 
 msgid "No file was uploaded. ."
-msgstr ""
+msgstr "No s'ha penjat cap fitxer. ."
 
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Falta una carpeta temporal."
 
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "No s'ha pogut escriure el fitxer al disc."
 
 msgid ""
 "A PHP extension stopped the file upload. PHP does not provide a way to "
@@ -7786,7 +7565,7 @@ msgid ""
 msgstr ""
 
 msgid "There is no contact found in this file."
-msgstr ""
+msgstr "No s'ha trobat cap contacte en aquest fitxer."
 
 msgid ""
 "grommunio Web does not support importing multiple VCF with this version."
@@ -7797,32 +7576,34 @@ msgid ""
 msgstr ""
 
 msgid "GB"
-msgstr ""
+msgstr "GB"
 
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 msgid "B"
-msgstr ""
+msgstr "B"
 
 msgid "The maximum stack depth has been exceeded"
-msgstr ""
+msgstr "S'ha superat la profunditat màxima de la pila"
 
 msgid "Control character error, possibly incorrectly encoded"
-msgstr ""
+msgstr "Error de caràcter de control, possiblement codificat incorrectament"
 
 msgid "Invalid or malformed JSON"
-msgstr ""
+msgstr "JSON no vàlid o amb format incorrecte"
 
 msgid "Syntax error"
-msgstr ""
+msgstr "Error de sintaxi"
 
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr ""
+"Caràcters UTF-8 amb format incorrecte, possiblement codificats "
+"incorrectament"
 
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
-msgstr ""
+msgstr "S'ha trobat algun problema en codificar/descodificar dades JSON: -%s"

@@ -2314,9 +2314,8 @@ msgstr "Наступного тижня"
 msgid "Custom"
 msgstr "Нетиповий"
 
-#, fuzzy
 msgid "Set reminder"
-msgstr "Нагадування"
+msgstr "Встановити нагадування"
 
 msgid "Complete"
 msgstr "Довершено"
@@ -3074,9 +3073,8 @@ msgstr "l d/m/Y {0}"
 msgid "d-m-Y {0}"
 msgstr "d-m-Y {0}"
 
-#, fuzzy
 msgid "Unknown"
-msgstr "невідомий"
+msgstr "Невідомо"
 
 msgid "Meeting Organizer"
 msgstr "Організатор зустрічі"
@@ -3857,9 +3855,8 @@ msgstr "Нормально."
 msgid "High"
 msgstr "Високий"
 
-#, fuzzy
 msgid "Canceled"
-msgstr "Скасувати"
+msgstr "Скасовано"
 
 msgid "Blue"
 msgstr "Синій"
@@ -4703,7 +4700,7 @@ msgid "{A}Automatically mark mail as read after {B} second(s)"
 msgstr "{A}Саморушно позначати лист як прочитаний через {B} секунд(и)"
 
 msgid "View mail in this format"
-msgstr ""
+msgstr "Переглянути пошту в цьому форматі"
 
 msgid "Right"
 msgstr "Так."
@@ -4748,7 +4745,7 @@ msgid "Automatically reply with the following message:"
 msgstr "Автоматично відповідати з наступним текстом:"
 
 msgid "(The frequency of replies is dependent on server configuration.)"
-msgstr ""
+msgstr "(Частота відповідей залежить від конфігурації сервера)"
 
 msgid "Inside My Organization"
 msgstr "Всередині моєї організації"
@@ -4841,9 +4838,8 @@ msgstr "Старіше."
 msgid "Yesterday"
 msgstr "Вчора"
 
-#, fuzzy
 msgid "Last Week"
-msgstr "Остання сторінка"
+msgstr "Минулого тижня"
 
 msgid "Two Weeks Ago"
 msgstr "Два тижні тому"
@@ -5617,7 +5613,7 @@ msgid "Desktop Notifications"
 msgstr "Сповіщення на робочому столі"
 
 msgid "Files: Default plugin"
-msgstr ""
+msgstr "Файли: Плагін за замовчуванням"
 
 msgid "Loading users and groups"
 msgstr "Завантаження користувачів і груп"
@@ -5674,28 +5670,30 @@ msgid "Loading details…"
 msgstr "Деталі завантаження..."
 
 msgid "Files: Seafile Backend"
-msgstr ""
+msgstr "Файли: Seafile Backend"
 
 msgid "Copy link to clipboard"
-msgstr ""
+msgstr "Скопіювати посилання в буфер обміну"
 
 msgid "Link copied to clipboard"
-msgstr ""
+msgstr "Посилання скопійовано в буфер обміну"
 
 msgid "Clipboard"
-msgstr ""
+msgstr "Буфер обміну"
 
 msgid "Could not copy link automatically. Please copy it manually."
 msgstr ""
+"Не вдалося скопіювати посилання автоматично. Будь ласка, скопіюйте його "
+"вручну."
 
 msgid "Loading details..."
-msgstr ""
+msgstr "Деталі завантаження..."
 
 msgid "Share"
 msgstr "Поділіться"
 
 msgid "Loading..."
-msgstr ""
+msgstr "Завантаження..."
 
 msgid "Add attachment from {0}"
 msgstr "Додати вкладення з {0}"
@@ -5785,7 +5783,7 @@ msgid "Files Plugin"
 msgstr "Плагін для файлів"
 
 msgid "Default"
-msgstr ""
+msgstr "За замовчуванням"
 
 msgid "Manage Accounts"
 msgstr "Керування рахунками"
@@ -6084,88 +6082,88 @@ msgid "Intranet"
 msgstr "Інтранет"
 
 msgid "Archive to InfoShare"
-msgstr ""
+msgstr "Архів на InfoShare"
 
 msgid "Kendox InfoShare"
-msgstr ""
+msgstr "Kendox InfoShare"
 
 msgid "Constraints for single attachment archiving"
-msgstr ""
+msgstr "Обмеження для архівування одного вкладення"
 
 msgid "Max count attachments"
-msgstr ""
+msgstr "Максимальна кількість вкладень"
 
 msgid "Max size all selected attachments (MB)"
-msgstr ""
+msgstr "Максимальний розмір усіх вибраних вкладень (МБ)"
 
 msgid "Selection Kendox InfoShare environment"
-msgstr ""
+msgstr "Вибір середовища Kendox InfoShare"
 
 msgid "Production"
-msgstr ""
+msgstr "Виробництво"
 
 msgid "Test"
-msgstr ""
+msgstr "Тест"
 
 msgid "URLs for production environment"
-msgstr ""
+msgstr "URL-адреси для виробничого середовища"
 
 msgid "Kendox InfoShare API URL"
-msgstr ""
+msgstr "URL-адреса API Kendox InfoShare"
 
 msgid "Kendox InfoShare Web dialog URL"
-msgstr ""
+msgstr "URL-адреса веб-діалогу Kendox InfoShare"
 
 msgid "URLs for test environment"
-msgstr ""
+msgstr "URL-адреси для тестового середовища"
 
 msgid "Mail/Document archive to Kendox InfoShare"
-msgstr ""
+msgstr "Архів пошти/документів до Kendox InfoShare"
 
 msgid "Attachment information is requested"
-msgstr ""
+msgstr "Запитується інформація про вкладені файли"
 
 msgid "Please select the type of Archive (max"
-msgstr ""
+msgstr "Будь ласка, виберіть тип архіву (макс"
 
 msgid "files, max"
-msgstr ""
+msgstr "файлів, не більше"
 
 msgid "MB total size)"
-msgstr ""
+msgstr "МБ загальний розмір)"
 
 msgid "Everything - Store mail in original format"
-msgstr ""
+msgstr "Все - Зберігати пошту в оригінальному форматі"
 
 msgid "Email only - Store mail without attachments"
 msgstr "Лише електронна пошта - Зберігати пошту без вкладень"
 
 msgid "Separate - Store attachments separately"
-msgstr ""
+msgstr "Окремо - Зберігати вкладення окремо"
 
 msgid "No attachments available in mail"
-msgstr ""
+msgstr "Вкладення в пошті недоступні"
 
 msgid "Start archive"
-msgstr ""
+msgstr "Початковий архів"
 
 msgid "embedded"
 msgstr "вбудований"
 
 msgid "Reading attachment information failed"
-msgstr ""
+msgstr "Не вдалося прочитати інформацію про вкладення"
 
 msgid "Files are sent to Kendox InfoShare"
-msgstr ""
+msgstr "Файли надсилаються до Kendox InfoShare"
 
 msgid "With the selection of separate attachments a maximum of"
-msgstr ""
+msgstr "При виборі окремих насадок максимум"
 
 msgid "attachments can be selected. There have been"
-msgstr ""
+msgstr "можна вибрати вкладення. Були"
 
 msgid "attachments selected"
-msgstr ""
+msgstr "вибрані вкладення"
 
 msgid ""
 "With the selection of separate attachments the total size of all attachments "
@@ -6173,13 +6171,13 @@ msgid ""
 msgstr ""
 
 msgid "MB. There have been"
-msgstr ""
+msgstr "МБ. Було"
 
 msgid "MB selected."
-msgstr ""
+msgstr "Вибрано мегабайт."
 
 msgid "Sending of mail failed"
-msgstr ""
+msgstr "Не вдалося надіслати пошту"
 
 msgid "Openstreetmap"
 msgstr "Openstreetmap"
@@ -6756,9 +6754,8 @@ msgstr "Шарм рожевий"
 msgid "Cadmium red"
 msgstr "Кадмій червоний"
 
-#, fuzzy
 msgid "Apricot"
-msgstr "Квітень"
+msgstr "Абрикос"
 
 msgid "California"
 msgstr "Каліфорнія"
@@ -6840,10 +6837,10 @@ msgstr ""
 "Будь ласка, зверніться до вашого системного адміністратора."
 
 msgid "This backend provides the default WebDAV integration for Files."
-msgstr ""
+msgstr "Цей бекенд забезпечує інтеграцію WebDAV для Файлів за замовчуванням."
 
 msgid "Files Default Backend: "
-msgstr ""
+msgstr "Файли за замовчуванням Backend: "
 
 msgid "Server address"
 msgstr "Адреса сервера"
@@ -6920,33 +6917,37 @@ msgstr "PHP-Curl недоступний."
 
 msgid "With this backend, you can connect to any Seafile server."
 msgstr ""
+"За допомогою цього бекенду ви можете підключитися до будь-якого сервера "
+"Seafile."
 
 msgid "Files "
-msgstr ""
+msgstr "Файли "
 
 msgid "Use SSL"
-msgstr ""
+msgstr "Використовуйте SSL"
 
 msgid "Seafile is not reachable. Correct backend address entered?"
-msgstr ""
+msgstr "Файл недоступний. Чи введено правильну адресу бекенду?"
 
 msgid "You don't have enough permissions for this operation."
-msgstr ""
+msgstr "У вас недостатньо дозволів для цієї операції."
 
 msgid "File is not available any more."
-msgstr ""
+msgstr "Файл більше не доступний."
 
 msgid "Connection to server timed out. Retry later."
-msgstr ""
+msgstr "Закінчився час очікування з'єднання з сервером. Спробуйте пізніше."
 
 msgid "This file is locked by another user."
-msgstr ""
+msgstr "Цей файл заблоковано іншим користувачем."
 
 msgid "The request failed due to failure of a previous request."
 msgstr ""
+"Запит не був виконаний у зв'язку з тим, що попередній запит не був "
+"виконаний."
 
 msgid "Seafile-server encountered a problem."
-msgstr ""
+msgstr "Seafile-сервер зіткнувся з проблемою."
 
 msgid ""
 "Could not write to temporary directory. Contact the server administrator."
@@ -6957,10 +6958,10 @@ msgid ""
 msgstr ""
 
 msgid "PHP-Curl is not available. Contact your system administrator."
-msgstr ""
+msgstr "PHP-Curl недоступний. Зверніться до вашого системного адміністратора."
 
 msgid "This function is not yet implemented."
-msgstr ""
+msgstr "Ця функція ще не реалізована."
 
 msgid "Unknown account ID"
 msgstr "Невідомий ідентифікатор облікового запису"
@@ -7056,7 +7057,7 @@ msgid "Kendox certificate password is not configured."
 msgstr "Пароль сертифіката Kendox не налаштовано."
 
 msgid "Kendox certificate is not available."
-msgstr ""
+msgstr "Сертифікат Kendox не доступний."
 
 msgid "Kendox certificate is not readable."
 msgstr "Сертифікат Kendox неможливо прочитати."
@@ -7098,6 +7099,8 @@ msgstr "Сертифікат відсутній"
 
 msgid "Private certificate has expired, unable to sign email"
 msgstr ""
+"Термін дії приватного сертифіката закінчився, не вдається підписати "
+"електронну пошту"
 
 msgid "Private certificate is not valid yet, unable to sign email"
 msgstr ""
@@ -7190,13 +7193,13 @@ msgstr "Помилка при отриманні існуючих налашту
 msgid "Error retrieving existing persistent settings"
 msgstr "Помилка при отриманні наявних постійних налаштувань"
 
-#, fuzzy
 msgid "Logon failed. Please verify your credentials and try again."
-msgstr "Вхід не вдався. Будь ласка, перевірте ваші ім'я та пароль."
+msgstr ""
+"Не вдалося увійти. Будь ласка, перевірте свої облікові дані та спробуйте ще "
+"раз."
 
-#, fuzzy
 msgid "Cannot connect to Gromox."
-msgstr "Неможливо підключитися до сервера grommunio."
+msgstr "Не вдається підключитися до Gromox."
 
 msgid ""
 "Login did not work due to a duplicate session. The issue was automatically "
@@ -7205,9 +7208,8 @@ msgstr ""
 "Не вдалося увійти через дублювання сесії. Проблема була автоматично "
 "вирішена, будь ласка, увійдіть ще раз."
 
-#, fuzzy
 msgid "Unknown MAPI Error"
-msgstr "Невідомий користувач/група"
+msgstr "Невідома помилка MAPI"
 
 msgid "Destination folder not found."
 msgstr "Теку призначення не знайдено."
@@ -7575,16 +7577,14 @@ msgstr ""
 msgid "Could not reclaim the ownership for the Task Request."
 msgstr "Не вдалося відновити право власності на Запит на виконання завдання."
 
-#, fuzzy
 msgid "You have insufficient privileges to accept this Task Request."
-msgstr "У вас недостатньо прав, щоб відкрити це сховище."
+msgstr "У вас недостатньо привілеїв, щоб прийняти цей запит."
 
 msgid "Could not accept Task Request."
 msgstr "Не вдалося прийняти запит на виконання завдання."
 
-#, fuzzy
 msgid "You have insufficient privileges to decline this Task Request."
-msgstr "У вас недостатньо прав, щоб відкрити це сховище."
+msgstr "У вас недостатньо привілеїв, щоб відхилити цей запит."
 
 msgid "Could not decline Task Request."
 msgstr "Неможливо відхилити запит на виконання завдання."

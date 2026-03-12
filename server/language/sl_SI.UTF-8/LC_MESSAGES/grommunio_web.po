@@ -24,17 +24,14 @@ msgstr "T"
 msgid "Now"
 msgstr "Zdaj"
 
-#, fuzzy
 msgid "Value must be between 0% to 100%"
-msgstr "Vrednost mora biti med 0% to 100%"
+msgstr "Vrednost mora biti med 0 % in 100 %"
 
-#, fuzzy
 msgid "Number must be higher than zero"
 msgstr "Število mora biti večje od nič"
 
-#, fuzzy
 msgid "More options"
-msgstr "Možnosti sporočila"
+msgstr "Več možnosti"
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -344,9 +341,8 @@ msgstr "To polje mora vsebovati samo črke in _"
 msgid "This field should only contain letters, numbers and _"
 msgstr "To polje mora vsebovati samo črke, številke in _"
 
-#, fuzzy
 msgid "Email Addresses"
-msgstr "Elektronski naslov"
+msgstr "E-poštni naslovi"
 
 msgid "Email addresses"
 msgstr "E-poštni naslovi"
@@ -420,7 +416,6 @@ msgstr "Poštna številka"
 msgid "Country"
 msgstr "Država"
 
-#, fuzzy
 msgid "Professional"
 msgstr "Strokovno"
 
@@ -475,9 +470,8 @@ msgstr "Mobilni telefon"
 msgid "Pager"
 msgstr "Pozivnik"
 
-#, fuzzy
 msgid "No user selected"
-msgstr "Izbrana ni nobena naloga"
+msgstr "Ni izbran uporabnik"
 
 msgid "You must select one or more users."
 msgstr "Izbrati morate enega ali več uporabnikov."
@@ -491,11 +485,9 @@ msgstr "Izberi"
 msgid "Show Details"
 msgstr "Pokaži podrobnosti"
 
-#, fuzzy
 msgid "Copy contact"
 msgstr "Kopiraj kontakt"
 
-#, fuzzy
 msgid "Copy contacts"
 msgstr "Kopiranje stikov"
 
@@ -506,13 +498,11 @@ msgstr ""
 "Prikaz samo prvih {0} imen. Če želite najti bolj specifične rezultate, "
 "uporabite iskanje."
 
-#, fuzzy
 msgid "Use the search bar to get results"
 msgstr "Za iskanje rezultatov uporabite iskalno vrstico"
 
-#, fuzzy
 msgid "There are no items to show in this list"
-msgstr "V tem pogledu ni elementov za prikaz"
+msgstr "Na tem seznamu ni elementov, ki bi jih bilo treba prikazati"
 
 msgid "Show Names from the"
 msgstr "Pokaži imena iz"
@@ -538,16 +528,14 @@ msgstr "Razvrsti po: Datoteka kot"
 msgid "First Name"
 msgstr "Ime"
 
-#, fuzzy
 msgid "Sort by: First Name"
 msgstr "Razvrsti po: Ime in priimek"
 
 msgid "Last Name"
 msgstr "Priimek"
 
-#, fuzzy
 msgid "Sort by: Last Name"
-msgstr "Razvrsti po: Ime"
+msgstr "Razvrsti po: Ime in priimek"
 
 msgid "Sort by: Email Address"
 msgstr "Razvrsti po: Elektronski naslov"
@@ -573,9 +561,8 @@ msgstr "Telefon v pisarni"
 msgid "Sort by: Office Phone"
 msgstr "Razvrsti po: Telefon v pisarni"
 
-#, fuzzy
 msgid "Sort by: Mobile"
-msgstr "Razvrsti po: Naziv"
+msgstr "Razvrsti po: Mobilni"
 
 msgid "Home Phone"
 msgstr "Domači telefon"
@@ -595,18 +582,15 @@ msgstr "Razvrsti po: Lokaciji"
 msgid "Sort by: Fax"
 msgstr "Razvrsti po: Faks"
 
-#, fuzzy
 msgid "Print single item"
 msgstr "Tiskanje posameznega elementa"
 
-#, fuzzy
 msgid "Print selected item"
-msgstr "Natisni izbrano nalogo"
+msgstr "Tiskanje izbranega elementa"
 
 msgid "Print"
 msgstr "Natisni"
 
-#, fuzzy
 msgid "No item selected"
 msgstr "Ni izbran noben element"
 
@@ -619,53 +603,42 @@ msgstr "Desni predogled"
 msgid "Bottom preview"
 msgstr "Spodnji predogled"
 
-#, fuzzy
 msgid "Any date"
-msgstr "Datum zaključka"
+msgstr "Katerikoli datum"
 
-#, fuzzy
 msgid "Past week"
 msgstr "Pretekli teden"
 
-#, fuzzy
 msgid "Past 2 weeks"
 msgstr "Zadnja 2 tedna"
 
-#, fuzzy
 msgid "Past month"
 msgstr "Pretekli mesec"
 
-#, fuzzy
 msgid "Past 6 month"
 msgstr "Zadnjih 6 mesecev"
 
-#, fuzzy
 msgid "Past year"
 msgstr "Preteklo leto"
 
-#, fuzzy
 msgid "Custom date"
-msgstr "Datum zapadlosti"
+msgstr "Datum po meri"
 
-#, fuzzy
 msgid "Add to favorites"
 msgstr "Dodaj med priljubljene"
 
 msgid "Add"
 msgstr "Dodaj"
 
-#, fuzzy
 msgid "Empty folder name"
-msgstr "Izprazni mapo"
+msgstr "Prazno ime mape"
 
 msgid "You must specify a name."
 msgstr "Specificirati morate ime."
 
-#, fuzzy
 msgid "Add a folder to favorites based on search query"
-msgstr "Dodajanje mape v priljubljene na podlagi te iskalne poizvedbe"
+msgstr "Dodajanje mape v priljubljene na podlagi iskalne poizvedbe"
 
-#, fuzzy
 msgid "Folder name"
 msgstr "Ime mape"
 
@@ -687,20 +660,17 @@ msgstr "Odgovori vsem"
 msgid "Forward"
 msgstr "Posreduj"
 
-#, fuzzy
 msgid "Edit as New"
-msgstr "Uredi nastavitve"
+msgstr "Uredi kot novo"
 
-#, fuzzy
 msgid "Search tools"
 msgstr "Orodja za iskanje"
 
 msgid "Folders"
 msgstr "Mape"
 
-#, fuzzy
 msgid "Include subfolders"
-msgstr "Ustvari podmape"
+msgstr "Vključite podmape"
 
 msgid "Show…"
 msgstr "Prikaži…"
@@ -749,9 +719,8 @@ msgstr "Prejemniki"
 msgid "Subject"
 msgstr "Zadeva"
 
-#, fuzzy
 msgid "Body & Attachments"
-msgstr "Priloge"
+msgstr "Telo in priključki"
 
 msgid "Favorites"
 msgstr "Priljubljene"
@@ -759,19 +728,15 @@ msgstr "Priljubljene"
 msgid "Select Folder"
 msgstr "Izberi mapo"
 
-#, fuzzy
 msgid "Delete search folder"
 msgstr "Brisanje iskalne mape"
 
-#, fuzzy
 msgid "Sort by: Date"
 msgstr "Razvrsti po: Datum"
 
-#, fuzzy
 msgid "Loading Search results"
 msgstr "Nalaganje rezultatov iskanja"
 
-#, fuzzy
 msgid "Sorting tip"
 msgstr "Nasvet za razvrščanje"
 
@@ -783,7 +748,6 @@ msgstr ""
 "Če zožite rezultate iskanja, jih lahko razvrstite po datumu. Omogočite "
 "filtre ali prilagodite vnos."
 
-#, fuzzy
 msgid "Did you mean"
 msgstr "Ali ste mislili"
 
@@ -793,7 +757,6 @@ msgstr "Z"
 msgid "To"
 msgstr "Za"
 
-#, fuzzy
 msgid "No date"
 msgstr "Brez datuma"
 
@@ -871,40 +834,35 @@ msgstr "Pojavi se vsakih {0} efektivno {1}."
 msgid "Occurs every {0} {1} effective {2}."
 msgstr "Pojavi se vsakih {0} {1} efektivno {2}."
 
-#, fuzzy
 msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural ""
 "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] "Pojavi se vsak {0}, kar pomeni {1} za {2} pojavitev od {3} do {4}."
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Pojavi se vsakič, ko {0} učinkuje {1} za {2} pojavljanje od {3} do {4}."
+msgstr[1] "Pojavi se vsakič, ko {0} učinkuje {1} za {2} pojavitve od {3} do {4}."
+msgstr[2] "Pojavi se vsakič, ko {0} učinkuje {1} za {2} pojavitve od {3} do {4}."
+msgstr[3] "Pojavi se vsakič, ko {0} učinkuje {1} za {2} pojavitve od {3} do {4}."
 
-#, fuzzy
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
 msgid_plural ""
 "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
-msgstr[0] ""
-"Pojavi se vsakih {0} {1} učinkovito {2} za {3} pojavitev od {4} do {5}."
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Pojavi se vsako {0} {1} učinkovito {2} za {3} pojavljanje od {4} do {5}."
+msgstr[1] "Pojavi se vsako {0} {1} učinkovito {2} za {3} pojavljanje {4} do {5}."
+msgstr[2] "Pojavi se vsako {0} {1} učinkovito {2} za {3} pojavljanje {4} do {5}."
+msgstr[3] "Pojavi se vsako {0} {1} učinkovito {2} za {3} pojavljanje {4} do {5}."
 
-#, fuzzy
 msgid "Occurs every {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
-msgstr[0] "Pojavi se vsak {0} učinkovit {1} za {2} pojavitev."
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Pojavi se vsako {0} učinkovito {1} za {2} pojavljanje."
+msgstr[1] "Pojavi se vsakič {0} z učinkom {1} za {2} dogodke."
+msgstr[2] "Pojavi se vsakič {0} z učinkom {1} za {2} dogodke."
+msgstr[3] "Pojavi se vsakič {0} z učinkom {1} za {2} dogodke."
 
-#, fuzzy
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
 msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
-msgstr[0] "Pojavi se vsakih {0} {1} učinkovito {2} za {3} pojavitev."
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Pojavi se vsako {0} {1} učinkovito {2} za {3} pojavljanje."
+msgstr[1] "Pojavi se vsakič {0} {1} učinkovito {2} za {3} dogodke."
+msgstr[2] "Pojavi se vsakič {0} {1} učinkovito {2} za {3} dogodke."
+msgstr[3] "Pojavi se vsakič {0} {1} učinkovito {2} za {3} dogodke."
 
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
 msgstr "Pojavi se vsakih {0} efektivno {1} dokler {2} od {3} do {4}."
@@ -922,7 +880,6 @@ msgid "When"
 msgstr "Ko"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
 msgid "l jS F Y {0}"
 msgstr "l jS F Y {0}"
 
@@ -953,7 +910,6 @@ msgstr "Razvrsti po: Času začetka"
 msgid "End Date"
 msgstr "Končni datum"
 
-#, fuzzy
 msgid "Sort by: End Date"
 msgstr "Razvrsti po: Končni datum"
 
@@ -975,9 +931,8 @@ msgstr "Vzorec ponavljanja"
 msgid "All Day Event"
 msgstr "Celodnevni dogodek"
 
-#, fuzzy
 msgid "Add Shared Calendar"
-msgstr "Odpri koledarje v skupni rabi"
+msgstr "Dodajanje skupnega koledarja"
 
 msgid "Remove From Calendar"
 msgstr "Odstrani s koledarja"
@@ -1018,9 +973,8 @@ msgstr "Sprejmi predlog"
 msgid "Accept Proposed Time"
 msgstr "Sprejmi predlagan čas"
 
-#, fuzzy
 msgid "View in calendar"
-msgstr "Poglej večkratne koledarje v"
+msgstr "Oglejte si koledar"
 
 msgid "Day"
 msgstr "Dan"
@@ -1052,16 +1006,14 @@ msgstr "Ni izbranih sestankov"
 msgid "Print overview"
 msgstr "Natisni pregled"
 
-#, fuzzy
 msgid "Create Appointment"
-msgstr "Zasebni sestanek"
+msgstr "Ustvari imenovanje"
 
 msgid "Calendar"
 msgstr "Koledar"
 
-#, fuzzy
 msgid "Create in other calendar"
-msgstr "Poglej večkratne koledarje v"
+msgstr "Ustvarjanje v drugem koledarju"
 
 #, fuzzy
 msgid ""
@@ -1071,13 +1023,11 @@ msgstr ""
 "Izbrani koledar ima dovoljenja \"samo za branje\". Namesto tega lahko "
 "ustvarite element v svojem koledarju."
 
-#, fuzzy
 msgid "What would you like?"
 msgstr "Kaj bi radi?"
 
-#, fuzzy
 msgid "Own calendar"
-msgstr "Poglej večkratne koledarje v"
+msgstr "Lasten koledar"
 
 msgid "F Y"
 msgstr "F Y"
@@ -1105,11 +1055,9 @@ msgctxt "calendar.dialog"
 msgid "Resources have been planned"
 msgstr "Načrtovani so bili viri"
 
-#, fuzzy
 msgid "Send update"
-msgstr "Datum zaključka"
+msgstr "Pošlji posodobitev"
 
-#, fuzzy
 msgid "Do you want to send an update to all recipients?"
 msgstr "Ali želite posodobitev poslati vsem prejemnikom?"
 
@@ -1127,15 +1075,13 @@ msgstr "Pošlji posodobitve samo popravljenim ali izbrisanim povabljencem."
 msgid "Send updates to all attendees."
 msgstr "Pošlji spremembe vsem udeležencem."
 
-#, fuzzy
 msgid "Busy attendees"
-msgstr "Povabi udeležence"
+msgstr "Zaposleni udeleženci"
 
-#, fuzzy
 msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr ""
-"Eden ali več povabljencev, ki ste jih povabili, so zasedeni. Ali ste "
-"prepričani, da jih želite povabiti?"
+"Eden ali več udeležencev je zasedenih. Ali ste prepričani, da jih lahko "
+"povabite?"
 
 msgid "Scheduling"
 msgstr "Razporejanje"
@@ -1212,9 +1158,8 @@ msgstr ""
 "Upoštevajte, da bodo vse vaše spremembe prepisane, ko bo organizator "
 "posodobil to zahtevo za sestanek"
 
-#, fuzzy
 msgid "Create in"
-msgstr "Ustvarjeno"
+msgstr "Ustvarite v"
 
 msgid "Time"
 msgstr "Čas"
@@ -1240,16 +1185,14 @@ msgstr "Priloge ne morejo biti spremenjene za enkratno pojavljanje"
 msgid "Type your message here…"
 msgstr "Napiši svoje sporočilo…"
 
-#, fuzzy
 msgid "Update location"
-msgstr "Posodobi listo"
+msgstr "Posodobitev lokacije"
 
 msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
 msgstr "Ali želite spremeniti lokacijo \"{0}\" z novo lokacijo \"{1}\"?"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
 msgid "jS F Y {0}"
 msgstr "jS F Y {0}"
 
@@ -1274,11 +1217,9 @@ msgstr "Dodaj prilogo"
 msgid "Check names"
 msgstr "Preveri imena"
 
-#, fuzzy
 msgid "Addressbook"
 msgstr "Naslovnica"
 
-#, fuzzy
 msgid "Open addressbook"
 msgstr "Odprite imenik"
 
@@ -1405,22 +1346,18 @@ msgstr "Nov termin"
 msgid "Creating an item"
 msgstr "Ustvarjanje elementa"
 
-#, fuzzy
 msgid "New meeting request"
-msgstr "Nova zahteva za sestanek"
+msgstr "Zahteva za novo srečanje"
 
 msgid "Switch calendar range back and forth"
 msgstr "Menjaj strani koledarja"
 
-#, fuzzy
 msgid "Copy selected item"
 msgstr "Kopiranje izbranega elementa"
 
-#, fuzzy
 msgid "Paste selected item"
 msgstr "Prilepi izbrani element"
 
-#, fuzzy
 msgid "An overview of"
 msgstr "Pregled"
 
@@ -1434,7 +1371,6 @@ msgstr "Konec"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
-#, fuzzy
 msgid "Printed by"
 msgstr "Natisnil je"
 
@@ -1447,11 +1383,9 @@ msgstr "z"
 msgid "Location: "
 msgstr "Lokacija: "
 
-#, fuzzy
 msgid "j M {0}"
 msgstr "j M {0}"
 
-#, fuzzy
 msgid "l jS M Y {0}"
 msgstr "l jS M Y {0}"
 
@@ -1488,7 +1422,6 @@ msgstr "Občutljivost"
 msgid "Importance"
 msgstr "Pomembnost"
 
-#, fuzzy
 msgid "M j"
 msgstr "M j"
 
@@ -1510,15 +1443,12 @@ msgstr "Zaključek delovnega dne"
 msgid "Calendar resolution"
 msgstr "Resolucija koledarja"
 
-#, fuzzy
 msgid "Default appointment duration {A} minutes"
-msgstr "Privzeti čas opomnika za celodnevni sestanek"
+msgstr "Privzeto trajanje sestanka {A} minut"
 
-#, fuzzy
 msgid "Duration must be between 1 and 120 minutes."
 msgstr "Trajati mora od 1 do 120 minut."
 
-#, fuzzy
 msgid "Default status for all day appointment"
 msgstr "Privzeto stanje za celodnevni sestanek"
 
@@ -1578,7 +1508,6 @@ msgstr "Kopiraj/Premakni"
 msgid "Send to…"
 msgstr "Pošlji na…"
 
-#, fuzzy
 msgid "Export as"
 msgstr "Izvozi kot"
 
@@ -1588,9 +1517,8 @@ msgstr "Pojavitev"
 msgid "Series"
 msgstr "Serije"
 
-#, fuzzy
 msgid "Appointment not found"
-msgstr "Sestanek"
+msgstr "Imenovanje ni bilo najdeno"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Ta sestanek je bil premaknjen ali izbrisan, ali želite nadaljevati?"
@@ -1619,7 +1547,6 @@ msgstr "Status sestanka"
 msgid "Sort by: Meeting Status"
 msgstr "Razvrsti po: Statusu sestanka"
 
-#, fuzzy
 msgid "Sort by: Show as"
 msgstr "Razvrsti po: Prikaži kot"
 
@@ -1656,19 +1583,15 @@ msgstr "Razvrsti po: Neobvezen udeleženec"
 msgid "Sort by: Resources"
 msgstr "Razvrsti po: Viri"
 
-#, fuzzy
 msgid "Recurring Start Date"
 msgstr "Ponavljajoči se datum začetka"
 
-#, fuzzy
 msgid "Sort by: Recurring Start Date"
 msgstr "Razvrsti po: Ponavljajoči se datum začetka"
 
-#, fuzzy
 msgid "Recurring End Date"
 msgstr "Ponavljajoči se končni datum"
 
-#, fuzzy
 msgid "Sort by: Recurring End Date"
 msgstr "Razvrsti po: Končni datum ponavljajočega se dogodka"
 
@@ -1693,12 +1616,10 @@ msgstr "Nalagam sestanke"
 msgid "Attendees"
 msgstr "Udeleženci"
 
-#, fuzzy
 msgid "Optional attendees"
 msgstr "Neobvezni udeleženci"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
 msgid "jS F {0}"
 msgstr "jS F {0}"
 
@@ -1722,7 +1643,6 @@ msgstr ""
 "Za kopiranje tega elementa nimate dovolj pravic. Za dovoljenja prosite "
 "lastnika mape ali se obrnite na sistemskega skrbnika."
 
-#, fuzzy
 msgid "Insufficient privileges"
 msgstr "Nezadostni privilegiji"
 
@@ -1734,7 +1654,6 @@ msgstr ""
 "S kopiranjem tega sestanka ga boste razveljavili kot zasebnega. Ste "
 "prepričani, da želite nadaljevati?"
 
-#, fuzzy
 msgid "Private item"
 msgstr "Zasebni predmet"
 
@@ -1752,11 +1671,9 @@ msgstr ""
 msgid "Move"
 msgstr "Premakni"
 
-#, fuzzy
 msgid "Update recipients"
-msgstr "Uredi prejemnika"
+msgstr "Prejemniki posodobitev"
 
-#, fuzzy
 msgid "The time of the meeting has changed. What would you like to do?"
 msgstr "Čas srečanja se je spremenil. Kaj bi radi storili?"
 
@@ -1766,11 +1683,8 @@ msgstr "Shrani spremembe in pošlji posodobitev vsem prejemnikom"
 msgid "Open meeting request with changes"
 msgstr "Odpri zahtevo za sestanek s spremembami"
 
-#, fuzzy
 msgid "grommunio Web"
-msgstr ""
-"grommunio Spletna aplikacija\n"
-"Spletna aplikacija"
+msgstr "grommunio Web"
 
 #, fuzzy
 msgid ""
@@ -1780,11 +1694,9 @@ msgstr ""
 "Upoštevajte, da bodo vse vaše spremembe prepisane, ko bo organizator "
 "posodobil to zahtevo za sestanek. Želite premakniti to srečanje?"
 
-#, fuzzy
 msgid "Don't move"
-msgstr "Ne pošlji"
+msgstr "Ne premikajte se"
 
-#, fuzzy
 msgid "Switch to day view to see all appointments"
 msgstr "Preklopite na dnevni pogled in si oglejte vse sestanke"
 
@@ -1803,9 +1715,8 @@ msgctxt "mail.previewpanel"
 msgid "Location"
 msgstr "Lokacija"
 
-#, fuzzy
 msgid "No additional response required"
-msgstr "Ni zahtevanega odziva"
+msgstr "Dodaten odgovor ni potreben"
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -1817,7 +1728,6 @@ msgstr ""
 msgid "Loading appointments…"
 msgstr "Nalaganje sestankov…"
 
-#, fuzzy
 msgid "Please select a calendar via widget settings"
 msgstr "Izberite koledar v nastavitvah gradnika"
 
@@ -1833,43 +1743,34 @@ msgstr "{0}"
 msgid "Upcoming Appointments"
 msgstr "Prihajajoča imenovanja"
 
-#, fuzzy
 msgid "Appointments of {0}"
 msgstr "Imenovanja {0}"
 
-#, fuzzy
 msgid "Appointments of {0} - {1}"
-msgstr "Imenovanja od {0} - {1}"
+msgstr "Imenovanja {0} - {1}"
 
-#, fuzzy
 msgid "No appointments"
-msgstr "Novi sestanek"
+msgstr "Brez sestankov"
 
-#, fuzzy
 msgid "Today {0} - {1}"
-msgstr "Danes: {1} {0}"
+msgstr "Danes {0} - {1}"
 
-#, fuzzy
 msgid "Today (all day)"
 msgstr "Danes (ves dan)"
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
 #. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
-#, fuzzy
 msgid "{0} - {1}"
-msgstr "{0} v {1}"
+msgstr "{0} - {1}"
 
-#, fuzzy
 msgid "d/m/y {0}"
 msgstr "d/m/y {0}"
 
-#, fuzzy
 msgid "{0} - {1} (all day)"
 msgstr "{0} - {1} (ves dan)"
 
-#, fuzzy
 msgid "d/m/y"
-msgstr "d/m/Y"
+msgstr "d/m/y"
 
 msgid "Select one…"
 msgstr "Izberi eno…"
@@ -1941,9 +1842,8 @@ msgstr "Odpri to ponavljanje"
 msgid "Open the series"
 msgstr "Odpri serijo ponavljanj"
 
-#, fuzzy
 msgid "Paste Recurring {0}"
-msgstr "Prilepi ponavljajoče se {0}"
+msgstr "Vložite ponavljajoče se {0}"
 
 #, fuzzy
 msgid ""
@@ -1956,20 +1856,17 @@ msgstr ""
 msgid "message"
 msgstr "sporočilo"
 
-#, fuzzy
 msgid "meeting request"
 msgstr "prošnja za sestanek"
 
 msgid "appointment"
 msgstr "rezervacija"
 
-#, fuzzy
 msgid "Paste this occurrence only"
 msgstr "Prilepite samo ta pojav"
 
-#, fuzzy
 msgid "Paste the series…"
-msgstr "Prilepite serijo…"
+msgstr "Prilepite serijo.."
 
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
@@ -2023,13 +1920,11 @@ msgstr "Izbriši brez pošiljanja"
 msgid "Insufficient permissions"
 msgstr "Nimate dovoljenja za dostop"
 
-#, fuzzy
 msgid "You have insufficient privileges to delete items in this folder."
 msgstr "Za brisanje elementov v tej mapi nimate dovolj pravic."
 
-#, fuzzy
 msgid "Notify recipients"
-msgstr "Uredi prejemnika"
+msgstr "Obveščanje prejemnikov"
 
 msgid ""
 "A cancellation message will be sent to all recipients, do you wish to "
@@ -2037,9 +1932,8 @@ msgid ""
 msgstr ""
 "Sporočilo o preklicu bo poslano vsem prejemnikom, ali želite nadaljevati?"
 
-#, fuzzy
 msgid "Notify sender"
-msgstr "Razvrsti po: Opomnik"
+msgstr "Obvesti pošiljatelja"
 
 msgid ""
 "{0} has requested a notification be sent when message \"{1}\" is deleted "
@@ -2048,33 +1942,26 @@ msgstr ""
 "{0} je zahteval pošiljanje obvestila, ko je sporočilo \"{1}\" izbrisano, ne "
 "da bi bilo prebrano. Ali želite poslati potrdilo?"
 
-#, fuzzy
 msgid "Delete Incomplete Task"
-msgstr "Dokončane naloge"
+msgstr "Brisanje nedokončanega opravila"
 
-#, fuzzy
 msgid "The task \"{0}\" has not been completed. What do you want to do?"
 msgstr "Naloga \"{0}\" ni bila dokončana. Kaj želite storiti?"
 
-#, fuzzy
 msgid "Decline and delete"
-msgstr "Zavrni zahtevo za sestanek"
+msgstr "Zavrnite in izbrišite"
 
-#, fuzzy
 msgid "Mark complete and delete"
-msgstr "Označi kot dokončano"
+msgstr "Označite dokončano in izbrišite"
 
-#, fuzzy
 msgid "Following recipients are already exists"
-msgstr "Naslednji prejemnik (ki) niso bili doseženi"
+msgstr "Naslednji prejemniki že obstajajo"
 
-#, fuzzy
 msgid "Duplicate recipients"
-msgstr "Uredi prejemnika"
+msgstr "Podvojeni prejemniki"
 
-#, fuzzy
 msgid "Duplicate recipient"
-msgstr "Uredi prejemnika"
+msgstr "Podvojeni prejemnik"
 
 msgid "Recipient already exists."
 msgstr "Prejemnik že obstaja."
@@ -2090,19 +1977,15 @@ msgstr ""
 msgid "Import"
 msgstr "Uvozi"
 
-#, fuzzy
 msgid "Successfully imported item(s) to {0}"
 msgstr "Uspešno uvozite element(e) v {0}"
 
-#, fuzzy
 msgid "Failed to import item(s) to {0}"
 msgstr "Ni uspelo uvoziti elementa(-ov) v {0}"
 
-#, fuzzy
 msgid "Import error"
-msgstr "Pomembno"
+msgstr "Napaka pri uvozu"
 
-#, fuzzy
 msgid "Unable to import \"{0}\". The file is not valid"
 msgstr "Ni mogoče uvoziti \"{0}\". Datoteka ni veljavna"
 
@@ -2149,14 +2032,12 @@ msgstr "Pripni datoteko"
 msgid "No message selected"
 msgstr "Nobeno sporočilo ni izbrano"
 
-#, fuzzy
 msgid "Import to"
-msgstr "Pomembno"
+msgstr "Uvoz v"
 
 msgid "New folder"
 msgstr "Nova mapa"
 
-#, fuzzy
 msgid "Download as ZIP"
 msgstr "Prenesi kot ZIP"
 
@@ -2171,7 +2052,6 @@ msgstr ""
 "Te priloge imajo nepodprto vrsto datoteke in jih ni mogoče dodati v datoteko "
 "ZIP:"
 
-#, fuzzy
 msgid "Would you like to continue downloading without adding these files?"
 msgstr "Želite nadaljevati prenos brez dodajanja teh datotek?"
 
@@ -2193,13 +2073,11 @@ msgstr "Predogled"
 msgid "Download"
 msgstr "Naloži"
 
-#, fuzzy
 msgid "Download all as ZIP"
 msgstr "Prenesite vse kot ZIP"
 
-#, fuzzy
 msgid "Import to folder"
-msgstr "Izprazni mapo"
+msgstr "Uvoz v mapo"
 
 #, fuzzy
 msgid ""
@@ -2220,11 +2098,9 @@ msgstr ""
 msgid "Attachment error"
 msgstr "Napaka priloge"
 
-#, fuzzy
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
 msgstr "Ni mogoče ustvariti ZIP, Največja dovoljena velikost je 30 MB."
 
-#, fuzzy
 msgid "Unable to download"
 msgstr "Ni mogoče prenesti"
 
@@ -2234,7 +2110,6 @@ msgstr "Format slike ni podprt. "
 msgid "Supported format for contact pictures are"
 msgstr "Podprti formati za kontaktne slike so"
 
-#, fuzzy
 msgid "Attachment Error"
 msgstr "Napaka priloge"
 
@@ -2255,18 +2130,15 @@ msgstr ""
 "Ste prepričani, da želite izbrisati kategorijo \"{0}\"? Drugi elementi "
 "ohranijo to kategorijo, vendar izgubijo dodeljeno barvo."
 
-#, fuzzy
 msgid "Rename Category"
 msgstr "Preimenovanje kategorije"
 
-#, fuzzy
 msgid "A category named \""
 msgstr "Kategorija z imenom \""
 
 msgid "Create New Category"
 msgstr "Ustvari novo kategorijo"
 
-#, fuzzy
 msgid "Pin to quick access"
 msgstr "Pripenjanje za hiter dostop"
 
@@ -2281,9 +2153,8 @@ msgstr ""
 "Preden lahko ustvarite to kategorijo, morate uporabiti spremembe, ki ste jih "
 "opravili v kategorijah."
 
-#, fuzzy
 msgid "You already have a category named '{0}'. Please use another name."
-msgstr "Kategorijo z imenom \"{0}\" že imate. Uporabite drugo ime."
+msgstr "Že imate kategorijo z imenom '{0}'. Uporabite drugo ime."
 
 #, fuzzy
 msgid ""
@@ -2296,11 +2167,9 @@ msgstr ""
 msgid "Rename"
 msgstr "Preimenuj"
 
-#, fuzzy
 msgid "This is the first time you have used \"{0}\" category."
-msgstr "Kategorijo \"{0}\" uporabljate prvič."
+msgstr "Kategorijo \"{0}\" ste uporabili prvič."
 
-#, fuzzy
 msgid "Do you want to rename it?"
 msgstr "Ali jo želite preimenovati?"
 
@@ -2378,9 +2247,8 @@ msgstr "Član prejema kopije sestankov-povezanih sporočil poslanih meni."
 msgid "Other"
 msgstr "Drugi"
 
-#, fuzzy
 msgid "No delegates configured"
-msgstr "Ni nastavljenih podpisov"
+msgstr "Ni konfiguriranih delegatov"
 
 msgid "Loading delegates"
 msgstr "Nalaganje članov"
@@ -2388,7 +2256,6 @@ msgstr "Nalaganje članov"
 msgid "Please select a delegate."
 msgstr "Prosim izberite člana."
 
-#, fuzzy
 msgid "Delegates can send items on your behalf."
 msgstr "Delegati lahko pošiljajo elemente v vašem imenu."
 
@@ -2403,9 +2270,8 @@ msgstr ""
 msgid "Permission"
 msgstr "Dovoljenje"
 
-#, fuzzy
 msgid "Duplicate delegate"
-msgstr "Zavrni zahtevo za sestanek"
+msgstr "Podvojen delegat"
 
 msgid "Delegate already exists in the list."
 msgstr "Član že obstaja na listi."
@@ -2451,18 +2317,15 @@ msgstr ""
 "Za kopiranje te mape nimate zadostnih pravic. Lastnika mape prosite, da vam "
 "dodeli dovoljenja, ali pa se obrnite na sistemskega skrbnika."
 
-#, fuzzy
 msgid "You have insufficient privileges to move following items."
 msgstr "Za premikanje naslednjih elementov nimate dovolj pravic."
 
 msgid "Subject:"
 msgstr "Zadeva:"
 
-#, fuzzy
 msgid "Would you like to copy instead?"
 msgstr "Ali želite namesto tega kopirati?"
 
-#, fuzzy
 msgid "Do not show this message again."
 msgstr "Tega sporočila ne prikažite več."
 
@@ -2472,13 +2335,11 @@ msgstr "Lastnosti"
 msgid "Object ID"
 msgstr "ID predmeta"
 
-#, fuzzy
 msgid "ICS"
 msgstr "ICS"
 
-#, fuzzy
 msgid "Set custom flag"
-msgstr "Nastavi zastavico"
+msgstr "Nastavitev zastave po meri"
 
 msgid "Start date"
 msgstr "Datum začetka"
@@ -2498,9 +2359,8 @@ msgstr "Naslednji teden"
 msgid "Custom"
 msgstr "Po meri"
 
-#, fuzzy
 msgid "Set reminder"
-msgstr "Opomnik"
+msgstr "Nastavitev opomnika"
 
 msgid "Complete"
 msgstr "Končano"
@@ -2508,11 +2368,9 @@ msgstr "Končano"
 msgid "today"
 msgstr "danes"
 
-#, fuzzy
 msgid "tomorrow"
 msgstr "jutri"
 
-#, fuzzy
 msgid "this week"
 msgstr "ta teden"
 
@@ -2522,21 +2380,17 @@ msgstr "prihodnji teden"
 msgid "Edit recipient"
 msgstr "Uredi prejemnika"
 
-#, fuzzy
 msgid "Copy email address"
-msgstr "Nov elektronski naslov"
+msgstr "Kopiranje e-poštnega naslova"
 
-#, fuzzy
 msgid "Set as required"
-msgstr "To je obvezno polje"
+msgstr "Nastavite po potrebi"
 
-#, fuzzy
 msgid "Set as optional"
-msgstr "Neobvezno"
+msgstr "Nastavljeno kot neobvezno"
 
-#, fuzzy
 msgid "Set as resource"
-msgstr "Razvrsti po: Viri"
+msgstr "Nastavljeno kot vir"
 
 msgid "Select attendees"
 msgstr "Izberi udeležence"
@@ -2580,7 +2434,6 @@ msgstr "Nova postavka"
 msgid "All views"
 msgstr "Vsi pogledi"
 
-#, fuzzy
 msgid "Close tab"
 msgstr "Zapri zavihek"
 
@@ -2605,9 +2458,8 @@ msgstr "Razširi izbrano do prvega predmeta na seznamu"
 msgid "Extend the selection to the last item in the list"
 msgstr "Razširi izbrano do zadnjega predmeta na seznamu"
 
-#, fuzzy
 msgid "Open selected item"
-msgstr "{0} izbrani predmet"
+msgstr "Odprite izbrani element"
 
 msgid "Open dialog to categorize selected item"
 msgstr "Odpri dialog za kategorizacijo izbranega predmeta"
@@ -2618,9 +2470,8 @@ msgstr "Natisni seznam"
 msgid "Open copy/move dialog"
 msgstr "Odpri/premakni dialog"
 
-#, fuzzy
 msgid "Delete selected item"
-msgstr "{0} izbrani predmet"
+msgstr "Brisanje izbranega elementa"
 
 #, fuzzy
 msgid ""
@@ -2630,37 +2481,29 @@ msgstr ""
 "Izbrišite izbrani element, ne da bi ga premaknili v mapo Izbrisani elementi. "
 "Izbrisani element lahko še vedno obnovite."
 
-#, fuzzy
 msgid "Add/Edit Cc recipient"
-msgstr "Uredi prejemnika"
+msgstr "Dodaj/upravi prejemnika Cc"
 
-#, fuzzy
 msgid "Disable for new mail"
 msgstr "Onemogoči za novo pošto"
 
-#, fuzzy
 msgid "Enable for new mail"
 msgstr "Omogoči za novo pošto"
 
-#, fuzzy
 msgid "Disable for replies"
 msgstr "Onemogočite za odgovore"
 
-#, fuzzy
 msgid "Enable for replies"
 msgstr "Omogočanje za odgovore"
 
-#, fuzzy
 msgid "No Cc recipient configured"
-msgstr "Ni nastavljenih podpisov"
+msgstr "Prejemnik Cc ni konfiguriran"
 
-#, fuzzy
 msgid "Loading Cc recipients"
-msgstr "Uredi prejemnika"
+msgstr "Nalaganje prejemnikov Cc"
 
-#, fuzzy
 msgid "Reply Mail"
-msgstr "Odgovori vsem"
+msgstr "Odgovori na pošto"
 
 msgid "New Mail"
 msgstr "Novo sporočilo"
@@ -2668,9 +2511,8 @@ msgstr "Novo sporočilo"
 msgid "Please select a Cc recipient record."
 msgstr "Izberite zapis prejemnika Cc."
 
-#, fuzzy
 msgid "Manage Cc recipients"
-msgstr "Uredi prejemnika"
+msgstr "Upravljanje prejemnikov Cc"
 
 #, fuzzy
 msgid ""
@@ -2683,11 +2525,9 @@ msgstr ""
 msgid "Help"
 msgstr "Pomoč"
 
-#, fuzzy
 msgid "Web Manual"
 msgstr "Spletni priročnik"
 
-#, fuzzy
 msgid "Item data"
 msgstr "Podatki o postavki"
 
@@ -2700,7 +2540,6 @@ msgstr "Razvrsti po: context.mail.griddefaultcolumn"
 msgid "ZDeveloper"
 msgstr "ZRazvijalec"
 
-#, fuzzy
 msgid "grommunio Web print"
 msgstr "grommunio Spletni tisk"
 
@@ -2710,9 +2549,8 @@ msgstr "Prikazovalno ime"
 msgid "Email address"
 msgstr "Elektronski naslov"
 
-#, fuzzy
 msgid "Expand distribution list"
-msgstr "Natisni distribucijski seznam"
+msgstr "Razširitev distribucijskega seznama"
 
 #, fuzzy
 msgid ""
@@ -2725,9 +2563,8 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Uredi prejemnika"
 
-#, fuzzy
 msgid "Copy email addresses"
-msgstr "Nov elektronski naslov"
+msgstr "Kopiranje e-poštnih naslovov"
 
 msgid "Send email"
 msgstr "Pošlji sporočilo"
@@ -2735,7 +2572,6 @@ msgstr "Pošlji sporočilo"
 msgid "Delete recipient from suggestion list"
 msgstr "Brisanje prejemnika s seznama predlogov"
 
-#, fuzzy
 msgid "Copy all email addresses"
 msgstr "Kopirajte vse e-poštne naslove"
 
@@ -2788,13 +2624,11 @@ msgstr "Ponavljanje sestanka"
 msgid "Remove Recurrence"
 msgstr "Odstrani ponavljanje"
 
-#, fuzzy
 msgid "Reset recurring"
-msgstr "Ponavljanje"
+msgstr "Ponastavitev ponavljajočih se"
 
-#, fuzzy
 msgid "This will reset every exception. Do you want to continue?"
-msgstr "Ta sestanek je bil premaknjen ali izbrisan, ali želite nadaljevati?"
+msgstr "S tem se ponastavijo vse izjeme. Ali želite nadaljevati?"
 
 msgid "Task Recurrence"
 msgstr "Ponavljanje opravila"
@@ -2853,20 +2687,18 @@ msgstr "Info"
 msgid "Not supported at the moment."
 msgstr "Trenutno ni podprto."
 
-#, fuzzy
 msgid "There is {0} reminder"
 msgid_plural "There are {0} reminders"
-msgstr[0] "Tukaj je {0} opomnik"
-msgstr[1] "Tukaj je {0} opomnik"
-msgstr[2] "Tukaj je {0} opomnik"
-msgstr[3] "Tukaj je {0} opomnik"
+msgstr[0] "Na voljo je {0} opomnik"
+msgstr[1] "Na spletni strani {0} so opomniki"
+msgstr[2] "Na spletni strani {0} so opomniki"
+msgstr[3] "Na spletni strani {0} so opomniki"
 
 msgid "Reminders"
 msgstr "Opomniki"
 
-#, fuzzy
 msgid "There are no reminders"
-msgstr "Tukaj je {0} opomnik"
+msgstr "Ni opomnikov"
 
 msgid "Due In"
 msgstr "Zapade"
@@ -2922,21 +2754,17 @@ msgstr "Izbriši vse"
 msgid "Messages"
 msgstr "Sporočila"
 
-#, fuzzy
 msgid "Delete all items"
-msgstr "Izberi vse predmete"
+msgstr "Brisanje vseh elementov"
 
-#, fuzzy
 msgid "Are you sure you want to permanently delete all items?"
-msgstr "Ali želite permanentno izbrisati vse predmete?"
+msgstr "Ste prepričani, da želite trajno izbrisati vse elemente?"
 
-#, fuzzy
 msgid "Restore all items"
-msgstr "Obnovi predmete"
+msgstr "Obnovitev vseh elementov"
 
-#, fuzzy
 msgid "Are you sure you want to restore all items?"
-msgstr "Ali želite permanentno izbrisati vse predmete?"
+msgstr "Ste prepričani, da želite obnoviti vse elemente?"
 
 msgid "Total {0} recoverable item"
 msgid_plural "Total {0} recoverable items"
@@ -2972,36 +2800,29 @@ msgstr "Velikost"
 msgid "Sort by: Size"
 msgstr "Razvrsti po: Velikosti"
 
-#, fuzzy
 msgid "Move the message to folder…"
-msgstr "Premakni sporočilo v mapo…"
+msgstr "Premaknite sporočilo v mapo.."
 
-#, fuzzy
 msgid "Copy the message to folder…"
-msgstr "Kopiraj sporočilo v mapo…"
+msgstr "Sporočilo kopirajte v mapo.."
 
 msgid "Delete the message"
 msgstr "Izbriši sporočilo"
 
-#, fuzzy
 msgid "Redirect the message to…"
-msgstr "Preusmeri sporočilo na…"
+msgstr "Preusmerite sporočilo na.."
 
-#, fuzzy
 msgid "Forward the message to…"
-msgstr "Posreduj sporočilo do…"
+msgstr "Posredujte sporočilo.."
 
-#, fuzzy
 msgid "Forward the message as attachment to…"
-msgstr "Posreduj sporočilo kot prilogo do…"
+msgstr "Sporočilo kot priponko pošljite naprej na.."
 
-#, fuzzy
 msgid "Mark the message as read…"
-msgstr "Posreduj sporočilo do…"
+msgstr "Sporočilo označite kot prebrano.."
 
-#, fuzzy
 msgid "is received from…"
-msgstr "je prejeto od…"
+msgstr "je prejeta od.."
 
 msgid "includes these words in the sender's address…"
 msgstr "v naslov pošiljatelja vključite te besede…"
@@ -3030,43 +2851,33 @@ msgstr "se pošlje na…"
 msgid "is sent only to me"
 msgstr "je poslano samo meni"
 
-#, fuzzy
 msgid "has my name in the Cc field"
 msgstr "ima v polju Cc moje ime"
 
-#, fuzzy
 msgid "does not have my name in the To or Cc field"
 msgstr "nima mojega imena v polju Za ali Cc"
 
-#, fuzzy
 msgid "has my name in the To or Cc field"
 msgstr "ima moje ime v polju Za ali Cc"
 
-#, fuzzy
 msgid "has sensitivity…"
-msgstr "Občutljivost…"
+msgstr "ima občutljivost.."
 
-#, fuzzy
 msgid "is received after…"
-msgstr "je prejeto od…"
+msgstr "se prejme po.."
 
-#, fuzzy
 msgid "is received before…"
-msgstr "je prejeto od…"
+msgstr "je prejeto pred.."
 
-#, fuzzy
 msgid "size is at least…"
-msgstr "velikost je vsaj…"
+msgstr "velikost je vsaj.."
 
-#, fuzzy
 msgid "size is at most…"
-msgstr "velikost je največ…"
+msgstr "velikost je največ.."
 
-#, fuzzy
 msgid "has my name in the To field"
 msgstr "ima v polju Za moje ime"
 
-#, fuzzy
 msgid "is received (all messages)"
 msgstr "je prejeto (vsa sporočila)"
 
@@ -3106,24 +2917,20 @@ msgstr "Ko sporočilo"
 msgid "Do the following"
 msgstr "Naredi naslednje"
 
-#, fuzzy
 msgid "Exceptions"
-msgstr "Možnosti"
+msgstr "Izjeme"
 
-#, fuzzy
 msgid "Apply only when Out of Office is active"
 msgstr "Uporabi se samo, ko je funkcija Out of Office aktivna"
 
 msgid "Stop processing more rules"
 msgstr "Prenehaj ustvarjati pravila"
 
-#, fuzzy
 msgid "Add exception"
-msgstr "Dodaj dejanje"
+msgstr "Dodajte izjemo"
 
-#, fuzzy
 msgid "Remove exception"
-msgstr "Odstrani dejanje"
+msgstr "Odstranitev izjeme"
 
 msgid "Specify Words or Phrases"
 msgstr "Specificiraj besede ali fraze"
@@ -3151,9 +2958,8 @@ msgstr "Ni nobenega pravila"
 msgid "Active"
 msgstr "Aktiven"
 
-#, fuzzy
 msgid "Out of office"
-msgstr "Odsoten"
+msgstr "V odsotnosti s položaja"
 
 msgid "Rule"
 msgstr "Pravilo"
@@ -3170,27 +2976,21 @@ msgstr "Pravilo že ima najvišjo prioriteto."
 msgid "Rule already has lowest priority."
 msgstr "Pravilo že ima najnižjo prioriteto."
 
-#, fuzzy
 msgid "Always move messages from {0}"
 msgstr "Vedno premaknite sporočila iz {0}"
 
-#, fuzzy
 msgid "Always move messages that are sent to <recipients>"
 msgstr "Vedno premaknite sporočila, ki so poslana v <recipients>"
 
-#, fuzzy
 msgid "Always move messages with this subject"
 msgstr "Vedno premaknite sporočila s tem predmetom"
 
-#, fuzzy
 msgid "Create rule…"
-msgstr "Ustvarite pravilo…"
+msgstr "Ustvarite pravilo.."
 
-#, fuzzy
 msgid "myself"
 msgstr "sam"
 
-#, fuzzy
 msgid "Update rules for"
 msgstr "Posodobitev pravil za"
 
@@ -3200,9 +3000,8 @@ msgstr "Uporabi spremembe"
 msgid "Do you wish to apply the changes?"
 msgstr "Ali želite uporabiti spremembe?"
 
-#, fuzzy
 msgid "All folders"
-msgstr "Pokaži vse mape"
+msgstr "Vse mape"
 
 msgid "Other…"
 msgstr "Drugo…"
@@ -3210,9 +3009,8 @@ msgstr "Drugo…"
 msgid "Search in…"
 msgstr "Iskanje v…"
 
-#, fuzzy
 msgid "Folder does not exist"
-msgstr "Mapa vsebuje"
+msgstr "Mapa ne obstaja"
 
 #, fuzzy
 msgid ""
@@ -3220,31 +3018,24 @@ msgid ""
 "folder"
 msgstr "Mapa, po kateri iščete, ne obstaja več. Izberite drugo mapo"
 
-#, fuzzy
 msgid "Add/Edit sender"
 msgstr "Dodajanje/upravljanje pošiljatelja"
 
-#, fuzzy
 msgid "No from addresses configured"
 msgstr "Ni konfiguriranih naslovov iz"
 
-#, fuzzy
 msgid "Loading from addresses"
 msgstr "Nalaganje iz naslovov"
 
-#, fuzzy
 msgid "Forward Mail"
 msgstr "Posredovanje pošte"
 
-#, fuzzy
 msgid "Please select a from address record."
 msgstr "Izberite naslov iz zapisa o naslovu."
 
-#, fuzzy
 msgid "Add/Edit From recipient"
 msgstr "Dodaj/upravi Od prejemnika"
 
-#, fuzzy
 msgid "Manage the recipients used in the 'From' field"
 msgstr "Upravljanje prejemnikov, uporabljenih v polju \"Od\""
 
@@ -3260,31 +3051,24 @@ msgstr "Udeleženci"
 msgid "Delegate settings"
 msgstr "Nastavitve udeležencev"
 
-#, fuzzy
 msgid "Desktop Notifications Settings"
 msgstr "Nastavitve obvestil namizja"
 
-#, fuzzy
 msgid "We need permissions to enable desktop notifications."
 msgstr "Za omogočanje obvestil na namizju potrebujemo dovoljenja."
 
-#, fuzzy
 msgid "Request Permissions"
 msgstr "Zahteva za dovoljenja"
 
-#, fuzzy
 msgid "Enable desktop notifications for new mail"
 msgstr "Omogočanje namiznih obvestil za novo pošto"
 
-#, fuzzy
 msgid "Enable desktop notifications for reminders"
 msgstr "Omogočanje namiznih obvestil za opomnike"
 
-#, fuzzy
 msgid "{A} Auto-hide desktop notification after second(s) {B}"
-msgstr "{A} Avtomatsko skrivanje obvestila o namizju po sekundi (sekundah) {B}"
+msgstr "{A} Samodejno skrivanje obvestila o namizju po sekundi (sekundah) {B}"
 
-#, fuzzy
 msgid "Disable sound"
 msgstr "Onemogočite zvok"
 
@@ -3294,11 +3078,9 @@ msgstr "Obvestila"
 msgid "Rules"
 msgstr "Pravila"
 
-#, fuzzy
 msgid "From Addresses"
 msgstr "Iz naslovov"
 
-#, fuzzy
 msgid "From Addresses settings"
 msgstr "Nastavitve naslovov od"
 
@@ -3317,7 +3099,6 @@ msgstr "Spletna stran"
 msgid "IM Address"
 msgstr "IM naslov"
 
-#, fuzzy
 msgid "D, d-m-Y, {0}"
 msgstr "D, d-m-Y, {0}"
 
@@ -3328,7 +3109,6 @@ msgstr[1] "{0} izbrane vrstice"
 msgstr[2] "{0} izbrane vrstice"
 msgstr[3] "{0} izbrane vrstice"
 
-#, fuzzy
 msgid "Reminder is set on: {0}, {1}"
 msgstr "Opomnik je vklopljen: {0}, {1}"
 
@@ -3338,11 +3118,9 @@ msgstr "d-m-Y"
 msgid "l d/m/Y"
 msgstr "1 d/m/L"
 
-#, fuzzy
 msgid "l d/m/Y {0}"
 msgstr "l d/m/Y {0}"
 
-#, fuzzy
 msgid "d-m-Y {0}"
 msgstr "d-m-Y {0}"
 
@@ -3358,7 +3136,6 @@ msgstr "{0} zapadlo"
 msgid "Loading…"
 msgstr "Nalaganje…"
 
-#, fuzzy
 msgid "Message could not be loaded"
 msgstr "Sporočila ni bilo mogoče naložiti"
 
@@ -3510,48 +3287,38 @@ msgctxt "mail.previewpanel"
 msgid "You forwarded this message on {0}."
 msgstr "To sporočilo ste posredovali dne {0}."
 
-#, fuzzy
 msgid "Assigned by {0} on {1}."
-msgstr "Sprejeto od {0} na {1}"
+msgstr "Dodeljen s strani {0} na {1}."
 
-#, fuzzy
 msgid "Waiting for response from recipient"
-msgstr "Zahtevaj potrdilo o branju od prejemnikov"
+msgstr "Čakanje na odziv prejemnika"
 
-#, fuzzy
 msgid "Accepted by {0} on {1}."
-msgstr "Sprejeto od {0} na {1}"
+msgstr "Sprejeto na spletni strani {0} na naslovu {1}."
 
-#, fuzzy
 msgid "{0} has accepted on behalf of {1} {2}."
-msgstr "{0} je prejel v imenu {1}."
+msgstr "{0} sprejel v imenu {1} {2} ."
 
-#, fuzzy
 msgid "Declined by {0} on {1}."
-msgstr "Sprejeto od {0} na {1}"
+msgstr "Zavrnil {0} na {1}."
 
-#, fuzzy
 msgid "{0} has declined on behalf of {1} {2}."
-msgstr "{0} je zavrnil v imenu {1}."
+msgstr "{0} je v imenu {1} {2} zavrnila."
 
-#, fuzzy
 msgid "Last update sent on {0}."
-msgstr "Zadnja posodobitev je bila poslana dne {0}."
+msgstr "Zadnja posodobitev je bila poslana na naslov {0}."
 
-#, fuzzy
 msgid "{0} has updated on behalf of {1} {2}."
-msgstr "{0} je prejel v imenu {1}."
+msgstr "{0} je v imenu spletne strani {1} {2} ."
 
-#, fuzzy
 msgid "Fix message"
-msgstr "Originalno sporočilo"
+msgstr "Popravek sporočila"
 
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
 msgstr ""
 "Poskušamo popraviti pokvarjeno elektronsko sporočilo, ali želite nadaljevati?"
 
-#, fuzzy
 msgid "The matching task was not found in your task list."
 msgstr "Ujemajoče se opravilo ni bilo najdeno na vašem seznamu opravil."
 
@@ -3586,16 +3353,14 @@ msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "Noben"
 
-#, fuzzy
 msgid "Pop-out"
 msgstr "Izskočna stran"
 
 msgid "Mark as read"
 msgstr "Označi kot prebrano"
 
-#, fuzzy
 msgid "Mark as unread"
-msgstr "Označi neprebrano"
+msgstr "Označi kot neprebrano"
 
 msgid "in"
 msgstr "v"
@@ -3603,7 +3368,6 @@ msgstr "v"
 msgid "Root"
 msgstr "Root"
 
-#, fuzzy
 msgid "Datepicker"
 msgstr "Izbiranje datuma"
 
@@ -3628,20 +3392,17 @@ msgstr "Drugi naslov"
 msgid "Business Phone"
 msgstr "Poslovni telefon"
 
-#, fuzzy
 msgid "Business 2 Phone"
-msgstr "Poslovni telefon"
+msgstr "Poslovni telefon 2"
 
-#, fuzzy
 msgid "Assistant Phone"
-msgstr "Telefon asistenta"
+msgstr "Telefon pomočnika"
 
 msgid "Company Main Phone"
 msgstr "Centrala podjetja"
 
-#, fuzzy
 msgid "Home 2 Phone"
-msgstr "Domači telefon"
+msgstr "Domov 2 Telefon"
 
 msgid "Car Phone"
 msgstr "Telefon v avtomobilu"
@@ -3673,23 +3434,20 @@ msgstr "Drugi faks"
 msgid "Home Fax"
 msgstr "Domači faks"
 
-#, fuzzy
 msgid "Email Display As"
-msgstr "Prikazno ime elektronskega sporočila"
+msgstr "Prikaz e-pošte kot"
 
 msgid "Email 2"
 msgstr "Elektronski naslov 2"
 
-#, fuzzy
 msgid "Email2 Display As"
-msgstr "Prikazno ime elektronskega sporočila"
+msgstr "E-pošta2 Prikaži kot"
 
 msgid "Email 3"
 msgstr "Elektronski naslov 3"
 
-#, fuzzy
 msgid "Email3 Display As"
-msgstr "Prikazno ime elektronskega sporočila 3"
+msgstr "E-pošta3 Prikaži kot"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Birthday"
@@ -3707,9 +3465,8 @@ msgstr "Poklic"
 msgid "Assistant's Name"
 msgstr "Ime asistenta"
 
-#, fuzzy
 msgid "Distribution List Name"
-msgstr "Distribucijski seznam"
+msgstr "Seznam razširjenosti Ime"
 
 msgid "Open Shared Contacts"
 msgstr "Odpri kontakte v skupni rabi"
@@ -3868,9 +3625,8 @@ msgstr "Distribucijski seznam"
 msgid "Mark this Distribution list as private"
 msgstr "Označite ta distribucijski seznam kot zasebni"
 
-#, fuzzy
 msgid "New email address"
-msgstr "Nov elektronski naslov"
+msgstr "Nov e-poštni naslov"
 
 msgid "Please enter a valid email address"
 msgstr "Prosim vpišite veljaven e-poštni naslov"
@@ -3881,25 +3637,20 @@ msgstr "Izberi člane"
 msgid "Add New"
 msgstr "Dodaj novo"
 
-#, fuzzy
 msgid "Type your note here…"
-msgstr "Tukaj vpišite svojo opombo…"
+msgstr "Tukaj vpišite svojo opombo.."
 
-#, fuzzy
 msgid "New contact"
 msgstr "Nov stik"
 
-#, fuzzy
 msgid "New distribution list"
-msgstr "Natisni distribucijski seznam"
+msgstr "Nov distribucijski seznam"
 
-#, fuzzy
 msgid "Email 2 Display As"
-msgstr "Prikazno ime elektronskega sporočila"
+msgstr "E-pošta 2 Prikaži kot"
 
-#, fuzzy
 msgid "Email 3 Display As"
-msgstr "Prikazno ime elektronskega sporočila 3"
+msgstr "E-pošta 3 Prikaži kot"
 
 msgid "Loading contacts"
 msgstr "Nalaganje kontaktov"
@@ -3911,11 +3662,9 @@ msgstr ""
 "Na tem seznamu ni elementov, ki bi jih bilo treba prikazati. Posodobite "
 "filter za več rezultatov."
 
-#, fuzzy
 msgid "[Group]"
 msgstr "[Skupina]"
 
-#, fuzzy
 msgid "Work:"
 msgstr "Delo:"
 
@@ -4057,14 +3806,12 @@ msgstr "Spremeni sliko"
 msgid "Remove Picture"
 msgstr "Odstrani sliko"
 
-#, fuzzy
 msgid "VCF file(s)"
 msgstr "Datoteke VCF"
 
 msgid "Quick Contact"
 msgstr "Hitri kontakt"
 
-#, fuzzy
 msgid "Open in new browser window"
 msgstr "Odprite v novem oknu brskalnika"
 
@@ -4212,7 +3959,6 @@ msgstr "Oranžna"
 msgid "Lime"
 msgstr "Limeta"
 
-#, fuzzy
 msgid "Magenta"
 msgstr "Magenta"
 
@@ -4252,13 +3998,11 @@ msgstr "Pošiljanje…"
 msgid "Sent successfully"
 msgstr "Pošiljanje uspešno"
 
-#, fuzzy
 msgid "No recipient"
-msgstr "Uredi prejemnika"
+msgstr "Brez prejemnika"
 
-#, fuzzy
 msgid "Please specify at least one recipient"
-msgstr "Prosim specificirajte prejemnika"
+msgstr "Navedite vsaj enega prejemnika"
 
 msgid "Please specify a recipient"
 msgstr "Prosim specificirajte prejemnika"
@@ -4292,9 +4036,8 @@ msgstr "Ni predmeta"
 msgid "Send this message without a subject?"
 msgstr "Ali naj pošljem to sporočilo brez zadeve?"
 
-#, fuzzy
 msgid "Unresolved recipients"
-msgstr "Uredi prejemnika"
+msgstr "Nerešeni prejemniki"
 
 msgid "Not all recipients could be resolved"
 msgstr "Vsi prejeniki niso bili rešeni"
@@ -4302,23 +4045,20 @@ msgstr "Vsi prejeniki niso bili rešeni"
 msgid "Collapse hierarchy"
 msgstr "Zbijanje hierarhije"
 
-#, fuzzy
 msgid "Expand hierarchy"
 msgstr "Razširiti hierarhijo"
 
 msgid "Folders List"
 msgstr "Seznam map"
 
-#, fuzzy
 msgid "Copy Details"
-msgstr "Pokaži podrobnosti"
+msgstr "Kopiraj podrobnosti"
 
 msgid "Hide Details"
 msgstr "Skrij podrobnosti"
 
-#, fuzzy
 msgid "Loaded {0} of {1}"
-msgstr "Naložen {0} od {1}"
+msgstr "Naložen {0} {1}"
 
 msgid "Saving"
 msgstr "Shranjevanje"
@@ -4348,7 +4088,6 @@ msgstr "Ta predmet je bil spremenjen. Ali ga želite izbrisati?"
 msgid "Unsaved changes"
 msgstr "Neshranjene spremembe"
 
-#, fuzzy
 msgid "Welcome to grommunio Web"
 msgstr "Dobrodošli na grommunio Web"
 
@@ -4358,9 +4097,8 @@ msgstr "Grommunio Web uporabljate prvič. "
 msgid "Please check the following settings before continuing."
 msgstr "Pred nadaljevanjem preverite naslednje nastavitve."
 
-#, fuzzy
 msgid "Widget height"
-msgstr "Dodaj pripomočke"
+msgstr "Višina pripomočka"
 
 msgid "pixels"
 msgstr "zaslonskih pik"
@@ -4368,7 +4106,6 @@ msgstr "zaslonskih pik"
 msgid "Configure widget"
 msgstr "Configure widget"
 
-#, fuzzy
 msgid "Reload interval"
 msgstr "Interval ponovnega polnjenja"
 
@@ -4384,44 +4121,35 @@ msgstr "Dodaj pripomočke"
 msgid "No widgets installed."
 msgstr "Ni naloženih pripomočkov."
 
-#, fuzzy
 msgid "Remove widget"
-msgstr "Odstrani sliko"
+msgstr "Odstranitev gradnika"
 
 msgid "Collapse widget"
 msgstr "Zbijanje gradnika"
 
-#, fuzzy
 msgid "Expand widget"
-msgstr "Dodaj pripomočke"
+msgstr "Razširiti gradnik"
 
-#, fuzzy
 msgid "About this widget"
 msgstr "O tem gradniku"
 
-#, fuzzy
 msgid "Add new widget"
-msgstr "Dodaj pripomočke"
+msgstr "Dodajanje novega gradnika"
 
-#, fuzzy
 msgid "Collapse widget panel"
 msgstr "Zbijanje plošče z gradniki"
 
-#, fuzzy
 msgid "Expand widget panel"
 msgstr "Razširite ploščo z gradniki"
 
-#, fuzzy
 msgid "Your changes will be lost if you leave this page now."
 msgstr "Če zdaj zapustite to stran, bodo vaše spremembe izgubljene."
 
-#, fuzzy
 msgid "D {0}"
 msgstr "D {0}"
 
-#, fuzzy
 msgid "D d-m"
-msgstr "d-m-Y"
+msgstr "D d-m"
 
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
@@ -4437,20 +4165,18 @@ msgstr ""
 "Nimate dovolj dovoljenj za odpiranje te mape, ali jo želite izbrisati iz "
 "hierarhije?"
 
-#, fuzzy
 msgid "Insufficient Permissions"
-msgstr "Dovoljenja člana"
+msgstr "Nezadostna dovoljenja"
 
 msgid "Not enough permissions to open this folder."
 msgstr "Nimate dovolj dovoljenj za odpiranje te mape."
 
-#, fuzzy
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
-msgstr[0] "Imate {0} neprebranih sporočil v mapi {0}"
-msgstr[1] "Imate {0} neprebranih sporočil v mapi {0}"
-msgstr[2] "Imate {0} neprebranih sporočil v mapi {0}"
-msgstr[3] "Imate {0} neprebranih sporočil v mapi {0}"
+msgstr[0] "V mapi {1} je {0} neprebrano sporočilo {2}"
+msgstr[1] "V mapi {1} je {0} neprebranih sporočil {2}"
+msgstr[2] "V mapi {1} je {0} neprebranih sporočil {2}"
+msgstr[3] "V mapi {1} je {0} neprebranih sporočil {2}"
 
 msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
@@ -4480,15 +4206,12 @@ msgstr "Pregledovalec"
 msgid "Contributor"
 msgstr "Sodelavec"
 
-#, fuzzy
 msgid "Free/Busy time, subject, location"
 msgstr "Prosti/zasedeni čas, predmet, lokacija"
 
-#, fuzzy
 msgid "Free/Busy time"
 msgstr "Prosti/zaposleni čas"
 
-#, fuzzy
 msgid "Unable to import:"
 msgstr "Ni mogoče uvoziti:"
 
@@ -4519,13 +4242,11 @@ msgstr "Predmeti nalog"
 msgid "Select where to place the folder"
 msgstr "Izberi kam naj shranim mapo"
 
-#, fuzzy
 msgid "No folder name"
-msgstr "Ima mape"
+msgstr "Ni imena mape"
 
-#, fuzzy
 msgid "No destination"
-msgstr "Ni informacije"
+msgstr "Brez namembnega kraja"
 
 msgid "You must select a destination folder."
 msgstr "Izbrati morate mapo."
@@ -4590,7 +4311,6 @@ msgstr "Stik mape"
 msgid "Folder visible"
 msgstr "Vidna mapa"
 
-#, fuzzy
 msgid "Apply (copy) changed permissions recursively"
 msgstr "Rekurzivna uporaba (kopiranje) spremenjenih dovoljenj"
 
@@ -4642,16 +4362,14 @@ msgstr "Nerešeni uporabnik"
 msgid "Username '{0}' could not be resolved."
 msgstr "Uporabniško ime '{0}' ni prepoznano."
 
-#, fuzzy
 msgid "Invalid user"
 msgstr "Neveljavni uporabnik"
 
 msgid "Username '{0}' is not a valid user."
 msgstr "Uporabniško ime '{0}' ni veljaven uporabnik."
 
-#, fuzzy
 msgid "Own store"
-msgstr "Manjkajoče shranjevanje"
+msgstr "Lastna trgovina"
 
 msgid "It is not possible to open your own store twice."
 msgstr "Lastne trgovine ni mogoče odpreti dvakrat."
@@ -4662,7 +4380,6 @@ msgstr "Mapa je že odprta"
 msgid "This shared folder is already open."
 msgstr "Ta mapa v skupni rabi je že odprta."
 
-#, fuzzy
 msgid "No user"
 msgstr "Brez uporabnika"
 
@@ -4681,17 +4398,14 @@ msgstr "Odpri mapo v skupni rabi/hrambo"
 msgid "Rename folder"
 msgstr "Preimenuj mapo"
 
-#, fuzzy
 msgid "Empty folder"
-msgstr "Izprazni mapo"
+msgstr "Prazna mapa"
 
-#, fuzzy
 msgid "Empty Junk Email"
-msgstr "Nezaželjena pošta"
+msgstr "Prazna neželena e-pošta"
 
-#, fuzzy
 msgid "Empty Deleted Items"
-msgstr "Izbrisani predmeti"
+msgstr "Prazni izbrisani elementi"
 
 msgid "Rename Folder"
 msgstr "Preimenuj mapo"
@@ -4720,13 +4434,11 @@ msgstr "Obnovi predmete"
 msgid "Select color"
 msgstr "Izberi barvo"
 
-#, fuzzy
 msgid "Add to Favorites"
-msgstr "Dodaj v mapo priljubljeno"
+msgstr "Dodaj med priljubljene"
 
-#, fuzzy
 msgid "Remove From Favorites"
-msgstr "Odstrani s koledarja"
+msgstr "Odstranitev iz priljubljenih"
 
 msgid "Share folder…"
 msgstr "Mapa za deljenje…"
@@ -4734,24 +4446,20 @@ msgstr "Mapa za deljenje…"
 msgid "Import emails"
 msgstr "Uvoz e-poštnih sporočil"
 
-#, fuzzy
 msgid "Import appointments"
-msgstr "Novi sestanek"
+msgstr "Uvoz imenovanj"
 
 msgid "Import contacts"
 msgstr "Uvozi stike"
 
-#, fuzzy
 msgid "Properties of {0}"
-msgstr "Lastnosti"
+msgstr "Lastnosti {0}"
 
-#, fuzzy
 msgid "Share {0} with…"
-msgstr "Delite {0} z…"
+msgstr "Delite {0} z.."
 
-#, fuzzy
 msgid "Properties of {0} - {1}"
-msgstr "Lastnosti"
+msgstr "Lastnosti {0} - {1}"
 
 msgid ""
 "Are you sure you want to permanently delete all the items and subfolders in "
@@ -4802,18 +4510,15 @@ msgstr "Poslano"
 msgid "Original message"
 msgstr "Originalno sporočilo"
 
-#, fuzzy
 msgid "Schedule mail to be sent out"
 msgstr "Načrtovanje pošiljanja pošte"
 
-#, fuzzy
 msgid "Scheduled Items"
 msgstr "Načrtovane postavke"
 
 msgid "Your message will be sent at "
 msgstr "Vaše sporočilo bo poslano na naslov "
 
-#, fuzzy
 msgid "Go to your Outbox to edit your email."
 msgstr "Pojdite v mapo Prejeto in uredite e-pošto."
 
@@ -4826,10 +4531,8 @@ msgstr "mesec"
 msgid "at a specific time"
 msgstr "ob določenem času"
 
-#, fuzzy
 msgid "The time you entered is in the past. Please reschedule your mail."
-msgstr ""
-"Čas, ki ste ga vnesli, je v preteklosti. Prosimo, prestavite svojo pošto."
+msgstr "Čas, ki ste ga vnesli, je v preteklosti. Prosimo, prestavite svojo pošto."
 
 msgid "today  at "
 msgstr "danes na "
@@ -4840,33 +4543,27 @@ msgstr "jutri na "
 msgid "{0} at "
 msgstr "{0} na "
 
-#, fuzzy
 msgid "at {0}"
-msgstr "pri {0}"
+msgstr "na spletni strani {0}"
 
-#, fuzzy
 msgid "Your email will be sent {0}{1}"
 msgstr "Vaše e-poštno sporočilo bo poslano {0}{1}"
 
 msgid "Saving…"
 msgstr "Shranjujem…"
 
-#, fuzzy
 msgid "Saved at {0}"
-msgstr "Sporočilo je bilo shranjeno dne {0}."
+msgstr "Shranjeno v {0}"
 
 msgid "Saving failed"
 msgstr "Shranjevanje ni uspelo"
 
-#, fuzzy
 msgid "This message will be flagged for follow up when it is sent."
 msgstr "To sporočilo bo ob pošiljanju označeno za nadaljnje ukrepanje."
 
-#, fuzzy
 msgid "Send Later"
 msgstr "Pošlji pozneje"
 
-#, fuzzy
 msgid "Schedule your mail to be sent on a specific date and time"
 msgstr "Načrtovanje pošiljanja pošte na določen datum in ob določeni uri"
 
@@ -4900,15 +4597,12 @@ msgstr "Zahtevaj potrdilo o branju od prejemnikov"
 msgid "Show Bcc"
 msgstr "Pokaži Skp"
 
-#, fuzzy
 msgid "Show Bcc field"
-msgstr "Pokaži Skp"
+msgstr "Prikaži polje Bcc"
 
-#, fuzzy
 msgid "Show From field"
-msgstr "Pokaži Od"
+msgstr "Prikaži polje Iz"
 
-#, fuzzy
 msgid "Cannot save while attachment is being uploaded"
 msgstr "Ni mogoče shraniti med nalaganjem priponke"
 
@@ -4930,7 +4624,6 @@ msgstr "ni predmeta"
 msgid "Set Category"
 msgstr "Nastavi kategorijo"
 
-#, fuzzy
 msgid "Pop-Out"
 msgstr "Pop-Out"
 
@@ -4940,16 +4633,14 @@ msgstr "Označi prebrano"
 msgid "Mark Unread"
 msgstr "Označi neprebrano"
 
-#, fuzzy
 msgid "New mail"
-msgstr "Novo sporočilo"
+msgstr "Nova pošta"
 
 msgid "Mail"
 msgstr "Pošta"
 
-#, fuzzy
 msgid "Reply all"
-msgstr "Odgovori vsem"
+msgstr "Odgovori na vse"
 
 msgid "Toggle read/unread"
 msgstr "Menjaj med prebrano/neprebrano"
@@ -4960,13 +4651,11 @@ msgstr "Nastavi zasledovanje"
 msgid "Open Shared Mails"
 msgstr "Odprta pošta v skupni rabi"
 
-#, fuzzy
 msgid "Print single email"
-msgstr "Natisni posamezno elektronsko sporočilo"
+msgstr "Tiskanje posameznega e-poštnega sporočila"
 
-#, fuzzy
 msgid "Print selected email"
-msgstr "Natisni izbrano nalogo"
+msgstr "Tiskanje izbranega e-poštnega sporočila"
 
 msgid "Filter"
 msgstr "Filter"
@@ -4977,23 +4666,18 @@ msgstr "Posreduj"
 msgid "Re"
 msgstr "Ponovno"
 
-#, fuzzy
 msgid "on behalf of"
 msgstr "v imenu"
 
-#, fuzzy
 msgid "Safe Senders list is empty"
 msgstr "Seznam varnih pošiljateljev je prazen"
 
-#, fuzzy
 msgid "Please select a safe sender record."
 msgstr "Izberite zapis o varnem pošiljatelju."
 
-#, fuzzy
 msgid "Delete all safe senders"
 msgstr "Brisanje vseh varnih pošiljateljev"
 
-#, fuzzy
 msgid "Are you sure you want to delete all safe senders?"
 msgstr "Ste prepričani, da želite izbrisati vse varne pošiljatelje?"
 
@@ -5035,19 +4719,15 @@ msgstr "Aktiviraj opomnik za prilogo"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
-#, fuzzy
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
-msgstr "{A}Avtomatsko shranjevanje neposlanih sporočil vsakih : {B} minut"
+msgstr "{A}AutoSave unsent mail every {B} minute(s)"
 
-#, fuzzy
 msgid "Conversation view settings"
 msgstr "Nastavitve pogleda pogovora"
 
-#, fuzzy
 msgid "Enable conversation view"
 msgstr "Omogočanje pogleda pogovora"
 
-#, fuzzy
 msgid "Collapse conversation when selecting a different email"
 msgstr "Zbrišite pogovor, ko izberete drugo e-pošto"
 
@@ -5072,7 +4752,7 @@ msgid "{A}Automatically mark mail as read after {B} second(s)"
 msgstr "{A}Avtomatično označi sporočilo kot prebrano po {B} sekundah(s)"
 
 msgid "View mail in this format"
-msgstr ""
+msgstr "Ogled pošte v tej obliki"
 
 msgid "Right"
 msgstr "Desno"
@@ -5080,43 +4760,36 @@ msgstr "Desno"
 msgid "Bottom"
 msgstr "Na dno"
 
-#, fuzzy
 msgid "Location of preview pane"
-msgstr "Lokacija panela predogleda"
+msgstr "Lokacija podokna za predogled"
 
 msgid "Use subject prefixes in accordance with RFC 5256/5322"
 msgstr "Uporaba predpon za predmete v skladu z RFC 5256/5322"
 
-#, fuzzy
 msgid "Close original message on reply or forward"
 msgstr "Zapri izvirno sporočilo ob odgovoru ali posredovanju"
 
 msgid "General mail settings"
 msgstr "Splošne nastavitve sporočila"
 
-#, fuzzy
 msgid "Open or compose a mail item in a"
 msgstr "Odprite ali sestavite poštno sporočilo v"
 
 msgid "grommunio Web tab"
 msgstr "grommunio Spletni zavihek"
 
-#, fuzzy
 msgid "Browser window"
-msgstr "Brskanje"
+msgstr "Okno brskalnika"
 
-#, fuzzy
 msgid "Update Out of Office settings for"
 msgstr "Posodobitev nastavitev zunaj pisarne za"
 
 msgid "I am currently in the office"
 msgstr "Trenutno sem v pisarni"
 
-#, fuzzy
 msgid "I am out of the office from"
-msgstr "Trenutno sem odsoten-a"
+msgstr "Odsoten sem iz pisarne od"
 
-#, fuzzy
 msgid "I will be back on"
 msgstr "Vrnil se bom na"
 
@@ -5124,28 +4797,23 @@ msgid "Automatically reply with the following message:"
 msgstr "Samodejni odgovor z naslednjim sporočilom:"
 
 msgid "(The frequency of replies is dependent on server configuration.)"
-msgstr ""
+msgstr "(Pogostost odgovorov je odvisna od konfiguracije strežnika.)"
 
-#, fuzzy
 msgid "Inside My Organization"
 msgstr "Znotraj moje organizacije"
 
 msgid "User is currently out of office."
 msgstr "Uporabnik je trenutno odsoten."
 
-#, fuzzy
 msgid "Outside My Organization"
 msgstr "Zunaj moje organizacije"
 
-#, fuzzy
 msgid "Auto-reply to people outside my organization"
 msgstr "Samodejno odgovarjanje osebam zunaj moje organizacije"
 
-#, fuzzy
 msgid "My contacts only"
 msgstr "Samo moji stiki"
 
-#, fuzzy
 msgid "Anyone outside my organization"
 msgstr "Kdor koli zunaj moje organizacije"
 
@@ -5156,7 +4824,6 @@ msgstr ""
 "Čas, ki ste ga vnesli, je pred datumom prenehanja delovanja. Prosimo, "
 "prestavite se na drug termin."
 
-#, fuzzy
 msgid "Safe Senders"
 msgstr "Varni pošiljatelji"
 
@@ -5169,7 +4836,6 @@ msgstr ""
 "funkcije \"Dodaj na seznam varnih pošiljateljev\" v odprtem e-poštnem "
 "sporočilu."
 
-#, fuzzy
 msgid "Delete all"
 msgstr "Izbriši vse"
 
@@ -5182,17 +4848,14 @@ msgstr "Ni nastavljenih podpisov"
 msgid "New messages"
 msgstr "Nova sporočila"
 
-#, fuzzy
 msgid "Replies/forwards"
 msgstr "Odgovori/napredovanje"
 
-#, fuzzy
 msgid "Signature name:"
 msgstr "Ime podpisa:"
 
-#, fuzzy
 msgid "Save Signature"
-msgstr "Podpisi"
+msgstr "Shranjevanje podpisa"
 
 msgid "You have unsaved changes. Do you wish to save the changes?"
 msgstr "Imate neshranjene spremembe. Ali želite shraniti spremembe?"
@@ -5200,13 +4863,11 @@ msgstr "Imate neshranjene spremembe. Ali želite shraniti spremembe?"
 msgid "New signature"
 msgstr "Nov podpis"
 
-#, fuzzy
 msgid "EML file(s)"
 msgstr "EML datoteka(e)"
 
-#, fuzzy
 msgid "ZIP file"
-msgstr "Profil"
+msgstr "Datoteka ZIP"
 
 msgid "max. "
 msgstr "največ "
@@ -5217,14 +4878,12 @@ msgstr "Razvrsti po: Poslano"
 msgid "Modified"
 msgstr "Spremenjeno"
 
-#, fuzzy
 msgid "Sort by: Modified"
 msgstr "Razvrsti po: Modified"
 
 msgid "Flag"
 msgstr "Zastava"
 
-#, fuzzy
 msgid "Sort by: flag"
 msgstr "Razvrsti po: zastava"
 
@@ -5237,11 +4896,9 @@ msgstr "Včeraj"
 msgid "Last Week"
 msgstr "Prejšnji Teden"
 
-#, fuzzy
 msgid "Two Weeks Ago"
 msgstr "Pred dvema tednoma"
 
-#, fuzzy
 msgid "Three Weeks Ago"
 msgstr "Pred tremi tedni"
 
@@ -5257,14 +4914,12 @@ msgstr "Srednje"
 msgid "Large"
 msgstr "Veliko"
 
-#, fuzzy
 msgid "Very large"
 msgstr "Zelo velik"
 
 msgid "Huge"
 msgstr "Ogromno"
 
-#, fuzzy
 msgid "Follow up"
 msgstr "Spremljanje"
 
@@ -5289,9 +4944,8 @@ msgstr "Neprebrano sporočilo"
 msgid "Quick Mail"
 msgstr "Hitra pošta"
 
-#, fuzzy
 msgid "Print note"
-msgstr "Natisni to opombo"
+msgstr "Natisni opombo"
 
 msgid "Color"
 msgstr "Barva"
@@ -5305,13 +4959,11 @@ msgstr "Odpri zapiske v skupni rabi"
 msgid "Sticky note"
 msgstr "Lepljive opombe"
 
-#, fuzzy
 msgid "Print selected note"
-msgstr "Natisni izbrano nalogo"
+msgstr "Tiskanje izbrane opombe"
 
-#, fuzzy
 msgid "No note selected"
-msgstr "Izbrana ni nobena naloga"
+msgstr "Ni izbrana nobena opomba"
 
 msgid "Icons"
 msgstr "Ikone"
@@ -5357,11 +5009,9 @@ msgstr "Nastavitve"
 msgid "Basic"
 msgstr "Osnovni"
 
-#, fuzzy
 msgid "Account information - {0}"
 msgstr "Podatki o računu - {0}"
 
-#, fuzzy
 msgid "Profile Picture"
 msgstr "Profilna slika"
 
@@ -5383,15 +5033,12 @@ msgstr "Napredno"
 msgid "Advanced settings"
 msgstr "Napredne nastavitve"
 
-#, fuzzy
 msgid "Developer tools"
 msgstr "Orodja za razvijalce"
 
-#, fuzzy
 msgid "Show insertion points in grommunio Web"
 msgstr "Prikaži točke vstavljanja v grommunio Web"
 
-#, fuzzy
 msgid "Show \"item data\" button in context menu (mail only)"
 msgstr "Prikaz gumba \"podatki o elementu\" v kontekstnem meniju (samo pošta)"
 
@@ -5404,14 +5051,12 @@ msgstr "Povrni na privzeto"
 msgid "Delete settings"
 msgstr "Izbriši nastavitve"
 
-#, fuzzy
 msgid "{0} Iconset"
-msgstr "Ikone"
+msgstr "{0} Zbirka ikon"
 
 msgid "About"
 msgstr "O"
 
-#, fuzzy
 msgid "I want to display date and time in this format:"
 msgstr "Želim prikazati datum in čas v tej obliki:"
 
@@ -5424,88 +5069,68 @@ msgstr "Dolgo"
 msgid "Time format:"
 msgstr "Oblika zapisa časa:"
 
-#, fuzzy
 msgid "12h clock"
 msgstr "12h ura"
 
-#, fuzzy
 msgid "24h clock"
 msgstr "24-urna ura"
 
-#, fuzzy
 msgid "Favorite settings"
-msgstr "Nastavitve udeležencev"
+msgstr "Najljubše nastavitve"
 
-#, fuzzy
 msgid "Hide favorites"
-msgstr "Priljubljene"
+msgstr "Skrij priljubljene"
 
-#, fuzzy
 msgid "Unpin favorites from top"
 msgstr "Sprostitev pripenjanja priljubljenih z vrha"
 
-#, fuzzy
 msgid "Give unread items a colored border"
 msgstr "Dodajte neprebranim elementom barvni okvir"
 
-#, fuzzy
 msgid "Show 'help' button in top-right corner"
 msgstr "Prikaz gumba \"pomoč\" v zgornjem desnem kotu"
 
-#, fuzzy
 msgid "Show unread mail counter in application title"
 msgstr "Prikaži števec neprebrane pošte v naslovu aplikacije"
 
-#, fuzzy
 msgid "Hide widget panel"
 msgstr "Skrijte ploščo z gradniki"
 
-#, fuzzy
 msgid "Show search bar above folder list"
 msgstr "Prikaži vrstico za iskanje nad seznamom map"
 
 msgid "Auto"
 msgstr "Samodejno"
 
-#, fuzzy
 msgid "Actual size"
 msgstr "Dejanska velikost"
 
-#, fuzzy
 msgid "Page width"
 msgstr "Širina strani"
 
-#, fuzzy
 msgid "Attachment preview (PDF and Open formats)"
 msgstr "Predogled priloge (formata PDF in Open)"
 
-#, fuzzy
 msgid "Document default zoom"
 msgstr "Privzeta povečava dokumenta"
 
-#, fuzzy
 msgid "PDF zoom"
 msgstr "Povečanje PDF"
 
-#, fuzzy
 msgid "File previewing"
 msgstr "Predogled datotek"
 
-#, fuzzy
 msgid "Inbox navigation"
 msgstr "Navigacija po mapi Prejeto"
 
-#, fuzzy
 msgid "I want to navigate through my items by using:"
 msgstr "Po svojih predmetih želim krmariti z uporabo:"
 
 msgid "Infinite Scroll"
 msgstr "Neskončno drsenje"
 
-#, fuzzy
 msgid "grommunio Web automatically loads additional items when you scroll down"
-msgstr ""
-"grommunio Web samodejno naloži dodatne elemente, ko se pomaknete navzdol"
+msgstr "grommunio Web samodejno naloži dodatne elemente, ko se pomaknete navzdol"
 
 msgid "Pagination"
 msgstr "Paginiranje (zaznamovanje strani)"
@@ -5518,34 +5143,27 @@ msgstr ""
 "grommunio Web prikazuje elemente na straneh, za navigacijo pa lahko "
 "uporabljate navigacijske gumbe"
 
-#, fuzzy
 msgid "Load items in blocks of {A}"
 msgstr "Nalaganje elementov v blokih {A}"
 
-#, fuzzy
 msgid "Load {A} items per page."
 msgstr "Naloži {A} elementov na stran."
 
 msgid "Keyboard Shortcuts"
 msgstr "Bližnjice na tipkovnici"
 
-#, fuzzy
 msgid "Part of basic keyboard shortcuts"
-msgstr "Aktivirajte bližnjice na tipkovnici"
+msgstr "Del osnovnih bližnjic na tipkovnici"
 
-#, fuzzy
 msgid "Keyboard shortcuts off"
-msgstr "Bližnjice na tipkovnici"
+msgstr "Izklopljene bližnjice na tipkovnici"
 
-#, fuzzy
 msgid "Basic keyboard shortcuts on"
-msgstr "Bližnjice na tipkovnici"
+msgstr "Osnovne bližnjice na tipkovnici na"
 
-#, fuzzy
 msgid "All keyboard shortcuts on"
-msgstr "Bližnjice na tipkovnici"
+msgstr "Vse bližnjice na tipkovnici na"
 
-#, fuzzy
 msgid "This change requires a reload of grommunio Web"
 msgstr "Ta sprememba zahteva ponovno nalaganje programa grommunio Web"
 
@@ -5564,21 +5182,18 @@ msgstr "Različica"
 msgid "This plugin cannot be disabled"
 msgstr "Tega vtičnika ne morete onemogočiti"
 
-#, fuzzy
 msgid "This plugin cannot be enabled"
 msgstr "Tega vtičnika ni mogoče omogočiti"
 
 msgid "Mailbox Usage"
 msgstr "Uporaba nabiralnika"
 
-#, fuzzy
 msgid "A quota is not set on your store."
 msgstr "Kvota v vaši trgovini ni nastavljena."
 
 msgid "{0} of mailbox space is used."
 msgstr "{0} prostora v nabiralniku je uporabljeno."
 
-#, fuzzy
 msgid "You have exceeded hard quota, you can not send or receive mails."
 msgstr "Presegli ste trdo kvoto, ne morete pošiljati ali prejemati e-pošte."
 
@@ -5593,21 +5208,18 @@ msgstr ""
 "Pošte ne morete pošiljati, ker ste presegli mehko kvoto, pri {0} ne boste "
 "mogli prejemati pošte."
 
-#, fuzzy
 msgid "At {0} you won't be able to send or receive mails."
-msgstr "Pri {0} ne boste mogli pošiljati ali prejemati e-pošte."
+msgstr "Na spletnem mestu {0} ne boste mogli pošiljati ali prejemati e-pošte."
 
 msgid "You can not send mails as you have exceeded soft quota."
 msgstr ""
 "Ne morete pošiljati elektronskih sporočil, ker ste presegli mehko kvoto."
 
-#, fuzzy
 msgid "Reset settings"
-msgstr "Izbriši nastavitve"
+msgstr "Ponastavitev nastavitev"
 
-#, fuzzy
 msgid "Reset settings to their original defaults."
-msgstr "Nastavite grommunio Web nastavitve na privzete nastavitve."
+msgstr "Ponastavite prvotne privzete nastavitve."
 
 #, fuzzy
 msgid ""
@@ -5642,15 +5254,12 @@ msgstr "Informacije o različici"
 msgid "Gromox"
 msgstr "Gromox"
 
-#, fuzzy
 msgid "Delete confirmation"
 msgstr "Potrditev izbrisa"
 
-#, fuzzy
 msgid "Deleting the item(s) will also delete the original item(s)."
-msgstr "Če izbrišete element(-e), izbrišete tudi prvotni element(-e)."
+msgstr "Če izbrišete element(-e), izbrišete tudi izvirni element(-e)."
 
-#, fuzzy
 msgid "Do you want to delete the item(s)?"
 msgstr "Ali želite izbrisati elemente?"
 
@@ -5696,11 +5305,9 @@ msgstr "Podatki o računu"
 msgid "Mileage"
 msgstr "Kilometrina"
 
-#, fuzzy
 msgid "Accepting Task"
-msgstr "Aktivne naloge"
+msgstr "Sprejemanje naloge"
 
-#, fuzzy
 msgid "Declining Task"
 msgstr "Upadajoča naloga"
 
@@ -5726,7 +5333,6 @@ msgstr "Odgovor pošljite zdaj"
 msgid "Date Complete"
 msgstr "Datum zaključka"
 
-#, fuzzy
 msgid "Multiple companies name must be separated by"
 msgstr "Več imen podjetij je treba ločiti z"
 
@@ -5739,17 +5345,14 @@ msgstr "Ustvari nedodeljeno kopijo"
 msgid "copy"
 msgstr "kopija"
 
-#, fuzzy
 msgid "Unable to send task request"
 msgstr "Ni mogoče poslati zahteve za opravilo"
 
-#, fuzzy
 msgid "You cannot send a task request to yourself."
 msgstr "Zahteve za opravilo ne morete poslati sami sebi."
 
-#, fuzzy
 msgid "Multiple recipients"
-msgstr "Poglej prejemnika"
+msgstr "Več prejemnikov"
 
 msgid "A task request can only have one recipient."
 msgstr "Zahteva za opravilo ima lahko samo enega prejemnika."
@@ -5763,26 +5366,20 @@ msgstr "Prednost"
 msgid "% Complete"
 msgstr "% Dokončano"
 
-#, fuzzy
 msgid "Track progress"
-msgstr "V teku"
+msgstr "Spremljanje napredka"
 
-#, fuzzy
 msgid "Keep updated copy of task and receive automated status reports"
-msgstr ""
-"Hranite posodobljeno kopijo naloge in prejemajte samodejna poročila o stanju"
+msgstr "Hranite posodobljeno kopijo naloge in prejemajte samodejna poročila o stanju"
 
-#, fuzzy
 msgid "Send task to assignees"
-msgstr "Pošlji nalogo pooblaščencu"
+msgstr "Pošlji nalogo pooblaščencem"
 
-#, fuzzy
 msgid "Restore to Task List"
-msgstr "Povrni na privzeto"
+msgstr "Obnovitev seznama opravil"
 
-#, fuzzy
 msgid "Delete this task"
-msgstr "Izbriši ta predmet"
+msgstr "Izbriši to opravilo"
 
 msgid "Add attachments to this task"
 msgstr "Dodaj priloge k tej nalogi"
@@ -5793,9 +5390,8 @@ msgstr "Označi kot dokončano"
 msgid "Mark this task as complete"
 msgstr "Označi to nalogo kot končano"
 
-#, fuzzy
 msgid "Print this task"
-msgstr "Natisni to sporočilo"
+msgstr "Natisni to opravilo"
 
 msgid "Assign Task"
 msgstr "Dodeli nalogo"
@@ -5837,11 +5433,9 @@ msgstr "{dejansko delo} ure"
 msgid "Open Shared Tasks"
 msgstr "Odprte naloge v skupni rabi"
 
-#, fuzzy
 msgid "Simple view"
 msgstr "Preprost pogled"
 
-#, fuzzy
 msgid "Detailed view"
 msgstr "Podroben pogled"
 
@@ -5872,13 +5466,11 @@ msgstr "Označite kot končano"
 msgid "Mark Incomplete"
 msgstr "Označite kot nedokončano"
 
-#, fuzzy
 msgid "Remove from To-Do List"
-msgstr "Odstrani s koledarja"
+msgstr "Odstranitev s seznama opravil"
 
-#, fuzzy
 msgid "Changes to assigned task"
-msgstr "Pošlji nalogo pooblaščencu"
+msgstr "Spremembe dodeljene naloge"
 
 #, fuzzy
 msgid ""
@@ -5906,20 +5498,17 @@ msgstr "Razvrsti po: Pooblaščencu"
 msgid "Sort by: Owner"
 msgstr "Razvrsti po: Lastniku"
 
-#, fuzzy
 msgid "Sort by: Percentage Completed"
-msgstr "Razvrsti po: Dokončanem procentu"
+msgstr "Razvrsti po: Izpolnjen odstotek"
 
-#, fuzzy
 msgid "Assigned task changes"
-msgstr "Dodeli nalogo"
+msgstr "Spremembe dodeljene naloge"
 
 msgid "Loading tasks"
 msgstr "Nalaganje nalog"
 
-#, fuzzy
 msgid "Date completed"
-msgstr "Datum dokončanja"
+msgstr "Datum zaključka"
 
 msgid "hours"
 msgstr "ur"
@@ -5927,13 +5516,11 @@ msgstr "ur"
 msgid "Billing information"
 msgstr "Podatki za izstavitev računa"
 
-#, fuzzy
 msgid "Update list"
-msgstr "Posodobi listo"
+msgstr "Seznam posodobitev"
 
-#, fuzzy
 msgid "D d-m-Y"
-msgstr "d-m-Y"
+msgstr "D d-m-Y"
 
 msgid "none"
 msgstr "brez"
@@ -5944,11 +5531,9 @@ msgstr "Hitra naloga"
 msgid "No tasks."
 msgstr "Ni nalog."
 
-#, fuzzy
 msgid "Tasks / To-Do"
 msgstr "Naloge / To-Do"
 
-#, fuzzy
 msgid "Click the link to open the URL in a new window."
 msgstr "Kliknite povezavo, da se URL odpre v novem oknu."
 
@@ -5995,11 +5580,9 @@ msgid "Connection with server has been restored"
 msgstr "Povezava s serverjem je bila obnovljena"
 
 #. TRANSLATORS: Example: HTTP 404
-#, fuzzy
 msgid "HTTP {0}"
 msgstr "HTTP {0}"
 
-#, fuzzy
 msgid "Invalid data received from the server"
 msgstr "Nepravilni podatki, prejeti od strežnika"
 
@@ -6074,9 +5657,8 @@ msgstr[3] "Naslednja obvezna polja manjkajo v hierarhiji: {0}"
 msgid "Loading model from server failed"
 msgstr "Nalaganje vzorca iz serverja je spodletelo"
 
-#, fuzzy
 msgid "Out of Office is currently activated. Would you like to turn it off?"
-msgstr "Odsotnost je vključena. Ali jo želite izključiti?"
+msgstr "Funkcija Out of Office je trenutno aktivirana. Ali jo želite izklopiti?"
 
 msgid "Archive"
 msgstr "Arhiv"
@@ -6084,40 +5666,33 @@ msgstr "Arhiv"
 msgid "Open Chat at start"
 msgstr "Öppna chatten när den startas"
 
-#, fuzzy
 msgid "Desktop Notifications Plugin"
 msgstr "Vtičnik za obvestila za namizje"
 
-#, fuzzy
 msgid "Desktop Notifications"
 msgstr "Obvestila namizja"
 
 msgid "Files: Default plugin"
-msgstr ""
+msgstr "Datoteke: Privzeti vtičnik"
 
-#, fuzzy
 msgid "Loading users and groups"
 msgstr "Nalaganje uporabnikov in skupin"
 
-#, fuzzy
 msgid "Add users or groups to share files."
 msgstr "Dodajte uporabnike ali skupine za skupno rabo datotek."
 
 msgid "Sort by: Type"
 msgstr "Razvrsti po: "
 
-#, fuzzy
 msgid "Re-share"
 msgstr "Ponovna souporaba"
 
 msgid "Change"
 msgstr "Spremeni"
 
-#, fuzzy
 msgid "Share with"
 msgstr "Delite z"
 
-#, fuzzy
 msgid "Share Details"
 msgstr "Delite podrobnosti"
 
@@ -6127,87 +5702,74 @@ msgstr "Vnesite za iskanje"
 msgid "No results"
 msgstr "Ni rezultatov"
 
-#, fuzzy
 msgid "Share with user/group"
 msgstr "Skupna raba z uporabnikom/skupino"
 
 msgid "Share via link"
 msgstr "Skupna raba prek povezave"
 
-#, fuzzy
 msgid "Public link"
 msgstr "Javna povezava"
 
-#, fuzzy
 msgid "Password protect"
 msgstr "Zaščita z geslom"
 
 msgid "Password"
 msgstr "Geslo"
 
-#, fuzzy
 msgid "Public upload"
 msgstr "Javno nalaganje"
 
 msgid "Expiration date"
 msgstr "Datum poteka"
 
-#, fuzzy
 msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "Obstaja več kot 1 povezava za skupno rabo. Prikaže se samo zadnja"
 
-#, fuzzy
 msgid "Loading details…"
-msgstr "Nalaganje podrobnosti…"
+msgstr "Nalaganje podrobnosti.."
 
 msgid "Files: Seafile Backend"
-msgstr ""
+msgstr "Datoteke: Backend za morsko datoteko"
 
 msgid "Copy link to clipboard"
-msgstr ""
+msgstr "Kopiranje povezave v odložišče"
 
 msgid "Link copied to clipboard"
-msgstr ""
+msgstr "Povezava kopirana v odložišče"
 
 msgid "Clipboard"
-msgstr ""
+msgstr "Pripomoček"
 
 msgid "Could not copy link automatically. Please copy it manually."
-msgstr ""
+msgstr "Povezave ni bilo mogoče samodejno kopirati. Kopirajte jo ročno."
 
 msgid "Loading details..."
-msgstr ""
+msgstr "Nalaganje podrobnosti..."
 
 msgid "Share"
 msgstr "Deli"
 
 msgid "Loading..."
-msgstr ""
+msgstr "Nalaganje..."
 
-#, fuzzy
 msgid "Add attachment from {0}"
 msgstr "Dodajte priponko iz {0}"
 
-#, fuzzy
 msgid "Confirm deletion"
 msgstr "Potrditev izbrisa"
 
-#, fuzzy
 msgid "Are you sure you want to delete {0}?"
 msgstr "Ste prepričani, da želite izbrisati {0}?"
 
-#, fuzzy
 msgid "Are you sure you want to delete {0} and all of its contents?"
 msgstr "Ali ste prepričani, da želite izbrisati {0} in vso njegovo vsebino?"
 
-#, fuzzy
 msgid "Are you sure you want to delete {0} files?"
 msgstr "Ali ste prepričani, da želite izbrisati datoteke {0}?"
 
-#, fuzzy
 msgid "Are you sure want to delete {0} folders and all of their contents?"
-msgstr ""
-"Ali ste prepričani, da želite izbrisati {0} mape in vso njihovo vsebino?"
+msgstr "Ali ste prepričani, da želite izbrisati mape {0} in vso njihovo vsebino?"
 
 #, fuzzy
 msgid ""
@@ -6216,72 +5778,57 @@ msgstr ""
 "Ali ste prepričani, da želite izbrisati izbrane elemente in vso njihovo "
 "vsebino?"
 
-#, fuzzy
 msgid "Confirm overwrite"
 msgstr "Potrdite prepisovanje"
 
-#, fuzzy
 msgid "File already exists. Do you want to overwrite it?"
 msgstr "Datoteka že obstaja. Ali jo želite prepisati?"
 
-#, fuzzy
 msgid "Please enter a new name"
 msgstr "Vnesite novo ime"
 
-#, fuzzy
 msgid "Rename record"
 msgstr "Preimenovanje zapisa"
 
-#, fuzzy
 msgid "A file name should not be empty."
 msgstr "Ime datoteke ne sme biti prazno."
 
-#, fuzzy
 msgid "Rename item"
 msgstr "Preimenovanje elementa"
 
-#, fuzzy
 msgid "A file named \"{0}\" already exists. Please enter a different name."
-msgstr "Datoteka z imenom \"{0}\" že obstaja. Prosimo, vnesite drugo ime."
+msgstr "Datoteka z imenom \"{0}\" že obstaja. Vnesite drugo ime."
 
 msgid "Downloading"
 msgstr "Prenos"
 
-#, fuzzy
 msgid "Download started... please wait!"
 msgstr "Prenos se je začel... počakajte!"
 
 msgid "Upload"
 msgstr "Naloži"
 
-#, fuzzy
 msgid "At least one file is too large! Maximum allowed filesize: {0}."
-msgstr ""
-"Vsaj ena datoteka je prevelika! Največja dovoljena velikost datoteke: {0}."
+msgstr "Vsaj ena datoteka je prevelika! Največja dovoljena velikost datoteke: {0}."
 
-#, fuzzy
 msgid "Keep both"
 msgstr "Ohranite oba"
 
 msgid "Overwrite"
 msgstr "Prepiši"
 
-#, fuzzy
 msgid "l d/m/Y G:i"
 msgstr "l d/m/Y G:i"
 
 msgid "Never"
 msgstr "Nikoli"
 
-#, fuzzy
 msgid "Add from Files"
 msgstr "Dodajanje iz datotek"
 
-#, fuzzy
 msgid "Add attachment from Files"
 msgstr "Dodajanje priponke iz datotek"
 
-#, fuzzy
 msgid "Add to Files"
 msgstr "Dodaj v datoteke"
 
@@ -6291,26 +5838,21 @@ msgstr "Nalaganje datoteke"
 msgid "Files"
 msgstr "Datoteke"
 
-#, fuzzy
 msgid "Files Plugin"
 msgstr "Datoteke Vtičnik"
 
 msgid "Default"
-msgstr ""
+msgstr "Privzeto"
 
-#, fuzzy
 msgid "Manage Accounts"
 msgstr "Upravljanje računov"
 
-#, fuzzy
 msgid "Reset Files settings"
 msgstr "Ponastavitev nastavitev datotek"
 
-#, fuzzy
 msgid "Resets Files settings to their original defaults"
 msgstr "Ponastavitev nastavitev datotek na prvotne privzete vrednosti"
 
-#, fuzzy
 msgid "Are you sure to remove all settings and accounts?"
 msgstr "Ste prepričani, da ste odstranili vse nastavitve in račune?"
 
@@ -6330,7 +5872,6 @@ msgstr ""
 "grommunio Web se bo samodejno ponovno zagnal, da bodo te spremembe začele "
 "veljati."
 
-#, fuzzy
 msgid "grommunio Web is reloading, Please wait."
 msgstr "grommunio Splet se ponovno nalaga, počakajte."
 
@@ -6346,7 +5887,6 @@ msgstr "Podatki o računu"
 msgid "Account name"
 msgstr "Naziv računa"
 
-#, fuzzy
 msgid "Account Configuration"
 msgstr "Konfiguracija računa"
 
@@ -6356,57 +5896,45 @@ msgstr "Posodobi"
 msgid "ID"
 msgstr "ID"
 
-#, fuzzy
 msgid "Sort by: ID"
 msgstr "Razvrsti po: ID"
 
-#, fuzzy
 msgid "Sort by: Backend"
 msgstr "Razvrsti po: "
 
 msgid "Features"
 msgstr "Značilnosti"
 
-#, fuzzy
 msgid "Shows all available features of the backend."
 msgstr "Prikaže vse razpoložljive funkcije zaledja."
 
-#, fuzzy
 msgid "Show quota information"
 msgstr "Prikaži informacije o kvotah"
 
-#, fuzzy
 msgid "Show version information"
 msgstr "Prikaži informacije o različici"
 
-#, fuzzy
 msgid "Share files"
 msgstr "Skupna raba datotek"
 
-#, fuzzy
 msgid "Fast Down/Upload"
 msgstr "Hitro navzdol/prenos"
 
-#, fuzzy
 msgid "No account created!"
 msgstr "Ni ustvarjen noben račun!"
 
-#, fuzzy
 msgid "Add Account"
 msgstr "Dodajanje računa"
 
 msgid "Remove Account"
 msgstr "Odstrani račun"
 
-#, fuzzy
 msgid "Loading accounts"
 msgstr "Nalaganje računov"
 
-#, fuzzy
 msgid "Do you really want to delete the account \"{0}\"?"
 msgstr "Ali res želite izbrisati račun \"{0}\"?"
 
-#, fuzzy
 msgid "Quota Information"
 msgstr "Informacije o kvotah"
 
@@ -6422,41 +5950,33 @@ msgstr "Informacije o različici"
 msgid "Filename"
 msgstr "Ime datoteke"
 
-#, fuzzy
 msgid "Sort by: Filename"
 msgstr "Razvrsti po: Ime datoteke"
 
-#, fuzzy
 msgid "Loading files"
 msgstr "Nalaganje datotek"
 
-#, fuzzy
 msgid "The file {0} is too large!"
 msgstr "Datoteka {0} je prevelika!"
 
 msgid "max"
 msgstr "največ"
 
-#, fuzzy
 msgid "You have to choose at least one file!"
 msgstr "Izbrati morate vsaj eno datoteko!"
 
 msgid "Create New "
 msgstr "Ustvari novo "
 
-#, fuzzy
 msgid "Incorrect filename"
 msgstr "Nepravilno ime datoteke"
 
-#, fuzzy
 msgid "Error reaching office backend"
 msgstr "Napaka pri doseganju zaledja pisarne"
 
-#, fuzzy
 msgid "Folder already exists"
 msgstr "Mapa že obstaja"
 
-#, fuzzy
 msgid "Incorrect foldername"
 msgstr "Napačno ime mape"
 
@@ -6466,82 +5986,66 @@ msgstr "Podatki o datoteki"
 msgid "Select a file"
 msgstr "Izberite datoteko"
 
-#, fuzzy
 msgid "Maximum upload size"
 msgstr "Največja velikost prenosa"
 
 msgid "Browse"
 msgstr "Prebrskaj"
 
-#, fuzzy
 msgid "Select upload folder"
 msgstr "Izberite mapo za nalaganje"
 
-#, fuzzy
 msgid "File \"{0}\" is too large! Maximum allowed filesize: {1}."
-msgstr ""
-"Datoteka \"{0}\" je prevelika! Največja dovoljena velikost datoteke: {1}."
+msgstr "Datoteka \"{0}\" je prevelika! Največja dovoljena velikost datoteke: {1}."
 
-#, fuzzy
 msgid "Add item to Files"
 msgstr "Dodajanje elementa v Datoteke"
 
-#, fuzzy
 msgid "You have to choose a folder!"
 msgstr "Izbrati morate mapo!"
 
 msgid "Uploaded"
 msgstr "Naloženo"
 
-#, fuzzy
 msgid "Attachment successfully stored in Files"
 msgstr "Priponka uspešno shranjena v Datoteke"
 
-#, fuzzy
 msgid "Upload Failed"
 msgstr "Prenos ni uspel"
 
 msgid "Attachment could not be stored in Files! Error: "
 msgstr "Priloge ni bilo mogoče shraniti v Datoteke! Napaka: "
 
-#, fuzzy
 msgid "Share Files"
 msgstr "Datoteke v skupni rabi"
 
 msgid "Uploading files to "
 msgstr "Nalaganje datotek v "
 
-#, fuzzy
 msgid "Starting upload"
 msgstr "Začetek nalaganja"
 
 msgid "Cancel upload"
 msgstr "Prekliči nalaganje"
 
-#, fuzzy
 msgid "- seconds left"
 msgstr "- preostale sekunde"
 
-#, fuzzy
 msgid " seconds left"
 msgstr " preostale sekunde"
 
-#, fuzzy
 msgid " minutes left"
-msgstr " preostale minute"
+msgstr " preostalo je še nekaj minut"
 
 msgid "Uploading: "
 msgstr "Nalaganje: "
 
-#, fuzzy
 msgid "Upload status unavailable... please wait."
 msgstr "Status nalaganja ni na voljo... počakajte."
 
-#, fuzzy
 msgid "Upload finished!"
 msgstr "Nalaganje končano!"
 
-#, fuzzy
 msgid "Upload aborted!"
 msgstr "Prenos prekinjen!"
 
@@ -6551,7 +6055,6 @@ msgstr "Nalaganje ni uspelo!"
 msgid "Document"
 msgstr "Dokument"
 
-#, fuzzy
 msgid "Presentation"
 msgstr "Predstavitev"
 
@@ -6564,31 +6067,24 @@ msgstr "Naloži datoteke"
 msgid "Create document"
 msgstr "Ustvari dokument"
 
-#, fuzzy
 msgid "Create office document"
 msgstr "Ustvarjanje pisarniškega dokumenta"
 
-#, fuzzy
 msgid "Download files"
 msgstr "Datoteke za prenos"
 
-#, fuzzy
 msgid "Attach to mail"
 msgstr "Priložite k pošti"
 
-#, fuzzy
 msgid "Attach to mail as link"
 msgstr "Pošti priložite kot povezavo"
 
-#, fuzzy
 msgid "Attaching"
 msgstr "Pritrditev"
 
-#, fuzzy
 msgid "Creating email... Please wait!"
 msgstr "Ustvarjanje e-pošte... Počakajte!"
 
-#, fuzzy
 msgid "Edit share"
 msgstr "Urejanje deleža"
 
@@ -6605,143 +6101,131 @@ msgstr "Velikost datoteke"
 msgid "Last modified"
 msgstr "Nazadnje urejeno"
 
-#, fuzzy
 msgid "Is shared"
 msgstr "Je v skupni rabi"
 
-#, fuzzy
 msgid "File preview"
 msgstr "Predogled datotek"
 
-#, fuzzy
 msgid "Your browser does not support previewing of audio files!"
 msgstr "Vaš brskalnik ne podpira predogleda zvočnih datotek!"
 
-#, fuzzy
 msgid "Your browser does not support previewing of video files!"
 msgstr "Vaš brskalnik ne podpira predogleda video datotek!"
 
-#, fuzzy
 msgid "d.m.Y G:i"
 msgstr "d.m.Y G:i"
 
 msgid "Folder"
 msgstr "Mapa"
 
-#, fuzzy
 msgid "File ({0})"
 msgstr "Datoteka ({0})"
 
-#, fuzzy
 msgid "Sort by: Path"
 msgstr "Razvrsti po: Pot"
 
-#, fuzzy
 msgid "Sort by: Last modified"
 msgstr "Razvrsti po: Zadnjič spremenjeno"
 
-#, fuzzy
 msgid "Sort by: Shared"
 msgstr "Razvrsti po: Skupna"
 
-#, fuzzy
 msgid "There are no items to show in this view"
 msgstr "V tem pogledu ni elementov, ki bi jih bilo treba prikazati"
 
 msgid "files selected"
 msgstr "izbranih datotek"
 
-#, fuzzy
 msgid "Authentication required, when using grommunio-files for the first time"
 msgstr "Ob prvi uporabi programa grommunio-files je potrebna avtentikacija"
 
-#, fuzzy
 msgid "Intranet"
 msgstr "Intranet"
 
 msgid "Archive to InfoShare"
-msgstr ""
+msgstr "Arhiv v InfoShare"
 
 msgid "Kendox InfoShare"
-msgstr ""
+msgstr "Kendox InfoShare"
 
 msgid "Constraints for single attachment archiving"
-msgstr ""
+msgstr "Omejitve za arhiviranje posamezne priloge"
 
 msgid "Max count attachments"
-msgstr ""
+msgstr "Največje število nastavkov"
 
 msgid "Max size all selected attachments (MB)"
-msgstr ""
+msgstr "Največja velikost vseh izbranih priponk (MB)"
 
 msgid "Selection Kendox InfoShare environment"
-msgstr ""
+msgstr "Izbira okolja Kendox InfoShare"
 
 msgid "Production"
-msgstr ""
+msgstr "Proizvodnja"
 
 msgid "Test"
-msgstr ""
+msgstr "Test"
 
 msgid "URLs for production environment"
-msgstr ""
+msgstr "URL-ji za produkcijsko okolje"
 
 msgid "Kendox InfoShare API URL"
-msgstr ""
+msgstr "URL vmesnika API Kendox InfoShare"
 
 msgid "Kendox InfoShare Web dialog URL"
-msgstr ""
+msgstr "Kendox InfoShare Spletno pogovorno okno URL"
 
 msgid "URLs for test environment"
-msgstr ""
+msgstr "URL-ji za testno okolje"
 
 msgid "Mail/Document archive to Kendox InfoShare"
-msgstr ""
+msgstr "Pošta/arhiv dokumentov v Kendox InfoShare"
 
 msgid "Attachment information is requested"
-msgstr ""
+msgstr "Zahtevajo se podatki iz priloge"
 
 msgid "Please select the type of Archive (max"
-msgstr ""
+msgstr "Izberite vrsto arhiva (največ"
 
 msgid "files, max"
-msgstr ""
+msgstr "datoteke, največ"
 
 msgid "MB total size)"
-msgstr ""
+msgstr "MB skupne velikosti)"
 
 msgid "Everything - Store mail in original format"
-msgstr ""
+msgstr "Vse - shranjevanje pošte v izvirni obliki"
 
 msgid "Email only - Store mail without attachments"
 msgstr "Samo e-pošta - Shrani pošto brez prilog"
 
 msgid "Separate - Store attachments separately"
-msgstr ""
+msgstr "Ločeno - priloge shranjujte ločeno"
 
 msgid "No attachments available in mail"
-msgstr ""
+msgstr "V pošti ni na voljo priponk"
 
 msgid "Start archive"
-msgstr ""
+msgstr "Začetni arhiv"
 
 msgid "embedded"
 msgstr "vgrajen"
 
 msgid "Reading attachment information failed"
-msgstr ""
+msgstr "Branje informacij o priponki ni uspelo"
 
 msgid "Files are sent to Kendox InfoShare"
-msgstr ""
+msgstr "Datoteke so poslane v Kendox InfoShare"
 
 msgid "With the selection of separate attachments a maximum of"
-msgstr ""
+msgstr "Z izbiro ločenih nastavkov je mogoče izbrati največ"
 
 msgid "attachments can be selected. There have been"
-msgstr ""
+msgstr "lahko izberete priloge. Na voljo so bili"
 
 msgid "attachments selected"
-msgstr ""
+msgstr "izbrane priloge"
 
 msgid ""
 "With the selection of separate attachments the total size of all attachments "
@@ -6749,15 +6233,14 @@ msgid ""
 msgstr ""
 
 msgid "MB. There have been"
-msgstr ""
+msgstr "MB. Bilo je"
 
 msgid "MB selected."
-msgstr ""
+msgstr "Izbrano MB."
 
 msgid "Sending of mail failed"
-msgstr ""
+msgstr "Pošiljanje pošte ni uspelo"
 
-#, fuzzy
 msgid "Openstreetmap"
 msgstr "Openstreetmap"
 
@@ -6765,38 +6248,30 @@ msgstr "Openstreetmap"
 msgid "Map"
 msgstr "Zemljevid"
 
-#, fuzzy
 msgid "Mobile Device Manager"
 msgstr "Upravitelj mobilnih naprav"
 
-#, fuzzy
 msgid "Wiping device"
 msgstr "Naprava za brisanje"
 
-#, fuzzy
 msgid "Password incorrect"
 msgstr "Nepravilno geslo"
 
-#, fuzzy
 msgid "Full resync in progress"
 msgstr "Popolna ponovna sinhronizacija v teku"
 
-#, fuzzy
 msgid "Username or password incorrect"
 msgstr "Nepravilno uporabniško ime ali geslo"
 
 msgid "Not Applicable"
 msgstr "Se ne uporabi"
 
-#, fuzzy
 msgid "Wipe Pending"
 msgstr "Brisanje v pričakovanju"
 
-#, fuzzy
 msgid "Wipe Requested"
 msgstr "Zahtevano brisanje"
 
-#, fuzzy
 msgid "Wipe Executed"
 msgstr "Izvedeno brisanje"
 
@@ -6818,38 +6293,30 @@ msgstr "Naprava"
 msgid "Operating System"
 msgstr "Operacijski sistem"
 
-#, fuzzy
 msgid "User Agent"
 msgstr "Uporabniški agent"
 
-#, fuzzy
 msgid "MDM Plugin"
 msgstr "Vtičnik MDM"
 
-#, fuzzy
 msgid "Active Sync Version"
 msgstr "Različica aktivne sinhronizacije"
 
-#, fuzzy
 msgid "grommunio-sync Version"
 msgstr "grommunio-sync Različica"
 
-#, fuzzy
 msgid "Policy name"
 msgstr "Ime politike"
 
-#, fuzzy
 msgid "Connected since"
 msgstr "Povezan od"
 
-#, fuzzy
 msgid "d F Y"
 msgstr "d F Y"
 
 msgid "Last updated"
 msgstr "Zadnjič posodobljeno"
 
-#, fuzzy
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
 
@@ -6859,7 +6326,6 @@ msgstr "Zadnja povezava"
 msgid "Synchronize"
 msgstr "Sinhroniziraj"
 
-#, fuzzy
 msgid "Manage Shared Folders"
 msgstr "Upravljanje map v skupni rabi"
 
@@ -6872,15 +6338,12 @@ msgstr ""
 "Če želite na seznam dodati dodatne poštne predale, jih najprej odprite v "
 "programu grommunio Web."
 
-#, fuzzy
 msgid "grommunio-sync"
 msgstr "grommunio-sync"
 
-#, fuzzy
 msgid "Mobile device management"
 msgstr "Upravljanje mobilnih naprav"
 
-#, fuzzy
 msgid "Mobile Devices"
 msgstr "Mobilne naprave"
 
@@ -6895,42 +6358,33 @@ msgstr ""
 msgid "Devices"
 msgstr "Naprave"
 
-#, fuzzy
 msgid "No devices connected to your account"
 msgstr "V račun ni povezanih nobenih naprav"
 
-#, fuzzy
 msgid "Provisioning Status"
 msgstr "Stanje zagotavljanja"
 
 msgid "Last Connect"
 msgstr "Zadnja povezava"
 
-#, fuzzy
 msgid "Device ID"
 msgstr "ID naprave"
 
-#, fuzzy
 msgid "Device OS"
 msgstr "Operacijski sistem naprave"
 
-#, fuzzy
 msgid "Device Info"
 msgstr "Informacije o napravi"
 
-#, fuzzy
 msgid "First Sync time"
 msgstr "Prvi čas sinhronizacije"
 
-#, fuzzy
 msgid "Wipe Device"
-msgstr "Naprava za brisanje"
+msgstr "Brisanje naprave"
 
-#, fuzzy
 msgid "Full resync"
 msgstr "Popolna ponovna sinhronizacija"
 
-#, fuzzy
 msgid "Remove device"
 msgstr "Odstranitev naprave"
 
@@ -6962,47 +6416,36 @@ msgstr ""
 "Ali res želite odstraniti napravo?\n"
 " Za potrditev vnesite geslo."
 
-#, fuzzy
 msgid "Add meeting"
 msgstr "Dodajanje sestanka"
 
-#, fuzzy
 msgid "Room name:"
 msgstr "Ime sobe:"
 
-#, fuzzy
 msgid "Room URL:"
 msgstr "URL naslov sobe:"
 
-#, fuzzy
 msgid "Shift-click for advanced settings"
 msgstr "Shift-klik za napredne nastavitve"
 
-#, fuzzy
 msgid "Join webmeeting"
 msgstr "Pridružite se spletnemu sestanku"
 
-#, fuzzy
 msgid "Open meeting in:"
 msgstr "Odprto srečanje v:"
 
-#, fuzzy
 msgid "Web tab"
 msgstr "Spletni zavihek"
 
-#, fuzzy
 msgid "Hide the button in the main toolbar"
 msgstr "Skrijte gumb v glavni orodni vrstici"
 
-#, fuzzy
 msgid "Add the subject to the room name"
 msgstr "Dodajanje predmeta v ime sobe"
 
-#, fuzzy
 msgid "Add the organizer name to the room name"
 msgstr "Dodajanje imena organizatorja v ime sobe"
 
-#, fuzzy
 msgid "Add the URL to the meeting location rather than overwriting it"
 msgstr "Dodajte URL lokaciji sestanka, namesto da ga prepišete"
 
@@ -7014,17 +6457,14 @@ msgstr ""
 "Preprečite, da bi se URL v lokaciji sestanka samodejno prepisal (npr. pri "
 "dodajanju sejne sobe)"
 
-#, fuzzy
 msgid "If you have problems when creating meetings, try disabling this setting"
 msgstr ""
 "Če imate težave pri ustvarjanju sestankov, poskusite onemogočiti to "
 "nastavitev"
 
-#, fuzzy
 msgid "Add an invitation to the appointment description"
 msgstr "Dodajanje vabila v opis sestanka"
 
-#, fuzzy
 msgid "Invitation text"
 msgstr "Besedilo vabila"
 
@@ -7036,11 +6476,9 @@ msgstr ""
 "vsebovati mora %url% kot nadomestno mesto za povezavo do sestanka, "
 "izpraznite besedilno polje, da se povrne na privzeto vrednost"
 
-#, fuzzy
 msgid "An unknown error occurred while changing password."
 msgstr "Med spreminjanjem gesla je prišlo do neznane napake."
 
-#, fuzzy
 msgid "Password is changed successfully."
 msgstr "Geslo je uspešno spremenjeno."
 
@@ -7056,22 +6494,18 @@ msgstr "Trenutno geslo"
 msgid "New password"
 msgstr "Novo geslo"
 
-#, fuzzy
 msgid "Retype new password"
 msgstr "Ponovno ponovite novo geslo"
 
 msgid "New passwords do not match."
 msgstr "Nova gesla se ne ujemajo."
 
-#, fuzzy
 msgid "Current password is empty."
 msgstr "Trenutno geslo je prazno."
 
-#, fuzzy
 msgid "New password is empty."
 msgstr "Novo geslo je prazno."
 
-#, fuzzy
 msgid "One or more fields does contain errors."
 msgstr "Eno ali več polj vsebuje napake."
 
@@ -7083,54 +6517,42 @@ msgstr ""
 "Geslo je šibko. Geslo mora vsebovati velike in male črke ter številke. Geslo "
 "mora imeti od 8 do 20 znakov."
 
-#, fuzzy
 msgid "Change passphrase"
 msgstr "Sprememba gesla"
 
-#, fuzzy
 msgid "Old passphrase"
 msgstr "Stara geselska fraza"
 
-#, fuzzy
 msgid "Wrong passphrase. Please try again"
 msgstr "Napačna geselska fraza. Poskusite znova"
 
-#, fuzzy
 msgid "New passphrase"
 msgstr "Nova geslo"
 
-#, fuzzy
 msgid "Confirm new passphrase"
 msgstr "Potrdite novo geslo"
 
-#, fuzzy
 msgid "The passphrases don't match. Please try again"
 msgstr "Gesla se ne ujemajo. Prosimo, poskusite znova"
 
-#, fuzzy
 msgid "S/MIME Message"
 msgstr "Sporočilo S/MIME"
 
-#, fuzzy
 msgid "Passphrase changed successfully"
-msgstr "Passphrase je bila uspešno spremenjena"
+msgstr "Passphrase je bil uspešno spremenjen"
 
-#, fuzzy
 msgid "S/MIME Passphrase"
 msgstr "Geslo S/MIME"
 
 msgid "Submit"
 msgstr "Pošlji"
 
-#, fuzzy
 msgid "Certificate passphrase"
 msgstr "Geslo potrdila"
 
-#, fuzzy
 msgid "The passphrase you typed is incorrect. Please try again."
 msgstr "Geslo, ki ste ga vnesli, je napačno. Poskusite znova."
 
-#, fuzzy
 msgid "No certificates imported, please upload your private certificate"
 msgstr "Ni uvoženih potrdil, naložite svoje zasebno potrdilo"
 
@@ -7140,15 +6562,12 @@ msgstr "Velja od"
 msgid "Expires"
 msgstr "Poteče"
 
-#, fuzzy
 msgid "Loading certificates"
 msgstr "Nalaganje certifikatov"
 
-#, fuzzy
 msgid "S/MIME Plugin"
 msgstr "Vtičnik S/MIME"
 
-#, fuzzy
 msgid "Please select a certificate."
 msgstr "Izberite potrdilo."
 
@@ -7160,7 +6579,6 @@ msgstr ""
 "Ali res želite odstraniti zasebno potrdilo? Če odstranite svoje potrdilo, ne "
 "boste mogli podpisovati ali dešifrirati e-poštnih sporočil S/MIME."
 
-#, fuzzy
 msgid "Certificate details"
 msgstr "Podatki o potrdilu"
 
@@ -7172,35 +6590,27 @@ msgstr ""
 "Spodaj si lahko ogledate in izbrišete javna in zasebna potrdila, shranjena v "
 "strežniku."
 
-#, fuzzy
 msgid "Filter on Email"
 msgstr "Filter v e-pošti"
 
-#, fuzzy
 msgid "Public & Private certificates"
 msgstr "Javni in zasebni certifikati"
 
-#, fuzzy
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#, fuzzy
 msgid "You don't have a valid certificate corresponding to your account"
 msgstr "Nimate veljavnega potrdila, ki ustreza vašemu računu"
 
-#, fuzzy
 msgid "Personal certificate"
 msgstr "Osebno potrdilo"
 
-#, fuzzy
 msgid "Change passphrase for last certificate"
 msgstr "Sprememba gesla za zadnje potrdilo"
 
-#, fuzzy
 msgid "You have a valid certificate corresponding to your account"
 msgstr "Imate veljavno potrdilo, ki ustreza vašemu računu"
 
-#, fuzzy
 msgid "Upload your certificate"
 msgstr "Naložite svoje potrdilo"
 
@@ -7216,18 +6626,15 @@ msgstr ""
 msgid "Private certificate"
 msgstr "Zasebni certifikat"
 
-#, fuzzy
 msgid "You must fill in the certificate passphrase to upload your certificate."
 msgstr "Za prenos potrdila morate vnesti geslo potrdila."
 
-#, fuzzy
 msgid "You must first select a valid private certificate in PKCS#12 format."
-msgstr "Najprej morate izbrati veljavno zasebno potrdilo v formatu PKCS#12."
+msgstr "Najprej morate izbrati veljavno zasebno potrdilo v obliki PKCS#12."
 
 msgid "Sign"
 msgstr "Podpiši"
 
-#, fuzzy
 msgid "Sign message"
 msgstr "Sporočilo znaka"
 
@@ -7242,7 +6649,6 @@ msgstr ""
 msgid "Encrypt"
 msgstr "Šifriraj"
 
-#, fuzzy
 msgid "Encrypt message"
 msgstr "Šifriranje sporočila"
 
@@ -7254,7 +6660,6 @@ msgstr ""
 "Zagotovite zasebnost sporočila s šifriranjem njegove vsebine. Samo prejemnik "
 "sporočila ga bo lahko odprl."
 
-#, fuzzy
 msgid "What's going on with my email?"
 msgstr "Kaj se dogaja z mojo e-pošto?"
 
@@ -7273,19 +6678,15 @@ msgid ""
 "You are seeing this message because the verification of the digital signature"
 msgstr "To sporočilo se prikaže, ker preverjanje digitalnega podpisa"
 
-#, fuzzy
 msgid " has failed"
 msgstr " je bila neuspešna"
 
-#, fuzzy
 msgid " for this message."
 msgstr " za to sporočilo."
 
-#, fuzzy
 msgid "What caused this issue?"
 msgstr "Kaj je povzročilo to težavo?"
 
-#, fuzzy
 msgid "What should I do?"
 msgstr "Kaj naj storim?"
 
@@ -7325,7 +6726,6 @@ msgid ""
 msgstr ""
 "Preverjanje digitalnega podpisa za to e-poštno sporočilo je bilo uspešno."
 
-#, fuzzy
 msgid "grommunio Web could not find a public certificate for the recipient."
 msgstr "grommunio Splet ni našel javnega potrdila za prejemnika."
 
@@ -7338,7 +6738,6 @@ msgstr ""
 "vendar je veljavnost potrdila, uporabljenega za podpis sporočila, potekla [d-"
 "m-Y]."
 
-#, fuzzy
 msgid "The digital signature could not be verified for unknown reasons."
 msgstr "Digitalnega podpisa iz neznanih razlogov ni bilo mogoče preveriti."
 
@@ -7378,44 +6777,33 @@ msgstr ""
 "poštnega sporočila, je onemogočen (OCSP). Veljavnosti potrdila ni bilo "
 "mogoče preveriti."
 
-#, fuzzy
 msgid "The certificate verification server (OCSP) is temporarily offline."
-msgstr ""
-"Strežnik za preverjanje potrdil (OCSP) je začasno izključen iz omrežja."
+msgstr "Strežnik za preverjanje potrdil (OCSP) je začasno izključen iz omrežja."
 
-#, fuzzy
 msgid "Sender is removed from the server."
 msgstr "Pošiljatelj je odstranjen iz strežnika."
 
-#, fuzzy
 msgid "Signature verified successfully"
 msgstr "Podpis je bil uspešno preverjen"
 
-#, fuzzy
 msgid "Could not verify signature, missing public certificate"
 msgstr "Ni bilo mogoče preveriti podpisa, manjka javno potrdilo"
 
-#, fuzzy
 msgid "Signature verification successful, but certificate is expired"
 msgstr "Preverjanje podpisa je uspešno, vendar je certifikat potekel"
 
-#, fuzzy
 msgid "Signature could not be verified"
 msgstr "Podpisa ni bilo mogoče preveriti"
 
-#, fuzzy
 msgid "Certificate has been revoked"
 msgstr "Potrdilo je bilo preklicano"
 
-#, fuzzy
 msgid "Verification with Certificate Authority failed"
 msgstr "Preverjanje pri organu za potrjevanje ni uspelo"
 
-#, fuzzy
 msgid "Message decrypted successfully"
 msgstr "Sporočilo je bilo uspešno dešifrirano"
 
-#, fuzzy
 msgid "Message decryption failed"
 msgstr "Dešifriranje sporočila ni uspelo"
 
@@ -7425,66 +6813,51 @@ msgstr "Prosimo"
 msgid "click here"
 msgstr "kliknite tukaj"
 
-#, fuzzy
 msgid "to unlock your certificate"
 msgstr "za odklepanje potrdila"
 
-#, fuzzy
 msgid "Cannot determine revocation status of certificate"
 msgstr "Ni mogoče določiti statusa preklica potrdila"
 
-#, fuzzy
 msgid "Signature verified"
 msgstr "Preverjen podpis"
 
-#, fuzzy
 msgid "Unable to decrypt this message. Certificate does not match"
 msgstr "Tega sporočila ni mogoče dešifrirati. Potrdilo se ne ujema"
 
-#, fuzzy
 msgid "Verification failed. User is removed from the server."
 msgstr "Preverjanje ni bilo uspešno. Uporabnik je odstranjen s strežnika."
 
-#, fuzzy
 msgid "Charm pink"
 msgstr "Čar rožnate barve"
 
-#, fuzzy
 msgid "Cadmium red"
 msgstr "Kadmijeva rdeča"
 
-#, fuzzy
 msgid "Apricot"
 msgstr "Marelica"
 
-#, fuzzy
 msgid "California"
 msgstr "Kalifornija"
 
-#, fuzzy
 msgid "Soft green"
 msgstr "Mehka zelena barva"
 
 msgid "Mint"
 msgstr "Mint"
 
-#, fuzzy
 msgid "Pearl aqua"
 msgstr "Biser aqua"
 
-#, fuzzy
 msgid "Grommunio blue"
 msgstr "Grommunio blue"
 
-#, fuzzy
 msgid "Baby blue"
 msgstr "Otroška modra"
 
-#, fuzzy
 msgid "Mauve"
 msgstr "Mauve"
 
-#, fuzzy
 msgid "Silver sand"
 msgstr "Srebrni pesek"
 
@@ -7545,132 +6918,109 @@ msgstr ""
 "Prosimo, da se obrnete na svojega sistemskega skrbnika."
 
 msgid "This backend provides the default WebDAV integration for Files."
-msgstr ""
+msgstr "Ta zaledni strežnik zagotavlja privzeto integracijo WebDAV za datoteke."
 
 msgid "Files Default Backend: "
-msgstr ""
+msgstr "Datoteke Privzeto zaledje: "
 
-#, fuzzy
 msgid "Server address"
 msgstr "Naslov strežnika"
 
-#, fuzzy
 msgid "Server port"
 msgstr "Vrata strežnika"
 
-#, fuzzy
 msgid "Use TLS"
-msgstr "Uporaba protokola TLS"
+msgstr "Uporaba TLS"
 
-#, fuzzy
 msgid "Webdav base path"
 msgstr "Osnovna pot Webdav"
 
-#, fuzzy
 msgid "Use grommunio credentials"
 msgstr "Uporabite poverilnice grommunio"
 
-#, fuzzy
 msgid "php-curl is not available"
 msgstr "php-curl ni na voljo"
 
 msgid "Access denied"
 msgstr "Zavrnjen dostop"
 
-#, fuzzy
 msgid "Connection failed"
 msgstr "Povezava ni uspela"
 
-#, fuzzy
 msgid "Sabre error"
 msgstr "Napaka Sabre"
 
-#, fuzzy
 msgid "Copying failed"
 msgstr "Kopiranje ni uspelo"
 
 msgid "Unknown error"
 msgstr "Neznana napaka"
 
-#, fuzzy
 msgid "Please contact your system administrator."
 msgstr "Obrnite se na skrbnika sistema."
 
-#, fuzzy
 msgid "Unauthorized. Wrong username or password."
 msgstr "Nepooblaščeno. Napačno uporabniško ime ali geslo."
 
-#, fuzzy
 msgid "File server is not reachable. Please verify the file server URL."
 msgstr "Datotečni strežnik ni dosegljiv. Preverite URL datotečnega strežnika."
 
-#, fuzzy
 msgid "You don't have enough permissions to view this file or folder."
 msgstr "Za ogled te datoteke ali mape nimate dovolj pravic."
 
-#, fuzzy
 msgid "The file or folder is not available anymore."
 msgstr "Datoteka ali mapa ni več na voljo."
 
-#, fuzzy
 msgid "Connection to the file server timed out. Please check again later."
-msgstr ""
-"Povezava z datotečnim strežnikom je prekinjena. Ponovno preverite pozneje."
+msgstr "Povezava z datotečnim strežnikom je prekinjena. Ponovno preverite pozneje."
 
-#, fuzzy
 msgid "This file is locked by another user. Please try again later."
-msgstr ""
-"To datoteko je zaklenil drug uporabnik. Prosimo, poskusite znova pozneje."
+msgstr "To datoteko je zaklenil drug uporabnik. Prosimo, poskusite znova pozneje."
 
-#, fuzzy
 msgid "The request failed."
 msgstr "Zahteva je bila neuspešna."
 
-#, fuzzy
 msgid "The file server encountered an internal problem."
 msgstr "Datotečni strežnik je naletel na notranjo težavo."
 
-#, fuzzy
 msgid "We could not write to temporary directory."
 msgstr "V začasni imenik nismo mogli pisati."
 
-#, fuzzy
 msgid "We could not retrieve list of server features."
 msgstr "Seznama funkcij strežnika nismo mogli pridobiti."
 
-#, fuzzy
 msgid "PHP-Curl is not available."
 msgstr "PHP-Curl ni na voljo."
 
 msgid "With this backend, you can connect to any Seafile server."
-msgstr ""
+msgstr "S tem zaledjem se lahko povežete s katerim koli strežnikom Seafile."
 
 msgid "Files "
-msgstr ""
+msgstr "Datoteke "
 
 msgid "Use SSL"
-msgstr ""
+msgstr "Uporaba protokola SSL"
 
 msgid "Seafile is not reachable. Correct backend address entered?"
-msgstr ""
+msgstr "Seafile ni dosegljiv. Ste vnesli pravilen zaledni naslov?"
 
 msgid "You don't have enough permissions for this operation."
-msgstr ""
+msgstr "Za to operacijo nimate zadostnih dovoljenj."
 
 msgid "File is not available any more."
-msgstr ""
+msgstr "Datoteka ni več na voljo."
 
 msgid "Connection to server timed out. Retry later."
-msgstr ""
+msgstr "Povezava s strežnikom je prekinjena. Poskusite pozneje."
 
 msgid "This file is locked by another user."
-msgstr ""
+msgstr "To datoteko je zaklenil drug uporabnik."
 
 msgid "The request failed due to failure of a previous request."
-msgstr ""
+msgstr "Zahteva ni bila uspešna zaradi neuspešne predhodne zahteve."
 
 msgid "Seafile-server encountered a problem."
-msgstr ""
+msgstr "Seafile-server je naletel na težavo."
 
 msgid ""
 "Could not write to temporary directory. Contact the server administrator."
@@ -7681,120 +7031,92 @@ msgid ""
 msgstr ""
 
 msgid "PHP-Curl is not available. Contact your system administrator."
-msgstr ""
+msgstr "PHP-Curl ni na voljo. Obrnite se na skrbnika sistema."
 
 msgid "This function is not yet implemented."
-msgstr ""
+msgstr "Ta funkcija še ni izvedena."
 
-#, fuzzy
 msgid "Unknown account ID"
 msgstr "Neznani ID računa"
 
-#, fuzzy
 msgid "Feature \"Quota Information\" is not supported by this backend!"
 msgstr "Funkcija \"Informacije o kvotah\" ni podprta s tem zaledjem!"
 
-#, fuzzy
 msgid "Feature \"Version Information\" is not supported by this backend!"
 msgstr "Funkcija \"Informacije o različici\" ni podprta s tem zaledjem!"
 
-#, fuzzy
 msgid "Feature \"OAUTH\" is not supported by this backend!"
 msgstr "Funkcija \"OAUTH\" ni podprta s tem zaledjem!"
 
-#, fuzzy
 msgid "Moving between accounts is not implemented"
 msgstr "Premikanje med računi se ne izvaja"
 
-#, fuzzy
 msgid "Files plugin"
 msgstr "Datoteke vtičnik"
 
-#, fuzzy
 msgid "Unknown type - cannot save this file to the Files backend!"
 msgstr "Neznana vrsta - te datoteke ne morete shraniti v zaledje Datoteke!"
 
-#, fuzzy
 msgid "No record given!"
 msgstr "Brez zapisa!"
 
-#, fuzzy
 msgid "Fetching sharing information failed"
 msgstr "Pridobivanje informacij o souporabi ni bilo uspešno"
 
-#, fuzzy
 msgid "Sharing failed"
 msgstr "Skupna raba ni uspela"
 
-#, fuzzy
 msgid "Updating share failed"
 msgstr "Posodabljanje deleža ni uspelo"
 
-#, fuzzy
 msgid "Deleting share failed"
 msgstr "Brisanje deleža ni uspelo"
 
-#, fuzzy
 msgid "With this backend, you can connect to any WebDAV server."
 msgstr "S tem zaledjem se lahko povežete s katerim koli strežnikom WebDAV."
 
 msgid "Files WebDAV Backend: "
 msgstr "Datoteke Spletni strežnik WebDAV: "
 
-#, fuzzy
 msgid "PHP-CURL is not installed"
 msgstr "PHP-CURL ni nameščen"
 
-#, fuzzy
 msgid "Directory creation failed"
 msgstr "Ustvarjanje imenika ni uspelo"
 
-#, fuzzy
 msgid "Deletion failed"
 msgstr "Brisanje ni uspelo"
 
-#, fuzzy
 msgid "Moving failed"
 msgstr "Premikanje ni uspelo"
 
-#, fuzzy
 msgid "Temporary directory problems"
 msgstr "Težave z začasnim imenikom"
 
-#, fuzzy
 msgid "File or folder not found"
 msgstr "Datoteka ali mapa ni bila najdena"
 
-#, fuzzy
 msgid "Not implemented"
-msgstr "Se ne izvaja"
+msgstr "Ni izvedeno"
 
-#, fuzzy
 msgid "Please contact your system administrator"
 msgstr "Obrnite se na skrbnika sistema"
 
-#, fuzzy
 msgid "File server is not reachable. Please verify the connection."
 msgstr "Datotečni strežnik ni dosegljiv. Preverite povezavo."
 
-#, fuzzy
 msgid "PHP-CURL not installed"
 msgstr "PHP-CURL ni nameščen"
 
-#, fuzzy
 msgid "Account is ready to use."
 msgstr "Račun je pripravljen za uporabo."
 
-#, fuzzy
 msgid "File backend not responding. Please try again later."
-msgstr ""
-"Datotečni zaledni strežnik se ne odziva. Prosimo, poskusite znova pozneje."
+msgstr "Datotečni zaledni strežnik se ne odziva. Prosimo, poskusite znova pozneje."
 
-#, fuzzy
 msgid "Zip file generation failed. Please inform the administrator."
 msgstr "Generiranje datoteke Zip ni uspelo. O tem obvestite skrbnika."
 
-#, fuzzy
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Ta datoteka ni več na voljo. Ponovno naložite mapo."
 
@@ -7805,12 +7127,11 @@ msgid "Kendox certificate password is not configured."
 msgstr "Geslo certifikata Kendox ni nastavljeno."
 
 msgid "Kendox certificate is not available."
-msgstr ""
+msgstr "Certifikat Kendox ni na voljo."
 
 msgid "Kendox certificate is not readable."
 msgstr "Certifikat Kendox ni berljiv."
 
-#, fuzzy
 msgid "Mobile device management plugin"
 msgstr "Vtičnik za upravljanje mobilnih naprav"
 
@@ -7822,11 +7143,9 @@ msgstr ""
 "Zgodila se je nepričakovana napaka. Obrnite se na skrbnika sistema. Koda "
 "napake: %s"
 
-#, fuzzy
 msgid "No data received."
 msgstr "Ni prejetih podatkov."
 
-#, fuzzy
 msgid "Account is empty."
 msgstr "Račun je prazen."
 
@@ -7836,7 +7155,6 @@ msgid ""
 msgstr ""
 "Vaše geslo je napačno ali nimate zadostnega dovoljenja za spremembo gesla"
 
-#, fuzzy
 msgid "Password is not changed."
 msgstr "Geslo ni spremenjeno."
 
@@ -7845,29 +7163,24 @@ msgid ""
 "administrator."
 msgstr ""
 
-#, fuzzy
 msgid "Password has been changed successfully."
 msgstr "Geslo je bilo uspešno spremenjeno."
 
-#, fuzzy
 msgid "No certificate available"
 msgstr "Potrdilo ni na voljo"
 
 msgid "Private certificate has expired, unable to sign email"
-msgstr ""
+msgstr "Zasebno potrdilo je poteklo, ne morem podpisati e-pošte"
 
-#, fuzzy
 msgid "Private certificate is not valid yet, unable to sign email"
 msgstr "Zasebno potrdilo še ni veljavno, ne morete podpisati e-pošte"
 
-#, fuzzy
 msgid "Private certificate does not match email address"
 msgstr "Zasebno potrdilo se ne ujema z e-poštnim naslovom"
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "Manjkajo javna potrdila za naslednje prejemnike: "
 
-#, fuzzy
 msgid ". Please contact your system administrator for details"
 msgstr ". Za podrobnosti se obrnite na skrbnika sistema"
 
@@ -7879,15 +7192,12 @@ msgstr ""
 "Vaše javno potrdilo ni nameščeno. Brez tega potrdila ne boste mogli prebrati "
 "šifriranih sporočil, ki ste jih poslali drugim."
 
-#, fuzzy
 msgid "Certificate is already stored on the server"
 msgstr "Potrdilo je že shranjeno v strežniku"
 
-#, fuzzy
 msgid "Unable to decrypt certificate"
 msgstr "Ni mogoče dešifrirati potrdila"
 
-#, fuzzy
 msgid "Private key can't be used to sign email"
 msgstr "Zasebnega ključa ni mogoče uporabiti za podpisovanje e-pošte"
 
@@ -7903,28 +7213,24 @@ msgstr "Potrdilo je bilo uvoženo."
 msgid "Certificate is not yet valid "
 msgstr "Potrdilo še ni veljavno "
 
-#, fuzzy
 msgid "Certificate has not been imported"
 msgstr "Potrdilo ni bilo uvoženo"
 
 msgid "Certificate is revoked, but was imported."
 msgstr "Potrdilo je preklicano, vendar je bilo uvoženo."
 
-#, fuzzy
 msgid "Unable to read public certificate"
 msgstr "Ni mogoče prebrati javnega potrdila"
 
-#, fuzzy
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""
-"Ne morem dodati podatkov v vodilo, ker je v vodilu prisotna ista vrsta akcije"
+"Ne morem dodati podatkov v vodilo, ker je v vodilu prisotna ista vrsta "
+"akcije"
 
-#, fuzzy
 msgid "Response data requested from bus but it doesn't have any data."
-msgstr ""
-"Podatki za odziv so zahtevani od avtobusa, vendar ta nima nobenih podatkov."
+msgstr "Podatki za odziv so zahtevani od avtobusa, vendar ta nima nobenih podatkov."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Unknown module '%s' with id '%s'"
 msgstr "Neznani modul '%s' z id '%s'"
 
@@ -7933,14 +7239,13 @@ msgid ""
 "Server encountered some problem, so it was not able to handle the request."
 msgstr "Strežnik je naletel na težavo, zato ni mogel obdelati zahteve."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Unknown notifier '%s'"
 msgstr "Neznani prijavitelj '%s'"
 
 msgid "An unexpected error has occurred"
 msgstr "Zaznana je bila nepričakovana napaka"
 
-#, fuzzy
 msgid "To-Do List"
 msgstr "Seznam opravil"
 
@@ -7952,21 +7257,17 @@ msgstr "Seznam opravil"
 msgid "%1$s of %2$s"
 msgstr "%1$s z %2$s"
 
-#, fuzzy
 msgid "Error retrieving existing settings"
 msgstr "Napaka pri pridobivanju obstoječih nastavitev"
 
-#, fuzzy
 msgid "Error retrieving existing persistent settings"
 msgstr "Napaka pri pridobivanju obstoječih trajnih nastavitev"
 
-#, fuzzy
 msgid "Logon failed. Please verify your credentials and try again."
-msgstr "Prijava neuspešna. Prosim preverite vaše ime/geslo."
+msgstr "Prijava ni uspela. Preverite svoje poverilnice in poskusite znova."
 
-#, fuzzy
 msgid "Cannot connect to Gromox."
-msgstr "Ne morem se povezati na grommunio server."
+msgstr "Ne morete se povezati z napravo Gromox."
 
 #, fuzzy
 msgid ""
@@ -7976,23 +7277,18 @@ msgstr ""
 "Prijava ni delovala zaradi podvojene seje. Težava je bila samodejno "
 "odpravljena, zato se ponovno prijavite."
 
-#, fuzzy
 msgid "Unknown MAPI Error"
-msgstr "Neznana MAPI napaka: %s"
+msgstr "Neznana napaka MAPI"
 
-#, fuzzy
 msgid "Destination folder not found."
 msgstr "Ciljna mapa ni bila najdena."
 
-#, fuzzy
 msgid "Eml is corrupted"
 msgstr "Eml je poškodovan"
 
-#, fuzzy
 msgid "The eml Attachment is not imported successfully"
 msgstr "Priponka eml ni uspešno uvožena"
 
-#, fuzzy
 msgid "The vcf attachment is not imported successfully"
 msgstr "Priponka vcf ni uspešno uvožena"
 
@@ -8000,67 +7296,52 @@ msgstr "Priponka vcf ni uspešno uvožena"
 msgid "Unable to import '%s' to '%s'. "
 msgstr "Ni mogoče uvoziti '%s' v '%s'. "
 
-#, fuzzy
 msgid "There is no appointment found in this file."
-msgstr "Ta sestanek se pojavlja v preteklosti."
+msgstr "V tej datoteki ni nobenega sestanka."
 
-#, fuzzy
 msgid "The file is corrupt."
 msgstr "Datoteka je poškodovana."
 
-#, fuzzy
 msgid "The file is invalid."
-msgstr "Priložene datoteke še niso bile naložene."
+msgstr "Datoteka je neveljavna."
 
 #, php-format
 msgid "Unable to import '%s'. "
 msgstr "Ni mogoče uvoziti '%s'. "
 
-#, fuzzy
 msgid "Attachment is not imported successfully"
 msgstr "Priponka ni uspešno uvožena"
 
-#, fuzzy
 msgid "Embedded attachment not found."
 msgstr "Vgrajena priponka ni bila najdena."
 
-#, fuzzy
 msgid "ZIP is not created successfully"
 msgstr "ZIP ni uspešno ustvarjen"
 
-#, fuzzy
 msgid "Attachments can not be downloaded"
 msgstr "Priponk ni mogoče prenesti"
 
-#, fuzzy
 msgid "Could not find attachment."
 msgstr "Ni bilo mogoče najti priponke."
 
-#, fuzzy
 msgid "Operation failed"
 msgstr "Operacija ni uspela"
 
-#, fuzzy
 msgid "Sticky Note"
 msgstr "Samolepljiva beležka"
 
-#, fuzzy
 msgid "Task Request"
 msgstr "Zahteva za nalogo"
 
-#, fuzzy
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "Sporočila ni bilo mogoče najti, ker je bilo premaknjeno ali izbrisano."
 
-#, fuzzy
 msgid "Action is not performed correctly."
 msgstr "Ukrep se ne izvede pravilno."
 
-#, fuzzy
 msgid "Could not handle this type of object."
 msgstr "Te vrste predmeta ni bilo mogoče obdelati."
 
-#, fuzzy
 msgid "Could not open this object."
 msgstr "Tega predmeta ni bilo mogoče odpreti."
 
@@ -8076,42 +7357,32 @@ msgstr "Skupne mape stikov"
 msgid "Public Contact Folders"
 msgstr "Javne mape stikov"
 
-#, fuzzy
 msgid "Error in search, please try again"
 msgstr "Napaka pri iskanju, poskusite znova"
 
-#, fuzzy
 msgid "Unable to perform search query, no permissions to create search folder."
 msgstr ""
 "Ni mogoče izvesti iskalne poizvedbe, ni dovoljenj za ustvarjanje iskalne "
 "mape."
 
-#, fuzzy
 msgid "Unable to perform search query, search folder not found."
 msgstr "Ni mogoče izvesti iskalne poizvedbe, iskalna mapa ni bila najdena."
 
-#, fuzzy
 msgid "Unable to perform search query, store might not support searching."
-msgstr ""
-"Ni mogoče izvesti iskalne poizvedbe, trgovina morda ne podpira iskanja."
+msgstr "Ni mogoče izvesti iskalne poizvedbe, trgovina morda ne podpira iskanja."
 
-#, fuzzy
 msgid "Error in creating search folder."
 msgstr "Napaka pri ustvarjanju iskalne mape."
 
-#, fuzzy
 msgid "Could not open occurrence."
 msgstr "Dogodka ni bilo mogoče odpreti."
 
-#, fuzzy
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr "Ni bilo mogoče odpreti dogodka, določen dogodek je verjetno izbrisan."
 
-#, fuzzy
 msgid "a meeting request"
 msgstr "zahtevek za sestanek"
 
-#, fuzzy
 msgid "an appointment"
 msgstr "sestanek"
 
@@ -8126,7 +7397,6 @@ msgstr ""
 "Opomnika ni mogoče nastaviti tako, da bi se pojavil pred prejšnjim dogodkom. "
 "Ponastavite opomnik, da shranite spremembo"
 
-#, fuzzy
 msgid "Two occurrences cannot occur on the same day"
 msgstr "Dva dogodka se ne moreta zgoditi na isti dan"
 
@@ -8166,31 +7436,26 @@ msgstr ""
 "'%s' je za ta čas že rezerviran. Uporabiti morate drug čas ali poiskati drug "
 "vir."
 
-#, fuzzy
 msgid "Meeting was not scheduled."
 msgstr "Srečanje ni bilo predvideno."
 
-#, fuzzy
 msgid "Meeting could not be sent."
 msgstr "Sestanka ni bilo mogoče poslati."
 
-#, fuzzy
 msgid "Meeting could not be saved."
 msgstr "Srečanja ni bilo mogoče rešiti."
 
-#, fuzzy
 msgid "Private Appointment"
 msgstr "Zasebno imenovanje"
 
-#, fuzzy, php-format
+#, php-format
 msgid "%s's Birthday"
-msgstr "rojstni dan %s"
+msgstr "%srojstni dan"
 
-#, fuzzy, php-format
+#, php-format
 msgid "%s's Anniversary"
-msgstr "obletnica %s"
+msgstr "%sobletnica"
 
-#, fuzzy
 msgid "You don't have the permission to complete this action"
 msgstr "Nimate dovoljenja za dokončanje tega dejanja"
 
@@ -8204,73 +7469,57 @@ msgid "Email sending failed. Check the log files for more information."
 msgstr ""
 "Pošiljanje e-pošte ni uspelo. Za več informacij preverite dnevniške datoteke."
 
-#, fuzzy
 msgid "Unknown user/group"
 msgstr "Neznani uporabnik/skupina"
 
-#, fuzzy
 msgid "Could not save delegate information."
 msgstr "Ni bilo mogoče shraniti informacij o delegatu."
 
-#, fuzzy
 msgid "Could not delete delegate."
 msgstr "Delegata ni bilo mogoče izbrisati."
 
-#, fuzzy
 msgid "Can not get list of delegates."
 msgstr "Ne morem dobiti seznama delegatov."
 
 msgid "Could not open the store."
 msgstr "Trgovine ni bilo mogoče odpreti."
 
-#, fuzzy
 msgid "Could not load the hierarchy."
 msgstr "Ni bilo mogoče naložiti hierarhije."
 
 msgid "Could not open the shared store."
 msgstr "Trgovine v skupni rabi ni bilo mogoče odpreti."
 
-#, fuzzy
 msgid "Could not load folder properties."
 msgstr "Lastnosti mape ni bilo mogoče naložiti."
 
-#, fuzzy
 msgid "Could not remove folder from favorites."
 msgstr "Mape ni bilo mogoče odstraniti iz priljubljenih."
 
-#, fuzzy
 msgid "You have insufficient privileges to delete folder."
 msgstr "Za brisanje mape nimate zadostnih pravic."
 
-#, fuzzy
 msgid "Could not delete folder."
 msgstr "Ni bilo mogoče izbrisati mape."
 
-#, fuzzy
 msgid "You have insufficient privileges to copy folder."
 msgstr "Za kopiranje mape nimate zadostnih pravic."
 
-#, fuzzy
 msgid "Could not copy folder."
 msgstr "Ni bilo mogoče kopirati mape."
 
-#, fuzzy
 msgid "You have insufficient privileges to move this folder."
 msgstr "Za premikanje te mape nimate dovolj pravic."
 
-#, fuzzy
 msgid "Could not move folder."
 msgstr "Mape ni bilo mogoče premakniti."
 
-#, fuzzy
 msgid "You have insufficient privileges to delete items."
 msgstr "Za brisanje elementov nimate dovolj pravic."
 
-#, fuzzy
 msgid "Could not empty folder."
 msgstr "Ni bilo mogoče izprazniti mape."
 
-#, fuzzy
 msgid "Could not perform action correctly."
 msgstr "Ukrepa ni bilo mogoče pravilno izvesti."
 
@@ -8279,43 +7528,33 @@ msgid ""
 "A favorite folder with this name already exists, please use another name."
 msgstr "Priljubljena mapa s tem imenom že obstaja, uporabite drugo ime."
 
-#, fuzzy
 msgid "Could not add folder to favorites."
 msgstr "Mape ni bilo mogoče dodati med priljubljene."
 
-#, fuzzy
 msgid "You have insufficient privileges to set permissions for this folder."
 msgstr "Za nastavitev dovoljenj za to mapo nimate dovolj pravic."
 
-#, fuzzy
 msgid "Could not set folder permissions."
 msgstr "Ni bilo mogoče nastaviti dovoljenj za mape."
 
-#, fuzzy
 msgid "You have insufficient privileges to rename this folder."
 msgstr "Za preimenovanje te mape nimate dovolj pravic."
 
-#, fuzzy
 msgid "A folder with this name already exists. Use another name."
 msgstr "Mapa s tem imenom že obstaja. Uporabite drugo ime."
 
-#, fuzzy
 msgid "Could not rename folder."
 msgstr "Mape ni bilo mogoče preimenovati."
 
-#, fuzzy
 msgid "You have insufficient privileges to create this folder."
 msgstr "Za ustvarjanje te mape nimate dovolj pravic."
 
-#, fuzzy
 msgid "Could not create folder."
 msgstr "Ni bilo mogoče ustvariti mape."
 
-#, fuzzy
 msgid "Could not close shared folder."
 msgstr "Mape v skupni rabi ni bilo mogoče zapreti."
 
-#, fuzzy
 msgid "User could not be resolved."
 msgstr "Uporabnika ni bilo mogoče rešiti."
 
@@ -8338,15 +7577,12 @@ msgstr "anonimno"
 msgid "unknown"
 msgstr "neznano"
 
-#, fuzzy
 msgid "Could not move folder"
 msgstr "Mape ni bilo mogoče premakniti"
 
-#, fuzzy
 msgid "Could not copy folder"
 msgstr "Ni bilo mogoče kopirati mape"
 
-#, fuzzy
 msgid "You have insufficient privileges to open this message."
 msgstr "Za odprtje tega sporočila nimate dovolj pravic."
 
@@ -8390,9 +7626,8 @@ msgstr ""
 "Sporočilo ni več v čakalni vrsti za odhodna sporočila, običajno zato, ker je "
 "bilo že poslano."
 
-#, fuzzy
 msgid "Message cannot be aborted"
-msgstr "Tega vtičnika ne morete onemogočiti"
+msgstr "Sporočila ni mogoče prekiniti"
 
 msgid "You have insufficient privileges to delete items in this folder"
 msgstr "Za brisanje elementov v tej mapi nimate dovolj pravic"
@@ -8448,11 +7683,9 @@ msgstr "Vaše sporočilo ni doseglo nekaterih ali vseh nameravanih prejemnikov"
 msgid "The following recipient(s) could not be reached"
 msgstr "Naslednji prejemnik (ki) niso bili doseženi"
 
-#, fuzzy
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "Za ogled vsebine te mape nimate zadostnih pravic."
 
-#, fuzzy
 msgid "Could not load the contents of this folder."
 msgstr "Vsebine te mape ni bilo mogoče naložiti."
 
@@ -8461,76 +7694,57 @@ msgid ""
 "You have insufficient privileges to perform search operation in this folder."
 msgstr "Nimate dovolj pravic za izvedbo iskanja v tej mapi."
 
-#, fuzzy
 msgid "Could not update search results."
 msgstr "Rezultatov iskanja ni bilo mogoče posodobiti."
 
-#, fuzzy
 msgid "Could not stop search operation."
 msgstr "Iskanja ni bilo mogoče ustaviti."
 
-#, fuzzy
 msgid "You have insufficient privileges to save this message."
 msgstr "Za shranjevanje tega sporočila nimate zadostnih pravic."
 
-#, fuzzy
 msgid "Could not save message."
 msgstr "Sporočila ni bilo mogoče shraniti."
 
-#, fuzzy
 msgid "You have insufficient privileges to delete this message."
 msgstr "Za brisanje tega sporočila nimate dovolj pravic."
 
-#, fuzzy
 msgid "Could not delete message."
 msgstr "Sporočila ni bilo mogoče izbrisati."
 
-#, fuzzy
 msgid "You have insufficient privileges to cancel this Meeting Request."
 msgstr "Za preklic tega zahtevka za sestanek nimate dovolj pravic."
 
-#, fuzzy
 msgid "Could not cancel Meeting Request."
 msgstr "Zahteve za sestanek ni bilo mogoče preklicati."
 
-#, fuzzy
 msgid "You have insufficient privileges to decline this Meeting Request."
 msgstr "Nimate dovolj pravic, da bi zavrnili to zahtevo za sestanek."
 
-#, fuzzy
 msgid "Could not decline Meeting Request."
 msgstr "Zahteve za sestanek ni bilo mogoče zavrniti."
 
-#, fuzzy
 msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr "Nimate dovolj pravic, da bi lahko sprejeli to zahtevo za sestanek."
+msgstr "Nimate dovolj pravic, da bi sprejeli to zahtevo za sestanek."
 
-#, fuzzy
 msgid "Could not accept Meeting Request."
 msgstr "Ni bilo mogoče sprejeti zahteve za sestanek."
 
-#, fuzzy
 msgid "You have insufficient privileges to cancel Meeting Request invitation."
-msgstr ""
-"Nimate dovolj pravic, da bi preklicali povabilo za zahtevek za sestanek."
+msgstr "Nimate dovolj pravic, da bi preklicali povabilo za zahtevek za sestanek."
 
-#, fuzzy
 msgid "Could not cancel Meeting Request invitations."
 msgstr "Ni bilo mogoče preklicati vabil za zahtevek za sestanek."
 
-#, fuzzy
 msgid "You can not continue search operation on this folder."
 msgstr "V tej mapi ne morete nadaljevati iskanja."
 
-#, fuzzy
 msgid "Error in search, please try again."
 msgstr "Napaka pri iskanju, poskusite znova."
 
-#, fuzzy
 msgid "Error in distribution list expansion."
 msgstr "Napaka pri razširitvi distribucijskega seznama."
 
-#, fuzzy
 msgid "The message store has exceeded its hard quota limit."
 msgstr "Trgovina s sporočili je presegla omejitev trde kvote."
 
@@ -8543,59 +7757,46 @@ msgstr ""
 "elementov, ki jih ne potrebujete več, jih izbrišite in očistite mapo "
 "Izbrisani elementi."
 
-#, fuzzy
 msgid "The message store has exceeded its soft quota limit."
 msgstr "Skladišče sporočil je preseglo omejitev mehke kvote."
 
-#, fuzzy
 msgid "Could not process request data properly."
 msgstr "Podatkov zahteve ni bilo mogoče pravilno obdelati."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Unknown action type specified - %s"
-msgstr "Navedena neznana vrsta ukrepa - %s"
+msgstr "Navedena neznana vrsta akcije - %s"
 
-#, fuzzy
 msgid "Cannot snooze the reminder. You may be reminded again."
 msgstr "Opomnika ne morete odložiti. Opomin se lahko ponovi."
 
-#, fuzzy
 msgid "Cannot dismiss the reminder. You may be reminded again."
 msgstr "Opomnika ni mogoče zavrniti. Lahko vas ponovno opomni."
 
-#, fuzzy
 msgid "You have insufficient privileges to perform this action."
 msgstr "Za izvedbo tega dejanja nimate zadostnih pravic."
 
-#, fuzzy
 msgid "Could not resolve user."
 msgstr "Uporabnika ni bilo mogoče razrešiti."
 
-#, fuzzy
 msgid "Setting mail filters on the stores of other users is not allowed."
-msgstr ""
-"Nastavljanje poštnih filtrov v trgovinah drugih uporabnikov ni dovoljeno."
+msgstr "Nastavljanje poštnih filtrov v trgovinah drugih uporabnikov ni dovoljeno."
 
-#, fuzzy
 msgid "Untitled rule"
 msgstr "Pravilo brez naslova"
 
-#, fuzzy
 msgid "Could not load rules."
 msgstr "Pravil ni bilo mogoče naložiti."
 
-#, fuzzy
 msgid "Could not save rules."
 msgstr "Pravil ni bilo mogoče shraniti."
 
-#, fuzzy
 msgid "Task Request:"
 msgstr "Zahteva za nalogo:"
 
 msgid "Sign in"
 msgstr "Prijava"
 
-#, fuzzy
 msgid "File is not imported successfully"
 msgstr "Datoteka ni uspešno uvožena"
 
@@ -8630,7 +7831,6 @@ msgstr ""
 "ugotavljanje, katera razširitev je povzročila prekinitev prenosa datoteke; "
 "pomagal bi lahko pregled seznama naloženih razširitev s funkcijo phpinfo()."
 
-#, fuzzy
 msgid "There is no contact found in this file."
 msgstr "V tej datoteki ni nobenega stika."
 
@@ -8656,23 +7856,18 @@ msgstr "KB"
 msgid "B"
 msgstr "B"
 
-#, fuzzy
 msgid "The maximum stack depth has been exceeded"
 msgstr "Največja globina sklada je presežena"
 
-#, fuzzy
 msgid "Control character error, possibly incorrectly encoded"
 msgstr "Napaka kontrolnega znaka, morda nepravilno kodirana"
 
-#, fuzzy
 msgid "Invalid or malformed JSON"
 msgstr "Nepravilen ali napačno oblikovan JSON"
 
-#, fuzzy
 msgid "Syntax error"
 msgstr "Napaka sintakse"
 
-#, fuzzy
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "Napačno oblikovani znaki UTF-8, morda nepravilno kodirani"
 

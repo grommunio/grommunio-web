@@ -4605,7 +4605,7 @@ msgid "{A}Automatically mark mail as read after {B} second(s)"
 msgstr "{A} {B}초 후에 자동으로 메일을 읽음으로 표시합니다."
 
 msgid "View mail in this format"
-msgstr ""
+msgstr "이 형식의 메일 보기"
 
 msgid "Right"
 msgstr "오른쪽"
@@ -5501,7 +5501,7 @@ msgid "Desktop Notifications"
 msgstr "데스크톱 알림"
 
 msgid "Files: Default plugin"
-msgstr ""
+msgstr "파일: 기본 플러그인"
 
 msgid "Loading users and groups"
 msgstr "사용자 및 그룹 로드"
@@ -5558,28 +5558,28 @@ msgid "Loading details…"
 msgstr "세부 정보 로드 중..."
 
 msgid "Files: Seafile Backend"
-msgstr ""
+msgstr "파일: 씨파일 백엔드"
 
 msgid "Copy link to clipboard"
-msgstr ""
+msgstr "클립보드에 링크 복사"
 
 msgid "Link copied to clipboard"
-msgstr ""
+msgstr "링크가 클립보드에 복사됨"
 
 msgid "Clipboard"
-msgstr ""
+msgstr "클립보드"
 
 msgid "Could not copy link automatically. Please copy it manually."
-msgstr ""
+msgstr "링크를 자동으로 복사할 수 없습니다. 수동으로 복사해 주세요."
 
 msgid "Loading details..."
-msgstr ""
+msgstr "세부 정보 로드 중..."
 
 msgid "Share"
 msgstr "공유"
 
 msgid "Loading..."
-msgstr ""
+msgstr "로드 중..."
 
 msgid "Add attachment from {0}"
 msgstr "0}에서 첨부 파일 추가"
@@ -5667,7 +5667,7 @@ msgid "Files Plugin"
 msgstr "파일 플러그인"
 
 msgid "Default"
-msgstr ""
+msgstr "기본값"
 
 msgid "Manage Accounts"
 msgstr "계정 관리"
@@ -5960,88 +5960,88 @@ msgid "Intranet"
 msgstr "인트라넷"
 
 msgid "Archive to InfoShare"
-msgstr ""
+msgstr "InfoShare에 아카이브"
 
 msgid "Kendox InfoShare"
-msgstr ""
+msgstr "Kendox InfoShare"
 
 msgid "Constraints for single attachment archiving"
-msgstr ""
+msgstr "단일 첨부 파일 보관에 대한 제약 조건"
 
 msgid "Max count attachments"
-msgstr ""
+msgstr "최대 첨부 파일 수"
 
 msgid "Max size all selected attachments (MB)"
-msgstr ""
+msgstr "선택한 모든 첨부 파일의 최대 크기(MB)"
 
 msgid "Selection Kendox InfoShare environment"
-msgstr ""
+msgstr "선택 Kendox InfoShare 환경"
 
 msgid "Production"
-msgstr ""
+msgstr "프로덕션"
 
 msgid "Test"
-msgstr ""
+msgstr "테스트"
 
 msgid "URLs for production environment"
-msgstr ""
+msgstr "프로덕션 환경용 URL"
 
 msgid "Kendox InfoShare API URL"
-msgstr ""
+msgstr "Kendox InfoShare API URL"
 
 msgid "Kendox InfoShare Web dialog URL"
-msgstr ""
+msgstr "Kendox InfoShare 웹 대화 상자 URL"
 
 msgid "URLs for test environment"
-msgstr ""
+msgstr "테스트 환경용 URL"
 
 msgid "Mail/Document archive to Kendox InfoShare"
-msgstr ""
+msgstr "메일/문서 아카이브를 Kendox InfoShare로 보내기"
 
 msgid "Attachment information is requested"
-msgstr ""
+msgstr "첨부 파일 정보가 요청됩니다"
 
 msgid "Please select the type of Archive (max"
-msgstr ""
+msgstr "아카이브 유형을 선택하세요(최대"
 
 msgid "files, max"
-msgstr ""
+msgstr "파일, 최대"
 
 msgid "MB total size)"
-msgstr ""
+msgstr "총 크기(MB)"
 
 msgid "Everything - Store mail in original format"
-msgstr ""
+msgstr "모든 것 - 메일을 원본 형식으로 저장"
 
 msgid "Email only - Store mail without attachments"
 msgstr "메일만 - 첨부 파일 없이 메일 저장"
 
 msgid "Separate - Store attachments separately"
-msgstr ""
+msgstr "분리 - 첨부 파일을 별도로 저장"
 
 msgid "No attachments available in mail"
-msgstr ""
+msgstr "메일에 첨부 파일 없음"
 
 msgid "Start archive"
-msgstr ""
+msgstr "아카이브 시작"
 
 msgid "embedded"
 msgstr "내장됨"
 
 msgid "Reading attachment information failed"
-msgstr ""
+msgstr "첨부 파일 정보 읽기에 실패했습니다"
 
 msgid "Files are sent to Kendox InfoShare"
-msgstr ""
+msgstr "파일이 Kendox InfoShare로 전송됩니다"
 
 msgid "With the selection of separate attachments a maximum of"
-msgstr ""
+msgstr "별도의 첨부 파일을 선택하면 최대"
 
 msgid "attachments can be selected. There have been"
-msgstr ""
+msgstr "첨부파일을 선택할 수 있습니다. 다음이 있습니다"
 
 msgid "attachments selected"
-msgstr ""
+msgstr "선택한 첨부 파일"
 
 msgid ""
 "With the selection of separate attachments the total size of all attachments "
@@ -6049,13 +6049,13 @@ msgid ""
 msgstr ""
 
 msgid "MB. There have been"
-msgstr ""
+msgstr "MB. 다음이 있었습니다"
 
 msgid "MB selected."
-msgstr ""
+msgstr "MB가 선택되었습니다."
 
 msgid "Sending of mail failed"
-msgstr ""
+msgstr "메일 전송에 실패했습니다"
 
 msgid "Openstreetmap"
 msgstr "오픈스트리트맵"
@@ -6700,10 +6700,10 @@ msgstr ""
 "템 관리자에게 문의하세요."
 
 msgid "This backend provides the default WebDAV integration for Files."
-msgstr ""
+msgstr "이 백엔드는 파일에 대한 기본 WebDAV 통합 기능을 제공합니다."
 
 msgid "Files Default Backend: "
-msgstr ""
+msgstr "파일 기본 백엔드: "
 
 msgid "Server address"
 msgstr "서버 주소"
@@ -6776,34 +6776,34 @@ msgid "PHP-Curl is not available."
 msgstr "PHP-Curl을 사용할 수 없습니다."
 
 msgid "With this backend, you can connect to any Seafile server."
-msgstr ""
+msgstr "이 백엔드를 사용하면 모든 Seafile 서버에 연결할 수 있습니다."
 
 msgid "Files "
-msgstr ""
+msgstr "파일 "
 
 msgid "Use SSL"
-msgstr ""
+msgstr "SSL 사용"
 
 msgid "Seafile is not reachable. Correct backend address entered?"
-msgstr ""
+msgstr "씨파일에 연결할 수 없습니다. 올바른 백엔드 주소를 입력하셨나요?"
 
 msgid "You don't have enough permissions for this operation."
-msgstr ""
+msgstr "이 작업을 수행할 수 있는 권한이 충분하지 않습니다."
 
 msgid "File is not available any more."
-msgstr ""
+msgstr "파일을 더 이상 사용할 수 없습니다."
 
 msgid "Connection to server timed out. Retry later."
-msgstr ""
+msgstr "서버 연결 시간이 초과되었습니다. 나중에 다시 시도하세요."
 
 msgid "This file is locked by another user."
-msgstr ""
+msgstr "이 파일은 다른 사용자에 의해 잠겨 있습니다."
 
 msgid "The request failed due to failure of a previous request."
-msgstr ""
+msgstr "이전 요청의 실패로 인해 요청이 실패했습니다."
 
 msgid "Seafile-server encountered a problem."
-msgstr ""
+msgstr "Seafile 서버에 문제가 발생했습니다."
 
 msgid ""
 "Could not write to temporary directory. Contact the server administrator."
@@ -6814,10 +6814,10 @@ msgid ""
 msgstr ""
 
 msgid "PHP-Curl is not available. Contact your system administrator."
-msgstr ""
+msgstr "PHP-Curl을 사용할 수 없습니다. 시스템 관리자에게 문의하세요."
 
 msgid "This function is not yet implemented."
-msgstr ""
+msgstr "이 기능은 아직 구현되지 않았습니다."
 
 msgid "Unknown account ID"
 msgstr "알 수 없는 계정 ID"
@@ -6910,7 +6910,7 @@ msgid "Kendox certificate password is not configured."
 msgstr "Kendox 인증서 비밀번호가 구성되지 않았습니다."
 
 msgid "Kendox certificate is not available."
-msgstr ""
+msgstr "Kendox 인증서를 사용할 수 없습니다."
 
 msgid "Kendox certificate is not readable."
 msgstr "Kendox 인증서를 읽을 수 없습니다."
@@ -6950,7 +6950,7 @@ msgid "No certificate available"
 msgstr "사용 가능한 인증서 없음"
 
 msgid "Private certificate has expired, unable to sign email"
-msgstr ""
+msgstr "개인 인증서가 만료되어 이메일에 서명할 수 없습니다"
 
 msgid "Private certificate is not valid yet, unable to sign email"
 msgstr "개인 인증서가 아직 유효하지 않아 이메일에 서명할 수 없습니다."

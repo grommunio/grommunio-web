@@ -4719,7 +4719,7 @@ msgid "{A}Automatically mark mail as read after {B} second(s)"
 msgstr "{A}Wartezeit bevor die „gelesen“-Markierung gesezt wird: {B} Sekunden"
 
 msgid "View mail in this format"
-msgstr ""
+msgstr "E-Mail in diesem Format anzeigen"
 
 msgid "Right"
 msgstr "Rechts"
@@ -5644,7 +5644,7 @@ msgid "Desktop Notifications"
 msgstr "Desktopbenachrichtigungen"
 
 msgid "Files: Default plugin"
-msgstr ""
+msgstr "Dateien: Standard-Plugin"
 
 msgid "Loading users and groups"
 msgstr "Lade Benutzer und Gruppen"
@@ -5701,28 +5701,30 @@ msgid "Loading details…"
 msgstr "Lade Details…"
 
 msgid "Files: Seafile Backend"
-msgstr ""
+msgstr "Dateien: Seafile Backend"
 
 msgid "Copy link to clipboard"
-msgstr ""
+msgstr "Link in die Zwischenablage kopieren"
 
 msgid "Link copied to clipboard"
-msgstr ""
+msgstr "Link in die Zwischenablage kopiert"
 
 msgid "Clipboard"
-msgstr ""
+msgstr "Zwischenablage"
 
 msgid "Could not copy link automatically. Please copy it manually."
 msgstr ""
+"Der Link konnte nicht automatisch kopiert werden. Bitte kopieren Sie ihn "
+"manuell."
 
 msgid "Loading details..."
-msgstr ""
+msgstr "Details laden..."
 
 msgid "Share"
 msgstr "Teilen"
 
 msgid "Loading..."
-msgstr ""
+msgstr "Laden..."
 
 msgid "Add attachment from {0}"
 msgstr "Datei aus {0} einfügen"
@@ -5816,7 +5818,7 @@ msgid "Files Plugin"
 msgstr "Files Plugin"
 
 msgid "Default"
-msgstr ""
+msgstr "Standard"
 
 msgid "Manage Accounts"
 msgstr "Accounts verwalten"
@@ -6887,10 +6889,10 @@ msgstr ""
 "wenden Sie sich an Ihren Administrator."
 
 msgid "This backend provides the default WebDAV integration for Files."
-msgstr ""
+msgstr "Dieses Backend bietet die standardmäßige WebDAV-Integration für Dateien."
 
 msgid "Files Default Backend: "
-msgstr ""
+msgstr "Dateien Standard-Backend: "
 
 msgid "Server address"
 msgstr "Serveradresse"
@@ -6968,16 +6970,16 @@ msgid "PHP-Curl is not available."
 msgstr "php-curl ist nicht verfügbar."
 
 msgid "With this backend, you can connect to any Seafile server."
-msgstr ""
+msgstr "Mit diesem Backend können Sie sich mit jedem Seafile-Server verbinden."
 
 msgid "Files "
-msgstr ""
+msgstr "Dateien "
 
 msgid "Use SSL"
 msgstr "SSL verwenden"
 
 msgid "Seafile is not reachable. Correct backend address entered?"
-msgstr ""
+msgstr "Seafile ist nicht erreichbar. Korrekte Backend-Adresse eingegeben?"
 
 msgid "You don't have enough permissions for this operation."
 msgstr "Sie haben keine Berechtigung für diese Operation."
@@ -6995,7 +6997,7 @@ msgid "The request failed due to failure of a previous request."
 msgstr "Anfrage aufgrund einer vorher fehlgeschlagenen Anfrage fehlgeschlagen."
 
 msgid "Seafile-server encountered a problem."
-msgstr ""
+msgstr "Bei Seafile-server ist ein Problem aufgetreten."
 
 msgid ""
 "Could not write to temporary directory. Contact the server administrator."
@@ -7011,7 +7013,7 @@ msgid "PHP-Curl is not available. Contact your system administrator."
 msgstr "PHP-Curl ist nicht installiert. Bitte den Administrator kontaktieren."
 
 msgid "This function is not yet implemented."
-msgstr ""
+msgstr "Diese Funktion ist noch nicht implementiert."
 
 msgid "Unknown account ID"
 msgstr "Unbekannte Account-ID"

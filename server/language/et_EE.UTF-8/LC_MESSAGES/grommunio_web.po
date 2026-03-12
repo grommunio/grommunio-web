@@ -4662,7 +4662,7 @@ msgid "{A}Automatically mark mail as read after {B} second(s)"
 msgstr "{A}Märgi e-kiri automaatselt loetuks pärast {B} sekundit"
 
 msgid "View mail in this format"
-msgstr ""
+msgstr "Vaata posti selles formaadis"
 
 msgid "Right"
 msgstr "Õigus"
@@ -5568,7 +5568,7 @@ msgid "Desktop Notifications"
 msgstr "Töölaua teated"
 
 msgid "Files: Default plugin"
-msgstr ""
+msgstr "Failid: Vaikimisi plugin"
 
 msgid "Loading users and groups"
 msgstr "Kasutajate ja rühmade laadimine"
@@ -5625,28 +5625,28 @@ msgid "Loading details…"
 msgstr "Laadime üksikasju…"
 
 msgid "Files: Seafile Backend"
-msgstr ""
+msgstr "Failid: Seafile Backend"
 
 msgid "Copy link to clipboard"
-msgstr ""
+msgstr "Kopeeri link lõikelauale"
 
 msgid "Link copied to clipboard"
-msgstr ""
+msgstr "Link kopeeritakse lõikelauale"
 
 msgid "Clipboard"
-msgstr ""
+msgstr "Klambrilaua"
 
 msgid "Could not copy link automatically. Please copy it manually."
-msgstr ""
+msgstr "Linki ei saanud automaatselt kopeerida. Palun kopeerige see käsitsi."
 
 msgid "Loading details..."
-msgstr ""
+msgstr "Detailide laadimine..."
 
 msgid "Share"
 msgstr "Jaga"
 
 msgid "Loading..."
-msgstr ""
+msgstr "Laadimine..."
 
 msgid "Add attachment from {0}"
 msgstr "Lisa manus alates {0}"
@@ -5736,7 +5736,7 @@ msgid "Files Plugin"
 msgstr "Failide pistikprogramm"
 
 msgid "Default"
-msgstr ""
+msgstr "Vaikimisi"
 
 msgid "Manage Accounts"
 msgstr "Halda kontosid"
@@ -6783,10 +6783,10 @@ msgstr ""
 "saadaval. Palun võtke ühendust oma süsteemiadministraatoriga."
 
 msgid "This backend provides the default WebDAV integration for Files."
-msgstr ""
+msgstr "See backend pakub failide jaoks vaikimisi WebDAV-integratsiooni."
 
 msgid "Files Default Backend: "
-msgstr ""
+msgstr "Failid Vaikimisi Backend: "
 
 msgid "Server address"
 msgstr "Serveri aadress"
@@ -6859,34 +6859,34 @@ msgid "PHP-Curl is not available."
 msgstr "PHP-Curl ei ole saadaval."
 
 msgid "With this backend, you can connect to any Seafile server."
-msgstr ""
+msgstr "Selle backendiga saate ühendada mis tahes Seafile'i serveriga."
 
 msgid "Files "
-msgstr ""
+msgstr "Failid "
 
 msgid "Use SSL"
-msgstr ""
+msgstr "Kasutage SSL-i"
 
 msgid "Seafile is not reachable. Correct backend address entered?"
-msgstr ""
+msgstr "Seafile ei ole kättesaadav. Kas sisestatud on õige backend-aadress?"
 
 msgid "You don't have enough permissions for this operation."
-msgstr ""
+msgstr "Teil ei ole selle toimingu jaoks piisavalt õigusi."
 
 msgid "File is not available any more."
-msgstr ""
+msgstr "Fail ei ole enam saadaval."
 
 msgid "Connection to server timed out. Retry later."
-msgstr ""
+msgstr "Ühendus serveriga on aegunud. Proovige hiljem uuesti."
 
 msgid "This file is locked by another user."
-msgstr ""
+msgstr "See fail on lukustatud teise kasutaja poolt."
 
 msgid "The request failed due to failure of a previous request."
-msgstr ""
+msgstr "Taotlus ebaõnnestus eelmise taotluse ebaõnnestumise tõttu."
 
 msgid "Seafile-server encountered a problem."
-msgstr ""
+msgstr "Seafile-serveril tekkis probleem."
 
 msgid ""
 "Could not write to temporary directory. Contact the server administrator."
@@ -6897,10 +6897,10 @@ msgid ""
 msgstr ""
 
 msgid "PHP-Curl is not available. Contact your system administrator."
-msgstr ""
+msgstr "PHP-Curl ei ole saadaval. Võtke ühendust oma süsteemiadministraatoriga."
 
 msgid "This function is not yet implemented."
-msgstr ""
+msgstr "Seda funktsiooni ei ole veel rakendatud."
 
 msgid "Unknown account ID"
 msgstr "Tundmatu konto ID"

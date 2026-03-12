@@ -1616,7 +1616,6 @@ msgstr ""
 "Copiar esta nomeação irá desestabilizá-lo como privado. Tem a certeza de que "
 "quer continuar?"
 
-#, fuzzy
 msgid "Private item"
 msgstr "Artigo privado"
 
@@ -2426,21 +2425,17 @@ msgstr ""
 msgid "Add/Edit Cc recipient"
 msgstr "Adicionar/editar destinatário Cc"
 
-#, fuzzy
 msgid "Disable for new mail"
-msgstr "Desactivar para correio novo"
+msgstr "Desativar para correio novo"
 
-#, fuzzy
 msgid "Enable for new mail"
-msgstr "Habilitar para novo correio"
+msgstr "Ativar para novo correio"
 
-#, fuzzy
 msgid "Disable for replies"
-msgstr "Desactivar para respostas"
+msgstr "Desativar para respostas"
 
-#, fuzzy
 msgid "Enable for replies"
-msgstr "Habilitar para respostas"
+msgstr "Ativar para respostas"
 
 msgid "No Cc recipient configured"
 msgstr "Nenhum destinatário Cc  configurado"
@@ -2470,9 +2465,8 @@ msgstr ""
 msgid "Help"
 msgstr "Ajuda"
 
-#, fuzzy
 msgid "Web Manual"
-msgstr "Manual da Web"
+msgstr "Manual Web"
 
 msgid "Item data"
 msgstr "Data do item"
@@ -2486,9 +2480,8 @@ msgstr "Ordenar por: context.mail.griddefaultcolumn"
 msgid "ZDeveloper"
 msgstr "ZDeveloper"
 
-#, fuzzy
 msgid "grommunio Web print"
-msgstr "grommunio Web print"
+msgstr "grommunio Impressão na Web"
 
 msgid "Display name"
 msgstr "Nome a mostrar"
@@ -3895,7 +3888,6 @@ msgstr "Laranja"
 msgid "Lime"
 msgstr "Lima"
 
-#, fuzzy
 msgid "Magenta"
 msgstr "Magenta"
 
@@ -4024,9 +4016,8 @@ msgstr "Este item foi alterado. Tem a certeza que o quer eliminar?"
 msgid "Unsaved changes"
 msgstr "Alterações por gravar"
 
-#, fuzzy
 msgid "Welcome to grommunio Web"
-msgstr "Bem-vindo à grommunio Web"
+msgstr "Bem-vindo ao grommunio Web"
 
 msgid "This is the first time you are using grommunio Web. "
 msgstr "Esta é a primeira vez que está a usar a grommunio Web. "
@@ -4139,11 +4130,9 @@ msgstr "Revisor"
 msgid "Contributor"
 msgstr "Contribuidor"
 
-#, fuzzy
 msgid "Free/Busy time, subject, location"
-msgstr "Tempo livre/ocupado, assunto, localização"
+msgstr "Tempo livre/ocupado, tema, localização"
 
-#, fuzzy
 msgid "Free/Busy time"
 msgstr "Tempo livre/ocupado"
 
@@ -4246,9 +4235,8 @@ msgstr "Contacto da pasta"
 msgid "Folder visible"
 msgstr "Pasta visível"
 
-#, fuzzy
 msgid "Apply (copy) changed permissions recursively"
-msgstr "Aplicar (copiar) as permissões alteradas de forma recorrente"
+msgstr "Aplicar (copiar) permissões alteradas de forma recursiva"
 
 msgid "User already exists"
 msgstr "Utilizador já existe"
@@ -4601,7 +4589,6 @@ msgstr "ENC"
 msgid "Re"
 msgstr "RES"
 
-#, fuzzy
 msgid "on behalf of"
 msgstr "em nome de"
 
@@ -4688,7 +4675,7 @@ msgid "{A}Automatically mark mail as read after {B} second(s)"
 msgstr "{A}Marcar automaticamente os E-mails como lidos após {B} segundo(s)"
 
 msgid "View mail in this format"
-msgstr ""
+msgstr "Ver correio neste formato"
 
 msgid "Right"
 msgstr "À direita"
@@ -4733,28 +4720,23 @@ msgid "Automatically reply with the following message:"
 msgstr "Responder automaticamente o seguinte texto:"
 
 msgid "(The frequency of replies is dependent on server configuration.)"
-msgstr ""
+msgstr "(A frequência das respostas depende da configuração do servidor)"
 
-#, fuzzy
 msgid "Inside My Organization"
-msgstr "Dentro da Minha Organização"
+msgstr "Dentro da minha organização"
 
 msgid "User is currently out of office."
 msgstr "O utilizador está ausente do escritório de momento."
 
-#, fuzzy
 msgid "Outside My Organization"
 msgstr "Fora da minha organização"
 
-#, fuzzy
 msgid "Auto-reply to people outside my organization"
 msgstr "Resposta automática a pessoas fora da minha organização"
 
-#, fuzzy
 msgid "My contacts only"
 msgstr "Apenas os meus contactos"
 
-#, fuzzy
 msgid "Anyone outside my organization"
 msgstr "Qualquer pessoa fora da minha organização"
 
@@ -4945,9 +4927,8 @@ msgstr "Definições"
 msgid "Basic"
 msgstr "Básico"
 
-#, fuzzy
 msgid "Account information - {0}"
-msgstr "Informação sobre a conta - {0}{2}"
+msgstr "Informações sobre a conta - {0}"
 
 msgid "Profile Picture"
 msgstr "Imagem de Perfil"
@@ -5100,9 +5081,8 @@ msgstr "Atalhos teclado básicos ligados"
 msgid "All keyboard shortcuts on"
 msgstr "Todos atalhos teclado ligados"
 
-#, fuzzy
 msgid "This change requires a reload of grommunio Web"
-msgstr "Esta mudança requer uma recarga de grommunio Web"
+msgstr "Esta alteração requer um recarregamento do grommunio Web"
 
 msgid "Plugins"
 msgstr "Plugins"
@@ -5511,11 +5491,9 @@ msgid "Connection with server has been restored"
 msgstr "A ligação com o servidor foi reposta"
 
 #. TRANSLATORS: Example: HTTP 404
-#, fuzzy
 msgid "HTTP {0}"
 msgstr "HTTP {0}"
 
-#, fuzzy
 msgid "Invalid data received from the server"
 msgstr "Dados inválidos recebidos do servidor"
 
@@ -5593,20 +5571,17 @@ msgstr "\"Fora do escritório\" está atualmente ativo. Deseja desativar?"
 msgid "Archive"
 msgstr "Arquivo"
 
-#, fuzzy
 msgid "Open Chat at start"
-msgstr "Conversa aberta no início"
+msgstr "Abrir Chat no início"
 
-#, fuzzy
 msgid "Desktop Notifications Plugin"
-msgstr "Plugin de Notificações Desktop"
+msgstr "Plugin de notificações de ambiente de trabalho"
 
-#, fuzzy
 msgid "Desktop Notifications"
-msgstr "Notificações Desktop"
+msgstr "Notificações no ambiente de trabalho"
 
 msgid "Files: Default plugin"
-msgstr ""
+msgstr "Ficheiros: Plugin predefinido"
 
 msgid "Loading users and groups"
 msgstr "A carregar utilizadores e grupos"
@@ -5656,36 +5631,37 @@ msgstr "Envio pblico"
 msgid "Expiration date"
 msgstr "Data de expirao"
 
-#, fuzzy
 msgid "More than 1 share link exists. Only showing the latest one"
-msgstr "Existe mais de 1 ligação de acções. Mostrando apenas a mais recente"
+msgstr "Existe mais de 1 ligação de partilha. Só mostra a mais recente"
 
 msgid "Loading details…"
 msgstr "A carregar detalhes…"
 
 msgid "Files: Seafile Backend"
-msgstr ""
+msgstr "Ficheiros: Backend do Seafile"
 
 msgid "Copy link to clipboard"
-msgstr ""
+msgstr "Copiar ligação para a área de transferência"
 
 msgid "Link copied to clipboard"
-msgstr ""
+msgstr "Ligação copiada para a área de transferência"
 
 msgid "Clipboard"
-msgstr ""
+msgstr "Área de transferência"
 
 msgid "Could not copy link automatically. Please copy it manually."
 msgstr ""
+"Não foi possível copiar a hiperligação automaticamente. Por favor, copie-a "
+"manualmente."
 
 msgid "Loading details..."
-msgstr ""
+msgstr "Carregando detalhes..."
 
 msgid "Share"
 msgstr "Partilhar"
 
 msgid "Loading..."
-msgstr ""
+msgstr "Carregando..."
 
 msgid "Add attachment from {0}"
 msgstr "Adicionar anexo {0}"
@@ -5777,7 +5753,7 @@ msgid "Files Plugin"
 msgstr "Plugin Ficheiros"
 
 msgid "Default"
-msgstr ""
+msgstr "Predefinição"
 
 msgid "Manage Accounts"
 msgstr "Gerir contas"
@@ -5806,9 +5782,8 @@ msgstr ""
 "grommunio Web recomeçará automaticamente para que estas alterações tenham "
 "efeito."
 
-#, fuzzy
 msgid "grommunio Web is reloading, Please wait."
-msgstr "grommunio Web está a recarregar, Por favor aguarde."
+msgstr "grommunio O Web está a ser recarregado, aguarde."
 
 msgid "Edit Account"
 msgstr "Editar conta"
@@ -5903,13 +5878,11 @@ msgstr "Tem que escolher pelo menos um ficheiro!"
 msgid "Create New "
 msgstr "Criar novo "
 
-#, fuzzy
 msgid "Incorrect filename"
-msgstr "Nome de arquivo incorrecto"
+msgstr "Nome de ficheiro incorreto"
 
-#, fuzzy
 msgid "Error reaching office backend"
-msgstr "Erro ao chegar ao backend do escritório"
+msgstr "Erro ao aceder ao backend do Office"
 
 msgid "Folder already exists"
 msgstr "A pasta já existe"
@@ -6003,11 +5976,9 @@ msgstr "Planilha"
 msgid "Upload files"
 msgstr "Enviar ficheiros"
 
-#, fuzzy
 msgid "Create document"
 msgstr "Criar documento"
 
-#, fuzzy
 msgid "Create office document"
 msgstr "Criar documento de escritório"
 
@@ -6017,9 +5988,8 @@ msgstr "Transferir ficheiros"
 msgid "Attach to mail"
 msgstr "Anexar à mensagem"
 
-#, fuzzy
 msgid "Attach to mail as link"
-msgstr "Anexar ao correio como link"
+msgstr "Anexar ao correio como ligação"
 
 msgid "Attaching"
 msgstr "A anexar"
@@ -6078,98 +6048,97 @@ msgstr "Não existem itens para exibir nesta vista"
 msgid "files selected"
 msgstr "ficheiros selecionados"
 
-#, fuzzy
 msgid "Authentication required, when using grommunio-files for the first time"
 msgstr ""
-"Autenticação necessária, quando se utilizam pela primeira vez grommunio-files"
+"Autenticação necessária, quando se utiliza o grommunio-files pela primeira "
+"vez"
 
-#, fuzzy
 msgid "Intranet"
 msgstr "Intranet"
 
 msgid "Archive to InfoShare"
-msgstr ""
+msgstr "Arquivo para InfoShare"
 
 msgid "Kendox InfoShare"
-msgstr ""
+msgstr "Kendox InfoShare"
 
 msgid "Constraints for single attachment archiving"
-msgstr ""
+msgstr "Restrições para arquivamento de anexo único"
 
 msgid "Max count attachments"
-msgstr ""
+msgstr "Contagem máxima de acessórios"
 
 msgid "Max size all selected attachments (MB)"
-msgstr ""
+msgstr "Tamanho máximo de todos os anexos selecionados (MB)"
 
 msgid "Selection Kendox InfoShare environment"
-msgstr ""
+msgstr "Seleção do ambiente Kendox InfoShare"
 
 msgid "Production"
-msgstr ""
+msgstr "Produção"
 
 msgid "Test"
-msgstr ""
+msgstr "Teste"
 
 msgid "URLs for production environment"
-msgstr ""
+msgstr "URLs para ambiente de produção"
 
 msgid "Kendox InfoShare API URL"
-msgstr ""
+msgstr "URL da API do Kendox InfoShare"
 
 msgid "Kendox InfoShare Web dialog URL"
-msgstr ""
+msgstr "URL do diálogo da Web do Kendox InfoShare"
 
 msgid "URLs for test environment"
-msgstr ""
+msgstr "URLs para ambiente de teste"
 
 msgid "Mail/Document archive to Kendox InfoShare"
-msgstr ""
+msgstr "Arquivo de correio/Documento para Kendox InfoShare"
 
 msgid "Attachment information is requested"
-msgstr ""
+msgstr "São solicitadas informações sobre os anexos"
 
 msgid "Please select the type of Archive (max"
-msgstr ""
+msgstr "Selecionar o tipo de arquivo (máx"
 
 msgid "files, max"
-msgstr ""
+msgstr "ficheiros, máximo"
 
 msgid "MB total size)"
-msgstr ""
+msgstr "MB de tamanho total)"
 
 msgid "Everything - Store mail in original format"
-msgstr ""
+msgstr "Tudo - Guardar o correio no formato original"
 
 msgid "Email only - Store mail without attachments"
 msgstr "Apenas e-mail - Armazenar correio sem anexos"
 
 msgid "Separate - Store attachments separately"
-msgstr ""
+msgstr "Separar - Armazenar os anexos separadamente"
 
 msgid "No attachments available in mail"
-msgstr ""
+msgstr "Não existem anexos disponíveis no correio eletrónico"
 
 msgid "Start archive"
-msgstr ""
+msgstr "Iniciar arquivo"
 
 msgid "embedded"
 msgstr "incorporado"
 
 msgid "Reading attachment information failed"
-msgstr ""
+msgstr "Falha na leitura das informações do anexo"
 
 msgid "Files are sent to Kendox InfoShare"
-msgstr ""
+msgstr "Os ficheiros são enviados para o Kendox InfoShare"
 
 msgid "With the selection of separate attachments a maximum of"
-msgstr ""
+msgstr "Com a seleção de anexos separados, um máximo de"
 
 msgid "attachments can be selected. There have been"
-msgstr ""
+msgstr "anexos podem ser selecionados. Foram efectuados"
 
 msgid "attachments selected"
-msgstr ""
+msgstr "anexos selecionados"
 
 msgid ""
 "With the selection of separate attachments the total size of all attachments "
@@ -6177,17 +6146,16 @@ msgid ""
 msgstr ""
 
 msgid "MB. There have been"
-msgstr ""
+msgstr "MB. Foram registados"
 
 msgid "MB selected."
-msgstr ""
+msgstr "MB selecionado."
 
 msgid "Sending of mail failed"
-msgstr ""
+msgstr "O envio de correio falhou"
 
-#, fuzzy
 msgid "Openstreetmap"
-msgstr "Openstreetmap"
+msgstr "Mapa de ruas aberto"
 
 #. TRANSLATORS: The map of earth
 msgid "Map"
@@ -6362,45 +6330,35 @@ msgstr ""
 msgid "Add meeting"
 msgstr "Adicionar reunião"
 
-#, fuzzy
 msgid "Room name:"
-msgstr "Nome da sala:"
+msgstr "Nome do quarto:"
 
-#, fuzzy
 msgid "Room URL:"
-msgstr "URL da sala:"
+msgstr "URL do quarto:"
 
-#, fuzzy
 msgid "Shift-click for advanced settings"
-msgstr "Shift-clique para configurações avançadas"
+msgstr "Shift-click para definições avançadas"
 
-#, fuzzy
 msgid "Join webmeeting"
-msgstr "Juntar webmeeting"
+msgstr "Participar em webmeeting"
 
-#, fuzzy
 msgid "Open meeting in:"
 msgstr "Reunião aberta em:"
 
-#, fuzzy
 msgid "Web tab"
 msgstr "Separador Web"
 
-#, fuzzy
 msgid "Hide the button in the main toolbar"
-msgstr "Esconder o botão na barra de ferramentas principal"
+msgstr "Ocultar o botão na barra de ferramentas principal"
 
-#, fuzzy
 msgid "Add the subject to the room name"
-msgstr "Acrescentar o assunto ao nome da sala"
+msgstr "Adicionar o assunto ao nome da divisão"
 
-#, fuzzy
 msgid "Add the organizer name to the room name"
-msgstr "Acrescentar o nome do organizador ao nome da sala"
+msgstr "Adicionar o nome do organizador ao nome da sala"
 
-#, fuzzy
 msgid "Add the URL to the meeting location rather than overwriting it"
-msgstr "Adicionar o URL ao local da reunião em vez de o sobrescrever"
+msgstr "Adicionar o URL à localização da reunião em vez de o substituir"
 
 #, fuzzy
 msgid ""
@@ -6410,15 +6368,12 @@ msgstr ""
 "Impedir que o URL no local da reunião seja automaticamente anulado (ex: ao "
 "adicionar uma sala de reuniões)"
 
-#, fuzzy
 msgid "If you have problems when creating meetings, try disabling this setting"
-msgstr "Se tiver problemas ao criar reuniões, tente desactivar este cenário"
+msgstr "Se tiver problemas ao criar reuniões, tente desativar esta definição"
 
-#, fuzzy
 msgid "Add an invitation to the appointment description"
-msgstr "Acrescentar um convite à descrição da nomeação"
+msgstr "Adicionar um convite à descrição do compromisso"
 
-#, fuzzy
 msgid "Invitation text"
 msgstr "Texto do convite"
 
@@ -6430,13 +6385,11 @@ msgstr ""
 "deve conter %url% como espaço reservado para o link da reunião, esvaziar a "
 "caixa de texto para reiniciar a predefinição"
 
-#, fuzzy
 msgid "An unknown error occurred while changing password."
 msgstr "Ocorreu um erro desconhecido ao alterar a palavra-passe."
 
-#, fuzzy
 msgid "Password is changed successfully."
-msgstr "A palavra-passe é alterada com sucesso."
+msgstr "A palavra-passe foi alterada com êxito."
 
 msgid "Success"
 msgstr "Sucesso"
@@ -6456,17 +6409,14 @@ msgstr "Digite a nova senha novamente"
 msgid "New passwords do not match."
 msgstr "Novas senhas não correspondem."
 
-#, fuzzy
 msgid "Current password is empty."
-msgstr "A palavra-passe actual está vazia."
+msgstr "A palavra-passe atual está vazia."
 
-#, fuzzy
 msgid "New password is empty."
 msgstr "A nova palavra-passe está vazia."
 
-#, fuzzy
 msgid "One or more fields does contain errors."
-msgstr "Um ou mais campos contêm efectivamente erros."
+msgstr "Um ou mais campos contêm erros."
 
 #, fuzzy
 msgid ""
@@ -6565,7 +6515,6 @@ msgstr "Não tem nenhum certificado válido correspondente à sua conta"
 msgid "Personal certificate"
 msgstr "Certificado pessoal"
 
-#, fuzzy
 msgid "Change passphrase for last certificate"
 msgstr "Alterar a frase-chave do último certificado"
 
@@ -6681,10 +6630,9 @@ msgid ""
 "message."
 msgstr "A verificação da assinatura digital desta mensagem foi bem sucedida."
 
-#, fuzzy
 msgid "grommunio Web could not find a public certificate for the recipient."
 msgstr ""
-"grommunio Web não conseguiu encontrar um certificado público para o "
+"o grommunio Web não conseguiu encontrar um certificado público para o "
 "destinatário."
 
 msgid ""
@@ -6733,7 +6681,6 @@ msgstr ""
 "mensagem está desativado (OCSP). A validade do certificado não pode ser "
 "verificada."
 
-#, fuzzy
 msgid "The certificate verification server (OCSP) is temporarily offline."
 msgstr ""
 "O servidor de verificação de certificados (OCSP) está temporariamente "
@@ -6810,7 +6757,6 @@ msgstr "Menta"
 msgid "Pearl aqua"
 msgstr "Pérola água"
 
-#, fuzzy
 msgid "Grommunio blue"
 msgstr "Grommunio azul"
 
@@ -6879,10 +6825,10 @@ msgstr ""
 "utilizador. Por favor contacte o seu administrador de sistema."
 
 msgid "This backend provides the default WebDAV integration for Files."
-msgstr ""
+msgstr "Este backend fornece a integração WebDAV predefinida para Ficheiros."
 
 msgid "Files Default Backend: "
-msgstr ""
+msgstr "Ficheiros Backend predefinido: "
 
 msgid "Server address"
 msgstr "Endereço do servidor"
@@ -6958,16 +6904,16 @@ msgid "PHP-Curl is not available."
 msgstr "PHP-Curl não está disponível."
 
 msgid "With this backend, you can connect to any Seafile server."
-msgstr ""
+msgstr "Com este backend, pode ligar-se a qualquer servidor Seafile."
 
 msgid "Files "
-msgstr ""
+msgstr "Ficheiros "
 
 msgid "Use SSL"
 msgstr "Usar SSL"
 
 msgid "Seafile is not reachable. Correct backend address entered?"
-msgstr ""
+msgstr "O Seafile não está acessível. Foi introduzido o endereço backend correto?"
 
 msgid "You don't have enough permissions for this operation."
 msgstr "No tem permisses suficientes para realizar esta operao."
@@ -6985,7 +6931,7 @@ msgid "The request failed due to failure of a previous request."
 msgstr "O pedido falhou devido  falha de um pedido anterior."
 
 msgid "Seafile-server encountered a problem."
-msgstr ""
+msgstr "O Seafile-server encontrou um problema."
 
 msgid ""
 "Could not write to temporary directory. Contact the server administrator."
@@ -7003,7 +6949,7 @@ msgid "PHP-Curl is not available. Contact your system administrator."
 msgstr "PHP-Curl no disponvel. Contacte o seu administrador de sistema."
 
 msgid "This function is not yet implemented."
-msgstr ""
+msgstr "Esta função ainda não está implementada."
 
 msgid "Unknown account ID"
 msgstr "ID de conta desconhecido"
@@ -7101,7 +7047,7 @@ msgid "Kendox certificate password is not configured."
 msgstr "A palavra-passe do certificado Kendox não está configurada."
 
 msgid "Kendox certificate is not available."
-msgstr ""
+msgstr "O certificado Kendox não está disponível."
 
 msgid "Kendox certificate is not readable."
 msgstr "O certificado Kendox não pode ser lido."
@@ -7117,11 +7063,9 @@ msgstr ""
 "Ocorreu um erro inesperado. Por favor contacte o seu administrador de "
 "sistemas. Código do erro: %s"
 
-#, fuzzy
 msgid "No data received."
-msgstr "Não foram recebidos quaisquer dados."
+msgstr "Não foram recebidos dados."
 
-#, fuzzy
 msgid "Account is empty."
 msgstr "A conta está vazia."
 
@@ -7132,24 +7076,24 @@ msgstr ""
 "A sua password está errada ou não tem permissão suficiente para alterar a "
 "password"
 
-#, fuzzy
 msgid "Password is not changed."
-msgstr "A palavra-passe não é alterada."
+msgstr "A palavra-passe não foi alterada."
 
 msgid ""
 "Error changing password. Please verify your password or contact the system "
 "administrator."
 msgstr ""
 
-#, fuzzy
 msgid "Password has been changed successfully."
-msgstr "A palavra-passe foi alterada com sucesso."
+msgstr "A palavra-passe foi alterada com êxito."
 
 msgid "No certificate available"
 msgstr "Nenhum certificado disponível"
 
 msgid "Private certificate has expired, unable to sign email"
 msgstr ""
+"O certificado privado expirou, não é possível assinar a mensagem de correio "
+"eletrónico"
 
 msgid "Private certificate is not valid yet, unable to sign email"
 msgstr ""
@@ -7202,18 +7146,17 @@ msgstr "O certificado foi revogado, mas foi importado."
 msgid "Unable to read public certificate"
 msgstr "Não é possível ler o certificado público"
 
-#, fuzzy
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""
-"Não é possível adicionar dados ao autocarro, o mesmo tipo de acção está "
-"presente no autocarro"
+"Não é possível adicionar dados ao barramento, o mesmo tipo de ação está "
+"presente no barramento"
 
-#, fuzzy
 msgid "Response data requested from bus but it doesn't have any data."
 msgstr ""
-"Dados de resposta solicitados ao autocarro, mas não tem quaisquer dados."
+"Dados de resposta solicitados ao barramento, mas este não tem quaisquer "
+"dados."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Unknown module '%s' with id '%s'"
 msgstr "Módulo desconhecido '%s' com id '%s'"
 
@@ -7224,16 +7167,15 @@ msgstr ""
 "O servidor encontrou algum problema, por isso não foi capaz de tratar do "
 "pedido."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Unknown notifier '%s'"
 msgstr "Notificador desconhecido '%s'"
 
 msgid "An unexpected error has occurred"
 msgstr "Ocorreu um erro inesperado"
 
-#, fuzzy
 msgid "To-Do List"
-msgstr "Lista de afazeres"
+msgstr "Lista de tarefas"
 
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
@@ -7243,13 +7185,11 @@ msgstr "Lista de afazeres"
 msgid "%1$s of %2$s"
 msgstr "%1$s de %2$s"
 
-#, fuzzy
 msgid "Error retrieving existing settings"
-msgstr "Erro na recuperação de configurações existentes"
+msgstr "Erro ao recuperar definições existentes"
 
-#, fuzzy
 msgid "Error retrieving existing persistent settings"
-msgstr "Erro na recuperação de definições persistentes existentes"
+msgstr "Erro ao recuperar configurações persistentes existentes"
 
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr ""
@@ -7269,21 +7209,17 @@ msgstr ""
 msgid "Unknown MAPI Error"
 msgstr "Erro MAPI desconhecido"
 
-#, fuzzy
 msgid "Destination folder not found."
 msgstr "Pasta de destino não encontrada."
 
-#, fuzzy
 msgid "Eml is corrupted"
-msgstr "A Eml está corrompida"
+msgstr "Eml está corrompido"
 
-#, fuzzy
 msgid "The eml Attachment is not imported successfully"
-msgstr "O anexo eml não é importado com sucesso"
+msgstr "O anexo eml não foi importado com êxito"
 
-#, fuzzy
 msgid "The vcf attachment is not imported successfully"
-msgstr "O anexo vcf não é importado com sucesso"
+msgstr "O anexo vcf não é importado com êxito"
 
 #, php-format
 msgid "Unable to import '%s' to '%s'. "
@@ -7302,54 +7238,41 @@ msgstr "O ficheiro é inválido."
 msgid "Unable to import '%s'. "
 msgstr "Não foi possível importar '%s' "
 
-#, fuzzy
 msgid "Attachment is not imported successfully"
-msgstr "O anexo não é importado com sucesso"
+msgstr "O anexo não foi importado com êxito"
 
-#, fuzzy
 msgid "Embedded attachment not found."
-msgstr "Anexo embutido não encontrado."
+msgstr "Anexo incorporado não encontrado."
 
-#, fuzzy
 msgid "ZIP is not created successfully"
-msgstr "O ZIP não é criado com sucesso"
+msgstr "O ZIP não foi criado com êxito"
 
-#, fuzzy
 msgid "Attachments can not be downloaded"
 msgstr "Os anexos não podem ser descarregados"
 
-#, fuzzy
 msgid "Could not find attachment."
-msgstr "Não foi possível encontrar anexo."
+msgstr "Não foi possível encontrar o anexo."
 
-#, fuzzy
 msgid "Operation failed"
-msgstr "Operação falhada"
+msgstr "A operação falhou"
 
-#, fuzzy
 msgid "Sticky Note"
 msgstr "Nota adesiva"
 
-#, fuzzy
 msgid "Task Request"
-msgstr "Pedido de Tarefa"
+msgstr "Pedido de tarefas"
 
-#, fuzzy
 msgid "Could not find message, either it has been moved or deleted."
-msgstr ""
-"Não foi possível encontrar mensagem, quer tenha sido movida ou apagada."
+msgstr "Não foi possível encontrar a mensagem, ou esta foi movida ou eliminada."
 
-#, fuzzy
 msgid "Action is not performed correctly."
-msgstr "A acção não é executada correctamente."
+msgstr "A ação não é executada corretamente."
 
-#, fuzzy
 msgid "Could not handle this type of object."
-msgstr "Não conseguia lidar com este tipo de objecto."
+msgstr "Não foi possível tratar este tipo de objeto."
 
-#, fuzzy
 msgid "Could not open this object."
-msgstr "Não foi possível abrir este objecto."
+msgstr "Não foi possível abrir este objeto."
 
 msgid "Domain Contact Folders"
 msgstr "Pastas de contactos do domínio"
@@ -7363,43 +7286,38 @@ msgstr "Pastas de contactos partilhados"
 msgid "Public Contact Folders"
 msgstr "Pastas de contactos públicos"
 
-#, fuzzy
 msgid "Error in search, please try again"
-msgstr "Erro na pesquisa, por favor tente novamente"
+msgstr "Erro na pesquisa, tente novamente"
 
-#, fuzzy
 msgid "Unable to perform search query, no permissions to create search folder."
 msgstr ""
-"Incapaz de realizar consulta de pesquisa, sem permissões para criar pasta de "
+"Não é possível efetuar uma consulta de pesquisa, não existem permissões "
+"para criar uma pasta de pesquisa."
+
+msgid "Unable to perform search query, search folder not found."
+msgstr ""
+"Não é possível efetuar a consulta de pesquisa, a pasta de pesquisa não foi "
+"encontrada."
+
+msgid "Unable to perform search query, store might not support searching."
+msgstr ""
+"Não é possível efetuar a consulta de pesquisa, a loja pode não suportar a "
 "pesquisa."
 
-#, fuzzy
-msgid "Unable to perform search query, search folder not found."
-msgstr "Incapaz de efectuar uma pesquisa, pasta de pesquisa não encontrada."
-
-#, fuzzy
-msgid "Unable to perform search query, store might not support searching."
-msgstr "Incapaz de efectuar pesquisa, a loja pode não suportar a pesquisa."
-
-#, fuzzy
 msgid "Error in creating search folder."
 msgstr "Erro na criação da pasta de pesquisa."
 
-#, fuzzy
 msgid "Could not open occurrence."
-msgstr "Não foi possível a ocorrência aberta."
+msgstr "Não foi possível abrir a ocorrência."
 
-#, fuzzy
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr ""
-"Não foi possível uma ocorrência aberta, a ocorrência específica é "
+"Não foi possível abrir a ocorrência, a ocorrência específica foi "
 "provavelmente eliminada."
 
-#, fuzzy
 msgid "a meeting request"
 msgstr "um pedido de reunião"
 
-#, fuzzy
 msgid "an appointment"
 msgstr "uma marcação"
 
@@ -7414,7 +7332,6 @@ msgstr ""
 "Não é possível definir um lembrete para aparecer antes da ocorrência "
 "anterior. Reiniciar o lembrete para guardar a alteração"
 
-#, fuzzy
 msgid "Two occurrences cannot occur on the same day"
 msgstr "Duas ocorrências não podem ocorrer no mesmo dia"
 
@@ -7454,33 +7371,28 @@ msgstr ""
 "%s' já está reservado para este tempo especificado. Deve utilizar outro "
 "tempo ou encontrar outro recurso."
 
-#, fuzzy
 msgid "Meeting was not scheduled."
-msgstr "A reunião não estava agendada."
+msgstr "A reunião não foi agendada."
 
-#, fuzzy
 msgid "Meeting could not be sent."
-msgstr "A reunião não pôde ser enviada."
+msgstr "Não foi possível enviar a reunião."
 
-#, fuzzy
 msgid "Meeting could not be saved."
 msgstr "A reunião não pôde ser salva."
 
-#, fuzzy
 msgid "Private Appointment"
-msgstr "Consulta privada"
+msgstr "Marcação privada"
 
-#, fuzzy, php-format
+#, php-format
 msgid "%s's Birthday"
-msgstr "%s's Birthday"
+msgstr "%saniversário de"
 
-#, fuzzy, php-format
+#, php-format
 msgid "%s's Anniversary"
-msgstr "%s's Anniversary"
+msgstr "%saniversário de"
 
-#, fuzzy
 msgid "You don't have the permission to complete this action"
-msgstr "Não tem a permissão para completar esta acção"
+msgstr "Não tem autorização para concluir esta ação"
 
 msgid "Quota error"
 msgstr "Erro de quota"
@@ -7493,120 +7405,94 @@ msgstr ""
 "O envio de correio eletrónico falhou. Verifique os ficheiros de registo para "
 "obter mais informações."
 
-#, fuzzy
 msgid "Unknown user/group"
 msgstr "Utilizador/grupo desconhecido"
 
-#, fuzzy
 msgid "Could not save delegate information."
-msgstr "Não foi possível salvar a informação dos delegados."
+msgstr "Não foi possível guardar as informações do delegado."
 
-#, fuzzy
 msgid "Could not delete delegate."
-msgstr "Não foi possível apagar o delegado."
+msgstr "Não foi possível eliminar o delegado."
 
-#, fuzzy
 msgid "Can not get list of delegates."
 msgstr "Não é possível obter a lista de delegados."
 
 msgid "Could not open the store."
 msgstr "Não foi possível abrir a loja."
 
-#, fuzzy
 msgid "Could not load the hierarchy."
 msgstr "Não foi possível carregar a hierarquia."
 
 msgid "Could not open the shared store."
 msgstr "Não foi possível abrir a loja partilhada."
 
-#, fuzzy
 msgid "Could not load folder properties."
-msgstr "Não foi possível carregar as propriedades das pastas."
+msgstr "Não foi possível carregar as propriedades da pasta."
 
-#, fuzzy
 msgid "Could not remove folder from favorites."
 msgstr "Não foi possível remover a pasta dos favoritos."
 
-#, fuzzy
 msgid "You have insufficient privileges to delete folder."
 msgstr "Não tem privilégios suficientes para eliminar a pasta."
 
 msgid "Could not delete folder."
 msgstr "Não foi possível excluir a pasta."
 
-#, fuzzy
 msgid "You have insufficient privileges to copy folder."
-msgstr "Não tem privilégios suficientes para copiar pasta."
+msgstr "Não tem privilégios suficientes para copiar a pasta."
 
-#, fuzzy
 msgid "Could not copy folder."
-msgstr "Não foi possível copiar pasta."
+msgstr "Não foi possível copiar a pasta."
 
-#, fuzzy
 msgid "You have insufficient privileges to move this folder."
 msgstr "Não tem privilégios suficientes para mover esta pasta."
 
-#, fuzzy
 msgid "Could not move folder."
-msgstr "Não foi possível mover pasta."
+msgstr "Não foi possível mover a pasta."
 
-#, fuzzy
 msgid "You have insufficient privileges to delete items."
-msgstr "Não tem privilégios suficientes para eliminar artigos."
+msgstr "Não tem privilégios suficientes para eliminar itens."
 
-#, fuzzy
 msgid "Could not empty folder."
 msgstr "Não foi possível esvaziar a pasta."
 
-#, fuzzy
 msgid "Could not perform action correctly."
-msgstr "Não foi possível executar correctamente a acção."
+msgstr "Não foi possível executar a ação corretamente."
 
 #, fuzzy
 msgid ""
 "A favorite folder with this name already exists, please use another name."
 msgstr "Já existe uma pasta favorita com este nome, por favor use outro nome."
 
-#, fuzzy
 msgid "Could not add folder to favorites."
-msgstr "Não foi possível adicionar pasta aos favoritos."
+msgstr "Não foi possível adicionar uma pasta aos favoritos."
 
-#, fuzzy
 msgid "You have insufficient privileges to set permissions for this folder."
-msgstr ""
-"Não tem privilégios suficientes para definir permissões para esta pasta."
+msgstr "Não tem privilégios suficientes para definir permissões para esta pasta."
 
-#, fuzzy
 msgid "Could not set folder permissions."
-msgstr "Não foi possível definir permissões de pastas."
+msgstr "Não foi possível definir as permissões da pasta."
 
-#, fuzzy
 msgid "You have insufficient privileges to rename this folder."
-msgstr "Não tem privilégios suficientes para dar um novo nome a esta pasta."
+msgstr "Não tem privilégios suficientes para mudar o nome desta pasta."
 
-#, fuzzy
 msgid "A folder with this name already exists. Use another name."
-msgstr "Já existe uma pasta com este nome. Use outro nome."
+msgstr "Já existe uma pasta com este nome. Utilize outro nome."
 
-#, fuzzy
 msgid "Could not rename folder."
-msgstr "Não foi possível renomear pasta."
+msgstr "Não foi possível mudar o nome da pasta."
 
-#, fuzzy
 msgid "You have insufficient privileges to create this folder."
 msgstr "Não tem privilégios suficientes para criar esta pasta."
 
-#, fuzzy
 msgid "Could not create folder."
-msgstr "Não foi possível criar pasta."
+msgstr "Não foi possível criar a pasta."
 
-#, fuzzy
 msgid "Could not close shared folder."
 msgstr "Não foi possível fechar a pasta partilhada."
 
-#, fuzzy
 msgid "User could not be resolved."
-msgstr "O utilizador não pôde ser resolvido."
+msgstr "Não foi possível resolver o problema do utilizador."
 
 #, fuzzy, php-format
 msgid ""
@@ -7628,15 +7514,12 @@ msgstr "anónimo"
 msgid "unknown"
 msgstr "desconhecido"
 
-#, fuzzy
 msgid "Could not move folder"
-msgstr "Não foi possível mover pasta"
+msgstr "Não foi possível mover a pasta"
 
-#, fuzzy
 msgid "Could not copy folder"
-msgstr "Não foi possível copiar pasta"
+msgstr "Não foi possível copiar a pasta"
 
-#, fuzzy
 msgid "You have insufficient privileges to open this message."
 msgstr "Não tem privilégios suficientes para abrir esta mensagem."
 
@@ -7732,11 +7615,9 @@ msgstr ""
 msgid "The following recipient(s) could not be reached"
 msgstr "Não foi possível entregar aos seguintes destinatários"
 
-#, fuzzy
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "Não tem privilégios suficientes para ver o conteúdo desta pasta."
 
-#, fuzzy
 msgid "Could not load the contents of this folder."
 msgstr "Não foi possível carregar o conteúdo desta pasta."
 
@@ -7747,78 +7628,61 @@ msgstr ""
 "Não tem privilégios suficientes para realizar operações de pesquisa nesta "
 "pasta."
 
-#, fuzzy
 msgid "Could not update search results."
-msgstr "Não foi possível actualizar os resultados da pesquisa."
+msgstr "Não foi possível atualizar os resultados da pesquisa."
 
-#, fuzzy
 msgid "Could not stop search operation."
-msgstr "Não foi possível parar a operação de busca."
+msgstr "Não foi possível parar a operação de pesquisa."
 
-#, fuzzy
 msgid "You have insufficient privileges to save this message."
-msgstr "Não tem privilégios suficientes para salvar esta mensagem."
+msgstr "Não tem privilégios suficientes para guardar esta mensagem."
 
-#, fuzzy
 msgid "Could not save message."
-msgstr "Não foi possível salvar a mensagem."
+msgstr "Não foi possível guardar a mensagem."
 
-#, fuzzy
 msgid "You have insufficient privileges to delete this message."
 msgstr "Não tem privilégios suficientes para apagar esta mensagem."
 
-#, fuzzy
 msgid "Could not delete message."
 msgstr "Não foi possível apagar a mensagem."
 
-#, fuzzy
 msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr "Não tem privilégios suficientes para cancelar este Pedido de Reunião."
+msgstr "Não tem privilégios suficientes para cancelar este pedido de reunião."
 
-#, fuzzy
 msgid "Could not cancel Meeting Request."
-msgstr "Não foi possível cancelar o Pedido de Reunião."
+msgstr "Não foi possível cancelar o pedido de reunião."
 
-#, fuzzy
 msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr "Não tem privilégios suficientes para recusar este Pedido de Reunião."
+msgstr "Não tem privilégios suficientes para recusar este pedido de reunião."
 
-#, fuzzy
 msgid "Could not decline Meeting Request."
-msgstr "Não pôde recusar o Pedido de Reunião."
+msgstr "Não foi possível recusar o pedido de reunião."
 
-#, fuzzy
 msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr "Não tem privilégios suficientes para aceitar este Pedido de Reunião."
+msgstr "Não tem privilégios suficientes para aceitar este pedido de reunião."
 
-#, fuzzy
 msgid "Could not accept Meeting Request."
-msgstr "Não pôde aceitar o Pedido de Reunião."
+msgstr "Não foi possível aceitar o pedido de reunião."
 
-#, fuzzy
 msgid "You have insufficient privileges to cancel Meeting Request invitation."
 msgstr ""
-"Não tem privilégios suficientes para cancelar o convite para a reunião."
+"Não tem privilégios suficientes para cancelar o convite de Pedido de "
+"reunião."
 
-#, fuzzy
 msgid "Could not cancel Meeting Request invitations."
-msgstr "Não foi possível cancelar os convites para a reunião."
+msgstr "Não foi possível cancelar os convites de pedidos de reunião."
 
-#, fuzzy
 msgid "You can not continue search operation on this folder."
 msgstr "Não é possível continuar a operação de pesquisa nesta pasta."
 
-#, fuzzy
 msgid "Error in search, please try again."
-msgstr "Erro na pesquisa, por favor tente novamente."
+msgstr "Erro na pesquisa, tente novamente."
 
-#, fuzzy
 msgid "Error in distribution list expansion."
 msgstr "Erro na expansão da lista de distribuição."
 
-#, fuzzy
 msgid "The message store has exceeded its hard quota limit."
-msgstr "O armazém de mensagens ultrapassou o seu limite de quota dura."
+msgstr "O armazenamento de mensagens excedeu o seu limite de quota rígido."
 
 #, fuzzy
 msgid ""
@@ -7829,62 +7693,48 @@ msgstr ""
 "alguns itens que já não necessita, apague-os e limpe a sua pasta de Itens "
 "Apagados."
 
-#, fuzzy
 msgid "The message store has exceeded its soft quota limit."
-msgstr "O armazém de mensagens excedeu o seu limite de quota suave."
+msgstr "O armazenamento de mensagens excedeu o seu limite de quota flexível."
 
-#, fuzzy
 msgid "Could not process request data properly."
-msgstr "Não foi possível processar correctamente os dados solicitados."
+msgstr "Não foi possível processar corretamente os dados do pedido."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Unknown action type specified - %s"
-msgstr "Tipo de acção desconhecida especificada - %s"
+msgstr "Tipo de ação desconhecido especificado - %s"
 
-#, fuzzy
 msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr "Não se pode sonegar o lembrete. Poderá ser lembrado de novo."
+msgstr "Não é possível adiar o lembrete. Pode voltar a ser lembrado."
 
-#, fuzzy
 msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr "Não se pode dispensar o lembrete. Pode ser-lhe lembrado novamente."
+msgstr "Não é possível ignorar o lembrete. Pode voltar a ser lembrado."
 
-#, fuzzy
 msgid "You have insufficient privileges to perform this action."
-msgstr "Não tem privilégios suficientes para realizar esta acção."
+msgstr "Não tem privilégios suficientes para realizar esta ação."
 
-#, fuzzy
 msgid "Could not resolve user."
 msgstr "Não foi possível resolver o utilizador."
 
-#, fuzzy
 msgid "Setting mail filters on the stores of other users is not allowed."
-msgstr ""
-"Não é permitida a instalação de filtros de correio nas lojas de outros "
-"utilizadores."
+msgstr "Não é permitido definir filtros de correio nas lojas de outros utilizadores."
 
-#, fuzzy
 msgid "Untitled rule"
 msgstr "Regra sem título"
 
-#, fuzzy
 msgid "Could not load rules."
-msgstr "Não foi possível carregar regras."
+msgstr "Não foi possível carregar as regras."
 
-#, fuzzy
 msgid "Could not save rules."
-msgstr "Não foi possível salvar regras."
+msgstr "Não foi possível guardar as regras."
 
-#, fuzzy
 msgid "Task Request:"
-msgstr "Pedido de Tarefa:"
+msgstr "Solicitação de tarefas:"
 
 msgid "Sign in"
 msgstr "Entrar"
 
-#, fuzzy
 msgid "File is not imported successfully"
-msgstr "O ficheiro não é importado com sucesso"
+msgstr "O ficheiro não foi importado com êxito"
 
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr "O ficheiro carregado excede a diretiva upload_max_filesize em php.ini."
@@ -7942,20 +7792,15 @@ msgstr "KB"
 msgid "B"
 msgstr "B"
 
-#, fuzzy
 msgid "The maximum stack depth has been exceeded"
 msgstr "A profundidade máxima da pilha foi excedida"
 
-#, fuzzy
 msgid "Control character error, possibly incorrectly encoded"
-msgstr ""
-"Erro de carácter de controlo, possivelmente codificado de forma incorrecta"
+msgstr "Erro de carácter de controlo, possivelmente codificado incorretamente"
 
-#, fuzzy
 msgid "Invalid or malformed JSON"
 msgstr "JSON inválido ou malformado"
 
-#, fuzzy
 msgid "Syntax error"
 msgstr "Erro de sintaxe"
 

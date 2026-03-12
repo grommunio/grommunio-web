@@ -16,55 +16,64 @@ msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
-msgstr ""
+msgstr "هفته"
 
 msgid "Now"
-msgstr ""
+msgstr "در حال حاضر"
 
 msgid "Value must be between 0% to 100%"
-msgstr ""
+msgstr "مقدار باید بین 0٪ تا 100٪ باشد"
 
 msgid "Number must be higher than zero"
-msgstr ""
+msgstr "عدد باید بالاتر از صفر باشد"
 
 msgid "More options"
-msgstr ""
+msgstr "گزینه های بیشتر"
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
-msgstr[0] ""
+msgstr[0] "بایت{0}"
+msgstr[1] "{0}بایت"
 
 msgid "{0} KB"
 msgid_plural "{0} KB"
-msgstr[0] ""
+msgstr[0] "{0}کیلوبایت"
+msgstr[1] "{0}کیلوبایت"
 
 msgid "{0} MB"
 msgid_plural "{0} MB"
-msgstr[0] ""
+msgstr[0] "{0}مگابایت"
+msgstr[1] "{0}مگابایت"
 
 msgid "{0} GB"
 msgid_plural "{0} GB"
-msgstr[0] ""
+msgstr[0] "{0}گیگابایت"
+msgstr[1] "{0}گیگابایت"
 
 msgid "{0} TB"
 msgid_plural "{0} TB"
-msgstr[0] ""
+msgstr[0] "{0}سل"
+msgstr[1] "{0}سل"
 
 msgid "{0} minute"
 msgid_plural "{0} minutes"
-msgstr[0] ""
+msgstr[0] "دقیقه{0}"
+msgstr[1] "دقیقه{0}"
 
 msgid "{0} hour"
 msgid_plural "{0} hours"
-msgstr[0] ""
+msgstr[0] "ساعت{0}"
+msgstr[1] "ساعت{0}"
 
 msgid "{0} day"
 msgid_plural "{0} days"
-msgstr[0] ""
+msgstr[0] "روز{0}"
+msgstr[1] "روز{0}"
 
 msgid "{0} week"
 msgid_plural "{0} weeks"
-msgstr[0] ""
+msgstr[0] "هفته{0}"
+msgstr[1] "هفته{0}"
 
 msgid "The quick brown fox jumps over the lazy dog"
 msgstr "The quick brown fox jumps over the lazy dog"
@@ -91,25 +100,25 @@ msgid "Saturday"
 msgstr "شنبه"
 
 msgid "Sun"
-msgstr ""
+msgstr "خورشید"
 
 msgid "Mon"
-msgstr ""
+msgstr "دوشنبه"
 
 msgid "Tue"
-msgstr ""
+msgstr "سه شنبه"
 
 msgid "Wed"
-msgstr ""
+msgstr "چهارشنبه"
 
 msgid "Thu"
-msgstr ""
+msgstr "پنج شنبه"
 
 msgid "Fri"
-msgstr ""
+msgstr "جمعه"
 
 msgid "Sat"
-msgstr ""
+msgstr "نشست"
 
 msgid "January"
 msgstr "ژانویه"
@@ -206,508 +215,504 @@ msgid "Choose a month (Control+Up/Down to move years)"
 msgstr "انتخاب یک ماه (Control+Up/Down برای تغییر سال ها)"
 
 msgid "Sort Ascending"
-msgstr ""
+msgstr "مرتب سازی صعودی"
 
 msgid "Sort Descending"
-msgstr ""
+msgstr "مرتب سازی نزولی"
 
 msgid "Columns"
-msgstr ""
+msgstr "ستون ها"
 
 msgid "Group By This Field"
-msgstr ""
+msgstr "گروه بر اساس این فیلد"
 
 msgid "Show in Groups"
-msgstr ""
+msgstr "نمایش در گروه ها"
 
 msgid "(None)"
-msgstr ""
+msgstr "(هیچ کدام)"
 
 msgid "Ok"
-msgstr ""
+msgstr "باشه"
 
 msgid "Yes"
-msgstr ""
+msgstr "بله"
 
 msgid "No"
-msgstr ""
+msgstr "خیر"
 
 msgid "Loading"
-msgstr ""
+msgstr "در حال بارگذاری"
 
 msgid "The value in this field is invalid"
-msgstr ""
+msgstr "مقدار در این قسمت نامعتبر است"
 
 msgid "The minimum length for this field is {0}"
-msgstr ""
+msgstr "حداقل طول این فیلد{0}است"
 
 msgid "The maximum length for this field is {0}"
-msgstr ""
+msgstr "حداکثر طول این فیلد{0}است"
 
 msgid "This field is required"
-msgstr ""
+msgstr "این فیلد الزامی است"
 
 msgid "The minimum value for this field is {0}"
-msgstr ""
+msgstr "حداقل مقدار این فیلد{0}است"
 
 msgid "The maximum value for this field is {0}"
-msgstr ""
+msgstr "حداکثر مقدار برای این فیلد{0}است"
 
 msgid "{0} is not a valid number"
-msgstr ""
+msgstr "{0}یک شماره معتبر نیست"
 
 msgid "The date in this field must be equal to or after {0}"
-msgstr ""
+msgstr "تاریخ در این قسمت باید برابر یا بعد از{0}باشد"
 
 msgid "The date in this field must be equal to or before {0}"
-msgstr ""
+msgstr "تاریخ در این قسمت باید برابر یا قبل از{0}باشد"
 
 msgid "{0} is not a valid date - it must be in the format {1}"
-msgstr ""
+msgstr "{0}تاریخ معتبری نیست - باید در قالب{1}باشد"
 
 msgid "You must select at least one item in this group"
-msgstr ""
+msgstr "شما باید حداقل یک مورد را در این گروه انتخاب کنید"
 
 msgid "You must select one item in this group"
-msgstr ""
+msgstr "شما باید یک مورد از این گروه را انتخاب کنید"
 
 msgid "The time in this field must be equal to or after {0}"
-msgstr ""
+msgstr "زمان در این قسمت باید برابر یا بعد از{0}باشد"
 
 msgid "The time in this field must be equal to or before {0}"
-msgstr ""
+msgstr "زمان در این قسمت باید برابر یا قبل از{0}باشد"
 
 msgid "{0} is not a valid time"
-msgstr ""
+msgstr "{0}زمان معتبری نیست"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "G:i"
-msgstr ""
+msgstr "ج: من"
 
 msgid "Name"
-msgstr ""
+msgstr "نام"
 
 msgid "Value"
-msgstr ""
+msgstr "ارزش"
 
 msgid "true"
-msgstr ""
+msgstr "درست است"
 
 msgid "false"
-msgstr ""
+msgstr "نادرست"
 
 msgid ""
 "This field should be an e-mail address in the format \"user@example.com\""
 msgstr ""
 
 msgid "This field should be a URL in the format \"{0}\""
-msgstr ""
+msgstr "این فیلد باید یک URL با فرمت \"{0}\" باشد"
 
 msgid "This field should only contain letters and _"
-msgstr ""
+msgstr "این فیلد فقط باید حاوی حروف و _ باشد"
 
 msgid "This field should only contain letters, numbers and _"
-msgstr ""
+msgstr "این فیلد فقط باید شامل حروف، اعداد و _ باشد."
 
 msgid "Email Addresses"
-msgstr ""
+msgstr "آدرس های ایمیل"
 
 msgid "Email addresses"
-msgstr ""
+msgstr "آدرس های ایمیل"
 
 msgid "Group details"
-msgstr ""
+msgstr "جزئیات گروه"
 
 msgid "General"
-msgstr ""
+msgstr "ژنرال"
 
 msgid "Display Name"
-msgstr ""
+msgstr "نام نمایشی"
 
 msgid "Alias"
-msgstr ""
+msgstr "نام مستعار"
 
 msgid "Owner"
-msgstr ""
+msgstr "مالک"
 
 msgid "Notes"
-msgstr ""
+msgstr "یادداشت ها"
 
 msgid "Members"
-msgstr ""
+msgstr "اعضا"
 
 msgid "Email Address"
-msgstr ""
+msgstr "آدرس ایمیل"
 
 msgid "Account"
-msgstr ""
+msgstr "حساب"
 
 msgid "Member Of"
-msgstr ""
+msgstr "عضو"
 
 msgid "Group Membership"
-msgstr ""
+msgstr "عضویت در گروه"
 
 msgid "Address Book"
-msgstr ""
+msgstr "دفترچه آدرس"
 
 msgid "User details"
-msgstr ""
+msgstr "جزئیات کاربر"
 
 msgid "First name"
-msgstr ""
+msgstr "نام کوچک"
 
 msgid "Last name"
-msgstr ""
+msgstr "نام خانوادگی"
 
 msgid "Initials"
-msgstr ""
+msgstr "حروف اول"
 
 msgid "Display"
-msgstr ""
+msgstr "نمایش"
 
 msgid "Addresses"
-msgstr ""
+msgstr "آدرس ها"
 
 msgid "Address"
-msgstr ""
+msgstr "آدرس"
 
 msgid "City"
-msgstr ""
+msgstr "شهر"
 
 msgid "State"
-msgstr ""
+msgstr "ایالت"
 
 msgid "Zip Code"
-msgstr ""
+msgstr "کد پستی"
 
 msgid "Country"
-msgstr ""
+msgstr "کشور"
 
 msgid "Professional"
-msgstr ""
+msgstr "حرفه ای"
 
 msgid "Title"
-msgstr ""
+msgstr "عنوان"
 
 msgid "Company"
-msgstr ""
+msgstr "شرکت"
 
 msgid "Department"
-msgstr ""
+msgstr "بخش"
 
 msgid "Office"
-msgstr ""
+msgstr "دفتر"
 
 msgid "Assistant"
-msgstr ""
+msgstr "دستیار"
 
 msgid "Phone"
-msgstr ""
+msgstr "تلفن"
 
 msgid "Organization"
-msgstr ""
+msgstr "سازمان"
 
 msgid "Manager"
-msgstr ""
+msgstr "مدیر"
 
 msgid "Direct reports"
-msgstr ""
+msgstr "گزارش های مستقیم"
 
 msgid "Phone numbers"
-msgstr ""
+msgstr "شماره های تلفن"
 
 msgid "Business"
-msgstr ""
+msgstr "تجارت"
 
 msgid "Business2"
-msgstr ""
+msgstr "تجارت 2"
 
 msgid "Fax"
-msgstr ""
+msgstr "فکس"
 
 msgid "Home"
-msgstr ""
+msgstr "صفحه اصلی"
 
 msgid "Home2"
-msgstr ""
+msgstr "صفحه اصلی 2"
 
 msgid "Mobile"
-msgstr ""
+msgstr "موبایل"
 
 msgid "Pager"
-msgstr ""
+msgstr "پیجر"
 
 msgid "No user selected"
-msgstr ""
+msgstr "هیچ کاربری انتخاب نشده است"
 
 msgid "You must select one or more users."
-msgstr ""
+msgstr "شما باید یک یا چند کاربر را انتخاب کنید."
 
 msgid "You must select a user."
-msgstr ""
+msgstr "شما باید یک کاربر را انتخاب کنید."
 
 msgid "Select"
-msgstr ""
+msgstr "انتخاب کنید"
 
 msgid "Show Details"
-msgstr ""
+msgstr "نمایش جزئیات"
 
 msgid "Copy contact"
-msgstr ""
+msgstr "کپی مخاطب"
 
 msgid "Copy contacts"
-msgstr ""
+msgstr "کپی مخاطبین"
 
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
 
 msgid "Use the search bar to get results"
-msgstr ""
+msgstr "برای دریافت نتایج از نوار جستجو استفاده کنید"
 
 msgid "There are no items to show in this list"
-msgstr ""
+msgstr "هیچ موردی برای نمایش در این لیست وجود ندارد"
 
 msgid "Show Names from the"
-msgstr ""
+msgstr "نمایش نام ها از"
 
-#, fuzzy
 msgid "Search…"
-msgstr "مارس…"
+msgstr "جستجو…"
 
 msgid "Sort by: Icon"
-msgstr ""
+msgstr "مرتب سازی بر اساس: نماد"
 
 msgid "Sort by: Name"
-msgstr ""
+msgstr "مرتب سازی بر اساس: نام"
 
 msgid "Sort by: Display Name"
-msgstr ""
+msgstr "مرتب سازی بر اساس: نام نمایشی"
 
 msgid "File as"
-msgstr ""
+msgstr "فایل به عنوان"
 
 msgid "Sort by: File As"
-msgstr ""
+msgstr "مرتب سازی بر اساس: فایل به عنوان"
 
-#, fuzzy
 msgid "First Name"
-msgstr "اولین صفحه"
+msgstr "نام"
 
 msgid "Sort by: First Name"
-msgstr ""
+msgstr "مرتب سازی بر اساس: نام"
 
-#, fuzzy
 msgid "Last Name"
-msgstr "آخرین صفحه"
+msgstr "نام خانوادگی"
 
-#, fuzzy
 msgid "Sort by: Last Name"
-msgstr "آخرین صفحه"
+msgstr "مرتب سازی بر اساس: نام خانوادگی"
 
 msgid "Sort by: Email Address"
-msgstr ""
+msgstr "مرتب سازی بر اساس: آدرس ایمیل"
 
 msgid "Job Title"
-msgstr ""
+msgstr "عنوان شغلی"
 
 msgid "Sort by: Job Title"
-msgstr ""
+msgstr "مرتب سازی بر اساس: عنوان شغل"
 
 msgid "Company Name"
-msgstr ""
+msgstr "نام شرکت"
 
 msgid "Sort by: Company Name"
-msgstr ""
+msgstr "مرتب سازی بر اساس: نام شرکت"
 
 msgid "Sort by: Department"
-msgstr ""
+msgstr "مرتب سازی بر اساس: بخش"
 
 msgid "Office Phone"
-msgstr ""
+msgstr "تلفن دفتر"
 
 msgid "Sort by: Office Phone"
-msgstr ""
+msgstr "مرتب سازی بر اساس: تلفن دفتر"
 
 msgid "Sort by: Mobile"
-msgstr ""
+msgstr "مرتب سازی بر اساس: موبایل"
 
 msgid "Home Phone"
-msgstr ""
+msgstr "تلفن خانه"
 
 msgid "Sort by: Home Phone"
-msgstr ""
+msgstr "مرتب سازی بر اساس: تلفن خانه"
 
 msgid "Sort by: Pager"
-msgstr ""
+msgstr "مرتب سازی بر اساس: پیجر"
 
 msgid "Location"
-msgstr ""
+msgstr "مکان"
 
 msgid "Sort by: Location"
-msgstr ""
+msgstr "مرتب سازی بر اساس: مکان"
 
 msgid "Sort by: Fax"
-msgstr ""
+msgstr "مرتب سازی بر اساس: فکس"
 
 msgid "Print single item"
-msgstr ""
+msgstr "چاپ یک مورد"
 
 msgid "Print selected item"
-msgstr ""
+msgstr "چاپ مورد انتخاب شده"
 
 msgid "Print"
-msgstr ""
+msgstr "چاپ کنید"
 
 msgid "No item selected"
-msgstr ""
+msgstr "هیچ موردی انتخاب نشده است"
 
 msgid "No preview"
-msgstr ""
+msgstr "بدون پیش نمایش"
 
 msgid "Right preview"
-msgstr ""
+msgstr "پیش نمایش سمت راست"
 
 msgid "Bottom preview"
-msgstr ""
+msgstr "پیش نمایش پایین"
 
 msgid "Any date"
-msgstr ""
+msgstr "هر تاریخی"
 
 msgid "Past week"
-msgstr ""
+msgstr "هفته گذشته"
 
 msgid "Past 2 weeks"
-msgstr ""
+msgstr "2 هفته گذشته"
 
 msgid "Past month"
-msgstr ""
+msgstr "ماه گذشته"
 
 msgid "Past 6 month"
-msgstr ""
+msgstr "6 ماه گذشته"
 
 msgid "Past year"
-msgstr ""
+msgstr "سال گذشته"
 
 msgid "Custom date"
-msgstr ""
+msgstr "تاریخ سفارشی"
 
 msgid "Add to favorites"
-msgstr ""
+msgstr "به علاقه مندی ها اضافه کنید"
 
 msgid "Add"
-msgstr ""
+msgstr "اضافه کنید"
 
 msgid "Empty folder name"
-msgstr ""
+msgstr "نام پوشه خالی"
 
 msgid "You must specify a name."
-msgstr ""
+msgstr "شما باید یک نام مشخص کنید."
 
 msgid "Add a folder to favorites based on search query"
-msgstr ""
+msgstr "بر اساس عبارت جستجو، پوشه ای را به موارد دلخواه اضافه کنید"
 
 msgid "Folder name"
-msgstr ""
+msgstr "نام پوشه"
 
 msgid "Select Category"
-msgstr ""
+msgstr "دسته را انتخاب کنید"
 
 msgid "Apply"
-msgstr ""
+msgstr "درخواست کنید"
 
 msgid "All folders are selected"
-msgstr ""
+msgstr "همه پوشه ها انتخاب شده اند"
 
 msgid "Reply"
-msgstr ""
+msgstr "پاسخ دهید"
 
 msgid "Reply All"
-msgstr ""
+msgstr "پاسخ به همه"
 
 msgid "Forward"
-msgstr ""
+msgstr "به جلو"
 
 msgid "Edit as New"
-msgstr ""
+msgstr "ویرایش به عنوان جدید"
 
 msgid "Search tools"
-msgstr ""
+msgstr "ابزارهای جستجو"
 
 msgid "Folders"
-msgstr ""
+msgstr "پوشه ها"
 
 msgid "Include subfolders"
-msgstr ""
+msgstr "شامل پوشه های فرعی"
 
 msgid "Show…"
-msgstr ""
+msgstr "نمایش…"
 
 msgid "Mails"
-msgstr ""
+msgstr "نامه ها"
 
 msgid "Appointments"
-msgstr ""
+msgstr "قرار ملاقات ها"
 
 msgid "Contacts"
-msgstr ""
+msgstr "مخاطبین"
 
 msgid "Tasks"
-msgstr ""
+msgstr "وظایف"
 
 msgid "Filter…"
-msgstr ""
+msgstr "فیلتر…"
 
 msgid "Unread"
-msgstr ""
+msgstr "خوانده نشده"
 
 msgid "Attachments"
-msgstr ""
+msgstr "پیوست ها"
 
 msgid "Date"
-msgstr ""
+msgstr "تاریخ"
 
 msgctxt "search.date"
 msgid "From"
-msgstr ""
+msgstr "از"
 
 msgctxt "search.date"
 msgid "To"
-msgstr ""
+msgstr "به"
 
 msgid "Filter category…"
-msgstr ""
+msgstr "دسته فیلتر…"
 
 msgid "Sender"
-msgstr ""
+msgstr "فرستنده"
 
 msgid "Recipients"
-msgstr ""
+msgstr "گیرندگان"
 
 msgid "Subject"
-msgstr ""
+msgstr "موضوع"
 
 msgid "Body & Attachments"
-msgstr ""
+msgstr "بدنه و ملحقات"
 
 msgid "Favorites"
-msgstr ""
+msgstr "موارد دلخواه"
 
 msgid "Select Folder"
-msgstr ""
+msgstr "پوشه را انتخاب کنید"
 
 msgid "Delete search folder"
-msgstr ""
+msgstr "پوشه جستجو را حذف کنید"
 
 msgid "Sort by: Date"
-msgstr ""
+msgstr "مرتب سازی بر اساس: تاریخ"
 
 msgid "Loading Search results"
-msgstr ""
+msgstr "در حال بارگیری نتایج جستجو"
 
 msgid "Sorting tip"
-msgstr ""
+msgstr "نکته مرتب سازی"
 
 msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
@@ -715,19 +720,19 @@ msgid ""
 msgstr ""
 
 msgid "Did you mean"
-msgstr ""
+msgstr "منظورت این بود"
 
 msgid "With"
-msgstr ""
+msgstr "با"
 
 msgid "To"
-msgstr ""
+msgstr "به"
 
 msgid "No date"
-msgstr ""
+msgstr "بدون تاریخ"
 
 msgid "Error"
-msgstr ""
+msgstr "خطا"
 
 msgid ""
 "Could not accept proposal as this meeting is not available in calendar; It "
@@ -740,230 +745,234 @@ msgid ""
 msgstr ""
 
 msgid "Required"
-msgstr ""
+msgstr "مورد نیاز"
 
 msgid "Optional"
-msgstr ""
+msgstr "اختیاری"
 
 msgid "Resource"
-msgstr ""
+msgstr "منبع"
 
 msgid "Could not open store."
-msgstr ""
+msgstr "فروشگاه باز نشد."
 
 msgid "Could not open default calendar folder."
-msgstr ""
+msgstr "پوشه تقویم پیش فرض باز نشد."
 
 msgid "workday"
-msgstr ""
+msgstr "روز کاری"
 
 msgid "day"
-msgstr ""
+msgstr "روز"
 
 msgid "days"
-msgstr ""
+msgstr "روز"
 
 msgid "week"
-msgstr ""
+msgstr "هفته"
 
 msgid "weeks"
-msgstr ""
+msgstr "هفته ها"
 
 msgid " on "
-msgstr ""
+msgstr "در"
 
 msgid "month"
-msgstr ""
+msgstr "ماه"
 
 msgid "months"
-msgstr ""
+msgstr "ماه ها"
 
 msgid "year"
-msgstr ""
+msgstr "سال"
 
 msgid "years"
-msgstr ""
+msgstr "سال"
 
 msgid "Occurs every {0} effective {1} from {2} to {3}."
-msgstr ""
+msgstr "هر{0}موثر{1}از{2}تا{3}رخ می دهد."
 
 msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
-msgstr ""
+msgstr "هر{0}{1}{2}موثر از{3}تا{4}رخ می دهد."
 
 msgid "Occurs every {0} effective {1}."
-msgstr ""
+msgstr "هر{0}موثر{1}رخ می دهد."
 
 msgid "Occurs every {0} {1} effective {2}."
-msgstr ""
+msgstr "هر{0}{1}موثر{2}رخ می دهد."
 
 msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural ""
 "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] ""
+msgstr[0] "هر{0}موثر{1}برای وقوع{2}از{3}تا{4}رخ می دهد."
+msgstr[1] "هر{0}{1}موثر برای وقوع{2}از{3}تا{4}رخ می دهد."
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
 msgid_plural ""
 "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
-msgstr[0] ""
+msgstr[0] "هر{0}{1}{2}موثر برای وقوع{3}از{4}تا{5}رخ می دهد."
+msgstr[1] "هر{0}{1}{2}موثر برای{3}وقوع{4}تا{5}رخ می دهد."
 
 msgid "Occurs every {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
-msgstr[0] ""
+msgstr[0] "هر{0}موثر{1}برای وقوع{2}رخ می دهد."
+msgstr[1] "هر{0}موثر{1}برای رخدادهای{2}رخ می دهد."
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
 msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
-msgstr[0] ""
+msgstr[0] "هر{0}{1}{2}موثر برای وقوع{3}رخ می دهد."
+msgstr[1] "هر{0}{1}{2}موثر برای رخدادهای{3}رخ می دهد."
 
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
-msgstr ""
+msgstr "هر{0}موثر{1}تا{2}از{3}تا{4}رخ می دهد."
 
 msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
-msgstr ""
+msgstr "هر{0}{1}موثر{2}تا{3}از{4}تا{5}رخ می دهد."
 
 msgid "Occurs every {0} effective {1} until {2}."
-msgstr ""
+msgstr "هر{0}موثر{1}تا{2}رخ می دهد."
 
 msgid "Occurs every {0} {1} effective {2} until {3}."
-msgstr ""
+msgstr "هر{0}{1}موثر{2}تا{3}رخ می دهد."
 
 msgid "When"
-msgstr ""
+msgstr "چه زمانی"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y {0}"
-msgstr ""
+msgstr "l jS F Y{0}"
 
 msgid "Where"
-msgstr ""
+msgstr "کجا"
 
 msgid "New Meeting Time Proposed"
-msgstr ""
+msgstr "زمان جلسه جدید پیشنهاد شده است"
 
 msgid "and "
-msgstr ""
+msgstr "و"
 
 msgid "Sort by: Attachment"
-msgstr ""
+msgstr "مرتب سازی بر اساس: پیوست"
 
 msgid "Sort by: Recurring"
-msgstr ""
+msgstr "مرتب سازی بر اساس: تکرار شونده"
 
 msgid "Sort by: Subject"
-msgstr ""
+msgstr "مرتب سازی بر اساس: موضوع"
 
 msgid "Start Date"
-msgstr ""
+msgstr "تاریخ شروع"
 
 msgid "Sort by: Start Date"
-msgstr ""
+msgstr "مرتب سازی بر اساس: تاریخ شروع"
 
 msgid "End Date"
-msgstr ""
+msgstr "تاریخ پایان"
 
 msgid "Sort by: End Date"
-msgstr ""
+msgstr "مرتب سازی بر اساس: تاریخ پایان"
 
 msgid "Organizer"
-msgstr ""
+msgstr "سازمان دهنده"
 
 msgid "Required Attendee"
-msgstr ""
+msgstr "شرکت کننده مورد نیاز"
 
 msgid "Optional Attendee"
-msgstr ""
+msgstr "شرکت کننده اختیاری"
 
 msgid "Show Time As"
-msgstr ""
+msgstr "نمایش زمان به عنوان"
 
 msgid "Recurrence pattern"
-msgstr ""
+msgstr "الگوی عود"
 
 msgid "All Day Event"
-msgstr ""
+msgstr "رویداد تمام روز"
 
 msgid "Add Shared Calendar"
-msgstr ""
+msgstr "افزودن تقویم مشترک"
 
 msgid "Remove From Calendar"
-msgstr ""
+msgstr "حذف از تقویم"
 
 msgid "No Response Required"
-msgstr ""
+msgstr "نیازی به پاسخ نیست"
 
 msgid "Accept"
-msgstr ""
+msgstr "قبول کنید"
 
 msgid "Accept Meeting Request"
-msgstr ""
+msgstr "پذیرش درخواست جلسه"
 
 msgid "Tentative"
-msgstr ""
+msgstr "آزمایشی"
 
 msgid "Tentatively Accept Meeting Request"
-msgstr ""
+msgstr "به طور آزمایشی درخواست جلسه را بپذیرید"
 
 msgid "Decline"
-msgstr ""
+msgstr "رد کردن"
 
 msgid "Decline Meeting Request"
-msgstr ""
+msgstr "رد درخواست جلسه"
 
 msgid "Propose New Time"
-msgstr ""
+msgstr "زمان جدید را پیشنهاد دهید"
 
 msgid "Propose New Time for Meeting Request"
-msgstr ""
+msgstr "پیشنهاد زمان جدید برای درخواست جلسه"
 
 msgid "View All Proposals"
-msgstr ""
+msgstr "مشاهده همه پیشنهادات"
 
 msgid "Accept Proposal"
-msgstr ""
+msgstr "پذیرش پیشنهاد"
 
 msgid "Accept Proposed Time"
-msgstr ""
+msgstr "زمان پیشنهادی را بپذیرید"
 
 msgid "View in calendar"
-msgstr ""
+msgstr "مشاهده در تقویم"
 
 msgid "Day"
-msgstr ""
+msgstr "روز"
 
 msgid "Workweek"
-msgstr ""
+msgstr "هفته کاری"
 
 msgid "Week"
-msgstr ""
+msgstr "هفته"
 
 msgid "Month"
-msgstr ""
+msgstr "ماه"
 
 msgid "List"
-msgstr ""
+msgstr "فهرست کنید"
 
 msgid "Appointment"
-msgstr ""
+msgstr "قرار ملاقات"
 
 msgid "Meeting request"
-msgstr ""
+msgstr "درخواست ملاقات"
 
 msgid "Print selected appointment"
-msgstr ""
+msgstr "قرار ملاقات انتخابی را چاپ کنید"
 
 msgid "No appointment selected"
-msgstr ""
+msgstr "قراری انتخاب نشده است"
 
 msgid "Print overview"
-msgstr ""
+msgstr "نمای کلی چاپ"
 
 msgid "Create Appointment"
-msgstr ""
+msgstr "ایجاد قرار ملاقات"
 
 msgid "Calendar"
-msgstr ""
+msgstr "تقویم"
 
 msgid "Create in other calendar"
-msgstr ""
+msgstr "در تقویم دیگری ایجاد کنید"
 
 msgid ""
 "The selected calendar has \"read-only\" permissions. Instead you can create "
@@ -971,75 +980,75 @@ msgid ""
 msgstr ""
 
 msgid "What would you like?"
-msgstr ""
+msgstr "چه چیزی را دوست دارید؟"
 
 msgid "Own calendar"
-msgstr ""
+msgstr "تقویم خود را"
 
 msgid "F Y"
-msgstr ""
+msgstr "F Y"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l"
-msgstr ""
+msgstr "ل"
 
 msgid "All text fields"
-msgstr ""
+msgstr "تمام فیلدهای متنی"
 
 msgid "Body"
-msgstr ""
+msgstr "بدن"
 
 msgid "Subject or Sender"
-msgstr ""
+msgstr "موضوع یا فرستنده"
 
 msgid "To or cc"
-msgstr ""
+msgstr "به یا سی سی"
 
 msgid "Meeting"
-msgstr ""
+msgstr "جلسه"
 
 msgctxt "calendar.dialog"
 msgid "Resources have been planned"
-msgstr ""
+msgstr "منابع برنامه ریزی شده است"
 
 msgid "Send update"
-msgstr ""
+msgstr "ارسال آپدیت"
 
 msgid "Do you want to send an update to all recipients?"
-msgstr ""
+msgstr "آیا می خواهید یک به روز رسانی برای همه گیرندگان ارسال کنید؟"
 
 msgid "Send update to attendees"
-msgstr ""
+msgstr "ارسال به روز رسانی برای شرکت کنندگان"
 
 msgid ""
 "You have made changes to the list of attendees. What would you like to do?"
 msgstr ""
 
 msgid "Send updates to only added or deleted attendees."
-msgstr ""
+msgstr "به روز رسانی ها را فقط برای شرکت کنندگان اضافه یا حذف شده ارسال کنید."
 
 msgid "Send updates to all attendees."
-msgstr ""
+msgstr "ارسال به روز رسانی برای همه شرکت کنندگان."
 
 msgid "Busy attendees"
-msgstr ""
+msgstr "شرکت کنندگان پر مشغله"
 
 msgid "One or more attendees are busy. Are you sure to invite?"
-msgstr ""
+msgstr "یک یا چند شرکت کننده مشغول هستند. حتما دعوت میکنی؟"
 
 msgid "Scheduling"
-msgstr ""
+msgstr "برنامه ریزی"
 
 msgid "Tracking"
-msgstr ""
+msgstr "ردیابی"
 
 msgctxt "calendar.dialog"
 msgid "Not all attendees could be resolved."
-msgstr ""
+msgstr "همه شرکت کنندگان قابل حل نیستند."
 
 msgctxt "calendar.dialog"
 msgid "{0} attendees accepted, {1} tentatively accepted, {2} declined."
-msgstr ""
+msgstr "شرکت کنندگان{0}پذیرفته شدند،{1}به طور آزمایشی پذیرفته شد،{2}رد کرد."
 
 msgctxt "calendar.dialog"
 msgid ""
@@ -1049,47 +1058,47 @@ msgstr ""
 
 msgctxt "calendar.dialog"
 msgid "You proposed a new time for this meeting on {0}"
-msgstr ""
+msgstr "شما زمان جدیدی را برای این جلسه در{0}پیشنهاد کردید"
 
 msgctxt "calendar.dialog"
 msgid "{0} proposed a new time for this meeting on {1}"
-msgstr ""
+msgstr "{0}زمان جدیدی را برای این جلسه در{1}پیشنهاد کرد"
 
 msgctxt "calendar.dialog"
 msgid "Accepted on {0}"
-msgstr ""
+msgstr "در{0}پذیرفته شد"
 
 msgctxt "calendar.dialog"
 msgid "Accepted by {0} on {1}"
-msgstr ""
+msgstr "توسط{0}در{1}پذیرفته شده است"
 
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted on {0}"
-msgstr ""
+msgstr "به طور آزمایشی در{0}پذیرفته شد"
 
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted by {0} on {1}"
-msgstr ""
+msgstr "به طور آزمایشی توسط{0}در{1}پذیرفته شد"
 
 msgctxt "calendar.dialog"
 msgid "This appointment occurs in the past."
-msgstr ""
+msgstr "این قرار در گذشته اتفاق افتاده است."
 
 msgctxt "calendar.dialog"
 msgid "Please respond."
-msgstr ""
+msgstr "لطفا پاسخ دهید."
 
 msgctxt "calendar.dialog"
 msgid "No responses have been received for this meeting."
-msgstr ""
+msgstr "هیچ پاسخی برای این جلسه دریافت نشده است."
 
 msgctxt "calendar.dialog"
 msgid "Meeting has been canceled."
-msgstr ""
+msgstr "جلسه لغو شد"
 
 msgctxt "calendar.dialog"
 msgid "Invitations have not been sent for this meeting."
-msgstr ""
+msgstr "دعوت نامه ای برای این جلسه ارسال نشده است."
 
 msgctxt "calendar.dialog"
 msgid ""
@@ -1098,34 +1107,34 @@ msgid ""
 msgstr ""
 
 msgid "Create in"
-msgstr ""
+msgstr "ایجاد در"
 
 msgid "Time"
-msgstr ""
+msgstr "زمان"
 
 msgid "until"
-msgstr ""
+msgstr "تا"
 
 msgid "Recurrence"
-msgstr ""
+msgstr "عود"
 
 msgid "Reminder"
-msgstr ""
+msgstr "یادآوری"
 
 msgid "Show as"
-msgstr ""
+msgstr "نمایش به عنوان"
 
 msgid "Warning"
-msgstr ""
+msgstr "هشدار"
 
 msgid "Attachments cannot be modified for a single occurrence"
-msgstr ""
+msgstr "پیوست‌ها را نمی‌توان برای یک مورد تغییر داد"
 
 msgid "Type your message here…"
-msgstr ""
+msgstr "پیام خود را اینجا تایپ کنید…"
 
 msgid "Update location"
-msgstr ""
+msgstr "به روز رسانی مکان"
 
 msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
@@ -1133,94 +1142,94 @@ msgstr ""
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y {0}"
-msgstr ""
+msgstr "jS F Y{0}"
 
 msgid "None"
-msgstr ""
+msgstr "هیچ کدام"
 
 msgid "Send"
-msgstr ""
+msgstr "ارسال کنید"
 
 msgid "Save"
-msgstr ""
+msgstr "ذخیره کنید"
 
 msgid "Close"
-msgstr ""
+msgstr "بستن"
 
 msgid "Delete"
-msgstr ""
+msgstr "حذف کنید"
 
 msgid "Add attachment"
-msgstr ""
+msgstr "پیوست اضافه کنید"
 
 msgid "Check names"
-msgstr ""
+msgstr "نام ها را بررسی کنید"
 
 msgid "Addressbook"
-msgstr ""
+msgstr "دفترچه آدرس"
 
 msgid "Open addressbook"
-msgstr ""
+msgstr "دفترچه آدرس را باز کنید"
 
 msgid "Invite attendees"
-msgstr ""
+msgstr "از شرکت کنندگان دعوت کنید"
 
 msgid "Cancel invitation"
-msgstr ""
+msgstr "لغو دعوت"
 
 msgid "High priority"
-msgstr ""
+msgstr "اولویت بالا"
 
 msgid "Mark this appointment as high priority"
-msgstr ""
+msgstr "این قرار ملاقات را به عنوان اولویت بالا علامت گذاری کنید"
 
 msgid "Low priority"
-msgstr ""
+msgstr "اولویت پایین"
 
 msgid "Mark this appointment as low priority"
-msgstr ""
+msgstr "این قرار ملاقات را به عنوان اولویت پایین علامت گذاری کنید"
 
 msgid "Categories"
-msgstr ""
+msgstr "دسته بندی ها"
 
 msgid "Open the categories dialog"
-msgstr ""
+msgstr "گفتگوی دسته ها را باز کنید"
 
 msgid "Private"
-msgstr ""
+msgstr "خصوصی"
 
 msgid "Mark this appointment as private"
-msgstr ""
+msgstr "این قرار را به عنوان خصوصی علامت گذاری کنید"
 
 msgid "Message Options"
 msgstr "گزینه‌های پیام"
 
 msgid "Proposed Date and Time"
-msgstr ""
+msgstr "تاریخ و زمان پیشنهادی"
 
 msgid "Duration"
-msgstr ""
+msgstr "مدت زمان"
 
 msgid "Proposed By"
-msgstr ""
+msgstr "پیشنهاد شده توسط"
 
 msgid "Current Meeting Time"
-msgstr ""
+msgstr "زمان جلسه فعلی"
 
 msgid "Show only working hours"
-msgstr ""
+msgstr "فقط ساعات کاری نمایش داده شود"
 
 msgid "Start time"
-msgstr ""
+msgstr "زمان شروع"
 
 msgid "End time"
-msgstr ""
+msgstr "زمان پایان"
 
 msgid "Comment"
-msgstr ""
+msgstr "نظر دهید"
 
 msgid "Send Meeting Request Cancellation"
-msgstr ""
+msgstr "ارسال درخواست لغو جلسه"
 
 msgid ""
 "This meeting will be cancelled. Do you want to include comments with your "
@@ -1228,13 +1237,13 @@ msgid ""
 msgstr ""
 
 msgid "Edit the cancellation before Sending."
-msgstr ""
+msgstr "قبل از ارسال، لغو را ویرایش کنید."
 
 msgid "Send the cancellation now."
-msgstr ""
+msgstr "اکنون لغو را ارسال کنید."
 
 msgid "Send Meeting Request Confirmation"
-msgstr ""
+msgstr "ارسال تاییدیه درخواست جلسه"
 
 msgid ""
 "This meeting will be accepted and moved to your calendar. Do you want to "
@@ -1252,306 +1261,307 @@ msgid ""
 msgstr ""
 
 msgid "Edit the response before sending"
-msgstr ""
+msgstr "قبل از ارسال پاسخ را ویرایش کنید"
 
 msgid "Send the response now."
-msgstr ""
+msgstr "اکنون پاسخ را ارسال کنید."
 
 msgid "Don't send a response."
-msgstr ""
+msgstr "پاسخی ارسال نکنید"
 
 msgid "The following responses for this meeting have been received"
-msgstr ""
+msgstr "پاسخ های زیر برای این جلسه دریافت شده است"
 
 msgid "Attendance"
-msgstr ""
+msgstr "حضور و غیاب"
 
 msgid "Response"
-msgstr ""
+msgstr "پاسخ"
 
 msgid "New appointment"
-msgstr ""
+msgstr "قرار جدید"
 
 msgid "Creating an item"
-msgstr ""
+msgstr "ایجاد یک آیتم"
 
 msgid "New meeting request"
-msgstr ""
+msgstr "درخواست ملاقات جدید"
 
 msgid "Switch calendar range back and forth"
-msgstr ""
+msgstr "محدوده تقویم را به جلو و عقب تغییر دهید"
 
 msgid "Copy selected item"
-msgstr ""
+msgstr "مورد انتخاب شده را کپی کنید"
 
 msgid "Paste selected item"
-msgstr ""
+msgstr "مورد انتخاب شده را جایگذاری کنید"
 
 msgid "An overview of"
-msgstr ""
+msgstr "مروری بر"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Start"
-msgstr ""
+msgstr "شروع کنید"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "End"
-msgstr ""
+msgstr "پایان"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
 msgid "Printed by"
-msgstr ""
+msgstr "چاپ شده توسط"
 
 msgid "at"
-msgstr ""
+msgstr "در"
 
 msgid "of"
-msgstr ""
+msgstr "از"
 
 msgid "Location: "
-msgstr ""
+msgstr "مکان:"
 
 msgid "j M {0}"
-msgstr ""
+msgstr "j M{0}"
 
 msgid "l jS M Y {0}"
-msgstr ""
+msgstr "l jS M Y{0}"
 
 msgid "All day: "
-msgstr ""
+msgstr "تمام روز:"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
-msgstr ""
+msgstr "l jS F Y"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F"
-msgstr ""
+msgstr "l jS F"
 
 msgid "Organiser"
-msgstr ""
+msgstr "سازمان دهنده"
 
 msgid "Meeting status"
-msgstr ""
+msgstr "وضعیت جلسه"
 
 msgid "Required Attendees"
-msgstr ""
+msgstr "شرکت کنندگان مورد نیاز"
 
 msgid "Optional Attendees"
-msgstr ""
+msgstr "شرکت کنندگان اختیاری"
 
 msgid "Resources"
-msgstr ""
+msgstr "منابع"
 
 msgid "Sensitivity"
-msgstr ""
+msgstr "حساسیت"
 
 msgid "Importance"
-msgstr ""
+msgstr "اهمیت"
 
 msgid "M j"
-msgstr ""
+msgstr "ام جی"
 
 msgid "j"
-msgstr ""
+msgstr "j"
 
 msgid "General calendar settings"
-msgstr ""
+msgstr "تنظیمات کلی تقویم"
 
 msgid "First day of the week"
-msgstr ""
+msgstr "روز اول هفته"
 
 msgid "Start of workday"
-msgstr ""
+msgstr "شروع روز کاری"
 
 msgid "End of workday"
-msgstr ""
+msgstr "پایان روز کاری"
 
 msgid "Calendar resolution"
-msgstr ""
+msgstr "وضوح تقویم"
 
 msgid "Default appointment duration {A} minutes"
-msgstr ""
+msgstr "مدت زمان قرار پیش فرض {A} دقیقه"
 
 msgid "Duration must be between 1 and 120 minutes."
-msgstr ""
+msgstr "مدت زمان باید بین 1 تا 120 دقیقه باشد."
 
 msgid "Default status for all day appointment"
-msgstr ""
+msgstr "وضعیت پیش فرض برای قرار تمام روز"
 
 msgid "Working days"
-msgstr ""
+msgstr "روزهای کاری"
 
 msgid "Show busy dates as bold in the date picker"
-msgstr ""
+msgstr "تاریخ های شلوغ را به صورت پررنگ در انتخابگر تاریخ نشان دهید"
 
 msgid "Side-by-side mode"
-msgstr ""
+msgstr "حالت ساید بای ساید"
 
 msgid "Overlay mode"
-msgstr ""
+msgstr "حالت همپوشانی"
 
 msgid "Calendar view settings"
-msgstr ""
+msgstr "تنظیمات نمایش تقویم"
 
 msgid "View multiple calendars in"
-msgstr ""
+msgstr "مشاهده چندین تقویم در"
 
 msgid "Reminder settings"
-msgstr ""
+msgstr "تنظیمات یادآوری"
 
 msgid "Enable reminder for new appointments"
-msgstr ""
+msgstr "فعال کردن یادآوری برای قرارهای جدید"
 
 msgid "Default reminder time"
-msgstr ""
+msgstr "زمان یادآوری پیش فرض"
 
 msgid "Default all-day appointment reminder time"
-msgstr ""
+msgstr "زمان پیش‌فرض یادآوری قرار ملاقات تمام روز"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS"
-msgstr ""
+msgstr "jS"
 
 msgid "{0} selected item"
 msgid_plural "{0} selected items"
-msgstr[0] ""
+msgstr[0] "{0}مورد انتخاب شده است"
+msgstr[1] "{0}موارد انتخاب شده"
 
 msgid "New Appointment"
-msgstr ""
+msgstr "قرار جدید"
 
 msgid "New Meeting Request"
-msgstr ""
+msgstr "درخواست جلسه جدید"
 
 msgid "Open"
-msgstr ""
+msgstr "باز کنید"
 
 msgid "Copy/Move"
-msgstr ""
+msgstr "کپی/انتقال"
 
 msgid "Send to…"
-msgstr ""
+msgstr "ارسال به…"
 
 msgid "Export as"
-msgstr ""
+msgstr "صادرات به عنوان"
 
 msgid "Occurrence"
-msgstr ""
+msgstr "وقوع"
 
 msgid "Series"
-msgstr ""
+msgstr "سری"
 
 msgid "Appointment not found"
-msgstr ""
+msgstr "قرار ملاقات پیدا نشد"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
-msgstr ""
+msgstr "این قرار منتقل شده یا حذف شده است، آیا می خواهید ادامه دهید؟"
 
 msgid "Options"
 msgstr "گزینه‌ها"
 
 msgid "All Day"
-msgstr ""
+msgstr "تمام روز"
 
 msgid "Sort by: All Day"
-msgstr ""
+msgstr "مرتب سازی بر اساس: تمام روز"
 
 msgid "Icon"
 msgstr "آیکون"
 
 msgid "Recurring"
-msgstr ""
+msgstr "تکرار شونده"
 
 msgid "Sort by: Duration"
-msgstr ""
+msgstr "مرتب سازی بر اساس: مدت"
 
 msgid "Meeting Status"
-msgstr ""
+msgstr "وضعیت جلسه"
 
 msgid "Sort by: Meeting Status"
-msgstr ""
+msgstr "مرتب سازی بر اساس: وضعیت جلسه"
 
 msgid "Sort by: Show as"
-msgstr ""
+msgstr "مرتب سازی بر اساس: نمایش به عنوان"
 
 msgid "Sort by: Categories"
-msgstr ""
+msgstr "مرتب سازی بر اساس: دسته بندی ها"
 
 msgid "Created On"
-msgstr ""
+msgstr "ایجاد شد"
 
 msgid "Sort by: Created On"
-msgstr ""
+msgstr "مرتب سازی بر اساس: ایجاد شده در"
 
 msgid "Due By"
-msgstr ""
+msgstr "موعد مقرر"
 
 msgid "Sort by: Due By"
-msgstr ""
+msgstr "مرتب سازی بر اساس: موعد مقرر"
 
 msgid "Label"
-msgstr ""
+msgstr "برچسب بزنید"
 
 msgid "Sort by: Label"
-msgstr ""
+msgstr "مرتب سازی بر اساس: برچسب"
 
 msgid "Sort by: Organizer"
-msgstr ""
+msgstr "مرتب سازی بر اساس: سازمان دهنده"
 
 msgid "Sort by: Required Attendee"
-msgstr ""
+msgstr "مرتب سازی بر اساس: شرکت کننده مورد نیاز"
 
 msgid "Sort by: Optional Attendee"
-msgstr ""
+msgstr "مرتب سازی بر اساس: شرکت کننده اختیاری"
 
 msgid "Sort by: Resources"
-msgstr ""
+msgstr "مرتب سازی بر اساس: منابع"
 
 msgid "Recurring Start Date"
-msgstr ""
+msgstr "تاریخ شروع تکراری"
 
 msgid "Sort by: Recurring Start Date"
-msgstr ""
+msgstr "مرتب سازی بر اساس: تاریخ شروع تکراری"
 
 msgid "Recurring End Date"
-msgstr ""
+msgstr "تاریخ پایان تکراری"
 
 msgid "Sort by: Recurring End Date"
-msgstr ""
+msgstr "مرتب سازی بر اساس: تاریخ پایان تکراری"
 
 msgid "Recurring Pattern"
-msgstr ""
+msgstr "الگوی تکرارشونده"
 
 msgid "Sort by: Recurring Pattern"
-msgstr ""
+msgstr "مرتب سازی بر اساس: الگوی تکرارشونده"
 
 msgid "Sort by: Reminder"
-msgstr ""
+msgstr "مرتب سازی بر اساس: یادآوری"
 
 msgid "Sort by: Sensitivity"
-msgstr ""
+msgstr "مرتب سازی بر اساس: حساسیت"
 
 msgid "Sort by: Importance"
 msgstr "مرتب‌سازی بر اساس: اهمیت"
 
 msgid "Loading appointments"
-msgstr ""
+msgstr "در حال بارگیری قرارها"
 
 msgid "Attendees"
-msgstr ""
+msgstr "شرکت کنندگان"
 
 msgid "Optional attendees"
-msgstr ""
+msgstr "شرکت کنندگان اختیاری"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F {0}"
-msgstr ""
+msgstr "jS F{0}"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y"
-msgstr ""
+msgstr "jS F Y"
 
 msgid ""
 "You have insufficient privileges to move and copy this item. Ask the folder "
@@ -1564,7 +1574,7 @@ msgid ""
 msgstr ""
 
 msgid "Insufficient privileges"
-msgstr ""
+msgstr "امتیازات ناکافی"
 
 msgid ""
 "Copying this appointment will unset it as private. Are you sure you want to "
@@ -1572,10 +1582,10 @@ msgid ""
 msgstr ""
 
 msgid "Private item"
-msgstr ""
+msgstr "مورد خصوصی"
 
 msgid "Copy"
-msgstr ""
+msgstr "کپی کنید"
 
 msgid ""
 "Moving this appointment will unset it as private. Are you sure you want to "
@@ -1583,22 +1593,22 @@ msgid ""
 msgstr ""
 
 msgid "Move"
-msgstr ""
+msgstr "حرکت کنید"
 
 msgid "Update recipients"
-msgstr ""
+msgstr "به روز رسانی گیرندگان"
 
 msgid "The time of the meeting has changed. What would you like to do?"
-msgstr ""
+msgstr "زمان جلسه تغییر کرده است. دوست دارید چه کار کنید؟"
 
 msgid "Save changes and send an update to all recipients"
-msgstr ""
+msgstr "تغییرات را ذخیره کنید و یک به روز رسانی برای همه گیرندگان ارسال کنید"
 
 msgid "Open meeting request with changes"
-msgstr ""
+msgstr "درخواست جلسه را با تغییرات باز کنید"
 
 msgid "grommunio Web"
-msgstr ""
+msgstr "grommunio وب"
 
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
@@ -1606,28 +1616,28 @@ msgid ""
 msgstr ""
 
 msgid "Don't move"
-msgstr ""
+msgstr "حرکت نکن"
 
 msgid "Switch to day view to see all appointments"
-msgstr ""
+msgstr "برای دیدن همه قرارها به نمای روز بروید"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
-msgstr ""
+msgstr "پیشنهاد شده است"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "When"
-msgstr ""
+msgstr "چه زمانی"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Location"
-msgstr ""
+msgstr "مکان"
 
 msgid "No additional response required"
-msgstr ""
+msgstr "بدون پاسخ اضافی مورد نیاز است"
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -1635,79 +1645,78 @@ msgid ""
 msgstr ""
 
 msgid "Loading appointments…"
-msgstr ""
+msgstr "در حال بارگیری قرارها…"
 
 msgid "Please select a calendar via widget settings"
-msgstr ""
+msgstr "لطفاً یک تقویم را از طریق تنظیمات ویجت انتخاب کنید"
 
 msgid "Number of days"
-msgstr ""
+msgstr "تعداد روزها"
 
 msgid "day(s)"
-msgstr ""
+msgstr "روز(های)"
 
 msgid "{0}"
-msgstr ""
+msgstr "{0}"
 
 msgid "Upcoming Appointments"
-msgstr ""
+msgstr "قرار ملاقات های آینده"
 
 msgid "Appointments of {0}"
-msgstr ""
+msgstr "قرار ملاقات های{0}"
 
 msgid "Appointments of {0} - {1}"
-msgstr ""
+msgstr "قرار ملاقات های{0}-{1}"
 
 msgid "No appointments"
-msgstr ""
+msgstr "بدون قرار ملاقات"
 
 msgid "Today {0} - {1}"
-msgstr ""
+msgstr "امروز{0}-{1}"
 
 msgid "Today (all day)"
-msgstr ""
+msgstr "امروز (تمام روز)"
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
 #. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
 msgid "{0} - {1}"
-msgstr ""
+msgstr "{0}-{1}"
 
 msgid "d/m/y {0}"
-msgstr ""
+msgstr "d/m/y{0}"
 
 msgid "{0} - {1} (all day)"
-msgstr ""
+msgstr "{0}-{1}(تمام روز)"
 
-#, fuzzy
 msgid "d/m/y"
-msgstr "روز / ماه / سال"
+msgstr "d/m/y"
 
 msgid "Select one…"
-msgstr ""
+msgstr "یکی را انتخاب کنید…"
 
 msgid "Unnamed folder"
-msgstr ""
+msgstr "پوشه بدون نام"
 
 msgid "Discard"
-msgstr ""
+msgstr "دور انداختن"
 
 msgid "Quick Appointment"
-msgstr ""
+msgstr "قرار ملاقات سریع"
 
 msgid "Printing of multiple items has not been implemented."
-msgstr ""
+msgstr "چاپ چندین مورد اجرا نشده است."
 
 msgid "Printing of this item is not yet available"
-msgstr ""
+msgstr "چاپ این مورد هنوز در دسترس نیست"
 
 msgid "Item type: "
-msgstr ""
+msgstr "نوع مورد:"
 
 msgid "Printing of this view is not yet available"
-msgstr ""
+msgstr "چاپ این نما هنوز در دسترس نیست"
 
 msgid "Recurring Message"
-msgstr ""
+msgstr "پیام تکراری"
 
 msgid ""
 "This is a recurring message. Do you want to open only this occurrence or the "
@@ -1715,7 +1724,7 @@ msgid ""
 msgstr ""
 
 msgid "Recurring Appointment"
-msgstr ""
+msgstr "قرار ملاقات تکراری"
 
 msgid ""
 "This is a recurring appointment. Do you want to open only this occurrence or "
@@ -1723,7 +1732,7 @@ msgid ""
 msgstr ""
 
 msgid "Recurring Meeting Request"
-msgstr ""
+msgstr "درخواست جلسه مکرر"
 
 msgid ""
 "This is a recurring meeting request. Do you want to open only this "
@@ -1731,7 +1740,7 @@ msgid ""
 msgstr ""
 
 msgid "Recurring Task Request"
-msgstr ""
+msgstr "درخواست کار تکرارشونده"
 
 msgid ""
 "This is a recurring task request. Do you want to open only this occurrence "
@@ -1739,13 +1748,13 @@ msgid ""
 msgstr ""
 
 msgid "Open this occurrence"
-msgstr ""
+msgstr "این اتفاق را باز کنید"
 
 msgid "Open the series"
-msgstr ""
+msgstr "سریال رو باز کن"
 
 msgid "Paste Recurring {0}"
-msgstr ""
+msgstr "چسباندن تکراری{0}"
 
 msgid ""
 "This is a recurring {0}. Do you want to paste only this occurrence or the "
@@ -1753,19 +1762,19 @@ msgid ""
 msgstr ""
 
 msgid "message"
-msgstr ""
+msgstr "پیام"
 
 msgid "meeting request"
-msgstr ""
+msgstr "درخواست ملاقات"
 
 msgid "appointment"
-msgstr ""
+msgstr "قرار ملاقات"
 
 msgid "Paste this occurrence only"
-msgstr ""
+msgstr "فقط این اتفاق را جایگذاری کنید"
 
 msgid "Paste the series…"
-msgstr ""
+msgstr "چسباندن سریال…"
 
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
@@ -1788,34 +1797,34 @@ msgid ""
 msgstr ""
 
 msgid "Delete this occurrence"
-msgstr ""
+msgstr "این اتفاق را حذف کنید"
 
 msgid "Delete the series"
-msgstr ""
+msgstr "سریال رو حذف کن"
 
 msgid "Confirm Delete"
-msgstr ""
+msgstr "حذف را تایید کنید"
 
 msgid "This \"{0}\" meeting was already accepted."
-msgstr ""
+msgstr "این جلسه \"{0}\" قبلا پذیرفته شده بود."
 
 msgid "You have not responded to the meeting request \"{0}\"."
-msgstr ""
+msgstr "شما به درخواست جلسه \"{0}\" پاسخ نداده اید."
 
 msgid "Delete and send a response to the meeting organizer"
-msgstr ""
+msgstr "حذف و ارسال پاسخ به سازمان دهنده جلسه"
 
 msgid "Delete without sending"
-msgstr ""
+msgstr "حذف بدون ارسال"
 
 msgid "Insufficient permissions"
-msgstr ""
+msgstr "مجوزهای ناکافی"
 
 msgid "You have insufficient privileges to delete items in this folder."
-msgstr ""
+msgstr "شما امتیاز کافی برای حذف موارد در این پوشه ندارید."
 
 msgid "Notify recipients"
-msgstr ""
+msgstr "به گیرندگان اطلاع دهید"
 
 msgid ""
 "A cancellation message will be sent to all recipients, do you wish to "
@@ -1823,7 +1832,7 @@ msgid ""
 msgstr ""
 
 msgid "Notify sender"
-msgstr ""
+msgstr "به فرستنده اطلاع دهید"
 
 msgid ""
 "{0} has requested a notification be sent when message \"{1}\" is deleted "
@@ -1831,28 +1840,28 @@ msgid ""
 msgstr ""
 
 msgid "Delete Incomplete Task"
-msgstr ""
+msgstr "وظیفه ناقص را حذف کنید"
 
 msgid "The task \"{0}\" has not been completed. What do you want to do?"
-msgstr ""
+msgstr "کار \"{0}\" تکمیل نشده است. میخوای چیکار کنی؟"
 
 msgid "Decline and delete"
-msgstr ""
+msgstr "رد و حذف کنید"
 
 msgid "Mark complete and delete"
-msgstr ""
+msgstr "علامت گذاری به عنوان کامل و حذف"
 
 msgid "Following recipients are already exists"
-msgstr ""
+msgstr "گیرندگان زیر در حال حاضر وجود دارند"
 
 msgid "Duplicate recipients"
-msgstr ""
+msgstr "گیرندگان تکراری"
 
 msgid "Duplicate recipient"
-msgstr ""
+msgstr "گیرنده تکراری"
 
 msgid "Recipient already exists."
-msgstr ""
+msgstr "گیرنده از قبل وجود دارد."
 
 msgid ""
 "The sender of this email has requested a read receipt. Do you wish to notify "
@@ -1860,19 +1869,19 @@ msgid ""
 msgstr ""
 
 msgid "Import"
-msgstr ""
+msgstr "واردات"
 
 msgid "Successfully imported item(s) to {0}"
-msgstr ""
+msgstr "مورد(های) با موفقیت به{0}وارد شد"
 
 msgid "Failed to import item(s) to {0}"
-msgstr ""
+msgstr "وارد کردن موارد به{0}انجام نشد"
 
 msgid "Import error"
-msgstr ""
+msgstr "خطای واردات"
 
 msgid "Unable to import \"{0}\". The file is not valid"
-msgstr ""
+msgstr "وارد کردن \"{0}\" ممکن نیست. فایل معتبر نیست"
 
 msgid ""
 "You have insufficient privileges to move these items. Would you like to copy "
@@ -1885,43 +1894,43 @@ msgid ""
 msgstr ""
 
 msgid "Cc"
-msgstr ""
+msgstr "رونوشت"
 
 msgid "Bcc"
-msgstr ""
+msgstr "Bcc"
 
 msgid "From"
-msgstr ""
+msgstr "از"
 
 msgid "Insert item"
-msgstr ""
+msgstr "درج مورد"
 
 msgid "Insert as"
-msgstr ""
+msgstr "درج به عنوان"
 
 msgid "Text only"
-msgstr ""
+msgstr "فقط متن"
 
 msgid "Attachment"
-msgstr ""
+msgstr "پیوست"
 
 msgid "Attach Item"
-msgstr ""
+msgstr "مورد را ضمیمه کنید"
 
 msgid "No message selected"
-msgstr ""
+msgstr "هیچ پیامی انتخاب نشده است"
 
 msgid "Import to"
-msgstr ""
+msgstr "واردات به"
 
 msgid "New folder"
-msgstr ""
+msgstr "پوشه جدید"
 
 msgid "Download as ZIP"
-msgstr ""
+msgstr "دانلود به صورت ZIP"
 
 msgid "Continue"
-msgstr ""
+msgstr "ادامه دهید"
 
 msgid ""
 "These attachments have an unsupported file type and can not be added to the "
@@ -1929,29 +1938,29 @@ msgid ""
 msgstr ""
 
 msgid "Would you like to continue downloading without adding these files?"
-msgstr ""
+msgstr "آیا می خواهید بدون افزودن این فایل ها به دانلود ادامه دهید؟"
 
 msgid ""
 "Always continue download of ZIP files without adding unsupported file types."
 msgstr ""
 
 msgid "File upload"
-msgstr ""
+msgstr "آپلود فایل"
 
 msgid "Attach item"
-msgstr ""
+msgstr "مورد را ضمیمه کنید"
 
 msgid "Preview"
 msgstr "پیش‌نمایش"
 
 msgid "Download"
-msgstr ""
+msgstr "دانلود کنید"
 
 msgid "Download all as ZIP"
-msgstr ""
+msgstr "همه را به صورت ZIP دانلود کنید"
 
 msgid "Import to folder"
-msgstr ""
+msgstr "وارد کردن به پوشه"
 
 msgid ""
 "In order to use the vCard import feature, upgrade your Gromox to version 0 "
@@ -1964,31 +1973,31 @@ msgid ""
 msgstr ""
 
 msgid "Attachment error"
-msgstr ""
+msgstr "خطای پیوست"
 
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
-msgstr ""
+msgstr "امکان ایجاد ZIP وجود ندارد، حداکثر اندازه مجاز 30 مگابایت است."
 
 msgid "Unable to download"
-msgstr ""
+msgstr "دانلود نشد"
 
 msgid "Picture format is not supported. "
-msgstr ""
+msgstr "فرمت تصویر پشتیبانی نمی شود."
 
 msgid "Supported format for contact pictures are"
-msgstr ""
+msgstr "فرمت های پشتیبانی شده برای تصاویر تماس می باشد"
 
 msgid "Attachment Error"
-msgstr ""
+msgstr "خطای پیوست"
 
 msgid "Manage Categories"
-msgstr ""
+msgstr "مدیریت دسته ها"
 
 msgid "New"
-msgstr ""
+msgstr "جدید"
 
 msgid "Delete Category"
-msgstr ""
+msgstr "حذف دسته"
 
 msgid ""
 "Are you sure you want to delete the category \"{0}\"? Other items keep this "
@@ -1996,19 +2005,19 @@ msgid ""
 msgstr ""
 
 msgid "Rename Category"
-msgstr ""
+msgstr "تغییر نام دسته"
 
 msgid "A category named \""
-msgstr ""
+msgstr "دسته ای به نام \""
 
 msgid "Create New Category"
-msgstr ""
+msgstr "ایجاد دسته جدید"
 
 msgid "Pin to quick access"
-msgstr ""
+msgstr "برای دسترسی سریع پین کنید"
 
 msgid "Create"
-msgstr ""
+msgstr "ایجاد کنید"
 
 msgid ""
 "You must apply the changes you have made to the categories before you can "
@@ -2016,7 +2025,7 @@ msgid ""
 msgstr ""
 
 msgid "You already have a category named '{0}'. Please use another name."
-msgstr ""
+msgstr "شما قبلاً یک دسته به نام \"{0}\" دارید. لطفا از نام دیگری استفاده کنید."
 
 msgid ""
 "You already have a category named '{0}' in your pending changes. Please use "
@@ -2024,13 +2033,13 @@ msgid ""
 msgstr ""
 
 msgid "Rename"
-msgstr ""
+msgstr "تغییر نام دهید"
 
 msgid "This is the first time you have used \"{0}\" category."
-msgstr ""
+msgstr "این اولین بار است که از دسته \"{0}\" استفاده می کنید."
 
 msgid "Do you want to rename it?"
-msgstr ""
+msgstr "آیا می خواهید آن را تغییر نام دهید؟"
 
 msgid ""
 "The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
@@ -2038,82 +2047,84 @@ msgid ""
 msgstr ""
 
 msgid "Merge"
-msgstr ""
+msgstr "ادغام"
 
 msgid "Remove"
-msgstr ""
+msgstr "حذف کنید"
 
 msgid "Check Names"
-msgstr ""
+msgstr "نام ها را بررسی کنید"
 
 msgid "Select an address to use"
-msgstr ""
+msgstr "آدرسی را برای استفاده انتخاب کنید"
 
 msgid "Email"
-msgstr ""
+msgstr "ایمیل"
 
 msgid "More than one '{0}' found."
-msgstr ""
+msgstr "بیش از یک «{0}» پیدا شد."
 
 msgid "Alert"
-msgstr ""
+msgstr "هشدار"
 
 msgid "Please select a recipient"
-msgstr ""
+msgstr "لطفاً یک گیرنده را انتخاب کنید"
 
 msgid "Mail and Post"
-msgstr ""
+msgstr "پست و پست"
 
 msgid "Contact"
-msgstr ""
+msgstr "تماس بگیرید"
 
 msgid "Journal"
-msgstr ""
+msgstr "مجله"
 
 msgid "Note"
-msgstr ""
+msgstr "توجه داشته باشید"
 
 msgid "Task"
-msgstr ""
+msgstr "وظیفه"
 
 msgid "Inbox"
-msgstr ""
+msgstr "صندوق ورودی"
 
 msgid "Entire Inbox"
-msgstr ""
+msgstr "کل صندوق ورودی"
 
 msgid "Secretary"
-msgstr ""
+msgstr "منشی"
 
 msgid "Only read"
-msgstr ""
+msgstr "فقط بخوانید"
 
 msgid "Delegate Permissions"
-msgstr ""
+msgstr "تفویض مجوزها"
 
 msgid "This delegate has the following permissions"
-msgstr ""
+msgstr "این نماینده دارای مجوزهای زیر است"
 
 msgid "Delegate can see my private items."
-msgstr ""
+msgstr "نماینده می تواند موارد خصوصی من را ببیند."
 
 msgid "Delegate receives copies of meeting-related messages sent to me."
 msgstr ""
+"نماینده کپی هایی از پیام های مربوط به جلسه را دریافت می کند که برای من "
+"ارسال شده است."
 
 msgid "Other"
-msgstr ""
+msgstr "دیگر"
 
 msgid "No delegates configured"
-msgstr ""
+msgstr "هیچ نماینده ای پیکربندی نشده است"
 
 msgid "Loading delegates"
-msgstr ""
+msgstr "در حال بارگیری نمایندگان"
 
 msgid "Please select a delegate."
-msgstr ""
+msgstr "لطفا یک نماینده انتخاب کنید."
 
 msgid "Delegates can send items on your behalf."
-msgstr ""
+msgstr "نمایندگان می توانند موارد را از طرف شما ارسال کنند."
 
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
@@ -2121,29 +2132,30 @@ msgid ""
 msgstr ""
 
 msgid "Permission"
-msgstr ""
+msgstr "اجازه"
 
 msgid "Duplicate delegate"
-msgstr ""
+msgstr "نماینده تکراری"
 
 msgid "Delegate already exists in the list."
-msgstr ""
+msgstr "نماینده از قبل در لیست موجود است."
 
 msgid "Copy/Move Folder"
-msgstr ""
+msgstr "کپی/انتقال پوشه"
 
 msgid "Copy/Move Messages"
-msgstr ""
+msgstr "کپی/انتقال پیام ها"
 
 msgid "Destination folder"
-msgstr ""
+msgstr "پوشه مقصد"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
-msgstr[0] ""
+msgstr[0] "پیام{0}انتخاب شده است."
+msgstr[1] "پیام‌های{0}انتخاب شده‌اند."
 
 msgid "Folder '{0}' selected."
-msgstr ""
+msgstr "پوشه \"{0}\" انتخاب شد."
 
 msgid "Unable to perform action"
 msgstr "انجام عملیات ممکن نیست"
@@ -2162,16 +2174,16 @@ msgid ""
 msgstr ""
 
 msgid "You have insufficient privileges to move following items."
-msgstr ""
+msgstr "برای انتقال موارد زیر امتیاز کافی ندارید."
 
 msgid "Subject:"
-msgstr ""
+msgstr "موضوع:"
 
 msgid "Would you like to copy instead?"
-msgstr ""
+msgstr "آیا می خواهید به جای آن کپی کنید؟"
 
 msgid "Do not show this message again."
-msgstr ""
+msgstr "این پیام را دیگر نشان ندهید."
 
 msgid "Properties"
 msgstr "ویژگی‌ها"
@@ -2180,142 +2192,142 @@ msgid "Object ID"
 msgstr "شناسهٔ شیء"
 
 msgid "ICS"
-msgstr ""
+msgstr "ICS"
 
 msgid "Set custom flag"
-msgstr ""
+msgstr "تنظیم پرچم سفارشی"
 
 msgid "Start date"
-msgstr ""
+msgstr "تاریخ شروع"
 
 msgid "End date"
-msgstr ""
+msgstr "تاریخ پایان"
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "فردا"
 
 msgid "This week"
-msgstr ""
+msgstr "این هفته"
 
 msgid "Next week"
-msgstr ""
+msgstr "هفته آینده"
 
 msgid "Custom"
-msgstr ""
+msgstr "سفارشی"
 
 msgid "Set reminder"
-msgstr ""
+msgstr "تنظیم یادآوری"
 
 msgid "Complete"
-msgstr ""
+msgstr "کامل"
 
 msgid "today"
-msgstr ""
+msgstr "امروز"
 
 msgid "tomorrow"
-msgstr ""
+msgstr "فردا"
 
 msgid "this week"
-msgstr ""
+msgstr "این هفته"
 
 msgid "next week"
-msgstr ""
+msgstr "هفته آینده"
 
 msgid "Edit recipient"
-msgstr ""
+msgstr "ویرایش گیرنده"
 
 msgid "Copy email address"
-msgstr ""
+msgstr "آدرس ایمیل را کپی کنید"
 
 msgid "Set as required"
-msgstr ""
+msgstr "در صورت نیاز تنظیم کنید"
 
 msgid "Set as optional"
-msgstr ""
+msgstr "به عنوان اختیاری تنظیم کنید"
 
 msgid "Set as resource"
-msgstr ""
+msgstr "به عنوان منبع تنظیم کنید"
 
 msgid "Select attendees"
-msgstr ""
+msgstr "شرکت کنندگان را انتخاب کنید"
 
 msgid "Suggested Times"
-msgstr ""
+msgstr "زمان های پیشنهادی"
 
 msgid "Busy"
-msgstr ""
+msgstr "مشغول"
 
 msgid "Out of Office"
-msgstr ""
+msgstr "خارج از دفتر"
 
 msgid "No Information"
-msgstr ""
+msgstr "بدون اطلاعات"
 
 msgid "Show non-working hours"
-msgstr ""
+msgstr "نمایش ساعات غیر کاری"
 
 msgid "Hide non-working hours"
-msgstr ""
+msgstr "مخفی کردن ساعات غیر کاری"
 
 msgid "No freebusy information available for this date"
-msgstr ""
+msgstr "هیچ اطلاعاتی برای این تاریخ در دسترس نیست"
 
 msgid "No suggestions available"
-msgstr ""
+msgstr "هیچ پیشنهادی در دسترس نیست"
 
 msgid "Switch between different contexts e.g. inbox, calendar, etc."
-msgstr ""
+msgstr "جابجایی بین زمینه های مختلف به عنوان مثال صندوق ورودی، تقویم و غیره"
 
 msgid "Basic navigation"
-msgstr ""
+msgstr "ناوبری اولیه"
 
 msgid "Switch between different views"
-msgstr ""
+msgstr "بین نماهای مختلف جابجا شوید"
 
 msgid "New item"
-msgstr ""
+msgstr "مورد جدید"
 
 msgid "All views"
-msgstr ""
+msgstr "همه نماها"
 
 msgid "Close tab"
-msgstr ""
+msgstr "بستن برگه"
 
 msgid "Print item"
-msgstr ""
+msgstr "چاپ مورد"
 
 msgid "Items"
-msgstr ""
+msgstr "موارد"
 
 msgid "Save an item e.g. mail, contact, etc."
-msgstr ""
+msgstr "ذخیره یک مورد به عنوان مثال پست، تماس و غیره"
 
 msgid "Send an item e.g. mail, meeting request, etc."
-msgstr ""
+msgstr "ارسال یک مورد به عنوان مثال پست، درخواست ملاقات و غیره"
 
 msgid "Select all items"
-msgstr ""
+msgstr "همه موارد را انتخاب کنید"
 
 msgid "Extend the selection to the first item in the list"
-msgstr ""
+msgstr "انتخاب را به اولین مورد در لیست گسترش دهید"
 
 msgid "Extend the selection to the last item in the list"
-msgstr ""
+msgstr "انتخاب را به آخرین مورد در لیست گسترش دهید"
 
 msgid "Open selected item"
-msgstr ""
+msgstr "مورد انتخاب شده را باز کنید"
 
 msgid "Open dialog to categorize selected item"
-msgstr ""
+msgstr "گفتگو را باز کنید تا مورد انتخاب شده را دسته بندی کنید"
 
 msgid "Print list"
-msgstr ""
+msgstr "چاپ لیست"
 
 msgid "Open copy/move dialog"
-msgstr ""
+msgstr "گفتگوی کپی/انتقال را باز کنید"
 
 msgid "Delete selected item"
-msgstr ""
+msgstr "حذف مورد انتخاب شده"
 
 msgid ""
 "Delete selected item without moving it to the Deleted Items folder. The "
@@ -2323,37 +2335,37 @@ msgid ""
 msgstr ""
 
 msgid "Add/Edit Cc recipient"
-msgstr ""
+msgstr "افزودن/ویرایش گیرنده رونوشت"
 
 msgid "Disable for new mail"
-msgstr ""
+msgstr "غیرفعال کردن ایمیل جدید"
 
 msgid "Enable for new mail"
-msgstr ""
+msgstr "برای ایمیل جدید فعال کنید"
 
 msgid "Disable for replies"
-msgstr ""
+msgstr "برای پاسخ ها غیر فعال کنید"
 
 msgid "Enable for replies"
-msgstr ""
+msgstr "برای پاسخ ها فعال کنید"
 
 msgid "No Cc recipient configured"
-msgstr ""
+msgstr "هیچ گیرنده رونوشت پیکربندی نشده است"
 
 msgid "Loading Cc recipients"
-msgstr ""
+msgstr "در حال بارگیری گیرندگان رونوشت"
 
 msgid "Reply Mail"
-msgstr ""
+msgstr "پاسخ نامه"
 
 msgid "New Mail"
-msgstr ""
+msgstr "ایمیل جدید"
 
 msgid "Please select a Cc recipient record."
-msgstr ""
+msgstr "لطفاً یک رکورد گیرنده رونوشت انتخاب کنید."
 
 msgid "Manage Cc recipients"
-msgstr ""
+msgstr "گیرندگان رونوشت را مدیریت کنید"
 
 msgid ""
 "Cc recipients can be used to set a default Cc user in new mail, replies or "
@@ -2361,34 +2373,34 @@ msgid ""
 msgstr ""
 
 msgid "Help"
-msgstr ""
+msgstr "کمک کنید"
 
 msgid "Web Manual"
-msgstr ""
+msgstr "راهنمای وب"
 
 msgid "Item data"
-msgstr ""
+msgstr "داده های مورد"
 
 msgid "INSERT"
-msgstr ""
+msgstr "درج کنید"
 
 msgid "Sort by: context.mail.griddefaultcolumn"
-msgstr ""
+msgstr "مرتب سازی بر اساس: context.mail.griddefaultcolumn"
 
 msgid "ZDeveloper"
-msgstr ""
+msgstr "ZDeveloper"
 
 msgid "grommunio Web print"
-msgstr ""
+msgstr "چاپ وب grommunio"
 
 msgid "Display name"
-msgstr ""
+msgstr "نام نمایشی"
 
 msgid "Email address"
-msgstr ""
+msgstr "آدرس ایمیل"
 
 msgid "Expand distribution list"
-msgstr ""
+msgstr "گسترش لیست توزیع"
 
 msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
@@ -2396,111 +2408,111 @@ msgid ""
 msgstr ""
 
 msgid "Edit Recipient"
-msgstr ""
+msgstr "ویرایش گیرنده"
 
 msgid "Copy email addresses"
-msgstr ""
+msgstr "آدرس های ایمیل را کپی کنید"
 
 msgid "Send email"
-msgstr ""
+msgstr "ارسال ایمیل"
 
 msgid "Delete recipient from suggestion list"
-msgstr ""
+msgstr "حذف گیرنده از لیست پیشنهاد"
 
 msgid "Copy all email addresses"
-msgstr ""
+msgstr "تمام آدرس های ایمیل را کپی کنید"
 
 msgid "View recipient"
-msgstr ""
+msgstr "مشاهده گیرنده"
 
 msgid "Weekday"
-msgstr ""
+msgstr "روز هفته"
 
 msgid "Weekend Day"
-msgstr ""
+msgstr "روز آخر هفته"
 
 msgid "1st"
-msgstr ""
+msgstr "1"
 
 msgid "2nd"
-msgstr ""
+msgstr "2"
 
 msgid "3rd"
-msgstr ""
+msgstr "3"
 
 msgid "4th"
-msgstr ""
+msgstr "4"
 
 msgid "last"
-msgstr ""
+msgstr "آخرین"
 
 msgid "Every {A} day(s)"
-msgstr ""
+msgstr "هر {A} روز"
 
 msgid "Every weekday"
-msgstr ""
+msgstr "هر روز هفته"
 
 msgid "Regenerate new task {A} day(s) after each task is completed"
-msgstr ""
+msgstr "{A} روز پس از تکمیل هر کار، کار جدید را دوباره ایجاد کنید"
 
 msgid "Day {A} of every {B} month(s)"
-msgstr ""
+msgstr "روز {A} از هر {B} ماه"
 
 msgid "The {A} {B} of every {C} month(s)"
-msgstr ""
+msgstr "{A} {B} هر {C} ماه(های)"
 
 msgid "Regenerate new task {A} month(s) after each task is completed"
-msgstr ""
+msgstr "کار جدید را {A} ماه پس از تکمیل هر کار بازسازی کنید"
 
 msgid "Appointment Recurrence"
-msgstr ""
+msgstr "عود انتصاب"
 
 msgid "Remove Recurrence"
-msgstr ""
+msgstr "Recurrence را حذف کنید"
 
 msgid "Reset recurring"
-msgstr ""
+msgstr "بازنشانی مجدد"
 
 msgid "This will reset every exception. Do you want to continue?"
-msgstr ""
+msgstr "این کار هر استثنا را بازنشانی می کند. آیا می خواهید ادامه دهید؟"
 
 msgid "Task Recurrence"
-msgstr ""
+msgstr "تکرار کار"
 
 msgid "Daily"
-msgstr ""
+msgstr "روزانه"
 
 msgid "Weekly"
-msgstr ""
+msgstr "هفتگی"
 
 msgid "Monthly"
-msgstr ""
+msgstr "ماهانه"
 
 msgid "Yearly"
-msgstr ""
+msgstr "سالانه"
 
 msgid "Range of recurrence"
-msgstr ""
+msgstr "محدوده عود"
 
 msgid "No end date"
-msgstr ""
+msgstr "بدون تاریخ پایان"
 
 msgid "End after {A} occurrences"
-msgstr ""
+msgstr "پس از وقوع {A} پایان یابد"
 
 msgid "End by {A}"
-msgstr ""
+msgstr "پایان توسط {A}"
 
 #. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
 #. For example: 'Occurrence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurrence duration: 1 hour'
 msgid "Occurrence duration: {D} {H} {M}"
-msgstr ""
+msgstr "مدت زمان وقوع: {D} {H} {M}"
 
 msgid "Every {A} week(s) on"
-msgstr ""
+msgstr "هر {A} هفته یکبار"
 
 msgid "Regenerate new task {A} week(s) after each task is completed"
-msgstr ""
+msgstr "پس از تکمیل هر کار، {A} هفته(ها) کار جدید را بازسازی کنید"
 
 msgid "Every {A} years(s) on"
 msgstr "هر {A} سال در"
@@ -2509,261 +2521,264 @@ msgid "{A} {B}"
 msgstr "{A} {B}"
 
 msgid "The {A} {B} of {C}"
-msgstr ""
+msgstr "{A} {B} از {C}"
 
 msgid "Regenerate new task {A} year(s) after each task is completed"
-msgstr ""
+msgstr "پس از تکمیل هر کار، {A} سال(های) کار جدید را بازسازی کنید"
 
 msgid "Info"
-msgstr ""
+msgstr "اطلاعات"
 
 msgid "Not supported at the moment."
-msgstr ""
+msgstr "در حال حاضر پشتیبانی نمی شود."
 
 msgid "There is {0} reminder"
 msgid_plural "There are {0} reminders"
-msgstr[0] ""
+msgstr[0] "یادآور{0}وجود دارد"
+msgstr[1] "یادآورهای{0}وجود دارد"
 
 msgid "Reminders"
-msgstr ""
+msgstr "یادآوری ها"
 
 msgid "There are no reminders"
-msgstr ""
+msgstr "هیچ یادآوری وجود ندارد"
 
 msgid "Due In"
-msgstr ""
+msgstr "موعد ورود"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Due"
-msgstr ""
+msgstr "سررسید"
 
 msgid "Reminder time"
-msgstr ""
+msgstr "زمان یادآوری"
 
 msgid "Dismiss All"
-msgstr ""
+msgstr "رد کردن همه"
 
 msgid "Open Item"
-msgstr ""
+msgstr "مورد را باز کنید"
 
 msgid "Dismiss"
-msgstr ""
+msgstr "رد کردن"
 
 msgid "Click Snooze to be reminded again in"
-msgstr ""
+msgstr "روی تعویق کلیک کنید تا دوباره به شما یادآوری شود"
 
 msgid "Snooze"
-msgstr ""
+msgstr "به تعویق انداختن"
 
 msgctxt "reminder.dialog"
 msgid "{0} reminder is selected."
 msgid_plural "{0} reminders are selected."
-msgstr[0] ""
+msgstr[0] "یادآوری{0}انتخاب شده است."
+msgstr[1] "یادآورهای{0}انتخاب شده اند."
 
 msgid "Restore Softdeleted Items"
-msgstr ""
+msgstr "موارد SoftDeleted را بازیابی کنید"
 
 msgid "Restore From {0}"
-msgstr ""
+msgstr "بازیابی از{0}"
 
 msgid "Restore"
-msgstr ""
+msgstr "بازیابی کنید"
 
 msgid "Restore All"
-msgstr ""
+msgstr "بازیابی همه"
 
 msgid "Permanent Delete"
-msgstr ""
+msgstr "حذف دائمی"
 
 msgid "Delete All"
-msgstr ""
+msgstr "حذف همه"
 
 msgid "Messages"
-msgstr ""
+msgstr "پیام ها"
 
 msgid "Delete all items"
-msgstr ""
+msgstr "تمام موارد را حذف کنید"
 
 msgid "Are you sure you want to permanently delete all items?"
-msgstr ""
+msgstr "آیا مطمئن هستید که می خواهید برای همیشه همه موارد را حذف کنید؟"
 
 msgid "Restore all items"
-msgstr ""
+msgstr "تمام موارد را بازیابی کنید"
 
 msgid "Are you sure you want to restore all items?"
-msgstr ""
+msgstr "آیا مطمئن هستید که می خواهید همه موارد را بازیابی کنید؟"
 
 msgid "Total {0} recoverable item"
 msgid_plural "Total {0} recoverable items"
-msgstr[0] ""
+msgstr[0] "کل کالای قابل بازیابی{0}"
+msgstr[1] "مجموع اقلام قابل بازیابی{0}"
 
 msgid "Deleted On"
-msgstr ""
+msgstr "حذف شد"
 
 msgid "Sort by: Deleted On"
-msgstr ""
+msgstr "مرتب سازی بر اساس: حذف شده در"
 
 msgid "Item Count"
-msgstr ""
+msgstr "تعداد آیتم ها"
 
 msgid "Sort by: Item Count"
-msgstr ""
+msgstr "مرتب سازی بر اساس: تعداد آیتم ها"
 
 msgid "Sort by: From"
-msgstr ""
+msgstr "مرتب سازی بر اساس: از"
 
 msgid "Received"
-msgstr ""
+msgstr "دریافت کرد"
 
 msgid "Sort by: Received"
-msgstr ""
+msgstr "مرتب سازی بر اساس: دریافت شد"
 
 msgid "Size"
-msgstr ""
+msgstr "اندازه"
 
 msgid "Sort by: Size"
-msgstr ""
+msgstr "مرتب سازی بر اساس: اندازه"
 
 msgid "Move the message to folder…"
-msgstr ""
+msgstr "انتقال پیام به پوشه…"
 
 msgid "Copy the message to folder…"
-msgstr ""
+msgstr "کپی پیام در پوشه…"
 
 msgid "Delete the message"
-msgstr ""
+msgstr "پیام را پاک کنید"
 
 msgid "Redirect the message to…"
-msgstr ""
+msgstr "تغییر مسیر پیام به …"
 
 msgid "Forward the message to…"
-msgstr ""
+msgstr "پیام را به …"
 
 msgid "Forward the message as attachment to…"
-msgstr ""
+msgstr "پیام را به عنوان پیوست به…"
 
 msgid "Mark the message as read…"
-msgstr ""
+msgstr "علامت گذاری پیام به عنوان خوانده شده…"
 
 msgid "is received from…"
-msgstr ""
+msgstr "دریافت شده از …"
 
 msgid "includes these words in the sender's address…"
-msgstr ""
+msgstr "شامل این کلمات در آدرس فرستنده…"
 
 msgid "includes these words in the recipient's address…"
-msgstr ""
+msgstr "شامل این کلمات در آدرس گیرنده…"
 
 msgid "includes these words in the subject…"
-msgstr ""
+msgstr "شامل این کلمات در موضوع…"
 
 msgid "includes these words in the body…"
-msgstr ""
+msgstr "شامل این کلمات در بدن…"
 
 msgid "includes these words in the transport headers…"
-msgstr ""
+msgstr "شامل این کلمات در سرفصل های حمل و نقل…"
 
 msgid "has importance…"
-msgstr ""
+msgstr "اهمیت دارد…"
 
 msgid "has an attachment"
-msgstr ""
+msgstr "یک پیوست دارد"
 
 msgid "is sent to…"
-msgstr ""
+msgstr "ارسال می شود به …"
 
 msgid "is sent only to me"
-msgstr ""
+msgstr "فقط برای من ارسال می شود"
 
 msgid "has my name in the Cc field"
-msgstr ""
+msgstr "نام من در قسمت Cc است"
 
 msgid "does not have my name in the To or Cc field"
-msgstr ""
+msgstr "نام من در قسمت To یا Cc وجود ندارد"
 
 msgid "has my name in the To or Cc field"
-msgstr ""
+msgstr "نام من را در قسمت To یا Cc دارد"
 
 msgid "has sensitivity…"
-msgstr ""
+msgstr "حساسیت دارد…"
 
 msgid "is received after…"
-msgstr ""
+msgstr "پس از دریافت…"
 
 msgid "is received before…"
-msgstr ""
+msgstr "قبل از دریافت…"
 
 msgid "size is at least…"
-msgstr ""
+msgstr "اندازه حداقل…"
 
 msgid "size is at most…"
-msgstr ""
+msgstr "اندازه حداکثر…"
 
 msgid "has my name in the To field"
-msgstr ""
+msgstr "نام من را در قسمت To دارد"
 
 msgid "is received (all messages)"
-msgstr ""
+msgstr "دریافت شد (همه پیام ها)"
 
 msgid "Unknown condition"
-msgstr ""
+msgstr "وضعیت نامعلوم"
 
 msgid "This condition for the current rule is unknown"
-msgstr ""
+msgstr "این شرط برای قانون فعلی ناشناخته است"
 
 msgid "Add action"
-msgstr ""
+msgstr "اقدام را اضافه کنید"
 
 msgid "Remove action"
-msgstr ""
+msgstr "اقدام را حذف کنید"
 
 msgid "Unknown action"
-msgstr ""
+msgstr "اقدام ناشناخته"
 
 msgid "This action for the current rule is unknown"
-msgstr ""
+msgstr "این اقدام برای قانون فعلی ناشناخته است"
 
 msgid "Add condition"
-msgstr ""
+msgstr "شرط اضافه کنید"
 
 msgid "Remove condition"
-msgstr ""
+msgstr "شرایط را حذف کنید"
 
 msgid "Inbox Rule"
-msgstr ""
+msgstr "قانون صندوق ورودی"
 
 msgid "Rule name"
-msgstr ""
+msgstr "نام قانون"
 
 msgid "When the message"
-msgstr ""
+msgstr "وقتی پیام"
 
 msgid "Do the following"
-msgstr ""
+msgstr "موارد زیر را انجام دهید"
 
 msgid "Exceptions"
-msgstr ""
+msgstr "استثنائات"
 
 msgid "Apply only when Out of Office is active"
-msgstr ""
+msgstr "فقط زمانی اعمال شود که خارج از دفتر فعال باشد"
 
 msgid "Stop processing more rules"
-msgstr ""
+msgstr "پردازش قوانین بیشتر را متوقف کنید"
 
 msgid "Add exception"
-msgstr ""
+msgstr "استثنا اضافه کنید"
 
 msgid "Remove exception"
-msgstr ""
+msgstr "حذف استثنا"
 
 msgid "Specify Words or Phrases"
-msgstr ""
+msgstr "کلمات یا عبارات را مشخص کنید"
 
 msgid "Edit"
-msgstr ""
+msgstr "ویرایش کنید"
 
 msgid "and"
-msgstr ""
+msgstr "و"
 
 msgid ""
 "Distribution lists are not supported in rules, would you like to replace the "
@@ -2771,68 +2786,67 @@ msgid ""
 msgstr ""
 
 msgid "or"
-msgstr ""
+msgstr "یا"
 
 msgid "No rule exists"
-msgstr ""
+msgstr "هیچ قانونی وجود ندارد"
 
 msgid "Active"
-msgstr ""
+msgstr "فعال"
 
 msgid "Out of office"
-msgstr ""
+msgstr "خارج از دفتر"
 
 msgid "Rule"
-msgstr ""
+msgstr "قانون"
 
 msgid "Loading rules"
-msgstr ""
+msgstr "قوانین بارگیری"
 
 msgid "Please select a rule."
-msgstr ""
+msgstr "لطفا یک قانون انتخاب کنید"
 
 msgid "Rule already has highest priority."
-msgstr ""
+msgstr "قانون در حال حاضر بالاترین اولویت را دارد."
 
 msgid "Rule already has lowest priority."
-msgstr ""
+msgstr "قانون در حال حاضر کمترین اولویت را دارد."
 
 msgid "Always move messages from {0}"
-msgstr ""
+msgstr "همیشه پیام ها را از{0}منتقل کنید"
 
 msgid "Always move messages that are sent to <recipients>"
-msgstr ""
+msgstr "همیشه پیام هایی را که به <دریافت کنندگان> ارسال می شوند منتقل کنید"
 
 msgid "Always move messages with this subject"
-msgstr ""
+msgstr "همیشه پیام هایی با این موضوع منتقل کنید"
 
 msgid "Create rule…"
-msgstr ""
+msgstr "ایجاد قانون…"
 
 msgid "myself"
-msgstr ""
+msgstr "خودم"
 
 msgid "Update rules for"
-msgstr ""
+msgstr "به روز رسانی قوانین برای"
 
 msgid "Apply changes"
-msgstr ""
+msgstr "اعمال تغییرات"
 
 msgid "Do you wish to apply the changes?"
-msgstr ""
+msgstr "آیا می خواهید تغییرات را اعمال کنید؟"
 
 msgid "All folders"
-msgstr ""
+msgstr "همه پوشه ها"
 
 msgid "Other…"
-msgstr ""
+msgstr "دیگر…"
 
-#, fuzzy
 msgid "Search in…"
-msgstr "مارس…"
+msgstr "جستجو در…"
 
 msgid "Folder does not exist"
-msgstr ""
+msgstr "پوشه وجود ندارد"
 
 msgid ""
 "The folder you are searching through no longer exists. Please select another "
@@ -2840,136 +2854,137 @@ msgid ""
 msgstr ""
 
 msgid "Add/Edit sender"
-msgstr ""
+msgstr "افزودن/ویرایش فرستنده"
 
 msgid "No from addresses configured"
-msgstr ""
+msgstr "نه از آدرس‌های پیکربندی شده است"
 
 msgid "Loading from addresses"
-msgstr ""
+msgstr "بارگیری از آدرس ها"
 
 msgid "Forward Mail"
-msgstr ""
+msgstr "ارسال نامه"
 
 msgid "Please select a from address record."
-msgstr ""
+msgstr "لطفاً یک مورد از سابقه آدرس را انتخاب کنید."
 
 msgid "Add/Edit From recipient"
-msgstr ""
+msgstr "افزودن/ویرایش از گیرنده"
 
 msgid "Manage the recipients used in the 'From' field"
-msgstr ""
+msgstr "گیرندگان مورد استفاده در قسمت \"از\" را مدیریت کنید"
 
 msgid "View"
-msgstr ""
+msgstr "مشاهده کنید"
 
 msgid "Please select a sendas record."
-msgstr ""
+msgstr "لطفا یک رکورد ارسال را انتخاب کنید."
 
 msgid "Delegates"
-msgstr ""
+msgstr "نمایندگان"
 
 msgid "Delegate settings"
-msgstr ""
+msgstr "تنظیمات نمایندگی"
 
 msgid "Desktop Notifications Settings"
-msgstr ""
+msgstr "تنظیمات اعلان‌های دسکتاپ"
 
 msgid "We need permissions to enable desktop notifications."
-msgstr ""
+msgstr "برای فعال کردن اعلان‌های دسکتاپ به مجوز نیاز داریم."
 
 msgid "Request Permissions"
-msgstr ""
+msgstr "درخواست مجوزها"
 
 msgid "Enable desktop notifications for new mail"
-msgstr ""
+msgstr "اعلان‌های دسک‌تاپ را برای نامه‌های جدید فعال کنید"
 
 msgid "Enable desktop notifications for reminders"
-msgstr ""
+msgstr "اعلان‌های دسکتاپ را برای یادآوری فعال کنید"
 
 msgid "{A} Auto-hide desktop notification after second(s) {B}"
-msgstr ""
+msgstr "{A} پنهان کردن خودکار اعلان دسکتاپ بعد از ثانیه {B}"
 
 msgid "Disable sound"
-msgstr ""
+msgstr "صدا را غیرفعال کنید"
 
 msgid "Notifications"
-msgstr ""
+msgstr "اطلاعیه ها"
 
 msgid "Rules"
-msgstr ""
+msgstr "قوانین"
 
 msgid "From Addresses"
-msgstr ""
+msgstr "از آدرس ها"
 
 msgid "From Addresses settings"
-msgstr ""
+msgstr "از تنظیمات آدرس ها"
 
 msgid "Full name"
-msgstr ""
+msgstr "نام کامل"
 
 msgid "Phone Numbers"
-msgstr ""
+msgstr "شماره تلفن"
 
 msgid "Business Fax"
-msgstr ""
+msgstr "فکس کسب و کار"
 
 msgid "Webpage"
-msgstr ""
+msgstr "صفحه وب"
 
 msgid "IM Address"
-msgstr ""
+msgstr "آدرس IM"
 
 msgid "D, d-m-Y, {0}"
-msgstr ""
+msgstr "D، d-m-Y،{0}"
 
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
-msgstr[0] ""
+msgstr[0] "{0}ردیف انتخاب شده است"
+msgstr[1] "{0}ردیف های انتخاب شده"
 
 msgid "Reminder is set on: {0}, {1}"
-msgstr ""
+msgstr "یادآوری تنظیم شده است:{0}،{1}"
 
 msgid "d-m-Y"
-msgstr ""
+msgstr "d-m-Y"
 
 msgid "l d/m/Y"
-msgstr ""
+msgstr "l d/m/Y"
 
 msgid "l d/m/Y {0}"
-msgstr ""
+msgstr "l d/m/Y{0}"
 
 msgid "d-m-Y {0}"
-msgstr ""
+msgstr "d-m-Y{0}"
 
 msgid "Unknown"
-msgstr ""
+msgstr "ناشناس"
 
 msgid "Meeting Organizer"
-msgstr ""
+msgstr "برگزار کننده جلسه"
 
 msgid "{0} overdue"
-msgstr ""
+msgstr "{0}سررسید شده است"
 
 msgid "Loading…"
-msgstr ""
+msgstr "در حال بارگیری…"
 
 msgid "Message could not be loaded"
-msgstr ""
+msgstr "پیام بارگیری نشد"
 
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
 msgid "Attachments"
-msgstr ""
+msgstr "پیوست ها"
 
 msgid "Download Pictures"
-msgstr ""
+msgstr "دانلود تصاویر"
 
 msgid "Add Sender to Safe Senders List"
-msgstr ""
+msgstr "فرستنده را به لیست فرستنده ایمن اضافه کنید"
 
 msgid "Add Domain to Safe Senders List"
-msgstr ""
+msgstr "دامنه را به لیست ارسال کنندگان ایمن اضافه کنید"
 
 #. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates with which
 #. importance the message was sent. For example:
@@ -2977,7 +2992,7 @@ msgstr ""
 #. 'This message was sent with low importance.'
 msgctxt "mail.previewpanel"
 msgid "This message was sent with {0} importance."
-msgstr ""
+msgstr "این پیام با اهمیت{0}ارسال شده است."
 
 #. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates which
 #. sensitivity level applies to the message. For example:
@@ -2986,7 +3001,7 @@ msgstr ""
 #. 'Please treat this as Confidential.'
 msgctxt "mail.previewpanel"
 msgid "Please treat this as {0}."
-msgstr ""
+msgstr "لطفاً این را به عنوان{0}در نظر بگیرید."
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -3002,31 +3017,31 @@ msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "{0} has accepted."
-msgstr ""
+msgstr "{0}پذیرفته است."
 
 msgctxt "mail.previewpanel"
 msgid "{0} has accepted on behalf of {1}."
-msgstr ""
+msgstr "{0}از طرف{1}پذیرفته است."
 
 msgctxt "mail.previewpanel"
 msgid "{0} has tentatively accepted."
-msgstr ""
+msgstr "{0}به طور آزمایشی پذیرفته شده است."
 
 msgctxt "mail.previewpanel"
 msgid "{0} has tentatively accepted on behalf of {1}."
-msgstr ""
+msgstr "{0}به طور آزمایشی از طرف{1}پذیرفته شده است."
 
 msgctxt "mail.previewpanel"
 msgid "{0} has declined."
-msgstr ""
+msgstr "{0}کاهش یافته است."
 
 msgctxt "mail.previewpanel"
 msgid "{0} has declined on behalf of {1}."
-msgstr ""
+msgstr "{0}از طرف{1}رد شده است."
 
 msgctxt "mail.previewpanel"
 msgid "{0} tentatively accepted and proposed a new time for this meeting."
-msgstr ""
+msgstr "{0}به طور آزمایشی پذیرفت و زمان جدیدی را برای این جلسه پیشنهاد کرد."
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -3036,15 +3051,15 @@ msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "{0} declined and proposed a new time for this meeting."
-msgstr ""
+msgstr "{0}نپذیرفت و زمان جدیدی را برای این جلسه پیشنهاد کرد."
 
 msgctxt "mail.previewpanel"
 msgid "{0} declined on behalf of {1} and proposed a new time for this meeting."
-msgstr ""
+msgstr "{0}از طرف{1}رد کرد و زمان جدیدی را برای این جلسه پیشنهاد کرد."
 
 msgctxt "mail.previewpanel"
 msgid "This meeting is not in the Calendar; it may have been moved or deleted."
-msgstr ""
+msgstr "این جلسه در تقویم نیست. ممکن است منتقل یا حذف شده باشد."
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -3054,567 +3069,567 @@ msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "As the meeting organizer, you do not need to respond to the meeting"
-msgstr ""
+msgstr "به عنوان سازمان دهنده جلسه، نیازی به پاسخگویی به جلسه ندارید"
 
 msgctxt "mail.previewpanel"
 msgid "The meeting was updated after the attendee sent this response"
-msgstr ""
+msgstr "جلسه پس از ارسال این پاسخ توسط حاضرین به روز شد"
 
 msgctxt "mail.previewpanel"
 msgid "This appointment occurs in the past."
-msgstr ""
+msgstr "این قرار در گذشته اتفاق افتاده است."
 
 msgctxt "mail.previewpanel"
 msgid "Please respond."
-msgstr ""
+msgstr "لطفا پاسخ دهید."
 
 msgctxt "mail.previewpanel"
 msgid "This is an update of a previously sent meeting request."
-msgstr ""
+msgstr "این به‌روزرسانی درخواست جلسه‌ای است که قبلاً ارسال شده است."
 
 msgctxt "mail.previewpanel"
 msgid "Received for {0}."
-msgstr ""
+msgstr "دریافت شده برای{0}."
 
 msgctxt "mail.previewpanel"
 msgid "You replied to this message."
-msgstr ""
+msgstr "شما به این پیام پاسخ دادید"
 
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message."
-msgstr ""
+msgstr "شما این پیام را فوروارد کردید"
 
 msgctxt "mail.previewpanel"
 msgid "You replied to this message on {0}."
-msgstr ""
+msgstr "شما به این پیام در{0}پاسخ دادید."
 
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message on {0}."
-msgstr ""
+msgstr "شما این پیام را در{0}بازارسال کردید."
 
 msgid "Assigned by {0} on {1}."
-msgstr ""
+msgstr "اختصاص داده شده توسط{0}در{1}."
 
 msgid "Waiting for response from recipient"
-msgstr ""
+msgstr "در انتظار پاسخ از طرف گیرنده"
 
 msgid "Accepted by {0} on {1}."
-msgstr ""
+msgstr "توسط{0}در{1}پذیرفته شده است."
 
 msgid "{0} has accepted on behalf of {1} {2}."
-msgstr ""
+msgstr "{0}از طرف{1}{2}پذیرفته است."
 
 msgid "Declined by {0} on {1}."
-msgstr ""
+msgstr "توسط{0}در{1}رد شد."
 
 msgid "{0} has declined on behalf of {1} {2}."
-msgstr ""
+msgstr "{0}از طرف{1}{2}رد شده است."
 
 msgid "Last update sent on {0}."
-msgstr ""
+msgstr "آخرین به روز رسانی ارسال شده در{0}."
 
 msgid "{0} has updated on behalf of {1} {2}."
-msgstr ""
+msgstr "{0}از طرف{1}{2}به روز شده است."
 
 msgid "Fix message"
-msgstr ""
+msgstr "رفع پیام"
 
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
 msgstr ""
 
 msgid "The matching task was not found in your task list."
-msgstr ""
+msgstr "وظیفه منطبق در لیست وظایف شما یافت نشد."
 
 msgctxt "mail.previewpanel"
 msgid "To"
-msgstr ""
+msgstr "به"
 
 msgctxt "mail.previewpanel"
 msgid "Cc"
-msgstr ""
+msgstr "رونوشت"
 
 msgctxt "mail.previewpanel"
 msgid "Bcc"
-msgstr ""
+msgstr "Bcc"
 
 msgctxt "mail.previewpanel"
 msgid "Categories"
-msgstr ""
+msgstr "دسته بندی ها"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Recipients"
-msgstr ""
+msgstr "گیرندگان"
 
 #. TRANSLATORS: check if the mail is send by some delegator or not. if then display "on behalf of".
 msgctxt "mail.previewpanel"
 msgid "on behalf of"
-msgstr ""
+msgstr "از طرف"
 
 #. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
 msgctxt "mail.previewpanel"
 msgid "None"
-msgstr ""
+msgstr "هیچ کدام"
 
 msgid "Pop-out"
-msgstr ""
+msgstr "بازشو"
 
 msgid "Mark as read"
-msgstr ""
+msgstr "علامت گذاری به عنوان خوانده شده"
 
 msgid "Mark as unread"
-msgstr ""
+msgstr "علامت گذاری به عنوان خوانده نشده"
 
 msgid "in"
-msgstr ""
+msgstr "در"
 
 msgid "Root"
-msgstr ""
+msgstr "ریشه"
 
 msgid "Datepicker"
-msgstr ""
+msgstr "خرماگیر"
 
 msgid "File As"
-msgstr ""
+msgstr "فایل به عنوان"
 
 msgid "Full Name"
-msgstr ""
+msgstr "نام کامل"
 
 msgid "Department Name"
-msgstr ""
+msgstr "نام دپارتمان"
 
 msgid "Home Address"
-msgstr ""
+msgstr "آدرس منزل"
 
 msgid "Business Address"
-msgstr ""
+msgstr "آدرس کسب و کار"
 
 msgid "Other Address"
-msgstr ""
+msgstr "آدرس دیگر"
 
 msgid "Business Phone"
-msgstr ""
+msgstr "تلفن کسب و کار"
 
 msgid "Business 2 Phone"
-msgstr ""
+msgstr "تلفن کسب و کار 2"
 
 msgid "Assistant Phone"
-msgstr ""
+msgstr "تلفن دستیار"
 
 msgid "Company Main Phone"
-msgstr ""
+msgstr "تلفن اصلی شرکت"
 
 msgid "Home 2 Phone"
-msgstr ""
+msgstr "تلفن خانه 2"
 
 msgid "Car Phone"
-msgstr ""
+msgstr "تلفن ماشین"
 
 msgid "Radio"
-msgstr ""
+msgstr "رادیو"
 
 msgid "Callback Phone"
-msgstr ""
+msgstr "تلفن پاسخ به تماس"
 
 msgid "Other Phone"
-msgstr ""
+msgstr "تلفن دیگر"
 
 msgid "Primary Phone"
-msgstr ""
+msgstr "تلفن اصلی"
 
 msgid "Telex"
-msgstr ""
+msgstr "تلکس"
 
 msgid "TTY/TDD Phone"
-msgstr ""
+msgstr "تلفن TTY/TDD"
 
 msgid "ISDN"
-msgstr ""
+msgstr "ISDN"
 
 msgid "Other Fax"
-msgstr ""
+msgstr "فکس دیگر"
 
 msgid "Home Fax"
-msgstr ""
+msgstr "فکس خانه"
 
 msgid "Email Display As"
-msgstr ""
+msgstr "نمایش ایمیل به عنوان"
 
 msgid "Email 2"
-msgstr ""
+msgstr "ایمیل 2"
 
 msgid "Email2 Display As"
-msgstr ""
+msgstr "Email2 نمایش به عنوان"
 
 msgid "Email 3"
-msgstr ""
+msgstr "ایمیل 3"
 
 msgid "Email3 Display As"
-msgstr ""
+msgstr "Email3 نمایش به عنوان"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Birthday"
-msgstr ""
+msgstr "تولد"
 
 msgid "Wedding Anniversary"
-msgstr ""
+msgstr "سالگرد ازدواج"
 
 msgid "Spouse/Partner"
-msgstr ""
+msgstr "همسر / شریک زندگی"
 
 msgid "Profession"
-msgstr ""
+msgstr "حرفه"
 
 msgid "Assistant's Name"
-msgstr ""
+msgstr "نام دستیار"
 
 msgid "Distribution List Name"
-msgstr ""
+msgstr "نام لیست توزیع"
 
 msgid "Open Shared Contacts"
-msgstr ""
+msgstr "مخاطبین مشترک را باز کنید"
 
 msgid "Business Cards"
-msgstr ""
+msgstr "کارت ویزیت"
 
 msgid "Phone List"
-msgstr ""
+msgstr "لیست تلفن"
 
 msgid "Add to contacts"
-msgstr ""
+msgstr "به مخاطبین اضافه کنید"
 
 msgid "Print selected contact"
-msgstr ""
+msgstr "مخاطب انتخابی را چاپ کنید"
 
 msgid "No contact selected"
-msgstr ""
+msgstr "مخاطبی انتخاب نشده است"
 
 msgid "Distribution list"
-msgstr ""
+msgstr "لیست توزیع"
 
 msgid "Dr."
-msgstr ""
+msgstr "دکتر"
 
 msgid "Miss"
-msgstr ""
+msgstr "خانم"
 
 msgid "Mr."
-msgstr ""
+msgstr "آقای"
 
 msgid "Mrs."
-msgstr ""
+msgstr "خانم"
 
 msgid "Ms."
-msgstr ""
+msgstr "ام‌اس."
 
 msgid "Prof."
-msgstr ""
+msgstr "پروفسور"
 
 msgid "Jr."
-msgstr ""
+msgstr "جونیور"
 
 msgid "Sr."
-msgstr ""
+msgstr "پدر"
 
 msgid "Phone number"
-msgstr ""
+msgstr "شماره تلفن"
 
 msgid "Check address"
-msgstr ""
+msgstr "آدرس را بررسی کنید"
 
 msgid "Street"
-msgstr ""
+msgstr "خیابان"
 
 msgid "State/Province"
-msgstr ""
+msgstr "ایالت/استان"
 
 msgid "Zip/Postal code"
-msgstr ""
+msgstr "کد پستی/کد پستی"
 
 msgid "Country/Region"
-msgstr ""
+msgstr "کشور/منطقه"
 
 msgid "Show this again when address is incomplete or unclear."
-msgstr ""
+msgstr "هنگامی که آدرس ناقص یا نامشخص است، این را دوباره نشان دهید."
 
 msgid "Details"
-msgstr ""
+msgstr "جزئیات"
 
 msgid "Office location"
-msgstr ""
+msgstr "محل دفتر"
 
 msgid "Manager's name"
-msgstr ""
+msgstr "نام مدیر"
 
 msgid "Assistant's name"
-msgstr ""
+msgstr "نام دستیار"
 
 msgid "Nickname"
-msgstr ""
+msgstr "نام مستعار"
 
 msgid "Suffix"
-msgstr ""
+msgstr "پسوند"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Anniversary"
-msgstr ""
+msgstr "سالگرد"
 
 msgid "Photo"
-msgstr ""
+msgstr "عکس"
 
 msgid "Additional information"
-msgstr ""
+msgstr "اطلاعات تکمیلی"
 
 msgid "Business 2"
-msgstr ""
+msgstr "تجارت 2"
 
 msgid "Callback"
-msgstr ""
+msgstr "پاسخ به تماس"
 
 msgid "Car"
-msgstr ""
+msgstr "ماشین"
 
 msgid "Home 2"
-msgstr ""
+msgstr "خانه 2"
 
 msgid "Primary"
-msgstr ""
+msgstr "اولیه"
 
 msgid "TTY/TDD"
-msgstr ""
+msgstr "TTY/TDD"
 
 msgid "Check full name"
-msgstr ""
+msgstr "نام کامل را بررسی کنید"
 
 msgid "First"
-msgstr ""
+msgstr "اول"
 
 msgid "Middle"
-msgstr ""
+msgstr "وسط"
 
 msgid "Last"
-msgstr ""
+msgstr "آخرین"
 
 msgid "Show this again when name is incomplete or unclear."
-msgstr ""
+msgstr "هنگامی که نام ناقص یا نامشخص است، این را دوباره نشان دهید."
 
 msgid "Check phone number"
-msgstr ""
+msgstr "شماره تلفن را بررسی کنید"
 
 msgid "Country/Region code"
-msgstr ""
+msgstr "کد کشور/منطقه"
 
 msgid "City/Area code"
-msgstr ""
+msgstr "کد شهر/منطقه"
 
 msgid "Local number"
-msgstr ""
+msgstr "شماره محلی"
 
 msgid "Extension"
-msgstr ""
+msgstr "پسوند"
 
 msgid "Add Attachment"
-msgstr ""
+msgstr "افزودن پیوست"
 
 msgid "Add attachments to this contact"
-msgstr ""
+msgstr "پیوست ها را به این مخاطب اضافه کنید"
 
 msgid "Mark this contact as private"
-msgstr ""
+msgstr "این مخاطب را به عنوان خصوصی علامت گذاری کنید"
 
 msgid "Distribution List"
-msgstr ""
+msgstr "لیست توزیع"
 
 msgid "Mark this Distribution list as private"
-msgstr ""
+msgstr "این لیست توزیع را به عنوان خصوصی علامت گذاری کنید"
 
 msgid "New email address"
-msgstr ""
+msgstr "آدرس ایمیل جدید"
 
 msgid "Please enter a valid email address"
-msgstr ""
+msgstr "لطفا یک آدرس ایمیل معتبر وارد کنید"
 
 msgid "Select Members"
-msgstr ""
+msgstr "اعضا را انتخاب کنید"
 
 msgid "Add New"
-msgstr ""
+msgstr "افزودن جدید"
 
 msgid "Type your note here…"
-msgstr ""
+msgstr "یادداشت خود را اینجا تایپ کنید…"
 
 msgid "New contact"
-msgstr ""
+msgstr "تماس جدید"
 
 msgid "New distribution list"
-msgstr ""
+msgstr "لیست توزیع جدید"
 
 msgid "Email 2 Display As"
-msgstr ""
+msgstr "ایمیل 2 نمایش به عنوان"
 
 msgid "Email 3 Display As"
-msgstr ""
+msgstr "ایمیل 3 نمایش به عنوان"
 
 msgid "Loading contacts"
-msgstr ""
+msgstr "در حال بارگیری مخاطبین"
 
 msgid ""
 "There are no items to show in this list. Update the filter for more results."
 msgstr ""
 
 msgid "[Group]"
-msgstr ""
+msgstr "[گروه]"
 
 msgid "Work:"
-msgstr ""
+msgstr "کار:"
 
 msgid "Primary:"
-msgstr ""
+msgstr "اولیه:"
 
 msgid "Mobile:"
-msgstr ""
+msgstr "موبایل:"
 
 msgid "Sort by: Full Name"
-msgstr ""
+msgstr "مرتب سازی بر اساس: نام کامل"
 
 msgid "Sort by: Email Address 2"
-msgstr ""
+msgstr "مرتب سازی بر اساس: آدرس ایمیل 2"
 
 msgid "Sort by: Email Address 3"
-msgstr ""
+msgstr "مرتب سازی بر اساس: آدرس ایمیل 3"
 
 msgid "Mobile Phone"
-msgstr ""
+msgstr "تلفن همراه"
 
 msgid "Sort by: Mobile Phone"
-msgstr ""
+msgstr "مرتب سازی بر اساس: تلفن همراه"
 
 msgid "Sort by: Business Phone"
-msgstr ""
+msgstr "مرتب سازی بر اساس: تلفن کسب و کار"
 
 msgid "Sort by: Business Fax"
-msgstr ""
+msgstr "مرتب سازی بر اساس: فکس تجاری"
 
 msgid "Sort by: Department Name"
-msgstr ""
+msgstr "مرتب سازی بر اساس: نام بخش"
 
 msgid "Office Location"
-msgstr ""
+msgstr "محل دفتر"
 
 msgid "Sort by: Office Location"
-msgstr ""
+msgstr "مرتب سازی بر اساس: محل دفتر"
 
 msgid "Sort by: Profession"
-msgstr ""
+msgstr "مرتب سازی بر اساس: حرفه"
 
 msgid "Manager Name"
-msgstr ""
+msgstr "نام مدیر"
 
 msgid "Sort by: Manager Name"
-msgstr ""
+msgstr "مرتب سازی بر اساس: نام مدیر"
 
 msgid "Sort by: Assistant's Name"
-msgstr ""
+msgstr "مرتب سازی بر اساس: نام دستیار"
 
 msgid "Sort by: Nickname"
-msgstr ""
+msgstr "مرتب سازی بر اساس: نام مستعار"
 
 msgid "Sort by: Spouse/Partner Name"
-msgstr ""
+msgstr "مرتب سازی بر اساس: نام همسر/همسر"
 
 msgid "Sort by: Birthday"
-msgstr ""
+msgstr "مرتب سازی بر اساس: تولد"
 
 msgid "Sort by: Anniversary"
-msgstr ""
+msgstr "مرتب سازی بر اساس: سالگرد"
 
 msgid "Sort by: Business Address"
-msgstr ""
+msgstr "مرتب سازی بر اساس: آدرس کسب و کار"
 
 msgid "Sort by: Home Address"
-msgstr ""
+msgstr "مرتب سازی بر اساس: آدرس خانه"
 
 msgid "Sort by: Office Address"
-msgstr ""
+msgstr "مرتب سازی بر اساس: آدرس دفتر"
 
 msgid "Mailing Address"
-msgstr ""
+msgstr "آدرس پستی"
 
 msgid "Sort by: Mailing Address"
-msgstr ""
+msgstr "مرتب سازی بر اساس: آدرس پستی"
 
 msgid "Sort by: IM Address"
-msgstr ""
+msgstr "مرتب سازی بر اساس: آدرس IM"
 
 msgid "Sort by: Webpage"
-msgstr ""
+msgstr "مرتب سازی بر اساس: صفحه وب"
 
 msgid "Assistant's Phone"
-msgstr ""
+msgstr "تلفن دستیار"
 
 msgid "Sort by: Assistant's Phone"
-msgstr ""
+msgstr "مرتب سازی بر اساس: تلفن دستیار"
 
 msgid "Business Phone 2"
-msgstr ""
+msgstr "تلفن کسب و کار 2"
 
 msgid "Sort by: Business Phone 2"
-msgstr ""
+msgstr "مرتب سازی بر اساس: تلفن کسب و کار 2"
 
 msgid "Sort by: Callback"
-msgstr ""
+msgstr "مرتب سازی بر اساس: پاسخ به تماس"
 
 msgid "Sort by: Car Phone"
-msgstr ""
+msgstr "مرتب سازی بر اساس: تلفن ماشین"
 
 msgid "Company Phone"
-msgstr ""
+msgstr "تلفن شرکت"
 
 msgid "Sort by: Company Main Phone"
-msgstr ""
+msgstr "مرتب سازی بر اساس: تلفن اصلی شرکت"
 
 msgid "Home Phone 2"
-msgstr ""
+msgstr "تلفن خانه 2"
 
 msgid "Sort by: Home Phone 2"
-msgstr ""
+msgstr "مرتب سازی بر اساس: تلفن خانه 2"
 
 msgid "Sort by: Home Fax"
-msgstr ""
+msgstr "مرتب سازی بر اساس: فکس خانگی"
 
 msgid "Sort by: ISDN"
-msgstr ""
+msgstr "مرتب سازی بر اساس: ISDN"
 
 msgid "Sort by: Other Phone"
-msgstr ""
+msgstr "مرتب سازی بر اساس: تلفن دیگر"
 
 msgid "Radio Phone"
-msgstr ""
+msgstr "تلفن رادیویی"
 
 msgid "Sort by: Radio Phone"
-msgstr ""
+msgstr "مرتب سازی بر اساس: رادیو تلفن"
 
 msgid "Sort by: TTY/TDD Phone"
-msgstr ""
+msgstr "مرتب سازی بر اساس: تلفن TTY/TDD"
 
 msgid "Sort by: Telex Phone"
-msgstr ""
+msgstr "مرتب سازی بر اساس: تلفن تلکس"
 
 msgid "Change Picture"
-msgstr ""
+msgstr "تغییر تصویر"
 
 msgid "Remove Picture"
-msgstr ""
+msgstr "حذف تصویر"
 
 msgid "VCF file(s)"
-msgstr ""
+msgstr "فایل(های) VCF"
 
 msgid "Quick Contact"
-msgstr ""
+msgstr "تماس سریع"
 
 msgid "Open in new browser window"
-msgstr ""
+msgstr "در پنجره مرورگر جدید باز کنید"
 
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
@@ -3622,7 +3637,7 @@ msgid ""
 msgstr ""
 
 msgid "Untitled"
-msgstr ""
+msgstr "بدون عنوان"
 
 msgid ""
 "Cannot upload attachment, only {0} attachments are allowed to be added to "
@@ -3650,111 +3665,110 @@ msgstr ""
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
-msgstr ""
+msgstr "{0}از طرف{1}"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F"
-msgstr ""
+msgstr "jS F"
 
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 msgid "Important"
-msgstr ""
+msgstr "مهم است"
 
 msgid "Work"
-msgstr ""
+msgstr "کار کنید"
 
 msgid "Personal"
-msgstr ""
+msgstr "شخصی"
 
 msgid "Holiday"
-msgstr ""
+msgstr "تعطیلات"
 
 msgid "Travel Required"
-msgstr ""
+msgstr "سفر مورد نیاز است"
 
 msgid "Preparation Required"
-msgstr ""
+msgstr "آماده سازی مورد نیاز است"
 
 msgid "Special Date"
-msgstr ""
+msgstr "تاریخ ویژه"
 
 msgid "Phone Interview"
-msgstr ""
+msgstr "مصاحبه تلفنی"
 
 msgid "Free"
-msgstr ""
+msgstr "رایگان"
 
 msgid "Low"
-msgstr ""
+msgstr "کم"
 
 msgid "Normal"
-msgstr ""
+msgstr "عادی"
 
 msgid "High"
-msgstr ""
+msgstr "بالا"
 
-#, fuzzy
 msgid "Canceled"
-msgstr "لغو"
+msgstr "لغو شد"
 
 msgid "Blue"
-msgstr ""
+msgstr "آبی"
 
 msgid "Green"
-msgstr ""
+msgstr "سبز"
 
 msgid "Pink"
-msgstr ""
+msgstr "صورتی"
 
 msgid "White"
-msgstr ""
+msgstr "سفید"
 
 msgid "Yellow"
-msgstr ""
+msgstr "زرد"
 
 msgid "No response"
-msgstr ""
+msgstr "بدون پاسخ"
 
 msgid "Not responded"
-msgstr ""
+msgstr "پاسخ داده نشد"
 
 msgid "Accepted"
-msgstr ""
+msgstr "پذیرفته شد"
 
 msgid "Declined"
-msgstr ""
+msgstr "رد کرد"
 
 msgid "Confidential"
-msgstr ""
+msgstr "محرمانه"
 
 msgid "Not Started"
-msgstr ""
+msgstr "شروع نشده است"
 
 msgid "In Progress"
-msgstr ""
+msgstr "در حال انجام است"
 
 msgid "Wait for other person"
-msgstr ""
+msgstr "منتظر شخص دیگری باشید"
 
 msgid "Deferred"
-msgstr ""
+msgstr "به تعویق افتاد"
 
 msgid "Purple"
-msgstr ""
+msgstr "بنفش"
 
 msgid "Orange"
-msgstr ""
+msgstr "نارنجی"
 
 msgid "Lime"
 msgstr "سبز لیمویی"
 
 msgid "Magenta"
-msgstr ""
+msgstr "سرخابی"
 
 msgid "High Contrast"
-msgstr ""
+msgstr "کنتراست بالا"
 
 msgid "Cyan"
 msgstr "فیروزه‌ای"
@@ -3775,43 +3789,43 @@ msgid "Dark"
 msgstr "تیره"
 
 msgid "Logout"
-msgstr ""
+msgstr "خروج از سیستم"
 
 msgid "Switch view"
-msgstr ""
+msgstr "تغییر نمای"
 
 msgid "Widgets"
-msgstr ""
+msgstr "ابزارک ها"
 
 msgid "Sending…"
-msgstr ""
+msgstr "در حال ارسال…"
 
 msgid "Sent successfully"
-msgstr ""
+msgstr "با موفقیت ارسال شد"
 
 msgid "No recipient"
-msgstr ""
+msgstr "بدون گیرنده"
 
 msgid "Please specify at least one recipient"
-msgstr ""
+msgstr "لطفا حداقل یک گیرنده را مشخص کنید"
 
 msgid "Please specify a recipient"
-msgstr ""
+msgstr "لطفا یک گیرنده را مشخص کنید"
 
 msgid "The attached files are not uploaded yet."
-msgstr ""
+msgstr "فایل های پیوست شده هنوز آپلود نشده اند."
 
 msgid "Do you want to send this message without attachments?"
-msgstr ""
+msgstr "آیا می خواهید این پیام را بدون پیوست ارسال کنید؟"
 
 msgid "Attachments not uploaded yet"
-msgstr ""
+msgstr "پیوست ها هنوز آپلود نشده اند"
 
 msgid "Don't Send"
-msgstr ""
+msgstr "ارسال نکنید"
 
 msgid "Send Anyway"
-msgstr ""
+msgstr "ارسال به هر حال"
 
 msgid "Missing attachment"
 msgstr "پیوست گم شده است"
@@ -3822,122 +3836,122 @@ msgid ""
 msgstr "به نظر می رسد پیام شما به یک پیوست اشاره دارد اما هیچ فایلی پیوست نشده است. به هر حال ارسال شود؟"
 
 msgid "No subject"
-msgstr ""
+msgstr "بدون موضوع"
 
 msgid "Send this message without a subject?"
-msgstr ""
+msgstr "این پیام را بدون موضوع ارسال کنید؟"
 
 msgid "Unresolved recipients"
-msgstr ""
+msgstr "گیرندگان حل نشده"
 
 msgid "Not all recipients could be resolved"
-msgstr ""
+msgstr "همه گیرندگان قابل حل نیستند"
 
 msgid "Collapse hierarchy"
-msgstr ""
+msgstr "فروپاشی سلسله مراتب"
 
 msgid "Expand hierarchy"
-msgstr ""
+msgstr "سلسله مراتب را گسترش دهید"
 
 msgid "Folders List"
-msgstr ""
+msgstr "لیست پوشه ها"
 
 msgid "Copy Details"
-msgstr ""
+msgstr "کپی جزئیات"
 
 msgid "Hide Details"
-msgstr ""
+msgstr "پنهان کردن جزئیات"
 
 msgid "Loaded {0} of {1}"
-msgstr ""
+msgstr "{0}از{1}بارگیری شد"
 
 msgid "Saving"
-msgstr ""
+msgstr "صرفه جویی"
 
 msgid "Saved"
-msgstr ""
+msgstr "ذخیره شد"
 
 msgid "Saved successfully"
-msgstr ""
+msgstr "با موفقیت ذخیره شد"
 
 msgid ""
 "You will lose all unsaved work. Are you sure you want to close this window?"
 msgstr ""
 
 msgid "grommunio Content Panel"
-msgstr ""
+msgstr "پنل محتوای grommunio"
 
 msgid "Delete item"
-msgstr ""
+msgstr "مورد را حذف کنید"
 
 msgid "This item has been changed. Are you sure you want to delete it?"
-msgstr ""
+msgstr "این مورد تغییر کرده است. آیا مطمئن هستید که می خواهید آن را حذف کنید؟"
 
 msgid "Unsaved changes"
-msgstr ""
+msgstr "تغییرات ذخیره نشده"
 
 msgid "Welcome to grommunio Web"
-msgstr ""
+msgstr "به grommunio Web خوش آمدید"
 
 msgid "This is the first time you are using grommunio Web. "
-msgstr ""
+msgstr "این اولین باری است که از grommunio Web استفاده می کنید."
 
 msgid "Please check the following settings before continuing."
-msgstr ""
+msgstr "لطفاً قبل از ادامه تنظیمات زیر را بررسی کنید."
 
 msgid "Widget height"
-msgstr ""
+msgstr "ارتفاع ویجت"
 
 msgid "pixels"
-msgstr ""
+msgstr "پیکسل ها"
 
 msgid "Configure widget"
-msgstr ""
+msgstr "ویجت را پیکربندی کنید"
 
 msgid "Reload interval"
-msgstr ""
+msgstr "فاصله بارگذاری مجدد"
 
 msgid "seconds"
-msgstr ""
+msgstr "ثانیه"
 
 msgid "Open in new tab"
-msgstr ""
+msgstr "در برگه جدید باز کنید"
 
 msgid "Add widgets"
-msgstr ""
+msgstr "ویجت ها را اضافه کنید"
 
 msgid "No widgets installed."
-msgstr ""
+msgstr "هیچ ویجتی نصب نشده است."
 
 msgid "Remove widget"
-msgstr ""
+msgstr "ویجت را حذف کنید"
 
 msgid "Collapse widget"
-msgstr ""
+msgstr "جمع کردن ویجت"
 
 msgid "Expand widget"
-msgstr ""
+msgstr "ویجت را گسترش دهید"
 
 msgid "About this widget"
-msgstr ""
+msgstr "درباره این ویجت"
 
 msgid "Add new widget"
-msgstr ""
+msgstr "افزودن ویجت جدید"
 
 msgid "Collapse widget panel"
-msgstr ""
+msgstr "جمع کردن پانل ویجت"
 
 msgid "Expand widget panel"
-msgstr ""
+msgstr "پانل ویجت را بزرگ کنید"
 
 msgid "Your changes will be lost if you leave this page now."
-msgstr ""
+msgstr "اگر اکنون این صفحه را ترک کنید، تغییرات شما از بین خواهد رفت."
 
 msgid "D {0}"
-msgstr ""
+msgstr "D{0}"
 
 msgid "D d-m"
-msgstr ""
+msgstr "D d-m"
 
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
@@ -3950,294 +3964,296 @@ msgid ""
 msgstr ""
 
 msgid "Insufficient Permissions"
-msgstr ""
+msgstr "مجوزهای ناکافی"
 
 msgid "Not enough permissions to open this folder."
-msgstr ""
+msgstr "مجوزهای کافی برای باز کردن این پوشه وجود ندارد."
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
-msgstr[0] ""
+msgstr[0] "پیام خوانده نشده{0}در پوشه{1}{2}وجود دارد"
+msgstr[1] "پیام های خوانده نشده{0}در پوشه{1}{2}وجود دارد"
 
 msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
-msgstr[0] ""
+msgstr[0] "پیام خوانده نشده{0}در پوشه{1}وجود دارد"
+msgstr[1] "پیام های خوانده نشده{0}در پوشه{1}وجود دارد"
 
 msgid "Publishing Editor"
-msgstr ""
+msgstr "ویرایشگر انتشارات"
 
 msgid "Editor"
-msgstr ""
+msgstr "ویرایشگر"
 
 msgid "Publishing Author"
-msgstr ""
+msgstr "نویسنده انتشارات"
 
 msgid "Author"
-msgstr ""
+msgstr "نویسنده"
 
 msgid "Nonediting Author"
-msgstr ""
+msgstr "نویسنده بدون ویرایش"
 
 msgid "Reviewer"
-msgstr ""
+msgstr "داور"
 
 msgid "Contributor"
-msgstr ""
+msgstr "مشارکت کننده"
 
 msgid "Free/Busy time, subject, location"
-msgstr ""
+msgstr "زمان آزاد/مشغله، موضوع، مکان"
 
 msgid "Free/Busy time"
-msgstr ""
+msgstr "زمان آزاد/مشغله"
 
 msgid "Unable to import:"
-msgstr ""
+msgstr "امکان وارد کردن وجود ندارد:"
 
 msgid "The files are not valid"
-msgstr ""
+msgstr "فایل ها معتبر نیستند"
 
 msgid "Create New Folder"
-msgstr ""
+msgstr "پوشه جدید ایجاد کنید"
 
 msgid "Folder contains"
-msgstr ""
+msgstr "پوشه حاوی"
 
 msgid "Calendar Items"
-msgstr ""
+msgstr "آیتم های تقویم"
 
 msgid "Mail and Post Items"
-msgstr ""
+msgstr "پست و پست اقلام"
 
 msgid "Contacts Items"
-msgstr ""
+msgstr "موارد تماس"
 
 msgid "Note Items"
-msgstr ""
+msgstr "موارد توجه داشته باشید"
 
 msgid "Task Items"
-msgstr ""
+msgstr "موارد وظیفه"
 
 msgid "Select where to place the folder"
-msgstr ""
+msgstr "محل قرار دادن پوشه را انتخاب کنید"
 
 msgid "No folder name"
-msgstr ""
+msgstr "نام پوشه ای وجود ندارد"
 
 msgid "No destination"
-msgstr ""
+msgstr "بدون مقصد"
 
 msgid "You must select a destination folder."
-msgstr ""
+msgstr "شما باید یک پوشه مقصد را انتخاب کنید."
 
 msgid "Type"
-msgstr ""
+msgstr "تایپ کنید"
 
 msgid "Description"
-msgstr ""
+msgstr "توضیحات"
 
 msgid "Folder size"
-msgstr ""
+msgstr "اندازه پوشه"
 
 msgid "Folder containing {0} Items"
-msgstr ""
+msgstr "پوشه حاوی موارد{0}"
 
 msgid "Permissions"
-msgstr ""
+msgstr "مجوزها"
 
 msgid "No permissions granted"
-msgstr ""
+msgstr "هیچ مجوزی داده نشده است"
 
 msgid "Profile"
-msgstr ""
+msgstr "نمایه"
 
 msgid "Full Details"
-msgstr ""
+msgstr "جزئیات کامل"
 
 msgid "Read"
-msgstr ""
+msgstr "بخوانید"
 
 msgid "Write"
-msgstr ""
+msgstr "بنویسید"
 
 msgid "Create items"
-msgstr ""
+msgstr "موارد ایجاد کنید"
 
 msgid "Create subfolders"
-msgstr ""
+msgstr "پوشه های فرعی ایجاد کنید"
 
 msgid "Edit own"
-msgstr ""
+msgstr "خود را ویرایش کنید"
 
 msgid "Edit all"
-msgstr ""
+msgstr "همه را ویرایش کنید"
 
 msgid "Delete items"
-msgstr ""
+msgstr "موارد را حذف کنید"
 
 msgid "Own"
-msgstr ""
+msgstr "صاحب"
 
 msgid "All"
-msgstr ""
+msgstr "همه"
 
 msgid "Folder owner"
-msgstr ""
+msgstr "صاحب پوشه"
 
 msgid "Folder contact"
-msgstr ""
+msgstr "تماس پوشه"
 
 msgid "Folder visible"
-msgstr ""
+msgstr "پوشه قابل مشاهده است"
 
 msgid "Apply (copy) changed permissions recursively"
-msgstr ""
+msgstr "اعمال (کپی) مجوزهای تغییر یافته به صورت بازگشتی"
 
 msgid "User already exists"
-msgstr ""
+msgstr "کاربر از قبل وجود دارد"
 
 msgid "Group already exists"
-msgstr ""
+msgstr "گروه از قبل وجود دارد"
 
 msgid "Folder Size"
-msgstr ""
+msgstr "اندازه پوشه"
 
 msgid "Folder Name"
-msgstr ""
+msgstr "نام پوشه"
 
 msgid "Size (without subfolders)"
-msgstr ""
+msgstr "اندازه (بدون پوشه های فرعی)"
 
 msgid "Total size (including subfolders)"
-msgstr ""
+msgstr "اندازه کل (شامل زیرپوشه ها)"
 
 msgid "Loading subfolder sizes"
-msgstr ""
+msgstr "در حال بارگیری اندازه های زیرپوشه"
 
 msgid "No subfolders present"
-msgstr ""
+msgstr "هیچ زیرپوشه ای وجود ندارد"
 
 msgid "Subfolder"
-msgstr ""
+msgstr "زیر پوشه"
 
 msgid "Sort by: Name of the subfolder"
-msgstr ""
+msgstr "مرتب سازی بر اساس: نام پوشه فرعی"
 
 msgid "Sort by: Size (without subfolders)"
-msgstr ""
+msgstr "مرتب سازی بر اساس: اندازه (بدون پوشه های فرعی)"
 
 msgid "Total size"
-msgstr ""
+msgstr "اندازه کل"
 
 msgid "Sort by: Total size (including subfolders)"
-msgstr ""
+msgstr "مرتب سازی بر اساس: اندازه کل (شامل زیرپوشه ها)"
 
 msgid "Open Shared Folders"
-msgstr ""
+msgstr "پوشه های مشترک را باز کنید"
 
 msgid "Unresolved user"
-msgstr ""
+msgstr "کاربر حل نشده"
 
 msgid "Username '{0}' could not be resolved."
-msgstr ""
+msgstr "نام کاربری \"{0}\" قابل حل نیست."
 
 msgid "Invalid user"
-msgstr ""
+msgstr "کاربر نامعتبر"
 
 msgid "Username '{0}' is not a valid user."
-msgstr ""
+msgstr "نام کاربری \"{0}\" یک کاربر معتبر نیست."
 
 msgid "Own store"
-msgstr ""
+msgstr "فروشگاه خود"
 
 msgid "It is not possible to open your own store twice."
-msgstr ""
+msgstr "امکان ندارد فروشگاه خود را دو بار باز کنید."
 
 msgid "Folder already open"
-msgstr ""
+msgstr "پوشه از قبل باز شده است"
 
 msgid "This shared folder is already open."
-msgstr ""
+msgstr "این پوشه مشترک از قبل باز است."
 
 msgid "No user"
-msgstr ""
+msgstr "بدون کاربر"
 
 msgid "You must specify a user"
-msgstr ""
+msgstr "شما باید یک کاربر مشخص کنید"
 
 msgid "Folder type"
-msgstr ""
+msgstr "نوع پوشه"
 
 msgid "Show subfolders"
-msgstr ""
+msgstr "نمایش زیر پوشه ها"
 
 msgid "Open shared folder/store"
-msgstr ""
+msgstr "پوشه/فروشگاه مشترک را باز کنید"
 
 msgid "Rename folder"
-msgstr ""
+msgstr "تغییر نام پوشه"
 
 msgid "Empty folder"
-msgstr ""
+msgstr "پوشه خالی"
 
 msgid "Empty Junk Email"
-msgstr ""
+msgstr "ایمیل ناخواسته خالی"
 
 msgid "Empty Deleted Items"
-msgstr ""
+msgstr "موارد حذف شده را خالی کنید"
 
 msgid "Rename Folder"
-msgstr ""
+msgstr "تغییر نام پوشه"
 
 msgid "New Folder"
-msgstr ""
+msgstr "پوشه جدید"
 
 msgid "Mark All Messages Read"
-msgstr ""
+msgstr "علامت گذاری همه پیام ها به عنوان خوانده شده"
 
 msgid "Delete Folder"
-msgstr ""
+msgstr "حذف پوشه"
 
 msgid "Close store"
-msgstr ""
+msgstr "فروشگاه را ببندید"
 
 msgid "Close folder"
-msgstr ""
+msgstr "پوشه را ببندید"
 
 msgid "Reload"
-msgstr ""
+msgstr "بارگذاری مجدد"
 
 msgid "Restore items"
-msgstr ""
+msgstr "موارد را بازیابی کنید"
 
 msgid "Select color"
-msgstr ""
+msgstr "رنگ را انتخاب کنید"
 
 msgid "Add to Favorites"
-msgstr ""
+msgstr "به موارد دلخواه اضافه کنید"
 
 msgid "Remove From Favorites"
-msgstr ""
+msgstr "حذف از موارد دلخواه"
 
 msgid "Share folder…"
-msgstr ""
+msgstr "اشتراک گذاری پوشه…"
 
 msgid "Import emails"
-msgstr ""
+msgstr "ایمیل ها را وارد کنید"
 
 msgid "Import appointments"
-msgstr ""
+msgstr "قرارهای ملاقات را وارد کنید"
 
 msgid "Import contacts"
-msgstr ""
+msgstr "وارد کردن مخاطبین"
 
 msgid "Properties of {0}"
-msgstr ""
+msgstr "خواص{0}"
 
 msgid "Share {0} with…"
-msgstr ""
+msgstr "{0}را با…"
 
 msgid "Properties of {0} - {1}"
-msgstr ""
+msgstr "خواص{0}-{1}"
 
 msgid ""
 "Are you sure you want to permanently delete all the items and subfolders in "
@@ -4250,16 +4266,16 @@ msgid ""
 msgstr ""
 
 msgid "Delete folder"
-msgstr ""
+msgstr "پوشه را حذف کنید"
 
 msgid "Are you sure you want to empty {0}?"
-msgstr ""
+msgstr "آیا مطمئن هستید که می خواهید{0}را خالی کنید؟"
 
 msgid "Show All"
-msgstr ""
+msgstr "نمایش همه"
 
 msgid "Show all folders"
-msgstr ""
+msgstr "نمایش همه پوشه ها"
 
 msgid ""
 "You have insufficient privileges to move this folder. Would you like to copy "
@@ -4267,224 +4283,224 @@ msgid ""
 msgstr ""
 
 msgid "CC"
-msgstr ""
+msgstr "CC"
 
 msgid "BCC"
-msgstr ""
+msgstr "BCC"
 
 msgid "Sort by: To"
-msgstr ""
+msgstr "مرتب سازی بر اساس: به"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Sent"
-msgstr ""
+msgstr "ارسال شد"
 
 msgid "Original message"
-msgstr ""
+msgstr "پیام اصلی"
 
 msgid "Schedule mail to be sent out"
-msgstr ""
+msgstr "برای ارسال نامه برنامه ریزی کنید"
 
 msgid "Scheduled Items"
-msgstr ""
+msgstr "موارد برنامه ریزی شده"
 
 msgid "Your message will be sent at "
-msgstr ""
+msgstr "پیام شما به آدرس ارسال خواهد شد"
 
 msgid "Go to your Outbox to edit your email."
-msgstr ""
+msgstr "برای ویرایش ایمیل خود به صندوق خروجی خود بروید."
 
 msgid "hour(s)"
-msgstr ""
+msgstr "ساعت(ها)"
 
 msgid "month(s)"
-msgstr ""
+msgstr "ماه(ها)"
 
 msgid "at a specific time"
-msgstr ""
+msgstr "در یک زمان خاص"
 
 msgid "The time you entered is in the past. Please reschedule your mail."
-msgstr ""
+msgstr "زمانی که وارد کردید در گذشته است. لطفا ایمیل خود را دوباره برنامه ریزی کنید."
 
 msgid "today  at "
-msgstr ""
+msgstr "امروز در"
 
 msgid "tomorrow  at "
-msgstr ""
+msgstr "فردا در"
 
 msgid "{0} at "
-msgstr ""
+msgstr "{0}در"
 
 msgid "at {0}"
-msgstr ""
+msgstr "در{0}"
 
 msgid "Your email will be sent {0}{1}"
-msgstr ""
+msgstr "ایمیل شما{0}{1}ارسال خواهد شد"
 
 msgid "Saving…"
-msgstr ""
+msgstr "در حال ذخیره…"
 
 msgid "Saved at {0}"
-msgstr ""
+msgstr "ذخیره شده در{0}"
 
 msgid "Saving failed"
-msgstr ""
+msgstr "ذخیره نشد"
 
 msgid "This message will be flagged for follow up when it is sent."
-msgstr ""
+msgstr "این پیام هنگام ارسال برای پیگیری علامت گذاری می شود."
 
 msgid "Send Later"
-msgstr ""
+msgstr "ارسال بعد"
 
 msgid "Schedule your mail to be sent on a specific date and time"
-msgstr ""
+msgstr "ایمیل خود را برنامه ریزی کنید تا در تاریخ و زمان خاصی ارسال شود"
 
 msgid "Add attachments to this email"
-msgstr ""
+msgstr "پیوست ها را به این ایمیل اضافه کنید"
 
 msgid "Add signature"
-msgstr ""
+msgstr "اضافه کردن امضا"
 
 msgid "Open options dialog"
-msgstr ""
+msgstr "گفتگوی گزینه ها را باز کنید"
 
 msgid "Set flag"
-msgstr ""
+msgstr "پرچم را تنظیم کنید"
 
 msgid "Set flag on this email"
-msgstr ""
+msgstr "پرچم را روی این ایمیل تنظیم کنید"
 
 msgid "Mark this mail as high priority"
-msgstr ""
+msgstr "این ایمیل را به عنوان اولویت بالا علامت گذاری کنید"
 
 msgid "Mark this mail as low priority"
-msgstr ""
+msgstr "این ایمیل را به عنوان اولویت پایین علامت گذاری کنید"
 
 msgid "Set read receipt"
-msgstr ""
+msgstr "رسید خواندن را تنظیم کنید"
 
 msgid "Request read receipt from recipients"
-msgstr ""
+msgstr "درخواست رسید خواندن از گیرندگان"
 
 msgid "Show Bcc"
-msgstr ""
+msgstr "نمایش رونوشت مخفی"
 
 msgid "Show Bcc field"
-msgstr ""
+msgstr "نمایش فیلد Bcc"
 
 msgid "Show From field"
-msgstr ""
+msgstr "نمایش از فیلد"
 
 msgid "Cannot save while attachment is being uploaded"
-msgstr ""
+msgstr "در حین بارگذاری پیوست امکان ذخیره وجود ندارد"
 
 msgid "Internet Headers"
-msgstr ""
+msgstr "هدرهای اینترنتی"
 
 msgid "Message Settings"
-msgstr ""
+msgstr "تنظیمات پیام"
 
 msgid "Tracking Options"
-msgstr ""
+msgstr "گزینه های ردیابی"
 
 msgid "Request a read receipt for this message."
-msgstr ""
+msgstr "برای این پیام رسید خواندن درخواست کنید."
 
 msgid "no subject"
-msgstr ""
+msgstr "بدون موضوع"
 
 msgid "Set Category"
-msgstr ""
+msgstr "مجموعه را تنظیم کنید"
 
 msgid "Pop-Out"
-msgstr ""
+msgstr "بازشو"
 
 msgid "Mark Read"
-msgstr ""
+msgstr "علامت گذاری به عنوان خوانده شده"
 
 msgid "Mark Unread"
-msgstr ""
+msgstr "علامت گذاری به عنوان خوانده نشده"
 
 msgid "New mail"
-msgstr ""
+msgstr "نامه جدید"
 
 msgid "Mail"
-msgstr ""
+msgstr "ایمیل"
 
 msgid "Reply all"
-msgstr ""
+msgstr "به همه پاسخ دهید"
 
 msgid "Toggle read/unread"
-msgstr ""
+msgstr "خواندن/خوانده نشده را تغییر دهید"
 
 msgid "Toggle red/complete flag"
-msgstr ""
+msgstr "علامت قرمز/کامل را تغییر دهید"
 
 msgid "Open Shared Mails"
-msgstr ""
+msgstr "نامه های مشترک را باز کنید"
 
 msgid "Print single email"
-msgstr ""
+msgstr "چاپ ایمیل تک"
 
 msgid "Print selected email"
-msgstr ""
+msgstr "ایمیل انتخابی را چاپ کنید"
 
 msgid "Filter"
-msgstr ""
+msgstr "فیلتر کنید"
 
 msgid "Fwd"
-msgstr ""
+msgstr "Fwd"
 
 msgid "Re"
-msgstr ""
+msgstr "Re"
 
 msgid "on behalf of"
-msgstr ""
+msgstr "از طرف"
 
 msgid "Safe Senders list is empty"
-msgstr ""
+msgstr "لیست فرستنده ایمن خالی است"
 
 msgid "Please select a safe sender record."
-msgstr ""
+msgstr "لطفاً یک سابقه فرستنده ایمن انتخاب کنید."
 
 msgid "Delete all safe senders"
-msgstr ""
+msgstr "همه فرستنده های امن را حذف کنید"
 
 msgid "Are you sure you want to delete all safe senders?"
-msgstr ""
+msgstr "آیا مطمئن هستید که می خواهید همه فرستنده های ایمن را حذف کنید؟"
 
 msgid "HTML"
-msgstr ""
+msgstr "HTML"
 
 msgid "Plain Text"
-msgstr ""
+msgstr "متن ساده"
 
 msgid "In both representee's and delegate's Sent Items"
-msgstr ""
+msgstr "در موارد ارسالی نماینده و نماینده"
 
 msgid "Only in delegate's Sent Items"
-msgstr ""
+msgstr "فقط در موارد ارسال شده نماینده"
 
 msgid "Only in representee's Sent Items"
-msgstr ""
+msgstr "فقط در اقلام ارسالی نماینده"
 
 msgid "Compose mail settings"
-msgstr ""
+msgstr "تنظیمات ایمیل را بنویسید"
 
 msgid "Compose mail in this format"
-msgstr ""
+msgstr "نامه را در این قالب بنویسید"
 
 msgid "Default font"
-msgstr ""
+msgstr "فونت پیش فرض"
 
 msgid "Default font size"
-msgstr ""
+msgstr "اندازه فونت پیش فرض"
 
 msgid "Save emails sent by delegate"
-msgstr ""
+msgstr "ایمیل های ارسال شده توسط نماینده را ذخیره کنید"
 
 msgid "Always request a read receipt"
-msgstr ""
+msgstr "همیشه درخواست رسید خواندن کنید"
 
 msgid "Activate attachment reminder"
 msgstr "فعال کردن یادآور پیوست"
@@ -4492,109 +4508,109 @@ msgstr "فعال کردن یادآور پیوست"
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
-msgstr ""
+msgstr "{A}ذخیره خودکار نامه‌های ارسال نشده هر {B} دقیقه"
 
 msgid "Conversation view settings"
-msgstr ""
+msgstr "تنظیمات نمای مکالمه"
 
 msgid "Enable conversation view"
-msgstr ""
+msgstr "فعال کردن نمای مکالمه"
 
 msgid "Collapse conversation when selecting a different email"
-msgstr ""
+msgstr "هنگام انتخاب ایمیل دیگری، مکالمه را جمع کنید"
 
 msgid "Incoming mail"
-msgstr ""
+msgstr "نامه دریافتی"
 
 msgid "How to respond to requests for read receipts"
-msgstr ""
+msgstr "نحوه پاسخگویی به درخواست رسید خواندن"
 
 msgid "Always send a response"
-msgstr ""
+msgstr "همیشه یک پاسخ ارسال کنید"
 
 msgid "Never send a response"
-msgstr ""
+msgstr "هرگز پاسخی ارسال نکنید"
 
 msgid "Ask me before sending a response"
-msgstr ""
+msgstr "قبل از ارسال پاسخ از من بپرسید"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of seconds which the user will type in.
 msgid "{A}Automatically mark mail as read after {B} second(s)"
-msgstr ""
+msgstr "{A} علامت گذاری خودکار نامه به عنوان خوانده شده پس از {B} ثانیه"
 
 msgid "View mail in this format"
-msgstr ""
+msgstr "ایمیل را در این قالب مشاهده کنید"
 
 msgid "Right"
-msgstr ""
+msgstr "درسته"
 
 msgid "Bottom"
-msgstr ""
+msgstr "پایین"
 
 msgid "Location of preview pane"
-msgstr ""
+msgstr "محل صفحه پیش نمایش"
 
 msgid "Use subject prefixes in accordance with RFC 5256/5322"
-msgstr ""
+msgstr "از پیشوندهای موضوع مطابق با RFC 5256/5322 استفاده کنید"
 
 msgid "Close original message on reply or forward"
-msgstr ""
+msgstr "در هنگام پاسخ یا فوروارد پیام اصلی را ببندید"
 
 msgid "General mail settings"
-msgstr ""
+msgstr "تنظیمات ایمیل عمومی"
 
 msgid "Open or compose a mail item in a"
-msgstr ""
+msgstr "باز کردن یا نوشتن یک مورد ایمیل در یک"
 
 msgid "grommunio Web tab"
-msgstr ""
+msgstr "برگه وب grommunio"
 
 msgid "Browser window"
-msgstr ""
+msgstr "پنجره مرورگر"
 
 msgid "Update Out of Office settings for"
-msgstr ""
+msgstr "به روز رسانی تنظیمات خارج از دفتر برای"
 
 msgid "I am currently in the office"
-msgstr ""
+msgstr "من در حال حاضر در دفتر هستم"
 
 msgid "I am out of the office from"
-msgstr ""
+msgstr "من از دفتر خارج هستم"
 
 msgid "I will be back on"
-msgstr ""
+msgstr "من برمی گردم"
 
 msgid "Automatically reply with the following message:"
-msgstr ""
+msgstr "به صورت خودکار با پیام زیر پاسخ دهید:"
 
 msgid "(The frequency of replies is dependent on server configuration.)"
-msgstr ""
+msgstr "(تکرار پاسخ ها به پیکربندی سرور بستگی دارد.)"
 
 msgid "Inside My Organization"
-msgstr ""
+msgstr "داخل سازمان من"
 
 msgid "User is currently out of office."
-msgstr ""
+msgstr "کاربر در حال حاضر خارج از دفتر است."
 
 msgid "Outside My Organization"
-msgstr ""
+msgstr "خارج از سازمان من"
 
 msgid "Auto-reply to people outside my organization"
-msgstr ""
+msgstr "پاسخ خودکار به افراد خارج از سازمان من"
 
 msgid "My contacts only"
-msgstr ""
+msgstr "فقط مخاطبین من"
 
 msgid "Anyone outside my organization"
-msgstr ""
+msgstr "هر کسی خارج از سازمان من"
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
 msgstr ""
 
 msgid "Safe Senders"
-msgstr ""
+msgstr "فرستنده های ایمن"
 
 msgid ""
 "To protect your privacy email addresses or domains can only be added via the "
@@ -4602,161 +4618,160 @@ msgid ""
 msgstr ""
 
 msgid "Delete all"
-msgstr ""
+msgstr "همه را حذف کنید"
 
 msgid "Signatures"
-msgstr ""
+msgstr "امضاها"
 
 msgid "No signatures configured"
-msgstr ""
+msgstr "هیچ امضایی پیکربندی نشده است"
 
 msgid "New messages"
-msgstr ""
+msgstr "پیام های جدید"
 
 msgid "Replies/forwards"
-msgstr ""
+msgstr "پاسخ ها / فوروارد"
 
 msgid "Signature name:"
-msgstr ""
+msgstr "نام امضا:"
 
 msgid "Save Signature"
-msgstr ""
+msgstr "ذخیره امضا"
 
 msgid "You have unsaved changes. Do you wish to save the changes?"
-msgstr ""
+msgstr "شما تغییرات ذخیره نشده ای دارید. آیا می خواهید تغییرات را ذخیره کنید؟"
 
 msgid "New signature"
-msgstr ""
+msgstr "امضای جدید"
 
 msgid "EML file(s)"
-msgstr ""
+msgstr "فایل(های) EML"
 
 msgid "ZIP file"
-msgstr ""
+msgstr "فایل ZIP"
 
 msgid "max. "
-msgstr ""
+msgstr "حداکثر"
 
 msgid "Sort by: Sent"
-msgstr ""
+msgstr "مرتب سازی بر اساس: ارسال شده"
 
 msgid "Modified"
-msgstr ""
+msgstr "اصلاح شد"
 
 msgid "Sort by: Modified"
-msgstr ""
+msgstr "مرتب سازی بر اساس: اصلاح شده"
 
 msgid "Flag"
-msgstr ""
+msgstr "پرچم"
 
 msgid "Sort by: flag"
-msgstr ""
+msgstr "مرتب سازی بر اساس: پرچم"
 
 msgid "Older"
-msgstr ""
+msgstr "قدیمی تر"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "دیروز"
 
-#, fuzzy
 msgid "Last Week"
-msgstr "آخرین صفحه"
+msgstr "هفته گذشته"
 
 msgid "Two Weeks Ago"
-msgstr ""
+msgstr "دو هفته پیش"
 
 msgid "Three Weeks Ago"
-msgstr ""
+msgstr "سه هفته پیش"
 
 msgid "Last Month"
-msgstr ""
+msgstr "ماه گذشته"
 
 msgid "Small"
-msgstr ""
+msgstr "کوچک"
 
 msgid "Medium"
-msgstr ""
+msgstr "متوسط"
 
 msgid "Large"
-msgstr ""
+msgstr "بزرگ"
 
 msgid "Very large"
-msgstr ""
+msgstr "خیلی بزرگه"
 
 msgid "Huge"
-msgstr ""
+msgstr "عظیم"
 
 msgid "Follow up"
-msgstr ""
+msgstr "پیگیری کنید"
 
 msgid "Move to Junk Folder"
-msgstr ""
+msgstr "به پوشه ناخواسته بروید"
 
 msgid "Not Junk Email"
 msgstr "هرزنامه نیست"
 
 msgid "Send to"
-msgstr ""
+msgstr "ارسال به"
 
 msgid "Loading mail"
-msgstr ""
+msgstr "در حال بارگیری نامه"
 
 msgid "No unread mail."
-msgstr ""
+msgstr "نامه خوانده نشده وجود ندارد."
 
 msgid "Unread Mail"
-msgstr ""
+msgstr "نامه خوانده نشده"
 
 msgid "Quick Mail"
-msgstr ""
+msgstr "پست سریع"
 
 msgid "Print note"
-msgstr ""
+msgstr "چاپ یادداشت"
 
 msgid "Color"
-msgstr ""
+msgstr "رنگ"
 
 msgid "New note"
-msgstr ""
+msgstr "یادداشت جدید"
 
 msgid "Open Shared Notes"
-msgstr ""
+msgstr "یادداشت های مشترک را باز کنید"
 
 msgid "Sticky note"
-msgstr ""
+msgstr "یادداشت چسبناک"
 
 msgid "Print selected note"
-msgstr ""
+msgstr "یادداشت انتخاب شده را چاپ کنید"
 
 msgid "No note selected"
-msgstr ""
+msgstr "هیچ یادداشتی انتخاب نشده است"
 
 msgid "Icons"
-msgstr ""
+msgstr "نمادها"
 
 msgid "List view"
-msgstr ""
+msgstr "نمای فهرستی"
 
 msgid "List Last Seven Days"
-msgstr ""
+msgstr "لیست هفت روز گذشته"
 
 msgid "Created"
-msgstr ""
+msgstr "ایجاد شد"
 
 msgid "Sort by: Created"
-msgstr ""
+msgstr "مرتب سازی بر اساس: ایجاد شده"
 
 msgid "Sort by: Color"
-msgstr ""
+msgstr "مرتب سازی بر اساس: رنگ"
 
 msgid "Loading Notes"
-msgstr ""
+msgstr "در حال بارگیری یادداشت ها"
 
 msgid "Loading notes"
-msgstr ""
+msgstr "در حال بارگیری یادداشت ها"
 
 msgid "Quick Note"
-msgstr ""
+msgstr "یادداشت سریع"
 
 msgid ""
 "You must reload grommunio Web for the changes to take effect. Unsaved "
@@ -4764,139 +4779,141 @@ msgid ""
 msgstr ""
 
 msgid "Reload grommunio Web"
-msgstr ""
+msgstr "بارگیری مجدد grommunio Web"
 
 msgid "Settings"
-msgstr ""
+msgstr "تنظیمات"
 
 msgid "Basic"
-msgstr ""
+msgstr "اساسی"
 
 msgid "Account information - {0}"
-msgstr ""
+msgstr "اطلاعات حساب -{0}"
 
 msgid "Profile Picture"
-msgstr ""
+msgstr "عکس پروفایل"
 
 msgid "Language"
-msgstr ""
+msgstr "زبان"
 
 msgid "Startup folder"
-msgstr ""
+msgstr "پوشه راه اندازی"
 
 msgid "Theme"
-msgstr ""
+msgstr "موضوع"
 
 msgid "Select Default Folder"
-msgstr ""
+msgstr "پوشه پیش فرض را انتخاب کنید"
 
 msgid "Advanced"
-msgstr ""
+msgstr "پیشرفته"
 
 msgid "Advanced settings"
-msgstr ""
+msgstr "تنظیمات پیشرفته"
 
 msgid "Developer tools"
-msgstr ""
+msgstr "ابزارهای توسعه دهنده"
 
 msgid "Show insertion points in grommunio Web"
-msgstr ""
+msgstr "نمایش نقاط درج در grommunio Web"
 
 msgid "Show \"item data\" button in context menu (mail only)"
-msgstr ""
+msgstr "نمایش دکمه \"اطلاعات مورد\" در منوی زمینه (فقط ایمیل)"
 
 msgid "Edit setting"
-msgstr ""
+msgstr "تنظیم را ویرایش کنید"
 
 msgid "Restore to defaults"
-msgstr ""
+msgstr "بازگردانی به حالت پیش فرض"
 
 msgid "Delete settings"
-msgstr ""
+msgstr "تنظیمات را حذف کنید"
 
 msgid "{0} Iconset"
-msgstr ""
+msgstr "مجموعه آیکون{0}"
 
 msgid "About"
-msgstr ""
+msgstr "درباره"
 
 msgid "I want to display date and time in this format:"
-msgstr ""
+msgstr "من می خواهم تاریخ و زمان را در این قالب نمایش دهم:"
 
 msgid "Short"
-msgstr ""
+msgstr "کوتاه"
 
 msgid "Long"
-msgstr ""
+msgstr "طولانی"
 
 msgid "Time format:"
-msgstr ""
+msgstr "فرمت زمان:"
 
 msgid "12h clock"
-msgstr ""
+msgstr "ساعت 12 ساعت"
 
 msgid "24h clock"
-msgstr ""
+msgstr "ساعت 24 ساعته"
 
 msgid "Favorite settings"
-msgstr ""
+msgstr "تنظیمات مورد علاقه"
 
 msgid "Hide favorites"
-msgstr ""
+msgstr "موارد دلخواه را پنهان کنید"
 
 msgid "Unpin favorites from top"
-msgstr ""
+msgstr "پین موارد دلخواه را از بالا بردارید"
 
 msgid "Give unread items a colored border"
-msgstr ""
+msgstr "به موارد خوانده نشده حاشیه رنگی بدهید"
 
 msgid "Show 'help' button in top-right corner"
-msgstr ""
+msgstr "نمایش دکمه \"راهنما\" در گوشه سمت راست بالا"
 
 msgid "Show unread mail counter in application title"
-msgstr ""
+msgstr "نمایش شمارنده نامه خوانده نشده در عنوان برنامه"
 
 msgid "Hide widget panel"
-msgstr ""
+msgstr "پنل ویجت را مخفی کنید"
 
 msgid "Show search bar above folder list"
-msgstr ""
+msgstr "نمایش نوار جستجو در بالای لیست پوشه ها"
 
 msgid "Auto"
-msgstr ""
+msgstr "خودکار"
 
 msgid "Actual size"
-msgstr ""
+msgstr "اندازه واقعی"
 
 msgid "Page width"
-msgstr ""
+msgstr "عرض صفحه"
 
 msgid "Attachment preview (PDF and Open formats)"
-msgstr ""
+msgstr "پیش نمایش پیوست (فرمت های PDF و باز)"
 
 msgid "Document default zoom"
-msgstr ""
+msgstr "بزرگنمایی پیش‌فرض سند"
 
 msgid "PDF zoom"
-msgstr ""
+msgstr "زوم PDF"
 
 msgid "File previewing"
-msgstr ""
+msgstr "پیش نمایش فایل"
 
 msgid "Inbox navigation"
-msgstr ""
+msgstr "ناوبری صندوق ورودی"
 
 msgid "I want to navigate through my items by using:"
-msgstr ""
+msgstr "من می‌خواهم با استفاده از موارد زیر در میان مواردم پیمایش کنم:"
 
 msgid "Infinite Scroll"
-msgstr ""
+msgstr "اسکرول بی نهایت"
 
 msgid "grommunio Web automatically loads additional items when you scroll down"
 msgstr ""
+"grommunio Web به طور خودکار موارد اضافی را هنگامی که به پایین اسکرول می "
+"کنید بارگیری می کند"
 
 msgid "Pagination"
-msgstr ""
+msgstr "صفحه بندی"
 
 msgid ""
 "grommunio Web displays items on pages and you can use navigation controls to "
@@ -4904,61 +4921,61 @@ msgid ""
 msgstr ""
 
 msgid "Load items in blocks of {A}"
-msgstr ""
+msgstr "بارگیری موارد در بلوک‌های {A}"
 
 msgid "Load {A} items per page."
-msgstr ""
+msgstr "بارگیری {A} مورد در هر صفحه."
 
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "میانبرهای صفحه کلید"
 
 msgid "Part of basic keyboard shortcuts"
-msgstr ""
+msgstr "بخشی از کلیدهای میانبر اصلی صفحه کلید"
 
 msgid "Keyboard shortcuts off"
-msgstr ""
+msgstr "میانبرهای صفحه کلید خاموش است"
 
 msgid "Basic keyboard shortcuts on"
-msgstr ""
+msgstr "میانبرهای اصلی صفحه کلید روشن است"
 
 msgid "All keyboard shortcuts on"
-msgstr ""
+msgstr "همه میانبرهای صفحه کلید روشن است"
 
 msgid "This change requires a reload of grommunio Web"
-msgstr ""
+msgstr "این تغییر به بارگیری مجدد grommunio Web نیاز دارد"
 
 msgid "Plugins"
-msgstr ""
+msgstr "پلاگین ها"
 
 msgid "Available plugins"
-msgstr ""
+msgstr "پلاگین های موجود"
 
 msgid "No plugins available"
-msgstr ""
+msgstr "هیچ پلاگینی در دسترس نیست"
 
 msgid "Version"
-msgstr ""
+msgstr "نسخه"
 
 msgid "This plugin cannot be disabled"
-msgstr ""
+msgstr "این افزونه را نمی توان غیرفعال کرد"
 
 msgid "This plugin cannot be enabled"
-msgstr ""
+msgstr "این افزونه را نمی توان فعال کرد"
 
 msgid "Mailbox Usage"
-msgstr ""
+msgstr "استفاده از صندوق پستی"
 
 msgid "A quota is not set on your store."
-msgstr ""
+msgstr "سهمیه ای در فروشگاه شما تنظیم نشده است."
 
 msgid "{0} of mailbox space is used."
-msgstr ""
+msgstr "{0}از فضای صندوق پست استفاده می شود."
 
 msgid "You have exceeded hard quota, you can not send or receive mails."
-msgstr ""
+msgstr "شما از سهمیه سخت فراتر رفته اید، نمی توانید نامه ارسال یا دریافت کنید."
 
 msgid "At {0} you won't be able to send mails."
-msgstr ""
+msgstr "در{0}نمی توانید نامه ارسال کنید."
 
 msgid ""
 "You can not send mails as you have exceeded soft quota, at {0} you won't be "
@@ -4966,16 +4983,16 @@ msgid ""
 msgstr ""
 
 msgid "At {0} you won't be able to send or receive mails."
-msgstr ""
+msgstr "در{0}نمی توانید ایمیل ارسال یا دریافت کنید."
 
 msgid "You can not send mails as you have exceeded soft quota."
-msgstr ""
+msgstr "شما نمی توانید نامه ارسال کنید زیرا از سهمیه نرم افزاری فراتر رفته اید."
 
 msgid "Reset settings"
-msgstr ""
+msgstr "تنظیمات را بازنشانی کنید"
 
 msgid "Reset settings to their original defaults."
-msgstr ""
+msgstr "تنظیمات را به پیش فرض اصلی خود بازنشانی کنید."
 
 msgid ""
 "This will close all opened shared stores and resets all settings to the "
@@ -4988,79 +5005,79 @@ msgid ""
 msgstr ""
 
 msgid "Reset"
-msgstr ""
+msgstr "بازنشانی کنید"
 
 msgid "Reloading, Please wait."
-msgstr ""
+msgstr "در حال بارگیری مجدد، لطفا صبر کنید."
 
 msgid "Setting"
-msgstr ""
+msgstr "تنظیم"
 
 msgid "The setting '{0}' can not be edited"
-msgstr ""
+msgstr "تنظیم \"{0}\" قابل ویرایش نیست"
 
 msgid "Version information"
-msgstr ""
+msgstr "اطلاعات نسخه"
 
 msgid "Gromox"
-msgstr ""
+msgstr "گروموکس"
 
 msgid "Delete confirmation"
-msgstr ""
+msgstr "حذف تاییدیه"
 
 msgid "Deleting the item(s) will also delete the original item(s)."
-msgstr ""
+msgstr "حذف آیتم(های) باعث حذف آیتم(های) اصلی نیز می شود."
 
 msgid "Do you want to delete the item(s)?"
-msgstr ""
+msgstr "آیا می خواهید مورد(ها) را حذف کنید؟"
 
 msgid "Sort by: Priority"
-msgstr ""
+msgstr "مرتب سازی بر اساس: اولویت"
 
 msgid "Status"
-msgstr ""
+msgstr "وضعیت"
 
 msgid "Sort by: Status"
-msgstr ""
+msgstr "مرتب سازی بر اساس: وضعیت"
 
 msgid "Due Date"
-msgstr ""
+msgstr "سررسید"
 
 msgid "Sort by: Due Date"
-msgstr ""
+msgstr "مرتب سازی بر اساس: سررسید"
 
 msgid "% Completed"
-msgstr ""
+msgstr "% تکمیل شد"
 
 msgid "Sort by: Percent Completed"
-msgstr ""
+msgstr "مرتب سازی بر اساس: درصد تکمیل شده"
 
 msgid "Task Status"
-msgstr ""
+msgstr "وضعیت وظیفه"
 
 msgid "Percent Complete"
-msgstr ""
+msgstr "درصد کامل"
 
 msgid "Total Work"
-msgstr ""
+msgstr "کل کار"
 
 msgid "Actual Work"
-msgstr ""
+msgstr "کار واقعی"
 
 msgid "Companies"
-msgstr ""
+msgstr "شرکت ها"
 
 msgid "Billing Information"
-msgstr ""
+msgstr "اطلاعات صورتحساب"
 
 msgid "Mileage"
-msgstr ""
+msgstr "مسافت پیموده شده"
 
 msgid "Accepting Task"
-msgstr ""
+msgstr "پذیرش وظیفه"
 
 msgid "Declining Task"
-msgstr ""
+msgstr "کار در حال کاهش"
 
 msgid ""
 "This task will be accepted and moved to your task folder. Do you want to "
@@ -5073,149 +5090,149 @@ msgid ""
 msgstr ""
 
 msgid "Send the response now"
-msgstr ""
+msgstr "اکنون پاسخ را ارسال کنید"
 
 msgid "Date Complete"
-msgstr ""
+msgstr "تاریخ تکمیل"
 
 msgid "Multiple companies name must be separated by"
-msgstr ""
+msgstr "نام چند شرکت باید با آن جدا شود"
 
 msgid "Update List"
-msgstr ""
+msgstr "به روز رسانی لیست"
 
 msgid "Create Unassigned Copy"
-msgstr ""
+msgstr "کپی اختصاص نیافته ایجاد کنید"
 
 msgid "copy"
-msgstr ""
+msgstr "کپی کنید"
 
 msgid "Unable to send task request"
-msgstr ""
+msgstr "امکان ارسال درخواست کار وجود ندارد"
 
 msgid "You cannot send a task request to yourself."
-msgstr ""
+msgstr "شما نمی توانید یک درخواست کار برای خود ارسال کنید."
 
 msgid "Multiple recipients"
-msgstr ""
+msgstr "چندین گیرنده"
 
 msgid "A task request can only have one recipient."
-msgstr ""
+msgstr "یک درخواست کار فقط می تواند یک گیرنده داشته باشد."
 
 msgid "Due date"
-msgstr ""
+msgstr "سررسید"
 
 msgid "Priority"
-msgstr ""
+msgstr "اولویت"
 
 msgid "% Complete"
-msgstr ""
+msgstr "% کامل شد"
 
 msgid "Track progress"
-msgstr ""
+msgstr "پیگیری پیشرفت"
 
 msgid "Keep updated copy of task and receive automated status reports"
-msgstr ""
+msgstr "کپی به روز کار را نگه دارید و گزارش های وضعیت خودکار را دریافت کنید"
 
 msgid "Send task to assignees"
-msgstr ""
+msgstr "ارسال کار به افراد واگذار شده"
 
 msgid "Restore to Task List"
-msgstr ""
+msgstr "بازیابی به لیست وظایف"
 
 msgid "Delete this task"
-msgstr ""
+msgstr "این کار را حذف کنید"
 
 msgid "Add attachments to this task"
-msgstr ""
+msgstr "پیوست ها را به این کار اضافه کنید"
 
 msgid "Mark as Complete"
-msgstr ""
+msgstr "علامت گذاری به عنوان کامل"
 
 msgid "Mark this task as complete"
-msgstr ""
+msgstr "این کار را به عنوان کامل علامت گذاری کنید"
 
 msgid "Print this task"
-msgstr ""
+msgstr "این کار را چاپ کنید"
 
 msgid "Assign Task"
-msgstr ""
+msgstr "تعیین تکلیف"
 
 msgid "Cancel Assignment"
-msgstr ""
+msgstr "لغو تکلیف"
 
 msgid "Mark this task as private"
-msgstr ""
+msgstr "این کار را به عنوان خصوصی علامت گذاری کنید"
 
 msgid "New task"
-msgstr ""
+msgstr "کار جدید"
 
 msgid "Completed"
-msgstr ""
+msgstr "تکمیل شد"
 
 msgid "Printed by: "
-msgstr ""
+msgstr "چاپ شده توسط:"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Printed on: "
-msgstr ""
+msgstr "چاپ شده در:"
 
 msgid "Percent complete"
-msgstr ""
+msgstr "درصد کامل شده است"
 
 msgid "Total work"
-msgstr ""
+msgstr "کل کار"
 
 msgid "{totalwork} hours"
-msgstr ""
+msgstr "{totalwork} ساعت"
 
 msgid "Actual work"
-msgstr ""
+msgstr "کار واقعی"
 
 msgid "{actualwork} hours"
-msgstr ""
+msgstr "ساعت {واقعی}"
 
 msgid "Open Shared Tasks"
-msgstr ""
+msgstr "وظایف مشترک را باز کنید"
 
 msgid "Simple view"
-msgstr ""
+msgstr "نمای ساده"
 
 msgid "Detailed view"
-msgstr ""
+msgstr "نمای تفصیلی"
 
 msgid "Task request"
-msgstr ""
+msgstr "درخواست وظیفه"
 
 msgid "Print selected task"
-msgstr ""
+msgstr "کار انتخاب شده را چاپ کنید"
 
 msgid "No task selected"
-msgstr ""
+msgstr "هیچ کاری انتخاب نشده است"
 
 msgid "Print task list"
-msgstr ""
+msgstr "چاپ لیست وظایف"
 
 msgid "Create task"
-msgstr ""
+msgstr "وظیفه ایجاد کنید"
 
 msgid "Upcoming"
-msgstr ""
+msgstr "آینده"
 
 msgid "Overdue"
-msgstr ""
+msgstr "عقب افتاده"
 
 msgid "Mark Complete"
-msgstr ""
+msgstr "علامت گذاری کامل"
 
 msgid "Mark Incomplete"
-msgstr ""
+msgstr "علامت گذاری به عنوان ناقص"
 
 msgid "Remove from To-Do List"
-msgstr ""
+msgstr "حذف از فهرست کارها"
 
 msgid "Changes to assigned task"
-msgstr ""
+msgstr "تغییرات در وظایف محول شده"
 
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
@@ -5223,70 +5240,70 @@ msgid ""
 msgstr ""
 
 msgid "Sort by: Complete"
-msgstr ""
+msgstr "مرتب سازی بر اساس: کامل"
 
 msgid "Reminder Time"
-msgstr ""
+msgstr "زمان یادآوری"
 
 msgid "Sort by: Reminder Time"
-msgstr ""
+msgstr "مرتب سازی بر اساس: زمان یادآوری"
 
 msgid "Assigned To"
-msgstr ""
+msgstr "اختصاص داده شده به"
 
 msgid "Sort by: Assignee"
-msgstr ""
+msgstr "مرتب سازی بر اساس: مأمور"
 
 msgid "Sort by: Owner"
-msgstr ""
+msgstr "مرتب سازی بر اساس: مالک"
 
 msgid "Sort by: Percentage Completed"
-msgstr ""
+msgstr "مرتب سازی بر اساس: درصد تکمیل"
 
 msgid "Assigned task changes"
-msgstr ""
+msgstr "تغییرات وظایف تعیین شده"
 
 msgid "Loading tasks"
-msgstr ""
+msgstr "در حال بارگیری وظایف"
 
 msgid "Date completed"
-msgstr ""
+msgstr "تاریخ تکمیل"
 
 msgid "hours"
-msgstr ""
+msgstr "ساعت"
 
 msgid "Billing information"
-msgstr ""
+msgstr "اطلاعات صورتحساب"
 
 msgid "Update list"
-msgstr ""
+msgstr "لیست را به روز کنید"
 
 msgid "D d-m-Y"
-msgstr ""
+msgstr "D d-m-Y"
 
 msgid "none"
-msgstr ""
+msgstr "هیچ کدام"
 
 msgid "Quick Task"
-msgstr ""
+msgstr "وظیفه سریع"
 
 msgid "No tasks."
-msgstr ""
+msgstr "بدون وظایف"
 
 msgid "Tasks / To-Do"
-msgstr ""
+msgstr "وظایف / کارها"
 
 msgid "Click the link to open the URL in a new window."
-msgstr ""
+msgstr "روی پیوند کلیک کنید تا URL در یک پنجره جدید باز شود."
 
 msgid "The server reported an unknown error on your request."
-msgstr ""
+msgstr "سرور یک خطای ناشناخته را در مورد درخواست شما گزارش کرد."
 
 msgid "The server reported an unspecified error on your request."
-msgstr ""
+msgstr "سرور یک خطای نامشخص در مورد درخواست شما گزارش کرد."
 
 msgid "The session has expired, reauthentication is required."
-msgstr ""
+msgstr "جلسه منقضی شده است، احراز هویت مجدد لازم است."
 
 msgid ""
 "The session in the current browser window has been closed from another "
@@ -5294,41 +5311,43 @@ msgid ""
 msgstr ""
 
 msgid "Session expired"
-msgstr ""
+msgstr "جلسه منقضی شد"
 
 msgid "Do you wish to be redirected to the logon page?"
-msgstr ""
+msgstr "آیا می خواهید به صفحه ورود به سیستم هدایت شوید؟"
 
 msgid "Reauthentication required, click here to go to back to logon page."
 msgstr ""
+"احراز هویت مجدد لازم است، اینجا را کلیک کنید تا به صفحه ورود به سیستم "
+"برگردید."
 
 msgid "Connection problem"
-msgstr ""
+msgstr "مشکل اتصال"
 
 msgid "Could not connect to server, retrying in {0} second(s)"
-msgstr ""
+msgstr "اتصال به سرور امکان‌پذیر نیست، تلاش مجدد در ثانیه(های){0}"
 
 msgid "Click to retry now"
-msgstr ""
+msgstr "اکنون برای امتحان مجدد کلیک کنید"
 
 msgid "Connection restored"
-msgstr ""
+msgstr "اتصال بازیابی شد"
 
 msgid "Connection with server has been restored"
-msgstr ""
+msgstr "ارتباط با سرور بازیابی شد"
 
 #. TRANSLATORS: Example: HTTP 404
 msgid "HTTP {0}"
-msgstr ""
+msgstr "HTTP{0}"
 
 msgid "Invalid data received from the server"
-msgstr ""
+msgstr "داده های نامعتبر دریافت شده از سرور"
 
 msgid "Missing store"
-msgstr ""
+msgstr "فروشگاه گم شده"
 
 msgid "The default store is missing from the hierarchy."
-msgstr ""
+msgstr "فروشگاه پیش فرض در سلسله مراتب وجود ندارد."
 
 msgid ""
 "Not all functionality of grommunio Web might be working properly because of "
@@ -5337,253 +5356,254 @@ msgstr ""
 
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
-msgstr ""
+msgstr "صندوق ورودی"
 
 msgctxt "hierarchy.foldername"
 msgid "Outbox"
-msgstr ""
+msgstr "صندوق خروجی"
 
 msgctxt "hierarchy.foldername"
 msgid "Sent Items"
-msgstr ""
+msgstr "موارد ارسال شده"
 
 msgctxt "hierarchy.foldername"
 msgid "Deleted items"
-msgstr ""
+msgstr "موارد حذف شده"
 
 msgctxt "hierarchy.foldername"
 msgid "Calendar"
-msgstr ""
+msgstr "تقویم"
 
 msgctxt "hierarchy.foldername"
 msgid "Contacts"
-msgstr ""
+msgstr "مخاطبین"
 
 msgctxt "hierarchy.foldername"
 msgid "Drafts"
-msgstr ""
+msgstr "پیش نویس ها"
 
 msgctxt "hierarchy.foldername"
 msgid "Journal"
-msgstr ""
+msgstr "مجله"
 
 msgctxt "hierarchy.foldername"
 msgid "Notes"
-msgstr ""
+msgstr "یادداشت ها"
 
 msgctxt "hierarchy.foldername"
 msgid "Tasks"
-msgstr ""
+msgstr "وظایف"
 
 msgctxt "hierarchy.foldername"
 msgid "Junk Email"
-msgstr ""
+msgstr "ایمیل ناخواسته"
 
 msgid "Missing folders"
-msgstr ""
+msgstr "پوشه های موجود نیست"
 
 msgid "The following required folder is missing in the hierarchy: {0}"
 msgid_plural "The following required folders are missing in the hierarchy: {0}"
-msgstr[0] ""
+msgstr[0] "پوشه مورد نیاز زیر در سلسله مراتب وجود ندارد:{0}"
+msgstr[1] "پوشه های مورد نیاز زیر در سلسله مراتب وجود ندارد:{0}"
 
 msgid "Loading model from server failed"
-msgstr ""
+msgstr "بارگیری مدل از سرور انجام نشد"
 
 msgid "Out of Office is currently activated. Would you like to turn it off?"
-msgstr ""
+msgstr "خارج از دفتر در حال حاضر فعال است. آیا می خواهید آن را خاموش کنید؟"
 
 msgid "Archive"
-msgstr ""
+msgstr "آرشیو"
 
 msgid "Open Chat at start"
-msgstr ""
+msgstr "در شروع چت را باز کنید"
 
 msgid "Desktop Notifications Plugin"
-msgstr ""
+msgstr "افزونه اطلاعیه های دسکتاپ"
 
 msgid "Desktop Notifications"
-msgstr ""
+msgstr "اطلاعیه های دسکتاپ"
 
 msgid "Files: Default plugin"
-msgstr ""
+msgstr "فایل ها: افزونه پیش فرض"
 
 msgid "Loading users and groups"
-msgstr ""
+msgstr "بارگیری کاربران و گروه ها"
 
 msgid "Add users or groups to share files."
-msgstr ""
+msgstr "کاربران یا گروه هایی را برای اشتراک گذاری فایل ها اضافه کنید."
 
 msgid "Sort by: Type"
-msgstr ""
+msgstr "مرتب سازی بر اساس: نوع"
 
 msgid "Re-share"
-msgstr ""
+msgstr "اشتراک گذاری مجدد"
 
 msgid "Change"
-msgstr ""
+msgstr "تغییر دهید"
 
 msgid "Share with"
-msgstr ""
+msgstr "اشتراک گذاری با"
 
 msgid "Share Details"
-msgstr ""
+msgstr "جزئیات را به اشتراک بگذارید"
 
 msgid "Type to search"
-msgstr ""
+msgstr "برای جستجو تایپ کنید"
 
 msgid "No results"
-msgstr ""
+msgstr "هیچ نتیجه ای وجود ندارد"
 
 msgid "Share with user/group"
-msgstr ""
+msgstr "با کاربر/گروه به اشتراک بگذارید"
 
 msgid "Share via link"
-msgstr ""
+msgstr "از طریق لینک به اشتراک بگذارید"
 
 msgid "Public link"
-msgstr ""
+msgstr "لینک عمومی"
 
 msgid "Password protect"
-msgstr ""
+msgstr "محافظت از رمز عبور"
 
 msgid "Password"
-msgstr ""
+msgstr "رمز عبور"
 
 msgid "Public upload"
-msgstr ""
+msgstr "بارگذاری عمومی"
 
 msgid "Expiration date"
-msgstr ""
+msgstr "تاریخ انقضا"
 
 msgid "More than 1 share link exists. Only showing the latest one"
-msgstr ""
+msgstr "بیش از 1 پیوند اشتراک وجود دارد. فقط آخرین مورد را نشان می دهد"
 
 msgid "Loading details…"
-msgstr ""
+msgstr "در حال بارگیری جزئیات…"
 
 msgid "Files: Seafile Backend"
-msgstr ""
+msgstr "فایل ها: Seafile Backend"
 
 msgid "Copy link to clipboard"
-msgstr ""
+msgstr "لینک را در کلیپ بورد کپی کنید"
 
 msgid "Link copied to clipboard"
-msgstr ""
+msgstr "پیوند در کلیپ بورد کپی شد"
 
 msgid "Clipboard"
-msgstr ""
+msgstr "کلیپ بورد"
 
 msgid "Could not copy link automatically. Please copy it manually."
-msgstr ""
+msgstr "پیوند به طور خودکار کپی نشد. لطفا آن را به صورت دستی کپی کنید."
 
 msgid "Loading details..."
-msgstr ""
+msgstr "در حال بارگیری جزئیات..."
 
 msgid "Share"
-msgstr ""
+msgstr "به اشتراک بگذارید"
 
 msgid "Loading..."
-msgstr ""
+msgstr "در حال بارگیری..."
 
 msgid "Add attachment from {0}"
-msgstr ""
+msgstr "افزودن پیوست از{0}"
 
 msgid "Confirm deletion"
-msgstr ""
+msgstr "حذف را تایید کنید"
 
 msgid "Are you sure you want to delete {0}?"
-msgstr ""
+msgstr "آیا مطمئن هستید که می خواهید{0}را حذف کنید؟"
 
 msgid "Are you sure you want to delete {0} and all of its contents?"
-msgstr ""
+msgstr "آیا مطمئن هستید که می خواهید{0}و تمام محتویات آن را حذف کنید؟"
 
 msgid "Are you sure you want to delete {0} files?"
-msgstr ""
+msgstr "آیا مطمئن هستید که می خواهید فایل های{0}را حذف کنید؟"
 
 msgid "Are you sure want to delete {0} folders and all of their contents?"
-msgstr ""
+msgstr "آیا مطمئن هستید که می خواهید پوشه های{0}و تمام محتویات آنها را حذف کنید؟"
 
 msgid ""
 "Are you sure want to delete the selected items and all of their contents?"
 msgstr ""
 
 msgid "Confirm overwrite"
-msgstr ""
+msgstr "بازنویسی را تأیید کنید"
 
 msgid "File already exists. Do you want to overwrite it?"
-msgstr ""
+msgstr "فایل از قبل وجود دارد. آیا می خواهید آن را بازنویسی کنید؟"
 
 msgid "Please enter a new name"
-msgstr ""
+msgstr "لطفا یک نام جدید وارد کنید"
 
 msgid "Rename record"
-msgstr ""
+msgstr "تغییر نام رکورد"
 
 msgid "A file name should not be empty."
-msgstr ""
+msgstr "نام فایل نباید خالی باشد."
 
 msgid "Rename item"
-msgstr ""
+msgstr "تغییر نام مورد"
 
 msgid "A file named \"{0}\" already exists. Please enter a different name."
-msgstr ""
+msgstr "فایلی با نام \"{0}\" از قبل وجود دارد. لطفا نام دیگری وارد کنید"
 
 msgid "Downloading"
-msgstr ""
+msgstr "در حال دانلود"
 
 msgid "Download started... please wait!"
-msgstr ""
+msgstr "دانلود شروع شد... لطفا صبر کنید!"
 
 msgid "Upload"
-msgstr ""
+msgstr "آپلود کنید"
 
 msgid "At least one file is too large! Maximum allowed filesize: {0}."
-msgstr ""
+msgstr "حداقل یک فایل خیلی بزرگ است! حداکثر اندازه فایل مجاز:{0}."
 
 msgid "Keep both"
-msgstr ""
+msgstr "هر دو را نگه دارید"
 
 msgid "Overwrite"
-msgstr ""
+msgstr "رونویسی کنید"
 
 msgid "l d/m/Y G:i"
-msgstr ""
+msgstr "l d/m/Y G:i"
 
 msgid "Never"
-msgstr ""
+msgstr "هرگز"
 
 msgid "Add from Files"
-msgstr ""
+msgstr "از Files اضافه کنید"
 
 msgid "Add attachment from Files"
-msgstr ""
+msgstr "افزودن پیوست از Files"
 
 msgid "Add to Files"
-msgstr ""
+msgstr "به فایل ها اضافه کنید"
 
 msgid "Upload file"
-msgstr ""
+msgstr "آپلود فایل"
 
 msgid "Files"
-msgstr ""
+msgstr "فایل ها"
 
 msgid "Files Plugin"
-msgstr ""
+msgstr "افزونه فایل ها"
 
 msgid "Default"
-msgstr ""
+msgstr "پیش فرض"
 
 msgid "Manage Accounts"
-msgstr ""
+msgstr "مدیریت حساب ها"
 
 msgid "Reset Files settings"
-msgstr ""
+msgstr "تنظیمات فایل ها را بازنشانی کنید"
 
 msgid "Resets Files settings to their original defaults"
-msgstr ""
+msgstr "تنظیمات فایل‌ها را به پیش‌فرض اصلی خود بازنشانی می‌کند"
 
 msgid "Are you sure to remove all settings and accounts?"
-msgstr ""
+msgstr "آیا مطمئن هستید که همه تنظیمات و حساب ها را حذف می کنید؟"
 
 msgid ""
 "Accounts marked by your administrator as \"cannot be changed\" will not be "
@@ -5596,356 +5616,356 @@ msgid ""
 msgstr ""
 
 msgid "grommunio Web is reloading, Please wait."
-msgstr ""
+msgstr "grommunio وب در حال بارگیری مجدد است، لطفاً صبر کنید."
 
 msgid "Edit Account"
-msgstr ""
+msgstr "ویرایش حساب"
 
 msgid "Backend"
-msgstr ""
+msgstr "Backend"
 
 msgid "Account Information"
-msgstr ""
+msgstr "اطلاعات حساب"
 
 msgid "Account name"
-msgstr ""
+msgstr "نام حساب"
 
 msgid "Account Configuration"
-msgstr ""
+msgstr "پیکربندی حساب"
 
 msgid "Update"
-msgstr ""
+msgstr "به روز رسانی"
 
 msgid "ID"
-msgstr ""
+msgstr "شناسه"
 
 msgid "Sort by: ID"
-msgstr ""
+msgstr "مرتب سازی بر اساس: شناسه"
 
 msgid "Sort by: Backend"
-msgstr ""
+msgstr "مرتب سازی بر اساس: Backend"
 
 msgid "Features"
-msgstr ""
+msgstr "ویژگی ها"
 
 msgid "Shows all available features of the backend."
-msgstr ""
+msgstr "تمام ویژگی های موجود باطن را نشان می دهد."
 
 msgid "Show quota information"
-msgstr ""
+msgstr "نمایش اطلاعات سهمیه"
 
 msgid "Show version information"
-msgstr ""
+msgstr "نمایش اطلاعات نسخه"
 
 msgid "Share files"
-msgstr ""
+msgstr "اشتراک گذاری فایل ها"
 
 msgid "Fast Down/Upload"
-msgstr ""
+msgstr "دانلود سریع / آپلود"
 
 msgid "No account created!"
-msgstr ""
+msgstr "هیچ حساب کاربری ایجاد نشد!"
 
 msgid "Add Account"
-msgstr ""
+msgstr "افزودن حساب"
 
 msgid "Remove Account"
-msgstr ""
+msgstr "حذف حساب"
 
 msgid "Loading accounts"
-msgstr ""
+msgstr "در حال بارگیری حساب ها"
 
 msgid "Do you really want to delete the account \"{0}\"?"
-msgstr ""
+msgstr "آیا واقعاً می خواهید حساب \"{0}\" را حذف کنید؟"
 
 msgid "Quota Information"
-msgstr ""
+msgstr "اطلاعات سهمیه"
 
 msgid "Used"
-msgstr ""
+msgstr "استفاده می شود"
 
 msgid "Total"
-msgstr ""
+msgstr "مجموع"
 
 msgid "Version Information"
-msgstr ""
+msgstr "اطلاعات نسخه"
 
 msgid "Filename"
-msgstr ""
+msgstr "نام فایل"
 
 msgid "Sort by: Filename"
-msgstr ""
+msgstr "مرتب سازی بر اساس: نام فایل"
 
 msgid "Loading files"
-msgstr ""
+msgstr "در حال بارگذاری فایل ها"
 
 msgid "The file {0} is too large!"
-msgstr ""
+msgstr "فایل{0}خیلی بزرگ است!"
 
 msgid "max"
-msgstr ""
+msgstr "حداکثر"
 
 msgid "You have to choose at least one file!"
-msgstr ""
+msgstr "شما باید حداقل یک فایل را انتخاب کنید!"
 
 msgid "Create New "
-msgstr ""
+msgstr "ایجاد جدید"
 
 msgid "Incorrect filename"
-msgstr ""
+msgstr "نام فایل نادرست"
 
 msgid "Error reaching office backend"
-msgstr ""
+msgstr "خطا در رسیدن به باطن دفتر"
 
 msgid "Folder already exists"
-msgstr ""
+msgstr "پوشه از قبل وجود دارد"
 
 msgid "Incorrect foldername"
-msgstr ""
+msgstr "نام پوشه نادرست"
 
 msgid "File information"
-msgstr ""
+msgstr "اطلاعات فایل"
 
 msgid "Select a file"
-msgstr ""
+msgstr "یک فایل را انتخاب کنید"
 
 msgid "Maximum upload size"
-msgstr ""
+msgstr "حداکثر اندازه آپلود"
 
 msgid "Browse"
-msgstr ""
+msgstr "مرور کنید"
 
 msgid "Select upload folder"
-msgstr ""
+msgstr "پوشه آپلود را انتخاب کنید"
 
 msgid "File \"{0}\" is too large! Maximum allowed filesize: {1}."
-msgstr ""
+msgstr "فایل \"{0}\" خیلی بزرگ است! حداکثر اندازه فایل مجاز:{1}."
 
 msgid "Add item to Files"
-msgstr ""
+msgstr "آیتم را به Files اضافه کنید"
 
 msgid "You have to choose a folder!"
-msgstr ""
+msgstr "شما باید یک پوشه انتخاب کنید!"
 
 msgid "Uploaded"
-msgstr ""
+msgstr "آپلود شد"
 
 msgid "Attachment successfully stored in Files"
-msgstr ""
+msgstr "پیوست با موفقیت در Files ذخیره شد"
 
 msgid "Upload Failed"
-msgstr ""
+msgstr "آپلود انجام نشد"
 
 msgid "Attachment could not be stored in Files! Error: "
-msgstr ""
+msgstr "پیوست در فایل‌ها ذخیره نمی‌شود! خطا:"
 
 msgid "Share Files"
-msgstr ""
+msgstr "اشتراک گذاری فایل ها"
 
 msgid "Uploading files to "
-msgstr ""
+msgstr "آپلود فایل ها به"
 
 msgid "Starting upload"
-msgstr ""
+msgstr "شروع آپلود"
 
 msgid "Cancel upload"
-msgstr ""
+msgstr "لغو آپلود"
 
 msgid "- seconds left"
-msgstr ""
+msgstr "- ثانیه باقی مانده است"
 
 msgid " seconds left"
-msgstr ""
+msgstr "ثانیه باقی مانده است"
 
 msgid " minutes left"
-msgstr ""
+msgstr "دقیقه باقی مانده است"
 
 msgid "Uploading: "
-msgstr ""
+msgstr "بارگذاری:"
 
 msgid "Upload status unavailable... please wait."
-msgstr ""
+msgstr "وضعیت آپلود در دسترس نیست... لطفاً صبر کنید."
 
 msgid "Upload finished!"
-msgstr ""
+msgstr "آپلود تمام شد!"
 
 msgid "Upload aborted!"
-msgstr ""
+msgstr "آپلود لغو شد!"
 
 msgid "Upload failed!"
-msgstr ""
+msgstr "آپلود انجام نشد!"
 
 msgid "Document"
-msgstr ""
+msgstr "سند"
 
 msgid "Presentation"
-msgstr ""
+msgstr "ارائه"
 
 msgid "Spreadsheet"
-msgstr ""
+msgstr "صفحه گسترده"
 
 msgid "Upload files"
-msgstr ""
+msgstr "فایل ها را آپلود کنید"
 
 msgid "Create document"
-msgstr ""
+msgstr "سند ایجاد کنید"
 
 msgid "Create office document"
-msgstr ""
+msgstr "سند اداری ایجاد کنید"
 
 msgid "Download files"
-msgstr ""
+msgstr "دانلود فایل ها"
 
 msgid "Attach to mail"
-msgstr ""
+msgstr "به نامه پیوست کنید"
 
 msgid "Attach to mail as link"
-msgstr ""
+msgstr "به ایمیل به عنوان پیوند پیوست کنید"
 
 msgid "Attaching"
-msgstr ""
+msgstr "پیوست کردن"
 
 msgid "Creating email... Please wait!"
-msgstr ""
+msgstr "در حال ایجاد ایمیل... لطفا صبر کنید!"
 
 msgid "Edit share"
-msgstr ""
+msgstr "ویرایش اشتراک"
 
 msgid ""
 "There are no accounts added. Go to settings, Files tab and add an account"
 msgstr ""
 
 msgid "Filesize"
-msgstr ""
+msgstr "اندازه فایل"
 
 msgid "Last modified"
-msgstr ""
+msgstr "آخرین تغییر"
 
 msgid "Is shared"
-msgstr ""
+msgstr "به اشتراک گذاشته شده است"
 
 msgid "File preview"
-msgstr ""
+msgstr "پیش نمایش فایل"
 
 msgid "Your browser does not support previewing of audio files!"
-msgstr ""
+msgstr "مرورگر شما از پیش نمایش فایل های صوتی پشتیبانی نمی کند!"
 
 msgid "Your browser does not support previewing of video files!"
-msgstr ""
+msgstr "مرورگر شما از پیش نمایش فایل های ویدئویی پشتیبانی نمی کند!"
 
 msgid "d.m.Y G:i"
-msgstr ""
+msgstr "d.m.Y G:i"
 
 msgid "Folder"
-msgstr ""
+msgstr "پوشه"
 
 msgid "File ({0})"
-msgstr ""
+msgstr "فایل ({0})"
 
 msgid "Sort by: Path"
-msgstr ""
+msgstr "مرتب سازی بر اساس: مسیر"
 
 msgid "Sort by: Last modified"
-msgstr ""
+msgstr "مرتب سازی بر اساس: آخرین تغییر"
 
 msgid "Sort by: Shared"
-msgstr ""
+msgstr "مرتب سازی بر اساس: اشتراک گذاری شده"
 
 msgid "There are no items to show in this view"
-msgstr ""
+msgstr "هیچ موردی برای نمایش در این نما وجود ندارد"
 
 msgid "files selected"
-msgstr ""
+msgstr "فایل های انتخاب شده"
 
 msgid "Authentication required, when using grommunio-files for the first time"
-msgstr ""
+msgstr "هنگام استفاده از فایل‌های grommunio برای اولین بار، احراز هویت لازم است"
 
 msgid "Intranet"
-msgstr ""
+msgstr "اینترانت"
 
 msgid "Archive to InfoShare"
-msgstr ""
+msgstr "بایگانی در InfoShare"
 
 msgid "Kendox InfoShare"
-msgstr ""
+msgstr "Kendox InfoShare"
 
 msgid "Constraints for single attachment archiving"
-msgstr ""
+msgstr "محدودیت‌ها برای بایگانی پیوست"
 
 msgid "Max count attachments"
-msgstr ""
+msgstr "حداکثر تعداد پیوست"
 
 msgid "Max size all selected attachments (MB)"
-msgstr ""
+msgstr "حداکثر اندازه همه پیوست های انتخاب شده (MB)"
 
 msgid "Selection Kendox InfoShare environment"
-msgstr ""
+msgstr "انتخاب محیط InfoShare Kendox"
 
 msgid "Production"
-msgstr ""
+msgstr "تولید"
 
 msgid "Test"
-msgstr ""
+msgstr "تست کنید"
 
 msgid "URLs for production environment"
-msgstr ""
+msgstr "آدرس های اینترنتی برای محیط تولید"
 
 msgid "Kendox InfoShare API URL"
-msgstr ""
+msgstr "URL API Kendox InfoShare"
 
 msgid "Kendox InfoShare Web dialog URL"
-msgstr ""
+msgstr "URL گفتگوی وب Kendox InfoShare"
 
 msgid "URLs for test environment"
-msgstr ""
+msgstr "آدرس های اینترنتی برای محیط تست"
 
 msgid "Mail/Document archive to Kendox InfoShare"
-msgstr ""
+msgstr "بایگانی نامه/اسناد به Kendox InfoShare"
 
 msgid "Attachment information is requested"
-msgstr ""
+msgstr "اطلاعات ضمیمه درخواست می شود"
 
 msgid "Please select the type of Archive (max"
-msgstr ""
+msgstr "لطفاً نوع آرشیو (حداکثر"
 
 msgid "files, max"
-msgstr ""
+msgstr "فایل ها، حداکثر"
 
 msgid "MB total size)"
-msgstr ""
+msgstr "حجم کل مگابایت)"
 
 msgid "Everything - Store mail in original format"
-msgstr ""
+msgstr "همه چیز - ایمیل را در قالب اصلی ذخیره کنید"
 
 msgid "Email only - Store mail without attachments"
 msgstr "فقط ایمیل - ذخیره ایمیل بدون پیوست‌ها"
 
 msgid "Separate - Store attachments separately"
-msgstr ""
+msgstr "جدا - پیوست ها را جداگانه ذخیره کنید"
 
 msgid "No attachments available in mail"
-msgstr ""
+msgstr "هیچ پیوستی در ایمیل موجود نیست"
 
 msgid "Start archive"
-msgstr ""
+msgstr "شروع بایگانی"
 
 msgid "embedded"
 msgstr "تعبیه‌شده"
 
 msgid "Reading attachment information failed"
-msgstr ""
+msgstr "خواندن اطلاعات پیوست انجام نشد"
 
 msgid "Files are sent to Kendox InfoShare"
-msgstr ""
+msgstr "فایل ها به Kendox InfoShare ارسال می شوند"
 
 msgid "With the selection of separate attachments a maximum of"
-msgstr ""
+msgstr "با انتخاب پیوست های جداگانه حداکثر"
 
 msgid "attachments can be selected. There have been"
-msgstr ""
+msgstr "پیوست ها را می توان انتخاب کرد. وجود داشته است"
 
 msgid "attachments selected"
-msgstr ""
+msgstr "پیوست انتخاب شده است"
 
 msgid ""
 "With the selection of separate attachments the total size of all attachments "
@@ -5953,101 +5973,101 @@ msgid ""
 msgstr ""
 
 msgid "MB. There have been"
-msgstr ""
+msgstr "مگابایت وجود داشته است"
 
 msgid "MB selected."
-msgstr ""
+msgstr "مگابایت انتخاب شد."
 
 msgid "Sending of mail failed"
-msgstr ""
+msgstr "ارسال نامه انجام نشد"
 
 msgid "Openstreetmap"
-msgstr ""
+msgstr "نقشه خیابان باز"
 
 #. TRANSLATORS: The map of earth
 msgid "Map"
-msgstr ""
+msgstr "نقشه"
 
 msgid "Mobile Device Manager"
-msgstr ""
+msgstr "مدیر دستگاه موبایل"
 
 msgid "Wiping device"
-msgstr ""
+msgstr "دستگاه پاک کن"
 
 msgid "Password incorrect"
-msgstr ""
+msgstr "رمز عبور اشتباه است"
 
 msgid "Full resync in progress"
-msgstr ""
+msgstr "همگام سازی مجدد کامل در حال انجام است"
 
 msgid "Username or password incorrect"
-msgstr ""
+msgstr "نام کاربری یا رمز عبور اشتباه است"
 
 msgid "Not Applicable"
-msgstr ""
+msgstr "قابل اجرا نیست"
 
 msgid "Wipe Pending"
-msgstr ""
+msgstr "پاک کردن در انتظار"
 
 msgid "Wipe Requested"
-msgstr ""
+msgstr "پاک کردن درخواست شده"
 
 msgid "Wipe Executed"
-msgstr ""
+msgstr "پاک کردن اجرا شد"
 
 msgid "Account Only Wipe Pending"
-msgstr ""
+msgstr "حساب فقط پاک کردن در انتظار"
 
 msgid "Account Only Wipe Requested"
-msgstr ""
+msgstr "فقط پاک کردن حساب درخواست شده است"
 
 msgid "Account Only Wipe Executed"
-msgstr ""
+msgstr "فقط پاک کردن حساب اجرا شد"
 
 msgid "Not Available"
-msgstr ""
+msgstr "در دسترس نیست"
 
 msgid "Device"
-msgstr ""
+msgstr "دستگاه"
 
 msgid "Operating System"
-msgstr ""
+msgstr "سیستم عامل"
 
 msgid "User Agent"
-msgstr ""
+msgstr "عامل کاربر"
 
 msgid "MDM Plugin"
-msgstr ""
+msgstr "افزونه MDM"
 
 msgid "Active Sync Version"
-msgstr ""
+msgstr "نسخه همگام سازی فعال"
 
 msgid "grommunio-sync Version"
-msgstr ""
+msgstr "نسخه grommunio-sync"
 
 msgid "Policy name"
-msgstr ""
+msgstr "نام خط مشی"
 
 msgid "Connected since"
-msgstr ""
+msgstr "از آن زمان وصل شد"
 
 msgid "d F Y"
-msgstr ""
+msgstr "d F Y"
 
 msgid "Last updated"
-msgstr ""
+msgstr "آخرین به روز رسانی"
 
 msgid "d F Y, H:i"
-msgstr ""
+msgstr "d F Y، H:i"
 
 msgid "Last connect"
 msgstr "آخرین اتصال"
 
 msgid "Synchronize"
-msgstr ""
+msgstr "همگام سازی کنید"
 
 msgid "Manage Shared Folders"
-msgstr ""
+msgstr "مدیریت پوشه های مشترک"
 
 msgid ""
 "Select folders to sync to your device from the list below. To add additional "
@@ -6055,13 +6075,13 @@ msgid ""
 msgstr ""
 
 msgid "grommunio-sync"
-msgstr ""
+msgstr "grommunio-sync"
 
 msgid "Mobile device management"
-msgstr ""
+msgstr "مدیریت دستگاه موبایل"
 
 msgid "Mobile Devices"
-msgstr ""
+msgstr "دستگاه های موبایل"
 
 msgid ""
 "Unable to connect to the grommunio-sync server. Click {0} to enter your "
@@ -6069,49 +6089,49 @@ msgid ""
 msgstr ""
 
 msgid "Devices"
-msgstr ""
+msgstr "دستگاه ها"
 
 msgid "No devices connected to your account"
-msgstr ""
+msgstr "هیچ دستگاهی به حساب شما متصل نیست"
 
 msgid "Provisioning Status"
-msgstr ""
+msgstr "وضعیت تامین"
 
 msgid "Last Connect"
 msgstr "آخرین اتصال"
 
 msgid "Device ID"
-msgstr ""
+msgstr "شناسه دستگاه"
 
 msgid "Device OS"
-msgstr ""
+msgstr "سیستم عامل دستگاه"
 
 msgid "Device Info"
-msgstr ""
+msgstr "اطلاعات دستگاه"
 
 msgid "First Sync time"
-msgstr ""
+msgstr "اولین زمان همگام سازی"
 
 msgid "Wipe Device"
-msgstr ""
+msgstr "پاک کردن دستگاه"
 
 msgid "Full resync"
-msgstr ""
+msgstr "همگام سازی کامل"
 
 msgid "Remove device"
-msgstr ""
+msgstr "دستگاه را بردارید"
 
 msgid "Please enter your username and password"
-msgstr ""
+msgstr "لطفا نام کاربری و رمز عبور خود را وارد کنید"
 
 msgid "Wipe only data related to this account"
-msgstr ""
+msgstr "فقط داده های مربوط به این حساب را پاک کنید"
 
 msgid "Wipe all data"
-msgstr ""
+msgstr "تمام داده ها را پاک کنید"
 
 msgid "Username"
-msgstr ""
+msgstr "نام کاربری"
 
 msgid ""
 "Do you really want to wipe your device?\n"
@@ -6124,37 +6144,37 @@ msgid ""
 msgstr ""
 
 msgid "Add meeting"
-msgstr ""
+msgstr "افزودن جلسه"
 
 msgid "Room name:"
-msgstr ""
+msgstr "نام اتاق:"
 
 msgid "Room URL:"
-msgstr ""
+msgstr "آدرس اتاق:"
 
 msgid "Shift-click for advanced settings"
-msgstr ""
+msgstr "برای تنظیمات پیشرفته شیفت کلیک کنید"
 
 msgid "Join webmeeting"
-msgstr ""
+msgstr "به وب‌میتینگ بپیوندید"
 
 msgid "Open meeting in:"
-msgstr ""
+msgstr "جلسه باز در:"
 
 msgid "Web tab"
-msgstr ""
+msgstr "برگه وب"
 
 msgid "Hide the button in the main toolbar"
-msgstr ""
+msgstr "دکمه را در نوار ابزار اصلی مخفی کنید"
 
 msgid "Add the subject to the room name"
-msgstr ""
+msgstr "موضوع را به نام اتاق اضافه کنید"
 
 msgid "Add the organizer name to the room name"
-msgstr ""
+msgstr "نام سازمان دهنده را به نام اتاق اضافه کنید"
 
 msgid "Add the URL to the meeting location rather than overwriting it"
-msgstr ""
+msgstr "URL را به جای بازنویسی به محل جلسه اضافه کنید"
 
 msgid ""
 "Prevent the URL in the meeting location from being overridden automatically "
@@ -6162,13 +6182,13 @@ msgid ""
 msgstr ""
 
 msgid "If you have problems when creating meetings, try disabling this setting"
-msgstr ""
+msgstr "اگر هنگام ایجاد جلسات مشکل دارید، این تنظیم را غیرفعال کنید"
 
 msgid "Add an invitation to the appointment description"
-msgstr ""
+msgstr "یک دعوت نامه به توضیحات قرار اضافه کنید"
 
 msgid "Invitation text"
-msgstr ""
+msgstr "متن دعوتنامه"
 
 msgid ""
 "must contain %url% as a placeholder for the meeting link, empty the textbox "
@@ -6176,37 +6196,37 @@ msgid ""
 msgstr ""
 
 msgid "An unknown error occurred while changing password."
-msgstr ""
+msgstr "یک خطای ناشناخته هنگام تغییر رمز عبور رخ داد."
 
 msgid "Password is changed successfully."
-msgstr ""
+msgstr "رمز عبور با موفقیت تغییر کرد."
 
 msgid "Success"
-msgstr ""
+msgstr "موفقیت"
 
 msgid "Change Password"
-msgstr ""
+msgstr "رمز عبور را تغییر دهید"
 
 msgid "Current password"
-msgstr ""
+msgstr "رمز عبور فعلی"
 
 msgid "New password"
-msgstr ""
+msgstr "رمز عبور جدید"
 
 msgid "Retype new password"
-msgstr ""
+msgstr "رمز عبور جدید را دوباره تایپ کنید"
 
 msgid "New passwords do not match."
-msgstr ""
+msgstr "رمزهای عبور جدید مطابقت ندارند."
 
 msgid "Current password is empty."
-msgstr ""
+msgstr "رمز عبور فعلی خالی است."
 
 msgid "New password is empty."
-msgstr ""
+msgstr "رمز عبور جدید خالی است"
 
 msgid "One or more fields does contain errors."
-msgstr ""
+msgstr "یک یا چند فیلد حاوی خطا است."
 
 msgid ""
 "Password is weak. Password should contain capital, non-capital letters and "
@@ -6214,58 +6234,58 @@ msgid ""
 msgstr ""
 
 msgid "Change passphrase"
-msgstr ""
+msgstr "رمز عبور را تغییر دهید"
 
 msgid "Old passphrase"
-msgstr ""
+msgstr "عبارت عبور قدیمی"
 
 msgid "Wrong passphrase. Please try again"
-msgstr ""
+msgstr "عبارت عبور اشتباه است. لطفا دوباره امتحان کنید"
 
 msgid "New passphrase"
-msgstr ""
+msgstr "عبارت عبور جدید"
 
 msgid "Confirm new passphrase"
-msgstr ""
+msgstr "رمز عبور جدید را تأیید کنید"
 
 msgid "The passphrases don't match. Please try again"
-msgstr ""
+msgstr "عبارات عبور مطابقت ندارند لطفا دوباره امتحان کنید"
 
 msgid "S/MIME Message"
-msgstr ""
+msgstr "پیام S/MIME"
 
 msgid "Passphrase changed successfully"
-msgstr ""
+msgstr "عبارت عبور با موفقیت تغییر کرد"
 
 msgid "S/MIME Passphrase"
-msgstr ""
+msgstr "عبارت عبور S/MIME"
 
 msgid "Submit"
-msgstr ""
+msgstr "ارسال کنید"
 
 msgid "Certificate passphrase"
-msgstr ""
+msgstr "رمز عبور گواهی"
 
 msgid "The passphrase you typed is incorrect. Please try again."
-msgstr ""
+msgstr "عبارت عبوری که تایپ کردید نادرست است. لطفا دوباره امتحان کنید."
 
 msgid "No certificates imported, please upload your private certificate"
-msgstr ""
+msgstr "گواهی وارد نشده است، لطفا گواهی خصوصی خود را آپلود کنید"
 
 msgid "Valid from"
-msgstr ""
+msgstr "معتبر از"
 
 msgid "Expires"
-msgstr ""
+msgstr "منقضی می شود"
 
 msgid "Loading certificates"
-msgstr ""
+msgstr "در حال بارگیری گواهی ها"
 
 msgid "S/MIME Plugin"
-msgstr ""
+msgstr "پلاگین S/MIME"
 
 msgid "Please select a certificate."
-msgstr ""
+msgstr "لطفا یک گواهی انتخاب کنید."
 
 msgid ""
 "Do you really want to remove your private certificate? If you remove your "
@@ -6273,7 +6293,7 @@ msgid ""
 msgstr ""
 
 msgid "Certificate details"
-msgstr ""
+msgstr "جزئیات گواهی"
 
 msgid ""
 "Below you can view and delete public & private certificate(s) stored on the "
@@ -6281,28 +6301,28 @@ msgid ""
 msgstr ""
 
 msgid "Filter on Email"
-msgstr ""
+msgstr "فیلتر روی ایمیل"
 
 msgid "Public & Private certificates"
-msgstr ""
+msgstr "گواهینامه های عمومی و خصوصی"
 
 msgid "S/MIME"
-msgstr ""
+msgstr "S/MIME"
 
 msgid "You don't have a valid certificate corresponding to your account"
-msgstr ""
+msgstr "شما گواهی معتبر مربوط به حساب خود ندارید"
 
 msgid "Personal certificate"
-msgstr ""
+msgstr "گواهی شخصی"
 
 msgid "Change passphrase for last certificate"
-msgstr ""
+msgstr "رمز عبور آخرین گواهی را تغییر دهید"
 
 msgid "You have a valid certificate corresponding to your account"
-msgstr ""
+msgstr "شما یک گواهی معتبر مربوط به حساب خود دارید"
 
 msgid "Upload your certificate"
-msgstr ""
+msgstr "گواهی خود را آپلود کنید"
 
 msgid ""
 "Below you can upload your private certificate in PKCS#12 format. grommunio "
@@ -6311,19 +6331,19 @@ msgid ""
 msgstr ""
 
 msgid "Private certificate"
-msgstr ""
+msgstr "گواهی خصوصی"
 
 msgid "You must fill in the certificate passphrase to upload your certificate."
-msgstr ""
+msgstr "برای آپلود گواهی باید عبارت عبور گواهی را پر کنید."
 
 msgid "You must first select a valid private certificate in PKCS#12 format."
-msgstr ""
+msgstr "ابتدا باید یک گواهی خصوصی معتبر در قالب PKCS#12 انتخاب کنید."
 
 msgid "Sign"
-msgstr ""
+msgstr "امضا کنید"
 
 msgid "Sign message"
-msgstr ""
+msgstr "پیام را امضا کنید"
 
 msgid ""
 "Ensure the authenticity of the message by adding a digital signature to this "
@@ -6331,10 +6351,10 @@ msgid ""
 msgstr ""
 
 msgid "Encrypt"
-msgstr ""
+msgstr "رمزگذاری کنید"
 
 msgid "Encrypt message"
-msgstr ""
+msgstr "رمزگذاری پیام"
 
 msgid ""
 "Ensure the privacy of the message by encrypting its contents. Only the "
@@ -6342,7 +6362,7 @@ msgid ""
 msgstr ""
 
 msgid "What's going on with my email?"
-msgstr ""
+msgstr "در مورد ایمیل من چه خبر است؟"
 
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
@@ -6355,16 +6375,16 @@ msgid ""
 msgstr ""
 
 msgid " has failed"
-msgstr ""
+msgstr "شکست خورده است"
 
 msgid " for this message."
-msgstr ""
+msgstr "برای این پیام"
 
 msgid "What caused this issue?"
-msgstr ""
+msgstr "چه چیزی باعث این موضوع شد؟"
 
 msgid "What should I do?"
-msgstr ""
+msgstr "چه کار کنم؟"
 
 msgid ""
 "You can continue to work. However, you should keep in mind that the identity "
@@ -6392,7 +6412,7 @@ msgid ""
 msgstr ""
 
 msgid "grommunio Web could not find a public certificate for the recipient."
-msgstr ""
+msgstr "grommunio Web نتوانست گواهی عمومی برای گیرنده پیدا کند."
 
 msgid ""
 "The identity of the sender and authenticity of the message content have been "
@@ -6400,7 +6420,7 @@ msgid ""
 msgstr ""
 
 msgid "The digital signature could not be verified for unknown reasons."
-msgstr ""
+msgstr "امضای دیجیتال به دلایل نامعلومی تأیید نشد."
 
 msgid ""
 "The digital certificate used to sign this message has been revoked (i.e. the "
@@ -6425,136 +6445,136 @@ msgid ""
 msgstr ""
 
 msgid "The certificate verification server (OCSP) is temporarily offline."
-msgstr ""
+msgstr "سرور تأیید گواهی (OCSP) به طور موقت آفلاین است."
 
 msgid "Sender is removed from the server."
-msgstr ""
+msgstr "فرستنده از سرور حذف می شود."
 
 msgid "Signature verified successfully"
-msgstr ""
+msgstr "امضا با موفقیت تأیید شد"
 
 msgid "Could not verify signature, missing public certificate"
-msgstr ""
+msgstr "امضا تأیید نشد، گواهی عمومی وجود ندارد"
 
 msgid "Signature verification successful, but certificate is expired"
-msgstr ""
+msgstr "تأیید امضا با موفقیت انجام شد، اما گواهی منقضی شده است"
 
 msgid "Signature could not be verified"
-msgstr ""
+msgstr "امضا تأیید نشد"
 
 msgid "Certificate has been revoked"
-msgstr ""
+msgstr "گواهی باطل شده است"
 
 msgid "Verification with Certificate Authority failed"
-msgstr ""
+msgstr "تأیید با مرجع صدور گواهی انجام نشد"
 
 msgid "Message decrypted successfully"
-msgstr ""
+msgstr "پیام با موفقیت رمزگشایی شد"
 
 msgid "Message decryption failed"
-msgstr ""
+msgstr "رمزگشایی پیام انجام نشد"
 
 msgid "Please"
-msgstr ""
+msgstr "لطفا"
 
 msgid "click here"
-msgstr ""
+msgstr "اینجا را کلیک کنید"
 
 msgid "to unlock your certificate"
-msgstr ""
+msgstr "برای باز کردن قفل گواهی"
 
 msgid "Cannot determine revocation status of certificate"
-msgstr ""
+msgstr "نمی توان وضعیت ابطال گواهی را تعیین کرد"
 
 msgid "Signature verified"
-msgstr ""
+msgstr "امضا تایید شد"
 
 msgid "Unable to decrypt this message. Certificate does not match"
-msgstr ""
+msgstr "رمزگشایی این پیام ممکن نیست. گواهی مطابقت ندارد"
 
 msgid "Verification failed. User is removed from the server."
-msgstr ""
+msgstr "تأیید ناموفق بود. کاربر از سرور حذف می شود."
 
 msgid "Charm pink"
-msgstr ""
+msgstr "صورتی جذاب"
 
 msgid "Cadmium red"
-msgstr ""
+msgstr "قرمز کادمیوم"
 
 msgid "Apricot"
-msgstr ""
+msgstr "زردآلو"
 
 msgid "California"
-msgstr ""
+msgstr "کالیفرنیا"
 
 msgid "Soft green"
-msgstr ""
+msgstr "سبز ملایم"
 
 msgid "Mint"
-msgstr ""
+msgstr "نعناع"
 
 msgid "Pearl aqua"
-msgstr ""
+msgstr "مروارید آبی"
 
 msgid "Grommunio blue"
-msgstr ""
+msgstr "گرومونیو آبی"
 
 msgid "Baby blue"
-msgstr ""
+msgstr "آبی عزیزم"
 
 msgid "Mauve"
-msgstr ""
+msgstr "ارغوانی"
 
 msgid "Silver sand"
-msgstr ""
+msgstr "ماسه نقره ای"
 
 msgid "Competition"
-msgstr ""
+msgstr "رقابت"
 
 msgid "Gifts"
-msgstr ""
+msgstr "هدایا"
 
 msgid "Goals/Objectives"
-msgstr ""
+msgstr "اهداف/اهداف"
 
 msgid "Holiday Cards"
-msgstr ""
+msgstr "کارت های تعطیلات"
 
 msgid "Hot Contacts"
-msgstr ""
+msgstr "مخاطبین داغ"
 
 msgid "Ideas"
-msgstr ""
+msgstr "ایده ها"
 
 msgid "International"
-msgstr ""
+msgstr "بین المللی"
 
 msgid "Key Customer"
-msgstr ""
+msgstr "مشتری کلیدی"
 
 msgid "Miscellaneous"
-msgstr ""
+msgstr "متفرقه"
 
 msgid "Phone Calls"
-msgstr ""
+msgstr "تماس های تلفنی"
 
 msgid "Strategies"
-msgstr ""
+msgstr "استراتژی ها"
 
 msgid "Suppliers"
-msgstr ""
+msgstr "تامین کنندگان"
 
 msgid "Time & Expenses"
-msgstr ""
+msgstr "زمان و هزینه ها"
 
 msgid "VIP"
-msgstr ""
+msgstr "VIP"
 
 msgid "Waiting"
-msgstr ""
+msgstr "در انتظار"
 
 msgid "You have been automatically logged out"
-msgstr ""
+msgstr "شما به طور خودکار از سیستم خارج شده اید"
 
 msgid ""
 "Sorry, access to grommunio Web is not available with this user account. "
@@ -6562,109 +6582,109 @@ msgid ""
 msgstr ""
 
 msgid "This backend provides the default WebDAV integration for Files."
-msgstr ""
+msgstr "این باطن یکپارچه سازی پیش فرض WebDAV را برای فایل ها فراهم می کند."
 
 msgid "Files Default Backend: "
-msgstr ""
+msgstr "Backend پیش فرض فایل ها:"
 
 msgid "Server address"
-msgstr ""
+msgstr "آدرس سرور"
 
 msgid "Server port"
-msgstr ""
+msgstr "پورت سرور"
 
 msgid "Use TLS"
-msgstr ""
+msgstr "از TLS استفاده کنید"
 
 msgid "Webdav base path"
-msgstr ""
+msgstr "مسیر پایه Webdav"
 
 msgid "Use grommunio credentials"
-msgstr ""
+msgstr "از اعتبارنامه grommunio استفاده کنید"
 
 msgid "php-curl is not available"
-msgstr ""
+msgstr "php-curl در دسترس نیست"
 
 msgid "Access denied"
-msgstr ""
+msgstr "دسترسی رد شد"
 
 msgid "Connection failed"
-msgstr ""
+msgstr "اتصال ناموفق بود"
 
 msgid "Sabre error"
-msgstr ""
+msgstr "خطای سابر"
 
 msgid "Copying failed"
-msgstr ""
+msgstr "کپی نشد"
 
 msgid "Unknown error"
-msgstr ""
+msgstr "خطای ناشناخته"
 
 msgid "Please contact your system administrator."
-msgstr ""
+msgstr "لطفا با مدیر سیستم خود تماس بگیرید."
 
 msgid "Unauthorized. Wrong username or password."
-msgstr ""
+msgstr "غیر مجاز نام کاربری یا رمز عبور اشتباه است."
 
 msgid "File server is not reachable. Please verify the file server URL."
-msgstr ""
+msgstr "فایل سرور قابل دسترسی نیست. لطفاً URL سرور فایل را تأیید کنید."
 
 msgid "You don't have enough permissions to view this file or folder."
-msgstr ""
+msgstr "شما مجوز کافی برای مشاهده این فایل یا پوشه را ندارید."
 
 msgid "The file or folder is not available anymore."
-msgstr ""
+msgstr "فایل یا پوشه دیگر در دسترس نیست."
 
 msgid "Connection to the file server timed out. Please check again later."
-msgstr ""
+msgstr "زمان اتصال به سرور فایل تمام شد. لطفاً بعداً دوباره بررسی کنید."
 
 msgid "This file is locked by another user. Please try again later."
-msgstr ""
+msgstr "این فایل توسط کاربر دیگری قفل شده است. لطفاً بعداً دوباره امتحان کنید."
 
 msgid "The request failed."
-msgstr ""
+msgstr "درخواست ناموفق بود."
 
 msgid "The file server encountered an internal problem."
-msgstr ""
+msgstr "سرور فایل با مشکل داخلی مواجه شد."
 
 msgid "We could not write to temporary directory."
-msgstr ""
+msgstr "ما نتوانستیم در فهرست موقت بنویسیم."
 
 msgid "We could not retrieve list of server features."
-msgstr ""
+msgstr "ما نتوانستیم لیست ویژگی های سرور را بازیابی کنیم."
 
 msgid "PHP-Curl is not available."
-msgstr ""
+msgstr "PHP-Curl در دسترس نیست."
 
 msgid "With this backend, you can connect to any Seafile server."
-msgstr ""
+msgstr "با این بک‌اند، می‌توانید به هر سرور Seafile متصل شوید."
 
 msgid "Files "
-msgstr ""
+msgstr "فایل ها"
 
 msgid "Use SSL"
-msgstr ""
+msgstr "از SSL استفاده کنید"
 
 msgid "Seafile is not reachable. Correct backend address entered?"
-msgstr ""
+msgstr "Seafile قابل دسترسی نیست. آدرس باطن صحیح وارد شده است؟"
 
 msgid "You don't have enough permissions for this operation."
-msgstr ""
+msgstr "شما مجوزهای کافی برای این عملیات ندارید."
 
 msgid "File is not available any more."
-msgstr ""
+msgstr "فایل دیگر در دسترس نیست"
 
 msgid "Connection to server timed out. Retry later."
-msgstr ""
+msgstr "زمان اتصال به سرور تمام شد. بعداً دوباره امتحان کنید."
 
 msgid "This file is locked by another user."
-msgstr ""
+msgstr "این فایل توسط کاربر دیگری قفل شده است."
 
 msgid "The request failed due to failure of a previous request."
-msgstr ""
+msgstr "درخواست به دلیل عدم موفقیت درخواست قبلی انجام نشد."
 
 msgid "Seafile-server encountered a problem."
-msgstr ""
+msgstr "سرور Seafile با مشکل مواجه شد."
 
 msgid ""
 "Could not write to temporary directory. Contact the server administrator."
@@ -6675,94 +6695,94 @@ msgid ""
 msgstr ""
 
 msgid "PHP-Curl is not available. Contact your system administrator."
-msgstr ""
+msgstr "PHP-Curl در دسترس نیست. با سرپرست سیستم خود تماس بگیرید."
 
 msgid "This function is not yet implemented."
-msgstr ""
+msgstr "این تابع هنوز پیاده سازی نشده است."
 
 msgid "Unknown account ID"
-msgstr ""
+msgstr "شناسه حساب نامشخص"
 
 msgid "Feature \"Quota Information\" is not supported by this backend!"
-msgstr ""
+msgstr "ویژگی \"اطلاعات سهمیه\" توسط این باطن پشتیبانی نمی شود!"
 
 msgid "Feature \"Version Information\" is not supported by this backend!"
-msgstr ""
+msgstr "ویژگی \"اطلاعات نسخه\" توسط این باطن پشتیبانی نمی شود!"
 
 msgid "Feature \"OAUTH\" is not supported by this backend!"
-msgstr ""
+msgstr "ویژگی \"OAUTH\" توسط این باطن پشتیبانی نمی شود!"
 
 msgid "Moving between accounts is not implemented"
-msgstr ""
+msgstr "جابجایی بین حساب ها اجرا نمی شود"
 
 msgid "Files plugin"
-msgstr ""
+msgstr "افزونه فایل ها"
 
 msgid "Unknown type - cannot save this file to the Files backend!"
-msgstr ""
+msgstr "نوع ناشناخته - نمی توان این فایل را در باطن Files ذخیره کرد!"
 
 msgid "No record given!"
-msgstr ""
+msgstr "هیچ سابقه ای داده نشد!"
 
 msgid "Fetching sharing information failed"
-msgstr ""
+msgstr "واکشی اطلاعات اشتراک گذاری انجام نشد"
 
 msgid "Sharing failed"
-msgstr ""
+msgstr "اشتراک گذاری انجام نشد"
 
 msgid "Updating share failed"
-msgstr ""
+msgstr "اشتراک‌گذاری به‌روزرسانی نشد"
 
 msgid "Deleting share failed"
-msgstr ""
+msgstr "حذف اشتراک ناموفق بود"
 
 msgid "With this backend, you can connect to any WebDAV server."
-msgstr ""
+msgstr "با این بک اند، می توانید به هر سرور WebDAV متصل شوید."
 
 msgid "Files WebDAV Backend: "
-msgstr ""
+msgstr "فایل های WebDAV Backend:"
 
 msgid "PHP-CURL is not installed"
-msgstr ""
+msgstr "PHP-CURL نصب نشده است"
 
 msgid "Directory creation failed"
-msgstr ""
+msgstr "ایجاد دایرکتوری انجام نشد"
 
 msgid "Deletion failed"
-msgstr ""
+msgstr "حذف نشد"
 
 msgid "Moving failed"
-msgstr ""
+msgstr "حرکت ناموفق بود"
 
 msgid "Temporary directory problems"
-msgstr ""
+msgstr "مشکلات دایرکتوری موقت"
 
 msgid "File or folder not found"
-msgstr ""
+msgstr "فایل یا پوشه پیدا نشد"
 
 msgid "Not implemented"
-msgstr ""
+msgstr "اجرا نشده است"
 
 msgid "Please contact your system administrator"
-msgstr ""
+msgstr "لطفا با مدیر سیستم خود تماس بگیرید"
 
 msgid "File server is not reachable. Please verify the connection."
-msgstr ""
+msgstr "فایل سرور قابل دسترسی نیست. لطفاً اتصال را تأیید کنید."
 
 msgid "PHP-CURL not installed"
-msgstr ""
+msgstr "PHP-CURL نصب نشده است"
 
 msgid "Account is ready to use."
-msgstr ""
+msgstr "حساب آماده استفاده است."
 
 msgid "File backend not responding. Please try again later."
-msgstr ""
+msgstr "پشتیبان فایل پاسخ نمی دهد. لطفاً بعداً دوباره امتحان کنید."
 
 msgid "Zip file generation failed. Please inform the administrator."
-msgstr ""
+msgstr "تولید فایل فشرده انجام نشد. لطفا به مدیر اطلاع دهید."
 
 msgid "This file is no longer available. Please reload the folder."
-msgstr ""
+msgstr "این فایل دیگر در دسترس نیست. لطفاً پوشه را دوباره بارگیری کنید."
 
 msgid "Kendox certificate path is not configured."
 msgstr "مسیر گواهی Kendox پیکربندی نشده است."
@@ -6771,13 +6791,13 @@ msgid "Kendox certificate password is not configured."
 msgstr "گذرواژهٔ گواهی Kendox پیکربندی نشده است."
 
 msgid "Kendox certificate is not available."
-msgstr ""
+msgstr "گواهی کندوکس در دسترس نیست."
 
 msgid "Kendox certificate is not readable."
 msgstr "گواهی Kendox قابل خواندن نیست."
 
 msgid "Mobile device management plugin"
-msgstr ""
+msgstr "پلاگین مدیریت دستگاه موبایل"
 
 #, php-format
 msgid ""
@@ -6786,17 +6806,17 @@ msgid ""
 msgstr ""
 
 msgid "No data received."
-msgstr ""
+msgstr "هیچ داده ای دریافت نشد."
 
 msgid "Account is empty."
-msgstr ""
+msgstr "حساب خالی است"
 
 msgid ""
 "Your password is wrong or you have insufficient permission to change password"
 msgstr ""
 
 msgid "Password is not changed."
-msgstr ""
+msgstr "رمز عبور تغییر نکرده است."
 
 msgid ""
 "Error changing password. Please verify your password or contact the system "
@@ -6804,25 +6824,25 @@ msgid ""
 msgstr ""
 
 msgid "Password has been changed successfully."
-msgstr ""
+msgstr "رمز عبور با موفقیت تغییر کرده است."
 
 msgid "No certificate available"
-msgstr ""
+msgstr "گواهی در دسترس نیست"
 
 msgid "Private certificate has expired, unable to sign email"
-msgstr ""
+msgstr "گواهی خصوصی منقضی شده است، امکان امضای ایمیل وجود ندارد"
 
 msgid "Private certificate is not valid yet, unable to sign email"
-msgstr ""
+msgstr "گواهی خصوصی هنوز معتبر نیست، نمی توان ایمیل را امضا کرد"
 
 msgid "Private certificate does not match email address"
-msgstr ""
+msgstr "گواهی خصوصی با آدرس ایمیل مطابقت ندارد"
 
 msgid "Missing public certificates for the following recipients: "
-msgstr ""
+msgstr "مفقود شدن گواهینامه های عمومی برای گیرندگان زیر:"
 
 msgid ". Please contact your system administrator for details"
-msgstr ""
+msgstr ". لطفاً برای جزئیات بیشتر با مدیر سیستم خود تماس بگیرید"
 
 msgid ""
 "Your public certificate is not installed. Without this certificate, you will "
@@ -6830,44 +6850,44 @@ msgid ""
 msgstr ""
 
 msgid "Certificate is already stored on the server"
-msgstr ""
+msgstr "گواهی قبلاً در سرور ذخیره شده است"
 
 msgid "Unable to decrypt certificate"
-msgstr ""
+msgstr "رمزگشایی گواهی ممکن نیست"
 
 msgid "Private key can't be used to sign email"
-msgstr ""
+msgstr "برای امضای ایمیل نمی توان از کلید خصوصی استفاده کرد"
 
 msgid "Certificate email address doesn't match grommunio Web account "
-msgstr ""
+msgstr "آدرس ایمیل گواهی با حساب وب grommunio مطابقت ندارد"
 
 msgid "Certificate was expired on "
-msgstr ""
+msgstr "گواهی منقضی شده بود"
 
 msgid "Certificate was imported."
-msgstr ""
+msgstr "گواهی وارد شد"
 
 msgid "Certificate is not yet valid "
-msgstr ""
+msgstr "گواهی هنوز معتبر نیست"
 
 msgid "Certificate has not been imported"
-msgstr ""
+msgstr "گواهی وارد نشده است"
 
 msgid "Certificate is revoked, but was imported."
-msgstr ""
+msgstr "گواهی باطل شد، اما وارد شد."
 
 msgid "Unable to read public certificate"
-msgstr ""
+msgstr "قادر به خواندن گواهی عمومی نیست"
 
 msgid "Can't add data to bus, same action type is present in bus"
-msgstr ""
+msgstr "نمی توان داده ها را به گذرگاه اضافه کرد، همان نوع عملکرد در گذرگاه وجود دارد"
 
 msgid "Response data requested from bus but it doesn't have any data."
-msgstr ""
+msgstr "داده های پاسخ از گذرگاه درخواست شده است اما هیچ داده ای ندارد."
 
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
-msgstr ""
+msgstr "ماژول ناشناس \"%s\" با شناسه \"%s\""
 
 msgid ""
 "Server encountered some problem, so it was not able to handle the request."
@@ -6875,13 +6895,13 @@ msgstr ""
 
 #, php-format
 msgid "Unknown notifier '%s'"
-msgstr ""
+msgstr "اعلان کننده ناشناس \"%s\""
 
 msgid "An unexpected error has occurred"
-msgstr ""
+msgstr "یک خطای غیرمنتظره رخ داده است"
 
 msgid "To-Do List"
-msgstr ""
+msgstr "فهرست کارها"
 
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
@@ -6889,19 +6909,19 @@ msgstr ""
 #.
 #, php-format
 msgid "%1$s of %2$s"
-msgstr ""
+msgstr "%1$sاز%2$s"
 
 msgid "Error retrieving existing settings"
-msgstr ""
+msgstr "خطا در بازیابی تنظیمات موجود"
 
 msgid "Error retrieving existing persistent settings"
-msgstr ""
+msgstr "خطا در بازیابی تنظیمات دائمی موجود"
 
 msgid "Logon failed. Please verify your credentials and try again."
-msgstr ""
+msgstr "ورود ناموفق بود. لطفاً اعتبار خود را تأیید کنید و دوباره امتحان کنید."
 
 msgid "Cannot connect to Gromox."
-msgstr ""
+msgstr "نمی توان به Gromox متصل شد."
 
 msgid ""
 "Login did not work due to a duplicate session. The issue was automatically "
@@ -6909,66 +6929,66 @@ msgid ""
 msgstr ""
 
 msgid "Unknown MAPI Error"
-msgstr ""
+msgstr "خطای ناشناخته MAPI"
 
 msgid "Destination folder not found."
-msgstr ""
+msgstr "پوشه مقصد یافت نشد."
 
 msgid "Eml is corrupted"
-msgstr ""
+msgstr "امل فاسد است"
 
 msgid "The eml Attachment is not imported successfully"
-msgstr ""
+msgstr "پیوست eml با موفقیت وارد نشد"
 
 msgid "The vcf attachment is not imported successfully"
-msgstr ""
+msgstr "پیوست vcf با موفقیت وارد نشد"
 
 #, php-format
 msgid "Unable to import '%s' to '%s'. "
-msgstr ""
+msgstr "وارد کردن \"%s\" به \"%s\" ممکن نیست."
 
 msgid "There is no appointment found in this file."
-msgstr ""
+msgstr "هیچ قرار ملاقاتی در این فایل یافت نشد."
 
 msgid "The file is corrupt."
-msgstr ""
+msgstr "فایل خراب است"
 
 msgid "The file is invalid."
-msgstr ""
+msgstr "فایل نامعتبر است"
 
 #, php-format
 msgid "Unable to import '%s'. "
-msgstr ""
+msgstr "وارد کردن \"%s\" ممکن نیست."
 
 msgid "Attachment is not imported successfully"
-msgstr ""
+msgstr "پیوست با موفقیت وارد نشد"
 
 msgid "Embedded attachment not found."
-msgstr ""
+msgstr "پیوست تعبیه شده یافت نشد."
 
 msgid "ZIP is not created successfully"
-msgstr ""
+msgstr "ZIP با موفقیت ایجاد نشد"
 
 msgid "Attachments can not be downloaded"
-msgstr ""
+msgstr "پیوست ها را نمی توان دانلود کرد"
 
 msgid "Could not find attachment."
-msgstr ""
+msgstr "پیوست پیدا نشد."
 
 msgid "Operation failed"
-msgstr ""
+msgstr "عملیات شکست خورد"
 
 msgid "Sticky Note"
-msgstr ""
+msgstr "یادداشت چسبنده"
 
 msgid "Task Request"
-msgstr ""
+msgstr "درخواست وظیفه"
 
 msgid "Could not find message, either it has been moved or deleted."
-msgstr ""
+msgstr "پیام پیدا نشد، یا منتقل شده یا حذف شده است."
 
 msgid "Action is not performed correctly."
-msgstr ""
+msgstr "اقدام به درستی انجام نمی شود."
 
 msgid "Could not handle this type of object."
 msgstr "امکان پردازش این نوع شیء وجود ندارد."
@@ -6989,34 +7009,36 @@ msgid "Public Contact Folders"
 msgstr "پوشه‌های مخاطبان عمومی"
 
 msgid "Error in search, please try again"
-msgstr ""
+msgstr "خطا در جستجو، لطفا دوباره امتحان کنید"
 
 msgid "Unable to perform search query, no permissions to create search folder."
 msgstr ""
+"امکان انجام عبارت جستجو وجود ندارد، هیچ مجوزی برای ایجاد پوشه جستجو وجود "
+"ندارد."
 
 msgid "Unable to perform search query, search folder not found."
-msgstr ""
+msgstr "امکان انجام عبارت جستجو وجود ندارد، پوشه جستجو پیدا نشد."
 
 msgid "Unable to perform search query, store might not support searching."
-msgstr ""
+msgstr "امکان انجام عبارت جستجو وجود ندارد، ممکن است فروشگاه از جستجو پشتیبانی نکند."
 
 msgid "Error in creating search folder."
-msgstr ""
+msgstr "خطا در ایجاد پوشه جستجو."
 
 msgid "Could not open occurrence."
-msgstr ""
+msgstr "رخداد باز نشد."
 
 msgid "Could not open occurrence, specific occurrence is probably deleted."
-msgstr ""
+msgstr "رخداد باز نشد، رخداد خاص احتمالاً حذف شده است."
 
 msgid "a meeting request"
-msgstr ""
+msgstr "یک درخواست ملاقات"
 
 msgid "an appointment"
-msgstr ""
+msgstr "یک قرار ملاقات"
 
 msgid "You have insufficient privileges to move "
-msgstr ""
+msgstr "شما امتیازات کافی برای جابجایی ندارید"
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "
@@ -7024,7 +7046,7 @@ msgid ""
 msgstr ""
 
 msgid "Two occurrences cannot occur on the same day"
-msgstr ""
+msgstr "دو اتفاق نمی تواند در یک روز رخ دهد"
 
 #, php-format
 msgid ""
@@ -7053,124 +7075,124 @@ msgid ""
 msgstr ""
 
 msgid "Meeting was not scheduled."
-msgstr ""
+msgstr "جلسه قرار نبود"
 
 msgid "Meeting could not be sent."
-msgstr ""
+msgstr "جلسه ارسال نشد."
 
 msgid "Meeting could not be saved."
-msgstr ""
+msgstr "جلسه ذخیره نشد."
 
 msgid "Private Appointment"
-msgstr ""
+msgstr "قرار خصوصی"
 
 #, php-format
 msgid "%s's Birthday"
-msgstr ""
+msgstr "تولد%s"
 
 #, php-format
 msgid "%s's Anniversary"
-msgstr ""
+msgstr "سالگرد%s"
 
 msgid "You don't have the permission to complete this action"
-msgstr ""
+msgstr "شما اجازه تکمیل این اقدام را ندارید"
 
 msgid "Quota error"
-msgstr ""
+msgstr "خطای سهمیه"
 
 msgid "Send quota limit reached"
-msgstr ""
+msgstr "سهمیه ارسال به حد مجاز رسیده است"
 
 msgid "Email sending failed. Check the log files for more information."
-msgstr ""
+msgstr "ارسال ایمیل انجام نشد. برای اطلاعات بیشتر فایل های گزارش را بررسی کنید."
 
 msgid "Unknown user/group"
-msgstr ""
+msgstr "کاربر/گروه ناشناس"
 
 msgid "Could not save delegate information."
-msgstr ""
+msgstr "اطلاعات نماینده ذخیره نشد."
 
 msgid "Could not delete delegate."
-msgstr ""
+msgstr "نماینده حذف نشد."
 
 msgid "Can not get list of delegates."
-msgstr ""
+msgstr "نمی توان لیست نمایندگان را دریافت کرد."
 
 msgid "Could not open the store."
 msgstr "فروشگاه باز نشد"
 
 msgid "Could not load the hierarchy."
-msgstr ""
+msgstr "سلسله مراتب بارگیری نشد."
 
 msgid "Could not open the shared store."
 msgstr "فروشگاه مشترک باز نشد."
 
 msgid "Could not load folder properties."
-msgstr ""
+msgstr "ویژگی های پوشه بارگیری نشد."
 
 msgid "Could not remove folder from favorites."
-msgstr ""
+msgstr "پوشه از موارد دلخواه حذف نشد."
 
 msgid "You have insufficient privileges to delete folder."
-msgstr ""
+msgstr "شما برای حذف پوشه امتیاز کافی ندارید."
 
 msgid "Could not delete folder."
-msgstr ""
+msgstr "پوشه حذف نشد"
 
 msgid "You have insufficient privileges to copy folder."
-msgstr ""
+msgstr "برای کپی کردن پوشه، امتیاز کافی ندارید."
 
 msgid "Could not copy folder."
-msgstr ""
+msgstr "پوشه کپی نشد."
 
 msgid "You have insufficient privileges to move this folder."
-msgstr ""
+msgstr "شما برای انتقال این پوشه امتیاز کافی ندارید."
 
 msgid "Could not move folder."
-msgstr ""
+msgstr "پوشه منتقل نشد."
 
 msgid "You have insufficient privileges to delete items."
-msgstr ""
+msgstr "شما امتیاز کافی برای حذف موارد ندارید."
 
 msgid "Could not empty folder."
-msgstr ""
+msgstr "پوشه خالی نشد."
 
 msgid "Could not perform action correctly."
-msgstr ""
+msgstr "نتوانست عملکرد را به درستی انجام دهد."
 
 msgid ""
 "A favorite folder with this name already exists, please use another name."
 msgstr ""
 
 msgid "Could not add folder to favorites."
-msgstr ""
+msgstr "پوشه به موارد دلخواه اضافه نشد."
 
 msgid "You have insufficient privileges to set permissions for this folder."
-msgstr ""
+msgstr "برای تنظیم مجوزها برای این پوشه، امتیاز کافی ندارید."
 
 msgid "Could not set folder permissions."
-msgstr ""
+msgstr "مجوزهای پوشه تنظیم نشد."
 
 msgid "You have insufficient privileges to rename this folder."
-msgstr ""
+msgstr "شما امتیاز کافی برای تغییر نام این پوشه را ندارید."
 
 msgid "A folder with this name already exists. Use another name."
-msgstr ""
+msgstr "پوشه ای با این نام از قبل وجود دارد. از نام دیگری استفاده کنید."
 
 msgid "Could not rename folder."
-msgstr ""
+msgstr "تغییر نام پوشه ممکن نیست."
 
 msgid "You have insufficient privileges to create this folder."
-msgstr ""
+msgstr "شما برای ایجاد این پوشه امتیاز کافی ندارید."
 
 msgid "Could not create folder."
-msgstr ""
+msgstr "پوشه ایجاد نشد."
 
 msgid "Could not close shared folder."
-msgstr ""
+msgstr "پوشه مشترک بسته نشد."
 
 msgid "User could not be resolved."
-msgstr ""
+msgstr "کاربر قابل حل نیست."
 
 #, php-format
 msgid ""
@@ -7180,22 +7202,22 @@ msgid ""
 msgstr ""
 
 msgid "default"
-msgstr ""
+msgstr "پیش فرض"
 
 msgid "anonymous"
-msgstr ""
+msgstr "ناشناس"
 
 msgid "unknown"
-msgstr ""
+msgstr "ناشناخته"
 
 msgid "Could not move folder"
-msgstr ""
+msgstr "پوشه منتقل نشد"
 
 msgid "Could not copy folder"
-msgstr ""
+msgstr "پوشه کپی نشد"
 
 msgid "You have insufficient privileges to open this message."
-msgstr ""
+msgstr "شما امتیاز کافی برای باز کردن این پیام را ندارید."
 
 msgid ""
 "Could not find message, either it has been moved or deleted or you don't "
@@ -7203,28 +7225,28 @@ msgid ""
 msgstr ""
 
 msgid "Could not open message."
-msgstr ""
+msgstr "پیام باز نشد"
 
 msgid "You have insufficient privileges to decline this Meeting Request"
-msgstr ""
+msgstr "برای رد کردن این درخواست جلسه، امتیاز کافی ندارید"
 
 msgid "You have insufficient privileges to accept this Meeting Request"
-msgstr ""
+msgstr "برای پذیرش این درخواست جلسه، امتیاز کافی ندارید"
 
 msgid "Could not copy message"
-msgstr ""
+msgstr "پیام کپی نشد"
 
 msgid "Could not move message"
-msgstr ""
+msgstr "پیام منتقل نشد"
 
 msgid "You have insufficient privileges to save items in this folder"
-msgstr ""
+msgstr "شما امتیاز کافی برای ذخیره موارد در این پوشه ندارید"
 
 msgid "Could not save message"
-msgstr ""
+msgstr "پیام ذخیره نشد"
 
 msgid "You have insufficient privileges to remove item from the calendar."
-msgstr ""
+msgstr "شما امتیاز کافی برای حذف مورد از تقویم ندارید."
 
 msgid ""
 "Message is no longer in the outgoing queue, typically because it has already "
@@ -7232,16 +7254,16 @@ msgid ""
 msgstr ""
 
 msgid "Message cannot be aborted"
-msgstr ""
+msgstr "پیام قابل لغو نیست"
 
 msgid "You have insufficient privileges to delete items in this folder"
-msgstr ""
+msgstr "شما امتیاز کافی برای حذف موارد در این پوشه ندارید"
 
 msgid "You have insufficient privileges to attach item as an attachment."
-msgstr ""
+msgstr "برای پیوست کردن مورد به عنوان پیوست، امتیاز کافی ندارید."
 
 msgid "Could not attach item as an attachment."
-msgstr ""
+msgstr "مورد به عنوان پیوست پیوست نشد."
 
 msgid ""
 "You have insufficient privileges to reclaim the ownership for the Task "
@@ -7249,22 +7271,22 @@ msgid ""
 msgstr ""
 
 msgid "Could not reclaim the ownership for the Task Request."
-msgstr ""
+msgstr "نمی توان مالکیت درخواست وظیفه را بازپس گرفت."
 
 msgid "You have insufficient privileges to accept this Task Request."
-msgstr ""
+msgstr "برای پذیرش این درخواست وظیفه، امتیاز کافی ندارید."
 
 msgid "Could not accept Task Request."
-msgstr ""
+msgstr "درخواست وظیفه پذیرفته نشد."
 
 msgid "You have insufficient privileges to decline this Task Request."
-msgstr ""
+msgstr "برای رد کردن این درخواست وظیفه، امتیاز کافی ندارید."
 
 msgid "Could not decline Task Request."
-msgstr ""
+msgstr "درخواست وظیفه رد نشد."
 
 msgid "Conflicts with another appointment."
-msgstr ""
+msgstr "با قرار دیگری در تعارض است."
 
 #, php-format
 msgid ""
@@ -7275,74 +7297,74 @@ msgid_plural ""
 msgstr[0] ""
 
 msgid "Your message did not reach some or all of the intended recipients"
-msgstr ""
+msgstr "پیام شما به برخی یا همه گیرندگان مورد نظر نرسید"
 
 msgid "The following recipient(s) could not be reached"
-msgstr ""
+msgstr "گیرنده(های) زیر قابل دسترسی نیست"
 
 msgid "You have insufficient privileges to see the contents of this folder."
-msgstr ""
+msgstr "شما برای دیدن محتویات این پوشه امتیاز کافی ندارید."
 
 msgid "Could not load the contents of this folder."
-msgstr ""
+msgstr "محتویات این پوشه بارگیری نشد."
 
 msgid ""
 "You have insufficient privileges to perform search operation in this folder."
 msgstr ""
 
 msgid "Could not update search results."
-msgstr ""
+msgstr "نتایج جستجو به‌روزرسانی نشد."
 
 msgid "Could not stop search operation."
-msgstr ""
+msgstr "عملیات جستجو متوقف نشد."
 
 msgid "You have insufficient privileges to save this message."
-msgstr ""
+msgstr "شما امتیاز کافی برای ذخیره این پیام را ندارید."
 
 msgid "Could not save message."
-msgstr ""
+msgstr "پیام ذخیره نشد."
 
 msgid "You have insufficient privileges to delete this message."
-msgstr ""
+msgstr "شما امتیاز کافی برای حذف این پیام را ندارید."
 
 msgid "Could not delete message."
-msgstr ""
+msgstr "پیام حذف نشد"
 
 msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr ""
+msgstr "برای لغو این درخواست جلسه، امتیاز کافی ندارید."
 
 msgid "Could not cancel Meeting Request."
-msgstr ""
+msgstr "درخواست جلسه لغو نشد."
 
 msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr ""
+msgstr "برای رد کردن این درخواست جلسه، امتیاز کافی ندارید."
 
 msgid "Could not decline Meeting Request."
-msgstr ""
+msgstr "درخواست جلسه رد نشد."
 
 msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr ""
+msgstr "برای پذیرش این درخواست جلسه، امتیاز کافی ندارید."
 
 msgid "Could not accept Meeting Request."
-msgstr ""
+msgstr "درخواست جلسه پذیرفته نشد."
 
 msgid "You have insufficient privileges to cancel Meeting Request invitation."
-msgstr ""
+msgstr "برای لغو دعوت نامه درخواست جلسه، امتیازات کافی ندارید."
 
 msgid "Could not cancel Meeting Request invitations."
-msgstr ""
+msgstr "دعوت‌نامه‌های درخواست جلسه لغو نشد."
 
 msgid "You can not continue search operation on this folder."
-msgstr ""
+msgstr "شما نمی توانید عملیات جستجو را در این پوشه ادامه دهید."
 
 msgid "Error in search, please try again."
-msgstr ""
+msgstr "خطا در جستجو، لطفا دوباره امتحان کنید."
 
 msgid "Error in distribution list expansion."
-msgstr ""
+msgstr "خطا در گسترش لیست توزیع."
 
 msgid "The message store has exceeded its hard quota limit."
-msgstr ""
+msgstr "فروشگاه پیام از حد مجاز خود فراتر رفته است."
 
 msgid ""
 "To reduce the amount of data in this message store, select some items that "
@@ -7350,50 +7372,50 @@ msgid ""
 msgstr ""
 
 msgid "The message store has exceeded its soft quota limit."
-msgstr ""
+msgstr "فروشگاه پیام از حد مجاز خود فراتر رفته است."
 
 msgid "Could not process request data properly."
-msgstr ""
+msgstr "داده های درخواستی به درستی پردازش نشد."
 
 #, php-format
 msgid "Unknown action type specified - %s"
-msgstr ""
+msgstr "نوع اقدام ناشناخته مشخص شده -%s"
 
 msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr ""
+msgstr "نمی توان یادآوری را به تعویق انداخت. ممکن است دوباره به شما یادآوری شود."
 
 msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr ""
+msgstr "نمی توان یادآوری را رد کرد. ممکن است دوباره به شما یادآوری شود."
 
 msgid "You have insufficient privileges to perform this action."
-msgstr ""
+msgstr "شما برای انجام این عمل امتیاز کافی ندارید."
 
 msgid "Could not resolve user."
-msgstr ""
+msgstr "کاربر حل نشد."
 
 msgid "Setting mail filters on the stores of other users is not allowed."
-msgstr ""
+msgstr "تنظیم فیلترهای ایمیل در فروشگاه های دیگر کاربران مجاز نیست."
 
 msgid "Untitled rule"
-msgstr ""
+msgstr "قانون بدون عنوان"
 
 msgid "Could not load rules."
-msgstr ""
+msgstr "قوانین بارگیری نشد."
 
 msgid "Could not save rules."
-msgstr ""
+msgstr "قوانین ذخیره نشد."
 
 msgid "Task Request:"
-msgstr ""
+msgstr "درخواست وظیفه:"
 
 msgid "Sign in"
-msgstr ""
+msgstr "وارد شوید"
 
 msgid "File is not imported successfully"
-msgstr ""
+msgstr "فایل با موفقیت وارد نشد"
 
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr ""
+msgstr "فایل آپلود شده از دستور upload_max_filesize در php.ini بیشتر است."
 
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
@@ -7401,16 +7423,16 @@ msgid ""
 msgstr ""
 
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "فایل آپلود شده فقط تا حدی آپلود شد."
 
 msgid "No file was uploaded. ."
-msgstr ""
+msgstr "هیچ فایلی آپلود نشد ."
 
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "یک پوشه موقت از دست رفته است."
 
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "نوشتن فایل روی دیسک انجام نشد."
 
 msgid ""
 "A PHP extension stopped the file upload. PHP does not provide a way to "
@@ -7419,7 +7441,7 @@ msgid ""
 msgstr ""
 
 msgid "There is no contact found in this file."
-msgstr ""
+msgstr "هیچ مخاطبی در این فایل یافت نشد."
 
 msgid ""
 "grommunio Web does not support importing multiple VCF with this version."
@@ -7430,32 +7452,32 @@ msgid ""
 msgstr ""
 
 msgid "GB"
-msgstr ""
+msgstr "گیگابایت"
 
 msgid "MB"
-msgstr ""
+msgstr "مگابایت"
 
 msgid "KB"
-msgstr ""
+msgstr "کیلوبایت"
 
 msgid "B"
-msgstr ""
+msgstr "ب"
 
 msgid "The maximum stack depth has been exceeded"
-msgstr ""
+msgstr "از حداکثر عمق پشته فراتر رفته است"
 
 msgid "Control character error, possibly incorrectly encoded"
-msgstr ""
+msgstr "خطای کاراکتر کنترل، احتمالاً به اشتباه کدگذاری شده است"
 
 msgid "Invalid or malformed JSON"
-msgstr ""
+msgstr "JSON نامعتبر یا نادرست است"
 
 msgid "Syntax error"
-msgstr ""
+msgstr "خطای نحوی"
 
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
-msgstr ""
+msgstr "نویسه‌های UTF-8 نادرست، احتمالاً به اشتباه کدگذاری شده‌اند"
 
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
-msgstr ""
+msgstr "مشکلی که هنگام رمزگذاری/رمزگشایی داده‌های JSON وجود دارد: -%s"

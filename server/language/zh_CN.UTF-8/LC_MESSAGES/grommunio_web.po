@@ -795,27 +795,27 @@ msgstr "每个{0}有效的{1}均发生。"
 msgid "Occurs every {0} {1} effective {2}."
 msgstr "每个{0}{1}有效的{2}均发生。"
 
-#, fuzzy
 msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural ""
 "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] "从{3}到{4}，每{0}有效{1}发生一次，为{2}发生。"
+msgstr[0] "从{3} 到{4} ，每{0} 自{1} 起出现{2} 。"
+msgstr[1] "从{3} 到{4} ，每{0} 自{1} 起出现{2} 。"
 
-#, fuzzy
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
 msgid_plural ""
 "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
-msgstr[0] "每{0}发生一次从{4}到{5}，{1}有效的{2}为{3}的发生。"
+msgstr[0] "从{4} 到{5} ，每{0} {1} 有效{2} ，{3} 出现。"
+msgstr[1] "每{0} {1} 有效{2} 为{3} 出现{4} 至{5} 。"
 
-#, fuzzy
 msgid "Occurs every {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
-msgstr[0] "每{0}发生一次，有效{1}为{2}发生。"
+msgstr[0] "每{0} 发生一次，有效期为{1} ，{2} 发生一次。"
+msgstr[1] "每{0} 出现一次，有效期为{1} ，{2} 出现一次。"
 
-#, fuzzy
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
 msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
-msgstr[0] "每{0}次发生{1}有效的{2}为{3}发生。"
+msgstr[0] "每{0} {1} {2} 有效，{3} 出现。"
+msgstr[1] "每{0} {1} 有效{2} ，{3} 出现。"
 
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
 msgstr "从{3}至{4}，每个{0}有效的{1}均发生，直至{2}。"
@@ -863,9 +863,8 @@ msgstr "排序方式：开始日期"
 msgid "End Date"
 msgstr "结束日期"
 
-#, fuzzy
 msgid "Sort by: End Date"
-msgstr "按以下方式排序。结束日期"
+msgstr "排序方式结束日期"
 
 msgid "Organizer"
 msgstr "组织者"
@@ -1292,7 +1291,6 @@ msgstr "复制所选项目"
 msgid "Paste selected item"
 msgstr "粘贴所选项目"
 
-#, fuzzy
 msgid "An overview of"
 msgstr "概述"
 
@@ -1306,9 +1304,8 @@ msgstr "结束"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
-#, fuzzy
 msgid "Printed by"
-msgstr "印刷厂"
+msgstr "印刷者"
 
 msgid "at"
 msgstr "在"
@@ -1319,13 +1316,11 @@ msgstr "的"
 msgid "Location: "
 msgstr "地点： "
 
-#, fuzzy
 msgid "j M {0}"
 msgstr "j M{0}"
 
-#, fuzzy
 msgid "l jS M Y {0}"
-msgstr "l jS M Y {1｝"
+msgstr "l jS M Y{0}"
 
 msgid "All day: "
 msgstr "全天候。"
@@ -1518,21 +1513,17 @@ msgstr "排序方式：可选与会者"
 msgid "Sort by: Resources"
 msgstr "排序方式：资源"
 
-#, fuzzy
 msgid "Recurring Start Date"
-msgstr "重复出现的开始日期"
+msgstr "循环开始日期"
 
-#, fuzzy
 msgid "Sort by: Recurring Start Date"
-msgstr "按以下方式排序。经常性的开始日期"
+msgstr "排序方式经常性开始日期"
 
-#, fuzzy
 msgid "Recurring End Date"
-msgstr "经常性的结束日期"
+msgstr "循环结束日期"
 
-#, fuzzy
 msgid "Sort by: Recurring End Date"
-msgstr "按以下方式排序。经常性的结束日期"
+msgstr "排序方式循环结束日期"
 
 msgid "Recurring Pattern"
 msgstr "重复模式"
@@ -1555,9 +1546,8 @@ msgstr "加载预约"
 msgid "Attendees"
 msgstr "参与者"
 
-#, fuzzy
 msgid "Optional attendees"
-msgstr "可选择的出席者"
+msgstr "可选与会者"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F {0}"
@@ -1589,9 +1579,8 @@ msgid ""
 "continue?"
 msgstr "复制这个约会将取消它的隐私。你确定你要继续吗？"
 
-#, fuzzy
 msgid "Private item"
-msgstr "私人物品"
+msgstr "私人项目"
 
 msgid "Copy"
 msgstr "复制"
@@ -1832,9 +1821,8 @@ msgstr "删除而不发送"
 msgid "Insufficient permissions"
 msgstr "权限不足"
 
-#, fuzzy
 msgid "You have insufficient privileges to delete items in this folder."
-msgstr "你没有足够的权限来删除这个文件夹中的项目。"
+msgstr "您没有足够的权限删除此文件夹中的项目。"
 
 msgid "Notify recipients"
 msgstr "通知收件人"
@@ -2355,21 +2343,17 @@ msgstr "删除所选项目，而不将其移至“已删除项目”文件夹中
 msgid "Add/Edit Cc recipient"
 msgstr "添加/编辑抄送对象联系人"
 
-#, fuzzy
 msgid "Disable for new mail"
-msgstr "禁用于新邮件"
+msgstr "禁用新邮件"
 
-#, fuzzy
 msgid "Enable for new mail"
-msgstr "为新邮件启用"
+msgstr "启用新邮件"
 
-#, fuzzy
 msgid "Disable for replies"
-msgstr "禁用回复"
+msgstr "禁止回复"
 
-#, fuzzy
 msgid "Enable for replies"
-msgstr "启用回复"
+msgstr "允许回复"
 
 msgid "No Cc recipient configured"
 msgstr "无法配置作为抄送对象的收件人"
@@ -2398,7 +2382,6 @@ msgstr ""
 msgid "Help"
 msgstr "帮助"
 
-#, fuzzy
 msgid "Web Manual"
 msgstr "网络手册"
 
@@ -2414,9 +2397,8 @@ msgstr "排序方式：context.mail.griddefaultcolumn"
 msgid "ZDeveloper"
 msgstr "Z开发者"
 
-#, fuzzy
 msgid "grommunio Web print"
-msgstr "沟壑纵横的网络打印"
+msgstr "grommunio 网络印刷"
 
 msgid "Display name"
 msgstr "显示名称"
@@ -2444,7 +2426,6 @@ msgstr "发送电子邮件"
 msgid "Delete recipient from suggestion list"
 msgstr "从建议列表中删除收件人"
 
-#, fuzzy
 msgid "Copy all email addresses"
 msgstr "复制所有电子邮件地址"
 
@@ -2891,13 +2872,11 @@ msgstr "转发邮件"
 msgid "Please select a from address record."
 msgstr "请从地址记录中选择一个地址。"
 
-#, fuzzy
 msgid "Add/Edit From recipient"
-msgstr "添加/编辑收件人"
+msgstr "添加/编辑发件人"
 
-#, fuzzy
 msgid "Manage the recipients used in the 'From' field"
-msgstr "管理 \"发件人 \"栏中使用的收件人"
+msgstr "管理 \"发件人 \"字段中使用的收件人"
 
 msgid "View"
 msgstr "查看"
@@ -2911,30 +2890,24 @@ msgstr "代表"
 msgid "Delegate settings"
 msgstr "代表设置"
 
-#, fuzzy
 msgid "Desktop Notifications Settings"
 msgstr "桌面通知设置"
 
-#, fuzzy
 msgid "We need permissions to enable desktop notifications."
-msgstr "我们需要权限来启用桌面通知。"
+msgstr "我们需要启用桌面通知的权限。"
 
 msgid "Request Permissions"
 msgstr "请求的权限"
 
-#, fuzzy
 msgid "Enable desktop notifications for new mail"
-msgstr "启用新邮件的桌面通知"
+msgstr "启用新邮件桌面通知"
 
-#, fuzzy
 msgid "Enable desktop notifications for reminders"
-msgstr "启用提醒的桌面通知"
+msgstr "启用桌面提醒通知"
 
-#, fuzzy
 msgid "{A} Auto-hide desktop notification after second(s) {B}"
-msgstr "{A} 在一秒钟后自动隐藏桌面通知 {B} 自动隐藏桌面通知。"
+msgstr "{A}秒后自动隐藏桌面通知 {B}"
 
-#, fuzzy
 msgid "Disable sound"
 msgstr "禁用声音"
 
@@ -3512,9 +3485,8 @@ msgid ""
 "There are no items to show in this list. Update the filter for more results."
 msgstr "此列表中没有要显示的项目。更新过滤器以获得更多结果。"
 
-#, fuzzy
 msgid "[Group]"
-msgstr "[小组]"
+msgstr "[组]"
 
 msgid "Work:"
 msgstr "工作。"
@@ -3927,9 +3899,8 @@ msgstr "此项目已更改。您是否确定删除此项目？"
 msgid "Unsaved changes"
 msgstr "未保存的更改"
 
-#, fuzzy
 msgid "Welcome to grommunio Web"
-msgstr "欢迎来到grommunio网站"
+msgstr "欢迎访问 grommunio Web"
 
 msgid "This is the first time you are using grommunio Web. "
 msgstr "这是您首次使用grommunio Web。 "
@@ -3970,9 +3941,8 @@ msgstr "收缩小部件"
 msgid "Expand widget"
 msgstr "展开小部件"
 
-#, fuzzy
 msgid "About this widget"
-msgstr "关于这个小部件"
+msgstr "关于此小部件"
 
 msgid "Add new widget"
 msgstr "添加新的小部件"
@@ -4016,21 +3986,18 @@ msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "文件夹{1}中有{0}条未读消息"
 
-#, fuzzy
 msgid "Publishing Editor"
 msgstr "出版编辑"
 
 msgid "Editor"
 msgstr "编辑器"
 
-#, fuzzy
 msgid "Publishing Author"
 msgstr "出版作者"
 
 msgid "Author"
 msgstr "作者"
 
-#, fuzzy
 msgid "Nonediting Author"
 msgstr "非编辑作者"
 
@@ -4040,13 +4007,11 @@ msgstr "评论家"
 msgid "Contributor"
 msgstr "贡献者"
 
-#, fuzzy
 msgid "Free/Busy time, subject, location"
-msgstr "自由/繁忙的时间、主题、地点"
+msgstr "空闲/繁忙时间、主题、地点"
 
-#, fuzzy
 msgid "Free/Busy time"
-msgstr "自由/繁忙的时间"
+msgstr "空闲/繁忙时间"
 
 msgid "Unable to import:"
 msgstr "无法导入："
@@ -4126,7 +4091,6 @@ msgstr "创建子文件夹"
 msgid "Edit own"
 msgstr "编辑本人"
 
-#, fuzzy
 msgid "Edit all"
 msgstr "编辑所有"
 
@@ -4139,20 +4103,17 @@ msgstr "自有"
 msgid "All"
 msgstr "全部"
 
-#, fuzzy
 msgid "Folder owner"
 msgstr "文件夹所有者"
 
-#, fuzzy
 msgid "Folder contact"
-msgstr "文件夹联系"
+msgstr "文件夹联系人"
 
 msgid "Folder visible"
 msgstr "文件夹可见"
 
-#, fuzzy
 msgid "Apply (copy) changed permissions recursively"
-msgstr "递归地应用（复制）已更改的权限"
+msgstr "递归应用（复制）已更改的权限"
 
 msgid "User already exists"
 msgstr "用户已存在"
@@ -4501,7 +4462,6 @@ msgstr "转发"
 msgid "Re"
 msgstr "回复"
 
-#, fuzzy
 msgid "on behalf of"
 msgstr "代表"
 
@@ -4588,7 +4548,7 @@ msgid "{A}Automatically mark mail as read after {B} second(s)"
 msgstr "在{B}秒后{A}自动将邮件标记为已读"
 
 msgid "View mail in this format"
-msgstr ""
+msgstr "查看此格式的邮件"
 
 msgid "Right"
 msgstr "右侧"
@@ -4630,33 +4590,28 @@ msgid "I will be back on"
 msgstr "我将在...时回来"
 
 msgid "Automatically reply with the following message:"
-msgstr ""
+msgstr "自动回复如下信息"
 
 msgid "(The frequency of replies is dependent on server configuration.)"
-msgstr ""
+msgstr "(回复频率取决于服务器配置）。"
 
-#, fuzzy
 msgid "Inside My Organization"
 msgstr "我的组织内部"
 
 msgid "User is currently out of office."
 msgstr "用户当前不在公司。"
 
-#, fuzzy
 msgid "Outside My Organization"
-msgstr "在我的组织之外"
+msgstr "我的组织之外"
 
-#, fuzzy
 msgid "Auto-reply to people outside my organization"
-msgstr "自动回复给我的组织以外的人"
+msgstr "自动回复组织外人员"
 
-#, fuzzy
 msgid "My contacts only"
-msgstr "只有我的联系人"
+msgstr "仅限我的联系人"
 
-#, fuzzy
 msgid "Anyone outside my organization"
-msgstr "我的组织以外的任何人"
+msgstr "本组织以外的任何人"
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
@@ -4842,9 +4797,8 @@ msgstr "设置"
 msgid "Basic"
 msgstr "基本"
 
-#, fuzzy
 msgid "Account information - {0}"
-msgstr "账户信息--{0}。"
+msgstr "账户信息{0}"
 
 msgid "Profile Picture"
 msgstr "资料图片"
@@ -4873,9 +4827,8 @@ msgstr "开发者工具"
 msgid "Show insertion points in grommunio Web"
 msgstr "在grommunio Web中显示插入点"
 
-#, fuzzy
 msgid "Show \"item data\" button in context menu (mail only)"
-msgstr "在上下文菜单中显示 \"项目数据 \"按钮（仅限邮件）。"
+msgstr "在上下文菜单中显示 \"项目数据 \"按钮（仅限邮件）"
 
 msgid "Edit setting"
 msgstr "编辑设置"
@@ -4928,11 +4881,9 @@ msgstr "在右上角显示“帮助”按钮"
 msgid "Show unread mail counter in application title"
 msgstr "在应用程序标题中显示未读邮件计数器"
 
-#, fuzzy
 msgid "Hide widget panel"
 msgstr "隐藏小部件面板"
 
-#, fuzzy
 msgid "Show search bar above folder list"
 msgstr "在文件夹列表上方显示搜索栏"
 
@@ -4945,19 +4896,15 @@ msgstr "实际尺寸"
 msgid "Page width"
 msgstr "页面宽度"
 
-#, fuzzy
 msgid "Attachment preview (PDF and Open formats)"
-msgstr "附件预览（PDF和Open格式）"
+msgstr "附件预览（PDF 和 Open 格式）"
 
-#, fuzzy
 msgid "Document default zoom"
-msgstr "文档默认缩放"
+msgstr "文件默认缩放"
 
-#, fuzzy
 msgid "PDF zoom"
-msgstr "PDF变焦"
+msgstr "PDF 缩放"
 
-#, fuzzy
 msgid "File previewing"
 msgstr "文件预览"
 
@@ -5002,9 +4949,8 @@ msgstr "开启基本的键盘快捷键"
 msgid "All keyboard shortcuts on"
 msgstr "开启所有键盘快捷键"
 
-#, fuzzy
 msgid "This change requires a reload of grommunio Web"
-msgstr "这一变化需要重新加载grommunio网站"
+msgstr "此更改需要重新加载 grommunio Web"
 
 msgid "Plugins"
 msgstr "插件"
@@ -5033,9 +4979,8 @@ msgstr "您的存储器未设置配额。"
 msgid "{0} of mailbox space is used."
 msgstr "使用了邮箱空间的{0}。"
 
-#, fuzzy
 msgid "You have exceeded hard quota, you can not send or receive mails."
-msgstr "你已经超过了硬配额，你不能发送或接收邮件。"
+msgstr "您已超出硬配额，无法收发邮件。"
 
 msgid "At {0} you won't be able to send mails."
 msgstr "当{0}时，您将无法发送邮件。"
@@ -5046,9 +4991,8 @@ msgid ""
 "able to receive mails."
 msgstr "你不能发送邮件，因为你已经超过了软配额，在{0}你将无法接收邮件。"
 
-#, fuzzy
 msgid "At {0} you won't be able to send or receive mails."
-msgstr "在{0}，你将无法发送或接收邮件。"
+msgstr "在{0} ，您将无法收发邮件。"
 
 msgid "You can not send mails as you have exceeded soft quota."
 msgstr "您已超过软配额，因此您无法发送邮件。"
@@ -5160,9 +5104,8 @@ msgstr "立即发送回复"
 msgid "Date Complete"
 msgstr "完成日期"
 
-#, fuzzy
 msgid "Multiple companies name must be separated by"
-msgstr "多个公司名称之间必须用"
+msgstr "多个公司名称必须用"
 
 msgid "Update List"
 msgstr "更新列表"
@@ -5401,13 +5344,11 @@ msgid "Connection with server has been restored"
 msgstr "与服务器的连接已恢复"
 
 #. TRANSLATORS: Example: HTTP 404
-#, fuzzy
 msgid "HTTP {0}"
-msgstr "HTTP{0}"
+msgstr "超文本传输协定{0}"
 
-#, fuzzy
 msgid "Invalid data received from the server"
-msgstr "从服务器收到的无效数据"
+msgstr "从服务器接收到的数据无效"
 
 msgid "Missing store"
 msgstr "缺少存储器"
@@ -5480,11 +5421,9 @@ msgstr "外出状态当前已激活。您是否需将其关闭？"
 msgid "Archive"
 msgstr "存档"
 
-#, fuzzy
 msgid "Open Chat at start"
-msgstr "开始时开放聊天"
+msgstr "开始时打开聊天"
 
-#, fuzzy
 msgid "Desktop Notifications Plugin"
 msgstr "桌面通知插件"
 
@@ -5492,21 +5431,17 @@ msgid "Desktop Notifications"
 msgstr "桌面通知"
 
 msgid "Files: Default plugin"
-msgstr ""
+msgstr "文件：默认插件"
 
-#, fuzzy
 msgid "Loading users and groups"
 msgstr "加载用户和组"
 
-#, fuzzy
 msgid "Add users or groups to share files."
-msgstr "添加用户或组来共享文件。"
+msgstr "添加用户或组共享文件。"
 
-#, fuzzy
 msgid "Sort by: Type"
-msgstr "排序方式。类型"
+msgstr "排序方式类型"
 
-#, fuzzy
 msgid "Re-share"
 msgstr "再分享"
 
@@ -5516,9 +5451,8 @@ msgstr "更改"
 msgid "Share with"
 msgstr "分享到"
 
-#, fuzzy
 msgid "Share Details"
-msgstr "分享详情"
+msgstr "分享详细信息"
 
 msgid "Type to search"
 msgstr "搜索类型"
@@ -5526,155 +5460,131 @@ msgstr "搜索类型"
 msgid "No results"
 msgstr "没有结果"
 
-#, fuzzy
 msgid "Share with user/group"
 msgstr "与用户/组共享"
 
-#, fuzzy
 msgid "Share via link"
 msgstr "通过链接分享"
 
 msgid "Public link"
 msgstr "公共链接"
 
-#, fuzzy
 msgid "Password protect"
 msgstr "密码保护"
 
 msgid "Password"
 msgstr "密码"
 
-#, fuzzy
 msgid "Public upload"
 msgstr "公开上传"
 
 msgid "Expiration date"
 msgstr "到期日期"
 
-#, fuzzy
 msgid "More than 1 share link exists. Only showing the latest one"
-msgstr "存在1个以上的分享链接。只显示最新的一个"
+msgstr "存在一个以上的共享链接。只显示最新的一个"
 
 msgid "Loading details…"
 msgstr "正在加载详细信息…"
 
 msgid "Files: Seafile Backend"
-msgstr ""
+msgstr "文件Seafile 后端"
 
 msgid "Copy link to clipboard"
-msgstr ""
+msgstr "将链接复制到剪贴板"
 
 msgid "Link copied to clipboard"
-msgstr ""
+msgstr "链接复制到剪贴板"
 
 msgid "Clipboard"
-msgstr ""
+msgstr "剪贴板"
 
 msgid "Could not copy link automatically. Please copy it manually."
-msgstr ""
+msgstr "无法自动复制链接。请手动复制。"
 
 msgid "Loading details..."
-msgstr ""
+msgstr "加载详细信息..."
 
 msgid "Share"
 msgstr "分享"
 
 msgid "Loading..."
-msgstr ""
+msgstr "正在加载..."
 
-#, fuzzy
 msgid "Add attachment from {0}"
-msgstr "从{0}添加附件"
+msgstr "从{0}"
 
 msgid "Confirm deletion"
 msgstr "确认刪除"
 
-#, fuzzy
 msgid "Are you sure you want to delete {0}?"
-msgstr "你确定要删除{0}吗？"
+msgstr "您确定要删除{0} 吗？"
 
-#, fuzzy
 msgid "Are you sure you want to delete {0} and all of its contents?"
-msgstr "你确定要删除{0}和它的所有内容吗？"
+msgstr "您确定要删除{0} 及其所有内容吗？"
 
-#, fuzzy
 msgid "Are you sure you want to delete {0} files?"
-msgstr "你确定你要删除{0}文件吗？"
+msgstr "您确定要删除{0} 文件吗？"
 
-#, fuzzy
 msgid "Are you sure want to delete {0} folders and all of their contents?"
-msgstr "你确定要删除{0}文件夹和它们的所有内容吗？"
+msgstr "您确定要删除{0} 文件夹及其所有内容吗？"
 
 #, fuzzy
 msgid ""
 "Are you sure want to delete the selected items and all of their contents?"
 msgstr "你确定要删除所选项目和它们的所有内容吗？"
 
-#, fuzzy
 msgid "Confirm overwrite"
-msgstr "确认重写"
+msgstr "确认覆盖"
 
-#, fuzzy
 msgid "File already exists. Do you want to overwrite it?"
-msgstr "文件已经存在。你想覆盖它吗？"
+msgstr "文件已经存在。您想覆盖它吗？"
 
-#, fuzzy
 msgid "Please enter a new name"
-msgstr "请输入一个新的名字"
+msgstr "请输入新名称"
 
-#, fuzzy
 msgid "Rename record"
 msgstr "重命名记录"
 
-#, fuzzy
 msgid "A file name should not be empty."
-msgstr "文件名不应该是空的。"
+msgstr "文件名不能为空。"
 
-#, fuzzy
 msgid "Rename item"
-msgstr "重命名项目"
+msgstr "重新命名项目"
 
-#, fuzzy
 msgid "A file named \"{0}\" already exists. Please enter a different name."
-msgstr "一个名为\"{0}\"的文件已经存在。请输入一个不同的名称。"
+msgstr "名为 \"{0}\" 的文件已经存在。请输入其他名称。"
 
 msgid "Downloading"
 msgstr "下载中"
 
-#, fuzzy
 msgid "Download started... please wait!"
-msgstr "下载开始了......请等待!"
+msgstr "下载开始......请稍候！"
 
 msgid "Upload"
 msgstr "上传"
 
-#, fuzzy
 msgid "At least one file is too large! Maximum allowed filesize: {0}."
-msgstr "至少有一个文件太大!允许的最大文件大小：{0}。"
+msgstr "至少有一个文件过大！允许的最大文件大小：{0} 。"
 
-#, fuzzy
 msgid "Keep both"
-msgstr "保留两个"
+msgstr "同时保留"
 
 msgid "Overwrite"
 msgstr "覆盖"
 
-#, fuzzy
 msgid "l d/m/Y G:i"
 msgstr "l d/m/Y G:i"
 
 msgid "Never"
 msgstr "从不"
 
-#, fuzzy
 msgid "Add from Files"
-msgstr "从文件中添加"
+msgstr "从文件添加"
 
-#, fuzzy
 msgid "Add attachment from Files"
-msgstr "从文件中添加附件"
+msgstr "从文件添加附件"
 
-#, fuzzy
 msgid "Add to Files"
 msgstr "添加到文件"
 
@@ -5684,28 +5594,23 @@ msgstr "上传文件"
 msgid "Files"
 msgstr "文件"
 
-#, fuzzy
 msgid "Files Plugin"
 msgstr "文件插件"
 
 msgid "Default"
-msgstr ""
+msgstr "默认值"
 
-#, fuzzy
 msgid "Manage Accounts"
 msgstr "管理账户"
 
-#, fuzzy
 msgid "Reset Files settings"
 msgstr "重置文件设置"
 
-#, fuzzy
 msgid "Resets Files settings to their original defaults"
 msgstr "将文件设置重置为原始默认值"
 
-#, fuzzy
 msgid "Are you sure to remove all settings and accounts?"
-msgstr "你确定要删除所有的设置和账户吗？"
+msgstr "您确定删除了所有设置和账户吗？"
 
 #, fuzzy
 msgid ""
@@ -5719,7 +5624,6 @@ msgid ""
 "effect."
 msgstr "grommunio Web将自动重新启动，以便这些更改生效。"
 
-#, fuzzy
 msgid "grommunio Web is reloading, Please wait."
 msgstr "grommunio 网站正在重新加载，请稍候。"
 
@@ -5744,39 +5648,32 @@ msgstr "更新"
 msgid "ID"
 msgstr "ID"
 
-#, fuzzy
 msgid "Sort by: ID"
-msgstr "按以下方式排序。ID"
+msgstr "排序方式ID"
 
-#, fuzzy
 msgid "Sort by: Backend"
-msgstr "排序方式。后台"
+msgstr "排序方式后台"
 
 msgid "Features"
 msgstr "特征"
 
-#, fuzzy
 msgid "Shows all available features of the backend."
 msgstr "显示后台的所有可用功能。"
 
-#, fuzzy
 msgid "Show quota information"
 msgstr "显示配额信息"
 
 msgid "Show version information"
 msgstr "显示版本信息"
 
-#, fuzzy
 msgid "Share files"
-msgstr "分享文件"
+msgstr "共享文件"
 
-#, fuzzy
 msgid "Fast Down/Upload"
-msgstr "快速下降/上传"
+msgstr "快速下载/上传"
 
-#, fuzzy
 msgid "No account created!"
-msgstr "没有创建账户!"
+msgstr "未创建账户！"
 
 msgid "Add Account"
 msgstr "添加账户"
@@ -5784,15 +5681,12 @@ msgstr "添加账户"
 msgid "Remove Account"
 msgstr "删除帐户"
 
-#, fuzzy
 msgid "Loading accounts"
 msgstr "加载账户"
 
-#, fuzzy
 msgid "Do you really want to delete the account \"{0}\"?"
-msgstr "你真的想删除\"{0}\"账户吗？"
+msgstr "你真的想删除 \"{0}\"账户吗？"
 
-#, fuzzy
 msgid "Quota Information"
 msgstr "配额信息"
 
@@ -5808,42 +5702,35 @@ msgstr "版本信息"
 msgid "Filename"
 msgstr "文件名"
 
-#, fuzzy
 msgid "Sort by: Filename"
-msgstr "按以下方式排序。文件名"
+msgstr "排序方式文件名"
 
 msgid "Loading files"
 msgstr "载入文件"
 
-#, fuzzy
 msgid "The file {0} is too large!"
-msgstr "文件{0}太大!"
+msgstr "文件{0} 过大！"
 
 msgid "max"
 msgstr "最大"
 
-#, fuzzy
 msgid "You have to choose at least one file!"
-msgstr "你必须至少选择一个文件!"
+msgstr "您必须至少选择一个文件！"
 
 msgid "Create New "
 msgstr "新建 "
 
-#, fuzzy
 msgid "Incorrect filename"
 msgstr "文件名不正确"
 
-#, fuzzy
 msgid "Error reaching office backend"
-msgstr "到达办公室后台的错误"
+msgstr "到达办公室后台出错"
 
-#, fuzzy
 msgid "Folder already exists"
-msgstr "文件夹已经存在"
+msgstr "文件夹已存在"
 
-#, fuzzy
 msgid "Incorrect foldername"
-msgstr "不正确的折叠名"
+msgstr "文件夹名称不正确"
 
 msgid "File information"
 msgstr "文件信息"
@@ -5851,33 +5738,27 @@ msgstr "文件信息"
 msgid "Select a file"
 msgstr "选择一个文件"
 
-#, fuzzy
 msgid "Maximum upload size"
 msgstr "最大上传尺寸"
 
 msgid "Browse"
 msgstr "浏览"
 
-#, fuzzy
 msgid "Select upload folder"
 msgstr "选择上传文件夹"
 
-#, fuzzy
 msgid "File \"{0}\" is too large! Maximum allowed filesize: {1}."
-msgstr "文件\"{0}\"太大!允许的最大文件尺寸：{1}。"
+msgstr "文件 \"{0}\" 过大！允许的最大文件大小：{1} 。"
 
-#, fuzzy
 msgid "Add item to Files"
-msgstr "添加项目到文件"
+msgstr "将项目添加到文件"
 
-#, fuzzy
 msgid "You have to choose a folder!"
-msgstr "你必须选择一个文件夹!"
+msgstr "您必须选择一个文件夹！"
 
 msgid "Uploaded"
 msgstr "上传"
 
-#, fuzzy
 msgid "Attachment successfully stored in Files"
 msgstr "附件成功存储在文件中"
 
@@ -5887,23 +5768,20 @@ msgstr "文件上传失败"
 msgid "Attachment could not be stored in Files! Error: "
 msgstr "附件无法存储在文件中!错误。"
 
-#, fuzzy
 msgid "Share Files"
-msgstr "分享文件"
+msgstr "共享文件"
 
 msgid "Uploading files to "
 msgstr "将文件上传到"
 
-#, fuzzy
 msgid "Starting upload"
 msgstr "开始上传"
 
 msgid "Cancel upload"
 msgstr "取消上传"
 
-#, fuzzy
 msgid "- seconds left"
-msgstr "- 还剩几秒钟"
+msgstr "- 剩余秒数"
 
 msgid " seconds left"
 msgstr " 还剩几秒钟"
@@ -5914,17 +5792,14 @@ msgstr " 还剩几分钟"
 msgid "Uploading: "
 msgstr "上传。"
 
-#, fuzzy
 msgid "Upload status unavailable... please wait."
-msgstr "上传状态不可用...请等待。"
+msgstr "上传状态不可用......请稍候。"
 
-#, fuzzy
 msgid "Upload finished!"
-msgstr "上传完毕!"
+msgstr "上传完成！"
 
-#, fuzzy
 msgid "Upload aborted!"
-msgstr "上传中止!"
+msgstr "上传中止！"
 
 msgid "Upload failed!"
 msgstr "上传失败！"
@@ -5941,35 +5816,29 @@ msgstr "电子表格"
 msgid "Upload files"
 msgstr "上传文件"
 
-#, fuzzy
 msgid "Create document"
 msgstr "创建文件"
 
-#, fuzzy
 msgid "Create office document"
-msgstr "创建办公室文件"
+msgstr "创建办公文件"
 
 msgid "Download files"
 msgstr "下载文件"
 
-#, fuzzy
 msgid "Attach to mail"
 msgstr "附在邮件中"
 
-#, fuzzy
 msgid "Attach to mail as link"
 msgstr "作为链接附在邮件中"
 
 msgid "Attaching"
 msgstr "附加"
 
-#, fuzzy
 msgid "Creating email... Please wait!"
-msgstr "创建电子邮件...请等待!"
+msgstr "创建电子邮件...请稍候！"
 
-#, fuzzy
 msgid "Edit share"
-msgstr "编辑分享"
+msgstr "编辑共享"
 
 #, fuzzy
 msgid ""
@@ -5982,143 +5851,131 @@ msgstr "文件大小"
 msgid "Last modified"
 msgstr "最后修改"
 
-#, fuzzy
 msgid "Is shared"
-msgstr "是共享的"
+msgstr "是否共享"
 
-#, fuzzy
 msgid "File preview"
 msgstr "文件预览"
 
-#, fuzzy
 msgid "Your browser does not support previewing of audio files!"
-msgstr "您的浏览器不支持预览音频文件!"
+msgstr "您的浏览器不支持预览音频文件！"
 
-#, fuzzy
 msgid "Your browser does not support previewing of video files!"
-msgstr "您的浏览器不支持视频文件的预览!"
+msgstr "您的浏览器不支持预览视频文件！"
 
-#, fuzzy
 msgid "d.m.Y G:i"
 msgstr "d.m.Y G:i"
 
 msgid "Folder"
 msgstr "文件夹"
 
-#, fuzzy
 msgid "File ({0})"
 msgstr "文件 ({0})"
 
-#, fuzzy
 msgid "Sort by: Path"
-msgstr "排序方式。路径"
+msgstr "排序方式路径"
 
-#, fuzzy
 msgid "Sort by: Last modified"
-msgstr "排序方式为最后修改"
+msgstr "排序方式最后修改"
 
-#, fuzzy
 msgid "Sort by: Shared"
-msgstr "排序方式。共享的"
+msgstr "排序方式共享"
 
-#, fuzzy
 msgid "There are no items to show in this view"
-msgstr "在此视图中没有项目可供显示"
+msgstr "该视图中没有要显示的项目"
 
 msgid "files selected"
 msgstr "已选的文件"
 
-#, fuzzy
 msgid "Authentication required, when using grommunio-files for the first time"
-msgstr "第一次使用grommunio-files时，需要进行认证"
+msgstr "首次使用 grommunio-files 时需要进行身份验证"
 
-#, fuzzy
 msgid "Intranet"
 msgstr "内联网"
 
 msgid "Archive to InfoShare"
-msgstr ""
+msgstr "存档至 InfoShare"
 
 msgid "Kendox InfoShare"
-msgstr ""
+msgstr "Kendox InfoShare"
 
 msgid "Constraints for single attachment archiving"
-msgstr ""
+msgstr "单一附件存档的限制"
 
 msgid "Max count attachments"
-msgstr ""
+msgstr "最大附件数量"
 
 msgid "Max size all selected attachments (MB)"
-msgstr ""
+msgstr "所有选定附件的最大大小（MB）"
 
 msgid "Selection Kendox InfoShare environment"
-msgstr ""
+msgstr "选择 Kendox InfoShare 环境"
 
 msgid "Production"
-msgstr ""
+msgstr "生产"
 
 msgid "Test"
-msgstr ""
+msgstr "测试"
 
 msgid "URLs for production environment"
-msgstr ""
+msgstr "生产环境的 URL"
 
 msgid "Kendox InfoShare API URL"
-msgstr ""
+msgstr "Kendox InfoShare API URL"
 
 msgid "Kendox InfoShare Web dialog URL"
-msgstr ""
+msgstr "Kendox InfoShare 网络对话框 URL"
 
 msgid "URLs for test environment"
-msgstr ""
+msgstr "测试环境的 URL"
 
 msgid "Mail/Document archive to Kendox InfoShare"
-msgstr ""
+msgstr "邮件/文件存档至 Kendox InfoShare"
 
 msgid "Attachment information is requested"
-msgstr ""
+msgstr "要求提供附件信息"
 
 msgid "Please select the type of Archive (max"
-msgstr ""
+msgstr "请选择档案类型（最多"
 
 msgid "files, max"
-msgstr ""
+msgstr "文件，最大"
 
 msgid "MB total size)"
-msgstr ""
+msgstr "MB 总大小)"
 
 msgid "Everything - Store mail in original format"
-msgstr ""
+msgstr "一切 - 以原始格式存储邮件"
 
 msgid "Email only - Store mail without attachments"
 msgstr "仅邮件 - 存储不含附件的邮件"
 
 msgid "Separate - Store attachments separately"
-msgstr ""
+msgstr "单独 - 单独存储附件"
 
 msgid "No attachments available in mail"
-msgstr ""
+msgstr "邮件中没有附件"
 
 msgid "Start archive"
-msgstr ""
+msgstr "开始存档"
 
 msgid "embedded"
 msgstr "内嵌"
 
 msgid "Reading attachment information failed"
-msgstr ""
+msgstr "读取附件信息失败"
 
 msgid "Files are sent to Kendox InfoShare"
-msgstr ""
+msgstr "文件发送至 Kendox InfoShare"
 
 msgid "With the selection of separate attachments a maximum of"
-msgstr ""
+msgstr "如果选择了单独的附件，最多可有"
 
 msgid "attachments can be selected. There have been"
-msgstr ""
+msgstr "可以选择附件。有"
 
 msgid "attachments selected"
-msgstr ""
+msgstr "所选附件"
 
 msgid ""
 "With the selection of separate attachments the total size of all attachments "
@@ -6126,15 +5983,14 @@ msgid ""
 msgstr ""
 
 msgid "MB. There have been"
-msgstr ""
+msgstr "MB.有"
 
 msgid "MB selected."
-msgstr ""
+msgstr "选择 MB。"
 
 msgid "Sending of mail failed"
-msgstr ""
+msgstr "发送邮件失败"
 
-#, fuzzy
 msgid "Openstreetmap"
 msgstr "开放式街道地图"
 
@@ -6142,18 +5998,15 @@ msgstr "开放式街道地图"
 msgid "Map"
 msgstr "地图"
 
-#, fuzzy
 msgid "Mobile Device Manager"
 msgstr "移动设备管理器"
 
-#, fuzzy
 msgid "Wiping device"
 msgstr "擦拭装置"
 
 msgid "Password incorrect"
 msgstr "用户名和密码不正确"
 
-#, fuzzy
 msgid "Full resync in progress"
 msgstr "正在进行全面重新同步"
 
@@ -6163,15 +6016,12 @@ msgstr "用户名或密码不正确"
 msgid "Not Applicable"
 msgstr "不适用"
 
-#, fuzzy
 msgid "Wipe Pending"
-msgstr "拭目以待"
+msgstr "擦拭待定"
 
-#, fuzzy
 msgid "Wipe Requested"
 msgstr "要求擦拭"
 
-#, fuzzy
 msgid "Wipe Executed"
 msgstr "擦拭已执行"
 
@@ -6196,19 +6046,15 @@ msgstr "操作系统"
 msgid "User Agent"
 msgstr "用户代理"
 
-#, fuzzy
 msgid "MDM Plugin"
-msgstr "MDM插件"
+msgstr "MDM 插件"
 
-#, fuzzy
 msgid "Active Sync Version"
 msgstr "主动同步版本"
 
-#, fuzzy
 msgid "grommunio-sync Version"
-msgstr "grommunio-sync版本"
+msgstr "grommunio-sync 版本"
 
-#, fuzzy
 msgid "Policy name"
 msgstr "政策名称"
 
@@ -6221,7 +6067,6 @@ msgstr "d F Y"
 msgid "Last updated"
 msgstr "最近更新"
 
-#, fuzzy
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
 
@@ -6231,7 +6076,6 @@ msgstr "最后连接"
 msgid "Synchronize"
 msgstr "同步"
 
-#, fuzzy
 msgid "Manage Shared Folders"
 msgstr "管理共享文件夹"
 
@@ -6243,11 +6087,9 @@ msgstr ""
 "从下面的列表中选择要同步到设备的文件夹。要在列表中添加其他邮箱，请先在"
 "grommunio Web中打开这些邮箱。"
 
-#, fuzzy
 msgid "grommunio-sync"
-msgstr "沟壑纵横--同步"
+msgstr "grommunio-sync"
 
-#, fuzzy
 msgid "Mobile device management"
 msgstr "移动设备管理"
 
@@ -6260,17 +6102,14 @@ msgid ""
 "credentials"
 msgstr "无法连接到grommunio-sync服务器。点击{0}，输入你的凭证"
 
-#, fuzzy
 msgid "Devices"
 msgstr "设备"
 
-#, fuzzy
 msgid "No devices connected to your account"
-msgstr "没有设备连接到你的账户"
+msgstr "没有设备连接到您的帐户"
 
-#, fuzzy
 msgid "Provisioning Status"
-msgstr "供应状态"
+msgstr "调配状态"
 
 msgid "Last Connect"
 msgstr "最后连接"
@@ -6278,22 +6117,18 @@ msgstr "最后连接"
 msgid "Device ID"
 msgstr "设备ID"
 
-#, fuzzy
 msgid "Device OS"
 msgstr "设备操作系统"
 
 msgid "Device Info"
 msgstr "设备信息"
 
-#, fuzzy
 msgid "First Sync time"
-msgstr "第一次同步时间"
+msgstr "首次同步时间"
 
-#, fuzzy
 msgid "Wipe Device"
 msgstr "擦拭设备"
 
-#, fuzzy
 msgid "Full resync"
 msgstr "完全重新同步"
 
@@ -6328,49 +6163,38 @@ msgstr ""
 "你真的想删除你的设备吗？\n"
 " 输入你的密码来确认。"
 
-#, fuzzy
 msgid "Add meeting"
-msgstr "添加会议"
+msgstr "增加会议"
 
-#, fuzzy
 msgid "Room name:"
-msgstr "房间名称。"
+msgstr "房间名称"
 
-#, fuzzy
 msgid "Room URL:"
-msgstr "房间网址。"
+msgstr "房间 URL："
 
-#, fuzzy
 msgid "Shift-click for advanced settings"
-msgstr "按住Shift键进行高级设置"
+msgstr "按住 Shift 键进行高级设置"
 
-#, fuzzy
 msgid "Join webmeeting"
 msgstr "加入网络会议"
 
-#, fuzzy
 msgid "Open meeting in:"
-msgstr "公开会议在。"
+msgstr "在以下地点举行公开会议"
 
-#, fuzzy
 msgid "Web tab"
-msgstr "网络标签"
+msgstr "网页选项卡"
 
-#, fuzzy
 msgid "Hide the button in the main toolbar"
-msgstr "隐藏主工具条上的按钮"
+msgstr "隐藏主工具栏上的按钮"
 
-#, fuzzy
 msgid "Add the subject to the room name"
-msgstr "在房间名称中加入主题"
+msgstr "在房间名称中添加主题"
 
-#, fuzzy
 msgid "Add the organizer name to the room name"
-msgstr "将组织者的名字添加到房间名称中"
+msgstr "在房间名称中添加组织者名称"
 
-#, fuzzy
 msgid "Add the URL to the meeting location rather than overwriting it"
-msgstr "将URL添加到会议地点，而不是覆盖它"
+msgstr "将 URL 添加到会议位置，而不是覆盖它"
 
 #, fuzzy
 msgid ""
@@ -6378,15 +6202,12 @@ msgid ""
 "(ex: when adding a meetingroom)"
 msgstr "防止会议地点中的URL被自动覆盖（例如：在添加会议室时）。"
 
-#, fuzzy
 msgid "If you have problems when creating meetings, try disabling this setting"
-msgstr "如果你在创建会议时遇到问题，请尝试禁用此设置"
+msgstr "如果在创建会议时遇到问题，请尝试禁用此设置"
 
-#, fuzzy
 msgid "Add an invitation to the appointment description"
-msgstr "在约会描述中添加一个邀请"
+msgstr "在约会描述中添加邀请"
 
-#, fuzzy
 msgid "Invitation text"
 msgstr "邀请函文本"
 
@@ -6396,9 +6217,8 @@ msgid ""
 "to reset to default"
 msgstr "必须包含%url%作为会议链接的占位符，清空文本框以重置为默认值"
 
-#, fuzzy
 msgid "An unknown error occurred while changing password."
-msgstr "更改密码时发生了一个未知的错误。"
+msgstr "更改密码时出现未知错误。"
 
 msgid "Password is changed successfully."
 msgstr "密码更改成功。"
@@ -6421,17 +6241,14 @@ msgstr "确认新密码"
 msgid "New passwords do not match."
 msgstr "新密码不匹配。"
 
-#, fuzzy
 msgid "Current password is empty."
-msgstr "当前密码是空的。"
+msgstr "当前密码为空。"
 
-#, fuzzy
 msgid "New password is empty."
-msgstr "新密码是空的。"
+msgstr "新密码为空。"
 
-#, fuzzy
 msgid "One or more fields does contain errors."
-msgstr "一个或多个字段确实含有错误。"
+msgstr "一个或多个字段确实包含错误。"
 
 #, fuzzy
 msgid ""
@@ -6439,56 +6256,44 @@ msgid ""
 "numbers. Password should have 8 to 20 characters."
 msgstr "密码很弱。密码应包含大写、非大写字母和数字。密码应该有8到20个字符。"
 
-#, fuzzy
 msgid "Change passphrase"
-msgstr "更改口令"
+msgstr "更改密码"
 
-#, fuzzy
 msgid "Old passphrase"
-msgstr "旧口令"
+msgstr "旧密码"
 
-#, fuzzy
 msgid "Wrong passphrase. Please try again"
-msgstr "错误的口令。请再试一次"
+msgstr "密码错误。请重试"
 
-#, fuzzy
 msgid "New passphrase"
-msgstr "新的口令"
+msgstr "新口令"
 
-#, fuzzy
 msgid "Confirm new passphrase"
-msgstr "确认新的口令"
+msgstr "确认新口令"
 
-#, fuzzy
 msgid "The passphrases don't match. Please try again"
-msgstr "密码不匹配。请再试一次"
+msgstr "密码不匹配。请重试"
 
-#, fuzzy
 msgid "S/MIME Message"
-msgstr "S/MIME信息"
+msgstr "S/MIME 信息"
 
-#, fuzzy
 msgid "Passphrase changed successfully"
-msgstr "密码锁成功更改"
+msgstr "密码更改成功"
 
-#, fuzzy
 msgid "S/MIME Passphrase"
-msgstr "S/MIME密码锁"
+msgstr "S/MIME 密码"
 
 msgid "Submit"
 msgstr "提交"
 
-#, fuzzy
 msgid "Certificate passphrase"
-msgstr "证书口令"
+msgstr "证书密码"
 
-#, fuzzy
 msgid "The passphrase you typed is incorrect. Please try again."
-msgstr "你输入的密码不正确。请再试一次。"
+msgstr "您输入的密码不正确。请重试。"
 
-#, fuzzy
 msgid "No certificates imported, please upload your private certificate"
-msgstr "没有导入证书，请上传你的私人证书"
+msgstr "未导入证书，请上传您的私人证书"
 
 msgid "Valid from"
 msgstr "有效期自"
@@ -6496,17 +6301,14 @@ msgstr "有效期自"
 msgid "Expires"
 msgstr "到期"
 
-#, fuzzy
 msgid "Loading certificates"
 msgstr "加载证书"
 
-#, fuzzy
 msgid "S/MIME Plugin"
-msgstr "S/MIME插件"
+msgstr "S/MIME 插件"
 
-#, fuzzy
 msgid "Please select a certificate."
-msgstr "请选择一个证书。"
+msgstr "请选择证书。"
 
 #, fuzzy
 msgid ""
@@ -6525,37 +6327,29 @@ msgid ""
 "server."
 msgstr "下面你可以查看和删除存储在服务器上的公共和私人证书。"
 
-#, fuzzy
 msgid "Filter on Email"
-msgstr "电子邮件的过滤"
+msgstr "电子邮件过滤器"
 
-#, fuzzy
 msgid "Public & Private certificates"
 msgstr "公共和私人证书"
 
-#, fuzzy
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#, fuzzy
 msgid "You don't have a valid certificate corresponding to your account"
-msgstr "你的账户没有对应的有效证书"
+msgstr "您没有与账户相对应的有效证书"
 
-#, fuzzy
 msgid "Personal certificate"
 msgstr "个人证书"
 
-#, fuzzy
 msgid "Change passphrase for last certificate"
 msgstr "更改最后一张证书的口令"
 
-#, fuzzy
 msgid "You have a valid certificate corresponding to your account"
-msgstr "你有一个与你的账户相对应的有效证书"
+msgstr "您拥有与账户相对应的有效证书"
 
-#, fuzzy
 msgid "Upload your certificate"
-msgstr "上传你的证书"
+msgstr "上传证书"
 
 #, fuzzy
 msgid ""
@@ -6566,22 +6360,18 @@ msgstr ""
 "下面您可以上传PKCS#12格式的私人证书。grommunio Web只接受有效的证书，并且只在"
 "服务器上存储一个私人证书。"
 
-#, fuzzy
 msgid "Private certificate"
 msgstr "私人证书"
 
-#, fuzzy
 msgid "You must fill in the certificate passphrase to upload your certificate."
-msgstr "你必须填写证书口令来上传你的证书。"
+msgstr "您必须填写证书密码才能上传证书。"
 
-#, fuzzy
 msgid "You must first select a valid private certificate in PKCS#12 format."
-msgstr "你必须首先选择一个PKCS#12格式的有效私人证书。"
+msgstr "您必须首先选择 PKCS#12 格式的有效私人证书。"
 
 msgid "Sign"
 msgstr "标志"
 
-#, fuzzy
 msgid "Sign message"
 msgstr "标志信息"
 
@@ -6595,7 +6385,6 @@ msgstr ""
 msgid "Encrypt"
 msgstr "加密"
 
-#, fuzzy
 msgid "Encrypt message"
 msgstr "加密信息"
 
@@ -6605,9 +6394,8 @@ msgid ""
 "recipient of the message will be able to open it."
 msgstr "通过对信息内容进行加密，确保信息的隐私。只有信息的接收者才能打开它。"
 
-#, fuzzy
 msgid "What's going on with my email?"
-msgstr "我的电子邮件是怎么回事？"
+msgstr "我的电子邮件怎么了？"
 
 #, fuzzy
 msgid ""
@@ -6629,13 +6417,11 @@ msgstr " 已经失败"
 msgid " for this message."
 msgstr " 为这个消息。"
 
-#, fuzzy
 msgid "What caused this issue?"
-msgstr "是什么造成了这个问题？"
+msgstr "是什么导致了这个问题？"
 
-#, fuzzy
 msgid "What should I do?"
-msgstr "我应该怎么做？"
+msgstr "我该怎么办？"
 
 #, fuzzy
 msgid ""
@@ -6666,9 +6452,8 @@ msgid ""
 "message."
 msgstr "该邮件的数字签名验证成功。"
 
-#, fuzzy
 msgid "grommunio Web could not find a public certificate for the recipient."
-msgstr "grommunio Web无法找到收件人的公共证书。"
+msgstr "grommunio Web 无法找到收件人的公共证书。"
 
 #, fuzzy
 msgid ""
@@ -6677,9 +6462,8 @@ msgid ""
 msgstr ""
 "发件人的身份和信息内容的真实性已被验证，但用于签署信息的证书在[d-m-Y]过期。"
 
-#, fuzzy
 msgid "The digital signature could not be verified for unknown reasons."
-msgstr "由于不明原因，数字签名无法被验证。"
+msgstr "数字签名无法验证，原因不明。"
 
 #, fuzzy
 msgid ""
@@ -6710,43 +6494,33 @@ msgid ""
 msgstr ""
 "用于签署此邮件的数字证书的撤销状态为禁用（OCSP）。该证书的有效性无法被验证。"
 
-#, fuzzy
 msgid "The certificate verification server (OCSP) is temporarily offline."
-msgstr "证书验证服务器（OCSP）暂时处于离线状态。"
+msgstr "证书验证服务器 (OCSP) 暂时离线。"
 
-#, fuzzy
 msgid "Sender is removed from the server."
-msgstr "发件人被从服务器中删除。"
+msgstr "发件人已从服务器移除。"
 
-#, fuzzy
 msgid "Signature verified successfully"
 msgstr "签名验证成功"
 
-#, fuzzy
 msgid "Could not verify signature, missing public certificate"
 msgstr "无法验证签名，缺少公共证书"
 
-#, fuzzy
 msgid "Signature verification successful, but certificate is expired"
 msgstr "签名验证成功，但证书已过期"
 
-#, fuzzy
 msgid "Signature could not be verified"
-msgstr "签名不能被验证"
+msgstr "无法验证签名"
 
-#, fuzzy
 msgid "Certificate has been revoked"
-msgstr "证书已被撤销"
+msgstr "证书已被吊销"
 
-#, fuzzy
 msgid "Verification with Certificate Authority failed"
-msgstr "与认证机构的验证失败"
+msgstr "与证书颁发机构的验证失败"
 
-#, fuzzy
 msgid "Message decrypted successfully"
-msgstr "信息被成功解密"
+msgstr "信息解密成功"
 
-#, fuzzy
 msgid "Message decryption failed"
 msgstr "信息解密失败"
 
@@ -6756,25 +6530,20 @@ msgstr "请"
 msgid "click here"
 msgstr "点击这里"
 
-#, fuzzy
 msgid "to unlock your certificate"
-msgstr "以解锁你的证书"
+msgstr "解锁您的证书"
 
-#, fuzzy
 msgid "Cannot determine revocation status of certificate"
-msgstr "无法确定证书的废止状态"
+msgstr "无法确定证书的吊销状态"
 
-#, fuzzy
 msgid "Signature verified"
-msgstr "签名验证（禁用OCSP）"
+msgstr "签名已核实"
 
-#, fuzzy
 msgid "Unable to decrypt this message. Certificate does not match"
 msgstr "无法解密此信息。证书不匹配"
 
-#, fuzzy
 msgid "Verification failed. User is removed from the server."
-msgstr "验证失败。用户被从服务器上删除。"
+msgstr "验证失败。用户已从服务器中删除。"
 
 msgid "Charm pink"
 msgstr "魅力粉"
@@ -6797,9 +6566,8 @@ msgstr "薄荷色"
 msgid "Pearl aqua"
 msgstr "水凝珍珠白"
 
-#, fuzzy
 msgid "Grommunio blue"
-msgstr "Grommunio蓝色"
+msgstr "格罗穆尼奥蓝"
 
 msgid "Baby blue"
 msgstr "淡蓝色"
@@ -6864,10 +6632,10 @@ msgid ""
 msgstr "抱歉，此用户账户无法访问grommunio Web。请与您的系统管理员联系。"
 
 msgid "This backend provides the default WebDAV integration for Files."
-msgstr ""
+msgstr "该后台为文件提供默认的 WebDAV 集成。"
 
 msgid "Files Default Backend: "
-msgstr ""
+msgstr "文件 默认后台： "
 
 msgid "Server address"
 msgstr "服务器地址"
@@ -6878,17 +6646,14 @@ msgstr "服务器端口"
 msgid "Use TLS"
 msgstr "使用 TLS"
 
-#, fuzzy
 msgid "Webdav base path"
-msgstr "Webdav的基本路径"
+msgstr "Webdav 基本路径"
 
-#, fuzzy
 msgid "Use grommunio credentials"
-msgstr "使用grommunio凭证"
+msgstr "使用 grommunio 证书"
 
-#, fuzzy
 msgid "php-curl is not available"
-msgstr "php-curl不可用"
+msgstr "php-curl 不可用"
 
 msgid "Access denied"
 msgstr "拒绝访问"
@@ -6896,11 +6661,9 @@ msgstr "拒绝访问"
 msgid "Connection failed"
 msgstr "连接失败"
 
-#, fuzzy
 msgid "Sabre error"
-msgstr "萨博尔错误"
+msgstr "军刀错误"
 
-#, fuzzy
 msgid "Copying failed"
 msgstr "复制失败"
 
@@ -6910,79 +6673,68 @@ msgstr "未知错误"
 msgid "Please contact your system administrator."
 msgstr "请与您的系统管理员联系。"
 
-#, fuzzy
 msgid "Unauthorized. Wrong username or password."
-msgstr "未经授权。错误的用户名或密码。"
+msgstr "未授权。用户名或密码错误。"
 
-#, fuzzy
 msgid "File server is not reachable. Please verify the file server URL."
-msgstr "文件服务器无法到达。请验证文件服务器的URL。"
+msgstr "文件服务器无法访问。请验证文件服务器 URL。"
 
-#, fuzzy
 msgid "You don't have enough permissions to view this file or folder."
-msgstr "你没有足够的权限来查看这个文件或文件夹。"
+msgstr "您没有足够的权限查看此文件或文件夹。"
 
-#, fuzzy
 msgid "The file or folder is not available anymore."
-msgstr "该文件或文件夹已不可用。"
+msgstr "文件或文件夹已不可用。"
 
-#, fuzzy
 msgid "Connection to the file server timed out. Please check again later."
-msgstr "与文件服务器的连接超时了。请稍后再检查。"
+msgstr "与文件服务器的连接超时。请稍后再检查。"
 
-#, fuzzy
 msgid "This file is locked by another user. Please try again later."
-msgstr "该文件被其他用户锁定。请稍后再试。"
+msgstr "此文件已被其他用户锁定。请稍后再试。"
 
-#, fuzzy
 msgid "The request failed."
-msgstr "该请求失败。"
+msgstr "请求失败。"
 
-#, fuzzy
 msgid "The file server encountered an internal problem."
-msgstr "文件服务器遇到了一个内部问题。"
+msgstr "文件服务器遇到内部问题。"
 
-#, fuzzy
 msgid "We could not write to temporary directory."
-msgstr "我们无法写到临时目录。"
+msgstr "我们无法写入临时目录。"
 
-#, fuzzy
 msgid "We could not retrieve list of server features."
-msgstr "我们无法检索到服务器的功能列表。"
+msgstr "我们无法检索服务器功能列表。"
 
-#, fuzzy
 msgid "PHP-Curl is not available."
-msgstr "PHP-Curl是不可用的。"
+msgstr "PHP-Curl 不可用。"
 
 msgid "With this backend, you can connect to any Seafile server."
-msgstr ""
+msgstr "通过该后台，您可以连接到任何 Seafile 服务器。"
 
 msgid "Files "
-msgstr ""
+msgstr "文件 "
 
 msgid "Use SSL"
-msgstr ""
+msgstr "使用 SSL"
 
 msgid "Seafile is not reachable. Correct backend address entered?"
-msgstr ""
+msgstr "Seafile 无法访问。输入的后台地址是否正确？"
 
 msgid "You don't have enough permissions for this operation."
-msgstr ""
+msgstr "您没有足够的权限执行此操作。"
 
 msgid "File is not available any more."
-msgstr ""
+msgstr "文件已不可用。"
 
 msgid "Connection to server timed out. Retry later."
-msgstr ""
+msgstr "与服务器的连接超时。稍后重试。"
 
 msgid "This file is locked by another user."
-msgstr ""
+msgstr "该文件已被其他用户锁定。"
 
 msgid "The request failed due to failure of a previous request."
-msgstr ""
+msgstr "由于前一个请求失败，请求失败。"
 
 msgid "Seafile-server encountered a problem."
-msgstr ""
+msgstr "Seafile-server 遇到问题。"
 
 msgid ""
 "Could not write to temporary directory. Contact the server administrator."
@@ -6993,119 +6745,94 @@ msgid ""
 msgstr ""
 
 msgid "PHP-Curl is not available. Contact your system administrator."
-msgstr ""
+msgstr "PHP-Curl 不可用。请联系您的系统管理员。"
 
 msgid "This function is not yet implemented."
-msgstr ""
+msgstr "该功能尚未实现。"
 
-#, fuzzy
 msgid "Unknown account ID"
-msgstr "未知账户ID"
+msgstr "未知账户 ID"
 
 msgid "Feature \"Quota Information\" is not supported by this backend!"
 msgstr "该后端不支持 \"配额信息 \"功能"
 
-#, fuzzy
 msgid "Feature \"Version Information\" is not supported by this backend!"
-msgstr "此后台不支持 \"版本信息 \"功能!"
+msgstr "该后台不支持 \"版本信息 \"功能！"
 
-#, fuzzy
 msgid "Feature \"OAUTH\" is not supported by this backend!"
-msgstr "该后端不支持 \"OAUTH \"功能!"
+msgstr "该后台不支持 \"OAUTH \"功能！"
 
-#, fuzzy
 msgid "Moving between accounts is not implemented"
-msgstr "没有实施账户之间的移动"
+msgstr "未实现账户之间的移动"
 
-#, fuzzy
 msgid "Files plugin"
 msgstr "文件插件"
 
-#, fuzzy
 msgid "Unknown type - cannot save this file to the Files backend!"
-msgstr "未知类型 - 无法将此文件保存到Files后端!"
+msgstr "未知类型 - 无法将此文件保存到文件后台！"
 
-#, fuzzy
 msgid "No record given!"
-msgstr "没有给出记录!"
+msgstr "无记录！"
 
-#, fuzzy
 msgid "Fetching sharing information failed"
 msgstr "获取共享信息失败"
 
-#, fuzzy
 msgid "Sharing failed"
-msgstr "分享失败"
+msgstr "共享失败"
 
-#, fuzzy
 msgid "Updating share failed"
 msgstr "更新共享失败"
 
-#, fuzzy
 msgid "Deleting share failed"
 msgstr "删除共享失败"
 
-#, fuzzy
 msgid "With this backend, you can connect to any WebDAV server."
-msgstr "通过这个后端，你可以连接到任何WebDAV服务器。"
+msgstr "有了这个后台，你可以连接到任何 WebDAV 服务器。"
 
 msgid "Files WebDAV Backend: "
 msgstr "文件WebDAV后端。 "
 
-#, fuzzy
 msgid "PHP-CURL is not installed"
-msgstr "没有安装PHP-CURL"
+msgstr "未安装 PHP-CURL"
 
-#, fuzzy
 msgid "Directory creation failed"
 msgstr "目录创建失败"
 
-#, fuzzy
 msgid "Deletion failed"
 msgstr "删除失败"
 
-#, fuzzy
 msgid "Moving failed"
 msgstr "搬家失败"
 
-#, fuzzy
 msgid "Temporary directory problems"
 msgstr "临时目录问题"
 
-#, fuzzy
 msgid "File or folder not found"
 msgstr "未找到文件或文件夹"
 
 msgid "Not implemented"
 msgstr "无法执行"
 
-#, fuzzy
 msgid "Please contact your system administrator"
-msgstr "请联系你的系统管理员"
+msgstr "请联系您的系统管理员"
 
-#, fuzzy
 msgid "File server is not reachable. Please verify the connection."
-msgstr "文件服务器无法到达。请验证连接。"
+msgstr "文件服务器无法连接。请验证连接。"
 
-#, fuzzy
 msgid "PHP-CURL not installed"
-msgstr "没有安装PHP-CURL"
+msgstr "未安装 PHP-CURL"
 
-#, fuzzy
 msgid "Account is ready to use."
-msgstr "帐户已经可以使用。"
+msgstr "账户可随时使用。"
 
-#, fuzzy
 msgid "File backend not responding. Please try again later."
-msgstr "文件后端没有响应。请稍后再试。"
+msgstr "文件后台无响应。请稍后再试。"
 
-#, fuzzy
 msgid "Zip file generation failed. Please inform the administrator."
-msgstr "Zip文件生成失败。请通知管理员。"
+msgstr "Zip 文件生成失败。请通知管理员。"
 
-#, fuzzy
 msgid "This file is no longer available. Please reload the folder."
-msgstr "该文件已不再可用。请重新加载该文件夹。"
+msgstr "该文件已不可用。请重新加载文件夹。"
 
 msgid "Kendox certificate path is not configured."
 msgstr "未配置 Kendox 证书路径。"
@@ -7114,12 +6841,11 @@ msgid "Kendox certificate password is not configured."
 msgstr "未配置 Kendox 证书密码。"
 
 msgid "Kendox certificate is not available."
-msgstr ""
+msgstr "不提供 Kendox 证书。"
 
 msgid "Kendox certificate is not readable."
 msgstr "Kendox 证书不可读取。"
 
-#, fuzzy
 msgid "Mobile device management plugin"
 msgstr "移动设备管理插件"
 
@@ -7132,49 +6858,42 @@ msgstr "发生了意想不到的错误。请联系您的系统管理员。错误
 msgid "No data received."
 msgstr "未收到数据。"
 
-#, fuzzy
 msgid "Account is empty."
-msgstr "帐户是空的。"
+msgstr "账户为空。"
 
 #, fuzzy
 msgid ""
 "Your password is wrong or you have insufficient permission to change password"
 msgstr "你的密码是错误的，或者你没有足够的权限来改变密码"
 
-#, fuzzy
 msgid "Password is not changed."
-msgstr "密码没有改变。"
+msgstr "密码未更改。"
 
 msgid ""
 "Error changing password. Please verify your password or contact the system "
 "administrator."
 msgstr ""
 
-#, fuzzy
 msgid "Password has been changed successfully."
-msgstr "密码已被成功更改。"
+msgstr "密码已成功更改。"
 
-#, fuzzy
 msgid "No certificate available"
-msgstr "没有可用的证书"
+msgstr "无证书"
 
 msgid "Private certificate has expired, unable to sign email"
-msgstr ""
+msgstr "私人证书已过期，无法签署电子邮件"
 
-#, fuzzy
 msgid "Private certificate is not valid yet, unable to sign email"
-msgstr "私人证书还没有生效，无法签署电子邮件"
+msgstr "私人证书尚未生效，无法签署电子邮件"
 
-#, fuzzy
 msgid "Private certificate does not match email address"
 msgstr "私人证书与电子邮件地址不匹配"
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "缺少以下收件人的公共证书。 "
 
-#, fuzzy
 msgid ". Please contact your system administrator for details"
-msgstr ".请联系你的系统管理员了解详情"
+msgstr ".详情请咨询系统管理员"
 
 #, fuzzy
 msgid ""
@@ -7182,17 +6901,14 @@ msgid ""
 "not be able to read encrypted messages you have sent to others."
 msgstr "你的公共证书没有安装。没有这个证书，你将无法阅读你发给别人的加密信息。"
 
-#, fuzzy
 msgid "Certificate is already stored on the server"
-msgstr "证书已经存储在服务器上"
+msgstr "证书已存储在服务器上"
 
-#, fuzzy
 msgid "Unable to decrypt certificate"
 msgstr "无法解密证书"
 
-#, fuzzy
 msgid "Private key can't be used to sign email"
-msgstr "私钥不能用于签署电子邮件"
+msgstr "私人密钥不能用于签署电子邮件"
 
 msgid "Certificate email address doesn't match grommunio Web account "
 msgstr "证书的电子邮件地址与grommunio网络账户不一致 "
@@ -7206,37 +6922,33 @@ msgstr "证书已导入。"
 msgid "Certificate is not yet valid "
 msgstr "证书尚未生效 "
 
-#, fuzzy
 msgid "Certificate has not been imported"
-msgstr "证书未被导入"
+msgstr "证书尚未导入"
 
 msgid "Certificate is revoked, but was imported."
 msgstr "证书已废止，但已导入。"
 
-#, fuzzy
 msgid "Unable to read public certificate"
 msgstr "无法读取公共证书"
 
-#, fuzzy
 msgid "Can't add data to bus, same action type is present in bus"
-msgstr "不能向总线上添加数据，总线上存在相同的动作类型"
+msgstr "无法向总线添加数据，总线中存在相同的操作类型"
 
-#, fuzzy
 msgid "Response data requested from bus but it doesn't have any data."
-msgstr "从总线上请求响应数据，但它没有任何数据。"
+msgstr "要求总线提供响应数据，但总线没有任何数据。"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Unknown module '%s' with id '%s'"
-msgstr "未知模块'%s'的ID为'%s'。"
+msgstr "未知模块 \"%s\"，id 为 \"%s\"。"
 
 #, fuzzy
 msgid ""
 "Server encountered some problem, so it was not able to handle the request."
 msgstr "服务器遇到了一些问题，所以它无法处理该请求。"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Unknown notifier '%s'"
-msgstr "未知的通知者'%s'"
+msgstr "未知通知程序 '%s'"
 
 msgid "An unexpected error has occurred"
 msgstr "发生意外错误"
@@ -7252,13 +6964,11 @@ msgstr "待办事项列表"
 msgid "%1$s of %2$s"
 msgstr "%1$s of %2$s"
 
-#, fuzzy
 msgid "Error retrieving existing settings"
 msgstr "检索现有设置时出错"
 
-#, fuzzy
 msgid "Error retrieving existing persistent settings"
-msgstr "检索现有持久性设置时出错"
+msgstr "检索现有持久设置时出错"
 
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr "登录失败。请验证您的凭证并重试。"
@@ -7274,13 +6984,11 @@ msgstr "由于会话重复，登录功能无法正常运行。该问题已自动
 msgid "Unknown MAPI Error"
 msgstr "未知的应用程序编程接口（MAPI）错误"
 
-#, fuzzy
 msgid "Destination folder not found."
 msgstr "未找到目标文件夹。"
 
-#, fuzzy
 msgid "Eml is corrupted"
-msgstr "Eml已损坏"
+msgstr "Eml 已损坏"
 
 msgid "The eml Attachment is not imported successfully"
 msgstr "eml附件没有被成功导入"
@@ -7305,23 +7013,18 @@ msgstr "该文件无效。"
 msgid "Unable to import '%s'. "
 msgstr "无法导入‘%s’。 "
 
-#, fuzzy
 msgid "Attachment is not imported successfully"
-msgstr "附件没有成功导入"
+msgstr "未成功导入附件"
 
-#, fuzzy
 msgid "Embedded attachment not found."
-msgstr "没有找到嵌入式附件。"
+msgstr "未找到嵌入的附件。"
 
-#, fuzzy
 msgid "ZIP is not created successfully"
-msgstr "没有成功创建ZIP"
+msgstr "未成功创建 ZIP"
 
-#, fuzzy
 msgid "Attachments can not be downloaded"
 msgstr "无法下载附件"
 
-#, fuzzy
 msgid "Could not find attachment."
 msgstr "找不到附件。"
 
@@ -7331,23 +7034,18 @@ msgstr "操作失败"
 msgid "Sticky Note"
 msgstr "粘滞便笺"
 
-#, fuzzy
 msgid "Task Request"
 msgstr "任务要求"
 
-#, fuzzy
 msgid "Could not find message, either it has been moved or deleted."
-msgstr "找不到信息，不是被转移就是被删除。"
+msgstr "找不到信息，要么已被移动，要么已被删除。"
 
-#, fuzzy
 msgid "Action is not performed correctly."
-msgstr "行动没有正确执行。"
+msgstr "操作未正确执行。"
 
-#, fuzzy
 msgid "Could not handle this type of object."
-msgstr "无法处理这种类型的对象。"
+msgstr "无法处理此类对象。"
 
-#, fuzzy
 msgid "Could not open this object."
 msgstr "无法打开此对象。"
 
@@ -7363,33 +7061,26 @@ msgstr "共享联系人文件夹"
 msgid "Public Contact Folders"
 msgstr "公共联系人文件夹"
 
-#, fuzzy
 msgid "Error in search, please try again"
-msgstr "搜索错误，请重试"
+msgstr "搜索出错，请重试"
 
-#, fuzzy
 msgid "Unable to perform search query, no permissions to create search folder."
-msgstr "无法进行搜索查询，没有创建搜索文件夹的权限。"
+msgstr "无法执行搜索查询，没有创建搜索文件夹的权限。"
 
-#, fuzzy
 msgid "Unable to perform search query, search folder not found."
 msgstr "无法执行搜索查询，未找到搜索文件夹。"
 
-#, fuzzy
 msgid "Unable to perform search query, store might not support searching."
 msgstr "无法执行搜索查询，商店可能不支持搜索。"
 
-#, fuzzy
 msgid "Error in creating search folder."
-msgstr "在创建搜索文件夹时出错。"
+msgstr "创建搜索文件夹时出错。"
 
-#, fuzzy
 msgid "Could not open occurrence."
-msgstr "无法打开发生的事情。"
+msgstr "无法打开。"
 
-#, fuzzy
 msgid "Could not open occurrence, specific occurrence is probably deleted."
-msgstr "无法打开事件，特定的事件可能已被删除。"
+msgstr "无法打开事件，特定事件可能已删除。"
 
 msgid "a meeting request"
 msgstr "一个会议请求"
@@ -7406,9 +7097,8 @@ msgid ""
 "reminder to save the change"
 msgstr "不能将提醒设置为在前一次发生之前出现。重置提醒以保存更改"
 
-#, fuzzy
 msgid "Two occurrences cannot occur on the same day"
-msgstr "两个事件不能在同一天发生"
+msgstr "两次事件不能发生在同一天"
 
 #, fuzzy, php-format
 msgid ""
@@ -7440,33 +7130,28 @@ msgid ""
 "find another resource."
 msgstr "'%s'在这个指定的时间已经被预订了。你必须使用另一个时间或找到其他资源。"
 
-#, fuzzy
 msgid "Meeting was not scheduled."
-msgstr "没有安排会议。"
+msgstr "未安排会议。"
 
-#, fuzzy
 msgid "Meeting could not be sent."
-msgstr "会议无法发送。"
+msgstr "会议无法召开。"
 
-#, fuzzy
 msgid "Meeting could not be saved."
-msgstr "会议无法保存。"
+msgstr "会议无法挽救。"
 
-#, fuzzy
 msgid "Private Appointment"
 msgstr "私人预约"
 
-#, fuzzy, php-format
+#, php-format
 msgid "%s's Birthday"
-msgstr "%s的生日"
+msgstr "%s生日"
 
-#, fuzzy, php-format
+#, php-format
 msgid "%s's Anniversary"
-msgstr "%s的周年纪念日"
+msgstr "%s周年纪念"
 
-#, fuzzy
 msgid "You don't have the permission to complete this action"
-msgstr "你没有权限完成这个动作"
+msgstr "您没有权限完成此操作"
 
 msgid "Quota error"
 msgstr "配额错误"
@@ -7477,119 +7162,94 @@ msgstr "达到发送配额限制"
 msgid "Email sending failed. Check the log files for more information."
 msgstr "电子邮件发送失败。请查看日志文件了解更多信息。"
 
-#, fuzzy
 msgid "Unknown user/group"
 msgstr "未知用户/组"
 
-#, fuzzy
 msgid "Could not save delegate information."
-msgstr "无法保存代表的信息。"
+msgstr "无法保存代表信息。"
 
-#, fuzzy
 msgid "Could not delete delegate."
-msgstr "无法删除委托人。"
+msgstr "无法删除代表。"
 
-#, fuzzy
 msgid "Can not get list of delegates."
-msgstr "无法获得代表的名单。"
+msgstr "无法获取代表名单。"
 
 msgid "Could not open the store."
 msgstr "无法打开商店。"
 
-#, fuzzy
 msgid "Could not load the hierarchy."
 msgstr "无法加载层次结构。"
 
 msgid "Could not open the shared store."
 msgstr "无法打开共享商店。"
 
-#, fuzzy
 msgid "Could not load folder properties."
 msgstr "无法加载文件夹属性。"
 
-#, fuzzy
 msgid "Could not remove folder from favorites."
 msgstr "无法从收藏夹中删除文件夹。"
 
-#, fuzzy
 msgid "You have insufficient privileges to delete folder."
-msgstr "你没有足够的权限来删除文件夹。"
+msgstr "您没有足够的权限删除文件夹。"
 
 msgid "Could not delete folder."
 msgstr "不能删除文件夹。"
 
-#, fuzzy
 msgid "You have insufficient privileges to copy folder."
-msgstr "你没有足够的权限来复制文件夹。"
+msgstr "您没有足够的权限复制文件夹。"
 
-#, fuzzy
 msgid "Could not copy folder."
 msgstr "无法复制文件夹。"
 
-#, fuzzy
 msgid "You have insufficient privileges to move this folder."
-msgstr "你没有足够的权限来移动这个文件夹。"
+msgstr "您没有足够的权限移动此文件夹。"
 
-#, fuzzy
 msgid "Could not move folder."
 msgstr "无法移动文件夹。"
 
-#, fuzzy
 msgid "You have insufficient privileges to delete items."
-msgstr "你没有足够的权限来删除项目。"
+msgstr "您没有足够的权限删除项目。"
 
-#, fuzzy
 msgid "Could not empty folder."
 msgstr "无法清空文件夹。"
 
-#, fuzzy
 msgid "Could not perform action correctly."
-msgstr "无法正确执行行动。"
+msgstr "无法正确执行操作。"
 
 #, fuzzy
 msgid ""
 "A favorite folder with this name already exists, please use another name."
 msgstr "有一个以此命名的收藏夹文件夹已经存在，请使用其他名称。"
 
-#, fuzzy
 msgid "Could not add folder to favorites."
 msgstr "无法将文件夹添加到收藏夹。"
 
-#, fuzzy
 msgid "You have insufficient privileges to set permissions for this folder."
-msgstr "你没有足够的权限来设置这个文件夹的权限。"
+msgstr "您的权限不足以设置此文件夹的权限。"
 
-#, fuzzy
 msgid "Could not set folder permissions."
 msgstr "无法设置文件夹权限。"
 
-#, fuzzy
 msgid "You have insufficient privileges to rename this folder."
-msgstr "你没有足够的权限来重命名这个文件夹。"
+msgstr "您没有足够的权限重命名此文件夹。"
 
-#, fuzzy
 msgid "A folder with this name already exists. Use another name."
-msgstr "有一个以此命名的文件夹已经存在。使用另一个名字。"
+msgstr "已存在使用此名称的文件夹。请使用其他名称。"
 
-#, fuzzy
 msgid "Could not rename folder."
 msgstr "无法重命名文件夹。"
 
-#, fuzzy
 msgid "You have insufficient privileges to create this folder."
-msgstr "你没有足够的权限来创建这个文件夹。"
+msgstr "您的权限不足以创建此文件夹。"
 
-#, fuzzy
 msgid "Could not create folder."
 msgstr "无法创建文件夹。"
 
-#, fuzzy
 msgid "Could not close shared folder."
 msgstr "无法关闭共享文件夹。"
 
-#, fuzzy
 msgid "User could not be resolved."
-msgstr "用户无法解决。"
+msgstr "无法解决用户问题。"
 
 #, fuzzy, php-format
 msgid ""
@@ -7609,17 +7269,14 @@ msgstr "匿名"
 msgid "unknown"
 msgstr "未知"
 
-#, fuzzy
 msgid "Could not move folder"
 msgstr "无法移动文件夹"
 
-#, fuzzy
 msgid "Could not copy folder"
 msgstr "无法复制文件夹"
 
-#, fuzzy
 msgid "You have insufficient privileges to open this message."
-msgstr "你没有足够的权限打开此信息。"
+msgstr "您没有足够的权限打开此邮件。"
 
 #, fuzzy
 msgid ""
@@ -7705,11 +7362,9 @@ msgstr "您的消息未送达部分或全部预期收件人"
 msgid "The following recipient(s) could not be reached"
 msgstr "无法联系以下收件人"
 
-#, fuzzy
 msgid "You have insufficient privileges to see the contents of this folder."
-msgstr "你没有足够的权限来查看这个文件夹的内容。"
+msgstr "您没有足够的权限查看该文件夹的内容。"
 
-#, fuzzy
 msgid "Could not load the contents of this folder."
 msgstr "无法加载此文件夹的内容。"
 
@@ -7718,77 +7373,59 @@ msgid ""
 "You have insufficient privileges to perform search operation in this folder."
 msgstr "你没有足够的权限在这个文件夹中执行搜索操作。"
 
-#, fuzzy
 msgid "Could not update search results."
 msgstr "无法更新搜索结果。"
 
-#, fuzzy
 msgid "Could not stop search operation."
 msgstr "无法停止搜索操作。"
 
-#, fuzzy
 msgid "You have insufficient privileges to save this message."
-msgstr "你没有足够的权限来保存此信息。"
+msgstr "您没有足够的权限保存此信息。"
 
-#, fuzzy
 msgid "Could not save message."
 msgstr "无法保存信息。"
 
-#, fuzzy
 msgid "You have insufficient privileges to delete this message."
-msgstr "你没有足够的权限来删除此信息。"
+msgstr "您没有足够的权限删除此信息。"
 
-#, fuzzy
 msgid "Could not delete message."
 msgstr "无法删除信息。"
 
-#, fuzzy
 msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr "您没有足够的权限来取消此会议请求。"
+msgstr "您没有足够的权限取消此会议申请。"
 
-#, fuzzy
 msgid "Could not cancel Meeting Request."
 msgstr "无法取消会议请求。"
 
-#, fuzzy
 msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr "您没有足够的权限来拒绝此会议请求。"
+msgstr "您没有足够的权限拒绝此会议请求。"
 
-#, fuzzy
 msgid "Could not decline Meeting Request."
 msgstr "无法拒绝会议请求。"
 
-#, fuzzy
 msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr "您没有足够的权限来接受此会议请求。"
+msgstr "您没有足够的权限接受此会议请求。"
 
-#, fuzzy
 msgid "Could not accept Meeting Request."
 msgstr "无法接受会议请求。"
 
-#, fuzzy
 msgid "You have insufficient privileges to cancel Meeting Request invitation."
-msgstr "您没有足够的权限来取消会议请求邀请。"
+msgstr "您没有足够的权限取消会议申请邀请。"
 
-#, fuzzy
 msgid "Could not cancel Meeting Request invitations."
-msgstr "无法取消会议请求邀请。"
+msgstr "无法取消会议申请邀请。"
 
-#, fuzzy
 msgid "You can not continue search operation on this folder."
-msgstr "你不能继续对这个文件夹进行搜索操作。"
+msgstr "无法继续对该文件夹进行搜索操作。"
 
-#, fuzzy
 msgid "Error in search, please try again."
-msgstr "搜索错误，请重试。"
+msgstr "搜索出错，请重试。"
 
-#, fuzzy
 msgid "Error in distribution list expansion."
-msgstr "分发名单扩展中的错误。"
+msgstr "分发列表扩展错误。"
 
-#, fuzzy
 msgid "The message store has exceeded its hard quota limit."
-msgstr "信息库已经超过了它的硬配额限制。"
+msgstr "信息存储已超过硬配额限制。"
 
 #, fuzzy
 msgid ""
@@ -7798,47 +7435,37 @@ msgstr ""
 "为了减少这个信息库的数据量，选择一些你不再需要的项目，删除它们并清理你的删除"
 "项目文件夹。"
 
-#, fuzzy
 msgid "The message store has exceeded its soft quota limit."
-msgstr "信息仓库已经超过了它的软配额限制。"
+msgstr "信息存储已超过软配额限制。"
 
-#, fuzzy
 msgid "Could not process request data properly."
 msgstr "无法正确处理请求数据。"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Unknown action type specified - %s"
-msgstr "指定了未知的行动类型 - %s"
+msgstr "指定了未知操作类型 -%s"
 
-#, fuzzy
 msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr "不能对提醒进行打盹。你可能会被再次提醒。"
+msgstr "不能打盹提醒。可能会再次提醒您。"
 
-#, fuzzy
 msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr "不能驳回提醒。你可能会被再次提醒。"
+msgstr "无法解除提醒。可能会再次提醒您。"
 
-#, fuzzy
 msgid "You have insufficient privileges to perform this action."
-msgstr "你没有足够的权限来执行这个操作。"
+msgstr "您没有足够的权限执行此操作。"
 
-#, fuzzy
 msgid "Could not resolve user."
-msgstr "无法解决用户。"
+msgstr "无法解析用户。"
 
-#, fuzzy
 msgid "Setting mail filters on the stores of other users is not allowed."
 msgstr "不允许在其他用户的商店中设置邮件过滤器。"
 
-#, fuzzy
 msgid "Untitled rule"
 msgstr "无标题规则"
 
-#, fuzzy
 msgid "Could not load rules."
 msgstr "无法加载规则。"
 
-#, fuzzy
 msgid "Could not save rules."
 msgstr "无法保存规则。"
 
@@ -7848,9 +7475,8 @@ msgstr "任务要求。"
 msgid "Sign in"
 msgstr "登录"
 
-#, fuzzy
 msgid "File is not imported successfully"
-msgstr "文件没有被成功导入"
+msgstr "文件未成功导入"
 
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr "上传的文件超出了 php.ini 中的 upload_max_filesize 指令。"

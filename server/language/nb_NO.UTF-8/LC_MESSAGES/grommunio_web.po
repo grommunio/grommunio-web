@@ -4610,13 +4610,13 @@ msgid "Plain Text"
 msgstr "Tekst"
 
 msgid "In both representee's and delegate's Sent Items"
-msgstr ""
+msgstr "I både representantens og delegatens Sent Items"
 
 msgid "Only in delegate's Sent Items"
-msgstr ""
+msgstr "Bare i delegatens sendte elementer"
 
 msgid "Only in representee's Sent Items"
-msgstr ""
+msgstr "Kun i representantens Sendte elementer"
 
 msgid "Compose mail settings"
 msgstr "Innstilling for redigering av e-post"
@@ -4631,7 +4631,7 @@ msgid "Default font size"
 msgstr "Standard skriftstørrelse"
 
 msgid "Save emails sent by delegate"
-msgstr ""
+msgstr "Lagre e-poster sendt av delegaten"
 
 msgid "Always request a read receipt"
 msgstr "Alltid be om lesebekreftelse"
@@ -4674,7 +4674,7 @@ msgid "{A}Automatically mark mail as read after {B} second(s)"
 msgstr "{A}Automatisk marker e-post som lest etter {B} sekund(er)"
 
 msgid "View mail in this format"
-msgstr ""
+msgstr "Vis e-post i dette formatet"
 
 msgid "Right"
 msgstr "Høyre"
@@ -5583,7 +5583,7 @@ msgid "Desktop Notifications"
 msgstr "Skrivebordsvarsler"
 
 msgid "Files: Default plugin"
-msgstr ""
+msgstr "Filer: Standard plugin"
 
 msgid "Loading users and groups"
 msgstr "Laster inn brukere og grupper"
@@ -5640,28 +5640,28 @@ msgid "Loading details…"
 msgstr "Laster inn detaljer…"
 
 msgid "Files: Seafile Backend"
-msgstr ""
+msgstr "Filer: Seafile Backend"
 
 msgid "Copy link to clipboard"
-msgstr ""
+msgstr "Kopier lenke til utklippstavlen"
 
 msgid "Link copied to clipboard"
-msgstr ""
+msgstr "Lenke kopiert til utklippstavlen"
 
 msgid "Clipboard"
-msgstr ""
+msgstr "Utklippstavle"
 
 msgid "Could not copy link automatically. Please copy it manually."
-msgstr ""
+msgstr "Kunne ikke kopiere lenken automatisk. Vennligst kopier den manuelt."
 
 msgid "Loading details..."
-msgstr ""
+msgstr "Laster inn detaljer..."
 
 msgid "Share"
 msgstr "Del"
 
 msgid "Loading..."
-msgstr ""
+msgstr "Laster..."
 
 msgid "Add attachment from {0}"
 msgstr "Legg til vedlegg fra {0}"
@@ -5750,7 +5750,7 @@ msgid "Files Plugin"
 msgstr "Filer Plugin"
 
 msgid "Default"
-msgstr ""
+msgstr "Standard"
 
 msgid "Manage Accounts"
 msgstr "Behandle konto"
@@ -5762,9 +5762,8 @@ msgid "Resets Files settings to their original defaults"
 msgstr ""
 "Tilbakestiller filinnstillingene til de opprinnelige standardinnstillingene"
 
-#, fuzzy
 msgid "Are you sure to remove all settings and accounts?"
-msgstr "Er du sikker på at vil slette de merkede objektene og alt innholdet?"
+msgstr "Er du sikker på at du har fjernet alle innstillinger og kontoer?"
 
 msgid ""
 "Accounts marked by your administrator as \"cannot be changed\" will not be "
@@ -6051,88 +6050,88 @@ msgid "Intranet"
 msgstr "Intranett"
 
 msgid "Archive to InfoShare"
-msgstr ""
+msgstr "Arkiv til InfoShare"
 
 msgid "Kendox InfoShare"
-msgstr ""
+msgstr "Kendox InfoShare"
 
 msgid "Constraints for single attachment archiving"
-msgstr ""
+msgstr "Begrensninger for arkivering av enkeltvedlegg"
 
 msgid "Max count attachments"
-msgstr ""
+msgstr "Maks antall vedlegg"
 
 msgid "Max size all selected attachments (MB)"
-msgstr ""
+msgstr "Maks størrelse på alle valgte vedlegg (MB)"
 
 msgid "Selection Kendox InfoShare environment"
-msgstr ""
+msgstr "Valg Kendox InfoShare-miljø"
 
 msgid "Production"
-msgstr ""
+msgstr "Produksjon"
 
 msgid "Test"
-msgstr ""
+msgstr "Test"
 
 msgid "URLs for production environment"
-msgstr ""
+msgstr "URL-adresser for produksjonsmiljø"
 
 msgid "Kendox InfoShare API URL"
-msgstr ""
+msgstr "Kendox InfoShare API-URL"
 
 msgid "Kendox InfoShare Web dialog URL"
-msgstr ""
+msgstr "Kendox InfoShare Web dialog URL"
 
 msgid "URLs for test environment"
-msgstr ""
+msgstr "Nettadresser for testmiljø"
 
 msgid "Mail/Document archive to Kendox InfoShare"
-msgstr ""
+msgstr "Mail/dokumentarkiv til Kendox InfoShare"
 
 msgid "Attachment information is requested"
-msgstr ""
+msgstr "Informasjon om vedlegg er påkrevd"
 
 msgid "Please select the type of Archive (max"
-msgstr ""
+msgstr "Vennligst velg type arkiv (maks"
 
 msgid "files, max"
-msgstr ""
+msgstr "filer, maks"
 
 msgid "MB total size)"
-msgstr ""
+msgstr "MB total størrelse)"
 
 msgid "Everything - Store mail in original format"
-msgstr ""
+msgstr "Alt - Lagre e-post i originalformat"
 
 msgid "Email only - Store mail without attachments"
 msgstr "Kun e-post - Lagre e-post uten vedlegg"
 
 msgid "Separate - Store attachments separately"
-msgstr ""
+msgstr "Separat - Lagre vedlegg separat"
 
 msgid "No attachments available in mail"
-msgstr ""
+msgstr "Ingen vedlegg tilgjengelig i e-post"
 
 msgid "Start archive"
-msgstr ""
+msgstr "Start arkiv"
 
 msgid "embedded"
 msgstr "innebygd"
 
 msgid "Reading attachment information failed"
-msgstr ""
+msgstr "Lesing av vedleggsinformasjon mislyktes"
 
 msgid "Files are sent to Kendox InfoShare"
-msgstr ""
+msgstr "Filene sendes til Kendox InfoShare"
 
 msgid "With the selection of separate attachments a maximum of"
-msgstr ""
+msgstr "Ved valg av separate vedlegg kan maksimalt"
 
 msgid "attachments can be selected. There have been"
-msgstr ""
+msgstr "vedlegg kan velges. Det har vært"
 
 msgid "attachments selected"
-msgstr ""
+msgstr "vedlegg valgt"
 
 msgid ""
 "With the selection of separate attachments the total size of all attachments "
@@ -6140,13 +6139,13 @@ msgid ""
 msgstr ""
 
 msgid "MB. There have been"
-msgstr ""
+msgstr "MB. Det har vært"
 
 msgid "MB selected."
-msgstr ""
+msgstr "MB valgt."
 
 msgid "Sending of mail failed"
-msgstr ""
+msgstr "Sending av e-post mislyktes"
 
 msgid "Openstreetmap"
 msgstr "Openstreetmap"
@@ -6808,10 +6807,10 @@ msgstr ""
 "kontakt med din systemadministrator."
 
 msgid "This backend provides the default WebDAV integration for Files."
-msgstr ""
+msgstr "Denne backend-enheten gir standard WebDAV-integrasjon for Files."
 
 msgid "Files Default Backend: "
-msgstr ""
+msgstr "Filer Standard backend: "
 
 msgid "Server address"
 msgstr "Serveradresse"
@@ -6887,15 +6886,17 @@ msgstr "PHP-Curl er ikke tilgjengelig."
 
 msgid "With this backend, you can connect to any Seafile server."
 msgstr ""
+"Med denne backend-løsningen kan du koble deg til en hvilken som helst "
+"Seafile-server."
 
 msgid "Files "
-msgstr ""
+msgstr "Filer "
 
 msgid "Use SSL"
 msgstr "Bruk SSL"
 
 msgid "Seafile is not reachable. Correct backend address entered?"
-msgstr ""
+msgstr "Seafile kan ikke nås. Riktig backend-adresse oppgitt?"
 
 msgid "You don't have enough permissions for this operation."
 msgstr "Du har ikke tilstrekkelige rettigheter til denne handlingen."
@@ -6913,7 +6914,7 @@ msgid "The request failed due to failure of a previous request."
 msgstr "Handlingen feilet pga feil ved en tidligere handling."
 
 msgid "Seafile-server encountered a problem."
-msgstr ""
+msgstr "Seafile-server har støtt på et problem."
 
 msgid ""
 "Could not write to temporary directory. Contact the server administrator."
@@ -6931,7 +6932,7 @@ msgid "PHP-Curl is not available. Contact your system administrator."
 msgstr "PHP-Curl er ikke tilgjengelig. Kontakt din systemadministrator."
 
 msgid "This function is not yet implemented."
-msgstr ""
+msgstr "Denne funksjonen er ennå ikke implementert."
 
 msgid "Unknown account ID"
 msgstr "Ukjent konto-ID"
@@ -7026,7 +7027,7 @@ msgid "Kendox certificate password is not configured."
 msgstr "Passordet til Kendox-sertifikatet er ikke konfigurert."
 
 msgid "Kendox certificate is not available."
-msgstr ""
+msgstr "Kendox-sertifikatet er ikke tilgjengelig."
 
 msgid "Kendox certificate is not readable."
 msgstr "Kendox-sertifikatet er ikke lesbart."
@@ -7069,7 +7070,7 @@ msgid "No certificate available"
 msgstr "Ingen sertifikat tilgjengelig"
 
 msgid "Private certificate has expired, unable to sign email"
-msgstr ""
+msgstr "Privat sertifikat har utløpt, kan ikke signere e-post"
 
 msgid "Private certificate is not valid yet, unable to sign email"
 msgstr "Privat sertifikat er ikke gyldig ennå, kan ikke signere e-post"
@@ -7784,4 +7785,4 @@ msgstr "Feil UTF-8-tegn, muligens feilkodet"
 
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
-msgstr ""
+msgstr "Det oppstod et problem ved koding/avkoding av JSON-data: - %s"

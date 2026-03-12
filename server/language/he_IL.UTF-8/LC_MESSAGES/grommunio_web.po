@@ -16,69 +16,64 @@ msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
-msgstr ""
+msgstr "Wk"
 
 msgid "Now"
-msgstr ""
+msgstr "עַכשָׁיו"
 
 msgid "Value must be between 0% to 100%"
-msgstr ""
+msgstr "הערך חייב להיות בין 0% ל-100%"
 
 msgid "Number must be higher than zero"
-msgstr ""
+msgstr "המספר חייב להיות גבוה מאפס"
 
-#, fuzzy
 msgid "More options"
-msgstr "אפשרויות הודעה"
+msgstr "אפשרויות נוספות"
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0}בייט"
+msgstr[1] "{0}בתים"
 
 msgid "{0} KB"
 msgid_plural "{0} KB"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0}KB"
+msgstr[1] "{0}KB"
 
 msgid "{0} MB"
 msgid_plural "{0} MB"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0}MB"
+msgstr[1] "{0}MB"
 
 msgid "{0} GB"
 msgid_plural "{0} GB"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0}GB"
+msgstr[1] "{0}GB"
 
 msgid "{0} TB"
 msgid_plural "{0} TB"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0}TB"
+msgstr[1] "{0}TB"
 
-#, fuzzy
 msgid "{0} minute"
 msgid_plural "{0} minutes"
-msgstr[0] "{0} דקות"
-msgstr[1] ""
+msgstr[0] "דקה{0}"
+msgstr[1] "{0}דקות"
 
-#, fuzzy
 msgid "{0} hour"
 msgid_plural "{0} hours"
-msgstr[0] "{0} שעות"
-msgstr[1] ""
+msgstr[0] "שעה{0}"
+msgstr[1] "{0}שעות"
 
-#, fuzzy
 msgid "{0} day"
 msgid_plural "{0} days"
-msgstr[0] "{0} ימים"
-msgstr[1] ""
+msgstr[0] "יום{0}"
+msgstr[1] "{0}ימים"
 
-#, fuzzy
 msgid "{0} week"
 msgid_plural "{0} weeks"
-msgstr[0] "{0} שבועות"
-msgstr[1] ""
+msgstr[0] "שבוע{0}"
+msgstr[1] "{0}שבועות"
 
 msgid "The quick brown fox jumps over the lazy dog"
 msgstr "השועל החום הזריז קופץ מעל הכלב העצלן"
@@ -105,25 +100,25 @@ msgid "Saturday"
 msgstr "יום שבת"
 
 msgid "Sun"
-msgstr ""
+msgstr "שֶׁמֶש"
 
 msgid "Mon"
-msgstr ""
+msgstr "יום שני"
 
 msgid "Tue"
-msgstr ""
+msgstr "ג'"
 
 msgid "Wed"
-msgstr ""
+msgstr "לְהִתְחַתֵן"
 
 msgid "Thu"
-msgstr ""
+msgstr "יום ה'"
 
 msgid "Fri"
-msgstr ""
+msgstr "שישי"
 
 msgid "Sat"
-msgstr ""
+msgstr "שבת"
 
 msgid "January"
 msgstr "ינואר"
@@ -189,7 +184,7 @@ msgid "Today"
 msgstr "היום"
 
 msgid "OK"
-msgstr ""
+msgstr "בְּסֵדֶר"
 
 msgid "Cancel"
 msgstr "ביטול"
@@ -205,7 +200,7 @@ msgstr "תאריך זה מאוחר יותר מהתאריך המקסמילי"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "d/m/Y"
-msgstr ""
+msgstr "d/m/Y"
 
 msgid "Disabled"
 msgstr "מושבת"
@@ -247,7 +242,7 @@ msgid "No"
 msgstr "לא"
 
 msgid "Loading"
-msgstr ""
+msgstr "טְעִינָה"
 
 msgid "The value in this field is invalid"
 msgstr "הערך בשדה זה לא תקף"
@@ -315,7 +310,7 @@ msgid ""
 msgstr "שדה זה צריך להיות כתובת דואר אלקטרוני ב \"user@example.com\" בפורמט"
 
 msgid "This field should be a URL in the format \"{0}\""
-msgstr ""
+msgstr "שדה זה צריך להיות כתובת אתר בפורמט \"{0}\""
 
 msgid "This field should only contain letters and _"
 msgstr "בתחום זה יש להשתמש רק באותיות ו _"
@@ -323,13 +318,11 @@ msgstr "בתחום זה יש להשתמש רק באותיות ו _"
 msgid "This field should only contain letters, numbers and _"
 msgstr "שדה זה צריך להכיל רק אותיות, מספרים ו _"
 
-#, fuzzy
 msgid "Email Addresses"
-msgstr "כתובות דואר אלקטרני"
+msgstr "כתובות אימייל"
 
-#, fuzzy
 msgid "Email addresses"
-msgstr "כתובות דואר אלקטרוני"
+msgstr "כתובות אימייל"
 
 msgid "Group details"
 msgstr "פרטי קבוצה"
@@ -371,13 +364,13 @@ msgid "User details"
 msgstr "פרטי משתמש"
 
 msgid "First name"
-msgstr ""
+msgstr "שֵׁם פְּרַטִי"
 
 msgid "Last name"
-msgstr ""
+msgstr "שֵׁם מִשׁפָּחָה"
 
 msgid "Initials"
-msgstr ""
+msgstr "ראשי תיבות"
 
 msgid "Display"
 msgstr "שם תצוגה"
@@ -401,7 +394,7 @@ msgid "Country"
 msgstr "מדינה"
 
 msgid "Professional"
-msgstr ""
+msgstr "מִקצוֹעִי"
 
 msgid "Title"
 msgstr "כותרת"
@@ -454,12 +447,11 @@ msgstr "נייד"
 msgid "Pager"
 msgstr "איתורית"
 
-#, fuzzy
 msgid "No user selected"
-msgstr "תיקיית '{0}' נבחרה."
+msgstr "לא נבחר משתמש"
 
 msgid "You must select one or more users."
-msgstr ""
+msgstr "עליך לבחור משתמש אחד או יותר."
 
 msgid "You must select a user."
 msgstr "הנך חייב לבחור משתמש"
@@ -471,122 +463,110 @@ msgid "Show Details"
 msgstr "הצג פרטים"
 
 msgid "Copy contact"
-msgstr ""
+msgstr "העתק איש קשר"
 
 msgid "Copy contacts"
-msgstr ""
+msgstr "העתק אנשי קשר"
 
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
 
 msgid "Use the search bar to get results"
-msgstr ""
+msgstr "השתמש בסרגל החיפוש כדי לקבל תוצאות"
 
-#, fuzzy
 msgid "There are no items to show in this list"
-msgstr "אין פריטים להצגה בתצוגה זו"
+msgstr "אין פריטים להצגה ברשימה זו"
 
 msgid "Show Names from the"
 msgstr "הצג שמות מה"
 
-#, fuzzy
 msgid "Search…"
-msgstr "מרץ…"
+msgstr "לְחַפֵּשׂ…"
 
 msgid "Sort by: Icon"
 msgstr "מיין לפי: סמל"
 
-#, fuzzy
 msgid "Sort by: Name"
-msgstr "מיין לפי: גודל"
+msgstr "מיין לפי: שם"
 
 msgid "Sort by: Display Name"
-msgstr ""
+msgstr "מיין לפי: שם תצוגה"
 
 msgid "File as"
 msgstr "תייק כ"
 
-#, fuzzy
 msgid "Sort by: File As"
-msgstr "מיין לפי: גודל"
+msgstr "מיין לפי: קובץ בשם"
 
-#, fuzzy
 msgid "First Name"
-msgstr "עמוד ראשון"
+msgstr "שֵׁם פְּרַטִי"
 
 msgid "Sort by: First Name"
-msgstr ""
+msgstr "מיין לפי: שם פרטי"
 
-#, fuzzy
 msgid "Last Name"
-msgstr "עמוד אחרון"
+msgstr "שֵׁם מִשׁפָּחָה"
 
-#, fuzzy
 msgid "Sort by: Last Name"
-msgstr "מיין לפי: גודל"
+msgstr "מיין לפי: שם משפחה"
 
 msgid "Sort by: Email Address"
-msgstr ""
+msgstr "מיין לפי: כתובת אימייל"
 
 msgid "Job Title"
 msgstr "הגדרת התפקיד"
 
 msgid "Sort by: Job Title"
-msgstr ""
+msgstr "מיין לפי: כותרת תפקיד"
 
 msgid "Company Name"
 msgstr "שם החברה"
 
 msgid "Sort by: Company Name"
-msgstr ""
+msgstr "מיין לפי: שם חברה"
 
 msgid "Sort by: Department"
-msgstr ""
+msgstr "מיין לפי: מחלקה"
 
 msgid "Office Phone"
 msgstr "טלפון במשרד"
 
 msgid "Sort by: Office Phone"
-msgstr ""
+msgstr "מיין לפי: טלפון משרדי"
 
-#, fuzzy
 msgid "Sort by: Mobile"
-msgstr "מיין לפי: גודל"
+msgstr "מיין לפי: נייד"
 
 msgid "Home Phone"
 msgstr "טלפון בבית"
 
 msgid "Sort by: Home Phone"
-msgstr ""
+msgstr "מיין לפי: טלפון ביתי"
 
-#, fuzzy
 msgid "Sort by: Pager"
-msgstr "מיין לפי: גודל"
+msgstr "מיין לפי: ביפר"
 
 msgid "Location"
 msgstr "מיקום"
 
-#, fuzzy
 msgid "Sort by: Location"
-msgstr "מיין לפי: שינוי"
+msgstr "מיין לפי: מיקום"
 
-#, fuzzy
 msgid "Sort by: Fax"
-msgstr "מיין לפי: מאת"
+msgstr "מיין לפי: פקס"
 
 msgid "Print single item"
-msgstr ""
+msgstr "הדפס פריט בודד"
 
-#, fuzzy
 msgid "Print selected item"
-msgstr "נבחר פריט {0}"
+msgstr "הדפס את הפריט הנבחר"
 
 msgid "Print"
 msgstr "הדפס"
 
 msgid "No item selected"
-msgstr ""
+msgstr "לא נבחר פריט"
 
 msgid "No preview"
 msgstr "ללא תצוגה"
@@ -597,58 +577,53 @@ msgstr "תצוגה מימין"
 msgid "Bottom preview"
 msgstr "תצוגה מלמטה"
 
-#, fuzzy
 msgid "Any date"
-msgstr "תאריך סיום"
+msgstr "כל תאריך"
 
 msgid "Past week"
-msgstr ""
+msgstr "שבוע שעבר"
 
 msgid "Past 2 weeks"
-msgstr ""
+msgstr "השבועיים האחרונים"
 
 msgid "Past month"
-msgstr ""
+msgstr "החודש האחרון"
 
 msgid "Past 6 month"
-msgstr ""
+msgstr "6 החודשים האחרונים"
 
 msgid "Past year"
-msgstr ""
+msgstr "שנה שעברה"
 
-#, fuzzy
 msgid "Custom date"
-msgstr "תאריך היעד"
+msgstr "תאריך מותאם אישית"
 
 msgid "Add to favorites"
-msgstr ""
+msgstr "הוסף למועדפים"
 
 msgid "Add"
 msgstr "הוסף"
 
-#, fuzzy
 msgid "Empty folder name"
-msgstr "תיקיה ריקה"
+msgstr "שם התיקייה ריקה"
 
 msgid "You must specify a name."
 msgstr "עליך לציין שם."
 
 msgid "Add a folder to favorites based on search query"
-msgstr ""
+msgstr "הוסף תיקיה למועדפים על סמך שאילתת חיפוש"
 
 msgid "Folder name"
-msgstr ""
+msgstr "שם התיקיה"
 
-#, fuzzy
 msgid "Select Category"
-msgstr "הגדר קטגוריה"
+msgstr "בחר קטגוריה"
 
 msgid "Apply"
-msgstr ""
+msgstr "לִפְנוֹת"
 
-#, fuzzy
 msgid "All folders are selected"
-msgstr "תיקיית '{0}' נבחרה."
+msgstr "כל התיקיות נבחרות"
 
 msgid "Reply"
 msgstr "השב"
@@ -660,30 +635,25 @@ msgid "Forward"
 msgstr "העבר"
 
 msgid "Edit as New"
-msgstr ""
+msgstr "ערוך כחדש"
 
 msgid "Search tools"
-msgstr ""
+msgstr "כלי חיפוש"
 
-#, fuzzy
 msgid "Folders"
-msgstr "תיקיה"
+msgstr "תיקיות"
 
-#, fuzzy
 msgid "Include subfolders"
-msgstr "צור תיקיות משנה"
+msgstr "כלול תיקיות משנה"
 
-#, fuzzy
 msgid "Show…"
-msgstr "הראה כ…"
+msgstr "לְהַצִיג…"
 
-#, fuzzy
 msgid "Mails"
-msgstr "דואר"
+msgstr "מיילים"
 
-#, fuzzy
 msgid "Appointments"
-msgstr "פגישה"
+msgstr "פגישות"
 
 msgid "Contacts"
 msgstr "אנשי קשר"
@@ -692,7 +662,7 @@ msgid "Tasks"
 msgstr "משימות"
 
 msgid "Filter…"
-msgstr ""
+msgstr "לְסַנֵן…"
 
 msgid "Unread"
 msgstr "לא נקרא"
@@ -701,7 +671,7 @@ msgid "Attachments"
 msgstr "קבצים מצורפים"
 
 msgid "Date"
-msgstr ""
+msgstr "תַאֲרִיך"
 
 #, fuzzy
 msgctxt "search.date"
@@ -713,42 +683,38 @@ msgctxt "search.date"
 msgid "To"
 msgstr "אל"
 
-#, fuzzy
 msgid "Filter category…"
-msgstr "הגדר קטגוריה…"
+msgstr "קטגוריית סינון..."
 
 msgid "Sender"
 msgstr "שולח"
 
-#, fuzzy
 msgid "Recipients"
-msgstr "ערוך נמען"
+msgstr "נמענים"
 
 msgid "Subject"
 msgstr "נושא"
 
-#, fuzzy
 msgid "Body & Attachments"
-msgstr "קבצים מצורפים"
+msgstr "גוף וקבצים מצורפים"
 
 msgid "Favorites"
 msgstr "מועדפים"
 
-#, fuzzy
 msgid "Select Folder"
-msgstr "מחק תיקיה"
+msgstr "בחר תיקייה"
 
 msgid "Delete search folder"
-msgstr ""
+msgstr "מחק תיקיית חיפוש"
 
 msgid "Sort by: Date"
-msgstr ""
+msgstr "מיין לפי: תאריך"
 
 msgid "Loading Search results"
-msgstr ""
+msgstr "טוען תוצאות חיפוש"
 
 msgid "Sorting tip"
-msgstr ""
+msgstr "טיפ למיון"
 
 msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
@@ -756,16 +722,16 @@ msgid ""
 msgstr ""
 
 msgid "Did you mean"
-msgstr ""
+msgstr "האם התכוונת"
 
 msgid "With"
-msgstr ""
+msgstr "עִם"
 
 msgid "To"
 msgstr "אל"
 
 msgid "No date"
-msgstr ""
+msgstr "אין תאריך"
 
 msgid "Error"
 msgstr "שגיאה"
@@ -811,7 +777,7 @@ msgid "weeks"
 msgstr "שבועות"
 
 msgid " on "
-msgstr ""
+msgstr "עַל"
 
 msgid "month"
 msgstr "חודש"
@@ -840,24 +806,24 @@ msgstr "מופיע כל {0}{1} החל מ{2}."
 msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural ""
 "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "מתרחש כל{0}יעיל{1}עבור התרחשות{2}מ{3}ל{4}."
+msgstr[1] "מתרחש בכל{0}יעיל{1}עבור מופעי{2}מ-{3}עד{4}."
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
 msgid_plural ""
 "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "מתרחש כל{0}{1}יעיל{2}עבור התרחשות{3}מ{4}עד{5}."
+msgstr[1] "מתרחש בכל{0}{1}יעיל{2}עבור מופעי{3}{4}עד{5}."
 
 msgid "Occurs every {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "מתרחש בכל{0}יעיל{1}עבור התרחשות{2}."
+msgstr[1] "מתרחש בכל{0}יעיל{1}עבור התרחשויות{2}."
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
 msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "מתרחש בכל{0}{1}יעיל{2}עבור התרחשות{3}."
+msgstr[1] "מתרחש בכל{0}{1}יעיל{2}עבור התרחשויות{3}."
 
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
 msgstr "מופיע כל {0} החל מ{1} עד {2} בין {3} ל {4}."
@@ -876,7 +842,7 @@ msgstr "מתי"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y {0}"
-msgstr ""
+msgstr "l jS F Y{0}"
 
 msgid "Where"
 msgstr "היכן"
@@ -885,13 +851,13 @@ msgid "New Meeting Time Proposed"
 msgstr "זמן חדש לפגישה הוצע"
 
 msgid "and "
-msgstr ""
+msgstr "ו"
 
 msgid "Sort by: Attachment"
 msgstr "מיין לפי: קבצים מצורפים"
 
 msgid "Sort by: Recurring"
-msgstr ""
+msgstr "מיין לפי: חוזר"
 
 msgid "Sort by: Subject"
 msgstr "מיין לפי: נושא"
@@ -900,14 +866,13 @@ msgid "Start Date"
 msgstr "תאריך התחלה"
 
 msgid "Sort by: Start Date"
-msgstr ""
+msgstr "מיין לפי: תאריך התחלה"
 
-#, fuzzy
 msgid "End Date"
 msgstr "תאריך סיום"
 
 msgid "Sort by: End Date"
-msgstr ""
+msgstr "מיין לפי: תאריך סיום"
 
 msgid "Organizer"
 msgstr "מארגן"
@@ -919,7 +884,7 @@ msgid "Optional Attendee"
 msgstr "משתתף אופציונלי"
 
 msgid "Show Time As"
-msgstr ""
+msgstr "Show Time As"
 
 msgid "Recurrence pattern"
 msgstr "תבנית מופע חוזר"
@@ -927,9 +892,8 @@ msgstr "תבנית מופע חוזר"
 msgid "All Day Event"
 msgstr "אירוע של יום שלם"
 
-#, fuzzy
 msgid "Add Shared Calendar"
-msgstr "פתח תיקיות משותפות"
+msgstr "הוסף יומן משותף"
 
 msgid "Remove From Calendar"
 msgstr "הסר מלוח השנה"
@@ -971,7 +935,7 @@ msgid "Accept Proposed Time"
 msgstr "קבל את הצעת הזמן"
 
 msgid "View in calendar"
-msgstr ""
+msgstr "הצג בלוח שנה"
 
 msgid "Day"
 msgstr "יום"
@@ -995,23 +959,22 @@ msgid "Meeting request"
 msgstr "בקשת פגישה"
 
 msgid "Print selected appointment"
-msgstr ""
+msgstr "הדפס את הפגישה שנבחרה"
 
 msgid "No appointment selected"
-msgstr ""
+msgstr "לא נבחר פגישה"
 
 msgid "Print overview"
-msgstr ""
+msgstr "הדפס סקירה כללית"
 
-#, fuzzy
 msgid "Create Appointment"
-msgstr "פגישה פרטית"
+msgstr "צור פגישה"
 
 msgid "Calendar"
 msgstr "לוח שנה"
 
 msgid "Create in other calendar"
-msgstr ""
+msgstr "צור בלוח שנה אחר"
 
 msgid ""
 "The selected calendar has \"read-only\" permissions. Instead you can create "
@@ -1019,18 +982,17 @@ msgid ""
 msgstr ""
 
 msgid "What would you like?"
-msgstr ""
+msgstr "מה היית רוצה?"
 
-#, fuzzy
 msgid "Own calendar"
-msgstr "לוח שנה"
+msgstr "לוח שנה משלו"
 
 msgid "F Y"
 msgstr "F Y"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l"
-msgstr ""
+msgstr "ל"
 
 msgid "All text fields"
 msgstr "כל שדות הטקסט"
@@ -1052,33 +1014,30 @@ msgctxt "calendar.dialog"
 msgid "Resources have been planned"
 msgstr "תוכננו משאבים"
 
-#, fuzzy
 msgid "Send update"
-msgstr "תאריך סיום"
+msgstr "שלח עדכון"
 
 msgid "Do you want to send an update to all recipients?"
-msgstr ""
+msgstr "האם ברצונך לשלוח עדכון לכל הנמענים?"
 
 msgid "Send update to attendees"
-msgstr ""
+msgstr "שלח עדכון למשתתפים"
 
 msgid ""
 "You have made changes to the list of attendees. What would you like to do?"
 msgstr ""
 
 msgid "Send updates to only added or deleted attendees."
-msgstr ""
+msgstr "שלח עדכונים רק למשתתפים שנוספו או נמחקו."
 
 msgid "Send updates to all attendees."
-msgstr ""
+msgstr "שלח עדכונים לכל המשתתפים."
 
-#, fuzzy
 msgid "Busy attendees"
-msgstr "הזמן משתתפים"
+msgstr "משתתפים עסוקים"
 
-#, fuzzy
 msgid "One or more attendees are busy. Are you sure to invite?"
-msgstr "אחד או יותר מהמשתתפים שהזמנת עסוקים. האם אתה בטוח שברצונך להזמין?"
+msgstr "אחד או יותר מהמשתתפים עסוקים. האם אתה בטוח להזמין?"
 
 msgid "Scheduling"
 msgstr "מכניס ללוח הזמנים"
@@ -1116,7 +1075,7 @@ msgstr "התקבל ב {0}"
 
 msgctxt "calendar.dialog"
 msgid "Accepted by {0} on {1}"
-msgstr ""
+msgstr "מקובל על ידי{0}ב-{1}"
 
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted on {0}"
@@ -1145,7 +1104,7 @@ msgstr "הפגישה בוטלה."
 
 msgctxt "calendar.dialog"
 msgid "Invitations have not been sent for this meeting."
-msgstr ""
+msgstr "לא נשלחו הזמנות לפגישה זו."
 
 msgctxt "calendar.dialog"
 msgid ""
@@ -1153,15 +1112,14 @@ msgid ""
 "request is updated by the organizer"
 msgstr ""
 
-#, fuzzy
 msgid "Create in"
-msgstr "נוצר ב"
+msgstr "צור ב"
 
 msgid "Time"
 msgstr "זמן"
 
 msgid "until"
-msgstr ""
+msgstr "עַד"
 
 msgid "Recurrence"
 msgstr "מופע חוזר"
@@ -1173,17 +1131,16 @@ msgid "Show as"
 msgstr "הראה כ"
 
 msgid "Warning"
-msgstr ""
+msgstr "אַזהָרָה"
 
 msgid "Attachments cannot be modified for a single occurrence"
-msgstr ""
+msgstr "לא ניתן לשנות קבצים מצורפים עבור אירוע בודד"
 
 msgid "Type your message here…"
-msgstr ""
+msgstr "הקלד את הודעתך כאן..."
 
-#, fuzzy
 msgid "Update location"
-msgstr "עדכן רשימה"
+msgstr "עדכן מיקום"
 
 msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
@@ -1191,14 +1148,13 @@ msgstr "האם ברצונך לעדכן את המיקום \"{0}\" עם המיקו
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y {0}"
-msgstr ""
+msgstr "jS F Y{0}"
 
 msgid "None"
 msgstr "אף אחד"
 
-#, fuzzy
 msgid "Send"
-msgstr "נשלח"
+msgstr "לִשְׁלוֹחַ"
 
 msgid "Save"
 msgstr "שמור"
@@ -1216,10 +1172,10 @@ msgid "Check names"
 msgstr "בדוק שמות"
 
 msgid "Addressbook"
-msgstr ""
+msgstr "ספר כתובות"
 
 msgid "Open addressbook"
-msgstr ""
+msgstr "פתח את ספר הכתובות"
 
 msgid "Invite attendees"
 msgstr "הזמן משתתפים"
@@ -1278,9 +1234,8 @@ msgstr "זמן סיום"
 msgid "Comment"
 msgstr "הערה"
 
-#, fuzzy
 msgid "Send Meeting Request Cancellation"
-msgstr "שלח אישור בקשת פגישה"
+msgstr "שלח ביטול בקשת פגישה"
 
 msgid ""
 "This meeting will be cancelled. Do you want to include comments with your "
@@ -1288,10 +1243,10 @@ msgid ""
 msgstr ""
 
 msgid "Edit the cancellation before Sending."
-msgstr ""
+msgstr "ערוך את הביטול לפני השליחה."
 
 msgid "Send the cancellation now."
-msgstr ""
+msgstr "שלח את הביטול עכשיו."
 
 msgid "Send Meeting Request Confirmation"
 msgstr "שלח אישור בקשת פגישה"
@@ -1319,9 +1274,8 @@ msgstr ""
 "פגישה זו סורבה ותועבר לתיקית \"פריטים שנמחקו\". האם אתה רוצה לכלול הערות עם "
 "התגובה שלך?"
 
-#, fuzzy
 msgid "Edit the response before sending"
-msgstr "ערוך את התגבוה לפני שליחה."
+msgstr "ערוך את התגובה לפני השליחה"
 
 msgid "Send the response now."
 msgstr "שלח את התגובה כעת."
@@ -1329,9 +1283,8 @@ msgstr "שלח את התגובה כעת."
 msgid "Don't send a response."
 msgstr "אל תשלח תגובה."
 
-#, fuzzy
 msgid "The following responses for this meeting have been received"
-msgstr "התגובות הבואת לפגישה זו התקבלו"
+msgstr "התגובות הבאות לפגישה זו התקבלו"
 
 msgid "Attendance"
 msgstr "נוכחות"
@@ -1339,28 +1292,26 @@ msgstr "נוכחות"
 msgid "Response"
 msgstr "תגובה"
 
-#, fuzzy
 msgid "New appointment"
-msgstr "פגישה חדשה"
+msgstr "מינוי חדש"
 
 msgid "Creating an item"
-msgstr ""
+msgstr "יצירת פריט"
 
-#, fuzzy
 msgid "New meeting request"
-msgstr "בקשה לפגישה חדשה"
+msgstr "בקשת פגישה חדשה"
 
 msgid "Switch calendar range back and forth"
-msgstr ""
+msgstr "החלף טווח לוח שנה קדימה ואחורה"
 
 msgid "Copy selected item"
-msgstr ""
+msgstr "העתק את הפריט שנבחר"
 
 msgid "Paste selected item"
-msgstr ""
+msgstr "הדבק את הפריט שנבחר"
 
 msgid "An overview of"
-msgstr ""
+msgstr "סקירה כללית של"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Start"
@@ -1368,62 +1319,54 @@ msgstr "התחלה"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "End"
-msgstr ""
+msgstr "סוֹף"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
 msgid "Printed by"
-msgstr ""
+msgstr "נדפס על ידי"
 
 msgid "at"
-msgstr ""
+msgstr "בְּ-"
 
 msgid "of"
-msgstr ""
+msgstr "שֶׁל"
 
-#, fuzzy
 msgid "Location: "
-msgstr "מיקום"
+msgstr "מִקוּם:"
 
 msgid "j M {0}"
-msgstr ""
+msgstr "j M{0}"
 
 msgid "l jS M Y {0}"
-msgstr ""
+msgstr "l jS M Y{0}"
 
 msgid "All day: "
-msgstr ""
+msgstr "כל היום:"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
 msgid "l jS F Y"
-msgstr "l j F Y"
+msgstr "l jS F Y"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
 msgid "l jS F"
-msgstr "l j F Y"
+msgstr "l jS F"
 
-#, fuzzy
 msgid "Organiser"
-msgstr "מארגן"
+msgstr "מְאַרגֵן"
 
-#, fuzzy
 msgid "Meeting status"
-msgstr "מצב הפגישה"
+msgstr "סטטוס פגישה"
 
-#, fuzzy
 msgid "Required Attendees"
-msgstr "משתתף דרוש"
+msgstr "משתתפים נדרשים"
 
-#, fuzzy
 msgid "Optional Attendees"
-msgstr "משתתף אופציונלי"
+msgstr "משתתפים אופציונליים"
 
-#, fuzzy
 msgid "Resources"
-msgstr "משאב"
+msgstr "אֶמְצָעִי"
 
 msgid "Sensitivity"
 msgstr "רגישות"
@@ -1432,68 +1375,68 @@ msgid "Importance"
 msgstr "חשיבות"
 
 msgid "M j"
-msgstr ""
+msgstr "מ י"
 
 msgid "j"
-msgstr ""
+msgstr "י"
 
 msgid "General calendar settings"
-msgstr ""
+msgstr "הגדרות לוח שנה כלליות"
 
 msgid "First day of the week"
-msgstr ""
+msgstr "היום הראשון בשבוע"
 
 msgid "Start of workday"
-msgstr ""
+msgstr "תחילת יום עבודה"
 
 msgid "End of workday"
-msgstr ""
+msgstr "סוף יום עבודה"
 
 msgid "Calendar resolution"
-msgstr ""
+msgstr "רזולוציית לוח שנה"
 
 msgid "Default appointment duration {A} minutes"
-msgstr ""
+msgstr "משך הפגישה המוגדר כברירת מחדל {A} דקות"
 
 msgid "Duration must be between 1 and 120 minutes."
-msgstr ""
+msgstr "משך הזמן חייב להיות בין 1 ל-120 דקות."
 
 msgid "Default status for all day appointment"
-msgstr ""
+msgstr "סטטוס ברירת מחדל עבור פגישה במשך כל היום"
 
 msgid "Working days"
-msgstr ""
+msgstr "ימי עבודה"
 
 msgid "Show busy dates as bold in the date picker"
-msgstr ""
+msgstr "הצג תאריכים עמוסים כמודגשים בבוחר התאריכים"
 
 msgid "Side-by-side mode"
-msgstr ""
+msgstr "מצב זה לצד זה"
 
 msgid "Overlay mode"
-msgstr ""
+msgstr "מצב שכבת-על"
 
 msgid "Calendar view settings"
-msgstr ""
+msgstr "הגדרות תצוגת לוח שנה"
 
 msgid "View multiple calendars in"
-msgstr ""
+msgstr "הצג מספר יומנים ב"
 
 msgid "Reminder settings"
-msgstr ""
+msgstr "הגדרות תזכורת"
 
 msgid "Enable reminder for new appointments"
-msgstr ""
+msgstr "אפשר תזכורת עבור פגישות חדשות"
 
 msgid "Default reminder time"
-msgstr ""
+msgstr "זמן תזכורת ברירת מחדל"
 
 msgid "Default all-day appointment reminder time"
-msgstr ""
+msgstr "מועד ברירת מחדל לתזכורת פגישות במשך כל היום"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS"
-msgstr ""
+msgstr "jS"
 
 msgid "{0} selected item"
 msgid_plural "{0} selected items"
@@ -1512,57 +1455,50 @@ msgstr "פתח"
 msgid "Copy/Move"
 msgstr "העתק/העבר"
 
-#, fuzzy
 msgid "Send to…"
-msgstr "נשלח…"
+msgstr "שלח אל…"
 
 msgid "Export as"
-msgstr ""
+msgstr "ייצא בשם"
 
-#, fuzzy
 msgid "Occurrence"
-msgstr "מופע חוזר"
+msgstr "הִתרַחֲשׁוּת"
 
 msgid "Series"
-msgstr ""
+msgstr "סִדרָה"
 
-#, fuzzy
 msgid "Appointment not found"
-msgstr "פגישה"
+msgstr "הפגישה לא נמצאה"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
-msgstr ""
+msgstr "פגישה זו הועברה או נמחקה, האם ברצונך להמשיך?"
 
 msgid "Options"
 msgstr "אפשרויות"
 
-#, fuzzy
 msgid "All Day"
-msgstr "אירוע של יום שלם"
+msgstr "כל היום"
 
 msgid "Sort by: All Day"
-msgstr ""
+msgstr "מיין לפי: כל היום"
 
-#, fuzzy
 msgid "Icon"
-msgstr "סמלים"
+msgstr "סמל"
 
-#, fuzzy
 msgid "Recurring"
-msgstr "מופע חוזר"
+msgstr "מַחזוֹרִי"
 
-#, fuzzy
 msgid "Sort by: Duration"
-msgstr "מיין לפי: שינוי"
+msgstr "מיין לפי: משך"
 
 msgid "Meeting Status"
 msgstr "מצב הפגישה"
 
 msgid "Sort by: Meeting Status"
-msgstr ""
+msgstr "מיין לפי: סטטוס פגישה"
 
 msgid "Sort by: Show as"
-msgstr ""
+msgstr "מיין לפי: הצג בשם"
 
 msgid "Sort by: Categories"
 msgstr "מיין לפי: קטגוריות"
@@ -1571,77 +1507,75 @@ msgid "Created On"
 msgstr "נוצר ב"
 
 msgid "Sort by: Created On"
-msgstr ""
+msgstr "מיין לפי: נוצר בתאריך"
 
 msgid "Due By"
 msgstr "תאריך יעד"
 
 msgid "Sort by: Due By"
-msgstr ""
+msgstr "מיין לפי: Due By"
 
 msgid "Label"
 msgstr "תוית"
 
-#, fuzzy
 msgid "Sort by: Label"
-msgstr "מיין לפי: גודל"
+msgstr "מיין לפי: תווית"
 
 msgid "Sort by: Organizer"
-msgstr ""
+msgstr "מיין לפי: מארגן"
 
 msgid "Sort by: Required Attendee"
-msgstr ""
+msgstr "מיין לפי: משתתף נדרש"
 
 msgid "Sort by: Optional Attendee"
-msgstr ""
+msgstr "מיין לפי: משתתף אופציונלי"
 
 msgid "Sort by: Resources"
-msgstr ""
+msgstr "מיין לפי: משאבים"
 
 msgid "Recurring Start Date"
-msgstr ""
+msgstr "תאריך התחלה חוזר"
 
 msgid "Sort by: Recurring Start Date"
-msgstr ""
+msgstr "מיין לפי: תאריך התחלה חוזר"
 
 msgid "Recurring End Date"
-msgstr ""
+msgstr "תאריך סיום חוזר"
 
 msgid "Sort by: Recurring End Date"
-msgstr ""
+msgstr "מיין לפי: תאריך סיום חוזר"
 
 msgid "Recurring Pattern"
 msgstr "תבנית מופע חוזר"
 
 msgid "Sort by: Recurring Pattern"
-msgstr ""
+msgstr "מיין לפי: דפוס חוזר"
 
 msgid "Sort by: Reminder"
-msgstr ""
+msgstr "מיין לפי: תזכורת"
 
 msgid "Sort by: Sensitivity"
-msgstr ""
+msgstr "מיין לפי: רגישות"
 
 msgid "Sort by: Importance"
 msgstr "מיין לפי: חשיבות"
 
 msgid "Loading appointments"
-msgstr ""
+msgstr "טוען פגישות"
 
 msgid "Attendees"
-msgstr ""
+msgstr "משתתפים"
 
 msgid "Optional attendees"
-msgstr ""
+msgstr "משתתפים אופציונליים"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F {0}"
-msgstr ""
+msgstr "jS F{0}"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
 msgid "jS F Y"
-msgstr "j F Y"
+msgstr "jS F Y"
 
 msgid ""
 "You have insufficient privileges to move and copy this item. Ask the folder "
@@ -1654,7 +1588,7 @@ msgid ""
 msgstr ""
 
 msgid "Insufficient privileges"
-msgstr ""
+msgstr "אין מספיק הרשאות"
 
 msgid ""
 "Copying this appointment will unset it as private. Are you sure you want to "
@@ -1662,7 +1596,7 @@ msgid ""
 msgstr ""
 
 msgid "Private item"
-msgstr ""
+msgstr "פריט פרטי"
 
 msgid "Copy"
 msgstr "העתק"
@@ -1675,18 +1609,17 @@ msgstr ""
 msgid "Move"
 msgstr "העבר"
 
-#, fuzzy
 msgid "Update recipients"
-msgstr "ערוך נמען"
+msgstr "עדכן את הנמענים"
 
 msgid "The time of the meeting has changed. What would you like to do?"
-msgstr ""
+msgstr "שעת הפגישה השתנתה. מה היית רוצה לעשות?"
 
 msgid "Save changes and send an update to all recipients"
-msgstr ""
+msgstr "שמור שינויים ושלח עדכון לכל הנמענים"
 
 msgid "Open meeting request with changes"
-msgstr ""
+msgstr "בקשת פגישה פתוחה עם שינויים"
 
 msgid "grommunio Web"
 msgstr "הווב אפ של זראפה"
@@ -1697,10 +1630,10 @@ msgid ""
 msgstr ""
 
 msgid "Don't move"
-msgstr ""
+msgstr "אל תזוז"
 
 msgid "Switch to day view to see all appointments"
-msgstr ""
+msgstr "עבור לתצוגת יום כדי לראות את כל הפגישות"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
@@ -1717,89 +1650,84 @@ msgctxt "mail.previewpanel"
 msgid "Location"
 msgstr "מיקום"
 
-#, fuzzy
 msgid "No additional response required"
-msgstr "אין צורך בתגובה"
+msgstr "אין צורך בתגובה נוספת"
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
 "be deleted."
 msgstr "לוח השנה שלך עודכן אוטומטית. בקשת פגישה זו תמחק עכשיו."
 
-#, fuzzy
 msgid "Loading appointments…"
-msgstr "פגישה חדשה…"
+msgstr "טוען פגישות..."
 
 msgid "Please select a calendar via widget settings"
-msgstr ""
+msgstr "אנא בחר לוח שנה באמצעות הגדרות ווידג'ט"
 
 msgid "Number of days"
-msgstr ""
+msgstr "מספר ימים"
 
 msgid "day(s)"
-msgstr ""
+msgstr "ימים"
 
 msgid "{0}"
-msgstr ""
+msgstr "{0}"
 
-#, fuzzy
 msgid "Upcoming Appointments"
-msgstr "מופע חוזר של פגישה"
+msgstr "פגישות קרובות"
 
 msgid "Appointments of {0}"
-msgstr ""
+msgstr "מינויים של{0}"
 
 msgid "Appointments of {0} - {1}"
-msgstr ""
+msgstr "מינויים של{0}-{1}"
 
-#, fuzzy
 msgid "No appointments"
-msgstr "פגישה חדשה"
+msgstr "אין פגישות"
 
-#, fuzzy
 msgid "Today {0} - {1}"
-msgstr "היום: {1} {0}"
+msgstr "היום{0}-{1}"
 
 msgid "Today (all day)"
-msgstr ""
+msgstr "היום (כל היום)"
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
 #. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
 msgid "{0} - {1}"
-msgstr ""
+msgstr "{0}-{1}"
 
 msgid "d/m/y {0}"
-msgstr ""
+msgstr "d/m/y{0}"
 
 msgid "{0} - {1} (all day)"
-msgstr ""
+msgstr "{0}-{1}(כל היום)"
 
 msgid "d/m/y"
-msgstr ""
+msgstr "d/m/y"
 
 msgid "Select one…"
-msgstr ""
+msgstr "בחר אחד…"
 
 msgid "Unnamed folder"
-msgstr ""
+msgstr "תיקייה ללא שם"
 
 msgid "Discard"
-msgstr ""
+msgstr "לְהַשְׁלִיך"
 
 msgid "Quick Appointment"
-msgstr ""
+msgstr "פגישה מהירה"
 
 msgid "Printing of multiple items has not been implemented."
-msgstr ""
+msgstr "הדפסה של מספר פריטים לא יושמה."
 
 msgid "Printing of this item is not yet available"
-msgstr ""
+msgstr "הדפסת פריט זה אינה זמינה עדיין"
 
 msgid "Item type: "
-msgstr ""
+msgstr "סוג פריט:"
 
 msgid "Printing of this view is not yet available"
-msgstr ""
+msgstr "הדפסת תצוגה זו אינה זמינה עדיין"
 
 msgid "Recurring Message"
 msgstr "מופע חוזר של הודעה"
@@ -1834,13 +1762,13 @@ msgid ""
 msgstr ""
 
 msgid "Open this occurrence"
-msgstr ""
+msgstr "פתח את ההתרחשות הזו"
 
 msgid "Open the series"
 msgstr "פתח את הסדרה"
 
 msgid "Paste Recurring {0}"
-msgstr ""
+msgstr "הדבק{0}חוזר"
 
 msgid ""
 "This is a recurring {0}. Do you want to paste only this occurrence or the "
@@ -1848,19 +1776,19 @@ msgid ""
 msgstr ""
 
 msgid "message"
-msgstr ""
+msgstr "הוֹדָעָה"
 
 msgid "meeting request"
-msgstr ""
+msgstr "בקשה לפגישה"
 
 msgid "appointment"
-msgstr ""
+msgstr "פְּגִישָׁה"
 
 msgid "Paste this occurrence only"
-msgstr ""
+msgstr "הדבק מופע זה בלבד"
 
 msgid "Paste the series…"
-msgstr ""
+msgstr "הדבק את הסדרה..."
 
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
@@ -1883,7 +1811,7 @@ msgid ""
 msgstr ""
 
 msgid "Delete this occurrence"
-msgstr ""
+msgstr "מחק אירוע זה"
 
 msgid "Delete the series"
 msgstr "מחק את הסדרה"
@@ -1892,10 +1820,10 @@ msgid "Confirm Delete"
 msgstr "אשר מחיקה"
 
 msgid "This \"{0}\" meeting was already accepted."
-msgstr ""
+msgstr "פגישת \"{0}\" זו כבר התקבלה."
 
 msgid "You have not responded to the meeting request \"{0}\"."
-msgstr ""
+msgstr "לא הגבת לבקשת הפגישה \"{0}\"."
 
 msgid "Delete and send a response to the meeting organizer"
 msgstr "מחק ושלח תגובה למארגן הפגישה"
@@ -1903,16 +1831,14 @@ msgstr "מחק ושלח תגובה למארגן הפגישה"
 msgid "Delete without sending"
 msgstr "מחק בלי לשלוח"
 
-#, fuzzy
 msgid "Insufficient permissions"
-msgstr "הרשאות תיקיה"
+msgstr "הרשאות לא מספיקות"
 
 msgid "You have insufficient privileges to delete items in this folder."
-msgstr ""
+msgstr "אין לך הרשאות מספיקות כדי למחוק פריטים בתיקייה זו."
 
-#, fuzzy
 msgid "Notify recipients"
-msgstr "ערוך נמען"
+msgstr "הודע לנמענים"
 
 msgid ""
 "A cancellation message will be sent to all recipients, do you wish to "
@@ -1920,42 +1846,36 @@ msgid ""
 msgstr "הודעת ביטול תשלח לכל הנמענים , האם ברצונך להמשיך?"
 
 msgid "Notify sender"
-msgstr ""
+msgstr "הודע לשולח"
 
 msgid ""
 "{0} has requested a notification be sent when message \"{1}\" is deleted "
 "without having been read. Do you want to send a receipt?"
 msgstr ""
 
-#, fuzzy
 msgid "Delete Incomplete Task"
-msgstr "משימות שהושלמו"
+msgstr "מחק משימה לא הושלמה"
 
 msgid "The task \"{0}\" has not been completed. What do you want to do?"
-msgstr ""
+msgstr "המשימה \"{0}\" לא הושלמה. מה אתה רוצה לעשות?"
 
-#, fuzzy
 msgid "Decline and delete"
-msgstr "סרב לבקשת הפגישה"
+msgstr "דחה ומחק"
 
-#, fuzzy
 msgid "Mark complete and delete"
-msgstr "סמן כהושלמה"
+msgstr "סמן כשלם ומחק"
 
-#, fuzzy
 msgid "Following recipients are already exists"
-msgstr "לא ניתן היה להגיע אל המיועדים הבאים:"
+msgstr "הנמענים הבאים כבר קיימים"
 
-#, fuzzy
 msgid "Duplicate recipients"
-msgstr "ערוך נמען"
+msgstr "שכפל נמענים"
 
-#, fuzzy
 msgid "Duplicate recipient"
-msgstr "ערוך נמען"
+msgstr "שכפול נמען"
 
 msgid "Recipient already exists."
-msgstr ""
+msgstr "הנמען כבר קיים."
 
 #, fuzzy
 msgid ""
@@ -1965,22 +1885,20 @@ msgstr ""
 "שולח ההודעה ביקש להיות מיודע כשאר אתה קורא את ההודעה. האם ברצונך ליידע את "
 "השולח?"
 
-#, fuzzy
 msgid "Import"
-msgstr "חשוב"
+msgstr "יְבוּא"
 
 msgid "Successfully imported item(s) to {0}"
-msgstr ""
+msgstr "פריטים יובאו בהצלחה אל{0}"
 
 msgid "Failed to import item(s) to {0}"
-msgstr ""
+msgstr "ייבוא ​​הפריטים ל-{0}נכשל"
 
-#, fuzzy
 msgid "Import error"
-msgstr "חשוב"
+msgstr "שגיאת ייבוא"
 
 msgid "Unable to import \"{0}\". The file is not valid"
-msgstr ""
+msgstr "לא ניתן לייבא את \"{0}\". הקובץ אינו חוקי"
 
 msgid ""
 "You have insufficient privileges to move these items. Would you like to copy "
@@ -2002,37 +1920,34 @@ msgid "From"
 msgstr "מאת"
 
 msgid "Insert item"
-msgstr ""
+msgstr "הכנס פריט"
 
 msgid "Insert as"
-msgstr ""
+msgstr "הכנס כ"
 
 msgid "Text only"
-msgstr ""
+msgstr "טקסט בלבד"
 
-#, fuzzy
 msgid "Attachment"
-msgstr "קבצים מצורפים"
+msgstr "הִתקַשְׁרוּת"
 
 msgid "Attach Item"
-msgstr ""
+msgstr "צרף פריט"
 
 msgid "No message selected"
-msgstr ""
+msgstr "לא נבחרה הודעה"
 
-#, fuzzy
 msgid "Import to"
-msgstr "חשוב"
+msgstr "יבוא אל"
 
-#, fuzzy
 msgid "New folder"
-msgstr "תיקיה חדשה"
+msgstr "תיקייה חדשה"
 
 msgid "Download as ZIP"
-msgstr ""
+msgstr "הורד כ-ZIP"
 
 msgid "Continue"
-msgstr ""
+msgstr "לְהַמשִׁיך"
 
 msgid ""
 "These attachments have an unsupported file type and can not be added to the "
@@ -2040,30 +1955,29 @@ msgid ""
 msgstr ""
 
 msgid "Would you like to continue downloading without adding these files?"
-msgstr ""
+msgstr "האם תרצה להמשיך בהורדה מבלי להוסיף קבצים אלה?"
 
 msgid ""
 "Always continue download of ZIP files without adding unsupported file types."
 msgstr ""
 
 msgid "File upload"
-msgstr ""
+msgstr "העלאת קובץ"
 
 msgid "Attach item"
-msgstr ""
+msgstr "צרף פריט"
 
 msgid "Preview"
 msgstr "תצוגה מקדימה"
 
 msgid "Download"
-msgstr ""
+msgstr "הורד"
 
 msgid "Download all as ZIP"
-msgstr ""
+msgstr "הורד הכל כ-ZIP"
 
-#, fuzzy
 msgid "Import to folder"
-msgstr "תיקיה ריקה"
+msgstr "ייבא לתיקיה"
 
 msgid ""
 "In order to use the vCard import feature, upgrade your Gromox to version 0 "
@@ -2079,29 +1993,28 @@ msgid "Attachment error"
 msgstr "שגיאת קובץ מצורף"
 
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
-msgstr ""
+msgstr "לא ניתן ליצור ZIP, הגודל המרבי המותר הוא 30 MB."
 
 msgid "Unable to download"
-msgstr ""
+msgstr "לא ניתן להוריד"
 
 msgid "Picture format is not supported. "
-msgstr ""
+msgstr "פורמט תמונה אינו נתמך."
 
 msgid "Supported format for contact pictures are"
-msgstr ""
+msgstr "פורמט נתמך עבור תמונות אנשי קשר הם"
 
-#, fuzzy
 msgid "Attachment Error"
 msgstr "שגיאת קובץ מצורף"
 
 msgid "Manage Categories"
-msgstr ""
+msgstr "נהל קטגוריות"
 
 msgid "New"
 msgstr "חדש"
 
 msgid "Delete Category"
-msgstr ""
+msgstr "מחק קטגוריה"
 
 msgid ""
 "Are you sure you want to delete the category \"{0}\"? Other items keep this "
@@ -2109,19 +2022,19 @@ msgid ""
 msgstr ""
 
 msgid "Rename Category"
-msgstr ""
+msgstr "שנה את שם הקטגוריה"
 
 msgid "A category named \""
-msgstr ""
+msgstr "קטגוריה בשם \""
 
 msgid "Create New Category"
-msgstr ""
+msgstr "צור קטגוריה חדשה"
 
 msgid "Pin to quick access"
-msgstr ""
+msgstr "הצמד לגישה מהירה"
 
 msgid "Create"
-msgstr ""
+msgstr "לִיצוֹר"
 
 msgid ""
 "You must apply the changes you have made to the categories before you can "
@@ -2129,7 +2042,7 @@ msgid ""
 msgstr ""
 
 msgid "You already have a category named '{0}'. Please use another name."
-msgstr ""
+msgstr "כבר יש לך קטגוריה בשם '{0}'. אנא השתמש בשם אחר."
 
 msgid ""
 "You already have a category named '{0}' in your pending changes. Please use "
@@ -2137,13 +2050,13 @@ msgid ""
 msgstr ""
 
 msgid "Rename"
-msgstr ""
+msgstr "שנה שם"
 
 msgid "This is the first time you have used \"{0}\" category."
-msgstr ""
+msgstr "זו הפעם הראשונה שאתה משתמש בקטגוריית \"{0}\"."
 
 msgid "Do you want to rename it?"
-msgstr ""
+msgstr "האם אתה רוצה לשנות את שמו?"
 
 msgid ""
 "The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
@@ -2151,7 +2064,7 @@ msgid ""
 msgstr ""
 
 msgid "Merge"
-msgstr ""
+msgstr "לְמַזֵג"
 
 msgid "Remove"
 msgstr "הסר"
@@ -2166,7 +2079,7 @@ msgid "Email"
 msgstr "דואר אלקטורני"
 
 msgid "More than one '{0}' found."
-msgstr ""
+msgstr "נמצאו יותר מ-{0}אחד."
 
 msgid "Alert"
 msgstr "אזהרה"
@@ -2196,53 +2109,51 @@ msgid "Entire Inbox"
 msgstr "כל תיבת הדואר הנכנס"
 
 msgid "Secretary"
-msgstr ""
+msgstr "מַזכִּיר"
 
 msgid "Only read"
-msgstr ""
+msgstr "רק לקרוא"
 
 msgid "Delegate Permissions"
-msgstr ""
+msgstr "האצל הרשאות"
 
 msgid "This delegate has the following permissions"
-msgstr ""
+msgstr "לנציג הזה יש את ההרשאות הבאות"
 
 msgid "Delegate can see my private items."
-msgstr ""
+msgstr "הנציג יכול לראות את הפריטים הפרטיים שלי."
 
 msgid "Delegate receives copies of meeting-related messages sent to me."
-msgstr ""
+msgstr "הנציג מקבל עותקים של הודעות הקשורות לפגישה שנשלחו אלי."
 
 msgid "Other"
 msgstr "אחר"
 
 msgid "No delegates configured"
-msgstr ""
+msgstr "לא הוגדרו נציגים"
 
 msgid "Loading delegates"
-msgstr ""
+msgstr "טוען נציגים"
 
 msgid "Please select a delegate."
-msgstr ""
+msgstr "אנא בחר נציג."
 
 msgid "Delegates can send items on your behalf."
-msgstr ""
+msgstr "נציגים יכולים לשלוח פריטים בשמך."
 
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
 "the context menu and click on \"Share folder…\""
 msgstr ""
 
-#, fuzzy
 msgid "Permission"
-msgstr "הרשאות"
+msgstr "רְשׁוּת"
 
-#, fuzzy
 msgid "Duplicate delegate"
-msgstr "סרב לבקשת הפגישה"
+msgstr "נציג כפול"
 
 msgid "Delegate already exists in the list."
-msgstr ""
+msgstr "הנציג כבר קיים ברשימה."
 
 msgid "Copy/Move Folder"
 msgstr "העתק/העבר תיקיה"
@@ -2251,7 +2162,7 @@ msgid "Copy/Move Messages"
 msgstr "העתק/העבר הודעות"
 
 msgid "Destination folder"
-msgstr ""
+msgstr "תיקיית יעד"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
@@ -2278,16 +2189,16 @@ msgid ""
 msgstr ""
 
 msgid "You have insufficient privileges to move following items."
-msgstr ""
+msgstr "אין לך הרשאות מספיקות כדי להעביר את הפריטים הבאים."
 
 msgid "Subject:"
-msgstr ""
+msgstr "נוֹשֵׂא:"
 
 msgid "Would you like to copy instead?"
-msgstr ""
+msgstr "האם תרצה להעתיק במקום זאת?"
 
 msgid "Do not show this message again."
-msgstr ""
+msgstr "אל תציג הודעה זו שוב."
 
 msgid "Properties"
 msgstr "מאפיינים"
@@ -2296,11 +2207,10 @@ msgid "Object ID"
 msgstr "מזהה אובייקט"
 
 msgid "ICS"
-msgstr ""
+msgstr "ICS"
 
-#, fuzzy
 msgid "Set custom flag"
-msgstr "הגדר דגל"
+msgstr "הגדר דגל מותאם אישית"
 
 msgid "Start date"
 msgstr "תאריך התחלה"
@@ -2309,55 +2219,49 @@ msgid "End date"
 msgstr "תאריך סיום"
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "מָחָר"
 
 msgid "This week"
-msgstr ""
+msgstr "השבוע"
 
 msgid "Next week"
-msgstr ""
+msgstr "בשבוע הבא"
 
-#, fuzzy
 msgid "Custom"
-msgstr "תאריך היעד"
+msgstr "מִנְהָג"
 
-#, fuzzy
 msgid "Set reminder"
-msgstr "תזכורת"
+msgstr "הגדר תזכורת"
 
 msgid "Complete"
 msgstr "הושלם"
 
 msgid "today"
-msgstr ""
+msgstr "הַיוֹם"
 
 msgid "tomorrow"
-msgstr ""
+msgstr "מָחָר"
 
 msgid "this week"
-msgstr ""
+msgstr "השבוע"
 
 msgid "next week"
-msgstr ""
+msgstr "בשבוע הבא"
 
 msgid "Edit recipient"
 msgstr "ערוך נמען"
 
-#, fuzzy
 msgid "Copy email address"
-msgstr "כתובת דואר אלקטרוני חדשה"
+msgstr "העתק כתובת אימייל"
 
-#, fuzzy
 msgid "Set as required"
-msgstr "יש למלא שדה זה"
+msgstr "הגדר כנדרש"
 
-#, fuzzy
 msgid "Set as optional"
-msgstr "אופציונלי"
+msgstr "הגדר כאופציונלי"
 
-#, fuzzy
 msgid "Set as resource"
-msgstr "הגדר קבלת קריאה"
+msgstr "הגדר כמשאב"
 
 msgid "Select attendees"
 msgstr "בחר משתתפים"
@@ -2387,104 +2291,96 @@ msgid "No suggestions available"
 msgstr "אין הצעות זמינות"
 
 msgid "Switch between different contexts e.g. inbox, calendar, etc."
-msgstr ""
+msgstr "מעבר בין הקשרים שונים, למשל. תיבת דואר נכנס, לוח שנה וכו'."
 
 msgid "Basic navigation"
-msgstr ""
+msgstr "ניווט בסיסי"
 
 msgid "Switch between different views"
-msgstr ""
+msgstr "מעבר בין תצוגות שונות"
 
 msgid "New item"
-msgstr ""
+msgstr "פריט חדש"
 
 msgid "All views"
-msgstr ""
+msgstr "כל הצפיות"
 
 msgid "Close tab"
-msgstr ""
+msgstr "סגור כרטיסייה"
 
 msgid "Print item"
-msgstr ""
+msgstr "הדפס פריט"
 
 msgid "Items"
 msgstr "פריטים"
 
 msgid "Save an item e.g. mail, contact, etc."
-msgstr ""
+msgstr "שמור פריט, למשל. דואר, יצירת קשר וכו'."
 
 msgid "Send an item e.g. mail, meeting request, etc."
-msgstr ""
+msgstr "שלח פריט למשל. דואר, בקשה לפגישה וכו'."
 
 msgid "Select all items"
-msgstr ""
+msgstr "בחר את כל הפריטים"
 
 msgid "Extend the selection to the first item in the list"
-msgstr ""
+msgstr "הרחב את הבחירה לפריט הראשון ברשימה"
 
 msgid "Extend the selection to the last item in the list"
-msgstr ""
+msgstr "הרחב את הבחירה לפריט האחרון ברשימה"
 
-#, fuzzy
 msgid "Open selected item"
-msgstr "נבחר פריט {0}"
+msgstr "פתח את הפריט שנבחר"
 
 msgid "Open dialog to categorize selected item"
-msgstr ""
+msgstr "פתח תיבת דו-שיח כדי לסווג את הפריט שנבחר"
 
 msgid "Print list"
-msgstr ""
+msgstr "הדפס רשימה"
 
 msgid "Open copy/move dialog"
-msgstr ""
+msgstr "פתח תיבת דו-שיח של העתקה/העברה"
 
-#, fuzzy
 msgid "Delete selected item"
-msgstr "נבחר פריט {0}"
+msgstr "מחק את הפריט שנבחר"
 
 msgid ""
 "Delete selected item without moving it to the Deleted Items folder. The "
 "deleted item can still be restored."
 msgstr ""
 
-#, fuzzy
 msgid "Add/Edit Cc recipient"
-msgstr "ערוך נמען"
+msgstr "הוסף/ערוך נמען עותק"
 
 msgid "Disable for new mail"
-msgstr ""
+msgstr "השבת עבור דואר חדש"
 
 msgid "Enable for new mail"
-msgstr ""
+msgstr "הפעל עבור דואר חדש"
 
 msgid "Disable for replies"
-msgstr ""
+msgstr "השבת לקבלת תשובות"
 
 msgid "Enable for replies"
-msgstr ""
+msgstr "אפשר לקבל תשובות"
 
-#, fuzzy
 msgid "No Cc recipient configured"
-msgstr "לא ניתן היה להגיע לכל הנמענים"
+msgstr "לא הוגדר נמען עותק"
 
-#, fuzzy
 msgid "Loading Cc recipients"
-msgstr "ערוך נמען"
+msgstr "טוען נמעני עותק"
 
-#, fuzzy
 msgid "Reply Mail"
-msgstr "השב לכולם"
+msgstr "השב למייל"
 
 msgid "New Mail"
 msgstr "דואר חדש"
 
-#, fuzzy
 msgid "Please select a Cc recipient record."
-msgstr "אנא בחר מען"
+msgstr "אנא בחר רשומת נמען עותק."
 
-#, fuzzy
 msgid "Manage Cc recipients"
-msgstr "ערוך נמען"
+msgstr "ניהול נמעני עותק"
 
 msgid ""
 "Cc recipients can be used to set a default Cc user in new mail, replies or "
@@ -2492,25 +2388,25 @@ msgid ""
 msgstr ""
 
 msgid "Help"
-msgstr ""
+msgstr "עֶזרָה"
 
 msgid "Web Manual"
-msgstr ""
+msgstr "מדריך אינטרנט"
 
 msgid "Item data"
-msgstr ""
+msgstr "נתוני פריט"
 
 msgid "INSERT"
-msgstr ""
+msgstr "לְהַכנִיס"
 
 msgid "Sort by: context.mail.griddefaultcolumn"
-msgstr ""
+msgstr "מיין לפי: context.mail.griddefaultcolumn"
 
 msgid "ZDeveloper"
-msgstr ""
+msgstr "ZDeveloper"
 
 msgid "grommunio Web print"
-msgstr ""
+msgstr "הדפסת אינטרנט של grommunio"
 
 msgid "Display name"
 msgstr "שם תצוגה"
@@ -2518,9 +2414,8 @@ msgstr "שם תצוגה"
 msgid "Email address"
 msgstr "כתובת דואר אלקטרוני"
 
-#, fuzzy
 msgid "Expand distribution list"
-msgstr "צור רשימת תפוצה"
+msgstr "הרחב את רשימת התפוצה"
 
 msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
@@ -2530,19 +2425,17 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "ערוך נמען"
 
-#, fuzzy
 msgid "Copy email addresses"
-msgstr "כתובת דואר אלקטרוני חדשה"
+msgstr "העתק כתובות דוא\"ל"
 
 msgid "Send email"
 msgstr "שלח דואר"
 
-#, fuzzy
 msgid "Delete recipient from suggestion list"
-msgstr "מחק את רשימת תפוצה זו."
+msgstr "מחק את הנמען מרשימת ההצעות"
 
 msgid "Copy all email addresses"
-msgstr ""
+msgstr "העתק את כל כתובות האימייל"
 
 msgid "View recipient"
 msgstr "הצג נמען"
@@ -2592,12 +2485,11 @@ msgstr "מפוע חוזר של פגישה"
 msgid "Remove Recurrence"
 msgstr "הסר מופע חוזר"
 
-#, fuzzy
 msgid "Reset recurring"
-msgstr "מופע חוזר"
+msgstr "איפוס חוזר"
 
 msgid "This will reset every exception. Do you want to continue?"
-msgstr ""
+msgstr "זה יאפס כל חריג. האם אתה רוצה להמשיך?"
 
 msgid "Task Recurrence"
 msgstr "מופע חוזר של משימה"
@@ -2629,7 +2521,7 @@ msgstr "סיים על ידי {A}"
 #. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
 #. For example: 'Occurrence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurrence duration: 1 hour'
 msgid "Occurrence duration: {D} {H} {M}"
-msgstr ""
+msgstr "משך התרחשות: {D} {H} {M}"
 
 msgid "Every {A} week(s) on"
 msgstr "כל {A} שבועות ב"
@@ -2650,60 +2542,58 @@ msgid "Regenerate new task {A} year(s) after each task is completed"
 msgstr "צור מחדש משימה חדשה {A} שנים לאחר שהמשימה הושלמה"
 
 msgid "Info"
-msgstr ""
+msgstr "מידע"
 
 msgid "Not supported at the moment."
-msgstr ""
+msgstr "לא נתמך כרגע."
 
-#, fuzzy
 msgid "There is {0} reminder"
 msgid_plural "There are {0} reminders"
-msgstr[0] "ישנה הודעה {0} שלא נקראה בתיקיה {1}"
-msgstr[1] "ישנן {0} הודעות שלא נקראו בתיקיה {1}"
+msgstr[0] "יש תזכורת{0}"
+msgstr[1] "יש תזכורות{0}"
 
 msgid "Reminders"
 msgstr "תזכורות"
 
 msgid "There are no reminders"
-msgstr ""
+msgstr "אין תזכורות"
 
 msgid "Due In"
-msgstr ""
+msgstr "אמור להגיע"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Due"
-msgstr ""
+msgstr "בשל"
 
-#, fuzzy
 msgid "Reminder time"
-msgstr "תזכורת זמן"
+msgstr "זמן תזכורת"
 
 msgid "Dismiss All"
-msgstr ""
+msgstr "דחה הכל"
 
 msgid "Open Item"
-msgstr ""
+msgstr "פתח פריט"
 
 msgid "Dismiss"
-msgstr ""
+msgstr "לְפַטֵר"
 
 msgid "Click Snooze to be reminded again in"
-msgstr ""
+msgstr "לחץ על 'נודניק' כדי לקבל תזכורת שוב"
 
 msgid "Snooze"
-msgstr ""
+msgstr "נִמנוּם"
 
 msgctxt "reminder.dialog"
 msgid "{0} reminder is selected."
 msgid_plural "{0} reminders are selected."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "תזכורת{0}נבחרה."
+msgstr[1] "תזכורות{0}נבחרות."
 
 msgid "Restore Softdeleted Items"
-msgstr ""
+msgstr "שחזר פריטים מסוג Softdeleted"
 
 msgid "Restore From {0}"
-msgstr ""
+msgstr "שחזר מ-{0}"
 
 msgid "Restore"
 msgstr "שחזר"
@@ -2715,45 +2605,39 @@ msgid "Permanent Delete"
 msgstr "מחק לצמיתות"
 
 msgid "Delete All"
-msgstr ""
+msgstr "מחק הכל"
 
-#, fuzzy
 msgid "Messages"
-msgstr "הודעה"
+msgstr "הודעות"
 
-#, fuzzy
 msgid "Delete all items"
-msgstr "מחק פריטים"
+msgstr "מחק את כל הפריטים"
 
-#, fuzzy
 msgid "Are you sure you want to permanently delete all items?"
-msgstr ""
-"האם אתה בטוח כי ברצוך למחוק את כל הפריטים ותיקיות המשנה בתיקיית \"{0}\""
+msgstr "האם אתה בטוח שברצונך למחוק לצמיתות את כל הפריטים?"
 
-#, fuzzy
 msgid "Restore all items"
-msgstr "שחזר פריטים"
+msgstr "שחזר את כל הפריטים"
 
-#, fuzzy
 msgid "Are you sure you want to restore all items?"
-msgstr "האם אתה בטוח כי ברצונך לרוקן את {0}?"
+msgstr "האם אתה בטוח שברצונך לשחזר את כל הפריטים?"
 
 msgid "Total {0} recoverable item"
 msgid_plural "Total {0} recoverable items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "סה\"כ פריט{0}שניתן לשחזר"
+msgstr[1] "סה\"כ פריטים הניתנים לשחזור{0}"
 
 msgid "Deleted On"
 msgstr "נמחק ב"
 
 msgid "Sort by: Deleted On"
-msgstr ""
+msgstr "מיין לפי: נמחק בתאריך"
 
 msgid "Item Count"
-msgstr ""
+msgstr "ספירת פריטים"
 
 msgid "Sort by: Item Count"
-msgstr ""
+msgstr "מיין לפי: ספירת פריטים"
 
 msgid "Sort by: From"
 msgstr "מיין לפי: מאת"
@@ -2770,157 +2654,146 @@ msgstr "גודל"
 msgid "Sort by: Size"
 msgstr "מיין לפי: גודל"
 
-#, fuzzy
 msgid "Move the message to folder…"
-msgstr "סמן את כל ההודעות כנקראו…"
+msgstr "העבר את ההודעה לתיקיה..."
 
-#, fuzzy
 msgid "Copy the message to folder…"
-msgstr "סמן את כל ההודעות כנקראו…"
+msgstr "העתק את ההודעה לתיקיה..."
 
 msgid "Delete the message"
-msgstr ""
+msgstr "מחק את ההודעה"
 
-#, fuzzy
 msgid "Redirect the message to…"
-msgstr "סמן את כל ההודעות כנקראו…"
+msgstr "הפנה את ההודעה אל..."
 
-#, fuzzy
 msgid "Forward the message to…"
-msgstr "סמן את כל ההודעות כנקראו…"
+msgstr "העבר את ההודעה ל…"
 
-#, fuzzy
 msgid "Forward the message as attachment to…"
-msgstr "סמן את כל ההודעות כנקראו…"
+msgstr "העבר את ההודעה כקובץ מצורף אל..."
 
-#, fuzzy
 msgid "Mark the message as read…"
-msgstr "סמן את כל ההודעות כנקראו…"
+msgstr "סמן את ההודעה כנקראה..."
 
 msgid "is received from…"
-msgstr ""
+msgstr "מתקבל מ…"
 
 msgid "includes these words in the sender's address…"
-msgstr ""
+msgstr "כולל מילים אלו בכתובת השולח..."
 
 msgid "includes these words in the recipient's address…"
-msgstr ""
+msgstr "כולל מילים אלו בכתובת הנמען..."
 
 msgid "includes these words in the subject…"
-msgstr ""
+msgstr "כולל את המילים הללו בנושא..."
 
 msgid "includes these words in the body…"
-msgstr ""
+msgstr "כולל את המילים האלה בגוף..."
 
 msgid "includes these words in the transport headers…"
-msgstr ""
+msgstr "כולל את המילים האלה בכותרות התחבורה..."
 
-#, fuzzy
 msgid "has importance…"
-msgstr "חשיבות…"
+msgstr "יש חשיבות…"
 
 msgid "has an attachment"
-msgstr ""
+msgstr "יש קובץ מצורף"
 
-#, fuzzy
 msgid "is sent to…"
-msgstr "נשלח…"
+msgstr "נשלח אל…"
 
 msgid "is sent only to me"
-msgstr ""
+msgstr "נשלח רק אלי"
 
 msgid "has my name in the Cc field"
-msgstr ""
+msgstr "יש את השם שלי בשדה העתק"
 
 msgid "does not have my name in the To or Cc field"
-msgstr ""
+msgstr "אין את השם שלי בשדה אל או עותק"
 
 msgid "has my name in the To or Cc field"
-msgstr ""
+msgstr "יש את השם שלי בשדה אל או עותק"
 
-#, fuzzy
 msgid "has sensitivity…"
-msgstr "רגישות…"
+msgstr "יש רגישות…"
 
 msgid "is received after…"
-msgstr ""
+msgstr "מתקבל לאחר…"
 
 msgid "is received before…"
-msgstr ""
+msgstr "התקבל לפני…"
 
 msgid "size is at least…"
-msgstr ""
+msgstr "הגודל הוא לפחות…"
 
 msgid "size is at most…"
-msgstr ""
+msgstr "הגודל הוא לכל היותר…"
 
 msgid "has my name in the To field"
-msgstr ""
+msgstr "יש את השם שלי בשדה אל"
 
 msgid "is received (all messages)"
-msgstr ""
+msgstr "התקבל (כל ההודעות)"
 
 msgid "Unknown condition"
-msgstr ""
+msgstr "מצב לא ידוע"
 
 msgid "This condition for the current rule is unknown"
-msgstr ""
+msgstr "תנאי זה עבור הכלל הנוכחי אינו ידוע"
 
 msgid "Add action"
-msgstr ""
+msgstr "הוסף פעולה"
 
 msgid "Remove action"
-msgstr ""
+msgstr "הסר את הפעולה"
 
 msgid "Unknown action"
-msgstr ""
+msgstr "פעולה לא ידועה"
 
 msgid "This action for the current rule is unknown"
-msgstr ""
+msgstr "פעולה זו עבור הכלל הנוכחי אינה ידועה"
 
 msgid "Add condition"
-msgstr ""
+msgstr "הוסף תנאי"
 
 msgid "Remove condition"
-msgstr ""
+msgstr "הסר מצב"
 
 msgid "Inbox Rule"
-msgstr ""
+msgstr "כלל תיבת הדואר הנכנס"
 
 msgid "Rule name"
-msgstr ""
+msgstr "שם כלל"
 
 msgid "When the message"
-msgstr ""
+msgstr "כאשר ההודעה"
 
 msgid "Do the following"
-msgstr ""
+msgstr "בצע את הפעולות הבאות"
 
-#, fuzzy
 msgid "Exceptions"
-msgstr "אפשרויות"
+msgstr "חריגים"
 
 msgid "Apply only when Out of Office is active"
-msgstr ""
+msgstr "החל רק כאשר מחוץ למשרד פעיל"
 
 msgid "Stop processing more rules"
-msgstr ""
+msgstr "תפסיק לעבד עוד כללים"
 
 msgid "Add exception"
-msgstr ""
+msgstr "הוסף חריגה"
 
-#, fuzzy
 msgid "Remove exception"
-msgstr "הסר מופע חוזר"
+msgstr "הסר חריגה"
 
 msgid "Specify Words or Phrases"
-msgstr ""
+msgstr "ציין מילים או ביטויים"
 
 msgid "Edit"
-msgstr ""
+msgstr "לַעֲרוֹך"
 
 msgid "and"
-msgstr ""
+msgstr "ו"
 
 msgid ""
 "Distribution lists are not supported in rules, would you like to replace the "
@@ -2928,73 +2801,67 @@ msgid ""
 msgstr ""
 
 msgid "or"
-msgstr ""
+msgstr "אוֹ"
 
 msgid "No rule exists"
-msgstr ""
+msgstr "לא קיים כלל"
 
 msgid "Active"
-msgstr ""
+msgstr "פָּעִיל"
 
-#, fuzzy
 msgid "Out of office"
 msgstr "מחוץ למשרד"
 
-#, fuzzy
 msgid "Rule"
-msgstr "כללים"
+msgstr "כְּלָל"
 
 msgid "Loading rules"
-msgstr ""
+msgstr "טוען חוקים"
 
 msgid "Please select a rule."
-msgstr ""
+msgstr "אנא בחר כלל."
 
 msgid "Rule already has highest priority."
-msgstr ""
+msgstr "לשלטון כבר יש עדיפות עליונה."
 
 msgid "Rule already has lowest priority."
-msgstr ""
+msgstr "הכלל כבר נמצא בעדיפות הנמוכה ביותר."
 
 msgid "Always move messages from {0}"
-msgstr ""
+msgstr "העבר תמיד הודעות מ-{0}"
 
 msgid "Always move messages that are sent to <recipients>"
-msgstr ""
+msgstr "העבר תמיד הודעות שנשלחות אל <נמענים>"
 
 msgid "Always move messages with this subject"
-msgstr ""
+msgstr "העבר תמיד הודעות עם הנושא הזה"
 
 msgid "Create rule…"
-msgstr ""
+msgstr "צור כלל..."
 
 msgid "myself"
-msgstr ""
+msgstr "עַצמִי"
 
 msgid "Update rules for"
-msgstr ""
+msgstr "עדכון כללים עבור"
 
 msgid "Apply changes"
-msgstr ""
+msgstr "החל שינויים"
 
 msgid "Do you wish to apply the changes?"
-msgstr ""
+msgstr "האם ברצונך להחיל את השינויים?"
 
-#, fuzzy
 msgid "All folders"
-msgstr "הצג תיקיות משנה"
+msgstr "כל התיקיות"
 
-#, fuzzy
 msgid "Other…"
-msgstr "אחר…"
+msgstr "אַחֵר…"
 
-#, fuzzy
 msgid "Search in…"
-msgstr "מרץ…"
+msgstr "חפש ב…"
 
-#, fuzzy
 msgid "Folder does not exist"
-msgstr "תיקייה מכילה"
+msgstr "התיקיה לא קיימת"
 
 msgid ""
 "The folder you are searching through no longer exists. Please select another "
@@ -3002,71 +2869,70 @@ msgid ""
 msgstr ""
 
 msgid "Add/Edit sender"
-msgstr ""
+msgstr "הוסף/ערוך שולח"
 
 msgid "No from addresses configured"
-msgstr ""
+msgstr "לא מכתובות שהוגדרו"
 
 msgid "Loading from addresses"
-msgstr ""
+msgstr "טוען מכתובות"
 
 msgid "Forward Mail"
-msgstr ""
+msgstr "העבר דואר"
 
 msgid "Please select a from address record."
-msgstr ""
+msgstr "אנא בחר רשומת כתובת."
 
 msgid "Add/Edit From recipient"
-msgstr ""
+msgstr "הוסף/ערוך מנמען"
 
 msgid "Manage the recipients used in the 'From' field"
-msgstr ""
+msgstr "נהל את הנמענים שבהם נעשה שימוש בשדה 'מאת'"
 
 msgid "View"
-msgstr ""
+msgstr "נוֹף"
 
 msgid "Please select a sendas record."
-msgstr ""
+msgstr "אנא בחר רשומת sendas."
 
 msgid "Delegates"
-msgstr ""
+msgstr "נציגים"
 
 msgid "Delegate settings"
-msgstr ""
+msgstr "האצל הגדרות"
 
 msgid "Desktop Notifications Settings"
-msgstr ""
+msgstr "הגדרות הודעות שולחן העבודה"
 
 msgid "We need permissions to enable desktop notifications."
-msgstr ""
+msgstr "אנו זקוקים להרשאות כדי לאפשר הודעות על שולחן העבודה."
 
 msgid "Request Permissions"
-msgstr ""
+msgstr "בקש הרשאות"
 
 msgid "Enable desktop notifications for new mail"
-msgstr ""
+msgstr "הפעל התראות בשולחן העבודה עבור דואר חדש"
 
 msgid "Enable desktop notifications for reminders"
-msgstr ""
+msgstr "אפשר הודעות על שולחן העבודה עבור תזכורות"
 
 msgid "{A} Auto-hide desktop notification after second(s) {B}"
-msgstr ""
+msgstr "{A} הסתר אוטומטית התראה על שולחן העבודה לאחר שניות {B}"
 
 msgid "Disable sound"
-msgstr ""
+msgstr "השבת את הצליל"
 
 msgid "Notifications"
-msgstr ""
+msgstr "התראות"
 
-#, fuzzy
 msgid "Rules"
 msgstr "כללים"
 
 msgid "From Addresses"
-msgstr ""
+msgstr "מתוך כתובות"
 
 msgid "From Addresses settings"
-msgstr ""
+msgstr "מתוך הגדרות כתובות"
 
 msgid "Full name"
 msgstr "שם מלא"
@@ -3080,33 +2946,31 @@ msgstr "פקס בעסק"
 msgid "Webpage"
 msgstr "כתובת אתר אינטרנט"
 
-#, fuzzy
 msgid "IM Address"
-msgstr "כתובות SMTP"
+msgstr "כתובת IM"
 
 msgid "D, d-m-Y, {0}"
-msgstr ""
+msgstr "ד, ד-מ-י,{0}"
 
-#, fuzzy
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
-msgstr[0] "נבחר פריט {0}"
-msgstr[1] "נבחר פריט {1}"
+msgstr[0] "השורה שנבחרה{0}"
+msgstr[1] "{0}שורות נבחרות"
 
 msgid "Reminder is set on: {0}, {1}"
-msgstr ""
+msgstr "התזכורת מוגדרת על:{0},{1}"
 
 msgid "d-m-Y"
 msgstr "ש-ח-י"
 
 msgid "l d/m/Y"
-msgstr ""
+msgstr "l d/m/Y"
 
 msgid "l d/m/Y {0}"
-msgstr ""
+msgstr "l d/m/Y{0}"
 
 msgid "d-m-Y {0}"
-msgstr ""
+msgstr "d-m-Y{0}"
 
 msgid "Unknown"
 msgstr "לא ידוע"
@@ -3115,13 +2979,13 @@ msgid "Meeting Organizer"
 msgstr "מארגן הפגישה"
 
 msgid "{0} overdue"
-msgstr ""
+msgstr "{0}באיחור"
 
 msgid "Loading…"
 msgstr "טוען…"
 
 msgid "Message could not be loaded"
-msgstr ""
+msgstr "לא ניתן היה לטעון את ההודעה"
 
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
@@ -3172,7 +3036,7 @@ msgstr "{0} קיבלו"
 
 msgctxt "mail.previewpanel"
 msgid "{0} has accepted on behalf of {1}."
-msgstr ""
+msgstr "{0}קיבלה מטעם{1}."
 
 msgctxt "mail.previewpanel"
 msgid "{0} has tentatively accepted."
@@ -3180,7 +3044,7 @@ msgstr "{0} קיבלו בהיסוס"
 
 msgctxt "mail.previewpanel"
 msgid "{0} has tentatively accepted on behalf of {1}."
-msgstr ""
+msgstr "{0}התקבל באופן טנטטיבי מטעם{1}."
 
 msgctxt "mail.previewpanel"
 msgid "{0} has declined."
@@ -3188,7 +3052,7 @@ msgstr "{0} סירבו."
 
 msgctxt "mail.previewpanel"
 msgid "{0} has declined on behalf of {1}."
-msgstr ""
+msgstr "{0}דחה מטעם{1}."
 
 msgctxt "mail.previewpanel"
 msgid "{0} tentatively accepted and proposed a new time for this meeting."
@@ -3206,7 +3070,7 @@ msgstr "{0} סירבו והציעו זמן חדש לפגישה זו."
 
 msgctxt "mail.previewpanel"
 msgid "{0} declined on behalf of {1} and proposed a new time for this meeting."
-msgstr ""
+msgstr "{0}דחה בשם{1}והציע מועד חדש לפגישה זו."
 
 msgctxt "mail.previewpanel"
 msgid "This meeting is not in the Calendar; it may have been moved or deleted."
@@ -3226,7 +3090,7 @@ msgstr "כמארגן הפגישה , איך צריך להגיב לפגישה"
 
 msgctxt "mail.previewpanel"
 msgid "The meeting was updated after the attendee sent this response"
-msgstr ""
+msgstr "הפגישה עודכנה לאחר שהנוכח שלח תגובה זו"
 
 msgctxt "mail.previewpanel"
 msgid "This appointment occurs in the past."
@@ -3238,67 +3102,61 @@ msgstr "אנא הגב."
 
 msgctxt "mail.previewpanel"
 msgid "This is an update of a previously sent meeting request."
-msgstr ""
+msgstr "זהו עדכון של בקשת פגישה שנשלחה בעבר."
 
 msgctxt "mail.previewpanel"
 msgid "Received for {0}."
-msgstr ""
+msgstr "התקבל עבור{0}."
 
 msgctxt "mail.previewpanel"
 msgid "You replied to this message."
-msgstr ""
+msgstr "ענית להודעה זו."
 
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message."
-msgstr ""
+msgstr "העברת את ההודעה הזו."
 
 msgctxt "mail.previewpanel"
 msgid "You replied to this message on {0}."
-msgstr ""
+msgstr "הגבת להודעה זו ב-{0}."
 
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message on {0}."
-msgstr ""
+msgstr "העברת הודעה זו ב-{0}."
 
 msgid "Assigned by {0} on {1}."
-msgstr ""
+msgstr "הוקצה על ידי{0}ב-{1}."
 
-#, fuzzy
 msgid "Waiting for response from recipient"
-msgstr "בקש קבלת קריאה מהמשתמש"
+msgstr "ממתין לתגובה מהנמען"
 
-#, fuzzy
 msgid "Accepted by {0} on {1}."
-msgstr "התקבל בהיסוס ב {0}"
+msgstr "מקובל על ידי{0}ב-{1}."
 
-#, fuzzy
 msgid "{0} has accepted on behalf of {1} {2}."
-msgstr "{0} קיבלו"
+msgstr "{0}קיבלה מטעם{1}{2}."
 
-#, fuzzy
 msgid "Declined by {0} on {1}."
-msgstr "התקבל בהיסוס ב {0}"
+msgstr "נדחה על ידי{0}ב-{1}."
 
-#, fuzzy
 msgid "{0} has declined on behalf of {1} {2}."
-msgstr "{0} סירבו."
+msgstr "{0}דחה מטעם{1}{2}."
 
 msgid "Last update sent on {0}."
-msgstr ""
+msgstr "עדכון אחרון נשלח ב-{0}."
 
 msgid "{0} has updated on behalf of {1} {2}."
-msgstr ""
+msgstr "{0}עדכנה מטעם{1}{2}."
 
-#, fuzzy
 msgid "Fix message"
-msgstr "הודעה מקורית"
+msgstr "תיקון הודעה"
 
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
 msgstr ""
 
 msgid "The matching task was not found in your task list."
-msgstr ""
+msgstr "המשימה התואמת לא נמצאה ברשימת המשימות שלך."
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3314,17 +3172,17 @@ msgstr "עותק סודי"
 
 msgctxt "mail.previewpanel"
 msgid "Categories"
-msgstr ""
+msgstr "קטגוריות"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Recipients"
-msgstr ""
+msgstr "נמענים"
 
 #. TRANSLATORS: check if the mail is send by some delegator or not. if then display "on behalf of".
 msgctxt "mail.previewpanel"
 msgid "on behalf of"
-msgstr ""
+msgstr "בְּשֵׁם"
 
 #. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
 msgctxt "mail.previewpanel"
@@ -3332,28 +3190,25 @@ msgid "None"
 msgstr "ללא"
 
 msgid "Pop-out"
-msgstr ""
+msgstr "קופץ החוצה"
 
-#, fuzzy
 msgid "Mark as read"
-msgstr "סמן כלא נקרא"
+msgstr "סמן כנקרא"
 
-#, fuzzy
 msgid "Mark as unread"
 msgstr "סמן כלא נקרא"
 
 msgid "in"
-msgstr ""
+msgstr "ב"
 
 msgid "Root"
-msgstr ""
+msgstr "שׁוֹרֶשׁ"
 
 msgid "Datepicker"
-msgstr ""
+msgstr "בורר תאריכים"
 
-#, fuzzy
 msgid "File As"
-msgstr "תייק כ"
+msgstr "קובץ בשם"
 
 msgid "Full Name"
 msgstr "שם מלא"
@@ -3368,25 +3223,22 @@ msgid "Business Address"
 msgstr "כתובת העסק"
 
 msgid "Other Address"
-msgstr ""
+msgstr "כתובת אחרת"
 
 msgid "Business Phone"
 msgstr "טלפון בעסק"
 
-#, fuzzy
 msgid "Business 2 Phone"
-msgstr "טלפון בעסק"
+msgstr "טלפון עסקים 2"
 
-#, fuzzy
 msgid "Assistant Phone"
-msgstr "מספר טלפון של העוזר"
+msgstr "טלפון עוזר"
 
 msgid "Company Main Phone"
 msgstr "הטלפון העיקרי של החברה"
 
-#, fuzzy
 msgid "Home 2 Phone"
-msgstr "טלפון בבית"
+msgstr "טלפון בית 2"
 
 msgid "Car Phone"
 msgstr "טלפון ברכב"
@@ -3395,19 +3247,19 @@ msgid "Radio"
 msgstr "רדיו"
 
 msgid "Callback Phone"
-msgstr ""
+msgstr "טלפון להתקשרות חוזרת"
 
 msgid "Other Phone"
 msgstr "טלפון נוסף"
 
 msgid "Primary Phone"
-msgstr ""
+msgstr "טלפון ראשי"
 
 msgid "Telex"
 msgstr "טלקס"
 
 msgid "TTY/TDD Phone"
-msgstr ""
+msgstr "טלפון TTY/TDD"
 
 msgid "ISDN"
 msgstr "רשת דיגיטלית לשירותים משולבים (ISDN)"
@@ -3419,44 +3271,41 @@ msgid "Home Fax"
 msgstr "פקס בבית"
 
 msgid "Email Display As"
-msgstr ""
+msgstr "אימייל תצוגה בשם"
 
 msgid "Email 2"
 msgstr "דואר אלקטורני 2"
 
 msgid "Email2 Display As"
-msgstr ""
+msgstr "אימייל2 הצג כ"
 
 msgid "Email 3"
 msgstr "דואר אלקטורני 3"
 
 msgid "Email3 Display As"
-msgstr ""
+msgstr "אימייל3 הצג כ"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Birthday"
 msgstr "יום הולדת"
 
 msgid "Wedding Anniversary"
-msgstr ""
+msgstr "יום נישואין"
 
 msgid "Spouse/Partner"
-msgstr ""
+msgstr "בן זוג/שותף"
 
 msgid "Profession"
 msgstr "מקצוע"
 
-#, fuzzy
 msgid "Assistant's Name"
-msgstr "מספר טלפון של העוזר"
+msgstr "שם העוזר"
 
-#, fuzzy
 msgid "Distribution List Name"
-msgstr "רשימת תפוצה"
+msgstr "שם רשימת תפוצה"
 
-#, fuzzy
 msgid "Open Shared Contacts"
-msgstr "פתח תיקיות משותפות"
+msgstr "פתח את אנשי קשר משותפים"
 
 msgid "Business Cards"
 msgstr "כרטיס ביקור"
@@ -3465,14 +3314,13 @@ msgid "Phone List"
 msgstr "רישמת טלפונים"
 
 msgid "Add to contacts"
-msgstr ""
+msgstr "הוסף לאנשי קשר"
 
-#, fuzzy
 msgid "Print selected contact"
-msgstr "נבחר פריט {0}"
+msgstr "הדפס איש קשר נבחר"
 
 msgid "No contact selected"
-msgstr ""
+msgstr "לא נבחר איש קשר"
 
 msgid "Distribution list"
 msgstr "רשימת תפוצה"
@@ -3525,17 +3373,14 @@ msgstr "הצג הודעה זו שוב כאשר הכתובת אינה מלאה א
 msgid "Details"
 msgstr "פרטים"
 
-#, fuzzy
 msgid "Office location"
 msgstr "מיקום המשרד"
 
-#, fuzzy
 msgid "Manager's name"
 msgstr "שם המנהל"
 
-#, fuzzy
 msgid "Assistant's name"
-msgstr "מספר טלפון של העוזר"
+msgstr "שם העוזר"
 
 msgid "Nickname"
 msgstr "כינוי"
@@ -3545,7 +3390,7 @@ msgstr "סיומת"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Anniversary"
-msgstr ""
+msgstr "יוֹם הַשָׁנָה"
 
 msgid "Photo"
 msgstr "תמונה"
@@ -3604,215 +3449,204 @@ msgstr "תוספת"
 msgid "Add Attachment"
 msgstr "הוסף קובץ מצורף"
 
-#, fuzzy
 msgid "Add attachments to this contact"
-msgstr "הוסף קבצים מצורפים עבור איש קשר זה."
+msgstr "הוסף קבצים מצורפים לאיש קשר זה"
 
-#, fuzzy
 msgid "Mark this contact as private"
-msgstr "סמן את איש קשר זה כפרטי."
+msgstr "סמן איש קשר זה כפרטי"
 
-#, fuzzy
 msgid "Distribution List"
 msgstr "רשימת תפוצה"
 
-#, fuzzy
 msgid "Mark this Distribution list as private"
-msgstr "סמן את רשימת תפוצה זו כפרטית."
+msgstr "סמן את רשימת התפוצה הזו כפרטית"
 
-#, fuzzy
 msgid "New email address"
-msgstr "כתובת דואר אלקטרוני חדשה"
+msgstr "כתובת אימייל חדשה"
 
-#, fuzzy
 msgid "Please enter a valid email address"
-msgstr "אנא הזן כתובת דואר אלקטרוני תקפה!"
+msgstr "נא להזין כתובת אימייל חוקית"
 
 msgid "Select Members"
-msgstr ""
+msgstr "בחר חברים"
 
 msgid "Add New"
-msgstr ""
+msgstr "הוסף חדש"
 
 msgid "Type your note here…"
-msgstr ""
+msgstr "הקלד את ההערה שלך כאן..."
 
 msgid "New contact"
-msgstr ""
+msgstr "איש קשר חדש"
 
-#, fuzzy
 msgid "New distribution list"
-msgstr "צור רשימת תפוצה"
+msgstr "רשימת תפוצה חדשה"
 
 msgid "Email 2 Display As"
-msgstr ""
+msgstr "דוא\"ל 2 הצג כ"
 
 msgid "Email 3 Display As"
-msgstr ""
+msgstr "אימייל 3 הצג כ"
 
 msgid "Loading contacts"
-msgstr ""
+msgstr "טוען אנשי קשר"
 
 msgid ""
 "There are no items to show in this list. Update the filter for more results."
 msgstr ""
 
 msgid "[Group]"
-msgstr ""
+msgstr "[קְבוּצָה]"
 
 msgid "Work:"
-msgstr ""
+msgstr "עֲבוֹדָה:"
 
 msgid "Primary:"
-msgstr ""
+msgstr "יְסוֹדִי:"
 
 msgid "Mobile:"
-msgstr ""
+msgstr "נייד:"
 
-#, fuzzy
 msgid "Sort by: Full Name"
-msgstr "מיין לפי: גודל"
+msgstr "מיין לפי: שם מלא"
 
 msgid "Sort by: Email Address 2"
-msgstr ""
+msgstr "מיין לפי: כתובת דואר אלקטרוני 2"
 
 msgid "Sort by: Email Address 3"
-msgstr ""
+msgstr "מיין לפי: כתובת אימייל 3"
 
 msgid "Mobile Phone"
 msgstr "טלפון נייד"
 
 msgid "Sort by: Mobile Phone"
-msgstr ""
+msgstr "מיין לפי: טלפון נייד"
 
 msgid "Sort by: Business Phone"
-msgstr ""
+msgstr "מיין לפי: טלפון עסקי"
 
 msgid "Sort by: Business Fax"
-msgstr ""
+msgstr "מיין לפי: פקס עסקי"
 
 msgid "Sort by: Department Name"
-msgstr ""
+msgstr "מיין לפי: שם המחלקה"
 
 msgid "Office Location"
 msgstr "מיקום המשרד"
 
 msgid "Sort by: Office Location"
-msgstr ""
+msgstr "מיין לפי: מיקום משרד"
 
 msgid "Sort by: Profession"
-msgstr ""
+msgstr "מיין לפי: מקצוע"
 
 msgid "Manager Name"
 msgstr "שם המנהל"
 
 msgid "Sort by: Manager Name"
-msgstr ""
+msgstr "מיין לפי: שם מנהל"
 
 msgid "Sort by: Assistant's Name"
-msgstr ""
+msgstr "מיין לפי: שם העוזר"
 
-#, fuzzy
 msgid "Sort by: Nickname"
-msgstr "מיין לפי: גודל"
+msgstr "מיין לפי: כינוי"
 
 msgid "Sort by: Spouse/Partner Name"
-msgstr ""
+msgstr "מיין לפי: שם בן/בת הזוג/שותף"
 
 msgid "Sort by: Birthday"
-msgstr ""
+msgstr "מיין לפי: יום הולדת"
 
 msgid "Sort by: Anniversary"
-msgstr ""
+msgstr "מיין לפי: יום נישואין"
 
 msgid "Sort by: Business Address"
-msgstr ""
+msgstr "מיין לפי: כתובת העסק"
 
 msgid "Sort by: Home Address"
-msgstr ""
+msgstr "מיין לפי: כתובת הבית"
 
 msgid "Sort by: Office Address"
-msgstr ""
+msgstr "מיין לפי: כתובת משרד"
 
 msgid "Mailing Address"
 msgstr "כתובת למשלוח"
 
 msgid "Sort by: Mailing Address"
-msgstr ""
+msgstr "מיין לפי: כתובת למשלוח דואר"
 
 msgid "Sort by: IM Address"
-msgstr ""
+msgstr "מיין לפי: כתובת IM"
 
-#, fuzzy
 msgid "Sort by: Webpage"
-msgstr "מיין לפי: גודל"
+msgstr "מיין לפי: דף אינטרנט"
 
 msgid "Assistant's Phone"
 msgstr "מספר טלפון של העוזר"
 
 msgid "Sort by: Assistant's Phone"
-msgstr ""
+msgstr "מיין לפי: הטלפון של Assistant"
 
 msgid "Business Phone 2"
 msgstr "טלפון בעסק 2"
 
 msgid "Sort by: Business Phone 2"
-msgstr ""
+msgstr "מיין לפי: טלפון עסקי 2"
 
 msgid "Sort by: Callback"
-msgstr ""
+msgstr "מיין לפי: התקשרות חוזרת"
 
 msgid "Sort by: Car Phone"
-msgstr ""
+msgstr "מיין לפי: טלפון רכב"
 
 msgid "Company Phone"
-msgstr ""
+msgstr "טלפון החברה"
 
 msgid "Sort by: Company Main Phone"
-msgstr ""
+msgstr "מיין לפי: טלפון ראשי של החברה"
 
 msgid "Home Phone 2"
 msgstr "טלפון בבית 2"
 
 msgid "Sort by: Home Phone 2"
-msgstr ""
+msgstr "מיין לפי: טלפון ביתי 2"
 
 msgid "Sort by: Home Fax"
-msgstr ""
+msgstr "מיין לפי: פקס ביתי"
 
-#, fuzzy
 msgid "Sort by: ISDN"
-msgstr "מיין לפי: סמל"
+msgstr "מיין לפי: ISDN"
 
 msgid "Sort by: Other Phone"
-msgstr ""
+msgstr "מיין לפי: אחר טלפון"
 
 msgid "Radio Phone"
-msgstr ""
+msgstr "רדיו טלפון"
 
 msgid "Sort by: Radio Phone"
-msgstr ""
+msgstr "מיין לפי: רדיו טלפון"
 
 msgid "Sort by: TTY/TDD Phone"
-msgstr ""
+msgstr "מיין לפי: טלפון TTY/TDD"
 
 msgid "Sort by: Telex Phone"
-msgstr ""
+msgstr "מיין לפי: טלקס טלפון"
 
 msgid "Change Picture"
-msgstr ""
+msgstr "שנה תמונה"
 
 msgid "Remove Picture"
-msgstr ""
+msgstr "הסר תמונה"
 
 msgid "VCF file(s)"
-msgstr ""
+msgstr "קבצי VCF"
 
 msgid "Quick Contact"
-msgstr ""
+msgstr "יצירת קשר מהיר"
 
 msgid "Open in new browser window"
-msgstr ""
+msgstr "פתח בחלון דפדפן חדש"
 
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
@@ -3848,12 +3682,11 @@ msgstr ""
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
-msgstr ""
+msgstr "{0}מטעם{1}"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
 msgid "jS F"
-msgstr "j F"
+msgstr "jS F"
 
 msgid "Y"
 msgstr "Y"
@@ -3874,7 +3707,7 @@ msgid "Travel Required"
 msgstr "מסעות חובה"
 
 msgid "Preparation Required"
-msgstr ""
+msgstr "נדרשת הכנה"
 
 msgid "Special Date"
 msgstr "תאריך מיוחד"
@@ -3913,10 +3746,10 @@ msgid "Yellow"
 msgstr "צהוב"
 
 msgid "No response"
-msgstr ""
+msgstr "אין תגובה"
 
 msgid "Not responded"
-msgstr ""
+msgstr "לא הגיבו"
 
 msgid "Accepted"
 msgstr "התקבל"
@@ -3936,9 +3769,8 @@ msgstr "בתהליך"
 msgid "Wait for other person"
 msgstr "חכה לאדם השני"
 
-#, fuzzy
 msgid "Deferred"
-msgstr "דחוי"
+msgstr "דָחוּי"
 
 msgid "Purple"
 msgstr "סגול"
@@ -3950,11 +3782,10 @@ msgid "Lime"
 msgstr "ליים"
 
 msgid "Magenta"
-msgstr ""
+msgstr "מַגֶנטָה"
 
-#, fuzzy
 msgid "High Contrast"
-msgstr "אנשי קשר \"חמים\""
+msgstr "ניגודיות גבוהה"
 
 msgid "Cyan"
 msgstr "ציאן"
@@ -3975,48 +3806,43 @@ msgid "Dark"
 msgstr "כהה"
 
 msgid "Logout"
-msgstr ""
+msgstr "התנתק"
 
 msgid "Switch view"
-msgstr ""
+msgstr "החלף תצוגה"
 
 msgid "Widgets"
-msgstr ""
+msgstr "ווידג'טים"
 
-#, fuzzy
 msgid "Sending…"
-msgstr "שומר…"
+msgstr "שְׁלִיחָה…"
 
-#, fuzzy
 msgid "Sent successfully"
 msgstr "נשלח בהצלחה"
 
-#, fuzzy
 msgid "No recipient"
-msgstr "ערוך נמען"
+msgstr "אין נמען"
 
-#, fuzzy
 msgid "Please specify at least one recipient"
-msgstr "אנא ציין מען"
+msgstr "נא לציין נמען אחד לפחות"
 
 msgid "Please specify a recipient"
 msgstr "אנא ציין מען"
 
 msgid "The attached files are not uploaded yet."
-msgstr ""
+msgstr "הקבצים המצורפים עדיין לא הועלו."
 
 msgid "Do you want to send this message without attachments?"
-msgstr ""
+msgstr "האם ברצונך לשלוח הודעה זו ללא קבצים מצורפים?"
 
-#, fuzzy
 msgid "Attachments not uploaded yet"
-msgstr "הוסף קבצים מצורפים עבור איש קשר זה."
+msgstr "קבצים מצורפים עדיין לא הועלו"
 
 msgid "Don't Send"
-msgstr ""
+msgstr "אל תשלח"
 
 msgid "Send Anyway"
-msgstr ""
+msgstr "שלח בכל זאת"
 
 msgid "Missing attachment"
 msgstr "חסר קובץ מצורף"
@@ -4026,48 +3852,42 @@ msgid ""
 "Send anyway?"
 msgstr "נראה שההודעה שלך מתייחסת לקובץ מצורף אך לא מצורף קובץ. לשלוח בכל זאת?"
 
-#, fuzzy
 msgid "No subject"
-msgstr "נושא"
+msgstr "אין נושא"
 
 msgid "Send this message without a subject?"
 msgstr "לשלוח הודעה זו ללא נושא?"
 
-#, fuzzy
 msgid "Unresolved recipients"
-msgstr "ערוך נמען"
+msgstr "נמענים לא פתורים"
 
 msgid "Not all recipients could be resolved"
 msgstr "לא ניתן היה להגיע לכל הנמענים"
 
-#, fuzzy
 msgid "Collapse hierarchy"
-msgstr "לא ניתן לטעון את ההיררכיה."
+msgstr "כיווץ היררכיה"
 
 msgid "Expand hierarchy"
-msgstr ""
+msgstr "הרחב את ההיררכיה"
 
 msgid "Folders List"
 msgstr "רשימת תיקיות"
 
-#, fuzzy
 msgid "Copy Details"
-msgstr "הצג פרטים"
+msgstr "העתק פרטים"
 
-#, fuzzy
 msgid "Hide Details"
-msgstr "פרטים"
+msgstr "הסתר פרטים"
 
 msgid "Loaded {0} of {1}"
-msgstr ""
+msgstr "נטען{0}של{1}"
 
 msgid "Saving"
-msgstr ""
+msgstr "חִסָכוֹן"
 
 msgid "Saved"
 msgstr "נשמר"
 
-#, fuzzy
 msgid "Saved successfully"
 msgstr "נשמר בהצלחה"
 
@@ -4076,84 +3896,79 @@ msgid ""
 msgstr ""
 
 msgid "grommunio Content Panel"
-msgstr ""
+msgstr "חלונית תוכן grommunio"
 
-#, fuzzy
 msgid "Delete item"
-msgstr "מחק פריטים"
+msgstr "מחק פריט"
 
 msgid "This item has been changed. Are you sure you want to delete it?"
-msgstr ""
+msgstr "פריט זה השתנה. האם אתה בטוח שברצונך למחוק אותו?"
 
 msgid "Unsaved changes"
-msgstr ""
+msgstr "שינויים שלא נשמרו"
 
 msgid "Welcome to grommunio Web"
-msgstr ""
+msgstr "ברוכים הבאים ל-grommunio Web"
 
 msgid "This is the first time you are using grommunio Web. "
-msgstr ""
+msgstr "זו הפעם הראשונה שאתה משתמש ב-grommunio Web."
 
 msgid "Please check the following settings before continuing."
-msgstr ""
+msgstr "אנא בדוק את ההגדרות הבאות לפני שתמשיך."
 
 msgid "Widget height"
-msgstr ""
+msgstr "גובה יישומון"
 
 msgid "pixels"
-msgstr ""
+msgstr "פיקסלים"
 
 msgid "Configure widget"
 msgstr "להגדיר יישומון"
 
 msgid "Reload interval"
-msgstr ""
+msgstr "מרווח טעינה מחדש"
 
 msgid "seconds"
-msgstr ""
+msgstr "שניות"
 
 msgid "Open in new tab"
-msgstr ""
+msgstr "פתח בכרטיסייה חדשה"
 
 msgid "Add widgets"
-msgstr ""
+msgstr "הוסף ווידג'טים"
 
 msgid "No widgets installed."
-msgstr ""
+msgstr "לא מותקנים ווידג'טים."
 
-#, fuzzy
 msgid "Remove widget"
-msgstr "הסר"
+msgstr "הסר ווידג'ט"
 
-#, fuzzy
 msgid "Collapse widget"
-msgstr "לא ניתן לטעון את ההיררכיה."
+msgstr "כווץ ווידג'ט"
 
 msgid "Expand widget"
-msgstr ""
+msgstr "הרחב את הווידג'ט"
 
 msgid "About this widget"
-msgstr ""
+msgstr "על הווידג'ט הזה"
 
-#, fuzzy
 msgid "Add new widget"
-msgstr "להגדיר יישומון"
+msgstr "הוסף ווידג'ט חדש"
 
 msgid "Collapse widget panel"
-msgstr ""
+msgstr "כווץ חלונית הווידג'ט"
 
 msgid "Expand widget panel"
-msgstr ""
+msgstr "הרחב את לוח הווידג'ט"
 
 msgid "Your changes will be lost if you leave this page now."
-msgstr ""
+msgstr "השינויים שלך יאבדו אם תעזוב את הדף הזה עכשיו."
 
 msgid "D {0}"
-msgstr ""
+msgstr "D{0}"
 
-#, fuzzy
 msgid "D d-m"
-msgstr "ש-ח-י"
+msgstr "ד ד-מ"
 
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
@@ -4165,18 +3980,16 @@ msgid ""
 "the hierarchy?"
 msgstr ""
 
-#, fuzzy
 msgid "Insufficient Permissions"
-msgstr "הרשאות"
+msgstr "הרשאות לא מספיקות"
 
 msgid "Not enough permissions to open this folder."
-msgstr ""
+msgstr "אין מספיק הרשאות לפתיחת תיקיה זו."
 
-#, fuzzy
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
-msgstr[0] "ישנה הודעה {0} שלא נקראה בתיקיה {1}"
-msgstr[1] "ישנן {0} הודעות שלא נקראו בתיקיה {1}"
+msgstr[0] "יש הודעה{0}שלא נקראה בתיקייה{1}של{2}"
+msgstr[1] "יש הודעות{0}שלא נקראו בתיקייה{1}של{2}"
 
 msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
@@ -4184,37 +3997,37 @@ msgstr[0] "ישנה הודעה {0} שלא נקראה בתיקיה {1}"
 msgstr[1] "ישנן {0} הודעות שלא נקראו בתיקיה {1}"
 
 msgid "Publishing Editor"
-msgstr ""
+msgstr "עורך הוצאה לאור"
 
 msgid "Editor"
-msgstr ""
+msgstr "עוֹרֵך"
 
 msgid "Publishing Author"
-msgstr ""
+msgstr "מחבר הוצאה לאור"
 
 msgid "Author"
-msgstr ""
+msgstr "מְחַבֵּר"
 
 msgid "Nonediting Author"
-msgstr ""
+msgstr "מחבר ללא עריכה"
 
 msgid "Reviewer"
-msgstr ""
+msgstr "סוֹקֵר"
 
 msgid "Contributor"
-msgstr ""
+msgstr "תוֹרֵם"
 
 msgid "Free/Busy time, subject, location"
-msgstr ""
+msgstr "זמן פנוי/עסוק, נושא, מיקום"
 
 msgid "Free/Busy time"
-msgstr ""
+msgstr "זמן פנוי/עסוק"
 
 msgid "Unable to import:"
-msgstr ""
+msgstr "לא ניתן לייבא:"
 
 msgid "The files are not valid"
-msgstr ""
+msgstr "הקבצים אינם חוקיים"
 
 msgid "Create New Folder"
 msgstr "צור תיקיה חדשה"
@@ -4240,13 +4053,11 @@ msgstr "פריטי משימה"
 msgid "Select where to place the folder"
 msgstr "בחר היכן למקם את התיקיה"
 
-#, fuzzy
 msgid "No folder name"
-msgstr "תיקיה חדשה"
+msgstr "אין שם תיקיה"
 
-#, fuzzy
 msgid "No destination"
-msgstr "אין מידע"
+msgstr "אין יעד"
 
 msgid "You must select a destination folder."
 msgstr "עליך לבחור תיקיית יעד."
@@ -4267,19 +4078,19 @@ msgid "Permissions"
 msgstr "הרשאות"
 
 msgid "No permissions granted"
-msgstr ""
+msgstr "לא ניתנו הרשאות"
 
 msgid "Profile"
 msgstr "פרופיל"
 
 msgid "Full Details"
-msgstr ""
+msgstr "פרטים מלאים"
 
 msgid "Read"
-msgstr ""
+msgstr "לִקְרוֹא"
 
 msgid "Write"
-msgstr ""
+msgstr "לִכתוֹב"
 
 msgid "Create items"
 msgstr "צור פריטים"
@@ -4288,10 +4099,10 @@ msgid "Create subfolders"
 msgstr "צור תיקיות משנה"
 
 msgid "Edit own"
-msgstr ""
+msgstr "ערוך משלך"
 
 msgid "Edit all"
-msgstr ""
+msgstr "ערוך הכל"
 
 msgid "Delete items"
 msgstr "מחק פריטים"
@@ -4303,93 +4114,88 @@ msgid "All"
 msgstr "הכל"
 
 msgid "Folder owner"
-msgstr ""
+msgstr "בעל תיקיה"
 
 msgid "Folder contact"
-msgstr ""
+msgstr "איש קשר בתיקייה"
 
 msgid "Folder visible"
 msgstr "תיקיה נראית"
 
 msgid "Apply (copy) changed permissions recursively"
-msgstr ""
+msgstr "החל (העתק) הרשאות שהשתנו באופן רקורסיבי"
 
 msgid "User already exists"
-msgstr ""
+msgstr "המשתמש כבר קיים"
 
 msgid "Group already exists"
-msgstr ""
+msgstr "הקבוצה כבר קיימת"
 
-#, fuzzy
 msgid "Folder Size"
-msgstr "גודל התיקיה"
+msgstr "גודל תיקיה"
 
 msgid "Folder Name"
-msgstr ""
+msgstr "שם התיקיה"
 
 msgid "Size (without subfolders)"
-msgstr ""
+msgstr "גודל (ללא תיקיות משנה)"
 
 msgid "Total size (including subfolders)"
-msgstr ""
+msgstr "גודל כולל (כולל תיקיות משנה)"
 
 msgid "Loading subfolder sizes"
-msgstr ""
+msgstr "טוען גדלי תיקיות משנה"
 
 msgid "No subfolders present"
-msgstr ""
+msgstr "אין תיקיות משנה"
 
-#, fuzzy
 msgid "Subfolder"
-msgstr "תיקיות משנה"
+msgstr "תיקיית משנה"
 
 msgid "Sort by: Name of the subfolder"
-msgstr ""
+msgstr "מיין לפי: שם תיקיית המשנה"
 
 msgid "Sort by: Size (without subfolders)"
-msgstr ""
+msgstr "מיין לפי: גודל (ללא תיקיות משנה)"
 
 msgid "Total size"
-msgstr ""
+msgstr "גודל כולל"
 
 msgid "Sort by: Total size (including subfolders)"
-msgstr ""
+msgstr "מיין לפי: גודל כולל (כולל תיקיות משנה)"
 
 msgid "Open Shared Folders"
 msgstr "פתח תיקיות משותפות"
 
 msgid "Unresolved user"
-msgstr ""
+msgstr "משתמש לא פתור"
 
 msgid "Username '{0}' could not be resolved."
-msgstr ""
+msgstr "לא ניתן היה לפתור את שם המשתמש '{0}'."
 
 msgid "Invalid user"
-msgstr ""
+msgstr "משתמש לא חוקי"
 
 msgid "Username '{0}' is not a valid user."
-msgstr ""
+msgstr "שם המשתמש '{0}' אינו משתמש חוקי."
 
-#, fuzzy
 msgid "Own store"
-msgstr "שחזר"
+msgstr "חנות משלו"
 
 msgid "It is not possible to open your own store twice."
-msgstr ""
+msgstr "אין אפשרות לפתוח חנות משלך פעמיים."
 
-#, fuzzy
 msgid "Folder already open"
-msgstr "סוג תיקיה"
+msgstr "התיקיה כבר פתוחה"
 
 msgid "This shared folder is already open."
-msgstr ""
+msgstr "התיקיה המשותפת הזו כבר פתוחה."
 
 msgid "No user"
-msgstr ""
+msgstr "אין משתמש"
 
-#, fuzzy
 msgid "You must specify a user"
-msgstr "עליך לציין שם."
+msgstr "עליך לציין משתמש"
 
 msgid "Folder type"
 msgstr "סוג תיקיה"
@@ -4398,21 +4204,19 @@ msgid "Show subfolders"
 msgstr "הצג תיקיות משנה"
 
 msgid "Open shared folder/store"
-msgstr ""
+msgstr "פתח תיקייה/חנות משותפת"
 
 msgid "Rename folder"
-msgstr ""
+msgstr "שנה את שם התיקיה"
 
-#, fuzzy
 msgid "Empty folder"
 msgstr "תיקיה ריקה"
 
 msgid "Empty Junk Email"
-msgstr ""
+msgstr "דואר זבל ריק"
 
-#, fuzzy
 msgid "Empty Deleted Items"
-msgstr "מחק פריטים"
+msgstr "ריק פריטים שנמחקו"
 
 msgid "Rename Folder"
 msgstr "קבע שם חדש לתיקיה"
@@ -4430,7 +4234,7 @@ msgid "Close store"
 msgstr "סגור אחסון"
 
 msgid "Close folder"
-msgstr ""
+msgstr "סגור תיקיה"
 
 msgid "Reload"
 msgstr "טען מחדש"
@@ -4438,43 +4242,35 @@ msgstr "טען מחדש"
 msgid "Restore items"
 msgstr "שחזר פריטים"
 
-#, fuzzy
 msgid "Select color"
-msgstr "מחק תיקיה"
+msgstr "בחר צבע"
 
-#, fuzzy
 msgid "Add to Favorites"
-msgstr "הוסף לתיקיית המועדפים"
+msgstr "הוסף למועדפים"
 
-#, fuzzy
 msgid "Remove From Favorites"
-msgstr "הסר מלוח השנה"
+msgstr "הסר מהמועדפים"
 
-#, fuzzy
 msgid "Share folder…"
-msgstr "פתח תיקיות משותפות…"
+msgstr "שתף תיקייה..."
 
-#, fuzzy
 msgid "Import emails"
-msgstr "חשוב"
+msgstr "ייבוא ​​מיילים"
 
-#, fuzzy
 msgid "Import appointments"
-msgstr "פגישה חדשה"
+msgstr "ייבוא ​​פגישות"
 
 msgid "Import contacts"
-msgstr ""
+msgstr "ייבוא ​​אנשי קשר"
 
-#, fuzzy
 msgid "Properties of {0}"
-msgstr "מאפיינים"
+msgstr "מאפיינים של{0}"
 
 msgid "Share {0} with…"
-msgstr ""
+msgstr "שתף את{0}עם..."
 
-#, fuzzy
 msgid "Properties of {0} - {1}"
-msgstr "מאפיינים"
+msgstr "מאפיינים של{0}-{1}"
 
 msgid ""
 "Are you sure you want to permanently delete all the items and subfolders in "
@@ -4489,19 +4285,17 @@ msgstr ""
 "האם אתה בטוח כי ברצונך למחוק את תיקיית \"{0}\" ולהעביר את כל תוכנה לתיקיית "
 "הפריטים שנמחקו?"
 
-#, fuzzy
 msgid "Delete folder"
-msgstr "מחק תיקיה"
+msgstr "מחק תיקייה"
 
 msgid "Are you sure you want to empty {0}?"
 msgstr "האם אתה בטוח כי ברצונך לרוקן את {0}?"
 
 msgid "Show All"
-msgstr ""
+msgstr "הצג הכל"
 
-#, fuzzy
 msgid "Show all folders"
-msgstr "הצג תיקיות משנה"
+msgstr "הצג את כל התיקיות"
 
 msgid ""
 "You have insufficient privileges to move this folder. Would you like to copy "
@@ -4525,61 +4319,61 @@ msgid "Original message"
 msgstr "הודעה מקורית"
 
 msgid "Schedule mail to be sent out"
-msgstr ""
+msgstr "תזמן שליחת דואר"
 
 msgid "Scheduled Items"
-msgstr ""
+msgstr "פריטים מתוזמנים"
 
 msgid "Your message will be sent at "
-msgstr ""
+msgstr "הודעתך תישלח ב-"
 
 msgid "Go to your Outbox to edit your email."
-msgstr ""
+msgstr "עבור אל תיבת הדואר הנכנס שלך כדי לערוך את הדוא\"ל שלך."
 
 msgid "hour(s)"
-msgstr ""
+msgstr "שעה"
 
 msgid "month(s)"
-msgstr ""
+msgstr "חודש(ים)"
 
 msgid "at a specific time"
-msgstr ""
+msgstr "בזמן מסוים"
 
 msgid "The time you entered is in the past. Please reschedule your mail."
-msgstr ""
+msgstr "השעה שהזנת היא בעבר. נא לתזמן מחדש את הדואר שלך."
 
 msgid "today  at "
-msgstr ""
+msgstr "היום בשעה"
 
 msgid "tomorrow  at "
-msgstr ""
+msgstr "מחר בשעה"
 
 msgid "{0} at "
-msgstr ""
+msgstr "{0}בשעה"
 
 msgid "at {0}"
-msgstr ""
+msgstr "ב-{0}"
 
 msgid "Your email will be sent {0}{1}"
-msgstr ""
+msgstr "הדוא\"ל שלך יישלח{0}{1}"
 
 msgid "Saving…"
 msgstr "שומר…"
 
 msgid "Saved at {0}"
-msgstr ""
+msgstr "נשמר ב-{0}"
 
 msgid "Saving failed"
-msgstr ""
+msgstr "השמירה נכשלה"
 
 msgid "This message will be flagged for follow up when it is sent."
-msgstr ""
+msgstr "הודעה זו תסומן למעקב כאשר היא תישלח."
 
 msgid "Send Later"
-msgstr ""
+msgstr "שלח מאוחר יותר"
 
 msgid "Schedule your mail to be sent on a specific date and time"
-msgstr ""
+msgstr "תזמן את שליחת הדואר שלך בתאריך ושעה ספציפיים"
 
 msgid "Add attachments to this email"
 msgstr "הוסף קבצים מצורפים לדואר זה"
@@ -4597,10 +4391,10 @@ msgid "Set flag on this email"
 msgstr "הגדר דגל בדואר זה"
 
 msgid "Mark this mail as high priority"
-msgstr ""
+msgstr "סמן דואר זה בעדיפות גבוהה"
 
 msgid "Mark this mail as low priority"
-msgstr ""
+msgstr "סמן את האימייל הזה בעדיפות נמוכה"
 
 msgid "Set read receipt"
 msgstr "הגדר קבלת קריאה"
@@ -4611,15 +4405,14 @@ msgstr "בקש קבלת קריאה מהמשתמש"
 msgid "Show Bcc"
 msgstr "הצג את שדה עותק סודי"
 
-#, fuzzy
 msgid "Show Bcc field"
-msgstr "הצג את שדה עותק סודי"
+msgstr "הצג שדה עותק מוסתר"
 
 msgid "Show From field"
-msgstr ""
+msgstr "הצג משדה"
 
 msgid "Cannot save while attachment is being uploaded"
-msgstr ""
+msgstr "לא ניתן לשמור בזמן העלאת הקובץ המצורף"
 
 msgid "Internet Headers"
 msgstr "כותרות אינטרנט"
@@ -4634,13 +4427,13 @@ msgid "Request a read receipt for this message."
 msgstr "בקש קבלת קריאה עבור הודעה זו"
 
 msgid "no subject"
-msgstr ""
+msgstr "ללא נושא"
 
 msgid "Set Category"
 msgstr "הגדר קטגוריה"
 
 msgid "Pop-Out"
-msgstr ""
+msgstr "פופ-אאוט"
 
 msgid "Mark Read"
 msgstr "סמן כנקרא"
@@ -4648,37 +4441,32 @@ msgstr "סמן כנקרא"
 msgid "Mark Unread"
 msgstr "סמן כלא נקרא"
 
-#, fuzzy
 msgid "New mail"
 msgstr "דואר חדש"
 
 msgid "Mail"
 msgstr "דואר"
 
-#, fuzzy
 msgid "Reply all"
 msgstr "השב לכולם"
 
 msgid "Toggle read/unread"
-msgstr ""
+msgstr "החלף בין קריאה/לא נקראה"
 
 msgid "Toggle red/complete flag"
-msgstr ""
+msgstr "החלף את הדגל האדום/השלם"
 
-#, fuzzy
 msgid "Open Shared Mails"
-msgstr "פתח תיקיות משותפות"
+msgstr "פתח אימיילים משותפים"
 
-#, fuzzy
 msgid "Print single email"
-msgstr "נבחר פריט {0}"
+msgstr "הדפס מייל בודד"
 
-#, fuzzy
 msgid "Print selected email"
-msgstr "נבחר פריט {0}"
+msgstr "הדפס את האימייל שנבחר"
 
 msgid "Filter"
-msgstr ""
+msgstr "לְסַנֵן"
 
 msgid "Fwd"
 msgstr "הועבר"
@@ -4687,52 +4475,52 @@ msgid "Re"
 msgstr "השב"
 
 msgid "on behalf of"
-msgstr ""
+msgstr "בְּשֵׁם"
 
 msgid "Safe Senders list is empty"
-msgstr ""
+msgstr "רשימת השולחים הבטוחים ריקה"
 
 msgid "Please select a safe sender record."
-msgstr ""
+msgstr "אנא בחר רשומת שולח בטוח."
 
 msgid "Delete all safe senders"
-msgstr ""
+msgstr "מחק את כל השולחים הבטוחים"
 
 msgid "Are you sure you want to delete all safe senders?"
-msgstr ""
+msgstr "האם אתה בטוח שברצונך למחוק את כל השולחים הבטוחים?"
 
 msgid "HTML"
-msgstr ""
+msgstr "HTML"
 
 msgid "Plain Text"
-msgstr ""
+msgstr "טקסט רגיל"
 
 msgid "In both representee's and delegate's Sent Items"
-msgstr ""
+msgstr "גם בפריטים שנשלחו של הנציג וגם של הנציג"
 
 msgid "Only in delegate's Sent Items"
-msgstr ""
+msgstr "רק בפריטים שנשלחו של הנציג"
 
 msgid "Only in representee's Sent Items"
-msgstr ""
+msgstr "רק בפריטים שנשלחו של הנציג"
 
 msgid "Compose mail settings"
-msgstr ""
+msgstr "חיבור הגדרות דואר"
 
 msgid "Compose mail in this format"
-msgstr ""
+msgstr "כתוב דואר בפורמט זה"
 
 msgid "Default font"
-msgstr ""
+msgstr "גופן ברירת מחדל"
 
 msgid "Default font size"
-msgstr ""
+msgstr "גודל גופן ברירת מחדל"
 
 msgid "Save emails sent by delegate"
-msgstr ""
+msgstr "שמור אימיילים שנשלחו על ידי נציג"
 
 msgid "Always request a read receipt"
-msgstr ""
+msgstr "בקש תמיד אישור קריאה"
 
 msgid "Activate attachment reminder"
 msgstr "הפעל תזכורת לקובץ מצורף"
@@ -4740,39 +4528,39 @@ msgstr "הפעל תזכורת לקובץ מצורף"
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
-msgstr ""
+msgstr "{A}שמירה אוטומטית של דואר שלא נשלח כל {B} דקות"
 
 msgid "Conversation view settings"
-msgstr ""
+msgstr "הגדרות תצוגת שיחה"
 
 msgid "Enable conversation view"
-msgstr ""
+msgstr "אפשר תצוגת שיחה"
 
 msgid "Collapse conversation when selecting a different email"
-msgstr ""
+msgstr "כווץ שיחה בעת בחירת דוא\"ל אחר"
 
 msgid "Incoming mail"
-msgstr ""
+msgstr "דואר נכנס"
 
 msgid "How to respond to requests for read receipts"
-msgstr ""
+msgstr "כיצד להגיב לבקשות לקבלת אישורי קריאה"
 
 msgid "Always send a response"
-msgstr ""
+msgstr "תמיד שלח תגובה"
 
 msgid "Never send a response"
-msgstr ""
+msgstr "לעולם אל תשלח תגובה"
 
 msgid "Ask me before sending a response"
-msgstr ""
+msgstr "שאל אותי לפני שליחת תגובה"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of seconds which the user will type in.
 msgid "{A}Automatically mark mail as read after {B} second(s)"
-msgstr ""
+msgstr "{A}סמן אוטומטית דואר כנקראו לאחר {B} שניות"
 
 msgid "View mail in this format"
-msgstr ""
+msgstr "הצג דואר בפורמט זה"
 
 msgid "Right"
 msgstr "ימינה"
@@ -4781,69 +4569,68 @@ msgid "Bottom"
 msgstr "תחתית"
 
 msgid "Location of preview pane"
-msgstr ""
+msgstr "מיקום חלונית התצוגה המקדימה"
 
 msgid "Use subject prefixes in accordance with RFC 5256/5322"
-msgstr ""
+msgstr "השתמש בקידומות נושא בהתאם ל-RFC 5256/5322"
 
 msgid "Close original message on reply or forward"
-msgstr ""
+msgstr "סגור את ההודעה המקורית בתשובה או העברה"
 
 msgid "General mail settings"
-msgstr ""
+msgstr "הגדרות דואר כלליות"
 
 msgid "Open or compose a mail item in a"
-msgstr ""
+msgstr "פתח או חבר פריט דואר ב-a"
 
 msgid "grommunio Web tab"
-msgstr ""
+msgstr "לשונית grommunio Web"
 
-#, fuzzy
 msgid "Browser window"
-msgstr "דפדף"
+msgstr "חלון דפדפן"
 
 msgid "Update Out of Office settings for"
-msgstr ""
+msgstr "עדכון הגדרות מחוץ למשרד עבור"
 
 msgid "I am currently in the office"
-msgstr ""
+msgstr "אני כרגע במשרד"
 
 msgid "I am out of the office from"
-msgstr ""
+msgstr "אני מחוץ למשרד מ"
 
 msgid "I will be back on"
-msgstr ""
+msgstr "אני אחזור"
 
 msgid "Automatically reply with the following message:"
-msgstr ""
+msgstr "השב אוטומטית עם ההודעה הבאה:"
 
 msgid "(The frequency of replies is dependent on server configuration.)"
-msgstr ""
+msgstr "(תדירות התשובות תלויה בתצורת השרת.)"
 
 msgid "Inside My Organization"
-msgstr ""
+msgstr "בתוך הארגון שלי"
 
 msgid "User is currently out of office."
-msgstr ""
+msgstr "המשתמש אינו במשרד כרגע."
 
 msgid "Outside My Organization"
-msgstr ""
+msgstr "מחוץ לארגון שלי"
 
 msgid "Auto-reply to people outside my organization"
-msgstr ""
+msgstr "תשובה אוטומטית לאנשים מחוץ לארגון שלי"
 
 msgid "My contacts only"
-msgstr ""
+msgstr "אנשי הקשר שלי בלבד"
 
 msgid "Anyone outside my organization"
-msgstr ""
+msgstr "כל אחד מחוץ לארגון שלי"
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
 msgstr ""
 
 msgid "Safe Senders"
-msgstr ""
+msgstr "שולחים בטוחים"
 
 msgid ""
 "To protect your privacy email addresses or domains can only be added via the "
@@ -4851,97 +4638,91 @@ msgid ""
 msgstr ""
 
 msgid "Delete all"
-msgstr ""
+msgstr "מחק הכל"
 
 msgid "Signatures"
-msgstr ""
+msgstr "חתימות"
 
 msgid "No signatures configured"
-msgstr ""
+msgstr "לא הוגדרו חתימות"
 
 msgid "New messages"
-msgstr ""
+msgstr "הודעות חדשות"
 
 msgid "Replies/forwards"
-msgstr ""
+msgstr "תשובות/העברה"
 
 msgid "Signature name:"
-msgstr ""
+msgstr "שם החתימה:"
 
-#, fuzzy
 msgid "Save Signature"
-msgstr "הוסף חתימה"
+msgstr "שמור חתימה"
 
 msgid "You have unsaved changes. Do you wish to save the changes?"
-msgstr ""
+msgstr "יש לך שינויים שלא נשמרו. האם ברצונך לשמור את השינויים?"
 
-#, fuzzy
 msgid "New signature"
-msgstr "הוסף חתימה"
+msgstr "חתימה חדשה"
 
 msgid "EML file(s)"
-msgstr ""
+msgstr "קבצי EML"
 
-#, fuzzy
 msgid "ZIP file"
-msgstr "פרופיל"
+msgstr "קובץ ZIP"
 
 msgid "max. "
-msgstr ""
+msgstr "מקסימום"
 
 msgid "Sort by: Sent"
 msgstr "מיין לפי: נשלחו"
 
 msgid "Modified"
-msgstr ""
+msgstr "שונה"
 
 msgid "Sort by: Modified"
-msgstr ""
+msgstr "מיין לפי: שונה"
 
 msgid "Flag"
-msgstr ""
+msgstr "דֶגֶל"
 
 msgid "Sort by: flag"
-msgstr ""
+msgstr "מיין לפי: דגל"
 
-#, fuzzy
 msgid "Older"
-msgstr "תיקיה"
+msgstr "ישן יותר"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "אֶתמוֹל"
 
-#, fuzzy
 msgid "Last Week"
-msgstr "עמוד אחרון"
+msgstr "שבוע שעבר"
 
 msgid "Two Weeks Ago"
-msgstr ""
+msgstr "לפני שבועיים"
 
 msgid "Three Weeks Ago"
-msgstr ""
+msgstr "לפני שלושה שבועות"
 
-#, fuzzy
 msgid "Last Month"
-msgstr "חודש"
+msgstr "חודש שעבר"
 
 msgid "Small"
-msgstr ""
+msgstr "קָטָן"
 
 msgid "Medium"
-msgstr ""
+msgstr "בֵּינוֹנִי"
 
 msgid "Large"
-msgstr ""
+msgstr "גָדוֹל"
 
 msgid "Very large"
-msgstr ""
+msgstr "גדול מאוד"
 
 msgid "Huge"
-msgstr ""
+msgstr "עָצוּם"
 
 msgid "Follow up"
-msgstr ""
+msgstr "מַעֲקָב"
 
 msgid "Move to Junk Folder"
 msgstr "העבר לתיקית זבל"
@@ -4949,45 +4730,41 @@ msgstr "העבר לתיקית זבל"
 msgid "Not Junk Email"
 msgstr "לא דואר זבל"
 
-#, fuzzy
 msgid "Send to"
-msgstr "נשלח"
+msgstr "שלח ל"
 
 msgid "Loading mail"
-msgstr ""
+msgstr "טוען דואר"
 
 msgid "No unread mail."
-msgstr ""
+msgstr "אין דואר שלא נקרא."
 
 msgid "Unread Mail"
-msgstr ""
+msgstr "דואר שלא נקרא"
 
 msgid "Quick Mail"
-msgstr ""
+msgstr "דואר מהיר"
 
-#, fuzzy
 msgid "Print note"
-msgstr "נבחר פריט {0}"
+msgstr "הדפס הערה"
 
 msgid "Color"
 msgstr "צבע"
 
 msgid "New note"
-msgstr ""
+msgstr "פתק חדש"
 
-#, fuzzy
 msgid "Open Shared Notes"
-msgstr "פתח תיקיות משותפות"
+msgstr "פתח את הערות משותפות"
 
 msgid "Sticky note"
-msgstr ""
+msgstr "פתק דביק"
 
-#, fuzzy
 msgid "Print selected note"
-msgstr "נבחר פריט {0}"
+msgstr "הדפס הערה שנבחרה"
 
 msgid "No note selected"
-msgstr ""
+msgstr "לא נבחרה הערה"
 
 msgid "Icons"
 msgstr "סמלים"
@@ -4996,170 +4773,165 @@ msgid "List view"
 msgstr "הצג כרשימה"
 
 msgid "List Last Seven Days"
-msgstr ""
+msgstr "רשימת שבעת הימים האחרונים"
 
 msgid "Created"
-msgstr ""
+msgstr "נוצר"
 
 msgid "Sort by: Created"
-msgstr ""
+msgstr "מיין לפי: נוצר"
 
 msgid "Sort by: Color"
-msgstr ""
+msgstr "מיין לפי: צבע"
 
 msgid "Loading Notes"
-msgstr ""
+msgstr "טוען הערות"
 
 msgid "Loading notes"
-msgstr ""
+msgstr "טוען הערות"
 
 msgid "Quick Note"
-msgstr ""
+msgstr "הערה מהירה"
 
 msgid ""
 "You must reload grommunio Web for the changes to take effect. Unsaved "
 "changes will be lost."
 msgstr ""
 
-#, fuzzy
 msgid "Reload grommunio Web"
-msgstr "הווב אפ של זראפה"
+msgstr "טען מחדש את grommunio Web"
 
 msgid "Settings"
-msgstr ""
+msgstr "הגדרות"
 
 msgid "Basic"
-msgstr ""
+msgstr "בְּסִיסִי"
 
 msgid "Account information - {0}"
-msgstr ""
+msgstr "פרטי חשבון -{0}"
 
 msgid "Profile Picture"
-msgstr ""
+msgstr "תמונת פרופיל"
 
 msgid "Language"
 msgstr "שפה"
 
 msgid "Startup folder"
-msgstr ""
+msgstr "תיקיית אתחול"
 
 msgid "Theme"
-msgstr ""
+msgstr "נוֹשֵׂא"
 
 msgid "Select Default Folder"
-msgstr ""
+msgstr "בחר תיקיית ברירת מחדל"
 
 msgid "Advanced"
-msgstr ""
+msgstr "מִתקַדֵם"
 
 msgid "Advanced settings"
-msgstr ""
+msgstr "הגדרות מתקדמות"
 
 msgid "Developer tools"
-msgstr ""
+msgstr "כלים למפתחים"
 
 msgid "Show insertion points in grommunio Web"
-msgstr ""
+msgstr "הצג נקודות הכנסה ב-grommunio Web"
 
 msgid "Show \"item data\" button in context menu (mail only)"
-msgstr ""
+msgstr "הצג כפתור \"נתוני פריט\" בתפריט ההקשר (דואר בלבד)"
 
 msgid "Edit setting"
-msgstr ""
+msgstr "ערוך הגדרה"
 
 msgid "Restore to defaults"
-msgstr ""
+msgstr "שחזר לברירות המחדל"
 
 msgid "Delete settings"
-msgstr ""
+msgstr "מחק הגדרות"
 
-#, fuzzy
 msgid "{0} Iconset"
-msgstr "סמלים"
+msgstr "{0}אייקונים"
 
 msgid "About"
-msgstr ""
+msgstr "אוֹדוֹת"
 
 msgid "I want to display date and time in this format:"
-msgstr ""
+msgstr "אני רוצה להציג תאריך ושעה בפורמט הזה:"
 
 msgid "Short"
-msgstr ""
+msgstr "קָצָר"
 
 msgid "Long"
-msgstr ""
+msgstr "אָרוֹך"
 
 msgid "Time format:"
-msgstr ""
+msgstr "פורמט זמן:"
 
 msgid "12h clock"
-msgstr ""
+msgstr "שעון 12 שעות"
 
 msgid "24h clock"
-msgstr ""
+msgstr "שעון 24 שעות"
 
-#, fuzzy
 msgid "Favorite settings"
-msgstr "מועדפים"
+msgstr "הגדרות מועדפות"
 
-#, fuzzy
 msgid "Hide favorites"
-msgstr "מועדפים"
+msgstr "הסתר מועדפים"
 
 msgid "Unpin favorites from top"
-msgstr ""
+msgstr "בטל את הצמדת המועדפים מלמעלה"
 
 msgid "Give unread items a colored border"
-msgstr ""
+msgstr "תן לפריטים שלא נקראו גבול צבעוני"
 
 msgid "Show 'help' button in top-right corner"
-msgstr ""
+msgstr "הצג את כפתור 'עזרה' בפינה השמאלית העליונה"
 
 msgid "Show unread mail counter in application title"
-msgstr ""
+msgstr "הצג מונה דואר שלא נקרא בכותרת האפליקציה"
 
 msgid "Hide widget panel"
-msgstr ""
+msgstr "הסתר חלונית ווידג'ט"
 
 msgid "Show search bar above folder list"
-msgstr ""
+msgstr "הצג את שורת החיפוש מעל רשימת התיקיות"
 
 msgid "Auto"
-msgstr ""
+msgstr "אוטומטי"
 
 msgid "Actual size"
-msgstr ""
+msgstr "גודל בפועל"
 
 msgid "Page width"
-msgstr ""
+msgstr "רוחב עמוד"
 
 msgid "Attachment preview (PDF and Open formats)"
-msgstr ""
+msgstr "תצוגה מקדימה של קבצים מצורפים (PDF ופורמטים פתוחים)"
 
 msgid "Document default zoom"
-msgstr ""
+msgstr "זום ברירת מחדל למסמך"
 
 msgid "PDF zoom"
-msgstr ""
+msgstr "זום PDF"
 
 msgid "File previewing"
-msgstr ""
+msgstr "תצוגה מקדימה של קבצים"
 
 msgid "Inbox navigation"
-msgstr ""
+msgstr "ניווט בתיבת הדואר הנכנס"
 
 msgid "I want to navigate through my items by using:"
-msgstr ""
+msgstr "אני רוצה לנווט בין הפריטים שלי באמצעות:"
 
 msgid "Infinite Scroll"
-msgstr ""
+msgstr "גלילה אינסופית"
 
 msgid "grommunio Web automatically loads additional items when you scroll down"
-msgstr ""
+msgstr "grommunio Web טוען אוטומטית פריטים נוספים כאשר אתה גולל למטה"
 
-#, fuzzy
 msgid "Pagination"
-msgstr "ארגון"
+msgstr "דִפּוּף"
 
 msgid ""
 "grommunio Web displays items on pages and you can use navigation controls to "
@@ -5167,61 +4939,61 @@ msgid ""
 msgstr ""
 
 msgid "Load items in blocks of {A}"
-msgstr ""
+msgstr "טען פריטים בבלוקים של {A}"
 
 msgid "Load {A} items per page."
-msgstr ""
+msgstr "טען {A} פריטים בעמוד."
 
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "קיצורי מקלדת"
 
 msgid "Part of basic keyboard shortcuts"
-msgstr ""
+msgstr "חלק מקיצורי מקשים בסיסיים"
 
 msgid "Keyboard shortcuts off"
-msgstr ""
+msgstr "קיצורי מקשים כבויים"
 
 msgid "Basic keyboard shortcuts on"
-msgstr ""
+msgstr "קיצורי מקשים בסיסיים מופעלים"
 
 msgid "All keyboard shortcuts on"
-msgstr ""
+msgstr "כל קיצורי המקלדת מופעלים"
 
 msgid "This change requires a reload of grommunio Web"
-msgstr ""
+msgstr "שינוי זה דורש טעינה מחדש של grommunio Web"
 
 msgid "Plugins"
-msgstr ""
+msgstr "תוספים"
 
 msgid "Available plugins"
-msgstr ""
+msgstr "תוספים זמינים"
 
 msgid "No plugins available"
-msgstr ""
+msgstr "אין פלאגינים זמינים"
 
 msgid "Version"
-msgstr ""
+msgstr "גִרְסָה"
 
 msgid "This plugin cannot be disabled"
-msgstr ""
+msgstr "לא ניתן לבטל את התוסף הזה"
 
 msgid "This plugin cannot be enabled"
-msgstr ""
+msgstr "לא ניתן להפעיל את התוסף הזה"
 
 msgid "Mailbox Usage"
-msgstr ""
+msgstr "שימוש בתיבת דואר"
 
 msgid "A quota is not set on your store."
-msgstr ""
+msgstr "לא נקבעה מכסה לחנות שלך."
 
 msgid "{0} of mailbox space is used."
-msgstr ""
+msgstr "נעשה שימוש בשטח תיבת הדואר{0}."
 
 msgid "You have exceeded hard quota, you can not send or receive mails."
-msgstr ""
+msgstr "חרגת מהמכסה הקשה, אינך יכול לשלוח או לקבל מיילים."
 
 msgid "At {0} you won't be able to send mails."
-msgstr ""
+msgstr "ב-{0}לא תוכל לשלוח מיילים."
 
 msgid ""
 "You can not send mails as you have exceeded soft quota, at {0} you won't be "
@@ -5229,17 +5001,16 @@ msgid ""
 msgstr ""
 
 msgid "At {0} you won't be able to send or receive mails."
-msgstr ""
+msgstr "ב-{0}לא תוכל לשלוח או לקבל מיילים."
 
 msgid "You can not send mails as you have exceeded soft quota."
-msgstr ""
+msgstr "אינך יכול לשלוח מיילים מכיוון שחרגת מהמכסה הרכה."
 
-#, fuzzy
 msgid "Reset settings"
-msgstr "הגדרות הודעה"
+msgstr "אפס את ההגדרות"
 
 msgid "Reset settings to their original defaults."
-msgstr ""
+msgstr "אפס את ההגדרות לברירות המחדל המקוריות שלהן."
 
 msgid ""
 "This will close all opened shared stores and resets all settings to the "
@@ -5252,60 +5023,58 @@ msgid ""
 msgstr ""
 
 msgid "Reset"
-msgstr ""
+msgstr "אִתחוּל"
 
 msgid "Reloading, Please wait."
-msgstr ""
+msgstr "טוען מחדש, אנא המתן."
 
 msgid "Setting"
-msgstr ""
+msgstr "סְבִיבָה"
 
 msgid "The setting '{0}' can not be edited"
-msgstr ""
+msgstr "לא ניתן לערוך את ההגדרה '{0}'"
 
 msgid "Version information"
-msgstr ""
+msgstr "מידע על גרסה"
 
-#, fuzzy
 msgid "Gromox"
-msgstr "הווב אפ של זראפה"
+msgstr "גרומוקס"
 
 msgid "Delete confirmation"
-msgstr ""
+msgstr "מחק אישור"
 
 msgid "Deleting the item(s) will also delete the original item(s)."
-msgstr ""
+msgstr "מחיקת הפריט/ים תמחק גם את הפריט/ים המקוריים."
 
 msgid "Do you want to delete the item(s)?"
-msgstr ""
+msgstr "האם ברצונך למחוק את הפריט/ים?"
 
 msgid "Sort by: Priority"
-msgstr ""
+msgstr "מיין לפי: עדיפות"
 
 msgid "Status"
 msgstr "מצב"
 
-#, fuzzy
 msgid "Sort by: Status"
-msgstr "מיין לפי: מצב הדגל"
+msgstr "מיין לפי: סטטוס"
 
 msgid "Due Date"
 msgstr "תאריך היעד"
 
 msgid "Sort by: Due Date"
-msgstr ""
+msgstr "מיין לפי: תאריך יעד"
 
 msgid "% Completed"
 msgstr "% הושלם"
 
 msgid "Sort by: Percent Completed"
-msgstr ""
+msgstr "מיין לפי: אחוז הושלמה"
 
 msgid "Task Status"
-msgstr ""
+msgstr "סטטוס משימה"
 
 msgid "Percent Complete"
-msgstr ""
+msgstr "אחוז השלמה"
 
 msgid "Total Work"
 msgstr "סך הכל עבודה"
@@ -5322,12 +5091,11 @@ msgstr "פרטי חיוב"
 msgid "Mileage"
 msgstr "מספר המילים"
 
-#, fuzzy
 msgid "Accepting Task"
-msgstr "משימות פעילות"
+msgstr "קבלת משימה"
 
 msgid "Declining Task"
-msgstr ""
+msgstr "משימה דוחה"
 
 #, fuzzy
 msgid ""
@@ -5344,15 +5112,14 @@ msgstr ""
 "פגישה זו סורבה ותועבר לתיקית \"פריטים שנמחקו\". האם אתה רוצה לכלול הערות עם "
 "התגובה שלך?"
 
-#, fuzzy
 msgid "Send the response now"
-msgstr "שלח את התגובה כעת."
+msgstr "שלח את התגובה עכשיו"
 
 msgid "Date Complete"
 msgstr "תאריך השלמה"
 
 msgid "Multiple companies name must be separated by"
-msgstr ""
+msgstr "יש להפריד בין שם חברות מרובות ב"
 
 msgid "Update List"
 msgstr "עדכן רשימה"
@@ -5361,24 +5128,22 @@ msgid "Create Unassigned Copy"
 msgstr "צור העתק לא מוקצה"
 
 msgid "copy"
-msgstr ""
+msgstr "לְהַעְתִיק"
 
 msgid "Unable to send task request"
-msgstr ""
+msgstr "לא ניתן לשלוח בקשת משימה"
 
 msgid "You cannot send a task request to yourself."
-msgstr ""
+msgstr "אינך יכול לשלוח בקשת משימה לעצמך."
 
-#, fuzzy
 msgid "Multiple recipients"
-msgstr "הצג נמען"
+msgstr "מספר נמענים"
 
 msgid "A task request can only have one recipient."
-msgstr ""
+msgstr "לבקשת משימה יכולה להיות רק נמען אחד."
 
-#, fuzzy
 msgid "Due date"
-msgstr "תאריך היעד"
+msgstr "תאריך יעד"
 
 msgid "Priority"
 msgstr "עדיפות"
@@ -5386,24 +5151,20 @@ msgstr "עדיפות"
 msgid "% Complete"
 msgstr "% הושלם"
 
-#, fuzzy
 msgid "Track progress"
-msgstr "בתהליך"
+msgstr "עקוב אחר ההתקדמות"
 
 msgid "Keep updated copy of task and receive automated status reports"
-msgstr ""
+msgstr "שמור עותק מעודכן של המשימה וקבל דוחות מצב אוטומטיים"
 
-#, fuzzy
 msgid "Send task to assignees"
-msgstr "שלח משימה לנמחה"
+msgstr "שלח משימה למקצים"
 
-#, fuzzy
 msgid "Restore to Task List"
-msgstr "שחזר פריטים"
+msgstr "שחזר לרשימת המשימות"
 
-#, fuzzy
 msgid "Delete this task"
-msgstr "מחק פריט זה."
+msgstr "מחק את המשימה הזו"
 
 msgid "Add attachments to this task"
 msgstr "הוסף קובץ מצורף למשימה זו"
@@ -5414,9 +5175,8 @@ msgstr "סמן כהושלמה"
 msgid "Mark this task as complete"
 msgstr "סמן משימה זו כהושלמה"
 
-#, fuzzy
 msgid "Print this task"
-msgstr "הדפס דואר זה"
+msgstr "הדפס משימה זו"
 
 msgid "Assign Task"
 msgstr "הקצה משימה"
@@ -5424,89 +5184,78 @@ msgstr "הקצה משימה"
 msgid "Cancel Assignment"
 msgstr "בטל משימה"
 
-#, fuzzy
 msgid "Mark this task as private"
-msgstr "סמן את איש קשר זה כפרטי."
+msgstr "סמן משימה זו כפרטית"
 
 msgid "New task"
-msgstr ""
+msgstr "משימה חדשה"
 
-#, fuzzy
 msgid "Completed"
 msgstr "הושלם"
 
-#, fuzzy
 msgid "Printed by: "
-msgstr "מיין לפי: אל"
+msgstr "נדפס על ידי:"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
 msgid "Printed on: "
-msgstr "נבחר פריט {0}"
+msgstr "מודפס על:"
 
 msgid "Percent complete"
-msgstr ""
+msgstr "אחוז הושלמה"
 
-#, fuzzy
 msgid "Total work"
 msgstr "סך הכל עבודה"
 
 msgid "{totalwork} hours"
-msgstr ""
+msgstr "{totalwork} שעות"
 
-#, fuzzy
 msgid "Actual work"
 msgstr "עבודה בפועל"
 
 msgid "{actualwork} hours"
-msgstr ""
+msgstr "{actualwork} שעות"
 
-#, fuzzy
 msgid "Open Shared Tasks"
-msgstr "פתח תיקיות משותפות"
+msgstr "פתח את משימות משותפות"
 
 msgid "Simple view"
-msgstr ""
+msgstr "נוף פשוט"
 
 msgid "Detailed view"
-msgstr ""
+msgstr "תצוגה מפורטת"
 
-#, fuzzy
 msgid "Task request"
-msgstr "בקשת משימה:"
+msgstr "בקשת משימה"
 
-#, fuzzy
 msgid "Print selected task"
-msgstr "נבחר פריט {0}"
+msgstr "הדפס את המשימה שנבחרה"
 
 msgid "No task selected"
-msgstr ""
+msgstr "לא נבחרה משימה"
 
 msgid "Print task list"
-msgstr ""
+msgstr "הדפס רשימת משימות"
 
 msgid "Create task"
-msgstr ""
+msgstr "צור משימה"
 
 msgid "Upcoming"
-msgstr ""
+msgstr "בקרוב"
 
 msgid "Overdue"
-msgstr ""
+msgstr "באיחור"
 
 msgid "Mark Complete"
-msgstr ""
+msgstr "סמן הושלם"
 
 msgid "Mark Incomplete"
-msgstr ""
+msgstr "סמן לא שלם"
 
-#, fuzzy
 msgid "Remove from To-Do List"
-msgstr "הסר מלוח השנה"
+msgstr "הסר מרשימת המטלות"
 
-#, fuzzy
 msgid "Changes to assigned task"
-msgstr "שלח משימה לנמחה"
+msgstr "שינויים במשימה שהוקצתה"
 
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
@@ -5514,68 +5263,61 @@ msgid ""
 msgstr ""
 
 msgid "Sort by: Complete"
-msgstr ""
+msgstr "מיין לפי: הושלם"
 
 msgid "Reminder Time"
 msgstr "תזכורת זמן"
 
 msgid "Sort by: Reminder Time"
-msgstr ""
+msgstr "מיין לפי: זמן תזכורת"
 
 msgid "Assigned To"
 msgstr "משויך אל"
 
 msgid "Sort by: Assignee"
-msgstr ""
+msgstr "מיין לפי: מוקצה"
 
-#, fuzzy
 msgid "Sort by: Owner"
-msgstr "מיין לפי: גודל"
+msgstr "מיין לפי: בעלים"
 
-#, fuzzy
 msgid "Sort by: Percentage Completed"
-msgstr "מיין לפי: התקבלו"
+msgstr "מיין לפי: אחוז הושלמה"
 
-#, fuzzy
 msgid "Assigned task changes"
-msgstr "הקצה משימה"
+msgstr "שינויים במשימה שהוקצתה"
 
 msgid "Loading tasks"
-msgstr ""
+msgstr "טוען משימות"
 
-#, fuzzy
 msgid "Date completed"
-msgstr "תאריך השלמה"
+msgstr "תאריך הושלם"
 
 msgid "hours"
 msgstr "שעות"
 
-#, fuzzy
 msgid "Billing information"
 msgstr "פרטי חיוב"
 
-#, fuzzy
 msgid "Update list"
 msgstr "עדכן רשימה"
 
-#, fuzzy
 msgid "D d-m-Y"
-msgstr "ש-ח-י"
+msgstr "ד ד-מ-י"
 
 msgid "none"
-msgstr ""
+msgstr "אַף לֹא אֶחָד"
 
 msgid "Quick Task"
-msgstr ""
+msgstr "משימה מהירה"
 
 msgid "No tasks."
-msgstr ""
+msgstr "אין משימות."
 
 msgid "Tasks / To-Do"
-msgstr ""
+msgstr "משימות / מטלות"
 
 msgid "Click the link to open the URL in a new window."
-msgstr ""
+msgstr "לחץ על הקישור כדי לפתוח את כתובת האתר בחלון חדש."
 
 msgid "The server reported an unknown error on your request."
 msgstr "השרת דיווח על שגיאה לא ידועה בבקשתך."
@@ -5584,7 +5326,7 @@ msgid "The server reported an unspecified error on your request."
 msgstr "השרת דיווח על שגיאה לא מפורטת בבקשתך."
 
 msgid "The session has expired, reauthentication is required."
-msgstr ""
+msgstr "פג תוקף ההפעלה, נדרש אימות מחדש."
 
 msgid ""
 "The session in the current browser window has been closed from another "
@@ -5592,41 +5334,41 @@ msgid ""
 msgstr ""
 
 msgid "Session expired"
-msgstr ""
+msgstr "פג תוקף ההפעלה"
 
 msgid "Do you wish to be redirected to the logon page?"
-msgstr ""
+msgstr "האם ברצונך שיפנו אותך לדף הכניסה?"
 
 msgid "Reauthentication required, click here to go to back to logon page."
-msgstr ""
+msgstr "נדרש אימות מחדש, לחץ כאן כדי לחזור לדף הכניסה."
 
 msgid "Connection problem"
-msgstr ""
+msgstr "בעיית חיבור"
 
 msgid "Could not connect to server, retrying in {0} second(s)"
-msgstr ""
+msgstr "לא ניתן להתחבר לשרת, מנסה שוב בעוד{0}שניות"
 
 msgid "Click to retry now"
-msgstr ""
+msgstr "לחץ כדי לנסות שוב כעת"
 
 msgid "Connection restored"
-msgstr ""
+msgstr "החיבור שוחזר"
 
 msgid "Connection with server has been restored"
-msgstr ""
+msgstr "החיבור לשרת שוחזר"
 
 #. TRANSLATORS: Example: HTTP 404
 msgid "HTTP {0}"
-msgstr ""
+msgstr "HTTP{0}"
 
 msgid "Invalid data received from the server"
-msgstr ""
+msgstr "נתונים לא חוקיים התקבלו מהשרת"
 
 msgid "Missing store"
-msgstr ""
+msgstr "חסרה חנות"
 
 msgid "The default store is missing from the hierarchy."
-msgstr ""
+msgstr "חנות ברירת המחדל חסרה בהיררכיה."
 
 msgid ""
 "Not all functionality of grommunio Web might be working properly because of "
@@ -5639,11 +5381,11 @@ msgstr "תיבת דואר נכנס"
 
 msgctxt "hierarchy.foldername"
 msgid "Outbox"
-msgstr ""
+msgstr "תיבת דואר יוצא"
 
 msgctxt "hierarchy.foldername"
 msgid "Sent Items"
-msgstr ""
+msgstr "פריטים שנשלחו"
 
 #, fuzzy
 msgctxt "hierarchy.foldername"
@@ -5660,7 +5402,7 @@ msgstr "אנשי קשר"
 
 msgctxt "hierarchy.foldername"
 msgid "Drafts"
-msgstr ""
+msgstr "דַמקָה"
 
 msgctxt "hierarchy.foldername"
 msgid "Journal"
@@ -5680,211 +5422,211 @@ msgid "Junk Email"
 msgstr "דואר אלקטורני"
 
 msgid "Missing folders"
-msgstr ""
+msgstr "חסרות תיקיות"
 
 msgid "The following required folder is missing in the hierarchy: {0}"
 msgid_plural "The following required folders are missing in the hierarchy: {0}"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "התיקיה הנדרשת הבאה חסרה בהיררכיה:{0}"
+msgstr[1] "התיקיות הנדרשות הבאות חסרות בהיררכיה:{0}"
 
 msgid "Loading model from server failed"
 msgstr "טעינת מודל מן השרת נכשלה"
 
 msgid "Out of Office is currently activated. Would you like to turn it off?"
-msgstr ""
+msgstr "מחוץ למשרד מופעל כעת. האם תרצה לכבות אותו?"
 
 msgid "Archive"
-msgstr ""
+msgstr "ארכיון"
 
 msgid "Open Chat at start"
-msgstr ""
+msgstr "פתח את צ'אט בהתחלה"
 
 msgid "Desktop Notifications Plugin"
-msgstr ""
+msgstr "תוסף הודעות שולחן עבודה"
 
 msgid "Desktop Notifications"
-msgstr ""
+msgstr "הודעות על שולחן העבודה"
 
 msgid "Files: Default plugin"
-msgstr ""
+msgstr "קבצים: תוסף ברירת מחדל"
 
 msgid "Loading users and groups"
-msgstr ""
+msgstr "טוען משתמשים וקבוצות"
 
 msgid "Add users or groups to share files."
-msgstr ""
+msgstr "הוסף משתמשים או קבוצות כדי לשתף קבצים."
 
 msgid "Sort by: Type"
-msgstr ""
+msgstr "מיין לפי: סוג"
 
 msgid "Re-share"
-msgstr ""
+msgstr "שתף מחדש"
 
 msgid "Change"
-msgstr ""
+msgstr "לְשַׁנוֹת"
 
 msgid "Share with"
-msgstr ""
+msgstr "שתף עם"
 
 msgid "Share Details"
-msgstr ""
+msgstr "שתף פרטים"
 
 msgid "Type to search"
-msgstr ""
+msgstr "הקלד לחיפוש"
 
 msgid "No results"
-msgstr ""
+msgstr "אין תוצאות"
 
 msgid "Share with user/group"
-msgstr ""
+msgstr "שתף עם משתמש/קבוצה"
 
 msgid "Share via link"
-msgstr ""
+msgstr "שתפו באמצעות קישור"
 
 msgid "Public link"
-msgstr ""
+msgstr "קישור ציבורי"
 
 msgid "Password protect"
-msgstr ""
+msgstr "הגנה באמצעות סיסמה"
 
 msgid "Password"
 msgstr "סיסמה"
 
 msgid "Public upload"
-msgstr ""
+msgstr "העלאה ציבורית"
 
 msgid "Expiration date"
-msgstr ""
+msgstr "תַאֲרִיך תְפוּגָה"
 
 msgid "More than 1 share link exists. Only showing the latest one"
-msgstr ""
+msgstr "קיים יותר מקישור שיתוף אחד. מציג רק את האחרון"
 
 msgid "Loading details…"
-msgstr ""
+msgstr "טוען פרטים..."
 
 msgid "Files: Seafile Backend"
-msgstr ""
+msgstr "קבצים: Seafile Backend"
 
 msgid "Copy link to clipboard"
-msgstr ""
+msgstr "העתק קישור ללוח"
 
 msgid "Link copied to clipboard"
-msgstr ""
+msgstr "הקישור הועתק ללוח"
 
 msgid "Clipboard"
-msgstr ""
+msgstr "לוח כתיבה"
 
 msgid "Could not copy link automatically. Please copy it manually."
-msgstr ""
+msgstr "לא ניתן היה להעתיק את הקישור באופן אוטומטי. אנא העתק אותו ידנית."
 
 msgid "Loading details..."
-msgstr ""
+msgstr "טוען פרטים..."
 
 msgid "Share"
-msgstr ""
+msgstr "לַחֲלוֹק"
 
 msgid "Loading..."
-msgstr ""
+msgstr "טְעִינָה..."
 
 msgid "Add attachment from {0}"
-msgstr ""
+msgstr "הוסף קובץ מצורף מ-{0}"
 
 msgid "Confirm deletion"
-msgstr ""
+msgstr "אשר את המחיקה"
 
 msgid "Are you sure you want to delete {0}?"
-msgstr ""
+msgstr "האם אתה בטוח שברצונך למחוק את{0}?"
 
 msgid "Are you sure you want to delete {0} and all of its contents?"
-msgstr ""
+msgstr "האם אתה בטוח שברצונך למחוק את{0}ואת כל התוכן שלו?"
 
 msgid "Are you sure you want to delete {0} files?"
-msgstr ""
+msgstr "האם אתה בטוח שברצונך למחוק קבצי{0}?"
 
 msgid "Are you sure want to delete {0} folders and all of their contents?"
-msgstr ""
+msgstr "האם אתה בטוח שברצונך למחוק את תיקיות{0}ואת כל התוכן שלהן?"
 
 msgid ""
 "Are you sure want to delete the selected items and all of their contents?"
 msgstr ""
 
 msgid "Confirm overwrite"
-msgstr ""
+msgstr "אשר את ההחלפה"
 
 msgid "File already exists. Do you want to overwrite it?"
-msgstr ""
+msgstr "הקובץ כבר קיים. האם אתה רוצה להחליף אותו?"
 
 msgid "Please enter a new name"
-msgstr ""
+msgstr "נא להזין שם חדש"
 
 msgid "Rename record"
-msgstr ""
+msgstr "שנה את שם הרשומה"
 
 msgid "A file name should not be empty."
-msgstr ""
+msgstr "שם קובץ לא צריך להיות ריק."
 
 msgid "Rename item"
-msgstr ""
+msgstr "שנה את שם הפריט"
 
 msgid "A file named \"{0}\" already exists. Please enter a different name."
-msgstr ""
+msgstr "קובץ בשם \"{0}\" כבר קיים. נא להזין שם אחר."
 
 msgid "Downloading"
-msgstr ""
+msgstr "מוריד"
 
 msgid "Download started... please wait!"
-msgstr ""
+msgstr "ההורדה החלה... אנא המתן!"
 
 msgid "Upload"
-msgstr ""
+msgstr "העלה"
 
 msgid "At least one file is too large! Maximum allowed filesize: {0}."
-msgstr ""
+msgstr "לפחות קובץ אחד גדול מדי! גודל קובץ מקסימלי מותר:{0}."
 
 msgid "Keep both"
-msgstr ""
+msgstr "שמור על שניהם"
 
 msgid "Overwrite"
-msgstr ""
+msgstr "החלף"
 
 msgid "l d/m/Y G:i"
-msgstr ""
+msgstr "l d/m/Y G:i"
 
 msgid "Never"
-msgstr ""
+msgstr "לְעוֹלָם לֹא"
 
 msgid "Add from Files"
-msgstr ""
+msgstr "הוסף מקבצים"
 
 msgid "Add attachment from Files"
-msgstr ""
+msgstr "הוסף קובץ מצורף מקבצים"
 
 msgid "Add to Files"
-msgstr ""
+msgstr "הוסף לקבצים"
 
 msgid "Upload file"
-msgstr ""
+msgstr "העלה קובץ"
 
 msgid "Files"
-msgstr ""
+msgstr "קבצים"
 
 msgid "Files Plugin"
-msgstr ""
+msgstr "תוסף קבצים"
 
 msgid "Default"
-msgstr ""
+msgstr "בְּרִירַת מֶחדָל"
 
 msgid "Manage Accounts"
-msgstr ""
+msgstr "נהל חשבונות"
 
 msgid "Reset Files settings"
-msgstr ""
+msgstr "אפס את הגדרות הקבצים"
 
 msgid "Resets Files settings to their original defaults"
-msgstr ""
+msgstr "מאפס את הגדרות הקבצים לברירות המחדל המקוריות שלהן"
 
 msgid "Are you sure to remove all settings and accounts?"
-msgstr ""
+msgstr "האם אתה בטוח להסיר את כל ההגדרות והחשבונות?"
 
 msgid ""
 "Accounts marked by your administrator as \"cannot be changed\" will not be "
@@ -5897,356 +5639,356 @@ msgid ""
 msgstr ""
 
 msgid "grommunio Web is reloading, Please wait."
-msgstr ""
+msgstr "grommunio Web נטען מחדש, אנא המתן."
 
 msgid "Edit Account"
-msgstr ""
+msgstr "ערוך חשבון"
 
 msgid "Backend"
-msgstr ""
+msgstr "אחורי"
 
 msgid "Account Information"
-msgstr ""
+msgstr "פרטי חשבון"
 
 msgid "Account name"
-msgstr ""
+msgstr "שם חשבון"
 
 msgid "Account Configuration"
-msgstr ""
+msgstr "תצורת חשבון"
 
 msgid "Update"
-msgstr ""
+msgstr "לְעַדְכֵּן"
 
 msgid "ID"
-msgstr ""
+msgstr "תְעוּדַת זֶהוּת"
 
 msgid "Sort by: ID"
-msgstr ""
+msgstr "מיין לפי: מזהה"
 
 msgid "Sort by: Backend"
-msgstr ""
+msgstr "מיין לפי: Backend"
 
 msgid "Features"
-msgstr ""
+msgstr "תכונות"
 
 msgid "Shows all available features of the backend."
-msgstr ""
+msgstr "מציג את כל התכונות הזמינות של הקצה האחורי."
 
 msgid "Show quota information"
-msgstr ""
+msgstr "הצג מידע על מכסה"
 
 msgid "Show version information"
-msgstr ""
+msgstr "הצג מידע על גרסה"
 
 msgid "Share files"
-msgstr ""
+msgstr "שתף קבצים"
 
 msgid "Fast Down/Upload"
-msgstr ""
+msgstr "הורדה/העלאה מהירה"
 
 msgid "No account created!"
-msgstr ""
+msgstr "לא נוצר חשבון!"
 
 msgid "Add Account"
-msgstr ""
+msgstr "הוסף חשבון"
 
 msgid "Remove Account"
-msgstr ""
+msgstr "הסר חשבון"
 
 msgid "Loading accounts"
-msgstr ""
+msgstr "טוען חשבונות"
 
 msgid "Do you really want to delete the account \"{0}\"?"
-msgstr ""
+msgstr "האם אתה באמת רוצה למחוק את החשבון \"{0}\"?"
 
 msgid "Quota Information"
-msgstr ""
+msgstr "מידע על מכסות"
 
 msgid "Used"
-msgstr ""
+msgstr "מְשׁוּמָשׁ"
 
 msgid "Total"
-msgstr ""
+msgstr "סַך הַכֹּל"
 
 msgid "Version Information"
-msgstr ""
+msgstr "מידע גרסה"
 
 msgid "Filename"
-msgstr ""
+msgstr "שם הקובץ"
 
 msgid "Sort by: Filename"
-msgstr ""
+msgstr "מיין לפי: שם קובץ"
 
 msgid "Loading files"
-msgstr ""
+msgstr "טוען קבצים"
 
 msgid "The file {0} is too large!"
-msgstr ""
+msgstr "הקובץ{0}גדול מדי!"
 
 msgid "max"
-msgstr ""
+msgstr "מקסימום"
 
 msgid "You have to choose at least one file!"
-msgstr ""
+msgstr "אתה צריך לבחור לפחות קובץ אחד!"
 
 msgid "Create New "
-msgstr ""
+msgstr "צור חדש"
 
 msgid "Incorrect filename"
-msgstr ""
+msgstr "שם קובץ שגוי"
 
 msgid "Error reaching office backend"
-msgstr ""
+msgstr "שגיאה בהגעה לקצה האחורי של המשרד"
 
 msgid "Folder already exists"
-msgstr ""
+msgstr "התיקיה כבר קיימת"
 
 msgid "Incorrect foldername"
-msgstr ""
+msgstr "שם תיקיה שגוי"
 
 msgid "File information"
-msgstr ""
+msgstr "מידע על הקובץ"
 
 msgid "Select a file"
-msgstr ""
+msgstr "בחר קובץ"
 
 msgid "Maximum upload size"
-msgstr ""
+msgstr "גודל העלאה מקסימלי"
 
 msgid "Browse"
-msgstr ""
+msgstr "לְדַפדֵף"
 
 msgid "Select upload folder"
-msgstr ""
+msgstr "בחר תיקיית העלאה"
 
 msgid "File \"{0}\" is too large! Maximum allowed filesize: {1}."
-msgstr ""
+msgstr "הקובץ \"{0}\" גדול מדי! גודל קובץ מקסימלי מותר:{1}."
 
 msgid "Add item to Files"
-msgstr ""
+msgstr "הוסף פריט לקבצים"
 
 msgid "You have to choose a folder!"
-msgstr ""
+msgstr "אתה צריך לבחור תיקיה!"
 
 msgid "Uploaded"
-msgstr ""
+msgstr "הועלה"
 
 msgid "Attachment successfully stored in Files"
-msgstr ""
+msgstr "הקובץ המצורף מאוחסן בהצלחה בקבצים"
 
 msgid "Upload Failed"
-msgstr ""
+msgstr "ההעלאה נכשלה"
 
 msgid "Attachment could not be stored in Files! Error: "
-msgstr ""
+msgstr "לא ניתן לאחסן קובץ מצורף בקבצים! שְׁגִיאָה:"
 
 msgid "Share Files"
-msgstr ""
+msgstr "שתף קבצים"
 
 msgid "Uploading files to "
-msgstr ""
+msgstr "העלאת קבצים ל"
 
 msgid "Starting upload"
-msgstr ""
+msgstr "מתחיל להעלות"
 
 msgid "Cancel upload"
-msgstr ""
+msgstr "בטל העלאה"
 
 msgid "- seconds left"
-msgstr ""
+msgstr "- נותרו שניות"
 
 msgid " seconds left"
-msgstr ""
+msgstr "נותרו שניות"
 
 msgid " minutes left"
-msgstr ""
+msgstr "דקות נותרו"
 
 msgid "Uploading: "
-msgstr ""
+msgstr "מעלה:"
 
 msgid "Upload status unavailable... please wait."
-msgstr ""
+msgstr "סטטוס ההעלאה אינו זמין... אנא המתן."
 
 msgid "Upload finished!"
-msgstr ""
+msgstr "ההעלאה הסתיימה!"
 
 msgid "Upload aborted!"
-msgstr ""
+msgstr "ההעלאה בוטלה!"
 
 msgid "Upload failed!"
-msgstr ""
+msgstr "ההעלאה נכשלה!"
 
 msgid "Document"
-msgstr ""
+msgstr "מִסְמָך"
 
 msgid "Presentation"
-msgstr ""
+msgstr "הַצָגָה"
 
 msgid "Spreadsheet"
-msgstr ""
+msgstr "גיליון אלקטרוני"
 
 msgid "Upload files"
-msgstr ""
+msgstr "העלה קבצים"
 
 msgid "Create document"
-msgstr ""
+msgstr "צור מסמך"
 
 msgid "Create office document"
-msgstr ""
+msgstr "צור מסמך אופיס"
 
 msgid "Download files"
-msgstr ""
+msgstr "הורד קבצים"
 
 msgid "Attach to mail"
-msgstr ""
+msgstr "צרף למייל"
 
 msgid "Attach to mail as link"
-msgstr ""
+msgstr "צרף למייל כקישור"
 
 msgid "Attaching"
-msgstr ""
+msgstr "מצרף"
 
 msgid "Creating email... Please wait!"
-msgstr ""
+msgstr "יוצר אימייל... אנא המתן!"
 
 msgid "Edit share"
-msgstr ""
+msgstr "ערוך שיתוף"
 
 msgid ""
 "There are no accounts added. Go to settings, Files tab and add an account"
 msgstr ""
 
 msgid "Filesize"
-msgstr ""
+msgstr "גודל קובץ"
 
 msgid "Last modified"
-msgstr ""
+msgstr "שונה לאחרונה"
 
 msgid "Is shared"
-msgstr ""
+msgstr "משותף"
 
 msgid "File preview"
-msgstr ""
+msgstr "תצוגה מקדימה של הקובץ"
 
 msgid "Your browser does not support previewing of audio files!"
-msgstr ""
+msgstr "הדפדפן שלך אינו תומך בתצוגה מקדימה של קבצי אודיו!"
 
 msgid "Your browser does not support previewing of video files!"
-msgstr ""
+msgstr "הדפדפן שלך אינו תומך בתצוגה מקדימה של קבצי וידאו!"
 
 msgid "d.m.Y G:i"
-msgstr ""
+msgstr "d.m.Y G:i"
 
 msgid "Folder"
-msgstr ""
+msgstr "תיקיה"
 
 msgid "File ({0})"
-msgstr ""
+msgstr "קובץ ({0})"
 
 msgid "Sort by: Path"
-msgstr ""
+msgstr "מיין לפי: נתיב"
 
 msgid "Sort by: Last modified"
-msgstr ""
+msgstr "מיין לפי: שונה לאחרונה"
 
 msgid "Sort by: Shared"
-msgstr ""
+msgstr "מיין לפי: משותף"
 
 msgid "There are no items to show in this view"
-msgstr ""
+msgstr "אין פריטים להצגה בתצוגה זו"
 
 msgid "files selected"
-msgstr ""
+msgstr "קבצים שנבחרו"
 
 msgid "Authentication required, when using grommunio-files for the first time"
-msgstr ""
+msgstr "נדרש אימות בעת שימוש בקבצי grommunio בפעם הראשונה"
 
 msgid "Intranet"
-msgstr ""
+msgstr "אינטראנט"
 
 msgid "Archive to InfoShare"
-msgstr ""
+msgstr "העבר לארכיון ל-InfoShare"
 
 msgid "Kendox InfoShare"
-msgstr ""
+msgstr "Kendox InfoShare"
 
 msgid "Constraints for single attachment archiving"
-msgstr ""
+msgstr "אילוצים לארכיון של קובץ מצורף בודד"
 
 msgid "Max count attachments"
-msgstr ""
+msgstr "מספר מקסימלי של קבצים מצורפים"
 
 msgid "Max size all selected attachments (MB)"
-msgstr ""
+msgstr "גודל מקסימלי של כל הקבצים המצורפים שנבחרו (MB)"
 
 msgid "Selection Kendox InfoShare environment"
-msgstr ""
+msgstr "בחירה סביבת Kendox InfoShare"
 
 msgid "Production"
-msgstr ""
+msgstr "הֲפָקָה"
 
 msgid "Test"
-msgstr ""
+msgstr "מִבְחָן"
 
 msgid "URLs for production environment"
-msgstr ""
+msgstr "כתובות URL עבור סביבת ייצור"
 
 msgid "Kendox InfoShare API URL"
-msgstr ""
+msgstr "כתובת ה-API של Kendox InfoShare"
 
 msgid "Kendox InfoShare Web dialog URL"
-msgstr ""
+msgstr "כתובת URL של דו-שיח אינטרנט של Kendox InfoShare"
 
 msgid "URLs for test environment"
-msgstr ""
+msgstr "כתובות URL עבור סביבת בדיקה"
 
 msgid "Mail/Document archive to Kendox InfoShare"
-msgstr ""
+msgstr "ארכיון דואר/מסמכים ל-Kendox InfoShare"
 
 msgid "Attachment information is requested"
-msgstr ""
+msgstr "מידע מצורף מתבקש"
 
 msgid "Please select the type of Archive (max"
-msgstr ""
+msgstr "אנא בחר את סוג הארכיון (מקסימום"
 
 msgid "files, max"
-msgstr ""
+msgstr "קבצים, מקסימום"
 
 msgid "MB total size)"
-msgstr ""
+msgstr "גודל כולל של MB)"
 
 msgid "Everything - Store mail in original format"
-msgstr ""
+msgstr "הכל - אחסן דואר בפורמט מקורי"
 
 msgid "Email only - Store mail without attachments"
 msgstr "דואר אלקטרוני בלבד - שמור דואר ללא קבצים מצורפים"
 
 msgid "Separate - Store attachments separately"
-msgstr ""
+msgstr "נפרד - אחסן קבצים מצורפים בנפרד"
 
 msgid "No attachments available in mail"
-msgstr ""
+msgstr "אין קבצים מצורפים זמינים בדואר"
 
 msgid "Start archive"
-msgstr ""
+msgstr "התחל לארכיון"
 
 msgid "embedded"
 msgstr "מוטמע"
 
 msgid "Reading attachment information failed"
-msgstr ""
+msgstr "קריאת המידע המצורף נכשלה"
 
 msgid "Files are sent to Kendox InfoShare"
-msgstr ""
+msgstr "קבצים נשלחים אל Kendox InfoShare"
 
 msgid "With the selection of separate attachments a maximum of"
-msgstr ""
+msgstr "עם מבחר של קבצים מצורפים נפרדים מקסימום"
 
 msgid "attachments can be selected. There have been"
-msgstr ""
+msgstr "ניתן לבחור קבצים מצורפים. היו"
 
 msgid "attachments selected"
-msgstr ""
+msgstr "נבחרו קבצים מצורפים"
 
 msgid ""
 "With the selection of separate attachments the total size of all attachments "
@@ -6254,101 +5996,101 @@ msgid ""
 msgstr ""
 
 msgid "MB. There have been"
-msgstr ""
+msgstr "MB. היו"
 
 msgid "MB selected."
-msgstr ""
+msgstr "MB נבחר."
 
 msgid "Sending of mail failed"
-msgstr ""
+msgstr "שליחת הדואר נכשלה"
 
 msgid "Openstreetmap"
-msgstr ""
+msgstr "Openstreetmap"
 
 #. TRANSLATORS: The map of earth
 msgid "Map"
-msgstr ""
+msgstr "מַפָּה"
 
 msgid "Mobile Device Manager"
-msgstr ""
+msgstr "מנהל התקנים ניידים"
 
 msgid "Wiping device"
-msgstr ""
+msgstr "מכשיר ניגוב"
 
 msgid "Password incorrect"
-msgstr ""
+msgstr "סיסמא שגויה"
 
 msgid "Full resync in progress"
-msgstr ""
+msgstr "מתבצע סנכרון מלא מחדש"
 
 msgid "Username or password incorrect"
-msgstr ""
+msgstr "שם משתמש או סיסמה שגויים"
 
 msgid "Not Applicable"
-msgstr ""
+msgstr "לא ישים"
 
 msgid "Wipe Pending"
-msgstr ""
+msgstr "ניגוב בהמתנה"
 
 msgid "Wipe Requested"
-msgstr ""
+msgstr "מחק מבוקש"
 
 msgid "Wipe Executed"
-msgstr ""
+msgstr "מחק בוצע"
 
 msgid "Account Only Wipe Pending"
-msgstr ""
+msgstr "מחיקת חשבון בלבד בהמתנה"
 
 msgid "Account Only Wipe Requested"
-msgstr ""
+msgstr "בקשת מחיקת חשבון בלבד"
 
 msgid "Account Only Wipe Executed"
-msgstr ""
+msgstr "בוצע מחיקת חשבון בלבד"
 
 msgid "Not Available"
-msgstr ""
+msgstr "לא זמין"
 
 msgid "Device"
-msgstr ""
+msgstr "הֶתקֵן"
 
 msgid "Operating System"
-msgstr ""
+msgstr "מַעֲרֶכֶת הַפעָלָה"
 
 msgid "User Agent"
-msgstr ""
+msgstr "סוכן משתמש"
 
 msgid "MDM Plugin"
-msgstr ""
+msgstr "תוסף MDM"
 
 msgid "Active Sync Version"
-msgstr ""
+msgstr "גרסת סינכרון פעיל"
 
 msgid "grommunio-sync Version"
-msgstr ""
+msgstr "גרסת grommunio-sync"
 
 msgid "Policy name"
-msgstr ""
+msgstr "שם מדיניות"
 
 msgid "Connected since"
-msgstr ""
+msgstr "מחובר מאז"
 
 msgid "d F Y"
-msgstr ""
+msgstr "ד F Y"
 
 msgid "Last updated"
-msgstr ""
+msgstr "עודכן לאחרונה"
 
 msgid "d F Y, H:i"
-msgstr ""
+msgstr "ד F Y, H:i"
 
 msgid "Last connect"
 msgstr "התחברות אחרונה"
 
 msgid "Synchronize"
-msgstr ""
+msgstr "לְסַנכְרֵן"
 
 msgid "Manage Shared Folders"
-msgstr ""
+msgstr "נהל תיקיות משותפות"
 
 msgid ""
 "Select folders to sync to your device from the list below. To add additional "
@@ -6356,13 +6098,13 @@ msgid ""
 msgstr ""
 
 msgid "grommunio-sync"
-msgstr ""
+msgstr "grommunio-sync"
 
 msgid "Mobile device management"
-msgstr ""
+msgstr "ניהול מכשירים ניידים"
 
 msgid "Mobile Devices"
-msgstr ""
+msgstr "מכשירים ניידים"
 
 msgid ""
 "Unable to connect to the grommunio-sync server. Click {0} to enter your "
@@ -6370,46 +6112,46 @@ msgid ""
 msgstr ""
 
 msgid "Devices"
-msgstr ""
+msgstr "מכשירים"
 
 msgid "No devices connected to your account"
-msgstr ""
+msgstr "אין מכשירים מחוברים לחשבון שלך"
 
 msgid "Provisioning Status"
-msgstr ""
+msgstr "סטטוס אספקה"
 
 msgid "Last Connect"
 msgstr "התחברות אחרונה"
 
 msgid "Device ID"
-msgstr ""
+msgstr "מזהה מכשיר"
 
 msgid "Device OS"
-msgstr ""
+msgstr "מערכת הפעלה של המכשיר"
 
 msgid "Device Info"
-msgstr ""
+msgstr "מידע על המכשיר"
 
 msgid "First Sync time"
-msgstr ""
+msgstr "זמן סנכרון ראשון"
 
 msgid "Wipe Device"
-msgstr ""
+msgstr "מחק מכשיר"
 
 msgid "Full resync"
-msgstr ""
+msgstr "סנכרון מלא"
 
 msgid "Remove device"
-msgstr ""
+msgstr "הסר את המכשיר"
 
 msgid "Please enter your username and password"
-msgstr ""
+msgstr "אנא הכנס את שם המשתמש והסיסמה שלך"
 
 msgid "Wipe only data related to this account"
-msgstr ""
+msgstr "מחק רק נתונים הקשורים לחשבון זה"
 
 msgid "Wipe all data"
-msgstr ""
+msgstr "מחק את כל הנתונים"
 
 msgid "Username"
 msgstr "שם משתמש"
@@ -6425,37 +6167,37 @@ msgid ""
 msgstr ""
 
 msgid "Add meeting"
-msgstr ""
+msgstr "הוסף פגישה"
 
 msgid "Room name:"
-msgstr ""
+msgstr "שם החדר:"
 
 msgid "Room URL:"
-msgstr ""
+msgstr "כתובת האתר של החדר:"
 
 msgid "Shift-click for advanced settings"
-msgstr ""
+msgstr "לחץ על Shift להגדרות מתקדמות"
 
 msgid "Join webmeeting"
-msgstr ""
+msgstr "הצטרף לפגישת אינטרנט"
 
 msgid "Open meeting in:"
-msgstr ""
+msgstr "פגישה פתוחה ב:"
 
 msgid "Web tab"
-msgstr ""
+msgstr "לשונית אינטרנט"
 
 msgid "Hide the button in the main toolbar"
-msgstr ""
+msgstr "הסתר את הכפתור בסרגל הכלים הראשי"
 
 msgid "Add the subject to the room name"
-msgstr ""
+msgstr "הוסף את הנושא לשם החדר"
 
 msgid "Add the organizer name to the room name"
-msgstr ""
+msgstr "הוסף את שם המארגן לשם החדר"
 
 msgid "Add the URL to the meeting location rather than overwriting it"
-msgstr ""
+msgstr "הוסף את כתובת האתר למיקום הפגישה במקום לדרוס אותה"
 
 msgid ""
 "Prevent the URL in the meeting location from being overridden automatically "
@@ -6463,13 +6205,13 @@ msgid ""
 msgstr ""
 
 msgid "If you have problems when creating meetings, try disabling this setting"
-msgstr ""
+msgstr "אם יש לך בעיות בעת יצירת פגישות, נסה להשבית את ההגדרה הזו"
 
 msgid "Add an invitation to the appointment description"
-msgstr ""
+msgstr "הוסף הזמנה לתיאור הפגישה"
 
 msgid "Invitation text"
-msgstr ""
+msgstr "טקסט הזמנה"
 
 msgid ""
 "must contain %url% as a placeholder for the meeting link, empty the textbox "
@@ -6477,37 +6219,37 @@ msgid ""
 msgstr ""
 
 msgid "An unknown error occurred while changing password."
-msgstr ""
+msgstr "אירעה שגיאה לא ידועה בעת שינוי הסיסמה."
 
 msgid "Password is changed successfully."
-msgstr ""
+msgstr "הסיסמה השתנתה בהצלחה."
 
 msgid "Success"
-msgstr ""
+msgstr "הַצלָחָה"
 
 msgid "Change Password"
-msgstr ""
+msgstr "שנה סיסמה"
 
 msgid "Current password"
-msgstr ""
+msgstr "סיסמה נוכחית"
 
 msgid "New password"
-msgstr ""
+msgstr "סיסמה חדשה"
 
 msgid "Retype new password"
-msgstr ""
+msgstr "הקלד שוב סיסמה חדשה"
 
 msgid "New passwords do not match."
-msgstr ""
+msgstr "סיסמאות חדשות אינן תואמות."
 
 msgid "Current password is empty."
-msgstr ""
+msgstr "הסיסמה הנוכחית ריקה."
 
 msgid "New password is empty."
-msgstr ""
+msgstr "הסיסמה החדשה ריקה."
 
 msgid "One or more fields does contain errors."
-msgstr ""
+msgstr "שדה אחד או יותר מכילים שגיאות."
 
 msgid ""
 "Password is weak. Password should contain capital, non-capital letters and "
@@ -6515,58 +6257,58 @@ msgid ""
 msgstr ""
 
 msgid "Change passphrase"
-msgstr ""
+msgstr "שנה ביטוי סיסמה"
 
 msgid "Old passphrase"
-msgstr ""
+msgstr "ביטוי סיסמה ישן"
 
 msgid "Wrong passphrase. Please try again"
-msgstr ""
+msgstr "ביטוי סיסמה שגוי. אנא נסה שוב"
 
 msgid "New passphrase"
-msgstr ""
+msgstr "ביטוי סיסמה חדש"
 
 msgid "Confirm new passphrase"
-msgstr ""
+msgstr "אשר ביטוי סיסמה חדש"
 
 msgid "The passphrases don't match. Please try again"
-msgstr ""
+msgstr "ביטויי הסיסמה אינם תואמים. אנא נסה שוב"
 
 msgid "S/MIME Message"
-msgstr ""
+msgstr "הודעת S/MIME"
 
 msgid "Passphrase changed successfully"
-msgstr ""
+msgstr "ביטוי הסיסמה השתנה בהצלחה"
 
 msgid "S/MIME Passphrase"
-msgstr ""
+msgstr "ביטוי סיסמה S/MIME"
 
 msgid "Submit"
-msgstr ""
+msgstr "לְהַגִישׁ"
 
 msgid "Certificate passphrase"
-msgstr ""
+msgstr "ביטוי סיסמה לתעודה"
 
 msgid "The passphrase you typed is incorrect. Please try again."
-msgstr ""
+msgstr "משפט הסיסמה שהקלדת שגוי. אנא נסה שוב."
 
 msgid "No certificates imported, please upload your private certificate"
-msgstr ""
+msgstr "לא יובאו אישורים, אנא העלה את האישור הפרטי שלך"
 
 msgid "Valid from"
-msgstr ""
+msgstr "תקף החל מ"
 
 msgid "Expires"
-msgstr ""
+msgstr "פג תוקף"
 
 msgid "Loading certificates"
-msgstr ""
+msgstr "טוען תעודות"
 
 msgid "S/MIME Plugin"
-msgstr ""
+msgstr "תוסף S/MIME"
 
 msgid "Please select a certificate."
-msgstr ""
+msgstr "אנא בחר תעודה."
 
 msgid ""
 "Do you really want to remove your private certificate? If you remove your "
@@ -6574,7 +6316,7 @@ msgid ""
 msgstr ""
 
 msgid "Certificate details"
-msgstr ""
+msgstr "פרטי תעודה"
 
 msgid ""
 "Below you can view and delete public & private certificate(s) stored on the "
@@ -6582,28 +6324,28 @@ msgid ""
 msgstr ""
 
 msgid "Filter on Email"
-msgstr ""
+msgstr "סינון על אימייל"
 
 msgid "Public & Private certificates"
-msgstr ""
+msgstr "תעודות ציבוריות ופרטיות"
 
 msgid "S/MIME"
-msgstr ""
+msgstr "S/MIME"
 
 msgid "You don't have a valid certificate corresponding to your account"
-msgstr ""
+msgstr "אין לך אישור תקף המתאים לחשבון שלך"
 
 msgid "Personal certificate"
-msgstr ""
+msgstr "תעודה אישית"
 
 msgid "Change passphrase for last certificate"
-msgstr ""
+msgstr "שנה את ביטוי הסיסמה עבור האישור האחרון"
 
 msgid "You have a valid certificate corresponding to your account"
-msgstr ""
+msgstr "יש לך אישור תקף המתאים לחשבון שלך"
 
 msgid "Upload your certificate"
-msgstr ""
+msgstr "העלה את התעודה שלך"
 
 msgid ""
 "Below you can upload your private certificate in PKCS#12 format. grommunio "
@@ -6612,19 +6354,19 @@ msgid ""
 msgstr ""
 
 msgid "Private certificate"
-msgstr ""
+msgstr "תעודה פרטית"
 
 msgid "You must fill in the certificate passphrase to upload your certificate."
-msgstr ""
+msgstr "עליך למלא את משפט הסיסמה של האישור כדי להעלות את האישור שלך."
 
 msgid "You must first select a valid private certificate in PKCS#12 format."
-msgstr ""
+msgstr "תחילה עליך לבחור אישור פרטי חוקי בפורמט PKCS#12."
 
 msgid "Sign"
-msgstr ""
+msgstr "סִימָן"
 
 msgid "Sign message"
-msgstr ""
+msgstr "חתום על הודעה"
 
 msgid ""
 "Ensure the authenticity of the message by adding a digital signature to this "
@@ -6632,10 +6374,10 @@ msgid ""
 msgstr ""
 
 msgid "Encrypt"
-msgstr ""
+msgstr "הצפין"
 
 msgid "Encrypt message"
-msgstr ""
+msgstr "הצפין הודעה"
 
 msgid ""
 "Ensure the privacy of the message by encrypting its contents. Only the "
@@ -6643,7 +6385,7 @@ msgid ""
 msgstr ""
 
 msgid "What's going on with my email?"
-msgstr ""
+msgstr "מה קורה למייל שלי?"
 
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
@@ -6656,16 +6398,16 @@ msgid ""
 msgstr ""
 
 msgid " has failed"
-msgstr ""
+msgstr "נכשל"
 
 msgid " for this message."
-msgstr ""
+msgstr "להודעה זו."
 
 msgid "What caused this issue?"
-msgstr ""
+msgstr "מה גרם לבעיה זו?"
 
 msgid "What should I do?"
-msgstr ""
+msgstr "מה עלי לעשות?"
 
 msgid ""
 "You can continue to work. However, you should keep in mind that the identity "
@@ -6693,7 +6435,7 @@ msgid ""
 msgstr ""
 
 msgid "grommunio Web could not find a public certificate for the recipient."
-msgstr ""
+msgstr "grommunio Web לא הצליח למצוא אישור ציבורי עבור הנמען."
 
 msgid ""
 "The identity of the sender and authenticity of the message content have been "
@@ -6701,7 +6443,7 @@ msgid ""
 msgstr ""
 
 msgid "The digital signature could not be verified for unknown reasons."
-msgstr ""
+msgstr "לא ניתן לאמת את החתימה הדיגיטלית מסיבות לא ידועות."
 
 msgid ""
 "The digital certificate used to sign this message has been revoked (i.e. the "
@@ -6726,88 +6468,88 @@ msgid ""
 msgstr ""
 
 msgid "The certificate verification server (OCSP) is temporarily offline."
-msgstr ""
+msgstr "שרת אימות האישורים (OCSP) אינו מקוון באופן זמני."
 
 msgid "Sender is removed from the server."
-msgstr ""
+msgstr "השולח מוסר מהשרת."
 
 msgid "Signature verified successfully"
-msgstr ""
+msgstr "החתימה אומתה בהצלחה"
 
 msgid "Could not verify signature, missing public certificate"
-msgstr ""
+msgstr "לא ניתן היה לאמת חתימה, חסר אישור ציבורי"
 
 msgid "Signature verification successful, but certificate is expired"
-msgstr ""
+msgstr "אימות החתימה הצליח, אך פג תוקף האישור"
 
 msgid "Signature could not be verified"
-msgstr ""
+msgstr "לא ניתן לאמת את החתימה"
 
 msgid "Certificate has been revoked"
-msgstr ""
+msgstr "האישור בוטל"
 
 msgid "Verification with Certificate Authority failed"
-msgstr ""
+msgstr "האימות עם רשות האישורים נכשל"
 
 msgid "Message decrypted successfully"
-msgstr ""
+msgstr "ההודעה פוענחה בהצלחה"
 
 msgid "Message decryption failed"
-msgstr ""
+msgstr "פענוח ההודעה נכשל"
 
 msgid "Please"
-msgstr ""
+msgstr "אָנָא"
 
 msgid "click here"
-msgstr ""
+msgstr "לחץ כאן"
 
 msgid "to unlock your certificate"
-msgstr ""
+msgstr "כדי לפתוח את האישור שלך"
 
 msgid "Cannot determine revocation status of certificate"
-msgstr ""
+msgstr "לא ניתן לקבוע את סטטוס ביטול האישור"
 
 msgid "Signature verified"
-msgstr ""
+msgstr "חתימה מאומתת"
 
 msgid "Unable to decrypt this message. Certificate does not match"
-msgstr ""
+msgstr "לא ניתן לפענח את ההודעה הזו. התעודה לא תואמת"
 
 msgid "Verification failed. User is removed from the server."
-msgstr ""
+msgstr "האימות נכשל. המשתמש מוסר מהשרת."
 
 msgid "Charm pink"
-msgstr ""
+msgstr "קסם ורוד"
 
 msgid "Cadmium red"
-msgstr ""
+msgstr "אדום קדמיום"
 
 msgid "Apricot"
-msgstr ""
+msgstr "מִשׁמֵשׁ"
 
 msgid "California"
-msgstr ""
+msgstr "קליפורניה"
 
 msgid "Soft green"
-msgstr ""
+msgstr "ירוק רך"
 
 msgid "Mint"
-msgstr ""
+msgstr "מֶנטָה"
 
 msgid "Pearl aqua"
-msgstr ""
+msgstr "פנינה אקווה"
 
 msgid "Grommunio blue"
-msgstr ""
+msgstr "גרומוניו כחול"
 
 msgid "Baby blue"
-msgstr ""
+msgstr "כחול בייבי"
 
 msgid "Mauve"
-msgstr ""
+msgstr "סְגַלגַל"
 
 msgid "Silver sand"
-msgstr ""
+msgstr "חול כסף"
 
 msgid "Competition"
 msgstr "תחרות"
@@ -6863,109 +6605,109 @@ msgid ""
 msgstr ""
 
 msgid "This backend provides the default WebDAV integration for Files."
-msgstr ""
+msgstr "קצה עורפי זה מספק את שילוב ברירת המחדל של WebDAV עבור קבצים."
 
 msgid "Files Default Backend: "
-msgstr ""
+msgstr "Backend ברירת מחדל לקבצים:"
 
 msgid "Server address"
-msgstr ""
+msgstr "כתובת השרת"
 
 msgid "Server port"
-msgstr ""
+msgstr "יציאת שרת"
 
 msgid "Use TLS"
-msgstr ""
+msgstr "השתמש ב-TLS"
 
 msgid "Webdav base path"
-msgstr ""
+msgstr "נתיב בסיס Webdav"
 
 msgid "Use grommunio credentials"
-msgstr ""
+msgstr "השתמש באישורי grommunio"
 
 msgid "php-curl is not available"
-msgstr ""
+msgstr "php-curl אינו זמין"
 
 msgid "Access denied"
-msgstr ""
+msgstr "הגִישָׁה נִדחֲתָה"
 
 msgid "Connection failed"
-msgstr ""
+msgstr "החיבור נכשל"
 
 msgid "Sabre error"
-msgstr ""
+msgstr "שגיאת סבר"
 
 msgid "Copying failed"
-msgstr ""
+msgstr "ההעתקה נכשלה"
 
 msgid "Unknown error"
-msgstr ""
+msgstr "שגיאה לא ידועה"
 
 msgid "Please contact your system administrator."
-msgstr ""
+msgstr "אנא פנה למנהל המערכת שלך."
 
 msgid "Unauthorized. Wrong username or password."
-msgstr ""
+msgstr "לא מורשה. שם משתמש או סיסמה שגויים."
 
 msgid "File server is not reachable. Please verify the file server URL."
-msgstr ""
+msgstr "לא ניתן להגיע לשרת הקבצים. אנא אמת את כתובת האתר של שרת הקבצים."
 
 msgid "You don't have enough permissions to view this file or folder."
-msgstr ""
+msgstr "אין לך מספיק הרשאות כדי להציג את הקובץ או התיקיה הזו."
 
 msgid "The file or folder is not available anymore."
-msgstr ""
+msgstr "הקובץ או התיקיה אינם זמינים יותר."
 
 msgid "Connection to the file server timed out. Please check again later."
-msgstr ""
+msgstr "תם הזמן הקצוב לחיבור לשרת הקבצים. אנא בדוק שוב מאוחר יותר."
 
 msgid "This file is locked by another user. Please try again later."
-msgstr ""
+msgstr "קובץ זה ננעל על ידי משתמש אחר. אנא נסה שוב מאוחר יותר."
 
 msgid "The request failed."
-msgstr ""
+msgstr "הבקשה נכשלה."
 
 msgid "The file server encountered an internal problem."
-msgstr ""
+msgstr "שרת הקבצים נתקל בבעיה פנימית."
 
 msgid "We could not write to temporary directory."
-msgstr ""
+msgstr "לא יכולנו לכתוב לספרייה זמנית."
 
 msgid "We could not retrieve list of server features."
-msgstr ""
+msgstr "לא הצלחנו לאחזר את רשימת תכונות השרת."
 
 msgid "PHP-Curl is not available."
-msgstr ""
+msgstr "PHP-Curl אינו זמין."
 
 msgid "With this backend, you can connect to any Seafile server."
-msgstr ""
+msgstr "עם הקצה האחורי הזה, אתה יכול להתחבר לכל שרת Seafile."
 
 msgid "Files "
-msgstr ""
+msgstr "קבצים"
 
 msgid "Use SSL"
-msgstr ""
+msgstr "השתמש ב-SSL"
 
 msgid "Seafile is not reachable. Correct backend address entered?"
-msgstr ""
+msgstr "Seafile אינו נגיש. הוזנה כתובת עורפית נכונה?"
 
 msgid "You don't have enough permissions for this operation."
-msgstr ""
+msgstr "אין לך מספיק הרשאות עבור הפעולה הזו."
 
 msgid "File is not available any more."
-msgstr ""
+msgstr "הקובץ אינו זמין יותר."
 
 msgid "Connection to server timed out. Retry later."
-msgstr ""
+msgstr "תם הזמן הקצוב לחיבור לשרת. נסה שוב מאוחר יותר."
 
 msgid "This file is locked by another user."
-msgstr ""
+msgstr "קובץ זה ננעל על ידי משתמש אחר."
 
 msgid "The request failed due to failure of a previous request."
-msgstr ""
+msgstr "הבקשה נכשלה עקב כישלון בקשה קודמת."
 
 msgid "Seafile-server encountered a problem."
-msgstr ""
+msgstr "שרת Seafile נתקל בבעיה."
 
 msgid ""
 "Could not write to temporary directory. Contact the server administrator."
@@ -6976,94 +6718,94 @@ msgid ""
 msgstr ""
 
 msgid "PHP-Curl is not available. Contact your system administrator."
-msgstr ""
+msgstr "PHP-Curl אינו זמין. פנה למנהל המערכת שלך."
 
 msgid "This function is not yet implemented."
-msgstr ""
+msgstr "פונקציה זו עדיין לא מיושמת."
 
 msgid "Unknown account ID"
-msgstr ""
+msgstr "מזהה חשבון לא ידוע"
 
 msgid "Feature \"Quota Information\" is not supported by this backend!"
-msgstr ""
+msgstr "התכונה \"מידע על מכסה\" אינה נתמכת על ידי קצה זה!"
 
 msgid "Feature \"Version Information\" is not supported by this backend!"
-msgstr ""
+msgstr "התכונה \"מידע גרסה\" אינה נתמכת על ידי קצה זה!"
 
 msgid "Feature \"OAUTH\" is not supported by this backend!"
-msgstr ""
+msgstr "התכונה \"OAUTH\" אינה נתמכת על ידי הקצה העורפי הזה!"
 
 msgid "Moving between accounts is not implemented"
-msgstr ""
+msgstr "מעבר בין חשבונות אינו מיושם"
 
 msgid "Files plugin"
-msgstr ""
+msgstr "תוסף קבצים"
 
 msgid "Unknown type - cannot save this file to the Files backend!"
-msgstr ""
+msgstr "סוג לא ידוע - לא ניתן לשמור את הקובץ הזה בקצה העורפי של הקבצים!"
 
 msgid "No record given!"
-msgstr ""
+msgstr "לא ניתן רישום!"
 
 msgid "Fetching sharing information failed"
-msgstr ""
+msgstr "אחזור מידע השיתוף נכשל"
 
 msgid "Sharing failed"
-msgstr ""
+msgstr "השיתוף נכשל"
 
 msgid "Updating share failed"
-msgstr ""
+msgstr "עדכון השיתוף נכשל"
 
 msgid "Deleting share failed"
-msgstr ""
+msgstr "מחיקת השיתוף נכשלה"
 
 msgid "With this backend, you can connect to any WebDAV server."
-msgstr ""
+msgstr "עם הקצה האחורי הזה, אתה יכול להתחבר לכל שרת WebDAV."
 
 msgid "Files WebDAV Backend: "
-msgstr ""
+msgstr "קבצים WebDAV Backend:"
 
 msgid "PHP-CURL is not installed"
-msgstr ""
+msgstr "PHP-CURL אינו מותקן"
 
 msgid "Directory creation failed"
-msgstr ""
+msgstr "יצירת הספרייה נכשלה"
 
 msgid "Deletion failed"
-msgstr ""
+msgstr "המחיקה נכשלה"
 
 msgid "Moving failed"
-msgstr ""
+msgstr "המעבר נכשל"
 
 msgid "Temporary directory problems"
-msgstr ""
+msgstr "בעיות זמניות בספרייה"
 
 msgid "File or folder not found"
-msgstr ""
+msgstr "הקובץ או התיקיה לא נמצאו"
 
 msgid "Not implemented"
-msgstr ""
+msgstr "לא מיושם"
 
 msgid "Please contact your system administrator"
-msgstr ""
+msgstr "אנא פנה למנהל המערכת שלך"
 
 msgid "File server is not reachable. Please verify the connection."
-msgstr ""
+msgstr "לא ניתן להגיע לשרת הקבצים. נא לאמת את החיבור."
 
 msgid "PHP-CURL not installed"
-msgstr ""
+msgstr "PHP-CURL לא מותקן"
 
 msgid "Account is ready to use."
-msgstr ""
+msgstr "החשבון מוכן לשימוש."
 
 msgid "File backend not responding. Please try again later."
-msgstr ""
+msgstr "הקצה האחורי של הקובץ לא מגיב. אנא נסה שוב מאוחר יותר."
 
 msgid "Zip file generation failed. Please inform the administrator."
-msgstr ""
+msgstr "יצירת קובץ Zip נכשלה. נא ליידע את המנהל."
 
 msgid "This file is no longer available. Please reload the folder."
-msgstr ""
+msgstr "קובץ זה אינו זמין יותר. טען מחדש את התיקיה."
 
 msgid "Kendox certificate path is not configured."
 msgstr "נתיב אישור Kendox לא מוגדר."
@@ -7072,13 +6814,13 @@ msgid "Kendox certificate password is not configured."
 msgstr "סיסמת אישור Kendox לא מוגדרת."
 
 msgid "Kendox certificate is not available."
-msgstr ""
+msgstr "אישור קנדוקס אינו זמין."
 
 msgid "Kendox certificate is not readable."
 msgstr "לא ניתן לקרוא את אישור Kendox."
 
 msgid "Mobile device management plugin"
-msgstr ""
+msgstr "תוסף ניהול מכשירים ניידים"
 
 #, php-format
 msgid ""
@@ -7087,17 +6829,17 @@ msgid ""
 msgstr ""
 
 msgid "No data received."
-msgstr ""
+msgstr "לא התקבלו נתונים."
 
 msgid "Account is empty."
-msgstr ""
+msgstr "החשבון ריק."
 
 msgid ""
 "Your password is wrong or you have insufficient permission to change password"
 msgstr ""
 
 msgid "Password is not changed."
-msgstr ""
+msgstr "הסיסמה לא משתנה."
 
 msgid ""
 "Error changing password. Please verify your password or contact the system "
@@ -7105,25 +6847,25 @@ msgid ""
 msgstr ""
 
 msgid "Password has been changed successfully."
-msgstr ""
+msgstr "הסיסמה שונתה בהצלחה."
 
 msgid "No certificate available"
-msgstr ""
+msgstr "אין תעודה זמינה"
 
 msgid "Private certificate has expired, unable to sign email"
-msgstr ""
+msgstr "פג תוקף האישור הפרטי, לא ניתן לחתום על דוא\"ל"
 
 msgid "Private certificate is not valid yet, unable to sign email"
-msgstr ""
+msgstr "האישור הפרטי אינו תקף עדיין, לא ניתן לחתום על דוא\"ל"
 
 msgid "Private certificate does not match email address"
-msgstr ""
+msgstr "האישור הפרטי אינו תואם לכתובת האימייל"
 
 msgid "Missing public certificates for the following recipients: "
-msgstr ""
+msgstr "חסרות תעודות ציבוריות עבור הנמענים הבאים:"
 
 msgid ". Please contact your system administrator for details"
-msgstr ""
+msgstr ". אנא פנה למנהל המערכת שלך לקבלת פרטים"
 
 msgid ""
 "Your public certificate is not installed. Without this certificate, you will "
@@ -7131,44 +6873,44 @@ msgid ""
 msgstr ""
 
 msgid "Certificate is already stored on the server"
-msgstr ""
+msgstr "האישור כבר מאוחסן בשרת"
 
 msgid "Unable to decrypt certificate"
-msgstr ""
+msgstr "לא ניתן לפענח את האישור"
 
 msgid "Private key can't be used to sign email"
-msgstr ""
+msgstr "לא ניתן להשתמש במפתח פרטי כדי לחתום על דוא\"ל"
 
 msgid "Certificate email address doesn't match grommunio Web account "
-msgstr ""
+msgstr "כתובת הדוא\"ל של האישור אינה תואמת לחשבון האינטרנט של grommunio"
 
 msgid "Certificate was expired on "
-msgstr ""
+msgstr "תוקף האישור פג בתאריך"
 
 msgid "Certificate was imported."
-msgstr ""
+msgstr "האישור יובא."
 
 msgid "Certificate is not yet valid "
-msgstr ""
+msgstr "האישור עדיין לא בתוקף"
 
 msgid "Certificate has not been imported"
-msgstr ""
+msgstr "האישור לא יובא"
 
 msgid "Certificate is revoked, but was imported."
-msgstr ""
+msgstr "האישור בוטל, אך יובא."
 
 msgid "Unable to read public certificate"
-msgstr ""
+msgstr "לא ניתן לקרוא תעודה ציבורית"
 
 msgid "Can't add data to bus, same action type is present in bus"
-msgstr ""
+msgstr "לא ניתן להוסיף נתונים לאוטובוס, אותו סוג פעולה קיים באוטובוס"
 
 msgid "Response data requested from bus but it doesn't have any data."
-msgstr ""
+msgstr "נתוני תגובה נתבקשו מהאוטובוס אך אין לו נתונים כלשהם."
 
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
-msgstr ""
+msgstr "מודול לא ידוע '%s' עם המזהה '%s'"
 
 msgid ""
 "Server encountered some problem, so it was not able to handle the request."
@@ -7176,13 +6918,13 @@ msgstr ""
 
 #, php-format
 msgid "Unknown notifier '%s'"
-msgstr ""
+msgstr "מודיע לא ידוע '%s'"
 
 msgid "An unexpected error has occurred"
-msgstr ""
+msgstr "אירעה שגיאה בלתי צפויה"
 
 msgid "To-Do List"
-msgstr ""
+msgstr "רשימת מטלות"
 
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
@@ -7190,91 +6932,86 @@ msgstr ""
 #.
 #, php-format
 msgid "%1$s of %2$s"
-msgstr ""
+msgstr "%1$sאו%2$s"
 
 msgid "Error retrieving existing settings"
-msgstr ""
+msgstr "שגיאה באחזור הגדרות קיימות"
 
 msgid "Error retrieving existing persistent settings"
-msgstr ""
+msgstr "שגיאה באחזור הגדרות קבועות קיימות"
 
-#, fuzzy
 msgid "Logon failed. Please verify your credentials and try again."
-msgstr "התחברות נכשלה , אנא בדוק את השם/סיסמא שלך."
+msgstr "הכניסה נכשלה. אנא אמת את האישורים שלך ונסה שוב."
 
-#, fuzzy
 msgid "Cannot connect to Gromox."
-msgstr "לא ניתן להתחבר לשרת של grommunio."
+msgstr "לא ניתן להתחבר ל-Gromox."
 
 msgid ""
 "Login did not work due to a duplicate session. The issue was automatically "
 "resolved, please log in again."
 msgstr ""
 
-#, fuzzy
 msgid "Unknown MAPI Error"
-msgstr "שם משתמש/קבוצה לא ידוע"
+msgstr "שגיאת MAPI לא ידועה"
 
 msgid "Destination folder not found."
-msgstr ""
+msgstr "תיקיית היעד לא נמצאה."
 
 msgid "Eml is corrupted"
-msgstr ""
+msgstr "אמל מושחת"
 
 msgid "The eml Attachment is not imported successfully"
-msgstr ""
+msgstr "הקובץ המצורף eml לא מיובא בהצלחה"
 
 msgid "The vcf attachment is not imported successfully"
-msgstr ""
+msgstr "קובץ ה-vcf המצורף לא מיובא בהצלחה"
 
 #, php-format
 msgid "Unable to import '%s' to '%s'. "
-msgstr ""
+msgstr "לא ניתן לייבא את '%s' אל '%s'."
 
-#, fuzzy
 msgid "There is no appointment found in this file."
-msgstr "פגישה זו מתרחשת בעבר"
+msgstr "לא נמצאה פגישה בקובץ זה."
 
 msgid "The file is corrupt."
-msgstr ""
+msgstr "הקובץ פגום."
 
-#, fuzzy
 msgid "The file is invalid."
-msgstr "{0} אינו זמן תקף"
+msgstr "הקובץ לא חוקי."
 
 #, php-format
 msgid "Unable to import '%s'. "
-msgstr ""
+msgstr "לא ניתן לייבא את '%s'."
 
 msgid "Attachment is not imported successfully"
-msgstr ""
+msgstr "הקובץ המצורף לא מיובא בהצלחה"
 
 msgid "Embedded attachment not found."
-msgstr ""
+msgstr "לא נמצא קובץ מצורף מוטבע."
 
 msgid "ZIP is not created successfully"
-msgstr ""
+msgstr "ZIP לא נוצר בהצלחה"
 
 msgid "Attachments can not be downloaded"
-msgstr ""
+msgstr "לא ניתן להוריד קבצים מצורפים"
 
 msgid "Could not find attachment."
-msgstr ""
+msgstr "לא ניתן היה למצוא את הקובץ המצורף."
 
 msgid "Operation failed"
-msgstr ""
+msgstr "הפעולה נכשלה"
 
 msgid "Sticky Note"
-msgstr ""
+msgstr "פתק דביק"
 
 msgid "Task Request"
-msgstr ""
+msgstr "בקשת משימה"
 
 msgid "Could not find message, either it has been moved or deleted."
-msgstr ""
+msgstr "לא ניתן למצוא את ההודעה, או שהיא הועברה או נמחקה."
 
 msgid "Action is not performed correctly."
-msgstr ""
+msgstr "הפעולה לא מבוצעת כהלכה."
 
 msgid "Could not handle this type of object."
 msgstr "לא ניתן לטפל בסוג אובייקט זה."
@@ -7295,34 +7032,34 @@ msgid "Public Contact Folders"
 msgstr "תיקיות אנשי קשר ציבוריות"
 
 msgid "Error in search, please try again"
-msgstr ""
+msgstr "שגיאה בחיפוש, אנא נסה שוב"
 
 msgid "Unable to perform search query, no permissions to create search folder."
-msgstr ""
+msgstr "לא ניתן לבצע שאילתת חיפוש, אין הרשאות ליצור תיקיית חיפוש."
 
 msgid "Unable to perform search query, search folder not found."
-msgstr ""
+msgstr "לא ניתן לבצע שאילתת חיפוש, תיקיית החיפוש לא נמצאה."
 
 msgid "Unable to perform search query, store might not support searching."
-msgstr ""
+msgstr "לא ניתן לבצע שאילתת חיפוש, ייתכן שהחנות לא תומכת בחיפוש."
 
 msgid "Error in creating search folder."
-msgstr ""
+msgstr "שגיאה ביצירת תיקיית חיפוש."
 
 msgid "Could not open occurrence."
-msgstr ""
+msgstr "לא ניתן היה לפתוח את ההתרחשות."
 
 msgid "Could not open occurrence, specific occurrence is probably deleted."
-msgstr ""
+msgstr "לא ניתן היה לפתוח את ההתרחשות, כנראה שהמופע הספציפי נמחק."
 
 msgid "a meeting request"
-msgstr ""
+msgstr "בקשה לפגישה"
 
 msgid "an appointment"
-msgstr ""
+msgstr "פגישה"
 
 msgid "You have insufficient privileges to move "
-msgstr ""
+msgstr "אין לך מספיק הרשאות לעבור"
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "
@@ -7330,7 +7067,7 @@ msgid ""
 msgstr ""
 
 msgid "Two occurrences cannot occur on the same day"
-msgstr ""
+msgstr "שני התרחשויות לא יכולות להתרחש באותו יום"
 
 #, php-format
 msgid ""
@@ -7359,124 +7096,124 @@ msgid ""
 msgstr ""
 
 msgid "Meeting was not scheduled."
-msgstr ""
+msgstr "הפגישה לא נקבעה."
 
 msgid "Meeting could not be sent."
-msgstr ""
+msgstr "לא ניתן לשלוח את הפגישה."
 
 msgid "Meeting could not be saved."
-msgstr ""
+msgstr "לא ניתן היה לשמור את הפגישה."
 
 msgid "Private Appointment"
-msgstr ""
+msgstr "פגישה פרטית"
 
 #, php-format
 msgid "%s's Birthday"
-msgstr ""
+msgstr "יום ההולדת של%s"
 
 #, php-format
 msgid "%s's Anniversary"
-msgstr ""
+msgstr "יום השנה ל-%s"
 
 msgid "You don't have the permission to complete this action"
-msgstr ""
+msgstr "אין לך הרשאה להשלים פעולה זו"
 
 msgid "Quota error"
-msgstr ""
+msgstr "טעות במכסה"
 
 msgid "Send quota limit reached"
-msgstr ""
+msgstr "הגעת למגבלת מכסת השליחה"
 
 msgid "Email sending failed. Check the log files for more information."
-msgstr ""
+msgstr "שליחת האימייל נכשלה. בדוק את קבצי היומן לקבלת מידע נוסף."
 
 msgid "Unknown user/group"
-msgstr ""
+msgstr "משתמש/קבוצה לא ידועים"
 
 msgid "Could not save delegate information."
-msgstr ""
+msgstr "לא ניתן לשמור את פרטי הנציג."
 
 msgid "Could not delete delegate."
-msgstr ""
+msgstr "לא ניתן היה למחוק את הנציג."
 
 msgid "Can not get list of delegates."
-msgstr ""
+msgstr "לא ניתן לקבל רשימת נציגים."
 
 msgid "Could not open the store."
 msgstr "לא ניתן היה לפתוח את החנות."
 
 msgid "Could not load the hierarchy."
-msgstr ""
+msgstr "לא ניתן לטעון את ההיררכיה."
 
 msgid "Could not open the shared store."
 msgstr "לא ניתן היה לפתוח את החנות המשותפת."
 
 msgid "Could not load folder properties."
-msgstr ""
+msgstr "לא ניתן לטעון את מאפייני התיקיה."
 
 msgid "Could not remove folder from favorites."
-msgstr ""
+msgstr "לא ניתן להסיר את התיקיה מהמועדפים."
 
 msgid "You have insufficient privileges to delete folder."
-msgstr ""
+msgstr "אין לך הרשאות מספיקות כדי למחוק תיקיה."
 
 msgid "Could not delete folder."
-msgstr ""
+msgstr "לא ניתן למחוק תיקייה."
 
 msgid "You have insufficient privileges to copy folder."
-msgstr ""
+msgstr "אין לך הרשאות מספיקות להעתקת תיקיה."
 
 msgid "Could not copy folder."
-msgstr ""
+msgstr "לא ניתן היה להעתיק את התיקיה."
 
 msgid "You have insufficient privileges to move this folder."
-msgstr ""
+msgstr "אין לך הרשאות מספיקות כדי להעביר תיקיה זו."
 
 msgid "Could not move folder."
-msgstr ""
+msgstr "לא ניתן היה להעביר את התיקיה."
 
 msgid "You have insufficient privileges to delete items."
-msgstr ""
+msgstr "אין לך הרשאות מספיקות כדי למחוק פריטים."
 
 msgid "Could not empty folder."
-msgstr ""
+msgstr "לא ניתן היה לרוקן את התיקיה."
 
 msgid "Could not perform action correctly."
-msgstr ""
+msgstr "לא ניתן לבצע את הפעולה כראוי."
 
 msgid ""
 "A favorite folder with this name already exists, please use another name."
 msgstr ""
 
 msgid "Could not add folder to favorites."
-msgstr ""
+msgstr "לא ניתן להוסיף תיקייה למועדפים."
 
 msgid "You have insufficient privileges to set permissions for this folder."
-msgstr ""
+msgstr "אין לך הרשאות מספיקות כדי להגדיר הרשאות עבור תיקיה זו."
 
 msgid "Could not set folder permissions."
-msgstr ""
+msgstr "לא ניתן להגדיר הרשאות תיקיה."
 
 msgid "You have insufficient privileges to rename this folder."
-msgstr ""
+msgstr "אין לך הרשאות מספיקות כדי לשנות את שם התיקיה הזו."
 
 msgid "A folder with this name already exists. Use another name."
-msgstr ""
+msgstr "תיקייה בשם זה כבר קיימת. השתמש בשם אחר."
 
 msgid "Could not rename folder."
-msgstr ""
+msgstr "לא ניתן לשנות את שם התיקיה."
 
 msgid "You have insufficient privileges to create this folder."
-msgstr ""
+msgstr "אין לך הרשאות מספיקות כדי ליצור תיקיה זו."
 
 msgid "Could not create folder."
-msgstr ""
+msgstr "לא ניתן ליצור תיקיה."
 
 msgid "Could not close shared folder."
-msgstr ""
+msgstr "לא ניתן לסגור את התיקייה המשותפת."
 
 msgid "User could not be resolved."
-msgstr ""
+msgstr "לא ניתן היה לפתור את המשתמש."
 
 #, php-format
 msgid ""
@@ -7486,22 +7223,22 @@ msgid ""
 msgstr ""
 
 msgid "default"
-msgstr ""
+msgstr "בְּרִירַת מֶחדָל"
 
 msgid "anonymous"
-msgstr ""
+msgstr "אֲנוֹנִימִי"
 
 msgid "unknown"
-msgstr ""
+msgstr "לֹא יְדוּעַ"
 
 msgid "Could not move folder"
-msgstr ""
+msgstr "לא ניתן היה להעביר את התיקיה"
 
 msgid "Could not copy folder"
-msgstr ""
+msgstr "לא ניתן היה להעתיק את התיקיה"
 
 msgid "You have insufficient privileges to open this message."
-msgstr ""
+msgstr "אין לך הרשאות מספיקות כדי לפתוח הודעה זו."
 
 msgid ""
 "Could not find message, either it has been moved or deleted or you don't "
@@ -7511,28 +7248,23 @@ msgstr ""
 msgid "Could not open message."
 msgstr "לא ניתן לפתוח את ההודעה."
 
-#, fuzzy
 msgid "You have insufficient privileges to decline this Meeting Request"
-msgstr "אין ברשותך הרשאות מספקות בכדי לסרב לבקשת הפגישה הזו."
+msgstr "אין לך מספיק הרשאות כדי לדחות את בקשת הפגישה הזו"
 
-#, fuzzy
 msgid "You have insufficient privileges to accept this Meeting Request"
-msgstr "אין ברשותך הרשאות מספקות בכדי לקבל את בקשת הפגישה הזו."
+msgstr "אין לך מספיק הרשאות לקבל את בקשת הפגישה הזו"
 
-#, fuzzy
 msgid "Could not copy message"
-msgstr "לא ניתן לפתוח את ההודעה."
+msgstr "לא ניתן היה להעתיק את ההודעה"
 
-#, fuzzy
 msgid "Could not move message"
-msgstr "לא ניתן לשמור את הודעה זו."
+msgstr "לא ניתן היה להעביר את ההודעה"
 
 msgid "You have insufficient privileges to save items in this folder"
 msgstr "אין ברשותך הרשאות מספקות בכדי לשמור פריטים בתיקיה זו"
 
-#, fuzzy
 msgid "Could not save message"
-msgstr "לא ניתן לשמור את הודעה זו."
+msgstr "לא ניתן לשמור את ההודעה"
 
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr "אין ברשותך הרשאות מספקות בכדי להסיר פריטים מלוח השנה."
@@ -7543,11 +7275,10 @@ msgid ""
 msgstr ""
 
 msgid "Message cannot be aborted"
-msgstr ""
+msgstr "לא ניתן לבטל את ההודעה"
 
-#, fuzzy
 msgid "You have insufficient privileges to delete items in this folder"
-msgstr "אין ברשותך הרשאות מספקות בכדי לשמור פריטים בתיקיה זו"
+msgstr "אין לך הרשאות מספיקות כדי למחוק פריטים בתיקייה זו"
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "אין ברשותך הרשאות מספקות בכדי לצרף פריט כקובץ מצורף."
@@ -7576,7 +7307,7 @@ msgid "Could not decline Task Request."
 msgstr "לא ניתן לסרב לבקשת משימה זו."
 
 msgid "Conflicts with another appointment."
-msgstr ""
+msgstr "מתנגש עם מינוי אחר."
 
 #, php-format
 msgid ""
@@ -7594,68 +7325,68 @@ msgid "The following recipient(s) could not be reached"
 msgstr "לא ניתן היה להגיע אל המיועדים הבאים:"
 
 msgid "You have insufficient privileges to see the contents of this folder."
-msgstr ""
+msgstr "אין לך הרשאות מספיקות כדי לראות את התוכן של תיקיה זו."
 
 msgid "Could not load the contents of this folder."
-msgstr ""
+msgstr "לא ניתן לטעון את התוכן של תיקיה זו."
 
 msgid ""
 "You have insufficient privileges to perform search operation in this folder."
 msgstr ""
 
 msgid "Could not update search results."
-msgstr ""
+msgstr "לא ניתן היה לעדכן את תוצאות החיפוש."
 
 msgid "Could not stop search operation."
-msgstr ""
+msgstr "לא ניתן להפסיק את פעולת החיפוש."
 
 msgid "You have insufficient privileges to save this message."
-msgstr ""
+msgstr "אין לך הרשאות מספיקות כדי לשמור הודעה זו."
 
 msgid "Could not save message."
-msgstr ""
+msgstr "לא ניתן לשמור את ההודעה."
 
 msgid "You have insufficient privileges to delete this message."
-msgstr ""
+msgstr "אין לך הרשאות מספיקות כדי למחוק הודעה זו."
 
 msgid "Could not delete message."
-msgstr ""
+msgstr "לא ניתן למחוק את ההודעה."
 
 msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr ""
+msgstr "אין לך הרשאות מספיקות כדי לבטל את בקשת הפגישה הזו."
 
 msgid "Could not cancel Meeting Request."
-msgstr ""
+msgstr "לא ניתן לבטל את בקשת הפגישה."
 
 msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr ""
+msgstr "אין לך מספיק הרשאות כדי לדחות את בקשת הפגישה הזו."
 
 msgid "Could not decline Meeting Request."
-msgstr ""
+msgstr "לא ניתן היה לדחות את בקשת הפגישה."
 
 msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr ""
+msgstr "אין לך מספיק הרשאות לקבל את בקשת הפגישה הזו."
 
 msgid "Could not accept Meeting Request."
-msgstr ""
+msgstr "לא ניתן היה לקבל את בקשת הפגישה."
 
 msgid "You have insufficient privileges to cancel Meeting Request invitation."
-msgstr ""
+msgstr "אין לך הרשאות מספיקות כדי לבטל את ההזמנה לבקשת פגישה."
 
 msgid "Could not cancel Meeting Request invitations."
-msgstr ""
+msgstr "לא ניתן לבטל את ההזמנות לבקשת פגישה."
 
 msgid "You can not continue search operation on this folder."
-msgstr ""
+msgstr "לא ניתן להמשיך בפעולת החיפוש בתיקייה זו."
 
 msgid "Error in search, please try again."
-msgstr ""
+msgstr "שגיאה בחיפוש, אנא נסה שוב."
 
 msgid "Error in distribution list expansion."
-msgstr ""
+msgstr "שגיאה בהרחבת רשימת התפוצה."
 
 msgid "The message store has exceeded its hard quota limit."
-msgstr ""
+msgstr "חנות ההודעות חרגה מהמכסה הקשה שלה."
 
 msgid ""
 "To reduce the amount of data in this message store, select some items that "
@@ -7663,50 +7394,50 @@ msgid ""
 msgstr ""
 
 msgid "The message store has exceeded its soft quota limit."
-msgstr ""
+msgstr "חנות ההודעות חרגה ממגבלת המכסה הרכה שלה."
 
 msgid "Could not process request data properly."
-msgstr ""
+msgstr "לא ניתן לעבד את נתוני הבקשה כראוי."
 
 #, php-format
 msgid "Unknown action type specified - %s"
-msgstr ""
+msgstr "צוין סוג פעולה לא ידוע -%s"
 
 msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr ""
+msgstr "לא ניתן להשהות את התזכורת. ייתכן שתזכרו שוב."
 
 msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr ""
+msgstr "לא ניתן לבטל את התזכורת. ייתכן שתזכרו שוב."
 
 msgid "You have insufficient privileges to perform this action."
-msgstr ""
+msgstr "אין לך הרשאות מספיקות כדי לבצע פעולה זו."
 
 msgid "Could not resolve user."
-msgstr ""
+msgstr "לא ניתן לפתור את המשתמש."
 
 msgid "Setting mail filters on the stores of other users is not allowed."
-msgstr ""
+msgstr "אסור להגדיר מסנני דואר בחנויות של משתמשים אחרים."
 
 msgid "Untitled rule"
-msgstr ""
+msgstr "כלל ללא כותרת"
 
 msgid "Could not load rules."
-msgstr ""
+msgstr "לא ניתן לטעון כללים."
 
 msgid "Could not save rules."
-msgstr ""
+msgstr "לא ניתן לשמור כללים."
 
 msgid "Task Request:"
-msgstr ""
+msgstr "בקשת משימה:"
 
 msgid "Sign in"
-msgstr ""
+msgstr "היכנס"
 
 msgid "File is not imported successfully"
-msgstr ""
+msgstr "הקובץ לא יובא בהצלחה"
 
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr ""
+msgstr "הקובץ שהועלה חורג מההנחיה upload_max_filesize ב-php.ini."
 
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
@@ -7714,16 +7445,16 @@ msgid ""
 msgstr ""
 
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "הקובץ שהועלה הועלה רק חלקית."
 
 msgid "No file was uploaded. ."
-msgstr ""
+msgstr "לא הועלה קובץ. ."
 
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "חסרה תיקיה זמנית."
 
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "כתיבת הקובץ לדיסק נכשלה."
 
 msgid ""
 "A PHP extension stopped the file upload. PHP does not provide a way to "
@@ -7732,7 +7463,7 @@ msgid ""
 msgstr ""
 
 msgid "There is no contact found in this file."
-msgstr ""
+msgstr "לא נמצא איש קשר בקובץ זה."
 
 msgid ""
 "grommunio Web does not support importing multiple VCF with this version."
@@ -7743,32 +7474,32 @@ msgid ""
 msgstr ""
 
 msgid "GB"
-msgstr ""
+msgstr "GB"
 
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 msgid "B"
-msgstr ""
+msgstr "ב"
 
 msgid "The maximum stack depth has been exceeded"
-msgstr ""
+msgstr "חרג מעומק הערימה המרבי"
 
 msgid "Control character error, possibly incorrectly encoded"
-msgstr ""
+msgstr "שגיאת תו בקרה, אולי מקודד שגוי"
 
 msgid "Invalid or malformed JSON"
-msgstr ""
+msgstr "JSON לא חוקי או פגום"
 
 msgid "Syntax error"
-msgstr ""
+msgstr "שגיאת תחביר"
 
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
-msgstr ""
+msgstr "תווי UTF-8 שגויים, אולי מקודדים בצורה שגויה"
 
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
-msgstr ""
+msgstr "בעיה מסוימת שנתקלה בעת קידוד/פענוח נתוני JSON: -%s"

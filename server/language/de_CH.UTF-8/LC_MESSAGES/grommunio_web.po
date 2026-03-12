@@ -4717,7 +4717,7 @@ msgid "{A}Automatically mark mail as read after {B} second(s)"
 msgstr "{A}Wartezeit, bevor Mail als gelesen markiert wird: {B} Sekunden"
 
 msgid "View mail in this format"
-msgstr ""
+msgstr "E-Mail in diesem Format anzeigen"
 
 msgid "Right"
 msgstr "Rechts"
@@ -5643,7 +5643,7 @@ msgid "Desktop Notifications"
 msgstr "Desktopbenachrichtigungen"
 
 msgid "Files: Default plugin"
-msgstr ""
+msgstr "Dateien: Standard-Plugin"
 
 msgid "Loading users and groups"
 msgstr "Lade Benutzer und Gruppen"
@@ -5700,28 +5700,30 @@ msgid "Loading details…"
 msgstr "Lade Details…"
 
 msgid "Files: Seafile Backend"
-msgstr ""
+msgstr "Dateien: Seafile Backend"
 
 msgid "Copy link to clipboard"
-msgstr ""
+msgstr "Link in die Zwischenablage kopieren"
 
 msgid "Link copied to clipboard"
-msgstr ""
+msgstr "Link in die Zwischenablage kopiert"
 
 msgid "Clipboard"
-msgstr ""
+msgstr "Zwischenablage"
 
 msgid "Could not copy link automatically. Please copy it manually."
 msgstr ""
+"Der Link konnte nicht automatisch kopiert werden. Bitte kopieren Sie ihn "
+"manuell."
 
 msgid "Loading details..."
-msgstr ""
+msgstr "Details laden..."
 
 msgid "Share"
 msgstr "Teilen"
 
 msgid "Loading..."
-msgstr ""
+msgstr "Laden..."
 
 msgid "Add attachment from {0}"
 msgstr "Datei aus {0} einfügen"
@@ -5815,7 +5817,7 @@ msgid "Files Plugin"
 msgstr "Files Plugin"
 
 msgid "Default"
-msgstr ""
+msgstr "Standard"
 
 msgid "Manage Accounts"
 msgstr "Accounts verwalten"
@@ -6115,88 +6117,88 @@ msgid "Intranet"
 msgstr "Intranet"
 
 msgid "Archive to InfoShare"
-msgstr ""
+msgstr "Archiv zu InfoShare"
 
 msgid "Kendox InfoShare"
-msgstr ""
+msgstr "Kendox InfoShare"
 
 msgid "Constraints for single attachment archiving"
-msgstr ""
+msgstr "Einschränkungen für die Archivierung einzelner Anlagen"
 
 msgid "Max count attachments"
-msgstr ""
+msgstr "Maximale Anzahl von Anbaugeräten"
 
 msgid "Max size all selected attachments (MB)"
-msgstr ""
+msgstr "Maximale Größe aller ausgewählten Anhänge (MB)"
 
 msgid "Selection Kendox InfoShare environment"
-msgstr ""
+msgstr "Auswahl Kendox InfoShare Umgebung"
 
 msgid "Production"
-msgstr ""
+msgstr "Produktion"
 
 msgid "Test"
-msgstr ""
+msgstr "Test"
 
 msgid "URLs for production environment"
-msgstr ""
+msgstr "URLs für die Produktionsumgebung"
 
 msgid "Kendox InfoShare API URL"
-msgstr ""
+msgstr "Kendox InfoShare API URL"
 
 msgid "Kendox InfoShare Web dialog URL"
-msgstr ""
+msgstr "Kendox InfoShare Web-Dialog URL"
 
 msgid "URLs for test environment"
-msgstr ""
+msgstr "URLs für die Testumgebung"
 
 msgid "Mail/Document archive to Kendox InfoShare"
-msgstr ""
+msgstr "Mail/Dokumentenarchiv an Kendox InfoShare"
 
 msgid "Attachment information is requested"
-msgstr ""
+msgstr "Informationen über Anhänge werden angefordert"
 
 msgid "Please select the type of Archive (max"
-msgstr ""
+msgstr "Bitte wählen Sie die Art des Archivs (max"
 
 msgid "files, max"
-msgstr ""
+msgstr "dateien, max"
 
 msgid "MB total size)"
-msgstr ""
+msgstr "MB Gesamtgröße)"
 
 msgid "Everything - Store mail in original format"
-msgstr ""
+msgstr "Alles - Post im Originalformat speichern"
 
 msgid "Email only - Store mail without attachments"
 msgstr "Nur E-Mail - E-Mail ohne Anhänge speichern"
 
 msgid "Separate - Store attachments separately"
-msgstr ""
+msgstr "Separat - Anhänge separat aufbewahren"
 
 msgid "No attachments available in mail"
-msgstr ""
+msgstr "Keine Anhänge in der Mail verfügbar"
 
 msgid "Start archive"
-msgstr ""
+msgstr "Archiv starten"
 
 msgid "embedded"
 msgstr "eingebettet"
 
 msgid "Reading attachment information failed"
-msgstr ""
+msgstr "Lesen von Anhangsinformationen fehlgeschlagen"
 
 msgid "Files are sent to Kendox InfoShare"
-msgstr ""
+msgstr "Dateien werden an Kendox InfoShare gesendet"
 
 msgid "With the selection of separate attachments a maximum of"
-msgstr ""
+msgstr "Bei der Auswahl von separaten Anbaugeräten können maximal"
 
 msgid "attachments can be selected. There have been"
-msgstr ""
+msgstr "anhänge ausgewählt werden können. Es wurden"
 
 msgid "attachments selected"
-msgstr ""
+msgstr "ausgewählte Anhänge"
 
 msgid ""
 "With the selection of separate attachments the total size of all attachments "
@@ -6204,13 +6206,13 @@ msgid ""
 msgstr ""
 
 msgid "MB. There have been"
-msgstr ""
+msgstr "MB. Es wurden"
 
 msgid "MB selected."
-msgstr ""
+msgstr "MB ausgewählt."
 
 msgid "Sending of mail failed"
-msgstr ""
+msgstr "Versand von Mails fehlgeschlagen"
 
 msgid "Openstreetmap"
 msgstr "OpenStreetMap"
@@ -6883,10 +6885,10 @@ msgstr ""
 "wenden Sie sich an Ihren Administrator."
 
 msgid "This backend provides the default WebDAV integration for Files."
-msgstr ""
+msgstr "Dieses Backend bietet die standardmäßige WebDAV-Integration für Dateien."
 
 msgid "Files Default Backend: "
-msgstr ""
+msgstr "Dateien Standard-Backend: "
 
 msgid "Server address"
 msgstr "Serveradresse"
@@ -6964,34 +6966,38 @@ msgid "PHP-Curl is not available."
 msgstr "php-curl ist nicht verfügbar."
 
 msgid "With this backend, you can connect to any Seafile server."
-msgstr ""
+msgstr "Mit diesem Backend können Sie sich mit jedem Seafile-Server verbinden."
 
 msgid "Files "
-msgstr ""
+msgstr "Dateien "
 
 msgid "Use SSL"
-msgstr ""
+msgstr "SSL verwenden"
 
 msgid "Seafile is not reachable. Correct backend address entered?"
-msgstr ""
+msgstr "Seafile ist nicht erreichbar. Korrekte Backend-Adresse eingegeben?"
 
 msgid "You don't have enough permissions for this operation."
-msgstr ""
+msgstr "Sie haben nicht genügend Berechtigungen für diesen Vorgang."
 
 msgid "File is not available any more."
-msgstr ""
+msgstr "Die Datei ist nicht mehr verfügbar."
 
 msgid "Connection to server timed out. Retry later."
 msgstr ""
+"Die Verbindung zum Server wurde unterbrochen. Versuchen Sie es später "
+"erneut."
 
 msgid "This file is locked by another user."
-msgstr ""
+msgstr "Diese Datei ist von einem anderen Benutzer gesperrt."
 
 msgid "The request failed due to failure of a previous request."
 msgstr ""
+"Die Anfrage ist fehlgeschlagen, weil eine frühere Anfrage fehlgeschlagen "
+"ist."
 
 msgid "Seafile-server encountered a problem."
-msgstr ""
+msgstr "Bei Seafile-server ist ein Problem aufgetreten."
 
 msgid ""
 "Could not write to temporary directory. Contact the server administrator."
@@ -7002,10 +7008,10 @@ msgid ""
 msgstr ""
 
 msgid "PHP-Curl is not available. Contact your system administrator."
-msgstr ""
+msgstr "PHP-Curl ist nicht verfügbar. Wenden Sie sich an Ihren Systemadministrator."
 
 msgid "This function is not yet implemented."
-msgstr ""
+msgstr "Diese Funktion ist noch nicht implementiert."
 
 msgid "Unknown account ID"
 msgstr "Unbekannte Account-ID"
@@ -7101,7 +7107,7 @@ msgid "Kendox certificate password is not configured."
 msgstr "Das Passwort des Kendox-Zertifikats ist nicht konfiguriert."
 
 msgid "Kendox certificate is not available."
-msgstr ""
+msgstr "Das Kendox-Zertifikat ist nicht verfügbar."
 
 msgid "Kendox certificate is not readable."
 msgstr "Das Kendox-Zertifikat ist nicht lesbar."
@@ -7144,7 +7150,7 @@ msgid "No certificate available"
 msgstr "Kein Zertifikat verfügbar"
 
 msgid "Private certificate has expired, unable to sign email"
-msgstr ""
+msgstr "Privates Zertifikat ist abgelaufen, E-Mail kann nicht signiert werden"
 
 msgid "Private certificate is not valid yet, unable to sign email"
 msgstr ""

@@ -4686,7 +4686,7 @@ msgid "{A}Automatically mark mail as read after {B} second(s)"
 msgstr "{A}E-mail automatisch als gelezen markeren na {B} seconde(n)"
 
 msgid "View mail in this format"
-msgstr ""
+msgstr "Bekijk mail in dit formaat"
 
 msgid "Right"
 msgstr "Rechts"
@@ -5599,7 +5599,7 @@ msgid "Desktop Notifications"
 msgstr "Desktop meldingen"
 
 msgid "Files: Default plugin"
-msgstr ""
+msgstr "Bestanden: Standaard plugin"
 
 msgid "Loading users and groups"
 msgstr "Laden van gebruikers en groepen"
@@ -5656,28 +5656,28 @@ msgid "Loading details…"
 msgstr "Details laden…"
 
 msgid "Files: Seafile Backend"
-msgstr ""
+msgstr "Bestanden: Seafile backend"
 
 msgid "Copy link to clipboard"
-msgstr ""
+msgstr "Koppeling naar klembord kopiëren"
 
 msgid "Link copied to clipboard"
-msgstr ""
+msgstr "Link gekopieerd naar klembord"
 
 msgid "Clipboard"
-msgstr ""
+msgstr "Klembord"
 
 msgid "Could not copy link automatically. Please copy it manually."
-msgstr ""
+msgstr "De link kon niet automatisch worden gekopieerd. Kopieer hem handmatig."
 
 msgid "Loading details..."
-msgstr ""
+msgstr "Details laden..."
 
 msgid "Share"
 msgstr "Delen"
 
 msgid "Loading..."
-msgstr ""
+msgstr "Aan het laden..."
 
 msgid "Add attachment from {0}"
 msgstr "Voeg bijlage toe van {0}"
@@ -5767,7 +5767,7 @@ msgid "Files Plugin"
 msgstr "Files Plugin"
 
 msgid "Default"
-msgstr ""
+msgstr "Standaard"
 
 msgid "Manage Accounts"
 msgstr "Accounts beheren"
@@ -6066,88 +6066,88 @@ msgid "Intranet"
 msgstr "Intranet"
 
 msgid "Archive to InfoShare"
-msgstr ""
+msgstr "Archief naar InfoShare"
 
 msgid "Kendox InfoShare"
-msgstr ""
+msgstr "Kendox InfoDelen"
 
 msgid "Constraints for single attachment archiving"
-msgstr ""
+msgstr "Beperkingen voor archivering van één bijlage"
 
 msgid "Max count attachments"
-msgstr ""
+msgstr "Max. aantal hulpstukken"
 
 msgid "Max size all selected attachments (MB)"
-msgstr ""
+msgstr "Max. grootte alle geselecteerde bijlagen (MB)"
 
 msgid "Selection Kendox InfoShare environment"
-msgstr ""
+msgstr "Selectie Kendox InfoShare-omgeving"
 
 msgid "Production"
-msgstr ""
+msgstr "Productie"
 
 msgid "Test"
-msgstr ""
+msgstr "Test"
 
 msgid "URLs for production environment"
-msgstr ""
+msgstr "URL's voor productieomgeving"
 
 msgid "Kendox InfoShare API URL"
-msgstr ""
+msgstr "Kendox InfoShare API URL"
 
 msgid "Kendox InfoShare Web dialog URL"
-msgstr ""
+msgstr "Kendox InfoShare webdialoog URL"
 
 msgid "URLs for test environment"
-msgstr ""
+msgstr "URL's voor testomgeving"
 
 msgid "Mail/Document archive to Kendox InfoShare"
-msgstr ""
+msgstr "Mail/documentarchief naar Kendox InfoShare"
 
 msgid "Attachment information is requested"
-msgstr ""
+msgstr "Informatie over bijlagen is vereist"
 
 msgid "Please select the type of Archive (max"
-msgstr ""
+msgstr "Selecteer het type Archief (max"
 
 msgid "files, max"
-msgstr ""
+msgstr "bestanden, max"
 
 msgid "MB total size)"
-msgstr ""
+msgstr "MB totale grootte)"
 
 msgid "Everything - Store mail in original format"
-msgstr ""
+msgstr "Alles - Bewaar mail in origineel formaat"
 
 msgid "Email only - Store mail without attachments"
 msgstr "Alleen e-mail - E-mail opslaan zonder bijlagen"
 
 msgid "Separate - Store attachments separately"
-msgstr ""
+msgstr "Apart - bijlagen apart opslaan"
 
 msgid "No attachments available in mail"
-msgstr ""
+msgstr "Geen bijlagen beschikbaar in e-mail"
 
 msgid "Start archive"
-msgstr ""
+msgstr "Archief starten"
 
 msgid "embedded"
 msgstr "ingesloten"
 
 msgid "Reading attachment information failed"
-msgstr ""
+msgstr "Het lezen van bijlage-informatie is mislukt"
 
 msgid "Files are sent to Kendox InfoShare"
-msgstr ""
+msgstr "Bestanden worden naar Kendox InfoShare gestuurd"
 
 msgid "With the selection of separate attachments a maximum of"
-msgstr ""
+msgstr "Met de selectie van afzonderlijke hulpstukken kan een maximum van"
 
 msgid "attachments can be selected. There have been"
-msgstr ""
+msgstr "bijlagen kunnen worden geselecteerd. Er zijn"
 
 msgid "attachments selected"
-msgstr ""
+msgstr "bijlagen geselecteerd"
 
 msgid ""
 "With the selection of separate attachments the total size of all attachments "
@@ -6155,13 +6155,13 @@ msgid ""
 msgstr ""
 
 msgid "MB. There have been"
-msgstr ""
+msgstr "MB. Er zijn"
 
 msgid "MB selected."
-msgstr ""
+msgstr "MB geselecteerd."
 
 msgid "Sending of mail failed"
-msgstr ""
+msgstr "Verzenden van mail mislukt"
 
 msgid "Openstreetmap"
 msgstr "Openstreetmap"
@@ -6831,10 +6831,10 @@ msgstr ""
 "contact op met je systeembeheerder."
 
 msgid "This backend provides the default WebDAV integration for Files."
-msgstr ""
+msgstr "Dit backend biedt de standaard WebDAV-integratie voor Bestanden."
 
 msgid "Files Default Backend: "
-msgstr ""
+msgstr "Bestanden Standaard backend: "
 
 msgid "Server address"
 msgstr "Serveradres"
@@ -6908,16 +6908,16 @@ msgid "PHP-Curl is not available."
 msgstr "PHP-Curl is niet beschikbaar."
 
 msgid "With this backend, you can connect to any Seafile server."
-msgstr ""
+msgstr "Met dit backend kun je verbinding maken met elke Seafile server."
 
 msgid "Files "
-msgstr ""
+msgstr "Bestanden "
 
 msgid "Use SSL"
 msgstr "Gebruik SSL"
 
 msgid "Seafile is not reachable. Correct backend address entered?"
-msgstr ""
+msgstr "Seafile is niet bereikbaar. Is het juiste backend-adres ingevoerd?"
 
 msgid "You don't have enough permissions for this operation."
 msgstr "Je hebt niet voldoende toegangsrechten voor deze operatie."
@@ -6935,7 +6935,7 @@ msgid "The request failed due to failure of a previous request."
 msgstr "Het verzoek is mislukt doordat een eerder verzoek is mislukt."
 
 msgid "Seafile-server encountered a problem."
-msgstr ""
+msgstr "Seafile-server heeft een probleem ondervonden."
 
 msgid ""
 "Could not write to temporary directory. Contact the server administrator."
@@ -6953,7 +6953,7 @@ msgid "PHP-Curl is not available. Contact your system administrator."
 msgstr "PHP-Curl niet beschikbaar. Neem contact op met uw systeembeheerder."
 
 msgid "This function is not yet implemented."
-msgstr ""
+msgstr "Deze functie is nog niet geïmplementeerd."
 
 msgid "Unknown account ID"
 msgstr "Onbekend account ID"
@@ -7048,7 +7048,7 @@ msgid "Kendox certificate password is not configured."
 msgstr "Wachtwoord van Kendox-certificaat is niet geconfigureerd."
 
 msgid "Kendox certificate is not available."
-msgstr ""
+msgstr "Kendox-certificaat is niet beschikbaar."
 
 msgid "Kendox certificate is not readable."
 msgstr "Kendox-certificaat is niet leesbaar."
@@ -7093,7 +7093,7 @@ msgid "No certificate available"
 msgstr "Geen certificaat beschikbaar"
 
 msgid "Private certificate has expired, unable to sign email"
-msgstr ""
+msgstr "Privécertificaat is verlopen, kan e-mail niet ondertekenen"
 
 msgid "Private certificate is not valid yet, unable to sign email"
 msgstr "Privé certificaat is nog niet geldig, kan email niet ondertekenen"
