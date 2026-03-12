@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Danish (Denmark)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 23:43+0100\n"
+"POT-Creation-Date: 2026-03-12 22:26+0100\n"
 "PO-Revision-Date: 2022-07-26 14:28+0200\n"
 "Last-Translator: Mike Williams <mike.williams@grammm.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/grommunio/"
@@ -328,6 +328,9 @@ msgstr "E-mailadresser"
 msgid "Email addresses"
 msgstr "E-mailadresser"
 
+msgid "Email Address"
+msgstr "Email adresse"
+
 msgid "Group details"
 msgstr "Gruppe detaljer"
 
@@ -340,17 +343,11 @@ msgstr "Vist navn"
 msgid "Alias"
 msgstr "Alias"
 
-msgid "Owner"
-msgstr "Ejer"
-
 msgid "Notes"
 msgstr "Noter"
 
 msgid "Members"
 msgstr "Medlemmer"
-
-msgid "Email Address"
-msgstr "Email adresse"
 
 msgid "Account"
 msgstr "Konto"
@@ -379,11 +376,11 @@ msgstr "Initialer"
 msgid "Display"
 msgstr "Visning"
 
-msgid "Addresses"
-msgstr "Adresser"
-
 msgid "Address"
 msgstr "Adresse"
+
+msgid "Street"
+msgstr "Vej"
 
 msgid "City"
 msgstr "By"
@@ -433,8 +430,8 @@ msgstr "Telefonnumre"
 msgid "Business"
 msgstr "Arbejde"
 
-msgid "Business2"
-msgstr "Arbejde 2"
+msgid "Business 2"
+msgstr "Forretning 2"
 
 msgid "Fax"
 msgstr "Fax"
@@ -442,7 +439,7 @@ msgstr "Fax"
 msgid "Home"
 msgstr "Hjemme"
 
-msgid "Home2"
+msgid "Home 2"
 msgstr "Hjemme 2"
 
 msgid "Mobile"
@@ -644,9 +641,6 @@ msgstr "Videresend"
 msgid "Edit as New"
 msgstr "Rediger som ny"
 
-msgid "Search tools"
-msgstr "Søgningsværktøjer"
-
 msgid "Folders"
 msgstr "Mapper"
 
@@ -819,13 +813,16 @@ msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural ""
 "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
 msgstr[0] "Forekommer hver {0} effektiv {1} for {2} forekomst fra {3} til {4}."
-msgstr[1] "Forekommer hver {0} effektiv {1} for {2} forekomster fra {3} til {4}."
+msgstr[1] ""
+"Forekommer hver {0} effektiv {1} for {2} forekomster fra {3} til {4}."
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
 msgid_plural ""
 "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
-msgstr[0] "Forekommer hver {0} {1} effektiv {2} for {3} forekomst fra {4} til {5}."
-msgstr[1] "Forekommer hver {0} {1} effektiv {2} for {3} forekomster {4} til {5}."
+msgstr[0] ""
+"Forekommer hver {0} {1} effektiv {2} for {3} forekomst fra {4} til {5}."
+msgstr[1] ""
+"Forekommer hver {0} {1} effektiv {2} for {3} forekomster {4} til {5}."
 
 msgid "Occurs every {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
@@ -1053,7 +1050,8 @@ msgid "Busy attendees"
 msgstr "Travle deltagere"
 
 msgid "One or more attendees are busy. Are you sure to invite?"
-msgstr "En eller flere deltagere er optaget. Er du sikker på, at du vil invitere?"
+msgstr ""
+"En eller flere deltagere er optaget. Er du sikker på, at du vil invitere?"
 
 msgid "Scheduling"
 msgstr "Planlægning"
@@ -1496,14 +1494,14 @@ msgstr "Denne aftale er blevet flyttet eller slettet, vil du fortsætte?"
 msgid "Options"
 msgstr "Muligheder"
 
+msgid "Icon"
+msgstr "Ikon"
+
 msgid "All Day"
 msgstr "Hele dagen"
 
 msgid "Sort by: All Day"
 msgstr "Sorter efter: Hele dagen"
-
-msgid "Icon"
-msgstr "Ikon"
 
 msgid "Recurring"
 msgstr "Tilbagevendende"
@@ -1890,8 +1888,7 @@ msgstr "Utilstrækkelige tilladelser"
 
 msgid "You have insufficient privileges to delete items in this folder."
 msgstr ""
-"Du har ikke tilstrækkelige rettigheder til at slette elementer i denne "
-"mappe."
+"Du har ikke tilstrækkelige rettigheder til at slette elementer i denne mappe."
 
 msgid "Notify recipients"
 msgstr "Giv besked til modtagerne"
@@ -2124,7 +2121,8 @@ msgstr ""
 "oprette denne kategori."
 
 msgid "You already have a category named '{0}'. Please use another name."
-msgstr "Du har allerede en kategori med navnet '{0}'. Brug venligst et andet navn."
+msgstr ""
+"Du har allerede en kategori med navnet '{0}'. Brug venligst et andet navn."
 
 #, fuzzy
 msgid ""
@@ -2195,6 +2193,9 @@ msgstr "Indbakke"
 
 msgid "Entire Inbox"
 msgstr "Hele indbakken"
+
+msgid "Owner"
+msgstr "Ejer"
 
 msgid "Secretary"
 msgstr "Sekretær"
@@ -2290,7 +2291,8 @@ msgstr ""
 "systemadministrator."
 
 msgid "You have insufficient privileges to move following items."
-msgstr "Du har ikke tilstrækkelige rettigheder til at flytte følgende elementer."
+msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at flytte følgende elementer."
 
 msgid "Subject:"
 msgstr "Emne:"
@@ -2481,17 +2483,6 @@ msgstr "Ny mail"
 
 msgid "Please select a Cc recipient record."
 msgstr "Vælg en modtager."
-
-msgid "Manage Cc recipients"
-msgstr "Administrer Cc-modtagere"
-
-#, fuzzy
-msgid ""
-"Cc recipients can be used to set a default Cc user in new mail, replies or "
-"both."
-msgstr ""
-"Cc-modtagere kan bruges til at angive en standard Cc-bruger i nye mails, "
-"svar eller begge dele."
 
 msgid "Help"
 msgstr "Hjælp"
@@ -2961,14 +2952,47 @@ msgstr "Anvend ændringer"
 msgid "Do you wish to apply the changes?"
 msgstr "Vil du anvende ændringerne?"
 
+msgid "Category"
+msgstr "Kategori"
+
+msgid "Recent searches"
+msgstr "Seneste søgninger"
+
+msgid "Filter by"
+msgstr "Filtrer efter"
+
+msgid "Show"
+msgstr "Vis"
+
+msgid "Operators"
+msgstr "Operatører"
+
+msgid "AND"
+msgstr "OG"
+
+msgid "OR"
+msgstr "ELLER"
+
+msgid "NOT"
+msgstr "IKKE"
+
+msgid "Search in"
+msgstr "Søg i"
+
 msgid "All folders"
 msgstr "Alle mapper"
 
 msgid "Other…"
 msgstr "Andre…"
 
-msgid "Search in…"
-msgstr "Søg i…"
+msgid "Type"
+msgstr "Type"
+
+msgid "Search"
+msgstr "Søg efter"
+
+msgid "Click to cycle: AND → OR → NOT"
+msgstr "Klik for at cykle: OG → ELLER → IKKE"
 
 msgid "Folder does not exist"
 msgstr "Mappen findes ikke"
@@ -3475,9 +3499,6 @@ msgstr "Telefonnummer"
 msgid "Check address"
 msgstr "Check adresse"
 
-msgid "Street"
-msgstr "Vej"
-
 msgid "State/Province"
 msgstr "Stat/provins"
 
@@ -3515,20 +3536,17 @@ msgstr "Mærkedag"
 msgid "Photo"
 msgstr "Foto"
 
+msgid "Addresses"
+msgstr "Adresser"
+
 msgid "Additional information"
 msgstr "Yderligere information"
-
-msgid "Business 2"
-msgstr "Forretning 2"
 
 msgid "Callback"
 msgstr "Tilbageringning"
 
 msgid "Car"
 msgstr "Bil"
-
-msgid "Home 2"
-msgstr "Hjemme 2"
 
 msgid "Primary"
 msgstr "Primær"
@@ -3937,11 +3955,20 @@ msgstr "Rød"
 msgid "Brown"
 msgstr "Brun"
 
+msgid "Logout"
+msgstr "Log ud"
+
+msgid "Appearance"
+msgstr "Udseende"
+
+msgid "Light"
+msgstr "Lys"
+
 msgid "Dark"
 msgstr "Mørk"
 
-msgid "Logout"
-msgstr "Log ud"
+msgid "Automatic"
+msgstr "Automatisk"
 
 msgid "Switch view"
 msgstr "Skift visning"
@@ -3985,7 +4012,9 @@ msgstr "Manglende vedhæftet fil"
 msgid ""
 "Your message appears to reference an attachment but no file is attached. "
 "Send anyway?"
-msgstr "Din besked ser ud til at referere til en vedhæftet fil, men der er ikke vedhæftet nogen fil. Send alligevel?"
+msgstr ""
+"Din besked ser ud til at referere til en vedhæftet fil, men der er ikke "
+"vedhæftet nogen fil. Send alligevel?"
 
 msgid "No subject"
 msgstr "Intet emne"
@@ -4016,6 +4045,9 @@ msgstr "Skjul detaljer"
 
 msgid "Loaded {0} of {1}"
 msgstr "Hentet {0} af {1}"
+
+msgid "Copied!"
+msgstr "Kopieret!"
 
 msgid "Saving"
 msgstr "Gemmer"
@@ -4048,11 +4080,11 @@ msgstr "Ændringer gemt"
 msgid "Welcome to grommunio Web"
 msgstr "Velkommen til grommunio Web"
 
-msgid "This is the first time you are using grommunio Web. "
-msgstr "Dette er den første gang du bruger grommunio Web. "
+msgid "Set up your preferences to get started."
+msgstr "Indstil dine præferencer for at komme i gang."
 
-msgid "Please check the following settings before continuing."
-msgstr "Tjek venligst følgende indstillinger, før du fortsætter."
+msgid "Get Started"
+msgstr "Kom godt i gang"
 
 msgid "Widget height"
 msgstr "Widget højde"
@@ -4127,6 +4159,18 @@ msgstr "Mangler rettigheder"
 
 msgid "Not enough permissions to open this folder."
 msgstr "Du har ikke tiltrækkelige rettigheder til at åbne denne mappe."
+
+msgid "Empty folder"
+msgstr "Tomme mapper"
+
+msgid "Emptying {0}… (0%)"
+msgstr "Tømning af {0}... (0%)"
+
+msgid "Successfully emptied {0}. ({1} items removed)"
+msgstr "Tømte {0} med succes ({1} elementer fjernet)"
+
+msgid "Emptying {0}… ({1}%)"
+msgstr "Tømning af {0}... ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4203,9 +4247,6 @@ msgstr "Ingen destination"
 
 msgid "You must select a destination folder."
 msgstr "Du skal vælge en destinations mappe."
-
-msgid "Type"
-msgstr "Type"
 
 msgid "Description"
 msgstr "Beskrivelse"
@@ -4351,9 +4392,6 @@ msgstr "Åbn delt folder/lager"
 msgid "Rename folder"
 msgstr "Omdøb mappe"
 
-msgid "Empty folder"
-msgstr "Tomme mapper"
-
 msgid "Empty Junk Email"
 msgstr "Tøm uønsket e-mail"
 
@@ -4436,9 +4474,6 @@ msgstr "Er du sikker på du vil tømme {0}?"
 
 msgid "Show All"
 msgstr "Vis alle"
-
-msgid "Show all folders"
-msgstr "Vis alle mapper"
 
 #, fuzzy
 msgid ""
@@ -4708,6 +4743,9 @@ msgstr "{A}Automatisk merker emails som læst efter {B} sekund(er)"
 msgid "View mail in this format"
 msgstr "Se mail i dette format"
 
+msgid "Cc recipients"
+msgstr "Cc-modtagere"
+
 msgid "Right"
 msgstr "Højre"
 
@@ -4827,6 +4865,12 @@ msgstr "maks "
 
 msgid "Sort by: Sent"
 msgstr "Sorter efter: Sendt"
+
+msgid "Scheduled"
+msgstr "Planlagt"
+
+msgid "Sort by: Scheduled"
+msgstr "Sorter efter: Planlagt"
 
 msgid "Modified"
 msgstr "Ændret"
@@ -4961,11 +5005,8 @@ msgstr "Indstillinger"
 msgid "Basic"
 msgstr "Basal"
 
-msgid "Account information - {0}"
-msgstr "Oplysninger om kontoen {0}"
-
-msgid "Profile Picture"
-msgstr "Profilfoto"
+msgid "System"
+msgstr "System"
 
 msgid "Language"
 msgstr "Sprog"
@@ -4975,6 +5016,9 @@ msgstr "Start mappe"
 
 msgid "Theme"
 msgstr "Tema"
+
+msgid "Personal information"
+msgstr "Personlig information"
 
 msgid "Select Default Folder"
 msgstr "Vælg standardmappe"
@@ -5009,8 +5053,8 @@ msgstr "{0} Ikonsæt"
 msgid "About"
 msgstr "Om"
 
-msgid "I want to display date and time in this format:"
-msgstr "Jeg vil gerne vise dato og klokkeslæt i dette format:"
+msgid "Date & Time"
+msgstr "Dato og tid"
 
 msgid "Short"
 msgstr "Kort"
@@ -5018,23 +5062,20 @@ msgstr "Kort"
 msgid "Long"
 msgstr "Lang"
 
-msgid "Time format:"
-msgstr "Tidsformat:"
-
 msgid "12h clock"
 msgstr "klokken 12.00"
 
 msgid "24h clock"
 msgstr "24 timers ur"
 
-msgid "Favorite settings"
-msgstr "Favoritindstillinger"
-
 msgid "Hide favorites"
 msgstr "Skjul favoritter"
 
 msgid "Unpin favorites from top"
 msgstr "Fjern favoritter fra toppen"
+
+msgid "Interface"
+msgstr "Grænseflade"
 
 msgid "Give unread items a colored border"
 msgstr "Giv ulæste emner en farvet kant"
@@ -5047,9 +5088,6 @@ msgstr "Vis tæller for ulæste mails i programmets titel"
 
 msgid "Hide widget panel"
 msgstr "Skjul widget-panel"
-
-msgid "Show search bar above folder list"
-msgstr "Vis søgefelt over mappeliste"
 
 msgid "Auto"
 msgstr "Auto"
@@ -5103,8 +5141,8 @@ msgstr "Hent {A} elementer pr. side."
 msgid "Keyboard Shortcuts"
 msgstr "Genvejstaster"
 
-msgid "Part of basic keyboard shortcuts"
-msgstr "Del af standard genvejstaster"
+msgid "Extended"
+msgstr "Udvidet"
 
 msgid "Keyboard shortcuts off"
 msgstr "Slå genvejstaster fra"
@@ -5112,8 +5150,8 @@ msgstr "Slå genvejstaster fra"
 msgid "Basic keyboard shortcuts on"
 msgstr "Slå standard genvejstaster til"
 
-msgid "All keyboard shortcuts on"
-msgstr "Slå alle genvejstaster til"
+msgid "Extended shortcuts on"
+msgstr "Udvidede genveje på"
 
 msgid "This change requires a reload of grommunio Web"
 msgstr "Denne ændring kræver en genindlæsning af grommunio Web"
@@ -5199,11 +5237,29 @@ msgstr "Indstilling"
 msgid "The setting '{0}' can not be edited"
 msgstr "Indstillingen '{0}' kan ikke redigeres"
 
-msgid "Version information"
-msgstr "Versions information"
+msgid "OpenID Connect"
+msgstr "OpenID Connect"
+
+msgid "Basic Authentication"
+msgstr "Grundlæggende godkendelse"
+
+msgid "System information"
+msgstr "Oplysninger om systemet"
 
 msgid "Gromox"
 msgstr "Gromox"
+
+msgid "Logged in via"
+msgstr "Logget ind via"
+
+msgid "Browser"
+msgstr "Browser"
+
+msgid "Maintenance"
+msgstr "Vedligeholdelse"
+
+msgid "Reset all settings to defaults"
+msgstr "Nulstil alle indstillinger til standard"
 
 msgid "Delete confirmation"
 msgstr "Slet bekræftelse"
@@ -5609,6 +5665,9 @@ msgstr "Out of Office er aktiveret i øjeblikket. Vil du gerne slå den fra?"
 msgid "Archive"
 msgstr "Arkiv"
 
+msgid "Chat"
+msgstr "Chat"
+
 msgid "Open Chat at start"
 msgstr "Åbn chatten, når den er startet"
 
@@ -5799,8 +5858,7 @@ msgstr "Nulstil indstillinger for filer"
 
 msgid "Resets Files settings to their original defaults"
 msgstr ""
-"Nulstiller filernes indstillinger til deres oprindelige "
-"standardindstillinger"
+"Nulstiller filernes indstillinger til deres oprindelige standardindstillinger"
 
 msgid "Are you sure to remove all settings and accounts?"
 msgstr "Er du sikker på, at du har fjernet alle indstillinger og konti?"
@@ -6274,6 +6332,9 @@ msgstr "Sidste forbindelse"
 msgid "Synchronize"
 msgstr "Synkroniser"
 
+msgid "Shared Folders"
+msgstr "Delte mapper"
+
 msgid "Manage Shared Folders"
 msgstr "Administrer delte mapper"
 
@@ -6339,6 +6400,12 @@ msgstr "Fjern enhed"
 msgid "Please enter your username and password"
 msgstr "Indtast venligst dit brugernavn og din adgangskode"
 
+msgid "Type {0} to confirm"
+msgstr "Skriv {0} for at bekræfte"
+
+msgid "Please type {0} to confirm"
+msgstr "Skriv venligst {0} for at bekræfte"
+
 msgid "Wipe only data related to this account"
 msgstr "Slet kun data relateret til denne konto"
 
@@ -6348,6 +6415,11 @@ msgstr "Slet alle data"
 msgid "Username"
 msgstr "Brugernavn"
 
+msgid ""
+"Do you really want to wipe your device?\n"
+" Type WIPE to confirm."
+msgstr ""
+
 #, fuzzy
 msgid ""
 "Do you really want to wipe your device?\n"
@@ -6355,6 +6427,11 @@ msgid ""
 msgstr ""
 "Ønsker du virkelig at slette din enhed?\n"
 " Indtast din adgangskode for at bekræfte."
+
+msgid ""
+"Do you really want to remove your device?\n"
+" Type REMOVE to confirm."
+msgstr ""
 
 #, fuzzy
 msgid ""
@@ -6373,6 +6450,9 @@ msgstr "Værelsets navn:"
 msgid "Room URL:"
 msgstr "Værelsets URL:"
 
+msgid "Meet"
+msgstr "Mødes"
+
 msgid "Shift-click for advanced settings"
 msgstr "Shift-klik for avancerede indstillinger"
 
@@ -6384,6 +6464,9 @@ msgstr "Åbent møde i:"
 
 msgid "Web tab"
 msgstr "Web-fanen"
+
+msgid "Popup"
+msgstr "Popup"
 
 msgid "Hide the button in the main toolbar"
 msgstr "Skjul knappen i hovedværktøjslinjen"
@@ -6407,22 +6490,26 @@ msgstr ""
 
 msgid "If you have problems when creating meetings, try disabling this setting"
 msgstr ""
-"Hvis du har problemer med at oprette møder, kan du prøve at deaktivere "
-"denne indstilling"
+"Hvis du har problemer med at oprette møder, kan du prøve at deaktivere denne "
+"indstilling"
 
 msgid "Add an invitation to the appointment description"
 msgstr "Tilføj en invitation til aftalebeskrivelsen"
 
-msgid "Invitation text"
-msgstr "Invitationstekst"
+msgid "Invitation text (plain text)"
+msgstr "Invitationstekst (almindelig tekst)"
 
-#, fuzzy
 msgid ""
-"must contain %url% as a placeholder for the meeting link, empty the textbox "
-"to reset to default"
+"used when composing in plain text, must contain %url%, empty to reset to "
+"default"
 msgstr ""
-"skal indeholde %url% som en pladsholder for linket til mødet, tøm "
-"tekstboksen for at nulstille til standardværdien"
+
+msgid "Invitation template (HTML)"
+msgstr "Skabelon til invitation (HTML)"
+
+msgid ""
+"used when composing in HTML, must contain %url%, empty to reset to default"
+msgstr ""
 
 msgid "An unknown error occurred while changing password."
 msgstr "Der opstod en ukendt fejl under ændring af adgangskode."
@@ -6510,6 +6597,21 @@ msgstr "Gyldig fra"
 msgid "Expires"
 msgstr "Udløber"
 
+msgid "Key Type"
+msgstr "Nøgletype"
+
+msgid "Purpose"
+msgstr "Formål"
+
+msgid "Sign"
+msgstr "Tegn"
+
+msgid "Encrypt"
+msgstr "Krypter"
+
+msgid "Sign & Encrypt"
+msgstr "Signer og krypter"
+
 msgid "Loading certificates"
 msgstr "Indlæsning af certifikater"
 
@@ -6527,16 +6629,37 @@ msgstr ""
 "Ønsker du virkelig at fjerne dit private certifikat? Hvis du fjerner dit "
 "certifikat, kan du ikke underskrive eller dekryptere S/MIME-e-mails."
 
+msgid "Signing"
+msgstr "Signering"
+
+msgid "Encryption"
+msgstr "Kryptering"
+
+msgid "Signing & Encryption"
+msgstr "Signering og kryptering"
+
+msgid "Serial"
+msgstr "Seriel"
+
+msgid "Issued by"
+msgstr "Udstedt af"
+
+msgid "Issued to"
+msgstr "Udstedt til"
+
+msgid "SHA-256 Fingerprint"
+msgstr "SHA-256 fingeraftryk"
+
+msgid "SHA-1 Fingerprint"
+msgstr "SHA-1-fingeraftryk"
+
+msgid ""
+"Warning: RSA key size is below 2048 bits. Consider upgrading to a stronger "
+"certificate."
+msgstr ""
+
 msgid "Certificate details"
 msgstr "Detaljer om certifikatet"
-
-#, fuzzy
-msgid ""
-"Below you can view and delete public & private certificate(s) stored on the "
-"server."
-msgstr ""
-"Nedenfor kan du se og slette offentlige og private certifikater, der er gemt "
-"på serveren."
 
 msgid "Filter on Email"
 msgstr "Filter på e-mail"
@@ -6555,6 +6678,18 @@ msgstr "Personligt certifikat"
 
 msgid "Change passphrase for last certificate"
 msgstr "Skift passphrase for sidste certifikat"
+
+msgid "Default encryption algorithm"
+msgstr "Standard-krypteringsalgoritme"
+
+msgid "Recommended"
+msgstr "Anbefalet"
+
+msgid "Legacy"
+msgstr "Arv"
+
+msgid "Default signing digest"
+msgstr "Standard-signeringsdigest"
 
 msgid "You have a valid certificate corresponding to your account"
 msgstr "Du har et gyldigt certifikat, der svarer til din konto"
@@ -6576,13 +6711,23 @@ msgid "Private certificate"
 msgstr "Privat certifikat"
 
 msgid "You must fill in the certificate passphrase to upload your certificate."
-msgstr "Du skal udfylde certifikatets passphrase for at uploade dit certifikat."
+msgstr ""
+"Du skal udfylde certifikatets passphrase for at uploade dit certifikat."
 
 msgid "You must first select a valid private certificate in PKCS#12 format."
 msgstr "Du skal først vælge et gyldigt privat certifikat i PKCS#12-format."
 
-msgid "Sign"
-msgstr "Tegn"
+msgid "bits"
+msgstr "bits"
+
+msgid "signing"
+msgstr "underskrift"
+
+msgid "encryption"
+msgstr "kryptering"
+
+msgid "signing & encryption"
+msgstr "signering og kryptering"
 
 msgid "Sign message"
 msgstr "Skiltebesked"
@@ -6595,9 +6740,6 @@ msgstr ""
 "Sikre meddelelsens ægthed ved at tilføje en digital signatur til denne "
 "meddelelse. Enhver ændring af meddelelsen vil ugyldiggøre signaturen."
 
-msgid "Encrypt"
-msgstr "Krypter"
-
 msgid "Encrypt message"
 msgstr "Krypter besked"
 
@@ -6609,8 +6751,14 @@ msgstr ""
 "Sikre meddelelsens fortrolighed ved at kryptere dens indhold. Kun modtageren "
 "af meddelelsen kan åbne den."
 
+msgid "Algorithms used"
+msgstr "Anvendte algoritmer"
+
 msgid "What's going on with my email?"
 msgstr "Hvad sker der med min e-mail?"
+
+msgid "CBC mode"
+msgstr "CBC-tilstand"
 
 #, fuzzy
 msgid ""
@@ -6679,7 +6827,8 @@ msgstr ""
 "meddelelse."
 
 msgid "grommunio Web could not find a public certificate for the recipient."
-msgstr "grommunio Web kunne ikke finde et offentligt certifikat for modtageren."
+msgstr ""
+"grommunio Web kunne ikke finde et offentligt certifikat for modtageren."
 
 #, fuzzy
 msgid ""
@@ -6737,6 +6886,39 @@ msgstr "Certifikatverifikationsserveren (OCSP) er midlertidigt offline."
 msgid "Sender is removed from the server."
 msgstr "Afsenderen fjernes fra serveren."
 
+msgid ""
+"The digital certificate used to sign this message has been revoked according "
+"to the Certificate Revocation List (CRL)."
+msgstr ""
+
+msgid ""
+"The revocation status of the certificate could not be verified because the "
+"CRL Distribution Point is unavailable."
+msgstr ""
+
+msgid ""
+"The RSA key size used in this certificate is below the recommended minimum "
+"of 2048 bits. Consider upgrading to a stronger certificate."
+msgstr ""
+
+msgid ""
+"The certificate's Key Usage extension does not permit this operation. The "
+"certificate may be intended for signing only or encryption only."
+msgstr ""
+
+msgid ""
+"This message was encrypted using CBC mode (not authenticated encryption). "
+"While it was decrypted successfully, AES-GCM (authenticated encryption) "
+"provides stronger protection against modification attacks. Consider asking "
+"the sender to upgrade their S/MIME configuration."
+msgstr ""
+
+msgid ""
+"The signing time in the digital signature differs significantly from the "
+"expected time. This may indicate a clock synchronization issue or message "
+"tampering."
+msgstr ""
+
 msgid "Signature verified successfully"
 msgstr "Signatur verificeret med succes"
 
@@ -6781,6 +6963,38 @@ msgstr "Kan ikke dekryptere denne besked. Certifikatet matcher ikke"
 
 msgid "Verification failed. User is removed from the server."
 msgstr "Bekræftelse mislykkedes. Brugeren er fjernet fra serveren."
+
+msgid "Certificate has been revoked (CRL)"
+msgstr "Certifikatet er blevet tilbagekaldt (CRL)"
+
+msgid "Cannot check revocation status (CRL unavailable)"
+msgstr "Kan ikke tjekke tilbagekaldelsesstatus (CRL ikke tilgængelig)"
+
+msgid "RSA key size below recommended minimum"
+msgstr "RSA-nøglestørrelse under anbefalet minimum"
+
+msgid "Certificate not valid for this operation (key usage mismatch)"
+msgstr ""
+"Certifikatet er ikke gyldigt for denne operation (uoverensstemmelse mellem "
+"nøglebrug)"
+
+msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
+msgstr "Dekrypteret (CBC-tilstand - overvej AES-GCM for stærkere beskyttelse)"
+
+msgid "Signing time differs from expected time"
+msgstr "Signeringstiden afviger fra den forventede tid"
+
+msgid "Digest"
+msgstr "Fordøjelse"
+
+msgid "Signature"
+msgstr "Underskrift"
+
+msgid "Cipher"
+msgstr "Chiffre"
+
+msgid "Key transport"
+msgstr "Nøgletransport"
 
 msgid "Charm pink"
 msgstr "Rosa"
@@ -6920,7 +7134,8 @@ msgid "File server is not reachable. Please verify the file server URL."
 msgstr "Filserveren kan ikke nås. Bekræft venligst filserverens URL."
 
 msgid "You don't have enough permissions to view this file or folder."
-msgstr "Du har ikke tilstrækkelige tilladelser til at se denne fil eller mappe."
+msgstr ""
+"Du har ikke tilstrækkelige tilladelser til at se denne fil eller mappe."
 
 msgid "The file or folder is not available anymore."
 msgstr "Filen eller mappen er ikke længere tilgængelig."
@@ -6947,7 +7162,8 @@ msgid "PHP-Curl is not available."
 msgstr "PHP-Curl er ikke tilgængelig."
 
 msgid "With this backend, you can connect to any Seafile server."
-msgstr "Med denne backend kan du oprette forbindelse til enhver Seafile-server."
+msgstr ""
+"Med denne backend kan du oprette forbindelse til enhver Seafile-server."
 
 msgid "Files "
 msgstr "Filer "
@@ -7133,6 +7349,21 @@ msgstr "Privat certifikat er ikke gyldigt endnu, kan ikke underskrive e-mail"
 msgid "Private certificate does not match email address"
 msgstr "Privat certifikat matcher ikke e-mailadresse"
 
+msgid "No email address specified"
+msgstr "Ingen e-mailadresse angivet"
+
+msgid "No certificates found for this email address"
+msgstr "Ingen certifikater fundet til denne e-mailadresse"
+
+msgid "Unable to read certificates"
+msgstr "Kan ikke læse certifikater"
+
+msgid "Unable to generate certs-only message"
+msgstr "Kan ikke generere en besked med kun certifikater"
+
+msgid "LDAP not configured"
+msgstr "LDAP er ikke konfigureret"
+
 msgid "Missing public certificates for the following recipients: "
 msgstr "Der mangler offentlige certifikater for følgende modtagere: "
 
@@ -7159,6 +7390,17 @@ msgstr "Privat nøgle kan ikke bruges til at underskrive e-mail"
 msgid "Certificate email address doesn't match grommunio Web account "
 msgstr "Certifikatets e-mailadresse passer ikke til grommunio-webkontoen "
 
+#, php-format
+msgid ""
+"RSA key size %d bits is below the recommended minimum of %d bits. "
+"Certificate was imported."
+msgstr ""
+
+msgid ""
+"EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully "
+"supported. Certificate was imported."
+msgstr ""
+
 msgid "Certificate was expired on "
 msgstr "Certifikatet er udløbet den "
 
@@ -7178,7 +7420,8 @@ msgid "Unable to read public certificate"
 msgstr "Kan ikke læse offentligt certifikat"
 
 msgid "Can't add data to bus, same action type is present in bus"
-msgstr "Kan ikke tilføje data til bussen, samme handlingstype er til stede i bussen"
+msgstr ""
+"Kan ikke tilføje data til bussen, samme handlingstype er til stede i bussen"
 
 msgid "Response data requested from bus but it doesn't have any data."
 msgstr "Der anmodes om svardata fra bussen, men den har ingen data."
@@ -7287,7 +7530,8 @@ msgid "Task Request"
 msgstr "Opgaveforespørgsel"
 
 msgid "Could not find message, either it has been moved or deleted."
-msgstr "Kunne ikke finde meddelelsen, enten er den blevet flyttet eller slettet."
+msgstr ""
+"Kunne ikke finde meddelelsen, enten er den blevet flyttet eller slettet."
 
 msgid "Action is not performed correctly."
 msgstr "Handlingen er ikke udført korrekt."
@@ -7314,7 +7558,8 @@ msgid "Error in search, please try again"
 msgstr "Fejl i søgning, prøv venligst igen"
 
 msgid "Unable to perform search query, no permissions to create search folder."
-msgstr "Kan ikke udføre søgeforespørgsel, ingen tilladelse til at oprette søgemappe."
+msgstr ""
+"Kan ikke udføre søgeforespørgsel, ingen tilladelse til at oprette søgemappe."
 
 msgid "Unable to perform search query, search folder not found."
 msgstr "Søgeforespørgsel kan ikke udføres, søgemappe ikke fundet."
@@ -7418,9 +7663,9 @@ msgstr "Kvotefejl"
 msgid "Send quota limit reached"
 msgstr "Sendekvotens grænse er nået"
 
-msgid "Email sending failed. Check the log files for more information."
-msgstr ""
-"Afsendelse af e-mail mislykkedes. Tjek logfilerne for mere information."
+#, php-format
+msgid "Email sending failed (%s). Check the log files for more information."
+msgstr "Afsendelse af e-mail mislykkedes (%s). Tjek logfilerne for mere information."
 
 msgid "Unknown user/group"
 msgstr "Ukendt bruger/gruppe"
@@ -7555,10 +7800,12 @@ msgid "Could not open message."
 msgstr "Kunne ikke åbne meddelelsen."
 
 msgid "You have insufficient privileges to decline this Meeting Request"
-msgstr "Du har ikke tilstrækkelige rettigheder til at afvise denne mødeanmodning"
+msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at afvise denne mødeanmodning"
 
 msgid "You have insufficient privileges to accept this Meeting Request"
-msgstr "Du har ikke tilstrækkelige rettigheder til at acceptere denne mødeanmodning"
+msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at acceptere denne mødeanmodning"
 
 msgid "Could not copy message"
 msgstr "Kunne ikke kopiere meddelelsen"
@@ -7567,7 +7814,8 @@ msgid "Could not move message"
 msgstr "Kunne ikke flytte meddelelsen"
 
 msgid "You have insufficient privileges to save items in this folder"
-msgstr "Du har ikke tilstrækkelige rettigheder til at gemme elementer i denne mappe"
+msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at gemme elementer i denne mappe"
 
 msgid "Could not save message"
 msgstr "Kunne ikke gemme meddelelsen"
@@ -7589,7 +7837,8 @@ msgid "Message cannot be aborted"
 msgstr "Beskeden kan ikke afbrydes"
 
 msgid "You have insufficient privileges to delete items in this folder"
-msgstr "Du har ikke tilstrækkelige rettigheder til at slette elementer i denne mappe"
+msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at slette elementer i denne mappe"
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr ""
@@ -7619,7 +7868,8 @@ msgid "Could not accept Task Request."
 msgstr "Kunne ikke acceptere opgaveanmodning."
 
 msgid "You have insufficient privileges to decline this Task Request."
-msgstr "Du har ikke tilstrækkelige rettigheder til at afvise denne opgaveanmodning."
+msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at afvise denne opgaveanmodning."
 
 msgid "Could not decline Task Request."
 msgstr "Kunne ikke afvise opgaveanmodning."
@@ -7641,13 +7891,15 @@ msgstr[1] ""
 "aftaler."
 
 msgid "Your message did not reach some or all of the intended recipients"
-msgstr "Din besked nåede ikke frem til nogle eller alle de tilsigtede modtagere"
+msgstr ""
+"Din besked nåede ikke frem til nogle eller alle de tilsigtede modtagere"
 
 msgid "The following recipient(s) could not be reached"
 msgstr "Følgende modtager(e) kunne ikke kontaktes"
 
 msgid "You have insufficient privileges to see the contents of this folder."
-msgstr "Du har ikke tilstrækkelige rettigheder til at se indholdet af denne mappe."
+msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at se indholdet af denne mappe."
 
 msgid "Could not load the contents of this folder."
 msgstr "Kunne ikke indlæse indholdet af denne mappe."
@@ -7677,25 +7929,29 @@ msgid "Could not delete message."
 msgstr "Kunne ikke slette meddelelsen."
 
 msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr "Du har ikke tilstrækkelige rettigheder til at annullere denne mødeanmodning."
+msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at annullere denne mødeanmodning."
 
 msgid "Could not cancel Meeting Request."
 msgstr "Kunne ikke annullere mødeanmodning."
 
 msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr "Du har ikke tilstrækkelige rettigheder til at afvise denne mødeanmodning."
+msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at afvise denne mødeanmodning."
 
 msgid "Could not decline Meeting Request."
 msgstr "Kunne ikke afvise mødeanmodning."
 
 msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr "Du har ikke tilstrækkelige rettigheder til at acceptere denne mødeanmodning."
+msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at acceptere denne mødeanmodning."
 
 msgid "Could not accept Meeting Request."
 msgstr "Kunne ikke acceptere mødeanmodning."
 
 msgid "You have insufficient privileges to cancel Meeting Request invitation."
-msgstr "Du har ikke tilstrækkelige rettigheder til at annullere en mødeinvitation."
+msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at annullere en mødeinvitation."
 
 msgid "Could not cancel Meeting Request invitations."
 msgstr "Kunne ikke annullere invitationer til mødeanmodninger."

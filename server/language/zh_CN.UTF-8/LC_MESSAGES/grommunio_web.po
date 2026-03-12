@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Simplified)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 23:43+0100\n"
+"POT-Creation-Date: 2026-03-12 22:26+0100\n"
 "PO-Revision-Date: 2022-07-26 18:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -318,6 +318,9 @@ msgstr "电子邮件地址"
 msgid "Email addresses"
 msgstr "电子邮件地址"
 
+msgid "Email Address"
+msgstr "电子邮件地址"
+
 msgid "Group details"
 msgstr "群组详细信息"
 
@@ -330,17 +333,11 @@ msgstr "显示名称"
 msgid "Alias"
 msgstr "别名"
 
-msgid "Owner"
-msgstr "所有者"
-
 msgid "Notes"
 msgstr "便签"
 
 msgid "Members"
 msgstr "成员"
-
-msgid "Email Address"
-msgstr "电子邮件地址"
 
 msgid "Account"
 msgstr "账户"
@@ -369,11 +366,11 @@ msgstr "首字母"
 msgid "Display"
 msgstr "显示"
 
-msgid "Addresses"
-msgstr "地址"
-
 msgid "Address"
 msgstr "地址"
+
+msgid "Street"
+msgstr "街道"
 
 msgid "City"
 msgstr "城市"
@@ -423,7 +420,7 @@ msgstr "电话号码"
 msgid "Business"
 msgstr "企业电话"
 
-msgid "Business2"
+msgid "Business 2"
 msgstr "企业电话2"
 
 msgid "Fax"
@@ -432,7 +429,7 @@ msgstr "传真"
 msgid "Home"
 msgstr "家庭电话"
 
-msgid "Home2"
+msgid "Home 2"
 msgstr "家庭电话2"
 
 msgid "Mobile"
@@ -630,9 +627,6 @@ msgstr "向前"
 
 msgid "Edit as New"
 msgstr "作为新邮件编辑"
-
-msgid "Search tools"
-msgstr "搜索工具"
 
 msgid "Folders"
 msgstr "文件夹"
@@ -1456,14 +1450,14 @@ msgstr "此预约已被移动或删除，您是否继续？"
 msgid "Options"
 msgstr "选项"
 
+msgid "Icon"
+msgstr "图标"
+
 msgid "All Day"
 msgstr "全天"
 
 msgid "Sort by: All Day"
 msgstr "排序方式：全天"
-
-msgid "Icon"
-msgstr "图标"
 
 msgid "Recurring"
 msgstr "重复发生"
@@ -2096,6 +2090,9 @@ msgstr "收件箱"
 msgid "Entire Inbox"
 msgstr "整个收件箱"
 
+msgid "Owner"
+msgstr "所有者"
+
 msgid "Secretary"
 msgstr "秘书"
 
@@ -2369,15 +2366,6 @@ msgstr "新邮件"
 
 msgid "Please select a Cc recipient record."
 msgstr "请选择作为抄送对象的收件人记录。"
-
-msgid "Manage Cc recipients"
-msgstr "管理作为抄送对象的收件人"
-
-msgid ""
-"Cc recipients can be used to set a default Cc user in new mail, replies or "
-"both."
-msgstr ""
-"抄送对象收件人可用于在新邮件、回复或新邮件及回复中设置默认抄送对象用户。"
 
 msgid "Help"
 msgstr "帮助"
@@ -2840,14 +2828,47 @@ msgstr "应用更改"
 msgid "Do you wish to apply the changes?"
 msgstr "您是否应用更改？"
 
+msgid "Category"
+msgstr "类别"
+
+msgid "Recent searches"
+msgstr "最近的搜索"
+
+msgid "Filter by"
+msgstr "筛选方式"
+
+msgid "Show"
+msgstr "显示"
+
+msgid "Operators"
+msgstr "操作员"
+
+msgid "AND"
+msgstr "和"
+
+msgid "OR"
+msgstr "或"
+
+msgid "NOT"
+msgstr "不是"
+
+msgid "Search in"
+msgstr "搜索"
+
 msgid "All folders"
 msgstr "所有文件夹"
 
 msgid "Other…"
 msgstr "其它…"
 
-msgid "Search in…"
-msgstr "正在搜索…"
+msgid "Type"
+msgstr "类型"
+
+msgid "Search"
+msgstr "搜索"
+
+msgid "Click to cycle: AND → OR → NOT"
+msgstr "点击循环：AND → OR → NOT"
 
 msgid "Folder does not exist"
 msgstr "文件夹不存在"
@@ -3344,9 +3365,6 @@ msgstr "电话号码"
 msgid "Check address"
 msgstr "检查地址"
 
-msgid "Street"
-msgstr "街道"
-
 msgid "State/Province"
 msgstr "州/省"
 
@@ -3384,20 +3402,17 @@ msgstr "周年"
 msgid "Photo"
 msgstr "照片"
 
+msgid "Addresses"
+msgstr "地址"
+
 msgid "Additional information"
 msgstr "其它信息"
-
-msgid "Business 2"
-msgstr "企业电话2"
 
 msgid "Callback"
 msgstr "回呼"
 
 msgid "Car"
 msgstr "汽车"
-
-msgid "Home 2"
-msgstr "家庭电话2"
 
 msgid "Primary"
 msgstr "主要"
@@ -3794,11 +3809,20 @@ msgstr "红色"
 msgid "Brown"
 msgstr "棕色"
 
+msgid "Logout"
+msgstr "登出"
+
+msgid "Appearance"
+msgstr "外观"
+
+msgid "Light"
+msgstr "灯光"
+
 msgid "Dark"
 msgstr "暗色"
 
-msgid "Logout"
-msgstr "登出"
+msgid "Automatic"
+msgstr "自动"
 
 msgid "Switch view"
 msgstr "切换视图"
@@ -3874,6 +3898,9 @@ msgstr "隐藏详细信息"
 msgid "Loaded {0} of {1}"
 msgstr "已加载{1}的{0}"
 
+msgid "Copied!"
+msgstr "已复制！"
+
 msgid "Saving"
 msgstr "正在保存"
 
@@ -3902,11 +3929,11 @@ msgstr "未保存的更改"
 msgid "Welcome to grommunio Web"
 msgstr "欢迎访问 grommunio Web"
 
-msgid "This is the first time you are using grommunio Web. "
-msgstr "这是您首次使用grommunio Web。 "
+msgid "Set up your preferences to get started."
+msgstr "设置您的首选项，开始使用。"
 
-msgid "Please check the following settings before continuing."
-msgstr "在继续之前，请检查以下设置。"
+msgid "Get Started"
+msgstr "开始"
 
 msgid "Widget height"
 msgstr "小部件高度"
@@ -3977,6 +4004,18 @@ msgstr "权限不足"
 
 msgid "Not enough permissions to open this folder."
 msgstr "无足够权限打开此文件夹。"
+
+msgid "Empty folder"
+msgstr "空文件夹"
+
+msgid "Emptying {0}… (0%)"
+msgstr "清空{0}... (0%)"
+
+msgid "Successfully emptied {0}. ({1} items removed)"
+msgstr "成功清空{0}. ({1} 项目已删除)"
+
+msgid "Emptying {0}… ({1}%)"
+msgstr "清空{0}... ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4051,9 +4090,6 @@ msgstr "无目的地"
 
 msgid "You must select a destination folder."
 msgstr "您必须选择一个目标文件夹。"
-
-msgid "Type"
-msgstr "类型"
 
 msgid "Description"
 msgstr "说明"
@@ -4199,9 +4235,6 @@ msgstr "打开共享文件夹/存储器"
 msgid "Rename folder"
 msgstr "重命名文件夹"
 
-msgid "Empty folder"
-msgstr "空文件夹"
-
 msgid "Empty Junk Email"
 msgstr "清空垃圾邮件"
 
@@ -4280,9 +4313,6 @@ msgstr "您是否确定清空{0}？"
 
 msgid "Show All"
 msgstr "显示所有"
-
-msgid "Show all folders"
-msgstr "显示所有文件夹"
 
 #, fuzzy
 msgid ""
@@ -4550,6 +4580,9 @@ msgstr "在{B}秒后{A}自动将邮件标记为已读"
 msgid "View mail in this format"
 msgstr "查看此格式的邮件"
 
+msgid "Cc recipients"
+msgstr "抄送：收件人"
+
 msgid "Right"
 msgstr "右侧"
 
@@ -4665,6 +4698,12 @@ msgstr "最大 "
 
 msgid "Sort by: Sent"
 msgstr "排序方式：已发送"
+
+msgid "Scheduled"
+msgstr "计划"
+
+msgid "Sort by: Scheduled"
+msgstr "排序方式预定"
 
 msgid "Modified"
 msgstr "已修改"
@@ -4797,11 +4836,8 @@ msgstr "设置"
 msgid "Basic"
 msgstr "基本"
 
-msgid "Account information - {0}"
-msgstr "账户信息{0}"
-
-msgid "Profile Picture"
-msgstr "资料图片"
+msgid "System"
+msgstr "系统"
 
 msgid "Language"
 msgstr "语言"
@@ -4811,6 +4847,9 @@ msgstr "启动文件夹"
 
 msgid "Theme"
 msgstr "主题"
+
+msgid "Personal information"
+msgstr "个人信息"
 
 msgid "Select Default Folder"
 msgstr "选择默认文件夹"
@@ -4845,8 +4884,8 @@ msgstr "{0}更改皮肤"
 msgid "About"
 msgstr "关于"
 
-msgid "I want to display date and time in this format:"
-msgstr "我想按此格式显示日期和时间："
+msgid "Date & Time"
+msgstr "日期和时间"
 
 msgid "Short"
 msgstr "短"
@@ -4854,23 +4893,20 @@ msgstr "短"
 msgid "Long"
 msgstr "长"
 
-msgid "Time format:"
-msgstr "时间格式："
-
 msgid "12h clock"
 msgstr "12小时制"
 
 msgid "24h clock"
 msgstr "24小时制"
 
-msgid "Favorite settings"
-msgstr "收藏夹设置"
-
 msgid "Hide favorites"
 msgstr "隐藏收藏夹"
 
 msgid "Unpin favorites from top"
 msgstr "从顶部取消收藏夹"
+
+msgid "Interface"
+msgstr "界面"
 
 msgid "Give unread items a colored border"
 msgstr "为未读项目提供彩色边框"
@@ -4883,9 +4919,6 @@ msgstr "在应用程序标题中显示未读邮件计数器"
 
 msgid "Hide widget panel"
 msgstr "隐藏小部件面板"
-
-msgid "Show search bar above folder list"
-msgstr "在文件夹列表上方显示搜索栏"
 
 msgid "Auto"
 msgstr "自动"
@@ -4937,8 +4970,8 @@ msgstr "每页加载{A}个项目。"
 msgid "Keyboard Shortcuts"
 msgstr "键盘快捷键"
 
-msgid "Part of basic keyboard shortcuts"
-msgstr "部分基本键盘快捷键"
+msgid "Extended"
+msgstr "扩展"
 
 msgid "Keyboard shortcuts off"
 msgstr "关闭键盘快捷键"
@@ -4946,8 +4979,8 @@ msgstr "关闭键盘快捷键"
 msgid "Basic keyboard shortcuts on"
 msgstr "开启基本的键盘快捷键"
 
-msgid "All keyboard shortcuts on"
-msgstr "开启所有键盘快捷键"
+msgid "Extended shortcuts on"
+msgstr "上的扩展快捷键"
 
 msgid "This change requires a reload of grommunio Web"
 msgstr "此更改需要重新加载 grommunio Web"
@@ -5025,11 +5058,29 @@ msgstr "设置"
 msgid "The setting '{0}' can not be edited"
 msgstr "无法编辑设置'{0}'"
 
-msgid "Version information"
-msgstr "版本信息"
+msgid "OpenID Connect"
+msgstr "OpenID Connect"
+
+msgid "Basic Authentication"
+msgstr "基本认证"
+
+msgid "System information"
+msgstr "系统信息"
 
 msgid "Gromox"
 msgstr "Gromox"
+
+msgid "Logged in via"
+msgstr "通过以下方式登录"
+
+msgid "Browser"
+msgstr "浏览器"
+
+msgid "Maintenance"
+msgstr "维护"
+
+msgid "Reset all settings to defaults"
+msgstr "将所有设置重置为默认值"
 
 msgid "Delete confirmation"
 msgstr "删除确认"
@@ -5420,6 +5471,9 @@ msgstr "外出状态当前已激活。您是否需将其关闭？"
 
 msgid "Archive"
 msgstr "存档"
+
+msgid "Chat"
+msgstr "聊天"
 
 msgid "Open Chat at start"
 msgstr "开始时打开聊天"
@@ -6076,6 +6130,9 @@ msgstr "最后连接"
 msgid "Synchronize"
 msgstr "同步"
 
+msgid "Shared Folders"
+msgstr "共享文件夹"
+
 msgid "Manage Shared Folders"
 msgstr "管理共享文件夹"
 
@@ -6138,6 +6195,12 @@ msgstr "删除设备"
 msgid "Please enter your username and password"
 msgstr "请输入您的用户名和密码"
 
+msgid "Type {0} to confirm"
+msgstr "键入{0} 确认"
+
+msgid "Please type {0} to confirm"
+msgstr "请键入{0} 确认"
+
 msgid "Wipe only data related to this account"
 msgstr "只清除与此账户相关的数据"
 
@@ -6147,6 +6210,11 @@ msgstr "清除所有数据"
 msgid "Username"
 msgstr "用户名"
 
+msgid ""
+"Do you really want to wipe your device?\n"
+" Type WIPE to confirm."
+msgstr ""
+
 #, fuzzy
 msgid ""
 "Do you really want to wipe your device?\n"
@@ -6154,6 +6222,11 @@ msgid ""
 msgstr ""
 "你真的想擦除你的设备吗？\n"
 " 输入你的密码来确认。"
+
+msgid ""
+"Do you really want to remove your device?\n"
+" Type REMOVE to confirm."
+msgstr ""
 
 #, fuzzy
 msgid ""
@@ -6172,6 +6245,9 @@ msgstr "房间名称"
 msgid "Room URL:"
 msgstr "房间 URL："
 
+msgid "Meet"
+msgstr "会面"
+
 msgid "Shift-click for advanced settings"
 msgstr "按住 Shift 键进行高级设置"
 
@@ -6183,6 +6259,9 @@ msgstr "在以下地点举行公开会议"
 
 msgid "Web tab"
 msgstr "网页选项卡"
+
+msgid "Popup"
+msgstr "弹出窗口"
 
 msgid "Hide the button in the main toolbar"
 msgstr "隐藏主工具栏上的按钮"
@@ -6208,14 +6287,20 @@ msgstr "如果在创建会议时遇到问题，请尝试禁用此设置"
 msgid "Add an invitation to the appointment description"
 msgstr "在约会描述中添加邀请"
 
-msgid "Invitation text"
-msgstr "邀请函文本"
+msgid "Invitation text (plain text)"
+msgstr "邀请函文本（纯文本）"
 
-#, fuzzy
 msgid ""
-"must contain %url% as a placeholder for the meeting link, empty the textbox "
-"to reset to default"
-msgstr "必须包含%url%作为会议链接的占位符，清空文本框以重置为默认值"
+"used when composing in plain text, must contain %url%, empty to reset to "
+"default"
+msgstr ""
+
+msgid "Invitation template (HTML)"
+msgstr "邀请函模板（HTML）"
+
+msgid ""
+"used when composing in HTML, must contain %url%, empty to reset to default"
+msgstr ""
 
 msgid "An unknown error occurred while changing password."
 msgstr "更改密码时出现未知错误。"
@@ -6301,6 +6386,21 @@ msgstr "有效期自"
 msgid "Expires"
 msgstr "到期"
 
+msgid "Key Type"
+msgstr "钥匙类型"
+
+msgid "Purpose"
+msgstr "目的"
+
+msgid "Sign"
+msgstr "标志"
+
+msgid "Encrypt"
+msgstr "加密"
+
+msgid "Sign & Encrypt"
+msgstr "签名和加密"
+
 msgid "Loading certificates"
 msgstr "加载证书"
 
@@ -6318,14 +6418,37 @@ msgstr ""
 "你真的想删除你的私人证书吗？如果你删除你的证书，你将不能签署或解密S/MIME电子"
 "邮件。"
 
+msgid "Signing"
+msgstr "签署"
+
+msgid "Encryption"
+msgstr "加密"
+
+msgid "Signing & Encryption"
+msgstr "签名和加密"
+
+msgid "Serial"
+msgstr "串行"
+
+msgid "Issued by"
+msgstr "发布者"
+
+msgid "Issued to"
+msgstr "发给"
+
+msgid "SHA-256 Fingerprint"
+msgstr "SHA-256 指纹"
+
+msgid "SHA-1 Fingerprint"
+msgstr "SHA-1 指纹"
+
+msgid ""
+"Warning: RSA key size is below 2048 bits. Consider upgrading to a stronger "
+"certificate."
+msgstr ""
+
 msgid "Certificate details"
 msgstr "证书详情"
-
-#, fuzzy
-msgid ""
-"Below you can view and delete public & private certificate(s) stored on the "
-"server."
-msgstr "下面你可以查看和删除存储在服务器上的公共和私人证书。"
 
 msgid "Filter on Email"
 msgstr "电子邮件过滤器"
@@ -6344,6 +6467,18 @@ msgstr "个人证书"
 
 msgid "Change passphrase for last certificate"
 msgstr "更改最后一张证书的口令"
+
+msgid "Default encryption algorithm"
+msgstr "默认加密算法"
+
+msgid "Recommended"
+msgstr "推荐"
+
+msgid "Legacy"
+msgstr "传统"
+
+msgid "Default signing digest"
+msgstr "默认签名摘要"
 
 msgid "You have a valid certificate corresponding to your account"
 msgstr "您拥有与账户相对应的有效证书"
@@ -6369,8 +6504,17 @@ msgstr "您必须填写证书密码才能上传证书。"
 msgid "You must first select a valid private certificate in PKCS#12 format."
 msgstr "您必须首先选择 PKCS#12 格式的有效私人证书。"
 
-msgid "Sign"
-msgstr "标志"
+msgid "bits"
+msgstr "钻头"
+
+msgid "signing"
+msgstr "签署"
+
+msgid "encryption"
+msgstr "加密"
+
+msgid "signing & encryption"
+msgstr "签名和加密"
 
 msgid "Sign message"
 msgstr "标志信息"
@@ -6382,9 +6526,6 @@ msgid ""
 msgstr ""
 "通过向该消息添加数字签名来确保消息的真实性。对信息的任何改动都会使签名失效。"
 
-msgid "Encrypt"
-msgstr "加密"
-
 msgid "Encrypt message"
 msgstr "加密信息"
 
@@ -6394,8 +6535,14 @@ msgid ""
 "recipient of the message will be able to open it."
 msgstr "通过对信息内容进行加密，确保信息的隐私。只有信息的接收者才能打开它。"
 
+msgid "Algorithms used"
+msgstr "使用的算法"
+
 msgid "What's going on with my email?"
 msgstr "我的电子邮件怎么了？"
+
+msgid "CBC mode"
+msgstr "CBC 模式"
 
 #, fuzzy
 msgid ""
@@ -6500,6 +6647,39 @@ msgstr "证书验证服务器 (OCSP) 暂时离线。"
 msgid "Sender is removed from the server."
 msgstr "发件人已从服务器移除。"
 
+msgid ""
+"The digital certificate used to sign this message has been revoked according "
+"to the Certificate Revocation List (CRL)."
+msgstr ""
+
+msgid ""
+"The revocation status of the certificate could not be verified because the "
+"CRL Distribution Point is unavailable."
+msgstr ""
+
+msgid ""
+"The RSA key size used in this certificate is below the recommended minimum "
+"of 2048 bits. Consider upgrading to a stronger certificate."
+msgstr ""
+
+msgid ""
+"The certificate's Key Usage extension does not permit this operation. The "
+"certificate may be intended for signing only or encryption only."
+msgstr ""
+
+msgid ""
+"This message was encrypted using CBC mode (not authenticated encryption). "
+"While it was decrypted successfully, AES-GCM (authenticated encryption) "
+"provides stronger protection against modification attacks. Consider asking "
+"the sender to upgrade their S/MIME configuration."
+msgstr ""
+
+msgid ""
+"The signing time in the digital signature differs significantly from the "
+"expected time. This may indicate a clock synchronization issue or message "
+"tampering."
+msgstr ""
+
 msgid "Signature verified successfully"
 msgstr "签名验证成功"
 
@@ -6544,6 +6724,36 @@ msgstr "无法解密此信息。证书不匹配"
 
 msgid "Verification failed. User is removed from the server."
 msgstr "验证失败。用户已从服务器中删除。"
+
+msgid "Certificate has been revoked (CRL)"
+msgstr "证书已被撤销（CRL）"
+
+msgid "Cannot check revocation status (CRL unavailable)"
+msgstr "无法检查撤销状态（CRL 不可用）"
+
+msgid "RSA key size below recommended minimum"
+msgstr "RSA 密钥大小低于建议的最小值"
+
+msgid "Certificate not valid for this operation (key usage mismatch)"
+msgstr "证书对该操作无效（密钥使用不匹配）"
+
+msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
+msgstr "解密（CBC 模式--考虑使用 AES-GCM 加强保护）"
+
+msgid "Signing time differs from expected time"
+msgstr "签署时间与预期时间不同"
+
+msgid "Digest"
+msgstr "摘要"
+
+msgid "Signature"
+msgstr "签名"
+
+msgid "Cipher"
+msgstr "密码"
+
+msgid "Key transport"
+msgstr "关键运输"
 
 msgid "Charm pink"
 msgstr "魅力粉"
@@ -6889,6 +7099,21 @@ msgstr "私人证书尚未生效，无法签署电子邮件"
 msgid "Private certificate does not match email address"
 msgstr "私人证书与电子邮件地址不匹配"
 
+msgid "No email address specified"
+msgstr "未指定电子邮件地址"
+
+msgid "No certificates found for this email address"
+msgstr "未找到该电子邮件地址的证书"
+
+msgid "Unable to read certificates"
+msgstr "无法读取证书"
+
+msgid "Unable to generate certs-only message"
+msgstr "无法生成纯证书信息"
+
+msgid "LDAP not configured"
+msgstr "未配置 LDAP"
+
 msgid "Missing public certificates for the following recipients: "
 msgstr "缺少以下收件人的公共证书。 "
 
@@ -6912,6 +7137,17 @@ msgstr "私人密钥不能用于签署电子邮件"
 
 msgid "Certificate email address doesn't match grommunio Web account "
 msgstr "证书的电子邮件地址与grommunio网络账户不一致 "
+
+#, php-format
+msgid ""
+"RSA key size %d bits is below the recommended minimum of %d bits. "
+"Certificate was imported."
+msgstr ""
+
+msgid ""
+"EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully "
+"supported. Certificate was imported."
+msgstr ""
 
 msgid "Certificate was expired on "
 msgstr "证书过期时间为 "
@@ -7159,8 +7395,9 @@ msgstr "配额错误"
 msgid "Send quota limit reached"
 msgstr "达到发送配额限制"
 
-msgid "Email sending failed. Check the log files for more information."
-msgstr "电子邮件发送失败。请查看日志文件了解更多信息。"
+#, php-format
+msgid "Email sending failed (%s). Check the log files for more information."
+msgstr "电子邮件发送失败 (%s)。请查看日志文件了解更多信息。"
 
 msgid "Unknown user/group"
 msgstr "未知用户/组"

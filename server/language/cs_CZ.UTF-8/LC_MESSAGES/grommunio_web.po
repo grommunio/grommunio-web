@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 23:43+0100\n"
+"POT-Creation-Date: 2026-03-12 22:26+0100\n"
 "PO-Revision-Date: 2022-07-26 14:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -338,6 +338,9 @@ msgstr "E-mailové adresy"
 msgid "Email addresses"
 msgstr "E-mailové adresy"
 
+msgid "Email Address"
+msgstr "E-mailová adresa"
+
 msgid "Group details"
 msgstr "Podrobnosti o skupině"
 
@@ -350,17 +353,11 @@ msgstr "Zobrazené jméno"
 msgid "Alias"
 msgstr "Přezdívka"
 
-msgid "Owner"
-msgstr "Vlastník"
-
 msgid "Notes"
 msgstr "Poznámky"
 
 msgid "Members"
 msgstr "Členové"
-
-msgid "Email Address"
-msgstr "E-mailová adresa"
 
 msgid "Account"
 msgstr "Účet"
@@ -389,11 +386,11 @@ msgstr "Iniciály"
 msgid "Display"
 msgstr "Zobrazit"
 
-msgid "Addresses"
-msgstr "Adresy"
-
 msgid "Address"
 msgstr "Adresa"
+
+msgid "Street"
+msgstr "Ulice"
 
 msgid "City"
 msgstr "Město"
@@ -443,8 +440,8 @@ msgstr "Telefonní čísla"
 msgid "Business"
 msgstr "Firemní"
 
-msgid "Business2"
-msgstr "Firemní2"
+msgid "Business 2"
+msgstr "Zaměstnání 2"
 
 msgid "Fax"
 msgstr "Fax"
@@ -452,8 +449,8 @@ msgstr "Fax"
 msgid "Home"
 msgstr "Domů"
 
-msgid "Home2"
-msgstr "Domů2"
+msgid "Home 2"
+msgstr "Domů 2"
 
 msgid "Mobile"
 msgstr "Mobil"
@@ -653,9 +650,6 @@ msgstr "Přeposlat"
 
 msgid "Edit as New"
 msgstr "Upravit jako nový"
-
-msgid "Search tools"
-msgstr "Vyhledávací nástroje"
 
 msgid "Folders"
 msgstr "Složky"
@@ -1065,7 +1059,8 @@ msgid "Busy attendees"
 msgstr "Zaneprázdnění účastníci"
 
 msgid "One or more attendees are busy. Are you sure to invite?"
-msgstr "Jeden nebo více účastníků jsou zaneprázdněni. Jste si jisti, že máte pozvat?"
+msgstr ""
+"Jeden nebo více účastníků jsou zaneprázdněni. Jste si jisti, že máte pozvat?"
 
 msgid "Scheduling"
 msgstr "Plánování"
@@ -1504,14 +1499,14 @@ msgstr "Tato schůzka byla přesunuta nebo smazána, chcete pokračovat?"
 msgid "Options"
 msgstr "Možnosti"
 
+msgid "Icon"
+msgstr "Ikona"
+
 msgid "All Day"
 msgstr "Celodenní"
 
 msgid "Sort by: All Day"
 msgstr "Třídit podle: Celodenní"
-
-msgid "Icon"
-msgstr "Ikona"
 
 msgid "Recurring"
 msgstr "Opakování"
@@ -2191,6 +2186,9 @@ msgstr "Doručená pošta"
 msgid "Entire Inbox"
 msgstr "Všechna doručená pošta"
 
+msgid "Owner"
+msgstr "Vlastník"
+
 msgid "Secretary"
 msgstr "Sekretář(ka)"
 
@@ -2475,17 +2473,6 @@ msgstr "Nová zpráva"
 
 msgid "Please select a Cc recipient record."
 msgstr "Vyberte prosím příjemce."
-
-msgid "Manage Cc recipients"
-msgstr "Správa příjemců Cc"
-
-#, fuzzy
-msgid ""
-"Cc recipients can be used to set a default Cc user in new mail, replies or "
-"both."
-msgstr ""
-"Příjemci Cc lze použít k nastavení výchozího uživatele Cc v nové poště, v "
-"odpovědích nebo v obojím."
 
 msgid "Help"
 msgstr "Nápověda"
@@ -2957,14 +2944,47 @@ msgstr "Použít změny"
 msgid "Do you wish to apply the changes?"
 msgstr "Chcete použít tyto změny?"
 
+msgid "Category"
+msgstr "Kategorie"
+
+msgid "Recent searches"
+msgstr "Nedávné vyhledávání"
+
+msgid "Filter by"
+msgstr "Filtrovat podle"
+
+msgid "Show"
+msgstr "Zobrazit"
+
+msgid "Operators"
+msgstr "Provozovatelé"
+
+msgid "AND"
+msgstr "A"
+
+msgid "OR"
+msgstr "NEBO"
+
+msgid "NOT"
+msgstr "NE"
+
+msgid "Search in"
+msgstr "Vyhledávání v"
+
 msgid "All folders"
 msgstr "Všechny složky"
 
 msgid "Other…"
 msgstr "Další…"
 
-msgid "Search in…"
-msgstr "Hledat v…"
+msgid "Type"
+msgstr "Typ"
+
+msgid "Search"
+msgstr "Vyhledávání"
+
+msgid "Click to cycle: AND → OR → NOT"
+msgstr "Klikněte na cyklus: AND → OR → NOT"
 
 msgid "Folder does not exist"
 msgstr "Složka neexistuje"
@@ -3478,9 +3498,6 @@ msgstr "Telefonní číslo"
 msgid "Check address"
 msgstr "Ověřit adresu"
 
-msgid "Street"
-msgstr "Ulice"
-
 msgid "State/Province"
 msgstr "Stát/Kraj"
 
@@ -3518,20 +3535,17 @@ msgstr "Výročí"
 msgid "Photo"
 msgstr "Fotografie"
 
+msgid "Addresses"
+msgstr "Adresy"
+
 msgid "Additional information"
 msgstr "Dodatečné informace"
-
-msgid "Business 2"
-msgstr "Zaměstnání 2"
 
 msgid "Callback"
 msgstr "Císlo pro zpětné volání"
 
 msgid "Car"
 msgstr "Auto"
-
-msgid "Home 2"
-msgstr "Domů 2"
 
 msgid "Primary"
 msgstr "Primární"
@@ -3936,11 +3950,20 @@ msgstr "Červená"
 msgid "Brown"
 msgstr "Hnědá"
 
+msgid "Logout"
+msgstr "Odhlásit"
+
+msgid "Appearance"
+msgstr "Vzhled"
+
+msgid "Light"
+msgstr "Světlo"
+
 msgid "Dark"
 msgstr "Tmavý"
 
-msgid "Logout"
-msgstr "Odhlásit"
+msgid "Automatic"
+msgstr "Automatické"
 
 msgid "Switch view"
 msgstr "Přepnout náhled"
@@ -3984,7 +4007,9 @@ msgstr "Chybí příloha"
 msgid ""
 "Your message appears to reference an attachment but no file is attached. "
 "Send anyway?"
-msgstr "Zdá se, že vaše zpráva odkazuje na přílohu, ale není připojen žádný soubor. Přesto odeslat?"
+msgstr ""
+"Zdá se, že vaše zpráva odkazuje na přílohu, ale není připojen žádný soubor. "
+"Přesto odeslat?"
 
 msgid "No subject"
 msgstr "Bez předmětu"
@@ -4015,6 +4040,9 @@ msgstr "Skrýt detaily"
 
 msgid "Loaded {0} of {1}"
 msgstr "Načteno {0} z {1}"
+
+msgid "Copied!"
+msgstr "Zkopírováno!"
 
 msgid "Saving"
 msgstr "Ukládání"
@@ -4047,11 +4075,11 @@ msgstr "Neuložené změny"
 msgid "Welcome to grommunio Web"
 msgstr "Vítejte na webu grommunio"
 
-msgid "This is the first time you are using grommunio Web. "
-msgstr "Tentokrát používáte web grommunio poprvé. "
+msgid "Set up your preferences to get started."
+msgstr "Nastavte si předvolby a začněte."
 
-msgid "Please check the following settings before continuing."
-msgstr "Před pokračováním zkontrolujte následující nastavení."
+msgid "Get Started"
+msgstr "Začněte"
 
 msgid "Widget height"
 msgstr "Výška widgetu"
@@ -4126,6 +4154,18 @@ msgstr "Nedostatečná oprávnění"
 
 msgid "Not enough permissions to open this folder."
 msgstr "Není k dispozici oprávnění otevřít tuto složku."
+
+msgid "Empty folder"
+msgstr "Prázdná složka"
+
+msgid "Emptying {0}… (0%)"
+msgstr "Vyprázdnění {0}... (0%)"
+
+msgid "Successfully emptied {0}. ({1} items removed)"
+msgstr "Úspěšně vyprázdněn {0}. ({1} položky odstraněny)"
+
+msgid "Emptying {0}… ({1}%)"
+msgstr "Vyprázdnění {0}... ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4204,9 +4244,6 @@ msgstr "Žádné místo určení"
 
 msgid "You must select a destination folder."
 msgstr "Musíte označit cílovou složku."
-
-msgid "Type"
-msgstr "Typ"
 
 msgid "Description"
 msgstr "Popis"
@@ -4352,9 +4389,6 @@ msgstr "Otevření sdílené složky/úložiště"
 msgid "Rename folder"
 msgstr "Přejmenování složky"
 
-msgid "Empty folder"
-msgstr "Prázdná složka"
-
 msgid "Empty Junk Email"
 msgstr "Prázdný nevyžádaný e-mail"
 
@@ -4436,9 +4470,6 @@ msgstr "Opravdu chcete vyprázdnit {0}?"
 
 msgid "Show All"
 msgstr "Zobrazit vše"
-
-msgid "Show all folders"
-msgstr "Všechny složky"
 
 #, fuzzy
 msgid ""
@@ -4710,6 +4741,9 @@ msgstr "{A}Zpráva označená automaticky jako přečtená za {B} sekund(y)"
 msgid "View mail in this format"
 msgstr "Zobrazit poštu v tomto formátu"
 
+msgid "Cc recipients"
+msgstr "Cc příjemci"
+
 msgid "Right"
 msgstr "Vpravo"
 
@@ -4828,6 +4862,12 @@ msgstr "max. "
 
 msgid "Sort by: Sent"
 msgstr "Třídit podle: Odeslané"
+
+msgid "Scheduled"
+msgstr "Plánované"
+
+msgid "Sort by: Scheduled"
+msgstr "Seřadit podle: Plánované"
 
 msgid "Modified"
 msgstr "Změněno"
@@ -4963,11 +5003,8 @@ msgstr "Nastavení"
 msgid "Basic"
 msgstr "Základní"
 
-msgid "Account information - {0}"
-msgstr "Informace o účtu - {0}"
-
-msgid "Profile Picture"
-msgstr "Profilový obrázek"
+msgid "System"
+msgstr "Systém"
 
 msgid "Language"
 msgstr "Jazyk"
@@ -4977,6 +5014,9 @@ msgstr "Výchozí adresář"
 
 msgid "Theme"
 msgstr "Šablona"
+
+msgid "Personal information"
+msgstr "Osobní údaje"
 
 msgid "Select Default Folder"
 msgstr "Vyberte výchozí složku"
@@ -4994,7 +5034,8 @@ msgid "Show insertion points in grommunio Web"
 msgstr "Zobrazit body vložení v grommunio Web"
 
 msgid "Show \"item data\" button in context menu (mail only)"
-msgstr "Zobrazení tlačítka \"údaje o položce\" v kontextové nabídce (pouze pošta)"
+msgstr ""
+"Zobrazení tlačítka \"údaje o položce\" v kontextové nabídce (pouze pošta)"
 
 msgid "Edit setting"
 msgstr "Upravit nastavení"
@@ -5011,8 +5052,8 @@ msgstr "{0} Sada ikon"
 msgid "About"
 msgstr "O nás"
 
-msgid "I want to display date and time in this format:"
-msgstr "Chci zobrazit datum a čas v tomto formátu:"
+msgid "Date & Time"
+msgstr "Datum a čas"
 
 msgid "Short"
 msgstr "Krátké"
@@ -5020,23 +5061,20 @@ msgstr "Krátké"
 msgid "Long"
 msgstr "Dlouhé"
 
-msgid "Time format:"
-msgstr "Formát času:"
-
 msgid "12h clock"
 msgstr "12h hodiny"
 
 msgid "24h clock"
 msgstr "24 hodin denně"
 
-msgid "Favorite settings"
-msgstr "Oblíbená nastavení"
-
 msgid "Hide favorites"
 msgstr "Skrýt oblíbené položky"
 
 msgid "Unpin favorites from top"
 msgstr "Zrušení připnutí oblíbených položek shora"
+
+msgid "Interface"
+msgstr "Rozhraní"
 
 msgid "Give unread items a colored border"
 msgstr "Přidat nepřečteným položkám barevný rámeček"
@@ -5049,9 +5087,6 @@ msgstr "Zobrazení počítadla nepřečtené pošty v názvu aplikace"
 
 msgid "Hide widget panel"
 msgstr "Skrytí panelu widgetů"
-
-msgid "Show search bar above folder list"
-msgstr "Zobrazení vyhledávacího panelu nad seznamem složek"
 
 msgid "Auto"
 msgstr "Automaticky"
@@ -5106,8 +5141,8 @@ msgstr "Načíst {A} položek na stránku."
 msgid "Keyboard Shortcuts"
 msgstr "Klávesové zkratky"
 
-msgid "Part of basic keyboard shortcuts"
-msgstr "Součást základních klávesových zkratek"
+msgid "Extended"
+msgstr "Rozšířená stránka"
 
 msgid "Keyboard shortcuts off"
 msgstr "Vypnutí klávesových zkratek"
@@ -5115,8 +5150,8 @@ msgstr "Vypnutí klávesových zkratek"
 msgid "Basic keyboard shortcuts on"
 msgstr "Základní klávesové zkratky na"
 
-msgid "All keyboard shortcuts on"
-msgstr "Všechny klávesové zkratky na"
+msgid "Extended shortcuts on"
+msgstr "Rozšířené zkratky na"
 
 msgid "This change requires a reload of grommunio Web"
 msgstr "Tato změna vyžaduje opětovné načtení aplikace grommunio Web"
@@ -5200,11 +5235,29 @@ msgstr "Nastavení"
 msgid "The setting '{0}' can not be edited"
 msgstr "Nastavení '{0}' nelze upravovat"
 
-msgid "Version information"
-msgstr "Informace o verzi"
+msgid "OpenID Connect"
+msgstr "OpenID Connect"
+
+msgid "Basic Authentication"
+msgstr "Základní ověřování"
+
+msgid "System information"
+msgstr "Systémové informace"
 
 msgid "Gromox"
 msgstr "Gromox"
+
+msgid "Logged in via"
+msgstr "Přihlášení přes"
+
+msgid "Browser"
+msgstr "Prohlížeč"
+
+msgid "Maintenance"
+msgstr "Údržba"
+
+msgid "Reset all settings to defaults"
+msgstr "Obnovení výchozích nastavení"
 
 msgid "Delete confirmation"
 msgstr "Odstranění potvrzení"
@@ -5616,6 +5669,9 @@ msgstr "Funkce Out of Office je v současné době aktivována. Chcete ji vypnou
 msgid "Archive"
 msgstr "Archiv"
 
+msgid "Chat"
+msgstr "Chat"
+
 msgid "Open Chat at start"
 msgstr "Otevření chatu po spuštění"
 
@@ -5677,7 +5733,8 @@ msgid "Expiration date"
 msgstr "Datum expirace"
 
 msgid "More than 1 share link exists. Only showing the latest one"
-msgstr "Existuje více než 1 odkaz na sdílení. Zobrazuje se pouze ten nejnovější"
+msgstr ""
+"Existuje více než 1 odkaz na sdílení. Zobrazuje se pouze ten nejnovější"
 
 msgid "Loading details…"
 msgstr "Načítání podrobností.."
@@ -5695,7 +5752,8 @@ msgid "Clipboard"
 msgstr "Schránka"
 
 msgid "Could not copy link automatically. Please copy it manually."
-msgstr "Odkaz se nepodařilo automaticky zkopírovat. Zkopírujte jej prosím ručně."
+msgstr ""
+"Odkaz se nepodařilo automaticky zkopírovat. Zkopírujte jej prosím ručně."
 
 msgid "Loading details..."
 msgstr "Načítání podrobností..."
@@ -5761,8 +5819,8 @@ msgstr "Nahrát"
 
 msgid "At least one file is too large! Maximum allowed filesize: {0}."
 msgstr ""
-"Minimálně jeden soubor je příliš velký! Maximální povolená velikost "
-"souboru: {0}."
+"Minimálně jeden soubor je příliš velký! Maximální povolená velikost souboru: "
+"{0}."
 
 msgid "Keep both"
 msgstr "Ponechte si oba"
@@ -5946,7 +6004,8 @@ msgid "Select upload folder"
 msgstr "Vyberte složku pro nahrávání"
 
 msgid "File \"{0}\" is too large! Maximum allowed filesize: {1}."
-msgstr "Soubor \"{0}\" je příliš velký! Maximální povolená velikost souboru: {1}."
+msgstr ""
+"Soubor \"{0}\" je příliš velký! Maximální povolená velikost souboru: {1}."
 
 msgid "Add item to Files"
 msgstr "Přidat položku do souborů"
@@ -6276,6 +6335,9 @@ msgstr "Poslední připojení"
 msgid "Synchronize"
 msgstr "Synchronizovat"
 
+msgid "Shared Folders"
+msgstr "Sdílené složky"
+
 msgid "Manage Shared Folders"
 msgstr "Správa sdílených složek"
 
@@ -6341,6 +6403,12 @@ msgstr "Odstranění zařízení"
 msgid "Please enter your username and password"
 msgstr "Zadejte své uživatelské jméno a heslo"
 
+msgid "Type {0} to confirm"
+msgstr "Pro potvrzení zadejte {0} "
+
+msgid "Please type {0} to confirm"
+msgstr "Pro potvrzení zadejte {0} "
+
 msgid "Wipe only data related to this account"
 msgstr "Vymazat pouze data související s tímto účtem"
 
@@ -6350,6 +6418,11 @@ msgstr "Vymazání všech dat"
 msgid "Username"
 msgstr "Jméno uživatele"
 
+msgid ""
+"Do you really want to wipe your device?\n"
+" Type WIPE to confirm."
+msgstr ""
+
 #, fuzzy
 msgid ""
 "Do you really want to wipe your device?\n"
@@ -6357,6 +6430,11 @@ msgid ""
 msgstr ""
 "Opravdu chcete zařízení vymazat?\n"
 " Pro potvrzení zadejte heslo."
+
+msgid ""
+"Do you really want to remove your device?\n"
+" Type REMOVE to confirm."
+msgstr ""
 
 #, fuzzy
 msgid ""
@@ -6375,6 +6453,9 @@ msgstr "Název pokoje:"
 msgid "Room URL:"
 msgstr "Adresa URL pokoje:"
 
+msgid "Meet"
+msgstr "Seznamte se s"
+
 msgid "Shift-click for advanced settings"
 msgstr "Kliknutím na Shift získáte pokročilá nastavení"
 
@@ -6386,6 +6467,9 @@ msgstr "Otevřená schůze v:"
 
 msgid "Web tab"
 msgstr "Webová karta"
+
+msgid "Popup"
+msgstr "Vyskakovací okna"
 
 msgid "Hide the button in the main toolbar"
 msgstr "Skrytí tlačítka na hlavním panelu nástrojů"
@@ -6408,21 +6492,26 @@ msgstr ""
 "přidávání zasedací místnosti)"
 
 msgid "If you have problems when creating meetings, try disabling this setting"
-msgstr "Pokud máte při vytváření schůzek problémy, zkuste toto nastavení vypnout"
+msgstr ""
+"Pokud máte při vytváření schůzek problémy, zkuste toto nastavení vypnout"
 
 msgid "Add an invitation to the appointment description"
 msgstr "Přidání pozvánky do popisu schůzky"
 
-msgid "Invitation text"
-msgstr "Text pozvánky"
+msgid "Invitation text (plain text)"
+msgstr "Text pozvánky (prostý text)"
 
-#, fuzzy
 msgid ""
-"must contain %url% as a placeholder for the meeting link, empty the textbox "
-"to reset to default"
+"used when composing in plain text, must contain %url%, empty to reset to "
+"default"
 msgstr ""
-"musí obsahovat %url% jako zástupný znak pro odkaz na schůzku, vyprázdněte "
-"textové pole, aby se obnovilo výchozí nastavení"
+
+msgid "Invitation template (HTML)"
+msgstr "Šablona pozvánky (HTML)"
+
+msgid ""
+"used when composing in HTML, must contain %url%, empty to reset to default"
+msgstr ""
 
 msgid "An unknown error occurred while changing password."
 msgstr "Při změně hesla došlo k neznámé chybě."
@@ -6512,6 +6601,21 @@ msgstr "Platné od"
 msgid "Expires"
 msgstr "Vyprší"
 
+msgid "Key Type"
+msgstr "Typ klíče"
+
+msgid "Purpose"
+msgstr "Účel"
+
+msgid "Sign"
+msgstr "Podepsat"
+
+msgid "Encrypt"
+msgstr "Zakódovat"
+
+msgid "Sign & Encrypt"
+msgstr "Podepisování a šifrování"
+
 msgid "Loading certificates"
 msgstr "Načítání certifikátů"
 
@@ -6529,16 +6633,37 @@ msgstr ""
 "Opravdu chcete odebrat svůj soukromý certifikát? Pokud svůj certifikát "
 "odstraníte, nebudete moci podepisovat ani dešifrovat e-maily S/MIME."
 
+msgid "Signing"
+msgstr "Podepisování"
+
+msgid "Encryption"
+msgstr "Šifrování"
+
+msgid "Signing & Encryption"
+msgstr "Podepisování a šifrování"
+
+msgid "Serial"
+msgstr "Sériové"
+
+msgid "Issued by"
+msgstr "Vydal"
+
+msgid "Issued to"
+msgstr "Vydáno pro"
+
+msgid "SHA-256 Fingerprint"
+msgstr "Otisk prstu SHA-256"
+
+msgid "SHA-1 Fingerprint"
+msgstr "Otisk prstu SHA-1"
+
+msgid ""
+"Warning: RSA key size is below 2048 bits. Consider upgrading to a stronger "
+"certificate."
+msgstr ""
+
 msgid "Certificate details"
 msgstr "Podrobnosti o certifikátu"
-
-#, fuzzy
-msgid ""
-"Below you can view and delete public & private certificate(s) stored on the "
-"server."
-msgstr ""
-"Níže můžete zobrazit a odstranit veřejné a soukromé certifikáty uložené na "
-"serveru."
 
 msgid "Filter on Email"
 msgstr "Filtr na e-mailu"
@@ -6557,6 +6682,18 @@ msgstr "Osobní certifikát"
 
 msgid "Change passphrase for last certificate"
 msgstr "Změna přístupové fráze pro poslední certifikát"
+
+msgid "Default encryption algorithm"
+msgstr "Výchozí šifrovací algoritmus"
+
+msgid "Recommended"
+msgstr "Doporučené stránky"
+
+msgid "Legacy"
+msgstr "Odkaz"
+
+msgid "Default signing digest"
+msgstr "Výchozí podpisový kód"
 
 msgid "You have a valid certificate corresponding to your account"
 msgstr "Máte platný certifikát odpovídající vašemu účtu"
@@ -6583,8 +6720,17 @@ msgstr "Pro nahrání certifikátu musíte vyplnit přístupovou frázi certifik
 msgid "You must first select a valid private certificate in PKCS#12 format."
 msgstr "Nejprve je třeba vybrat platný soukromý certifikát ve formátu PKCS#12."
 
-msgid "Sign"
-msgstr "Podepsat"
+msgid "bits"
+msgstr "bity"
+
+msgid "signing"
+msgstr "podepisování"
+
+msgid "encryption"
+msgstr "šifrování"
+
+msgid "signing & encryption"
+msgstr "podepisování a šifrování"
 
 msgid "Sign message"
 msgstr "Zpráva na znamení"
@@ -6597,9 +6743,6 @@ msgstr ""
 "Zajištění pravosti zprávy přidáním digitálního podpisu k této zprávě. "
 "Jakékoli změny ve zprávě zneplatní podpis."
 
-msgid "Encrypt"
-msgstr "Zakódovat"
-
 msgid "Encrypt message"
 msgstr "Šifrování zprávy"
 
@@ -6611,8 +6754,14 @@ msgstr ""
 "Zajistěte soukromí zprávy zašifrováním jejího obsahu. Zprávu bude moci "
 "otevřít pouze její příjemce."
 
+msgid "Algorithms used"
+msgstr "Použité algoritmy"
+
 msgid "What's going on with my email?"
 msgstr "Co se děje s mým e-mailem?"
+
+msgid "CBC mode"
+msgstr "Režim CBC"
 
 #, fuzzy
 msgid ""
@@ -6730,6 +6879,39 @@ msgstr "Server pro ověřování certifikátů (OCSP) je dočasně offline."
 msgid "Sender is removed from the server."
 msgstr "Odesílatel je odstraněn ze serveru."
 
+msgid ""
+"The digital certificate used to sign this message has been revoked according "
+"to the Certificate Revocation List (CRL)."
+msgstr ""
+
+msgid ""
+"The revocation status of the certificate could not be verified because the "
+"CRL Distribution Point is unavailable."
+msgstr ""
+
+msgid ""
+"The RSA key size used in this certificate is below the recommended minimum "
+"of 2048 bits. Consider upgrading to a stronger certificate."
+msgstr ""
+
+msgid ""
+"The certificate's Key Usage extension does not permit this operation. The "
+"certificate may be intended for signing only or encryption only."
+msgstr ""
+
+msgid ""
+"This message was encrypted using CBC mode (not authenticated encryption). "
+"While it was decrypted successfully, AES-GCM (authenticated encryption) "
+"provides stronger protection against modification attacks. Consider asking "
+"the sender to upgrade their S/MIME configuration."
+msgstr ""
+
+msgid ""
+"The signing time in the digital signature differs significantly from the "
+"expected time. This may indicate a clock synchronization issue or message "
+"tampering."
+msgstr ""
+
 msgid "Signature verified successfully"
 msgstr "Podpis byl úspěšně ověřen"
 
@@ -6774,6 +6956,36 @@ msgstr "Tuto zprávu nelze dešifrovat. Certifikát neodpovídá"
 
 msgid "Verification failed. User is removed from the server."
 msgstr "Ověření se nezdařilo. Uživatel je ze serveru odstraněn."
+
+msgid "Certificate has been revoked (CRL)"
+msgstr "Certifikát byl odvolán (CRL)"
+
+msgid "Cannot check revocation status (CRL unavailable)"
+msgstr "Nelze zkontrolovat stav odvolání (seznam CRL není k dispozici)"
+
+msgid "RSA key size below recommended minimum"
+msgstr "Velikost klíče RSA pod doporučeným minimem"
+
+msgid "Certificate not valid for this operation (key usage mismatch)"
+msgstr "Certifikát není platný pro tuto operaci (neshoda v použití klíče)"
+
+msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
+msgstr "Dešifrováno (režim CBC - pro silnější ochranu zvažte AES-GCM)"
+
+msgid "Signing time differs from expected time"
+msgstr "Doba podpisu se liší od očekávané doby"
+
+msgid "Digest"
+msgstr "Digest"
+
+msgid "Signature"
+msgstr "Podpis"
+
+msgid "Cipher"
+msgstr "Šifra"
+
+msgid "Key transport"
+msgstr "Klíčová doprava"
 
 msgid "Charm pink"
 msgstr "Okouzlující růžová"
@@ -6944,7 +7156,8 @@ msgid "PHP-Curl is not available."
 msgstr "PHP-Curl není k dispozici."
 
 msgid "With this backend, you can connect to any Seafile server."
-msgstr "Pomocí tohoto backendu se můžete připojit k libovolnému serveru Seafile."
+msgstr ""
+"Pomocí tohoto backendu se můžete připojit k libovolnému serveru Seafile."
 
 msgid "Files "
 msgstr "Soubory "
@@ -7024,7 +7237,8 @@ msgid "Deleting share failed"
 msgstr "Odstranění sdílené složky se nezdařilo"
 
 msgid "With this backend, you can connect to any WebDAV server."
-msgstr "Pomocí tohoto backendu se můžete připojit k libovolnému serveru WebDAV."
+msgstr ""
+"Pomocí tohoto backendu se můžete připojit k libovolnému serveru WebDAV."
 
 msgid "Files WebDAV Backend: "
 msgstr "Soubory WebDAV Backend: "
@@ -7128,6 +7342,21 @@ msgstr "Soukromý certifikát ještě není platný, nelze podepsat e-mail"
 msgid "Private certificate does not match email address"
 msgstr "Soukromý certifikát neodpovídá e-mailové adrese"
 
+msgid "No email address specified"
+msgstr "Není uvedena žádná e-mailová adresa"
+
+msgid "No certificates found for this email address"
+msgstr "Pro tuto e-mailovou adresu nebyly nalezeny žádné certifikáty"
+
+msgid "Unable to read certificates"
+msgstr "Nelze číst certifikáty"
+
+msgid "Unable to generate certs-only message"
+msgstr "Nelze vygenerovat zprávu pouze pro certifikáty"
+
+msgid "LDAP not configured"
+msgstr "LDAP není nakonfigurován"
+
 msgid "Missing public certificates for the following recipients: "
 msgstr "Chybějící veřejné certifikáty pro následující příjemce: "
 
@@ -7153,6 +7382,17 @@ msgstr "Soukromý klíč nelze použít k podpisu e-mailu"
 
 msgid "Certificate email address doesn't match grommunio Web account "
 msgstr "E-mailová adresa certifikátu neodpovídá webovému účtu grommunio Web "
+
+#, php-format
+msgid ""
+"RSA key size %d bits is below the recommended minimum of %d bits. "
+"Certificate was imported."
+msgstr ""
+
+msgid ""
+"EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully "
+"supported. Certificate was imported."
+msgstr ""
 
 msgid "Certificate was expired on "
 msgstr "Platnost certifikátu vypršela dne "
@@ -7416,9 +7656,10 @@ msgstr "Chyba kvóty"
 msgid "Send quota limit reached"
 msgstr "Dosažení limitu kvóty pro odesílání"
 
-msgid "Email sending failed. Check the log files for more information."
+#, php-format
+msgid "Email sending failed (%s). Check the log files for more information."
 msgstr ""
-"Odeslání e-mailu se nezdařilo. Další informace naleznete v souborech "
+"Odeslání e-mailu se nezdařilo (%s). Další informace naleznete v souborech "
 "protokolu."
 
 msgid "Unknown user/group"
@@ -7728,7 +7969,8 @@ msgid "Could not resolve user."
 msgstr "Nepodařilo se vyřešit uživatele."
 
 msgid "Setting mail filters on the stores of other users is not allowed."
-msgstr "Nastavování poštovních filtrů na úložištích jiných uživatelů není povoleno."
+msgstr ""
+"Nastavování poštovních filtrů na úložištích jiných uživatelů není povoleno."
 
 msgid "Untitled rule"
 msgstr "Pravidlo bez názvu"

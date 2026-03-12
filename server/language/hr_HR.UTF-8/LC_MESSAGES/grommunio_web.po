@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Croatian (Croatia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 23:43+0100\n"
+"POT-Creation-Date: 2026-03-12 22:26+0100\n"
 "PO-Revision-Date: 2025-02-25 15:04+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/grommunio/"
@@ -337,6 +337,9 @@ msgstr "E-mail adrese"
 msgid "Email addresses"
 msgstr "E-mail adrese"
 
+msgid "Email Address"
+msgstr "E-mail adresa"
+
 msgid "Group details"
 msgstr "Detalji grupe"
 
@@ -349,17 +352,11 @@ msgstr "Prikazano ime"
 msgid "Alias"
 msgstr "Pseudonim"
 
-msgid "Owner"
-msgstr "Vlasnik"
-
 msgid "Notes"
 msgstr "Bilješke"
 
 msgid "Members"
 msgstr "Članovi"
-
-msgid "Email Address"
-msgstr "E-mail adresa"
 
 msgid "Account"
 msgstr "Račun"
@@ -388,11 +385,11 @@ msgstr "Inicijali"
 msgid "Display"
 msgstr "Prikaz"
 
-msgid "Addresses"
-msgstr "Adrese"
-
 msgid "Address"
 msgstr "Adresa"
+
+msgid "Street"
+msgstr "Ulica"
 
 msgid "City"
 msgstr "Grad"
@@ -442,8 +439,8 @@ msgstr "Telefonski brojevi"
 msgid "Business"
 msgstr "Poslovno"
 
-msgid "Business2"
-msgstr "Poslovno2"
+msgid "Business 2"
+msgstr "Posao 2"
 
 msgid "Fax"
 msgstr "Faks"
@@ -451,8 +448,8 @@ msgstr "Faks"
 msgid "Home"
 msgstr "Privatno"
 
-msgid "Home2"
-msgstr "Privatno2"
+msgid "Home 2"
+msgstr "Dom 2"
 
 msgid "Mobile"
 msgstr "Mobitel"
@@ -651,9 +648,6 @@ msgstr "Proslijedi"
 
 msgid "Edit as New"
 msgstr "Uredi kao novu poruku"
-
-msgid "Search tools"
-msgstr "Alat pretrage"
 
 msgid "Folders"
 msgstr "Mape"
@@ -1057,7 +1051,8 @@ msgid "Busy attendees"
 msgstr "Zauzeti polaznici"
 
 msgid "One or more attendees are busy. Are you sure to invite?"
-msgstr "Jedan ili više sudionika je zauzeto. Jeste li sigurni da želite pozvati?"
+msgstr ""
+"Jedan ili više sudionika je zauzeto. Jeste li sigurni da želite pozvati?"
 
 msgid "Scheduling"
 msgstr "Zakazivanje"
@@ -1486,14 +1481,14 @@ msgstr "Ovaj termin je premješten ili izbrisan, želite li nastaviti?"
 msgid "Options"
 msgstr "Mogućnosti"
 
+msgid "Icon"
+msgstr "Ikona"
+
 msgid "All Day"
 msgstr "Cijeli dan"
 
 msgid "Sort by: All Day"
 msgstr "Razvrstaj po: Cijeli dan"
-
-msgid "Icon"
-msgstr "Ikona"
 
 msgid "Recurring"
 msgstr "Ponavljajuće"
@@ -2117,6 +2112,9 @@ msgstr "Pristigla pošta"
 msgid "Entire Inbox"
 msgstr "Cijeli Inbox"
 
+msgid "Owner"
+msgstr "Vlasnik"
+
 msgid "Secretary"
 msgstr "Tajnica"
 
@@ -2388,14 +2386,6 @@ msgstr "Nova pošta"
 
 msgid "Please select a Cc recipient record."
 msgstr "Odaberite zapis primatelja kopije."
-
-msgid "Manage Cc recipients"
-msgstr "Upravljanje primateljima kopije"
-
-msgid ""
-"Cc recipients can be used to set a default Cc user in new mail, replies or "
-"both."
-msgstr ""
 
 msgid "Help"
 msgstr "Pomoć"
@@ -2872,14 +2862,47 @@ msgstr "Primijeni promjene"
 msgid "Do you wish to apply the changes?"
 msgstr "Želite li primijeniti promjene?"
 
+msgid "Category"
+msgstr "Kategorija"
+
+msgid "Recent searches"
+msgstr "Nedavne pretrage"
+
+msgid "Filter by"
+msgstr "Filtriraj prema"
+
+msgid "Show"
+msgstr "Pokazati"
+
+msgid "Operators"
+msgstr "Operatori"
+
+msgid "AND"
+msgstr "I"
+
+msgid "OR"
+msgstr "ILI"
+
+msgid "NOT"
+msgstr "NE"
+
+msgid "Search in"
+msgstr "Traži u"
+
 msgid "All folders"
 msgstr "Sve mape"
 
 msgid "Other…"
 msgstr "Ostalo…"
 
-msgid "Search in…"
-msgstr "Traži u…"
+msgid "Type"
+msgstr "Tip"
+
+msgid "Search"
+msgstr "Pretraživanje"
+
+msgid "Click to cycle: AND → OR → NOT"
+msgstr "Kliknite za ciklus: I → ILI → NE"
 
 msgid "Folder does not exist"
 msgstr "Mapa ne postoji"
@@ -3375,9 +3398,6 @@ msgstr "Broj telefona"
 msgid "Check address"
 msgstr "Provjerite adresu"
 
-msgid "Street"
-msgstr "Ulica"
-
 msgid "State/Province"
 msgstr "Država/pokrajina"
 
@@ -3415,20 +3435,17 @@ msgstr "obljetnica"
 msgid "Photo"
 msgstr "Fotografija"
 
+msgid "Addresses"
+msgstr "Adrese"
+
 msgid "Additional information"
 msgstr "Dodatne informacije"
-
-msgid "Business 2"
-msgstr "Posao 2"
 
 msgid "Callback"
 msgstr "Povratni poziv"
 
 msgid "Car"
 msgstr "Automobil"
-
-msgid "Home 2"
-msgstr "Dom 2"
 
 msgid "Primary"
 msgstr "Primarni"
@@ -3822,11 +3839,20 @@ msgstr "Crvena"
 msgid "Brown"
 msgstr "Smeđa"
 
+msgid "Logout"
+msgstr "Odjava"
+
+msgid "Appearance"
+msgstr "Izgled"
+
+msgid "Light"
+msgstr "Svjetlo"
+
 msgid "Dark"
 msgstr "Tamna"
 
-msgid "Logout"
-msgstr "Odjava"
+msgid "Automatic"
+msgstr "Automatski"
 
 msgid "Switch view"
 msgstr "Promijeni prikaz"
@@ -3870,7 +3896,9 @@ msgstr "Nedostaje privitak"
 msgid ""
 "Your message appears to reference an attachment but no file is attached. "
 "Send anyway?"
-msgstr "Čini se da vaša poruka upućuje na privitak, ali nema priložene datoteke. Svejedno poslati?"
+msgstr ""
+"Čini se da vaša poruka upućuje na privitak, ali nema priložene datoteke. "
+"Svejedno poslati?"
 
 msgid "No subject"
 msgstr "Bez predmeta"
@@ -3902,6 +3930,9 @@ msgstr "Sakrij detalje"
 msgid "Loaded {0} of {1}"
 msgstr "Učitano {0} od {1}"
 
+msgid "Copied!"
+msgstr "Kopirano!"
+
 msgid "Saving"
 msgstr "Spremanje"
 
@@ -3930,11 +3961,11 @@ msgstr "Nespremljene promjene"
 msgid "Welcome to grommunio Web"
 msgstr "Dobro došli na grommunio Web"
 
-msgid "This is the first time you are using grommunio Web. "
-msgstr "Ovo je prvi put da koristite grommunio Web."
+msgid "Set up your preferences to get started."
+msgstr "Postavite svoje postavke za početak."
 
-msgid "Please check the following settings before continuing."
-msgstr "Prije nastavka provjerite sljedeće postavke."
+msgid "Get Started"
+msgstr "Započnite"
 
 msgid "Widget height"
 msgstr "Visina widgeta"
@@ -4005,6 +4036,18 @@ msgstr "Nedovoljne dozvole"
 
 msgid "Not enough permissions to open this folder."
 msgstr "Nedovoljne dozvole za otvaranje ove mape."
+
+msgid "Empty folder"
+msgstr "Prazna mapa"
+
+msgid "Emptying {0}… (0%)"
+msgstr "Pražnjenje{0}… (0%)"
+
+msgid "Successfully emptied {0}. ({1} items removed)"
+msgstr "Uspješno ispražnjen{0}. ({1}stavke uklonjene)"
+
+msgid "Emptying {0}… ({1}%)"
+msgstr "Pražnjenje{0}… ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4083,9 +4126,6 @@ msgstr "Nema odredišta"
 
 msgid "You must select a destination folder."
 msgstr "Morate odabrati odredišnu mapu."
-
-msgid "Type"
-msgstr "Tip"
 
 msgid "Description"
 msgstr "Opis"
@@ -4231,9 +4271,6 @@ msgstr "Otvorite zajedničku mapu/trgovinu"
 msgid "Rename folder"
 msgstr "Preimenuj mapu"
 
-msgid "Empty folder"
-msgstr "Prazna mapa"
-
 msgid "Empty Junk Email"
 msgstr "Isprazni neželjenu e-poštu"
 
@@ -4312,9 +4349,6 @@ msgstr "Jeste li sigurni da želite isprazniti{0}?"
 
 msgid "Show All"
 msgstr "Prikaži sve"
-
-msgid "Show all folders"
-msgstr "Prikaži sve mape"
 
 msgid ""
 "You have insufficient privileges to move this folder. Would you like to copy "
@@ -4583,6 +4617,9 @@ msgstr "{A}Automatski označi poštu kao pročitanu nakon {B} sekundi"
 msgid "View mail in this format"
 msgstr "Pogledajte poštu u ovom formatu"
 
+msgid "Cc recipients"
+msgstr "Cc primatelji"
+
 msgid "Right"
 msgstr "Pravo"
 
@@ -4696,6 +4733,12 @@ msgstr "max."
 
 msgid "Sort by: Sent"
 msgstr "Razvrstaj po: Poslano"
+
+msgid "Scheduled"
+msgstr "Zakazano"
+
+msgid "Sort by: Scheduled"
+msgstr "Poredaj po: Zakazano"
 
 msgid "Modified"
 msgstr "Izmijenjeno"
@@ -4828,11 +4871,8 @@ msgstr "Postavke"
 msgid "Basic"
 msgstr "Osnovne"
 
-msgid "Account information - {0}"
-msgstr "Podaci računa – {0}"
-
-msgid "Profile Picture"
-msgstr "Slika profila"
+msgid "System"
+msgstr "sustav"
 
 msgid "Language"
 msgstr "Jezik"
@@ -4842,6 +4882,9 @@ msgstr "Mapa za pokretanje"
 
 msgid "Theme"
 msgstr "Tema"
+
+msgid "Personal information"
+msgstr "Osobni podaci"
 
 msgid "Select Default Folder"
 msgstr "Odaberi standardnu mapu"
@@ -4876,8 +4919,8 @@ msgstr "{0}Skup ikona"
 msgid "About"
 msgstr "Oko"
 
-msgid "I want to display date and time in this format:"
-msgstr "Želim prikazati datum i vrijeme u ovom formatu:"
+msgid "Date & Time"
+msgstr "Datum i vrijeme"
 
 msgid "Short"
 msgstr "Kratki"
@@ -4885,23 +4928,20 @@ msgstr "Kratki"
 msgid "Long"
 msgstr "Dugi"
 
-msgid "Time format:"
-msgstr "Format za vrijeme:"
-
 msgid "12h clock"
 msgstr "12 sata"
 
 msgid "24h clock"
 msgstr "24 sata"
 
-msgid "Favorite settings"
-msgstr "Omiljene postavke"
-
 msgid "Hide favorites"
 msgstr "Sakrij favorite"
 
 msgid "Unpin favorites from top"
 msgstr "Otkvači favorite s vrha"
+
+msgid "Interface"
+msgstr "sučelje"
 
 msgid "Give unread items a colored border"
 msgstr "Označite nepročitane stavke rubom u boji"
@@ -4914,9 +4954,6 @@ msgstr "Prikaži broj nepročitanih e-maila u naslovu aplikacije"
 
 msgid "Hide widget panel"
 msgstr "Sakrij ploču widgeta"
-
-msgid "Show search bar above folder list"
-msgstr "Prikaži traku za pretraživanje iznad popisa mapa"
 
 msgid "Auto"
 msgstr "Auto"
@@ -4949,7 +4986,8 @@ msgid "Infinite Scroll"
 msgstr "Beskonačni svitak"
 
 msgid "grommunio Web automatically loads additional items when you scroll down"
-msgstr "grommunio Web automatski učitava dodatne stavke kada se pomičete prema dolje"
+msgstr ""
+"grommunio Web automatski učitava dodatne stavke kada se pomičete prema dolje"
 
 msgid "Pagination"
 msgstr "Paginacija"
@@ -4968,8 +5006,8 @@ msgstr "Učitaj {A} stavki po stranici."
 msgid "Keyboard Shortcuts"
 msgstr "Tipkovnički prečaci"
 
-msgid "Part of basic keyboard shortcuts"
-msgstr "Dio osnovnih tipkovničkih prečaca"
+msgid "Extended"
+msgstr "Prošireno"
 
 msgid "Keyboard shortcuts off"
 msgstr "Tipkovnički prečaci isključeni"
@@ -4977,8 +5015,8 @@ msgstr "Tipkovnički prečaci isključeni"
 msgid "Basic keyboard shortcuts on"
 msgstr "Osnovne tipkovničke prečice uključene"
 
-msgid "All keyboard shortcuts on"
-msgstr "Svi tipkovni prečaci uključeni"
+msgid "Extended shortcuts on"
+msgstr "Prošireni prečaci uključeni"
 
 msgid "This change requires a reload of grommunio Web"
 msgstr "Ova promjena zahtijeva ponovno učitavanje grommunio Weba"
@@ -5055,11 +5093,29 @@ msgstr "Postavka"
 msgid "The setting '{0}' can not be edited"
 msgstr "Postavka '{0}' ne može se uređivati"
 
-msgid "Version information"
-msgstr "Informacije o verziji"
+msgid "OpenID Connect"
+msgstr "OpenID Connect"
+
+msgid "Basic Authentication"
+msgstr "Osnovna provjera autentičnosti"
+
+msgid "System information"
+msgstr "Informacije o sustavu"
 
 msgid "Gromox"
 msgstr "Gromox"
+
+msgid "Logged in via"
+msgstr "Prijavljeni putem"
+
+msgid "Browser"
+msgstr "preglednik"
+
+msgid "Maintenance"
+msgstr "Održavanje"
+
+msgid "Reset all settings to defaults"
+msgstr "Vratite sve postavke na zadane"
 
 msgid "Delete confirmation"
 msgstr "Izbriši potvrdu"
@@ -5171,7 +5227,8 @@ msgid "Track progress"
 msgstr "Pratite napredak"
 
 msgid "Keep updated copy of task and receive automated status reports"
-msgstr "Čuvajte ažuriranu kopiju zadatka i primajte automatska izvješća o statusu"
+msgstr ""
+"Čuvajte ažuriranu kopiju zadatka i primajte automatska izvješća o statusu"
 
 msgid "Send task to assignees"
 msgstr "Pošalji zadatak primateljima"
@@ -5455,6 +5512,9 @@ msgstr "Izvan ureda je trenutno aktiviran. Želite li ga isključiti?"
 msgid "Archive"
 msgstr "Arhiva"
 
+msgid "Chat"
+msgstr "Razgovor"
+
 msgid "Open Chat at start"
 msgstr "Otvorite Chat na početku"
 
@@ -5600,8 +5660,8 @@ msgstr "Upload"
 
 msgid "At least one file is too large! Maximum allowed filesize: {0}."
 msgstr ""
-"Najmanje jedna datoteka je prevelika! Najveća dopuštena veličina "
-"datoteke:{0}."
+"Najmanje jedna datoteka je prevelika! Najveća dopuštena veličina datoteke:"
+"{0}."
 
 msgid "Keep both"
 msgstr "Zadrži oboje"
@@ -5782,7 +5842,8 @@ msgid "Select upload folder"
 msgstr "Odaberite mapu za prijenos"
 
 msgid "File \"{0}\" is too large! Maximum allowed filesize: {1}."
-msgstr "Datoteka \"{0}\" je prevelika! Najveća dopuštena veličina datoteke:{1}."
+msgstr ""
+"Datoteka \"{0}\" je prevelika! Najveća dopuštena veličina datoteke:{1}."
 
 msgid "Add item to Files"
 msgstr "Dodaj stavku u datoteke"
@@ -5921,7 +5982,8 @@ msgid "files selected"
 msgstr "odabranih datoteka"
 
 msgid "Authentication required, when using grommunio-files for the first time"
-msgstr "Prilikom prve uporabe grommunio-datoteka potrebna je provjera autentičnosti"
+msgstr ""
+"Prilikom prve uporabe grommunio-datoteka potrebna je provjera autentičnosti"
 
 msgid "Intranet"
 msgstr "Intranet"
@@ -6109,6 +6171,9 @@ msgstr "Zadnje povezivanje"
 msgid "Synchronize"
 msgstr "Sinkroniziraj"
 
+msgid "Shared Folders"
+msgstr "Dijeljene mape"
+
 msgid "Manage Shared Folders"
 msgstr "Upravljanje dijeljenim mapama"
 
@@ -6167,6 +6232,12 @@ msgstr "Ukloni uređaj"
 msgid "Please enter your username and password"
 msgstr "Upiši korisničko ime i lozinku"
 
+msgid "Type {0} to confirm"
+msgstr "Upišite{0}za potvrdu"
+
+msgid "Please type {0} to confirm"
+msgstr "Upišite{0}za potvrdu"
+
 msgid "Wipe only data related to this account"
 msgstr "Izbriši samo podatke u vezi s ovim računom"
 
@@ -6178,7 +6249,17 @@ msgstr "Korisničko ime"
 
 msgid ""
 "Do you really want to wipe your device?\n"
+" Type WIPE to confirm."
+msgstr ""
+
+msgid ""
+"Do you really want to wipe your device?\n"
 " Enter your password to confirm."
+msgstr ""
+
+msgid ""
+"Do you really want to remove your device?\n"
+" Type REMOVE to confirm."
 msgstr ""
 
 msgid ""
@@ -6195,6 +6276,9 @@ msgstr "Ime prostorije:"
 msgid "Room URL:"
 msgstr "URL prostorije:"
 
+msgid "Meet"
+msgstr "Upoznajte se"
+
 msgid "Shift-click for advanced settings"
 msgstr "Pritisnite Shift i kliknite za napredne postavke"
 
@@ -6206,6 +6290,9 @@ msgstr "Otvoreni sastanak u:"
 
 msgid "Web tab"
 msgstr "Kartica Web"
+
+msgid "Popup"
+msgstr "Skočni prozor"
 
 msgid "Hide the button in the main toolbar"
 msgstr "Sakrij gumb na glavnoj alatnoj traci"
@@ -6232,12 +6319,19 @@ msgstr ""
 msgid "Add an invitation to the appointment description"
 msgstr "Dodajte pozivnicu u opis termina"
 
-msgid "Invitation text"
-msgstr "Tekst pozivnice"
+msgid "Invitation text (plain text)"
+msgstr "Tekst pozivnice (običan tekst)"
 
 msgid ""
-"must contain %url% as a placeholder for the meeting link, empty the textbox "
-"to reset to default"
+"used when composing in plain text, must contain %url%, empty to reset to "
+"default"
+msgstr ""
+
+msgid "Invitation template (HTML)"
+msgstr "Predložak pozivnice (HTML)"
+
+msgid ""
+"used when composing in HTML, must contain %url%, empty to reset to default"
 msgstr ""
 
 msgid "An unknown error occurred while changing password."
@@ -6323,6 +6417,21 @@ msgstr "Vrijedi od"
 msgid "Expires"
 msgstr "Ističe"
 
+msgid "Key Type"
+msgstr "Vrsta ključa"
+
+msgid "Purpose"
+msgstr "Svrha"
+
+msgid "Sign"
+msgstr "Znak"
+
+msgid "Encrypt"
+msgstr "Šifriraj"
+
+msgid "Sign & Encrypt"
+msgstr "Potpiši i šifriraj"
+
 msgid "Loading certificates"
 msgstr "Učitavanje certifikata"
 
@@ -6337,13 +6446,37 @@ msgid ""
 "certificate you will not be able to sign or decrypt S/MIME emails."
 msgstr ""
 
-msgid "Certificate details"
-msgstr "Detalji certifikata"
+msgid "Signing"
+msgstr "Potpisivanje"
+
+msgid "Encryption"
+msgstr "Enkripcija"
+
+msgid "Signing & Encryption"
+msgstr "Potpisivanje i šifriranje"
+
+msgid "Serial"
+msgstr "Serijski"
+
+msgid "Issued by"
+msgstr "Izdao"
+
+msgid "Issued to"
+msgstr "Izdano na"
+
+msgid "SHA-256 Fingerprint"
+msgstr "SHA-256 Otisak prsta"
+
+msgid "SHA-1 Fingerprint"
+msgstr "SHA-1 otisak prsta"
 
 msgid ""
-"Below you can view and delete public & private certificate(s) stored on the "
-"server."
+"Warning: RSA key size is below 2048 bits. Consider upgrading to a stronger "
+"certificate."
 msgstr ""
+
+msgid "Certificate details"
+msgstr "Detalji certifikata"
 
 msgid "Filter on Email"
 msgstr "Filtrirajte e-poštu"
@@ -6362,6 +6495,18 @@ msgstr "Osobni certifikat"
 
 msgid "Change passphrase for last certificate"
 msgstr "Promjena zaporke za zadnji certifikat"
+
+msgid "Default encryption algorithm"
+msgstr "Zadani algoritam šifriranja"
+
+msgid "Recommended"
+msgstr "Preporučeno"
+
+msgid "Legacy"
+msgstr "Naslijeđe"
+
+msgid "Default signing digest"
+msgstr "Zadani sažetak potpisivanja"
 
 msgid "You have a valid certificate corresponding to your account"
 msgstr "Imate važeći certifikat koji odgovara vašem računu"
@@ -6384,8 +6529,17 @@ msgstr "Morate ispuniti šifru certifikata da biste učitali svoj certifikat."
 msgid "You must first select a valid private certificate in PKCS#12 format."
 msgstr "Prvo morate odabrati važeći privatni certifikat u formatu PKCS#12."
 
-msgid "Sign"
-msgstr "Znak"
+msgid "bits"
+msgstr "bitovi"
+
+msgid "signing"
+msgstr "potpisivanje"
+
+msgid "encryption"
+msgstr "šifriranje"
+
+msgid "signing & encryption"
+msgstr "potpisivanje i šifriranje"
 
 msgid "Sign message"
 msgstr "Potpiši poruku"
@@ -6395,9 +6549,6 @@ msgid ""
 "message. Any changes to the message will invalidate the signature."
 msgstr ""
 
-msgid "Encrypt"
-msgstr "Šifriraj"
-
 msgid "Encrypt message"
 msgstr "Šifrirajte poruku"
 
@@ -6406,8 +6557,14 @@ msgid ""
 "recipient of the message will be able to open it."
 msgstr ""
 
+msgid "Algorithms used"
+msgstr "Korišteni algoritmi"
+
 msgid "What's going on with my email?"
 msgstr "Što se događa s mojom e-poštom?"
+
+msgid "CBC mode"
+msgstr "CBC način rada"
 
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
@@ -6495,6 +6652,39 @@ msgstr "Poslužitelj za provjeru certifikata (OCSP) je privremeno izvan mreže."
 msgid "Sender is removed from the server."
 msgstr "Pošiljatelj je uklonjen s poslužitelja."
 
+msgid ""
+"The digital certificate used to sign this message has been revoked according "
+"to the Certificate Revocation List (CRL)."
+msgstr ""
+
+msgid ""
+"The revocation status of the certificate could not be verified because the "
+"CRL Distribution Point is unavailable."
+msgstr ""
+
+msgid ""
+"The RSA key size used in this certificate is below the recommended minimum "
+"of 2048 bits. Consider upgrading to a stronger certificate."
+msgstr ""
+
+msgid ""
+"The certificate's Key Usage extension does not permit this operation. The "
+"certificate may be intended for signing only or encryption only."
+msgstr ""
+
+msgid ""
+"This message was encrypted using CBC mode (not authenticated encryption). "
+"While it was decrypted successfully, AES-GCM (authenticated encryption) "
+"provides stronger protection against modification attacks. Consider asking "
+"the sender to upgrade their S/MIME configuration."
+msgstr ""
+
+msgid ""
+"The signing time in the digital signature differs significantly from the "
+"expected time. This may indicate a clock synchronization issue or message "
+"tampering."
+msgstr ""
+
 msgid "Signature verified successfully"
 msgstr "Potpis je uspješno ovjeren"
 
@@ -6539,6 +6729,36 @@ msgstr "Nije moguće dešifrirati ovu poruku. Certifikat ne odgovara"
 
 msgid "Verification failed. User is removed from the server."
 msgstr "Provjera nije uspjela. Korisnik je uklonjen s poslužitelja."
+
+msgid "Certificate has been revoked (CRL)"
+msgstr "Certifikat je opozvan (CRL)"
+
+msgid "Cannot check revocation status (CRL unavailable)"
+msgstr "Nije moguće provjeriti status opoziva (CRL nedostupan)"
+
+msgid "RSA key size below recommended minimum"
+msgstr "Veličina RSA ključa ispod preporučenog minimuma"
+
+msgid "Certificate not valid for this operation (key usage mismatch)"
+msgstr "Certifikat nije valjan za ovu operaciju (neusklađenost upotrebe ključa)"
+
+msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
+msgstr "Dešifrirano (CBC način - razmislite o AES-GCM za jaču zaštitu)"
+
+msgid "Signing time differs from expected time"
+msgstr "Vrijeme potpisivanja razlikuje se od očekivanog vremena"
+
+msgid "Digest"
+msgstr "Probaviti"
+
+msgid "Signature"
+msgstr "Potpis"
+
+msgid "Cipher"
+msgstr "Šifra"
+
+msgid "Key transport"
+msgstr "Prijevoz ključeva"
 
 msgid "Charm pink"
 msgstr "Šarm ružičasta"
@@ -6672,7 +6892,8 @@ msgid "Unauthorized. Wrong username or password."
 msgstr "Neovlašteno. Pogrešno korisničko ime ili lozinka."
 
 msgid "File server is not reachable. Please verify the file server URL."
-msgstr "Datotečni poslužitelj nije dostupan. Provjerite URL poslužitelja datoteka."
+msgstr ""
+"Datotečni poslužitelj nije dostupan. Provjerite URL poslužitelja datoteka."
 
 msgid "You don't have enough permissions to view this file or folder."
 msgstr "Nemate dovoljno dopuštenja za pregled ove datoteke ili mape."
@@ -6702,7 +6923,8 @@ msgid "PHP-Curl is not available."
 msgstr "PHP-Curl nije dostupan."
 
 msgid "With this backend, you can connect to any Seafile server."
-msgstr "Pomoću ove pozadine možete se povezati s bilo kojim Seafile poslužiteljem."
+msgstr ""
+"Pomoću ove pozadine možete se povezati s bilo kojim Seafile poslužiteljem."
 
 msgid "Files "
 msgstr "Datoteke"
@@ -6764,7 +6986,8 @@ msgid "Files plugin"
 msgstr "Dodatak za datoteke"
 
 msgid "Unknown type - cannot save this file to the Files backend!"
-msgstr "Nepoznata vrsta - ne može se spremiti ova datoteka u pozadinu datoteka!"
+msgstr ""
+"Nepoznata vrsta - ne može se spremiti ova datoteka u pozadinu datoteka!"
 
 msgid "No record given!"
 msgstr "Nema zapisa!"
@@ -6782,7 +7005,8 @@ msgid "Deleting share failed"
 msgstr "Brisanje dijeljenja nije uspjelo"
 
 msgid "With this backend, you can connect to any WebDAV server."
-msgstr "Pomoću ove pozadine možete se povezati s bilo kojim WebDAV poslužiteljem."
+msgstr ""
+"Pomoću ove pozadine možete se povezati s bilo kojim WebDAV poslužiteljem."
 
 msgid "Files WebDAV Backend: "
 msgstr "Datoteke WebDAV Backend:"
@@ -6824,7 +7048,8 @@ msgid "File backend not responding. Please try again later."
 msgstr "Pozadina datoteke ne reagira. Pokušajte ponovno kasnije."
 
 msgid "Zip file generation failed. Please inform the administrator."
-msgstr "Generiranje zip datoteke nije uspjelo. Molimo obavijestite administratora."
+msgstr ""
+"Generiranje zip datoteke nije uspjelo. Molimo obavijestite administratora."
 
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Ova datoteka više nije dostupna. Molimo ponovno učitajte mapu."
@@ -6883,6 +7108,21 @@ msgstr "Privatni certifikat još nije valjan, nije moguće potpisati e-poštu"
 msgid "Private certificate does not match email address"
 msgstr "Privatni certifikat ne odgovara adresi e-pošte"
 
+msgid "No email address specified"
+msgstr "Nije navedena adresa e-pošte"
+
+msgid "No certificates found for this email address"
+msgstr "Nisu pronađeni certifikati za ovu adresu e-pošte"
+
+msgid "Unable to read certificates"
+msgstr "Nije moguće pročitati certifikate"
+
+msgid "Unable to generate certs-only message"
+msgstr "Nije moguće generirati poruku samo s certifikatima"
+
+msgid "LDAP not configured"
+msgstr "LDAP nije konfiguriran"
+
 msgid "Missing public certificates for the following recipients: "
 msgstr "Nedostaju javni certifikati za sljedeće primatelje:"
 
@@ -6905,6 +7145,17 @@ msgstr "Privatni ključ ne može se koristiti za potpisivanje e-pošte"
 
 msgid "Certificate email address doesn't match grommunio Web account "
 msgstr "Adresa e-pošte certifikata ne odgovara grommunio web računu"
+
+#, php-format
+msgid ""
+"RSA key size %d bits is below the recommended minimum of %d bits. "
+"Certificate was imported."
+msgstr ""
+
+msgid ""
+"EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully "
+"supported. Certificate was imported."
+msgstr ""
 
 msgid "Certificate was expired on "
 msgstr "Certifikat je istekao"
@@ -6930,7 +7181,8 @@ msgstr ""
 "sabirnici"
 
 msgid "Response data requested from bus but it doesn't have any data."
-msgstr "Zatraženi su podaci o odgovoru sa sabirnice, ali nema nikakvih podataka."
+msgstr ""
+"Zatraženi su podaci o odgovoru sa sabirnice, ali nema nikakvih podataka."
 
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
@@ -6965,7 +7217,8 @@ msgid "Error retrieving existing persistent settings"
 msgstr "Pogreška pri dohvaćanju postojećih trajnih postavki"
 
 msgid "Logon failed. Please verify your credentials and try again."
-msgstr "Prijava nije uspjela. Provjerite svoje vjerodajnice i pokušajte ponovno."
+msgstr ""
+"Prijava nije uspjela. Provjerite svoje vjerodajnice i pokušajte ponovno."
 
 msgid "Cannot connect to Gromox."
 msgstr "Ne mogu se spojiti na Gromox."
@@ -7154,8 +7407,11 @@ msgstr "Pogreška kvote"
 msgid "Send quota limit reached"
 msgstr "Dosegnuto je ograničenje kvote slanja"
 
-msgid "Email sending failed. Check the log files for more information."
-msgstr "Slanje e-pošte nije uspjelo. Provjerite log datoteke za više informacija."
+#, php-format
+msgid "Email sending failed (%s). Check the log files for more information."
+msgstr ""
+"Slanje e-pošte nije uspjelo (%s). Provjerite log datoteke za više "
+"informacija."
 
 msgid "Unknown user/group"
 msgstr "Nepoznati korisnik/grupa"
@@ -7447,7 +7703,8 @@ msgid "Could not resolve user."
 msgstr "Nije moguće riješiti korisnika."
 
 msgid "Setting mail filters on the stores of other users is not allowed."
-msgstr "Postavljanje filtera pošte na trgovine drugih korisnika nije dopušteno."
+msgstr ""
+"Postavljanje filtera pošte na trgovine drugih korisnika nije dopušteno."
 
 msgid "Untitled rule"
 msgstr "Pravilo bez naslova"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 23:43+0100\n"
+"POT-Creation-Date: 2026-03-12 22:26+0100\n"
 "PO-Revision-Date: 2022-07-26 16:08+0200\n"
 "Last-Translator: f3rr31 <5920873@disroot.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/grommunio/"
@@ -334,6 +334,9 @@ msgstr "Email címek"
 msgid "Email addresses"
 msgstr "Email címek"
 
+msgid "Email Address"
+msgstr "Email cím"
+
 msgid "Group details"
 msgstr "Csoport részletek"
 
@@ -346,17 +349,11 @@ msgstr "Megjelenítendő név"
 msgid "Alias"
 msgstr "Álnév"
 
-msgid "Owner"
-msgstr "Tulajdonos"
-
 msgid "Notes"
 msgstr "Jegyzetek"
 
 msgid "Members"
 msgstr "Tagok"
-
-msgid "Email Address"
-msgstr "Email cím"
 
 msgid "Account"
 msgstr "Fiók"
@@ -386,11 +383,11 @@ msgstr "Kezdőbetűk"
 msgid "Display"
 msgstr "Megjelenő"
 
-msgid "Addresses"
-msgstr "Címek"
-
 msgid "Address"
 msgstr "Cím"
+
+msgid "Street"
+msgstr "Út/utca"
 
 msgid "City"
 msgstr "Város"
@@ -440,7 +437,7 @@ msgstr "Telefonszámok"
 msgid "Business"
 msgstr "Üzleti"
 
-msgid "Business2"
+msgid "Business 2"
 msgstr "Üzleti 2"
 
 msgid "Fax"
@@ -449,8 +446,8 @@ msgstr "Fax"
 msgid "Home"
 msgstr "Otthon"
 
-msgid "Home2"
-msgstr "Otthon 2"
+msgid "Home 2"
+msgstr "Otthoni 2"
 
 msgid "Mobile"
 msgstr "Mobil"
@@ -652,9 +649,6 @@ msgstr "Továbbítás"
 msgid "Edit as New"
 msgstr "Szerkesztés újként"
 
-msgid "Search tools"
-msgstr "Keresőeszközök"
-
 msgid "Folders"
 msgstr "Mappák"
 
@@ -829,16 +823,18 @@ msgstr "Ismétlődik minden {0} {1} érvényes {2}."
 msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural ""
 "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] "Minden {0} hatékony {1} a {2} előfordulása esetén a {3} -tól a {4}-ig."
+msgstr[0] ""
+"Minden {0} hatékony {1} a {2} előfordulása esetén a {3} -tól a {4}-ig."
 msgstr[1] "Minden {0} hatékony {1} a {2} előfordulásaiért {3} -tól {4}-ig."
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
 msgid_plural ""
 "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
 msgstr[0] ""
-"Előfordul minden {0} {1} hatékony {2} a {3} előfordulása esetén a {4} -től "
-"a {5}-ig."
-msgstr[1] "Előfordul minden {0} {1} hatékony {2} a {3} előfordulások {4} a {5}."
+"Előfordul minden {0} {1} hatékony {2} a {3} előfordulása esetén a {4} -től a "
+"{5}-ig."
+msgstr[1] ""
+"Előfordul minden {0} {1} hatékony {2} a {3} előfordulások {4} a {5}."
 
 msgid "Occurs every {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
@@ -1521,14 +1517,14 @@ msgstr "A találkozót áthelyezték, vagy törölték, kívánja folytatni?"
 msgid "Options"
 msgstr "Lehetőségek"
 
+msgid "Icon"
+msgstr "Ikon"
+
 msgid "All Day"
 msgstr "Teljes nap"
 
 msgid "Sort by: All Day"
 msgstr "Rendezés: Egész napos események"
-
-msgid "Icon"
-msgstr "Ikon"
 
 msgid "Recurring"
 msgstr "Ismétlődés"
@@ -2222,6 +2218,9 @@ msgstr "Beérkezett üzenetek"
 msgid "Entire Inbox"
 msgstr "Teljes beérkezett"
 
+msgid "Owner"
+msgstr "Tulajdonos"
+
 msgid "Secretary"
 msgstr "Titkárnő"
 
@@ -2506,17 +2505,6 @@ msgstr "Új levél"
 
 msgid "Please select a Cc recipient record."
 msgstr "Kérjem válasszon címzettet."
-
-msgid "Manage Cc recipients"
-msgstr "Cc címzettek kezelése"
-
-#, fuzzy
-msgid ""
-"Cc recipients can be used to set a default Cc user in new mail, replies or "
-"both."
-msgstr ""
-"A Cc címzettek beállításával beállítható egy alapértelmezett Cc felhasználó "
-"az új levelekben, válaszokban vagy mindkettőben."
 
 msgid "Help"
 msgstr "Súgó"
@@ -2990,14 +2978,47 @@ msgstr "A változtatások elfogadása"
 msgid "Do you wish to apply the changes?"
 msgstr "Kívánja alkalmazni a változásokat?"
 
+msgid "Category"
+msgstr "Kategória"
+
+msgid "Recent searches"
+msgstr "Legutóbbi keresések"
+
+msgid "Filter by"
+msgstr "Szűrés"
+
+msgid "Show"
+msgstr "Mutasd meg a"
+
+msgid "Operators"
+msgstr "Operátorok"
+
+msgid "AND"
+msgstr "ÉS"
+
+msgid "OR"
+msgstr "VAGY"
+
+msgid "NOT"
+msgstr "NEM"
+
+msgid "Search in"
+msgstr "Keresés a"
+
 msgid "All folders"
 msgstr "Összes mappa"
 
 msgid "Other…"
 msgstr "Egyéb…"
 
-msgid "Search in…"
-msgstr "Keresés…"
+msgid "Type"
+msgstr "Típus"
+
+msgid "Search"
+msgstr "Keresés"
+
+msgid "Click to cycle: AND → OR → NOT"
+msgstr "Kattintson a kerékpárra: ÉS → VAGY → NEM"
 
 msgid "Folder does not exist"
 msgstr "A mappa nem létezik"
@@ -3503,9 +3524,6 @@ msgstr "Telefonszám"
 msgid "Check address"
 msgstr "Ellenőrizze a címet"
 
-msgid "Street"
-msgstr "Út/utca"
-
 msgid "State/Province"
 msgstr "Állam/tartomány"
 
@@ -3543,20 +3561,17 @@ msgstr "Évforduló"
 msgid "Photo"
 msgstr "Fotó"
 
+msgid "Addresses"
+msgstr "Címek"
+
 msgid "Additional information"
 msgstr "Kiegészítő információk"
-
-msgid "Business 2"
-msgstr "Üzleti 2"
 
 msgid "Callback"
 msgstr "Visszahívás"
 
 msgid "Car"
 msgstr "Autó"
-
-msgid "Home 2"
-msgstr "Otthoni 2"
 
 msgid "Primary"
 msgstr "Elsődleges"
@@ -3966,11 +3981,20 @@ msgstr "Vörös"
 msgid "Brown"
 msgstr "Barna"
 
+msgid "Logout"
+msgstr "Kijelentkezés"
+
+msgid "Appearance"
+msgstr "Megjelenés"
+
+msgid "Light"
+msgstr "Fény"
+
 msgid "Dark"
 msgstr "Sötét"
 
-msgid "Logout"
-msgstr "Kijelentkezés"
+msgid "Automatic"
+msgstr "Automatikus"
 
 msgid "Switch view"
 msgstr "Nézet változtatása"
@@ -4015,7 +4039,9 @@ msgstr "Hiányzó melléklet"
 msgid ""
 "Your message appears to reference an attachment but no file is attached. "
 "Send anyway?"
-msgstr "Úgy tűnik, hogy az üzenet egy mellékletre hivatkozik, de nincs csatolva fájl. Amúgy elküldöd?"
+msgstr ""
+"Úgy tűnik, hogy az üzenet egy mellékletre hivatkozik, de nincs csatolva "
+"fájl. Amúgy elküldöd?"
 
 msgid "No subject"
 msgstr "Nincs tárgy"
@@ -4046,6 +4072,9 @@ msgstr "Részletek rejtése"
 
 msgid "Loaded {0} of {1}"
 msgstr "{0}/{1} elem betöltve"
+
+msgid "Copied!"
+msgstr "Másolom!"
 
 msgid "Saving"
 msgstr "Mentés"
@@ -4078,11 +4107,11 @@ msgstr "Nem mentett változások"
 msgid "Welcome to grommunio Web"
 msgstr "Üdvözöljük a grommunio Web"
 
-msgid "This is the first time you are using grommunio Web. "
-msgstr "Ön először használja a grommunio Webot. "
+msgid "Set up your preferences to get started."
+msgstr "A kezdéshez állítsa be a preferenciáit."
 
-msgid "Please check the following settings before continuing."
-msgstr "Kérem, a folytatás előtt ellenőrizze az alábbiakat."
+msgid "Get Started"
+msgstr "Kezdje el"
 
 # There's no synonim for Widget in Hungarian language.
 msgid "Widget height"
@@ -4161,6 +4190,18 @@ msgstr "Elégtelen jogosultságok"
 msgid "Not enough permissions to open this folder."
 msgstr "Nincs elég jogosultsága megnyitni ezt a mappát."
 
+msgid "Empty folder"
+msgstr "Üres mappa"
+
+msgid "Emptying {0}… (0%)"
+msgstr "Ürítés {0}... (0%)"
+
+msgid "Successfully emptied {0}. ({1} items removed)"
+msgstr "Sikeresen kiürítettük a {0} címet ({1} elemek eltávolítva)"
+
+msgid "Emptying {0}… ({1}%)"
+msgstr "Kiürítés {0}... ({1}%)"
+
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
 msgstr[0] "Van {0} olvasatlan üzenet a {1} mappában {2}"
@@ -4236,9 +4277,6 @@ msgstr "Nincs célállomás"
 
 msgid "You must select a destination folder."
 msgstr "Meg kell adnia a célmappát."
-
-msgid "Type"
-msgstr "Típus"
 
 msgid "Description"
 msgstr "Leírás"
@@ -4384,9 +4422,6 @@ msgstr "Megosztott mappa/tárhely megnyitása"
 msgid "Rename folder"
 msgstr "Mappa átnevezése"
 
-msgid "Empty folder"
-msgstr "Üres mappa"
-
 msgid "Empty Junk Email"
 msgstr "Üres levélszemét"
 
@@ -4469,9 +4504,6 @@ msgstr "Biztosan ki szeretné üríteni {0}?"
 
 msgid "Show All"
 msgstr "Összes mutatása"
-
-msgid "Show all folders"
-msgstr "Minden mappa megjelenítése"
 
 #, fuzzy
 msgid ""
@@ -4740,6 +4772,9 @@ msgstr "{A}Levél olvasottnak jelölése {B} másodperc után"
 msgid "View mail in this format"
 msgstr "Levelezés megtekintése ebben a formátumban"
 
+msgid "Cc recipients"
+msgstr "Cc címzettek"
+
 msgid "Right"
 msgstr "Jobb"
 
@@ -4859,6 +4894,12 @@ msgstr "max. "
 
 msgid "Sort by: Sent"
 msgstr "Rendezés: Elküldés szerint"
+
+msgid "Scheduled"
+msgstr "Tervezett"
+
+msgid "Sort by: Scheduled"
+msgstr "Rendezés: "
 
 msgid "Modified"
 msgstr "Módosítva"
@@ -4992,11 +5033,8 @@ msgstr "Beállítások"
 msgid "Basic"
 msgstr "Alap"
 
-msgid "Account information - {0}"
-msgstr "Számlainformációk - {0}"
-
-msgid "Profile Picture"
-msgstr "Profil kép"
+msgid "System"
+msgstr "Rendszer"
 
 msgid "Language"
 msgstr "Nyelv"
@@ -5006,6 +5044,9 @@ msgstr "Kezdő mappa"
 
 msgid "Theme"
 msgstr "Téma"
+
+msgid "Personal information"
+msgstr "Személyes információk"
 
 msgid "Select Default Folder"
 msgstr "Alapértelmezett mappa kiválasztása"
@@ -5040,8 +5081,8 @@ msgstr "{0} Iconset"
 msgid "About"
 msgstr "Rólunk"
 
-msgid "I want to display date and time in this format:"
-msgstr "A dátumot és az időt ebben a formátumban szeretném megjeleníteni:"
+msgid "Date & Time"
+msgstr "Dátum és idő"
 
 msgid "Short"
 msgstr "Rövid"
@@ -5049,23 +5090,20 @@ msgstr "Rövid"
 msgid "Long"
 msgstr "Hosszú"
 
-msgid "Time format:"
-msgstr "Időformátum:"
-
 msgid "12h clock"
 msgstr "12 óra"
 
 msgid "24h clock"
 msgstr "24 órás óra"
 
-msgid "Favorite settings"
-msgstr "Kedvenc beállítások"
-
 msgid "Hide favorites"
 msgstr "Kedvencek elrejtése"
 
 msgid "Unpin favorites from top"
 msgstr "Kedvencek feltűzésének feloldása felülről"
+
+msgid "Interface"
+msgstr "Interfész"
 
 msgid "Give unread items a colored border"
 msgstr "Színes keretet ad az olvasatlan elemeknek"
@@ -5078,9 +5116,6 @@ msgstr "Olvasatlan levelek számlálójának megjelenítése az alkalmazás cím
 
 msgid "Hide widget panel"
 msgstr "Widget panel elrejtése"
-
-msgid "Show search bar above folder list"
-msgstr "Keresősáv megjelenítése a mappák listája felett"
 
 msgid "Auto"
 msgstr "Automatikus"
@@ -5135,8 +5170,8 @@ msgstr "Egy oldalon {A} elemet töltsön be."
 msgid "Keyboard Shortcuts"
 msgstr "Gyorsbillentyűk"
 
-msgid "Part of basic keyboard shortcuts"
-msgstr "Alapértelmezett gyorsbillentyűk része"
+msgid "Extended"
+msgstr "Bővített"
 
 msgid "Keyboard shortcuts off"
 msgstr "Gyorsbillentyűk kikapcsolása"
@@ -5144,8 +5179,8 @@ msgstr "Gyorsbillentyűk kikapcsolása"
 msgid "Basic keyboard shortcuts on"
 msgstr "Gyorsbillentyűk engedélyezése"
 
-msgid "All keyboard shortcuts on"
-msgstr "Minden gyorsbillentyű engedélyezése"
+msgid "Extended shortcuts on"
+msgstr "Kibővített parancsikonok a"
 
 msgid "This change requires a reload of grommunio Web"
 msgstr "Ez a változás megköveteli a grommunio Web újratöltését"
@@ -5231,11 +5266,29 @@ msgstr "Beállítás"
 msgid "The setting '{0}' can not be edited"
 msgstr "A '{0}' beállítás nem szerkeszthető"
 
-msgid "Version information"
-msgstr "Verzió információ"
+msgid "OpenID Connect"
+msgstr "OpenID Connect"
+
+msgid "Basic Authentication"
+msgstr "Alapvető hitelesítés"
+
+msgid "System information"
+msgstr "Rendszerinformáció"
 
 msgid "Gromox"
 msgstr "Gromox"
+
+msgid "Logged in via"
+msgstr "Bejelentkezve a"
+
+msgid "Browser"
+msgstr "Böngésző"
+
+msgid "Maintenance"
+msgstr "Karbantartás"
+
+msgid "Reset all settings to defaults"
+msgstr "Minden beállítás alapértelmezettre visszaállítása"
 
 msgid "Delete confirmation"
 msgstr "Törlés megerősítése"
@@ -5642,6 +5695,9 @@ msgstr "A Hivatalon kívül jelenleg aktiválva van. Szeretné kikapcsolni?"
 
 msgid "Archive"
 msgstr "Archívum"
+
+msgid "Chat"
+msgstr "Chat"
 
 msgid "Open Chat at start"
 msgstr "Csevegés megnyitása indításkor"
@@ -6304,6 +6360,9 @@ msgstr "Utolsó kapcsolódás"
 msgid "Synchronize"
 msgstr "Szinkronizálás"
 
+msgid "Shared Folders"
+msgstr "Megosztott mappák"
+
 msgid "Manage Shared Folders"
 msgstr "Megosztott mappák kezelése"
 
@@ -6369,6 +6428,12 @@ msgstr "Eszköz eltávolítása"
 msgid "Please enter your username and password"
 msgstr "Kérlek írd be a felhasználó neved és jelszavad"
 
+msgid "Type {0} to confirm"
+msgstr "A megerősítéshez írja be a {0} címet"
+
+msgid "Please type {0} to confirm"
+msgstr "Kérjük, írja be a {0} címet a megerősítéshez"
+
 msgid "Wipe only data related to this account"
 msgstr "Csak az ehhez a fiókhoz kapcsolódó adatok törlése"
 
@@ -6380,10 +6445,20 @@ msgstr "Felhasználónév"
 
 msgid ""
 "Do you really want to wipe your device?\n"
+" Type WIPE to confirm."
+msgstr ""
+
+msgid ""
+"Do you really want to wipe your device?\n"
 " Enter your password to confirm."
 msgstr ""
 "Biztosan törölni szeretne minden adatot az eszközről?\n"
 " Adja meg a jelszavát a folytatáshoz."
+
+msgid ""
+"Do you really want to remove your device?\n"
+" Type REMOVE to confirm."
+msgstr ""
 
 #, fuzzy
 msgid ""
@@ -6402,6 +6477,9 @@ msgstr "Szoba neve:"
 msgid "Room URL:"
 msgstr "Szoba URL:"
 
+msgid "Meet"
+msgstr "Ismerje meg a"
+
 msgid "Shift-click for advanced settings"
 msgstr "Shift-kattintás a speciális beállításokhoz"
 
@@ -6413,6 +6491,9 @@ msgstr "Nyílt találkozó:"
 
 msgid "Web tab"
 msgstr "Web lap"
+
+msgid "Popup"
+msgstr "Popup"
 
 msgid "Hide the button in the main toolbar"
 msgstr "A gomb elrejtése a fő eszköztáron"
@@ -6442,16 +6523,20 @@ msgstr ""
 msgid "Add an invitation to the appointment description"
 msgstr "Meghívó hozzáadása a találkozó leírásához"
 
-msgid "Invitation text"
-msgstr "Meghívó szövege"
+msgid "Invitation text (plain text)"
+msgstr "Meghívó szövege (egyszerű szöveg)"
 
-#, fuzzy
 msgid ""
-"must contain %url% as a placeholder for the meeting link, empty the textbox "
-"to reset to default"
+"used when composing in plain text, must contain %url%, empty to reset to "
+"default"
 msgstr ""
-"tartalmaznia kell %url% mint a találkozó linkjének helyőrzőjét, ürítse ki a "
-"szövegdobozt, hogy visszaállítsa az alapértelmezett értéket"
+
+msgid "Invitation template (HTML)"
+msgstr "Meghívó sablon (HTML)"
+
+msgid ""
+"used when composing in HTML, must contain %url%, empty to reset to default"
+msgstr ""
 
 msgid "An unknown error occurred while changing password."
 msgstr "Ismeretlen hiba történt a jelszó módosítása közben."
@@ -6539,6 +6624,21 @@ msgstr "Érvényesség kezdete"
 msgid "Expires"
 msgstr "Lejárat"
 
+msgid "Key Type"
+msgstr "Kulcs típusa"
+
+msgid "Purpose"
+msgstr "Cél"
+
+msgid "Sign"
+msgstr "Aláír"
+
+msgid "Encrypt"
+msgstr "Titkosít"
+
+msgid "Sign & Encrypt"
+msgstr "Aláírás és titkosítás"
+
 msgid "Loading certificates"
 msgstr "Tanúsítványok betöltése"
 
@@ -6555,15 +6655,37 @@ msgstr ""
 "Biztosan törölni szeretné a privát tanúsítványát? Amennyiben törli a privát "
 "tanúsítványt, a jövőben nem fog tudni aláírni és megnyitni S/MIME üzeneteket."
 
-msgid "Certificate details"
-msgstr "Tanúsítvány részletek"
+msgid "Signing"
+msgstr "Aláírás"
+
+msgid "Encryption"
+msgstr "Titkosítás"
+
+msgid "Signing & Encryption"
+msgstr "Aláírás és titkosítás"
+
+msgid "Serial"
+msgstr "Sorozatos"
+
+msgid "Issued by"
+msgstr "Kiadta"
+
+msgid "Issued to"
+msgstr "Kiadva"
+
+msgid "SHA-256 Fingerprint"
+msgstr "SHA-256 ujjlenyomat"
+
+msgid "SHA-1 Fingerprint"
+msgstr "SHA-1 ujjlenyomat"
 
 msgid ""
-"Below you can view and delete public & private certificate(s) stored on the "
-"server."
+"Warning: RSA key size is below 2048 bits. Consider upgrading to a stronger "
+"certificate."
 msgstr ""
-"Alább láthatja és törölhet a publikus és privát tanúsítványokat, amelyek a "
-"szerveren vannak tárolva."
+
+msgid "Certificate details"
+msgstr "Tanúsítvány részletek"
 
 msgid "Filter on Email"
 msgstr "Szűrő levélen"
@@ -6582,6 +6704,18 @@ msgstr "Személyes tanúsítvány"
 
 msgid "Change passphrase for last certificate"
 msgstr "Az utolsó tanúsítvány jelszavának módosítása"
+
+msgid "Default encryption algorithm"
+msgstr "Alapértelmezett titkosítási algoritmus"
+
+msgid "Recommended"
+msgstr "Ajánlott"
+
+msgid "Legacy"
+msgstr "Hagyaték"
+
+msgid "Default signing digest"
+msgstr "Alapértelmezett aláírási digest"
 
 msgid "You have a valid certificate corresponding to your account"
 msgstr "Rendelkezik érvényes tanúsítvánnyal ehhez a fiókhoz"
@@ -6610,8 +6744,17 @@ msgstr ""
 "Először ki kell választania egy érvényes PKCS#12 formátumú privát "
 "tanúsítványt."
 
-msgid "Sign"
-msgstr "Aláír"
+msgid "bits"
+msgstr "bitek"
+
+msgid "signing"
+msgstr "aláírás"
+
+msgid "encryption"
+msgstr "titkosítás"
+
+msgid "signing & encryption"
+msgstr "aláírás és titkosítás"
 
 msgid "Sign message"
 msgstr "Üzenet aláírása"
@@ -6623,9 +6766,6 @@ msgstr ""
 "Biztosítsa az üzenet hitelességét azzal, hogy digitálisan aláírja. Az üzenet "
 "bármely változtatása az aláírást érvényteleníti."
 
-msgid "Encrypt"
-msgstr "Titkosít"
-
 msgid "Encrypt message"
 msgstr "Üzenet titkosítása"
 
@@ -6636,8 +6776,14 @@ msgstr ""
 "Biztosítsa az üzenet titkosságát azzal, hogy titkosítja. Csak az üzenet "
 "címzettje fogja tudni megnyitni."
 
+msgid "Algorithms used"
+msgstr "Alkalmazott algoritmusok"
+
 msgid "What's going on with my email?"
 msgstr "Mi történik a levelemmel?"
+
+msgid "CBC mode"
+msgstr "CBC üzemmód"
 
 #, fuzzy
 msgid ""
@@ -6759,6 +6905,39 @@ msgstr "A tanúsítványhitelesítési kiszolgáló (OCSP) átmenetileg nem elé
 msgid "Sender is removed from the server."
 msgstr "A feladó eltávolításra kerül a kiszolgálóról."
 
+msgid ""
+"The digital certificate used to sign this message has been revoked according "
+"to the Certificate Revocation List (CRL)."
+msgstr ""
+
+msgid ""
+"The revocation status of the certificate could not be verified because the "
+"CRL Distribution Point is unavailable."
+msgstr ""
+
+msgid ""
+"The RSA key size used in this certificate is below the recommended minimum "
+"of 2048 bits. Consider upgrading to a stronger certificate."
+msgstr ""
+
+msgid ""
+"The certificate's Key Usage extension does not permit this operation. The "
+"certificate may be intended for signing only or encryption only."
+msgstr ""
+
+msgid ""
+"This message was encrypted using CBC mode (not authenticated encryption). "
+"While it was decrypted successfully, AES-GCM (authenticated encryption) "
+"provides stronger protection against modification attacks. Consider asking "
+"the sender to upgrade their S/MIME configuration."
+msgstr ""
+
+msgid ""
+"The signing time in the digital signature differs significantly from the "
+"expected time. This may indicate a clock synchronization issue or message "
+"tampering."
+msgstr ""
+
 msgid "Signature verified successfully"
 msgstr "A tanúsítvány ellenőrzése sikeres"
 
@@ -6802,10 +6981,44 @@ msgid "Signature verified"
 msgstr "Ellenőrzött aláírás"
 
 msgid "Unable to decrypt this message. Certificate does not match"
-msgstr "Nem sikerült visszafejteni ezt az üzenetet. A tanúsítvány nem felel meg"
+msgstr ""
+"Nem sikerült visszafejteni ezt az üzenetet. A tanúsítvány nem felel meg"
 
 msgid "Verification failed. User is removed from the server."
-msgstr "Az ellenőrzés sikertelen. A felhasználót eltávolították a kiszolgálóról."
+msgstr ""
+"Az ellenőrzés sikertelen. A felhasználót eltávolították a kiszolgálóról."
+
+msgid "Certificate has been revoked (CRL)"
+msgstr "A tanúsítványt visszavonták (CRL)"
+
+msgid "Cannot check revocation status (CRL unavailable)"
+msgstr "Nem lehet ellenőrizni a visszavonási státuszt (CRL nem elérhető)"
+
+msgid "RSA key size below recommended minimum"
+msgstr "RSA kulcsméret az ajánlott minimum alatt"
+
+msgid "Certificate not valid for this operation (key usage mismatch)"
+msgstr "A tanúsítvány nem érvényes ehhez a művelethez (kulcshasználati eltérés)"
+
+msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
+msgstr ""
+"Dekódolás (CBC mód - az erősebb védelem érdekében fontolja meg az "
+"AES-GCM-et)"
+
+msgid "Signing time differs from expected time"
+msgstr "Az aláírási idő eltér a várt időtől"
+
+msgid "Digest"
+msgstr "Digest"
+
+msgid "Signature"
+msgstr "Aláírás"
+
+msgid "Cipher"
+msgstr "Cipher"
+
+msgid "Key transport"
+msgstr "Kulcsfontosságú szállítás"
 
 msgid "Charm pink"
 msgstr "Rózsaszín"
@@ -6945,8 +7158,8 @@ msgstr "Hibás felhasználónév vagy jelszó."
 
 msgid "File server is not reachable. Please verify the file server URL."
 msgstr ""
-"A fájlkiszolgáló nem érhető el. Kérjük, ellenőrizze a fájlkiszolgáló "
-"URL-címét."
+"A fájlkiszolgáló nem érhető el. Kérjük, ellenőrizze a fájlkiszolgáló URL-"
+"címét."
 
 msgid "You don't have enough permissions to view this file or folder."
 msgstr "Nincs elég jogosultsága a fájl vagy mappa megtekintéséhez."
@@ -6960,7 +7173,8 @@ msgstr ""
 "újra."
 
 msgid "This file is locked by another user. Please try again later."
-msgstr "Ezt a fájlt egy másik felhasználó zárolta. Kérjük, próbálja meg később újra."
+msgstr ""
+"Ezt a fájlt egy másik felhasználó zárolta. Kérjük, próbálja meg később újra."
 
 msgid "The request failed."
 msgstr "A kérés sikertelen volt."
@@ -7172,6 +7386,21 @@ msgstr ""
 msgid "Private certificate does not match email address"
 msgstr "A személyes tanúsítvány nem egyezik meg az email címmel"
 
+msgid "No email address specified"
+msgstr "Nincs megadott e-mail cím"
+
+msgid "No certificates found for this email address"
+msgstr "Ehhez az e-mail címhez nem találtak tanúsítványt"
+
+msgid "Unable to read certificates"
+msgstr "Tanúsítványok olvasása nem lehetséges"
+
+msgid "Unable to generate certs-only message"
+msgstr "Csak tanúsítványokat tartalmazó üzenet generálása nem lehetséges"
+
+msgid "LDAP not configured"
+msgstr "LDAP nincs konfigurálva"
+
 msgid "Missing public certificates for the following recipients: "
 msgstr "Hiányzó nyilvános tanúsítványok a következő címzettek esetében: "
 
@@ -7198,6 +7427,17 @@ msgstr "Privát kulccsal nem lehet üzenetet aláírni"
 msgid "Certificate email address doesn't match grommunio Web account "
 msgstr "A tanúsítvány e-mail címe nem egyezik a grommunio Web fiókkal "
 
+#, php-format
+msgid ""
+"RSA key size %d bits is below the recommended minimum of %d bits. "
+"Certificate was imported."
+msgstr ""
+
+msgid ""
+"EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully "
+"supported. Certificate was imported."
+msgstr ""
+
 msgid "Certificate was expired on "
 msgstr "A tanúsítvány lejárt ekkor: "
 
@@ -7218,8 +7458,7 @@ msgstr "Nem lehet nyilvános tanúsítványt olvasni"
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""
-"Nem lehet adatot hozzáadni a buszhoz, ha ugyanaz a művelettípus van a "
-"buszban"
+"Nem lehet adatot hozzáadni a buszhoz, ha ugyanaz a művelettípus van a buszban"
 
 msgid "Response data requested from bus but it doesn't have any data."
 msgstr "A buszról kért válaszadatok, de nincs adat."
@@ -7363,7 +7602,8 @@ msgstr ""
 "keresési mappa létrehozásához."
 
 msgid "Unable to perform search query, search folder not found."
-msgstr "Nem lehet keresési lekérdezést végrehajtani, a keresési mappa nem található."
+msgstr ""
+"Nem lehet keresési lekérdezést végrehajtani, a keresési mappa nem található."
 
 msgid "Unable to perform search query, store might not support searching."
 msgstr ""
@@ -7377,7 +7617,8 @@ msgid "Could not open occurrence."
 msgstr "Nem tudta megnyitni az eseményt."
 
 msgid "Could not open occurrence, specific occurrence is probably deleted."
-msgstr "Nem sikerült megnyitni az eseményt, az adott eseményt valószínűleg törölték."
+msgstr ""
+"Nem sikerült megnyitni az eseményt, az adott eseményt valószínűleg törölték."
 
 msgid "a meeting request"
 msgstr "egy találkozóra vonatkozó kérés"
@@ -7464,9 +7705,10 @@ msgstr "Kontingens hiba"
 msgid "Send quota limit reached"
 msgstr "Elérte a küldési kvótakorlátot"
 
-msgid "Email sending failed. Check the log files for more information."
+#, php-format
+msgid "Email sending failed (%s). Check the log files for more information."
 msgstr ""
-"Az e-mail küldése sikertelen. További információkért nézze meg a "
+"Az e-mail küldése sikertelen (%s). További információkért nézze meg a "
 "naplófájlokat."
 
 msgid "Unknown user/group"
@@ -7533,7 +7775,8 @@ msgid "Could not add folder to favorites."
 msgstr "Nem sikerült mappát hozzáadni a kedvencekhez."
 
 msgid "You have insufficient privileges to set permissions for this folder."
-msgstr "Nem rendelkezik elegendő jogosultsággal a mappa engedélyeinek beállításához."
+msgstr ""
+"Nem rendelkezik elegendő jogosultsággal a mappa engedélyeinek beállításához."
 
 msgid "Could not set folder permissions."
 msgstr "Nem sikerült beállítani a mappaengedélyeket."
@@ -7735,8 +7978,8 @@ msgstr "Nem tudta elfogadni a találkozó iránti kérelmet."
 
 msgid "You have insufficient privileges to cancel Meeting Request invitation."
 msgstr ""
-"Nem rendelkezik elegendő jogosultsággal ahhoz, hogy lemondja az "
-"értekezletre szóló meghívást."
+"Nem rendelkezik elegendő jogosultsággal ahhoz, hogy lemondja az értekezletre "
+"szóló meghívást."
 
 msgid "Could not cancel Meeting Request invitations."
 msgstr "Nem tudta törölni a találkozói meghívásokat."
@@ -7785,7 +8028,8 @@ msgid "Could not resolve user."
 msgstr "Nem sikerült feloldani a felhasználót."
 
 msgid "Setting mail filters on the stores of other users is not allowed."
-msgstr "A levelezési szűrők beállítása más felhasználók tárolóin nem megengedett."
+msgstr ""
+"A levelezési szűrők beállítása más felhasználók tárolóin nem megengedett."
 
 msgid "Untitled rule"
 msgstr "Cím nélküli szabály"

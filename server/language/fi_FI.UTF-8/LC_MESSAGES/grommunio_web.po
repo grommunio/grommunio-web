@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 23:43+0100\n"
+"POT-Creation-Date: 2026-03-12 22:26+0100\n"
 "PO-Revision-Date: 2022-07-26 15:25+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -327,6 +327,9 @@ msgstr "Sähköpostiosoitteet"
 msgid "Email addresses"
 msgstr "Sähköpostiosoitteet"
 
+msgid "Email Address"
+msgstr "Sähköpostiosoite"
+
 msgid "Group details"
 msgstr "Ryhmän tiedot"
 
@@ -339,17 +342,11 @@ msgstr "Näytettävä nimi"
 msgid "Alias"
 msgstr "Alias"
 
-msgid "Owner"
-msgstr "Omistaja"
-
 msgid "Notes"
 msgstr "Merkinnät"
 
 msgid "Members"
 msgstr "Jäsenet"
-
-msgid "Email Address"
-msgstr "Sähköpostiosoite"
 
 msgid "Account"
 msgstr "Tili"
@@ -378,11 +375,11 @@ msgstr "Nimikirjaimet"
 msgid "Display"
 msgstr "Näytä"
 
-msgid "Addresses"
-msgstr "Osoitteet"
-
 msgid "Address"
 msgstr "Osoite"
+
+msgid "Street"
+msgstr "Katuosoite"
 
 msgid "City"
 msgstr "Kaupunki"
@@ -432,8 +429,8 @@ msgstr "Puhelinnumerot"
 msgid "Business"
 msgstr "Liiketoiminta"
 
-msgid "Business2"
-msgstr "Liiketoiminta2"
+msgid "Business 2"
+msgstr "Liiketoiminta 2"
 
 msgid "Fax"
 msgstr "Faksi"
@@ -441,8 +438,8 @@ msgstr "Faksi"
 msgid "Home"
 msgstr "Koti"
 
-msgid "Home2"
-msgstr "Koti2"
+msgid "Home 2"
+msgstr "Koti 2"
 
 msgid "Mobile"
 msgstr "Matkapuhelin"
@@ -642,9 +639,6 @@ msgstr "Välitä"
 
 msgid "Edit as New"
 msgstr "Muokkaa uutena"
-
-msgid "Search tools"
-msgstr "Hakutyökalut"
 
 msgid "Folders"
 msgstr "Kansiot"
@@ -1051,7 +1045,8 @@ msgid "Busy attendees"
 msgstr "Kiireiset osallistujat"
 
 msgid "One or more attendees are busy. Are you sure to invite?"
-msgstr "Yksi tai useampi osallistuja on varattu. Oletko varma, että haluat kutsua?"
+msgstr ""
+"Yksi tai useampi osallistuja on varattu. Oletko varma, että haluat kutsua?"
 
 msgid "Scheduling"
 msgstr "Aikataulu"
@@ -1493,14 +1488,14 @@ msgstr "Tapaaminen on siirretty tai poistettu, haluatko jatkaa?"
 msgid "Options"
 msgstr "Valinnat"
 
+msgid "Icon"
+msgstr "Kuvake"
+
 msgid "All Day"
 msgstr "Koko päivä"
 
 msgid "Sort by: All Day"
 msgstr "Järjestä: Koko päivä"
-
-msgid "Icon"
-msgstr "Kuvake"
 
 msgid "Recurring"
 msgstr "Toistuva"
@@ -2190,6 +2185,9 @@ msgstr "Saapuneet viestit"
 msgid "Entire Inbox"
 msgstr "Koko Saapuneet viestit -kansio"
 
+msgid "Owner"
+msgstr "Omistaja"
+
 msgid "Secretary"
 msgstr "Sihteeri"
 
@@ -2473,17 +2471,6 @@ msgstr "Uusi viesti"
 
 msgid "Please select a Cc recipient record."
 msgstr "Valitse vastaanottaja."
-
-msgid "Manage Cc recipients"
-msgstr "Cc-vastaanottajien hallinta"
-
-#, fuzzy
-msgid ""
-"Cc recipients can be used to set a default Cc user in new mail, replies or "
-"both."
-msgstr ""
-"Cc-vastaanottajien avulla voit asettaa oletusarvoisen Cc-käyttäjän uusille "
-"sähköposteille, vastauksille tai molemmille."
 
 msgid "Help"
 msgstr "Ohje"
@@ -2953,14 +2940,47 @@ msgstr "Soveltaa muutoksia"
 msgid "Do you wish to apply the changes?"
 msgstr "Haluatko tallentaa muutokset?"
 
+msgid "Category"
+msgstr "Luokka"
+
+msgid "Recent searches"
+msgstr "Viimeisimmät haut"
+
+msgid "Filter by"
+msgstr "Suodata"
+
+msgid "Show"
+msgstr "Näytä"
+
+msgid "Operators"
+msgstr "Operaattorit"
+
+msgid "AND"
+msgstr "AND"
+
+msgid "OR"
+msgstr "TAI"
+
+msgid "NOT"
+msgstr "EI"
+
+msgid "Search in"
+msgstr "Haku osoitteessa"
+
 msgid "All folders"
 msgstr "Kaikki kansiot"
 
 msgid "Other…"
 msgstr "Muu…"
 
-msgid "Search in…"
-msgstr "Hae kohteesta…"
+msgid "Type"
+msgstr "Kirjoita"
+
+msgid "Search"
+msgstr "Etsi"
+
+msgid "Click to cycle: AND → OR → NOT"
+msgstr "Klikkaa pyöräilyä: JA → TAI → EI"
 
 msgid "Folder does not exist"
 msgstr "Kansiota ei ole olemassa"
@@ -3474,9 +3494,6 @@ msgstr "Puhelinnumero"
 msgid "Check address"
 msgstr "Tarkista osoite"
 
-msgid "Street"
-msgstr "Katuosoite"
-
 msgid "State/Province"
 msgstr "Osavaltio/Lääni"
 
@@ -3514,20 +3531,17 @@ msgstr "Vuosipäivä"
 msgid "Photo"
 msgstr "Valokuva"
 
+msgid "Addresses"
+msgstr "Osoitteet"
+
 msgid "Additional information"
 msgstr "Lisätiedot"
-
-msgid "Business 2"
-msgstr "Liiketoiminta 2"
 
 msgid "Callback"
 msgstr "Takaisinsoitto"
 
 msgid "Car"
 msgstr "Auto"
-
-msgid "Home 2"
-msgstr "Koti 2"
 
 msgid "Primary"
 msgstr "Ensisijainen"
@@ -3939,11 +3953,20 @@ msgstr "Punainen"
 msgid "Brown"
 msgstr "Ruskea"
 
+msgid "Logout"
+msgstr "Kirjaudu ulos"
+
+msgid "Appearance"
+msgstr "Ulkonäkö"
+
+msgid "Light"
+msgstr "Valo"
+
 msgid "Dark"
 msgstr "Tumma"
 
-msgid "Logout"
-msgstr "Kirjaudu ulos"
+msgid "Automatic"
+msgstr "Automaattinen"
 
 msgid "Switch view"
 msgstr "Vaihda näkymää"
@@ -3987,7 +4010,9 @@ msgstr "Puuttuu liite"
 msgid ""
 "Your message appears to reference an attachment but no file is attached. "
 "Send anyway?"
-msgstr "Viestisi näyttää viittaavan liitteeseen, mutta tiedostoa ei ole liitetty. Lähetetäänkö silti?"
+msgstr ""
+"Viestisi näyttää viittaavan liitteeseen, mutta tiedostoa ei ole liitetty. "
+"Lähetetäänkö silti?"
 
 msgid "No subject"
 msgstr "Ei aihetta"
@@ -4018,6 +4043,9 @@ msgstr "Piilota lisätiedot"
 
 msgid "Loaded {0} of {1}"
 msgstr "Ladattu {0} of {1}"
+
+msgid "Copied!"
+msgstr "Kopioitu!"
 
 msgid "Saving"
 msgstr "Tallennetaan"
@@ -4050,11 +4078,11 @@ msgstr "Tallentamattomat muutokset"
 msgid "Welcome to grommunio Web"
 msgstr "Tervetuloa grommunio Web"
 
-msgid "This is the first time you are using grommunio Web. "
-msgstr "Käytät grommunio Webiä ensimmäistä kertaa. "
+msgid "Set up your preferences to get started."
+msgstr "Määritä asetukset, jotta pääset alkuun."
 
-msgid "Please check the following settings before continuing."
-msgstr "Tarkista seuraavat asetukset ennen jatkamista."
+msgid "Get Started"
+msgstr "Aloita"
 
 msgid "Widget height"
 msgstr "Widgetin korkeus"
@@ -4129,6 +4157,18 @@ msgstr "Riittämättömät oikeudet"
 
 msgid "Not enough permissions to open this folder."
 msgstr "Sinula ei ole tarvittavia oikeuksia kansion avaamiseksi."
+
+msgid "Empty folder"
+msgstr "Tyhjä kansio"
+
+msgid "Emptying {0}… (0%)"
+msgstr "Tyhjennys {0}... (0%)"
+
+msgid "Successfully emptied {0}. ({1} items removed)"
+msgstr "Tyhjennetty onnistuneesti {0}. ({1} kohteet poistettu)"
+
+msgid "Emptying {0}… ({1}%)"
+msgstr "Tyhjennys {0}... ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4205,9 +4245,6 @@ msgstr "Ei määränpäätä"
 
 msgid "You must select a destination folder."
 msgstr "Kohdekansio on valittava."
-
-msgid "Type"
-msgstr "Kirjoita"
 
 msgid "Description"
 msgstr "Kuvaus"
@@ -4353,9 +4390,6 @@ msgstr "Avaa jaettu kansio/varasto"
 msgid "Rename folder"
 msgstr "Nimeä kansio uudelleen"
 
-msgid "Empty folder"
-msgstr "Tyhjä kansio"
-
 msgid "Empty Junk Email"
 msgstr "Tyhjennä roskapostiviestit"
 
@@ -4438,9 +4472,6 @@ msgstr "Haluatko varmasti tyhjentää kohteen {0}?"
 
 msgid "Show All"
 msgstr "Näytä kaikki"
-
-msgid "Show all folders"
-msgstr "Näytä kaikki kansiot"
 
 #, fuzzy
 msgid ""
@@ -4714,6 +4745,9 @@ msgstr "{A}Merkitse luetuksi automaattisesti {B} sekunnin kuluttua"
 msgid "View mail in this format"
 msgstr "Näytä posti tässä muodossa"
 
+msgid "Cc recipients"
+msgstr "Cc vastaanottajat"
+
 msgid "Right"
 msgstr "Oikea"
 
@@ -4835,6 +4869,12 @@ msgstr "max. "
 
 msgid "Sort by: Sent"
 msgstr "Järjestä: Lähetetty"
+
+msgid "Scheduled"
+msgstr "Aikataulutettu"
+
+msgid "Sort by: Scheduled"
+msgstr "Lajittelu: Suunniteltu"
 
 msgid "Modified"
 msgstr "Muokattu"
@@ -4970,11 +5010,8 @@ msgstr "Asetukset"
 msgid "Basic"
 msgstr "Perus"
 
-msgid "Account information - {0}"
-msgstr "Tilitiedot - {0}"
-
-msgid "Profile Picture"
-msgstr "Profiilikuva"
+msgid "System"
+msgstr "Järjestelmä"
 
 msgid "Language"
 msgstr "Kieli"
@@ -4984,6 +5021,9 @@ msgstr "Aloitus kansio"
 
 msgid "Theme"
 msgstr "Teema"
+
+msgid "Personal information"
+msgstr "Henkilökohtaiset tiedot"
 
 msgid "Select Default Folder"
 msgstr "Valitse oletuskansio"
@@ -5018,8 +5058,8 @@ msgstr "{0} Iconset"
 msgid "About"
 msgstr "Koskien"
 
-msgid "I want to display date and time in this format:"
-msgstr "Haluan näyttää päivämäärän ja kellonajan tässä muodossa:"
+msgid "Date & Time"
+msgstr "Päivämäärä ja aika"
 
 msgid "Short"
 msgstr "Lyhyt"
@@ -5027,23 +5067,20 @@ msgstr "Lyhyt"
 msgid "Long"
 msgstr "Pitkä"
 
-msgid "Time format:"
-msgstr "Aikamuoto:"
-
 msgid "12h clock"
 msgstr "12h kello"
 
 msgid "24h clock"
 msgstr "24h kello"
 
-msgid "Favorite settings"
-msgstr "Suosikki asetukset"
-
 msgid "Hide favorites"
 msgstr "Piilota suosikit"
 
 msgid "Unpin favorites from top"
 msgstr "Unpin suosikit ylhäältä"
+
+msgid "Interface"
+msgstr "Liitäntä"
 
 msgid "Give unread items a colored border"
 msgstr "Anna lukemattomille kohteille värillinen reunus"
@@ -5056,9 +5093,6 @@ msgstr "Näytä lukemattoman sähköpostin laskuri sovelluksen otsikossa"
 
 msgid "Hide widget panel"
 msgstr "Piilota widget-paneeli"
-
-msgid "Show search bar above folder list"
-msgstr "Näytä hakupalkki kansioluettelon yläpuolella"
 
 msgid "Auto"
 msgstr "Automaattinen"
@@ -5091,7 +5125,8 @@ msgid "Infinite Scroll"
 msgstr "Ääretön scrollaus"
 
 msgid "grommunio Web automatically loads additional items when you scroll down"
-msgstr "grommunio Web lataa automaattisesti lisää kohteita, kun selaat alaspäin"
+msgstr ""
+"grommunio Web lataa automaattisesti lisää kohteita, kun selaat alaspäin"
 
 msgid "Pagination"
 msgstr "Sivutus"
@@ -5113,8 +5148,8 @@ msgstr "Lataa {A} kohdetta per sivu."
 msgid "Keyboard Shortcuts"
 msgstr "Komennot/näppäinyhdistelmät"
 
-msgid "Part of basic keyboard shortcuts"
-msgstr "Osa perusnäppäimistön pikanäppäimiä"
+msgid "Extended"
+msgstr "Laajennettu"
 
 msgid "Keyboard shortcuts off"
 msgstr "Pikanäppäimet pois päältä"
@@ -5122,8 +5157,8 @@ msgstr "Pikanäppäimet pois päältä"
 msgid "Basic keyboard shortcuts on"
 msgstr "Perusnäppäimistön pikanäppäimet"
 
-msgid "All keyboard shortcuts on"
-msgstr "Kaikki pikanäppäimet"
+msgid "Extended shortcuts on"
+msgstr "Laajennetut pikanäppäimet"
 
 msgid "This change requires a reload of grommunio Web"
 msgstr "Tämä muutos vaatii grommunio Webin uudelleenlatauksen"
@@ -5157,8 +5192,7 @@ msgstr "{0} postilaatikosta on käytössä."
 
 msgid "You have exceeded hard quota, you can not send or receive mails."
 msgstr ""
-"Olet ylittänyt kovan kiintiön, et voi lähettää tai vastaanottaa "
-"sähköposteja."
+"Olet ylittänyt kovan kiintiön, et voi lähettää tai vastaanottaa sähköposteja."
 
 msgid "At {0} you won't be able to send mails."
 msgstr "Et voi lähettää viestejä, kun laatikon koko on {0}."
@@ -5211,17 +5245,36 @@ msgstr "Asetus"
 msgid "The setting '{0}' can not be edited"
 msgstr "Asetusta '{0}' ei voida muokata"
 
-msgid "Version information"
-msgstr "Versiotiedot"
+msgid "OpenID Connect"
+msgstr "OpenID Connect"
+
+msgid "Basic Authentication"
+msgstr "Perustodennus"
+
+msgid "System information"
+msgstr "Järjestelmätiedot"
 
 msgid "Gromox"
 msgstr "Gromox"
+
+msgid "Logged in via"
+msgstr "Kirjautunut sisään"
+
+msgid "Browser"
+msgstr "Selain"
+
+msgid "Maintenance"
+msgstr "Huolto"
+
+msgid "Reset all settings to defaults"
+msgstr "Nollaa kaikki asetukset oletusasetuksiin"
 
 msgid "Delete confirmation"
 msgstr "Poista vahvistus"
 
 msgid "Deleting the item(s) will also delete the original item(s)."
-msgstr "Kohteen (kohteiden) poistaminen poistaa myös alkuperäisen kohteen (kohteet)."
+msgstr ""
+"Kohteen (kohteiden) poistaminen poistaa myös alkuperäisen kohteen (kohteet)."
 
 msgid "Do you want to delete the item(s)?"
 msgstr "Haluatko poistaa kohteen (kohteet)?"
@@ -5620,10 +5673,14 @@ msgid "Loading model from server failed"
 msgstr "Mallin lataaminen palvelimelta epäonnistui"
 
 msgid "Out of Office is currently activated. Would you like to turn it off?"
-msgstr "Out of Office on tällä hetkellä aktivoitu. Haluatko ottaa sen pois päältä?"
+msgstr ""
+"Out of Office on tällä hetkellä aktivoitu. Haluatko ottaa sen pois päältä?"
 
 msgid "Archive"
 msgstr "Arkisto"
+
+msgid "Chat"
+msgstr "Chat"
 
 msgid "Open Chat at start"
 msgstr "Avaa chat, kun se käynnistetään"
@@ -5769,7 +5826,8 @@ msgid "Upload"
 msgstr "Lataa"
 
 msgid "At least one file is too large! Maximum allowed filesize: {0}."
-msgstr "Ainakin yksi tiedosto on liian suuri! Suurin sallittu tiedostokoko: {0}."
+msgstr ""
+"Ainakin yksi tiedosto on liian suuri! Suurin sallittu tiedostokoko: {0}."
 
 msgid "Keep both"
 msgstr "Pidä molemmat"
@@ -6095,7 +6153,8 @@ msgid "files selected"
 msgstr "valitut tiedostot"
 
 msgid "Authentication required, when using grommunio-files for the first time"
-msgstr "Tunnistautuminen vaaditaan, kun käytät grommunio-filesia ensimmäistä kertaa"
+msgstr ""
+"Tunnistautuminen vaaditaan, kun käytät grommunio-filesia ensimmäistä kertaa"
 
 msgid "Intranet"
 msgstr "Intranet"
@@ -6283,6 +6342,9 @@ msgstr "Viimeisin yhteys"
 msgid "Synchronize"
 msgstr "Synkronoida"
 
+msgid "Shared Folders"
+msgstr "Jaetut kansiot"
+
 msgid "Manage Shared Folders"
 msgstr "Hallitse jaettuja kansioita"
 
@@ -6348,6 +6410,12 @@ msgstr "Poista laite"
 msgid "Please enter your username and password"
 msgstr "Kirjoita käyttäjänimesi ja salasanasi"
 
+msgid "Type {0} to confirm"
+msgstr "Kirjoita {0} vahvistaaksesi"
+
+msgid "Please type {0} to confirm"
+msgstr "Kirjoita {0} vahvistaaksesi"
+
 msgid "Wipe only data related to this account"
 msgstr "Pyyhi vain tähän tiliin liittyvät tiedot"
 
@@ -6357,6 +6425,11 @@ msgstr "Pyyhi kaikki tiedot"
 msgid "Username"
 msgstr "Käyttäjätunnus"
 
+msgid ""
+"Do you really want to wipe your device?\n"
+" Type WIPE to confirm."
+msgstr ""
+
 #, fuzzy
 msgid ""
 "Do you really want to wipe your device?\n"
@@ -6364,6 +6437,11 @@ msgid ""
 msgstr ""
 "Haluatko todella pyyhkiä laitteesi?\n"
 " Vahvista syöttämällä salasanasi."
+
+msgid ""
+"Do you really want to remove your device?\n"
+" Type REMOVE to confirm."
+msgstr ""
 
 #, fuzzy
 msgid ""
@@ -6382,6 +6460,9 @@ msgstr "Huoneen nimi:"
 msgid "Room URL:"
 msgstr "Huoneen URL:"
 
+msgid "Meet"
+msgstr "Tapaa"
+
 msgid "Shift-click for advanced settings"
 msgstr "Shift-klikkaa lisäasetuksia varten"
 
@@ -6393,6 +6474,9 @@ msgstr "Avoin kokous:"
 
 msgid "Web tab"
 msgstr "Web-välilehti"
+
+msgid "Popup"
+msgstr "Popup"
 
 msgid "Hide the button in the main toolbar"
 msgstr "Piilota painike päätyökaluriviltä"
@@ -6422,16 +6506,20 @@ msgstr ""
 msgid "Add an invitation to the appointment description"
 msgstr "Lisää kutsu tapaamisen kuvaukseen"
 
-msgid "Invitation text"
-msgstr "Kutsun teksti"
+msgid "Invitation text (plain text)"
+msgstr "Kutsuteksti (tavallinen teksti)"
 
-#, fuzzy
 msgid ""
-"must contain %url% as a placeholder for the meeting link, empty the textbox "
-"to reset to default"
+"used when composing in plain text, must contain %url%, empty to reset to "
+"default"
 msgstr ""
-"täytyy sisältää %url% kokouslinkkiä varten, tyhjennä tekstikenttä "
-"palauttaaksesi oletusarvot"
+
+msgid "Invitation template (HTML)"
+msgstr "Kutsumalli (HTML)"
+
+msgid ""
+"used when composing in HTML, must contain %url%, empty to reset to default"
+msgstr ""
 
 msgid "An unknown error occurred while changing password."
 msgstr "Salasanaa vaihdettaessa tapahtui tuntematon virhe."
@@ -6519,6 +6607,21 @@ msgstr "Voimassa alkaa"
 msgid "Expires"
 msgstr "Umpeutuu"
 
+msgid "Key Type"
+msgstr "Avaintyyppi"
+
+msgid "Purpose"
+msgstr "Käyttötarkoitus"
+
+msgid "Sign"
+msgstr "Allekirjoita"
+
+msgid "Encrypt"
+msgstr "Salaa"
+
+msgid "Sign & Encrypt"
+msgstr "Allekirjoita ja salaa"
+
 msgid "Loading certificates"
 msgstr "Varmenteiden lataaminen"
 
@@ -6536,16 +6639,37 @@ msgstr ""
 "Haluatko todella poistaa yksityisen varmenteesi? Jos poistat varmenteesi, et "
 "voi allekirjoittaa tai purkaa S/MIME-sähköposteja."
 
+msgid "Signing"
+msgstr "Allekirjoitus"
+
+msgid "Encryption"
+msgstr "Salaus"
+
+msgid "Signing & Encryption"
+msgstr "Allekirjoitus ja salaus"
+
+msgid "Serial"
+msgstr "Sarjanumero"
+
+msgid "Issued by"
+msgstr "Myöntänyt"
+
+msgid "Issued to"
+msgstr "Myönnetty"
+
+msgid "SHA-256 Fingerprint"
+msgstr "SHA-256 sormenjälki"
+
+msgid "SHA-1 Fingerprint"
+msgstr "SHA-1 sormenjälki"
+
+msgid ""
+"Warning: RSA key size is below 2048 bits. Consider upgrading to a stronger "
+"certificate."
+msgstr ""
+
 msgid "Certificate details"
 msgstr "Todistuksen tiedot"
-
-#, fuzzy
-msgid ""
-"Below you can view and delete public & private certificate(s) stored on the "
-"server."
-msgstr ""
-"Alla voit tarkastella ja poistaa palvelimelle tallennettuja julkisia ja "
-"yksityisiä varmenteita."
 
 msgid "Filter on Email"
 msgstr "Suodata sähköpostia"
@@ -6564,6 +6688,18 @@ msgstr "Henkilökohtainen todistus"
 
 msgid "Change passphrase for last certificate"
 msgstr "Vaihda viimeisen varmenteen salasana"
+
+msgid "Default encryption algorithm"
+msgstr "Oletussalausalgoritmi"
+
+msgid "Recommended"
+msgstr "Suositeltu"
+
+msgid "Legacy"
+msgstr "Legacy"
+
+msgid "Default signing digest"
+msgstr "Oletusarvoisen allekirjoituksen tunnusluku"
 
 msgid "You have a valid certificate corresponding to your account"
 msgstr "Sinulla on tiliäsi vastaava voimassa oleva varmenne"
@@ -6589,11 +6725,19 @@ msgstr "Sinun on täytettävä varmenteen tunnuslause ladataksesi varmenteen."
 
 msgid "You must first select a valid private certificate in PKCS#12 format."
 msgstr ""
-"Sinun on ensin valittava voimassa oleva yksityinen varmenne "
-"PKCS#12-muodossa."
+"Sinun on ensin valittava voimassa oleva yksityinen varmenne PKCS#12-muodossa."
 
-msgid "Sign"
-msgstr "Allekirjoita"
+msgid "bits"
+msgstr "bitit"
+
+msgid "signing"
+msgstr "allekirjoittaminen"
+
+msgid "encryption"
+msgstr "salaus"
+
+msgid "signing & encryption"
+msgstr "allekirjoitus ja salaus"
 
 msgid "Sign message"
 msgstr "Merkin viesti"
@@ -6606,9 +6750,6 @@ msgstr ""
 "Varmista viestin aitous lisäämällä viestiin digitaalinen allekirjoitus. "
 "Kaikki viestiin tehtävät muutokset mitätöivät allekirjoituksen."
 
-msgid "Encrypt"
-msgstr "Salaa"
-
 msgid "Encrypt message"
 msgstr "Salaa viesti"
 
@@ -6620,8 +6761,14 @@ msgstr ""
 "Varmista viestin yksityisyys salaamalla sen sisältö. Vain viestin "
 "vastaanottaja voi avata sen."
 
+msgid "Algorithms used"
+msgstr "Käytetyt algoritmit"
+
 msgid "What's going on with my email?"
 msgstr "Mitä sähköpostilleni tapahtuu?"
+
+msgid "CBC mode"
+msgstr "CBC-tila"
 
 #, fuzzy
 msgid ""
@@ -6699,7 +6846,8 @@ msgstr ""
 "viestin allekirjoittamiseen käytetty varmenne on vanhentunut [pp.kk.vvvv]."
 
 msgid "The digital signature could not be verified for unknown reasons."
-msgstr "Digitaalista allekirjoitusta ei voitu tarkistaa tuntemattomasta syystä."
+msgstr ""
+"Digitaalista allekirjoitusta ei voitu tarkistaa tuntemattomasta syystä."
 
 #, fuzzy
 msgid ""
@@ -6742,6 +6890,39 @@ msgstr "Varmenteen tarkistuspalvelin (OCSP) on tilapäisesti pois käytöstä."
 
 msgid "Sender is removed from the server."
 msgstr "Lähettäjä poistetaan palvelimelta."
+
+msgid ""
+"The digital certificate used to sign this message has been revoked according "
+"to the Certificate Revocation List (CRL)."
+msgstr ""
+
+msgid ""
+"The revocation status of the certificate could not be verified because the "
+"CRL Distribution Point is unavailable."
+msgstr ""
+
+msgid ""
+"The RSA key size used in this certificate is below the recommended minimum "
+"of 2048 bits. Consider upgrading to a stronger certificate."
+msgstr ""
+
+msgid ""
+"The certificate's Key Usage extension does not permit this operation. The "
+"certificate may be intended for signing only or encryption only."
+msgstr ""
+
+msgid ""
+"This message was encrypted using CBC mode (not authenticated encryption). "
+"While it was decrypted successfully, AES-GCM (authenticated encryption) "
+"provides stronger protection against modification attacks. Consider asking "
+"the sender to upgrade their S/MIME configuration."
+msgstr ""
+
+msgid ""
+"The signing time in the digital signature differs significantly from the "
+"expected time. This may indicate a clock synchronization issue or message "
+"tampering."
+msgstr ""
 
 msgid "Signature verified successfully"
 msgstr "Allekirjoitus vahvistettu onnistuneesti"
@@ -6787,6 +6968,36 @@ msgstr "Tätä viestiä ei pystytä purkamaan. Varmenne ei vastaa"
 
 msgid "Verification failed. User is removed from the server."
 msgstr "Tarkastus epäonnistui. Käyttäjä on poistettu palvelimelta."
+
+msgid "Certificate has been revoked (CRL)"
+msgstr "Varmenne on peruutettu (CRL)"
+
+msgid "Cannot check revocation status (CRL unavailable)"
+msgstr "Peruutustilaa ei voi tarkistaa (CRL ei ole käytettävissä)"
+
+msgid "RSA key size below recommended minimum"
+msgstr "RSA-avaimen koko alle suositellun vähimmäiskoon"
+
+msgid "Certificate not valid for this operation (key usage mismatch)"
+msgstr "Varmenne ei kelpaa tälle toiminnolle (avaimen käyttö ei vastaa toisiaan)"
+
+msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
+msgstr "Purettu (CBC-tila - harkitse AES-GCM:ää vahvemman suojan saamiseksi)"
+
+msgid "Signing time differs from expected time"
+msgstr "Allekirjoitusaika poikkeaa odotetusta ajasta"
+
+msgid "Digest"
+msgstr "Digest"
+
+msgid "Signature"
+msgstr "Allekirjoitus"
+
+msgid "Cipher"
+msgstr "Cipher"
+
+msgid "Key transport"
+msgstr "Keskeinen liikenne"
 
 msgid "Charm pink"
 msgstr "Charm vaaleanpunainen"
@@ -6923,10 +7134,12 @@ msgid "Unauthorized. Wrong username or password."
 msgstr "Luvaton. Väärä käyttäjätunnus tai salasana."
 
 msgid "File server is not reachable. Please verify the file server URL."
-msgstr "Tiedostopalvelinta ei tavoiteta. Tarkista tiedostopalvelimen URL-osoite."
+msgstr ""
+"Tiedostopalvelinta ei tavoiteta. Tarkista tiedostopalvelimen URL-osoite."
 
 msgid "You don't have enough permissions to view this file or folder."
-msgstr "Sinulla ei ole tarpeeksi oikeuksia tämän tiedoston tai kansion tarkasteluun."
+msgstr ""
+"Sinulla ei ole tarpeeksi oikeuksia tämän tiedoston tai kansion tarkasteluun."
 
 msgid "The file or folder is not available anymore."
 msgstr "Tiedosto tai kansio ei ole enää käytettävissä."
@@ -6935,7 +7148,8 @@ msgid "Connection to the file server timed out. Please check again later."
 msgstr "Yhteys tiedostopalvelimeen katkesi. Tarkista myöhemmin uudelleen."
 
 msgid "This file is locked by another user. Please try again later."
-msgstr "Toinen käyttäjä on lukinnut tämän tiedoston. Yritä myöhemmin uudelleen."
+msgstr ""
+"Toinen käyttäjä on lukinnut tämän tiedoston. Yritä myöhemmin uudelleen."
 
 msgid "The request failed."
 msgstr "Pyyntö epäonnistui."
@@ -6954,8 +7168,8 @@ msgstr "PHP-Curl ei ole käytettävissä."
 
 msgid "With this backend, you can connect to any Seafile server."
 msgstr ""
-"Tämän backendin avulla voit muodostaa yhteyden mihin tahansa "
-"Seafile-palvelimeen."
+"Tämän backendin avulla voit muodostaa yhteyden mihin tahansa Seafile-"
+"palvelimeen."
 
 msgid "Files "
 msgstr "Tiedostot "
@@ -7038,8 +7252,8 @@ msgstr "Jakamisen poistaminen epäonnistui"
 
 msgid "With this backend, you can connect to any WebDAV server."
 msgstr ""
-"Tämän backendin avulla voit muodostaa yhteyden mihin tahansa "
-"WebDAV-palvelimeen."
+"Tämän backendin avulla voit muodostaa yhteyden mihin tahansa WebDAV-"
+"palvelimeen."
 
 msgid "Files WebDAV Backend: "
 msgstr "Tiedostot WebDAV Backend: "
@@ -7139,10 +7353,26 @@ msgid "Private certificate has expired, unable to sign email"
 msgstr "Yksityinen varmenne on vanhentunut, sähköpostia ei voi allekirjoittaa"
 
 msgid "Private certificate is not valid yet, unable to sign email"
-msgstr "Yksityinen varmenne ei ole vielä voimassa, sähköpostia ei voi allekirjoittaa"
+msgstr ""
+"Yksityinen varmenne ei ole vielä voimassa, sähköpostia ei voi allekirjoittaa"
 
 msgid "Private certificate does not match email address"
 msgstr "Yksityinen varmenne ei vastaa sähköpostiosoitetta"
+
+msgid "No email address specified"
+msgstr "Sähköpostiosoitetta ei ole määritetty"
+
+msgid "No certificates found for this email address"
+msgstr "Tälle sähköpostiosoitteelle ei löytynyt varmenteita"
+
+msgid "Unable to read certificates"
+msgstr "Varmenteiden lukeminen ei onnistu"
+
+msgid "Unable to generate certs-only message"
+msgstr "Vain varmenteita sisältävän viestin luominen ei onnistu"
+
+msgid "LDAP not configured"
+msgstr "LDAP ei ole määritetty"
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "Seuraavien vastaanottajien julkiset varmenteet puuttuvat: "
@@ -7169,6 +7399,17 @@ msgstr "Yksityistä avainta ei voi käyttää sähköpostin allekirjoittamiseen"
 
 msgid "Certificate email address doesn't match grommunio Web account "
 msgstr "Varmenteen sähköpostiosoite ei vastaa grommunio Web-tiliä "
+
+#, php-format
+msgid ""
+"RSA key size %d bits is below the recommended minimum of %d bits. "
+"Certificate was imported."
+msgstr ""
+
+msgid ""
+"EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully "
+"supported. Certificate was imported."
+msgstr ""
 
 msgid "Certificate was expired on "
 msgstr "Todistuksen voimassaolo päättyi "
@@ -7341,7 +7582,8 @@ msgid "Could not open occurrence."
 msgstr "Tapahtumaa ei voitu avata."
 
 msgid "Could not open occurrence, specific occurrence is probably deleted."
-msgstr "Esiintymää ei voitu avata, kyseinen esiintymä on todennäköisesti poistettu."
+msgstr ""
+"Esiintymää ei voitu avata, kyseinen esiintymä on todennäköisesti poistettu."
 
 msgid "a meeting request"
 msgstr "kokouspyyntö"
@@ -7428,9 +7670,9 @@ msgstr "Kiintiövirhe"
 msgid "Send quota limit reached"
 msgstr "Lähetyskiintiö saavutettu"
 
-msgid "Email sending failed. Check the log files for more information."
-msgstr ""
-"Sähköpostin lähetys epäonnistui. Tarkista lokitiedostoista lisätietoja."
+#, php-format
+msgid "Email sending failed (%s). Check the log files for more information."
+msgstr "Sähköpostin lähetys epäonnistui (%s). Tarkista lokitiedostoista lisätietoja."
 
 msgid "Unknown user/group"
 msgstr "Tuntematon käyttäjä/ryhmä"

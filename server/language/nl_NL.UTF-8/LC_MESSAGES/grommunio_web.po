@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Dutch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 23:43+0100\n"
+"POT-Creation-Date: 2026-03-12 22:26+0100\n"
 "PO-Revision-Date: 2022-12-11 14:12+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/grommunio/"
@@ -334,6 +334,9 @@ msgstr "Emailadressen"
 msgid "Email addresses"
 msgstr "Emailadressen"
 
+msgid "Email Address"
+msgstr "E-mailadres"
+
 msgid "Group details"
 msgstr "Groepdetails"
 
@@ -346,17 +349,11 @@ msgstr "Weergavenaam"
 msgid "Alias"
 msgstr "Alias"
 
-msgid "Owner"
-msgstr "Eigenaar"
-
 msgid "Notes"
 msgstr "Notities"
 
 msgid "Members"
 msgstr "Leden"
-
-msgid "Email Address"
-msgstr "E-mailadres"
 
 msgid "Account"
 msgstr "Account"
@@ -385,11 +382,11 @@ msgstr "Initialen"
 msgid "Display"
 msgstr "Tonen als"
 
-msgid "Addresses"
-msgstr "Adressen"
-
 msgid "Address"
 msgstr "Adres"
+
+msgid "Street"
+msgstr "Straat"
 
 msgid "City"
 msgstr "Stad"
@@ -439,8 +436,8 @@ msgstr "Telefoonnummers"
 msgid "Business"
 msgstr "Bedrijf"
 
-msgid "Business2"
-msgstr "Bedrijf2"
+msgid "Business 2"
+msgstr "Business 2"
 
 msgid "Fax"
 msgstr "Fax"
@@ -448,8 +445,8 @@ msgstr "Fax"
 msgid "Home"
 msgstr "Thuis"
 
-msgid "Home2"
-msgstr "Thuis2"
+msgid "Home 2"
+msgstr "Thuis 2"
 
 msgid "Mobile"
 msgstr "Mobiel"
@@ -648,9 +645,6 @@ msgstr "Doorsturen"
 
 msgid "Edit as New"
 msgstr "Als nieuw bewerken"
-
-msgid "Search tools"
-msgstr "Zoek opties"
 
 msgid "Folders"
 msgstr "Mappen"
@@ -1500,14 +1494,14 @@ msgstr "Deze afspraak is verplaatst of verwijderd, wilt u doorgaan?"
 msgid "Options"
 msgstr "Opties"
 
+msgid "Icon"
+msgstr "Icoon"
+
 msgid "All Day"
 msgstr "Hele dag"
 
 msgid "Sort by: All Day"
 msgstr "Sorteer op: Hele dag"
-
-msgid "Icon"
-msgstr "Icoon"
 
 msgid "Recurring"
 msgstr "Terugkerend"
@@ -2183,6 +2177,9 @@ msgstr "Postvak In"
 msgid "Entire Inbox"
 msgstr "Alle Mappen"
 
+msgid "Owner"
+msgstr "Eigenaar"
+
 msgid "Secretary"
 msgstr "Secretaresse"
 
@@ -2465,16 +2462,6 @@ msgstr "Nieuwe email"
 
 msgid "Please select a Cc recipient record."
 msgstr "Selecteer een Cc ontvanger."
-
-msgid "Manage Cc recipients"
-msgstr "Beheer Cc ontvangers"
-
-msgid ""
-"Cc recipients can be used to set a default Cc user in new mail, replies or "
-"both."
-msgstr ""
-"Cc ontvangers kunnen gebruikt worden om een gebruiker toe te voegen in het "
-"Cc veld, in nieuwe mail, antwoorden of beide."
 
 msgid "Help"
 msgstr "Hulp"
@@ -2944,14 +2931,47 @@ msgstr "Pas veranderingen toe"
 msgid "Do you wish to apply the changes?"
 msgstr "Wilt u de wijzigingen opslaan?"
 
+msgid "Category"
+msgstr "Categorie"
+
+msgid "Recent searches"
+msgstr "Recente zoekopdrachten"
+
+msgid "Filter by"
+msgstr "Filter op"
+
+msgid "Show"
+msgstr "Toon"
+
+msgid "Operators"
+msgstr "Bedieningspersoneel"
+
+msgid "AND"
+msgstr "EN"
+
+msgid "OR"
+msgstr "OF"
+
+msgid "NOT"
+msgstr "NIET"
+
+msgid "Search in"
+msgstr "Zoeken in"
+
 msgid "All folders"
 msgstr "Alle mappen"
 
 msgid "Other…"
 msgstr "Andere…"
 
-msgid "Search in…"
-msgstr "Zoeken in…"
+msgid "Type"
+msgstr "Type"
+
+msgid "Search"
+msgstr "Zoek op"
+
+msgid "Click to cycle: AND → OR → NOT"
+msgstr "Klik om te fietsen: AND → OR → NOT"
 
 msgid "Folder does not exist"
 msgstr "Map bestaat niet"
@@ -3458,9 +3478,6 @@ msgstr "Telefoonnummer"
 msgid "Check address"
 msgstr "Controleer adres"
 
-msgid "Street"
-msgstr "Straat"
-
 msgid "State/Province"
 msgstr "Staat/Provincie"
 
@@ -3498,20 +3515,17 @@ msgstr "Jubileum"
 msgid "Photo"
 msgstr "Foto"
 
+msgid "Addresses"
+msgstr "Adressen"
+
 msgid "Additional information"
 msgstr "Extra informatie"
-
-msgid "Business 2"
-msgstr "Business 2"
 
 msgid "Callback"
 msgstr "Terugbellen"
 
 msgid "Car"
 msgstr "Auto"
-
-msgid "Home 2"
-msgstr "Thuis 2"
 
 msgid "Primary"
 msgstr "Primaire"
@@ -3918,11 +3932,20 @@ msgstr "Rood"
 msgid "Brown"
 msgstr "Bruin"
 
+msgid "Logout"
+msgstr "Afmelden"
+
+msgid "Appearance"
+msgstr "Uiterlijk"
+
+msgid "Light"
+msgstr "Licht"
+
 msgid "Dark"
 msgstr "Donker"
 
-msgid "Logout"
-msgstr "Afmelden"
+msgid "Automatic"
+msgstr "Automatisch"
 
 msgid "Switch view"
 msgstr "Weergave wijzigen"
@@ -3966,7 +3989,9 @@ msgstr "Ontbrekende bijlage"
 msgid ""
 "Your message appears to reference an attachment but no file is attached. "
 "Send anyway?"
-msgstr "Het lijkt erop dat uw bericht naar een bijlage verwijst, maar er is geen bestand bijgevoegd. Toch versturen?"
+msgstr ""
+"Het lijkt erop dat uw bericht naar een bijlage verwijst, maar er is geen "
+"bestand bijgevoegd. Toch versturen?"
 
 msgid "No subject"
 msgstr "Geen onderwerp"
@@ -3998,6 +4023,9 @@ msgstr "Details verbergen"
 msgid "Loaded {0} of {1}"
 msgstr "Geladen {0} van {1}"
 
+msgid "Copied!"
+msgstr "Gekopieerd!"
+
 msgid "Saving"
 msgstr "Opslaan"
 
@@ -4028,11 +4056,11 @@ msgstr "Niet-opgeslagen aanpassingen"
 msgid "Welcome to grommunio Web"
 msgstr "Welkom bij grommunio Web"
 
-msgid "This is the first time you are using grommunio Web. "
-msgstr "Dit is de eerste keer dat je grommunio Web gebruikt. "
+msgid "Set up your preferences to get started."
+msgstr "Stel je voorkeuren in om te beginnen."
 
-msgid "Please check the following settings before continuing."
-msgstr "Controleer de volgende settings voordat je verder gaat."
+msgid "Get Started"
+msgstr "Aan de slag"
 
 msgid "Widget height"
 msgstr "Widget hoogte"
@@ -4107,6 +4135,18 @@ msgstr "Onvoldoende rechten"
 
 msgid "Not enough permissions to open this folder."
 msgstr "Geen permissies om deze map te openen."
+
+msgid "Empty folder"
+msgstr "Leeg folder"
+
+msgid "Emptying {0}… (0%)"
+msgstr "{0}legen ... (0%)"
+
+msgid "Successfully emptied {0}. ({1} items removed)"
+msgstr "{0} met succes geleegd. ({1} items verwijderd)"
+
+msgid "Emptying {0}… ({1}%)"
+msgstr "Leegmaken {0}... ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4183,9 +4223,6 @@ msgstr "Geen bestemming"
 
 msgid "You must select a destination folder."
 msgstr "U moet een bestemmingsmap selecteren."
-
-msgid "Type"
-msgstr "Type"
 
 msgid "Description"
 msgstr "Omschrijving"
@@ -4331,9 +4368,6 @@ msgstr "Open gedeelde map of opslag"
 msgid "Rename folder"
 msgstr "Map hernoemen"
 
-msgid "Empty folder"
-msgstr "Leeg folder"
-
 msgid "Empty Junk Email"
 msgstr "Ongewenste Email legen"
 
@@ -4416,9 +4450,6 @@ msgstr "Weet u zeker dat u {0} wilt leegmaken?"
 
 msgid "Show All"
 msgstr "Toon alle"
-
-msgid "Show all folders"
-msgstr "Toon alle mappen"
 
 msgid ""
 "You have insufficient privileges to move this folder. Would you like to copy "
@@ -4688,6 +4719,9 @@ msgstr "{A}E-mail automatisch als gelezen markeren na {B} seconde(n)"
 msgid "View mail in this format"
 msgstr "Bekijk mail in dit formaat"
 
+msgid "Cc recipients"
+msgstr "Cc ontvangers"
+
 msgid "Right"
 msgstr "Rechts"
 
@@ -4804,6 +4838,12 @@ msgstr "max. "
 
 msgid "Sort by: Sent"
 msgstr "Sorteer op: Verzonden"
+
+msgid "Scheduled"
+msgstr "Gepland"
+
+msgid "Sort by: Scheduled"
+msgstr "Sorteren op: Gepland"
 
 msgid "Modified"
 msgstr "Aangepast"
@@ -4938,11 +4978,8 @@ msgstr "Opties"
 msgid "Basic"
 msgstr "Basis"
 
-msgid "Account information - {0}"
-msgstr "Rekeninginformatie - {0}"
-
-msgid "Profile Picture"
-msgstr "Profielfoto"
+msgid "System"
+msgstr "Systeem"
 
 msgid "Language"
 msgstr "Taal"
@@ -4952,6 +4989,9 @@ msgstr "Opstartmap"
 
 msgid "Theme"
 msgstr "Thema"
+
+msgid "Personal information"
+msgstr "Persoonlijke informatie"
 
 msgid "Select Default Folder"
 msgstr "Selecteer standaard map"
@@ -4986,8 +5026,8 @@ msgstr "{0} Iconen"
 msgid "About"
 msgstr "Over"
 
-msgid "I want to display date and time in this format:"
-msgstr "Laat de datum en tijd in dit formaat zien:"
+msgid "Date & Time"
+msgstr "Datum en tijd"
 
 msgid "Short"
 msgstr "Kort"
@@ -4995,23 +5035,20 @@ msgstr "Kort"
 msgid "Long"
 msgstr "Lang"
 
-msgid "Time format:"
-msgstr "Tijdsformaat:"
-
 msgid "12h clock"
 msgstr "12‑uursnotatie"
 
 msgid "24h clock"
 msgstr "24‑uursnotatie"
 
-msgid "Favorite settings"
-msgstr "Instellingen voor favorieten"
-
 msgid "Hide favorites"
 msgstr "Verberg favorieten"
 
 msgid "Unpin favorites from top"
 msgstr "Maak favorieten los van de bovenkant"
+
+msgid "Interface"
+msgstr "Interface"
 
 msgid "Give unread items a colored border"
 msgstr "Geef ongelezen items een gekleurde rand"
@@ -5024,9 +5061,6 @@ msgstr "Laat ongelezen email teller zien in applicatie titel"
 
 msgid "Hide widget panel"
 msgstr "Widget paneel verbergen"
-
-msgid "Show search bar above folder list"
-msgstr "Zoekbalk tonen boven mappenlijst"
 
 msgid "Auto"
 msgstr "Auto"
@@ -5081,8 +5115,8 @@ msgstr "Laad {A} items per pagina."
 msgid "Keyboard Shortcuts"
 msgstr "Sneltoetsen"
 
-msgid "Part of basic keyboard shortcuts"
-msgstr "Onderdeel van basis sneltoetsen"
+msgid "Extended"
+msgstr "Uitgebreide"
 
 msgid "Keyboard shortcuts off"
 msgstr "Sneltoetsen uitgeschakeld"
@@ -5090,8 +5124,8 @@ msgstr "Sneltoetsen uitgeschakeld"
 msgid "Basic keyboard shortcuts on"
 msgstr "Basis sneltoetsen ingeschakeld"
 
-msgid "All keyboard shortcuts on"
-msgstr "Alle sneltoetsen ingeschakeld"
+msgid "Extended shortcuts on"
+msgstr "Uitgebreide snelkoppelingen op"
 
 msgid "This change requires a reload of grommunio Web"
 msgstr "Deze verandering vereist een herlading van grommunio Web"
@@ -5176,11 +5210,29 @@ msgstr "Instelling"
 msgid "The setting '{0}' can not be edited"
 msgstr "De instelling '{0}' kan niet bewerkt worden"
 
-msgid "Version information"
-msgstr "Versie-informatie"
+msgid "OpenID Connect"
+msgstr "OpenID verbinding"
+
+msgid "Basic Authentication"
+msgstr "Basisverificatie"
+
+msgid "System information"
+msgstr "Systeeminformatie"
 
 msgid "Gromox"
 msgstr "Gromox"
+
+msgid "Logged in via"
+msgstr "Aangemeld via"
+
+msgid "Browser"
+msgstr "Browser"
+
+msgid "Maintenance"
+msgstr "Onderhoud"
+
+msgid "Reset all settings to defaults"
+msgstr "Alle instellingen terugzetten op standaardwaarden"
 
 msgid "Delete confirmation"
 msgstr "Bevestig verwijderen"
@@ -5588,6 +5640,9 @@ msgstr "De Afwezigheidsassistent is ingeschakeld. Wilt u deze uitschakelen?"
 
 msgid "Archive"
 msgstr "Archief"
+
+msgid "Chat"
+msgstr "Chat"
 
 msgid "Open Chat at start"
 msgstr "Open chat wanneer gestart"
@@ -6248,6 +6303,9 @@ msgstr "Laatste verbinding"
 msgid "Synchronize"
 msgstr "Synchroniseren"
 
+msgid "Shared Folders"
+msgstr "Gedeelde mappen"
+
 msgid "Manage Shared Folders"
 msgstr "Gedeelde map beheren"
 
@@ -6311,6 +6369,12 @@ msgstr "Apparaat verwijderen"
 msgid "Please enter your username and password"
 msgstr "Voer uw gebruikersnaam en wachtwoord in"
 
+msgid "Type {0} to confirm"
+msgstr "Typ {0} om te bevestigen"
+
+msgid "Please type {0} to confirm"
+msgstr "Typ {0} om te bevestigen"
+
 msgid "Wipe only data related to this account"
 msgstr "Alleen gegevens met betrekking tot deze account wissen"
 
@@ -6322,10 +6386,20 @@ msgstr "Gebruikersnaam"
 
 msgid ""
 "Do you really want to wipe your device?\n"
+" Type WIPE to confirm."
+msgstr ""
+
+msgid ""
+"Do you really want to wipe your device?\n"
 " Enter your password to confirm."
 msgstr ""
 "Weet u zeker dat u het apparaat wilt wissen?\n"
 " Voer uw wachtwoord in om te bevestigen."
+
+msgid ""
+"Do you really want to remove your device?\n"
+" Type REMOVE to confirm."
+msgstr ""
 
 msgid ""
 "Do you really want to remove your device?\n"
@@ -6343,6 +6417,9 @@ msgstr "Naam van de kamer:"
 msgid "Room URL:"
 msgstr "Kamer URL:"
 
+msgid "Meet"
+msgstr "Ontmoet"
+
 msgid "Shift-click for advanced settings"
 msgstr "Shift-klik voor geavanceerde instellingen"
 
@@ -6354,6 +6431,9 @@ msgstr "Open bijeenkomst in:"
 
 msgid "Web tab"
 msgstr "Web tab"
+
+msgid "Popup"
+msgstr "Pop-up"
 
 msgid "Hide the button in the main toolbar"
 msgstr "Verberg de knop in de hoofdwerkbalk"
@@ -6383,15 +6463,20 @@ msgstr ""
 msgid "Add an invitation to the appointment description"
 msgstr "Voeg een uitnodiging toe aan de beschrijving van de afspraak"
 
-msgid "Invitation text"
-msgstr "Uitnodigingstekst"
+msgid "Invitation text (plain text)"
+msgstr "Uitnodigingstekst (platte tekst)"
 
 msgid ""
-"must contain %url% as a placeholder for the meeting link, empty the textbox "
-"to reset to default"
+"used when composing in plain text, must contain %url%, empty to reset to "
+"default"
 msgstr ""
-"moet %url% bevatten als plaatshouder voor de vergaderlink, leeg het tekstvak "
-"om terug te zetten naar standaard"
+
+msgid "Invitation template (HTML)"
+msgstr "Uitnodigingssjabloon (HTML)"
+
+msgid ""
+"used when composing in HTML, must contain %url%, empty to reset to default"
+msgstr ""
 
 msgid "An unknown error occurred while changing password."
 msgstr ""
@@ -6479,6 +6564,21 @@ msgstr "Geldig vanaf"
 msgid "Expires"
 msgstr "Verloopt"
 
+msgid "Key Type"
+msgstr "Type sleutel"
+
+msgid "Purpose"
+msgstr "Doel"
+
+msgid "Sign"
+msgstr "Ondertekenen"
+
+msgid "Encrypt"
+msgstr "Versleutel"
+
+msgid "Sign & Encrypt"
+msgstr "Ondertekenen en coderen"
+
 msgid "Loading certificates"
 msgstr "Certificaten laden"
 
@@ -6495,15 +6595,37 @@ msgstr ""
 "Wilt u het privécertificaat echt verwijderen? Wanneer het certificaat is "
 "verwijderd kunnen S/MIME emails niet meer ondertekend of ontsleuteld worden."
 
-msgid "Certificate details"
-msgstr "Certificaatdetails"
+msgid "Signing"
+msgstr "Ondertekening"
+
+msgid "Encryption"
+msgstr "Encryptie"
+
+msgid "Signing & Encryption"
+msgstr "Ondertekening en codering"
+
+msgid "Serial"
+msgstr "Serie"
+
+msgid "Issued by"
+msgstr "Uitgegeven door"
+
+msgid "Issued to"
+msgstr "Uitgegeven aan"
+
+msgid "SHA-256 Fingerprint"
+msgstr "SHA-256 vingerafdruk"
+
+msgid "SHA-1 Fingerprint"
+msgstr "SHA-1 vingerafdruk"
 
 msgid ""
-"Below you can view and delete public & private certificate(s) stored on the "
-"server."
+"Warning: RSA key size is below 2048 bits. Consider upgrading to a stronger "
+"certificate."
 msgstr ""
-"Hieronder kunnen op de server opgeslagen privé & publieke certificaten "
-"worden ingezien en verwijderd."
+
+msgid "Certificate details"
+msgstr "Certificaatdetails"
 
 msgid "Filter on Email"
 msgstr "Filter op email"
@@ -6522,6 +6644,18 @@ msgstr "Persoonlijk certificaat"
 
 msgid "Change passphrase for last certificate"
 msgstr "Wijzig passphrase voor laatste certificaat"
+
+msgid "Default encryption algorithm"
+msgstr "Standaard encryptie-algoritme"
+
+msgid "Recommended"
+msgstr "Aanbevolen"
+
+msgid "Legacy"
+msgstr "Erfenis"
+
+msgid "Default signing digest"
+msgstr "Standaard ondertekeningsbestand"
 
 msgid "You have a valid certificate corresponding to your account"
 msgstr "Er is een geldig certificaat gekoppeld aan uw account"
@@ -6548,8 +6682,17 @@ msgid "You must first select a valid private certificate in PKCS#12 format."
 msgstr ""
 "Er moet een geldige privésleutel in PKCS#12 formaat worden geselecteerd."
 
-msgid "Sign"
-msgstr "Ondertekenen"
+msgid "bits"
+msgstr "bits"
+
+msgid "signing"
+msgstr "ondertekening"
+
+msgid "encryption"
+msgstr "encryptie"
+
+msgid "signing & encryption"
+msgstr "ondertekening en encryptie"
 
 msgid "Sign message"
 msgstr "Bericht ondertekenen"
@@ -6562,9 +6705,6 @@ msgstr ""
 "dit bericht toe te voegen. Wijzigingen aan het bericht maken de handtekening "
 "ongeldig."
 
-msgid "Encrypt"
-msgstr "Versleutel"
-
 msgid "Encrypt message"
 msgstr "Bericht versleutelen"
 
@@ -6575,8 +6715,14 @@ msgstr ""
 "Garandeer de privacy van het bericht door de inhoud te versleutelen. Alleen "
 "de ontvanger van het bericht zal het kunnen openen."
 
+msgid "Algorithms used"
+msgstr "Gebruikte algoritmen"
+
 msgid "What's going on with my email?"
 msgstr "Wat gebeurt er met mijn email?"
+
+msgid "CBC mode"
+msgstr "CBC-modus"
 
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
@@ -6696,6 +6842,39 @@ msgstr ""
 msgid "Sender is removed from the server."
 msgstr "Verzender is verwijderd van de server."
 
+msgid ""
+"The digital certificate used to sign this message has been revoked according "
+"to the Certificate Revocation List (CRL)."
+msgstr ""
+
+msgid ""
+"The revocation status of the certificate could not be verified because the "
+"CRL Distribution Point is unavailable."
+msgstr ""
+
+msgid ""
+"The RSA key size used in this certificate is below the recommended minimum "
+"of 2048 bits. Consider upgrading to a stronger certificate."
+msgstr ""
+
+msgid ""
+"The certificate's Key Usage extension does not permit this operation. The "
+"certificate may be intended for signing only or encryption only."
+msgstr ""
+
+msgid ""
+"This message was encrypted using CBC mode (not authenticated encryption). "
+"While it was decrypted successfully, AES-GCM (authenticated encryption) "
+"provides stronger protection against modification attacks. Consider asking "
+"the sender to upgrade their S/MIME configuration."
+msgstr ""
+
+msgid ""
+"The signing time in the digital signature differs significantly from the "
+"expected time. This may indicate a clock synchronization issue or message "
+"tampering."
+msgstr ""
+
 msgid "Signature verified successfully"
 msgstr "Handtekening succesvol gevalideerd"
 
@@ -6741,6 +6920,38 @@ msgstr "Kan het bericht niet ontsleutelen. Certificaat komt niet overeen"
 
 msgid "Verification failed. User is removed from the server."
 msgstr "Verificatie gefaald. De gebruiker is verwijderd van de server."
+
+msgid "Certificate has been revoked (CRL)"
+msgstr "Certificaat is ingetrokken (CRL)"
+
+msgid "Cannot check revocation status (CRL unavailable)"
+msgstr "Kan intrekkingsstatus niet controleren (CRL niet beschikbaar)"
+
+msgid "RSA key size below recommended minimum"
+msgstr "RSA-sleutelgrootte onder aanbevolen minimum"
+
+msgid "Certificate not valid for this operation (key usage mismatch)"
+msgstr ""
+"Certificaat niet geldig voor deze bewerking (sleutelgebruik komt niet "
+"overeen)"
+
+msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
+msgstr "Ontcijferd (CBC-modus - overweeg AES-GCM voor sterkere bescherming)"
+
+msgid "Signing time differs from expected time"
+msgstr "Ondertekeningstijd wijkt af van verwachte tijd"
+
+msgid "Digest"
+msgstr "Verteren"
+
+msgid "Signature"
+msgstr "Handtekening"
+
+msgid "Cipher"
+msgstr "Cijfer"
+
+msgid "Key transport"
+msgstr "Belangrijk transport"
 
 msgid "Charm pink"
 msgstr "Charm roze"
@@ -7101,6 +7312,21 @@ msgstr "Privé certificaat is nog niet geldig, kan email niet ondertekenen"
 msgid "Private certificate does not match email address"
 msgstr "Privé certificaat komt niet overeen met email adres"
 
+msgid "No email address specified"
+msgstr "Geen e-mailadres opgegeven"
+
+msgid "No certificates found for this email address"
+msgstr "Geen certificaten gevonden voor dit e-mailadres"
+
+msgid "Unable to read certificates"
+msgstr "Kan certificaten niet lezen"
+
+msgid "Unable to generate certs-only message"
+msgstr "Kan alleen certs bericht niet genereren"
+
+msgid "LDAP not configured"
+msgstr "LDAP niet geconfigureerd"
+
 msgid "Missing public certificates for the following recipients: "
 msgstr "Ontbrekend publiek certificaat voor de volgende ontvangers: "
 
@@ -7128,6 +7354,17 @@ msgid "Certificate email address doesn't match grommunio Web account "
 msgstr ""
 "Het e-mailadres van het certificaat komt niet overeen met het grommunio-"
 "webaccount "
+
+#, php-format
+msgid ""
+"RSA key size %d bits is below the recommended minimum of %d bits. "
+"Certificate was imported."
+msgstr ""
+
+msgid ""
+"EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully "
+"supported. Certificate was imported."
+msgstr ""
 
 msgid "Certificate was expired on "
 msgstr "Certificaat verlopen op "
@@ -7388,10 +7625,11 @@ msgstr "Quota fout"
 msgid "Send quota limit reached"
 msgstr "Limiet verzendquota bereikt"
 
-msgid "Email sending failed. Check the log files for more information."
+#, php-format
+msgid "Email sending failed (%s). Check the log files for more information."
 msgstr ""
-"Het verzenden van e-mail is mislukt. Controleer de logbestanden voor meer "
-"informatie."
+"Het verzenden van e-mail is mislukt (%s). Controleer de logbestanden voor "
+"meer informatie."
 
 msgid "Unknown user/group"
 msgstr "Onbekende gebruiker/groep"

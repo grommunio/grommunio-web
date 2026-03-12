@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Swedish (Sweden)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 23:43+0100\n"
+"POT-Creation-Date: 2026-03-12 22:26+0100\n"
 "PO-Revision-Date: 2026-02-17 22:26+0000\n"
 "Last-Translator: DeepL <noreply-mt-deepl@weblate.org>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/grommunio/"
@@ -322,153 +322,14 @@ msgstr "Detta fält ska bara innehålla bokstäver och _"
 msgid "This field should only contain letters, numbers and _"
 msgstr "Detta fält ska bara innehålla bokstäver, siffror och _"
 
-msgid "Tomorrow"
-msgstr "I morgon"
-
-msgid "d-m-Y"
-msgstr "d-m-Y"
-
-msgid "D {0}"
-msgstr "D {0}"
-
-msgid "D d-m"
-msgstr "D d-m"
-
-msgid "Click the link to open the URL in a new window."
-msgstr "Klicka på länken för att öppna URL:en i ett nytt fönster."
-
-msgid "Error"
-msgstr "Fel"
-
-msgid "The server reported an unknown error on your request."
-msgstr "Servern rapporterade ett okänt fel på din begäran."
-
-msgid "The server reported an unspecified error on your request."
-msgstr "Servern rapporterade ett ospecificerat fel på din begäran."
-
-msgid "The session has expired, reauthentication is required."
-msgstr "Sessionen har löpt ut, omautentisering krävs."
-
-msgid ""
-"The session in the current browser window has been closed from another "
-"browser window or tab."
-msgstr ""
-"Sessionen i det aktuella webbläsarfönstret har stängts från ett annat "
-"webbläsarfönster eller flik."
-
-msgid "Session expired"
-msgstr "Sessionen har löpt ut"
-
-msgid "Do you wish to be redirected to the logon page?"
-msgstr "Vill du bli omdirigerad till inloggningssidan?"
-
-msgid "Reauthentication required, click here to go to back to logon page."
-msgstr ""
-"Återautentisering krävs, klicka här för att gå tillbaka till "
-"inloggningssidan."
-
-msgid "Connection problem"
-msgstr "Anslutningsproblem"
-
-msgid "Could not connect to server, retrying in {0} second(s)"
-msgstr ""
-"Det gick inte att ansluta till servern, försöker igen om {0} sekund(er)"
-
-msgid "Click to retry now"
-msgstr "Klicka för att försöka igen nu"
-
-msgid "Connection restored"
-msgstr "Anslutningen återställd"
-
-msgid "Connection with server has been restored"
-msgstr "Anslutningen till servern har återställts"
-
-#. TRANSLATORS: Example: HTTP 404
-msgid "HTTP {0}"
-msgstr "HTTP {0}"
-
-msgid "Invalid data received from the server"
-msgstr "Ogiltig data mottagen från servern"
-
-msgid "Missing store"
-msgstr "Saknad butik"
-
-msgid "The default store is missing from the hierarchy."
-msgstr "Standardarkivet saknas i hierarkin."
-
-msgid ""
-"Not all functionality of grommunio Web might be working properly because of "
-"this."
-msgstr ""
-"Alla funktioner hos grommunio Web kanske inte fungerar korrekt på grund av "
-"detta."
-
-msgctxt "hierarchy.foldername"
-msgid "Inbox"
-msgstr "Inkorg"
-
-msgctxt "hierarchy.foldername"
-msgid "Outbox"
-msgstr "Utkorg"
-
-msgctxt "hierarchy.foldername"
-msgid "Sent Items"
-msgstr "Skickade objekt"
-
-msgctxt "hierarchy.foldername"
-msgid "Deleted items"
-msgstr "Raderade objekt"
-
-msgctxt "hierarchy.foldername"
-msgid "Calendar"
-msgstr "Kalender"
-
-msgctxt "hierarchy.foldername"
-msgid "Contacts"
-msgstr "Kontakter"
-
-msgctxt "hierarchy.foldername"
-msgid "Drafts"
-msgstr "Utkast"
-
-msgctxt "hierarchy.foldername"
-msgid "Journal"
-msgstr "Journal"
-
-msgctxt "hierarchy.foldername"
-msgid "Notes"
-msgstr "Anteckningar"
-
-msgctxt "hierarchy.foldername"
-msgid "Tasks"
-msgstr "Uppgifter"
-
-msgctxt "hierarchy.foldername"
-msgid "Junk Email"
-msgstr "Skräppost"
-
-msgid "Missing folders"
-msgstr "Saknar mappar"
-
-msgid "The following required folder is missing in the hierarchy: {0}"
-msgid_plural "The following required folders are missing in the hierarchy: {0}"
-msgstr[0] "Följande nödvändiga mapp saknas i hierarkin: {0}"
-msgstr[1] "Följande nödvändiga mappar saknas i hierarkin: {0}"
-
-msgid "Loading model from server failed"
-msgstr "Det gick inte att ladda modellen från servern"
-
-msgid "Out of Office"
-msgstr "Utanför kontoret"
-
-msgid "Out of Office is currently activated. Would you like to turn it off?"
-msgstr "Out of Office är för närvarande aktiverat. Vill du stänga av den?"
-
 msgid "Email Addresses"
 msgstr "E-postadresser"
 
 msgid "Email addresses"
 msgstr "E-postadresser"
+
+msgid "Email Address"
+msgstr "E-postadress"
 
 msgid "Group details"
 msgstr "Gruppinformation"
@@ -482,17 +343,11 @@ msgstr "Visningsnamn"
 msgid "Alias"
 msgstr "Alias"
 
-msgid "Owner"
-msgstr "Ägare"
-
 msgid "Notes"
 msgstr "Anteckningar"
 
 msgid "Members"
 msgstr "Medlemmar"
-
-msgid "Email Address"
-msgstr "E-postadress"
 
 msgid "Account"
 msgstr "Konto"
@@ -521,11 +376,11 @@ msgstr "Initialer"
 msgid "Display"
 msgstr "Visa"
 
-msgid "Addresses"
-msgstr "Adresser"
-
 msgid "Address"
 msgstr "Adress"
+
+msgid "Street"
+msgstr "Gata"
 
 msgid "City"
 msgstr "Stad"
@@ -575,8 +430,8 @@ msgstr "Telefonnummer"
 msgid "Business"
 msgstr "Företag"
 
-msgid "Business2"
-msgstr "Affärer 2"
+msgid "Business 2"
+msgstr "Affär 2"
 
 msgid "Fax"
 msgstr "Fax"
@@ -584,8 +439,8 @@ msgstr "Fax"
 msgid "Home"
 msgstr "Hem"
 
-msgid "Home2"
-msgstr "Hem2"
+msgid "Home 2"
+msgstr "Hem 2"
 
 msgid "Mobile"
 msgstr "Mobil"
@@ -773,8 +628,17 @@ msgstr "Tillämpas"
 msgid "All folders are selected"
 msgstr "Alla mappar är markerade"
 
-msgid "Search tools"
-msgstr "Sökverktyg"
+msgid "Reply"
+msgstr "Svar"
+
+msgid "Reply All"
+msgstr "Svara alla"
+
+msgid "Forward"
+msgstr "Fram"
+
+msgid "Edit as New"
+msgstr "Redigera som ny"
 
 msgid "Folders"
 msgstr "Mappar"
@@ -835,23 +699,14 @@ msgstr "Kropp & tillbehör"
 msgid "Favorites"
 msgstr "Favoriter"
 
-msgid "Reply"
-msgstr "Svar"
-
-msgid "Reply All"
-msgstr "Svara alla"
-
-msgid "Forward"
-msgstr "Fram"
-
-msgid "Edit as New"
-msgstr "Redigera som ny"
-
 msgid "Select Folder"
 msgstr "Välj Mapp"
 
 msgid "Delete search folder"
 msgstr "Ta bort sökmapp"
+
+msgid "Sort by: Date"
+msgstr "Sortera efter: Datum"
 
 msgid "Loading Search results"
 msgstr "Laddar sökresultat"
@@ -869,9 +724,6 @@ msgstr ""
 msgid "Did you mean"
 msgstr "Menade du"
 
-msgid "Sort by: Date"
-msgstr "Sortera efter: Datum"
-
 msgid "With"
 msgstr "Med"
 
@@ -880,6 +732,9 @@ msgstr "Till"
 
 msgid "No date"
 msgstr "Inget datum"
+
+msgid "Error"
+msgstr "Fel"
 
 msgid ""
 "Could not accept proposal as this meeting is not available in calendar; It "
@@ -1006,6 +861,45 @@ msgstr "Ny mötestid föreslagen"
 msgid "and "
 msgstr "och"
 
+msgid "Sort by: Attachment"
+msgstr "Sortera efter: Bilaga"
+
+msgid "Sort by: Recurring"
+msgstr "Sortera efter: Återkommande"
+
+msgid "Sort by: Subject"
+msgstr "Sortera efter: Ämne"
+
+msgid "Start Date"
+msgstr "Startdatum"
+
+msgid "Sort by: Start Date"
+msgstr "Sortera efter: Startdatum"
+
+msgid "End Date"
+msgstr "Slutdatum"
+
+msgid "Sort by: End Date"
+msgstr "Sortera efter: Slutdatum"
+
+msgid "Organizer"
+msgstr "Arrangör"
+
+msgid "Required Attendee"
+msgstr "Obligatorisk deltagare"
+
+msgid "Optional Attendee"
+msgstr "Valfri deltagare"
+
+msgid "Show Time As"
+msgstr "Visa tid som"
+
+msgid "Recurrence pattern"
+msgstr "Återkommande mönster"
+
+msgid "All Day Event"
+msgstr "Heldagsevenemang"
+
 msgid "Add Shared Calendar"
 msgstr "Lägg till delad kalender"
 
@@ -1109,91 +1003,6 @@ msgstr "F Y"
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l"
 msgstr "l"
-
-msgid "New appointment"
-msgstr "Nytt möte"
-
-msgid "Creating an item"
-msgstr "Skapar ett objekt"
-
-msgid "New meeting request"
-msgstr "Ny mötesförfrågan"
-
-msgid "Switch calendar range back and forth"
-msgstr "Växla kalenderintervall fram och tillbaka"
-
-msgid "Copy selected item"
-msgstr "Kopiera det valda objektet"
-
-msgid "Paste selected item"
-msgstr "Klistra in markerat objekt"
-
-msgid "An overview of"
-msgstr "En översikt över"
-
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "Start"
-msgstr "Start"
-
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "End"
-msgstr "Avsluta"
-
-msgid "Duration"
-msgstr "Varaktighet"
-
-msgid "Categories"
-msgstr "Kategorier"
-
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
-msgid "Printed by"
-msgstr "Tryckt av"
-
-msgid "at"
-msgstr "på"
-
-msgid "of"
-msgstr "av"
-
-msgid "Sort by: Attachment"
-msgstr "Sortera efter: Bilaga"
-
-msgid "Sort by: Recurring"
-msgstr "Sortera efter: Återkommande"
-
-msgid "Sort by: Subject"
-msgstr "Sortera efter: Ämne"
-
-msgid "Start Date"
-msgstr "Startdatum"
-
-msgid "Sort by: Start Date"
-msgstr "Sortera efter: Startdatum"
-
-msgid "End Date"
-msgstr "Slutdatum"
-
-msgid "Sort by: End Date"
-msgstr "Sortera efter: Slutdatum"
-
-msgid "Organizer"
-msgstr "Arrangör"
-
-msgid "Required Attendee"
-msgstr "Obligatorisk deltagare"
-
-msgid "Optional Attendee"
-msgstr "Valfri deltagare"
-
-msgid "Show Time As"
-msgstr "Visa tid som"
-
-msgid "Recurrence pattern"
-msgstr "Återkommande mönster"
-
-msgid "All Day Event"
-msgstr "Heldagsevenemang"
 
 msgid "All text fields"
 msgstr "Alla textfält"
@@ -1398,6 +1207,9 @@ msgstr "Låg prioritet"
 msgid "Mark this appointment as low priority"
 msgstr "Markera detta möte som låg prioritet"
 
+msgid "Categories"
+msgstr "Kategorier"
+
 msgid "Open the categories dialog"
 msgstr "Öppna kategoridialogrutan"
 
@@ -1412,6 +1224,9 @@ msgstr "Meddelandealternativ"
 
 msgid "Proposed Date and Time"
 msgstr "Föreslaget datum och tid"
+
+msgid "Duration"
+msgstr "Varaktighet"
 
 msgid "Proposed By"
 msgstr "Föreslagen av"
@@ -1488,6 +1303,46 @@ msgstr "Närvaro"
 
 msgid "Response"
 msgstr "Svar"
+
+msgid "New appointment"
+msgstr "Nytt möte"
+
+msgid "Creating an item"
+msgstr "Skapar ett objekt"
+
+msgid "New meeting request"
+msgstr "Ny mötesförfrågan"
+
+msgid "Switch calendar range back and forth"
+msgstr "Växla kalenderintervall fram och tillbaka"
+
+msgid "Copy selected item"
+msgstr "Kopiera det valda objektet"
+
+msgid "Paste selected item"
+msgstr "Klistra in markerat objekt"
+
+msgid "An overview of"
+msgstr "En översikt över"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Start"
+msgstr "Start"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "End"
+msgstr "Avsluta"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
+msgid "Printed by"
+msgstr "Tryckt av"
+
+msgid "at"
+msgstr "på"
+
+msgid "of"
+msgstr "av"
 
 msgid "Location: "
 msgstr "Plats:"
@@ -1633,14 +1488,14 @@ msgstr "Det här mötet har flyttats eller tagits bort, vill du fortsätta?"
 msgid "Options"
 msgstr "Alternativ"
 
+msgid "Icon"
+msgstr "Ikon"
+
 msgid "All Day"
 msgstr "Hela dagen"
 
 msgid "Sort by: All Day"
 msgstr "Sortera efter: Hela dagen"
-
-msgid "Icon"
-msgstr "Ikon"
 
 msgid "Recurring"
 msgstr "Återkommande"
@@ -1800,6 +1655,9 @@ msgstr ""
 msgid "Don't move"
 msgstr "Rör dig inte"
 
+msgid "Switch to day view to see all appointments"
+msgstr "Byt till dagsvy för att se alla möten"
+
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -1824,9 +1682,6 @@ msgid ""
 msgstr ""
 "Din kalender har uppdaterats automatiskt. Denna mötesförfrågan kommer nu att "
 "tas bort."
-
-msgid "Switch to day view to see all appointments"
-msgstr "Byt till dagsvy för att se alla möten"
 
 msgid "Loading appointments…"
 msgstr "Läser in möten..."
@@ -2106,67 +1961,6 @@ msgstr ""
 "Du har inte tillräckliga rättigheter för att flytta detta objekt. Vill du "
 "kopiera istället?"
 
-msgid "Switch between different contexts e.g. inbox, calendar, etc."
-msgstr "Växla mellan olika sammanhang t.ex. inkorg, kalender osv."
-
-msgid "Basic navigation"
-msgstr "Grundläggande navigering"
-
-msgid "Switch between different views"
-msgstr "Växla mellan olika vyer"
-
-msgid "New item"
-msgstr "Nytt föremål"
-
-msgid "All views"
-msgstr "Alla vyer"
-
-msgid "Close tab"
-msgstr "Stäng fliken"
-
-msgid "Print item"
-msgstr "Skriv ut objekt"
-
-msgid "Items"
-msgstr "Föremål"
-
-msgid "Save an item e.g. mail, contact, etc."
-msgstr "Spara en vara t.ex. mail, kontakt osv."
-
-msgid "Send an item e.g. mail, meeting request, etc."
-msgstr "Skicka en vara t.ex. mail, mötesförfrågan m.m."
-
-msgid "Select all items"
-msgstr "Välj alla objekt"
-
-msgid "Extend the selection to the first item in the list"
-msgstr "Utöka urvalet till det första objektet i listan"
-
-msgid "Extend the selection to the last item in the list"
-msgstr "Utöka urvalet till det sista objektet i listan"
-
-msgid "Open selected item"
-msgstr "Öppna det valda objektet"
-
-msgid "Open dialog to categorize selected item"
-msgstr "Öppna dialogrutan för att kategorisera valt objekt"
-
-msgid "Print list"
-msgstr "Skriv ut lista"
-
-msgid "Open copy/move dialog"
-msgstr "Öppna kopiera/flytta dialogrutan"
-
-msgid "Delete selected item"
-msgstr "Ta bort markerat objekt"
-
-msgid ""
-"Delete selected item without moving it to the Deleted Items folder. The "
-"deleted item can still be restored."
-msgstr ""
-"Ta bort markerat objekt utan att flytta det till mappen Raderade objekt. Det "
-"raderade objektet kan fortfarande återställas."
-
 msgid "Cc"
 msgstr "Cc"
 
@@ -2381,6 +2175,9 @@ msgstr "Inkorg"
 msgid "Entire Inbox"
 msgstr "Hela inkorgen"
 
+msgid "Owner"
+msgstr "Ägare"
+
 msgid "Secretary"
 msgstr "Sekreterare"
 
@@ -2489,18 +2286,6 @@ msgstr "Objekt ID"
 msgid "ICS"
 msgstr "ICS"
 
-msgid "today"
-msgstr "i dag"
-
-msgid "tomorrow"
-msgstr "i morgon"
-
-msgid "this week"
-msgstr "denna vecka"
-
-msgid "next week"
-msgstr "nästa vecka"
-
 msgid "Set custom flag"
 msgstr "Ställ in anpassad flagga"
 
@@ -2509,6 +2294,9 @@ msgstr "Startdatum"
 
 msgid "End date"
 msgstr "Slutdatum"
+
+msgid "Tomorrow"
+msgstr "I morgon"
 
 msgid "This week"
 msgstr "Denna vecka"
@@ -2524,6 +2312,18 @@ msgstr "Ställ in påminnelse"
 
 msgid "Complete"
 msgstr "Komplett"
+
+msgid "today"
+msgstr "i dag"
+
+msgid "tomorrow"
+msgstr "i morgon"
+
+msgid "this week"
+msgstr "denna vecka"
+
+msgid "next week"
+msgstr "nästa vecka"
 
 msgid "Edit recipient"
 msgstr "Redigera mottagare"
@@ -2549,6 +2349,9 @@ msgstr "Föreslagna tider"
 msgid "Busy"
 msgstr "Upptagen"
 
+msgid "Out of Office"
+msgstr "Utanför kontoret"
+
 msgid "No Information"
 msgstr "Ingen information"
 
@@ -2564,8 +2367,81 @@ msgstr "Ingen ledig-upptagen-information tillgänglig för detta datum"
 msgid "No suggestions available"
 msgstr "Inga förslag tillgängliga"
 
+msgid "Switch between different contexts e.g. inbox, calendar, etc."
+msgstr "Växla mellan olika sammanhang t.ex. inkorg, kalender osv."
+
+msgid "Basic navigation"
+msgstr "Grundläggande navigering"
+
+msgid "Switch between different views"
+msgstr "Växla mellan olika vyer"
+
+msgid "New item"
+msgstr "Nytt föremål"
+
+msgid "All views"
+msgstr "Alla vyer"
+
+msgid "Close tab"
+msgstr "Stäng fliken"
+
+msgid "Print item"
+msgstr "Skriv ut objekt"
+
+msgid "Items"
+msgstr "Föremål"
+
+msgid "Save an item e.g. mail, contact, etc."
+msgstr "Spara en vara t.ex. mail, kontakt osv."
+
+msgid "Send an item e.g. mail, meeting request, etc."
+msgstr "Skicka en vara t.ex. mail, mötesförfrågan m.m."
+
+msgid "Select all items"
+msgstr "Välj alla objekt"
+
+msgid "Extend the selection to the first item in the list"
+msgstr "Utöka urvalet till det första objektet i listan"
+
+msgid "Extend the selection to the last item in the list"
+msgstr "Utöka urvalet till det sista objektet i listan"
+
+msgid "Open selected item"
+msgstr "Öppna det valda objektet"
+
+msgid "Open dialog to categorize selected item"
+msgstr "Öppna dialogrutan för att kategorisera valt objekt"
+
+msgid "Print list"
+msgstr "Skriv ut lista"
+
+msgid "Open copy/move dialog"
+msgstr "Öppna kopiera/flytta dialogrutan"
+
+msgid "Delete selected item"
+msgstr "Ta bort markerat objekt"
+
+msgid ""
+"Delete selected item without moving it to the Deleted Items folder. The "
+"deleted item can still be restored."
+msgstr ""
+"Ta bort markerat objekt utan att flytta det till mappen Raderade objekt. Det "
+"raderade objektet kan fortfarande återställas."
+
 msgid "Add/Edit Cc recipient"
 msgstr "Lägg till/redigera kopia-mottagare"
+
+msgid "Disable for new mail"
+msgstr "Inaktivera för ny e-post"
+
+msgid "Enable for new mail"
+msgstr "Aktivera för ny e-post"
+
+msgid "Disable for replies"
+msgstr "Inaktivera för svar"
+
+msgid "Enable for replies"
+msgstr "Aktivera för svar"
 
 msgid "No Cc recipient configured"
 msgstr "Ingen kopia-mottagare konfigurerad"
@@ -2581,28 +2457,6 @@ msgstr "Nytt mail"
 
 msgid "Please select a Cc recipient record."
 msgstr "Välj en Cc-mottagarepost."
-
-msgid "Disable for new mail"
-msgstr "Inaktivera för ny e-post"
-
-msgid "Enable for new mail"
-msgstr "Aktivera för ny e-post"
-
-msgid "Disable for replies"
-msgstr "Inaktivera för svar"
-
-msgid "Enable for replies"
-msgstr "Aktivera för svar"
-
-msgid "Manage Cc recipients"
-msgstr "Hantera Cc-mottagare"
-
-msgid ""
-"Cc recipients can be used to set a default Cc user in new mail, replies or "
-"both."
-msgstr ""
-"Kopia mottagare kan användas för att ställa in en standard kopia användare i "
-"nya e-postmeddelanden, svar eller båda."
 
 msgid "Help"
 msgstr "Hjälp"
@@ -3072,14 +2926,47 @@ msgstr "Tillämpa ändringar"
 msgid "Do you wish to apply the changes?"
 msgstr "Vill du tillämpa ändringarna?"
 
+msgid "Category"
+msgstr "Kategori"
+
+msgid "Recent searches"
+msgstr "Senaste sökningarna"
+
+msgid "Filter by"
+msgstr "Filtrera efter"
+
+msgid "Show"
+msgstr "Visa"
+
+msgid "Operators"
+msgstr "Operatörer"
+
+msgid "AND"
+msgstr "OCH"
+
+msgid "OR"
+msgstr "ELLER"
+
+msgid "NOT"
+msgstr "INTE"
+
+msgid "Search in"
+msgstr "Sök i"
+
 msgid "All folders"
 msgstr "Alla mappar"
 
 msgid "Other…"
 msgstr "Andra…"
 
-msgid "Search in…"
-msgstr "Sök i..."
+msgid "Type"
+msgstr "Typ"
+
+msgid "Search"
+msgstr "Sök"
+
+msgid "Click to cycle: AND → OR → NOT"
+msgstr "Klicka för att cykla: AND → OR → NOT"
 
 msgid "Folder does not exist"
 msgstr "Mappen finns inte"
@@ -3155,27 +3042,6 @@ msgstr "Från adresser"
 msgid "From Addresses settings"
 msgstr "Från Adressinställningar"
 
-msgid "Loading…"
-msgstr "Belastning…"
-
-msgid "Message could not be loaded"
-msgstr "Meddelandet kunde inte laddas"
-
-msgid "Pop-out"
-msgstr "Öppna i nytt fönster"
-
-msgid "Mark as read"
-msgstr "Markera som läst"
-
-msgid "Mark as unread"
-msgstr "Markera som oläst"
-
-msgid "in"
-msgstr "i"
-
-msgid "Root"
-msgstr "Rotmapp"
-
 msgid "Full name"
 msgstr "Fullständigt namn"
 
@@ -3202,6 +3068,9 @@ msgstr[1] "{0} markerade rader"
 msgid "Reminder is set on: {0}, {1}"
 msgstr "Påminnelsen är inställd på: {0}, {1}"
 
+msgid "d-m-Y"
+msgstr "d-m-Y"
+
 msgid "l d/m/Y"
 msgstr "l d/m/Å"
 
@@ -3219,6 +3088,12 @@ msgstr "Mötesarrangör"
 
 msgid "{0} overdue"
 msgstr "{0} försenad"
+
+msgid "Loading…"
+msgstr "Belastning…"
+
+msgid "Message could not be loaded"
+msgstr "Meddelandet kunde inte laddas"
 
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
@@ -3431,35 +3306,23 @@ msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "Ingen"
 
+msgid "Pop-out"
+msgstr "Öppna i nytt fönster"
+
+msgid "Mark as read"
+msgstr "Markera som läst"
+
+msgid "Mark as unread"
+msgstr "Markera som oläst"
+
+msgid "in"
+msgstr "i"
+
+msgid "Root"
+msgstr "Rotmapp"
+
 msgid "Datepicker"
 msgstr "Datumväljare"
-
-msgid "Open Shared Contacts"
-msgstr "Öppna Delade kontakter"
-
-msgid "Business Cards"
-msgstr "Visitkort"
-
-msgid "Phone List"
-msgstr "Telefonlista"
-
-msgid "Add to contacts"
-msgstr "Lägg till i kontakter"
-
-msgid "Print selected contact"
-msgstr "Skriv ut vald kontakt"
-
-msgid "No contact selected"
-msgstr "Ingen kontakt har valts"
-
-msgid "Distribution list"
-msgstr "Distributionslista"
-
-msgid "New contact"
-msgstr "Ny kontakt"
-
-msgid "New distribution list"
-msgstr "Ny distributionslista"
 
 msgid "File As"
 msgstr "Arkiv som"
@@ -3558,6 +3421,27 @@ msgstr "Assistentens namn"
 msgid "Distribution List Name"
 msgstr "Distributionslistans namn"
 
+msgid "Open Shared Contacts"
+msgstr "Öppna Delade kontakter"
+
+msgid "Business Cards"
+msgstr "Visitkort"
+
+msgid "Phone List"
+msgstr "Telefonlista"
+
+msgid "Add to contacts"
+msgstr "Lägg till i kontakter"
+
+msgid "Print selected contact"
+msgstr "Skriv ut vald kontakt"
+
+msgid "No contact selected"
+msgstr "Ingen kontakt har valts"
+
+msgid "Distribution list"
+msgstr "Distributionslista"
+
 msgid "Dr."
 msgstr "Dr."
 
@@ -3587,9 +3471,6 @@ msgstr "Telefonnummer"
 
 msgid "Check address"
 msgstr "Kontrollera adressen"
-
-msgid "Street"
-msgstr "Gata"
 
 msgid "State/Province"
 msgstr "stat/provins"
@@ -3628,20 +3509,17 @@ msgstr "Årsdag"
 msgid "Photo"
 msgstr "Bild"
 
+msgid "Addresses"
+msgstr "Adresser"
+
 msgid "Additional information"
 msgstr "Ytterligare information"
-
-msgid "Business 2"
-msgstr "Affär 2"
 
 msgid "Callback"
 msgstr "Återuppringning"
 
 msgid "Car"
 msgstr "Bil"
-
-msgid "Home 2"
-msgstr "Hem 2"
 
 msgid "Primary"
 msgstr "Primär"
@@ -3708,6 +3586,12 @@ msgstr "Lägg till ny"
 
 msgid "Type your note here…"
 msgstr "Skriv din anteckning här..."
+
+msgid "New contact"
+msgstr "Ny kontakt"
+
+msgid "New distribution list"
+msgstr "Ny distributionslista"
 
 msgid "Email 2 Display As"
 msgstr "E-post 2 Visa som"
@@ -3885,52 +3769,6 @@ msgstr ""
 "webbläsares inställningar för att alltid tillåta popup-fönster från "
 "grommunio Web."
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "jS F"
-msgstr "jS F"
-
-msgid "Y"
-msgstr "Y"
-
-msgid "Purple"
-msgstr "Purpur"
-
-msgid "Orange"
-msgstr "Orange"
-
-msgid "Lime"
-msgstr "Kalk"
-
-msgid "Magenta"
-msgstr "Magenta"
-
-msgid "High Contrast"
-msgstr "Hög kontrast"
-
-msgid "Cyan"
-msgstr "Cyan"
-
-msgid "Teal"
-msgstr "Kricka"
-
-msgid "Indigo"
-msgstr "Indigo"
-
-msgid "Red"
-msgstr "Röd"
-
-msgid "Green"
-msgstr "Grön"
-
-msgid "Brown"
-msgstr "Brun"
-
-msgid "Dark"
-msgstr "Mörk"
-
-msgid "Your changes will be lost if you leave this page now."
-msgstr "Dina ändringar kommer att gå förlorade om du lämnar den här sidan nu."
-
 msgid "Untitled"
 msgstr "Ofrälse"
 
@@ -3971,6 +3809,13 @@ msgstr ""
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
 msgstr "{0} på uppdrag av {1}"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F"
+msgstr "jS F"
+
+msgid "Y"
+msgstr "Y"
 
 msgid "Important"
 msgstr "Viktig"
@@ -4014,6 +3859,9 @@ msgstr "Avbruten"
 msgid "Blue"
 msgstr "Blå"
 
+msgid "Green"
+msgstr "Grön"
+
 msgid "Pink"
 msgstr "Rosa"
 
@@ -4050,8 +3898,50 @@ msgstr "Vänta på en annan person"
 msgid "Deferred"
 msgstr "Uppskjuten"
 
+msgid "Purple"
+msgstr "Purpur"
+
+msgid "Orange"
+msgstr "Orange"
+
+msgid "Lime"
+msgstr "Kalk"
+
+msgid "Magenta"
+msgstr "Magenta"
+
+msgid "High Contrast"
+msgstr "Hög kontrast"
+
+msgid "Cyan"
+msgstr "Cyan"
+
+msgid "Teal"
+msgstr "Kricka"
+
+msgid "Indigo"
+msgstr "Indigo"
+
+msgid "Red"
+msgstr "Röd"
+
+msgid "Brown"
+msgstr "Brun"
+
 msgid "Logout"
 msgstr "Utloggning"
+
+msgid "Appearance"
+msgstr "Utseende"
+
+msgid "Light"
+msgstr "Ljus"
+
+msgid "Dark"
+msgstr "Mörk"
+
+msgid "Automatic"
+msgstr "Automatisk"
 
 msgid "Switch view"
 msgstr "Byt vy"
@@ -4120,6 +4010,18 @@ msgstr "Utöka hierarkin"
 msgid "Folders List"
 msgstr "Lista över mappar"
 
+msgid "Copy Details"
+msgstr "Kopiera detaljer"
+
+msgid "Hide Details"
+msgstr "Dölj detaljer"
+
+msgid "Loaded {0} of {1}"
+msgstr "Laddade {0} av {1}"
+
+msgid "Copied!"
+msgstr "Kopierat!"
+
 msgid "Saving"
 msgstr "Sparande"
 
@@ -4150,20 +4052,11 @@ msgstr "Osparade ändringar"
 msgid "Welcome to grommunio Web"
 msgstr "Välkommen till grommunio Web"
 
-msgid "This is the first time you are using grommunio Web. "
-msgstr "Detta är första gången du använder grommunio Web."
+msgid "Set up your preferences to get started."
+msgstr "Ställ in dina preferenser för att komma igång."
 
-msgid "Please check the following settings before continuing."
-msgstr "Kontrollera följande inställningar innan du fortsätter."
-
-msgid "Copy Details"
-msgstr "Kopiera detaljer"
-
-msgid "Hide Details"
-msgstr "Dölj detaljer"
-
-msgid "Loaded {0} of {1}"
-msgstr "Laddade {0} av {1}"
+msgid "Get Started"
+msgstr "Kom igång"
 
 msgid "Widget height"
 msgstr "Widget höjd"
@@ -4183,6 +4076,12 @@ msgstr "sekunder"
 msgid "Open in new tab"
 msgstr "Öppna i ny flik"
 
+msgid "Add widgets"
+msgstr "Lägg till widgets"
+
+msgid "No widgets installed."
+msgstr "Inga widgetar installerade."
+
 msgid "Remove widget"
 msgstr "Ta bort widget"
 
@@ -4195,12 +4094,6 @@ msgstr "Expandera widget"
 msgid "About this widget"
 msgstr "Om den här widgeten"
 
-msgid "Add widgets"
-msgstr "Lägg till widgets"
-
-msgid "No widgets installed."
-msgstr "Inga widgetar installerade."
-
 msgid "Add new widget"
 msgstr "Lägg till ny widget"
 
@@ -4209,6 +4102,15 @@ msgstr "Dölj widgetpanelen"
 
 msgid "Expand widget panel"
 msgstr "Expandera widgetpanelen"
+
+msgid "Your changes will be lost if you leave this page now."
+msgstr "Dina ändringar kommer att gå förlorade om du lämnar den här sidan nu."
+
+msgid "D {0}"
+msgstr "D {0}"
+
+msgid "D d-m"
+msgstr "D d-m"
 
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
@@ -4230,11 +4132,17 @@ msgstr "Otillräckliga behörigheter"
 msgid "Not enough permissions to open this folder."
 msgstr "Inte tillräckliga behörigheter för att öppna den här mappen."
 
-msgid "Open shared folder/store"
-msgstr "Öppna delad mapp/butik"
+msgid "Empty folder"
+msgstr "Tom mapp"
 
-msgid "Rename folder"
-msgstr "Byt namn på mapp"
+msgid "Emptying {0}… (0%)"
+msgstr "Tömning av {0}... (0%)"
+
+msgid "Successfully emptied {0}. ({1} items removed)"
+msgstr "Framgångsrikt tömt {0}. ({1} objekt borttagna)"
+
+msgid "Emptying {0}… ({1}%)"
+msgstr "Tömning av {0}... ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4311,9 +4219,6 @@ msgstr "Ingen destination"
 
 msgid "You must select a destination folder."
 msgstr "Du måste välja en målmapp."
-
-msgid "Type"
-msgstr "Typ"
 
 msgid "Description"
 msgstr "Beskrivning"
@@ -4453,8 +4358,11 @@ msgstr "Mapptyp"
 msgid "Show subfolders"
 msgstr "Visa undermappar"
 
-msgid "Empty folder"
-msgstr "Tom mapp"
+msgid "Open shared folder/store"
+msgstr "Öppna delad mapp/butik"
+
+msgid "Rename folder"
+msgstr "Byt namn på mapp"
 
 msgid "Empty Junk Email"
 msgstr "Tom skräppost"
@@ -4539,9 +4447,6 @@ msgstr "Är du säker på att du vill tömma {0}?"
 msgid "Show All"
 msgstr "Visa alla"
 
-msgid "Show all folders"
-msgstr "Visa alla mappar"
-
 msgid ""
 "You have insufficient privileges to move this folder. Would you like to copy "
 "instead?"
@@ -4554,39 +4459,6 @@ msgstr "CC"
 
 msgid "BCC"
 msgstr "BCC"
-
-msgid "New mail"
-msgstr "Nytt mail"
-
-msgid "Mail"
-msgstr "Post"
-
-msgid "Reply all"
-msgstr "Svara alla"
-
-msgid "Toggle read/unread"
-msgstr "Växla mellan läst/oläst"
-
-msgid "Toggle red/complete flag"
-msgstr "Växla röd/fullständig flagga"
-
-msgid "Open Shared Mails"
-msgstr "Öppna delade e-postmeddelanden"
-
-msgid "Print single email"
-msgstr "Skriv ut enstaka e-postmeddelanden"
-
-msgid "Print selected email"
-msgstr "Skriv ut vald e-post"
-
-msgid "Filter"
-msgstr "Filter"
-
-msgid "Fwd"
-msgstr "Fwd"
-
-msgid "Re"
-msgstr "Re"
 
 msgid "Sort by: To"
 msgstr "Sortera efter: Till"
@@ -4721,6 +4593,39 @@ msgstr "Markera Läs"
 msgid "Mark Unread"
 msgstr "Markera oläst"
 
+msgid "New mail"
+msgstr "Nytt mail"
+
+msgid "Mail"
+msgstr "Post"
+
+msgid "Reply all"
+msgstr "Svara alla"
+
+msgid "Toggle read/unread"
+msgstr "Växla mellan läst/oläst"
+
+msgid "Toggle red/complete flag"
+msgstr "Växla röd/fullständig flagga"
+
+msgid "Open Shared Mails"
+msgstr "Öppna delade e-postmeddelanden"
+
+msgid "Print single email"
+msgstr "Skriv ut enstaka e-postmeddelanden"
+
+msgid "Print selected email"
+msgstr "Skriv ut vald e-post"
+
+msgid "Filter"
+msgstr "Filter"
+
+msgid "Fwd"
+msgstr "Fwd"
+
+msgid "Re"
+msgstr "Re"
+
 msgid "on behalf of"
 msgstr "på uppdrag av"
 
@@ -4808,6 +4713,9 @@ msgstr "{A} Markera automatiskt e-post som läst efter {B} sekund(er)"
 
 msgid "View mail in this format"
 msgstr "Visa mail i detta format"
+
+msgid "Cc recipients"
+msgstr "Cc mottagare"
 
 msgid "Right"
 msgstr "Rätt"
@@ -4923,11 +4831,14 @@ msgstr "ZIP-fil"
 msgid "max. "
 msgstr "max."
 
-msgid "Loading mail"
-msgstr "Laddar mail"
-
 msgid "Sort by: Sent"
 msgstr "Sortera efter: Skickat"
+
+msgid "Scheduled"
+msgstr "Planerad"
+
+msgid "Sort by: Scheduled"
+msgstr "Sortera efter: Schemalagd"
 
 msgid "Modified"
 msgstr "Ändrad"
@@ -4986,6 +4897,9 @@ msgstr "Inte skräppost"
 msgid "Send to"
 msgstr "Skicka till"
 
+msgid "Loading mail"
+msgstr "Laddar mail"
+
 msgid "No unread mail."
 msgstr "Inget oläst mail."
 
@@ -4994,6 +4908,12 @@ msgstr "Oläst mail"
 
 msgid "Quick Mail"
 msgstr "Snabbpost"
+
+msgid "Print note"
+msgstr "Skriv ut anteckning"
+
+msgid "Color"
+msgstr "Färg"
 
 msgid "New note"
 msgstr "Ny lapp"
@@ -5019,15 +4939,6 @@ msgstr "Listvy"
 msgid "List Last Seven Days"
 msgstr "Lista de senaste sju dagarna"
 
-msgid "Print note"
-msgstr "Skriv ut anteckning"
-
-msgid "Color"
-msgstr "Färg"
-
-msgid "Loading Notes"
-msgstr "Laddar anteckningar"
-
 msgid "Created"
 msgstr "Skapad"
 
@@ -5036,6 +4947,9 @@ msgstr "Sortera efter: Skapad"
 
 msgid "Sort by: Color"
 msgstr "Sortera efter: Färg"
+
+msgid "Loading Notes"
+msgstr "Laddar anteckningar"
 
 msgid "Loading notes"
 msgstr "Laddar anteckningar"
@@ -5059,11 +4973,8 @@ msgstr "Inställningar"
 msgid "Basic"
 msgstr "Grundläggande"
 
-msgid "Account information - {0}"
-msgstr "Kontoinformation - {0}"
-
-msgid "Profile Picture"
-msgstr "Profilbild"
+msgid "System"
+msgstr "System"
 
 msgid "Language"
 msgstr "Språk"
@@ -5073,6 +4984,9 @@ msgstr "Startmapp"
 
 msgid "Theme"
 msgstr "Tema"
+
+msgid "Personal information"
+msgstr "Personlig information"
 
 msgid "Select Default Folder"
 msgstr "Välj Standardmapp"
@@ -5107,8 +5021,8 @@ msgstr "{0} Ikonuppsättning"
 msgid "About"
 msgstr "Om"
 
-msgid "I want to display date and time in this format:"
-msgstr "Jag vill visa datum och tid i detta format:"
+msgid "Date & Time"
+msgstr "Datum och tid"
 
 msgid "Short"
 msgstr "Kort"
@@ -5116,23 +5030,20 @@ msgstr "Kort"
 msgid "Long"
 msgstr "Lång"
 
-msgid "Time format:"
-msgstr "Tidsformat:"
-
 msgid "12h clock"
 msgstr "12h klockan"
 
 msgid "24h clock"
 msgstr "24h klocka"
 
-msgid "Favorite settings"
-msgstr "Favoritinställningar"
-
 msgid "Hide favorites"
 msgstr "Göm favoriter"
 
 msgid "Unpin favorites from top"
 msgstr "Lossa favoriter från toppen"
+
+msgid "Interface"
+msgstr "Gränssnitt"
 
 msgid "Give unread items a colored border"
 msgstr "Ge olästa objekt en färgad ram"
@@ -5145,9 +5056,6 @@ msgstr "Visa räknare för oläst e-post i programmets titel"
 
 msgid "Hide widget panel"
 msgstr "Dölj widgetpanelen"
-
-msgid "Show search bar above folder list"
-msgstr "Visa sökfältet ovanför mapplistan"
 
 msgid "Auto"
 msgstr "Bil"
@@ -5202,8 +5110,8 @@ msgstr "Ladda {A} objekt per sida."
 msgid "Keyboard Shortcuts"
 msgstr "Kortkommandon"
 
-msgid "Part of basic keyboard shortcuts"
-msgstr "En del av grundläggande kortkommandon"
+msgid "Extended"
+msgstr "Utökad"
 
 msgid "Keyboard shortcuts off"
 msgstr "Kortkommandon av"
@@ -5211,8 +5119,8 @@ msgstr "Kortkommandon av"
 msgid "Basic keyboard shortcuts on"
 msgstr "Grundläggande kortkommandon på"
 
-msgid "All keyboard shortcuts on"
-msgstr "Alla kortkommandon på"
+msgid "Extended shortcuts on"
+msgstr "Utökade genvägar på"
 
 msgid "This change requires a reload of grommunio Web"
 msgstr "Denna ändring kräver en omladdning av grommunio Web"
@@ -5296,11 +5204,29 @@ msgstr "Miljö"
 msgid "The setting '{0}' can not be edited"
 msgstr "Inställningen '{0}' kan inte redigeras"
 
-msgid "Version information"
-msgstr "Versionsinformation"
+msgid "OpenID Connect"
+msgstr "OpenID Connect"
+
+msgid "Basic Authentication"
+msgstr "Grundläggande autentisering"
+
+msgid "System information"
+msgstr "Information om systemet"
 
 msgid "Gromox"
 msgstr "Gromox"
+
+msgid "Logged in via"
+msgstr "Inloggad via"
+
+msgid "Browser"
+msgstr "Webbläsare"
+
+msgid "Maintenance"
+msgstr "Underhåll"
+
+msgid "Reset all settings to defaults"
+msgstr "Återställ alla inställningar till standardvärdena"
 
 msgid "Delete confirmation"
 msgstr "Ta bort bekräftelse"
@@ -5310,39 +5236,6 @@ msgstr "Om du tar bort objektet/objekten raderas också originalobjektet/erna."
 
 msgid "Do you want to delete the item(s)?"
 msgstr "Vill du ta bort objektet/objekten?"
-
-msgid "New task"
-msgstr "Ny uppgift"
-
-msgid "Open Shared Tasks"
-msgstr "Öppna Delade uppgifter"
-
-msgid "Simple view"
-msgstr "Enkel vy"
-
-msgid "Detailed view"
-msgstr "Detaljerad vy"
-
-msgid "Task request"
-msgstr "Uppgiftsbegäran"
-
-msgid "Print selected task"
-msgstr "Skriv ut vald uppgift"
-
-msgid "No task selected"
-msgstr "Ingen uppgift har valts"
-
-msgid "Print task list"
-msgstr "Skriv ut uppgiftslista"
-
-msgid "Create task"
-msgstr "Skapa uppgift"
-
-msgid "Upcoming"
-msgstr "Kommande"
-
-msgid "Overdue"
-msgstr "Försenad"
 
 msgid "Sort by: Priority"
 msgstr "Sortera efter: Prioritet"
@@ -5481,6 +5374,9 @@ msgstr "Avbryt tilldelning"
 msgid "Mark this task as private"
 msgstr "Markera den här uppgiften som privat"
 
+msgid "New task"
+msgstr "Ny uppgift"
+
 msgid "Completed"
 msgstr "Avslutad"
 
@@ -5505,6 +5401,36 @@ msgstr "Verkligt arbete"
 
 msgid "{actualwork} hours"
 msgstr "{actualwork} timmar"
+
+msgid "Open Shared Tasks"
+msgstr "Öppna Delade uppgifter"
+
+msgid "Simple view"
+msgstr "Enkel vy"
+
+msgid "Detailed view"
+msgstr "Detaljerad vy"
+
+msgid "Task request"
+msgstr "Uppgiftsbegäran"
+
+msgid "Print selected task"
+msgstr "Skriv ut vald uppgift"
+
+msgid "No task selected"
+msgstr "Ingen uppgift har valts"
+
+msgid "Print task list"
+msgstr "Skriv ut uppgiftslista"
+
+msgid "Create task"
+msgstr "Skapa uppgift"
+
+msgid "Upcoming"
+msgstr "Kommande"
+
+msgid "Overdue"
+msgstr "Försenad"
 
 msgid "Mark Complete"
 msgstr "Markera som komplett"
@@ -5579,8 +5505,135 @@ msgstr "Inga uppgifter."
 msgid "Tasks / To-Do"
 msgstr "Uppgifter / Att göra"
 
+msgid "Click the link to open the URL in a new window."
+msgstr "Klicka på länken för att öppna URL:en i ett nytt fönster."
+
+msgid "The server reported an unknown error on your request."
+msgstr "Servern rapporterade ett okänt fel på din begäran."
+
+msgid "The server reported an unspecified error on your request."
+msgstr "Servern rapporterade ett ospecificerat fel på din begäran."
+
+msgid "The session has expired, reauthentication is required."
+msgstr "Sessionen har löpt ut, omautentisering krävs."
+
+msgid ""
+"The session in the current browser window has been closed from another "
+"browser window or tab."
+msgstr ""
+"Sessionen i det aktuella webbläsarfönstret har stängts från ett annat "
+"webbläsarfönster eller flik."
+
+msgid "Session expired"
+msgstr "Sessionen har löpt ut"
+
+msgid "Do you wish to be redirected to the logon page?"
+msgstr "Vill du bli omdirigerad till inloggningssidan?"
+
+msgid "Reauthentication required, click here to go to back to logon page."
+msgstr ""
+"Återautentisering krävs, klicka här för att gå tillbaka till "
+"inloggningssidan."
+
+msgid "Connection problem"
+msgstr "Anslutningsproblem"
+
+msgid "Could not connect to server, retrying in {0} second(s)"
+msgstr ""
+"Det gick inte att ansluta till servern, försöker igen om {0} sekund(er)"
+
+msgid "Click to retry now"
+msgstr "Klicka för att försöka igen nu"
+
+msgid "Connection restored"
+msgstr "Anslutningen återställd"
+
+msgid "Connection with server has been restored"
+msgstr "Anslutningen till servern har återställts"
+
+#. TRANSLATORS: Example: HTTP 404
+msgid "HTTP {0}"
+msgstr "HTTP {0}"
+
+msgid "Invalid data received from the server"
+msgstr "Ogiltig data mottagen från servern"
+
+msgid "Missing store"
+msgstr "Saknad butik"
+
+msgid "The default store is missing from the hierarchy."
+msgstr "Standardarkivet saknas i hierarkin."
+
+msgid ""
+"Not all functionality of grommunio Web might be working properly because of "
+"this."
+msgstr ""
+"Alla funktioner hos grommunio Web kanske inte fungerar korrekt på grund av "
+"detta."
+
+msgctxt "hierarchy.foldername"
+msgid "Inbox"
+msgstr "Inkorg"
+
+msgctxt "hierarchy.foldername"
+msgid "Outbox"
+msgstr "Utkorg"
+
+msgctxt "hierarchy.foldername"
+msgid "Sent Items"
+msgstr "Skickade objekt"
+
+msgctxt "hierarchy.foldername"
+msgid "Deleted items"
+msgstr "Raderade objekt"
+
+msgctxt "hierarchy.foldername"
+msgid "Calendar"
+msgstr "Kalender"
+
+msgctxt "hierarchy.foldername"
+msgid "Contacts"
+msgstr "Kontakter"
+
+msgctxt "hierarchy.foldername"
+msgid "Drafts"
+msgstr "Utkast"
+
+msgctxt "hierarchy.foldername"
+msgid "Journal"
+msgstr "Journal"
+
+msgctxt "hierarchy.foldername"
+msgid "Notes"
+msgstr "Anteckningar"
+
+msgctxt "hierarchy.foldername"
+msgid "Tasks"
+msgstr "Uppgifter"
+
+msgctxt "hierarchy.foldername"
+msgid "Junk Email"
+msgstr "Skräppost"
+
+msgid "Missing folders"
+msgstr "Saknar mappar"
+
+msgid "The following required folder is missing in the hierarchy: {0}"
+msgid_plural "The following required folders are missing in the hierarchy: {0}"
+msgstr[0] "Följande nödvändiga mapp saknas i hierarkin: {0}"
+msgstr[1] "Följande nödvändiga mappar saknas i hierarkin: {0}"
+
+msgid "Loading model from server failed"
+msgstr "Det gick inte att ladda modellen från servern"
+
+msgid "Out of Office is currently activated. Would you like to turn it off?"
+msgstr "Out of Office är för närvarande aktiverat. Vill du stänga av den?"
+
 msgid "Archive"
 msgstr "Arkiv"
+
+msgid "Chat"
+msgstr "Chatt"
 
 msgid "Open Chat at start"
 msgstr "Öppna Chatt vid start"
@@ -5591,23 +5644,86 @@ msgstr "Insticksmodul för skrivbordsaviseringar"
 msgid "Desktop Notifications"
 msgstr "Skrivbordsmeddelanden"
 
-msgid "Add from Files"
-msgstr "Lägg till från filer"
+msgid "Files: Default plugin"
+msgstr "Filer: Standardplugin"
 
-msgid "Add attachment from Files"
-msgstr "Lägg till bilaga från filer"
+msgid "Loading users and groups"
+msgstr "Laddar användare och grupper"
 
-msgid "Add to Files"
-msgstr "Lägg till i filer"
+msgid "Add users or groups to share files."
+msgstr "Lägg till användare eller grupper för att dela filer."
 
-msgid "Upload file"
-msgstr "Ladda upp fil"
+msgid "Sort by: Type"
+msgstr "Sortera efter: Typ"
 
-msgid "Files"
-msgstr "Filer"
+msgid "Re-share"
+msgstr "Dela om"
 
-msgid "Files Plugin"
-msgstr "Plugin för filer"
+msgid "Change"
+msgstr "Ändra"
+
+msgid "Share with"
+msgstr "Dela med"
+
+msgid "Share Details"
+msgstr "Dela detaljer"
+
+msgid "Type to search"
+msgstr "Skriv för att söka"
+
+msgid "No results"
+msgstr "Inga resultat"
+
+msgid "Share with user/group"
+msgstr "Dela med användare/grupp"
+
+msgid "Share via link"
+msgstr "Dela via länk"
+
+msgid "Public link"
+msgstr "Offentlig länk"
+
+msgid "Password protect"
+msgstr "Lösenordsskydd"
+
+msgid "Password"
+msgstr "Lösenord"
+
+msgid "Public upload"
+msgstr "Offentlig uppladdning"
+
+msgid "Expiration date"
+msgstr "Utgångsdatum"
+
+msgid "More than 1 share link exists. Only showing the latest one"
+msgstr "Det finns fler än 1 delningslänk. Visar bara den senaste"
+
+msgid "Loading details…"
+msgstr "Läser in detaljer..."
+
+msgid "Files: Seafile Backend"
+msgstr "Filer: Seafile Backend"
+
+msgid "Copy link to clipboard"
+msgstr "Kopiera länken till urklipp"
+
+msgid "Link copied to clipboard"
+msgstr "Länken har kopierats till urklipp"
+
+msgid "Clipboard"
+msgstr "Urklipp"
+
+msgid "Could not copy link automatically. Please copy it manually."
+msgstr "Det gick inte att kopiera länken automatiskt. Kopiera det manuellt."
+
+msgid "Loading details..."
+msgstr "Läser in detaljer..."
+
+msgid "Share"
+msgstr "Dela"
+
+msgid "Loading..."
+msgstr "Belastning..."
 
 msgid "Add attachment from {0}"
 msgstr "Lägg till bilaga från {0}"
@@ -5678,6 +5794,27 @@ msgstr "l d/m/Y G:i"
 msgid "Never"
 msgstr "Aldrig"
 
+msgid "Add from Files"
+msgstr "Lägg till från filer"
+
+msgid "Add attachment from Files"
+msgstr "Lägg till bilaga från filer"
+
+msgid "Add to Files"
+msgstr "Lägg till i filer"
+
+msgid "Upload file"
+msgstr "Ladda upp fil"
+
+msgid "Files"
+msgstr "Filer"
+
+msgid "Files Plugin"
+msgstr "Plugin för filer"
+
+msgid "Default"
+msgstr "Standard"
+
 msgid "Manage Accounts"
 msgstr "Hantera konton"
 
@@ -5707,9 +5844,6 @@ msgstr ""
 msgid "grommunio Web is reloading, Please wait."
 msgstr "grommunio webben laddas om. Vänta."
 
-msgid "Default"
-msgstr "Standard"
-
 msgid "Edit Account"
 msgstr "Redigera konto"
 
@@ -5727,21 +5861,6 @@ msgstr "Kontokonfiguration"
 
 msgid "Update"
 msgstr "Uppdatera"
-
-msgid "No account created!"
-msgstr "Inget konto skapat!"
-
-msgid "Add Account"
-msgstr "Lägg till konto"
-
-msgid "Remove Account"
-msgstr "Ta bort konto"
-
-msgid "Loading accounts"
-msgstr "Laddar konton"
-
-msgid "Do you really want to delete the account \"{0}\"?"
-msgstr "Vill du verkligen ta bort kontot \"{0}\"?"
 
 msgid "ID"
 msgstr "ID"
@@ -5770,6 +5889,21 @@ msgstr "Dela filer"
 msgid "Fast Down/Upload"
 msgstr "Snabb ner/uppladdning"
 
+msgid "No account created!"
+msgstr "Inget konto skapat!"
+
+msgid "Add Account"
+msgstr "Lägg till konto"
+
+msgid "Remove Account"
+msgstr "Ta bort konto"
+
+msgid "Loading accounts"
+msgstr "Laddar konton"
+
+msgid "Do you really want to delete the account \"{0}\"?"
+msgstr "Vill du verkligen ta bort kontot \"{0}\"?"
+
 msgid "Quota Information"
 msgstr "Kvotinformation"
 
@@ -5782,110 +5916,14 @@ msgstr "Totalt"
 msgid "Version Information"
 msgstr "Versionsinformation"
 
-msgid "Document"
-msgstr "Dokumentera"
-
-msgid "Presentation"
-msgstr "Presentation"
-
-msgid "Spreadsheet"
-msgstr "Kalkylblad"
-
-msgid "Upload files"
-msgstr "Ladda upp filer"
-
-msgid "Create document"
-msgstr "Skapa dokument"
-
-msgid "Create office document"
-msgstr "Skapa Office-dokument"
-
-msgid "Download files"
-msgstr "Ladda ner filer"
-
-msgid "Share"
-msgstr "Dela"
-
-msgid "Attach to mail"
-msgstr "Bifoga till mail"
-
-msgid "Attach to mail as link"
-msgstr "Bifoga till mail som länk"
-
-msgid "Attaching"
-msgstr "Fästa"
-
-msgid "Creating email... Please wait!"
-msgstr "Skapar e-post... Vänta!"
-
-msgid "Edit share"
-msgstr "Redigera delning"
-
-msgid ""
-"There are no accounts added. Go to settings, Files tab and add an account"
-msgstr ""
-"Inga konton har lagts till. Gå till inställningar, fliken Filer och lägg "
-"till ett konto"
-
-msgid "File information"
-msgstr "Filinformation"
-
 msgid "Filename"
 msgstr "Filnamn"
-
-msgid "Filesize"
-msgstr "Filstorlek"
-
-msgid "Last modified"
-msgstr "Senast ändrad"
-
-msgid "Is shared"
-msgstr "Delas"
-
-msgid "File preview"
-msgstr "Filförhandsgranskning"
-
-msgid "Your browser does not support previewing of audio files!"
-msgstr "Din webbläsare stöder inte förhandsgranskning av ljudfiler!"
-
-msgid "Your browser does not support previewing of video files!"
-msgstr "Din webbläsare stöder inte förhandsgranskning av videofiler!"
-
-msgid "d.m.Y G:i"
-msgstr "d.m.Y G:i"
-
-msgid "Folder"
-msgstr "Mapp"
-
-msgid "File ({0})"
-msgstr "Fil ({0})"
-
-msgid "Sort by: Type"
-msgstr "Sortera efter: Typ"
-
-msgid "Sort by: Path"
-msgstr "Sortera efter: Sökväg"
 
 msgid "Sort by: Filename"
 msgstr "Sortera efter: Filnamn"
 
-msgid "Sort by: Last modified"
-msgstr "Sortera efter: Senast ändrad"
-
-msgid "Sort by: Shared"
-msgstr "Sortera efter: Delad"
-
 msgid "Loading files"
 msgstr "Laddar filer"
-
-msgid "There are no items to show in this view"
-msgstr "Det finns inga objekt att visa i den här vyn"
-
-msgid "files selected"
-msgstr "valda filer"
-
-msgid "Authentication required, when using grommunio-files for the first time"
-msgstr "Autentisering krävs när grommunio-filer används för första gången"
 
 msgid "The file {0} is too large!"
 msgstr "Filen {0} är för stor!"
@@ -5910,6 +5948,9 @@ msgstr "Mappen finns redan"
 
 msgid "Incorrect foldername"
 msgstr "Felaktigt mappnamn"
+
+msgid "File information"
+msgstr "Filinformation"
 
 msgid "Select a file"
 msgstr "Välj en fil"
@@ -5980,80 +6021,92 @@ msgstr "Uppladdningen avbröts!"
 msgid "Upload failed!"
 msgstr "Uppladdningen misslyckades!"
 
-msgid "Files: Default plugin"
-msgstr "Filer: Standardplugin"
+msgid "Document"
+msgstr "Dokumentera"
 
-msgid "Loading users and groups"
-msgstr "Laddar användare och grupper"
+msgid "Presentation"
+msgstr "Presentation"
 
-msgid "Add users or groups to share files."
-msgstr "Lägg till användare eller grupper för att dela filer."
+msgid "Spreadsheet"
+msgstr "Kalkylblad"
 
-msgid "Re-share"
-msgstr "Dela om"
+msgid "Upload files"
+msgstr "Ladda upp filer"
 
-msgid "Change"
-msgstr "Ändra"
+msgid "Create document"
+msgstr "Skapa dokument"
 
-msgid "Share with"
-msgstr "Dela med"
+msgid "Create office document"
+msgstr "Skapa Office-dokument"
 
-msgid "Share Details"
-msgstr "Dela detaljer"
+msgid "Download files"
+msgstr "Ladda ner filer"
 
-msgid "Type to search"
-msgstr "Skriv för att söka"
+msgid "Attach to mail"
+msgstr "Bifoga till mail"
 
-msgid "No results"
-msgstr "Inga resultat"
+msgid "Attach to mail as link"
+msgstr "Bifoga till mail som länk"
 
-msgid "Share with user/group"
-msgstr "Dela med användare/grupp"
+msgid "Attaching"
+msgstr "Fästa"
 
-msgid "Share via link"
-msgstr "Dela via länk"
+msgid "Creating email... Please wait!"
+msgstr "Skapar e-post... Vänta!"
 
-msgid "Public link"
-msgstr "Offentlig länk"
+msgid "Edit share"
+msgstr "Redigera delning"
 
-msgid "Password protect"
-msgstr "Lösenordsskydd"
+msgid ""
+"There are no accounts added. Go to settings, Files tab and add an account"
+msgstr ""
+"Inga konton har lagts till. Gå till inställningar, fliken Filer och lägg "
+"till ett konto"
 
-msgid "Password"
-msgstr "Lösenord"
+msgid "Filesize"
+msgstr "Filstorlek"
 
-msgid "Public upload"
-msgstr "Offentlig uppladdning"
+msgid "Last modified"
+msgstr "Senast ändrad"
 
-msgid "Expiration date"
-msgstr "Utgångsdatum"
+msgid "Is shared"
+msgstr "Delas"
 
-msgid "More than 1 share link exists. Only showing the latest one"
-msgstr "Det finns fler än 1 delningslänk. Visar bara den senaste"
+msgid "File preview"
+msgstr "Filförhandsgranskning"
 
-msgid "Loading details…"
-msgstr "Läser in detaljer..."
+msgid "Your browser does not support previewing of audio files!"
+msgstr "Din webbläsare stöder inte förhandsgranskning av ljudfiler!"
 
-msgid "Files: Seafile Backend"
-msgstr "Filer: Seafile Backend"
+msgid "Your browser does not support previewing of video files!"
+msgstr "Din webbläsare stöder inte förhandsgranskning av videofiler!"
 
-msgid "Copy link to clipboard"
-msgstr "Kopiera länken till urklipp"
+msgid "d.m.Y G:i"
+msgstr "d.m.Y G:i"
 
-msgid "Link copied to clipboard"
-msgstr "Länken har kopierats till urklipp"
+msgid "Folder"
+msgstr "Mapp"
 
-msgid "Clipboard"
-msgstr "Urklipp"
+msgid "File ({0})"
+msgstr "Fil ({0})"
 
-msgid "Could not copy link automatically. Please copy it manually."
-msgstr "Det gick inte att kopiera länken automatiskt. Kopiera det manuellt."
+msgid "Sort by: Path"
+msgstr "Sortera efter: Sökväg"
 
-msgid "Loading details..."
-msgstr "Läser in detaljer..."
+msgid "Sort by: Last modified"
+msgstr "Sortera efter: Senast ändrad"
 
-msgid "Loading..."
-msgstr "Belastning..."
+msgid "Sort by: Shared"
+msgstr "Sortera efter: Delad"
+
+msgid "There are no items to show in this view"
+msgstr "Det finns inga objekt att visa i den här vyn"
+
+msgid "files selected"
+msgstr "valda filer"
+
+msgid "Authentication required, when using grommunio-files for the first time"
+msgstr "Autentisering krävs när grommunio-filer används för första gången"
 
 msgid "Intranet"
 msgstr "Intranät"
@@ -6165,12 +6218,6 @@ msgstr "Openstreetmap"
 msgid "Map"
 msgstr "Karta"
 
-msgid "grommunio-sync"
-msgstr "grommunio-synk"
-
-msgid "Mobile device management"
-msgstr "Hantering av mobila enheter"
-
 msgid "Mobile Device Manager"
 msgstr "Hanterare för mobila enheter"
 
@@ -6249,6 +6296,9 @@ msgstr "Senaste anslutningen"
 msgid "Synchronize"
 msgstr "Synkronisera"
 
+msgid "Shared Folders"
+msgstr "Delade mappar"
+
 msgid "Manage Shared Folders"
 msgstr "Hantera delade mappar"
 
@@ -6258,6 +6308,12 @@ msgid ""
 msgstr ""
 "Välj mappar att synkronisera med din enhet från listan nedan. För att lägga "
 "till ytterligare postlådor till listan, öppna dem i grommunio Web först."
+
+msgid "grommunio-sync"
+msgstr "grommunio-synk"
+
+msgid "Mobile device management"
+msgstr "Hantering av mobila enheter"
 
 msgid "Mobile Devices"
 msgstr "Mobila enheter"
@@ -6305,6 +6361,12 @@ msgstr "Ta bort enheten"
 msgid "Please enter your username and password"
 msgstr "Vänligen ange ditt användarnamn och lösenord"
 
+msgid "Type {0} to confirm"
+msgstr "Skriv {0} för att bekräfta"
+
+msgid "Please type {0} to confirm"
+msgstr "Vänligen skriv {0} för att bekräfta"
+
 msgid "Wipe only data related to this account"
 msgstr "Rensa endast data relaterade till detta konto"
 
@@ -6316,10 +6378,20 @@ msgstr "Användarnamn"
 
 msgid ""
 "Do you really want to wipe your device?\n"
+" Type WIPE to confirm."
+msgstr ""
+
+msgid ""
+"Do you really want to wipe your device?\n"
 " Enter your password to confirm."
 msgstr ""
 "Vill du verkligen torka din enhet?\n"
 " Ange ditt lösenord för att bekräfta."
+
+msgid ""
+"Do you really want to remove your device?\n"
+" Type REMOVE to confirm."
+msgstr ""
 
 msgid ""
 "Do you really want to remove your device?\n"
@@ -6337,6 +6409,9 @@ msgstr "Rumsnamn:"
 msgid "Room URL:"
 msgstr "Rumsadress:"
 
+msgid "Meet"
+msgstr "Möte"
+
 msgid "Shift-click for advanced settings"
 msgstr "Skift-klicka för avancerade inställningar"
 
@@ -6348,6 +6423,9 @@ msgstr "Öppet möte i:"
 
 msgid "Web tab"
 msgstr "Webbfliken"
+
+msgid "Popup"
+msgstr "Popup-fönster"
 
 msgid "Hide the button in the main toolbar"
 msgstr "Göm knappen i huvudverktygsfältet"
@@ -6377,18 +6455,20 @@ msgstr ""
 msgid "Add an invitation to the appointment description"
 msgstr "Lägg till en inbjudan till mötesbeskrivningen"
 
-msgid "Invitation text"
-msgstr "Inbjudan text"
+msgid "Invitation text (plain text)"
+msgstr "Inbjudans text (vanlig text)"
 
 msgid ""
-"must contain %url% as a placeholder for the meeting link, empty the textbox "
-"to reset to default"
+"used when composing in plain text, must contain %url%, empty to reset to "
+"default"
 msgstr ""
-"måste innehålla %url% as en platshållare för möteslänken, töm textrutan för "
-"att återställa till standard"
 
-msgid "Change Password"
-msgstr "Ändra lösenord"
+msgid "Invitation template (HTML)"
+msgstr "Mall för inbjudan (HTML)"
+
+msgid ""
+"used when composing in HTML, must contain %url%, empty to reset to default"
+msgstr ""
 
 msgid "An unknown error occurred while changing password."
 msgstr "Ett okänt fel uppstod när lösenordet skulle ändras."
@@ -6398,6 +6478,9 @@ msgstr "Lösenordet har ändrats."
 
 msgid "Success"
 msgstr "Framgång"
+
+msgid "Change Password"
+msgstr "Ändra lösenord"
 
 msgid "Current password"
 msgstr "Aktuellt lösenord"
@@ -6427,8 +6510,181 @@ msgstr ""
 "Lösenordet är svagt. Lösenordet ska innehålla versaler, icke versaler och "
 "siffror. Lösenordet bör ha 8 till 20 tecken."
 
+msgid "Change passphrase"
+msgstr "Ändra lösenfras"
+
+msgid "Old passphrase"
+msgstr "Gammal lösenfras"
+
+msgid "Wrong passphrase. Please try again"
+msgstr "Fel lösenfras. Försök igen"
+
+msgid "New passphrase"
+msgstr "Ny lösenfras"
+
+msgid "Confirm new passphrase"
+msgstr "Bekräfta ny lösenordsfras"
+
+msgid "The passphrases don't match. Please try again"
+msgstr "Lösenfraserna stämmer inte överens. Försök igen"
+
+msgid "S/MIME Message"
+msgstr "S/MIME-meddelande"
+
+msgid "Passphrase changed successfully"
+msgstr "Lösenfrasen har ändrats"
+
+msgid "S/MIME Passphrase"
+msgstr "S/MIME-lösenfras"
+
+msgid "Submit"
+msgstr "Överlämna"
+
+msgid "Certificate passphrase"
+msgstr "Certifikatlösenfras"
+
+msgid "The passphrase you typed is incorrect. Please try again."
+msgstr "Lösenfrasen du skrev är felaktig. Försök igen."
+
+msgid "No certificates imported, please upload your private certificate"
+msgstr "Inga certifikat importerade, ladda upp ditt privata certifikat"
+
+msgid "Valid from"
+msgstr "Gäller från"
+
+msgid "Expires"
+msgstr "Upphör att gälla"
+
+msgid "Key Type"
+msgstr "Typ av nyckel"
+
+msgid "Purpose"
+msgstr "Syfte"
+
 msgid "Sign"
 msgstr "Tecken"
+
+msgid "Encrypt"
+msgstr "Kryptera"
+
+msgid "Sign & Encrypt"
+msgstr "Signera och kryptera"
+
+msgid "Loading certificates"
+msgstr "Laddar certifikat"
+
+msgid "S/MIME Plugin"
+msgstr "S/MIME-plugin"
+
+msgid "Please select a certificate."
+msgstr "Välj ett certifikat."
+
+msgid ""
+"Do you really want to remove your private certificate? If you remove your "
+"certificate you will not be able to sign or decrypt S/MIME emails."
+msgstr ""
+"Vill du verkligen ta bort ditt privata certifikat? Om du tar bort ditt "
+"certifikat kommer du inte att kunna signera eller dekryptera S/MIME-e-"
+"postmeddelanden."
+
+msgid "Signing"
+msgstr "Signering"
+
+msgid "Encryption"
+msgstr "Kryptering"
+
+msgid "Signing & Encryption"
+msgstr "Signering och kryptering"
+
+msgid "Serial"
+msgstr "Serie"
+
+msgid "Issued by"
+msgstr "Utfärdad av"
+
+msgid "Issued to"
+msgstr "Utfärdad till"
+
+msgid "SHA-256 Fingerprint"
+msgstr "SHA-256 Fingeravtryck"
+
+msgid "SHA-1 Fingerprint"
+msgstr "SHA-1 fingeravtryck"
+
+msgid ""
+"Warning: RSA key size is below 2048 bits. Consider upgrading to a stronger "
+"certificate."
+msgstr ""
+
+msgid "Certificate details"
+msgstr "Certifikatdetaljer"
+
+msgid "Filter on Email"
+msgstr "Filtrera på e-post"
+
+msgid "Public & Private certificates"
+msgstr "Offentliga och privata certifikat"
+
+msgid "S/MIME"
+msgstr "S/MIME"
+
+msgid "You don't have a valid certificate corresponding to your account"
+msgstr "Du har inte ett giltigt certifikat som motsvarar ditt konto"
+
+msgid "Personal certificate"
+msgstr "Personligt intyg"
+
+msgid "Change passphrase for last certificate"
+msgstr "Ändra lösenordsfras för det senaste certifikatet"
+
+msgid "Default encryption algorithm"
+msgstr "Standard krypteringsalgoritm"
+
+msgid "Recommended"
+msgstr "Rekommenderas"
+
+msgid "Legacy"
+msgstr "Arv"
+
+msgid "Default signing digest"
+msgstr "Standard signeringsdigest"
+
+msgid "You have a valid certificate corresponding to your account"
+msgstr "Du har ett giltigt certifikat som motsvarar ditt konto"
+
+msgid "Upload your certificate"
+msgstr "Ladda upp ditt certifikat"
+
+msgid ""
+"Below you can upload your private certificate in PKCS#12 format. grommunio "
+"Web only accepts certificates which are valid and only stores one private "
+"certificate on the server."
+msgstr ""
+"Nedan kan du ladda upp ditt privata certifikat i PKCS#12-format. grommunio "
+"Web accepterar endast certifikat som är giltiga och lagrar endast ett privat "
+"certifikat på servern."
+
+msgid "Private certificate"
+msgstr "Privat certifikat"
+
+msgid "You must fill in the certificate passphrase to upload your certificate."
+msgstr ""
+"Du måste fylla i certifikatets lösenfras för att ladda upp ditt certifikat."
+
+msgid "You must first select a valid private certificate in PKCS#12 format."
+msgstr "Du måste först välja ett giltigt privat certifikat i PKCS#12-format."
+
+msgid "bits"
+msgstr "bitar"
+
+msgid "signing"
+msgstr "undertecknande"
+
+msgid "encryption"
+msgstr "kryptering"
+
+msgid "signing & encryption"
+msgstr "signering &amp; kryptering"
 
 msgid "Sign message"
 msgstr "Signera meddelande"
@@ -6441,9 +6697,6 @@ msgstr ""
 "detta meddelande. Alla ändringar i meddelandet kommer att ogiltigförklara "
 "signaturen."
 
-msgid "Encrypt"
-msgstr "Kryptera"
-
 msgid "Encrypt message"
 msgstr "Kryptera meddelande"
 
@@ -6454,14 +6707,14 @@ msgstr ""
 "Säkerställ integriteten för meddelandet genom att kryptera dess innehåll. "
 "Endast mottagaren av meddelandet kommer att kunna öppna det."
 
+msgid "Algorithms used"
+msgstr "Algoritmer som används"
+
 msgid "What's going on with my email?"
 msgstr "Vad händer med min e-post?"
 
-msgid "S/MIME Message"
-msgstr "S/MIME-meddelande"
-
-msgid "S/MIME Plugin"
-msgstr "S/MIME-plugin"
+msgid "CBC mode"
+msgstr "CBC-läge"
 
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
@@ -6579,6 +6832,39 @@ msgstr "Certifikatverifieringsservern (OCSP) är tillfälligt offline."
 msgid "Sender is removed from the server."
 msgstr "Avsändaren tas bort från servern."
 
+msgid ""
+"The digital certificate used to sign this message has been revoked according "
+"to the Certificate Revocation List (CRL)."
+msgstr ""
+
+msgid ""
+"The revocation status of the certificate could not be verified because the "
+"CRL Distribution Point is unavailable."
+msgstr ""
+
+msgid ""
+"The RSA key size used in this certificate is below the recommended minimum "
+"of 2048 bits. Consider upgrading to a stronger certificate."
+msgstr ""
+
+msgid ""
+"The certificate's Key Usage extension does not permit this operation. The "
+"certificate may be intended for signing only or encryption only."
+msgstr ""
+
+msgid ""
+"This message was encrypted using CBC mode (not authenticated encryption). "
+"While it was decrypted successfully, AES-GCM (authenticated encryption) "
+"provides stronger protection against modification attacks. Consider asking "
+"the sender to upgrade their S/MIME configuration."
+msgstr ""
+
+msgid ""
+"The signing time in the digital signature differs significantly from the "
+"expected time. This may indicate a clock synchronization issue or message "
+"tampering."
+msgstr ""
+
 msgid "Signature verified successfully"
 msgstr "Signaturen har verifierats"
 
@@ -6626,114 +6912,37 @@ msgstr ""
 msgid "Verification failed. User is removed from the server."
 msgstr "Verifieringen misslyckades. Användaren tas bort från servern."
 
-msgid "Change passphrase"
-msgstr "Ändra lösenfras"
+msgid "Certificate has been revoked (CRL)"
+msgstr "Certifikatet har återkallats (CRL)"
 
-msgid "Old passphrase"
-msgstr "Gammal lösenfras"
+msgid "Cannot check revocation status (CRL unavailable)"
+msgstr "Kan inte kontrollera återkallningsstatus (CRL inte tillgänglig)"
 
-msgid "Wrong passphrase. Please try again"
-msgstr "Fel lösenfras. Försök igen"
+msgid "RSA key size below recommended minimum"
+msgstr "RSA-nyckelstorlek under rekommenderad minimistorlek"
 
-msgid "New passphrase"
-msgstr "Ny lösenfras"
-
-msgid "Confirm new passphrase"
-msgstr "Bekräfta ny lösenordsfras"
-
-msgid "The passphrases don't match. Please try again"
-msgstr "Lösenfraserna stämmer inte överens. Försök igen"
-
-msgid "Passphrase changed successfully"
-msgstr "Lösenfrasen har ändrats"
-
-msgid "S/MIME Passphrase"
-msgstr "S/MIME-lösenfras"
-
-msgid "Submit"
-msgstr "Överlämna"
-
-msgid "Certificate passphrase"
-msgstr "Certifikatlösenfras"
-
-msgid "The passphrase you typed is incorrect. Please try again."
-msgstr "Lösenfrasen du skrev är felaktig. Försök igen."
-
-msgid "No certificates imported, please upload your private certificate"
-msgstr "Inga certifikat importerade, ladda upp ditt privata certifikat"
-
-msgid "Valid from"
-msgstr "Gäller från"
-
-msgid "Expires"
-msgstr "Upphör att gälla"
-
-msgid "Loading certificates"
-msgstr "Laddar certifikat"
-
-msgid "Please select a certificate."
-msgstr "Välj ett certifikat."
-
-msgid ""
-"Do you really want to remove your private certificate? If you remove your "
-"certificate you will not be able to sign or decrypt S/MIME emails."
+msgid "Certificate not valid for this operation (key usage mismatch)"
 msgstr ""
-"Vill du verkligen ta bort ditt privata certifikat? Om du tar bort ditt "
-"certifikat kommer du inte att kunna signera eller dekryptera S/MIME-e-"
-"postmeddelanden."
+"Certifikatet är inte giltigt för den här åtgärden (nyckelanvändningen "
+"stämmer inte överens)"
 
-msgid "Certificate details"
-msgstr "Certifikatdetaljer"
+msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
+msgstr "Dekrypterad (CBC-läge - överväg AES-GCM för starkare skydd)"
 
-msgid ""
-"Below you can view and delete public & private certificate(s) stored on the "
-"server."
-msgstr ""
-"Nedan kan du visa och ta bort offentliga och privata certifikat som lagras "
-"på servern."
+msgid "Signing time differs from expected time"
+msgstr "Signeringstiden avviker från förväntad tid"
 
-msgid "Filter on Email"
-msgstr "Filtrera på e-post"
+msgid "Digest"
+msgstr "Digest"
 
-msgid "Public & Private certificates"
-msgstr "Offentliga och privata certifikat"
+msgid "Signature"
+msgstr "Underskrift"
 
-msgid "S/MIME"
-msgstr "S/MIME"
+msgid "Cipher"
+msgstr "Ciffer"
 
-msgid "You don't have a valid certificate corresponding to your account"
-msgstr "Du har inte ett giltigt certifikat som motsvarar ditt konto"
-
-msgid "Personal certificate"
-msgstr "Personligt intyg"
-
-msgid "Change passphrase for last certificate"
-msgstr "Ändra lösenordsfras för det senaste certifikatet"
-
-msgid "You have a valid certificate corresponding to your account"
-msgstr "Du har ett giltigt certifikat som motsvarar ditt konto"
-
-msgid "Upload your certificate"
-msgstr "Ladda upp ditt certifikat"
-
-msgid ""
-"Below you can upload your private certificate in PKCS#12 format. grommunio "
-"Web only accepts certificates which are valid and only stores one private "
-"certificate on the server."
-msgstr ""
-"Nedan kan du ladda upp ditt privata certifikat i PKCS#12-format. grommunio "
-"Web accepterar endast certifikat som är giltiga och lagrar endast ett privat "
-"certifikat på servern."
-
-msgid "Private certificate"
-msgstr "Privat certifikat"
-
-msgid "You must fill in the certificate passphrase to upload your certificate."
-msgstr ""
-"Du måste fylla i certifikatets lösenfras för att ladda upp ditt certifikat."
-
-msgid "You must first select a valid private certificate in PKCS#12 format."
-msgstr "Du måste först välja ett giltigt privat certifikat i PKCS#12-format."
+msgid "Key transport"
+msgstr "Nyckel transport"
 
 msgid "Charm pink"
 msgstr "Berlock rosa"
@@ -6823,11 +7032,11 @@ msgstr ""
 "Tyvärr, åtkomst till grommunio Web är inte tillgänglig med detta "
 "användarkonto. Kontakta din systemadministratör."
 
-msgid "With this backend, you can connect to any WebDAV server."
-msgstr "Med denna backend kan du ansluta till vilken WebDAV-server som helst."
+msgid "This backend provides the default WebDAV integration for Files."
+msgstr "Denna backend tillhandahåller standard WebDAV-integration för filer."
 
-msgid "Files WebDAV Backend: "
-msgstr "Filer WebDAV Backend:"
+msgid "Files Default Backend: "
+msgstr "Files Standard Backend:"
 
 msgid "Server address"
 msgstr "Serveradress"
@@ -6844,8 +7053,8 @@ msgstr "Webdavs basväg"
 msgid "Use grommunio credentials"
 msgstr "Använd grommunio-uppgifter"
 
-msgid "PHP-CURL is not installed"
-msgstr "PHP-CURL är inte installerat"
+msgid "php-curl is not available"
+msgstr "php-curl är inte tillgängligt"
 
 msgid "Access denied"
 msgstr "Åtkomst nekad"
@@ -6856,38 +7065,17 @@ msgstr "Anslutning misslyckades"
 msgid "Sabre error"
 msgstr "Sabelfel"
 
-msgid "Directory creation failed"
-msgstr "Det gick inte att skapa katalog"
-
-msgid "Deletion failed"
-msgstr "Raderingen misslyckades"
-
-msgid "Moving failed"
-msgstr "Flytten misslyckades"
-
-msgid "Temporary directory problems"
-msgstr "Tillfälliga katalogproblem"
-
-msgid "File or folder not found"
-msgstr "Fil eller mapp hittades inte"
-
-msgid "Not implemented"
-msgstr "Inte genomfört"
-
 msgid "Copying failed"
 msgstr "Kopieringen misslyckades"
 
 msgid "Unknown error"
 msgstr "Okänt fel"
 
-msgid "Please contact your system administrator"
-msgstr "Kontakta din systemadministratör"
+msgid "Please contact your system administrator."
+msgstr "Kontakta din systemadministratör."
 
 msgid "Unauthorized. Wrong username or password."
 msgstr "Obehörig. Fel användarnamn eller lösenord."
-
-msgid "File server is not reachable. Please verify the connection."
-msgstr "Filservern är inte tillgänglig. Vänligen verifiera anslutningen."
 
 msgid "File server is not reachable. Please verify the file server URL."
 msgstr "Filservern är inte tillgänglig. Vänligen verifiera filserverns URL."
@@ -6920,70 +7108,6 @@ msgstr "Vi kunde inte hämta listan över serverfunktioner."
 
 msgid "PHP-Curl is not available."
 msgstr "PHP-Curl är inte tillgängligt."
-
-msgid "PHP-CURL not installed"
-msgstr "PHP-CURL inte installerat"
-
-msgid "Account is ready to use."
-msgstr "Kontot är redo att användas."
-
-msgid "File backend not responding. Please try again later."
-msgstr "Filens backend svarar inte. Försök igen senare."
-
-msgid "Zip file generation failed. Please inform the administrator."
-msgstr ""
-"Generering av zip-filer misslyckades. Vänligen informera administratören."
-
-msgid "This file is no longer available. Please reload the folder."
-msgstr "Den här filen är inte längre tillgänglig. Ladda om mappen."
-
-msgid "Unknown account ID"
-msgstr "Okänt konto-ID"
-
-msgid "Feature \"Quota Information\" is not supported by this backend!"
-msgstr "Funktionen \"Quota Information\" stöds inte av denna backend!"
-
-msgid "Feature \"Version Information\" is not supported by this backend!"
-msgstr "Funktionen \"Versionsinformation\" stöds inte av denna backend!"
-
-msgid "Feature \"OAUTH\" is not supported by this backend!"
-msgstr "Funktionen \"OAUTH\" stöds inte av denna backend!"
-
-msgid "Moving between accounts is not implemented"
-msgstr "Att flytta mellan konton är inte implementerat"
-
-msgid "Files plugin"
-msgstr "Plugin för filer"
-
-msgid "Unknown type - cannot save this file to the Files backend!"
-msgstr "Okänd typ - kan inte spara den här filen i Files backend!"
-
-msgid "No record given!"
-msgstr "Inget rekord ges!"
-
-msgid "Fetching sharing information failed"
-msgstr "Det gick inte att hämta delningsinformation"
-
-msgid "Sharing failed"
-msgstr "Delningen misslyckades"
-
-msgid "Updating share failed"
-msgstr "Det gick inte att uppdatera delning"
-
-msgid "Deleting share failed"
-msgstr "Det gick inte att ta bort delningen"
-
-msgid "This backend provides the default WebDAV integration for Files."
-msgstr "Denna backend tillhandahåller standard WebDAV-integration för filer."
-
-msgid "Files Default Backend: "
-msgstr "Files Standard Backend:"
-
-msgid "php-curl is not available"
-msgstr "php-curl är inte tillgängligt"
-
-msgid "Please contact your system administrator."
-msgstr "Kontakta din systemadministratör."
 
 msgid "With this backend, you can connect to any Seafile server."
 msgstr "Med denna backend kan du ansluta till vilken Seafile-server som helst."
@@ -7032,6 +7156,91 @@ msgstr "PHP-Curl är inte tillgängligt. Kontakta din systemadministratör."
 
 msgid "This function is not yet implemented."
 msgstr "Denna funktion är ännu inte implementerad."
+
+msgid "Unknown account ID"
+msgstr "Okänt konto-ID"
+
+msgid "Feature \"Quota Information\" is not supported by this backend!"
+msgstr "Funktionen \"Quota Information\" stöds inte av denna backend!"
+
+msgid "Feature \"Version Information\" is not supported by this backend!"
+msgstr "Funktionen \"Versionsinformation\" stöds inte av denna backend!"
+
+msgid "Feature \"OAUTH\" is not supported by this backend!"
+msgstr "Funktionen \"OAUTH\" stöds inte av denna backend!"
+
+msgid "Moving between accounts is not implemented"
+msgstr "Att flytta mellan konton är inte implementerat"
+
+msgid "Files plugin"
+msgstr "Plugin för filer"
+
+msgid "Unknown type - cannot save this file to the Files backend!"
+msgstr "Okänd typ - kan inte spara den här filen i Files backend!"
+
+msgid "No record given!"
+msgstr "Inget rekord ges!"
+
+msgid "Fetching sharing information failed"
+msgstr "Det gick inte att hämta delningsinformation"
+
+msgid "Sharing failed"
+msgstr "Delningen misslyckades"
+
+msgid "Updating share failed"
+msgstr "Det gick inte att uppdatera delning"
+
+msgid "Deleting share failed"
+msgstr "Det gick inte att ta bort delningen"
+
+msgid "With this backend, you can connect to any WebDAV server."
+msgstr "Med denna backend kan du ansluta till vilken WebDAV-server som helst."
+
+msgid "Files WebDAV Backend: "
+msgstr "Filer WebDAV Backend:"
+
+msgid "PHP-CURL is not installed"
+msgstr "PHP-CURL är inte installerat"
+
+msgid "Directory creation failed"
+msgstr "Det gick inte att skapa katalog"
+
+msgid "Deletion failed"
+msgstr "Raderingen misslyckades"
+
+msgid "Moving failed"
+msgstr "Flytten misslyckades"
+
+msgid "Temporary directory problems"
+msgstr "Tillfälliga katalogproblem"
+
+msgid "File or folder not found"
+msgstr "Fil eller mapp hittades inte"
+
+msgid "Not implemented"
+msgstr "Inte genomfört"
+
+msgid "Please contact your system administrator"
+msgstr "Kontakta din systemadministratör"
+
+msgid "File server is not reachable. Please verify the connection."
+msgstr "Filservern är inte tillgänglig. Vänligen verifiera anslutningen."
+
+msgid "PHP-CURL not installed"
+msgstr "PHP-CURL inte installerat"
+
+msgid "Account is ready to use."
+msgstr "Kontot är redo att användas."
+
+msgid "File backend not responding. Please try again later."
+msgstr "Filens backend svarar inte. Försök igen senare."
+
+msgid "Zip file generation failed. Please inform the administrator."
+msgstr ""
+"Generering av zip-filer misslyckades. Vänligen informera administratören."
+
+msgid "This file is no longer available. Please reload the folder."
+msgstr "Den här filen är inte längre tillgänglig. Ladda om mappen."
 
 msgid "Kendox certificate path is not configured."
 msgstr "Kendox certifikatsökväg är inte konfigurerad."
@@ -7094,6 +7303,21 @@ msgstr ""
 msgid "Private certificate does not match email address"
 msgstr "Det privata certifikatet matchar inte e-postadressen"
 
+msgid "No email address specified"
+msgstr "Ingen e-postadress angiven"
+
+msgid "No certificates found for this email address"
+msgstr "Inga certifikat hittades för den här e-postadressen"
+
+msgid "Unable to read certificates"
+msgstr "Det går inte att läsa certifikat"
+
+msgid "Unable to generate certs-only message"
+msgstr "Det går inte att generera ett meddelande med enbart certifikat"
+
+msgid "LDAP not configured"
+msgstr "LDAP är inte konfigurerad"
+
 msgid "Missing public certificates for the following recipients: "
 msgstr "Offentliga certifikat saknas för följande mottagare:"
 
@@ -7118,6 +7342,17 @@ msgstr "Privat nyckel kan inte användas för att signera e-post"
 
 msgid "Certificate email address doesn't match grommunio Web account "
 msgstr "Certifikatets e-postadress matchar inte grommunio webbkonto"
+
+#, php-format
+msgid ""
+"RSA key size %d bits is below the recommended minimum of %d bits. "
+"Certificate was imported."
+msgstr ""
+
+msgid ""
+"EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully "
+"supported. Certificate was imported."
+msgstr ""
 
 msgid "Certificate was expired on "
 msgstr "Certifikatet gick ut den"
@@ -7378,9 +7613,11 @@ msgstr "Kvotfel"
 msgid "Send quota limit reached"
 msgstr "Sändningskvoten har uppnåtts"
 
-msgid "Email sending failed. Check the log files for more information."
+#, php-format
+msgid "Email sending failed (%s). Check the log files for more information."
 msgstr ""
-"Det gick inte att skicka e-post. Kontrollera loggfilerna för mer information."
+"Sändning av e-post misslyckades (%s). Kontrollera loggfilerna för mer "
+"information."
 
 msgid "Unknown user/group"
 msgstr "Okänd användare/grupp"

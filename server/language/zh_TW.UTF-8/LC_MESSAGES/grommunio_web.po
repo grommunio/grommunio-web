@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 23:43+0100\n"
+"POT-Creation-Date: 2026-03-12 22:26+0100\n"
 "PO-Revision-Date: 2022-08-27 18:15+0000\n"
 "Last-Translator: Hugel <qihu@nfschina.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -317,6 +317,9 @@ msgstr "電子郵件地址"
 msgid "Email addresses"
 msgstr "電子郵件地址"
 
+msgid "Email Address"
+msgstr "電子郵件地址"
+
 msgid "Group details"
 msgstr "群組詳細"
 
@@ -329,17 +332,11 @@ msgstr "顯示名稱"
 msgid "Alias"
 msgstr "別名"
 
-msgid "Owner"
-msgstr "擁有者"
-
 msgid "Notes"
 msgstr "筆記"
 
 msgid "Members"
 msgstr "成員"
-
-msgid "Email Address"
-msgstr "電子郵件地址"
 
 msgid "Account"
 msgstr "帳號"
@@ -368,11 +365,11 @@ msgstr "姓名首字母"
 msgid "Display"
 msgstr "顯示"
 
-msgid "Addresses"
-msgstr "地址"
-
 msgid "Address"
 msgstr "地址"
+
+msgid "Street"
+msgstr "街"
 
 msgid "City"
 msgstr "城市"
@@ -422,7 +419,7 @@ msgstr "電話號碼"
 msgid "Business"
 msgstr "公司"
 
-msgid "Business2"
+msgid "Business 2"
 msgstr "公司2"
 
 msgid "Fax"
@@ -431,7 +428,7 @@ msgstr "傳真"
 msgid "Home"
 msgstr "住家"
 
-msgid "Home2"
+msgid "Home 2"
 msgstr "住家2"
 
 msgid "Mobile"
@@ -629,9 +626,6 @@ msgstr "轉寄"
 
 msgid "Edit as New"
 msgstr "編輯為新"
-
-msgid "Search tools"
-msgstr "搜尋工具"
 
 msgid "Folders"
 msgstr "資料夾"
@@ -1460,14 +1454,14 @@ msgstr "此約會已搬移或刪除，您要繼續嗎？"
 msgid "Options"
 msgstr "選項"
 
+msgid "Icon"
+msgstr "圖示"
+
 msgid "All Day"
 msgstr "全天"
 
 msgid "Sort by: All Day"
 msgstr "依全天事件排序"
-
-msgid "Icon"
-msgstr "圖示"
 
 msgid "Recurring"
 msgstr "經常性"
@@ -2090,6 +2084,9 @@ msgstr "收件夾"
 msgid "Entire Inbox"
 msgstr "全部收件夾"
 
+msgid "Owner"
+msgstr "擁有者"
+
 msgid "Secretary"
 msgstr "祕書"
 
@@ -2359,14 +2356,6 @@ msgstr "新郵件"
 
 msgid "Please select a Cc recipient record."
 msgstr "請選擇抄送收件人記錄。"
-
-msgid "Manage Cc recipients"
-msgstr "管理抄送收件人"
-
-msgid ""
-"Cc recipients can be used to set a default Cc user in new mail, replies or "
-"both."
-msgstr ""
 
 msgid "Help"
 msgstr "說明"
@@ -2831,14 +2820,47 @@ msgstr "應用變更"
 msgid "Do you wish to apply the changes?"
 msgstr "你要套用此改變嗎?"
 
+msgid "Category"
+msgstr "類別"
+
+msgid "Recent searches"
+msgstr "最近的搜尋"
+
+msgid "Filter by"
+msgstr "篩選條件"
+
+msgid "Show"
+msgstr "顯示"
+
+msgid "Operators"
+msgstr "操作員"
+
+msgid "AND"
+msgstr "與"
+
+msgid "OR"
+msgstr "或"
+
+msgid "NOT"
+msgstr "不是"
+
+msgid "Search in"
+msgstr "搜尋"
+
 msgid "All folders"
 msgstr "所有資料夾"
 
 msgid "Other…"
 msgstr "其他..."
 
-msgid "Search in…"
-msgstr "搜尋..."
+msgid "Type"
+msgstr "類型"
+
+msgid "Search"
+msgstr "搜尋"
+
+msgid "Click to cycle: AND → OR → NOT"
+msgstr "點擊循環：AND → OR → NOT"
 
 msgid "Folder does not exist"
 msgstr "資料夾不存在"
@@ -3332,9 +3354,6 @@ msgstr "電話號碼"
 msgid "Check address"
 msgstr "檢查地址"
 
-msgid "Street"
-msgstr "街"
-
 msgid "State/Province"
 msgstr "州/省"
 
@@ -3372,20 +3391,17 @@ msgstr "紀念日"
 msgid "Photo"
 msgstr "相片"
 
+msgid "Addresses"
+msgstr "地址"
+
 msgid "Additional information"
 msgstr "額外資訊"
-
-msgid "Business 2"
-msgstr "公司2"
 
 msgid "Callback"
 msgstr "回撥"
 
 msgid "Car"
 msgstr "車"
-
-msgid "Home 2"
-msgstr "住家2"
 
 msgid "Primary"
 msgstr "主要的"
@@ -3779,11 +3795,20 @@ msgstr "紅色"
 msgid "Brown"
 msgstr "棕色"
 
+msgid "Logout"
+msgstr "登出"
+
+msgid "Appearance"
+msgstr "外觀"
+
+msgid "Light"
+msgstr "燈光"
+
 msgid "Dark"
 msgstr "深色"
 
-msgid "Logout"
-msgstr "登出"
+msgid "Automatic"
+msgstr "自動"
 
 msgid "Switch view"
 msgstr "切換檢視"
@@ -3859,6 +3884,9 @@ msgstr "隱藏詳細資訊"
 msgid "Loaded {0} of {1}"
 msgstr "載入{0} 的{1}"
 
+msgid "Copied!"
+msgstr "已複製！"
+
 msgid "Saving"
 msgstr "儲存中"
 
@@ -3888,11 +3916,11 @@ msgstr "未保存的變更"
 msgid "Welcome to grommunio Web"
 msgstr "歡迎來到 grommunio Web"
 
-msgid "This is the first time you are using grommunio Web. "
-msgstr "這是您第一次使用 grommunio Web。 "
+msgid "Set up your preferences to get started."
+msgstr "設定您的偏好設定即可開始使用。"
 
-msgid "Please check the following settings before continuing."
-msgstr "請在繼續之前檢查下列設定。"
+msgid "Get Started"
+msgstr "開始使用"
 
 msgid "Widget height"
 msgstr "小工具高度"
@@ -3963,6 +3991,18 @@ msgstr "權限不足"
 
 msgid "Not enough permissions to open this folder."
 msgstr "沒有足夠的權限來開啟這個文件夾"
+
+msgid "Empty folder"
+msgstr "空文件夾"
+
+msgid "Emptying {0}… (0%)"
+msgstr "清空{0}... (0%)"
+
+msgid "Successfully emptied {0}. ({1} items removed)"
+msgstr "成功清空{0}. ({1} 項目已移除)"
+
+msgid "Emptying {0}… ({1}%)"
+msgstr "清空{0}... ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4038,9 +4078,6 @@ msgstr "無目的地"
 
 msgid "You must select a destination folder."
 msgstr "您必須選擇一個目標資料夾"
-
-msgid "Type"
-msgstr "類型"
 
 msgid "Description"
 msgstr "描述"
@@ -4186,9 +4223,6 @@ msgstr "開啟共用資料夾/儲存空間"
 msgid "Rename folder"
 msgstr "重新命名資料夾"
 
-msgid "Empty folder"
-msgstr "空文件夾"
-
 msgid "Empty Junk Email"
 msgstr "清空垃圾郵件"
 
@@ -4267,9 +4301,6 @@ msgstr "您確定要清空{0}?"
 
 msgid "Show All"
 msgstr "顯示全部"
-
-msgid "Show all folders"
-msgstr "顯示所有資料夾"
 
 msgid ""
 "You have insufficient privileges to move this folder. Would you like to copy "
@@ -4536,6 +4567,9 @@ msgstr "{A}在{B}秒後自動標示已讀取"
 msgid "View mail in this format"
 msgstr "檢視此格式的郵件"
 
+msgid "Cc recipients"
+msgstr "抄送收件人"
+
 msgid "Right"
 msgstr "右"
 
@@ -4649,6 +4683,12 @@ msgstr "最大。 "
 
 msgid "Sort by: Sent"
 msgstr "依傳送排序"
+
+msgid "Scheduled"
+msgstr "排程"
+
+msgid "Sort by: Scheduled"
+msgstr "排序方式排程"
 
 msgid "Modified"
 msgstr "已修改"
@@ -4781,11 +4821,8 @@ msgstr "設定"
 msgid "Basic"
 msgstr "基本"
 
-msgid "Account information - {0}"
-msgstr "帳戶資訊 -{0}"
-
-msgid "Profile Picture"
-msgstr "檔案圖片"
+msgid "System"
+msgstr "系統"
 
 msgid "Language"
 msgstr "語言"
@@ -4795,6 +4832,9 @@ msgstr "開始資料夾"
 
 msgid "Theme"
 msgstr "主題"
+
+msgid "Personal information"
+msgstr "個人資訊"
 
 msgid "Select Default Folder"
 msgstr "選擇預設資料夾"
@@ -4829,8 +4869,8 @@ msgstr "{0} 圖示集"
 msgid "About"
 msgstr "關於"
 
-msgid "I want to display date and time in this format:"
-msgstr "我想以這種格式顯示日期和時間："
+msgid "Date & Time"
+msgstr "日期與時間"
 
 msgid "Short"
 msgstr "短"
@@ -4838,23 +4878,20 @@ msgstr "短"
 msgid "Long"
 msgstr "長"
 
-msgid "Time format:"
-msgstr "時間格式："
-
 msgid "12h clock"
 msgstr "12 小時鐘"
 
 msgid "24h clock"
 msgstr "24 小時時鐘"
 
-msgid "Favorite settings"
-msgstr "最愛的設定"
-
 msgid "Hide favorites"
 msgstr "隱藏我的最愛"
 
 msgid "Unpin favorites from top"
 msgstr "從最上方解除我的最愛"
+
+msgid "Interface"
+msgstr "介面"
 
 msgid "Give unread items a colored border"
 msgstr "為未讀取的項目加上彩色邊框"
@@ -4867,9 +4904,6 @@ msgstr "在應用程式標題中顯示未讀郵件計數器"
 
 msgid "Hide widget panel"
 msgstr "隱藏小工具面板"
-
-msgid "Show search bar above folder list"
-msgstr "在資料夾清單上方顯示搜尋列"
 
 msgid "Auto"
 msgstr "自動"
@@ -4921,8 +4955,8 @@ msgstr "每頁載入 {A} 項目。"
 msgid "Keyboard Shortcuts"
 msgstr "鍵盤捷徑"
 
-msgid "Part of basic keyboard shortcuts"
-msgstr "基本鍵盤捷徑的一部分"
+msgid "Extended"
+msgstr "延伸"
 
 msgid "Keyboard shortcuts off"
 msgstr "關閉鍵盤捷徑"
@@ -4930,8 +4964,8 @@ msgstr "關閉鍵盤捷徑"
 msgid "Basic keyboard shortcuts on"
 msgstr "上的基本鍵盤捷徑"
 
-msgid "All keyboard shortcuts on"
-msgstr "上的所有鍵盤捷徑"
+msgid "Extended shortcuts on"
+msgstr "上的延伸捷徑"
 
 msgid "This change requires a reload of grommunio Web"
 msgstr "此變更需要重新載入 grommunio Web"
@@ -5008,11 +5042,29 @@ msgstr "設定"
 msgid "The setting '{0}' can not be edited"
 msgstr "這個設定 '{0}' 無法編輯"
 
-msgid "Version information"
-msgstr "版本資訊"
+msgid "OpenID Connect"
+msgstr "OpenID Connect"
+
+msgid "Basic Authentication"
+msgstr "基本驗證"
+
+msgid "System information"
+msgstr "系統資訊"
 
 msgid "Gromox"
 msgstr "Gromox"
+
+msgid "Logged in via"
+msgstr "透過以下方式登入"
+
+msgid "Browser"
+msgstr "瀏覽器"
+
+msgid "Maintenance"
+msgstr "維護"
+
+msgid "Reset all settings to defaults"
+msgstr "將所有設定重設為預設值"
 
 msgid "Delete confirmation"
 msgstr "刪除確認"
@@ -5407,6 +5459,9 @@ msgstr "Out of Office 目前已啟動。您想關閉它嗎？"
 
 msgid "Archive"
 msgstr "存檔"
+
+msgid "Chat"
+msgstr "聊天"
 
 msgid "Open Chat at start"
 msgstr "开始时打开聊天"
@@ -6059,6 +6114,9 @@ msgstr "上次連線"
 msgid "Synchronize"
 msgstr "同步化"
 
+msgid "Shared Folders"
+msgstr "共用資料夾"
+
 msgid "Manage Shared Folders"
 msgstr "管理共用資料夾"
 
@@ -6117,6 +6175,12 @@ msgstr "移除裝置"
 msgid "Please enter your username and password"
 msgstr "請輸入您的使用者名稱和密碼"
 
+msgid "Type {0} to confirm"
+msgstr "輸入{0} 確認"
+
+msgid "Please type {0} to confirm"
+msgstr "請輸入{0} 確認"
+
 msgid "Wipe only data related to this account"
 msgstr "只清除與此帳戶相關的資料"
 
@@ -6128,7 +6192,17 @@ msgstr "使用者名稱"
 
 msgid ""
 "Do you really want to wipe your device?\n"
+" Type WIPE to confirm."
+msgstr ""
+
+msgid ""
+"Do you really want to wipe your device?\n"
 " Enter your password to confirm."
+msgstr ""
+
+msgid ""
+"Do you really want to remove your device?\n"
+" Type REMOVE to confirm."
 msgstr ""
 
 msgid ""
@@ -6145,6 +6219,9 @@ msgstr "房間名稱："
 msgid "Room URL:"
 msgstr "房間網址："
 
+msgid "Meet"
+msgstr "見面"
+
 msgid "Shift-click for advanced settings"
 msgstr "按下 Shift 鍵進行進階設定"
 
@@ -6156,6 +6233,9 @@ msgstr "公開會議在"
 
 msgid "Web tab"
 msgstr "網頁選項卡"
+
+msgid "Popup"
+msgstr "快顯"
 
 msgid "Hide the button in the main toolbar"
 msgstr "隱藏主工具列上的按鈕"
@@ -6180,12 +6260,19 @@ msgstr "如果您在建立會議時遇到問題，請嘗試停用此設定"
 msgid "Add an invitation to the appointment description"
 msgstr "在約會描述中加入邀請"
 
-msgid "Invitation text"
-msgstr "邀請函文字"
+msgid "Invitation text (plain text)"
+msgstr "邀請函文字（純文字）"
 
 msgid ""
-"must contain %url% as a placeholder for the meeting link, empty the textbox "
-"to reset to default"
+"used when composing in plain text, must contain %url%, empty to reset to "
+"default"
+msgstr ""
+
+msgid "Invitation template (HTML)"
+msgstr "邀請函範本 (HTML)"
+
+msgid ""
+"used when composing in HTML, must contain %url%, empty to reset to default"
 msgstr ""
 
 msgid "An unknown error occurred while changing password."
@@ -6271,6 +6358,21 @@ msgstr "有效期自"
 msgid "Expires"
 msgstr "到期"
 
+msgid "Key Type"
+msgstr "鑰匙類型"
+
+msgid "Purpose"
+msgstr "目的"
+
+msgid "Sign"
+msgstr "簽名"
+
+msgid "Encrypt"
+msgstr "加密"
+
+msgid "Sign & Encrypt"
+msgstr "簽名與加密"
+
 msgid "Loading certificates"
 msgstr "載入證書"
 
@@ -6285,13 +6387,37 @@ msgid ""
 "certificate you will not be able to sign or decrypt S/MIME emails."
 msgstr ""
 
-msgid "Certificate details"
-msgstr "證書詳細資料"
+msgid "Signing"
+msgstr "簽署"
+
+msgid "Encryption"
+msgstr "加密"
+
+msgid "Signing & Encryption"
+msgstr "簽署與加密"
+
+msgid "Serial"
+msgstr "序列"
+
+msgid "Issued by"
+msgstr "簽發"
+
+msgid "Issued to"
+msgstr "發給"
+
+msgid "SHA-256 Fingerprint"
+msgstr "SHA-256 指紋"
+
+msgid "SHA-1 Fingerprint"
+msgstr "SHA-1 指紋"
 
 msgid ""
-"Below you can view and delete public & private certificate(s) stored on the "
-"server."
+"Warning: RSA key size is below 2048 bits. Consider upgrading to a stronger "
+"certificate."
 msgstr ""
+
+msgid "Certificate details"
+msgstr "證書詳細資料"
 
 msgid "Filter on Email"
 msgstr "過濾電子郵件"
@@ -6310,6 +6436,18 @@ msgstr "個人證書"
 
 msgid "Change passphrase for last certificate"
 msgstr "變更最後一張憑證的密碼"
+
+msgid "Default encryption algorithm"
+msgstr "預設加密演算法"
+
+msgid "Recommended"
+msgstr "推薦"
+
+msgid "Legacy"
+msgstr "傳統"
+
+msgid "Default signing digest"
+msgstr "預設簽署摘要"
 
 msgid "You have a valid certificate corresponding to your account"
 msgstr "您擁有與帳戶對應的有效憑證"
@@ -6332,8 +6470,17 @@ msgstr "您必須填寫證書密碼才能上傳您的證書。"
 msgid "You must first select a valid private certificate in PKCS#12 format."
 msgstr "您必須先選擇 PKCS#12 格式的有效私人憑證。"
 
-msgid "Sign"
+msgid "bits"
+msgstr "屑"
+
+msgid "signing"
 msgstr "簽名"
+
+msgid "encryption"
+msgstr "加密"
+
+msgid "signing & encryption"
+msgstr "簽署與加密"
 
 msgid "Sign message"
 msgstr "標誌訊息"
@@ -6343,9 +6490,6 @@ msgid ""
 "message. Any changes to the message will invalidate the signature."
 msgstr ""
 
-msgid "Encrypt"
-msgstr "加密"
-
 msgid "Encrypt message"
 msgstr "加密訊息"
 
@@ -6354,8 +6498,14 @@ msgid ""
 "recipient of the message will be able to open it."
 msgstr ""
 
+msgid "Algorithms used"
+msgstr "使用的演算法"
+
 msgid "What's going on with my email?"
 msgstr "我的電子郵件怎麼了？"
+
+msgid "CBC mode"
+msgstr "CBC 模式"
 
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
@@ -6443,6 +6593,39 @@ msgstr "證書驗證伺服器 (OCSP) 暫時離線。"
 msgid "Sender is removed from the server."
 msgstr "寄件者從伺服器移除。"
 
+msgid ""
+"The digital certificate used to sign this message has been revoked according "
+"to the Certificate Revocation List (CRL)."
+msgstr ""
+
+msgid ""
+"The revocation status of the certificate could not be verified because the "
+"CRL Distribution Point is unavailable."
+msgstr ""
+
+msgid ""
+"The RSA key size used in this certificate is below the recommended minimum "
+"of 2048 bits. Consider upgrading to a stronger certificate."
+msgstr ""
+
+msgid ""
+"The certificate's Key Usage extension does not permit this operation. The "
+"certificate may be intended for signing only or encryption only."
+msgstr ""
+
+msgid ""
+"This message was encrypted using CBC mode (not authenticated encryption). "
+"While it was decrypted successfully, AES-GCM (authenticated encryption) "
+"provides stronger protection against modification attacks. Consider asking "
+"the sender to upgrade their S/MIME configuration."
+msgstr ""
+
+msgid ""
+"The signing time in the digital signature differs significantly from the "
+"expected time. This may indicate a clock synchronization issue or message "
+"tampering."
+msgstr ""
+
 msgid "Signature verified successfully"
 msgstr "簽名驗證成功"
 
@@ -6487,6 +6670,36 @@ msgstr "無法解密此訊息。證書不符"
 
 msgid "Verification failed. User is removed from the server."
 msgstr "驗證失敗。使用者已從伺服器移除。"
+
+msgid "Certificate has been revoked (CRL)"
+msgstr "憑證已被撤銷 (CRL)"
+
+msgid "Cannot check revocation status (CRL unavailable)"
+msgstr "無法檢查撤銷狀態 (CRL 不可用)"
+
+msgid "RSA key size below recommended minimum"
+msgstr "RSA 金鑰大小低於建議的最小值"
+
+msgid "Certificate not valid for this operation (key usage mismatch)"
+msgstr "憑證對此操作無效（金鑰使用不匹配）"
+
+msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
+msgstr "已解密 (CBC 模式 - 考慮使用 AES-GCM 以獲得更強的保護)"
+
+msgid "Signing time differs from expected time"
+msgstr "簽署時間與預期時間不同"
+
+msgid "Digest"
+msgstr "文摘"
+
+msgid "Signature"
+msgstr "簽名"
+
+msgid "Cipher"
+msgstr "密碼"
+
+msgid "Key transport"
+msgstr "關鍵運輸"
 
 msgid "Charm pink"
 msgstr "魅力粉紅"
@@ -6831,6 +7044,21 @@ msgstr "私人證書尚未生效，無法簽署電子郵件"
 msgid "Private certificate does not match email address"
 msgstr "私人證書與電子郵件地址不符"
 
+msgid "No email address specified"
+msgstr "未指定電子郵件地址"
+
+msgid "No certificates found for this email address"
+msgstr "未找到此電子郵件地址的證書"
+
+msgid "Unable to read certificates"
+msgstr "無法讀取憑證"
+
+msgid "Unable to generate certs-only message"
+msgstr "無法產生僅憑憑證訊息"
+
+msgid "LDAP not configured"
+msgstr "未設定 LDAP"
+
 msgid "Missing public certificates for the following recipients: "
 msgstr "下列收件人的公開憑證遺失： "
 
@@ -6853,6 +7081,17 @@ msgstr "私密金鑰無法用於簽署電子郵件"
 
 msgid "Certificate email address doesn't match grommunio Web account "
 msgstr "證書電子郵件地址與 grommunio Web 帳戶不符 "
+
+#, php-format
+msgid ""
+"RSA key size %d bits is below the recommended minimum of %d bits. "
+"Certificate was imported."
+msgstr ""
+
+msgid ""
+"EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully "
+"supported. Certificate was imported."
+msgstr ""
 
 msgid "Certificate was expired on "
 msgstr "憑證於 "
@@ -7094,8 +7333,9 @@ msgstr "配額錯誤"
 msgid "Send quota limit reached"
 msgstr "已達傳送配額上限"
 
-msgid "Email sending failed. Check the log files for more information."
-msgstr "電子郵件傳送失敗。檢查日誌檔案以獲得更多資訊。"
+#, php-format
+msgid "Email sending failed (%s). Check the log files for more information."
+msgstr "電子郵件傳送失敗 (%s)。查看日誌檔案以瞭解更多資訊。"
 
 msgid "Unknown user/group"
 msgstr "未知使用者/群組"

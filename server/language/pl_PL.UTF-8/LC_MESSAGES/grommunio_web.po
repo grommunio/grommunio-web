@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Polish (Poland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 23:43+0100\n"
+"POT-Creation-Date: 2026-03-12 22:26+0100\n"
 "PO-Revision-Date: 2022-07-26 17:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -338,6 +338,9 @@ msgstr "Adresy e-mail"
 msgid "Email addresses"
 msgstr "Adresy e-mail"
 
+msgid "Email Address"
+msgstr "Adres e-mail"
+
 msgid "Group details"
 msgstr "Szczegóły grupy"
 
@@ -350,17 +353,11 @@ msgstr "Nazwa wyświetlana"
 msgid "Alias"
 msgstr "Alias"
 
-msgid "Owner"
-msgstr "Właściciel"
-
 msgid "Notes"
 msgstr "Notatki"
 
 msgid "Members"
 msgstr "Członkowie"
-
-msgid "Email Address"
-msgstr "Adres e-mail"
 
 msgid "Account"
 msgstr "Konto"
@@ -389,11 +386,11 @@ msgstr "Inicjały"
 msgid "Display"
 msgstr "Pokaż"
 
-msgid "Addresses"
-msgstr "Adresy"
-
 msgid "Address"
 msgstr "Adres"
+
+msgid "Street"
+msgstr "Ulica"
 
 msgid "City"
 msgstr "Miejscowość"
@@ -443,7 +440,7 @@ msgstr "Numery telefonów"
 msgid "Business"
 msgstr "Telefon służbowy"
 
-msgid "Business2"
+msgid "Business 2"
 msgstr "Telefon służbowy 2"
 
 msgid "Fax"
@@ -452,8 +449,8 @@ msgstr "Faks"
 msgid "Home"
 msgstr "Numer prywatny"
 
-msgid "Home2"
-msgstr "Numer prywatny 2"
+msgid "Home 2"
+msgstr "Telefon prywatny 2"
 
 msgid "Mobile"
 msgstr "Nr tel.kom"
@@ -653,9 +650,6 @@ msgstr "Prześlij dalej"
 msgid "Edit as New"
 msgstr "Edytuj jako nowy"
 
-msgid "Search tools"
-msgstr "Narzędzia wyszukiwarki"
-
 msgid "Folders"
 msgstr "Foldery"
 
@@ -833,7 +827,8 @@ msgstr[2] "Występuje co {0} efektywnych {1} dla {2} wystąpień od {3} do {4}."
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
 msgid_plural ""
 "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
-msgstr[0] "Występuje co {0} {1} skuteczne {2} dla {3} wystąpienia od {4} do {5}."
+msgstr[0] ""
+"Występuje co {0} {1} skuteczne {2} dla {3} wystąpienia od {4} do {5}."
 msgstr[1] "Występuje co {0} {1} skuteczne {2} dla {3} wystąpienia {4} do {5}."
 msgstr[2] "Występuje co {0} {1} skuteczne {2} dla {3} wystąpienia {4} do {5}."
 
@@ -1504,14 +1499,14 @@ msgstr "Ten termin został przesunięty lub usunięty, czy chcesz kontynuować?"
 msgid "Options"
 msgstr "Opcje"
 
+msgid "Icon"
+msgstr "Ikona"
+
 msgid "All Day"
 msgstr "Zdarzenia całodzienne"
 
 msgid "Sort by: All Day"
 msgstr "Sortuj według: Całodzienny"
-
-msgid "Icon"
-msgstr "Ikona"
 
 msgid "Recurring"
 msgstr "Wzór seryjny"
@@ -1886,7 +1881,8 @@ msgid "Insufficient permissions"
 msgstr "Niewystarczające uprawnienia"
 
 msgid "You have insufficient privileges to delete items in this folder."
-msgstr "Nie masz wystarczających uprawnień do usuwania elementów w tym folderze."
+msgstr ""
+"Nie masz wystarczających uprawnień do usuwania elementów w tym folderze."
 
 msgid "Notify recipients"
 msgstr "Powiadomić odbiorcę"
@@ -2183,6 +2179,9 @@ msgstr "Skrzynka odbiorcza"
 msgid "Entire Inbox"
 msgstr "Cała skrzynka odbiorcza"
 
+msgid "Owner"
+msgstr "Właściciel"
+
 msgid "Secretary"
 msgstr "Sekretarka"
 
@@ -2467,16 +2466,6 @@ msgstr "Nowy e-mail"
 
 msgid "Please select a Cc recipient record."
 msgstr "Proszę wybrać odbiorcę Cc."
-
-msgid "Manage Cc recipients"
-msgstr "Zarządzanie odbiorcami Cc"
-
-msgid ""
-"Cc recipients can be used to set a default Cc user in new mail, replies or "
-"both."
-msgstr ""
-"Odbiorcy Cc mogą zostać użyci do ustawienia domyślnego użytkownika Cc w "
-"nowej poczcie, odpowiedziach lub obu."
 
 msgid "Help"
 msgstr "Pomoc"
@@ -2958,14 +2947,47 @@ msgstr "Zaakceptowanie zmian"
 msgid "Do you wish to apply the changes?"
 msgstr "Czy chcesz zastosować te zmiany?"
 
+msgid "Category"
+msgstr "Kategoria"
+
+msgid "Recent searches"
+msgstr "Ostatnie wyszukiwania"
+
+msgid "Filter by"
+msgstr "Filtruj według"
+
+msgid "Show"
+msgstr "Pokaż"
+
+msgid "Operators"
+msgstr "Operatorzy"
+
+msgid "AND"
+msgstr "ORAZ"
+
+msgid "OR"
+msgstr "LUB"
+
+msgid "NOT"
+msgstr "NIE"
+
+msgid "Search in"
+msgstr "Szukaj w"
+
 msgid "All folders"
 msgstr "Wszystkie foldery"
 
 msgid "Other…"
 msgstr "Inne…"
 
-msgid "Search in…"
-msgstr "Szukaj w…"
+msgid "Type"
+msgstr "Typ"
+
+msgid "Search"
+msgstr "Wyszukiwanie"
+
+msgid "Click to cycle: AND → OR → NOT"
+msgstr "Kliknij, aby włączyć: AND → OR → NOT"
 
 msgid "Folder does not exist"
 msgstr "Der Ordner existiert nicht"
@@ -3478,9 +3500,6 @@ msgstr "Numer telefonu"
 msgid "Check address"
 msgstr "Sprawdź adres"
 
-msgid "Street"
-msgstr "Ulica"
-
 msgid "State/Province"
 msgstr "Województwo"
 
@@ -3518,20 +3537,17 @@ msgstr "Rocznica"
 msgid "Photo"
 msgstr "Zdjęcie"
 
+msgid "Addresses"
+msgstr "Adresy"
+
 msgid "Additional information"
 msgstr "Informacje dodatkowe"
-
-msgid "Business 2"
-msgstr "Telefon służbowy 2"
 
 msgid "Callback"
 msgstr "Telefon zwrotny"
 
 msgid "Car"
 msgstr "Telefon samochodowy"
-
-msgid "Home 2"
-msgstr "Telefon prywatny 2"
 
 msgid "Primary"
 msgstr "Telefon główny"
@@ -3937,11 +3953,20 @@ msgstr "Czerwony"
 msgid "Brown"
 msgstr "Brązowy"
 
+msgid "Logout"
+msgstr "Wyloguj"
+
+msgid "Appearance"
+msgstr "Wygląd"
+
+msgid "Light"
+msgstr "Światło"
+
 msgid "Dark"
 msgstr "Ciemny"
 
-msgid "Logout"
-msgstr "Wyloguj"
+msgid "Automatic"
+msgstr "Automatyczny"
 
 msgid "Switch view"
 msgstr "Przełącz widok"
@@ -3985,7 +4010,9 @@ msgstr "Brak załącznika"
 msgid ""
 "Your message appears to reference an attachment but no file is attached. "
 "Send anyway?"
-msgstr "Wygląda na to, że Twoja wiadomość zawiera odniesienie do załącznika, ale nie załączono żadnego pliku. Wysłać mimo to?"
+msgstr ""
+"Wygląda na to, że Twoja wiadomość zawiera odniesienie do załącznika, ale nie "
+"załączono żadnego pliku. Wysłać mimo to?"
 
 msgid "No subject"
 msgstr "Brak tematu"
@@ -4017,6 +4044,9 @@ msgstr "Schowaj się Szczegóły"
 msgid "Loaded {0} of {1}"
 msgstr "Wczytano elementów {0} z {1}"
 
+msgid "Copied!"
+msgstr "Skopiowane!"
+
 msgid "Saving"
 msgstr "Zapisywanie"
 
@@ -4046,11 +4076,11 @@ msgstr "Nicht gespeicherte Änderungen"
 msgid "Welcome to grommunio Web"
 msgstr "Witamy w grommunio Web"
 
-msgid "This is the first time you are using grommunio Web. "
-msgstr "Jesteś użytkownikiem grommunio Web po raz pierwszy. "
+msgid "Set up your preferences to get started."
+msgstr "Skonfiguruj swoje preferencje, aby rozpocząć."
 
-msgid "Please check the following settings before continuing."
-msgstr "Sprawdź następująceustawienia, zanim przejdziesz dalej."
+msgid "Get Started"
+msgstr "Rozpocznij"
 
 msgid "Widget height"
 msgstr "Wysokość widżetu"
@@ -4125,6 +4155,18 @@ msgstr "Niewystarczające uprawnienia"
 
 msgid "Not enough permissions to open this folder."
 msgstr "Brak wystarczających uprawnień, aby otworzyć ten folder."
+
+msgid "Empty folder"
+msgstr "Opróżnij folder"
+
+msgid "Emptying {0}… (0%)"
+msgstr "Opróżnianie {0}... (0%)"
+
+msgid "Successfully emptied {0}. ({1} items removed)"
+msgstr "Pomyślnie opróżniono {0}. ({1} elementy usunięte)"
+
+msgid "Emptying {0}… ({1}%)"
+msgstr "Opróżnianie {0}... ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4203,9 +4245,6 @@ msgstr "Brak Cel"
 
 msgid "You must select a destination folder."
 msgstr "Musisz podać folder docelowy."
-
-msgid "Type"
-msgstr "Typ"
 
 msgid "Description"
 msgstr "Nazwa"
@@ -4351,9 +4390,6 @@ msgstr "Otówrz wspólny folder lub pocztę"
 msgid "Rename folder"
 msgstr "Zmień nazwę"
 
-msgid "Empty folder"
-msgstr "Opróżnij folder"
-
 msgid "Empty Junk Email"
 msgstr "Opróżnij Niechciana poczta folder"
 
@@ -4436,9 +4472,6 @@ msgstr "Czy chcesz opróżnić {0} ?"
 
 msgid "Show All"
 msgstr "Pokaż wszystko"
-
-msgid "Show all folders"
-msgstr "Pokaż wszystkie foldery"
 
 #, fuzzy
 msgid ""
@@ -4710,6 +4743,9 @@ msgstr "{A} Czas oczekiwania przed oznaczeniem \"Przeczytane\": {B} sekund"
 msgid "View mail in this format"
 msgstr "Wyświetlanie poczty w tym formacie"
 
+msgid "Cc recipients"
+msgstr "Odbiorcy Cc"
+
 msgid "Right"
 msgstr "Z prawej"
 
@@ -4828,6 +4864,12 @@ msgstr "maks. "
 
 msgid "Sort by: Sent"
 msgstr "Sortuj według: Wysłane"
+
+msgid "Scheduled"
+msgstr "Zaplanowane"
+
+msgid "Sort by: Scheduled"
+msgstr "Sortuj według: Zaplanowane"
 
 msgid "Modified"
 msgstr "Zmienione"
@@ -4962,11 +5004,8 @@ msgstr "Ustawienia"
 msgid "Basic"
 msgstr "Podstawowe"
 
-msgid "Account information - {0}"
-msgstr "Informacje o koncie - {0}"
-
-msgid "Profile Picture"
-msgstr "Zdjęcie profilowe"
+msgid "System"
+msgstr "System"
 
 msgid "Language"
 msgstr "Język"
@@ -4976,6 +5015,9 @@ msgstr "Folder startowy"
 
 msgid "Theme"
 msgstr "Temat"
+
+msgid "Personal information"
+msgstr "Dane osobowe"
 
 msgid "Select Default Folder"
 msgstr "Wybierz folder domyślny"
@@ -4993,7 +5035,8 @@ msgid "Show insertion points in grommunio Web"
 msgstr "Pokaż punkty wstawiania w programie grommunio Web"
 
 msgid "Show \"item data\" button in context menu (mail only)"
-msgstr "Wyświetlanie przycisku \"Dane elementu\" w menu kontekstowym (tylko poczta)"
+msgstr ""
+"Wyświetlanie przycisku \"Dane elementu\" w menu kontekstowym (tylko poczta)"
 
 msgid "Edit setting"
 msgstr "Edytuj ustawienia"
@@ -5010,8 +5053,8 @@ msgstr "{0} Zestaw symboli"
 msgid "About"
 msgstr "O"
 
-msgid "I want to display date and time in this format:"
-msgstr "Chcę wyświetlić datę i godzinę w tym formacie:"
+msgid "Date & Time"
+msgstr "Data i godzina"
 
 msgid "Short"
 msgstr "Krótki"
@@ -5019,23 +5062,20 @@ msgstr "Krótki"
 msgid "Long"
 msgstr "Długa"
 
-msgid "Time format:"
-msgstr "Format czasowy:"
-
 msgid "12h clock"
 msgstr "zegar 12-godzinny"
 
 msgid "24h clock"
 msgstr "zegar 24-godzinny"
 
-msgid "Favorite settings"
-msgstr "Ulubione ustawienia"
-
 msgid "Hide favorites"
 msgstr "Ukrywanie ulubionych"
 
 msgid "Unpin favorites from top"
 msgstr "Nie pokazuj powyżej ulubionych"
+
+msgid "Interface"
+msgstr "Interfejs"
 
 msgid "Give unread items a colored border"
 msgstr "Nadaj nieczytelnym przedmiotom kolorową obwódkę"
@@ -5048,9 +5088,6 @@ msgstr "Pokaż nieprzeczytany licznik poczty w tytule aplikacji"
 
 msgid "Hide widget panel"
 msgstr "Ukryj panel widżetów"
-
-msgid "Show search bar above folder list"
-msgstr "Pokaż pasek wyszukiwania nad listą folderów"
 
 msgid "Auto"
 msgstr "Automatycznie"
@@ -5105,8 +5142,8 @@ msgstr "Załaduj {A} elementów na stronę."
 msgid "Keyboard Shortcuts"
 msgstr "Skróty klawiszowe"
 
-msgid "Part of basic keyboard shortcuts"
-msgstr "Zawarte w podstawowych skrótach klawiszowych"
+msgid "Extended"
+msgstr "Rozszerzony"
 
 msgid "Keyboard shortcuts off"
 msgstr "Nie używaj skrótów klawiszowych"
@@ -5114,8 +5151,8 @@ msgstr "Nie używaj skrótów klawiszowych"
 msgid "Basic keyboard shortcuts on"
 msgstr "Używaj podstawowych skrótów klawiszowych"
 
-msgid "All keyboard shortcuts on"
-msgstr "Używaj wszystkich skrótów klawiszowych"
+msgid "Extended shortcuts on"
+msgstr "Rozszerzone skróty na"
 
 msgid "This change requires a reload of grommunio Web"
 msgstr "Ta zmiana wymaga przeładowania grommunio Web"
@@ -5162,7 +5199,8 @@ msgstr ""
 "będziesz mógł odbierać maili."
 
 msgid "At {0} you won't be able to send or receive mails."
-msgstr "Na stronie {0} nie będzie można wysyłać ani odbierać wiadomości e-mail."
+msgstr ""
+"Na stronie {0} nie będzie można wysyłać ani odbierać wiadomości e-mail."
 
 msgid "You can not send mails as you have exceeded soft quota."
 msgstr "Miękki limit przekroczony, nie możesz wysyłaće-maili."
@@ -5199,11 +5237,29 @@ msgstr "Ustawienia"
 msgid "The setting '{0}' can not be edited"
 msgstr "Nie można edytować ustawienia '{0}'"
 
-msgid "Version information"
-msgstr "Informacje o wersji"
+msgid "OpenID Connect"
+msgstr "OpenID Connect"
+
+msgid "Basic Authentication"
+msgstr "Podstawowe uwierzytelnianie"
+
+msgid "System information"
+msgstr "Informacje o systemie"
 
 msgid "Gromox"
 msgstr "Gromox"
+
+msgid "Logged in via"
+msgstr "Zalogowany przez"
+
+msgid "Browser"
+msgstr "Przeglądarka"
+
+msgid "Maintenance"
+msgstr "Konserwacja"
+
+msgid "Reset all settings to defaults"
+msgstr "Resetowanie wszystkich ustawień do wartości domyślnych"
 
 msgid "Delete confirmation"
 msgstr "Usuń potwierdzenie"
@@ -5608,6 +5664,9 @@ msgstr "Informacja o nieobecności jest teraz aktywna. Czy chcesz ją wyłączy�
 msgid "Archive"
 msgstr "Archiwum"
 
+msgid "Chat"
+msgstr "Czat"
+
 msgid "Open Chat at start"
 msgstr "Otwórz czat po uruchomieniu"
 
@@ -5669,7 +5728,8 @@ msgid "Expiration date"
 msgstr "Data wygaśnięcia"
 
 msgid "More than 1 share link exists. Only showing the latest one"
-msgstr "Istnieje więcej niż 1 łącze udostępniania. Wyświetlany jest tylko najnowszy"
+msgstr ""
+"Istnieje więcej niż 1 łącze udostępniania. Wyświetlany jest tylko najnowszy"
 
 msgid "Loading details…"
 msgstr "Ładowanie szczegółów.."
@@ -5753,8 +5813,7 @@ msgstr "Prześlij"
 
 msgid "At least one file is too large! Maximum allowed filesize: {0}."
 msgstr ""
-"Co najmniej jeden plik jest za duży! Maksymalny dozwolony rozmiar pliku: "
-"{0}."
+"Co najmniej jeden plik jest za duży! Maksymalny dozwolony rozmiar pliku: {0}."
 
 msgid "Keep both"
 msgstr "Zachowaj oba"
@@ -6271,6 +6330,9 @@ msgstr "Ostatnie połączenie"
 msgid "Synchronize"
 msgstr "Synchronizacja"
 
+msgid "Shared Folders"
+msgstr "Foldery współdzielone"
+
 msgid "Manage Shared Folders"
 msgstr "Zarządzanie folderami udostępnionymi"
 
@@ -6335,6 +6397,12 @@ msgstr "Usuń urządzenie"
 msgid "Please enter your username and password"
 msgstr "Proszę podaj nazwę użytkownika i hasło"
 
+msgid "Type {0} to confirm"
+msgstr "Wpisz {0}, aby potwierdzić"
+
+msgid "Please type {0} to confirm"
+msgstr "Wpisz {0}, aby potwierdzić"
+
 msgid "Wipe only data related to this account"
 msgstr "Wyczyść tylko dane powiązane z tym kontem"
 
@@ -6344,6 +6412,11 @@ msgstr "Wyczyść wszystkie dane"
 msgid "Username"
 msgstr "Nazwa użytkownika"
 
+msgid ""
+"Do you really want to wipe your device?\n"
+" Type WIPE to confirm."
+msgstr ""
+
 #, fuzzy
 msgid ""
 "Do you really want to wipe your device?\n"
@@ -6351,6 +6424,11 @@ msgid ""
 msgstr ""
 "Czy naprawdę chcesz wymazać swoje urządzenie?\n"
 " Wprowadź swoje hasło, aby potwierdzić."
+
+msgid ""
+"Do you really want to remove your device?\n"
+" Type REMOVE to confirm."
+msgstr ""
 
 #, fuzzy
 msgid ""
@@ -6369,6 +6447,9 @@ msgstr "Nazwa pokoju:"
 msgid "Room URL:"
 msgstr "Adres URL pokoju:"
 
+msgid "Meet"
+msgstr "Spotkanie"
+
 msgid "Shift-click for advanced settings"
 msgstr "Kliknięcie z wciśniętym klawiszem Shift dla ustawień zaawansowanych"
 
@@ -6380,6 +6461,9 @@ msgstr "Otwarte spotkanie w:"
 
 msgid "Web tab"
 msgstr "Zakładka Web"
+
+msgid "Popup"
+msgstr "Wyskakujące okienko"
 
 msgid "Hide the button in the main toolbar"
 msgstr "Ukryj przycisk na głównym pasku narzędzi"
@@ -6403,22 +6487,25 @@ msgstr ""
 
 msgid "If you have problems when creating meetings, try disabling this setting"
 msgstr ""
-"Jeśli masz problemy podczas tworzenia spotkań, spróbuj wyłączyć to "
-"ustawienie"
+"Jeśli masz problemy podczas tworzenia spotkań, spróbuj wyłączyć to ustawienie"
 
 msgid "Add an invitation to the appointment description"
 msgstr "Dodaj zaproszenie do opisu spotkania"
 
-msgid "Invitation text"
-msgstr "Tekst zaproszenia"
+msgid "Invitation text (plain text)"
+msgstr "Tekst zaproszenia (zwykły tekst)"
 
-#, fuzzy
 msgid ""
-"must contain %url% as a placeholder for the meeting link, empty the textbox "
-"to reset to default"
+"used when composing in plain text, must contain %url%, empty to reset to "
+"default"
 msgstr ""
-"musi zawierać %url% jako miejsce na link spotkania, opróżnij pole tekstowe, "
-"aby przywrócić domyślne ustawienia"
+
+msgid "Invitation template (HTML)"
+msgstr "Szablon zaproszenia (HTML)"
+
+msgid ""
+"used when composing in HTML, must contain %url%, empty to reset to default"
+msgstr ""
 
 msgid "An unknown error occurred while changing password."
 msgstr "Podczas zmiany hasła wystąpił nieznany błąd."
@@ -6506,6 +6593,21 @@ msgstr "Ważne od"
 msgid "Expires"
 msgstr "Wygasa"
 
+msgid "Key Type"
+msgstr "Typ klucza"
+
+msgid "Purpose"
+msgstr "Cel"
+
+msgid "Sign"
+msgstr "Tabliczka"
+
+msgid "Encrypt"
+msgstr "Szyfrowanie"
+
+msgid "Sign & Encrypt"
+msgstr "Podpisywanie i szyfrowanie"
+
 msgid "Loading certificates"
 msgstr "Ładowanie certyfikatów"
 
@@ -6523,16 +6625,37 @@ msgstr ""
 "Czy naprawdę chcesz usunąć swój prywatny certyfikat? Jeśli usuniesz swój "
 "certyfikat, nie będziesz mógł podpisywać ani odszyfrowywać wiadomości S/MIME."
 
+msgid "Signing"
+msgstr "Podpisywanie"
+
+msgid "Encryption"
+msgstr "Szyfrowanie"
+
+msgid "Signing & Encryption"
+msgstr "Podpisywanie i szyfrowanie"
+
+msgid "Serial"
+msgstr "Serial"
+
+msgid "Issued by"
+msgstr "Wydane przez"
+
+msgid "Issued to"
+msgstr "Wydane dla"
+
+msgid "SHA-256 Fingerprint"
+msgstr "Odcisk palca SHA-256"
+
+msgid "SHA-1 Fingerprint"
+msgstr "Odcisk palca SHA-1"
+
+msgid ""
+"Warning: RSA key size is below 2048 bits. Consider upgrading to a stronger "
+"certificate."
+msgstr ""
+
 msgid "Certificate details"
 msgstr "Szczegóły certyfikatu"
-
-#, fuzzy
-msgid ""
-"Below you can view and delete public & private certificate(s) stored on the "
-"server."
-msgstr ""
-"Poniżej możesz przeglądać i usuwać certyfikaty publiczne i prywatne "
-"przechowywane na serwerze."
 
 msgid "Filter on Email"
 msgstr "Filtr wiadomości e-mail"
@@ -6551,6 +6674,18 @@ msgstr "Certyfikat osobisty"
 
 msgid "Change passphrase for last certificate"
 msgstr "Zmiana hasła dla ostatniego certyfikatu"
+
+msgid "Default encryption algorithm"
+msgstr "Domyślny algorytm szyfrowania"
+
+msgid "Recommended"
+msgstr "Zalecane"
+
+msgid "Legacy"
+msgstr "Dziedzictwo"
+
+msgid "Default signing digest"
+msgstr "Domyślny skrót podpisu"
 
 msgid "You have a valid certificate corresponding to your account"
 msgstr "Posiadasz ważny certyfikat odpowiadający Twojemu kontu"
@@ -6577,8 +6712,17 @@ msgstr "Aby przesłać certyfikat, należy wpisać hasło certyfikatu."
 msgid "You must first select a valid private certificate in PKCS#12 format."
 msgstr "Najpierw należy wybrać ważny certyfikat prywatny w formacie PKCS#12."
 
-msgid "Sign"
-msgstr "Tabliczka"
+msgid "bits"
+msgstr "bity"
+
+msgid "signing"
+msgstr "podpisanie"
+
+msgid "encryption"
+msgstr "szyfrowanie"
+
+msgid "signing & encryption"
+msgstr "podpisywanie i szyfrowanie"
 
 msgid "Sign message"
 msgstr "Komunikat o znaku"
@@ -6591,9 +6735,6 @@ msgstr ""
 "Zapewnij autentyczność wiadomości poprzez dodanie podpisu cyfrowego do tej "
 "wiadomości. Wszelkie zmiany w wiadomości spowodują unieważnienie podpisu."
 
-msgid "Encrypt"
-msgstr "Szyfrowanie"
-
 msgid "Encrypt message"
 msgstr "Szyfrowanie wiadomości"
 
@@ -6605,8 +6746,14 @@ msgstr ""
 "Zapewnij prywatność wiadomości poprzez zaszyfrowanie jej treści. Tylko "
 "odbiorca wiadomości będzie mógł ją otworzyć."
 
+msgid "Algorithms used"
+msgstr "Zastosowane algorytmy"
+
 msgid "What's going on with my email?"
 msgstr "Co się dzieje z moją pocztą e-mail?"
+
+msgid "CBC mode"
+msgstr "Tryb CBC"
 
 #, fuzzy
 msgid ""
@@ -6722,10 +6869,44 @@ msgstr ""
 "ważności certyfikatu."
 
 msgid "The certificate verification server (OCSP) is temporarily offline."
-msgstr "Serwer weryfikacji certyfikatów (OCSP) jest tymczasowo w trybie offline."
+msgstr ""
+"Serwer weryfikacji certyfikatów (OCSP) jest tymczasowo w trybie offline."
 
 msgid "Sender is removed from the server."
 msgstr "Nadawca został usunięty z serwera."
+
+msgid ""
+"The digital certificate used to sign this message has been revoked according "
+"to the Certificate Revocation List (CRL)."
+msgstr ""
+
+msgid ""
+"The revocation status of the certificate could not be verified because the "
+"CRL Distribution Point is unavailable."
+msgstr ""
+
+msgid ""
+"The RSA key size used in this certificate is below the recommended minimum "
+"of 2048 bits. Consider upgrading to a stronger certificate."
+msgstr ""
+
+msgid ""
+"The certificate's Key Usage extension does not permit this operation. The "
+"certificate may be intended for signing only or encryption only."
+msgstr ""
+
+msgid ""
+"This message was encrypted using CBC mode (not authenticated encryption). "
+"While it was decrypted successfully, AES-GCM (authenticated encryption) "
+"provides stronger protection against modification attacks. Consider asking "
+"the sender to upgrade their S/MIME configuration."
+msgstr ""
+
+msgid ""
+"The signing time in the digital signature differs significantly from the "
+"expected time. This may indicate a clock synchronization issue or message "
+"tampering."
+msgstr ""
 
 msgid "Signature verified successfully"
 msgstr "Podpis zweryfikowany pomyślnie"
@@ -6771,6 +6952,36 @@ msgstr "Nie można odszyfrować tej wiadomości. Certyfikat nie jest zgodny"
 
 msgid "Verification failed. User is removed from the server."
 msgstr "Weryfikacja nie powiodła się. Użytkownik został usunięty z serwera."
+
+msgid "Certificate has been revoked (CRL)"
+msgstr "Certyfikat został unieważniony (CRL)"
+
+msgid "Cannot check revocation status (CRL unavailable)"
+msgstr "Nie można sprawdzić statusu odwołania (lista CRL niedostępna)"
+
+msgid "RSA key size below recommended minimum"
+msgstr "Rozmiar klucza RSA poniżej zalecanego minimum"
+
+msgid "Certificate not valid for this operation (key usage mismatch)"
+msgstr "Certyfikat nieważny dla tej operacji (niezgodność użycia klucza)"
+
+msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
+msgstr "Odszyfrowane (tryb CBC - rozważ AES-GCM dla silniejszej ochrony)"
+
+msgid "Signing time differs from expected time"
+msgstr "Czas podpisania różni się od oczekiwanego"
+
+msgid "Digest"
+msgstr "Digest"
+
+msgid "Signature"
+msgstr "Podpis"
+
+msgid "Cipher"
+msgstr "Szyfr"
+
+msgid "Key transport"
+msgstr "Kluczowy transport"
 
 msgid "Charm pink"
 msgstr "Różowy"
@@ -6909,18 +7120,19 @@ msgid "File server is not reachable. Please verify the file server URL."
 msgstr "Serwer plików nie jest osiągalny. Sprawdź adres URL serwera plików."
 
 msgid "You don't have enough permissions to view this file or folder."
-msgstr "Nie masz wystarczających uprawnień, aby wyświetlić ten plik lub folder."
+msgstr ""
+"Nie masz wystarczających uprawnień, aby wyświetlić ten plik lub folder."
 
 msgid "The file or folder is not available anymore."
 msgstr "Plik lub folder nie jest już dostępny."
 
 msgid "Connection to the file server timed out. Please check again later."
-msgstr "Upłynął limit czasu połączenia z serwerem plików. Sprawdź ponownie później."
+msgstr ""
+"Upłynął limit czasu połączenia z serwerem plików. Sprawdź ponownie później."
 
 msgid "This file is locked by another user. Please try again later."
 msgstr ""
-"Ten plik jest zablokowany przez innego użytkownika. Spróbuj ponownie "
-"później."
+"Ten plik jest zablokowany przez innego użytkownika. Spróbuj ponownie później."
 
 msgid "The request failed."
 msgstr "Żądanie nie powiodło się."
@@ -6938,7 +7150,8 @@ msgid "PHP-Curl is not available."
 msgstr "PHP-Curl nie jest dostępny."
 
 msgid "With this backend, you can connect to any Seafile server."
-msgstr "Za pomocą tego backendu można połączyć się z dowolnym serwerem Seafile."
+msgstr ""
+"Za pomocą tego backendu można połączyć się z dowolnym serwerem Seafile."
 
 msgid "Files "
 msgstr "Pliki "
@@ -6956,7 +7169,8 @@ msgid "File is not available any more."
 msgstr "Plik nie jest już dostępny."
 
 msgid "Connection to server timed out. Retry later."
-msgstr "Przekroczono limit czasu połączenia z serwerem. Spróbuj ponownie później."
+msgstr ""
+"Przekroczono limit czasu połączenia z serwerem. Spróbuj ponownie później."
 
 msgid "This file is locked by another user."
 msgstr "Ten plik jest zablokowany przez innego użytkownika."
@@ -6985,10 +7199,12 @@ msgid "Unknown account ID"
 msgstr "Nieznany identyfikator konta"
 
 msgid "Feature \"Quota Information\" is not supported by this backend!"
-msgstr "Funkcja \"Informacje o kwotach\" nie jest obsługiwana przez ten backend!"
+msgstr ""
+"Funkcja \"Informacje o kwotach\" nie jest obsługiwana przez ten backend!"
 
 msgid "Feature \"Version Information\" is not supported by this backend!"
-msgstr "Funkcja \"Informacje o wersji\" nie jest obsługiwana przez ten backend!"
+msgstr ""
+"Funkcja \"Informacje o wersji\" nie jest obsługiwana przez ten backend!"
 
 msgid "Feature \"OAUTH\" is not supported by this backend!"
 msgstr "Funkcja \"OAUTH\" nie jest obsługiwana przez ten backend!"
@@ -7122,11 +7338,26 @@ msgstr "Certyfikat prywatny wygasł, nie można podpisać wiadomości e-mail"
 
 msgid "Private certificate is not valid yet, unable to sign email"
 msgstr ""
-"Certyfikat prywatny nie jest jeszcze ważny, nie można podpisać wiadomości "
-"e-mail"
+"Certyfikat prywatny nie jest jeszcze ważny, nie można podpisać wiadomości e-"
+"mail"
 
 msgid "Private certificate does not match email address"
 msgstr "Certyfikat prywatny nie pasuje do adresu e-mail"
+
+msgid "No email address specified"
+msgstr "Nie podano adresu e-mail"
+
+msgid "No certificates found for this email address"
+msgstr "Nie znaleziono certyfikatów dla tego adresu e-mail"
+
+msgid "Unable to read certificates"
+msgstr "Nie można odczytać certyfikatów"
+
+msgid "Unable to generate certs-only message"
+msgstr "Nie można wygenerować wiadomości zawierającej tylko certyfikaty"
+
+msgid "LDAP not configured"
+msgstr "LDAP nie jest skonfigurowany"
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "Brakujące certyfikaty publiczne dla następujących odbiorców: "
@@ -7153,6 +7384,17 @@ msgstr "Klucz prywatny nie może być używany do podpisywania wiadomości e-mai
 
 msgid "Certificate email address doesn't match grommunio Web account "
 msgstr "Adres e-mail certyfikatu nie pasuje do konta grommunio Web "
+
+#, php-format
+msgid ""
+"RSA key size %d bits is below the recommended minimum of %d bits. "
+"Certificate was imported."
+msgstr ""
+
+msgid ""
+"EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully "
+"supported. Certificate was imported."
+msgstr ""
 
 msgid "Certificate was expired on "
 msgstr "Certyfikat wygasł w dniu "
@@ -7285,7 +7527,8 @@ msgid "Task Request"
 msgstr "Żądanie zadania"
 
 msgid "Could not find message, either it has been moved or deleted."
-msgstr "Nie można znaleźć wiadomości, albo została przeniesiona, albo usunięta."
+msgstr ""
+"Nie można znaleźć wiadomości, albo została przeniesiona, albo usunięta."
 
 msgid "Action is not performed correctly."
 msgstr "Działanie nie zostało wykonane prawidłowo."
@@ -7334,8 +7577,8 @@ msgstr "Nie można otworzyć wystąpienia."
 
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr ""
-"Nie można otworzyć wystąpienia, określone wystąpienie zostało "
-"prawdopodobnie usunięte."
+"Nie można otworzyć wystąpienia, określone wystąpienie zostało prawdopodobnie "
+"usunięte."
 
 msgid "a meeting request"
 msgstr "prośba o spotkanie"
@@ -7422,10 +7665,11 @@ msgstr "Błąd limitu"
 msgid "Send quota limit reached"
 msgstr "Osiągnięto limit limitu wysyłania"
 
-msgid "Email sending failed. Check the log files for more information."
+#, php-format
+msgid "Email sending failed (%s). Check the log files for more information."
 msgstr ""
-"Wysyłanie wiadomości e-mail nie powiodło się. Sprawdź pliki dziennika, aby "
-"uzyskać więcej informacji."
+"Wysyłanie wiadomości e-mail nie powiodło się (%s). Sprawdź pliki dziennika, "
+"aby uzyskać więcej informacji."
 
 msgid "Unknown user/group"
 msgstr "Nieznany użytkownik/grupa"
@@ -7491,8 +7735,7 @@ msgstr "Nie można dodać folderu do ulubionych."
 
 msgid "You have insufficient privileges to set permissions for this folder."
 msgstr ""
-"Nie masz wystarczających uprawnień, aby ustawić uprawnienia dla tego "
-"folderu."
+"Nie masz wystarczających uprawnień, aby ustawić uprawnienia dla tego folderu."
 
 msgid "Could not set folder permissions."
 msgstr "Nie można ustawić uprawnień folderu."
@@ -7645,7 +7888,8 @@ msgid "The following recipient(s) could not be reached"
 msgstr "Ten odbiorca nie jest dostępny"
 
 msgid "You have insufficient privileges to see the contents of this folder."
-msgstr "Nie masz wystarczających uprawnień, aby zobaczyć zawartość tego folderu."
+msgstr ""
+"Nie masz wystarczających uprawnień, aby zobaczyć zawartość tego folderu."
 
 msgid "Could not load the contents of this folder."
 msgstr "Nie można załadować zawartości tego folderu."
@@ -7688,7 +7932,8 @@ msgid "Could not decline Meeting Request."
 msgstr "Nie można odrzucić żądania spotkania."
 
 msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr "Nie masz wystarczających uprawnień, aby zaakceptować to żądanie spotkania."
+msgstr ""
+"Nie masz wystarczających uprawnień, aby zaakceptować to żądanie spotkania."
 
 msgid "Could not accept Meeting Request."
 msgstr "Nie można zaakceptować żądania spotkania."
@@ -7749,7 +7994,8 @@ msgid "Could not resolve user."
 msgstr "Nie można rozpoznać użytkownika."
 
 msgid "Setting mail filters on the stores of other users is not allowed."
-msgstr "Ustawianie filtrów poczty w sklepach innych użytkowników jest niedozwolone."
+msgstr ""
+"Ustawianie filtrów poczty w sklepach innych użytkowników jest niedozwolone."
 
 msgid "Untitled rule"
 msgstr "Zasada bez tytułu"

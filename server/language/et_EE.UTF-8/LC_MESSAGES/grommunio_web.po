@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Estonian (Estonia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 23:43+0100\n"
+"POT-Creation-Date: 2026-03-12 22:26+0100\n"
 "PO-Revision-Date: 2025-05-21 10:01+0000\n"
 "Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/grommunio/"
@@ -327,6 +327,9 @@ msgstr "E-posti aadressid"
 msgid "Email addresses"
 msgstr "E-posti aadressid"
 
+msgid "Email Address"
+msgstr "E-posti aadress"
+
 msgid "Group details"
 msgstr "Rühma andmed"
 
@@ -339,17 +342,11 @@ msgstr "Kuvatav nimi"
 msgid "Alias"
 msgstr "Alias"
 
-msgid "Owner"
-msgstr "Omanik"
-
 msgid "Notes"
 msgstr "Märkmed"
 
 msgid "Members"
 msgstr "Liikmed"
-
-msgid "Email Address"
-msgstr "E-posti aadress"
 
 msgid "Account"
 msgstr "Konto"
@@ -378,11 +375,11 @@ msgstr "Initsiaalid"
 msgid "Display"
 msgstr "Näita"
 
-msgid "Addresses"
-msgstr "Aadressid"
-
 msgid "Address"
 msgstr "Aadress"
+
+msgid "Street"
+msgstr "Tänav"
 
 msgid "City"
 msgstr "Linn"
@@ -432,8 +429,8 @@ msgstr "Telefoninumbrid"
 msgid "Business"
 msgstr "Töö"
 
-msgid "Business2"
-msgstr "Töö2"
+msgid "Business 2"
+msgstr "Äriühing 2"
 
 msgid "Fax"
 msgstr "Faks"
@@ -441,8 +438,8 @@ msgstr "Faks"
 msgid "Home"
 msgstr "Kodune"
 
-msgid "Home2"
-msgstr "Kodune2"
+msgid "Home 2"
+msgstr "Kodu 2"
 
 msgid "Mobile"
 msgstr "Mobiil"
@@ -641,9 +638,6 @@ msgstr "Edasta"
 
 msgid "Edit as New"
 msgstr "Muuda uue kirjana"
-
-msgid "Search tools"
-msgstr "Otsingutarvikud"
 
 msgid "Folders"
 msgstr "Kaustad"
@@ -1486,14 +1480,14 @@ msgstr "See kohtumine on ümber paigutatud või kustutatud, kas soovite jätkata
 msgid "Options"
 msgstr "Valikud"
 
+msgid "Icon"
+msgstr "Ikoon"
+
 msgid "All Day"
 msgstr "Kogu päev"
 
 msgid "Sort by: All Day"
 msgstr "Sorteerimine: Kogu päev"
-
-msgid "Icon"
-msgstr "Ikoon"
 
 msgid "Recurring"
 msgstr "Korduvad"
@@ -2165,6 +2159,9 @@ msgstr "Sisendkaust"
 msgid "Entire Inbox"
 msgstr "Kogu postkast"
 
+msgid "Owner"
+msgstr "Omanik"
+
 msgid "Secretary"
 msgstr "Sekretär"
 
@@ -2445,16 +2442,6 @@ msgstr "Uus post"
 
 msgid "Please select a Cc recipient record."
 msgstr "Palun täpsusta koopia saaja."
-
-msgid "Manage Cc recipients"
-msgstr "Halda koopiate saajaid"
-
-msgid ""
-"Cc recipients can be used to set a default Cc user in new mail, replies or "
-"both."
-msgstr ""
-"Cc-vastuvõtjaid saab kasutada vaikimisi Cc-kasutajate määramiseks uutes "
-"kirjades, vastustes või mõlemas."
 
 msgid "Help"
 msgstr "Abi"
@@ -2923,14 +2910,47 @@ msgstr "Muudatuste rakendamine"
 msgid "Do you wish to apply the changes?"
 msgstr "Kas soovite muudatusi rakendada?"
 
+msgid "Category"
+msgstr "Kategooria"
+
+msgid "Recent searches"
+msgstr "Viimased otsingud"
+
+msgid "Filter by"
+msgstr "Filtreeri järgi"
+
+msgid "Show"
+msgstr "Näita"
+
+msgid "Operators"
+msgstr "Operaatorid"
+
+msgid "AND"
+msgstr "JA"
+
+msgid "OR"
+msgstr "VÕI"
+
+msgid "NOT"
+msgstr "EI"
+
+msgid "Search in"
+msgstr "Otsi sisse"
+
 msgid "All folders"
 msgstr "Kõik kaustad"
 
 msgid "Other…"
 msgstr "Teised…"
 
-msgid "Search in…"
-msgstr "Otsi…"
+msgid "Type"
+msgstr "Tüüp"
+
+msgid "Search"
+msgstr "Otsi"
+
+msgid "Click to cycle: AND → OR → NOT"
+msgstr "Klõpsake jalgrattaga sõitmiseks: JA → VÕI → EI"
 
 msgid "Folder does not exist"
 msgstr "Kausta ei ole olemas"
@@ -3435,9 +3455,6 @@ msgstr "Telefoninumber"
 msgid "Check address"
 msgstr "Kontrollida aadressi"
 
-msgid "Street"
-msgstr "Tänav"
-
 msgid "State/Province"
 msgstr "Riik/provints"
 
@@ -3475,20 +3492,17 @@ msgstr "Aastapäev"
 msgid "Photo"
 msgstr "Foto"
 
+msgid "Addresses"
+msgstr "Aadressid"
+
 msgid "Additional information"
 msgstr "Täiendav teave"
-
-msgid "Business 2"
-msgstr "Äriühing 2"
 
 msgid "Callback"
 msgstr "Tagasikutsumine"
 
 msgid "Car"
 msgstr "Auto"
-
-msgid "Home 2"
-msgstr "Kodu 2"
 
 msgid "Primary"
 msgstr "Esmane"
@@ -3895,11 +3909,20 @@ msgstr "Punane"
 msgid "Brown"
 msgstr "Pruun"
 
+msgid "Logout"
+msgstr "Välju"
+
+msgid "Appearance"
+msgstr "Välimus"
+
+msgid "Light"
+msgstr "Valgus"
+
 msgid "Dark"
 msgstr "Tume"
 
-msgid "Logout"
-msgstr "Välju"
+msgid "Automatic"
+msgstr "Automaatne"
 
 msgid "Switch view"
 msgstr "Muuda vaadet"
@@ -3943,7 +3966,9 @@ msgstr "Manus puudub"
 msgid ""
 "Your message appears to reference an attachment but no file is attached. "
 "Send anyway?"
-msgstr "Teie sõnum näib viitavat manusele, kuid faili pole manustatud. Kas ikkagi saata?"
+msgstr ""
+"Teie sõnum näib viitavat manusele, kuid faili pole manustatud. Kas ikkagi "
+"saata?"
 
 msgid "No subject"
 msgstr "Teema puudub"
@@ -3975,6 +4000,9 @@ msgstr "Peida üksikasjad"
 msgid "Loaded {0} of {1}"
 msgstr "Laetud {0} {1}"
 
+msgid "Copied!"
+msgstr "Kopeeritud!"
+
 msgid "Saving"
 msgstr "Salvestamine"
 
@@ -4005,11 +4033,11 @@ msgstr "Salvestamata muudatused"
 msgid "Welcome to grommunio Web"
 msgstr "Tere tulemast grommunio Web"
 
-msgid "This is the first time you are using grommunio Web. "
-msgstr "See on esimene kord, kui kasutad grommunio Webi. "
+msgid "Set up your preferences to get started."
+msgstr "Seadistage oma eelistused, et alustada."
 
-msgid "Please check the following settings before continuing."
-msgstr "Enne jätkamist kontrollige järgmisi seadeid."
+msgid "Get Started"
+msgstr "Alusta"
 
 msgid "Widget height"
 msgstr "Vidina kõrgus"
@@ -4084,6 +4112,18 @@ msgstr "Ebapiisavad õigused"
 
 msgid "Not enough permissions to open this folder."
 msgstr "Selle kausta avamiseks ei ole piisavalt õigusi."
+
+msgid "Empty folder"
+msgstr "Tühi kaust"
+
+msgid "Emptying {0}… (0%)"
+msgstr "Tühjendamine {0}... (0%)"
+
+msgid "Successfully emptied {0}. ({1} items removed)"
+msgstr "Edukalt tühjendatud {0}. ({1} esemed eemaldatud)"
+
+msgid "Emptying {0}… ({1}%)"
+msgstr "Tühjendamine {0}... ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4160,9 +4200,6 @@ msgstr "Sihtkoht puudub"
 
 msgid "You must select a destination folder."
 msgstr "Peate valima sihtkausta."
-
-msgid "Type"
-msgstr "Tüüp"
 
 msgid "Description"
 msgstr "Kirjeldus"
@@ -4308,9 +4345,6 @@ msgstr "Ava jagatud kaust/varamu"
 msgid "Rename folder"
 msgstr "Muuda kausta nime"
 
-msgid "Empty folder"
-msgstr "Tühi kaust"
-
 msgid "Empty Junk Email"
 msgstr "Tühi rämpspost"
 
@@ -4393,9 +4427,6 @@ msgstr "Kas olete kindel, et soovite tühjendada {0}?"
 
 msgid "Show All"
 msgstr "Näita kõiki"
-
-msgid "Show all folders"
-msgstr "Näita kõiki kaustu"
 
 msgid ""
 "You have insufficient privileges to move this folder. Would you like to copy "
@@ -4664,6 +4695,9 @@ msgstr "{A}Märgi e-kiri automaatselt loetuks pärast {B} sekundit"
 msgid "View mail in this format"
 msgstr "Vaata posti selles formaadis"
 
+msgid "Cc recipients"
+msgstr "Cc saajad"
+
 msgid "Right"
 msgstr "Õigus"
 
@@ -4781,6 +4815,12 @@ msgstr "max. "
 
 msgid "Sort by: Sent"
 msgstr "Järjesta: saatmise alusel"
+
+msgid "Scheduled"
+msgstr "Planeeritud"
+
+msgid "Sort by: Scheduled"
+msgstr "Sorteerimine: Kavandatud"
 
 msgid "Modified"
 msgstr "Muudetud"
@@ -4915,11 +4955,8 @@ msgstr "Seaded"
 msgid "Basic"
 msgstr "Tavaline"
 
-msgid "Account information - {0}"
-msgstr "Kontoteave - {0}"
-
-msgid "Profile Picture"
-msgstr "Profiili pilt"
+msgid "System"
+msgstr "Süsteem"
 
 msgid "Language"
 msgstr "Keel"
@@ -4929,6 +4966,9 @@ msgstr "Käivituskaust"
 
 msgid "Theme"
 msgstr "Teema"
+
+msgid "Personal information"
+msgstr "Isiklik teave"
 
 msgid "Select Default Folder"
 msgstr "Vali vaikimisi kaust"
@@ -4963,8 +5003,8 @@ msgstr "Ikoonikomplekt {0}"
 msgid "About"
 msgstr "Rakenduse teave"
 
-msgid "I want to display date and time in this format:"
-msgstr "Ma tahan kuvada kuupäeva ja kellaaega selles formaadis:"
+msgid "Date & Time"
+msgstr "Kuupäev ja kellaaeg"
 
 msgid "Short"
 msgstr "Lühike"
@@ -4972,23 +5012,20 @@ msgstr "Lühike"
 msgid "Long"
 msgstr "Pikk"
 
-msgid "Time format:"
-msgstr "Aja formaat:"
-
 msgid "12h clock"
 msgstr "12h kella"
 
 msgid "24h clock"
 msgstr "24h kella"
 
-msgid "Favorite settings"
-msgstr "Lemmik seaded"
-
 msgid "Hide favorites"
 msgstr "Peida lemmikud"
 
 msgid "Unpin favorites from top"
 msgstr "Unpin lemmikud ülevalt"
+
+msgid "Interface"
+msgstr "Liides"
 
 msgid "Give unread items a colored border"
 msgstr "Anda lugemata objektidele värviline raam"
@@ -5001,9 +5038,6 @@ msgstr "Näita lugemata posti loendurit rakenduse pealkirjas"
 
 msgid "Hide widget panel"
 msgstr "Peida vidinapaneel"
-
-msgid "Show search bar above folder list"
-msgstr "Näita otsinguriba kaustade loendi kohal"
 
 msgid "Auto"
 msgstr "Auto"
@@ -5057,8 +5091,8 @@ msgstr "Laadige {A} elemente lehekülje kohta."
 msgid "Keyboard Shortcuts"
 msgstr "Klaviatuuri otseteed"
 
-msgid "Part of basic keyboard shortcuts"
-msgstr "Osa põhilistest klaviatuurikombinatsioonidest"
+msgid "Extended"
+msgstr "Laiendatud"
 
 msgid "Keyboard shortcuts off"
 msgstr "Klaviatuuri otseteed välja lülitatud"
@@ -5066,8 +5100,8 @@ msgstr "Klaviatuuri otseteed välja lülitatud"
 msgid "Basic keyboard shortcuts on"
 msgstr "Põhilised klaviatuurikombinatsioonid"
 
-msgid "All keyboard shortcuts on"
-msgstr "Kõik klaviatuurikombinatsioonid"
+msgid "Extended shortcuts on"
+msgstr "Laiendatud otseteed"
 
 msgid "This change requires a reload of grommunio Web"
 msgstr "See muudatus nõuab grommunio Webi uuesti laadimist"
@@ -5149,11 +5183,29 @@ msgstr "Seadistamine"
 msgid "The setting '{0}' can not be edited"
 msgstr "Seadistust „{0}“ ei saa muuta"
 
-msgid "Version information"
-msgstr "Teave versiooni kohta"
+msgid "OpenID Connect"
+msgstr "OpenID Connect"
+
+msgid "Basic Authentication"
+msgstr "Põhiline autentimine"
+
+msgid "System information"
+msgstr "Süsteemi teave"
 
 msgid "Gromox"
 msgstr "Gromox"
+
+msgid "Logged in via"
+msgstr "Sisselogitud läbi"
+
+msgid "Browser"
+msgstr "Brauser"
+
+msgid "Maintenance"
+msgstr "Hooldus"
+
+msgid "Reset all settings to defaults"
+msgstr "Lähtestada kõik seaded vaikimisi seadistustesse"
 
 msgid "Delete confirmation"
 msgstr "Kustuta kinnitus"
@@ -5557,6 +5609,9 @@ msgstr ""
 
 msgid "Archive"
 msgstr "Arhiiv"
+
+msgid "Chat"
+msgstr "Vestlus"
 
 msgid "Open Chat at start"
 msgstr "Avatud vestlus alguses"
@@ -6216,6 +6271,9 @@ msgstr "Viimane ühendus"
 msgid "Synchronize"
 msgstr "Sünkroniseeri"
 
+msgid "Shared Folders"
+msgstr "Jagatud kaustad"
+
 msgid "Manage Shared Folders"
 msgstr "Halda jagatud kaustu"
 
@@ -6278,6 +6336,12 @@ msgstr "Seadme eemaldamine"
 msgid "Please enter your username and password"
 msgstr "Palun sisesta oma kasutajanimi ja salasõna"
 
+msgid "Type {0} to confirm"
+msgstr "Kirjutage {0}, et kinnitada"
+
+msgid "Please type {0} to confirm"
+msgstr "Kinnitamiseks kirjutage {0} "
+
 msgid "Wipe only data related to this account"
 msgstr "Kustuta ainult selle kontoga seotud andmed"
 
@@ -6289,10 +6353,20 @@ msgstr "Kasutajanimi"
 
 msgid ""
 "Do you really want to wipe your device?\n"
+" Type WIPE to confirm."
+msgstr ""
+
+msgid ""
+"Do you really want to wipe your device?\n"
 " Enter your password to confirm."
 msgstr ""
 "Kas sa tõesti tahad oma seadet tühjaks teha?\n"
 " Kinnitamiseks sisesta oma salasõna."
+
+msgid ""
+"Do you really want to remove your device?\n"
+" Type REMOVE to confirm."
+msgstr ""
 
 msgid ""
 "Do you really want to remove your device?\n"
@@ -6310,6 +6384,9 @@ msgstr "Toa nimi:"
 msgid "Room URL:"
 msgstr "Toa URL:"
 
+msgid "Meet"
+msgstr "Tutvu"
+
 msgid "Shift-click for advanced settings"
 msgstr "Shift-klikk edasiste seadete jaoks"
 
@@ -6321,6 +6398,9 @@ msgstr "Avatud koosolek:"
 
 msgid "Web tab"
 msgstr "Veebileht"
+
+msgid "Popup"
+msgstr "Popup"
 
 msgid "Hide the button in the main toolbar"
 msgstr "Pea tööriistariba nupu peitmine"
@@ -6348,15 +6428,20 @@ msgstr ""
 msgid "Add an invitation to the appointment description"
 msgstr "Lisage kutse kohtumise kirjeldusele"
 
-msgid "Invitation text"
-msgstr "Kutse tekst"
+msgid "Invitation text (plain text)"
+msgstr "Kutse tekst (tavaline tekst)"
 
 msgid ""
-"must contain %url% as a placeholder for the meeting link, empty the textbox "
-"to reset to default"
+"used when composing in plain text, must contain %url%, empty to reset to "
+"default"
 msgstr ""
-"peab sisaldama %url% kui kohtumise lingi kohaomanikku, tühjendage tekstikast "
-"vaikimisi väärtuse taastamiseks"
+
+msgid "Invitation template (HTML)"
+msgstr "Kutse mall (HTML)"
+
+msgid ""
+"used when composing in HTML, must contain %url%, empty to reset to default"
+msgstr ""
 
 msgid "An unknown error occurred while changing password."
 msgstr "Salasõna muutmisel tekkis tundmatu viga."
@@ -6444,6 +6529,21 @@ msgstr "Kehtib alates"
 msgid "Expires"
 msgstr "Aegub"
 
+msgid "Key Type"
+msgstr "Võtme tüüp"
+
+msgid "Purpose"
+msgstr "Eesmärk"
+
+msgid "Sign"
+msgstr "Allkiri"
+
+msgid "Encrypt"
+msgstr "Krüpteeri"
+
+msgid "Sign & Encrypt"
+msgstr "Allkiri ja krüpteerimine"
+
 msgid "Loading certificates"
 msgstr "Sertifikaatide laadimine"
 
@@ -6460,15 +6560,37 @@ msgstr ""
 "Kas te tõesti soovite oma isikliku sertifikaadi eemaldada? Kui te eemaldate "
 "oma sertifikaadi, ei saa te S/MIME e-kirju allkirjastada ega dekrüpteerida."
 
-msgid "Certificate details"
-msgstr "Sertifikaadi üksikasjad"
+msgid "Signing"
+msgstr "Allkirjastamine"
+
+msgid "Encryption"
+msgstr "Krüpteerimine"
+
+msgid "Signing & Encryption"
+msgstr "Allkirjastamine ja krüpteerimine"
+
+msgid "Serial"
+msgstr "Seeriaviisiline"
+
+msgid "Issued by"
+msgstr "Välja andnud"
+
+msgid "Issued to"
+msgstr "Välja antud"
+
+msgid "SHA-256 Fingerprint"
+msgstr "SHA-256 sõrmejälg"
+
+msgid "SHA-1 Fingerprint"
+msgstr "SHA-1 sõrmejälg"
 
 msgid ""
-"Below you can view and delete public & private certificate(s) stored on the "
-"server."
+"Warning: RSA key size is below 2048 bits. Consider upgrading to a stronger "
+"certificate."
 msgstr ""
-"Allpool saate vaadata ja kustutada serverisse salvestatud avalikke ja "
-"privaatseid sertifikaate."
+
+msgid "Certificate details"
+msgstr "Sertifikaadi üksikasjad"
 
 msgid "Filter on Email"
 msgstr "Filtreeri e-kirju"
@@ -6487,6 +6609,18 @@ msgstr "Isiklik sertifikaat"
 
 msgid "Change passphrase for last certificate"
 msgstr "Viimase sertifikaadi paroolfraasi muutmine"
+
+msgid "Default encryption algorithm"
+msgstr "Vaikimisi krüpteerimisalgoritm"
+
+msgid "Recommended"
+msgstr "Soovitatav"
+
+msgid "Legacy"
+msgstr "Legacy"
+
+msgid "Default signing digest"
+msgstr "Vaikimisi allkirjastamise digesti"
 
 msgid "You have a valid certificate corresponding to your account"
 msgstr "Teil on kehtiv sertifikaat, mis vastab teie kontole"
@@ -6513,8 +6647,17 @@ msgid "You must first select a valid private certificate in PKCS#12 format."
 msgstr ""
 "Kõigepealt peate valima kehtiva privaatse sertifikaadi PKCS#12 formaadis."
 
-msgid "Sign"
-msgstr "Allkiri"
+msgid "bits"
+msgstr "bitid"
+
+msgid "signing"
+msgstr "allkirjastamine"
+
+msgid "encryption"
+msgstr "krüpteerimine"
+
+msgid "signing & encryption"
+msgstr "allkirjastamine ja krüpteerimine"
 
 msgid "Sign message"
 msgstr "Allkirjasta sõnum"
@@ -6526,9 +6669,6 @@ msgstr ""
 "Tagada sõnumi autentsus, lisades sellele sõnumile digitaalallkirja. Sõnumi "
 "muutmine muudab allkirja kehtetuks."
 
-msgid "Encrypt"
-msgstr "Krüpteeri"
-
 msgid "Encrypt message"
 msgstr "Sõnumi krüpteerimine"
 
@@ -6539,8 +6679,14 @@ msgstr ""
 "Tagage sõnumi privaatsus, krüpteerides selle sisu. Ainult sõnumi saaja saab "
 "seda avada."
 
+msgid "Algorithms used"
+msgstr "Kasutatud algoritmid"
+
 msgid "What's going on with my email?"
 msgstr "Mis toimub minu e-postiga?"
+
+msgid "CBC mode"
+msgstr "CBC-režiim"
 
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
@@ -6649,6 +6795,39 @@ msgstr "Sertifikaadi kontrollserver (OCSP) on ajutiselt välja lülitatud."
 msgid "Sender is removed from the server."
 msgstr "Saatja eemaldatakse serverist."
 
+msgid ""
+"The digital certificate used to sign this message has been revoked according "
+"to the Certificate Revocation List (CRL)."
+msgstr ""
+
+msgid ""
+"The revocation status of the certificate could not be verified because the "
+"CRL Distribution Point is unavailable."
+msgstr ""
+
+msgid ""
+"The RSA key size used in this certificate is below the recommended minimum "
+"of 2048 bits. Consider upgrading to a stronger certificate."
+msgstr ""
+
+msgid ""
+"The certificate's Key Usage extension does not permit this operation. The "
+"certificate may be intended for signing only or encryption only."
+msgstr ""
+
+msgid ""
+"This message was encrypted using CBC mode (not authenticated encryption). "
+"While it was decrypted successfully, AES-GCM (authenticated encryption) "
+"provides stronger protection against modification attacks. Consider asking "
+"the sender to upgrade their S/MIME configuration."
+msgstr ""
+
+msgid ""
+"The signing time in the digital signature differs significantly from the "
+"expected time. This may indicate a clock synchronization issue or message "
+"tampering."
+msgstr ""
+
 msgid "Signature verified successfully"
 msgstr "Allkiri edukalt kontrollitud"
 
@@ -6693,6 +6872,38 @@ msgstr "Seda sõnumit ei ole võimalik dekrüpteerida. Sertifikaat ei vasta"
 
 msgid "Verification failed. User is removed from the server."
 msgstr "Kontrollimine ebaõnnestus. Kasutaja on serverist eemaldatud."
+
+msgid "Certificate has been revoked (CRL)"
+msgstr "Sertifikaat on tühistatud (CRL)"
+
+msgid "Cannot check revocation status (CRL unavailable)"
+msgstr "Ei saa kontrollida tühistamise staatust (CRL ei ole kättesaadav)"
+
+msgid "RSA key size below recommended minimum"
+msgstr "RSA võtme suurus alla soovitatud miinimumi"
+
+msgid "Certificate not valid for this operation (key usage mismatch)"
+msgstr ""
+"Sertifikaat ei ole selle operatsiooni jaoks kehtiv (võtme kasutamise "
+"mittevastavus)"
+
+msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
+msgstr "Dekrüpteeritud (CBC-režiim - tugevama kaitse tagamiseks kaaluda AES-GCM)"
+
+msgid "Signing time differs from expected time"
+msgstr "Allkirjastamise aeg erineb eeldatavast ajast"
+
+msgid "Digest"
+msgstr "Digest"
+
+msgid "Signature"
+msgstr "Allkiri"
+
+msgid "Cipher"
+msgstr "Chiffre"
+
+msgid "Key transport"
+msgstr "Peamised transpordivahendid"
 
 msgid "Charm pink"
 msgstr "Charm roosa"
@@ -6897,7 +7108,8 @@ msgid ""
 msgstr ""
 
 msgid "PHP-Curl is not available. Contact your system administrator."
-msgstr "PHP-Curl ei ole saadaval. Võtke ühendust oma süsteemiadministraatoriga."
+msgstr ""
+"PHP-Curl ei ole saadaval. Võtke ühendust oma süsteemiadministraatoriga."
 
 msgid "This function is not yet implemented."
 msgstr "Seda funktsiooni ei ole veel rakendatud."
@@ -7045,6 +7257,21 @@ msgstr "Erasertifikaat ei ole veel kehtiv, ei saa e-kirja allkirjastada"
 msgid "Private certificate does not match email address"
 msgstr "Erasertifikaat ei vasta e-posti aadressile"
 
+msgid "No email address specified"
+msgstr "E-posti aadress puudub"
+
+msgid "No certificates found for this email address"
+msgstr "Selle e-posti aadressi jaoks ei ole leitud sertifikaate"
+
+msgid "Unable to read certificates"
+msgstr "Sertifikaate ei ole võimalik lugeda"
+
+msgid "Unable to generate certs-only message"
+msgstr "Ei ole võimalik genereerida ainult sertifikaate sisaldavat teadet"
+
+msgid "LDAP not configured"
+msgstr "LDAP ei ole konfigureeritud"
+
 msgid "Missing public certificates for the following recipients: "
 msgstr "Järgmiste saajate avalikud sertifikaadid puuduvad: "
 
@@ -7070,6 +7297,17 @@ msgstr "Privaatvõtit ei saa kasutada e-kirjade allkirjastamiseks"
 
 msgid "Certificate email address doesn't match grommunio Web account "
 msgstr "Sertifikaadi e-posti aadress ei vasta grommunio veebikontole "
+
+#, php-format
+msgid ""
+"RSA key size %d bits is below the recommended minimum of %d bits. "
+"Certificate was imported."
+msgstr ""
+
+msgid ""
+"EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully "
+"supported. Certificate was imported."
+msgstr ""
 
 msgid "Certificate was expired on "
 msgstr "Sertifikaadi kehtivusaeg lõppes "
@@ -7329,8 +7567,9 @@ msgstr "Kvoodi viga"
 msgid "Send quota limit reached"
 msgstr "Saatekvoodi limiit on saavutatud"
 
-msgid "Email sending failed. Check the log files for more information."
-msgstr "E-posti saatmine ebaõnnestus. Lisateabe saamiseks vaadake logifaile."
+#, php-format
+msgid "Email sending failed (%s). Check the log files for more information."
+msgstr "E-posti saatmine ebaõnnestus (%s). Lisateabe saamiseks vaadake logifaile."
 
 msgid "Unknown user/group"
 msgstr "Tundmatu kasutaja/rühm"

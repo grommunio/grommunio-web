@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 23:43+0100\n"
+"POT-Creation-Date: 2026-03-12 22:26+0100\n"
 "PO-Revision-Date: 2023-09-06 16:56+0000\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -327,6 +327,9 @@ msgstr "E-postadresser"
 msgid "Email addresses"
 msgstr "E-postadresser"
 
+msgid "Email Address"
+msgstr "E-postadresse"
+
 msgid "Group details"
 msgstr "Gruppedetaljer"
 
@@ -339,17 +342,11 @@ msgstr "Visningsnavn"
 msgid "Alias"
 msgstr "Alias"
 
-msgid "Owner"
-msgstr "Eier"
-
 msgid "Notes"
 msgstr "Notater"
 
 msgid "Members"
 msgstr "Medlemmer"
-
-msgid "Email Address"
-msgstr "E-postadresse"
 
 msgid "Account"
 msgstr "Konto"
@@ -378,11 +375,11 @@ msgstr "Initialer"
 msgid "Display"
 msgstr "Visning"
 
-msgid "Addresses"
-msgstr "Adresser"
-
 msgid "Address"
 msgstr "Adresse"
+
+msgid "Street"
+msgstr "Gate"
 
 msgid "City"
 msgstr "By"
@@ -432,7 +429,7 @@ msgstr "Telefonnummer"
 msgid "Business"
 msgstr "Arbeid"
 
-msgid "Business2"
+msgid "Business 2"
 msgstr "Arbeid 2"
 
 msgid "Fax"
@@ -441,7 +438,7 @@ msgstr "Faks"
 msgid "Home"
 msgstr "Privat"
 
-msgid "Home2"
+msgid "Home 2"
 msgstr "Privat 2"
 
 msgid "Mobile"
@@ -640,9 +637,6 @@ msgstr "Videresend"
 
 msgid "Edit as New"
 msgstr "Rediger som ny melding"
-
-msgid "Search tools"
-msgstr "Søkeverktøy"
 
 msgid "Folders"
 msgstr "Mapper"
@@ -1490,14 +1484,14 @@ msgstr "Denne avtalen har blitt flyttet eller slettet, vil du fortsette?"
 msgid "Options"
 msgstr "Alternativer"
 
+msgid "Icon"
+msgstr "Ikoner"
+
 msgid "All Day"
 msgstr "Heldagshendelse"
 
 msgid "Sort by: All Day"
 msgstr "Sorter på: heldags"
-
-msgid "Icon"
-msgstr "Ikoner"
 
 msgid "Recurring"
 msgstr "Regelmessighet"
@@ -2174,6 +2168,9 @@ msgstr "Innboks"
 msgid "Entire Inbox"
 msgstr "Hele innboksen"
 
+msgid "Owner"
+msgstr "Eier"
+
 msgid "Secretary"
 msgstr "Sekretær"
 
@@ -2453,16 +2450,6 @@ msgstr "Ny e-post"
 
 msgid "Please select a Cc recipient record."
 msgstr "Vennligst velg en kopi-mottaker."
-
-msgid "Manage Cc recipients"
-msgstr "Behandle kopi-mottakere"
-
-msgid ""
-"Cc recipients can be used to set a default Cc user in new mail, replies or "
-"both."
-msgstr ""
-"Kopi-mottakere kan settes som standard kopi-mottakere på ny e-post, ved "
-"svar, eller begge deler."
 
 msgid "Help"
 msgstr "Hjelp"
@@ -2932,14 +2919,47 @@ msgstr "Ta i bruk endringen"
 msgid "Do you wish to apply the changes?"
 msgstr "Ønsker du å bruke disse endringene?"
 
+msgid "Category"
+msgstr "Kategori"
+
+msgid "Recent searches"
+msgstr "Nylige søk"
+
+msgid "Filter by"
+msgstr "Filtrer etter"
+
+msgid "Show"
+msgstr "Vis"
+
+msgid "Operators"
+msgstr "Operatører"
+
+msgid "AND"
+msgstr "OG"
+
+msgid "OR"
+msgstr "ELLER"
+
+msgid "NOT"
+msgstr "IKKE"
+
+msgid "Search in"
+msgstr "Søk i"
+
 msgid "All folders"
 msgstr "Alle mapper"
 
 msgid "Other…"
 msgstr "Andre…"
 
-msgid "Search in…"
-msgstr "Søk i…"
+msgid "Type"
+msgstr "Type"
+
+msgid "Search"
+msgstr "Søk"
+
+msgid "Click to cycle: AND → OR → NOT"
+msgstr "Klikk for å sykle: AND → OR → NOT"
 
 msgid "Folder does not exist"
 msgstr "Mappen finnes ikke"
@@ -3447,9 +3467,6 @@ msgstr "Telefonnummer"
 msgid "Check address"
 msgstr "Kontroller adresse"
 
-msgid "Street"
-msgstr "Gate"
-
 msgid "State/Province"
 msgstr "Delstat/område"
 
@@ -3487,20 +3504,17 @@ msgstr "Merkedag"
 msgid "Photo"
 msgstr "Foto"
 
+msgid "Addresses"
+msgstr "Adresser"
+
 msgid "Additional information"
 msgstr "Ytterligere informasjon"
-
-msgid "Business 2"
-msgstr "Arbeid 2"
 
 msgid "Callback"
 msgstr "Tilbakeringing"
 
 msgid "Car"
 msgstr "Bil"
-
-msgid "Home 2"
-msgstr "Privat 2"
 
 msgid "Primary"
 msgstr "Primær"
@@ -3906,11 +3920,20 @@ msgstr "Rød"
 msgid "Brown"
 msgstr "Brun"
 
+msgid "Logout"
+msgstr "Logg ut"
+
+msgid "Appearance"
+msgstr "Utseende"
+
+msgid "Light"
+msgstr "Lys"
+
 msgid "Dark"
 msgstr "Mørk"
 
-msgid "Logout"
-msgstr "Logg ut"
+msgid "Automatic"
+msgstr "Automatisk"
 
 msgid "Switch view"
 msgstr "Bytt visningsmodus"
@@ -3954,7 +3977,9 @@ msgstr "Mangler vedlegg"
 msgid ""
 "Your message appears to reference an attachment but no file is attached. "
 "Send anyway?"
-msgstr "Meldingen din ser ut til å referere til et vedlegg, men ingen fil er vedlagt. Sende likevel?"
+msgstr ""
+"Meldingen din ser ut til å referere til et vedlegg, men ingen fil er "
+"vedlagt. Sende likevel?"
 
 msgid "No subject"
 msgstr "Inget emne"
@@ -3986,6 +4011,9 @@ msgstr "Skjul detaljer"
 msgid "Loaded {0} of {1}"
 msgstr "Lastet inn {0} av {1}"
 
+msgid "Copied!"
+msgstr "Oppfattet!"
+
 msgid "Saving"
 msgstr "Lagrer"
 
@@ -4016,11 +4044,11 @@ msgstr "Ulagrede endringer"
 msgid "Welcome to grommunio Web"
 msgstr "Velkommen til grommunio Web"
 
-msgid "This is the first time you are using grommunio Web. "
-msgstr "Dette er første gangen du bruker grommunio Web. "
+msgid "Set up your preferences to get started."
+msgstr "Konfigurer preferansene dine for å komme i gang."
 
-msgid "Please check the following settings before continuing."
-msgstr "Vennligst sjekk følgende innstillinger før du fortsetter."
+msgid "Get Started"
+msgstr "Kom i gang"
 
 msgid "Widget height"
 msgstr "Høyde på miniprogram"
@@ -4095,6 +4123,18 @@ msgstr "Ikke tilstrekkelige rettigheter"
 
 msgid "Not enough permissions to open this folder."
 msgstr "Du har ikke tilstrekkelige tillatelse til å kunne åpne denne mappen."
+
+msgid "Empty folder"
+msgstr "Tøm mappen"
+
+msgid "Emptying {0}… (0%)"
+msgstr "Tømming {0}... (0%)"
+
+msgid "Successfully emptied {0}. ({1} items removed)"
+msgstr "Tømte {0}({1} elementer fjernet)"
+
+msgid "Emptying {0}… ({1}%)"
+msgstr "Tømmer {0}... ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4171,9 +4211,6 @@ msgstr "Mangler mål"
 
 msgid "You must select a destination folder."
 msgstr "Du må velge målmappe."
-
-msgid "Type"
-msgstr "Type"
 
 msgid "Description"
 msgstr "beskrivning"
@@ -4319,9 +4356,6 @@ msgstr "Åpne delt mappe/e-postboks"
 msgid "Rename folder"
 msgstr "Gi nytt navn til mappen"
 
-msgid "Empty folder"
-msgstr "Tøm mappen"
-
 msgid "Empty Junk Email"
 msgstr "Tøm Søppelpost"
 
@@ -4404,9 +4438,6 @@ msgstr "Er du sikker på at du vil tømme {0}?"
 
 msgid "Show All"
 msgstr "Vis alt"
-
-msgid "Show all folders"
-msgstr "Vis alle mapper"
 
 msgid ""
 "You have insufficient privileges to move this folder. Would you like to copy "
@@ -4676,6 +4707,9 @@ msgstr "{A}Automatisk marker e-post som lest etter {B} sekund(er)"
 msgid "View mail in this format"
 msgstr "Vis e-post i dette formatet"
 
+msgid "Cc recipients"
+msgstr "Cc-mottakere"
+
 msgid "Right"
 msgstr "Høyre"
 
@@ -4794,6 +4828,12 @@ msgstr "maks. "
 
 msgid "Sort by: Sent"
 msgstr "Sorter på: sendt"
+
+msgid "Scheduled"
+msgstr "Planlagt"
+
+msgid "Sort by: Scheduled"
+msgstr "Sorter etter Planlagt"
 
 msgid "Modified"
 msgstr "Endret"
@@ -4928,11 +4968,8 @@ msgstr "Innstillinger"
 msgid "Basic"
 msgstr "Standard"
 
-msgid "Account information - {0}"
-msgstr "Kontoinformasjon - {0}"
-
-msgid "Profile Picture"
-msgstr "Profilbilde"
+msgid "System"
+msgstr "System"
 
 msgid "Language"
 msgstr "Språk"
@@ -4942,6 +4979,9 @@ msgstr "Oppstartsmappe"
 
 msgid "Theme"
 msgstr "Tema"
+
+msgid "Personal information"
+msgstr "Personlig informasjon"
 
 msgid "Select Default Folder"
 msgstr "Velg standardmappe"
@@ -4976,8 +5016,8 @@ msgstr "{0} Ikonsamling"
 msgid "About"
 msgstr "Om"
 
-msgid "I want to display date and time in this format:"
-msgstr "Jeg ønsker å vise tid og dato på dette formatet:"
+msgid "Date & Time"
+msgstr "Dato og klokkeslett"
 
 msgid "Short"
 msgstr "Kort"
@@ -4985,23 +5025,20 @@ msgstr "Kort"
 msgid "Long"
 msgstr "Langt format"
 
-msgid "Time format:"
-msgstr "Tidsformat:"
-
 msgid "12h clock"
 msgstr "12-timers-format"
 
 msgid "24h clock"
 msgstr "24-timers-format"
 
-msgid "Favorite settings"
-msgstr "Favoritt innstillinger"
-
 msgid "Hide favorites"
 msgstr "Skjul favoritter"
 
 msgid "Unpin favorites from top"
 msgstr "Ta bort favoritter fra toppen"
+
+msgid "Interface"
+msgstr "Grensesnitt"
 
 msgid "Give unread items a colored border"
 msgstr "Marker uleste meldinger med et farget omriss"
@@ -5014,9 +5051,6 @@ msgstr "Vis telleren for ulest e-post i programtittelen"
 
 msgid "Hide widget panel"
 msgstr "Skjul widgetpanelet"
-
-msgid "Show search bar above folder list"
-msgstr "Vis søkefeltet over mappelisten"
 
 msgid "Auto"
 msgstr "Auto"
@@ -5070,8 +5104,8 @@ msgstr "Last inn {A} elementer per side."
 msgid "Keyboard Shortcuts"
 msgstr "Hurtigtaster"
 
-msgid "Part of basic keyboard shortcuts"
-msgstr "En del av standard-hurtigtast oppsettet"
+msgid "Extended"
+msgstr "Utvidet"
 
 msgid "Keyboard shortcuts off"
 msgstr "Hurtigtaster skrudd av"
@@ -5079,8 +5113,8 @@ msgstr "Hurtigtaster skrudd av"
 msgid "Basic keyboard shortcuts on"
 msgstr "Standard-hurtigtaster skrudd på"
 
-msgid "All keyboard shortcuts on"
-msgstr "Alle hurtigtaster skrudd på"
+msgid "Extended shortcuts on"
+msgstr "Utvidede snarveier på"
 
 msgid "This change requires a reload of grommunio Web"
 msgstr "Denne endringen krever en ny innlasting av grommunio Web"
@@ -5163,11 +5197,29 @@ msgstr "Innstilling"
 msgid "The setting '{0}' can not be edited"
 msgstr "Innstillingen «{0}» kan ikke redigeres"
 
-msgid "Version information"
-msgstr "Versjonsinformasjon"
+msgid "OpenID Connect"
+msgstr "OpenID Connect"
+
+msgid "Basic Authentication"
+msgstr "Grunnleggende autentisering"
+
+msgid "System information"
+msgstr "Systeminformasjon"
 
 msgid "Gromox"
 msgstr "Gromox"
+
+msgid "Logged in via"
+msgstr "Innlogget via"
+
+msgid "Browser"
+msgstr "Nettleser"
+
+msgid "Maintenance"
+msgstr "Vedlikehold"
+
+msgid "Reset all settings to defaults"
+msgstr "Tilbakestill alle innstillinger til standardinnstillingene"
 
 msgid "Delete confirmation"
 msgstr "Slett bekreftelse"
@@ -5572,6 +5624,9 @@ msgstr "Fraværendenotis er skrudd på. Vil du skru den av?"
 
 msgid "Archive"
 msgstr "Arkiv"
+
+msgid "Chat"
+msgstr "Chat"
 
 msgid "Open Chat at start"
 msgstr "Åpne chat når du starter"
@@ -6232,6 +6287,9 @@ msgstr "Siste tilkobling"
 msgid "Synchronize"
 msgstr "Synkronisere"
 
+msgid "Shared Folders"
+msgstr "Delte mapper"
+
 msgid "Manage Shared Folders"
 msgstr "Behandle delte mapper"
 
@@ -6295,6 +6353,12 @@ msgstr "Fjern enhet"
 msgid "Please enter your username and password"
 msgstr "Vennligst skriv inn brukernavn og passord"
 
+msgid "Type {0} to confirm"
+msgstr "Skriv {0} for å bekrefte"
+
+msgid "Please type {0} to confirm"
+msgstr "Vennligst skriv {0} for å bekrefte"
+
 msgid "Wipe only data related to this account"
 msgstr "Slett bare data som er relatert til denne kontoen"
 
@@ -6306,10 +6370,20 @@ msgstr "Brukernavn"
 
 msgid ""
 "Do you really want to wipe your device?\n"
+" Type WIPE to confirm."
+msgstr ""
+
+msgid ""
+"Do you really want to wipe your device?\n"
 " Enter your password to confirm."
 msgstr ""
 "Vil du virkelig utviske enheten?\n"
 " Oppgi ditt passord for bekreftelse."
+
+msgid ""
+"Do you really want to remove your device?\n"
+" Type REMOVE to confirm."
+msgstr ""
 
 msgid ""
 "Do you really want to remove your device?\n"
@@ -6327,6 +6401,9 @@ msgstr "Navn på rommet:"
 msgid "Room URL:"
 msgstr "Rom-URL:"
 
+msgid "Meet"
+msgstr "Møt"
+
 msgid "Shift-click for advanced settings"
 msgstr "Shift-klikk for avanserte innstillinger"
 
@@ -6338,6 +6415,9 @@ msgstr "Åpent møte i:"
 
 msgid "Web tab"
 msgstr "Web-fanen"
+
+msgid "Popup"
+msgstr "Popup-vindu"
 
 msgid "Hide the button in the main toolbar"
 msgstr "Skjul knappen i hovedverktøylinjen"
@@ -6366,15 +6446,20 @@ msgstr ""
 msgid "Add an invitation to the appointment description"
 msgstr "Legg til en invitasjon i avtalebeskrivelsen"
 
-msgid "Invitation text"
-msgstr "Invitasjonstekst"
+msgid "Invitation text (plain text)"
+msgstr "Invitasjonstekst (ren tekst)"
 
 msgid ""
-"must contain %url% as a placeholder for the meeting link, empty the textbox "
-"to reset to default"
+"used when composing in plain text, must contain %url%, empty to reset to "
+"default"
 msgstr ""
-"må inneholde %url% som en plassholder for møtelinken, tøm tekstboksen for å "
-"tilbakestille til standard"
+
+msgid "Invitation template (HTML)"
+msgstr "Mal for invitasjon (HTML)"
+
+msgid ""
+"used when composing in HTML, must contain %url%, empty to reset to default"
+msgstr ""
 
 msgid "An unknown error occurred while changing password."
 msgstr "En ukjent feil oppstod under endring av passord."
@@ -6462,6 +6547,21 @@ msgstr "Gyldig fra"
 msgid "Expires"
 msgstr "Utløper"
 
+msgid "Key Type"
+msgstr "Nøkkeltype"
+
+msgid "Purpose"
+msgstr "Formål"
+
+msgid "Sign"
+msgstr "Skilt"
+
+msgid "Encrypt"
+msgstr "Krypter"
+
+msgid "Sign & Encrypt"
+msgstr "Signer og krypter"
+
 msgid "Loading certificates"
 msgstr "Lasting av sertifikater"
 
@@ -6478,15 +6578,37 @@ msgstr ""
 "Vil du virkelig fjerne det private sertifikatet ditt? Hvis du fjerner "
 "sertifikatet ditt, vil du ikke kunne signere eller dekryptere S/MIME-e-post."
 
-msgid "Certificate details"
-msgstr "Detaljer om sertifikatet"
+msgid "Signing"
+msgstr "Signering"
+
+msgid "Encryption"
+msgstr "Kryptering"
+
+msgid "Signing & Encryption"
+msgstr "Signering og kryptering"
+
+msgid "Serial"
+msgstr "Seriell"
+
+msgid "Issued by"
+msgstr "Utgitt av"
+
+msgid "Issued to"
+msgstr "Utstedt til"
+
+msgid "SHA-256 Fingerprint"
+msgstr "SHA-256 fingeravtrykk"
+
+msgid "SHA-1 Fingerprint"
+msgstr "SHA-1-fingeravtrykk"
 
 msgid ""
-"Below you can view and delete public & private certificate(s) stored on the "
-"server."
+"Warning: RSA key size is below 2048 bits. Consider upgrading to a stronger "
+"certificate."
 msgstr ""
-"Nedenfor kan du se og slette offentlige og private sertifikater som er "
-"lagret på serveren."
+
+msgid "Certificate details"
+msgstr "Detaljer om sertifikatet"
 
 msgid "Filter on Email"
 msgstr "Filter på e-post"
@@ -6505,6 +6627,18 @@ msgstr "Personlig sertifikat"
 
 msgid "Change passphrase for last certificate"
 msgstr "Endre passordfrase for siste sertifikat"
+
+msgid "Default encryption algorithm"
+msgstr "Standard krypteringsalgoritme"
+
+msgid "Recommended"
+msgstr "Anbefales"
+
+msgid "Legacy"
+msgstr "Arven"
+
+msgid "Default signing digest"
+msgstr "Standard signeringsdigest"
 
 msgid "You have a valid certificate corresponding to your account"
 msgstr "Du har et gyldig sertifikat som samsvarer med kontoen din"
@@ -6531,8 +6665,17 @@ msgstr ""
 msgid "You must first select a valid private certificate in PKCS#12 format."
 msgstr "Du må først velge et gyldig privat sertifikat i PKCS#12-format."
 
-msgid "Sign"
-msgstr "Skilt"
+msgid "bits"
+msgstr "biter"
+
+msgid "signing"
+msgstr "signering"
+
+msgid "encryption"
+msgstr "kryptering"
+
+msgid "signing & encryption"
+msgstr "signering og kryptering"
 
 msgid "Sign message"
 msgstr "Skiltmelding"
@@ -6544,9 +6687,6 @@ msgstr ""
 "Sikre meldingens autentisitet ved å legge til en digital signatur til denne "
 "meldingen. Alle endringer i meldingen vil ugyldiggjøre signaturen."
 
-msgid "Encrypt"
-msgstr "Krypter"
-
 msgid "Encrypt message"
 msgstr "Krypter meldingen"
 
@@ -6557,8 +6697,14 @@ msgstr ""
 "Sikre personvernet til meldingen ved å kryptere innholdet. Bare mottakeren "
 "av meldingen vil kunne åpne den."
 
+msgid "Algorithms used"
+msgstr "Algoritmer som brukes"
+
 msgid "What's going on with my email?"
 msgstr "Hva skjer med e-posten min?"
+
+msgid "CBC mode"
+msgstr "CBC-modus"
 
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
@@ -6673,6 +6819,39 @@ msgstr "Sertifikatbekreftelsesserveren (OCSP) er midlertidig frakoblet."
 msgid "Sender is removed from the server."
 msgstr "Avsender fjernes fra serveren."
 
+msgid ""
+"The digital certificate used to sign this message has been revoked according "
+"to the Certificate Revocation List (CRL)."
+msgstr ""
+
+msgid ""
+"The revocation status of the certificate could not be verified because the "
+"CRL Distribution Point is unavailable."
+msgstr ""
+
+msgid ""
+"The RSA key size used in this certificate is below the recommended minimum "
+"of 2048 bits. Consider upgrading to a stronger certificate."
+msgstr ""
+
+msgid ""
+"The certificate's Key Usage extension does not permit this operation. The "
+"certificate may be intended for signing only or encryption only."
+msgstr ""
+
+msgid ""
+"This message was encrypted using CBC mode (not authenticated encryption). "
+"While it was decrypted successfully, AES-GCM (authenticated encryption) "
+"provides stronger protection against modification attacks. Consider asking "
+"the sender to upgrade their S/MIME configuration."
+msgstr ""
+
+msgid ""
+"The signing time in the digital signature differs significantly from the "
+"expected time. This may indicate a clock synchronization issue or message "
+"tampering."
+msgstr ""
+
 msgid "Signature verified successfully"
 msgstr "Signatur verifisert med suksess"
 
@@ -6717,6 +6896,36 @@ msgstr "Kan ikke dekryptere denne meldingen. Sertifikatet stemmer ikke overens"
 
 msgid "Verification failed. User is removed from the server."
 msgstr "Verifisering mislyktes. Brukeren er fjernet fra serveren."
+
+msgid "Certificate has been revoked (CRL)"
+msgstr "Sertifikatet har blitt tilbakekalt (CRL)"
+
+msgid "Cannot check revocation status (CRL unavailable)"
+msgstr "Kan ikke sjekke tilbakekallingsstatus (CRL utilgjengelig)"
+
+msgid "RSA key size below recommended minimum"
+msgstr "RSA-nøkkelstørrelse under anbefalt minimum"
+
+msgid "Certificate not valid for this operation (key usage mismatch)"
+msgstr "Sertifikatet er ikke gyldig for denne operasjonen (feil nøkkelbruk)"
+
+msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
+msgstr "Dekryptert (CBC-modus - vurder AES-GCM for sterkere beskyttelse)"
+
+msgid "Signing time differs from expected time"
+msgstr "Signeringstiden avviker fra forventet tid"
+
+msgid "Digest"
+msgstr "Sammendrag"
+
+msgid "Signature"
+msgstr "Signatur"
+
+msgid "Cipher"
+msgstr "Cipher"
+
+msgid "Key transport"
+msgstr "Nøkkeltransport"
 
 msgid "Charm pink"
 msgstr "Rosa"
@@ -7078,6 +7287,21 @@ msgstr "Privat sertifikat er ikke gyldig ennå, kan ikke signere e-post"
 msgid "Private certificate does not match email address"
 msgstr "Privat sertifikat samsvarer ikke med e-postadressen"
 
+msgid "No email address specified"
+msgstr "Ingen e-postadresse oppgitt"
+
+msgid "No certificates found for this email address"
+msgstr "Ingen sertifikater funnet for denne e-postadressen"
+
+msgid "Unable to read certificates"
+msgstr "Kan ikke lese sertifikater"
+
+msgid "Unable to generate certs-only message"
+msgstr "Kunne ikke generere melding om kun sertifikater"
+
+msgid "LDAP not configured"
+msgstr "LDAP er ikke konfigurert"
+
 msgid "Missing public certificates for the following recipients: "
 msgstr "Mangler offentlige sertifikater for følgende mottakere:"
 
@@ -7103,6 +7327,17 @@ msgstr "Privat nøkkel kan ikke brukes til å signere e-post"
 msgid "Certificate email address doesn't match grommunio Web account "
 msgstr ""
 "E-postadressen til sertifikatet stemmer ikke overens med grommunio Web-konto"
+
+#, php-format
+msgid ""
+"RSA key size %d bits is below the recommended minimum of %d bits. "
+"Certificate was imported."
+msgstr ""
+
+msgid ""
+"EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully "
+"supported. Certificate was imported."
+msgstr ""
 
 msgid "Certificate was expired on "
 msgstr "Sertifikatet ble utløpt den"
@@ -7361,8 +7596,9 @@ msgstr "Kvotefeil"
 msgid "Send quota limit reached"
 msgstr "Sendekvotens grense nådd"
 
-msgid "Email sending failed. Check the log files for more information."
-msgstr "Sending av e-post mislyktes. Sjekk loggfilene for mer informasjon."
+#, php-format
+msgid "Email sending failed (%s). Check the log files for more information."
+msgstr "Sending av e-post mislyktes (%s). Sjekk loggfilene for mer informasjon."
 
 msgid "Unknown user/group"
 msgstr "Ukjent bruker/gruppe"

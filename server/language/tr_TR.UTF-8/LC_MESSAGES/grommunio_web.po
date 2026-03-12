@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Turkish\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 23:43+0100\n"
+"POT-Creation-Date: 2026-03-12 22:26+0100\n"
 "PO-Revision-Date: 2022-12-10 22:44+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/grommunio/"
@@ -327,6 +327,9 @@ msgstr "E-mail adresleri"
 msgid "Email addresses"
 msgstr "E-posta adresleri"
 
+msgid "Email Address"
+msgstr "E-posta adresi"
+
 msgid "Group details"
 msgstr "Grup detaylari"
 
@@ -339,17 +342,11 @@ msgstr "Ad Görüntüsü"
 msgid "Alias"
 msgstr "Takma ad"
 
-msgid "Owner"
-msgstr "Sahibi"
-
 msgid "Notes"
 msgstr "Notlar"
 
 msgid "Members"
 msgstr "Üyeler"
-
-msgid "Email Address"
-msgstr "E-posta adresi"
 
 msgid "Account"
 msgstr "Hesap"
@@ -378,11 +375,11 @@ msgstr "Baş harfler"
 msgid "Display"
 msgstr "Görüntüle"
 
-msgid "Addresses"
-msgstr "Adres"
-
 msgid "Address"
 msgstr "Adres"
+
+msgid "Street"
+msgstr "Sokak"
 
 msgid "City"
 msgstr "Şehir"
@@ -432,8 +429,8 @@ msgstr "Telefon numaraları"
 msgid "Business"
 msgstr "Şirket"
 
-msgid "Business2"
-msgstr "Şirket2"
+msgid "Business 2"
+msgstr "Şirket 2"
 
 msgid "Fax"
 msgstr "Faks"
@@ -441,8 +438,8 @@ msgstr "Faks"
 msgid "Home"
 msgstr "Ev"
 
-msgid "Home2"
-msgstr "Ev2"
+msgid "Home 2"
+msgstr "Ev 2"
 
 msgid "Mobile"
 msgstr "Cep telefonu"
@@ -641,9 +638,6 @@ msgstr "İlet"
 
 msgid "Edit as New"
 msgstr "Yeni Olarak Düzenle"
-
-msgid "Search tools"
-msgstr "Arama araçları"
 
 msgid "Folders"
 msgstr "Klasörler"
@@ -1492,14 +1486,14 @@ msgstr "Bu randevu taşındı veya silindi, devam etmek istiyor musun?"
 msgid "Options"
 msgstr "Ayarlar"
 
+msgid "Icon"
+msgstr "Simge"
+
 msgid "All Day"
 msgstr "Tüm Gün"
 
 msgid "Sort by: All Day"
 msgstr "Sıralama: Tüm Gün"
-
-msgid "Icon"
-msgstr "Simge"
 
 msgid "Recurring"
 msgstr "Tekrar Eden"
@@ -2172,6 +2166,9 @@ msgstr "Gelen Kutusu"
 msgid "Entire Inbox"
 msgstr "Tüm Klasörler"
 
+msgid "Owner"
+msgstr "Sahibi"
+
 msgid "Secretary"
 msgstr "Sekreter"
 
@@ -2450,16 +2447,6 @@ msgstr "Yeni E-posta"
 
 msgid "Please select a Cc recipient record."
 msgstr "Lütfen bir Cc alıcı kaydı seçin."
-
-msgid "Manage Cc recipients"
-msgstr "Cc alıcılarını yönetme"
-
-msgid ""
-"Cc recipients can be used to set a default Cc user in new mail, replies or "
-"both."
-msgstr ""
-"Cc alıcıları, yeni postalarda, yanıtlarda veya her ikisinde de varsayılan "
-"bir Cc kullanıcısı ayarlamak için kullanılabilir."
 
 msgid "Help"
 msgstr "Yardım"
@@ -2930,14 +2917,47 @@ msgstr "Değişiklikleri uygula"
 msgid "Do you wish to apply the changes?"
 msgstr "Değişiklikleri uygulamak istiyor musunuz?"
 
+msgid "Category"
+msgstr "Kategori"
+
+msgid "Recent searches"
+msgstr "Son aramalar"
+
+msgid "Filter by"
+msgstr "Göre filtrele"
+
+msgid "Show"
+msgstr "Göster"
+
+msgid "Operators"
+msgstr "Operatörler"
+
+msgid "AND"
+msgstr "VE"
+
+msgid "OR"
+msgstr "VEYA"
+
+msgid "NOT"
+msgstr "DEĞİL"
+
+msgid "Search in"
+msgstr "İçinde ara"
+
 msgid "All folders"
 msgstr "Tüm klasörler"
 
 msgid "Other…"
 msgstr "Diğer…"
 
-msgid "Search in…"
-msgstr "İçinde ara…"
+msgid "Type"
+msgstr "Tür"
+
+msgid "Search"
+msgstr "Arama"
+
+msgid "Click to cycle: AND → OR → NOT"
+msgstr "Döngü için tıklayın: VE → VEYA → DEĞİL"
 
 msgid "Folder does not exist"
 msgstr "Klasör bulunamadı"
@@ -3441,9 +3461,6 @@ msgstr "Telefon numara"
 msgid "Check address"
 msgstr "Adresi kontrol et"
 
-msgid "Street"
-msgstr "Sokak"
-
 msgid "State/Province"
 msgstr "Eyalet / İl"
 
@@ -3481,20 +3498,17 @@ msgstr "Yıldönümü"
 msgid "Photo"
 msgstr "Fotoğraf"
 
+msgid "Addresses"
+msgstr "Adres"
+
 msgid "Additional information"
 msgstr "Ek bilgiler"
-
-msgid "Business 2"
-msgstr "Şirket 2"
 
 msgid "Callback"
 msgstr "Geri çağırım"
 
 msgid "Car"
 msgstr "Araba"
-
-msgid "Home 2"
-msgstr "Ev 2"
 
 msgid "Primary"
 msgstr "Birinci"
@@ -3896,11 +3910,20 @@ msgstr "Kırmızı"
 msgid "Brown"
 msgstr "Kahverengi"
 
+msgid "Logout"
+msgstr "Oturumu kapat"
+
+msgid "Appearance"
+msgstr "Görünüş"
+
+msgid "Light"
+msgstr "Işık"
+
 msgid "Dark"
 msgstr "Koyu"
 
-msgid "Logout"
-msgstr "Oturumu kapat"
+msgid "Automatic"
+msgstr "Otomatik"
 
 msgid "Switch view"
 msgstr "Görünüm değiştir"
@@ -3944,7 +3967,9 @@ msgstr "Eksik ek"
 msgid ""
 "Your message appears to reference an attachment but no file is attached. "
 "Send anyway?"
-msgstr "Mesajınız bir eke gönderme yapıyor gibi görünüyor ancak eklenmiş bir dosya yok. Yine de gönderilsin mi?"
+msgstr ""
+"Mesajınız bir eke gönderme yapıyor gibi görünüyor ancak eklenmiş bir dosya "
+"yok. Yine de gönderilsin mi?"
 
 msgid "No subject"
 msgstr "Konu yok"
@@ -3976,6 +4001,9 @@ msgstr "Detayları Gizle"
 msgid "Loaded {0} of {1}"
 msgstr "{1} den {0} yüklendi"
 
+msgid "Copied!"
+msgstr "Kopyalandı!"
+
 msgid "Saving"
 msgstr "Kaydet"
 
@@ -4006,11 +4034,11 @@ msgstr "Kaydedilmeyen değişiklikler"
 msgid "Welcome to grommunio Web"
 msgstr "Grommunio Web'e hoş geldiniz"
 
-msgid "This is the first time you are using grommunio Web. "
-msgstr "Grommunio Web'i ilk kez kullanıyorsunuz. "
+msgid "Set up your preferences to get started."
+msgstr "Başlamak için tercihlerinizi ayarlayın."
 
-msgid "Please check the following settings before continuing."
-msgstr "Devam etmeden önce lütfen aşağıdaki ayarları kontrol edin."
+msgid "Get Started"
+msgstr "Başlayın"
 
 msgid "Widget height"
 msgstr "Widget (araç) yüksekliği"
@@ -4084,6 +4112,18 @@ msgstr "Yetersiz İzinler"
 
 msgid "Not enough permissions to open this folder."
 msgstr "Bu klasörü açmak için yeterli izin yok."
+
+msgid "Empty folder"
+msgstr "Boş klasör"
+
+msgid "Emptying {0}… (0%)"
+msgstr "Boşaltma {0}... (0%)"
+
+msgid "Successfully emptied {0}. ({1} items removed)"
+msgstr "{0} başarıyla boşaltıldı. ({1} öğeler kaldırıldı)"
+
+msgid "Emptying {0}… ({1}%)"
+msgstr "Boşaltma {0}... ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4160,9 +4200,6 @@ msgstr "Hedef yok"
 
 msgid "You must select a destination folder."
 msgstr "Bir hedef klasörü seçmelisiniz."
-
-msgid "Type"
-msgstr "Tür"
 
 msgid "Description"
 msgstr "Açıklama"
@@ -4308,9 +4345,6 @@ msgstr "Paylaşılan klasörü/depoyu açın"
 msgid "Rename folder"
 msgstr "Klasörü yeniden adlandýr"
 
-msgid "Empty folder"
-msgstr "Boş klasör"
-
 msgid "Empty Junk Email"
 msgstr "Önemsiz E-postaları Boşaltın"
 
@@ -4392,9 +4426,6 @@ msgstr "{0} Boşaltmak istediğinizden emin misiniz?"
 
 msgid "Show All"
 msgstr "Tümünü Göster"
-
-msgid "Show all folders"
-msgstr "Tüm klasörleri göster"
 
 msgid ""
 "You have insufficient privileges to move this folder. Would you like to copy "
@@ -4664,6 +4695,9 @@ msgstr "{A} Otomatik bütün iletileri okunmuş göster {B} saniye sonra"
 msgid "View mail in this format"
 msgstr "Postaları bu biçimde görüntüleyin"
 
+msgid "Cc recipients"
+msgstr "Cc alıcılar"
+
 msgid "Right"
 msgstr "Sağ"
 
@@ -4783,6 +4817,12 @@ msgstr "maximum "
 
 msgid "Sort by: Sent"
 msgstr "Sıralama: Gönderilmiş"
+
+msgid "Scheduled"
+msgstr "Planlanmış"
+
+msgid "Sort by: Scheduled"
+msgstr "Sıralamaya göre: Planlanmış"
 
 msgid "Modified"
 msgstr "Değiştirilmiş"
@@ -4916,11 +4956,8 @@ msgstr "Ayarlar"
 msgid "Basic"
 msgstr "Temel"
 
-msgid "Account information - {0}"
-msgstr "Hesap bilgileri - {0}"
-
-msgid "Profile Picture"
-msgstr "Profil Resmi"
+msgid "System"
+msgstr "Sistem"
 
 msgid "Language"
 msgstr "Dil"
@@ -4930,6 +4967,9 @@ msgstr "Başlangıҫ klasör"
 
 msgid "Theme"
 msgstr "Tema"
+
+msgid "Personal information"
+msgstr "Kişisel bilgiler"
 
 msgid "Select Default Folder"
 msgstr "Varsayılan Klasörü Seçin"
@@ -4964,8 +5004,8 @@ msgstr "{0} simgeler"
 msgid "About"
 msgstr "Hakkında"
 
-msgid "I want to display date and time in this format:"
-msgstr "Tarih ve saati bu formatta görüntülemek istiyorum:"
+msgid "Date & Time"
+msgstr "Tarih ve Saat"
 
 msgid "Short"
 msgstr "Kısa"
@@ -4973,23 +5013,20 @@ msgstr "Kısa"
 msgid "Long"
 msgstr "Uzun"
 
-msgid "Time format:"
-msgstr "Saat Formatı:"
-
 msgid "12h clock"
 msgstr "12 saat"
 
 msgid "24h clock"
 msgstr "24 saat"
 
-msgid "Favorite settings"
-msgstr "Favori ayarları"
-
 msgid "Hide favorites"
 msgstr "Favorileri gizle"
 
 msgid "Unpin favorites from top"
 msgstr "Favori sabitlemesini yukarıdan kaldır"
+
+msgid "Interface"
+msgstr "Arayüz"
 
 msgid "Give unread items a colored border"
 msgstr "Okunmamış öğelerin kenarlarını renklendirin"
@@ -5002,9 +5039,6 @@ msgstr "Okunmamış posta sayacını uygulama başlığında gösterme"
 
 msgid "Hide widget panel"
 msgstr "Araç panelini gizle"
-
-msgid "Show search bar above folder list"
-msgstr "Arama çubuğunu klasör listesinin üzerinde göster"
 
 msgid "Auto"
 msgstr "Otomatik"
@@ -5058,8 +5092,8 @@ msgstr "Sayfa başına {A} öğe yükleyin."
 msgid "Keyboard Shortcuts"
 msgstr "Klavye kısayolları"
 
-msgid "Part of basic keyboard shortcuts"
-msgstr "Temel klavye kısayolları parçası"
+msgid "Extended"
+msgstr "Genişletilmiş"
 
 msgid "Keyboard shortcuts off"
 msgstr "Klavye kısayolları kapalı"
@@ -5067,8 +5101,8 @@ msgstr "Klavye kısayolları kapalı"
 msgid "Basic keyboard shortcuts on"
 msgstr "Temel klavye kısayolları"
 
-msgid "All keyboard shortcuts on"
-msgstr "Tüm klavye kısayolları açık"
+msgid "Extended shortcuts on"
+msgstr "Genişletilmiş kısayollar"
 
 msgid "This change requires a reload of grommunio Web"
 msgstr "Bu değişiklik için grommunio Web'in yenilenmesi gerektirir"
@@ -5149,11 +5183,29 @@ msgstr "Ayar"
 msgid "The setting '{0}' can not be edited"
 msgstr "Bu ayar '{0}' düzenlenemez"
 
-msgid "Version information"
-msgstr "Sürüm bilgileri"
+msgid "OpenID Connect"
+msgstr "OpenID Connect"
+
+msgid "Basic Authentication"
+msgstr "Temel Kimlik Doğrulama"
+
+msgid "System information"
+msgstr "Sistem bilgileri"
 
 msgid "Gromox"
 msgstr "Gromox"
+
+msgid "Logged in via"
+msgstr "Üzerinden giriş yapıldı"
+
+msgid "Browser"
+msgstr "Tarayıcı"
+
+msgid "Maintenance"
+msgstr "Bakım"
+
+msgid "Reset all settings to defaults"
+msgstr "Tüm ayarları varsayılanlara sıfırla"
 
 msgid "Delete confirmation"
 msgstr "Onayı iptal et"
@@ -5555,6 +5607,9 @@ msgstr "Ofis Dışında şu anda etkin. Kapatmak ister misiniz?"
 msgid "Archive"
 msgstr "Arşiv"
 
+msgid "Chat"
+msgstr "Sohbet"
+
 msgid "Open Chat at start"
 msgstr "Başlatıldığında sohbeti aç"
 
@@ -5634,7 +5689,8 @@ msgid "Clipboard"
 msgstr "Pano"
 
 msgid "Could not copy link automatically. Please copy it manually."
-msgstr "Bağlantı otomatik olarak kopyalanamadı. Lütfen manuel olarak kopyalayın."
+msgstr ""
+"Bağlantı otomatik olarak kopyalanamadı. Lütfen manuel olarak kopyalayın."
 
 msgid "Loading details..."
 msgstr "Detaylar yükleniyor..."
@@ -6212,6 +6268,9 @@ msgstr "Son bağlantı"
 msgid "Synchronize"
 msgstr "Eşitle"
 
+msgid "Shared Folders"
+msgstr "Paylaşılan Klasörler"
+
 msgid "Manage Shared Folders"
 msgstr "Paylaşılan Klasörleri Yönetme"
 
@@ -6274,6 +6333,12 @@ msgstr "Aygıtı kaldır"
 msgid "Please enter your username and password"
 msgstr "Lütfen kullanıcı adınızı ve şifrenizi giriniz"
 
+msgid "Type {0} to confirm"
+msgstr "Onaylamak için {0} yazın"
+
+msgid "Please type {0} to confirm"
+msgstr "Onaylamak için lütfen {0} yazın"
+
 msgid "Wipe only data related to this account"
 msgstr "Yalnızca bu hesapla ilgili verileri sil"
 
@@ -6285,10 +6350,20 @@ msgstr "Kullanıcı adı"
 
 msgid ""
 "Do you really want to wipe your device?\n"
+" Type WIPE to confirm."
+msgstr ""
+
+msgid ""
+"Do you really want to wipe your device?\n"
 " Enter your password to confirm."
 msgstr ""
 "Cihazınızı gerçekten silmek istiyor musunuz?\n"
 " Onaylamak için şifrenizi girin."
+
+msgid ""
+"Do you really want to remove your device?\n"
+" Type REMOVE to confirm."
+msgstr ""
 
 msgid ""
 "Do you really want to remove your device?\n"
@@ -6306,6 +6381,9 @@ msgstr "Oda adı:"
 msgid "Room URL:"
 msgstr "Oda URL'si:"
 
+msgid "Meet"
+msgstr "Tanışın"
+
 msgid "Shift-click for advanced settings"
 msgstr "Gelişmiş ayarlar için Shift tuşuna tıklayın"
 
@@ -6317,6 +6395,9 @@ msgstr "Toplantıyı aç:"
 
 msgid "Web tab"
 msgstr "Web sekmesi"
+
+msgid "Popup"
+msgstr "Popup"
 
 msgid "Hide the button in the main toolbar"
 msgstr "Ana araç çubuğundaki düğmeyi gizle"
@@ -6345,15 +6426,20 @@ msgstr ""
 msgid "Add an invitation to the appointment description"
 msgstr "Randevu açıklamasına bir davetiye ekleyin"
 
-msgid "Invitation text"
-msgstr "Davetiye metni"
+msgid "Invitation text (plain text)"
+msgstr "Davet metni (düz metin)"
 
 msgid ""
-"must contain %url% as a placeholder for the meeting link, empty the textbox "
-"to reset to default"
+"used when composing in plain text, must contain %url%, empty to reset to "
+"default"
 msgstr ""
-"toplantı bağlantısı için bir yer tutucu olarak %url% içermelidir, "
-"varsayılana sıfırlamak için metin kutusunu boşaltın"
+
+msgid "Invitation template (HTML)"
+msgstr "Davetiye şablonu (HTML)"
+
+msgid ""
+"used when composing in HTML, must contain %url%, empty to reset to default"
+msgstr ""
 
 msgid "An unknown error occurred while changing password."
 msgstr "Parola değiştirilirken bilinmeyen bir hata oluştu."
@@ -6440,6 +6526,21 @@ msgstr "Geçerlilik başlangıcı"
 msgid "Expires"
 msgstr "Süre sonu"
 
+msgid "Key Type"
+msgstr "Anahtar Tipi"
+
+msgid "Purpose"
+msgstr "Amaç"
+
+msgid "Sign"
+msgstr "İşaret"
+
+msgid "Encrypt"
+msgstr "Şifreleme"
+
+msgid "Sign & Encrypt"
+msgstr "İmzala ve Şifrele"
+
 msgid "Loading certificates"
 msgstr "Sertifikalar yükleniyor"
 
@@ -6456,15 +6557,37 @@ msgstr ""
 "Özel sertifikanızı gerçekten kaldırmak istiyor musunuz? Sertifikanızı "
 "kaldırırsanız S/MIME e-postalarını imzalayamaz veya şifresini çözemezsiniz."
 
-msgid "Certificate details"
-msgstr "Sertifika detayları"
+msgid "Signing"
+msgstr "İmzalama"
+
+msgid "Encryption"
+msgstr "Şifreleme"
+
+msgid "Signing & Encryption"
+msgstr "İmzalama ve Şifreleme"
+
+msgid "Serial"
+msgstr "Seri"
+
+msgid "Issued by"
+msgstr "Tarafından yayınlandı"
+
+msgid "Issued to"
+msgstr "Verilen"
+
+msgid "SHA-256 Fingerprint"
+msgstr "SHA-256 Parmak İzi"
+
+msgid "SHA-1 Fingerprint"
+msgstr "SHA-1 Parmak İzi"
 
 msgid ""
-"Below you can view and delete public & private certificate(s) stored on the "
-"server."
+"Warning: RSA key size is below 2048 bits. Consider upgrading to a stronger "
+"certificate."
 msgstr ""
-"Sunucuda saklanan genel ve özel sertifikaları görüntüleyebilir ve "
-"silebilirsiniz."
+
+msgid "Certificate details"
+msgstr "Sertifika detayları"
 
 msgid "Filter on Email"
 msgstr "E-postada Filtre"
@@ -6483,6 +6606,18 @@ msgstr "Kişisel sertifika"
 
 msgid "Change passphrase for last certificate"
 msgstr "Son sertifika için parolayı değiştir"
+
+msgid "Default encryption algorithm"
+msgstr "Varsayılan şifreleme algoritması"
+
+msgid "Recommended"
+msgstr "Tavsiye edilir"
+
+msgid "Legacy"
+msgstr "Miras"
+
+msgid "Default signing digest"
+msgstr "Varsayılan imzalama özeti"
 
 msgid "You have a valid certificate corresponding to your account"
 msgstr "Hesabınıza karşılık gelen geçerli bir sertifikanız var"
@@ -6508,8 +6643,17 @@ msgstr "Sertifikanızı yüklemek için sertifika parolasını girmelisiniz."
 msgid "You must first select a valid private certificate in PKCS#12 format."
 msgstr "Önce PKCS#12 formatında geçerli bir özel sertifika seçmelisiniz."
 
-msgid "Sign"
-msgstr "İşaret"
+msgid "bits"
+msgstr "bitler"
+
+msgid "signing"
+msgstr "imzalama"
+
+msgid "encryption"
+msgstr "şifreleme"
+
+msgid "signing & encryption"
+msgstr "i̇mzalama &amp; şi̇freleme"
 
 msgid "Sign message"
 msgstr "İşaret mesajı"
@@ -6521,9 +6665,6 @@ msgstr ""
 "Bu mesaja bir dijital imza ekleyerek mesajın gerçekliğini sağlayın. Mesajda "
 "yapılacak herhangi bir değişiklik imzayı geçersiz kılacaktır."
 
-msgid "Encrypt"
-msgstr "Şifreleme"
-
 msgid "Encrypt message"
 msgstr "Mesajı şifrele"
 
@@ -6534,8 +6675,14 @@ msgstr ""
 "İçeriğini şifreleyerek mesajın gizliliğini sağlayın. Yalnızca mesajın "
 "alıcısı mesajı açabilecektir."
 
+msgid "Algorithms used"
+msgstr "Kullanılan Algoritmalar"
+
 msgid "What's going on with my email?"
 msgstr "E-postama ne oldu?"
+
+msgid "CBC mode"
+msgstr "CBC modu"
 
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
@@ -6643,6 +6790,39 @@ msgstr "Sertifika doğrulama sunucusu (OCSP) geçici olarak çevrimdışıdır."
 msgid "Sender is removed from the server."
 msgstr "Gönderen sunucudan kaldırılır."
 
+msgid ""
+"The digital certificate used to sign this message has been revoked according "
+"to the Certificate Revocation List (CRL)."
+msgstr ""
+
+msgid ""
+"The revocation status of the certificate could not be verified because the "
+"CRL Distribution Point is unavailable."
+msgstr ""
+
+msgid ""
+"The RSA key size used in this certificate is below the recommended minimum "
+"of 2048 bits. Consider upgrading to a stronger certificate."
+msgstr ""
+
+msgid ""
+"The certificate's Key Usage extension does not permit this operation. The "
+"certificate may be intended for signing only or encryption only."
+msgstr ""
+
+msgid ""
+"This message was encrypted using CBC mode (not authenticated encryption). "
+"While it was decrypted successfully, AES-GCM (authenticated encryption) "
+"provides stronger protection against modification attacks. Consider asking "
+"the sender to upgrade their S/MIME configuration."
+msgstr ""
+
+msgid ""
+"The signing time in the digital signature differs significantly from the "
+"expected time. This may indicate a clock synchronization issue or message "
+"tampering."
+msgstr ""
+
 msgid "Signature verified successfully"
 msgstr "İmza başarıyla doğrulandı"
 
@@ -6687,6 +6867,36 @@ msgstr "Bu mesajın şifresi çözülemiyor. Sertifika eşleşmiyor"
 
 msgid "Verification failed. User is removed from the server."
 msgstr "Doğrulama başarısız oldu. Kullanıcı sunucudan kaldırılır."
+
+msgid "Certificate has been revoked (CRL)"
+msgstr "Sertifika iptal edildi (CRL)"
+
+msgid "Cannot check revocation status (CRL unavailable)"
+msgstr "İptal durumu kontrol edilemiyor (CRL kullanılamıyor)"
+
+msgid "RSA key size below recommended minimum"
+msgstr "RSA anahtar boyutu önerilen minimum değerin altında"
+
+msgid "Certificate not valid for this operation (key usage mismatch)"
+msgstr "Sertifika bu işlem için geçerli değil (anahtar kullanım uyuşmazlığı)"
+
+msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
+msgstr "Şifresi çözülmüş (CBC modu - daha güçlü koruma için AES-GCM'yi düşünün)"
+
+msgid "Signing time differs from expected time"
+msgstr "İmzalama süresi beklenen süreden farklı"
+
+msgid "Digest"
+msgstr "Digest"
+
+msgid "Signature"
+msgstr "İmza"
+
+msgid "Cipher"
+msgstr "Şifre"
+
+msgid "Key transport"
+msgstr "Anahtar taşımacılığı"
 
 msgid "Charm pink"
 msgstr "Cazibeli pembe"
@@ -7040,6 +7250,21 @@ msgstr "Özel sertifika henüz geçerli değil, e-posta imzalanamıyor"
 msgid "Private certificate does not match email address"
 msgstr "Özel sertifika e-posta adresiyle eşleşmiyor"
 
+msgid "No email address specified"
+msgstr "E-posta adresi belirtilmemiş"
+
+msgid "No certificates found for this email address"
+msgstr "Bu e-posta adresi için sertifika bulunamadı"
+
+msgid "Unable to read certificates"
+msgstr "Sertifikalar okunamıyor"
+
+msgid "Unable to generate certs-only message"
+msgstr "Yalnızca certs iletisi oluşturulamıyor"
+
+msgid "LDAP not configured"
+msgstr "LDAP yapılandırılmamış"
+
 msgid "Missing public certificates for the following recipients: "
 msgstr "Aşağıdaki alıcılar için eksik kamu sertifikaları: "
 
@@ -7064,6 +7289,17 @@ msgstr "Özel anahtar e-posta imzalamak için kullanılamaz"
 
 msgid "Certificate email address doesn't match grommunio Web account "
 msgstr "Sertifika e-posta adresi grommunio Web hesabıyla eşleşmiyor "
+
+#, php-format
+msgid ""
+"RSA key size %d bits is below the recommended minimum of %d bits. "
+"Certificate was imported."
+msgstr ""
+
+msgid ""
+"EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully "
+"supported. Certificate was imported."
+msgstr ""
 
 msgid "Certificate was expired on "
 msgstr "Sertifikanın geçerlilik süresi "
@@ -7321,10 +7557,11 @@ msgstr "Kota hatası"
 msgid "Send quota limit reached"
 msgstr "Gönderme kotası sınırına ulaşıldı"
 
-msgid "Email sending failed. Check the log files for more information."
+#, php-format
+msgid "Email sending failed (%s). Check the log files for more information."
 msgstr ""
-"E-posta gönderimi başarısız oldu. Daha fazla bilgi için günlük dosyalarını "
-"kontrol edin."
+"E-posta gönderimi başarısız oldu (%s). Daha fazla bilgi için günlük "
+"dosyalarını kontrol edin."
 
 msgid "Unknown user/group"
 msgstr "Bilinmeyen kullanıcı/grup"

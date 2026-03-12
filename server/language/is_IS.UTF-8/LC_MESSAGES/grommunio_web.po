@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Icelandic (Iceland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 23:43+0100\n"
+"POT-Creation-Date: 2026-03-12 22:26+0100\n"
 "PO-Revision-Date: 2019-12-01 02:07+0000\n"
 "Last-Translator: import\n"
 "Language: is_IS\n"
@@ -325,6 +325,9 @@ msgstr "Tölvupóstföng"
 msgid "Email addresses"
 msgstr "Tölvupóstföng"
 
+msgid "Email Address"
+msgstr "Tölvupóstfang"
+
 msgid "Group details"
 msgstr "Nánari hópslýsing"
 
@@ -337,17 +340,11 @@ msgstr "Þekkjanlegt nafn"
 msgid "Alias"
 msgstr "Samnefni"
 
-msgid "Owner"
-msgstr "Eigandi"
-
 msgid "Notes"
 msgstr "Minnisatriði"
 
 msgid "Members"
 msgstr "Meðlimir"
-
-msgid "Email Address"
-msgstr "Tölvupóstfang"
 
 msgid "Account"
 msgstr "Notandaaðgangur"
@@ -376,11 +373,11 @@ msgstr "Upphafsstafir"
 msgid "Display"
 msgstr "Sýna"
 
-msgid "Addresses"
-msgstr "Heimilisföng"
-
 msgid "Address"
 msgstr "Vistfang"
+
+msgid "Street"
+msgstr "Gata"
 
 msgid "City"
 msgstr "Sveitarfélag"
@@ -430,8 +427,8 @@ msgstr "Símanúmer"
 msgid "Business"
 msgstr "Viðskipti"
 
-msgid "Business2"
-msgstr "Viðskipti2"
+msgid "Business 2"
+msgstr "Annað fyrirtæki"
 
 msgid "Fax"
 msgstr "Fax"
@@ -439,8 +436,8 @@ msgstr "Fax"
 msgid "Home"
 msgstr "Aðsetur"
 
-msgid "Home2"
-msgstr "Aðsetur2"
+msgid "Home 2"
+msgstr "Annað heimili"
 
 msgid "Mobile"
 msgstr "Farsími"
@@ -637,9 +634,6 @@ msgstr "Áframsenda"
 
 msgid "Edit as New"
 msgstr "Breyta sem nýjum"
-
-msgid "Search tools"
-msgstr "Leitartól"
 
 msgid "Folders"
 msgstr "Möppur"
@@ -1487,14 +1481,14 @@ msgstr "Þessi tímabókun hefur verið færð eða henni eytt, viltu halda áfr
 msgid "Options"
 msgstr "Valmöguleikar"
 
+msgid "Icon"
+msgstr "Teikn"
+
 msgid "All Day"
 msgstr "Heill dagur"
 
 msgid "Sort by: All Day"
 msgstr "Raða eftir heilsdagsviðburðum"
-
-msgid "Icon"
-msgstr "Teikn"
 
 msgid "Recurring"
 msgstr "Endurtekning"
@@ -2158,6 +2152,9 @@ msgstr "Innhólf"
 msgid "Entire Inbox"
 msgstr "Allt innhólfið"
 
+msgid "Owner"
+msgstr "Eigandi"
+
 msgid "Secretary"
 msgstr "Ritari"
 
@@ -2437,16 +2434,6 @@ msgstr "Nýr póstur"
 
 msgid "Please select a Cc recipient record."
 msgstr "Vinsamlegast veldu skráningu á viðtakanda afrits."
-
-msgid "Manage Cc recipients"
-msgstr "Umsjón viðtakenda afrits"
-
-msgid ""
-"Cc recipients can be used to set a default Cc user in new mail, replies or "
-"both."
-msgstr ""
-"Viðtakendur afrits geta verið nýttir til að senda afrit á þá í nýjum pósti, "
-"svörum eða báðum tilvikum."
 
 msgid "Help"
 msgstr "Hjálp"
@@ -2916,14 +2903,47 @@ msgstr "Framkvæma breytingar"
 msgid "Do you wish to apply the changes?"
 msgstr "Viltu framkvæma breytingarnar?"
 
+msgid "Category"
+msgstr "Flokkur"
+
+msgid "Recent searches"
+msgstr "Nýlegar leitir"
+
+msgid "Filter by"
+msgstr "Sía eftir"
+
+msgid "Show"
+msgstr "Sýna"
+
+msgid "Operators"
+msgstr "Rekstraraðilar"
+
+msgid "AND"
+msgstr "OG"
+
+msgid "OR"
+msgstr "EÐA"
+
+msgid "NOT"
+msgstr "EKKI"
+
+msgid "Search in"
+msgstr "Leitaðu inn"
+
 msgid "All folders"
 msgstr "Allar möppur"
 
 msgid "Other…"
 msgstr "Annað…"
 
-msgid "Search in…"
-msgstr "Leita í…"
+msgid "Type"
+msgstr "Gerð"
+
+msgid "Search"
+msgstr "Leita"
+
+msgid "Click to cycle: AND → OR → NOT"
+msgstr "Smelltu til að hjóla: OG → EÐA → EKKI"
 
 msgid "Folder does not exist"
 msgstr "Mappan er ekki til"
@@ -3428,9 +3448,6 @@ msgstr "Símanúmer"
 msgid "Check address"
 msgstr "Athuga heimilisfang"
 
-msgid "Street"
-msgstr "Gata"
-
 msgid "State/Province"
 msgstr "Sýsla/fylki"
 
@@ -3468,20 +3485,17 @@ msgstr "Afmæli"
 msgid "Photo"
 msgstr "Mynd"
 
+msgid "Addresses"
+msgstr "Heimilisföng"
+
 msgid "Additional information"
 msgstr "Viðbótarupplýsingar"
-
-msgid "Business 2"
-msgstr "Annað fyrirtæki"
 
 msgid "Callback"
 msgstr "Hringja til baka"
 
 msgid "Car"
 msgstr "Bíll"
-
-msgid "Home 2"
-msgstr "Annað heimili"
 
 msgid "Primary"
 msgstr "Aðal"
@@ -3883,11 +3897,20 @@ msgstr "Rautt"
 msgid "Brown"
 msgstr "Brúnn"
 
+msgid "Logout"
+msgstr "Útskrá"
+
+msgid "Appearance"
+msgstr "Útlit"
+
+msgid "Light"
+msgstr "Ljós"
+
 msgid "Dark"
 msgstr "Dimmt"
 
-msgid "Logout"
-msgstr "Útskrá"
+msgid "Automatic"
+msgstr "Sjálfvirk"
 
 msgid "Switch view"
 msgstr "Breyta sýn"
@@ -3931,7 +3954,9 @@ msgstr "Vantar viðhengi"
 msgid ""
 "Your message appears to reference an attachment but no file is attached. "
 "Send anyway?"
-msgstr "Skilaboðin þín virðast vísa til viðhengis en engin skrá er viðhengi. Senda samt?"
+msgstr ""
+"Skilaboðin þín virðast vísa til viðhengis en engin skrá er viðhengi. Senda "
+"samt?"
 
 msgid "No subject"
 msgstr "Ekkert málefni"
@@ -3963,6 +3988,9 @@ msgstr "Fela nánari upplýsingar"
 msgid "Loaded {0} of {1}"
 msgstr "Hlóð {0} af {1}"
 
+msgid "Copied!"
+msgstr "Afritað!"
+
 msgid "Saving"
 msgstr "Vista"
 
@@ -3993,11 +4021,11 @@ msgstr "Óvistaðar breytingar"
 msgid "Welcome to grommunio Web"
 msgstr "Velkomin á grommunio vefinn"
 
-msgid "This is the first time you are using grommunio Web. "
-msgstr "Þetta er í fyrsta skiptið sem þú notar grommunio vefviðmótið. "
+msgid "Set up your preferences to get started."
+msgstr "Settu upp stillingar þínar til að byrja."
 
-msgid "Please check the following settings before continuing."
-msgstr "Vinsamlegast athugaðu eftirfarandi stillingar áður en þú heldur áfram."
+msgid "Get Started"
+msgstr "Byrjaðu"
 
 msgid "Widget height"
 msgstr "Græjuhæð"
@@ -4072,6 +4100,18 @@ msgstr "Ónæg réttindi"
 
 msgid "Not enough permissions to open this folder."
 msgstr "Þú hefur ekki næg réttindi til að opna þessa möppu."
+
+msgid "Empty folder"
+msgstr "Tæma möppu"
+
+msgid "Emptying {0}… (0%)"
+msgstr "Tæmir{0}… (0%)"
+
+msgid "Successfully emptied {0}. ({1} items removed)"
+msgstr "Tæmdi{0}. ({1}atriði fjarlægð)"
+
+msgid "Emptying {0}… ({1}%)"
+msgstr "Tæmir{0}… ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4148,9 +4188,6 @@ msgstr "Engin staðsetning"
 
 msgid "You must select a destination folder."
 msgstr "Þú verður að velja möppu fyrir staðsetningu."
-
-msgid "Type"
-msgstr "Gerð"
 
 msgid "Description"
 msgstr "Lýsing"
@@ -4296,9 +4333,6 @@ msgstr "Opna sameiginlega möppu/geymslu"
 msgid "Rename folder"
 msgstr "Endurnefna möppu"
 
-msgid "Empty folder"
-msgstr "Tæma möppu"
-
 msgid "Empty Junk Email"
 msgstr "Tæma ruslpóst"
 
@@ -4381,9 +4415,6 @@ msgstr "Ertu viss um að þú viljir tæma {0}?"
 
 msgid "Show All"
 msgstr "Sýna allt"
-
-msgid "Show all folders"
-msgstr "Sýna allar möppur"
 
 msgid ""
 "You have insufficient privileges to move this folder. Would you like to copy "
@@ -4652,6 +4683,9 @@ msgstr "{A}Sjálfkrafa merkja póst sem lesinn eftir {B} sekúndu(r)"
 msgid "View mail in this format"
 msgstr "Skoðaðu póst á þessu formi"
 
+msgid "Cc recipients"
+msgstr "Cc viðtakendur"
+
 msgid "Right"
 msgstr "Hægri"
 
@@ -4768,6 +4802,12 @@ msgstr "hámark. "
 
 msgid "Sort by: Sent"
 msgstr "Raða eftir sendingu"
+
+msgid "Scheduled"
+msgstr "Á dagskrá"
+
+msgid "Sort by: Scheduled"
+msgstr "Raða eftir: Áætlað"
 
 msgid "Modified"
 msgstr "Breytt"
@@ -4902,11 +4942,8 @@ msgstr "Stillingar"
 msgid "Basic"
 msgstr "Grunnur"
 
-msgid "Account information - {0}"
-msgstr "Reikningsupplýsingar -{0}"
-
-msgid "Profile Picture"
-msgstr "Prófílmynd"
+msgid "System"
+msgstr "Kerfi"
 
 msgid "Language"
 msgstr "Tungumál"
@@ -4916,6 +4953,9 @@ msgstr "Ræsimappa"
 
 msgid "Theme"
 msgstr "Þema"
+
+msgid "Personal information"
+msgstr "Persónulegar upplýsingar"
 
 msgid "Select Default Folder"
 msgstr "Velja sjálfgefna möppu"
@@ -4950,8 +4990,8 @@ msgstr "{0} teiknasafn"
 msgid "About"
 msgstr "Um"
 
-msgid "I want to display date and time in this format:"
-msgstr "Ég vil sýna dagsetningu og tíma á þessu sniði:"
+msgid "Date & Time"
+msgstr "Dagsetning og tími"
 
 msgid "Short"
 msgstr "Stutt"
@@ -4959,23 +4999,20 @@ msgstr "Stutt"
 msgid "Long"
 msgstr "Langt"
 
-msgid "Time format:"
-msgstr "Tímasnið:"
-
 msgid "12h clock"
 msgstr "12 klst"
 
 msgid "24h clock"
 msgstr "24 klst"
 
-msgid "Favorite settings"
-msgstr "Uppáhaldsstillingar"
-
 msgid "Hide favorites"
 msgstr "Fela uppáhald"
 
 msgid "Unpin favorites from top"
 msgstr "Fjarlægja uppáhald af toppnum"
+
+msgid "Interface"
+msgstr "Viðmót"
 
 msgid "Give unread items a colored border"
 msgstr "Gefa ólesnum atriðum litaðan ramma"
@@ -4988,9 +5025,6 @@ msgstr "Sýna ólesinn póstteljara í heiti forrits"
 
 msgid "Hide widget panel"
 msgstr "Fela græjuspjaldið"
-
-msgid "Show search bar above folder list"
-msgstr "Sýna leitarstikuna fyrir ofan möppulistann"
 
 msgid "Auto"
 msgstr "Sjálfvirk"
@@ -5045,8 +5079,8 @@ msgstr "Hlaða {A} atirðum á síðu."
 msgid "Keyboard Shortcuts"
 msgstr "Flýtilyklar"
 
-msgid "Part of basic keyboard shortcuts"
-msgstr "Hluti af grunnflýtilyklum"
+msgid "Extended"
+msgstr "Framlengdur"
 
 msgid "Keyboard shortcuts off"
 msgstr "Óvirkja flýtilykla"
@@ -5054,8 +5088,8 @@ msgstr "Óvirkja flýtilykla"
 msgid "Basic keyboard shortcuts on"
 msgstr "Grunnflýtilyklar virkjaðir"
 
-msgid "All keyboard shortcuts on"
-msgstr "Allir flýtilyklar virkjaðir"
+msgid "Extended shortcuts on"
+msgstr "Framlengdir flýtileiðir á"
 
 msgid "This change requires a reload of grommunio Web"
 msgstr "Þessi breyting krefst endurhleðslu á grommunio vefnum"
@@ -5088,7 +5122,8 @@ msgid "{0} of mailbox space is used."
 msgstr "{0} af pósthólfsplássi er notað."
 
 msgid "You have exceeded hard quota, you can not send or receive mails."
-msgstr "Þú hefur farið yfir harðan kvóta, þú getur ekki sent eða tekið á móti pósti."
+msgstr ""
+"Þú hefur farið yfir harðan kvóta, þú getur ekki sent eða tekið á móti pósti."
 
 msgid "At {0} you won't be able to send mails."
 msgstr "Við {0} muntu ekki geta sent tölvupóst."
@@ -5136,11 +5171,29 @@ msgstr "Stilling"
 msgid "The setting '{0}' can not be edited"
 msgstr "Stillingunni '{0}' getur ekki verið breytt"
 
-msgid "Version information"
-msgstr "Útgáfuupplýsingar"
+msgid "OpenID Connect"
+msgstr "OpenID Connect"
+
+msgid "Basic Authentication"
+msgstr "Grunnauðkenning"
+
+msgid "System information"
+msgstr "Kerfisupplýsingar"
 
 msgid "Gromox"
 msgstr "grommunio kjarni"
+
+msgid "Logged in via"
+msgstr "Innskráður í gegnum"
+
+msgid "Browser"
+msgstr "Vafri"
+
+msgid "Maintenance"
+msgstr "Viðhald"
+
+msgid "Reset all settings to defaults"
+msgstr "Endurstilla allar stillingar í sjálfgefnar stillingar"
 
 msgid "Delete confirmation"
 msgstr "Staðfesting á eyðingu"
@@ -5544,6 +5597,9 @@ msgstr "Þú hefur stillt þig sem fjarverandi. Viltu afvirkja stillinguna?"
 msgid "Archive"
 msgstr "Skjalasafn"
 
+msgid "Chat"
+msgstr "Spjall"
+
 msgid "Open Chat at start"
 msgstr "Opnaðu Spjall við upphaf"
 
@@ -5623,7 +5679,8 @@ msgid "Clipboard"
 msgstr "Klemmuspjald"
 
 msgid "Could not copy link automatically. Please copy it manually."
-msgstr "Gat ekki afritað tengil sjálfkrafa. Vinsamlegast afritaðu það handvirkt."
+msgstr ""
+"Gat ekki afritað tengil sjálfkrafa. Vinsamlegast afritaðu það handvirkt."
 
 msgid "Loading details..."
 msgstr "Hleður upplýsingum..."
@@ -5675,7 +5732,8 @@ msgid "Rename item"
 msgstr "Endurnefna atriði"
 
 msgid "A file named \"{0}\" already exists. Please enter a different name."
-msgstr "Skrá sem heitir \"{0}\" er þegar til. Vinsamlegast sláðu inn annað nafn."
+msgstr ""
+"Skrá sem heitir \"{0}\" er þegar til. Vinsamlegast sláðu inn annað nafn."
 
 msgid "Downloading"
 msgstr "Niðurhal"
@@ -5687,7 +5745,8 @@ msgid "Upload"
 msgstr "Hlaða upp"
 
 msgid "At least one file is too large! Maximum allowed filesize: {0}."
-msgstr "Að minnsta kosti ein skrá er of stór! Hámarks leyfileg skráarstærð:{0}."
+msgstr ""
+"Að minnsta kosti ein skrá er of stór! Hámarks leyfileg skráarstærð:{0}."
 
 msgid "Keep both"
 msgstr "Haltu bæði"
@@ -6195,6 +6254,9 @@ msgstr "Síðasta tenging"
 msgid "Synchronize"
 msgstr "Samstilla"
 
+msgid "Shared Folders"
+msgstr "Sameiginlegar möppur"
+
 msgid "Manage Shared Folders"
 msgstr "Halda utan um sameiginlegar möppur"
 
@@ -6253,6 +6315,12 @@ msgstr "Fjarlægja tæki"
 msgid "Please enter your username and password"
 msgstr "Vinsamlegast sláðu inn notandanafn og lykilorð"
 
+msgid "Type {0} to confirm"
+msgstr "Sláðu inn{0}til að staðfesta"
+
+msgid "Please type {0} to confirm"
+msgstr "Vinsamlegast sláðu inn{0}til að staðfesta"
+
 msgid "Wipe only data related to this account"
 msgstr "Þurrkaðu aðeins gögn sem tengjast þessum reikningi"
 
@@ -6264,10 +6332,20 @@ msgstr "Notandanafn"
 
 msgid ""
 "Do you really want to wipe your device?\n"
+" Type WIPE to confirm."
+msgstr ""
+
+msgid ""
+"Do you really want to wipe your device?\n"
 " Enter your password to confirm."
 msgstr ""
 "Ertu viss um að þú viljir eyða út af tækinu þínu?\n"
 " Sláðu inn lykilorðið þitt til að staðfesta."
+
+msgid ""
+"Do you really want to remove your device?\n"
+" Type REMOVE to confirm."
+msgstr ""
 
 msgid ""
 "Do you really want to remove your device?\n"
@@ -6283,6 +6361,9 @@ msgstr "Herbergisheiti:"
 msgid "Room URL:"
 msgstr "Vefslóð herbergis:"
 
+msgid "Meet"
+msgstr "Hittumst"
+
 msgid "Shift-click for advanced settings"
 msgstr "Shift-smelltu til að fá ítarlegar stillingar"
 
@@ -6294,6 +6375,9 @@ msgstr "Opinn fundur í:"
 
 msgid "Web tab"
 msgstr "Vefflipi"
+
+msgid "Popup"
+msgstr "Sprettiglugga"
 
 msgid "Hide the button in the main toolbar"
 msgstr "Fela hnappinn á aðaltækjastikunni"
@@ -6314,18 +6398,25 @@ msgstr ""
 
 msgid "If you have problems when creating meetings, try disabling this setting"
 msgstr ""
-"Ef þú átt í vandræðum með að búa til fundi skaltu prófa að slökkva á "
-"þessari stillingu"
+"Ef þú átt í vandræðum með að búa til fundi skaltu prófa að slökkva á þessari "
+"stillingu"
 
 msgid "Add an invitation to the appointment description"
 msgstr "Bættu boðsboði við stefnumótalýsingu"
 
-msgid "Invitation text"
-msgstr "Boðstexti"
+msgid "Invitation text (plain text)"
+msgstr "Boðstexti (venjulegur texti)"
 
 msgid ""
-"must contain %url% as a placeholder for the meeting link, empty the textbox "
-"to reset to default"
+"used when composing in plain text, must contain %url%, empty to reset to "
+"default"
+msgstr ""
+
+msgid "Invitation template (HTML)"
+msgstr "Boðssniðmát (HTML)"
+
+msgid ""
+"used when composing in HTML, must contain %url%, empty to reset to default"
 msgstr ""
 
 msgid "An unknown error occurred while changing password."
@@ -6411,6 +6502,21 @@ msgstr "Gildir frá kl"
 msgid "Expires"
 msgstr "Rennur út"
 
+msgid "Key Type"
+msgstr "Lykiltegund"
+
+msgid "Purpose"
+msgstr "Tilgangur"
+
+msgid "Sign"
+msgstr "Skráðu þig"
+
+msgid "Encrypt"
+msgstr "Dulkóða"
+
+msgid "Sign & Encrypt"
+msgstr "Undirritaðu og dulkóðaðu"
+
 msgid "Loading certificates"
 msgstr "Hleðsla skírteina"
 
@@ -6425,13 +6531,37 @@ msgid ""
 "certificate you will not be able to sign or decrypt S/MIME emails."
 msgstr ""
 
-msgid "Certificate details"
-msgstr "Upplýsingar um skírteini"
+msgid "Signing"
+msgstr "Undirritun"
+
+msgid "Encryption"
+msgstr "Dulkóðun"
+
+msgid "Signing & Encryption"
+msgstr "Undirritun og dulkóðun"
+
+msgid "Serial"
+msgstr "Serial"
+
+msgid "Issued by"
+msgstr "Gefið út af"
+
+msgid "Issued to"
+msgstr "Gefin út til"
+
+msgid "SHA-256 Fingerprint"
+msgstr "SHA-256 Fingrafar"
+
+msgid "SHA-1 Fingerprint"
+msgstr "SHA-1 fingrafar"
 
 msgid ""
-"Below you can view and delete public & private certificate(s) stored on the "
-"server."
+"Warning: RSA key size is below 2048 bits. Consider upgrading to a stronger "
+"certificate."
 msgstr ""
+
+msgid "Certificate details"
+msgstr "Upplýsingar um skírteini"
 
 msgid "Filter on Email"
 msgstr "Sía á tölvupósti"
@@ -6451,6 +6581,18 @@ msgstr "Persónulegt vottorð"
 msgid "Change passphrase for last certificate"
 msgstr "Breyta lykilorði fyrir síðasta vottorð"
 
+msgid "Default encryption algorithm"
+msgstr "Sjálfgefin dulkóðunaralgrím"
+
+msgid "Recommended"
+msgstr "Mælt er með"
+
+msgid "Legacy"
+msgstr "Arfleifð"
+
+msgid "Default signing digest"
+msgstr "Sjálfgefin undirskriftarsamdráttur"
+
 msgid "You have a valid certificate corresponding to your account"
 msgstr "Þú ert með gilt vottorð sem samsvarar reikningnum þínum"
 
@@ -6468,14 +6610,22 @@ msgstr "Einkavottorð"
 
 msgid "You must fill in the certificate passphrase to upload your certificate."
 msgstr ""
-"Þú verður að fylla út lykilorð vottorðsins til að hlaða upp skírteininu "
-"þínu."
+"Þú verður að fylla út lykilorð vottorðsins til að hlaða upp skírteininu þínu."
 
 msgid "You must first select a valid private certificate in PKCS#12 format."
 msgstr "Þú verður fyrst að velja gilt einkavottorð á PKCS#12 sniði."
 
-msgid "Sign"
-msgstr "Skráðu þig"
+msgid "bits"
+msgstr "bita"
+
+msgid "signing"
+msgstr "undirskrift"
+
+msgid "encryption"
+msgstr "dulkóðun"
+
+msgid "signing & encryption"
+msgstr "undirritun og dulkóðun"
 
 msgid "Sign message"
 msgstr "Skrifaðu undir skilaboð"
@@ -6485,9 +6635,6 @@ msgid ""
 "message. Any changes to the message will invalidate the signature."
 msgstr ""
 
-msgid "Encrypt"
-msgstr "Dulkóða"
-
 msgid "Encrypt message"
 msgstr "Dulkóða skilaboð"
 
@@ -6496,8 +6643,14 @@ msgid ""
 "recipient of the message will be able to open it."
 msgstr ""
 
+msgid "Algorithms used"
+msgstr "Reiknirit notuð"
+
 msgid "What's going on with my email?"
 msgstr "Hvað er að gerast með tölvupóstinn minn?"
+
+msgid "CBC mode"
+msgstr "CBC háttur"
 
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
@@ -6555,7 +6708,8 @@ msgid ""
 msgstr ""
 
 msgid "The digital signature could not be verified for unknown reasons."
-msgstr "Ekki var hægt að staðfesta stafrænu undirskriftina af óþekktum ástæðum."
+msgstr ""
+"Ekki var hægt að staðfesta stafrænu undirskriftina af óþekktum ástæðum."
 
 msgid ""
 "The digital certificate used to sign this message has been revoked (i.e. the "
@@ -6584,6 +6738,39 @@ msgstr "Vottunarstaðfestingarþjónninn (OCSP) er tímabundið ótengdur."
 
 msgid "Sender is removed from the server."
 msgstr "Sendandi er fjarlægður af þjóninum."
+
+msgid ""
+"The digital certificate used to sign this message has been revoked according "
+"to the Certificate Revocation List (CRL)."
+msgstr ""
+
+msgid ""
+"The revocation status of the certificate could not be verified because the "
+"CRL Distribution Point is unavailable."
+msgstr ""
+
+msgid ""
+"The RSA key size used in this certificate is below the recommended minimum "
+"of 2048 bits. Consider upgrading to a stronger certificate."
+msgstr ""
+
+msgid ""
+"The certificate's Key Usage extension does not permit this operation. The "
+"certificate may be intended for signing only or encryption only."
+msgstr ""
+
+msgid ""
+"This message was encrypted using CBC mode (not authenticated encryption). "
+"While it was decrypted successfully, AES-GCM (authenticated encryption) "
+"provides stronger protection against modification attacks. Consider asking "
+"the sender to upgrade their S/MIME configuration."
+msgstr ""
+
+msgid ""
+"The signing time in the digital signature differs significantly from the "
+"expected time. This may indicate a clock synchronization issue or message "
+"tampering."
+msgstr ""
 
 msgid "Signature verified successfully"
 msgstr "Undirskrift staðfest með góðum árangri"
@@ -6629,6 +6816,36 @@ msgstr "Ekki tókst að afkóða þetta skeyti. Vottorð passar ekki"
 
 msgid "Verification failed. User is removed from the server."
 msgstr "Staðfesting mistókst. Notandi er fjarlægður af þjóninum."
+
+msgid "Certificate has been revoked (CRL)"
+msgstr "Vottorð hefur verið afturkallað (CRL)"
+
+msgid "Cannot check revocation status (CRL unavailable)"
+msgstr "Get ekki athugað afturköllunarstöðu (CRL ekki tiltækt)"
+
+msgid "RSA key size below recommended minimum"
+msgstr "RSA lykilstærð undir ráðlögðu lágmarki"
+
+msgid "Certificate not valid for this operation (key usage mismatch)"
+msgstr "Vottorð ekki gilt fyrir þessa aðgerð (misræmi í notkun lykla)"
+
+msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
+msgstr "Afkóðað (CBC háttur - íhugaðu AES-GCM fyrir sterkari vernd)"
+
+msgid "Signing time differs from expected time"
+msgstr "Undirritunartími er frábrugðinn áætluðum tíma"
+
+msgid "Digest"
+msgstr "Melta"
+
+msgid "Signature"
+msgstr "Undirskrift"
+
+msgid "Cipher"
+msgstr "Dulmál"
+
+msgid "Key transport"
+msgstr "Lyklaflutningar"
 
 msgid "Charm pink"
 msgstr "Sjarmerandi bleikt"
@@ -6848,7 +7065,8 @@ msgid "Feature \"Quota Information\" is not supported by this backend!"
 msgstr "Eiginleikinn „Quota Information“ er ekki studdur af þessum bakenda!"
 
 msgid "Feature \"Version Information\" is not supported by this backend!"
-msgstr "Eiginleikinn „Upplýsingar um útgáfu“ er ekki studdur af þessum bakenda!"
+msgstr ""
+"Eiginleikinn „Upplýsingar um útgáfu“ er ekki studdur af þessum bakenda!"
 
 msgid "Feature \"OAUTH\" is not supported by this backend!"
 msgstr "Eiginleikinn „OAUTH“ er ekki studdur af þessum bakenda!"
@@ -6979,11 +7197,27 @@ msgstr "Einkavottorð er ekki gilt ennþá, ekki hægt að skrifa undir tölvup�
 msgid "Private certificate does not match email address"
 msgstr "Einkavottorð passar ekki við netfang"
 
+msgid "No email address specified"
+msgstr "Ekkert netfang tilgreint"
+
+msgid "No certificates found for this email address"
+msgstr "Engin vottorð fundust fyrir þetta netfang"
+
+msgid "Unable to read certificates"
+msgstr "Get ekki lesið skilríki"
+
+msgid "Unable to generate certs-only message"
+msgstr "Ekki er hægt að búa til skilaboð sem eru eingöngu fyrir vottorð"
+
+msgid "LDAP not configured"
+msgstr "LDAP ekki stillt"
+
 msgid "Missing public certificates for the following recipients: "
 msgstr "Vantar opinber vottorð fyrir eftirfarandi viðtakendur:"
 
 msgid ". Please contact your system administrator for details"
-msgstr ". Vinsamlegast hafðu samband við kerfisstjórann þinn til að fá upplýsingar"
+msgstr ""
+". Vinsamlegast hafðu samband við kerfisstjórann þinn til að fá upplýsingar"
 
 msgid ""
 "Your public certificate is not installed. Without this certificate, you will "
@@ -7001,6 +7235,17 @@ msgstr "Ekki er hægt að nota einkalykil til að undirrita tölvupóst"
 
 msgid "Certificate email address doesn't match grommunio Web account "
 msgstr "Netfang vottorðs passar ekki við grommunio vefreikning"
+
+#, php-format
+msgid ""
+"RSA key size %d bits is below the recommended minimum of %d bits. "
+"Certificate was imported."
+msgstr ""
+
+msgid ""
+"EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully "
+"supported. Certificate was imported."
+msgstr ""
 
 msgid "Certificate was expired on "
 msgstr "Skírteini rann út þann"
@@ -7251,9 +7496,10 @@ msgstr "Kvótavilla"
 msgid "Send quota limit reached"
 msgstr "Senda kvótamarki náð"
 
-msgid "Email sending failed. Check the log files for more information."
+#, php-format
+msgid "Email sending failed (%s). Check the log files for more information."
 msgstr ""
-"Mistókst að senda tölvupóst. Athugaðu annálaskrárnar fyrir frekari "
+"Tókst ekki að senda tölvupóst (%s). Athugaðu annálaskrárnar fyrir frekari "
 "upplýsingar."
 
 msgid "Unknown user/group"
@@ -7318,7 +7564,8 @@ msgid "Could not add folder to favorites."
 msgstr "Gat ekki bætt möppu við eftirlæti."
 
 msgid "You have insufficient privileges to set permissions for this folder."
-msgstr "Þú hefur ófullnægjandi réttindi til að stilla heimildir fyrir þessa möppu."
+msgstr ""
+"Þú hefur ófullnægjandi réttindi til að stilla heimildir fyrir þessa möppu."
 
 msgid "Could not set folder permissions."
 msgstr "Gat ekki stillt möppuheimildir."
