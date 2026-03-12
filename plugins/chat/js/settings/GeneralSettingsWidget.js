@@ -16,7 +16,7 @@ Zarafa.plugins.chat.settings.GeneralSettingsWidget = Ext.extend(Zarafa.settings.
 
 		Ext.applyIf(config, {
 			cls: 'chat-settings-panel zarafa-settings-widget',
-			title: 'Chat',
+			title: _('Chat'),
 			items: [{
 				xtype: 'checkbox',
 				ref: 'autostart',

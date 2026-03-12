@@ -4,7 +4,7 @@ Zarafa.plugins.meet.SettingsCategory = Ext.extend(Zarafa.settings.ui.SettingsCat
   constructor: function(config){
     config = config || {};
     Ext.applyIf(config, {
-      title: 'Meet',
+      title: _('Meet'),
       categoryIndex: 9947,
       xtype: 'grommunio.meet.settingscategory',
       iconCls: 'icon_meet',
@@ -25,7 +25,7 @@ Zarafa.plugins.meet.SettingsWidget = Ext.extend(Zarafa.settings.ui.SettingsWidge
     config = config || {};
     Ext.applyIf(config, {
       xtype: 'grommunio.meet.settingswidget',
-      title: 'Meet',
+      title: _('Meet'),
       layout: 'form',
       items: [
         {
@@ -47,7 +47,7 @@ Zarafa.plugins.meet.SettingsWidget = Ext.extend(Zarafa.settings.ui.SettingsWidge
               xtype: 'radio',
               name: 'openin',
               inputValue: 'popup',
-              boxLabel: 'Popup'
+              boxLabel: _('Popup')
             },{
               xtype: 'radio',
               name: 'openin',

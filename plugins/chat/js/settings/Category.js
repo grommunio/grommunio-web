@@ -15,7 +15,7 @@ Zarafa.plugins.chat.settings.Category = Ext.extend(Zarafa.settings.ui.SettingsCa
 		config = config || {};
 
 		Ext.applyIf(config, {
-			title : 'Chat',
+			title : _('Chat'),
 			categoryIndex : 12,
 			iconCls : 'k-chat-settings-category',
 			items : [{

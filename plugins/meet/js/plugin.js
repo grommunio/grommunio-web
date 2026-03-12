@@ -49,7 +49,7 @@ Zarafa.plugins.meet.Plugin = Ext.extend(Zarafa.core.Plugin, {
 			newMenuIndex: 10,
 			xtype: 'button',
 			scale: 'large',
-			tooltip: 'Meet',
+			tooltip: _('Meet'),
 			iconCls: 'icon_meet_32',
 			handler: this.onToolbarButtonClick,
 			scope: this,
@@ -177,7 +177,7 @@ Zarafa.plugins.meet.Plugin = Ext.extend(Zarafa.core.Plugin, {
           null,
           {
             url: meetingurl,
-            title: 'Meet',
+            title: _('Meet'),
             iconCls : 'icon_meet',
             tabOrder: (new Date()).valueOf()
           }

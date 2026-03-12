@@ -150,7 +150,7 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceGeneralTab = Ext.extend(Ext.form.FormPanel, 
 				border: false,
 				items: [{
 					xtype: 'displayfield',
-					fieldLabel: 'Shared Folders',
+					fieldLabel: _('Shared Folders'),
 					disabled: true,
 					name : 'sharedfolders'
 				}],
