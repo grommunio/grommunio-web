@@ -52,7 +52,8 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			defaults: {
 				columnWidth: 0.5,
 				border: false,
-				xtype: 'fieldset'
+				xtype: 'fieldset',
+				labelSeparator: ''
 			},
 			items: [
 				this.createNameFieldset(config),
@@ -99,7 +100,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				items: [{
 					xtype: 'button',
 					width: config.labelWidth-1,
-					text: _('Full Name') + ':',
+					text: _('Full Name'),
 					listeners: {
 						scope: this,
 						click: function() {
@@ -136,7 +137,6 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				}
 			}, {
 				xtype: 'combo',
-				flex: 1,
 				name: 'fileas',
 				fieldLabel: _('File as'),
 				ref: '../fileAsField',
@@ -208,7 +208,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				items: [{
 					xtype: 'splitbutton',
 					width: config.labelWidth-1,
-					text: _('Business') + ':',
+					text: _('Business'),
 					handler: this.handlePhoneButtonClick,
 					scope: this,
 					menu: this.initPhoneButtonMenu('message_phonenumber_1', 'business_telephone_number')
@@ -226,7 +226,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				items: [{
 					xtype: 'splitbutton',
 					width: config.labelWidth-1,
-					text: _('Home') + ':',
+					text: _('Home'),
 					handler: this.handlePhoneButtonClick,
 					scope: this,
 					menu: this.initPhoneButtonMenu('message_phonenumber_2', 'home_telephone_number')
@@ -244,7 +244,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				items: [{
 					xtype: 'splitbutton',
 					width: config.labelWidth-1,
-					text: _('Business Fax') + ':',
+					text: _('Business Fax'),
 					handler: this.handlePhoneButtonClick,
 					scope: this,
 					menu: this.initPhoneButtonMenu('message_phonenumber_3', 'business_fax_number')
@@ -262,7 +262,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				items: [{
 					xtype: 'splitbutton',
 					width: config.labelWidth-1,
-					text: _('Mobile') + ':',
+					text: _('Mobile'),
 					handler: this.handlePhoneButtonClick,
 					scope: this,
 					menu: this.initPhoneButtonMenu('message_phonenumber_4', 'cellular_telephone_number')
@@ -297,7 +297,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 					items: [{
 						xtype: 'splitbutton',
 						width: config.labelWidth-1,
-						text: _('Email') + ':',
+						text: _('Email'),
 						handler: this.openAddressBook,
 						scope: this,
 						menu: this.initEmailButtonMenu('message_email_address', 'email_address_1')
@@ -363,7 +363,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				items: [{
 					xtype: 'splitbutton',
 					width: config.labelWidth-1,
-					text: _('Business') + ':',
+					text: _('Business'),
 					handler: this.handleAddressButtonClick,
 					scope: this,
 					menu: this.initAddressButtonMenu('business_address', 'business_address')
@@ -382,7 +382,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				items: [{
 					xtype: 'splitbutton',
 					width: config.labelWidth-1,
-					text: _('Home') + ':',
+					text: _('Home'),
 					handler: this.handleAddressButtonClick,
 					scope: this,
 					menu: this.initAddressButtonMenu('home_address', 'home_address')
@@ -417,7 +417,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				readOnly: false,
 				ref: '../editorField',
 				anchor: '99% 99%',
-				height: 218,
+				height: 236,
 				listeners: {
 					change: this.onBodyChange,
 					scope: this
@@ -450,7 +450,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 					plugins: [ 'zarafa.recordcomponentupdaterplugin' ],
 					width: config.labelWidth-1,
 					autoHeight: true,
-					text: _('Attachments') + ':'
+					text: _('Attachments')
 				},{
 					xtype: 'zarafa.attachmentfield',
 					plugins: [ 'zarafa.recordcomponentupdaterplugin' ],

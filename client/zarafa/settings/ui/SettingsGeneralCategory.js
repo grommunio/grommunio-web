@@ -33,9 +33,9 @@ Zarafa.settings.ui.SettingsGeneralCategory = Ext.extend(Zarafa.settings.ui.Setti
 			items: [{
 					xtype: 'zarafa.settingsaccountwidget'
 				},{
-					xtype: 'zarafa.settingsinboxnavigationwidget'
-				},{
 					xtype: 'zarafa.settingsdisplaywidget'
+				},{
+					xtype: 'zarafa.settingsinboxnavigationwidget'
 				},{
 					xtype: 'zarafa.settingsfilepreviewerwidget'
 				},{
@@ -43,10 +43,8 @@ Zarafa.settings.ui.SettingsGeneralCategory = Ext.extend(Zarafa.settings.ui.Setti
 				},{
 					xtype: 'zarafa.settingsquotainfowidget'
 				},{
-					xtype: 'zarafa.settingsresetsettingswidget',
+					xtype: 'zarafa.settingsversionwidget',
 					settingsContext: config.settingsContext
-				},{
-					xtype: 'zarafa.settingsversionwidget'
 				}, container.populateInsertionPoint('context.settings.category.general', this)
 			]
 		});

@@ -7,8 +7,6 @@ Ext.namespace('Zarafa.plugins.desktopnotifications.js');
  * Singleton class to provide a wrapper for HTML5 desktop notifications feature
  */
 Zarafa.plugins.desktopnotifications.js.DesktopNotification = (function() {
-	var PERMISSION = ['granted', 'default', 'denied'];
-
 	return {
 		/**
 		 * Check if browser supports notifications API
@@ -16,11 +14,7 @@ Zarafa.plugins.desktopnotifications.js.DesktopNotification = (function() {
 		 */
 		supports : function()
 		{
-			if (window.Notification) {
-				return true;
-			}
-
-			return false;
+			return !!window.Notification;
 		},
 
 		/**
@@ -30,24 +24,10 @@ Zarafa.plugins.desktopnotifications.js.DesktopNotification = (function() {
 		hasPermission : function()
 		{
 			if (!this.supports()) {
-				console.log('Browser doesn\'t support notifications');
-				return;
+				return false;
 			}
 
-			var permission = 'default';
-			if (Ext.isFunction(Notification.checkPermission)) {
-				permission = PERMISSION[Notification.checkPermission()];
-			} else if (Ext.isFunction(Notification.permissionLevel)) {
-				permission = Notification.permissionLevel();
-			} else if (Notification.permission) {
-				permission = Notification.permission;
-			}
-
-			if (permission === 'granted') {
-				return true;
-			}
-
-			return false;
+			return Notification.permission === 'granted';
 		},
 
 		/**
@@ -60,22 +40,31 @@ Zarafa.plugins.desktopnotifications.js.DesktopNotification = (function() {
 		authorize : function(callback)
 		{
 			if (!this.supports()) {
-				console.log('Browser doesn\'t support notifications');
+				if (Ext.isFunction(callback)) {
+					callback('denied');
+				}
 				return;
 			}
 
-			var callbackFn = Ext.isFunction(callback) ? function(perm) {
-				// chrome doesn't give us current permission level, so default to granted if permission level is passed
-				var permission = 'granted';
-				if (perm) {
-					permission = perm;
+			if (!Ext.isFunction(Notification.requestPermission)) {
+				return;
+			}
+
+			// Guard against double invocation: some browsers call both the
+			// callback parameter and resolve the returned promise.
+			var called = false;
+			var wrappedCallback = function(perm) {
+				if (!called && Ext.isFunction(callback)) {
+					called = true;
+					callback(perm || 'granted');
 				}
+			};
 
-				callback.apply(this, [permission]);
-			} : Ext.emptyFn;
-
-			if (Ext.isFunction(Notification.requestPermission)) {
-				Notification.requestPermission(callbackFn);
+			// Pass callback as parameter for Safari compatibility, which
+			// historically used the callback form instead of a promise.
+			var result = Notification.requestPermission(wrappedCallback);
+			if (result && Ext.isFunction(result.then)) {
+				result.then(wrappedCallback);
 			}
 		},
 
@@ -95,28 +84,28 @@ Zarafa.plugins.desktopnotifications.js.DesktopNotification = (function() {
 		notify : function(title, options, handlers)
 		{
 			if (!this.supports()) {
-				console.log('Browser doesn\'t support notifications');
 				return;
 			}
 
 			if (!this.hasPermission()) {
-				console.log('Permission is denied to show desktop notifications');
 				return;
 			}
+
+			var settingsModel = container.getSettingsModel();
+			var soundDisabled = settingsModel.get('zarafa/v1/plugins/desktopnotifications/disable_sound');
 
 			var notification = new Notification(title, {
 				icon : options.icon,
 				body : options.body,
-				requireInteraction: true
+				requireInteraction: true,
+				silent: !soundDisabled ? false : true
 			});
 
-			if (container.getSettingsModel().get('zarafa/v1/plugins/desktopnotifications/autohide_enable')) {
-				var sleepTime = container.getSettingsModel().get('zarafa/v1/plugins/desktopnotifications/autohide_time') * 1000;
-				notification.addEventListener("show", function () {
-					setTimeout(function () {
-						notification.close();
-					}, sleepTime);
-				});
+			if (settingsModel.get('zarafa/v1/plugins/desktopnotifications/autohide_enable')) {
+				var sleepTime = settingsModel.get('zarafa/v1/plugins/desktopnotifications/autohide_time') * 1000;
+				setTimeout(function () {
+					notification.close();
+				}, sleepTime);
 			}
 
 			if (handlers) {
@@ -125,19 +114,50 @@ Zarafa.plugins.desktopnotifications.js.DesktopNotification = (function() {
 				}
 			}
 
-			// give audio feedback
-			this.audioTag = Ext.getBody().createChild({
-				tag : 'audio',
-				type : 'audio/webm',
-				src : 'plugins/desktopnotifications/resources/audio.webm',
-				autoplay : true
+			// Give audio feedback
+			if (!soundDisabled) {
+				this.playNotificationSound();
+			}
+		},
+
+		/**
+		 * Play notification sound, trying WebM first with MP3 fallback for Safari.
+		 * @private
+		 */
+		playNotificationSound : function()
+		{
+			// Clean up previous audio if still playing
+			if (this.notificationAudio) {
+				this.notificationAudio.pause();
+				this.notificationAudio = null;
+			}
+
+			var self = this;
+			var basePath = 'plugins/desktopnotifications/resources/audio';
+			var audio = new Audio();
+			this.notificationAudio = audio;
+
+			audio.addEventListener('ended', function () {
+				self.notificationAudio = null;
 			});
 
-			// destroy audio element when playback is completed
-			this.audioTag.on('ended', function() {
-				Ext.destroy(this.audioTag);
-				delete this.audioTag;
-			}, this);
+			// Try WebM first (Chrome, Firefox, Edge), fall back to MP3 (Safari)
+			if (audio.canPlayType('audio/webm')) {
+				audio.src = basePath + '.webm';
+			} else {
+				audio.src = basePath + '.mp3';
+			}
+
+			try {
+				var playPromise = audio.play();
+				if (playPromise && Ext.isFunction(playPromise.catch)) {
+					playPromise.catch(function() {
+						self.notificationAudio = null;
+					});
+				}
+			} catch (e) {
+				this.notificationAudio = null;
+			}
 		}
 	};
 })();

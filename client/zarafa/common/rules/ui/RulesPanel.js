@@ -117,6 +117,7 @@ Zarafa.common.rules.ui.RulesPanel = Ext.extend(Ext.Container, {
 
 		return [{
 			xtype: 'container',
+			flex: 1,
 			layout: {
 				type: 'vbox',
 				align: 'stretch',

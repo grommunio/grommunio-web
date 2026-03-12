@@ -22,32 +22,42 @@ Zarafa.addressbook.dialogs.ABEmailAddressTab = Ext.extend(Ext.form.FormPanel, {
 		Ext.applyIf(config, {
 			xtype: 'zarafa.abemailaddresstab',
 			title: _('Email Addresses'),
-			style: 'padding: 8px;',
+			bodyStyle: 'padding: 5px;',
 			layout: {
 				type: 'vbox',
 				pack: 'start',
 				align: 'stretch'
 			},
 			items: [{
-				xtype: 'displayfield',
-				value: _('Email addresses') + ':',
-				hideLabel: true
-			},{
-				xtype: 'panel',
+				xtype: 'fieldset',
+				title: _('Email addresses'),
+				border: true,
+				cls: 'zarafa-fieldset',
 				flex: 1,
-				autoScroll: true,
+				layout: 'fit',
 				items: [{
-					xtype: 'listview',
-					// initialize a dummy store
-					store: new Ext.data.Store(),
+					xtype: 'grid',
 					ref: '../emailList',
-					hideHeaders: true,
-					singleSelect: false,
-					anchor: '100% 100%',
+					store: new Ext.data.JsonStore({
+						fields: ['address'],
+						root: 'item'
+					}),
+					border: true,
+					hideHeaders: false,
 					columns: [{
+						header: _('Email Address'),
 						dataIndex: 'address',
-						tpl: '{address:htmlEncode}'
-					}]
+						sortable: true,
+						renderer: function(value) {
+							if (value && value.indexOf(':') !== -1) {
+								return Ext.util.Format.htmlEncode(value.substring(value.indexOf(':') + 1));
+							}
+							return Ext.util.Format.htmlEncode(value || '');
+						}
+					}],
+					viewConfig: {
+						forceFit: true
+					}
 				}]
 			}]
 		});
@@ -68,7 +78,7 @@ Zarafa.addressbook.dialogs.ABEmailAddressTab = Ext.extend(Ext.form.FormPanel, {
 
 		var proxyAddressSubStore = record.getSubStore('ems_ab_proxy_addresses');
 		if (proxyAddressSubStore && this.emailList.getStore() !== proxyAddressSubStore) {
-			this.emailList.bindStore(proxyAddressSubStore);
+			this.emailList.reconfigure(proxyAddressSubStore, this.emailList.getColumnModel());
 		}
 	}
 });

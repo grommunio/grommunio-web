@@ -195,11 +195,6 @@ Zarafa.common.ui.ContextMainPanelToolbar = Ext.extend(Ext.Toolbar, {
 			}
 		}
 
-		/*
-		 * Check if copyButton is visible then get width of the same,
-		 * but if not then get the xtbWidth of copyButton item. show the
-		 * tool bar item if container has enough space available.
-		 */
 		if(this.copyButton.xtbHidden) {
 			copyButtonWidth = this.copyButton.xtbWidth;
 			if (containerWidth > this.searchFieldContainer.getWidth() + copyButtonWidth) {
@@ -210,11 +205,6 @@ Zarafa.common.ui.ContextMainPanelToolbar = Ext.extend(Ext.Toolbar, {
 			copyButtonWidth = this.copyButton.getWidth();
 		}
 
-		/*
-		 * Check if deleteButton is visible then get width of the same,
-		 * but if not then get the xtbWidth of deleteButton item. show the
-		 * tool bar item if container has enough space available.
-		 */
 		if(this.deleteButton.xtbHidden) {
 			deleteButtonWidth = this.deleteButton.xtbWidth;
 			if (containerWidth > this.searchFieldContainer.getWidth() + copyButtonWidth + deleteButtonWidth) {
@@ -225,17 +215,20 @@ Zarafa.common.ui.ContextMainPanelToolbar = Ext.extend(Ext.Toolbar, {
 			deleteButtonWidth = this.deleteButton.getWidth();
 		}
 
-		var extraMargin = 0;
-		var adjWidth = containerWidth - copyButtonWidth - deleteButtonWidth - extraMargin - filterButtonWidth;
+		var adjWidth = containerWidth - copyButtonWidth - deleteButtonWidth - filterButtonWidth;
 
 		var searchFieldContainer = this.searchFieldContainer;
 		var searchField = searchFieldContainer.searchTextField;
-		var searchFolderCombo = searchFieldContainer.searchFolderCombo;
-		var searchFolderComboWidth = searchFolderCombo.getWidth();
-		var searchFolderComboTriggeredWidth = searchFolderCombo.getTriggerWidth();
-		var searchBtnWidth = searchFieldContainer.searchBtn.getWidth();
 
-		searchField.setWidth(adjWidth-(searchFolderComboWidth + searchBtnWidth + searchFolderComboTriggeredWidth));
+		// In non-mail/non-search contexts (calendar, contacts, tasks, notes), cap
+		// the search field width so it doesn't stretch across the entire toolbar.
+		var contextName = this.context && this.context.getName ? this.context.getName() : '';
+		var isFullWidthContext = (contextName === 'mail' || contextName === 'advancesearch');
+		if (!isFullWidthContext && adjWidth > 600) {
+			adjWidth = 600;
+		}
+
+		searchField.setWidth(adjWidth);
 	}
 });
 

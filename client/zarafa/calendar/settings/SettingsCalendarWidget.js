@@ -59,6 +59,7 @@ Zarafa.calendar.settings.SettingsCalendarWidget = Ext.extend(Zarafa.settings.ui.
 		Ext.applyIf(config, {
 			title: _('General calendar settings'),
 			layout: 'form',
+			labelWidth: 250,
 			items: [{
 				xtype: 'combo',
 				ref: 'weekStartCombo',
@@ -80,6 +81,7 @@ Zarafa.calendar.settings.SettingsCalendarWidget = Ext.extend(Zarafa.settings.ui.
 			},{
 				xtype: 'zarafa.timeperiodfield',
 				ref: 'workingHourPeriod',
+				labelWidth: 250,
 				defaultValue: new Zarafa.core.DateRange(),
 				defaultPeriod: 1,
 				defaultPeriodType: Date.HOUR,
@@ -127,7 +129,7 @@ Zarafa.calendar.settings.SettingsCalendarWidget = Ext.extend(Zarafa.settings.ui.
 					ptype: 'zarafa.splitfieldlabeler',
 					firstLabelCfg: {
 						style: 'text-align: left; padding: 3px 3px 3px 0px',
-						width: 205
+						width: 255
 					}
 				}],
 				combineErrors: false,
@@ -144,7 +146,7 @@ Zarafa.calendar.settings.SettingsCalendarWidget = Ext.extend(Zarafa.settings.ui.
 					defaultValue: 30,
 					minValue: 1,
 					maxValue: 120,
-					width: 50,
+					width: 60,
 					validator: function(value) {
 						if(value >= 1 && value <= 120) {
 							return true;

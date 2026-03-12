@@ -261,6 +261,10 @@ function cleanSearchFolders() {
 
 	$finderfolder = mapi_msgstore_openentry($store, $storeProps[PR_FINDER_ENTRYID]);
 
+	// Match both legacy ("grommunio Web Search Folder") and new-style
+	// ("grommunio Web Search YYYYMMDD-xxxx") search folders using a
+	// common prefix. The time-based filter removes folders that have
+	// not been modified since the session GC lifetime expired.
 	$hierarchytable = mapi_folder_gethierarchytable($finderfolder, MAPI_DEFERRED_ERRORS);
 	mapi_table_restrict($hierarchytable, [RES_AND,
 		[
@@ -268,7 +272,7 @@ function cleanSearchFolders() {
 				[
 					FUZZYLEVEL => FL_PREFIX,
 					ULPROPTAG => PR_DISPLAY_NAME,
-					VALUE => [PR_DISPLAY_NAME => "grommunio Web Search Folder"],
+					VALUE => [PR_DISPLAY_NAME => 'grommunio Web Search '],
 				],
 			],
 			[RES_PROPERTY,

@@ -322,7 +322,6 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	{
 		var parentSearchField = this.searchContentPanel.getParentSearchField();
 		if (Ext.isDefined(parentSearchField)) {
-			parentSearchField.reset();
 			parentSearchField.hideMask();
 		}
 	},
@@ -364,7 +363,15 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 		this.searchContentPanel.searchText = searchText;
 		var searchField = this.searchToolbar.getAdvanceSearchField();
 
-		this.searchContentPanel.setTitle(searchText);
+		// Strip KQL field prefixes from the title for readability
+		var displayTitle = searchText
+			.replace(/\b(?:subject|from|to|cc|bcc|body|sender|attachment|category):["']?/gi, '')
+			.replace(/["']/g, '')
+			.replace(/\b(AND|OR|NOT)\b/gi, '')
+			.replace(/\s+/g, ' ')
+			.trim() || searchText;
+		this.searchContentPanel.setTitle(displayTitle);
+
 		if(searchField.getValue() !== searchText) {
 			searchField.setValue(searchText);
 		}
@@ -403,6 +410,12 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 				this.model.stopSearch();
 			}
 			delete store.searchFolder[store.searchStoreUniqueId];
+		}
+
+		// Always clear results when search is stopped, even if the
+		// search had already finished (isSearching() is false).
+		if (store && store.getCount() > 0) {
+			store.removeAll();
 		}
 
 		if(Ext.isDefined(this.searchToolbar)) {
@@ -460,6 +473,14 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 			searchTextField.setValue(searchFolderSettingObj.search_text);
 		} else {
 			searchTextField.setValue(this.searchText);
+			// Apply virtual tokens (type, date, unread) from main toolbar
+			var vt = this.virtualTokens;
+			if (vt && vt.length > 0 && searchTextField.applyVirtualTokens) {
+				// Defer to afterrender so tokenWrapEl exists
+				searchTextField.on('afterrender', function() {
+					searchTextField.applyVirtualTokens(vt);
+				}, this, {single: true});
+			}
 		}
 	},
 

@@ -1972,26 +1972,11 @@ Zarafa.common.Actions = {
 	 */
 	hasPermission: function ()
 	{
-		var PERMISSION =['granted', 'default', 'denied'];
 		if (!Ext.isDefined(window.Notification)) {
-			console.error('Browser doesn\'t support notifications');
-			return;
+			return false;
 		}
 
-		var permission = 'default';
-		if (Ext.isFunction(Notification.checkPermission)) {
-			permission = PERMISSION[Notification.checkPermission()];
-		} else if (Ext.isFunction(Notification.permissionLevel)) {
-			permission = Notification.permissionLevel();
-		} else if (Notification.permission) {
-			permission = Notification.permission;
-		}
-
-		if (permission === 'granted') {
-			return true;
-		}
-
-		return false;
+		return Notification.permission === 'granted';
 	},
 
 	/**
@@ -2004,18 +1989,31 @@ Zarafa.common.Actions = {
 	authorize: function (callback)
 	{
 		if (!Ext.isDefined(window.Notification)) {
-			console.error('Browser doesn\'t support notifications');
+			if (Ext.isFunction(callback)) {
+				callback('denied');
+			}
 			return;
 		}
 
-		if (Ext.isFunction(Notification.requestPermission)) {
-			var promise = Notification.requestPermission();
-			if (Ext.isFunction(callback)) {
-				promise.then(function(perm) {
-					// chrome doesn't give us current permission level, so default to granted if permission level is passed.
-					callback.apply(this, [perm ? perm : 'granted']);
-				});
+		if (!Ext.isFunction(Notification.requestPermission)) {
+			return;
+		}
+
+		// Guard against double invocation: some browsers call both the
+		// callback parameter and resolve the returned promise.
+		var called = false;
+		var wrappedCallback = function(perm) {
+			if (!called && Ext.isFunction(callback)) {
+				called = true;
+				callback(perm || 'granted');
 			}
+		};
+
+		// Pass callback as parameter for Safari compatibility, which
+		// historically used the callback form instead of a promise.
+		var result = Notification.requestPermission(wrappedCallback);
+		if (result && Ext.isFunction(result.then)) {
+			result.then(wrappedCallback);
 		}
 	},
 
@@ -2035,20 +2033,12 @@ Zarafa.common.Actions = {
 	notify: function (title, options, handlers)
 	{
 		if (!Ext.isDefined(window.Notification)) {
-			console.error('Browser doesn\'t support notifications');
 			return;
 		}
 
 		if (!this.hasPermission()) {
-			console.error('Permission is denied to show desktop notifications');
 			return;
 		}
-
-		var notification = new Notification(title, {
-			icon: options.icon,
-			body: options.body,
-			requireInteraction: true
-		});
 
 		// Note: Due to desktopnotifications has been moved into webapp core,
 		// we first need to check if user plugin settings are still available.
@@ -2058,13 +2048,20 @@ Zarafa.common.Actions = {
 		var pluginBasePath = 'zarafa/v1/plugins/desktopnotifications/';
 		var isPlugInEnabled = Ext.isDefined(settingsModel.get(pluginBasePath+'enable'));
 		var baseSettingPath = isPlugInEnabled ? pluginBasePath : 'zarafa/v1/main/desktop_notification/';
+		var soundDisabled = settingsModel.get(baseSettingPath + 'disable_sound');
+
+		var notification = new Notification(title, {
+			icon: options.icon,
+			body: options.body,
+			requireInteraction: true,
+			silent: !soundDisabled ? false : true
+		});
+
 		if (settingsModel.get(baseSettingPath + 'autohide_enable')) {
 			var sleepTime = settingsModel.get(baseSettingPath + 'autohide_time') * 1000;
-			notification.addEventListener("show", function () {
-				setTimeout(function () {
-					notification.close();
-				}, sleepTime);
-			});
+			setTimeout(function () {
+				notification.close();
+			}, sleepTime);
 		}
 
 		if (handlers) {
@@ -2074,19 +2071,48 @@ Zarafa.common.Actions = {
 		}
 
 		// Give audio feedback
-		if (!settingsModel.get(baseSettingPath + 'disable_sound')) {
-			this.audioTag = Ext.getBody().createChild({
-				tag: 'audio',
-				type: 'audio/webm',
-				src: 'plugins/desktopnotifications/resources/audio.webm',
-				autoplay: true
-			});
+		if (!soundDisabled) {
+			this.playNotificationSound();
+		}
+	},
 
-			// destroy audio element when playback is completed
-			this.audioTag.on('ended', function () {
-				Ext.destroy(this.audioTag);
-				delete this.audioTag;
-			}, this);
+	/**
+	 * Play notification sound, trying WebM first with MP3 fallback for Safari.
+	 * @private
+	 */
+	playNotificationSound: function ()
+	{
+		// Clean up previous audio if still playing
+		if (this.notificationAudio) {
+			this.notificationAudio.pause();
+			this.notificationAudio = null;
+		}
+
+		var self = this;
+		var basePath = 'plugins/desktopnotifications/resources/audio';
+		var audio = new Audio();
+		this.notificationAudio = audio;
+
+		audio.addEventListener('ended', function () {
+			self.notificationAudio = null;
+		});
+
+		// Try WebM first (Chrome, Firefox, Edge), fall back to MP3 (Safari)
+		if (audio.canPlayType('audio/webm')) {
+			audio.src = basePath + '.webm';
+		} else {
+			audio.src = basePath + '.mp3';
+		}
+
+		try {
+			var playPromise = audio.play();
+			if (playPromise && Ext.isFunction(playPromise.catch)) {
+				playPromise.catch(function() {
+					self.notificationAudio = null;
+				});
+			}
+		} catch (e) {
+			this.notificationAudio = null;
 		}
 	}
 };

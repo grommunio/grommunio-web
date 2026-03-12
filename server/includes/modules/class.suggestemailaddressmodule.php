@@ -129,13 +129,33 @@ class suggestEmailAddressModule extends Module {
 				1 => [],
 			];
 
+			// Track seen email addresses to skip duplicates
+			$seen = [];
+
 			// Loop through all the recipients
 
 			for ($i = 0, $len = count($recipient_history['recipients']); $i < $len; ++$i) {
+				$entry = $recipient_history['recipients'][$i];
+
 				// Prepare strings for case sensitive search
-				$l_sName = strtolower((string) $recipient_history['recipients'][$i]['display_name']);
-				$l_sEmail = strtolower((string) $recipient_history['recipients'][$i]['smtp_address']);
+				$l_sName = strtolower((string) $entry['display_name']);
+				$l_sEmail = strtolower((string) $entry['smtp_address']);
 				$l_sSearchString = strtolower((string) $action["query"]);
+
+				// Deduplicate by smtp_address (case-insensitive)
+				$dedupeKey = $l_sEmail !== '' ? $l_sEmail : strtolower((string) $entry['email_address']);
+				if ($dedupeKey !== '' && isset($seen[$dedupeKey])) {
+					// Keep the entry with the higher count
+					$prevLevel = $seen[$dedupeKey][0];
+					$prevIndex = $seen[$dedupeKey][1];
+					$prevCount = $l_aResult[$prevLevel][$prevIndex]['count'] ?? 0;
+					if (($entry['count'] ?? 0) > $prevCount) {
+						// Replace previous entry with this one
+						unset($l_aResult[$prevLevel][$prevIndex]);
+					} else {
+						continue;
+					}
+				}
 
 				// Check for the presence of the search string
 				$l_ibPosName = strpos($l_sName, $l_sSearchString);
@@ -145,30 +165,42 @@ class suggestEmailAddressModule extends Module {
 				if ($l_ibPosName !== false || $l_ibPosEmail !== false) {
 					// Check if the found string matches from the start of the word
 					if ($l_ibPosName === 0 || substr($l_sName, $l_ibPosName - 1, 1) == ' ' || $l_ibPosEmail === 0 || substr($l_sEmail, $l_ibPosEmail - 1, 1) == ' ') {
-						array_push($l_aResult[0], [
-							'display_name' => $recipient_history['recipients'][$i]['display_name'],
-							'smtp_address' => $recipient_history['recipients'][$i]['smtp_address'],
-							'email_address' => $recipient_history['recipients'][$i]['email_address'],
-							'address_type' => $recipient_history['recipients'][$i]['address_type'],
-							'count' => $recipient_history['recipients'][$i]['count'],
-							'last_used' => $recipient_history['recipients'][$i]['last_used'],
-							'object_type' => $recipient_history['recipients'][$i]['object_type'],
-						]);
+						$idx = count($l_aResult[0]);
+						$l_aResult[0][$idx] = [
+							'display_name' => $entry['display_name'],
+							'smtp_address' => $entry['smtp_address'],
+							'email_address' => $entry['email_address'],
+							'address_type' => $entry['address_type'],
+							'count' => $entry['count'],
+							'last_used' => $entry['last_used'],
+							'object_type' => $entry['object_type'],
+						];
+						if ($dedupeKey !== '') {
+							$seen[$dedupeKey] = [0, $idx];
+						}
 					// Does not match from start of a word, but start in the middle
 					}
 					else {
-						array_push($l_aResult[1], [
-							'display_name' => $recipient_history['recipients'][$i]['display_name'],
-							'smtp_address' => $recipient_history['recipients'][$i]['smtp_address'],
-							'email_address' => $recipient_history['recipients'][$i]['email_address'],
-							'address_type' => $recipient_history['recipients'][$i]['address_type'],
-							'count' => $recipient_history['recipients'][$i]['count'],
-							'last_used' => $recipient_history['recipients'][$i]['last_used'],
-							'object_type' => $recipient_history['recipients'][$i]['object_type'],
-						]);
+						$idx = count($l_aResult[1]);
+						$l_aResult[1][$idx] = [
+							'display_name' => $entry['display_name'],
+							'smtp_address' => $entry['smtp_address'],
+							'email_address' => $entry['email_address'],
+							'address_type' => $entry['address_type'],
+							'count' => $entry['count'],
+							'last_used' => $entry['last_used'],
+							'object_type' => $entry['object_type'],
+						];
+						if ($dedupeKey !== '') {
+							$seen[$dedupeKey] = [1, $idx];
+						}
 					}
 				}
 			}
+
+			// Re-index after potential unset operations
+			$l_aResult[0] = array_values($l_aResult[0]);
+			$l_aResult[1] = array_values($l_aResult[1]);
 
 			// Prevent the displaying of the exact match of the whole email address when only one item is found.
 			if (count($l_aResult[0]) == 1 && empty($l_aResult[1]) && $l_sSearchString == strtolower((string) $l_aResult[0][0]['smtp_address'])) {

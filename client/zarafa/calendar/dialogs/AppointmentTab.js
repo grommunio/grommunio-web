@@ -288,19 +288,9 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			cls: 'k-datetime-panel',
 			border: false,
 			autoHeight: true,
-			layout: {
-				type: 'table',
-				columns: 1
-			},
 			items: [
-				{
-					xtype: 'panel',
-					border: false,
-					items: [
-						this.createDatePanel(),
-						this.createRecurrencePanel()
-					]
-				},
+				this.createDatePanel(),
+				this.createRecurrencePanel(),
 				this.createBusyStatusPanel(),
 				this.createReminderPanel(),
 			]
@@ -338,7 +328,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			xtype: 'panel',
 			cls: 'k-createin-panel',
 			layout: 'form',
-			labelWidth: 92,
+			labelWidth: 85,
 			labelAlign: 'left',
 			ref: 'createInPanel',
 			autoHeight: true,
@@ -382,20 +372,20 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			cls: 'k-date-panel',
 			layout: {
 				type: 'table',
-				columns: 3
+				columns: 2
 			},
-			ref: '../../datePanel',
+			ref: '../datePanel',
 			autoHeight: true,
 			autoWidth: true,
 			border: false,
 			items: [{
 				xtype: 'zarafa.datetimeperiodfield',
-				ref: '../../../datetimePeriod',
+				ref: '../../datetimePeriod',
 				defaultValue: this.generateDefaultDate(),
 				defaultPeriod: container.getSettingsModel().get('zarafa/v1/contexts/calendar/default_appointment_period'),
 				defaultPeriodType: Date.MINUTE,
 				timeIncrement: container.getSettingsModel().get('zarafa/v1/contexts/calendar/default_zoom_level'),
-				width: 585,
+				width: 660,
 				allowEqualValue: true,
 				layout: 'hbox',
 				listeners: {
@@ -405,17 +395,13 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				startFieldConfig: {
 					fieldLabel: _('Time'),
 					labelWidth: 85,
-
 					cls: 'from-field'
 				},
 				endFieldConfig: {
 					fieldLabel: _('until'),
-					labelWidth: 42,
+					labelWidth: 85,
 					cls: 'to-field'
 				}
-			},{
-				xtype: 'spacer',
-				width: 10
 			},{
 				xtype: 'panel',
 				border: false,
@@ -441,13 +427,14 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 		return {
 			xtype: 'panel',
 			cls: 'k-recurrence-panel',
-			ref: '../../recurrencePanel',
+			ref: '../recurrencePanel',
 			layout: 'form',
+			labelWidth: 85,
 			autoHeight: true,
 			border: false,
 			items: [{
 				xtype: 'displayfield',
-				ref: '../../../recurrencePatternField',
+				ref: '../../recurrencePatternField',
 				fieldLabel: _('Recurrence'),
 				htmlEncode: true
 			}]
@@ -471,16 +458,17 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 		return {
 			xtype: 'panel',
 			cls: 'k-reminder-panel',
+			layout: 'form',
+			labelWidth: 85,
 			autoHeight: true,
 			border: false,
 			items: [{
 				xtype: 'zarafa.compositefield',
+				fieldLabel: _('Reminder'),
 				autoHeight: true,
 				items: [{
 					xtype: 'checkbox',
 					name: 'reminder',
-					boxLabel: _('Reminder') + ':',
-					labelWidth: 85,
 					handler: this.onToggleReminder,
 					scope: this
 				},{
@@ -525,7 +513,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			autoHeight: true,
 			border: false,
 			labelAlign: 'left',
-			labelWidth: 79,
+			labelWidth: 85,
 			items: [{
 				xtype: 'combo',
 				ref: '../../comboBusyStatus',

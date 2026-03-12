@@ -60,7 +60,7 @@ Zarafa.plugins.files.ui.FilesMainPanel = Ext.extend(Zarafa.common.ui.ContextMain
 			tbar : {
 				xtype       : 'filesplugin.fileslisttoolbar',
 				defaultTitle: _('Files'),
-				height      : 33,
+				height      : 38,
 				context     : config.context
 			}
 		};

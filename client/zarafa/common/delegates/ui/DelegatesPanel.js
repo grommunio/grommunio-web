@@ -83,25 +83,28 @@ Zarafa.common.delegates.ui.DelegatesPanel = Ext.extend(Ext.Panel, {
 				items: [{
 					xtype: 'button',
 					text: _('Add') + '...',
+					width: 130,
 					handler: this.onDelegateAdd,
 					ref: '../../addButton',
 					scope: this
 				}, {
 					xtype: 'spacer',
-					height: 20
+					height: 10
 				}, {
 					xtype: 'button',
 					text: _('Remove') + '...',
+					width: 130,
 					disabled: true,
 					ref: '../../removeButton',
 					handler: this.onDelegateRemove,
 					scope: this
 				}, {
 					xtype: 'spacer',
-					height: 20
+					height: 10
 				}, {
 					xtype: 'button',
 					text: _('Permission') + '...',
+					width: 130,
 					disabled: true,
 					ref: '../../permissionButton',
 					handler: this.onDelegatePermission,

@@ -31,6 +31,7 @@ Zarafa.common.settings.SettingsRuleCategory = Ext.extend(Zarafa.settings.ui.Sett
 			xtype: 'zarafa.settingsrulecategory',
 			iconCls: 'zarafa-settings-category-rules',
 			layout: 'fit',
+			autoScroll: false,
 			items: [{
 					xtype: 'zarafa.settingsrulewidget',
 					settingsContext: config.settingsContext

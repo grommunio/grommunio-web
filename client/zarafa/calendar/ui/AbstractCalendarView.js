@@ -1881,5 +1881,14 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	setActive: function(active)
 	{
 		this.active = active;
+
+		// Update the header's visual active state immediately
+		if ( this.headerBackgroundLayer ) {
+			if ( active ) {
+				this.headerBackgroundLayer.removeClass('k-inactive-calendar');
+			} else {
+				this.headerBackgroundLayer.addClass('k-inactive-calendar');
+			}
+		}
 	}
 });

@@ -24,6 +24,7 @@ Zarafa.mail.settings.SettingsSafeSendersWidget = Ext.extend(Zarafa.settings.ui.S
 
 		Ext.applyIf(config, {
 			title: _('Safe Senders'),
+			cls: 'zarafa-settings-widget k-settings-nogap',
 			xtype: 'zarafa.settingssafesenderswidget',
 			name: 'zarafa/v1/contexts/mail/safe_senders_list',
 			height: 400,
@@ -35,10 +36,7 @@ Zarafa.mail.settings.SettingsSafeSendersWidget = Ext.extend(Zarafa.settings.ui.S
 			items: [{
 				xtype: 'displayfield',
 				value: _('To protect your privacy email addresses or domains can only be added via the "Add to safe sender list" functionality in an opened email.'),
-				fieldClass: 'x-form-display-field k-safesenders-extrainfo'
-			},{
-				xtype: 'spacer',
-				height: 10
+				fieldClass: 'x-form-display-field zarafa-settings-widget-extrainfo'
 			},{
 				xtype: 'container',
 				layout: {
@@ -62,15 +60,17 @@ Zarafa.mail.settings.SettingsSafeSendersWidget = Ext.extend(Zarafa.settings.ui.S
 						xtype: 'button',
 						handler: this.onDeleteSafeSender,
 						text: _('Delete'),
+						width: 130,
 						ref: '../../deleteButton',
 						disabled: true,
 						scope: this
 					},{
 						xtype: 'spacer',
-						height: 20
+						height: 10
 					},{
 						xtype: 'button',
 						text: _('Delete all'),
+						width: 130,
 						handler: this.onDeleteAll,
 						ref: '../../deleteAllButton',
 						disabled: true,

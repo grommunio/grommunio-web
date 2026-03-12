@@ -135,9 +135,11 @@ Zarafa.calendar.ui.html.CalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstract
 		this.headerBackgroundLayer.setSize(width, height);
 		this.headerBackgroundLayer.dom.innerHTML = '';
 
-		// Set the background color
+		// Set the background gradient
+		var headerColor = this.calendarColorScheme.header;
+		var lighterColor = Zarafa.core.ColorSchemes.createLightColor(this.calendarColorScheme.base, 1.4);
 		this.headerBackgroundLayer.setStyle({
-			'background-color': this.calendarColorScheme.header
+			'background': 'linear-gradient(to bottom, ' + headerColor + ', ' + lighterColor + ')'
 		});
 
 		// Check if we have a light or dark color
@@ -148,6 +150,13 @@ Zarafa.calendar.ui.html.CalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstract
 		} else {
 			this.headerBackgroundLayer.addClass('k-light');
 			this.headerBackgroundLayer.removeClass('k-dark');
+		}
+
+		// Mark inactive calendars so CSS can mute them
+		if ( this.active ){
+			this.headerBackgroundLayer.removeClass('k-inactive-calendar');
+		} else {
+			this.headerBackgroundLayer.addClass('k-inactive-calendar');
 		}
 
 		var startDate = this.getVisibleDateRange().getStartDate().clone();
@@ -206,7 +215,8 @@ Zarafa.calendar.ui.html.CalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstract
 			'msGridColumns': templateColumns
 		});
 
-		var headerBackgroundColor = Zarafa.core.ColorSchemes.createLightColor(this.calendarColorScheme.base, 1.8);
+		var headerBgStart = Zarafa.core.ColorSchemes.createLightColor(this.calendarColorScheme.base, 1.6);
+		var headerBgEnd = Zarafa.core.ColorSchemes.createLightColor(this.calendarColorScheme.base, 1.85);
 		var boxWidth = this.bodyAppointmentLayer.getWidth() / this.numDaysInWeek;
 		var boxHeight = this.bodyAppointmentLayer.getHeight() / visibleWeeks;
 		this.dayBoxConfigurations.forEach(function(dayBox, i) {
@@ -262,7 +272,7 @@ Zarafa.calendar.ui.html.CalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstract
 			var hdr = cell.createChild({
 				cls: 'k-header',
 				html: dayBox.date.format(_("jS")),
-				style: 'background-color:' + headerBackgroundColor
+				style: 'background:linear-gradient(to bottom, ' + headerBgStart + ', ' + headerBgEnd + ')'
 			});
 			hdr.on('click', this.onClickToOpenDayView.createDelegate(this, [dayBox.date]), this);
 

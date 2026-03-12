@@ -128,11 +128,6 @@ Zarafa.advancesearch.ui.SearchGridColumnModel = Ext.extend(Zarafa.common.ui.grid
 			hideable: false,
 			renderer: Zarafa.advancesearch.ui.SearchGridRenderers.dateColumn,
 			css: 'padding: 0; margin:0;'
-		}, {
-			dataIndex: 'flag_due_by',
-			width: 24,
-			renderer: Zarafa.common.ui.grid.Renderers.flag,
-			fixed: true
 		}];
 	},
 

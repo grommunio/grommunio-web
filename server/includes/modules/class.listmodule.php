@@ -612,8 +612,24 @@ class ListModule extends Module {
 	}
 
 	/**
+	 * Search folder name prefix used to identify grommunio search folders.
+	 */
+	public const SEARCH_FOLDER_PREFIX = 'grommunio Web Search ';
+
+	/**
 	 *	Function will create a search folder in FINDER_ROOT folder
 	 *	if folder exists then it will open it.
+	 *
+	 *	Each search gets a uniquely named folder to prevent collisions when
+	 *	multiple searches run in parallel or when different users access the
+	 *	same store (e.g. shared/delegate mailboxes).
+	 *
+	 *	Folder naming convention:
+	 *	  "grommunio Web Search {YYYYMMDD}-{8 hex random}"
+	 *
+	 *	On every creation any folder whose embedded date is older than today
+	 *	is removed automatically, as well as legacy folders named exactly
+	 *	"grommunio Web Search Folder".
 	 *
 	 * @param object $store        MAPI Message Store Object
 	 * @param bool   $openIfExists open if folder exists
@@ -644,19 +660,14 @@ class ListModule extends Module {
 			return false;
 		}
 
-		// check for folder name, if exists then delete it
-		$folderName = "grommunio Web Search Folder";
+		$today = gmdate('Ymd');
+		$folderName = self::SEARCH_FOLDER_PREFIX . $today . '-' . bin2hex(random_bytes(4));
 
 		try {
-			$table = mapi_folder_gethierarchytable($searchFolderRoot, 0);
-			$rows = mapi_table_queryrows($table, [PR_DISPLAY_NAME, PR_ENTRYID], 0, 0xFFFF);
-			foreach ($rows as $row) {
-				if (strcasecmp($folderName, (string) $row[PR_DISPLAY_NAME]) == 0) {
-					mapi_folder_deletefolder($searchFolderRoot, $row[PR_ENTRYID], DEL_FOLDERS | DEL_MESSAGES | DELETE_HARD_DELETE);
-					break;
-				}
-			}
-			$searchFolder = mapi_folder_createfolder($searchFolderRoot, $folderName, '', OPEN_IF_EXISTS, FOLDER_SEARCH);
+			// Clean up stale search folders (older dates and legacy name)
+			$this->cleanupStaleSearchFolders($searchFolderRoot, $today);
+
+			$searchFolder = mapi_folder_createfolder($searchFolderRoot, $folderName, '', 0, FOLDER_SEARCH);
 
 			$props = mapi_getprops($searchFolder, [PR_ENTRYID]);
 			$this->sessionData['searchFolderEntryId'] = bin2hex((string) $props[PR_ENTRYID]);
@@ -672,6 +683,80 @@ class ListModule extends Module {
 		}
 
 		return false;
+	}
+
+	/**
+	 * Remove search folders whose embedded date is strictly before $today,
+	 * as well as legacy folders named "grommunio Web Search Folder".
+	 *
+	 * Folders belonging to the current date are left untouched because they
+	 * may be actively used by other sessions or users on the same store.
+	 *
+	 * @param resource $searchFolderRoot FINDER_ROOT folder
+	 * @param string   $today            current date as YYYYMMDD
+	 */
+	private function cleanupStaleSearchFolders($searchFolderRoot, string $today): void {
+		try {
+			$table = mapi_folder_gethierarchytable($searchFolderRoot, 0);
+			$rows = mapi_table_queryrows($table, [PR_DISPLAY_NAME, PR_ENTRYID], 0, 0xFFFF);
+		}
+		catch (MAPIException $e) {
+			$e->setHandled();
+
+			return;
+		}
+
+		$prefix = self::SEARCH_FOLDER_PREFIX;
+		$prefixLen = strlen($prefix);
+
+		foreach ($rows as $row) {
+			$name = (string) ($row[PR_DISPLAY_NAME] ?? '');
+
+			// Remove legacy folders with the old static name
+			if (strcasecmp($name, 'grommunio Web Search Folder') === 0) {
+				$this->safeDeleteSearchFolder($searchFolderRoot, $row[PR_ENTRYID]);
+
+				continue;
+			}
+
+			// Only consider folders that match our naming convention
+			if (strncmp($name, $prefix, $prefixLen) !== 0) {
+				continue;
+			}
+
+			// Extract the YYYYMMDD date token from the folder name
+			$suffix = substr($name, $prefixLen);
+			$dashPos = strpos($suffix, '-');
+			if ($dashPos === false) {
+				continue;
+			}
+			$dateToken = substr($suffix, 0, $dashPos);
+
+			// Validate that it looks like a date (8 digits)
+			if (!ctype_digit($dateToken) || strlen($dateToken) !== 8) {
+				continue;
+			}
+
+			// Delete only if the date is strictly before today
+			if ($dateToken < $today) {
+				$this->safeDeleteSearchFolder($searchFolderRoot, $row[PR_ENTRYID]);
+			}
+		}
+	}
+
+	/**
+	 * Attempt to hard-delete a search folder, swallowing any MAPI errors.
+	 *
+	 * @param resource $parentFolder the FINDER_ROOT folder
+	 * @param string   $entryid      binary entryid of the folder to delete
+	 */
+	private function safeDeleteSearchFolder($parentFolder, string $entryid): void {
+		try {
+			mapi_folder_deletefolder($parentFolder, $entryid, DEL_FOLDERS | DEL_MESSAGES | DELETE_HARD_DELETE);
+		}
+		catch (MAPIException $e) {
+			$e->setHandled();
+		}
 	}
 
 	/**

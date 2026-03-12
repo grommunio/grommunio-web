@@ -77,10 +77,8 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 			Ext.applyIf(config, {
 				title: _("Kendox InfoShare"),
 				xtype: "zarafa.settingskendoxwidget",
-				layout: {
-					// override from SettingsWidget
-					type: "fit",
-				},
+				cls: "zarafa-settings-widget k-settings-kendox",
+				autoScroll: true,
 				items: this.createPanelItems(),
 			});
 
@@ -106,13 +104,11 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 					items: [
 						{
 							xtype: "numberfield",
-							inputType: "number",
 							allowBlank: false,
 							fieldLabel: _("Max count attachments"),
 							name: "zarafa/v1/plugins/kendox/max_attachments_number",
 							ref: "../max_attachments_number",
-							msgTarget: "under", // location of the error message
-							invalidText: '"{0}" bad. "{1}" good.', // custom error message text
+							msgTarget: "under",
 							listeners: {
 								change: this.onFieldChange,
 								scope: this,
@@ -120,13 +116,11 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 						},
 						{
 							xtype: "numberfield",
-							inputType: "number",
 							allowBlank: false,
 							fieldLabel: _("Max size all selected attachments (MB)"),
 							name: "zarafa/v1/plugins/kendox/max_attachments_size_mb",
 							ref: "../max_attachments_size_mb",
-							msgTarget: "under", // location of the error message
-							invalidText: '"{0}" bad. "{1}" good.', // custom error message text
+							msgTarget: "under",
 							listeners: {
 								change: this.onFieldChange,
 								scope: this,
@@ -186,8 +180,7 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 							fieldLabel: _("Kendox InfoShare API URL"),
 							name: "zarafa/v1/plugins/kendox/api_url",
 							ref: "../api_url",
-							msgTarget: "under", // location of the error message
-							invalidText: '"{0}" bad. "{1}" good.', // custom error message text
+							msgTarget: "under",
 							listeners: {
 								change: this.onFieldChange,
 								scope: this,
@@ -202,8 +195,7 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 							fieldLabel: _("Kendox InfoShare Web dialog URL"),
 							name: "zarafa/v1/plugins/kendox/dialog_url",
 							ref: "../dialog_url",
-							msgTarget: "under", // location of the error message
-							invalidText: '"{0}" bad. "{1}" good.', // custom error message text
+							msgTarget: "under",
 							listeners: {
 								change: this.onFieldChange,
 								scope: this,
@@ -228,8 +220,7 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 							fieldLabel: _("Kendox InfoShare API URL"),
 							name: "zarafa/v1/plugins/kendox/api_url_test",
 							ref: "../api_url_test",
-							msgTarget: "under", // location of the error message
-							invalidText: '"{0}" bad. "{1}" good.', // custom error message text
+							msgTarget: "under",
 							listeners: {
 								change: this.onFieldChange,
 								scope: this,
@@ -244,8 +235,7 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 							fieldLabel: _("Kendox InfoShare Web dialog URL"),
 							name: "zarafa/v1/plugins/kendox/dialog_url_test",
 							ref: "../dialog_url_test",
-							msgTarget: "under", // location of the error message
-							invalidText: '"{0}" bad. "{1}" good.', // custom error message text
+							msgTarget: "under",
 							listeners: {
 								change: this.onFieldChange,
 								scope: this,

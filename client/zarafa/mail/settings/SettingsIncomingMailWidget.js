@@ -88,6 +88,7 @@ Zarafa.mail.settings.SettingsIncomingMailWidget = Ext.extend(Zarafa.settings.ui.
 					labelSplitter: '{B}',
 					name: 'zarafa/v1/contexts/mail/readflag_time',
 					ref: '../readFlagTimeSpinner',
+					width: 60,
 					incrementValue: 1,
 					defaultValue: 0,
 					minValue: 0,

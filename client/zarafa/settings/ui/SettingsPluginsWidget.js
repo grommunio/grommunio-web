@@ -79,7 +79,7 @@ Zarafa.settings.ui.SettingsPluginsWidget = Ext.extend(Zarafa.settings.ui.Setting
 		Ext.applyIf(config, {
 			title: _('Available plugins'),
 			layout: 'fit',
-			cls: 'k-settings-pluginpanel',
+			cls: 'zarafa-settings-widget k-settings-pluginpanel k-settings-nogap',
 			items: [{
 				xtype: 'panel',
 				border: false,

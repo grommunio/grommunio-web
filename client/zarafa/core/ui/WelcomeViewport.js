@@ -30,49 +30,46 @@ Zarafa.core.ui.WelcomeViewport = Ext.extend(Ext.Viewport, {
 			layout: {
 				cls: 'grommunio-welcome-viewport',
 				type: 'vbox',
-				align: 'stretch'
+				align: 'center',
+				pack: 'center'
 			},
 			items: [{
-				xtype: 'container',
-				flex: 0.5
-			},{
-				layout: {
-					type: 'hbox'
-				},
-				xtype: 'container',
+				xtype: 'panel',
+				cls: 'zarafa-welcome-body',
+				border: false,
 				items: [{
 					xtype: 'container',
-					flex: 0.5
-				},{
-					xtype: 'panel',
-					cls: 'zarafa-welcome-body',
-					border: false,
+					cls: 'k-welcome-header',
+					layout: 'hbox',
 					items: [{
-						xtype: 'displayfield',
-						cls: 'zarafa-welcome-title',
-						value : _('Welcome to grommunio Web')
+						xtype: 'container',
+						cls: 'k-welcome-avatar',
+						html: '<img src="' + Ext.util.Format.htmlEncode(container.getUser().getUserImage()) + '" alt="" />'
 					},{
-						xtype: 'displayfield',
-						cls: 'zarafa-welcome-message',
-						value: _('This is the first time you are using grommunio Web. ') + '<br />' + _('Please check the following settings before continuing.')
-					},{
-						xtype: 'zarafa.settingswelcomecategory',
-						ref: '../../settingsCategory'
-					}],
-					buttonAlign: 'right',
-					buttons: [{
-						cls: 'zarafa-action',
-						text: _('Continue'),
-						handler: this.onContinueButton,
-						scope: this
+						xtype: 'container',
+						flex: 1,
+						cls: 'k-welcome-header-text',
+						items: [{
+							xtype: 'displayfield',
+							cls: 'zarafa-welcome-title',
+							value: _('Welcome to grommunio Web')
+						},{
+							xtype: 'displayfield',
+							cls: 'zarafa-welcome-message',
+							value: _('Set up your preferences to get started.')
+						}]
 					}]
 				},{
-					xtype: 'container',
-					flex: 0.5
+					xtype: 'zarafa.settingswelcomecategory',
+					ref: '../settingsCategory'
+				}],
+				buttonAlign: 'right',
+				buttons: [{
+					cls: 'zarafa-action',
+					text: _('Get Started'),
+					handler: this.onContinueButton,
+					scope: this
 				}]
-			},{
-				xtype: 'container',
-				flex: 0.5
 			}]
 		});
 

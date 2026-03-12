@@ -21,7 +21,7 @@ Zarafa.common.settings.SettingsRuleWidget = Ext.extend(Zarafa.settings.ui.Settin
 		Ext.applyIf(config, {
 			title: _('Rules'),
 			xtype: 'zarafa.settingsrulewidget',
-			cls: 'zarafa-settings-widget k-rules-widget',
+			cls: 'zarafa-settings-widget k-rules-widget k-settings-nogap',
 			layout: {
 				// override from SettingsWidget
 				type: 'fit'

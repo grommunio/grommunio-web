@@ -22,8 +22,8 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 			cls: 'k-rulesgrid',
 			border: false,
 			enableHdMenu: false,
+			autoExpandColumn: 'rule_name',
 			viewConfig: {
-				forceFit: true,
 				emptyText: '<div class=\'emptytext\'>' + _('No rule exists') + '</div>'
 			},
 			loadMask: this.initLoadMask(),
@@ -124,9 +124,10 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 			headerCls: 'k-unsortable',
 			sortable: false,
 			fixed: true,
-			width: 100,
+			width: 130,
 			renderer: this.ruleOutOfOfficeStateRenderer
 		},{
+			id: 'rule_name',
 			dataIndex: 'rule_name',
 			header: _('Rule'),
 			headerCls: 'k-unsortable',

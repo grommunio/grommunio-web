@@ -85,6 +85,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 		config.searchCriteria['date_range'] = {};
 		config.searchCriteria['date_range']['start'] = 0;
 		config.searchCriteria['date_range']['end'] = 0;
+		config.searchCriteria['negated_extra_fields'] = [];
 
 		var dateRangeStore = {
 			xtype: 'jsonstore',
@@ -96,9 +97,8 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 
 		Ext.applyIf(config, {
 			xtype: 'zarafa.searchtoolboxpanel',
-			title: _('Search tools'),
-			width: 175,
-			iconCls: 'icon_magnifier',
+			header: false,
+			width: 220,
 			cls: 'zarafa-search-toolbox',
 			plugins: [{
 				ptype: 'zarafa.recordcomponentplugin'
@@ -111,7 +111,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			ref: 'searchToolBox',
 			items: [{
 				xtype: 'container',
-				autoScroll: true,
+				style: 'overflow-y: auto; overflow-x: hidden;',
 				items: [
 					this.createFoldersFieldset(),
 					this.createMessageTypeFieldset(messageType),
@@ -153,11 +153,32 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 		// double mon()
 		this.mon(searchTextField, 'render', function() {
 			this.mon(searchTextField.getEl(), 'input', this.onSearchTextFieldChange, this);
-
-			// Call the listener also upon rendering of the searchTextField, since we might need to disable the
-			// search fields of the toolbox
-			this.onSearchTextFieldChange();
 		}, this, {single: true});
+
+		// Listen for chip changes to sync search bar chips → toolbox checkboxes
+		this.mon(searchTextField, 'chipchange', this.onChipChange, this);
+
+		// Sync chips and fieldset state once the search field has parsed its
+		// tokens. If already rendered, sync now; otherwise wait for afterrender
+		// so tokens are available.
+		var syncInitial = function() {
+			var chips = searchTextField.getFilterChips ? searchTextField.getFilterChips() : [];
+			if (chips.length > 0) {
+				this.onChipChange(searchTextField, chips);
+			}
+			this.onSearchTextFieldChange();
+		};
+
+		if (searchTextField.rendered) {
+			syncInitial.call(this);
+		} else {
+			this.mon(searchTextField, 'afterrender', function() {
+				// Defer to allow the CheckboxGroup to finish rendering
+				// its items into a MixedCollection before we try to
+				// iterate with .each().
+				syncInitial.defer(1, this);
+			}, this, {single: true});
+		}
 	},
 
 	/**
@@ -173,13 +194,259 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 		var tokens = Zarafa.advancesearch.KQLParser.tokenize(query);
 		var usesAdvancedSyntax = Zarafa.advancesearch.KQLParser.usesExplicitSyntax(tokens);
 
-		if ( usesAdvancedSyntax ) {
+		// When the user has active filter chips, keep the checkboxes enabled
+		// so they stay in sync with the chips. Only disable when the user
+		// typed raw KQL syntax without using the chip UI.
+		var hasChips = searchTextField.tokens && searchTextField.tokens.length > 0;
+
+		if (usesAdvancedSyntax && !hasChips) {
 			this.searchInFieldset.disable();
 			this.categoryFilterFieldSet.disable();
 		} else {
 			this.searchInFieldset.enable();
 			this.categoryFilterFieldSet.enable();
 		}
+	},
+
+	/**
+	 * Mapping from KQL filter keys to SearchToolBoxPanel checkbox itemIds.
+	 * Multiple KQL keys can map to the same checkbox.
+	 * @property
+	 * @type Object
+	 */
+	/**
+	 * Mapping from KQL chip keys to "Search in" checkbox itemIds.
+	 * @property
+	 * @type Object
+	 */
+	chipToCheckboxMap: {
+		'subject': 'subject',
+		'from': 'sender',
+		'sender': 'sender',
+		'to': 'recipients',
+		'cc': 'recipients',
+		'bcc': 'recipients',
+		'body': 'body'
+	},
+
+	/**
+	 * Reverse mapping from "Search in" checkbox itemIds to KQL keys.
+	 * @property
+	 * @type Object
+	 */
+	checkboxToChipMap: {
+		'sender': ['from', 'sender'],
+		'recipients': ['to', 'cc', 'bcc'],
+		'subject': ['subject'],
+		'body': ['body']
+	},
+
+	/**
+	 * Mapping from chip keys to "Filter" checkbox names.
+	 * @property
+	 * @type Object
+	 */
+	chipToFilterMap: {
+		'attachment': 'hasattach',
+		'unread': 'message_flags'
+	},
+
+	/**
+	 * Reverse mapping from "Filter" checkbox names to chip keys.
+	 * @property
+	 * @type Object
+	 */
+	filterToChipMap: {
+		'hasattach': 'attachment',
+		'message_flags': 'unread'
+	},
+
+	/**
+	 * Mapping from type: chip values to message type checkbox names.
+	 * @property
+	 * @type Object
+	 */
+	typeValueToCheckboxMap: {
+		'mail': 'mail',
+		'appointment': 'calendar',
+		'contact': 'contact',
+		'task': 'task',
+		'note': 'note'
+	},
+
+	/**
+	 * Reverse mapping from message type checkbox names to type: chip values.
+	 * @property
+	 * @type Object
+	 */
+	checkboxToTypeValueMap: {
+		'mail': 'mail',
+		'calendar': 'appointment',
+		'contact': 'contact',
+		'task': 'task',
+		'note': 'note'
+	},
+
+	/**
+	 * Flag to prevent recursive sync between chips and checkboxes.
+	 * @property
+	 * @type Boolean
+	 */
+	syncing: false,
+
+	/**
+	 * Event handler for the chipchange event from SearchTextField.
+	 * Syncs chip state → all toolbox panel controls.
+	 * @param {Zarafa.common.searchfield.ui.SearchTextField} field
+	 * @param {Array} chips Array of chip objects
+	 */
+	onChipChange: function(field, chips)
+	{
+		if (this.syncing) {
+			return;
+		}
+
+		// Guard: checkbox groups may not be MixedCollections yet
+		if (!this.searchInCheckboxGroup ||
+			!this.searchInCheckboxGroup.items ||
+			typeof this.searchInCheckboxGroup.items.each !== 'function') {
+			if (chips && chips.length > 0) {
+				this.onChipChange.defer(1, this, [field, chips]);
+			}
+			return;
+		}
+
+		this.syncing = true;
+
+		// Collect all chip keys and values, tracking negation
+		var filterKeys = [];
+		var negatedKeys = [];
+		var typeValues = [];
+		var categoryValues = [];
+		var dateValue = null;
+		for (var i = 0; i < chips.length; i++) {
+			var chip = chips[i];
+			if (chip.type !== 'filter') {
+				continue;
+			}
+			filterKeys.push(chip.key);
+			if (chip.negated) {
+				negatedKeys.push(chip.key);
+			}
+			if (chip.key === 'type' && chip.value) {
+				typeValues.push(chip.value.toLowerCase());
+			}
+			if (chip.key === 'category' && chip.value) {
+				categoryValues.push(chip.value);
+			}
+			if (chip.key === 'date' && chip.value) {
+				dateValue = chip.value.toLowerCase().replace(/\s+/g, '_');
+			}
+		}
+		this.searchCriteria['negated_extra_fields'] = negatedKeys;
+
+		// Sync "Search in" checkboxes
+		this.searchInCheckboxGroup.items.each(function(checkbox) {
+			var chipKeys = this.checkboxToChipMap[checkbox.itemId];
+			if (!chipKeys) {
+				return;
+			}
+			var shouldCheck = false;
+			for (var j = 0; j < chipKeys.length; j++) {
+				if (filterKeys.indexOf(chipKeys[j]) !== -1) {
+					shouldCheck = true;
+					break;
+				}
+			}
+			if (checkbox.getValue() !== shouldCheck) {
+				checkbox.setValue(shouldCheck);
+			}
+		}, this);
+
+		// Sync "Filter" checkboxes (attachment, unread)
+		// Negated filters should not check the checkbox
+		if (this.filterCheckBoxGroup && this.filterCheckBoxGroup.items &&
+			typeof this.filterCheckBoxGroup.items.each === 'function') {
+			this.filterCheckBoxGroup.items.each(function(checkbox) {
+				var chipKey = this.filterToChipMap[checkbox.name];
+				if (!chipKey) {
+					return;
+				}
+				var shouldCheck = filterKeys.indexOf(chipKey) !== -1 &&
+					negatedKeys.indexOf(chipKey) === -1;
+				if (checkbox.getValue() !== shouldCheck) {
+					checkbox.setValue(shouldCheck);
+				}
+			}, this);
+		}
+
+		// Sync "Show" (message type) checkboxes
+		if (this.messageTypeCheckboxGroup && this.messageTypeCheckboxGroup.items &&
+			typeof this.messageTypeCheckboxGroup.items.each === 'function') {
+			this.messageTypeCheckboxGroup.items.each(function(checkbox) {
+				var shouldCheck = typeValues.indexOf(this.checkboxToTypeValueMap[checkbox.name] || '') !== -1;
+				if (checkbox.getValue() !== shouldCheck) {
+					checkbox.setValue(shouldCheck);
+				}
+			}, this);
+		}
+
+		// Sync date range combo
+		if (this.dateRangeCombo && dateValue) {
+			var store = this.dateRangeCombo.getStore();
+			if (store.find('value', dateValue) !== -1) {
+				this.dateRangeCombo.setValue(dateValue);
+				this.dateRangeCombo.fireEvent('select', this.dateRangeCombo,
+					store.getAt(store.find('value', dateValue)),
+					store.find('value', dateValue));
+			}
+		} else if (this.dateRangeCombo && !dateValue && filterKeys.indexOf('date') === -1) {
+			// No date chip → reset to "Any date"
+			var currentDateValue = this.dateRangeCombo.getValue();
+			if (currentDateValue !== 'all_dates') {
+				this.dateRangeCombo.setValue('all_dates');
+				var dateStore = this.dateRangeCombo.getStore();
+				this.dateRangeCombo.fireEvent('select', this.dateRangeCombo,
+					dateStore.getAt(dateStore.find('value', 'all_dates')),
+					dateStore.find('value', 'all_dates'));
+			}
+		}
+
+		// Sync categories: add missing ones and remove extras
+		if (this.searchCategoriesStore) {
+			var existingCategories = this.searchCategoriesStore.getCategories();
+			// Add categories from chips that aren't in the store
+			for (var c = 0; c < categoryValues.length; c++) {
+				if (this.searchCategoriesStore.findExactCaseInsensitive('name', categoryValues[c]) === -1) {
+					this.searchCategoriesStore.addCategories([categoryValues[c]]);
+				}
+			}
+			// Remove categories from store that aren't in chips
+			for (var r = existingCategories.length - 1; r >= 0; r--) {
+				var found = false;
+				for (var cv = 0; cv < categoryValues.length; cv++) {
+					if (categoryValues[cv].toLowerCase() === existingCategories[r].toLowerCase()) {
+						found = true;
+						break;
+					}
+				}
+				if (!found) {
+					var idx = this.searchCategoriesStore.findExactCaseInsensitive('name', existingCategories[r]);
+					if (idx !== -1) {
+						this.searchCategoriesStore.removeAt(idx);
+					}
+				}
+			}
+			this.setCategoriesRestriction(this.searchCategoriesStore.getCategories());
+			if (this.categoryFilterLabel) {
+				this.categoryFilterLabel.setVisible(!this.searchCategoriesStore.getCount());
+			}
+		}
+
+		this.syncing = false;
+
+		// Re-evaluate fieldset enable/disable state
+		this.onSearchTextFieldChange();
 	},
 
 	/**
@@ -192,7 +459,6 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 		return {
 			layout: 'form',
 			xtype:'fieldset',
-			width: 156,
 			border: false,
 			title: _('Folders'),
 			ref: '../includeSubFolderFieldSet',
@@ -219,7 +485,6 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 		return {
 			layout: 'form',
 			xtype:'fieldset',
-			width: 156,
 			border: false,
 			title: _('Show…'),
 			items: [{
@@ -271,7 +536,6 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 		return {
 			layout: 'form',
 			xtype:'fieldset',
-			width: 156,
 			border: false,
 			title: _('Filter…'),
 			items: [{
@@ -325,7 +589,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 				value: dateRangeStore.data[0].value,
 				mode: 'local',
 				triggerAction: 'all',
-				width: 146,
+				anchor: '100%',
 				listeners: {
 					select: this.onSelectCombo,
 					beforerender: this.onBeforeRenderDateRangeCombo,
@@ -431,7 +695,6 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 		return {
 			layout: 'form',
 			xtype:'fieldset',
-			width: 160,
 			border: false,
 			title: _('Search…'),
 			ref: '../searchInFieldset',
@@ -712,7 +975,34 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 	onSelectCombo: function(combo, record)
 	{
 		this.setDateRangeRestriction(combo, record);
-		this.afterUpdateRestriction();
+		if (!this.syncing) {
+			this.afterUpdateRestriction();
+		}
+
+		// Sync date range combo → search bar date: chip
+		if (this.syncing) {
+			return;
+		}
+		this.syncing = true;
+
+		var searchTextField = this.ownerCt.searchToolbar.contextMainPanelToolbar.searchFieldContainer.searchTextField;
+		var dateValue = record.get('value');
+
+		// Remove existing date: chips
+		if (searchTextField.tokens) {
+			for (var i = searchTextField.tokens.length - 1; i >= 0; i--) {
+				if (searchTextField.tokens[i].type === 'filter' && searchTextField.tokens[i].key === 'date') {
+					searchTextField.removeTokenAt(i, true);
+				}
+			}
+		}
+
+		// Add new date: chip if not "all_dates"
+		if (dateValue && dateValue !== 'all_dates') {
+			searchTextField.insertFilter('date', dateValue, true);
+		}
+
+		this.syncing = false;
 	},
 
 	/**
@@ -725,7 +1015,43 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 	onFilterCheckBoxGroup: function(group, checked)
 	{
 		this.setFilterRestriction(group, checked);
-		this.afterUpdateRestriction();
+		if (!this.syncing) {
+			this.afterUpdateRestriction();
+		}
+
+		// Sync filter checkboxes → search bar chips
+		if (this.syncing) {
+			return;
+		}
+		this.syncing = true;
+
+		var searchTextField = this.ownerCt.searchToolbar.contextMainPanelToolbar.searchFieldContainer.searchTextField;
+		var checkedNames = {};
+		if (!Ext.isEmpty(checked)) {
+			Ext.each(checked, function(cb) {
+				checkedNames[cb.name] = true;
+			});
+		}
+
+		var activeKeys = searchTextField.getActiveFilterKeys ? searchTextField.getActiveFilterKeys() : [];
+		group.items.each(function(checkbox) {
+			var chipKey = this.filterToChipMap[checkbox.name];
+			if (!chipKey) {
+				return;
+			}
+			if (checkedNames[checkbox.name]) {
+				if (activeKeys.indexOf(chipKey) === -1) {
+					searchTextField.insertFilter(chipKey, chipKey === 'unread' ? 'true' : '', true);
+				} else if (searchTextField.isFilterNegated && searchTextField.isFilterNegated(chipKey)) {
+					// Filter exists but is negated (NOT Unread) — remove the negation
+					searchTextField.removeFilterNegation(chipKey, true);
+				}
+			} else {
+				searchTextField.removeFilterChip(chipKey, true);
+			}
+		}, this);
+
+		this.syncing = false;
 	},
 
 	/**
@@ -738,7 +1064,60 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 	onMessageTypeCheckboxChange: function(group, checked)
 	{
 		this.setMessageClassRestriction(group, checked);
-		this.afterUpdateRestriction();
+		if (!this.syncing) {
+			this.afterUpdateRestriction();
+		}
+
+		// Sync message type checkboxes → search bar type: chips
+		if (this.syncing) {
+			return;
+		}
+		this.syncing = true;
+
+		var searchTextField = this.ownerCt.searchToolbar.contextMainPanelToolbar.searchFieldContainer.searchTextField;
+		var checkedNames = {};
+		if (!Ext.isEmpty(checked)) {
+			Ext.each(checked, function(cb) {
+				checkedNames[cb.name] = true;
+			});
+		}
+
+		// Collect existing type: chip values
+		var existingTypeValues = [];
+		if (searchTextField.tokens) {
+			for (var i = 0; i < searchTextField.tokens.length; i++) {
+				var tok = searchTextField.tokens[i];
+				if (tok.type === 'filter' && tok.key === 'type') {
+					existingTypeValues.push(tok.value.toLowerCase());
+				}
+			}
+		}
+
+		group.items.each(function(checkbox) {
+			var typeValue = this.checkboxToTypeValueMap[checkbox.name];
+			if (!typeValue) {
+				return;
+			}
+			if (checkedNames[checkbox.name]) {
+				if (existingTypeValues.indexOf(typeValue) === -1) {
+					searchTextField.insertFilter('type', typeValue, true);
+				}
+			} else {
+				// Remove the type: chip with this value
+				if (searchTextField.tokens) {
+					for (var j = searchTextField.tokens.length - 1; j >= 0; j--) {
+						var t = searchTextField.tokens[j];
+						if (t.type === 'filter' && t.key === 'type' &&
+							t.value.toLowerCase() === typeValue) {
+							searchTextField.removeTokenAt(j, true);
+							break;
+						}
+					}
+				}
+			}
+		}, this);
+
+		this.syncing = false;
 	},
 
 	/**
@@ -752,7 +1131,53 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 	onSearchInCheckboxChange: function(group, checked)
 	{
 		this.setSearchInRestriction(group, checked);
-		this.afterUpdateRestriction();
+		if (!this.syncing) {
+			this.afterUpdateRestriction();
+		}
+
+		// Sync checkboxes → search bar chips (reverse direction)
+		if (this.syncing) {
+			return;
+		}
+		this.syncing = true;
+
+		var searchTextField = this.ownerCt.searchToolbar.contextMainPanelToolbar.searchFieldContainer.searchTextField;
+		var checkedIds = {};
+		if (!Ext.isEmpty(checked)) {
+			Ext.each(checked, function(cb) {
+				checkedIds[cb.itemId] = true;
+			});
+		}
+
+		// Sync checkbox state to chips: add chips for checked, remove for unchecked
+		var activeKeys = searchTextField.getActiveFilterKeys ? searchTextField.getActiveFilterKeys() : [];
+		group.items.each(function(checkbox) {
+			var checkboxId = checkbox.itemId;
+			var chipKeys = this.checkboxToChipMap[checkboxId];
+			if (!chipKeys) {
+				return;
+			}
+			if (checkedIds[checkboxId]) {
+				// Add the first matching chip if none exists yet
+				var hasAny = false;
+				for (var j = 0; j < chipKeys.length; j++) {
+					if (activeKeys.indexOf(chipKeys[j]) !== -1) {
+						hasAny = true;
+						break;
+					}
+				}
+				if (!hasAny) {
+					searchTextField.insertFilter(chipKeys[0]);
+				}
+			} else {
+				// Remove all matching chips
+				for (var i = 0; i < chipKeys.length; i++) {
+					searchTextField.removeFilterChip(chipKeys[i], true);
+				}
+			}
+		}, this);
+
+		this.syncing = false;
 	},
 
 	/**
@@ -918,7 +1343,9 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 	{
 		var index = combo.getStore().find('value', combo.getValue());
 		var record = combo.getStore().getAt(index);
-		this.onSelectCombo(combo, record);
+		if (record) {
+			this.onSelectCombo(combo, record);
+		}
 	},
 
 	/**
@@ -1022,6 +1449,19 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 						);
 					}
 				});
+			}
+
+			// Negated unread filter (NOT Unread = show read messages)
+			// This is separate from extra_fields since the checkbox is unchecked
+			if (key === 'negated_extra_fields' && Ext.isArray(values) &&
+				values.indexOf('unread') !== -1) {
+				orFilters.push(
+					Zarafa.core.data.RestrictionFactory.dataResBitmask(
+						'message_flags',
+						Zarafa.core.mapi.Restrictions.BMR_NEZ,
+						Zarafa.core.mapi.MessageFlags.MSGFLAG_READ
+					)
+				);
 			}
 
 			// Date Range restriction
@@ -1200,8 +1640,40 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 	{
 		var categories = this.searchCategoriesStore.getCategories();
 		this.setCategoriesRestriction(categories);
-		this.afterUpdateRestriction();
+		if (!this.syncing) {
+			this.afterUpdateRestriction();
+		}
 		this.categoryFilterLabel.setVisible(!this.searchCategoriesStore.getCount());
+
+		// Sync categories → search bar chips
+		if (this.syncing) {
+			return;
+		}
+		this.syncing = true;
+
+		var searchTextField = this.ownerCt.searchToolbar.contextMainPanelToolbar.searchFieldContainer.searchTextField;
+		if (searchTextField && searchTextField.tokens) {
+			// Remove existing category chips
+			for (var i = searchTextField.tokens.length - 1; i >= 0; i--) {
+				if (searchTextField.tokens[i].type === 'filter' && searchTextField.tokens[i].key === 'category') {
+					searchTextField.tokens.splice(i, 1);
+				}
+			}
+			// Add category chips for each store entry
+			for (var j = 0; j < categories.length; j++) {
+				var last = searchTextField.tokens.length > 0 ? searchTextField.tokens[searchTextField.tokens.length - 1] : null;
+				if (last && last.type !== 'operator') {
+					searchTextField.tokens.push({ type: 'operator', key: 'AND' });
+				}
+				searchTextField.tokens.push({ type: 'filter', key: 'category', value: categories[j] });
+			}
+			searchTextField.cleanupOperators();
+			searchTextField.renderTokens();
+			searchTextField.syncHiddenInput();
+			searchTextField.fireEvent('chipchange', searchTextField, searchTextField.getFilterChips());
+		}
+
+		this.syncing = false;
 	}
 });
 

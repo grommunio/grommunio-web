@@ -133,7 +133,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 * @property
 								 * @type String
 								 */
-								'default': 'messagebox',
+								'default': 'toast',
 
 								'pagination': {
 									/**
@@ -165,7 +165,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 									 * @property
 									 * @type String
 									 */
-									'value': 'messagebox',
+									'value': 'toast',
 
 									'connection': {
 										/**
@@ -174,7 +174,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 										 * @property
 										 * @type String
 										 */
-										'value': 'dropdown'
+										'value': 'toast'
 									},
 
 									'license': {
@@ -184,7 +184,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 										 * @property
 										 * @type String
 										 */
-										'value': 'dropdown'
+										'value': 'toast'
 									},
 
 									'hierarchy': {
@@ -196,18 +196,18 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 											 * @property
 											 * @type String
 											 */
-											'value': 'dropdown'
+											'value': 'toast'
 										},
 									},
 
 									'proxy': {
 										/**
-										 * zarafa/v1/main/notifier/error/value
+										 * zarafa/v1/main/notifier/error/proxy/value
 										 * Default plugin for the "Error" user notifications
 										 * @property
 										 * @type String
 										 */
-										'value': 'messagebox'
+										'value': 'toast'
 									}
 								},
 
@@ -218,7 +218,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 									 * @property
 									 * @type String
 									 */
-									'value': 'messagebox',
+									'value': 'toast',
 
 									'console': {
 										/**
@@ -238,7 +238,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 									 * @property
 									 * @type String
 									 */
-									'value': 'popup',
+									'value': 'toast',
 
 									'reminder': {
 										/**
@@ -257,7 +257,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 										 * @property
 										 * @type String
 										 */
-										'value': 'popup'
+										'value': 'toast'
 									},
 
 									'import': {
@@ -267,7 +267,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 										 * @property
 										 * @type String
 										 */
-										'value': 'dropdown'
+										'value': 'toast'
 									},
 
 									'sent': {
@@ -277,7 +277,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 										 * @property
 										 * @type String
 										 */
-										'value': 'dropdown'
+										'value': 'toast'
 									},
 									'saved': {
 										/**
@@ -286,7 +286,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 										 * @property
 										 * @type String
 										 */
-										'value': 'dropdown'
+										'value': 'toast'
 									},
 									'mailsaved': {
 										/**
@@ -304,7 +304,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 										 * @property
 										 * @type String
 										 */
-										'value': 'dropdown'
+										'value': 'toast'
 									},
 
 									'saving': {
@@ -314,7 +314,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 										 * @property
 										 * @type String
 										 */
-										'value': 'dropdown'
+										'value': 'toast'
 									},
 
 									'mailsaving': {
@@ -334,7 +334,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 										 * @property
 										 * @type String
 										 */
-										'value': 'dropdown'
+										'value': 'toast'
 									},
 
 									'meeting': {
@@ -344,7 +344,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 										 * @property
 										 * @type String
 										 */
-										'value': 'dropdown'
+										'value': 'toast'
 									}
 
 								}
@@ -506,14 +506,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 * @property
 								 * @type Boolean
 								 */
-								'scroll_favorites': false,
-
-								/**
-								 * zarafa/v1/contexts/hierarchy/show_searchbar
-								 * @property
-								 * @type Boolean
-								 */
-								'show_searchbar': true
+								'scroll_favorites': false
 							},
 
 							'search': {

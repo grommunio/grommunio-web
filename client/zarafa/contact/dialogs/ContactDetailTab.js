@@ -28,20 +28,35 @@ Zarafa.contact.dialogs.ContactDetailTab = Ext.extend(Ext.form.FormPanel, {
 			labelAlign: 'left',
 			defaults: {
 				columnWidth: 0.5,
-				height: 120,
 				border: false,
 				header: false,
-				xtype: 'fieldset'
+				xtype: 'fieldset',
+				labelSeparator: ''
 			},
 			items: [
 				this.createOfficeFieldset(),
 				this.createOfficeFieldset2(),
+				this.createClear(),
 				this.createNameFieldset(),
 				this.createDateFieldset()
 			]
 		});
 
 		Zarafa.contact.dialogs.ContactDetailTab.superclass.constructor.call(this, config);
+	},
+
+	/**
+	 * Creates a clearing element to separate rows in the column layout.
+	 * @return {Object} config object for creating the clear panel.
+	 * @private
+	 */
+	createClear: function()
+	{
+		return {
+			xtype: 'panel',
+			cls: 'zarafa-clear',
+			columnWidth: 1
+		};
 	},
 
 	/**

@@ -168,7 +168,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 						invalidClass: 'zarafa-settings-oof-invalid'
 					},
 					fieldLabel: '',
-					width: 225,
+					width: 300,
 					hideLabel: true,
 					dateFormat: _('d/m/Y'),
 					minValue: new Date(),
@@ -207,7 +207,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 				timeFieldConfig: {
 					invalidClass: 'zarafa-settings-oof-invalid'
 				},
-				width: 225,
+				width: 300,
 				disabled: true,
 				hideLabel: true,
 				dateFormat: _('d/m/Y'),
@@ -506,6 +506,8 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 	 */
 	updateView: function()
 	{
+		this.loading = true;
+
 		if(this.userCombo) {
 			var defaultUser = this.userCombo.getValue();
 			this.record = this.getOofStore().getById(defaultUser);
@@ -556,6 +558,8 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 			var extBody = record.get(this.extBodyField.name) || this.extBodyField.defaultValue;
 			this.extBodyField.setValue(extBody);
 		}
+
+		this.loading = false;
 	},
 
 	/**
@@ -868,7 +872,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 	 */
 	doStoreUpdate: function(store, record, operation)
 	{
-		if (operation !== Ext.data.Record.COMMIT) {
+		if (operation !== Ext.data.Record.COMMIT && !this.loading) {
 			var contextModel = this.settingsContext.getModel();
 			contextModel.setDirty();
 		}

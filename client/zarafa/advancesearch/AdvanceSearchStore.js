@@ -109,6 +109,11 @@ Zarafa.advancesearch.AdvanceSearchStore = Ext.extend(Zarafa.core.data.ListModule
 			}
 		}
 
+		// Guard against undefined data from server errors
+		if (!data || !data.records) {
+			return;
+		}
+
 		Zarafa.advancesearch.AdvanceSearchStore.superclass.loadRecords.apply(this, arguments);
 	},
 

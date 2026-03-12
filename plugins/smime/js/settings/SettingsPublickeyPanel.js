@@ -56,10 +56,6 @@ Zarafa.plugins.smime.settings.SettingsPublickeyPanel = Ext.extend(Ext.Panel, {
 	{
 		var certStore = store;
 		return [{
-			xtype : 'displayfield',
-			value : _('Below you can view and delete public & private certificate(s) stored on the server.'),
-			fieldClass : 'x-form-display-field zarafa-settings-widget-extrainfo'
-		}, {
 			xtype : 'container',
 			flex : 1,
 			layout : {

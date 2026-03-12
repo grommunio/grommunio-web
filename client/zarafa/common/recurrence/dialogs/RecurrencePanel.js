@@ -25,7 +25,8 @@ Zarafa.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 			border: false,
 			defaults: {
 				border: false,
-				bodyStyle: 'padding: 10px;'
+				bodyStyle: 'padding: 8px 10px;',
+				style: 'margin-bottom: 6px;'
 			},
 			items: [
 				this.createTimePanel(),
@@ -52,7 +53,7 @@ Zarafa.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 				align: 'stretch'
 			},
 			anchor: '100%',
-			height: 100,
+			height: 110,
 			items: [{
 				xtype: 'displayfield',
 				ref: '../timeperiodLabel',
@@ -116,7 +117,7 @@ Zarafa.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 			},
 			title: _('Recurrence pattern'),
 			anchor: '100%',
-			height: 150,
+			height: 160,
 			items: [{
 				xtype: 'radiogroup',
 				ref: '../recurrencePatternSelect',
@@ -197,7 +198,7 @@ Zarafa.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 			items: [{
 				xtype: 'panel',
 				layout: 'form',
-				columnWidth: 0.5,
+				columnWidth: 0.4,
 				border: false,
 				items: [{
 					xtype: 'datefield',
@@ -216,7 +217,8 @@ Zarafa.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 				xtype: 'panel',
 				layout: 'form',
 				ref: '../endPatternPanel',
-				columnWidth: 0.5,
+				cls: 'k-recurrence-end-pattern',
+				columnWidth: 0.6,
 				border: false,
 				bodyStyle: 'background-color: inherit;',
 				defaults: {
@@ -248,7 +250,7 @@ Zarafa.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 					}]
 				},{
 					xtype: 'panel',
-					layout: 'column',
+					layout: 'hbox',
 					items: [{
 						xtype: 'radio',
 						name: 'recurrence_term',
@@ -263,7 +265,8 @@ Zarafa.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 						xtype: 'zarafa.compositefield',
 						plugins: [ 'zarafa.splitfieldlabeler' ],
 						fieldLabel: _('End after {A} occurrences'),
-						labelWidth: 160,
+						labelWidth: 170,
+						flex: 1,
 						items: [{
 							xtype: 'zarafa.spinnerfield',
 							plugins: [ 'zarafa.numberspinner' ],
@@ -272,7 +275,7 @@ Zarafa.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 							labelSplitter: '{A}',
 							allowNegative: false,
 							minValue: 1,
-							width: 50,
+							width: 65,
 							enableKeyEvents: true,
 							listeners: {
 								change: this.onFieldChange,
@@ -283,7 +286,7 @@ Zarafa.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 					}]
 				},{
 					xtype: 'panel',
-					layout: 'column',
+					layout: 'hbox',
 					items: [{
 						xtype: 'radio',
 						name: 'recurrence_term',
@@ -299,6 +302,7 @@ Zarafa.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 						plugins: [ 'zarafa.splitfieldlabeler' ],
 						fieldLabel: _('End by {A}'),
 						labelWidth: 80,
+						flex: 1,
 						combineErrors: false,
 						items: [{
 							xtype: 'datefield',

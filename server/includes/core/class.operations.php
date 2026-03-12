@@ -4530,14 +4530,12 @@ class Operations {
 			return false;
 		}
 
-		foreach ($historyRecipients as &$recipient) {
-			if (($emailProps['address_type'] ?? null) !== ($recipient['address_type'] ?? null)) {
-				continue;
-			}
+		$emailAddressLower = strtolower($emailAddress);
 
+		foreach ($historyRecipients as &$recipient) {
 			if (
-				$emailAddress !== ($recipient['email_address'] ?? '') &&
-				$emailAddress !== ($recipient['smtp_address'] ?? '')
+				$emailAddressLower !== strtolower((string) ($recipient['email_address'] ?? '')) &&
+				$emailAddressLower !== strtolower((string) ($recipient['smtp_address'] ?? ''))
 			) {
 				continue;
 			}
@@ -4545,6 +4543,13 @@ class Operations {
 			$this->updateRecipientDisplayName($emailProps, $recipient);
 			$recipient['count'] = isset($recipient['count']) ? $recipient['count'] + 1 : 1;
 			$recipient['last_used'] = $timestamp;
+
+			// Normalize to SMTP when possible so future lookups are consistent
+			$smtpAddr = $emailProps['smtp_address'] ?? ($recipient['smtp_address'] ?? '');
+			if ($smtpAddr !== '') {
+				$recipient['smtp_address'] = $smtpAddr;
+				$recipient['address_type'] = 'SMTP';
+			}
 
 			return true;
 		}

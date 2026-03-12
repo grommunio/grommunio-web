@@ -249,7 +249,7 @@ td.sort-desc .x-grid3-sort-icon {
   background-repeat: no-repeat !important;
   background-position: center center !important; }
 
-.arrow_down_s, .x-btn .x-btn-split, .x-btn .x-btn-arrow, .x-form-trigger, .x-form-spinner-trigger {
+.arrow_down_s, .x-btn .x-btn-split, .x-btn .x-btn-arrow, .x-form-trigger {
   background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPjxwYXRoIGZpbGw9IiMyMTIxMjEiIGQ9Ik0xLjQzIDIuNzY2YS4zMy4zMyAwIDAgMSAuNDcyIDBMNCA0Ljg2M2wyLjA5OC0yLjA5N2EuMzMzLjMzMyAwIDAgMSAuMzI0LS4wOTQuMzQxLjM0MSAwIDAgMSAuMjM4LjIzOC4zMzEuMzMxIDAgMCAxLS4wOS4zMjRMNC4yMzQgNS41N2EuMzMyLjMzMiAwIDAgMS0uNDY4IDBMMS40MyAzLjIzNGEuMzMyLjMzMiAwIDAgMSAwLS40NjhabTAgMCIvPjwvc3ZnPg==) !important;
   background-repeat: no-repeat !important;
   background-position: center center !important; }
@@ -294,7 +294,7 @@ td.sort-asc .x-grid3-sort-icon {
   background-repeat: no-repeat !important;
   background-position: center center !important; }
 
-.arrow_updown, .x-form-field-wrap .x-form-spinner-trigger {
+.arrow_updown {
   background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiI+PHBhdGggZmlsbD0iIzIxMjEyMSIgZD0iTTkuMzk1IDQuMTk1YS41MDIuNTAyIDAgMCAxLS4wNjMuNjhjLS4yLjE3Mi0uNS4xNjQtLjY4NC0uMDIzTDYgMi4yMDcgMy4zNTIgNC44NTJsLS4wNDcuMDQzYS41MDIuNTAyIDAgMCAxLS42OC0uMDYzLjUwMS41MDEgMCAwIDEgLjAyMy0uNjg0bDMtMyAuMDQ3LS4wNDNhLjQ5Mi40OTIgMCAwIDEgLjY1Ny4wNDNsMyAzWm0tNi43OSAzLjYxYS41MDIuNTAyIDAgMCAxIC4wNjMtLjY4Yy4yLS4xNzIuNS0uMTY0LjY4NC4wMjNMNiA5Ljc5M2wyLjY0OC0yLjY0NS4wNDctLjA0M2EuNTAyLjUwMiAwIDAgMSAuNjguMDYzYy4xNzIuMi4xNjQuNS0uMDIzLjY4NGwtMyAzLS4wNDcuMDQzYS40OTIuNDkyIDAgMCAxLS42NTctLjA0M2wtMy0zWm0wIDAiLz48L3N2Zz4=) !important;
   background-repeat: no-repeat !important;
   background-position: center center !important; }
@@ -388,7 +388,21 @@ body {
   border: none; }
 
 .x-panel-body {
-  background-color: white !important; }
+  background-color: white; }
+
+.x-panel-body,
+.x-panel-bwrap,
+.x-fieldset,
+.x-fieldset-bwrap,
+.x-fieldset-body,
+.x-column-layout-ct,
+.x-column-inner,
+.x-column,
+.x-form-column,
+.x-box-layout-ct {
+  overflow: visible !important; }
+
+
 
 #zarafa-navigationpanel > div {
   border-right: none; }
@@ -404,7 +418,8 @@ ul.x-tab-strip-top {
 .x-layout-split {
   width: 3px;
   height: 3px;
-  z-index: 5; }
+  z-index: 5;
+  background-color: #e6e6e6; }
 
 /* Common emptytext for empty grids. Overwriting x-grid-empty in some cases */
 .emptytext {
@@ -452,46 +467,46 @@ button::-moz-focus-inner {
 /* normal button */
 .x-btn {
   display: inline-block; }
-  .x-btn .x-btn-small, .x-btn .x-btn-medium, .x-btn .x-btn-large {
+  .x-btn :is(.x-btn-small, .x-btn-medium, .x-btn-large) {
     display: inline-block;
     border: 1px solid transparent;
     height: auto;
-    border-radius: 3px;
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
-    background: #e6e6e6;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease; }
-    .x-btn .x-btn-small em, .x-btn .x-btn-medium em, .x-btn .x-btn-large em {
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+    background: #f0f2f5;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease; }
+    .x-btn :is(.x-btn-small, .x-btn-medium, .x-btn-large) em {
       display: inline-block; }
-    .x-btn .x-btn-small button, .x-btn .x-btn-medium button, .x-btn .x-btn-large button {
+    .x-btn :is(.x-btn-small, .x-btn-medium, .x-btn-large) button {
       background-color: transparent;
       box-sizing: border-box;
-      /* override .x-btn button from ExtJs */
-      color: black; }
+      color: #1d2939;
+      font-weight: 500; }
 
 /* hovered button */
-.x-btn.x-btn-over .x-btn-small, .x-btn.x-btn-over .x-btn-medium, .x-btn.x-btn-over .x-btn-large {
-  border-radius: 3px;
-  background: #dadada;
-  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2); }
+.x-btn.x-btn-over :is(.x-btn-small, .x-btn-medium, .x-btn-large) {
+  border-radius: 6px;
+  background: #e4e7ec;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); }
 
 /* active button */
-.x-btn.x-btn-over.x-btn-click .x-btn-small, .x-btn.x-btn-over.x-btn-click .x-btn-medium, .x-btn.x-btn-over.x-btn-click .x-btn-large, .x-btn.x-btn-click .x-btn-small, .x-btn.x-btn-click .x-btn-medium, .x-btn.x-btn-click .x-btn-large {
-  border-radius: 3px;
-  background: #e6e6e6 !important;
-  box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.2); }
-  .x-btn.x-btn-over.x-btn-click .x-btn-small button, .x-btn.x-btn-over.x-btn-click .x-btn-medium button, .x-btn.x-btn-over.x-btn-click .x-btn-large button, .x-btn.x-btn-click .x-btn-small button, .x-btn.x-btn-click .x-btn-medium button, .x-btn.x-btn-click .x-btn-large button {
-    color: #333333; }
+.x-btn:is(.x-btn-over.x-btn-click, .x-btn-click) :is(.x-btn-small, .x-btn-medium, .x-btn-large) {
+  border-radius: 6px;
+  background: #d5d9e2 !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); }
+  .x-btn:is(.x-btn-over.x-btn-click, .x-btn-click) :is(.x-btn-small, .x-btn-medium, .x-btn-large) button {
+    color: #1d2939; }
 
 /* focused normal button */
-.x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-click) .x-btn-small, .x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-click) .x-btn-medium, .x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-click) .x-btn-large {
-  border: 1px solid #3094e3 !important;
+.x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-click) :is(.x-btn-small, .x-btn-medium, .x-btn-large) {
+  border: 1px solid var(--color-info) !important;
   z-index: 99;
   position: relative;
 }
 
 /* small button */
 .x-btn .x-btn-small button.x-btn-text {
-  height: 24px; }
+  height: 28px; }
 
 /* mail header space */
 .x-btn-noicon {
@@ -545,28 +560,30 @@ button::-moz-focus-inner {
 /**************************************
  * Action buttons
  *************************************/
-/* Normal and Disable button */
-.x-btn.zarafa-action .x-btn-small, .x-btn.zarafa-action .x-btn-medium, .x-btn.zarafa-action .x-btn-large {
+/* Normal action button */
+.x-btn.zarafa-action :is(.x-btn-small, .x-btn-medium, .x-btn-large) {
   background: var(--theme-primary-color) !important;
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2); }
-  .x-btn.zarafa-action .x-btn-small button, .x-btn.zarafa-action .x-btn-medium button, .x-btn.zarafa-action .x-btn-large button {
-    color: #ffffff !important; }
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 6px; }
+  .x-btn.zarafa-action :is(.x-btn-small, .x-btn-medium, .x-btn-large) button {
+    color: #ffffff !important;
+    font-weight: 600; }
 
-/* hovered button */
-.x-btn.zarafa-action.x-btn-over .x-btn-small, .x-btn.zarafa-action.x-btn-over .x-btn-medium, .x-btn.zarafa-action.x-btn-over .x-btn-large {
+/* hovered action button */
+.x-btn.zarafa-action.x-btn-over :is(.x-btn-small, .x-btn-medium, .x-btn-large) {
   background: var(--theme-primary-hover) !important;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25); }
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.1); }
 
 /* focused action button */
-.x-btn.zarafa-action.x-btn-focus .x-btn-small, .x-btn.zarafa-action.x-btn-focus .x-btn-medium, .x-btn.zarafa-action.x-btn-focus .x-btn-large {
+.x-btn.zarafa-action.x-btn-focus :is(.x-btn-small, .x-btn-medium, .x-btn-large) {
   background: var(--theme-primary-hover) !important;
   box-shadow: 0 0 0 2px rgba(var(--theme-primary-color-rgb, 94, 187, 75), 0.3); }
 
-/* active button */
-.x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-small, .x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-medium, .x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-large, .x-btn.zarafa-action.x-btn-click .x-btn-small, .x-btn.zarafa-action.x-btn-click .x-btn-medium, .x-btn.zarafa-action.x-btn-click .x-btn-large {
+/* active action button */
+.x-btn.zarafa-action:is(.x-btn-over.x-btn-click, .x-btn-click) :is(.x-btn-small, .x-btn-medium, .x-btn-large) {
   background: var(--theme-primary-color) !important;
   box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.2); }
-  .x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-small button, .x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-medium button, .x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-large button, .x-btn.zarafa-action.x-btn-click .x-btn-small button, .x-btn.zarafa-action.x-btn-click .x-btn-medium button, .x-btn.zarafa-action.x-btn-click .x-btn-large button {
+  .x-btn.zarafa-action:is(.x-btn-over.x-btn-click, .x-btn-click) :is(.x-btn-small, .x-btn-medium, .x-btn-large) button {
     color: #ffffff; }
 
 /* split button and arrow button */
@@ -575,169 +592,37 @@ button::-moz-focus-inner {
 
 /* For popup or windows or MessageBox, the first button is styled green */
 /* Extra class .xpanel-footer necessary for "Create Mail => Insert Item" pagination buttons */
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets),
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets),
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets),
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) {
-  /* action button */
-  /* hovered action button */
-  /* active action button */
-  /* focused action button */ }
-  .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.k-window-text-button) .x-btn-small, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.k-window-text-button) .x-btn-medium, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.k-window-text-button) .x-btn-large,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.k-window-text-button) .x-btn-small,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.k-window-text-button) .x-btn-medium,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.k-window-text-button) .x-btn-large,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.k-window-text-button) .x-btn-small,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.k-window-text-button) .x-btn-medium,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.k-window-text-button) .x-btn-large,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.k-window-text-button) .x-btn-small,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.k-window-text-button) .x-btn-medium,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.k-window-text-button) .x-btn-large {
-    border: 1px solid transparent !important; }
-  .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-medium, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-large,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-medium,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-large,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-medium,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-large,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-medium,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-large {
-    background: var(--theme-primary-color) !important; }
-    .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small button, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-medium button, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-large button,
-    .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small button,
-    .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-medium button,
-    .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-large button,
-    .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small button,
-    .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-medium button,
-    .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-large button,
-    .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small button,
-    .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-medium button,
-    .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-large button {
-      color: #ffffff; }
-  .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-small, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-medium, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-large,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-small,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-medium,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-large,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-small,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-medium,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-large,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-small,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-medium,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-large {
-    background: var(--theme-primary-hover) !important; }
-  .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-small, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-medium, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-large,
-  .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-small,
-  .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-  .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-large,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-small,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-large,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-small,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-large,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-small,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-large,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-small,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-large,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-small,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-large,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-small,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-large {
-    background: var(--theme-primary-color) !important; }
-  .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-normal) .x-btn-small, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-normal) .x-btn-medium, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-normal) .x-btn-large,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-normal) .x-btn-small,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-normal) .x-btn-medium,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-normal) .x-btn-large,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-normal) .x-btn-small,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-normal) .x-btn-medium,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-normal) .x-btn-large,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-normal) .x-btn-small,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-normal) .x-btn-medium,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-normal) .x-btn-large {
-    background: #59b147;
-    box-shadow: 0 0 0 1px #ffffff inset; }
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets),
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets),
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets),
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) {
-  /* Normal button */
-  /* hovered normal button */
-  /* active normal button */
-  /* focused normal button */ }
-  .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-small, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-medium, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-large,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-small,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-medium,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-large,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-small,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-medium,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-large,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-small,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-medium,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-large {
-    background-color: #e6e6e6 !important; }
-    .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-small button, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-medium button, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-large button,
-    .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-small button,
-    .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-medium button,
-    .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-large button,
-    .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-small button,
-    .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-medium button,
-    .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-large button,
-    .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-small button,
-    .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-medium button,
-    .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-large button {
-      color: #000000; }
-  .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-small, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-medium, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-large,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-small,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-medium,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-large,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-small,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-medium,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-large,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-small,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-medium,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-large {
-    background: #dadada !important; }
-  .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-action) .x-btn-small, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-action) .x-btn-medium, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-action) .x-btn-large,
-  .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-action) .x-btn-small,
-  .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-action) .x-btn-medium,
-  .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-action) .x-btn-large,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-action) .x-btn-small,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-action) .x-btn-medium,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-action) .x-btn-large,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-action) .x-btn-small,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-action) .x-btn-medium,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-action) .x-btn-large,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-action) .x-btn-small,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-action) .x-btn-medium,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-action) .x-btn-large,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-action) .x-btn-small,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-action) .x-btn-medium,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-action) .x-btn-large,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-action) .x-btn-small,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-action) .x-btn-medium,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-action) .x-btn-large,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-action) .x-btn-small,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-action) .x-btn-medium,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-action) .x-btn-large {
-    background: #e6e6e6 !important; }
-  .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-over):not(.x-btn-click) .x-btn-small, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-over):not(.x-btn-click) .x-btn-medium, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-over):not(.x-btn-click) .x-btn-large,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-over):not(.x-btn-click) .x-btn-small,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-over):not(.x-btn-click) .x-btn-medium,
-  .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-over):not(.x-btn-click) .x-btn-large,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-over):not(.x-btn-click) .x-btn-small,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-over):not(.x-btn-click) .x-btn-medium,
-  .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-over):not(.x-btn-click) .x-btn-large,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-over):not(.x-btn-click) .x-btn-small,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-over):not(.x-btn-click) .x-btn-medium,
-  .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-over):not(.x-btn-click) .x-btn-large {
-    border: 1px solid #3094e3 !important;
-    box-shadow: none !important; }
+.x-window :is(.x-panel-footer, .x-window-footer) :is(.x-toolbar-left-row, .x-toolbar-right-row) .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.k-window-text-button) :is(.x-btn-small, .x-btn-medium, .x-btn-large) {
+  border: 1px solid transparent !important; }
+.x-window :is(.x-panel-footer, .x-window-footer) :is(.x-toolbar-left-row, .x-toolbar-right-row) .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) :is(.x-btn-small, .x-btn-medium, .x-btn-large) {
+  background: var(--theme-primary-color) !important; }
+.x-window :is(.x-panel-footer, .x-window-footer) :is(.x-toolbar-left-row, .x-toolbar-right-row) .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) :is(.x-btn-small, .x-btn-medium, .x-btn-large) button {
+  color: #ffffff; }
+/* hovered action button */
+.x-window :is(.x-panel-footer, .x-window-footer) :is(.x-toolbar-left-row, .x-toolbar-right-row) .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) :is(.x-btn-small, .x-btn-medium, .x-btn-large) {
+  background: var(--theme-primary-hover) !important; }
+/* active action button */
+.x-window :is(.x-panel-footer, .x-window-footer) :is(.x-toolbar-left-row, .x-toolbar-right-row) .x-toolbar-cell:not(.x-hide-offsets) .x-btn:is(.x-btn-over.x-btn-click, .x-btn-click):not(.zarafa-normal) :is(.x-btn-small, .x-btn-medium, .x-btn-large) {
+  background: var(--theme-primary-color) !important; }
+/* focused action button */
+.x-window :is(.x-panel-footer, .x-window-footer) :is(.x-toolbar-left-row, .x-toolbar-right-row) .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-normal) :is(.x-btn-small, .x-btn-medium, .x-btn-large) {
+  background: var(--color-success);
+  box-shadow: 0 0 0 1px #ffffff inset; }
+/* Normal button (sibling cells) */
+.x-window :is(.x-panel-footer, .x-window-footer) :is(.x-toolbar-left-row, .x-toolbar-right-row) .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) :is(.x-btn-small, .x-btn-medium, .x-btn-large) {
+  background-color: #e6e6e6 !important; }
+.x-window :is(.x-panel-footer, .x-window-footer) :is(.x-toolbar-left-row, .x-toolbar-right-row) .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) :is(.x-btn-small, .x-btn-medium, .x-btn-large) button {
+  color: #000000; }
+/* hovered normal button */
+.x-window :is(.x-panel-footer, .x-window-footer) :is(.x-toolbar-left-row, .x-toolbar-right-row) .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-action):not(.k-recipient-hover-card-button) :is(.x-btn-small, .x-btn-medium, .x-btn-large) {
+  background: #dadada !important; }
+/* active normal button */
+.x-window :is(.x-panel-footer, .x-window-footer) :is(.x-toolbar-left-row, .x-toolbar-right-row) .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:is(.x-btn-over.x-btn-click, .x-btn-click):not(.zarafa-action) :is(.x-btn-small, .x-btn-medium, .x-btn-large) {
+  background: #e6e6e6 !important; }
+/* focused normal button */
+.x-window :is(.x-panel-footer, .x-window-footer) :is(.x-toolbar-left-row, .x-toolbar-right-row) .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-over):not(.x-btn-click) :is(.x-btn-small, .x-btn-medium, .x-btn-large) {
+  border: 1px solid #3094e3 !important;
+  box-shadow: none !important; }
 
 /* Drag & Drop icon override, select mail drag to folder hierarchy. */
 .x-tree-drop-ok-append .x-dd-drop-icon,
@@ -775,7 +660,7 @@ div.x-btn-group-bc {
   box-shadow: none !important; }
 .x-window .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-small, .x-window .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-medium, .x-window .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-large {
   border: 1px solid #dadada !important; }
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-small, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-medium, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-large, .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-small, .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-medium, .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-large, .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-small, .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-medium, .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-large, .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-small, .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-medium, .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-large {
+.x-window :is(.x-panel-footer, .x-window-footer) :is(.x-toolbar-left-row, .x-toolbar-right-row) .x-toolbar-cell:not(.x-hide-offsets) .k-recipient-hover-card-button.x-btn.x-btn-over :is(.x-btn-small, .x-btn-medium, .x-btn-large) {
   border: 1px solid #dadada !important; }
 .x-window .k-hover-card-email-text {
   padding-right: 6px !important; }
@@ -796,14 +681,14 @@ div.x-btn-group-bc {
   /* header */ }
   .x-panel .x-panel-header,
   .x-panel-ghost .x-panel-header {
-    color: #000000;
-    font-weight: normal;
-    border-color: #e6e6e6;
-    background: #e6e6e6;
+    color: #1d2939;
+    font-weight: 600;
+    border-color: #e4e7ec;
+    background: #f8f9fa;
     line-height: 20px;
-    padding: 12px 9px 12px 12px;
-    border-bottom: 1px solid #dadada;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04); }
+    padding: 12px 12px 12px 14px;
+    border-bottom: 1px solid #e4e7ec;
+    box-shadow: none; }
   .x-panel .x-panel-header .x-tool,
   .x-panel .x-layout-collapsed .x-tool,
   .x-panel-ghost .x-panel-header .x-tool,
@@ -894,9 +779,9 @@ div.x-btn-group-bc {
   border: none; }
 
 #zarafa-mainpanel-contentpanel-mail.zarafa-preview-right .zarafa-context-mainpanel {
-  border-right: 1px solid #e6e6e6; }
+  border-right: none; }
 #zarafa-mainpanel-contentpanel-mail.zarafa-preview-right #zarafa-main-content-mail-preview {
-  border-left: 1px solid #e6e6e6 !important;
+  border-left: none !important;
   margin-left: -3px; }
 
 #zarafa-mainpanel-contentpanel-mail.zarafa-preview-bottom .zarafa-context-mainpanel {
@@ -917,34 +802,39 @@ body.Safari input[type="radio"] {
   margin-left: 1px; }
 
 .x-form-item {
-  margin-bottom: 3px; }
+  margin-bottom: 4px; }
 
 .x-form-invalid, textarea.x-form-invalid,
 .x-form-text.x-form-invalid, textarea.x-form-field.x-form-invalid,
 .x-form-invalid.x-form-composite .x-form-invalid {
-  border-color: #e30022;
-  background: #fbdde1; }
+  border-color: var(--color-error);
+  background: #fef3f2; }
 
 .x-form-invalid.x-form-text + .x-form-trigger {
-  border-color: #e30022; }
+  border-color: var(--color-error); }
 
 .x-form-invalid.x-form-composite {
   background: transparent !important; }
 
 /* inputs and textareas */
 .x-form-text, textarea.x-form-field {
-  background: white;
-  border: 1px solid #e6e6e6;
-  padding: 6px;
-  border-radius: 3px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+  background: #f8f9fa;
+  border: 1px solid #d0d5dd;
+  padding: 6px 0 0 6px;
+  border-radius: 6px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease; }
 
 .x-form-text {
-  padding: 0 6px; }
+  padding: 0 0 0 6px; }
+
+.x-form-text:hover, textarea.x-form-field:hover {
+  border-color: #98a2b3;
+  background: #ffffff; }
 
 .x-form-text.x-form-focus:not(.x-trigger-noedit) {
-  border-color: #3094e3 !important;
-  box-shadow: 0 0 0 2px rgba(48, 148, 227, 0.15);
+  border-color: var(--theme-primary-color) !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--theme-primary-color) 12%, transparent);
+  background: #ffffff;
   position: relative;
   z-index: 99 }
 
@@ -957,70 +847,81 @@ body.Safari input[type="radio"] {
 .ext-strict .x-form-text:not(.x-zarafa-boxfield):not(.x-zarafa-boxfield-input),
 .ext-webkit .x-small-editor .x-form-text:not(.x-zarafa-boxfield):not(.x-zarafa-boxfield-input),
 .ext-strict .ext-webkit .x-small-editor .x-form-text:not(.x-zarafa-boxfield):not(.x-zarafa-boxfield-input) {
-  line-height: 24px;
-  height: 22px !important;
+  line-height: 28px;
+  height: 28px !important;
   /* subtract 2 for the border-width */ }
 
 /* combobox and spinner field */
 .x-form-field-trigger-wrap .x-form-text,
 .x-form-field-wrap .x-form-text {
-  line-height: 22px;
-  height: 22px;
-  border-radius: 3px 0 0 3px; }
+  line-height: 26px;
+  height: 28px;
+  box-sizing: border-box;
+  border-radius: 6px 0 0 6px; }
 .x-form-field-trigger-wrap .x-form-trigger,
 .x-form-field-trigger-wrap .x-form-spinner-trigger,
 .x-form-field-wrap .x-form-trigger,
 .x-form-field-wrap .x-form-spinner-trigger {
-  height: 22px !important;
-  width: 14px;
-  border: 1px solid #e6e6e6;
+  height: 28px !important;
+  width: 24px;
+  box-sizing: border-box;
+  border: 1px solid #d0d5dd;
   border-left: none;
-  background-color: #f8f8f8 !important;
-  border-radius: 0 3px 3px 0;
-  transition: background-color 0.2s ease; }
+  background-color: #f0f2f5 !important;
+  border-radius: 0 6px 6px 0;
+  transition: background 0.2s ease; }
 .x-form-field-trigger-wrap .x-form-trigger-over,
-.x-form-field-trigger-wrap .x-form-spinner-trigger-over,
-.x-form-field-wrap .x-form-trigger-over,
-.x-form-field-wrap .x-form-spinner-trigger-over {
-  background-color: #f2f2f2 !important; }
+.x-form-field-wrap .x-form-trigger-over {
+  background-color: #e4e7ec !important; }
+
+/* Spinner field - separate up/down arrows centered in each half */
+.x-form-field-wrap .x-form-spinner-trigger {
+  background:
+    url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgMTIgNiI+PHBhdGggZmlsbD0iIzIxMjEyMSIgZD0iTTkuMzk1IDQuMTk1YS41MDIuNTAyIDAgMCAxLS4wNjMuNjhjLS4yLjE3Mi0uNS4xNjQtLjY4NC0uMDIzTDYgMi4yMDcgMy4zNTIgNC44NTJsLS4wNDcuMDQzYS41MDIuNTAyIDAgMCAxLS42OC0uMDYzLjUwMS41MDEgMCAwIDEgLjAyMy0uNjg0bDMtMyAuMDQ3LS4wNDNhLjQ5Mi40OTIgMCAwIDEgLjY1Ny4wNDNsMyAzWiIvPjwvc3ZnPg==) no-repeat center calc(25% - 2px),
+    url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDYgMTIgNiI+PHBhdGggZmlsbD0iIzIxMjEyMSIgZD0iTTIuNjA1IDcuODA1YS41MDIuNTAyIDAgMCAxIC4wNjMtLjY4Yy4yLS4xNzIuNS0uMTY0LjY4NC4wMjNMNiA5Ljc5M2wyLjY0OC0yLjY0NS4wNDctLjA0M2EuNTAyLjUwMiAwIDAgMSAuNjguMDYzYy4xNzIuMi4xNjQuNS0uMDIzLjY4NGwtMyAzLS4wNDcuMDQzYS40OTIuNDkyIDAgMCAxLS42NTctLjA0M2wtMy0zWiIvPjwvc3ZnPg==) no-repeat center calc(75% + 2px),
+    linear-gradient(to bottom, #f0f2f5 calc(50% - 0.5px), #d0d5dd calc(50% - 0.5px), #d0d5dd calc(50% + 0.5px), #f0f2f5 calc(50% + 0.5px)) !important;
+  cursor: default; }
+.x-form-field-wrap .x-form-spinner-trigger.x-form-spinner-overup {
+  background:
+    url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgMTIgNiI+PHBhdGggZmlsbD0iIzIxMjEyMSIgZD0iTTkuMzk1IDQuMTk1YS41MDIuNTAyIDAgMCAxLS4wNjMuNjhjLS4yLjE3Mi0uNS4xNjQtLjY4NC0uMDIzTDYgMi4yMDcgMy4zNTIgNC44NTJsLS4wNDcuMDQzYS41MDIuNTAyIDAgMCAxLS42OC0uMDYzLjUwMS41MDEgMCAwIDEgLjAyMy0uNjg0bDMtMyAuMDQ3LS4wNDNhLjQ5Mi40OTIgMCAwIDEgLjY1Ny4wNDNsMyAzWiIvPjwvc3ZnPg==) no-repeat center calc(25% - 2px),
+    url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDYgMTIgNiI+PHBhdGggZmlsbD0iIzIxMjEyMSIgZD0iTTIuNjA1IDcuODA1YS41MDIuNTAyIDAgMCAxIC4wNjMtLjY4Yy4yLS4xNzIuNS0uMTY0LjY4NC4wMjNMNiA5Ljc5M2wyLjY0OC0yLjY0NS4wNDctLjA0M2EuNTAyLjUwMiAwIDAgMSAuNjguMDYzYy4xNzIuMi4xNjQuNS0uMDIzLjY4NGwtMyAzLS4wNDcuMDQzYS40OTIuNDkyIDAgMCAxLS42NTctLjA0M2wtMy0zWiIvPjwvc3ZnPg==) no-repeat center calc(75% + 2px),
+    linear-gradient(to bottom, #e4e7ec calc(50% - 0.5px), #d0d5dd calc(50% - 0.5px), #d0d5dd calc(50% + 0.5px), #f0f2f5 calc(50% + 0.5px)) !important;
+  cursor: pointer; }
+.x-form-field-wrap .x-form-spinner-trigger.x-form-spinner-overdown {
+  background:
+    url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgMTIgNiI+PHBhdGggZmlsbD0iIzIxMjEyMSIgZD0iTTkuMzk1IDQuMTk1YS41MDIuNTAyIDAgMCAxLS4wNjMuNjhjLS4yLjE3Mi0uNS4xNjQtLjY4NC0uMDIzTDYgMi4yMDcgMy4zNTIgNC44NTJsLS4wNDcuMDQzYS41MDIuNTAyIDAgMCAxLS42OC0uMDYzLjUwMS41MDEgMCAwIDEgLjAyMy0uNjg0bDMtMyAuMDQ3LS4wNDNhLjQ5Mi40OTIgMCAwIDEgLjY1Ny4wNDNsMyAzWiIvPjwvc3ZnPg==) no-repeat center calc(25% - 2px),
+    url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDYgMTIgNiI+PHBhdGggZmlsbD0iIzIxMjEyMSIgZD0iTTIuNjA1IDcuODA1YS41MDIuNTAyIDAgMCAxIC4wNjMtLjY4Yy4yLS4xNzIuNS0uMTY0LjY4NC4wMjNMNiA5Ljc5M2wyLjY0OC0yLjY0NS4wNDctLjA0M2EuNTAyLjUwMiAwIDAgMSAuNjguMDYzYy4xNzIuMi4xNjQuNS0uMDIzLjY4NGwtMyAzLS4wNDcuMDQzYS40OTIuNDkyIDAgMCAxLS42NTctLjA0M2wtMy0zWiIvPjwvc3ZnPg==) no-repeat center calc(75% + 2px),
+    linear-gradient(to bottom, #f0f2f5 calc(50% - 0.5px), #d0d5dd calc(50% - 0.5px), #d0d5dd calc(50% + 0.5px), #e4e7ec calc(50% + 0.5px)) !important;
+  cursor: pointer; }
 .x-form-field-trigger-wrap .x-form-spinner-splitter,
 .x-form-field-wrap .x-form-spinner-splitter {
   display: none !important; }
 
 .x-combo-list {
-  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
-  border-color: #b6b6b6;
-  border-radius: 3px; }
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-color: #e0e0e0;
+  border-radius: 8px; }
 
 .x-combo-list-inner {
-  padding: 3px 0; }
+  padding: 4px 0; }
   .x-combo-list-inner .x-combo-list-item {
-    user-select: none;
     -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    line-height: 18px;
-    padding: 6px 9px;
-    margin: 0 3px;
+    user-select: none;
+    line-height: 20px;
+    padding: 8px 12px;
+    margin: 2px 4px;
     border: none !important;
-    border-radius: 2px;
+    border-radius: 6px;
     transition: background-color 0.15s ease; }
   .x-combo-list-inner .x-combo-list-item:hover {
-    background-color: #f2f2f2; }
+    background-color: #f2f4f7; }
 
-.x-tree-node-leaf .x-tree-node-icon {
-    height: 30px;
-    width: 22px;
-}
-
-.x-tree-node-expanded .x-tree-node-icon {
-    height: 30px;
-    width: 22px;
-}
-
+.x-tree-node-leaf .x-tree-node-icon,
+.x-tree-node-expanded .x-tree-node-icon,
 .x-tree-node-collapsed .x-tree-node-icon {
     height: 30px;
     width: 22px;
+    vertical-align: middle;
 }
 
 .x-combo-list-item.k-combo-list-item-header {
@@ -1034,14 +935,20 @@ body.Safari input[type="radio"] {
 
 /* fieldsets */
 .x-fieldset {
-  border: 0;
-  padding: 9px 6px;
+  border: 1px solid #e4e7ec;
+  padding: 12px;
   margin: 0;
-  margin-top: 10px;
-  border-radius: 4px; }
+  border-radius: 8px;
+  background: #fafbfc;
+  box-sizing: border-box; }
+.x-fieldset .x-panel-body {
+  background: transparent !important; }
   .x-fieldset legend {
-    color: #212121;
-    padding: 0 3px; }
+    color: #344054;
+    padding: 0 8px;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.01em; }
 
 /* checkbox */
 .x-form-check-wrap input {
@@ -1052,7 +959,7 @@ body.Safari input[type="radio"] {
   margin-left: 3px; }
 
 .zarafa-delayeddelivery-invalid-date {
-  color: #FF0000; }
+  color: var(--color-error); }
 
 .zarafa-radiodatetime-datetimefield {
   background-position-y: 24px; }
@@ -1087,8 +994,8 @@ body.Safari input[type="radio"] {
 
 /* column headers - modern flat style */
 .x-grid3-header {
-  background: #fafafa;
-  border-bottom: 1px solid #e0e0e0;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e4e7ec;
   padding: 0;
   box-shadow: none; }
 
@@ -1304,14 +1211,14 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   padding-bottom: 6px; }
 
 .x-grid3-row-over {
-  background: #f2f2f2;
-  border-color: #e6e6e6;
-  border-bottom: 1px solid rgba(230, 230, 230, 0.5);
+  background: #f2f4f7;
+  border-color: #e4e7ec;
+  border-bottom: 1px solid rgba(228, 231, 236, 0.5);
   /* Ext wants to make the hovered border darker, we don't */ }
 
 .x-grid3-row-selected {
-  background: #d5e8f7 !important;
-  border-bottom: 1px solid rgba(230, 230, 230, 0.5);
+  background: var(--theme-selection-bg) !important;
+  border-bottom: 1px solid rgba(228, 231, 236, 0.5);
   /* Ext uses important, so we also must do that */ }
 
 /* Flags */
@@ -1341,7 +1248,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 
 /* Task grid Due tasks row */
 .zarafa-task-overdue {
-  color: #e30022; }
+  color: var(--color-error); }
 
 /* Task grid Completed tasks row */
 .zarafa-task-complete {
@@ -1461,6 +1368,12 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   line-height: 20px;
   padding: 6px 6px 6px; }
 
+/* Override ExtJS default blue (#99bbe8) panel borders */
+.x-panel-tbar .x-toolbar,
+.x-panel-bbar .x-toolbar,
+.x-panel-body {
+  border-color: #e6e6e6; }
+
 .x-panel-noborder .x-panel-tbar-noborder .x-toolbar {
   border-width: 0 0 1px;
   border-color: #e6e6e6; }
@@ -1468,13 +1381,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 .x-panel-noborder .x-panel-tbar-noborder .x-toolbar .x-toolbar {
   border-width: 0; }
 
-.x-panel-bbar .x-toolbar, .x-panel-tbar .x-toolbar, .k-search-toolbar-panel .x-toolbar {
-  padding: 1.5px 6px 1.5px 3px;
-  /* we need to subtract 2px extra to account for the borders around the buttons */
-  border: none;
-  border-bottom: 1px solid #e6e6e6; }
-
-/* global search input field */
+/* global search input field (legacy, kept for search toolbar panel) */
 .zarafa-searchfield {
   padding-top: 0px !important;
   max-width: 350px;
@@ -1483,7 +1390,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 /* separator In ExtJS it's tbseperator, used in for example create new mail dialog*/
 .x-toolbar .xtb-sep {
   background-image: none;
-  border-left: 1px solid #aca889; }
+  border-left: 1px solid #e4e7ec; }
 
 /* exception for the (hacked) search toolbar which has a toolbar in a toobar */
 .x-toolbar .x-toolbar {
@@ -1504,12 +1411,12 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   /* Meeting/Task request buttongroup */ }
   .x-toolbar .x-btn .x-btn-small {
     margin-right: 1px;
-    border-radius: 4px; }
+    border-radius: 6px; }
   .x-toolbar .x-btn:not(.zarafa-action):not(.x-btn-noicon) {
     background-color: transparent;
     padding: 3px;
     margin: 0 1px;
-    border-radius: 4px;
+    border-radius: 6px;
     transition: background-color 0.15s ease; }
     .x-toolbar .x-btn:not(.zarafa-action):not(.x-btn-noicon) .x-btn-small {
       background-color: transparent !important;
@@ -1574,10 +1481,10 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   background: #ffffff !important; }
 
 .x-menu {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
   background: #ffffff;
-  border: 1px solid #d0d0d0;
-  border-radius: 6px;
+  border: 1px solid #e4e7ec;
+  border-radius: 10px;
   overflow: hidden; }
   .x-menu .x-menu-item-active {
     border: none !important; }
@@ -1600,7 +1507,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
         width: 100%;
         box-sizing: border-box;
         line-height: 20px;
-        padding: 10px 12px 6px 40px;
+        padding: 10px 12px 8px 40px;
         border: none !important;
         margin: 0 !important;
         border-radius: 0;
@@ -1785,25 +1692,25 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
 ul.x-tab-strip {
   padding-top: 8px;
   padding-left: 8px;
-  border-color: #e6e6e6; }
+  border-color: #e4e7ec; }
   ul.x-tab-strip li {
     display: inline-block;
     margin: 0 4px 0 0;
     border: 1px solid transparent !important;
-    border-bottom-color: #e6e6e6 !important;
-    border-radius: 4px 4px 0 0;
+    border-bottom-color: #e4e7ec !important;
+    border-radius: 8px 8px 0 0;
     overflow: hidden;
     transition: border-color 0.15s ease, background-color 0.15s ease; }
     ul.x-tab-strip li .x-tab-right {
       background: transparent;
       padding-left: 10px;
       padding-right: 10px;
-      border-radius: 4px 4px 0 0;
+      border-radius: 8px 8px 0 0;
       transition: background-color 0.15s ease; }
       ul.x-tab-strip li .x-tab-right .x-tab-left {
         background: transparent;
         padding: 0;
-        border-radius: 4px 4px 0 0; }
+        border-radius: 8px 8px 0 0; }
         ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner {
           background: transparent;
           overflow: visible; }
@@ -1967,7 +1874,7 @@ ul.x-tab-strip-top {
      * We need to set a minimum height because the attachment field by default has no contents and therefore would
      * have a height of 0
      */
-    min-height: 22px;
+    min-height: 26px;
     /* the icon for recipient fields */
     /* Display the icon when the recipient box is resolved */
     /* TODO: the colors for the ambiguous items should be designed */ }
@@ -1982,24 +1889,26 @@ ul.x-tab-strip-top {
       .x-zarafa-boxfield ul li.x-zarafa-boxfield-input-item input.x-zarafa-boxfield-input-noborder {
         padding: 0 6px;
         border: none;
+        height: 24px;
+        line-height: 24px;
         /* ExtJS adds a gradient as background, here we remove it */
         background-image: none; }
       .x-zarafa-boxfield ul li.x-zarafa-boxfield-input-item input.x-trigger-noedit {
         cursor: auto; }
     .x-zarafa-boxfield ul .x-zarafa-boxfield-item {
-      padding: 0 0 0 6px;
-      background: #f8f8f8;
-      border: 1px solid #e6e6e6;
-      border-radius: 2px; }
+      padding: 0 0 0 8px;
+      background: #f0f2f5;
+      border: 1px solid #d0d5dd;
+      border-radius: 16px; }
       .x-zarafa-boxfield ul .x-zarafa-boxfield-item .x-zarafa-boxfield-item-icon {
         float: left;
         height: 16px;
         width: 16px;
         margin-right: 6px;
-        margin-top: 1px; }
+        margin-top: 3px; }
       .x-zarafa-boxfield ul .x-zarafa-boxfield-item .x-zarafa-boxfield-item-text {
         float: left;
-        line-height: 18px;
+        line-height: 22px;
         overflow: hidden; }
       .x-zarafa-boxfield ul .x-zarafa-boxfield-item .x-zarafa-boxfield-item-close {
         float: left;
@@ -2008,15 +1917,15 @@ ul.x-tab-strip-top {
         padding-right: 6px;
         width: 7px;
         height: 7px;
-        margin-top: 5.5px;
+        margin-top: 7.5px;
         /*
         @extend .icon_cross;
         background-position: sprite-position($icons, icon_cross, $offset-y: 0, $offset-x: $padding-medium);
         */ }
     .x-zarafa-boxfield ul .x-zarafa-boxfield-item-hover,
     .x-zarafa-boxfield ul .x-zarafa-boxfield-recipient-item.x-zarafa-boxfield-item-hover {
-      background: #f2f2f2;
-      border: 1px solid #dadada; }
+      background: #e4e7ec;
+      border: 1px solid #98a2b3; }
     .x-zarafa-boxfield ul .x-zarafa-boxfield-item-focus,
     .x-zarafa-boxfield ul .x-zarafa-boxfield-recipient-item.x-zarafa-boxfield-item-focus {
       background-color: #d5e8f7; }
@@ -2029,8 +1938,8 @@ ul.x-tab-strip-top {
       background: transparent;
       border-color: transparent; }
       .x-zarafa-boxfield ul .x-zarafa-boxfield-recipient-item-invalid .x-zarafa-boxfield-item-text {
-        border-bottom: 2px dotted #e40023;
-        line-height: 13px;
+        border-bottom: 2px dotted var(--color-error);
+        line-height: 18px;
         padding-top: 2px; }
     .x-zarafa-boxfield ul .x-zarafa-boxfield-recipient-item-ambiguous {
       background: #f8bf76;
@@ -2041,7 +1950,7 @@ ul.x-tab-strip-top {
     .x-zarafa-boxfield ul .x-zarafa-boxfield-item-expand {
       width: 8px;
       height: 8px;
-      margin-top: 6px;
+      margin-top: 7px;
       float: left;
       display: block;
       padding-right: 6px;
@@ -2112,8 +2021,7 @@ body.scrollFavorites .zarafa-tree-ipm-subtree-favorites-container, .x-window .za
 
 /* hierarchy toolbar (Show all folders panel) */
 #zarafa-navigationpanel .zarafa-hierarchy-treepanel .zarafa-hierarchy-treepanel-tbar .x-toolbar {
-  /* Bottom has -1 pixel since we have a bottom-border of 1px */
-  padding: 4px 12px 4px; }
+  padding: 0 0 0 12px; }
   #zarafa-navigationpanel .zarafa-hierarchy-treepanel .zarafa-hierarchy-treepanel-tbar .x-toolbar .x-form-check-wrap input, #zarafa-navigationpanel .zarafa-hierarchy-treepanel .zarafa-hierarchy-treepanel-tbar .x-toolbar .x-form-check-wrap label {
     line-height: 20px;
     vertical-align: middle; }
@@ -2193,9 +2101,31 @@ Note: Does not work in IE11 */
   padding: 0 0 0 0;
   margin: 0 0 0 0; }
 
+/* Hierarchy tree search field */
+/* Hierarchy tree search field */
+input.x-form-text.k-searchfolder-field {
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'%3E%3Cpath fill='%23999' d='M6.667 1.667a5 5 0 0 1 3.976 8.032l3.162 3.163a.667.667 0 0 1-.88.998l-.063-.055-3.163-3.163A5 5 0 1 1 6.667 1.667m0 1.333a3.667 3.667 0 1 0 0 7.333 3.667 3.667 0 0 0 0-7.333'/%3E%3C/svg%3E") no-repeat 6px center / 14px 14px !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 8px 0 26px !important;
+  font-size: 13px;
+  color: #333;
+  transition: background-color 0.15s ease; }
+input.x-form-text.k-searchfolder-field:hover {
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important; }
+input.x-form-text.k-searchfolder-field.x-form-focus {
+  background-color: #f0f4ff !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important; }
+
 /* counters */
 .zarafa-hierarchy-node-total-count span.zarafa-hierarchy-node-counter {
-  color: #59b147; }
+  color: var(--color-success); }
 
 .zarafa-hierarchy-node-unread-count span.zarafa-hierarchy-node-counter {
   color: #1e88e5; }
@@ -2233,8 +2163,6 @@ Note: Does not work in IE11 */
   /* pulling it to the top and the right to be able to create a larger click area */
   cursor: pointer;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none; }
 
 .preview-header-titlebox,
@@ -2317,10 +2245,11 @@ Note: Does not work in IE11 */
 
 /* Preview header email address */
 span.zarafa-emailaddress-link {
-  cursor: pointer; }
+  cursor: pointer;
+  color: var(--theme-primary-color); }
 
 span.zarafa-emailaddress-link:hover {
-  color: #0000FF;
+  color: color-mix(in srgb, var(--theme-primary-color) 70%, black);
   text-decoration: underline; }
   
 .preview-header-sentinfo .preview-timestamp {
@@ -2334,7 +2263,6 @@ span.preview-header-sender-initial {
   border:1px solid;
   color:#0f70bd;
   border-radius:50%;
-  -moz-border-radius:50%;
   display:inline-block;
   line-height:40px;
   margin-right:7px;
@@ -2350,7 +2278,6 @@ span.preview-header-sender-image {
   background-position:center;
   background-repeat:no-repeat;
   border-radius:50%;
-  -moz-border-radius:50%;
   display:inline-block;
   min-height:40px;
   margin-right:7px;
@@ -2365,19 +2292,21 @@ span.preview-header-sender-image {
   word-wrap: break-word; }
 
 .preview-header-attachments .zarafa-attachment-link {
-  border-radius: 4px;
-  border: 1px solid #d3d2d2;
-  background-color: #ebeaeb;
-  color: #00a;
-  padding: 1px 5px;
-  margin: 1px;
-  box-shadow: 0 0 1px #ddd inset;
+  border-radius: 16px;
+  border: 1px solid #d0d5dd;
+  background-color: #f0f2f5;
+  color: #1d2939;
+  padding: 2px 10px;
+  margin: 2px;
+  box-shadow: none;
   cursor: pointer;
   display: inline-flex;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
 .preview-header-attachments .zarafa-attachment-link-over {
-  background-color: #ddd; }
+  background-color: #e4e7ec;
+  border-color: #98a2b3; }
 
 .preview-header-task .preview-from .task-info-container span {
   min-width: 80px;
@@ -2465,8 +2394,14 @@ span.preview-header-sender-image {
   padding: 6px;
   min-height: 24px;
   border-bottom: 1px solid #e6e6e6; }
-  .k-appointmentcreatetab .k-field-to button,
-  .k-taskgeneraltab .k-field-to button {
+  .k-appointmentcreatetab .k-field-to .x-btn .x-btn-small,
+  .k-taskgeneraltab .k-field-to .x-btn .x-btn-small {
+    height: 28px !important;
+    padding: 0 !important; }
+  .k-appointmentcreatetab .k-field-to .x-btn .x-btn-small button,
+  .k-taskgeneraltab .k-field-to .x-btn .x-btn-small button {
+    height: 28px !important;
+    line-height: 28px;
     text-align: left; }
 .k-appointmentcreatetab .k-subject-panel,
 .k-appointmentcreatetab .k-createin-panel,
@@ -2487,32 +2422,26 @@ span.preview-header-sender-image {
     line-height: 20px;
     padding-top: 2px;
     width: 72px !important; }
-.k-appointmentcreatetab .k-datetime-panel table,
 .k-taskgeneraltab .k-datetime-panel table {
   width: 100%;
   border-collapse: collapse;
   white-space: nowrap; }
-  .k-appointmentcreatetab .k-datetime-panel table tr:nth-child(2),
   .k-taskgeneraltab .k-datetime-panel table tr:nth-child(2) {
     border-bottom: 1px solid #e6e6e6; }
-  .k-appointmentcreatetab .k-datetime-panel table td:first-child,
-  .k-taskgeneraltab .k-datetime-panel table td:first-child {
-    width: 100px; }
-    /*
-    .k-appointmentcreatetab .k-datetime-panel table td:first-child td:first-child,
-    .k-taskgeneraltab .k-datetime-panel table td:first-child td:first-child {
-      width: auto; }
-      */
+  .k-taskgeneraltab .k-datetime-panel .k-date-panel table {
+    width: auto; }
 .k-appointmentcreatetab .k-date-panel,
 .k-taskgeneraltab .k-date-panel {
-  padding: 6px;
-  padding-right: 36px; }
-  .k-appointmentcreatetab .k-date-panel .x-form-item:first-child label,
+  padding: 6px; }
+  .k-appointmentcreatetab .k-date-panel label.x-form-item-label {
+    text-align: left;
+    line-height: 20px; }
   .k-taskgeneraltab .k-date-panel .x-form-item:first-child label {
+    text-align: left;
     padding: 0 6px;
     line-height: 20px;
-    padding-top: 2px; }
-  .k-appointmentcreatetab .k-date-panel .x-form-item:last-child label,
+    padding-top: 2px;
+    width: 72px !important; }
   .k-taskgeneraltab .k-date-panel .x-form-item:last-child label {
     padding: 0 9px;
     line-height: 20px;
@@ -2526,15 +2455,30 @@ span.preview-header-sender-image {
 .k-taskgeneraltab .k-label-panel,
 .k-taskgeneraltab .k-status-panel,
 .k-taskgeneraltab .k-priority-complete-panel {
-  padding: 5px;
+  padding: 6px;
+  border-bottom: 1px solid #e6e6e6; }
+.k-taskgeneraltab .k-busystatus-panel,
+.k-taskgeneraltab .k-status-panel,
+.k-taskgeneraltab .k-priority-complete-panel {
   padding-left: 12px;
   border-left: 1px solid #e6e6e6; }
+  .k-appointmentcreatetab .k-busystatus-panel label,
+  .k-appointmentcreatetab .k-label-panel label,
+  .k-appointmentcreatetab .k-status-panel label,
+  .k-appointmentcreatetab .k-reminder-panel label,
+  .k-taskgeneraltab .k-busystatus-panel label,
+  .k-taskgeneraltab .k-label-panel label,
+  .k-taskgeneraltab .k-status-panel label {
+    text-align: left;
+    padding: 0 6px;
+    line-height: 20px;
+    padding-top: 2px;
+    width: 72px !important; }
 .k-appointmentcreatetab .k-reminder-panel,
 .k-appointmentcreatetab .k-taskrequestsettings,
 .k-taskgeneraltab .k-reminder-panel,
 .k-taskgeneraltab .k-taskrequestsettings {
-  padding: 5px;
-  padding-left: 11px; }
+  padding: 6px; }
   .k-appointmentcreatetab .k-reminder-panel .x-form-check-wrap,
   .k-appointmentcreatetab .k-taskrequestsettings .x-form-check-wrap,
   .k-taskgeneraltab .k-reminder-panel .x-form-check-wrap,
@@ -2598,16 +2542,26 @@ span.preview-header-sender-image {
   /* the general tab */ }
   .zarafa-contactcreatepanel .zarafa-contactgeneraltab > .x-panel-bwrap > .x-panel-body,
   .zarafa-contactcreatepanel .zarafa-contactdetailtab > .x-panel-bwrap > .x-panel-body {
-    padding: 6px; }
+    padding: 6px;
+    overflow: auto !important; }
     .zarafa-contactcreatepanel .zarafa-contactgeneraltab > .x-panel-bwrap > .x-panel-body fieldset,
     .zarafa-contactcreatepanel .zarafa-contactdetailtab > .x-panel-bwrap > .x-panel-body fieldset {
-      border: none; }
+      border: none !important;
+      margin: 0 4px 8px;
+      padding: 10px;
+      box-sizing: border-box;
+      background: #f6f8fa;
+      border-radius: 8px;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08); }
       .zarafa-contactcreatepanel .zarafa-contactgeneraltab > .x-panel-bwrap > .x-panel-body fieldset legend,
       .zarafa-contactcreatepanel .zarafa-contactdetailtab > .x-panel-bwrap > .x-panel-body fieldset legend {
         font-weight: bold; }
       .zarafa-contactcreatepanel .zarafa-contactgeneraltab > .x-panel-bwrap > .x-panel-body fieldset .x-form-item,
       .zarafa-contactcreatepanel .zarafa-contactdetailtab > .x-panel-bwrap > .x-panel-body fieldset .x-form-item {
         margin-bottom: 6px; }
+      .zarafa-contactcreatepanel .zarafa-contactgeneraltab > .x-panel-bwrap > .x-panel-body fieldset .x-form-field-wrap,
+      .zarafa-contactcreatepanel .zarafa-contactdetailtab > .x-panel-bwrap > .x-panel-body fieldset .x-form-field-wrap {
+        width: 100%; }
       .zarafa-contactcreatepanel .zarafa-contactgeneraltab > .x-panel-bwrap > .x-panel-body fieldset .zarafa-compositefield.x-box-layout-ct,
       .zarafa-contactcreatepanel .zarafa-contactdetailtab > .x-panel-bwrap > .x-panel-body fieldset .zarafa-compositefield.x-box-layout-ct {
         overflow: visible; }
@@ -2639,15 +2593,8 @@ span.preview-header-sender-image {
     border: 1px solid #e6e6e6;
     padding: 3px;
     -webkit-touch-callout: none;
-    /* iOS Safari */
     -webkit-user-select: none;
-    /* Chrome/Safari/Opera */
-    -moz-user-select: none;
-    /* Firefox */
-    -ms-user-select: none;
-    /* IE/Edge */
-    user-select: none;
-    /* non-prefixed version, currently not supported by any browser */ }
+    user-select: none; }
   .zarafa-contactcreatepanel .zarafa-contactgeneraltab .contact_photo_box {
     margin: 3px 0 0 3px;
     width: 94px;
@@ -2813,12 +2760,16 @@ span.preview-header-sender-image {
     overflow: hidden;
     text-overflow: ellipsis; }
   .zarafa-calendar-container-header .k-html-header-background .k-today .k-cal-header-title {
-    background: #5ebb4b;
+    background: linear-gradient(to bottom, #5ebb4b, #7ecc6f);
     color: #ffffff; }
   .zarafa-calendar-container-header .k-html-header-background .k-active-border {
     border-right: 1px solid #5ebb4b; }
   .zarafa-calendar-container-header .k-html-header-background .k-today:first-child {
     border-left: 1px solid #5ebb4b; }
+/* Mute inactive (non-selected) calendar headers */
+.zarafa-calendar-container-header .k-html-header-background.k-inactive-calendar {
+  opacity: 0.55; }
+
 .zarafa-calendar-container-header .k-html-header-appointment {
   position: absolute;
   top: 0; }
@@ -2934,7 +2885,7 @@ span.preview-header-sender-image {
     border-right-width: 3px;
     border-bottom-width: 3px; }
     .zarafa-calendar-boxview .zarafa-calendar-container-body .k-html-body-background .k-today .k-header {
-      background: #5ebb4b !important;
+      background: linear-gradient(to bottom, #5ebb4b, #7ecc6f) !important;
       color: #ffffff; }
   .zarafa-calendar-boxview .zarafa-calendar-container-body .k-html-body-background .k-status-tentative {
     background-image: url(data:image/gif;base64,R0lGODlhCAAIAIABAP///wAAACH5BAEKAAEALAAAAAAIAAgAAAIPhIN2qRgKHIwPslZxpq8AADs=);
@@ -3020,7 +2971,7 @@ span.preview-header-sender-image {
 .k-calendar-timestrip-indicator-line {
   height: 1px;
   position: absolute;
-  background-color: #e40023;
+  background-color: var(--color-error);
   overflow: hidden;
   left: 24px; }
 
@@ -3029,6 +2980,16 @@ span.preview-header-sender-image {
  */
 .zarafa-canvas {
   position: absolute; }
+
+/* Distinguish active from inactive calendar tabs */
+.zarafa-calendar.zarafa-calendar-tab {
+  opacity: 0.6; }
+
+.zarafa-calendar.zarafa-calendar-tab:hover {
+  opacity: 0.8; }
+
+.zarafa-calendar.zarafa-with-close-icon.zarafa-calendar-tab-selected {
+  opacity: 1; }
 
 /* Currently selected tab */
 .zarafa-calendar-tabarea .zarafa-calendar-tab-selected .zarafa-calendar-tab-title {
@@ -3170,14 +3131,14 @@ div.zarafa-contact-cardview-selected {
   color: #5f6368; }
 
 .x-window .x-panel-header {
-  font-weight: bold;
-  border-bottom: 1px solid lightgrey;
-  background: #ffffff; }
+  font-weight: 600;
+  border-bottom: 1px solid #e4e7ec;
+  background: #fafbfc; }
 
 .x-window,
 .x-panel-ghost {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
   overflow: hidden;
   /* header */
   /* body */
@@ -3191,22 +3152,22 @@ div.zarafa-contact-cardview-selected {
   .x-panel-ghost .x-window-tl {
     padding-left: 9px;
     background: #ffffff;
-    border-radius: 8px 8px 0 0; }
+    border-radius: 12px 12px 0 0; }
     .x-window .x-window-tl .x-window-tr,
     .x-panel-ghost .x-window-tl .x-window-tr {
       padding-right: 0;
       background: none; }
       .x-window .x-window-tl .x-window-tr .x-window-tc,
       .x-panel-ghost .x-window-tl .x-window-tr .x-window-tc {
-        background: linear-gradient(to bottom, #fafafa, #f5f5f5);
+        background: #fafbfc;
         position: relative;
         margin-left: -9px;
         padding-left: 9px;
-        box-shadow: 0 1px 0 0 #e6e6e6, 0 2px 2px rgba(0, 0, 0, 0.04); }
+        box-shadow: 0 1px 0 0 #e4e7ec; }
         .x-window .x-window-tl .x-window-tr .x-window-tc .x-window-header,
         .x-panel-ghost .x-window-tl .x-window-tr .x-window-tc .x-window-header {
           padding: 0;
-          height: 36px;
+          height: 42px;
           background: transparent; }
           .x-window .x-window-tl .x-window-tr .x-window-tc .x-window-header .x-tool,
           .x-panel-ghost .x-window-tl .x-window-tr .x-window-tc .x-window-header .x-tool {
@@ -3218,20 +3179,20 @@ div.zarafa-contact-cardview-selected {
             opacity: 1; }
           .x-window .x-window-tl .x-window-tr .x-window-tc .x-window-header .x-tool-close,
           .x-panel-ghost .x-window-tl .x-window-tr .x-window-tc .x-window-header .x-tool-close {
-            width: 25px;
-            height: 36px; }
+            width: 28px;
+            height: 42px; }
           .x-window .x-window-tl .x-window-tr .x-window-tc .x-window-header .x-tool-minimize,
           .x-panel-ghost .x-window-tl .x-window-tr .x-window-tc .x-window-header .x-tool-minimize {
-            width: 25px;
-            height: 36px; }
+            width: 28px;
+            height: 42px; }
           .x-window .x-window-tl .x-window-tr .x-window-tc .x-window-header .x-window-header-text,
           .x-panel-ghost .x-window-tl .x-window-tr .x-window-tc .x-window-header .x-window-header-text {
-            color: #222222;
-            font-weight: normal;
-            line-height: 36px;
+            color: #1d2939;
+            font-weight: 600;
+            line-height: 42px;
             display: block;
-            left: 9px;
-            height: 36px;
+            left: 12px;
+            height: 42px;
             overflow: hidden;
             font-size: 15px;
             text-overflow: ellipsis;
@@ -3452,8 +3413,8 @@ div.zarafa-contact-cardview-selected {
 .k-abuserselectionpanel .k-addressbookmainpanel-header,
 .k-abmultiuserselectionpanel .k-addressbookmainpanel-header,
 .k-addressbookpanel .k-addressbookmainpanel-header {
-  padding-bottom: 3px;
-  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: 6px;
+  border-bottom: none;
   /* search button */ }
   .k-abuserselectionpanel .k-addressbookmainpanel-header label.x-form-item-label,
   .k-abmultiuserselectionpanel .k-addressbookmainpanel-header label.x-form-item-label,
@@ -3704,26 +3665,377 @@ div.zarafa-contact-cardview-selected {
 .x-freebusy-timeline-container div.x-freebusy-sumblockcontainer .x-freebusy-timeline-sumblock {
   position: absolute; }
 
+/* Legacy search container (kept for search toolbar panel) */
 .search_container {
-  display: inline-block;
-  /* search button */ }
+  display: inline-block; }
   .search_container .x-form-field-trigger-wrap,
   .search_container .x-form-field-wrap {
     display: inline-block; }
   .search_container .x-form-field-trigger-wrap input {
     padding-top: 0 !important; }
-  .search_container .x-btn-icon .x-btn-icon-small-left {
-    position: relative;
-    top: 1px;
-    border-left: none;
-    height: 22px; }
   .search_container button.icon_magnifier {
     background-color: transparent;
     width: 24px;
     height: 24px !important; }
 
+/* Modern search container — strips all Ext JS field chrome */
+.k-search-container {
+  display: inline-block;
+  min-height: 100%;
+  vertical-align: top; }
+  .k-search-container .x-form-element {
+    padding: 0 !important;
+    min-height: 100%; }
+  .k-search-container .x-form-field-wrap {
+    display: block;
+    min-height: 100%;
+    border: none !important;
+    background: none !important;
+    position: relative; }
+  .k-search-container .x-form-item {
+    margin: 0;
+    padding: 0;
+    min-height: 100%; }
+
+/* Hidden native input — value store only */
+.k-search-input {
+  display: none !important; }
+
+/* Token-based search input container */
+.k-search-token-input {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px 0;
+  min-height: 100%;
+  padding: 2px 10px 2px 36px;
+  background-color: transparent;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iIzk5OSIgZD0iTTYuNjcuODNhNS44MyA1LjgzIDAgMCAxIDQuNjQgOS4zN2wzLjY5IDMuN2EuNzguNzggMCAwIDEtMS4wMyAxLjE2bC0uMDctLjA2LTMuNjktMy42OUE1LjgzIDUuODMgMCAxIDEgNi42Ny44M20wIDEuNTZhNC4yOCA0LjI4IDAgMSAwIDAgOC41NiA0LjI4IDQuMjggMCAwIDAgMC04LjU2Ii8+PC9zdmc+);
+  background-repeat: no-repeat;
+  background-position: 12px 8px;
+  background-size: 14px 14px;
+  box-sizing: border-box;
+  cursor: text;
+  border: none;
+  border-right: 1px solid #e0e0e0;
+  border-radius: 0;
+  overflow: hidden;
+  transition: background-color 0.15s ease; }
+  .k-search-token-input.k-search-focused {
+    background-color: #fff; }
+
+/* Shared base for value inputs and tail input */
+.k-search-token-value,
+.k-search-tail-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 13px;
+  color: #333;
+  padding: 0 2px;
+  font-family: inherit;
+  line-height: normal; }
+
+.k-search-token-value {
+  min-width: 1ch;
+  max-width: 250px;
+  width: 2ch;
+  padding: 0 1px; }
+
+.k-search-tail-input {
+  flex: 1;
+  min-width: 60px; }
+  .k-search-tail-input::placeholder {
+    color: #999; }
+
+/* Search submit button (return/enter symbol) */
+.k-search-submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  flex-shrink: 0;
+  font-size: 16px;
+  color: #999;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: color 0.15s ease, background-color 0.15s ease; }
+  .k-search-submit-btn:hover {
+    color: #1565c0;
+    background-color: #e3f2fd; }
+
+/* Inline edit input that replaces a chip during editing */
+.k-search-chip-edit {
+  border: 1px solid #90caf9;
+  border-radius: 3px;
+  outline: none;
+  background: #e3f2fd;
+  font-size: 11px;
+  font-weight: 500;
+  color: #1565c0;
+  padding: 1px 5px;
+  margin-right: 1px;
+  font-family: inherit;
+  line-height: 18px;
+  min-width: 4ch;
+  max-width: 300px; }
+
+/* Chip base style */
+.k-search-chip {
+  display: inline-flex;
+  align-items: center;
+  background-color: #e3f2fd;
+  border: 1px solid #90caf9;
+  border-radius: 3px;
+  padding: 1px 5px;
+  margin-right: 1px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #1565c0;
+  white-space: nowrap;
+  cursor: default;
+  line-height: 18px;
+  flex-shrink: 0; }
+/* Operator chips get a small left margin for visual separation */
+.k-search-chip.k-search-chip-operator {
+  margin-left: 2px;
+  margin-right: 2px;
+  cursor: pointer; }
+
+.k-search-chip-remove {
+  margin-left: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1;
+  color: #1565c0;
+  opacity: 0.6; }
+  .k-search-chip-remove:hover {
+    opacity: 1; }
+
+/* Operator chips (AND/OR/NOT) — colors only, margins set above */
+.k-search-chip.k-search-chip-operator,
+.k-search-chip.k-search-chip-implicit {
+  background-color: #fff3e0;
+  border-color: #ffb74d;
+  color: #e65100; }
+.k-search-chip.k-search-chip-operator .k-search-chip-remove {
+  color: #e65100; }
+/* Value chips (type:mail, date:past_week, unread:true) — green tint */
+.k-search-chip.k-search-chip-value {
+  background-color: #e8f5e9;
+  border-color: #81c784;
+  color: #2e7d32; }
+.k-search-chip.k-search-chip-value .k-search-chip-remove {
+  color: #2e7d32; }
+/* Filter chips (from:test, subject:hello) — blue tint (same as base) */
+.k-search-chip.k-search-chip-filter .k-search-chip-label {
+  cursor: text; }
+/* Text chips (plain search terms) — neutral tint */
+.k-search-chip.k-search-chip-text {
+  background-color: #f3e5f5;
+  border-color: #ce93d8;
+  color: #6a1b9a; }
+.k-search-chip.k-search-chip-text .k-search-chip-remove {
+  color: #6a1b9a; }
+.k-search-chip.k-search-chip-text .k-search-chip-label {
+  cursor: text; }
+
+/* Search loading indicator on the token container —
+   magnifier stays at 12px, spinner added on the right */
+.k-search-token-input.zarafa-tbar-loading {
+  background-image: url(../images/spinner.svg);
+  background-repeat: no-repeat;
+  background-position: 12px 8px;
+  background-size: 16px 16px; }
+
+/* Search dropdown panel */
+.k-search-dropdown {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-top: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 4px 4px;
+  overflow: hidden;
+  max-height: 70vh;
+  overflow-y: auto; }
+
+.k-search-dropdown-inner {
+  padding: 8px 0; }
+
+.k-search-dropdown-section {
+  padding: 4px 12px; }
+  .k-search-dropdown-section + .k-search-dropdown-section {
+    border-top: 1px solid #f0f0f0;
+    margin-top: 4px;
+    padding-top: 8px; }
+
+.k-search-dropdown-header {
+  font-size: 11px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+  font-weight: 500; }
+
+/* Filter option buttons in dropdown */
+.k-search-dropdown-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px; }
+
+.k-search-filter-option {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 3px;
+  background-color: #e3f2fd;
+  border: 1px solid #90caf9;
+  color: #1565c0;
+  cursor: pointer;
+  font-size: 12px;
+  color: #555;
+  transition: background-color 0.1s ease, border-color 0.1s ease; }
+  .k-search-filter-option:hover {
+    background-color: #bbdefb;
+    border-color: #64b5f6; }
+  .k-search-filter-option .k-search-filter-label {
+    font-weight: 500; }
+/* Type and date filter options — green "system" tint */
+.k-search-filter-option.k-search-type-option,
+.k-search-filter-option.k-search-date-option {
+  background-color: #e8f5e9;
+  border-color: #81c784;
+  color: #2e7d32; }
+  .k-search-filter-option.k-search-type-option:hover,
+  .k-search-filter-option.k-search-date-option:hover {
+    background-color: #c8e6c9;
+    border-color: #66bb6a; }
+
+/* Folder options in dropdown */
+.k-search-folder-option {
+  display: flex;
+  align-items: center;
+  padding: 5px 8px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 13px;
+  color: #333;
+  transition: background-color 0.1s ease; }
+  .k-search-folder-option:hover {
+    background-color: #f5f5f5; }
+  .k-search-folder-option.k-active {
+    background-color: #e3f2fd;
+    color: #1565c0; }
+
+.k-search-folder-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  flex-shrink: 0;
+  background-color: #888;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center; }
+  .k-active .k-search-folder-icon {
+    background-color: #1565c0; }
+
+.k-search-folder-check {
+  margin-left: auto;
+  color: #1565c0;
+  font-size: 14px; }
+
+/* Inline separator between type options and operators */
+.k-search-dropdown-sep {
+  width: 1px;
+  align-self: stretch;
+  background-color: #ccc;
+  margin: 2px 4px; }
+
+.k-search-operator-option {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 3px;
+  background-color: #fff3e0;
+  border: 1px solid #ffe0b2;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  color: #e65100;
+  transition: background-color 0.1s ease, border-color 0.1s ease; }
+  .k-search-operator-option:hover {
+    background-color: #ffe0b2;
+    border-color: #ffb74d; }
+
+/* Search history rows in dropdown */
+.k-search-history-section { }
+
+.k-search-history-list {
+  display: flex;
+  flex-direction: column;
+  max-height: 165px;
+  overflow-y: auto; }
+
+.k-search-history-row {
+  display: flex;
+  align-items: center;
+  padding: 6px 8px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 13px;
+  color: #333;
+  transition: background-color 0.1s ease;
+  user-select: none; }
+  .k-search-history-row:hover,
+  .k-search-history-row.k-search-history-active {
+    background-color: #e3f2fd; }
+
+.k-search-history-icon {
+  flex-shrink: 0;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
+  background-color: #999;
+  -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyNCcgaGVpZ2h0PScyNCcgZmlsbD0nbm9uZSc+PHBhdGggZmlsbD0nIzAwMCcgZD0nTTEwIDIuNWE3LjUgNy41IDAgMCAxIDUuOTY0IDEyLjA0OGw0Ljc0MyA0Ljc0NWExIDEgMCAwIDEtMS4zMiAxLjQ5N2wtLjA5NC0uMDgzLTQuNzQ1LTQuNzQzQTcuNSA3LjUgMCAxIDEgMTAgMi41bTAgMmE1LjUgNS41IDAgMSAwIDAgMTEgNS41IDUuNSAwIDAgMCAwLTExJy8+PC9zdmc+);
+  mask-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyNCcgaGVpZ2h0PScyNCcgZmlsbD0nbm9uZSc+PHBhdGggZmlsbD0nIzAwMCcgZD0nTTEwIDIuNWE3LjUgNy41IDAgMCAxIDUuOTY0IDEyLjA0OGw0Ljc0MyA0Ljc0NWExIDEgMCAwIDEtMS4zMiAxLjQ5N2wtLjA5NC0uMDgzLTQuNzQ1LTQuNzQzQTcuNSA3LjUgMCAxIDEgMTAgMi41bTAgMmE1LjUgNS41IDAgMSAwIDAgMTEgNS41IDUuNSAwIDAgMCAwLTExJy8+PC9zdmc+);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat; }
+
+.k-search-history-text {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+.k-search-history-remove {
+  flex-shrink: 0;
+  width: 20px;
+  text-align: center;
+  font-size: 16px;
+  color: #999;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.1s ease, color 0.1s ease; }
+  .k-search-history-row:hover .k-search-history-remove,
+  .k-search-history-row.k-search-history-active .k-search-history-remove {
+    opacity: 1; }
+  .k-search-history-remove:hover {
+    color: #d32f2f; }
+
+/* Hide read records in search results when unread filter is active */
+.k-search-filtered-out {
+  display: none !important; }
+
 .k-searchcenterpanel {
-  margin-left: -1px; }
+  overflow: hidden; }
+.k-searchcenterpanel .zarafa-previewpanel {
+  margin-left: 0; }
 
 /* The search results grid */
 .zarafa-searchgrid .x-grid3-hd-row td:first-child:active .x-grid3-hd-inner {
@@ -3765,10 +4077,11 @@ div.zarafa-contact-cardview-selected {
     max-height: 15px;
     overflow: hidden; }
   .zarafa-searchgrid .x-grid3-row-body-tr .zarafa-grid-body-container .k-folder-location-container {
-    text-align: left !important; }
+    text-align: right !important; }
   .zarafa-searchgrid .x-grid3-row-body-tr .zarafa-grid-body-container .k-folder-location {
     float: right;
-    width: 130px; }
+    width: 130px;
+    text-align: right; }
   .zarafa-searchgrid .x-grid3-row-body-tr .zarafa-grid-body-container .k-folder-name {
     padding: 0 6px;
     line-height: 15px;
@@ -3803,10 +4116,11 @@ div.zarafa-contact-cardview-selected {
 .zarafa-search-toolbox {
   border-top: 1px solid #e6e6e6;
   border-right: 1px solid #e6e6e6;
-  padding: 0 0 9px 9px;
+  padding: 12px;
   background-color: #ffffff; }
   .zarafa-search-toolbox .zarafa-search-toolbox-favoritesbutton-container {
-    padding-right: 9px; }
+    margin-top: 12px;
+    padding-right: 0; }
     .zarafa-search-toolbox .zarafa-search-toolbox-favoritesbutton-container .x-btn.search-toolbox-favorites-button {
       display: block; }
       .zarafa-search-toolbox .zarafa-search-toolbox-favoritesbutton-container .x-btn.search-toolbox-favorites-button .x-btn-small em, .zarafa-search-toolbox .zarafa-search-toolbox-favoritesbutton-container .x-btn.search-toolbox-favorites-button .x-btn-small button {
@@ -3816,33 +4130,23 @@ div.zarafa-contact-cardview-selected {
     .zarafa-search-toolbox .x-btn.x-btn-noicon .x-btn-small button span, .zarafa-search-toolbox .x-btn.x-btn-text-icon .x-btn-small button span {
       display: inline-block;
       padding-right: 25px; }
-  .zarafa-search-toolbox .x-plain-header {
-    line-height: 20px;
-    box-sizing: border-box;
-    height: 35px;
-    /* subtract the border */
-    padding-top: 8px; }
-    .zarafa-search-toolbox .x-plain-header img.x-panel-inline-icon.advance_search {
-      width: 16px;
-      height: 16px;
-      vertical-align: middle;
-      margin-right: 6px;
-      margin-top: -1px;
-      margin-bottom: -1px; }
   .zarafa-search-toolbox .x-fieldset {
     border: none;
-    border: none;
-    padding: 0 0 9px; }
+    background: transparent;
+    padding: 4px 0 12px;
+    margin: 0; }
     .zarafa-search-toolbox .x-fieldset legend {
-      padding-bottom: 6px;
+      padding-bottom: 8px;
       font-weight: bold; }
+    .zarafa-search-toolbox .x-fieldset .x-form-check-wrap {
+      padding: 3px 0; }
 
 .zarafa-search-previewpanel-toolbar {
   margin-left: 5px; }
 
-/* Input field loading mask */
+/* Input field loading mask (legacy) */
 .zarafa-searchfield.zarafa-tbar-loading {
-  background-image: url(../images/loading.gif);
+  background-image: url(../images/spinner.svg);
   background-repeat: no-repeat;
   background-position: right; }
 
@@ -3922,16 +4226,16 @@ div.zarafa-contact-cardview-selected {
   /* The categories panel */
   /* The main settings panel that contains all settings widgets */ }
   #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-panel {
-    border-right: 1px solid #e6e6e6;
-    padding-top: 6px; }
+    border-right: 1px solid #e4e7ec;
+    padding-top: 8px; }
     #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-panel .zarafa-settings-category-tab {
-      padding: 5px 6px;
-      padding-left: 4px;
+      padding: 8px 10px;
+      padding-left: 8px;
       line-height: 20px;
       cursor: pointer;
       background-position: 10px center !important;
-      margin: 2px 3px;
-      border-radius: 3px;
+      margin: 2px 6px;
+      border-radius: 8px;
       transition: background-color 0.2s ease; }
     #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-panel .zarafa-settings-category-tab.k-with-icon img.k-settings-category-icon {
       width: 20px;
@@ -3939,45 +4243,85 @@ div.zarafa-contact-cardview-selected {
       float: left;
       background-position: center center !important;
       background-repeat: no-repeat;
-      margin-right: 5px; }
+      margin-right: 8px; }
     #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-panel .zarafa-settings-category-tab-over {
-      background-color: #dadada; }
+      background-color: #f2f4f7; }
     #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-panel .zarafa-settings-category-tab-active {
-      background-color: #d5e8f7; }
+      background-color: var(--theme-selection-bg); }
   #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel {
-    padding: 6px 0px;
+    padding: 12px 16px;
     /* minor information in labels */
     /* Keyboard shortcuts */
     /* About Category */ }
     #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .x-panel-header {
-      padding: 8px 12px !important;
+      padding: 10px 14px !important;
       line-height: 20px !important;
       min-height: 20px !important;
-      border-bottom: 1px solid #e6e6e6 !important;
-      background: linear-gradient(to bottom, #fafafa, #f5f5f5) !important;
-      font-weight: 500 !important;
-      color: #333333 !important; }
+      border-bottom: 1px solid #e4e7ec !important;
+      background: #f8f9fa !important;
+      font-weight: 600 !important;
+      color: #1d2939 !important; }
     #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-widget {
-      margin-bottom: 9px;
-      border-radius: 4px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); }
+      margin-bottom: 12px;
+      border-radius: 10px;
+      border: 1px solid #e4e7ec;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      overflow: hidden; }
       #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-widget .x-panel-header {
-        padding: 8px 12px;
+        padding: 10px 14px;
         line-height: 20px;
         min-height: 20px;
         border-top: none;
-        border-bottom: 1px solid #e6e6e6;
-        border-radius: 4px 4px 0 0;
-        background: linear-gradient(to bottom, #fafafa, #f5f5f5);
-        font-weight: 500;
-        color: #333333; }
-      #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-widget .x-panel-body {
-        padding: 12px; }
+        border-bottom: 1px solid #e4e7ec;
+        border-radius: 0;
+        background: #f8f9fa;
+        font-weight: 600;
+        color: #1d2939; }
+      #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-widget > .x-panel-bwrap > .x-panel-body {
+        padding: 14px 16px; }
+      #zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget.k-settings-nogap > .x-panel-bwrap > .x-panel-body {
+        padding: 0 !important;
+        overflow: hidden !important; }
+      #zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-form-item {
+        margin-bottom: 6px; }
+      #zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-form-item label {
+        color: #475467;
+        font-weight: 500; }
+      #zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-form-display-field {
+        color: #475467;
+        padding-top: 2px; }
+      #zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-form-cb-label {
+        color: #344054;
+        font-weight: 400; }
+      #zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .zarafa-compositefield .x-box-inner {
+        display: flex;
+        align-items: center; }
+      #zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .zarafa-compositefield .x-form-display-field {
+        color: inherit; }
+      #zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .zarafa-compositefield .zarafa-spinnerfield {
+        position: relative;
+        top: 3px; }
+      .k-settings-spinner-narrow,
+      .k-settings-spinner-narrow .x-form-field-wrap {
+        max-width: 60px !important; }
+      #zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-form-check-wrap {
+        padding: 2px 0; }
+      #zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-combo-list {
+        border-radius: 6px;
+        border-color: #e4e7ec;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+      #zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-combo-list-item {
+        padding: 6px 10px;
+        color: #344054; }
+      #zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-combo-list-item:hover {
+        background-color: #f2f4f7; }
+      #zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-form-trigger-wrap {
+        border-radius: 6px; }
       #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-widget .zarafa-quotabar {
-        border: 1px solid #dadada;
+        border: 1px solid #e4e7ec;
         overflow: hidden;
         height: 22px;
-        border-radius: 3px;
+        border-radius: 6px;
         /* subtract 2 for the border */ }
         #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-widget .zarafa-quotabar .zarafa-quotabar-normal {
           display: inline-block;
@@ -4006,29 +4350,143 @@ div.zarafa-contact-cardview-selected {
     #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .k-settings-label-minor {
       opacity: 0.5;
       margin-left: 3px; }
+    .k-settings-profile-widget .x-panel-body {
+      padding: 0 !important; }
+    .k-settings-profile-header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 20px 22px;
+      border-bottom: 1px solid #e4e7ec;
+      background: #f8f9fa; }
+    .k-settings-profile-photo {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      cursor: pointer;
+      border: 3px solid #e4e7ec;
+      flex-shrink: 0;
+      transition: border-color 0.15s; }
+    .k-settings-profile-photo:hover {
+      border-color: #1e88e5; }
+    .k-settings-profile-info {
+      min-width: 0; }
+    .k-settings-profile-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1d2939;
+      line-height: 1.3;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap; }
+    .k-settings-profile-email {
+      font-size: 13px;
+      color: #667085;
+      line-height: 1.4;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap; }
+    .k-settings-profile-form {
+      padding: 16px 22px; }
+    .k-settings-section-header {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #667085;
+      padding: 10px 0 4px;
+      margin-top: 4px;
+      border-top: 1px solid #e4e7ec; }
+    .k-settings-section-header:first-child {
+      border-top: none;
+      margin-top: 0;
+      padding-top: 0; }
+    .k-settings-profile-details-btn {
+      margin-top: 8px; }
+    .k-settings-profile-details-btn .x-btn-small {
+      background: var(--theme-primary-color) !important;
+      border-color: transparent !important;
+      border-radius: 4px; }
+    .k-settings-profile-details-btn .x-btn-small button {
+      color: #fff !important; }
+    .k-settings-profile-details-btn.x-btn-over .x-btn-small {
+      background: var(--theme-primary-hover) !important; }
+    .k-settings-about-section {
+      padding: 12px 16px 0; }
+    .k-settings-about-section-title {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #98a2b3;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e4e7ec;
+      margin-bottom: 8px; }
+    .k-settings-about-info {
+      color: #667085;
+      font-size: 13px;
+      line-height: 2; }
+    .k-settings-about-info > span {
+      white-space: nowrap; }
+    .k-settings-about-info > span:not(:last-child)::after {
+      content: '\00b7';
+      margin: 0 10px;
+      color: #98a2b3;
+      font-weight: bold; }
+    .k-settings-about-info b {
+      color: #1d2939;
+      margin-right: 5px; }
+    .k-settings-about-reset-btn {
+      margin: 0 16px 12px; }
+
+    /* Password settings: align displayfield label with input field labels */
+    #zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-form-display-field {
+      padding-top: 5px; }
+
+    /* Calendar: time period field alignment */
+    #zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .zarafa-timeperiodfield .x-form-item {
+      margin-bottom: 6px; }
+    #zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .zarafa-timeperiodfield label {
+      white-space: nowrap; }
+
+    /* Rule edit dialog: prevent dropdown clipping */
+    .k-ruleseditpanel,
+    .k-ruleseditpanel .x-panel-body,
+    .k-ruleseditpanel .x-panel-bwrap,
+    .k-ruleseditpanel .x-form-label-left {
+      overflow: visible !important; }
     #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-keyboard-shortcut-row {
-      background-color: #f8f8f8;
-      padding: 6px;
-      border: 1px solid #e6e6e6;
-      border-radius: 3px;
-      margin-bottom: 3px; }
+      background-color: #f9fafb;
+      padding: 8px 12px;
+      border: 1px solid #e4e7ec;
+      border-radius: 6px;
+      margin-bottom: 4px; }
+    #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-about-text {
+      color: #475467;
+      line-height: 1.6; }
     #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-about-text p {
       padding-bottom: 1em; }
     #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-about-text h1 {
       margin-bottom: 0.5em;
       margin-top: 0.5em;
-      font-size: 1.2em !important; }
+      font-size: 1.2em !important;
+      color: #1d2939; }
     #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-about-text a {
-      background: #1e88e5;
-      color: white;
-      padding: 3px;
-      text-decoration: none; }
+      background: none;
+      color: #1e88e5;
+      padding: 0;
+      text-decoration: none;
+      font-weight: 500; }
     #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-about-text a:hover {
-      background: #1976d2; }
+      background: none;
+      color: #1565c0;
+      text-decoration: underline; }
 
 /* Widget info text */
 .zarafa-settings-widget-extrainfo {
-  padding: 0 0 9px 0; }
+  padding: 10px 14px 9px 14px;
+  color: #667085; }
 
 /* Loading of "address book -> select default folder" */
 .x-mask-loading-combo, .x-mask-loading-combo div {
@@ -4047,8 +4505,14 @@ div.zarafa-contact-cardview-selected {
 .zarafa-settings-signatures {
   margin-right: 9px; }
   .zarafa-settings-signatures .x-grid3-row {
-    border-top: 1px solid #e6e6e6;
+    border-top: 1px solid #e4e7ec;
     margin-bottom: -1px; }
+  .zarafa-settings-signatures .x-grid3-row-selected .x-grid3-cell {
+    background-color: #f0f6ff !important; }
+
+/* Signatures widget: reduce body padding so grid sits flush */
+#zarafa-mainpanel-contentpanel-settings .k-settings-signatures-widget > .x-panel-bwrap > .x-panel-body {
+  padding: 10px !important; }
 
 .k-signature-editor textarea {
   padding: 12px;
@@ -4057,42 +4521,134 @@ div.zarafa-contact-cardview-selected {
 .k-signature-editor .mce-panel.mce-tinymce {
   width: auto !important; }
 
-.keyboard-type {
-  margin-left: 40px;
-  padding-left: 6px;
-  padding-right: 6px;
-  line-height: 20px;
-  border: solid 1px #e6e6e6;
-  border-radius: 2px;
-  background-color: white;
-  display: inline-block; }
-
+/* Keyboard shortcut rows */
+.zarafa-settings-keyboard-shortcut-row .x-form-element {
+  padding-left: 0 !important; }
+.k-kbd-level {
+  display: inline-block;
+  width: 62px;
+  text-align: center;
+  padding: 1px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  margin-right: 12px;
+  vertical-align: middle; }
+.k-kbd-level-basic {
+  background: #e8f5e9;
+  color: #2e7d32; }
+.k-kbd-level-extended {
+  background: color-mix(in srgb, var(--theme-primary-color) 12%, transparent);
+  color: var(--theme-primary-color); }
+.k-kbd-keys {
+  display: inline-block;
+  width: 180px;
+  vertical-align: middle; }
+.k-kbd-keys kbd {
+  display: inline-block;
+  padding: 2px 7px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #344054;
+  background: #f9fafb;
+  border: 1px solid #d0d5dd;
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.04);
+  vertical-align: middle; }
+.k-kbd-plus {
+  margin: 0 3px;
+  color: #98a2b3;
+  font-size: 11px;
+  vertical-align: middle; }
 .keyboard-desc {
-  display: inline-block; }
+  display: inline-block;
+  color: #475467;
+  vertical-align: middle; }
 
 /* Out of office Category */
 .zarafa-settings-oof-invalid {
-  color: #FF0000; }
+  color: #d92d20; }
 
 .zarafa-settings-oof-table-cellalign {
   text-align: right; }
 
 .zarafa-settings-oof-table-cellpadding {
   padding: 6px 6px 6px 0; }
+.zarafa-settings-oof-table-cellpadding .x-form-field-trigger-wrap {
+  min-width: 0; }
 
 .zarafa-settings-oof-subject .label-subject {
   line-height: 24px;
-  padding-right: 6px; }
+  padding-right: 6px;
+  color: #475467;
+  font-weight: 500; }
 
 .zarafa-settings-oof-autoreplay {
-  padding: 9px 0 6px 0; }
+  padding: 9px 0 6px 0;
+  color: #475467;
+  font-weight: 500; }
+
+/* OOF tab panel inner padding */
+#zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-tab-panel-body .zarafa-settings-oof-subject,
+#zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-tab-panel-body > .x-panel > .x-panel-bwrap > .x-panel-body > .x-box-layout-ct {
+  padding: 8px 10px; }
+#zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-tab-panel-body .k-signature-editor {
+  padding: 0; }
+
+/* Settings sidebar buttons — equal width, centered text */
+#zarafa-mainpanel-contentpanel-settings .k-settings-nogap .x-box-layout-ct .x-btn {
+  width: 100% !important;
+  text-align: center; }
+#zarafa-mainpanel-contentpanel-settings .k-settings-nogap .x-box-layout-ct .x-btn .x-btn-small {
+  width: 100% !important;
+  margin: 0 auto; }
+#zarafa-mainpanel-contentpanel-settings .k-settings-nogap .x-box-layout-ct .x-btn td.x-btn-center {
+  text-align: center; }
+
+/* Grid-based settings: prevent horizontal scrollbar */
+#zarafa-mainpanel-contentpanel-settings .k-settings-nogap,
+#zarafa-mainpanel-contentpanel-settings .k-settings-nogap .x-panel-bwrap,
+#zarafa-mainpanel-contentpanel-settings .k-settings-nogap .x-panel-body,
+#zarafa-mainpanel-contentpanel-settings .k-settings-nogap .x-grid3-scroller {
+  overflow-x: hidden !important; }
+
+/* Kendox InfoShare — section panels */
+.k-settings-kendox > .x-panel-bwrap > .x-panel-body {
+  padding: 0 !important; }
+.k-settings-kendox > .x-panel-bwrap > .x-panel-body > .x-panel {
+  border: none !important;
+  box-shadow: none !important; }
+.k-settings-kendox > .x-panel-bwrap > .x-panel-body > .x-panel > .x-panel-bwrap > .x-panel-body {
+  padding: 10px 16px !important; }
+.k-settings-kendox > .x-panel-bwrap > .x-panel-body > .x-panel > .x-panel-header {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid #e4e7ec !important;
+  font-size: 12px;
+  font-weight: 600;
+  color: #667085 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 10px 16px !important; }
+
+/* Checkbox vertical alignment in settings */
+#zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-form-check-wrap input {
+  margin-top: -1px;
+  vertical-align: middle; }
 
 /* Plugin list */
 .zarafa-settings-pluginavailable .zarafa-settings-widget-extrainfo {
   margin: 0; }
 .zarafa-settings-pluginavailable .zarafa-settings-pluginavailable-fixed .x-grid3-col-display_name span {
   font-style: italic;
-  color: #777777; }
+  color: #98a2b3;
+  margin-left: 6px;
+  font-size: 12px; }
+.k-settings-plugingrid .x-grid3-row td {
+  padding: 6px 8px; }
 
 .x-date-picker {
   border: none;
@@ -4233,7 +4789,7 @@ div.zarafa-contact-cardview-selected {
         .x-date-picker .x-date-mp table tr.x-date-mp-btns td button:hover {
           background: #dadada; }
         .x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-ok:hover {
-          background: #59b147; }
+          background: var(--color-success); }
 
 .ext-webkit table.x-date-inner {
   width: 100%; }
@@ -4297,38 +4853,105 @@ div.zarafa-contact-cardview-selected {
     width: 17px;
     height: 17px; }
 
+/* Welcome dialog */
 .zarafa-welcome-body {
-  width: 450px;
-  /* Hide warning messages regarding reloading grommunio Web */ }
-  .zarafa-welcome-body > .x-panel-bwrap > .x-panel-body > div {
-    border-left: 1px solid #e6e6e6;
-    border-right: 1px solid #e6e6e6; }
-  .zarafa-welcome-body > .x-panel-bwrap > .x-panel-body div.zarafa-welcome-title {
-    background: #1e88e5;
-    color: #ffffff;
-    font-size: 15px;
-    line-height: 20px;
-    padding: 8px 9px;
-    border-left: 1px solid #1e88e5;
-    border-right: 1px solid #1e88e5; }
-  .zarafa-welcome-body > .x-panel-bwrap > .x-panel-body div.zarafa-welcome-message {
-    padding: 9px; }
-  .zarafa-welcome-body > .x-panel-bwrap > .x-panel-body .zarafa-settings-widget-welcome .x-panel-header {
-    padding-left: 9px;
-    border: none; }
-  .zarafa-welcome-body > .x-panel-bwrap > .x-panel-body .zarafa-settings-widget-welcome > .x-panel-bwrap > .x-panel-body {
-    padding: 9px;
-    border: none; }
-  .zarafa-welcome-body > .x-panel-bwrap .x-panel-footer {
-    padding: 12px 9px;
-    border-left: 1px solid #e6e6e6;
-    border-right: 1px solid #e6e6e6;
-    border-bottom: 1px solid #e6e6e6; }
-  .zarafa-welcome-body .zarafa-settings-widget-welcome .zarafa-settings-reload-warning {
-    position: absolute !important;
-    left: -10000px;
-    top: -10000px;
-    visibility: hidden; }
+  width: 980px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12); }
+
+.k-welcome-header {
+  background:
+    linear-gradient(135deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.05)),
+    linear-gradient(135deg, var(--theme-gradient-start, #0067b1), var(--theme-gradient-end, #0098e3));
+  padding: 10px 28px;
+  border: none;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden; }
+
+.k-welcome-header > .x-box-inner {
+  height: 50px !important; }
+
+.k-welcome-header::after {
+  content: '';
+  position: absolute;
+  right: 30px;
+  width: 220px;
+  height: 50px;
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MjAgMTQwIj48cGF0aCBmaWxsPSIjZGZkZmRmIiBkPSJNMTg2LjY3IDUzLjE4cS0xMS4xNCAwLTEzLjI4IDE2LjIxLTEuMTEgOC40MiAxLjI4IDEyLjU3YTguMzMgOC4zMyAwIDAgMCA3LjY3IDQuMTUgMTIuMTMgMTIuMTMgMCAwIDAgOC4yMy0zLjI0IDExLjkyIDExLjkyIDAgMCAwIDQuMzQtNy42bDEuNDQtMTFhOS40MyA5LjQzIDAgMCAwLTIuMy03LjkgOS4zMiA5LjMyIDAgMCAwLTcuMzgtMy4yNHptLTkuOTIgNDMuMDZxLTguOTIgMC0xMy42Ni03LjA5VDE2MCA2OS4zOXExLjY3LTEyLjU3IDcuOTQtMTkuNDVhMjAuNjUgMjAuNjUgMCAwIDEgMTUuOC02LjkgMTggMTggMCAwIDEgOC4xOCAxLjczIDE4LjgzIDE4LjgzIDAgMCAxIDYuNDQgNS43Ny4yNC4yNCAwIDAgMCAuMTkuMS4xLjEgMCAwIDAgLjExLS4xbC4xLS43MWE2LjYgNi42IDAgMCAxIDIuMzUtNCA2LjQ0IDYuNDQgMCAwIDEgNC4zOC0xLjcyaDEuMTJhNC41MiA0LjUyIDAgMCAxIDMuNzIgMS43MiA0LjkgNC45IDAgMCAxIDEuMTkgNGwtNS42MyA0Mi44N3EtMy42IDI3LjM2LTMxIDI3LjM2YTY2LjY4IDY2LjY4IDAgMCAxLTEwLjEzLS44MSA1LjM5IDUuMzkgMCAwIDEtMy43My0yLjQzIDYuMzQgNi4zNCAwIDAgMS0uOTQtNC40NiA0LjUzIDQuNTMgMCAwIDEgMi4wNS0zLjI1IDQuODYgNC44NiAwIDAgMSAzLjgzLS42IDM5Ljc2IDM5Ljc2IDAgMCAwIDEwIDEuMjFxNy41IDAgMTEuNDctNCAzLjk3LTQgNS4xMy0xMi43MmwuNDItMy4xNGMwLS4wNyAwLS4xLS4wOS0uMWEuMzMuMzMgMCAwIDAtLjIyLjEgMjIuNzggMjIuNzggMCAwIDEtMTUuOTQgNi4zOHptMzguNjEuNTFhNC44MyA0LjgzIDAgMCAxLTMuODItMS43NSA0LjkxIDQuOTEgMCAwIDEtMS4xOS00bDUuNDItNDEuMTRhNi40IDYuNCAwIDAgMSAyLjI1LTQgNi4zMiA2LjMyIDAgMCAxIDQuMjgtMS43MmgyYTQuODIgNC44MiAwIDAgMSAzLjgyIDEuNzIgNC45IDQuOSAwIDAgMSAxLjE5IDRsLS41NiA0LjI2YzAgLjA3IDAgLjEuMDkuMXMuMjEgMCAuMjItLjFhMjYuODYgMjYuODYgMCAwIDEgOC41Ny02LjU5IDMwLjQzIDMwLjQzIDAgMCAxIDEwLjg2LTMuMjQgMy43MiAzLjcyIDAgMCAxIDMuNTEgMS4zOSA0LjQyIDQuNDIgMCAwIDEgMSAzLjY1IDUuNzUgNS43NSAwIDAgMS0yIDMuNjcgNi43IDYuNyAwIDAgMS0zLjg3IDEuNzNRMjI5IDU2LjExIDIyNi44MSA3Mi45NGwtMi4zOCAxOGE2LjQgNi40IDAgMCAxLTIuMjUgNC4wNiA2LjMyIDYuMzIgMCAwIDEtNC4yOCAxLjcyem02OS40OS0zOS42MnEtMi4zOS00LjI2LTguMzYtNC4yNmExMS45MiAxMS45MiAwIDAgMC05LjU4IDQuMjZxLTMuNDggNC4xNS00LjY4IDEzLjI3LTEuMiA5LjEyIDEuMTggMTMuMzggMi40OSA0LjE2IDguNDcgNC4xNmExMS43IDExLjcgMCAwIDAgOS40Ni00LjE2cTMuNi00LjI2IDQuOC0xMy4zOCAxLjItOS4xMi0xLjI5LTEzLjI3em01LjUyIDMzLjU0cS03LjY0IDcuMS0xOS43OSA3LjA5LTEyLjE1LS4wMS0xOC03LjA5LTUuNzQtNy4yLTQtMjAuMjcgMS43NC0xMy4wNyA5LjM0LTIwLjE2IDcuNzQtNy4yIDE5LjktNy4yIDEyLjE2IDAgMTcuOSA3LjIgNS44NSA3LjA5IDQuMTMgMjAuMTYtMS43MiAxMy4wNy05LjQ4IDIwLjI3em0xNC43NiA2LjA4YTQuODIgNC44MiAwIDAgMS0zLjgyLTEuNzUgNS4xIDUuMSAwIDAgMS0xLjA5LTRsNS40Mi00MS4xNGE2LjU5IDYuNTkgMCAwIDEgMi4xNS00IDYuMzIgNi4zMiAwIDAgMSA0LjI4LTEuNzJoMS40MmE0LjcyIDQuNzIgMCAwIDEgMy43NCAxLjYyIDQuOTIgNC45MiAwIDAgMSAxLjMgNGwtLjA5LjcxYzAgLjA3IDAgLjEuMDkuMXMuMiAwIC4yMS0uMXE2Ljk0LTcuMjkgMTQuNDQtNy4zYTEyLjM3IDEyLjM3IDAgMCAxIDcuMDcgMS43M3EyLjYxIDEuNzEgNC4xNiA2LjA0YzAgLjA2LjA2LjEuMTkuMWEuMzkuMzkgMCAwIDAgLjIyLS4xUTM1Mi4yMyA0MyAzNjAuMjQgNDNxOC40IDAgMTEuNDUgNC41NiAzLjA1IDQuNTYgMS42OCAxNS43MUwzNjkuNzMgOTFhNi40IDYuNCAwIDAgMS0yLjI1IDQgNiA2IDAgMCAxLTQuMTggMS43MmgtMS43M2E0LjgzIDQuODMgMCAwIDEtMy44Mi0xLjcyIDQuOTEgNC45MSAwIDAgMS0xLjE5LTRsMy4zNy0yNS42M2MuNjUtNC45My42MS04LjE4LS4xMy05Ljczcy0yLjQ3LTIuMzMtNS4xNy0yLjMzYTkgOSAwIDAgMC01LjYzIDIuNHEtMyAyLjQzLTMuMjcgNC44NmwtNCAzMC40YTYuNCA2LjQgMCAwIDEtMi4yMiA0LjAzIDYuMzIgNi4zMiAwIDAgMS00LjI4IDEuNzJoLTEuNzNhNC44MyA0LjgzIDAgMCAxLTMuODItMS43MiA1LjE0IDUuMTQgMCAwIDEtMS4wOS00TDMzMiA2NS4zNHExLTcuMzEtLjI2LTkuNjMtMS4yNi0yLjMyLTUuMTUtMi40M2E5IDkgMCAwIDAtNS41OSAyLjQzcS0zIDIuNDMtMy4yNyA0Ljg2bC00IDMwLjRhNi40IDYuNCAwIDAgMS0yLjI5IDQuMDMgNi4zMiA2LjMyIDAgMCAxLTQuMjggMS43MnptNzMuNTEgMGE0LjgyIDQuODIgMCAwIDEtMy44Mi0xLjc1IDUuMSA1LjEgMCAwIDEtMS4wOS00bDUuNDEtNDEuMTRhNi42NSA2LjY1IDAgMCAxIDIuMTYtNCA2LjMyIDYuMzIgMCAwIDEgNC4yOC0xLjcySDM4N2E0LjcyIDQuNzIgMCAwIDEgMy43NCAxLjYyIDQuOTIgNC45MiAwIDAgMSAxLjMgNGwtLjA5LjcxYzAgLjA3IDAgLjEuMDguMXMuMjEgMCAuMjItLjFxNi45NC03LjI5IDE0LjQ0LTcuM2ExMi4zOSAxMi4zOSAwIDAgMSA3LjA3IDEuNzNxMi42MSAxLjcxIDQuMTYgNi4wOGMwIC4wNi4wNi4xLjE5LjFhLjM5LjM5IDAgMCAwIC4yMi0uMVE0MjUuNzQgNDMgNDMzLjc0IDQzcTguNDIgMCAxMS40NiA0LjU2IDMuMDQgNC41NiAxLjY4IDE1LjcxTDQ0My4yNCA5MWE2LjQgNi40IDAgMCAxLTIuMjQgNCA2IDYgMCAwIDEtNC4xOCAxLjcyaC0xLjczYTQuODIgNC44MiAwIDAgMS0zLjgzLTEuNzIgNC45MSA0LjkxIDAgMCAxLTEuMTktNGwzLjM3LTI1LjYzYy42NS00LjkzLjYxLTguMTgtLjE0LTkuNzNzLTIuNDYtMi4zMy01LjE2LTIuMzNhOSA5IDAgMCAwLTUuNTkgMi40M3EtMyAyLjQzLTMuMjcgNC44NmwtNCAzMC40YTYuNCA2LjQgMCAwIDEtMi4yOCA0IDYuMzIgNi4zMiAwIDAgMS00LjI4IDEuNzJINDA3YTQuODIgNC44MiAwIDAgMS0zLjgxLTEuNzIgNS4xNCA1LjE0IDAgMCAxLTEuMDktNGwzLjM4LTI1LjYzcTEtNy4zMS0uMjYtOS42My0xLjI2LTIuMzItNS4xNS0yLjQzYTkgOSAwIDAgMC01LjU5IDIuNDNxLTMgMi40My0zLjI3IDQuODZsLTQgMzAuNGE2LjQgNi40IDAgMCAxLTIuMjEgNCA2LjMyIDYuMzIgMCAwIDEtNC4yOCAxLjcyek00NjMgOTcuNzZxLTguOTEgMC0xMi4zMy00Ljg2dC0xLjg1LTE2LjcybDMuNDctMjYuMzVhNi40MiA2LjQyIDAgMCAxIDIuMjYtNCA2LjMxIDYuMzEgMCAwIDEgNC4yOC0xLjcyaDEuNjJhNC44MiA0LjgyIDAgMCAxIDMuODIgMS43MiA0LjkgNC45IDAgMCAxIDEuMTkgNGwtMy4yOCAyNC45M3EtLjkzIDcuMDkuNjMgOS44M2MxLjA1IDEuODIgMy4wOSAyLjc0IDYuMTMgMi43NCAyLjc3IDAgNS40OS0xLjE5IDguMTctMy41NXM0LjI5LTQuOSA0LjY0LTcuNmwzLjQ3LTI2LjM1YTYuNDYgNi40NiAwIDAgMSAyLjI2LTQgNi4zMiA2LjMyIDAgMCAxIDQuMjgtMS43MmgyYTQuNTQgNC41NCAwIDAgMSAzLjcyIDEuNzIgNC45NCA0Ljk0IDAgMCAxIDEuMTkgNEw0OTMuMjggOTFhNi40IDYuNCAwIDAgMS0yLjI4IDQgNiA2IDAgMCAxLTQuMTggMS43MmgtMS4zMmE1LjE0IDUuMTQgMCAwIDEtMy45NC0xLjYyIDUuNTggNS41OCAwIDAgMS0xLjE1LTQuMXYtLjdjMC0uMDcgMC0uMTEtLjA5LS4xMWEuMzUuMzUgMCAwIDAtLjIyLjExcS03Ljg3IDcuNDktMTcuMSA3LjQ5em0zOC4yMS0xYTQuODIgNC44MiAwIDAgMS0zLjgyLTEuNzYgNC45MSA0LjkxIDAgMCAxLTEuMTktNGw1LjQxLTQxLjE0YTYuNDYgNi40NiAwIDAgMSAyLjI2LTQgNi4zMiA2LjMyIDAgMCAxIDQuMjgtMS43MmgxLjMyYTQuNjQgNC42NCAwIDAgMSAzLjgyIDEuNzIgNSA1IDAgMCAxIDEuMjkgNGwtLjA5LjcxYzAgLjA3IDAgLjEuMDkuMWEuMzEuMzEgMCAwIDAgLjIxLS4xcTcuODktNy41IDE3LjEtNy41dDEyLjY5IDUuMjdxMy41NyA1LjE3IDIgMTcuMzNMNTQzLjIxIDkxYTYuOTEgNi45MSAwIDAgMS02LjUzIDUuNzhINTM1YTQuODcgNC44NyAwIDAgMS0zLjg3LTEuNzggNS4xNCA1LjE0IDAgMCAxLTEuMTMtNGwzLjItMjQuMzJxMS03LjU5LS42Ni0xMC4zM2MtMS0xLjg5LTMuMjQtMi44NC02LjYyLTIuODRxLTQuMTUgMC04LjE3IDMuNTV0LTQuNTUgNy42TDUwOS43NyA5MWE2LjQgNi40IDAgMCAxLTIuMjUgNCA2LjMyIDYuMzIgMCAwIDEtNC4yOCAxLjcyem01MS4xMSAwYTQuODQgNC44NCAwIDAgMS0zLjgzLTEuNzYgNSA1IDAgMCAxLTEuMTktNGw1LjQyLTQxLjE0YTYuNCA2LjQgMCAwIDEgMi4yNS00IDYuMzIgNi4zMiAwIDAgMSA0LjI4LTEuNzJoMi42NGE0LjgyIDQuODIgMCAwIDEgMy44MiAxLjcyIDQuOSA0LjkgMCAwIDEgMS4xOSA0TDU2MS40OSA5MWE2LjQ2IDYuNDYgMCAwIDEtMi4yNiA0IDYuMzIgNi4zMiAwIDAgMS00LjIzIDEuNzV6bTUyLjMyLTM5LjYzcS0yLjM5LTQuMjYtOC4zNi00LjI2YTExLjkxIDExLjkxIDAgMCAwLTkuNTggNC4yNnEtMy40OCA0LjE2LTQuNyAxMy4yNy0xLjIyIDkuMTEgMS4xOCAxMy4zOCAyLjQ5IDQuMTYgOC40NyA0LjE2YTExLjcyIDExLjcyIDAgMCAwIDkuNDctNC4xNnEzLjYtNC4yNiA0LjgtMTMuMzggMS4yLTkuMTItMS4yOC0xMy4yN3ptNS41MSAzMy41NHEtNy42MiA3LjEtMTkuNzggNy4wOS0xMi4xNi0uMDEtMTgtNy4wOS01LjczLTcuMi00LTIwLjI3IDEuNzMtMTMuMDcgOS4zNC0yMC4xNiA3Ljc0LTcuMiAxOS44OS03LjJ0MTcuOSA3LjJxNS44NyA3LjA5IDQuMTQgMjAuMTYtMS43MyAxMy4wNy05LjQ5IDIwLjI3eiIvPjxwYXRoIGZpbGw9IiMyZGNhZmYiIGQ9Im01NTIuNzEgMTkuOTQgNy43MSAxNy4zMyAxMi4yOS0xNy4zM1oiLz48cGF0aCBmaWxsPSIjZGZkZmRmIiBkPSJtMTU5IDcuNjktNDQuMzYgMjAgMTcgMjguMjNMMTU5IDguNnpNNDMuMTQgMzIuODcgNDYuMTIgMEgxLjM1eiIvPjxwYXRoIGZpbGw9IiMyZGNhZmYiIGQ9Im00NC4wOCA3Mi43MSAyNi4xMiAzLTIwLjU4LTIzLjE2em0tMi40OS0yOC40MkwwIDExLjU3bDM0LjI4IDU5LjM3em0xMS4yNi04LjU5TDEwMS43MSAyMiA5NyAwSDU2LjA5em00Ni43My0yLjhMNTYuMjMgNDUuMDZsMjcuNjMgMzEuMDd6bTExLjUyLTE0LjQ0TDE1MS45NCAwaC00NC44MXpNOTUgNzQuNmwyOS4zMi01LjgyIDEuNzMtM0wxMDguNjYgMzd6Ii8+PHBhdGggZmlsbD0iI2RmZGZkZiIgZD0ibTc3LjMxIDg2LjUyLTM2LjQ2LTQuMTlMNzQuMTUgMTQweiIvPjxwYXRoIGZpbGw9IiMyZGNhZmYiIGQ9Im04Ny4wOCA4OS41Ni0yLjg4IDQ4LjY2IDE4LjQyLTMxLjl6TTk2IDg0LjUzbDExLjg2IDEyLjc5IDkuODgtMTcuMTF6Ii8+PC9zdmc+) no-repeat center center;
+  background-size: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.1; }
+
+.k-welcome-avatar {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  margin-right: 16px; }
+
+.k-welcome-avatar img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  object-fit: cover;
+  display: block; }
+
+.zarafa-welcome-body div.zarafa-welcome-title {
+  background: transparent !important;
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.3;
+  padding: 0 0 0 15px;
+  border: none !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); }
+
+.zarafa-welcome-body div.zarafa-welcome-message {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 4px 0 0 15px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); }
+
+.zarafa-welcome-body > .x-panel-bwrap > .x-panel-body {
+  background: #ffffff;
+  border: none; }
+
+.zarafa-welcome-body > .x-panel-bwrap > .x-panel-body > div {
+  border: none; }
+
+.zarafa-welcome-body .zarafa-settings-widget-welcome .x-panel-header {
+  padding: 12px 14px 8px;
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 600;
+  color: #555; }
+
+.zarafa-welcome-body .zarafa-settings-widget-welcome > .x-panel-bwrap > .x-panel-body {
+  padding: 4px 14px 14px;
+  border: none; }
+
+.zarafa-welcome-body > .x-panel-bwrap .x-panel-footer {
+  padding: 16px 20px;
+  border: none;
+  background: #ffffff; }
+
+.zarafa-welcome-body .zarafa-settings-widget-welcome .zarafa-settings-reload-warning {
+  position: absolute !important;
+  left: -10000px;
+  top: -10000px;
+  visibility: hidden; }
+
+/* Welcome dialog - hide profile photo/info header and reduce form padding */
+.zarafa-welcome-body .k-settings-profile-header {
+  display: none; }
+
+.zarafa-welcome-body .k-settings-profile-form {
+  padding: 0 !important; }
 
 .k-category-block {
   color: black;
@@ -4460,21 +5083,37 @@ body .k-category-block {
 
 /* Rules settings category */
 #zarafa-mainpanel-contentpanel-settings .k-rules-widget > .x-panel-bwrap > .x-panel-body {
-  padding: 6px 0; }
+  padding: 4px 0; }
 #zarafa-mainpanel-contentpanel-settings .k-rules-widget .k-store-picker {
-  padding: 0 6px 6px;
-  border-bottom: 1px solid #e6e6e6; }
+  padding: 4px 10px 8px;
+  border-bottom: 1px solid #e4e7ec; }
   #zarafa-mainpanel-contentpanel-settings .k-rules-widget .k-store-picker .x-form-item {
     margin-bottom: 0; }
   #zarafa-mainpanel-contentpanel-settings .k-rules-widget .k-store-picker label {
     width: auto;
-    border: 1px solid transparent;
-    /* to align the text with the text in the combo */ }
+    color: #475467;
+    font-weight: 500;
+    border: 1px solid transparent; }
 
 .k-rulesgrid .x-panel-tbar .x-toolbar {
   padding: 6px; }
 .k-rulesgrid .x-btn-noicon .x-btn-small {
   margin-right: 6px; }
+.k-rulesgrid .x-panel-tbar .x-btn-icon .x-btn-small {
+  min-width: 28px; }
+
+/* Recurrence dialog - spinner alignment */
+.k-recurrence-dialog .zarafa-compositefield .x-form-field-wrap {
+  margin-top: -4px !important;
+  margin-left: 2px !important; }
+
+/* Recurrence dialog - end pattern row height */
+.k-recurrence-end-pattern .x-box-inner {
+  min-height: 30px; }
+
+.k-recurrence-dialog .x-panel-footer,
+.k-recurrence-dialog .x-panel-btns {
+  background-color: inherit !important; }
 
 /* Rules edit panel (called "Inbox Rule" */
 .k-ruleseditpanel .zarafa-folder-link, .k-ruleseditpanel .zarafa-user-link, .k-ruleseditpanel .zarafa-word-link {
@@ -4554,6 +5193,185 @@ body .k-category-block {
   list-style: disc;
   padding-left: 40px; }
 
+/* Modern toast notifications */
+.grommunio-toast-container {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000000000;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+  max-height: calc(100vh - 48px);
+  overflow: visible; }
+
+.grommunio-toast {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  min-width: 400px;
+  max-width: 560px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.14), 0 2px 6px rgba(0, 0, 0, 0.08);
+  pointer-events: auto;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  overflow: hidden;
+  cursor: default; }
+
+.grommunio-toast-visible {
+  opacity: 1;
+  transform: translateY(0); }
+
+.grommunio-toast-exit {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.2s ease, transform 0.2s ease; }
+
+.grommunio-toast-accent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  border-radius: 10px 0 0 10px; }
+
+.grommunio-toast-info .grommunio-toast-accent {
+  background: #34a853; }
+
+.grommunio-toast-warning .grommunio-toast-accent {
+  background: #f59e0b; }
+
+.grommunio-toast-error .grommunio-toast-accent {
+  background: #dc2626; }
+
+.grommunio-toast-icon {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  margin: 16px 0 16px 18px; }
+
+.grommunio-toast-icon svg {
+  width: 26px;
+  height: 26px;
+  display: block; }
+
+.grommunio-toast-info .grommunio-toast-icon {
+  color: #34a853; }
+
+.grommunio-toast-warning .grommunio-toast-icon {
+  color: #f59e0b; }
+
+.grommunio-toast-error .grommunio-toast-icon {
+  color: #dc2626; }
+
+.grommunio-toast-body {
+  flex: 1;
+  padding: 14px 14px 14px 14px;
+  min-width: 0; }
+
+.grommunio-toast-title {
+  font-weight: 600;
+  font-size: 15px;
+  color: #1a1a1a;
+  line-height: 1.4;
+  word-wrap: break-word; }
+
+.grommunio-toast-message {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+  margin-top: 3px;
+  word-wrap: break-word; }
+
+.grommunio-toast-close {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  margin: 10px 10px 0 0;
+  border: none;
+  background: none;
+  font-size: 20px;
+  line-height: 32px;
+  text-align: center;
+  color: #999;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.15s, color 0.15s; }
+
+.grommunio-toast-close:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: #333; }
+
+.grommunio-toast-progress {
+  position: absolute;
+  bottom: 0;
+  left: 5px;
+  right: 0;
+  height: 3px;
+  background: transparent;
+  overflow: hidden;
+  border-radius: 0 0 10px 0; }
+
+.grommunio-toast-progress-bar {
+  height: 100%;
+  width: 100%;
+  transform-origin: left;
+  animation: grommunio-toast-countdown linear forwards;
+  border-radius: 0 0 10px 0; }
+
+.grommunio-toast-info .grommunio-toast-progress-bar {
+  background: rgba(52, 168, 83, 0.35); }
+
+.grommunio-toast-warning .grommunio-toast-progress-bar {
+  background: rgba(245, 158, 11, 0.35); }
+
+@keyframes grommunio-toast-countdown {
+  from { transform: scaleX(1); }
+  to { transform: scaleX(0); } }
+
+.grommunio-toast-details-toggle {
+  font-size: 12px;
+  color: #2563eb;
+  cursor: pointer;
+  margin-top: 8px;
+  user-select: none; }
+
+.grommunio-toast-details-toggle:hover {
+  text-decoration: underline; }
+
+.grommunio-toast-details {
+  margin-top: 8px; }
+
+.grommunio-toast-details-text {
+  font-family: monospace;
+  font-size: 12px;
+  color: #555;
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 8px;
+  max-height: 150px;
+  overflow: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: 0; }
+
+.grommunio-toast-details-copy {
+  font-size: 12px;
+  color: #2563eb;
+  cursor: pointer;
+  margin-top: 4px;
+  user-select: none; }
+
+.grommunio-toast-details-copy:hover {
+  text-decoration: underline; }
+
 /* Style Add Widget Panel */
 .zarafa-widget-item {
   width: 80px;
@@ -4626,6 +5444,13 @@ body .k-category-block {
   color: inherit;
   opacity: 0.5; }
 
+/* Restore overflow inside dialog windows so tree panels can scroll */
+.x-window .x-panel-body:has(> .x-tree-root-ct) {
+  overflow: auto !important; }
+
+.x-window .x-box-layout-ct {
+  overflow: visible !important; }
+
 /* loading mask  */
 .x-mask-loading {
   background-image: none !important;
@@ -4634,12 +5459,18 @@ body .k-category-block {
   z-index: 9 !important;
 }
 
+.ext-el-mask-msg.x-mask-loading {
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%);
+}
+
 .x-mask-loading div{
   background-color: transparent;
-  background-image: url(../images/load.gif);
-  background-size: 64px 64px;
-  width: 64px;
-  height: 64px;
+  background-image: url(../images/spinner.svg);
+  background-size: 48px 48px;
+  width: 48px;
+  height: 48px;
   background-position: center center;
   text-indent: 200%;
   white-space: nowrap;
@@ -4804,7 +5635,8 @@ body .k-category-block {
 /* (legacy scrollbar block removed — unified scrollbar defined at end of file) */
 
 input.x-tree-node-cb {
-    height: 36px;
+    height: 14px;
+    width: 14px;
 }
 
 .x-tree-lines .x-tree-elbow, .x-tree-lines .x-tree-elbow-end, .x-tree-lines .x-tree-elbow-line .arrow_right_l, .light-background .zarafa-calendar-tab-icon-separate, .x-date-mp-ybtn a, .x-date-right a, .x-layout-collapsed .x-tool.x-tool-toggle.x-tool-expand-west, .x-menu-item-arrow, .x-panel-header .x-tool.x-tool-collapse-east, .x-tab-scroller-right, .x-tool.x-tool-toggle.x-tool-collapse-east, .x-tree-lines .x-tree-elbow-end-plus, .x-tree-lines .x-tree-elbow-plus .arrow_down_l, .x-panel-collapsed .x-tool.x-tool-toggle, .x-tree-lines .x-tree-elbow-end-minus, .x-tree-lines .x-tree-elbow-minus, .zarafa-rules-sequence-down, td.sort-desc .x-grid3-sort-icon .arrow_right_l, .light-background .zarafa-calendar-tab-icon-separate, .x-date-mp-ybtn a, .x-date-right a, .x-layout-collapsed .x-tool.x-tool-expand-west, .x-layout-collapsed .x-tool.x-tool-toggle.x-tool-expand-west, .x-menu-item-arrow, .x-panel-header .x-tool.x-tool-collapse-east, .x-tab-scroller-right, .x-tool.x-tool-toggle.x-tool-collapse-east, .x-tree-lines .x-tree-elbow-end-plus, .x-tree-lines .x-tree-elbow-plus, .x-date-picker .x-date-left a {
@@ -4852,9 +5684,10 @@ input.x-tree-node-cb {
 }
 
 .tox-tinymce {
-    height: 100% !important;
     border: 0 !important;
+    height: 100% !important;
 }
+
 
 .tox-tinymce {
   border-radius: 0 !important;
@@ -4900,6 +5733,15 @@ body {
   --theme-panel-bg: #e3f2fd;
   --theme-gradient-start: #009FFD;
   --theme-gradient-end: #2a2a72;
+
+  /* Semantic colors */
+  --color-error: #e30022;
+  --color-success: #59b147;
+  --color-warning: #ffd700;
+  --color-info: #3094e3;
+
+  /* Icon color - light mode default */
+  --icon-color: #333;
 }
 
 /* Purple Theme */
@@ -5122,12 +5964,7 @@ body.login #form-container #submitbutton:active,
   background: var(--theme-primary-hover);
 }
 
-/* The top bar of the Welcome dialog */
-.zarafa-welcome-body > .x-panel-bwrap > .x-panel-body div.zarafa-welcome-title {
-  border-left: 1px solid var(--theme-primary-dark);
-  border-right: 1px solid var(--theme-primary-dark);
-  background: linear-gradient(150deg, var(--theme-gradient-start), var(--theme-gradient-end));
-}
+/* The top bar of the Welcome dialog - handled by .k-welcome-header gradient */
 
 /*********************************************************************************************
  * The top menu bar
@@ -5210,8 +6047,8 @@ body.theme-highcontrast #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct #main
  *********************************************************************/
 #zarafa-navigationpanel .x-panel-header,
 .zarafa-widgetpanel .x-panel-header {
-  background-color: #e6e6e6;
-  border: 1px solid #e6e6e6;
+  background-color: #f0f2f5;
+  border: 1px solid #e4e7ec;
 }
 
 /* Orange theme does not define border for side panels */
@@ -5504,6 +6341,329 @@ ul.x-tab-strip li:not(.x-tab-strip-active):hover .x-tab-strip-text {
   overflow-x: hidden !important;
 }
 
+/*********************************************************************************************
+ * Modern UI Enhancements
+ ********************************************************************************************/
+
+/* Modern checkbox styling */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  min-width: 14px;
+  min-height: 14px;
+  border: 1.5px solid #98a2b3;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.15s ease;
+  vertical-align: middle; }
+
+input[type="checkbox"]:hover {
+  border-color: var(--theme-primary-color); }
+
+input[type="checkbox"]:checked {
+  background: var(--theme-primary-color);
+  border-color: var(--theme-primary-color); }
+
+input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 1px;
+  width: 4px;
+  height: 7px;
+  border: solid #ffffff;
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg); }
+
+input[type="checkbox"]:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--theme-primary-color) 15%, transparent); }
+
+/* Modern radio button styling */
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  min-width: 14px;
+  min-height: 14px;
+  border: 1.5px solid #98a2b3;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.15s ease;
+  vertical-align: middle; }
+
+input[type="radio"]:hover {
+  border-color: var(--theme-primary-color); }
+
+input[type="radio"]:checked {
+  border-color: var(--theme-primary-color); }
+
+input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--theme-primary-color); }
+
+input[type="radio"]:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--theme-primary-color) 15%, transparent); }
+
+/* Modern tooltip */
+.x-tip {
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  border: 1px solid #e4e7ec; }
+
+.x-tip .x-tip-body {
+  padding: 8px 12px; }
+
+/* Loading mask modernization */
+.ext-el-mask-msg {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e4e7ec; }
+
+.ext-el-mask-msg div {
+  padding: 8px 16px; }
+
+/* Modern date picker */
+.x-date-picker {
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e4e7ec; }
+
+.x-date-picker .x-date-inner td a {
+  border-radius: 6px;
+  transition: background-color 0.15s ease; }
+
+.x-date-picker .x-date-inner td a:hover {
+  background-color: #f2f4f7; }
+
 .x-grid3-scroller:hover {
   overflow-y: auto !important;
+}
+
+/*********************************************************************************************
+ * UI Alignment & Spacing Fixes
+ ********************************************************************************************/
+
+/* Fix: Labels vertical alignment with input fields */
+.x-form-item label.x-form-item-label {
+  padding: 6px 3px 3px 0;
+}
+
+
+/* Addressbook General Tab - modern layout */
+.k-ab-general-tab > .x-panel-bwrap > .x-panel-body {
+  padding: 12px;
+}
+
+/* Identity card: name fields on left, photo on right, vertically centered */
+.k-ab-identity {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e4e7ec;
+  display: flex;
+  align-items: center;
+}
+
+.k-ab-name-fields {
+  flex: 1;
+  min-width: 0;
+}
+
+
+
+.k-ab-photo-ct {
+  flex-shrink: 0;
+  margin-left: 10px;
+}
+
+.k-ab-photo {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #e4e7ec;
+}
+
+.k-ab-photo.default_contact_photo {
+  background: url(../images/default_contact_profile.png) no-repeat center center #e4e7ec;
+  background-size: 60px;
+}
+
+/* Detail columns: Address + Professional side by side */
+.k-ab-details {
+  /* no special styling needed, column layout handles width */
+}
+
+.k-ab-detail-col {
+  padding: 0 4px;
+}
+
+.k-ab-detail-col .x-panel-header {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid #e4e7ec !important;
+  padding: 0 0 6px 0 !important;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #667085;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  box-shadow: none !important;
+}
+
+/* Legacy k-fieldset class - keep for backward compatibility */
+.k-fieldset {
+  margin: 0 !important;
+  margin-top: 0 !important;
+  padding: 4px 6px;
+  border: none !important;
+  background: transparent !important;
+}
+
+/* Fix: Mail compose subject height */
+.zarafa-mailcreatepanel > .x-panel-bwrap > .x-panel-body .zarafa-mailcreatepanel-field-subject {
+  height: 30px !important;
+  line-height: 28px;
+  padding: 1px 6px 1px 12px !important;
+}
+
+/* Fix: Mail compose To/CC/BCC/From button alignment with input field */
+.zarafa-mailcreatepanel-field-from .x-btn .x-btn-small,
+.zarafa-mailcreatepanel-field-from-large .x-btn .x-btn-small,
+.zarafa-mailcreatepanel-field-to .x-btn .x-btn-small,
+.zarafa-mailcreatepanel-field-cc .x-btn .x-btn-small,
+.zarafa-mailcreatepanel-field-bcc .x-btn .x-btn-small,
+.zarafa-mailcreatepanel-field-attachments .x-btn .x-btn-small {
+  height: 28px !important;
+  padding: 0 !important;
+}
+
+.zarafa-mailcreatepanel-field-from .x-btn .x-btn-small button,
+.zarafa-mailcreatepanel-field-from-large .x-btn .x-btn-small button,
+.zarafa-mailcreatepanel-field-to .x-btn .x-btn-small button,
+.zarafa-mailcreatepanel-field-cc .x-btn .x-btn-small button,
+.zarafa-mailcreatepanel-field-bcc .x-btn .x-btn-small button,
+.zarafa-mailcreatepanel-field-attachments .x-btn .x-btn-small button {
+  height: 28px !important;
+  line-height: 28px;
+}
+
+/* Fix: Addressbook dialog To/CC/BCC button alignment */
+.zarafa-addressbook-dialog-compositefield .x-btn .x-btn-small {
+  height: 28px !important;
+  padding: 0 !important;
+}
+
+.zarafa-addressbook-dialog-compositefield .x-btn .x-btn-small button {
+  height: 28px !important;
+  line-height: 28px;
+}
+
+/* Fix: Attachment field - hide the background input element */
+.x-zarafa-boxfield.zarafa-attachmentfield {
+  border: none !important;
+  background: transparent !important;
+}
+
+.zarafa-mailcreatepanel-field-attachments .x-form-text.x-zarafa-boxfield,
+.k-field-attachments .x-form-text.x-zarafa-boxfield,
+.k-appointmentcreatetab .k-field-attachments .x-form-text {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Fix: Notification/info bars should fill their container */
+.preview-header-extrainfobox,
+.preview-header-extrainfobox-item,
+.zarafa-calendar-appointment-extrainfo div,
+.zarafa-mailcreatepanel-extrainfo div {
+  display: block;
+  width: auto;
+}
+
+/* Fix: Settings panels - comprehensive layout fixes */
+
+/* Panels and grids inside settings widgets should fill width, but NOT box-layout
+   containers (x-box-layout-ct / x-box-inner) — those have precise widths set by
+   the hbox/vbox layout manager and must not be overridden. */
+#zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-panel-body > .x-panel,
+#zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-panel-body > .x-grid-panel {
+  width: 100% !important;
+}
+
+/* Grid border styling — only for grids inside form-based widgets (not nogap) */
+#zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget:not(.k-settings-nogap) .x-grid3 {
+  border: 1px solid #e4e7ec;
+  border-radius: 6px;
+  overflow: hidden;
+}
+#zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-grid3-header {
+  background: #f9fafb;
+}
+#zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-grid3-hd-inner {
+  color: #475467;
+  font-weight: 600;
+  font-size: 12px;
+}
+#zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-grid3-row {
+  border-color: #f2f4f7;
+}
+#zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-grid3-row-over .x-grid3-cell {
+  background-color: #f9fafb !important;
+}
+#zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-grid3-row-selected .x-grid3-cell {
+  background-color: #f0f6ff !important;
+}
+
+/* Remove border from grids already inside a bordered panel body */
+#zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-panel-body > .x-grid-panel > .x-panel-bwrap > .x-panel-body {
+  border: none;
+}
+
+/* Nested panels inside settings widgets should be borderless and seamless */
+#zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-panel-body > .x-panel {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Settings combo boxes wider for content */
+#zarafa-mainpanel-contentpanel-settings .x-form-field-trigger-wrap {
+  min-width: 200px;
+}
+
+/* Rules store picker divider */
+#zarafa-mainpanel-contentpanel-settings .k-rules-widget .k-store-picker {
+  border-bottom: 1px solid #e4e7ec;
+  padding: 6px 12px 10px;
+}
+
+/* Fix overflow on widget panels to show full content */
+#zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Fix: Thin borders in small zoom levels - use outline for extra crispness */
+.x-fieldset,
+.x-combo-list,
+.x-menu,
+.x-window,
+.x-tip {
+  outline: none;
 }

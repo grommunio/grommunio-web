@@ -38,6 +38,8 @@ Zarafa.advancesearch.dialogs.SearchCenterPanel = Ext.extend(Ext.Panel, {
 					cls: 'zarafa-context-mainpanel',
 					collapsible: false,
 					region: 'center',
+					minHeight: 200,
+					minWidth: 300,
 					items: [{
 						xtype: 'zarafa.switchviewcontentcontainer',
 						ref: '../viewPanel',
