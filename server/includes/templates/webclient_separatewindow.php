@@ -14,6 +14,16 @@ $loader = new FileLoader();
 		<link rel="icon" href="client/resources/images/favicon.ico?v2.2.0" type="image/x-icon">
 		<link rel="shortcut icon" href="client/resources/images/favicon.ico?v2.2.0" type="image/x-icon">
 
+		<script>
+		// Resolve system dark mode preference before CSS renders
+		(function() {
+			document.addEventListener('DOMContentLoaded', function() {
+				if (document.body.classList.contains('dark-mode-system') && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+					document.body.classList.add('dark-mode');
+				}
+			});
+		})();
+		</script>
 		<link rel="stylesheet" href="client/resources/css/darkmode.css" >
 		<?php
 			$loader->cssOrder();
