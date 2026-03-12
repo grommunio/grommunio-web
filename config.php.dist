@@ -31,6 +31,9 @@
 	// Overrides defaults.php
 	//define("ENABLE_RESOLVE_HIDDEN_USERS", true);
 
+	// Whether to show domains without users/contacts in their global address book.
+	define("GAB_SHOW_EMPTY_DOMAINS", true);
+
 	// The timeout (in seconds) for the session. User will be logged out of grommunio Web
 	// when he has not actively used grommunio Web for this time.
 	// Set to 0 (or remove) for no timeout during browser session.

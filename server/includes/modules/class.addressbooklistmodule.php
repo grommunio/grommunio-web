@@ -913,11 +913,23 @@ class AddressbookListModule extends ListModule {
 
 		$items = mapi_table_queryallrows($table, [PR_DISPLAY_NAME, PR_ENTRYID, PR_PARENT_ENTRYID, PR_DEPTH, PR_AB_PROVIDER_ID]);
 		$parent = false;
+		$gabEmptyDomains = $this->sessionData[$this->getModuleName()]['gabEmptyDomains'] ?? [];
 		foreach ($items as $item) {
 			// Only include GAB entries; contact folders are added separately
 			// via getPersonalContactFolders/getSharedContactFolders.
 			if ($item[PR_AB_PROVIDER_ID] != MUIDECSAB) {
 				continue;
+			}
+
+			if (!GAB_SHOW_EMPTY_DOMAINS) {
+				if (isset($gabEmptyDomains[$item[PR_ENTRYID]])) {
+					continue;
+				}
+				$entry = mapi_ab_openentry($ab, $item[PR_ENTRYID]);
+				$table = mapi_folder_getcontentstable($entry, MAPI_DEFERRED_ERRORS);
+				if (mapi_table_getrowcount($table) == 0) {
+					$gabEmptyDomains[$item[PR_ENTRYID]] = true;
+				}
 			}
 
 			if ($item[PR_DEPTH] == 0) {
@@ -939,6 +951,7 @@ class AddressbookListModule extends ListModule {
 				"object_type" => MAPI_ABCONT,
 			]);
 		}
+		$this->sessionData[$this->getModuleName()]['gabEmptyDomains'] = $gabEmptyDomains;
 	}
 
 	/**

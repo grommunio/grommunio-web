@@ -179,6 +179,14 @@ if (!defined("ENABLE_RESOLVE_HIDDEN_USERS")) {
 }
 
 /*
+ * When disabled, the domains without users/contacts in their global address list
+ * will not appear in the GAB selection. Enabled by default to avoid additional load.
+ */
+if (!defined("GAB_SHOW_EMPTY_DOMAINS")) {
+	define("GAB_SHOW_EMPTY_DOMAINS", true);
+}
+
+/*
  * Limit the amount of members shown in the addressbook details dialog for a distlist. If the list
  * is too great the browser will hang loading and rendering all the items. By default set to 0
  * which means it loads all members.
