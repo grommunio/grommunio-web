@@ -169,8 +169,10 @@ Zarafa.plugins.files.settings.ui.AccountEditPanel = Ext.extend(Ext.Panel, {
 				var index = store.find('name', backend);
 				var record = index >= 0 ? store.getAt(index) : store.getAt(0);
 				if (record) {
-					backendCombo.setValue(record.get('name'));
 					this.currentBackend = record.get('name');
+					if (backendCombo.store) {
+						backendCombo.setValue(record.get('name'));
+					}
 				}
 				this.updateMetaFormBackend(this.currentBackend, true);
 			},
@@ -189,6 +191,7 @@ Zarafa.plugins.files.settings.ui.AccountEditPanel = Ext.extend(Ext.Panel, {
 					{
 						xtype: 'panel',
 						layout: 'form',
+						labelWidth: 180,
 						border: false,
 						flex: 1,
 						defaults: {
@@ -222,6 +225,7 @@ Zarafa.plugins.files.settings.ui.AccountEditPanel = Ext.extend(Ext.Panel, {
 						xtype: 'metaform',
 						autoInit: true,
 						method: 'GET',
+						labelWidth: 180,
 						flex: 1,
 						defaults: {
 							anchor: '100%',

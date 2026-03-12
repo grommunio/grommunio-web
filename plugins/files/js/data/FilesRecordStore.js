@@ -223,7 +223,10 @@ Zarafa.plugins.files.data.FilesRecordStore = Ext.extend(Zarafa.core.data.ListMod
 		if (Ext.isEmpty(path) || path === "#R#" ) {
 			// switch to the account overview!
 			viewPanel.switchView('files-accountview');
-			componentBox.getPreviewPanel().topToolbar.disable();
+			var previewPanel = componentBox.getPreviewPanel();
+			if (previewPanel && previewPanel.topToolbar) {
+				previewPanel.topToolbar.disable();
+			}
 			disabledSwitchViewButton = true;
 		} else if (componentBox.getItemsView() instanceof Zarafa.plugins.files.ui.FilesRecordAccountView) {
 			switch (componentBox.getContext().getCurrentView()) {

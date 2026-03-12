@@ -20,6 +20,7 @@ Zarafa.plugins.files.settings.SettingsAccountsWidget = Ext.extend(Zarafa.setting
 		Ext.applyIf(config, {
 			title : _('Manage Accounts'),
 			xtype : 'filesplugin.settingsaccountswidget',
+			cls: 'zarafa-settings-widget k-settings-nogap',
 			height: 400,
 			layout: 'fit',
 			items : [{

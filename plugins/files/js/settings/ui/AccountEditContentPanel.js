@@ -20,8 +20,8 @@ Zarafa.plugins.files.settings.ui.AccountEditContentPanel = Ext.extend(Zarafa.cor
 
 			layout: 'fit',
 			modal: true,
-			width: 400,
-			height: 250,
+			width: 520,
+			height: 300,
 			stateful: false,
 			title: _('Edit Account'),
 			items: [{

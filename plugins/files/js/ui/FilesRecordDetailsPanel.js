@@ -28,6 +28,7 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
 			autoDestroy: true,
 			layout     : layout,
 			border     : false,
+			bodyStyle  : 'padding: 10px;',
 			items      : [
 				this.fieldSetFileInfo(),
 				this.fieldSetFilePreview()
@@ -65,9 +66,11 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
             anchor: '100%',
             readOnly: true
         },
+        style: 'margin-bottom: 10px;',
         items: [{
             xtype: 'container',
             layout: 'hbox',
+            style: 'margin-bottom: 6px;',
             items: [{
                 xtype: 'label',
                 text: _('Filename'),
@@ -82,6 +85,7 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
             xtype: 'container',
             ref: '../filesizeContainer',
             layout: 'hbox',
+            style: 'margin-bottom: 6px;',
             items: [{
                 xtype: 'label',
                 text: _('Filesize'),
@@ -95,6 +99,7 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
         }, {
             xtype: 'container',
             layout: 'hbox',
+            style: 'margin-bottom: 6px;',
             items: [{
                 xtype: 'label',
                 text: _('Last modified'),
@@ -108,6 +113,7 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
         }, {
             xtype: 'container',
             layout: 'hbox',
+            style: 'margin-bottom: 6px;',
             items: [{
                 xtype: 'label',
                 text: _('Type'),
@@ -122,6 +128,7 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
 	    xtype: 'container',
 	    ref: '../sharedContainer',
 	    layout: 'hbox',
+	    style: 'padding-top: 2px;',
 	    items: [{
 		xtype: 'label',
 		text: _('Is shared'),
