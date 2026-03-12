@@ -490,6 +490,9 @@ class CreateMailItemModule extends ItemModule {
 			$props = Conversion::mapMAPI2XML($this->properties, $messageProps);
 
 			$sourceMsgInfo = !empty($props['props']['source_message_info']) ? $props['props']['source_message_info'] : false;
+			if ($sourceMsgInfo === false) {
+				return false;
+			}
 
 			if (isset($props["props"]['sent_representing_entryid']) && !empty($props["props"]['sent_representing_entryid'])) {
 				$storeEntryid = $this->getSourceStoreEntryId($props);

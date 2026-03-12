@@ -625,6 +625,16 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 			return true;
 		}
 		return false;
+	},
+
+	/**
+	 * Checks if the record is in the outbox and scheduled to send.
+	 *
+	 * @returns {Boolean}
+	 */
+	isScheduled: function() {
+		var outbox = container.getHierarchyStore().getDefaultFolder('outbox');
+		return !Ext.isEmpty(this.get('deferred_send_time')) && outbox && Zarafa.core.EntryId.compareEntryIds(outbox.get('entryid'), this.get('parent_entryid'));
 	}
 });
 
