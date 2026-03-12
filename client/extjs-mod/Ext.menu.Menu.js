@@ -11,6 +11,26 @@
 		},
 
 		/**
+		 * Override onRender to add ARIA menu role for accessibility.
+		 */
+		onRender: Ext.menu.Menu.prototype.onRender.createSequence(function() {
+			if (this.el) {
+				this.el.set({ 'role': 'menu' });
+			}
+			// Set role="menuitem" on all menu items
+			if (this.ul) {
+				var items = this.ul.select('.x-menu-list-item');
+				items.each(function(el) {
+					el.set({ 'role': 'none' });
+					var anchor = el.child('a');
+					if (anchor) {
+						anchor.set({ 'role': 'menuitem' });
+					}
+				});
+			}
+		}),
+
+		/**
 		 * Event handler for the load event of {@link Zarafa.core.data.IPMStore store}
 		 * When we have {@link Ext.menu.Menu contextmenu} open and if we receive a new record
 		 * then store and sub store of the selected records are not accessible anymore,so we have

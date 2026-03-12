@@ -5,7 +5,7 @@
 
 	Ext.override(Ext.form.ComboBox, {
 		// private
-		defaultAutoCreate: {tag: "input", type: "text", size: "24", autocomplete: "off", spellcheck: 'true'},
+		defaultAutoCreate: {tag: "input", type: "text", size: "24", autocomplete: "off", spellcheck: 'true', role: 'combobox', 'aria-autocomplete': 'list', 'aria-haspopup': 'listbox'},
 
 		/*
 		 * Overridden to add 'beforeexpand' event.
@@ -33,9 +33,14 @@
 		initList: function()
 		{
 			if (!this.tpl) {
-				this.tpl = '<tpl for="."><div class="x-combo-list-item">{' + this.displayField + ':htmlEncode}</div></tpl>';
+				this.tpl = '<tpl for="."><div class="x-combo-list-item" role="option">{' + this.displayField + ':htmlEncode}</div></tpl>';
 			}
 			orig_initList.apply(this, arguments);
+
+			// Add ARIA listbox role to the dropdown list container
+			if (this.innerList) {
+				this.innerList.set({ 'role': 'listbox' });
+			}
 		},
 
 		/*
@@ -49,8 +54,20 @@
 
 			if(this.fireEvent('beforeexpand', this) !== false) {
 				orig_expand.apply(this, arguments);
+				if (this.el) {
+					this.el.set({ 'aria-expanded': 'true' });
+				}
 			}
 		},
+
+		/**
+		 * Override collapse to update aria-expanded state.
+		 */
+		collapse: Ext.form.ComboBox.prototype.collapse.createSequence(function() {
+			if (this.el) {
+				this.el.set({ 'aria-expanded': 'false' });
+			}
+		}),
 
 		/*
 		 * Override getListParent to return the body element of the owner document which owns the list element.

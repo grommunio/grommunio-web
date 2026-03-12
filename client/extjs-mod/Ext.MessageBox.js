@@ -288,6 +288,7 @@ Ext.MessageBox = Ext.extend(Object, {
 			plain:true,
 			footer:true,
 			closable:true,
+			ariaRole: 'alertdialog',
 			close: function() {
 				if(this.opt && this.opt.buttons && this.opt.buttons.no && !this.opt.buttons.cancel) {
 					this.handleButton("no");
@@ -304,9 +305,14 @@ Ext.MessageBox = Ext.extend(Object, {
 		this.dlg.render(activeWindow.document.body);
 		this.dlg.getEl().addClass('x-window-dlg');
 		this.mask = this.dlg.mask;
+		var msgElId = Ext.id(null, 'ext-mb-text-');
 		this.bodyEl = this.dlg.body.createChild({
-			html:'<div class="ext-mb-icon"></div><div class="ext-mb-content"><span class="ext-mb-text"></span><br /><div class="ext-mb-fix-cursor"><input type="text" class="ext-mb-input" name="ext-mb-input" /><textarea class="ext-mb-textarea" name="ext-mb-textarea"></textarea></div></div>'
+			html:'<div class="ext-mb-icon" aria-hidden="true"></div><div class="ext-mb-content"><span class="ext-mb-text" id="' + msgElId + '"></span><br /><div class="ext-mb-fix-cursor"><input type="text" class="ext-mb-input" name="ext-mb-input" aria-label="' + _('Input') + '" /><textarea class="ext-mb-textarea" name="ext-mb-textarea" aria-label="' + _('Input') + '"></textarea></div></div>'
 		});
+		// Link the dialog to its message text for screen readers
+		if (this.dlg.el) {
+			this.dlg.el.set({ 'aria-describedby': msgElId });
+		}
 		this.iconEl = Ext.get(this.bodyEl.dom.firstChild);
 		var contentEl = this.bodyEl.dom.childNodes[1];
 		this.msgEl = Ext.get(contentEl.firstChild);
@@ -519,6 +525,9 @@ icon: Ext.MessageBox.INFO
 		}
 		this.activeTextEl.dom.value = this.opt.value || "";
 		if (this.opt.prompt) {
+			// Use dialog title or message as a more descriptive aria-label than generic "Input"
+			var promptLabel = Ext.util.Format.stripTags(this.opt.title || this.opt.msg || _('Input')).trim();
+			this.activeTextEl.set({ 'aria-label': promptLabel });
 			d.focusEl = this.activeTextEl;
 		} else {
 			var bs = this.opt.buttons;
