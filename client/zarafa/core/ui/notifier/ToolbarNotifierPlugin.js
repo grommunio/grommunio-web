@@ -33,7 +33,14 @@ Zarafa.core.ui.notifier.ToolbarNotifierPlugin = Ext.extend(Zarafa.core.ui.notifi
 						}, {
 							xtype: 'tbtext',
 							autoWidth: true,
-							ref: 'saveMessageText'
+							ref: 'saveMessageText',
+							listeners: {
+								afterrender: function(cmp) {
+									if (cmp.el) {
+										cmp.el.set({ 'role': 'status', 'aria-live': 'polite' });
+									}
+								}
+							}
 						}];
 					config.toolbar.add(addInfoText);
 					config.toolbar.doLayout();

@@ -39,7 +39,8 @@ Zarafa.core.ui.MainTabBar = Ext.extend(Ext.Toolbar, {
 			xtype: 'zarafa.maintabbar',
 			id: 'zarafa-mainmenu',
 			cls: 'zarafa-maintabbar',
-			defaultType: 'zarafa.maintab'
+			defaultType: 'zarafa.maintab',
+			ariaLabel: _('Main navigation')
 		});
 
 		Zarafa.core.ui.MainTabBar.superclass.constructor.call(this, config);
@@ -80,6 +81,7 @@ Zarafa.core.ui.MainTabBar = Ext.extend(Ext.Toolbar, {
 			width: 30,
 			id: 'mainmenu-button-reminder',
 			ref: 'reminder',
+			tooltip: _('Reminders'),
 			handler: function() {
 				var store = container.getReminderStore();
 				Zarafa.common.Actions.openReminderContent(store.getRange());

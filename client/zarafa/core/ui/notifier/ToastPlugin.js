@@ -73,6 +73,9 @@ Zarafa.core.ui.notifier.ToastPlugin = Ext.extend(Zarafa.core.ui.notifier.NotifyP
 			this.toastContainer = document.createElement('div');
 			this.toastContainer.id = 'grommunio-toast-container';
 			this.toastContainer.className = 'grommunio-toast-container';
+			this.toastContainer.setAttribute('aria-live', 'polite');
+			this.toastContainer.setAttribute('aria-atomic', 'false');
+			this.toastContainer.setAttribute('role', 'status');
 			document.body.appendChild(this.toastContainer);
 		}
 		return this.toastContainer;
@@ -138,12 +141,14 @@ Zarafa.core.ui.notifier.ToastPlugin = Ext.extend(Zarafa.core.ui.notifier.NotifyP
 		var toastId = 'grommunio-toast-' + (++this.idCounter);
 		toast.id = toastId;
 		toast.className = 'grommunio-toast grommunio-toast-' + severity;
+		toast.setAttribute('role', severity === 'error' ? 'alert' : 'status');
+		toast.setAttribute('aria-live', severity === 'error' ? 'assertive' : 'polite');
 
 		var isPersistent = config.persistent || severity === 'error';
 		var lifetime = isPersistent ? 0 : (severity === 'warning' ? this.warningLifetime : this.infoLifetime);
 
-		var html = '<div class="grommunio-toast-accent"></div>' +
-			'<div class="grommunio-toast-icon">' + this.getIconSvg(severity) + '</div>' +
+		var html = '<div class="grommunio-toast-accent" aria-hidden="true"></div>' +
+			'<div class="grommunio-toast-icon" aria-hidden="true">' + this.getIconSvg(severity) + '</div>' +
 			'<div class="grommunio-toast-body">';
 
 		if (title) {
@@ -154,18 +159,18 @@ Zarafa.core.ui.notifier.ToastPlugin = Ext.extend(Zarafa.core.ui.notifier.NotifyP
 		}
 
 		if (config.details_message) {
-			html += '<div class="grommunio-toast-details-toggle">' + _('Show Details') + '</div>' +
-				'<div class="grommunio-toast-details" style="display:none;">' +
+			html += '<div class="grommunio-toast-details-toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="' + toastId + '-details">' + _('Show Details') + '</div>' +
+				'<div class="grommunio-toast-details" style="display:none;" id="' + toastId + '-details">' +
 					'<pre class="grommunio-toast-details-text">' + Ext.util.Format.htmlEncode(config.details_message) + '</pre>' +
-					'<div class="grommunio-toast-details-copy">' + _('Copy Details') + '</div>' +
+					'<div class="grommunio-toast-details-copy" role="button" tabindex="0" aria-label="' + _('Copy Details') + '">' + _('Copy Details') + '</div>' +
 				'</div>';
 		}
 
 		html += '</div>' +
-			'<div class="grommunio-toast-close" role="button" aria-label="' + _('Close') + '">&times;</div>';
+			'<div class="grommunio-toast-close" role="button" tabindex="0" aria-label="' + _('Close') + '">&times;</div>';
 
 		if (lifetime > 0) {
-			html += '<div class="grommunio-toast-progress"><div class="grommunio-toast-progress-bar" style="animation-duration:' + lifetime + 'ms;"></div></div>';
+			html += '<div class="grommunio-toast-progress" aria-hidden="true"><div class="grommunio-toast-progress-bar" style="animation-duration:' + lifetime + 'ms;"></div></div>';
 		}
 
 		toast.innerHTML = html;
@@ -194,18 +199,33 @@ Zarafa.core.ui.notifier.ToastPlugin = Ext.extend(Zarafa.core.ui.notifier.NotifyP
 				e.stopPropagation();
 				self.dismissToast(toastId);
 			});
+			closeBtn.addEventListener('keydown', function(e) {
+				if (e.key === 'Enter' || e.key === ' ') {
+					e.preventDefault();
+					e.stopPropagation();
+					self.dismissToast(toastId);
+				}
+			});
 		}
 
 		// Details toggle
 		var detailsToggle = toast.querySelector('.grommunio-toast-details-toggle');
 		if (detailsToggle) {
-			detailsToggle.addEventListener('click', function(e) {
+			var toggleDetails = function(e) {
 				e.stopPropagation();
 				var details = toast.querySelector('.grommunio-toast-details');
 				if (details) {
 					var isHidden = details.style.display === 'none';
 					details.style.display = isHidden ? 'block' : 'none';
 					detailsToggle.textContent = isHidden ? _('Hide Details') : _('Show Details');
+					detailsToggle.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+				}
+			};
+			detailsToggle.addEventListener('click', toggleDetails);
+			detailsToggle.addEventListener('keydown', function(e) {
+				if (e.key === 'Enter' || e.key === ' ') {
+					e.preventDefault();
+					toggleDetails(e);
 				}
 			});
 		}
@@ -213,7 +233,7 @@ Zarafa.core.ui.notifier.ToastPlugin = Ext.extend(Zarafa.core.ui.notifier.NotifyP
 		// Copy details
 		var copyBtn = toast.querySelector('.grommunio-toast-details-copy');
 		if (copyBtn) {
-			copyBtn.addEventListener('click', function(e) {
+			var copyDetails = function(e) {
 				e.stopPropagation();
 				var text = toast.querySelector('.grommunio-toast-details-text');
 				if (text) {
@@ -222,6 +242,13 @@ Zarafa.core.ui.notifier.ToastPlugin = Ext.extend(Zarafa.core.ui.notifier.NotifyP
 					setTimeout(function() {
 						copyBtn.textContent = _('Copy Details');
 					}, 2000);
+				}
+			};
+			copyBtn.addEventListener('click', copyDetails);
+			copyBtn.addEventListener('keydown', function(e) {
+				if (e.key === 'Enter' || e.key === ' ') {
+					e.preventDefault();
+					copyDetails(e);
 				}
 			});
 		}
