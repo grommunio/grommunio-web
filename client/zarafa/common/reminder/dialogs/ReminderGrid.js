@@ -16,6 +16,7 @@ Zarafa.common.reminder.dialogs.ReminderGrid = Ext.extend(Zarafa.common.ui.grid.G
 
 		Ext.applyIf(config, {
 			xtype: 'zarafa.remindergrid',
+			ariaLabel: _('Reminders'),
 			border: true,
 			columns: this.initColumnModel(),
 			selModel: this.initSelectionModel()
@@ -41,7 +42,7 @@ Zarafa.common.reminder.dialogs.ReminderGrid = Ext.extend(Zarafa.common.ui.grid.G
 	initColumnModel: function()
 	{
 		return [{
-				header: '<p class="icon_index">&nbsp;</p>',
+				header: '<p class="icon_index">&nbsp;<span class="title">Icon</span></p>',
 				headerCls: 'zarafa-icon-column',
 				dataIndex: 'icon_index',
 				width: 24,

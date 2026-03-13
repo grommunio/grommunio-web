@@ -52,8 +52,47 @@
 	    initTemplates: function() {
 			orig_initTemplates.apply(this);
 
+			// Override cell template to add ARIA gridcell role
+			this.templates.cell = new Ext.Template(
+				'<td class="x-grid3-col x-grid3-cell x-grid3-td-{id} {css}" style="{style}" tabIndex="0" {cellAttr} role="gridcell">',
+					'<div class="x-grid3-cell-inner x-grid3-col-{id} x-unselectable" unselectable="on" {attr}>{value}</div>',
+				'</td>'
+			);
+
+			// Override row template to add ARIA row role
+			var rowBodyText = this.enableRowBody ? [
+				'<tr class="x-grid3-row-body-tr" style="{bodyStyle}">',
+					'<td colspan="{cols}" class="x-grid3-body-cell" tabIndex="0" hidefocus="on">',
+						'<div class="x-grid3-row-body">{body}</div>',
+					'</td>',
+				'</tr>'
+			].join('') : '';
+
+			var innerText = [
+				'<table class="x-grid3-row-table" border="0" cellspacing="0" cellpadding="0" style="{tstyle}">',
+					'<tbody>',
+						'<tr>{cells}</tr>',
+						rowBodyText,
+					'</tbody>',
+				'</table>'
+			].join('');
+
+			this.templates.row = new Ext.Template(
+				'<div class="x-grid3-row {alt}" style="{tstyle}" role="row">' + innerText + '</div>'
+			);
+			this.templates.rowInner = new Ext.Template(innerText);
+
+			// Override header template to add ARIA row role
+			this.templates.header = new Ext.Template(
+				'<table border="0" cellspacing="0" cellpadding="0" style="{tstyle}" role="rowgroup">',
+					'<thead>',
+						'<tr class="x-grid3-hd-row" role="row">{cells}</tr>',
+					'</thead>',
+				'</table>'
+			);
+
 	        var headerCellTpl = new Ext.Template(
-	                '<td class="x-grid3-hd x-grid3-cell x-grid3-td-{id} {css} {cls}" style="{style}">',
+	                '<td class="x-grid3-hd x-grid3-cell x-grid3-td-{id} {css} {cls}" style="{style}" role="columnheader" scope="col">',
 	                    '<div {tooltip} {attr} class="x-grid3-hd-inner x-grid3-hd-{id}" unselectable="on" style="{istyle}">',
 	                        this.grid.enableHdMenu ? '<a class="x-grid3-hd-btn" href="#"></a>' : '',
 	                        '<div class="zarafa-x-grid3-hd-title">{value}</div>',
@@ -65,6 +104,27 @@
 	        headerCellTpl.disableFormats = true;
 	        this.templates.hcell = headerCellTpl.compile();
 	    },
+
+		/**
+		 * Override updateSortIcon to add aria-sort attribute for accessibility.
+		 * @param {Number} col The column index
+		 * @param {String} dir The sort direction ('ASC' or 'DESC')
+		 * @private
+		 */
+		updateSortIcon: function(col, dir)
+		{
+			var sortClasses = this.sortClasses,
+				sortClass = sortClasses[dir === 'DESC' ? 1 : 0],
+				headers = this.mainHd.select('td').removeClass(sortClasses);
+
+			headers.item(col).addClass(sortClass);
+
+			// Update ARIA sort attributes
+			headers.each(function(header) {
+				header.dom.removeAttribute('aria-sort');
+			});
+			headers.item(col).set({ 'aria-sort': dir === 'DESC' ? 'descending' : 'ascending' });
+		},
 
 	    /**
 	     * @private

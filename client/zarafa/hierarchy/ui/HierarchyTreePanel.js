@@ -78,6 +78,7 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 			{
 				xtype: 'textfield',
 				cls: 'k-searchfolder-field',
+				fieldLabel: _('Filter folders'),
 				doLayout: this.onLayoutSearchField.createDelegate(this),
 				enableKeyEvents: true,
 				ref: '../../../filterSearchTextBox',

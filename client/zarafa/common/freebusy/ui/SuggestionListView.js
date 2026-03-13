@@ -31,7 +31,7 @@ Zarafa.common.freebusy.ui.SuggestionListView = Ext.extend(Ext.DataView, {
 					'<div class="x-btn-small x-btn-icon-small-left">',
 						'<em class="" class="x-unselectable" unselectable="on">',
 							'<button type="button" class=" x-btn-text">',
-								'<img class="x-freebusy-suggestionrow-icon" src="' + Ext.BLANK_IMAGE_URL + '" />',
+								'<img class="x-freebusy-suggestionrow-icon" src="' + Ext.BLANK_IMAGE_URL + '" alt="" />',
 								'{[this.formatTime(values.start)]} - {[this.formatTime(values.end)]}',
 							'</button>',
 						'</em>',

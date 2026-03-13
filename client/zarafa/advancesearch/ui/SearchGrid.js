@@ -57,6 +57,7 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 		Ext.applyIf(config, {
 			xtype: 'zarafa.searchgrid',
 			cls: 'zarafa-searchgrid',
+			ariaLabel: _('Search results'),
 			border: false,
 			// Don't make the search grid stateful. By default we always want Gromox to sort new search results on relevance.
 			stateful: false,

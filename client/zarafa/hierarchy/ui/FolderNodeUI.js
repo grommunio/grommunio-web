@@ -85,7 +85,7 @@ Zarafa.hierarchy.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 			// Get the scheme base only if we are able to get scheme successfully,
 			// otherwise let it be undefined instead of a JS fatal error.
 			if(scheme && scheme.base) {
-				calendarSVGIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="color:'+scheme.base+';position:relative;top:5px;left:-1px;"><g><g class="icbg" style="fill:currentColor;stroke:none"><rect width="0" height="0" x="0" y="0" /></g><g><path class="icgr" style="fill:currentColor" d="M17.75 3A3.25 3.25 0 0 1 21 6.25v11.5A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V6.25A3.25 3.25 0 0 1 6.25 3h11.5Zm1.75 5.5h-15v9.25c0 .966.784 1.75 1.75 1.75h11.5a1.75 1.75 0 0 0 1.75-1.75V8.5Zm-11.75 6a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Zm4.25 0a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Zm-4.25-4a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Zm4.25 0a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Zm4.25 0a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Zm1.5-6H6.25A1.75 1.75 0 0 0 4.5 6.25V7h15v-.75a1.75 1.75 0 0 0-1.75-1.75Z"/></g></svg>';
+				calendarSVGIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" aria-hidden="true" style="color:'+scheme.base+';position:relative;top:5px;left:-1px;"><g><g class="icbg" style="fill:currentColor;stroke:none"><rect width="0" height="0" x="0" y="0" /></g><g><path class="icgr" style="fill:currentColor" d="M17.75 3A3.25 3.25 0 0 1 21 6.25v11.5A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V6.25A3.25 3.25 0 0 1 6.25 3h11.5Zm1.75 5.5h-15v9.25c0 .966.784 1.75 1.75 1.75h11.5a1.75 1.75 0 0 0 1.75-1.75V8.5Zm-11.75 6a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Zm4.25 0a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Zm-4.25-4a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Zm4.25 0a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Zm4.25 0a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Zm1.5-6H6.25A1.75 1.75 0 0 0 4.5 6.25V7h15v-.75a1.75 1.75 0 0 0-1.75-1.75Z"/></g></svg>';
 			}
 		}
 
@@ -95,22 +95,22 @@ Zarafa.hierarchy.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 			checkboxMarkup = '<input class="x-tree-node-cb zarafa-hierarchy-node-cb" type="checkbox" id="' + checkboxId + '" name="' + checkboxId + '"' + (a.checked ? ' checked="checked"' : '') + ' />';
 		}
 
-		var icon = '<img src="' + (a.icon || this.emptyIcon) + '" class="x-tree-node-icon" unselectable="on" />',
+		var icon = '<img src="' + (a.icon || this.emptyIcon) + '" class="x-tree-node-icon" unselectable="on" alt="" />',
 		nel,
 		href = a.href ? a.href : Ext.isGecko ? "" : "#",
 		buf = '<li class="x-tree-node">' +
 				'<div ext:tree-node-id="' + n.id + '" class="x-tree-node-el x-tree-node-leaf x-unselectable zarafa-hierarchy-node" unselectable="on">' +
 					// indent space
-					'<span class="x-tree-node-indent">' + this.indentMarkup + "</span>" +
+					'<span class="x-tree-node-indent" aria-hidden="true">' + this.indentMarkup + "</span>" +
 					// expand icon
-					'<img src="' + this.emptyIcon + '" class="x-tree-ec-icon x-tree-elbow" />' +
+					'<img src="' + this.emptyIcon + '" class="x-tree-ec-icon x-tree-elbow" alt="" aria-hidden="true" />' +
 					// checkbox
 					checkboxMarkup +
 					// node icon
 					(isCalenderNode ? calendarSVGIcon : icon) +
 					// node element (this.elNode)
 					'<a hidefocus="on" class="x-tree-node-anchor zarafa-hierarchy-node-anchor" ' +
-						'href="' + href + '" tabIndex="1" ' +
+						'href="' + href + '" tabIndex="0" ' +
 						(a.hrefTarget ? ' target="' + a.hrefTarget + '"' : "") + ">" +
 							// hierarchy node text (this.textNode)
 							'<span class="zarafa-hierarchy-node-foldername" unselectable="on">' + (n.tpl ? n.tpl.apply(a) : n.text) + '</span>' +
