@@ -94,11 +94,15 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 			items.push(labelConfig);
 		}
 
+		// Build accessible label prefix from parent fieldLabel if available
+		var labelPrefix = config.fieldLabel ? config.fieldLabel + ' ' : '';
+
 		items = items.concat([
 			Ext.apply({
 				xtype: 'datefield',
 				ref: 'dateField',
 				flex: 1,
+				fieldLabel: labelPrefix + _('Date'),
 				format: this.dateFormat,
 				value: this.defaultValue,
 				minValue: this.minValue,
@@ -114,6 +118,7 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 			Ext.apply({
 				xtype: 'zarafa.spinnerfield',
 				ref: 'timeField',
+				fieldLabel: labelPrefix + _('Time'),
 				width: 85,
 				defaultValue: this.defaultValue,
 				minValue: this.minValue,

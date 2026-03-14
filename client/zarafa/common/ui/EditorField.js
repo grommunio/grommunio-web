@@ -162,6 +162,7 @@ Zarafa.common.ui.EditorField = Ext.extend(Ext.Container, {
 			Ext.apply({}, {
 				xtype: config.plaintextXtype || this.plaintextXtype,
 				name: config.plaintextName || this.plaintextName,
+				fieldLabel: _('Message body'),
 				enableKeyEvents: config.enableKeyEvents || false
 			}, componentConfig)
 		];

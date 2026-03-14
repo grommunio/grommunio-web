@@ -28,7 +28,9 @@ Zarafa.common.attachment.ui.AttachmentDownloader = Ext.extend(Ext.Component, {
 			hidden: true,
 			autoEl: {
 				tag: 'iframe',
-				src: Ext.SSL_SECURE_URL
+				src: Ext.SSL_SECURE_URL,
+				title: '',
+				'aria-hidden': 'true'
 			}
 		});
 

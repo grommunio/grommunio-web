@@ -36,12 +36,12 @@ Zarafa.common.checknames.dialogs.CheckNamesContentPanel = Ext.extend(Zarafa.core
 				xtype	: 'zarafa.checknamespanel',
 				buttons: [{
 					text	: _('Ok'),
-					tabIndex: 2,
+					tabIndex: 0,
 					handler	: this.onOk,
 					scope	: this
 					},{
 					text	: _('Cancel'),
-					tabIndex: 3,
+					tabIndex: 0,
 					handler	: this.onCancel,
 					scope	: this
 				}]

@@ -334,9 +334,16 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 
 		if(record.isFaultyMessage()) {
 			var faultyInfoElement = el.createChild({tag: 'div', html: this.faultyMessageInfoString, cls: this.itemCls});
+			faultyInfoElement.set({ 'role': 'button', 'tabindex': '0' });
 
 			// add click event
 			this.mon(faultyInfoElement, 'click', this.onExtraInfoFaultyClick, this);
+			this.mon(faultyInfoElement, 'keydown', function(e) {
+				if (e.getKey() === e.ENTER || e.getKey() === e.SPACE) {
+					e.stopEvent();
+					this.onExtraInfoFaultyClick();
+				}
+			}, this);
 
 			// add class to show that this element is clickable
 			faultyInfoElement.addClassOnOver('preview-header-extrainfobox-item-over');
@@ -347,9 +354,16 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 		if(this.record instanceof Zarafa.core.data.MessageRecord) {
 			if(record.isExternalContentBlocked()) {
 				var blockElement = el.createChild({tag: 'div', html: this.blockStatusInfoString, cls: this.itemCls});
+				blockElement.set({ 'role': 'button', 'tabindex': '0' });
 
 				// add click event
 				this.mon(blockElement, 'click', this.onExtraInfoBlockClick, this);
+				this.mon(blockElement, 'keydown', function(e) {
+					if (e.getKey() === e.ENTER || e.getKey() === e.SPACE) {
+						e.stopEvent();
+						this.onExtraInfoBlockClick();
+					}
+				}, this);
 
 				// add class to show that this element is clickable
 				blockElement.addClassOnOver('preview-header-extrainfobox-item-over');

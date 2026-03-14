@@ -83,6 +83,7 @@ Zarafa.common.categories.dialogs.RenameCategoryPanel = Ext.extend(Zarafa.core.ui
 						xtype: 'textfield',
 						name: 'name',
 						ref: '../name',
+						fieldLabel: _('Category name'),
 						hideLabel: true,
 						anchor: '100%',
 						selectOnFocus: true,

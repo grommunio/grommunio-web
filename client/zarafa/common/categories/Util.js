@@ -29,7 +29,7 @@ Zarafa.common.categories.Util = {
 	categoriesHtmlTemplate:
 		'<tpl if="!Ext.isEmpty(values)">' +
 			'<tpl for=".">' +
-				'<span class="k-category-block {colorClass}" '+
+				'<span class="k-category-block {colorClass}" role="listitem" '+
 						'<tpl if="!Ext.isEmpty(values.backgroundColor)">style="background-color:{backgroundColor}!important;"</tpl>'+
 				'>' +
 					'{name}' +

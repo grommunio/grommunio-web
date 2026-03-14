@@ -102,6 +102,13 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 							e.content = inlineCSS(e.content);
 						}
 					});
+					// Add accessible title to TinyMCE iframe
+					editor.on("init", function() {
+						var iframe = editor.iframeElement;
+						if (iframe) {
+							iframe.setAttribute('title', _('Message body editor'));
+						}
+					});
 				}
 			}
 		});

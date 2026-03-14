@@ -128,9 +128,20 @@ Zarafa.common.recipientfield.ui.RecipientBox = Ext.extend(Zarafa.common.ui.Box, 
 			tag: 'span',
 			cls: this.expandBtnCls
 		});
+		this.expandBtnEl.set({
+			'role': 'button',
+			'tabindex': '0',
+			'aria-label': _('Expand distribution list')
+		});
 
 		this.expandBtnEl.addClassOnOver(this.expandBtnHoverCls);
 		this.mon(this.expandBtnEl, 'click', this.onClickExpand, this);
+		this.mon(this.expandBtnEl, 'keydown', function(e) {
+			if (e.getKey() === e.ENTER || e.getKey() === e.SPACE) {
+				e.stopEvent();
+				this.onClickExpand();
+			}
+		}, this);
 	},
 
 	/**

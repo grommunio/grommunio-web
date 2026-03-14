@@ -300,7 +300,7 @@ Zarafa.common.recipientfield.ui.RecipientHoverCardView = Ext.extend(Ext.Window, 
 	getDisplayName: function (record)
 	{
 		return '<span class="zarafa-presence-status ' + Zarafa.core.data.PresenceStatus.getCssClass(record.get('presence_status')) + '">' +
-			' <span class="zarafa-presence-status-icon"></span>' + Ext.util.Format.ellipsis(record.get('display_name'), 30) + '</span>';
+			' <span class="zarafa-presence-status-icon" aria-hidden="true"></span>' + Ext.util.Format.ellipsis(record.get('display_name'), 30) + '</span>';
 	},
 
 	/**

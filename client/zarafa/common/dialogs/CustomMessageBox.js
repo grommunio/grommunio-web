@@ -114,7 +114,7 @@ Zarafa.common.dialogs.CustomMessageBox = Ext.extend(Ext.Window, {
 	onBeforeShow: function ()
 	{
 		this.bodyEl = this.body.createChild({
-			html:'<div class="ext-mb-icon"></div><div class="ext-mb-content"><span class="ext-mb-text"></span></div>'
+			html:'<div class="ext-mb-icon" aria-hidden="true"></div><div class="ext-mb-content"><span class="ext-mb-text"></span></div>'
 		});
 		this.iconEl = Ext.get(this.bodyEl.dom.firstChild);
 		var contentEl = this.bodyEl.dom.childNodes[1];

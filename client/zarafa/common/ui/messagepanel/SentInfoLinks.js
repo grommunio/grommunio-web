@@ -37,7 +37,7 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 			'<span class="preview-from">' +
 				'<span class="zarafa-emailaddress-link zarafa-sentinfo-link"> ' +
 					'<span class="zarafa-presence-status {[Zarafa.core.data.PresenceStatus.getCssClass(values.sender_presence_status)]}">'+
-						'<span class="zarafa-presence-status-icon"></span>' +
+						'<span class="zarafa-presence-status-icon" aria-hidden="true"></span>' +
 						'{sender_name:htmlEncode} &lt;{sender_email_address:htmlEncode}&gt; '+
 					'</span>' +
 				'</span>' +
@@ -45,14 +45,14 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 				'<span>&nbsp;' + pgettext('mail.previewpanel', 'on behalf of') + '&nbsp;</span>' +
 				/* Display the initials of a sender */
 				'<tpl if="!Ext.isEmpty(values.user_image)">'+
-					'<span class="preview-header-sender-image" style="background-image:url({user_image});"></span>' +
+					'<span class="preview-header-sender-image" style="background-image:url({user_image});" aria-hidden="true"></span>' +
 				'</tpl>'+
 				'<tpl if="Ext.isEmpty(values.user_image)">'+
-					'<span class="preview-header-sender-initial">{sender_initials}</span>' +
+					'<span class="preview-header-sender-initial" aria-hidden="true">{sender_initials}</span>' +
 				'</tpl>'+
 				'<span class="zarafa-emailaddress-link zarafa-sentinfo-on-behalf">' +
 					'<span class="zarafa-presence-status {[Zarafa.core.data.PresenceStatus.getCssClass(values.sent_representing_presence_status)]}">'+
-						'<span class="zarafa-presence-status-icon"></span>' +
+						'<span class="zarafa-presence-status-icon" aria-hidden="true"></span>' +
 						'{sent_representing_name:htmlEncodeElide(this.ellipsisStringStartLength, this.ellipsisStringEndLength)}&nbsp;' +
 						'<tpl if="this.shouldRenderAddress(values.sent_representing_email_address, values.record_is_opened)">' +
 							'&lt;{sent_representing_email_address:htmlEncode}&gt;'+
@@ -63,13 +63,13 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 		'</tpl>' +
 		'<tpl if="Ext.isEmpty(values.sender_entryid) || Ext.isEmpty(values.sent_representing_entryid) || Zarafa.core.EntryId.compareABEntryIds(values.sent_representing_entryid, values.sender_entryid)">' +
 				'<span class="preview-from zarafa-presence-status {[Zarafa.core.data.PresenceStatus.getCssClass(values.sender_presence_status)]}">' +
-				'<span class="zarafa-presence-status-icon"></span>' +
+				'<span class="zarafa-presence-status-icon" aria-hidden="true"></span>' +
 				/* Display the initials of a sender */
 				'<tpl if="!Ext.isEmpty(values.user_image)">'+
-					'<span class="preview-header-sender-image" style="background-image:url({user_image});"></span>' +
+					'<span class="preview-header-sender-image" style="background-image:url({user_image});" aria-hidden="true"></span>' +
 				'</tpl>'+
 				'<tpl if="Ext.isEmpty(values.user_image)">'+
-					'<span class="preview-header-sender-initial">{sender_initials}</span>' +
+					'<span class="preview-header-sender-initial" aria-hidden="true">{sender_initials}</span>' +
 				'</tpl>'+
 				'<span class="zarafa-emailaddress-link zarafa-sentinfo-link">' +
 					'{sender_name:htmlEncodeElide(this.ellipsisStringStartLength, this.ellipsisStringEndLength)}&nbsp;' +

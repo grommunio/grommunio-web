@@ -57,7 +57,7 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 			itemSelector: 'span.zarafa-attachment-link',
 			tpl: new Ext.XTemplate(
 				'<div class="preview-header-attachmentbox">' +
-					'<div class="preview-attachment-title icon_paperclip"></div>' +
+					'<div class="preview-attachment-title icon_paperclip" aria-hidden="true"></div>' +
 					'<div class="preview-attachment-data" style="max-height: {this.maxHeight}px">' +
 						'<tpl for=".">' +
 							'<span class="zarafa-attachment-link x-zarafa-boxfield-item" viewIndex="{viewIndex}">' +

@@ -154,14 +154,19 @@ Zarafa.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField, {
 		this.tokenWrapEl = Ext.DomHelper.insertAfter(this.el.dom, {
 			tag: 'div',
 			cls: 'k-search-token-input',
+			role: 'search',
 			cn: [{
 				tag: 'input',
 				type: 'text',
-				cls: 'k-search-tail-input'
+				cls: 'k-search-tail-input',
+				autocomplete: 'off',
+				'aria-label': _('Search')
 			},{
 				tag: 'span',
 				cls: 'k-search-submit-btn',
 				title: _('Search'),
+				role: 'button',
+				'aria-label': _('Search'),
 				html: '&#9166;'
 			}]
 		}, true);
@@ -187,6 +192,13 @@ Zarafa.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField, {
 			}
 		}, this);
 		this.submitBtnEl.on('mousedown', function(e) { e.preventDefault(); }, this);
+		this.submitBtnEl.set({ 'tabindex': '0' });
+		this.submitBtnEl.on('keydown', function(e) {
+			if (e.getKey() === e.ENTER || e.getKey() === e.SPACE) {
+				e.preventDefault();
+				this.submitBtnEl.fireEvent('click', e);
+			}
+		}, this);
 
 		// Tail input events
 		this.tailInputEl.on('focus', this.onSearchFocus, this);

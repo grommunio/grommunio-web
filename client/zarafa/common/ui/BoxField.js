@@ -706,8 +706,12 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 
 		// Wraps the items (boxes) in an UL-tag
 		this.wrapBoxesEl = this.el.wrap({
-			tag: 'ul'
+			tag: 'ul',
+			role: 'listbox'
 		});
+		if (this.fieldLabel) {
+			this.wrapBoxesEl.set({ 'aria-label': this.fieldLabel });
+		}
 
 		this.inputEl = this.el.wrap({
 			tag: 'li',
