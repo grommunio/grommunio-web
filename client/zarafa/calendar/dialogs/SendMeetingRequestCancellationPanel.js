@@ -48,6 +48,7 @@ Zarafa.calendar.dialogs.SendMeetingRequestCancellationPanel = Ext.extend(Ext.for
 			},{
 				xtype: 'textarea',
 				name: 'cancellationText',
+				fieldLabel: _('Cancellation message'),
 				ref: 'cancellationTextField',
 				disabled: true,
 				flex: 1

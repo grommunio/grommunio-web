@@ -401,19 +401,19 @@ Zarafa.calendar.widget.AppointmentsWidget = Ext.extend(Zarafa.core.ui.widget.Abs
 			if (record.get('exception') === true) {
 				recurringIcon =
 					'&nbsp;<span ext:qwidth="300" ext:qtip="' + recurringPattern + '">' +
-						'<img src="' + Zarafa.calendar.ui.IconCache.getExceptionIcon().src + '"/>' +
+						'<img src="' + Zarafa.calendar.ui.IconCache.getExceptionIcon().src + '" alt="' + Ext.util.Format.htmlEncode(_('Exception')) + '"/>' +
 					'</span>';
 			} else {
 				recurringIcon =
 					'&nbsp;<span ext:qwidth="300" ext:qtip="' + recurringPattern + '">' +
-						'<img src="' + Zarafa.calendar.ui.IconCache.getRecurringIcon().src + '"/>' +
+						'<img src="' + Zarafa.calendar.ui.IconCache.getRecurringIcon().src + '" alt="' + Ext.util.Format.htmlEncode(_('Recurring')) + '"/>' +
 					'</span>';
 			}
 		}
 
 		var privateIcon = '';
 		if (record.get('private') === true) {
-			privateIcon = '&nbsp;<img src="' + Zarafa.calendar.ui.IconCache.getPrivateIcon().src + '"/>';
+			privateIcon = '&nbsp;<img src="' + Zarafa.calendar.ui.IconCache.getPrivateIcon().src + '" alt="' + Ext.util.Format.htmlEncode(_('Private')) + '"/>';
 		}
 
 		var dayStart = new Date().clearTime();

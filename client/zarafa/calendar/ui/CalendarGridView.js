@@ -40,6 +40,7 @@ Zarafa.calendar.ui.CalendarGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessa
 
 		config = Ext.applyIf(config, {
 			xtype: 'zarafa.calendargrid',
+			ariaLabel: _('Appointments list'),
 			overCls: 'zarafa-calendar-grid-row-over',
 			border: false,
 			stateful: true,

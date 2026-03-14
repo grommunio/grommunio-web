@@ -92,6 +92,7 @@ Zarafa.calendar.dialogs.ProposeNewTimePanel = Ext.extend(Ext.Panel, {
 					},{
 						xtype: 'textarea',
 						ref: '../comment',
+						fieldLabel: _('Comment'),
 						flex:1
 					}],
 				flex:1

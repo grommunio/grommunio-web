@@ -208,6 +208,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				scope: this
 			},{
 				xtype: 'zarafa.recipientfield',
+				fieldLabel: _('To'),
 				plugins: [ 'zarafa.recordcomponentupdaterplugin' ],
 				flex: 1
 			}]
@@ -475,6 +476,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 					xtype: 'combo',
 					ref: '../../../comboReminder',
 					name: 'reminder_minutes',
+					fieldLabel: _('Reminder'),
 					store: reminderStore,
 					mode: 'local',
 					triggerAction: 'all',

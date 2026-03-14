@@ -272,9 +272,18 @@ Zarafa.calendar.ui.html.CalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstract
 			var hdr = cell.createChild({
 				cls: 'k-header',
 				html: dayBox.date.format(_("jS")),
-				style: 'background:linear-gradient(to bottom, ' + headerBgStart + ', ' + headerBgEnd + ')'
+				style: 'background:linear-gradient(to bottom, ' + headerBgStart + ', ' + headerBgEnd + ')',
+				role: 'button',
+				tabindex: '0',
+				'aria-label': dayBox.date.format(_("F j"))
 			});
 			hdr.on('click', this.onClickToOpenDayView.createDelegate(this, [dayBox.date]), this);
+			hdr.on('keydown', function(e) {
+				if (e.getKey() === e.ENTER || e.getKey() === e.SPACE) {
+					e.stopEvent();
+					this.onClickToOpenDayView(dayBox.date);
+				}
+			}, this);
 
 			// TODO: This should be drawn together with the appointment instead of with the background,
 			// so we can split it later.
@@ -285,6 +294,9 @@ Zarafa.calendar.ui.html.CalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstract
 					cls: 'k-expand-btn',
 					'ext:qtip': _('Switch to day view to see all appointments'),
 					'ext:qwidth': 'auto',
+					role: 'button',
+					tabindex: '0',
+					'aria-label': _('Show all appointments'),
 					style: 'border-color:' + this.calendarColorScheme.header + ';' +
 							'left:' + ((d + 1) * boxWidth - 20) + 'px;' +
 							'top:' + ((w + 1) * boxHeight - 20) + 'px;'
@@ -292,6 +304,12 @@ Zarafa.calendar.ui.html.CalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstract
 
 				// Add handler
 				expandBtn.on('click', this.onClickToOpenDayView.createDelegate(this, [dayBox.date]), this);
+				expandBtn.on('keydown', function(e) {
+					if (e.getKey() === e.ENTER || e.getKey() === e.SPACE) {
+						e.stopEvent();
+						this.onClickToOpenDayView(dayBox.date);
+					}
+				}, this);
 			}
 
 		}, this);

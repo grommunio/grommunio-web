@@ -95,6 +95,8 @@ Zarafa.calendar.ui.TextEditView = Ext.extend(Zarafa.core.ui.View, {
 	{
 		this.create('textarea', this.parentView.getCalendarBody(), 'body', this.getClassName('body'));
 		this.create('textarea', this.parentView.getCalendarHeader(), 'header', this.getClassName('header'));
+		this.body.set({ 'aria-label': _('New appointment subject') });
+		this.header.set({ 'aria-label': _('New appointment subject') });
 		this.header.setSize(2,2);
 		this.mon(this.body, 'keypress', this.onKeyPress, this);
 		this.mon(this.body, 'keydown', this.onKeyPress, this);
