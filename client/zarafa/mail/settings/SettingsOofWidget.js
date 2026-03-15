@@ -167,7 +167,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 						showNow: true,
 						invalidClass: 'zarafa-settings-oof-invalid'
 					},
-					fieldLabel: '',
+					fieldLabel: _('Out of office from'),
 					width: 300,
 					hideLabel: true,
 					dateFormat: _('d/m/Y'),
@@ -197,7 +197,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 				}]
 			},{
 				xtype: 'zarafa.datetimefield',
-				fieldLabel: '',
+				fieldLabel: _('Back on'),
 				ref: '../backDateTimeField',
 				name: 'until',
 				dateFieldConfig: {

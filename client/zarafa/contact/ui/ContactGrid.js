@@ -45,6 +45,7 @@ Zarafa.contact.ui.ContactGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid
 
 		Ext.applyIf(config, {
 			xtype: 'zarafa.contactgrid',
+			ariaLabel: _('Contacts list'),
 			border: false,
 			stateful: true,
 			statefulRelativeDimensions: false,

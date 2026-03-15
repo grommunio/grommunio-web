@@ -53,7 +53,7 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 		return[{
 			dataIndex: 'icon_index',
 			headerCls: 'zarafa-icon-column icon',
-			header: '<p class="icon_index">&nbsp;</p>',
+			header: '<p class="icon_index">&nbsp;<span class="title">Icon</span></p>',
 			width: 25,
 			tooltip: _('Sort by: Icon'),
 			fixed: true,
@@ -124,7 +124,7 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			renderer: Zarafa.common.ui.grid.Renderers.categories
 		}, {
 			headerCls: 'zarafa-icon-column',
-			header: '<p class="icon_paperclip">&nbsp;</p>',
+			header: '<p class="icon_paperclip">&nbsp;<span class="title">Attachment</span></p>',
 			dataIndex: 'hasattach',
 			width: 24,
 			renderer: Zarafa.common.ui.grid.Renderers.attachment,
@@ -134,7 +134,7 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 		}, {
 			dataIndex: 'importance',
 			headerCls: 'zarafa-icon-column importance',
-			header: '<p class="icon_importance">&nbsp;</p>',
+			header: '<p class="icon_importance">&nbsp;<span class="title">Importance</span></p>',
 			width: 24,
 			tooltip: _('Sort by: Priority'),
 			fixed: true,
@@ -176,7 +176,7 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 		return[{
 			dataIndex: 'icon_index',
 			headerCls: 'zarafa-icon-column icon',
-			header: '<p class="icon_index">&nbsp;</p>',
+			header: '<p class="icon_index">&nbsp;<span class="title">Icon</span></p>',
 			width: 25,
 			tooltip: _('Sort by: Icon'),
 			fixed: true,
@@ -244,7 +244,7 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			renderer: Zarafa.common.ui.grid.Renderers.categories
 		}, {
 			headerCls: 'zarafa-icon-column',
-			header: '<p class="icon_paperclip">&nbsp;</p>',
+			header: '<p class="icon_paperclip">&nbsp;<span class="title">Attachment</span></p>',
 			dataIndex: 'hasattach',
 			width: 24,
 			renderer: Zarafa.common.ui.grid.Renderers.attachment,
@@ -253,7 +253,7 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 		}, {
 			dataIndex: 'importance',
 			headerCls: 'zarafa-icon-column importance',
-			header: '<p class="icon_importance">&nbsp;</p>',
+			header: '<p class="icon_importance">&nbsp;<span class="title">Importance</span></p>',
 			width: 24,
 			tooltip: _('Sort by: Priority'),
 			fixed: true,

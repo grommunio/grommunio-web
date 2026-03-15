@@ -55,6 +55,7 @@ Zarafa.mail.widgets.QuickMailWidget = Ext.extend(Zarafa.core.ui.widget.AbstractQ
 						},{
 							xtype: 'zarafa.recipientfield',
 							ref: '../toRecipientField',
+							fieldLabel: _('To'),
 							flex: 1,
 							autoHeight: true,
 							defaultRecipientType: Zarafa.core.mapi.RecipientType.MAPI_TO

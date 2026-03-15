@@ -26,6 +26,13 @@ Zarafa.task.TaskStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 		});
 
 		Zarafa.task.TaskStore.superclass.constructor.call(this, config);
+
+		/**
+		 * @property {Number} pendingReloadTask The delayed task id for the
+		 * debounced To-Do list reload, or null if no reload is pending.
+		 * @private
+		 */
+		this.pendingReloadTask = null;
 	},
 
 	/**
@@ -33,23 +40,35 @@ Zarafa.task.TaskStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 	 * a {@link Zarafa.core.data.Notifications#objectCreated objectCreated}
 	 * notification has been received.
 	 *
-	 * Because it is unknown if the added record must be visible, or where
-	 * in the Store the record must be shown, we simply reload the entire
-	 * store to get all updates if current selected folder is To-Do list
-	 * folder
+	 * For To-Do list folders, reloads are debounced to avoid triggering
+	 * expensive search folder re-evaluations on every single notification.
 	 *
 	 * @param {Zarafa.core.data.Notifications} action The notification action
 	 * @param {Array} records The {@link Zarafa.core.data.IPFStore folder}record(s)
 	 * which have been affected by the notification.
+	 * @param {Object} data The data which has been received from the PHP-side
+	 * @param {Number} timestamp The {@link Date#getTime timestamp} on which the notification was received
+	 * @param {Boolean} success The success status
 	 * @private
 	 */
-	onNotifyObjectcreated: function(action, records)
+	onNotifyObjectcreated: function(action, records, data, timestamp, success)
 	{
 		var model = container.getCurrentContext().getModel();
 		// Reload task grid only when selected folder is
 		// To-Do list folder.
 		if (model.getDefaultFolder().isTodoListFolder()) {
-			this.reload({folder: records});
+			// Skip if we already loaded after this notification's timestamp
+			if (timestamp && this.lastExecutionTime(Zarafa.core.Actions['list']) >= timestamp) {
+				return;
+			}
+			// Debounce: coalesce rapid notifications into a single reload
+			if (this.pendingReloadTask) {
+				clearTimeout(this.pendingReloadTask);
+			}
+			this.pendingReloadTask = (function() {
+				this.pendingReloadTask = null;
+				this.reload();
+			}).defer(500, this);
 		} else {
 			Zarafa.task.TaskStore.superclass.onNotifyObjectcreated.apply(this, arguments);
 		}

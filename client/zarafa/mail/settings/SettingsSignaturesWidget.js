@@ -151,6 +151,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 				xtype: 'textfield',
 				name: 'name',
 				cls: 'k-signature-name',
+				fieldLabel: _('Signature name'),
 				hideLabel: true,
 				ref: 'nameField',
 				anchor: '100%',

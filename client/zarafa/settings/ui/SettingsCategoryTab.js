@@ -87,8 +87,10 @@ Zarafa.settings.ui.SettingsCategoryTab = Ext.extend(Ext.Container, {
 	{
 		if (active !== false) {
 			this.getEl().addClass(this.activeCls);
+			this.getEl().set({ 'aria-selected': 'true' });
 		} else {
 			this.getEl().removeClass(this.activeCls);
+			this.getEl().set({ 'aria-selected': 'false' });
 		}
 	},
 
@@ -109,7 +111,17 @@ Zarafa.settings.ui.SettingsCategoryTab = Ext.extend(Ext.Container, {
 			el.addClassOnOver(this.cls + '-over');
 		}
 
+		el.set({
+			'role': 'tab',
+			'tabindex': '0'
+		});
 		this.mon(el, 'click', this.onClick, this);
+		this.mon(el, 'keydown', function(e) {
+			if (e.getKey() === e.ENTER || e.getKey() === e.SPACE) {
+				e.stopEvent();
+				this.onClick();
+			}
+		}, this);
 	},
 
 	/**
@@ -128,7 +140,9 @@ Zarafa.settings.ui.SettingsCategoryTab = Ext.extend(Ext.Container, {
 				{
 					tag: 'img',
 					cls: this.iconCls + ' k-settings-category-icon',
-					src: Ext.BLANK_IMAGE_URL
+					src: Ext.BLANK_IMAGE_URL,
+					'aria-hidden': 'true',
+					alt: ''
 				},
 				Ext.fly(el.dom.firstChild)
 			);

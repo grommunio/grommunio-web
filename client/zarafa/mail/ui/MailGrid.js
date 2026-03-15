@@ -94,6 +94,7 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 
 		Ext.applyIf(config, {
 			xtype: 'zarafa.mailgrid',
+			ariaLabel: _('Message list'),
 			border: false,
 			stateful: true,
 			statefulRelativeDimensions: false,

@@ -134,6 +134,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				scope: this
 			},{
 				xtype: 'zarafa.recipientfield',
+				fieldLabel: _('To'),
 				plugins: [ 'zarafa.recordcomponentupdaterplugin' ],
 				flex: 1
 			}]

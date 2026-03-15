@@ -112,6 +112,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 					xtype: 'textfield',
 					flex: 1,
 					name: 'display_name',
+					fieldLabel: _('Full Name'),
 					listeners: {
 						scope: this,
 						change: this.onDisplayNameChange
@@ -217,6 +218,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 					flex: 1,
 					ref: "../../phone1",
 					name: 'business_telephone_number',
+					fieldLabel: _('Business'),
 					listeners: {
 						scope: this,
 						change: this.onFieldChange
@@ -234,6 +236,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 					xtype: 'textfield',
 					flex: 1,
 					name: 'home_telephone_number',
+					fieldLabel: _('Home'),
 					ref: "../../phone2",
 					listeners: {
 						scope: this,
@@ -252,6 +255,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 					xtype: 'textfield',
 					flex: 1,
 					name: 'business_fax_number',
+					fieldLabel: _('Business Fax'),
 					ref: "../../phone3",
 					listeners: {
 						scope: this,
@@ -270,6 +274,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 					xtype: 'textfield',
 					flex: 1,
 					name: 'cellular_telephone_number',
+					fieldLabel: _('Mobile'),
 					ref: "../../phone4",
 					listeners: {
 						scope: this,
@@ -306,6 +311,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 						flex: 1,
 						ref: '../../mailAddressField',
 						name: 'email_address_1',
+						fieldLabel: _('Email'),
 						listeners: {
 							scope: this,
 							change: this.onEmailAddressChange
@@ -372,6 +378,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 					xtype: 'textarea',
 					flex: 1,
 					name: 'business_address',
+					fieldLabel: _('Business'),
 					height: 100,
 					listeners: {
 						scope: this,
@@ -391,6 +398,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 					xtype: 'textarea',
 					flex: 1,
 					name: 'home_address',
+					fieldLabel: _('Home'),
 					height: 100,
 					listeners: {
 						scope: this,
