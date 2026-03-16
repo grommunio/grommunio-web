@@ -101,6 +101,7 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareDialogPanel = Ext.extend(
 											xtype: 'button',
 											iconCls: 'icon_copy_clipboard',
 											tooltip: _('Copy link to clipboard'),
+											ariaLabel: _('Copy link to clipboard'),
 											handler: this.copyPublicLinkToClipboard,
 											scope: this,
 										},

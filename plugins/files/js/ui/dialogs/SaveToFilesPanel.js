@@ -70,6 +70,7 @@ Zarafa.plugins.files.ui.dialogs.SaveToFilesPanel = Ext.extend(Ext.Panel, {
 	{
 		return {
 			xtype: 'grid',
+			ariaLabel: _('Files'),
 			style: {
 				paddingLeft: '9px'
 			},
@@ -77,7 +78,7 @@ Zarafa.plugins.files.ui.dialogs.SaveToFilesPanel = Ext.extend(Ext.Panel, {
 			flex : 2,
 			columns: [{
 				dataIndex: 'type',
-				header   : '<p class="icon_index">&nbsp;</p>',
+				header   : '<p class="icon_index">&nbsp;<span class="title">Icon</span></p>',
 				headerCls: 'zarafa-icon-column icon',
 				renderer : Zarafa.plugins.files.data.Utils.Renderer.typeRenderer,
 				width    : 24,

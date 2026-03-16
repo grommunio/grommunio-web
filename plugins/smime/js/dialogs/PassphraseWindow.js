@@ -177,6 +177,7 @@ Zarafa.plugins.smime.dialogs.PassphraseWindow = Ext.extend(Ext.Panel, {
 					placeholder: _('Certificate passphrase')
 				},
 				name : 'spassword',
+				fieldLabel : _('Certificate passphrase'),
 				hideLabel : true,
 				anchor : '100%',
 				listeners : {

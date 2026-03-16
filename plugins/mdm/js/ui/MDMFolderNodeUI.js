@@ -58,22 +58,22 @@ Zarafa.plugins.mdm.ui.MDMFolderNodeUI = Ext.extend(Zarafa.hierarchy.ui.FolderNod
 			checkboxMarkup = '<input class="x-tree-node-cb zarafa-hierarchy-node-cb" type="checkbox" id="' + checkboxId + '" name="' + checkboxId + '"' + (config.checked ? ' checked="checked"' : '') + ' />';
 		}
 
-		var icon = '<img src="' + (config.icon || this.emptyIcon) + '" class="x-tree-node-icon" unselectable="on" />',
+		var icon = '<img src="' + (config.icon || this.emptyIcon) + '" class="x-tree-node-icon" unselectable="on" alt="" />',
 		nel,
 		href = config.href ? config.href : Ext.isGecko ? "" : "#",
 		buf = '<li class="x-tree-node">' +
 				'<div ext:tree-node-id="' + node.id + '" class="x-tree-node-el x-tree-node-leaf x-unselectable zarafa-hierarchy-node" unselectable="on">' +
 					// indent space
-					'<span class="x-tree-node-indent">' + this.indentMarkup + "</span>" +
+					'<span class="x-tree-node-indent" aria-hidden="true">' + this.indentMarkup + "</span>" +
 					// expand icon
-					'<img src="' + this.emptyIcon + '" class="x-tree-ec-icon x-tree-elbow" />' +
+					'<img src="' + this.emptyIcon + '" class="x-tree-ec-icon x-tree-elbow" alt="" aria-hidden="true" />' +
 					// checkbox
 					checkboxMarkup +
 					// node icon
 					(isCalenderNode ? calendarSVGIcon : icon) +
 					// node element (this.elNode)
 					'<a hidefocus="on" class="x-tree-node-anchor zarafa-hierarchy-node-anchor" ' +
-						'href="' + href + '" tabIndex="1" ' +
+						'href="' + href + '" tabIndex="0" ' +
 						(config.hrefTarget ? ' target="' + config.hrefTarget + '"' : "") + ">" +
 							// hierarchy node text (this.textNode)
 							'<span unselectable="on">' + (node.tpl ? node.tpl.apply(config) : node.text) + '</span>' +

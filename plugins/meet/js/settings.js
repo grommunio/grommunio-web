@@ -35,6 +35,7 @@ Zarafa.plugins.meet.SettingsWidget = Ext.extend(Zarafa.settings.ui.SettingsWidge
         },{
           xtype: 'radiogroup',
           ref: 'openInRadio',
+          fieldLabel: _('Open meeting in'),
           hideLabel: true,
           columns: 1,
           items: [
@@ -105,6 +106,7 @@ Zarafa.plugins.meet.SettingsWidget = Ext.extend(Zarafa.settings.ui.SettingsWidge
         },{
           xtype: 'textarea',
           ref: 'invitationEditor',
+          fieldLabel: _('Invitation text'),
           hideLabel: true,
           grow: true,
           anchor: '100%',
@@ -117,6 +119,7 @@ Zarafa.plugins.meet.SettingsWidget = Ext.extend(Zarafa.settings.ui.SettingsWidge
           xtype: 'zarafa.editorfield',
           ref: 'invitationHtmlEditor',
           cls: 'k-meet-html-editor',
+          fieldLabel: _('Invitation template'),
           hideLabel: true,
           name: 'invitationhtml',
           htmlName: 'invitationhtml',

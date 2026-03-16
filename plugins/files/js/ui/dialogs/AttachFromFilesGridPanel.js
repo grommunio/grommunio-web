@@ -32,7 +32,7 @@ Zarafa.plugins.files.ui.dialogs.AttachFromFilesGridPanel = Ext.extend(Ext.grid.G
 			columns: [model,{
 				id       : 'type',
 				dataIndex: 'type',
-				header   : '<p class="icon_index">&nbsp;</p>',
+				header   : '<p class="icon_index">&nbsp;<span class="title">Icon</span></p>',
 				headerCls: 'zarafa-icon-column icon',
 				renderer : Zarafa.plugins.files.data.Utils.Renderer.typeRenderer,
 				width    : 24,

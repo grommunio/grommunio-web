@@ -67,7 +67,7 @@ Zarafa.plugins.files.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 		var icon =
 				'<img src="' +
 				(a.icon || this.emptyIcon) +
-				'" class="x-tree-node-icon" unselectable="on" />',
+				'" class="x-tree-node-icon" unselectable="on" alt="" />',
 			nel,
 			href = a.href ? a.href : Ext.isGecko ? '' : '#',
 			buf =
@@ -76,13 +76,13 @@ Zarafa.plugins.files.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 				n.id +
 				'" class="x-tree-node-el x-tree-node-leaf x-unselectable zarafa-hierarchy-node" unselectable="on">' +
 				// indent space
-				'<span class="x-tree-node-indent">' +
+				'<span class="x-tree-node-indent" aria-hidden="true">' +
 				this.indentMarkup +
 				'</span>' +
 				// expand icon
 				'<img src="' +
 				this.emptyIcon +
-				'" class="x-tree-ec-icon x-tree-elbow" />' +
+				'" class="x-tree-ec-icon x-tree-elbow" alt="" aria-hidden="true" />' +
 				// checkbox
 				checkboxMarkup +
 				// node icon
@@ -91,7 +91,7 @@ Zarafa.plugins.files.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 				'<a hidefocus="on" class="x-tree-node-anchor zarafa-hierarchy-node-anchor" ' +
 				'href="' +
 				href +
-				'" tabIndex="1" ' +
+				'" tabIndex="0" ' +
 				(a.hrefTarget ? ' target="' + a.hrefTarget + '"' : '') +
 				'>' +
 				// hierarchy node text (this.textNode)

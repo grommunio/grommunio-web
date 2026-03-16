@@ -1301,6 +1301,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 										items: {
 											xtype: 'button',
 											iconCls: 'icon_copy_clipboard',
+											tooltip: _('Copy link'),
 											handler: this.onCopyUrl,
 											scope: this,
 										},

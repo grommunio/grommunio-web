@@ -26,6 +26,7 @@ Zarafa.plugins.smime.dialogs.ChangePassphrasePanel = Ext.extend(Ext.Panel, {
 				xtype: 'displayfield',
 				value: _('Old passphrase')
 			},{
+				fieldLabel: _('Old passphrase'),
 				hideLabel: true,
 				xtype : 'textfield',
 				inputType: 'password',
@@ -48,6 +49,7 @@ Zarafa.plugins.smime.dialogs.ChangePassphrasePanel = Ext.extend(Ext.Panel, {
 				xtype: 'displayfield',
 				value: _('New passphrase')
 			},{
+				fieldLabel: _('New passphrase'),
 				hideLabel: true,
 				xtype : 'textfield',
 				inputType: 'password',
@@ -62,6 +64,7 @@ Zarafa.plugins.smime.dialogs.ChangePassphrasePanel = Ext.extend(Ext.Panel, {
 				xtype: 'displayfield',
 				value: _('Confirm new passphrase')
 			},{
+				fieldLabel: _('Confirm new passphrase'),
 				hideLabel: true,
 				xtype : 'textfield',
 				inputType: 'password',
