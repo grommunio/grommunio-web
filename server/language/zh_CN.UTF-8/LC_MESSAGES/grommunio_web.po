@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Simplified)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 22:26+0100\n"
+"POT-Creation-Date: 2026-03-12 23:42+0100\n"
 "PO-Revision-Date: 2022-07-26 18:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -15,6 +15,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.14-dev\n"
+
+msgid "Calendar"
+msgstr "日历"
+
+msgid "Previous Month"
+msgstr ""
+
+msgid "Next Month"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -31,6 +40,9 @@ msgstr "数字必须大于零"
 
 msgid "More options"
 msgstr "更多选项"
+
+msgid "Input"
+msgstr ""
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -672,6 +684,9 @@ msgstr "结束日期"
 msgid "Filter category…"
 msgstr "筛选类别…"
 
+msgid "Add Category"
+msgstr ""
+
 msgid "Sender"
 msgstr "发件人"
 
@@ -955,9 +970,6 @@ msgstr "打印概览"
 
 msgid "Create Appointment"
 msgstr "创建预约"
-
-msgid "Calendar"
-msgstr "日历"
 
 msgid "Create in other calendar"
 msgstr "在其它日历中创建"
@@ -1599,6 +1611,12 @@ msgstr "保存更改并将更新发送给所有收件人"
 
 msgid "Open meeting request with changes"
 msgstr "打开包含更改的会议请求"
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
 
 msgid "grommunio Web"
 msgstr "grommunio Web"
@@ -2783,6 +2801,12 @@ msgstr "或"
 msgid "No rule exists"
 msgstr "不存在任何规则"
 
+msgid "Move Up"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
 msgid "Active"
 msgstr "活动状态"
 
@@ -3167,6 +3191,9 @@ msgstr "我们将尝试修复损坏的消息，您是否继续？"
 
 msgid "The matching task was not found in your task list."
 msgstr "在您的任务列表中找不到匹配的任务。"
+
+msgid "Toggle header"
+msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3827,8 +3854,14 @@ msgstr "自动"
 msgid "Switch view"
 msgstr "切换视图"
 
+msgid "Folder navigation"
+msgstr ""
+
 msgid "Widgets"
 msgstr "小部件"
+
+msgid "Main content"
+msgstr ""
 
 msgid "Sending…"
 msgstr "正在发送…"
@@ -5522,6 +5555,9 @@ msgstr "通过链接分享"
 
 msgid "Public link"
 msgstr "公共链接"
+
+msgid "Copy link"
+msgstr ""
 
 msgid "Password protect"
 msgstr "密码保护"
@@ -7711,6 +7747,9 @@ msgstr "任务要求。"
 
 msgid "Sign in"
 msgstr "登录"
+
+msgid "Skip to main content"
+msgstr ""
 
 msgid "File is not imported successfully"
 msgstr "文件未成功导入"

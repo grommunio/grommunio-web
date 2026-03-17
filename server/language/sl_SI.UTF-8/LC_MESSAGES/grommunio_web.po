@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 22:26+0100\n"
+"POT-Creation-Date: 2026-03-12 23:42+0100\n"
 "PO-Revision-Date: 2022-07-26 19:05+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -16,6 +16,15 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3);\n"
 "X-Generator: Weblate 4.14-dev\n"
+
+msgid "Calendar"
+msgstr "Koledar"
+
+msgid "Previous Month"
+msgstr ""
+
+msgid "Next Month"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -32,6 +41,9 @@ msgstr "Število mora biti večje od nič"
 
 msgid "More options"
 msgstr "Več možnosti"
+
+msgid "Input"
+msgstr ""
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -704,6 +716,9 @@ msgstr "Do"
 msgid "Filter category…"
 msgstr "Filtrirajte kategorijo…"
 
+msgid "Add Category"
+msgstr ""
+
 msgid "Sender"
 msgstr "Pošiljatelj"
 
@@ -1010,9 +1025,6 @@ msgstr "Natisni pregled"
 
 msgid "Create Appointment"
 msgstr "Ustvari imenovanje"
-
-msgid "Calendar"
-msgstr "Koledar"
 
 msgid "Create in other calendar"
 msgstr "Ustvarjanje v drugem koledarju"
@@ -1684,6 +1696,12 @@ msgstr "Shrani spremembe in pošlji posodobitev vsem prejemnikom"
 
 msgid "Open meeting request with changes"
 msgstr "Odpri zahtevo za sestanek s spremembami"
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
 
 msgid "grommunio Web"
 msgstr "grommunio Web"
@@ -2949,6 +2967,12 @@ msgstr "ali"
 msgid "No rule exists"
 msgstr "Ni nobenega pravila"
 
+msgid "Move Up"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
 msgid "Active"
 msgstr "Aktiven"
 
@@ -3348,6 +3372,9 @@ msgstr ""
 
 msgid "The matching task was not found in your task list."
 msgstr "Ujemajoče se opravilo ni bilo najdeno na vašem seznamu opravil."
+
+msgid "Toggle header"
+msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -4019,8 +4046,14 @@ msgstr "Samodejno"
 msgid "Switch view"
 msgstr "Preklopi pogled"
 
+msgid "Folder navigation"
+msgstr ""
+
 msgid "Widgets"
 msgstr "Gradniki"
+
+msgid "Main content"
+msgstr ""
 
 msgid "Sending…"
 msgstr "Pošiljanje…"
@@ -5776,6 +5809,9 @@ msgstr "Skupna raba prek povezave"
 
 msgid "Public link"
 msgstr "Javna povezava"
+
+msgid "Copy link"
+msgstr ""
 
 msgid "Password protect"
 msgstr "Zaščita z geslom"
@@ -8053,6 +8089,9 @@ msgstr "Zahteva za nalogo:"
 
 msgid "Sign in"
 msgstr "Prijava"
+
+msgid "Skip to main content"
+msgstr ""
 
 msgid "File is not imported successfully"
 msgstr "Datoteka ni uspešno uvožena"

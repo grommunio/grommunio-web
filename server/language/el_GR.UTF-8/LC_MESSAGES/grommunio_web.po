@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Greek\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 22:26+0100\n"
+"POT-Creation-Date: 2026-03-12 23:42+0100\n"
 "PO-Revision-Date: 2022-07-26 14:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -15,6 +15,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 4.14-dev\n"
+
+msgid "Calendar"
+msgstr "Ημερολόγιο"
+
+msgid "Previous Month"
+msgstr ""
+
+msgid "Next Month"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -31,6 +40,9 @@ msgstr "Ο αριθμός πρέπει να είναι μεγαλύτερος α
 
 msgid "More options"
 msgstr "Περισσότερες επιλογές"
+
+msgid "Input"
+msgstr ""
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -689,6 +701,9 @@ msgstr "Προς"
 msgid "Filter category…"
 msgstr "Κατηγορία φίλτρου.."
 
+msgid "Add Category"
+msgstr ""
+
 msgid "Sender"
 msgstr "Αποστολέας"
 
@@ -986,9 +1001,6 @@ msgstr "Επισκόπηση εκτύπωσης"
 
 msgid "Create Appointment"
 msgstr "Κάνε Κράτηση"
-
-msgid "Calendar"
-msgstr "Ημερολόγιο"
 
 msgid "Create in other calendar"
 msgstr "Δημιουργία σε άλλο ημερολόγιο"
@@ -1682,6 +1694,12 @@ msgstr "Αποθήκευση αλλαγών και αποστολή ενημέρ
 
 msgid "Open meeting request with changes"
 msgstr "Ανοικτό αίτημα συνεδρίασης με αλλαγές"
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
 
 msgid "grommunio Web"
 msgstr "grommunio Web"
@@ -2967,6 +2985,12 @@ msgstr "ή"
 msgid "No rule exists"
 msgstr "Δεν υπάρχει κανόνας"
 
+msgid "Move Up"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
 msgid "Active"
 msgstr "Ενεργό"
 
@@ -3401,6 +3425,9 @@ msgstr ""
 
 msgid "The matching task was not found in your task list."
 msgstr "Η αντίστοιχη εργασία δεν βρέθηκε στη λίστα εργασιών σας."
+
+msgid "Toggle header"
+msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -4083,8 +4110,14 @@ msgstr "Αυτόματο"
 msgid "Switch view"
 msgstr "Προβολή διακόπτη"
 
+msgid "Folder navigation"
+msgstr ""
+
 msgid "Widgets"
 msgstr "Μικροεφαρμογές"
+
+msgid "Main content"
+msgstr ""
 
 msgid "Sending…"
 msgstr "Αποστέλλεται τώρα…"
@@ -5863,6 +5896,9 @@ msgstr "Μοιραστείτε μέσω συνδέσμου"
 
 msgid "Public link"
 msgstr "Δημόσιος σύνδεσμος"
+
+msgid "Copy link"
+msgstr ""
 
 msgid "Password protect"
 msgstr "Προστασία με κωδικό πρόσβασης"
@@ -8243,6 +8279,9 @@ msgstr "Αίτημα εργασίας:"
 
 msgid "Sign in"
 msgstr "Σύνδεση"
+
+msgid "Skip to main content"
+msgstr ""
 
 msgid "File is not imported successfully"
 msgstr "Το αρχείο δεν εισάγεται με επιτυχία"

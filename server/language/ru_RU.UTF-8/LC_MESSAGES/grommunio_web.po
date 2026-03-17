@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Russian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 22:26+0100\n"
+"POT-Creation-Date: 2026-03-12 23:42+0100\n"
 "PO-Revision-Date: 2022-07-26 17:59+0200\n"
 "Last-Translator: Artem <Localizer_in_Russian@protonmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/grommunio/"
@@ -17,6 +17,15 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.14-dev\n"
+
+msgid "Calendar"
+msgstr "Календарь"
+
+msgid "Previous Month"
+msgstr ""
+
+msgid "Next Month"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -33,6 +42,9 @@ msgstr "Число должно быть больше нуля"
 
 msgid "More options"
 msgstr "Больше действий"
+
+msgid "Input"
+msgstr ""
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -696,6 +708,9 @@ msgstr "Кому"
 msgid "Filter category…"
 msgstr "Отфильтровать категорию…"
 
+msgid "Add Category"
+msgstr ""
+
 msgid "Sender"
 msgstr "Отправитель"
 
@@ -994,9 +1009,6 @@ msgstr "Предосмотр печати"
 
 msgid "Create Appointment"
 msgstr "Создать запись"
-
-msgid "Calendar"
-msgstr "Календарь"
 
 msgid "Create in other calendar"
 msgstr "Создать в другом календаре"
@@ -1662,6 +1674,12 @@ msgstr "Сохранить изменения и отправить обновл
 
 msgid "Open meeting request with changes"
 msgstr "Открыть измененное приглашение на собрание"
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
 
 msgid "grommunio Web"
 msgstr "grommunio Web"
@@ -2914,6 +2932,12 @@ msgstr "или"
 msgid "No rule exists"
 msgstr "Нет правил фильтрации"
 
+msgid "Move Up"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
 msgid "Active"
 msgstr "Включен"
 
@@ -3310,6 +3334,9 @@ msgstr "Будет произведена попытка исправления 
 
 msgid "The matching task was not found in your task list."
 msgstr "Соответствующая задача не была найдена в вашем списке задач."
+
+msgid "Toggle header"
+msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3980,8 +4007,14 @@ msgstr "Автоматический"
 msgid "Switch view"
 msgstr "Переключить вид"
 
+msgid "Folder navigation"
+msgstr ""
+
 msgid "Widgets"
 msgstr "Виджеты"
+
+msgid "Main content"
+msgstr ""
 
 msgid "Sending…"
 msgstr "Отправка…"
@@ -5726,6 +5759,9 @@ msgstr "Общий доступ по ссылке"
 msgid "Public link"
 msgstr "Ссылка"
 
+msgid "Copy link"
+msgstr ""
+
 msgid "Password protect"
 msgstr "Защита паролем"
 
@@ -6990,7 +7026,8 @@ msgstr ""
 "ключа)"
 
 msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
-msgstr "Расшифровано (режим CBC - рассмотрите AES-GCM для более надежной защиты)"
+msgstr ""
+"Расшифровано (режим CBC - рассмотрите AES-GCM для более надежной защиты)"
 
 msgid "Signing time differs from expected time"
 msgstr "Время подписания отличается от ожидаемого"
@@ -8031,6 +8068,9 @@ msgstr "Запрос Задания:"
 
 msgid "Sign in"
 msgstr "Войти"
+
+msgid "Skip to main content"
+msgstr ""
 
 msgid "File is not imported successfully"
 msgstr "Файл успешно не импортируется"

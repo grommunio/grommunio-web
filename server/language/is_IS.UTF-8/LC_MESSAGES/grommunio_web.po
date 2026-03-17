@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Icelandic (Iceland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 22:26+0100\n"
+"POT-Creation-Date: 2026-03-12 23:42+0100\n"
 "PO-Revision-Date: 2019-12-01 02:07+0000\n"
 "Last-Translator: import\n"
 "Language: is_IS\n"
@@ -13,6 +13,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
+
+msgid "Calendar"
+msgstr "Dagatal"
+
+msgid "Previous Month"
+msgstr ""
+
+msgid "Next Month"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -29,6 +38,9 @@ msgstr "Tala þarf að vera hærri en núll"
 
 msgid "More options"
 msgstr "Fleiri möguleikar"
+
+msgid "Input"
+msgstr ""
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -679,6 +691,9 @@ msgstr "Til"
 msgid "Filter category…"
 msgstr "Sía flokka…"
 
+msgid "Add Category"
+msgstr ""
+
 msgid "Sender"
 msgstr "Sendandi"
 
@@ -968,9 +983,6 @@ msgstr "Prenta yfirlit"
 
 msgid "Create Appointment"
 msgstr "Bóka tíma"
-
-msgid "Calendar"
-msgstr "Dagatal"
 
 msgid "Create in other calendar"
 msgstr "Búa til í öðru dagatali"
@@ -1629,6 +1641,12 @@ msgstr "Vista breytingar og senda uppfærslu til allra viðtakenda"
 
 msgid "Open meeting request with changes"
 msgstr "Opna fundarboð með breytingum"
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
 
 msgid "grommunio Web"
 msgstr "grommunio vefviðmót"
@@ -2858,6 +2876,12 @@ msgstr "eða"
 msgid "No rule exists"
 msgstr "Engin regla tilgreind"
 
+msgid "Move Up"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
 msgid "Active"
 msgstr "Virkt"
 
@@ -3250,6 +3274,9 @@ msgstr "Við ætlum að reyna að laga gölluð póstskilaboð, viltu halda áfr
 
 msgid "The matching task was not found in your task list."
 msgstr "Viðeigandi verkefni fannst ekki á verkaskránni þinni."
+
+msgid "Toggle header"
+msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3915,8 +3942,14 @@ msgstr "Sjálfvirk"
 msgid "Switch view"
 msgstr "Breyta sýn"
 
+msgid "Folder navigation"
+msgstr ""
+
 msgid "Widgets"
 msgstr "Græjur"
+
+msgid "Main content"
+msgstr ""
 
 msgid "Sending…"
 msgstr "Sendi…"
@@ -5647,6 +5680,9 @@ msgstr "Deila með tengli"
 
 msgid "Public link"
 msgstr "Opinn tengill"
+
+msgid "Copy link"
+msgstr ""
 
 msgid "Password protect"
 msgstr "Verndað með lykilorði"
@@ -7812,6 +7848,9 @@ msgstr "Verkefnabeiðni:"
 
 msgid "Sign in"
 msgstr "Skráðu þig inn"
+
+msgid "Skip to main content"
+msgstr ""
 
 msgid "File is not imported successfully"
 msgstr "Skrá var ekki flutt inn"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 22:26+0100\n"
+"POT-Creation-Date: 2026-03-12 23:42+0100\n"
 "PO-Revision-Date: 2025-03-30 04:00+0000\n"
 "Last-Translator: DeepL <noreply-mt-deepl@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/grommunio/"
@@ -16,6 +16,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.11-dev\n"
+
+msgid "Calendar"
+msgstr "Kalender"
+
+msgid "Previous Month"
+msgstr ""
+
+msgid "Next Month"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -32,6 +41,9 @@ msgstr "Zahl muss größer als Null sein"
 
 msgid "More options"
 msgstr "Weitere Optionen"
+
+msgid "Input"
+msgstr ""
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -685,6 +697,9 @@ msgstr "Bis"
 msgid "Filter category…"
 msgstr "Kategorie filtern…"
 
+msgid "Add Category"
+msgstr ""
+
 msgid "Sender"
 msgstr "Absender"
 
@@ -979,9 +994,6 @@ msgstr "Übersicht drucken"
 
 msgid "Create Appointment"
 msgstr "Termin erstellen"
-
-msgid "Calendar"
-msgstr "Kalender"
 
 msgid "Create in other calendar"
 msgstr "In anderem Kalender anlegen"
@@ -1649,6 +1661,12 @@ msgstr "Änderungen speichern und die Aktualisierung an alle Teilnehmer senden"
 
 msgid "Open meeting request with changes"
 msgstr "Besprechungsanfrage mit den Änderungen öffnen"
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
 
 msgid "grommunio Web"
 msgstr "grommunio Web"
@@ -2902,6 +2920,12 @@ msgstr "oder"
 msgid "No rule exists"
 msgstr "Es wurde keine Regel angelegt"
 
+msgid "Move Up"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
 msgid "Active"
 msgstr "Aktiv"
 
@@ -3306,6 +3330,9 @@ msgstr ""
 
 msgid "The matching task was not found in your task list."
 msgstr "Es wurde keine passende Aufgabe in Ihrer Aufgabenliste gefunden."
+
+msgid "Toggle header"
+msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3976,8 +4003,14 @@ msgstr "Automatisch"
 msgid "Switch view"
 msgstr "Ansicht umschalten"
 
+msgid "Folder navigation"
+msgstr ""
+
 msgid "Widgets"
 msgstr "Widgets"
+
+msgid "Main content"
+msgstr ""
 
 msgid "Sending…"
 msgstr "Senden…"
@@ -5737,6 +5770,9 @@ msgstr "Per Link teilen"
 msgid "Public link"
 msgstr "Öffentlicher Link"
 
+msgid "Copy link"
+msgstr ""
+
 msgid "Password protect"
 msgstr "Mit Passwort schützen"
 
@@ -6990,11 +7026,12 @@ msgstr "RSA-Schlüsselgröße unter dem empfohlenen Minimum"
 
 msgid "Certificate not valid for this operation (key usage mismatch)"
 msgstr ""
-"Zertifikat für diesen Vorgang nicht gültig (Schlüsselverwendung stimmt "
-"nicht überein)"
+"Zertifikat für diesen Vorgang nicht gültig (Schlüsselverwendung stimmt nicht "
+"überein)"
 
 msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
-msgstr "Entschlüsselt (CBC-Modus - für stärkeren Schutz AES-GCM in Betracht ziehen)"
+msgstr ""
+"Entschlüsselt (CBC-Modus - für stärkeren Schutz AES-GCM in Betracht ziehen)"
 
 msgid "Signing time differs from expected time"
 msgstr "Unterzeichnungszeit weicht von der erwarteten Zeit ab"
@@ -8025,6 +8062,9 @@ msgstr "Aufgabenanfrage:"
 
 msgid "Sign in"
 msgstr "Anmelden"
+
+msgid "Skip to main content"
+msgstr ""
 
 msgid "File is not imported successfully"
 msgstr "Datei wurde nicht erfolgreich importiert"

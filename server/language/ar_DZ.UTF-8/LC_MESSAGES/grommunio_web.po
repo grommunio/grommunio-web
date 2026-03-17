@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Arabic (Algeria)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 22:26+0100\n"
+"POT-Creation-Date: 2026-03-12 23:42+0100\n"
 "PO-Revision-Date: 2018-08-24 20:58+0200\n"
 "Last-Translator: import\n"
 "Language: ar_DZ\n"
@@ -14,6 +14,15 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 "X-Generator: Weblate 2.4\n"
+
+msgid "Calendar"
+msgstr "تقويم"
+
+msgid "Previous Month"
+msgstr ""
+
+msgid "Next Month"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -30,6 +39,9 @@ msgstr "يجب أن يكون الرقم أكبر من صفر"
 
 msgid "More options"
 msgstr "خيارات أكثر"
+
+msgid "Input"
+msgstr ""
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -715,6 +727,9 @@ msgstr "إلى"
 msgid "Filter category…"
 msgstr "تصفية الفئة…"
 
+msgid "Add Category"
+msgstr ""
+
 msgid "Sender"
 msgstr "المرسل"
 
@@ -1014,9 +1029,6 @@ msgstr "نظرة عامة عن الطباعة"
 
 msgid "Create Appointment"
 msgstr "إنشاء موعد"
-
-msgid "Calendar"
-msgstr "تقويم"
 
 msgid "Create in other calendar"
 msgstr "إنشاء في تقويم آخر"
@@ -1657,6 +1669,12 @@ msgstr "احفظ التغييرات وأرسل تحديثًا إلى كافة ا
 
 msgid "Open meeting request with changes"
 msgstr "فتح طلب الاجتماع مع التغييرات"
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
 
 msgid "grommunio Web"
 msgstr "كوبانو"
@@ -2853,6 +2871,12 @@ msgstr "أو"
 msgid "No rule exists"
 msgstr "لا توجد قاعدة"
 
+msgid "Move Up"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
 msgid "Active"
 msgstr "نشيط"
 
@@ -3239,6 +3263,9 @@ msgstr ""
 
 msgid "The matching task was not found in your task list."
 msgstr "لم يتم العثور على المهمة المطابقة في قائمة المهام الخاصة بك."
+
+msgid "Toggle header"
+msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3896,8 +3923,14 @@ msgstr "تلقائي"
 msgid "Switch view"
 msgstr "تبديل العرض"
 
+msgid "Folder navigation"
+msgstr ""
+
 msgid "Widgets"
 msgstr "الحاجيات"
+
+msgid "Main content"
+msgstr ""
 
 msgid "Sending…"
 msgstr "إرسال…"
@@ -5599,6 +5632,9 @@ msgstr "المشاركة عبر الرابط"
 
 msgid "Public link"
 msgstr "الرابط العام"
+
+msgid "Copy link"
+msgstr ""
 
 msgid "Password protect"
 msgstr "حماية كلمة المرور"
@@ -7429,7 +7465,8 @@ msgstr "تم الوصول إلى الحد الأقصى لحصة الإرسال"
 
 #, php-format
 msgid "Email sending failed (%s). Check the log files for more information."
-msgstr "فشل إرسال البريد الإلكتروني (%s). تحقق من ملفات السجل لمزيد من المعلومات."
+msgstr ""
+"فشل إرسال البريد الإلكتروني (%s). تحقق من ملفات السجل لمزيد من المعلومات."
 
 msgid "Unknown user/group"
 msgstr "مستخدم/مجموعة غير معروفة"
@@ -7740,6 +7777,9 @@ msgstr "طلب المهمة:"
 
 msgid "Sign in"
 msgstr "تسجيل الدخول"
+
+msgid "Skip to main content"
+msgstr ""
 
 msgid "File is not imported successfully"
 msgstr "لم يتم استيراد الملف بنجاح"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hebrew (Israel)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 22:26+0100\n"
+"POT-Creation-Date: 2026-03-12 23:42+0100\n"
 "PO-Revision-Date: 2017-10-03 22:09+0200\n"
 "Last-Translator: import\n"
 "Language: he_IL\n"
@@ -13,6 +13,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 2.4\n"
+
+msgid "Calendar"
+msgstr "לוח שנה"
+
+msgid "Previous Month"
+msgstr ""
+
+msgid "Next Month"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -29,6 +38,9 @@ msgstr "המספר חייב להיות גבוה מאפס"
 
 msgid "More options"
 msgstr "אפשרויות נוספות"
+
+msgid "Input"
+msgstr ""
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -680,6 +692,9 @@ msgstr "אל"
 msgid "Filter category…"
 msgstr "קטגוריית סינון..."
 
+msgid "Add Category"
+msgstr ""
+
 msgid "Sender"
 msgstr "שולח"
 
@@ -963,9 +978,6 @@ msgstr "הדפס סקירה כללית"
 
 msgid "Create Appointment"
 msgstr "צור פגישה"
-
-msgid "Calendar"
-msgstr "לוח שנה"
 
 msgid "Create in other calendar"
 msgstr "צור בלוח שנה אחר"
@@ -1614,6 +1626,12 @@ msgstr "שמור שינויים ושלח עדכון לכל הנמענים"
 
 msgid "Open meeting request with changes"
 msgstr "בקשת פגישה פתוחה עם שינויים"
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
 
 msgid "grommunio Web"
 msgstr "הווב אפ של זראפה"
@@ -2795,6 +2813,12 @@ msgstr "אוֹ"
 msgid "No rule exists"
 msgstr "לא קיים כלל"
 
+msgid "Move Up"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
 msgid "Active"
 msgstr "פָּעִיל"
 
@@ -3179,6 +3203,9 @@ msgstr ""
 
 msgid "The matching task was not found in your task list."
 msgstr "המשימה התואמת לא נמצאה ברשימת המשימות שלך."
+
+msgid "Toggle header"
+msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3836,8 +3863,14 @@ msgstr "אוֹטוֹמָטִי"
 msgid "Switch view"
 msgstr "החלף תצוגה"
 
+msgid "Folder navigation"
+msgstr ""
+
 msgid "Widgets"
 msgstr "ווידג'טים"
+
+msgid "Main content"
+msgstr ""
 
 msgid "Sending…"
 msgstr "שְׁלִיחָה…"
@@ -5540,6 +5573,9 @@ msgstr "שתפו באמצעות קישור"
 
 msgid "Public link"
 msgstr "קישור ציבורי"
+
+msgid "Copy link"
+msgstr ""
 
 msgid "Password protect"
 msgstr "הגנה באמצעות סיסמה"
@@ -7672,6 +7708,9 @@ msgstr "בקשת משימה:"
 
 msgid "Sign in"
 msgstr "היכנס"
+
+msgid "Skip to main content"
+msgstr ""
 
 msgid "File is not imported successfully"
 msgstr "הקובץ לא יובא בהצלחה"

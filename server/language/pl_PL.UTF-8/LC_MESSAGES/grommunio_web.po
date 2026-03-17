@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Polish (Poland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 22:26+0100\n"
+"POT-Creation-Date: 2026-03-12 23:42+0100\n"
 "PO-Revision-Date: 2022-07-26 17:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -16,6 +16,15 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.14-dev\n"
+
+msgid "Calendar"
+msgstr "Kalendarz"
+
+msgid "Previous Month"
+msgstr ""
+
+msgid "Next Month"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -32,6 +41,9 @@ msgstr "Liczba musi być większa od zera"
 
 msgid "More options"
 msgstr "Więcej opcji"
+
+msgid "Input"
+msgstr ""
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -694,6 +706,9 @@ msgstr "Do"
 msgid "Filter category…"
 msgstr "Kategoria filtru…"
 
+msgid "Add Category"
+msgstr ""
+
 msgid "Sender"
 msgstr "Nadawca"
 
@@ -988,9 +1003,6 @@ msgstr "Drukuj przegląd"
 
 msgid "Create Appointment"
 msgstr "Umówić się na spotkanie"
-
-msgid "Calendar"
-msgstr "Kalendarz"
 
 msgid "Create in other calendar"
 msgstr "Stwórz w innym kalendarzu"
@@ -1655,6 +1667,12 @@ msgstr "Zapisz zmiany i wyślij aktualizację do wszystkich uczestników"
 
 msgid "Open meeting request with changes"
 msgstr "Otwórz ze zmianami wezwanie na spotkanie"
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
 
 msgid "grommunio Web"
 msgstr "grommunio Web"
@@ -2902,6 +2920,12 @@ msgstr "lub"
 msgid "No rule exists"
 msgstr "Nie dołączono reguły"
 
+msgid "Move Up"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
 msgid "Active"
 msgstr "Aktywna"
 
@@ -3302,6 +3326,9 @@ msgstr ""
 
 msgid "The matching task was not found in your task list."
 msgstr "Nie znaleziono pasującego zadania na Twojej liście zadań."
+
+msgid "Toggle header"
+msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3971,8 +3998,14 @@ msgstr "Automatyczny"
 msgid "Switch view"
 msgstr "Przełącz widok"
 
+msgid "Folder navigation"
+msgstr ""
+
 msgid "Widgets"
 msgstr "Widżety"
+
+msgid "Main content"
+msgstr ""
 
 msgid "Sending…"
 msgstr "Wysłać…"
@@ -5714,6 +5747,9 @@ msgstr "Udostępnij za pośrednictwem łącza"
 
 msgid "Public link"
 msgstr "Link publiczny"
+
+msgid "Copy link"
+msgstr ""
 
 msgid "Password protect"
 msgstr "Ochrona hasłem"
@@ -8011,6 +8047,9 @@ msgstr "Wniosek o zadanie:"
 
 msgid "Sign in"
 msgstr "Zaloguj"
+
+msgid "Skip to main content"
+msgstr ""
 
 msgid "File is not imported successfully"
 msgstr "Plik nie został pomyślnie zaimportowany"
