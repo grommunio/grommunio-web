@@ -17,6 +17,6 @@ class TaskListNotifier extends ListNotifier {
 	 */
 	#[Override]
 	protected function getPropertiesList() {
-		return $GLOBALS["properties"]->getTaskListProperties();
+		return $GLOBALS["properties"]->getTaskGridProperties();
 	}
 }

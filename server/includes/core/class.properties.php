@@ -1195,6 +1195,64 @@ class Properties {
 	}
 
 	/**
+	 * Returns the reduced properties for a task in the grid view.
+	 * This strips properties not needed for the task list display
+	 * (delegation internals, sender fields, binary blobs, etc.)
+	 * to reduce per-row data transfer from the server.
+	 *
+	 * Note: Do not use this for AdvancedSearchListModule which needs
+	 * the full property set via getTaskListProperties().
+	 *
+	 * @return array properties for a task grid row
+	 */
+	public function getTaskGridProperties() {
+		$properties = $this->getTaskProperties();
+
+		unset(
+			$properties['actualwork'],
+			$properties['billing_information'],
+			$properties['commonassign'],
+			$properties['commonend'],
+			$properties['commonstart'],
+			$properties['companies'],
+			$properties['dead_occurrence'],
+			$properties['display_cc'],
+			$properties['hide_attachments'],
+			$properties['mileage'],
+			$properties['recurring_data'],
+			$properties['reminder_minutes'],
+			$properties['reset_reminder'],
+			$properties['sender_address_type'],
+			$properties['sender_email_address'],
+			$properties['sender_entryid'],
+			$properties['sender_name'],
+			$properties['sender_search_key'],
+			$properties['sent_representing_address_type'],
+			$properties['sent_representing_email_address'],
+			$properties['sent_representing_entryid'],
+			$properties['sent_representing_name'],
+			$properties['sent_representing_search_key'],
+			$properties['task_acceptance_state'],
+			$properties['task_assigned_time'],
+			$properties['task_assigner'],
+			$properties['task_f_creator'],
+			$properties['task_goid'],
+			$properties['taskaccepted'],
+			$properties['taskhistory'],
+			$properties['tasklastdelegate'],
+			$properties['tasklastuser'],
+			$properties['taskmode'],
+			$properties['taskmultrecips'],
+			$properties['tasksoc'],
+			$properties['taskupdates'],
+			$properties['totalwork'],
+			$properties['updatecount']
+		);
+
+		return $properties;
+	}
+
+	/**
 	 * Returns the properties used by the "properties" dialog.
 	 *
 	 * @return array properties

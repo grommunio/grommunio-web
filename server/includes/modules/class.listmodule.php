@@ -455,8 +455,9 @@ class ListModule extends Module {
 
 			foreach ($items as $props) {
 				$sendItemToClient = false;
+				$hexEntryid = bin2hex((string) $props[PR_ENTRYID]);
 
-				if (!array_key_exists(bin2hex((string) $props[PR_ENTRYID]), $searchResults)) {
+				if (!array_key_exists($hexEntryid, $searchResults)) {
 					$sendItemToClient = true;
 				}
 				else {
@@ -467,7 +468,7 @@ class ListModule extends Module {
 					 * that item has been modified since we have sent it to client
 					 */
 					// TODO if any item is deleted from search folder it will be not notified to client
-					if ($searchResults[bin2hex((string) $props[PR_ENTRYID])] < $props[PR_LAST_MODIFICATION_TIME]) {
+					if ($searchResults[$hexEntryid] < $props[PR_LAST_MODIFICATION_TIME]) {
 						$sendItemToClient = true;
 					}
 				}
@@ -478,7 +479,7 @@ class ListModule extends Module {
 					array_push($listData, $GLOBALS["operations"]->getProps($message, $this->properties));
 
 					// store entryid => last_modification_time mapping
-					$searchResults[bin2hex((string) $props[PR_ENTRYID])] = $props[PR_LAST_MODIFICATION_TIME];
+					$searchResults[$hexEntryid] = $props[PR_LAST_MODIFICATION_TIME];
 				}
 
 				// when we have more results then fit in the client, we break here,
