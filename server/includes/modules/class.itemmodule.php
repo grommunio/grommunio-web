@@ -102,6 +102,15 @@ class ItemModule extends Module {
 								 * After Accepting/Declining the message is moved and changed.
 								 */
 								$originalMessageProps = mapi_getprops($message, [PR_MESSAGE_CLASS]);
+
+								// Clear PR_PROCESSED so that doAccept fully copies
+								// all properties from the meeting request to the
+								// calendar item.  Without this, an update that changes
+								// a single meeting into a recurring series is not
+								// applied because the flag was already set during
+								// auto-processing in open().
+								mapi_deleteprops($message, [PR_PROCESSED]);
+
 								$req = new Meetingrequest($store, $message, $GLOBALS["mapisession"]->getSession(), $this->directBookingMeetingRequest);
 
 								// Update extra body information
