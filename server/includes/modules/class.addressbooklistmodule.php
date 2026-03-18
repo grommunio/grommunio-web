@@ -1007,28 +1007,29 @@ class AddressbookListModule extends ListModule {
 		$sharedFolderEntries = [];
 
 		foreach ($otherstores as $sharedEntryId => $sharedStore) {
-			$sharedStoreProps = mapi_getprops($sharedStore, [PR_MAILBOX_OWNER_NAME, PR_MDB_PROVIDER]);
-			if ($sharedStoreProps[PR_MDB_PROVIDER] != ZARAFA_STORE_DELEGATE_GUID) {
-				continue;
-			}
-
 			try {
+				$sharedStoreProps = mapi_getprops($sharedStore, [PR_MAILBOX_OWNER_NAME, PR_MDB_PROVIDER]);
+				if ($sharedStoreProps[PR_MDB_PROVIDER] != ZARAFA_STORE_DELEGATE_GUID) {
+					continue;
+				}
+
 				$sharedContactFolders = $GLOBALS["mapisession"]->getContactFoldersForABContactProvider($sharedStore);
+
+				for ($i = 0, $len = count($sharedContactFolders); $i < $len; ++$i) {
+					$sharedFolderEntries[] = [
+						"display_name" => $sharedContactFolders[$i][PR_DISPLAY_NAME] . " - " . $sharedStoreProps[PR_MAILBOX_OWNER_NAME],
+						"entryid" => bin2hex((string) $sharedContactFolders[$i][PR_ENTRYID]),
+						"store_entryid" => bin2hex((string) $sharedContactFolders[$i][PR_STORE_ENTRYID]),
+						"parent_entryid" => bin2hex((string) $sharedContactFolders[$i][PR_PARENT_ENTRYID]),
+						"depth" => 1,
+						"type" => 'sharedcontacts',
+						"object_type" => MAPI_ABCONT,
+					];
+				}
 			}
 			catch (MAPIException $e) {
+				$e->setHandled();
 				continue;
-			}
-
-			for ($i = 0, $len = count($sharedContactFolders); $i < $len; ++$i) {
-				$sharedFolderEntries[] = [
-					"display_name" => $sharedContactFolders[$i][PR_DISPLAY_NAME] . " - " . $sharedStoreProps[PR_MAILBOX_OWNER_NAME],
-					"entryid" => bin2hex((string) $sharedContactFolders[$i][PR_ENTRYID]),
-					"store_entryid" => bin2hex((string) $sharedContactFolders[$i][PR_STORE_ENTRYID]),
-					"parent_entryid" => bin2hex((string) $sharedContactFolders[$i][PR_PARENT_ENTRYID]),
-					"depth" => 1,
-					"type" => 'sharedcontacts',
-					"object_type" => MAPI_ABCONT,
-				];
 			}
 		}
 
