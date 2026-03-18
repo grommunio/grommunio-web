@@ -1091,8 +1091,13 @@ class MAPISession {
 		if ($storeProps[PR_MDB_PROVIDER] != ZARAFA_STORE_PUBLIC_GUID) {
 			$firstLevelHierarchyNodes = $contactFolders;
 			foreach ($firstLevelHierarchyNodes as $firstLevelNode) {
-				// To search for multiple levels CONVENIENT_DEPTH needs to be passed as well.
-				$contactFolders = array_merge($contactFolders, $this->getContactFolders($store, $firstLevelNode[PR_ENTRYID], true));
+				try {
+					// To search for multiple levels CONVENIENT_DEPTH needs to be passed as well.
+					$contactFolders = array_merge($contactFolders, $this->getContactFolders($store, $firstLevelNode[PR_ENTRYID], true));
+				}
+				catch (Exception) {
+					// Skip subfolder search if the parent folder cannot be accessed
+				}
 			}
 		}
 
