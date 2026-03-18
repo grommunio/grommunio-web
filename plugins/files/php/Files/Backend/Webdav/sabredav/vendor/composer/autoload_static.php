@@ -17,7 +17,7 @@ class ComposerStaticInit35cc24ae91fcc06ccc6c0dae0c8a09e4
     );
 
     public static $prefixLengthsPsr4 = array (
-        'S' => 
+        'S' =>
         array (
             'Sabre\\Xml\\' => 10,
             'Sabre\\VObject\\' => 14,
@@ -26,38 +26,38 @@ class ComposerStaticInit35cc24ae91fcc06ccc6c0dae0c8a09e4
             'Sabre\\Event\\' => 12,
             'Sabre\\' => 6,
         ),
-        'P' => 
+        'P' =>
         array (
             'Psr\\Log\\' => 8,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Sabre\\Xml\\' => 
+        'Sabre\\Xml\\' =>
         array (
             0 => __DIR__ . '/..' . '/sabre/xml/lib',
         ),
-        'Sabre\\VObject\\' => 
+        'Sabre\\VObject\\' =>
         array (
             0 => __DIR__ . '/..' . '/sabre/vobject/lib',
         ),
-        'Sabre\\Uri\\' => 
+        'Sabre\\Uri\\' =>
         array (
             0 => __DIR__ . '/..' . '/sabre/uri/lib',
         ),
-        'Sabre\\HTTP\\' => 
+        'Sabre\\HTTP\\' =>
         array (
             0 => __DIR__ . '/..' . '/sabre/http/lib',
         ),
-        'Sabre\\Event\\' => 
+        'Sabre\\Event\\' =>
         array (
             0 => __DIR__ . '/..' . '/sabre/event/lib',
         ),
-        'Sabre\\' => 
+        'Sabre\\' =>
         array (
             0 => __DIR__ . '/..' . '/sabre/dav/lib',
         ),
-        'Psr\\Log\\' => 
+        'Psr\\Log\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),

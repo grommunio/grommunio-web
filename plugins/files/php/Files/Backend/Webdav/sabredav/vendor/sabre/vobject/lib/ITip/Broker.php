@@ -240,16 +240,29 @@ class Broker
             $baseCalendar = $oldCalendar;
         }
 
+        // Check if the user is the organizer
         if (in_array($eventInfo['organizer'], $userHref)) {
             return $this->parseEventForOrganizer($baseCalendar, $eventInfo, $oldEventInfo);
-        } elseif ($oldCalendar) {
-            // We need to figure out if the user is an attendee, but we're only
-            // doing so if there's an oldCalendar, because we only want to
-            // process updates, not creation of new events.
-            foreach ($eventInfo['attendees'] as $attendee) {
-                if (in_array($attendee['href'], $userHref)) {
+        }
+
+        // Check if the user is an attendee
+        foreach ($eventInfo['attendees'] as $attendee) {
+            if (in_array($attendee['href'], $userHref)) {
+                // If this is a event update, we always generate a reply
+                if ($oldCalendar) {
                     return $this->parseEventForAttendee($baseCalendar, $eventInfo, $oldEventInfo, $attendee['href']);
                 }
+
+                // If this is a new event, we only generate a reply if the participation status is set
+                foreach ($attendee['instances'] as $instance) {
+                    if (isset($instance['partstat']) && 'NEEDS-ACTION' !== $instance['partstat']) {
+                        // Attendee has responded (ACCEPTED/DECLINED/TENTATIVE) - generate REPLY
+                        return $this->parseEventForAttendee($baseCalendar, $eventInfo, $oldEventInfo, $attendee['href']);
+                    }
+                }
+
+                // User is attendee but no response to process
+                break;
             }
         }
 
@@ -486,7 +499,6 @@ class Broker
         }
 
         $messages = [];
-
         foreach ($attendees as $attendee) {
             // An organizer can also be an attendee. We should not generate any
             // messages for those.
@@ -586,6 +598,9 @@ class Broker
                                 ));
                             } else {
                                 $currentEvent->EXDATE = $exceptions;
+                                if ($currentEvent->DTSTART['TZID']) {
+                                    $currentEvent->EXDATE['TZID'] = clone $currentEvent->DTSTART['TZID'];
+                                }
                             }
                         }
 
@@ -594,14 +609,14 @@ class Broker
                         unset($currentEvent->ORGANIZER['SCHEDULE-FORCE-SEND']);
                         unset($currentEvent->ORGANIZER['SCHEDULE-STATUS']);
 
-                        foreach ($currentEvent->ATTENDEE as $attendee) {
-                            unset($attendee['SCHEDULE-FORCE-SEND']);
-                            unset($attendee['SCHEDULE-STATUS']);
+                        foreach ($currentEvent->ATTENDEE as $currentEventAttendee) {
+                            unset($currentEventAttendee['SCHEDULE-FORCE-SEND']);
+                            unset($currentEventAttendee['SCHEDULE-STATUS']);
 
                             // We're adding PARTSTAT=NEEDS-ACTION to ensure that
                             // iOS shows an "Inbox Item"
-                            if (!isset($attendee['PARTSTAT'])) {
-                                $attendee['PARTSTAT'] = 'NEEDS-ACTION';
+                            if (!isset($currentEventAttendee['PARTSTAT'])) {
+                                $currentEventAttendee['PARTSTAT'] = 'NEEDS-ACTION';
                             }
                         }
                     }
@@ -900,6 +915,9 @@ class Broker
                     $timezone = $vevent->{'RECURRENCE-ID'}->getDateTime()->getTimeZone();
                 }
             }
+
+            $instances[$recurId] = $vevent;
+
             if (isset($vevent->ATTENDEE)) {
                 foreach ($vevent->ATTENDEE as $attendee) {
                     if ($this->scheduleAgentServerRules &&
@@ -938,7 +956,6 @@ class Broker
                         ];
                     }
                 }
-                $instances[$recurId] = $vevent;
             }
 
             foreach ($this->significantChangeProperties as $prop) {
