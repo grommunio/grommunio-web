@@ -42,6 +42,7 @@ Zarafa.common.rules.dialogs.AtLeatSizeLink = Ext.extend(Zarafa.common.rules.dial
       items: [{
         xtype: 'zarafa.spinnerfield',
         plugins: [ 'zarafa.numberspinner' ],
+        fieldLabel: _('Message size'),
         width: 60,
         minValue: 0,
         defaultValue: 5,
@@ -53,6 +54,7 @@ Zarafa.common.rules.dialogs.AtLeatSizeLink = Ext.extend(Zarafa.common.rules.dial
       },{
         xtype: 'combo',
         ref: 'sizeCombo',
+        fieldLabel: _('Size unit'),
         typeAhead: true,
         editable: false,
         triggerAction: 'all',

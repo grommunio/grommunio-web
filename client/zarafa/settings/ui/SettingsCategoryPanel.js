@@ -32,7 +32,12 @@ Zarafa.settings.ui.SettingsCategoryPanel = Ext.extend(Ext.Container, {
 		config = config || {};
 
 		Ext.applyIf(config, {
-			cls:'zarafa-settings-category-panel'
+			cls:'zarafa-settings-category-panel',
+			listeners: {
+				afterrender: function() {
+					this.getEl().set({ 'role': 'tablist', 'aria-label': _('Settings categories') });
+				}
+			}
 		});
 
 		Zarafa.settings.ui.SettingsCategoryPanel.superclass.constructor.call(this, config);

@@ -50,7 +50,7 @@ Zarafa.calendar.ui.html.AppointmentDaysView = Ext.extend(Zarafa.calendar.ui.Appo
 		var iconsHtml = '';
 		icons.forEach(function(icon) {
 			var iconClass = this.isActive() && isDarkColor  ? 'icon_'+icon+'_white' : 'icon_'+icon;
-			iconsHtml += '<div class="k-icon ' + iconClass + '"></div>';
+			iconsHtml += '<div class="k-icon ' + iconClass + '" aria-hidden="true"></div>';
 		}, this);
 		if ( iconsHtml ) {
 			iconsHtml = '<div class="k-icons">' + iconsHtml + '</div>';
@@ -83,7 +83,7 @@ Zarafa.calendar.ui.html.AppointmentDaysView = Ext.extend(Zarafa.calendar.ui.Appo
 			var resizeHandleEnd = '';
 			if ( index === 0 ) {
 				orderClass += ' k-first';
-				resizeHandleStart = '<div class="k-resizehandle k-resizehandle-start"></div>';
+				resizeHandleStart = '<div class="k-resizehandle k-resizehandle-start" aria-hidden="true"></div>';
 
 				if ( showStartTime === true && !this.isAllDay() ) {
 					var startTimeText = Ext.util.Format.htmlDecode(this.startTimeTextRenderer());
@@ -93,17 +93,22 @@ Zarafa.calendar.ui.html.AppointmentDaysView = Ext.extend(Zarafa.calendar.ui.Appo
 			}
 			if ( index === bounds.length - 1 ) {
 				orderClass += ' k-last';
-				resizeHandleEnd = '<div class="k-resizehandle k-resizehandle-end"></div>';
+				resizeHandleEnd = '<div class="k-resizehandle k-resizehandle-end" aria-hidden="true"></div>';
 			}
 			var appointmentBox = layer.createChild({
 				cls: 'k-appointment-box' + colorClass + activeClass + orderClass,
-				html: resizeHandleStart + resizeHandleEnd + '<div class="k-status'  + busyClass + '" style="width:' + stripWidth + 'px; border-color:' + color + ';"></div>' +
+				html: resizeHandleStart + resizeHandleEnd + '<div class="k-status'  + busyClass + '" style="width:' + stripWidth + 'px; border-color:' + color + ';" aria-hidden="true"></div>' +
 						iconsHtml + '<span class="k-title">' + titleText + '</span>',
 				style: 'background-color:' + color + ';' +
 						'left:' + (bound.left + 0) + 'px;' +
 						'top:' + bound.top + 'px;' +
 						'width:' + (width - 2) + 'px;' +
 						'height:' + height + 'px;'
+			});
+			appointmentBox.set({
+				'role': 'button',
+				'aria-label': Ext.util.Format.stripTags(titleText).trim(),
+				'tabindex': '-1'
 			});
 
 			// Relay some events to the parent view
@@ -122,6 +127,12 @@ Zarafa.calendar.ui.html.AppointmentDaysView = Ext.extend(Zarafa.calendar.ui.Appo
 
 				// Fire the calendar's context menu event.
 				this.parentView.fireEvent('contextmenu', this, event, this.getRecord(), range);
+			}, this);
+			appointmentBox.on('keydown', function(event) {
+				if (event.getKey() === event.ENTER || event.getKey() === event.SPACE) {
+					event.stopEvent();
+					this.parentView.fireEvent('dblclick', this.parentView, event, this.getRecord());
+				}
 			}, this);
 
 			this.appointmentBoxes.push(appointmentBox);
@@ -176,11 +187,13 @@ Zarafa.calendar.ui.html.AppointmentDaysView = Ext.extend(Zarafa.calendar.ui.Appo
 		this.appointmentBoxes.forEach(function(appointmentBox) {
 			if ( selected ) {
 				appointmentBox.addClass('k-selected');
+				appointmentBox.set({ 'aria-selected': 'true' });
 
 				// when selecting appointment set focus also so key shortcuts work properly
 				this.focus();
 			} else {
 				appointmentBox.removeClass('k-selected');
+				appointmentBox.set({ 'aria-selected': 'false' });
 			}
 		}, this);
 	},

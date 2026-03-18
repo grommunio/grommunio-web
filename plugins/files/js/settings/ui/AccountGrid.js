@@ -64,6 +64,8 @@ Zarafa.plugins.files.settings.ui.AccountGrid = Ext.extend(Zarafa.common.ui.grid.
 			}, {
 				xtype : 'button',
 				iconCls : 'zarafa-rules-sequence-up',
+				tooltip : _('Move Up'),
+				ariaLabel : _('Move Up'),
 				disabled : true,
 				ref : '../upButton',
 				handler : this.onAccountSequenceUp,
@@ -75,6 +77,8 @@ Zarafa.plugins.files.settings.ui.AccountGrid = Ext.extend(Zarafa.common.ui.grid.
 			}, {
 				xtype : 'button',
 				iconCls : 'zarafa-rules-sequence-down',
+				tooltip : _('Move Down'),
+				ariaLabel : _('Move Down'),
 				disabled : true,
 				ref : '../downButton',
 				handler : this.onAccountSequenceDown,

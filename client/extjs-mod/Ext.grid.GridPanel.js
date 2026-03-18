@@ -2,6 +2,20 @@
 	var orig_onClick = Ext.grid.GridPanel.prototype.onClick;
 
 	Ext.override(Ext.grid.GridPanel, {
+
+		/**
+		 * Override onRender to add ARIA grid role for accessibility.
+		 */
+		onRender: Ext.grid.GridPanel.prototype.onRender.createSequence(function() {
+			if (this.el) {
+				this.el.set({ 'role': 'grid' });
+				var label = this.ariaLabel || this.title;
+				if (label) {
+					this.el.set({ 'aria-label': label });
+				}
+			}
+		}),
+
 		/*
 		 * Override onClick to fix an issue that clicking on an
 		 * already selected row will not put the focus on the grid itself. This

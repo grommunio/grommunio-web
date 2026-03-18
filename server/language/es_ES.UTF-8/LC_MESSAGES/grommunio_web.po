@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Spanish (Spain)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 22:26+0100\n"
+"POT-Creation-Date: 2026-03-12 23:42+0100\n"
 "PO-Revision-Date: 2024-01-03 16:10+0000\n"
 "Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/grommunio/"
@@ -16,6 +16,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.4-dev\n"
+
+msgid "Calendar"
+msgstr "Calendario"
+
+msgid "Previous Month"
+msgstr ""
+
+msgid "Next Month"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -32,6 +41,9 @@ msgstr "El número tiene que ser mayor que cero"
 
 msgid "More options"
 msgstr "Más opciones"
+
+msgid "Input"
+msgstr ""
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -686,6 +698,9 @@ msgstr "Hasta"
 msgid "Filter category…"
 msgstr "Establecer categoría…"
 
+msgid "Add Category"
+msgstr ""
+
 msgid "Sender"
 msgstr "Remitente"
 
@@ -976,9 +991,6 @@ msgstr "Vista previa"
 
 msgid "Create Appointment"
 msgstr "Crear Reserva"
-
-msgid "Calendar"
-msgstr "Calendario"
 
 msgid "Create in other calendar"
 msgstr "Crear en otro calendario"
@@ -1652,6 +1664,12 @@ msgstr ""
 
 msgid "Open meeting request with changes"
 msgstr "Solicitud de reunión abierta con modificaciones"
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
 
 msgid "grommunio Web"
 msgstr "grommunio Web"
@@ -2919,6 +2937,12 @@ msgstr "o"
 msgid "No rule exists"
 msgstr "No existen reglas"
 
+msgid "Move Up"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
 msgid "Active"
 msgstr "Activo"
 
@@ -3327,6 +3351,9 @@ msgstr "Trataremos de arreglar un mensaje corrupto. ¿ Desea continuar ?"
 
 msgid "The matching task was not found in your task list."
 msgstr "No se ha encontrado la tarea correspondiente en su lista de tareas."
+
+msgid "Toggle header"
+msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -4001,8 +4028,14 @@ msgstr "Automático"
 msgid "Switch view"
 msgstr "Cambiar vista"
 
+msgid "Folder navigation"
+msgstr ""
+
 msgid "Widgets"
 msgstr "Widgets"
+
+msgid "Main content"
+msgstr ""
 
 msgid "Sending…"
 msgstr "Enviando…"
@@ -5758,6 +5791,9 @@ msgstr "Compartir a través del enlace"
 msgid "Public link"
 msgstr "Enlace publico"
 
+msgid "Copy link"
+msgstr ""
+
 msgid "Password protect"
 msgstr "Proteger con contraseña"
 
@@ -7025,7 +7061,8 @@ msgid "RSA key size below recommended minimum"
 msgstr "Tamaño de la clave RSA por debajo del mínimo recomendado"
 
 msgid "Certificate not valid for this operation (key usage mismatch)"
-msgstr "Certificado no válido para esta operación (uso de claves no coincidente)"
+msgstr ""
+"Certificado no válido para esta operación (uso de claves no coincidente)"
 
 msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
 msgstr "Descifrado (modo CBC - considere AES-GCM para una mayor protección)"
@@ -7421,7 +7458,8 @@ msgid "No email address specified"
 msgstr "No se ha especificado ninguna dirección de correo electrónico"
 
 msgid "No certificates found for this email address"
-msgstr "No se han encontrado certificados para esta dirección de correo electrónico"
+msgstr ""
+"No se han encontrado certificados para esta dirección de correo electrónico"
 
 msgid "Unable to read certificates"
 msgstr "No se pueden leer los certificados"
@@ -8095,6 +8133,9 @@ msgstr "Solicitud de tarea:"
 
 msgid "Sign in"
 msgstr "Iniciar sesión"
+
+msgid "Skip to main content"
+msgstr ""
 
 msgid "File is not imported successfully"
 msgstr "El archivo no se importa correctamente"

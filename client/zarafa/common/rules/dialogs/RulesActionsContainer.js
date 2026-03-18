@@ -87,6 +87,7 @@ Zarafa.common.rules.dialogs.RulesActionsContainer = Ext.extend(Ext.Container, {
 			},
 			items: [{
 				xtype: 'combo',
+				fieldLabel: _('Action'),
 				width: 300,
 				store: profileStore,
 				mode: 'local',

@@ -26,7 +26,7 @@ Zarafa.core.ui.widget.WidgetContentPanel = Ext.extend(Zarafa.core.ui.ContentPane
 			'<tpl for=".">',
 				'<div class="k-widget-item {iconCls}" id="{name}">',
 					'<div class="thumb-wrap">',
-						'<img src="{icon}">',
+						'<img src="{icon}" alt="">',
 					'</div>',
 					'<span>{display_name}</span>',
 				'</div>',

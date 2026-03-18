@@ -32,6 +32,7 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 
 		Ext.applyIf(config, {
 			xtype: 'zarafa.taskgrid',
+			ariaLabel: _('Tasks list'),
 			border: false,
 			stateful: true,
 			statefulRelativeDimensions: false,

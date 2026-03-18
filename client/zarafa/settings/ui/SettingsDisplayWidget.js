@@ -36,6 +36,7 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 				xtype: 'radiogroup',
 				name: 'zarafa/v1/main/datetime_display_format',
 				ref: 'datetimeDisplayFormat',
+				fieldLabel: _('Date format'),
 				hideLabel: true,
 				columns: 1,
 				items: [{
@@ -57,6 +58,7 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 				xtype: 'radiogroup',
 				name: 'zarafa/v1/main/datetime_time_format',
 				ref: 'datetimeTimeformat',
+				fieldLabel: _('Time format'),
 				hideLabel: true,
 				width: 200,
 				columns: 2,

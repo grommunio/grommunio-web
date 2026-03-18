@@ -60,6 +60,41 @@ Zarafa.core.ui.MainViewport = Ext.extend(Ext.Viewport, {
 		// initialise the viewport with some pre-defined settings
 		Zarafa.core.ui.MainViewport.superclass.constructor.call(this, config);
 
+		// Add skip-to-content link for keyboard accessibility (WCAG 2.4.1)
+		this.on('afterrender', function() {
+			// Set landmark roles on rendered elements
+			var mainView = Ext.getCmp('zarafa-mainview');
+			if (mainView && mainView.getEl()) {
+				mainView.getEl().set({ 'role': 'application', 'aria-label': _('grommunio Web') });
+			}
+
+			var skipLink = Ext.DomHelper.insertFirst(document.body, {
+				tag: 'a',
+				href: '#',
+				cls: 'sr-only',
+				html: _('Skip to main content'),
+				style: 'z-index:99999;'
+			}, true);
+			skipLink.on('focus', function() {
+				this.setStyle({
+					position: 'fixed', top: '5px', left: '5px',
+					width: 'auto', height: 'auto', clip: 'auto',
+					'white-space': 'normal', overflow: 'visible',
+					padding: '8px 16px', background: '#fff', color: '#1d2939',
+					'font-size': '14px', 'font-weight': '600',
+					'border-radius': '4px', 'box-shadow': '0 2px 8px rgba(0,0,0,0.2)',
+					margin: '0'
+				});
+			});
+			skipLink.on('blur', function() {
+				this.setStyle({
+					position: 'absolute', width: '1px', height: '1px',
+					clip: 'rect(0,0,0,0)', 'white-space': 'nowrap',
+					overflow: 'hidden', padding: '0', margin: '-1px'
+				});
+			});
+		}, this, { single: true });
+
 		// Activate global key events.
 		Zarafa.core.KeyMapMgr.activate(null, 'global', Ext.getBody());
 		// Don't allow propagation of all other key events which are registered in KeyMapMgr.

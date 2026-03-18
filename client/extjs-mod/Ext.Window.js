@@ -1,8 +1,15 @@
 (function() {
  	var orig_beforeShow = Ext.Window.prototype.beforeShow;
  	var orig_onWindowResize = Ext.Window.prototype.onWindowResize;
+	var orig_afterHide = Ext.Window.prototype.afterHide;
 
 	Ext.override(Ext.Window, {
+		/**
+		 * @private
+		 * The element that had focus before this window was shown.
+		 * Used to restore focus when the window is hidden.
+		 */
+		previousFocus: undefined,
 		/**
 		 * The window object that represents the browser window that contains this Ext.Window
 		 */
@@ -18,6 +25,32 @@
 			this.correctMaskSize();
 
 			this.browserWindow = this.el.dom.ownerDocument.defaultView;
+
+			// Save the currently focused element so we can restore it when this window closes
+			this.previousFocus = this.el.dom.ownerDocument.activeElement;
+
+			// Add ARIA dialog attributes
+			if (this.el) {
+				this.el.set({ 'role': this.ariaRole || 'dialog' });
+				if (this.modal) {
+					this.el.set({ 'aria-modal': 'true' });
+				}
+				if (this.title) {
+					var headerId = this.getId() + '-header-text';
+					var headerEl = this.header ? this.header.child('.x-window-header-text') : null;
+					if (headerEl) {
+						headerEl.set({ 'id': headerId });
+						this.el.set({ 'aria-labelledby': headerId });
+					} else {
+						this.el.set({ 'aria-label': this.title });
+					}
+				}
+
+				// Set up focus trap for modal windows
+				if (this.modal) {
+					this.el.on('keydown', this.onFocusTrapKeyDown, this);
+				}
+			}
 		},
 
 		/*
@@ -60,6 +93,7 @@
 
 		/*
 		 * Overridden to remove the correct event listener for popout browser windows
+		 * and restore focus to the previously focused element.
 		 */
 		afterHide: function() {
 			this.proxy.hide();
@@ -73,6 +107,20 @@
 			if(this.keyMap) {
 				this.keyMap.disable();
 			}
+
+			// Clean up focus trap listener
+			if (this.modal && this.el) {
+				this.el.un('keydown', this.onFocusTrapKeyDown, this);
+			}
+
+			// Restore focus to the element that was focused before this window was shown
+			if (this.previousFocus && this.previousFocus.focus) {
+				try {
+					this.previousFocus.focus();
+				} catch(e) {}
+				delete this.previousFocus;
+			}
+
 			this.onHide();
 			this.fireEvent('hide', this);
 		},
@@ -97,6 +145,48 @@
 		{
 			if ( browserWindow === this.browserWindow ) {
 				this.onWindowResize();
+			}
+		},
+
+		/**
+		 * Key handler that traps Tab focus within modal windows.
+		 * When Tab is pressed on the last focusable element, focus wraps to the first.
+		 * When Shift+Tab is pressed on the first focusable element, focus wraps to the last.
+		 * @param {Ext.EventObject} e The keydown event
+		 * @private
+		 */
+		onFocusTrapKeyDown: function(e) {
+			if (e.getKey() !== e.TAB) {
+				return;
+			}
+
+			var dom = this.el.dom;
+			var focusable = dom.querySelectorAll(
+				'a[href]:not([tabindex="-1"]), button:not([disabled]):not([tabindex="-1"]), ' +
+				'input:not([disabled]):not([type="hidden"]):not([tabindex="-1"]), ' +
+				'select:not([disabled]):not([tabindex="-1"]), textarea:not([disabled]):not([tabindex="-1"]), ' +
+				'[tabindex]:not([tabindex="-1"])'
+			);
+
+			if (focusable.length === 0) {
+				e.stopEvent();
+				return;
+			}
+
+			var first = focusable[0];
+			var last = focusable[focusable.length - 1];
+			var active = dom.ownerDocument.activeElement;
+
+			if (e.shiftKey) {
+				if (active === first || !dom.contains(active)) {
+					e.stopEvent();
+					last.focus();
+				}
+			} else {
+				if (active === last || !dom.contains(active)) {
+					e.stopEvent();
+					first.focus();
+				}
 			}
 		},
 

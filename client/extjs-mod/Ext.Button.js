@@ -38,6 +38,68 @@
 		template:new Ext.Template(
 			'<div id="{4}" class="x-btn {3}"><div class="{1}">',
 			'<em class="{2}" class="x-unselectable" unselectable="on"><button type="{0}"></button></em>',
-			'</div></div>')
+			'</div></div>'),
+
+		/**
+		 * Override onRender to add ARIA attributes to buttons.
+		 * Icon-only buttons get aria-label from tooltip text.
+		 * All buttons get proper role attributes.
+		 */
+		onRender: Ext.Button.prototype.onRender.createSequence(function() {
+			var btnEl = this.el;
+			if (!btnEl) {
+				return;
+			}
+
+			// Add aria-label: prefer explicit ariaLabel config, then derive from tooltip for icon-only buttons
+			if (this.ariaLabel) {
+				btnEl.set({ 'aria-label': this.ariaLabel });
+			} else if (!this.text && this.iconCls) {
+				var label = this.tooltip || this.iconCls.replace(/^icon[_-]/, '').replace(/[_-]/g, ' ');
+				if (Ext.isObject(label)) {
+					label = label.title || label.text || '';
+				}
+				if (label) {
+					btnEl.set({ 'aria-label': label });
+				}
+			}
+
+			// Mark disabled buttons
+			if (this.disabled) {
+				btnEl.set({ 'aria-disabled': 'true' });
+			}
+
+			// Mark buttons that have dropdown menus
+			if (this.menu) {
+				btnEl.set({ 'aria-haspopup': 'true', 'aria-expanded': 'false' });
+			}
+		}),
+
+		/**
+		 * Override setDisabled to update aria-disabled attribute.
+		 */
+		setDisabled: Ext.Button.prototype.setDisabled.createSequence(function(disabled) {
+			if (this.el) {
+				this.el.set({ 'aria-disabled': disabled ? 'true' : 'false' });
+			}
+		}),
+
+		/**
+		 * Override showMenu to set aria-expanded when the menu opens.
+		 */
+		showMenu: Ext.Button.prototype.showMenu.createSequence(function() {
+			if (this.el && this.menu) {
+				this.el.set({ 'aria-expanded': 'true', 'aria-haspopup': 'true' });
+			}
+		}),
+
+		/**
+		 * Override hideMenu to clear aria-expanded when the menu closes.
+		 */
+		hideMenu: Ext.Button.prototype.hideMenu.createSequence(function() {
+			if (this.el && this.menu) {
+				this.el.set({ 'aria-expanded': 'false' });
+			}
+		})
 	});
 })();

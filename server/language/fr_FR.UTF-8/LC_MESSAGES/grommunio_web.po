@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web French (France)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 22:26+0100\n"
+"POT-Creation-Date: 2026-03-12 23:42+0100\n"
 "PO-Revision-Date: 2022-12-11 16:35+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/grommunio/"
@@ -16,6 +16,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.15-dev\n"
+
+msgid "Calendar"
+msgstr "Agenda"
+
+msgid "Previous Month"
+msgstr ""
+
+msgid "Next Month"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -32,6 +41,9 @@ msgstr "Le nombre doit être supérieur à zéro"
 
 msgid "More options"
 msgstr "Plus d'options"
+
+msgid "Input"
+msgstr ""
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -687,6 +699,9 @@ msgstr "À"
 msgid "Filter category…"
 msgstr "Filtre de catégorie…"
 
+msgid "Add Category"
+msgstr ""
+
 msgid "Sender"
 msgstr "Expéditeur"
 
@@ -980,9 +995,6 @@ msgstr "Imprimer l'aperçu"
 
 msgid "Create Appointment"
 msgstr "Créer un Rendez-vous"
-
-msgid "Calendar"
-msgstr "Agenda"
 
 msgid "Create in other calendar"
 msgstr "Créer dans un autre calendrier"
@@ -1657,6 +1669,12 @@ msgstr ""
 
 msgid "Open meeting request with changes"
 msgstr "Demande de réunion en cours contenant des modifications"
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
 
 msgid "grommunio Web"
 msgstr "grommunio Web"
@@ -2921,6 +2939,12 @@ msgstr "ou"
 msgid "No rule exists"
 msgstr "Aucune règle n'existe"
 
+msgid "Move Up"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
 msgid "Active"
 msgstr "Actif"
 
@@ -3333,6 +3357,9 @@ msgstr ""
 msgid "The matching task was not found in your task list."
 msgstr ""
 "La tâche correspondante n'a pas été trouvée dans votre liste de tâches."
+
+msgid "Toggle header"
+msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -4008,8 +4035,14 @@ msgstr "Automatique"
 msgid "Switch view"
 msgstr "Changer de vue"
 
+msgid "Folder navigation"
+msgstr ""
+
 msgid "Widgets"
 msgstr "Widgets"
+
+msgid "Main content"
+msgstr ""
 
 msgid "Sending…"
 msgstr "Envoi…"
@@ -5775,6 +5808,9 @@ msgstr "Partager via le lien"
 msgid "Public link"
 msgstr "Lien public"
 
+msgid "Copy link"
+msgstr ""
+
 msgid "Password protect"
 msgstr "Protection par mot de passe"
 
@@ -7040,8 +7076,8 @@ msgstr "Taille de la clé RSA inférieure au minimum recommandé"
 
 msgid "Certificate not valid for this operation (key usage mismatch)"
 msgstr ""
-"Certificat non valide pour cette opération (incompatibilité de "
-"l'utilisation des clés)"
+"Certificat non valide pour cette opération (incompatibilité de l'utilisation "
+"des clés)"
 
 msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
 msgstr "Décrypté (mode CBC - envisager AES-GCM pour une protection plus forte)"
@@ -8130,6 +8166,9 @@ msgstr "Demande de travail:"
 
 msgid "Sign in"
 msgstr "Se connecter"
+
+msgid "Skip to main content"
+msgstr ""
 
 msgid "File is not imported successfully"
 msgstr "Le fichier n'est pas importé avec succès"

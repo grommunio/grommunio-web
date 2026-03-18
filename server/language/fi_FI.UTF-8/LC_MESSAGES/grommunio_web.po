@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 22:26+0100\n"
+"POT-Creation-Date: 2026-03-12 23:42+0100\n"
 "PO-Revision-Date: 2022-07-26 15:25+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -15,6 +15,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 4.14-dev\n"
+
+msgid "Calendar"
+msgstr "Kalenteri"
+
+msgid "Previous Month"
+msgstr ""
+
+msgid "Next Month"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -31,6 +40,9 @@ msgstr "Luvun on oltava suurempi kuin nolla"
 
 msgid "More options"
 msgstr "Lisää vaihtoehtoja"
+
+msgid "Input"
+msgstr ""
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -684,6 +696,9 @@ msgstr "Vastaanottaja"
 msgid "Filter category…"
 msgstr "Määritä kategoria…"
 
+msgid "Add Category"
+msgstr ""
+
 msgid "Sender"
 msgstr "Lähettäjä"
 
@@ -974,9 +989,6 @@ msgstr "Tulosta näkymä"
 
 msgid "Create Appointment"
 msgstr "Lisää varaus"
-
-msgid "Calendar"
-msgstr "Kalenteri"
 
 msgid "Create in other calendar"
 msgstr "Luo toisessa kalenterissa"
@@ -1645,6 +1657,12 @@ msgstr "Tallenna muutokset ja lähetä päivitys kaikille vastaanottajille"
 
 msgid "Open meeting request with changes"
 msgstr "Avaa kokouskutsu muutoksilla"
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
 
 msgid "grommunio Web"
 msgstr "grommunio Web"
@@ -2895,6 +2913,12 @@ msgstr "tai"
 msgid "No rule exists"
 msgstr "Sääntöä ei ole"
 
+msgid "Move Up"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
 msgid "Active"
 msgstr "Aktiivinen"
 
@@ -3296,6 +3320,9 @@ msgstr "Yritämme korjata vioittuneen sähköpostiviestin, haluatko jatkaa?"
 
 msgid "The matching task was not found in your task list."
 msgstr "Vastaavaa tehtävää ei löytynyt tehtäväluettelostasi."
+
+msgid "Toggle header"
+msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3971,8 +3998,14 @@ msgstr "Automaattinen"
 msgid "Switch view"
 msgstr "Vaihda näkymää"
 
+msgid "Folder navigation"
+msgstr ""
+
 msgid "Widgets"
 msgstr "Vimpaimet"
+
+msgid "Main content"
+msgstr ""
 
 msgid "Sending…"
 msgstr "Lähetetään…"
@@ -5730,6 +5763,9 @@ msgstr "Jaa linkin kautta"
 msgid "Public link"
 msgstr "Julkinen linkki"
 
+msgid "Copy link"
+msgstr ""
+
 msgid "Password protect"
 msgstr "Suojaa salasanalla"
 
@@ -6979,7 +7015,8 @@ msgid "RSA key size below recommended minimum"
 msgstr "RSA-avaimen koko alle suositellun vähimmäiskoon"
 
 msgid "Certificate not valid for this operation (key usage mismatch)"
-msgstr "Varmenne ei kelpaa tälle toiminnolle (avaimen käyttö ei vastaa toisiaan)"
+msgstr ""
+"Varmenne ei kelpaa tälle toiminnolle (avaimen käyttö ei vastaa toisiaan)"
 
 msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
 msgstr "Purettu (CBC-tila - harkitse AES-GCM:ää vahvemman suojan saamiseksi)"
@@ -7672,7 +7709,8 @@ msgstr "Lähetyskiintiö saavutettu"
 
 #, php-format
 msgid "Email sending failed (%s). Check the log files for more information."
-msgstr "Sähköpostin lähetys epäonnistui (%s). Tarkista lokitiedostoista lisätietoja."
+msgstr ""
+"Sähköpostin lähetys epäonnistui (%s). Tarkista lokitiedostoista lisätietoja."
 
 msgid "Unknown user/group"
 msgstr "Tuntematon käyttäjä/ryhmä"
@@ -8006,6 +8044,9 @@ msgstr "Tehtäväpyyntö:"
 
 msgid "Sign in"
 msgstr "Kirjaudu sisään"
+
+msgid "Skip to main content"
+msgstr ""
 
 msgid "File is not imported successfully"
 msgstr "Tiedostoa ei ole tuotu onnistuneesti"

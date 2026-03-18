@@ -77,7 +77,12 @@ Zarafa.core.ui.widget.WidgetPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 			animCollapse: false,
 			items: [ this.portal ],
 			collapseQuickTip: _('Collapse widget panel'),
-			expandQuickTip: _('Expand widget panel')
+			expandQuickTip: _('Expand widget panel'),
+			listeners: {
+				afterrender: function() {
+					this.getEl().set({ 'role': 'complementary', 'aria-label': _('Widgets') });
+				}
+			}
 		});
 
 		Zarafa.core.ui.widget.WidgetPanel.superclass.constructor.call(this, config);

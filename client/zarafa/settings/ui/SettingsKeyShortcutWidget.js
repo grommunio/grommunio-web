@@ -28,6 +28,7 @@ Zarafa.settings.ui.SettingsKeyShortcutWidget = Ext.extend(Zarafa.settings.ui.Set
 					xtype: 'radiogroup',
 					ref: '../keyShortcutGroup',
 					columns: 1,
+					fieldLabel: _('Keyboard shortcuts'),
 					hideLabel: true,
 					name: 'zarafa/v1/main/keycontrols',
 					items: [{

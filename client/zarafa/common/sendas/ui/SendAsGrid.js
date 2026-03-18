@@ -59,7 +59,7 @@ Zarafa.common.sendas.ui.SendAsGrid = Ext.extend(Ext.grid.GridPanel, {
 		return [{
 			dataIndex: 'icon_index',
 			headerCls: 'zarafa-icon-column',
-			header: '<p class="icon_index">&nbsp;</p>',
+			header: '<p class="icon_index">&nbsp;<span class="title">Icon</span></p>',
 			width: 24,
 			fixed: true,
 			renderer: Zarafa.common.ui.grid.Renderers.icon

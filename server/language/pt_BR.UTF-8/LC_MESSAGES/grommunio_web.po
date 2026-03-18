@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Portuguese (Brazil)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 22:26+0100\n"
+"POT-Creation-Date: 2026-03-12 23:42+0100\n"
 "PO-Revision-Date: 2017-10-03 21:54+0200\n"
 "Last-Translator: import\n"
 "Language: pt_BR\n"
@@ -14,6 +14,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Weblate 2.4\n"
+
+msgid "Calendar"
+msgstr "Calendário"
+
+msgid "Previous Month"
+msgstr ""
+
+msgid "Next Month"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -30,6 +39,9 @@ msgstr "O número deve ser maior que zero"
 
 msgid "More options"
 msgstr "Mais opções"
+
+msgid "Input"
+msgstr ""
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -685,6 +697,9 @@ msgstr "Para"
 msgid "Filter category…"
 msgstr "Categoria de filtro..."
 
+msgid "Add Category"
+msgstr ""
+
 msgid "Sender"
 msgstr "Remetente"
 
@@ -975,9 +990,6 @@ msgstr "Imprimir visão geral"
 
 msgid "Create Appointment"
 msgstr "Criar Compromisso"
-
-msgid "Calendar"
-msgstr "Calendário"
 
 msgid "Create in other calendar"
 msgstr "Criar em outro calendário"
@@ -1647,6 +1659,12 @@ msgstr "Salvar modificações e enviar uma atualização para todos os recipient
 
 msgid "Open meeting request with changes"
 msgstr "Abrir solicitação de reunião com modificações"
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
 
 msgid "grommunio Web"
 msgstr "grommunio Web"
@@ -2896,6 +2914,12 @@ msgstr "ou"
 msgid "No rule exists"
 msgstr "Não existe nenhuma regra"
 
+msgid "Move Up"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
 msgid "Active"
 msgstr "Ativo"
 
@@ -3297,6 +3321,9 @@ msgstr ""
 
 msgid "The matching task was not found in your task list."
 msgstr "A tarefa correspondente não foi encontrada em sua lista de tarefas."
+
+msgid "Toggle header"
+msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3968,8 +3995,14 @@ msgstr "Automático"
 msgid "Switch view"
 msgstr "Alterar modo de exibição"
 
+msgid "Folder navigation"
+msgstr ""
+
 msgid "Widgets"
 msgstr "Widgets"
+
+msgid "Main content"
+msgstr ""
 
 msgid "Sending…"
 msgstr "Enviando.."
@@ -5715,6 +5748,9 @@ msgstr "Compartilhar via link"
 msgid "Public link"
 msgstr "Link público"
 
+msgid "Copy link"
+msgstr ""
+
 msgid "Password protect"
 msgstr "Proteger com senha"
 
@@ -6960,8 +6996,7 @@ msgstr "Tamanho da chave RSA abaixo do mínimo recomendado"
 
 msgid "Certificate not valid for this operation (key usage mismatch)"
 msgstr ""
-"Certificado não válido para esta operação (incompatibilidade de uso de "
-"chave)"
+"Certificado não válido para esta operação (incompatibilidade de uso de chave)"
 
 msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
 msgstr ""
@@ -8011,6 +8046,9 @@ msgstr "Solicitação de tarefas:"
 
 msgid "Sign in"
 msgstr "Fazer login"
+
+msgid "Skip to main content"
+msgstr ""
 
 msgid "File is not imported successfully"
 msgstr "O arquivo não foi importado com êxito"

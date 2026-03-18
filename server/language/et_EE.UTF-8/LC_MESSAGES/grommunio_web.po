@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Estonian (Estonia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 22:26+0100\n"
+"POT-Creation-Date: 2026-03-12 23:42+0100\n"
 "PO-Revision-Date: 2025-05-21 10:01+0000\n"
 "Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/grommunio/"
@@ -16,6 +16,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.12-dev\n"
+
+msgid "Calendar"
+msgstr "Kalender"
+
+msgid "Previous Month"
+msgstr ""
+
+msgid "Next Month"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -32,6 +41,9 @@ msgstr "Number peab olema suurem kui null"
 
 msgid "More options"
 msgstr "Rohkem valikuid"
+
+msgid "Input"
+msgstr ""
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -683,6 +695,9 @@ msgstr "Saaja"
 msgid "Filter category…"
 msgstr "Filtreeri kategooria alusel…"
 
+msgid "Add Category"
+msgstr ""
+
 msgid "Sender"
 msgstr "Saatja"
 
@@ -972,9 +987,6 @@ msgstr "Ülevaade printimisest"
 
 msgid "Create Appointment"
 msgstr "Loo kohtumine"
-
-msgid "Calendar"
-msgstr "Kalender"
 
 msgid "Create in other calendar"
 msgstr "Luua teises kalendris"
@@ -1632,6 +1644,12 @@ msgstr "Salvesta muudatused ja saada ajakohastus kõigile adressaatidele"
 
 msgid "Open meeting request with changes"
 msgstr "Ava koosolekukutse koos muudatustega"
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
 
 msgid "grommunio Web"
 msgstr "grommunio veebirakendus"
@@ -2865,6 +2883,12 @@ msgstr "või"
 msgid "No rule exists"
 msgstr "Reeglit ei ole olemas"
 
+msgid "Move Up"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
 msgid "Active"
 msgstr "Aktiivne"
 
@@ -3257,6 +3281,9 @@ msgstr "Me üritame parandada rikutud kirjasõnumit, kas soovite jätkata?"
 
 msgid "The matching task was not found in your task list."
 msgstr "Vastavat ülesannet ei leitud teie ülesannete nimekirjast."
+
+msgid "Toggle header"
+msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3927,8 +3954,14 @@ msgstr "Automaatne"
 msgid "Switch view"
 msgstr "Muuda vaadet"
 
+msgid "Folder navigation"
+msgstr ""
+
 msgid "Widgets"
 msgstr "Vidinad"
+
+msgid "Main content"
+msgstr ""
 
 msgid "Sending…"
 msgstr "Saadame…"
@@ -5661,6 +5694,9 @@ msgstr "Jaga lingi kaudu"
 msgid "Public link"
 msgstr "Avalik link"
 
+msgid "Copy link"
+msgstr ""
+
 msgid "Password protect"
 msgstr "Kaitseb salasõnaga"
 
@@ -6888,7 +6924,8 @@ msgstr ""
 "mittevastavus)"
 
 msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
-msgstr "Dekrüpteeritud (CBC-režiim - tugevama kaitse tagamiseks kaaluda AES-GCM)"
+msgstr ""
+"Dekrüpteeritud (CBC-režiim - tugevama kaitse tagamiseks kaaluda AES-GCM)"
 
 msgid "Signing time differs from expected time"
 msgstr "Allkirjastamise aeg erineb eeldatavast ajast"
@@ -7569,7 +7606,8 @@ msgstr "Saatekvoodi limiit on saavutatud"
 
 #, php-format
 msgid "Email sending failed (%s). Check the log files for more information."
-msgstr "E-posti saatmine ebaõnnestus (%s). Lisateabe saamiseks vaadake logifaile."
+msgstr ""
+"E-posti saatmine ebaõnnestus (%s). Lisateabe saamiseks vaadake logifaile."
 
 msgid "Unknown user/group"
 msgstr "Tundmatu kasutaja/rühm"
@@ -7891,6 +7929,9 @@ msgstr "Ülesande taotlus:"
 
 msgid "Sign in"
 msgstr "Logi sisse"
+
+msgid "Skip to main content"
+msgstr ""
 
 msgid "File is not imported successfully"
 msgstr "Faili ei ole edukalt imporditud"

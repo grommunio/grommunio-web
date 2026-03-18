@@ -47,6 +47,7 @@ Zarafa.common.categories.dialogs.NewCategoryPanel = Ext.extend(Zarafa.core.ui.Co
 						xtype: 'textfield',
 						name: 'name',
 						ref: '../name',
+						fieldLabel: _('Category name'),
 						hideLabel: true,
 						anchor: '100%',
 						flex: 1,

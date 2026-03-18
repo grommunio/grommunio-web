@@ -68,7 +68,7 @@ Zarafa.common.ui.messagepanel.RecipientLinks = Ext.extend(Ext.DataView, {
 							'<tpl for=".">' +
 								'<span viewIndex="{viewIndex}" class="zarafa-emailaddress-link zarafa-recipient-link">' +
 									'<span class="zarafa-presence-status {[Zarafa.core.data.PresenceStatus.getCssClass(values.presence_status)]}">'+
-										'<span class="zarafa-presence-status-icon"></span>' +
+										'<span class="zarafa-presence-status-icon" aria-hidden="true"></span>' +
 										'<tpl if="!Ext.isEmpty(values.display_name)">' +
 											'{display_name:htmlEncodeElide(this.ellipsisStringStartLength, this.ellipsisStringEndLength)}' +
 										'</tpl>' +

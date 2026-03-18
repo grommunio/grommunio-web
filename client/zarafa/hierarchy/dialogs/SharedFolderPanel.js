@@ -64,6 +64,7 @@ Zarafa.hierarchy.dialogs.SharedFolderPanel = Ext.extend(Ext.Panel, {
 				scope: this
 			},{
 				xtype: 'zarafa.addressbookboxfield',
+				fieldLabel: _('Name'),
 				ref: '../userField',
 				boxStore: store,
 				flex: 1,

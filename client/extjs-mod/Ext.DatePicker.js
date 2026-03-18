@@ -76,6 +76,21 @@
 
 			var table = this.getEl().down('table');
 			table.applyStyles({ 'width': this.width });
+
+			// Add ARIA attributes for date picker accessibility
+			var innerTable = this.getEl().down('table.x-date-inner');
+			if (innerTable) {
+				innerTable.set({ 'role': 'grid', 'aria-label': _('Calendar') });
+			}
+			// Mark navigation buttons
+			var prevBtn = this.getEl().down('.x-date-left a');
+			if (prevBtn) {
+				prevBtn.set({ 'role': 'button', 'aria-label': _('Previous Month') });
+			}
+			var nextBtn = this.getEl().down('.x-date-right a');
+			if (nextBtn) {
+				nextBtn.set({ 'role': 'button', 'aria-label': _('Next Month') });
+			}
 		},
 
 		/**

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 22:26+0100\n"
+"POT-Creation-Date: 2026-03-12 23:42+0100\n"
 "PO-Revision-Date: 2022-07-26 14:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -15,6 +15,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 4.14-dev\n"
+
+msgid "Calendar"
+msgstr "Kalendář"
+
+msgid "Previous Month"
+msgstr ""
+
+msgid "Next Month"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -31,6 +40,9 @@ msgstr "Číslice musí být vyšší než nula"
 
 msgid "More options"
 msgstr "Více možností"
+
+msgid "Input"
+msgstr ""
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -695,6 +707,9 @@ msgstr "Do"
 msgid "Filter category…"
 msgstr "Filtrovat kategorii.."
 
+msgid "Add Category"
+msgstr ""
+
 msgid "Sender"
 msgstr "Odesílatel"
 
@@ -988,9 +1003,6 @@ msgstr "Náhled tisku"
 
 msgid "Create Appointment"
 msgstr "Vytvořit rezervaci"
-
-msgid "Calendar"
-msgstr "Kalendář"
 
 msgid "Create in other calendar"
 msgstr "Vytvořit v jiném kalendáři"
@@ -1655,6 +1667,12 @@ msgstr "Uložit změny a odesat aktualizaci všem příjemcům"
 
 msgid "Open meeting request with changes"
 msgstr "Otevřít změněnu žádost o schůzku"
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
 
 msgid "grommunio Web"
 msgstr "webové stránky"
@@ -2899,6 +2917,12 @@ msgstr "nebo"
 msgid "No rule exists"
 msgstr "Žádné pravidlo neexistuje"
 
+msgid "Move Up"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
 msgid "Active"
 msgstr "Aktivní"
 
@@ -3300,6 +3324,9 @@ msgstr "Nyní proběhne pokus o opravu poškozené zprávy, chcete pokračovat?"
 
 msgid "The matching task was not found in your task list."
 msgstr "Odpovídající úkol nebyl ve vašem seznamu úkolů nalezen."
+
+msgid "Toggle header"
+msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3968,8 +3995,14 @@ msgstr "Automatické"
 msgid "Switch view"
 msgstr "Přepnout náhled"
 
+msgid "Folder navigation"
+msgstr ""
+
 msgid "Widgets"
 msgstr "Widgety"
+
+msgid "Main content"
+msgstr ""
 
 msgid "Sending…"
 msgstr "Odesílání…"
@@ -5719,6 +5752,9 @@ msgstr "Sdílet prostřednictvím odkazu"
 
 msgid "Public link"
 msgstr "Veřejný odkaz"
+
+msgid "Copy link"
+msgstr ""
 
 msgid "Password protect"
 msgstr "Ochrana heslem"
@@ -7986,6 +8022,9 @@ msgstr "Požadavek na úkol:"
 
 msgid "Sign in"
 msgstr "Přihlásit se"
+
+msgid "Skip to main content"
+msgstr ""
 
 msgid "File is not imported successfully"
 msgstr "Soubor se nepodařilo úspěšně importovat"

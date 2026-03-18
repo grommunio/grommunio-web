@@ -397,7 +397,7 @@ Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Zarafa.common.ui
 			columns: [{
 				dataIndex: 'icon_index',
 				headerCls: 'zarafa-icon-column',
-				header: '<p class="icon_index">&nbsp;</p>',
+				header: '<p class="icon_index">&nbsp;<span class="title">Icon</span></p>',
 				tooltip: _('Sort by: Icon'),
 				width: 24,
 				sortable: true,
@@ -437,7 +437,7 @@ Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Zarafa.common.ui
 			columns: [{
 				dataIndex: 'icon_index',
 				headerCls: 'zarafa-icon-column',
-				header: '<p class="icon_index">&nbsp;</p>',
+				header: '<p class="icon_index">&nbsp;<span class="title">Icon</span></p>',
 				tooltip: _('Sort by: Icon'),
 				width: 24,
 				sortable: true,

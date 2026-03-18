@@ -54,6 +54,7 @@ Zarafa.calendar.ui.html.AppointmentBoxView = Ext.extend(Zarafa.calendar.ui.Appoi
 		if (selected) {
 			this.appointmentBoxes.forEach(function(appointmentBox) {
 				appointmentBox.addClass('k-selected');
+				appointmentBox.set({ 'aria-selected': 'true' });
 			});
 
 			// when selecting appointment set focus also so key shortcuts work properly
@@ -61,6 +62,7 @@ Zarafa.calendar.ui.html.AppointmentBoxView = Ext.extend(Zarafa.calendar.ui.Appoi
 		} else {
 			this.appointmentBoxes.forEach(function(appointmentBox) {
 				appointmentBox.removeClass('k-selected');
+				appointmentBox.set({ 'aria-selected': 'false' });
 			});
 		}
 	},

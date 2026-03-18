@@ -61,6 +61,7 @@ Zarafa.common.rules.dialogs.RulesWordsEditPanel = Ext.extend(Ext.form.FormPanel,
 				items: [{
 					xtype: 'textfield',
 					ref: '../wordField',
+					fieldLabel: _('Word'),
 					hideLabel: true,
 					flex: 1,
 					listeners: {
@@ -71,6 +72,7 @@ Zarafa.common.rules.dialogs.RulesWordsEditPanel = Ext.extend(Ext.form.FormPanel,
 					xtype: 'button',
 					autoWidth: true,
 					iconCls: 'zarafa-rules-add',
+					tooltip: _('Add'),
 					handler: this.onWordAdd,
 					scope: this
 				}]

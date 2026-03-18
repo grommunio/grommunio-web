@@ -28,6 +28,7 @@ Zarafa.common.ui.PagingToolbar = Ext.extend(Ext.PagingToolbar, {
 	initComponent: function()
 	{
 		this.cls = 'zarafa-paging-toolbar';
+		this.ariaLabel = _('Pagination');
 
 		var pagingItems = [this.first = new Ext.Toolbar.Button({
 			tooltip: this.firstText,
@@ -52,6 +53,7 @@ Zarafa.common.ui.PagingToolbar = Ext.extend(Ext.PagingToolbar, {
 			enableKeyEvents: true,
 			selectOnFocus: true,
 			submitValue: false,
+			fieldLabel: _('Page number'),
 			listeners: {
 				scope: this,
 				keydown: this.onPagingKeyDown,
@@ -103,6 +105,15 @@ Zarafa.common.ui.PagingToolbar = Ext.extend(Ext.PagingToolbar, {
 		if(this.displayInfo){
 			this.items.push('->');
 			this.items.push(this.displayItem = new Ext.Toolbar.TextItem({}));
+		}
+
+		// Make pagination display info a live region for screen readers
+		if (this.displayItem) {
+			this.displayItem.on('afterrender', function() {
+				if (this.displayItem.el) {
+					this.displayItem.el.set({ 'role': 'status', 'aria-live': 'polite' });
+				}
+			}, this);
 		}
 
 		Ext.PagingToolbar.superclass.initComponent.call(this);

@@ -29,6 +29,7 @@ Zarafa.settings.ui.SettingsInboxNavigationWidget = Ext.extend(Zarafa.settings.ui
 				xtype: 'radiogroup',
 				name: 'zarafa/v1/contexts/mail/enable_live_scroll',
 				ref: 'liveScroll',
+				fieldLabel: _('Navigation method'),
 				hideLabel: true,
 				columns: 1,
 				style: { marginBottom: '10px'},

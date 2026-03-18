@@ -152,6 +152,7 @@ Zarafa.addressbook.dialogs.ABUserPhoneTab = Ext.extend(Ext.form.FormPanel, {
 			items: [{
 				xtype: 'textarea',
 				hideLabel: true,
+				fieldLabel: _('Notes'),
 				name: 'comment',
 				readOnly: true,
 				columnWidth: 1,

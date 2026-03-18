@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Spanish (Catalan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 22:26+0100\n"
+"POT-Creation-Date: 2026-03-12 23:42+0100\n"
 "PO-Revision-Date: 2025-05-01 05:29+0000\n"
 "Last-Translator: Roger VC <rogervilarasau@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/grommunio/"
@@ -15,6 +15,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.12-dev\n"
+
+msgid "Calendar"
+msgstr "Calendario"
+
+msgid "Previous Month"
+msgstr ""
+
+msgid "Next Month"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -31,6 +40,9 @@ msgstr "El nombre ha de ser superior a zero"
 
 msgid "More options"
 msgstr "Més opcions"
+
+msgid "Input"
+msgstr ""
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -684,6 +696,9 @@ msgstr "A"
 msgid "Filter category…"
 msgstr "Filtra categoria..."
 
+msgid "Add Category"
+msgstr ""
+
 msgid "Sender"
 msgstr "Remitente"
 
@@ -971,9 +986,6 @@ msgstr "Vista previa"
 
 msgid "Create Appointment"
 msgstr "Crear cita"
-
-msgid "Calendar"
-msgstr "Calendario"
 
 msgid "Create in other calendar"
 msgstr "Crear en un altre calendari"
@@ -1626,6 +1638,12 @@ msgstr "Desa els canvis i envia una actualització a tots els destinataris"
 
 msgid "Open meeting request with changes"
 msgstr "Sol·licitud de reunió oberta amb canvis"
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
 
 msgid "grommunio Web"
 msgstr "grommunio Web"
@@ -2831,6 +2849,12 @@ msgstr "o"
 msgid "No rule exists"
 msgstr "No existeix cap regla"
 
+msgid "Move Up"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
 msgid "Active"
 msgstr "Actius"
 
@@ -3222,6 +3246,9 @@ msgstr ""
 
 msgid "The matching task was not found in your task list."
 msgstr "La tasca que coincideix no s'ha trobat a la vostra llista de tasques."
+
+msgid "Toggle header"
+msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3879,8 +3906,14 @@ msgstr "Automàtic"
 msgid "Switch view"
 msgstr "Cambiar vista"
 
+msgid "Folder navigation"
+msgstr ""
+
 msgid "Widgets"
 msgstr "Ginys"
+
+msgid "Main content"
+msgstr ""
 
 msgid "Sending…"
 msgstr "S'està enviant…"
@@ -5604,6 +5637,9 @@ msgstr "Comparteix mitjançant l'enllaç"
 
 msgid "Public link"
 msgstr "Enllaç públic"
+
+msgid "Copy link"
+msgstr ""
 
 msgid "Password protect"
 msgstr "Protegir amb contrasenya"
@@ -7799,6 +7835,9 @@ msgstr "Sol·licitud de tasca:"
 
 msgid "Sign in"
 msgstr "Inicia sessió"
+
+msgid "Skip to main content"
+msgstr ""
 
 msgid "File is not imported successfully"
 msgstr "El fitxer no s'ha importat correctament"

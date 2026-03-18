@@ -83,6 +83,7 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 		}, {
 			xtype: 'button',
 			iconCls: 'zarafa-rules-sequence-up',
+			tooltip: _('Move Up'),
 			disabled: true,
 			ref: '../upButton',
 			handler: this.onRuleSequenceUp,
@@ -90,6 +91,7 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 		}, {
 			xtype: 'button',
 			iconCls: 'zarafa-rules-sequence-down',
+			tooltip: _('Move Down'),
 			disabled: true,
 			ref: '../downButton',
 			handler: this.onRuleSequenceDown,

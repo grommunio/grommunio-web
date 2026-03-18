@@ -61,7 +61,7 @@ if ($GLOBALS['settings']->get('zarafa/v1/contexts/mail/attachment_reminder_enabl
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="<?php echo substr((string) $Language->getSelected(), 0, 2); ?>">
 
 	<head>
 		<meta name="Generator" content="grommunio-web v<?php echo $loader->getVersion(); ?>">
@@ -105,12 +105,13 @@ if ($darkMode === 'dark') {
 	echo ' dark-mode-system';
 }
 ?>">
-		<div id="loading-mask">
+		<a class="skip-link" href="#zarafa-mainpanel"><?php echo _("Skip to main content"); ?></a>
+		<div id="loading-mask" role="status" aria-label="<?php echo _("Loading"); ?>">
 			<div id="form-container" class="loading" style="visibility: hidden;">
 				<div id="bg"></div>
 				<div id="content">
 					<div class="left">
-						<div id="logo"></div>
+						<div id="logo" role="img" aria-label="grommunio"></div>
 					</div>
 					<div class="right">
 					</div>

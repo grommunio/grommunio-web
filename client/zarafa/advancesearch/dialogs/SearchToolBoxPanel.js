@@ -647,6 +647,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 				xtype: 'button',
 				iconCls: 'icon_category_add',
 				cls: 'k-category-add-button',
+				tooltip: _('Add Category'),
 				handler: this.onSelectCategory,
 				scope: this
 			}, {

@@ -30,7 +30,7 @@ body.dark-mode {
 	/* Foreground / text */
 	--dm-fg: #d4d4d4;
 	--dm-fg-secondary: #b0b0b0;
-	--dm-fg-muted: #808080;
+	--dm-fg-muted: #919191;
 	--dm-fg-inverse: #1e1e1e;
 
 	/* Interactive states - derived from the active accent color theme */
@@ -56,6 +56,53 @@ body.dark-mode {
 	--theme-panel-bg: var(--dm-bg-paper);
 }
 
+/* High-contrast theme: --theme-primary-color is #000000, which is invisible on dark
+   backgrounds when used for foreground (text, dots, links). Override those uses
+   individually — do NOT change the variable itself as buttons use it for backgrounds. */
+body.dark-mode.theme-highcontrast {
+	/* Foreground-only alias for elements that use primary as text/indicator color */
+	--theme-primary-fg: #ffffff;
+}
+
+body.dark-mode.theme-highcontrast input[type="radio"]:checked::after {
+	background: var(--theme-primary-fg);
+}
+body.dark-mode.theme-highcontrast input[type="checkbox"]:checked {
+	background: var(--theme-primary-fg);
+	border-color: var(--theme-primary-fg);
+}
+body.dark-mode.theme-highcontrast input[type="checkbox"]:checked::after {
+	border-color: #000000;
+}
+
+/* Links, email links, and other foreground uses of --theme-primary-color (#000)
+   that become invisible on dark backgrounds */
+body.dark-mode.theme-highcontrast a {
+	color: #64b5f6;
+}
+body.dark-mode.theme-highcontrast a:hover {
+	color: #90caf9;
+}
+body.dark-mode.theme-highcontrast span.zarafa-emailaddress-link {
+	color: #64b5f6 !important;
+}
+body.dark-mode.theme-highcontrast span.zarafa-emailaddress-link:hover {
+	color: #90caf9 !important;
+}
+body.dark-mode.theme-highcontrast .zarafa-hierarchy-node-counter span,
+body.dark-mode.theme-highcontrast .zarafa-hierarchy-node-unread-count span.zarafa-hierarchy-node-counter {
+	color: var(--dm-fg) !important;
+}
+body.dark-mode.theme-highcontrast .x-grid3-row .k-conversation-count {
+	color: var(--dm-fg) !important;
+}
+body.dark-mode.theme-highcontrast .x-tree-selected a span {
+	color: var(--dm-fg) !important;
+}
+body.dark-mode.theme-highcontrast .zarafa-hierarchy-node-owner {
+	color: var(--dm-fg-secondary) !important;
+}
+
 /* System preference auto-detection: defines the same variables so the page
    renders dark before JS adds the body.dark-mode class. */
 @media (prefers-color-scheme: dark) {
@@ -66,7 +113,7 @@ body.dark-mode {
 		--dm-bg-input: color-mix(in srgb, var(--theme-primary-color) 8%, #252525);
 		--dm-fg: #d4d4d4;
 		--dm-fg-secondary: #b0b0b0;
-		--dm-fg-muted: #808080;
+		--dm-fg-muted: #919191;
 		--dm-fg-inverse: #1e1e1e;
 		--dm-hover: color-mix(in srgb, var(--theme-primary-color) 50%, #1e1e1e);
 		--dm-selected: color-mix(in srgb, var(--theme-primary-color) 35%, #121212);
@@ -84,6 +131,27 @@ body.dark-mode {
 		--theme-panel-bg: var(--dm-bg-paper);
 	}
 
+	/* High-contrast theme: fix foreground elements using --theme-primary-color */
+	body.dark-mode-system.theme-highcontrast {
+		--theme-primary-fg: #ffffff;
+	}
+	body.dark-mode-system.theme-highcontrast input[type="radio"]:checked::after {
+		background: var(--theme-primary-fg);
+	}
+	body.dark-mode-system.theme-highcontrast input[type="checkbox"]:checked {
+		background: var(--theme-primary-fg);
+		border-color: var(--theme-primary-fg);
+	}
+	body.dark-mode-system.theme-highcontrast input[type="checkbox"]:checked::after {
+		border-color: #000000;
+	}
+	body.dark-mode-system.theme-highcontrast a {
+		color: #64b5f6;
+	}
+	body.dark-mode-system.theme-highcontrast span.zarafa-emailaddress-link {
+		color: #64b5f6 !important;
+	}
+
 	/* Prevent white flash before JS adds body.dark-mode */
 	body.dark-mode-system.zarafa-webclient,
 	body.dark-mode-system .ext-el-mask {
@@ -97,6 +165,14 @@ body.dark-mode {
 body.dark-mode.zarafa-webclient,
 body.dark-mode .ext-el-mask {
 	background-color: var(--dm-bg) !important;
+}
+
+/* General link colors for dark mode */
+body.dark-mode a {
+	color: #64b5f6;
+}
+body.dark-mode a:hover {
+	color: #90caf9;
 }
 
 /*=============================================================================
@@ -434,7 +510,7 @@ body.dark-mode .grommunio-toast-message {
 }
 
 body.dark-mode .grommunio-toast-close {
-	color: rgba(255, 255, 255, 0.5);
+	color: rgba(255, 255, 255, 0.75);
 }
 
 body.dark-mode .grommunio-toast-close:hover {
@@ -702,16 +778,30 @@ body.dark-mode .preview-body {
 /* Meeting request / appointment preview buttons - monochrome icons get
    filter:invert(0.88) from the icon block below. Set text color to near-black
    so it inverts to match var(--dm-fg) (#d4d4d4). */
-body.dark-mode .zarafa-previewpanel-toolbar .x-btn.x-btn-text-icon .x-btn-small button.x-btn-text {
+/* Meeting request buttons with monochrome icons: dark text so filter:invert
+   on the button makes both icon and text light */
+body.dark-mode .zarafa-previewpanel-toolbar .x-btn.x-btn-text-icon .x-btn-small button.x-btn-text:not(.icon_calendar_appt_accept):not(.icon_calendar_appt_tentative) {
 	color: #101010 !important;
 }
-/* Colored icons in preview toolbar should not be inverted;
-   their button text uses var(--dm-fg) directly. */
-body.dark-mode .zarafa-previewpanel-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_calendar_appt_accept,
-body.dark-mode .zarafa-previewpanel-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_calendar_appt_cancelled,
-body.dark-mode .zarafa-previewpanel-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_calendar_appt_tentative {
+/* Meeting request buttons with COLORED icons (accept, tentative): these are
+   NOT in the icon invert block, so they need filter:none and light text.
+   Use high-specificity selectors and target both button and inner span. */
+body.dark-mode .x-toolbar button.icon_calendar_appt_accept,
+body.dark-mode .x-toolbar button.icon_calendar_appt_tentative,
+body.dark-mode .zarafa-previewpanel-toolbar button.icon_calendar_appt_accept,
+body.dark-mode .zarafa-previewpanel-toolbar button.icon_calendar_appt_tentative,
+body.dark-mode .zarafa-dialogtoolbar button.icon_calendar_appt_accept,
+body.dark-mode .zarafa-dialogtoolbar button.icon_calendar_appt_tentative {
 	filter: none !important;
-	color: var(--dm-fg) !important;
+	color: #d4d4d4 !important;
+}
+body.dark-mode .x-toolbar button.icon_calendar_appt_accept *,
+body.dark-mode .x-toolbar button.icon_calendar_appt_tentative *,
+body.dark-mode .zarafa-previewpanel-toolbar button.icon_calendar_appt_accept *,
+body.dark-mode .zarafa-previewpanel-toolbar button.icon_calendar_appt_tentative *,
+body.dark-mode .zarafa-dialogtoolbar button.icon_calendar_appt_accept *,
+body.dark-mode .zarafa-dialogtoolbar button.icon_calendar_appt_tentative * {
+	color: #d4d4d4 !important;
 }
 
 body.dark-mode .preview-header-sender-initial {
@@ -1036,7 +1126,7 @@ body.dark-mode .zarafa-calendar-container-header .k-html-header-background {
 
 /* Mute inactive calendar headers in dark mode */
 body.dark-mode .zarafa-calendar-container-header .k-html-header-background.k-inactive-calendar {
-	opacity: 0.5;
+	opacity: 0.6;
 }
 
 /* Calendar day/week headers - keep original color scheme colors,
@@ -1398,7 +1488,7 @@ body.dark-mode #zarafa-mainpanel-contentpanel-settings .x-btn.x-btn-over :is(.x-
 	background-color: var(--dm-border) !important;
 }
 body.dark-mode #zarafa-mainpanel-contentpanel-settings .x-btn.x-item-disabled .x-btn-small {
-	opacity: 0.4;
+	opacity: 0.55;
 }
 
 /* Profile card — Personal information button uses action color */
@@ -1648,8 +1738,9 @@ body.dark-mode .x-toolbar .x-btn.x-btn-pressed:not(.zarafa-action):not(.x-btn-no
 }
 
 /* Text-icon buttons (non-action): invert(1) flips icon+text together.
-   Set text to dark so invert makes it light. Exclude action buttons - they have white icons already. */
-body.dark-mode .x-btn.x-btn-text-icon:not(.zarafa-action) :is(.x-btn-small, .x-btn-medium, .x-btn-large) button.x-btn-text {
+   Set text to dark so invert makes it light. Exclude action buttons - they have white icons already.
+   Also exclude colored-icon buttons (accept/tentative) which are NOT inverted and need light text. */
+body.dark-mode .x-btn.x-btn-text-icon:not(.zarafa-action) :is(.x-btn-small, .x-btn-medium, .x-btn-large) button.x-btn-text:not(.icon_calendar_appt_accept):not(.icon_calendar_appt_tentative) {
 	color: #1a1a1a !important;
 }
 

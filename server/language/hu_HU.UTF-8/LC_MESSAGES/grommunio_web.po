@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 22:26+0100\n"
+"POT-Creation-Date: 2026-03-12 23:42+0100\n"
 "PO-Revision-Date: 2022-07-26 16:08+0200\n"
 "Last-Translator: f3rr31 <5920873@disroot.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/grommunio/"
@@ -16,6 +16,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.14-dev\n"
+
+msgid "Calendar"
+msgstr "Naptár"
+
+msgid "Previous Month"
+msgstr ""
+
+msgid "Next Month"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -32,6 +41,9 @@ msgstr "Az értéknek nagyobbnak kell lennie, mint nulla"
 
 msgid "More options"
 msgstr "További lehetőségek"
+
+msgid "Input"
+msgstr ""
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -694,6 +706,9 @@ msgstr "Címzett"
 msgid "Filter category…"
 msgstr "Kategória törlése…"
 
+msgid "Add Category"
+msgstr ""
+
 msgid "Sender"
 msgstr "Feladó"
 
@@ -996,9 +1011,6 @@ msgstr "Nyomtatási áttekintés"
 
 msgid "Create Appointment"
 msgstr "Foglalás létrehozása"
-
-msgid "Calendar"
-msgstr "Naptár"
 
 msgid "Create in other calendar"
 msgstr "Más naptárban létrehozni"
@@ -1674,6 +1686,12 @@ msgstr "Változások elmentése, és frissítés elküldése a résztvevőknek"
 
 msgid "Open meeting request with changes"
 msgstr "Értekezlet meghívó megnyitása a változásokkal"
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
 
 msgid "grommunio Web"
 msgstr "grommunio Web"
@@ -2933,6 +2951,12 @@ msgstr "vagy"
 msgid "No rule exists"
 msgstr "Nem létezik szabály"
 
+msgid "Move Up"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
 msgid "Active"
 msgstr "Aktív"
 
@@ -3325,6 +3349,9 @@ msgstr "Sérült üzenet javítása, kívánja folytatni?"
 
 msgid "The matching task was not found in your task list."
 msgstr "A megfelelő feladatot nem találtuk a feladatlistában."
+
+msgid "Toggle header"
+msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3999,9 +4026,15 @@ msgstr "Automatikus"
 msgid "Switch view"
 msgstr "Nézet változtatása"
 
+msgid "Folder navigation"
+msgstr ""
+
 # There's no synonim for Widget in Hungarian language.
 msgid "Widgets"
 msgstr "Widgetek"
+
+msgid "Main content"
+msgstr ""
 
 msgid "Sending…"
 msgstr "Küldés…"
@@ -5747,6 +5780,9 @@ msgstr "Megosztás linken keresztül"
 msgid "Public link"
 msgstr "Publikus link"
 
+msgid "Copy link"
+msgstr ""
+
 msgid "Password protect"
 msgstr "Jelszavas védelem"
 
@@ -6998,12 +7034,12 @@ msgid "RSA key size below recommended minimum"
 msgstr "RSA kulcsméret az ajánlott minimum alatt"
 
 msgid "Certificate not valid for this operation (key usage mismatch)"
-msgstr "A tanúsítvány nem érvényes ehhez a művelethez (kulcshasználati eltérés)"
+msgstr ""
+"A tanúsítvány nem érvényes ehhez a művelethez (kulcshasználati eltérés)"
 
 msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
 msgstr ""
-"Dekódolás (CBC mód - az erősebb védelem érdekében fontolja meg az "
-"AES-GCM-et)"
+"Dekódolás (CBC mód - az erősebb védelem érdekében fontolja meg az AES-GCM-et)"
 
 msgid "Signing time differs from expected time"
 msgstr "Az aláírási idő eltér a várt időtől"
@@ -8045,6 +8081,9 @@ msgstr "Feladatkérés:"
 
 msgid "Sign in"
 msgstr "Bejelentkezés"
+
+msgid "Skip to main content"
+msgstr ""
 
 msgid "File is not imported successfully"
 msgstr "A fájl importálása nem sikeres"

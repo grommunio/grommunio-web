@@ -122,6 +122,7 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 				scope: this
 			},{
 				xtype: 'zarafa.addressbookboxfield',
+				fieldLabel: _('From'),
 				enableKeyEvents: true,
 				ref: '../fromRecipientField',
 				boxType: 'zarafa.recipientbox',
@@ -156,6 +157,7 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 			},{
 				xtype: 'zarafa.recipientfield',
 				ref: '../toRecipientField',
+				fieldLabel: _('To'),
 				enableKeyEvents: true,
 				plugins: [ 'zarafa.recordcomponentupdaterplugin' ],
 				flex: 1,
@@ -181,6 +183,7 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 				scope: this
 			},{
 				xtype: 'zarafa.recipientfield',
+				fieldLabel: _('Cc'),
 				enableKeyEvents: true,
 				plugins: [ 'zarafa.recordcomponentupdaterplugin' ],
 				flex: 1,
@@ -207,6 +210,7 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 				scope: this
 			},{
 				xtype: 'zarafa.recipientfield',
+				fieldLabel: _('Bcc'),
 				enableKeyEvents: true,
 				plugins: [ 'zarafa.recordcomponentupdaterplugin' ],
 				flex: 1,
@@ -218,6 +222,7 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 			xtype: 'textfield',
 			cls: 'zarafa-mailcreatepanel-field-subject',
 			name: 'subject',
+			fieldLabel: _('Subject'),
 			enableKeyEvents: true,
 			value: undefined,
 			height: 36,

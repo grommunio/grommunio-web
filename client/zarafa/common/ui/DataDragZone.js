@@ -46,6 +46,7 @@ Zarafa.common.ui.DataDragZone = Ext.extend(Ext.dd.DragZone, {
 
 		this.ddel = document.createElement('div');
 		this.ddel.className = 'x-data-dd-wrap';
+		this.ddel.setAttribute('aria-hidden', 'true');
 	},
 
 	/**

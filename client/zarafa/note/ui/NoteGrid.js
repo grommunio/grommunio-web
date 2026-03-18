@@ -44,6 +44,7 @@ Zarafa.note.ui.NoteGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 
 		Ext.applyIf(config, {
 			id: 'note-gridview',
+			ariaLabel: _('Notes list'),
 			border: false,
 			autoExpandColumn: 'subject',
 			stateful: true,

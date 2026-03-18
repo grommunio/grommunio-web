@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Croatian (Croatia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 22:26+0100\n"
+"POT-Creation-Date: 2026-03-12 23:42+0100\n"
 "PO-Revision-Date: 2025-02-25 15:04+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/grommunio/"
@@ -16,6 +16,15 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 5.10.2-dev\n"
+
+msgid "Calendar"
+msgstr "Kalendar"
+
+msgid "Previous Month"
+msgstr ""
+
+msgid "Next Month"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -32,6 +41,9 @@ msgstr "Broj mora biti veći od nule"
 
 msgid "More options"
 msgstr "Daljnje opcije"
+
+msgid "Input"
+msgstr ""
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -693,6 +705,9 @@ msgstr "Do"
 msgid "Filter category…"
 msgstr "Filtriraj katogoriju…"
 
+msgid "Add Category"
+msgstr ""
+
 msgid "Sender"
 msgstr "Pošiljatelj"
 
@@ -982,9 +997,6 @@ msgstr "Ispiši pregled"
 
 msgid "Create Appointment"
 msgstr "Stvori termin"
-
-msgid "Calendar"
-msgstr "Kalendar"
 
 msgid "Create in other calendar"
 msgstr "Stvori u jednom drugom kalendaru"
@@ -1625,6 +1637,12 @@ msgstr "Spremite promjene i pošaljite ažuriranje svim primateljima"
 
 msgid "Open meeting request with changes"
 msgstr "Otvaranje zahtjeva za sastanak s promjenama"
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
 
 msgid "grommunio Web"
 msgstr "grommunio Web"
@@ -2817,6 +2835,12 @@ msgstr "ili"
 msgid "No rule exists"
 msgstr "Nema pravila"
 
+msgid "Move Up"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
 msgid "Active"
 msgstr "Aktivan"
 
@@ -3200,6 +3224,9 @@ msgstr ""
 
 msgid "The matching task was not found in your task list."
 msgstr "Odgovarajući zadatak nije pronađen na vašem popisu zadataka."
+
+msgid "Toggle header"
+msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3857,8 +3884,14 @@ msgstr "Automatski"
 msgid "Switch view"
 msgstr "Promijeni prikaz"
 
+msgid "Folder navigation"
+msgstr ""
+
 msgid "Widgets"
 msgstr "Widgeti"
+
+msgid "Main content"
+msgstr ""
 
 msgid "Sending…"
 msgstr "Slanje u tijeku…"
@@ -5563,6 +5596,9 @@ msgstr "Podijelite putem veze"
 msgid "Public link"
 msgstr "Javna poveznica"
 
+msgid "Copy link"
+msgstr ""
+
 msgid "Password protect"
 msgstr "Zaštiti lozinkom"
 
@@ -6740,7 +6776,8 @@ msgid "RSA key size below recommended minimum"
 msgstr "Veličina RSA ključa ispod preporučenog minimuma"
 
 msgid "Certificate not valid for this operation (key usage mismatch)"
-msgstr "Certifikat nije valjan za ovu operaciju (neusklađenost upotrebe ključa)"
+msgstr ""
+"Certifikat nije valjan za ovu operaciju (neusklađenost upotrebe ključa)"
 
 msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
 msgstr "Dešifrirano (CBC način - razmislite o AES-GCM za jaču zaštitu)"
@@ -7720,6 +7757,9 @@ msgstr "Zahtjev za zadatak:"
 
 msgid "Sign in"
 msgstr "Prijavite se"
+
+msgid "Skip to main content"
+msgstr ""
 
 msgid "File is not imported successfully"
 msgstr "Datoteka nije uspješno uvezena"

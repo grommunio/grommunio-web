@@ -145,7 +145,8 @@ Zarafa.common.ui.Box = Ext.extend(Ext.BoxComponent, {
 		Ext.applyIf(config, {
 			autoEl: {
 				tag: 'li',
-				cls: 'x-zarafa-boxfield-item'
+				cls: 'x-zarafa-boxfield-item',
+				role: 'option'
 			}
 		});
 
@@ -271,9 +272,20 @@ Zarafa.common.ui.Box = Ext.extend(Ext.BoxComponent, {
 			tag: 'span',
 			cls: this.btnCls
 		});
+		this.delBtnEl.set({
+			'role': 'button',
+			'tabindex': '0',
+			'aria-label': _('Remove')
+		});
 
 		this.delBtnEl.addClassOnOver(this.btnHoverCls);
 		this.mon(this.delBtnEl, 'click', this.onClickRemove, this);
+		this.mon(this.delBtnEl, 'keydown', function(e) {
+			if (e.getKey() === e.ENTER || e.getKey() === e.SPACE) {
+				e.stopEvent();
+				this.onClickRemove();
+			}
+		}, this);
 	},
 
 	/**

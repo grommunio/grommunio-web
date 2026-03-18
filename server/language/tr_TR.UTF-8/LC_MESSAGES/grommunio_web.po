@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Turkish\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 22:26+0100\n"
+"POT-Creation-Date: 2026-03-12 23:42+0100\n"
 "PO-Revision-Date: 2022-12-10 22:44+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/grommunio/"
@@ -16,6 +16,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.15-dev\n"
+
+msgid "Calendar"
+msgstr "Takvim"
+
+msgid "Previous Month"
+msgstr ""
+
+msgid "Next Month"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -32,6 +41,9 @@ msgstr "Rakam sıfırdan büyük olmalıdır"
 
 msgid "More options"
 msgstr "Daha fazla seçenek"
+
+msgid "Input"
+msgstr ""
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -683,6 +695,9 @@ msgstr "Kime"
 msgid "Filter category…"
 msgstr "Filtrele…"
 
+msgid "Add Category"
+msgstr ""
+
 msgid "Sender"
 msgstr "Gönderen"
 
@@ -975,9 +990,6 @@ msgstr "Görünümü yazdır"
 
 msgid "Create Appointment"
 msgstr "Randevu Oluştur"
-
-msgid "Calendar"
-msgstr "Takvim"
 
 msgid "Create in other calendar"
 msgstr "Diğer takvimde oluştur"
@@ -1639,6 +1651,12 @@ msgstr "Değişiklikleri kaydet ve tüm alıcılara güncelleme gönder"
 
 msgid "Open meeting request with changes"
 msgstr "Değişikliklerle birlikte açık toplantı talebi"
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
 
 msgid "grommunio Web"
 msgstr "grommunio Web"
@@ -2872,6 +2890,12 @@ msgstr "veya"
 msgid "No rule exists"
 msgstr "Kural yok"
 
+msgid "Move Up"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
 msgid "Active"
 msgstr "Aktif"
 
@@ -3263,6 +3287,9 @@ msgstr ""
 
 msgid "The matching task was not found in your task list."
 msgstr "Eşleşen görev listenizde bulunamadı."
+
+msgid "Toggle header"
+msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3928,8 +3955,14 @@ msgstr "Otomatik"
 msgid "Switch view"
 msgstr "Görünüm değiştir"
 
+msgid "Folder navigation"
+msgstr ""
+
 msgid "Widgets"
 msgstr "Bileşenler"
+
+msgid "Main content"
+msgstr ""
 
 msgid "Sending…"
 msgstr "Gönderiliyor…"
@@ -5658,6 +5691,9 @@ msgstr "Bağlantı üzerinden paylaş"
 msgid "Public link"
 msgstr "Genel bağlantı"
 
+msgid "Copy link"
+msgstr ""
+
 msgid "Password protect"
 msgstr "Parola koruması"
 
@@ -6881,7 +6917,8 @@ msgid "Certificate not valid for this operation (key usage mismatch)"
 msgstr "Sertifika bu işlem için geçerli değil (anahtar kullanım uyuşmazlığı)"
 
 msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
-msgstr "Şifresi çözülmüş (CBC modu - daha güçlü koruma için AES-GCM'yi düşünün)"
+msgstr ""
+"Şifresi çözülmüş (CBC modu - daha güçlü koruma için AES-GCM'yi düşünün)"
 
 msgid "Signing time differs from expected time"
 msgstr "İmzalama süresi beklenen süreden farklı"
@@ -7886,6 +7923,9 @@ msgstr "Görev Talebi:"
 
 msgid "Sign in"
 msgstr "Giriş Yap"
+
+msgid "Skip to main content"
+msgstr ""
 
 msgid "File is not imported successfully"
 msgstr "Dosya başarıyla içe aktarılmadı"

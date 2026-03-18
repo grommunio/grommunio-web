@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 22:26+0100\n"
+"POT-Creation-Date: 2026-03-12 23:42+0100\n"
 "PO-Revision-Date: 2023-09-06 16:56+0000\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -16,6 +16,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.0.1-dev\n"
+
+msgid "Calendar"
+msgstr "Kalender"
+
+msgid "Previous Month"
+msgstr ""
+
+msgid "Next Month"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -32,6 +41,9 @@ msgstr "Tallet må være høyere enn null"
 
 msgid "More options"
 msgstr "Flere valg"
+
+msgid "Input"
+msgstr ""
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -682,6 +694,9 @@ msgstr "Til"
 msgid "Filter category…"
 msgstr "Filtrerings kategori…"
 
+msgid "Add Category"
+msgstr ""
+
 msgid "Sender"
 msgstr "Avsender"
 
@@ -973,9 +988,6 @@ msgstr "Skriv ut oversikt"
 
 msgid "Create Appointment"
 msgstr "Lag avtale"
-
-msgid "Calendar"
-msgstr "Kalender"
 
 msgid "Create in other calendar"
 msgstr "Opprett i annen kalender"
@@ -1636,6 +1648,12 @@ msgstr "Lagre endringer og send en oppdatering til alle mottakere"
 
 msgid "Open meeting request with changes"
 msgstr "Åpne møteinvitasjonen med endringene"
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
 
 msgid "grommunio Web"
 msgstr "grommunio Web"
@@ -2874,6 +2892,12 @@ msgstr "eller"
 msgid "No rule exists"
 msgstr "Ingen regel finnes"
 
+msgid "Move Up"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
 msgid "Active"
 msgstr "Aktiv"
 
@@ -3269,6 +3293,9 @@ msgstr "Vi vil forsøke å reparere en ødelagt melding, vil du fortsette?"
 
 msgid "The matching task was not found in your task list."
 msgstr "Finner ikke tilsvarende oppgave i oppgavelisten."
+
+msgid "Toggle header"
+msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3938,8 +3965,14 @@ msgstr "Automatisk"
 msgid "Switch view"
 msgstr "Bytt visningsmodus"
 
+msgid "Folder navigation"
+msgstr ""
+
 msgid "Widgets"
 msgstr "Miniprogram"
+
+msgid "Main content"
+msgstr ""
 
 msgid "Sending…"
 msgstr "Sender…"
@@ -5675,6 +5708,9 @@ msgstr "Del via lenke"
 
 msgid "Public link"
 msgstr "Offentlig lenke"
+
+msgid "Copy link"
+msgstr ""
 
 msgid "Password protect"
 msgstr "Beskytt med passord"
@@ -7598,7 +7634,8 @@ msgstr "Sendekvotens grense nådd"
 
 #, php-format
 msgid "Email sending failed (%s). Check the log files for more information."
-msgstr "Sending av e-post mislyktes (%s). Sjekk loggfilene for mer informasjon."
+msgstr ""
+"Sending av e-post mislyktes (%s). Sjekk loggfilene for mer informasjon."
 
 msgid "Unknown user/group"
 msgstr "Ukjent bruker/gruppe"
@@ -7944,6 +7981,9 @@ msgstr "Oppgaveforespørsel:"
 
 msgid "Sign in"
 msgstr "Logg inn"
+
+msgid "Skip to main content"
+msgstr ""
 
 msgid "File is not imported successfully"
 msgstr "Filen ble ikke importert"

@@ -66,8 +66,14 @@ Zarafa.core.ui.MainTab = Ext.extend( Ext.Button, {
 	{
 		if(this.context == currentContext.getName()){
 			this.addClass(this.buttonActiveCls);
+			if (this.el) {
+				this.el.set({ 'aria-current': 'page' });
+			}
 		} else {
 			this.removeClass(this.buttonActiveCls);
+			if (this.el) {
+				this.el.dom.removeAttribute('aria-current');
+			}
 		}
 	},
 

@@ -13,7 +13,7 @@ class TaskListModule extends ListModule {
 	public function __construct($id, $data) {
 		parent::__construct($id, $data);
 
-		$this->properties = $GLOBALS["properties"]->getTaskListProperties();
+		$this->properties = $GLOBALS["properties"]->getTaskGridProperties();
 
 		$this->start = 0;
 	}

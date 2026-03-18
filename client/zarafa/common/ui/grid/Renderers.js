@@ -593,7 +593,7 @@ Zarafa.common.ui.grid.Renderers = {
 
 		if (!record.isMessageClass('IPM.Task') && flagStatus!==Zarafa.core.mapi.FlagStatus.flagged){
 			p.css += ' icon_flag';
-			return '<div class="k-followup-flag"></div>';
+			return '<div class="k-followup-flag" title="' + _('Follow up') + '"></div>';
 		}
 
 		// Now find the color we must show
@@ -725,6 +725,6 @@ Zarafa.common.ui.grid.Renderers = {
 			presenceStatus = Zarafa.core.PresenceManager.getPresenceStatusForUser(user);
 		}
 		return '<span class="zarafa-presence-status ' + Zarafa.core.data.PresenceStatus.getCssClass(presenceStatus) + '">' +
-			'<span class="zarafa-presence-status-icon"></span>' + value + '</span>';
+			'<span class="zarafa-presence-status-icon" aria-hidden="true"></span>' + value + '</span>';
 	}
 };

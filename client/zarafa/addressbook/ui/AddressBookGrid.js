@@ -39,6 +39,7 @@ Zarafa.addressbook.ui.AddressBookGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 		});
 
 		Ext.applyIf(config, {
+			ariaLabel: _('Address book'),
 			autoExpandColumn: 'full_name',
 			autoExpandMin: 100,
 			loadMask: true,
@@ -88,8 +89,13 @@ Zarafa.addressbook.ui.AddressBookGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 	 */
 	onStoreBeforeLoad: function(store, options)
 	{
+		if (!this.view.innerHd) {
+			return;
+		}
 		var errorEl = this.view.innerHd.querySelector('.k-grid-info');
-		Ext.fly(errorEl).removeClass('k-show');
+		if (errorEl) {
+			Ext.fly(errorEl).removeClass('k-show');
+		}
 		this.view.refresh();
 	},
 

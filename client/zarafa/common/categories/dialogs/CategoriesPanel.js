@@ -71,6 +71,7 @@ Zarafa.common.categories.dialogs.CategoriesPanel = Ext.extend(Ext.Panel, {
 
 		return {
 			xtype: 'editorgrid',
+			ariaLabel: _('Categories'),
 			trackMouseOver: true,
 			enableHdMenu: false,
 			deferRowRender:false,
@@ -198,9 +199,9 @@ Zarafa.common.categories.dialogs.CategoriesPanel = Ext.extend(Ext.Panel, {
 
 		return Ext.util.Format.htmlEncode(value) +
 			'<div class="zarafa-grid-button-container' + cls + '">' +
-				'<div class="zarafa-grid-button k-grid-button-edit"></div>' +
-				'<div class="zarafa-grid-button k-grid-button-delete"></div>' +
-				'<div class="zarafa-grid-button k-grid-button-pin"></div>' +
+				'<div class="zarafa-grid-button k-grid-button-edit" role="button" tabindex="0" aria-label="' + _('Rename category') + '"></div>' +
+				'<div class="zarafa-grid-button k-grid-button-delete" role="button" tabindex="0" aria-label="' + _('Delete category') + '"></div>' +
+				'<div class="zarafa-grid-button k-grid-button-pin" role="button" tabindex="0" aria-label="' + _('Quick access') + '"></div>' +
 			'</div>';
 	},
 
@@ -235,6 +236,17 @@ Zarafa.common.categories.dialogs.CategoriesPanel = Ext.extend(Ext.Panel, {
 
 		this.mon(view, 'refresh', this.addColorPickers, this);
 		this.mon(view, 'rowupdated', this.onRowUpdated, this);
+
+		// Add keyboard handler for action buttons in grid rows
+		this.mon(grid.getEl(), 'keydown', function(e) {
+			if (e.getKey() === e.ENTER || e.getKey() === e.SPACE) {
+				var target = Ext.get(e.getTarget());
+				if (target && target.hasClass('zarafa-grid-button')) {
+					e.stopEvent();
+					target.dom.click();
+				}
+			}
+		}, this);
 	},
 
 	/**

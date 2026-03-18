@@ -134,7 +134,14 @@ Zarafa.common.ui.ColorPicker = Ext.extend(Ext.form.Field, {
 
 		// Create the clickable box. It is created inside the colorpicker div
 		// to be able to use padding for better positioning
-    this.box = Ext.get(Ext.DomHelper.createDom({tag: 'div', cls: 'k-colorpicker-box'}));
+    this.box = Ext.get(Ext.DomHelper.createDom({
+		tag: 'div',
+		cls: 'k-colorpicker-box',
+		role: 'button',
+		tabindex: '0',
+		'aria-label': this.fieldLabel || _('Select color'),
+		'aria-haspopup': 'true'
+	}));
     this.el.appendChild(this.box);
 
 		// Create the menu with the color palette
@@ -168,6 +175,12 @@ Zarafa.common.ui.ColorPicker = Ext.extend(Ext.form.Field, {
     Zarafa.common.ui.ColorPicker.superclass.initEvents.call(this);
 
     this.mon(this.box, 'click', this.onClick, this);
+    this.mon(this.box, 'keydown', function(e) {
+      if (e.getKey() === e.ENTER || e.getKey() === e.SPACE) {
+        e.preventDefault();
+        this.onClick(e);
+      }
+    }, this);
   },
 
 	/**

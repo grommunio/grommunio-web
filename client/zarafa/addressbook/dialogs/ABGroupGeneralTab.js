@@ -69,6 +69,7 @@ Zarafa.addressbook.dialogs.ABGroupGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			},{
 				xtype: 'textarea',
 				hideLabel: true,
+				fieldLabel: _('Notes'),
 				name: 'comment',
 				anchor: '100%',
 				height: 120,

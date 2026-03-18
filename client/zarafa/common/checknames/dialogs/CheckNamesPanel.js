@@ -56,9 +56,9 @@ Zarafa.common.checknames.dialogs.CheckNamesPanel = Ext.extend(Ext.Panel, {
 				viewConfig: {
 					forceFit: true
 				},
-				tabindex: 1,
+				tabindex: 0,
 				listeners: {
-					afterrender: function(grid) { grid.getEl().dom.setAttribute('tabindex', 1); },
+					afterrender: function(grid) { grid.getEl().dom.setAttribute('tabindex', 0); },
 				},
 				columns: [{
 					dataIndex: 'display_name',

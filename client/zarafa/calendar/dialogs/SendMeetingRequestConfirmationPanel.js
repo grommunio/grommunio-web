@@ -66,6 +66,7 @@ Zarafa.calendar.dialogs.SendMeetingRequestConfirmationPanel = Ext.extend(Ext.for
 			},{
 				xtype: 'textarea',
 				name: 'responseText',
+				fieldLabel: _('Response message'),
 				ref: 'responseTextField',
 				disabled: true,
 				flex: 1

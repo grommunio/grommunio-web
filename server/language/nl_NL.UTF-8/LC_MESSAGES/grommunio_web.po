@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Dutch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 22:26+0100\n"
+"POT-Creation-Date: 2026-03-12 23:42+0100\n"
 "PO-Revision-Date: 2022-12-11 14:12+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/grommunio/"
@@ -16,6 +16,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.15-dev\n"
+
+msgid "Calendar"
+msgstr "Agenda"
+
+msgid "Previous Month"
+msgstr ""
+
+msgid "Next Month"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -32,6 +41,9 @@ msgstr "Getal moet hoger zijn dan nul"
 
 msgid "More options"
 msgstr "Meer opties"
+
+msgid "Input"
+msgstr ""
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -690,6 +702,9 @@ msgstr "Tot"
 msgid "Filter category…"
 msgstr "Filteren op categorie…"
 
+msgid "Add Category"
+msgstr ""
+
 msgid "Sender"
 msgstr "Afzender"
 
@@ -982,9 +997,6 @@ msgstr "Druk overzicht af"
 
 msgid "Create Appointment"
 msgstr "Maak afspraak"
-
-msgid "Calendar"
-msgstr "Agenda"
 
 msgid "Create in other calendar"
 msgstr "Aanmaken in andere kalender"
@@ -1646,6 +1658,12 @@ msgstr "Bewaar wijzigingen en verstuur een update naar alle genodigden"
 
 msgid "Open meeting request with changes"
 msgstr "Open het vergaderverzoek met wijzigingen"
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
 
 msgid "grommunio Web"
 msgstr "grommunio Web"
@@ -2886,6 +2904,12 @@ msgstr "of"
 msgid "No rule exists"
 msgstr "Er bestaan geen regels"
 
+msgid "Move Up"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
 msgid "Active"
 msgstr "Actief"
 
@@ -3280,6 +3304,9 @@ msgstr ""
 
 msgid "The matching task was not found in your task list."
 msgstr "De overeenkomstige taak is niet gevonden in uw takenlijst."
+
+msgid "Toggle header"
+msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3950,8 +3977,14 @@ msgstr "Automatisch"
 msgid "Switch view"
 msgstr "Weergave wijzigen"
 
+msgid "Folder navigation"
+msgstr ""
+
 msgid "Widgets"
 msgstr "Widgets"
+
+msgid "Main content"
+msgstr ""
 
 msgid "Sending…"
 msgstr "Verzenden…"
@@ -5691,6 +5724,9 @@ msgstr "Delen via link"
 
 msgid "Public link"
 msgstr "Publieke link"
+
+msgid "Copy link"
+msgstr ""
 
 msgid "Password protect"
 msgstr "Beveiligd met wachtwoord"
@@ -7961,6 +7997,9 @@ msgstr "Taak Verzoek:"
 
 msgid "Sign in"
 msgstr "Inloggen"
+
+msgid "Skip to main content"
+msgstr ""
 
 msgid "File is not imported successfully"
 msgstr "Bestand is niet succesvol geïmporteerd"

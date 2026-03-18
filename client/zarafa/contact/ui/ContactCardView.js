@@ -230,7 +230,7 @@ Zarafa.contact.ui.ContactCardView = Ext.extend(Zarafa.common.ui.DraggableDataVie
 					var contactPhoto = attachmentStore.getAt(index);
 
 					return `<div class="k-contact_cardview_photo">
-						<img src=${contactPhoto.getInlineImageUrl()} alt = "contact photo">
+						<img src=${contactPhoto.getInlineImageUrl()} alt="${Ext.util.Format.htmlEncode(values.display_name || '')}">
 					</div>`;
 				} else if (values.contact_photo_attach_num !== -1){
 					var url = container.getBaseURL();
@@ -241,7 +241,7 @@ Zarafa.contact.ui.ContactCardView = Ext.extend(Zarafa.common.ui.DraggableDataVie
 					url = Ext.urlAppend(url, 'contentDispositionType=inline');
 
 					return `<div class="k-contact_cardview_photo">
-						<img src=${url} alt = "contact photo">
+						<img src=${url} alt="${Ext.util.Format.htmlEncode(values.display_name || '')}">
 					</div>`;
 				} else {
 					// Contacts can have empty display names. Fall back to question mark.

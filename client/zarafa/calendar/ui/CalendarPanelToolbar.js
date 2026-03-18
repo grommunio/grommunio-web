@@ -32,18 +32,27 @@ Zarafa.calendar.ui.CalendarPanelToolbar = Ext.extend(Zarafa.common.ui.ContextMai
 			items: [{
 				xtype: 'button',
 				iconCls: 'x-tbar-page-prev',
+				tooltip: _('Previous'),
 				handler: this.onPrevious,
 				scope: this
 			},{
 				xtype: 'button',
 				iconCls: 'x-tbar-page-next',
+				tooltip: _('Next'),
 				handler: this.onNext,
 				scope: this
 			},{
 				xtype: 'tbseparator'
 			},{
 				xtype: 'tbtext',
-				ref: '../text'
+				ref: '../text',
+				listeners: {
+					afterrender: function(cmp) {
+						if (cmp.el) {
+							cmp.el.set({ 'role': 'status', 'aria-live': 'polite' });
+						}
+					}
+				}
 			}]
 		});
 

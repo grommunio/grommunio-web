@@ -30,7 +30,7 @@ Zarafa.plugins.files.ui.FilesRecordGridColumnModel = Ext.extend(Zarafa.common.ui
 		return [{
 			id       : 'type',
 			dataIndex: 'type',
-			header   : '<p class="icon_index">&nbsp;</p>',
+			header   : '<p class="icon_index">&nbsp;<span class="title">Icon</span></p>',
 			headerCls: 'zarafa-icon-column icon',
 			renderer : Zarafa.plugins.files.data.Utils.Renderer.typeRenderer,
 			width    : 24,
@@ -91,7 +91,7 @@ Zarafa.plugins.files.ui.FilesRecordGridColumnModel = Ext.extend(Zarafa.common.ui
 		return [{
 			id       : 'column_type',
 			dataIndex: 'type',
-			header   : '<p class="icon_index">&nbsp;</p>',
+			header   : '<p class="icon_index">&nbsp;<span class="title">Icon</span></p>',
 			headerCls: 'zarafa-icon-column icon',
 			renderer : Zarafa.plugins.files.data.Utils.Renderer.typeRenderer,
 			width    : 24,

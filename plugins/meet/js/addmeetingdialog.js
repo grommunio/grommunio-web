@@ -27,6 +27,7 @@ Zarafa.plugins.meet.ui.AddMeetingDialog = Ext.extend(Zarafa.core.ui.ContentPanel
           },
         },{
           xtype: 'textfield',
+          fieldLabel: _('Room name'),
           hideLabel: true,
           value: subj,
           ref: 'roomNameBox',
@@ -49,6 +50,7 @@ Zarafa.plugins.meet.ui.AddMeetingDialog = Ext.extend(Zarafa.core.ui.ContentPanel
           },
         },{
           xtype: 'textfield',
+          fieldLabel: _('Room URL'),
           hideLabel: true,
           ref: 'roomUrlBox',
           style: {

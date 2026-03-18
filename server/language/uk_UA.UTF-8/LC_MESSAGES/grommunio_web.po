@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Ukrainian (Ukraine)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 22:26+0100\n"
+"POT-Creation-Date: 2026-03-12 23:42+0100\n"
 "PO-Revision-Date: 2022-08-23 04:19+0000\n"
 "Last-Translator: Artem <artem@molotov.work>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/grommunio/"
@@ -17,6 +17,15 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.14-dev\n"
+
+msgid "Calendar"
+msgstr "Календар"
+
+msgid "Previous Month"
+msgstr ""
+
+msgid "Next Month"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -33,6 +42,9 @@ msgstr "Число повинне бути більше нуля"
 
 msgid "More options"
 msgstr "Більше"
+
+msgid "Input"
+msgstr ""
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -694,6 +706,9 @@ msgstr "До"
 msgid "Filter category…"
 msgstr "Відсіяти категорію…"
 
+msgid "Add Category"
+msgstr ""
+
 msgid "Sender"
 msgstr "Відправник"
 
@@ -989,9 +1004,6 @@ msgstr "Доперегляд друку"
 
 msgid "Create Appointment"
 msgstr "Створити зустріч"
-
-msgid "Calendar"
-msgstr "Календар"
 
 msgid "Create in other calendar"
 msgstr "Створити в іншому календарі"
@@ -1650,6 +1662,12 @@ msgstr "Збережіть зміни та надішліть оновлення
 
 msgid "Open meeting request with changes"
 msgstr "Запит на проведення відкритої зустрічі зі змінами"
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
 
 msgid "grommunio Web"
 msgstr "grommunio Web"
@@ -2891,6 +2909,12 @@ msgstr "або"
 msgid "No rule exists"
 msgstr "Правил не існує"
 
+msgid "Move Up"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
 msgid "Active"
 msgstr "Активний"
 
@@ -3289,6 +3313,9 @@ msgstr ""
 
 msgid "The matching task was not found in your task list."
 msgstr "Відповідне завдання не знайдено у вашому списку завдань."
+
+msgid "Toggle header"
+msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3962,8 +3989,14 @@ msgstr "Автоматично"
 msgid "Switch view"
 msgstr "Переключити вид"
 
+msgid "Folder navigation"
+msgstr ""
+
 msgid "Widgets"
 msgstr "Віджети"
+
+msgid "Main content"
+msgstr ""
 
 msgid "Sending…"
 msgstr "Відправляю..."
@@ -5706,6 +5739,9 @@ msgstr "Поділіться посиланням"
 msgid "Public link"
 msgstr "Публічне посилання"
 
+msgid "Copy link"
+msgstr ""
+
 msgid "Password protect"
 msgstr "Захист паролем"
 
@@ -6938,11 +6974,11 @@ msgstr "Розмір ключа RSA нижче рекомендованого м
 
 msgid "Certificate not valid for this operation (key usage mismatch)"
 msgstr ""
-"Сертифікат не дійсний для цієї операції (невідповідність використання "
-"ключів)"
+"Сертифікат не дійсний для цієї операції (невідповідність використання ключів)"
 
 msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
-msgstr "Розшифровані (режим CBC - розгляньте AES-GCM для більш надійного захисту)"
+msgstr ""
+"Розшифровані (режим CBC - розгляньте AES-GCM для більш надійного захисту)"
 
 msgid "Signing time differs from expected time"
 msgstr "Час підписання відрізняється від очікуваного"
@@ -7958,6 +7994,9 @@ msgstr "Запит на завдання:"
 
 msgid "Sign in"
 msgstr "Увійдіть в систему"
+
+msgid "Skip to main content"
+msgstr ""
 
 msgid "File is not imported successfully"
 msgstr "Файл не вдалося успішно імпортувати"

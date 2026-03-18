@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 22:26+0100\n"
+"POT-Creation-Date: 2026-03-12 23:42+0100\n"
 "PO-Revision-Date: 2022-12-12 13:00+0200\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/grommunio/"
@@ -16,6 +16,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.15-dev\n"
+
+msgid "Calendar"
+msgstr "カレンダー"
+
+msgid "Previous Month"
+msgstr ""
+
+msgid "Next Month"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -32,6 +41,9 @@ msgstr "ゼロより大きい数値であること"
 
 msgid "More options"
 msgstr "詳細オプション"
+
+msgid "Input"
+msgstr ""
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -681,6 +693,9 @@ msgstr "まで"
 msgid "Filter category…"
 msgstr "フィルターカテゴリー…"
 
+msgid "Add Category"
+msgstr ""
+
 msgid "Sender"
 msgstr "送信者"
 
@@ -966,9 +981,6 @@ msgstr "概要を印刷"
 
 msgid "Create Appointment"
 msgstr "予約の作成"
-
-msgid "Calendar"
-msgstr "カレンダー"
 
 msgid "Create in other calendar"
 msgstr "他のカレンダーで作成する"
@@ -1628,6 +1640,12 @@ msgstr "変更を保存して全受信者に更新を送信する"
 
 msgid "Open meeting request with changes"
 msgstr "会議の変更依頼を開く"
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
 
 msgid "grommunio Web"
 msgstr "grommunio Web"
@@ -2878,6 +2896,12 @@ msgstr "もしくは"
 msgid "No rule exists"
 msgstr "ルールが登録されていません"
 
+msgid "Move Up"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
 msgid "Active"
 msgstr "アクティブ"
 
@@ -3273,6 +3297,9 @@ msgstr "破損したメールメッセージの修復を試みますが、続け
 
 msgid "The matching task was not found in your task list."
 msgstr "一致するタスクがタスクリストに見つかりませんでした。"
+
+msgid "Toggle header"
+msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3948,8 +3975,14 @@ msgstr "自動"
 msgid "Switch view"
 msgstr "ビューを切替"
 
+msgid "Folder navigation"
+msgstr ""
+
 msgid "Widgets"
 msgstr "ウィジェット"
+
+msgid "Main content"
+msgstr ""
 
 msgid "Sending…"
 msgstr "送信中……"
@@ -5679,6 +5712,9 @@ msgstr "リンクで共有"
 
 msgid "Public link"
 msgstr "公開リンク"
+
+msgid "Copy link"
+msgstr ""
 
 msgid "Password protect"
 msgstr "パスワードによる保護"
@@ -7937,6 +7973,9 @@ msgstr "タスクの依頼。"
 
 msgid "Sign in"
 msgstr "サインイン"
+
+msgid "Skip to main content"
+msgstr ""
 
 msgid "File is not imported successfully"
 msgstr "ファイルが正常にインポートされない"

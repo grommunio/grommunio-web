@@ -690,6 +690,10 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 		}
 
 		container.addClass(this.getClassName('body'));
+		container.set({
+			'role': 'region',
+			'aria-label': _('Calendar')
+		});
 
 		// Create areas
 		this.createDiv(container, 'tab', this.getClassName('tabarea'));

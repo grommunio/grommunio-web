@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Swedish (Sweden)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 22:26+0100\n"
+"POT-Creation-Date: 2026-03-12 23:42+0100\n"
 "PO-Revision-Date: 2026-02-17 22:26+0000\n"
 "Last-Translator: DeepL <noreply-mt-deepl@weblate.org>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/grommunio/"
@@ -16,6 +16,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 5.11-dev\n"
+
+msgid "Calendar"
+msgstr "Kalender"
+
+msgid "Previous Month"
+msgstr ""
+
+msgid "Next Month"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -32,6 +41,9 @@ msgstr "Antalet måste vara högre än noll"
 
 msgid "More options"
 msgstr "Fler alternativ"
+
+msgid "Input"
+msgstr ""
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -684,6 +696,9 @@ msgstr "Till"
 msgid "Filter category…"
 msgstr "Filtrera kategori..."
 
+msgid "Add Category"
+msgstr ""
+
 msgid "Sender"
 msgstr "Avsändare"
 
@@ -977,9 +992,6 @@ msgstr "Skriv ut översikt"
 
 msgid "Create Appointment"
 msgstr "Skapa möte"
-
-msgid "Calendar"
-msgstr "Kalender"
 
 msgid "Create in other calendar"
 msgstr "Skapa i en annan kalender"
@@ -1641,6 +1653,12 @@ msgstr "Spara ändringar och skicka en uppdatering till alla mottagare"
 
 msgid "Open meeting request with changes"
 msgstr "Öppen mötesförfrågan med ändringar"
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
 
 msgid "grommunio Web"
 msgstr "grommunio webben"
@@ -2881,6 +2899,12 @@ msgstr "eller"
 msgid "No rule exists"
 msgstr "Det finns ingen regel"
 
+msgid "Move Up"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
 msgid "Active"
 msgstr "Aktiv"
 
@@ -3274,6 +3298,9 @@ msgstr "Vi ska försöka fixa ett skadat e-postmeddelande, vill du fortsätta?"
 
 msgid "The matching task was not found in your task list."
 msgstr "Den matchande uppgiften hittades inte i din uppgiftslista."
+
+msgid "Toggle header"
+msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3946,8 +3973,14 @@ msgstr "Automatisk"
 msgid "Switch view"
 msgstr "Byt vy"
 
+msgid "Folder navigation"
+msgstr ""
+
 msgid "Widgets"
 msgstr "Widgetar"
+
+msgid "Main content"
+msgstr ""
 
 msgid "Sending…"
 msgstr "Sändning…"
@@ -5682,6 +5715,9 @@ msgstr "Dela via länk"
 
 msgid "Public link"
 msgstr "Offentlig länk"
+
+msgid "Copy link"
+msgstr ""
 
 msgid "Password protect"
 msgstr "Lösenordsskydd"
@@ -7961,6 +7997,9 @@ msgstr "Uppgiftsbegäran:"
 
 msgid "Sign in"
 msgstr "Logga in"
+
+msgid "Skip to main content"
+msgstr ""
 
 msgid "File is not imported successfully"
 msgstr "Filen har inte importerats"

@@ -47,6 +47,42 @@ body,
 .loading-indicator {
   font-size: 14px; }
 
+/* Accessibility: global focus indicator for keyboard navigation */
+*:focus-visible {
+  outline: 2px solid var(--theme-primary-color, #3094e3);
+  outline-offset: 2px;
+}
+
+/* Accessibility: skip navigation link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 100000;
+  font-size: 14px;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Screen reader only - visually hidden but accessible */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* cyrillic-ext */
 @font-face {
   font-family: 'Roboto';
@@ -1087,7 +1123,15 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
         display: inline-block;
         min-width: 20px; }
         .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner .zarafa-x-grid3-hd-title p .title {
-          display: none; }
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border: 0; }
   /* Hide the "Icon" (first) column header content - keep the column space */
   .x-grid3-hd-row td.zarafa-icon-column.icon .x-grid3-hd-inner {
     visibility: hidden; }
@@ -1139,7 +1183,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
  ******************************************************************************/
 .k-addressbookmainpanel-grid .emptytext {
   font-size: 15px !important;
-  color: #777777;
+  color: #767676;
   margin-top: 150px; }
 
 /******************************************************************************
@@ -1191,7 +1235,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
     .x-grid3-row .x-grid3-row-body-tr .zarafa-grid-body-container .grid_compact_left {
       padding-left: 30px; }
     .x-grid3-row .x-grid3-row-body-tr .zarafa-grid-body-container .grid_compact_subject_cell {
-      color: #777777;
+      color: #767676;
       max-height: 30px;
       overflow: hidden; }
   .x-grid3-row .x-grid3-check-col-td,
@@ -1252,7 +1296,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 
 /* Task grid Completed tasks row */
 .zarafa-task-complete {
-  color: #777777; }
+  color: #767676; }
   .zarafa-task-complete .k-task-complete {
     text-decoration: line-through; }
 
@@ -1440,7 +1484,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
     margin: 0 2px;
     padding: 2px; }
   .x-toolbar .x-item-disabled {
-    opacity: 0.4; }
+    opacity: 0.55; }
   .x-toolbar .x-btn.zarafa-more-options-btn .x-btn-split {
     padding-right: 0px;
     background-image: none !important; }
@@ -2132,7 +2176,7 @@ input.x-form-text.k-searchfolder-field.x-form-focus {
 
 .zarafa-hierarchy-node-owner {
   font-weight: normal;
-  color: #777777 !important; }
+  color: #767676 !important; }
 
 .zarafa-tree-node.zarafa-hierarchy-node-withcounter {
   font-weight: bold; }
@@ -2801,7 +2845,7 @@ span.preview-header-sender-image {
   .k-appointment-box.k-dark {
     color: #ffffff; }
   .k-appointment-box.k-inactive {
-    opacity: 0.4; }
+    opacity: 0.55; }
   .k-appointment-box.k-selected {
     border-color: #000000;
     z-index: 110; }
@@ -3679,6 +3723,9 @@ div.zarafa-contact-cardview-selected {
     height: 24px !important; }
 
 /* Modern search container — strips all Ext JS field chrome */
+#zarafa-main-content-mail-toolbar {
+  border: none; }
+
 .k-search-container {
   display: inline-block;
   min-height: 100%;
@@ -3736,6 +3783,14 @@ div.zarafa-contact-cardview-selected {
   font-family: inherit;
   line-height: normal; }
 
+.k-search-tail-input:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--theme-primary-color) 40%, transparent); }
+
+.k-search-token-input:focus-visible,
+.k-search-token-input *:focus-visible {
+  outline: none; }
+
 .k-search-token-value {
   min-width: 1ch;
   max-width: 250px;
@@ -3746,7 +3801,7 @@ div.zarafa-contact-cardview-selected {
   flex: 1;
   min-width: 60px; }
   .k-search-tail-input::placeholder {
-    color: #999; }
+    color: #767676; }
 
 /* Search submit button (return/enter symbol) */
 .k-search-submit-btn {
@@ -3756,7 +3811,7 @@ div.zarafa-contact-cardview-selected {
   width: 24px;
   flex-shrink: 0;
   font-size: 16px;
-  color: #999;
+  color: #767676;
   cursor: pointer;
   border-radius: 3px;
   transition: color 0.15s ease, background-color 0.15s ease; }
@@ -3779,6 +3834,9 @@ div.zarafa-contact-cardview-selected {
   line-height: 18px;
   min-width: 4ch;
   max-width: 300px; }
+
+.k-search-chip-edit:focus-visible {
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--theme-primary-color) 40%, transparent); }
 
 /* Chip base style */
 .k-search-chip {
@@ -3871,7 +3929,7 @@ div.zarafa-contact-cardview-selected {
 
 .k-search-dropdown-header {
   font-size: 11px;
-  color: #888;
+  color: #6b6b6b;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 6px;
@@ -3895,9 +3953,13 @@ div.zarafa-contact-cardview-selected {
   font-size: 12px;
   color: #555;
   transition: background-color 0.1s ease, border-color 0.1s ease; }
-  .k-search-filter-option:hover {
+  .k-search-filter-option:hover,
+  .k-search-filter-option:focus-visible {
     background-color: #bbdefb;
     border-color: #64b5f6; }
+  .k-search-filter-option:focus-visible {
+    outline: 2px solid var(--theme-primary-color);
+    outline-offset: 1px; }
   .k-search-filter-option .k-search-filter-label {
     font-weight: 500; }
 /* Type and date filter options — green "system" tint */
@@ -3921,8 +3983,12 @@ div.zarafa-contact-cardview-selected {
   font-size: 13px;
   color: #333;
   transition: background-color 0.1s ease; }
-  .k-search-folder-option:hover {
+  .k-search-folder-option:hover,
+  .k-search-folder-option:focus-visible {
     background-color: #f5f5f5; }
+  .k-search-folder-option:focus-visible {
+    outline: 2px solid var(--theme-primary-color);
+    outline-offset: -2px; }
   .k-search-folder-option.k-active {
     background-color: #e3f2fd;
     color: #1565c0; }
@@ -3966,9 +4032,13 @@ div.zarafa-contact-cardview-selected {
   font-weight: 600;
   color: #e65100;
   transition: background-color 0.1s ease, border-color 0.1s ease; }
-  .k-search-operator-option:hover {
+  .k-search-operator-option:hover,
+  .k-search-operator-option:focus-visible {
     background-color: #ffe0b2;
     border-color: #ffb74d; }
+  .k-search-operator-option:focus-visible {
+    outline: 2px solid var(--theme-primary-color);
+    outline-offset: 1px; }
 
 /* Search history rows in dropdown */
 .k-search-history-section { }
@@ -3990,8 +4060,12 @@ div.zarafa-contact-cardview-selected {
   transition: background-color 0.1s ease;
   user-select: none; }
   .k-search-history-row:hover,
+  .k-search-history-row:focus-visible,
   .k-search-history-row.k-search-history-active {
     background-color: #e3f2fd; }
+  .k-search-history-row:focus-visible {
+    outline: 2px solid var(--theme-primary-color);
+    outline-offset: -2px; }
 
 .k-search-history-icon {
   flex-shrink: 0;
@@ -3999,7 +4073,7 @@ div.zarafa-contact-cardview-selected {
   width: 14px;
   height: 14px;
   margin-right: 6px;
-  background-color: #999;
+  background-color: #767676;
   -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyNCcgaGVpZ2h0PScyNCcgZmlsbD0nbm9uZSc+PHBhdGggZmlsbD0nIzAwMCcgZD0nTTEwIDIuNWE3LjUgNy41IDAgMCAxIDUuOTY0IDEyLjA0OGw0Ljc0MyA0Ljc0NWExIDEgMCAwIDEtMS4zMiAxLjQ5N2wtLjA5NC0uMDgzLTQuNzQ1LTQuNzQzQTcuNSA3LjUgMCAxIDEgMTAgMi41bTAgMmE1LjUgNS41IDAgMSAwIDAgMTEgNS41IDUuNSAwIDAgMCAwLTExJy8+PC9zdmc+);
   mask-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyNCcgaGVpZ2h0PScyNCcgZmlsbD0nbm9uZSc+PHBhdGggZmlsbD0nIzAwMCcgZD0nTTEwIDIuNWE3LjUgNy41IDAgMCAxIDUuOTY0IDEyLjA0OGw0Ljc0MyA0Ljc0NWExIDEgMCAwIDEtMS4zMiAxLjQ5N2wtLjA5NC0uMDgzLTQuNzQ1LTQuNzQzQTcuNSA3LjUgMCAxIDEgMTAgMi41bTAgMmE1LjUgNS41IDAgMSAwIDAgMTEgNS41IDUuNSAwIDAgMCAwLTExJy8+PC9zdmc+);
   -webkit-mask-size: contain;
@@ -4018,7 +4092,7 @@ div.zarafa-contact-cardview-selected {
   width: 20px;
   text-align: center;
   font-size: 16px;
-  color: #999;
+  color: #767676;
   cursor: pointer;
   opacity: 0;
   transition: opacity 0.1s ease, color 0.1s ease; }
@@ -4052,7 +4126,7 @@ div.zarafa-contact-cardview-selected {
 .zarafa-searchgrid .x-grid3-hd-row .x-grid3-hd.x-grid3-cell.x-grid3-td-column_icon.x-grid3-cell-first {
   width: 100% !important; }
 .zarafa-searchgrid span.body {
-  opacity: 0.5; }
+  opacity: 0.65; }
 .zarafa-searchgrid span.subject {
   /* some padding to have some space between the fields */
   padding-right: 12px; }
@@ -4070,7 +4144,7 @@ div.zarafa-contact-cardview-selected {
   .zarafa-searchgrid .x-grid3-row-body-tr .zarafa-grid-body-container .grid_compact_left {
     padding-left: 36px; }
   .zarafa-searchgrid .x-grid3-row-body-tr .zarafa-grid-body-container .grid_compact_body {
-    color: #777777;
+    color: #767676;
     overflow: hidden;
     font-weight: normal; }
   .zarafa-searchgrid .x-grid3-row-body-tr .zarafa-grid-body-container .grid_compact_subject {
@@ -4169,7 +4243,7 @@ div.zarafa-contact-cardview-selected {
 
 .k-search-node-owner {
   font-weight: normal;
-  color: #777777 !important; }
+  color: #767676 !important; }
 
 .k-create-search-folder-panel .x-form-item-label {
   font-weight: bold; }
@@ -4348,7 +4422,7 @@ div.zarafa-contact-cardview-selected {
     #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-widget:last-child {
       margin-bottom: 0; }
     #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .k-settings-label-minor {
-      opacity: 0.5;
+      opacity: 0.7;
       margin-left: 3px; }
     .k-settings-profile-widget .x-panel-body {
       padding: 0 !important; }
@@ -4419,7 +4493,7 @@ div.zarafa-contact-cardview-selected {
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: #98a2b3;
+      color: #717d8f;
       padding-bottom: 8px;
       border-bottom: 1px solid #e4e7ec;
       margin-bottom: 8px; }
@@ -5299,7 +5373,7 @@ body .k-category-block {
   font-size: 20px;
   line-height: 32px;
   text-align: center;
-  color: #999;
+  color: #767676;
   cursor: pointer;
   border-radius: 4px;
   transition: background 0.15s, color 0.15s; }
@@ -5442,7 +5516,7 @@ body .k-category-block {
 .k-taskwidget .x-grid3-row.zarafa-task-overdue .x-grid3-row-body-tr .zarafa-grid-body-container .grid_compact_left,
 .k-appointmentwidget .x-grid3-row.zarafa-task-overdue .x-grid3-row-body-tr .zarafa-grid-body-container .grid_compact_left {
   color: inherit;
-  opacity: 0.5; }
+  opacity: 0.7; }
 
 /* Restore overflow inside dialog windows so tree panels can scroll */
 .x-window .x-panel-body:has(> .x-tree-root-ct) {
@@ -5737,7 +5811,7 @@ body {
   /* Semantic colors */
   --color-error: #e30022;
   --color-success: #59b147;
-  --color-warning: #ffd700;
+  --color-warning: #b58900;
   --color-info: #3094e3;
 
   /* Icon color - light mode default */
@@ -6666,4 +6740,64 @@ input[type="radio"]:focus-visible {
 .x-window,
 .x-tip {
   outline: none;
+}
+
+/* Focus-visible indicators for keyboard navigation */
+.x-tree-node a:focus-visible {
+  outline: 2px solid var(--theme-primary-color);
+  outline-offset: -2px;
+  border-radius: 3px;
+}
+
+.x-tab-strip li a:focus-visible {
+  outline: 2px solid var(--theme-primary-color);
+  outline-offset: -2px;
+}
+
+.grommunio-toast-close:focus-visible,
+.grommunio-toast-details-toggle:focus-visible,
+.grommunio-toast-details-copy:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 1px;
+  border-radius: 3px;
+}
+
+.x-zarafa-boxfield-item:focus-visible {
+  outline: 2px solid var(--theme-primary-color);
+  outline-offset: -1px;
+}
+
+.x-zarafa-boxfield-item-close:focus-visible {
+  outline: 2px solid var(--theme-primary-color);
+  outline-offset: 0;
+  border-radius: 50%;
+}
+
+.preview-header-collapse:focus-visible {
+  outline: 2px solid var(--theme-primary-color);
+  outline-offset: 1px;
+}
+
+.zarafa-settings-category-tab:focus-visible {
+  outline: 2px solid var(--theme-primary-color);
+  outline-offset: -2px;
+}
+
+.k-header:focus-visible,
+.k-expand-btn:focus-visible {
+  outline: 2px solid var(--theme-primary-color);
+  outline-offset: -1px;
+}
+
+/* Screen-reader-only utility class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

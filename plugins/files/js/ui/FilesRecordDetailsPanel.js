@@ -77,6 +77,8 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
                 width: 125
             }, {
                 xtype: 'textfield',
+                fieldLabel: _('Filename'),
+                hideLabel: true,
                 ref: '../../filename',
                 value: "unknown",
                 flex: 1
@@ -92,6 +94,8 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
                 width: 125
             }, {
                 xtype: 'textfield',
+                fieldLabel: _('Filesize'),
+                hideLabel: true,
                 ref: '../../filesize',
                 value: "unknown",
                 flex: 1
@@ -106,6 +110,8 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
                 width: 125
             }, {
                 xtype: 'textfield',
+                fieldLabel: _('Last modified'),
+                hideLabel: true,
                 ref: '../../lastmodified',
                 value: "unknown",
                 flex: 1
@@ -120,6 +126,8 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
                 width: 125
             }, {
                 xtype: 'textfield',
+                fieldLabel: _('Type'),
+                hideLabel: true,
                 ref: '../../type',
                 value: "unknown",
                 flex: 1
@@ -237,6 +245,7 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
 			component = {
 				xtype    : 'textarea',
 				hideLabel: true,
+				fieldLabel: _('File content'),
 				readOnly : true,
 				anchor   : '0, 0',
 				listeners: {

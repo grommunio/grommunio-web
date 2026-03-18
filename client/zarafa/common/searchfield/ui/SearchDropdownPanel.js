@@ -255,7 +255,7 @@ Zarafa.common.searchfield.ui.SearchDropdownPanel = Ext.extend(Ext.Panel, {
 		// Recent searches section (populated dynamically)
 		html += '<div class="k-search-dropdown-section k-search-history-section" id="' + this.getId() + '-history" style="display:none">';
 		html += '<div class="k-search-dropdown-header">' + enc(_('Recent searches')) + '</div>';
-		html += '<div class="k-search-history-list" id="' + this.getId() + '-history-list"></div>';
+		html += '<div class="k-search-history-list" role="listbox" aria-label="' + enc(_('Recent searches')) + '" id="' + this.getId() + '-history-list"></div>';
 		html += '</div>';
 
 		// Filter fields section
@@ -264,7 +264,7 @@ Zarafa.common.searchfield.ui.SearchDropdownPanel = Ext.extend(Ext.Panel, {
 		html += '<div class="k-search-dropdown-filters">';
 		for (i = 0; i < this.filterFields.length; i++) {
 			var f = this.filterFields[i];
-			html += '<span class="k-search-filter-option" data-filter-key="' + f.key + '"';
+			html += '<span class="k-search-filter-option" role="option" tabindex="-1" data-filter-key="' + f.key + '"';
 			if (f.value) {
 				html += ' data-filter-value="' + enc(f.value) + '"';
 			}
@@ -281,15 +281,15 @@ Zarafa.common.searchfield.ui.SearchDropdownPanel = Ext.extend(Ext.Panel, {
 		html += '<div class="k-search-dropdown-filters">';
 		for (i = 0; i < this.typeOptions.length; i++) {
 			var t = this.typeOptions[i];
-			html += '<span class="k-search-filter-option k-search-type-option" data-filter-key="type" data-filter-value="' + t.value + '">';
+			html += '<span class="k-search-filter-option k-search-type-option" role="option" tabindex="-1" data-filter-key="type" data-filter-value="' + t.value + '">';
 			html += '<span class="k-search-filter-label">' + enc(t.label) + '</span>';
 			html += '</span>';
 		}
 		// Inline separator + operators
 		html += '<span class="k-search-dropdown-sep"></span>';
-		html += '<span class="k-search-operator-option" data-operator="AND">' + enc(_('AND')) + '</span>';
-		html += '<span class="k-search-operator-option" data-operator="OR">' + enc(_('OR')) + '</span>';
-		html += '<span class="k-search-operator-option" data-operator="NOT">' + enc(_('NOT')) + '</span>';
+		html += '<span class="k-search-operator-option" role="option" tabindex="-1" data-operator="AND">' + enc(_('AND')) + '</span>';
+		html += '<span class="k-search-operator-option" role="option" tabindex="-1" data-operator="OR">' + enc(_('OR')) + '</span>';
+		html += '<span class="k-search-operator-option" role="option" tabindex="-1" data-operator="NOT">' + enc(_('NOT')) + '</span>';
 		html += '</div>';
 		html += '</div>';
 
@@ -299,7 +299,7 @@ Zarafa.common.searchfield.ui.SearchDropdownPanel = Ext.extend(Ext.Panel, {
 		html += '<div class="k-search-dropdown-filters">';
 		for (i = 0; i < this.dateOptions.length; i++) {
 			var d = this.dateOptions[i];
-			html += '<span class="k-search-filter-option k-search-date-option" data-filter-key="date" data-filter-value="' + d.value + '">';
+			html += '<span class="k-search-filter-option k-search-date-option" role="option" tabindex="-1" data-filter-key="date" data-filter-value="' + d.value + '">';
 			html += '<span class="k-search-filter-label">' + enc(d.label) + '</span>';
 			html += '</span>';
 		}
@@ -309,7 +309,7 @@ Zarafa.common.searchfield.ui.SearchDropdownPanel = Ext.extend(Ext.Panel, {
 		// Folder scope section
 		html += '<div class="k-search-dropdown-section k-search-dropdown-folder-section">';
 		html += '<div class="k-search-dropdown-header">' + enc(_('Search in')) + '</div>';
-		html += '<div class="k-search-dropdown-folders" id="' + this.getId() + '-folders"></div>';
+		html += '<div class="k-search-dropdown-folders" role="listbox" aria-label="' + enc(_('Search in')) + '" id="' + this.getId() + '-folders"></div>';
 		html += '</div>';
 
 		html += '</div>';
@@ -348,10 +348,10 @@ Zarafa.common.searchfield.ui.SearchDropdownPanel = Ext.extend(Ext.Panel, {
 		for (var i = 0; i < entries.length; i++) {
 			var entry = entries[i];
 			var display = entry.display || entry.query || '';
-			html += '<div class="k-search-history-row" data-history-index="' + i + '">';
-			html += '<span class="k-search-history-icon"></span>';
+			html += '<div class="k-search-history-row" role="option" tabindex="-1" data-history-index="' + i + '">';
+			html += '<span class="k-search-history-icon" aria-hidden="true"></span>';
 			html += '<span class="k-search-history-text">' + enc(display) + '</span>';
-			html += '<span class="k-search-history-remove" data-history-index="' + i + '">&times;</span>';
+			html += '<span class="k-search-history-remove" role="button" tabindex="-1" aria-label="' + enc(_('Remove')) + '" data-history-index="' + i + '">&times;</span>';
 			html += '</div>';
 		}
 
@@ -532,16 +532,16 @@ Zarafa.common.searchfield.ui.SearchDropdownPanel = Ext.extend(Ext.Panel, {
 			var isActive = (value === currentValue) ? ' k-active' : '';
 
 			if (value === 'other') {
-				html += '<div class="k-search-folder-option k-search-folder-other' + isActive + '" data-folder-value="other">';
-				html += '<span class="k-search-folder-icon icon_folder_browse"></span>';
+				html += '<div class="k-search-folder-option k-search-folder-other' + isActive + '" role="option" tabindex="-1"' + (isActive ? ' aria-selected="true"' : '') + ' data-folder-value="other">';
+				html += '<span class="k-search-folder-icon icon_folder_browse" aria-hidden="true"></span>';
 				html += '<span>' + name + '</span>';
 				html += '</div>';
 			} else {
-				html += '<div class="k-search-folder-option' + isActive + '" data-folder-value="' + Ext.util.Format.htmlEncode(value) + '">';
-				html += '<span class="k-search-folder-icon icon_folder_small"></span>';
+				html += '<div class="k-search-folder-option' + isActive + '" role="option" tabindex="-1"' + (isActive ? ' aria-selected="true"' : '') + ' data-folder-value="' + Ext.util.Format.htmlEncode(value) + '">';
+				html += '<span class="k-search-folder-icon icon_folder_small" aria-hidden="true"></span>';
 				html += '<span>' + name + '</span>';
 				if (isActive) {
-					html += '<span class="k-search-folder-check">&#10003;</span>';
+					html += '<span class="k-search-folder-check" aria-hidden="true">&#10003;</span>';
 				}
 				html += '</div>';
 			}

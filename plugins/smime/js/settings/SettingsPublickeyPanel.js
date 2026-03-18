@@ -84,6 +84,8 @@ Zarafa.plugins.smime.settings.SettingsPublickeyPanel = Ext.extend(Ext.Panel, {
 					value : _('Filter on Email')
 				}, {
 					xtype : 'textfield',
+					fieldLabel : _('Filter on Email'),
+					hideLabel : true,
 					listeners : {
 						specialkey: function(f, e) {
 							if(e.getKey() == e.ENTER){

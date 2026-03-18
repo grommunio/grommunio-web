@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Portuguese (Portugal)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 22:26+0100\n"
+"POT-Creation-Date: 2026-03-12 23:42+0100\n"
 "PO-Revision-Date: 2022-07-26 18:47+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -15,6 +15,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 4.14-dev\n"
+
+msgid "Calendar"
+msgstr "Calendário"
+
+msgid "Previous Month"
+msgstr ""
+
+msgid "Next Month"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -31,6 +40,9 @@ msgstr "Número tem que ser maior que zero"
 
 msgid "More options"
 msgstr "Mais opções"
+
+msgid "Input"
+msgstr ""
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -683,6 +695,9 @@ msgstr "Para"
 msgid "Filter category…"
 msgstr "Filtrar categoria…"
 
+msgid "Add Category"
+msgstr ""
+
 msgid "Sender"
 msgstr "Remetente"
 
@@ -973,9 +988,6 @@ msgstr "Imprimir vista geral"
 
 msgid "Create Appointment"
 msgstr "Criar Compromisso"
-
-msgid "Calendar"
-msgstr "Calendário"
 
 msgid "Create in other calendar"
 msgstr "Criar noutro calendário"
@@ -1638,6 +1650,12 @@ msgstr "Guardar alterações e enviar uma atualização a todos os destinatário
 
 msgid "Open meeting request with changes"
 msgstr "Abrir pedido de reunião com alterações"
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
 
 msgid "grommunio Web"
 msgstr "grommunio Web"
@@ -2872,6 +2890,12 @@ msgstr "ou"
 msgid "No rule exists"
 msgstr "Não existem regras"
 
+msgid "Move Up"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
 msgid "Active"
 msgstr "Ativa"
 
@@ -3270,6 +3294,9 @@ msgstr "Vamos tentar corrigir a mensagem corrompida. Deseja continuar?"
 
 msgid "The matching task was not found in your task list."
 msgstr "Não foi encontrada nenhuma tarefa correspondente na sua lista."
+
+msgid "Toggle header"
+msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3941,8 +3968,14 @@ msgstr "Automático"
 msgid "Switch view"
 msgstr "Mudar vista"
 
+msgid "Folder navigation"
+msgstr ""
+
 msgid "Widgets"
 msgstr "Widgets"
+
+msgid "Main content"
+msgstr ""
 
 msgid "Sending…"
 msgstr "A enviar…"
@@ -5674,6 +5707,9 @@ msgstr "Partilhar atravs de hiperligao"
 msgid "Public link"
 msgstr "Ligao pblica"
 
+msgid "Copy link"
+msgstr ""
+
 msgid "Password protect"
 msgstr "Protegido por palavra-passe"
 
@@ -6929,7 +6965,8 @@ msgstr ""
 "da chave)"
 
 msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
-msgstr "Desencriptado (modo CBC - considerar AES-GCM para uma proteção mais forte)"
+msgstr ""
+"Desencriptado (modo CBC - considerar AES-GCM para uma proteção mais forte)"
 
 msgid "Signing time differs from expected time"
 msgstr "A hora da assinatura difere da hora prevista"
@@ -7317,7 +7354,8 @@ msgid "No email address specified"
 msgstr "Nenhum endereço de correio eletrónico especificado"
 
 msgid "No certificates found for this email address"
-msgstr "Não foram encontrados certificados para este endereço de correio eletrónico"
+msgstr ""
+"Não foram encontrados certificados para este endereço de correio eletrónico"
 
 msgid "Unable to read certificates"
 msgstr "Não é possível ler certificados"
@@ -7641,8 +7679,8 @@ msgstr "Limite de quota de envio atingido"
 #, php-format
 msgid "Email sending failed (%s). Check the log files for more information."
 msgstr ""
-"Falha no envio de correio eletrónico (%s). Verifique os ficheiros de "
-"registo para obter mais informações."
+"Falha no envio de correio eletrónico (%s). Verifique os ficheiros de registo "
+"para obter mais informações."
 
 msgid "Unknown user/group"
 msgstr "Utilizador/grupo desconhecido"
@@ -7972,6 +8010,9 @@ msgstr "Solicitação de tarefas:"
 
 msgid "Sign in"
 msgstr "Entrar"
+
+msgid "Skip to main content"
+msgstr ""
 
 msgid "File is not imported successfully"
 msgstr "O ficheiro não foi importado com êxito"

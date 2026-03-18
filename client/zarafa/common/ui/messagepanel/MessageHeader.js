@@ -21,7 +21,7 @@ Zarafa.common.ui.messagepanel.MessageHeader = Ext.extend(Ext.Panel, {
 	 */
 	headerTemplate:
 		'<div class="preview-header-titlebox">' +
-			'<img src="' + Ext.BLANK_IMAGE_URL + '" class="preview-header-collapse preview-header-collapse-minus"/>' +
+			'<img src="' + Ext.BLANK_IMAGE_URL + '" class="preview-header-collapse preview-header-collapse-minus" alt="" role="button" tabindex="0" aria-label="' + _('Toggle header') + '" aria-expanded="true"/>' +
 			'<tpl if="!Ext.isEmpty(values.subject)">' +
 				'<span class="preview-title zarafa-contextmenu-enabled">{subject:htmlEncode}</span>' +
 			'</tpl>' +
@@ -174,6 +174,12 @@ Zarafa.common.ui.messagepanel.MessageHeader = Ext.extend(Ext.Panel, {
 				this.collapseElement = this.header.child('.preview-header-collapse');
 				if (this.collapseElement) {
 					this.mon(this.collapseElement, 'click', this.onCollapseClick, this);
+					this.mon(this.collapseElement, 'keydown', function(e) {
+						if (e.getKey() === e.ENTER || e.getKey() === e.SPACE) {
+							e.stopEvent();
+							this.onCollapseClick(e);
+						}
+					}, this);
 				}
 			} else {
 				this.header.dom.innerHTML = '';
@@ -200,10 +206,12 @@ Zarafa.common.ui.messagepanel.MessageHeader = Ext.extend(Ext.Panel, {
 				this.collapseElement.removeClass('preview-header-collapse-minus');
 				this.collapse();
 				this.collapseElement.addClass('preview-header-collapse-plus');
+				this.collapseElement.set({ 'aria-expanded': 'false' });
 			} else {
 				this.collapseElement.removeClass('preview-header-collapse-plus');
 				this.expand();
 				this.collapseElement.addClass('preview-header-collapse-minus');
+				this.collapseElement.set({ 'aria-expanded': 'true' });
 			}
 		}
 	},

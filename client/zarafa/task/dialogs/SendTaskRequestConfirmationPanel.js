@@ -59,6 +59,7 @@ Zarafa.task.dialogs.SendTaskRequestConfirmationPanel = Ext.extend(Ext.form.FormP
 			},{
 				xtype: 'textarea',
 				name: 'responseText',
+				fieldLabel: _('Response message'),
 				ref: 'responseTextField',
 				disabled: true,
 				flex: 1

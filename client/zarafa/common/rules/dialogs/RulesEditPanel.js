@@ -45,6 +45,7 @@ Zarafa.common.rules.dialogs.RulesEditPanel = Ext.extend(Ext.form.FormPanel, {
 		}, {
 			xtype: 'textfield',
 			name: 'rule_name',
+			fieldLabel: _('Rule name'),
 			width: 250,
 			listeners: {
 				change: this.onChange,

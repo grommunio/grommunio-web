@@ -9,6 +9,23 @@
 			var el = this.el = this.field.getEl();
 			var f = this.field;
 
+			// Add ARIA spinbutton role and value attributes
+			el.set({ 'role': 'spinbutton' });
+			if (Ext.isDefined(f.minValue)) {
+				el.set({ 'aria-valuemin': String(f.minValue) });
+			}
+			if (Ext.isDefined(f.maxValue)) {
+				el.set({ 'aria-valuemax': String(f.maxValue) });
+			}
+			try {
+				var val = f.getValue();
+				if (val !== '' && val !== undefined && val !== null) {
+					el.set({ 'aria-valuenow': String(val) });
+				}
+			} catch(e) {
+				// getValue may throw during render (e.g. TimeSpinner with uninitialized dateValue)
+			}
+
 			if (!f.wrap) {
 				f.wrap = this.wrap = el.wrap({
 					cls: "x-form-field-wrap"
@@ -73,6 +90,14 @@
 				'spinup': true,
 				'spindown': true
 			});
+
+			// Update aria-valuenow when the field value changes
+			this.field.on('spin', function() {
+				var val = this.field.getValue();
+				if (val !== '' && val !== undefined) {
+					this.el.set({ 'aria-valuenow': String(val) });
+				}
+			}, this);
 
 			this.keyNav = new Ext.KeyNav(this.el, {
 				"up": function(e) {
