@@ -80,8 +80,17 @@ class HierarchyNotifier extends Notifier {
 				}
 
 				$store = $GLOBALS["mapisession"]->openMessageStore($props[PR_STORE_ENTRYID]);
+				if (!$store) {
+					break;
+				}
 
-				$folder = mapi_msgstore_openentry($store, $folderEntryid);
+				try {
+					$folder = mapi_msgstore_openentry($store, $folderEntryid);
+				}
+				catch (MAPIException $e) {
+					$e->setHandled();
+					break;
+				}
 				if ($folder) {
 					$properties = $GLOBALS["properties"]->getFolderListProperties();
 					$folderProps = mapi_getprops($folder, $properties);
