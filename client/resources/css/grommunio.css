@@ -1935,6 +1935,7 @@ ul.x-tab-strip-top {
         border: none;
         height: 24px;
         line-height: 24px;
+        box-sizing: content-box;
         /* ExtJS adds a gradient as background, here we remove it */
         background-image: none; }
       .x-zarafa-boxfield ul li.x-zarafa-boxfield-input-item input.x-trigger-noedit {
