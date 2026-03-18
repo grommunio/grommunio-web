@@ -257,16 +257,25 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	convertRecord: function(folder, messageClass)
 	{
 		var defaultStore = folder.getMAPIStore();
+		var isHTML = this.get('isHTML');
 
-		var newRecord = Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass(messageClass, {
+		var data = {
 			store_entryid: folder.get('store_entryid'),
 			parent_entryid: folder.get('entryid'),
 			subject: this.get('subject'),
-			body: this.getBody(false),
 			importance: this.get('importance'),
 			categories: this.get('categories'),
+			isHTML: isHTML,
 			owner: defaultStore.isPublicStore() ? container.getUser().getFullName() : defaultStore.get('mailbox_owner_name')
-		});
+		};
+
+		if (isHTML) {
+			data.html_body = this.getBody(true);
+		} else {
+			data.body = this.getBody(false);
+		}
+
+		var newRecord = Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass(messageClass, data);
 
 		// Set icon based on messageClass
 		newRecord.set('icon_index', Zarafa.core.mapi.IconIndex[Zarafa.common.ui.IconClass.getIconClassFromMessageClass(newRecord)]);
