@@ -394,6 +394,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		// of reply-to is unconditional, and we will only be using
 		// this list for the REPLYALL case.
 		var addedRecipientEntryids = [];
+		var addedRecipientSmtpAddrs = [];
 
 		// Simply, Don't use reply-to information in case of "sent items"
 		if(!isSentFolder) {
@@ -401,6 +402,10 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 			// When we are in 'sent items', we want to include ourself in TO,CC,BCC
 			var loggedInEntryId = container.getUser().getEntryId();
 			addedRecipientEntryids.push(loggedInEntryId);
+			var loggedInSmtp = container.getUser().getSMTPAddress();
+			if (loggedInSmtp) {
+				addedRecipientSmtpAddrs.push(loggedInSmtp.toLowerCase());
+			}
 
 			// We always need to add the reply-to recipients except "sent items"
 			var replyTo = origRecord.getSubStore('reply-to');
@@ -409,9 +414,13 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 				this.addRecipientToStore(store, recipient, true);
 
 				var recipEntryid = recipient.get('entryid');
+				var recipSmtp = recipient.get('smtp_address');
 
-				// Store entryid of added recipient to prevent doubles
+				// Store entryid and smtp address of added recipient to prevent doubles
 				addedRecipientEntryids.push(recipEntryid);
+				if (recipSmtp) {
+					addedRecipientSmtpAddrs.push(recipSmtp.toLowerCase());
+				}
 			}, this);
 		}
 
@@ -428,9 +437,13 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 				}
 
 				var recipEntryid = recipient.get('entryid');
+				var recipSmtp = recipient.get('smtp_address');
 
-				// Check if entryid is in list of added recipients to prevent doubles.
-				// if no entryid is present then also add it as that can be SMTP address
+				// Check if recipient was already added by comparing
+				// entryids first, then fall back to SMTP address
+				// comparison.  The entryid check alone is not enough
+				// because the logged-in user's AB entryid can differ
+				// in type from the recipient entryid in the message.
 				var recipDuplicate = false;
 				if (recipEntryid) {
 					for (var i = 0; i < addedRecipientEntryids.length; i++) {
@@ -440,12 +453,18 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 						}
 					}
 				}
+				if (!recipDuplicate && recipSmtp) {
+					recipDuplicate = addedRecipientSmtpAddrs.indexOf(recipSmtp.toLowerCase()) >= 0;
+				}
 
 				if (!recipDuplicate) {
 					this.addRecipientToStore(store, recipient, false);
 
-					// Store entryid of added recipient to prevent doubles
+					// Store entryid and smtp address of added recipient to prevent doubles
 					addedRecipientEntryids.push(recipEntryid);
+					if (recipSmtp) {
+						addedRecipientSmtpAddrs.push(recipSmtp.toLowerCase());
+					}
 				}
 			}, this);
 
