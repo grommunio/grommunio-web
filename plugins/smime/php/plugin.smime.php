@@ -1394,8 +1394,9 @@ class Pluginsmime extends Plugin {
 			PR_MESSAGE_DELIVERY_TIME => $certData['validTo_time_t'],
 			PR_CLIENT_SUBMIT_TIME => $certData['validFrom_time_t'],
 			PR_SENDER_NAME => $certData['serialNumber'], // serial
-			PR_SENDER_EMAIL_ADDRESS => $issued_by, // Issuer To
-			PR_SUBJECT_PREFIX => $keyTypeJson, // Key type metadata (JSON)
+			PR_SENDER_EMAIL_ADDRESS => $issued_by, // Issued by
+			PR_SUBJECT_PREFIX => '', // Issued to
+			PR_SUPPLEMENTARY_INFO => $keyTypeJson, // Key type metadata (JSON)
 			PR_RECEIVED_BY_NAME => $this->fingerprint_cert($cert, 'sha1'), // SHA-1 Fingerprint
 			PR_INTERNET_MESSAGE_ID => $this->fingerprint_cert($cert, 'sha256'), // SHA-256 Fingerprint (primary)
 		]);

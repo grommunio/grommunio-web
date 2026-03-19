@@ -20,6 +20,7 @@ PR_CLIENT_SUBMIT_TIME      | validFrom time from the public certificate
 PR_SENDER_NAME             | The public certificate's serial number
 PR_SENDER_EMAIL_ADDRESS    | The issuer denoted as C=NL ST=Zuid-Holland
 PR_SUBJECT_PREFIX          | The subject denoted as C=NL .... CN=john
+PR_SUPPLEMENTARY_INFO      | Key type metadata (JSON)
 PR_RECEIVED_BY_NAME        | The SHA1 certificate finger print
 PR_INTERNET_MESSAGE_ID     | The MD5 certificate finger print
 
