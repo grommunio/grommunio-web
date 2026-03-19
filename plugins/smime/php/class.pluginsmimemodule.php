@@ -147,6 +147,10 @@ class PluginSmimeModule extends Module {
 			// For each certificate in MAPI store
 			$smtpAddress = $GLOBALS['mapisession']->getSMTPAddress();
 			for ($i = 0, $cnt = count($privateCerts); $i < $cnt; ++$i) {
+				// ignore the prefix as it is not relevant
+				if (str_starts_with($privateCerts[$i][PR_SUBJECT], $privateCerts[$i][PR_SUBJECT_PREFIX])) {
+					$privateCerts[$i][PR_SUBJECT] = substr($privateCerts[$i][PR_SUBJECT], strlen($privateCerts[$i][PR_SUBJECT_PREFIX]));
+				}
 				// Check if certificate is still valid
 				// TODO: create a more generic function which verifies if the certificate is valid
 				// And remove possible duplication from plugin.smime.php->onUploadCertificate
@@ -263,7 +267,13 @@ class PluginSmimeModule extends Module {
 		];
 		mapi_table_restrict($table, $restrict, TBL_BATCH);
 		mapi_table_sort($table, [PR_MESSAGE_DELIVERY_TIME => TABLE_SORT_DESCEND], TBL_BATCH);
-		$certs = mapi_table_queryallrows($table, [PR_SUBJECT, PR_ENTRYID, PR_MESSAGE_DELIVERY_TIME, PR_CLIENT_SUBMIT_TIME, PR_MESSAGE_CLASS, PR_SENDER_NAME, PR_SENDER_EMAIL_ADDRESS, PR_SUBJECT_PREFIX, PR_RECEIVED_BY_NAME, PR_INTERNET_MESSAGE_ID], $restrict);
+		$certs = mapi_table_queryallrows(
+			$table,
+			[
+				PR_SUBJECT, PR_ENTRYID, PR_MESSAGE_DELIVERY_TIME, PR_CLIENT_SUBMIT_TIME, PR_MESSAGE_CLASS, PR_SENDER_NAME,
+				PR_SENDER_EMAIL_ADDRESS, PR_SUBJECT_PREFIX, PR_RECEIVED_BY_NAME, PR_INTERNET_MESSAGE_ID, PR_SUPPLEMENTARY_INFO],
+			$restrict
+		);
 		foreach ($certs as $cert) {
 			$item = [];
 			$item['entryid'] = bin2hex((string) $cert[PR_ENTRYID]);
@@ -278,13 +288,22 @@ class PluginSmimeModule extends Module {
 			$msgClass = strtolower((string) $cert[PR_MESSAGE_CLASS]);
 			$item['type'] = ($msgClass === 'webapp.security.public') ? 'public' : 'private';
 
-			// Extract key type info from the certificate body
-			$certBody = $this->readCertificateBody($cert[PR_ENTRYID]);
-			$keyTypeInfo = $this->getKeyTypeFromBody($certBody, $item['type']);
+			if (isset($cert[PR_SUPPLEMENTARY_INFO]) && !empty($cert[PR_SUPPLEMENTARY_INFO])) {
+				$keyTypeInfo = json_decode($cert[PR_SUPPLEMENTARY_INFO], true);
+			}
+			else {
+				// Extract key type info from the certificate body
+				$certBody = $this->readCertificateBody($cert[PR_ENTRYID]);
+				$keyTypeInfo = $this->getKeyTypeFromBody($certBody, $item['type']);
+			}
 			$item['key_type'] = $keyTypeInfo['type'] ?? 'unknown';
 			$item['key_bits'] = $keyTypeInfo['bits'] ?? 0;
 			$item['curve_name'] = $keyTypeInfo['curve'] ?? '';
 			$item['purpose'] = $keyTypeInfo['purpose'] ?? 'both';
+
+			if (str_starts_with($item['email'], $item['issued_to'])) {
+				$item['email'] = substr($item['email'], strlen($item['issued_to']));
+			}
 
 			array_push($items, ['props' => $item]);
 		}
