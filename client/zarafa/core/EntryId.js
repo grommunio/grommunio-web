@@ -325,8 +325,7 @@ Zarafa.core.EntryId = (function()
 				return false;
 			}
 
-			if(entryId1 === entryId2) {
-				// if normal comparison succeeds then we can directly say that entryids are same
+			if(entryId1.toUpperCase() === entryId2.toUpperCase()) {
 				return true;
 			}
 			return false;
