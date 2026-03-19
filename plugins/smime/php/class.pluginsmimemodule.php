@@ -147,6 +147,10 @@ class PluginSmimeModule extends Module {
 			// For each certificate in MAPI store
 			$smtpAddress = $GLOBALS['mapisession']->getSMTPAddress();
 			for ($i = 0, $cnt = count($privateCerts); $i < $cnt; ++$i) {
+				// ignore the prefix as it is not relevant
+				if (str_starts_with($privateCerts[$i][PR_SUBJECT], $privateCerts[$i][PR_SUBJECT_PREFIX])) {
+					$privateCerts[$i][PR_SUBJECT] = substr($privateCerts[$i][PR_SUBJECT], strlen($privateCerts[$i][PR_SUBJECT_PREFIX]));
+				}
 				// Check if certificate is still valid
 				// TODO: create a more generic function which verifies if the certificate is valid
 				// And remove possible duplication from plugin.smime.php->onUploadCertificate
