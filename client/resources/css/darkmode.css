@@ -1079,7 +1079,7 @@ body.dark-mode [class*="k-day-"][class*="k-line-"].k-today.k-day-0 {
 }
 
 body.dark-mode .k-header {
-	background-color: var(--dm-bg-paper) !important;
+	background: var(--dm-bg-paper) !important;
 	color: var(--dm-fg);
 }
 
