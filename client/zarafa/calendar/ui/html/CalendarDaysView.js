@@ -237,11 +237,10 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 		this.headerAppointmentLayer.setSize(width, height);
 		this.headerAppointmentLayer.dom.innerHTML = '';
 
-		// Set the background gradient
+		// Set the background color
 		var headerColor = this.calendarColorScheme.header;
-		var lighterColor = Zarafa.core.ColorSchemes.createLightColor(this.calendarColorScheme.base, 1.4);
 		this.headerBackgroundLayer.setStyle({
-			'background': 'linear-gradient(to bottom, ' + headerColor + ', ' + lighterColor + ')'
+			'background': headerColor
 		});
 
 		// Check if we have a light or dark color

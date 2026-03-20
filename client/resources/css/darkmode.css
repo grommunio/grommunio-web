@@ -1099,7 +1099,7 @@ body.dark-mode .k-calendar-timestrip-indicator-line {
 /* Calendar current day */
 body.dark-mode .zarafa-calendar-container-header .k-html-header-background .k-today .k-cal-header-title,
 body.dark-mode .zarafa-calendar-boxview .zarafa-calendar-container-body .k-html-body-background .k-today .k-header {
-	background: linear-gradient(to bottom, var(--dm-selected), color-mix(in srgb, var(--dm-selected), var(--dm-bg) 25%)) !important;
+	background: var(--dm-selected) !important;
 }
 
 /* Calendar borders */

@@ -135,11 +135,10 @@ Zarafa.calendar.ui.html.CalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstract
 		this.headerBackgroundLayer.setSize(width, height);
 		this.headerBackgroundLayer.dom.innerHTML = '';
 
-		// Set the background gradient
+		// Set the background color
 		var headerColor = this.calendarColorScheme.header;
-		var lighterColor = Zarafa.core.ColorSchemes.createLightColor(this.calendarColorScheme.base, 1.4);
 		this.headerBackgroundLayer.setStyle({
-			'background': 'linear-gradient(to bottom, ' + headerColor + ', ' + lighterColor + ')'
+			'background': headerColor
 		});
 
 		// Check if we have a light or dark color
@@ -215,8 +214,7 @@ Zarafa.calendar.ui.html.CalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstract
 			'msGridColumns': templateColumns
 		});
 
-		var headerBgStart = Zarafa.core.ColorSchemes.createLightColor(this.calendarColorScheme.base, 1.6);
-		var headerBgEnd = Zarafa.core.ColorSchemes.createLightColor(this.calendarColorScheme.base, 1.85);
+		var headerBgColor = Zarafa.core.ColorSchemes.createLightColor(this.calendarColorScheme.base, 1.6);
 		var boxWidth = this.bodyAppointmentLayer.getWidth() / this.numDaysInWeek;
 		var boxHeight = this.bodyAppointmentLayer.getHeight() / visibleWeeks;
 		this.dayBoxConfigurations.forEach(function(dayBox, i) {
@@ -272,7 +270,7 @@ Zarafa.calendar.ui.html.CalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstract
 			var hdr = cell.createChild({
 				cls: 'k-header',
 				html: dayBox.date.format(_("jS")),
-				style: 'background:linear-gradient(to bottom, ' + headerBgStart + ', ' + headerBgEnd + ')',
+				style: 'background:' + headerBgColor,
 				role: 'button',
 				tabindex: '0',
 				'aria-label': dayBox.date.format(_("F j"))

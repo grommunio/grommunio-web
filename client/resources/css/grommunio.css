@@ -2805,7 +2805,7 @@ span.preview-header-sender-image {
     overflow: hidden;
     text-overflow: ellipsis; }
   .zarafa-calendar-container-header .k-html-header-background .k-today .k-cal-header-title {
-    background: linear-gradient(to bottom, #5ebb4b, #7ecc6f);
+    background: #5ebb4b;
     color: #ffffff; }
   .zarafa-calendar-container-header .k-html-header-background .k-active-border {
     border-right: 1px solid #5ebb4b; }
@@ -2930,7 +2930,7 @@ span.preview-header-sender-image {
     border-right-width: 3px;
     border-bottom-width: 3px; }
     .zarafa-calendar-boxview .zarafa-calendar-container-body .k-html-body-background .k-today .k-header {
-      background: linear-gradient(to bottom, #5ebb4b, #7ecc6f) !important;
+      background: #5ebb4b !important;
       color: #ffffff; }
   .zarafa-calendar-boxview .zarafa-calendar-container-body .k-html-body-background .k-status-tentative {
     background-image: url(data:image/gif;base64,R0lGODlhCAAIAIABAP///wAAACH5BAEKAAEALAAAAAAIAAgAAAIPhIN2qRgKHIwPslZxpq8AADs=);
