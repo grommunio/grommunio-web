@@ -152,7 +152,7 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 			xtype: 'button',
 			overflowText: _('Send'),
 			text: _('Send'),
-			tooltip: _('Send') + ' (Ctrl + Enter)',
+			tooltip: _('Send') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + Enter', true),
 			iconCls: 'icon_send_white',
 			cls: 'button_sendMail zarafa-action',
 			ref: 'sendInvitation',
@@ -162,7 +162,7 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 			xtype: 'button',
 			text: _('Save')+' & '+_('Close'),
 			overflowText: _('Save')+' & '+_('Close'),
-			tooltip: _('Save')+' & '+_('Close') + ' (Ctrl + S)',
+			tooltip: _('Save')+' & '+_('Close') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + S', true),
 			cls: 'zarafa-action',
 			iconCls: 'icon_save_white',
 			ref: 'saveAppointment',
@@ -171,7 +171,7 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 		},{
 			xtype: 'button',
 			overflowText: _('Save'),
-			tooltip: _('Save') + ' (Ctrl + S)',
+			tooltip: _('Save') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + S', true),
 			cls: 'tb-calendar-btn-save',
 			iconCls: 'icon_floppy',
 			ref: 'saveMeeting',
@@ -487,7 +487,7 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 	onSaveButtonBeforeShow: function(button)
 	{
 		if(this.record.isMeetingReceived()) {
-			button.setTooltip(_('Save') + ' (Ctrl + S)');
+			button.setTooltip(_('Save') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + S', true));
 		}
 	},
 

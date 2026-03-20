@@ -202,7 +202,7 @@ Zarafa.core.ui.MainTabBar = Ext.extend(Ext.Toolbar, {
 		var contextItems = [];
 		contextItems = contextItems.concat(leftItems, rightItems);
 		Ext.each(contextItems, function(context, index) {
-			context.tooltip = context.text + ' (Ctrl + '+index+')';
+			context.tooltip = context.text + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + '+index, false);
 		});
 	},
 

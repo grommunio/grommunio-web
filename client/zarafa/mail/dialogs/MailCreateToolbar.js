@@ -83,7 +83,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			text: _('Send'),
 			overflowText: _('Send'),
 			ref: 'sendButton',
-			tooltip: _('Send') + ' (Ctrl + Enter)',
+			tooltip: _('Send') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + Enter', true),
 			menu: {
 				defaults: {
 					plugins: 'zarafa.menuitemtooltipplugin'
@@ -92,7 +92,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 					text: _('Send'),
 					iconCls: 'icon_send_black',
 					handler: this.onSendButton,
-					tooltip: _('Send') + ' (Ctrl + Enter)',
+					tooltip: _('Send') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + Enter', true),
 					scope: this
 				}, {
 					text: _('Send Later'),
@@ -110,7 +110,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			xtype: 'button',
 			ref: 'saveBtn',
 			overflowText: _('Save'),
-			tooltip: _('Save') + ' (Ctrl + S)',
+			tooltip: _('Save') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + S', true),
 			iconCls: 'icon_floppy',
 			handler: this.onSaveButton,
 			scope: this
@@ -620,7 +620,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 
 		// Change the tooltip accordingly
 		if (isAllAttachUploaded) {
-			this.saveBtn.setTooltip(_('Save') + ' (Ctrl + S)');
+			this.saveBtn.setTooltip(_('Save') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + S', true));
 		} else {
 			this.saveBtn.setTooltip(_('Cannot save while attachment is being uploaded'));
 		}

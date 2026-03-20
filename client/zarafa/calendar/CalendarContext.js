@@ -645,7 +645,7 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 		return {
 			xtype: 'menuitem',
 			id: 'zarafa-maintoolbar-newitem-appointment',
-			tooltip: _('Appointment') + ' (Ctrl + Alt + A)',
+			tooltip: _('Appointment') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + Alt + A', false),
 			plugins: 'zarafa.menuitemtooltipplugin',
 			text: _('Appointment'),
 			handler: function()
@@ -669,7 +669,7 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 		return {
 			xtype: 'menuitem',
 			id: 'zarafa-maintoolbar-newitem-meetingrequest',
-			tooltip: _('Meeting request')+' (Ctrl + Alt + V)',
+			tooltip: _('Meeting request') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + Alt + V', false),
 			plugins: 'zarafa.menuitemtooltipplugin',
 			text: _('Meeting request'),
 			handler: function()
@@ -695,7 +695,7 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 			id: 'zarafa-maintoolbar-print-selectedappointment',
 			overflowText: _('Print selected appointment'),
 			iconCls: 'icon_print_appt',
-			tooltip: _('Print selected appointment') + ' (Ctrl + P)',
+			tooltip: _('Print selected appointment') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + P', true),
 			plugins: 'zarafa.menuitemtooltipplugin',
 			text: _('Print selected appointment'),
 			hideOnDisabled: false,
@@ -708,7 +708,7 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 			overflowText: _('Print overview'),
 			iconCls: 'icon_print',
 			text: _('Print overview'),
-			tooltip: _('Print overview') + ' (Ctrl + Alt + P)',
+			tooltip: _('Print overview') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + Alt + P', false),
 			plugins: 'zarafa.menuitemtooltipplugin',
 			handler: this.onPrintView,
 			scope: this,

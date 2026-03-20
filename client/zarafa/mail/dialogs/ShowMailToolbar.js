@@ -63,7 +63,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 			xtype: 'button',
 			rowspan: 2,
 			text: _('Reply'),
-			tooltip: _('Reply') + ' (Ctrl + R)',
+			tooltip: _('Reply') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + R', false),
 			overflowText: _('Reply'),
 			cls: 'zarafa-action',
 			iconCls: 'icon_reply',
@@ -78,7 +78,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 		},{
 			xtype: 'button',
 			text: _('Reply All'),
-			tooltip: _('Reply All') + ' (Ctrl + Alt + R)',
+			tooltip: _('Reply All') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + Alt + R', false),
 			overflowText: _('Reply All'),
 			iconCls: 'icon_reply_all',
 			ref: 'replyAllBtn',
@@ -88,7 +88,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 		},{
 			xtype: 'button',
 			text: _('Forward'),
-			tooltip: _('Forward') + ' (Ctrl + F)',
+			tooltip: _('Forward') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + F', false),
 			overflowText: _('Forward'),
 			iconCls: 'icon_forward',
 			ref: 'forwardBtn',

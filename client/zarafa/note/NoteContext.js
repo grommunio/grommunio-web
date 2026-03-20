@@ -277,7 +277,7 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 		return {
 			xtype: 'menuitem',
 			id: 'zarafa-maintoolbar-newitem-note',
-			tooltip: _('Sticky note')+' (Ctrl + Alt + S)',
+			tooltip: _('Sticky note') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + Alt + S', false),
 			plugins: 'zarafa.menuitemtooltipplugin',
 			text: _('Sticky note'),
 			iconCls: 'icon_new_note',
@@ -306,7 +306,7 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 			id: 'zarafa-maintoolbar-print-selectednote',
 			overflowText: _('Print selected note'),
 			iconCls: 'icon_print_note',
-			tooltip: _('Print selected note') + ' (Ctrl + P)',
+			tooltip: _('Print selected note') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + P', true),
 			plugins: 'zarafa.menuitemtooltipplugin',
 			text: _('Print selected note'),
 			hideOnDisabled: false,

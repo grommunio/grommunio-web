@@ -37,7 +37,7 @@ Zarafa.advancesearch.ui.SearchResultPreviewPanel = Ext.extend(Zarafa.core.ui.Pre
 				height: 33,
 				items: [{
 					xtype: 'button',
-					tooltip: _('Reply') + ' (Ctrl + R)',
+					tooltip: _('Reply') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + R', false),
 					overflowText: _('Reply'),
 					iconCls: 'icon_reply',
 					ref: 'replyBtn',
@@ -46,7 +46,7 @@ Zarafa.advancesearch.ui.SearchResultPreviewPanel = Ext.extend(Zarafa.core.ui.Pre
 					scope: this
 				},{
 					xtype: 'button',
-					tooltip: _('Reply All') + ' (Ctrl + Alt + R)',
+					tooltip: _('Reply All') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + Alt + R', false),
 					overflowText: _('Reply All'),
 					iconCls: 'icon_reply_all',
 					ref: 'replyAllBtn',
@@ -55,7 +55,7 @@ Zarafa.advancesearch.ui.SearchResultPreviewPanel = Ext.extend(Zarafa.core.ui.Pre
 					scope: this
 				},{
 					xtype: 'button',
-					tooltip: _('Forward') + ' (Ctrl + F)',
+					tooltip: _('Forward') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + F', false),
 					overflowText: _('Forward'),
 					iconCls: 'icon_forward',
 					ref: 'forwardBtn',
@@ -64,7 +64,7 @@ Zarafa.advancesearch.ui.SearchResultPreviewPanel = Ext.extend(Zarafa.core.ui.Pre
 					scope: this
 				},{
 					xtype: 'button',
-					tooltip: _('Edit as New') + ' (Ctrl + E)',
+					tooltip: _('Edit as New') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + E', false),
 					overflowText: _('Edit as New'),
 					iconCls: 'icon_edit_as_new_mail',
 					ref: 'editAsNewBtn',

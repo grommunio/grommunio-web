@@ -48,7 +48,7 @@ Zarafa.advancesearch.dialogs.SearchToolbarPanel = Ext.extend(Ext.Panel, {
 				items: [container.populateInsertionPoint('previewpanel.toolbar.left', {scope: this, model: config.model}),
 				{
 					xtype: 'button',
-					tooltip: _('Reply') + ' (Ctrl + R)',
+					tooltip: _('Reply') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + R', false),
 					overflowText: _('Reply'),
 					text: _('Reply'),
 					iconCls: 'icon_reply',
@@ -58,7 +58,7 @@ Zarafa.advancesearch.dialogs.SearchToolbarPanel = Ext.extend(Ext.Panel, {
 					scope: this
 				},{
 					xtype: 'button',
-					tooltip: _('Reply All') + ' (Ctrl + Alt + R)',
+					tooltip: _('Reply All') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + Alt + R', false),
 					overflowText: _('Reply All'),
 					text: _('Reply All'),
 					iconCls: 'icon_reply_all',
@@ -68,7 +68,7 @@ Zarafa.advancesearch.dialogs.SearchToolbarPanel = Ext.extend(Ext.Panel, {
 					scope: this
 				},{
 					xtype: 'button',
-					tooltip: _('Forward') + ' (Ctrl + F)',
+					tooltip: _('Forward') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + F', false),
 					overflowText: _('Forward'),
 					text: _('Forward'),
 					iconCls: 'icon_forward',
@@ -82,7 +82,7 @@ Zarafa.advancesearch.dialogs.SearchToolbarPanel = Ext.extend(Ext.Panel, {
 				container.populateInsertionPoint('previewpanel.toolbar.right.first', {scope: this, model: config.model}),
 				{
 					xtype: 'button',
-					tooltip: _('Edit as New') + ' (Ctrl + E)',
+					tooltip: _('Edit as New') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + E', false),
 					overflowText: _('Edit as New'),
 					iconCls: 'icon_edit_as_new_mail',
 					ref: 'editAsNewBtn',

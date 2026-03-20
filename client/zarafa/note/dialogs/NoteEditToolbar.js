@@ -53,7 +53,7 @@ Zarafa.note.dialogs.NoteEditToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 			ref: 'saveBtn',
 			text: _('Save'),
 			overflowText: _('Save'),
-			tooltip: _('Save') + ' (Ctrl + S)',
+			tooltip: _('Save') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + S', true),
 			cls: 'zarafa-action',
 			iconCls: 'icon_save_white',
 			handler: this.onSaveButton,

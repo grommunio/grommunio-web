@@ -424,7 +424,7 @@ Zarafa.contact.ContactContext = Ext.extend(Zarafa.core.Context, {
 			xtype: 'menuitem',
 			id: 'zarafa-maintoolbar-newitem-contact',
 			text: _('Contact'),
-			tooltip: _('Contact') + ' (Ctrl + Alt + C)',
+			tooltip: _('Contact') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + Alt + C', false),
 			plugins: 'zarafa.menuitemtooltipplugin',
 			handler: function()
 			{
@@ -490,7 +490,7 @@ Zarafa.contact.ContactContext = Ext.extend(Zarafa.core.Context, {
 			id: 'zarafa-maintoolbar-print-selectedcontact',
 			overflowText: _('Print selected contact'),
 			iconCls: 'icon_print_contact',
-			tooltip: _('Print selected contact') + ' (Ctrl + P)',
+			tooltip: _('Print selected contact') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + P', true),
 			plugins: 'zarafa.menuitemtooltipplugin',
 			text: _('Print selected contact'),
 			hideOnDisabled: false,
@@ -517,7 +517,7 @@ Zarafa.contact.ContactContext = Ext.extend(Zarafa.core.Context, {
 		return {
 			xtype: 'menuitem',
 			id: 'zarafa-maintoolbar-newitem-distlist',
-			tooltip: _('Distribution list') + ' (Ctrl + Alt + D)',
+			tooltip: _('Distribution list') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + Alt + D', false),
 			plugins: 'zarafa.menuitemtooltipplugin',
 			text: _('Distribution list'),
 			handler: function()

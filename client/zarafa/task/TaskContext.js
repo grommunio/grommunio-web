@@ -377,7 +377,7 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 
 			xtype	: 'menuitem',
 			id: 'zarafa-maintoolbar-newitem-task',
-			tooltip: _('Task')+' (Ctrl + Alt + K)',
+			tooltip: _('Task') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + Alt + K', false),
 			plugins: 'zarafa.menuitemtooltipplugin',
 			text	: _('Task'),
 			handler	: function(){
@@ -430,7 +430,7 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 			id: 'zarafa-maintoolbar-print-selectedtask',
 			overflowText: _('Print selected task'),
 			iconCls: 'icon_print_task',
-			tooltip: _('Print selected task') + ' (Ctrl + P)',
+			tooltip: _('Print selected task') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + P', true),
 			plugins: 'zarafa.menuitemtooltipplugin',
 			text: _('Print selected task'),
 			hideOnDisabled: false,
@@ -441,7 +441,7 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 			overflowText: _('Print task list'),
 			id: 'zarafa-maintoolbar-print-tasklist',
 			iconCls: 'icon_print',
-			tooltip: _('Print task list') + ' (Ctrl + Alt + P)',
+			tooltip: _('Print task list') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + Alt + P', false),
 			plugins: 'zarafa.menuitemtooltipplugin',
 			text: _('Print task list'),
 			handler: this.onPrintList,

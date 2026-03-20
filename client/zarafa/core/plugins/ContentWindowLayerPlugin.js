@@ -70,7 +70,7 @@ Zarafa.core.plugins.ContentWindowLayerPlugin = Ext.extend(Zarafa.core.plugins.Co
 		var el = this.el;
 		var closeTab = Ext.get(el).child('.x-tool-close', true);
 		if(closeTab) {
-			closeTab.qtip = _('Close') + ' (Ctrl + Alt + W)';
+			closeTab.qtip = _('Close') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + Alt + W', false);
 		}
 	},
 

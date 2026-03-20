@@ -35,7 +35,7 @@ Zarafa.hierarchy.ui.HierarchyTreeBottomBar = Ext.extend(Ext.Container, {
 			items: [{
 				cls: 'zarafa-hierarchy-treepanel-footer-opensharedfolder',
 				xtype: 'button',
-				tooltip: buttonText + ' (Alt + S)',
+				tooltip: buttonText + Zarafa.core.KeyMapMgr.formatShortcutHint('Alt + S', false),
 				text: buttonText + ' + ',
 				handler: this.openSharedFolder.createDelegate(this)
 			}]

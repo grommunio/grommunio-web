@@ -248,7 +248,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 						id: 'zarafa-maintoolbar-view-'+context.getName(),
 						scale: 'large',
 						iconCls: 'icon_large_view',
-						tooltip: _('Switch view') + ' (Ctrl + Alt + 1..9)',
+						tooltip: _('Switch view') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + Alt + 1..9', false),
 						hidden: true,
 						contextName: context.getName(),
 						menu: Zarafa.core.Util.uniqueArray(menu, 'text'),
@@ -270,7 +270,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 
 						// Move the 'text' property to the tooltip
 						var viewCounter = j + 1;
-						item.tooltip = item.text + ' (Ctrl + Alt + '+ viewCounter +')';
+						item.tooltip = item.text + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + Alt + '+ viewCounter, false);
 						delete item.text;
 
 						item.listeners = Zarafa.core.Util.mergeListeners(item.listeners, {
@@ -384,7 +384,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 					name: 'defaultPrintBtn',
 					scale: 'large',
 					iconCls: 'icon_large_print',
-					tooltip: _('Print') + ' (Ctrl + P)',
+					tooltip: _('Print') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + P', true),
 					handler: menu[0].handler,
 					scope: menu[0].scope,
 					hidden: true,

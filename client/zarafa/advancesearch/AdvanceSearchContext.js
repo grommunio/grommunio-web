@@ -38,7 +38,7 @@ Zarafa.advancesearch.AdvanceSearchContext = Ext.extend(Zarafa.core.Context, {
 			id: 'zarafa-maintoolbar-print-singleitem',
 			overflowText: _('Print single item'),
 			iconCls: 'icon_print',
-			tooltip: _('Print selected item') + ' (Ctrl + P)',
+			tooltip: _('Print selected item') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + P', true),
 			plugins: 'zarafa.menuitemtooltipplugin',
 			text: _('Print single item'),
 			hideOnDisabled: false,

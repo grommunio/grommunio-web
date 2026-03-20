@@ -53,7 +53,7 @@ Zarafa.contact.dialogs.ContactToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			ref: 'saveCloseBtn',
 			text: _('Save')+' & '+_('Close'),
 			overflowText: _('Save')+' & '+_('Close'),
-			tooltip: _('Save')+' & '+_('Close') + ' (Ctrl + S)',
+			tooltip: _('Save')+' & '+_('Close') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + S', true),
 			cls: 'zarafa-action',
 			iconCls: 'icon_save_white',
 			handler: this.onSave,
@@ -82,7 +82,7 @@ Zarafa.contact.dialogs.ContactToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 		},{
 			xtype: 'button',
 			overflowText: _('Print'),
-			tooltip: _('Print') + ' (Ctrl + P)',
+			tooltip: _('Print') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + P', true),
 			iconCls: 'icon_print',
 			handler: this.onPrint,
 			scope: this

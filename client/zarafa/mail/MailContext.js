@@ -392,7 +392,7 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 		return {
 			xtype: 'menuitem',
 			id: 'zarafa-maintoolbar-newitem-mail',
-			tooltip: _('Email')+ ' (Ctrl + Alt + X)',
+			tooltip: _('Email') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + Alt + X', false),
 			plugins: 'zarafa.menuitemtooltipplugin',
 			text: _('Email'),
 			iconCls: 'icon_new_email',
@@ -592,7 +592,7 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 			id: 'zarafa-maintoolbar-print-singlemail',
 			overflowText: _('Print single email'),
 			iconCls: 'icon_print',
-			tooltip: _('Print selected email') + ' (Ctrl + P)',
+			tooltip: _('Print selected email') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + P', true),
 			plugins: 'zarafa.menuitemtooltipplugin',
 			text: _('Print single email'),
 			hideOnDisabled: false,

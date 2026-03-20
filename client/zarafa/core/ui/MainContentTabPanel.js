@@ -130,7 +130,7 @@ Zarafa.core.ui.MainContentTabPanel = Ext.extend(Ext.TabPanel, {
 		var el = item.tabEl;
 		var closeTab = Ext.get(el).child('.x-tab-strip-close', true);
 		if(closeTab) {
-			closeTab.qtip = _('Close') + ' (Ctrl + Alt + W)';
+			closeTab.qtip = _('Close') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + Alt + W', false);
 		}
 	},
 
@@ -218,7 +218,7 @@ Zarafa.core.ui.MainContentTabPanel = Ext.extend(Ext.TabPanel, {
 
 		// set tooltip on add button
 		var addBtn = edge.child('.x-tab-add', true);
-		addBtn.qtip = _('New item') + ' (Ctrl + Alt + N)';
+		addBtn.qtip = _('New item') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + Alt + N', false);
 	},
 
 	/**

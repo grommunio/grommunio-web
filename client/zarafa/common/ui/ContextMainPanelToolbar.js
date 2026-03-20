@@ -66,7 +66,7 @@ Zarafa.common.ui.ContextMainPanelToolbar = Ext.extend(Ext.Toolbar, {
 		{
 			xtype: 'zarafa.toolbarbutton',
 			overflowText: _('Copy/Move'),
-			tooltip: _('Copy/Move') + ' (Ctrl + M)',
+			tooltip: _('Copy/Move') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + M', false),
 			iconCls: 'icon_copy',
 			ref: 'copyButton',
 			nonEmptySelectOnly: true,

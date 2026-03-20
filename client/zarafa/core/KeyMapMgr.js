@@ -354,6 +354,30 @@ Zarafa.core.KeyMapMgr = Ext.extend(Object, {
 	isGloballyEnabled: function()
 	{
 		return container.getSettingsModel().get('zarafa/v1/main/keycontrols') !== Zarafa.settings.data.KeyboardSettings.NO_KEYBOARD_SHORTCUTS;
+	},
+
+	/**
+	 * Format a keyboard shortcut hint for display in tooltips.
+	 * Returns an empty string when the shortcut is not active
+	 * under the current keyboard settings. Substitutes Cmd for
+	 * Ctrl on macOS.
+	 * @param {String} hint Human-readable shortcut (e.g. 'Ctrl + S')
+	 * @param {Boolean} basic True when this is a basic shortcut
+	 * @return {String} Formatted hint like ' (Ctrl + S)' or ''
+	 */
+	formatShortcutHint: function(hint, basic)
+	{
+		var setting = container.getSettingsModel().get('zarafa/v1/main/keycontrols');
+		if (setting === 'disabled') {
+			return '';
+		}
+		if (setting === 'basic' && basic !== true) {
+			return '';
+		}
+		if (Ext.isMac) {
+			hint = hint.replace(/Ctrl/g, 'Cmd');
+		}
+		return ' (' + hint + ')';
 	}
 });
 
