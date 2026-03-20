@@ -254,38 +254,69 @@ Zarafa.core.DarkMode = {
 	updateMailPreview: function()
 	{
 		var isDark = this.isDark();
-		var iframes = document.querySelectorAll('.preview-iframe');
 
-		for (var i = 0; i < iframes.length; i++) {
-			this.applyDarkToIframe(iframes[i], isDark);
-
-			// Listen for future content loads in this iframe
-			if (!iframes[i]._darkModeListener) {
-				iframes[i]._darkModeListener = true;
-				var self = this;
-				iframes[i].addEventListener('load', function() {
-					self.applyDarkToIframe(this, self.isDark());
-				});
-			}
-		}
-
-		// Observe DOM for new preview iframes being added
-		if (!this._previewObserver) {
-			var self = this;
-			this._previewObserver = new MutationObserver(function() {
-				var dark = self.isDark();
-				var newIframes = document.querySelectorAll('.preview-iframe');
-				for (var j = 0; j < newIframes.length; j++) {
-					self.applyDarkToIframe(newIframes[j], dark);
-					if (!newIframes[j]._darkModeListener) {
-						newIframes[j]._darkModeListener = true;
-						newIframes[j].addEventListener('load', function() {
-							self.applyDarkToIframe(this, self.isDark());
-						});
+		// Collect all documents to scan: main window + pop-out windows
+		var docs = [document];
+		if (Zarafa.core.BrowserWindowMgr && Zarafa.core.BrowserWindowMgr.browserWindows) {
+			Zarafa.core.BrowserWindowMgr.browserWindows.each(function(win) {
+				try {
+					if (win && win.document && win.document !== document) {
+						docs.push(win.document);
 					}
+				} catch (e) {
+					// cross-origin or closed window
 				}
 			});
-			this._previewObserver.observe(document.body, { childList: true, subtree: true });
+		}
+
+		var self = this;
+		for (var d = 0; d < docs.length; d++) {
+			var doc = docs[d];
+			var iframes = doc.querySelectorAll('.preview-iframe');
+
+			for (var i = 0; i < iframes.length; i++) {
+				this.applyDarkToIframe(iframes[i], isDark);
+
+				if (!iframes[i]._darkModeListener) {
+					iframes[i]._darkModeListener = true;
+					iframes[i].addEventListener('load', function() {
+						self.applyDarkToIframe(this, self.isDark());
+					});
+				}
+			}
+
+			// Set up a MutationObserver per document
+			if (!doc._grommunioDarkObserver) {
+				doc._grommunioDarkObserver = new MutationObserver(function() {
+					var dark = self.isDark();
+					// Re-scan all documents when any DOM changes
+					var allDocs = [document];
+					if (Zarafa.core.BrowserWindowMgr && Zarafa.core.BrowserWindowMgr.browserWindows) {
+						Zarafa.core.BrowserWindowMgr.browserWindows.each(function(win) {
+							try {
+								if (win && win.document && win.document !== document) {
+									allDocs.push(win.document);
+								}
+							} catch (e) {}
+						});
+					}
+					for (var k = 0; k < allDocs.length; k++) {
+						var found = allDocs[k].querySelectorAll('.preview-iframe');
+						for (var j = 0; j < found.length; j++) {
+							self.applyDarkToIframe(found[j], dark);
+							if (!found[j]._darkModeListener) {
+								found[j]._darkModeListener = true;
+								found[j].addEventListener('load', function() {
+									self.applyDarkToIframe(this, self.isDark());
+								});
+							}
+						}
+					}
+				});
+				if (doc.body) {
+					doc._grommunioDarkObserver.observe(doc.body, { childList: true, subtree: true });
+				}
+			}
 		}
 	},
 
