@@ -291,6 +291,11 @@ Zarafa.core.DarkMode = {
 
 	/**
 	 * Apply or remove dark mode styles to/from a preview iframe.
+	 * Uses CSS filter inversion for dark mode: invert(1) flips brightness
+	 * while hue-rotate(180deg) preserves original hues. Images and media
+	 * are re-inverted so photos and logos appear in their original colors.
+	 * Emails that are already dark-themed are detected by luminance analysis
+	 * and left untouched (only the background is adjusted to match the theme).
 	 * @param {HTMLIFrameElement} iframe
 	 * @param {Boolean} isDark
 	 * @private
@@ -308,30 +313,143 @@ Zarafa.core.DarkMode = {
 				existing.parentNode.removeChild(existing);
 			}
 
-			if (doc.head) {
-				var style = doc.createElement('style');
-				style.id = 'grommunio-dark-preview';
-
-				// Scrollbar styling for both modes — standard properties only
-				var scrollbarCss = isDark
-					? '* { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.15) transparent; }'
-					: '* { scrollbar-width: thin; scrollbar-color: rgba(0,0,0,0.15) transparent; }';
-
-				if (isDark) {
-					style.textContent = scrollbarCss +
-						'html { background-color: #1e1e1e !important; color: #d4d4d4 !important; }' +
-						'body { background-color: #1e1e1e !important; color: #d4d4d4 !important; }' +
-						'a { color: #6db3f2 !important; }' +
-						'table, td, th, tr, div, span, p, blockquote, pre, li, ul, ol, h1, h2, h3, h4, h5, h6 {' +
-						'  background-color: inherit; color: inherit; border-color: #444 !important; }';
-				} else {
-					style.textContent = scrollbarCss;
-				}
-
-				doc.head.appendChild(style);
+			// Clean up any JS-applied background from previous invocation
+			if (doc.body.style.getPropertyValue('--grommunio-dark-bg')) {
+				doc.body.style.removeProperty('background-color');
+				doc.body.style.removeProperty('--grommunio-dark-bg');
 			}
+
+			if (!doc.head) {
+				return;
+			}
+
+			var style = doc.createElement('style');
+			style.id = 'grommunio-dark-preview';
+
+			var scrollbarCss = isDark
+				? '* { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.15) transparent; }'
+				: '* { scrollbar-width: thin; scrollbar-color: rgba(0,0,0,0.15) transparent; }';
+
+			if (isDark) {
+				var luminance = this.getEmailLuminance(doc);
+
+				if (luminance < 0.2) {
+					// Already dark-themed email — just harmonize background
+					style.textContent = scrollbarCss +
+						'html { background-color: #1e1e1e !important; }';
+				} else {
+					// Light email — apply smart CSS filter inversion.
+					// #e1e1e1 is the pre-inversion value that maps to exactly
+					// #1e1e1e (--dm-bg-paper) after invert(1).
+					style.textContent = scrollbarCss +
+						'html {' +
+						'  filter: invert(1) hue-rotate(180deg);' +
+						'  background-color: #e1e1e1 !important;' +
+						'  min-height: 100%;' +
+						'}' +
+						// Re-invert media so images/videos show original colors.
+						// invert(1) applied twice is the identity function.
+						'img, video, canvas, svg,' +
+						'[style*="background-image"] {' +
+						'  filter: invert(1) hue-rotate(180deg) !important;' +
+						'}' +
+						// Media nested inside a re-inverted background-image
+						// container must not be re-inverted again (that would
+						// cause a triple inversion = one net inversion).
+						'[style*="background-image"] img,' +
+						'[style*="background-image"] video,' +
+						'[style*="background-image"] canvas,' +
+						'[style*="background-image"] svg {' +
+						'  filter: none !important;' +
+						'}';
+
+					this.adjustBodyBackground(doc);
+				}
+			} else {
+				style.textContent = scrollbarCss;
+			}
+
+			doc.head.appendChild(style);
 		} catch (e) {
 			// Cross-origin iframe
+		}
+	},
+
+	/**
+	 * Calculate the perceived luminance of the email's background color.
+	 * Checks the body first, then falls back to the first wrapper element
+	 * (table or div), since many HTML emails set their background there.
+	 * @param {Document} doc The iframe document
+	 * @return {Number} Luminance between 0.0 (black) and 1.0 (white)
+	 * @private
+	 */
+	getEmailLuminance: function(doc)
+	{
+		try {
+			if (!doc.defaultView || !doc.body) {
+				return 1.0;
+			}
+
+			var bg = doc.defaultView.getComputedStyle(doc.body).backgroundColor;
+
+			// Transparent body — check the first wrapper element
+			if (!bg || bg === 'rgba(0, 0, 0, 0)' || bg === 'transparent') {
+				var wrapper = doc.body.querySelector('table, div');
+				if (wrapper) {
+					bg = doc.defaultView.getComputedStyle(wrapper).backgroundColor;
+				}
+				if (!bg || bg === 'rgba(0, 0, 0, 0)' || bg === 'transparent') {
+					return 1.0;
+				}
+			}
+
+			return this.parseLuminance(bg);
+		} catch (e) {
+			return 1.0;
+		}
+	},
+
+	/**
+	 * Parse a CSS rgb/rgba color string and return its relative luminance
+	 * (Rec. 709 coefficients).
+	 * @param {String} color CSS color like 'rgb(255, 255, 255)'
+	 * @return {Number} Luminance between 0.0 and 1.0, or 1.0 on parse failure
+	 * @private
+	 */
+	parseLuminance: function(color)
+	{
+		var m = color.match(/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/);
+		if (!m) {
+			return 1.0;
+		}
+		var r = parseInt(m[1], 10) / 255;
+		var g = parseInt(m[2], 10) / 255;
+		var b = parseInt(m[3], 10) / 255;
+		return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+	},
+
+	/**
+	 * Set the email body background to the pre-inversion value (#e1e1e1)
+	 * when it is white or transparent, so that after invert(1) it becomes
+	 * exactly #1e1e1e — matching the dark theme seamlessly.
+	 * @param {Document} doc The iframe document
+	 * @private
+	 */
+	adjustBodyBackground: function(doc)
+	{
+		try {
+			if (!doc.defaultView || !doc.body) {
+				return;
+			}
+			var bg = doc.defaultView.getComputedStyle(doc.body).backgroundColor;
+			if (!bg || bg === 'rgba(0, 0, 0, 0)' || bg === 'transparent' ||
+				this.parseLuminance(bg) > 0.9) {
+				doc.body.style.backgroundColor = '#e1e1e1';
+				// Mark so we can clean up when switching back to light mode
+				doc.body.style.setProperty('--grommunio-dark-bg', '1');
+			}
+		} catch (e) {
+			// Ignore
 		}
 	}
 };
