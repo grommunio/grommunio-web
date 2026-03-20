@@ -169,7 +169,11 @@ class Conversion {
 
 			switch (mapi_prop_type($property)) {
 				case PT_BINARY:
-					$value = bin2hex((string) $value);
+					// PR_HTML has PT_BINARY prop type, but it is not necessary
+					// to convert it to hex.
+					if ($property != PR_HTML) {
+						$value = bin2hex((string) $value);
+					}
 					break;
 
 				case PT_MV_BINARY:
