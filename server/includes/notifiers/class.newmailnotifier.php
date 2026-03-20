@@ -4,14 +4,30 @@
  * NewMailNotifier.
  *
  * Generates notifications for hierarchy folder updates (content unread).
+ * Also piggybacks shared-store checks onto regular requests so that
+ * shared mailbox changes appear without waiting for the full polling
+ * interval.
  */
 class NewMailNotifier extends Notifier {
+	/**
+	 * Epoch timestamp of the last shared-store check, used for
+	 * throttling so we don't query shared hierarchies on every
+	 * single request.
+	 */
+	private $lastSharedCheck = 0;
+
+	/**
+	 * Minimum number of seconds between shared-store hierarchy
+	 * checks piggybacked onto regular requests.
+	 */
+	private const SHARED_CHECK_INTERVAL = 60;
+
 	/**
 	 * @return Number the event which this module handles
 	 */
 	#[Override]
 	public function getEvents() {
-		return HIERARCHY_UPDATE;
+		return HIERARCHY_UPDATE | REQUEST_END;
 	}
 
 	/**
@@ -28,6 +44,36 @@ class NewMailNotifier extends Notifier {
 			case HIERARCHY_UPDATE:
 				$this->updateFolderHierachy($props[0], $props[1]);
 				break;
+
+			case REQUEST_END:
+				$this->checkSharedStores();
+				break;
+		}
+	}
+
+	/**
+	 * Check shared stores for hierarchy changes, throttled to avoid
+	 * querying on every single request.
+	 */
+	private function checkSharedStores() {
+		$now = time();
+		if (($now - $this->lastSharedCheck) < self::SHARED_CHECK_INTERVAL) {
+			return;
+		}
+		$this->lastSharedCheck = $now;
+
+		$supported_types = ['inbox' => 1, 'all' => 1];
+		$users = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/shared_stores", []);
+
+		foreach ($users as $username => $data) {
+			$key = array_keys($data)[0];
+			$folder_type = $data[$key]['folder_type'];
+
+			if (!isset($supported_types[$folder_type])) {
+				continue;
+			}
+
+			$this->updateFolderHierachy(strtolower(hex2bin((string) $username)), $folder_type);
 		}
 	}
 
