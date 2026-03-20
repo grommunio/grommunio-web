@@ -64,6 +64,18 @@ Zarafa.core.plugins.MarkAsReadPlugin = Ext.extend(Object, {
 		if (field.addInternalAction) {
 			field.addInternalAction('send_read_receipt');
 		}
+
+		// When the host component has a model (e.g. PreviewPanel) and
+		// preview is hidden (NO_PREVIEW mode), the normal setrecord /
+		// loadrecord events never fire because the panel skips loading.
+		// Listen on the model directly so the read-flag timer starts
+		// regardless of preview visibility.
+		if (field.model) {
+			field.on('afterrender', function() {
+				this.field.mon(this.field.model, 'previewrecordchange',
+					this.onPreviewRecordChangeNoPanel, this);
+			}, this, { single: true });
+		}
 	},
 
 	/**
@@ -202,6 +214,17 @@ Zarafa.core.plugins.MarkAsReadPlugin = Ext.extend(Object, {
 			return;
 		}
 
+		// When a read-flag delay is configured and we are not in
+		// immediate mode, do not piggyback mark_read on the open
+		// request. The timer in onLoadRecord will handle it after
+		// the configured delay has elapsed.
+		if (!this.ignoreReadFlagTimer) {
+			var delay = container.getSettingsModel().get('zarafa/v1/contexts/mail/readflag_time');
+			if (delay > 0) {
+				return;
+			}
+		}
+
 		if (!record.needsReadReceipt()) {
 			record.addMessageAction('mark_read', true);
 		} else {
@@ -248,6 +271,37 @@ Zarafa.core.plugins.MarkAsReadPlugin = Ext.extend(Object, {
 			if (this.record.store) {
 				this.record.store.fireEvent('update', this.record.store, this.record, Ext.data.Record.COMMIT);
 			}
+		}
+	},
+
+	/**
+	 * Event handler for the model's previewrecordchange event. This is
+	 * only relevant when the preview panel is hidden (NO_PREVIEW mode).
+	 * When the panel is visible the normal setrecord/loadrecord flow
+	 * handles everything, so this handler bails out in that case.
+	 * @param {Zarafa.core.ContextModel} model The context model
+	 * @param {Zarafa.core.data.IPMRecord} record The selected record
+	 * @private
+	 */
+	onPreviewRecordChangeNoPanel: function(model, record)
+	{
+		// When the panel is visible the regular event flow handles
+		// marking as read — avoid duplicate timers.
+		if (this.field.isVisible()) {
+			return;
+		}
+
+		this.resetReadFlagTimer();
+
+		if (record instanceof Zarafa.core.data.IPMRecord) {
+			this.record = record;
+		} else {
+			this.record = undefined;
+			return;
+		}
+
+		if (record && !record.phantom && !record.isRead()) {
+			this.startReadFlagTimer();
 		}
 	},
 
