@@ -31,13 +31,19 @@ Zarafa.core.data.JsonRecipientWriter = Ext.extend(Zarafa.core.data.JsonWriter, {
 		var modifiedRecords = recipientStore.getModifiedRecords();
 		// Get list of removed records
 		var deletedRecords = recipientStore.getRemovedRecords();
+		var serializeAllRecipients = Ext.isFunction(record.isUnsent) &&
+			record.isUnsent() &&
+			!record.phantom &&
+			(modifiedRecords.length > 0 || deletedRecords.length > 0);
+		var changedRecords = serializeAllRecipients ? recipientStore.getRange() : modifiedRecords;
 
-		if(modifiedRecords.length > 0 || deletedRecords.length > 0){
+		if(changedRecords.length > 0 || deletedRecords.length > 0) {
 			hash.recipients = {};
 
-			// Adding the modified records to the add or modified part of the recipients bit
-			for (var i = 0; i < modifiedRecords.length; i++) {
-				var recipient = modifiedRecords[i];
+			// Existing unsent items need the retained recipient rows as well, otherwise
+			// moving one recipient between fields can drop the untouched rows on save.
+			for (var i = 0; i < changedRecords.length; i++) {
+				var recipient = changedRecords[i];
 
 				// FIXME: serialize?
 				var data = recipient.data;
@@ -86,7 +92,7 @@ Zarafa.core.data.JsonRecipientWriter = Ext.extend(Zarafa.core.data.JsonWriter, {
 					return item.get('entryid') === recipient.get('entryid') && item.phantom !== recipient.phantom;
 				};
 
-				if (modifiedRecords.some(isDeletedRecipientInModifiedList)) {
+				if (changedRecords.some(isDeletedRecipientInModifiedList)) {
 					continue;
 				}
 
