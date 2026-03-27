@@ -152,10 +152,10 @@ Zarafa.core.ui.notifier.ToastPlugin = Ext.extend(Zarafa.core.ui.notifier.NotifyP
 			'<div class="grommunio-toast-body">';
 
 		if (title) {
-			html += '<div class="grommunio-toast-title">' + title + '</div>';
+			html += '<div class="grommunio-toast-title"></div>';
 		}
 		if (message) {
-			html += '<div class="grommunio-toast-message">' + message + '</div>';
+			html += '<div class="grommunio-toast-message"></div>';
 		}
 
 		if (config.details_message) {
@@ -174,6 +174,16 @@ Zarafa.core.ui.notifier.ToastPlugin = Ext.extend(Zarafa.core.ui.notifier.NotifyP
 		}
 
 		toast.innerHTML = html;
+
+		var titleEl = toast.querySelector('.grommunio-toast-title');
+		if (titleEl && title) {
+			titleEl.textContent = title;
+		}
+		var msgEl = toast.querySelector('.grommunio-toast-message');
+		if (msgEl && message) {
+			msgEl.textContent = message;
+		}
+
 		toast._toastId = toastId;
 		toast._lifetime = lifetime;
 		toast._severity = severity;
