@@ -39,7 +39,7 @@ Zarafa.addressbook.ui.GABPersonalColumnModel = Ext.extend(Zarafa.common.ui.grid.
 				header: _('Name'),
 				sortable: true,
 				tooltip: _('Sort by: Name'),
-				renderer: Ext.util.Format.htmlEncode
+				renderer: Zarafa.common.ui.grid.Renderers.fullName
 			},{
 				dataIndex: 'display_name',
 				header: _('Display Name'),

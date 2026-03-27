@@ -150,6 +150,42 @@ Zarafa.common.ui.grid.Renderers = {
 	},
 
 	/**
+	 * Render the full_name cell in the address book respecting the
+	 * configured name display format (first-last vs last-first).
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	fullName: function(value, p, record)
+	{
+		var fmt = container.getSettingsModel().get('zarafa/v1/main/addressbook_name_format');
+		if (fmt === 'firstlast') {
+			var parts = [];
+			var givenName = record.get('given_name');
+			var middleName = record.get('middle_name');
+			var surname = record.get('surname');
+
+			if (!Ext.isEmpty(givenName)) {
+				parts.push(givenName);
+			}
+			if (!Ext.isEmpty(middleName)) {
+				parts.push(middleName);
+			}
+			if (!Ext.isEmpty(surname)) {
+				parts.push(surname);
+			}
+
+			if (parts.length > 0) {
+				return Ext.util.Format.htmlEncode(parts.join(' '));
+			}
+		}
+
+		return Ext.util.Format.htmlEncode(value);
+	},
+
+	/**
 	 * Render the cell as Sender
 	 *
 	 * @param {Object} value The data value for the cell.

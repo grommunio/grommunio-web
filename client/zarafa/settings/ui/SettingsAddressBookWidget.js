@@ -28,6 +28,14 @@ Zarafa.settings.ui.SettingsAddressBookWidget = Ext.extend(Zarafa.settings.ui.Set
 			}
 		);
 
+		var nameFormatStore = new Ext.data.ArrayStore({
+			fields: ['value', 'label'],
+			data: [
+				['lastfirst', _('Last Name, First Name')],
+				['firstlast', _('First Name Last Name')]
+			]
+		});
+
 		Ext.applyIf(config, {
 			xtype: 'zarafa.settingsaddressbookwidget',
 			title: _('Address Book'),
@@ -50,6 +58,23 @@ Zarafa.settings.ui.SettingsAddressBookWidget = Ext.extend(Zarafa.settings.ui.Set
 				listeners: {
 					beforeselect: this.onBeforeDefaultABSelect,
 					select: this.onDefaultABSelect,
+					scope: this
+				}
+			},{
+				xtype: 'combo',
+				fieldLabel: _('Name Display Format'),
+				name: 'zarafa/v1/main/addressbook_name_format',
+				ref: 'nameFormatCombo',
+				width: 200,
+				store: nameFormatStore,
+				mode: 'local',
+				triggerAction: 'all',
+				displayField: 'label',
+				valueField: 'value',
+				forceSelection: true,
+				editable: false,
+				listeners: {
+					select: this.onNameFormatSelect,
 					scope: this
 				}
 			}]
@@ -88,6 +113,21 @@ Zarafa.settings.ui.SettingsAddressBookWidget = Ext.extend(Zarafa.settings.ui.Set
 	},
 
 	/**
+	 * Event handler which is fired when a name format in the {@link Ext.form.ComboBox combobox}
+	 * has been selected.
+	 * @param {Ext.form.ComboBox} combo The combobox which fired the event
+	 * @param {Ext.data.Record} record The selected record in the combobox
+	 * @param {Number} index The selected index in the store
+	 * @private
+	 */
+	onNameFormatSelect: function(combo, record, index)
+	{
+		if (this.model) {
+			this.model.set(combo.name, record.get(combo.valueField));
+		}
+	},
+
+	/**
 	 * Called by the {@link Zarafa.settings.ui.SettingsCategoryWidgetPanel widget panel}
 	 * to load the latest version of the settings from the
 	 * {@link Zarafa.settings.SettingsModel} into the UI of this category.
@@ -119,6 +159,9 @@ Zarafa.settings.ui.SettingsAddressBookWidget = Ext.extend(Zarafa.settings.ui.Set
 		}
 
 		combo.setValue(record.get(combo.valueField));
+
+		var nameFormat = this.model.get(this.nameFormatCombo.name) || 'lastfirst';
+		this.nameFormatCombo.setValue(nameFormat);
 	},
 
 	/**
@@ -130,6 +173,7 @@ Zarafa.settings.ui.SettingsAddressBookWidget = Ext.extend(Zarafa.settings.ui.Set
 	{
 		Zarafa.settings.ui.SettingsAddressBookWidget.superclass.updateSettings.apply(this, arguments);
 		settingsModel.set(this.defaultABCombo.name, this.defaultABCombo.getValue());
+		settingsModel.set(this.nameFormatCombo.name, this.nameFormatCombo.getValue());
 	}
 });
 
