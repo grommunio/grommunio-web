@@ -5373,6 +5373,7 @@ body .k-category-block {
   font-size: 13px;
   color: #555;
   line-height: 1.5;
+  white-space: pre-line;
   margin-top: 3px;
   word-wrap: break-word; }
 
