@@ -236,10 +236,13 @@ class CreateMailItemModule extends ItemModule {
 				$context['copyInlineAttachmentsOnly'] = in_array($actionType, ['reply', 'replyall'], true);
 			}
 		}
-		elseif (isset($action['props']['sent_representing_email_address'], $action['props']['sent_representing_address_type']) && strcasecmp($action['props']['sent_representing_address_type'], 'EX') === 0) {
-			$otherStore = $GLOBALS['mapisession']->addUserStore($action['props']['sent_representing_email_address']);
-			if ($otherStore && $send) {
-				$context['store'] = $otherStore;
+		elseif (isset($action['props']['sent_representing_email_address'], $action['props']['sent_representing_address_type'])) {
+			$addrType = $action['props']['sent_representing_address_type'];
+			if (strcasecmp($addrType, 'EX') === 0 || strcasecmp($addrType, 'SMTP') === 0) {
+				$otherStore = $GLOBALS['mapisession']->addUserStore($action['props']['sent_representing_email_address']);
+				if ($otherStore && $send) {
+					$context['store'] = $otherStore;
+				}
 			}
 		}
 
