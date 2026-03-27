@@ -10,6 +10,36 @@ Ext.namespace('Zarafa.mail.printer');
 Zarafa.mail.printer.MailRenderer = Ext.extend(Zarafa.common.printer.renderers.RecordRenderer, {
 
 	/**
+	 * Returns a dynamic title derived from the email metadata so
+	 * the browser suggests a meaningful filename when printing to PDF.
+	 * @param {Zarafa.core.data.MAPIRecord} record The mail record
+	 * @return {String} The title for the print document
+	 */
+	getTitle: function(record)
+	{
+		var date = record.get('message_delivery_time');
+		var subject = record.get('subject') || '';
+		var sender = record.get('sender_name') || '';
+
+		subject = subject.substring(0, 32).replace(/[\/\\:*?"<>|]/g, '_').trim();
+		sender = sender.replace(/[\/\\:*?"<>|]/g, '_').trim();
+
+		var parts = [];
+		if (Ext.isDate(date)) {
+			parts.push(date.format('Ymd'));
+		}
+		if (subject) {
+			parts.push(subject);
+		}
+		if (sender) {
+			// TRANSLATORS: prefix before sender name in print-to-PDF filename
+			parts.push(_('FROM') + '_' + sender);
+		}
+
+		return parts.length > 0 ? parts.join('_') : Zarafa.mail.printer.MailRenderer.superclass.getTitle.call(this, record);
+	},
+
+	/**
 	 * Generates a template on which prepareData() will be applied to create the HTML body.
 	 * @param {zarafa.core.data.MAPIRecord} record the email to print
 	 * @return {String} The HTML for the XTemplate to print

@@ -80,7 +80,7 @@ Zarafa.common.printer.renderers.BaseRenderer = Ext.extend(Object, {
 				'<head>\n' +
 					'<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />\n' +
 					this.generateHeadTemplate() +
-					'<title>' + _('grommunio Web print') + '</title>\n' +
+					'<title>' + this.getTitle(objectToPrint) + '</title>\n' +
 				'</head>\n' +
 				'<body>\n' +
 					'<div id="pagemargin">\n' +
@@ -133,6 +133,17 @@ Zarafa.common.printer.renderers.BaseRenderer = Ext.extend(Object, {
 	 * @return {Array} An empty array (override this to prepare your own data)
 	 */
 	prepareData: Ext.emptyFn,
+
+	/**
+	 * Returns the title for the print window. Browsers use this as
+	 * the default filename when printing to PDF.
+	 * @param {Zarafa.core.data.MAPIRecord|Zarafa.core.Context} objectToPrint The object being printed
+	 * @return {String} The title for the print document
+	 */
+	getTitle: function(objectToPrint)
+	{
+		return _('grommunio Web print');
+	},
 
 	/**
 	 * Passes the newly created DOM tree to add more rendering of Ext components in.
