@@ -395,6 +395,20 @@ class DownloadAttachment extends DownloadBase {
 				$contentType = $props[PR_ATTACH_MIME_TAG];
 			}
 
+			// Open the stream before sending headers so a missing
+			// or empty PR_ATTACH_DATA_BIN can be handled cleanly
+			// without leaving the browser connection hanging.
+			try {
+				$stream = mapi_openproperty($attachment, PR_ATTACH_DATA_BIN, IID_IStream, 0, 0);
+				$stat = mapi_stream_stat($stream);
+				$bodysize = $stat['cb'] ?? 0;
+			}
+			catch (MAPIException $e) {
+				$e->setHandled();
+				$stream = false;
+				$bodysize = 0;
+			}
+
 			// Set the headers
 			header('Pragma: public');
 			header('Expires: 0'); // set expiration time
@@ -403,16 +417,10 @@ class DownloadAttachment extends DownloadBase {
 			header('Content-Type: ' . $contentType);
 			header('Content-Transfer-Encoding: binary');
 
-			// Open a stream to get the attachment data
-			$stream = mapi_openproperty($attachment, PR_ATTACH_DATA_BIN, IID_IStream, 0, 0);
-			$stat = mapi_stream_stat($stream);
-
 			$bodyoffset = 0;
 			$ranges = null;
 
-			$bodysize = $stat['cb'];
-
-			if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_SERVER['HTTP_RANGE']) && $range = stristr(trim((string) $_SERVER['HTTP_RANGE']), 'bytes=')) {
+			if ($stream !== false && $bodysize > 0 && $_SERVER['REQUEST_METHOD'] == 'GET' && isset($_SERVER['HTTP_RANGE']) && $range = stristr(trim((string) $_SERVER['HTTP_RANGE']), 'bytes=')) {
 				$range = substr($range, 6);
 				$boundary = bin2hex(random_bytes(48));
 				$ranges = explode(',', $range);
@@ -425,7 +433,7 @@ class DownloadAttachment extends DownloadBase {
 					// More than one range specified
 					$content_length = 0;
 					foreach ($ranges as $range) {
-						$this->downloadSetRange($range, $stat['cb'], $first, $last);
+						$this->downloadSetRange($range, $bodysize, $first, $last);
 						$content_length += strlen("\r\n--{$boundary}\r\n");
 						$content_length += strlen("Content-Type: {$contentType}\r\n");
 						$content_length += strlen("Content-Range: bytes {$first}-{$last}/{$bodysize}\r\n\r\n");
@@ -439,7 +447,7 @@ class DownloadAttachment extends DownloadBase {
 
 					// Content output
 					foreach ($ranges as $range) {
-						$this->downloadSetRange($range, $stat['cb'], $first, $last);
+						$this->downloadSetRange($range, $bodysize, $first, $last);
 						echo "\r\n--{$boundary}\r\n";
 						echo "Content-Type: {$contentType}\r\n";
 						echo "Content-Range: bytes {$first}-{$last}/{$bodysize}\r\n\r\n";
@@ -460,16 +468,16 @@ class DownloadAttachment extends DownloadBase {
 				}
 			}
 			else {
-				// File length
-				header('Content-Length: ' . $stat['cb']);
+				header('Content-Length: ' . $bodysize);
 
-				// Read the attachment content from the stream
-				$body = '';
-				for ($i = 0; $i < $stat['cb']; $i += BLOCK_SIZE) {
-					$body .= mapi_stream_read($stream, BLOCK_SIZE);
+				if ($stream !== false && $bodysize > 0) {
+					// Read the attachment content from the stream
+					$body = '';
+					for ($i = 0; $i < $bodysize; $i += BLOCK_SIZE) {
+						$body .= mapi_stream_read($stream, BLOCK_SIZE);
+					}
+					echo $body;
 				}
-
-				echo $body;
 			}
 		}
 	}
