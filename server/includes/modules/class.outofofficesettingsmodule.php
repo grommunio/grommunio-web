@@ -112,19 +112,15 @@ class OutOfOfficeSettingsModule extends Module {
 		$sharedOwnerStores = [];
 
 		foreach ($stores as $storeEntryId => $storeObj) {
-			$subTree = mapi_getprops($storeObj, [PR_IPM_SUBTREE_ENTRYID]);
-
 			try {
+				$subTree = mapi_getprops($storeObj, [PR_IPM_SUBTREE_ENTRYID]);
 				$subtreeObj = mapi_msgstore_openentry($storeObj, $subTree[PR_IPM_SUBTREE_ENTRYID]);
 			}
 			catch (MAPIException $e) {
-				// we don't have rights to open folder, so don't include User's store.
-				if ($e->getCode() === MAPI_E_NO_ACCESS) {
-					continue;
-				}
-
-				// rethrow other errors
-				throw $e;
+				// Skip stores that are inaccessible or where we
+				// don't have rights to open the folder.
+				$e->setHandled();
+				continue;
 			}
 
 			$permission = mapi_getprops($subtreeObj, [PR_RIGHTS]);
