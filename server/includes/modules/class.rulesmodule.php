@@ -69,7 +69,7 @@ class RulesModule extends Module {
 
 						// Now can save all rules, note that $action can contain just a store key when
 						// all rules are removed.
-						if (count($action) > 1) {
+						if (isset($action[0])) {
 							$this->saveRules($store, $action);
 						}
 
