@@ -300,6 +300,7 @@ Zarafa.common.recurrence.dialogs.RecurrenceContentPanel = Ext.extend(Zarafa.core
 		this.record.beginEdit();
 		this.record.set('recurring', false);
 		this.record.set('recurring_pattern', '');
+		this.record.set('recurring_reset', true);
 		this.record.set('recurrence_type', Zarafa.common.recurrence.data.RecurrenceType.NONE);
 		this.record.endEdit();
 
