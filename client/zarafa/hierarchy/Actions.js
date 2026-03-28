@@ -241,6 +241,7 @@ Zarafa.hierarchy.Actions = {
 			};
 
 			var request = container.getRequest();
+			request.reset();
 			request.addRequest(
 				'hierarchymodule',
 				'emptyfolder_batch',
