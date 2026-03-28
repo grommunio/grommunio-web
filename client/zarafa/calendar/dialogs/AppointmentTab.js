@@ -865,7 +865,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			}
 		}
 
-		if(record.isOpened() && record.isSubStoreModifiedSincelastUpdate('recipients')) {
+		if(record.isSubStoreModifiedSincelastUpdate('recipients')) {
 			var recipients = record.updateSubStoreModifications.recipients;
 
 			// Check if changes (Added/Removed/Updated) are room resource
