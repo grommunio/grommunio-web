@@ -98,10 +98,10 @@ class RulesModule extends Module {
 	}
 
 	public function getRulesFolder($store = false) {
+		if ($store === false) {
+			$store = $GLOBALS['mapisession']->getDefaultMessageStore();
+		}
 		if (!$this->rulesFolder) {
-			if ($store === false) {
-				$store = $GLOBALS['mapisession']->getDefaultMessageStore();
-			}
 			$this->rulesFolder = mapi_msgstore_getreceivefolder($store);
 		}
 
