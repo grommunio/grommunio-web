@@ -250,6 +250,11 @@ class RulesModule extends Module {
 
 		if (!empty($saveRules)) {
 			mapi_folder_modifyrules($this->getRulesFolder($store), $saveRules);
+
+			$hresult = mapi_last_hresult();
+			if ($hresult !== NOERROR) {
+				throw new MAPIException(_('Could not save rules.'), $hresult);
+			}
 		}
 	}
 
