@@ -135,7 +135,11 @@ Zarafa.common.rules.data.RulesStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 
 		// Put all records in the update batch, note that we don't care if this is empty,
 		// as that will resolve on the server to a "Delete everything" action.
-		queue.push(['create', rs]);
+		// Use 'update' rather than 'create' because the server replaces all rules
+		// atomically (delete-all + re-add). The response is a full refresh, not a
+		// 1:1 correlation to phantom records, so reader.update (forgiving) is
+		// appropriate instead of reader.realize (which throws on mismatches).
+		queue.push(['update', rs]);
 
 		len = queue.length;
 		if (len) {
