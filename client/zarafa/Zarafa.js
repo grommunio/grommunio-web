@@ -654,7 +654,7 @@ Ext.apply(Zarafa, {
 			container.getNotifier().notify('error.hierarchy.defaultfolder',
 				_('Missing store'),
 				_('The default store is missing from the hierarchy.') +
-					'<br>' +
+					'\n' +
 					_('Not all functionality of grommunio Web might be working properly because of this.'),
 				{
 					persistent: true,
