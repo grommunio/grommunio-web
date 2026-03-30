@@ -29,9 +29,14 @@ class RulesModule extends Module {
 	#[Override]
 	public function execute() {
 		foreach ($this->data as $actionType => $action) {
-			// Determine if the request contains multiple items or not. We couldn't add the storeEntryId to
-			// the action data if it contained items because it was an array, so the storeEntryId
-			// was added to all the items. We will pick it from the first item.
+			// The client proxy may send rule data as an indexed array
+			// (multiple rules) or as a single associative array (one
+			// rule, unwrapped by ExtJS).  Normalize to indexed form so
+			// the rest of the code can rely on $action[0].
+			if (!isset($action[0]) && isset($action['props'])) {
+				$action = [$action];
+			}
+
 			if (isset($action[0])) {
 				$storeEntryid = $action[0]['message_action']['store_entryid'];
 			}
