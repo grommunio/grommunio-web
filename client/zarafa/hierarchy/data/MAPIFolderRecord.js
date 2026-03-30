@@ -500,6 +500,11 @@ Zarafa.hierarchy.data.MAPIFolderRecord = Ext.extend(Zarafa.core.data.IPFRecord, 
 	 */
 	getCounterType: function()
 	{
+		// Non-openable hierarchy elements should never show counters
+		if (this.isIPMSubTree() || this.isFavoritesRootFolder()) {
+			return Zarafa.hierarchy.data.CounterTypes.NONE;
+		}
+
 		var extendedFlags = this.get('extended_flags');
 
 		if ((extendedFlags & Zarafa.core.mapi.FolderExtendedFlags.DEFAULT) === Zarafa.core.mapi.FolderExtendedFlags.DEFAULT) {
