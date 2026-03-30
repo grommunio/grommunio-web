@@ -741,6 +741,25 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	},
 
 	/**
+	 * Override close to snapshot the user-change state before the
+	 * {@link #beforeclose} event fires. The beforeclose handler calls
+	 * updateRecord() on every tab, which pushes all form values into the
+	 * record. Empty form fields return "" while the record may hold
+	 * null/undefined, and the string comparison in
+	 * {@link Zarafa.core.data.MAPIRecord#set} treats these as different
+	 * values, creating false-positive modifications that incorrectly
+	 * mark the record as user-modified.
+	 * @override
+	 */
+	close: function()
+	{
+		if (this.recordComponentPlugin) {
+			this._isChangedBeforeClose = this.recordComponentPlugin.isChangedByUser;
+		}
+		Zarafa.core.ui.RecordContentPanel.superclass.close.call(this);
+	},
+
+	/**
 	 * Override the doClose function to add support for the {@link #confirmClose}
 	 * configuration option. This will check if the {@link #record} has any unsaved
 	 * changes. And if that is the case, will show a confirmation dialog warning
@@ -750,10 +769,12 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 */
 	doClose: function()
 	{
-		// If a confirmation is requested before closing, check if the record has a store,
-		// if it doesn't the record is deleted and there are no unsaved changes. Otherwise
-		// the 'dirty' flag will warn us about unsaved changes.
-		if (this.confirmClose && this.recordComponentPlugin.isChangedByUser === true) {
+		var isChanged = Ext.isDefined(this._isChangedBeforeClose)
+			? this._isChangedBeforeClose
+			: (this.recordComponentPlugin && this.recordComponentPlugin.isChangedByUser);
+		delete this._isChangedBeforeClose;
+
+		if (this.confirmClose && isChanged === true) {
 			return this.showCloseConfirmationDialog();
 		}
 		Zarafa.core.ui.RecordContentPanel.superclass.doClose.call(this);
@@ -903,8 +924,9 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 */
 	onBeforeUnload: function()
 	{
+		var isChanged = this.recordComponentPlugin && this.recordComponentPlugin.isChangedByUser === true;
 		if (this.fireEvent('beforeclose', this) !== false) {
-			if (this.recordComponentPlugin && this.recordComponentPlugin.isChangedByUser === true) {
+			if (isChanged) {
 				return this.unSaveWarningMessage;
 			}
 		}
