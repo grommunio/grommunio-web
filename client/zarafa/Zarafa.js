@@ -720,15 +720,14 @@ Ext.apply(Zarafa, {
 		// If any of the folders is missing, show a notification to the
 		// user to inform him of the missing folders.
 		if (!Ext.isEmpty(missing)) {
-			// Construct an HTML list of the missing folders
-			var list = '<ul><li>' + missing.join('</li><li>') + '</li></ul>';
+			var list = missing.join(', ');
 
 			container.getNotifier().notify('error.hierarchy.defaultfolder',
 				_('Missing folders'),
 				String.format(
 					ngettext('The following required folder is missing in the hierarchy: {0}',
 						 'The following required folders are missing in the hierarchy: {0}', missing.length), list) +
-					_('Not all functionality of grommunio Web might be working properly because of this.'),
+					'\n' + _('Not all functionality of grommunio Web might be working properly because of this.'),
 				{
 					persistent: true,
 					listeners: {
