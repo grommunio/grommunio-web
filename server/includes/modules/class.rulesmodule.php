@@ -31,7 +31,7 @@ class RulesModule extends Module {
 		foreach ($this->data as $actionType => $action) {
 			// The client proxy may send rule data as an indexed array
 			// (multiple rules) or as a single associative array (one
-			// rule, unwrapped by ExtJS).  Normalize to indexed form so
+			// rule, unwrapped by ExtJS). Normalize to indexed form so
 			// the rest of the code can rely on $action[0].
 			if (!isset($action[0]) && isset($action['props'])) {
 				$action = [$action];
@@ -206,41 +206,6 @@ class RulesModule extends Module {
 			$rulesData = [$rulesData];
 		}
 
-		// Resolve the store entryid that the rule engine will
-		// use. The engine runs as the mailbox owner, so it
-		// resolves the store via the owner's default-store
-		// entryid — which may differ from the entryid a
-		// delegate's session sees for the same store.
-		//
-		// Obtain the owner name, then re-open the store via
-		// mapi_msgstore_createentryid → openMessageStore so we
-		// get the PR_ENTRYID the owner's session would produce.
-		$ownerStoreEntryId = null;
-		try {
-			$ownerProps = mapi_getprops($store, [PR_MAILBOX_OWNER_NAME]);
-			if (isset($ownerProps[PR_MAILBOX_OWNER_NAME])) {
-				$defaultStore = $GLOBALS['mapisession']->getDefaultMessageStore();
-				$eid = mapi_msgstore_createentryid($defaultStore, $ownerProps[PR_MAILBOX_OWNER_NAME]);
-				if ($eid) {
-					$ownerStore = $GLOBALS['mapisession']->openMessageStore($eid);
-					if ($ownerStore) {
-						$p = mapi_getprops($ownerStore, [PR_ENTRYID]);
-						if (isset($p[PR_ENTRYID])) {
-							$ownerStoreEntryId = $p[PR_ENTRYID];
-						}
-					}
-				}
-			}
-		}
-		catch (MAPIException $e) {
-			// Fall back to the store's own PR_ENTRYID when the
-			// owner lookup fails (e.g. saving on own store).
-			$p = mapi_getprops($store, [PR_ENTRYID]);
-			if (isset($p[PR_ENTRYID])) {
-				$ownerStoreEntryId = $p[PR_ENTRYID];
-			}
-		}
-
 		// save rules in rules table
 		$saveRules = [];
 		for ($index = 0, $len = count($rulesData); $index < $len; ++$index) {
@@ -252,21 +217,22 @@ class RulesModule extends Module {
 			$rule = Conversion::mapXML2MAPI($this->properties, $rule);
 
 			// Canonicalize folder-based actions (copy / move).
-			// Replace the storeentryid with the owner-resolved
-			// value and re-read the folderentryid through MAPI
-			// so both match what the rule engine expects.
+			// A delegate's session may represent the store and
+			// folder entryids differently from the mailbox
+			// owner's session. Re-read them through the MAPI
+			// layer so the rule engine can resolve them.
 			if (!empty($rule[PR_RULE_ACTIONS])) {
 				foreach ($rule[PR_RULE_ACTIONS] as &$ruleAction) {
 					if (!isset($ruleAction['folderentryid'])) {
 						continue;
 					}
-					if ($ownerStoreEntryId) {
-						$ruleAction['storeentryid'] = $ownerStoreEntryId;
-					}
 					$folder = mapi_msgstore_openentry($store, $ruleAction['folderentryid']);
 					if ($folder) {
-						$props = mapi_getprops($folder, [PR_ENTRYID]);
+						$props = mapi_getprops($folder, [PR_ENTRYID, PR_STORE_ENTRYID]);
 						$ruleAction['folderentryid'] = $props[PR_ENTRYID];
+						if (isset($props[PR_STORE_ENTRYID])) {
+							$ruleAction['storeentryid'] = $props[PR_STORE_ENTRYID];
+						}
 					}
 				}
 				unset($ruleAction);
