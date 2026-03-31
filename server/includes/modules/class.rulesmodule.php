@@ -206,6 +206,45 @@ class RulesModule extends Module {
 			$rulesData = [$rulesData];
 		}
 
+		// The rule engine runs as the mailbox owner. A
+		// delegate's session may represent the store entryid
+		// differently, so resolve the owner's canonical store
+		// entryid via the address book.
+		$canonicalStoreEid = null;
+		try {
+			$sp = mapi_getprops($store, [PR_MAILBOX_OWNER_ENTRYID]);
+			if (isset($sp[PR_MAILBOX_OWNER_ENTRYID])) {
+				$ab = $GLOBALS['mapisession']->getAddressbook(true);
+				$abEntry = mapi_ab_openentry($ab, $sp[PR_MAILBOX_OWNER_ENTRYID]);
+				if ($abEntry) {
+					$abProps = mapi_getprops($abEntry, [PR_ACCOUNT]);
+					if (isset($abProps[PR_ACCOUNT])) {
+						$defStore = $GLOBALS['mapisession']->getDefaultMessageStore();
+						$eid = @mapi_msgstore_createentryid($defStore, $abProps[PR_ACCOUNT]);
+						if ($eid) {
+							$opened = $GLOBALS['mapisession']->openMessageStore($eid);
+							if ($opened) {
+								$ep = mapi_getprops($opened, [PR_ENTRYID]);
+								if (isset($ep[PR_ENTRYID])) {
+									$canonicalStoreEid = $ep[PR_ENTRYID];
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		catch (MAPIException $e) {
+			// Ignore — fall through to direct PR_ENTRYID below.
+		}
+
+		if (!$canonicalStoreEid) {
+			$sp = mapi_getprops($store, [PR_ENTRYID]);
+			if (isset($sp[PR_ENTRYID])) {
+				$canonicalStoreEid = $sp[PR_ENTRYID];
+			}
+		}
+
 		// save rules in rules table
 		$saveRules = [];
 		for ($index = 0, $len = count($rulesData); $index < $len; ++$index) {
@@ -216,22 +255,21 @@ class RulesModule extends Module {
 
 			$rule = Conversion::mapXML2MAPI($this->properties, $rule);
 
-			// Canonicalize folder-based actions (copy / move).
-			// A delegate's session may represent the store and
-			// folder entryids differently from the mailbox
-			// owner's session. Re-read them through the MAPI
-			// layer so the rule engine can resolve them.
+			// Canonicalize entryids in folder-based actions
+			// (copy/move) so the rule engine can resolve them.
 			if (!empty($rule[PR_RULE_ACTIONS])) {
 				foreach ($rule[PR_RULE_ACTIONS] as &$ruleAction) {
 					if (!isset($ruleAction['folderentryid'])) {
 						continue;
 					}
+					if ($canonicalStoreEid) {
+						$ruleAction['storeentryid'] = $canonicalStoreEid;
+					}
 					$folder = mapi_msgstore_openentry($store, $ruleAction['folderentryid']);
 					if ($folder) {
-						$props = mapi_getprops($folder, [PR_ENTRYID, PR_STORE_ENTRYID]);
-						$ruleAction['folderentryid'] = $props[PR_ENTRYID];
-						if (isset($props[PR_STORE_ENTRYID])) {
-							$ruleAction['storeentryid'] = $props[PR_STORE_ENTRYID];
+						$fp = mapi_getprops($folder, [PR_ENTRYID]);
+						if (isset($fp[PR_ENTRYID])) {
+							$ruleAction['folderentryid'] = $fp[PR_ENTRYID];
 						}
 					}
 				}
