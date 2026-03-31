@@ -211,6 +211,7 @@ class RulesModule extends Module {
 		// differently, so resolve the owner's canonical store
 		// entryid via the address book.
 		$canonicalStoreEid = null;
+		$abLookupOk = false;
 		try {
 			$sp = mapi_getprops($store, [PR_MAILBOX_OWNER_ENTRYID]);
 			if (isset($sp[PR_MAILBOX_OWNER_ENTRYID])) {
@@ -227,6 +228,7 @@ class RulesModule extends Module {
 								$ep = mapi_getprops($opened, [PR_ENTRYID]);
 								if (isset($ep[PR_ENTRYID])) {
 									$canonicalStoreEid = $ep[PR_ENTRYID];
+									$abLookupOk = true;
 								}
 							}
 						}
@@ -244,6 +246,13 @@ class RulesModule extends Module {
 				$canonicalStoreEid = $sp[PR_ENTRYID];
 			}
 		}
+
+		// Temporary diagnostic — remove after debugging.
+		$directEid = mapi_getprops($store, [PR_ENTRYID])[PR_ENTRYID] ?? '(none)';
+		error_log('[rules] AB lookup ' . ($abLookupOk ? 'OK' : 'FAILED') .
+			' | canonical=' . bin2hex((string) $canonicalStoreEid) .
+			' | direct=' . bin2hex((string) $directEid) .
+			' | match=' . ($canonicalStoreEid === $directEid ? 'YES' : 'NO'));
 
 		// save rules in rules table
 		$saveRules = [];
