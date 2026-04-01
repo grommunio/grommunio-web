@@ -3983,7 +3983,7 @@ class Operations {
 				$recipient[PR_RECIPIENT_TRACKSTATUS] = $recipientItem["recipient_status"];
 			}
 
-			if (isset($recipientItem["recipient_flags"]) && !empty($recipient["recipient_flags"])) {
+			if (isset($recipientItem["recipient_flags"]) && !empty($recipientItem["recipient_flags"])) {
 				$recipient[PR_RECIPIENT_FLAGS] = $recipientItem["recipient_flags"];
 			}
 			else {
