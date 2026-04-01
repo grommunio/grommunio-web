@@ -1,0 +1,5 @@
+{
+  "name": "Meeting Follow-Up",
+  "html": "<p>Thank you for taking the time to meet with me today. Below is a brief summary of what we discussed:</p><ul><li><strong>Topic 1:</strong> [Summary]</li><li><strong>Topic 2:</strong> [Summary]</li><li><strong>Action items:</strong> [List]</li></ul><p>Please let me know if I missed anything or if you have any questions.</p>",
+  "text": "Thank you for taking the time to meet with me today. Below is a brief summary of what we discussed:\n\n- Topic 1: [Summary]\n- Topic 2: [Summary]\n- Action items: [List]\n\nPlease let me know if I missed anything or if you have any questions."
+}

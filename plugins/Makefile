@@ -1,4 +1,4 @@
-SUBDIRS = archive chat desktopnotifications files filesbackendDefault filesbackendSeafile intranet kendox maps mdm meet passwd smime
+SUBDIRS = archive chat desktopnotifications files filesbackendDefault filesbackendSeafile intranet kendox maps mdm meet passwd smime templatesnippets
 
 .PHONY: subdirs $(SUBDIRS)
 

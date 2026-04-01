@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+	<info>
+		<version>1.0</version>
+		<name>templatesnippets</name>
+		<title>Template Snippets</title>
+		<author>grommunio</author>
+		<authorURL>https://grommunio.com</authorURL>
+		<description>Insert predefined text snippets (templates) into mail compositions. Supports system-provided and user-defined templates with HTML and plain text representations.</description>
+	</info>
+	<config>
+		<configfile>config.php</configfile>
+	</config>
+	<components>
+		<component>
+			<files>
+				<server>
+					<serverfile>php/plugin.templatesnippets.php</serverfile>
+					<serverfile type="module" module="templatesnippetsmodule">php/class.templatesnippetsmodule.php</serverfile>
+				</server>
+				<client>
+					<clientfile load="release">js/templatesnippets.js</clientfile>
+					<clientfile load="debug">js/templatesnippets-debug.js</clientfile>
+					<clientfile load="source">js/TemplateSnippetsPlugin.js</clientfile>
+					<clientfile load="source">js/TemplateSnippetsResponseHandler.js</clientfile>
+					<clientfile load="source">js/settings/SettingsTemplateSnippetsCategory.js</clientfile>
+					<clientfile load="source">js/settings/SettingsTemplateSnippetsWidget.js</clientfile>
+				</client>
+				<resources>
+					<resourcefile load="release">resources/css/templatesnippets.css</resourcefile>
+					<resourcefile load="debug">resources/css/templatesnippets.css</resourcefile>
+					<resourcefile load="source">resources/css/templatesnippets.css</resourcefile>
+				</resources>
+			</files>
+		</component>
+	</components>
+</plugin>

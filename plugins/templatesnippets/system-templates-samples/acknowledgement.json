@@ -1,0 +1,5 @@
+{
+  "name": "Acknowledgement of Receipt",
+  "html": "<p>Thank you for your message. This is to confirm that we have received your email and it is being reviewed.</p><p>We will get back to you within <strong>[X business days]</strong>. If you have any urgent questions in the meantime, please don't hesitate to reach out.</p>",
+  "text": "Thank you for your message. This is to confirm that we have received your email and it is being reviewed.\n\nWe will get back to you within [X business days]. If you have any urgent questions in the meantime, please don't hesitate to reach out."
+}

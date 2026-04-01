@@ -1,0 +1,20 @@
+System Template Samples
+=======================
+
+Copy these .json files to the system templates directory configured in
+config.php (default: /var/lib/grommunio-web/templates/) to make them
+available to all users.
+
+  mkdir -p /var/lib/grommunio-web/templates
+  cp <JSON> /var/lib/grommunio-web/templates/
+  chown -R groweb:groweb /var/lib/grommunio-web/templates/
+
+Each file is a JSON object with three keys:
+  - "name": Display name shown in the dropdown
+  - "html": HTML version of the template content
+  - "text": Plain text version of the template content
+
+The filename (without .json) becomes the template's key identifier.
+
+Admin users (configured in config.php) can also manage system templates
+directly from the grommunio Web settings UI.
