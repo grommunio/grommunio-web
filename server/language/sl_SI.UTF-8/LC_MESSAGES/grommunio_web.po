@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 23:42+0100\n"
+"POT-Creation-Date: 2026-04-01 11:33+0200\n"
 "PO-Revision-Date: 2022-07-26 19:05+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -13,20 +13,23 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 "X-Generator: Weblate 4.14-dev\n"
+
+msgid "Color palette"
+msgstr "Barvna paleta"
 
 msgid "Calendar"
 msgstr "Koledar"
 
 msgid "Previous Month"
-msgstr ""
+msgstr "Prejšnji mesec"
 
 msgid "Next Month"
-msgstr ""
+msgstr "Naslednji mesec"
 
-#. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
+#. TRANSLATORS: This message is used as label for the column which indicates
+#. the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
 msgstr "T"
 
@@ -43,7 +46,7 @@ msgid "More options"
 msgstr "Več možnosti"
 
 msgid "Input"
-msgstr ""
+msgstr "Vnos"
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -231,7 +234,8 @@ msgstr "Ta datum je pred najnižjim datumom"
 msgid "This date is after the maximum date"
 msgstr "Ta datum je po najkasnejšem datumu"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "d/m/Y"
 msgstr "d/m/Y"
 
@@ -323,7 +327,8 @@ msgstr "Čas v tem polju mora biti enak ali pred {0}"
 msgid "{0} is not a valid time"
 msgstr "{0} ni veljaven čas"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "G:i"
 msgstr "G:i"
 
@@ -339,10 +344,8 @@ msgstr "pravilno"
 msgid "false"
 msgstr "napačno"
 
-msgid ""
-"This field should be an e-mail address in the format \"user@example.com\""
-msgstr ""
-"To polje mora biti elektronski naslov v formatu \"uporabnik@example.com\""
+msgid "This field should be an e-mail address in the format \"user@example.com\""
+msgstr "To polje mora biti elektronski naslov v formatu \"uporabnik@example.com\""
 
 msgid "This field should be a URL in the format \"{0}\""
 msgstr "To polje mora biti URL naslov v formatu \"{0}\""
@@ -499,6 +502,9 @@ msgstr "Kopiraj kontakt"
 
 msgid "Copy contacts"
 msgstr "Kopiranje stikov"
+
+msgid "Address book"
+msgstr "Adresar"
 
 #, fuzzy
 msgid ""
@@ -717,7 +723,7 @@ msgid "Filter category…"
 msgstr "Filtrirajte kategorijo…"
 
 msgid "Add Category"
-msgstr ""
+msgstr "Dodaj kategorijo"
 
 msgid "Sender"
 msgstr "Pošiljatelj"
@@ -742,6 +748,9 @@ msgstr "Brisanje iskalne mape"
 
 msgid "Sort by: Date"
 msgstr "Razvrsti po: Datum"
+
+msgid "Search results"
+msgstr "Rezultati iskanja"
 
 msgid "Loading Search results"
 msgstr "Nalaganje rezultatov iskanja"
@@ -780,11 +789,11 @@ msgstr ""
 "je bil prestavljen ali izbrisan."
 
 msgid ""
-"Could not view proposal as this meeting is not available in calendar; It may "
-"have been moved or deleted."
+"Could not view proposal as this meeting is not available in calendar; It may"
+" have been moved or deleted."
 msgstr ""
-"Ne morem pogledati predloga, ker ta sestanek ni na voljo v koledarju; Mogoče "
-"je bil prestavljen ali izbrisan."
+"Ne morem pogledati predloga, ker ta sestanek ni na voljo v koledarju; Mogoče"
+" je bil prestavljen ali izbrisan."
 
 msgid "Required"
 msgstr "Zahtevano"
@@ -896,7 +905,8 @@ msgstr "Pojavi se vsakih {0} {1} efektivno {2} dokler {3}."
 msgid "When"
 msgstr "Ko"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "l jS F Y {0}"
 msgstr "l jS F Y {0}"
 
@@ -1046,7 +1056,8 @@ msgstr "Lasten koledar"
 msgid "F Y"
 msgstr "F Y"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "l"
 msgstr "l"
 
@@ -1113,8 +1124,8 @@ msgstr "{0} udeležencev sprejeto, {1} pogojno sprejeto, {2} zavrnjeno."
 
 msgctxt "calendar.dialog"
 msgid ""
-"{0} attendees proposed a new time for this meeting. Click the Scheduling tab "
-"for details."
+"{0} attendees proposed a new time for this meeting. Click the Scheduling tab"
+" for details."
 msgstr ""
 "{0} udeležencev je predlagalo novi čas tega sestanka. Pritisni zavihek za "
 "razporejanje za ogled podrobnosti."
@@ -1202,11 +1213,11 @@ msgstr "Napiši svoje sporočilo…"
 msgid "Update location"
 msgstr "Posodobitev lokacije"
 
-msgid ""
-"Do you want to update the location \"{0}\" with the new location \"{1}\"?"
+msgid "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
 msgstr "Ali želite spremeniti lokacijo \"{0}\" z novo lokacijo \"{1}\"?"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "jS F Y {0}"
 msgstr "jS F Y {0}"
 
@@ -1306,6 +1317,9 @@ msgstr ""
 msgid "Edit the cancellation before Sending."
 msgstr "Uredi preklic pred pošiljanjem."
 
+msgid "Cancellation message"
+msgstr "Sporočilo o preklicu"
+
 msgid "Send the cancellation now."
 msgstr "Pošlji preklic sedaj."
 
@@ -1322,22 +1336,25 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"This meeting will be tentatively accepted and moved to your calendar. Do you "
-"want to include comments with your response?"
+"This meeting will be tentatively accepted and moved to your calendar. Do you"
+" want to include comments with your response?"
 msgstr ""
 "Ta sestanek je bil pogojno sprejet in bo premaknjen v Vaš koledar. Ali "
 "želite vključiti komentarje z Vašim odzivom?"
 
 #, fuzzy
 msgid ""
-"This meeting will be declined and moved to your Deleted Items folder. Do you "
-"want to include comments with your response?"
+"This meeting will be declined and moved to your Deleted Items folder. Do you"
+" want to include comments with your response?"
 msgstr ""
 "Ta sestanek je bil zavrnjen in bo premaknjen v mapo Izbrisani predmeti. Ali "
 "želite vključiti komentarje z Vašim odzivom?"
 
 msgid "Edit the response before sending"
 msgstr "Uredi odziv pred pošiljanjem"
+
+msgid "Response message"
+msgstr "Odgovorno sporočilo"
 
 msgid "Send the response now."
 msgstr "Pošlji odziv sedaj."
@@ -1375,16 +1392,20 @@ msgstr "Prilepi izbrani element"
 msgid "An overview of"
 msgstr "Pregled"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Start"
 msgstr "Začetek"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "End"
 msgstr "Konec"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for
+#. formatting instructions
 msgid "Printed by"
 msgstr "Natisnil je"
 
@@ -1406,12 +1427,15 @@ msgstr "l jS M Y {0}"
 msgid "All day: "
 msgstr "Ves dan: "
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "l jS F Y"
 msgstr "1 jS F Y"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for
+#. formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "l jS F"
 msgstr "1 jS F"
 
@@ -1496,7 +1520,8 @@ msgstr "Privzet čas opomnika"
 msgid "Default all-day appointment reminder time"
 msgstr "Privzeti čas opomnika za celodnevni sestanek"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "jS"
 msgstr "jS"
 
@@ -1624,6 +1649,9 @@ msgstr "Razvrsti po: Občutljivost"
 msgid "Sort by: Importance"
 msgstr "Razvrsti po: Pomembnost"
 
+msgid "Appointments list"
+msgstr "Seznam sestankov"
+
 msgid "Loading appointments"
 msgstr "Nalagam sestanke"
 
@@ -1633,11 +1661,13 @@ msgstr "Udeleženci"
 msgid "Optional attendees"
 msgstr "Neobvezni udeleženci"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "jS F {0}"
 msgstr "jS F {0}"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "jS F Y"
 msgstr "jS F Y"
 
@@ -1646,8 +1676,8 @@ msgid ""
 "You have insufficient privileges to move and copy this item. Ask the folder "
 "owner to grant you permissions or contact your system administrator."
 msgstr ""
-"Za premikanje in kopiranje tega elementa nimate dovolj pravic. Za dovoljenja "
-"prosite lastnika mape ali se obrnite na sistemskega skrbnika."
+"Za premikanje in kopiranje tega elementa nimate dovolj pravic. Za dovoljenja"
+" prosite lastnika mape ali se obrnite na sistemskega skrbnika."
 
 #, fuzzy
 msgid ""
@@ -1698,10 +1728,10 @@ msgid "Open meeting request with changes"
 msgstr "Odpri zahtevo za sestanek s spremembami"
 
 msgid "Previous"
-msgstr ""
+msgstr "Prejšnja"
 
 msgid "Next"
-msgstr ""
+msgstr "Naprej"
 
 msgid "grommunio Web"
 msgstr "grommunio Web"
@@ -1717,20 +1747,29 @@ msgstr ""
 msgid "Don't move"
 msgstr "Ne premikajte se"
 
+msgid "F j"
+msgstr "F j"
+
 msgid "Switch to day view to see all appointments"
 msgstr "Preklopite na dnevni pogled in si oglejte vse sestanke"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
+msgid "Show all appointments"
+msgstr "Pokaži vse sestanke"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates
+#. to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
 msgstr "Predlagan"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+#. TRANSLATORS: This message is used as label for the field which to indicates
+#. to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "When"
 msgstr "Kdaj"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+#. TRANSLATORS: This message is used as label for the field which to indicates
+#. to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Location"
 msgstr "Lokacija"
@@ -1744,6 +1783,9 @@ msgid ""
 msgstr ""
 "Vaš koledar je bil avtomatsko posodobljen. Ta zahteva za sestanek bo sedaj "
 "izbrisana."
+
+msgid "New appointment subject"
+msgstr "Zadeva novega sestanka"
 
 msgid "Loading appointments…"
 msgstr "Nalaganje sestankov…"
@@ -1772,6 +1814,9 @@ msgstr "Imenovanja {0} - {1}"
 msgid "No appointments"
 msgstr "Brez sestankov"
 
+msgid "Exception"
+msgstr "Izjema"
+
 msgid "Today {0} - {1}"
 msgstr "Danes {0} - {1}"
 
@@ -1779,7 +1824,8 @@ msgid "Today (all day)"
 msgstr "Danes (ves dan)"
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
-#. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
+#. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME -
+#. USERNAME".
 msgid "{0} - {1}"
 msgstr "{0} - {1}"
 
@@ -1820,8 +1866,8 @@ msgid "Recurring Message"
 msgstr "Ponavljajoče sporočilo"
 
 msgid ""
-"This is a recurring message. Do you want to open only this occurrence or the "
-"series?"
+"This is a recurring message. Do you want to open only this occurrence or the"
+" series?"
 msgstr ""
 "To je ponavljajoče sporočilo. Ali želite odpreti samo to ponavljanje ali "
 "serijo ponavljanj?"
@@ -1830,8 +1876,8 @@ msgid "Recurring Appointment"
 msgstr "Ponavljajoč sestanek"
 
 msgid ""
-"This is a recurring appointment. Do you want to open only this occurrence or "
-"the series?"
+"This is a recurring appointment. Do you want to open only this occurrence or"
+" the series?"
 msgstr ""
 "To je ponavljajoč sestanek. Ali želite odpreti samo to ponavljanje ali "
 "serijo ponavljanj?"
@@ -1853,8 +1899,8 @@ msgid ""
 "This is a recurring task request. Do you want to open only this occurrence "
 "or the series?"
 msgstr ""
-"To je zahteva za ponavljajočo nalogo. Ali želite odpreti samo to ponavljanje "
-"ali celo serijo ponavljanj?"
+"To je zahteva za ponavljajočo nalogo. Ali želite odpreti samo to ponavljanje"
+" ali celo serijo ponavljanj?"
 
 msgid "Open this occurrence"
 msgstr "Odpri to ponavljanje"
@@ -1910,8 +1956,8 @@ msgstr ""
 "ponavljanje ali serijo ponavljanj?"
 
 msgid ""
-"This is a recurring task request. Do you want to delete only this occurrence "
-"or the series?"
+"This is a recurring task request. Do you want to delete only this occurrence"
+" or the series?"
 msgstr ""
 "To je zahteva za ponavljajočo nalogo. Ali želite izbrisati samo to "
 "ponavljanje ali serijo ponavljanj?"
@@ -1988,8 +2034,8 @@ msgstr "Prejemnik že obstaja."
 
 #, fuzzy
 msgid ""
-"The sender of this email has requested a read receipt. Do you wish to notify "
-"the sender?"
+"The sender of this email has requested a read receipt. Do you wish to notify"
+" the sender?"
 msgstr ""
 "Pošiljatelj tega sporočila želi biti obveščen kdaj berete to sporočilo. Ali "
 "želite obvestiti pošiljatelja?"
@@ -2011,8 +2057,8 @@ msgstr "Ni mogoče uvoziti \"{0}\". Datoteka ni veljavna"
 
 #, fuzzy
 msgid ""
-"You have insufficient privileges to move these items. Would you like to copy "
-"instead?"
+"You have insufficient privileges to move these items. Would you like to copy"
+" instead?"
 msgstr ""
 "Za premikanje teh elementov nimate dovolj pravic. Ali želite namesto tega "
 "kopirati?"
@@ -2069,8 +2115,8 @@ msgid ""
 "These attachments have an unsupported file type and can not be added to the "
 "ZIP file:"
 msgstr ""
-"Te priloge imajo nepodprto vrsto datoteke in jih ni mogoče dodati v datoteko "
-"ZIP:"
+"Te priloge imajo nepodprto vrsto datoteke in jih ni mogoče dodati v datoteko"
+" ZIP:"
 
 msgid "Would you like to continue downloading without adding these files?"
 msgstr "Želite nadaljevati prenos brez dodajanja teh datotek?"
@@ -2109,11 +2155,11 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"In order to use the ICS / VCS import feature, upgrade your Gromox to version "
-"0 or higher."
+"In order to use the ICS / VCS import feature, upgrade your Gromox to version"
+" 0 or higher."
 msgstr ""
-"Če želite uporabljati funkcijo uvoza ICS/VCS, nadgradite Gromox na različico "
-"0 ali novejšo."
+"Če želite uporabljati funkcijo uvoza ICS/VCS, nadgradite Gromox na različico"
+" 0 ali novejšo."
 
 msgid "Attachment error"
 msgstr "Napaka priloge"
@@ -2139,6 +2185,15 @@ msgstr "Upravljaj kategorije"
 msgid "New"
 msgstr "Novo"
 
+msgid "Rename category"
+msgstr "Preimenuj kategorijo"
+
+msgid "Delete category"
+msgstr "Izbriši kategorijo"
+
+msgid "Quick access"
+msgstr "Hiter dostop"
+
 msgid "Delete Category"
 msgstr "Izbriši kategorijo"
 
@@ -2159,6 +2214,9 @@ msgstr "Kategorija z imenom \""
 msgid "Create New Category"
 msgstr "Ustvari novo kategorijo"
 
+msgid "Category name"
+msgstr "Ime kategorije"
+
 msgid "Pin to quick access"
 msgstr "Pripenjanje za hiter dostop"
 
@@ -2170,8 +2228,8 @@ msgid ""
 "You must apply the changes you have made to the categories before you can "
 "create this category."
 msgstr ""
-"Preden lahko ustvarite to kategorijo, morate uporabiti spremembe, ki ste jih "
-"opravili v kategorijah."
+"Preden lahko ustvarite to kategorijo, morate uporabiti spremembe, ki ste jih"
+" opravili v kategorijah."
 
 msgid "You already have a category named '{0}'. Please use another name."
 msgstr "Že imate kategorijo z imenom '{0}'. Uporabite drugo ime."
@@ -2197,9 +2255,7 @@ msgstr "Ali jo želite preimenovati?"
 msgid ""
 "The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
 "\"{2}\" categories?"
-msgstr ""
-"Kategorija \"{0}\" že obstaja. Ali želite združiti kategoriji \"{1}\" in "
-"\"{2}\"?"
+msgstr "Kategorija \"{0}\" že obstaja. Ali želite združiti kategoriji \"{1}\" in \"{2}\"?"
 
 msgid "Merge"
 msgstr "Združi"
@@ -2287,8 +2343,8 @@ msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
 "the context menu and click on \"Share folder…\""
 msgstr ""
-"Če želite nastaviti le dovoljenja za mape, z desnim gumbom miške kliknite na "
-"mapo, da se odpre kontekstni meni, in kliknite \"Skupna raba mape…\""
+"Če želite nastaviti le dovoljenja za mape, z desnim gumbom miške kliknite na"
+" mapo, da se odpre kontekstni meni, in kliknite \"Skupna raba mape…\""
 
 msgid "Permission"
 msgstr "Dovoljenje"
@@ -2501,8 +2557,8 @@ msgid ""
 "Delete selected item without moving it to the Deleted Items folder. The "
 "deleted item can still be restored."
 msgstr ""
-"Izbrišite izbrani element, ne da bi ga premaknili v mapo Izbrisani elementi. "
-"Izbrisani element lahko še vedno obnovite."
+"Izbrišite izbrani element, ne da bi ga premaknili v mapo Izbrisani elementi."
+" Izbrisani element lahko še vedno obnovite."
 
 msgid "Add/Edit Cc recipient"
 msgstr "Dodaj/upravi prejemnika Cc"
@@ -2566,8 +2622,8 @@ msgstr "Razširitev distribucijskega seznama"
 
 #, fuzzy
 msgid ""
-"Distribution list will be replaced with its members. You will not be able to "
-"collapse it again."
+"Distribution list will be replaced with its members. You will not be able to"
+" collapse it again."
 msgstr ""
 "Distribucijski seznam bo nadomeščen z njegovimi člani. Znova ga ne boste "
 "mogli zrušiti."
@@ -2669,8 +2725,11 @@ msgstr "Konec po {A} ponovitvah"
 msgid "End by {A}"
 msgstr "Konec pri {A}"
 
-#. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
-#. For example: 'Occurrence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurrence duration: 1 hour'
+#. TRANSLATORS: This informs the user what the exact duration of the
+#. appointment is. Where {D} represents the days, {H} the hours and {M} the
+#. minutes.
+#. For example: 'Occurrence duration: 1 day 2 hours 45 minutes', or when the
+#. appointment is shorter then 1 day: 'Occurrence duration: 1 hour'
 msgid "Occurrence duration: {D} {H} {M}"
 msgstr "Trajanje ponovitve: {D} {H} {M}"
 
@@ -2715,7 +2774,8 @@ msgstr "Ni opomnikov"
 msgid "Due In"
 msgstr "Zapade"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Due"
 msgstr "Zaradi"
 
@@ -2893,6 +2953,15 @@ msgstr "ima v polju Za moje ime"
 msgid "is received (all messages)"
 msgstr "je prejeto (vsa sporočila)"
 
+msgid "Message size"
+msgstr "Velikost sporočila"
+
+msgid "Size unit"
+msgstr "Enota za velikost"
+
+msgid "Condition"
+msgstr "Pogoj"
+
 msgid "Unknown condition"
 msgstr "Neznano stanje"
 
@@ -2904,6 +2973,9 @@ msgstr "Dodaj dejanje"
 
 msgid "Remove action"
 msgstr "Odstrani dejanje"
+
+msgid "Action"
+msgstr "Dejanje"
 
 msgid "Unknown action"
 msgstr "Neznano dejanje"
@@ -2950,13 +3022,16 @@ msgstr "Specificiraj besede ali fraze"
 msgid "Edit"
 msgstr "Uredi"
 
+msgid "Word"
+msgstr "Word"
+
 msgid "and"
 msgstr "in"
 
 #, fuzzy
 msgid ""
-"Distribution lists are not supported in rules, would you like to replace the "
-"distribution list with its members?"
+"Distribution lists are not supported in rules, would you like to replace the"
+" distribution list with its members?"
 msgstr ""
 "Distribucijski seznami niso podprti v pravilih, želite nadomestiti "
 "distribucijski seznam z njegovimi člani?"
@@ -2968,10 +3043,10 @@ msgid "No rule exists"
 msgstr "Ni nobenega pravila"
 
 msgid "Move Up"
-msgstr ""
+msgstr "Premakni navzgor"
 
 msgid "Move Down"
-msgstr ""
+msgstr "Premakni navzdol"
 
 msgid "Active"
 msgstr "Aktiven"
@@ -3065,8 +3140,8 @@ msgstr "Mapa ne obstaja"
 
 #, fuzzy
 msgid ""
-"The folder you are searching through no longer exists. Please select another "
-"folder"
+"The folder you are searching through no longer exists. Please select another"
+" folder"
 msgstr "Mapa, po kateri iščete, ne obstaja več. Izberite drugo mapo"
 
 msgid "Add/Edit sender"
@@ -3135,6 +3210,9 @@ msgstr "Iz naslovov"
 msgid "From Addresses settings"
 msgstr "Nastavitve naslovov od"
 
+msgid "Select color"
+msgstr "Izberi barvo"
+
 msgid "Full name"
 msgstr "Polno ime"
 
@@ -3149,6 +3227,9 @@ msgstr "Spletna stran"
 
 msgid "IM Address"
 msgstr "IM naslov"
+
+msgid "Message body"
+msgstr "Besedilo sporočila"
 
 msgid "D, d-m-Y, {0}"
 msgstr "D, d-m-Y, {0}"
@@ -3181,8 +3262,14 @@ msgstr "Neznan"
 msgid "Meeting Organizer"
 msgstr "Organizator sestanka"
 
+msgid "Follow up"
+msgstr "Spremljanje"
+
 msgid "{0} overdue"
 msgstr "{0} zapadlo"
+
+msgid "Message body editor"
+msgstr "Urejevalnik besedila sporočila"
 
 msgid "Loading…"
 msgstr "Nalaganje…"
@@ -3190,7 +3277,8 @@ msgstr "Nalaganje…"
 msgid "Message could not be loaded"
 msgstr "Sporočila ni bilo mogoče naložiti"
 
-#. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
+#. TRANSLATORS: This message is used as label for the field which indicates
+#. which attachments are inside the message
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "Priloge"
@@ -3204,7 +3292,8 @@ msgstr "Dodaj pošiljatelja na listo varnih pošiljateljev"
 msgid "Add Domain to Safe Senders List"
 msgstr "Dodaj domeno za shranjevanje seznama pošiljatelja"
 
-#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates with which
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and
+#. indicates with which
 #. importance the message was sent. For example:
 #. 'This message was sent with high importance.'
 #. 'This message was sent with low importance.'
@@ -3212,7 +3301,8 @@ msgctxt "mail.previewpanel"
 msgid "This message was sent with {0} importance."
 msgstr "To sporočilo je bilo poslano z {0} pomembnostjo."
 
-#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates which
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and
+#. indicates which
 #. sensitivity level applies to the message. For example:
 #. 'Please treat this as Personal.'
 #. 'Please treat this as Private.'
@@ -3224,8 +3314,8 @@ msgstr "Prosim obravnavajte to kot {0}."
 #, fuzzy
 msgctxt "mail.previewpanel"
 msgid ""
-"Click here to download pictures. To help protect your privacy, grommunio Web "
-"prevented automatic download of some pictures in this message."
+"Click here to download pictures. To help protect your privacy, grommunio Web"
+" prevented automatic download of some pictures in this message."
 msgstr ""
 "Kliknite tukaj za prenos slik. Za zaščito vaše zasebnosti je grommunio Web "
 "preprečil samodejni prenos nekaterih slik v tem sporočilu."
@@ -3235,8 +3325,8 @@ msgid ""
 "This message is corrupt and will not be displayed correctly, Click here to "
 "fix it."
 msgstr ""
-"To spročilo je pokvarjeno in ne bo pravilno prikazano. Kliknite tukaj, da ga "
-"popravite."
+"To spročilo je pokvarjeno in ne bo pravilno prikazano. Kliknite tukaj, da ga"
+" popravite."
 
 msgctxt "mail.previewpanel"
 msgid "{0} has accepted."
@@ -3278,11 +3368,13 @@ msgid "{0} declined and proposed a new time for this meeting."
 msgstr "{0} je zavrnil in predlagal novo uro za ta sestanek."
 
 msgctxt "mail.previewpanel"
-msgid "{0} declined on behalf of {1} and proposed a new time for this meeting."
+msgid ""
+"{0} declined on behalf of {1} and proposed a new time for this meeting."
 msgstr "{0} je zavrnil v imenu {1} in predlagal novo uro za ta sestanek."
 
 msgctxt "mail.previewpanel"
-msgid "This meeting is not in the Calendar; it may have been moved or deleted."
+msgid ""
+"This meeting is not in the Calendar; it may have been moved or deleted."
 msgstr "Tega sestanka ni v koledarju; mogoče je bil premaknjen ali izbrisan."
 
 msgctxt "mail.previewpanel"
@@ -3366,15 +3458,17 @@ msgid "Fix message"
 msgstr "Popravek sporočila"
 
 msgid ""
-"We are going to try to fix a corrupted mail message, do you wish to continue?"
+"We are going to try to fix a corrupted mail message, do you wish to "
+"continue?"
 msgstr ""
-"Poskušamo popraviti pokvarjeno elektronsko sporočilo, ali želite nadaljevati?"
+"Poskušamo popraviti pokvarjeno elektronsko sporočilo, ali želite "
+"nadaljevati?"
 
 msgid "The matching task was not found in your task list."
 msgstr "Ujemajoče se opravilo ni bilo najdeno na vašem seznamu opravil."
 
 msgid "Toggle header"
-msgstr ""
+msgstr "Preklopni naslov"
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3392,20 +3486,29 @@ msgctxt "mail.previewpanel"
 msgid "Categories"
 msgstr "Kategorije"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+#. TRANSLATORS: This message is used as label for the field which to indicates
+#. to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Recipients"
 msgstr "Prejemniki"
 
-#. TRANSLATORS: check if the mail is send by some delegator or not. if then display "on behalf of".
+#. TRANSLATORS: check if the mail is send by some delegator or not. if then
+#. display "on behalf of".
 msgctxt "mail.previewpanel"
 msgid "on behalf of"
 msgstr "v imenu"
 
-#. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
+#. TRANSLATORS: This message is used to indicate that no sent date is
+#. available for the message (because it has not been sent yet).
 msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "Noben"
+
+msgid "Pagination"
+msgstr "Paginiranje (zaznamovanje strani)"
+
+msgid "Page number"
+msgstr "Številka strani"
 
 msgid "Pop-out"
 msgstr "Izskočna stran"
@@ -3503,7 +3606,8 @@ msgstr "Elektronski naslov 3"
 msgid "Email3 Display As"
 msgstr "E-pošta3 Prikaži kot"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Birthday"
 msgstr "Rojstni dan"
 
@@ -3603,7 +3707,8 @@ msgstr "Vzdevek"
 msgid "Suffix"
 msgstr "Končnice"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Anniversary"
 msgstr "Obletnica"
 
@@ -3848,6 +3953,9 @@ msgstr "Razvrsti po: TTY/TDD Telefon"
 msgid "Sort by: Telex Phone"
 msgstr "Razvrsti po: Teleks"
 
+msgid "Contacts list"
+msgstr "Seznam stikov"
+
 msgid "Change Picture"
 msgstr "Spremeni sliko"
 
@@ -3879,15 +3987,17 @@ msgid ""
 "Cannot upload attachment, only {0} attachments are allowed to be added to "
 "the message"
 msgstr ""
-"Ne morem naložiti priloge, samo {0} prilog je dovoljeno priložiti k sporočilu"
+"Ne morem naložiti priloge, samo {0} prilog je dovoljeno priložiti k "
+"sporočilu"
 
 msgid ""
-"Cannot upload attachment, attachment is {0} while the allowed maximum is {1}."
+"Cannot upload attachment, attachment is {0} while the allowed maximum is "
+"{1}."
 msgstr "Ne morem naložiti priloge, priloga je {0} medtem ko je maksimum {1}."
 
 msgid ""
-"Cannot upload attachment, the total attachment size is {0} while the allowed "
-"maximum is {1}"
+"Cannot upload attachment, the total attachment size is {0} while the allowed"
+" maximum is {1}"
 msgstr ""
 "Ne morem naložiti priloge, skupna velikost priloge je {0} medtem ko je "
 "dovoljena velikost {1}"
@@ -3906,11 +4016,13 @@ msgstr ""
 "Ne morem naložiti priloge. Skupno število priloge je {0} datotek medtem ko "
 "je dovoljeno število datotek {1}."
 
-#. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
+#. TRANSLATORS: {0} indicates name/email address of secretary and {1}
+#. indicates boss' name/email address
 msgid "{0} on behalf of {1}"
 msgstr "{0} v imenu {1}"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "jS F"
 msgstr "jS F"
 
@@ -4028,6 +4140,9 @@ msgstr "Beri"
 msgid "Brown"
 msgstr "Rjava"
 
+msgid "Main navigation"
+msgstr "Glavna navigacija"
+
 msgid "Logout"
 msgstr "Odjava"
 
@@ -4043,17 +4158,17 @@ msgstr "Temno"
 msgid "Automatic"
 msgstr "Samodejno"
 
+msgid "Main toolbar"
+msgstr "Glavna orodna vrstica"
+
 msgid "Switch view"
 msgstr "Preklopi pogled"
 
-msgid "Folder navigation"
-msgstr ""
+msgid "Skip to main content"
+msgstr "Preskoči na glavno vsebino"
 
 msgid "Widgets"
 msgstr "Gradniki"
-
-msgid "Main content"
-msgstr ""
 
 msgid "Sending…"
 msgstr "Pošiljanje…"
@@ -4092,8 +4207,8 @@ msgid ""
 "Your message appears to reference an attachment but no file is attached. "
 "Send anyway?"
 msgstr ""
-"Zdi se, da se vaše sporočilo sklicuje na prilogo, vendar ni priložena nobena "
-"datoteka. Vseeno poslati?"
+"Zdi se, da se vaše sporočilo sklicuje na prilogo, vendar ni priložena nobena"
+" datoteka. Vseeno poslati?"
 
 msgid "No subject"
 msgstr "Ni predmeta"
@@ -4220,8 +4335,8 @@ msgid "D d-m"
 msgstr "D d-m"
 
 msgid ""
-"Not enough permissions to open this store, do you want to remove it from the "
-"hierarchy?"
+"Not enough permissions to open this store, do you want to remove it from the"
+" hierarchy?"
 msgstr ""
 "Nimate dovolj dovoljenj za odpiranje te shrambe, ali jo želite izbrisati iz "
 "hierarhije?"
@@ -4505,9 +4620,6 @@ msgstr "Ponovno naloži"
 msgid "Restore items"
 msgstr "Obnovi predmete"
 
-msgid "Select color"
-msgstr "Izberi barvo"
-
 msgid "Add to Favorites"
 msgstr "Dodaj med priljubljene"
 
@@ -4546,8 +4658,8 @@ msgid ""
 "Are you sure you want to delete the folder \"{0}\" and move all of its "
 "contents into the Deleted Items folder?"
 msgstr ""
-"Ali ste prepričani, da želite izbrisati mapo \"{0}\" in premakniti vsebino v "
-"mapo Izbrisano?"
+"Ali ste prepričani, da želite izbrisati mapo \"{0}\" in premakniti vsebino v"
+" mapo Izbrisano?"
 
 msgid "Delete folder"
 msgstr "Izbriši mapo"
@@ -4558,10 +4670,13 @@ msgstr "Ali ste prepričani, da želite izprazniti {0}\"?"
 msgid "Show All"
 msgstr "Prikaži vse"
 
+msgid "Filter folders"
+msgstr "Filtriranje map"
+
 #, fuzzy
 msgid ""
-"You have insufficient privileges to move this folder. Would you like to copy "
-"instead?"
+"You have insufficient privileges to move this folder. Would you like to copy"
+" instead?"
 msgstr ""
 "Za premikanje te mape nimate dovolj pravic. Želite namesto tega kopirati?"
 
@@ -4574,7 +4689,8 @@ msgstr "Skp"
 msgid "Sort by: To"
 msgstr "Razvrsti po: Za"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Sent"
 msgstr "Poslano"
 
@@ -4738,6 +4854,10 @@ msgstr "Posreduj"
 msgid "Re"
 msgstr "Ponovno"
 
+#. TRANSLATORS: prefix before sender name in print-to-PDF filename
+msgid "FROM"
+msgstr "OD"
+
 msgid "on behalf of"
 msgstr "v imenu"
 
@@ -4865,8 +4985,14 @@ msgstr "Trenutno sem v pisarni"
 msgid "I am out of the office from"
 msgstr "Odsoten sem iz pisarne od"
 
+msgid "Out of office from"
+msgstr "Odsoten od"
+
 msgid "I will be back on"
 msgstr "Vrnil se bom na"
+
+msgid "Back on"
+msgstr "Nazaj na"
 
 msgid "Automatically reply with the following message:"
 msgstr "Samodejni odgovor z naslednjim sporočilom:"
@@ -4904,8 +5030,8 @@ msgstr "Varni pošiljatelji"
 
 #, fuzzy
 msgid ""
-"To protect your privacy email addresses or domains can only be added via the "
-"\"Add to safe sender list\" functionality in an opened email."
+"To protect your privacy email addresses or domains can only be added via the"
+" \"Add to safe sender list\" functionality in an opened email."
 msgstr ""
 "Za zaščito zasebnosti lahko e-poštne naslove ali domene dodajate samo prek "
 "funkcije \"Dodaj na seznam varnih pošiljateljev\" v odprtem e-poštnem "
@@ -4925,6 +5051,9 @@ msgstr "Nova sporočila"
 
 msgid "Replies/forwards"
 msgstr "Odgovori/napredovanje"
+
+msgid "Signature name"
+msgstr "Ime podpisa"
 
 msgid "Signature name:"
 msgstr "Ime podpisa:"
@@ -5001,9 +5130,6 @@ msgstr "Zelo velik"
 msgid "Huge"
 msgstr "Ogromno"
 
-msgid "Follow up"
-msgstr "Spremljanje"
-
 msgid "Move to Junk Folder"
 msgstr "Premakni v mapo Vsiljena pošta"
 
@@ -5012,6 +5138,9 @@ msgstr "Ni neželena pošta"
 
 msgid "Send to"
 msgstr "Pošlji ga"
+
+msgid "Message list"
+msgstr "Seznam sporočil"
 
 msgid "Loading mail"
 msgstr "Nalaganje sporočila"
@@ -5064,6 +5193,9 @@ msgstr "Razvrsti po: Ustvarjen"
 msgid "Sort by: Color"
 msgstr "Razvrsti po: Barvi"
 
+msgid "Notes list"
+msgstr "Seznam opomb"
+
 msgid "Loading Notes"
 msgstr "Nalaganje zapiskov"
 
@@ -5105,8 +5237,17 @@ msgstr "Tema"
 msgid "Personal information"
 msgstr "Osebni podatki"
 
+msgid "Last Name, First Name"
+msgstr "Priimek, ime"
+
+msgid "First Name Last Name"
+msgstr "Ime Priimek"
+
 msgid "Select Default Folder"
 msgstr "Izberi standardno mapo"
+
+msgid "Name Display Format"
+msgstr "Oblika prikaza imena"
 
 msgid "Advanced"
 msgstr "Napredno"
@@ -5122,6 +5263,9 @@ msgstr "Prikaži točke vstavljanja v grommunio Web"
 
 msgid "Show \"item data\" button in context menu (mail only)"
 msgstr "Prikaz gumba \"podatki o elementu\" v kontekstnem meniju (samo pošta)"
+
+msgid "Settings categories"
+msgstr "Kategorije nastavitev"
 
 msgid "Edit setting"
 msgstr "Uredi nastavitve"
@@ -5141,11 +5285,17 @@ msgstr "O"
 msgid "Date & Time"
 msgstr "Datum in ura"
 
+msgid "Date format"
+msgstr "Oblika datuma"
+
 msgid "Short"
 msgstr "Kratko"
 
 msgid "Long"
 msgstr "Dolgo"
+
+msgid "Time format"
+msgstr "Oblika časa"
 
 msgid "12h clock"
 msgstr "12h ura"
@@ -5201,20 +5351,21 @@ msgstr "Navigacija po mapi Prejeto"
 msgid "I want to navigate through my items by using:"
 msgstr "Po svojih predmetih želim krmariti z uporabo:"
 
+msgid "Navigation method"
+msgstr "Način navigacije"
+
 msgid "Infinite Scroll"
 msgstr "Neskončno drsenje"
 
-msgid "grommunio Web automatically loads additional items when you scroll down"
+msgid ""
+"grommunio Web automatically loads additional items when you scroll down"
 msgstr ""
 "grommunio Web samodejno naloži dodatne elemente, ko se pomaknete navzdol"
 
-msgid "Pagination"
-msgstr "Paginiranje (zaznamovanje strani)"
-
 #, fuzzy
 msgid ""
-"grommunio Web displays items on pages and you can use navigation controls to "
-"navigate"
+"grommunio Web displays items on pages and you can use navigation controls to"
+" navigate"
 msgstr ""
 "grommunio Web prikazuje elemente na straneh, za navigacijo pa lahko "
 "uporabljate navigacijske gumbe"
@@ -5230,6 +5381,9 @@ msgstr "Bližnjice na tipkovnici"
 
 msgid "Extended"
 msgstr "Podaljšano"
+
+msgid "Keyboard shortcuts"
+msgstr "Blagajniške bližnjice"
 
 msgid "Keyboard shortcuts off"
 msgstr "Izklopljene bližnjice na tipkovnici"
@@ -5506,7 +5660,8 @@ msgstr "Zaključeno"
 msgid "Printed by: "
 msgstr "Tiskal je: "
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Printed on: "
 msgstr "Natisnjeno na: "
 
@@ -5598,6 +5753,9 @@ msgstr "Razvrsti po: Izpolnjen odstotek"
 
 msgid "Assigned task changes"
 msgstr "Spremembe dodeljene naloge"
+
+msgid "Tasks list"
+msgstr "Seznam nalog"
 
 msgid "Loading tasks"
 msgstr "Nalaganje nalog"
@@ -5743,7 +5901,8 @@ msgid "Missing folders"
 msgstr "Manjkajoče mape"
 
 msgid "The following required folder is missing in the hierarchy: {0}"
-msgid_plural "The following required folders are missing in the hierarchy: {0}"
+msgid_plural ""
+"The following required folders are missing in the hierarchy: {0}"
 msgstr[0] "Naslednje obvezno polje manjka v hierarhiji: {0}"
 msgstr[1] "Naslednja obvezna polja manjkajo v hierarhiji: {0}"
 msgstr[2] "Naslednja obvezna polja manjkajo v hierarhiji: {0}"
@@ -5811,7 +5970,7 @@ msgid "Public link"
 msgstr "Javna povezava"
 
 msgid "Copy link"
-msgstr ""
+msgstr "Kopiraj povezavo"
 
 msgid "Password protect"
 msgstr "Zaščita z geslom"
@@ -6100,8 +6259,7 @@ msgid "Select upload folder"
 msgstr "Izberite mapo za nalaganje"
 
 msgid "File \"{0}\" is too large! Maximum allowed filesize: {1}."
-msgstr ""
-"Datoteka \"{0}\" je prevelika! Največja dovoljena velikost datoteke: {1}."
+msgstr "Datoteka \"{0}\" je prevelika! Največja dovoljena velikost datoteke: {1}."
 
 msgid "Add item to Files"
 msgstr "Dodajanje elementa v Datoteke"
@@ -6197,8 +6355,8 @@ msgstr "Urejanje deleža"
 msgid ""
 "There are no accounts added. Go to settings, Files tab and add an account"
 msgstr ""
-"Dodani niso nobeni računi. Pojdite v nastavitve, zavihek Datoteke in dodajte "
-"račun"
+"Dodani niso nobeni računi. Pojdite v nastavitve, zavihek Datoteke in dodajte"
+" račun"
 
 msgid "Filesize"
 msgstr "Velikost datoteke"
@@ -6211,6 +6369,9 @@ msgstr "Je v skupni rabi"
 
 msgid "File preview"
 msgstr "Predogled datotek"
+
+msgid "File content"
+msgstr "Vsebina datoteke"
 
 msgid "Your browser does not support previewing of audio files!"
 msgstr "Vaš brskalnik ne podpira predogleda zvočnih datotek!"
@@ -6333,9 +6494,10 @@ msgid "attachments selected"
 msgstr "izbrane priloge"
 
 msgid ""
-"With the selection of separate attachments the total size of all attachments "
-"may not exceed"
+"With the selection of separate attachments the total size of all attachments"
+" may not exceed"
 msgstr ""
+"Pri izbiri posameznih prilog skupna velikost vseh prilog ne sme presegati"
 
 msgid "MB. There have been"
 msgstr "MB. Bilo je"
@@ -6439,8 +6601,8 @@ msgstr "Upravljanje map v skupni rabi"
 
 #, fuzzy
 msgid ""
-"Select folders to sync to your device from the list below. To add additional "
-"mailboxes to the list, open them in grommunio Web first."
+"Select folders to sync to your device from the list below. To add additional"
+" mailboxes to the list, open them in grommunio Web first."
 msgstr ""
 "S spodnjega seznama izberite mape, ki jih želite sinhronizirati z napravo. "
 "Če želite na seznam dodati dodatne poštne predale, jih najprej odprite v "
@@ -6505,6 +6667,9 @@ msgstr "Za potrditev vnesite {0} "
 msgid "Please type {0} to confirm"
 msgstr "Za potrditev vnesite {0} "
 
+msgid "Wipe type"
+msgstr "Vrsta brisanja"
+
 msgid "Wipe only data related to this account"
 msgstr "Izbrišite samo podatke, povezane s tem računom"
 
@@ -6518,6 +6683,8 @@ msgid ""
 "Do you really want to wipe your device?\n"
 " Type WIPE to confirm."
 msgstr ""
+"Ali res želite izbrisati vsebino naprave?\n"
+" Za potrditev vnesite WIPE."
 
 #, fuzzy
 msgid ""
@@ -6531,6 +6698,8 @@ msgid ""
 "Do you really want to remove your device?\n"
 " Type REMOVE to confirm."
 msgstr ""
+"Ali res želite odstraniti svojo napravo?\n"
+" Za potrditev vnesite REMOVE."
 
 #, fuzzy
 msgid ""
@@ -6546,8 +6715,14 @@ msgstr "Dodajanje sestanka"
 msgid "Room name:"
 msgstr "Ime sobe:"
 
+msgid "Room name"
+msgstr "Ime sobe"
+
 msgid "Room URL:"
 msgstr "URL naslov sobe:"
+
+msgid "Room URL"
+msgstr "URL sobe"
 
 msgid "Meet"
 msgstr "Spoznajte"
@@ -6560,6 +6735,9 @@ msgstr "Pridružite se spletnemu sestanku"
 
 msgid "Open meeting in:"
 msgstr "Odprto srečanje v:"
+
+msgid "Open meeting in"
+msgstr "Odprto srečanje v"
 
 msgid "Web tab"
 msgstr "Spletni zavihek"
@@ -6587,7 +6765,8 @@ msgstr ""
 "Preprečite, da bi se URL v lokaciji sestanka samodejno prepisal (npr. pri "
 "dodajanju sejne sobe)"
 
-msgid "If you have problems when creating meetings, try disabling this setting"
+msgid ""
+"If you have problems when creating meetings, try disabling this setting"
 msgstr ""
 "Če imate težave pri ustvarjanju sestankov, poskusite onemogočiti to "
 "nastavitev"
@@ -6602,6 +6781,11 @@ msgid ""
 "used when composing in plain text, must contain %url%, empty to reset to "
 "default"
 msgstr ""
+"uporablja se pri pisanju v obliki navadnega besedila, mora vsebovati %url%, "
+"prazno za ponastavitev na privzeto"
+
+msgid "Invitation text"
+msgstr "Besedilo vabila"
 
 msgid "Invitation template (HTML)"
 msgstr "Predloga vabila (HTML)"
@@ -6609,6 +6793,11 @@ msgstr "Predloga vabila (HTML)"
 msgid ""
 "used when composing in HTML, must contain %url%, empty to reset to default"
 msgstr ""
+"uporablja se pri sestavljanju v HTML, mora vsebovati %url%, prazno za "
+"ponastavitev na privzeto"
+
+msgid "Invitation template"
+msgstr "Predloga vabila"
 
 msgid "An unknown error occurred while changing password."
 msgstr "Med spreminjanjem gesla je prišlo do neznane napake."
@@ -6648,8 +6837,8 @@ msgid ""
 "Password is weak. Password should contain capital, non-capital letters and "
 "numbers. Password should have 8 to 20 characters."
 msgstr ""
-"Geslo je šibko. Geslo mora vsebovati velike in male črke ter številke. Geslo "
-"mora imeti od 8 do 20 znakov."
+"Geslo je šibko. Geslo mora vsebovati velike in male črke ter številke. Geslo"
+" mora imeti od 8 do 20 znakov."
 
 msgid "Change passphrase"
 msgstr "Sprememba gesla"
@@ -6725,8 +6914,8 @@ msgid ""
 "Do you really want to remove your private certificate? If you remove your "
 "certificate you will not be able to sign or decrypt S/MIME emails."
 msgstr ""
-"Ali res želite odstraniti zasebno potrdilo? Če odstranite svoje potrdilo, ne "
-"boste mogli podpisovati ali dešifrirati e-poštnih sporočil S/MIME."
+"Ali res želite odstraniti zasebno potrdilo? Če odstranite svoje potrdilo, ne"
+" boste mogli podpisovati ali dešifrirati e-poštnih sporočil S/MIME."
 
 msgid "Signing"
 msgstr "Podpisovanje"
@@ -6756,6 +6945,8 @@ msgid ""
 "Warning: RSA key size is below 2048 bits. Consider upgrading to a stronger "
 "certificate."
 msgstr ""
+"Opozorilo: Velikost ključa RSA je manjša od 2048 bitov. Razmislite o "
+"nadgradnji na močnejši certifikat."
 
 msgid "Certificate details"
 msgstr "Podatki o potrdilu"
@@ -6808,7 +6999,8 @@ msgstr ""
 msgid "Private certificate"
 msgstr "Zasebni certifikat"
 
-msgid "You must fill in the certificate passphrase to upload your certificate."
+msgid ""
+"You must fill in the certificate passphrase to upload your certificate."
 msgstr "Za prenos potrdila morate vnesti geslo potrdila."
 
 msgid "You must first select a valid private certificate in PKCS#12 format."
@@ -6831,11 +7023,11 @@ msgstr "Sporočilo znaka"
 
 #, fuzzy
 msgid ""
-"Ensure the authenticity of the message by adding a digital signature to this "
-"message. Any changes to the message will invalidate the signature."
+"Ensure the authenticity of the message by adding a digital signature to this"
+" message. Any changes to the message will invalidate the signature."
 msgstr ""
-"Verodostojnost sporočila zagotovite tako, da temu sporočilu dodate digitalni "
-"podpis. Kakršne koli spremembe sporočila bodo podpis razveljavile."
+"Verodostojnost sporočila zagotovite tako, da temu sporočilu dodate digitalni"
+" podpis. Kakršne koli spremembe sporočila bodo podpis razveljavile."
 
 msgid "Encrypt message"
 msgstr "Šifriranje sporočila"
@@ -6845,8 +7037,8 @@ msgid ""
 "Ensure the privacy of the message by encrypting its contents. Only the "
 "recipient of the message will be able to open it."
 msgstr ""
-"Zagotovite zasebnost sporočila s šifriranjem njegove vsebine. Samo prejemnik "
-"sporočila ga bo lahko odprl."
+"Zagotovite zasebnost sporočila s šifriranjem njegove vsebine. Samo prejemnik"
+" sporočila ga bo lahko odprl."
 
 msgid "Algorithms used"
 msgstr "Uporabljeni algoritmi"
@@ -6869,7 +7061,8 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"You are seeing this message because the verification of the digital signature"
+"You are seeing this message because the verification of the digital "
+"signature"
 msgstr "To sporočilo se prikaže, ker preverjanje digitalnega podpisa"
 
 msgid " has failed"
@@ -6886,8 +7079,8 @@ msgstr "Kaj naj storim?"
 
 #, fuzzy
 msgid ""
-"You can continue to work. However, you should keep in mind that the identity "
-"and the authenticity of the message content could not be verified."
+"You can continue to work. However, you should keep in mind that the identity"
+" and the authenticity of the message content could not be verified."
 msgstr ""
 "Lahko nadaljujete z delom. Vendar morate upoštevati, da identitete in "
 "pristnosti vsebine sporočila ni bilo mogoče preveriti."
@@ -6925,32 +7118,32 @@ msgstr "grommunio Splet ni našel javnega potrdila za prejemnika."
 
 #, fuzzy
 msgid ""
-"The identity of the sender and authenticity of the message content have been "
-"verified, but the certificate used to sign the message expired on [d-m-Y]."
+"The identity of the sender and authenticity of the message content have been"
+" verified, but the certificate used to sign the message expired on [d-m-Y]."
 msgstr ""
 "Identiteta pošiljatelja in pristnost vsebine sporočila sta bili preverjeni, "
-"vendar je veljavnost potrdila, uporabljenega za podpis sporočila, potekla [d-"
-"m-Y]."
+"vendar je veljavnost potrdila, uporabljenega za podpis sporočila, potekla "
+"[d-m-Y]."
 
 msgid "The digital signature could not be verified for unknown reasons."
 msgstr "Digitalnega podpisa iz neznanih razlogov ni bilo mogoče preveriti."
 
 #, fuzzy
 msgid ""
-"The digital certificate used to sign this message has been revoked (i.e. the "
-"sender has marked it as compromised)"
+"The digital certificate used to sign this message has been revoked (i.e. the"
+" sender has marked it as compromised)"
 msgstr ""
-"Digitalno potrdilo, ki je bilo uporabljeno za podpis tega sporočila, je bilo "
-"preklicano (tj. pošiljatelj ga je označil kot kompromitirano)"
+"Digitalno potrdilo, ki je bilo uporabljeno za podpis tega sporočila, je bilo"
+" preklicano (tj. pošiljatelj ga je označil kot kompromitirano)"
 
 #, fuzzy
 msgid ""
 "The verification service of the certificate authority that signed the "
-"sender's certificate is not available. The validity of the certificate could "
-"not be verified."
+"sender's certificate is not available. The validity of the certificate could"
+" not be verified."
 msgstr ""
-"Storitev preverjanja overitelja, ki je podpisal potrdilo pošiljatelja, ni na "
-"voljo. Veljavnosti potrdila ni bilo mogoče preveriti."
+"Storitev preverjanja overitelja, ki je podpisal potrdilo pošiljatelja, ni na"
+" voljo. Veljavnosti potrdila ni bilo mogoče preveriti."
 
 #, fuzzy
 msgid ""
@@ -6958,8 +7151,8 @@ msgid ""
 "unknown (Server is unavailable or certificate does not support OCSP). The "
 "validity of the certificate could not be verified."
 msgstr ""
-"Status preklica digitalnega potrdila, ki se uporablja za podpis tega e-"
-"poštnega sporočila, ni znan (strežnik ni na voljo ali potrdilo ne podpira "
+"Status preklica digitalnega potrdila, ki se uporablja za podpis tega "
+"e-poštnega sporočila, ni znan (strežnik ni na voljo ali potrdilo ne podpira "
 "OCSP). Veljavnosti potrdila ni bilo mogoče preveriti."
 
 #, fuzzy
@@ -6967,8 +7160,8 @@ msgid ""
 "The revocation status of the digital certificate used to sign this email is "
 "disabled (OCSP). The validity of the certificate could not be verified."
 msgstr ""
-"Status preklica digitalnega potrdila, uporabljenega za podpis tega e-"
-"poštnega sporočila, je onemogočen (OCSP). Veljavnosti potrdila ni bilo "
+"Status preklica digitalnega potrdila, uporabljenega za podpis tega "
+"e-poštnega sporočila, je onemogočen (OCSP). Veljavnosti potrdila ni bilo "
 "mogoče preveriti."
 
 msgid "The certificate verification server (OCSP) is temporarily offline."
@@ -6979,24 +7172,33 @@ msgid "Sender is removed from the server."
 msgstr "Pošiljatelj je odstranjen iz strežnika."
 
 msgid ""
-"The digital certificate used to sign this message has been revoked according "
-"to the Certificate Revocation List (CRL)."
+"The digital certificate used to sign this message has been revoked according"
+" to the Certificate Revocation List (CRL)."
 msgstr ""
+"Digitalno potrdilo, uporabljeno za podpis tega sporočila, je bilo preklicano"
+" v skladu s seznamom preklicanih potrdil (CRL)."
 
 msgid ""
 "The revocation status of the certificate could not be verified because the "
 "CRL Distribution Point is unavailable."
 msgstr ""
+"Stanje preklica certifikata ni bilo mogoče preveriti, ker točka razširjanja "
+"CRL ni na voljo."
 
 msgid ""
 "The RSA key size used in this certificate is below the recommended minimum "
 "of 2048 bits. Consider upgrading to a stronger certificate."
 msgstr ""
+"Velikost RSA ključa, uporabljenega v tem certifikatu, je manjša od "
+"priporočene minimalne vrednosti 2048 bitov. Razmislite o nadgradnji na "
+"močnejši certifikat."
 
 msgid ""
 "The certificate's Key Usage extension does not permit this operation. The "
 "certificate may be intended for signing only or encryption only."
 msgstr ""
+"Razširitev Key Usage certifikata ne dovoljuje te operacije. Certifikat je "
+"morda namenjen samo za podpisovanje ali samo za šifriranje."
 
 msgid ""
 "This message was encrypted using CBC mode (not authenticated encryption). "
@@ -7004,12 +7206,18 @@ msgid ""
 "provides stronger protection against modification attacks. Consider asking "
 "the sender to upgrade their S/MIME configuration."
 msgstr ""
+"To sporočilo je bilo šifrirano v načinu CBC (neavtentificirano šifriranje). "
+"Čeprav je bilo uspešno dešifrirano, AES-GCM (avtentificirano šifriranje) "
+"zagotavlja močnejšo zaščito pred napadi s spreminjanjem. Razmislite o tem, "
+"da prosite pošiljatelja, naj posodobi svojo konfiguracijo S/MIME."
 
 msgid ""
 "The signing time in the digital signature differs significantly from the "
 "expected time. This may indicate a clock synchronization issue or message "
 "tampering."
 msgstr ""
+"Čas podpisa v digitalnem podpisu se znatno razlikuje od pričakovanega časa. "
+"To lahko kaže na težavo s sinhronizacijo ure ali na ponarejanje sporočila."
 
 msgid "Signature verified successfully"
 msgstr "Podpis je bil uspešno preverjen"
@@ -7286,10 +7494,14 @@ msgstr "Seafile-server je naletel na težavo."
 msgid ""
 "Could not write to temporary directory. Contact the server administrator."
 msgstr ""
+"Zapišanje v začasni imenik ni bilo mogoče. Obrnite se na skrbnika strežnika."
 
 msgid ""
-"Could not retrieve list of server features. Contact the server administrator."
+"Could not retrieve list of server features. Contact the server "
+"administrator."
 msgstr ""
+"Seznama funkcij strežnika ni bilo mogoče pridobiti. Obrnite se na skrbnika "
+"strežnika."
 
 msgid "PHP-Curl is not available. Contact your system administrator."
 msgstr "PHP-Curl ni na voljo. Obrnite se na skrbnika sistema."
@@ -7413,7 +7625,8 @@ msgstr "Račun je prazen."
 
 #, fuzzy
 msgid ""
-"Your password is wrong or you have insufficient permission to change password"
+"Your password is wrong or you have insufficient permission to change "
+"password"
 msgstr ""
 "Vaše geslo je napačno ali nimate zadostnega dovoljenja za spremembo gesla"
 
@@ -7424,6 +7637,8 @@ msgid ""
 "Error changing password. Please verify your password or contact the system "
 "administrator."
 msgstr ""
+"Napaka pri spreminjanju gesla. Preverite geslo ali se obrnite na skrbnika "
+"sistema."
 
 msgid "Password has been changed successfully."
 msgstr "Geslo je bilo uspešno spremenjeno."
@@ -7463,11 +7678,11 @@ msgstr ". Za podrobnosti se obrnite na skrbnika sistema"
 
 #, fuzzy
 msgid ""
-"Your public certificate is not installed. Without this certificate, you will "
-"not be able to read encrypted messages you have sent to others."
+"Your public certificate is not installed. Without this certificate, you will"
+" not be able to read encrypted messages you have sent to others."
 msgstr ""
-"Vaše javno potrdilo ni nameščeno. Brez tega potrdila ne boste mogli prebrati "
-"šifriranih sporočil, ki ste jih poslali drugim."
+"Vaše javno potrdilo ni nameščeno. Brez tega potrdila ne boste mogli prebrati"
+" šifriranih sporočil, ki ste jih poslali drugim."
 
 msgid "Certificate is already stored on the server"
 msgstr "Potrdilo je že shranjeno v strežniku"
@@ -7486,11 +7701,15 @@ msgid ""
 "RSA key size %d bits is below the recommended minimum of %d bits. "
 "Certificate was imported."
 msgstr ""
+"Velikost ključa RSA %d bitov je manjša od priporočene najmanjše vrednosti %d"
+" bitov. Potrdilo je bilo uvoženo."
 
 msgid ""
 "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully "
 "supported. Certificate was imported."
 msgstr ""
+"Certifikati EdDSA (Ed25519) zahtevajo PHP 8.4+ in morda niso v celoti "
+"podprti. Certifikat je bil uvožen."
 
 msgid "Certificate was expired on "
 msgstr "Potrdilo je poteklo dne "
@@ -7512,7 +7731,8 @@ msgstr "Ni mogoče prebrati javnega potrdila"
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""
-"Ne morem dodati podatkov v vodilo, ker je v vodilu prisotna ista vrsta akcije"
+"Ne morem dodati podatkov v vodilo, ker je v vodilu prisotna ista vrsta "
+"akcije"
 
 msgid "Response data requested from bus but it doesn't have any data."
 msgstr ""
@@ -7537,10 +7757,11 @@ msgstr "Zaznana je bila nepričakovana napaka"
 msgid "To-Do List"
 msgstr "Seznam opravil"
 
-#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
-#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
+#. TRANSLATORS: This indicates that the opened folder belongs to a particular
+#. user,
+#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the
+#. foldername)
 #. * and %2$s is 'Holiday' (the username).
-#.
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$s z %2$s"
@@ -7622,7 +7843,8 @@ msgid "Task Request"
 msgstr "Zahteva za nalogo"
 
 msgid "Could not find message, either it has been moved or deleted."
-msgstr "Sporočila ni bilo mogoče najti, ker je bilo premaknjeno ali izbrisano."
+msgstr ""
+"Sporočila ni bilo mogoče najti, ker je bilo premaknjeno ali izbrisano."
 
 msgid "Action is not performed correctly."
 msgstr "Ukrep se ne izvede pravilno."
@@ -7648,7 +7870,8 @@ msgstr "Javne mape stikov"
 msgid "Error in search, please try again"
 msgstr "Napaka pri iskanju, poskusite znova"
 
-msgid "Unable to perform search query, no permissions to create search folder."
+msgid ""
+"Unable to perform search query, no permissions to create search folder."
 msgstr ""
 "Ni mogoče izvesti iskalne poizvedbe, ni dovoljenj za ustvarjanje iskalne "
 "mape."
@@ -7683,8 +7906,8 @@ msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "
 "reminder to save the change"
 msgstr ""
-"Opomnika ni mogoče nastaviti tako, da bi se pojavil pred prejšnjim dogodkom. "
-"Ponastavite opomnik, da shranite spremembo"
+"Opomnika ni mogoče nastaviti tako, da bi se pojavil pred prejšnjim dogodkom."
+" Ponastavite opomnik, da shranite spremembo"
 
 msgid "Two occurrences cannot occur on the same day"
 msgstr "Dva dogodka se ne moreta zgoditi na isti dan"
@@ -7692,8 +7915,8 @@ msgstr "Dva dogodka se ne moreta zgoditi na isti dan"
 #, fuzzy, php-format
 msgid ""
 "You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
-"because you do not have the appropriate permissions for that account. Either "
-"enter the name as a required or optional attendee or talk to your "
+"because you do not have the appropriate permissions for that account. Either"
+" enter the name as a required or optional attendee or talk to your "
 "administrator about giving you permission to schedule '%s'."
 msgstr ""
 "Označili ste '%s' kot vir. Ne morete načrtovati sestanka z \"%s\", ker "
@@ -7719,11 +7942,11 @@ msgstr ""
 
 #, fuzzy, php-format
 msgid ""
-"'%s' is already booked for this specified time. You must use another time or "
-"find another resource."
+"'%s' is already booked for this specified time. You must use another time or"
+" find another resource."
 msgstr ""
-"'%s' je za ta čas že rezerviran. Uporabiti morate drug čas ali poiskati drug "
-"vir."
+"'%s' je za ta čas že rezerviran. Uporabiti morate drug čas ali poiskati drug"
+" vir."
 
 msgid "Meeting was not scheduled."
 msgstr "Srečanje ni bilo predvideno."
@@ -7882,8 +8105,8 @@ msgid ""
 "Could not find message, either it has been moved or deleted or you don't "
 "have access to open this message."
 msgstr ""
-"Sporočila ni bilo mogoče najti, ker je bilo premaknjeno ali izbrisano ali pa "
-"nimate dostopa za odprtje tega sporočila."
+"Sporočila ni bilo mogoče najti, ker je bilo premaknjeno ali izbrisano ali pa"
+" nimate dostopa za odprtje tega sporočila."
 
 msgid "Could not open message."
 msgstr "Ne morem odpreti sporočila."
@@ -7911,11 +8134,11 @@ msgstr "Nimate dovolj dovoljenj za premikanje predmetov iz koledarja."
 
 #, fuzzy
 msgid ""
-"Message is no longer in the outgoing queue, typically because it has already "
-"been sent."
+"Message is no longer in the outgoing queue, typically because it has already"
+" been sent."
 msgstr ""
-"Sporočilo ni več v čakalni vrsti za odhodna sporočila, običajno zato, ker je "
-"bilo že poslano."
+"Sporočilo ni več v čakalni vrsti za odhodna sporočila, običajno zato, ker je"
+" bilo že poslano."
 
 msgid "Message cannot be aborted"
 msgstr "Sporočila ni mogoče prekiniti"
@@ -7932,7 +8155,8 @@ msgstr "Predmeta ni bilo mogoče priložiti kot prilogo."
 msgid ""
 "You have insufficient privileges to reclaim the ownership for the Task "
 "Request."
-msgstr "Nimate dovolj dovoljenj za povračilo lastništva za zahtevek za nalogo."
+msgstr ""
+"Nimate dovolj dovoljenj za povračilo lastništva za zahtevek za nalogo."
 
 msgid "Could not reclaim the ownership for the Task Request."
 msgstr "Povračilo lastništva za zahtevek naloge ni bilo mogoče."
@@ -7954,7 +8178,8 @@ msgstr "Konflikt z drugim sestankom."
 
 #, php-format
 msgid ""
-"%s occurrence of this recurring appointment conflicts with other appointment."
+"%s occurrence of this recurring appointment conflicts with other "
+"appointment."
 msgid_plural ""
 "%s occurrences of this recurring appointment conflicts with other "
 "appointments."
@@ -7962,11 +8187,14 @@ msgstr[0] ""
 "%s pojavljanje tega ponavljajočega sestanka je v konfliktu z drugim "
 "sestankom."
 msgstr[1] ""
-"%s pojavljanj tega ponavljajočega sestanka je v konfliktu z drugimi sestanki."
+"%s pojavljanj tega ponavljajočega sestanka je v konfliktu z drugimi "
+"sestanki."
 msgstr[2] ""
-"%s pojavljanj tega ponavljajočega sestanka je v konfliktu z drugimi sestanki."
+"%s pojavljanj tega ponavljajočega sestanka je v konfliktu z drugimi "
+"sestanki."
 msgstr[3] ""
-"%s pojavljanj tega ponavljajočega sestanka je v konfliktu z drugimi sestanki."
+"%s pojavljanj tega ponavljajočega sestanka je v konfliktu z drugimi "
+"sestanki."
 
 msgid "Your message did not reach some or all of the intended recipients"
 msgstr "Vaše sporočilo ni doseglo nekaterih ali vseh nameravanih prejemnikov"
@@ -8045,8 +8273,8 @@ msgid ""
 "To reduce the amount of data in this message store, select some items that "
 "you no longer need, delete them and cleanup your Deleted Items folder."
 msgstr ""
-"Če želite zmanjšati količino podatkov v tej shrambi sporočil, izberite nekaj "
-"elementov, ki jih ne potrebujete več, jih izbrišite in očistite mapo "
+"Če želite zmanjšati količino podatkov v tej shrambi sporočil, izberite nekaj"
+" elementov, ki jih ne potrebujete več, jih izbrišite in očistite mapo "
 "Izbrisani elementi."
 
 msgid "The message store has exceeded its soft quota limit."
@@ -8078,11 +8306,11 @@ msgstr ""
 msgid "Untitled rule"
 msgstr "Pravilo brez naslova"
 
-msgid "Could not load rules."
-msgstr "Pravil ni bilo mogoče naložiti."
-
 msgid "Could not save rules."
 msgstr "Pravil ni bilo mogoče shraniti."
+
+msgid "Could not load rules."
+msgstr "Pravil ni bilo mogoče naložiti."
 
 msgid "Task Request:"
 msgstr "Zahteva za nalogo:"
@@ -8090,13 +8318,11 @@ msgstr "Zahteva za nalogo:"
 msgid "Sign in"
 msgstr "Prijava"
 
-msgid "Skip to main content"
-msgstr ""
-
 msgid "File is not imported successfully"
 msgstr "Datoteka ni uspešno uvožena"
 
-msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgid ""
+"The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr "Prenesena datoteka presega direktivo upload_max_filesize v php.ini."
 
 msgid ""
@@ -8120,8 +8346,8 @@ msgstr "Ni uspelo zapisati datoteke na disk."
 
 msgid ""
 "A PHP extension stopped the file upload. PHP does not provide a way to "
-"ascertain which extension caused the file upload to stop; examining the list "
-"of loaded extensions with phpinfo() may help."
+"ascertain which extension caused the file upload to stop; examining the list"
+" of loaded extensions with phpinfo() may help."
 msgstr ""
 "Razširitev PHP je ustavila prenos datoteke. PHP ne zagotavlja načina za "
 "ugotavljanje, katera razširitev je povzročila prekinitev prenosa datoteke; "

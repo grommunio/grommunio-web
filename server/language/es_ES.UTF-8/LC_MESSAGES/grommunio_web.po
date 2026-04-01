@@ -5,11 +5,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Spanish (Spain)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 23:42+0100\n"
+"POT-Creation-Date: 2026-04-01 11:33+0200\n"
 "PO-Revision-Date: 2024-01-03 16:10+0000\n"
 "Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/grommunio/"
-"grommunio-web/es/>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/grommunio/grommunio-web/es/>\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,16 +16,20 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.4-dev\n"
 
+msgid "Color palette"
+msgstr "Paleta de colores"
+
 msgid "Calendar"
 msgstr "Calendario"
 
 msgid "Previous Month"
-msgstr ""
+msgstr "Mes anterior"
 
 msgid "Next Month"
-msgstr ""
+msgstr "El mes que viene"
 
-#. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
+#. TRANSLATORS: This message is used as label for the column which indicates
+#. the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
 msgstr "Semana"
 
@@ -43,7 +46,7 @@ msgid "More options"
 msgstr "Más opciones"
 
 msgid "Input"
-msgstr ""
+msgstr "Entrada"
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -213,7 +216,8 @@ msgstr "Esta fecha es anterior que la fecha mínima"
 msgid "This date is after the maximum date"
 msgstr "Esta fecha es posterior a la fecha máxima"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "d/m/Y"
 msgstr "d/m/aa"
 
@@ -304,7 +308,8 @@ msgstr "La hora en este campo debe ser igual o anterior a {0}"
 msgid "{0} is not a valid time"
 msgstr "{0} no es una hora válida"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "G:i"
 msgstr "G:i"
 
@@ -320,8 +325,7 @@ msgstr "verdadero"
 msgid "false"
 msgstr "falso"
 
-msgid ""
-"This field should be an e-mail address in the format \"user@example.com\""
+msgid "This field should be an e-mail address in the format \"user@example.com\""
 msgstr ""
 "Este campo debe tener una dirección de email con el formato "
 "\"user@example.com\""
@@ -481,6 +485,9 @@ msgstr "Copiar contacto"
 
 msgid "Copy contacts"
 msgstr "Copiar contactos"
+
+msgid "Address book"
+msgstr "Libreta de direcciones"
 
 #, fuzzy
 msgid ""
@@ -699,7 +706,7 @@ msgid "Filter category…"
 msgstr "Establecer categoría…"
 
 msgid "Add Category"
-msgstr ""
+msgstr "Añadir categoría"
 
 msgid "Sender"
 msgstr "Remitente"
@@ -724,6 +731,9 @@ msgstr "Eliminar carpeta de búsqueda"
 
 msgid "Sort by: Date"
 msgstr "Ordenar por: Fecha"
+
+msgid "Search results"
+msgstr "Resultados de la búsqueda"
 
 msgid "Loading Search results"
 msgstr "Cargando Resultados de la búsqueda"
@@ -758,15 +768,15 @@ msgid ""
 "Could not accept proposal as this meeting is not available in calendar; It "
 "may have been moved or deleted."
 msgstr ""
-"No se pudo aceptar la propuesta porque esta reunión no está disponible en el "
-"calendario, ya que puede haber sido movida o eliminada."
+"No se pudo aceptar la propuesta porque esta reunión no está disponible en el"
+" calendario, ya que puede haber sido movida o eliminada."
 
 msgid ""
-"Could not view proposal as this meeting is not available in calendar; It may "
-"have been moved or deleted."
+"Could not view proposal as this meeting is not available in calendar; It may"
+" have been moved or deleted."
 msgstr ""
-"No se pudo visualizar la propuesta porque esta reunión no está disponible en "
-"el calendario, ya que puede haber sido movida o eliminada."
+"No se pudo visualizar la propuesta porque esta reunión no está disponible en"
+" el calendario, ya que puede haber sido movida o eliminada."
 
 msgid "Required"
 msgstr "Requerido"
@@ -862,7 +872,8 @@ msgstr "Ocurre cada {0} {1} efectivo {2} hasta {3}."
 msgid "When"
 msgstr "Cuando"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "l jS F Y {0}"
 msgstr "l jS F Y {0}"
 
@@ -1012,7 +1023,8 @@ msgstr "Calendario propio"
 msgid "F Y"
 msgstr "F Y"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "l"
 msgstr "Yo"
 
@@ -1050,7 +1062,8 @@ msgid ""
 msgstr "Ha realizado cambios en la lista de asistentes. ¿Qué desea hacer?"
 
 msgid "Send updates to only added or deleted attendees."
-msgstr "Enviar actualizaciones solamente a los asistentes añadidos o borrados."
+msgstr ""
+"Enviar actualizaciones solamente a los asistentes añadidos o borrados."
 
 msgid "Send updates to all attendees."
 msgstr "Enviar actualizaciones a todos los asistentes."
@@ -1078,8 +1091,8 @@ msgstr ""
 
 msgctxt "calendar.dialog"
 msgid ""
-"{0} attendees proposed a new time for this meeting. Click the Scheduling tab "
-"for details."
+"{0} attendees proposed a new time for this meeting. Click the Scheduling tab"
+" for details."
 msgstr ""
 "{0} asistentes han propuesto una nueva hora para esta reunión. Click sobre "
 "la pestaña de programación para detalles."
@@ -1168,11 +1181,11 @@ msgstr "Escribe tu mensaje aquí…"
 msgid "Update location"
 msgstr "Actualizar localización"
 
-msgid ""
-"Do you want to update the location \"{0}\" with the new location \"{1}\"?"
+msgid "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
 msgstr "¿Desea actualizar la ubicación \"{0}\" con la nueva ubicación \"{1}\"?"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "jS F Y {0}"
 msgstr "jS F Y {0}"
 
@@ -1273,6 +1286,9 @@ msgstr ""
 msgid "Edit the cancellation before Sending."
 msgstr "Editar la cancelación antes de ser enviada."
 
+msgid "Cancellation message"
+msgstr "Mensaje de cancelación"
+
 msgid "Send the cancellation now."
 msgstr "Enviar la cancelación ahora."
 
@@ -1289,22 +1305,25 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"This meeting will be tentatively accepted and moved to your calendar. Do you "
-"want to include comments with your response?"
+"This meeting will be tentatively accepted and moved to your calendar. Do you"
+" want to include comments with your response?"
 msgstr ""
 "Esta reunión ha sido aceptada provisionalmente y será trasladada a su "
 "calendario. ¿Quiere incluir comentarios con su respuesta?"
 
 #, fuzzy
 msgid ""
-"This meeting will be declined and moved to your Deleted Items folder. Do you "
-"want to include comments with your response?"
+"This meeting will be declined and moved to your Deleted Items folder. Do you"
+" want to include comments with your response?"
 msgstr ""
-"Esta reunión ha sido rechazada y será trasladada a su papelera de reciclaje. "
-"¿Quiere incluir comentarios con su respuesta?"
+"Esta reunión ha sido rechazada y será trasladada a su papelera de reciclaje."
+" ¿Quiere incluir comentarios con su respuesta?"
 
 msgid "Edit the response before sending"
 msgstr "Editar respuesta antes de ser enviada"
+
+msgid "Response message"
+msgstr "Mensaje de respuesta"
 
 msgid "Send the response now."
 msgstr "Enviar respuesta ahora."
@@ -1342,16 +1361,20 @@ msgstr "Pegar elemento seleccionado"
 msgid "An overview of"
 msgstr "Una visión general de"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Start"
 msgstr "Inicio"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "End"
 msgstr "Fin"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for
+#. formatting instructions
 msgid "Printed by"
 msgstr "Impreso por"
 
@@ -1373,12 +1396,15 @@ msgstr "l jS M Y {0}"
 msgid "All day: "
 msgstr "Todo el día: "
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "l jS F Y"
 msgstr "l jS F Y"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for
+#. formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "l jS F"
 msgstr "js F Y"
 
@@ -1463,7 +1489,8 @@ msgstr "Hora por defecto del recordatorio"
 msgid "Default all-day appointment reminder time"
 msgstr "Hora por defecto del recordatorio Todo el Día"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "jS"
 msgstr "jS"
 
@@ -1589,6 +1616,9 @@ msgstr "Ordenar por: Sensibilidad"
 msgid "Sort by: Importance"
 msgstr "Ordenar por: Importancia"
 
+msgid "Appointments list"
+msgstr "Lista de citas"
+
 msgid "Loading appointments"
 msgstr "Cargando citas"
 
@@ -1598,11 +1628,13 @@ msgstr "Asistentes"
 msgid "Optional attendees"
 msgstr "Asistentes opcionales"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "jS F {0}"
 msgstr "jS F {0}"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "jS F Y"
 msgstr "jS F Y"
 
@@ -1666,10 +1698,10 @@ msgid "Open meeting request with changes"
 msgstr "Solicitud de reunión abierta con modificaciones"
 
 msgid "Previous"
-msgstr ""
+msgstr "Anterior"
 
 msgid "Next"
-msgstr ""
+msgstr "Siguiente"
 
 msgid "grommunio Web"
 msgstr "grommunio Web"
@@ -1686,20 +1718,29 @@ msgstr ""
 msgid "Don't move"
 msgstr "No te muevas"
 
+msgid "F j"
+msgstr "F j"
+
 msgid "Switch to day view to see all appointments"
 msgstr "Cambiar a la vista diaria para ver todas las citas"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
+msgid "Show all appointments"
+msgstr "Mostrar todas las citas"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates
+#. to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
 msgstr "Propuesto"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+#. TRANSLATORS: This message is used as label for the field which to indicates
+#. to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "When"
 msgstr "Cuando"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+#. TRANSLATORS: This message is used as label for the field which to indicates
+#. to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Location"
 msgstr "Ubicación"
@@ -1711,8 +1752,11 @@ msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
 "be deleted."
 msgstr ""
-"Su calendario ha sido actualizado automáticamente. Esta solicitud de reunión "
-"ahora se eliminará."
+"Su calendario ha sido actualizado automáticamente. Esta solicitud de reunión"
+" ahora se eliminará."
+
+msgid "New appointment subject"
+msgstr "Asunto de la nueva cita"
 
 msgid "Loading appointments…"
 msgstr "Cargando citas…"
@@ -1741,6 +1785,9 @@ msgstr "Nombramientos de {0} - {1}"
 msgid "No appointments"
 msgstr "No hay anotaciones"
 
+msgid "Exception"
+msgstr "Excepción"
+
 msgid "Today {0} - {1}"
 msgstr "Hoy {0} - {1}"
 
@@ -1748,7 +1795,8 @@ msgid "Today (all day)"
 msgstr "Hoy (todo el día)"
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
-#. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
+#. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME -
+#. USERNAME".
 msgid "{0} - {1}"
 msgstr "{0} - {1}"
 
@@ -1789,8 +1837,8 @@ msgid "Recurring Message"
 msgstr "Mensaje Recurrente"
 
 msgid ""
-"This is a recurring message. Do you want to open only this occurrence or the "
-"series?"
+"This is a recurring message. Do you want to open only this occurrence or the"
+" series?"
 msgstr ""
 "Este es un mensaje recurrente. ¿Desea abrir solamente esta ocurrencia o la "
 "serie?"
@@ -1799,8 +1847,8 @@ msgid "Recurring Appointment"
 msgstr "Cita Recurrente"
 
 msgid ""
-"This is a recurring appointment. Do you want to open only this occurrence or "
-"the series?"
+"This is a recurring appointment. Do you want to open only this occurrence or"
+" the series?"
 msgstr ""
 "Esta es una cita recurrente. ¿Desea abrir solamente esta ocurrencia o la "
 "serie?"
@@ -1879,8 +1927,8 @@ msgstr ""
 "ocurrencia o la serie?"
 
 msgid ""
-"This is a recurring task request. Do you want to delete only this occurrence "
-"or the series?"
+"This is a recurring task request. Do you want to delete only this occurrence"
+" or the series?"
 msgstr ""
 "Esta es un solicitud de tarea recurrente. ¿Desea borrar solamente esta "
 "ocurrencia o la serie?"
@@ -1930,8 +1978,8 @@ msgid ""
 "{0} has requested a notification be sent when message \"{1}\" is deleted "
 "without having been read. Do you want to send a receipt?"
 msgstr ""
-"{0} ha solicitado el envío de una notificación cuando el mensaje \"{1}\" sea "
-"borrado sin haber sido leído. ¿Desea enviar un acuse de recibo?"
+"{0} ha solicitado el envío de una notificación cuando el mensaje \"{1}\" sea"
+" borrado sin haber sido leído. ¿Desea enviar un acuse de recibo?"
 
 msgid "Delete Incomplete Task"
 msgstr "Eliminar tarea incompleta"
@@ -1959,8 +2007,8 @@ msgstr "Ya existe este Usuario."
 
 #, fuzzy
 msgid ""
-"The sender of this email has requested a read receipt. Do you wish to notify "
-"the sender?"
+"The sender of this email has requested a read receipt. Do you wish to notify"
+" the sender?"
 msgstr ""
 "El remitente de este mensaje ha solicitado ser notificado al leer este "
 "mensaje. ¿Desea enviar la notificación?"
@@ -1982,8 +2030,8 @@ msgstr "Imposible importar \"{0}\". El archivo no es válido"
 
 #, fuzzy
 msgid ""
-"You have insufficient privileges to move these items. Would you like to copy "
-"instead?"
+"You have insufficient privileges to move these items. Would you like to copy"
+" instead?"
 msgstr ""
 "No tiene suficientes privilegios para mover estos elementos. ¿Desea copiar "
 "en su lugar?"
@@ -2079,8 +2127,8 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"In order to use the ICS / VCS import feature, upgrade your Gromox to version "
-"0 or higher."
+"In order to use the ICS / VCS import feature, upgrade your Gromox to version"
+" 0 or higher."
 msgstr ""
 "Para utilizar la función de importación ICS / VCS, actualice su Gromox a la "
 "versión 0 o superior."
@@ -2109,6 +2157,15 @@ msgstr "Gestionar categorías"
 msgid "New"
 msgstr "Nuevo"
 
+msgid "Rename category"
+msgstr "Cambiar nombre de la categoría"
+
+msgid "Delete category"
+msgstr "Eliminar categoría"
+
+msgid "Quick access"
+msgstr "Acceso rápido"
+
 msgid "Delete Category"
 msgstr "Eliminar categoría"
 
@@ -2128,6 +2185,9 @@ msgstr "Una categoría denominada \""
 
 msgid "Create New Category"
 msgstr "Crear Nueva Categoría"
+
+msgid "Category name"
+msgstr "Nombre de la categoría"
 
 msgid "Pin to quick access"
 msgstr "Pin para acceso rápido"
@@ -2314,7 +2374,8 @@ msgstr ""
 "el administrador del sistema."
 
 msgid "You have insufficient privileges to move following items."
-msgstr "No tienes privilegios suficientes para mover los siguientes elementos."
+msgstr ""
+"No tienes privilegios suficientes para mover los siguientes elementos."
 
 msgid "Subject:"
 msgstr "Tema:"
@@ -2540,8 +2601,8 @@ msgid "Expand distribution list"
 msgstr "Ampliar la lista de distribución"
 
 msgid ""
-"Distribution list will be replaced with its members. You will not be able to "
-"collapse it again."
+"Distribution list will be replaced with its members. You will not be able to"
+" collapse it again."
 msgstr ""
 "La Lista de distribución será reemplazada por sus miembros. Ud. no será "
 "capaz de colapsarla de nuevo."
@@ -2643,8 +2704,11 @@ msgstr "Fin después de {A} ocurrencias"
 msgid "End by {A}"
 msgstr "Finalizar por {A}"
 
-#. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
-#. For example: 'Occurrence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurrence duration: 1 hour'
+#. TRANSLATORS: This informs the user what the exact duration of the
+#. appointment is. Where {D} represents the days, {H} the hours and {M} the
+#. minutes.
+#. For example: 'Occurrence duration: 1 day 2 hours 45 minutes', or when the
+#. appointment is shorter then 1 day: 'Occurrence duration: 1 hour'
 msgid "Occurrence duration: {D} {H} {M}"
 msgstr "Duración de la incidencia: {D} {H} {M}"
 
@@ -2653,7 +2717,8 @@ msgstr "Cada {A} semana(s) en"
 
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr ""
-"Regenerar una nueva tarea {A} semana(s) después que cada tarea sea completada"
+"Regenerar una nueva tarea {A} semana(s) después que cada tarea sea "
+"completada"
 
 msgid "Every {A} years(s) on"
 msgstr "Cada {A} año(s) el"
@@ -2688,7 +2753,8 @@ msgstr "No hay recordatorios"
 msgid "Due In"
 msgstr "A vencer en"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Due"
 msgstr "Vencimiento"
 
@@ -2704,7 +2770,8 @@ msgstr "Abrir Elemento"
 msgid "Dismiss"
 msgstr "Descartar"
 
-# Snooze does not have a translation that makes clear the idea of a delayment in the alarm. So, it should be advisable to keep Snooze without translation
+# Snooze does not have a translation that makes clear the idea of a delayment
+# in the alarm. So, it should be advisable to keep Snooze without translation
 msgid "Click Snooze to be reminded again in"
 msgstr "Haga click sobre Snooze para que se le recuerde de nuevo"
 
@@ -2864,6 +2931,15 @@ msgstr "tiene mi nombre en el campo Para"
 msgid "is received (all messages)"
 msgstr "se recibe (todos los mensajes)"
 
+msgid "Message size"
+msgstr "Tamaño del mensaje"
+
+msgid "Size unit"
+msgstr "Unidad de medida"
+
+msgid "Condition"
+msgstr "Condición"
+
 msgid "Unknown condition"
 msgstr "Condición desconocida"
 
@@ -2875,6 +2951,9 @@ msgstr "Agregar acción"
 
 msgid "Remove action"
 msgstr "Remover acción"
+
+msgid "Action"
+msgstr "Acción"
 
 msgid "Unknown action"
 msgstr "Acción desconocida"
@@ -2921,12 +3000,15 @@ msgstr "Especifique Palabras o Frases"
 msgid "Edit"
 msgstr "Editar"
 
+msgid "Word"
+msgstr "Word"
+
 msgid "and"
 msgstr "y"
 
 msgid ""
-"Distribution lists are not supported in rules, would you like to replace the "
-"distribution list with its members?"
+"Distribution lists are not supported in rules, would you like to replace the"
+" distribution list with its members?"
 msgstr ""
 "Las listas de distribución no están soportadas en las reglas, ¿ desea "
 "reemplazar la lista de distribución con sus miembros?"
@@ -2938,10 +3020,10 @@ msgid "No rule exists"
 msgstr "No existen reglas"
 
 msgid "Move Up"
-msgstr ""
+msgstr "Subir"
 
 msgid "Move Down"
-msgstr ""
+msgstr "Bajar"
 
 msgid "Active"
 msgstr "Activo"
@@ -3035,10 +3117,11 @@ msgstr "La carpeta no existe"
 
 #, fuzzy
 msgid ""
-"The folder you are searching through no longer exists. Please select another "
-"folder"
+"The folder you are searching through no longer exists. Please select another"
+" folder"
 msgstr ""
-"La carpeta que está buscando ya no existe. Por favor, seleccione otra carpeta"
+"La carpeta que está buscando ya no existe. Por favor, seleccione otra "
+"carpeta"
 
 msgid "Add/Edit sender"
 msgstr "Añadir/editar remitente"
@@ -3108,6 +3191,9 @@ msgstr "Direcciones de origen"
 msgid "From Addresses settings"
 msgstr "Configuración de las direcciones de origen"
 
+msgid "Select color"
+msgstr "Seleccionar un color"
+
 msgid "Full name"
 msgstr "Nombre completo"
 
@@ -3122,6 +3208,9 @@ msgstr "Página web"
 
 msgid "IM Address"
 msgstr "Dirección IM"
+
+msgid "Message body"
+msgstr "Cuerpo del mensaje"
 
 msgid "D, d-m-Y, {0}"
 msgstr "D, d-m-Y, {0}"
@@ -3152,8 +3241,14 @@ msgstr "Desconocido"
 msgid "Meeting Organizer"
 msgstr "Organizador de reuniones"
 
+msgid "Follow up"
+msgstr "Seguimiento"
+
 msgid "{0} overdue"
 msgstr "{0} vencido(s)"
+
+msgid "Message body editor"
+msgstr "Editor del cuerpo del mensaje"
 
 msgid "Loading…"
 msgstr "Cargando…"
@@ -3161,7 +3256,8 @@ msgstr "Cargando…"
 msgid "Message could not be loaded"
 msgstr "No se ha podido cargar el mensaje"
 
-#. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
+#. TRANSLATORS: This message is used as label for the field which indicates
+#. which attachments are inside the message
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "Adjuntos"
@@ -3175,8 +3271,10 @@ msgstr "Agregar el Remitente al listado de Remitentes Seguros"
 msgid "Add Domain to Safe Senders List"
 msgstr "Agregar Dominio a listado de Dominios Seguros"
 
-# In order that sentence sounds well. You should translate high as "mucha" and low as "poca"
-#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates with which
+# In order that sentence sounds well. You should translate high as "mucha" and
+# low as "poca"
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and
+#. indicates with which
 #. importance the message was sent. For example:
 #. 'This message was sent with high importance.'
 #. 'This message was sent with low importance.'
@@ -3184,7 +3282,8 @@ msgctxt "mail.previewpanel"
 msgid "This message was sent with {0} importance."
 msgstr "Este mensaje fue enviado con {0} importancia."
 
-#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates which
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and
+#. indicates which
 #. sensitivity level applies to the message. For example:
 #. 'Please treat this as Personal.'
 #. 'Please treat this as Private.'
@@ -3196,20 +3295,20 @@ msgstr "Por favor, tratar esto como {0}."
 #, fuzzy
 msgctxt "mail.previewpanel"
 msgid ""
-"Click here to download pictures. To help protect your privacy, grommunio Web "
-"prevented automatic download of some pictures in this message."
+"Click here to download pictures. To help protect your privacy, grommunio Web"
+" prevented automatic download of some pictures in this message."
 msgstr ""
 "Haga clic aquí para descargar las imágenes. Para ayudar a proteger su "
-"privacidad, grommunio Web impidió la descarga automática de algunas imágenes "
-"en este mensaje."
+"privacidad, grommunio Web impidió la descarga automática de algunas imágenes"
+" en este mensaje."
 
 msgctxt "mail.previewpanel"
 msgid ""
 "This message is corrupt and will not be displayed correctly, Click here to "
 "fix it."
 msgstr ""
-"Este mensaje está corrupto y no puede ser mostrado correctamente, haga click "
-"acá para arreglarlo."
+"Este mensaje está corrupto y no puede ser mostrado correctamente, haga click"
+" acá para arreglarlo."
 
 msgctxt "mail.previewpanel"
 msgid "{0} has accepted."
@@ -3238,28 +3337,31 @@ msgstr "{0} ha declinado en nombre de {1}."
 msgctxt "mail.previewpanel"
 msgid "{0} tentatively accepted and proposed a new time for this meeting."
 msgstr ""
-"{0} ha aceptado tentativamente y ha propuesto una nueva hora para la reunión."
+"{0} ha aceptado tentativamente y ha propuesto una nueva hora para la "
+"reunión."
 
 msgctxt "mail.previewpanel"
 msgid ""
 "{0} tentatively accepted on behalf of {1} and proposed a new time for this "
 "meeting."
 msgstr ""
-"{} ha aceptado tentativamente en nombre de {1} y ha propuesto una nueva hora "
-"para la reunión."
+"{} ha aceptado tentativamente en nombre de {1} y ha propuesto una nueva hora"
+" para la reunión."
 
 msgctxt "mail.previewpanel"
 msgid "{0} declined and proposed a new time for this meeting."
 msgstr "{0} ha declinado y ha propuesto una nueva hora para la reunión."
 
 msgctxt "mail.previewpanel"
-msgid "{0} declined on behalf of {1} and proposed a new time for this meeting."
+msgid ""
+"{0} declined on behalf of {1} and proposed a new time for this meeting."
 msgstr ""
 "{0} ha declinado en nombre de {1} y ha propuesto una nueva hora para la "
 "reunión."
 
 msgctxt "mail.previewpanel"
-msgid "This meeting is not in the Calendar; it may have been moved or deleted."
+msgid ""
+"This meeting is not in the Calendar; it may have been moved or deleted."
 msgstr ""
 "Esta reunión no está en el Calendario; Debe haber sido movida o eliminada."
 
@@ -3272,7 +3374,8 @@ msgstr ""
 "Usted deberá abrir la última actualización o abrir el elemento desde el "
 "calendario."
 
-# confirm that the sentence is making reference to the request: " ... you don't need to respond to the meeting request"
+# confirm that the sentence is making reference to the request: " ... you
+# don't need to respond to the meeting request"
 msgctxt "mail.previewpanel"
 msgid "As the meeting organizer, you do not need to respond to the meeting"
 msgstr ""
@@ -3346,14 +3449,15 @@ msgid "Fix message"
 msgstr "Corregir mensaje"
 
 msgid ""
-"We are going to try to fix a corrupted mail message, do you wish to continue?"
+"We are going to try to fix a corrupted mail message, do you wish to "
+"continue?"
 msgstr "Trataremos de arreglar un mensaje corrupto. ¿ Desea continuar ?"
 
 msgid "The matching task was not found in your task list."
 msgstr "No se ha encontrado la tarea correspondiente en su lista de tareas."
 
 msgid "Toggle header"
-msgstr ""
+msgstr "Alternar encabezado"
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3371,20 +3475,29 @@ msgctxt "mail.previewpanel"
 msgid "Categories"
 msgstr "Categorías"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+#. TRANSLATORS: This message is used as label for the field which to indicates
+#. to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Recipients"
 msgstr "Destinatarios"
 
-#. TRANSLATORS: check if the mail is send by some delegator or not. if then display "on behalf of".
+#. TRANSLATORS: check if the mail is send by some delegator or not. if then
+#. display "on behalf of".
 msgctxt "mail.previewpanel"
 msgid "on behalf of"
 msgstr "a nombre de"
 
-#. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
+#. TRANSLATORS: This message is used to indicate that no sent date is
+#. available for the message (because it has not been sent yet).
 msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "Nada"
+
+msgid "Pagination"
+msgstr "Paginación"
+
+msgid "Page number"
+msgstr "Número de página"
 
 msgid "Pop-out"
 msgstr "Pop-out"
@@ -3482,7 +3595,8 @@ msgstr "Correo Electrónico 3"
 msgid "Email3 Display As"
 msgstr "Mostrar Correo Electrónico 3 como"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Birthday"
 msgstr "Cumpleaños"
 
@@ -3582,7 +3696,8 @@ msgstr "Apodo"
 msgid "Suffix"
 msgstr "Sufijo"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Anniversary"
 msgstr "Aniversario"
 
@@ -3827,6 +3942,9 @@ msgstr "Ordenar por: Teléfono TTY/TDD (Teletipo)"
 msgid "Sort by: Telex Phone"
 msgstr "Ordenar por: Teléfono Télex"
 
+msgid "Contacts list"
+msgstr "Lista de contactos"
+
 msgid "Change Picture"
 msgstr "Cambiar Imagen"
 
@@ -3862,14 +3980,15 @@ msgstr ""
 "adjuntos"
 
 msgid ""
-"Cannot upload attachment, attachment is {0} while the allowed maximum is {1}."
+"Cannot upload attachment, attachment is {0} while the allowed maximum is "
+"{1}."
 msgstr ""
 "No es posible subir el adjunto, el adjunto es {0} mientras que el máximo "
 "permitido es {1}."
 
 msgid ""
-"Cannot upload attachment, the total attachment size is {0} while the allowed "
-"maximum is {1}"
+"Cannot upload attachment, the total attachment size is {0} while the allowed"
+" maximum is {1}"
 msgstr ""
 "No es posible subir el adjunto, el tamaño total adjunto es {0} mientras el "
 "máximo permitido es {1}"
@@ -3888,11 +4007,13 @@ msgstr ""
 "No es posible subir el adjunto, el total de adjuntos es {0} mientras que el "
 "número máximo de archivos permitidos en una petición simple es de {1}."
 
-#. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
+#. TRANSLATORS: {0} indicates name/email address of secretary and {1}
+#. indicates boss' name/email address
 msgid "{0} on behalf of {1}"
 msgstr "{0} en nombre de {1}"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "jS F"
 msgstr "jS F"
 
@@ -4010,6 +4131,9 @@ msgstr "Rojo"
 msgid "Brown"
 msgstr "Marrón"
 
+msgid "Main navigation"
+msgstr "Navegación principal"
+
 msgid "Logout"
 msgstr "Salir"
 
@@ -4025,17 +4149,17 @@ msgstr "Oscuro"
 msgid "Automatic"
 msgstr "Automático"
 
+msgid "Main toolbar"
+msgstr "Barra de herramientas principal"
+
 msgid "Switch view"
 msgstr "Cambiar vista"
 
-msgid "Folder navigation"
-msgstr ""
+msgid "Skip to main content"
+msgstr "Ir al contenido principal"
 
 msgid "Widgets"
 msgstr "Widgets"
-
-msgid "Main content"
-msgstr ""
 
 msgid "Sending…"
 msgstr "Enviando…"
@@ -4202,11 +4326,11 @@ msgid "D d-m"
 msgstr "D d-m"
 
 msgid ""
-"Not enough permissions to open this store, do you want to remove it from the "
-"hierarchy?"
+"Not enough permissions to open this store, do you want to remove it from the"
+" hierarchy?"
 msgstr ""
-"No dispone de suficientes permisos para abrir el buzón, ¿desea eliminarlo de "
-"la jerarquía?"
+"No dispone de suficientes permisos para abrir el buzón, ¿desea eliminarlo de"
+" la jerarquía?"
 
 msgid ""
 "Not enough permissions to open this folder, do you want to remove it from "
@@ -4483,9 +4607,6 @@ msgstr "Refrescar"
 msgid "Restore items"
 msgstr "Restaurar elementos"
 
-msgid "Select color"
-msgstr "Seleccionar un color"
-
 msgid "Add to Favorites"
 msgstr "Añadir a Favoritos"
 
@@ -4536,13 +4657,16 @@ msgstr "¿Esta seguro de que desea vaciar {0}?"
 msgid "Show All"
 msgstr "Mostrar todo"
 
+msgid "Filter folders"
+msgstr "Carpetas de filtro"
+
 #, fuzzy
 msgid ""
-"You have insufficient privileges to move this folder. Would you like to copy "
-"instead?"
+"You have insufficient privileges to move this folder. Would you like to copy"
+" instead?"
 msgstr ""
-"No tiene suficientes privilegios para mover esta carpeta. ¿Desea copiarla en "
-"su lugar?"
+"No tiene suficientes privilegios para mover esta carpeta. ¿Desea copiarla en"
+" su lugar?"
 
 msgid "CC"
 msgstr "CC"
@@ -4553,7 +4677,8 @@ msgstr "CCO"
 msgid "Sort by: To"
 msgstr "Ordenar por: Para"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Sent"
 msgstr "Enviado"
 
@@ -4717,6 +4842,10 @@ msgstr "RV"
 msgid "Re"
 msgstr "RE"
 
+#. TRANSLATORS: prefix before sender name in print-to-PDF filename
+msgid "FROM"
+msgstr "DE"
+
 msgid "on behalf of"
 msgstr "en nombre de"
 
@@ -4800,7 +4929,8 @@ msgstr "Preguntarme antes de enviar respuesta"
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of seconds which the user will type in.
 msgid "{A}Automatically mark mail as read after {B} second(s)"
-msgstr "{A} Marcar automáticamente correo como leído después de {B} segundo(s)"
+msgstr ""
+"{A} Marcar automáticamente correo como leído después de {B} segundo(s)"
 
 msgid "View mail in this format"
 msgstr "Ver correo en este formato"
@@ -4844,8 +4974,14 @@ msgstr "En la oficina"
 msgid "I am out of the office from"
 msgstr "Estoy fuera de la oficina desde"
 
+msgid "Out of office from"
+msgstr "Fuera de la oficina desde"
+
 msgid "I will be back on"
 msgstr "Volveré el"
+
+msgid "Back on"
+msgstr "Volver a"
 
 msgid "Automatically reply with the following message:"
 msgstr "Respuesta automática con el siguiente texto:"
@@ -4884,8 +5020,8 @@ msgstr "Remitentes seguros"
 
 #, fuzzy
 msgid ""
-"To protect your privacy email addresses or domains can only be added via the "
-"\"Add to safe sender list\" functionality in an opened email."
+"To protect your privacy email addresses or domains can only be added via the"
+" \"Add to safe sender list\" functionality in an opened email."
 msgstr ""
 "Para proteger su privacidad, las direcciones de correo electrónico o los "
 "dominios sólo pueden añadirse a través de la función \"Añadir a la lista de "
@@ -4905,6 +5041,9 @@ msgstr "Nuevos Mensajes"
 
 msgid "Replies/forwards"
 msgstr "Respuestas"
+
+msgid "Signature name"
+msgstr "Nombre de la firma"
 
 msgid "Signature name:"
 msgstr "Nombre de la firma:"
@@ -4981,9 +5120,6 @@ msgstr "Muy grande"
 msgid "Huge"
 msgstr "Enorme"
 
-msgid "Follow up"
-msgstr "Seguimiento"
-
 msgid "Move to Junk Folder"
 msgstr "Mover a Papelera"
 
@@ -4992,6 +5128,9 @@ msgstr "No es correo no deseado"
 
 msgid "Send to"
 msgstr "Enviar a"
+
+msgid "Message list"
+msgstr "Lista de mensajes"
 
 msgid "Loading mail"
 msgstr "Cargando correo"
@@ -5044,6 +5183,9 @@ msgstr "Ordenar por. Creado"
 msgid "Sort by: Color"
 msgstr "Ordenar por. Color"
 
+msgid "Notes list"
+msgstr "Lista de notas"
+
 msgid "Loading Notes"
 msgstr "Cargando notas"
 
@@ -5084,8 +5226,17 @@ msgstr "Tema"
 msgid "Personal information"
 msgstr "Información personal"
 
+msgid "Last Name, First Name"
+msgstr "Apellidos, Nombre"
+
+msgid "First Name Last Name"
+msgstr "Nombre Apellido"
+
 msgid "Select Default Folder"
 msgstr "Seleccione el Directorio por omisión"
+
+msgid "Name Display Format"
+msgstr "Formato de visualización del nombre"
 
 msgid "Advanced"
 msgstr "Avanzado"
@@ -5102,6 +5253,9 @@ msgstr "Mostrar puntos de inserción en grommunio Web"
 msgid "Show \"item data\" button in context menu (mail only)"
 msgstr ""
 "Mostrar el botón \"datos del artículo\" en el menú contextual (sólo correo)"
+
+msgid "Settings categories"
+msgstr "Categorías de configuración"
 
 msgid "Edit setting"
 msgstr "Editar ajustes"
@@ -5121,11 +5275,17 @@ msgstr "Acerca de"
 msgid "Date & Time"
 msgstr "Fecha y hora"
 
+msgid "Date format"
+msgstr "Formato de fecha"
+
 msgid "Short"
 msgstr "Corto"
 
 msgid "Long"
 msgstr "Larga"
+
+msgid "Time format"
+msgstr "Formato de hora"
 
 msgid "12h clock"
 msgstr "reloj de las 12h"
@@ -5181,21 +5341,22 @@ msgstr "Navegación en la Bandeja de Entrada"
 msgid "I want to navigate through my items by using:"
 msgstr "Deseo navegar a través de mis elementos usando:"
 
+msgid "Navigation method"
+msgstr "Método de navegación"
+
 msgid "Infinite Scroll"
 msgstr "Scroll infinito"
 
-msgid "grommunio Web automatically loads additional items when you scroll down"
+msgid ""
+"grommunio Web automatically loads additional items when you scroll down"
 msgstr ""
-"grommunio Web carga automáticamente elementos adicionales cuando se desplaza "
-"hacia abajo"
-
-msgid "Pagination"
-msgstr "Paginación"
+"grommunio Web carga automáticamente elementos adicionales cuando se desplaza"
+" hacia abajo"
 
 #, fuzzy
 msgid ""
-"grommunio Web displays items on pages and you can use navigation controls to "
-"navigate"
+"grommunio Web displays items on pages and you can use navigation controls to"
+" navigate"
 msgstr ""
 "(grommunio Web muestra elementos en páginas y puede utilizar los controles "
 "de navegación para navegar)"
@@ -5211,6 +5372,9 @@ msgstr "Atajos de Teclado"
 
 msgid "Extended"
 msgstr "Ampliado"
+
+msgid "Keyboard shortcuts"
+msgstr "Atajos de teclado"
 
 msgid "Keyboard shortcuts off"
 msgstr "Atajos de teclado desactivados"
@@ -5401,8 +5565,8 @@ msgid ""
 "This task will be declined and moved into the Deleted Items folder. Do you "
 "want to edit the response before sending it?"
 msgstr ""
-"Esta reunión ha sido rechazada y será trasladada a su papelera de reciclaje. "
-"¿Quiere incluir comentarios con su respuesta?"
+"Esta reunión ha sido rechazada y será trasladada a su papelera de reciclaje."
+" ¿Quiere incluir comentarios con su respuesta?"
 
 msgid "Send the response now"
 msgstr "Enviar respuesta ahora"
@@ -5490,7 +5654,8 @@ msgstr "Completado"
 msgid "Printed by: "
 msgstr "Ordenar por: "
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Printed on: "
 msgstr "Imprimir esta: "
 
@@ -5556,8 +5721,8 @@ msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
 "makes changes."
 msgstr ""
-"Tenga en cuenta que la(s) tarea(s) asignada(s) será(n) sobrescrita(s) cuando "
-"el asignado haga cambios."
+"Tenga en cuenta que la(s) tarea(s) asignada(s) será(n) sobrescrita(s) cuando"
+" el asignado haga cambios."
 
 msgid "Sort by: Complete"
 msgstr "Ordenar por. Completado"
@@ -5582,6 +5747,9 @@ msgstr "Ordenar por: Porcentaje completado"
 
 msgid "Assigned task changes"
 msgstr "Cambios en las tareas asignadas"
+
+msgid "Tasks list"
+msgstr "Lista de tareas"
 
 msgid "Loading tasks"
 msgstr "Cargando tareas"
@@ -5726,7 +5894,8 @@ msgid "Missing folders"
 msgstr "Carpeta no encontradas"
 
 msgid "The following required folder is missing in the hierarchy: {0}"
-msgid_plural "The following required folders are missing in the hierarchy: {0}"
+msgid_plural ""
+"The following required folders are missing in the hierarchy: {0}"
 msgstr[0] "La siguiente carpeta requerida no fue encontrado en el arbol : {0}"
 msgstr[1] ""
 "La siguientes carpetas requeridas no fueron encontradas en el arbol: {0}"
@@ -5792,7 +5961,7 @@ msgid "Public link"
 msgstr "Enlace publico"
 
 msgid "Copy link"
-msgstr ""
+msgstr "Copiar enlace"
 
 msgid "Password protect"
 msgstr "Proteger con contraseña"
@@ -5949,8 +6118,8 @@ msgid ""
 "Accounts marked by your administrator as \"cannot be changed\" will not be "
 "removed."
 msgstr ""
-"Las cuentas marcadas por su administrador como \"no pueden ser modificadas\" "
-"no serán eliminadas."
+"Las cuentas marcadas por su administrador como \"no pueden ser modificadas\""
+" no serán eliminadas."
 
 #, fuzzy
 msgid ""
@@ -6195,6 +6364,9 @@ msgstr "Se comparte"
 msgid "File preview"
 msgstr "Vista previa del archivo"
 
+msgid "File content"
+msgstr "Contenido del archivo"
+
 msgid "Your browser does not support previewing of audio files!"
 msgstr "¡Su navegador no admite la previsualización de archivos de Audio!"
 
@@ -6318,9 +6490,11 @@ msgid "attachments selected"
 msgstr "anexos seleccionados"
 
 msgid ""
-"With the selection of separate attachments the total size of all attachments "
-"may not exceed"
+"With the selection of separate attachments the total size of all attachments"
+" may not exceed"
 msgstr ""
+"Al seleccionar archivos adjuntos por separado, el tamaño total de todos los "
+"archivos adjuntos no puede superar"
 
 msgid "MB. There have been"
 msgstr "MB. Ha habido"
@@ -6424,11 +6598,11 @@ msgstr "Gestionar carpetas compartidas"
 
 #, fuzzy
 msgid ""
-"Select folders to sync to your device from the list below. To add additional "
-"mailboxes to the list, open them in grommunio Web first."
+"Select folders to sync to your device from the list below. To add additional"
+" mailboxes to the list, open them in grommunio Web first."
 msgstr ""
-"Seleccione las carpetas que desea sincronizar con su dispositivo en la lista "
-"que aparece a continuación. Para añadir buzones adicionales a la lista, "
+"Seleccione las carpetas que desea sincronizar con su dispositivo en la lista"
+" que aparece a continuación. Para añadir buzones adicionales a la lista, "
 "ábralos primero en grommunio Web."
 
 msgid "grommunio-sync"
@@ -6490,6 +6664,9 @@ msgstr "Escriba {0} para confirmar"
 msgid "Please type {0} to confirm"
 msgstr "Escriba {0} para confirmar"
 
+msgid "Wipe type"
+msgstr "Tipo de borrado"
+
 msgid "Wipe only data related to this account"
 msgstr "Borrar sólo los datos relacionados con esta cuenta"
 
@@ -6503,6 +6680,8 @@ msgid ""
 "Do you really want to wipe your device?\n"
 " Type WIPE to confirm."
 msgstr ""
+"¿De verdad quieres borrar todo el contenido de tu dispositivo?\n"
+" Escribe WIPE para confirmar."
 
 #, fuzzy
 msgid ""
@@ -6516,6 +6695,8 @@ msgid ""
 "Do you really want to remove your device?\n"
 " Type REMOVE to confirm."
 msgstr ""
+"¿De verdad quieres eliminar tu dispositivo?\n"
+" Escribe ELIMINAR para confirmar."
 
 #, fuzzy
 msgid ""
@@ -6531,8 +6712,14 @@ msgstr "Agregar reunión"
 msgid "Room name:"
 msgstr "Nombre de la habitación:"
 
+msgid "Room name"
+msgstr "Nombre de la sala"
+
 msgid "Room URL:"
 msgstr "URL de la habitación:"
+
+msgid "Room URL"
+msgstr "URL de la sala"
 
 msgid "Meet"
 msgstr "Conozca"
@@ -6545,6 +6732,9 @@ msgstr "Unirse a la reunión web"
 
 msgid "Open meeting in:"
 msgstr "Reunión abierta en:"
+
+msgid "Open meeting in"
+msgstr "Reunión abierta en"
 
 msgid "Web tab"
 msgstr "Ficha Web"
@@ -6572,9 +6762,11 @@ msgstr ""
 "Evitar que la URL de la ubicación de la reunión se anule automáticamente "
 "(por ejemplo, al añadir una sala de reuniones)"
 
-msgid "If you have problems when creating meetings, try disabling this setting"
+msgid ""
+"If you have problems when creating meetings, try disabling this setting"
 msgstr ""
-"Si tiene problemas al crear reuniones, pruebe a desactivar esta configuración"
+"Si tiene problemas al crear reuniones, pruebe a desactivar esta "
+"configuración"
 
 msgid "Add an invitation to the appointment description"
 msgstr "Añadir una invitación a la descripción de la cita"
@@ -6586,6 +6778,11 @@ msgid ""
 "used when composing in plain text, must contain %url%, empty to reset to "
 "default"
 msgstr ""
+"se utiliza al redactar en texto sin formato; debe contener %url%; si se deja"
+" en blanco, se restablecerá el valor predeterminado"
+
+msgid "Invitation text"
+msgstr "Texto de la invitación"
 
 msgid "Invitation template (HTML)"
 msgstr "Plantilla de invitación (HTML)"
@@ -6593,6 +6790,11 @@ msgstr "Plantilla de invitación (HTML)"
 msgid ""
 "used when composing in HTML, must contain %url%, empty to reset to default"
 msgstr ""
+"se utiliza al redactar en HTML; debe contener %url%; si se deja en blanco, "
+"se restablecerá el valor predeterminado"
+
+msgid "Invitation template"
+msgstr "Plantilla de invitación"
 
 msgid "An unknown error occurred while changing password."
 msgstr "Se ha producido un error desconocido al cambiar la contraseña."
@@ -6740,6 +6942,8 @@ msgid ""
 "Warning: RSA key size is below 2048 bits. Consider upgrading to a stronger "
 "certificate."
 msgstr ""
+"Advertencia: el tamaño de la clave RSA es inferior a 2048 bits. Considere la"
+" posibilidad de actualizar a un certificado más seguro."
 
 msgid "Certificate details"
 msgstr "Detalles del certificado"
@@ -6793,7 +6997,8 @@ msgstr ""
 msgid "Private certificate"
 msgstr "Certificado privado"
 
-msgid "You must fill in the certificate passphrase to upload your certificate."
+msgid ""
+"You must fill in the certificate passphrase to upload your certificate."
 msgstr "Debe rellenar la frase de contraseña del certificado para cargarlo."
 
 msgid "You must first select a valid private certificate in PKCS#12 format."
@@ -6817,8 +7022,8 @@ msgstr "Mensaje del cartel"
 
 #, fuzzy
 msgid ""
-"Ensure the authenticity of the message by adding a digital signature to this "
-"message. Any changes to the message will invalidate the signature."
+"Ensure the authenticity of the message by adding a digital signature to this"
+" message. Any changes to the message will invalidate the signature."
 msgstr ""
 "Asegura la autenticidad del mensaje añadiendo una firma digital a este "
 "mensaje. Cualquier cambio en el mensaje invalidará la firma."
@@ -6855,7 +7060,8 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"You are seeing this message because the verification of the digital signature"
+"You are seeing this message because the verification of the digital "
+"signature"
 msgstr "Está viendo este mensaje porque la verificación de la firma digital"
 
 msgid " has failed"
@@ -6872,8 +7078,8 @@ msgstr "¿Qué debo hacer?"
 
 #, fuzzy
 msgid ""
-"You can continue to work. However, you should keep in mind that the identity "
-"and the authenticity of the message content could not be verified."
+"You can continue to work. However, you should keep in mind that the identity"
+" and the authenticity of the message content could not be verified."
 msgstr ""
 "Puedes seguir trabajando. Sin embargo, debes tener en cuenta que la "
 "identidad y la autenticidad del contenido del mensaje no han podido ser "
@@ -6915,20 +7121,21 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"The identity of the sender and authenticity of the message content have been "
-"verified, but the certificate used to sign the message expired on [d-m-Y]."
+"The identity of the sender and authenticity of the message content have been"
+" verified, but the certificate used to sign the message expired on [d-m-Y]."
 msgstr ""
 "La identidad del remitente y la autenticidad del contenido del mensaje han "
 "sido verificadas, pero el certificado utilizado para firmar el mensaje "
 "expiró el [d-m-Y]."
 
 msgid "The digital signature could not be verified for unknown reasons."
-msgstr "La firma digital no ha podido ser verificada por razones desconocidas."
+msgstr ""
+"La firma digital no ha podido ser verificada por razones desconocidas."
 
 #, fuzzy
 msgid ""
-"The digital certificate used to sign this message has been revoked (i.e. the "
-"sender has marked it as compromised)"
+"The digital certificate used to sign this message has been revoked (i.e. the"
+" sender has marked it as compromised)"
 msgstr ""
 "El certificado digital utilizado para firmar este mensaje ha sido revocado "
 "(es decir, el remitente lo ha marcado como comprometido)"
@@ -6936,8 +7143,8 @@ msgstr ""
 #, fuzzy
 msgid ""
 "The verification service of the certificate authority that signed the "
-"sender's certificate is not available. The validity of the certificate could "
-"not be verified."
+"sender's certificate is not available. The validity of the certificate could"
+" not be verified."
 msgstr ""
 "El servicio de verificación de la autoridad de certificación que firmó el "
 "certificado del remitente no está disponible. No se ha podido verificar la "
@@ -6972,24 +7179,35 @@ msgid "Sender is removed from the server."
 msgstr "El remitente es eliminado del servidor."
 
 msgid ""
-"The digital certificate used to sign this message has been revoked according "
-"to the Certificate Revocation List (CRL)."
+"The digital certificate used to sign this message has been revoked according"
+" to the Certificate Revocation List (CRL)."
 msgstr ""
+"El certificado digital utilizado para firmar este mensaje ha sido revocado "
+"según la Lista de Certificados Revocados (CRL)."
 
 msgid ""
 "The revocation status of the certificate could not be verified because the "
 "CRL Distribution Point is unavailable."
 msgstr ""
+"No se ha podido verificar el estado de revocación del certificado porque el "
+"punto de distribución de la lista de certificados revocados (CRL) no está "
+"disponible."
 
 msgid ""
 "The RSA key size used in this certificate is below the recommended minimum "
 "of 2048 bits. Consider upgrading to a stronger certificate."
 msgstr ""
+"El tamaño de la clave RSA utilizada en este certificado es inferior al "
+"mínimo recomendado de 2048 bits. Considere la posibilidad de actualizar a un"
+" certificado más seguro."
 
 msgid ""
 "The certificate's Key Usage extension does not permit this operation. The "
 "certificate may be intended for signing only or encryption only."
 msgstr ""
+"La extensión «Uso de la clave» del certificado no permite esta operación. Es"
+" posible que el certificado esté destinado únicamente a la firma o al "
+"cifrado."
 
 msgid ""
 "This message was encrypted using CBC mode (not authenticated encryption). "
@@ -6997,12 +7215,19 @@ msgid ""
 "provides stronger protection against modification attacks. Consider asking "
 "the sender to upgrade their S/MIME configuration."
 msgstr ""
+"Este mensaje se ha cifrado utilizando el modo CBC (cifrado no autenticado). "
+"Aunque se ha descifrado correctamente, AES-GCM (cifrado autenticado) ofrece "
+"una protección más sólida contra los ataques de modificación. Considere la "
+"posibilidad de pedir al remitente que actualice su configuración S/MIME."
 
 msgid ""
 "The signing time in the digital signature differs significantly from the "
 "expected time. This may indicate a clock synchronization issue or message "
 "tampering."
 msgstr ""
+"La hora de firma de la firma digital difiere significativamente de la hora "
+"esperada. Esto puede indicar un problema de sincronización del reloj o una "
+"manipulación del mensaje."
 
 msgid "Signature verified successfully"
 msgstr "Firma verificada correctamente"
@@ -7168,8 +7393,8 @@ msgid ""
 "Sorry, access to grommunio Web is not available with this user account. "
 "Please contact your system administrator."
 msgstr ""
-"Lo sentimos, el acceso a grommunio Web no está disponible con esta cuenta de "
-"usuario. Por favor, póngase en contacto con el administrador del sistema."
+"Lo sentimos, el acceso a grommunio Web no está disponible con esta cuenta de"
+" usuario. Por favor, póngase en contacto con el administrador del sistema."
 
 msgid "This backend provides the default WebDAV integration for Files."
 msgstr ""
@@ -7288,10 +7513,15 @@ msgstr "El servidor Seafile ha encontrado un problema."
 msgid ""
 "Could not write to temporary directory. Contact the server administrator."
 msgstr ""
+"No se pudo escribir en el directorio temporal. Ponte en contacto con el "
+"administrador del servidor."
 
 msgid ""
-"Could not retrieve list of server features. Contact the server administrator."
+"Could not retrieve list of server features. Contact the server "
+"administrator."
 msgstr ""
+"No se ha podido recuperar la lista de funciones del servidor. Ponte en "
+"contacto con el administrador del servidor."
 
 msgid "PHP-Curl is not available. Contact your system administrator."
 msgstr ""
@@ -7305,8 +7535,7 @@ msgid "Unknown account ID"
 msgstr "ID de cuenta desconocido"
 
 msgid "Feature \"Quota Information\" is not supported by this backend!"
-msgstr ""
-"¡La función \"Información de cuotas\" no es compatible con este backend!"
+msgstr "¡La función \"Información de cuotas\" no es compatible con este backend!"
 
 msgid "Feature \"Version Information\" is not supported by this backend!"
 msgstr ""
@@ -7423,7 +7652,8 @@ msgstr "La cuenta está vacía."
 
 #, fuzzy
 msgid ""
-"Your password is wrong or you have insufficient permission to change password"
+"Your password is wrong or you have insufficient permission to change "
+"password"
 msgstr ""
 "Su contraseña es incorrecta o no tiene permiso suficiente para cambiarla"
 
@@ -7434,6 +7664,8 @@ msgid ""
 "Error changing password. Please verify your password or contact the system "
 "administrator."
 msgstr ""
+"Error al cambiar la contraseña. Comprueba tu contraseña o ponte en contacto "
+"con el administrador del sistema."
 
 msgid "Password has been changed successfully."
 msgstr "La contraseña se ha cambiado correctamente."
@@ -7480,8 +7712,8 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"Your public certificate is not installed. Without this certificate, you will "
-"not be able to read encrypted messages you have sent to others."
+"Your public certificate is not installed. Without this certificate, you will"
+" not be able to read encrypted messages you have sent to others."
 msgstr ""
 "Su certificado público no está instalado. Sin este certificado, no podrá "
 "leer los mensajes cifrados que haya enviado a otras personas."
@@ -7497,19 +7729,23 @@ msgstr "La clave privada no puede utilizarse para firmar correos electrónicos"
 
 msgid "Certificate email address doesn't match grommunio Web account "
 msgstr ""
-"La dirección de correo electrónico del certificado no coincide con la cuenta "
-"web de grommunio "
+"La dirección de correo electrónico del certificado no coincide con la cuenta"
+" web de grommunio "
 
 #, php-format
 msgid ""
 "RSA key size %d bits is below the recommended minimum of %d bits. "
 "Certificate was imported."
 msgstr ""
+"El tamaño de la clave RSA de %d bits está por debajo del mínimo recomendado "
+"de %d bits. Se ha importado el certificado."
 
 msgid ""
 "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully "
 "supported. Certificate was imported."
 msgstr ""
+"Los certificados EdDSA (Ed25519) requieren PHP 8.4+ y es posible que no sean"
+" totalmente compatibles. Se ha importado el certificado."
 
 msgid "Certificate was expired on "
 msgstr "El certificado ha caducado el "
@@ -7545,8 +7781,8 @@ msgstr "Módulo desconocido '%s' con id '%s'"
 msgid ""
 "Server encountered some problem, so it was not able to handle the request."
 msgstr ""
-"El servidor ha encontrado algún problema, por lo que no ha podido atender la "
-"petición."
+"El servidor ha encontrado algún problema, por lo que no ha podido atender la"
+" petición."
 
 #, php-format
 msgid "Unknown notifier '%s'"
@@ -7558,10 +7794,11 @@ msgstr "Se ha producido un error inesperado"
 msgid "To-Do List"
 msgstr "Lista de tareas pendientes"
 
-#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
-#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
+#. TRANSLATORS: This indicates that the opened folder belongs to a particular
+#. user,
+#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the
+#. foldername)
 #. * and %2$s is 'Holiday' (the username).
-#.
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$s de %2$s"
@@ -7672,7 +7909,8 @@ msgstr "Carpetas de contactos públicas"
 msgid "Error in search, please try again"
 msgstr "Error en la búsqueda, inténtelo de nuevo"
 
-msgid "Unable to perform search query, no permissions to create search folder."
+msgid ""
+"Unable to perform search query, no permissions to create search folder."
 msgstr ""
 "No se puede realizar la consulta de búsqueda, no hay permisos para crear la "
 "carpeta de búsqueda."
@@ -7721,14 +7959,14 @@ msgstr "Dos sucesos no pueden ocurrir el mismo día"
 #, fuzzy, php-format
 msgid ""
 "You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
-"because you do not have the appropriate permissions for that account. Either "
-"enter the name as a required or optional attendee or talk to your "
+"because you do not have the appropriate permissions for that account. Either"
+" enter the name as a required or optional attendee or talk to your "
 "administrator about giving you permission to schedule '%s'."
 msgstr ""
 "Has marcado \"%s\" como recurso. No puede programar una reunión con \"%s\" "
-"porque no tiene los permisos adecuados para esa cuenta. Introduzca el nombre "
-"como asistente obligatorio u opcional o hable con su administrador para que "
-"le dé permiso para programar \"%s\"."
+"porque no tiene los permisos adecuados para esa cuenta. Introduzca el nombre"
+" como asistente obligatorio u opcional o hable con su administrador para que"
+" le dé permiso para programar \"%s\"."
 
 #, fuzzy, php-format
 msgid ""
@@ -7748,8 +7986,8 @@ msgstr ""
 
 #, fuzzy, php-format
 msgid ""
-"'%s' is already booked for this specified time. You must use another time or "
-"find another resource."
+"'%s' is already booked for this specified time. You must use another time or"
+" find another resource."
 msgstr ""
 "'%s' ya está reservado para esta hora especificada. Debe utilizar otra hora "
 "o encontrar otro recurso."
@@ -7946,8 +8184,8 @@ msgstr "No tiene privilegios necesarios para borrar objetos en esta carpeta."
 
 #, fuzzy
 msgid ""
-"Message is no longer in the outgoing queue, typically because it has already "
-"been sent."
+"Message is no longer in the outgoing queue, typically because it has already"
+" been sent."
 msgstr ""
 "El mensaje ya no está en la cola de salida, normalmente porque ya se ha "
 "enviado."
@@ -7993,7 +8231,8 @@ msgstr "Entra en conflicto con otra cita."
 
 #, fuzzy, php-format
 msgid ""
-"%s occurrence of this recurring appointment conflicts with other appointment."
+"%s occurrence of this recurring appointment conflicts with other "
+"appointment."
 msgid_plural ""
 "%s occurrences of this recurring appointment conflicts with other "
 "appointments."
@@ -8122,11 +8361,11 @@ msgstr ""
 msgid "Untitled rule"
 msgstr "Regla sin título"
 
-msgid "Could not load rules."
-msgstr "No se han podido cargar las reglas."
-
 msgid "Could not save rules."
 msgstr "No se han podido guardar las reglas."
+
+msgid "Could not load rules."
+msgstr "No se han podido cargar las reglas."
 
 msgid "Task Request:"
 msgstr "Solicitud de tarea:"
@@ -8134,13 +8373,11 @@ msgstr "Solicitud de tarea:"
 msgid "Sign in"
 msgstr "Iniciar sesión"
 
-msgid "Skip to main content"
-msgstr ""
-
 msgid "File is not imported successfully"
 msgstr "El archivo no se importa correctamente"
 
-msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgid ""
+"The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr "El archivo subido excede la directiva upload_max_filesize en php.ini."
 
 msgid ""
@@ -8164,8 +8401,8 @@ msgstr "Error al escribir el archivo en el disco."
 
 msgid ""
 "A PHP extension stopped the file upload. PHP does not provide a way to "
-"ascertain which extension caused the file upload to stop; examining the list "
-"of loaded extensions with phpinfo() may help."
+"ascertain which extension caused the file upload to stop; examining the list"
+" of loaded extensions with phpinfo() may help."
 msgstr ""
 "Una extensión de PHP detuvo la carga del archivo. PHP no proporciona una "
 "forma de averiguar qué extensión causó que se detuviera la subida del "

@@ -4,11 +4,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 23:42+0100\n"
+"POT-Creation-Date: 2026-04-01 11:33+0200\n"
 "PO-Revision-Date: 2022-08-27 18:15+0000\n"
 "Last-Translator: Hugel <qihu@nfschina.com>\n"
-"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
-"grommunio/grommunio-web/zh_Hant/>\n"
+"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/grommunio/grommunio-web/zh_Hant/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,16 +15,20 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.14.1-dev\n"
 
+msgid "Color palette"
+msgstr "配色方案"
+
 msgid "Calendar"
 msgstr "行事曆"
 
 msgid "Previous Month"
-msgstr ""
+msgstr "上個月"
 
 msgid "Next Month"
-msgstr ""
+msgstr "下個月"
 
-#. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
+#. TRANSLATORS: This message is used as label for the column which indicates
+#. the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
 msgstr "週"
 
@@ -42,7 +45,7 @@ msgid "More options"
 msgstr "更多選項"
 
 msgid "Input"
-msgstr ""
+msgstr "輸入"
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -203,7 +206,8 @@ msgstr "這個日期超過了最小的日期"
 msgid "This date is after the maximum date"
 msgstr "這個日期超過了最大日期"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "d/m/Y"
 msgstr "d/m/Y"
 
@@ -294,7 +298,8 @@ msgstr "這欄位的時間必須小於或等於 {0}"
 msgid "{0} is not a valid time"
 msgstr "{0} 不是一個有效的時間"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "G:i"
 msgstr "G:i"
 
@@ -310,8 +315,7 @@ msgstr "正確"
 msgid "false"
 msgstr "錯誤"
 
-msgid ""
-"This field should be an e-mail address in the format \"user@example.com\""
+msgid "This field should be an e-mail address in the format \"user@example.com\""
 msgstr "這個欄位必須是電子郵件格式\"user@example.com\""
 
 msgid "This field should be a URL in the format \"{0}\""
@@ -470,9 +474,12 @@ msgstr "複製聯絡人"
 msgid "Copy contacts"
 msgstr "複製聯絡人"
 
+msgid "Address book"
+msgstr "通訊錄"
+
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
-msgstr ""
+msgstr "僅顯示前 {0} 個名稱。請使用搜尋功能以找到更精確的結果。"
 
 msgid "Use the search bar to get results"
 msgstr "使用搜尋列取得結果"
@@ -686,7 +693,7 @@ msgid "Filter category…"
 msgstr "篩選分類..."
 
 msgid "Add Category"
-msgstr ""
+msgstr "新增分類"
 
 msgid "Sender"
 msgstr "寄件者"
@@ -712,6 +719,9 @@ msgstr "刪除搜尋資料夾"
 msgid "Sort by: Date"
 msgstr "排序方式日期"
 
+msgid "Search results"
+msgstr "搜尋結果"
+
 msgid "Loading Search results"
 msgstr "載入搜尋結果"
 
@@ -721,7 +731,7 @@ msgstr "分類提示"
 msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
 "or adjust your input."
-msgstr ""
+msgstr "若要縮小搜尋結果範圍，您可以按日期排序。請啟用篩選條件或調整輸入內容。"
 
 msgid "Did you mean"
 msgstr "你的意思是"
@@ -744,8 +754,8 @@ msgid ""
 msgstr "無法接受此會議建議在你的行事曆；可能已移動或刪除了"
 
 msgid ""
-"Could not view proposal as this meeting is not available in calendar; It may "
-"have been moved or deleted."
+"Could not view proposal as this meeting is not available in calendar; It may"
+" have been moved or deleted."
 msgstr "無法在行事曆上查看此會議的建議；可能已搬移或刪除了"
 
 msgid "Required"
@@ -842,7 +852,8 @@ msgstr "Occurs every %s effective %s until %s"
 msgid "When"
 msgstr "當"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "l jS F Y {0}"
 msgstr "l jS F Y{0}"
 
@@ -978,7 +989,7 @@ msgstr "在其他行事曆中建立"
 msgid ""
 "The selected calendar has \"read-only\" permissions. Instead you can create "
 "an item in your own calendar."
-msgstr ""
+msgstr "您選取的行事曆僅具「唯讀」權限。您也可以在自己的行事曆中建立一項。"
 
 msgid "What would you like?"
 msgstr "您想要什麼？"
@@ -989,7 +1000,8 @@ msgstr "自己的行事曆"
 msgid "F Y"
 msgstr "F Y"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "l"
 msgstr "l"
 
@@ -1024,7 +1036,7 @@ msgstr "傳送更新給與會者"
 
 msgid ""
 "You have made changes to the list of attendees. What would you like to do?"
-msgstr ""
+msgstr "您已對與會者清單進行了變更。接下來您想執行什麼操作？"
 
 msgid "Send updates to only added or deleted attendees."
 msgstr "傳送更新到新增加或移除的與會者"
@@ -1054,8 +1066,8 @@ msgstr "{0} 接受, {1} 暫時接受, {2} 拒絕."
 
 msgctxt "calendar.dialog"
 msgid ""
-"{0} attendees proposed a new time for this meeting. Click the Scheduling tab "
-"for details."
+"{0} attendees proposed a new time for this meeting. Click the Scheduling tab"
+" for details."
 msgstr "{0} 建議此會議新的時間. 點選行事曆頁籤查看詳細"
 
 msgctxt "calendar.dialog"
@@ -1106,7 +1118,7 @@ msgctxt "calendar.dialog"
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer"
-msgstr ""
+msgstr "請注意，當主辦人更新此會議邀請時，您所做的任何變更將會被覆寫"
 
 msgid "Create in"
 msgstr "在"
@@ -1138,11 +1150,11 @@ msgstr "在此輸入您的訊息..."
 msgid "Update location"
 msgstr "更新位置"
 
-msgid ""
-"Do you want to update the location \"{0}\" with the new location \"{1}\"?"
+msgid "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
 msgstr "你想要更新此位置\"{0}\" 到新的位置\"{1}\"嗎?"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "jS F Y {0}"
 msgstr "jS F Y{0}"
 
@@ -1241,6 +1253,9 @@ msgstr "此會議已取消。你要包含評論在你的取消上嗎?"
 msgid "Edit the cancellation before Sending."
 msgstr "在傳送前先編輯取消內容"
 
+msgid "Cancellation message"
+msgstr "取消訊息"
+
 msgid "Send the cancellation now."
 msgstr "現在傳送取消通知"
 
@@ -1255,18 +1270,21 @@ msgstr "此會議已被接受並且會移入你的行事曆，你要包含你的
 
 #, fuzzy
 msgid ""
-"This meeting will be tentatively accepted and moved to your calendar. Do you "
-"want to include comments with your response?"
+"This meeting will be tentatively accepted and moved to your calendar. Do you"
+" want to include comments with your response?"
 msgstr "此會議已被暫時的接受並且會移入你的行事曆，你要包含你的回應意見嗎?"
 
 #, fuzzy
 msgid ""
-"This meeting will be declined and moved to your Deleted Items folder. Do you "
-"want to include comments with your response?"
+"This meeting will be declined and moved to your Deleted Items folder. Do you"
+" want to include comments with your response?"
 msgstr "此會議已被拒絕並且會移到刪除項目資料夾，你要包含你的回應意見嗎?"
 
 msgid "Edit the response before sending"
 msgstr "傳送前編輯回應"
+
+msgid "Response message"
+msgstr "回覆訊息"
 
 msgid "Send the response now."
 msgstr "現在傳送回應"
@@ -1304,16 +1322,20 @@ msgstr "貼上選取的項目"
 msgid "An overview of"
 msgstr "概述"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Start"
 msgstr "開始"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "End"
 msgstr "結束"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for
+#. formatting instructions
 msgid "Printed by"
 msgstr "印刷者"
 
@@ -1335,12 +1357,15 @@ msgstr "l jS M Y{0}"
 msgid "All day: "
 msgstr "全天： "
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "l jS F Y"
 msgstr "l jS F Y"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for
+#. formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "l jS F"
 msgstr "l jS F"
 
@@ -1425,7 +1450,8 @@ msgstr "預設提醒時間"
 msgid "Default all-day appointment reminder time"
 msgstr "預設全天約會提醒時間"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "jS"
 msgstr "jS"
 
@@ -1550,6 +1576,9 @@ msgstr "依敏感性排序"
 msgid "Sort by: Importance"
 msgstr "依重要性排序"
 
+msgid "Appointments list"
+msgstr "約會清單"
+
 msgid "Loading appointments"
 msgstr "載入會議中"
 
@@ -1559,23 +1588,25 @@ msgstr "與會者"
 msgid "Optional attendees"
 msgstr "可選出席者"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "jS F {0}"
 msgstr "jS F{0}"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "jS F Y"
 msgstr "jS F Y"
 
 msgid ""
 "You have insufficient privileges to move and copy this item. Ask the folder "
 "owner to grant you permissions or contact your system administrator."
-msgstr ""
+msgstr "您沒有足夠的權限來移動或複製此項目。請向資料夾擁有者請求授予權限，或聯絡您的系統管理員。"
 
 msgid ""
 "You have insufficient privileges to copy this item. Ask the folder owner to "
 "grant you permissions or contact your system administrator."
-msgstr ""
+msgstr "您的權限不足，無法複製此項目。請向資料夾擁有者請求授予權限，或聯絡您的系統管理員。"
 
 msgid "Insufficient privileges"
 msgstr "特權不足"
@@ -1583,7 +1614,7 @@ msgstr "特權不足"
 msgid ""
 "Copying this appointment will unset it as private. Are you sure you want to "
 "continue?"
-msgstr ""
+msgstr "複製此約會將取消其「私人」設定。您確定要繼續嗎？"
 
 msgid "Private item"
 msgstr "私人項目"
@@ -1594,7 +1625,7 @@ msgstr "複製"
 msgid ""
 "Moving this appointment will unset it as private. Are you sure you want to "
 "continue?"
-msgstr ""
+msgstr "移動此約會將取消其「私人」設定。您確定要繼續嗎？"
 
 msgid "Move"
 msgstr "移動"
@@ -1612,10 +1643,10 @@ msgid "Open meeting request with changes"
 msgstr "更改後的公開會議請求"
 
 msgid "Previous"
-msgstr ""
+msgstr "上一頁"
 
 msgid "Next"
-msgstr ""
+msgstr "下一頁"
 
 msgid "grommunio Web"
 msgstr "grommunio Web"
@@ -1623,25 +1654,34 @@ msgstr "grommunio Web"
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer. Would you like to move this meeting?"
-msgstr ""
+msgstr "請注意，當主辦人更新此會議邀請時，您所做的任何變更都會被覆寫。您要移動這場會議嗎？"
 
 msgid "Don't move"
 msgstr "不要動"
 
+msgid "F j"
+msgstr "F j"
+
 msgid "Switch to day view to see all appointments"
 msgstr "切換至日檢視以檢視所有約會"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
+msgid "Show all appointments"
+msgstr "顯示所有約會"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates
+#. to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
 msgstr "建議"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+#. TRANSLATORS: This message is used as label for the field which to indicates
+#. to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "When"
 msgstr "當"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+#. TRANSLATORS: This message is used as label for the field which to indicates
+#. to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Location"
 msgstr "位置"
@@ -1653,6 +1693,9 @@ msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
 "be deleted."
 msgstr "你的行事曆已自動更新。此會議邀請將會刪除"
+
+msgid "New appointment subject"
+msgstr "新約會的主題"
 
 msgid "Loading appointments…"
 msgstr "正在載入約會..."
@@ -1681,6 +1724,9 @@ msgstr "任命{0} -{1}"
 msgid "No appointments"
 msgstr "無預約"
 
+msgid "Exception"
+msgstr "例外"
+
 msgid "Today {0} - {1}"
 msgstr "今天{0} -{1}"
 
@@ -1688,7 +1734,8 @@ msgid "Today (all day)"
 msgstr "今天（全天）"
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
-#. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
+#. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME -
+#. USERNAME".
 msgid "{0} - {1}"
 msgstr "{0} -{1}"
 
@@ -1729,16 +1776,16 @@ msgid "Recurring Message"
 msgstr "訊息通知"
 
 msgid ""
-"This is a recurring message. Do you want to open only this occurrence or the "
-"series?"
+"This is a recurring message. Do you want to open only this occurrence or the"
+" series?"
 msgstr "訊息通知，您要開啟此通知或序列嗎?"
 
 msgid "Recurring Appointment"
 msgstr "約會通知"
 
 msgid ""
-"This is a recurring appointment. Do you want to open only this occurrence or "
-"the series?"
+"This is a recurring appointment. Do you want to open only this occurrence or"
+" the series?"
 msgstr "約會通知，您要開啟此通知或序列嗎?"
 
 msgid "Recurring Meeting Request"
@@ -1769,7 +1816,7 @@ msgstr "貼上經常性{0}"
 msgid ""
 "This is a recurring {0}. Do you want to paste only this occurrence or the "
 "series?"
-msgstr ""
+msgstr "這是重複的 {0}。您要貼上僅此一次的項目，還是整個系列？"
 
 msgid "message"
 msgstr "消息"
@@ -1802,8 +1849,8 @@ msgid ""
 msgstr "會議通知，您要刪除此通知或序列嗎?"
 
 msgid ""
-"This is a recurring task request. Do you want to delete only this occurrence "
-"or the series?"
+"This is a recurring task request. Do you want to delete only this occurrence"
+" or the series?"
 msgstr "任務通知，您要刪除此通知或序列嗎?"
 
 msgid "Delete this occurrence"
@@ -1847,7 +1894,7 @@ msgstr "通知寄件者"
 msgid ""
 "{0} has requested a notification be sent when message \"{1}\" is deleted "
 "without having been read. Do you want to send a receipt?"
-msgstr ""
+msgstr "{0} 已要求在訊息「{1}」未被閱讀即遭刪除時發送通知。您要發送已讀回執嗎？"
 
 msgid "Delete Incomplete Task"
 msgstr "刪除未完成的任務"
@@ -1875,8 +1922,8 @@ msgstr "收件人已經存在。"
 
 #, fuzzy
 msgid ""
-"The sender of this email has requested a read receipt. Do you wish to notify "
-"the sender?"
+"The sender of this email has requested a read receipt. Do you wish to notify"
+" the sender?"
 msgstr "當讀取時會通知寄件者此訊息已讀取，您希望通知寄件者嗎?"
 
 msgid "Import"
@@ -1895,14 +1942,14 @@ msgid "Unable to import \"{0}\". The file is not valid"
 msgstr "無法匯入 \"{0}\".檔案無效"
 
 msgid ""
-"You have insufficient privileges to move these items. Would you like to copy "
-"instead?"
-msgstr ""
+"You have insufficient privileges to move these items. Would you like to copy"
+" instead?"
+msgstr "您的權限不足以移動這些項目。您要改為複製嗎？"
 
 msgid ""
 "You have insufficient privileges to move this item. Would you like to copy "
 "instead?"
-msgstr ""
+msgstr "您的權限不足以移動此項目。您要改為複製嗎？"
 
 msgid "Cc"
 msgstr "副本"
@@ -1946,14 +1993,14 @@ msgstr "繼續"
 msgid ""
 "These attachments have an unsupported file type and can not be added to the "
 "ZIP file:"
-msgstr ""
+msgstr "這些附件的檔案類型不受支援，無法加入 ZIP 檔案中："
 
 msgid "Would you like to continue downloading without adding these files?"
 msgstr "您想不加入這些檔案而繼續下載嗎？"
 
 msgid ""
 "Always continue download of ZIP files without adding unsupported file types."
-msgstr ""
+msgstr "下載 ZIP 檔案時，請始終繼續下載，且不添加不支援的檔案類型。"
 
 msgid "File upload"
 msgstr "檔案上傳"
@@ -1976,12 +2023,12 @@ msgstr "匯入至資料夾"
 msgid ""
 "In order to use the vCard import feature, upgrade your Gromox to version 0 "
 "or higher."
-msgstr ""
+msgstr "若要使用 vCard 匯入功能，請將您的 Gromox 升級至 0 版或更高版本。"
 
 msgid ""
-"In order to use the ICS / VCS import feature, upgrade your Gromox to version "
-"0 or higher."
-msgstr ""
+"In order to use the ICS / VCS import feature, upgrade your Gromox to version"
+" 0 or higher."
+msgstr "若要使用 ICS / VCS 匯入功能，請將您的 Gromox 升級至 0 版或更高版本。"
 
 msgid "Attachment error"
 msgstr "附件錯誤"
@@ -2007,13 +2054,22 @@ msgstr "管理類別"
 msgid "New"
 msgstr "新增"
 
+msgid "Rename category"
+msgstr "重新命名類別"
+
+msgid "Delete category"
+msgstr "刪除類別"
+
+msgid "Quick access"
+msgstr "快速存取"
+
 msgid "Delete Category"
 msgstr "刪除類別"
 
 msgid ""
 "Are you sure you want to delete the category \"{0}\"? Other items keep this "
 "category, but lose the assigned color."
-msgstr ""
+msgstr "您確定要刪除「{0}」這個類別嗎？其他項目將保留此類別，但會失去已指派的顏色。"
 
 msgid "Rename Category"
 msgstr "重新命名類別"
@@ -2024,6 +2080,9 @@ msgstr "一個名為 \""
 msgid "Create New Category"
 msgstr "建立新類別"
 
+msgid "Category name"
+msgstr "類別名稱"
+
 msgid "Pin to quick access"
 msgstr "針對快速存取"
 
@@ -2033,7 +2092,7 @@ msgstr "建立"
 msgid ""
 "You must apply the changes you have made to the categories before you can "
 "create this category."
-msgstr ""
+msgstr "您必須先將對類別所做的變更套用，才能建立此類別。"
 
 msgid "You already have a category named '{0}'. Please use another name."
 msgstr "您已有一個名為「{0} 」的類別。請使用其他名稱。"
@@ -2041,7 +2100,7 @@ msgstr "您已有一個名為「{0} 」的類別。請使用其他名稱。"
 msgid ""
 "You already have a category named '{0}' in your pending changes. Please use "
 "another name."
-msgstr ""
+msgstr "您的待處理變更中已存在名為「{0}」的類別。請使用其他名稱。"
 
 msgid "Rename"
 msgstr "重新命名"
@@ -2055,7 +2114,7 @@ msgstr "要重新命名嗎？"
 msgid ""
 "The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
 "\"{2}\" categories?"
-msgstr ""
+msgstr "「{0}」這個類別已經存在。您要合併「{1}」和「{2}」這兩個類別嗎？"
 
 msgid "Merge"
 msgstr "合併"
@@ -2141,7 +2200,7 @@ msgstr "代表可代您傳送項目。"
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
 "the context menu and click on \"Share folder…\""
-msgstr ""
+msgstr "若您只想設定資料夾權限，請在資料夾上按右鍵開啟快顯功能表，然後點選「分享資料夾…」"
 
 msgid "Permission"
 msgstr "權限"
@@ -2177,12 +2236,12 @@ msgstr "所選項目已無法使用。"
 msgid ""
 "You have insufficient privileges to move this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
-msgstr ""
+msgstr "您沒有足夠的權限來移動此資料夾。請向資料夾擁有者請求授予權限，或聯絡您的系統管理員。"
 
 msgid ""
 "You have insufficient privileges to copy this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
-msgstr ""
+msgstr "您的權限不足，無法複製此資料夾。請向資料夾擁有者請求授予權限，或聯絡您的系統管理員。"
 
 msgid "You have insufficient privileges to move following items."
 msgstr "您的權限不足以移動下列項目。"
@@ -2343,7 +2402,7 @@ msgstr "刪除選取的項目"
 msgid ""
 "Delete selected item without moving it to the Deleted Items folder. The "
 "deleted item can still be restored."
-msgstr ""
+msgstr "刪除選取的項目，但不會將其移至「已刪除項目」資料夾。已刪除的項目仍可還原。"
 
 msgid "Add/Edit Cc recipient"
 msgstr "新增/編輯抄送收件人"
@@ -2406,9 +2465,9 @@ msgid "Expand distribution list"
 msgstr "擴大分發清單"
 
 msgid ""
-"Distribution list will be replaced with its members. You will not be able to "
-"collapse it again."
-msgstr ""
+"Distribution list will be replaced with its members. You will not be able to"
+" collapse it again."
+msgstr "群組清單將被其成員取代。您將無法再次收起該清單。"
 
 msgid "Edit Recipient"
 msgstr "編輯收件者"
@@ -2506,8 +2565,11 @@ msgstr "{A} 後結束事件"
 msgid "End by {A}"
 msgstr "結束於 {A}"
 
-#. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
-#. For example: 'Occurrence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurrence duration: 1 hour'
+#. TRANSLATORS: This informs the user what the exact duration of the
+#. appointment is. Where {D} represents the days, {H} the hours and {M} the
+#. minutes.
+#. For example: 'Occurrence duration: 1 day 2 hours 45 minutes', or when the
+#. appointment is shorter then 1 day: 'Occurrence duration: 1 hour'
 msgid "Occurrence duration: {D} {H} {M}"
 msgstr "發生時間:{D} {H} {M}"
 
@@ -2549,7 +2611,8 @@ msgstr "沒有提醒"
 msgid "Due In"
 msgstr "到期於"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Due"
 msgstr "應有"
 
@@ -2722,6 +2785,15 @@ msgstr "收件人欄位中有我的名字"
 msgid "is received (all messages)"
 msgstr "已收到（所有訊息）"
 
+msgid "Message size"
+msgstr "訊息大小"
+
+msgid "Size unit"
+msgstr "尺寸單位"
+
+msgid "Condition"
+msgstr "條件"
+
 msgid "Unknown condition"
 msgstr "未知條件"
 
@@ -2733,6 +2805,9 @@ msgstr "新增動作"
 
 msgid "Remove action"
 msgstr "移除動作"
+
+msgid "Action"
+msgstr "動作"
 
 msgid "Unknown action"
 msgstr "未知動作"
@@ -2779,13 +2854,16 @@ msgstr "指定字或片語"
 msgid "Edit"
 msgstr "編輯"
 
+msgid "Word"
+msgstr "Word"
+
 msgid "and"
 msgstr "和"
 
 msgid ""
-"Distribution lists are not supported in rules, would you like to replace the "
-"distribution list with its members?"
-msgstr ""
+"Distribution lists are not supported in rules, would you like to replace the"
+" distribution list with its members?"
+msgstr "規則中不支援群組，您是否要將群組替換為其成員？"
 
 msgid "or"
 msgstr "或"
@@ -2794,10 +2872,10 @@ msgid "No rule exists"
 msgstr "沒有規則存在"
 
 msgid "Move Up"
-msgstr ""
+msgstr "向上移動"
 
 msgid "Move Down"
-msgstr ""
+msgstr "向下移動"
 
 msgid "Active"
 msgstr "啟動"
@@ -2890,9 +2968,9 @@ msgid "Folder does not exist"
 msgstr "資料夾不存在"
 
 msgid ""
-"The folder you are searching through no longer exists. Please select another "
-"folder"
-msgstr ""
+"The folder you are searching through no longer exists. Please select another"
+" folder"
+msgstr "您正在搜尋的資料夾已不存在。請選擇另一個資料夾"
 
 msgid "Add/Edit sender"
 msgstr "新增/編輯寄件者"
@@ -2960,6 +3038,9 @@ msgstr "寄件地址"
 msgid "From Addresses settings"
 msgstr "寄件者位址設定"
 
+msgid "Select color"
+msgstr "選擇顏色"
+
 msgid "Full name"
 msgstr "全名"
 
@@ -2974,6 +3055,9 @@ msgstr "網站"
 
 msgid "IM Address"
 msgstr "IM"
+
+msgid "Message body"
+msgstr "訊息正文"
 
 msgid "D, d-m-Y, {0}"
 msgstr "D、d-m-Y、{0}"
@@ -3003,8 +3087,14 @@ msgstr "未知的"
 msgid "Meeting Organizer"
 msgstr "會議主席"
 
+msgid "Follow up"
+msgstr "跟進"
+
 msgid "{0} overdue"
 msgstr "{0} 過期"
+
+msgid "Message body editor"
+msgstr "訊息正文編輯器"
 
 msgid "Loading…"
 msgstr "讀取中…"
@@ -3012,7 +3102,8 @@ msgstr "讀取中…"
 msgid "Message could not be loaded"
 msgstr "訊息無法載入"
 
-#. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
+#. TRANSLATORS: This message is used as label for the field which indicates
+#. which attachments are inside the message
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "附件"
@@ -3026,7 +3117,8 @@ msgstr "新增寄件者到安全寄件者列表"
 msgid "Add Domain to Safe Senders List"
 msgstr "新增網域到安全寄件者列表"
 
-#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates with which
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and
+#. indicates with which
 #. importance the message was sent. For example:
 #. 'This message was sent with high importance.'
 #. 'This message was sent with low importance.'
@@ -3034,7 +3126,8 @@ msgctxt "mail.previewpanel"
 msgid "This message was sent with {0} importance."
 msgstr "此消息被發送的{0}重要性"
 
-#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates which
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and
+#. indicates which
 #. sensitivity level applies to the message. For example:
 #. 'Please treat this as Personal.'
 #. 'Please treat this as Private.'
@@ -3045,15 +3138,15 @@ msgstr "Please treat this as {0}"
 
 msgctxt "mail.previewpanel"
 msgid ""
-"Click here to download pictures. To help protect your privacy, grommunio Web "
-"prevented automatic download of some pictures in this message."
-msgstr ""
+"Click here to download pictures. To help protect your privacy, grommunio Web"
+" prevented automatic download of some pictures in this message."
+msgstr "點擊此處下載圖片。為保護您的隱私，grommunio Web 已阻止本訊息中部分圖片的自動下載。"
 
 msgctxt "mail.previewpanel"
 msgid ""
 "This message is corrupt and will not be displayed correctly, Click here to "
 "fix it."
-msgstr ""
+msgstr "此訊息已損毀，將無法正確顯示，請點擊此處進行修復。"
 
 msgctxt "mail.previewpanel"
 msgid "{0} has accepted."
@@ -3094,11 +3187,13 @@ msgid "{0} declined and proposed a new time for this meeting."
 msgstr "{0} 已婉拒並於本次會議提出了一個新的時間"
 
 msgctxt "mail.previewpanel"
-msgid "{0} declined on behalf of {1} and proposed a new time for this meeting."
+msgid ""
+"{0} declined on behalf of {1} and proposed a new time for this meeting."
 msgstr "於 {1} 代表中{0}已婉拒並於本次會議提出了一個新的時間"
 
 msgctxt "mail.previewpanel"
-msgid "This meeting is not in the Calendar; it may have been moved or deleted."
+msgid ""
+"This meeting is not in the Calendar; it may have been moved or deleted."
 msgstr "這會議不在行事曆中;它可能被移除或是刪除"
 
 msgctxt "mail.previewpanel"
@@ -3175,14 +3270,15 @@ msgid "Fix message"
 msgstr "修復訊息"
 
 msgid ""
-"We are going to try to fix a corrupted mail message, do you wish to continue?"
-msgstr ""
+"We are going to try to fix a corrupted mail message, do you wish to "
+"continue?"
+msgstr "我們即將嘗試修復一封損毀的郵件，您要繼續嗎？"
 
 msgid "The matching task was not found in your task list."
 msgstr "在您的任務清單中找不到匹配的任務。"
 
 msgid "Toggle header"
-msgstr ""
+msgstr "切換頁首"
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3200,20 +3296,29 @@ msgctxt "mail.previewpanel"
 msgid "Categories"
 msgstr "類別"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+#. TRANSLATORS: This message is used as label for the field which to indicates
+#. to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Recipients"
 msgstr "收件人"
 
-#. TRANSLATORS: check if the mail is send by some delegator or not. if then display "on behalf of".
+#. TRANSLATORS: check if the mail is send by some delegator or not. if then
+#. display "on behalf of".
 msgctxt "mail.previewpanel"
 msgid "on behalf of"
 msgstr "代表人"
 
-#. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
+#. TRANSLATORS: This message is used to indicate that no sent date is
+#. available for the message (because it has not been sent yet).
 msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "無"
+
+msgid "Pagination"
+msgstr "分頁"
+
+msgid "Page number"
+msgstr "頁碼"
 
 msgid "Pop-out"
 msgstr "彈出"
@@ -3311,7 +3416,8 @@ msgstr "電子郵件3"
 msgid "Email3 Display As"
 msgstr "電子郵件3 顯示為"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Birthday"
 msgstr "生日"
 
@@ -3411,7 +3517,8 @@ msgstr "暱稱"
 msgid "Suffix"
 msgstr "後綴"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Anniversary"
 msgstr "紀念日"
 
@@ -3513,7 +3620,7 @@ msgstr "載入聯絡人中"
 
 msgid ""
 "There are no items to show in this list. Update the filter for more results."
-msgstr ""
+msgstr "此清單中沒有任何項目。請更新篩選條件以查看更多結果。"
 
 msgid "[Group]"
 msgstr "[小組]"
@@ -3653,6 +3760,9 @@ msgstr "依TTY/TDD電話排序"
 msgid "Sort by: Telex Phone"
 msgstr "依電報排序"
 
+msgid "Contacts list"
+msgstr "聯絡人清單"
+
 msgid "Change Picture"
 msgstr "變更圖片"
 
@@ -3671,7 +3781,7 @@ msgstr "在新的瀏覽器視窗中開啟"
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
 "browser's settings to always allow pop-ups from grommunio Web."
-msgstr ""
+msgstr "您的瀏覽器似乎已封鎖了一個或多個彈出視窗。請變更瀏覽器設定，以始終允許來自 grommunio Web 的彈出視窗。"
 
 msgid "Untitled"
 msgstr "無題"
@@ -3682,29 +3792,32 @@ msgid ""
 msgstr "無法上傳附件，只有{0}可以附加到此郵件"
 
 msgid ""
-"Cannot upload attachment, attachment is {0} while the allowed maximum is {1}."
-msgstr ""
+"Cannot upload attachment, attachment is {0} while the allowed maximum is "
+"{1}."
+msgstr "無法上傳附件，附件數量為 {0}，而最大允許數量為 {1}。"
 
 msgid ""
-"Cannot upload attachment, the total attachment size is {0} while the allowed "
-"maximum is {1}"
+"Cannot upload attachment, the total attachment size is {0} while the allowed"
+" maximum is {1}"
 msgstr "無法上傳附件，全部附件大小{0}只允許最大{1}"
 
 msgid ""
 "Cannot upload attachment, total attachment is {0} while the allowed maximum "
 "attachment in single request is {1}."
-msgstr ""
+msgstr "無法上傳附件，附件總數為 {0}，而單次請求允許的附件上限為 {1}。"
 
 msgid ""
 "Cannot upload attachment, total attachments are {0} files while the maximum "
 "{1} files are allowed in single request."
-msgstr ""
+msgstr "無法上傳附件，附件總數為 {0} 個檔案，而單次請求最多允許 {1} 個檔案。"
 
-#. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
+#. TRANSLATORS: {0} indicates name/email address of secretary and {1}
+#. indicates boss' name/email address
 msgid "{0} on behalf of {1}"
 msgstr "{0} 代表 {1} "
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "jS F"
 msgstr "jS F"
 
@@ -3822,6 +3935,9 @@ msgstr "紅色"
 msgid "Brown"
 msgstr "棕色"
 
+msgid "Main navigation"
+msgstr "主導覽列"
+
 msgid "Logout"
 msgstr "登出"
 
@@ -3837,17 +3953,17 @@ msgstr "深色"
 msgid "Automatic"
 msgstr "自動"
 
+msgid "Main toolbar"
+msgstr "主工具列"
+
 msgid "Switch view"
 msgstr "切換檢視"
 
-msgid "Folder navigation"
-msgstr ""
+msgid "Skip to main content"
+msgstr "跳至主要內容"
 
 msgid "Widgets"
 msgstr "小工具"
-
-msgid "Main content"
-msgstr ""
 
 msgid "Sending…"
 msgstr "發送..."
@@ -4010,8 +4126,8 @@ msgid "D d-m"
 msgstr "D d-m"
 
 msgid ""
-"Not enough permissions to open this store, do you want to remove it from the "
-"hierarchy?"
+"Not enough permissions to open this store, do you want to remove it from the"
+" hierarchy?"
 msgstr "沒有權限開啟此儲存庫，您要從您的列表移除嗎?"
 
 msgid ""
@@ -4286,9 +4402,6 @@ msgstr "刷新"
 msgid "Restore items"
 msgstr "回復項目"
 
-msgid "Select color"
-msgstr "選擇顏色"
-
 msgid "Add to Favorites"
 msgstr "加入我的最愛"
 
@@ -4335,10 +4448,13 @@ msgstr "您確定要清空{0}?"
 msgid "Show All"
 msgstr "顯示全部"
 
+msgid "Filter folders"
+msgstr "篩選資料夾"
+
 msgid ""
-"You have insufficient privileges to move this folder. Would you like to copy "
-"instead?"
-msgstr ""
+"You have insufficient privileges to move this folder. Would you like to copy"
+" instead?"
+msgstr "您的權限不足以移動此資料夾。您要改為複製嗎？"
 
 msgid "CC"
 msgstr "副本"
@@ -4349,7 +4465,8 @@ msgstr "密件副本"
 msgid "Sort by: To"
 msgstr "依收件者排序"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Sent"
 msgstr "已傳送"
 
@@ -4512,6 +4629,10 @@ msgstr "轉寄"
 msgid "Re"
 msgstr "回覆"
 
+#. TRANSLATORS: prefix before sender name in print-to-PDF filename
+msgid "FROM"
+msgstr "發件人"
+
 msgid "on behalf of"
 msgstr "代表"
 
@@ -4639,8 +4760,14 @@ msgstr "我現在在辦公室"
 msgid "I am out of the office from"
 msgstr "我從"
 
+msgid "Out of office from"
+msgstr "請假期間自"
+
 msgid "I will be back on"
 msgstr "我會在"
+
+msgid "Back on"
+msgstr "返回"
 
 msgid "Automatically reply with the following message:"
 msgstr "自動回覆以下訊息："
@@ -4668,15 +4795,15 @@ msgstr "我組織以外的任何人"
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
-msgstr ""
+msgstr "您輸入的時間早於「不在辦公室」的日期。請重新安排時間。"
 
 msgid "Safe Senders"
 msgstr "安全寄件者"
 
 msgid ""
-"To protect your privacy email addresses or domains can only be added via the "
-"\"Add to safe sender list\" functionality in an opened email."
-msgstr ""
+"To protect your privacy email addresses or domains can only be added via the"
+" \"Add to safe sender list\" functionality in an opened email."
+msgstr "為保護您的隱私，電子郵件地址或網域僅能透過已開啟的電子郵件中的「新增至安全寄件者清單」功能進行新增。"
 
 msgid "Delete all"
 msgstr "全部刪除"
@@ -4692,6 +4819,9 @@ msgstr "新訊息"
 
 msgid "Replies/forwards"
 msgstr "回覆/轉寄"
+
+msgid "Signature name"
+msgstr "簽名名稱"
 
 msgid "Signature name:"
 msgstr "簽名："
@@ -4768,9 +4898,6 @@ msgstr "非常大"
 msgid "Huge"
 msgstr "龐大"
 
-msgid "Follow up"
-msgstr "跟進"
-
 msgid "Move to Junk Folder"
 msgstr "移動到垃圾郵件資料夾"
 
@@ -4779,6 +4906,9 @@ msgstr "非垃圾郵件"
 
 msgid "Send to"
 msgstr "傳送至"
+
+msgid "Message list"
+msgstr "訊息清單"
 
 msgid "Loading mail"
 msgstr "載入郵件中"
@@ -4831,6 +4961,9 @@ msgstr "依建立日期排序"
 msgid "Sort by: Color"
 msgstr "依顏色排序"
 
+msgid "Notes list"
+msgstr "備忘錄清單"
+
 msgid "Loading Notes"
 msgstr "載入筆記中"
 
@@ -4843,7 +4976,7 @@ msgstr "新增筆記"
 msgid ""
 "You must reload grommunio Web for the changes to take effect. Unsaved "
 "changes will be lost."
-msgstr ""
+msgstr "您必須重新載入 grommunio Web 才能使變更生效。未儲存的變更將會遺失。"
 
 msgid "Reload grommunio Web"
 msgstr "重新載入 grommunio Web"
@@ -4869,8 +5002,17 @@ msgstr "主題"
 msgid "Personal information"
 msgstr "個人資訊"
 
+msgid "Last Name, First Name"
+msgstr "姓氏，名字"
+
+msgid "First Name Last Name"
+msgstr "名字 姓氏"
+
 msgid "Select Default Folder"
 msgstr "選擇預設資料夾"
+
+msgid "Name Display Format"
+msgstr "名稱顯示格式"
 
 msgid "Advanced"
 msgstr "進階"
@@ -4886,6 +5028,9 @@ msgstr "顯示 grommunio Web 中的插入點"
 
 msgid "Show \"item data\" button in context menu (mail only)"
 msgstr "在上下文功能表中顯示「項目資料」按鈕（僅限郵件）"
+
+msgid "Settings categories"
+msgstr "設定類別"
 
 msgid "Edit setting"
 msgstr "編輯設定"
@@ -4905,11 +5050,17 @@ msgstr "關於"
 msgid "Date & Time"
 msgstr "日期與時間"
 
+msgid "Date format"
+msgstr "日期格式"
+
 msgid "Short"
 msgstr "短"
 
 msgid "Long"
 msgstr "長"
+
+msgid "Time format"
+msgstr "時間格式"
 
 msgid "12h clock"
 msgstr "12 小時鐘"
@@ -4965,19 +5116,20 @@ msgstr "收件匣導覽"
 msgid "I want to navigate through my items by using:"
 msgstr "我想使用以下方式瀏覽我的項目："
 
+msgid "Navigation method"
+msgstr "導覽方式"
+
 msgid "Infinite Scroll"
 msgstr "無限滾動"
 
-msgid "grommunio Web automatically loads additional items when you scroll down"
+msgid ""
+"grommunio Web automatically loads additional items when you scroll down"
 msgstr "當您往下捲動時，grommunio Web 會自動載入其他項目"
 
-msgid "Pagination"
-msgstr "分頁"
-
 msgid ""
-"grommunio Web displays items on pages and you can use navigation controls to "
-"navigate"
-msgstr ""
+"grommunio Web displays items on pages and you can use navigation controls to"
+" navigate"
+msgstr "grommunio Web 會在頁面上顯示項目，您可以使用導覽控制項進行導覽"
 
 msgid "Load items in blocks of {A}"
 msgstr "以 {A} 區塊載入項目"
@@ -4990,6 +5142,9 @@ msgstr "鍵盤捷徑"
 
 msgid "Extended"
 msgstr "延伸"
+
+msgid "Keyboard shortcuts"
+msgstr "鍵盤快捷鍵"
 
 msgid "Keyboard shortcuts off"
 msgstr "關閉鍵盤捷徑"
@@ -5039,7 +5194,7 @@ msgstr "在{0} 你不能傳送郵件"
 msgid ""
 "You can not send mails as you have exceeded soft quota, at {0} you won't be "
 "able to receive mails."
-msgstr ""
+msgstr "您已超過軟配額，因此無法發送郵件；當達到 {0} 時，您將無法接收郵件。"
 
 msgid "At {0} you won't be able to send or receive mails."
 msgstr "在{0} ，您將無法收發郵件。"
@@ -5056,12 +5211,12 @@ msgstr "將設定重設為原始預設值。"
 msgid ""
 "This will close all opened shared stores and resets all settings to the "
 "default value."
-msgstr ""
+msgstr "此操作將關閉所有已開啟的共用儲存庫，並將所有設定重設為預設值。"
 
 msgid ""
 "grommunio Web will automatically reload in order for these changes to take "
 "effect"
-msgstr ""
+msgstr "grommunio Web 將自動重新載入以使這些變更生效"
 
 msgid "Reset"
 msgstr "重設"
@@ -5252,7 +5407,8 @@ msgstr "已完成"
 msgid "Printed by: "
 msgstr "印刷： "
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Printed on: "
 msgstr "印刷於： "
 
@@ -5316,7 +5472,7 @@ msgstr "變更指派的任務"
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
 "makes changes."
-msgstr ""
+msgstr "請注意，當指派對象進行變更時，已指派的任務將會被覆寫。"
 
 msgid "Sort by: Complete"
 msgstr "依完成排序"
@@ -5341,6 +5497,9 @@ msgstr "排序方式完成百分比"
 
 msgid "Assigned task changes"
 msgstr "指派的任務變更"
+
+msgid "Tasks list"
+msgstr "任務清單"
 
 msgid "Loading tasks"
 msgstr "載入任務中"
@@ -5429,7 +5588,7 @@ msgstr "層級結構中缺少預設儲存。"
 msgid ""
 "Not all functionality of grommunio Web might be working properly because of "
 "this."
-msgstr ""
+msgstr "因此，grommunio Web 的部分功能可能無法正常運作。"
 
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
@@ -5480,7 +5639,8 @@ msgid "Missing folders"
 msgstr "遺失的資料夾"
 
 msgid "The following required folder is missing in the hierarchy: {0}"
-msgid_plural "The following required folders are missing in the hierarchy: {0}"
+msgid_plural ""
+"The following required folders are missing in the hierarchy: {0}"
 msgstr[0] "層級結構中缺少下列所需資料夾：{0}"
 msgstr[1] "層級結構中缺少下列必要資料夾：{0}"
 
@@ -5545,7 +5705,7 @@ msgid "Public link"
 msgstr "公開連結"
 
 msgid "Copy link"
-msgstr ""
+msgstr "複製連結"
 
 msgid "Password protect"
 msgstr "密碼保護"
@@ -5609,7 +5769,7 @@ msgstr "您確定要刪除{0} 資料夾及其所有內容嗎？"
 
 msgid ""
 "Are you sure want to delete the selected items and all of their contents?"
-msgstr ""
+msgstr "您確定要刪除所選項目及其所有內容嗎？"
 
 msgid "Confirm overwrite"
 msgstr "確認覆寫"
@@ -5692,12 +5852,12 @@ msgstr "您確定移除所有設定和帳號嗎？"
 msgid ""
 "Accounts marked by your administrator as \"cannot be changed\" will not be "
 "removed."
-msgstr ""
+msgstr "由您的管理員標記為「無法變更」的帳戶將不會被移除。"
 
 msgid ""
 "grommunio Web will automatically restart in order for these changes to take "
 "effect."
-msgstr ""
+msgstr "grommunio Web 將自動重新啟動，以便這些變更生效。"
 
 msgid "grommunio Web is reloading, Please wait."
 msgstr "grommunio 網頁正在重新載入，請稍候。"
@@ -5917,7 +6077,7 @@ msgstr "編輯分享"
 
 msgid ""
 "There are no accounts added. Go to settings, Files tab and add an account"
-msgstr ""
+msgstr "尚未新增任何帳戶。請前往「設定」中的「檔案」分頁並新增帳戶"
 
 msgid "Filesize"
 msgstr "檔案大小"
@@ -5930,6 +6090,9 @@ msgstr "是否共用"
 
 msgid "File preview"
 msgstr "檔案預覽"
+
+msgid "File content"
+msgstr "檔案內容"
 
 msgid "Your browser does not support previewing of audio files!"
 msgstr "您的瀏覽器不支援預覽音訊檔！"
@@ -6052,9 +6215,9 @@ msgid "attachments selected"
 msgstr "選取的附件"
 
 msgid ""
-"With the selection of separate attachments the total size of all attachments "
-"may not exceed"
-msgstr ""
+"With the selection of separate attachments the total size of all attachments"
+" may not exceed"
+msgstr "若選擇單獨附加檔案，所有附件的總大小不得超過"
 
 msgid "MB. There have been"
 msgstr "MB.已經有"
@@ -6157,9 +6320,9 @@ msgid "Manage Shared Folders"
 msgstr "管理共用資料夾"
 
 msgid ""
-"Select folders to sync to your device from the list below. To add additional "
-"mailboxes to the list, open them in grommunio Web first."
-msgstr ""
+"Select folders to sync to your device from the list below. To add additional"
+" mailboxes to the list, open them in grommunio Web first."
+msgstr "請從下方清單中選擇要同步至裝置的資料夾。若要將其他信箱新增至清單，請先在 grommunio Web 上開啟該信箱。"
 
 msgid "grommunio-sync"
 msgstr "grommunio-sync"
@@ -6173,7 +6336,7 @@ msgstr "行動裝置"
 msgid ""
 "Unable to connect to the grommunio-sync server. Click {0} to enter your "
 "credentials"
-msgstr ""
+msgstr "無法連線至 grommunio-sync 伺服器。請點擊 {0} 輸入您的憑證"
 
 msgid "Devices"
 msgstr "裝置"
@@ -6217,6 +6380,9 @@ msgstr "輸入{0} 確認"
 msgid "Please type {0} to confirm"
 msgstr "請輸入{0} 確認"
 
+msgid "Wipe type"
+msgstr "清除類型"
+
 msgid "Wipe only data related to this account"
 msgstr "只清除與此帳戶相關的資料"
 
@@ -6230,21 +6396,29 @@ msgid ""
 "Do you really want to wipe your device?\n"
 " Type WIPE to confirm."
 msgstr ""
+"您真的要清除裝置中的資料嗎？\n"
+"請輸入 WIPE 進行確認。"
 
 msgid ""
 "Do you really want to wipe your device?\n"
 " Enter your password to confirm."
 msgstr ""
+"您真的要清除裝置中的資料嗎？\n"
+"請輸入密碼以確認。"
 
 msgid ""
 "Do you really want to remove your device?\n"
 " Type REMOVE to confirm."
 msgstr ""
+"您真的要移除您的裝置嗎？\n"
+"請輸入 REMOVE 以確認。"
 
 msgid ""
 "Do you really want to remove your device?\n"
 " Enter your password to confirm."
 msgstr ""
+"您真的要移除您的裝置嗎？\n"
+"請輸入密碼以確認。"
 
 msgid "Add meeting"
 msgstr "增加會議"
@@ -6252,8 +6426,14 @@ msgstr "增加會議"
 msgid "Room name:"
 msgstr "房間名稱："
 
+msgid "Room name"
+msgstr "房間名稱"
+
 msgid "Room URL:"
 msgstr "房間網址："
+
+msgid "Room URL"
+msgstr "會議室網址"
 
 msgid "Meet"
 msgstr "見面"
@@ -6266,6 +6446,9 @@ msgstr "加入網路會議"
 
 msgid "Open meeting in:"
 msgstr "公開會議在"
+
+msgid "Open meeting in"
+msgstr "開啟會議"
 
 msgid "Web tab"
 msgstr "網頁選項卡"
@@ -6288,9 +6471,10 @@ msgstr "將 URL 加入會議位置，而不是覆寫它"
 msgid ""
 "Prevent the URL in the meeting location from being overridden automatically "
 "(ex: when adding a meetingroom)"
-msgstr ""
+msgstr "防止會議地點中的 URL 被自動覆寫（例如：在新增會議室時）"
 
-msgid "If you have problems when creating meetings, try disabling this setting"
+msgid ""
+"If you have problems when creating meetings, try disabling this setting"
 msgstr "如果您在建立會議時遇到問題，請嘗試停用此設定"
 
 msgid "Add an invitation to the appointment description"
@@ -6302,14 +6486,20 @@ msgstr "邀請函文字（純文字）"
 msgid ""
 "used when composing in plain text, must contain %url%, empty to reset to "
 "default"
-msgstr ""
+msgstr "在純文字模式下撰寫郵件時使用，必須包含 %url%，若留空則會重設為預設值"
+
+msgid "Invitation text"
+msgstr "邀請文字"
 
 msgid "Invitation template (HTML)"
 msgstr "邀請函範本 (HTML)"
 
 msgid ""
 "used when composing in HTML, must contain %url%, empty to reset to default"
-msgstr ""
+msgstr "在 HTML 撰寫模式下使用，必須包含 %url%，若留空則會重設為預設值"
+
+msgid "Invitation template"
+msgstr "邀請函範本"
 
 msgid "An unknown error occurred while changing password."
 msgstr "變更密碼時發生未知錯誤。"
@@ -6347,7 +6537,7 @@ msgstr "一個或多個欄位確實包含錯誤。"
 msgid ""
 "Password is weak. Password should contain capital, non-capital letters and "
 "numbers. Password should have 8 to 20 characters."
-msgstr ""
+msgstr "密碼過於簡單。密碼應包含大寫字母、小寫字母及數字。密碼長度應為 8 至 20 個字元。"
 
 msgid "Change passphrase"
 msgstr "變更密碼"
@@ -6421,7 +6611,7 @@ msgstr "請選擇證書。"
 msgid ""
 "Do you really want to remove your private certificate? If you remove your "
 "certificate you will not be able to sign or decrypt S/MIME emails."
-msgstr ""
+msgstr "您真的要移除您的私人憑證嗎？若移除憑證，您將無法簽署或解密 S/MIME 電子郵件。"
 
 msgid "Signing"
 msgstr "簽署"
@@ -6450,7 +6640,7 @@ msgstr "SHA-1 指紋"
 msgid ""
 "Warning: RSA key size is below 2048 bits. Consider upgrading to a stronger "
 "certificate."
-msgstr ""
+msgstr "警告：RSA 金鑰長度低於 2048 位元。請考慮升級至更強效的憑證。"
 
 msgid "Certificate details"
 msgstr "證書詳細資料"
@@ -6495,12 +6685,13 @@ msgid ""
 "Below you can upload your private certificate in PKCS#12 format. grommunio "
 "Web only accepts certificates which are valid and only stores one private "
 "certificate on the server."
-msgstr ""
+msgstr "您可以在下方上傳 PKCS#12 格式的私有憑證。grommunio Web 僅接受有效的憑證，且伺服器上僅儲存一份私有憑證。"
 
 msgid "Private certificate"
 msgstr "私人證書"
 
-msgid "You must fill in the certificate passphrase to upload your certificate."
+msgid ""
+"You must fill in the certificate passphrase to upload your certificate."
 msgstr "您必須填寫證書密碼才能上傳您的證書。"
 
 msgid "You must first select a valid private certificate in PKCS#12 format."
@@ -6522,9 +6713,9 @@ msgid "Sign message"
 msgstr "標誌訊息"
 
 msgid ""
-"Ensure the authenticity of the message by adding a digital signature to this "
-"message. Any changes to the message will invalidate the signature."
-msgstr ""
+"Ensure the authenticity of the message by adding a digital signature to this"
+" message. Any changes to the message will invalidate the signature."
+msgstr "請為此訊息添加數位簽章，以確保訊息的真實性。若對訊息進行任何修改，簽章將失效。"
 
 msgid "Encrypt message"
 msgstr "加密訊息"
@@ -6532,7 +6723,7 @@ msgstr "加密訊息"
 msgid ""
 "Ensure the privacy of the message by encrypting its contents. Only the "
 "recipient of the message will be able to open it."
-msgstr ""
+msgstr "透過加密訊息內容來確保其隱私。只有訊息的收件者才能開啟它。"
 
 msgid "Algorithms used"
 msgstr "使用的演算法"
@@ -6547,11 +6738,12 @@ msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
 "verification reassures you that the message has not been tampered with and "
 "validates the identity of the sender."
-msgstr ""
+msgstr "grommunio Web 可驗證電子郵件的數位簽章。驗證成功後，可確保該郵件未遭篡改，並驗證發件人的身分。"
 
 msgid ""
-"You are seeing this message because the verification of the digital signature"
-msgstr ""
+"You are seeing this message because the verification of the digital "
+"signature"
+msgstr "您看到這則訊息，是因為數位簽名的驗證"
 
 msgid " has failed"
 msgstr "已失敗"
@@ -6566,62 +6758,62 @@ msgid "What should I do?"
 msgstr "我該怎麼辦？"
 
 msgid ""
-"You can continue to work. However, you should keep in mind that the identity "
-"and the authenticity of the message content could not be verified."
-msgstr ""
+"You can continue to work. However, you should keep in mind that the identity"
+" and the authenticity of the message content could not be verified."
+msgstr "您可以繼續使用此功能。但請注意，訊息內容的真實性與來源無法獲得驗證。"
 
 msgid ""
 "You can contact your helpdesk or system administrator if you are not sure "
 "what to do next."
-msgstr ""
+msgstr "如果您不確定接下來該怎麼做，可以聯絡您的服務台或系統管理員。"
 
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
 "verification reassures you "
-msgstr ""
+msgstr "grommunio Web 能夠驗證電子郵件的數位簽名。驗證成功將讓您安心"
 
 msgid ""
 "that the message has not been tampered with and validates the identity of "
 "the sender."
-msgstr ""
+msgstr "以確保訊息未遭篡改，並驗證寄件者的身分。"
 
 msgid ""
 "The verification of the digital signature was successful for this email "
 "message."
-msgstr ""
+msgstr "此電子郵件的數位簽章驗證已成功。"
 
 msgid "grommunio Web could not find a public certificate for the recipient."
 msgstr "grommunio Web 找不到收件者的公開憑證。"
 
 msgid ""
-"The identity of the sender and authenticity of the message content have been "
-"verified, but the certificate used to sign the message expired on [d-m-Y]."
-msgstr ""
+"The identity of the sender and authenticity of the message content have been"
+" verified, but the certificate used to sign the message expired on [d-m-Y]."
+msgstr "發件人的身分及訊息內容的真實性已通過驗證，但用於簽署此訊息的憑證已於 [d-m-Y] 過期。"
 
 msgid "The digital signature could not be verified for unknown reasons."
 msgstr "數位簽章無法驗證，原因不明。"
 
 msgid ""
-"The digital certificate used to sign this message has been revoked (i.e. the "
-"sender has marked it as compromised)"
-msgstr ""
+"The digital certificate used to sign this message has been revoked (i.e. the"
+" sender has marked it as compromised)"
+msgstr "用於簽署此訊息的數位憑證已被撤銷（即寄件者已將其標記為遭洩露）"
 
 msgid ""
 "The verification service of the certificate authority that signed the "
-"sender's certificate is not available. The validity of the certificate could "
-"not be verified."
-msgstr ""
+"sender's certificate is not available. The validity of the certificate could"
+" not be verified."
+msgstr "簽署寄件者憑證的憑證授權機構之驗證服務無法使用。無法驗證該憑證的有效性。"
 
 msgid ""
 "The revocation status of the digital certificate used to sign this email is "
 "unknown (Server is unavailable or certificate does not support OCSP). The "
 "validity of the certificate could not be verified."
-msgstr ""
+msgstr "用於簽署此電子郵件的數位憑證之撤銷狀態不明（伺服器無法連線或憑證不支援 OCSP）。無法驗證該憑證的有效性。"
 
 msgid ""
 "The revocation status of the digital certificate used to sign this email is "
 "disabled (OCSP). The validity of the certificate could not be verified."
-msgstr ""
+msgstr "用於簽署此電子郵件的數位憑證之撤銷狀態為停用（OCSP）。無法驗證該憑證的有效性。"
 
 msgid "The certificate verification server (OCSP) is temporarily offline."
 msgstr "證書驗證伺服器 (OCSP) 暫時離線。"
@@ -6630,24 +6822,24 @@ msgid "Sender is removed from the server."
 msgstr "寄件者從伺服器移除。"
 
 msgid ""
-"The digital certificate used to sign this message has been revoked according "
-"to the Certificate Revocation List (CRL)."
-msgstr ""
+"The digital certificate used to sign this message has been revoked according"
+" to the Certificate Revocation List (CRL)."
+msgstr "根據憑證撤銷清單 (CRL)，用於簽署此訊息的數位憑證已被撤銷。"
 
 msgid ""
 "The revocation status of the certificate could not be verified because the "
 "CRL Distribution Point is unavailable."
-msgstr ""
+msgstr "由於 CRL 分發點無法使用，因此無法驗證憑證的撤銷狀態。"
 
 msgid ""
 "The RSA key size used in this certificate is below the recommended minimum "
 "of 2048 bits. Consider upgrading to a stronger certificate."
-msgstr ""
+msgstr "此憑證所使用的 RSA 金鑰長度低於建議的最低值 2048 位元。請考慮升級至安全性更高的憑證。"
 
 msgid ""
 "The certificate's Key Usage extension does not permit this operation. The "
 "certificate may be intended for signing only or encryption only."
-msgstr ""
+msgstr "該憑證的「金鑰用途」延伸功能不允許執行此操作。此憑證可能僅用於簽名或僅用於加密。"
 
 msgid ""
 "This message was encrypted using CBC mode (not authenticated encryption). "
@@ -6655,12 +6847,14 @@ msgid ""
 "provides stronger protection against modification attacks. Consider asking "
 "the sender to upgrade their S/MIME configuration."
 msgstr ""
+"此訊息是使用 CBC 模式（非經認證的加密）進行加密的。雖然已成功解密，但 AES-"
+"GCM（經認證的加密）能提供更強的防護，抵禦篡改攻擊。請考慮請發件人升級其 S/MIME 設定。"
 
 msgid ""
 "The signing time in the digital signature differs significantly from the "
 "expected time. This may indicate a clock synchronization issue or message "
 "tampering."
-msgstr ""
+msgstr "數位簽章中的簽署時間與預期時間存在顯著差異。這可能表示時鐘同步問題或訊息遭篡改。"
 
 msgid "Signature verified successfully"
 msgstr "簽名驗證成功"
@@ -6821,7 +7015,7 @@ msgstr "您已自動登出"
 msgid ""
 "Sorry, access to grommunio Web is not available with this user account. "
 "Please contact your system administrator."
-msgstr ""
+msgstr "抱歉，此使用者帳戶無法存取 grommunio Web。請聯絡您的系統管理員。"
 
 msgid "This backend provides the default WebDAV integration for Files."
 msgstr "此後台為檔案提供預設的 WebDAV 整合。"
@@ -6930,11 +7124,12 @@ msgstr "Seafile-server 遇到問題。"
 
 msgid ""
 "Could not write to temporary directory. Contact the server administrator."
-msgstr ""
+msgstr "無法寫入暫存目錄。請聯絡伺服器管理員。"
 
 msgid ""
-"Could not retrieve list of server features. Contact the server administrator."
-msgstr ""
+"Could not retrieve list of server features. Contact the server "
+"administrator."
+msgstr "無法取得伺服器功能清單。請聯絡伺服器管理員。"
 
 msgid "PHP-Curl is not available. Contact your system administrator."
 msgstr "PHP-Curl 不可用。請聯絡您的系統管理員。"
@@ -7045,7 +7240,7 @@ msgstr "行動裝置管理外掛程式"
 msgid ""
 "Unexpected error occurred. Please contact your system administrator. Error "
 "code: %s"
-msgstr ""
+msgstr "發生意外錯誤。請聯絡您的系統管理員。錯誤代碼：%s"
 
 msgid "No data received."
 msgstr "未收到資料。"
@@ -7054,8 +7249,9 @@ msgid "Account is empty."
 msgstr "帳戶為空。"
 
 msgid ""
-"Your password is wrong or you have insufficient permission to change password"
-msgstr ""
+"Your password is wrong or you have insufficient permission to change "
+"password"
+msgstr "您的密碼不正確，或您沒有足夠的權限來變更密碼"
 
 msgid "Password is not changed."
 msgstr "密碼未變更。"
@@ -7063,7 +7259,7 @@ msgstr "密碼未變更。"
 msgid ""
 "Error changing password. Please verify your password or contact the system "
 "administrator."
-msgstr ""
+msgstr "變更密碼時發生錯誤。請確認您的密碼，或聯絡系統管理員。"
 
 msgid "Password has been changed successfully."
 msgstr "密碼已成功變更。"
@@ -7102,9 +7298,9 @@ msgid ". Please contact your system administrator for details"
 msgstr ".有關詳細資訊，請聯絡您的系統管理員"
 
 msgid ""
-"Your public certificate is not installed. Without this certificate, you will "
-"not be able to read encrypted messages you have sent to others."
-msgstr ""
+"Your public certificate is not installed. Without this certificate, you will"
+" not be able to read encrypted messages you have sent to others."
+msgstr "您的公開憑證尚未安裝。若未安裝此憑證，您將無法讀取您寄給他人的加密訊息。"
 
 msgid "Certificate is already stored on the server"
 msgstr "證書已儲存在伺服器上"
@@ -7122,12 +7318,12 @@ msgstr "證書電子郵件地址與 grommunio Web 帳戶不符 "
 msgid ""
 "RSA key size %d bits is below the recommended minimum of %d bits. "
 "Certificate was imported."
-msgstr ""
+msgstr "%d 位的 RSA 金鑰長度低於建議的最低長度 %d 位。已匯入憑證。"
 
 msgid ""
 "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully "
 "supported. Certificate was imported."
-msgstr ""
+msgstr "EdDSA (Ed25519) 憑證需要 PHP 8.4 以上版本，且可能無法完全支援。憑證已匯入。"
 
 msgid "Certificate was expired on "
 msgstr "憑證於 "
@@ -7159,7 +7355,7 @@ msgstr "未知模組 '%s 「 ID 為 」%s'"
 
 msgid ""
 "Server encountered some problem, so it was not able to handle the request."
-msgstr ""
+msgstr "伺服器發生了一些問題，因此無法處理此請求。"
 
 #, php-format
 msgid "Unknown notifier '%s'"
@@ -7171,10 +7367,11 @@ msgstr "發生意外錯誤"
 msgid "To-Do List"
 msgstr "待辦事項"
 
-#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
-#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
+#. TRANSLATORS: This indicates that the opened folder belongs to a particular
+#. user,
+#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the
+#. foldername)
 #. * and %2$s is 'Holiday' (the username).
-#.
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$s 的%2$s"
@@ -7194,7 +7391,7 @@ msgstr "無法連線至 Gromox。"
 msgid ""
 "Login did not work due to a duplicate session. The issue was automatically "
 "resolved, please log in again."
-msgstr ""
+msgstr "由於會話重複，登入失敗。此問題已自動解決，請重新登入。"
 
 msgid "Unknown MAPI Error"
 msgstr "不明 MAPI 錯誤"
@@ -7279,7 +7476,8 @@ msgstr "公用聯絡人資料夾"
 msgid "Error in search, please try again"
 msgstr "搜尋出錯，請重試"
 
-msgid "Unable to perform search query, no permissions to create search folder."
+msgid ""
+"Unable to perform search query, no permissions to create search folder."
 msgstr "無法執行搜尋查詢，沒有權限建立搜尋資料夾。"
 
 msgid "Unable to perform search query, search folder not found."
@@ -7309,7 +7507,7 @@ msgstr "您的權限不足以移動 "
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "
 "reminder to save the change"
-msgstr ""
+msgstr "無法設定提醒在先前事件發生之前出現。請重設提醒以儲存變更"
 
 msgid "Two occurrences cannot occur on the same day"
 msgstr "兩個事件不能發生在同一天"
@@ -7317,28 +7515,29 @@ msgstr "兩個事件不能發生在同一天"
 #, php-format
 msgid ""
 "You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
-"because you do not have the appropriate permissions for that account. Either "
-"enter the name as a required or optional attendee or talk to your "
+"because you do not have the appropriate permissions for that account. Either"
+" enter the name as a required or optional attendee or talk to your "
 "administrator about giving you permission to schedule '%s'."
 msgstr ""
+"您已將「%s」標記為資源。由於您對該帳戶沒有適當的權限，因此無法與「%s」安排會議。請將該名稱設為必填或選填的與會者，或聯絡您的系統管理員，請求授予您安排「%s」會議的權限。"
 
 #, php-format
 msgid ""
 "'%s' has declined your meeting because '%s' does not automatically accept "
 "meeting requests."
-msgstr ""
+msgstr "'%s' 已婉拒您的會議邀請，因為 '%s' 不會自動接受會議邀請。"
 
 #, php-format
 msgid ""
 "'%s' has declined your meeting because it is recurring. You must book each "
 "meeting separately with this resource."
-msgstr ""
+msgstr "'%s' 已拒絕您的會議，因為這是重複性會議。您必須使用此資源分別預約每場會議。"
 
 #, php-format
 msgid ""
-"'%s' is already booked for this specified time. You must use another time or "
-"find another resource."
-msgstr ""
+"'%s' is already booked for this specified time. You must use another time or"
+" find another resource."
+msgstr "「%s」在此指定時間段已預訂。您必須選擇其他時間或尋找其他資源。"
 
 msgid "Meeting was not scheduled."
 msgstr "未安排會議。"
@@ -7429,7 +7628,7 @@ msgstr "無法正確執行動作。"
 
 msgid ""
 "A favorite folder with this name already exists, please use another name."
-msgstr ""
+msgstr "已存在同名的「最愛」資料夾，請改用其他名稱。"
 
 msgid "Could not add folder to favorites."
 msgstr "無法將資料夾加到我的最愛。"
@@ -7467,6 +7666,7 @@ msgid ""
 "can set these using the 'permissions'-tab of the folder properties (right "
 "click the %1$s folder > properties > permissions)."
 msgstr ""
+"您的權限不足，無法開啟此 %1$s 資料夾。資料夾擁有者可透過資料夾屬性的「權限」索引標籤進行設定（右鍵點擊 %1$s 資料夾 > 屬性 > 權限）。"
 
 msgid "default"
 msgstr "預設"
@@ -7489,7 +7689,7 @@ msgstr "您的權限不足，無法開啟此訊息。"
 msgid ""
 "Could not find message, either it has been moved or deleted or you don't "
 "have access to open this message."
-msgstr ""
+msgstr "找不到該郵件，可能是該郵件已被移動或刪除，或者您沒有權限開啟此郵件。"
 
 msgid "Could not open message."
 msgstr "無法開啟儲存庫"
@@ -7516,9 +7716,9 @@ msgid "You have insufficient privileges to remove item from the calendar."
 msgstr "您沒有足夠權限搬移此行事曆項目"
 
 msgid ""
-"Message is no longer in the outgoing queue, typically because it has already "
-"been sent."
-msgstr ""
+"Message is no longer in the outgoing queue, typically because it has already"
+" been sent."
+msgstr "該訊息已不在待發送佇列中，通常是因為它已經發送了。"
 
 msgid "Message cannot be aborted"
 msgstr "訊息無法中止"
@@ -7559,7 +7759,8 @@ msgstr "Conflicts with another appointment."
 
 #, php-format
 msgid ""
-"%s occurrence of this recurring appointment conflicts with other appointment."
+"%s occurrence of this recurring appointment conflicts with other "
+"appointment."
 msgid_plural ""
 "%s occurrences of this recurring appointment conflicts with other "
 "appointments."
@@ -7581,7 +7782,7 @@ msgstr "無法載入此資料夾的內容。"
 
 msgid ""
 "You have insufficient privileges to perform search operation in this folder."
-msgstr ""
+msgstr "您沒有足夠的權限在此資料夾中執行搜尋操作。"
 
 msgid "Could not update search results."
 msgstr "無法更新搜尋結果。"
@@ -7640,7 +7841,7 @@ msgstr "訊息儲存已超過硬配額限制。"
 msgid ""
 "To reduce the amount of data in this message store, select some items that "
 "you no longer need, delete them and cleanup your Deleted Items folder."
-msgstr ""
+msgstr "若要減少此郵件儲存庫中的資料量，請選取一些不再需要的項目，將其刪除，並清理您的「已刪除項目」資料夾。"
 
 msgid "The message store has exceeded its soft quota limit."
 msgstr "訊息儲存已超過其軟配額限制。"
@@ -7670,11 +7871,11 @@ msgstr "不允許在其他使用者的商店上設定郵件篩選器。"
 msgid "Untitled rule"
 msgstr "無標題規則"
 
-msgid "Could not load rules."
-msgstr "無法載入規則。"
-
 msgid "Could not save rules."
 msgstr "無法儲存規則。"
+
+msgid "Could not load rules."
+msgstr "無法載入規則。"
 
 msgid "Task Request:"
 msgstr "任務要求："
@@ -7682,19 +7883,17 @@ msgstr "任務要求："
 msgid "Sign in"
 msgstr "登入"
 
-msgid "Skip to main content"
-msgstr ""
-
 msgid "File is not imported successfully"
 msgstr "檔案無法成功匯入"
 
-msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgid ""
+"The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr "上傳的檔案超過 php.ini 中的 upload_max_filesize 指令。"
 
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
-msgstr ""
+msgstr "上傳的檔案大小超過 HTML 表單中指定的 MAX_FILE_SIZE 限制。"
 
 msgid "The uploaded file was only partially uploaded."
 msgstr "上傳的檔案只上傳了一部分。"
@@ -7710,20 +7909,22 @@ msgstr "將檔案寫入磁碟失敗。"
 
 msgid ""
 "A PHP extension stopped the file upload. PHP does not provide a way to "
-"ascertain which extension caused the file upload to stop; examining the list "
-"of loaded extensions with phpinfo() may help."
+"ascertain which extension caused the file upload to stop; examining the list"
+" of loaded extensions with phpinfo() may help."
 msgstr ""
+"某個 PHP 擴充套件導致檔案上傳中斷。PHP 並未提供方法來確認是哪個擴充套件導致檔案上傳中斷；透過 phpinfo() "
+"檢視已載入的擴充套件清單可能會有所幫助。"
 
 msgid "There is no contact found in this file."
 msgstr "此檔案中找不到連絡人。"
 
 msgid ""
 "grommunio Web does not support importing multiple VCF with this version."
-msgstr ""
+msgstr "grommunio Web 目前不支援在此版本中匯入多個 VCF 檔案。"
 
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
-msgstr ""
+msgstr "grommunio Web 目前不支援在此版本中匯入多個 ICS 檔案。"
 
 msgid "GB"
 msgstr "GB"

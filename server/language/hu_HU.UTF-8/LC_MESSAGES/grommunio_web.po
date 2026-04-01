@@ -5,11 +5,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 23:42+0100\n"
+"POT-Creation-Date: 2026-04-01 11:33+0200\n"
 "PO-Revision-Date: 2022-07-26 16:08+0200\n"
 "Last-Translator: f3rr31 <5920873@disroot.org>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/grommunio/"
-"grommunio-web/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/grommunio/grommunio-web/hu/>\n"
 "Language: hu_HU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,16 +16,20 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.14-dev\n"
 
+msgid "Color palette"
+msgstr "Színpaletta"
+
 msgid "Calendar"
 msgstr "Naptár"
 
 msgid "Previous Month"
-msgstr ""
+msgstr "Előző hónap"
 
 msgid "Next Month"
-msgstr ""
+msgstr "Következő hónap"
 
-#. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
+#. TRANSLATORS: This message is used as label for the column which indicates
+#. the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
 msgstr "Hét"
 
@@ -43,7 +46,7 @@ msgid "More options"
 msgstr "További lehetőségek"
 
 msgid "Input"
-msgstr ""
+msgstr "Bevitel"
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -213,7 +216,8 @@ msgstr "A dátum a legkorábbi dátum előtt található"
 msgid "This date is after the maximum date"
 msgstr "A dátum a legkésőbbi dátum után található"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "d/m/Y"
 msgstr "Y/m/d"
 
@@ -299,16 +303,19 @@ msgstr "Ki kell választani egy elemet a csoportból"
 
 msgid "The time in this field must be equal to or after {0}"
 msgstr ""
-"Az időnek a beviteli mezőben egyenlőnek vagy későbbinek kell lennie, mint {0}"
+"Az időnek a beviteli mezőben egyenlőnek vagy későbbinek kell lennie, mint "
+"{0}"
 
 msgid "The time in this field must be equal to or before {0}"
 msgstr ""
-"Az időnek a beviteli mezőben egyenlőnek vagy korábbinak kell lennie, mint {0}"
+"Az időnek a beviteli mezőben egyenlőnek vagy korábbinak kell lennie, mint "
+"{0}"
 
 msgid "{0} is not a valid time"
 msgstr "{0} nem érvényes idő"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "G:i"
 msgstr "G:i"
 
@@ -324,8 +331,7 @@ msgstr "igaz"
 msgid "false"
 msgstr "hamis"
 
-msgid ""
-"This field should be an e-mail address in the format \"user@example.com\""
+msgid "This field should be an e-mail address in the format \"user@example.com\""
 msgstr ""
 "Ebben a mezőben email címnek kell szerepelnie az alábbi formában: "
 "\"felhasznalo@example.com\""
@@ -487,6 +493,9 @@ msgstr "Kapcsolat másolása"
 
 msgid "Copy contacts"
 msgstr "Kapcsolattartók másolása"
+
+msgid "Address book"
+msgstr "Címjegyzék"
 
 #, fuzzy
 msgid ""
@@ -707,7 +716,7 @@ msgid "Filter category…"
 msgstr "Kategória törlése…"
 
 msgid "Add Category"
-msgstr ""
+msgstr "Kategória hozzáadása"
 
 msgid "Sender"
 msgstr "Feladó"
@@ -732,6 +741,9 @@ msgstr "Keresési mappa törlése"
 
 msgid "Sort by: Date"
 msgstr "Rendezés: Dátum"
+
+msgid "Search results"
+msgstr "Keresési eredmények"
 
 msgid "Loading Search results"
 msgstr "Keresési eredmények betöltése"
@@ -770,8 +782,8 @@ msgstr ""
 "lehetséges, hogy áthelyezték, vagy törölték."
 
 msgid ""
-"Could not view proposal as this meeting is not available in calendar; It may "
-"have been moved or deleted."
+"Could not view proposal as this meeting is not available in calendar; It may"
+" have been moved or deleted."
 msgstr ""
 "A javaslatot nem lehet megtekinteni, mivel a találkozó nincs a naptárban; "
 "lehetséges, hogy áthelyezték, vagy törölték."
@@ -846,8 +858,8 @@ msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
 msgid_plural ""
 "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
 msgstr[0] ""
-"Előfordul minden {0} {1} hatékony {2} a {3} előfordulása esetén a {4} -től a "
-"{5}-ig."
+"Előfordul minden {0} {1} hatékony {2} a {3} előfordulása esetén a {4} -től a"
+" {5}-ig."
 msgstr[1] ""
 "Előfordul minden {0} {1} hatékony {2} a {3} előfordulások {4} a {5}."
 
@@ -880,7 +892,8 @@ msgstr "Ismétlődés minden {0} {1} érvényes {2}-tól/től {3}-ig."
 msgid "When"
 msgstr "Mikor"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "l jS F Y {0}"
 msgstr "l jS F Y {0}"
 
@@ -1032,7 +1045,8 @@ msgstr "Saját naptár"
 msgid "F Y"
 msgstr "F Y"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "l"
 msgstr "l"
 
@@ -1099,11 +1113,11 @@ msgstr ""
 
 msgctxt "calendar.dialog"
 msgid ""
-"{0} attendees proposed a new time for this meeting. Click the Scheduling tab "
-"for details."
+"{0} attendees proposed a new time for this meeting. Click the Scheduling tab"
+" for details."
 msgstr ""
-"{0} résztvevő új időpontot ajánlott az értekezletre. Részletekért kattintson "
-"a Beosztás fülre."
+"{0} résztvevő új időpontot ajánlott az értekezletre. Részletekért kattintson"
+" a Beosztás fülre."
 
 msgctxt "calendar.dialog"
 msgid "You proposed a new time for this meeting on {0}"
@@ -1188,11 +1202,11 @@ msgstr "Írja be üzenetét…"
 msgid "Update location"
 msgstr "Hely frissítése"
 
-msgid ""
-"Do you want to update the location \"{0}\" with the new location \"{1}\"?"
+msgid "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
 msgstr "Ki akarja cserélni a \"{0}\" helyszínt az új \"{1}\" helyszínnel?"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "jS F Y {0}"
 msgstr "jS F Y {0}"
 
@@ -1293,6 +1307,9 @@ msgstr ""
 msgid "Edit the cancellation before Sending."
 msgstr "A törlési üzenet szerkesztése küldés előtt."
 
+msgid "Cancellation message"
+msgstr "Lemondási üzenet"
+
 msgid "Send the cancellation now."
 msgstr "Törlési üzenet küldése most."
 
@@ -1310,22 +1327,25 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"This meeting will be tentatively accepted and moved to your calendar. Do you "
-"want to include comments with your response?"
+"This meeting will be tentatively accepted and moved to your calendar. Do you"
+" want to include comments with your response?"
 msgstr ""
 "Ez az értekezlet esetleges módban elfogadásra került és a naptárába lett "
 "helyezve. Kíván megjegyzést fűzni a válaszához?"
 
 #, fuzzy
 msgid ""
-"This meeting will be declined and moved to your Deleted Items folder. Do you "
-"want to include comments with your response?"
+"This meeting will be declined and moved to your Deleted Items folder. Do you"
+" want to include comments with your response?"
 msgstr ""
 "Ezt az értekezletet elutasította, és a Törölt mappába helyezte. Kíván "
 "megjegyzést fűzni a válaszához?"
 
 msgid "Edit the response before sending"
 msgstr "Válasz szerkesztése elküldés előtt"
+
+msgid "Response message"
+msgstr "Válaszüzenet"
 
 msgid "Send the response now."
 msgstr "Válasz elküldése azonnal."
@@ -1363,16 +1383,20 @@ msgstr "Kijelölt elem beillesztése"
 msgid "An overview of"
 msgstr "A következők áttekintése"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Start"
 msgstr "Indítás"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "End"
 msgstr "Vége"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for
+#. formatting instructions
 msgid "Printed by"
 msgstr "Nyomtatta"
 
@@ -1394,12 +1418,15 @@ msgstr "l jS M Y {0}"
 msgid "All day: "
 msgstr "Egész nap: "
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "l jS F Y"
 msgstr "Y. F j. l, G:i"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for
+#. formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "l jS F"
 msgstr "F j. l"
 
@@ -1486,7 +1513,8 @@ msgstr "Alapértelmezett emlékeztetési időpont"
 msgid "Default all-day appointment reminder time"
 msgstr "Egész napos események alapértelmezett emlékeztetési ideje"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "jS"
 msgstr "j"
 
@@ -1613,6 +1641,9 @@ msgstr "Rendezés: Érzékenység szerint"
 msgid "Sort by: Importance"
 msgstr "Rendezés: Fontosság szerint"
 
+msgid "Appointments list"
+msgstr "Találkozók listája"
+
 msgid "Loading appointments"
 msgstr "Találkozók betöltése"
 
@@ -1622,11 +1653,13 @@ msgstr "Résztvevők"
 msgid "Optional attendees"
 msgstr "Fakultatív résztvevők"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "jS F {0}"
 msgstr "jS F {0}"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "jS F Y"
 msgstr "Y. F j"
 
@@ -1635,8 +1668,8 @@ msgid ""
 "You have insufficient privileges to move and copy this item. Ask the folder "
 "owner to grant you permissions or contact your system administrator."
 msgstr ""
-"Nincs elegendő jogosultsága az elem mozgatásához és másolásához. Kérje meg a "
-"mappa tulajdonosát, hogy adjon engedélyeket, vagy forduljon a "
+"Nincs elegendő jogosultsága az elem mozgatásához és másolásához. Kérje meg a"
+" mappa tulajdonosát, hogy adjon engedélyeket, vagy forduljon a "
 "rendszergazdához."
 
 #, fuzzy
@@ -1688,10 +1721,10 @@ msgid "Open meeting request with changes"
 msgstr "Értekezlet meghívó megnyitása a változásokkal"
 
 msgid "Previous"
-msgstr ""
+msgstr "Előző"
 
 msgid "Next"
-msgstr ""
+msgstr "Következő"
 
 msgid "grommunio Web"
 msgstr "grommunio Web"
@@ -1701,26 +1734,35 @@ msgid ""
 "request is updated by the organizer. Would you like to move this meeting?"
 msgstr ""
 "Kérjük, vegye figyelembe, hogy az Ön által végrehajtott módosítások "
-"felülíródnak, amikor a szervező frissíti az értekezlet-összehívást. Szeretné "
-"áthelyezni ezt a találkozót?"
+"felülíródnak, amikor a szervező frissíti az értekezlet-összehívást. Szeretné"
+" áthelyezni ezt a találkozót?"
 
 msgid "Don't move"
 msgstr "Ne mozdulj"
 
+msgid "F j"
+msgstr "F j"
+
 msgid "Switch to day view to see all appointments"
 msgstr "Váltson át a napi nézetre az összes találkozó megtekintéséhez"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
+msgid "Show all appointments"
+msgstr "Minden találkozó megjelenítése"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates
+#. to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
 msgstr "Javaslat"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+#. TRANSLATORS: This message is used as label for the field which to indicates
+#. to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "When"
 msgstr "Mikor"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+#. TRANSLATORS: This message is used as label for the field which to indicates
+#. to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Location"
 msgstr "Helyszín"
@@ -1734,6 +1776,9 @@ msgid ""
 msgstr ""
 "A naptára automatikusan frissítésre került. A találkozási kérelem most "
 "törlésre kerül."
+
+msgid "New appointment subject"
+msgstr "Új találkozó tárgya"
 
 msgid "Loading appointments…"
 msgstr "Találkozók betöltése…"
@@ -1762,6 +1807,9 @@ msgstr "A {0} kinevezése - {1}"
 msgid "No appointments"
 msgstr "Nincsenek időpontfoglalások"
 
+msgid "Exception"
+msgstr "Kivétel"
+
 msgid "Today {0} - {1}"
 msgstr "Ma {0} - {1}"
 
@@ -1769,7 +1817,8 @@ msgid "Today (all day)"
 msgstr "Ma (egész nap)"
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
-#. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
+#. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME -
+#. USERNAME".
 msgid "{0} - {1}"
 msgstr "{0} - {1}"
 
@@ -1810,8 +1859,8 @@ msgid "Recurring Message"
 msgstr "Ismétlődő üzenet"
 
 msgid ""
-"This is a recurring message. Do you want to open only this occurrence or the "
-"series?"
+"This is a recurring message. Do you want to open only this occurrence or the"
+" series?"
 msgstr ""
 "Ez egy ismétlődő üzenet. Csak ezt az egy ismétlődést akarja megnyitni, vagy "
 "az egész sorozatot?"
@@ -1820,8 +1869,8 @@ msgid "Recurring Appointment"
 msgstr "Ismétlődő időpont"
 
 msgid ""
-"This is a recurring appointment. Do you want to open only this occurrence or "
-"the series?"
+"This is a recurring appointment. Do you want to open only this occurrence or"
+" the series?"
 msgstr ""
 "Ez egy ismétlődő időpont. Csak ezt az egy időpontot akarja megnyitni, vagy "
 "az egész sorozatot?"
@@ -1860,8 +1909,8 @@ msgid ""
 "This is a recurring {0}. Do you want to paste only this occurrence or the "
 "series?"
 msgstr ""
-"Ez egy visszatérő {0}. Csak ezt az eseményt vagy az egész sorozatot szeretné "
-"beilleszteni?"
+"Ez egy visszatérő {0}. Csak ezt az eseményt vagy az egész sorozatot szeretné"
+" beilleszteni?"
 
 msgid "message"
 msgstr "üzenet"
@@ -1882,15 +1931,15 @@ msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
 "the series?"
 msgstr ""
-"Ez egy ismétlődő üzenet. Csak ezt az egy ismétlődést akarja törölni, vagy az "
-"egész sorozatot?"
+"Ez egy ismétlődő üzenet. Csak ezt az egy ismétlődést akarja törölni, vagy az"
+" egész sorozatot?"
 
 msgid ""
 "This is a recurring appointment. Do you want to delete only this occurrence "
 "or the series?"
 msgstr ""
-"Ez egy ismétlődő időpont. Ezt az egy időpontot akarja törölni, vagy az egész "
-"sorozatot?"
+"Ez egy ismétlődő időpont. Ezt az egy időpontot akarja törölni, vagy az egész"
+" sorozatot?"
 
 msgid ""
 "This is a recurring meeting request. Do you want to delete only this "
@@ -1900,8 +1949,8 @@ msgstr ""
 "törölni, vagy az egész sorozatot?"
 
 msgid ""
-"This is a recurring task request. Do you want to delete only this occurrence "
-"or the series?"
+"This is a recurring task request. Do you want to delete only this occurrence"
+" or the series?"
 msgstr ""
 "Ez egy ismétlődő feladat kérés. Csak ezt az egy ismétlődést akarja törölni, "
 "vagy az egész sorozatot?"
@@ -1942,7 +1991,8 @@ msgid ""
 "A cancellation message will be sent to all recipients, do you wish to "
 "continue?"
 msgstr ""
-"A lemondó üzenet minden címzettnek el lesz küldve, biztosan folytatni akarja?"
+"A lemondó üzenet minden címzettnek el lesz küldve, biztosan folytatni "
+"akarja?"
 
 msgid "Notify sender"
 msgstr "Feladó értesítése"
@@ -1980,8 +2030,8 @@ msgstr "A felhasználó már létezik."
 
 #, fuzzy
 msgid ""
-"The sender of this email has requested a read receipt. Do you wish to notify "
-"the sender?"
+"The sender of this email has requested a read receipt. Do you wish to notify"
+" the sender?"
 msgstr ""
 "A küldő ebben az üzenetben olvasási visszaigazolást kért. Kíván "
 "visszaigazolást küldeni?"
@@ -2003,8 +2053,8 @@ msgstr "Nem sikerült importálni a \"{0}\". A fájl nem érvényes"
 
 #, fuzzy
 msgid ""
-"You have insufficient privileges to move these items. Would you like to copy "
-"instead?"
+"You have insufficient privileges to move these items. Would you like to copy"
+" instead?"
 msgstr ""
 "Nem rendelkezik elegendő jogosultsággal ahhoz, hogy ezeket az elemeket "
 "áthelyezze. Szeretne inkább másolni?"
@@ -2098,11 +2148,11 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"In order to use the ICS / VCS import feature, upgrade your Gromox to version "
-"0 or higher."
+"In order to use the ICS / VCS import feature, upgrade your Gromox to version"
+" 0 or higher."
 msgstr ""
-"Az ICS / VCS importálási funkció használatához frissítse a Gromoxot a 0 vagy "
-"magasabb verzióra."
+"Az ICS / VCS importálási funkció használatához frissítse a Gromoxot a 0 vagy"
+" magasabb verzióra."
 
 msgid "Attachment error"
 msgstr "Csatolmány hiba"
@@ -2129,6 +2179,15 @@ msgstr "Kategóriák kezelése"
 msgid "New"
 msgstr "Új"
 
+msgid "Rename category"
+msgstr "Kategória átnevezése"
+
+msgid "Delete category"
+msgstr "Kategória törlése"
+
+msgid "Quick access"
+msgstr "Gyors hozzáférés"
+
 msgid "Delete Category"
 msgstr "Kategória törlése"
 
@@ -2148,6 +2207,9 @@ msgstr "A kategória neve \""
 
 msgid "Create New Category"
 msgstr "Kategória létrehozása"
+
+msgid "Category name"
+msgstr "Kategória neve"
 
 msgid "Pin to quick access"
 msgstr "Pin a gyors hozzáféréshez"
@@ -2171,8 +2233,8 @@ msgid ""
 "You already have a category named '{0}' in your pending changes. Please use "
 "another name."
 msgstr ""
-"Már van egy '{0}' nevű kategória a függőben lévő módosítások között. Kérjük, "
-"használjon másik nevet."
+"Már van egy '{0}' nevű kategória a függőben lévő módosítások között. Kérjük,"
+" használjon másik nevet."
 
 msgid "Rename"
 msgstr "Átnevezés"
@@ -2279,9 +2341,9 @@ msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
 "the context menu and click on \"Share folder…\""
 msgstr ""
-"Ha csak a mappaengedélyeket szeretné beállítani, kattintson a jobb gombbal a "
-"mappára a kontextusmenü megnyitásához, és kattintson a \"Mappa megosztása…\" "
-"gombra"
+"Ha csak a mappaengedélyeket szeretné beállítani, kattintson a jobb gombbal a"
+" mappára a kontextusmenü megnyitásához, és kattintson a \"Mappa "
+"megosztása…\" gombra"
 
 msgid "Permission"
 msgstr "Hozzáférés"
@@ -2491,8 +2553,8 @@ msgid ""
 "Delete selected item without moving it to the Deleted Items folder. The "
 "deleted item can still be restored."
 msgstr ""
-"A kiválasztott elem törélse a Törölt elemek mappába mozgatás mellőzésével. A "
-"törölt elem még visszaállítható marad."
+"A kiválasztott elem törélse a Törölt elemek mappába mozgatás mellőzésével. A"
+" törölt elem még visszaállítható marad."
 
 msgid "Add/Edit Cc recipient"
 msgstr "Cc címzett hozzáadása/módosítása"
@@ -2555,11 +2617,11 @@ msgid "Expand distribution list"
 msgstr "Elosztási lista bővítése"
 
 msgid ""
-"Distribution list will be replaced with its members. You will not be able to "
-"collapse it again."
+"Distribution list will be replaced with its members. You will not be able to"
+" collapse it again."
 msgstr ""
-"A terjesztési lista tagjainak megjelenítése. A lista összecsukására nem lesz "
-"lehetősége."
+"A terjesztési lista tagjainak megjelenítése. A lista összecsukására nem lesz"
+" lehetősége."
 
 msgid "Edit Recipient"
 msgstr "Címzett szerkesztése"
@@ -2659,8 +2721,11 @@ msgstr "Érjen véget {A} ismétlődés után"
 msgid "End by {A}"
 msgstr "Vége {A}"
 
-#. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
-#. For example: 'Occurrence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurrence duration: 1 hour'
+#. TRANSLATORS: This informs the user what the exact duration of the
+#. appointment is. Where {D} represents the days, {H} the hours and {M} the
+#. minutes.
+#. For example: 'Occurrence duration: 1 day 2 hours 45 minutes', or when the
+#. appointment is shorter then 1 day: 'Occurrence duration: 1 hour'
 msgid "Occurrence duration: {D} {H} {M}"
 msgstr "Előfordulás időtartama: {D} {H} {M}"
 
@@ -2702,7 +2767,8 @@ msgstr "Nincsenek emlékeztetők"
 msgid "Due In"
 msgstr "Esedékes -kor"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Due"
 msgstr "Esedékesség"
 
@@ -2878,6 +2944,15 @@ msgstr "nekem lett címezve"
 msgid "is received (all messages)"
 msgstr "érkezett (minden üzenet)"
 
+msgid "Message size"
+msgstr "Üzenet mérete"
+
+msgid "Size unit"
+msgstr "Méretegység"
+
+msgid "Condition"
+msgstr "Feltétel"
+
 msgid "Unknown condition"
 msgstr "Ismeretlen feltétel"
 
@@ -2889,6 +2964,9 @@ msgstr "Művelet hozzáadása"
 
 msgid "Remove action"
 msgstr "Művelet eltávolítása"
+
+msgid "Action"
+msgstr "Művelet"
 
 msgid "Unknown action"
 msgstr "Ismeretlen művelet"
@@ -2935,12 +3013,15 @@ msgstr "Adjon meg szavakat vagy kifejezéseket"
 msgid "Edit"
 msgstr "Szerkesztés"
 
+msgid "Word"
+msgstr "Word"
+
 msgid "and"
 msgstr "és"
 
 msgid ""
-"Distribution lists are not supported in rules, would you like to replace the "
-"distribution list with its members?"
+"Distribution lists are not supported in rules, would you like to replace the"
+" distribution list with its members?"
 msgstr ""
 "A terjesztési listák nem támogatottak szabályok kezelésekor. Kívánja "
 "lecserélni a terjesztési listát a lista tagjaira?"
@@ -2952,10 +3033,10 @@ msgid "No rule exists"
 msgstr "Nem létezik szabály"
 
 msgid "Move Up"
-msgstr ""
+msgstr "Feljebb"
 
 msgid "Move Down"
-msgstr ""
+msgstr "Lefelé"
 
 msgid "Active"
 msgstr "Aktív"
@@ -3049,8 +3130,8 @@ msgstr "A mappa nem létezik"
 
 #, fuzzy
 msgid ""
-"The folder you are searching through no longer exists. Please select another "
-"folder"
+"The folder you are searching through no longer exists. Please select another"
+" folder"
 msgstr "A keresett mappa már nem létezik. Kérjük, válasszon másik mappát"
 
 msgid "Add/Edit sender"
@@ -3119,6 +3200,9 @@ msgstr "Címekről"
 msgid "From Addresses settings"
 msgstr "Címek beállításai"
 
+msgid "Select color"
+msgstr "Válasszon színt"
+
 msgid "Full name"
 msgstr "Teljes név"
 
@@ -3133,6 +3217,9 @@ msgstr "Weboldal"
 
 msgid "IM Address"
 msgstr "IM cím"
+
+msgid "Message body"
+msgstr "Üzenet szövege"
 
 msgid "D, d-m-Y, {0}"
 msgstr "D, d-m-Y, {0}"
@@ -3163,8 +3250,14 @@ msgstr "Ismeretlen"
 msgid "Meeting Organizer"
 msgstr "Értekezlet szervező"
 
+msgid "Follow up"
+msgstr "Utánkövetés"
+
 msgid "{0} overdue"
 msgstr "{0} lejárt"
+
+msgid "Message body editor"
+msgstr "Üzenet szövegszerkesztő"
 
 msgid "Loading…"
 msgstr "Betöltés…"
@@ -3172,7 +3265,8 @@ msgstr "Betöltés…"
 msgid "Message could not be loaded"
 msgstr "Az üzenet nem tölthető be"
 
-#. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
+#. TRANSLATORS: This message is used as label for the field which indicates
+#. which attachments are inside the message
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "Mellékletek"
@@ -3186,7 +3280,8 @@ msgstr "Feladó hozzáadása a megbízható feladók listájához"
 msgid "Add Domain to Safe Senders List"
 msgstr "Domain hozzáadása a megbízható feladók listájához"
 
-#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates with which
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and
+#. indicates with which
 #. importance the message was sent. For example:
 #. 'This message was sent with high importance.'
 #. 'This message was sent with low importance.'
@@ -3194,7 +3289,8 @@ msgctxt "mail.previewpanel"
 msgid "This message was sent with {0} importance."
 msgstr "Üzenet küldése {0} prioritással."
 
-#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates which
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and
+#. indicates which
 #. sensitivity level applies to the message. For example:
 #. 'Please treat this as Personal.'
 #. 'Please treat this as Private.'
@@ -3206,8 +3302,8 @@ msgstr "Kérem kezelje ezt, mint {0}."
 #, fuzzy
 msgctxt "mail.previewpanel"
 msgid ""
-"Click here to download pictures. To help protect your privacy, grommunio Web "
-"prevented automatic download of some pictures in this message."
+"Click here to download pictures. To help protect your privacy, grommunio Web"
+" prevented automatic download of some pictures in this message."
 msgstr ""
 "Kattintson ide a képek letöltéséhez. A magánélet védelme érdekében a "
 "grommunio Web megakadályozta néhány kép automatikus letöltését ebben az "
@@ -3261,11 +3357,14 @@ msgid "{0} declined and proposed a new time for this meeting."
 msgstr "{0} elutasította és új időpontot javasolt az értekezletre."
 
 msgctxt "mail.previewpanel"
-msgid "{0} declined on behalf of {1} and proposed a new time for this meeting."
-msgstr "{0} elutasította {1} nevében és új időpontot javasolt az értekezletre."
+msgid ""
+"{0} declined on behalf of {1} and proposed a new time for this meeting."
+msgstr ""
+"{0} elutasította {1} nevében és új időpontot javasolt az értekezletre."
 
 msgctxt "mail.previewpanel"
-msgid "This meeting is not in the Calendar; it may have been moved or deleted."
+msgid ""
+"This meeting is not in the Calendar; it may have been moved or deleted."
 msgstr "Az értekezlet nincs a naptárban; talán mozgatva, vagy törölve lett."
 
 msgctxt "mail.previewpanel"
@@ -3278,7 +3377,8 @@ msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "As the meeting organizer, you do not need to respond to the meeting"
-msgstr "Mint az értekezlet szervezőjének, nem kell válaszolnia az értekezletre"
+msgstr ""
+"Mint az értekezlet szervezőjének, nem kell válaszolnia az értekezletre"
 
 msgctxt "mail.previewpanel"
 msgid "The meeting was updated after the attendee sent this response"
@@ -3344,14 +3444,15 @@ msgid "Fix message"
 msgstr "Üzenet javítása"
 
 msgid ""
-"We are going to try to fix a corrupted mail message, do you wish to continue?"
+"We are going to try to fix a corrupted mail message, do you wish to "
+"continue?"
 msgstr "Sérült üzenet javítása, kívánja folytatni?"
 
 msgid "The matching task was not found in your task list."
 msgstr "A megfelelő feladatot nem találtuk a feladatlistában."
 
 msgid "Toggle header"
-msgstr ""
+msgstr "Fejléc váltása"
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3369,20 +3470,29 @@ msgctxt "mail.previewpanel"
 msgid "Categories"
 msgstr "Kategóriák"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+#. TRANSLATORS: This message is used as label for the field which to indicates
+#. to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Recipients"
 msgstr "Címzettek"
 
-#. TRANSLATORS: check if the mail is send by some delegator or not. if then display "on behalf of".
+#. TRANSLATORS: check if the mail is send by some delegator or not. if then
+#. display "on behalf of".
 msgctxt "mail.previewpanel"
 msgid "on behalf of"
 msgstr "nevében"
 
-#. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
+#. TRANSLATORS: This message is used to indicate that no sent date is
+#. available for the message (because it has not been sent yet).
 msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "Nincs"
+
+msgid "Pagination"
+msgstr "Oldalakba rendezés"
+
+msgid "Page number"
+msgstr "Oldalszám"
 
 msgid "Pop-out"
 msgstr "Pop-out"
@@ -3481,7 +3591,8 @@ msgstr "E-mail 3"
 msgid "Email3 Display As"
 msgstr "Email 3 megjelenítés, mint"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Birthday"
 msgstr "Születésnap"
 
@@ -3581,7 +3692,8 @@ msgstr "Becenév"
 msgid "Suffix"
 msgstr "Utótag"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Anniversary"
 msgstr "Évforduló"
 
@@ -3826,6 +3938,9 @@ msgstr "Rendezés: TTY/TDD telefon"
 msgid "Sort by: Telex Phone"
 msgstr "Rendezés: Telex"
 
+msgid "Contacts list"
+msgstr "Névjegyzék"
+
 msgid "Change Picture"
 msgstr "Kép megváltoztatása"
 
@@ -3859,14 +3974,15 @@ msgstr ""
 "csatolni"
 
 msgid ""
-"Cannot upload attachment, attachment is {0} while the allowed maximum is {1}."
+"Cannot upload attachment, attachment is {0} while the allowed maximum is "
+"{1}."
 msgstr ""
 "A csatolmányt nem lehet feltölteni, a mérete {0} az engedélyezett maximális "
 "méret {1}."
 
 msgid ""
-"Cannot upload attachment, the total attachment size is {0} while the allowed "
-"maximum is {1}"
+"Cannot upload attachment, the total attachment size is {0} while the allowed"
+" maximum is {1}"
 msgstr ""
 "A csatolmányt nem lehet feltölteni, az állományok teljes mérete {0}, a "
 "maximális méret {1}"
@@ -3885,11 +4001,13 @@ msgstr ""
 "A csatolmányt nem lehet feltölteni, a csatolmányok száma {0} fájl, a "
 "maximálisan egedélyezett {1}."
 
-#. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
+#. TRANSLATORS: {0} indicates name/email address of secretary and {1}
+#. indicates boss' name/email address
 msgid "{0} on behalf of {1}"
 msgstr "{0} {1} nevében"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "jS F"
 msgstr "F j."
 
@@ -3914,7 +4032,8 @@ msgstr "Utazást igényel"
 msgid "Preparation Required"
 msgstr "Előkészítést igényel"
 
-# Date in Hungarian can be "találkozó" or randevú also. -- it's not that kind of date
+# Date in Hungarian can be "találkozó" or randevú also. -- it's not that kind
+# of date
 msgid "Special Date"
 msgstr "Különleges dátum"
 
@@ -4008,6 +4127,9 @@ msgstr "Vörös"
 msgid "Brown"
 msgstr "Barna"
 
+msgid "Main navigation"
+msgstr "Fő navigáció"
+
 msgid "Logout"
 msgstr "Kijelentkezés"
 
@@ -4023,18 +4145,18 @@ msgstr "Sötét"
 msgid "Automatic"
 msgstr "Automatikus"
 
+msgid "Main toolbar"
+msgstr "Fő eszköztár"
+
 msgid "Switch view"
 msgstr "Nézet változtatása"
 
-msgid "Folder navigation"
-msgstr ""
+msgid "Skip to main content"
+msgstr "Ugrás a fő tartalomra"
 
 # There's no synonim for Widget in Hungarian language.
 msgid "Widgets"
 msgstr "Widgetek"
-
-msgid "Main content"
-msgstr ""
 
 msgid "Sending…"
 msgstr "Küldés…"
@@ -4204,8 +4326,8 @@ msgid "D d-m"
 msgstr "D d-m"
 
 msgid ""
-"Not enough permissions to open this store, do you want to remove it from the "
-"hierarchy?"
+"Not enough permissions to open this store, do you want to remove it from the"
+" hierarchy?"
 msgstr ""
 "Nincs elég jogosultsága megnyitni ezt a tárolót, kívánja eltávolítani a "
 "hierarchiából?"
@@ -4485,9 +4607,6 @@ msgstr "Frissítés"
 msgid "Restore items"
 msgstr "Elemek helyreállítása"
 
-msgid "Select color"
-msgstr "Válasszon színt"
-
 msgid "Add to Favorites"
 msgstr "Hozzáadás a kedvencekhez"
 
@@ -4538,10 +4657,13 @@ msgstr "Biztosan ki szeretné üríteni {0}?"
 msgid "Show All"
 msgstr "Összes mutatása"
 
+msgid "Filter folders"
+msgstr "Mappák szűrése"
+
 #, fuzzy
 msgid ""
-"You have insufficient privileges to move this folder. Would you like to copy "
-"instead?"
+"You have insufficient privileges to move this folder. Would you like to copy"
+" instead?"
 msgstr ""
 "Nincs elegendő jogosultsága a mappa áthelyezéséhez. Szeretne inkább másolni?"
 
@@ -4554,7 +4676,8 @@ msgstr "BCC"
 msgid "Sort by: To"
 msgstr "Rendezés: Címzett szerint"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Sent"
 msgstr "Elküldött"
 
@@ -4717,6 +4840,10 @@ msgstr "Továbbítás"
 msgid "Re"
 msgstr "Vá"
 
+#. TRANSLATORS: prefix before sender name in print-to-PDF filename
+msgid "FROM"
+msgstr "TÓL"
+
 msgid "on behalf of"
 msgstr "a"
 
@@ -4844,8 +4971,14 @@ msgstr "Jelenleg házon belül tartózkodom"
 msgid "I am out of the office from"
 msgstr "Jelenleg házon kívül tartózkodom"
 
+msgid "Out of office from"
+msgstr "Távollét"
+
 msgid "I will be back on"
 msgstr "Visszatérek"
+
+msgid "Back on"
+msgstr "Vissza"
 
 msgid "Automatically reply with the following message:"
 msgstr "Automatikus válasz a következő szöveggel:"
@@ -4881,8 +5014,8 @@ msgstr "Biztonságos feladó"
 
 #, fuzzy
 msgid ""
-"To protect your privacy email addresses or domains can only be added via the "
-"\"Add to safe sender list\" functionality in an opened email."
+"To protect your privacy email addresses or domains can only be added via the"
+" \"Add to safe sender list\" functionality in an opened email."
 msgstr ""
 "A magánélet védelme érdekében e-mail címeket vagy domaineket csak a "
 "\"Hozzáadás a biztonságos feladói listához\" funkcióval lehet hozzáadni egy "
@@ -4902,6 +5035,9 @@ msgstr "Új üzenetek"
 
 msgid "Replies/forwards"
 msgstr "Válaszok/továbbküldések"
+
+msgid "Signature name"
+msgstr "Aláírás neve"
 
 msgid "Signature name:"
 msgstr "Aláírás neve:"
@@ -4979,9 +5115,6 @@ msgstr "Nagyon nagy"
 msgid "Huge"
 msgstr "Hatalmas"
 
-msgid "Follow up"
-msgstr "Utánkövetés"
-
 msgid "Move to Junk Folder"
 msgstr "Levélszemét mappába mozgatás"
 
@@ -4990,6 +5123,9 @@ msgstr "Nem levélszemét"
 
 msgid "Send to"
 msgstr "Továbbítás mellékletként"
+
+msgid "Message list"
+msgstr "Üzenetlista"
 
 msgid "Loading mail"
 msgstr "Levél betöltése"
@@ -5042,6 +5178,9 @@ msgstr "Rendezés: Létrehozás szerint"
 msgid "Sort by: Color"
 msgstr "Szín szerinti rendezés"
 
+msgid "Notes list"
+msgstr "Jegyzetek listája"
+
 msgid "Loading Notes"
 msgstr "Jegyzetek betöltése"
 
@@ -5081,8 +5220,17 @@ msgstr "Téma"
 msgid "Personal information"
 msgstr "Személyes információk"
 
+msgid "Last Name, First Name"
+msgstr "Vezetéknév, Keresztnév"
+
+msgid "First Name Last Name"
+msgstr "Keresztnév Vezetéknév"
+
 msgid "Select Default Folder"
 msgstr "Alapértelmezett mappa kiválasztása"
+
+msgid "Name Display Format"
+msgstr "Név megjelenítési formátum"
 
 msgid "Advanced"
 msgstr "Haladó"
@@ -5098,6 +5246,9 @@ msgstr "Beillesztési pontok megjelenítése a grommunio Webben"
 
 msgid "Show \"item data\" button in context menu (mail only)"
 msgstr "\"Elemadatok\" gomb megjelenítése a kontextusmenüben (csak levelezés)"
+
+msgid "Settings categories"
+msgstr "Beállítási kategóriák"
 
 msgid "Edit setting"
 msgstr "Beállítás szerkesztése"
@@ -5117,11 +5268,17 @@ msgstr "Rólunk"
 msgid "Date & Time"
 msgstr "Dátum és idő"
 
+msgid "Date format"
+msgstr "Dátumformátum"
+
 msgid "Short"
 msgstr "Rövid"
 
 msgid "Long"
 msgstr "Hosszú"
+
+msgid "Time format"
+msgstr "Időformátum"
 
 msgid "12h clock"
 msgstr "12 óra"
@@ -5177,19 +5334,20 @@ msgstr "Beérkező üzenetek közötti navigáció"
 msgid "I want to navigate through my items by using:"
 msgstr "Az alábbi funkciók segítségével szeretnék az elemeim közt navigálni:"
 
+msgid "Navigation method"
+msgstr "Navigációs módszer"
+
 msgid "Infinite Scroll"
 msgstr "Végtelen görgetés"
 
-msgid "grommunio Web automatically loads additional items when you scroll down"
+msgid ""
+"grommunio Web automatically loads additional items when you scroll down"
 msgstr ""
 "A grommunio Web automatikusan töltse be a további elemeket legörgetéskor"
 
-msgid "Pagination"
-msgstr "Oldalakba rendezés"
-
 msgid ""
-"grommunio Web displays items on pages and you can use navigation controls to "
-"navigate"
+"grommunio Web displays items on pages and you can use navigation controls to"
+" navigate"
 msgstr ""
 "A grommunio Web oldalakba rendezi az elemeket, az elemek között szabadon "
 "navigálhat"
@@ -5205,6 +5363,9 @@ msgstr "Gyorsbillentyűk"
 
 msgid "Extended"
 msgstr "Bővített"
+
+msgid "Keyboard shortcuts"
+msgstr "Billentyűparancsok"
 
 msgid "Keyboard shortcuts off"
 msgstr "Gyorsbillentyűk kikapcsolása"
@@ -5481,7 +5642,8 @@ msgstr "Teljesítve"
 msgid "Printed by: "
 msgstr "Rendezés: "
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Printed on: "
 msgstr "Nyomtatva: "
 
@@ -5572,6 +5734,9 @@ msgstr "Rendezés: Befejezett százalékos aránya"
 
 msgid "Assigned task changes"
 msgstr "Hozzárendelt feladat változások"
+
+msgid "Tasks list"
+msgstr "Feladatok listája"
 
 msgid "Loading tasks"
 msgstr "Feladatok betöltése"
@@ -5716,7 +5881,8 @@ msgid "Missing folders"
 msgstr "Hiányzó mappák"
 
 msgid "The following required folder is missing in the hierarchy: {0}"
-msgid_plural "The following required folders are missing in the hierarchy: {0}"
+msgid_plural ""
+"The following required folders are missing in the hierarchy: {0}"
 msgstr[0] "A következő szükséges mappa hiányzik a hierarchiából: {0}"
 msgstr[1] "A következő szükséges mappák hiányoznak a hierarchiából: {0}"
 
@@ -5781,7 +5947,7 @@ msgid "Public link"
 msgstr "Publikus link"
 
 msgid "Copy link"
-msgstr ""
+msgstr "Link másolása"
 
 msgid "Password protect"
 msgstr "Jelszavas védelem"
@@ -5841,7 +6007,8 @@ msgid "Are you sure you want to delete {0} files?"
 msgstr "Biztos, hogy törölni szeretné a {0} fájlokat?"
 
 msgid "Are you sure want to delete {0} folders and all of their contents?"
-msgstr "Biztos, hogy törölni szeretné a {0} mappákat és azok teljes tartalmát?"
+msgstr ""
+"Biztos, hogy törölni szeretné a {0} mappákat és azok teljes tartalmát?"
 
 #, fuzzy
 msgid ""
@@ -5932,8 +6099,8 @@ msgid ""
 "Accounts marked by your administrator as \"cannot be changed\" will not be "
 "removed."
 msgstr ""
-"A rendszergazda által \"nem módosítható\"-ként megjelölt fiókok nem kerülnek "
-"eltávolításra."
+"A rendszergazda által \"nem módosítható\"-ként megjelölt fiókok nem kerülnek"
+" eltávolításra."
 
 #, fuzzy
 msgid ""
@@ -6177,6 +6344,9 @@ msgstr "Megosztva"
 msgid "File preview"
 msgstr "Előnézet"
 
+msgid "File content"
+msgstr "Fájl tartalma"
+
 msgid "Your browser does not support previewing of audio files!"
 msgstr "A böngészője nem támogatja az audio fájlok előnézetét!"
 
@@ -6298,9 +6468,11 @@ msgid "attachments selected"
 msgstr "kiválasztott mellékletek"
 
 msgid ""
-"With the selection of separate attachments the total size of all attachments "
-"may not exceed"
+"With the selection of separate attachments the total size of all attachments"
+" may not exceed"
 msgstr ""
+"Különálló mellékletek kiválasztása esetén az összes melléklet teljes mérete "
+"nem haladhatja meg a"
 
 msgid "MB. There have been"
 msgstr "MB. Voltak"
@@ -6404,12 +6576,12 @@ msgstr "Megosztott mappák kezelése"
 
 #, fuzzy
 msgid ""
-"Select folders to sync to your device from the list below. To add additional "
-"mailboxes to the list, open them in grommunio Web first."
+"Select folders to sync to your device from the list below. To add additional"
+" mailboxes to the list, open them in grommunio Web first."
 msgstr ""
 "Válassza ki a készülékkel szinkronizálandó mappákat az alábbi listából. Ha "
-"további postafiókokat szeretne hozzáadni a listához, először nyissa meg őket "
-"a grommunio Webben."
+"további postafiókokat szeretne hozzáadni a listához, először nyissa meg őket"
+" a grommunio Webben."
 
 msgid "grommunio-sync"
 msgstr "grommunio-sync"
@@ -6470,6 +6642,9 @@ msgstr "A megerősítéshez írja be a {0} címet"
 msgid "Please type {0} to confirm"
 msgstr "Kérjük, írja be a {0} címet a megerősítéshez"
 
+msgid "Wipe type"
+msgstr "Törlés típusa"
+
 msgid "Wipe only data related to this account"
 msgstr "Csak az ehhez a fiókhoz kapcsolódó adatok törlése"
 
@@ -6483,6 +6658,8 @@ msgid ""
 "Do you really want to wipe your device?\n"
 " Type WIPE to confirm."
 msgstr ""
+"Tényleg törölni szeretné a készülékét?\n"
+" Írja be a WIPE parancsot a megerősítéshez."
 
 msgid ""
 "Do you really want to wipe your device?\n"
@@ -6495,6 +6672,8 @@ msgid ""
 "Do you really want to remove your device?\n"
 " Type REMOVE to confirm."
 msgstr ""
+"Tényleg eltávolítja a készüléket?\n"
+"Írja be a REMOVE parancsot a megerősítéshez."
 
 #, fuzzy
 msgid ""
@@ -6510,8 +6689,14 @@ msgstr "Találkozó hozzáadása"
 msgid "Room name:"
 msgstr "Szoba neve:"
 
+msgid "Room name"
+msgstr "Szoba neve"
+
 msgid "Room URL:"
 msgstr "Szoba URL:"
+
+msgid "Room URL"
+msgstr "Szoba URL-je"
 
 msgid "Meet"
 msgstr "Ismerje meg a"
@@ -6524,6 +6709,9 @@ msgstr "Csatlakozzon a webmeetinghez"
 
 msgid "Open meeting in:"
 msgstr "Nyílt találkozó:"
+
+msgid "Open meeting in"
+msgstr "Nyílt találkozó"
 
 msgid "Web tab"
 msgstr "Web lap"
@@ -6551,7 +6739,8 @@ msgstr ""
 "Megakadályozhatja, hogy az értekezlet helyszínének URL-címe automatikusan "
 "felülíródjon (pl.: tárgyalóterem hozzáadásakor)"
 
-msgid "If you have problems when creating meetings, try disabling this setting"
+msgid ""
+"If you have problems when creating meetings, try disabling this setting"
 msgstr ""
 "Ha problémák merülnek fel a találkozók létrehozásakor, próbálja meg "
 "letiltani ezt a beállítást"
@@ -6566,6 +6755,11 @@ msgid ""
 "used when composing in plain text, must contain %url%, empty to reset to "
 "default"
 msgstr ""
+"szöveges üzenet írásakor használható, tartalmaznia kell a %url% "
+"karakterláncot, üresen hagyva az alapértelmezett értékre áll vissza"
+
+msgid "Invitation text"
+msgstr "Meghívó szöveg"
 
 msgid "Invitation template (HTML)"
 msgstr "Meghívó sablon (HTML)"
@@ -6573,6 +6767,11 @@ msgstr "Meghívó sablon (HTML)"
 msgid ""
 "used when composing in HTML, must contain %url%, empty to reset to default"
 msgstr ""
+"HTML-ben történő íráskor használatos, tartalmaznia kell a %url% "
+"karakterláncot, üresen hagyva az alapértelmezett értékre áll vissza"
+
+msgid "Invitation template"
+msgstr "Meghívó sablon"
 
 msgid "An unknown error occurred while changing password."
 msgstr "Ismeretlen hiba történt a jelszó módosítása közben."
@@ -6689,7 +6888,8 @@ msgid ""
 "certificate you will not be able to sign or decrypt S/MIME emails."
 msgstr ""
 "Biztosan törölni szeretné a privát tanúsítványát? Amennyiben törli a privát "
-"tanúsítványt, a jövőben nem fog tudni aláírni és megnyitni S/MIME üzeneteket."
+"tanúsítványt, a jövőben nem fog tudni aláírni és megnyitni S/MIME "
+"üzeneteket."
 
 msgid "Signing"
 msgstr "Aláírás"
@@ -6719,6 +6919,8 @@ msgid ""
 "Warning: RSA key size is below 2048 bits. Consider upgrading to a stronger "
 "certificate."
 msgstr ""
+"Figyelem: Az RSA-kulcs mérete 2048 bit alatt van. Fontolja meg egy erősebb "
+"tanúsítványra való áttérést."
 
 msgid "Certificate details"
 msgstr "Tanúsítvány részletek"
@@ -6772,7 +6974,8 @@ msgstr ""
 msgid "Private certificate"
 msgstr "Privát tanúsítvány"
 
-msgid "You must fill in the certificate passphrase to upload your certificate."
+msgid ""
+"You must fill in the certificate passphrase to upload your certificate."
 msgstr "A tanúsítvány feltöltéséhez ki kell töltenie a tanúsítvány jelszavát."
 
 msgid "You must first select a valid private certificate in PKCS#12 format."
@@ -6796,11 +6999,11 @@ msgid "Sign message"
 msgstr "Üzenet aláírása"
 
 msgid ""
-"Ensure the authenticity of the message by adding a digital signature to this "
-"message. Any changes to the message will invalidate the signature."
+"Ensure the authenticity of the message by adding a digital signature to this"
+" message. Any changes to the message will invalidate the signature."
 msgstr ""
-"Biztosítsa az üzenet hitelességét azzal, hogy digitálisan aláírja. Az üzenet "
-"bármely változtatása az aláírást érvényteleníti."
+"Biztosítsa az üzenet hitelességét azzal, hogy digitálisan aláírja. Az üzenet"
+" bármely változtatása az aláírást érvényteleníti."
 
 msgid "Encrypt message"
 msgstr "Üzenet titkosítása"
@@ -6827,13 +7030,14 @@ msgid ""
 "verification reassures you that the message has not been tampered with and "
 "validates the identity of the sender."
 msgstr ""
-"a grommunio Web képes ellenőrizni az e-mailek digitális aláírását. A sikeres "
-"ellenőrzés megnyugtatja Önt, hogy az üzenetet nem manipulálták, és igazolja "
-"a feladó személyazonosságát."
+"a grommunio Web képes ellenőrizni az e-mailek digitális aláírását. A sikeres"
+" ellenőrzés megnyugtatja Önt, hogy az üzenetet nem manipulálták, és igazolja"
+" a feladó személyazonosságát."
 
 #, fuzzy
 msgid ""
-"You are seeing this message because the verification of the digital signature"
+"You are seeing this message because the verification of the digital "
+"signature"
 msgstr "Azért látja ezt az üzenetet, mert a digitális aláírás hitelesítése"
 
 msgid " has failed"
@@ -6850,8 +7054,8 @@ msgstr "Mit tegyek?"
 
 #, fuzzy
 msgid ""
-"You can continue to work. However, you should keep in mind that the identity "
-"and the authenticity of the message content could not be verified."
+"You can continue to work. However, you should keep in mind that the identity"
+" and the authenticity of the message content could not be verified."
 msgstr ""
 "Folytathatja a munkát. Ne feledje azonban, hogy az üzenet tartalmának "
 "személyazonosságát és hitelességét nem lehetett ellenőrizni."
@@ -6868,8 +7072,8 @@ msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
 "verification reassures you "
 msgstr ""
-"A grommunio Web képes ellenőrizni az e-mailek digitális aláírását. A sikeres "
-"ellenőrzés megnyugtatja Önt"
+"A grommunio Web képes ellenőrizni az e-mailek digitális aláírását. A sikeres"
+" ellenőrzés megnyugtatja Önt"
 
 #, fuzzy
 msgid ""
@@ -6891,8 +7095,8 @@ msgstr "a grommunio Web nem talált nyilvános tanúsítványt a címzett szám�
 
 #, fuzzy
 msgid ""
-"The identity of the sender and authenticity of the message content have been "
-"verified, but the certificate used to sign the message expired on [d-m-Y]."
+"The identity of the sender and authenticity of the message content have been"
+" verified, but the certificate used to sign the message expired on [d-m-Y]."
 msgstr ""
 "A feladó személyazonosságát és az üzenet tartalmának hitelességét "
 "ellenőrizték, de az üzenet aláírásához használt tanúsítvány [d-m-Y] lejárt."
@@ -6902,8 +7106,8 @@ msgstr "A digitális aláírást ismeretlen okokból nem lehetett ellenőrizni."
 
 #, fuzzy
 msgid ""
-"The digital certificate used to sign this message has been revoked (i.e. the "
-"sender has marked it as compromised)"
+"The digital certificate used to sign this message has been revoked (i.e. the"
+" sender has marked it as compromised)"
 msgstr ""
 "Az üzenet aláírásához használt digitális tanúsítványt visszavonták (azaz a "
 "feladó veszélyeztetettnek jelölte meg)"
@@ -6911,8 +7115,8 @@ msgstr ""
 #, fuzzy
 msgid ""
 "The verification service of the certificate authority that signed the "
-"sender's certificate is not available. The validity of the certificate could "
-"not be verified."
+"sender's certificate is not available. The validity of the certificate could"
+" not be verified."
 msgstr ""
 "A feladó tanúsítványát aláíró tanúsítványkiadó hitelesítési szolgáltatása "
 "nem elérhető. A tanúsítvány érvényességét nem sikerült ellenőrizni."
@@ -6942,24 +7146,33 @@ msgid "Sender is removed from the server."
 msgstr "A feladó eltávolításra kerül a kiszolgálóról."
 
 msgid ""
-"The digital certificate used to sign this message has been revoked according "
-"to the Certificate Revocation List (CRL)."
+"The digital certificate used to sign this message has been revoked according"
+" to the Certificate Revocation List (CRL)."
 msgstr ""
+"Az üzenet aláírásához használt digitális tanúsítványt a "
+"tanúsítványvisszavonási lista (CRL) szerint visszavonták."
 
 msgid ""
 "The revocation status of the certificate could not be verified because the "
 "CRL Distribution Point is unavailable."
 msgstr ""
+"A tanúsítvány visszavonási állapota nem ellenőrizhető, mert a CRL-"
+"terjesztési pont nem érhető el."
 
 msgid ""
 "The RSA key size used in this certificate is below the recommended minimum "
 "of 2048 bits. Consider upgrading to a stronger certificate."
 msgstr ""
+"A tanúsítványban használt RSA-kulcs mérete nem éri el az ajánlott minimumot,"
+" azaz a 2048 bitet. Fontolja meg egy erősebb tanúsítványra való áttérést."
 
 msgid ""
 "The certificate's Key Usage extension does not permit this operation. The "
 "certificate may be intended for signing only or encryption only."
 msgstr ""
+"A tanúsítvány Key Usage kiterjesztése nem engedélyezi ezt a műveletet. "
+"Lehet, hogy a tanúsítvány kizárólag aláírásra vagy kizárólag titkosításra "
+"szolgál."
 
 msgid ""
 "This message was encrypted using CBC mode (not authenticated encryption). "
@@ -6967,20 +7180,26 @@ msgid ""
 "provides stronger protection against modification attacks. Consider asking "
 "the sender to upgrade their S/MIME configuration."
 msgstr ""
+"Ez az üzenet CBC módban (nem hitelesített titkosítás) lett titkosítva. Bár a"
+" visszafejtés sikeres volt, az AES-GCM (hitelesített titkosítás) erősebb "
+"védelmet nyújt a módosítási támadások ellen. Fontolja meg, hogy megkéri-e a "
+"feladót az S/MIME-konfiguráció frissítésére."
 
 msgid ""
 "The signing time in the digital signature differs significantly from the "
 "expected time. This may indicate a clock synchronization issue or message "
 "tampering."
 msgstr ""
+"A digitális aláírásban szereplő aláírási idő jelentősen eltér a várt időtől."
+" Ez óraszinkronizálási problémára vagy az üzenet meghamisítására utalhat."
 
 msgid "Signature verified successfully"
 msgstr "A tanúsítvány ellenőrzése sikeres"
 
 msgid "Could not verify signature, missing public certificate"
 msgstr ""
-"Az aláírás érvényessége nem ellenőrizhető, mert nem található hozzá publikus "
-"tanúsítvány"
+"Az aláírás érvényessége nem ellenőrizhető, mert nem található hozzá publikus"
+" tanúsítvány"
 
 msgid "Signature verification successful, but certificate is expired"
 msgstr ""
@@ -7039,7 +7258,8 @@ msgstr ""
 
 msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
 msgstr ""
-"Dekódolás (CBC mód - az erősebb védelem érdekében fontolja meg az AES-GCM-et)"
+"Dekódolás (CBC mód - az erősebb védelem érdekében fontolja meg az AES-GCM-"
+"et)"
 
 msgid "Signing time differs from expected time"
 msgstr "Az aláírási idő eltér a várt időtől"
@@ -7265,7 +7485,8 @@ msgstr ""
 "rendszergazdájával."
 
 msgid ""
-"Could not retrieve list of server features. Contact the server administrator."
+"Could not retrieve list of server features. Contact the server "
+"administrator."
 msgstr ""
 "Nem sikerült betölteni a szerver képességeit. Vegye fel a kapcsolatot a "
 "szerver rendszergazdájával."
@@ -7393,7 +7614,8 @@ msgstr "A fiók üres."
 
 #, fuzzy
 msgid ""
-"Your password is wrong or you have insufficient permission to change password"
+"Your password is wrong or you have insufficient permission to change "
+"password"
 msgstr ""
 "A jelszava rossz, vagy nincs elegendő jogosultsága a jelszó "
 "megváltoztatásához"
@@ -7405,6 +7627,8 @@ msgid ""
 "Error changing password. Please verify your password or contact the system "
 "administrator."
 msgstr ""
+"Hiba történt a jelszó megváltoztatásakor. Kérjük, ellenőrizze a jelszavát, "
+"vagy vegye fel a kapcsolatot a rendszergazdával."
 
 msgid "Password has been changed successfully."
 msgstr "A jelszó módosítása sikeresen megtörtént."
@@ -7445,8 +7669,8 @@ msgstr "Kérem, vegye fel a kapcsolatot a rendszergazdával a részletekért"
 
 #, fuzzy
 msgid ""
-"Your public certificate is not installed. Without this certificate, you will "
-"not be able to read encrypted messages you have sent to others."
+"Your public certificate is not installed. Without this certificate, you will"
+" not be able to read encrypted messages you have sent to others."
 msgstr ""
 "A nyilvános tanúsítvány nincs telepítve. E tanúsítvány nélkül nem tudja "
 "elolvasni a másoknak küldött titkosított üzeneteket."
@@ -7468,11 +7692,15 @@ msgid ""
 "RSA key size %d bits is below the recommended minimum of %d bits. "
 "Certificate was imported."
 msgstr ""
+"A %d bites RSA-kulcs mérete alatta marad az ajánlott minimum %d bitnek. A "
+"tanúsítvány importálva lett."
 
 msgid ""
 "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully "
 "supported. Certificate was imported."
 msgstr ""
+"Az EdDSA (Ed25519) tanúsítványokhoz PHP 8.4+ szükséges, és előfordulhat, "
+"hogy nem támogatottak teljes mértékben. A tanúsítvány importálásra került."
 
 msgid "Certificate was expired on "
 msgstr "A tanúsítvány lejárt ekkor: "
@@ -7494,7 +7722,8 @@ msgstr "Nem lehet nyilvános tanúsítványt olvasni"
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""
-"Nem lehet adatot hozzáadni a buszhoz, ha ugyanaz a művelettípus van a buszban"
+"Nem lehet adatot hozzáadni a buszhoz, ha ugyanaz a művelettípus van a "
+"buszban"
 
 msgid "Response data requested from bus but it doesn't have any data."
 msgstr "A buszról kért válaszadatok, de nincs adat."
@@ -7520,10 +7749,11 @@ msgstr "Váratlan hiba történt"
 msgid "To-Do List"
 msgstr "Teendőlista"
 
-#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
-#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
+#. TRANSLATORS: This indicates that the opened folder belongs to a particular
+#. user,
+#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the
+#. foldername)
 #. * and %2$s is 'Holiday' (the username).
-#.
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$s / %2$s"
@@ -7632,7 +7862,8 @@ msgstr "Nyilvános névjegymappák"
 msgid "Error in search, please try again"
 msgstr "Hiba a keresésben, kérjük, próbálja újra"
 
-msgid "Unable to perform search query, no permissions to create search folder."
+msgid ""
+"Unable to perform search query, no permissions to create search folder."
 msgstr ""
 "Nem lehet keresési lekérdezést végrehajtani, nincsenek jogosultságok a "
 "keresési mappa létrehozásához."
@@ -7679,13 +7910,13 @@ msgstr "Két esemény nem történhet ugyanazon a napon"
 #, fuzzy, php-format
 msgid ""
 "You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
-"because you do not have the appropriate permissions for that account. Either "
-"enter the name as a required or optional attendee or talk to your "
+"because you do not have the appropriate permissions for that account. Either"
+" enter the name as a required or optional attendee or talk to your "
 "administrator about giving you permission to schedule '%s'."
 msgstr ""
-"Ön a '%s'-t jelölte meg erőforrásként. Nem tud megbeszélést szervezni a '%s'-"
-"vel, mert nem rendelkezik a megfelelő jogosultságokkal a fiókhoz. Vagy adja "
-"meg a nevet kötelező vagy választható résztvevőként, vagy beszéljen a "
+"Ön a '%s'-t jelölte meg erőforrásként. Nem tud megbeszélést szervezni a "
+"'%s'-vel, mert nem rendelkezik a megfelelő jogosultságokkal a fiókhoz. Vagy "
+"adja meg a nevet kötelező vagy választható résztvevőként, vagy beszéljen a "
 "rendszergazdával, hogy engedélyt kapjon a '%s' időpontjának megadására."
 
 #, fuzzy, php-format
@@ -7706,8 +7937,8 @@ msgstr ""
 
 #, fuzzy, php-format
 msgid ""
-"'%s' is already booked for this specified time. You must use another time or "
-"find another resource."
+"'%s' is already booked for this specified time. You must use another time or"
+" find another resource."
 msgstr ""
 "'%s' már foglalt erre a megadott időpontra. Más időpontot kell használnia, "
 "vagy másik erőforrást kell találnia."
@@ -7899,11 +8130,11 @@ msgid "You have insufficient privileges to remove item from the calendar."
 msgstr "Nincs elég jogosultsága az elem eltávolításához a naptárból."
 
 msgid ""
-"Message is no longer in the outgoing queue, typically because it has already "
-"been sent."
+"Message is no longer in the outgoing queue, typically because it has already"
+" been sent."
 msgstr ""
-"Az üzenet nem található a kimenő levelek között, valószínűleg már kiküldésre "
-"került."
+"Az üzenet nem található a kimenő levelek között, valószínűleg már kiküldésre"
+" került."
 
 msgid "Message cannot be aborted"
 msgstr "Az üzenet nem visszavonható"
@@ -7942,7 +8173,8 @@ msgstr "Ütközés egy másik találkozóval."
 
 #, php-format
 msgid ""
-"%s occurrence of this recurring appointment conflicts with other appointment."
+"%s occurrence of this recurring appointment conflicts with other "
+"appointment."
 msgid_plural ""
 "%s occurrences of this recurring appointment conflicts with other "
 "appointments."
@@ -8014,8 +8246,8 @@ msgstr "Nem tudta elfogadni a találkozó iránti kérelmet."
 
 msgid "You have insufficient privileges to cancel Meeting Request invitation."
 msgstr ""
-"Nem rendelkezik elegendő jogosultsággal ahhoz, hogy lemondja az értekezletre "
-"szóló meghívást."
+"Nem rendelkezik elegendő jogosultsággal ahhoz, hogy lemondja az értekezletre"
+" szóló meghívást."
 
 msgid "Could not cancel Meeting Request invitations."
 msgstr "Nem tudta törölni a találkozói meghívásokat."
@@ -8070,11 +8302,11 @@ msgstr ""
 msgid "Untitled rule"
 msgstr "Cím nélküli szabály"
 
-msgid "Could not load rules."
-msgstr "Nem sikerült betölteni a szabályokat."
-
 msgid "Could not save rules."
 msgstr "Nem tudta elmenteni a szabályokat."
+
+msgid "Could not load rules."
+msgstr "Nem sikerült betölteni a szabályokat."
 
 msgid "Task Request:"
 msgstr "Feladatkérés:"
@@ -8082,22 +8314,21 @@ msgstr "Feladatkérés:"
 msgid "Sign in"
 msgstr "Bejelentkezés"
 
-msgid "Skip to main content"
-msgstr ""
-
 msgid "File is not imported successfully"
 msgstr "A fájl importálása nem sikeres"
 
-msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgid ""
+"The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
-"A feltöltött fájl meghaladja a php.ini fájlban található upload_max_filesize "
-"direktívát."
+"A feltöltött fájl meghaladja a php.ini fájlban található upload_max_filesize"
+" direktívát."
 
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
-"A feltöltött fájl meghaladja a HTML űrlapon megadott MAX_FILE_SIZE utasítást."
+"A feltöltött fájl meghaladja a HTML űrlapon megadott MAX_FILE_SIZE "
+"utasítást."
 
 msgid "The uploaded file was only partially uploaded."
 msgstr "A feltöltött fájl csak részben lett feltöltve."
@@ -8113,8 +8344,8 @@ msgstr "Sikertelenül írta a fájlt a lemezre."
 
 msgid ""
 "A PHP extension stopped the file upload. PHP does not provide a way to "
-"ascertain which extension caused the file upload to stop; examining the list "
-"of loaded extensions with phpinfo() may help."
+"ascertain which extension caused the file upload to stop; examining the list"
+" of loaded extensions with phpinfo() may help."
 msgstr ""
 "Egy PHP-bővítmény megállította a fájlfeltöltést. A PHP nem ad módot annak "
 "megállapítására, hogy melyik kiterjesztés okozta a fájlfeltöltés leállását; "
@@ -8127,12 +8358,14 @@ msgstr "Ebben a fájlban nem található kapcsolat."
 #, fuzzy
 msgid ""
 "grommunio Web does not support importing multiple VCF with this version."
-msgstr "a grommunio Web ebben a verzióban nem támogatja több VCF importálását."
+msgstr ""
+"a grommunio Web ebben a verzióban nem támogatja több VCF importálását."
 
 #, fuzzy
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
-msgstr "a grommunio Web ebben a verzióban nem támogatja több ICS importálását."
+msgstr ""
+"a grommunio Web ebben a verzióban nem támogatja több ICS importálását."
 
 msgid "GB"
 msgstr "GB"

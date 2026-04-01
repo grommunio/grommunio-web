@@ -5,11 +5,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 23:42+0100\n"
+"POT-Creation-Date: 2026-04-01 11:33+0200\n"
 "PO-Revision-Date: 2022-12-12 13:00+0200\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/grommunio/"
-"grommunio-web/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/grommunio/grommunio-web/ja/>\n"
 "Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,16 +16,20 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.15-dev\n"
 
+msgid "Color palette"
+msgstr "カラーパレット"
+
 msgid "Calendar"
 msgstr "カレンダー"
 
 msgid "Previous Month"
-msgstr ""
+msgstr "前月"
 
 msgid "Next Month"
-msgstr ""
+msgstr "来月"
 
-#. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
+#. TRANSLATORS: This message is used as label for the column which indicates
+#. the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
 msgstr "週"
 
@@ -43,7 +46,7 @@ msgid "More options"
 msgstr "詳細オプション"
 
 msgid "Input"
-msgstr ""
+msgstr "入力"
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -211,7 +214,8 @@ msgstr "この日付けは最小日付よりも前です"
 msgid "This date is after the maximum date"
 msgstr "この日付は最大日付よりも後です"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "d/m/Y"
 msgstr "Y年m月d日"
 
@@ -302,7 +306,8 @@ msgstr "時間は{0}以前か同じでなければいけません。"
 msgid "{0} is not a valid time"
 msgstr "{0}は有効な時間ではありません"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "G:i"
 msgstr "G:i"
 
@@ -318,8 +323,7 @@ msgstr "真"
 msgid "false"
 msgstr "偽"
 
-msgid ""
-"This field should be an e-mail address in the format \"user@example.com\""
+msgid "This field should be an e-mail address in the format \"user@example.com\""
 msgstr "この項目はメールアドレスです。（例:user@example.com）"
 
 msgid "This field should be a URL in the format \"{0}\""
@@ -478,11 +482,12 @@ msgstr "コピー連絡先"
 msgid "Copy contacts"
 msgstr "連絡先をコピーする"
 
+msgid "Address book"
+msgstr "アドレス帳"
+
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
-msgstr ""
-"最初の{0} の名前のみを表示します。より具体的な結果を見つけるには、検索を使用"
-"してください。"
+msgstr "最初の{0} の名前のみを表示します。より具体的な結果を見つけるには、検索を使用してください。"
 
 msgid "Use the search bar to get results"
 msgstr "検索バーを使って結果を得る"
@@ -694,7 +699,7 @@ msgid "Filter category…"
 msgstr "フィルターカテゴリー…"
 
 msgid "Add Category"
-msgstr ""
+msgstr "カテゴリを追加"
 
 msgid "Sender"
 msgstr "送信者"
@@ -720,6 +725,9 @@ msgstr "検索フォルダの削除"
 msgid "Sort by: Date"
 msgstr "並び順日付"
 
+msgid "Search results"
+msgstr "検索結果"
+
 msgid "Loading Search results"
 msgstr "読み込み 検索結果"
 
@@ -729,9 +737,7 @@ msgstr "ソートチップ"
 msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
 "or adjust your input."
-msgstr ""
-"検索結果を絞り込むと、日付順に並べ替えることができます。フィルターを有効にす"
-"るか、入力を調整します。"
+msgstr "検索結果を絞り込むと、日付順に並べ替えることができます。フィルターを有効にするか、入力を調整します。"
 
 msgid "Did you mean"
 msgstr "もしかして"
@@ -751,16 +757,12 @@ msgstr "エラー"
 msgid ""
 "Could not accept proposal as this meeting is not available in calendar; It "
 "may have been moved or deleted."
-msgstr ""
-"この会議はカレンダー上有効ではないため承諾することができません。この会議は予"
-"定が変更になったか削除された可能性があります。"
+msgstr "この会議はカレンダー上有効ではないため承諾することができません。この会議は予定が変更になったか削除された可能性があります。"
 
 msgid ""
-"Could not view proposal as this meeting is not available in calendar; It may "
-"have been moved or deleted."
-msgstr ""
-"この会議はカレンダー上有効ではないため表示することができません。この会議は予"
-"定が変更になったか削除された可能性があります。"
+"Could not view proposal as this meeting is not available in calendar; It may"
+" have been moved or deleted."
+msgstr "この会議はカレンダー上有効ではないため表示することができません。この会議は予定が変更になったか削除された可能性があります。"
 
 msgid "Required"
 msgstr "必須"
@@ -852,7 +854,8 @@ msgstr "毎{0}{1}実施　有効{2}"
 msgid "When"
 msgstr "日時"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "l jS F Y {0}"
 msgstr "l jS F Y{0}"
 
@@ -988,9 +991,7 @@ msgstr "他のカレンダーで作成する"
 msgid ""
 "The selected calendar has \"read-only\" permissions. Instead you can create "
 "an item in your own calendar."
-msgstr ""
-"選択されたカレンダーは、「読み取り専用」の権限を持っています。代わりに、自分"
-"のカレンダーに項目を作成することができます。"
+msgstr "選択されたカレンダーは、「読み取り専用」の権限を持っています。代わりに、自分のカレンダーに項目を作成することができます。"
 
 msgid "What would you like?"
 msgstr "- 何にしますか？"
@@ -1001,7 +1002,8 @@ msgstr "自社カレンダー"
 msgid "F Y"
 msgstr "Y年F"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "l"
 msgstr "1"
 
@@ -1065,11 +1067,9 @@ msgstr "{0} 承諾 {1} 仮承諾 {2} 辞退。"
 
 msgctxt "calendar.dialog"
 msgid ""
-"{0} attendees proposed a new time for this meeting. Click the Scheduling tab "
-"for details."
-msgstr ""
-"{0}名の出席者がこの会議の時間変更を求めています。詳細はスケジュールタブをク"
-"リックして下さい。"
+"{0} attendees proposed a new time for this meeting. Click the Scheduling tab"
+" for details."
+msgstr "{0}名の出席者がこの会議の時間変更を求めています。詳細はスケジュールタブをクリックして下さい。"
 
 msgctxt "calendar.dialog"
 msgid "You proposed a new time for this meeting on {0}"
@@ -1119,9 +1119,7 @@ msgctxt "calendar.dialog"
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer"
-msgstr ""
-"変更した内容は、主催者がこの会議依頼を更新した際に上書きされますのでご注意く"
-"ださい。"
+msgstr "変更した内容は、主催者がこの会議依頼を更新した際に上書きされますのでご注意ください。"
 
 msgid "Create in"
 msgstr "で作成します。"
@@ -1153,11 +1151,11 @@ msgstr "ここにメッセージを入力してください…"
 msgid "Update location"
 msgstr "地域を更新"
 
-msgid ""
-"Do you want to update the location \"{0}\" with the new location \"{1}\"?"
+msgid "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
 msgstr "開催場所{0}を{1}に変更しますか？"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "jS F Y {0}"
 msgstr "jS F Y{0}"
 
@@ -1256,6 +1254,9 @@ msgstr "この会議はキャンセルされました。コメントを追加し
 msgid "Edit the cancellation before Sending."
 msgstr "送信前にキャンセルを編集する。"
 
+msgid "Cancellation message"
+msgstr "キャンセルメッセージ"
+
 msgid "Send the cancellation now."
 msgstr "キャンセル通知を今すぐ送信。"
 
@@ -1265,26 +1266,23 @@ msgstr "会議出席依頼への確認メールを送信する"
 msgid ""
 "This meeting will be accepted and moved to your calendar. Do you want to "
 "include comments with your response?"
-msgstr ""
-"このミーティングは受付され、カレンダーに移動されます。回答にはコメントを添え"
-"ますか？"
+msgstr "このミーティングは受付され、カレンダーに移動されます。回答にはコメントを添えますか？"
 
 msgid ""
-"This meeting will be tentatively accepted and moved to your calendar. Do you "
-"want to include comments with your response?"
-msgstr ""
-"この会議は仮受付され、あなたのカレンダーに移動されます。回答にはコメントを添"
-"えますか？"
+"This meeting will be tentatively accepted and moved to your calendar. Do you"
+" want to include comments with your response?"
+msgstr "この会議は仮受付され、あなたのカレンダーに移動されます。回答にはコメントを添えますか？"
 
 msgid ""
-"This meeting will be declined and moved to your Deleted Items folder. Do you "
-"want to include comments with your response?"
-msgstr ""
-"このミーティングは拒否され、削除済みアイテムフォルダに移動されます。回答時に"
-"コメントを添えますか？"
+"This meeting will be declined and moved to your Deleted Items folder. Do you"
+" want to include comments with your response?"
+msgstr "このミーティングは拒否され、削除済みアイテムフォルダに移動されます。回答時にコメントを添えますか？"
 
 msgid "Edit the response before sending"
 msgstr "送信前にレスポンスを編集する"
+
+msgid "Response message"
+msgstr "返信メッセージ"
 
 msgid "Send the response now."
 msgstr "返信を今すぐ送信。"
@@ -1322,16 +1320,20 @@ msgstr "選択した項目を貼り付ける"
 msgid "An overview of"
 msgstr "の概要"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Start"
 msgstr "開始日"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "End"
 msgstr "終了"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for
+#. formatting instructions
 msgid "Printed by"
 msgstr "印刷"
 
@@ -1353,12 +1355,15 @@ msgstr "l jS M Y{0}"
 msgid "All day: "
 msgstr "終日。"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "l jS F Y"
 msgstr "Y年Fj日 l"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for
+#. formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "l jS F"
 msgstr "F j日 l"
 
@@ -1443,7 +1448,8 @@ msgstr "リマインダーの初期値"
 msgid "Default all-day appointment reminder time"
 msgstr "終日予定のリマインダーの初期値"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "jS"
 msgstr "j日"
 
@@ -1569,6 +1575,9 @@ msgstr "並べ替え：Sensitivity"
 msgid "Sort by: Importance"
 msgstr "並べ替え: 重要度"
 
+msgid "Appointments list"
+msgstr "予定一覧"
+
 msgid "Loading appointments"
 msgstr "予定を読み込み中"
 
@@ -1578,11 +1587,13 @@ msgstr "参加者"
 msgid "Optional attendees"
 msgstr "任意出席者"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "jS F {0}"
 msgstr "jS F{0}"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "jS F Y"
 msgstr "Y年Fj日"
 
@@ -1590,17 +1601,13 @@ msgstr "Y年Fj日"
 msgid ""
 "You have insufficient privileges to move and copy this item. Ask the folder "
 "owner to grant you permissions or contact your system administrator."
-msgstr ""
-"この項目を移動およびコピーするための十分な権限がありません。フォルダの所有者"
-"に権限を付与してもらうか、システム管理者に連絡してください。"
+msgstr "この項目を移動およびコピーするための十分な権限がありません。フォルダの所有者に権限を付与してもらうか、システム管理者に連絡してください。"
 
 #, fuzzy
 msgid ""
 "You have insufficient privileges to copy this item. Ask the folder owner to "
 "grant you permissions or contact your system administrator."
-msgstr ""
-"この項目をコピーするには、十分な権限がありません。フォルダの所有者に権限を付"
-"与してもらうか、システム管理者に連絡してください。"
+msgstr "この項目をコピーするには、十分な権限がありません。フォルダの所有者に権限を付与してもらうか、システム管理者に連絡してください。"
 
 msgid "Insufficient privileges"
 msgstr "権限がありません"
@@ -1609,9 +1616,7 @@ msgstr "権限がありません"
 msgid ""
 "Copying this appointment will unset it as private. Are you sure you want to "
 "continue?"
-msgstr ""
-"この予定をコピーすると、非公開に設定されていることが解除されます。本当に続け"
-"ますか？"
+msgstr "この予定をコピーすると、非公開に設定されていることが解除されます。本当に続けますか？"
 
 msgid "Private item"
 msgstr "私物"
@@ -1623,8 +1628,7 @@ msgstr "コピー"
 msgid ""
 "Moving this appointment will unset it as private. Are you sure you want to "
 "continue?"
-msgstr ""
-"この予定を移動すると、プライベートの設定が解除されます。本当に続けますか？"
+msgstr "この予定を移動すると、プライベートの設定が解除されます。本当に続けますか？"
 
 msgid "Move"
 msgstr "移動"
@@ -1642,10 +1646,10 @@ msgid "Open meeting request with changes"
 msgstr "会議の変更依頼を開く"
 
 msgid "Previous"
-msgstr ""
+msgstr "前へ"
 
 msgid "Next"
-msgstr ""
+msgstr "次へ"
 
 msgid "grommunio Web"
 msgstr "grommunio Web"
@@ -1654,27 +1658,34 @@ msgstr "grommunio Web"
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer. Would you like to move this meeting?"
-msgstr ""
-"変更した内容は、主催者がこの会議依頼を更新した際に上書きされますのでご注意く"
-"ださい。このミーティングを移動しますか？"
+msgstr "変更した内容は、主催者がこの会議依頼を更新した際に上書きされますのでご注意ください。このミーティングを移動しますか？"
 
 msgid "Don't move"
 msgstr "動くな"
 
+msgid "F j"
+msgstr "F j"
+
 msgid "Switch to day view to see all appointments"
 msgstr "すべての予定を見るには日表示に切り替える"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
+msgid "Show all appointments"
+msgstr "すべての予定を表示"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates
+#. to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
 msgstr "提案先"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+#. TRANSLATORS: This message is used as label for the field which to indicates
+#. to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "When"
 msgstr "日時"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+#. TRANSLATORS: This message is used as label for the field which to indicates
+#. to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Location"
 msgstr "場所"
@@ -1686,6 +1697,9 @@ msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
 "be deleted."
 msgstr "カレンダーは自動的に更新されました。この会議出席依頼は削除されます。"
+
+msgid "New appointment subject"
+msgstr "新しい予定の件名"
 
 msgid "Loading appointments…"
 msgstr "予定を読み込む…"
@@ -1714,6 +1728,9 @@ msgstr "{1}の{0}のアポイントメント"
 msgid "No appointments"
 msgstr "アポイントはありません"
 
+msgid "Exception"
+msgstr "例外"
+
 msgid "Today {0} - {1}"
 msgstr "今日: {0}〜{1}"
 
@@ -1721,7 +1738,8 @@ msgid "Today (all day)"
 msgstr "本日（終日）"
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
-#. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
+#. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME -
+#. USERNAME".
 msgid "{0} - {1}"
 msgstr "{0} - {1}"
 
@@ -1762,21 +1780,17 @@ msgid "Recurring Message"
 msgstr "繰り返しのメッセージ"
 
 msgid ""
-"This is a recurring message. Do you want to open only this occurrence or the "
-"series?"
-msgstr ""
-"これは繰り返しのメッセージです。このメッセージだけを開きますか、それとも繰り"
-"返しのメッセージとして開きますか？"
+"This is a recurring message. Do you want to open only this occurrence or the"
+" series?"
+msgstr "これは繰り返しのメッセージです。このメッセージだけを開きますか、それとも繰り返しのメッセージとして開きますか？"
 
 msgid "Recurring Appointment"
 msgstr "繰り返しの予定"
 
 msgid ""
-"This is a recurring appointment. Do you want to open only this occurrence or "
-"the series?"
-msgstr ""
-"この予定は繰り返し予定です。この予定だけを開きますか、それとも繰り返し予定と"
-"して開きますか？"
+"This is a recurring appointment. Do you want to open only this occurrence or"
+" the series?"
+msgstr "この予定は繰り返し予定です。この予定だけを開きますか、それとも繰り返し予定として開きますか？"
 
 msgid "Recurring Meeting Request"
 msgstr "繰り返し予定の会議出席依頼"
@@ -1784,9 +1798,7 @@ msgstr "繰り返し予定の会議出席依頼"
 msgid ""
 "This is a recurring meeting request. Do you want to open only this "
 "occurrence or the series?"
-msgstr ""
-"これは繰り返し予定の会議出席依頼です。この予定だけを開きますか、それとも繰り"
-"返し予定として開きますか？"
+msgstr "これは繰り返し予定の会議出席依頼です。この予定だけを開きますか、それとも繰り返し予定として開きますか？"
 
 msgid "Recurring Task Request"
 msgstr "繰り返しタスクの依頼"
@@ -1794,9 +1806,7 @@ msgstr "繰り返しタスクの依頼"
 msgid ""
 "This is a recurring task request. Do you want to open only this occurrence "
 "or the series?"
-msgstr ""
-"これは繰り返しのタスクです。この予定だけを開きますか、それとも繰り返しのタス"
-"クとして開きますか？"
+msgstr "これは繰り返しのタスクです。この予定だけを開きますか、それとも繰り返しのタスクとして開きますか？"
 
 msgid "Open this occurrence"
 msgstr "このイベントを削除する"
@@ -1811,9 +1821,7 @@ msgstr "定期的な貼り付け{0}"
 msgid ""
 "This is a recurring {0}. Do you want to paste only this occurrence or the "
 "series?"
-msgstr ""
-"これは繰り返される{0}です。この発生分のみを貼り付けるか、それともシリーズを貼"
-"り付けるか？"
+msgstr "これは繰り返される{0}です。この発生分のみを貼り付けるか、それともシリーズを貼り付けるか？"
 
 msgid "message"
 msgstr "メッセージ"
@@ -1833,30 +1841,22 @@ msgstr "シリーズを貼り付ける"
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
 "the series?"
-msgstr ""
-"これは定期的なアイテムです。このアイテムだけを削除しますか？それとも一連のア"
-"イテムを削除しますか？"
+msgstr "これは定期的なアイテムです。このアイテムだけを削除しますか？それとも一連のアイテムを削除しますか？"
 
 msgid ""
 "This is a recurring appointment. Do you want to delete only this occurrence "
 "or the series?"
-msgstr ""
-"これは定期的な予定です。この回だけを削除しますか？それとも一連の予定を削除し"
-"ますか？"
+msgstr "これは定期的な予定です。この回だけを削除しますか？それとも一連の予定を削除しますか？"
 
 msgid ""
 "This is a recurring meeting request. Do you want to delete only this "
 "occurrence or the series?"
-msgstr ""
-"これは繰り返し予定の会議出席依頼です。この予定だけを削除しますか、それとも繰"
-"り返し予定として削除しますか？"
+msgstr "これは繰り返し予定の会議出席依頼です。この予定だけを削除しますか、それとも繰り返し予定として削除しますか？"
 
 msgid ""
-"This is a recurring task request. Do you want to delete only this occurrence "
-"or the series?"
-msgstr ""
-"これは繰り返しのタスクです。このタスクだけを削除しますか、それとも繰り返しタ"
-"スクとして削除しますか？"
+"This is a recurring task request. Do you want to delete only this occurrence"
+" or the series?"
+msgstr "これは繰り返しのタスクです。このタスクだけを削除しますか、それとも繰り返しタスクとして削除しますか？"
 
 msgid "Delete this occurrence"
 msgstr "この出来事を削除する"
@@ -1899,9 +1899,7 @@ msgstr "送信者に通知"
 msgid ""
 "{0} has requested a notification be sent when message \"{1}\" is deleted "
 "without having been read. Do you want to send a receipt?"
-msgstr ""
-"{0}は、メッセージ「{1}」が未読のまま削除された場合に通知を送信するよう要求し"
-"ました。レシートを送りますか？"
+msgstr "{0}は、メッセージ「{1}」が未読のまま削除された場合に通知を送信するよう要求しました。レシートを送りますか？"
 
 msgid "Delete Incomplete Task"
 msgstr "未完了タスクの削除"
@@ -1929,11 +1927,9 @@ msgstr "受信者はすでに存在する。"
 
 #, fuzzy
 msgid ""
-"The sender of this email has requested a read receipt. Do you wish to notify "
-"the sender?"
-msgstr ""
-"このメッセージの送信者はこのメッセージの開封通知を要求しています。送信者に通"
-"知しますか？"
+"The sender of this email has requested a read receipt. Do you wish to notify"
+" the sender?"
+msgstr "このメッセージの送信者はこのメッセージの開封通知を要求しています。送信者に通知しますか？"
 
 msgid "Import"
 msgstr "インポート"
@@ -1952,19 +1948,15 @@ msgstr "「{0}」をインポートできません。ファイルが有効では
 
 #, fuzzy
 msgid ""
-"You have insufficient privileges to move these items. Would you like to copy "
-"instead?"
-msgstr ""
-"これらのアイテムを移動するには、十分な権限がありません。代わりにコピーします"
-"か？"
+"You have insufficient privileges to move these items. Would you like to copy"
+" instead?"
+msgstr "これらのアイテムを移動するには、十分な権限がありません。代わりにコピーしますか？"
 
 #, fuzzy
 msgid ""
 "You have insufficient privileges to move this item. Would you like to copy "
 "instead?"
-msgstr ""
-"このアイテムを移動するには十分な権限がありません。代わりにコピーを希望します"
-"か？"
+msgstr "このアイテムを移動するには十分な権限がありません。代わりにコピーを希望しますか？"
 
 msgid "Cc"
 msgstr "Cc"
@@ -2008,9 +2000,7 @@ msgstr "続ける"
 msgid ""
 "These attachments have an unsupported file type and can not be added to the "
 "ZIP file:"
-msgstr ""
-"これらの添付ファイルはサポートされていないファイル形式であるため、ZIPファイル"
-"に追加することはできません。"
+msgstr "これらの添付ファイルはサポートされていないファイル形式であるため、ZIPファイルに追加することはできません。"
 
 msgid "Would you like to continue downloading without adding these files?"
 msgstr "これらのファイルを追加せずにダウンロードを続けますか？"
@@ -2018,9 +2008,7 @@ msgstr "これらのファイルを追加せずにダウンロードを続けま
 #, fuzzy
 msgid ""
 "Always continue download of ZIP files without adding unsupported file types."
-msgstr ""
-"未対応のファイル形式を追加することなく、常にZIPファイルのダウンロードを継続し"
-"ます。"
+msgstr "未対応のファイル形式を追加することなく、常にZIPファイルのダウンロードを継続します。"
 
 msgid "File upload"
 msgstr "ファイルアップロード"
@@ -2043,17 +2031,13 @@ msgstr "フォルダにインポートする"
 msgid ""
 "In order to use the vCard import feature, upgrade your Gromox to version 0 "
 "or higher."
-msgstr ""
-"vCardインポート機能を使用するためには、Gromoxをバージョン0以上にアップグレー"
-"ドしてください。"
+msgstr "vCardインポート機能を使用するためには、Gromoxをバージョン0以上にアップグレードしてください。"
 
 #, fuzzy
 msgid ""
-"In order to use the ICS / VCS import feature, upgrade your Gromox to version "
-"0 or higher."
-msgstr ""
-"ICS / VCSインポート機能を使用するためには、Gromoxをバージョン0以上にアップグ"
-"レードしてください。"
+"In order to use the ICS / VCS import feature, upgrade your Gromox to version"
+" 0 or higher."
+msgstr "ICS / VCSインポート機能を使用するためには、Gromoxをバージョン0以上にアップグレードしてください。"
 
 msgid "Attachment error"
 msgstr "添付ファイルエラー"
@@ -2079,6 +2063,15 @@ msgstr "カテゴリを管理する"
 msgid "New"
 msgstr "新規作成"
 
+msgid "Rename category"
+msgstr "カテゴリの名前を変更"
+
+msgid "Delete category"
+msgstr "カテゴリを削除"
+
+msgid "Quick access"
+msgstr "クイックアクセス"
+
 msgid "Delete Category"
 msgstr "カテゴリを削除する"
 
@@ -2086,9 +2079,7 @@ msgstr "カテゴリを削除する"
 msgid ""
 "Are you sure you want to delete the category \"{0}\"? Other items keep this "
 "category, but lose the assigned color."
-msgstr ""
-"本当にカテゴリ「{0}」を削除しますか？他の項目はこのカテゴリを維持しますが、割"
-"り当てられた色を失います。"
+msgstr "本当にカテゴリ「{0}」を削除しますか？他の項目はこのカテゴリを維持しますが、割り当てられた色を失います。"
 
 msgid "Rename Category"
 msgstr "カテゴリー名の変更"
@@ -2098,6 +2089,9 @@ msgstr "というカテゴリーがある。"
 
 msgid "Create New Category"
 msgstr "新しいカテゴリの作成"
+
+msgid "Category name"
+msgstr "カテゴリ名"
 
 msgid "Pin to quick access"
 msgstr "ピンでクイックアクセス"
@@ -2109,21 +2103,16 @@ msgstr "作成"
 msgid ""
 "You must apply the changes you have made to the categories before you can "
 "create this category."
-msgstr ""
-"このカテゴリーを作成する前に、カテゴリーに行った変更を適用する必要がありま"
-"す。"
+msgstr "このカテゴリーを作成する前に、カテゴリーに行った変更を適用する必要があります。"
 
 msgid "You already have a category named '{0}'. Please use another name."
-msgstr ""
-"すでに「{0} 」という名前のカテゴリーがあります。別の名前を使用してください。"
+msgstr "すでに「{0} 」という名前のカテゴリーがあります。別の名前を使用してください。"
 
 #, fuzzy
 msgid ""
 "You already have a category named '{0}' in your pending changes. Please use "
 "another name."
-msgstr ""
-"保留中の変更に、すでに「{0}」という名前のカテゴリがあります。別の名前を使用し"
-"てください。"
+msgstr "保留中の変更に、すでに「{0}」という名前のカテゴリがあります。別の名前を使用してください。"
 
 msgid "Rename"
 msgstr "名前変更"
@@ -2137,9 +2126,7 @@ msgstr "名前を変更しますか？"
 msgid ""
 "The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
 "\"{2}\" categories?"
-msgstr ""
-"カテゴリ「{0}」はすでに存在しています。「{1}」と「{2}」のカテゴリを統合します"
-"か？"
+msgstr "カテゴリ「{0}」はすでに存在しています。「{1}」と「{2}」のカテゴリを統合しますか？"
 
 msgid "Merge"
 msgstr "統合"
@@ -2205,8 +2192,7 @@ msgid "Delegate can see my private items."
 msgstr "代理人は自分のプライベートアイテムを見ることができます。"
 
 msgid "Delegate receives copies of meeting-related messages sent to me."
-msgstr ""
-"自分に送られてきた会議関係のメッセージのコピーを代理人が受け取るようにする。"
+msgstr "自分に送られてきた会議関係のメッセージのコピーを代理人が受け取るようにする。"
 
 msgid "Other"
 msgstr "他"
@@ -2227,9 +2213,7 @@ msgstr "代議員はあなたに代わってアイテムを送ることができ
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
 "the context menu and click on \"Share folder…\""
-msgstr ""
-"フォルダーの権限設定のみを行う場合は、フォルダーを右クリックしてコンテキスト"
-"メニューを開き、「フォルダーを共有する…」をクリックします。"
+msgstr "フォルダーの権限設定のみを行う場合は、フォルダーを右クリックしてコンテキストメニューを開き、「フォルダーを共有する…」をクリックします。"
 
 msgid "Permission"
 msgstr "許可"
@@ -2266,17 +2250,13 @@ msgstr "選択した項目は利用できなくなりました。"
 msgid ""
 "You have insufficient privileges to move this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
-msgstr ""
-"このフォルダーを移動するには、十分な権限がありません。フォルダの所有者に権限"
-"を付与してもらうか、システム管理者に連絡してください。"
+msgstr "このフォルダーを移動するには、十分な権限がありません。フォルダの所有者に権限を付与してもらうか、システム管理者に連絡してください。"
 
 #, fuzzy
 msgid ""
 "You have insufficient privileges to copy this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
-msgstr ""
-"このフォルダーをコピーするための権限が不足しています。フォルダの所有者に権限"
-"を付与してもらうか、システム管理者に連絡してください。"
+msgstr "このフォルダーをコピーするための権限が不足しています。フォルダの所有者に権限を付与してもらうか、システム管理者に連絡してください。"
 
 msgid "You have insufficient privileges to move following items."
 msgstr "以下のアイテムを移動する権限が不足しています。"
@@ -2438,9 +2418,7 @@ msgstr "選択したアイテムを削除"
 msgid ""
 "Delete selected item without moving it to the Deleted Items folder. The "
 "deleted item can still be restored."
-msgstr ""
-"選択した項目を削除しても、削除済みアイテムフォルダには移動しません。削除され"
-"た項目は、復元することができます。"
+msgstr "選択した項目を削除しても、削除済みアイテムフォルダには移動しません。削除された項目は、復元することができます。"
 
 msgid "Add/Edit Cc recipient"
 msgstr "Cc受信者の追加/編集"
@@ -2504,11 +2482,9 @@ msgstr "配信リストの拡大"
 
 #, fuzzy
 msgid ""
-"Distribution list will be replaced with its members. You will not be able to "
-"collapse it again."
-msgstr ""
-"配布リストは、そのメンバーで置き換えられます。再び折りたたむことはできませ"
-"ん。"
+"Distribution list will be replaced with its members. You will not be able to"
+" collapse it again."
+msgstr "配布リストは、そのメンバーで置き換えられます。再び折りたたむことはできません。"
 
 msgid "Edit Recipient"
 msgstr "受信者を編集します"
@@ -2606,8 +2582,11 @@ msgstr "{A}回繰り返し後終了"
 msgid "End by {A}"
 msgstr "{A}までに終了"
 
-#. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
-#. For example: 'Occurrence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurrence duration: 1 hour'
+#. TRANSLATORS: This informs the user what the exact duration of the
+#. appointment is. Where {D} represents the days, {H} the hours and {M} the
+#. minutes.
+#. For example: 'Occurrence duration: 1 day 2 hours 45 minutes', or when the
+#. appointment is shorter then 1 day: 'Occurrence duration: 1 hour'
 msgid "Occurrence duration: {D} {H} {M}"
 msgstr "繰り返し間隔:{D}日{H}時間{M}分"
 
@@ -2648,7 +2627,8 @@ msgstr "リマインダーはありません"
 msgid "Due In"
 msgstr "期限"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Due"
 msgstr "期限"
 
@@ -2700,8 +2680,7 @@ msgid "Delete all items"
 msgstr "すべての項目を削除"
 
 msgid "Are you sure you want to permanently delete all items?"
-msgstr ""
-"フォルダ内のサブフォルダと全てのアイテムを完全削除しますがよろしいですか？"
+msgstr "フォルダ内のサブフォルダと全てのアイテムを完全削除しますがよろしいですか？"
 
 msgid "Restore all items"
 msgstr "すべてのアイテムを復元する"
@@ -2821,6 +2800,15 @@ msgstr "は、宛先欄に私の名前があります。"
 msgid "is received (all messages)"
 msgstr "を受信した（すべてのメッセージ）"
 
+msgid "Message size"
+msgstr "メッセージサイズ"
+
+msgid "Size unit"
+msgstr "サイズ単位"
+
+msgid "Condition"
+msgstr "条件"
+
 msgid "Unknown condition"
 msgstr "不明な条件"
 
@@ -2832,6 +2820,9 @@ msgstr "アクションを追加"
 
 msgid "Remove action"
 msgstr "アクションを削除"
+
+msgid "Action"
+msgstr "アクション"
 
 msgid "Unknown action"
 msgstr "不明なアクション"
@@ -2879,16 +2870,17 @@ msgstr "単語と文章を特定する"
 msgid "Edit"
 msgstr "編集"
 
+msgid "Word"
+msgstr "Word"
+
 msgid "and"
 msgstr "かつ"
 
 #, fuzzy
 msgid ""
-"Distribution lists are not supported in rules, would you like to replace the "
-"distribution list with its members?"
-msgstr ""
-"配布リストはルールではサポートされていません。配布リストをそのメンバーで置き"
-"換えますか？"
+"Distribution lists are not supported in rules, would you like to replace the"
+" distribution list with its members?"
+msgstr "配布リストはルールではサポートされていません。配布リストをそのメンバーで置き換えますか？"
 
 msgid "or"
 msgstr "もしくは"
@@ -2897,10 +2889,10 @@ msgid "No rule exists"
 msgstr "ルールが登録されていません"
 
 msgid "Move Up"
-msgstr ""
+msgstr "上に移動"
 
 msgid "Move Down"
-msgstr ""
+msgstr "下に移動"
 
 msgid "Active"
 msgstr "アクティブ"
@@ -2993,8 +2985,8 @@ msgid "Folder does not exist"
 msgstr "フォルダが存在しない"
 
 msgid ""
-"The folder you are searching through no longer exists. Please select another "
-"folder"
+"The folder you are searching through no longer exists. Please select another"
+" folder"
 msgstr "検索中のフォルダはもう存在しません。他のフォルダを選択してください。"
 
 msgid "Add/Edit sender"
@@ -3063,6 +3055,9 @@ msgstr "住所から"
 msgid "From Addresses settings"
 msgstr "差出人アドレスの設定"
 
+msgid "Select color"
+msgstr "色を選択"
+
 msgid "Full name"
 msgstr "フルネーム"
 
@@ -3077,6 +3072,9 @@ msgstr "Webページ"
 
 msgid "IM Address"
 msgstr "IMアドレス"
+
+msgid "Message body"
+msgstr "メッセージ本文"
 
 msgid "D, d-m-Y, {0}"
 msgstr "D Y年m月d日, {0}"
@@ -3106,8 +3104,14 @@ msgstr "未定"
 msgid "Meeting Organizer"
 msgstr "会議の主催者"
 
+msgid "Follow up"
+msgstr "ファローアップ"
+
 msgid "{0} overdue"
 msgstr "{0}期限切れ"
+
+msgid "Message body editor"
+msgstr "メッセージ本文エディタ"
 
 msgid "Loading…"
 msgstr "読み込み中…"
@@ -3115,7 +3119,8 @@ msgstr "読み込み中…"
 msgid "Message could not be loaded"
 msgstr "メッセージが読み込めませんでした"
 
-#. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
+#. TRANSLATORS: This message is used as label for the field which indicates
+#. which attachments are inside the message
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "添付ファイル"
@@ -3129,7 +3134,8 @@ msgstr "送信者を安全な送信者リストに追加する"
 msgid "Add Domain to Safe Senders List"
 msgstr "ドメインを安全な送信者リストに追加する"
 
-#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates with which
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and
+#. indicates with which
 #. importance the message was sent. For example:
 #. 'This message was sent with high importance.'
 #. 'This message was sent with low importance.'
@@ -3137,7 +3143,8 @@ msgctxt "mail.previewpanel"
 msgid "This message was sent with {0} importance."
 msgstr "このメッセージは重要度{0}で送信されました。"
 
-#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates which
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and
+#. indicates which
 #. sensitivity level applies to the message. For example:
 #. 'Please treat this as Personal.'
 #. 'Please treat this as Private.'
@@ -3149,20 +3156,17 @@ msgstr "{0}として扱う。"
 #, fuzzy
 msgctxt "mail.previewpanel"
 msgid ""
-"Click here to download pictures. To help protect your privacy, grommunio Web "
-"prevented automatic download of some pictures in this message."
+"Click here to download pictures. To help protect your privacy, grommunio Web"
+" prevented automatic download of some pictures in this message."
 msgstr ""
-"画像のダウンロードはこちらgrommunio Webでは、プライバシー保護のため、一部の画"
-"像は自動でダウンロードされないようになっています。"
+"画像のダウンロードはこちらgrommunio Webでは、プライバシー保護のため、一部の画像は自動でダウンロードされないようになっています。"
 
 #, fuzzy
 msgctxt "mail.previewpanel"
 msgid ""
 "This message is corrupt and will not be displayed correctly, Click here to "
 "fix it."
-msgstr ""
-"このメッセージは壊れているため、正しく表示されません。ここをクリックして修正"
-"してください。"
+msgstr "このメッセージは壊れているため、正しく表示されません。ここをクリックして修正してください。"
 
 msgctxt "mail.previewpanel"
 msgid "{0} has accepted."
@@ -3203,21 +3207,20 @@ msgid "{0} declined and proposed a new time for this meeting."
 msgstr "{0}は辞退し、この会議の新しい日時の申し出ました。"
 
 msgctxt "mail.previewpanel"
-msgid "{0} declined on behalf of {1} and proposed a new time for this meeting."
+msgid ""
+"{0} declined on behalf of {1} and proposed a new time for this meeting."
 msgstr "{0}は{1}の代わりに辞退し、この会議の新しい日時の申し出ました。"
 
 msgctxt "mail.previewpanel"
-msgid "This meeting is not in the Calendar; it may have been moved or deleted."
-msgstr ""
-"この会議はカレンダーにありません。移動したか削除された可能性があります。"
+msgid ""
+"This meeting is not in the Calendar; it may have been moved or deleted."
+msgstr "この会議はカレンダーにありません。移動したか削除された可能性があります。"
 
 msgctxt "mail.previewpanel"
 msgid ""
 "This meeting request was updated after this message was sent. You should "
 "open the latest update or open the item from the calendar."
-msgstr ""
-"この会議出席依頼はこのメッセージが送信された後に更新されています。最新の更新"
-"を開いた後にカレンダーからアイテムを開いて下さい。"
+msgstr "この会議出席依頼はこのメッセージが送信された後に更新されています。最新の更新を開いた後にカレンダーからアイテムを開いて下さい。"
 
 msgctxt "mail.previewpanel"
 msgid "As the meeting organizer, you do not need to respond to the meeting"
@@ -3292,14 +3295,15 @@ msgstr "メッセージの修正"
 
 #, fuzzy
 msgid ""
-"We are going to try to fix a corrupted mail message, do you wish to continue?"
+"We are going to try to fix a corrupted mail message, do you wish to "
+"continue?"
 msgstr "破損したメールメッセージの修復を試みますが、続けますか？"
 
 msgid "The matching task was not found in your task list."
 msgstr "一致するタスクがタスクリストに見つかりませんでした。"
 
 msgid "Toggle header"
-msgstr ""
+msgstr "ヘッダーの表示/非表示を切り替える"
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3317,20 +3321,29 @@ msgctxt "mail.previewpanel"
 msgid "Categories"
 msgstr "カテゴリー"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+#. TRANSLATORS: This message is used as label for the field which to indicates
+#. to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Recipients"
 msgstr "受信者"
 
-#. TRANSLATORS: check if the mail is send by some delegator or not. if then display "on behalf of".
+#. TRANSLATORS: check if the mail is send by some delegator or not. if then
+#. display "on behalf of".
 msgctxt "mail.previewpanel"
 msgid "on behalf of"
 msgstr "代理人"
 
-#. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
+#. TRANSLATORS: This message is used to indicate that no sent date is
+#. available for the message (because it has not been sent yet).
 msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "メモ"
+
+msgid "Pagination"
+msgstr "ページネーション"
+
+msgid "Page number"
+msgstr "ページ番号"
 
 msgid "Pop-out"
 msgstr "ポップアウト"
@@ -3428,7 +3441,8 @@ msgstr "Email 3"
 msgid "Email3 Display As"
 msgstr "メール表示"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Birthday"
 msgstr "誕生日"
 
@@ -3528,7 +3542,8 @@ msgstr "ニックネーム"
 msgid "Suffix"
 msgstr "接尾句"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Anniversary"
 msgstr "記念日"
 
@@ -3631,9 +3646,7 @@ msgstr "コンタクトを読み込み中"
 #, fuzzy
 msgid ""
 "There are no items to show in this list. Update the filter for more results."
-msgstr ""
-"このリストには表示する項目がありません。より多くの結果を得るためにフィルタを"
-"更新してください。"
+msgstr "このリストには表示する項目がありません。より多くの結果を得るためにフィルタを更新してください。"
 
 msgid "[Group]"
 msgstr "[グループ］"
@@ -3773,6 +3786,9 @@ msgstr "並べ替え：TTY/TDD電話"
 msgid "Sort by: Telex Phone"
 msgstr "並べ替え：テレックス"
 
+msgid "Contacts list"
+msgstr "連絡先リスト"
+
 msgid "Change Picture"
 msgstr "チェンジ・ピクチャー"
 
@@ -3793,9 +3809,8 @@ msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
 "browser's settings to always allow pop-ups from grommunio Web."
 msgstr ""
-"お使いのブラウザで、1つまたは複数のポップアップがブロックされているようです。"
-"ブラウザの設定を変更し、grommunio Webからのポップアップを常に許可するように設"
-"定してください。"
+"お使いのブラウザで、1つまたは複数のポップアップがブロックされているようです。ブラウザの設定を変更し、grommunio "
+"Webからのポップアップを常に許可するように設定してください。"
 
 msgid "Untitled"
 msgstr "タイトル無し"
@@ -3803,43 +3818,38 @@ msgstr "タイトル無し"
 msgid ""
 "Cannot upload attachment, only {0} attachments are allowed to be added to "
 "the message"
-msgstr ""
-"添付ファイルをアップロードできません。{0}添付ファイルのみメッセージに添付する"
-"ことができます"
+msgstr "添付ファイルをアップロードできません。{0}添付ファイルのみメッセージに添付することができます"
 
 #, fuzzy
 msgid ""
-"Cannot upload attachment, attachment is {0} while the allowed maximum is {1}."
-msgstr ""
-"添付ファイルをアップロードできません。添付ファイルの最大許容数は{1}ですが、"
-"{0}です。"
+"Cannot upload attachment, attachment is {0} while the allowed maximum is "
+"{1}."
+msgstr "添付ファイルをアップロードできません。添付ファイルの最大許容数は{1}ですが、{0}です。"
 
 msgid ""
-"Cannot upload attachment, the total attachment size is {0} while the allowed "
-"maximum is {1}"
+"Cannot upload attachment, the total attachment size is {0} while the allowed"
+" maximum is {1}"
 msgstr "最大値は{1}です。"
 
 #, fuzzy
 msgid ""
 "Cannot upload attachment, total attachment is {0} while the allowed maximum "
 "attachment in single request is {1}."
-msgstr ""
-"添付ファイルをアップロードできません。1回のリクエストで許可される最大添付ファ"
-"イルは{1}ですが、添付ファイルの合計が{0}です。"
+msgstr "添付ファイルをアップロードできません。1回のリクエストで許可される最大添付ファイルは{1}ですが、添付ファイルの合計が{0}です。"
 
 #, fuzzy
 msgid ""
 "Cannot upload attachment, total attachments are {0} files while the maximum "
 "{1} files are allowed in single request."
-msgstr ""
-"添付ファイルをアップロードできません。1回のリクエストで最大{1}個のファイルが"
-"許可されていますが、添付ファイルの合計は{0}個です。"
+msgstr "添付ファイルをアップロードできません。1回のリクエストで最大{1}個のファイルが許可されていますが、添付ファイルの合計は{0}個です。"
 
-#. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
+#. TRANSLATORS: {0} indicates name/email address of secretary and {1}
+#. indicates boss' name/email address
 msgid "{0} on behalf of {1}"
 msgstr "{1}の代わりとして{0}"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "jS F"
 msgstr "Fj日"
 
@@ -3957,6 +3967,9 @@ msgstr "赤"
 msgid "Brown"
 msgstr "ブラウン"
 
+msgid "Main navigation"
+msgstr "メインナビゲーション"
+
 msgid "Logout"
 msgstr "ログアウト"
 
@@ -3972,17 +3985,17 @@ msgstr "ダーク"
 msgid "Automatic"
 msgstr "自動"
 
+msgid "Main toolbar"
+msgstr "メインツールバー"
+
 msgid "Switch view"
 msgstr "ビューを切替"
 
-msgid "Folder navigation"
-msgstr ""
+msgid "Skip to main content"
+msgstr "メインコンテンツへスキップ"
 
 msgid "Widgets"
 msgstr "ウィジェット"
-
-msgid "Main content"
-msgstr ""
 
 msgid "Sending…"
 msgstr "送信中……"
@@ -4020,9 +4033,7 @@ msgstr "添付ファイルがありません"
 msgid ""
 "Your message appears to reference an attachment but no file is attached. "
 "Send anyway?"
-msgstr ""
-"メッセージは添付ファイルを参照しているようですが、ファイルが添付されていませ"
-"ん。とにかく送信しますか?"
+msgstr "メッセージは添付ファイルを参照しているようですが、ファイルが添付されていません。とにかく送信しますか?"
 
 msgid "No subject"
 msgstr "対象者なし"
@@ -4069,9 +4080,7 @@ msgstr "正常に保存しました"
 #, fuzzy
 msgid ""
 "You will lose all unsaved work. Are you sure you want to close this window?"
-msgstr ""
-"保存されていない変更は全て失われてしまいますが、このウィンドウを閉じてもよろ"
-"しいですか？"
+msgstr "保存されていない変更は全て失われてしまいますが、このウィンドウを閉じてもよろしいですか？"
 
 msgid "grommunio Content Panel"
 msgstr "grommunioコンテンツパネル"
@@ -4149,18 +4158,14 @@ msgid "D d-m"
 msgstr "D d-m"
 
 msgid ""
-"Not enough permissions to open this store, do you want to remove it from the "
-"hierarchy?"
-msgstr ""
-"このデータストアを開くための十分な権限がありません。ヒエラルキーから外します"
-"か？"
+"Not enough permissions to open this store, do you want to remove it from the"
+" hierarchy?"
+msgstr "このデータストアを開くための十分な権限がありません。ヒエラルキーから外しますか？"
 
 msgid ""
 "Not enough permissions to open this folder, do you want to remove it from "
 "the hierarchy?"
-msgstr ""
-"このフォルダを開くための十分な権限がありません。このヒエラルキーから取り除き"
-"ますか？"
+msgstr "このフォルダを開くための十分な権限がありません。このヒエラルキーから取り除きますか？"
 
 msgid "Insufficient Permissions"
 msgstr "不十分なパーミッション"
@@ -4429,9 +4434,6 @@ msgstr "再読み込み"
 msgid "Restore items"
 msgstr "アイテムを回復する"
 
-msgid "Select color"
-msgstr "色を選択"
-
 msgid "Add to Favorites"
 msgstr "お気に入りへ追加する"
 
@@ -4462,8 +4464,7 @@ msgstr "{0}〜{1}のプロパティ"
 msgid ""
 "Are you sure you want to permanently delete all the items and subfolders in "
 "the \"{0}\" folder?"
-msgstr ""
-"{0}フォルダ内のサブフォルダと全てのアイテムを完全削除しますがよろしいですか？"
+msgstr "{0}フォルダ内のサブフォルダと全てのアイテムを完全削除しますがよろしいですか？"
 
 msgid ""
 "Are you sure you want to delete the folder \"{0}\" and move all of its "
@@ -4479,9 +4480,12 @@ msgstr "{0}を空にしますがよろしいですか？"
 msgid "Show All"
 msgstr "すべて表示"
 
+msgid "Filter folders"
+msgstr "フォルダをフィルタリング"
+
 msgid ""
-"You have insufficient privileges to move this folder. Would you like to copy "
-"instead?"
+"You have insufficient privileges to move this folder. Would you like to copy"
+" instead?"
 msgstr "このフォルダを移動する権限がありません。代わりにコピーしますか?"
 
 msgid "CC"
@@ -4493,7 +4497,8 @@ msgstr "Bcc"
 msgid "Sort by: To"
 msgstr "並べ替え: に"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Sent"
 msgstr "送信"
 
@@ -4522,8 +4527,7 @@ msgid "at a specific time"
 msgstr "次に指定されています"
 
 msgid "The time you entered is in the past. Please reschedule your mail."
-msgstr ""
-"入力された時間は過去になっています。メールを再スケジュールしてください。"
+msgstr "入力された時間は過去になっています。メールを再スケジュールしてください。"
 
 msgid "today  at "
 msgstr "本日の "
@@ -4657,6 +4661,10 @@ msgstr "転送"
 msgid "Re"
 msgstr "返信"
 
+#. TRANSLATORS: prefix before sender name in print-to-PDF filename
+msgid "FROM"
+msgstr "差出人"
+
 msgid "on behalf of"
 msgstr "を代表して"
 
@@ -4784,8 +4792,14 @@ msgstr "在席中"
 msgid "I am out of the office from"
 msgstr "次の時間より外出中"
 
+msgid "Out of office from"
+msgstr "不在期間："
+
 msgid "I will be back on"
 msgstr "に戻ってきます。"
+
+msgid "Back on"
+msgstr "戻る"
 
 msgid "Automatically reply with the following message:"
 msgstr "自動的に下記のメッセージで返事します:"
@@ -4821,11 +4835,9 @@ msgstr "安全な送信者"
 
 #, fuzzy
 msgid ""
-"To protect your privacy email addresses or domains can only be added via the "
-"\"Add to safe sender list\" functionality in an opened email."
-msgstr ""
-"プライバシー保護のため、メールアドレスやドメインは、開封したメールにある「差"
-"出人セーフリストに追加する」機能によってのみ追加できます。"
+"To protect your privacy email addresses or domains can only be added via the"
+" \"Add to safe sender list\" functionality in an opened email."
+msgstr "プライバシー保護のため、メールアドレスやドメインは、開封したメールにある「差出人セーフリストに追加する」機能によってのみ追加できます。"
 
 msgid "Delete all"
 msgstr "すべてのローカルのサムネイルおよびアイコンを削除します"
@@ -4841,6 +4853,9 @@ msgstr "新着メッセージ"
 
 msgid "Replies/forwards"
 msgstr "返信/転送"
+
+msgid "Signature name"
+msgstr "署名名"
 
 msgid "Signature name:"
 msgstr "署名の名前"
@@ -4917,9 +4932,6 @@ msgstr "非常に大きい"
 msgid "Huge"
 msgstr "超特大"
 
-msgid "Follow up"
-msgstr "ファローアップ"
-
 msgid "Move to Junk Folder"
 msgstr "ジャンクフォルダに移動"
 
@@ -4928,6 +4940,9 @@ msgstr "迷惑メールではない"
 
 msgid "Send to"
 msgstr "送信先"
+
+msgid "Message list"
+msgstr "メッセージ一覧"
 
 msgid "Loading mail"
 msgstr "メールの読み込み中"
@@ -4980,6 +4995,9 @@ msgstr "並べ替え：カテゴリー"
 msgid "Sort by: Color"
 msgstr "並べ替え：色"
 
+msgid "Notes list"
+msgstr "メモ一覧"
+
 msgid "Loading Notes"
 msgstr "メモ読み込む"
 
@@ -4992,9 +5010,7 @@ msgstr "クイック メモ"
 msgid ""
 "You must reload grommunio Web for the changes to take effect. Unsaved "
 "changes will be lost."
-msgstr ""
-"変更を有効にするには、grommunio Web をリロードする必要があります。保存されて"
-"いない変更は失われます。"
+msgstr "変更を有効にするには、grommunio Web をリロードする必要があります。保存されていない変更は失われます。"
 
 msgid "Reload grommunio Web"
 msgstr "グロムニオ・ウェブのリロード"
@@ -5020,8 +5036,17 @@ msgstr "テーマ"
 msgid "Personal information"
 msgstr "個人情報"
 
+msgid "Last Name, First Name"
+msgstr "姓、名"
+
+msgid "First Name Last Name"
+msgstr "名 姓"
+
 msgid "Select Default Folder"
 msgstr "デフォルトフォルダの選択"
+
+msgid "Name Display Format"
+msgstr "表示形式"
 
 msgid "Advanced"
 msgstr "高度な"
@@ -5037,6 +5062,9 @@ msgstr "grommunio Webの挿入ポイントを表示する。"
 
 msgid "Show \"item data\" button in context menu (mail only)"
 msgstr "コンテキストメニューに「アイテムデータ」ボタンを表示（メールのみ）"
+
+msgid "Settings categories"
+msgstr "設定カテゴリ"
 
 msgid "Edit setting"
 msgstr "編集設定"
@@ -5056,11 +5084,17 @@ msgstr "内容"
 msgid "Date & Time"
 msgstr "日時"
 
+msgid "Date format"
+msgstr "日付の形式"
+
 msgid "Short"
 msgstr "ショート"
 
 msgid "Long"
 msgstr "ロング"
+
+msgid "Time format"
+msgstr "時刻の表示形式"
 
 msgid "12h clock"
 msgstr "12時間時計"
@@ -5116,22 +5150,21 @@ msgstr "受信箱ナビゲーション"
 msgid "I want to navigate through my items by using:"
 msgstr "アイテムをナビゲートしたい："
 
+msgid "Navigation method"
+msgstr "ナビゲーション方法"
+
 msgid "Infinite Scroll"
 msgstr "無限スクロール"
 
-msgid "grommunio Web automatically loads additional items when you scroll down"
-msgstr ""
-"grommunio Webは、スクロールダウンすると自動的に追加項目を読み込みます。"
-
-msgid "Pagination"
-msgstr "ページネーション"
+msgid ""
+"grommunio Web automatically loads additional items when you scroll down"
+msgstr "grommunio Webは、スクロールダウンすると自動的に追加項目を読み込みます。"
 
 #, fuzzy
 msgid ""
-"grommunio Web displays items on pages and you can use navigation controls to "
-"navigate"
-msgstr ""
-"grommunio Webは、ページ単位で項目を表示し、ナビゲーションコントロールを使って"
+"grommunio Web displays items on pages and you can use navigation controls to"
+" navigate"
+msgstr "grommunio Webは、ページ単位で項目を表示し、ナビゲーションコントロールを使って"
 
 msgid "Load items in blocks of {A}"
 msgstr "アイテムは{A}個のずつロードしろ。"
@@ -5144,6 +5177,9 @@ msgstr "キーボードショートカット"
 
 msgid "Extended"
 msgstr "拡張"
+
+msgid "Keyboard shortcuts"
+msgstr "キーボードショートカット"
 
 msgid "Keyboard shortcuts off"
 msgstr "キーボードショートカットオフ"
@@ -5194,9 +5230,7 @@ msgstr "{0}によりメール送信ができません。"
 msgid ""
 "You can not send mails as you have exceeded soft quota, at {0} you won't be "
 "able to receive mails."
-msgstr ""
-"ソフトクオータを超えたのでメールを送信できません、{0}でメールを受信できなくな"
-"ります。"
+msgstr "ソフトクオータを超えたのでメールを送信できません、{0}でメールを受信できなくなります。"
 
 msgid "At {0} you won't be able to send or receive mails."
 msgstr "{0}では、メールの送受信ができなくなります。"
@@ -5214,9 +5248,7 @@ msgstr "設定を元のデフォルトに戻す。"
 msgid ""
 "This will close all opened shared stores and resets all settings to the "
 "default value."
-msgstr ""
-"これにより、開いているすべての共有ストアが閉じられ、すべての設定がデフォルト"
-"値にリセットされます。"
+msgstr "これにより、開いているすべての共有ストアが閉じられ、すべての設定がデフォルト値にリセットされます。"
 
 #, fuzzy
 msgid ""
@@ -5321,17 +5353,13 @@ msgstr "タスクの減少"
 msgid ""
 "This task will be accepted and moved to your task folder. Do you want to "
 "include comments with your response?"
-msgstr ""
-"この会議は受諾され、自分のカレンダーに移動します。返信にコメントを含めます"
-"か？"
+msgstr "この会議は受諾され、自分のカレンダーに移動します。返信にコメントを含めますか？"
 
 #, fuzzy
 msgid ""
 "This task will be declined and moved into the Deleted Items folder. Do you "
 "want to edit the response before sending it?"
-msgstr ""
-"この会議は辞退され、自分のカレンダーに移動します。返信にコメントを含めます"
-"か？"
+msgstr "この会議は辞退され、自分のカレンダーに移動します。返信にコメントを含めますか？"
 
 msgid "Send the response now"
 msgstr "今すぐ返事を送る"
@@ -5417,7 +5445,8 @@ msgstr "完了"
 msgid "Printed by: "
 msgstr "印刷は"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
+#. meaning of these formatting instructions
 msgid "Printed on: "
 msgstr "にプリントされています。"
 
@@ -5482,8 +5511,7 @@ msgstr "担当タスクの変更"
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
 "makes changes."
-msgstr ""
-"なお、割り当てられたタスクは、割り当てられた人が変更すると上書きされます。"
+msgstr "なお、割り当てられたタスクは、割り当てられた人が変更すると上書きされます。"
 
 msgid "Sort by: Complete"
 msgstr "並べ替え：完成度"
@@ -5508,6 +5536,9 @@ msgstr "並べ替え完了率"
 
 msgid "Assigned task changes"
 msgstr "担当タスクの変更"
+
+msgid "Tasks list"
+msgstr "タスクリスト"
 
 msgid "Loading tasks"
 msgstr "読み込み中のタスク"
@@ -5554,8 +5585,7 @@ msgstr "セッションが切れました。再認証が必要です。"
 msgid ""
 "The session in the current browser window has been closed from another "
 "browser window or tab."
-msgstr ""
-"この画面のセッションは他のブラウザの画面もしくはタブにより切断されました。"
+msgstr "この画面のセッションは他のブラウザの画面もしくはタブにより切断されました。"
 
 msgid "Session expired"
 msgstr "セッション期限切れ"
@@ -5564,9 +5594,7 @@ msgid "Do you wish to be redirected to the logon page?"
 msgstr "ログオンページへリダイレクトしますか？"
 
 msgid "Reauthentication required, click here to go to back to logon page."
-msgstr ""
-"再度、ユーザー認証が必要です。ログオンページに戻るにはここをクリックして下さ"
-"い。"
+msgstr "再度、ユーザー認証が必要です。ログオンページに戻るにはここをクリックして下さい。"
 
 msgid "Connection problem"
 msgstr "接続の問題"
@@ -5650,7 +5678,8 @@ msgid "Missing folders"
 msgstr "見当たらないフォルダ"
 
 msgid "The following required folder is missing in the hierarchy: {0}"
-msgid_plural "The following required folders are missing in the hierarchy: {0}"
+msgid_plural ""
+"The following required folders are missing in the hierarchy: {0}"
 msgstr[0] "次のフォルダが見つかりません。：{0}"
 
 msgid "Loading model from server failed"
@@ -5714,7 +5743,7 @@ msgid "Public link"
 msgstr "公開リンク"
 
 msgid "Copy link"
-msgstr ""
+msgstr "リンクをコピー"
 
 msgid "Password protect"
 msgstr "パスワードによる保護"
@@ -5800,9 +5829,7 @@ msgid "Rename item"
 msgstr "アイテムの名前変更"
 
 msgid "A file named \"{0}\" already exists. Please enter a different name."
-msgstr ""
-"「{0}」という名前のファイルがすでに存在しています。別の名前を入力してくださ"
-"い。"
+msgstr "「{0}」という名前のファイルがすでに存在しています。別の名前を入力してください。"
 
 msgid "Downloading"
 msgstr "ダウンロード中です"
@@ -5814,8 +5841,7 @@ msgid "Upload"
 msgstr "アップロード"
 
 msgid "At least one file is too large! Maximum allowed filesize: {0}."
-msgstr ""
-"少なくとも１つのファイルサイズが大きすぎます。最大許容サイズは {0} です。"
+msgstr "少なくとも１つのファイルサイズが大きすぎます。最大許容サイズは {0} です。"
 
 msgid "Keep both"
 msgstr "両方を維持する"
@@ -5998,8 +6024,7 @@ msgid "Select upload folder"
 msgstr "アップロードするフォルダを選択"
 
 msgid "File \"{0}\" is too large! Maximum allowed filesize: {1}."
-msgstr ""
-"ファイル \"{0}\" のサイズが大きすぎます! 最大ファイルサイズは {1} です。"
+msgstr "ファイル \"{0}\" のサイズが大きすぎます! 最大ファイルサイズは {1} です。"
 
 msgid "Add item to Files"
 msgstr "ファイル共有へアイテムを追加"
@@ -6093,9 +6118,7 @@ msgstr "共有を編集"
 
 msgid ""
 "There are no accounts added. Go to settings, Files tab and add an account"
-msgstr ""
-"アカウントが追加されていません。設定」→「ファイル」タブで、アカウントを追加し"
-"てください。"
+msgstr "アカウントが追加されていません。設定」→「ファイル」タブで、アカウントを追加してください。"
 
 msgid "Filesize"
 msgstr "ファイルサイズ"
@@ -6109,9 +6132,11 @@ msgstr "共有されています"
 msgid "File preview"
 msgstr "ファイル・レビュー"
 
+msgid "File content"
+msgstr "ファイルの内容"
+
 msgid "Your browser does not support previewing of audio files!"
-msgstr ""
-"ご利用中のブラウザは、オーディオファイルのレビューをサポートしていません!"
+msgstr "ご利用中のブラウザは、オーディオファイルのレビューをサポートしていません!"
 
 msgid "Your browser does not support previewing of video files!"
 msgstr "ご利用中のブラウザでは、動画ファイルのレビューをサポートしていません!"
@@ -6231,9 +6256,9 @@ msgid "attachments selected"
 msgstr "選択された添付ファイル"
 
 msgid ""
-"With the selection of separate attachments the total size of all attachments "
-"may not exceed"
-msgstr ""
+"With the selection of separate attachments the total size of all attachments"
+" may not exceed"
+msgstr "個別の添付ファイルを選択する場合、すべての添付ファイルの合計サイズは"
 
 msgid "MB. There have been"
 msgstr "MB.これまで"
@@ -6337,11 +6362,11 @@ msgstr "共有フォルダの管理"
 
 #, fuzzy
 msgid ""
-"Select folders to sync to your device from the list below. To add additional "
-"mailboxes to the list, open them in grommunio Web first."
+"Select folders to sync to your device from the list below. To add additional"
+" mailboxes to the list, open them in grommunio Web first."
 msgstr ""
-"以下のリストから端末に同期するフォルダを選択します。メールボックスをリストに"
-"追加するには、まずgrommunio Webでメールボックスを開いてください。"
+"以下のリストから端末に同期するフォルダを選択します。メールボックスをリストに追加するには、まずgrommunio "
+"Webでメールボックスを開いてください。"
 
 msgid "grommunio-sync"
 msgstr "グロムニオ・シンク"
@@ -6355,9 +6380,7 @@ msgstr "モバイル機器"
 msgid ""
 "Unable to connect to the grommunio-sync server. Click {0} to enter your "
 "credentials"
-msgstr ""
-"grommunio-syncサーバーに接続できません。{0}をクリックして、認証情報を入力して"
-"ください。"
+msgstr "grommunio-syncサーバーに接続できません。{0}をクリックして、認証情報を入力してください。"
 
 msgid "Devices"
 msgstr "デバイス"
@@ -6401,6 +6424,9 @@ msgstr "{0} と入力して確認する。"
 msgid "Please type {0} to confirm"
 msgstr "確認のため、{0} と入力してください。"
 
+msgid "Wipe type"
+msgstr "ワイプタイプ"
+
 msgid "Wipe only data related to this account"
 msgstr "このアカウントに関連するデータのみを消去する"
 
@@ -6414,6 +6440,8 @@ msgid ""
 "Do you really want to wipe your device?\n"
 " Type WIPE to confirm."
 msgstr ""
+"本当にデバイスを初期化しますか？\n"
+" 確認するには「WIPE」と入力してください。"
 
 #, fuzzy
 msgid ""
@@ -6427,6 +6455,8 @@ msgid ""
 "Do you really want to remove your device?\n"
 " Type REMOVE to confirm."
 msgstr ""
+"本当にデバイスを削除しますか？\n"
+" 削除するには「REMOVE」と入力してください。"
 
 #, fuzzy
 msgid ""
@@ -6442,8 +6472,14 @@ msgstr "ミーティングの追加"
 msgid "Room name:"
 msgstr "部屋名"
 
+msgid "Room name"
+msgstr "部屋名"
+
 msgid "Room URL:"
 msgstr "部屋のURLです。"
+
+msgid "Room URL"
+msgstr "会議室のURL"
 
 msgid "Meet"
 msgstr "ミーティング"
@@ -6456,6 +6492,9 @@ msgstr "ウェブミーティングに参加する"
 
 msgid "Open meeting in:"
 msgstr "でのオープンミーティング。"
+
+msgid "Open meeting in"
+msgstr "会議を開く"
 
 msgid "Web tab"
 msgstr "ウェブタブ"
@@ -6479,10 +6518,10 @@ msgstr "URLを上書きするのではなく、ミーティングの場所に追
 msgid ""
 "Prevent the URL in the meeting location from being overridden automatically "
 "(ex: when adding a meetingroom)"
-msgstr ""
-"会議開催場所のURLが自動的に上書きされないようにする（例：会議室追加時）"
+msgstr "会議開催場所のURLが自動的に上書きされないようにする（例：会議室追加時）"
 
-msgid "If you have problems when creating meetings, try disabling this setting"
+msgid ""
+"If you have problems when creating meetings, try disabling this setting"
 msgstr "会議作成時に問題が発生する場合は、この設定を無効にしてみてください。"
 
 msgid "Add an invitation to the appointment description"
@@ -6494,14 +6533,20 @@ msgstr "招待状テキスト（プレーンテキスト）"
 msgid ""
 "used when composing in plain text, must contain %url%, empty to reset to "
 "default"
-msgstr ""
+msgstr "プレーンテキストで作成する際に使用され、%url%を含める必要があります。空にするとデフォルト設定に戻ります"
+
+msgid "Invitation text"
+msgstr "招待文"
 
 msgid "Invitation template (HTML)"
 msgstr "招待状テンプレート（HTML）"
 
 msgid ""
 "used when composing in HTML, must contain %url%, empty to reset to default"
-msgstr ""
+msgstr "HTMLで作成する際に使用します。%url%を含める必要があります。空にするとデフォルト設定に戻ります"
+
+msgid "Invitation template"
+msgstr "招待状テンプレート"
 
 msgid "An unknown error occurred while changing password."
 msgstr "パスワードの変更中に不明なエラーが発生しました。"
@@ -6540,9 +6585,7 @@ msgstr "1つ以上のフィールドにエラーがある。"
 msgid ""
 "Password is weak. Password should contain capital, non-capital letters and "
 "numbers. Password should have 8 to 20 characters."
-msgstr ""
-"パスワードが弱い。パスワードは、大文字、小文字、数字を含む必要があります。パ"
-"スワードは8文字から20文字で構成されている必要があります。"
+msgstr "パスワードが弱い。パスワードは、大文字、小文字、数字を含む必要があります。パスワードは8文字から20文字で構成されている必要があります。"
 
 msgid "Change passphrase"
 msgstr "パスフレーズの変更"
@@ -6581,9 +6624,7 @@ msgid "The passphrase you typed is incorrect. Please try again."
 msgstr "入力されたパスフレーズが正しくありません。もう一度やり直してください。"
 
 msgid "No certificates imported, please upload your private certificate"
-msgstr ""
-"証明書がインポートされていないため、プライベート証明書をアップロードしてくだ"
-"さい。"
+msgstr "証明書がインポートされていないため、プライベート証明書をアップロードしてください。"
 
 msgid "Valid from"
 msgstr "から有効"
@@ -6619,8 +6660,7 @@ msgid ""
 "Do you really want to remove your private certificate? If you remove your "
 "certificate you will not be able to sign or decrypt S/MIME emails."
 msgstr ""
-"プライベート証明書を削除してもよろしいですか? もしこの証明書を削除した場合、"
-"電子メールに対するS/MIME署名や暗号化が利用できなくなります。"
+"プライベート証明書を削除してもよろしいですか? もしこの証明書を削除した場合、電子メールに対するS/MIME署名や暗号化が利用できなくなります。"
 
 msgid "Signing"
 msgstr "サイン"
@@ -6649,7 +6689,7 @@ msgstr "SHA-1フィンガープリント"
 msgid ""
 "Warning: RSA key size is below 2048 bits. Consider upgrading to a stronger "
 "certificate."
-msgstr ""
+msgstr "警告：RSA鍵のサイズが2048ビット未満です。より強固な証明書へのアップグレードをご検討ください。"
 
 msgid "Certificate details"
 msgstr "証明書詳細"
@@ -6694,16 +6734,14 @@ msgid ""
 "Below you can upload your private certificate in PKCS#12 format. grommunio "
 "Web only accepts certificates which are valid and only stores one private "
 "certificate on the server."
-msgstr ""
-"grommunio Webでは、有効な証明書のみ受け付け、プライベート証明書は1つだけサー"
-"バに保存されます。"
+msgstr "grommunio Webでは、有効な証明書のみ受け付け、プライベート証明書は1つだけサーバに保存されます。"
 
 msgid "Private certificate"
 msgstr "プライベート証明書"
 
-msgid "You must fill in the certificate passphrase to upload your certificate."
-msgstr ""
-"証明書をアップロードするには、証明書のパスフレーズを入力する必要があります。"
+msgid ""
+"You must fill in the certificate passphrase to upload your certificate."
+msgstr "証明書をアップロードするには、証明書のパスフレーズを入力する必要があります。"
 
 msgid "You must first select a valid private certificate in PKCS#12 format."
 msgstr "まず、PKCS#12形式の有効なプライベート証明書を選択する必要があります。"
@@ -6724,11 +6762,9 @@ msgid "Sign message"
 msgstr "署名メッセージ"
 
 msgid ""
-"Ensure the authenticity of the message by adding a digital signature to this "
-"message. Any changes to the message will invalidate the signature."
-msgstr ""
-"メッセージへデジタル署名を追加することにより、メッセージの送信元を証明しま"
-"す。変更が加わると署名は無効なものとなります。"
+"Ensure the authenticity of the message by adding a digital signature to this"
+" message. Any changes to the message will invalidate the signature."
+msgstr "メッセージへデジタル署名を追加することにより、メッセージの送信元を証明します。変更が加わると署名は無効なものとなります。"
 
 msgid "Encrypt message"
 msgstr "暗号化メッセージ"
@@ -6736,9 +6772,7 @@ msgstr "暗号化メッセージ"
 msgid ""
 "Ensure the privacy of the message by encrypting its contents. Only the "
 "recipient of the message will be able to open it."
-msgstr ""
-"その内容を暗号化することでプライバシーを確保します。そのメッセージは受信者に"
-"限り閲覧することができます。"
+msgstr "その内容を暗号化することでプライバシーを確保します。そのメッセージは受信者に限り閲覧することができます。"
 
 msgid "Algorithms used"
 msgstr "使用アルゴリズム"
@@ -6755,12 +6789,12 @@ msgid ""
 "verification reassures you that the message has not been tampered with and "
 "validates the identity of the sender."
 msgstr ""
-"grommunio Web は、電子メールのデジタル署名を検証することができます。検証が成"
-"功すると、メッセージが改ざんされていないことを安心させ、送信者の身元を検証す"
-"ることができます。"
+"grommunio Web "
+"は、電子メールのデジタル署名を検証することができます。検証が成功すると、メッセージが改ざんされていないことを安心させ、送信者の身元を検証することができます。"
 
 msgid ""
-"You are seeing this message because the verification of the digital signature"
+"You are seeing this message because the verification of the digital "
+"signature"
 msgstr "このメッセージが表示されるのは、電子署名の検証のためです。"
 
 msgid " has failed"
@@ -6776,25 +6810,19 @@ msgid "What should I do?"
 msgstr "対応方法はありますか?"
 
 msgid ""
-"You can continue to work. However, you should keep in mind that the identity "
-"and the authenticity of the message content could not be verified."
-msgstr ""
-"あなたは継続してメール作成を行えます。しかし、メッセージ内容は正しく認証され"
-"ていないことにご注意ください。"
+"You can continue to work. However, you should keep in mind that the identity"
+" and the authenticity of the message content could not be verified."
+msgstr "あなたは継続してメール作成を行えます。しかし、メッセージ内容は正しく認証されていないことにご注意ください。"
 
 msgid ""
 "You can contact your helpdesk or system administrator if you are not sure "
 "what to do next."
-msgstr ""
-"対応方法が不明な場合、ヘルプデスク、もしくはシステム管理者へお問い合わせくだ"
-"さい。"
+msgstr "対応方法が不明な場合、ヘルプデスク、もしくはシステム管理者へお問い合わせください。"
 
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
 "verification reassures you "
-msgstr ""
-"grommunio Webは、電子メールのデジタル署名を検証することができます。検証成功で"
-"安心"
+msgstr "grommunio Webは、電子メールのデジタル署名を検証することができます。検証成功で安心"
 
 msgid ""
 "that the message has not been tampered with and validates the identity of "
@@ -6807,33 +6835,26 @@ msgid ""
 msgstr "デジタル証明書の認証は正しく成功しました。"
 
 msgid "grommunio Web could not find a public certificate for the recipient."
-msgstr ""
-"grommunio Webは、受信者のパブリック証明書を見つけることができませんでした。"
+msgstr "grommunio Webは、受信者のパブリック証明書を見つけることができませんでした。"
 
 msgid ""
-"The identity of the sender and authenticity of the message content have been "
-"verified, but the certificate used to sign the message expired on [d-m-Y]."
-msgstr ""
-"メッセージ内容及び送信者の特定が確認されました。しかし、証明書の有効期限は "
-"[d-m-Y] となっています。"
+"The identity of the sender and authenticity of the message content have been"
+" verified, but the certificate used to sign the message expired on [d-m-Y]."
+msgstr "メッセージ内容及び送信者の特定が確認されました。しかし、証明書の有効期限は [d-m-Y] となっています。"
 
 msgid "The digital signature could not be verified for unknown reasons."
 msgstr "原因不明によりデジタル証明書を確認することができませんでした。"
 
 msgid ""
-"The digital certificate used to sign this message has been revoked (i.e. the "
-"sender has marked it as compromised)"
-msgstr ""
-"このメッセージに証明されていたデジタル証明書は無効化されています。(例：送信者"
-"により廃棄されている場合など)"
+"The digital certificate used to sign this message has been revoked (i.e. the"
+" sender has marked it as compromised)"
+msgstr "このメッセージに証明されていたデジタル証明書は無効化されています。(例：送信者により廃棄されている場合など)"
 
 msgid ""
 "The verification service of the certificate authority that signed the "
-"sender's certificate is not available. The validity of the certificate could "
-"not be verified."
-msgstr ""
-"送信者の証明書を署名するために必要とする認証局証明書を確認することができませ"
-"んでした。この証明書の有効性を確認することができませんでした。"
+"sender's certificate is not available. The validity of the certificate could"
+" not be verified."
+msgstr "送信者の証明書を署名するために必要とする認証局証明書を確認することができませんでした。この証明書の有効性を確認することができませんでした。"
 
 #, fuzzy
 msgid ""
@@ -6841,15 +6862,14 @@ msgid ""
 "unknown (Server is unavailable or certificate does not support OCSP). The "
 "validity of the certificate could not be verified."
 msgstr ""
-"このメールに署名した電子証明書の失効状態が不明（Server is unavailable or "
-"certificate does not support OCSP）である。証明書の有効性が確認できなかった。"
+"このメールに署名した電子証明書の失効状態が不明（Server is unavailable or certificate does not "
+"support OCSP）である。証明書の有効性が確認できなかった。"
 
 msgid ""
 "The revocation status of the digital certificate used to sign this email is "
 "disabled (OCSP). The validity of the certificate could not be verified."
 msgstr ""
-"このメールを署名するために利用されたデジタル証明書の無効化ステータスが無効で"
-"す(OCSP)。この証明書の有効性を確認することができませんでした。"
+"このメールを署名するために利用されたデジタル証明書の無効化ステータスが無効です(OCSP)。この証明書の有効性を確認することができませんでした。"
 
 msgid "The certificate verification server (OCSP) is temporarily offline."
 msgstr "この証明書を確認するためのサーバ (OCSP) は一時的にオフラインです。"
@@ -6858,24 +6878,27 @@ msgid "Sender is removed from the server."
 msgstr "送信者がサーバーから削除される。"
 
 msgid ""
-"The digital certificate used to sign this message has been revoked according "
-"to the Certificate Revocation List (CRL)."
-msgstr ""
+"The digital certificate used to sign this message has been revoked according"
+" to the Certificate Revocation List (CRL)."
+msgstr "このメッセージの署名に使用されたデジタル証明書は、証明書失効リスト（CRL）に基づき失効しています。"
 
 msgid ""
 "The revocation status of the certificate could not be verified because the "
 "CRL Distribution Point is unavailable."
-msgstr ""
+msgstr "CRL配布ポイントが利用できないため、証明書の失効ステータスを確認できませんでした。"
 
 msgid ""
 "The RSA key size used in this certificate is below the recommended minimum "
 "of 2048 bits. Consider upgrading to a stronger certificate."
 msgstr ""
+"この証明書で使用されているRSA鍵のサイズは、推奨される最小値である2048ビットを下回っています。より強固な証明書へのアップグレードをご検討ください。"
 
 msgid ""
 "The certificate's Key Usage extension does not permit this operation. The "
 "certificate may be intended for signing only or encryption only."
 msgstr ""
+"この証明書の「Key "
+"Usage」拡張機能では、この操作は許可されていません。この証明書は、署名専用または暗号化専用として発行されている可能性があります。"
 
 msgid ""
 "This message was encrypted using CBC mode (not authenticated encryption). "
@@ -6883,12 +6906,15 @@ msgid ""
 "provides stronger protection against modification attacks. Consider asking "
 "the sender to upgrade their S/MIME configuration."
 msgstr ""
+"このメッセージはCBCモード（認証付き暗号化ではない）を使用して暗号化されています。正常に復号されましたが、AES-"
+"GCM（認証付き暗号化）を使用すると、改ざん攻撃に対する保護が強化されます。送信者にS/MIMEの設定をアップグレードするよう依頼することを検討してください。"
 
 msgid ""
 "The signing time in the digital signature differs significantly from the "
 "expected time. This may indicate a clock synchronization issue or message "
 "tampering."
 msgstr ""
+"デジタル署名の署名時刻が、予想される時刻と大きく異なっています。これは、時計の同期に問題があるか、メッセージが改ざんされていることを示している可能性があります。"
 
 msgid "Signature verified successfully"
 msgstr "署名を正しく確認されました"
@@ -7050,9 +7076,7 @@ msgstr "自動的にログアウトしました。"
 msgid ""
 "Sorry, access to grommunio Web is not available with this user account. "
 "Please contact your system administrator."
-msgstr ""
-"このユーザーアカウントでは、grommunio Webにアクセスすることはできません。シス"
-"テム管理者にお問い合わせください。"
+msgstr "このユーザーアカウントでは、grommunio Webにアクセスすることはできません。システム管理者にお問い合わせください。"
 
 msgid "This backend provides the default WebDAV integration for Files."
 msgstr "このバックエンドはFilesのデフォルトのWebDAV統合を提供します。"
@@ -7100,9 +7124,7 @@ msgid "Unauthorized. Wrong username or password."
 msgstr "認証に失敗しました.ユーザ名かパスワードが違います."
 
 msgid "File server is not reachable. Please verify the file server URL."
-msgstr ""
-"ファイルサーバーにアクセスできません。ファイルサーバーのURLを確認してくださ"
-"い。"
+msgstr "ファイルサーバーにアクセスできません。ファイルサーバーのURLを確認してください。"
 
 msgid "You don't have enough permissions to view this file or folder."
 msgstr "このファイルまたはフォルダを表示するのに十分な権限がありません。"
@@ -7111,14 +7133,10 @@ msgid "The file or folder is not available anymore."
 msgstr "ファイルまたはフォルダが使用できなくなりました。"
 
 msgid "Connection to the file server timed out. Please check again later."
-msgstr ""
-"ファイルサーバーへの接続がタイムアウトしました。後でもう一度確認してくださ"
-"い。"
+msgstr "ファイルサーバーへの接続がタイムアウトしました。後でもう一度確認してください。"
 
 msgid "This file is locked by another user. Please try again later."
-msgstr ""
-"このファイルは他のユーザーによってロックされています。後で再試行してくださ"
-"い。"
+msgstr "このファイルは他のユーザーによってロックされています。後で再試行してください。"
 
 msgid "The request failed."
 msgstr "リクエストは失敗した。"
@@ -7145,8 +7163,7 @@ msgid "Use SSL"
 msgstr "SSLを使用する"
 
 msgid "Seafile is not reachable. Correct backend address entered?"
-msgstr ""
-"Seafileにアクセスできません。正しいバックエンドアドレスが入力されていますか？"
+msgstr "Seafileにアクセスできません。正しいバックエンドアドレスが入力されていますか？"
 
 msgid "You don't have enough permissions for this operation."
 msgstr "このフォルダを操作する十分な権限がありません."
@@ -7168,15 +7185,12 @@ msgstr "Seafile-serverで問題が発生しました。"
 
 msgid ""
 "Could not write to temporary directory. Contact the server administrator."
-msgstr ""
-"TEMPディレクトリへ書き込むことができません.システム管理者へお問い合わせくださ"
-"い."
+msgstr "TEMPディレクトリへ書き込むことができません.システム管理者へお問い合わせください."
 
 msgid ""
-"Could not retrieve list of server features. Contact the server administrator."
-msgstr ""
-"サーバ機能の一覧を取り込むことができませんでした.システム管理者へお問い合わせ"
-"ください."
+"Could not retrieve list of server features. Contact the server "
+"administrator."
+msgstr "サーバ機能の一覧を取り込むことができませんでした.システム管理者へお問い合わせください."
 
 msgid "PHP-Curl is not available. Contact your system administrator."
 msgstr "PHP-Curlが有効ではありません.システム管理者へご連絡ください."
@@ -7188,12 +7202,10 @@ msgid "Unknown account ID"
 msgstr "アカウントＩＤが不明です"
 
 msgid "Feature \"Quota Information\" is not supported by this backend!"
-msgstr ""
-"このバックエンドでは \"Quota Information\" 機能はサポートされていません!"
+msgstr "このバックエンドでは \"Quota Information\" 機能はサポートされていません!"
 
 msgid "Feature \"Version Information\" is not supported by this backend!"
-msgstr ""
-"このバックエンドでは \"Version Information\" 機能はサポートされていません!"
+msgstr "このバックエンドでは \"Version Information\" 機能はサポートされていません!"
 
 msgid "Feature \"OAUTH\" is not supported by this backend!"
 msgstr "このバックエンドでは \"OAUTH\" 機能はサポートされていません!"
@@ -7205,8 +7217,7 @@ msgid "Files plugin"
 msgstr "ファイルプラグイン"
 
 msgid "Unknown type - cannot save this file to the Files backend!"
-msgstr ""
-"不明な種別 - ファイルバックエンドへこのファイルを保存することができません!"
+msgstr "不明な種別 - ファイルバックエンドへこのファイルを保存することができません!"
 
 msgid "No record given!"
 msgstr "レコードが与えられていません!"
@@ -7263,8 +7274,7 @@ msgid "Account is ready to use."
 msgstr "アカウントは既に利用されています."
 
 msgid "File backend not responding. Please try again later."
-msgstr ""
-"ファイル共有バックエンドから応答がありません.後ほど,改めてお試しください."
+msgstr "ファイル共有バックエンドから応答がありません.後ほど,改めてお試しください."
 
 msgid "Zip file generation failed. Please inform the administrator."
 msgstr "ZIPファイルの生成に失敗しました.システム管理者へご連絡ください."
@@ -7291,9 +7301,7 @@ msgstr "モバイルデバイス管理プラグイン"
 msgid ""
 "Unexpected error occurred. Please contact your system administrator. Error "
 "code: %s"
-msgstr ""
-"予期せぬエラーが発生しました。システム管理者に連絡してください。エラーコー"
-"ド%s"
+msgstr "予期せぬエラーが発生しました。システム管理者に連絡してください。エラーコード%s"
 
 msgid "No data received."
 msgstr "データが受信されません。"
@@ -7302,7 +7310,8 @@ msgid "Account is empty."
 msgstr "アカウントが空です。"
 
 msgid ""
-"Your password is wrong or you have insufficient permission to change password"
+"Your password is wrong or you have insufficient permission to change "
+"password"
 msgstr "パスワードが間違っているか、パスワードの変更権限が不足しています。"
 
 msgid "Password is not changed."
@@ -7311,7 +7320,7 @@ msgstr "パスワードが変更されていない。"
 msgid ""
 "Error changing password. Please verify your password or contact the system "
 "administrator."
-msgstr ""
+msgstr "パスワードの変更に失敗しました。パスワードを確認するか、システム管理者に連絡してください。"
 
 msgid "Password has been changed successfully."
 msgstr "パスワードは正常に変更されました。"
@@ -7323,9 +7332,7 @@ msgid "Private certificate has expired, unable to sign email"
 msgstr "プライベート証明書の有効期限が切れたため、電子メールに署名できません。"
 
 msgid "Private certificate is not valid yet, unable to sign email"
-msgstr ""
-"プライベート証明書がまだ有効ではありません、電子メールへ署名することができま"
-"せん"
+msgstr "プライベート証明書がまだ有効ではありません、電子メールへ署名することができません"
 
 msgid "Private certificate does not match email address"
 msgstr "電子メールのアドレスと個人証明書が一致していません"
@@ -7353,11 +7360,9 @@ msgstr "詳細についてはシステム管理者へお問い合わせくださ
 
 #, fuzzy
 msgid ""
-"Your public certificate is not installed. Without this certificate, you will "
-"not be able to read encrypted messages you have sent to others."
-msgstr ""
-"公開証明書がインストールされていません。この証明書がないと、あなたが他の人に"
-"送った暗号化されたメッセージを読むことができません。"
+"Your public certificate is not installed. Without this certificate, you will"
+" not be able to read encrypted messages you have sent to others."
+msgstr "公開証明書がインストールされていません。この証明書がないと、あなたが他の人に送った暗号化されたメッセージを読むことができません。"
 
 msgid "Certificate is already stored on the server"
 msgstr "証明書は既にサーバへ保存されています"
@@ -7375,12 +7380,13 @@ msgstr "証明書のメールアドレスがgrommunioのWebアカウントと一
 msgid ""
 "RSA key size %d bits is below the recommended minimum of %d bits. "
 "Certificate was imported."
-msgstr ""
+msgstr "RSA鍵のサイズは%dビットで、推奨される最小値の%dビットを下回っています。証明書がインポートされました。"
 
 msgid ""
 "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully "
 "supported. Certificate was imported."
 msgstr ""
+"EdDSA (Ed25519) 証明書には PHP 8.4 以降が必要であり、完全にサポートされていない可能性があります。証明書がインポートされました。"
 
 msgid "Certificate was expired on "
 msgstr "証明書の有効期限は次の通りです "
@@ -7413,9 +7419,7 @@ msgstr "不明なモジュール '%s' with id '%s'"
 #, fuzzy
 msgid ""
 "Server encountered some problem, so it was not able to handle the request."
-msgstr ""
-"サーバーに何らかの問題が発生したため、リクエストを処理することができませんで"
-"した。"
+msgstr "サーバーに何らかの問題が発生したため、リクエストを処理することができませんでした。"
 
 #, php-format
 msgid "Unknown notifier '%s'"
@@ -7427,10 +7431,11 @@ msgstr "予期せぬエラーが発生しました"
 msgid "To-Do List"
 msgstr "ToDo リスト"
 
-#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
-#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
+#. TRANSLATORS: This indicates that the opened folder belongs to a particular
+#. user,
+#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the
+#. foldername)
 #. * and %2$s is 'Holiday' (the username).
-#.
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$s of %2$s"
@@ -7442,8 +7447,7 @@ msgid "Error retrieving existing persistent settings"
 msgstr "既存の永続的な設定の取得エラー"
 
 msgid "Logon failed. Please verify your credentials and try again."
-msgstr ""
-"ログオンに失敗しました。認証情報を確認して、もう一度やり直してください。"
+msgstr "ログオンに失敗しました。認証情報を確認して、もう一度やり直してください。"
 
 msgid "Cannot connect to Gromox."
 msgstr "Gromoxに接続できない。"
@@ -7452,9 +7456,7 @@ msgstr "Gromoxに接続できない。"
 msgid ""
 "Login did not work due to a duplicate session. The issue was automatically "
 "resolved, please log in again."
-msgstr ""
-"セッションが重複しているため、ログインがうまくいきません。問題は自動的に解決"
-"されましたので、再度ログインしてください。"
+msgstr "セッションが重複しているため、ログインがうまくいきません。問題は自動的に解決されましたので、再度ログインしてください。"
 
 msgid "Unknown MAPI Error"
 msgstr "不明なMAPIエラー"
@@ -7539,16 +7541,15 @@ msgstr "公開連絡先フォルダー"
 msgid "Error in search, please try again"
 msgstr "検索でエラーが発生しました。"
 
-msgid "Unable to perform search query, no permissions to create search folder."
+msgid ""
+"Unable to perform search query, no permissions to create search folder."
 msgstr "検索フォルダを作成する権限がないため、検索クエリを実行できません。"
 
 msgid "Unable to perform search query, search folder not found."
 msgstr "検索フォルダが見つかりません。"
 
 msgid "Unable to perform search query, store might not support searching."
-msgstr ""
-"検索クエリを実行できません。ストアは検索をサポートしていない可能性がありま"
-"す。"
+msgstr "検索クエリを実行できません。ストアは検索をサポートしていない可能性があります。"
 
 msgid "Error in creating search folder."
 msgstr "検索フォルダの作成でエラーが発生しました。"
@@ -7557,8 +7558,7 @@ msgid "Could not open occurrence."
 msgstr "オカレンスを開けませんでした。"
 
 msgid "Could not open occurrence, specific occurrence is probably deleted."
-msgstr ""
-"オカレンスを開けませんでした。特定のオカレンスはおそらく削除されています。"
+msgstr "オカレンスを開けませんでした。特定のオカレンスはおそらく削除されています。"
 
 msgid "a meeting request"
 msgstr "会議の要請"
@@ -7573,9 +7573,7 @@ msgstr "移動するための十分な権限がありません "
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "
 "reminder to save the change"
-msgstr ""
-"リマインダーを前回発生前に表示するように設定することはできません。リマイン"
-"ダーのリセットで変更を保存する"
+msgstr "リマインダーを前回発生前に表示するように設定することはできません。リマインダーのリセットで変更を保存する"
 
 msgid "Two occurrences cannot occur on the same day"
 msgstr "同じ日に2回発生することはない"
@@ -7583,38 +7581,29 @@ msgstr "同じ日に2回発生することはない"
 #, fuzzy, php-format
 msgid ""
 "You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
-"because you do not have the appropriate permissions for that account. Either "
-"enter the name as a required or optional attendee or talk to your "
+"because you do not have the appropriate permissions for that account. Either"
+" enter the name as a required or optional attendee or talk to your "
 "administrator about giving you permission to schedule '%s'."
 msgstr ""
-"リソースとして'%s'をマークしました。そのアカウントに適切な権限がないた"
-"め、'%s'との会議をスケジュールすることはできません。その名前を必須またはオプ"
-"ションの出席者として入力するか、'%s'をスケジュールする権限を与えるよう管理者"
-"に相談してください。"
+"リソースとして'%s'をマークしました。そのアカウントに適切な権限がないため、'%s'との会議をスケジュールすることはできません。その名前を必須またはオプションの出席者として入力するか、'%s'をスケジュールする権限を与えるよう管理者に相談してください。"
 
 #, php-format
 msgid ""
 "'%s' has declined your meeting because '%s' does not automatically accept "
 "meeting requests."
-msgstr ""
-"「%s」はミーティングリクエストを自動的に受け入れないため、「%s」はミーティン"
-"グを拒否しました。"
+msgstr "「%s」はミーティングリクエストを自動的に受け入れないため、「%s」はミーティングを拒否しました。"
 
 #, fuzzy, php-format
 msgid ""
 "'%s' has declined your meeting because it is recurring. You must book each "
 "meeting separately with this resource."
-msgstr ""
-"'%s' は、ミーティングが繰り返されるため、ミーティングを拒否しました。このリ"
-"ソースでは、各ミーティングを個別に予約する必要があります。"
+msgstr "'%s' は、ミーティングが繰り返されるため、ミーティングを拒否しました。このリソースでは、各ミーティングを個別に予約する必要があります。"
 
 #, fuzzy, php-format
 msgid ""
-"'%s' is already booked for this specified time. You must use another time or "
-"find another resource."
-msgstr ""
-"0}」はこの指定された時間帯にすでに予約されています。別の時間を使うか、別のリ"
-"ソースを探す必要があります。"
+"'%s' is already booked for this specified time. You must use another time or"
+" find another resource."
+msgstr "0}」はこの指定された時間帯にすでに予約されています。別の時間を使うか、別のリソースを探す必要があります。"
 
 msgid "Meeting was not scheduled."
 msgstr "ミーティングは予定されていなかった。"
@@ -7706,9 +7695,7 @@ msgstr "アクションを正しく実行できませんでした。"
 #, fuzzy
 msgid ""
 "A favorite folder with this name already exists, please use another name."
-msgstr ""
-"この名前のお気に入りフォルダはすでに存在するので、別の名前を使用してくださ"
-"い。"
+msgstr "この名前のお気に入りフォルダはすでに存在するので、別の名前を使用してください。"
 
 msgid "Could not add folder to favorites."
 msgstr "フォルダをお気に入りに追加できませんでした。"
@@ -7746,8 +7733,8 @@ msgid ""
 "can set these using the 'permissions'-tab of the folder properties (right "
 "click the %1$s folder > properties > permissions)."
 msgstr ""
-"この %1$s フォルダーを開くには十分な権限がありません。フォルダの所有者は、"
-"フォルダのプロパティの「アクセス権」タブを使用してこれらを設定できます（%1$s "
+"この %1$s "
+"フォルダーを開くには十分な権限がありません。フォルダの所有者は、フォルダのプロパティの「アクセス権」タブを使用してこれらを設定できます（%1$s "
 "フォルダを右クリック > プロパティ > アクセス権）。"
 
 msgid "default"
@@ -7772,9 +7759,7 @@ msgstr "このメッセージを開くには十分な権限がありません。
 msgid ""
 "Could not find message, either it has been moved or deleted or you don't "
 "have access to open this message."
-msgstr ""
-"メッセージが見つかりません。移動されたか削除されたか、このメッセージを開くた"
-"めのアクセス権がないかのどちらかです。"
+msgstr "メッセージが見つかりません。移動されたか削除されたか、このメッセージを開くためのアクセス権がないかのどちらかです。"
 
 msgid "Could not open message."
 msgstr "メッセージを開くことができませんでした。"
@@ -7802,8 +7787,8 @@ msgstr "カレンダのアイテムを削除するための十分な権限があ
 
 #, fuzzy
 msgid ""
-"Message is no longer in the outgoing queue, typically because it has already "
-"been sent."
+"Message is no longer in the outgoing queue, typically because it has already"
+" been sent."
 msgstr "メッセージはすでに送信されたため、送信キューにはもうない。"
 
 msgid "Message cannot be aborted"
@@ -7843,7 +7828,8 @@ msgstr "他の予定と重なっています。"
 
 #, php-format
 msgid ""
-"%s occurrence of this recurring appointment conflicts with other appointment."
+"%s occurrence of this recurring appointment conflicts with other "
+"appointment."
 msgid_plural ""
 "%s occurrences of this recurring appointment conflicts with other "
 "appointments."
@@ -7885,8 +7871,7 @@ msgid "Could not delete message."
 msgstr "メッセージを削除できませんでした。"
 
 msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr ""
-"このミーティング リクエストをキャンセルするには、十分な権限がありません。"
+msgstr "このミーティング リクエストをキャンセルするには、十分な権限がありません。"
 
 msgid "Could not cancel Meeting Request."
 msgstr "ミーティングリクエストをキャンセルできませんでした。"
@@ -7926,8 +7911,7 @@ msgid ""
 "To reduce the amount of data in this message store, select some items that "
 "you no longer need, delete them and cleanup your Deleted Items folder."
 msgstr ""
-"このメッセージストアのデータ量を減らすには、不要なアイテムをいくつか選んで削"
-"除し、「削除済みアイテム」フォルダーをクリーンアップしてください。"
+"このメッセージストアのデータ量を減らすには、不要なアイテムをいくつか選んで削除し、「削除済みアイテム」フォルダーをクリーンアップしてください。"
 
 msgid "The message store has exceeded its soft quota limit."
 msgstr "メッセージストアがソフトクォータの制限を超えました。"
@@ -7940,14 +7924,10 @@ msgid "Unknown action type specified - %s"
 msgstr "不明なアクションタイプが指定された - %s"
 
 msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr ""
-"リマインダーをスヌーズすることはできません。再度リマインダーが表示される場合"
-"があります。"
+msgstr "リマインダーをスヌーズすることはできません。再度リマインダーが表示される場合があります。"
 
 msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr ""
-"リマインダーを解除することはできません。再度リマインダーが表示される場合があ"
-"ります。"
+msgstr "リマインダーを解除することはできません。再度リマインダーが表示される場合があります。"
 
 msgid "You have insufficient privileges to perform this action."
 msgstr "この操作を実行するには十分な権限がありません。"
@@ -7956,17 +7936,16 @@ msgid "Could not resolve user."
 msgstr "ユーザーを解決できませんでした。"
 
 msgid "Setting mail filters on the stores of other users is not allowed."
-msgstr ""
-"他のユーザーのストアにメールフィルターを設定することは禁止されています。"
+msgstr "他のユーザーのストアにメールフィルターを設定することは禁止されています。"
 
 msgid "Untitled rule"
 msgstr "無題のルール"
 
-msgid "Could not load rules."
-msgstr "ルールをロードできませんでした。"
-
 msgid "Could not save rules."
 msgstr "ルールを保存できませんでした。"
+
+msgid "Could not load rules."
+msgstr "ルールをロードできませんでした。"
 
 msgid "Task Request:"
 msgstr "タスクの依頼。"
@@ -7974,23 +7953,17 @@ msgstr "タスクの依頼。"
 msgid "Sign in"
 msgstr "サインイン"
 
-msgid "Skip to main content"
-msgstr ""
-
 msgid "File is not imported successfully"
 msgstr "ファイルが正常にインポートされない"
 
-msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr ""
-"アップロードされたファイルが php.ini の upload_max_filesize ディレクティブを"
-"超えています。"
+msgid ""
+"The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr "アップロードされたファイルが php.ini の upload_max_filesize ディレクティブを超えています。"
 
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
-msgstr ""
-"アップロードされたファイルが、HTMLフォームで指定されたMAX_FILE_SIZEディレク"
-"ティブを超えています。"
+msgstr "アップロードされたファイルが、HTMLフォームで指定されたMAX_FILE_SIZEディレクティブを超えています。"
 
 msgid "The uploaded file was only partially uploaded."
 msgstr "アップロードされたファイルは部分的にしかアップロードされませんでした。"
@@ -8006,12 +7979,11 @@ msgstr "ディスクへのファイルの書き込みに失敗しました。"
 
 msgid ""
 "A PHP extension stopped the file upload. PHP does not provide a way to "
-"ascertain which extension caused the file upload to stop; examining the list "
-"of loaded extensions with phpinfo() may help."
+"ascertain which extension caused the file upload to stop; examining the list"
+" of loaded extensions with phpinfo() may help."
 msgstr ""
-"PHP の拡張モジュールがファイルのアップロードを停止しました。PHP は、どの拡張"
-"モジュールがファイルアップロードを停止させたのかを 確認する方法を提供していま"
-"せん。"
+"PHP の拡張モジュールがファイルのアップロードを停止しました。PHP は、どの拡張モジュールがファイルアップロードを停止させたのかを "
+"確認する方法を提供していません。"
 
 msgid "There is no contact found in this file."
 msgstr "このファイルにはコンタクトが見当たらない。"
@@ -8019,14 +7991,12 @@ msgstr "このファイルにはコンタクトが見当たらない。"
 #, fuzzy
 msgid ""
 "grommunio Web does not support importing multiple VCF with this version."
-msgstr ""
-"grommunio Webは、本バージョンで複数のVCFをインポートすることはできません。"
+msgstr "grommunio Webは、本バージョンで複数のVCFをインポートすることはできません。"
 
 #, fuzzy
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
-msgstr ""
-"grommunio Web は、本バージョンで複数の ICS のインポートに対応していません。"
+msgstr "grommunio Web は、本バージョンで複数の ICS のインポートに対応していません。"
 
 msgid "GB"
 msgstr "GB"
