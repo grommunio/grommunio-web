@@ -221,6 +221,33 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 			scope: this
 		},{
 			xtype: 'button',
+			overflowText: _('Reply'),
+			tooltip: _('Reply to the meeting organizer'),
+			cls: 'tb-calendar-btn-reply',
+			iconCls: 'icon_reply',
+			ref: 'replyMeeting',
+			handler: this.onReplyMeeting.createDelegate(this, [false]),
+			scope: this
+		},{
+			xtype: 'button',
+			overflowText: _('Reply All'),
+			tooltip: _('Reply to all attendees'),
+			cls: 'tb-calendar-btn-reply-all',
+			iconCls: 'icon_reply_all',
+			ref: 'replyAllMeeting',
+			handler: this.onReplyMeeting.createDelegate(this, [true]),
+			scope: this
+		},{
+			xtype: 'button',
+			overflowText: _('Forward'),
+			tooltip: _('Forward meeting request to additional recipients'),
+			cls: 'tb-calendar-btn-forward',
+			iconCls: 'icon_forward',
+			ref: 'forwardMeeting',
+			handler: this.onForwardMeeting,
+			scope: this
+		},{
+			xtype: 'button',
 			overflowText: _('Check names'),
 			tooltip: _('Check names'),
 			cls: 'tb-calendar-btn-checknames',
@@ -361,6 +388,130 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 	onSetMeetingRequest: function()
 	{
 		this.record.convertToMeeting();
+	},
+
+	/**
+	 * Event handler which is called when "Reply" or "Reply All" is pressed.
+	 * Builds a mail reply from the meeting's properties and opens it.
+	 * @param {Boolean} isReplyAll True for Reply All, false for Reply
+	 * @private
+	 */
+	onReplyMeeting: function(isReplyAll)
+	{
+		var record = this.record;
+		if (!record) {
+			return;
+		}
+
+		var iAmOrganizer = record.isMeetingOrganized && record.isMeetingOrganized();
+
+		if (!isReplyAll && iAmOrganizer) {
+			container.getNotifier().notify('info.meeting',
+				pgettext('calendar.toolbar', 'Use Reply All to reply to all attendees of your meeting.'));
+			return;
+		}
+
+		var buildReply = function(rec) {
+			var mailModel = container.getContextByName('mail').getModel();
+			var responseRecord = mailModel.createRecord();
+
+			var prefix = container.getSettingsModel().get('zarafa/v1/contexts/mail/use_english_abbreviations') ?
+				'Re' : _('Re');
+			var subject = rec.get('normalized_subject') || rec.get('subject') || '';
+			responseRecord.set('subject', prefix + ': ' + subject);
+
+			var recipientStore = responseRecord.getRecipientStore();
+			var loggedInEntryId = container.getUser().getEntryId();
+
+			var addRecipient = function(name, email, addrType, entryId, type) {
+				if (!email) {
+					return;
+				}
+				if (loggedInEntryId && entryId &&
+					Zarafa.core.EntryId.compareABEntryIds(entryId, loggedInEntryId)) {
+					return;
+				}
+				recipientStore.add(Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(
+					Zarafa.core.data.RecordCustomObjectType.ZARAFA_RECIPIENT, {
+						display_name: name || '',
+						smtp_address: email,
+						address_type: addrType || 'SMTP',
+						entryid: entryId || '',
+						recipient_type: type
+					}));
+			};
+
+			if (iAmOrganizer) {
+				var apptRecipientStore = rec.getRecipientStore();
+				if (apptRecipientStore) {
+					apptRecipientStore.each(function(r) {
+						if (r.isMeetingOrganizer()) {
+							return;
+						}
+						addRecipient(
+							r.get('display_name'),
+							r.get('smtp_address') || r.get('email_address'),
+							r.get('address_type'),
+							r.get('entryid'),
+							Zarafa.core.mapi.RecipientType.MAPI_TO
+						);
+					});
+				}
+			} else {
+				addRecipient(
+					rec.get('sent_representing_name') || rec.get('sender_name'),
+					rec.get('sent_representing_email_address') || rec.get('sender_email_address'),
+					rec.get('sent_representing_address_type') || rec.get('sender_address_type'),
+					rec.get('sent_representing_entryid') || rec.get('sender_entryid'),
+					Zarafa.core.mapi.RecipientType.MAPI_TO
+				);
+
+				if (isReplyAll) {
+					var apptRecipientStore = rec.getRecipientStore();
+					if (apptRecipientStore) {
+						apptRecipientStore.each(function(r) {
+							if (r.isMeetingOrganizer()) {
+								return;
+							}
+							addRecipient(
+								r.get('display_name'),
+								r.get('smtp_address') || r.get('email_address'),
+								r.get('address_type'),
+								r.get('entryid'),
+								Zarafa.core.mapi.RecipientType.MAPI_CC
+							);
+						});
+					}
+				}
+			}
+
+			Zarafa.core.data.UIFactory.openCreateRecord(responseRecord);
+		};
+
+		if (isReplyAll && !(record.getRecipientStore && record.getRecipientStore())) {
+			var store = record.getStore();
+			var openHandler = function(s, r) {
+				if (record !== r) {
+					return;
+				}
+				store.un('open', openHandler, record);
+				buildReply(r);
+			};
+			store.on('open', openHandler, record);
+			record.open();
+		} else {
+			buildReply(record);
+		}
+	},
+
+	/**
+	 * Event handler which is called when the "Forward" button has been pressed.
+	 * Opens a recipient selection dialog and forwards the meeting request.
+	 * @private
+	 */
+	onForwardMeeting: function()
+	{
+		Zarafa.calendar.Actions.openForwardMeetingRequestContent(this.record);
 	},
 
 	/**
@@ -514,6 +665,9 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 			this.deleteAppointment.setVisible(false);
 			this.inviteAttendees.setVisible(false);
 			this.cancelInvitation.setVisible(false);
+			this.replyMeeting.setVisible(false);
+			this.replyAllMeeting.setVisible(false);
+			this.forwardMeeting.setVisible(false);
 			this.setPrivate.setVisible(false);
 			this.highPriority.setVisible(false);
 			this.lowPriority.setVisible(false);
@@ -561,6 +715,9 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 						this.addressbookBtn.setVisible(false);
 						this.inviteAttendees.setVisible(true);
 						this.cancelInvitation.setVisible(false);
+						this.replyMeeting.setVisible(false);
+						this.replyAllMeeting.setVisible(false);
+						this.forwardMeeting.setVisible(false);
 						break;
 					case Zarafa.core.mapi.MeetingStatus.MEETING:
 						this.sendInvitation.setVisible(true);
@@ -571,8 +728,23 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 						this.addressbookBtn.setVisible(true);
 						this.inviteAttendees.setVisible(false);
 						this.cancelInvitation.setVisible(true);
+						this.replyMeeting.setVisible(true);
+						this.replyAllMeeting.setVisible(true);
+						this.forwardMeeting.setVisible(true);
 						break;
 					case Zarafa.core.mapi.MeetingStatus.MEETING_RECEIVED:
+						this.sendInvitation.setVisible(false);
+						this.saveAppointment.setVisible(false);
+						this.saveMeeting.setVisible(true);
+						this.deleteAppointment.setVisible(true);
+						this.checkNames.setVisible(false);
+						this.addressbookBtn.setVisible(false);
+						this.inviteAttendees.setVisible(false);
+						this.cancelInvitation.setVisible(false);
+						this.replyMeeting.setVisible(true);
+						this.replyAllMeeting.setVisible(true);
+						this.forwardMeeting.setVisible(true);
+						break;
 					case Zarafa.core.mapi.MeetingStatus.MEETING_CANCELED:
 					case Zarafa.core.mapi.MeetingStatus.MEETING_RECEIVED_AND_CANCELED:
 						this.sendInvitation.setVisible(false);
@@ -583,6 +755,9 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 						this.addressbookBtn.setVisible(false);
 						this.inviteAttendees.setVisible(false);
 						this.cancelInvitation.setVisible(false);
+						this.replyMeeting.setVisible(false);
+						this.replyAllMeeting.setVisible(false);
+						this.forwardMeeting.setVisible(false);
 						break;
 				}
 
