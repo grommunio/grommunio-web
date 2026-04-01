@@ -1,0 +1,106 @@
+/* Template snippets toolbar icon: document with bold "T" */
+.icon_templatesnippets {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='%23212121' viewBox='0 0 24 24'%3E%3Cpath d='M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8.5L13.5 2H6Zm0 1.5h7V7a2 2 0 0 0 2 2h3.5v11a.5.5 0 0 1-.5.5H6a.5.5 0 0 1-.5-.5V4a.5.5 0 0 1 .5-.5Z'/%3E%3Cpath d='M8 12h8v2h-3v6h-2v-6H8z'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.icon_templatesnippets_system {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23212121' viewBox='0 0 16 16'%3E%3Cpath d='M4 1a1.5 1.5 0 0 0-1.5 1.5v11A1.5 1.5 0 0 0 4 15h8a1.5 1.5 0 0 0 1.5-1.5v-8L9.5 1H4Zm0 1h5v2.5A1.5 1.5 0 0 0 10.5 6H12v7.5a.5.5 0 0 1-.5.5H4a.5.5 0 0 1-.5-.5v-11A.5.5 0 0 1 4 2Z'/%3E%3Cpath d='M5.5 8h5v1.5H9v4H7v-4H5.5z' fill='%230067b1'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px 16px;
+}
+.icon_templatesnippets_user {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23212121' viewBox='0 0 16 16'%3E%3Cpath d='M4 1a1.5 1.5 0 0 0-1.5 1.5v11A1.5 1.5 0 0 0 4 15h8a1.5 1.5 0 0 0 1.5-1.5v-8L9.5 1H4Zm0 1h5v2.5A1.5 1.5 0 0 0 10.5 6H12v7.5a.5.5 0 0 1-.5.5H4a.5.5 0 0 1-.5-.5v-11A.5.5 0 0 1 4 2Z'/%3E%3Cpath d='M5.5 8h5v1.5H9v4H7v-4H5.5z' fill='%23555'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px 16px;
+}
+body.dark-mode .icon_templatesnippets,
+body.dark-mode .icon_templatesnippets_system,
+body.dark-mode .icon_templatesnippets_user {
+  filter: invert(0.88);
+}
+
+/* ================================================================
+ * Settings widget
+ *
+ * cls includes "zarafa-settings-widget" so it inherits rounded
+ * borders, box-shadow, body padding (14px 16px) from grommunio.css.
+ * ================================================================ */
+
+/* Section titles: used for all sub-headers */
+.k-settings-templatesnippets-widget .k-templatesnippets-section-title {
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  color: #344054 !important;
+  padding: 10px 0 4px 0 !important;
+}
+body.dark-mode .k-settings-templatesnippets-widget .k-templatesnippets-section-title {
+  color: #ccc !important;
+}
+
+/*
+ * Grid borders: the core CSS puts border+border-radius on .x-grid3 and then
+ * removes the border from the grid panel body.  But .x-grid3 bottom border
+ * gets clipped by the widget's overflow:hidden.
+ *
+ * Fix (scoped to our widget only): move the border to the grid panel body
+ * so it participates in the panel's own box and isn't clipped.
+ */
+.k-settings-templatesnippets-widget .k-templatesnippets-grid .x-grid3 {
+  border: none !important;
+  border-radius: 0 !important;
+}
+.k-settings-templatesnippets-widget .k-templatesnippets-grid > .x-panel-bwrap > .x-panel-body {
+  border: 1px solid #e4e7ec !important;
+  border-radius: 6px !important;
+  overflow: hidden;
+}
+body.dark-mode .k-settings-templatesnippets-widget .k-templatesnippets-grid > .x-panel-bwrap > .x-panel-body {
+  border-color: #444 !important;
+}
+
+.k-settings-templatesnippets-widget .k-templatesnippets-grid {
+  margin-bottom: 4px;
+}
+
+/* Editor panel: visual separator */
+.k-settings-templatesnippets-widget .k-templatesnippets-editor-panel {
+  margin-top: 12px !important;
+  padding-top: 12px !important;
+  border-top: 1px solid #e4e7ec !important;
+}
+body.dark-mode .k-settings-templatesnippets-widget .k-templatesnippets-editor-panel {
+  border-top-color: #444 !important;
+}
+
+/* Name row: textfield with save button positioned to the right */
+.k-settings-templatesnippets-widget .k-templatesnippets-name-row {
+  position: relative;
+  margin-bottom: 4px;
+  min-height: 28px;
+}
+.k-settings-templatesnippets-widget .k-templatesnippets-name-input {
+  width: calc(100% - 115px) !important;
+}
+.k-settings-templatesnippets-widget .k-templatesnippets-save-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/* Convert buttons row */
+.k-settings-templatesnippets-widget .k-templatesnippets-convert-row {
+  padding: 6px 0 !important;
+}
+
+/* TinyMCE: prevent overflow */
+.k-settings-templatesnippets-widget .k-templatesnippets-html-editor {
+  overflow: hidden;
+}
+.k-settings-templatesnippets-widget .k-templatesnippets-html-editor .mce-panel.mce-tinymce {
+  width: auto !important;
+  max-width: 100% !important;
+}
