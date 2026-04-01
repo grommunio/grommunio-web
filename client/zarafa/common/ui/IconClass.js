@@ -219,6 +219,7 @@ Zarafa.common.ui.IconClass = {
 			'IPM.SCHEDULE.MEETING.RESP.TENT'	: counter_proposal ? 'icon_appt_meeting_newtime' : 'icon_calendar_appt_tentative',
 			'IPM.SCHEDULE.MEETING.RESP.NEG'		: 'icon_calendar_appt_cancelled',
 			'IPM.SCHEDULE.MEETING.CANCELED'		: 'icon_appt_meeting_cancel',
+			'IPM.SCHEDULE.MEETING.NOTIFICATION'	: 'icon_forward',
 			'IPM.NOTE'				: 'icon_mail',
 			'REPORT.IPM.NOTE.IPNRN'			: 'icon_mail_read_receipt',
 			'REPORT.IPM.NOTE.IPNNRN'		: 'icon_mail_nonread_receipt',
