@@ -54,7 +54,7 @@ Zarafa.common.manageCc.dialogs.ManageCcEditContentPanel = Ext.extend(Zarafa.comm
 
 		var store = record.store;
 		// If email address is already there then show the message box.
-		if (store.isRecipientExists(record, this.hasDuplicateRecipient, this)) {
+		if (store.isRecipientExists(record)) {
 			record.reject();
 			Ext.Msg.alert(_('Duplicate recipient'), _('Recipient already exists.'));
 			return;
@@ -63,17 +63,6 @@ Zarafa.common.manageCc.dialogs.ManageCcEditContentPanel = Ext.extend(Zarafa.comm
 		record.generateOneOffEntryId();
 		record.commit();
 		this.close();
-	},
-
-	/**
-	 * Function used to check given recipient is already exists in {@link Zarafa.core.data.IPMRecipientStore IPMRecipientStore}
-	 *
-	 * @param {Zarafa.common.manageCc.data.IPMCcRecipientRecord} record The record exists in {@link Zarafa.core.data.IPMRecipientStore IPMRecipientStore}.
-	 * @returns {Boolean} true if recipient record already exists in {@link Zarafa.core.data.IPMRecipientStore IPMRecipientStore}
-	 */
-	hasDuplicateRecipient: function(record)
-	{
-		return record.isOneOff() && !record.dirty && record.get('smtp_address') === this.record.get('smtp_address');
 	},
 
 	/**

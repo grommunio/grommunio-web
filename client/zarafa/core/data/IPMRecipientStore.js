@@ -531,6 +531,36 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 	},
 
 	/**
+	 * Normalize an email address so recipient comparisons are case-insensitive.
+	 *
+	 * @param {String} emailAddress The email address to normalize.
+	 * @return {String} The normalized email address.
+	 */
+	normalizeRecipientEmailAddress: function(emailAddress)
+	{
+		return !Ext.isString(emailAddress) ? '' : emailAddress.trim().toLocaleLowerCase();
+	},
+
+	/**
+	 * Extract the comparable email address from a recipient-like object.
+	 *
+	 * @param {Zarafa.core.data.IPMRecipientRecord/Object} record The record or object to inspect.
+	 * @return {String} The normalized email address.
+	 */
+	getRecipientEmailAddress: function(record)
+	{
+		if (!record) {
+			return '';
+		}
+
+		var emailAddress = record instanceof Ext.data.Record ?
+			record.get('smtp_address') || record.get('email_address') :
+			record.smtp_address || record.email_address;
+
+		return this.normalizeRecipientEmailAddress(emailAddress);
+	},
+
+	/**
 	 * Check the given recipient was exists in recipient store.
 	 *
 	 * @param {Zarafa.core.data.IPMRecipientRecord} record The recipient record which need to check.
@@ -547,7 +577,21 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 		}
 
 		var entryid = record instanceof Ext.data.Record ? record.get('entryid') : record['entryid'];
+		var emailAddress = this.getRecipientEmailAddress(record);
+
 		return records.some(function(recipient) {
+			if (recipient === record) {
+				return false;
+			}
+
+			if (!Ext.isEmpty(emailAddress) && this.getRecipientEmailAddress(recipient) === emailAddress) {
+				return true;
+			}
+
+			if (Ext.isEmpty(entryid) || Ext.isEmpty(recipient.get('entryid'))) {
+				return false;
+			}
+
 			if (recipient.isOneOff()) {
 				return recipient.get('entryid') === entryid;
 			}
