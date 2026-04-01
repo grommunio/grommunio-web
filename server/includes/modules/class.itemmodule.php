@@ -219,6 +219,10 @@ class ItemModule extends Module {
 								$this->copy($store, $parententryid, $entryid, $action);
 								break;
 
+							case "forwardMeetingRequest":
+								$this->forwardMeetingRequest($store, $entryid, $action, $this->directBookingMeetingRequest);
+								break;
+
 							case "reply":
 							case "replyall":
 							case "forward":
@@ -355,6 +359,10 @@ class ItemModule extends Module {
 
 								case "move":
 									$e->setDisplayMessage(_("Could not move message") . ".");
+									break;
+
+								case "forwardMeetingRequest":
+									$e->setDisplayMessage(_("Could not forward meeting request") . ".");
 									break;
 							}
 						}
@@ -521,8 +529,27 @@ class ItemModule extends Module {
 				$requiresMeeting = class_match_prefix($messageClass, "IPM.Schedule.Meeting");
 			}
 
-			// Check for meeting request, do processing if necessary
+			// Skip meeting request processing for items in the Sent
+			// Items folder — those are outgoing copies that should not
+			// be processed as incoming requests.
+			$isSentItem = false;
 			if ($requiresMeeting) {
+				$sentStoreProps = mapi_getprops($store, [PR_IPM_SENTMAIL_ENTRYID]);
+				$msgFolderProps = mapi_getprops($message, [PR_PARENT_ENTRYID]);
+				if (isset($sentStoreProps[PR_IPM_SENTMAIL_ENTRYID], $msgFolderProps[PR_PARENT_ENTRYID]) &&
+					$GLOBALS['entryid']->compareEntryIds(
+						bin2hex((string) $sentStoreProps[PR_IPM_SENTMAIL_ENTRYID]),
+						bin2hex((string) $msgFolderProps[PR_PARENT_ENTRYID]))) {
+					$isSentItem = true;
+				}
+			}
+
+			// Forward notifications are informational only (no calendar
+			// lookup / accept / decline processing needed).
+			$isMeetingNotification = class_match_prefix($messageClass, "IPM.Schedule.Meeting.Notification");
+
+			// Check for meeting request, do processing if necessary
+			if ($requiresMeeting && !$isSentItem && !$isMeetingNotification) {
 				$req = new Meetingrequest($store, $message, $GLOBALS['mapisession']->getSession(), $this->directBookingMeetingRequest);
 
 				try {
@@ -1009,5 +1036,320 @@ class ItemModule extends Module {
 		// Notify the bus that the message has been deleted
 		$messageProps = mapi_getprops($message, [PR_ENTRYID, PR_STORE_ENTRYID, PR_PARENT_ENTRYID]);
 		$GLOBALS["bus"]->notify(bin2hex((string) $messageProps[PR_PARENT_ENTRYID]), $basedate ? TABLE_SAVE : TABLE_DELETE, $messageProps);
+	}
+
+	/**
+	 * Forward a meeting request to additional recipients.
+	 *
+	 * Creates a new IPM.Schedule.Meeting.Request message addressed to the
+	 * specified recipients and sends a forward notification to the organizer.
+	 *
+	 * @param mapistore $store                       MAPI store of the appointment
+	 * @param string    $entryid                     entryid of the appointment to forward
+	 * @param array     $action                      action data from the client
+	 * @param bool      $directBookingMeetingRequest direct-booking flag
+	 */
+	public function forwardMeetingRequest($store, $entryid, $action, $directBookingMeetingRequest) {
+		$message = $GLOBALS['operations']->openMessage($store, $entryid);
+
+		if (empty($message)) {
+			return;
+		}
+
+		// For recurring occurrences, open the exception attachment
+		$basedate = !empty($action['basedate']) ? $action['basedate'] : false;
+		$exceptionMessage = false;
+		if ($basedate) {
+			$recur = new Recurrence($store, $message);
+			$exceptionAtt = $recur->getExceptionAttachment($basedate);
+			if ($exceptionAtt) {
+				$exceptionMessage = mapi_attach_openobj($exceptionAtt, 0);
+			}
+		}
+
+		$sourceMessage = $exceptionMessage ?: $message;
+		// Get all properties plus explicitly request PR_SUBJECT which
+		// is a computed property that may be omitted without a filter.
+		$sourceProps = mapi_getprops($sourceMessage);
+		$subjectProps = mapi_getprops($sourceMessage, [PR_SUBJECT]);
+		if (isset($subjectProps[PR_SUBJECT])) {
+			$sourceProps[PR_SUBJECT] = $subjectProps[PR_SUBJECT];
+		}
+
+		// Ensure we have appointment properties even when called from a
+		// non-appointment module (e.g. forwarding from the mail list).
+		$props = $this->properties;
+		if (empty($props['goid'])) {
+			$props = $GLOBALS['properties']->getAppointmentProperties();
+		}
+
+		// Always use the current user's own store for outbox operations
+		// so that forwarding works without Send As permission on shared
+		// calendars.
+		$userStore = $GLOBALS['mapisession']->getDefaultMessageStore();
+		$storeProps = mapi_getprops($userStore, [PR_IPM_OUTBOX_ENTRYID, PR_IPM_SENTMAIL_ENTRYID]);
+		$outbox = mapi_msgstore_openentry($userStore, $storeProps[PR_IPM_OUTBOX_ENTRYID]);
+		$fwdMsg = mapi_folder_createmessage($outbox);
+
+		// Copy properties and attachments from the source, excluding
+		// envelope/identity properties. PR_SENDER_* will be set to
+		// the current user. All PR_SENT_REPRESENTING_* variants
+		// (including SMTP_ADDRESS) must be absent so gromox treats
+		// this as the user's own message and skips delegation checks.
+		// The organizer is still informed via the MFN.
+		mapi_copyto($sourceMessage, [], [
+			PR_ENTRYID,
+			PR_PARENT_ENTRYID,
+			PR_STORE_ENTRYID,
+			PR_MESSAGE_FLAGS,
+			PR_MESSAGE_RECIPIENTS,
+			PR_SENTMAIL_ENTRYID,
+			PR_MESSAGE_DELIVERY_TIME,
+			PR_SENDER_ENTRYID,
+			PR_SENDER_NAME,
+			PR_SENDER_EMAIL_ADDRESS,
+			PR_SENDER_ADDRTYPE,
+			PR_SENDER_SEARCH_KEY,
+			PR_SENT_REPRESENTING_ENTRYID,
+			PR_SENT_REPRESENTING_NAME,
+			PR_SENT_REPRESENTING_EMAIL_ADDRESS,
+			PR_SENT_REPRESENTING_ADDRTYPE,
+			PR_SENT_REPRESENTING_SEARCH_KEY,
+			PR_SENT_REPRESENTING_SMTP_ADDRESS,
+		], $fwdMsg, 0);
+
+		$session = $GLOBALS['mapisession'];
+		$senderName = $session->getFullName() ?: $session->getUserName();
+		$senderEmail = $session->getSMTPAddress() ?: $session->getEmailAddress();
+
+		$subject = $sourceProps[PR_SUBJECT] ?? '';
+		$subjectPrefix = $action['message_action']['forwardSubjectPrefix'] ?? 'FW: ';
+		$fwdProps = [
+			PR_MESSAGE_CLASS => 'IPM.Schedule.Meeting.Request',
+			PR_SUBJECT => $subjectPrefix . $subject,
+			PR_SENTMAIL_ENTRYID => $storeProps[PR_IPM_SENTMAIL_ENTRYID],
+			PR_RESPONSE_REQUESTED => true,
+			PR_SENDER_NAME => $senderName,
+			PR_SENDER_EMAIL_ADDRESS => $senderEmail,
+			PR_SENDER_ADDRTYPE => 'SMTP',
+			PR_SENDER_ENTRYID => $session->getUserEntryID(),
+			PR_SENDER_SEARCH_KEY => $session->getSearchKey(),
+		];
+
+		if (isset($props['meeting'])) {
+			$fwdProps[$props['meeting']] = olMeetingReceived;
+		}
+		if (isset($props['responsestatus'])) {
+			$fwdProps[$props['responsestatus']] = olResponseNotResponded;
+		}
+		if (isset($props['busystatus'])) {
+			$fwdProps[$props['busystatus']] = fbTentative;
+		}
+		if (isset($props['intendedbusystatus'], $sourceProps[$props['busystatus']])) {
+			$fwdProps[$props['intendedbusystatus']] = $sourceProps[$props['busystatus']];
+		}
+
+		// Set PR_START_DATE / PR_END_DATE from the appointment named
+		// properties. Mail list views and previews rely on these.
+		if (isset($props['startdate'], $sourceProps[$props['startdate']])) {
+			$fwdProps[PR_START_DATE] = $sourceProps[$props['startdate']];
+		}
+		if (isset($props['duedate'], $sourceProps[$props['duedate']])) {
+			$fwdProps[PR_END_DATE] = $sourceProps[$props['duedate']];
+		}
+
+		mapi_setprops($fwdMsg, $fwdProps);
+
+		// Clear icon index so the mail list derives it from the message class.
+		// Clear counter_proposal which doesn't apply to the forwarded copy.
+		$clearProps = [];
+		if (isset($props['counter_proposal'], $sourceProps[$props['counter_proposal']])) {
+			$clearProps[] = $props['counter_proposal'];
+		}
+		mapi_deleteprops($fwdMsg, array_merge([PR_ICON_INDEX], $clearProps));
+
+		// Remove properties that should not be on the forwarded copy
+		$deleteProps = [PR_MESSAGE_DELIVERY_TIME];
+		if (isset($props['request_sent'])) {
+			$deleteProps[] = $props['request_sent'];
+		}
+		mapi_deleteprops($fwdMsg, $deleteProps);
+
+		// Build recipient list using the standard Operations helper which
+		// handles address resolution and one-off entryid creation.
+		$forwardRecipients = $action['message_action']['forwardRecipients'] ?? [];
+		foreach ($forwardRecipients as &$recip) {
+			if (!isset($recip['recipient_type'])) {
+				$recip['recipient_type'] = MAPI_TO;
+			}
+			if (!isset($recip['address_type'])) {
+				$recip['address_type'] = 'SMTP';
+			}
+			if (!isset($recip['display_type'])) {
+				$recip['display_type'] = DT_MAILUSER;
+			}
+			if (!isset($recip['display_type_ex'])) {
+				$recip['display_type_ex'] = DT_MAILUSER;
+			}
+			if (!isset($recip['object_type'])) {
+				$recip['object_type'] = MAPI_MAILUSER;
+			}
+		}
+		unset($recip);
+
+		$recipientRows = $GLOBALS['operations']->createRecipientList($forwardRecipients, 'add', false, true);
+
+		if (empty($recipientRows)) {
+			return;
+		}
+
+		mapi_message_modifyrecipients($fwdMsg, MODRECIP_ADD, $recipientRows);
+
+		// Submit the forwarded meeting request
+		mapi_savechanges($fwdMsg);
+		mapi_message_submitmessage($fwdMsg);
+
+		// Send forward notification to the organizer
+		$this->sendForwardNotification($store, $message, $sourceProps, $recipientRows, $props, $userStore);
+
+		$this->sendFeedback(true);
+	}
+
+	/**
+	 * Send a forward notification to the meeting organizer informing them
+	 * that the meeting was forwarded to additional recipients.
+	 *
+	 * @param mapistore $store          MAPI store containing the appointment
+	 * @param resource  $message        original appointment MAPI message
+	 * @param array     $messageProps   properties of the source message
+	 * @param array     $recipientRows  MAPI recipient rows of forward targets
+	 * @param array     $props          property tag mapping
+	 * @param mapistore $userStore      current user's default store
+	 */
+	private function sendForwardNotification($store, $message, $messageProps, $recipientRows, $props, $userStore) {
+		// Do not notify if the current user is the organizer
+		$req = new Meetingrequest($store, $message, $GLOBALS['mapisession']->getSession());
+		if ($req->isLocalOrganiser()) {
+			return;
+		}
+
+		// Determine organizer address
+		$organizerEmail = $messageProps[PR_SENT_REPRESENTING_EMAIL_ADDRESS] ?? '';
+		$organizerName = $messageProps[PR_SENT_REPRESENTING_NAME] ?? '';
+		if (empty($organizerEmail)) {
+			return;
+		}
+
+		$userStoreProps = mapi_getprops($userStore, [PR_IPM_OUTBOX_ENTRYID, PR_IPM_SENTMAIL_ENTRYID]);
+		$outbox = mapi_msgstore_openentry($userStore, $userStoreProps[PR_IPM_OUTBOX_ENTRYID]);
+		$notifMsg = mapi_folder_createmessage($outbox);
+
+		// Collect forward recipient names and addresses
+		$forwardedTo = [];
+		foreach ($recipientRows as $recip) {
+			$name = $recip[PR_DISPLAY_NAME] ?? '';
+			$email = $recip[PR_SMTP_ADDRESS] ?? $recip[PR_EMAIL_ADDRESS] ?? '';
+			if (!empty($name) && !empty($email) && $name !== $email) {
+				$forwardedTo[] = $name . ' (' . $email . ')';
+			} else {
+				$forwardedTo[] = !empty($name) ? $name : $email;
+			}
+		}
+		$currentUser = $GLOBALS['mapisession']->getFullName() ?: $GLOBALS['mapisession']->getUserName();
+		$subject = $messageProps[PR_SUBJECT] ?? '';
+		$recipients = implode(', ', $forwardedTo);
+
+		// Format meeting time. Property keys differ between the
+		// appointment set (startdate) and mail set (appointment_startdate).
+		// Prefer the appointment_* keys as the mail set also has
+		// startdate/duedate mapped to Task properties.
+		$startKey = isset($props['appointment_startdate']) ? 'appointment_startdate' : 'startdate';
+		$endKey = isset($props['appointment_duedate']) ? 'appointment_duedate' : 'duedate';
+		$locKey = isset($props['appointment_location']) ? 'appointment_location' : 'location';
+		$startDate = isset($props[$startKey], $messageProps[$props[$startKey]])
+			? $messageProps[$props[$startKey]] : null;
+		$endDate = isset($props[$endKey], $messageProps[$props[$endKey]])
+			? $messageProps[$props[$endKey]] : null;
+		$location = isset($props[$locKey], $messageProps[$props[$locKey]])
+			? $messageProps[$props[$locKey]] : '';
+		$meetingTime = '';
+		if ($startDate) {
+			$meetingTime = date(_('l, F j, Y g:i A'), $startDate);
+			if ($endDate) {
+				$meetingTime .= ' - ' . date(_('l, F j, Y g:i A'), $endDate);
+			}
+		}
+
+		// Build notification body
+		$body = _('Your meeting has been forwarded') . "\n\n";
+		$body .= $currentUser . ' ' . _('has forwarded your meeting request to others.') . "\n\n";
+		$body .= '     ' . _('Meeting') . ': ' . $subject . "\n";
+		if (!empty($meetingTime)) {
+			$body .= '     ' . _('Meeting Time') . ': ' . $meetingTime . "\n";
+		}
+		if (!empty($location)) {
+			$body .= '     ' . _('Location') . ': ' . $location . "\n";
+		}
+		$body .= '     ' . _('Recipients') . ': ' . $recipients . "\n";
+
+		$notifProps = [
+			PR_MESSAGE_CLASS => 'IPM.Schedule.Meeting.Notification.Forward',
+			PR_SUBJECT => _('Your meeting has been forwarded') . ': ' . $subject,
+			PR_BODY => $body,
+			PR_SENTMAIL_ENTRYID => $userStoreProps[PR_IPM_SENTMAIL_ENTRYID],
+		];
+
+		// Resolve named property tags against the user's store so
+		// the tags match when the MFN is later read back.
+		$namedProps = getPropIdsFromStrings($userStore, [
+			'startdate' => "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentStartWhole,
+			'duedate' => "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentEndWhole,
+			'location' => "PT_STRING8:PSETID_Appointment:" . PidLidLocation,
+			'goid' => "PT_BINARY:PSETID_Meeting:" . PidLidGlobalObjectId,
+			'goid2' => "PT_BINARY:PSETID_Meeting:" . PidLidCleanGlobalObjectId,
+		]);
+
+		// Copy appointment properties so the preview can show
+		// When/Location and link the notification to the calendar item.
+		if (isset($props['goid'], $messageProps[$props['goid']])) {
+			$notifProps[$namedProps['goid']] = $messageProps[$props['goid']];
+		}
+		if (isset($props['goid2'], $messageProps[$props['goid2']])) {
+			$notifProps[$namedProps['goid2']] = $messageProps[$props['goid2']];
+		}
+		if ($startDate) {
+			$notifProps[PR_START_DATE] = $startDate;
+			$notifProps[$namedProps['startdate']] = $startDate;
+		}
+		if ($endDate) {
+			$notifProps[PR_END_DATE] = $endDate;
+			$notifProps[$namedProps['duedate']] = $endDate;
+		}
+		if (!empty($location)) {
+			$notifProps[$namedProps['location']] = $location;
+		}
+
+		mapi_setprops($notifMsg, $notifProps);
+
+		// Address the notification to the organizer
+		$addrType = $messageProps[PR_SENT_REPRESENTING_ADDRTYPE] ?? 'SMTP';
+		$organizerRecip = [
+			PR_DISPLAY_NAME => $organizerName,
+			PR_EMAIL_ADDRESS => $organizerEmail,
+			PR_ADDRTYPE => $addrType,
+			PR_RECIPIENT_TYPE => MAPI_TO,
+		];
+		if (!empty($messageProps[PR_SENT_REPRESENTING_ENTRYID])) {
+			$organizerRecip[PR_ENTRYID] = $messageProps[PR_SENT_REPRESENTING_ENTRYID];
+		} else {
+			$organizerRecip[PR_ENTRYID] = mapi_createoneoff($organizerName, $addrType, $organizerEmail);
+		}
+		if (!empty($messageProps[PR_SENT_REPRESENTING_SEARCH_KEY])) {
+			$organizerRecip[PR_SEARCH_KEY] = $messageProps[PR_SENT_REPRESENTING_SEARCH_KEY];
+		}
+		mapi_message_modifyrecipients($notifMsg, MODRECIP_ADD, [$organizerRecip]);
+
+		mapi_savechanges($notifMsg);
+		mapi_message_submitmessage($notifMsg);
 	}
 }
