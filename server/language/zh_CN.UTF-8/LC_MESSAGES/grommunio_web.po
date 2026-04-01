@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Simplified)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 11:33+0200\n"
+"POT-Creation-Date: 2026-04-01 13:52+0200\n"
 "PO-Revision-Date: 2022-07-26 18:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -6953,6 +6953,68 @@ msgstr "密码"
 msgid "Key transport"
 msgstr "关键运输"
 
+msgid "Template Snippets"
+msgstr "模板片段"
+
+msgid "System Templates"
+msgstr "系统模板"
+
+msgid "read-only"
+msgstr "只读"
+
+msgid "No system templates available"
+msgstr "没有可用的系统模板"
+
+msgid "User Templates"
+msgstr "用户模板"
+
+msgid "No user templates defined"
+msgstr "未定义用户模板"
+
+msgid "Template name"
+msgstr "模板名称"
+
+msgid "Save Template"
+msgstr "保存模板"
+
+msgid "HTML Content"
+msgstr "HTML 内容"
+
+msgid "Convert HTML to Plain Text"
+msgstr "将 HTML 转换为纯文本"
+
+msgid "Convert Plain Text to HTML"
+msgstr "将纯文本转换为 HTML"
+
+msgid "Plain Text Content"
+msgstr "纯文本内容"
+
+msgid "New template"
+msgstr "新模板"
+
+msgid "New system template"
+msgstr "新系统模板"
+
+msgid "Delete system template"
+msgstr "删除系统模板"
+
+msgid ""
+"Are you sure you want to delete the system template \"{0}\"? This affects "
+"all users."
+msgstr "您确定要删除系统模板“{0}”吗？此操作将影响所有用户。"
+
+msgid "Insert Template"
+msgstr "插入模板"
+
+msgid "Insert a text template at the cursor position"
+msgstr "在光标位置插入文本模板"
+
+msgid "No templates available"
+msgstr "没有可用模板"
+
+msgid "An unknown error occurred."
+msgstr "发生未知错误。"
+
 msgid "Charm pink"
 msgstr "魅力粉"
 
@@ -7366,6 +7428,33 @@ msgstr "证书已废止，但已导入。"
 
 msgid "Unable to read public certificate"
 msgstr "无法读取公共证书"
+
+msgid "You do not have permission to manage system templates."
+msgstr "您无权管理系统模板。"
+
+msgid "Template name is required."
+msgstr "必须填写模板名称。"
+
+msgid "Cannot create template directory."
+msgstr "无法创建模板目录。"
+
+msgid "Failed to write template file."
+msgstr "无法写入模板文件。"
+
+msgid "Template key is required."
+msgstr "必须提供模板键。"
+
+msgid "Template directory not found."
+msgstr "找不到模板目录。"
+
+msgid "Template file not found."
+msgstr "找不到模板文件。"
+
+msgid "Failed to delete template file."
+msgstr "无法删除模板文件。"
+
+msgid "Template deleted successfully."
+msgstr "模板已成功删除。"
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "无法向总线添加数据，总线中存在相同的操作类型"

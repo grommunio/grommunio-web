@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Icelandic (Iceland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 11:33+0200\n"
+"POT-Creation-Date: 2026-04-01 13:52+0200\n"
 "PO-Revision-Date: 2019-12-01 02:07+0000\n"
 "Last-Translator: import\n"
 "Language: is_IS\n"
@@ -7169,6 +7169,70 @@ msgstr "Dulmál"
 msgid "Key transport"
 msgstr "Lyklaflutningar"
 
+msgid "Template Snippets"
+msgstr "Sniðmátarbrot"
+
+msgid "System Templates"
+msgstr "Kerfissniðmát"
+
+msgid "read-only"
+msgstr "aðeins til lestrar"
+
+msgid "No system templates available"
+msgstr "Engar kerfissniðmát tiltækar"
+
+msgid "User Templates"
+msgstr "Notendamynstur"
+
+msgid "No user templates defined"
+msgstr "Engar notendasniðmát skilgreindar"
+
+msgid "Template name"
+msgstr "Nafn sniðmáts"
+
+msgid "Save Template"
+msgstr "Vista sniðmát"
+
+msgid "HTML Content"
+msgstr "HTML-efni"
+
+msgid "Convert HTML to Plain Text"
+msgstr "Umbreyttu HTML í hreint texta"
+
+msgid "Convert Plain Text to HTML"
+msgstr "Umbreyttu einföldu texta í HTML"
+
+msgid "Plain Text Content"
+msgstr "Einfaldur texti"
+
+msgid "New template"
+msgstr "Ný sniðmát"
+
+msgid "New system template"
+msgstr "Nýtt kerfissniðmát"
+
+msgid "Delete system template"
+msgstr "Eyða kerfissniðmáti"
+
+msgid ""
+"Are you sure you want to delete the system template \"{0}\"? This affects "
+"all users."
+msgstr ""
+"Viltu vera viss um að eyða kerfissniðmátinu \"{0}\"? Þetta hefur áhrif á "
+"alla notendur."
+
+msgid "Insert Template"
+msgstr "Settu inn sniðmát"
+
+msgid "Insert a text template at the cursor position"
+msgstr "Settu inn textamódel á bendilinn"
+
+msgid "No templates available"
+msgstr "Engar sniðmát tiltækar"
+
+msgid "An unknown error occurred."
+msgstr "Óþekkt villa kom upp."
+
 msgid "Charm pink"
 msgstr "Sjarmerandi bleikt"
 
@@ -7603,6 +7667,33 @@ msgstr "Vottorð er afturkallað, en var flutt inn."
 
 msgid "Unable to read public certificate"
 msgstr "Ekki er hægt að lesa opinbert vottorð"
+
+msgid "You do not have permission to manage system templates."
+msgstr "Þú hefur ekki heimild til að stjórna kerfissniðmátum."
+
+msgid "Template name is required."
+msgstr "Nafn sniðmáts er nauðsynlegt."
+
+msgid "Cannot create template directory."
+msgstr "Ekki hægt að búa til sniðmátamöppu."
+
+msgid "Failed to write template file."
+msgstr "Ekki tókst að skrifa sniðmátaskrána."
+
+msgid "Template key is required."
+msgstr "Sniðmátarlykill er nauðsynlegur."
+
+msgid "Template directory not found."
+msgstr "Sniðmátaskrá finnst ekki."
+
+msgid "Template file not found."
+msgstr "Sniðskrá fundin ekki."
+
+msgid "Failed to delete template file."
+msgstr "Ekki tókst að eyða sniðmátsskrá."
+
+msgid "Template deleted successfully."
+msgstr "Sniðmát eytt með góðum árangri."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""

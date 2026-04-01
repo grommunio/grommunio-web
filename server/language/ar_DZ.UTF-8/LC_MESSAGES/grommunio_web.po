@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Arabic (Algeria)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 11:33+0200\n"
+"POT-Creation-Date: 2026-04-01 13:52+0200\n"
 "PO-Revision-Date: 2018-08-24 20:58+0200\n"
 "Last-Translator: import\n"
 "Language: ar_DZ\n"
@@ -7165,6 +7165,70 @@ msgstr "التشفير"
 msgid "Key transport"
 msgstr "النقل الرئيسي"
 
+msgid "Template Snippets"
+msgstr "مقتطفات القوالب"
+
+msgid "System Templates"
+msgstr "قوالب النظام"
+
+msgid "read-only"
+msgstr "للقراءة فقط"
+
+msgid "No system templates available"
+msgstr "لا توجد قوالب نظام متاحة"
+
+msgid "User Templates"
+msgstr "قوالب المستخدم"
+
+msgid "No user templates defined"
+msgstr "لم يتم تعريف أي قوالب مستخدم"
+
+msgid "Template name"
+msgstr "اسم القالب"
+
+msgid "Save Template"
+msgstr "حفظ القالب"
+
+msgid "HTML Content"
+msgstr "محتوى HTML"
+
+msgid "Convert HTML to Plain Text"
+msgstr "تحويل HTML إلى نص عادي"
+
+msgid "Convert Plain Text to HTML"
+msgstr "تحويل النص العادي إلى HTML"
+
+msgid "Plain Text Content"
+msgstr "محتوى نص عادي"
+
+msgid "New template"
+msgstr "قالب جديد"
+
+msgid "New system template"
+msgstr "قالب نظام جديد"
+
+msgid "Delete system template"
+msgstr "حذف قالب النظام"
+
+msgid ""
+"Are you sure you want to delete the system template \"{0}\"? This affects "
+"all users."
+msgstr ""
+"هل أنت متأكد من أنك تريد حذف القالب النظامي \"{0}\"؟ سيؤثر هذا على جميع "
+"المستخدمين."
+
+msgid "Insert Template"
+msgstr "إدراج قالب"
+
+msgid "Insert a text template at the cursor position"
+msgstr "أدخل قالب نصي في موضع المؤشر"
+
+msgid "No templates available"
+msgstr "لا توجد قوالب متاحة"
+
+msgid "An unknown error occurred."
+msgstr "حدث خطأ غير معروف."
+
 msgid "Charm pink"
 msgstr "سحر الوردي"
 
@@ -7590,6 +7654,33 @@ msgstr "تم إبطال الشهادة، ولكن تم استيرادها."
 
 msgid "Unable to read public certificate"
 msgstr "غير قادر على قراءة الشهادة العامة"
+
+msgid "You do not have permission to manage system templates."
+msgstr "ليس لديك إذن لإدارة قوالب النظام."
+
+msgid "Template name is required."
+msgstr "اسم القالب مطلوب."
+
+msgid "Cannot create template directory."
+msgstr "يتعذر إنشاء دليل القوالب."
+
+msgid "Failed to write template file."
+msgstr "فشل كتابة ملف القالب."
+
+msgid "Template key is required."
+msgstr "مفتاح القالب مطلوب."
+
+msgid "Template directory not found."
+msgstr "لم يتم العثور على دليل القوالب."
+
+msgid "Template file not found."
+msgstr "لم يتم العثور على ملف القالب."
+
+msgid "Failed to delete template file."
+msgstr "فشل حذف ملف القالب."
+
+msgid "Template deleted successfully."
+msgstr "تم حذف القالب بنجاح."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "لا يمكن إضافة البيانات إلى الناقل، نفس نوع الإجراء موجود في الناقل"

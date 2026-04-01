@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Spanish (Catalan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 11:33+0200\n"
+"POT-Creation-Date: 2026-04-01 13:52+0200\n"
 "PO-Revision-Date: 2025-05-01 05:29+0000\n"
 "Last-Translator: Roger VC <rogervilarasau@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/grommunio/grommunio-web/ca/>\n"
@@ -7235,6 +7235,70 @@ msgstr "Xifrat"
 msgid "Key transport"
 msgstr "Transport clau"
 
+msgid "Template Snippets"
+msgstr "Fragments de plantilla"
+
+msgid "System Templates"
+msgstr "Plantilles del sistema"
+
+msgid "read-only"
+msgstr "només de lectura"
+
+msgid "No system templates available"
+msgstr "No hi ha cap plantilla de sistema disponible"
+
+msgid "User Templates"
+msgstr "Plantilles d'usuari"
+
+msgid "No user templates defined"
+msgstr "No s'han definit cap plantilla d'usuari"
+
+msgid "Template name"
+msgstr "Nom de la plantilla"
+
+msgid "Save Template"
+msgstr "Desa plantilla"
+
+msgid "HTML Content"
+msgstr "Contingut HTML"
+
+msgid "Convert HTML to Plain Text"
+msgstr "Convertir HTML a text pla"
+
+msgid "Convert Plain Text to HTML"
+msgstr "Convertir text pla a HTML"
+
+msgid "Plain Text Content"
+msgstr "Contingut de text pla"
+
+msgid "New template"
+msgstr "Nova plantilla"
+
+msgid "New system template"
+msgstr "Nova plantilla de sistema"
+
+msgid "Delete system template"
+msgstr "Suprimeix la plantilla del sistema"
+
+msgid ""
+"Are you sure you want to delete the system template \"{0}\"? This affects "
+"all users."
+msgstr ""
+"Estàs segur que vols suprimir la plantilla del sistema \"{0}\"? Això afecta "
+"tots els usuaris."
+
+msgid "Insert Template"
+msgstr "Insereix plantilla"
+
+msgid "Insert a text template at the cursor position"
+msgstr "Inserir una plantilla de text a la posició del cursor"
+
+msgid "No templates available"
+msgstr "No hi ha cap plantilla disponible"
+
+msgid "An unknown error occurred."
+msgstr "S'ha produït un error desconegut."
+
 msgid "Charm pink"
 msgstr "Encant rosa"
 
@@ -7686,6 +7750,33 @@ msgstr "El certificat s'ha revocat, però s'ha importat."
 
 msgid "Unable to read public certificate"
 msgstr "No es pot llegir el certificat públic"
+
+msgid "You do not have permission to manage system templates."
+msgstr "No teniu permís per gestionar les plantilles del sistema."
+
+msgid "Template name is required."
+msgstr "El nom de la plantilla és obligatori."
+
+msgid "Cannot create template directory."
+msgstr "No es pot crear el directori de plantilles."
+
+msgid "Failed to write template file."
+msgstr "S'ha fallat l'escriptura del fitxer de plantilla."
+
+msgid "Template key is required."
+msgstr "Es requereix la clau de la plantilla."
+
+msgid "Template directory not found."
+msgstr "No s'ha trobat el directori de plantilles."
+
+msgid "Template file not found."
+msgstr "Fitxer de plantilla no trobat."
+
+msgid "Failed to delete template file."
+msgstr "S'ha fallat l'eliminació del fitxer de plantilla."
+
+msgid "Template deleted successfully."
+msgstr "Plantilla eliminada amb èxit."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "No es poden afegir dades al bus, hi ha el mateix tipus d'acció al bus"

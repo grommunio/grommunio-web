@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 11:33+0200\n"
+"POT-Creation-Date: 2026-04-01 13:52+0200\n"
 "PO-Revision-Date: 2022-07-26 19:05+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -7294,6 +7294,70 @@ msgstr "Cipher"
 msgid "Key transport"
 msgstr "Ključni prevoz"
 
+msgid "Template Snippets"
+msgstr "Odlomki predlog"
+
+msgid "System Templates"
+msgstr "Sistemske predloge"
+
+msgid "read-only"
+msgstr "samo za branje"
+
+msgid "No system templates available"
+msgstr "Ni na voljo sistemskih predlog"
+
+msgid "User Templates"
+msgstr "Predloge za uporabnike"
+
+msgid "No user templates defined"
+msgstr "Ni opredeljenih uporabniških predlog"
+
+msgid "Template name"
+msgstr "Ime predloge"
+
+msgid "Save Template"
+msgstr "Shrani predlogo"
+
+msgid "HTML Content"
+msgstr "Vsebina HTML"
+
+msgid "Convert HTML to Plain Text"
+msgstr "Pretvori HTML v navadno besedilo"
+
+msgid "Convert Plain Text to HTML"
+msgstr "Pretvori navadno besedilo v HTML"
+
+msgid "Plain Text Content"
+msgstr "Vsebina v obliki navadnega besedila"
+
+msgid "New template"
+msgstr "Nova predloga"
+
+msgid "New system template"
+msgstr "Nova sistemna predloga"
+
+msgid "Delete system template"
+msgstr "Izbriši sistemsko predlogo"
+
+msgid ""
+"Are you sure you want to delete the system template \"{0}\"? This affects "
+"all users."
+msgstr ""
+"Ali res želite izbrisati sistemsko predlogo »{0}«? To vpliva na vse "
+"uporabnike."
+
+msgid "Insert Template"
+msgstr "Vstavi predlogo"
+
+msgid "Insert a text template at the cursor position"
+msgstr "Vstavi besedilno predlogo na mesto kazalca"
+
+msgid "No templates available"
+msgstr "Ni na voljo nobenih predlog"
+
+msgid "An unknown error occurred."
+msgstr "Prišlo je do neznane napake."
+
 msgid "Charm pink"
 msgstr "Čar rožnate barve"
 
@@ -7728,6 +7792,33 @@ msgstr "Potrdilo je preklicano, vendar je bilo uvoženo."
 
 msgid "Unable to read public certificate"
 msgstr "Ni mogoče prebrati javnega potrdila"
+
+msgid "You do not have permission to manage system templates."
+msgstr "Nimate dovoljenja za upravljanje sistemskih predlog."
+
+msgid "Template name is required."
+msgstr "Ime predloge je obvezno."
+
+msgid "Cannot create template directory."
+msgstr "Ne morem ustvariti imenika predlog."
+
+msgid "Failed to write template file."
+msgstr "Pisanje predloge ni uspelo."
+
+msgid "Template key is required."
+msgstr "Potreben je ključ predloge."
+
+msgid "Template directory not found."
+msgstr "Imenik predlog ni bil najden."
+
+msgid "Template file not found."
+msgstr "Datoteke predloge ni bilo mogoče najti."
+
+msgid "Failed to delete template file."
+msgstr "Izbris datoteke predloge ni uspel."
+
+msgid "Template deleted successfully."
+msgstr "Predloga je bila uspešno izbrisana."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""

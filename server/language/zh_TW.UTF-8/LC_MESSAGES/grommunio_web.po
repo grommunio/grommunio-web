@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 11:33+0200\n"
+"POT-Creation-Date: 2026-04-01 13:52+0200\n"
 "PO-Revision-Date: 2022-08-27 18:15+0000\n"
 "Last-Translator: Hugel <qihu@nfschina.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/grommunio/grommunio-web/zh_Hant/>\n"
@@ -6931,6 +6931,68 @@ msgstr "密碼"
 msgid "Key transport"
 msgstr "關鍵運輸"
 
+msgid "Template Snippets"
+msgstr "範例片段"
+
+msgid "System Templates"
+msgstr "系統範本"
+
+msgid "read-only"
+msgstr "唯讀"
+
+msgid "No system templates available"
+msgstr "沒有可用的系統範本"
+
+msgid "User Templates"
+msgstr "使用者範本"
+
+msgid "No user templates defined"
+msgstr "未定義任何使用者範本"
+
+msgid "Template name"
+msgstr "範本名稱"
+
+msgid "Save Template"
+msgstr "儲存範本"
+
+msgid "HTML Content"
+msgstr "HTML 內容"
+
+msgid "Convert HTML to Plain Text"
+msgstr "將 HTML 轉換為純文字"
+
+msgid "Convert Plain Text to HTML"
+msgstr "將純文字轉換為 HTML"
+
+msgid "Plain Text Content"
+msgstr "純文字內容"
+
+msgid "New template"
+msgstr "新範本"
+
+msgid "New system template"
+msgstr "新系統範本"
+
+msgid "Delete system template"
+msgstr "刪除系統範本"
+
+msgid ""
+"Are you sure you want to delete the system template \"{0}\"? This affects "
+"all users."
+msgstr "您確定要刪除系統範本「{0}」嗎？此操作將影響所有使用者。"
+
+msgid "Insert Template"
+msgstr "插入範本"
+
+msgid "Insert a text template at the cursor position"
+msgstr "在游標位置插入文字範本"
+
+msgid "No templates available"
+msgstr "沒有可用範本"
+
+msgid "An unknown error occurred."
+msgstr "發生未知錯誤。"
+
 msgid "Charm pink"
 msgstr "魅力粉紅"
 
@@ -7342,6 +7404,33 @@ msgstr "憑證已撤銷，但已匯入。"
 
 msgid "Unable to read public certificate"
 msgstr "無法讀取公開憑證"
+
+msgid "You do not have permission to manage system templates."
+msgstr "您沒有管理系統範本的權限。"
+
+msgid "Template name is required."
+msgstr "必須填寫範本名稱。"
+
+msgid "Cannot create template directory."
+msgstr "無法建立範本目錄。"
+
+msgid "Failed to write template file."
+msgstr "無法寫入範本檔案。"
+
+msgid "Template key is required."
+msgstr "必須提供範本金。"
+
+msgid "Template directory not found."
+msgstr "找不到範本目錄。"
+
+msgid "Template file not found."
+msgstr "找不到範本檔案。"
+
+msgid "Failed to delete template file."
+msgstr "無法刪除範本檔案。"
+
+msgid "Template deleted successfully."
+msgstr "範本已成功刪除。"
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "無法新增資料至匯流排，相同的動作類型已存在於匯流排中"

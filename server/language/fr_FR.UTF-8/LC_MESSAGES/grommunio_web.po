@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web French (France)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 11:33+0200\n"
+"POT-Creation-Date: 2026-04-01 13:52+0200\n"
 "PO-Revision-Date: 2022-12-11 16:35+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/grommunio/grommunio-web/fr/>\n"
@@ -7325,6 +7325,70 @@ msgstr "Chiffre"
 msgid "Key transport"
 msgstr "Transport de clés"
 
+msgid "Template Snippets"
+msgstr "Extraits de modèles"
+
+msgid "System Templates"
+msgstr "Modèles système"
+
+msgid "read-only"
+msgstr "en lecture seule"
+
+msgid "No system templates available"
+msgstr "Aucun modèle système disponible"
+
+msgid "User Templates"
+msgstr "Modèles utilisateur"
+
+msgid "No user templates defined"
+msgstr "Aucun modèle utilisateur défini"
+
+msgid "Template name"
+msgstr "Nom du modèle"
+
+msgid "Save Template"
+msgstr "Enregistrer le modèle"
+
+msgid "HTML Content"
+msgstr "Contenu HTML"
+
+msgid "Convert HTML to Plain Text"
+msgstr "Convertir le HTML en texte brut"
+
+msgid "Convert Plain Text to HTML"
+msgstr "Convertir du texte brut en HTML"
+
+msgid "Plain Text Content"
+msgstr "Contenu en texte brut"
+
+msgid "New template"
+msgstr "Nouveau modèle"
+
+msgid "New system template"
+msgstr "Nouveau modèle système"
+
+msgid "Delete system template"
+msgstr "Supprimer le modèle système"
+
+msgid ""
+"Are you sure you want to delete the system template \"{0}\"? This affects "
+"all users."
+msgstr ""
+"Êtes-vous sûr de vouloir supprimer le modèle système « {0} » ? Cela "
+"affectera tous les utilisateurs."
+
+msgid "Insert Template"
+msgstr "Insérer un modèle"
+
+msgid "Insert a text template at the cursor position"
+msgstr "Insérer un modèle de texte à l'emplacement du curseur"
+
+msgid "No templates available"
+msgstr "Aucun modèle disponible"
+
+msgid "An unknown error occurred."
+msgstr "Une erreur inconnue s'est produite."
+
 msgid "Charm pink"
 msgstr "Charm pink"
 
@@ -7783,6 +7847,33 @@ msgstr "Le certificat est révoqué, mais a été importé."
 
 msgid "Unable to read public certificate"
 msgstr "Impossible de lire le certificat public"
+
+msgid "You do not have permission to manage system templates."
+msgstr "Vous n'avez pas l'autorisation de gérer les modèles système."
+
+msgid "Template name is required."
+msgstr "Le nom du modèle est obligatoire."
+
+msgid "Cannot create template directory."
+msgstr "Impossible de créer le répertoire des modèles."
+
+msgid "Failed to write template file."
+msgstr "Échec de l'écriture du fichier modèle."
+
+msgid "Template key is required."
+msgstr "La clé du modèle est obligatoire."
+
+msgid "Template directory not found."
+msgstr "Répertoire des modèles introuvable."
+
+msgid "Template file not found."
+msgstr "Fichier modèle introuvable."
+
+msgid "Failed to delete template file."
+msgstr "Échec de la suppression du fichier modèle."
+
+msgid "Template deleted successfully."
+msgstr "Le modèle a été supprimé avec succès."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""

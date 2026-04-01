@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Dutch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 11:33+0200\n"
+"POT-Creation-Date: 2026-04-01 13:52+0200\n"
 "PO-Revision-Date: 2022-12-11 14:12+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/grommunio/grommunio-web/nl/>\n"
@@ -7212,6 +7212,70 @@ msgstr "Cijfer"
 msgid "Key transport"
 msgstr "Belangrijk transport"
 
+msgid "Template Snippets"
+msgstr "Sjabloonfragmenten"
+
+msgid "System Templates"
+msgstr "Systeemsjablonen"
+
+msgid "read-only"
+msgstr "alleen-lezen"
+
+msgid "No system templates available"
+msgstr "Er zijn geen systeemsjablonen beschikbaar"
+
+msgid "User Templates"
+msgstr "Gebruikerssjablonen"
+
+msgid "No user templates defined"
+msgstr "Er zijn geen gebruikerssjablonen gedefinieerd"
+
+msgid "Template name"
+msgstr "Sjabloonnaam"
+
+msgid "Save Template"
+msgstr "Sjabloon opslaan"
+
+msgid "HTML Content"
+msgstr "HTML-inhoud"
+
+msgid "Convert HTML to Plain Text"
+msgstr "HTML naar platte tekst converteren"
+
+msgid "Convert Plain Text to HTML"
+msgstr "Gewone tekst naar HTML converteren"
+
+msgid "Plain Text Content"
+msgstr "Inhoud in platte tekst"
+
+msgid "New template"
+msgstr "Nieuw sjabloon"
+
+msgid "New system template"
+msgstr "Nieuw systeemsjabloon"
+
+msgid "Delete system template"
+msgstr "Sjabloon verwijderen"
+
+msgid ""
+"Are you sure you want to delete the system template \"{0}\"? This affects "
+"all users."
+msgstr ""
+"Weet u zeker dat u de systeemsjabloon \"{0}\" wilt verwijderen? Dit heeft "
+"gevolgen voor alle gebruikers."
+
+msgid "Insert Template"
+msgstr "Sjabloon invoegen"
+
+msgid "Insert a text template at the cursor position"
+msgstr "Voeg een tekstsjabloon in op de cursorpositie"
+
+msgid "No templates available"
+msgstr "Er zijn geen sjablonen beschikbaar"
+
+msgid "An unknown error occurred."
+msgstr "Er is een onbekende fout opgetreden."
+
 msgid "Charm pink"
 msgstr "Charm roze"
 
@@ -7648,6 +7712,33 @@ msgstr "Certificaat is ingetrokken, maar werd geïmporteerd."
 
 msgid "Unable to read public certificate"
 msgstr "Kan publiek certificaat niet lezen"
+
+msgid "You do not have permission to manage system templates."
+msgstr "U hebt geen toestemming om systeemsjablonen te beheren."
+
+msgid "Template name is required."
+msgstr "De sjabloonnaam is verplicht."
+
+msgid "Cannot create template directory."
+msgstr "Kan de sjabloonmap niet aanmaken."
+
+msgid "Failed to write template file."
+msgstr "Het schrijven van het sjabloonbestand is mislukt."
+
+msgid "Template key is required."
+msgstr "Sjabloonsleutel is vereist."
+
+msgid "Template directory not found."
+msgstr "Sjabloonmap niet gevonden."
+
+msgid "Template file not found."
+msgstr "Sjabloonbestand niet gevonden."
+
+msgid "Failed to delete template file."
+msgstr "Het verwijderen van het sjabloonbestand is mislukt."
+
+msgid "Template deleted successfully."
+msgstr "Sjabloon succesvol verwijderd."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""

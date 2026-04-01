@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 11:33+0200\n"
+"POT-Creation-Date: 2026-04-01 13:52+0200\n"
 "PO-Revision-Date: 2022-07-26 16:08+0200\n"
 "Last-Translator: f3rr31 <5920873@disroot.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/grommunio/grommunio-web/hu/>\n"
@@ -7276,6 +7276,70 @@ msgstr "Cipher"
 msgid "Key transport"
 msgstr "Kulcsfontosságú szállítás"
 
+msgid "Template Snippets"
+msgstr "Sablonrészletek"
+
+msgid "System Templates"
+msgstr "Rendszer sablonok"
+
+msgid "read-only"
+msgstr "csak olvasható"
+
+msgid "No system templates available"
+msgstr "Nincs elérhető rendszer sablon"
+
+msgid "User Templates"
+msgstr "Felhasználói sablonok"
+
+msgid "No user templates defined"
+msgstr "Nincs definiált felhasználói sablon"
+
+msgid "Template name"
+msgstr "Sablon neve"
+
+msgid "Save Template"
+msgstr "Sablon mentése"
+
+msgid "HTML Content"
+msgstr "HTML-tartalom"
+
+msgid "Convert HTML to Plain Text"
+msgstr "HTML-t egyszerű szöveggé konvertálás"
+
+msgid "Convert Plain Text to HTML"
+msgstr "Egyszerű szöveg HTML-be konvertálása"
+
+msgid "Plain Text Content"
+msgstr "Sima szöveges tartalom"
+
+msgid "New template"
+msgstr "Új sablon"
+
+msgid "New system template"
+msgstr "Új rendszer sablon"
+
+msgid "Delete system template"
+msgstr "Rendszer sablon törlése"
+
+msgid ""
+"Are you sure you want to delete the system template \"{0}\"? This affects "
+"all users."
+msgstr ""
+"Biztosan törölni szeretné a „{0}” rendszer sablont? Ez minden felhasználóra "
+"hatással lesz."
+
+msgid "Insert Template"
+msgstr "Sablon beszúrása"
+
+msgid "Insert a text template at the cursor position"
+msgstr "Szövegsablon beszúrása a kurzor pozíciójába"
+
+msgid "No templates available"
+msgstr "Nincs elérhető sablon"
+
+msgid "An unknown error occurred."
+msgstr "Ismeretlen hiba történt."
+
 msgid "Charm pink"
 msgstr "Rózsaszín"
 
@@ -7719,6 +7783,33 @@ msgstr "A tanúsítványt visszavonták, de importálták."
 
 msgid "Unable to read public certificate"
 msgstr "Nem lehet nyilvános tanúsítványt olvasni"
+
+msgid "You do not have permission to manage system templates."
+msgstr "Nincs jogosultsága a rendszer sablonok kezelésére."
+
+msgid "Template name is required."
+msgstr "A sablon neve kötelező."
+
+msgid "Cannot create template directory."
+msgstr "Nem lehet létrehozni a sablonkönyvtárat."
+
+msgid "Failed to write template file."
+msgstr "A sablonfájl írása sikertelen."
+
+msgid "Template key is required."
+msgstr "A sablonkulcs megadása kötelező."
+
+msgid "Template directory not found."
+msgstr "A sablonkönyvtár nem található."
+
+msgid "Template file not found."
+msgstr "A sablonfájl nem található."
+
+msgid "Failed to delete template file."
+msgstr "A sablonfájl törlése nem sikerült."
+
+msgid "Template deleted successfully."
+msgstr "A sablon sikeresen törölve."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""

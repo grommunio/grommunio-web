@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Farsi (Iran)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 11:33+0200\n"
+"POT-Creation-Date: 2026-04-01 13:52+0200\n"
 "PO-Revision-Date: 2017-10-05 19:48+0200\n"
 "Last-Translator: import\n"
 "Language: fa_IR\n"
@@ -7151,6 +7151,70 @@ msgstr "رمز"
 msgid "Key transport"
 msgstr "حمل و نقل کلید"
 
+msgid "Template Snippets"
+msgstr "قطعات نمونه قالب"
+
+msgid "System Templates"
+msgstr "قالب‌های سیستمی"
+
+msgid "read-only"
+msgstr "فقط خواندنی"
+
+msgid "No system templates available"
+msgstr "هیچ قالب سیستمی در دسترس نیست"
+
+msgid "User Templates"
+msgstr "قالب‌های کاربر"
+
+msgid "No user templates defined"
+msgstr "هیچ قالب کاربری تعریف نشده است"
+
+msgid "Template name"
+msgstr "نام قالب"
+
+msgid "Save Template"
+msgstr "ذخیره قالب"
+
+msgid "HTML Content"
+msgstr "محتوای HTML"
+
+msgid "Convert HTML to Plain Text"
+msgstr "تبدیل HTML به متن ساده"
+
+msgid "Convert Plain Text to HTML"
+msgstr "تبدیل متن ساده به HTML"
+
+msgid "Plain Text Content"
+msgstr "محتوای متن ساده"
+
+msgid "New template"
+msgstr "قالب جدید"
+
+msgid "New system template"
+msgstr "قالب جدید سیستم"
+
+msgid "Delete system template"
+msgstr "حذف قالب سیستمی"
+
+msgid ""
+"Are you sure you want to delete the system template \"{0}\"? This affects "
+"all users."
+msgstr ""
+"آیا مطمئن هستید که می‌خواهید قالب سیستمی «{0}» را حذف کنید؟ این کار بر همه "
+"کاربران تأثیر می‌گذارد."
+
+msgid "Insert Template"
+msgstr "درج قالب"
+
+msgid "Insert a text template at the cursor position"
+msgstr "قالب متنی را در موقعیت مکان‌نما درج کنید"
+
+msgid "No templates available"
+msgstr "هیچ قالب در دسترس نیست"
+
+msgid "An unknown error occurred."
+msgstr "یک خطای ناشناخته رخ داد."
+
 msgid "Charm pink"
 msgstr "صورتی جذاب"
 
@@ -7575,6 +7639,33 @@ msgstr "گواهی باطل شد، اما وارد شد."
 
 msgid "Unable to read public certificate"
 msgstr "قادر به خواندن گواهی عمومی نیست"
+
+msgid "You do not have permission to manage system templates."
+msgstr "شما اجازهٔ مدیریت قالب‌های سیستمی را ندارید."
+
+msgid "Template name is required."
+msgstr "نام قالب الزامی است."
+
+msgid "Cannot create template directory."
+msgstr "نمی‌توان پوشهٔ قالب را ایجاد کرد."
+
+msgid "Failed to write template file."
+msgstr "نوشتن فایل قالب با موفقیت انجام نشد."
+
+msgid "Template key is required."
+msgstr "کلید قالب لازم است."
+
+msgid "Template directory not found."
+msgstr "پیشخوان الگو پیدا نشد."
+
+msgid "Template file not found."
+msgstr "فایل قالب پیدا نشد."
+
+msgid "Failed to delete template file."
+msgstr "حذف فایل قالب ناموفق بود."
+
+msgid "Template deleted successfully."
+msgstr "قالب با موفقیت حذف شد."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""

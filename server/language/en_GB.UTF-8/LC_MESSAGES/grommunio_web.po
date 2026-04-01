@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web English (United States)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 11:33+0200\n"
+"POT-Creation-Date: 2026-04-01 13:52+0200\n"
 "PO-Revision-Date: 2022-08-27 18:15+0000\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: English (Briths) <https://hosted.weblate.org/projects/grommunio/grommunio-web/en_GB/>\n"
@@ -7163,6 +7163,70 @@ msgstr "Cipher"
 msgid "Key transport"
 msgstr "Key transport"
 
+msgid "Template Snippets"
+msgstr "Template Snippets"
+
+msgid "System Templates"
+msgstr "System Templates"
+
+msgid "read-only"
+msgstr "read-only"
+
+msgid "No system templates available"
+msgstr "No system templates available"
+
+msgid "User Templates"
+msgstr "User Templates"
+
+msgid "No user templates defined"
+msgstr "No user templates defined"
+
+msgid "Template name"
+msgstr "Template name"
+
+msgid "Save Template"
+msgstr "Save Template"
+
+msgid "HTML Content"
+msgstr "HTML Content"
+
+msgid "Convert HTML to Plain Text"
+msgstr "Convert HTML to Plain Text"
+
+msgid "Convert Plain Text to HTML"
+msgstr "Convert Plain Text to HTML"
+
+msgid "Plain Text Content"
+msgstr "Plain Text Content"
+
+msgid "New template"
+msgstr "New template"
+
+msgid "New system template"
+msgstr "New system template"
+
+msgid "Delete system template"
+msgstr "Delete system template"
+
+msgid ""
+"Are you sure you want to delete the system template \"{0}\"? This affects "
+"all users."
+msgstr ""
+"Are you sure you want to delete the system template \"{0}\"? This affects "
+"all users."
+
+msgid "Insert Template"
+msgstr "Insert Template"
+
+msgid "Insert a text template at the cursor position"
+msgstr "Insert a text template at the cursor position"
+
+msgid "No templates available"
+msgstr "No templates available"
+
+msgid "An unknown error occurred."
+msgstr "An unknown error occurred."
+
 msgid "Charm pink"
 msgstr "Charm pink"
 
@@ -7590,6 +7654,33 @@ msgstr "Certificate is revoked, but was imported."
 
 msgid "Unable to read public certificate"
 msgstr "Unable to read public certificate"
+
+msgid "You do not have permission to manage system templates."
+msgstr "You do not have permission to manage system templates."
+
+msgid "Template name is required."
+msgstr "Template name is required."
+
+msgid "Cannot create template directory."
+msgstr "Cannot create template directory."
+
+msgid "Failed to write template file."
+msgstr "Failed to write template file."
+
+msgid "Template key is required."
+msgstr "Template key is required."
+
+msgid "Template directory not found."
+msgstr "Template directory not found."
+
+msgid "Template file not found."
+msgstr "Template file not found."
+
+msgid "Failed to delete template file."
+msgstr "Failed to delete template file."
+
+msgid "Template deleted successfully."
+msgstr "Template deleted successfully."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "Cannot add data to bus, same action type is present in bus"

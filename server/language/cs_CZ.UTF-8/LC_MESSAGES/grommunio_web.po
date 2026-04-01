@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 11:33+0200\n"
+"POT-Creation-Date: 2026-04-01 13:52+0200\n"
 "PO-Revision-Date: 2022-07-26 14:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -7239,6 +7239,70 @@ msgstr "Šifra"
 msgid "Key transport"
 msgstr "Klíčová doprava"
 
+msgid "Template Snippets"
+msgstr "Úryvky šablon"
+
+msgid "System Templates"
+msgstr "Systémové šablony"
+
+msgid "read-only"
+msgstr "jen pro čtení"
+
+msgid "No system templates available"
+msgstr "Nejsou k dispozici žádné systémové šablony"
+
+msgid "User Templates"
+msgstr "Uživatelské šablony"
+
+msgid "No user templates defined"
+msgstr "Není definována žádná uživatelská šablona"
+
+msgid "Template name"
+msgstr "Název šablony"
+
+msgid "Save Template"
+msgstr "Uložit šablonu"
+
+msgid "HTML Content"
+msgstr "Obsah HTML"
+
+msgid "Convert HTML to Plain Text"
+msgstr "Převést HTML na prostý text"
+
+msgid "Convert Plain Text to HTML"
+msgstr "Převést prostý text na HTML"
+
+msgid "Plain Text Content"
+msgstr "Obsah v prostém textu"
+
+msgid "New template"
+msgstr "Nová šablona"
+
+msgid "New system template"
+msgstr "Nová systémová šablona"
+
+msgid "Delete system template"
+msgstr "Odstranit systémovou šablonu"
+
+msgid ""
+"Are you sure you want to delete the system template \"{0}\"? This affects "
+"all users."
+msgstr ""
+"Opravdu chcete odstranit systémovou šablonu „{0}“? Toto ovlivní všechny "
+"uživatele."
+
+msgid "Insert Template"
+msgstr "Vložit šablonu"
+
+msgid "Insert a text template at the cursor position"
+msgstr "Vložit textovou šablonu na pozici kurzoru"
+
+msgid "No templates available"
+msgstr "Žádné šablony nejsou k dispozici"
+
+msgid "An unknown error occurred."
+msgstr "Došlo k neznámé chybě."
+
 msgid "Charm pink"
 msgstr "Okouzlující růžová"
 
@@ -7671,6 +7735,33 @@ msgstr "Certifikát je odvolán, ale byl importován."
 
 msgid "Unable to read public certificate"
 msgstr "Nelze přečíst veřejný certifikát"
+
+msgid "You do not have permission to manage system templates."
+msgstr "Nemáte oprávnění ke správě systémových šablon."
+
+msgid "Template name is required."
+msgstr "Název šablony je povinný."
+
+msgid "Cannot create template directory."
+msgstr "Nelze vytvořit adresář šablon."
+
+msgid "Failed to write template file."
+msgstr "Zápis šablony se nezdařil."
+
+msgid "Template key is required."
+msgstr "Je vyžadován klíč šablony."
+
+msgid "Template directory not found."
+msgstr "Adresář šablon nebyl nalezen."
+
+msgid "Template file not found."
+msgstr "Šablona nebyla nalezena."
+
+msgid "Failed to delete template file."
+msgstr "Nepodařilo se odstranit soubor šablony."
+
+msgid "Template deleted successfully."
+msgstr "Šablona byla úspěšně odstraněna."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "Nelze přidat data do sběrnice, ve sběrnici je stejný typ akce"

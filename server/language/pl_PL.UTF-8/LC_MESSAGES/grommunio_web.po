@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Polish (Poland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 11:33+0200\n"
+"POT-Creation-Date: 2026-04-01 13:52+0200\n"
 "PO-Revision-Date: 2022-07-26 17:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -7243,6 +7243,70 @@ msgstr "Szyfr"
 msgid "Key transport"
 msgstr "Kluczowy transport"
 
+msgid "Template Snippets"
+msgstr "Fragmenty szablonów"
+
+msgid "System Templates"
+msgstr "Szablony systemowe"
+
+msgid "read-only"
+msgstr "tylko do odczytu"
+
+msgid "No system templates available"
+msgstr "Brak dostępnych szablonów systemowych"
+
+msgid "User Templates"
+msgstr "Szablony użytkownika"
+
+msgid "No user templates defined"
+msgstr "Nie zdefiniowano żadnych szablonów użytkownika"
+
+msgid "Template name"
+msgstr "Nazwa szablonu"
+
+msgid "Save Template"
+msgstr "Zapisz szablon"
+
+msgid "HTML Content"
+msgstr "Treść HTML"
+
+msgid "Convert HTML to Plain Text"
+msgstr "Konwertuj HTML na zwykły tekst"
+
+msgid "Convert Plain Text to HTML"
+msgstr "Konwersja zwykłego tekstu na HTML"
+
+msgid "Plain Text Content"
+msgstr "Treść w postaci zwykłego tekstu"
+
+msgid "New template"
+msgstr "Nowy szablon"
+
+msgid "New system template"
+msgstr "Nowy szablon systemowy"
+
+msgid "Delete system template"
+msgstr "Usuń szablon systemowy"
+
+msgid ""
+"Are you sure you want to delete the system template \"{0}\"? This affects "
+"all users."
+msgstr ""
+"Czy na pewno chcesz usunąć szablon systemowy „{0}”? Ma to wpływ na "
+"wszystkich użytkowników."
+
+msgid "Insert Template"
+msgstr "Wstaw szablon"
+
+msgid "Insert a text template at the cursor position"
+msgstr "Wstaw szablon tekstu w miejscu kursora"
+
+msgid "No templates available"
+msgstr "Brak dostępnych szablonów"
+
+msgid "An unknown error occurred."
+msgstr "Wystąpił nieznany błąd."
+
 msgid "Charm pink"
 msgstr "Różowy"
 
@@ -7686,6 +7750,33 @@ msgstr "Certyfikat został unieważniony, ale został zaimportowany."
 
 msgid "Unable to read public certificate"
 msgstr "Nie można odczytać certyfikatu publicznego"
+
+msgid "You do not have permission to manage system templates."
+msgstr "Nie masz uprawnień do zarządzania szablonami systemowymi."
+
+msgid "Template name is required."
+msgstr "Wymagana jest nazwa szablonu."
+
+msgid "Cannot create template directory."
+msgstr "Nie można utworzyć katalogu szablonów."
+
+msgid "Failed to write template file."
+msgstr "Nie udało się zapisać pliku szablonu."
+
+msgid "Template key is required."
+msgstr "Wymagany jest klucz szablonu."
+
+msgid "Template directory not found."
+msgstr "Nie znaleziono katalogu szablonów."
+
+msgid "Template file not found."
+msgstr "Nie znaleziono pliku szablonu."
+
+msgid "Failed to delete template file."
+msgstr "Nie udało się usunąć pliku szablonu."
+
+msgid "Template deleted successfully."
+msgstr "Szablon został pomyślnie usunięty."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""

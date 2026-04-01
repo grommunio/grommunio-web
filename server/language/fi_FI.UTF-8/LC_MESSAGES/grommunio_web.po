@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 11:33+0200\n"
+"POT-Creation-Date: 2026-04-01 13:52+0200\n"
 "PO-Revision-Date: 2022-07-26 15:25+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -7256,6 +7256,70 @@ msgstr "Cipher"
 msgid "Key transport"
 msgstr "Keskeinen liikenne"
 
+msgid "Template Snippets"
+msgstr "Mallipohjat"
+
+msgid "System Templates"
+msgstr "Järjestelmämallit"
+
+msgid "read-only"
+msgstr "vain luku -tila"
+
+msgid "No system templates available"
+msgstr "Järjestelmämallipohjia ei ole käytettävissä"
+
+msgid "User Templates"
+msgstr "Käyttäjämallit"
+
+msgid "No user templates defined"
+msgstr "Käyttäjämallia ei ole määritetty"
+
+msgid "Template name"
+msgstr "Mallin nimi"
+
+msgid "Save Template"
+msgstr "Tallenna malli"
+
+msgid "HTML Content"
+msgstr "HTML-sisältö"
+
+msgid "Convert HTML to Plain Text"
+msgstr "Muunna HTML tavalliseksi tekstiksi"
+
+msgid "Convert Plain Text to HTML"
+msgstr "Muunna pelkkä teksti HTML-muotoon"
+
+msgid "Plain Text Content"
+msgstr "Pelkkä teksti"
+
+msgid "New template"
+msgstr "Uusi malli"
+
+msgid "New system template"
+msgstr "Uusi järjestelmämalli"
+
+msgid "Delete system template"
+msgstr "Poista järjestelmämalli"
+
+msgid ""
+"Are you sure you want to delete the system template \"{0}\"? This affects "
+"all users."
+msgstr ""
+"Haluatko varmasti poistaa järjestelmämallin \"{0}\"? Tämä vaikuttaa kaikkiin"
+" käyttäjiin."
+
+msgid "Insert Template"
+msgstr "Lisää malli"
+
+msgid "Insert a text template at the cursor position"
+msgstr "Lisää tekstimalli kohdistimen kohdalle"
+
+msgid "No templates available"
+msgstr "Malleja ei ole saatavilla"
+
+msgid "An unknown error occurred."
+msgstr "Tapahtui tuntematon virhe."
+
 msgid "Charm pink"
 msgstr "Charm vaaleanpunainen"
 
@@ -7697,6 +7761,33 @@ msgstr "Varmenne on peruutettu, mutta se tuotiin maahan."
 
 msgid "Unable to read public certificate"
 msgstr "Julkisen varmenteen lukeminen ei onnistu"
+
+msgid "You do not have permission to manage system templates."
+msgstr "Sinulla ei ole oikeutta hallita järjestelmämallipohjia."
+
+msgid "Template name is required."
+msgstr "Mallin nimi on pakollinen."
+
+msgid "Cannot create template directory."
+msgstr "Mallihakemistoa ei voi luoda."
+
+msgid "Failed to write template file."
+msgstr "Mallitiedoston kirjoittaminen epäonnistui."
+
+msgid "Template key is required."
+msgstr "Mallin avain vaaditaan."
+
+msgid "Template directory not found."
+msgstr "Mallihakemistoa ei löydy."
+
+msgid "Template file not found."
+msgstr "Mallitiedostoa ei löydy."
+
+msgid "Failed to delete template file."
+msgstr "Mallitiedoston poistaminen epäonnistui."
+
+msgid "Template deleted successfully."
+msgstr "Malli poistettu onnistuneesti."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "Tietoja ei voi lisätä väylään, jos väylässä on sama toimintatyyppi"

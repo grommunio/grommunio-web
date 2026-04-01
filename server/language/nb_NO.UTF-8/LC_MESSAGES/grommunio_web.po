@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 11:33+0200\n"
+"POT-Creation-Date: 2026-04-01 13:52+0200\n"
 "PO-Revision-Date: 2023-09-06 16:56+0000\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/grommunio/grommunio-web/nb_NO/>\n"
@@ -7184,6 +7184,70 @@ msgstr "Cipher"
 msgid "Key transport"
 msgstr "Nøkkeltransport"
 
+msgid "Template Snippets"
+msgstr "Malsnutter"
+
+msgid "System Templates"
+msgstr "Systemmaler"
+
+msgid "read-only"
+msgstr "skrivebeskyttet"
+
+msgid "No system templates available"
+msgstr "Ingen systemmaler tilgjengelig"
+
+msgid "User Templates"
+msgstr "Brukermaler"
+
+msgid "No user templates defined"
+msgstr "Ingen brukermaler definert"
+
+msgid "Template name"
+msgstr "Malenavn"
+
+msgid "Save Template"
+msgstr "Lagre mal"
+
+msgid "HTML Content"
+msgstr "HTML-innhold"
+
+msgid "Convert HTML to Plain Text"
+msgstr "Konverter HTML til ren tekst"
+
+msgid "Convert Plain Text to HTML"
+msgstr "Konverter ren tekst til HTML"
+
+msgid "Plain Text Content"
+msgstr "Innhold i ren tekst"
+
+msgid "New template"
+msgstr "Ny mal"
+
+msgid "New system template"
+msgstr "Ny systemmal"
+
+msgid "Delete system template"
+msgstr "Slett systemmal"
+
+msgid ""
+"Are you sure you want to delete the system template \"{0}\"? This affects "
+"all users."
+msgstr ""
+"Er du sikker på at du vil slette systemmalen «{0}»? Dette påvirker alle "
+"brukere."
+
+msgid "Insert Template"
+msgstr "Sett inn mal"
+
+msgid "Insert a text template at the cursor position"
+msgstr "Sett inn en tekstmal ved markørposisjonen"
+
+msgid "No templates available"
+msgstr "Ingen maler tilgjengelig"
+
+msgid "An unknown error occurred."
+msgstr "Det oppstod en ukjent feil."
+
 msgid "Charm pink"
 msgstr "Rosa"
 
@@ -7621,6 +7685,33 @@ msgstr "Sertifikatet er tilbakekalt, men ble importert."
 
 msgid "Unable to read public certificate"
 msgstr "Kan ikke lese offentlig sertifikat"
+
+msgid "You do not have permission to manage system templates."
+msgstr "Du har ikke tillatelse til å administrere systemmaler."
+
+msgid "Template name is required."
+msgstr "Malenavn er obligatorisk."
+
+msgid "Cannot create template directory."
+msgstr "Kan ikke opprette malmappe."
+
+msgid "Failed to write template file."
+msgstr "Kunne ikke skrive malfilen."
+
+msgid "Template key is required."
+msgstr "Malenøkkel er påkrevd."
+
+msgid "Template directory not found."
+msgstr "Malkatalog ikke funnet."
+
+msgid "Template file not found."
+msgstr "Malfil ikke funnet."
+
+msgid "Failed to delete template file."
+msgstr "Kunne ikke slette malfilen."
+
+msgid "Template deleted successfully."
+msgstr "Malen er slettet."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "Kan ikke legge til data i bussen, samme handlingstype finnes i bussen"

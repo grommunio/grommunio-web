@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web German (Swiss)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 11:33+0200\n"
+"POT-Creation-Date: 2026-04-01 13:52+0200\n"
 "PO-Revision-Date: 2021-03-02 15:12+0000\n"
 "Last-Translator: import\n"
 "Language: de_CH\n"
@@ -7268,6 +7268,70 @@ msgstr "Chiffre"
 msgid "Key transport"
 msgstr "Schlüssel Transport"
 
+msgid "Template Snippets"
+msgstr "Vorlagenausschnitte"
+
+msgid "System Templates"
+msgstr "Systemvorlagen"
+
+msgid "read-only"
+msgstr "schreibgeschützt"
+
+msgid "No system templates available"
+msgstr "Es sind keine Systemvorlagen verfügbar"
+
+msgid "User Templates"
+msgstr "Benutzervorlagen"
+
+msgid "No user templates defined"
+msgstr "Es sind keine Benutzervorlagen definiert"
+
+msgid "Template name"
+msgstr "Vorlagenname"
+
+msgid "Save Template"
+msgstr "Vorlage speichern"
+
+msgid "HTML Content"
+msgstr "HTML-Inhalt"
+
+msgid "Convert HTML to Plain Text"
+msgstr "HTML in reinen Text konvertieren"
+
+msgid "Convert Plain Text to HTML"
+msgstr "Klartext in HTML konvertieren"
+
+msgid "Plain Text Content"
+msgstr "Inhalt im Klartext"
+
+msgid "New template"
+msgstr "Neue Vorlage"
+
+msgid "New system template"
+msgstr "Neue Systemvorlage"
+
+msgid "Delete system template"
+msgstr "Systemvorlage löschen"
+
+msgid ""
+"Are you sure you want to delete the system template \"{0}\"? This affects "
+"all users."
+msgstr ""
+"Möchten Sie die Systemvorlage „{0}“ wirklich löschen? Dies betrifft alle "
+"Benutzer."
+
+msgid "Insert Template"
+msgstr "Vorlage einfügen"
+
+msgid "Insert a text template at the cursor position"
+msgstr "Füge eine Textvorlage an der Cursorposition ein"
+
+msgid "No templates available"
+msgstr "Keine Vorlagen verfügbar"
+
+msgid "An unknown error occurred."
+msgstr "Es ist ein unbekannter Fehler aufgetreten."
+
 msgid "Charm pink"
 msgstr "Rosa"
 
@@ -7719,6 +7783,33 @@ msgstr "Das Zertifikat ist widerrufen, wurde aber importiert."
 
 msgid "Unable to read public certificate"
 msgstr "Kann öffentliches Zertifikat nicht lesen"
+
+msgid "You do not have permission to manage system templates."
+msgstr "Sie haben keine Berechtigung, Systemvorlagen zu verwalten."
+
+msgid "Template name is required."
+msgstr "Der Name der Vorlage ist erforderlich."
+
+msgid "Cannot create template directory."
+msgstr "Das Vorlagenverzeichnis kann nicht erstellt werden."
+
+msgid "Failed to write template file."
+msgstr "Das Schreiben der Vorlagendatei ist fehlgeschlagen."
+
+msgid "Template key is required."
+msgstr "Der Vorlagenschlüssel ist erforderlich."
+
+msgid "Template directory not found."
+msgstr "Vorlagenverzeichnis nicht gefunden."
+
+msgid "Template file not found."
+msgstr "Vorlagendatei nicht gefunden."
+
+msgid "Failed to delete template file."
+msgstr "Das Löschen der Vorlagendatei ist fehlgeschlagen."
+
+msgid "Template deleted successfully."
+msgstr "Vorlage erfolgreich gelöscht."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""

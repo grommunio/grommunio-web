@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Spanish (Spain)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 11:33+0200\n"
+"POT-Creation-Date: 2026-04-01 13:52+0200\n"
 "PO-Revision-Date: 2024-01-03 16:10+0000\n"
 "Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/grommunio/grommunio-web/es/>\n"
@@ -7307,6 +7307,70 @@ msgstr "Cifrado"
 msgid "Key transport"
 msgstr "Transporte clave"
 
+msgid "Template Snippets"
+msgstr "Fragmentos de plantilla"
+
+msgid "System Templates"
+msgstr "Plantillas del sistema"
+
+msgid "read-only"
+msgstr "solo lectura"
+
+msgid "No system templates available"
+msgstr "No hay plantillas del sistema disponibles"
+
+msgid "User Templates"
+msgstr "Plantillas de usuario"
+
+msgid "No user templates defined"
+msgstr "No hay plantillas de usuario definidas"
+
+msgid "Template name"
+msgstr "Nombre de la plantilla"
+
+msgid "Save Template"
+msgstr "Guardar plantilla"
+
+msgid "HTML Content"
+msgstr "Contenido HTML"
+
+msgid "Convert HTML to Plain Text"
+msgstr "Convertir HTML a texto sin formato"
+
+msgid "Convert Plain Text to HTML"
+msgstr "Convertir texto sin formato a HTML"
+
+msgid "Plain Text Content"
+msgstr "Contenido de texto sin formato"
+
+msgid "New template"
+msgstr "Nueva plantilla"
+
+msgid "New system template"
+msgstr "Nueva plantilla del sistema"
+
+msgid "Delete system template"
+msgstr "Eliminar plantilla del sistema"
+
+msgid ""
+"Are you sure you want to delete the system template \"{0}\"? This affects "
+"all users."
+msgstr ""
+"¿Estás seguro de que quieres eliminar la plantilla del sistema «{0}»? Esto "
+"afectará a todos los usuarios."
+
+msgid "Insert Template"
+msgstr "Insertar plantilla"
+
+msgid "Insert a text template at the cursor position"
+msgstr "Insertar una plantilla de texto en la posición del cursor"
+
+msgid "No templates available"
+msgstr "No hay plantillas disponibles"
+
+msgid "An unknown error occurred."
+msgstr "Se ha producido un error desconocido."
+
 msgid "Charm pink"
 msgstr "Encanto rosa"
 
@@ -7764,6 +7828,33 @@ msgstr "Certificado revocado, pero importado."
 
 msgid "Unable to read public certificate"
 msgstr "No se puede leer el certificado público"
+
+msgid "You do not have permission to manage system templates."
+msgstr "No tienes permiso para gestionar plantillas del sistema."
+
+msgid "Template name is required."
+msgstr "Es necesario indicar el nombre de la plantilla."
+
+msgid "Cannot create template directory."
+msgstr "No se puede crear el directorio de plantillas."
+
+msgid "Failed to write template file."
+msgstr "No se ha podido escribir el archivo de plantilla."
+
+msgid "Template key is required."
+msgstr "Se requiere una clave de plantilla."
+
+msgid "Template directory not found."
+msgstr "No se ha encontrado el directorio de plantillas."
+
+msgid "Template file not found."
+msgstr "No se ha encontrado el archivo de plantilla."
+
+msgid "Failed to delete template file."
+msgstr "No se ha podido eliminar el archivo de plantilla."
+
+msgid "Template deleted successfully."
+msgstr "Plantilla eliminada correctamente."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""

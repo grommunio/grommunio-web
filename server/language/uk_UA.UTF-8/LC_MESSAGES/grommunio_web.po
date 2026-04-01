@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Ukrainian (Ukraine)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 11:33+0200\n"
+"POT-Creation-Date: 2026-04-01 13:52+0200\n"
 "PO-Revision-Date: 2022-08-23 04:19+0000\n"
 "Last-Translator: Artem <artem@molotov.work>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/grommunio/grommunio-web/uk/>\n"
@@ -7214,6 +7214,70 @@ msgstr "Шифр"
 msgid "Key transport"
 msgstr "Ключовий транспорт"
 
+msgid "Template Snippets"
+msgstr "Фрагменти шаблонів"
+
+msgid "System Templates"
+msgstr "Системні шаблони"
+
+msgid "read-only"
+msgstr "тільки для читання"
+
+msgid "No system templates available"
+msgstr "Системних шаблонів немає"
+
+msgid "User Templates"
+msgstr "Шаблони користувачів"
+
+msgid "No user templates defined"
+msgstr "Шаблони користувачів не визначено"
+
+msgid "Template name"
+msgstr "Назва шаблону"
+
+msgid "Save Template"
+msgstr "Зберегти шаблон"
+
+msgid "HTML Content"
+msgstr "HTML-вміст"
+
+msgid "Convert HTML to Plain Text"
+msgstr "Перетворити HTML у звичайний текст"
+
+msgid "Convert Plain Text to HTML"
+msgstr "Перетворити звичайний текст у HTML"
+
+msgid "Plain Text Content"
+msgstr "Зміст у вигляді простого тексту"
+
+msgid "New template"
+msgstr "Новий шаблон"
+
+msgid "New system template"
+msgstr "Новий системний шаблон"
+
+msgid "Delete system template"
+msgstr "Видалити системний шаблон"
+
+msgid ""
+"Are you sure you want to delete the system template \"{0}\"? This affects "
+"all users."
+msgstr ""
+"Ви впевнені, що хочете видалити системний шаблон «{0}»? Це вплине на всіх "
+"користувачів."
+
+msgid "Insert Template"
+msgstr "Вставити шаблон"
+
+msgid "Insert a text template at the cursor position"
+msgstr "Вставити текстовий шаблон у місце курсору"
+
+msgid "No templates available"
+msgstr "Шаблонів немає"
+
+msgid "An unknown error occurred."
+msgstr "Сталася невідома помилка."
+
 msgid "Charm pink"
 msgstr "Шарм рожевий"
 
@@ -7659,6 +7723,33 @@ msgstr "Сертифікат анульовано, але товар був ім
 
 msgid "Unable to read public certificate"
 msgstr "Не вдається прочитати відкритий сертифікат"
+
+msgid "You do not have permission to manage system templates."
+msgstr "У вас немає дозволу на управління системними шаблонами."
+
+msgid "Template name is required."
+msgstr "Назва шаблону є обов'язковою."
+
+msgid "Cannot create template directory."
+msgstr "Неможливо створити каталог шаблонів."
+
+msgid "Failed to write template file."
+msgstr "Не вдалося записати файл шаблону."
+
+msgid "Template key is required."
+msgstr "Необхідно вказати ключ шаблону."
+
+msgid "Template directory not found."
+msgstr "Не знайдено каталог шаблонів."
+
+msgid "Template file not found."
+msgstr "Файл шаблону не знайдено."
+
+msgid "Failed to delete template file."
+msgstr "Не вдалося видалити файл шаблону."
+
+msgid "Template deleted successfully."
+msgstr "Шаблон успішно видалено."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "Неможливо додати дані до шини, в шині присутній той самий тип дії"

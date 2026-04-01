@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Greek\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 11:33+0200\n"
+"POT-Creation-Date: 2026-04-01 13:52+0200\n"
 "PO-Revision-Date: 2022-07-26 14:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -7442,6 +7442,70 @@ msgstr "Cipher"
 msgid "Key transport"
 msgstr "Βασικές μεταφορές"
 
+msgid "Template Snippets"
+msgstr "Αποσπάσματα προτύπων"
+
+msgid "System Templates"
+msgstr "Πρότυπα συστήματος"
+
+msgid "read-only"
+msgstr "μόνο για ανάγνωση"
+
+msgid "No system templates available"
+msgstr "Δεν υπάρχουν διαθέσιμα πρότυπα συστήματος"
+
+msgid "User Templates"
+msgstr "Πρότυπα χρήστη"
+
+msgid "No user templates defined"
+msgstr "Δεν έχουν οριστεί πρότυπα χρήστη"
+
+msgid "Template name"
+msgstr "Όνομα προτύπου"
+
+msgid "Save Template"
+msgstr "Αποθήκευση προτύπου"
+
+msgid "HTML Content"
+msgstr "Περιεχόμενο HTML"
+
+msgid "Convert HTML to Plain Text"
+msgstr "Μετατροπή HTML σε απλό κείμενο"
+
+msgid "Convert Plain Text to HTML"
+msgstr "Μετατροπή απλού κειμένου σε HTML"
+
+msgid "Plain Text Content"
+msgstr "Περιεχόμενο απλού κειμένου"
+
+msgid "New template"
+msgstr "Νέο πρότυπο"
+
+msgid "New system template"
+msgstr "Νέο πρότυπο συστήματος"
+
+msgid "Delete system template"
+msgstr "Διαγραφή προτύπου συστήματος"
+
+msgid ""
+"Are you sure you want to delete the system template \"{0}\"? This affects "
+"all users."
+msgstr ""
+"Είστε σίγουροι ότι θέλετε να διαγράψετε το πρότυπο συστήματος \"{0}\"; Αυτό "
+"επηρεάζει όλους τους χρήστες."
+
+msgid "Insert Template"
+msgstr "Εισαγωγή προτύπου"
+
+msgid "Insert a text template at the cursor position"
+msgstr "Εισαγωγή προτύπου κειμένου στη θέση του δρομέα"
+
+msgid "No templates available"
+msgstr "Δεν υπάρχουν διαθέσιμα πρότυπα"
+
+msgid "An unknown error occurred."
+msgstr "Παρουσιάστηκε ένα άγνωστο σφάλμα."
+
 msgid "Charm pink"
 msgstr "Γοητεία ροζ"
 
@@ -7908,6 +7972,33 @@ msgstr "Το πιστοποιητικό έχει ανακληθεί, αλλά ε
 
 msgid "Unable to read public certificate"
 msgstr "Αδυναμία ανάγνωσης δημόσιου πιστοποιητικού"
+
+msgid "You do not have permission to manage system templates."
+msgstr "Δεν έχετε δικαιώματα διαχείρισης προτύπων συστήματος."
+
+msgid "Template name is required."
+msgstr "Το όνομα του προτύπου είναι υποχρεωτικό."
+
+msgid "Cannot create template directory."
+msgstr "Δεν είναι δυνατή η δημιουργία καταλόγου προτύπων."
+
+msgid "Failed to write template file."
+msgstr "Αποτυχία εγγραφής αρχείου προτύπου."
+
+msgid "Template key is required."
+msgstr "Απαιτείται κλειδί προτύπου."
+
+msgid "Template directory not found."
+msgstr "Δεν βρέθηκε ο κατάλογος προτύπων."
+
+msgid "Template file not found."
+msgstr "Δεν βρέθηκε το αρχείο προτύπου."
+
+msgid "Failed to delete template file."
+msgstr "Δεν κατέστη δυνατή η διαγραφή του αρχείου προτύπου."
+
+msgid "Template deleted successfully."
+msgstr "Το πρότυπο διαγράφηκε με επιτυχία."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""

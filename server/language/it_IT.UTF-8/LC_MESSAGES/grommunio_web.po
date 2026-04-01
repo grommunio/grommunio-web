@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Italian (Italy)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 11:33+0200\n"
+"POT-Creation-Date: 2026-04-01 13:52+0200\n"
 "PO-Revision-Date: 2022-12-11 16:35+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/grommunio/grommunio-web/it/>\n"
@@ -7262,6 +7262,70 @@ msgstr "Cifra"
 msgid "Key transport"
 msgstr "Trasporto chiave"
 
+msgid "Template Snippets"
+msgstr "Frammenti di template"
+
+msgid "System Templates"
+msgstr "Modelli di sistema"
+
+msgid "read-only"
+msgstr "sola lettura"
+
+msgid "No system templates available"
+msgstr "Non sono disponibili modelli di sistema"
+
+msgid "User Templates"
+msgstr "Modelli utente"
+
+msgid "No user templates defined"
+msgstr "Nessun modello utente definito"
+
+msgid "Template name"
+msgstr "Nome del modello"
+
+msgid "Save Template"
+msgstr "Salva modello"
+
+msgid "HTML Content"
+msgstr "Contenuto HTML"
+
+msgid "Convert HTML to Plain Text"
+msgstr "Converti HTML in testo semplice"
+
+msgid "Convert Plain Text to HTML"
+msgstr "Converti testo semplice in HTML"
+
+msgid "Plain Text Content"
+msgstr "Contenuto in testo semplice"
+
+msgid "New template"
+msgstr "Nuovo modello"
+
+msgid "New system template"
+msgstr "Nuovo modello di sistema"
+
+msgid "Delete system template"
+msgstr "Elimina modello di sistema"
+
+msgid ""
+"Are you sure you want to delete the system template \"{0}\"? This affects "
+"all users."
+msgstr ""
+"Sei sicuro di voler eliminare il modello di sistema \"{0}\"? Questa "
+"operazione avrà ripercussioni su tutti gli utenti."
+
+msgid "Insert Template"
+msgstr "Inserisci modello"
+
+msgid "Insert a text template at the cursor position"
+msgstr "Inserisci un modello di testo nella posizione del cursore"
+
+msgid "No templates available"
+msgstr "Nessun modello disponibile"
+
+msgid "An unknown error occurred."
+msgstr "Si è verificato un errore sconosciuto."
+
 msgid "Charm pink"
 msgstr "Fascino rosa"
 
@@ -7706,6 +7770,33 @@ msgstr "Il certificato è revocato, ma è stato importato."
 
 msgid "Unable to read public certificate"
 msgstr "Non e` possibile leggere il certificato pubblico"
+
+msgid "You do not have permission to manage system templates."
+msgstr "Non disponi dei permessi necessari per gestire i modelli di sistema."
+
+msgid "Template name is required."
+msgstr "È necessario specificare il nome del modello."
+
+msgid "Cannot create template directory."
+msgstr "Impossibile creare la directory dei modelli."
+
+msgid "Failed to write template file."
+msgstr "Impossibile scrivere il file del modello."
+
+msgid "Template key is required."
+msgstr "È richiesta la chiave del modello."
+
+msgid "Template directory not found."
+msgstr "Directory dei modelli non trovata."
+
+msgid "Template file not found."
+msgstr "File modello non trovato."
+
+msgid "Failed to delete template file."
+msgstr "Impossibile eliminare il file del modello."
+
+msgid "Template deleted successfully."
+msgstr "Modello eliminato con successo."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""

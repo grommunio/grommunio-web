@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hebrew (Israel)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 11:33+0200\n"
+"POT-Creation-Date: 2026-04-01 13:52+0200\n"
 "PO-Revision-Date: 2017-10-03 22:09+0200\n"
 "Last-Translator: import\n"
 "Language: he_IL\n"
@@ -7072,6 +7072,70 @@ msgstr "צוֹפֶן"
 msgid "Key transport"
 msgstr "הובלת מפתחות"
 
+msgid "Template Snippets"
+msgstr "קטעי תבנית"
+
+msgid "System Templates"
+msgstr "תבניות מערכת"
+
+msgid "read-only"
+msgstr "לקריאה בלבד"
+
+msgid "No system templates available"
+msgstr "אין תבניות מערכת זמינות"
+
+msgid "User Templates"
+msgstr "תבניות משתמש"
+
+msgid "No user templates defined"
+msgstr "לא הוגדרו תבניות משתמש"
+
+msgid "Template name"
+msgstr "שם התבנית"
+
+msgid "Save Template"
+msgstr "שמור תבנית"
+
+msgid "HTML Content"
+msgstr "תוכן HTML"
+
+msgid "Convert HTML to Plain Text"
+msgstr "המר HTML לטקסט רגיל"
+
+msgid "Convert Plain Text to HTML"
+msgstr "המר טקסט רגיל ל-HTML"
+
+msgid "Plain Text Content"
+msgstr "תוכן בטקסט רגיל"
+
+msgid "New template"
+msgstr "תבנית חדשה"
+
+msgid "New system template"
+msgstr "תבנית מערכת חדשה"
+
+msgid "Delete system template"
+msgstr "מחק תבנית מערכת"
+
+msgid ""
+"Are you sure you want to delete the system template \"{0}\"? This affects "
+"all users."
+msgstr ""
+"האם אתה בטוח שברצונך למחוק את תבנית המערכת \"{0}\"? פעולה זו תשפיע על כל "
+"המשתמשים."
+
+msgid "Insert Template"
+msgstr "הוסף תבנית"
+
+msgid "Insert a text template at the cursor position"
+msgstr "הוסף תבנית טקסט במיקום הסמן"
+
+msgid "No templates available"
+msgstr "אין תבניות זמינות"
+
+msgid "An unknown error occurred."
+msgstr "אירעה שגיאה לא ידועה."
+
 msgid "Charm pink"
 msgstr "קסם ורוד"
 
@@ -7490,6 +7554,33 @@ msgstr "האישור בוטל, אך יובא."
 
 msgid "Unable to read public certificate"
 msgstr "לא ניתן לקרוא תעודה ציבורית"
+
+msgid "You do not have permission to manage system templates."
+msgstr "אין לך הרשאה לנהל תבניות מערכת."
+
+msgid "Template name is required."
+msgstr "יש להזין שם תבנית."
+
+msgid "Cannot create template directory."
+msgstr "לא ניתן ליצור ספריית תבניות."
+
+msgid "Failed to write template file."
+msgstr "לא ניתן לכתוב את קובץ התבנית."
+
+msgid "Template key is required."
+msgstr "יש להזין מפתח תבנית."
+
+msgid "Template directory not found."
+msgstr "לא נמצא ספריית התבניות."
+
+msgid "Template file not found."
+msgstr "לא נמצא קובץ תבנית."
+
+msgid "Failed to delete template file."
+msgstr "לא ניתן למחוק את קובץ התבנית."
+
+msgid "Template deleted successfully."
+msgstr "התבנית נמחקה בהצלחה."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "לא ניתן להוסיף נתונים לאוטובוס, אותו סוג פעולה קיים באוטובוס"

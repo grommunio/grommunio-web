@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Croatian (Croatia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 11:33+0200\n"
+"POT-Creation-Date: 2026-04-01 13:52+0200\n"
 "PO-Revision-Date: 2025-02-25 15:04+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/grommunio/grommunio-web/hr/>\n"
@@ -7189,6 +7189,70 @@ msgstr "Šifra"
 msgid "Key transport"
 msgstr "Prijevoz ključeva"
 
+msgid "Template Snippets"
+msgstr "Isječci predloška"
+
+msgid "System Templates"
+msgstr "Sistemski predlošci"
+
+msgid "read-only"
+msgstr "samo za čitanje"
+
+msgid "No system templates available"
+msgstr "Nema dostupnih sustavnih predložaka"
+
+msgid "User Templates"
+msgstr "Korisnički predlošci"
+
+msgid "No user templates defined"
+msgstr "Nije definirano nijedno korisničko predložak"
+
+msgid "Template name"
+msgstr "Naziv predloška"
+
+msgid "Save Template"
+msgstr "Sačuvaj predložak"
+
+msgid "HTML Content"
+msgstr "HTML sadržaj"
+
+msgid "Convert HTML to Plain Text"
+msgstr "Preobrazite HTML u običan tekst"
+
+msgid "Convert Plain Text to HTML"
+msgstr "Pretvorite obični tekst u HTML"
+
+msgid "Plain Text Content"
+msgstr "Obični tekst"
+
+msgid "New template"
+msgstr "Novi predložak"
+
+msgid "New system template"
+msgstr "Novi predložak sustava"
+
+msgid "Delete system template"
+msgstr "Izbriši sustavnu predložbu"
+
+msgid ""
+"Are you sure you want to delete the system template \"{0}\"? This affects "
+"all users."
+msgstr ""
+"Jeste li sigurni da želite izbrisati sustavnu predložak \"{0}\"? Ovo utječe "
+"na sve korisnike."
+
+msgid "Insert Template"
+msgstr "Umetni predložak"
+
+msgid "Insert a text template at the cursor position"
+msgstr "Umetnite tekstualni predložak na položaj kursora"
+
+msgid "No templates available"
+msgstr "Nema dostupnih predložaka"
+
+msgid "An unknown error occurred."
+msgstr "Dogodila se nepoznata pogreška."
+
 msgid "Charm pink"
 msgstr "Šarm ružičasta"
 
@@ -7622,6 +7686,33 @@ msgstr "Certifikat je opozvan, ali je uvezen."
 
 msgid "Unable to read public certificate"
 msgstr "Nije moguće pročitati javni certifikat"
+
+msgid "You do not have permission to manage system templates."
+msgstr "Nemate dopuštenje za upravljanje sustavnim predlošcima."
+
+msgid "Template name is required."
+msgstr "Naziv predloška je obavezan."
+
+msgid "Cannot create template directory."
+msgstr "Ne može se stvoriti direktorij predložaka."
+
+msgid "Failed to write template file."
+msgstr "Neuspjelo je zapisanje predloška."
+
+msgid "Template key is required."
+msgstr "Potreban je ključ predloška."
+
+msgid "Template directory not found."
+msgstr "Direktorij predložaka nije pronađen."
+
+msgid "Template file not found."
+msgstr "Datoteka predloška nije pronađena."
+
+msgid "Failed to delete template file."
+msgstr "Nije moguće izbrisati datoteku predloška."
+
+msgid "Template deleted successfully."
+msgstr "Predložak je uspješno izbrisan."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""

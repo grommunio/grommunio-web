@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Swedish (Sweden)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 11:33+0200\n"
+"POT-Creation-Date: 2026-04-01 13:52+0200\n"
 "PO-Revision-Date: 2026-02-17 22:26+0000\n"
 "Last-Translator: DeepL <noreply-mt-deepl@weblate.org>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/grommunio/grommunio-web/se/>\n"
@@ -7196,6 +7196,70 @@ msgstr "Ciffer"
 msgid "Key transport"
 msgstr "Nyckel transport"
 
+msgid "Template Snippets"
+msgstr "Mallutdrag"
+
+msgid "System Templates"
+msgstr "Systemmallar"
+
+msgid "read-only"
+msgstr "skrivskyddad"
+
+msgid "No system templates available"
+msgstr "Inga systemmallar tillgängliga"
+
+msgid "User Templates"
+msgstr "Användarmallar"
+
+msgid "No user templates defined"
+msgstr "Inga användarmallar har definierats"
+
+msgid "Template name"
+msgstr "Mallnamn"
+
+msgid "Save Template"
+msgstr "Spara mall"
+
+msgid "HTML Content"
+msgstr "HTML-innehåll"
+
+msgid "Convert HTML to Plain Text"
+msgstr "Konvertera HTML till ren text"
+
+msgid "Convert Plain Text to HTML"
+msgstr "Konvertera ren text till HTML"
+
+msgid "Plain Text Content"
+msgstr "Innehåll i ren text"
+
+msgid "New template"
+msgstr "Ny mall"
+
+msgid "New system template"
+msgstr "Ny systemmall"
+
+msgid "Delete system template"
+msgstr "Ta bort systemmall"
+
+msgid ""
+"Are you sure you want to delete the system template \"{0}\"? This affects "
+"all users."
+msgstr ""
+"Är du säker på att du vill ta bort systemmallen \"{0}\"? Detta påverkar alla"
+" användare."
+
+msgid "Insert Template"
+msgstr "Infoga mall"
+
+msgid "Insert a text template at the cursor position"
+msgstr "Infoga en textmall vid markörens position"
+
+msgid "No templates available"
+msgstr "Inga mallar tillgängliga"
+
+msgid "An unknown error occurred."
+msgstr "Ett okänt fel har uppstått."
+
 msgid "Charm pink"
 msgstr "Berlock rosa"
 
@@ -7632,6 +7696,33 @@ msgstr "Certifikatet är återkallat, men importerades."
 
 msgid "Unable to read public certificate"
 msgstr "Det går inte att läsa offentligt certifikat"
+
+msgid "You do not have permission to manage system templates."
+msgstr "Du har inte behörighet att hantera systemmallar."
+
+msgid "Template name is required."
+msgstr "Mallnamn krävs."
+
+msgid "Cannot create template directory."
+msgstr "Det går inte att skapa mallen."
+
+msgid "Failed to write template file."
+msgstr "Det gick inte att skriva mallfilen."
+
+msgid "Template key is required."
+msgstr "Mallnyckel krävs."
+
+msgid "Template directory not found."
+msgstr "Mallkatalogen hittades inte."
+
+msgid "Template file not found."
+msgstr "Mallfilen hittades inte."
+
+msgid "Failed to delete template file."
+msgstr "Det gick inte att ta bort mallfilen."
+
+msgid "Template deleted successfully."
+msgstr "Mallen har raderats."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""

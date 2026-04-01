@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Estonian (Estonia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 11:33+0200\n"
+"POT-Creation-Date: 2026-04-01 13:52+0200\n"
 "PO-Revision-Date: 2025-05-21 10:01+0000\n"
 "Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/grommunio/grommunio-web/et/>\n"
@@ -7161,6 +7161,70 @@ msgstr "Chiffre"
 msgid "Key transport"
 msgstr "Peamised transpordivahendid"
 
+msgid "Template Snippets"
+msgstr "Mallide katkendid"
+
+msgid "System Templates"
+msgstr "Süsteemimallid"
+
+msgid "read-only"
+msgstr "ainult lugemiseks"
+
+msgid "No system templates available"
+msgstr "Süsteemimalle pole saadaval"
+
+msgid "User Templates"
+msgstr "Kasutaja mallid"
+
+msgid "No user templates defined"
+msgstr "Kasutaja malle pole määratud"
+
+msgid "Template name"
+msgstr "Malli nimi"
+
+msgid "Save Template"
+msgstr "Salvesta mall"
+
+msgid "HTML Content"
+msgstr "HTML-sisu"
+
+msgid "Convert HTML to Plain Text"
+msgstr "Muuda HTML lihttekstiks"
+
+msgid "Convert Plain Text to HTML"
+msgstr "Muuda lihttekst HTML-iks"
+
+msgid "Plain Text Content"
+msgstr "Lihttekstisisu"
+
+msgid "New template"
+msgstr "Uus mall"
+
+msgid "New system template"
+msgstr "Uus süsteemimall"
+
+msgid "Delete system template"
+msgstr "Kustuta süsteemimall"
+
+msgid ""
+"Are you sure you want to delete the system template \"{0}\"? This affects "
+"all users."
+msgstr ""
+"Kas soovite kindlasti kustutada süsteemimalli „{0}“? See mõjutab kõiki "
+"kasutajaid."
+
+msgid "Insert Template"
+msgstr "Malli sisestamine"
+
+msgid "Insert a text template at the cursor position"
+msgstr "Sisesta tekstimall kursori asukohta"
+
+msgid "No templates available"
+msgstr "Malle pole saadaval"
+
+msgid "An unknown error occurred."
+msgstr "Tekkis tundmatu viga."
+
 msgid "Charm pink"
 msgstr "Charm roosa"
 
@@ -7593,6 +7657,33 @@ msgstr "Sertifikaat on tühistatud, kuid see on imporditud."
 
 msgid "Unable to read public certificate"
 msgstr "Ei saa lugeda avalikku sertifikaati"
+
+msgid "You do not have permission to manage system templates."
+msgstr "Teil pole õigust süsteemimalle hallata."
+
+msgid "Template name is required."
+msgstr "Malli nimi on kohustuslik."
+
+msgid "Cannot create template directory."
+msgstr "Mallikataloogi ei saa luua."
+
+msgid "Failed to write template file."
+msgstr "Malli faili kirjutamine ebaõnnestus."
+
+msgid "Template key is required."
+msgstr "Vajalik on malli võti."
+
+msgid "Template directory not found."
+msgstr "Mallikataloogi ei leitud."
+
+msgid "Template file not found."
+msgstr "Mallifaili ei leitud."
+
+msgid "Failed to delete template file."
+msgstr "Malli faili kustutamine ebaõnnestus."
+
+msgid "Template deleted successfully."
+msgstr "Mall kustutati edukalt."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "Ei saa lisada andmeid bussi, sama tegevuse tüüp on bussis olemas"

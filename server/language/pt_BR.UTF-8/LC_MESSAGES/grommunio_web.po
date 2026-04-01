@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Portuguese (Brazil)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 11:33+0200\n"
+"POT-Creation-Date: 2026-04-01 13:52+0200\n"
 "PO-Revision-Date: 2017-10-03 21:54+0200\n"
 "Last-Translator: import\n"
 "Language: pt_BR\n"
@@ -7239,6 +7239,70 @@ msgstr "Cifra"
 msgid "Key transport"
 msgstr "Principais transportes"
 
+msgid "Template Snippets"
+msgstr "Trechos de modelo"
+
+msgid "System Templates"
+msgstr "Modelos do sistema"
+
+msgid "read-only"
+msgstr "somente leitura"
+
+msgid "No system templates available"
+msgstr "Não há modelos de sistema disponíveis"
+
+msgid "User Templates"
+msgstr "Modelos de usuário"
+
+msgid "No user templates defined"
+msgstr "Nenhum modelo de usuário definido"
+
+msgid "Template name"
+msgstr "Nome do modelo"
+
+msgid "Save Template"
+msgstr "Salvar modelo"
+
+msgid "HTML Content"
+msgstr "Conteúdo HTML"
+
+msgid "Convert HTML to Plain Text"
+msgstr "Converter HTML em texto simples"
+
+msgid "Convert Plain Text to HTML"
+msgstr "Converter texto simples em HTML"
+
+msgid "Plain Text Content"
+msgstr "Conteúdo em texto simples"
+
+msgid "New template"
+msgstr "Novo modelo"
+
+msgid "New system template"
+msgstr "Novo modelo do sistema"
+
+msgid "Delete system template"
+msgstr "Excluir modelo do sistema"
+
+msgid ""
+"Are you sure you want to delete the system template \"{0}\"? This affects "
+"all users."
+msgstr ""
+"Tem certeza de que deseja excluir o modelo do sistema \"{0}\"? Isso afetará "
+"todos os usuários."
+
+msgid "Insert Template"
+msgstr "Inserir modelo"
+
+msgid "Insert a text template at the cursor position"
+msgstr "Inserir um modelo de texto na posição do cursor"
+
+msgid "No templates available"
+msgstr "Não há modelos disponíveis"
+
+msgid "An unknown error occurred."
+msgstr "Ocorreu um erro desconhecido."
+
 msgid "Charm pink"
 msgstr "Rosa charme"
 
@@ -7681,6 +7745,33 @@ msgstr "O certificado foi revogado, mas foi importado."
 
 msgid "Unable to read public certificate"
 msgstr "Não é possível ler o certificado público"
+
+msgid "You do not have permission to manage system templates."
+msgstr "Você não tem permissão para gerenciar modelos do sistema."
+
+msgid "Template name is required."
+msgstr "É necessário informar o nome do modelo."
+
+msgid "Cannot create template directory."
+msgstr "Não é possível criar o diretório de modelos."
+
+msgid "Failed to write template file."
+msgstr "Falha ao gravar o arquivo de modelo."
+
+msgid "Template key is required."
+msgstr "É necessário especificar a chave do modelo."
+
+msgid "Template directory not found."
+msgstr "Diretório de modelos não encontrado."
+
+msgid "Template file not found."
+msgstr "Arquivo de modelo não encontrado."
+
+msgid "Failed to delete template file."
+msgstr "Não foi possível excluir o arquivo de modelo."
+
+msgid "Template deleted successfully."
+msgstr "Modelo excluído com sucesso."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""

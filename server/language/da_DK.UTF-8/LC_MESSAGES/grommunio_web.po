@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Danish (Denmark)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 11:33+0200\n"
+"POT-Creation-Date: 2026-04-01 13:52+0200\n"
 "PO-Revision-Date: 2022-07-26 14:28+0200\n"
 "Last-Translator: Mike Williams <mike.williams@grammm.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/grommunio/grommunio-web/da/>\n"
@@ -7254,6 +7254,70 @@ msgstr "Chiffre"
 msgid "Key transport"
 msgstr "Nøgletransport"
 
+msgid "Template Snippets"
+msgstr "Skabelonuddrag"
+
+msgid "System Templates"
+msgstr "Systemskabeloner"
+
+msgid "read-only"
+msgstr "skrivebeskyttet"
+
+msgid "No system templates available"
+msgstr "Der er ingen systemskabeloner tilgængelige"
+
+msgid "User Templates"
+msgstr "Brugerskabeloner"
+
+msgid "No user templates defined"
+msgstr "Der er ikke defineret nogen brugerskabeloner"
+
+msgid "Template name"
+msgstr "Skabelonnavn"
+
+msgid "Save Template"
+msgstr "Gem skabelon"
+
+msgid "HTML Content"
+msgstr "HTML-indhold"
+
+msgid "Convert HTML to Plain Text"
+msgstr "Konverter HTML til almindelig tekst"
+
+msgid "Convert Plain Text to HTML"
+msgstr "Konverter almindelig tekst til HTML"
+
+msgid "Plain Text Content"
+msgstr "Indhold i almindelig tekst"
+
+msgid "New template"
+msgstr "Ny skabelon"
+
+msgid "New system template"
+msgstr "Ny systemskabelon"
+
+msgid "Delete system template"
+msgstr "Slet systemskabelon"
+
+msgid ""
+"Are you sure you want to delete the system template \"{0}\"? This affects "
+"all users."
+msgstr ""
+"Er du sikker på, at du vil slette systemskabelonen \"{0}\"? Dette påvirker "
+"alle brugere."
+
+msgid "Insert Template"
+msgstr "Indsæt skabelon"
+
+msgid "Insert a text template at the cursor position"
+msgstr "Indsæt en tekstskabelon ved markørens position"
+
+msgid "No templates available"
+msgstr "Der er ingen skabeloner tilgængelige"
+
+msgid "An unknown error occurred."
+msgstr "Der opstod en ukendt fejl."
+
 msgid "Charm pink"
 msgstr "Rosa"
 
@@ -7688,6 +7752,33 @@ msgstr "Certifikatet er tilbagekaldt, men blev importeret."
 
 msgid "Unable to read public certificate"
 msgstr "Kan ikke læse offentligt certifikat"
+
+msgid "You do not have permission to manage system templates."
+msgstr "Du har ikke tilladelse til at administrere systemskabeloner."
+
+msgid "Template name is required."
+msgstr "Skabelonnavn er påkrævet."
+
+msgid "Cannot create template directory."
+msgstr "Kan ikke oprette skabelonmappe."
+
+msgid "Failed to write template file."
+msgstr "Det lykkedes ikke at skrive skabelonfilen."
+
+msgid "Template key is required."
+msgstr "Skabelonnøgle er påkrævet."
+
+msgid "Template directory not found."
+msgstr "Skabelonmappen blev ikke fundet."
+
+msgid "Template file not found."
+msgstr "Skabelonfil ikke fundet."
+
+msgid "Failed to delete template file."
+msgstr "Det lykkedes ikke at slette skabelonfilen."
+
+msgid "Template deleted successfully."
+msgstr "Skabelonen er slettet."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Turkish\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 11:33+0200\n"
+"POT-Creation-Date: 2026-04-01 13:52+0200\n"
 "PO-Revision-Date: 2022-12-10 22:44+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/grommunio/grommunio-web/tr/>\n"
@@ -7157,6 +7157,70 @@ msgstr "Şifre"
 msgid "Key transport"
 msgstr "Anahtar taşımacılığı"
 
+msgid "Template Snippets"
+msgstr "Şablon Parçacıkları"
+
+msgid "System Templates"
+msgstr "Sistem Şablonları"
+
+msgid "read-only"
+msgstr "salt okunur"
+
+msgid "No system templates available"
+msgstr "Kullanılabilir sistem şablonu yok"
+
+msgid "User Templates"
+msgstr "Kullanıcı Şablonları"
+
+msgid "No user templates defined"
+msgstr "Tanımlanmış kullanıcı şablonu yok"
+
+msgid "Template name"
+msgstr "Şablon adı"
+
+msgid "Save Template"
+msgstr "Şablonu Kaydet"
+
+msgid "HTML Content"
+msgstr "HTML İçeriği"
+
+msgid "Convert HTML to Plain Text"
+msgstr "HTML'yi Düz Metne Dönüştür"
+
+msgid "Convert Plain Text to HTML"
+msgstr "Düz metni HTML'ye dönüştür"
+
+msgid "Plain Text Content"
+msgstr "Düz Metin İçeriği"
+
+msgid "New template"
+msgstr "Yeni şablon"
+
+msgid "New system template"
+msgstr "Yeni sistem şablonu"
+
+msgid "Delete system template"
+msgstr "Sistem şablonunu sil"
+
+msgid ""
+"Are you sure you want to delete the system template \"{0}\"? This affects "
+"all users."
+msgstr ""
+"\"{0}\" sistem şablonunu silmek istediğinizden emin misiniz? Bu işlem tüm "
+"kullanıcıları etkiler."
+
+msgid "Insert Template"
+msgstr "Şablonu ekle"
+
+msgid "Insert a text template at the cursor position"
+msgstr "İmleç konumuna bir metin şablonu ekle"
+
+msgid "No templates available"
+msgstr "Kullanılabilir şablon yok"
+
+msgid "An unknown error occurred."
+msgstr "Bilinmeyen bir hata oluştu."
+
 msgid "Charm pink"
 msgstr "Cazibeli pembe"
 
@@ -7589,6 +7653,33 @@ msgstr "Sertifika iptal edildi, ancak içe aktarıldı."
 
 msgid "Unable to read public certificate"
 msgstr "Genel sertifika okunamıyor"
+
+msgid "You do not have permission to manage system templates."
+msgstr "Sistem şablonlarını yönetme izniniz yok."
+
+msgid "Template name is required."
+msgstr "Şablon adı gereklidir."
+
+msgid "Cannot create template directory."
+msgstr "Şablon dizini oluşturulamıyor."
+
+msgid "Failed to write template file."
+msgstr "Şablon dosyası yazılmadı."
+
+msgid "Template key is required."
+msgstr "Şablon anahtarı gereklidir."
+
+msgid "Template directory not found."
+msgstr "Şablon dizini bulunamadı."
+
+msgid "Template file not found."
+msgstr "Şablon dosyası bulunamadı."
+
+msgid "Failed to delete template file."
+msgstr "Şablon dosyası silinemedi."
+
+msgid "Template deleted successfully."
+msgstr "Şablon başarıyla silindi."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "Veri yoluna veri eklenemiyor, aynı eylem türü veri yolunda mevcut"
