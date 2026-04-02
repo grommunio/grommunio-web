@@ -339,6 +339,87 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 	},
 
 	/**
+	 * Handle a silent single-recipient resolve request that should not open the check names dialog.
+	 *
+	 * @param {Ext.data.Record/Array} records The resolve response records.
+	 * @param {Object} options The options object used for the request.
+	 * @param {Boolean} success True if the request was successful.
+	 * @private
+	 */
+	onResolveRecipientByEmailAddressResult: function(records, options, success)
+	{
+		var record = options.record;
+		var wasResolved = false;
+
+		if (success && record) {
+			if (!Array.isArray(records)) {
+				records = [ records ];
+			}
+
+			for (var i = 0; i < records.length; i++) {
+				var resolveResult = records[i];
+
+				if (resolveResult && resolveResult.id === record.id && resolveResult.result.totalRecords == 1) {
+					record.applyResolveRecord(resolveResult.result.records[0], true);
+					record.resolveAttempted = true;
+					record.resolveAttemptAmbiguous = false;
+					wasResolved = true;
+					break;
+				}
+			}
+		}
+
+		Ext.callback(options.callback, options.scope || this, [ record, wasResolved ]);
+	},
+
+	/**
+	 * Resolve a recipient by SMTP address without opening the check names dialog.
+	 * The callback receives the original record after any unique match has been applied.
+	 *
+	 * @param {Zarafa.core.data.IPMRecipientRecord} record The recipient to resolve.
+	 * @param {Function} callback The callback that should receive the record.
+	 * @param {Object} scope The scope for the callback.
+	 */
+	resolveRecipientByEmailAddress: function(record, callback, scope)
+	{
+		var smtpAddress = Ext.value(record && record.get('smtp_address'), '').trim();
+
+		if (Ext.isEmpty(smtpAddress) || !Zarafa.core.Util.validateEmailAddress(smtpAddress)) {
+			Ext.callback(callback, scope || this, [ record, false ]);
+			return;
+		}
+
+		var parameters = {
+			resolverequests: [{
+				id: record.id,
+				display_name: Ext.value(record.get('display_name'), '').trim(),
+				email_address: smtpAddress,
+				address_type: record.get('address_type')
+			}],
+			exclude_local_contacts: !this.allowResolvingToLocalContacts,
+			exclude_gab_groups: !this.allowResolvingToGABGroups
+		};
+
+		this.resolveProxy.request(
+			Zarafa.core.Actions['checknames'],
+			[ record ],
+			parameters,
+			this.resolveReader,
+			this.onResolveRecipientByEmailAddressResult,
+			this,
+			{
+				actionType: Zarafa.core.Actions['checknames'],
+				listRequest: true,
+				pendingRecords: [],
+				params: parameters,
+				record: record,
+				callback: callback,
+				scope: scope
+			}
+		);
+	},
+
+	/**
 	 * Callback function from the {@link Zarafa.core.data.IPMRecipientResolveResponseHandler CheckNamesResponseHandler},
 	 * which will be called when the response has been read. Each returned resolve response will be
 	 * handled separately. If for a resolve request one result is returned the data is applied to

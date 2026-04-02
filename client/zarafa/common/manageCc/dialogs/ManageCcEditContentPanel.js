@@ -60,11 +60,53 @@ Zarafa.common.manageCc.dialogs.ManageCcEditContentPanel = Ext.extend(Zarafa.comm
 			return;
 		}
 
-		record.generateOneOffEntryId();
+		this.setDialogBusy(true);
+		record.store.resolveRecipientByEmailAddress(record, this.onRecipientResolved, this);
+	},
+
+	/**
+	 * Finalize the save after the typed SMTP address has been checked against the address book.
+	 *
+	 * @param {Zarafa.core.data.IPMRecipientRecord} record The recipient being saved.
+	 * @private
+	 */
+	onRecipientResolved: function(record)
+	{
+		this.setDialogBusy(false);
+
+		if (!record) {
+			return;
+		}
+
+		if (record.store.isRecipientExists(record)) {
+			record.reject();
+			Ext.Msg.alert(_('Duplicate recipient'), _('Recipient already exists.'));
+			return;
+		}
+
+		if (!record.isResolved() || record.isOneOff()) {
+			record.generateOneOffEntryId();
+		}
 		record.commit();
 		this.close();
 	},
 
+	/**
+	 * Toggle a temporary busy state while checking if the recipient exists in the address book.
+	 *
+	 * @param {Boolean} busy True to disable dialog interaction, false otherwise.
+	 * @private
+	 */
+	setDialogBusy: function(busy)
+	{
+		if (this.formPanel && this.formPanel.el) {
+			this.formPanel.el[busy ? 'mask' : 'unmask'](_('Resolving recipient') + '...');
+		}
+
+		Ext.each(this.formPanel.buttons || [], function(button) {
+			button.setDisabled(busy);
+		});
+	},
 	/**
 	 * Function will be called when user clicks on close tool on the {@link Ext.Window}
 	 * and should remove phantom record if needed.
