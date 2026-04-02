@@ -37,13 +37,26 @@ Zarafa.common.sendas.dialogs.SendAsEditContentPanel = Ext.extend(Zarafa.common.r
 	onOk: function()
 	{
 		var editForm = this.formPanel.getForm();
+		var record = this.record;
 
 		if (!editForm.isValid()) {
 			return;
 		}
 
-		editForm.updateRecord(this.record);
-		this.record.generateOneOffEntryId();
+		editForm.updateRecord(record);
+
+		if (record.dirty === false) {
+			this.close();
+			return;
+		}
+
+		if (record.store.isRecipientExists(record)) {
+			record.reject();
+			Ext.Msg.alert(_('Duplicate recipient'), _('Recipient already exists.'));
+			return;
+		}
+
+		record.generateOneOffEntryId();
 		this.close();
 	},
 
