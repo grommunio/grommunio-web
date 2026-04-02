@@ -311,6 +311,18 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 	 */
 	onContextItemResponse: function(button)
 	{
+		// For meeting request messages, the Forward action should do a
+		// proper meeting forward (address book selection) rather than
+		// a plain email forward.
+		if (button.responseMode === Zarafa.mail.data.ActionTypes.FORWARD &&
+			this.records.length === 1) {
+			var messageClass = this.records[0].get('message_class') || '';
+			if (messageClass.indexOf('IPM.Schedule.Meeting') === 0 &&
+				messageClass.indexOf('IPM.Schedule.Meeting.Notification') !== 0) {
+				Zarafa.calendar.Actions.openForwardMeetingRequestContent(this.records[0]);
+				return;
+			}
+		}
 		Zarafa.mail.Actions.openCreateMailResponseContent(this.records, this.model, button.responseMode);
 	},
 

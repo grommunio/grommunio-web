@@ -169,6 +169,9 @@ Zarafa.calendar.ui.MeetingRequestButton = Ext.extend(Ext.Button, {
 			case Zarafa.calendar.data.MeetingRequestButtonNames.CALENDAR:
 				this.visible = (isMeetingRequest || isMeetingResponse) && !isSubMessage && !apptNotFound;
 				break;
+			case Zarafa.calendar.data.MeetingRequestButtonNames.FORWARD:
+				this.visible = isMeeting && !isSubMessage && !isMeetingCanceled;
+				break;
 			default:
 				break;
 		}
@@ -210,6 +213,9 @@ Zarafa.calendar.ui.MeetingRequestButton = Ext.extend(Ext.Button, {
 				break;
 			case Zarafa.calendar.data.MeetingRequestButtonNames.CALENDAR:
 				this.showMeetingInCalendar(button, eventObject);
+				break;
+			case Zarafa.calendar.data.MeetingRequestButtonNames.FORWARD:
+				this.forwardMeetingRequest(button, eventObject);
 				break;
 			default:
 				break;
@@ -371,6 +377,19 @@ Zarafa.calendar.ui.MeetingRequestButton = Ext.extend(Ext.Button, {
 		var store = this.record.getStore();
 		store.remove(this.record);
 		store.save(this.record);
+	},
+
+	/**
+	 * Opens the forward meeting request dialog for the current record.
+	 * Uses the original record directly (not converted) so that
+	 * getStore() remains valid for the server request.
+	 * @param {Ext.Button} button button object.
+	 * @param {EventObject} eventObject The click event object.
+	 * @private
+	 */
+	forwardMeetingRequest: function(button, eventObject)
+	{
+		Zarafa.calendar.Actions.openForwardMeetingRequestContent(this.record);
 	},
 
 	/**

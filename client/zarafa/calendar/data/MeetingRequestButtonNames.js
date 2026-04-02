@@ -81,5 +81,13 @@ Zarafa.calendar.data.MeetingRequestButtonNames = Zarafa.core.Enum.create({
 	 * @property
 	 * @type String
 	 */
-    CALENDAR: 'calendarButton'
+    CALENDAR: 'calendarButton',
+
+    /**
+	 * Preserve name for ForwardButton.
+	 *
+	 * @property
+	 * @type String
+	 */
+    FORWARD: 'forwardButton'
 });

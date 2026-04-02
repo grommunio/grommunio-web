@@ -399,6 +399,15 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 */
 	onMailResponseButton: function(button)
 	{
+		if (button.actionType === Zarafa.mail.data.ActionTypes.FORWARD) {
+			var messageClass = this.record.get('message_class') || '';
+			if (messageClass.indexOf('IPM.Schedule.Meeting') === 0 &&
+				messageClass.indexOf('IPM.Schedule.Meeting.Notification') !== 0) {
+				Zarafa.calendar.Actions.openForwardMeetingRequestContent(this.record);
+				return;
+			}
+		}
+
 		var model = this.dialog.getContextModel();
 		var isOwnedByMainWindow = Zarafa.core.BrowserWindowMgr.isOwnedByMainWindow(button);
 		var configObject = !isOwnedByMainWindow ? {layerType: 'separateWindows'} : undefined;

@@ -146,6 +146,14 @@ Zarafa.mail.ui.MailPreviewPanel = Ext.extend(Zarafa.core.ui.PreviewPanel, {
 	 */
 	onResponse: function(button)
 	{
+		if (button.responseMode === Zarafa.mail.data.ActionTypes.FORWARD) {
+			var messageClass = this.record.get('message_class') || '';
+			if (messageClass.indexOf('IPM.Schedule.Meeting') === 0 &&
+				messageClass.indexOf('IPM.Schedule.Meeting.Notification') !== 0) {
+				Zarafa.calendar.Actions.openForwardMeetingRequestContent(this.record);
+				return;
+			}
+		}
 		Zarafa.mail.Actions.openCreateMailResponseContent(this.record, this.model, button.responseMode);
 	}
 });

@@ -311,34 +311,19 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 
 	/**
 	 * Generates meeting time details which will be added to meeting response body.
-	 * @return {String} generated body message.
+	 * The preview panel's MeetingInfo component shows When/Where from MAPI
+	 * properties, so the body only contains the user's response text.
+	 * @param {String} responseText The user's comment text
+	 * @param {Boolean} is_html Whether responseText is HTML
+	 * @return {String} generated body message
 	 */
 	generateMeetingTimeInfo: function(responseText, is_html)
 	{
 		var messageBody = responseText || '';
-		var startDate = this.get('startdate');
-		var dueDate = this.get('duedate');
-		var meetingLocation = this.get('location') || '';
-		var recurringPattern = this.get('recurring_pattern') || '';
-
-		var meetingTimeInfo = _('When') + ': ';
-
-		if (recurringPattern) {
-			meetingTimeInfo += recurringPattern + '\n';
-		} else {
-			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-			meetingTimeInfo += startDate.formatDefaultTime(_('l jS F Y {0}')) + ' - ';
-			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-			meetingTimeInfo += dueDate.formatDefaultTime(_('l jS F Y {0}')) + '\n';
+		if (messageBody && !is_html) {
+			messageBody = Ext.util.Format.htmlEncode(messageBody).replace(/\n/g, '<br>');
 		}
-
-		meetingTimeInfo += _('Where') + ': '  + meetingLocation + '\n\n';
-		meetingTimeInfo += '*~*~*~*~*~*~*~*~*~*\n\n';
-		if (is_html) {
-			meetingTimeInfo = meetingTimeInfo.replace(/[\u00A0-\u9999<>\&]/g, i => '&#' + i.charCodeAt(0) + ';'); /* htmlspecialchars() */
-		}
-
-		return meetingTimeInfo + '\n\n' + messageBody;
+		return messageBody;
 	},
 
 	/**
@@ -365,6 +350,7 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 
 			this.addMessageAction('responseType', responseType);
 			this.addMessageAction('meetingTimeInfo', meetingTimeInfo);
+			this.addMessageAction('mti_html', true);
 			this.addMessageAction('sendResponse', sendResponse);
 
 			this.getStore().save(this);
@@ -380,9 +366,16 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	 */
 	respondToMeetingRequest: function(responseType, comment, com_is_html, sendResponse)
 	{
+		// The meeting time info in responses is stored as PR_BODY
+		// (plain text), so never apply HTML encoding here.
+		// Handle the legacy 3-argument call where com_is_html is
+		// actually the sendResponse flag.
+		// Skip the When/Where header — the preview panel's MeetingInfo
+		// component already shows it from the MAPI properties.
+		var actualSendResponse = (sendResponse !== undefined) ? sendResponse : com_is_html;
 		this.sendMeetingRequestResponse(responseType,
-			this.generateMeetingTimeInfo(comment, com_is_html),
-			com_is_html, sendResponse);
+			this.generateMeetingTimeInfo(comment, false),
+			actualSendResponse);
 	},
 
 	/**
@@ -429,11 +422,30 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	{
 		this.addMessageAction('action_type', 'cancelInvitation');
 		this.addMessageAction('meetingTimeInfo', this.generateMeetingTimeInfo(comment, com_is_html));
-		this.addMessageAction('mti_html', com_is_html);
+		this.addMessageAction('mti_html', true);
 
 		var store = this.getStore();
 		store.remove(this);
 		store.save(this);
+	},
+
+	/**
+	 * Forward the meeting request to additional recipients. A proper
+	 * IPM.Schedule.Meeting.Request is sent to each recipient and the
+	 * organizer receives a forward notification.
+	 *
+	 * @param {Object[]} recipients Array of recipient objects with at least
+	 * display_name and smtp_address/email_address properties.
+	 */
+	forwardMeetingRequest: function(recipients)
+	{
+		var prefix = container.getSettingsModel().get('zarafa/v1/contexts/mail/use_english_abbreviations') ?
+			'Fwd' : _('Fwd');
+		this.addMessageAction('action_type', 'forwardMeetingRequest');
+		this.addMessageAction('forwardRecipients', recipients);
+		this.addMessageAction('forwardSubjectPrefix', prefix + ': ');
+
+		this.getStore().save(this);
 	},
 
 	/**
@@ -681,7 +693,7 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 		if (name === 'send') {
 			var is_html = !!this.get('isHTML');
 			this.addMessageAction('meetingTimeInfo', this.generateMeetingTimeInfo(this.getBody(), is_html));
-			this.addMessageAction('mti_html', is_html);
+			this.addMessageAction('mti_html', true);
 		}
 		if (name === 'meetingTimeInfo') {
 			// If the record has not been opened yet, the body will not be part of the
@@ -706,7 +718,7 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 		if (this.isMeeting() && this.hasMessageAction('send')) {
 			var is_html = !!this.get('isHTML');
 			this.addMessageAction('meetingTimeInfo', this.generateMeetingTimeInfo(this.getBody(), is_html));
-			this.addMessageAction('mti_html', is_html);
+			this.addMessageAction('mti_html', true);
 		}
 		this.set('timezone_iana', Intl.DateTimeFormat().resolvedOptions().timeZone);
 		Zarafa.calendar.AppointmentRecord.superclass.afterEdit.apply(this, arguments);

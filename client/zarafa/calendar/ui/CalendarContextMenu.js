@@ -112,6 +112,32 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 			handler: this.onDelete,
 			scope: this
 		},{
+			xtype: 'zarafa.conditionalitem',
+			text: _('Reply'),
+			iconCls: 'icon_reply',
+			singleSelectOnly: true,
+			beforeShow: this.beforeShowOnMeetingForward,
+			responseMode: Zarafa.mail.data.ActionTypes.REPLY,
+			handler: this.onReplyMeeting,
+			scope: this
+		},{
+			xtype: 'zarafa.conditionalitem',
+			text: _('Reply All'),
+			iconCls: 'icon_reply_all',
+			singleSelectOnly: true,
+			beforeShow: this.beforeShowOnMeetingForward,
+			responseMode: Zarafa.mail.data.ActionTypes.REPLYALL,
+			handler: this.onReplyMeeting,
+			scope: this
+		},{
+			xtype: 'zarafa.conditionalitem',
+			text: _('Forward'),
+			iconCls: 'icon_forward',
+			singleSelectOnly: true,
+			beforeShow: this.beforeShowOnMeetingForward,
+			handler: this.onForwardMeeting,
+			scope: this
+		},{
 			xtype: 'menuseparator'
 		},{
 			xtype: 'zarafa.conditionalitem',
@@ -577,6 +603,163 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 			Zarafa.calendar.Actions.openMeetingRequestContent(records);
 		} else {
 			Zarafa.calendar.Actions.openAppointmentContent(records);
+		}
+	},
+
+	/**
+	 * Makes the Forward menu item visible only when a single meeting
+	 * record (organized or received) is selected.
+	 * @param {Zarafa.core.ui.menu.MenuItem} item The item which is being tested
+	 * @param {Zarafa.core.data.MAPIRecord[]} records The records on which this context
+	 * menu is operating.
+	 * @private
+	 */
+	beforeShowOnMeetingForward: function(item, records)
+	{
+		if (!records || records.length !== 1) {
+			item.setVisible(false);
+			return;
+		}
+
+		var record = records[0];
+		item.setVisible(record.isMeeting() && !record.isMeetingCanceled() && !record.phantom);
+	},
+
+	/**
+	 * Called when the "Forward" menu item is clicked. Opens the
+	 * forward meeting request dialog for the selected appointment.
+	 * @private
+	 */
+	onForwardMeeting: function()
+	{
+		if (Array.isArray(this.records) && this.records.length > 0) {
+			Zarafa.calendar.Actions.openForwardMeetingRequestContent(this.records[0]);
+		}
+	},
+
+	/**
+	 * Called when "Reply" or "Reply All" is clicked on a calendar
+	 * meeting. AppointmentRecords lack the 'reply-to' sub-store
+	 * that the mail model's createResponseRecord expects, so we
+	 * build the reply manually from the appointment's properties.
+	 * @param {Ext.Button} button The button which was clicked
+	 * @private
+	 */
+	onReplyMeeting: function(button)
+	{
+		if (!Array.isArray(this.records) || this.records.length === 0) {
+			return;
+		}
+
+		var record = this.records[0];
+		var isReplyAll = (button.responseMode === Zarafa.mail.data.ActionTypes.REPLYALL);
+
+		var buildReply = function(rec) {
+			var iAmOrganizer = rec.isMeetingOrganized && rec.isMeetingOrganized();
+
+			// Reply (not All) as organizer is replying to yourself
+			if (!isReplyAll && iAmOrganizer) {
+				container.getNotifier().notify('info.meeting',
+					pgettext('calendar.contextmenu', 'Use Reply All to reply to all attendees of your meeting.'));
+				return;
+			}
+
+			var mailModel = container.getContextByName('mail').getModel();
+			var responseRecord = mailModel.createRecord();
+
+			// Use the RFC 5322 prefix setting
+			var prefix = container.getSettingsModel().get('zarafa/v1/contexts/mail/use_english_abbreviations') ?
+				'Re' : _('Re');
+			var subject = rec.get('normalized_subject') || rec.get('subject') || '';
+			responseRecord.set('subject', prefix + ': ' + subject);
+
+			var recipientStore = responseRecord.getRecipientStore();
+			var loggedInEntryId = container.getUser().getEntryId();
+
+			var addRecipient = function(name, email, addrType, entryId, type) {
+				if (!email) {
+					return;
+				}
+				if (loggedInEntryId && entryId &&
+					Zarafa.core.EntryId.compareABEntryIds(entryId, loggedInEntryId)) {
+					return;
+				}
+				recipientStore.add(Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(
+					Zarafa.core.data.RecordCustomObjectType.ZARAFA_RECIPIENT, {
+						display_name: name || '',
+						smtp_address: email,
+						address_type: addrType || 'SMTP',
+						entryid: entryId || '',
+						recipient_type: type
+					}));
+			};
+
+			if (iAmOrganizer) {
+				// Reply All as organizer: all attendees → To
+				var apptRecipientStore = rec.getRecipientStore();
+				if (apptRecipientStore) {
+					apptRecipientStore.each(function(r) {
+						if (r.isMeetingOrganizer()) {
+							return;
+						}
+						addRecipient(
+							r.get('display_name'),
+							r.get('smtp_address') || r.get('email_address'),
+							r.get('address_type'),
+							r.get('entryid'),
+							Zarafa.core.mapi.RecipientType.MAPI_TO
+						);
+					});
+				}
+			} else {
+				// Attendee: organizer → To
+				addRecipient(
+					rec.get('sent_representing_name') || rec.get('sender_name'),
+					rec.get('sent_representing_email_address') || rec.get('sender_email_address'),
+					rec.get('sent_representing_address_type') || rec.get('sender_address_type'),
+					rec.get('sent_representing_entryid') || rec.get('sender_entryid'),
+					Zarafa.core.mapi.RecipientType.MAPI_TO
+				);
+
+				// Reply All as attendee: other attendees → CC
+				if (isReplyAll) {
+					var apptRecipientStore = rec.getRecipientStore();
+					if (apptRecipientStore) {
+						apptRecipientStore.each(function(r) {
+							if (r.isMeetingOrganizer()) {
+								return;
+							}
+							addRecipient(
+								r.get('display_name'),
+								r.get('smtp_address') || r.get('email_address'),
+								r.get('address_type'),
+								r.get('entryid'),
+								Zarafa.core.mapi.RecipientType.MAPI_CC
+							);
+						});
+					}
+				}
+			}
+
+			Zarafa.core.data.UIFactory.openCreateRecord(responseRecord);
+		};
+
+		// We need the recipient store for Reply All, and also for
+		// Reply as organizer (to show the notification after checking).
+		var needRecipients = isReplyAll;
+		if (needRecipients && !(record.getRecipientStore && record.getRecipientStore())) {
+			var store = record.getStore();
+			var openHandler = function(s, r) {
+				if (record !== r) {
+					return;
+				}
+				store.un('open', openHandler, record);
+				buildReply(r);
+			};
+			store.on('open', openHandler, record);
+			record.open();
+		} else {
+			buildReply(record);
 		}
 	},
 

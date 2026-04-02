@@ -88,6 +88,90 @@ Zarafa.calendar.Actions = {
  	},
 
 	/**
+	 * Opens an address-book selection dialog so the user can choose
+	 * recipients to forward the meeting request to. On confirmation the
+	 * meeting request is forwarded and the organizer is notified.
+	 *
+	 * @param {Zarafa.core.data.IPMRecord} record The appointment/meeting record to forward
+	 * @param {Object} config (optional) Configuration object
+	 */
+	openForwardMeetingRequestContent: function(record, config)
+	{
+		var store = new Zarafa.core.data.IPMRecipientStore();
+
+		Zarafa.common.Actions.openABUserMultiSelectionContent({
+			title: _('Forward Meeting Request'),
+			callback: function() {
+				var recipients = [];
+				store.each(function(r) {
+					recipients.push({
+						display_name: r.get('display_name') || '',
+						email_address: r.get('email_address') || '',
+						smtp_address: r.get('smtp_address') || r.get('email_address') || '',
+						address_type: r.get('address_type') || 'SMTP',
+						entryid: r.get('entryid') || '',
+						search_key: r.get('search_key') || '',
+						object_type: r.get('object_type')
+					});
+				});
+				if (recipients.length === 0) {
+					return;
+				}
+
+				var isOrganizer = record.isMeetingOrganized && record.isMeetingOrganized();
+
+				// Delegates with Send As act on behalf of the store owner,
+				// so they do not need the organizer notification hint.
+				var isDelegate = false;
+				var storeEntryId = record.get('store_entryid');
+				if (storeEntryId) {
+					var defaultStore = container.getHierarchyStore().getDefaultStore();
+					if (defaultStore) {
+						var defaultEntryId = defaultStore.get('store_entryid');
+						isDelegate = defaultEntryId &&
+							!Zarafa.core.EntryId.compareStoreEntryIds(storeEntryId, defaultEntryId);
+					}
+				}
+
+				var doForward = function() {
+					record.forwardMeetingRequest(recipients);
+					container.getNotifier().notify('info.meeting',
+						pgettext('calendar.actions', 'Meeting request forwarded'));
+				};
+
+				if (!isOrganizer && !isDelegate) {
+					Ext.MessageBox.show({
+						title: _('Forward Meeting Request'),
+						msg: _('The meeting organizer will be notified that you forwarded this meeting request.'),
+						cls: Ext.MessageBox.INFO_CLS,
+						buttons: Ext.MessageBox.OKCANCEL,
+						fn: function(btn) {
+							if (btn === 'ok') {
+								doForward();
+							}
+						}
+					});
+				} else {
+					doForward();
+				}
+			},
+			convert: function(user, field) {
+				return user.convertToRecipient(Zarafa.core.mapi.RecipientType.MAPI_TO);
+			},
+			store: store,
+			selectionCfg: [{
+				xtype: 'zarafa.recipientfield',
+				fieldLabel: _('To') + ':',
+				height: 50,
+				boxStore: store,
+				filterRecipientType: Zarafa.core.mapi.RecipientType.MAPI_TO,
+				defaultRecipientType: Zarafa.core.mapi.RecipientType.MAPI_TO,
+				flex: 1
+			}]
+		});
+	},
+
+	/**
 	 * Opens a {@link Zarafa.calendar.dialogs.AppointmentContentPanel AppointmentContentPanel} that will
 	 * have start and end date changed to proposedd times so an update can be sent to all attendees.
 	 *

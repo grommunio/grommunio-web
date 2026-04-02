@@ -125,6 +125,7 @@ Zarafa.common.ui.messagepanel.RecipientLinks = Ext.extend(Ext.DataView, {
 	 */
 	setRecord: function(record)
 	{
+		this.parentRecord = record;
 		if (record) {
 			if (record.isOpened()) {
 				this.bindStore(record.getRecipientStore());
@@ -166,9 +167,26 @@ Zarafa.common.ui.messagepanel.RecipientLinks = Ext.extend(Ext.DataView, {
 	collectData: function(records, startIndex)
 	{
 		var r = [];
+
+		// For meeting requests, determine the organizer entryid so
+		// we can hide them from the recipient display. The store
+		// may include the organizer as a regular MAPI_TO recipient.
+		var organizerEntryId = '';
+		if (this.parentRecord) {
+			var msgClass = this.parentRecord.get('message_class') || '';
+			if (msgClass.indexOf('IPM.Schedule.Meeting') === 0 || msgClass === 'IPM.Appointment') {
+				organizerEntryId = this.parentRecord.get('sent_representing_entryid') || '';
+			}
+		}
+
 		for (var i = 0, len = records.length; i < len; i++) {
 			var record = records[i];
 			if (!Ext.isDefined(this.recipientType) || this.recipientType === record.get('recipient_type')) {
+				// Skip the organizer in meeting messages
+				if (organizerEntryId && record.get('entryid') &&
+					Zarafa.core.EntryId.compareABEntryIds(record.get('entryid'), organizerEntryId)) {
+					continue;
+				}
 				r[r.length] = this.prepareData(record.data, record.get('rowid'), record);
 			}
 		}

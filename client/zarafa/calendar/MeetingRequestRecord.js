@@ -140,39 +140,6 @@ Zarafa.calendar.MeetingRequestRecord = Ext.extend(Zarafa.calendar.AppointmentRec
 	},
 
 	/**
-	 * Generates meeting time details which will be added to meeting response body.
-	 * @return {String} generated body message.
-	 * @overridden
-	 */
-	generateMeetingTimeInfo: function(responseText, is_html)
-	{
-		var messageBody = responseText || '';
-		var startDate = this.get('appointment_startdate');
-		var dueDate = this.get('appointment_duedate');
-		var meetingLocation = this.get('appointment_location') || '';
-		var recurringPattern = this.get('appointment_recurring_pattern') || '';
-
-		var meetingTimeInfo = _('When') + ': ';
-
-		if (recurringPattern) {
-			meetingTimeInfo += recurringPattern + '\n';
-		} else {
-			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-			meetingTimeInfo += startDate.formatDefaultTime(_('l jS F Y {0}')) + ' - ';
-			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-			meetingTimeInfo += dueDate.formatDefaultTime(_('l jS F Y {0}')) + '\n';
-		}
-
-		meetingTimeInfo += _('Where') + ': '  + meetingLocation + '\n\n';
-		meetingTimeInfo += '*~*~*~*~*~*~*~*~*~*\n\n';
-		if (is_html) {
-			meetingTimeInfo = meetingTimeInfo.replace(/[\u00A0-\u9999<>\&]/g, i => '&#' + i.charCodeAt(0) + ';'); /* htmlspecialchars() */
-		}
-
-		return meetingTimeInfo + '\n\n' + messageBody;
-	},
-
-	/**
 	 * Create a new {@link Zarafa.core.data.IPMRecord IPMRecord}. This record can be used to get all the properties
 	 * of meeting record associated with this {@link Zarafa.calendar.MeetingRequestRecord MeetingRequestRecord}.
 	 * @param {Boolean} viewAllProposals (optional) pass true if you want to show
