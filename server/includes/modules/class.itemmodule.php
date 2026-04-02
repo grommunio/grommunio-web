@@ -1160,16 +1160,12 @@ class ItemModule extends Module {
 
 		mapi_setprops($fwdMsg, $fwdProps);
 
+		// Remove properties that should not be on the forwarded copy.
 		// Clear icon index so the mail list derives it from the message class.
-		// Clear counter_proposal which doesn't apply to the forwarded copy.
-		$clearProps = [];
+		$deleteProps = [PR_ICON_INDEX, PR_MESSAGE_DELIVERY_TIME];
 		if (isset($props['counter_proposal'], $sourceProps[$props['counter_proposal']])) {
-			$clearProps[] = $props['counter_proposal'];
+			$deleteProps[] = $props['counter_proposal'];
 		}
-		mapi_deleteprops($fwdMsg, array_merge([PR_ICON_INDEX], $clearProps));
-
-		// Remove properties that should not be on the forwarded copy
-		$deleteProps = [PR_MESSAGE_DELIVERY_TIME];
 		if (isset($props['request_sent'])) {
 			$deleteProps[] = $props['request_sent'];
 		}
