@@ -821,6 +821,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 */
 	isEnabledConversation: function ()
 	{
-		return this.getSettingsModel().get("zarafa/v1/contexts/mail/enable_conversation_view", false);
+		return this.getServerConfig().isConversationViewEnabled() &&
+			this.getSettingsModel().get("zarafa/v1/contexts/mail/enable_conversation_view", false);
 	}
 });

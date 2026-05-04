@@ -46,6 +46,20 @@ require_once UMAPI_PATH . '/mapi.util.php';
 require_once UMAPI_PATH . '/mapidefs.php';
 require_once UMAPI_PATH . '/mapitags.php';
 require_once UMAPI_PATH . '/mapiguid.php';
+
+// Not (yet) defined by the mapi headers. The server computes the conversation
+// id for every message (MS-OXOMSG); it is used to group the mail list into
+// conversations. The index and topic are inherited by replies/forwards so they
+// stay in the conversation of the original message.
+if (!defined('PR_CONVERSATION_ID')) {
+	define('PR_CONVERSATION_ID', mapi_prop_tag(PT_BINARY, 0x3013));
+}
+if (!defined('PR_CONVERSATION_INDEX')) {
+	define('PR_CONVERSATION_INDEX', mapi_prop_tag(PT_BINARY, 0x0071));
+}
+if (!defined('PR_CONVERSATION_TOPIC')) {
+	define('PR_CONVERSATION_TOPIC', mapi_prop_tag(PT_TSTRING, 0x0070));
+}
 require_once UMAPI_PATH . '/class.baseexception.php';
 require_once UMAPI_PATH . '/class.mapiexception.php';
 require_once UMAPI_PATH . '/class.recurrenceexception.php';

@@ -1028,6 +1028,9 @@ class Properties {
 	public function getMailListProperties() {
 		$properties = $this->getMailProperties();
 
+		// Used by the client to group the mail list into conversations.
+		$properties['conversation_id'] = PR_CONVERSATION_ID;
+
 		unset(
 			$properties['access'],
 			$properties['appointment_duedate'],
@@ -1037,6 +1040,10 @@ class Properties {
 			$properties['appointment_recurring_pattern'],
 			$properties['appointment_startdate'],
 			$properties['appointment_startdate_recurring'],
+			// The list view shows subjects, not body snippets; skipping the
+			// body noticeably shrinks the list requests. The search module
+			// re-adds it for the search result previews.
+			$properties['body'],
 			$properties['goid'],
 			$properties['goid2'],
 			$properties['meetingtype'],

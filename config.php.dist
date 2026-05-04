@@ -27,6 +27,10 @@
 	// Enable shared rules
 	define("ENABLE_SHARED_RULES", TRUE);
 
+	// Allow users to enable the conversation (threaded) view for their inbox.
+	// Set to 'false' to disable the feature server-wide regardless of user settings.
+	define("ENABLE_CONVERSATION_VIEW", TRUE);
+
 	// Enable resolving hidden address book entries (disabled by default).
 	// Overrides defaults.php
 	//define("ENABLE_RESOLVE_HIDDEN_USERS", true);
