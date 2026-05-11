@@ -100,8 +100,26 @@ Zarafa.mail.ui.MailRowSelectionModel = Ext.extend(Ext.grid.RowSelectionModel, {
 		if (!this.isIndexOutOfRange(nextRowIndex)){
 			var store = this.grid.getStore();
 			var record = store.getAt(nextRowIndex);
+			// Check if its header record.
+			if (record.isConversationHeaderRecord()) {
+				// If conversation was opened then skip the header record and
+				// select the first item of the conversation instead.
+				if (store.isConversationOpened(record)) {
+					return this.selectNext(keepExisting, nextRowIndex);
+				}
+
+				// If conversation was closed then expand it and select its first item.
+				store.expandConversation(record);
+				nextRowIndex += 1;
+			}
+
 			this.selectRow(nextRowIndex, keepExisting);
 			this.grid.getView().focusRow(this.last);
+
+			if (this.grid.expandSingleConversation && !keepExisting) {
+				var currHeader = store.getHeaderRecordFromItem(store.getAt(nextRowIndex));
+				store.collapseAllConversation(currHeader);
+			}
 
 			return true;
 		}
@@ -130,8 +148,10 @@ Zarafa.mail.ui.MailRowSelectionModel = Ext.extend(Ext.grid.RowSelectionModel, {
 				}
 
 				// If conversation was closed then select last item of it.
+				// Note: conversation_count can include sent items that have not
+				// been fetched yet, so count the actually present items.
 				store.expandConversation(record);
-				prvRowIndex += record.get('conversation_count');
+				prvRowIndex += store.getConversationItemsFromHeaderRecord(record).length;
 			}
 
 			this.selectRow(prvRowIndex, keepExisting);
@@ -170,7 +190,9 @@ Zarafa.mail.ui.MailRowSelectionModel = Ext.extend(Ext.grid.RowSelectionModel, {
 			if (up) {
 				// If selection direction is up then select last item of the conversation.
 				// And update the {@link #updatedLast}.
-				var conversationCount = record.get('conversation_count');
+				// Note: conversation_count can include sent items that have not
+				// been fetched yet, so count the actually present items.
+				var conversationCount = store.getConversationItemsFromHeaderRecord(record).length;
 				endIndex += conversationCount;
 				this.updatedLast += conversationCount;
 			} else {
