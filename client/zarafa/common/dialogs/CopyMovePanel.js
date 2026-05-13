@@ -293,11 +293,61 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 			this.copyButton.disable();
 			this.moveButton.disable();
 			this.createFolderButton.disable();
-		} else {
-			this.copyButton.enable();
-			this.moveButton.enable();
-			this.createFolderButton.enable();
+			return;
 		}
+
+		this.createFolderButton.enable();
+
+		if (!this.isContainerClassCompatible(node.getFolder())) {
+			this.copyButton.disable();
+			this.moveButton.disable();
+			return;
+		}
+
+		this.copyButton.enable();
+		this.moveButton.enable();
+	},
+
+	/**
+	 * Check whether the {@link Zarafa.core.data.IPMRecord records} being copied or moved
+	 * are compatible with the {@link Zarafa.hierarchy.data.MAPIFolderRecord#container_class container_class}
+	 * of the destination folder. For example, a mail (IPM.Note) must not be moved into an
+	 * IPF.Contact folder because the resulting item is unusable.
+	 *
+	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The target folder
+	 * @return {Boolean} True when every record's message_class is compatible with the
+	 * folder's container_class, false otherwise.
+	 * @private
+	 */
+	isContainerClassCompatible: function(folder)
+	{
+		if (this.objectType !== Zarafa.core.mapi.ObjectType.MAPI_MESSAGE) {
+			return true;
+		}
+
+		var containerClass = folder.get('container_class');
+		if (Ext.isEmpty(containerClass)) {
+			return true;
+		}
+
+		var records = this.record || [];
+		for (var i = 0, len = records.length; i < len; i++) {
+			var record = records[i];
+			if (!record) {
+				continue;
+			}
+
+			var messageClass = Ext.isFunction(record.get) ? record.get('message_class') : record.message_class;
+			if (Ext.isEmpty(messageClass)) {
+				continue;
+			}
+
+			if (!Zarafa.core.MessageClass.isContainerClassCompatible(messageClass, containerClass)) {
+				return false;
+			}
+		}
+
+		return true;
 	},
 
 	/**
@@ -354,6 +404,14 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 			return;
 		}
 
+		if (!this.isContainerClassCompatible(folder)) {
+			var msg = isMoveAction ?
+				_("The selected items cannot be moved into this folder because it holds a different type of content.") :
+				_("The selected items cannot be copied into this folder because it holds a different type of content.");
+			container.getNotifier().notify('error', _("Incompatible folder"), msg);
+			return false;
+		}
+
 		records = Zarafa.common.Actions.resolveRecords(records, this.store);
 
 		if (Ext.isEmpty(records)) {
@@ -399,6 +457,12 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 		records = Zarafa.common.Actions.resolveRecords(records, this.store);
 
 		if (Ext.isEmpty(records)) {
+			return;
+		}
+
+		if (!this.isContainerClassCompatible(folder)) {
+			container.getNotifier().notify('error', _("Incompatible folder"),
+				_("The selected items cannot be copied into this folder because it holds a different type of content."));
 			return;
 		}
 
@@ -454,6 +518,12 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 		records = Zarafa.common.Actions.resolveRecords(records, this.store);
 
 		if (Ext.isEmpty(records)) {
+			return;
+		}
+
+		if (!this.isContainerClassCompatible(folder)) {
+			container.getNotifier().notify('error', _("Incompatible folder"),
+				_("The selected items cannot be moved into this folder because it holds a different type of content."));
 			return;
 		}
 
