@@ -27,7 +27,7 @@ Zarafa.mail.dialogs.MailCreateOptionsContentPanel = Ext.extend(Zarafa.core.ui.Re
 			}),
 			autoSave: config.modal ? false : true,
 			width: 320,
-			height: 220,
+			height: 330,
 			items: [{
 				xtype: 'zarafa.mailcreateoptionspanel',
 				buttons: [{
