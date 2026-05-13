@@ -329,34 +329,44 @@ class RestoreItemsListModule extends ListModule {
 	}
 
 	/**
-	 * Function to restore soft deleted folder of particular folder.
+	 * Function to restore soft deleted folder of particular folder. The folder
+	 * restore action involves two operations: copy the folder marked as deleted
+	 * as a new one and then delete the source folder.
 	 *
 	 * @param object $store         store object
-	 * @param binary $parententryid entry id of the folder which contain particular folder to be restored
-	 * @param binary $folderentryid entry id of the folder to be restored
+	 * @param object $parententryid entry id of the folder which contain particular folder to be restored
+	 * @param object $folderentryid entry id of the folder to be restored
 	 */
 	public function restoreFolder($store, $parententryid, $folderentryid) {
 		$sfolder = mapi_msgstore_openentry($store, $parententryid);
+		$folder = mapi_msgstore_openentry($store, $folderentryid, SHOW_SOFT_DELETES);
+		$folderNameProps = mapi_getprops($folder, [PR_DISPLAY_NAME]);
+		$delSrfFld = false;
 
 		try {
 			/*
-			 * we should first try to copy folder and if it returns MAPI_E_COLLISION then
+			 * We should first try to copy folder and if it returns MAPI_E_COLLISION then
 			 * only we should check for the conflicting folder names and generate a new name
 			 * and restore folder with the generated name.
 			 */
-			mapi_folder_copyfolder($sfolder, $folderentryid, $sfolder, '', FOLDER_MOVE);
+			mapi_folder_copyfolder($sfolder, $folderentryid, $sfolder, $folderNameProps[PR_DISPLAY_NAME]);
+			$delSrfFld = true;
 		}
 		catch (MAPIException $e) {
 			if ($e->getCode() == MAPI_E_COLLISION) {
-				$folder = mapi_msgstore_openentry($store, $folderentryid, SHOW_SOFT_DELETES);
-				$folderNameProps = mapi_getprops($folder, [PR_DISPLAY_NAME]);
 				$foldername = $GLOBALS["operations"]->checkFolderNameConflict($store, $sfolder, $folderNameProps[PR_DISPLAY_NAME]);
-				mapi_folder_copyfolder($sfolder, $folderentryid, $sfolder, $foldername, FOLDER_MOVE);
+				mapi_folder_copyfolder($sfolder, $folderentryid, $sfolder, $foldername);
+				$delSrfFld = true;
 			}
 			else {
 				// all other errors should be propagated to higher level exception handlers
 				throw $e;
 			}
+		}
+
+		// Hard delete the folder previously marked as deleted only if restoring succeeds.
+		if ($delSrfFld) {
+			mapi_folder_deletefolder($sfolder, $folderentryid, DEL_MESSAGES | DEL_FOLDERS | DELETE_HARD_DELETE);
 		}
 
 		// notify the parent folder
