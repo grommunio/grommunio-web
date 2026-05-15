@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-07 15:11+0200\n"
+"POT-Creation-Date: 2026-05-15 13:46+0200\n"
 "PO-Revision-Date: 2022-07-26 15:25+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -28,8 +28,7 @@ msgstr "Edellinen kuukausi"
 msgid "Next Month"
 msgstr "Seuraava kuukausi"
 
-#. TRANSLATORS: This message is used as label for the column which indicates
-#. the week number of the month in date picker. and 'Wk' stands for week
+#. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
 msgstr "Vk"
 
@@ -216,8 +215,7 @@ msgstr "Päivä on ennen aikaisinta mahdollista päivää"
 msgid "This date is after the maximum date"
 msgstr "Päivä on myöhäisimmän mahdollisen päivän jälkeen"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "d/m/Y"
 msgstr "d.m.Y"
 
@@ -308,8 +306,7 @@ msgstr "Kentässä olevan ajan tulee olla {0} tai aiempi"
 msgid "{0} is not a valid time"
 msgstr "{0} ei ole saliittu aika"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "G:i"
 msgstr "G:i"
 
@@ -326,8 +323,7 @@ msgid "false"
 msgstr "epätosi"
 
 msgid "This field should be an e-mail address in the format \"user@example.com\""
-msgstr ""
-"Tämä kenttä pitää olla sähköpostiosoite muodossa \"käyttäjä@esimerkki.com\""
+msgstr "Tämä kenttä pitää olla sähköpostiosoite muodossa \"käyttäjä@esimerkki.com\""
 
 msgid "This field should be a URL in the format \"{0}\""
 msgstr "Tämän kentän pitää olla URL-osoite muodossa \"{0}\""
@@ -489,11 +485,8 @@ msgid "Address book"
 msgstr "Osoitekirja"
 
 #, fuzzy
-msgid ""
-"Showing only the first {0} names. Use search to find more specific results."
-msgstr ""
-"Näyttää vain ensimmäiset {0} nimeä. Käytä hakua tarkempien tulosten "
-"löytämiseksi."
+msgid "Showing only the first {0} names. Use search to find more specific results."
+msgstr "Näyttää vain ensimmäiset {0} nimeä. Käytä hakua tarkempien tulosten löytämiseksi."
 
 msgid "Use the search bar to get results"
 msgstr "Käytä hakupalkkia saadaksesi tuloksia"
@@ -741,12 +734,8 @@ msgid "Sorting tip"
 msgstr "Lajitteluvinkki"
 
 #, fuzzy
-msgid ""
-"You can sort by date if you narrow down your search results. Enable filters "
-"or adjust your input."
-msgstr ""
-"Voit lajitella päivämäärän mukaan, jos haluat rajata hakutuloksia. Ota "
-"suodattimet käyttöön tai säädä syötettäsi."
+msgid "You can sort by date if you narrow down your search results. Enable filters or adjust your input."
+msgstr "Voit lajitella päivämäärän mukaan, jos haluat rajata hakutuloksia. Ota suodattimet käyttöön tai säädä syötettäsi."
 
 msgid "Did you mean"
 msgstr "Tarkoititko"
@@ -767,29 +756,17 @@ msgctxt "calendar.actions"
 msgid "Meeting request forwarded"
 msgstr "Kokouspyyntö on välitetty"
 
-msgid ""
-"The meeting organizer will be notified that you forwarded this meeting "
-"request."
-msgstr ""
-"Kokouksen järjestäjälle ilmoitetaan, että olet välittänyt tämän kokouskutsun"
-" eteenpäin."
+msgid "The meeting organizer will be notified that you forwarded this meeting request."
+msgstr "Kokouksen järjestäjälle ilmoitetaan, että olet välittänyt tämän kokouskutsun eteenpäin."
 
 msgid "Error"
 msgstr "Virhe"
 
-msgid ""
-"Could not accept proposal as this meeting is not available in calendar; It "
-"may have been moved or deleted."
-msgstr ""
-"Ehdotusta ei voida hyväksyä, koska kokousta ei löydy kalenterista; se on "
-"voitu siirtää tai poistaa."
+msgid "Could not accept proposal as this meeting is not available in calendar; It may have been moved or deleted."
+msgstr "Ehdotusta ei voida hyväksyä, koska kokousta ei löydy kalenterista; se on voitu siirtää tai poistaa."
 
-msgid ""
-"Could not view proposal as this meeting is not available in calendar; It may"
-" have been moved or deleted."
-msgstr ""
-"Ehdotusta ei voitu tarkastella, koska kokous ei ole saatavilla kalenterissa."
-" Se on voitu siirtää tai poistaa."
+msgid "Could not view proposal as this meeting is not available in calendar; It may have been moved or deleted."
+msgstr "Ehdotusta ei voitu tarkastella, koska kokous ei ole saatavilla kalenterissa. Se on voitu siirtää tai poistaa."
 
 msgid "Required"
 msgstr "Vaadittu"
@@ -849,14 +826,12 @@ msgid "Occurs every {0} {1} effective {2}."
 msgstr "Tapahtuu joka {0} {1} voimassa {2}."
 
 msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
-msgid_plural ""
-"Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
+msgid_plural "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
 msgstr[0] "Esiintyy joka {0} tehokkaan {1} {2} esiintymiselle {3} - {4}."
 msgstr[1] "Esiintyy joka {0} tehokkaan {1} {2} esiintymiselle {3} - {4}."
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
-msgid_plural ""
-"Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
+msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
 msgstr[0] "Esiintyy joka {0} {1} tehokkaan {2} {3} esiintymiselle {4} - {5}."
 msgstr[1] "Esiintyy joka {0} {1} tehokkaan {2} {3} esiintymisiä {4} - {5}."
 
@@ -885,8 +860,7 @@ msgstr "Tapahtuu joka {0} {1} voimassa {2} {3} asti."
 msgid "New Meeting Time Proposed"
 msgstr "Ehdotettu uusi kokousaika"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y {0}"
 msgstr "l jS F Y {0}"
 
@@ -1020,12 +994,8 @@ msgid "Create in other calendar"
 msgstr "Luo toisessa kalenterissa"
 
 #, fuzzy
-msgid ""
-"The selected calendar has \"read-only\" permissions. Instead you can create "
-"an item in your own calendar."
-msgstr ""
-"Valitulla kalenterilla on vain lukuoikeudet. Sen sijaan voit luoda kohteen "
-"omaan kalenteriisi."
+msgid "The selected calendar has \"read-only\" permissions. Instead you can create an item in your own calendar."
+msgstr "Valitulla kalenterilla on vain lukuoikeudet. Sen sijaan voit luoda kohteen omaan kalenteriisi."
 
 msgid "What would you like?"
 msgstr "Mitä haluaisit?"
@@ -1036,8 +1006,7 @@ msgstr "Oma kalenteri"
 msgid "F Y"
 msgstr "F Y"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l"
 msgstr "l"
 
@@ -1070,8 +1039,7 @@ msgid "Send update to attendees"
 msgstr "Lähetä päivitys osallistujille"
 
 #, fuzzy
-msgid ""
-"You have made changes to the list of attendees. What would you like to do?"
+msgid "You have made changes to the list of attendees. What would you like to do?"
 msgstr "Olet tehnyt muutoksia osallistujaluetteloon. Mitä haluaisit tehdä?"
 
 msgid "Send updates to only added or deleted attendees."
@@ -1084,8 +1052,7 @@ msgid "Busy attendees"
 msgstr "Kiireiset osallistujat"
 
 msgid "One or more attendees are busy. Are you sure to invite?"
-msgstr ""
-"Yksi tai useampi osallistuja on varattu. Oletko varma, että haluat kutsua?"
+msgstr "Yksi tai useampi osallistuja on varattu. Oletko varma, että haluat kutsua?"
 
 msgid "Scheduling"
 msgstr "Aikataulu"
@@ -1102,12 +1069,8 @@ msgid "{0} attendees accepted, {1} tentatively accepted, {2} declined."
 msgstr "{0} osallistujaa hyväksyi, {1} hyväksyi alustavasti, {2} kieltäytyi."
 
 msgctxt "calendar.dialog"
-msgid ""
-"{0} attendees proposed a new time for this meeting. Click the Scheduling tab"
-" for details."
-msgstr ""
-"{0} osallistujaa ehdotti uutta aikaa kokoukselle. Tietoja saatavissa "
-"Aikataulu-välilehteä klikkaamalla."
+msgid "{0} attendees proposed a new time for this meeting. Click the Scheduling tab for details."
+msgstr "{0} osallistujaa ehdotti uutta aikaa kokoukselle. Tietoja saatavissa Aikataulu-välilehteä klikkaamalla."
 
 msgctxt "calendar.dialog"
 msgid "You proposed a new time for this meeting on {0}"
@@ -1155,12 +1118,8 @@ msgstr "Kokoukseen ei ole lähetetty yhtään kutsua."
 
 #, fuzzy
 msgctxt "calendar.dialog"
-msgid ""
-"Please note that any changes you make will be overwritten when this meeting "
-"request is updated by the organizer"
-msgstr ""
-"Huomaa, että kaikki tekemäsi muutokset korvataan, kun järjestäjä päivittää "
-"tämän kokouspyynnön"
+msgid "Please note that any changes you make will be overwritten when this meeting request is updated by the organizer"
+msgstr "Huomaa, että kaikki tekemäsi muutokset korvataan, kun järjestäjä päivittää tämän kokouspyynnön"
 
 msgid "Create in"
 msgstr "Luo"
@@ -1195,8 +1154,7 @@ msgstr "Päivitä sijainti"
 msgid "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
 msgstr "Haluatko päivittää sijainnin \"{0}\" uudella sijainnilla \"{1}\"?"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y {0}"
 msgstr "jS F Y {0}"
 
@@ -1268,9 +1226,7 @@ msgstr "Merkitse tämä tapaaminen yksityiseksi"
 
 msgctxt "calendar.toolbar"
 msgid "Use Reply All to reply to all attendees of your meeting."
-msgstr ""
-"Käytä Vastaa kaikille -toimintoa vastataksesi kaikille kokouksen "
-"osallistujille."
+msgstr "Käytä Vastaa kaikille -toimintoa vastataksesi kaikille kokouksen osallistujille."
 
 msgid "Re"
 msgstr "VS"
@@ -1305,9 +1261,7 @@ msgstr "Kommentoi"
 msgid "Send Meeting Request Cancellation"
 msgstr "Lähetä kokouskutsun peruutus"
 
-msgid ""
-"This meeting will be cancelled. Do you want to include comments with your "
-"cancellation?"
+msgid "This meeting will be cancelled. Do you want to include comments with your cancellation?"
 msgstr "Kokous perutaan. Haluatko liittää kommentteja perumisilmoitukseen?"
 
 msgid "Edit the cancellation before Sending."
@@ -1323,28 +1277,16 @@ msgid "Send Meeting Request Confirmation"
 msgstr "Lähetä kokouskutsun vahvistus"
 
 #, fuzzy
-msgid ""
-"This meeting will be accepted and moved to your calendar. Do you want to "
-"include comments with your response?"
-msgstr ""
-"Kokous on hyväksytty ja se siirretään kalenteriisi. Haluatko liittää "
-"kommentteja vastaukseesi?"
+msgid "This meeting will be accepted and moved to your calendar. Do you want to include comments with your response?"
+msgstr "Kokous on hyväksytty ja se siirretään kalenteriisi. Haluatko liittää kommentteja vastaukseesi?"
 
 #, fuzzy
-msgid ""
-"This meeting will be tentatively accepted and moved to your calendar. Do you"
-" want to include comments with your response?"
-msgstr ""
-"Kokous on hyväksytty alustavasti ja se siirretään kalenteriisi. Haluatko "
-"liittää kommentteja vastaukseesi?"
+msgid "This meeting will be tentatively accepted and moved to your calendar. Do you want to include comments with your response?"
+msgstr "Kokous on hyväksytty alustavasti ja se siirretään kalenteriisi. Haluatko liittää kommentteja vastaukseesi?"
 
 #, fuzzy
-msgid ""
-"This meeting will be declined and moved to your Deleted Items folder. Do you"
-" want to include comments with your response?"
-msgstr ""
-"Kokouksesta on kieltäydytty ja se siirretään roskakoriin. Haluatko liittää "
-"kommentteja vastaukseesi?"
+msgid "This meeting will be declined and moved to your Deleted Items folder. Do you want to include comments with your response?"
+msgstr "Kokouksesta on kieltäydytty ja se siirretään roskakoriin. Haluatko liittää kommentteja vastaukseesi?"
 
 msgid "Edit the response before sending"
 msgstr "Muokkaa vastausta ennen lähetystä"
@@ -1388,20 +1330,16 @@ msgstr "Liitä valittu kohde"
 msgid "An overview of"
 msgstr "Yleiskatsaus"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Start"
 msgstr "Aloita"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "End"
 msgstr "Päättyminen"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for
-#. formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
 msgid "Printed by"
 msgstr "Painanut"
 
@@ -1423,15 +1361,12 @@ msgstr "l jS M Y {0}"
 msgid "All day: "
 msgstr "Koko päivän: "
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
 msgstr "l j F Y"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for
-#. formatting instructions
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F"
 msgstr "l jS F Y"
 
@@ -1516,8 +1451,7 @@ msgstr "Muistutuksen oletusaika"
 msgid "Default all-day appointment reminder time"
 msgstr "Koko päivän kestävien tapaamisten muistutuksen oletusaika"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS"
 msgstr "j"
 
@@ -1558,9 +1492,7 @@ msgstr "Tapaaminen on siirretty tai poistettu, haluatko jatkaa?"
 
 msgctxt "calendar.contextmenu"
 msgid "Use Reply All to reply to all attendees of your meeting."
-msgstr ""
-"Käytä Vastaa kaikille -toimintoa vastataksesi kaikille kokouksen "
-"osallistujille."
+msgstr "Käytä Vastaa kaikille -toimintoa vastataksesi kaikille kokouksen osallistujille."
 
 msgid "Options"
 msgstr "Valinnat"
@@ -1661,44 +1593,28 @@ msgstr "Osallistujat"
 msgid "Optional attendees"
 msgstr "Vapaaehtoiset osallistujat"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F {0}"
 msgstr "jS F {0}"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y"
 msgstr "j F Y"
 
 #, fuzzy
-msgid ""
-"You have insufficient privileges to move and copy this item. Ask the folder "
-"owner to grant you permissions or contact your system administrator."
-msgstr ""
-"Sinulla ei ole riittäviä oikeuksia tämän kohteen siirtämiseen ja "
-"kopioimiseen. Pyydä kansion omistajaa myöntämään sinulle oikeudet tai ota "
-"yhteyttä järjestelmänvalvojaan."
+msgid "You have insufficient privileges to move and copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
+msgstr "Sinulla ei ole riittäviä oikeuksia tämän kohteen siirtämiseen ja kopioimiseen. Pyydä kansion omistajaa myöntämään sinulle oikeudet tai ota yhteyttä järjestelmänvalvojaan."
 
 #, fuzzy
-msgid ""
-"You have insufficient privileges to copy this item. Ask the folder owner to "
-"grant you permissions or contact your system administrator."
-msgstr ""
-"Sinulla ei ole riittäviä oikeuksia tämän kohteen kopioimiseen. Pyydä kansion"
-" omistajaa myöntämään sinulle oikeudet tai ota yhteyttä "
-"järjestelmänvalvojaan."
+msgid "You have insufficient privileges to copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
+msgstr "Sinulla ei ole riittäviä oikeuksia tämän kohteen kopioimiseen. Pyydä kansion omistajaa myöntämään sinulle oikeudet tai ota yhteyttä järjestelmänvalvojaan."
 
 msgid "Insufficient privileges"
 msgstr "Riittämättömät oikeudet"
 
 #, fuzzy
-msgid ""
-"Copying this appointment will unset it as private. Are you sure you want to "
-"continue?"
-msgstr ""
-"Tämän nimityksen kopioiminen poistaa sen yksityiseksi määrittelyn. Haluatko "
-"varmasti jatkaa?"
+msgid "Copying this appointment will unset it as private. Are you sure you want to continue?"
+msgstr "Tämän nimityksen kopioiminen poistaa sen yksityiseksi määrittelyn. Haluatko varmasti jatkaa?"
 
 msgid "Private item"
 msgstr "Yksityinen erä"
@@ -1707,12 +1623,8 @@ msgid "Copy"
 msgstr "Kopioi"
 
 #, fuzzy
-msgid ""
-"Moving this appointment will unset it as private. Are you sure you want to "
-"continue?"
-msgstr ""
-"Tämän nimityksen siirtäminen poistaa sen yksityisen aseman. Haluatko "
-"varmasti jatkaa?"
+msgid "Moving this appointment will unset it as private. Are you sure you want to continue?"
+msgstr "Tämän nimityksen siirtäminen poistaa sen yksityisen aseman. Haluatko varmasti jatkaa?"
 
 msgid "Move"
 msgstr "Siirrä"
@@ -1739,12 +1651,8 @@ msgid "grommunio Web"
 msgstr "grommunio Web"
 
 #, fuzzy
-msgid ""
-"Please note that any changes you make will be overwritten when this meeting "
-"request is updated by the organizer. Would you like to move this meeting?"
-msgstr ""
-"Huomaa, että kaikki tekemäsi muutokset korvataan, kun järjestäjä päivittää "
-"tämän kokouspyynnön. Haluatko siirtää tämän kokouksen?"
+msgid "Please note that any changes you make will be overwritten when this meeting request is updated by the organizer. Would you like to move this meeting?"
+msgstr "Huomaa, että kaikki tekemäsi muutokset korvataan, kun järjestäjä päivittää tämän kokouspyynnön. Haluatko siirtää tämän kokouksen?"
 
 msgid "Don't move"
 msgstr "Älä liiku"
@@ -1758,20 +1666,17 @@ msgstr "Siirry päivänäkymään nähdäksesi kaikki tapaamiset"
 msgid "Show all appointments"
 msgstr "Näytä kaikki tapaamiset"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates
-#. to whom the given mail was sent.
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
 msgstr "Ehdotettu"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates
-#. to whom the given mail was sent
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "When"
 msgstr "Milloin"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates
-#. to whom the given mail was sent
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Location"
 msgstr "Sijainti"
@@ -1779,9 +1684,7 @@ msgstr "Sijainti"
 msgid "No additional response required"
 msgstr "Muita vastauksia ei tarvita"
 
-msgid ""
-"Your calendar has been updated automatically. This meeting request will now "
-"be deleted."
+msgid "Your calendar has been updated automatically. This meeting request will now be deleted."
 msgstr "Kalenterisi on päivitetty automaattisesti. Kokouskutsu poistetaan."
 
 msgid "New appointment subject"
@@ -1824,8 +1727,7 @@ msgid "Today (all day)"
 msgstr "Tänään (koko päivä)"
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
-#. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME -
-#. USERNAME".
+#. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
 msgid "{0} - {1}"
 msgstr "{0} - {1}"
 
@@ -1865,42 +1767,26 @@ msgstr "Näkymän tulostus ei vielä ole saatavilla"
 msgid "Recurring Message"
 msgstr "Toistuva viesti"
 
-msgid ""
-"This is a recurring message. Do you want to open only this occurrence or the"
-" series?"
-msgstr ""
-"Tämä on toistuva viesti. Haluatko avata vain tämän tapahtuman vai "
-"tapahtumasarjan?"
+msgid "This is a recurring message. Do you want to open only this occurrence or the series?"
+msgstr "Tämä on toistuva viesti. Haluatko avata vain tämän tapahtuman vai tapahtumasarjan?"
 
 msgid "Recurring Appointment"
 msgstr "Toistuva tapaaminen"
 
-msgid ""
-"This is a recurring appointment. Do you want to open only this occurrence or"
-" the series?"
-msgstr ""
-"Tämä on toistuva tapaaminen. Haluatko avata vain tämän tapahtuman vai "
-"tapahtumasarjan?"
+msgid "This is a recurring appointment. Do you want to open only this occurrence or the series?"
+msgstr "Tämä on toistuva tapaaminen. Haluatko avata vain tämän tapahtuman vai tapahtumasarjan?"
 
 msgid "Recurring Meeting Request"
 msgstr "Toistuva kokouskutsu"
 
-msgid ""
-"This is a recurring meeting request. Do you want to open only this "
-"occurrence or the series?"
-msgstr ""
-"Tämä on toistuva kokouskutsu. Haluatko avata vain tämän tapahtuman vai "
-"tapahtumasarjan?"
+msgid "This is a recurring meeting request. Do you want to open only this occurrence or the series?"
+msgstr "Tämä on toistuva kokouskutsu. Haluatko avata vain tämän tapahtuman vai tapahtumasarjan?"
 
 msgid "Recurring Task Request"
 msgstr "Toistuva tehtäväpyyntö"
 
-msgid ""
-"This is a recurring task request. Do you want to open only this occurrence "
-"or the series?"
-msgstr ""
-"Tämä on toistuva tehtäväpyyntö. Haluatko avata vain tämän tapahtuman vai "
-"tapahtumasarjan?"
+msgid "This is a recurring task request. Do you want to open only this occurrence or the series?"
+msgstr "Tämä on toistuva tehtäväpyyntö. Haluatko avata vain tämän tapahtuman vai tapahtumasarjan?"
 
 msgid "Open this occurrence"
 msgstr "Avaa tämä tapahtuma"
@@ -1912,12 +1798,8 @@ msgid "Paste Recurring {0}"
 msgstr "Liitä toistuva {0}"
 
 #, fuzzy
-msgid ""
-"This is a recurring {0}. Do you want to paste only this occurrence or the "
-"series?"
-msgstr ""
-"Tämä on toistuva {0}. Haluatko liittää vain tämän esiintymän vai koko "
-"sarjan?"
+msgid "This is a recurring {0}. Do you want to paste only this occurrence or the series?"
+msgstr "Tämä on toistuva {0}. Haluatko liittää vain tämän esiintymän vai koko sarjan?"
 
 msgid "message"
 msgstr "viesti"
@@ -1934,33 +1816,17 @@ msgstr "Liitä vain tämä esiintymä"
 msgid "Paste the series…"
 msgstr "Liitä sarja.."
 
-msgid ""
-"This is a recurring message. Do you want to delete only this occurrence or "
-"the series?"
-msgstr ""
-"Tämä on toistuva viesti. Haluatko poistaa vain tämän tapahtuman vai "
-"tapahtumasarjan?"
+msgid "This is a recurring message. Do you want to delete only this occurrence or the series?"
+msgstr "Tämä on toistuva viesti. Haluatko poistaa vain tämän tapahtuman vai tapahtumasarjan?"
 
-msgid ""
-"This is a recurring appointment. Do you want to delete only this occurrence "
-"or the series?"
-msgstr ""
-"Tämä on toistuva tapaaminen. Haluatko poistaa vain tämän tapahtuman vai "
-"tapahtumasarjan?"
+msgid "This is a recurring appointment. Do you want to delete only this occurrence or the series?"
+msgstr "Tämä on toistuva tapaaminen. Haluatko poistaa vain tämän tapahtuman vai tapahtumasarjan?"
 
-msgid ""
-"This is a recurring meeting request. Do you want to delete only this "
-"occurrence or the series?"
-msgstr ""
-"Tämä on toistuva kokouskutsu. Haluatko poistaa vain tämän tapahtuman vai "
-"tapahtumasarjan?"
+msgid "This is a recurring meeting request. Do you want to delete only this occurrence or the series?"
+msgstr "Tämä on toistuva kokouskutsu. Haluatko poistaa vain tämän tapahtuman vai tapahtumasarjan?"
 
-msgid ""
-"This is a recurring task request. Do you want to delete only this occurrence"
-" or the series?"
-msgstr ""
-"Tämä on toistuva tehtäväpyyntö. Haluatko poistaa vain tämän tapahtuman vai "
-"tapahtumasarjan?"
+msgid "This is a recurring task request. Do you want to delete only this occurrence or the series?"
+msgstr "Tämä on toistuva tehtäväpyyntö. Haluatko poistaa vain tämän tapahtuman vai tapahtumasarjan?"
 
 msgid "Delete this occurrence"
 msgstr "Poista tämä tapahtuma"
@@ -1992,20 +1858,14 @@ msgstr "Sinulla ei ole riittäviä oikeuksia poistaa kohteita tästä kansiosta.
 msgid "Notify recipients"
 msgstr "Ilmoita vastaanottajille"
 
-msgid ""
-"A cancellation message will be sent to all recipients, do you wish to "
-"continue?"
+msgid "A cancellation message will be sent to all recipients, do you wish to continue?"
 msgstr "Peruutusviesti lähetetään kaikille vastaanottajille, haluatko jatkaa?"
 
 msgid "Notify sender"
 msgstr "Ilmoita lähettäjälle"
 
-msgid ""
-"{0} has requested a notification be sent when message \"{1}\" is deleted "
-"without having been read. Do you want to send a receipt?"
-msgstr ""
-"{0} on pyytänyt ilmoituksen lähettämistä, kun viesti \"{1}\" poistetaan "
-"lukematta. Haluatko lähettää kuittauksen?"
+msgid "{0} has requested a notification be sent when message \"{1}\" is deleted without having been read. Do you want to send a receipt?"
+msgstr "{0} on pyytänyt ilmoituksen lähettämistä, kun viesti \"{1}\" poistetaan lukematta. Haluatko lähettää kuittauksen?"
 
 msgid "Delete Incomplete Task"
 msgstr "Poista keskeneräinen tehtävä"
@@ -2032,12 +1892,8 @@ msgid "Recipient already exists."
 msgstr "Käyttäjä on jo olemassa."
 
 #, fuzzy
-msgid ""
-"The sender of this email has requested a read receipt. Do you wish to notify"
-" the sender?"
-msgstr ""
-"Viestin lähettäjä on pyytänyt lukukuittausta, kun luet tämän viestin. "
-"Haluatko kuitata lähettäjälle?"
+msgid "The sender of this email has requested a read receipt. Do you wish to notify the sender?"
+msgstr "Viestin lähettäjä on pyytänyt lukukuittausta, kun luet tämän viestin. Haluatko kuitata lähettäjälle?"
 
 msgid "Import"
 msgstr "Tuo"
@@ -2055,20 +1911,12 @@ msgid "Unable to import \"{0}\". The file is not valid"
 msgstr "Tuonti \"{0}\" ei onnistu. Tiedosto ei ole kelvollinen"
 
 #, fuzzy
-msgid ""
-"You have insufficient privileges to move these items. Would you like to copy"
-" instead?"
-msgstr ""
-"Sinulla ei ole riittäviä oikeuksia näiden kohteiden siirtämiseen. "
-"Haluaisitko kopioida sen sijaan?"
+msgid "You have insufficient privileges to move these items. Would you like to copy instead?"
+msgstr "Sinulla ei ole riittäviä oikeuksia näiden kohteiden siirtämiseen. Haluaisitko kopioida sen sijaan?"
 
 #, fuzzy
-msgid ""
-"You have insufficient privileges to move this item. Would you like to copy "
-"instead?"
-msgstr ""
-"Sinulla ei ole riittäviä oikeuksia tämän kohteen siirtämiseen. Haluaisitko "
-"kopioida sen sijaan?"
+msgid "You have insufficient privileges to move this item. Would you like to copy instead?"
+msgstr "Sinulla ei ole riittäviä oikeuksia tämän kohteen siirtämiseen. Haluaisitko kopioida sen sijaan?"
 
 msgid "Cc"
 msgstr "Kopio"
@@ -2110,22 +1958,15 @@ msgid "Continue"
 msgstr "Jatka"
 
 #, fuzzy
-msgid ""
-"These attachments have an unsupported file type and can not be added to the "
-"ZIP file:"
-msgstr ""
-"Näiden liitetiedostojen tiedostotyyppi ei ole tuettu, eikä niitä voi lisätä "
-"ZIP-tiedostoon:"
+msgid "These attachments have an unsupported file type and can not be added to the ZIP file:"
+msgstr "Näiden liitetiedostojen tiedostotyyppi ei ole tuettu, eikä niitä voi lisätä ZIP-tiedostoon:"
 
 msgid "Would you like to continue downloading without adding these files?"
 msgstr "Haluatko jatkaa lataamista lisäämättä näitä tiedostoja?"
 
 #, fuzzy
-msgid ""
-"Always continue download of ZIP files without adding unsupported file types."
-msgstr ""
-"Jatka aina ZIP-tiedostojen lataamista lisäämättä tukemattomia "
-"tiedostotyyppejä."
+msgid "Always continue download of ZIP files without adding unsupported file types."
+msgstr "Jatka aina ZIP-tiedostojen lataamista lisäämättä tukemattomia tiedostotyyppejä."
 
 msgid "File upload"
 msgstr "Tiedoston lataus"
@@ -2146,20 +1987,12 @@ msgid "Import to folder"
 msgstr "Tuo kansioon"
 
 #, fuzzy
-msgid ""
-"In order to use the vCard import feature, upgrade your Gromox to version 0 "
-"or higher."
-msgstr ""
-"Jotta voit käyttää vCard-tuontiominaisuutta, päivitä Gromox-järjestelmäsi "
-"versioon 0 tai uudempaan."
+msgid "In order to use the vCard import feature, upgrade your Gromox to version 0 or higher."
+msgstr "Jotta voit käyttää vCard-tuontiominaisuutta, päivitä Gromox-järjestelmäsi versioon 0 tai uudempaan."
 
 #, fuzzy
-msgid ""
-"In order to use the ICS / VCS import feature, upgrade your Gromox to version"
-" 0 or higher."
-msgstr ""
-"Jotta voit käyttää ICS/VCS-tuontiominaisuutta, päivitä Gromox-järjestelmäsi "
-"versioon 0 tai uudempaan."
+msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to version 0 or higher."
+msgstr "Jotta voit käyttää ICS/VCS-tuontiominaisuutta, päivitä Gromox-järjestelmäsi versioon 0 tai uudempaan."
 
 msgid "Attachment error"
 msgstr "Liitevirhe"
@@ -2198,12 +2031,8 @@ msgid "Delete Category"
 msgstr "Poista kategoria"
 
 #, fuzzy
-msgid ""
-"Are you sure you want to delete the category \"{0}\"? Other items keep this "
-"category, but lose the assigned color."
-msgstr ""
-"Haluatko varmasti poistaa luokan \"{0}\"? Muut kohteet säilyttävät tämän "
-"luokan, mutta menettävät sille määritetyn värin."
+msgid "Are you sure you want to delete the category \"{0}\"? Other items keep this category, but lose the assigned color."
+msgstr "Haluatko varmasti poistaa luokan \"{0}\"? Muut kohteet säilyttävät tämän luokan, mutta menettävät sille määritetyn värin."
 
 msgid "Rename Category"
 msgstr "Nimeä luokka uudelleen"
@@ -2224,23 +2053,15 @@ msgid "Create"
 msgstr "Luo"
 
 #, fuzzy
-msgid ""
-"You must apply the changes you have made to the categories before you can "
-"create this category."
-msgstr ""
-"Sinun on sovellettava luokkiin tekemiäsi muutoksia, ennen kuin voit luoda "
-"tämän luokan."
+msgid "You must apply the changes you have made to the categories before you can create this category."
+msgstr "Sinun on sovellettava luokkiin tekemiäsi muutoksia, ennen kuin voit luoda tämän luokan."
 
 msgid "You already have a category named '{0}'. Please use another name."
 msgstr "Sinulla on jo luokka nimeltä '{0}'. Käytä toista nimeä."
 
 #, fuzzy
-msgid ""
-"You already have a category named '{0}' in your pending changes. Please use "
-"another name."
-msgstr ""
-"Sinulla on jo luokka nimeltä '{0}' odottavissa muutoksissa. Käytä toista "
-"nimeä."
+msgid "You already have a category named '{0}' in your pending changes. Please use another name."
+msgstr "Sinulla on jo luokka nimeltä '{0}' odottavissa muutoksissa. Käytä toista nimeä."
 
 msgid "Rename"
 msgstr "Nimeä uudelleen"
@@ -2252,9 +2073,7 @@ msgid "Do you want to rename it?"
 msgstr "Haluatko nimetä sen uudelleen?"
 
 #, fuzzy
-msgid ""
-"The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
-"\"{2}\" categories?"
+msgid "The category \"{0}\" already exists. Do you want to merge the \"{1}\" and \"{2}\" categories?"
 msgstr "Luokka \"{0}\" on jo olemassa. Haluatko yhdistää luokat \"{1}\" ja \"{2}\"?"
 
 msgid "Merge"
@@ -2321,8 +2140,7 @@ msgid "Delegate can see my private items."
 msgstr "Edustaja saa nähdä henkilökohtaiset kohteeni."
 
 msgid "Delegate receives copies of meeting-related messages sent to me."
-msgstr ""
-"Edustaja saa kopion minulle lähetetyistä, kokoukseen liittyvistä viesteistä."
+msgstr "Edustaja saa kopion minulle lähetetyistä, kokoukseen liittyvistä viesteistä."
 
 msgid "Other"
 msgstr "Muu"
@@ -2340,12 +2158,8 @@ msgid "Delegates can send items on your behalf."
 msgstr "Valtuutetut voivat lähettää lähetyksiä puolestasi."
 
 #, fuzzy
-msgid ""
-"If you only want to set folder permissions, right-click on a folder to open "
-"the context menu and click on \"Share folder…\""
-msgstr ""
-"Jos haluat määrittää vain kansioiden käyttöoikeudet, avaa kontekstivalikko "
-"napsauttamalla kansiota hiiren kakkospainikkeella ja valitse \"Jaa kansio…\""
+msgid "If you only want to set folder permissions, right-click on a folder to open the context menu and click on \"Share folder…\""
+msgstr "Jos haluat määrittää vain kansioiden käyttöoikeudet, avaa kontekstivalikko napsauttamalla kansiota hiiren kakkospainikkeella ja valitse \"Jaa kansio…\""
 
 msgid "Permission"
 msgstr "Oikeudet"
@@ -2373,6 +2187,15 @@ msgstr[1] "{0} viestiä on valittu."
 msgid "Folder '{0}' selected."
 msgstr "Kansio '{0}' on valittu."
 
+msgid "The selected items cannot be moved into this folder because it holds a different type of content."
+msgstr ""
+
+msgid "The selected items cannot be copied into this folder because it holds a different type of content."
+msgstr ""
+
+msgid "Incompatible folder"
+msgstr ""
+
 msgid "Unable to perform action"
 msgstr "Toimintoa ei voitu suorittaa"
 
@@ -2380,22 +2203,12 @@ msgid "The selected items are no longer available."
 msgstr "Valitut kohteet eivät ole enää käytettävissä."
 
 #, fuzzy
-msgid ""
-"You have insufficient privileges to move this folder. Ask the folder owner "
-"to grant you permissions or contact your system administrator."
-msgstr ""
-"Sinulla ei ole riittäviä oikeuksia tämän kansion siirtämiseen. Pyydä kansion"
-" omistajaa myöntämään sinulle oikeudet tai ota yhteyttä "
-"järjestelmänvalvojaan."
+msgid "You have insufficient privileges to move this folder. Ask the folder owner to grant you permissions or contact your system administrator."
+msgstr "Sinulla ei ole riittäviä oikeuksia tämän kansion siirtämiseen. Pyydä kansion omistajaa myöntämään sinulle oikeudet tai ota yhteyttä järjestelmänvalvojaan."
 
 #, fuzzy
-msgid ""
-"You have insufficient privileges to copy this folder. Ask the folder owner "
-"to grant you permissions or contact your system administrator."
-msgstr ""
-"Sinulla ei ole riittäviä oikeuksia tämän kansion kopioimiseen. Pyydä kansion"
-" omistajaa myöntämään sinulle oikeudet tai ota yhteyttä "
-"järjestelmänvalvojaan."
+msgid "You have insufficient privileges to copy this folder. Ask the folder owner to grant you permissions or contact your system administrator."
+msgstr "Sinulla ei ole riittäviä oikeuksia tämän kansion kopioimiseen. Pyydä kansion omistajaa myöntämään sinulle oikeudet tai ota yhteyttä järjestelmänvalvojaan."
 
 msgid "You have insufficient privileges to move following items."
 msgstr "Sinulla ei ole riittäviä oikeuksia siirtää seuraavia kohteita."
@@ -2557,12 +2370,8 @@ msgid "Delete selected item"
 msgstr "Poista valittu kohde"
 
 #, fuzzy
-msgid ""
-"Delete selected item without moving it to the Deleted Items folder. The "
-"deleted item can still be restored."
-msgstr ""
-"Poista valittu kohde siirtämättä sitä Poistetut kohteet -kansioon. Poistetun"
-" kohteen voi silti palauttaa."
+msgid "Delete selected item without moving it to the Deleted Items folder. The deleted item can still be restored."
+msgstr "Poista valittu kohde siirtämättä sitä Poistetut kohteet -kansioon. Poistetun kohteen voi silti palauttaa."
 
 msgid "Add/Edit Cc recipient"
 msgstr "Lisää/muokkaa Cc-vastaanottajaa"
@@ -2628,9 +2437,7 @@ msgid "Expand distribution list"
 msgstr "Laajenna jakelulista"
 
 #, fuzzy
-msgid ""
-"Distribution list will be replaced with its members. You will not be able to"
-" collapse it again."
+msgid "Distribution list will be replaced with its members. You will not be able to collapse it again."
 msgstr "Jakelulista korvataan sen jäsenillä. Et voi enää sulkea sitä."
 
 msgid "Edit Recipient"
@@ -2729,11 +2536,8 @@ msgstr "Päättyy {A} tapahtuman jälkeen"
 msgid "End by {A}"
 msgstr "Päättyy {A} mennessä"
 
-#. TRANSLATORS: This informs the user what the exact duration of the
-#. appointment is. Where {D} represents the days, {H} the hours and {M} the
-#. minutes.
-#. For example: 'Occurrence duration: 1 day 2 hours 45 minutes', or when the
-#. appointment is shorter then 1 day: 'Occurrence duration: 1 hour'
+#. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
+#. For example: 'Occurrence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurrence duration: 1 hour'
 msgid "Occurrence duration: {D} {H} {M}"
 msgstr "Tapahtuma kesto: {D} {H} {M}"
 
@@ -2775,8 +2579,7 @@ msgstr "Muistutuksia ei ole"
 msgid "Due In"
 msgstr "Eräpäivä"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Due"
 msgstr "Eräpäivä"
 
@@ -3026,12 +2829,8 @@ msgid "and"
 msgstr "ja"
 
 #, fuzzy
-msgid ""
-"Distribution lists are not supported in rules, would you like to replace the"
-" distribution list with its members?"
-msgstr ""
-"Jakelulistat eivät ole tuettuja säännöissä, haluatko korvata jakelulistan ja"
-" sen jäsenet?"
+msgid "Distribution lists are not supported in rules, would you like to replace the distribution list with its members?"
+msgstr "Jakelulistat eivät ole tuettuja säännöissä, haluatko korvata jakelulistan ja sen jäsenet?"
 
 msgid "or"
 msgstr "tai"
@@ -3136,9 +2935,7 @@ msgid "Folder does not exist"
 msgstr "Kansiota ei ole olemassa"
 
 #, fuzzy
-msgid ""
-"The folder you are searching through no longer exists. Please select another"
-" folder"
+msgid "The folder you are searching through no longer exists. Please select another folder"
 msgstr "Hakemaasi kansiota ei ole enää olemassa. Valitse toinen kansio"
 
 msgid "Add/Edit sender"
@@ -3190,9 +2987,7 @@ msgid "Enable desktop notifications for reminders"
 msgstr "Ota työpöytäilmoitukset käyttöön muistutuksia varten"
 
 msgid "{A} Auto-hide desktop notification after second(s) {B}"
-msgstr ""
-"{A} Työpöytäilmoituksen automaattinen piilottaminen sekunnin (sekuntien) "
-"jälkeen {B}"
+msgstr "{A} Työpöytäilmoituksen automaattinen piilottaminen sekunnin (sekuntien) jälkeen {B}"
 
 msgid "Disable sound"
 msgstr "Poista ääni käytöstä"
@@ -3274,8 +3069,7 @@ msgstr "Ladataan…"
 msgid "Message could not be loaded"
 msgstr "Viestiä ei voitu ladata"
 
-#. TRANSLATORS: This message is used as label for the field which indicates
-#. which attachments are inside the message
+#. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "Liitetiedostot"
@@ -3289,8 +3083,7 @@ msgstr "Lisää lähettäjä turvallisten lähettäjien listaan"
 msgid "Add Domain to Safe Senders List"
 msgstr "Lisää domain turvallisten lähettäjien listaan"
 
-#. TRANSLATORS: This sentence is given in the Email previewpanel, and
-#. indicates with which
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates with which
 #. importance the message was sent. For example:
 #. 'This message was sent with high importance.'
 #. 'This message was sent with low importance.'
@@ -3298,8 +3091,7 @@ msgctxt "mail.previewpanel"
 msgid "This message was sent with {0} importance."
 msgstr "Viesi on lähetetty tärkeysasteella {0}."
 
-#. TRANSLATORS: This sentence is given in the Email previewpanel, and
-#. indicates which
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates which
 #. sensitivity level applies to the message. For example:
 #. 'Please treat this as Personal.'
 #. 'Please treat this as Private.'
@@ -3310,21 +3102,13 @@ msgstr "Käsittele tätä ominaisuudella: {0}."
 
 #, fuzzy
 msgctxt "mail.previewpanel"
-msgid ""
-"Click here to download pictures. To help protect your privacy, grommunio Web"
-" prevented automatic download of some pictures in this message."
-msgstr ""
-"Klikkaa tästä ladataksesi kuvia. Yksityisyytesi suojaamiseksi grommunio Web "
-"esti joidenkin kuvien automaattisen lataamisen tässä viestissä."
+msgid "Click here to download pictures. To help protect your privacy, grommunio Web prevented automatic download of some pictures in this message."
+msgstr "Klikkaa tästä ladataksesi kuvia. Yksityisyytesi suojaamiseksi grommunio Web esti joidenkin kuvien automaattisen lataamisen tässä viestissä."
 
 #, fuzzy
 msgctxt "mail.previewpanel"
-msgid ""
-"This message is corrupt and will not be displayed correctly, Click here to "
-"fix it."
-msgstr ""
-"Tämä viesti on vioittunut eikä sitä näytetä oikein, korjaa se klikkaamalla "
-"tästä."
+msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."
+msgstr "Tämä viesti on vioittunut eikä sitä näytetä oikein, korjaa se klikkaamalla tästä."
 
 msgctxt "mail.previewpanel"
 msgid "{0} has accepted."
@@ -3355,35 +3139,24 @@ msgid "{0} tentatively accepted and proposed a new time for this meeting."
 msgstr "{0} hyväksyi alustavasti ja ehdotti uutta aikaa kokoukselle."
 
 msgctxt "mail.previewpanel"
-msgid ""
-"{0} tentatively accepted on behalf of {1} and proposed a new time for this "
-"meeting."
-msgstr ""
-"{0} hyvöksyi alustavasti käyttäjän {1} puolesta ja ehdotti uutta aikaa "
-"kokoukselle."
+msgid "{0} tentatively accepted on behalf of {1} and proposed a new time for this meeting."
+msgstr "{0} hyvöksyi alustavasti käyttäjän {1} puolesta ja ehdotti uutta aikaa kokoukselle."
 
 msgctxt "mail.previewpanel"
 msgid "{0} declined and proposed a new time for this meeting."
 msgstr "{0} kieltäytyi ja ehdotti uutta aikaa kokoukselle."
 
 msgctxt "mail.previewpanel"
-msgid ""
-"{0} declined on behalf of {1} and proposed a new time for this meeting."
-msgstr ""
-"{0} kieltäytyi käyttäjän {1} puolesta ja ehdotti uutta aikaa kokoukselle."
+msgid "{0} declined on behalf of {1} and proposed a new time for this meeting."
+msgstr "{0} kieltäytyi käyttäjän {1} puolesta ja ehdotti uutta aikaa kokoukselle."
 
 msgctxt "mail.previewpanel"
-msgid ""
-"This meeting is not in the Calendar; it may have been moved or deleted."
+msgid "This meeting is not in the Calendar; it may have been moved or deleted."
 msgstr "Kokous ei ole kalenterissa, se on voitu siirtää tai poistaa."
 
 msgctxt "mail.previewpanel"
-msgid ""
-"This meeting request was updated after this message was sent. You should "
-"open the latest update or open the item from the calendar."
-msgstr ""
-"Kokouskutsu on päivitetty viestin lähettämisen jälkeen. Sinun tulee avata "
-"viimeisin päivitys tai avata kohde kalenterista."
+msgid "This meeting request was updated after this message was sent. You should open the latest update or open the item from the calendar."
+msgstr "Kokouskutsu on päivitetty viestin lähettämisen jälkeen. Sinun tulee avata viimeisin päivitys tai avata kohde kalenterista."
 
 msgctxt "mail.previewpanel"
 msgid "As the meeting organizer, you do not need to respond to the meeting"
@@ -3457,9 +3230,7 @@ msgid "Fix message"
 msgstr "Korjaa viesti"
 
 #, fuzzy
-msgid ""
-"We are going to try to fix a corrupted mail message, do you wish to "
-"continue?"
+msgid "We are going to try to fix a corrupted mail message, do you wish to continue?"
 msgstr "Yritämme korjata vioittuneen sähköpostiviestin, haluatko jatkaa?"
 
 msgid "The matching task was not found in your task list."
@@ -3484,20 +3255,17 @@ msgctxt "mail.previewpanel"
 msgid "Categories"
 msgstr "Kategoriat"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates
-#. to whom the given mail was sent
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Recipients"
 msgstr "Vastaanottajat"
 
-#. TRANSLATORS: check if the mail is send by some delegator or not. if then
-#. display "on behalf of".
+#. TRANSLATORS: check if the mail is send by some delegator or not. if then display "on behalf of".
 msgctxt "mail.previewpanel"
 msgid "on behalf of"
 msgstr "puolesta"
 
-#. TRANSLATORS: This message is used to indicate that no sent date is
-#. available for the message (because it has not been sent yet).
+#. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
 msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "Ei yhtään"
@@ -3604,8 +3372,7 @@ msgstr "Sähköposti 3"
 msgid "Email3 Display As"
 msgstr "Sähköposti3 Display As"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Birthday"
 msgstr "Syntymäpäivä"
 
@@ -3705,8 +3472,7 @@ msgstr "Lempinimi"
 msgid "Suffix"
 msgstr "Pääte"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Anniversary"
 msgstr "Vuosipäivä"
 
@@ -3807,11 +3573,8 @@ msgid "Loading contacts"
 msgstr "Ladataan yhteystietoja"
 
 #, fuzzy
-msgid ""
-"There are no items to show in this list. Update the filter for more results."
-msgstr ""
-"Tässä luettelossa ei ole näytettäviä kohteita. Päivitä suodatin saadaksesi "
-"lisää tuloksia."
+msgid "There are no items to show in this list. Update the filter for more results."
+msgstr "Tässä luettelossa ei ole näytettäviä kohteita. Päivitä suodatin saadaksesi lisää tuloksia."
 
 msgid "[Group]"
 msgstr "[Ryhmä]"
@@ -3970,60 +3733,35 @@ msgid "Open in new browser window"
 msgstr "Avaa uudessa selainikkunassa"
 
 #, fuzzy
-msgid ""
-"Your browser seems to have blocked one or more pop-ups. Please change your "
-"browser's settings to always allow pop-ups from grommunio Web."
-msgstr ""
-"Selaimesi näyttää estäneen yhden tai useamman ponnahdusikkunan. Ole hyvä ja "
-"muuta selaimesi asetuksia siten, että sallit aina ponnahdusikkunat grommunio"
-" Webistä."
+msgid "Your browser seems to have blocked one or more pop-ups. Please change your browser's settings to always allow pop-ups from grommunio Web."
+msgstr "Selaimesi näyttää estäneen yhden tai useamman ponnahdusikkunan. Ole hyvä ja muuta selaimesi asetuksia siten, että sallit aina ponnahdusikkunat grommunio Webistä."
 
 msgid "Untitled"
 msgstr "Nimetön"
 
-msgid ""
-"Cannot upload attachment, only {0} attachments are allowed to be added to "
-"the message"
+msgid "Cannot upload attachment, only {0} attachments are allowed to be added to the message"
 msgstr "Liitettä ei voida ladata, viestiin voi lisätä vain {0} liitettä"
 
 #, fuzzy
-msgid ""
-"Cannot upload attachment, attachment is {0} while the allowed maximum is "
-"{1}."
-msgstr ""
-"Liitetiedostoa ei voi ladata, liitetiedosto on {0}, kun sallittu "
-"enimmäisarvo on {1}."
+msgid "Cannot upload attachment, attachment is {0} while the allowed maximum is {1}."
+msgstr "Liitetiedostoa ei voi ladata, liitetiedosto on {0}, kun sallittu enimmäisarvo on {1}."
 
-msgid ""
-"Cannot upload attachment, the total attachment size is {0} while the allowed"
-" maximum is {1}"
-msgstr ""
-"Liitettä ei voida ladata. Liitteen kokonaiskoko on {0} ja sallittu "
-"enimmäiskoko on {1}."
+msgid "Cannot upload attachment, the total attachment size is {0} while the allowed maximum is {1}"
+msgstr "Liitettä ei voida ladata. Liitteen kokonaiskoko on {0} ja sallittu enimmäiskoko on {1}."
 
 #, fuzzy
-msgid ""
-"Cannot upload attachment, total attachment is {0} while the allowed maximum "
-"attachment in single request is {1}."
-msgstr ""
-"Liitetiedostoa ei voi ladata, liitetiedostoja on yhteensä {0}, kun sallittu "
-"enimmäisliitetiedosto yksittäisessä pyynnössä on {1}."
+msgid "Cannot upload attachment, total attachment is {0} while the allowed maximum attachment in single request is {1}."
+msgstr "Liitetiedostoa ei voi ladata, liitetiedostoja on yhteensä {0}, kun sallittu enimmäisliitetiedosto yksittäisessä pyynnössä on {1}."
 
 #, fuzzy
-msgid ""
-"Cannot upload attachment, total attachments are {0} files while the maximum "
-"{1} files are allowed in single request."
-msgstr ""
-"Liitetiedostoa ei voi ladata, liitetiedostoja on yhteensä {0} tiedostoa, kun"
-" yhdessä pyynnössä sallitaan enintään {1} tiedostoa."
+msgid "Cannot upload attachment, total attachments are {0} files while the maximum {1} files are allowed in single request."
+msgstr "Liitetiedostoa ei voi ladata, liitetiedostoja on yhteensä {0} tiedostoa, kun yhdessä pyynnössä sallitaan enintään {1} tiedostoa."
 
-#. TRANSLATORS: {0} indicates name/email address of secretary and {1}
-#. indicates boss' name/email address
+#. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
 msgstr "{0}, käyttäjän {1} puolesta"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F"
 msgstr "j F"
 
@@ -4204,12 +3942,8 @@ msgstr "Lähetä joka tapauksessa"
 msgid "Missing attachment"
 msgstr "Puuttuu liite"
 
-msgid ""
-"Your message appears to reference an attachment but no file is attached. "
-"Send anyway?"
-msgstr ""
-"Viestisi näyttää viittaavan liitteeseen, mutta tiedostoa ei ole liitetty. "
-"Lähetetäänkö silti?"
+msgid "Your message appears to reference an attachment but no file is attached. Send anyway?"
+msgstr "Viestisi näyttää viittaavan liitteeseen, mutta tiedostoa ei ole liitetty. Lähetetäänkö silti?"
 
 msgid "No subject"
 msgstr "Ei aihetta"
@@ -4254,11 +3988,8 @@ msgid "Saved successfully"
 msgstr "Tallennettu onnistuneesti"
 
 #, fuzzy
-msgid ""
-"You will lose all unsaved work. Are you sure you want to close this window?"
-msgstr ""
-"Tallentamattomat muutokset menetetään. Haluatko varmasti sulkea tämän "
-"ikkunan?"
+msgid "You will lose all unsaved work. Are you sure you want to close this window?"
+msgstr "Tallentamattomat muutokset menetetään. Haluatko varmasti sulkea tämän ikkunan?"
 
 msgid "grommunio Content Panel"
 msgstr "grommunion Sisältöruutu"
@@ -4329,25 +4060,23 @@ msgstr "Laajenna widget-paneeli"
 msgid "Your changes will be lost if you leave this page now."
 msgstr "Muutoksesi menetetään, jos poistut tältä sivulta nyt."
 
+msgid "d-m-Y G:i"
+msgstr ""
+
 msgid "D {0}"
 msgstr "D {0}"
 
 msgid "D d-m"
 msgstr "D d d-m"
 
-msgid ""
-"Not enough permissions to open this store, do you want to remove it from the"
-" hierarchy?"
+msgid "D d-m G:i"
 msgstr ""
-"Sinulla ei ole tarvittavia oikeuksia varaston avaamiseksi. Haluatko poistaa "
-"sen listauksesta?"
 
-msgid ""
-"Not enough permissions to open this folder, do you want to remove it from "
-"the hierarchy?"
-msgstr ""
-"Sinulla ei ole tarvittavia oikeuksia kansion avaamiseksi. Haluatko poistaa "
-"sen listauksesta?"
+msgid "Not enough permissions to open this store, do you want to remove it from the hierarchy?"
+msgstr "Sinulla ei ole tarvittavia oikeuksia varaston avaamiseksi. Haluatko poistaa sen listauksesta?"
+
+msgid "Not enough permissions to open this folder, do you want to remove it from the hierarchy?"
+msgstr "Sinulla ei ole tarvittavia oikeuksia kansion avaamiseksi. Haluatko poistaa sen listauksesta?"
 
 msgid "Insufficient Permissions"
 msgstr "Riittämättömät oikeudet"
@@ -4644,19 +4373,11 @@ msgstr "Jaa {0}.."
 msgid "Properties of {0} - {1}"
 msgstr "Ominaisuudet {0} - {1}"
 
-msgid ""
-"Are you sure you want to permanently delete all the items and subfolders in "
-"the \"{0}\" folder?"
-msgstr ""
-"Haluatko varmasti poistaa pysyvästi kaikki kohteet ja alikansiot kansiosta "
-"\"{0}\"?"
+msgid "Are you sure you want to permanently delete all the items and subfolders in the \"{0}\" folder?"
+msgstr "Haluatko varmasti poistaa pysyvästi kaikki kohteet ja alikansiot kansiosta \"{0}\"?"
 
-msgid ""
-"Are you sure you want to delete the folder \"{0}\" and move all of its "
-"contents into the Deleted Items folder?"
-msgstr ""
-"Haluatko varmasti poistaa kansion \"{0}\" ja siirtää kaikki sen sisällöt "
-"Poistetut kohteet -kansioon?"
+msgid "Are you sure you want to delete the folder \"{0}\" and move all of its contents into the Deleted Items folder?"
+msgstr "Haluatko varmasti poistaa kansion \"{0}\" ja siirtää kaikki sen sisällöt Poistetut kohteet -kansioon?"
 
 msgid "Delete folder"
 msgstr "Poista kansio"
@@ -4671,12 +4392,8 @@ msgid "Filter folders"
 msgstr "Suodata kansiot"
 
 #, fuzzy
-msgid ""
-"You have insufficient privileges to move this folder. Would you like to copy"
-" instead?"
-msgstr ""
-"Sinulla ei ole riittäviä oikeuksia tämän kansion siirtämiseen. Haluaisitko "
-"kopioida sen sijaan?"
+msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
+msgstr "Sinulla ei ole riittäviä oikeuksia tämän kansion siirtämiseen. Haluaisitko kopioida sen sijaan?"
 
 msgid "CC"
 msgstr "Kopio"
@@ -4687,8 +4404,7 @@ msgstr "Piilokopio"
 msgid "Sort by: To"
 msgstr "Järjestä: Vastaanottaja"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Sent"
 msgstr "Lähetetty"
 
@@ -4717,9 +4433,7 @@ msgid "at a specific time"
 msgstr "tiettyyn aikaan"
 
 msgid "The time you entered is in the past. Please reschedule your mail."
-msgstr ""
-"Syöttämäsi aika on menneisyydessä. Pyydämme sinua siirtämään postisi "
-"uudelleen."
+msgstr "Syöttämäsi aika on menneisyydessä. Pyydämme sinua siirtämään postisi uudelleen."
 
 msgid "today  at "
 msgstr "tänään osoitteessa "
@@ -4905,9 +4619,7 @@ msgstr "Ota liitemuistutus käyttöön"
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
-msgstr ""
-"{A}Automaattinen tallentaminen lähettämättömän postin tallentaminen {B} "
-"minuutin välein (minuuttien välein)"
+msgstr "{A}Automaattinen tallentaminen lähettämättömän postin tallentaminen {B} minuutin välein (minuuttien välein)"
 
 msgid "Conversation view settings"
 msgstr "Keskustelunäkymän asetukset"
@@ -5014,23 +4726,15 @@ msgid "Anyone outside my organization"
 msgstr "Kuka tahansa organisaationi ulkopuolella"
 
 #, fuzzy
-msgid ""
-"The time you entered is before the out of office date. Please reschedule."
-msgstr ""
-"Syöttämäsi aika on ennen virka-ajan päättymispäivää. Pyydämme teitä "
-"siirtämään ajanvarauksen."
+msgid "The time you entered is before the out of office date. Please reschedule."
+msgstr "Syöttämäsi aika on ennen virka-ajan päättymispäivää. Pyydämme teitä siirtämään ajanvarauksen."
 
 msgid "Safe Senders"
 msgstr "Turvalliset lähettäjät"
 
 #, fuzzy
-msgid ""
-"To protect your privacy email addresses or domains can only be added via the"
-" \"Add to safe sender list\" functionality in an opened email."
-msgstr ""
-"Yksityisyytesi suojaamiseksi sähköpostiosoitteita tai verkkotunnuksia voi "
-"lisätä vain avatun sähköpostin \"Lisää turvallisen lähettäjän luetteloon\" "
-"-toiminnon kautta."
+msgid "To protect your privacy email addresses or domains can only be added via the \"Add to safe sender list\" functionality in an opened email."
+msgstr "Yksityisyytesi suojaamiseksi sähköpostiosoitteita tai verkkotunnuksia voi lisätä vain avatun sähköpostin \"Lisää turvallisen lähettäjän luetteloon\" -toiminnon kautta."
 
 msgid "Delete all"
 msgstr "Poista kaikki"
@@ -5066,8 +4770,7 @@ msgid "EML file(s)"
 msgstr "EML-tiedosto(t)"
 
 msgid "ZIP file"
-msgstr ""
-"Lähetetty tiedosto ei näytä ZIP-tiedostolta. Lataa kelvollinen zip-tiedosto"
+msgstr "Lähetetty tiedosto ei näytä ZIP-tiedostolta. Lataa kelvollinen zip-tiedosto"
 
 msgid "max. "
 msgstr "max. "
@@ -5202,12 +4905,8 @@ msgid "Quick Note"
 msgstr "Pikamerkintä"
 
 #, fuzzy
-msgid ""
-"You must reload grommunio Web for the changes to take effect. Unsaved "
-"changes will be lost."
-msgstr ""
-"Sinun on ladattava grommunio Web uudelleen, jotta muutokset tulevat voimaan."
-" Tallentamattomat muutokset menetetään."
+msgid "You must reload grommunio Web for the changes to take effect. Unsaved changes will be lost."
+msgstr "Sinun on ladattava grommunio Web uudelleen, jotta muutokset tulevat voimaan. Tallentamattomat muutokset menetetään."
 
 msgid "Reload grommunio Web"
 msgstr "Lataa uudelleen grommunio Web"
@@ -5353,18 +5052,12 @@ msgstr "Navigointitapa"
 msgid "Infinite Scroll"
 msgstr "Ääretön scrollaus"
 
-msgid ""
-"grommunio Web automatically loads additional items when you scroll down"
-msgstr ""
-"grommunio Web lataa automaattisesti lisää kohteita, kun selaat alaspäin"
+msgid "grommunio Web automatically loads additional items when you scroll down"
+msgstr "grommunio Web lataa automaattisesti lisää kohteita, kun selaat alaspäin"
 
 #, fuzzy
-msgid ""
-"grommunio Web displays items on pages and you can use navigation controls to"
-" navigate"
-msgstr ""
-"grommunio Web näyttää kohteita sivuilla ja voit käyttää navigointiohjaimia "
-"navigointiin"
+msgid "grommunio Web displays items on pages and you can use navigation controls to navigate"
+msgstr "grommunio Web näyttää kohteita sivuilla ja voit käyttää navigointiohjaimia navigointiin"
 
 msgid "Load items in blocks of {A}"
 msgstr "Lataa kohteita {A}-lohkoissa"
@@ -5421,20 +5114,14 @@ msgid "{0} of mailbox space is used."
 msgstr "{0} postilaatikosta on käytössä."
 
 msgid "You have exceeded hard quota, you can not send or receive mails."
-msgstr ""
-"Olet ylittänyt kovan kiintiön, et voi lähettää tai vastaanottaa "
-"sähköposteja."
+msgstr "Olet ylittänyt kovan kiintiön, et voi lähettää tai vastaanottaa sähköposteja."
 
 msgid "At {0} you won't be able to send mails."
 msgstr "Et voi lähettää viestejä, kun laatikon koko on {0}."
 
 #, fuzzy
-msgid ""
-"You can not send mails as you have exceeded soft quota, at {0} you won't be "
-"able to receive mails."
-msgstr ""
-"Et voi lähettää sähköposteja, koska olet ylittänyt pehmeän kiintiön, {0} et "
-"voi vastaanottaa sähköposteja."
+msgid "You can not send mails as you have exceeded soft quota, at {0} you won't be able to receive mails."
+msgstr "Et voi lähettää sähköposteja, koska olet ylittänyt pehmeän kiintiön, {0} et voi vastaanottaa sähköposteja."
 
 msgid "At {0} you won't be able to send or receive mails."
 msgstr "Osoitteessa {0} et voi lähettää tai vastaanottaa sähköposteja."
@@ -5449,20 +5136,12 @@ msgid "Reset settings to their original defaults."
 msgstr "Asetusten palauttaminen alkuperäisiin oletusasetuksiin."
 
 #, fuzzy
-msgid ""
-"This will close all opened shared stores and resets all settings to the "
-"default value."
-msgstr ""
-"Tämä sulkee kaikki avatut jaetut tallennustilat ja palauttaa kaikki "
-"asetukset oletusarvoon."
+msgid "This will close all opened shared stores and resets all settings to the default value."
+msgstr "Tämä sulkee kaikki avatut jaetut tallennustilat ja palauttaa kaikki asetukset oletusarvoon."
 
 #, fuzzy
-msgid ""
-"grommunio Web will automatically reload in order for these changes to take "
-"effect"
-msgstr ""
-"grommunio Web latautuu automaattisesti uudelleen, jotta muutokset tulevat "
-"voimaan"
+msgid "grommunio Web will automatically reload in order for these changes to take effect"
+msgstr "grommunio Web latautuu automaattisesti uudelleen, jotta muutokset tulevat voimaan"
 
 msgid "Reset"
 msgstr "Tyhjennä"
@@ -5504,8 +5183,7 @@ msgid "Delete confirmation"
 msgstr "Poista vahvistus"
 
 msgid "Deleting the item(s) will also delete the original item(s)."
-msgstr ""
-"Kohteen (kohteiden) poistaminen poistaa myös alkuperäisen kohteen (kohteet)."
+msgstr "Kohteen (kohteiden) poistaminen poistaa myös alkuperäisen kohteen (kohteet)."
 
 msgid "Do you want to delete the item(s)?"
 msgstr "Haluatko poistaa kohteen (kohteet)?"
@@ -5559,20 +5237,12 @@ msgid "Declining Task"
 msgstr "Laskeva tehtävä"
 
 #, fuzzy
-msgid ""
-"This task will be accepted and moved to your task folder. Do you want to "
-"include comments with your response?"
-msgstr ""
-"Kokous on hyväksytty ja se siirretään kalenteriisi. Haluatko liittää "
-"kommentteja vastaukseesi?"
+msgid "This task will be accepted and moved to your task folder. Do you want to include comments with your response?"
+msgstr "Kokous on hyväksytty ja se siirretään kalenteriisi. Haluatko liittää kommentteja vastaukseesi?"
 
 #, fuzzy
-msgid ""
-"This task will be declined and moved into the Deleted Items folder. Do you "
-"want to edit the response before sending it?"
-msgstr ""
-"Kokouksesta on kieltäydytty ja se siirretään roskakoriin. Haluatko liittää "
-"kommentteja vastaukseesi?"
+msgid "This task will be declined and moved into the Deleted Items folder. Do you want to edit the response before sending it?"
+msgstr "Kokouksesta on kieltäydytty ja se siirretään roskakoriin. Haluatko liittää kommentteja vastaukseesi?"
 
 msgid "Send the response now"
 msgstr "Lähetä vastaus"
@@ -5617,9 +5287,7 @@ msgid "Track progress"
 msgstr "Seuraa edistymistä"
 
 msgid "Keep updated copy of task and receive automated status reports"
-msgstr ""
-"Pidä päivitetty kopio tehtävästä ja vastaanota automaattisia "
-"tilanneraportteja"
+msgstr "Pidä päivitetty kopio tehtävästä ja vastaanota automaattisia tilanneraportteja"
 
 msgid "Send task to assignees"
 msgstr "Lähetä tehtävä vastaanottajille"
@@ -5660,8 +5328,7 @@ msgstr "Valmis"
 msgid "Printed by: "
 msgstr "Järjestä: Vastaanottaja: "
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Printed on: "
 msgstr "Tulosta tämä merkintä: "
 
@@ -5723,12 +5390,8 @@ msgid "Changes to assigned task"
 msgstr "Muutokset osoitettuun tehtävään"
 
 #, fuzzy
-msgid ""
-"Please note that assigned task(s) will be overwritten when the assignee "
-"makes changes."
-msgstr ""
-"Huomaa, että osoitetut tehtävät korvataan, kun vastaanottaja tekee "
-"muutoksia."
+msgid "Please note that assigned task(s) will be overwritten when the assignee makes changes."
+msgstr "Huomaa, että osoitetut tehtävät korvataan, kun vastaanottaja tekee muutoksia."
 
 msgid "Sort by: Complete"
 msgstr "Järjestä: Valmiit"
@@ -5799,12 +5462,8 @@ msgstr "Palvelin raportoi määrittelemättömän virheen."
 msgid "The session has expired, reauthentication is required."
 msgstr "Istunto on vanhentunut, uudelleenautentikointi on pakollinen."
 
-msgid ""
-"The session in the current browser window has been closed from another "
-"browser window or tab."
-msgstr ""
-"Nykyisessä selainikkunassa oleva istunti on suljettu toisesta "
-"selainikkunasta tai välilehdestä."
+msgid "The session in the current browser window has been closed from another browser window or tab."
+msgstr "Nykyisessä selainikkunassa oleva istunti on suljettu toisesta selainikkunasta tai välilehdestä."
 
 msgid "Session expired"
 msgstr "Istunto vanhentunut"
@@ -5813,16 +5472,13 @@ msgid "Do you wish to be redirected to the logon page?"
 msgstr "Haluatko palata sisäänkirjautumissivulle?"
 
 msgid "Reauthentication required, click here to go to back to logon page."
-msgstr ""
-"Uudelleenautentikointia vaaditaan, klikkaa tästä palataksesi "
-"sisäänkirjautumissivulle."
+msgstr "Uudelleenautentikointia vaaditaan, klikkaa tästä palataksesi sisäänkirjautumissivulle."
 
 msgid "Connection problem"
 msgstr "Yhteysvirhe"
 
 msgid "Could not connect to server, retrying in {0} second(s)"
-msgstr ""
-"Palvelimeen ei saatu yhteyttä, yritetään uudelleen {0} sekunnin kuluttua"
+msgstr "Palvelimeen ei saatu yhteyttä, yritetään uudelleen {0} sekunnin kuluttua"
 
 msgid "Click to retry now"
 msgstr "Klikkaa yrittääkseni uudelleen"
@@ -5846,12 +5502,8 @@ msgstr "Puuttuva varasto"
 msgid "The default store is missing from the hierarchy."
 msgstr "Oletusvarasto puuttuu hierarkiasta."
 
-msgid ""
-"Not all functionality of grommunio Web might be working properly because of "
-"this."
-msgstr ""
-"grommunio Web in kaikki ominaisuudet eivät ehkä toimi kunnolla tästä "
-"johtuen."
+msgid "Not all functionality of grommunio Web might be working properly because of this."
+msgstr "grommunio Web in kaikki ominaisuudet eivät ehkä toimi kunnolla tästä johtuen."
 
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
@@ -5902,8 +5554,7 @@ msgid "Missing folders"
 msgstr "Puuttuvat kansiot"
 
 msgid "The following required folder is missing in the hierarchy: {0}"
-msgid_plural ""
-"The following required folders are missing in the hierarchy: {0}"
+msgid_plural "The following required folders are missing in the hierarchy: {0}"
 msgstr[0] "Seuraava vaadittu kansio puuttuu hierarkiasta: {0}"
 msgstr[1] "Seuraavat vaaditut kansiot puuttuvat hierarkiasta: {0}"
 
@@ -5911,8 +5562,7 @@ msgid "Loading model from server failed"
 msgstr "Mallin lataaminen palvelimelta epäonnistui"
 
 msgid "Out of Office is currently activated. Would you like to turn it off?"
-msgstr ""
-"Out of Office on tällä hetkellä aktivoitu. Haluatko ottaa sen pois päältä?"
+msgstr "Out of Office on tällä hetkellä aktivoitu. Haluatko ottaa sen pois päältä?"
 
 msgid "Archive"
 msgstr "Arkisto"
@@ -6032,8 +5682,7 @@ msgid "Are you sure want to delete {0} folders and all of their contents?"
 msgstr "Haluatko varmasti poistaa {0} -kansiot ja niiden koko sisällön?"
 
 #, fuzzy
-msgid ""
-"Are you sure want to delete the selected items and all of their contents?"
+msgid "Are you sure want to delete the selected items and all of their contents?"
 msgstr "Haluatko varmasti poistaa valitut kohteet ja niiden koko sisällön?"
 
 msgid "Confirm overwrite"
@@ -6067,8 +5716,7 @@ msgid "Upload"
 msgstr "Lataa"
 
 msgid "At least one file is too large! Maximum allowed filesize: {0}."
-msgstr ""
-"Ainakin yksi tiedosto on liian suuri! Suurin sallittu tiedostokoko: {0}."
+msgstr "Ainakin yksi tiedosto on liian suuri! Suurin sallittu tiedostokoko: {0}."
 
 msgid "Keep both"
 msgstr "Pidä molemmat"
@@ -6116,18 +5764,12 @@ msgid "Are you sure to remove all settings and accounts?"
 msgstr "Oletko varmasti poistanut kaikki asetukset ja tilit?"
 
 #, fuzzy
-msgid ""
-"Accounts marked by your administrator as \"cannot be changed\" will not be "
-"removed."
+msgid "Accounts marked by your administrator as \"cannot be changed\" will not be removed."
 msgstr "Ylläpitäjän merkitsemiä tilejä, joita ei voi muuttaa, ei poisteta."
 
 #, fuzzy
-msgid ""
-"grommunio Web will automatically restart in order for these changes to take "
-"effect."
-msgstr ""
-"grommunio Web käynnistyy automaattisesti uudelleen, jotta muutokset tulevat "
-"voimaan."
+msgid "grommunio Web will automatically restart in order for these changes to take effect."
+msgstr "grommunio Web käynnistyy automaattisesti uudelleen, jotta muutokset tulevat voimaan."
 
 msgid "grommunio Web is reloading, Please wait."
 msgstr "grommunio Web latautuu uudelleen, ole hyvä ja odota."
@@ -6346,10 +5988,8 @@ msgid "Edit share"
 msgstr "Muokkaa osaketta"
 
 #, fuzzy
-msgid ""
-"There are no accounts added. Go to settings, Files tab and add an account"
-msgstr ""
-"Tilejä ei ole lisätty. Mene asetuksiin, Tiedostot-välilehdelle ja lisää tili"
+msgid "There are no accounts added. Go to settings, Files tab and add an account"
+msgstr "Tilejä ei ole lisätty. Mene asetuksiin, Tiedostot-välilehdelle ja lisää tili"
 
 msgid "Filesize"
 msgstr "Tiedostokoko"
@@ -6397,8 +6037,7 @@ msgid "files selected"
 msgstr "valitut tiedostot"
 
 msgid "Authentication required, when using grommunio-files for the first time"
-msgstr ""
-"Tunnistautuminen vaaditaan, kun käytät grommunio-filesia ensimmäistä kertaa"
+msgstr "Tunnistautuminen vaaditaan, kun käytät grommunio-filesia ensimmäistä kertaa"
 
 msgid "Intranet"
 msgstr "Intranet"
@@ -6487,12 +6126,8 @@ msgstr "liitetiedostot voidaan valita. On ollut"
 msgid "attachments selected"
 msgstr "valitut liitetiedostot"
 
-msgid ""
-"With the selection of separate attachments the total size of all attachments"
-" may not exceed"
-msgstr ""
-"Kun valitaan erillisiä liitteitä, kaikkien liitteiden kokonaiskoko ei saa "
-"ylittää"
+msgid "With the selection of separate attachments the total size of all attachments may not exceed"
+msgstr "Kun valitaan erillisiä liitteitä, kaikkien liitteiden kokonaiskoko ei saa ylittää"
 
 msgid "MB. There have been"
 msgstr "MB. On ollut"
@@ -6595,13 +6230,8 @@ msgid "Manage Shared Folders"
 msgstr "Hallitse jaettuja kansioita"
 
 #, fuzzy
-msgid ""
-"Select folders to sync to your device from the list below. To add additional"
-" mailboxes to the list, open them in grommunio Web first."
-msgstr ""
-"Valitse synkronoitavat kansiot laitteeseen alla olevasta luettelosta. Jos "
-"haluat lisätä luetteloon lisää postilaatikoita, avaa ne ensin grommunio "
-"Webissä."
+msgid "Select folders to sync to your device from the list below. To add additional mailboxes to the list, open them in grommunio Web first."
+msgstr "Valitse synkronoitavat kansiot laitteeseen alla olevasta luettelosta. Jos haluat lisätä luetteloon lisää postilaatikoita, avaa ne ensin grommunio Webissä."
 
 msgid "grommunio-sync"
 msgstr "grommunio-sync"
@@ -6613,12 +6243,8 @@ msgid "Mobile Devices"
 msgstr "Mobiililaitteet"
 
 #, fuzzy
-msgid ""
-"Unable to connect to the grommunio-sync server. Click {0} to enter your "
-"credentials"
-msgstr ""
-"Yhteyttä grommunio-sync-palvelimeen ei saada muodostettua. Syötä "
-"tunnistetietosi napsauttamalla {0}"
+msgid "Unable to connect to the grommunio-sync server. Click {0} to enter your credentials"
+msgstr "Yhteyttä grommunio-sync-palvelimeen ei saada muodostettua. Syötä tunnistetietosi napsauttamalla {0}"
 
 msgid "Devices"
 msgstr "Laitteet"
@@ -6753,18 +6379,11 @@ msgid "Add the URL to the meeting location rather than overwriting it"
 msgstr "Lisää URL-osoite kokoussijaintiin sen sijaan, että korvaisit sen"
 
 #, fuzzy
-msgid ""
-"Prevent the URL in the meeting location from being overridden automatically "
-"(ex: when adding a meetingroom)"
-msgstr ""
-"Estää kokouspaikan URL-osoitteen automaattisen ohittamisen (esim. "
-"kokoushuonetta lisättäessä)"
+msgid "Prevent the URL in the meeting location from being overridden automatically (ex: when adding a meetingroom)"
+msgstr "Estää kokouspaikan URL-osoitteen automaattisen ohittamisen (esim. kokoushuonetta lisättäessä)"
 
-msgid ""
-"If you have problems when creating meetings, try disabling this setting"
-msgstr ""
-"Jos sinulla on ongelmia kokousten luomisessa, kokeile poistaa tämä asetus "
-"käytöstä"
+msgid "If you have problems when creating meetings, try disabling this setting"
+msgstr "Jos sinulla on ongelmia kokousten luomisessa, kokeile poistaa tämä asetus käytöstä"
 
 msgid "Add an invitation to the appointment description"
 msgstr "Lisää kutsu tapaamisen kuvaukseen"
@@ -6772,12 +6391,8 @@ msgstr "Lisää kutsu tapaamisen kuvaukseen"
 msgid "Invitation text (plain text)"
 msgstr "Kutsuteksti (tavallinen teksti)"
 
-msgid ""
-"used when composing in plain text, must contain %url%, empty to reset to "
-"default"
-msgstr ""
-"käytetään kirjoitettaessa pelkkää tekstiä, on sisällettävä %url%, tyhjä "
-"palauttaa oletusasetukset"
+msgid "used when composing in plain text, must contain %url%, empty to reset to default"
+msgstr "käytetään kirjoitettaessa pelkkää tekstiä, on sisällettävä %url%, tyhjä palauttaa oletusasetukset"
 
 msgid "Invitation text"
 msgstr "Kutsun teksti"
@@ -6785,11 +6400,8 @@ msgstr "Kutsun teksti"
 msgid "Invitation template (HTML)"
 msgstr "Kutsumalli (HTML)"
 
-msgid ""
-"used when composing in HTML, must contain %url%, empty to reset to default"
-msgstr ""
-"käytetään HTML-muotoilussa, on sisällettävä %url%, tyhjä palauttaa "
-"oletusasetukset"
+msgid "used when composing in HTML, must contain %url%, empty to reset to default"
+msgstr "käytetään HTML-muotoilussa, on sisällettävä %url%, tyhjä palauttaa oletusasetukset"
 
 msgid "Invitation template"
 msgstr "Kutsumallipohja"
@@ -6828,12 +6440,8 @@ msgid "One or more fields does contain errors."
 msgstr "Yksi tai useampi kenttä sisältää virheitä."
 
 #, fuzzy
-msgid ""
-"Password is weak. Password should contain capital, non-capital letters and "
-"numbers. Password should have 8 to 20 characters."
-msgstr ""
-"Salasana on heikko. Salasanan tulisi sisältää isoja ja muita kuin isoja "
-"kirjaimia sekä numeroita. Salasanan tulisi sisältää 8-20 merkkiä."
+msgid "Password is weak. Password should contain capital, non-capital letters and numbers. Password should have 8 to 20 characters."
+msgstr "Salasana on heikko. Salasanan tulisi sisältää isoja ja muita kuin isoja kirjaimia sekä numeroita. Salasanan tulisi sisältää 8-20 merkkiä."
 
 msgid "Change passphrase"
 msgstr "Vaihda salasana"
@@ -6905,12 +6513,8 @@ msgid "Please select a certificate."
 msgstr "Valitse todistus."
 
 #, fuzzy
-msgid ""
-"Do you really want to remove your private certificate? If you remove your "
-"certificate you will not be able to sign or decrypt S/MIME emails."
-msgstr ""
-"Haluatko todella poistaa yksityisen varmenteesi? Jos poistat varmenteesi, et"
-" voi allekirjoittaa tai purkaa S/MIME-sähköposteja."
+msgid "Do you really want to remove your private certificate? If you remove your certificate you will not be able to sign or decrypt S/MIME emails."
+msgstr "Haluatko todella poistaa yksityisen varmenteesi? Jos poistat varmenteesi, et voi allekirjoittaa tai purkaa S/MIME-sähköposteja."
 
 msgid "Signing"
 msgstr "Allekirjoitus"
@@ -6936,12 +6540,8 @@ msgstr "SHA-256 sormenjälki"
 msgid "SHA-1 Fingerprint"
 msgstr "SHA-1 sormenjälki"
 
-msgid ""
-"Warning: RSA key size is below 2048 bits. Consider upgrading to a stronger "
-"certificate."
-msgstr ""
-"Varoitus: RSA-avaimen koko on alle 2048 bittiä. Harkitse päivittämistä "
-"vahvempaan varmenteeseen."
+msgid "Warning: RSA key size is below 2048 bits. Consider upgrading to a stronger certificate."
+msgstr "Varoitus: RSA-avaimen koko on alle 2048 bittiä. Harkitse päivittämistä vahvempaan varmenteeseen."
 
 msgid "Certificate details"
 msgstr "Todistuksen tiedot"
@@ -6983,26 +6583,17 @@ msgid "Upload your certificate"
 msgstr "Lataa todistus"
 
 #, fuzzy
-msgid ""
-"Below you can upload your private certificate in PKCS#12 format. grommunio "
-"Web only accepts certificates which are valid and only stores one private "
-"certificate on the server."
-msgstr ""
-"Alla voit ladata yksityisen varmenteesi PKCS#12-muodossa. grommunio Web "
-"hyväksyy vain voimassa olevat varmenteet ja tallentaa palvelimelle vain "
-"yhden yksityisen varmenteen."
+msgid "Below you can upload your private certificate in PKCS#12 format. grommunio Web only accepts certificates which are valid and only stores one private certificate on the server."
+msgstr "Alla voit ladata yksityisen varmenteesi PKCS#12-muodossa. grommunio Web hyväksyy vain voimassa olevat varmenteet ja tallentaa palvelimelle vain yhden yksityisen varmenteen."
 
 msgid "Private certificate"
 msgstr "Yksityinen todistus"
 
-msgid ""
-"You must fill in the certificate passphrase to upload your certificate."
+msgid "You must fill in the certificate passphrase to upload your certificate."
 msgstr "Sinun on täytettävä varmenteen tunnuslause ladataksesi varmenteen."
 
 msgid "You must first select a valid private certificate in PKCS#12 format."
-msgstr ""
-"Sinun on ensin valittava voimassa oleva yksityinen varmenne "
-"PKCS#12-muodossa."
+msgstr "Sinun on ensin valittava voimassa oleva yksityinen varmenne PKCS#12-muodossa."
 
 msgid "bits"
 msgstr "bitit"
@@ -7020,23 +6611,15 @@ msgid "Sign message"
 msgstr "Merkin viesti"
 
 #, fuzzy
-msgid ""
-"Ensure the authenticity of the message by adding a digital signature to this"
-" message. Any changes to the message will invalidate the signature."
-msgstr ""
-"Varmista viestin aitous lisäämällä viestiin digitaalinen allekirjoitus. "
-"Kaikki viestiin tehtävät muutokset mitätöivät allekirjoituksen."
+msgid "Ensure the authenticity of the message by adding a digital signature to this message. Any changes to the message will invalidate the signature."
+msgstr "Varmista viestin aitous lisäämällä viestiin digitaalinen allekirjoitus. Kaikki viestiin tehtävät muutokset mitätöivät allekirjoituksen."
 
 msgid "Encrypt message"
 msgstr "Salaa viesti"
 
 #, fuzzy
-msgid ""
-"Ensure the privacy of the message by encrypting its contents. Only the "
-"recipient of the message will be able to open it."
-msgstr ""
-"Varmista viestin yksityisyys salaamalla sen sisältö. Vain viestin "
-"vastaanottaja voi avata sen."
+msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
+msgstr "Varmista viestin yksityisyys salaamalla sen sisältö. Vain viestin vastaanottaja voi avata sen."
 
 msgid "Algorithms used"
 msgstr "Käytetyt algoritmit"
@@ -7048,19 +6631,11 @@ msgid "CBC mode"
 msgstr "CBC-tila"
 
 #, fuzzy
-msgid ""
-"grommunio Web can verify digital signatures of emails. A successful "
-"verification reassures you that the message has not been tampered with and "
-"validates the identity of the sender."
-msgstr ""
-"grommunio Web voi tarkistaa sähköpostien digitaaliset allekirjoitukset. "
-"Onnistunut todentaminen vakuuttaa, että viestiä ei ole peukaloitu, ja "
-"vahvistaa lähettäjän henkilöllisyyden."
+msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you that the message has not been tampered with and validates the identity of the sender."
+msgstr "grommunio Web voi tarkistaa sähköpostien digitaaliset allekirjoitukset. Onnistunut todentaminen vakuuttaa, että viestiä ei ole peukaloitu, ja vahvistaa lähettäjän henkilöllisyyden."
 
 #, fuzzy
-msgid ""
-"You are seeing this message because the verification of the digital "
-"signature"
+msgid "You are seeing this message because the verification of the digital signature"
 msgstr "Näet tämän viestin, koska digitaalisen allekirjoituksen todentaminen"
 
 msgid " has failed"
@@ -7076,92 +6651,49 @@ msgid "What should I do?"
 msgstr "Mitä minun pitäisi tehdä?"
 
 #, fuzzy
-msgid ""
-"You can continue to work. However, you should keep in mind that the identity"
-" and the authenticity of the message content could not be verified."
-msgstr ""
-"Voit jatkaa työskentelyä. Sinun on kuitenkin muistettava, että viestin "
-"sisällön henkilöllisyyttä ja aitoutta ei ole voitu todentaa."
+msgid "You can continue to work. However, you should keep in mind that the identity and the authenticity of the message content could not be verified."
+msgstr "Voit jatkaa työskentelyä. Sinun on kuitenkin muistettava, että viestin sisällön henkilöllisyyttä ja aitoutta ei ole voitu todentaa."
 
 #, fuzzy
-msgid ""
-"You can contact your helpdesk or system administrator if you are not sure "
-"what to do next."
-msgstr ""
-"Voit ottaa yhteyttä asiakaspalveluun tai järjestelmänvalvojaan, jos et ole "
-"varma, mitä tehdä seuraavaksi."
+msgid "You can contact your helpdesk or system administrator if you are not sure what to do next."
+msgstr "Voit ottaa yhteyttä asiakaspalveluun tai järjestelmänvalvojaan, jos et ole varma, mitä tehdä seuraavaksi."
 
-msgid ""
-"grommunio Web can verify digital signatures of emails. A successful "
-"verification reassures you "
-msgstr ""
-"grommunio Web voi tarkistaa sähköpostien digitaaliset allekirjoitukset. "
-"Onnistunut todentaminen vakuuttaa sinut "
+msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you "
+msgstr "grommunio Web voi tarkistaa sähköpostien digitaaliset allekirjoitukset. Onnistunut todentaminen vakuuttaa sinut "
 
 #, fuzzy
-msgid ""
-"that the message has not been tampered with and validates the identity of "
-"the sender."
-msgstr ""
-"että viestiä ei ole peukaloitu, ja vahvistaa lähettäjän henkilöllisyyden."
+msgid "that the message has not been tampered with and validates the identity of the sender."
+msgstr "että viestiä ei ole peukaloitu, ja vahvistaa lähettäjän henkilöllisyyden."
 
 #, fuzzy
-msgid ""
-"The verification of the digital signature was successful for this email "
-"message."
-msgstr ""
-"Tämän sähköpostiviestin digitaalisen allekirjoituksen todentaminen onnistui."
+msgid "The verification of the digital signature was successful for this email message."
+msgstr "Tämän sähköpostiviestin digitaalisen allekirjoituksen todentaminen onnistui."
 
 msgid "grommunio Web could not find a public certificate for the recipient."
 msgstr "grommunio Web ei löytänyt vastaanottajan julkista varmennetta."
 
 #, fuzzy
-msgid ""
-"The identity of the sender and authenticity of the message content have been"
-" verified, but the certificate used to sign the message expired on [d-m-Y]."
-msgstr ""
-"Lähettäjän henkilöllisyys ja viestin sisällön aitous on todennettu, mutta "
-"viestin allekirjoittamiseen käytetty varmenne on vanhentunut [pp.kk.vvvv]."
+msgid "The identity of the sender and authenticity of the message content have been verified, but the certificate used to sign the message expired on [d-m-Y]."
+msgstr "Lähettäjän henkilöllisyys ja viestin sisällön aitous on todennettu, mutta viestin allekirjoittamiseen käytetty varmenne on vanhentunut [pp.kk.vvvv]."
 
 msgid "The digital signature could not be verified for unknown reasons."
-msgstr ""
-"Digitaalista allekirjoitusta ei voitu tarkistaa tuntemattomasta syystä."
+msgstr "Digitaalista allekirjoitusta ei voitu tarkistaa tuntemattomasta syystä."
 
 #, fuzzy
-msgid ""
-"The digital certificate used to sign this message has been revoked (i.e. the"
-" sender has marked it as compromised)"
-msgstr ""
-"Tämän viestin allekirjoittamiseen käytetty digitaalinen varmenne on "
-"peruutettu (eli lähettäjä on merkinnyt sen vaarantuneeksi)"
+msgid "The digital certificate used to sign this message has been revoked (i.e. the sender has marked it as compromised)"
+msgstr "Tämän viestin allekirjoittamiseen käytetty digitaalinen varmenne on peruutettu (eli lähettäjä on merkinnyt sen vaarantuneeksi)"
 
 #, fuzzy
-msgid ""
-"The verification service of the certificate authority that signed the "
-"sender's certificate is not available. The validity of the certificate could"
-" not be verified."
-msgstr ""
-"Lähettäjän varmenteen allekirjoittaneen varmentajan varmennepalvelu ei ole "
-"käytettävissä. Varmenteen voimassaoloa ei voitu todentaa."
+msgid "The verification service of the certificate authority that signed the sender's certificate is not available. The validity of the certificate could not be verified."
+msgstr "Lähettäjän varmenteen allekirjoittaneen varmentajan varmennepalvelu ei ole käytettävissä. Varmenteen voimassaoloa ei voitu todentaa."
 
 #, fuzzy
-msgid ""
-"The revocation status of the digital certificate used to sign this email is "
-"unknown (Server is unavailable or certificate does not support OCSP). The "
-"validity of the certificate could not be verified."
-msgstr ""
-"Tämän sähköpostin allekirjoittamiseen käytetyn digitaalisen varmenteen "
-"peruutustila on tuntematon (palvelin ei ole käytettävissä tai varmenne ei "
-"tue OCSP:tä). Varmenteen voimassaoloa ei voitu tarkistaa."
+msgid "The revocation status of the digital certificate used to sign this email is unknown (Server is unavailable or certificate does not support OCSP). The validity of the certificate could not be verified."
+msgstr "Tämän sähköpostin allekirjoittamiseen käytetyn digitaalisen varmenteen peruutustila on tuntematon (palvelin ei ole käytettävissä tai varmenne ei tue OCSP:tä). Varmenteen voimassaoloa ei voitu tarkistaa."
 
 #, fuzzy
-msgid ""
-"The revocation status of the digital certificate used to sign this email is "
-"disabled (OCSP). The validity of the certificate could not be verified."
-msgstr ""
-"Tämän sähköpostin allekirjoittamiseen käytetyn digitaalisen varmenteen "
-"peruutustila on poistettu käytöstä (OCSP). Varmenteen voimassaoloa ei voitu "
-"tarkistaa."
+msgid "The revocation status of the digital certificate used to sign this email is disabled (OCSP). The validity of the certificate could not be verified."
+msgstr "Tämän sähköpostin allekirjoittamiseen käytetyn digitaalisen varmenteen peruutustila on poistettu käytöstä (OCSP). Varmenteen voimassaoloa ei voitu tarkistaa."
 
 msgid "The certificate verification server (OCSP) is temporarily offline."
 msgstr "Varmenteen tarkistuspalvelin (OCSP) on tilapäisesti pois käytöstä."
@@ -7169,54 +6701,23 @@ msgstr "Varmenteen tarkistuspalvelin (OCSP) on tilapäisesti pois käytöstä."
 msgid "Sender is removed from the server."
 msgstr "Lähettäjä poistetaan palvelimelta."
 
-msgid ""
-"The digital certificate used to sign this message has been revoked according"
-" to the Certificate Revocation List (CRL)."
-msgstr ""
-"Tämän viestin allekirjoittamiseen käytetty digitaalinen varmenne on "
-"peruutettu varmenneperuutusluettelon (CRL) mukaisesti."
+msgid "The digital certificate used to sign this message has been revoked according to the Certificate Revocation List (CRL)."
+msgstr "Tämän viestin allekirjoittamiseen käytetty digitaalinen varmenne on peruutettu varmenneperuutusluettelon (CRL) mukaisesti."
 
-msgid ""
-"The revocation status of the certificate could not be verified because the "
-"CRL Distribution Point is unavailable."
-msgstr ""
-"Sertifikaatin peruutusstatusta ei voitu tarkistaa, koska CRL-jakelupistettä "
-"ei ole käytettävissä."
+msgid "The revocation status of the certificate could not be verified because the CRL Distribution Point is unavailable."
+msgstr "Sertifikaatin peruutusstatusta ei voitu tarkistaa, koska CRL-jakelupistettä ei ole käytettävissä."
 
-msgid ""
-"The RSA key size used in this certificate is below the recommended minimum "
-"of 2048 bits. Consider upgrading to a stronger certificate."
-msgstr ""
-"Tässä varmenteessa käytetyn RSA-avaimen koko on alle suositellun "
-"vähimmäiskoon, joka on 2048 bittiä. Harkitse päivittämistä vahvempaan "
-"varmenteeseen."
+msgid "The RSA key size used in this certificate is below the recommended minimum of 2048 bits. Consider upgrading to a stronger certificate."
+msgstr "Tässä varmenteessa käytetyn RSA-avaimen koko on alle suositellun vähimmäiskoon, joka on 2048 bittiä. Harkitse päivittämistä vahvempaan varmenteeseen."
 
-msgid ""
-"The certificate's Key Usage extension does not permit this operation. The "
-"certificate may be intended for signing only or encryption only."
-msgstr ""
-"Sertifikaatin Key Usage -laajennus ei salli tätä toimintoa. Sertifikaatti on"
-" mahdollisesti tarkoitettu vain allekirjoittamiseen tai vain salaamiseen."
+msgid "The certificate's Key Usage extension does not permit this operation. The certificate may be intended for signing only or encryption only."
+msgstr "Sertifikaatin Key Usage -laajennus ei salli tätä toimintoa. Sertifikaatti on mahdollisesti tarkoitettu vain allekirjoittamiseen tai vain salaamiseen."
 
-msgid ""
-"This message was encrypted using CBC mode (not authenticated encryption). "
-"While it was decrypted successfully, AES-GCM (authenticated encryption) "
-"provides stronger protection against modification attacks. Consider asking "
-"the sender to upgrade their S/MIME configuration."
-msgstr ""
-"Tämä viesti on salattu CBC-tilassa (ei todennettua salausta). Vaikka viesti "
-"purettiin onnistuneesti, AES-GCM (todennettu salaus) tarjoaa vahvemman "
-"suojan muokkaushyökkäyksiä vastaan. Harkitse pyytämään lähettäjää "
-"päivittämään S/MIME-asetuksensa."
+msgid "This message was encrypted using CBC mode (not authenticated encryption). While it was decrypted successfully, AES-GCM (authenticated encryption) provides stronger protection against modification attacks. Consider asking the sender to upgrade their S/MIME configuration."
+msgstr "Tämä viesti on salattu CBC-tilassa (ei todennettua salausta). Vaikka viesti purettiin onnistuneesti, AES-GCM (todennettu salaus) tarjoaa vahvemman suojan muokkaushyökkäyksiä vastaan. Harkitse pyytämään lähettäjää päivittämään S/MIME-asetuksensa."
 
-msgid ""
-"The signing time in the digital signature differs significantly from the "
-"expected time. This may indicate a clock synchronization issue or message "
-"tampering."
-msgstr ""
-"Digitaalisen allekirjoituksen allekirjoitusajankohta poikkeaa merkittävästi "
-"odotetusta ajankohdasta. Tämä voi viitata kellon synkronointiongelmaan tai "
-"viestin väärentämiseen."
+msgid "The signing time in the digital signature differs significantly from the expected time. This may indicate a clock synchronization issue or message tampering."
+msgstr "Digitaalisen allekirjoituksen allekirjoitusajankohta poikkeaa merkittävästi odotetusta ajankohdasta. Tämä voi viitata kellon synkronointiongelmaan tai viestin väärentämiseen."
 
 msgid "Signature verified successfully"
 msgstr "Allekirjoitus vahvistettu onnistuneesti"
@@ -7273,8 +6774,7 @@ msgid "RSA key size below recommended minimum"
 msgstr "RSA-avaimen koko alle suositellun vähimmäiskoon"
 
 msgid "Certificate not valid for this operation (key usage mismatch)"
-msgstr ""
-"Varmenne ei kelpaa tälle toiminnolle (avaimen käyttö ei vastaa toisiaan)"
+msgstr "Varmenne ei kelpaa tälle toiminnolle (avaimen käyttö ei vastaa toisiaan)"
 
 msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
 msgstr "Purettu (CBC-tila - harkitse AES-GCM:ää vahvemman suojan saamiseksi)"
@@ -7339,12 +6839,8 @@ msgstr "Uusi järjestelmämalli"
 msgid "Delete system template"
 msgstr "Poista järjestelmämalli"
 
-msgid ""
-"Are you sure you want to delete the system template \"{0}\"? This affects "
-"all users."
-msgstr ""
-"Haluatko varmasti poistaa järjestelmämallin \"{0}\"? Tämä vaikuttaa kaikkiin"
-" käyttäjiin."
+msgid "Are you sure you want to delete the system template \"{0}\"? This affects all users."
+msgstr "Haluatko varmasti poistaa järjestelmämallin \"{0}\"? Tämä vaikuttaa kaikkiin käyttäjiin."
 
 msgid "Insert Template"
 msgstr "Lisää malli"
@@ -7440,12 +6936,8 @@ msgid "You have been automatically logged out"
 msgstr "Olet kirjautunut ulos automaattisesti"
 
 #, fuzzy
-msgid ""
-"Sorry, access to grommunio Web is not available with this user account. "
-"Please contact your system administrator."
-msgstr ""
-"Valitettavasti grommunio Web ei ole käytettävissä tällä käyttäjätilillä. Ota"
-" yhteyttä järjestelmänvalvojaan."
+msgid "Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator."
+msgstr "Valitettavasti grommunio Web ei ole käytettävissä tällä käyttäjätilillä. Ota yhteyttä järjestelmänvalvojaan."
 
 msgid "This backend provides the default WebDAV integration for Files."
 msgstr "Tämä backend tarjoaa oletusarvoisen WebDAV-integraation tiedostoille."
@@ -7493,12 +6985,10 @@ msgid "Unauthorized. Wrong username or password."
 msgstr "Luvaton. Väärä käyttäjätunnus tai salasana."
 
 msgid "File server is not reachable. Please verify the file server URL."
-msgstr ""
-"Tiedostopalvelinta ei tavoiteta. Tarkista tiedostopalvelimen URL-osoite."
+msgstr "Tiedostopalvelinta ei tavoiteta. Tarkista tiedostopalvelimen URL-osoite."
 
 msgid "You don't have enough permissions to view this file or folder."
-msgstr ""
-"Sinulla ei ole tarpeeksi oikeuksia tämän tiedoston tai kansion tarkasteluun."
+msgstr "Sinulla ei ole tarpeeksi oikeuksia tämän tiedoston tai kansion tarkasteluun."
 
 msgid "The file or folder is not available anymore."
 msgstr "Tiedosto tai kansio ei ole enää käytettävissä."
@@ -7507,8 +6997,7 @@ msgid "Connection to the file server timed out. Please check again later."
 msgstr "Yhteys tiedostopalvelimeen katkesi. Tarkista myöhemmin uudelleen."
 
 msgid "This file is locked by another user. Please try again later."
-msgstr ""
-"Toinen käyttäjä on lukinnut tämän tiedoston. Yritä myöhemmin uudelleen."
+msgstr "Toinen käyttäjä on lukinnut tämän tiedoston. Yritä myöhemmin uudelleen."
 
 msgid "The request failed."
 msgstr "Pyyntö epäonnistui."
@@ -7526,9 +7015,7 @@ msgid "PHP-Curl is not available."
 msgstr "PHP-Curl ei ole käytettävissä."
 
 msgid "With this backend, you can connect to any Seafile server."
-msgstr ""
-"Tämän backendin avulla voit muodostaa yhteyden mihin tahansa Seafile-"
-"palvelimeen."
+msgstr "Tämän backendin avulla voit muodostaa yhteyden mihin tahansa Seafile-palvelimeen."
 
 msgid "Files "
 msgstr "Tiedostot "
@@ -7557,18 +7044,11 @@ msgstr "Pyyntö epäonnistui edellisen pyynnön epäonnistumisen vuoksi."
 msgid "Seafile-server encountered a problem."
 msgstr "Seafile-palvelimessa ilmeni ongelma."
 
-msgid ""
-"Could not write to temporary directory. Contact the server administrator."
-msgstr ""
-"Väliaikaiseen hakemistoon ei voitu kirjoittaa. Ota yhteyttä palvelimen "
-"järjestelmänvalvojaan."
+msgid "Could not write to temporary directory. Contact the server administrator."
+msgstr "Väliaikaiseen hakemistoon ei voitu kirjoittaa. Ota yhteyttä palvelimen järjestelmänvalvojaan."
 
-msgid ""
-"Could not retrieve list of server features. Contact the server "
-"administrator."
-msgstr ""
-"Palvelimen ominaisuuksien luetteloa ei voitu hakea. Ota yhteyttä palvelimen "
-"järjestelmänvalvojaan."
+msgid "Could not retrieve list of server features. Contact the server administrator."
+msgstr "Palvelimen ominaisuuksien luetteloa ei voitu hakea. Ota yhteyttä palvelimen järjestelmänvalvojaan."
 
 msgid "PHP-Curl is not available. Contact your system administrator."
 msgstr "PHP-Curl ei ole käytettävissä. Ota yhteyttä järjestelmänvalvojaan."
@@ -7595,9 +7075,7 @@ msgid "Files plugin"
 msgstr "Tiedostojen lisäosa"
 
 msgid "Unknown type - cannot save this file to the Files backend!"
-msgstr ""
-"Tuntematon tyyppi - tätä tiedostoa ei voi tallentaa tiedostojen "
-"taustajärjestelmään!"
+msgstr "Tuntematon tyyppi - tätä tiedostoa ei voi tallentaa tiedostojen taustajärjestelmään!"
 
 msgid "No record given!"
 msgstr "Tietoja ei ole annettu!"
@@ -7615,9 +7093,7 @@ msgid "Deleting share failed"
 msgstr "Jakamisen poistaminen epäonnistui"
 
 msgid "With this backend, you can connect to any WebDAV server."
-msgstr ""
-"Tämän backendin avulla voit muodostaa yhteyden mihin tahansa WebDAV-"
-"palvelimeen."
+msgstr "Tämän backendin avulla voit muodostaa yhteyden mihin tahansa WebDAV-palvelimeen."
 
 msgid "Files WebDAV Backend: "
 msgstr "Tiedostot WebDAV Backend: "
@@ -7680,12 +7156,8 @@ msgid "Mobile device management plugin"
 msgstr "Mobiililaitteiden hallinnan lisäosa"
 
 #, fuzzy, php-format
-msgid ""
-"Unexpected error occurred. Please contact your system administrator. Error "
-"code: %s"
-msgstr ""
-"Tapahtui odottamaton virhe. Ota yhteyttä järjestelmänvalvojaan. Virhekoodi: "
-"%s"
+msgid "Unexpected error occurred. Please contact your system administrator. Error code: %s"
+msgstr "Tapahtui odottamaton virhe. Ota yhteyttä järjestelmänvalvojaan. Virhekoodi: %s"
 
 msgid "No data received."
 msgstr "Tietoja ei vastaanotettu."
@@ -7694,21 +7166,14 @@ msgid "Account is empty."
 msgstr "Tili on tyhjä."
 
 #, fuzzy
-msgid ""
-"Your password is wrong or you have insufficient permission to change "
-"password"
-msgstr ""
-"Salasanasi on väärä tai sinulla ei ole riittäviä oikeuksia vaihtaa salasanaa"
+msgid "Your password is wrong or you have insufficient permission to change password"
+msgstr "Salasanasi on väärä tai sinulla ei ole riittäviä oikeuksia vaihtaa salasanaa"
 
 msgid "Password is not changed."
 msgstr "Salasanaa ei ole muutettu."
 
-msgid ""
-"Error changing password. Please verify your password or contact the system "
-"administrator."
-msgstr ""
-"Virhe salasanan vaihtamisessa. Tarkista salasanasi tai ota yhteyttä "
-"järjestelmänvalvojaan."
+msgid "Error changing password. Please verify your password or contact the system administrator."
+msgstr "Virhe salasanan vaihtamisessa. Tarkista salasanasi tai ota yhteyttä järjestelmänvalvojaan."
 
 msgid "Password has been changed successfully."
 msgstr "Salasana on vaihdettu onnistuneesti."
@@ -7720,8 +7185,7 @@ msgid "Private certificate has expired, unable to sign email"
 msgstr "Yksityinen varmenne on vanhentunut, sähköpostia ei voi allekirjoittaa"
 
 msgid "Private certificate is not valid yet, unable to sign email"
-msgstr ""
-"Yksityinen varmenne ei ole vielä voimassa, sähköpostia ei voi allekirjoittaa"
+msgstr "Yksityinen varmenne ei ole vielä voimassa, sähköpostia ei voi allekirjoittaa"
 
 msgid "Private certificate does not match email address"
 msgstr "Yksityinen varmenne ei vastaa sähköpostiosoitetta"
@@ -7748,12 +7212,8 @@ msgid ". Please contact your system administrator for details"
 msgstr ". Ota yhteyttä järjestelmänvalvojaan saadaksesi lisätietoja"
 
 #, fuzzy
-msgid ""
-"Your public certificate is not installed. Without this certificate, you will"
-" not be able to read encrypted messages you have sent to others."
-msgstr ""
-"Julkista varmentettasi ei ole asennettu. Ilman tätä varmennetta et voi lukea"
-" muille lähettämiäsi salattuja viestejä."
+msgid "Your public certificate is not installed. Without this certificate, you will not be able to read encrypted messages you have sent to others."
+msgstr "Julkista varmentettasi ei ole asennettu. Ilman tätä varmennetta et voi lukea muille lähettämiäsi salattuja viestejä."
 
 msgid "Certificate is already stored on the server"
 msgstr "Varmenne on jo tallennettu palvelimelle"
@@ -7768,19 +7228,11 @@ msgid "Certificate email address doesn't match grommunio Web account "
 msgstr "Varmenteen sähköpostiosoite ei vastaa grommunio Web-tiliä "
 
 #, php-format
-msgid ""
-"RSA key size %d bits is below the recommended minimum of %d bits. "
-"Certificate was imported."
-msgstr ""
-"RSA-avaimen koko %d bittiä on alle suositellun vähimmäiskoon %d bittiä. "
-"Varmenne on tuotu."
+msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."
+msgstr "RSA-avaimen koko %d bittiä on alle suositellun vähimmäiskoon %d bittiä. Varmenne on tuotu."
 
-msgid ""
-"EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully "
-"supported. Certificate was imported."
-msgstr ""
-"EdDSA (Ed25519) -varmenteet edellyttävät PHP 8.4:ää tai uudempaa, eikä niitä"
-" välttämättä tueta täysin. Varmenne on tuotu."
+msgid "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully supported. Certificate was imported."
+msgstr "EdDSA (Ed25519) -varmenteet edellyttävät PHP 8.4:ää tai uudempaa, eikä niitä välttämättä tueta täysin. Varmenne on tuotu."
 
 msgid "Certificate was expired on "
 msgstr "Todistuksen voimassaolo päättyi "
@@ -7838,11 +7290,8 @@ msgid "Unknown module '%s' with id '%s'"
 msgstr "Tuntematon moduuli '%s' tunnuksella '%s'"
 
 #, fuzzy
-msgid ""
-"Server encountered some problem, so it was not able to handle the request."
-msgstr ""
-"Palvelin kohtasi jonkin ongelman, joten se ei pystynyt käsittelemään "
-"pyyntöä."
+msgid "Server encountered some problem, so it was not able to handle the request."
+msgstr "Palvelin kohtasi jonkin ongelman, joten se ei pystynyt käsittelemään pyyntöä."
 
 #, php-format
 msgid "Unknown notifier '%s'"
@@ -7854,11 +7303,10 @@ msgstr "Odottamaton virhe on tapahtunut"
 msgid "To-Do List"
 msgstr "Tehtävien lista"
 
-#. TRANSLATORS: This indicates that the opened folder belongs to a particular
-#. user,
-#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the
-#. foldername)
+#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
+#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
 #. * and %2$s is 'Holiday' (the username).
+#.
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$s / %2$s"
@@ -7876,12 +7324,8 @@ msgid "Cannot connect to Gromox."
 msgstr "Yhteyttä Gromoxiin ei voida muodostaa."
 
 #, fuzzy
-msgid ""
-"Login did not work due to a duplicate session. The issue was automatically "
-"resolved, please log in again."
-msgstr ""
-"Sisäänkirjautuminen ei onnistunut päällekkäisen istunnon vuoksi. Ongelma "
-"ratkaistiin automaattisesti, kirjaudu uudelleen."
+msgid "Login did not work due to a duplicate session. The issue was automatically resolved, please log in again."
+msgstr "Sisäänkirjautuminen ei onnistunut päällekkäisen istunnon vuoksi. Ongelma ratkaistiin automaattisesti, kirjaudu uudelleen."
 
 msgid "Unknown MAPI Error"
 msgstr "Tuntematon MAPI-virhe"
@@ -7966,8 +7410,7 @@ msgstr "Julkiset yhteystietokansiot"
 msgid "Error in search, please try again"
 msgstr "Virhe haussa, yritä uudelleen"
 
-msgid ""
-"Unable to perform search query, no permissions to create search folder."
+msgid "Unable to perform search query, no permissions to create search folder."
 msgstr "Hakukyselyä ei voi suorittaa, ei oikeuksia hakukansion luomiseen."
 
 msgid "Unable to perform search query, search folder not found."
@@ -7983,8 +7426,7 @@ msgid "Could not open occurrence."
 msgstr "Tapahtumaa ei voitu avata."
 
 msgid "Could not open occurrence, specific occurrence is probably deleted."
-msgstr ""
-"Esiintymää ei voitu avata, kyseinen esiintymä on todennäköisesti poistettu."
+msgstr "Esiintymää ei voitu avata, kyseinen esiintymä on todennäköisesti poistettu."
 
 msgid "a meeting request"
 msgstr "kokouspyyntö"
@@ -7996,51 +7438,27 @@ msgid "You have insufficient privileges to move "
 msgstr "Sinulla ei ole riittäviä oikeuksia siirtämiseen "
 
 #, fuzzy
-msgid ""
-"Cannot set a reminder to appear before the previous occurrence. Reset "
-"reminder to save the change"
-msgstr ""
-"Muistutusta ei voi asettaa ilmestymään ennen edellistä tapahtumaa. Nollaa "
-"muistutus muutoksen tallentamiseksi"
+msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
+msgstr "Muistutusta ei voi asettaa ilmestymään ennen edellistä tapahtumaa. Nollaa muistutus muutoksen tallentamiseksi"
 
 msgid "Two occurrences cannot occur on the same day"
 msgstr "Kaksi tapahtumaa ei voi sattua samana päivänä"
 
 #, fuzzy, php-format
-msgid ""
-"You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
-"because you do not have the appropriate permissions for that account. Either"
-" enter the name as a required or optional attendee or talk to your "
-"administrator about giving you permission to schedule '%s'."
-msgstr ""
-"Merkitsit '%s' resurssiksi. Et voi suunnitella kokousta %s:n kanssa, koska "
-"sinulla ei ole asianmukaisia oikeuksia kyseiselle tilille. Kirjoita nimi "
-"joko pakolliseksi tai valinnaiseksi osallistujaksi tai keskustele "
-"järjestelmänvalvojan kanssa siitä, voisitko saada oikeudet ajoittaa '%s'."
+msgid "You marked '%s' as a resource. You cannot schedule a meeting with '%s' because you do not have the appropriate permissions for that account. Either enter the name as a required or optional attendee or talk to your administrator about giving you permission to schedule '%s'."
+msgstr "Merkitsit '%s' resurssiksi. Et voi suunnitella kokousta %s:n kanssa, koska sinulla ei ole asianmukaisia oikeuksia kyseiselle tilille. Kirjoita nimi joko pakolliseksi tai valinnaiseksi osallistujaksi tai keskustele järjestelmänvalvojan kanssa siitä, voisitko saada oikeudet ajoittaa '%s'."
 
 #, fuzzy, php-format
-msgid ""
-"'%s' has declined your meeting because '%s' does not automatically accept "
-"meeting requests."
-msgstr ""
-"'%s' on hylännyt tapaamisesi, koska '%s' ei hyväksy automaattisesti "
-"kokouspyyntöjä."
+msgid "'%s' has declined your meeting because '%s' does not automatically accept meeting requests."
+msgstr "'%s' on hylännyt tapaamisesi, koska '%s' ei hyväksy automaattisesti kokouspyyntöjä."
 
 #, fuzzy, php-format
-msgid ""
-"'%s' has declined your meeting because it is recurring. You must book each "
-"meeting separately with this resource."
-msgstr ""
-"'%s' on kieltäytynyt kokouksestasi, koska se on toistuva. Sinun on varattava"
-" jokainen kokous erikseen tällä resurssilla."
+msgid "'%s' has declined your meeting because it is recurring. You must book each meeting separately with this resource."
+msgstr "'%s' on kieltäytynyt kokouksestasi, koska se on toistuva. Sinun on varattava jokainen kokous erikseen tällä resurssilla."
 
 #, fuzzy, php-format
-msgid ""
-"'%s' is already booked for this specified time. You must use another time or"
-" find another resource."
-msgstr ""
-"'%s' on jo varattu tälle määritetylle ajalle. Sinun on käytettävä toista "
-"aikaa tai etsittävä toinen resurssi."
+msgid "'%s' is already booked for this specified time. You must use another time or find another resource."
+msgstr "'%s' on jo varattu tälle määritetylle ajalle. Sinun on käytettävä toista aikaa tai etsittävä toinen resurssi."
 
 msgid "Meeting was not scheduled."
 msgstr "Kokousta ei suunniteltu."
@@ -8073,8 +7491,7 @@ msgstr "Lähetyskiintiö saavutettu"
 
 #, php-format
 msgid "Email sending failed (%s). Check the log files for more information."
-msgstr ""
-"Sähköpostin lähetys epäonnistui (%s). Tarkista lokitiedostoista lisätietoja."
+msgstr "Sähköpostin lähetys epäonnistui (%s). Tarkista lokitiedostoista lisätietoja."
 
 msgid "Unknown user/group"
 msgstr "Tuntematon käyttäjä/ryhmä"
@@ -8131,25 +7548,20 @@ msgid "Could not perform action correctly."
 msgstr "Toimintaa ei voitu suorittaa oikein."
 
 #, fuzzy
-msgid ""
-"A favorite folder with this name already exists, please use another name."
-msgstr ""
-"Tällä nimellä varustettu suosikkikansio on jo olemassa, käytä toista nimeä."
+msgid "A favorite folder with this name already exists, please use another name."
+msgstr "Tällä nimellä varustettu suosikkikansio on jo olemassa, käytä toista nimeä."
 
 msgid "Could not add folder to favorites."
 msgstr "Kansiota ei voitu lisätä suosikkeihin."
 
 msgid "You have insufficient privileges to set permissions for this folder."
-msgstr ""
-"Sinulla ei ole riittäviä oikeuksia tämän kansion käyttöoikeuksien "
-"määrittämiseen."
+msgstr "Sinulla ei ole riittäviä oikeuksia tämän kansion käyttöoikeuksien määrittämiseen."
 
 msgid "Could not set folder permissions."
 msgstr "Kansioiden käyttöoikeuksia ei voitu asettaa."
 
 msgid "You have insufficient privileges to rename this folder."
-msgstr ""
-"Sinulla ei ole riittäviä oikeuksia tämän kansion uudelleennimeämiseen."
+msgstr "Sinulla ei ole riittäviä oikeuksia tämän kansion uudelleennimeämiseen."
 
 msgid "A folder with this name already exists. Use another name."
 msgstr "Tämän niminen kansio on jo olemassa. Käytä toista nimeä."
@@ -8170,15 +7582,8 @@ msgid "User could not be resolved."
 msgstr "Käyttäjää ei saatu ratkaistua."
 
 #, fuzzy, php-format
-msgid ""
-"You have insufficient privileges to open this %1$s folder. The folder owner "
-"can set these using the 'permissions'-tab of the folder properties (right "
-"click the %1$s folder > properties > permissions)."
-msgstr ""
-"Sinulla ei ole riittäviä oikeuksia tämän %1$s-kansion avaamiseen. Kansion "
-"omistaja voi määrittää nämä oikeudet kansion ominaisuuksien "
-"\"käyttöoikeudet\"-välilehdellä (napsauta %1$s-kansiota hiiren oikealla "
-"painikkeella > ominaisuudet > käyttöoikeudet)."
+msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
+msgstr "Sinulla ei ole riittäviä oikeuksia tämän %1$s-kansion avaamiseen. Kansion omistaja voi määrittää nämä oikeudet kansion ominaisuuksien \"käyttöoikeudet\"-välilehdellä (napsauta %1$s-kansiota hiiren oikealla painikkeella > ominaisuudet > käyttöoikeudet)."
 
 msgid "default"
 msgstr "oletus"
@@ -8199,12 +7604,8 @@ msgid "You have insufficient privileges to open this message."
 msgstr "Sinulla ei ole riittäviä oikeuksia tämän viestin avaamiseen."
 
 #, fuzzy
-msgid ""
-"Could not find message, either it has been moved or deleted or you don't "
-"have access to open this message."
-msgstr ""
-"Viestiä ei löytynyt, joko se on siirretty tai poistettu tai sinulla ei ole "
-"oikeutta avata tätä viestiä."
+msgid "Could not find message, either it has been moved or deleted or you don't have access to open this message."
+msgstr "Viestiä ei löytynyt, joko se on siirretty tai poistettu tai sinulla ei ole oikeutta avata tätä viestiä."
 
 msgid "Could not open message."
 msgstr "Viestiä ei voitu avata."
@@ -8234,11 +7635,8 @@ msgid "You have insufficient privileges to remove item from the calendar."
 msgstr "Sinulla ei ole tarpeeksi oikeuksia poistaa kohdetta kalenterista."
 
 #, fuzzy
-msgid ""
-"Message is no longer in the outgoing queue, typically because it has already"
-" been sent."
-msgstr ""
-"Viesti ei ole enää lähtevässä jonossa, yleensä koska se on jo lähetetty."
+msgid "Message is no longer in the outgoing queue, typically because it has already been sent."
+msgstr "Viesti ei ole enää lähtevässä jonossa, yleensä koska se on jo lähetetty."
 
 msgid "Message cannot be aborted"
 msgstr "Viestiä ei voi keskeyttää"
@@ -8252,12 +7650,8 @@ msgstr "Sinulla ei ole tarpeeksi oikeuksia liittää kohdetta liitteenä."
 msgid "Could not attach item as an attachment."
 msgstr "Kohdetta ei voitu liittää liitteenä."
 
-msgid ""
-"You have insufficient privileges to reclaim the ownership for the Task "
-"Request."
-msgstr ""
-"Sinulla ei ole tarpeeksi oikeuksia saada tehtäväpyynnön omistajuutta "
-"takaisin."
+msgid "You have insufficient privileges to reclaim the ownership for the Task Request."
+msgstr "Sinulla ei ole tarpeeksi oikeuksia saada tehtäväpyynnön omistajuutta takaisin."
 
 msgid "Could not reclaim the ownership for the Task Request."
 msgstr "Tehtäväpyynnön omistajuutta ei saatu takaisin."
@@ -8278,21 +7672,13 @@ msgid "Conflicts with another appointment."
 msgstr "Ristiriidassa toisen tapaamisen kanssa."
 
 #, php-format
-msgid ""
-"%s occurrence of this recurring appointment conflicts with other "
-"appointment."
-msgid_plural ""
-"%s occurrences of this recurring appointment conflicts with other "
-"appointments."
-msgstr[0] ""
-"%s toistuvan tapaamisen tapahtuma on ristiriidassa toisen tapaamisen kanssa."
-msgstr[1] ""
-"%s toistuvan tapaamisen tapahtumaa on ristiriidassa toisen tapaamisen "
-"kanssa."
+msgid "%s occurrence of this recurring appointment conflicts with other appointment."
+msgid_plural "%s occurrences of this recurring appointment conflicts with other appointments."
+msgstr[0] "%s toistuvan tapaamisen tapahtuma on ristiriidassa toisen tapaamisen kanssa."
+msgstr[1] "%s toistuvan tapaamisen tapahtumaa on ristiriidassa toisen tapaamisen kanssa."
 
 msgid "Your message did not reach some or all of the intended recipients"
-msgstr ""
-"Viestisi ei tavoittanut joitakin tai kaikkia aiotuista vastaanottajista"
+msgstr "Viestisi ei tavoittanut joitakin tai kaikkia aiotuista vastaanottajista"
 
 msgid "The following recipient(s) could not be reached"
 msgstr "Seuraavia vastaanottajia ei tavoitettu"
@@ -8316,11 +7702,8 @@ msgid "Could not load the contents of this folder."
 msgstr "Tämän kansion sisältöä ei voitu ladata."
 
 #, fuzzy
-msgid ""
-"You have insufficient privileges to perform search operation in this folder."
-msgstr ""
-"Sinulla ei ole riittäviä oikeuksia hakutoiminnon suorittamiseen tässä "
-"kansiossa."
+msgid "You have insufficient privileges to perform search operation in this folder."
+msgstr "Sinulla ei ole riittäviä oikeuksia hakutoiminnon suorittamiseen tässä kansiossa."
 
 msgid "Could not update search results."
 msgstr "Hakutuloksia ei voitu päivittää."
@@ -8347,8 +7730,7 @@ msgid "Could not cancel Meeting Request."
 msgstr "Kokouspyyntöä ei voitu peruuttaa."
 
 msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr ""
-"Sinulla ei ole riittävästi oikeuksia tämän kokouspyynnön hylkäämiseen."
+msgstr "Sinulla ei ole riittävästi oikeuksia tämän kokouspyynnön hylkäämiseen."
 
 msgid "Could not decline Meeting Request."
 msgstr "Kokouspyyntöä ei voitu hylätä."
@@ -8378,13 +7760,8 @@ msgid "The message store has exceeded its hard quota limit."
 msgstr "Viestivarasto on ylittänyt kovan kiintiörajan."
 
 #, fuzzy
-msgid ""
-"To reduce the amount of data in this message store, select some items that "
-"you no longer need, delete them and cleanup your Deleted Items folder."
-msgstr ""
-"Jos haluat vähentää tämän viestivaraston tietomäärää, valitse joitakin "
-"kohteita, joita et enää tarvitse, poista ne ja siivoa Poistetut kohteet "
-"-kansio."
+msgid "To reduce the amount of data in this message store, select some items that you no longer need, delete them and cleanup your Deleted Items folder."
+msgstr "Jos haluat vähentää tämän viestivaraston tietomäärää, valitse joitakin kohteita, joita et enää tarvitse, poista ne ja siivoa Poistetut kohteet -kansio."
 
 msgid "The message store has exceeded its soft quota limit."
 msgstr "Viestivarasto on ylittänyt pehmeän kiintiörajan."
@@ -8409,9 +7786,7 @@ msgid "Could not resolve user."
 msgstr "Käyttäjää ei voitu määrittää."
 
 msgid "Setting mail filters on the stores of other users is not allowed."
-msgstr ""
-"Sähköpostisuodattimien asettaminen muiden käyttäjien varastoihin ei ole "
-"sallittua."
+msgstr "Sähköpostisuodattimien asettaminen muiden käyttäjien varastoihin ei ole sallittua."
 
 msgid "Untitled rule"
 msgstr "Nimetön sääntö"
@@ -8431,16 +7806,11 @@ msgstr "Kirjaudu sisään"
 msgid "File is not imported successfully"
 msgstr "Tiedostoa ei ole tuotu onnistuneesti"
 
-msgid ""
-"The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr "Ladattu tiedosto ylittää upload_max_filesize-direktiivin php.ini:ssä."
 
-msgid ""
-"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
-"the HTML form."
-msgstr ""
-"Ladattu tiedosto ylittää HTML-lomakkeessa määritetyn MAX_FILE_SIZE-"
-"direktiivin."
+msgid "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form."
+msgstr "Ladattu tiedosto ylittää HTML-lomakkeessa määritetyn MAX_FILE_SIZE-direktiivin."
 
 msgid "The uploaded file was only partially uploaded."
 msgstr "Ladattu tiedosto ladattiin vain osittain."
@@ -8454,27 +7824,18 @@ msgstr "Väliaikainen kansio puuttuu."
 msgid "Failed to write file to disk."
 msgstr "Tiedoston kirjoittaminen levylle epäonnistui."
 
-msgid ""
-"A PHP extension stopped the file upload. PHP does not provide a way to "
-"ascertain which extension caused the file upload to stop; examining the list"
-" of loaded extensions with phpinfo() may help."
-msgstr ""
-"PHP-laajennus pysäytti tiedoston lataamisen. PHP ei tarjoa tapaa selvittää, "
-"mikä laajennus aiheutti tiedoston latauksen pysähtymisen; ladattujen "
-"laajennusten luettelon tutkiminen phpinfo()-ohjelmalla voi auttaa."
+msgid "A PHP extension stopped the file upload. PHP does not provide a way to ascertain which extension caused the file upload to stop; examining the list of loaded extensions with phpinfo() may help."
+msgstr "PHP-laajennus pysäytti tiedoston lataamisen. PHP ei tarjoa tapaa selvittää, mikä laajennus aiheutti tiedoston latauksen pysähtymisen; ladattujen laajennusten luettelon tutkiminen phpinfo()-ohjelmalla voi auttaa."
 
 msgid "There is no contact found in this file."
 msgstr "Tässä tiedostossa ei ole yhteystietoja."
 
 #, fuzzy
-msgid ""
-"grommunio Web does not support importing multiple VCF with this version."
-msgstr ""
-"grommunio Web ei tue useiden VCF-tiedostojen tuomista tässä versiossa."
+msgid "grommunio Web does not support importing multiple VCF with this version."
+msgstr "grommunio Web ei tue useiden VCF-tiedostojen tuomista tässä versiossa."
 
 #, fuzzy
-msgid ""
-"grommunio Web does not support importing multiple ICS with this version."
+msgid "grommunio Web does not support importing multiple ICS with this version."
 msgstr "grommunio Web ei tue useiden ICS:ien tuomista tässä versiossa."
 
 msgid "GB"

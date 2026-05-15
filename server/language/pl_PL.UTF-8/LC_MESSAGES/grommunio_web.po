@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Polish (Poland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-07 15:11+0200\n"
+"POT-Creation-Date: 2026-05-15 13:46+0200\n"
 "PO-Revision-Date: 2022-07-26 17:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -28,8 +28,7 @@ msgstr "Poprzedni miesiąc"
 msgid "Next Month"
 msgstr "Następny miesiąc"
 
-#. TRANSLATORS: This message is used as label for the column which indicates
-#. the week number of the month in date picker. and 'Wk' stands for week
+#. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
 msgstr "Tydz."
 
@@ -225,8 +224,7 @@ msgstr "Data znajduje się przed datą startową"
 msgid "This date is after the maximum date"
 msgstr "Data znajduje się po dacie końcowej"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "d/m/Y"
 msgstr "d/m/r"
 
@@ -300,9 +298,7 @@ msgid "The date in this field must be equal to or before {0}"
 msgstr "Data w tym polu musi być identyczna lub wcześniejsza niż {0}"
 
 msgid "{0} is not a valid date - it must be in the format {1}"
-msgstr ""
-"{0} jest nieprawidłową datą - prawidłowa data musi być w następującym "
-"formacie {1}"
+msgstr "{0} jest nieprawidłową datą - prawidłowa data musi być w następującym formacie {1}"
 
 msgid "You must select at least one item in this group"
 msgstr "Należy wybrać przynajmniej jeden element z grupy"
@@ -319,8 +315,7 @@ msgstr "Czas w tym polu musi być identyczny lub wcześniejszy niż {0}"
 msgid "{0} is not a valid time"
 msgstr "{0} nieprawidłowe podanie czasu"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "G:i"
 msgstr "G:i"
 
@@ -498,11 +493,8 @@ msgstr "Kontakty kopiujące"
 msgid "Address book"
 msgstr "Książka adresowa"
 
-msgid ""
-"Showing only the first {0} names. Use search to find more specific results."
-msgstr ""
-"Wyświetlane są tylko pierwsze {0} nazwy. Użyj wyszukiwania w celu uzyskania "
-"dalszych wyników."
+msgid "Showing only the first {0} names. Use search to find more specific results."
+msgstr "Wyświetlane są tylko pierwsze {0} nazwy. Użyj wyszukiwania w celu uzyskania dalszych wyników."
 
 msgid "Use the search bar to get results"
 msgstr "Użyj opcji wyszukiwania w celu uzyskania wyników"
@@ -749,12 +741,8 @@ msgstr "Ładowanie wyników wyszukiwania"
 msgid "Sorting tip"
 msgstr "Sugestia dotycząca sortowania"
 
-msgid ""
-"You can sort by date if you narrow down your search results. Enable filters "
-"or adjust your input."
-msgstr ""
-"Możesz sortować według daty, jeśli zawęzisz wyniki wyszukiwania. Włącz "
-"filtry lub dostosuj swoje dane wejściowe."
+msgid "You can sort by date if you narrow down your search results. Enable filters or adjust your input."
+msgstr "Możesz sortować według daty, jeśli zawęzisz wyniki wyszukiwania. Włącz filtry lub dostosuj swoje dane wejściowe."
 
 msgid "Did you mean"
 msgstr "Czy chodziło ci o"
@@ -775,29 +763,17 @@ msgctxt "calendar.actions"
 msgid "Meeting request forwarded"
 msgstr "Przekazano zaproszenie na spotkanie"
 
-msgid ""
-"The meeting organizer will be notified that you forwarded this meeting "
-"request."
-msgstr ""
-"Organizator spotkania otrzyma powiadomienie o tym, że przekazałeś tę prośbę "
-"o spotkanie."
+msgid "The meeting organizer will be notified that you forwarded this meeting request."
+msgstr "Organizator spotkania otrzyma powiadomienie o tym, że przekazałeś tę prośbę o spotkanie."
 
 msgid "Error"
 msgstr "Błąd"
 
-msgid ""
-"Could not accept proposal as this meeting is not available in calendar; It "
-"may have been moved or deleted."
-msgstr ""
-"Propozycja nie może zostać zaakceptowana, to spotkanie nie jest dostępne w "
-"kalendarzu.; Mogło być przesunięte lub usunięte."
+msgid "Could not accept proposal as this meeting is not available in calendar; It may have been moved or deleted."
+msgstr "Propozycja nie może zostać zaakceptowana, to spotkanie nie jest dostępne w kalendarzu.; Mogło być przesunięte lub usunięte."
 
-msgid ""
-"Could not view proposal as this meeting is not available in calendar; It may"
-" have been moved or deleted."
-msgstr ""
-"Nie można wyświetlić propozycji, to spotkanie nie jest dostępne w kalendarzu"
-" ; Mogło być przesunięte lub usunięte."
+msgid "Could not view proposal as this meeting is not available in calendar; It may have been moved or deleted."
+msgstr "Nie można wyświetlić propozycji, to spotkanie nie jest dostępne w kalendarzu ; Mogło być przesunięte lub usunięte."
 
 msgid "Required"
 msgstr "Wymagane"
@@ -857,17 +833,14 @@ msgid "Occurs every {0} {1} effective {2}."
 msgstr "Występuje co {0} {1} , zaczynając w {2}."
 
 msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
-msgid_plural ""
-"Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
+msgid_plural "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
 msgstr[0] "Występuje co {0} skuteczne {1} dla {2} występowanie od {3} do {4}."
 msgstr[1] "Występuje co {0} efektywnych {1} dla {2} wystąpień od {3} do {4}."
 msgstr[2] "Występuje co {0} efektywnych {1} dla {2} wystąpień od {3} do {4}."
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
-msgid_plural ""
-"Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
-msgstr[0] ""
-"Występuje co {0} {1} skuteczne {2} dla {3} wystąpienia od {4} do {5}."
+msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
+msgstr[0] "Występuje co {0} {1} skuteczne {2} dla {3} wystąpienia od {4} do {5}."
 msgstr[1] "Występuje co {0} {1} skuteczne {2} dla {3} wystąpienia {4} do {5}."
 msgstr[2] "Występuje co {0} {1} skuteczne {2} dla {3} wystąpienia {4} do {5}."
 
@@ -898,8 +871,7 @@ msgstr "Występuje co {0} {1} , zaczynając w {2} do {3}."
 msgid "New Meeting Time Proposed"
 msgstr "Zaproponowany nowy termin spotkania"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y {0}"
 msgstr "l j. F Y {0}"
 
@@ -1032,12 +1004,8 @@ msgstr "Umówić się na spotkanie"
 msgid "Create in other calendar"
 msgstr "Stwórz w innym kalendarzu"
 
-msgid ""
-"The selected calendar has \"read-only\" permissions. Instead you can create "
-"an item in your own calendar."
-msgstr ""
-"Der ausgewählte Kalender hat die Berechtigung \"Nur Lesen\". Stattdessen "
-"können Sie einen Eintrag in Ihrem eigenen Kalender erstellen."
+msgid "The selected calendar has \"read-only\" permissions. Instead you can create an item in your own calendar."
+msgstr "Der ausgewählte Kalender hat die Berechtigung \"Nur Lesen\". Stattdessen können Sie einen Eintrag in Ihrem eigenen Kalender erstellen."
 
 msgid "What would you like?"
 msgstr "Czego chcecie?"
@@ -1048,8 +1016,7 @@ msgstr "Własny kalendarz"
 msgid "F Y"
 msgstr "F Y"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l"
 msgstr "l"
 
@@ -1081,8 +1048,7 @@ msgstr "Czy chcesz wysłać aktualizację do wszystkich odbiorców?"
 msgid "Send update to attendees"
 msgstr "Wyślij aktualizacje do uczestników"
 
-msgid ""
-"You have made changes to the list of attendees. What would you like to do?"
+msgid "You have made changes to the list of attendees. What would you like to do?"
 msgstr "Wprowadziłeś zmiany na liście uczestników. Co chciałbyś zrobić?"
 
 msgid "Send updates to only added or deleted attendees."
@@ -1095,9 +1061,7 @@ msgid "Busy attendees"
 msgstr "Zapracowani uczestnicy"
 
 msgid "One or more attendees are busy. Are you sure to invite?"
-msgstr ""
-"Jeden lub więcej uczestników zaproszenia jest zajętych. Czy zaproszenie "
-"powinno być nadal wysyłane?"
+msgstr "Jeden lub więcej uczestników zaproszenia jest zajętych. Czy zaproszenie powinno być nadal wysyłane?"
 
 msgid "Scheduling"
 msgstr "Planowanie"
@@ -1111,15 +1075,11 @@ msgstr "Nie wszyscy uczestnicy mogli być usunięci."
 
 msgctxt "calendar.dialog"
 msgid "{0} attendees accepted, {1} tentatively accepted, {2} declined."
-msgstr ""
-"{0} uczestników zaakceptowało, {1} wstępnie zaakceptowało, {2} odmówiło."
+msgstr "{0} uczestników zaakceptowało, {1} wstępnie zaakceptowało, {2} odmówiło."
 
 msgctxt "calendar.dialog"
-msgid ""
-"{0} attendees proposed a new time for this meeting. Click the Scheduling tab"
-" for details."
-msgstr ""
-"{0} Uczestnicy zaproponowali nowy termin. Zobacz szczegóływ harmonogramie."
+msgid "{0} attendees proposed a new time for this meeting. Click the Scheduling tab for details."
+msgstr "{0} Uczestnicy zaproponowali nowy termin. Zobacz szczegóływ harmonogramie."
 
 msgctxt "calendar.dialog"
 msgid "You proposed a new time for this meeting on {0}"
@@ -1166,12 +1126,8 @@ msgid "Invitations have not been sent for this meeting."
 msgstr "Na to wezwanie na spotkanie nie wysłano zaproszeń."
 
 msgctxt "calendar.dialog"
-msgid ""
-"Please note that any changes you make will be overwritten when this meeting "
-"request is updated by the organizer"
-msgstr ""
-"Proszę uwzględnić to, że wszystkie wprowadzone przez Ciebie zmiany będą "
-"zastąpione, jeżeli organizator zaktualizuje termin"
+msgid "Please note that any changes you make will be overwritten when this meeting request is updated by the organizer"
+msgstr "Proszę uwzględnić to, że wszystkie wprowadzone przez Ciebie zmiany będą zastąpione, jeżeli organizator zaktualizuje termin"
 
 msgid "Create in"
 msgstr "Stwórz w"
@@ -1206,8 +1162,7 @@ msgstr "Lokalizacji aktualizacja"
 msgid "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
 msgstr "Czy chcesz zastąpić lokalizację \"{0}\" nową lokalizacją \"{1}\"?"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y {0}"
 msgstr "j. F Y {0}"
 
@@ -1279,9 +1234,7 @@ msgstr "Ten termin oznacz jako prywatny"
 
 msgctxt "calendar.toolbar"
 msgid "Use Reply All to reply to all attendees of your meeting."
-msgstr ""
-"Użyj opcji „Odpowiedz wszystkim”, aby odpowiedzieć wszystkim uczestnikom "
-"spotkania."
+msgstr "Użyj opcji „Odpowiedz wszystkim”, aby odpowiedzieć wszystkim uczestnikom spotkania."
 
 msgid "Re"
 msgstr "Odp"
@@ -1316,9 +1269,7 @@ msgstr "Komentarz"
 msgid "Send Meeting Request Cancellation"
 msgstr "Wyślij anulowanie wezwania na spotkanie"
 
-msgid ""
-"This meeting will be cancelled. Do you want to include comments with your "
-"cancellation?"
+msgid "This meeting will be cancelled. Do you want to include comments with your cancellation?"
 msgstr "To spotkanie zostanie odwołane. Czy chcesz dodać komentarz?"
 
 msgid "Edit the cancellation before Sending."
@@ -1333,26 +1284,14 @@ msgstr "Wyślij anulowanie."
 msgid "Send Meeting Request Confirmation"
 msgstr "Wyślij potwierdzenie wezwania na spotkanie"
 
-msgid ""
-"This meeting will be accepted and moved to your calendar. Do you want to "
-"include comments with your response?"
-msgstr ""
-"Spotkanie to zostanie przyjęte i przeniesione do Twojego kalendarza. Czy "
-"chcesz dołączyć komentarz do swojej odpowiedzi?"
+msgid "This meeting will be accepted and moved to your calendar. Do you want to include comments with your response?"
+msgstr "Spotkanie to zostanie przyjęte i przeniesione do Twojego kalendarza. Czy chcesz dołączyć komentarz do swojej odpowiedzi?"
 
-msgid ""
-"This meeting will be tentatively accepted and moved to your calendar. Do you"
-" want to include comments with your response?"
-msgstr ""
-"Wstepnie zaakceptowałeś wezwanie na spotkanie. Spotkaniezostanie w Twoim "
-"kalendarzu. Czy chcesz edytować swoją odpowiedź przed wysłaniem?"
+msgid "This meeting will be tentatively accepted and moved to your calendar. Do you want to include comments with your response?"
+msgstr "Wstepnie zaakceptowałeś wezwanie na spotkanie. Spotkaniezostanie w Twoim kalendarzu. Czy chcesz edytować swoją odpowiedź przed wysłaniem?"
 
-msgid ""
-"This meeting will be declined and moved to your Deleted Items folder. Do you"
-" want to include comments with your response?"
-msgstr ""
-"Spotkanie to zostanie odrzucone i przeniesione do folderu Deleted Items. Czy"
-" chcesz dołączyć komentarz do swojej odpowiedzi?"
+msgid "This meeting will be declined and moved to your Deleted Items folder. Do you want to include comments with your response?"
+msgstr "Spotkanie to zostanie odrzucone i przeniesione do folderu Deleted Items. Czy chcesz dołączyć komentarz do swojej odpowiedzi?"
 
 msgid "Edit the response before sending"
 msgstr "Edytuj odpowiedź przed wysłaniem"
@@ -1396,20 +1335,16 @@ msgstr "Wklej wybraną pozycję"
 msgid "An overview of"
 msgstr "Przegląd"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Start"
 msgstr "Rozpoczęcie"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "End"
 msgstr "Koniec"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for
-#. formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
 msgid "Printed by"
 msgstr "Wydrukowano przez"
 
@@ -1431,16 +1366,13 @@ msgstr "l jS M Y {0}"
 msgid "All day: "
 msgstr "Cały dzień: "
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
 msgstr "I j. F Y"
 
 # small L, not capital i
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for
-#. formatting instructions
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F"
 msgstr "l, j. F Y"
 
@@ -1525,8 +1457,7 @@ msgstr "Standardowy czas przypomnienia"
 msgid "Default all-day appointment reminder time"
 msgstr "Standardowy czas przypomnienia dla terminów całodniowych"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS"
 msgstr "j."
 
@@ -1568,9 +1499,7 @@ msgstr "Ten termin został przesunięty lub usunięty, czy chcesz kontynuować?"
 
 msgctxt "calendar.contextmenu"
 msgid "Use Reply All to reply to all attendees of your meeting."
-msgstr ""
-"Użyj opcji „Odpowiedz wszystkim”, aby odpowiedzieć wszystkim uczestnikom "
-"spotkania."
+msgstr "Użyj opcji „Odpowiedz wszystkim”, aby odpowiedzieć wszystkim uczestnikom spotkania."
 
 msgid "Options"
 msgstr "Opcje"
@@ -1671,42 +1600,26 @@ msgstr "Uczestnicy"
 msgid "Optional attendees"
 msgstr "Opcjonalni uczestnicy"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F {0}"
 msgstr "j. F {0}"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y"
 msgstr "j. F Y"
 
-msgid ""
-"You have insufficient privileges to move and copy this item. Ask the folder "
-"owner to grant you permissions or contact your system administrator."
-msgstr ""
-"Nie masz wystarczających uprawnień do przenoszenia i kopiowania tego "
-"elementu. Poproś właściciela folderu o przyznanie Ci uprawnień lub "
-"skontaktuj się z administratorem systemu."
+msgid "You have insufficient privileges to move and copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
+msgstr "Nie masz wystarczających uprawnień do przenoszenia i kopiowania tego elementu. Poproś właściciela folderu o przyznanie Ci uprawnień lub skontaktuj się z administratorem systemu."
 
-msgid ""
-"You have insufficient privileges to copy this item. Ask the folder owner to "
-"grant you permissions or contact your system administrator."
-msgstr ""
-"Nie masz wystarczających uprawnień do kopiowania tego elementu. Poproś "
-"właściciela folderu o przyznanie Ci uprawnień lub skontaktuj się z "
-"administratorem systemu."
+msgid "You have insufficient privileges to copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
+msgstr "Nie masz wystarczających uprawnień do kopiowania tego elementu. Poproś właściciela folderu o przyznanie Ci uprawnień lub skontaktuj się z administratorem systemu."
 
 msgid "Insufficient privileges"
 msgstr "Niewystarczające uprawnienia"
 
 #, fuzzy
-msgid ""
-"Copying this appointment will unset it as private. Are you sure you want to "
-"continue?"
-msgstr ""
-"Skopiowanie tego spotkania spowoduje, że nie będzie ono miało charakteru "
-"prywatnego. Czy na pewno chcesz kontynuować?"
+msgid "Copying this appointment will unset it as private. Are you sure you want to continue?"
+msgstr "Skopiowanie tego spotkania spowoduje, że nie będzie ono miało charakteru prywatnego. Czy na pewno chcesz kontynuować?"
 
 msgid "Private item"
 msgstr "Przedmiot prywatny"
@@ -1715,12 +1628,8 @@ msgid "Copy"
 msgstr "Kopiuj"
 
 #, fuzzy
-msgid ""
-"Moving this appointment will unset it as private. Are you sure you want to "
-"continue?"
-msgstr ""
-"Przeniesienie tego spotkania spowoduje, że przestanie być ono prywatne. Czy "
-"na pewno chcesz kontynuować?"
+msgid "Moving this appointment will unset it as private. Are you sure you want to continue?"
+msgstr "Przeniesienie tego spotkania spowoduje, że przestanie być ono prywatne. Czy na pewno chcesz kontynuować?"
 
 msgid "Move"
 msgstr "Przenieś"
@@ -1746,13 +1655,8 @@ msgstr "Dalej"
 msgid "grommunio Web"
 msgstr "grommunio Web"
 
-msgid ""
-"Please note that any changes you make will be overwritten when this meeting "
-"request is updated by the organizer. Would you like to move this meeting?"
-msgstr ""
-"Proszę uwzględnić to, że wszystkie wprowadzone przez Ciebie zmiany będą "
-"zastąpione, jeżeli organizator zaktualizuje termin. Czy chciałbyś przenieść "
-"to spotkanie?"
+msgid "Please note that any changes you make will be overwritten when this meeting request is updated by the organizer. Would you like to move this meeting?"
+msgstr "Proszę uwzględnić to, że wszystkie wprowadzone przez Ciebie zmiany będą zastąpione, jeżeli organizator zaktualizuje termin. Czy chciałbyś przenieść to spotkanie?"
 
 msgid "Don't move"
 msgstr "Nie ruszać się"
@@ -1766,20 +1670,17 @@ msgstr "Przejdź do widoku dziennego, aby zobaczyć wszystkie spotkania"
 msgid "Show all appointments"
 msgstr "Pokaż wszystkie terminy"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates
-#. to whom the given mail was sent.
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
 msgstr "Zaproponowany"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates
-#. to whom the given mail was sent
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "When"
 msgstr "Kiedy"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates
-#. to whom the given mail was sent
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Location"
 msgstr "Lokalizacja"
@@ -1787,12 +1688,8 @@ msgstr "Lokalizacja"
 msgid "No additional response required"
 msgstr "Nie jest wymagana żadna dodatkowa odpowiedź"
 
-msgid ""
-"Your calendar has been updated automatically. This meeting request will now "
-"be deleted."
-msgstr ""
-"Twój kalendarz został automatycznie zaktualizowany. Wezwanie na spotkanie "
-"zostanie teraz usunięte."
+msgid "Your calendar has been updated automatically. This meeting request will now be deleted."
+msgstr "Twój kalendarz został automatycznie zaktualizowany. Wezwanie na spotkanie zostanie teraz usunięte."
 
 msgid "New appointment subject"
 msgstr "Temat nowego spotkania"
@@ -1834,8 +1731,7 @@ msgid "Today (all day)"
 msgstr "Dzisiaj (cały dzień)"
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
-#. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME -
-#. USERNAME".
+#. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
 msgid "{0} - {1}"
 msgstr "{0} - {1}"
 
@@ -1875,37 +1771,26 @@ msgstr "Drukowanie tego widoku nie jest jeszcze możliwe"
 msgid "Recurring Message"
 msgstr "Wiadomość seryjna"
 
-msgid ""
-"This is a recurring message. Do you want to open only this occurrence or the"
-" series?"
-msgstr ""
-"To jest wiadomość seryjna. Czy chcesz otworzyć tylko tę wiadomość czy serię?"
+msgid "This is a recurring message. Do you want to open only this occurrence or the series?"
+msgstr "To jest wiadomość seryjna. Czy chcesz otworzyć tylko tę wiadomość czy serię?"
 
 msgid "Recurring Appointment"
 msgstr "Termin seryjny"
 
-msgid ""
-"This is a recurring appointment. Do you want to open only this occurrence or"
-" the series?"
+msgid "This is a recurring appointment. Do you want to open only this occurrence or the series?"
 msgstr "To jest termin seryjny. Chcesz otworzyć tylko ten termin czy serię?"
 
 msgid "Recurring Meeting Request"
 msgstr "Wezwanie na spotkanie w terminie seryjnym"
 
-msgid ""
-"This is a recurring meeting request. Do you want to open only this "
-"occurrence or the series?"
-msgstr ""
-"To jest zaproszenie seryjne. Czy chcesz otworzyć tylko ten termin czyserię?"
+msgid "This is a recurring meeting request. Do you want to open only this occurrence or the series?"
+msgstr "To jest zaproszenie seryjne. Czy chcesz otworzyć tylko ten termin czyserię?"
 
 msgid "Recurring Task Request"
 msgstr "Seryjne zapytanie o wykonanie zadania"
 
-msgid ""
-"This is a recurring task request. Do you want to open only this occurrence "
-"or the series?"
-msgstr ""
-"To jest zadanie seryjne. Czy chcesz otworzyć tylko to zadanie czy  serię?"
+msgid "This is a recurring task request. Do you want to open only this occurrence or the series?"
+msgstr "To jest zadanie seryjne. Czy chcesz otworzyć tylko to zadanie czy  serię?"
 
 msgid "Open this occurrence"
 msgstr "Otwórz ten element seryjny"
@@ -1916,9 +1801,7 @@ msgstr "Otwórz serię"
 msgid "Paste Recurring {0}"
 msgstr "Włóż datę seryjną {0}"
 
-msgid ""
-"This is a recurring {0}. Do you want to paste only this occurrence or the "
-"series?"
+msgid "This is a recurring {0}. Do you want to paste only this occurrence or the series?"
 msgstr "To jest nawracające {0}. Chcesz wkleić tylko to zdarzenie czy serię?"
 
 msgid "message"
@@ -1936,28 +1819,16 @@ msgstr "Wklej tylko to zdarzenie"
 msgid "Paste the series…"
 msgstr "Wklej serię…"
 
-msgid ""
-"This is a recurring message. Do you want to delete only this occurrence or "
-"the series?"
-msgstr ""
-"To jest wiadomość seryjna. Czy chcesz usunąć tylko tę wiadomość czy  serię?"
+msgid "This is a recurring message. Do you want to delete only this occurrence or the series?"
+msgstr "To jest wiadomość seryjna. Czy chcesz usunąć tylko tę wiadomość czy  serię?"
 
-msgid ""
-"This is a recurring appointment. Do you want to delete only this occurrence "
-"or the series?"
-msgstr ""
-"To jest termin seryjny. Czy chcesz usunąć tylko ten termin czy  serię?"
+msgid "This is a recurring appointment. Do you want to delete only this occurrence or the series?"
+msgstr "To jest termin seryjny. Czy chcesz usunąć tylko ten termin czy  serię?"
 
-msgid ""
-"This is a recurring meeting request. Do you want to delete only this "
-"occurrence or the series?"
-msgstr ""
-"To jest zaproszenie seryjne. Czy chcesz usunąć tylko to zaproszenie czy "
-"serię?"
+msgid "This is a recurring meeting request. Do you want to delete only this occurrence or the series?"
+msgstr "To jest zaproszenie seryjne. Czy chcesz usunąć tylko to zaproszenie czy serię?"
 
-msgid ""
-"This is a recurring task request. Do you want to delete only this occurrence"
-" or the series?"
+msgid "This is a recurring task request. Do you want to delete only this occurrence or the series?"
 msgstr "To jest zadanie seryjne. Czy chcesz usunąć tylko to zadanie czyserię?"
 
 msgid "Delete this occurrence"
@@ -1985,27 +1856,19 @@ msgid "Insufficient permissions"
 msgstr "Niewystarczające uprawnienia"
 
 msgid "You have insufficient privileges to delete items in this folder."
-msgstr ""
-"Nie masz wystarczających uprawnień do usuwania elementów w tym folderze."
+msgstr "Nie masz wystarczających uprawnień do usuwania elementów w tym folderze."
 
 msgid "Notify recipients"
 msgstr "Powiadomić odbiorcę"
 
-msgid ""
-"A cancellation message will be sent to all recipients, do you wish to "
-"continue?"
-msgstr ""
-"Odmowa zostanie wysłana do wszystkich uczestników, czy chcesz kontynuować?"
+msgid "A cancellation message will be sent to all recipients, do you wish to continue?"
+msgstr "Odmowa zostanie wysłana do wszystkich uczestników, czy chcesz kontynuować?"
 
 msgid "Notify sender"
 msgstr "Powiadomić nadawcę"
 
-msgid ""
-"{0} has requested a notification be sent when message \"{1}\" is deleted "
-"without having been read. Do you want to send a receipt?"
-msgstr ""
-"{0} poprosił o wysłanie powiadomienia, gdy wiadomość \"{1}\" zostanie "
-"usunięta bez przeczytania. Czy chcesz wysłać potwierdzenie?"
+msgid "{0} has requested a notification be sent when message \"{1}\" is deleted without having been read. Do you want to send a receipt?"
+msgstr "{0} poprosił o wysłanie powiadomienia, gdy wiadomość \"{1}\" zostanie usunięta bez przeczytania. Czy chcesz wysłać potwierdzenie?"
 
 msgid "Delete Incomplete Task"
 msgstr "Usuń nieukończone zadanie"
@@ -2031,12 +1894,8 @@ msgstr "Duplikat odbiorcy"
 msgid "Recipient already exists."
 msgstr "Odbiorca już istnieje."
 
-msgid ""
-"The sender of this email has requested a read receipt. Do you wish to notify"
-" the sender?"
-msgstr ""
-"Nadawca wymaga wysłania potwierdzenia odczytu wiadomości. Wysłać "
-"potwierdzenie?"
+msgid "The sender of this email has requested a read receipt. Do you wish to notify the sender?"
+msgstr "Nadawca wymaga wysłania potwierdzenia odczytu wiadomości. Wysłać potwierdzenie?"
 
 msgid "Import"
 msgstr "Importuj"
@@ -2053,19 +1912,11 @@ msgstr "Błąd w przywozie"
 msgid "Unable to import \"{0}\". The file is not valid"
 msgstr "Import {0} nie jest możliwy. Plik jest nieważny"
 
-msgid ""
-"You have insufficient privileges to move these items. Would you like to copy"
-" instead?"
-msgstr ""
-"Nie masz wystarczających uprawnień do przenoszenia tych przedmiotów. Chcesz "
-"skopiować zamiast tego?"
+msgid "You have insufficient privileges to move these items. Would you like to copy instead?"
+msgstr "Nie masz wystarczających uprawnień do przenoszenia tych przedmiotów. Chcesz skopiować zamiast tego?"
 
-msgid ""
-"You have insufficient privileges to move this item. Would you like to copy "
-"instead?"
-msgstr ""
-"Nie masz wystarczających uprawnień, aby przenieść tę pozycję. Chcesz "
-"skopiować zamiast tego?"
+msgid "You have insufficient privileges to move this item. Would you like to copy instead?"
+msgstr "Nie masz wystarczających uprawnień, aby przenieść tę pozycję. Chcesz skopiować zamiast tego?"
 
 msgid "Cc"
 msgstr "DW"
@@ -2106,18 +1957,13 @@ msgstr "Pobierz jako ZIP"
 msgid "Continue"
 msgstr "Kontynuuj"
 
-msgid ""
-"These attachments have an unsupported file type and can not be added to the "
-"ZIP file:"
-msgstr ""
-"Te załączniki mają niedostępny typ pliku i nie można ich załączyćjako plik "
-"ZIP:"
+msgid "These attachments have an unsupported file type and can not be added to the ZIP file:"
+msgstr "Te załączniki mają niedostępny typ pliku i nie można ich załączyćjako plik ZIP:"
 
 msgid "Would you like to continue downloading without adding these files?"
 msgstr "Czy mimo to chcesz pobrać ten plik ZIP?"
 
-msgid ""
-"Always continue download of ZIP files without adding unsupported file types."
+msgid "Always continue download of ZIP files without adding unsupported file types."
 msgstr "Zawsze pobieraj plik ZIP i pomijaj niedostępne typy plików."
 
 msgid "File upload"
@@ -2139,20 +1985,12 @@ msgid "Import to folder"
 msgstr "Import do folderu"
 
 #, fuzzy
-msgid ""
-"In order to use the vCard import feature, upgrade your Gromox to version 0 "
-"or higher."
-msgstr ""
-"Aby móc korzystać z funkcji importu vCard, należy zaktualizować Gromox do "
-"wersji 0 lub wyższej."
+msgid "In order to use the vCard import feature, upgrade your Gromox to version 0 or higher."
+msgstr "Aby móc korzystać z funkcji importu vCard, należy zaktualizować Gromox do wersji 0 lub wyższej."
 
 #, fuzzy
-msgid ""
-"In order to use the ICS / VCS import feature, upgrade your Gromox to version"
-" 0 or higher."
-msgstr ""
-"Aby korzystać z funkcji importu ICS / VCS, zaktualizuj swojego Gromoxa do "
-"wersji 0 lub wyższej."
+msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to version 0 or higher."
+msgstr "Aby korzystać z funkcji importu ICS / VCS, zaktualizuj swojego Gromoxa do wersji 0 lub wyższej."
 
 msgid "Attachment error"
 msgstr "Błąd załącznika"
@@ -2191,12 +2029,8 @@ msgid "Delete Category"
 msgstr "Usuń Kategoria"
 
 #, fuzzy
-msgid ""
-"Are you sure you want to delete the category \"{0}\"? Other items keep this "
-"category, but lose the assigned color."
-msgstr ""
-"Czy na pewno chcesz usunąć kategorię \"{0}\"? Inne elementy zachowują tę "
-"kategorię, ale tracą przypisany kolor."
+msgid "Are you sure you want to delete the category \"{0}\"? Other items keep this category, but lose the assigned color."
+msgstr "Czy na pewno chcesz usunąć kategorię \"{0}\"? Inne elementy zachowują tę kategorię, ale tracą przypisany kolor."
 
 msgid "Rename Category"
 msgstr "Zmień nazwę kategorii"
@@ -2216,24 +2050,14 @@ msgstr "Pin do szybkiego dostępu"
 msgid "Create"
 msgstr "Stwórz"
 
-msgid ""
-"You must apply the changes you have made to the categories before you can "
-"create this category."
-msgstr ""
-"Musisz zastosować zmiany, których dokonałeś w kategoriach, zanim będziesz "
-"mógł utworzyć tę kategorię."
+msgid "You must apply the changes you have made to the categories before you can create this category."
+msgstr "Musisz zastosować zmiany, których dokonałeś w kategoriach, zanim będziesz mógł utworzyć tę kategorię."
 
 msgid "You already have a category named '{0}'. Please use another name."
-msgstr ""
-"Sie haben bereits eine Kategorie mit dem Namen \"{0}\". Bitte verwenden Sie "
-"einen anderen Namen."
+msgstr "Sie haben bereits eine Kategorie mit dem Namen \"{0}\". Bitte verwenden Sie einen anderen Namen."
 
-msgid ""
-"You already have a category named '{0}' in your pending changes. Please use "
-"another name."
-msgstr ""
-"Masz już kategorię o nazwie \"{0}\" w oczekiwaniu na zmiany. Proszę użyć "
-"innej nazwy."
+msgid "You already have a category named '{0}' in your pending changes. Please use another name."
+msgstr "Masz już kategorię o nazwie \"{0}\" w oczekiwaniu na zmiany. Proszę użyć innej nazwy."
 
 msgid "Rename"
 msgstr "Zmień nazwę"
@@ -2244,9 +2068,7 @@ msgstr "Pierwszy raz używasz kategorii \"{0}\"."
 msgid "Do you want to rename it?"
 msgstr "Chcesz zmienić jego nazwę?"
 
-msgid ""
-"The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
-"\"{2}\" categories?"
+msgid "The category \"{0}\" already exists. Do you want to merge the \"{1}\" and \"{2}\" categories?"
 msgstr "Kategoria \"{0}\" już istnieje. Chcesz połączyć kategorie \"{1}\" i \"{2}\"?"
 
 msgid "Merge"
@@ -2313,9 +2135,7 @@ msgid "Delegate can see my private items."
 msgstr "Pełnomocnik może widzieć prywatne wpisy."
 
 msgid "Delegate receives copies of meeting-related messages sent to me."
-msgstr ""
-"Pełnomocnik otrzymuje kopie wiadomości z istotnymi zaproszeniami, które "
-"zostały wysłane do mnie."
+msgstr "Pełnomocnik otrzymuje kopie wiadomości z istotnymi zaproszeniami, które zostały wysłane do mnie."
 
 msgid "Other"
 msgstr "Inne"
@@ -2332,12 +2152,8 @@ msgstr "Wybierz pełnomocnika."
 msgid "Delegates can send items on your behalf."
 msgstr "Delegaci mogą wysyłać przedmioty w Twoim imieniu."
 
-msgid ""
-"If you only want to set folder permissions, right-click on a folder to open "
-"the context menu and click on \"Share folder…\""
-msgstr ""
-"Jeśli chcesz tworzyć tylko foldery akcji, możesz również zarządzać nimi w "
-"menu kontekstowym folderu w zakładce \"Share folder…\""
+msgid "If you only want to set folder permissions, right-click on a folder to open the context menu and click on \"Share folder…\""
+msgstr "Jeśli chcesz tworzyć tylko foldery akcji, możesz również zarządzać nimi w menu kontekstowym folderu w zakładce \"Share folder…\""
 
 msgid "Permission"
 msgstr "Pozwolenie"
@@ -2366,31 +2182,29 @@ msgstr[2] "Wybrano {0} wiadomości."
 msgid "Folder '{0}' selected."
 msgstr "Wybrano '{0}' folderów."
 
+msgid "The selected items cannot be moved into this folder because it holds a different type of content."
+msgstr ""
+
+msgid "The selected items cannot be copied into this folder because it holds a different type of content."
+msgstr ""
+
+msgid "Incompatible folder"
+msgstr ""
+
 msgid "Unable to perform action"
 msgstr "Nie można wykonać akcji"
 
 msgid "The selected items are no longer available."
 msgstr "Wybrane elementy nie są już dostępne."
 
-msgid ""
-"You have insufficient privileges to move this folder. Ask the folder owner "
-"to grant you permissions or contact your system administrator."
-msgstr ""
-"Nie masz wystarczających uprawnień, aby przenieść ten folder. Poproś "
-"właściciela folderu o przyznanie Ci uprawnień lub skontaktuj się z "
-"administratorem systemu."
+msgid "You have insufficient privileges to move this folder. Ask the folder owner to grant you permissions or contact your system administrator."
+msgstr "Nie masz wystarczających uprawnień, aby przenieść ten folder. Poproś właściciela folderu o przyznanie Ci uprawnień lub skontaktuj się z administratorem systemu."
 
-msgid ""
-"You have insufficient privileges to copy this folder. Ask the folder owner "
-"to grant you permissions or contact your system administrator."
-msgstr ""
-"Nie masz wystarczających uprawnień do kopiowania tego folderu. Poproś "
-"właściciela tego folderu o nadanie uprawnień lub skontaktuj się z "
-"administratorem systemu."
+msgid "You have insufficient privileges to copy this folder. Ask the folder owner to grant you permissions or contact your system administrator."
+msgstr "Nie masz wystarczających uprawnień do kopiowania tego folderu. Poproś właściciela tego folderu o nadanie uprawnień lub skontaktuj się z administratorem systemu."
 
 msgid "You have insufficient privileges to move following items."
-msgstr ""
-"Nie masz wystarczających uprawnień do przenoszenia kolejnych elementów."
+msgstr "Nie masz wystarczających uprawnień do przenoszenia kolejnych elementów."
 
 msgid "Subject:"
 msgstr "Temat:"
@@ -2548,12 +2362,8 @@ msgstr "Otwórz okno dialogowe kopiuj/przenieś"
 msgid "Delete selected item"
 msgstr "Usuń wybrany element"
 
-msgid ""
-"Delete selected item without moving it to the Deleted Items folder. The "
-"deleted item can still be restored."
-msgstr ""
-"Usuń wybrany element nie przenosząc usuniętych obiektów dofolderu usunięte "
-"obiekty. Wciąż można przywrócić usunięty element."
+msgid "Delete selected item without moving it to the Deleted Items folder. The deleted item can still be restored."
+msgstr "Usuń wybrany element nie przenosząc usuniętych obiektów dofolderu usunięte obiekty. Wciąż można przywrócić usunięty element."
 
 msgid "Add/Edit Cc recipient"
 msgstr "Cc Dodaj/edytuj odbiorcę"
@@ -2618,12 +2428,8 @@ msgstr "Adres e-mail"
 msgid "Expand distribution list"
 msgstr "Poszerzenie listy dystrybucyjnej"
 
-msgid ""
-"Distribution list will be replaced with its members. You will not be able to"
-" collapse it again."
-msgstr ""
-"Lista rozdzielnika została zastąpiona przez swoich członków. Nie możnajej "
-"odtworzyć."
+msgid "Distribution list will be replaced with its members. You will not be able to collapse it again."
+msgstr "Lista rozdzielnika została zastąpiona przez swoich członków. Nie możnajej odtworzyć."
 
 msgid "Edit Recipient"
 msgstr "Edytuj odbiorcę"
@@ -2671,9 +2477,7 @@ msgid "Every weekday"
 msgstr "Każdy dzień roboczy"
 
 msgid "Regenerate new task {A} day(s) after each task is completed"
-msgstr ""
-"Stwórz nowe zadania, każdorazowo {A} dzień(dni) po ukończeniu poprzedniego "
-"zadania"
+msgstr "Stwórz nowe zadania, każdorazowo {A} dzień(dni) po ukończeniu poprzedniego zadania"
 
 msgid "Day {A} of every {B} month(s)"
 msgstr "{A} dzień każdego {B} miesiąca"
@@ -2682,9 +2486,7 @@ msgid "The {A} {B} of every {C} month(s)"
 msgstr "{A} {B} każdego {C} miesiąca"
 
 msgid "Regenerate new task {A} month(s) after each task is completed"
-msgstr ""
-"Stwórz nowe zadania, każdorazowo {A} miesiąc(y) po ukończeniu poprzedniego "
-"zadania"
+msgstr "Stwórz nowe zadania, każdorazowo {A} miesiąc(y) po ukończeniu poprzedniego zadania"
 
 msgid "Appointment Recurrence"
 msgstr "Seria terminów"
@@ -2725,11 +2527,8 @@ msgstr "Koniec po {A} terminach"
 msgid "End by {A}"
 msgstr "Koniec dnia {A}"
 
-#. TRANSLATORS: This informs the user what the exact duration of the
-#. appointment is. Where {D} represents the days, {H} the hours and {M} the
-#. minutes.
-#. For example: 'Occurrence duration: 1 day 2 hours 45 minutes', or when the
-#. appointment is shorter then 1 day: 'Occurrence duration: 1 hour'
+#. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
+#. For example: 'Occurrence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurrence duration: 1 hour'
 msgid "Occurrence duration: {D} {H} {M}"
 msgstr "Czas trwania terminu: {D} {H} {M}"
 
@@ -2737,9 +2536,7 @@ msgid "Every {A} week(s) on"
 msgstr "Każdy/wszystkie {A} tydzień(tygodnie) w"
 
 msgid "Regenerate new task {A} week(s) after each task is completed"
-msgstr ""
-"Stwórz nowe zadania, każdorazowo {A} tydzień(tygodni) po "
-"zakończeniupoprzedniego zadania"
+msgstr "Stwórz nowe zadania, każdorazowo {A} tydzień(tygodni) po zakończeniupoprzedniego zadania"
 
 msgid "Every {A} years(s) on"
 msgstr "Co {A} lat, dnia"
@@ -2751,9 +2548,7 @@ msgid "The {A} {B} of {C}"
 msgstr "Każdy {A} {B} im {C}"
 
 msgid "Regenerate new task {A} year(s) after each task is completed"
-msgstr ""
-"Stwórz nowe zadania, każdorazowo {A} rok(lat) po zakończeniu poprzedniego "
-"zadania"
+msgstr "Stwórz nowe zadania, każdorazowo {A} rok(lat) po zakończeniu poprzedniego zadania"
 
 msgid "Info"
 msgstr "Informacje"
@@ -2776,8 +2571,7 @@ msgstr "Nie masz przypomnienie"
 msgid "Due In"
 msgstr "Wymagalny w"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Due"
 msgstr "Wymagalny"
 
@@ -3029,12 +2823,8 @@ msgstr "Word"
 msgid "and"
 msgstr "i"
 
-msgid ""
-"Distribution lists are not supported in rules, would you like to replace the"
-" distribution list with its members?"
-msgstr ""
-"Nierozpoznane listy rozdzielnika w obrębie reguł. Czy chcesz je zastąpić "
-"pojedynczymi odbiorcami?"
+msgid "Distribution lists are not supported in rules, would you like to replace the distribution list with its members?"
+msgstr "Nierozpoznane listy rozdzielnika w obrębie reguł. Czy chcesz je zastąpić pojedynczymi odbiorcami?"
 
 msgid "or"
 msgstr "lub"
@@ -3138,11 +2928,8 @@ msgstr "Kliknij, aby włączyć: AND → OR → NOT"
 msgid "Folder does not exist"
 msgstr "Der Ordner existiert nicht"
 
-msgid ""
-"The folder you are searching through no longer exists. Please select another"
-" folder"
-msgstr ""
-"Folder, który przeszukujesz, już nie istnieje. Proszę wybrać inny folder"
+msgid "The folder you are searching through no longer exists. Please select another folder"
+msgstr "Folder, który przeszukujesz, już nie istnieje. Proszę wybrać inny folder"
 
 msgid "Add/Edit sender"
 msgstr "Dodaj/zmień nadawcę"
@@ -3193,9 +2980,7 @@ msgid "Enable desktop notifications for reminders"
 msgstr "Włączanie powiadomień o przypomnieniach na pulpicie"
 
 msgid "{A} Auto-hide desktop notification after second(s) {B}"
-msgstr ""
-"{A} Automatyczne ukrywanie powiadomienia z pulpitu po sekundzie (sekundach) "
-"{B}"
+msgstr "{A} Automatyczne ukrywanie powiadomienia z pulpitu po sekundzie (sekundach) {B}"
 
 msgid "Disable sound"
 msgstr "Wyłączyć dźwięk"
@@ -3280,8 +3065,7 @@ msgstr "Ładowanie…"
 msgid "Message could not be loaded"
 msgstr "Wiadomość nie mogła zostać załadowana"
 
-#. TRANSLATORS: This message is used as label for the field which indicates
-#. which attachments are inside the message
+#. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "Załączniki"
@@ -3295,8 +3079,7 @@ msgstr "Dołącz nadawcę do listy bezpiecznych nadawców"
 msgid "Add Domain to Safe Senders List"
 msgstr "Dołącz domenę do listy bezpiecznych nadawców"
 
-#. TRANSLATORS: This sentence is given in the Email previewpanel, and
-#. indicates with which
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates with which
 #. importance the message was sent. For example:
 #. 'This message was sent with high importance.'
 #. 'This message was sent with low importance.'
@@ -3304,8 +3087,7 @@ msgctxt "mail.previewpanel"
 msgid "This message was sent with {0} importance."
 msgstr "Wiadomość została wysłana, poziom ważności {0}."
 
-#. TRANSLATORS: This sentence is given in the Email previewpanel, and
-#. indicates which
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates which
 #. sensitivity level applies to the message. For example:
 #. 'Please treat this as Personal.'
 #. 'Please treat this as Private.'
@@ -3316,21 +3098,12 @@ msgstr "Proszę potraktować sprawę jako {0}."
 
 #, fuzzy
 msgctxt "mail.previewpanel"
-msgid ""
-"Click here to download pictures. To help protect your privacy, grommunio Web"
-" prevented automatic download of some pictures in this message."
-msgstr ""
-"Kliknij tutaj, aby pobrać zdjęcia. Aby pomóc chronić Twoją prywatność, "
-"grommunio Web uniemożliwił automatyczne pobieranie niektórych zdjęć w tej "
-"wiadomości."
+msgid "Click here to download pictures. To help protect your privacy, grommunio Web prevented automatic download of some pictures in this message."
+msgstr "Kliknij tutaj, aby pobrać zdjęcia. Aby pomóc chronić Twoją prywatność, grommunio Web uniemożliwił automatyczne pobieranie niektórych zdjęć w tej wiadomości."
 
 msgctxt "mail.previewpanel"
-msgid ""
-"This message is corrupt and will not be displayed correctly, Click here to "
-"fix it."
-msgstr ""
-"Ta wiadomość jest uszkodzona i nie można jej prawidłowo wyswietlić.Kliknij, "
-"aby naprawić."
+msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."
+msgstr "Ta wiadomość jest uszkodzona i nie można jej prawidłowo wyswietlić.Kliknij, aby naprawić."
 
 msgctxt "mail.previewpanel"
 msgid "{0} has accepted."
@@ -3358,40 +3131,27 @@ msgstr "{0} odmówił w imieniu {1} ."
 
 msgctxt "mail.previewpanel"
 msgid "{0} tentatively accepted and proposed a new time for this meeting."
-msgstr ""
-"{0} zaakceptował warunkowo i zaproponował nowy czas dla tego spotkania."
+msgstr "{0} zaakceptował warunkowo i zaproponował nowy czas dla tego spotkania."
 
 msgctxt "mail.previewpanel"
-msgid ""
-"{0} tentatively accepted on behalf of {1} and proposed a new time for this "
-"meeting."
-msgstr ""
-"{0} zaakceptował w imieniu {1} i zaproponował nowy czasdla tego spotkania."
+msgid "{0} tentatively accepted on behalf of {1} and proposed a new time for this meeting."
+msgstr "{0} zaakceptował w imieniu {1} i zaproponował nowy czasdla tego spotkania."
 
 msgctxt "mail.previewpanel"
 msgid "{0} declined and proposed a new time for this meeting."
 msgstr "{0} odmówił i zaproponował nowy czas dla tego spotkania."
 
 msgctxt "mail.previewpanel"
-msgid ""
-"{0} declined on behalf of {1} and proposed a new time for this meeting."
-msgstr ""
-"{0} odmówił w imieniu {1} i zaproponował nowy czas dla tego spotkania."
+msgid "{0} declined on behalf of {1} and proposed a new time for this meeting."
+msgstr "{0} odmówił w imieniu {1} i zaproponował nowy czas dla tego spotkania."
 
 msgctxt "mail.previewpanel"
-msgid ""
-"This meeting is not in the Calendar; it may have been moved or deleted."
-msgstr ""
-"Brak tego terminu w kalendarzu, prawdopodobnie zostałprzeniesiony lub "
-"usunięty."
+msgid "This meeting is not in the Calendar; it may have been moved or deleted."
+msgstr "Brak tego terminu w kalendarzu, prawdopodobnie zostałprzeniesiony lub usunięty."
 
 msgctxt "mail.previewpanel"
-msgid ""
-"This meeting request was updated after this message was sent. You should "
-"open the latest update or open the item from the calendar."
-msgstr ""
-"Wezwanie na spotkanie zostało zaktualizowane po wysłaniu. Należy "
-"otworzyćnajnowsze zapytanie lub otworzyć termin w kalendarzu."
+msgid "This meeting request was updated after this message was sent. You should open the latest update or open the item from the calendar."
+msgstr "Wezwanie na spotkanie zostało zaktualizowane po wysłaniu. Należy otworzyćnajnowsze zapytanie lub otworzyć termin w kalendarzu."
 
 msgctxt "mail.previewpanel"
 msgid "As the meeting organizer, you do not need to respond to the meeting"
@@ -3460,11 +3220,8 @@ msgstr "Aktualizowane przez {0} w imieniu {1} {2}."
 msgid "Fix message"
 msgstr "Naprawa wiadomość"
 
-msgid ""
-"We are going to try to fix a corrupted mail message, do you wish to "
-"continue?"
-msgstr ""
-"Dokonano póby naprawienia uszkodzonej wiadomości. Czy chceszkontynuować?"
+msgid "We are going to try to fix a corrupted mail message, do you wish to continue?"
+msgstr "Dokonano póby naprawienia uszkodzonej wiadomości. Czy chceszkontynuować?"
 
 msgid "The matching task was not found in your task list."
 msgstr "Nie znaleziono pasującego zadania na Twojej liście zadań."
@@ -3488,20 +3245,17 @@ msgctxt "mail.previewpanel"
 msgid "Categories"
 msgstr "Kategorie"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates
-#. to whom the given mail was sent
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Recipients"
 msgstr "Odbiorcy"
 
-#. TRANSLATORS: check if the mail is send by some delegator or not. if then
-#. display "on behalf of".
+#. TRANSLATORS: check if the mail is send by some delegator or not. if then display "on behalf of".
 msgctxt "mail.previewpanel"
 msgid "on behalf of"
 msgstr "w imieniu"
 
-#. TRANSLATORS: This message is used to indicate that no sent date is
-#. available for the message (because it has not been sent yet).
+#. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
 msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "Ta wiadomość nie została jeszcze wysłana"
@@ -3608,8 +3362,7 @@ msgstr "E-mail 3"
 msgid "Email3 Display As"
 msgstr "Pokaż e-mail 3 jako"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Birthday"
 msgstr "Urodziny"
 
@@ -3709,8 +3462,7 @@ msgstr "Nick"
 msgid "Suffix"
 msgstr "Dodatek do nazwy"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Anniversary"
 msgstr "Rocznica"
 
@@ -3811,11 +3563,8 @@ msgid "Loading contacts"
 msgstr "Ładowanie kontaktów"
 
 #, fuzzy
-msgid ""
-"There are no items to show in this list. Update the filter for more results."
-msgstr ""
-"Na tej liście nie ma żadnych elementów do pokazania. Zaktualizuj filtr, aby "
-"uzyskać więcej wyników."
+msgid "There are no items to show in this list. Update the filter for more results."
+msgstr "Na tej liście nie ma żadnych elementów do pokazania. Zaktualizuj filtr, aby uzyskać więcej wyników."
 
 msgid "[Group]"
 msgstr "[Grupa]"
@@ -3973,55 +3722,32 @@ msgstr "Szybki kontakt"
 msgid "Open in new browser window"
 msgstr "Otwórz w nowym oknie przglądarki"
 
-msgid ""
-"Your browser seems to have blocked one or more pop-ups. Please change your "
-"browser's settings to always allow pop-ups from grommunio Web."
-msgstr ""
-"Twoja przeglądarka prawdopodobnie zablokowała jedno bądź kilka okien "
-"wyskakujących. Sprawdź ustawienia swojej przeglądarki."
+msgid "Your browser seems to have blocked one or more pop-ups. Please change your browser's settings to always allow pop-ups from grommunio Web."
+msgstr "Twoja przeglądarka prawdopodobnie zablokowała jedno bądź kilka okien wyskakujących. Sprawdź ustawienia swojej przeglądarki."
 
 msgid "Untitled"
 msgstr "Bez tytułu"
 
-msgid ""
-"Cannot upload attachment, only {0} attachments are allowed to be added to "
-"the message"
+msgid "Cannot upload attachment, only {0} attachments are allowed to be added to the message"
 msgstr "Załącznik nie został dodany, dopuszczalne jest {0} załączników"
 
-msgid ""
-"Cannot upload attachment, attachment is {0} while the allowed maximum is "
-"{1}."
-msgstr ""
-"Nie można dodać załącznika, zalącznik jest {0}, maksymalne dopuszczenie {1}."
+msgid "Cannot upload attachment, attachment is {0} while the allowed maximum is {1}."
+msgstr "Nie można dodać załącznika, zalącznik jest {0}, maksymalne dopuszczenie {1}."
 
-msgid ""
-"Cannot upload attachment, the total attachment size is {0} while the allowed"
-" maximum is {1}"
-msgstr ""
-"Załącznik nie został dodany, łączna wielkość załączników to {0}, maksymalne "
-"dopuszczenie {1}"
+msgid "Cannot upload attachment, the total attachment size is {0} while the allowed maximum is {1}"
+msgstr "Załącznik nie został dodany, łączna wielkość załączników to {0}, maksymalne dopuszczenie {1}"
 
-msgid ""
-"Cannot upload attachment, total attachment is {0} while the allowed maximum "
-"attachment in single request is {1}."
-msgstr ""
-"Załącznik nie został dodany. Próbujesz dodać {0} załączników, a dopuszczalne"
-" jest {1} załączników."
+msgid "Cannot upload attachment, total attachment is {0} while the allowed maximum attachment in single request is {1}."
+msgstr "Załącznik nie został dodany. Próbujesz dodać {0} załączników, a dopuszczalne jest {1} załączników."
 
-msgid ""
-"Cannot upload attachment, total attachments are {0} files while the maximum "
-"{1} files are allowed in single request."
-msgstr ""
-"Załącznik nie został dodany. Próbujesz dodać {0} załączników, a dopuszczalne"
-" jest {1} załączników."
+msgid "Cannot upload attachment, total attachments are {0} files while the maximum {1} files are allowed in single request."
+msgstr "Załącznik nie został dodany. Próbujesz dodać {0} załączników, a dopuszczalne jest {1} załączników."
 
-#. TRANSLATORS: {0} indicates name/email address of secretary and {1}
-#. indicates boss' name/email address
+#. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
 msgstr "{0} w imieniu {1}"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F"
 msgstr "j. F"
 
@@ -4202,12 +3928,8 @@ msgstr "Mimo to wyślij"
 msgid "Missing attachment"
 msgstr "Brak załącznika"
 
-msgid ""
-"Your message appears to reference an attachment but no file is attached. "
-"Send anyway?"
-msgstr ""
-"Wygląda na to, że Twoja wiadomość zawiera odniesienie do załącznika, ale nie"
-" załączono żadnego pliku. Wysłać mimo to?"
+msgid "Your message appears to reference an attachment but no file is attached. Send anyway?"
+msgstr "Wygląda na to, że Twoja wiadomość zawiera odniesienie do załącznika, ale nie załączono żadnego pliku. Wysłać mimo to?"
 
 msgid "No subject"
 msgstr "Brak tematu"
@@ -4251,10 +3973,8 @@ msgstr "Zapisane"
 msgid "Saved successfully"
 msgstr "Zapisywanie pomyślnie zakończone"
 
-msgid ""
-"You will lose all unsaved work. Are you sure you want to close this window?"
-msgstr ""
-"Wszystkie niezapisane zmiany zostaną utracone. Czy chceszzamknąć to okno?"
+msgid "You will lose all unsaved work. Are you sure you want to close this window?"
+msgstr "Wszystkie niezapisane zmiany zostaną utracone. Czy chceszzamknąć to okno?"
 
 msgid "grommunio Content Panel"
 msgstr "grommunio Strona główna"
@@ -4325,25 +4045,23 @@ msgstr "Pokaż widżety"
 msgid "Your changes will be lost if you leave this page now."
 msgstr "Twoje zmiany po zamknięciu tej strony nie zostaną zapisane."
 
+msgid "d-m-Y G:i"
+msgstr ""
+
 msgid "D {0}"
 msgstr "D {0}"
 
 msgid "D d-m"
 msgstr "D, d-m-r"
 
-msgid ""
-"Not enough permissions to open this store, do you want to remove it from the"
-" hierarchy?"
+msgid "D d-m G:i"
 msgstr ""
-"Brak wystarczających uprawnień, aby otworzyć tę pocztę. Czy chcesz ją usunąć"
-" z hierarchii?"
 
-msgid ""
-"Not enough permissions to open this folder, do you want to remove it from "
-"the hierarchy?"
-msgstr ""
-"Brak wystarczających uprawnień, aby otworzyć ten folder. Czy chceszgo usunąć"
-" z hierarchii?"
+msgid "Not enough permissions to open this store, do you want to remove it from the hierarchy?"
+msgstr "Brak wystarczających uprawnień, aby otworzyć tę pocztę. Czy chcesz ją usunąć z hierarchii?"
+
+msgid "Not enough permissions to open this folder, do you want to remove it from the hierarchy?"
+msgstr "Brak wystarczających uprawnień, aby otworzyć ten folder. Czy chceszgo usunąć z hierarchii?"
 
 msgid "Insufficient Permissions"
 msgstr "Niewystarczające uprawnienia"
@@ -4642,19 +4360,11 @@ msgstr "Dzielić się {0} z…"
 msgid "Properties of {0} - {1}"
 msgstr "Właściwości {0} - {1}"
 
-msgid ""
-"Are you sure you want to permanently delete all the items and subfolders in "
-"the \"{0}\" folder?"
-msgstr ""
-"Czy chcesz ostatecznie usunąć wszystkie elementy i subfoldery  z folderu "
-"\"{0}\"?"
+msgid "Are you sure you want to permanently delete all the items and subfolders in the \"{0}\" folder?"
+msgstr "Czy chcesz ostatecznie usunąć wszystkie elementy i subfoldery  z folderu \"{0}\"?"
 
-msgid ""
-"Are you sure you want to delete the folder \"{0}\" and move all of its "
-"contents into the Deleted Items folder?"
-msgstr ""
-"Czy chcesz usunąć folder \"{0}\", a jego całą zawartość przenieść do folderu"
-" \"Usunięte obiekty\"?"
+msgid "Are you sure you want to delete the folder \"{0}\" and move all of its contents into the Deleted Items folder?"
+msgstr "Czy chcesz usunąć folder \"{0}\", a jego całą zawartość przenieść do folderu \"Usunięte obiekty\"?"
 
 msgid "Delete folder"
 msgstr "Usuń folder"
@@ -4669,12 +4379,8 @@ msgid "Filter folders"
 msgstr "Filtruj foldery"
 
 #, fuzzy
-msgid ""
-"You have insufficient privileges to move this folder. Would you like to copy"
-" instead?"
-msgstr ""
-"Nie masz wystarczających uprawnień, aby przenieść ten folder. Czy chcesz "
-"skopiować ten folder?"
+msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
+msgstr "Nie masz wystarczających uprawnień, aby przenieść ten folder. Czy chcesz skopiować ten folder?"
 
 msgid "CC"
 msgstr "DW"
@@ -4685,8 +4391,7 @@ msgstr "UDW"
 msgid "Sort by: To"
 msgstr "Sortuj według: Do"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Sent"
 msgstr "Wysłane"
 
@@ -4742,9 +4447,7 @@ msgid "Saving failed"
 msgstr "Oszczędzanie nie powiodło się"
 
 msgid "This message will be flagged for follow up when it is sent."
-msgstr ""
-"Ta wiadomość zostanie oznaczona w celu podjęcia działań następczych po jej "
-"wysłaniu."
+msgstr "Ta wiadomość zostanie oznaczona w celu podjęcia działań następczych po jej wysłaniu."
 
 msgid "Send Later"
 msgstr "Wyślij później"
@@ -4953,9 +4656,7 @@ msgid "Use subject prefixes in accordance with RFC 5256/5322"
 msgstr "Używaj prefiksów tematów zgodnie z RFC 5256/5322"
 
 msgid "Close original message on reply or forward"
-msgstr ""
-"Zamknij oryginalną wiadomość, jeżeli na nią odpowiedziano lub przesłano "
-"dalej"
+msgstr "Zamknij oryginalną wiadomość, jeżeli na nią odpowiedziano lub przesłano dalej"
 
 msgid "General mail settings"
 msgstr "Ustawienia ogólne e-maila"
@@ -5011,21 +4712,14 @@ msgstr "Tylko moje kontakty"
 msgid "Anyone outside my organization"
 msgstr "Każdy spoza mojej organizacji"
 
-msgid ""
-"The time you entered is before the out of office date. Please reschedule."
-msgstr ""
-"Podany czas jest czasem przed opuszczeniem biura. Podaj późniejszy czas."
+msgid "The time you entered is before the out of office date. Please reschedule."
+msgstr "Podany czas jest czasem przed opuszczeniem biura. Podaj późniejszy czas."
 
 msgid "Safe Senders"
 msgstr "Nadawcy bezpieczni"
 
-msgid ""
-"To protect your privacy email addresses or domains can only be added via the"
-" \"Add to safe sender list\" functionality in an opened email."
-msgstr ""
-"Aby chronić swoje prywatne adresy e-mail lub domeny, można je dodawać tylko "
-"za pomocą funkcji \"Dodaj do bezpiecznej listy nadawców\" w otwartej "
-"wiadomości e-mail."
+msgid "To protect your privacy email addresses or domains can only be added via the \"Add to safe sender list\" functionality in an opened email."
+msgstr "Aby chronić swoje prywatne adresy e-mail lub domeny, można je dodawać tylko za pomocą funkcji \"Dodaj do bezpiecznej listy nadawców\" w otwartej wiadomości e-mail."
 
 msgid "Delete all"
 msgstr "Usuń wszystko"
@@ -5195,12 +4889,8 @@ msgstr "Wczytaj notatki"
 msgid "Quick Note"
 msgstr "Szybka notatka"
 
-msgid ""
-"You must reload grommunio Web for the changes to take effect. Unsaved "
-"changes will be lost."
-msgstr ""
-"Prosimy o ponowne załadowanie aplikacji grommunio Web w celu zastosowania "
-"zmian. Niezapisane zmiany zostaną utracone."
+msgid "You must reload grommunio Web for the changes to take effect. Unsaved changes will be lost."
+msgstr "Prosimy o ponowne załadowanie aplikacji grommunio Web w celu zastosowania zmian. Niezapisane zmiany zostaną utracone."
 
 msgid "Reload grommunio Web"
 msgstr "Przeładuj grommunio Web"
@@ -5251,8 +4941,7 @@ msgid "Show insertion points in grommunio Web"
 msgstr "Pokaż punkty wstawiania w programie grommunio Web"
 
 msgid "Show \"item data\" button in context menu (mail only)"
-msgstr ""
-"Wyświetlanie przycisku \"Dane elementu\" w menu kontekstowym (tylko poczta)"
+msgstr "Wyświetlanie przycisku \"Dane elementu\" w menu kontekstowym (tylko poczta)"
 
 msgid "Settings categories"
 msgstr "Kategorie ustawień"
@@ -5347,17 +5036,11 @@ msgstr "Metoda nawigacji"
 msgid "Infinite Scroll"
 msgstr "Nieskończone przewijania"
 
-msgid ""
-"grommunio Web automatically loads additional items when you scroll down"
-msgstr ""
-"grommunio Web automatycznie ładuje dodatkowe elementy po przewinięciu w dół"
+msgid "grommunio Web automatically loads additional items when you scroll down"
+msgstr "grommunio Web automatycznie ładuje dodatkowe elementy po przewinięciu w dół"
 
-msgid ""
-"grommunio Web displays items on pages and you can use navigation controls to"
-" navigate"
-msgstr ""
-"grommunio Web wyświetla elementy na stronach, a do nawigacji można użyć "
-"kontrolek nawigacyjnych"
+msgid "grommunio Web displays items on pages and you can use navigation controls to navigate"
+msgstr "grommunio Web wyświetla elementy na stronach, a do nawigacji można użyć kontrolek nawigacyjnych"
 
 msgid "Load items in blocks of {A}"
 msgstr "Załaduj blok {A} elementów"
@@ -5420,16 +5103,11 @@ msgid "At {0} you won't be able to send mails."
 msgstr "Od {0} nie możesz wysyłać e-maili."
 
 #, fuzzy
-msgid ""
-"You can not send mails as you have exceeded soft quota, at {0} you won't be "
-"able to receive mails."
-msgstr ""
-"Nie możesz wysyłać maili, ponieważ przekroczyłeś soft quota, przy {0} nie "
-"będziesz mógł odbierać maili."
+msgid "You can not send mails as you have exceeded soft quota, at {0} you won't be able to receive mails."
+msgstr "Nie możesz wysyłać maili, ponieważ przekroczyłeś soft quota, przy {0} nie będziesz mógł odbierać maili."
 
 msgid "At {0} you won't be able to send or receive mails."
-msgstr ""
-"Na stronie {0} nie będzie można wysyłać ani odbierać wiadomości e-mail."
+msgstr "Na stronie {0} nie będzie można wysyłać ani odbierać wiadomości e-mail."
 
 msgid "You can not send mails as you have exceeded soft quota."
 msgstr "Miękki limit przekroczony, nie możesz wysyłaće-maili."
@@ -5440,19 +5118,11 @@ msgstr "Ustawienia resetowania"
 msgid "Reset settings to their original defaults."
 msgstr "Cofnij ustawienia na ustawienia fabryczne."
 
-msgid ""
-"This will close all opened shared stores and resets all settings to the "
-"default value."
-msgstr ""
-"Spowoduje to zamknięcie wszystkich otwartych sklepów współdzielonych i "
-"przywrócenie wszystkich ustawień do wartości domyślnej."
+msgid "This will close all opened shared stores and resets all settings to the default value."
+msgstr "Spowoduje to zamknięcie wszystkich otwartych sklepów współdzielonych i przywrócenie wszystkich ustawień do wartości domyślnej."
 
-msgid ""
-"grommunio Web will automatically reload in order for these changes to take "
-"effect"
-msgstr ""
-"grommunio Web zostanie automotycznie uruchomiona ponownie w celu wdrożenia "
-"zmian"
+msgid "grommunio Web will automatically reload in order for these changes to take effect"
+msgstr "grommunio Web zostanie automotycznie uruchomiona ponownie w celu wdrożenia zmian"
 
 msgid "Reset"
 msgstr "Cofnij"
@@ -5494,9 +5164,7 @@ msgid "Delete confirmation"
 msgstr "Usuń potwierdzenie"
 
 msgid "Deleting the item(s) will also delete the original item(s)."
-msgstr ""
-"Usunięcie elementu(ów) spowoduje również usunięcie oryginalnego(ych) "
-"elementu(ów)."
+msgstr "Usunięcie elementu(ów) spowoduje również usunięcie oryginalnego(ych) elementu(ów)."
 
 msgid "Do you want to delete the item(s)?"
 msgstr "Czy chcesz usunąć element(y)?"
@@ -5549,19 +5217,11 @@ msgstr "Zaakceptowanie zadania"
 msgid "Declining Task"
 msgstr "Odmowa zadania"
 
-msgid ""
-"This task will be accepted and moved to your task folder. Do you want to "
-"include comments with your response?"
-msgstr ""
-"Zaakceptowałeś wezwanie na spotkanie. Spotkanie zostanie umieszczone w Twoim"
-" kalendarzu. Czy chcesz edytować swoją odpowiedź przed wysłaniem?"
+msgid "This task will be accepted and moved to your task folder. Do you want to include comments with your response?"
+msgstr "Zaakceptowałeś wezwanie na spotkanie. Spotkanie zostanie umieszczone w Twoim kalendarzu. Czy chcesz edytować swoją odpowiedź przed wysłaniem?"
 
-msgid ""
-"This task will be declined and moved into the Deleted Items folder. Do you "
-"want to edit the response before sending it?"
-msgstr ""
-"To zadanie nie zostało zaakceptowane i przeniesione do folderu Usunięte "
-"obiekty. Czy chcesz edytować odpowiedź przed wysłaniem?"
+msgid "This task will be declined and moved into the Deleted Items folder. Do you want to edit the response before sending it?"
+msgstr "To zadanie nie zostało zaakceptowane i przeniesione do folderu Usunięte obiekty. Czy chcesz edytować odpowiedź przed wysłaniem?"
 
 msgid "Send the response now"
 msgstr "Wyślij teraz odpowiedź"
@@ -5647,8 +5307,7 @@ msgstr "Ukończono"
 msgid "Printed by: "
 msgstr "Wydrukowano przez: "
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Printed on: "
 msgstr "Wydrukowano na: "
 
@@ -5709,12 +5368,8 @@ msgstr "Usunięcie z listy rzeczy do zrobienia"
 msgid "Changes to assigned task"
 msgstr "Zmiany w przydzielonym zadaniu"
 
-msgid ""
-"Please note that assigned task(s) will be overwritten when the assignee "
-"makes changes."
-msgstr ""
-"Pamiętaj, że wszystkie wprowadzone przez Ciebie zmiany zostaną "
-"zastąpione,jeżeli osoba odpowiedzialna to zadanie zaktualizuje."
+msgid "Please note that assigned task(s) will be overwritten when the assignee makes changes."
+msgstr "Pamiętaj, że wszystkie wprowadzone przez Ciebie zmiany zostaną zastąpione,jeżeli osoba odpowiedzialna to zadanie zaktualizuje."
 
 msgid "Sort by: Complete"
 msgstr "Sortuj według: Gotowe"
@@ -5785,11 +5440,8 @@ msgstr "Serwer cofnął Twoje zapytanie z bliżej nieokreślonymbłędem."
 msgid "The session has expired, reauthentication is required."
 msgstr "Twoja sesja wygasła, zaloguj się ponownie."
 
-msgid ""
-"The session in the current browser window has been closed from another "
-"browser window or tab."
-msgstr ""
-"Sesja w katualnym oknie została zamknięta przez inną przeglądarkęlub kartę."
+msgid "The session in the current browser window has been closed from another browser window or tab."
+msgstr "Sesja w katualnym oknie została zamknięta przez inną przeglądarkęlub kartę."
 
 msgid "Session expired"
 msgstr "Sesja wygasła"
@@ -5798,15 +5450,13 @@ msgid "Do you wish to be redirected to the logon page?"
 msgstr "Czy chcesz przejść do strony logowania?"
 
 msgid "Reauthentication required, click here to go to back to logon page."
-msgstr ""
-"Wymagane ponowne zalogowanie, kliknij tu, aby przejść dostrony logowania."
+msgstr "Wymagane ponowne zalogowanie, kliknij tu, aby przejść dostrony logowania."
 
 msgid "Connection problem"
 msgstr "Problemy z połączeniem"
 
 msgid "Could not connect to server, retrying in {0} second(s)"
-msgstr ""
-"Nie można połączyć się z serwerem, spróbuj ponownie za {0} sekundę (sekund)"
+msgstr "Nie można połączyć się z serwerem, spróbuj ponownie za {0} sekundę (sekund)"
 
 msgid "Click to retry now"
 msgstr "Spóbuj ponownie"
@@ -5830,11 +5480,8 @@ msgstr "Brakująca poczta"
 msgid "The default store is missing from the hierarchy."
 msgstr "Brak poczty domyślnej w hierarchii."
 
-msgid ""
-"Not all functionality of grommunio Web might be working properly because of "
-"this."
-msgstr ""
-"Aplikacja sieci Web może przez to funkcjonować nie w pełni prawidłowo."
+msgid "Not all functionality of grommunio Web might be working properly because of this."
+msgstr "Aplikacja sieci Web może przez to funkcjonować nie w pełni prawidłowo."
 
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
@@ -5884,8 +5531,7 @@ msgid "Missing folders"
 msgstr "Brakujące foldery"
 
 msgid "The following required folder is missing in the hierarchy: {0}"
-msgid_plural ""
-"The following required folders are missing in the hierarchy: {0}"
+msgid_plural "The following required folders are missing in the hierarchy: {0}"
 msgstr[0] "W hierarchii brakuje następującego wymaganego folderu: {0}"
 msgstr[1] "W hierarchii brakuje następujących wymaganych folderów: {0}"
 msgstr[2] "W hierarchii brakuje następujących wymaganych folderów: {0}"
@@ -5966,8 +5612,7 @@ msgid "Expiration date"
 msgstr "Data wygaśnięcia"
 
 msgid "More than 1 share link exists. Only showing the latest one"
-msgstr ""
-"Istnieje więcej niż 1 łącze udostępniania. Wyświetlany jest tylko najnowszy"
+msgstr "Istnieje więcej niż 1 łącze udostępniania. Wyświetlany jest tylko najnowszy"
 
 msgid "Loading details…"
 msgstr "Ładowanie szczegółów.."
@@ -6015,8 +5660,7 @@ msgid "Are you sure want to delete {0} folders and all of their contents?"
 msgstr "Czy na pewno chcesz usunąć foldery {0} i całą ich zawartość?"
 
 #, fuzzy
-msgid ""
-"Are you sure want to delete the selected items and all of their contents?"
+msgid "Are you sure want to delete the selected items and all of their contents?"
 msgstr "Czy na pewno chcesz usunąć wybrane elementy i całą ich zawartość?"
 
 msgid "Confirm overwrite"
@@ -6050,9 +5694,7 @@ msgid "Upload"
 msgstr "Prześlij"
 
 msgid "At least one file is too large! Maximum allowed filesize: {0}."
-msgstr ""
-"Co najmniej jeden plik jest za duży! Maksymalny dozwolony rozmiar pliku: "
-"{0}."
+msgstr "Co najmniej jeden plik jest za duży! Maksymalny dozwolony rozmiar pliku: {0}."
 
 msgid "Keep both"
 msgstr "Zachowaj oba"
@@ -6100,20 +5742,12 @@ msgid "Are you sure to remove all settings and accounts?"
 msgstr "Czy na pewno usunąłeś wszystkie ustawienia i konta?"
 
 #, fuzzy
-msgid ""
-"Accounts marked by your administrator as \"cannot be changed\" will not be "
-"removed."
-msgstr ""
-"Konta oznaczone przez administratora jako \"nie można zmienić\" nie zostaną "
-"usunięte."
+msgid "Accounts marked by your administrator as \"cannot be changed\" will not be removed."
+msgstr "Konta oznaczone przez administratora jako \"nie można zmienić\" nie zostaną usunięte."
 
 #, fuzzy
-msgid ""
-"grommunio Web will automatically restart in order for these changes to take "
-"effect."
-msgstr ""
-"grommunio Web zostanie automatycznie zrestartowany, aby te zmiany mogły "
-"wejść w życie."
+msgid "grommunio Web will automatically restart in order for these changes to take effect."
+msgstr "grommunio Web zostanie automatycznie zrestartowany, aby te zmiany mogły wejść w życie."
 
 msgid "grommunio Web is reloading, Please wait."
 msgstr "grommunio Web ładuje się ponownie, proszę czekać."
@@ -6332,11 +5966,8 @@ msgid "Edit share"
 msgstr "Edytuj zasób"
 
 #, fuzzy
-msgid ""
-"There are no accounts added. Go to settings, Files tab and add an account"
-msgstr ""
-"Nie ma dodanych żadnych kont. Przejdź do ustawień, zakładki Pliki i dodaj "
-"konto"
+msgid "There are no accounts added. Go to settings, Files tab and add an account"
+msgstr "Nie ma dodanych żadnych kont. Przejdź do ustawień, zakładki Pliki i dodaj konto"
 
 msgid "Filesize"
 msgstr "Rozmiar pliku"
@@ -6473,12 +6104,8 @@ msgstr "można wybrać załączniki. Istnieją"
 msgid "attachments selected"
 msgstr "wybrane załączniki"
 
-msgid ""
-"With the selection of separate attachments the total size of all attachments"
-" may not exceed"
-msgstr ""
-"W przypadku wyboru poszczególnych załączników łączny rozmiar wszystkich "
-"załączników nie może przekroczyć"
+msgid "With the selection of separate attachments the total size of all attachments may not exceed"
+msgstr "W przypadku wyboru poszczególnych załączników łączny rozmiar wszystkich załączników nie może przekroczyć"
 
 msgid "MB. There have been"
 msgstr "MB. Były"
@@ -6581,12 +6208,8 @@ msgid "Manage Shared Folders"
 msgstr "Zarządzanie folderami udostępnionymi"
 
 #, fuzzy
-msgid ""
-"Select folders to sync to your device from the list below. To add additional"
-" mailboxes to the list, open them in grommunio Web first."
-msgstr ""
-"Z poniższej listy wybierz foldery do synchronizacji z urządzeniem. Aby dodać"
-" do listy dodatkowe skrzynki pocztowe, otwórz je najpierw w grommunio Web."
+msgid "Select folders to sync to your device from the list below. To add additional mailboxes to the list, open them in grommunio Web first."
+msgstr "Z poniższej listy wybierz foldery do synchronizacji z urządzeniem. Aby dodać do listy dodatkowe skrzynki pocztowe, otwórz je najpierw w grommunio Web."
 
 msgid "grommunio-sync"
 msgstr "grommunio-sync"
@@ -6598,12 +6221,8 @@ msgid "Mobile Devices"
 msgstr "Urządzenia mobilne"
 
 #, fuzzy
-msgid ""
-"Unable to connect to the grommunio-sync server. Click {0} to enter your "
-"credentials"
-msgstr ""
-"Nie można połączyć się z serwerem grommunio-sync. Kliknij {0}, aby "
-"wprowadzić swoje dane uwierzytelniające"
+msgid "Unable to connect to the grommunio-sync server. Click {0} to enter your credentials"
+msgstr "Nie można połączyć się z serwerem grommunio-sync. Kliknij {0}, aby wprowadzić swoje dane uwierzytelniające"
 
 msgid "Devices"
 msgstr "Urządzenia"
@@ -6738,18 +6357,11 @@ msgid "Add the URL to the meeting location rather than overwriting it"
 msgstr "Dodaj adres URL do lokalizacji spotkania zamiast go nadpisywać"
 
 #, fuzzy
-msgid ""
-"Prevent the URL in the meeting location from being overridden automatically "
-"(ex: when adding a meetingroom)"
-msgstr ""
-"Zapobieganie automatycznemu nadpisywaniu adresu URL w lokalizacji spotkania "
-"(np. podczas dodawania sali konferencyjnej)"
+msgid "Prevent the URL in the meeting location from being overridden automatically (ex: when adding a meetingroom)"
+msgstr "Zapobieganie automatycznemu nadpisywaniu adresu URL w lokalizacji spotkania (np. podczas dodawania sali konferencyjnej)"
 
-msgid ""
-"If you have problems when creating meetings, try disabling this setting"
-msgstr ""
-"Jeśli masz problemy podczas tworzenia spotkań, spróbuj wyłączyć to "
-"ustawienie"
+msgid "If you have problems when creating meetings, try disabling this setting"
+msgstr "Jeśli masz problemy podczas tworzenia spotkań, spróbuj wyłączyć to ustawienie"
 
 msgid "Add an invitation to the appointment description"
 msgstr "Dodaj zaproszenie do opisu spotkania"
@@ -6757,13 +6369,8 @@ msgstr "Dodaj zaproszenie do opisu spotkania"
 msgid "Invitation text (plain text)"
 msgstr "Tekst zaproszenia (zwykły tekst)"
 
-msgid ""
-"used when composing in plain text, must contain %url%, empty to reset to "
-"default"
-msgstr ""
-"używana podczas tworzenia wiadomości w formacie zwykłego tekstu, musi "
-"zawierać %url%, pozostawienie pustego pola powoduje przywrócenie ustawień "
-"domyślnych"
+msgid "used when composing in plain text, must contain %url%, empty to reset to default"
+msgstr "używana podczas tworzenia wiadomości w formacie zwykłego tekstu, musi zawierać %url%, pozostawienie pustego pola powoduje przywrócenie ustawień domyślnych"
 
 msgid "Invitation text"
 msgstr "Tekst zaproszenia"
@@ -6771,11 +6378,8 @@ msgstr "Tekst zaproszenia"
 msgid "Invitation template (HTML)"
 msgstr "Szablon zaproszenia (HTML)"
 
-msgid ""
-"used when composing in HTML, must contain %url%, empty to reset to default"
-msgstr ""
-"używana podczas tworzenia wiadomości w HTML, musi zawierać %url%, "
-"pozostawienie pustego pola powoduje przywrócenie ustawień domyślnych"
+msgid "used when composing in HTML, must contain %url%, empty to reset to default"
+msgstr "używana podczas tworzenia wiadomości w HTML, musi zawierać %url%, pozostawienie pustego pola powoduje przywrócenie ustawień domyślnych"
 
 msgid "Invitation template"
 msgstr "Szablon zaproszenia"
@@ -6814,12 +6418,8 @@ msgid "One or more fields does contain errors."
 msgstr "Jedno lub więcej pól zawiera błędy."
 
 #, fuzzy
-msgid ""
-"Password is weak. Password should contain capital, non-capital letters and "
-"numbers. Password should have 8 to 20 characters."
-msgstr ""
-"Hasło jest słabe. Hasło powinno zawierać duże, małe i duże litery oraz "
-"cyfry. Hasło powinno mieć od 8 do 20 znaków."
+msgid "Password is weak. Password should contain capital, non-capital letters and numbers. Password should have 8 to 20 characters."
+msgstr "Hasło jest słabe. Hasło powinno zawierać duże, małe i duże litery oraz cyfry. Hasło powinno mieć od 8 do 20 znaków."
 
 msgid "Change passphrase"
 msgstr "Zmień hasło"
@@ -6891,13 +6491,8 @@ msgid "Please select a certificate."
 msgstr "Wybierz certyfikat."
 
 #, fuzzy
-msgid ""
-"Do you really want to remove your private certificate? If you remove your "
-"certificate you will not be able to sign or decrypt S/MIME emails."
-msgstr ""
-"Czy naprawdę chcesz usunąć swój prywatny certyfikat? Jeśli usuniesz swój "
-"certyfikat, nie będziesz mógł podpisywać ani odszyfrowywać wiadomości "
-"S/MIME."
+msgid "Do you really want to remove your private certificate? If you remove your certificate you will not be able to sign or decrypt S/MIME emails."
+msgstr "Czy naprawdę chcesz usunąć swój prywatny certyfikat? Jeśli usuniesz swój certyfikat, nie będziesz mógł podpisywać ani odszyfrowywać wiadomości S/MIME."
 
 msgid "Signing"
 msgstr "Podpisywanie"
@@ -6923,12 +6518,8 @@ msgstr "Odcisk palca SHA-256"
 msgid "SHA-1 Fingerprint"
 msgstr "Odcisk palca SHA-1"
 
-msgid ""
-"Warning: RSA key size is below 2048 bits. Consider upgrading to a stronger "
-"certificate."
-msgstr ""
-"Ostrzeżenie: Rozmiar klucza RSA jest mniejszy niż 2048 bitów. Rozważ "
-"aktualizację do certyfikatu o większym poziomie bezpieczeństwa."
+msgid "Warning: RSA key size is below 2048 bits. Consider upgrading to a stronger certificate."
+msgstr "Ostrzeżenie: Rozmiar klucza RSA jest mniejszy niż 2048 bitów. Rozważ aktualizację do certyfikatu o większym poziomie bezpieczeństwa."
 
 msgid "Certificate details"
 msgstr "Szczegóły certyfikatu"
@@ -6970,20 +6561,13 @@ msgid "Upload your certificate"
 msgstr "Prześlij swój certyfikat"
 
 #, fuzzy
-msgid ""
-"Below you can upload your private certificate in PKCS#12 format. grommunio "
-"Web only accepts certificates which are valid and only stores one private "
-"certificate on the server."
-msgstr ""
-"Poniżej możesz przesłać swój prywatny certyfikat w formacie PKCS#12. "
-"grommunio Web akceptuje tylko ważne certyfikaty i przechowuje tylko jeden "
-"prywatny certyfikat na serwerze."
+msgid "Below you can upload your private certificate in PKCS#12 format. grommunio Web only accepts certificates which are valid and only stores one private certificate on the server."
+msgstr "Poniżej możesz przesłać swój prywatny certyfikat w formacie PKCS#12. grommunio Web akceptuje tylko ważne certyfikaty i przechowuje tylko jeden prywatny certyfikat na serwerze."
 
 msgid "Private certificate"
 msgstr "Certyfikat prywatny"
 
-msgid ""
-"You must fill in the certificate passphrase to upload your certificate."
+msgid "You must fill in the certificate passphrase to upload your certificate."
 msgstr "Aby przesłać certyfikat, należy wpisać hasło certyfikatu."
 
 msgid "You must first select a valid private certificate in PKCS#12 format."
@@ -7005,23 +6589,15 @@ msgid "Sign message"
 msgstr "Komunikat o znaku"
 
 #, fuzzy
-msgid ""
-"Ensure the authenticity of the message by adding a digital signature to this"
-" message. Any changes to the message will invalidate the signature."
-msgstr ""
-"Zapewnij autentyczność wiadomości poprzez dodanie podpisu cyfrowego do tej "
-"wiadomości. Wszelkie zmiany w wiadomości spowodują unieważnienie podpisu."
+msgid "Ensure the authenticity of the message by adding a digital signature to this message. Any changes to the message will invalidate the signature."
+msgstr "Zapewnij autentyczność wiadomości poprzez dodanie podpisu cyfrowego do tej wiadomości. Wszelkie zmiany w wiadomości spowodują unieważnienie podpisu."
 
 msgid "Encrypt message"
 msgstr "Szyfrowanie wiadomości"
 
 #, fuzzy
-msgid ""
-"Ensure the privacy of the message by encrypting its contents. Only the "
-"recipient of the message will be able to open it."
-msgstr ""
-"Zapewnij prywatność wiadomości poprzez zaszyfrowanie jej treści. Tylko "
-"odbiorca wiadomości będzie mógł ją otworzyć."
+msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
+msgstr "Zapewnij prywatność wiadomości poprzez zaszyfrowanie jej treści. Tylko odbiorca wiadomości będzie mógł ją otworzyć."
 
 msgid "Algorithms used"
 msgstr "Zastosowane algorytmy"
@@ -7033,19 +6609,11 @@ msgid "CBC mode"
 msgstr "Tryb CBC"
 
 #, fuzzy
-msgid ""
-"grommunio Web can verify digital signatures of emails. A successful "
-"verification reassures you that the message has not been tampered with and "
-"validates the identity of the sender."
-msgstr ""
-"grommunio Web może weryfikować podpisy cyfrowe wiadomości e-mail. Pomyślna "
-"weryfikacja upewnia Cię, że wiadomość nie została naruszona i potwierdza "
-"tożsamość nadawcy."
+msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you that the message has not been tampered with and validates the identity of the sender."
+msgstr "grommunio Web może weryfikować podpisy cyfrowe wiadomości e-mail. Pomyślna weryfikacja upewnia Cię, że wiadomość nie została naruszona i potwierdza tożsamość nadawcy."
 
 #, fuzzy
-msgid ""
-"You are seeing this message because the verification of the digital "
-"signature"
+msgid "You are seeing this message because the verification of the digital signature"
 msgstr "Widzisz ten komunikat, ponieważ weryfikacja podpisu cyfrowego"
 
 msgid " has failed"
@@ -7061,150 +6629,73 @@ msgid "What should I do?"
 msgstr "Co powinienem zrobić?"
 
 #, fuzzy
-msgid ""
-"You can continue to work. However, you should keep in mind that the identity"
-" and the authenticity of the message content could not be verified."
-msgstr ""
-"Możesz kontynuować pracę. Należy jednak pamiętać, że tożsamość i "
-"autentyczność treści wiadomości nie mogła zostać zweryfikowana."
+msgid "You can continue to work. However, you should keep in mind that the identity and the authenticity of the message content could not be verified."
+msgstr "Możesz kontynuować pracę. Należy jednak pamiętać, że tożsamość i autentyczność treści wiadomości nie mogła zostać zweryfikowana."
 
 #, fuzzy
-msgid ""
-"You can contact your helpdesk or system administrator if you are not sure "
-"what to do next."
-msgstr ""
-"Możesz skontaktować się z działem pomocy technicznej lub administratorem "
-"systemu, jeśli nie jesteś pewien, co zrobić dalej."
+msgid "You can contact your helpdesk or system administrator if you are not sure what to do next."
+msgstr "Możesz skontaktować się z działem pomocy technicznej lub administratorem systemu, jeśli nie jesteś pewien, co zrobić dalej."
 
-msgid ""
-"grommunio Web can verify digital signatures of emails. A successful "
-"verification reassures you "
-msgstr ""
-"grommunio Web może zweryfikować podpisy cyfrowe wiadomości e-mail. Pomyślna "
-"weryfikacja daje pewność, że "
+msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you "
+msgstr "grommunio Web może zweryfikować podpisy cyfrowe wiadomości e-mail. Pomyślna weryfikacja daje pewność, że "
 
 #, fuzzy
-msgid ""
-"that the message has not been tampered with and validates the identity of "
-"the sender."
-msgstr ""
-"że wiadomość nie została zmanipulowana i zatwierdza tożsamość nadawcy."
+msgid "that the message has not been tampered with and validates the identity of the sender."
+msgstr "że wiadomość nie została zmanipulowana i zatwierdza tożsamość nadawcy."
 
 #, fuzzy
-msgid ""
-"The verification of the digital signature was successful for this email "
-"message."
-msgstr ""
-"Weryfikacja podpisu cyfrowego przebiegła pomyślnie dla tej wiadomości "
-"e-mail."
+msgid "The verification of the digital signature was successful for this email message."
+msgstr "Weryfikacja podpisu cyfrowego przebiegła pomyślnie dla tej wiadomości e-mail."
 
 msgid "grommunio Web could not find a public certificate for the recipient."
 msgstr "grommunio Web nie mógł znaleźć publicznego certyfikatu dla odbiorcy."
 
 #, fuzzy
-msgid ""
-"The identity of the sender and authenticity of the message content have been"
-" verified, but the certificate used to sign the message expired on [d-m-Y]."
-msgstr ""
-"Tożsamość nadawcy i autentyczność treści wiadomości zostały zweryfikowane, "
-"ale certyfikat użyty do podpisania wiadomości wygasł w dniu [d-m-Y]."
+msgid "The identity of the sender and authenticity of the message content have been verified, but the certificate used to sign the message expired on [d-m-Y]."
+msgstr "Tożsamość nadawcy i autentyczność treści wiadomości zostały zweryfikowane, ale certyfikat użyty do podpisania wiadomości wygasł w dniu [d-m-Y]."
 
 msgid "The digital signature could not be verified for unknown reasons."
 msgstr "Podpis cyfrowy nie mógł zostać zweryfikowany z nieznanych przyczyn."
 
 #, fuzzy
-msgid ""
-"The digital certificate used to sign this message has been revoked (i.e. the"
-" sender has marked it as compromised)"
-msgstr ""
-"Certyfikat cyfrowy użyty do podpisania tej wiadomości został unieważniony "
-"(tj. nadawca oznaczył go jako zagrożony)"
+msgid "The digital certificate used to sign this message has been revoked (i.e. the sender has marked it as compromised)"
+msgstr "Certyfikat cyfrowy użyty do podpisania tej wiadomości został unieważniony (tj. nadawca oznaczył go jako zagrożony)"
 
 #, fuzzy
-msgid ""
-"The verification service of the certificate authority that signed the "
-"sender's certificate is not available. The validity of the certificate could"
-" not be verified."
-msgstr ""
-"Usługa weryfikacji urzędu certyfikacji, który podpisał certyfikat nadawcy, "
-"nie jest dostępna. Nie można było zweryfikować ważności certyfikatu."
+msgid "The verification service of the certificate authority that signed the sender's certificate is not available. The validity of the certificate could not be verified."
+msgstr "Usługa weryfikacji urzędu certyfikacji, który podpisał certyfikat nadawcy, nie jest dostępna. Nie można było zweryfikować ważności certyfikatu."
 
 #, fuzzy
-msgid ""
-"The revocation status of the digital certificate used to sign this email is "
-"unknown (Server is unavailable or certificate does not support OCSP). The "
-"validity of the certificate could not be verified."
-msgstr ""
-"Status unieważnienia certyfikatu cyfrowego użytego do podpisania tej "
-"wiadomości e-mail jest nieznany (serwer jest niedostępny lub certyfikat nie "
-"obsługuje OCSP). Nie można było zweryfikować ważności certyfikatu."
+msgid "The revocation status of the digital certificate used to sign this email is unknown (Server is unavailable or certificate does not support OCSP). The validity of the certificate could not be verified."
+msgstr "Status unieważnienia certyfikatu cyfrowego użytego do podpisania tej wiadomości e-mail jest nieznany (serwer jest niedostępny lub certyfikat nie obsługuje OCSP). Nie można było zweryfikować ważności certyfikatu."
 
 #, fuzzy
-msgid ""
-"The revocation status of the digital certificate used to sign this email is "
-"disabled (OCSP). The validity of the certificate could not be verified."
-msgstr ""
-"Status unieważnienia certyfikatu cyfrowego użytego do podpisania tej "
-"wiadomości e-mail jest wyłączony (OCSP). Nie można było zweryfikować "
-"ważności certyfikatu."
+msgid "The revocation status of the digital certificate used to sign this email is disabled (OCSP). The validity of the certificate could not be verified."
+msgstr "Status unieważnienia certyfikatu cyfrowego użytego do podpisania tej wiadomości e-mail jest wyłączony (OCSP). Nie można było zweryfikować ważności certyfikatu."
 
 msgid "The certificate verification server (OCSP) is temporarily offline."
-msgstr ""
-"Serwer weryfikacji certyfikatów (OCSP) jest tymczasowo w trybie offline."
+msgstr "Serwer weryfikacji certyfikatów (OCSP) jest tymczasowo w trybie offline."
 
 msgid "Sender is removed from the server."
 msgstr "Nadawca został usunięty z serwera."
 
-msgid ""
-"The digital certificate used to sign this message has been revoked according"
-" to the Certificate Revocation List (CRL)."
-msgstr ""
-"Certyfikat cyfrowy użyty do podpisania tej wiadomości został unieważniony "
-"zgodnie z listą unieważnionych certyfikatów (CRL)."
+msgid "The digital certificate used to sign this message has been revoked according to the Certificate Revocation List (CRL)."
+msgstr "Certyfikat cyfrowy użyty do podpisania tej wiadomości został unieważniony zgodnie z listą unieważnionych certyfikatów (CRL)."
 
-msgid ""
-"The revocation status of the certificate could not be verified because the "
-"CRL Distribution Point is unavailable."
-msgstr ""
-"Nie można zweryfikować statusu unieważnienia certyfikatu, ponieważ punkt "
-"dystrybucji list CRL jest niedostępny."
+msgid "The revocation status of the certificate could not be verified because the CRL Distribution Point is unavailable."
+msgstr "Nie można zweryfikować statusu unieważnienia certyfikatu, ponieważ punkt dystrybucji list CRL jest niedostępny."
 
-msgid ""
-"The RSA key size used in this certificate is below the recommended minimum "
-"of 2048 bits. Consider upgrading to a stronger certificate."
-msgstr ""
-"Rozmiar klucza RSA użytego w tym certyfikacie jest mniejszy niż zalecane "
-"minimum wynoszące 2048 bitów. Rozważ aktualizację do certyfikatu o większym "
-"poziomie bezpieczeństwa."
+msgid "The RSA key size used in this certificate is below the recommended minimum of 2048 bits. Consider upgrading to a stronger certificate."
+msgstr "Rozmiar klucza RSA użytego w tym certyfikacie jest mniejszy niż zalecane minimum wynoszące 2048 bitów. Rozważ aktualizację do certyfikatu o większym poziomie bezpieczeństwa."
 
-msgid ""
-"The certificate's Key Usage extension does not permit this operation. The "
-"certificate may be intended for signing only or encryption only."
-msgstr ""
-"Rozszerzenie Key Usage certyfikatu nie zezwala na tę operację. Certyfikat "
-"może być przeznaczony wyłącznie do podpisywania lub wyłącznie do "
-"szyfrowania."
+msgid "The certificate's Key Usage extension does not permit this operation. The certificate may be intended for signing only or encryption only."
+msgstr "Rozszerzenie Key Usage certyfikatu nie zezwala na tę operację. Certyfikat może być przeznaczony wyłącznie do podpisywania lub wyłącznie do szyfrowania."
 
-msgid ""
-"This message was encrypted using CBC mode (not authenticated encryption). "
-"While it was decrypted successfully, AES-GCM (authenticated encryption) "
-"provides stronger protection against modification attacks. Consider asking "
-"the sender to upgrade their S/MIME configuration."
-msgstr ""
-"Ta wiadomość została zaszyfrowana w trybie CBC (szyfrowanie bez "
-"uwierzytelniania). Chociaż udało się ją odszyfrować, AES-GCM (szyfrowanie z "
-"uwierzytelnianiem) zapewnia lepszą ochronę przed atakami polegającymi na "
-"modyfikacji danych. Rozważ poproszenie nadawcy o aktualizację konfiguracji "
-"S/MIME."
+msgid "This message was encrypted using CBC mode (not authenticated encryption). While it was decrypted successfully, AES-GCM (authenticated encryption) provides stronger protection against modification attacks. Consider asking the sender to upgrade their S/MIME configuration."
+msgstr "Ta wiadomość została zaszyfrowana w trybie CBC (szyfrowanie bez uwierzytelniania). Chociaż udało się ją odszyfrować, AES-GCM (szyfrowanie z uwierzytelnianiem) zapewnia lepszą ochronę przed atakami polegającymi na modyfikacji danych. Rozważ poproszenie nadawcy o aktualizację konfiguracji S/MIME."
 
-msgid ""
-"The signing time in the digital signature differs significantly from the "
-"expected time. This may indicate a clock synchronization issue or message "
-"tampering."
-msgstr ""
-"Czas podpisania w podpisie cyfrowym znacznie różni się od oczekiwanego "
-"czasu. Może to wskazywać na problem z synchronizacją zegara lub manipulację "
-"wiadomością."
+msgid "The signing time in the digital signature differs significantly from the expected time. This may indicate a clock synchronization issue or message tampering."
+msgstr "Czas podpisania w podpisie cyfrowym znacznie różni się od oczekiwanego czasu. Może to wskazywać na problem z synchronizacją zegara lub manipulację wiadomością."
 
 msgid "Signature verified successfully"
 msgstr "Podpis zweryfikowany pomyślnie"
@@ -7326,12 +6817,8 @@ msgstr "Nowy szablon systemowy"
 msgid "Delete system template"
 msgstr "Usuń szablon systemowy"
 
-msgid ""
-"Are you sure you want to delete the system template \"{0}\"? This affects "
-"all users."
-msgstr ""
-"Czy na pewno chcesz usunąć szablon systemowy „{0}”? Ma to wpływ na "
-"wszystkich użytkowników."
+msgid "Are you sure you want to delete the system template \"{0}\"? This affects all users."
+msgstr "Czy na pewno chcesz usunąć szablon systemowy „{0}”? Ma to wpływ na wszystkich użytkowników."
 
 msgid "Insert Template"
 msgstr "Wstaw szablon"
@@ -7426,12 +6913,8 @@ msgstr "Oczekiwanie"
 msgid "You have been automatically logged out"
 msgstr "Zostałeś automatycznie wylogowany"
 
-msgid ""
-"Sorry, access to grommunio Web is not available with this user account. "
-"Please contact your system administrator."
-msgstr ""
-"Przepraszamy, dostęp do grommunio Web nie jest dostępny przy użyciu tego "
-"konta użytkownika. Prosimy o kontakt z administratorem systemu."
+msgid "Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator."
+msgstr "Przepraszamy, dostęp do grommunio Web nie jest dostępny przy użyciu tego konta użytkownika. Prosimy o kontakt z administratorem systemu."
 
 msgid "This backend provides the default WebDAV integration for Files."
 msgstr "Ten backend zapewnia domyślną integrację WebDAV dla plików."
@@ -7482,20 +6965,16 @@ msgid "File server is not reachable. Please verify the file server URL."
 msgstr "Serwer plików nie jest osiągalny. Sprawdź adres URL serwera plików."
 
 msgid "You don't have enough permissions to view this file or folder."
-msgstr ""
-"Nie masz wystarczających uprawnień, aby wyświetlić ten plik lub folder."
+msgstr "Nie masz wystarczających uprawnień, aby wyświetlić ten plik lub folder."
 
 msgid "The file or folder is not available anymore."
 msgstr "Plik lub folder nie jest już dostępny."
 
 msgid "Connection to the file server timed out. Please check again later."
-msgstr ""
-"Upłynął limit czasu połączenia z serwerem plików. Sprawdź ponownie później."
+msgstr "Upłynął limit czasu połączenia z serwerem plików. Sprawdź ponownie później."
 
 msgid "This file is locked by another user. Please try again later."
-msgstr ""
-"Ten plik jest zablokowany przez innego użytkownika. Spróbuj ponownie "
-"później."
+msgstr "Ten plik jest zablokowany przez innego użytkownika. Spróbuj ponownie później."
 
 msgid "The request failed."
 msgstr "Żądanie nie powiodło się."
@@ -7513,8 +6992,7 @@ msgid "PHP-Curl is not available."
 msgstr "PHP-Curl nie jest dostępny."
 
 msgid "With this backend, you can connect to any Seafile server."
-msgstr ""
-"Za pomocą tego backendu można połączyć się z dowolnym serwerem Seafile."
+msgstr "Za pomocą tego backendu można połączyć się z dowolnym serwerem Seafile."
 
 msgid "Files "
 msgstr "Pliki "
@@ -7532,8 +7010,7 @@ msgid "File is not available any more."
 msgstr "Plik nie jest już dostępny."
 
 msgid "Connection to server timed out. Retry later."
-msgstr ""
-"Przekroczono limit czasu połączenia z serwerem. Spróbuj ponownie później."
+msgstr "Przekroczono limit czasu połączenia z serwerem. Spróbuj ponownie później."
 
 msgid "This file is locked by another user."
 msgstr "Ten plik jest zablokowany przez innego użytkownika."
@@ -7544,18 +7021,11 @@ msgstr "Żądanie nie powiodło się z powodu niepowodzenia poprzedniego żądan
 msgid "Seafile-server encountered a problem."
 msgstr "Seafile-server napotkał problem."
 
-msgid ""
-"Could not write to temporary directory. Contact the server administrator."
-msgstr ""
-"Nie można zapisać danych w katalogu tymczasowym. Skontaktuj się z "
-"administratorem serwera."
+msgid "Could not write to temporary directory. Contact the server administrator."
+msgstr "Nie można zapisać danych w katalogu tymczasowym. Skontaktuj się z administratorem serwera."
 
-msgid ""
-"Could not retrieve list of server features. Contact the server "
-"administrator."
-msgstr ""
-"Nie można pobrać listy funkcji serwera. Skontaktuj się z administratorem "
-"serwera."
+msgid "Could not retrieve list of server features. Contact the server administrator."
+msgstr "Nie można pobrać listy funkcji serwera. Skontaktuj się z administratorem serwera."
 
 msgid "PHP-Curl is not available. Contact your system administrator."
 msgstr "PHP-Curl nie jest dostępny. Skontaktuj się z administratorem systemu."
@@ -7600,8 +7070,7 @@ msgid "Deleting share failed"
 msgstr "Usunięcie udziału nie powiodło się"
 
 msgid "With this backend, you can connect to any WebDAV server."
-msgstr ""
-"Za pomocą tego backendu można połączyć się z dowolnym serwerem WebDAV."
+msgstr "Za pomocą tego backendu można połączyć się z dowolnym serwerem WebDAV."
 
 msgid "Files WebDAV Backend: "
 msgstr "Pliki WebDAV Backend: "
@@ -7643,13 +7112,10 @@ msgid "File backend not responding. Please try again later."
 msgstr "Backend plików nie odpowiada. Spróbuj ponownie później."
 
 msgid "Zip file generation failed. Please inform the administrator."
-msgstr ""
-"Generowanie pliku Zip nie powiodło się. Prosimy o poinformowanie "
-"administratora."
+msgstr "Generowanie pliku Zip nie powiodło się. Prosimy o poinformowanie administratora."
 
 msgid "This file is no longer available. Please reload the folder."
-msgstr ""
-"Ten plik nie jest już dostępny. Prosimy o ponowne załadowanie folderu."
+msgstr "Ten plik nie jest już dostępny. Prosimy o ponowne załadowanie folderu."
 
 msgid "Kendox certificate path is not configured."
 msgstr "Ścieżka certyfikatu Kendox nie jest skonfigurowana."
@@ -7667,12 +7133,8 @@ msgid "Mobile device management plugin"
 msgstr "Wtyczka do zarządzania urządzeniami mobilnymi"
 
 #, fuzzy, php-format
-msgid ""
-"Unexpected error occurred. Please contact your system administrator. Error "
-"code: %s"
-msgstr ""
-"Wystąpił nieoczekiwany błąd. Prosimy o kontakt z administratorem systemu. "
-"Kod błędu: %s"
+msgid "Unexpected error occurred. Please contact your system administrator. Error code: %s"
+msgstr "Wystąpił nieoczekiwany błąd. Prosimy o kontakt z administratorem systemu. Kod błędu: %s"
 
 msgid "No data received."
 msgstr "Nie otrzymano żadnych danych."
@@ -7681,22 +7143,14 @@ msgid "Account is empty."
 msgstr "Konto jest puste."
 
 #, fuzzy
-msgid ""
-"Your password is wrong or you have insufficient permission to change "
-"password"
-msgstr ""
-"Twoje hasło jest nieprawidłowe lub nie masz wystarczających uprawnień do "
-"zmiany hasła"
+msgid "Your password is wrong or you have insufficient permission to change password"
+msgstr "Twoje hasło jest nieprawidłowe lub nie masz wystarczających uprawnień do zmiany hasła"
 
 msgid "Password is not changed."
 msgstr "Hasło nie zostało zmienione."
 
-msgid ""
-"Error changing password. Please verify your password or contact the system "
-"administrator."
-msgstr ""
-"Wystąpił błąd podczas zmiany hasła. Sprawdź hasło lub skontaktuj się z "
-"administratorem systemu."
+msgid "Error changing password. Please verify your password or contact the system administrator."
+msgstr "Wystąpił błąd podczas zmiany hasła. Sprawdź hasło lub skontaktuj się z administratorem systemu."
 
 msgid "Password has been changed successfully."
 msgstr "Hasło zostało zmienione pomyślnie."
@@ -7708,9 +7162,7 @@ msgid "Private certificate has expired, unable to sign email"
 msgstr "Certyfikat prywatny wygasł, nie można podpisać wiadomości e-mail"
 
 msgid "Private certificate is not valid yet, unable to sign email"
-msgstr ""
-"Certyfikat prywatny nie jest jeszcze ważny, nie można podpisać wiadomości "
-"e-mail"
+msgstr "Certyfikat prywatny nie jest jeszcze ważny, nie można podpisać wiadomości e-mail"
 
 msgid "Private certificate does not match email address"
 msgstr "Certyfikat prywatny nie pasuje do adresu e-mail"
@@ -7737,12 +7189,8 @@ msgid ". Please contact your system administrator for details"
 msgstr ". Szczegółowe informacje można uzyskać od administratora systemu"
 
 #, fuzzy
-msgid ""
-"Your public certificate is not installed. Without this certificate, you will"
-" not be able to read encrypted messages you have sent to others."
-msgstr ""
-"Twój certyfikat publiczny nie został zainstalowany. Bez tego certyfikatu nie"
-" będziesz mógł odczytać zaszyfrowanych wiadomości, które wysłałeś do innych."
+msgid "Your public certificate is not installed. Without this certificate, you will not be able to read encrypted messages you have sent to others."
+msgstr "Twój certyfikat publiczny nie został zainstalowany. Bez tego certyfikatu nie będziesz mógł odczytać zaszyfrowanych wiadomości, które wysłałeś do innych."
 
 msgid "Certificate is already stored on the server"
 msgstr "Certyfikat jest już przechowywany na serwerze"
@@ -7757,19 +7205,11 @@ msgid "Certificate email address doesn't match grommunio Web account "
 msgstr "Adres e-mail certyfikatu nie pasuje do konta grommunio Web "
 
 #, php-format
-msgid ""
-"RSA key size %d bits is below the recommended minimum of %d bits. "
-"Certificate was imported."
-msgstr ""
-"Rozmiar klucza RSA wynoszący %d bitów jest mniejszy od zalecanego minimum "
-"wynoszącego %d bitów. Certyfikat został zaimportowany."
+msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."
+msgstr "Rozmiar klucza RSA wynoszący %d bitów jest mniejszy od zalecanego minimum wynoszącego %d bitów. Certyfikat został zaimportowany."
 
-msgid ""
-"EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully "
-"supported. Certificate was imported."
-msgstr ""
-"Certyfikaty EdDSA (Ed25519) wymagają PHP 8.4+ i mogą nie być w pełni "
-"obsługiwane. Certyfikat został zaimportowany."
+msgid "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully supported. Certificate was imported."
+msgstr "Certyfikaty EdDSA (Ed25519) wymagają PHP 8.4+ i mogą nie być w pełni obsługiwane. Certyfikat został zaimportowany."
 
 msgid "Certificate was expired on "
 msgstr "Certyfikat wygasł w dniu "
@@ -7817,9 +7257,7 @@ msgid "Template deleted successfully."
 msgstr "Szablon został pomyślnie usunięty."
 
 msgid "Can't add data to bus, same action type is present in bus"
-msgstr ""
-"Nie można dodać danych do magistrali, ten sam typ akcji jest obecny w "
-"magistrali"
+msgstr "Nie można dodać danych do magistrali, ten sam typ akcji jest obecny w magistrali"
 
 msgid "Response data requested from bus but it doesn't have any data."
 msgstr "Dane odpowiedzi zażądane z magistrali, ale nie ma żadnych danych."
@@ -7829,10 +7267,8 @@ msgid "Unknown module '%s' with id '%s'"
 msgstr "Nieznany moduł '%s' o identyfikatorze '%s'"
 
 #, fuzzy
-msgid ""
-"Server encountered some problem, so it was not able to handle the request."
-msgstr ""
-"Serwer napotkał jakiś problem, więc nie był w stanie obsłużyć żądania."
+msgid "Server encountered some problem, so it was not able to handle the request."
+msgstr "Serwer napotkał jakiś problem, więc nie był w stanie obsłużyć żądania."
 
 #, php-format
 msgid "Unknown notifier '%s'"
@@ -7844,11 +7280,10 @@ msgstr "Wystąpił nieoczekiwany błąd"
 msgid "To-Do List"
 msgstr "Lista rzeczy do zrobienia"
 
-#. TRANSLATORS: This indicates that the opened folder belongs to a particular
-#. user,
-#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the
-#. foldername)
+#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
+#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
 #. * and %2$s is 'Holiday' (the username).
+#.
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "strony %1$s z %2$s"
@@ -7860,19 +7295,13 @@ msgid "Error retrieving existing persistent settings"
 msgstr "Błąd pobierania istniejących ustawień stałych"
 
 msgid "Logon failed. Please verify your credentials and try again."
-msgstr ""
-"Logowanie nie powiodło się. Sprawdź swoje dane uwierzytelniające i spróbuj "
-"ponownie."
+msgstr "Logowanie nie powiodło się. Sprawdź swoje dane uwierzytelniające i spróbuj ponownie."
 
 msgid "Cannot connect to Gromox."
 msgstr "Nie może się połączyć z Gromox."
 
-msgid ""
-"Login did not work due to a duplicate session. The issue was automatically "
-"resolved, please log in again."
-msgstr ""
-"Logowanie nie działało z powodu podwójnej sesji. Problem został "
-"automatycznie rozwiązany, proszę się ponownie zalogować."
+msgid "Login did not work due to a duplicate session. The issue was automatically resolved, please log in again."
+msgstr "Logowanie nie działało z powodu podwójnej sesji. Problem został automatycznie rozwiązany, proszę się ponownie zalogować."
 
 msgid "Unknown MAPI Error"
 msgstr "Nieznany błąd MAPI"
@@ -7931,8 +7360,7 @@ msgid "Task Request"
 msgstr "Żądanie zadania"
 
 msgid "Could not find message, either it has been moved or deleted."
-msgstr ""
-"Nie można znaleźć wiadomości, albo została przeniesiona, albo usunięta."
+msgstr "Nie można znaleźć wiadomości, albo została przeniesiona, albo usunięta."
 
 msgid "Action is not performed correctly."
 msgstr "Działanie nie zostało wykonane prawidłowo."
@@ -7958,21 +7386,14 @@ msgstr "Publiczne foldery kontaktów"
 msgid "Error in search, please try again"
 msgstr "Błąd wyszukiwania, spróbuj ponownie"
 
-msgid ""
-"Unable to perform search query, no permissions to create search folder."
-msgstr ""
-"Nie można wykonać zapytania wyszukiwania, brak uprawnień do utworzenia "
-"folderu wyszukiwania."
+msgid "Unable to perform search query, no permissions to create search folder."
+msgstr "Nie można wykonać zapytania wyszukiwania, brak uprawnień do utworzenia folderu wyszukiwania."
 
 msgid "Unable to perform search query, search folder not found."
-msgstr ""
-"Nie można wykonać zapytania wyszukiwania, nie znaleziono folderu "
-"wyszukiwania."
+msgstr "Nie można wykonać zapytania wyszukiwania, nie znaleziono folderu wyszukiwania."
 
 msgid "Unable to perform search query, store might not support searching."
-msgstr ""
-"Nie można wykonać zapytania wyszukiwania, sklep może nie obsługiwać "
-"wyszukiwania."
+msgstr "Nie można wykonać zapytania wyszukiwania, sklep może nie obsługiwać wyszukiwania."
 
 msgid "Error in creating search folder."
 msgstr "Błąd podczas tworzenia folderu wyszukiwania."
@@ -7981,9 +7402,7 @@ msgid "Could not open occurrence."
 msgstr "Nie można otworzyć wystąpienia."
 
 msgid "Could not open occurrence, specific occurrence is probably deleted."
-msgstr ""
-"Nie można otworzyć wystąpienia, określone wystąpienie zostało prawdopodobnie"
-" usunięte."
+msgstr "Nie można otworzyć wystąpienia, określone wystąpienie zostało prawdopodobnie usunięte."
 
 msgid "a meeting request"
 msgstr "prośba o spotkanie"
@@ -7995,51 +7414,27 @@ msgid "You have insufficient privileges to move "
 msgstr "Nie masz wystarczających uprawnień, aby przenieść się"
 
 #, fuzzy
-msgid ""
-"Cannot set a reminder to appear before the previous occurrence. Reset "
-"reminder to save the change"
-msgstr ""
-"Nie można ustawić przypomnienia, aby pojawiło się przed poprzednim "
-"wystąpieniem. Wyzeruj przypomnienie, aby zapisać zmianę"
+msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
+msgstr "Nie można ustawić przypomnienia, aby pojawiło się przed poprzednim wystąpieniem. Wyzeruj przypomnienie, aby zapisać zmianę"
 
 msgid "Two occurrences cannot occur on the same day"
 msgstr "Dwa zdarzenia nie mogą wystąpić tego samego dnia"
 
 #, fuzzy, php-format
-msgid ""
-"You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
-"because you do not have the appropriate permissions for that account. Either"
-" enter the name as a required or optional attendee or talk to your "
-"administrator about giving you permission to schedule '%s'."
-msgstr ""
-"Zaznaczyłeś '%s' jako zasób. Nie możesz zaplanować spotkania z \"%s\", "
-"ponieważ nie masz odpowiednich uprawnień dla tego konta. Wprowadź to "
-"nazwisko jako uczestnika wymaganego lub opcjonalnego albo porozmawiaj z "
-"administratorem o nadaniu Ci uprawnień do planowania spotkania '%s'."
+msgid "You marked '%s' as a resource. You cannot schedule a meeting with '%s' because you do not have the appropriate permissions for that account. Either enter the name as a required or optional attendee or talk to your administrator about giving you permission to schedule '%s'."
+msgstr "Zaznaczyłeś '%s' jako zasób. Nie możesz zaplanować spotkania z \"%s\", ponieważ nie masz odpowiednich uprawnień dla tego konta. Wprowadź to nazwisko jako uczestnika wymaganego lub opcjonalnego albo porozmawiaj z administratorem o nadaniu Ci uprawnień do planowania spotkania '%s'."
 
 #, fuzzy, php-format
-msgid ""
-"'%s' has declined your meeting because '%s' does not automatically accept "
-"meeting requests."
-msgstr ""
-"'%s' odrzucił Twoje spotkanie, ponieważ '%s' nie przyjmuje automatycznie "
-"próśb o spotkanie."
+msgid "'%s' has declined your meeting because '%s' does not automatically accept meeting requests."
+msgstr "'%s' odrzucił Twoje spotkanie, ponieważ '%s' nie przyjmuje automatycznie próśb o spotkanie."
 
 #, fuzzy, php-format
-msgid ""
-"'%s' has declined your meeting because it is recurring. You must book each "
-"meeting separately with this resource."
-msgstr ""
-"'%s' odrzuciło Twoje spotkanie, ponieważ jest ono powtarzające się. Musisz "
-"zarezerwować każde spotkanie osobno w tym zasobie."
+msgid "'%s' has declined your meeting because it is recurring. You must book each meeting separately with this resource."
+msgstr "'%s' odrzuciło Twoje spotkanie, ponieważ jest ono powtarzające się. Musisz zarezerwować każde spotkanie osobno w tym zasobie."
 
 #, fuzzy, php-format
-msgid ""
-"'%s' is already booked for this specified time. You must use another time or"
-" find another resource."
-msgstr ""
-"'%s' jest już zarezerwowane na ten określony czas. Musisz użyć innego czasu "
-"lub znaleźć inny zasób."
+msgid "'%s' is already booked for this specified time. You must use another time or find another resource."
+msgstr "'%s' jest już zarezerwowane na ten określony czas. Musisz użyć innego czasu lub znaleźć inny zasób."
 
 msgid "Meeting was not scheduled."
 msgstr "Spotkanie nie zostało zaplanowane."
@@ -8072,9 +7467,7 @@ msgstr "Osiągnięto limit limitu wysyłania"
 
 #, php-format
 msgid "Email sending failed (%s). Check the log files for more information."
-msgstr ""
-"Wysyłanie wiadomości e-mail nie powiodło się (%s). Sprawdź pliki dziennika, "
-"aby uzyskać więcej informacji."
+msgstr "Wysyłanie wiadomości e-mail nie powiodło się (%s). Sprawdź pliki dziennika, aby uzyskać więcej informacji."
 
 msgid "Unknown user/group"
 msgstr "Nieznany użytkownik/grupa"
@@ -8131,17 +7524,14 @@ msgid "Could not perform action correctly."
 msgstr "Nie można poprawnie wykonać akcji."
 
 #, fuzzy
-msgid ""
-"A favorite folder with this name already exists, please use another name."
+msgid "A favorite folder with this name already exists, please use another name."
 msgstr "Ulubiony folder o tej nazwie już istnieje, proszę użyć innej nazwy."
 
 msgid "Could not add folder to favorites."
 msgstr "Nie można dodać folderu do ulubionych."
 
 msgid "You have insufficient privileges to set permissions for this folder."
-msgstr ""
-"Nie masz wystarczających uprawnień, aby ustawić uprawnienia dla tego "
-"folderu."
+msgstr "Nie masz wystarczających uprawnień, aby ustawić uprawnienia dla tego folderu."
 
 msgid "Could not set folder permissions."
 msgstr "Nie można ustawić uprawnień folderu."
@@ -8168,15 +7558,8 @@ msgid "User could not be resolved."
 msgstr "Użytkownik nie mógł zostać rozwiązany."
 
 #, fuzzy, php-format
-msgid ""
-"You have insufficient privileges to open this %1$s folder. The folder owner "
-"can set these using the 'permissions'-tab of the folder properties (right "
-"click the %1$s folder > properties > permissions)."
-msgstr ""
-"Nie masz wystarczających uprawnień, aby otworzyć ten %1$s folder. Właściciel"
-" folderu może je ustawić za pomocą zakładki \"uprawnienia\" we "
-"właściwościach folderu (kliknij prawym przyciskiem myszy folder %1$s > "
-"właściwości > uprawnienia)."
+msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
+msgstr "Nie masz wystarczających uprawnień, aby otworzyć ten %1$s folder. Właściciel folderu może je ustawić za pomocą zakładki \"uprawnienia\" we właściwościach folderu (kliknij prawym przyciskiem myszy folder %1$s > właściwości > uprawnienia)."
 
 msgid "default"
 msgstr "domyślny"
@@ -8197,23 +7580,17 @@ msgid "You have insufficient privileges to open this message."
 msgstr "Nie masz wystarczających uprawnień, aby otworzyć tę wiadomość."
 
 #, fuzzy
-msgid ""
-"Could not find message, either it has been moved or deleted or you don't "
-"have access to open this message."
-msgstr ""
-"Nie można znaleźć wiadomości, albo została ona przeniesiona lub usunięta, "
-"albo nie masz dostępu do otwarcia tej wiadomości."
+msgid "Could not find message, either it has been moved or deleted or you don't have access to open this message."
+msgstr "Nie można znaleźć wiadomości, albo została ona przeniesiona lub usunięta, albo nie masz dostępu do otwarcia tej wiadomości."
 
 msgid "Could not open message."
 msgstr "Nie można otworzyć wiadomości."
 
 msgid "You have insufficient privileges to decline this Meeting Request"
-msgstr ""
-"Nie masz wystarczających uprawnień, aby odrzucić wezwanie na spotkanie"
+msgstr "Nie masz wystarczających uprawnień, aby odrzucić wezwanie na spotkanie"
 
 msgid "You have insufficient privileges to accept this Meeting Request"
-msgstr ""
-"Nie masz wystarczających uprawnień, aby zaakceptować wezwanie na spotkanie"
+msgstr "Nie masz wystarczających uprawnień, aby zaakceptować wezwanie na spotkanie"
 
 msgid "Could not copy message"
 msgstr "Nie można skopiować wiadomości"
@@ -8225,8 +7602,7 @@ msgid "Could not forward meeting request"
 msgstr "Nie udało się przesłać zaproszenia na spotkanie"
 
 msgid "You have insufficient privileges to save items in this folder"
-msgstr ""
-"Nie masz wystarczających uprawnień, aby zapisywać elementyw tym folderze"
+msgstr "Nie masz wystarczających uprawnień, aby zapisywać elementyw tym folderze"
 
 msgid "Could not save message"
 msgstr "Nie można zapisać wiadomości"
@@ -8234,12 +7610,8 @@ msgstr "Nie można zapisać wiadomości"
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr "Nie masz wystarczających uprawnień, aby usunąć wpis z kalendarza."
 
-msgid ""
-"Message is no longer in the outgoing queue, typically because it has already"
-" been sent."
-msgstr ""
-"Wiadomość nie znajduje się już w kolejce wychodzącej, zazwyczaj dlatego, że "
-"została już wysłana."
+msgid "Message is no longer in the outgoing queue, typically because it has already been sent."
+msgstr "Wiadomość nie znajduje się już w kolejce wychodzącej, zazwyczaj dlatego, że została już wysłana."
 
 msgid "Message cannot be aborted"
 msgstr "Wiadomość nie może zostać przerwana"
@@ -8253,26 +7625,20 @@ msgstr "Nie masz wystarczających uprawnień, aby dodać element jako załączni
 msgid "Could not attach item as an attachment."
 msgstr "Nie można dodać tego elementu jako załącznik."
 
-msgid ""
-"You have insufficient privileges to reclaim the ownership for the Task "
-"Request."
-msgstr ""
-"Nie masz wystarczających uprawnień, aby żądać przywrócenia uprawnień "
-"właścicielado wprowadzenia zadania."
+msgid "You have insufficient privileges to reclaim the ownership for the Task Request."
+msgstr "Nie masz wystarczających uprawnień, aby żądać przywrócenia uprawnień właścicielado wprowadzenia zadania."
 
 msgid "Could not reclaim the ownership for the Task Request."
 msgstr "Nie można żądać przywrócenia uprawnień wprowadzenia zadania."
 
 msgid "You have insufficient privileges to accept this Task Request."
-msgstr ""
-"Nie masz wystarczających uprawnień, aby zaakceptować wprowadzeniezadania."
+msgstr "Nie masz wystarczających uprawnień, aby zaakceptować wprowadzeniezadania."
 
 msgid "Could not accept Task Request."
 msgstr "Wprowadzenie zadania nie może być zaakceptowane."
 
 msgid "You have insufficient privileges to decline this Task Request."
-msgstr ""
-"Nie masz wystarczających uprawnień, aby die odrzucić wprowadzone zadanie."
+msgstr "Nie masz wystarczających uprawnień, aby die odrzucić wprowadzone zadanie."
 
 msgid "Could not decline Task Request."
 msgstr "Wprowadzenie zadania nie może być odrzucone."
@@ -8281,19 +7647,14 @@ msgid "Conflicts with another appointment."
 msgstr "Koliduje z innym terminem."
 
 #, php-format
-msgid ""
-"%s occurrence of this recurring appointment conflicts with other "
-"appointment."
-msgid_plural ""
-"%s occurrences of this recurring appointment conflicts with other "
-"appointments."
+msgid "%s occurrence of this recurring appointment conflicts with other appointment."
+msgid_plural "%s occurrences of this recurring appointment conflicts with other appointments."
 msgstr[0] "%s Czas tego powtórzonego terminu koliduje z innym terminem."
 msgstr[1] "%s Czasy tego powtórzonego terminu kolidują z innymi terminami."
 msgstr[2] "%s Czasy tego powtórzonego terminu kolidują z innymi terminami."
 
 msgid "Your message did not reach some or all of the intended recipients"
-msgstr ""
-"Twoja wiadomość nie została dostarczona do jednego lub więcej adresatów"
+msgstr "Twoja wiadomość nie została dostarczona do jednego lub więcej adresatów"
 
 msgid "The following recipient(s) could not be reached"
 msgstr "Ten odbiorca nie jest dostępny"
@@ -8311,18 +7672,14 @@ msgid "Meeting Time"
 msgstr "Godzina spotkania"
 
 msgid "You have insufficient privileges to see the contents of this folder."
-msgstr ""
-"Nie masz wystarczających uprawnień, aby zobaczyć zawartość tego folderu."
+msgstr "Nie masz wystarczających uprawnień, aby zobaczyć zawartość tego folderu."
 
 msgid "Could not load the contents of this folder."
 msgstr "Nie można załadować zawartości tego folderu."
 
 #, fuzzy
-msgid ""
-"You have insufficient privileges to perform search operation in this folder."
-msgstr ""
-"Nie masz wystarczających uprawnień do wykonywania operacji wyszukiwania w "
-"tym folderze."
+msgid "You have insufficient privileges to perform search operation in this folder."
+msgstr "Nie masz wystarczających uprawnień do wykonywania operacji wyszukiwania w tym folderze."
 
 msgid "Could not update search results."
 msgstr "Nie można zaktualizować wyników wyszukiwania."
@@ -8343,30 +7700,25 @@ msgid "Could not delete message."
 msgstr "Nie można usunąć wiadomości."
 
 msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr ""
-"Nie masz wystarczających uprawnień, aby anulować to żądanie spotkania."
+msgstr "Nie masz wystarczających uprawnień, aby anulować to żądanie spotkania."
 
 msgid "Could not cancel Meeting Request."
 msgstr "Nie można anulować żądania spotkania."
 
 msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr ""
-"Nie masz wystarczających uprawnień, aby odrzucić to żądanie spotkania."
+msgstr "Nie masz wystarczających uprawnień, aby odrzucić to żądanie spotkania."
 
 msgid "Could not decline Meeting Request."
 msgstr "Nie można odrzucić żądania spotkania."
 
 msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr ""
-"Nie masz wystarczających uprawnień, aby zaakceptować to żądanie spotkania."
+msgstr "Nie masz wystarczających uprawnień, aby zaakceptować to żądanie spotkania."
 
 msgid "Could not accept Meeting Request."
 msgstr "Nie można zaakceptować żądania spotkania."
 
 msgid "You have insufficient privileges to cancel Meeting Request invitation."
-msgstr ""
-"Nie masz wystarczających uprawnień, aby anulować zaproszenie do udziału w "
-"spotkaniu."
+msgstr "Nie masz wystarczających uprawnień, aby anulować zaproszenie do udziału w spotkaniu."
 
 msgid "Could not cancel Meeting Request invitations."
 msgstr "Nie można anulować zaproszeń do spotkań."
@@ -8384,13 +7736,8 @@ msgid "The message store has exceeded its hard quota limit."
 msgstr "Magazyn wiadomości przekroczył limit twardego limitu."
 
 #, fuzzy
-msgid ""
-"To reduce the amount of data in this message store, select some items that "
-"you no longer need, delete them and cleanup your Deleted Items folder."
-msgstr ""
-"Aby zmniejszyć ilość danych w tym magazynie wiadomości, wybierz kilka "
-"elementów, które nie są już potrzebne, usuń je i wyczyść folder Deleted "
-"Items."
+msgid "To reduce the amount of data in this message store, select some items that you no longer need, delete them and cleanup your Deleted Items folder."
+msgstr "Aby zmniejszyć ilość danych w tym magazynie wiadomości, wybierz kilka elementów, które nie są już potrzebne, usuń je i wyczyść folder Deleted Items."
 
 msgid "The message store has exceeded its soft quota limit."
 msgstr "Magazyn wiadomości przekroczył limit soft quota."
@@ -8403,14 +7750,10 @@ msgid "Unknown action type specified - %s"
 msgstr "Określono nieznany typ akcji - %s"
 
 msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr ""
-"Nie można odłożyć przypomnienia. Przypomnienie może zostać wyświetlone "
-"ponownie."
+msgstr "Nie można odłożyć przypomnienia. Przypomnienie może zostać wyświetlone ponownie."
 
 msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr ""
-"Nie można odrzucić przypomnienia. Przypomnienie może zostać wyświetlone "
-"ponownie."
+msgstr "Nie można odrzucić przypomnienia. Przypomnienie może zostać wyświetlone ponownie."
 
 msgid "You have insufficient privileges to perform this action."
 msgstr "Nie masz wystarczających uprawnień do wykonania tej akcji."
@@ -8419,8 +7762,7 @@ msgid "Could not resolve user."
 msgstr "Nie można rozpoznać użytkownika."
 
 msgid "Setting mail filters on the stores of other users is not allowed."
-msgstr ""
-"Ustawianie filtrów poczty w sklepach innych użytkowników jest niedozwolone."
+msgstr "Ustawianie filtrów poczty w sklepach innych użytkowników jest niedozwolone."
 
 msgid "Untitled rule"
 msgstr "Zasada bez tytułu"
@@ -8440,16 +7782,11 @@ msgstr "Zaloguj"
 msgid "File is not imported successfully"
 msgstr "Plik nie został pomyślnie zaimportowany"
 
-msgid ""
-"The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr "Przesłany plik przekracza dyrektywę upload_max_filesize w php.ini."
 
-msgid ""
-"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
-"the HTML form."
-msgstr ""
-"Przesłany plik przekracza dyrektywę MAX_FILE_SIZE określoną w formularzu "
-"HTML."
+msgid "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form."
+msgstr "Przesłany plik przekracza dyrektywę MAX_FILE_SIZE określoną w formularzu HTML."
 
 msgid "The uploaded file was only partially uploaded."
 msgstr "Przesłany plik został przesłany tylko częściowo."
@@ -8463,26 +7800,17 @@ msgstr "Brak folderu tymczasowego."
 msgid "Failed to write file to disk."
 msgstr "Nie udało się zapisać pliku na dysku."
 
-msgid ""
-"A PHP extension stopped the file upload. PHP does not provide a way to "
-"ascertain which extension caused the file upload to stop; examining the list"
-" of loaded extensions with phpinfo() may help."
-msgstr ""
-"Rozszerzenie PHP zatrzymało wysyłanie pliku. PHP nie zapewnia sposobu na "
-"ustalenie, które rozszerzenie spowodowało zatrzymanie wysyłania pliku; "
-"pomocne może być sprawdzenie listy załadowanych rozszerzeń za pomocą "
-"phpinfo()."
+msgid "A PHP extension stopped the file upload. PHP does not provide a way to ascertain which extension caused the file upload to stop; examining the list of loaded extensions with phpinfo() may help."
+msgstr "Rozszerzenie PHP zatrzymało wysyłanie pliku. PHP nie zapewnia sposobu na ustalenie, które rozszerzenie spowodowało zatrzymanie wysyłania pliku; pomocne może być sprawdzenie listy załadowanych rozszerzeń za pomocą phpinfo()."
 
 msgid "There is no contact found in this file."
 msgstr "W tym pliku nie ma żadnego kontaktu."
 
-msgid ""
-"grommunio Web does not support importing multiple VCF with this version."
+msgid "grommunio Web does not support importing multiple VCF with this version."
 msgstr "grommunio Web nie obsługuje importowania wielu VCF w tej wersji."
 
 #, fuzzy
-msgid ""
-"grommunio Web does not support importing multiple ICS with this version."
+msgid "grommunio Web does not support importing multiple ICS with this version."
 msgstr "grommunio Web nie obsługuje importu wielu ICS w tej wersji."
 
 msgid "GB"

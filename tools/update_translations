@@ -23,7 +23,7 @@ function update_pos() {
 	# Merge PO files and remove obsolete strings
 	for lang in server/language/*.UTF-8/LC_MESSAGES/grommunio_web.po; do
 		echo $lang
-		msgmerge -N -q $lang $POT_FILE | msgattrib --no-obsolete -o $lang.new && mv $lang.new $lang
+		msgmerge -N -q --no-wrap $lang $POT_FILE | msgattrib --no-obsolete --no-wrap -o $lang.new && mv $lang.new $lang
 	done
 }
 
@@ -45,7 +45,7 @@ function new_lang() {
 	# Create po file
 	pofile="${langdir}/LC_MESSAGES/${poname}"
 	touch "${pofile}"
-	msgmerge -N -q "${pofile}" "${POT_FILE}" > "${pofile}"
+	msgmerge -N -q --no-wrap "${pofile}" "${POT_FILE}" > "${pofile}"
 }
 
 function usage {

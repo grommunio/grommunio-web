@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Turkish\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-07 15:11+0200\n"
+"POT-Creation-Date: 2026-05-15 13:46+0200\n"
 "PO-Revision-Date: 2022-12-10 22:44+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/grommunio/grommunio-web/tr/>\n"
@@ -28,8 +28,7 @@ msgstr "Geçen Ay"
 msgid "Next Month"
 msgstr "Gelecek Ay"
 
-#. TRANSLATORS: This message is used as label for the column which indicates
-#. the week number of the month in date picker. and 'Wk' stands for week
+#. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
 msgstr "h"
 
@@ -216,8 +215,7 @@ msgstr "Seçilen tarih başlangic tarihten öncedir"
 msgid "This date is after the maximum date"
 msgstr "Bu tarih maksimum tarihten sonradır"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "d/m/Y"
 msgstr "d/m/Y"
 
@@ -308,8 +306,7 @@ msgstr "Bu alandaki saat {0} önce veya o saatten sonra olmalıdır"
 msgid "{0} is not a valid time"
 msgstr "{0} geçerli bir zaman değil"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "G:i"
 msgstr "G:i"
 
@@ -487,11 +484,8 @@ msgstr "Kişileri kopyala"
 msgid "Address book"
 msgstr "Adres defteri"
 
-msgid ""
-"Showing only the first {0} names. Use search to find more specific results."
-msgstr ""
-"Sadece ilk {0} isimleri gösteriliyor. Daha spesifik sonuçlar bulmak için "
-"aramayı kullanın."
+msgid "Showing only the first {0} names. Use search to find more specific results."
+msgstr "Sadece ilk {0} isimleri gösteriliyor. Daha spesifik sonuçlar bulmak için aramayı kullanın."
 
 msgid "Use the search bar to get results"
 msgstr "Sonuç almak için arama çubuğunu kullanın"
@@ -738,12 +732,8 @@ msgstr "Arama sonuçları yükleniyor"
 msgid "Sorting tip"
 msgstr "Sıralama ipucu"
 
-msgid ""
-"You can sort by date if you narrow down your search results. Enable filters "
-"or adjust your input."
-msgstr ""
-"Arama sonuçlarınızı daraltırsanız tarihe göre sıralayabilirsiniz. Filtreleri"
-" etkinleştirin veya girişinizi ayarlayın."
+msgid "You can sort by date if you narrow down your search results. Enable filters or adjust your input."
+msgstr "Arama sonuçlarınızı daraltırsanız tarihe göre sıralayabilirsiniz. Filtreleri etkinleştirin veya girişinizi ayarlayın."
 
 msgid "Did you mean"
 msgstr "Bunu mu demek istedin"
@@ -764,28 +754,17 @@ msgctxt "calendar.actions"
 msgid "Meeting request forwarded"
 msgstr "Toplantı daveti iletildi"
 
-msgid ""
-"The meeting organizer will be notified that you forwarded this meeting "
-"request."
-msgstr ""
-"Toplantı düzenleyicisine, bu toplantı davetini ilettiğiniz bildirilecektir."
+msgid "The meeting organizer will be notified that you forwarded this meeting request."
+msgstr "Toplantı düzenleyicisine, bu toplantı davetini ilettiğiniz bildirilecektir."
 
 msgid "Error"
 msgstr "Hata"
 
-msgid ""
-"Could not accept proposal as this meeting is not available in calendar; It "
-"may have been moved or deleted."
-msgstr ""
-"Bu toplantı takvimde mevcut olmadığı için teklif kabul edilemedi; Taşınmış "
-"veya silinmiş olabilir."
+msgid "Could not accept proposal as this meeting is not available in calendar; It may have been moved or deleted."
+msgstr "Bu toplantı takvimde mevcut olmadığı için teklif kabul edilemedi; Taşınmış veya silinmiş olabilir."
 
-msgid ""
-"Could not view proposal as this meeting is not available in calendar; It may"
-" have been moved or deleted."
-msgstr ""
-"Toplantı takvim'de yer almadığı için öneri görüntülenemedi; taşınmış veya "
-"silinmiş olabilir."
+msgid "Could not view proposal as this meeting is not available in calendar; It may have been moved or deleted."
+msgstr "Toplantı takvim'de yer almadığı için öneri görüntülenemedi; taşınmış veya silinmiş olabilir."
 
 msgid "Required"
 msgstr "Gerekli"
@@ -845,28 +824,19 @@ msgid "Occurs every {0} {1} effective {2}."
 msgstr "Her {0} {1} gerçekleşir, başlangıç: {2}"
 
 msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
-msgid_plural ""
-"Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] ""
-"{3} ile {4} arasında her {0} etkili {1} {2} oluşumu için gerçekleşir."
-msgstr[1] ""
-"{0} her {1} tarihinde, {3} ile {4} tarihleri arasında {2} kez gerçekleşir."
+msgid_plural "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
+msgstr[0] "{3} ile {4} arasında her {0} etkili {1} {2} oluşumu için gerçekleşir."
+msgstr[1] "{0} her {1} tarihinde, {3} ile {4} tarihleri arasında {2} kez gerçekleşir."
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
-msgid_plural ""
-"Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
-msgstr[0] ""
-"{4} ile {5} arasında her {0} {1} etkili {2} {3} oluşumu için gerçekleşir."
-msgstr[1] ""
-"Her {0} {1} tarihinde, {2} tarihinden itibaren {3} kez, {4} ile {5} arasında"
-" gerçekleşir."
+msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
+msgstr[0] "{4} ile {5} arasında her {0} {1} etkili {2} {3} oluşumu için gerçekleşir."
+msgstr[1] "Her {0} {1} tarihinde, {2} tarihinden itibaren {3} kez, {4} ile {5} arasında gerçekleşir."
 
 msgid "Occurs every {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
 msgstr[0] "{2} oluşumu için her {0} etkili {1} oluşur."
-msgstr[1] ""
-"Her {0} tarihinde, {1} tarihinden itibaren geçerli olmak üzere {2} kez "
-"gerçekleşir."
+msgstr[1] "Her {0} tarihinde, {1} tarihinden itibaren geçerli olmak üzere {2} kez gerçekleşir."
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
 msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
@@ -874,12 +844,10 @@ msgstr[0] "{3} oluşumu için her {0} {1} etkili {2} oluşur."
 msgstr[1] "Her {0} {1} saatte bir, {2} saat süreyle, {3} kez gerçekleşir."
 
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
-msgstr ""
-"Her {0} gerçekleşir, başlangıç: {1}, bitiş: {2}, saat {3} - {4} arası."
+msgstr "Her {0} gerçekleşir, başlangıç: {1}, bitiş: {2}, saat {3} - {4} arası."
 
 msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
-msgstr ""
-"Her {0} {1} gerçekleşir, başlangıç: {2}, bitiş: {3}, saat {4} - {5} arası."
+msgstr "Her {0} {1} gerçekleşir, başlangıç: {2}, bitiş: {3}, saat {4} - {5} arası."
 
 msgid "Occurs every {0} effective {1} until {2}."
 msgstr "Her {0} gerçekleşir, başlangıç: {1}, bitiş: {2}."
@@ -890,8 +858,7 @@ msgstr "Her {0} {1} gerçekleşir, başlangıç: {2}, bitiş: {3}."
 msgid "New Meeting Time Proposed"
 msgstr "Önerilen Yeni Toplantı Saati"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y {0}"
 msgstr "l jS F Y {0}"
 
@@ -1024,12 +991,8 @@ msgstr "Randevu Oluştur"
 msgid "Create in other calendar"
 msgstr "Diğer takvimde oluştur"
 
-msgid ""
-"The selected calendar has \"read-only\" permissions. Instead you can create "
-"an item in your own calendar."
-msgstr ""
-"Seçilen takvimin \"salt okunur\" izinleri vardır. Bunun yerine kendi "
-"takviminizde bir öğe oluşturabilirsiniz."
+msgid "The selected calendar has \"read-only\" permissions. Instead you can create an item in your own calendar."
+msgstr "Seçilen takvimin \"salt okunur\" izinleri vardır. Bunun yerine kendi takviminizde bir öğe oluşturabilirsiniz."
 
 msgid "What would you like?"
 msgstr "Sen ne istersin?"
@@ -1040,8 +1003,7 @@ msgstr "Kendi takviminiz"
 msgid "F Y"
 msgstr "F Y"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l"
 msgstr "l"
 
@@ -1073,8 +1035,7 @@ msgstr "Tüm alıcılara bir güncelleme göndermek istiyor musunuz?"
 msgid "Send update to attendees"
 msgstr "Katılımcılara güncelleme gönderin"
 
-msgid ""
-"You have made changes to the list of attendees. What would you like to do?"
+msgid "You have made changes to the list of attendees. What would you like to do?"
 msgstr "Katılımcı listesinde değişiklik yaptınız. Ne yapmak istiyorsunuz?"
 
 msgid "Send updates to only added or deleted attendees."
@@ -1087,8 +1048,7 @@ msgid "Busy attendees"
 msgstr "Yoğun katılımcılar"
 
 msgid "One or more attendees are busy. Are you sure to invite?"
-msgstr ""
-"Bir veya daha fazla katılımcı meşgul. Davet edeceğinizden emin misiniz?"
+msgstr "Bir veya daha fazla katılımcı meşgul. Davet edeceğinizden emin misiniz?"
 
 msgid "Scheduling"
 msgstr "Zamanlama"
@@ -1105,12 +1065,8 @@ msgid "{0} attendees accepted, {1} tentatively accepted, {2} declined."
 msgstr "{0} Katılımcı kabul etti, {1} geçici kabul etti, {2} reddetti."
 
 msgctxt "calendar.dialog"
-msgid ""
-"{0} attendees proposed a new time for this meeting. Click the Scheduling tab"
-" for details."
-msgstr ""
-"{0} katılımcılar bu toplantı için yeni bir zaman önerdi. Detaylar için "
-"Zamanlama sekmesini tıklayın."
+msgid "{0} attendees proposed a new time for this meeting. Click the Scheduling tab for details."
+msgstr "{0} katılımcılar bu toplantı için yeni bir zaman önerdi. Detaylar için Zamanlama sekmesini tıklayın."
 
 msgctxt "calendar.dialog"
 msgid "You proposed a new time for this meeting on {0}"
@@ -1157,12 +1113,8 @@ msgid "Invitations have not been sent for this meeting."
 msgstr "Bu toplantı için davetiyeler gönderilmemiştir."
 
 msgctxt "calendar.dialog"
-msgid ""
-"Please note that any changes you make will be overwritten when this meeting "
-"request is updated by the organizer"
-msgstr ""
-"Toplantı isteği düzenleyen tarafından güncellendiğinde yapacağınız "
-"değişikliklerin üzerine yazılacaktır"
+msgid "Please note that any changes you make will be overwritten when this meeting request is updated by the organizer"
+msgstr "Toplantı isteği düzenleyen tarafından güncellendiğinde yapacağınız değişikliklerin üzerine yazılacaktır"
 
 msgid "Create in"
 msgstr "Oluşturulma"
@@ -1195,12 +1147,9 @@ msgid "Update location"
 msgstr "Yerini güncelle"
 
 msgid "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
-msgstr ""
-"Bulunduğunuz konumu \"{0}\" yeni konumla güncelleştirmek istiyormusunuz "
-"\"{1}\"?"
+msgstr "Bulunduğunuz konumu \"{0}\" yeni konumla güncelleştirmek istiyormusunuz \"{1}\"?"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y {0}"
 msgstr "jS F Y {0}"
 
@@ -1272,9 +1221,7 @@ msgstr "Bu randevuyu özel olarak işaretle"
 
 msgctxt "calendar.toolbar"
 msgid "Use Reply All to reply to all attendees of your meeting."
-msgstr ""
-"Toplantınızın tüm katılımcılarına yanıt vermek için \"Herkese Yanıtla\" "
-"seçeneğini kullanın."
+msgstr "Toplantınızın tüm katılımcılarına yanıt vermek için \"Herkese Yanıtla\" seçeneğini kullanın."
 
 msgid "Re"
 msgstr "YNT"
@@ -1309,11 +1256,8 @@ msgstr "Yorum"
 msgid "Send Meeting Request Cancellation"
 msgstr "Toplantı isteği iptali gönder"
 
-msgid ""
-"This meeting will be cancelled. Do you want to include comments with your "
-"cancellation?"
-msgstr ""
-"Bu toplantı iptal edildi. İptaliniz hakkında yorum yazmak ister misiniz?"
+msgid "This meeting will be cancelled. Do you want to include comments with your cancellation?"
+msgstr "Bu toplantı iptal edildi. İptaliniz hakkında yorum yazmak ister misiniz?"
 
 msgid "Edit the cancellation before Sending."
 msgstr "Göndermeden önce iptali düzenleyin."
@@ -1327,26 +1271,14 @@ msgstr "İptali şimdi gönder."
 msgid "Send Meeting Request Confirmation"
 msgstr "Toplantı isteği onayı gönder"
 
-msgid ""
-"This meeting will be accepted and moved to your calendar. Do you want to "
-"include comments with your response?"
-msgstr ""
-"Bu toplantı kabul edilecek ve takviminize taşınacaktır. Yanıtınızla birlikte"
-" yorumlarınızı da eklemek ister misiniz?"
+msgid "This meeting will be accepted and moved to your calendar. Do you want to include comments with your response?"
+msgstr "Bu toplantı kabul edilecek ve takviminize taşınacaktır. Yanıtınızla birlikte yorumlarınızı da eklemek ister misiniz?"
 
-msgid ""
-"This meeting will be tentatively accepted and moved to your calendar. Do you"
-" want to include comments with your response?"
-msgstr ""
-"Bu toplantı geçici olarak kabul edilecek ve takviminize taşınacaktır. "
-"Yanıtınızla birlikte yorumlarınızı da eklemek ister misiniz?"
+msgid "This meeting will be tentatively accepted and moved to your calendar. Do you want to include comments with your response?"
+msgstr "Bu toplantı geçici olarak kabul edilecek ve takviminize taşınacaktır. Yanıtınızla birlikte yorumlarınızı da eklemek ister misiniz?"
 
-msgid ""
-"This meeting will be declined and moved to your Deleted Items folder. Do you"
-" want to include comments with your response?"
-msgstr ""
-"Bu toplantı reddedilecek ve Silinmiş Öğeler klasörünüze taşınacaktır. "
-"Yanıtınızla birlikte yorumlarınızı da eklemek ister misiniz?"
+msgid "This meeting will be declined and moved to your Deleted Items folder. Do you want to include comments with your response?"
+msgstr "Bu toplantı reddedilecek ve Silinmiş Öğeler klasörünüze taşınacaktır. Yanıtınızla birlikte yorumlarınızı da eklemek ister misiniz?"
 
 msgid "Edit the response before sending"
 msgstr "Göndermeden önce yanıtı düzenleme"
@@ -1390,20 +1322,16 @@ msgstr "Seçili öğeyi yapıştır"
 msgid "An overview of"
 msgstr "Genel bir bakış"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Start"
 msgstr "Başlangıç"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "End"
 msgstr "Son"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for
-#. formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
 msgid "Printed by"
 msgstr "Tarafından basılmıştır"
 
@@ -1425,15 +1353,12 @@ msgstr "l jS M Y {0}"
 msgid "All day: "
 msgstr "Bütün gün: "
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
 msgstr "l j F Y"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for
-#. formatting instructions
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F"
 msgstr "l j F"
 
@@ -1518,8 +1443,7 @@ msgstr "Varsayılan hatırlatma zamanı"
 msgid "Default all-day appointment reminder time"
 msgstr "Tüm gün randevular için varsayılan hatırlatma saatini"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS"
 msgstr "j"
 
@@ -1560,9 +1484,7 @@ msgstr "Bu randevu taşındı veya silindi, devam etmek istiyor musun?"
 
 msgctxt "calendar.contextmenu"
 msgid "Use Reply All to reply to all attendees of your meeting."
-msgstr ""
-"Toplantınızın tüm katılımcılarına yanıt vermek için \"Herkese Yanıtla\" "
-"seçeneğini kullanın."
+msgstr "Toplantınızın tüm katılımcılarına yanıt vermek için \"Herkese Yanıtla\" seçeneğini kullanın."
 
 msgid "Options"
 msgstr "Ayarlar"
@@ -1663,40 +1585,25 @@ msgstr "Katılımcılar"
 msgid "Optional attendees"
 msgstr "İsteğe bağlı katılımcılar"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F {0}"
 msgstr "jS F {0}"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y"
 msgstr "j F Y"
 
-msgid ""
-"You have insufficient privileges to move and copy this item. Ask the folder "
-"owner to grant you permissions or contact your system administrator."
-msgstr ""
-"Bu öğeyi taşımak ve kopyalamak için yeterli ayrıcalığa sahip değilsiniz. "
-"Klasör sahibinden size izin vermesini isteyin veya sistem yöneticinize "
-"başvurun."
+msgid "You have insufficient privileges to move and copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
+msgstr "Bu öğeyi taşımak ve kopyalamak için yeterli ayrıcalığa sahip değilsiniz. Klasör sahibinden size izin vermesini isteyin veya sistem yöneticinize başvurun."
 
-msgid ""
-"You have insufficient privileges to copy this item. Ask the folder owner to "
-"grant you permissions or contact your system administrator."
-msgstr ""
-"Bu öğeyi kopyalamak için yeterli ayrıcalığa sahip değilsiniz. Klasör "
-"sahibinden size izin vermesini isteyin veya sistem yöneticinize başvurun."
+msgid "You have insufficient privileges to copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
+msgstr "Bu öğeyi kopyalamak için yeterli ayrıcalığa sahip değilsiniz. Klasör sahibinden size izin vermesini isteyin veya sistem yöneticinize başvurun."
 
 msgid "Insufficient privileges"
 msgstr "Yetersiz ayrıcalıklar"
 
-msgid ""
-"Copying this appointment will unset it as private. Are you sure you want to "
-"continue?"
-msgstr ""
-"Bu randevunun kopyalanması, özel olarak ayarlanmasını kaldıracaktır. Devam "
-"etmek istediğinizden emin misiniz?"
+msgid "Copying this appointment will unset it as private. Are you sure you want to continue?"
+msgstr "Bu randevunun kopyalanması, özel olarak ayarlanmasını kaldıracaktır. Devam etmek istediğinizden emin misiniz?"
 
 msgid "Private item"
 msgstr "Özel ürün"
@@ -1704,12 +1611,8 @@ msgstr "Özel ürün"
 msgid "Copy"
 msgstr "Kopyala"
 
-msgid ""
-"Moving this appointment will unset it as private. Are you sure you want to "
-"continue?"
-msgstr ""
-"Bu randevuyu taşımak, özel olarak ayarını kaldıracaktır. Devam etmek "
-"istediğinizden emin misiniz?"
+msgid "Moving this appointment will unset it as private. Are you sure you want to continue?"
+msgstr "Bu randevuyu taşımak, özel olarak ayarını kaldıracaktır. Devam etmek istediğinizden emin misiniz?"
 
 msgid "Move"
 msgstr "Kaydır"
@@ -1735,13 +1638,8 @@ msgstr "Sonraki"
 msgid "grommunio Web"
 msgstr "grommunio Web"
 
-msgid ""
-"Please note that any changes you make will be overwritten when this meeting "
-"request is updated by the organizer. Would you like to move this meeting?"
-msgstr ""
-"Bu toplantı talebi düzenleyici tarafından güncellendiğinde yaptığınız tüm "
-"değişikliklerin üzerine yazılacağını lütfen unutmayın. Bu toplantıyı taşımak"
-" ister misiniz?"
+msgid "Please note that any changes you make will be overwritten when this meeting request is updated by the organizer. Would you like to move this meeting?"
+msgstr "Bu toplantı talebi düzenleyici tarafından güncellendiğinde yaptığınız tüm değişikliklerin üzerine yazılacağını lütfen unutmayın. Bu toplantıyı taşımak ister misiniz?"
 
 msgid "Don't move"
 msgstr "Kımıldama"
@@ -1755,20 +1653,17 @@ msgstr "Tüm randevuları görmek için gün görünümüne geçin"
 msgid "Show all appointments"
 msgstr "Tüm randevuları göster"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates
-#. to whom the given mail was sent.
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
 msgstr "Önerilen"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates
-#. to whom the given mail was sent
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "When"
 msgstr "Ne zaman"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates
-#. to whom the given mail was sent
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Location"
 msgstr "Konum"
@@ -1776,11 +1671,8 @@ msgstr "Konum"
 msgid "No additional response required"
 msgstr "Ek yanıt gerekmiyor"
 
-msgid ""
-"Your calendar has been updated automatically. This meeting request will now "
-"be deleted."
-msgstr ""
-"Takviminiz otomatik olarak güncellendi. Bu toplantı isteği artık silinecek."
+msgid "Your calendar has been updated automatically. This meeting request will now be deleted."
+msgstr "Takviminiz otomatik olarak güncellendi. Bu toplantı isteği artık silinecek."
 
 msgid "New appointment subject"
 msgstr "Yeni randevu konusu"
@@ -1822,8 +1714,7 @@ msgid "Today (all day)"
 msgstr "Bugün (tüm gün)"
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
-#. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME -
-#. USERNAME".
+#. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
 msgid "{0} - {1}"
 msgstr "{0} - {1}"
 
@@ -1863,40 +1754,26 @@ msgstr "Bu görüşü yazdırmak henüz mümkün değildir"
 msgid "Recurring Message"
 msgstr "Dönüşümlü Mesaj"
 
-msgid ""
-"This is a recurring message. Do you want to open only this occurrence or the"
-" series?"
-msgstr ""
-"Bu bir dönüşümlü mesaj. Seriden yalnızca bu olayı açmak istiyor musunuz?"
+msgid "This is a recurring message. Do you want to open only this occurrence or the series?"
+msgstr "Bu bir dönüşümlü mesaj. Seriden yalnızca bu olayı açmak istiyor musunuz?"
 
 msgid "Recurring Appointment"
 msgstr "Dönüşümlü Randevu"
 
-msgid ""
-"This is a recurring appointment. Do you want to open only this occurrence or"
-" the series?"
-msgstr ""
-"Bu bir dönüşümlü randevu. Seriden yalnızca bu olayı açmak istiyor musunuz?"
+msgid "This is a recurring appointment. Do you want to open only this occurrence or the series?"
+msgstr "Bu bir dönüşümlü randevu. Seriden yalnızca bu olayı açmak istiyor musunuz?"
 
 msgid "Recurring Meeting Request"
 msgstr "Dönüşümlü toplantı İsteği"
 
-msgid ""
-"This is a recurring meeting request. Do you want to open only this "
-"occurrence or the series?"
-msgstr ""
-"Bu bir dönüşümlü toplantı İsteği. Seriden yalnızca bu olayı açmak istiyor "
-"musunuz?"
+msgid "This is a recurring meeting request. Do you want to open only this occurrence or the series?"
+msgstr "Bu bir dönüşümlü toplantı İsteği. Seriden yalnızca bu olayı açmak istiyor musunuz?"
 
 msgid "Recurring Task Request"
 msgstr "Dönüşümlü Görev isteği"
 
-msgid ""
-"This is a recurring task request. Do you want to open only this occurrence "
-"or the series?"
-msgstr ""
-"Bu bir dönüşümlü Görev isteği. Seriden yalnızca bu olayı açmak istiyor "
-"musunuz?"
+msgid "This is a recurring task request. Do you want to open only this occurrence or the series?"
+msgstr "Bu bir dönüşümlü Görev isteği. Seriden yalnızca bu olayı açmak istiyor musunuz?"
 
 msgid "Open this occurrence"
 msgstr "Bu olayı aç"
@@ -1907,12 +1784,8 @@ msgstr "Bu seriyi aç"
 msgid "Paste Recurring {0}"
 msgstr "Yinelenen Yapıştır {0}"
 
-msgid ""
-"This is a recurring {0}. Do you want to paste only this occurrence or the "
-"series?"
-msgstr ""
-"Bu yinelenen bir {0}. Yalnızca bu olayı mı yoksa diziyi mi yapıştırmak "
-"istiyorsunuz?"
+msgid "This is a recurring {0}. Do you want to paste only this occurrence or the series?"
+msgstr "Bu yinelenen bir {0}. Yalnızca bu olayı mı yoksa diziyi mi yapıştırmak istiyorsunuz?"
 
 msgid "message"
 msgstr "mesaj"
@@ -1929,31 +1802,17 @@ msgstr "Yalnızca bu oluşumu yapıştırın"
 msgid "Paste the series…"
 msgstr "Seriyi yapıştırın…"
 
-msgid ""
-"This is a recurring message. Do you want to delete only this occurrence or "
-"the series?"
-msgstr ""
-"Bu bir dönüşümlü mesaj. Seriden yalnızca bu olayı silmek istiyor musunuz?"
+msgid "This is a recurring message. Do you want to delete only this occurrence or the series?"
+msgstr "Bu bir dönüşümlü mesaj. Seriden yalnızca bu olayı silmek istiyor musunuz?"
 
-msgid ""
-"This is a recurring appointment. Do you want to delete only this occurrence "
-"or the series?"
-msgstr ""
-"Bu bir dönüşümlü randevu. Seriden yalnızca bu olayı silmek istiyor musunuz?"
+msgid "This is a recurring appointment. Do you want to delete only this occurrence or the series?"
+msgstr "Bu bir dönüşümlü randevu. Seriden yalnızca bu olayı silmek istiyor musunuz?"
 
-msgid ""
-"This is a recurring meeting request. Do you want to delete only this "
-"occurrence or the series?"
-msgstr ""
-"Bu bir dönüşümlü toplanti isteği. Seriden yalnızca bu olayı silmek istiyor "
-"musunuz?"
+msgid "This is a recurring meeting request. Do you want to delete only this occurrence or the series?"
+msgstr "Bu bir dönüşümlü toplanti isteği. Seriden yalnızca bu olayı silmek istiyor musunuz?"
 
-msgid ""
-"This is a recurring task request. Do you want to delete only this occurrence"
-" or the series?"
-msgstr ""
-"Bu bir dönüşümlü görev isteği. Seriden yalnızca bu olayı silmek istiyor "
-"musunuz?"
+msgid "This is a recurring task request. Do you want to delete only this occurrence or the series?"
+msgstr "Bu bir dönüşümlü görev isteği. Seriden yalnızca bu olayı silmek istiyor musunuz?"
 
 msgid "Delete this occurrence"
 msgstr "Bu oluşumu sil"
@@ -1985,21 +1844,14 @@ msgstr "Bu klasördeki öğeleri silmek için yeterli yetkiniz yok."
 msgid "Notify recipients"
 msgstr "Alıcıları bilgilendir"
 
-msgid ""
-"A cancellation message will be sent to all recipients, do you wish to "
-"continue?"
-msgstr ""
-"Bir iptal ileti tüm alıcılara gönderilecek, devam etmek istiyor musunuz?"
+msgid "A cancellation message will be sent to all recipients, do you wish to continue?"
+msgstr "Bir iptal ileti tüm alıcılara gönderilecek, devam etmek istiyor musunuz?"
 
 msgid "Notify sender"
 msgstr "Gönderene bildir"
 
-msgid ""
-"{0} has requested a notification be sent when message \"{1}\" is deleted "
-"without having been read. Do you want to send a receipt?"
-msgstr ""
-"{0}, \"{1}\" mesajı okunmadan silindiğinde bir bildirim gönderilmesini talep"
-" etti. Bir makbuz göndermek istiyor musunuz?"
+msgid "{0} has requested a notification be sent when message \"{1}\" is deleted without having been read. Do you want to send a receipt?"
+msgstr "{0}, \"{1}\" mesajı okunmadan silindiğinde bir bildirim gönderilmesini talep etti. Bir makbuz göndermek istiyor musunuz?"
 
 msgid "Delete Incomplete Task"
 msgstr "Tamamlanmamış Görevi Sil"
@@ -2025,12 +1877,8 @@ msgstr "Mükerrer alıcı"
 msgid "Recipient already exists."
 msgstr "Alıcı zaten mevcut."
 
-msgid ""
-"The sender of this email has requested a read receipt. Do you wish to notify"
-" the sender?"
-msgstr ""
-"Bu e-postayı gönderen kişi okundu bilgisi talep etmiştir. Göndereni "
-"bilgilendirmek istiyor musunuz?"
+msgid "The sender of this email has requested a read receipt. Do you wish to notify the sender?"
+msgstr "Bu e-postayı gönderen kişi okundu bilgisi talep etmiştir. Göndereni bilgilendirmek istiyor musunuz?"
 
 msgid "Import"
 msgstr "İçe Aktar"
@@ -2047,19 +1895,11 @@ msgstr "İçe aktarma hatası"
 msgid "Unable to import \"{0}\". The file is not valid"
 msgstr "\"{0}\" içe aktarılamıyor. Dosya geçerli değil"
 
-msgid ""
-"You have insufficient privileges to move these items. Would you like to copy"
-" instead?"
-msgstr ""
-"Bu öğeleri taşımak için yeterli yetkiye sahip değilsiniz. Bunun yerine "
-"kopyalamak ister misiniz?"
+msgid "You have insufficient privileges to move these items. Would you like to copy instead?"
+msgstr "Bu öğeleri taşımak için yeterli yetkiye sahip değilsiniz. Bunun yerine kopyalamak ister misiniz?"
 
-msgid ""
-"You have insufficient privileges to move this item. Would you like to copy "
-"instead?"
-msgstr ""
-"Bu öğeyi taşımak için yeterli yetkiye sahip değilsiniz. Bunun yerine "
-"kopyalamak ister misiniz?"
+msgid "You have insufficient privileges to move this item. Would you like to copy instead?"
+msgstr "Bu öğeyi taşımak için yeterli yetkiye sahip değilsiniz. Bunun yerine kopyalamak ister misiniz?"
 
 msgid "Cc"
 msgstr "Cc"
@@ -2100,19 +1940,14 @@ msgstr "ZIP olarak indir"
 msgid "Continue"
 msgstr "Devam et"
 
-msgid ""
-"These attachments have an unsupported file type and can not be added to the "
-"ZIP file:"
+msgid "These attachments have an unsupported file type and can not be added to the ZIP file:"
 msgstr "Bu eklerin dosya tipi desteklenmiyor ve ZIP dosyasına eklenememekte:"
 
 msgid "Would you like to continue downloading without adding these files?"
 msgstr "Bu dosyaları eklemeden indirmeye devam etmek istiyor musunuz?"
 
-msgid ""
-"Always continue download of ZIP files without adding unsupported file types."
-msgstr ""
-"ZIP dosyalarının indirmesine her zaman desteklenmeyen dosya türlerini "
-"eklemeden devam et."
+msgid "Always continue download of ZIP files without adding unsupported file types."
+msgstr "ZIP dosyalarının indirmesine her zaman desteklenmeyen dosya türlerini eklemeden devam et."
 
 msgid "File upload"
 msgstr "Dosya ekle"
@@ -2132,19 +1967,11 @@ msgstr "Tümünü ZIP olarak indirin"
 msgid "Import to folder"
 msgstr "Klasöre aktar"
 
-msgid ""
-"In order to use the vCard import feature, upgrade your Gromox to version 0 "
-"or higher."
-msgstr ""
-"vCard içe aktarma özelliğini kullanmak için Gromox'unuzu 0 veya daha yüksek "
-"bir sürüme yükseltin."
+msgid "In order to use the vCard import feature, upgrade your Gromox to version 0 or higher."
+msgstr "vCard içe aktarma özelliğini kullanmak için Gromox'unuzu 0 veya daha yüksek bir sürüme yükseltin."
 
-msgid ""
-"In order to use the ICS / VCS import feature, upgrade your Gromox to version"
-" 0 or higher."
-msgstr ""
-"ICS / VCS içe aktarma özelliğini kullanmak için Gromox'unuzu 0 veya daha "
-"yüksek bir sürüme yükseltin."
+msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to version 0 or higher."
+msgstr "ICS / VCS içe aktarma özelliğini kullanmak için Gromox'unuzu 0 veya daha yüksek bir sürüme yükseltin."
 
 msgid "Attachment error"
 msgstr "Eklenti hatası"
@@ -2182,12 +2009,8 @@ msgstr "Hızlı erişim"
 msgid "Delete Category"
 msgstr "Kategoriyi Sil"
 
-msgid ""
-"Are you sure you want to delete the category \"{0}\"? Other items keep this "
-"category, but lose the assigned color."
-msgstr ""
-"\"{0}\" kategorisini silmek istediğinizden emin misiniz? Diğer öğeler bu "
-"kategoriyi korur, ancak atanan rengi kaybeder."
+msgid "Are you sure you want to delete the category \"{0}\"? Other items keep this category, but lose the assigned color."
+msgstr "\"{0}\" kategorisini silmek istediğinizden emin misiniz? Diğer öğeler bu kategoriyi korur, ancak atanan rengi kaybeder."
 
 msgid "Rename Category"
 msgstr "Kategoriyi yeniden adlandır"
@@ -2207,23 +2030,14 @@ msgstr "Hızlı erişim için sabitleyin"
 msgid "Create"
 msgstr "Oluştur"
 
-msgid ""
-"You must apply the changes you have made to the categories before you can "
-"create this category."
-msgstr ""
-"Bu kategoriyi oluşturmadan önce kategorilerde yaptığınız değişiklikleri "
-"uygulamanız gerekir."
+msgid "You must apply the changes you have made to the categories before you can create this category."
+msgstr "Bu kategoriyi oluşturmadan önce kategorilerde yaptığınız değişiklikleri uygulamanız gerekir."
 
 msgid "You already have a category named '{0}'. Please use another name."
-msgstr ""
-"Zaten '{0}' adında bir kategoriniz var. Lütfen başka bir isim kullanın."
+msgstr "Zaten '{0}' adında bir kategoriniz var. Lütfen başka bir isim kullanın."
 
-msgid ""
-"You already have a category named '{0}' in your pending changes. Please use "
-"another name."
-msgstr ""
-"Bekleyen değişikliklerinizde zaten '{0}' adında bir kategoriniz var. Lütfen "
-"başka bir isim kullanın."
+msgid "You already have a category named '{0}' in your pending changes. Please use another name."
+msgstr "Bekleyen değişikliklerinizde zaten '{0}' adında bir kategoriniz var. Lütfen başka bir isim kullanın."
 
 msgid "Rename"
 msgstr "Yeniden Adlandır"
@@ -2234,12 +2048,8 @@ msgstr "\"{0}\" kategorisini ilk kez kullanıyorsunuz."
 msgid "Do you want to rename it?"
 msgstr "Adını değiştirmek ister misin?"
 
-msgid ""
-"The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
-"\"{2}\" categories?"
-msgstr ""
-"\"{0}\" kategorisi zaten mevcut. \"{1}\" ve \"{2}\" kategorilerini "
-"birleştirmek istiyor musunuz?"
+msgid "The category \"{0}\" already exists. Do you want to merge the \"{1}\" and \"{2}\" categories?"
+msgstr "\"{0}\" kategorisi zaten mevcut. \"{1}\" ve \"{2}\" kategorilerini birleştirmek istiyor musunuz?"
 
 msgid "Merge"
 msgstr "Birleştir"
@@ -2322,12 +2132,8 @@ msgstr "Lütfen delege seҫiniz."
 msgid "Delegates can send items on your behalf."
 msgstr "Delegeler sizin adınıza ürün gönderebilir."
 
-msgid ""
-"If you only want to set folder permissions, right-click on a folder to open "
-"the context menu and click on \"Share folder…\""
-msgstr ""
-"Yalnızca klasör izinlerini ayarlamak istiyorsanız, içerik menüsünü açmak "
-"için bir klasöre sağ tıklayın ve \"Klasörü Paylaş…\" seçeneğine tıklayın."
+msgid "If you only want to set folder permissions, right-click on a folder to open the context menu and click on \"Share folder…\""
+msgstr "Yalnızca klasör izinlerini ayarlamak istiyorsanız, içerik menüsünü açmak için bir klasöre sağ tıklayın ve \"Klasörü Paylaş…\" seçeneğine tıklayın."
 
 msgid "Permission"
 msgstr "İzinler"
@@ -2355,25 +2161,26 @@ msgstr[1] "{0} mesaj seçilmiş bulunmaktadır."
 msgid "Folder '{0}' selected."
 msgstr "Klasör '{0}' seçildi."
 
+msgid "The selected items cannot be moved into this folder because it holds a different type of content."
+msgstr ""
+
+msgid "The selected items cannot be copied into this folder because it holds a different type of content."
+msgstr ""
+
+msgid "Incompatible folder"
+msgstr ""
+
 msgid "Unable to perform action"
 msgstr "İşlem gerçekleştirilemedi"
 
 msgid "The selected items are no longer available."
 msgstr "Seçilen öğeler artık kullanılamıyor."
 
-msgid ""
-"You have insufficient privileges to move this folder. Ask the folder owner "
-"to grant you permissions or contact your system administrator."
-msgstr ""
-"Bu klasörü taşımak için yeterli ayrıcalığa sahip değilsiniz. Klasör "
-"sahibinden size izin vermesini isteyin veya sistem yöneticinize başvurun."
+msgid "You have insufficient privileges to move this folder. Ask the folder owner to grant you permissions or contact your system administrator."
+msgstr "Bu klasörü taşımak için yeterli ayrıcalığa sahip değilsiniz. Klasör sahibinden size izin vermesini isteyin veya sistem yöneticinize başvurun."
 
-msgid ""
-"You have insufficient privileges to copy this folder. Ask the folder owner "
-"to grant you permissions or contact your system administrator."
-msgstr ""
-"Bu klasörü kopyalamak için yeterli ayrıcalığınız yok. Klasör sahibinden size"
-" izin vermesini isteyin veya sistem yöneticinize başvurun."
+msgid "You have insufficient privileges to copy this folder. Ask the folder owner to grant you permissions or contact your system administrator."
+msgstr "Bu klasörü kopyalamak için yeterli ayrıcalığınız yok. Klasör sahibinden size izin vermesini isteyin veya sistem yöneticinize başvurun."
 
 msgid "You have insufficient privileges to move following items."
 msgstr "Aşağıdaki öğeleri taşımak için yeterli ayrıcalığa sahip değilsiniz."
@@ -2534,12 +2341,8 @@ msgstr "Kopyalama/taşıma iletişim kutusunu açma"
 msgid "Delete selected item"
 msgstr "Seçili öğeyi sil"
 
-msgid ""
-"Delete selected item without moving it to the Deleted Items folder. The "
-"deleted item can still be restored."
-msgstr ""
-"Seçili öğeyi Silinmiş Öğeler klasörüne taşımadan silin. Silinen öğe yine de "
-"geri yüklenebilir."
+msgid "Delete selected item without moving it to the Deleted Items folder. The deleted item can still be restored."
+msgstr "Seçili öğeyi Silinmiş Öğeler klasörüne taşımadan silin. Silinen öğe yine de geri yüklenebilir."
 
 msgid "Add/Edit Cc recipient"
 msgstr "Cc alıcısı ekle/düzenle"
@@ -2604,12 +2407,8 @@ msgstr "E-posta adres"
 msgid "Expand distribution list"
 msgstr "Dağıtım listesini genişletin"
 
-msgid ""
-"Distribution list will be replaced with its members. You will not be able to"
-" collapse it again."
-msgstr ""
-"Dağıtım listesi üyeleriyle değiştirilecektir. Tekrar daraltmanız mümkün "
-"olmayacaktır."
+msgid "Distribution list will be replaced with its members. You will not be able to collapse it again."
+msgstr "Dağıtım listesi üyeleriyle değiştirilecektir. Tekrar daraltmanız mümkün olmayacaktır."
 
 msgid "Edit Recipient"
 msgstr "Alıcı düzenle"
@@ -2707,11 +2506,8 @@ msgstr "{A} olaylardan sonra bitir"
 msgid "End by {A}"
 msgstr "Bitiş {A}"
 
-#. TRANSLATORS: This informs the user what the exact duration of the
-#. appointment is. Where {D} represents the days, {H} the hours and {M} the
-#. minutes.
-#. For example: 'Occurrence duration: 1 day 2 hours 45 minutes', or when the
-#. appointment is shorter then 1 day: 'Occurrence duration: 1 hour'
+#. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
+#. For example: 'Occurrence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurrence duration: 1 hour'
 msgid "Occurrence duration: {D} {H} {M}"
 msgstr "Oluşum süresi: {D} {H} {M}"
 
@@ -2719,8 +2515,7 @@ msgid "Every {A} week(s) on"
 msgstr "Her {A} haftada bu zaman"
 
 msgid "Regenerate new task {A} week(s) after each task is completed"
-msgstr ""
-"{A} her görev sonrası hafta (lar) tamamlanır yeni görev yeniden oluştur"
+msgstr "{A} her görev sonrası hafta (lar) tamamlanır yeni görev yeniden oluştur"
 
 msgid "Every {A} years(s) on"
 msgstr "Her {A} yılda bir"
@@ -2754,8 +2549,7 @@ msgstr "Hiçbir hatırlatma yok"
 msgid "Due In"
 msgstr "Bitiyor"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Due"
 msgstr "Bitiyor"
 
@@ -3004,12 +2798,8 @@ msgstr "Word"
 msgid "and"
 msgstr "ve"
 
-msgid ""
-"Distribution lists are not supported in rules, would you like to replace the"
-" distribution list with its members?"
-msgstr ""
-"Dağıtım listeleri kurallarda desteklenmez, dağıtım listesini üyeleriyle "
-"değiştirmek ister misiniz?"
+msgid "Distribution lists are not supported in rules, would you like to replace the distribution list with its members?"
+msgstr "Dağıtım listeleri kurallarda desteklenmez, dağıtım listesini üyeleriyle değiştirmek ister misiniz?"
 
 msgid "or"
 msgstr "veya"
@@ -3113,9 +2903,7 @@ msgstr "Döngü için tıklayın: VE → VEYA → DEĞİL"
 msgid "Folder does not exist"
 msgstr "Klasör bulunamadı"
 
-msgid ""
-"The folder you are searching through no longer exists. Please select another"
-" folder"
+msgid "The folder you are searching through no longer exists. Please select another folder"
 msgstr "Aradığınız klasör artık mevcut değil. Lütfen başka bir klasör seçin"
 
 msgid "Add/Edit sender"
@@ -3249,8 +3037,7 @@ msgstr "Yükleniyor…"
 msgid "Message could not be loaded"
 msgstr "Mesaj yüklenemedi"
 
-#. TRANSLATORS: This message is used as label for the field which indicates
-#. which attachments are inside the message
+#. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "Eklenti"
@@ -3264,8 +3051,7 @@ msgstr "Güvenli gönderenler listesine gönderici ekle"
 msgid "Add Domain to Safe Senders List"
 msgstr "Güvenli gönderenler listesine domain ekle"
 
-#. TRANSLATORS: This sentence is given in the Email previewpanel, and
-#. indicates with which
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates with which
 #. importance the message was sent. For example:
 #. 'This message was sent with high importance.'
 #. 'This message was sent with low importance.'
@@ -3273,8 +3059,7 @@ msgctxt "mail.previewpanel"
 msgid "This message was sent with {0} importance."
 msgstr "Bu mesaj {0} önemi ile gönderildi."
 
-#. TRANSLATORS: This sentence is given in the Email previewpanel, and
-#. indicates which
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates which
 #. sensitivity level applies to the message. For example:
 #. 'Please treat this as Personal.'
 #. 'Please treat this as Private.'
@@ -3284,20 +3069,12 @@ msgid "Please treat this as {0}."
 msgstr "{0} olarak bu metni davranın."
 
 msgctxt "mail.previewpanel"
-msgid ""
-"Click here to download pictures. To help protect your privacy, grommunio Web"
-" prevented automatic download of some pictures in this message."
-msgstr ""
-"Resimleri indirmek için buraya tıklayın. Gizliliğinizi korumaya yardımcı "
-"olmak için, grommunio Web bu mesajdaki bazı resimlerin otomatik olarak "
-"indirilmesini engellemiştir."
+msgid "Click here to download pictures. To help protect your privacy, grommunio Web prevented automatic download of some pictures in this message."
+msgstr "Resimleri indirmek için buraya tıklayın. Gizliliğinizi korumaya yardımcı olmak için, grommunio Web bu mesajdaki bazı resimlerin otomatik olarak indirilmesini engellemiştir."
 
 msgctxt "mail.previewpanel"
-msgid ""
-"This message is corrupt and will not be displayed correctly, Click here to "
-"fix it."
-msgstr ""
-"Bu mesaj bozuk ve doğru görüntülenemiyor, düzeltmek için buraya tıklayınız."
+msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."
+msgstr "Bu mesaj bozuk ve doğru görüntülenemiyor, düzeltmek için buraya tıklayınız."
 
 msgctxt "mail.previewpanel"
 msgid "{0} has accepted."
@@ -3325,37 +3102,27 @@ msgstr "{0}, {1} adına reddetmiştir."
 
 msgctxt "mail.previewpanel"
 msgid "{0} tentatively accepted and proposed a new time for this meeting."
-msgstr ""
-"{0} geçici olarak kabul edildi ve bu toplantı için yeni bir zaman önerildi."
+msgstr "{0} geçici olarak kabul edildi ve bu toplantı için yeni bir zaman önerildi."
 
 msgctxt "mail.previewpanel"
-msgid ""
-"{0} tentatively accepted on behalf of {1} and proposed a new time for this "
-"meeting."
-msgstr ""
-"{1} adına {0} geçici kabul etti ve bu toplantı için yeni bir saat önerdi."
+msgid "{0} tentatively accepted on behalf of {1} and proposed a new time for this meeting."
+msgstr "{1} adına {0} geçici kabul etti ve bu toplantı için yeni bir saat önerdi."
 
 msgctxt "mail.previewpanel"
 msgid "{0} declined and proposed a new time for this meeting."
 msgstr "{0} reddetti ve bu toplantı için yeni bir zaman önerdi."
 
 msgctxt "mail.previewpanel"
-msgid ""
-"{0} declined on behalf of {1} and proposed a new time for this meeting."
+msgid "{0} declined on behalf of {1} and proposed a new time for this meeting."
 msgstr "{1} adına {0} reddetti ve bu toplantı için yeni bir saat önerdi."
 
 msgctxt "mail.previewpanel"
-msgid ""
-"This meeting is not in the Calendar; it may have been moved or deleted."
+msgid "This meeting is not in the Calendar; it may have been moved or deleted."
 msgstr "Bu toplantı Takvim içinde değil, taşınmış veya silinmiş olunabilir."
 
 msgctxt "mail.previewpanel"
-msgid ""
-"This meeting request was updated after this message was sent. You should "
-"open the latest update or open the item from the calendar."
-msgstr ""
-"Bu mesaj gönderildikten sonra toplantı isteği güncellendi. En son "
-"güncellenmişi açmak gerek veya takvimden öğeyi açmak gerekir."
+msgid "This meeting request was updated after this message was sent. You should open the latest update or open the item from the calendar."
+msgstr "Bu mesaj gönderildikten sonra toplantı isteği güncellendi. En son güncellenmişi açmak gerek veya takvimden öğeyi açmak gerekir."
 
 msgctxt "mail.previewpanel"
 msgid "As the meeting organizer, you do not need to respond to the meeting"
@@ -3424,12 +3191,8 @@ msgstr "{0}, {1} {2} adına güncellendi."
 msgid "Fix message"
 msgstr "Mesajı düzelt"
 
-msgid ""
-"We are going to try to fix a corrupted mail message, do you wish to "
-"continue?"
-msgstr ""
-"Bozuk bir posta mesajını düzeltmeye çalışacağız, devam etmek istiyor "
-"musunuz?"
+msgid "We are going to try to fix a corrupted mail message, do you wish to continue?"
+msgstr "Bozuk bir posta mesajını düzeltmeye çalışacağız, devam etmek istiyor musunuz?"
 
 msgid "The matching task was not found in your task list."
 msgstr "Eşleşen görev listenizde bulunamadı."
@@ -3453,20 +3216,17 @@ msgctxt "mail.previewpanel"
 msgid "Categories"
 msgstr "Kategoriler"
 
-#. TRANSLATORS: This message is used as label for the field which to indicates
-#. to whom the given mail was sent
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Recipients"
 msgstr "Alıcılar"
 
-#. TRANSLATORS: check if the mail is send by some delegator or not. if then
-#. display "on behalf of".
+#. TRANSLATORS: check if the mail is send by some delegator or not. if then display "on behalf of".
 msgctxt "mail.previewpanel"
 msgid "on behalf of"
 msgstr "adına yazıyorum"
 
-#. TRANSLATORS: This message is used to indicate that no sent date is
-#. available for the message (because it has not been sent yet).
+#. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
 msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "Hiç"
@@ -3573,8 +3333,7 @@ msgstr "E-posta 3"
 msgid "Email3 Display As"
 msgstr "E-posta 3 görüntüleme biçimi"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Birthday"
 msgstr "Doğum günü"
 
@@ -3674,8 +3433,7 @@ msgstr "Takma ad"
 msgid "Suffix"
 msgstr "Sonek"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Anniversary"
 msgstr "Yıldönümü"
 
@@ -3775,10 +3533,8 @@ msgstr "E-posta 3 görüntüleme biçimi"
 msgid "Loading contacts"
 msgstr "Kişiler yükleniyor"
 
-msgid ""
-"There are no items to show in this list. Update the filter for more results."
-msgstr ""
-"Bu listede gösterilecek öğe yok. Daha fazla sonuç için filtreyi güncelleyin."
+msgid "There are no items to show in this list. Update the filter for more results."
+msgstr "Bu listede gösterilecek öğe yok. Daha fazla sonuç için filtreyi güncelleyin."
 
 msgid "[Group]"
 msgstr "[Grup]"
@@ -3936,53 +3692,32 @@ msgstr "Hızlı kişi yap"
 msgid "Open in new browser window"
 msgstr "Yeni tarayıcı penceresinde aç"
 
-msgid ""
-"Your browser seems to have blocked one or more pop-ups. Please change your "
-"browser's settings to always allow pop-ups from grommunio Web."
-msgstr ""
-"Tarayıcınız bir veya daha fazla pop-up'ı engelledi gibi görünüyor. Lütfen "
-"grommunio Web pop-up'larına daima izin vermek için tarayıcınızın ayarlarını "
-"değiştirin."
+msgid "Your browser seems to have blocked one or more pop-ups. Please change your browser's settings to always allow pop-ups from grommunio Web."
+msgstr "Tarayıcınız bir veya daha fazla pop-up'ı engelledi gibi görünüyor. Lütfen grommunio Web pop-up'larına daima izin vermek için tarayıcınızın ayarlarını değiştirin."
 
 msgid "Untitled"
 msgstr "Başlıksız"
 
-msgid ""
-"Cannot upload attachment, only {0} attachments are allowed to be added to "
-"the message"
+msgid "Cannot upload attachment, only {0} attachments are allowed to be added to the message"
 msgstr "Ek yüklenemiyor, mesaja sadece {0} ek eklenebiliyor"
 
-msgid ""
-"Cannot upload attachment, attachment is {0} while the allowed maximum is "
-"{1}."
+msgid "Cannot upload attachment, attachment is {0} while the allowed maximum is {1}."
 msgstr "Ek yüklenemiyor. Ek {0}, izin verilen maksimum ise {1}."
 
-msgid ""
-"Cannot upload attachment, the total attachment size is {0} while the allowed"
-" maximum is {1}"
+msgid "Cannot upload attachment, the total attachment size is {0} while the allowed maximum is {1}"
 msgstr "Ek yüklenemiyor. Toplam ek boyutu {0}, izin verilen maksimum ise {1}"
 
-msgid ""
-"Cannot upload attachment, total attachment is {0} while the allowed maximum "
-"attachment in single request is {1}."
-msgstr ""
-"Ek yüklenemiyor. Toplam ek {0}, tekil isteklerde izin verilen maksimum ek "
-"ise {1}."
+msgid "Cannot upload attachment, total attachment is {0} while the allowed maximum attachment in single request is {1}."
+msgstr "Ek yüklenemiyor. Toplam ek {0}, tekil isteklerde izin verilen maksimum ek ise {1}."
 
-msgid ""
-"Cannot upload attachment, total attachments are {0} files while the maximum "
-"{1} files are allowed in single request."
-msgstr ""
-"Ek yüklenemiyor. Toplam ek sayısı {0}. tekil istekle izin verilen maksimum "
-"sayı {1}."
+msgid "Cannot upload attachment, total attachments are {0} files while the maximum {1} files are allowed in single request."
+msgstr "Ek yüklenemiyor. Toplam ek sayısı {0}. tekil istekle izin verilen maksimum sayı {1}."
 
-#. TRANSLATORS: {0} indicates name/email address of secretary and {1}
-#. indicates boss' name/email address
+#. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
 msgstr "{0} {1} adına"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F"
 msgstr "j F"
 
@@ -4163,12 +3898,8 @@ msgstr "Her Neyse Gönder"
 msgid "Missing attachment"
 msgstr "Eksik ek"
 
-msgid ""
-"Your message appears to reference an attachment but no file is attached. "
-"Send anyway?"
-msgstr ""
-"Mesajınız bir eke gönderme yapıyor gibi görünüyor ancak eklenmiş bir dosya "
-"yok. Yine de gönderilsin mi?"
+msgid "Your message appears to reference an attachment but no file is attached. Send anyway?"
+msgstr "Mesajınız bir eke gönderme yapıyor gibi görünüyor ancak eklenmiş bir dosya yok. Yine de gönderilsin mi?"
 
 msgid "No subject"
 msgstr "Konu yok"
@@ -4212,11 +3943,8 @@ msgstr "Kaydedildi"
 msgid "Saved successfully"
 msgstr "Başarıyla kaydedildi"
 
-msgid ""
-"You will lose all unsaved work. Are you sure you want to close this window?"
-msgstr ""
-"Kaydedilmemiş değişiklikleri kaybedeceksiniz. Pencereyi kapatmak "
-"istediğinizden emin misiniz?"
+msgid "You will lose all unsaved work. Are you sure you want to close this window?"
+msgstr "Kaydedilmemiş değişiklikleri kaybedeceksiniz. Pencereyi kapatmak istediğinizden emin misiniz?"
 
 msgid "grommunio Content Panel"
 msgstr "grommunio İçerik Paneli"
@@ -4287,24 +4015,23 @@ msgstr "Widget panelini genişletme"
 msgid "Your changes will be lost if you leave this page now."
 msgstr "Bu sayfadan şimdi çıkarsanız değişiklikleriniz kaybolacaktır."
 
+msgid "d-m-Y G:i"
+msgstr ""
+
 msgid "D {0}"
 msgstr "D {0}"
 
 msgid "D d-m"
 msgstr "D d-m"
 
-msgid ""
-"Not enough permissions to open this store, do you want to remove it from the"
-" hierarchy?"
+msgid "D d-m G:i"
 msgstr ""
-"Bu mağazayı açmak için yeterli yetkiniz yok, hiyerarşi kaldırmak "
-"istiyorsunuz?"
 
-msgid ""
-"Not enough permissions to open this folder, do you want to remove it from "
-"the hierarchy?"
-msgstr ""
-"Bu klasör açmak için yeterli izininiz yok, hiyerarşi kaldırmak istiyorsunuz?"
+msgid "Not enough permissions to open this store, do you want to remove it from the hierarchy?"
+msgstr "Bu mağazayı açmak için yeterli yetkiniz yok, hiyerarşi kaldırmak istiyorsunuz?"
+
+msgid "Not enough permissions to open this folder, do you want to remove it from the hierarchy?"
+msgstr "Bu klasör açmak için yeterli izininiz yok, hiyerarşi kaldırmak istiyorsunuz?"
 
 msgid "Insufficient Permissions"
 msgstr "Yetersiz İzinler"
@@ -4601,19 +4328,11 @@ msgstr "{0} ile paylaşın…"
 msgid "Properties of {0} - {1}"
 msgstr "Özellikleri {0} - {1}"
 
-msgid ""
-"Are you sure you want to permanently delete all the items and subfolders in "
-"the \"{0}\" folder?"
-msgstr ""
-"\"{0}\" Klasördeki öğeleri ve alt klasörleri silmek istediğinize "
-"eminmisiniz?"
+msgid "Are you sure you want to permanently delete all the items and subfolders in the \"{0}\" folder?"
+msgstr "\"{0}\" Klasördeki öğeleri ve alt klasörleri silmek istediğinize eminmisiniz?"
 
-msgid ""
-"Are you sure you want to delete the folder \"{0}\" and move all of its "
-"contents into the Deleted Items folder?"
-msgstr ""
-"\"{0}\" Klasör iҫindeki tüm içeriğini silinmiş öğelere taşımak istediğinize "
-"eminmisiniz?"
+msgid "Are you sure you want to delete the folder \"{0}\" and move all of its contents into the Deleted Items folder?"
+msgstr "\"{0}\" Klasör iҫindeki tüm içeriğini silinmiş öğelere taşımak istediğinize eminmisiniz?"
 
 msgid "Delete folder"
 msgstr "Klasörü sil"
@@ -4627,12 +4346,8 @@ msgstr "Tümünü Göster"
 msgid "Filter folders"
 msgstr "Klasörleri filtrele"
 
-msgid ""
-"You have insufficient privileges to move this folder. Would you like to copy"
-" instead?"
-msgstr ""
-"Bu klasörü taşımak için yeterli ayrıcalığa sahip değilsiniz. Bunun yerine "
-"kopyalamak ister misiniz?"
+msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
+msgstr "Bu klasörü taşımak için yeterli ayrıcalığa sahip değilsiniz. Bunun yerine kopyalamak ister misiniz?"
 
 msgid "CC"
 msgstr "CC"
@@ -4643,8 +4358,7 @@ msgstr "Gizli kopya"
 msgid "Sort by: To"
 msgstr "Sıralama: Kime"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Sent"
 msgstr "Gönderildi"
 
@@ -4706,8 +4420,7 @@ msgid "Send Later"
 msgstr "Daha Sonra Gönder"
 
 msgid "Schedule your mail to be sent on a specific date and time"
-msgstr ""
-"Postalarınızı belirli bir tarih ve saatte gönderilmek üzere programlayın"
+msgstr "Postalarınızı belirli bir tarih ve saatte gönderilmek üzere programlayın"
 
 msgid "Add attachments to this email"
 msgstr "Bu e-postaya eklentiler ekleyin"
@@ -4966,22 +4679,14 @@ msgstr "Sadece benim kişilerim"
 msgid "Anyone outside my organization"
 msgstr "Kurumum dışındaki herkes"
 
-msgid ""
-"The time you entered is before the out of office date. Please reschedule."
-msgstr ""
-"Girdiğiniz zaman, ofis dışında olacağınız tarih'ten önce. Lütfen yeniden "
-"planlayın."
+msgid "The time you entered is before the out of office date. Please reschedule."
+msgstr "Girdiğiniz zaman, ofis dışında olacağınız tarih'ten önce. Lütfen yeniden planlayın."
 
 msgid "Safe Senders"
 msgstr "Güvenli Göndericiler"
 
-msgid ""
-"To protect your privacy email addresses or domains can only be added via the"
-" \"Add to safe sender list\" functionality in an opened email."
-msgstr ""
-"Gizliliğinizi korumak için e-posta adresleri veya alan adları yalnızca "
-"açılan bir e-postadaki \"Güvenli gönderen listesine ekle\" işlevi "
-"aracılığıyla eklenebilir."
+msgid "To protect your privacy email addresses or domains can only be added via the \"Add to safe sender list\" functionality in an opened email."
+msgstr "Gizliliğinizi korumak için e-posta adresleri veya alan adları yalnızca açılan bir e-postadaki \"Güvenli gönderen listesine ekle\" işlevi aracılığıyla eklenebilir."
 
 msgid "Delete all"
 msgstr "Tümünü sil"
@@ -5008,8 +4713,7 @@ msgid "Save Signature"
 msgstr "Imzalar"
 
 msgid "You have unsaved changes. Do you wish to save the changes?"
-msgstr ""
-"Kaydetmediniz değişiklikler var. Değişiklikleri kaydetmek ister misiniz?"
+msgstr "Kaydetmediniz değişiklikler var. Değişiklikleri kaydetmek ister misiniz?"
 
 msgid "New signature"
 msgstr "Yeni imza"
@@ -5152,12 +4856,8 @@ msgstr "Notlar yükleniyor"
 msgid "Quick Note"
 msgstr "Hızlı Not"
 
-msgid ""
-"You must reload grommunio Web for the changes to take effect. Unsaved "
-"changes will be lost."
-msgstr ""
-"Değişikliklerin etkili olması için lütfen grommunio Web'i tekrar "
-"yenileyiniz."
+msgid "You must reload grommunio Web for the changes to take effect. Unsaved changes will be lost."
+msgstr "Değişikliklerin etkili olması için lütfen grommunio Web'i tekrar yenileyiniz."
 
 msgid "Reload grommunio Web"
 msgstr "Grommunio Web'i yeniden yükle"
@@ -5303,17 +5003,11 @@ msgstr "Gezinme yöntemi"
 msgid "Infinite Scroll"
 msgstr "Sonsuz kaydırma"
 
-msgid ""
-"grommunio Web automatically loads additional items when you scroll down"
-msgstr ""
-"grommunio Web, aşağı kaydırdığınızda ek öğeleri otomatik olarak yükler"
+msgid "grommunio Web automatically loads additional items when you scroll down"
+msgstr "grommunio Web, aşağı kaydırdığınızda ek öğeleri otomatik olarak yükler"
 
-msgid ""
-"grommunio Web displays items on pages and you can use navigation controls to"
-" navigate"
-msgstr ""
-"grommunio Web öğeleri sayfalarda görüntüler ve gezinmek için navigasyonu "
-"kullanabilirsiniz"
+msgid "grommunio Web displays items on pages and you can use navigation controls to navigate"
+msgstr "grommunio Web öğeleri sayfalarda görüntüler ve gezinmek için navigasyonu kullanabilirsiniz"
 
 msgid "Load items in blocks of {A}"
 msgstr "Öğeleri {A}'lık bloklar halinde yükleyin"
@@ -5375,11 +5069,8 @@ msgstr "Sabit kotayı aştınız, posta gönderemez veya alamazsınız."
 msgid "At {0} you won't be able to send mails."
 msgstr "{0}'den sonra postalar göndermek mümkün olmayacaktır."
 
-msgid ""
-"You can not send mails as you have exceeded soft quota, at {0} you won't be "
-"able to receive mails."
-msgstr ""
-"Kotayı aştığınız için posta gönderemezsiniz, {0}'de posta alamazsınız."
+msgid "You can not send mails as you have exceeded soft quota, at {0} you won't be able to receive mails."
+msgstr "Kotayı aştığınız için posta gönderemezsiniz, {0}'de posta alamazsınız."
 
 msgid "At {0} you won't be able to send or receive mails."
 msgstr "{0} konumunda posta gönderemez veya alamazsınız."
@@ -5393,19 +5084,11 @@ msgstr "Ayarları sıfırla"
 msgid "Reset settings to their original defaults."
 msgstr "Ayarları orijinal varsayılanlarına sıfırlayın."
 
-msgid ""
-"This will close all opened shared stores and resets all settings to the "
-"default value."
-msgstr ""
-"Tüm paylaşılan depoları kapatılır ve tüm ayarları varsayılan değere geri "
-"döner."
+msgid "This will close all opened shared stores and resets all settings to the default value."
+msgstr "Tüm paylaşılan depoları kapatılır ve tüm ayarları varsayılan değere geri döner."
 
-msgid ""
-"grommunio Web will automatically reload in order for these changes to take "
-"effect"
-msgstr ""
-"grommunio Web, bu değişikliklerin aktivleşmesi girmesi için otomatik olarak "
-"yeniden başlar"
+msgid "grommunio Web will automatically reload in order for these changes to take effect"
+msgstr "grommunio Web, bu değişikliklerin aktivleşmesi girmesi için otomatik olarak yeniden başlar"
 
 msgid "Reset"
 msgstr "Sıfırla"
@@ -5500,19 +5183,11 @@ msgstr "Görevi kabul et"
 msgid "Declining Task"
 msgstr "Reddedilen Görev"
 
-msgid ""
-"This task will be accepted and moved to your task folder. Do you want to "
-"include comments with your response?"
-msgstr ""
-"Bu görev kabul edilecek ve görev klasörünüze taşınacaktır. Yanıtınıza yorum "
-"eklemek ister misiniz?"
+msgid "This task will be accepted and moved to your task folder. Do you want to include comments with your response?"
+msgstr "Bu görev kabul edilecek ve görev klasörünüze taşınacaktır. Yanıtınıza yorum eklemek ister misiniz?"
 
-msgid ""
-"This task will be declined and moved into the Deleted Items folder. Do you "
-"want to edit the response before sending it?"
-msgstr ""
-"Bu görev reddedilecek ve Silinmiş Öğeler klasörüne taşınacaktır. Yanıtı "
-"göndermeden önce düzenlemek istiyor musunuz?"
+msgid "This task will be declined and moved into the Deleted Items folder. Do you want to edit the response before sending it?"
+msgstr "Bu görev reddedilecek ve Silinmiş Öğeler klasörüne taşınacaktır. Yanıtı göndermeden önce düzenlemek istiyor musunuz?"
 
 msgid "Send the response now"
 msgstr "Cevabı şimdi gönder"
@@ -5598,8 +5273,7 @@ msgstr "Tamamlandı"
 msgid "Printed by: "
 msgstr "Tarafından basıldı: "
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
-#. meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Printed on: "
 msgstr "Üzerine basılmış: "
 
@@ -5660,12 +5334,8 @@ msgstr "Yapılacaklar Listesinden Çıkar"
 msgid "Changes to assigned task"
 msgstr "Atanan görevde değişiklikler"
 
-msgid ""
-"Please note that assigned task(s) will be overwritten when the assignee "
-"makes changes."
-msgstr ""
-"Atanan görev(ler)in, atanan kişi değişiklik yaptığında üzerine yazılacağını "
-"lütfen unutmayın."
+msgid "Please note that assigned task(s) will be overwritten when the assignee makes changes."
+msgstr "Atanan görev(ler)in, atanan kişi değişiklik yaptığında üzerine yazılacağını lütfen unutmayın."
 
 msgid "Sort by: Complete"
 msgstr "Sıralama: Tamamlanan"
@@ -5736,12 +5406,8 @@ msgstr "Sunucu isteğinizi belirtilmemiş bir hata bildirdi."
 msgid "The session has expired, reauthentication is required."
 msgstr "Oturum sona erdi, yeniden kimlik doğrulama gerekiyor."
 
-msgid ""
-"The session in the current browser window has been closed from another "
-"browser window or tab."
-msgstr ""
-"Geçerli tarayıcı penceresindeki oturum başka bir tarayıcı penceresinden veya"
-" sekmesinden kapatıldı."
+msgid "The session in the current browser window has been closed from another browser window or tab."
+msgstr "Geçerli tarayıcı penceresindeki oturum başka bir tarayıcı penceresinden veya sekmesinden kapatıldı."
 
 msgid "Session expired"
 msgstr "Oturum süresi doldu"
@@ -5750,9 +5416,7 @@ msgid "Do you wish to be redirected to the logon page?"
 msgstr "Oturum açma sayfasına yönlendirilmek istiyor musunuz?"
 
 msgid "Reauthentication required, click here to go to back to logon page."
-msgstr ""
-"Yeniden doğrulama gerekli, oturum açma sayfasına dönmek için buraya "
-"tıklayın."
+msgstr "Yeniden doğrulama gerekli, oturum açma sayfasına dönmek için buraya tıklayın."
 
 msgid "Connection problem"
 msgstr "Bağlantı problemi"
@@ -5782,9 +5446,7 @@ msgstr "Kayıp mağaza"
 msgid "The default store is missing from the hierarchy."
 msgstr "Varsayılan mağaza hiyerarşide eksik."
 
-msgid ""
-"Not all functionality of grommunio Web might be working properly because of "
-"this."
+msgid "Not all functionality of grommunio Web might be working properly because of this."
 msgstr "Bu nedenle grommunio Web'in tüm işlevleri düzgün çalışmıyor olabilir."
 
 msgctxt "hierarchy.foldername"
@@ -5835,8 +5497,7 @@ msgid "Missing folders"
 msgstr "Eksik klasörler"
 
 msgid "The following required folder is missing in the hierarchy: {0}"
-msgid_plural ""
-"The following required folders are missing in the hierarchy: {0}"
+msgid_plural "The following required folders are missing in the hierarchy: {0}"
 msgstr[0] "Hiyerarşide aşağıdaki gerekli klasör eksik: {0}"
 msgstr[1] "Hiyerarşide aşağıdaki gerekli klasörler eksik: {0}"
 
@@ -5934,8 +5595,7 @@ msgid "Clipboard"
 msgstr "Pano"
 
 msgid "Could not copy link automatically. Please copy it manually."
-msgstr ""
-"Bağlantı otomatik olarak kopyalanamadı. Lütfen manuel olarak kopyalayın."
+msgstr "Bağlantı otomatik olarak kopyalanamadı. Lütfen manuel olarak kopyalayın."
 
 msgid "Loading details..."
 msgstr "Detaylar yükleniyor..."
@@ -5962,13 +5622,10 @@ msgid "Are you sure you want to delete {0} files?"
 msgstr "{0} dosyalarını silmek istediğinizden emin misiniz?"
 
 msgid "Are you sure want to delete {0} folders and all of their contents?"
-msgstr ""
-"{0} klasörlerini ve tüm içeriklerini silmek istediğinizden emin misiniz?"
+msgstr "{0} klasörlerini ve tüm içeriklerini silmek istediğinizden emin misiniz?"
 
-msgid ""
-"Are you sure want to delete the selected items and all of their contents?"
-msgstr ""
-"Seçili öğeleri ve tüm içeriklerini silmek istediğinizden emin misiniz?"
+msgid "Are you sure want to delete the selected items and all of their contents?"
+msgstr "Seçili öğeleri ve tüm içeriklerini silmek istediğinizden emin misiniz?"
 
 msgid "Confirm overwrite"
 msgstr "Üzerine yazımı onayla"
@@ -6048,19 +5705,11 @@ msgstr "Dosya ayarlarını orijinal varsayılan değerlerine sıfırlar"
 msgid "Are you sure to remove all settings and accounts?"
 msgstr "Tüm ayarları ve hesapları kaldırdığınızdan emin misiniz?"
 
-msgid ""
-"Accounts marked by your administrator as \"cannot be changed\" will not be "
-"removed."
-msgstr ""
-"Yöneticiniz tarafından \"değiştirilemez\" olarak işaretlenen hesaplar "
-"kaldırılmayacaktır."
+msgid "Accounts marked by your administrator as \"cannot be changed\" will not be removed."
+msgstr "Yöneticiniz tarafından \"değiştirilemez\" olarak işaretlenen hesaplar kaldırılmayacaktır."
 
-msgid ""
-"grommunio Web will automatically restart in order for these changes to take "
-"effect."
-msgstr ""
-"grommunio Web, bu değişikliklerin yürürlüğe girmesi için otomatik olarak "
-"yeniden başlatılacaktır."
+msgid "grommunio Web will automatically restart in order for these changes to take effect."
+msgstr "grommunio Web, bu değişikliklerin yürürlüğe girmesi için otomatik olarak yeniden başlatılacaktır."
 
 msgid "grommunio Web is reloading, Please wait."
 msgstr "grommunio Web yeniden yükleniyor, Lütfen bekleyin."
@@ -6278,10 +5927,8 @@ msgstr "E-posta oluşturuluyor... Lütfen bekleyin!"
 msgid "Edit share"
 msgstr "Paylaşımı düzenle"
 
-msgid ""
-"There are no accounts added. Go to settings, Files tab and add an account"
-msgstr ""
-"Eklenmiş hesap yok. Ayarlar, Dosyalar sekmesine gidin ve bir hesap ekleyin"
+msgid "There are no accounts added. Go to settings, Files tab and add an account"
+msgstr "Eklenmiş hesap yok. Ayarlar, Dosyalar sekmesine gidin ve bir hesap ekleyin"
 
 msgid "Filesize"
 msgstr "Dosya boyutu"
@@ -6418,9 +6065,7 @@ msgstr "ekler seçilebilir. Orada olmuştur"
 msgid "attachments selected"
 msgstr "seçilen ekler"
 
-msgid ""
-"With the selection of separate attachments the total size of all attachments"
-" may not exceed"
+msgid "With the selection of separate attachments the total size of all attachments may not exceed"
 msgstr "Ayrı eklerin seçilmesi durumunda, tüm eklerin toplam boyutu"
 
 msgid "MB. There have been"
@@ -6523,12 +6168,8 @@ msgstr "Paylaşılan Klasörler"
 msgid "Manage Shared Folders"
 msgstr "Paylaşılan Klasörleri Yönetme"
 
-msgid ""
-"Select folders to sync to your device from the list below. To add additional"
-" mailboxes to the list, open them in grommunio Web first."
-msgstr ""
-"Aşağıdaki listeden cihazınızla senkronize edilecek klasörleri seçin. Listeye"
-" ek posta kutuları eklemek için önce bunları grommunio Web'de açın."
+msgid "Select folders to sync to your device from the list below. To add additional mailboxes to the list, open them in grommunio Web first."
+msgstr "Aşağıdaki listeden cihazınızla senkronize edilecek klasörleri seçin. Listeye ek posta kutuları eklemek için önce bunları grommunio Web'de açın."
 
 msgid "grommunio-sync"
 msgstr "grommunio-sync"
@@ -6539,12 +6180,8 @@ msgstr "Mobil cihaz yönetimi"
 msgid "Mobile Devices"
 msgstr "Mobil cihazlar"
 
-msgid ""
-"Unable to connect to the grommunio-sync server. Click {0} to enter your "
-"credentials"
-msgstr ""
-"Grommunio-sync sunucusuna bağlanılamıyor. Kimlik bilgilerinizi girmek için "
-"{0} adresine tıklayın"
+msgid "Unable to connect to the grommunio-sync server. Click {0} to enter your credentials"
+msgstr "Grommunio-sync sunucusuna bağlanılamıyor. Kimlik bilgilerinizi girmek için {0} adresine tıklayın"
 
 msgid "Devices"
 msgstr "Cihazlar"
@@ -6676,18 +6313,11 @@ msgstr "Organizatörün adını oda adına ekleyin"
 msgid "Add the URL to the meeting location rather than overwriting it"
 msgstr "URL'yi üzerine yazmak yerine toplantı konumuna ekleyin"
 
-msgid ""
-"Prevent the URL in the meeting location from being overridden automatically "
-"(ex: when adding a meetingroom)"
-msgstr ""
-"Toplantı konumundaki URL'nin otomatik olarak geçersiz kılınmasını önleyin "
-"(örn: bir toplantı odası eklerken)"
+msgid "Prevent the URL in the meeting location from being overridden automatically (ex: when adding a meetingroom)"
+msgstr "Toplantı konumundaki URL'nin otomatik olarak geçersiz kılınmasını önleyin (örn: bir toplantı odası eklerken)"
 
-msgid ""
-"If you have problems when creating meetings, try disabling this setting"
-msgstr ""
-"Toplantı oluştururken sorun yaşıyorsanız bu ayarı devre dışı bırakmayı "
-"deneyin"
+msgid "If you have problems when creating meetings, try disabling this setting"
+msgstr "Toplantı oluştururken sorun yaşıyorsanız bu ayarı devre dışı bırakmayı deneyin"
 
 msgid "Add an invitation to the appointment description"
 msgstr "Randevu açıklamasına bir davetiye ekleyin"
@@ -6695,12 +6325,8 @@ msgstr "Randevu açıklamasına bir davetiye ekleyin"
 msgid "Invitation text (plain text)"
 msgstr "Davet metni (düz metin)"
 
-msgid ""
-"used when composing in plain text, must contain %url%, empty to reset to "
-"default"
-msgstr ""
-"düz metin olarak yazarken kullanılır, %url% içermelidir, varsayılana "
-"sıfırlamak için boş bırakılmalıdır"
+msgid "used when composing in plain text, must contain %url%, empty to reset to default"
+msgstr "düz metin olarak yazarken kullanılır, %url% içermelidir, varsayılana sıfırlamak için boş bırakılmalıdır"
 
 msgid "Invitation text"
 msgstr "Davet metni"
@@ -6708,11 +6334,8 @@ msgstr "Davet metni"
 msgid "Invitation template (HTML)"
 msgstr "Davetiye şablonu (HTML)"
 
-msgid ""
-"used when composing in HTML, must contain %url%, empty to reset to default"
-msgstr ""
-"HTML ile yazarken kullanılır, %url% içermelidir, varsayılana sıfırlamak için"
-" boş bırakılmalıdır"
+msgid "used when composing in HTML, must contain %url%, empty to reset to default"
+msgstr "HTML ile yazarken kullanılır, %url% içermelidir, varsayılana sıfırlamak için boş bırakılmalıdır"
 
 msgid "Invitation template"
 msgstr "Davet şablonu"
@@ -6750,12 +6373,8 @@ msgstr "Yeni şifre boş."
 msgid "One or more fields does contain errors."
 msgstr "Bir veya daha fazla alan hata içeriyor."
 
-msgid ""
-"Password is weak. Password should contain capital, non-capital letters and "
-"numbers. Password should have 8 to 20 characters."
-msgstr ""
-"Şifre zayıf. Şifre büyük, küçük harfler ve rakamlar içermelidir. Şifre 8 ila"
-" 20 karakterden oluşmalıdır."
+msgid "Password is weak. Password should contain capital, non-capital letters and numbers. Password should have 8 to 20 characters."
+msgstr "Şifre zayıf. Şifre büyük, küçük harfler ve rakamlar içermelidir. Şifre 8 ila 20 karakterden oluşmalıdır."
 
 msgid "Change passphrase"
 msgstr "Parolayı değiştir"
@@ -6826,12 +6445,8 @@ msgstr "S/MIME Eklentisi"
 msgid "Please select a certificate."
 msgstr "Lütfen bir sertifika seçiniz."
 
-msgid ""
-"Do you really want to remove your private certificate? If you remove your "
-"certificate you will not be able to sign or decrypt S/MIME emails."
-msgstr ""
-"Özel sertifikanızı gerçekten kaldırmak istiyor musunuz? Sertifikanızı "
-"kaldırırsanız S/MIME e-postalarını imzalayamaz veya şifresini çözemezsiniz."
+msgid "Do you really want to remove your private certificate? If you remove your certificate you will not be able to sign or decrypt S/MIME emails."
+msgstr "Özel sertifikanızı gerçekten kaldırmak istiyor musunuz? Sertifikanızı kaldırırsanız S/MIME e-postalarını imzalayamaz veya şifresini çözemezsiniz."
 
 msgid "Signing"
 msgstr "İmzalama"
@@ -6857,12 +6472,8 @@ msgstr "SHA-256 Parmak İzi"
 msgid "SHA-1 Fingerprint"
 msgstr "SHA-1 Parmak İzi"
 
-msgid ""
-"Warning: RSA key size is below 2048 bits. Consider upgrading to a stronger "
-"certificate."
-msgstr ""
-"Uyarı: RSA anahtar boyutu 2048 bitin altında. Daha güçlü bir sertifikaya "
-"geçmeyi düşünün."
+msgid "Warning: RSA key size is below 2048 bits. Consider upgrading to a stronger certificate."
+msgstr "Uyarı: RSA anahtar boyutu 2048 bitin altında. Daha güçlü bir sertifikaya geçmeyi düşünün."
 
 msgid "Certificate details"
 msgstr "Sertifika detayları"
@@ -6903,20 +6514,13 @@ msgstr "Hesabınıza karşılık gelen geçerli bir sertifikanız var"
 msgid "Upload your certificate"
 msgstr "Lütfen sertifikanızı yükleyin"
 
-msgid ""
-"Below you can upload your private certificate in PKCS#12 format. grommunio "
-"Web only accepts certificates which are valid and only stores one private "
-"certificate on the server."
-msgstr ""
-"Aşağıda özel sertifikanızı PKCS#12 formatında yükleyebilirsiniz. grommunio "
-"Web yalnızca geçerli olan sertifikaları kabul eder ve sunucuda yalnızca bir "
-"özel sertifika depolar."
+msgid "Below you can upload your private certificate in PKCS#12 format. grommunio Web only accepts certificates which are valid and only stores one private certificate on the server."
+msgstr "Aşağıda özel sertifikanızı PKCS#12 formatında yükleyebilirsiniz. grommunio Web yalnızca geçerli olan sertifikaları kabul eder ve sunucuda yalnızca bir özel sertifika depolar."
 
 msgid "Private certificate"
 msgstr "Özel sertifika"
 
-msgid ""
-"You must fill in the certificate passphrase to upload your certificate."
+msgid "You must fill in the certificate passphrase to upload your certificate."
 msgstr "Sertifikanızı yüklemek için sertifika parolasını girmelisiniz."
 
 msgid "You must first select a valid private certificate in PKCS#12 format."
@@ -6937,22 +6541,14 @@ msgstr "i̇mzalama &amp; şi̇freleme"
 msgid "Sign message"
 msgstr "İşaret mesajı"
 
-msgid ""
-"Ensure the authenticity of the message by adding a digital signature to this"
-" message. Any changes to the message will invalidate the signature."
-msgstr ""
-"Bu mesaja bir dijital imza ekleyerek mesajın gerçekliğini sağlayın. Mesajda "
-"yapılacak herhangi bir değişiklik imzayı geçersiz kılacaktır."
+msgid "Ensure the authenticity of the message by adding a digital signature to this message. Any changes to the message will invalidate the signature."
+msgstr "Bu mesaja bir dijital imza ekleyerek mesajın gerçekliğini sağlayın. Mesajda yapılacak herhangi bir değişiklik imzayı geçersiz kılacaktır."
 
 msgid "Encrypt message"
 msgstr "Mesajı şifrele"
 
-msgid ""
-"Ensure the privacy of the message by encrypting its contents. Only the "
-"recipient of the message will be able to open it."
-msgstr ""
-"İçeriğini şifreleyerek mesajın gizliliğini sağlayın. Yalnızca mesajın "
-"alıcısı mesajı açabilecektir."
+msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
+msgstr "İçeriğini şifreleyerek mesajın gizliliğini sağlayın. Yalnızca mesajın alıcısı mesajı açabilecektir."
 
 msgid "Algorithms used"
 msgstr "Kullanılan Algoritmalar"
@@ -6963,18 +6559,10 @@ msgstr "E-postama ne oldu?"
 msgid "CBC mode"
 msgstr "CBC modu"
 
-msgid ""
-"grommunio Web can verify digital signatures of emails. A successful "
-"verification reassures you that the message has not been tampered with and "
-"validates the identity of the sender."
-msgstr ""
-"grommunio Web e-postaların dijital imzalarını doğrulayabilir. Başarılı bir "
-"doğrulama, mesajın tahrif edilmediğine dair size güvence verir ve gönderenin"
-" kimliğini doğrular."
+msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you that the message has not been tampered with and validates the identity of the sender."
+msgstr "grommunio Web e-postaların dijital imzalarını doğrulayabilir. Başarılı bir doğrulama, mesajın tahrif edilmediğine dair size güvence verir ve gönderenin kimliğini doğrular."
 
-msgid ""
-"You are seeing this message because the verification of the digital "
-"signature"
+msgid "You are seeing this message because the verification of the digital signature"
 msgstr "Dijital imzanın doğrulanması nedeniyle bu mesajı görüyorsunuz"
 
 msgid " has failed"
@@ -6989,80 +6577,41 @@ msgstr "Bu soruna ne sebep oldu?"
 msgid "What should I do?"
 msgstr "Ne yapmalıyım?"
 
-msgid ""
-"You can continue to work. However, you should keep in mind that the identity"
-" and the authenticity of the message content could not be verified."
-msgstr ""
-"Çalışmaya devam edebilirsiniz. Ancak, mesaj içeriğinin kimliğinin ve "
-"orijinalliğinin doğrulanamayacağını unutmamalısınız."
+msgid "You can continue to work. However, you should keep in mind that the identity and the authenticity of the message content could not be verified."
+msgstr "Çalışmaya devam edebilirsiniz. Ancak, mesaj içeriğinin kimliğinin ve orijinalliğinin doğrulanamayacağını unutmamalısınız."
 
-msgid ""
-"You can contact your helpdesk or system administrator if you are not sure "
-"what to do next."
-msgstr ""
-"Bundan sonra ne yapacağınızdan emin değilseniz, yardım masanız veya sistem "
-"yöneticinizle iletişime geçebilirsiniz."
+msgid "You can contact your helpdesk or system administrator if you are not sure what to do next."
+msgstr "Bundan sonra ne yapacağınızdan emin değilseniz, yardım masanız veya sistem yöneticinizle iletişime geçebilirsiniz."
 
-msgid ""
-"grommunio Web can verify digital signatures of emails. A successful "
-"verification reassures you "
-msgstr ""
-"grommunio Web, e-postaların dijital imzalarını doğrulayabilir. Başarılı bir "
-"doğrulama size güven verir "
+msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you "
+msgstr "grommunio Web, e-postaların dijital imzalarını doğrulayabilir. Başarılı bir doğrulama size güven verir "
 
-msgid ""
-"that the message has not been tampered with and validates the identity of "
-"the sender."
+msgid "that the message has not been tampered with and validates the identity of the sender."
 msgstr "Mesajın kurcalanmadığını ve gönderenin kimliğini doğrular."
 
-msgid ""
-"The verification of the digital signature was successful for this email "
-"message."
+msgid "The verification of the digital signature was successful for this email message."
 msgstr "E-posta mesajı için dijital imzanın doğrulanması başarılı oldu."
 
 msgid "grommunio Web could not find a public certificate for the recipient."
 msgstr "grommunio Web, alıcı için genel bir sertifika bulamadı."
 
-msgid ""
-"The identity of the sender and authenticity of the message content have been"
-" verified, but the certificate used to sign the message expired on [d-m-Y]."
-msgstr ""
-"Gönderenin kimliği ve mesaj içeriğinin gerçekliği doğrulandı, ancak mesajı "
-"imzalamak için kullanılan sertifikanın süresi [d-m-Y] tarihinde doldu."
+msgid "The identity of the sender and authenticity of the message content have been verified, but the certificate used to sign the message expired on [d-m-Y]."
+msgstr "Gönderenin kimliği ve mesaj içeriğinin gerçekliği doğrulandı, ancak mesajı imzalamak için kullanılan sertifikanın süresi [d-m-Y] tarihinde doldu."
 
 msgid "The digital signature could not be verified for unknown reasons."
 msgstr "Dijital imza bilinmeyen nedenlerden dolayı doğrulanamamıştır."
 
-msgid ""
-"The digital certificate used to sign this message has been revoked (i.e. the"
-" sender has marked it as compromised)"
-msgstr ""
-"Bu mesajı imzalamak için kullanılan dijital sertifika iptal edildi (yani, "
-"gönderen onu güvenliği aşılmış olarak işaretledi)"
+msgid "The digital certificate used to sign this message has been revoked (i.e. the sender has marked it as compromised)"
+msgstr "Bu mesajı imzalamak için kullanılan dijital sertifika iptal edildi (yani, gönderen onu güvenliği aşılmış olarak işaretledi)"
 
-msgid ""
-"The verification service of the certificate authority that signed the "
-"sender's certificate is not available. The validity of the certificate could"
-" not be verified."
-msgstr ""
-"Gönderenin sertifikasını imzalayan sertifika yetkilisinin doğrulama hizmeti "
-"mevcut değil. Sertifikanın geçerliliği doğrulanamadı."
+msgid "The verification service of the certificate authority that signed the sender's certificate is not available. The validity of the certificate could not be verified."
+msgstr "Gönderenin sertifikasını imzalayan sertifika yetkilisinin doğrulama hizmeti mevcut değil. Sertifikanın geçerliliği doğrulanamadı."
 
-msgid ""
-"The revocation status of the digital certificate used to sign this email is "
-"unknown (Server is unavailable or certificate does not support OCSP). The "
-"validity of the certificate could not be verified."
-msgstr ""
-"Bu e-postayı imzalamak için kullanılan dijital sertifikanın iptal durumu "
-"bilinmiyor (Sunucu kullanılamıyor veya sertifika OCSP'yi desteklemiyor). "
-"Sertifikanın geçerliliği doğrulanamadı."
+msgid "The revocation status of the digital certificate used to sign this email is unknown (Server is unavailable or certificate does not support OCSP). The validity of the certificate could not be verified."
+msgstr "Bu e-postayı imzalamak için kullanılan dijital sertifikanın iptal durumu bilinmiyor (Sunucu kullanılamıyor veya sertifika OCSP'yi desteklemiyor). Sertifikanın geçerliliği doğrulanamadı."
 
-msgid ""
-"The revocation status of the digital certificate used to sign this email is "
-"disabled (OCSP). The validity of the certificate could not be verified."
-msgstr ""
-"E-postayı imzalamak için kullanılan dijital sertifikanın iptal durumu devre "
-"dışı bırakıldı (OCSP). Sertifikanın geçerliliği doğrulanamadı."
+msgid "The revocation status of the digital certificate used to sign this email is disabled (OCSP). The validity of the certificate could not be verified."
+msgstr "E-postayı imzalamak için kullanılan dijital sertifikanın iptal durumu devre dışı bırakıldı (OCSP). Sertifikanın geçerliliği doğrulanamadı."
 
 msgid "The certificate verification server (OCSP) is temporarily offline."
 msgstr "Sertifika doğrulama sunucusu (OCSP) geçici olarak çevrimdışıdır."
@@ -7070,53 +6619,23 @@ msgstr "Sertifika doğrulama sunucusu (OCSP) geçici olarak çevrimdışıdır."
 msgid "Sender is removed from the server."
 msgstr "Gönderen sunucudan kaldırılır."
 
-msgid ""
-"The digital certificate used to sign this message has been revoked according"
-" to the Certificate Revocation List (CRL)."
-msgstr ""
-"Bu mesajı imzalamak için kullanılan dijital sertifika, Sertifika İptal "
-"Listesi (CRL) uyarınca iptal edilmiştir."
+msgid "The digital certificate used to sign this message has been revoked according to the Certificate Revocation List (CRL)."
+msgstr "Bu mesajı imzalamak için kullanılan dijital sertifika, Sertifika İptal Listesi (CRL) uyarınca iptal edilmiştir."
 
-msgid ""
-"The revocation status of the certificate could not be verified because the "
-"CRL Distribution Point is unavailable."
-msgstr ""
-"CRL Dağıtım Noktası kullanılamadığından sertifikanın iptal durumu "
-"doğrulanamadı."
+msgid "The revocation status of the certificate could not be verified because the CRL Distribution Point is unavailable."
+msgstr "CRL Dağıtım Noktası kullanılamadığından sertifikanın iptal durumu doğrulanamadı."
 
-msgid ""
-"The RSA key size used in this certificate is below the recommended minimum "
-"of 2048 bits. Consider upgrading to a stronger certificate."
-msgstr ""
-"Bu sertifikada kullanılan RSA anahtar boyutu, önerilen minimum 2048 bit "
-"değerinin altındadır. Daha güçlü bir sertifikaya geçmeyi düşünün."
+msgid "The RSA key size used in this certificate is below the recommended minimum of 2048 bits. Consider upgrading to a stronger certificate."
+msgstr "Bu sertifikada kullanılan RSA anahtar boyutu, önerilen minimum 2048 bit değerinin altındadır. Daha güçlü bir sertifikaya geçmeyi düşünün."
 
-msgid ""
-"The certificate's Key Usage extension does not permit this operation. The "
-"certificate may be intended for signing only or encryption only."
-msgstr ""
-"Sertifikanın Anahtar Kullanımı uzantısı bu işlemi izin vermiyor. Sertifika "
-"yalnızca imzalamaya veya yalnızca şifrelemeye yönelik olabilir."
+msgid "The certificate's Key Usage extension does not permit this operation. The certificate may be intended for signing only or encryption only."
+msgstr "Sertifikanın Anahtar Kullanımı uzantısı bu işlemi izin vermiyor. Sertifika yalnızca imzalamaya veya yalnızca şifrelemeye yönelik olabilir."
 
-msgid ""
-"This message was encrypted using CBC mode (not authenticated encryption). "
-"While it was decrypted successfully, AES-GCM (authenticated encryption) "
-"provides stronger protection against modification attacks. Consider asking "
-"the sender to upgrade their S/MIME configuration."
-msgstr ""
-"Bu mesaj CBC modu (kimlik doğrulamalı şifreleme değil) kullanılarak "
-"şifrelenmiştir. Mesaj başarıyla şifresi çözülmüş olsa da, AES-GCM (kimlik "
-"doğrulamalı şifreleme) değiştirme saldırılarına karşı daha güçlü koruma "
-"sağlar. Gönderenin S/MIME yapılandırmasını güncellemesini istemeyi düşünün."
+msgid "This message was encrypted using CBC mode (not authenticated encryption). While it was decrypted successfully, AES-GCM (authenticated encryption) provides stronger protection against modification attacks. Consider asking the sender to upgrade their S/MIME configuration."
+msgstr "Bu mesaj CBC modu (kimlik doğrulamalı şifreleme değil) kullanılarak şifrelenmiştir. Mesaj başarıyla şifresi çözülmüş olsa da, AES-GCM (kimlik doğrulamalı şifreleme) değiştirme saldırılarına karşı daha güçlü koruma sağlar. Gönderenin S/MIME yapılandırmasını güncellemesini istemeyi düşünün."
 
-msgid ""
-"The signing time in the digital signature differs significantly from the "
-"expected time. This may indicate a clock synchronization issue or message "
-"tampering."
-msgstr ""
-"Dijital imzadaki imza zamanı, beklenen zamandan önemli ölçüde farklıdır. Bu "
-"durum, saat senkronizasyonu sorunu veya mesajın tahrif edildiğini "
-"gösterebilir."
+msgid "The signing time in the digital signature differs significantly from the expected time. This may indicate a clock synchronization issue or message tampering."
+msgstr "Dijital imzadaki imza zamanı, beklenen zamandan önemli ölçüde farklıdır. Bu durum, saat senkronizasyonu sorunu veya mesajın tahrif edildiğini gösterebilir."
 
 msgid "Signature verified successfully"
 msgstr "İmza başarıyla doğrulandı"
@@ -7176,8 +6695,7 @@ msgid "Certificate not valid for this operation (key usage mismatch)"
 msgstr "Sertifika bu işlem için geçerli değil (anahtar kullanım uyuşmazlığı)"
 
 msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
-msgstr ""
-"Şifresi çözülmüş (CBC modu - daha güçlü koruma için AES-GCM'yi düşünün)"
+msgstr "Şifresi çözülmüş (CBC modu - daha güçlü koruma için AES-GCM'yi düşünün)"
 
 msgid "Signing time differs from expected time"
 msgstr "İmzalama süresi beklenen süreden farklı"
@@ -7239,12 +6757,8 @@ msgstr "Yeni sistem şablonu"
 msgid "Delete system template"
 msgstr "Sistem şablonunu sil"
 
-msgid ""
-"Are you sure you want to delete the system template \"{0}\"? This affects "
-"all users."
-msgstr ""
-"\"{0}\" sistem şablonunu silmek istediğinizden emin misiniz? Bu işlem tüm "
-"kullanıcıları etkiler."
+msgid "Are you sure you want to delete the system template \"{0}\"? This affects all users."
+msgstr "\"{0}\" sistem şablonunu silmek istediğinizden emin misiniz? Bu işlem tüm kullanıcıları etkiler."
 
 msgid "Insert Template"
 msgstr "Şablonu ekle"
@@ -7339,12 +6853,8 @@ msgstr "Bekleme"
 msgid "You have been automatically logged out"
 msgstr "Otomatik olarak çıkış yapıldı"
 
-msgid ""
-"Sorry, access to grommunio Web is not available with this user account. "
-"Please contact your system administrator."
-msgstr ""
-"Malesef bu kullanıcı hesabıyla grommunio Web'e erişim sağlanamıyor. Lütfen "
-"sistem yöneticinizle iletişime geçin."
+msgid "Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator."
+msgstr "Malesef bu kullanıcı hesabıyla grommunio Web'e erişim sağlanamıyor. Lütfen sistem yöneticinizle iletişime geçin."
 
 msgid "This backend provides the default WebDAV integration for Files."
 msgstr "Bu arka uç, Dosyalar için varsayılan WebDAV entegrasyonunu sağlar."
@@ -7392,8 +6902,7 @@ msgid "Unauthorized. Wrong username or password."
 msgstr "Yetkisiz. Yanlış kullanıcı adı veya şifre."
 
 msgid "File server is not reachable. Please verify the file server URL."
-msgstr ""
-"Dosya sunucusuna erişilemiyor. Lütfen dosya sunucusu URL'sini doğrulayın."
+msgstr "Dosya sunucusuna erişilemiyor. Lütfen dosya sunucusu URL'sini doğrulayın."
 
 msgid "You don't have enough permissions to view this file or folder."
 msgstr "Bu dosya veya klasörü görüntülemek için yeterli izniniz yok."
@@ -7402,14 +6911,10 @@ msgid "The file or folder is not available anymore."
 msgstr "Dosya veya klasör artık mevcut değil."
 
 msgid "Connection to the file server timed out. Please check again later."
-msgstr ""
-"Dosya sunucusuna bağlantı zaman aşımına uğradı. Lütfen daha sonra tekrar "
-"kontrol edin."
+msgstr "Dosya sunucusuna bağlantı zaman aşımına uğradı. Lütfen daha sonra tekrar kontrol edin."
 
 msgid "This file is locked by another user. Please try again later."
-msgstr ""
-"Bu dosya başka bir kullanıcı tarafından kilitlendi. Lütfen daha sonra tekrar"
-" deneyin."
+msgstr "Bu dosya başka bir kullanıcı tarafından kilitlendi. Lütfen daha sonra tekrar deneyin."
 
 msgid "The request failed."
 msgstr "İstek başarısız oldu."
@@ -7456,17 +6961,11 @@ msgstr "Önceki bir talebin başarısız olması nedeniyle talep başarısız ol
 msgid "Seafile-server encountered a problem."
 msgstr "Seafile-server bir sorunla karşılaştı."
 
-msgid ""
-"Could not write to temporary directory. Contact the server administrator."
-msgstr ""
-"Geçici dizine yazma işlemi gerçekleştirilemedi. Sunucu yöneticisine "
-"başvurun."
+msgid "Could not write to temporary directory. Contact the server administrator."
+msgstr "Geçici dizine yazma işlemi gerçekleştirilemedi. Sunucu yöneticisine başvurun."
 
-msgid ""
-"Could not retrieve list of server features. Contact the server "
-"administrator."
-msgstr ""
-"Sunucu özelliklerinin listesi alınamadı. Sunucu yöneticisine başvurun."
+msgid "Could not retrieve list of server features. Contact the server administrator."
+msgstr "Sunucu özelliklerinin listesi alınamadı. Sunucu yöneticisine başvurun."
 
 msgid "PHP-Curl is not available. Contact your system administrator."
 msgstr "PHP-Curl mevcut değil. Sistem yöneticinize başvurun."
@@ -7553,8 +7052,7 @@ msgid "File backend not responding. Please try again later."
 msgstr "Dosya arka ucu yanıt vermiyor. Lütfen daha sonra tekrar deneyin."
 
 msgid "Zip file generation failed. Please inform the administrator."
-msgstr ""
-"Zip dosyası oluşturma başarısız oldu. Lütfen yöneticiyi bilgilendirin."
+msgstr "Zip dosyası oluşturma başarısız oldu. Lütfen yöneticiyi bilgilendirin."
 
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Bu dosya artık mevcut değil. Lütfen klasörü yeniden yükleyin."
@@ -7575,12 +7073,8 @@ msgid "Mobile device management plugin"
 msgstr "Mobil cihaz yönetimi eklentisi"
 
 #, php-format
-msgid ""
-"Unexpected error occurred. Please contact your system administrator. Error "
-"code: %s"
-msgstr ""
-"Beklenmeyen bir hata oluştu. Lütfen sistem yöneticinize başvurun. Hata kodu:"
-" %s"
+msgid "Unexpected error occurred. Please contact your system administrator. Error code: %s"
+msgstr "Beklenmeyen bir hata oluştu. Lütfen sistem yöneticinize başvurun. Hata kodu: %s"
 
 msgid "No data received."
 msgstr "Veri alınamadı."
@@ -7588,20 +7082,14 @@ msgstr "Veri alınamadı."
 msgid "Account is empty."
 msgstr "Hesap boş."
 
-msgid ""
-"Your password is wrong or you have insufficient permission to change "
-"password"
+msgid "Your password is wrong or you have insufficient permission to change password"
 msgstr "Şifreniz yanlış veya şifre değiştirmek için yeterli izniniz yok"
 
 msgid "Password is not changed."
 msgstr "Şifre değiştirilmemiştir."
 
-msgid ""
-"Error changing password. Please verify your password or contact the system "
-"administrator."
-msgstr ""
-"Şifre değiştirme hatası. Lütfen şifrenizi doğrulayın veya sistem "
-"yöneticisine başvurun."
+msgid "Error changing password. Please verify your password or contact the system administrator."
+msgstr "Şifre değiştirme hatası. Lütfen şifrenizi doğrulayın veya sistem yöneticisine başvurun."
 
 msgid "Password has been changed successfully."
 msgstr "Şifre başarıyla değiştirildi."
@@ -7639,12 +7127,8 @@ msgstr "Aşağıdaki alıcılar için eksik kamu sertifikaları: "
 msgid ". Please contact your system administrator for details"
 msgstr "Ayrıntılar için lütfen sistem yöneticinize başvurun"
 
-msgid ""
-"Your public certificate is not installed. Without this certificate, you will"
-" not be able to read encrypted messages you have sent to others."
-msgstr ""
-"Genel sertifikanız yüklü değil. Bu sertifika olmadan, başkalarına "
-"gönderdiğiniz şifreli mesajları okuyamazsınız."
+msgid "Your public certificate is not installed. Without this certificate, you will not be able to read encrypted messages you have sent to others."
+msgstr "Genel sertifikanız yüklü değil. Bu sertifika olmadan, başkalarına gönderdiğiniz şifreli mesajları okuyamazsınız."
 
 msgid "Certificate is already stored on the server"
 msgstr "Sertifika zaten sunucuda depolanmıştır"
@@ -7659,19 +7143,11 @@ msgid "Certificate email address doesn't match grommunio Web account "
 msgstr "Sertifika e-posta adresi grommunio Web hesabıyla eşleşmiyor "
 
 #, php-format
-msgid ""
-"RSA key size %d bits is below the recommended minimum of %d bits. "
-"Certificate was imported."
-msgstr ""
-"%d bitlik RSA anahtar boyutu, önerilen minimum %d bit değerinin altındadır. "
-"Sertifika içe aktarıldı."
+msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."
+msgstr "%d bitlik RSA anahtar boyutu, önerilen minimum %d bit değerinin altındadır. Sertifika içe aktarıldı."
 
-msgid ""
-"EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully "
-"supported. Certificate was imported."
-msgstr ""
-"EdDSA (Ed25519) sertifikaları PHP 8.4+ gerektirir ve tam olarak "
-"desteklenmeyebilir. Sertifika içe aktarıldı."
+msgid "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully supported. Certificate was imported."
+msgstr "EdDSA (Ed25519) sertifikaları PHP 8.4+ gerektirir ve tam olarak desteklenmeyebilir. Sertifika içe aktarıldı."
 
 msgid "Certificate was expired on "
 msgstr "Sertifikanın geçerlilik süresi "
@@ -7728,8 +7204,7 @@ msgstr "Veri yolundan yanıt verisi istendi ancak herhangi bir veri yok."
 msgid "Unknown module '%s' with id '%s'"
 msgstr "Bilinmeyen modül '%s' ile id '%s'"
 
-msgid ""
-"Server encountered some problem, so it was not able to handle the request."
+msgid "Server encountered some problem, so it was not able to handle the request."
 msgstr "Sunucu bir sorunla karşılaştı, bu nedenle isteği işleyemedi."
 
 #, php-format
@@ -7742,11 +7217,10 @@ msgstr "Beklenmeyen bir hata oluştu"
 msgid "To-Do List"
 msgstr "Yapılacaklar Listesi"
 
-#. TRANSLATORS: This indicates that the opened folder belongs to a particular
-#. user,
-#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the
-#. foldername)
+#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
+#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
 #. * and %2$s is 'Holiday' (the username).
+#.
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$s - %2$s"
@@ -7758,19 +7232,13 @@ msgid "Error retrieving existing persistent settings"
 msgstr "Mevcut kalıcı ayarlar alınırken hata oluştu"
 
 msgid "Logon failed. Please verify your credentials and try again."
-msgstr ""
-"Oturum açma başarısız. Lütfen kimlik bilgilerinizi doğrulayıp tekrar "
-"deneyin."
+msgstr "Oturum açma başarısız. Lütfen kimlik bilgilerinizi doğrulayıp tekrar deneyin."
 
 msgid "Cannot connect to Gromox."
 msgstr "Gromox'a bağlanılamıyor."
 
-msgid ""
-"Login did not work due to a duplicate session. The issue was automatically "
-"resolved, please log in again."
-msgstr ""
-"Yinelenen bir oturum nedeniyle giriş çalışmadı. Sorun otomatik olarak "
-"çözüldü, lütfen tekrar giriş yapın."
+msgid "Login did not work due to a duplicate session. The issue was automatically resolved, please log in again."
+msgstr "Yinelenen bir oturum nedeniyle giriş çalışmadı. Sorun otomatik olarak çözüldü, lütfen tekrar giriş yapın."
 
 msgid "Unknown MAPI Error"
 msgstr "Bilinmeyen MAPI hatası"
@@ -7855,16 +7323,14 @@ msgstr "Genel kişi klasörleri"
 msgid "Error in search, please try again"
 msgstr "Aramada hata oluştu, lütfen tekrar deneyin"
 
-msgid ""
-"Unable to perform search query, no permissions to create search folder."
+msgid "Unable to perform search query, no permissions to create search folder."
 msgstr "Arama sorgusu gerçekleştirilemiyor, arama klasörü oluşturma izni yok."
 
 msgid "Unable to perform search query, search folder not found."
 msgstr "Arama sorgusu gerçekleştirilemiyor, arama klasörü bulunamadı."
 
 msgid "Unable to perform search query, store might not support searching."
-msgstr ""
-"Arama sorgusu gerçekleştirilemiyor, depo aramayı desteklemiyor olabilir."
+msgstr "Arama sorgusu gerçekleştirilemiyor, depo aramayı desteklemiyor olabilir."
 
 msgid "Error in creating search folder."
 msgstr "Arama klasörü oluşturulurken hata oluştu."
@@ -7884,51 +7350,27 @@ msgstr "Randevu"
 msgid "You have insufficient privileges to move "
 msgstr "Taşımak için yeterli ayrıcalığınız yok "
 
-msgid ""
-"Cannot set a reminder to appear before the previous occurrence. Reset "
-"reminder to save the change"
-msgstr ""
-"Bir önceki oluşumdan önce görünecek bir hatırlatıcı ayarlanamıyor. "
-"Değişikliği kaydetmek için hatırlatıcıyı sıfırla"
+msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
+msgstr "Bir önceki oluşumdan önce görünecek bir hatırlatıcı ayarlanamıyor. Değişikliği kaydetmek için hatırlatıcıyı sıfırla"
 
 msgid "Two occurrences cannot occur on the same day"
 msgstr "Aynı gün iki olay kabul edilemez"
 
 #, php-format
-msgid ""
-"You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
-"because you do not have the appropriate permissions for that account. Either"
-" enter the name as a required or optional attendee or talk to your "
-"administrator about giving you permission to schedule '%s'."
-msgstr ""
-"'%s'yi kaynak olarak işaretlediniz. O hesap için uygun yetkilere sahip "
-"olmadığınız için '%s' ile bir toplantı planlayamazsınız. Ya adı zorunlu ya "
-"da isteğe bağlı katılımcı olarak girin ya da '%s' programını planlamanıza "
-"izin vermesi için yöneticinizle görüşün."
+msgid "You marked '%s' as a resource. You cannot schedule a meeting with '%s' because you do not have the appropriate permissions for that account. Either enter the name as a required or optional attendee or talk to your administrator about giving you permission to schedule '%s'."
+msgstr "'%s'yi kaynak olarak işaretlediniz. O hesap için uygun yetkilere sahip olmadığınız için '%s' ile bir toplantı planlayamazsınız. Ya adı zorunlu ya da isteğe bağlı katılımcı olarak girin ya da '%s' programını planlamanıza izin vermesi için yöneticinizle görüşün."
 
 #, php-format
-msgid ""
-"'%s' has declined your meeting because '%s' does not automatically accept "
-"meeting requests."
-msgstr ""
-"'%s' toplantı talebinizi reddetti çünkü '%s' toplantı taleplerini otomatik "
-"olarak kabul etmiyor."
+msgid "'%s' has declined your meeting because '%s' does not automatically accept meeting requests."
+msgstr "'%s' toplantı talebinizi reddetti çünkü '%s' toplantı taleplerini otomatik olarak kabul etmiyor."
 
 #, php-format
-msgid ""
-"'%s' has declined your meeting because it is recurring. You must book each "
-"meeting separately with this resource."
-msgstr ""
-"'%s', tekrar ettiği için toplantınızı reddetti. Bu kaynakla her toplantı "
-"için ayrı rezervasyon yapmalısınız."
+msgid "'%s' has declined your meeting because it is recurring. You must book each meeting separately with this resource."
+msgstr "'%s', tekrar ettiği için toplantınızı reddetti. Bu kaynakla her toplantı için ayrı rezervasyon yapmalısınız."
 
 #, php-format
-msgid ""
-"'%s' is already booked for this specified time. You must use another time or"
-" find another resource."
-msgstr ""
-"'%s' bu belirtilen zaman için zaten rezerve edilmiştir. Başka bir zaman "
-"kullanmalı veya başka bir kaynak bulmalısınız."
+msgid "'%s' is already booked for this specified time. You must use another time or find another resource."
+msgstr "'%s' bu belirtilen zaman için zaten rezerve edilmiştir. Başka bir zaman kullanmalı veya başka bir kaynak bulmalısınız."
 
 msgid "Meeting was not scheduled."
 msgstr "Toplantı planlanmamıştı."
@@ -7961,9 +7403,7 @@ msgstr "Gönderme kotası sınırına ulaşıldı"
 
 #, php-format
 msgid "Email sending failed (%s). Check the log files for more information."
-msgstr ""
-"E-posta gönderimi başarısız oldu (%s). Daha fazla bilgi için günlük "
-"dosyalarını kontrol edin."
+msgstr "E-posta gönderimi başarısız oldu (%s). Daha fazla bilgi için günlük dosyalarını kontrol edin."
 
 msgid "Unknown user/group"
 msgstr "Bilinmeyen kullanıcı/grup"
@@ -8019,17 +7459,14 @@ msgstr "Klasör boşaltılamadı."
 msgid "Could not perform action correctly."
 msgstr "Eylem doğru şekilde gerçekleştirilemedi."
 
-msgid ""
-"A favorite folder with this name already exists, please use another name."
-msgstr ""
-"Bu isimde bir favori klasörü zaten mevcut, lütfen başka bir isim kullanın."
+msgid "A favorite folder with this name already exists, please use another name."
+msgstr "Bu isimde bir favori klasörü zaten mevcut, lütfen başka bir isim kullanın."
 
 msgid "Could not add folder to favorites."
 msgstr "Sık kullanılanlara klasör eklenemedi."
 
 msgid "You have insufficient privileges to set permissions for this folder."
-msgstr ""
-"Bu klasörün izinlerini ayarlamak için yeterli ayrıcalığa sahip değilsiniz."
+msgstr "Bu klasörün izinlerini ayarlamak için yeterli ayrıcalığa sahip değilsiniz."
 
 msgid "Could not set folder permissions."
 msgstr "Klasör izinleri ayarlanamadı."
@@ -8056,14 +7493,8 @@ msgid "User could not be resolved."
 msgstr "Kullanıcı çözümlenemedi."
 
 #, php-format
-msgid ""
-"You have insufficient privileges to open this %1$s folder. The folder owner "
-"can set these using the 'permissions'-tab of the folder properties (right "
-"click the %1$s folder > properties > permissions)."
-msgstr ""
-"Bu %1$s klasörünü açmak için yeterli ayrıcalığa sahip değilsiniz. Klasör "
-"sahibi bunları klasör özelliklerinin 'izinler' sekmesini kullanarak "
-"ayarlayabilir ( %1$s klasörüne sağ tıklayın > özellikler > izinler)."
+msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
+msgstr "Bu %1$s klasörünü açmak için yeterli ayrıcalığa sahip değilsiniz. Klasör sahibi bunları klasör özelliklerinin 'izinler' sekmesini kullanarak ayarlayabilir ( %1$s klasörüne sağ tıklayın > özellikler > izinler)."
 
 msgid "default"
 msgstr "varsayılan"
@@ -8083,12 +7514,8 @@ msgstr "Klasör kopyalanamadı"
 msgid "You have insufficient privileges to open this message."
 msgstr "Bu mesajı açmak için yeterli yetkiye sahip değilsiniz."
 
-msgid ""
-"Could not find message, either it has been moved or deleted or you don't "
-"have access to open this message."
-msgstr ""
-"Mesaj bulunamadı, ya taşındı ya da silindi ya da bu mesajı açmak için "
-"erişiminiz yok."
+msgid "Could not find message, either it has been moved or deleted or you don't have access to open this message."
+msgstr "Mesaj bulunamadı, ya taşındı ya da silindi ya da bu mesajı açmak için erişiminiz yok."
 
 msgid "Could not open message."
 msgstr "Mesaj açılınamıyor."
@@ -8097,8 +7524,7 @@ msgid "You have insufficient privileges to decline this Meeting Request"
 msgstr "Bu toplantı isteğini reddetmek için yeterli yetkiye sahip değilsiniz"
 
 msgid "You have insufficient privileges to accept this Meeting Request"
-msgstr ""
-"Bu toplantı isteğini kabul etmek için yeterli yetkiye sahip değilsiniz"
+msgstr "Bu toplantı isteğini kabul etmek için yeterli yetkiye sahip değilsiniz"
 
 msgid "Could not copy message"
 msgstr "Mesaj kopyalanmıyor"
@@ -8118,12 +7544,8 @@ msgstr "Mesaj kaydedilmedi"
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr "Bu takvimden öğeyi silmek için yeterli yetkiye sahip değilsiniz."
 
-msgid ""
-"Message is no longer in the outgoing queue, typically because it has already"
-" been sent."
-msgstr ""
-"Mesaj, genellikle zaten gönderilmiş olduğu için artık giden kuyruğunda "
-"değildir."
+msgid "Message is no longer in the outgoing queue, typically because it has already been sent."
+msgstr "Mesaj, genellikle zaten gönderilmiş olduğu için artık giden kuyruğunda değildir."
 
 msgid "Message cannot be aborted"
 msgstr "Mesaj iptal edilemiyor"
@@ -8137,19 +7559,14 @@ msgstr "Öğeyi ek olarak eklemek için yeterli ayrıcalığa sahip değilsiniz.
 msgid "Could not attach item as an attachment."
 msgstr "Öğe ek olarak eklenemedi."
 
-msgid ""
-"You have insufficient privileges to reclaim the ownership for the Task "
-"Request."
-msgstr ""
-"Görev Talebinin sahipliğini geri almak için yeterli ayrıcalığınız yok."
+msgid "You have insufficient privileges to reclaim the ownership for the Task Request."
+msgstr "Görev Talebinin sahipliğini geri almak için yeterli ayrıcalığınız yok."
 
 msgid "Could not reclaim the ownership for the Task Request."
 msgstr "Görev Talebi için sahiplik geri alınamadı."
 
 msgid "You have insufficient privileges to accept this Task Request."
-msgstr ""
-"Bu toplantı İsteğini kabul etmek için yeterli ayrıcalıklara sahip "
-"deyilsiniz."
+msgstr "Bu toplantı İsteğini kabul etmek için yeterli ayrıcalıklara sahip deyilsiniz."
 
 msgid "Could not accept Task Request."
 msgstr "Görev İsteği kabul edilemedi."
@@ -8164,12 +7581,8 @@ msgid "Conflicts with another appointment."
 msgstr "Başka bir randevu ile çakışıyor."
 
 #, php-format
-msgid ""
-"%s occurrence of this recurring appointment conflicts with other "
-"appointment."
-msgid_plural ""
-"%s occurrences of this recurring appointment conflicts with other "
-"appointments."
+msgid "%s occurrence of this recurring appointment conflicts with other appointment."
+msgid_plural "%s occurrences of this recurring appointment conflicts with other appointments."
 msgstr[0] "Yinelenen randevunun %s oluşumu diğer bir randevuyla çakışıyor."
 msgstr[1] "Yinelenen randevunun %s oluşumu diğer randevularla çakışıyor."
 
@@ -8197,11 +7610,8 @@ msgstr "Bu klasörün içeriğini görmek için yeterli yetkiye sahip değilsini
 msgid "Could not load the contents of this folder."
 msgstr "Bu klasörün içeriği yüklenemedi."
 
-msgid ""
-"You have insufficient privileges to perform search operation in this folder."
-msgstr ""
-"Bu klasörde arama işlemi gerçekleştirmek için yeterli yetkiye sahip "
-"değilsiniz."
+msgid "You have insufficient privileges to perform search operation in this folder."
+msgstr "Bu klasörde arama işlemi gerçekleştirmek için yeterli yetkiye sahip değilsiniz."
 
 msgid "Could not update search results."
 msgstr "Arama sonuçları güncellenemedi."
@@ -8222,8 +7632,7 @@ msgid "Could not delete message."
 msgstr "Mesaj silinemedi."
 
 msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr ""
-"Bu Toplantı Talebini iptal etmek için yeterli yetkiye sahip değilsiniz."
+msgstr "Bu Toplantı Talebini iptal etmek için yeterli yetkiye sahip değilsiniz."
 
 msgid "Could not cancel Meeting Request."
 msgstr "Toplantı Talebi iptal edilemedi."
@@ -8241,8 +7650,7 @@ msgid "Could not accept Meeting Request."
 msgstr "Toplantı Talebi kabul edilemedi."
 
 msgid "You have insufficient privileges to cancel Meeting Request invitation."
-msgstr ""
-"Toplantı Talebi davetini iptal etmek için yeterli yetkiye sahip değilsiniz."
+msgstr "Toplantı Talebi davetini iptal etmek için yeterli yetkiye sahip değilsiniz."
 
 msgid "Could not cancel Meeting Request invitations."
 msgstr "Toplantı Talebi davetleri iptal edilemedi."
@@ -8259,12 +7667,8 @@ msgstr "Dağıtım listesi genişletmesinde hata."
 msgid "The message store has exceeded its hard quota limit."
 msgstr "Mesaj deposu sabit kota sınırını aştı."
 
-msgid ""
-"To reduce the amount of data in this message store, select some items that "
-"you no longer need, delete them and cleanup your Deleted Items folder."
-msgstr ""
-"Bu mesaj deposundaki veri miktarını azaltmak için, artık ihtiyacınız olmayan"
-" bazı öğeleri seçin, silin ve Silinmiş Öğeler klasörünüzü temizleyin."
+msgid "To reduce the amount of data in this message store, select some items that you no longer need, delete them and cleanup your Deleted Items folder."
+msgstr "Bu mesaj deposundaki veri miktarını azaltmak için, artık ihtiyacınız olmayan bazı öğeleri seçin, silin ve Silinmiş Öğeler klasörünüzü temizleyin."
 
 msgid "The message store has exceeded its soft quota limit."
 msgstr "Mesaj deposu yazılım kotası sınırını aştı."
@@ -8289,9 +7693,7 @@ msgid "Could not resolve user."
 msgstr "Kullanıcı çözümlenemedi."
 
 msgid "Setting mail filters on the stores of other users is not allowed."
-msgstr ""
-"Diğer kullanıcıların mağazalarında posta filtreleri ayarlanmasına izin "
-"verilmez."
+msgstr "Diğer kullanıcıların mağazalarında posta filtreleri ayarlanmasına izin verilmez."
 
 msgid "Untitled rule"
 msgstr "İsimsiz kural"
@@ -8311,16 +7713,11 @@ msgstr "Giriş Yap"
 msgid "File is not imported successfully"
 msgstr "Dosya başarıyla içe aktarılmadı"
 
-msgid ""
-"The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr ""
-"Yüklenen dosya php.ini dosyasındaki upload_max_filesize yönergesini aşıyor."
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr "Yüklenen dosya php.ini dosyasındaki upload_max_filesize yönergesini aşıyor."
 
-msgid ""
-"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
-"the HTML form."
-msgstr ""
-"Yüklenen dosya, HTML formunda belirtilen MAX_FILE_SIZE yönergesini aşıyor."
+msgid "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form."
+msgstr "Yüklenen dosya, HTML formunda belirtilen MAX_FILE_SIZE yönergesini aşıyor."
 
 msgid "The uploaded file was only partially uploaded."
 msgstr "Yüklenen dosya yalnızca kısmen yüklendi."
@@ -8334,27 +7731,17 @@ msgstr "Geçici bir klasör eksik."
 msgid "Failed to write file to disk."
 msgstr "Dosya diske yazılamadı."
 
-msgid ""
-"A PHP extension stopped the file upload. PHP does not provide a way to "
-"ascertain which extension caused the file upload to stop; examining the list"
-" of loaded extensions with phpinfo() may help."
-msgstr ""
-"Bir PHP eklentisi dosya yüklemesini durdurdu. PHP dosya yüklemenin hangi "
-"uzantı yüzünden durduğunu tespit etmek için bir yol sunmaz; phpinfo() ile "
-"yüklenmiş uzantıların listesini incelemek yardımcı olabilir."
+msgid "A PHP extension stopped the file upload. PHP does not provide a way to ascertain which extension caused the file upload to stop; examining the list of loaded extensions with phpinfo() may help."
+msgstr "Bir PHP eklentisi dosya yüklemesini durdurdu. PHP dosya yüklemenin hangi uzantı yüzünden durduğunu tespit etmek için bir yol sunmaz; phpinfo() ile yüklenmiş uzantıların listesini incelemek yardımcı olabilir."
 
 msgid "There is no contact found in this file."
 msgstr "Bu dosyada herhangi bir kişi bulunamamıştır."
 
-msgid ""
-"grommunio Web does not support importing multiple VCF with this version."
-msgstr ""
-"grommunio Web bu sürümde birden fazla VCF'nin içe aktarılmasını desteklemez."
+msgid "grommunio Web does not support importing multiple VCF with this version."
+msgstr "grommunio Web bu sürümde birden fazla VCF'nin içe aktarılmasını desteklemez."
 
-msgid ""
-"grommunio Web does not support importing multiple ICS with this version."
-msgstr ""
-"grommunio Web bu sürümde birden fazla ICS'nin içe aktarılmasını desteklemez."
+msgid "grommunio Web does not support importing multiple ICS with this version."
+msgstr "grommunio Web bu sürümde birden fazla ICS'nin içe aktarılmasını desteklemez."
 
 msgid "GB"
 msgstr "GB"
@@ -8385,5 +7772,4 @@ msgstr "Hatalı biçimde kodlanmış, hatalı biçimlendirilmiş UTF-8 karakterl
 
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
-msgstr ""
-"JSON verileri kodlanırken/kod çözülürken bazı sorunlarla karşılaşıldı: - %s"
+msgstr "JSON verileri kodlanırken/kod çözülürken bazı sorunlarla karşılaşıldı: - %s"
