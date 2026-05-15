@@ -2898,7 +2898,7 @@ msgid "Search"
 msgstr "Otsi"
 
 msgid "Click to cycle: AND → OR → NOT"
-msgstr "Klõpsake jalgrattaga sõitmiseks: JA → VÕI → EI"
+msgstr "Klõpsake vahetamiseks: JA → VÕI → EI"
 
 msgid "Folder does not exist"
 msgstr "Kausta ei ole olemas"
@@ -3845,7 +3845,7 @@ msgid "Appearance"
 msgstr "Välimus"
 
 msgid "Light"
-msgstr "Valgus"
+msgstr "Hele"
 
 msgid "Dark"
 msgstr "Tume"
@@ -6281,7 +6281,7 @@ msgid "Room URL"
 msgstr "Ruumi URL"
 
 msgid "Meet"
-msgstr "Tutvu"
+msgstr "Meet"
 
 msgid "Shift-click for advanced settings"
 msgstr "Shift-klikk edasiste seadete jaoks"
@@ -6290,7 +6290,7 @@ msgid "Join webmeeting"
 msgstr "Liitu webmeetinguga"
 
 msgid "Open meeting in:"
-msgstr "Avatud koosolek:"
+msgstr "Ava koosolek:"
 
 msgid "Open meeting in"
 msgstr "Ava koosolek"
@@ -6458,7 +6458,7 @@ msgid "Signing & Encryption"
 msgstr "Allkirjastamine ja krüpteerimine"
 
 msgid "Serial"
-msgstr "Seeriaviisiline"
+msgstr "Seerianumber"
 
 msgid "Issued by"
 msgstr "Välja andnud"
@@ -6707,10 +6707,10 @@ msgid "Signature"
 msgstr "Allkiri"
 
 msgid "Cipher"
-msgstr "Chiffre"
+msgstr "Šiffer"
 
 msgid "Key transport"
-msgstr "Peamised transpordivahendid"
+msgstr "Võtmetransport"
 
 msgid "Template Snippets"
 msgstr "Mallide katkendid"
@@ -7418,7 +7418,7 @@ msgid "Can not get list of delegates."
 msgstr "Ei saa delegaatide nimekirja."
 
 msgid "Could not open the store."
-msgstr "Poodi ei saanud avada."
+msgstr "Andmehoidlat ei õnnestunud avada."
 
 msgid "Could not load the hierarchy."
 msgstr "Ei saanud hierarhiat laadida."

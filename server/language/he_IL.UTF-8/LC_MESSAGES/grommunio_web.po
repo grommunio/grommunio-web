@@ -3853,7 +3853,7 @@ msgid "Appearance"
 msgstr "הוֹפָעָה"
 
 msgid "Light"
-msgstr "אוֹר"
+msgstr "בהיר"
 
 msgid "Dark"
 msgstr "כהה"
@@ -5183,7 +5183,7 @@ msgid "Billing Information"
 msgstr "פרטי חיוב"
 
 msgid "Mileage"
-msgstr "מספר המילים"
+msgstr "קילומטראז'"
 
 msgid "Accepting Task"
 msgstr "קבלת משימה"
@@ -6100,7 +6100,7 @@ msgid "Mobile Device Manager"
 msgstr "מנהל התקנים ניידים"
 
 msgid "Wiping device"
-msgstr "מכשיר ניגוב"
+msgstr "מוחק מכשיר"
 
 msgid "Password incorrect"
 msgstr "סיסמא שגויה"
@@ -6293,7 +6293,7 @@ msgid "Room URL"
 msgstr "כתובת URL של החדר"
 
 msgid "Meet"
-msgstr "לִפְגוֹשׁ"
+msgstr "Meet"
 
 msgid "Shift-click for advanced settings"
 msgstr "לחץ על Shift להגדרות מתקדמות"
@@ -6302,10 +6302,10 @@ msgid "Join webmeeting"
 msgstr "הצטרף לפגישת אינטרנט"
 
 msgid "Open meeting in:"
-msgstr "פגישה פתוחה ב:"
+msgstr "פתח פגישה ב:"
 
 msgid "Open meeting in"
-msgstr "פגישה פתוחה ב-"
+msgstr "פתח פגישה ב-"
 
 msgid "Web tab"
 msgstr "לשונית אינטרנט"

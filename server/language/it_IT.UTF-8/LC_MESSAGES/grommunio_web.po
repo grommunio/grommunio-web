@@ -891,7 +891,7 @@ msgid "Sort by: End Date"
 msgstr "Ordina per: Data di fine"
 
 msgid "Organizer"
-msgstr "Agenda"
+msgstr "Organizzatore"
 
 msgid "Where"
 msgstr "Dove"
@@ -1075,7 +1075,7 @@ msgstr "Hai proposto un nuovo orario per questo appuntamento il {0}"
 
 msgctxt "calendar.dialog"
 msgid "{0} proposed a new time for this meeting on {1}"
-msgstr "{0} ha proposto un nuovo orario per questo appuntamento il {0}"
+msgstr "{0} ha proposto un nuovo orario per questo appuntamento il {1}"
 
 msgctxt "calendar.dialog"
 msgid "Accepted on {0}"
@@ -1091,7 +1091,7 @@ msgstr "Provvisoriamente accettato il {0}"
 
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted by {0} on {1}"
-msgstr "Provvisoriamente accettato il {0}"
+msgstr "Provvisoriamente accettato da {0} il {1}"
 
 msgctxt "calendar.dialog"
 msgid "This appointment occurs in the past."
@@ -1364,7 +1364,7 @@ msgid "l jS F"
 msgstr "l j F"
 
 msgid "Organiser"
-msgstr "Agenda"
+msgstr "Organizzatore"
 
 msgid "Meeting status"
 msgstr "Stato appuntamento"
@@ -1536,7 +1536,7 @@ msgid "Sort by: Label"
 msgstr "Ordina per: Etichetta"
 
 msgid "Sort by: Organizer"
-msgstr "Ordina per: Agenda"
+msgstr "Ordina per: Organizzatore"
 
 msgid "Sort by: Required Attendee"
 msgstr "Ordina per: Partecipante richiesto"
@@ -1711,7 +1711,7 @@ msgid "Exception"
 msgstr "Eccezione"
 
 msgid "Today {0} - {1}"
-msgstr "Oggi: {1} - {0}"
+msgstr "Oggi: {0} - {1}"
 
 msgid "Today (all day)"
 msgstr "Oggi (tutto il giorno)"
@@ -1719,7 +1719,7 @@ msgstr "Oggi (tutto il giorno)"
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
 #. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
 msgid "{0} - {1}"
-msgstr "{0} in {1}"
+msgstr "{0} - {1}"
 
 msgid "d/m/y {0}"
 msgstr "d/m/y {0}"
@@ -2085,7 +2085,7 @@ msgstr "Posta elettronica"
 
 # This should be "Contacts" not "Contact" !!
 msgid "Contact"
-msgstr "Contatti"
+msgstr "Contatto"
 
 msgid "Journal"
 msgstr "Diario"
@@ -2100,7 +2100,7 @@ msgid "Inbox"
 msgstr "Posta in arrivo"
 
 msgid "Entire Inbox"
-msgstr "Cassetta postale"
+msgstr "Intera Posta in arrivo"
 
 msgid "Owner"
 msgstr "Proprietario"
@@ -2904,7 +2904,7 @@ msgid "Search"
 msgstr "Ricerca"
 
 msgid "Click to cycle: AND → OR → NOT"
-msgstr "Fare clic per andare in bicicletta: AND → OR → NOT"
+msgstr "Fare clic per scorrere: AND → OR → NOT"
 
 msgid "Folder does not exist"
 msgstr "La cartella non esiste"
@@ -3029,7 +3029,7 @@ msgid "Meeting Organizer"
 msgstr "Organizzatore evento"
 
 msgid "Follow up"
-msgstr "Imposta bandierina"
+msgstr "Da completare"
 
 msgid "{0} overdue"
 msgstr "{0} in ritardo"
@@ -3192,7 +3192,7 @@ msgid "Last update sent on {0}."
 msgstr "Ultimo aggiornamento spedito il {0}."
 
 msgid "{0} has updated on behalf of {1} {2}."
-msgstr "{0} ha accettato per conto di {1} {2}."
+msgstr "{0} ha aggiornato per conto di {1} {2}."
 
 msgid "Fix message"
 msgstr "Correggi il messaggio"
@@ -4089,7 +4089,7 @@ msgid "Contributor"
 msgstr "Collaboratore"
 
 msgid "Free/Busy time, subject, location"
-msgstr "Orario libero/occupato, soggetto, luogo"
+msgstr "Orario libero/occupato, oggetto, luogo"
 
 msgid "Free/Busy time"
 msgstr "Tempo libero/occupato"
@@ -4167,10 +4167,10 @@ msgid "Create subfolders"
 msgstr "Crea sottocartelle"
 
 msgid "Edit own"
-msgstr "Modificare proprietario"
+msgstr "Modifica i propri"
 
 msgid "Edit all"
-msgstr "Modificare tutto"
+msgstr "Modifica tutti"
 
 msgid "Delete items"
 msgstr "Elimina elementi"
@@ -4659,7 +4659,7 @@ msgid "I will be back on"
 msgstr "Rientrerò il"
 
 msgid "Back on"
-msgstr "Torna indietro"
+msgstr "Di ritorno il"
 
 msgid "Automatically reply with the following message:"
 msgstr "Rispondi automaticamente con questo testo:"
@@ -4671,7 +4671,7 @@ msgid "Inside My Organization"
 msgstr "All'interno della mia organizzazione"
 
 msgid "User is currently out of office."
-msgstr "Sono fuori ufficio."
+msgstr "L'utente è attualmente fuori ufficio."
 
 msgid "Outside My Organization"
 msgstr "Al di fuori della mia organizzazione"
@@ -6293,7 +6293,7 @@ msgid "Room URL"
 msgstr "URL della sala"
 
 msgid "Meet"
-msgstr "Incontrare"
+msgstr "Meet"
 
 msgid "Shift-click for advanced settings"
 msgstr "Fare clic con il tasto Shift per le impostazioni avanzate"
@@ -6905,7 +6905,7 @@ msgid "Connection failed"
 msgstr "Connessione fallita"
 
 msgid "Sabre error"
-msgstr "Errore della sciabola"
+msgstr "Errore Sabre"
 
 msgid "Copying failed"
 msgstr "Copia non riuscita"
@@ -7004,7 +7004,7 @@ msgid "Feature \"OAUTH\" is not supported by this backend!"
 msgstr "Questo backend non supporta OAUTH!"
 
 msgid "Moving between accounts is not implemented"
-msgstr "Il passaggio da un conto all'altro non è implementato"
+msgstr "Il passaggio da un account all'altro non è implementato"
 
 msgid "Files plugin"
 msgstr "Plugin per i file"
@@ -7043,7 +7043,7 @@ msgid "Deletion failed"
 msgstr "Cancellazione fallita"
 
 msgid "Moving failed"
-msgstr "Trasloco fallito"
+msgstr "Spostamento non riuscito"
 
 msgid "Temporary directory problems"
 msgstr "Problemi di directory temporanea"
@@ -7098,7 +7098,7 @@ msgid "No data received."
 msgstr "Nessun dato ricevuto."
 
 msgid "Account is empty."
-msgstr "Il conto è vuoto."
+msgstr "L'account è vuoto."
 
 #, fuzzy
 msgid "Your password is wrong or you have insufficient permission to change password"
@@ -7351,7 +7351,7 @@ msgid "Unable to perform search query, search folder not found."
 msgstr "Impossibile eseguire la query di ricerca, la cartella di ricerca non è stata trovata."
 
 msgid "Unable to perform search query, store might not support searching."
-msgstr "Impossibile eseguire una query di ricerca, il negozio potrebbe non supportare la ricerca."
+msgstr "Impossibile eseguire una query di ricerca, l'archivio potrebbe non supportare la ricerca."
 
 msgid "Error in creating search folder."
 msgstr "Errore nella creazione della cartella di ricerca."
@@ -7440,7 +7440,7 @@ msgid "Can not get list of delegates."
 msgstr "Non è possibile ottenere l'elenco dei delegati."
 
 msgid "Could not open the store."
-msgstr "Impossibile aprire il negozio."
+msgstr "Impossibile aprire l'archivio."
 
 msgid "Could not load the hierarchy."
 msgstr "Impossibile caricare la gerarchia."

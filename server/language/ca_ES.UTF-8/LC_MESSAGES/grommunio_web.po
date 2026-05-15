@@ -1714,7 +1714,7 @@ msgid "Exception"
 msgstr "Excepció"
 
 msgid "Today {0} - {1}"
-msgstr "Avui{0}-{1}"
+msgstr "Avui {0} - {1}"
 
 msgid "Today (all day)"
 msgstr "Avui (tot el dia)"
@@ -1722,7 +1722,7 @@ msgstr "Avui (tot el dia)"
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
 #. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
 msgid "{0} - {1}"
-msgstr "{0}-{1}"
+msgstr "{0} - {1}"
 
 msgid "d/m/y {0}"
 msgstr "d/m/a{0}"
@@ -2830,7 +2830,7 @@ msgid "Rule"
 msgstr "Regla"
 
 msgid "Loading rules"
-msgstr "Regles de càrrega"
+msgstr "S'estan carregant les regles"
 
 msgid "Please select a rule."
 msgstr "Seleccioneu una regla."
@@ -2905,7 +2905,7 @@ msgid "Search"
 msgstr "Cerca"
 
 msgid "Click to cycle: AND → OR → NOT"
-msgstr "Feu clic per ciclar: AND → O → NOT"
+msgstr "Feu clic per alternar: AND → OR → NOT"
 
 msgid "Folder does not exist"
 msgstr "La carpeta no existeix"
@@ -3854,7 +3854,7 @@ msgid "Appearance"
 msgstr "Aparença"
 
 msgid "Light"
-msgstr "Llum"
+msgstr "Clar"
 
 msgid "Dark"
 msgstr "Fosc"
@@ -4177,7 +4177,7 @@ msgid "Edit all"
 msgstr "Editar-ho tot"
 
 msgid "Delete items"
-msgstr "Elementos eliminados"
+msgstr "Suprimir elements"
 
 msgid "Own"
 msgstr "Propio"
@@ -5185,13 +5185,13 @@ msgid "Billing Information"
 msgstr "Información de facturación"
 
 msgid "Mileage"
-msgstr "Kilometraje"
+msgstr "Quilometratge"
 
 msgid "Accepting Task"
 msgstr "Acceptació de la tasca"
 
 msgid "Declining Task"
-msgstr "Tasca declinant"
+msgstr "Rebuig de la tasca"
 
 #, fuzzy
 msgid "This task will be accepted and moved to your task folder. Do you want to include comments with your response?"
@@ -6101,7 +6101,7 @@ msgid "Mobile Device Manager"
 msgstr "Gestor de dispositius mòbils"
 
 msgid "Wiping device"
-msgstr "Dispositiu de neteja"
+msgstr "S'està esborrant el dispositiu"
 
 msgid "Password incorrect"
 msgstr "La contrasenya és incorrecta"
@@ -6294,7 +6294,7 @@ msgid "Room URL"
 msgstr "URL de l'habitació"
 
 msgid "Meet"
-msgstr "Conèixer"
+msgstr "Meet"
 
 msgid "Shift-click for advanced settings"
 msgstr "Feu clic amb Majúscules per a la configuració avançada"
@@ -6303,10 +6303,10 @@ msgid "Join webmeeting"
 msgstr "Uneix-te a la reunió web"
 
 msgid "Open meeting in:"
-msgstr "Reunió oberta a:"
+msgstr "Obre la reunió a:"
 
 msgid "Open meeting in"
-msgstr "Reunió oberta a"
+msgstr "Obre la reunió a"
 
 msgid "Web tab"
 msgstr "Pestanya web"
@@ -6714,7 +6714,7 @@ msgid "Signing time differs from expected time"
 msgstr "L'hora de signatura és diferent de l'hora prevista"
 
 msgid "Digest"
-msgstr "Digerir"
+msgstr "Resum"
 
 msgid "Signature"
 msgstr "Signatura"
@@ -6723,7 +6723,7 @@ msgid "Cipher"
 msgstr "Xifrat"
 
 msgid "Key transport"
-msgstr "Transport clau"
+msgstr "Transport de claus"
 
 msgid "Template Snippets"
 msgstr "Fragments de plantilla"
@@ -6900,7 +6900,7 @@ msgid "Connection failed"
 msgstr "La connexió ha fallat"
 
 msgid "Sabre error"
-msgstr "Error de sabre"
+msgstr "Error de Sabre"
 
 msgid "Copying failed"
 msgstr "No s'ha pogut copiar"
@@ -7399,11 +7399,11 @@ msgstr "Cita privada"
 
 #, php-format
 msgid "%s's Birthday"
-msgstr "Aniversari de%s"
+msgstr "Aniversari de %s"
 
 #, php-format
 msgid "%s's Anniversary"
-msgstr "Aniversari de%s"
+msgstr "Aniversari de %s"
 
 msgid "You don't have the permission to complete this action"
 msgstr "No teniu permís per completar aquesta acció"

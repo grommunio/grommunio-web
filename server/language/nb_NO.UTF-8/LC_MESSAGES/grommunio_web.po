@@ -2898,7 +2898,7 @@ msgid "Search"
 msgstr "Søk"
 
 msgid "Click to cycle: AND → OR → NOT"
-msgstr "Klikk for å sykle: AND → OR → NOT"
+msgstr "Klikk for å bla gjennom: AND → OR → NOT"
 
 msgid "Folder does not exist"
 msgstr "Mappen finnes ikke"
@@ -6281,7 +6281,7 @@ msgid "Room URL"
 msgstr "Rom-URL"
 
 msgid "Meet"
-msgstr "Møt"
+msgstr "Møte"
 
 msgid "Shift-click for advanced settings"
 msgstr "Shift-klikk for avanserte innstillinger"
@@ -6290,10 +6290,10 @@ msgid "Join webmeeting"
 msgstr "Bli med på nettmøte"
 
 msgid "Open meeting in:"
-msgstr "Åpent møte i:"
+msgstr "Åpne møte i:"
 
 msgid "Open meeting in"
-msgstr "Åpent møte i"
+msgstr "Åpne møte i"
 
 msgid "Web tab"
 msgstr "Web-fanen"
@@ -6458,7 +6458,7 @@ msgid "Signing & Encryption"
 msgstr "Signering og kryptering"
 
 msgid "Serial"
-msgstr "Seriell"
+msgstr "Serienummer"
 
 msgid "Issued by"
 msgstr "Utgitt av"
@@ -6503,7 +6503,7 @@ msgid "Recommended"
 msgstr "Anbefales"
 
 msgid "Legacy"
-msgstr "Arven"
+msgstr "Eldre"
 
 msgid "Default signing digest"
 msgstr "Standard signeringsdigest"
@@ -7418,7 +7418,7 @@ msgid "Can not get list of delegates."
 msgstr "Kan ikke få en liste over delegater."
 
 msgid "Could not open the store."
-msgstr "Kunne ikke åpne butikken."
+msgstr "Kunne ikke åpne lageret."
 
 msgid "Could not load the hierarchy."
 msgstr "Kunne ikke laste inn hierarkiet."

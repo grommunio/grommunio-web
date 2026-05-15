@@ -3845,7 +3845,7 @@ msgid "Appearance"
 msgstr "Görünüş"
 
 msgid "Light"
-msgstr "Işık"
+msgstr "Açık"
 
 msgid "Dark"
 msgstr "Koyu"
@@ -4161,7 +4161,7 @@ msgid "Create subfolders"
 msgstr "Alt klasörler oluştur"
 
 msgid "Edit own"
-msgstr "Kendini düzenle"
+msgstr "Kendine ait olanı düzenle"
 
 msgid "Edit all"
 msgstr "Tümünü düzenle"
@@ -5175,7 +5175,7 @@ msgid "Billing Information"
 msgstr "Fatura bilgileri"
 
 msgid "Mileage"
-msgstr "İlerleme"
+msgstr "Kilometre"
 
 msgid "Accepting Task"
 msgstr "Görevi kabul et"
@@ -6088,7 +6088,7 @@ msgid "Mobile Device Manager"
 msgstr "Mobil Cihaz Yöneticisi"
 
 msgid "Wiping device"
-msgstr "Silme cihazı"
+msgstr "Cihaz siliniyor"
 
 msgid "Password incorrect"
 msgstr "Şifre yanlış"
@@ -6281,7 +6281,7 @@ msgid "Room URL"
 msgstr "Oda URL'si"
 
 msgid "Meet"
-msgstr "Tanışın"
+msgstr "Meet"
 
 msgid "Shift-click for advanced settings"
 msgstr "Gelişmiş ayarlar için Shift tuşuna tıklayın"
@@ -6503,7 +6503,7 @@ msgid "Recommended"
 msgstr "Tavsiye edilir"
 
 msgid "Legacy"
-msgstr "Miras"
+msgstr "Eski"
 
 msgid "Default signing digest"
 msgstr "Varsayılan imzalama özeti"

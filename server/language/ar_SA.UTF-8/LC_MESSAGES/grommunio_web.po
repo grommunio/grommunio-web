@@ -2942,7 +2942,7 @@ msgid "Show"
 msgstr "يعرض"
 
 msgid "Operators"
-msgstr "مشغلي"
+msgstr "عوامل"
 
 msgid "AND"
 msgstr "و"
@@ -3920,7 +3920,7 @@ msgid "Appearance"
 msgstr "مظهر"
 
 msgid "Light"
-msgstr "ضوء"
+msgstr "فاتح"
 
 msgid "Dark"
 msgstr "داكن"
@@ -6175,7 +6175,7 @@ msgid "Mobile Device Manager"
 msgstr "مدير الأجهزة المحمولة"
 
 msgid "Wiping device"
-msgstr "جهاز المسح"
+msgstr "جارٍ مسح الجهاز"
 
 msgid "Password incorrect"
 msgstr "كلمة المرور غير صحيحة"
@@ -6368,7 +6368,7 @@ msgid "Room URL"
 msgstr "عنوان URL للغرفة"
 
 msgid "Meet"
-msgstr "يقابل"
+msgstr "Meet"
 
 msgid "Shift-click for advanced settings"
 msgstr "انقر مع الضغط على Shift للإعدادات المتقدمة"
@@ -6377,10 +6377,10 @@ msgid "Join webmeeting"
 msgstr "انضم إلى اجتماع الويب"
 
 msgid "Open meeting in:"
-msgstr "لقاء مفتوح في:"
+msgstr "فتح الاجتماع في:"
 
 msgid "Open meeting in"
-msgstr "اجتماع مفتوح في"
+msgstr "فتح الاجتماع في"
 
 msgid "Web tab"
 msgstr "علامة تبويب الويب"
@@ -6788,7 +6788,7 @@ msgid "Signing time differs from expected time"
 msgstr "يختلف وقت التوقيع عن الوقت المتوقع"
 
 msgid "Digest"
-msgstr "هضم"
+msgstr "ملخص"
 
 msgid "Signature"
 msgstr "إمضاء"
@@ -6797,7 +6797,7 @@ msgid "Cipher"
 msgstr "التشفير"
 
 msgid "Key transport"
-msgstr "النقل الرئيسي"
+msgstr "نقل المفتاح"
 
 msgid "Template Snippets"
 msgstr "مقتطفات القوالب"
@@ -6974,7 +6974,7 @@ msgid "Connection failed"
 msgstr "فشل الاتصال"
 
 msgid "Sabre error"
-msgstr "خطأ صابر"
+msgstr "خطأ Sabre"
 
 msgid "Copying failed"
 msgstr "فشل النسخ"
@@ -7505,7 +7505,7 @@ msgid "Can not get list of delegates."
 msgstr "لا يمكن الحصول على قائمة المندوبين."
 
 msgid "Could not open the store."
-msgstr "لا يمكن فتح المتجر."
+msgstr "تعذر فتح المخزن."
 
 msgid "Could not load the hierarchy."
 msgstr "تعذر تحميل التسلسل الهرمي."

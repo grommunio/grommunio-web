@@ -410,7 +410,7 @@ msgid "Professional"
 msgstr "Professionell"
 
 msgid "Title"
-msgstr "Anrede"
+msgstr "Titel"
 
 msgid "Company"
 msgstr "Firma"
@@ -1336,7 +1336,7 @@ msgid "Printed by"
 msgstr "Gedruckt von"
 
 msgid "at"
-msgstr "bei"
+msgstr "um"
 
 msgid "of"
 msgstr "von"
@@ -2077,7 +2077,7 @@ msgid "Please select a recipient"
 msgstr "Bitte wählen Sie einen Empfänger aus"
 
 msgid "Mail and Post"
-msgstr "E-Mail und Bereitstellung"
+msgstr "E-Mail und Beiträge"
 
 msgid "Contact"
 msgstr "Kontakt"
@@ -2872,7 +2872,7 @@ msgid "Show"
 msgstr "Anzeigen"
 
 msgid "Operators"
-msgstr "Betreiber"
+msgstr "Operatoren"
 
 msgid "AND"
 msgstr "UND"
@@ -3244,7 +3244,7 @@ msgid "Pop-out"
 msgstr "Abkoppeln"
 
 msgid "Mark as read"
-msgstr "Als ungelesen markieren"
+msgstr "Als gelesen markieren"
 
 msgid "Mark as unread"
 msgstr "Als ungelesen markieren"
@@ -3295,7 +3295,7 @@ msgid "Car Phone"
 msgstr "Autotelefon"
 
 msgid "Radio"
-msgstr "Funkruf"
+msgstr "Funktelefon"
 
 msgid "Callback Phone"
 msgstr "Rückruftelefon"
@@ -3848,7 +3848,7 @@ msgid "Appearance"
 msgstr "Erscheinungsbild"
 
 msgid "Light"
-msgstr "Licht"
+msgstr "Hell"
 
 msgid "Dark"
 msgstr "Dunkel"
@@ -4107,7 +4107,7 @@ msgid "Calendar Items"
 msgstr "Kalender"
 
 msgid "Mail and Post Items"
-msgstr "E-Mail und Bereitstellung"
+msgstr "E-Mail und Beiträge"
 
 msgid "Contacts Items"
 msgstr "Kontakte"
@@ -5178,7 +5178,7 @@ msgid "Billing Information"
 msgstr "Rechnungsinformationen"
 
 msgid "Mileage"
-msgstr "Fortschritt"
+msgstr "Kilometerstand"
 
 msgid "Accepting Task"
 msgstr "Aufgabe akzeptieren"
@@ -6284,7 +6284,7 @@ msgid "Room URL"
 msgstr "Raum-URL"
 
 msgid "Meet"
-msgstr "Treffen Sie"
+msgstr "Meet"
 
 msgid "Shift-click for advanced settings"
 msgstr "Weitere Einstellungen mit Shift-Click"
@@ -6296,7 +6296,7 @@ msgid "Open meeting in:"
 msgstr "Besprechung öffnen in:"
 
 msgid "Open meeting in"
-msgstr "Öffentliche Sitzung in"
+msgstr "Besprechung öffnen in"
 
 msgid "Web tab"
 msgstr "Web-Registerkarte"
@@ -6452,7 +6452,7 @@ msgid "Do you really want to remove your private certificate? If you remove your
 msgstr "Möchten Sie Ihr persönliches Zertifikat wirklich entfernen? Wenn Sie es entfernen, werden Sie keine S/MIME-Nachrichten mehr entschlüsseln oder signieren können."
 
 msgid "Signing"
-msgstr "Unterzeichnung"
+msgstr "Signierung"
 
 msgid "Encryption"
 msgstr "Verschlüsselung"
@@ -6461,7 +6461,7 @@ msgid "Signing & Encryption"
 msgstr "Signieren und Verschlüsselung"
 
 msgid "Serial"
-msgstr "Serienmäßig"
+msgstr "Seriennummer"
 
 msgid "Issued by"
 msgstr "Ausgestellt von"
@@ -6506,7 +6506,7 @@ msgid "Recommended"
 msgstr "Empfohlen"
 
 msgid "Legacy"
-msgstr "Erbe"
+msgstr "Veraltet"
 
 msgid "Default signing digest"
 msgstr "Standard-Signaturprüfung"
@@ -6701,19 +6701,19 @@ msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
 msgstr "Entschlüsselt (CBC-Modus - für stärkeren Schutz AES-GCM in Betracht ziehen)"
 
 msgid "Signing time differs from expected time"
-msgstr "Unterzeichnungszeit weicht von der erwarteten Zeit ab"
+msgstr "Signaturzeit weicht von der erwarteten Zeit ab"
 
 msgid "Digest"
 msgstr "Auszug"
 
 msgid "Signature"
-msgstr "Unterschrift"
+msgstr "Signatur"
 
 msgid "Cipher"
 msgstr "Chiffre"
 
 msgid "Key transport"
-msgstr "Schlüssel Transport"
+msgstr "Schlüsseltransport"
 
 msgid "Template Snippets"
 msgstr "Vorlagenausschnitte"
@@ -7421,7 +7421,7 @@ msgid "Can not get list of delegates."
 msgstr "Konnte die Stellvertreterliste nicht abrufen."
 
 msgid "Could not open the store."
-msgstr "Der Shop konnte nicht geöffnet werden."
+msgstr "Der Store konnte nicht geöffnet werden."
 
 msgid "Could not load the hierarchy."
 msgstr "Konnte die Hierarchie nicht laden."
@@ -7605,7 +7605,7 @@ msgid "has forwarded your meeting request to others."
 msgstr "hat Ihre Besprechungsanfrage an andere weitergeleitet."
 
 msgid "Meeting Time"
-msgstr "Treffpunkt"
+msgstr "Besprechungszeit"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "Sie haben keine Berechtigung, Inhalte dieses Ordners zu sehen."

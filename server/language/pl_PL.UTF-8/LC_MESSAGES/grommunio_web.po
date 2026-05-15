@@ -1087,7 +1087,7 @@ msgstr "Zaproponowałeś nowy termin spotkania {0}"
 
 msgctxt "calendar.dialog"
 msgid "{0} proposed a new time for this meeting on {1}"
-msgstr "{0} zaporoponował dnia {1} nowy termin"
+msgstr "{0} zaproponował dnia {1} nowy termin"
 
 msgctxt "calendar.dialog"
 msgid "Accepted on {0}"
@@ -2896,7 +2896,7 @@ msgid "Show"
 msgstr "Pokaż"
 
 msgid "Operators"
-msgstr "Operatorzy"
+msgstr "Operatory"
 
 msgid "AND"
 msgstr "ORAZ"
@@ -2926,7 +2926,7 @@ msgid "Click to cycle: AND → OR → NOT"
 msgstr "Kliknij, aby włączyć: AND → OR → NOT"
 
 msgid "Folder does not exist"
-msgstr "Der Ordner existiert nicht"
+msgstr "Folder nie istnieje"
 
 msgid "The folder you are searching through no longer exists. Please select another folder"
 msgstr "Folder, który przeszukujesz, już nie istnieje. Proszę wybrać inny folder"
@@ -3270,7 +3270,7 @@ msgid "Pop-out"
 msgstr "Odłącz"
 
 msgid "Mark as read"
-msgstr "Zaznacz Wiadomość jako przeczytany"
+msgstr "Zaznacz jako przeczytane"
 
 msgid "Mark as unread"
 msgstr "Zaznacz jako nieprzeczytane"
@@ -3875,7 +3875,7 @@ msgid "Appearance"
 msgstr "Wygląd"
 
 msgid "Light"
-msgstr "Światło"
+msgstr "Jasny"
 
 msgid "Dark"
 msgstr "Ciemny"
@@ -5209,7 +5209,7 @@ msgid "Billing Information"
 msgstr "Informacje bilingowe"
 
 msgid "Mileage"
-msgstr "Postępy"
+msgstr "Przebieg"
 
 msgid "Accepting Task"
 msgstr "Zaakceptowanie zadania"
@@ -5251,7 +5251,7 @@ msgid "Multiple recipients"
 msgstr "Wielokrotni odbiorcy"
 
 msgid "A task request can only have one recipient."
-msgstr "Możesz przydzielić zadanie jedynie odbiorcy."
+msgstr "Żądanie zadania może mieć tylko jednego odbiorcę."
 
 msgid "Due date"
 msgstr "Tremin realizacji"
@@ -6127,7 +6127,7 @@ msgid "Mobile Device Manager"
 msgstr "Menedżer urządzeń mobilnych"
 
 msgid "Wiping device"
-msgstr "Urządzenie do wycierania"
+msgstr "Wymazywanie urządzenia"
 
 msgid "Password incorrect"
 msgstr "Hasło jest nieprawidłowe"
@@ -6324,7 +6324,7 @@ msgid "Room URL"
 msgstr "Adres URL pokoju"
 
 msgid "Meet"
-msgstr "Spotkanie"
+msgstr "Meet"
 
 msgid "Shift-click for advanced settings"
 msgstr "Kliknięcie z wciśniętym klawiszem Shift dla ustawień zaawansowanych"
@@ -6333,10 +6333,10 @@ msgid "Join webmeeting"
 msgstr "Dołącz do spotkania internetowego"
 
 msgid "Open meeting in:"
-msgstr "Otwarte spotkanie w:"
+msgstr "Otwórz spotkanie w:"
 
 msgid "Open meeting in"
-msgstr "Otwarte spotkanie w"
+msgstr "Otwórz spotkanie w"
 
 msgid "Web tab"
 msgstr "Zakładka Web"
@@ -6549,7 +6549,7 @@ msgid "Recommended"
 msgstr "Zalecane"
 
 msgid "Legacy"
-msgstr "Dziedzictwo"
+msgstr "Starsze"
 
 msgid "Default signing digest"
 msgstr "Domyślny skrót podpisu"
@@ -6770,7 +6770,7 @@ msgid "Cipher"
 msgstr "Szyfr"
 
 msgid "Key transport"
-msgstr "Kluczowy transport"
+msgstr "Transport klucza"
 
 msgid "Template Snippets"
 msgstr "Fragmenty szablonów"
@@ -7450,11 +7450,11 @@ msgstr "Prywatne spotkanie"
 
 #, php-format
 msgid "%s's Birthday"
-msgstr "%surodziny"
+msgstr "Urodziny: %s"
 
 #, php-format
 msgid "%s's Anniversary"
-msgstr "%srocznica"
+msgstr "Rocznica: %s"
 
 msgid "You don't have the permission to complete this action"
 msgstr "Nie masz uprawnień do wykonania tej akcji"
@@ -7482,7 +7482,7 @@ msgid "Can not get list of delegates."
 msgstr "Nie można uzyskać listy delegatów."
 
 msgid "Could not open the store."
-msgstr "Nie udało się otworzyć sklepu."
+msgstr "Nie udało się otworzyć magazynu."
 
 msgid "Could not load the hierarchy."
 msgstr "Nie można załadować hierarchii."
@@ -7663,7 +7663,7 @@ msgid "l, F j, Y g:i A"
 msgstr "l, j F Y G:i"
 
 msgid "Your meeting has been forwarded"
-msgstr "Twoje spotkanie zostało przesunięte"
+msgstr "Twoje spotkanie zostało przekazane"
 
 msgid "has forwarded your meeting request to others."
 msgstr "przekazał Twoje zaproszenie na spotkanie innym osobom."

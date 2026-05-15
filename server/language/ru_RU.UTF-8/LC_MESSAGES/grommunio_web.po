@@ -2931,7 +2931,7 @@ msgid "Search"
 msgstr "Поиск"
 
 msgid "Click to cycle: AND → OR → NOT"
-msgstr "Нажмите, чтобы запустить цикл: И → ИЛИ → НЕ"
+msgstr "Нажмите для переключения: И → ИЛИ → НЕ"
 
 msgid "Folder does not exist"
 msgstr "Папки не существует"
@@ -3881,7 +3881,7 @@ msgid "Appearance"
 msgstr "Внешний вид"
 
 msgid "Light"
-msgstr "Свет"
+msgstr "Светлая"
 
 msgid "Dark"
 msgstr "Тёмная"
@@ -4281,10 +4281,10 @@ msgid "Username '{0}' is not a valid user."
 msgstr "Пользователь «{0}» некорректен."
 
 msgid "Own store"
-msgstr "Собственный магазин"
+msgstr "Собственное хранилище"
 
 msgid "It is not possible to open your own store twice."
-msgstr "Невозможно открыть собственный магазин дважды."
+msgstr "Невозможно открыть собственное хранилище дважды."
 
 msgid "Folder already open"
 msgstr "Папка уже открыта"
@@ -5100,7 +5100,7 @@ msgid "Mailbox Usage"
 msgstr "Использование ящика"
 
 msgid "A quota is not set on your store."
-msgstr "В вашем магазине не установлена квота."
+msgstr "В вашем хранилище не установлена квота."
 
 msgid "{0} of mailbox space is used."
 msgstr "{0} места используется."
@@ -5220,7 +5220,7 @@ msgid "Billing Information"
 msgstr "Биллинговая информация"
 
 msgid "Mileage"
-msgstr "Расстояние"
+msgstr "Пробег"
 
 msgid "Accepting Task"
 msgstr "Принятие задачи"
@@ -5486,7 +5486,7 @@ msgid "Invalid data received from the server"
 msgstr "Неверные данные, полученные от сервера"
 
 msgid "Missing store"
-msgstr "Пропавший магазин"
+msgstr "Отсутствует хранилище"
 
 msgid "The default store is missing from the hierarchy."
 msgstr "Основное хранилище отсутствует."
@@ -6333,7 +6333,7 @@ msgid "Room URL"
 msgstr "URL комнаты"
 
 msgid "Meet"
-msgstr "Знакомьтесь"
+msgstr "Meet"
 
 msgid "Shift-click for advanced settings"
 msgstr "Щелкните по клавише Shift для получения дополнительных настроек"
@@ -6342,10 +6342,10 @@ msgid "Join webmeeting"
 msgstr "Присоединяйтесь к веб-конференции"
 
 msgid "Open meeting in:"
-msgstr "Открытое заседание в:"
+msgstr "Открыть собрание в:"
 
 msgid "Open meeting in"
-msgstr "Открытое собрание в"
+msgstr "Открыть собрание в"
 
 msgid "Web tab"
 msgstr "Веб-вкладка"
@@ -6558,7 +6558,7 @@ msgid "Recommended"
 msgstr "Рекомендуем"
 
 msgid "Legacy"
-msgstr "Наследие"
+msgstr "Устаревший"
 
 msgid "Default signing digest"
 msgstr "Дайджест подписи по умолчанию"
@@ -6779,7 +6779,7 @@ msgid "Cipher"
 msgstr "Шифр"
 
 msgid "Key transport"
-msgstr "Ключевой транспорт"
+msgstr "Передача ключа"
 
 msgid "Template Snippets"
 msgstr "Фрагменты шаблонов"
@@ -6957,7 +6957,7 @@ msgid "Connection failed"
 msgstr "Ошибка подключения"
 
 msgid "Sabre error"
-msgstr "Ошибка сабли"
+msgstr "Ошибка Sabre"
 
 msgid "Copying failed"
 msgstr "Копирование не удалось"
@@ -7404,7 +7404,7 @@ msgid "Unable to perform search query, search folder not found."
 msgstr "Невозможно выполнить поисковый запрос, папка для поиска не найдена."
 
 msgid "Unable to perform search query, store might not support searching."
-msgstr "Невозможно выполнить поисковый запрос, возможно, магазин не поддерживает поиск."
+msgstr "Невозможно выполнить поисковый запрос, возможно, хранилище не поддерживает поиск."
 
 msgid "Error in creating search folder."
 msgstr "Ошибка при создании папки поиска."
@@ -7461,11 +7461,11 @@ msgstr "Частная встреча"
 
 #, php-format
 msgid "%s's Birthday"
-msgstr "%sдень рождения"
+msgstr "День рождения %s"
 
 #, php-format
 msgid "%s's Anniversary"
-msgstr "%sюбилей"
+msgstr "Годовщина %s"
 
 msgid "You don't have the permission to complete this action"
 msgstr "У вас нет разрешения на выполнение этого действия"
@@ -7493,13 +7493,13 @@ msgid "Can not get list of delegates."
 msgstr "Не удается получить список делегатов."
 
 msgid "Could not open the store."
-msgstr "Не удалось открыть магазин."
+msgstr "Не удалось открыть хранилище."
 
 msgid "Could not load the hierarchy."
 msgstr "Не удалось загрузить иерархию."
 
 msgid "Could not open the shared store."
-msgstr "Не удалось открыть общий магазин."
+msgstr "Не удалось открыть общее хранилище."
 
 msgid "Could not load folder properties."
 msgstr "Не удалось загрузить свойства папки."

@@ -2848,7 +2848,7 @@ msgid "Active"
 msgstr "Aktiivinen"
 
 msgid "Out of office"
-msgstr "Ei virassa"
+msgstr "Poissa toimistolta"
 
 msgid "Rule"
 msgstr "Sääntö"
@@ -2929,7 +2929,7 @@ msgid "Search"
 msgstr "Etsi"
 
 msgid "Click to cycle: AND → OR → NOT"
-msgstr "Klikkaa pyöräilyä: JA → TAI → EI"
+msgstr "Klikkaa vaihtaaksesi: JA → TAI → EI"
 
 msgid "Folder does not exist"
 msgstr "Kansiota ei ole olemassa"
@@ -3889,7 +3889,7 @@ msgid "Appearance"
 msgstr "Ulkonäkö"
 
 msgid "Light"
-msgstr "Valo"
+msgstr "Vaalea"
 
 msgid "Dark"
 msgstr "Tumma"
@@ -4770,7 +4770,7 @@ msgid "EML file(s)"
 msgstr "EML-tiedosto(t)"
 
 msgid "ZIP file"
-msgstr "Lähetetty tiedosto ei näytä ZIP-tiedostolta. Lataa kelvollinen zip-tiedosto"
+msgstr "ZIP-tiedosto"
 
 msgid "max. "
 msgstr "max. "
@@ -5272,7 +5272,7 @@ msgid "Multiple recipients"
 msgstr "Useita vastaanottajia"
 
 msgid "A task request can only have one recipient."
-msgstr "Pyydä aina lukukuittaus."
+msgstr "Tehtäväpyynnöllä voi olla vain yksi vastaanottaja."
 
 msgid "Due date"
 msgstr "Eräpäivä"
@@ -6149,7 +6149,7 @@ msgid "Mobile Device Manager"
 msgstr "Mobiililaitteiden hallinta"
 
 msgid "Wiping device"
-msgstr "Pyyhintälaite"
+msgstr "Pyyhitään laitetta"
 
 msgid "Password incorrect"
 msgstr "Salasana virheellinen"
@@ -6346,7 +6346,7 @@ msgid "Room URL"
 msgstr "Huoneen URL-osoite"
 
 msgid "Meet"
-msgstr "Tapaa"
+msgstr "Meet"
 
 msgid "Shift-click for advanced settings"
 msgstr "Shift-klikkaa lisäasetuksia varten"
@@ -6355,10 +6355,10 @@ msgid "Join webmeeting"
 msgstr "Liity webmeetingiin"
 
 msgid "Open meeting in:"
-msgstr "Avoin kokous:"
+msgstr "Avaa kokous:"
 
 msgid "Open meeting in"
-msgstr "Avoin kokous"
+msgstr "Avaa kokous"
 
 msgid "Web tab"
 msgstr "Web-välilehti"
@@ -6792,7 +6792,7 @@ msgid "Cipher"
 msgstr "Cipher"
 
 msgid "Key transport"
-msgstr "Keskeinen liikenne"
+msgstr "Avaintenkuljetus"
 
 msgid "Template Snippets"
 msgstr "Mallipohjat"
@@ -6970,7 +6970,7 @@ msgid "Connection failed"
 msgstr "Yhteys epäonnistui"
 
 msgid "Sabre error"
-msgstr "Sabre virhe"
+msgstr "Sabre-virhe"
 
 msgid "Copying failed"
 msgstr "Kopiointi epäonnistui"
@@ -7467,18 +7467,18 @@ msgid "Meeting could not be sent."
 msgstr "Kokousta ei voitu lähettää."
 
 msgid "Meeting could not be saved."
-msgstr "Kokousta ei voitu pelastaa."
+msgstr "Kokousta ei voitu tallentaa."
 
 msgid "Private Appointment"
 msgstr "Yksityinen tapaaminen"
 
 #, php-format
 msgid "%s's Birthday"
-msgstr "%s's syntymäpäivä"
+msgstr "%s:n syntymäpäivä"
 
 #, php-format
 msgid "%s's Anniversary"
-msgstr "%s's vuosipäivä"
+msgstr "%s:n vuosipäivä"
 
 msgid "You don't have the permission to complete this action"
 msgstr "Sinulla ei ole lupaa suorittaa tätä toimintoa"
@@ -7506,7 +7506,7 @@ msgid "Can not get list of delegates."
 msgstr "En saa luetteloa valtuutetuista."
 
 msgid "Could not open the store."
-msgstr "Kauppaa ei voitu avata."
+msgstr "Tietovarastoa ei voitu avata."
 
 msgid "Could not load the hierarchy."
 msgstr "Hierarkiaa ei voitu ladata."

@@ -591,7 +591,7 @@ msgid "Right preview"
 msgstr "Vista previa"
 
 msgid "Bottom preview"
-msgstr "Botón vista previa"
+msgstr "Vista previa inferior"
 
 msgid "Any date"
 msgstr "Cualquier fecha"
@@ -666,7 +666,7 @@ msgid "Mails"
 msgstr "Correos"
 
 msgid "Appointments"
-msgstr "Reservas"
+msgstr "Citas"
 
 msgid "Contacts"
 msgstr "Contactos"
@@ -710,7 +710,7 @@ msgid "Subject"
 msgstr "Asunto"
 
 msgid "Body & Attachments"
-msgstr "Carrocería y accesorios"
+msgstr "Cuerpo y adjuntos"
 
 msgid "Favorites"
 msgstr "Favoritos"
@@ -1008,7 +1008,7 @@ msgstr "F Y"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l"
-msgstr "Yo"
+msgstr "l"
 
 msgid "All text fields"
 msgstr "Todos los campos de texto"
@@ -1126,7 +1126,7 @@ msgstr "Crear en"
 
 # hora
 msgid "Time"
-msgstr "Tiempo"
+msgstr "Hora"
 
 msgid "until"
 msgstr "hasta"
@@ -1532,7 +1532,7 @@ msgid "Sort by: Created On"
 msgstr "Ordenar por: Creado"
 
 msgid "Due By"
-msgstr "Gracias Por"
+msgstr "Vencimiento"
 
 msgid "Sort by: Due By"
 msgstr "Ordenar por: Fecha de vencimiento"
@@ -1631,7 +1631,7 @@ msgid "Move"
 msgstr "Mover"
 
 msgid "Update recipients"
-msgstr "Beneficiarios de la actualización"
+msgstr "Actualizar destinatarios"
 
 msgid "The time of the meeting has changed. What would you like to do?"
 msgstr "La hora de la reunión ha cambiado. ¿Qué desea hacer?"
@@ -1656,7 +1656,7 @@ msgid "Please note that any changes you make will be overwritten when this meeti
 msgstr "Tenga en cuenta que cualquier cambio que realice se sobrescribirá cuando el organizador actualice esta solicitud de reunión. ¿Desea trasladar esta reunión?"
 
 msgid "Don't move"
-msgstr "No te muevas"
+msgstr "No mover"
 
 msgid "F j"
 msgstr "F j"
@@ -1710,13 +1710,13 @@ msgid "Upcoming Appointments"
 msgstr "Próximas citas"
 
 msgid "Appointments of {0}"
-msgstr "Nombramientos de {0}"
+msgstr "Citas de {0}"
 
 msgid "Appointments of {0} - {1}"
-msgstr "Nombramientos de {0} - {1}"
+msgstr "Citas de {0} - {1}"
 
 msgid "No appointments"
-msgstr "No hay anotaciones"
+msgstr "No hay citas"
 
 msgid "Exception"
 msgstr "Excepción"
@@ -2009,7 +2009,7 @@ msgid "Supported format for contact pictures are"
 msgstr "Los formatos soportados para las imágenes de los contactos son"
 
 msgid "Attachment Error"
-msgstr "Error de fijación"
+msgstr "Error de adjunto"
 
 msgid "Manage Categories"
 msgstr "Gestionar categorías"
@@ -2213,7 +2213,7 @@ msgid "You have insufficient privileges to move following items."
 msgstr "No tienes privilegios suficientes para mover los siguientes elementos."
 
 msgid "Subject:"
-msgstr "Tema:"
+msgstr "Asunto:"
 
 msgid "Would you like to copy instead?"
 msgstr "¿Quiere copiar en su lugar?"
@@ -2273,7 +2273,7 @@ msgid "Dropped file type is not supported"
 msgstr "El tipo de archivo arrastrado no es compatible"
 
 msgid "Edit recipient"
-msgstr "Editar recipiente"
+msgstr "Editar destinatario"
 
 msgid "Copy email address"
 msgstr "Copiar dirección de correo electrónico"
@@ -2330,7 +2330,7 @@ msgid "All views"
 msgstr "Todas las vistas"
 
 msgid "Close tab"
-msgstr "Cerrar lengüeta"
+msgstr "Cerrar pestaña"
 
 msgid "Print item"
 msgstr "Imprimir item"
@@ -2454,7 +2454,7 @@ msgid "Copy all email addresses"
 msgstr "Copie todas las direcciones de correo electrónico"
 
 msgid "View recipient"
-msgstr "Ver recipiente"
+msgstr "Ver destinatario"
 
 msgid "Weekday"
 msgstr "Día de Semana"
@@ -2715,7 +2715,7 @@ msgid "has importance…"
 msgstr "tiene importancia.."
 
 msgid "has an attachment"
-msgstr "tiene un accesorio"
+msgstr "tiene un adjunto"
 
 msgid "is sent to…"
 msgstr "se envía a.."
@@ -2811,7 +2811,7 @@ msgid "Stop processing more rules"
 msgstr "Detenga el procesamiento de más reglas"
 
 msgid "Add exception"
-msgstr "Ausnahmen hinzufügen"
+msgstr "Añadir excepción"
 
 msgid "Remove exception"
 msgstr "Eliminar excepción"
@@ -3885,7 +3885,7 @@ msgid "Appearance"
 msgstr "Apariencia"
 
 msgid "Light"
-msgstr "Luz"
+msgstr "Claro"
 
 msgid "Dark"
 msgstr "Oscuro"
@@ -3912,7 +3912,7 @@ msgid "Sent successfully"
 msgstr "Envio finalizado"
 
 msgid "No recipient"
-msgstr "Ningún beneficiario"
+msgstr "Ningún destinatario"
 
 msgid "Please specify at least one recipient"
 msgstr "Especifique al menos un destinatario"
@@ -4313,7 +4313,7 @@ msgid "Rename folder"
 msgstr "Cambiar el nombre de la carpeta"
 
 msgid "Empty Junk Email"
-msgstr "Papelera de reciclaje"
+msgstr "Vaciar correo no deseado"
 
 msgid "Empty Deleted Items"
 msgstr "Elementos eliminados vacíos"
@@ -4349,7 +4349,7 @@ msgid "Remove From Favorites"
 msgstr "Eliminar de Favoritos"
 
 msgid "Share folder…"
-msgstr "Carpeta de inicio…"
+msgstr "Compartir carpeta…"
 
 msgid "Import emails"
 msgstr "Importar correos electrónicos"
@@ -5215,7 +5215,7 @@ msgid "Total Work"
 msgstr "Total de trabajo"
 
 msgid "Actual Work"
-msgstr "Trabajo Actual"
+msgstr "Trabajo real"
 
 msgid "Companies"
 msgstr "Compañías"
@@ -5230,7 +5230,7 @@ msgid "Accepting Task"
 msgstr "Aceptación de la tarea"
 
 msgid "Declining Task"
-msgstr "Tarea decreciente"
+msgstr "Rechazando tarea"
 
 #, fuzzy
 msgid "This task will be accepted and moved to your task folder. Do you want to include comments with your response?"
@@ -5268,7 +5268,7 @@ msgid "Multiple recipients"
 msgstr "Múltiples destinatarios"
 
 msgid "A task request can only have one recipient."
-msgstr "Solicitar siempre confirmación de lectura."
+msgstr "Una solicitud de tarea solo puede tener un destinatario."
 
 msgid "Due date"
 msgstr "Fecha de vencimiento"
@@ -5322,11 +5322,11 @@ msgid "Completed"
 msgstr "Completado"
 
 msgid "Printed by: "
-msgstr "Ordenar por: "
+msgstr "Impreso por: "
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Printed on: "
-msgstr "Imprimir esta: "
+msgstr "Impreso el: "
 
 msgid "Percent complete"
 msgstr "Porcentaje completado"
@@ -5338,7 +5338,7 @@ msgid "{totalwork} hours"
 msgstr "{totalwork} horas"
 
 msgid "Actual work"
-msgstr "Trabajo actual"
+msgstr "Trabajo real"
 
 msgid "{actualwork} hours"
 msgstr "{actualwork} horas"
@@ -5543,7 +5543,7 @@ msgstr "Tareas"
 
 msgctxt "hierarchy.foldername"
 msgid "Junk Email"
-msgstr "Papelera de reciclaje"
+msgstr "Correo no deseado"
 
 msgid "Missing folders"
 msgstr "Carpeta no encontradas"
@@ -6341,7 +6341,7 @@ msgid "Room URL"
 msgstr "URL de la sala"
 
 msgid "Meet"
-msgstr "Conozca"
+msgstr "Reunión"
 
 msgid "Shift-click for advanced settings"
 msgstr "Pulsar Mayús para ajustes avanzados"
@@ -6603,7 +6603,7 @@ msgid "signing & encryption"
 msgstr "firma y cifrado"
 
 msgid "Sign message"
-msgstr "Mensaje del cartel"
+msgstr "Firmar mensaje"
 
 #, fuzzy
 msgid "Ensure the authenticity of the message by adding a digital signature to this message. Any changes to the message will invalidate the signature."
@@ -6778,7 +6778,7 @@ msgid "Signing time differs from expected time"
 msgstr "La hora de firma difiere de la hora prevista"
 
 msgid "Digest"
-msgstr "Digerir"
+msgstr "Resumen"
 
 msgid "Signature"
 msgstr "Firma"
@@ -7103,7 +7103,7 @@ msgid "Deletion failed"
 msgstr "Error al borrar"
 
 msgid "Moving failed"
-msgstr "Mudanza fallida"
+msgstr "Error al mover"
 
 msgid "Temporary directory problems"
 msgstr "Problemas con los directorios temporales"
@@ -7430,7 +7430,7 @@ msgid "an appointment"
 msgstr "una cita"
 
 msgid "You have insufficient privileges to move "
-msgstr "No tiene suficientes privilegios para moverse "
+msgstr "No tiene suficientes privilegios para mover "
 
 #, fuzzy
 msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"

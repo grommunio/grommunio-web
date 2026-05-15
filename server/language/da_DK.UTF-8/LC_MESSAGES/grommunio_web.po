@@ -1719,7 +1719,7 @@ msgid "Exception"
 msgstr "Undtagelse"
 
 msgid "Today {0} - {1}"
-msgstr "I dag {0} {1}"
+msgstr "I dag {0} - {1}"
 
 msgid "Today (all day)"
 msgstr "I dag (hele dagen)"
@@ -2921,7 +2921,7 @@ msgid "Search"
 msgstr "Søg efter"
 
 msgid "Click to cycle: AND → OR → NOT"
-msgstr "Klik for at cykle: OG → ELLER → IKKE"
+msgstr "Klik for at skifte: OG → ELLER → IKKE"
 
 msgid "Folder does not exist"
 msgstr "Mappen findes ikke"
@@ -5208,7 +5208,7 @@ msgid "Billing Information"
 msgstr "Fakturainformation"
 
 msgid "Mileage"
-msgstr "Fremskridt"
+msgstr "Kilometertal"
 
 msgid "Accepting Task"
 msgstr "Godkend opgave"
@@ -5251,7 +5251,7 @@ msgid "Multiple recipients"
 msgstr "Flere modtagere"
 
 msgid "A task request can only have one recipient."
-msgstr "En opgave kan kun kun have en modtager."
+msgstr "En opgaveanmodning kan kun have én modtager."
 
 msgid "Due date"
 msgstr "Forfaldsdato"
@@ -6128,7 +6128,7 @@ msgid "Mobile Device Manager"
 msgstr "Håndtering af mobile enheder"
 
 msgid "Wiping device"
-msgstr "Aftørringsanordning"
+msgstr "Sletter enhed"
 
 msgid "Password incorrect"
 msgstr "Forkert adgangskode"
@@ -6319,13 +6319,13 @@ msgid "Room name"
 msgstr "Rumnavn"
 
 msgid "Room URL:"
-msgstr "Værelsets URL:"
+msgstr "Rum-URL:"
 
 msgid "Room URL"
 msgstr "Rum-URL"
 
 msgid "Meet"
-msgstr "Mødes"
+msgstr "Møde"
 
 msgid "Shift-click for advanced settings"
 msgstr "Shift-klik for avancerede indstillinger"
@@ -6334,10 +6334,10 @@ msgid "Join webmeeting"
 msgstr "Deltag i webmøde"
 
 msgid "Open meeting in:"
-msgstr "Åbent møde i:"
+msgstr "Åbn møde i:"
 
 msgid "Open meeting in"
-msgstr "Åben møde i"
+msgstr "Åbn møde i"
 
 msgid "Web tab"
 msgstr "Web-fanen"
@@ -6505,7 +6505,7 @@ msgid "Signing & Encryption"
 msgstr "Signering og kryptering"
 
 msgid "Serial"
-msgstr "Seriel"
+msgstr "Serienummer"
 
 msgid "Issued by"
 msgstr "Udstedt af"
@@ -6550,7 +6550,7 @@ msgid "Recommended"
 msgstr "Anbefalet"
 
 msgid "Legacy"
-msgstr "Arv"
+msgstr "Ældre"
 
 msgid "Default signing digest"
 msgstr "Standard-signeringsdigest"
@@ -6762,7 +6762,7 @@ msgid "Signing time differs from expected time"
 msgstr "Signeringstiden afviger fra den forventede tid"
 
 msgid "Digest"
-msgstr "Fordøjelse"
+msgstr "Digest"
 
 msgid "Signature"
 msgstr "Underskrift"
@@ -7485,13 +7485,13 @@ msgid "Can not get list of delegates."
 msgstr "Kan ikke få en liste over delegerede."
 
 msgid "Could not open the store."
-msgstr "Kunne ikke åbne butikken."
+msgstr "Kunne ikke åbne lageret."
 
 msgid "Could not load the hierarchy."
 msgstr "Hierarkiet kunne ikke indlæses."
 
 msgid "Could not open the shared store."
-msgstr "Kunne ikke åbne den delte butik."
+msgstr "Kunne ikke åbne det delte lager."
 
 msgid "Could not load folder properties."
 msgstr "Kunne ikke indlæse mappeegenskaber."

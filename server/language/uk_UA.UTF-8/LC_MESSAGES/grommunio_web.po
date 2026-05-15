@@ -2285,7 +2285,7 @@ msgid "Busy"
 msgstr "Зайнято"
 
 msgid "Out of Office"
-msgstr "Вибув з посади"
+msgstr "Не в офісі"
 
 msgid "No Information"
 msgstr "Немає інформації"
@@ -2835,7 +2835,7 @@ msgid "Active"
 msgstr "Активний"
 
 msgid "Out of office"
-msgstr "Позбавлений посади"
+msgstr "Не в офісі"
 
 msgid "Rule"
 msgstr "Правило"
@@ -3864,7 +3864,7 @@ msgid "Appearance"
 msgstr "Зовнішній вигляд"
 
 msgid "Light"
-msgstr "Світло"
+msgstr "Світла"
 
 msgid "Dark"
 msgstr "Темнота."
@@ -6110,7 +6110,7 @@ msgid "Mobile Device Manager"
 msgstr "Диспетчер мобільних пристроїв"
 
 msgid "Wiping device"
-msgstr "Пристрій для протирання"
+msgstr "Очищення пристрою"
 
 msgid "Password incorrect"
 msgstr "Неправильний пароль"
@@ -6303,7 +6303,7 @@ msgid "Room URL"
 msgstr "URL кімнати"
 
 msgid "Meet"
-msgstr "Знайомтеся"
+msgstr "Meet"
 
 msgid "Shift-click for advanced settings"
 msgstr "Клацніть, утримуючи клавішу Shift, для розширених налаштувань"
@@ -6312,10 +6312,10 @@ msgid "Join webmeeting"
 msgstr "Приєднуйтесь до веб-зустрічі"
 
 msgid "Open meeting in:"
-msgstr "Засідання відкрите:"
+msgstr "Відкрити нараду в:"
 
 msgid "Open meeting in"
-msgstr "Відкрите засідання в"
+msgstr "Відкрити нараду в"
 
 msgid "Web tab"
 msgstr "Веб-вкладка"
@@ -6480,7 +6480,7 @@ msgid "Signing & Encryption"
 msgstr "Підписання та шифрування"
 
 msgid "Serial"
-msgstr "Серіал"
+msgstr "Серійний номер"
 
 msgid "Issued by"
 msgstr "Видано"
@@ -6525,7 +6525,7 @@ msgid "Recommended"
 msgstr "Рекомендовано"
 
 msgid "Legacy"
-msgstr "Спадщина"
+msgstr "Застарілий"
 
 msgid "Default signing digest"
 msgstr "Дайджест підписів за замовчуванням"
@@ -6732,7 +6732,7 @@ msgid "Cipher"
 msgstr "Шифр"
 
 msgid "Key transport"
-msgstr "Ключовий транспорт"
+msgstr "Транспортування ключа"
 
 msgid "Template Snippets"
 msgstr "Фрагменти шаблонів"
@@ -6909,7 +6909,7 @@ msgid "Connection failed"
 msgstr "Не вдалося встановити з'єднання"
 
 msgid "Sabre error"
-msgstr "Помилка шаблі"
+msgstr "Помилка Sabre"
 
 msgid "Copying failed"
 msgstr "Не вдалося скопіювати"
@@ -7440,7 +7440,7 @@ msgid "Can not get list of delegates."
 msgstr "Не можу отримати список делегатів."
 
 msgid "Could not open the store."
-msgstr "Не вдалося відкрити магазин."
+msgstr "Не вдалося відкрити сховище."
 
 msgid "Could not load the hierarchy."
 msgstr "Не вдалося завантажити ієрархію."

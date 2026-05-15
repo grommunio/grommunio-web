@@ -2942,7 +2942,7 @@ msgid "Search"
 msgstr "Keresés"
 
 msgid "Click to cycle: AND → OR → NOT"
-msgstr "Kattintson a kerékpárra: ÉS → VAGY → NEM"
+msgstr "Kattintson a váltáshoz: ÉS → VAGY → NEM"
 
 msgid "Folder does not exist"
 msgstr "A mappa nem létezik"
@@ -3895,7 +3895,7 @@ msgid "Appearance"
 msgstr "Megjelenés"
 
 msgid "Light"
-msgstr "Fény"
+msgstr "Világos"
 
 msgid "Dark"
 msgstr "Sötét"
@@ -5236,7 +5236,7 @@ msgid "Billing Information"
 msgstr "Számlázási Adatok"
 
 msgid "Mileage"
-msgstr "Mérföldkő"
+msgstr "Megtett távolság"
 
 msgid "Accepting Task"
 msgstr "Feladatok elfogadása"
@@ -6350,7 +6350,7 @@ msgid "Room URL"
 msgstr "Szoba URL-je"
 
 msgid "Meet"
-msgstr "Ismerje meg a"
+msgstr "Meet"
 
 msgid "Shift-click for advanced settings"
 msgstr "Shift-kattintás a speciális beállításokhoz"
@@ -6359,10 +6359,10 @@ msgid "Join webmeeting"
 msgstr "Csatlakozzon a webmeetinghez"
 
 msgid "Open meeting in:"
-msgstr "Nyílt találkozó:"
+msgstr "Értekezlet megnyitása itt:"
 
 msgid "Open meeting in"
-msgstr "Nyílt találkozó"
+msgstr "Értekezlet megnyitása itt"
 
 msgid "Web tab"
 msgstr "Web lap"
@@ -6529,7 +6529,7 @@ msgid "Signing & Encryption"
 msgstr "Aláírás és titkosítás"
 
 msgid "Serial"
-msgstr "Sorozatos"
+msgstr "Sorozatszám"
 
 msgid "Issued by"
 msgstr "Kiadta"
@@ -6574,7 +6574,7 @@ msgid "Recommended"
 msgstr "Ajánlott"
 
 msgid "Legacy"
-msgstr "Hagyaték"
+msgstr "Örökölt"
 
 msgid "Default signing digest"
 msgstr "Alapértelmezett aláírási digest"
@@ -6793,7 +6793,7 @@ msgid "Cipher"
 msgstr "Cipher"
 
 msgid "Key transport"
-msgstr "Kulcsfontosságú szállítás"
+msgstr "Kulcsátvitel"
 
 msgid "Template Snippets"
 msgstr "Sablonrészletek"
@@ -7475,11 +7475,11 @@ msgstr "Privát találkozó"
 
 #, php-format
 msgid "%s's Birthday"
-msgstr "%s's Születésnap"
+msgstr "%s születésnapja"
 
 #, php-format
 msgid "%s's Anniversary"
-msgstr "%sévfordulója"
+msgstr "%s évfordulója"
 
 msgid "You don't have the permission to complete this action"
 msgstr "Nincs jogosultsága a művelet végrehajtásához"
@@ -7507,7 +7507,7 @@ msgid "Can not get list of delegates."
 msgstr "Nem kapja meg a küldöttek listáját."
 
 msgid "Could not open the store."
-msgstr "Nem sikerült kinyitni az üzletet."
+msgstr "Nem sikerült megnyitni a tárolót."
 
 msgid "Could not load the hierarchy."
 msgstr "Nem sikerült betölteni a hierarchiát."

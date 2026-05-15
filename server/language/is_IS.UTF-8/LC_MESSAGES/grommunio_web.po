@@ -2869,7 +2869,7 @@ msgid "Show"
 msgstr "Sýna"
 
 msgid "Operators"
-msgstr "Rekstraraðilar"
+msgstr "Virkjar"
 
 msgid "AND"
 msgstr "OG"
@@ -2896,7 +2896,7 @@ msgid "Search"
 msgstr "Leita"
 
 msgid "Click to cycle: AND → OR → NOT"
-msgstr "Smelltu til að hjóla: OG → EÐA → EKKI"
+msgstr "Smelltu til að skipta: OG → EÐA → EKKI"
 
 msgid "Folder does not exist"
 msgstr "Mappan er ekki til"
@@ -5173,7 +5173,7 @@ msgid "Billing Information"
 msgstr "Reikningsupplýsingar"
 
 msgid "Mileage"
-msgstr "Nýting"
+msgstr "Vegalengd"
 
 msgid "Accepting Task"
 msgstr "Samþykki verk"
@@ -6279,7 +6279,7 @@ msgid "Room URL"
 msgstr "Herbergis-URL"
 
 msgid "Meet"
-msgstr "Hittumst"
+msgstr "Meet"
 
 msgid "Shift-click for advanced settings"
 msgstr "Shift-smelltu til að fá ítarlegar stillingar"
@@ -6291,7 +6291,7 @@ msgid "Open meeting in:"
 msgstr "Opinn fundur í:"
 
 msgid "Open meeting in"
-msgstr "Opin fundur í"
+msgstr "Opna fund í"
 
 msgid "Web tab"
 msgstr "Vefflipi"
@@ -6699,7 +6699,7 @@ msgid "Signing time differs from expected time"
 msgstr "Undirritunartími er frábrugðinn áætluðum tíma"
 
 msgid "Digest"
-msgstr "Melta"
+msgstr "Tætigildi"
 
 msgid "Signature"
 msgstr "Undirskrift"
@@ -7384,11 +7384,11 @@ msgstr "Einkafundur"
 
 #, php-format
 msgid "%s's Birthday"
-msgstr "Afmæli%s"
+msgstr "Afmæli %s"
 
 #, php-format
 msgid "%s's Anniversary"
-msgstr "Afmæli%s"
+msgstr "Brúðkaupsafmæli %s"
 
 msgid "You don't have the permission to complete this action"
 msgstr "Þú hefur ekki leyfi til að ljúka þessari aðgerð"
@@ -7416,7 +7416,7 @@ msgid "Can not get list of delegates."
 msgstr "Get ekki fengið lista yfir fulltrúa."
 
 msgid "Could not open the store."
-msgstr "Ekki tókst að opna verslunina."
+msgstr "Ekki tókst að opna gagnageymsluna."
 
 msgid "Could not load the hierarchy."
 msgstr "Ekki tókst að hlaða stigveldinu."

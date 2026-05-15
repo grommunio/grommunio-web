@@ -211,7 +211,7 @@ msgstr "{0} (Spatiebalk)"
 
 # misschien is "minimum date" te letterlijk gekopieerd
 msgid "This date is before the minimum date"
-msgstr "Het gekozen datum vindt voor de start datum plaats"
+msgstr "Deze datum ligt voor de minimumdatum"
 
 # misschien is "minimum date" te letterlijk gekopieerd
 msgid "This date is after the maximum date"
@@ -438,7 +438,7 @@ msgid "Manager"
 msgstr "Manager"
 
 msgid "Direct reports"
-msgstr "Directe meldingen"
+msgstr "Directe medewerkers"
 
 msgid "Phone numbers"
 msgstr "Telefoonnummers"
@@ -801,7 +801,7 @@ msgid "weeks"
 msgstr "weken"
 
 msgid " on "
-msgstr " aan "
+msgstr " op "
 
 msgid "month"
 msgstr "maand"
@@ -1712,7 +1712,7 @@ msgid "Exception"
 msgstr "Uitzondering"
 
 msgid "Today {0} - {1}"
-msgstr "Vandaag: {1} - {0}"
+msgstr "Vandaag: {0} - {1}"
 
 msgid "Today (all day)"
 msgstr "Vandaag (gehele dag)"
@@ -2672,10 +2672,10 @@ msgid "is received from…"
 msgstr "is ontvangen van…"
 
 msgid "includes these words in the sender's address…"
-msgstr "gebruik deze woorden in het adres van de afzender…"
+msgstr "bevat deze woorden in het adres van de afzender…"
 
 msgid "includes these words in the recipient's address…"
-msgstr "gebruik deze woorden in het adres van de afzender…"
+msgstr "bevat deze woorden in het adres van de geadresseerde…"
 
 msgid "includes these words in the subject…"
 msgstr "bevat deze woorden in het onderwerp…"
@@ -2840,7 +2840,7 @@ msgid "Rule already has lowest priority."
 msgstr "Regel heeft al laagste prioriteit."
 
 msgid "Always move messages from {0}"
-msgstr "Berichten van {0} altijd verplaasen"
+msgstr "Berichten van {0} altijd verplaatsen"
 
 msgid "Always move messages that are sent to <recipients>"
 msgstr "Berichten gestuurd aan <ontvangers> altijd verplaatsen"
@@ -2876,7 +2876,7 @@ msgid "Show"
 msgstr "Toon"
 
 msgid "Operators"
-msgstr "Bedieningspersoneel"
+msgstr "Operatoren"
 
 msgid "AND"
 msgstr "EN"
@@ -2903,7 +2903,7 @@ msgid "Search"
 msgstr "Zoek op"
 
 msgid "Click to cycle: AND → OR → NOT"
-msgstr "Klik om te fietsen: AND → OR → NOT"
+msgstr "Klik om te wisselen: AND → OR → NOT"
 
 msgid "Folder does not exist"
 msgstr "Map bestaat niet"
@@ -3246,7 +3246,7 @@ msgid "Pop-out"
 msgstr "Pop-out"
 
 msgid "Mark as read"
-msgstr "Markeer als ongelezen"
+msgstr "Markeer als gelezen"
 
 msgid "Mark as unread"
 msgstr "Markeer als ongelezen"
@@ -3802,7 +3802,7 @@ msgid "Not Started"
 msgstr "Niet Gestart"
 
 msgid "In Progress"
-msgstr "Word uitgevoerd"
+msgstr "Wordt uitgevoerd"
 
 msgid "Wait for other person"
 msgstr "Wacht op iemand anders"
@@ -4058,8 +4058,8 @@ msgstr "Leegmaken {0}... ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
-msgstr[0] "Er is {0} ongelezen bericht in de map {1} of {2}"
-msgstr[1] "Er zijn {0} ongelezen berichten in de map {1} of {2}"
+msgstr[0] "Er is {0} ongelezen bericht in de map {1} van {2}"
+msgstr[1] "Er zijn {0} ongelezen berichten in de map {1} van {2}"
 
 msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
@@ -6286,7 +6286,7 @@ msgid "Room URL"
 msgstr "URL van de ruimte"
 
 msgid "Meet"
-msgstr "Ontmoet"
+msgstr "Meet"
 
 msgid "Shift-click for advanced settings"
 msgstr "Shift-klik voor geavanceerde instellingen"
@@ -6463,7 +6463,7 @@ msgid "Signing & Encryption"
 msgstr "Ondertekening en codering"
 
 msgid "Serial"
-msgstr "Serie"
+msgstr "Serienummer"
 
 msgid "Issued by"
 msgstr "Uitgegeven door"
@@ -6508,10 +6508,10 @@ msgid "Recommended"
 msgstr "Aanbevolen"
 
 msgid "Legacy"
-msgstr "Erfenis"
+msgstr "Verouderd"
 
 msgid "Default signing digest"
-msgstr "Standaard ondertekeningsbestand"
+msgstr "Standaard ondertekeningshash"
 
 msgid "You have a valid certificate corresponding to your account"
 msgstr "Er is een geldig certificaat gekoppeld aan uw account"
@@ -6706,16 +6706,16 @@ msgid "Signing time differs from expected time"
 msgstr "Ondertekeningstijd wijkt af van verwachte tijd"
 
 msgid "Digest"
-msgstr "Verteren"
+msgstr "Hash"
 
 msgid "Signature"
 msgstr "Handtekening"
 
 msgid "Cipher"
-msgstr "Cijfer"
+msgstr "Versleuteling"
 
 msgid "Key transport"
-msgstr "Belangrijk transport"
+msgstr "Sleuteltransport"
 
 msgid "Template Snippets"
 msgstr "Sjabloonfragmenten"
@@ -7085,7 +7085,7 @@ msgid "No data received."
 msgstr "Geen gegevens ontvangen."
 
 msgid "Account is empty."
-msgstr "De rekening is leeg."
+msgstr "Account is leeg."
 
 msgid "Your password is wrong or you have insufficient permission to change password"
 msgstr "Uw wachtwoord is verkeerd of u hebt onvoldoende toestemming om uw wachtwoord te wijzigen"
@@ -7335,7 +7335,7 @@ msgid "Unable to perform search query, search folder not found."
 msgstr "Kan zoekopdracht niet uitvoeren, zoekmap niet gevonden."
 
 msgid "Unable to perform search query, store might not support searching."
-msgstr "Kan geen zoekopdracht uitvoeren, winkel ondersteunt zoeken misschien niet."
+msgstr "Kan geen zoekopdracht uitvoeren, store ondersteunt zoeken mogelijk niet."
 
 msgid "Error in creating search folder."
 msgstr "Fout bij het aanmaken van de zoekmap."
@@ -7353,7 +7353,7 @@ msgid "an appointment"
 msgstr "een afspraak"
 
 msgid "You have insufficient privileges to move "
-msgstr "Je hebt onvoldoende rechten om te bewegen "
+msgstr "Je hebt onvoldoende rechten om te verplaatsen "
 
 msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
 msgstr "Kan een herinnering niet instellen om te verschijnen vóór de vorige gebeurtenis. Herinnering resetten om de wijziging op te slaan"
@@ -7384,7 +7384,7 @@ msgid "Meeting could not be sent."
 msgstr "Vergadering kon niet worden verzonden."
 
 msgid "Meeting could not be saved."
-msgstr "Vergadering kon niet worden gered."
+msgstr "Vergadering kon niet worden opgeslagen."
 
 msgid "Private Appointment"
 msgstr "Privé Afspraak"
@@ -7420,16 +7420,16 @@ msgid "Could not delete delegate."
 msgstr "Kon de delegatie niet verwijderen."
 
 msgid "Can not get list of delegates."
-msgstr "Ik kan de lijst van afgevaardigden niet krijgen."
+msgstr "Kan lijst met gemachtigden niet ophalen."
 
 msgid "Could not open the store."
-msgstr "Kon de winkel niet openen."
+msgstr "Kon de store niet openen."
 
 msgid "Could not load the hierarchy."
 msgstr "Kon de hiërarchie niet laden."
 
 msgid "Could not open the shared store."
-msgstr "Kan de gedeelde winkel niet openen."
+msgstr "Kan de gedeelde store niet openen."
 
 msgid "Could not load folder properties."
 msgstr "Kon de map eigenschappen niet laden."
@@ -7495,7 +7495,7 @@ msgid "Could not close shared folder."
 msgstr "Kon gedeelde map niet sluiten."
 
 msgid "User could not be resolved."
-msgstr "Gebruiker kon niet worden opgelost."
+msgstr "Gebruiker kon niet worden gevonden."
 
 #, php-format
 msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."

@@ -1335,7 +1335,7 @@ msgid "Printed by"
 msgstr "Gedruckt von"
 
 msgid "at"
-msgstr "bei"
+msgstr "um"
 
 msgid "of"
 msgstr "von"
@@ -2724,10 +2724,10 @@ msgid "is received (all messages)"
 msgstr "wurde empfangen (alle Nachrichten)"
 
 msgid "Message size"
-msgstr "Nachrichtengröße"
+msgstr "Nachrichtengrösse"
 
 msgid "Size unit"
-msgstr "Maßeinheit"
+msgstr "Masseinheit"
 
 msgid "Condition"
 msgstr "Bedingung"
@@ -2871,7 +2871,7 @@ msgid "Show"
 msgstr "Anzeigen"
 
 msgid "Operators"
-msgstr "Betreiber"
+msgstr "Operatoren"
 
 msgid "AND"
 msgstr "UND"
@@ -3243,7 +3243,7 @@ msgid "Pop-out"
 msgstr "Abkoppeln"
 
 msgid "Mark as read"
-msgstr "Als ungelesen markieren"
+msgstr "Als gelesen markieren"
 
 msgid "Mark as unread"
 msgstr "Als ungelesen markieren"
@@ -3294,7 +3294,7 @@ msgid "Car Phone"
 msgstr "Autotelefon"
 
 msgid "Radio"
-msgstr "Funkruf"
+msgstr "Funktelefon"
 
 msgid "Callback Phone"
 msgstr "Rückruftelefon"
@@ -3847,7 +3847,7 @@ msgid "Appearance"
 msgstr "Erscheinungsbild"
 
 msgid "Light"
-msgstr "Licht"
+msgstr "Hell"
 
 msgid "Dark"
 msgstr "Dunkel"
@@ -5177,7 +5177,7 @@ msgid "Billing Information"
 msgstr "Rechnungsinformationen"
 
 msgid "Mileage"
-msgstr "Fortschritt"
+msgstr "Kilometerstand"
 
 msgid "Accepting Task"
 msgstr "Aufgabe akzeptieren"
@@ -5993,10 +5993,10 @@ msgid "Constraints for single attachment archiving"
 msgstr "Einschränkungen für die Archivierung einzelner Anlagen"
 
 msgid "Max count attachments"
-msgstr "Maximale Anzahl von Anbaugeräten"
+msgstr "Maximale Anzahl von Anhängen"
 
 msgid "Max size all selected attachments (MB)"
-msgstr "Maximale Größe aller ausgewählten Anhänge (MB)"
+msgstr "Maximale Grösse aller ausgewählten Anhänge (MB)"
 
 msgid "Selection Kendox InfoShare environment"
 msgstr "Auswahl Kendox InfoShare Umgebung"
@@ -6032,7 +6032,7 @@ msgid "files, max"
 msgstr "dateien, max"
 
 msgid "MB total size)"
-msgstr "MB Gesamtgröße)"
+msgstr "MB Gesamtgrösse)"
 
 msgid "Everything - Store mail in original format"
 msgstr "Alles - Post im Originalformat speichern"
@@ -6059,7 +6059,7 @@ msgid "Files are sent to Kendox InfoShare"
 msgstr "Dateien werden an Kendox InfoShare gesendet"
 
 msgid "With the selection of separate attachments a maximum of"
-msgstr "Bei der Auswahl von separaten Anbaugeräten können maximal"
+msgstr "Bei der Auswahl von separaten Anhängen können maximal"
 
 msgid "attachments can be selected. There have been"
 msgstr "anhänge ausgewählt werden können. Es wurden"
@@ -6068,7 +6068,7 @@ msgid "attachments selected"
 msgstr "ausgewählte Anhänge"
 
 msgid "With the selection of separate attachments the total size of all attachments may not exceed"
-msgstr "Bei der Auswahl einzelner Anhänge darf die Gesamtgröße aller Anhänge"
+msgstr "Bei der Auswahl einzelner Anhänge darf die Gesamtgrösse aller Anhänge"
 
 msgid "MB. There have been"
 msgstr "MB. Es wurden"
@@ -6228,7 +6228,7 @@ msgid "Please type {0} to confirm"
 msgstr "Bitte geben Sie zur Bestätigung {0} ein"
 
 msgid "Wipe type"
-msgstr "Wischart"
+msgstr "Löschart"
 
 msgid "Wipe only data related to this account"
 msgstr "Nur Daten zu diesem Konto löschen"
@@ -6283,7 +6283,7 @@ msgid "Room URL"
 msgstr "Raum-URL"
 
 msgid "Meet"
-msgstr "Treffen Sie"
+msgstr "Meet"
 
 msgid "Shift-click for advanced settings"
 msgstr "Weitere Einstellungen mit Shift-Click"
@@ -6295,7 +6295,7 @@ msgid "Open meeting in:"
 msgstr "Besprechung öffnen in:"
 
 msgid "Open meeting in"
-msgstr "Öffentliche Sitzung in"
+msgstr "Besprechung öffnen in"
 
 msgid "Web tab"
 msgstr "Web-Registerkarte"
@@ -6376,7 +6376,7 @@ msgid "One or more fields does contain errors."
 msgstr "Ein oder mehrere Felder enthalten Fehler."
 
 msgid "Password is weak. Password should contain capital, non-capital letters and numbers. Password should have 8 to 20 characters."
-msgstr "Passwort ist schwach. Das Passwort sollte Klein- und Großbuchstaben sowie Zahlen enthalten. Passwort sollte zwischen 8 und 20 Zeichen enthalten."
+msgstr "Passwort ist schwach. Das Passwort sollte Klein- und Grossbuchstaben sowie Zahlen enthalten. Passwort sollte zwischen 8 und 20 Zeichen enthalten."
 
 msgid "Change passphrase"
 msgstr "Passphrase ändern"
@@ -6451,7 +6451,7 @@ msgid "Do you really want to remove your private certificate? If you remove your
 msgstr "Möchten Sie Ihr persönliches Zertifikat wirklich entfernen? Wenn Sie es entfernen, werden Sie keine S/MIME-Nachrichten mehr entschlüsseln oder signieren können."
 
 msgid "Signing"
-msgstr "Unterzeichnung"
+msgstr "Signierung"
 
 msgid "Encryption"
 msgstr "Verschlüsselung"
@@ -6460,7 +6460,7 @@ msgid "Signing & Encryption"
 msgstr "Signieren und Verschlüsselung"
 
 msgid "Serial"
-msgstr "Serienmäßig"
+msgstr "Seriennummer"
 
 msgid "Issued by"
 msgstr "Ausgestellt von"
@@ -6505,7 +6505,7 @@ msgid "Recommended"
 msgstr "Empfohlen"
 
 msgid "Legacy"
-msgstr "Erbe"
+msgstr "Veraltet"
 
 msgid "Default signing digest"
 msgstr "Standard-Signaturprüfung"
@@ -6622,7 +6622,7 @@ msgid "Sender is removed from the server."
 msgstr "Der Absender wurde vom Server entfernt."
 
 msgid "The digital certificate used to sign this message has been revoked according to the Certificate Revocation List (CRL)."
-msgstr "Das zur Signierung dieser Nachricht verwendete digitale Zertifikat wurde gemäß der Zertifikatssperrliste (CRL) widerrufen."
+msgstr "Das zur Signierung dieser Nachricht verwendete digitale Zertifikat wurde gemäss der Zertifikatssperrliste (CRL) widerrufen."
 
 msgid "The revocation status of the certificate could not be verified because the CRL Distribution Point is unavailable."
 msgstr "Der Widerrufsstatus des Zertifikats konnte nicht überprüft werden, da der CRL-Verteilungspunkt nicht verfügbar ist."
@@ -6691,7 +6691,7 @@ msgid "Cannot check revocation status (CRL unavailable)"
 msgstr "Sperrstatus kann nicht geprüft werden (CRL nicht verfügbar)"
 
 msgid "RSA key size below recommended minimum"
-msgstr "RSA-Schlüsselgröße unter dem empfohlenen Minimum"
+msgstr "RSA-Schlüsselgrösse unter dem empfohlenen Minimum"
 
 msgid "Certificate not valid for this operation (key usage mismatch)"
 msgstr "Zertifikat für diesen Vorgang nicht gültig (Schlüsselverwendung stimmt nicht überein)"
@@ -6700,19 +6700,19 @@ msgid "Decrypted (CBC mode - consider AES-GCM for stronger protection)"
 msgstr "Entschlüsselt (CBC-Modus - für stärkeren Schutz AES-GCM in Betracht ziehen)"
 
 msgid "Signing time differs from expected time"
-msgstr "Unterzeichnungszeit weicht von der erwarteten Zeit ab"
+msgstr "Signaturzeit weicht von der erwarteten Zeit ab"
 
 msgid "Digest"
 msgstr "Auszug"
 
 msgid "Signature"
-msgstr "Unterschrift"
+msgstr "Signatur"
 
 msgid "Cipher"
 msgstr "Chiffre"
 
 msgid "Key transport"
-msgstr "Schlüssel Transport"
+msgstr "Schlüsseltransport"
 
 msgid "Template Snippets"
 msgstr "Vorlagenausschnitte"
@@ -6859,7 +6859,7 @@ msgid "Sorry, access to grommunio Web is not available with this user account. P
 msgstr "Der Zugriff auf grommunio Web ist mit diesem Benutzer nicht möglich. Bitte wenden Sie sich an Ihren Administrator."
 
 msgid "This backend provides the default WebDAV integration for Files."
-msgstr "Dieses Backend bietet die standardmäßige WebDAV-Integration für Dateien."
+msgstr "Dieses Backend bietet die standardmässige WebDAV-Integration für Dateien."
 
 msgid "Files Default Backend: "
 msgstr "Dateien Standard-Backend: "
@@ -7146,7 +7146,7 @@ msgstr "Zertifikats-E-Mail-Adresse passt nicht zum grommunio Web-Konto "
 
 #, php-format
 msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."
-msgstr "Die RSA-Schlüsselgröße von %d Bit liegt unter dem empfohlenen Minimum von %d Bit. Das Zertifikat wurde importiert."
+msgstr "Die RSA-Schlüsselgrösse von %d Bit liegt unter dem empfohlenen Minimum von %d Bit. Das Zertifikat wurde importiert."
 
 msgid "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully supported. Certificate was imported."
 msgstr "EdDSA-Zertifikate (Ed25519) erfordern PHP 8.4+ und werden möglicherweise nicht vollständig unterstützt. Das Zertifikat wurde importiert."
@@ -7420,7 +7420,7 @@ msgid "Can not get list of delegates."
 msgstr "Konnte die Stellvertreterliste nicht abrufen."
 
 msgid "Could not open the store."
-msgstr "Der Shop konnte nicht geöffnet werden."
+msgstr "Der Store konnte nicht geöffnet werden."
 
 msgid "Could not load the hierarchy."
 msgstr "Konnte die Hierarchie nicht laden."
@@ -7604,7 +7604,7 @@ msgid "has forwarded your meeting request to others."
 msgstr "hat Ihre Besprechungsanfrage an andere weitergeleitet."
 
 msgid "Meeting Time"
-msgstr "Treffpunkt"
+msgstr "Besprechungszeit"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "Sie haben keine Berechtigung, Inhalte dieses Ordners zu sehen."
@@ -7683,7 +7683,7 @@ msgid "Unknown action type specified - %s"
 msgstr "Unbekannter Aktionstyp spezifiziert - %s"
 
 msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr "Konnte die Erinnerungen nicht schließen. Sie könnten erneut erinnert werden."
+msgstr "Konnte die Erinnerungen nicht schliessen. Sie könnten erneut erinnert werden."
 
 msgid "Cannot dismiss the reminder. You may be reminded again."
 msgstr "Konnte die Erinnerungen nicht verwerfen. Sie könnten erneut erinnert werden."

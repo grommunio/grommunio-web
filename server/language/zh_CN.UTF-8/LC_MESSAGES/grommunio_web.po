@@ -2864,7 +2864,7 @@ msgid "Show"
 msgstr "显示"
 
 msgid "Operators"
-msgstr "操作员"
+msgstr "运算符"
 
 msgid "AND"
 msgstr "和"
@@ -3839,7 +3839,7 @@ msgid "Appearance"
 msgstr "外观"
 
 msgid "Light"
-msgstr "灯光"
+msgstr "浅色"
 
 msgid "Dark"
 msgstr "暗色"
@@ -6085,7 +6085,7 @@ msgid "Mobile Device Manager"
 msgstr "移动设备管理器"
 
 msgid "Wiping device"
-msgstr "擦拭装置"
+msgstr "正在擦除设备"
 
 msgid "Password incorrect"
 msgstr "用户名和密码不正确"
@@ -6282,7 +6282,7 @@ msgid "Room URL"
 msgstr "会议室网址"
 
 msgid "Meet"
-msgstr "会面"
+msgstr "Meet"
 
 msgid "Shift-click for advanced settings"
 msgstr "按住 Shift 键进行高级设置"
@@ -6291,10 +6291,10 @@ msgid "Join webmeeting"
 msgstr "加入网络会议"
 
 msgid "Open meeting in:"
-msgstr "在以下地点举行公开会议"
+msgstr "在以下位置打开会议："
 
 msgid "Open meeting in"
-msgstr "在...中召开会议"
+msgstr "在以下位置打开会议"
 
 msgid "Web tab"
 msgstr "网页选项卡"
@@ -6462,7 +6462,7 @@ msgid "Signing & Encryption"
 msgstr "签名和加密"
 
 msgid "Serial"
-msgstr "串行"
+msgstr "序列号"
 
 msgid "Issued by"
 msgstr "发布者"
@@ -6728,7 +6728,7 @@ msgid "Cipher"
 msgstr "密码"
 
 msgid "Key transport"
-msgstr "关键运输"
+msgstr "密钥传输"
 
 msgid "Template Snippets"
 msgstr "模板片段"
@@ -6905,7 +6905,7 @@ msgid "Connection failed"
 msgstr "连接失败"
 
 msgid "Sabre error"
-msgstr "军刀错误"
+msgstr "Sabre 错误"
 
 msgid "Copying failed"
 msgstr "复制失败"
@@ -7440,7 +7440,7 @@ msgid "Can not get list of delegates."
 msgstr "无法获取代表名单。"
 
 msgid "Could not open the store."
-msgstr "无法打开商店。"
+msgstr "无法打开存储。"
 
 msgid "Could not load the hierarchy."
 msgstr "无法加载层次结构。"

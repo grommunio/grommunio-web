@@ -2817,7 +2817,7 @@ msgid "Active"
 msgstr "Aktiv"
 
 msgid "Out of office"
-msgstr "Utanför kontoret"
+msgstr "Frånvarande"
 
 msgid "Rule"
 msgstr "Regel"
@@ -2898,7 +2898,7 @@ msgid "Search"
 msgstr "Sök"
 
 msgid "Click to cycle: AND → OR → NOT"
-msgstr "Klicka för att cykla: AND → OR → NOT"
+msgstr "Klicka för att växla: AND → OR → NOT"
 
 msgid "Folder does not exist"
 msgstr "Mappen finns inte"
@@ -3845,7 +3845,7 @@ msgid "Appearance"
 msgstr "Utseende"
 
 msgid "Light"
-msgstr "Ljus"
+msgstr "Ljust"
 
 msgid "Dark"
 msgstr "Mörk"
@@ -5181,7 +5181,7 @@ msgid "Accepting Task"
 msgstr "Accepterar uppgift"
 
 msgid "Declining Task"
-msgstr "Avvisande uppgift"
+msgstr "Avvisar uppgift"
 
 msgid "This task will be accepted and moved to your task folder. Do you want to include comments with your response?"
 msgstr "Denna uppgift kommer att accepteras och flyttas till din uppgiftsmapp. Vill du inkludera kommentarer i ditt svar?"
@@ -6088,7 +6088,7 @@ msgid "Mobile Device Manager"
 msgstr "Hanterare för mobila enheter"
 
 msgid "Wiping device"
-msgstr "Avtorkningsanordning"
+msgstr "Rensar enhet"
 
 msgid "Password incorrect"
 msgstr "Lösenordet är felaktigt"
@@ -6293,7 +6293,7 @@ msgid "Open meeting in:"
 msgstr "Öppet möte i:"
 
 msgid "Open meeting in"
-msgstr "Öppet möte i"
+msgstr "Öppna möte i"
 
 msgid "Web tab"
 msgstr "Webbfliken"
@@ -6458,7 +6458,7 @@ msgid "Signing & Encryption"
 msgstr "Signering och kryptering"
 
 msgid "Serial"
-msgstr "Serie"
+msgstr "Serienummer"
 
 msgid "Issued by"
 msgstr "Utfärdad av"
@@ -6491,7 +6491,7 @@ msgid "You don't have a valid certificate corresponding to your account"
 msgstr "Du har inte ett giltigt certifikat som motsvarar ditt konto"
 
 msgid "Personal certificate"
-msgstr "Personligt intyg"
+msgstr "Personligt certifikat"
 
 msgid "Change passphrase for last certificate"
 msgstr "Ändra lösenordsfras för det senaste certifikatet"
@@ -6503,7 +6503,7 @@ msgid "Recommended"
 msgstr "Rekommenderas"
 
 msgid "Legacy"
-msgstr "Arv"
+msgstr "Äldre"
 
 msgid "Default signing digest"
 msgstr "Standard signeringsdigest"
@@ -6704,13 +6704,13 @@ msgid "Digest"
 msgstr "Digest"
 
 msgid "Signature"
-msgstr "Underskrift"
+msgstr "Signatur"
 
 msgid "Cipher"
-msgstr "Ciffer"
+msgstr "Chiffer"
 
 msgid "Key transport"
-msgstr "Nyckel transport"
+msgstr "Nyckeltransport"
 
 msgid "Template Snippets"
 msgstr "Mallutdrag"
@@ -6887,7 +6887,7 @@ msgid "Connection failed"
 msgstr "Anslutning misslyckades"
 
 msgid "Sabre error"
-msgstr "Sabelfel"
+msgstr "Sabre-fel"
 
 msgid "Copying failed"
 msgstr "Kopieringen misslyckades"

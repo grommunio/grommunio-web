@@ -3843,7 +3843,7 @@ msgid "Appearance"
 msgstr "ظاهر"
 
 msgid "Light"
-msgstr "نور"
+msgstr "روشن"
 
 msgid "Dark"
 msgstr "تیره"
@@ -6086,7 +6086,7 @@ msgid "Mobile Device Manager"
 msgstr "مدیر دستگاه موبایل"
 
 msgid "Wiping device"
-msgstr "دستگاه پاک کن"
+msgstr "در حال پاک کردن دستگاه"
 
 msgid "Password incorrect"
 msgstr "رمز عبور اشتباه است"
@@ -6279,7 +6279,7 @@ msgid "Room URL"
 msgstr "آدرس اتاق"
 
 msgid "Meet"
-msgstr "ملاقات کنید"
+msgstr "Meet"
 
 msgid "Shift-click for advanced settings"
 msgstr "برای تنظیمات پیشرفته شیفت کلیک کنید"
@@ -6288,10 +6288,10 @@ msgid "Join webmeeting"
 msgstr "به وب‌میتینگ بپیوندید"
 
 msgid "Open meeting in:"
-msgstr "جلسه باز در:"
+msgstr "باز کردن جلسه در:"
 
 msgid "Open meeting in"
-msgstr "جلسهٔ باز در"
+msgstr "باز کردن جلسه در"
 
 msgid "Web tab"
 msgstr "برگه وب"
@@ -6699,7 +6699,7 @@ msgid "Signing time differs from expected time"
 msgstr "زمان امضا با زمان مورد انتظار متفاوت است"
 
 msgid "Digest"
-msgstr "هضم"
+msgstr "خلاصه (Digest)"
 
 msgid "Signature"
 msgstr "امضا"
@@ -6708,7 +6708,7 @@ msgid "Cipher"
 msgstr "رمز"
 
 msgid "Key transport"
-msgstr "حمل و نقل کلید"
+msgstr "انتقال کلید"
 
 msgid "Template Snippets"
 msgstr "قطعات نمونه قالب"
@@ -7416,7 +7416,7 @@ msgid "Can not get list of delegates."
 msgstr "نمی توان لیست نمایندگان را دریافت کرد."
 
 msgid "Could not open the store."
-msgstr "فروشگاه باز نشد"
+msgstr "نمی‌توان ذخیره‌گاه را باز کرد."
 
 msgid "Could not load the hierarchy."
 msgstr "سلسله مراتب بارگیری نشد."

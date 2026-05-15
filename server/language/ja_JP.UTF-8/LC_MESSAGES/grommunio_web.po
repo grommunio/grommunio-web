@@ -2828,7 +2828,7 @@ msgid "Active"
 msgstr "アクティブ"
 
 msgid "Out of office"
-msgstr "退任"
+msgstr "不在"
 
 msgid "Rule"
 msgstr "仕訳ルール"
@@ -2879,10 +2879,10 @@ msgid "Filter by"
 msgstr "フィルター"
 
 msgid "Show"
-msgstr "ショー"
+msgstr "表示"
 
 msgid "Operators"
-msgstr "オペレーター"
+msgstr "演算子"
 
 msgid "AND"
 msgstr "アンド"
@@ -5203,7 +5203,7 @@ msgid "Billing Information"
 msgstr "経費情報"
 
 msgid "Mileage"
-msgstr "進捗"
+msgstr "走行距離"
 
 msgid "Accepting Task"
 msgstr "タスクの受諾"
@@ -6122,7 +6122,7 @@ msgid "Mobile Device Manager"
 msgstr "モバイルデバイスマネージャー"
 
 msgid "Wiping device"
-msgstr "拭き取り装置"
+msgstr "デバイスを消去中"
 
 msgid "Password incorrect"
 msgstr "パスワードが違います"
@@ -6327,7 +6327,7 @@ msgid "Join webmeeting"
 msgstr "ウェブミーティングに参加する"
 
 msgid "Open meeting in:"
-msgstr "でのオープンミーティング。"
+msgstr "会議を開く場所："
 
 msgid "Open meeting in"
 msgstr "会議を開く"
@@ -6488,7 +6488,7 @@ msgid "Do you really want to remove your private certificate? If you remove your
 msgstr "プライベート証明書を削除してもよろしいですか? もしこの証明書を削除した場合、電子メールに対するS/MIME署名や暗号化が利用できなくなります。"
 
 msgid "Signing"
-msgstr "サイン"
+msgstr "署名"
 
 msgid "Encryption"
 msgstr "暗号化"
@@ -6751,7 +6751,7 @@ msgid "Cipher"
 msgstr "暗号"
 
 msgid "Key transport"
-msgstr "主要輸送機関"
+msgstr "鍵搬送"
 
 msgid "Template Snippets"
 msgstr "テンプレートスニペット"
@@ -6929,7 +6929,7 @@ msgid "Connection failed"
 msgstr "接続に失敗しました"
 
 msgid "Sabre error"
-msgstr "セーバーエラー"
+msgstr "Sabreエラー"
 
 msgid "Copying failed"
 msgstr "コピー失敗"
@@ -7432,11 +7432,11 @@ msgstr "プライベート・アポイントメント"
 
 #, php-format
 msgid "%s's Birthday"
-msgstr "%s誕生日"
+msgstr "%sさんの誕生日"
 
 #, php-format
 msgid "%s's Anniversary"
-msgstr "%s創立記念日"
+msgstr "%sさんの記念日"
 
 msgid "You don't have the permission to complete this action"
 msgstr "このアクションを完了する権限がありません"
@@ -7464,7 +7464,7 @@ msgid "Can not get list of delegates."
 msgstr "代議員のリストが取得できない。"
 
 msgid "Could not open the store."
-msgstr "店を開けられなかった。"
+msgstr "ストアを開けませんでした。"
 
 msgid "Could not load the hierarchy."
 msgstr "階層をロードできませんでした。"

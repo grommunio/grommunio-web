@@ -2811,7 +2811,7 @@ msgid "Active"
 msgstr "啟動"
 
 msgid "Out of office"
-msgstr "離任"
+msgstr "不在辦公室"
 
 msgid "Rule"
 msgstr "規則"
@@ -2865,7 +2865,7 @@ msgid "Show"
 msgstr "顯示"
 
 msgid "Operators"
-msgstr "操作員"
+msgstr "運算子"
 
 msgid "AND"
 msgstr "與"
@@ -3838,7 +3838,7 @@ msgid "Appearance"
 msgstr "外觀"
 
 msgid "Light"
-msgstr "燈光"
+msgstr "淺色"
 
 msgid "Dark"
 msgstr "深色"
@@ -4154,10 +4154,10 @@ msgid "Create subfolders"
 msgstr "建立子資料夾"
 
 msgid "Edit own"
-msgstr "编辑自己的"
+msgstr "編輯自己的"
 
 msgid "Edit all"
-msgstr "全部编辑"
+msgstr "全部編輯"
 
 msgid "Delete items"
 msgstr "刪除項目"
@@ -4235,10 +4235,10 @@ msgid "Username '{0}' is not a valid user."
 msgstr "使用者名稱 '{0}' 不是有效的使用者"
 
 msgid "Own store"
-msgstr "自有商店"
+msgstr "自有儲存庫"
 
 msgid "It is not possible to open your own store twice."
-msgstr "自己開店不可能開兩次。"
+msgstr "無法重複開啟您自己的儲存庫。"
 
 msgid "Folder already open"
 msgstr "資料夾已開啟"
@@ -5051,7 +5051,7 @@ msgid "Mailbox Usage"
 msgstr "信箱容量"
 
 msgid "A quota is not set on your store."
-msgstr "您的商店未設定配額。"
+msgstr "您的儲存庫未設定配額。"
 
 msgid "{0} of mailbox space is used."
 msgstr "已使用 {0} 信箱空間"
@@ -6084,7 +6084,7 @@ msgid "Mobile Device Manager"
 msgstr "行動裝置管理員"
 
 msgid "Wiping device"
-msgstr "擦拭裝置"
+msgstr "清除裝置中"
 
 msgid "Password incorrect"
 msgstr "密碼不正確"
@@ -6277,7 +6277,7 @@ msgid "Room URL"
 msgstr "會議室網址"
 
 msgid "Meet"
-msgstr "見面"
+msgstr "Meet"
 
 msgid "Shift-click for advanced settings"
 msgstr "按下 Shift 鍵進行進階設定"
@@ -6286,10 +6286,10 @@ msgid "Join webmeeting"
 msgstr "加入網路會議"
 
 msgid "Open meeting in:"
-msgstr "公開會議在"
+msgstr "開啟會議於："
 
 msgid "Open meeting in"
-msgstr "開啟會議"
+msgstr "開啟會議於"
 
 msgid "Web tab"
 msgstr "網頁選項卡"
@@ -6697,7 +6697,7 @@ msgid "Signing time differs from expected time"
 msgstr "簽署時間與預期時間不同"
 
 msgid "Digest"
-msgstr "文摘"
+msgstr "摘要"
 
 msgid "Signature"
 msgstr "簽名"
@@ -6706,7 +6706,7 @@ msgid "Cipher"
 msgstr "密碼"
 
 msgid "Key transport"
-msgstr "關鍵運輸"
+msgstr "金鑰傳輸"
 
 msgid "Template Snippets"
 msgstr "範例片段"
@@ -7326,7 +7326,7 @@ msgid "Unable to perform search query, search folder not found."
 msgstr "無法執行搜尋查詢，未找到搜尋資料夾。"
 
 msgid "Unable to perform search query, store might not support searching."
-msgstr "無法執行搜尋查詢，商店可能不支援搜尋。"
+msgstr "無法執行搜尋查詢，儲存庫可能不支援搜尋。"
 
 msgid "Error in creating search folder."
 msgstr "建立搜尋資料夾時發生錯誤。"
@@ -7386,7 +7386,7 @@ msgstr "%s生日"
 
 #, php-format
 msgid "%s's Anniversary"
-msgstr "%s週年慶"
+msgstr "%s的紀念日"
 
 msgid "You don't have the permission to complete this action"
 msgstr "您沒有權限完成此動作"
@@ -7414,13 +7414,13 @@ msgid "Can not get list of delegates."
 msgstr "無法取得代表清單。"
 
 msgid "Could not open the store."
-msgstr "無法開啟商店。"
+msgstr "無法開啟儲存庫。"
 
 msgid "Could not load the hierarchy."
 msgstr "無法載入層級結構。"
 
 msgid "Could not open the shared store."
-msgstr "無法開啟共享商店。"
+msgstr "無法開啟共享儲存庫。"
 
 msgid "Could not load folder properties."
 msgstr "無法載入資料夾內容。"
@@ -7688,7 +7688,7 @@ msgid "Could not resolve user."
 msgstr "無法解析使用者。"
 
 msgid "Setting mail filters on the stores of other users is not allowed."
-msgstr "不允許在其他使用者的商店上設定郵件篩選器。"
+msgstr "不允許在其他使用者的儲存庫上設定郵件篩選器。"
 
 msgid "Untitled rule"
 msgstr "無標題規則"

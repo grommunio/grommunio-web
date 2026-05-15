@@ -26,7 +26,7 @@ msgid "Previous Month"
 msgstr "Mois précédent"
 
 msgid "Next Month"
-msgstr "Le mois prochain"
+msgstr "Mois suivant"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -210,7 +210,7 @@ msgid "{0} (Spacebar)"
 msgstr "{0} (barre d'espace)"
 
 msgid "This date is before the minimum date"
-msgstr "Cette date est antérieure à la date de début"
+msgstr "Cette date est antérieure à la date minimale"
 
 msgid "This date is after the maximum date"
 msgstr "Cette date est ultérieure à la date limite de fin"
@@ -449,7 +449,7 @@ msgid "Fax"
 msgstr "Fax"
 
 msgid "Home"
-msgstr "Origine"
+msgstr "Domicile"
 
 msgid "Home 2"
 msgstr "Domicile 2"
@@ -485,7 +485,7 @@ msgid "Address book"
 msgstr "Carnet d'adresses"
 
 msgid "Showing only the first {0} names. Use search to find more specific results."
-msgstr "Afficher seuelement les {0} premiers noms. Utiliser la recherche pour trouver plus de résultats."
+msgstr "Affichage des {0} premiers noms uniquement. Utiliser la recherche pour trouver plus de résultats."
 
 msgid "Use the search bar to get results"
 msgstr "Utilisez la barre de recherche pour obtenir des résultats"
@@ -703,7 +703,7 @@ msgid "Sender"
 msgstr "Expéditeur"
 
 msgid "Recipients"
-msgstr "Récepteur"
+msgstr "Destinataires"
 
 msgid "Subject"
 msgstr "Sujet"
@@ -1328,7 +1328,7 @@ msgstr "Démarrer"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "End"
-msgstr "End"
+msgstr "Fin"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
@@ -1698,10 +1698,10 @@ msgid "Upcoming Appointments"
 msgstr "Rendez-vous à venir"
 
 msgid "Appointments of {0}"
-msgstr "Nominations de {0}"
+msgstr "Rendez-vous de {0}"
 
 msgid "Appointments of {0} - {1}"
-msgstr "Nominations de {0} - {1}"
+msgstr "Rendez-vous de {0} - {1}"
 
 msgid "No appointments"
 msgstr "Pas de Rendez-vous"
@@ -2377,7 +2377,7 @@ msgid "Loading Cc recipients"
 msgstr "Chargement des destinataires du Cc"
 
 msgid "Reply Mail"
-msgstr "Répondre à tous"
+msgstr "Répondre"
 
 msgid "New Mail"
 msgstr "Nouveau courriel"
@@ -2783,7 +2783,7 @@ msgid "Exceptions"
 msgstr "Exceptions"
 
 msgid "Apply only when Out of Office is active"
-msgstr "Ne s'applique que lorsque l'option Out of Office est activée"
+msgstr "Ne s'applique que lorsque l'absence du bureau est activée"
 
 msgid "Stop processing more rules"
 msgstr "Cesser le traitement des autres règles"
@@ -2825,7 +2825,7 @@ msgid "Active"
 msgstr "Actif"
 
 msgid "Out of office"
-msgstr "Absence de mandat"
+msgstr "Absence du bureau"
 
 msgid "Rule"
 msgstr "Règle"
@@ -3166,7 +3166,7 @@ msgstr "Vous avez répondu à ce message le {0}."
 #, fuzzy
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message."
-msgstr "Vous avez envoyé ce message sur {0}."
+msgstr "Vous avez transféré ce message."
 
 msgctxt "mail.previewpanel"
 msgid "You replied to this message on {0}."
@@ -3174,7 +3174,7 @@ msgstr "Vous avez répondu à ce message le {0}."
 
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message on {0}."
-msgstr "Vous avez envoyé ce message sur {0}."
+msgstr "Vous avez transféré ce message le {0}."
 
 msgid "Assigned by {0} on {1}."
 msgstr "Attribué par {0} sur {1}."
@@ -3398,16 +3398,16 @@ msgid "Mrs."
 msgstr "Mme"
 
 msgid "Ms."
-msgstr "Mlle"
+msgstr "Mme"
 
 msgid "Prof."
 msgstr "Prof."
 
 msgid "Jr."
-msgstr "Fils"
+msgstr "Jr."
 
 msgid "Sr."
-msgstr "Père"
+msgstr "Sr."
 
 msgid "Phone number"
 msgstr "Numéro de téléphone"
@@ -3849,7 +3849,7 @@ msgid "Brown"
 msgstr "Marron"
 
 msgid "Main navigation"
-msgstr "Main navigation"
+msgstr "Navigation principale"
 
 msgid "Logout"
 msgstr "Déconnexion"
@@ -3858,7 +3858,7 @@ msgid "Appearance"
 msgstr "Apparence"
 
 msgid "Light"
-msgstr "Lumière"
+msgstr "Clair"
 
 msgid "Dark"
 msgstr "Foncé"
@@ -3885,7 +3885,7 @@ msgid "Sent successfully"
 msgstr "Envoyé avec succès"
 
 msgid "No recipient"
-msgstr "Non destinataire"
+msgstr "Aucun destinataire"
 
 msgid "Please specify at least one recipient"
 msgstr "Veuillez indiquer au moins un destinataire"
@@ -3924,7 +3924,7 @@ msgid "Unresolved recipients"
 msgstr "Destinataires non résolus"
 
 msgid "Not all recipients could be resolved"
-msgstr "Tous les destinataires n'ont pas pu être contactés"
+msgstr "Tous les destinataires n'ont pas pu être résolus"
 
 msgid "Collapse hierarchy"
 msgstr "Réduire Affichage"
@@ -4105,7 +4105,7 @@ msgid "Unable to import:"
 msgstr "Impossible d'importer :"
 
 msgid "The files are not valid"
-msgstr "Les fichiers joints ne sont pas encore téléchargés"
+msgstr "Les fichiers ne sont pas valides"
 
 msgid "Create New Folder"
 msgstr "Créer un nouveau dossier"
@@ -4737,7 +4737,7 @@ msgid "EML file(s)"
 msgstr "Fichier(s) EML"
 
 msgid "ZIP file"
-msgstr "Le fichier téléchargé ne ressemble pas à un fichier ZIP. Merci d’uploader un fichier ZIP valide"
+msgstr "Fichier ZIP"
 
 msgid "max. "
 msgstr "max. "
@@ -5200,7 +5200,7 @@ msgid "Accepting Task"
 msgstr "Acceptation de la tâche"
 
 msgid "Declining Task"
-msgstr "Tâche en déclin"
+msgstr "Refus de la tâche"
 
 #, fuzzy
 msgid "This task will be accepted and moved to your task folder. Do you want to include comments with your response?"
@@ -5238,7 +5238,7 @@ msgid "Multiple recipients"
 msgstr "Bénéficiaires multiples"
 
 msgid "A task request can only have one recipient."
-msgstr "Toujours demander un accusé de réception."
+msgstr "Une demande de tâche ne peut avoir qu'un seul destinataire."
 
 msgid "Due date"
 msgstr "Date d'échéance"
@@ -5717,7 +5717,7 @@ msgid "Default"
 msgstr "Défaut"
 
 msgid "Manage Accounts"
-msgstr "Gérer les comptessecond-person command"
+msgstr "Gérer les comptes"
 
 msgid "Reset Files settings"
 msgstr "Réinitialiser les paramètres des fichiers"
@@ -5842,7 +5842,7 @@ msgid "Folder already exists"
 msgstr "Le dossier existe déjà"
 
 msgid "Incorrect foldername"
-msgstr "Nom d'utilisateur incorrect"
+msgstr "Nom de dossier incorrect"
 
 msgid "File information"
 msgstr "Informations sur les fichiers"
@@ -5878,7 +5878,7 @@ msgid "Upload Failed"
 msgstr "Erreur de transfert"
 
 msgid "Attachment could not be stored in Files! Error: "
-msgstr "Pièce jointe impossible a stocker dans {0}! Erreur: "
+msgstr "Impossible de stocker la pièce jointe dans Files ! Erreur : "
 
 msgid "Share Files"
 msgstr "Partager les fichiers"
@@ -6114,7 +6114,7 @@ msgid "Mobile Device Manager"
 msgstr "Gestionnaire d'appareils mobiles"
 
 msgid "Wiping device"
-msgstr "Dispositif d'essuyage"
+msgstr "Effacement de l'appareil"
 
 msgid "Password incorrect"
 msgstr "Mot de passe incorrecte"
@@ -6490,7 +6490,7 @@ msgid "Signing & Encryption"
 msgstr "Signature et cryptage"
 
 msgid "Serial"
-msgstr "En série"
+msgstr "Numéro de série"
 
 msgid "Issued by"
 msgstr "Délivré par"
@@ -6651,7 +6651,7 @@ msgid "The certificate verification server (OCSP) is temporarily offline."
 msgstr "Le serveur de vérification des certificats (OCSP) est temporairement hors ligne."
 
 msgid "Sender is removed from the server."
-msgstr "Le certificat est déjà enregistré sur le serveur."
+msgstr "L'expéditeur a été supprimé du serveur."
 
 msgid "The digital certificate used to sign this message has been revoked according to the Certificate Revocation List (CRL)."
 msgstr "Le certificat numérique utilisé pour signer ce message a été révoqué conformément à la liste de révocation de certificats (CRL)."
@@ -6714,7 +6714,7 @@ msgid "Unable to decrypt this message. Certificate does not match"
 msgstr "Impossible de décrypter ce message. Le certificat ne correspond pas"
 
 msgid "Verification failed. User is removed from the server."
-msgstr "Le certificat est déjà enregistré sur le serveur."
+msgstr "Échec de la vérification. L'utilisateur a été supprimé du serveur."
 
 msgid "Certificate has been revoked (CRL)"
 msgstr "Le certificat a été révoqué (CRL)"
@@ -7387,7 +7387,7 @@ msgid "an appointment"
 msgstr "rendez-Vous"
 
 msgid "You have insufficient privileges to move "
-msgstr "Vous n'avez pas assez de privilèges pour vous déplacer "
+msgstr "Vous n'avez pas assez de privilèges pour déplacer "
 
 #, fuzzy
 msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
@@ -7426,11 +7426,11 @@ msgstr "Rendez-vous privé"
 
 #, php-format
 msgid "%s's Birthday"
-msgstr "%sanniversaire de la naissance d'un enfant"
+msgstr "Anniversaire de %s"
 
 #, php-format
 msgid "%s's Anniversary"
-msgstr "%sanniversaire de la Commission européenne"
+msgstr "Anniversaire de %s"
 
 msgid "You don't have the permission to complete this action"
 msgstr "Vous n'avez pas l'autorisation de réaliser cette action"

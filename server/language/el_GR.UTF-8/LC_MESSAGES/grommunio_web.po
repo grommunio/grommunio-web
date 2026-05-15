@@ -667,7 +667,7 @@ msgid "Mails"
 msgstr "Μηνύματα"
 
 msgid "Appointments"
-msgstr "Pαντεβού"
+msgstr "Ραντεβού"
 
 msgid "Contacts"
 msgstr "Επαφές"
@@ -2934,7 +2934,7 @@ msgid "Show"
 msgstr "Εμφάνιση"
 
 msgid "Operators"
-msgstr "Χειριστές"
+msgstr "Τελεστές"
 
 msgid "AND"
 msgstr "ΚΑΙ"
@@ -2961,7 +2961,7 @@ msgid "Search"
 msgstr "Αναζήτηση"
 
 msgid "Click to cycle: AND → OR → NOT"
-msgstr "Κάντε κλικ για να κάνετε κύκλο: ΚΑΙ → Ή → ΟΧΙ"
+msgstr "Κάντε κλικ για εναλλαγή: ΚΑΙ → Ή → ΟΧΙ"
 
 msgid "Folder does not exist"
 msgstr "Ο φάκελος δεν υπάρχει"
@@ -3945,7 +3945,7 @@ msgid "Appearance"
 msgstr "Εμφάνιση"
 
 msgid "Light"
-msgstr "Φως"
+msgstr "Φωτεινό"
 
 msgid "Dark"
 msgstr "Σκούρο"
@@ -4264,7 +4264,7 @@ msgid "Create subfolders"
 msgstr "Δημιουργία υποφακέλων"
 
 msgid "Edit own"
-msgstr "Επεξεργασία δική σας"
+msgstr "Επεξεργασία δικών σας"
 
 msgid "Edit all"
 msgstr "Επεξεργασία όλων"
@@ -6214,7 +6214,7 @@ msgid "Mobile Device Manager"
 msgstr "Διαχείριση συσκευών κινητής τηλεφωνίας"
 
 msgid "Wiping device"
-msgstr "Συσκευή σκουπίσματος"
+msgstr "Διαγραφή συσκευής"
 
 msgid "Password incorrect"
 msgstr "Λάθος κωδικός πρόσβασης"
@@ -6411,7 +6411,7 @@ msgid "Room URL"
 msgstr "Διεύθυνση URL αίθουσας"
 
 msgid "Meet"
-msgstr "Γνωρίστε το"
+msgstr "Meet"
 
 msgid "Shift-click for advanced settings"
 msgstr "Shift-κλικ για ρυθμίσεις για προχωρημένους"
@@ -6420,10 +6420,10 @@ msgid "Join webmeeting"
 msgstr "Συμμετάσχετε στη διαδικτυακή συνάντηση"
 
 msgid "Open meeting in:"
-msgstr "Ανοιχτή συνάντηση στο:"
+msgstr "Άνοιγμα συνάντησης σε:"
 
 msgid "Open meeting in"
-msgstr "Ανοιχτή συνάντηση στο"
+msgstr "Άνοιγμα συνάντησης σε"
 
 msgid "Web tab"
 msgstr "Καρτέλα Web"
@@ -6636,7 +6636,7 @@ msgid "Recommended"
 msgstr "Συνιστώμενη"
 
 msgid "Legacy"
-msgstr "Κληρονομιά"
+msgstr "Παλαιού τύπου"
 
 msgid "Default signing digest"
 msgstr "Προεπιλεγμένο digest υπογραφής"
@@ -6858,7 +6858,7 @@ msgid "Cipher"
 msgstr "Cipher"
 
 msgid "Key transport"
-msgstr "Βασικές μεταφορές"
+msgstr "Μεταφορά κλειδιού"
 
 msgid "Template Snippets"
 msgstr "Αποσπάσματα προτύπων"
@@ -7540,11 +7540,11 @@ msgstr "Ιδιωτικό ραντεβού"
 
 #, php-format
 msgid "%s's Birthday"
-msgstr "%s's Birthday"
+msgstr "Γενέθλια του %s"
 
 #, php-format
 msgid "%s's Anniversary"
-msgstr "%s's Επέτειος"
+msgstr "Επέτειος του %s"
 
 msgid "You don't have the permission to complete this action"
 msgstr "Δεν έχετε το δικαίωμα να ολοκληρώσετε αυτή την ενέργεια"

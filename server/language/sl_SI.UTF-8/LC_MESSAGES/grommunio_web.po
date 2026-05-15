@@ -2884,7 +2884,7 @@ msgid "Active"
 msgstr "Aktiven"
 
 msgid "Out of office"
-msgstr "V odsotnosti s položaja"
+msgstr "Odsoten iz pisarne"
 
 msgid "Rule"
 msgstr "Pravilo"
@@ -2938,7 +2938,7 @@ msgid "Show"
 msgstr "Prikaži"
 
 msgid "Operators"
-msgstr "Operaterji"
+msgstr "Operatorji"
 
 msgid "AND"
 msgstr "IN"
@@ -3922,7 +3922,7 @@ msgid "Appearance"
 msgstr "Videz"
 
 msgid "Light"
-msgstr "Svetloba"
+msgstr "Svetla"
 
 msgid "Dark"
 msgstr "Temno"
@@ -6187,7 +6187,7 @@ msgid "Mobile Device Manager"
 msgstr "Upravitelj mobilnih naprav"
 
 msgid "Wiping device"
-msgstr "Naprava za brisanje"
+msgstr "Brisanje naprave"
 
 msgid "Password incorrect"
 msgstr "Nepravilno geslo"
@@ -6384,7 +6384,7 @@ msgid "Room URL"
 msgstr "URL sobe"
 
 msgid "Meet"
-msgstr "Spoznajte"
+msgstr "Meet"
 
 msgid "Shift-click for advanced settings"
 msgstr "Shift-klik za napredne nastavitve"
@@ -6393,10 +6393,10 @@ msgid "Join webmeeting"
 msgstr "Pridružite se spletnemu sestanku"
 
 msgid "Open meeting in:"
-msgstr "Odprto srečanje v:"
+msgstr "Odpri sestanek v:"
 
 msgid "Open meeting in"
-msgstr "Odprto srečanje v"
+msgstr "Odpri sestanek v"
 
 msgid "Web tab"
 msgstr "Spletni zavihek"
@@ -6609,7 +6609,7 @@ msgid "Recommended"
 msgstr "Priporočeno"
 
 msgid "Legacy"
-msgstr "Dediščina"
+msgstr "Zastarelo"
 
 msgid "Default signing digest"
 msgstr "Privzeto podpisovanje digest"
@@ -6830,7 +6830,7 @@ msgid "Cipher"
 msgstr "Cipher"
 
 msgid "Key transport"
-msgstr "Ključni prevoz"
+msgstr "Prenos ključa"
 
 msgid "Template Snippets"
 msgstr "Odlomki predlog"
@@ -7512,11 +7512,11 @@ msgstr "Zasebno imenovanje"
 
 #, php-format
 msgid "%s's Birthday"
-msgstr "%srojstni dan"
+msgstr "Rojstni dan: %s"
 
 #, php-format
 msgid "%s's Anniversary"
-msgstr "%sobletnica"
+msgstr "Obletnica: %s"
 
 msgid "You don't have the permission to complete this action"
 msgstr "Nimate dovoljenja za dokončanje tega dejanja"

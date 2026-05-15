@@ -1076,7 +1076,7 @@ msgstr "0}에서 잠정 수락됨"
 
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted by {0} on {1}"
-msgstr "1}에서 {0}이 잠정적으로 수락함"
+msgstr "{1}에 {0}이(가) 잠정적으로 수락함"
 
 msgctxt "calendar.dialog"
 msgid "This appointment occurs in the past."
@@ -3825,7 +3825,7 @@ msgid "Appearance"
 msgstr "모양"
 
 msgid "Light"
-msgstr "빛"
+msgstr "밝음"
 
 msgid "Dark"
 msgstr "Dark"
@@ -4139,10 +4139,10 @@ msgid "Create subfolders"
 msgstr "하위 폴더 만들기"
 
 msgid "Edit own"
-msgstr "나만의 편집"
+msgstr "본인 항목 편집"
 
 msgid "Edit all"
-msgstr "모두 편집"
+msgstr "모든 항목 편집"
 
 msgid "Delete items"
 msgstr "항목 삭제"
@@ -6065,7 +6065,7 @@ msgid "Mobile Device Manager"
 msgstr "모바일 장치 관리자"
 
 msgid "Wiping device"
-msgstr "와이핑 장치"
+msgstr "장치 초기화 중"
 
 msgid "Password incorrect"
 msgstr "비밀번호가 잘못되었습니다."
@@ -6258,7 +6258,7 @@ msgid "Room URL"
 msgstr "회의실 URL"
 
 msgid "Meet"
-msgstr "만나기"
+msgstr "Meet"
 
 msgid "Shift-click for advanced settings"
 msgstr "고급 설정을 보려면 Shift-클릭"
@@ -6687,7 +6687,7 @@ msgid "Cipher"
 msgstr "Cipher"
 
 msgid "Key transport"
-msgstr "주요 교통수단"
+msgstr "키 전송"
 
 msgid "Template Snippets"
 msgstr "템플릿 스니펫"
@@ -6864,7 +6864,7 @@ msgid "Connection failed"
 msgstr "연결 실패"
 
 msgid "Sabre error"
-msgstr "세이버 오류"
+msgstr "Sabre 오류"
 
 msgid "Copying failed"
 msgstr "복사 실패"
@@ -7395,7 +7395,7 @@ msgid "Can not get list of delegates."
 msgstr "대리인 목록을 가져올 수 없습니다."
 
 msgid "Could not open the store."
-msgstr "매장을 열 수 없습니다."
+msgstr "저장소를 열 수 없습니다."
 
 msgid "Could not load the hierarchy."
 msgstr "계층 구조를 로드할 수 없습니다."

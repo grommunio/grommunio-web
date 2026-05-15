@@ -3851,7 +3851,7 @@ msgid "Appearance"
 msgstr "Aparência"
 
 msgid "Light"
-msgstr "Luz"
+msgstr "Claro"
 
 msgid "Dark"
 msgstr "Escuro"
@@ -4249,10 +4249,10 @@ msgid "Username '{0}' is not a valid user."
 msgstr "Usuário '{0}' não é um usuário válido."
 
 msgid "Own store"
-msgstr "Loja própria"
+msgstr "Armazenamento próprio"
 
 msgid "It is not possible to open your own store twice."
-msgstr "Não é possível abrir sua própria loja duas vezes."
+msgstr "Não é possível abrir seu próprio armazenamento duas vezes."
 
 msgid "Folder already open"
 msgstr "Pasta já aberta"
@@ -4273,7 +4273,7 @@ msgid "Show subfolders"
 msgstr "Mostrar subpastas"
 
 msgid "Open shared folder/store"
-msgstr "Abra a pasta/loja compartilhada"
+msgstr "Abrir pasta/armazenamento compartilhado"
 
 msgid "Rename folder"
 msgstr "Renomear pasta"
@@ -5065,7 +5065,7 @@ msgid "Mailbox Usage"
 msgstr "Cota da Caixa postal"
 
 msgid "A quota is not set on your store."
-msgstr "Não há uma cota definida em sua loja."
+msgstr "Não há uma cota definida em seu armazenamento."
 
 msgid "{0} of mailbox space is used."
 msgstr "{0} do espaço da caixa está em uso."
@@ -6292,7 +6292,7 @@ msgid "Room URL"
 msgstr "URL da sala"
 
 msgid "Meet"
-msgstr "Conheça"
+msgstr "Meet"
 
 msgid "Shift-click for advanced settings"
 msgstr "Shift-click para configurações avançadas"
@@ -6301,10 +6301,10 @@ msgid "Join webmeeting"
 msgstr "Participe da webmeeting"
 
 msgid "Open meeting in:"
-msgstr "Reunião aberta em:"
+msgstr "Abrir reunião em:"
 
 msgid "Open meeting in"
-msgstr "Reunião aberta em"
+msgstr "Abrir reunião em"
 
 msgid "Web tab"
 msgstr "Guia da Web"
@@ -6469,7 +6469,7 @@ msgid "Signing & Encryption"
 msgstr "Assinatura e criptografia"
 
 msgid "Serial"
-msgstr "Em série"
+msgstr "Número de série"
 
 msgid "Issued by"
 msgstr "Emitido por"
@@ -6712,7 +6712,7 @@ msgid "Signing time differs from expected time"
 msgstr "O tempo de assinatura é diferente do tempo esperado"
 
 msgid "Digest"
-msgstr "Digerir"
+msgstr "Resumo"
 
 msgid "Signature"
 msgstr "Assinatura"
@@ -6721,7 +6721,7 @@ msgid "Cipher"
 msgstr "Cifra"
 
 msgid "Key transport"
-msgstr "Principais transportes"
+msgstr "Transporte de chave"
 
 msgid "Template Snippets"
 msgstr "Trechos de modelo"
@@ -7341,7 +7341,7 @@ msgid "Unable to perform search query, search folder not found."
 msgstr "Não foi possível realizar a consulta de pesquisa, a pasta de pesquisa não foi encontrada."
 
 msgid "Unable to perform search query, store might not support searching."
-msgstr "Não foi possível realizar a consulta de pesquisa, pois a loja pode não suportar a pesquisa."
+msgstr "Não foi possível realizar a consulta de pesquisa, pois o armazenamento pode não suportar a pesquisa."
 
 msgid "Error in creating search folder."
 msgstr "Erro ao criar a pasta de pesquisa."
@@ -7429,13 +7429,13 @@ msgid "Can not get list of delegates."
 msgstr "Não é possível obter a lista de delegados."
 
 msgid "Could not open the store."
-msgstr "Não foi possível abrir a loja."
+msgstr "Não foi possível abrir o armazenamento."
 
 msgid "Could not load the hierarchy."
 msgstr "Não foi possível carregar a hierarquia."
 
 msgid "Could not open the shared store."
-msgstr "Não foi possível abrir a loja compartilhada."
+msgstr "Não foi possível abrir o armazenamento compartilhado."
 
 msgid "Could not load folder properties."
 msgstr "Não foi possível carregar as propriedades da pasta."
@@ -7704,7 +7704,7 @@ msgid "Could not resolve user."
 msgstr "Não foi possível resolver o usuário."
 
 msgid "Setting mail filters on the stores of other users is not allowed."
-msgstr "Não é permitido definir filtros de e-mail nas lojas de outros usuários."
+msgstr "Não é permitido definir filtros de e-mail nos armazenamentos de outros usuários."
 
 msgid "Untitled rule"
 msgstr "Regra sem título"

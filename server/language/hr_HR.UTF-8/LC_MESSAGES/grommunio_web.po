@@ -1086,7 +1086,7 @@ msgstr "Predložili ste novo vrijeme za ovaj sastanak na{0}"
 
 msgctxt "calendar.dialog"
 msgid "{0} proposed a new time for this meeting on {1}"
-msgstr "{0}je predložio novo vrijeme za ovaj sastanak na{1}"
+msgstr "{0} je predložio novo vrijeme za ovaj sastanak na {1}"
 
 msgctxt "calendar.dialog"
 msgid "Accepted on {0}"
@@ -1102,7 +1102,7 @@ msgstr "Uvjetno prihvaćeno{0}"
 
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted by {0} on {1}"
-msgstr "Uvjetno prihvaćeno od strane{0}dana{1}"
+msgstr "Uvjetno prihvaćeno od strane {0} dana {1}"
 
 msgctxt "calendar.dialog"
 msgid "This appointment occurs in the past."
@@ -3863,7 +3863,7 @@ msgid "Appearance"
 msgstr "Izgled"
 
 msgid "Light"
-msgstr "Svjetlo"
+msgstr "Svijetla"
 
 msgid "Dark"
 msgstr "Tamna"
@@ -6109,7 +6109,7 @@ msgid "Mobile Device Manager"
 msgstr "Upravljač mobilnim uređajima"
 
 msgid "Wiping device"
-msgstr "Uređaj za brisanje"
+msgstr "Brisanje uređaja"
 
 msgid "Password incorrect"
 msgstr "Neispravna lozinka"
@@ -6302,7 +6302,7 @@ msgid "Room URL"
 msgstr "URL sobe"
 
 msgid "Meet"
-msgstr "Upoznajte se"
+msgstr "Meet"
 
 msgid "Shift-click for advanced settings"
 msgstr "Pritisnite Shift i kliknite za napredne postavke"
@@ -6311,10 +6311,10 @@ msgid "Join webmeeting"
 msgstr "Pridružite se web sastanku"
 
 msgid "Open meeting in:"
-msgstr "Otvoreni sastanak u:"
+msgstr "Otvori sastanak u:"
 
 msgid "Open meeting in"
-msgstr "Otvoreni sastanak u"
+msgstr "Otvori sastanak u"
 
 msgid "Web tab"
 msgstr "Kartica Web"
@@ -6722,7 +6722,7 @@ msgid "Signing time differs from expected time"
 msgstr "Vrijeme potpisivanja razlikuje se od očekivanog vremena"
 
 msgid "Digest"
-msgstr "Probaviti"
+msgstr "Sažetak"
 
 msgid "Signature"
 msgstr "Potpis"
@@ -6908,7 +6908,7 @@ msgid "Connection failed"
 msgstr "Povezivanje nije uspjelo"
 
 msgid "Sabre error"
-msgstr "Sablja greška"
+msgstr "Sabre greška"
 
 msgid "Copying failed"
 msgstr "Kopiranje nije uspjelo"
@@ -7407,11 +7407,11 @@ msgstr "Privatni termin"
 
 #, php-format
 msgid "%s's Birthday"
-msgstr "rođendan%s-a"
+msgstr "Rođendan: %s"
 
 #, php-format
 msgid "%s's Anniversary"
-msgstr "Obljetnica%s-a"
+msgstr "Obljetnica: %s"
 
 msgid "You don't have the permission to complete this action"
 msgstr "Nemate dopuštenje za dovršetak ove radnje"
@@ -7439,7 +7439,7 @@ msgid "Can not get list of delegates."
 msgstr "Nije moguće dobiti popis delegata."
 
 msgid "Could not open the store."
-msgstr "Nije moguće otvoriti trgovinu."
+msgstr "Nije moguće otvoriti spremište."
 
 msgid "Could not load the hierarchy."
 msgstr "Nije moguće učitati hijerarhiju."

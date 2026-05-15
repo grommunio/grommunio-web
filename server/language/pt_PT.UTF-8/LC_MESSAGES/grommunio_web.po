@@ -2902,7 +2902,7 @@ msgid "Search"
 msgstr "Pesquisar"
 
 msgid "Click to cycle: AND → OR → NOT"
-msgstr "Clicar para andar de bicicleta: E → OU → NÃO"
+msgstr "Clicar para alternar: E → OU → NÃO"
 
 msgid "Folder does not exist"
 msgstr "Pasta não existe"
@@ -3850,7 +3850,7 @@ msgid "Appearance"
 msgstr "Aparência"
 
 msgid "Light"
-msgstr "Luz"
+msgstr "Claro"
 
 msgid "Dark"
 msgstr "Escuro"
@@ -6289,7 +6289,7 @@ msgid "Room URL"
 msgstr "URL da sala"
 
 msgid "Meet"
-msgstr "Conhecer"
+msgstr "Meet"
 
 msgid "Shift-click for advanced settings"
 msgstr "Shift-click para definições avançadas"
@@ -6298,10 +6298,10 @@ msgid "Join webmeeting"
 msgstr "Participar em webmeeting"
 
 msgid "Open meeting in:"
-msgstr "Reunião aberta em:"
+msgstr "Abrir reunião em:"
 
 msgid "Open meeting in"
-msgstr "Reunião aberta em"
+msgstr "Abrir reunião em"
 
 msgid "Web tab"
 msgstr "Separador Web"
@@ -6468,7 +6468,7 @@ msgid "Signing & Encryption"
 msgstr "Assinatura e encriptação"
 
 msgid "Serial"
-msgstr "Em série"
+msgstr "Número de série"
 
 msgid "Issued by"
 msgstr "Emitido por"
@@ -6714,7 +6714,7 @@ msgid "Signing time differs from expected time"
 msgstr "A hora da assinatura difere da hora prevista"
 
 msgid "Digest"
-msgstr "Digerir"
+msgstr "Digest"
 
 msgid "Signature"
 msgstr "Assinatura"
@@ -7402,11 +7402,11 @@ msgstr "Marcação privada"
 
 #, php-format
 msgid "%s's Birthday"
-msgstr "%saniversário de"
+msgstr "Aniversário de %s"
 
 #, php-format
 msgid "%s's Anniversary"
-msgstr "%saniversário de"
+msgstr "Aniversário de %s"
 
 msgid "You don't have the permission to complete this action"
 msgstr "Não tem autorização para concluir esta ação"
@@ -7434,7 +7434,7 @@ msgid "Can not get list of delegates."
 msgstr "Não é possível obter a lista de delegados."
 
 msgid "Could not open the store."
-msgstr "Não foi possível abrir a loja."
+msgstr "Não foi possível abrir o armazém."
 
 msgid "Could not load the hierarchy."
 msgstr "Não foi possível carregar a hierarquia."
