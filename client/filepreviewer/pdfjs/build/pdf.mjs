@@ -21,8 +21,8 @@
  */
 
 /**
- * pdfjsVersion = 5.6.205
- * pdfjsBuild = ada343803
+ * pdfjsVersion = 5.7.284
+ * pdfjsBuild = 7e5b36c2d
  */
 /******/ var __webpack_modules__ = ({
 
@@ -39,21 +39,6 @@ var $TypeError = TypeError;
 module.exports = function (argument) {
   if (isCallable(argument)) return argument;
   throw new $TypeError(tryToString(argument) + ' is not a function');
-};
-
-
-/***/ },
-
-/***/ 6194
-(module, __unused_webpack_exports, __webpack_require__) {
-
-
-var has = (__webpack_require__(2248).has);
-
-// Perform ? RequireInternalSlot(M, [[MapData]])
-module.exports = function (it) {
-  has(it);
-  return it;
 };
 
 
@@ -134,6 +119,34 @@ var has = (__webpack_require__(4995).has);
 module.exports = function (it) {
   has(it);
   return it;
+};
+
+
+/***/ },
+
+/***/ 6469
+(module, __unused_webpack_exports, __webpack_require__) {
+
+
+var wellKnownSymbol = __webpack_require__(608);
+var create = __webpack_require__(2360);
+var defineProperty = (__webpack_require__(4913).f);
+
+var UNSCOPABLES = wellKnownSymbol('unscopables');
+var ArrayPrototype = Array.prototype;
+
+// Array.prototype[@@unscopables]
+// https://tc39.es/ecma262/#sec-array.prototype-@@unscopables
+if (ArrayPrototype[UNSCOPABLES] === undefined) {
+  defineProperty(ArrayPrototype, UNSCOPABLES, {
+    configurable: true,
+    value: create(null)
+  });
+}
+
+// add a key to Array.prototype[@@unscopables]
+module.exports = function (key) {
+  ArrayPrototype[UNSCOPABLES][key] = true;
 };
 
 
@@ -296,6 +309,7 @@ var PROPER_STRUCTURED_CLONE_TRANSFER = __webpack_require__(1548);
 var structuredClone = globalThis.structuredClone;
 var ArrayBuffer = globalThis.ArrayBuffer;
 var DataView = globalThis.DataView;
+var max = Math.max;
 var min = Math.min;
 var ArrayBufferPrototype = ArrayBuffer.prototype;
 var DataViewPrototype = DataView.prototype;
@@ -318,7 +332,9 @@ module.exports = (PROPER_STRUCTURED_CLONE_TRANSFER || detachTransferable) && fun
   if (byteLength >= newByteLength && (!preserveResizability || fixedLength)) {
     newBuffer = slice(arrayBuffer, 0, newByteLength);
   } else {
-    var options = preserveResizability && !fixedLength && maxByteLength ? { maxByteLength: maxByteLength(arrayBuffer) } : undefined;
+    var options = preserveResizability && !fixedLength && maxByteLength
+      ? { maxByteLength: max(newByteLength, maxByteLength(arrayBuffer)) }
+      : undefined;
     newBuffer = new ArrayBuffer(newByteLength, options);
     var a = new DataView(arrayBuffer);
     var b = new DataView(newBuffer);
@@ -350,7 +366,7 @@ var defineBuiltInAccessor = __webpack_require__(2106);
 var isPrototypeOf = __webpack_require__(1625);
 var getPrototypeOf = __webpack_require__(2787);
 var setPrototypeOf = __webpack_require__(2967);
-var wellKnownSymbol = __webpack_require__(8227);
+var wellKnownSymbol = __webpack_require__(608);
 var uid = __webpack_require__(3392);
 var InternalStateModule = __webpack_require__(1181);
 
@@ -511,7 +527,7 @@ if (DESCRIPTORS && !hasOwn(TypedArrayPrototype, TO_STRING_TAG)) {
     }
   });
   for (NAME in TypedArrayConstructorsList) if (globalThis[NAME]) {
-    createNonEnumerableProperty(globalThis[NAME], TYPED_ARRAY_TAG, NAME);
+    createNonEnumerableProperty(globalThis[NAME].prototype, TYPED_ARRAY_TAG, NAME);
   }
 }
 
@@ -703,7 +719,7 @@ module.exports = function (it) {
 var TO_STRING_TAG_SUPPORT = __webpack_require__(2140);
 var isCallable = __webpack_require__(4901);
 var classofRaw = __webpack_require__(2195);
-var wellKnownSymbol = __webpack_require__(8227);
+var wellKnownSymbol = __webpack_require__(608);
 
 var TO_STRING_TAG = wellKnownSymbol('toStringTag');
 var $Object = Object;
@@ -1006,7 +1022,7 @@ var $TypeError = TypeError;
 var MAX_SAFE_INTEGER = 0x1FFFFFFFFFFFFF; // 2 ** 53 - 1 == 9007199254740991
 
 module.exports = function (it) {
-  if (it > MAX_SAFE_INTEGER) throw $TypeError('Maximum allowed index exceeded');
+  if (it > MAX_SAFE_INTEGER) throw new $TypeError('Maximum allowed index exceeded');
   return it;
 };
 
@@ -1301,7 +1317,7 @@ var fails = __webpack_require__(9039);
 
 module.exports = !fails(function () {
   // eslint-disable-next-line es/no-function-prototype-bind -- safe
-  var test = (function () { /* empty */ }).bind();
+  var test = function () { /* empty */ }.bind();
   // eslint-disable-next-line no-prototype-builtins -- safe
   return typeof test != 'function' || test.hasOwnProperty('prototype');
 });
@@ -1337,7 +1353,7 @@ var getDescriptor = DESCRIPTORS && Object.getOwnPropertyDescriptor;
 
 var EXISTS = hasOwn(FunctionPrototype, 'name');
 // additional protection from minified / mangled / dropped function names
-var PROPER = EXISTS && (function something() { /* empty */ }).name === 'something';
+var PROPER = EXISTS && function something() { /* empty */ }.name === 'something';
 var CONFIGURABLE = EXISTS && (!DESCRIPTORS || (DESCRIPTORS && getDescriptor(FunctionPrototype, 'name').configurable));
 
 module.exports = {
@@ -1501,7 +1517,7 @@ var classof = __webpack_require__(6955);
 var getMethod = __webpack_require__(5966);
 var isNullOrUndefined = __webpack_require__(4117);
 var Iterators = __webpack_require__(6269);
-var wellKnownSymbol = __webpack_require__(8227);
+var wellKnownSymbol = __webpack_require__(608);
 
 var ITERATOR = wellKnownSymbol('iterator');
 
@@ -1833,7 +1849,7 @@ module.exports = {
 (module, __unused_webpack_exports, __webpack_require__) {
 
 
-var wellKnownSymbol = __webpack_require__(8227);
+var wellKnownSymbol = __webpack_require__(608);
 var Iterators = __webpack_require__(6269);
 
 var ITERATOR = wellKnownSymbol('iterator');
@@ -2064,7 +2080,9 @@ module.exports = function (iterable, unboundFunction, options) {
   var iterator, iterFn, index, length, result, next, step;
 
   var stop = function (condition) {
-    if (iterator) iteratorClose(iterator, 'normal');
+    var $iterator = iterator;
+    iterator = undefined;
+    if ($iterator) iteratorClose($iterator, 'normal');
     return new Result(true, condition);
   };
 
@@ -2094,10 +2112,13 @@ module.exports = function (iterable, unboundFunction, options) {
 
   next = IS_RECORD ? iterable.next : iterator.next;
   while (!(step = call(next, iterator)).done) {
+    // `IteratorValue` errors should propagate without closing the iterator
+    var value = step.value;
     try {
-      result = callFn(step.value);
+      result = callFn(value);
     } catch (error) {
-      iteratorClose(iterator, 'throw', error);
+      if (iterator) iteratorClose(iterator, 'throw', error);
+      else throw error;
     }
     if (typeof result == 'object' && result && isPrototypeOf(ResultPrototype, result)) return result;
   } return new Result(false);
@@ -2168,7 +2189,7 @@ var call = __webpack_require__(9565);
 var create = __webpack_require__(2360);
 var createNonEnumerableProperty = __webpack_require__(6699);
 var defineBuiltIns = __webpack_require__(6279);
-var wellKnownSymbol = __webpack_require__(8227);
+var wellKnownSymbol = __webpack_require__(608);
 var InternalStateModule = __webpack_require__(1181);
 var getMethod = __webpack_require__(5966);
 var IteratorPrototype = (__webpack_require__(7657).IteratorPrototype);
@@ -2205,11 +2226,13 @@ var createIteratorProxyPrototype = function (IS_ITERATOR) {
     'return': function () {
       var state = getInternalState(this);
       var iterator = state.iterator;
+      var done = state.done;
       state.done = true;
       if (IS_ITERATOR) {
         var returnMethod = getMethod(iterator, 'return');
         return returnMethod ? call(returnMethod, iterator) : createIterResultObject(undefined, true);
       }
+      if (done) return createIterResultObject(undefined, true);
       if (state.inner) try {
         iteratorClose(state.inner.iterator, NORMAL);
       } catch (error) {
@@ -2218,7 +2241,8 @@ var createIteratorProxyPrototype = function (IS_ITERATOR) {
       if (state.openIters) try {
         iteratorCloseAll(state.openIters, NORMAL);
       } catch (error) {
-        return iteratorClose(iterator, THROW, error);
+        if (iterator) return iteratorClose(iterator, THROW, error);
+        throw error;
       }
       if (iterator) iteratorClose(iterator, NORMAL);
       return createIterResultObject(undefined, true);
@@ -2312,7 +2336,7 @@ var isObject = __webpack_require__(34);
 var create = __webpack_require__(2360);
 var getPrototypeOf = __webpack_require__(2787);
 var defineBuiltIn = __webpack_require__(6840);
-var wellKnownSymbol = __webpack_require__(8227);
+var wellKnownSymbol = __webpack_require__(608);
 var IS_PURE = __webpack_require__(6395);
 
 var ITERATOR = wellKnownSymbol('iterator');
@@ -3113,7 +3137,7 @@ module.exports = function difference(other) {
   var O = aSet(this);
   var otherRec = getSetRecord(other);
   var result = clone(O);
-  if (size(O) <= otherRec.size) iterateSet(O, function (e) {
+  if (size(result) <= otherRec.size) iterateSet(result, function (e) {
     if (otherRec.includes(e)) remove(result, e);
   });
   else iterateSimple(otherRec.getIterator(), function (e) {
@@ -3206,7 +3230,7 @@ module.exports = function isDisjointFrom(other) {
   }, true) !== false;
   var iterator = otherRec.getIterator();
   return iterateSimple(iterator, function (e) {
-    if (has(O, e)) return iteratorClose(iterator, 'normal', false);
+    if (has(O, e)) return iteratorClose(iterator.iterator, 'normal', false);
   }) !== false;
 };
 
@@ -3255,7 +3279,7 @@ module.exports = function isSupersetOf(other) {
   if (size(O) < otherRec.size) return false;
   var iterator = otherRec.getIterator();
   return iterateSimple(iterator, function (e) {
-    if (!has(O, e)) return iteratorClose(iterator, 'normal', false);
+    if (!has(O, e)) return iteratorClose(iterator.iterator, 'normal', false);
   }) !== false;
 };
 
@@ -3482,10 +3506,10 @@ var SHARED = '__core-js_shared__';
 var store = module.exports = globalThis[SHARED] || defineGlobalProperty(SHARED, {});
 
 (store.versions || (store.versions = [])).push({
-  version: '3.48.0',
+  version: '3.49.0',
   mode: IS_PURE ? 'pure' : 'global',
   copyright: '© 2013–2025 Denis Pushkarev (zloirock.ru), 2025–2026 CoreJS Company (core-js.io). All rights reserved.',
-  license: 'https://github.com/zloirock/core-js/blob/v3.48.0/LICENSE',
+  license: 'https://github.com/zloirock/core-js/blob/v3.49.0/LICENSE',
   source: 'https://github.com/zloirock/core-js'
 });
 
@@ -3709,7 +3733,7 @@ var isObject = __webpack_require__(34);
 var isSymbol = __webpack_require__(757);
 var getMethod = __webpack_require__(5966);
 var ordinaryToPrimitive = __webpack_require__(4270);
-var wellKnownSymbol = __webpack_require__(8227);
+var wellKnownSymbol = __webpack_require__(608);
 
 var $TypeError = TypeError;
 var TO_PRIMITIVE = wellKnownSymbol('toPrimitive');
@@ -3754,7 +3778,7 @@ module.exports = function (argument) {
 (module, __unused_webpack_exports, __webpack_require__) {
 
 
-var wellKnownSymbol = __webpack_require__(8227);
+var wellKnownSymbol = __webpack_require__(608);
 
 var TO_STRING_TAG = wellKnownSymbol('toStringTag');
 var test = {};
@@ -3989,25 +4013,25 @@ var uncurryThis = __webpack_require__(9504);
 
 var Uint8Array = globalThis.Uint8Array;
 var SyntaxError = globalThis.SyntaxError;
-var parseInt = globalThis.parseInt;
 var min = Math.min;
-var NOT_HEX = /[^\da-f]/i;
-var exec = uncurryThis(NOT_HEX.exec);
-var stringSlice = uncurryThis(''.slice);
+var stringMatch = uncurryThis(''.match);
 
 module.exports = function (string, into) {
   var stringLength = string.length;
   if (stringLength % 2 !== 0) throw new SyntaxError('String should be an even number of characters');
   var maxLength = into ? min(into.length, stringLength / 2) : stringLength / 2;
   var bytes = into || new Uint8Array(maxLength);
-  var read = 0;
+  var segments = stringMatch(string, /.{2}/g);
   var written = 0;
-  while (written < maxLength) {
-    var hexits = stringSlice(string, read, read += 2);
-    if (exec(NOT_HEX, hexits)) throw new SyntaxError('String should only contain hex characters');
-    bytes[written++] = parseInt(hexits, 16);
+  for (; written < maxLength; written++) {
+    var result = +('0x' + segments[written] + '0');
+    // eslint-disable-next-line no-self-compare -- NaN check
+    if (result !== result) {
+      throw new SyntaxError('String should only contain hex characters');
+    }
+    bytes[written] = result >> 4;
   }
-  return { bytes: bytes, read: read };
+  return { bytes: bytes, read: written << 1 };
 };
 
 
@@ -4018,7 +4042,7 @@ module.exports = function (string, into) {
 
 
 var fails = __webpack_require__(9039);
-var wellKnownSymbol = __webpack_require__(8227);
+var wellKnownSymbol = __webpack_require__(608);
 var DESCRIPTORS = __webpack_require__(3724);
 var IS_PURE = __webpack_require__(6395);
 
@@ -4145,7 +4169,7 @@ module.exports = {
 
 /***/ },
 
-/***/ 8227
+/***/ 608
 (module, __unused_webpack_exports, __webpack_require__) {
 
 
@@ -4231,6 +4255,41 @@ if ($transfer) $({ target: 'ArrayBuffer', proto: true }, {
 
 /***/ },
 
+/***/ 4423
+(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
+
+
+var $ = __webpack_require__(6518);
+var $includes = (__webpack_require__(9617).includes);
+var fails = __webpack_require__(9039);
+var addToUnscopables = __webpack_require__(6469);
+
+// FF99+ bug
+var BROKEN_ON_SPARSE = fails(function () {
+  // eslint-disable-next-line es/no-array-prototype-includes -- detection
+  return !Array(1).includes();
+});
+
+// Safari 26.4- bug
+var BROKEN_ON_SPARSE_WITH_FROM_INDEX = fails(function () {
+  // eslint-disable-next-line no-sparse-arrays, es/no-array-prototype-includes -- detection
+  return [, 1].includes(undefined, 1);
+});
+
+// `Array.prototype.includes` method
+// https://tc39.es/ecma262/#sec-array.prototype.includes
+$({ target: 'Array', proto: true, forced: BROKEN_ON_SPARSE || BROKEN_ON_SPARSE_WITH_FROM_INDEX }, {
+  includes: function includes(el /* , fromIndex = 0 */) {
+    return $includes(this, el, arguments.length > 1 ? arguments[1] : undefined);
+  }
+});
+
+// https://tc39.es/ecma262/#sec-array.prototype-@@unscopables
+addToUnscopables('includes');
+
+
+/***/ },
+
 /***/ 4114
 (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
 
@@ -4294,7 +4353,7 @@ var defineBuiltInAccessor = __webpack_require__(2106);
 var createProperty = __webpack_require__(4659);
 var fails = __webpack_require__(9039);
 var hasOwn = __webpack_require__(9297);
-var wellKnownSymbol = __webpack_require__(8227);
+var wellKnownSymbol = __webpack_require__(608);
 var IteratorPrototype = (__webpack_require__(7657).IteratorPrototype);
 var DESCRIPTORS = __webpack_require__(3724);
 var IS_PURE = __webpack_require__(6395);
@@ -4720,65 +4779,6 @@ $({ target: 'Iterator', proto: true, real: true, forced: FORCED }, {
 
 /***/ },
 
-/***/ 8237
-(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
-
-
-var $ = __webpack_require__(6518);
-var iterate = __webpack_require__(2652);
-var aCallable = __webpack_require__(9306);
-var anObject = __webpack_require__(8551);
-var getIteratorDirect = __webpack_require__(1767);
-var iteratorClose = __webpack_require__(9539);
-var iteratorHelperWithoutClosingOnEarlyError = __webpack_require__(4549);
-var apply = __webpack_require__(8745);
-var fails = __webpack_require__(9039);
-
-var $TypeError = TypeError;
-
-// https://bugs.webkit.org/show_bug.cgi?id=291651
-var FAILS_ON_INITIAL_UNDEFINED = fails(function () {
-  // eslint-disable-next-line es/no-iterator-prototype-reduce, es/no-array-prototype-keys, array-callback-return -- required for testing
-  [].keys().reduce(function () { /* empty */ }, undefined);
-});
-
-var reduceWithoutClosingOnEarlyError = !FAILS_ON_INITIAL_UNDEFINED && iteratorHelperWithoutClosingOnEarlyError('reduce', $TypeError);
-
-// `Iterator.prototype.reduce` method
-// https://tc39.es/ecma262/#sec-iterator.prototype.reduce
-$({ target: 'Iterator', proto: true, real: true, forced: FAILS_ON_INITIAL_UNDEFINED || reduceWithoutClosingOnEarlyError }, {
-  reduce: function reduce(reducer /* , initialValue */) {
-    anObject(this);
-    try {
-      aCallable(reducer);
-    } catch (error) {
-      iteratorClose(this, 'throw', error);
-    }
-
-    var noInitial = arguments.length < 2;
-    var accumulator = noInitial ? undefined : arguments[1];
-    if (reduceWithoutClosingOnEarlyError) {
-      return apply(reduceWithoutClosingOnEarlyError, this, noInitial ? [reducer] : [reducer, accumulator]);
-    }
-    var record = getIteratorDirect(this);
-    var counter = 0;
-    iterate(record, function (value) {
-      if (noInitial) {
-        noInitial = false;
-        accumulator = value;
-      } else {
-        accumulator = reducer(accumulator, value, counter);
-      }
-      counter++;
-    }, { IS_RECORD: true });
-    if (noInitial) throw new $TypeError('Reduce of empty iterator with no initial value');
-    return accumulator;
-  }
-});
-
-
-/***/ },
-
 /***/ 3579
 (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
 
@@ -4830,10 +4830,15 @@ var notANaN = __webpack_require__(4149);
 var toPositiveInteger = __webpack_require__(9590);
 var createIteratorProxy = __webpack_require__(9462);
 var iteratorClose = __webpack_require__(9539);
+var iteratorHelperThrowsOnInvalidIterator = __webpack_require__(684);
 var iteratorHelperWithoutClosingOnEarlyError = __webpack_require__(4549);
 var IS_PURE = __webpack_require__(6395);
 
-var takeWithoutClosingOnEarlyError = !IS_PURE && iteratorHelperWithoutClosingOnEarlyError('take', RangeError);
+var TAKE_WITHOUT_THROWING_ON_INVALID_ITERATOR = !IS_PURE && !iteratorHelperThrowsOnInvalidIterator('take', 1);
+var takeWithoutClosingOnEarlyError = !IS_PURE && !TAKE_WITHOUT_THROWING_ON_INVALID_ITERATOR
+  && iteratorHelperWithoutClosingOnEarlyError('take', RangeError);
+
+var FORCED = IS_PURE || TAKE_WITHOUT_THROWING_ON_INVALID_ITERATOR || takeWithoutClosingOnEarlyError;
 
 var IteratorProxy = createIteratorProxy(function () {
   var iterator = this.iterator;
@@ -4848,7 +4853,7 @@ var IteratorProxy = createIteratorProxy(function () {
 
 // `Iterator.prototype.take` method
 // https://tc39.es/ecma262/#sec-iterator.prototype.take
-$({ target: 'Iterator', proto: true, real: true, forced: IS_PURE || takeWithoutClosingOnEarlyError }, {
+$({ target: 'Iterator', proto: true, real: true, forced: FORCED }, {
   take: function take(limit) {
     anObject(this);
     var remaining;
@@ -5004,10 +5009,12 @@ Context.prototype = {
     var expectKeypair = false;
     var object = {};
     var nodes = {};
+    var closed = false;
     while (i < source.length) {
       i = this.until(['"', '}'], i);
       if (at(source, i) === '}' && !expectKeypair) {
         i++;
+        closed = true;
         break;
       }
       // Parsing the key
@@ -5027,9 +5034,11 @@ Context.prototype = {
         i++;
       } else if (chr === '}') {
         i++;
+        closed = true;
         break;
       }
     }
+    if (!closed) throw new SyntaxError('Unterminated object at: ' + i);
     return this.node(OBJECT, object, this.index, i, nodes);
   },
   array: function () {
@@ -5038,10 +5047,12 @@ Context.prototype = {
     var expectElement = false;
     var array = [];
     var nodes = [];
+    var closed = false;
     while (i < source.length) {
       i = this.skip(IS_WHITESPACE, i);
       if (at(source, i) === ']' && !expectElement) {
         i++;
+        closed = true;
         break;
       }
       var result = this.fork(i).parse();
@@ -5053,9 +5064,11 @@ Context.prototype = {
         i++;
       } else if (at(source, i) === ']') {
         i++;
+        closed = true;
         break;
       }
     }
+    if (!closed) throw new SyntaxError('Unterminated array at: ' + i);
     return this.node(OBJECT, array, this.index, i, nodes);
   },
   string: function () {
@@ -5071,7 +5084,11 @@ Context.prototype = {
     if (at(source, i) === '0') i++;
     else if (exec(IS_NON_ZERO_DIGIT, at(source, i))) i = this.skip(IS_DIGIT, i + 1);
     else throw new SyntaxError('Failed to parse number at: ' + i);
-    if (at(source, i) === '.') i = this.skip(IS_DIGIT, i + 1);
+    if (at(source, i) === '.') {
+      var fractionStartIndex = i + 1;
+      i = this.skip(IS_DIGIT, fractionStartIndex);
+      if (fractionStartIndex === i) throw new SyntaxError("Failed to parse number's fraction at: " + i);
+    }
     if (at(source, i) === 'e' || at(source, i) === 'E') {
       i++;
       if (at(source, i) === '+' || at(source, i) === '-') i++;
@@ -5160,8 +5177,8 @@ var push = uncurryThis([].push);
 var numberToString = uncurryThis(1.1.toString);
 
 var surrogates = /[\uD800-\uDFFF]/g;
-var lowSurrogates = /^[\uD800-\uDBFF]$/;
-var hiSurrogates = /^[\uDC00-\uDFFF]$/;
+var leadingSurrogates = /^[\uD800-\uDBFF]$/;
+var trailingSurrogates = /^[\uDC00-\uDFFF]$/;
 
 var MARK = uid();
 var MARK_LENGTH = MARK.length;
@@ -5197,7 +5214,10 @@ var stringifyWithProperSymbolsConversion = WRONG_SYMBOLS_CONVERSION ? function (
 var fixIllFormedJSON = function (match, offset, string) {
   var prev = charAt(string, offset - 1);
   var next = charAt(string, offset + 1);
-  if ((exec(lowSurrogates, match) && !exec(hiSurrogates, next)) || (exec(hiSurrogates, match) && !exec(lowSurrogates, prev))) {
+  if (
+    (exec(leadingSurrogates, match) && !exec(trailingSurrogates, next)) ||
+    (exec(trailingSurrogates, match) && !exec(leadingSurrogates, prev))
+  ) {
     return '\\u' + numberToString(charCodeAt(match, 0), 16);
   } return match;
 };
@@ -5272,7 +5292,6 @@ if ($stringify) $({ target: 'JSON', stat: true, arity: 3, forced: WRONG_SYMBOLS_
 
 var $ = __webpack_require__(6518);
 var aCallable = __webpack_require__(9306);
-var aMap = __webpack_require__(6194);
 var MapHelpers = __webpack_require__(2248);
 var IS_PURE = __webpack_require__(6395);
 
@@ -5281,12 +5300,12 @@ var has = MapHelpers.has;
 var set = MapHelpers.set;
 
 // `Map.prototype.getOrInsertComputed` method
-// https://github.com/tc39/proposal-upsert
+// https://tc39.es/ecma262/#sec-map.prototype.getorinsertcomputed
 $({ target: 'Map', proto: true, real: true, forced: IS_PURE }, {
   getOrInsertComputed: function getOrInsertComputed(key, callbackfn) {
-    aMap(this);
+    var hasKey = has(this, key);
     aCallable(callbackfn);
-    if (has(this, key)) return get(this, key);
+    if (hasKey) return get(this, key);
     // CanonicalizeKeyedCollectionKey
     if (key === 0 && 1 / key === -Infinity) key = 0;
     var value = callbackfn(key);
@@ -5303,7 +5322,6 @@ $({ target: 'Map', proto: true, real: true, forced: IS_PURE }, {
 
 
 var $ = __webpack_require__(6518);
-var aMap = __webpack_require__(6194);
 var MapHelpers = __webpack_require__(2248);
 var IS_PURE = __webpack_require__(6395);
 
@@ -5312,10 +5330,10 @@ var has = MapHelpers.has;
 var set = MapHelpers.set;
 
 // `Map.prototype.getOrInsert` method
-// https://github.com/tc39/proposal-upsert
+// https://tc39.es/ecma262/#sec-map.prototype.getorinsert
 $({ target: 'Map', proto: true, real: true, forced: IS_PURE }, {
   getOrInsert: function getOrInsert(key, value) {
-    if (has(aMap(this), key)) return get(this, key);
+    if (has(this, key)) return get(this, key);
     set(this, key, value);
     return value;
   }
@@ -5343,7 +5361,7 @@ var pow = Math.pow;
 var push = uncurryThis([].push);
 
 var POW_2_1023 = pow(2, 1023);
-var MAX_SAFE_INTEGER = pow(2, 53) - 1; // 2 ** 53 - 1 === 9007199254740992
+var MAX_SAFE_INTEGER = pow(2, 53) - 1; // 2 ** 53 - 1 === 9007199254740991
 var MAX_DOUBLE = Number.MAX_VALUE; // 2 ** 1024 - 2 ** (1023 - 52) === 1.79769313486231570815e+308
 var MAX_ULP = pow(2, 971); // 2 ** (1023 - 52) === 1.99584030953471981166e+292
 
@@ -5361,7 +5379,7 @@ var twosum = function (x, y) {
 };
 
 // `Math.sumPrecise` method
-// https://github.com/tc39/proposal-math-sum
+// https://tc39.es/ecma262/#sec-math.sumprecise
 $({ target: 'Math', stat: true }, {
   // eslint-disable-next-line max-statements -- ok
   sumPrecise: function sumPrecise(items) {
@@ -5370,7 +5388,7 @@ $({ target: 'Math', stat: true }, {
     var state = MINUS_ZERO;
 
     iterate(items, function (n) {
-      if (++count >= MAX_SAFE_INTEGER) throw new $RangeError('Maximum allowed index exceeded');
+      if (++count > MAX_SAFE_INTEGER) throw new $RangeError('Maximum allowed index exceeded');
       if (typeof n != 'number') throw new $TypeError('Value is not a number');
       if (state !== NOT_A_NUMBER) {
         // eslint-disable-next-line no-self-compare -- NaN check
@@ -5797,7 +5815,7 @@ var INCORRECT_BEHAVIOR_OR_DOESNT_EXISTS = !Uint8Array || !Uint8Array.fromBase64 
 }();
 
 // `Uint8Array.fromBase64` method
-// https://github.com/tc39/proposal-arraybuffer-base64
+// https://tc39.es/ecma262/#sec-uint8array.frombase64
 if (Uint8Array) $({ target: 'Uint8Array', stat: true, forced: INCORRECT_BEHAVIOR_OR_DOESNT_EXISTS }, {
   fromBase64: function fromBase64(string /* , options */) {
     var result = $fromBase64(string, arguments.length > 1 ? arguments[1] : undefined, null, 0x1FFFFFFFFFFFFF);
@@ -5838,7 +5856,7 @@ var INCORRECT_BEHAVIOR_OR_DOESNT_EXISTS = !Uint8Array || !Uint8Array.prototype.s
 }();
 
 // `Uint8Array.prototype.setFromBase64` method
-// https://github.com/tc39/proposal-arraybuffer-base64
+// https://tc39.es/ecma262/#sec-uint8array.prototype.setfrombase64
 if (Uint8Array) $({ target: 'Uint8Array', proto: true, forced: INCORRECT_BEHAVIOR_OR_DOESNT_EXISTS }, {
   setFromBase64: function setFromBase64(string /* , options */) {
     anUint8Array(this);
@@ -5877,7 +5895,7 @@ function throwsOnLengthTrackingView() {
 }
 
 // `Uint8Array.prototype.setFromHex` method
-// https://github.com/tc39/proposal-arraybuffer-base64
+// https://tc39.es/ecma262/#sec-uint8array.prototype.setfromhex
 if (globalThis.Uint8Array) $({ target: 'Uint8Array', proto: true, forced: throwsOnLengthTrackingView() }, {
   setFromHex: function setFromHex(string) {
     anUint8Array(this);
@@ -5921,7 +5939,7 @@ var INCORRECT_BEHAVIOR_OR_DOESNT_EXISTS = !Uint8Array || !Uint8Array.prototype.t
 }();
 
 // `Uint8Array.prototype.toBase64` method
-// https://github.com/tc39/proposal-arraybuffer-base64
+// https://tc39.es/ecma262/#sec-uint8array.prototype.tobase64
 if (Uint8Array) $({ target: 'Uint8Array', proto: true, forced: INCORRECT_BEHAVIOR_OR_DOESNT_EXISTS }, {
   toBase64: function toBase64(/* options */) {
     var array = anUint8Array(this);
@@ -5969,6 +5987,8 @@ var anUint8Array = __webpack_require__(4154);
 var notDetached = __webpack_require__(5169);
 
 var numberToString = uncurryThis(1.1.toString);
+var join = uncurryThis([].join);
+var $Array = Array;
 
 var Uint8Array = globalThis.Uint8Array;
 
@@ -5982,17 +6002,17 @@ var INCORRECT_BEHAVIOR_OR_DOESNT_EXISTS = !Uint8Array || !Uint8Array.prototype.t
 })();
 
 // `Uint8Array.prototype.toHex` method
-// https://github.com/tc39/proposal-arraybuffer-base64
+// https://tc39.es/ecma262/#sec-uint8array.prototype.tohex
 if (Uint8Array) $({ target: 'Uint8Array', proto: true, forced: INCORRECT_BEHAVIOR_OR_DOESNT_EXISTS }, {
   toHex: function toHex() {
     anUint8Array(this);
     notDetached(this.buffer);
-    var result = '';
+    var result = $Array(this.length);
     for (var i = 0, length = this.length; i < length; i++) {
       var hex = numberToString(this[i], 16);
-      result += hex.length === 1 ? '0' + hex : hex;
+      result[i] = hex.length === 1 ? '0' + hex : hex;
     }
-    return result;
+    return join(result, '');
   }
 });
 
@@ -6026,10 +6046,10 @@ var FORCED = IS_PURE || !function () {
 }();
 
 // `WeakMap.prototype.getOrInsertComputed` method
-// https://github.com/tc39/proposal-upsert
+// https://tc39.es/ecma262/#sec-weakmap.prototype.getorinsertcomputed
 $({ target: 'WeakMap', proto: true, real: true, forced: FORCED }, {
   getOrInsertComputed: function getOrInsertComputed(key, callbackfn) {
-    aWeakMap(this);
+    if (!IS_PURE) aWeakMap(this);
     aWeakKey(key);
     aCallable(callbackfn);
     if (has(this, key)) return get(this, key);
@@ -6047,7 +6067,6 @@ $({ target: 'WeakMap', proto: true, real: true, forced: FORCED }, {
 
 
 var $ = __webpack_require__(6518);
-var aWeakMap = __webpack_require__(6557);
 var WeakMapHelpers = __webpack_require__(4995);
 var IS_PURE = __webpack_require__(6395);
 
@@ -6056,10 +6075,10 @@ var has = WeakMapHelpers.has;
 var set = WeakMapHelpers.set;
 
 // `WeakMap.prototype.getOrInsert` method
-// https://github.com/tc39/proposal-upsert
+// https://tc39.es/ecma262/#sec-weakmap.prototype.getorinsert
 $({ target: 'WeakMap', proto: true, real: true, forced: IS_PURE }, {
   getOrInsert: function getOrInsert(key, value) {
-    if (has(aWeakMap(this), key)) return get(this, key);
+    if (has(this, key)) return get(this, key);
     set(this, key, value);
     return value;
   }
@@ -6178,19 +6197,16 @@ if (params + '' !== 'a=2') {
     var key = toString(name);
     var value = toString($value);
     var index = 0;
-    var dindex = 0;
-    var found = false;
     var entriesLength = entries.length;
     var entry;
     while (index < entriesLength) {
-      entry = entries[index++];
-      if (found || entry.key === key) {
-        found = true;
-        $delete(this, entry.key);
-      } else dindex++;
+      entry = entries[index];
+      $delete(this, entry.key);
+      index++;
     }
-    while (dindex < entriesLength) {
-      entry = entries[dindex++];
+    index = 0;
+    while (index < entriesLength) {
+      entry = entries[index++];
       if (!(entry.key === key && entry.value === value)) append(this, entry.key, entry.value);
     }
   }, { enumerable: true, unsafe: true });
@@ -6275,7 +6291,7 @@ var USE_NATIVE_URL = __webpack_require__(7416);
 var URL = getBuiltIn('URL');
 
 // `URL.parse` method
-// https://url.spec.whatwg.org/#dom-url-canparse
+// https://url.spec.whatwg.org/#dom-url-parse
 $({ target: 'URL', stat: true, forced: !USE_NATIVE_URL }, {
   parse: function parse(url) {
     var length = validateArgumentsLength(arguments.length, 1);
@@ -6337,8 +6353,9 @@ $({ target: 'URL', stat: true, forced: !USE_NATIVE_URL }, {
 /******/ })();
 /******/ 
 /************************************************************************/
-var __webpack_exports__ = {};
 
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.includes.js
+var es_array_includes = __webpack_require__(4423);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.push.js
 var es_array_push = __webpack_require__(4114);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array-buffer.detached.js
@@ -6347,16 +6364,10 @@ var es_array_buffer_detached = __webpack_require__(6573);
 var es_array_buffer_transfer = __webpack_require__(8100);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array-buffer.transfer-to-fixed-length.js
 var es_array_buffer_transfer_to_fixed_length = __webpack_require__(7936);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.iterator.constructor.js
-var es_iterator_constructor = __webpack_require__(8111);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.iterator.reduce.js
-var es_iterator_reduce = __webpack_require__(8237);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.map.get-or-insert.js
 var es_map_get_or_insert = __webpack_require__(5367);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.map.get-or-insert-computed.js
 var es_map_get_or_insert_computed = __webpack_require__(2731);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.math.sum-precise.js
-var es_math_sum_precise = __webpack_require__(3068);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.typed-array.with.js
 var es_typed_array_with = __webpack_require__(9577);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.uint8-array.set-from-base64.js
@@ -6383,9 +6394,9 @@ var web_url_parse = __webpack_require__(5781);
 
 
 
-
-
 const isNodeJS = typeof process === "object" && process + "" === "[object process]" && !process.versions.nw && !(process.versions.electron && process.type && process.type !== "browser");
+const BBOX_INIT = [Infinity, Infinity, -Infinity, -Infinity];
+const F32_BBOX_INIT = new Float32Array(BBOX_INIT);
 const FONT_IDENTITY_MATRIX = [0.001, 0, 0, 0.001, 0, 0];
 const LINE_FACTOR = 1.35;
 const LINE_DESCENT_FACTOR = 0.35;
@@ -6428,6 +6439,7 @@ const AnnotationEditorParamsType = {
   INK_COLOR: 21,
   INK_THICKNESS: 22,
   INK_OPACITY: 23,
+  INK_COLOR_AND_OPACITY: 24,
   HIGHLIGHT_COLOR: 31,
   HIGHLIGHT_THICKNESS: 32,
   HIGHLIGHT_FREE: 33,
@@ -6827,9 +6839,6 @@ function stringToBytes(str) {
   }
   return bytes;
 }
-function string32(value) {
-  return String.fromCharCode(value >> 24 & 0xff, value >> 16 & 0xff, value >> 8 & 0xff, value & 0xff);
-}
 function objectSize(obj) {
   return Object.keys(obj).length;
 }
@@ -6839,20 +6848,9 @@ function isLittleEndian() {
   const view32 = new Uint32Array(buffer8.buffer, 0, 1);
   return view32[0] === 1;
 }
-function isEvalSupported() {
-  try {
-    new Function("");
-    return true;
-  } catch {
-    return false;
-  }
-}
 class FeatureTest {
   static get isLittleEndian() {
     return shadow(this, "isLittleEndian", isLittleEndian());
-  }
-  static get isEvalSupported() {
-    return shadow(this, "isEvalSupported", isEvalSupported());
   }
   static get isOffscreenCanvasSupported() {
     return shadow(this, "isOffscreenCanvasSupported", typeof OffscreenCanvas !== "undefined");
@@ -6882,11 +6880,25 @@ class FeatureTest {
   static get isCSSRoundSupported() {
     return shadow(this, "isCSSRoundSupported", globalThis.CSS?.supports?.("width: round(1.5px, 1px)"));
   }
+  static get isAlphaColorInputSupported() {
+    return shadow(this, "isAlphaColorInputSupported", (() => {
+      if (typeof document === "undefined") {
+        return false;
+      }
+      const input = document.createElement("input");
+      input.type = "color";
+      input.setAttribute("alpha", "");
+      input.value = "#ff000080";
+      return input.value !== "#ff0000";
+    })());
+  }
 }
-const hexNumbers = Array.from(Array(256).keys(), n => n.toString(16).padStart(2, "0"));
 class Util {
+  static get hexNums() {
+    return shadow(this, "hexNums", Array.from(Array(256).keys(), n => n.toString(16).padStart(2, "0")));
+  }
   static makeHexColor(r, g, b) {
-    return `#${hexNumbers[r]}${hexNumbers[g]}${hexNumbers[b]}`;
+    return `#${this.hexNums[r]}${this.hexNums[g]}${this.hexNums[b]}`;
   }
   static domMatrixToTransform(dm) {
     return [dm.a, dm.b, dm.c, dm.d, dm.e, dm.f];
@@ -7236,9 +7248,6 @@ function _isValidExplicitDest(validRef, validName, dest) {
 const makeArr = () => [];
 const makeMap = () => new Map();
 const makeObj = () => Object.create(null);
-function MathClamp(v, min, max) {
-  return Math.min(Math.max(v, min), max);
-}
 if (typeof Blob.prototype.bytes !== "function") {
   Blob.prototype.bytes = async function () {
     return new Uint8Array(await this.arrayBuffer());
@@ -7272,6 +7281,8 @@ if (typeof AbortSignal.any !== "function") {
   };
 }
 
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.iterator.constructor.js
+var es_iterator_constructor = __webpack_require__(8111);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.iterator.map.js
 var es_iterator_map = __webpack_require__(1701);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.url-search-params.delete.js
@@ -7280,6 +7291,11 @@ var web_url_search_params_delete = __webpack_require__(4603);
 var web_url_search_params_has = __webpack_require__(7566);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.url-search-params.size.js
 var web_url_search_params_size = __webpack_require__(8721);
+;// ./src/shared/math_clamp.js
+function MathClamp(v, min, max) {
+  return Math.min(Math.max(v, min), max);
+}
+
 ;// ./src/display/xfa_text.js
 
 class XfaText {
@@ -7381,7 +7397,7 @@ class XfaLayer {
           for (const option of element.children) {
             if (option.attributes.value === storedData.value) {
               option.attributes.selected = true;
-            } else if (option.attributes.hasOwnProperty("selected")) {
+            } else if (Object.hasOwn(option.attributes, "selected")) {
               delete option.attributes.selected;
             }
           }
@@ -7537,6 +7553,8 @@ class XfaLayer {
 }
 
 ;// ./src/display/display_utils.js
+
+
 
 
 
@@ -7895,7 +7913,7 @@ function getXfaPageViewport(xfaPage, {
     width,
     height
   } = xfaPage.attributes.style;
-  const viewBox = [0, 0, parseInt(width), parseInt(height)];
+  const viewBox = [0, 0, parseInt(width, 10), parseInt(height, 10)];
   return new PageViewport({
     viewBox,
     userUnit: 1,
@@ -7903,19 +7921,32 @@ function getXfaPageViewport(xfaPage, {
     rotation
   });
 }
-function getRGB(color) {
+function getRGBA(color) {
   if (color.startsWith("#")) {
-    const colorRGB = parseInt(color.slice(1), 16);
-    return [(colorRGB & 0xff0000) >> 16, (colorRGB & 0x00ff00) >> 8, colorRGB & 0x0000ff];
+    const hex = color.slice(1);
+    return [parseInt(hex.slice(0, 2), 16), parseInt(hex.slice(2, 4), 16), parseInt(hex.slice(4, 6), 16), hex.length >= 8 ? parseInt(hex.slice(6, 8), 16) / 255 : 1];
   }
   if (color.startsWith("rgb(")) {
-    return color.slice(4, -1).split(",").map(x => parseInt(x));
+    const [r, g, b] = color.slice(4, -1).split(",").map(x => parseInt(x, 10));
+    return [r, g, b, 1];
   }
   if (color.startsWith("rgba(")) {
-    return color.slice(5, -1).split(",", 3).map(x => parseInt(x));
+    const parts = color.slice(5, -1).split(",");
+    return [parseInt(parts[0], 10), parseInt(parts[1], 10), parseInt(parts[2], 10), parseFloat(parts[3])];
   }
-  warn(`Not a valid color format: "${color}"`);
-  return [0, 0, 0];
+  const m = color.match(/^color\(srgb\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)(?:\s*\/\s*([\d.]+|none))?\)$/);
+  if (m) {
+    return [Math.round(parseFloat(m[1]) * 255), Math.round(parseFloat(m[2]) * 255), Math.round(parseFloat(m[3]) * 255), m[4] !== undefined && m[4] !== "none" ? parseFloat(m[4]) : 1];
+  }
+  return null;
+}
+function getRGB(color) {
+  const rgba = getRGBA(color);
+  if (!rgba) {
+    warn(`Not a valid color format: "${color}"`);
+    return [0, 0, 0];
+  }
+  return rgba.slice(0, 3);
 }
 function getColorValues(colors) {
   const span = document.createElement("span");
@@ -11451,6 +11482,7 @@ class TouchManager {
 
 
 
+
 class AnnotationEditor {
   #accessibilityData = null;
   #allResizerDivs = null;
@@ -13430,9 +13462,15 @@ class AnnotationStorage {
         ids.push(value.annotationElementId);
       }
     }
+    let hash = "";
+    if (ids.length) {
+      const h = new MurmurHash3_64();
+      h.update(ids.join(","));
+      hash = h.hexdigest();
+    }
     return this.#modifiedIds = {
       ids: new Set(ids),
-      hash: ids.join(",")
+      hash
     };
   }
   [Symbol.iterator]() {
@@ -13502,6 +13540,7 @@ var es_iterator_for_each = __webpack_require__(7588);
 
 
 
+
 const FORCED_DEPENDENCY_LABEL = "__forcedDependency";
 const {
   floor,
@@ -13547,7 +13586,7 @@ const ensureDebugMetadata = (map, key) => map?.getOrInsertComputed(key, () => ({
 class CanvasBBoxTracker {
   #baseTransformStack = [[1, 0, 0, 1, 0, 0]];
   #clipBox = [-Infinity, -Infinity, Infinity, Infinity];
-  #pendingBBox = new Float64Array([Infinity, Infinity, -Infinity, -Infinity]);
+  #pendingBBox = new Float64Array(BBOX_INIT);
   _pendingBBoxIdx = -1;
   #canvasWidth;
   #canvasHeight;
@@ -13642,16 +13681,13 @@ class CanvasBBoxTracker {
   resetBBox(idx) {
     if (this._pendingBBoxIdx !== idx) {
       this._pendingBBoxIdx = idx;
-      this.#pendingBBox[0] = Infinity;
-      this.#pendingBBox[1] = Infinity;
-      this.#pendingBBox[2] = -Infinity;
-      this.#pendingBBox[3] = -Infinity;
+      this.#pendingBBox.set(BBOX_INIT, 0);
     }
     return this;
   }
   recordClipBox(idx, ctx, minX, maxX, minY, maxY) {
     const transform = Util.multiplyByDOMMatrix(this.#baseTransformStack.at(-1), ctx.getTransform());
-    const clipBox = [Infinity, Infinity, -Infinity, -Infinity];
+    const clipBox = BBOX_INIT.slice();
     Util.axialAlignedBoundingBox([minX, minY, maxX, maxY], transform, clipBox);
     const intersection = Util.intersect(this.#clipBox, clipBox);
     if (intersection) {
@@ -13675,12 +13711,12 @@ class CanvasBBoxTracker {
       Util.axialAlignedBoundingBox([minX, minY, maxX, maxY], transform, this.#pendingBBox);
       return this;
     }
-    const bbox = [Infinity, Infinity, -Infinity, -Infinity];
+    const bbox = BBOX_INIT.slice();
     Util.axialAlignedBoundingBox([minX, minY, maxX, maxY], transform, bbox);
-    this.#pendingBBox[0] = Math.min(this.#pendingBBox[0], Math.max(bbox[0], clipBox[0]));
-    this.#pendingBBox[1] = Math.min(this.#pendingBBox[1], Math.max(bbox[1], clipBox[1]));
-    this.#pendingBBox[2] = Math.max(this.#pendingBBox[2], Math.min(bbox[2], clipBox[2]));
-    this.#pendingBBox[3] = Math.max(this.#pendingBBox[3], Math.min(bbox[3], clipBox[3]));
+    this.#pendingBBox[0] = MathClamp(bbox[0], clipBox[0], this.#pendingBBox[0]);
+    this.#pendingBBox[1] = MathClamp(bbox[1], clipBox[1], this.#pendingBBox[1]);
+    this.#pendingBBox[2] = MathClamp(bbox[2], this.#pendingBBox[2], clipBox[2]);
+    this.#pendingBBox[3] = MathClamp(bbox[3], this.#pendingBBox[3], clipBox[3]);
     return this;
   }
   recordFullPageBBox(idx) {
@@ -14190,7 +14226,7 @@ class CanvasImagesTracker {
     const transform = Util.domMatrixToTransform(ctx.getTransform());
     let coords;
     if (clipBox[0] !== Infinity) {
-      const bbox = [Infinity, Infinity, -Infinity, -Infinity];
+      const bbox = BBOX_INIT.slice();
       Util.axialAlignedBoundingBox([0, -height, width, 0], transform, bbox);
       const finalBBox = Util.intersect(clipBox, bbox);
       if (!finalBBox) {
@@ -14385,6 +14421,9 @@ class FontLoader {
   _prepareFontLoadEvent(font, request) {
     function int32(data, offset) {
       return data.charCodeAt(offset) << 24 | data.charCodeAt(offset + 1) << 16 | data.charCodeAt(offset + 2) << 8 | data.charCodeAt(offset + 3) & 0xff;
+    }
+    function string32(value) {
+      return String.fromCharCode(value >> 24 & 0xff, value >> 16 & 0xff, value >> 8 & 0xff, value & 0xff);
     }
     function spliceString(s, offset, remove, insert) {
       const chunk1 = s.substring(0, offset);
@@ -14886,12 +14925,11 @@ class PatternInfo {
     const nCoord = dataView.getUint32(PATTERN_INFO.N_COORD, true);
     const nColor = dataView.getUint32(PATTERN_INFO.N_COLOR, true);
     const nStop = dataView.getUint32(PATTERN_INFO.N_STOP, true);
-    const nFigures = dataView.getUint32(PATTERN_INFO.N_FIGURES, true);
     let offset = 20;
     const coords = new Float32Array(this.buffer, offset, nCoord * 2);
     offset += nCoord * 8;
-    const colors = new Uint8Array(this.buffer, offset, nColor * 3);
-    offset += nColor * 3;
+    const colors = new Uint8Array(this.buffer, offset, nColor * 4);
+    offset += nColor * 4;
     const stops = [];
     for (let i = 0; i < nStop; ++i) {
       const p = dataView.getFloat32(offset, true);
@@ -14913,30 +14951,6 @@ class PatternInfo {
       background = new Uint8Array(this.buffer, offset, 3);
       offset += 3;
     }
-    const figures = [];
-    for (let i = 0; i < nFigures; ++i) {
-      const type = dataView.getUint8(offset);
-      offset += 1;
-      offset = Math.ceil(offset / 4) * 4;
-      const coordsLength = dataView.getUint32(offset, true);
-      offset += 4;
-      const figureCoords = new Int32Array(this.buffer, offset, coordsLength);
-      offset += coordsLength * 4;
-      const colorsLength = dataView.getUint32(offset, true);
-      offset += 4;
-      const figureColors = new Int32Array(this.buffer, offset, colorsLength);
-      offset += colorsLength * 4;
-      const figure = {
-        type,
-        coords: figureCoords,
-        colors: figureColors
-      };
-      if (type === MeshFigureType.LATTICE) {
-        figure.verticesPerRow = dataView.getUint32(offset, true);
-        offset += 4;
-      }
-      figures.push(figure);
-    }
     if (kind === 1) {
       return ["RadialAxial", "axial", bbox, stops, Array.from(coords.slice(0, 2)), Array.from(coords.slice(2, 4)), null, null];
     }
@@ -14947,12 +14961,12 @@ class PatternInfo {
       const shadingType = this.data[PATTERN_INFO.SHADING_TYPE];
       let bounds = null;
       if (coords.length > 0) {
-        bounds = [Infinity, Infinity, -Infinity, -Infinity];
+        bounds = BBOX_INIT.slice();
         for (let i = 0, ii = coords.length; i < ii; i += 2) {
           Util.pointBoundingBox(coords[i], coords[i + 1], bounds);
         }
       }
-      return ["Mesh", shadingType, coords, colors, figures, bounds, bbox, background];
+      return ["Mesh", shadingType, coords, colors, nCoord, bounds, bbox, background];
     }
     throw new Error(`Unsupported pattern kind: ${kind}`);
   }
@@ -16006,8 +16020,8 @@ if (isNodeJS) {
   }
 }
 async function node_utils_fetchData(url) {
-  const fs = process.getBuiltinModule("fs");
-  const data = await fs.promises.readFile(url);
+  const fs = process.getBuiltinModule("fs/promises");
+  const data = await fs.readFile(url);
   return new Uint8Array(data);
 }
 class NodeFilterFactory extends BaseFilterFactory {}
@@ -16024,17 +16038,12 @@ class NodeBinaryDataFactory extends BaseBinaryDataFactory {
   }
 }
 
-;// ./src/display/webgpu_mesh.js
+;// ./src/display/webgpu.js
 
 
 
 
-
-
-
-
-
-const WGSL = `
+const MESH_WGSL = `
 struct Uniforms {
   offsetX      : f32,
   offsetY      : f32,
@@ -16078,10 +16087,10 @@ fn fs_main(in : VertexOutput) -> @location(0) vec4<f32> {
   return vec4<f32>(in.color, 1.0);
 }
 `;
-class WebGPUMesh {
+class WebGPU {
   #initPromise = null;
   #device = null;
-  #pipeline = null;
+  #meshPipeline = null;
   #preferredFormat = null;
   async #initGPU() {
     if (!globalThis.navigator?.gpu) {
@@ -16093,115 +16102,60 @@ class WebGPUMesh {
         return false;
       }
       this.#preferredFormat = navigator.gpu.getPreferredCanvasFormat();
-      const device = this.#device = await adapter.requestDevice();
-      const shaderModule = device.createShaderModule({
-        code: WGSL
-      });
-      this.#pipeline = device.createRenderPipeline({
-        layout: "auto",
-        vertex: {
-          module: shaderModule,
-          entryPoint: "vs_main",
-          buffers: [{
-            arrayStride: 2 * 4,
-            attributes: [{
-              shaderLocation: 0,
-              offset: 0,
-              format: "float32x2"
-            }]
-          }, {
-            arrayStride: 4,
-            attributes: [{
-              shaderLocation: 1,
-              offset: 0,
-              format: "unorm8x4"
-            }]
-          }]
-        },
-        fragment: {
-          module: shaderModule,
-          entryPoint: "fs_main",
-          targets: [{
-            format: this.#preferredFormat
-          }]
-        },
-        primitive: {
-          topology: "triangle-list"
-        }
-      });
+      this.#device = await adapter.requestDevice();
       return true;
     } catch {
       return false;
     }
   }
   init() {
-    if (this.#initPromise === null) {
-      this.#initPromise = this.#initGPU();
-    }
+    return this.#initPromise ||= this.#initGPU();
   }
   get isReady() {
     return this.#device !== null;
   }
-  #buildVertexStreams(figures, context) {
-    const {
-      coords,
-      colors
-    } = context;
-    let vertexCount = 0;
-    for (const figure of figures) {
-      const ps = figure.coords;
-      if (figure.type === MeshFigureType.TRIANGLES) {
-        vertexCount += ps.length;
-      } else if (figure.type === MeshFigureType.LATTICE) {
-        const vpr = figure.verticesPerRow;
-        vertexCount += (Math.floor(ps.length / vpr) - 1) * (vpr - 1) * 6;
-      }
+  loadMeshShader() {
+    if (!this.#device || this.#meshPipeline) {
+      return;
     }
-    const posData = new Float32Array(vertexCount * 2);
-    const colData = new Uint8Array(vertexCount * 4);
-    let pOff = 0,
-      cOff = 0;
-    const addVertex = (pi, ci) => {
-      posData[pOff++] = coords[pi * 2];
-      posData[pOff++] = coords[pi * 2 + 1];
-      colData[cOff++] = colors[ci * 4];
-      colData[cOff++] = colors[ci * 4 + 1];
-      colData[cOff++] = colors[ci * 4 + 2];
-      cOff++;
-    };
-    for (const figure of figures) {
-      const ps = figure.coords;
-      const cs = figure.colors;
-      if (figure.type === MeshFigureType.TRIANGLES) {
-        for (let i = 0, ii = ps.length; i < ii; i += 3) {
-          addVertex(ps[i], cs[i]);
-          addVertex(ps[i + 1], cs[i + 1]);
-          addVertex(ps[i + 2], cs[i + 2]);
-        }
-      } else if (figure.type === MeshFigureType.LATTICE) {
-        const vpr = figure.verticesPerRow;
-        const rows = Math.floor(ps.length / vpr) - 1;
-        const cols = vpr - 1;
-        for (let i = 0; i < rows; i++) {
-          let q = i * vpr;
-          for (let j = 0; j < cols; j++, q++) {
-            addVertex(ps[q], cs[q]);
-            addVertex(ps[q + 1], cs[q + 1]);
-            addVertex(ps[q + vpr], cs[q + vpr]);
-            addVertex(ps[q + vpr + 1], cs[q + vpr + 1]);
-            addVertex(ps[q + 1], cs[q + 1]);
-            addVertex(ps[q + vpr], cs[q + vpr]);
-          }
-        }
+    const shaderModule = this.#device.createShaderModule({
+      code: MESH_WGSL
+    });
+    this.#meshPipeline = this.#device.createRenderPipeline({
+      layout: "auto",
+      vertex: {
+        module: shaderModule,
+        entryPoint: "vs_main",
+        buffers: [{
+          arrayStride: 2 * 4,
+          attributes: [{
+            shaderLocation: 0,
+            offset: 0,
+            format: "float32x2"
+          }]
+        }, {
+          arrayStride: 4,
+          attributes: [{
+            shaderLocation: 1,
+            offset: 0,
+            format: "unorm8x4"
+          }]
+        }]
+      },
+      fragment: {
+        module: shaderModule,
+        entryPoint: "fs_main",
+        targets: [{
+          format: this.#preferredFormat
+        }]
+      },
+      primitive: {
+        topology: "triangle-list"
       }
-    }
-    return {
-      posData,
-      colData,
-      vertexCount
-    };
+    });
   }
-  draw(figures, context, backgroundColor, paddedWidth, paddedHeight, borderSize) {
+  draw(posData, colData, vertexCount, context, backgroundColor, paddedWidth, paddedHeight, borderSize) {
+    this.loadMeshShader();
     const device = this.#device;
     const {
       offsetX,
@@ -16209,11 +16163,6 @@ class WebGPUMesh {
       scaleX,
       scaleY
     } = context;
-    const {
-      posData,
-      colData,
-      vertexCount
-    } = this.#buildVertexStreams(figures, context);
     const posBuffer = device.createBuffer({
       size: Math.max(posData.byteLength, 4),
       usage: GPUBufferUsage.VERTEX | GPUBufferUsage.COPY_DST
@@ -16234,7 +16183,7 @@ class WebGPUMesh {
     });
     device.queue.writeBuffer(uniformBuffer, 0, new Float32Array([offsetX, offsetY, scaleX, scaleY, paddedWidth, paddedHeight, borderSize, 0]));
     const bindGroup = device.createBindGroup({
-      layout: this.#pipeline.getBindGroupLayout(0),
+      layout: this.#meshPipeline.getBindGroupLayout(0),
       entries: [{
         binding: 0,
         resource: {
@@ -16270,7 +16219,7 @@ class WebGPUMesh {
       }]
     });
     if (vertexCount > 0) {
-      renderPass.setPipeline(this.#pipeline);
+      renderPass.setPipeline(this.#meshPipeline);
       renderPass.setBindGroup(0, bindGroup);
       renderPass.setVertexBuffer(0, posBuffer);
       renderPass.setVertexBuffer(1, colBuffer);
@@ -16284,18 +16233,23 @@ class WebGPUMesh {
     return offscreen.transferToImageBitmap();
   }
 }
-const _webGPUMesh = new WebGPUMesh();
-function initWebGPUMesh() {
-  _webGPUMesh.init();
+const _webGPU = new WebGPU();
+function initGPU() {
+  return _webGPU.init();
 }
-function isWebGPUMeshReady() {
-  return _webGPUMesh.isReady;
+function isGPUReady() {
+  return _webGPU.isReady;
 }
-function drawMeshWithGPU(figures, context, backgroundColor, paddedWidth, paddedHeight, borderSize) {
-  return _webGPUMesh.draw(figures, context, backgroundColor, paddedWidth, paddedHeight, borderSize);
+function loadMeshShader() {
+  _webGPU.loadMeshShader();
+}
+function drawMeshWithGPU(posData, colData, vertexCount, context, backgroundColor, paddedWidth, paddedHeight, borderSize) {
+  return _webGPU.draw(posData, colData, vertexCount, context, backgroundColor, paddedWidth, paddedHeight, borderSize);
 }
 
 ;// ./src/display/pattern_helper.js
+
+
 
 
 
@@ -16346,12 +16300,12 @@ class RadialAxialShadingPattern extends BaseShadingPattern {
   isRadial() {
     return this._type === "radial";
   }
-  _isCircleCenterOutside() {
-    if (!this.isRadial() || this._r0 > this._r1) {
+  areConic() {
+    if (!this.isRadial()) {
       return false;
     }
     const dist = Math.hypot(this._p0[0] - this._p1[0], this._p0[1] - this._p1[1]);
-    return dist > this._r1;
+    return dist + this._r1 > this._r0 && dist + this._r0 > this._r1;
   }
   _createGradient(ctx, transform = null) {
     let grad;
@@ -16442,7 +16396,7 @@ class RadialAxialShadingPattern extends BaseShadingPattern {
         tmpCtx.transform(...this.matrix);
       }
       applyBoundingBox(tmpCtx, this._bbox);
-      if (this._isCircleCenterOutside()) {
+      if (this.areConic()) {
         tmpCtx.fillStyle = this._createReversedGradient(tmpCtx);
         tmpCtx.fill();
       }
@@ -16453,7 +16407,7 @@ class RadialAxialShadingPattern extends BaseShadingPattern {
       const domMatrix = new DOMMatrix(inverse);
       pattern.setTransform(domMatrix);
     } else {
-      if (this._isCircleCenterOutside()) {
+      if (this.areConic()) {
         ctx.save();
         applyBoundingBox(ctx, this._bbox);
         ctx.fillStyle = this._createReversedGradient(ctx);
@@ -16568,42 +16522,17 @@ function drawTriangle(data, context, p1, p2, p3, c1, c2, c3) {
     }
   }
 }
-function drawFigure(data, figure, context) {
-  const ps = figure.coords;
-  const cs = figure.colors;
-  let i, ii;
-  switch (figure.type) {
-    case MeshFigureType.LATTICE:
-      const verticesPerRow = figure.verticesPerRow;
-      const rows = Math.floor(ps.length / verticesPerRow) - 1;
-      const cols = verticesPerRow - 1;
-      for (i = 0; i < rows; i++) {
-        let q = i * verticesPerRow;
-        for (let j = 0; j < cols; j++, q++) {
-          drawTriangle(data, context, ps[q], ps[q + 1], ps[q + verticesPerRow], cs[q], cs[q + 1], cs[q + verticesPerRow]);
-          drawTriangle(data, context, ps[q + verticesPerRow + 1], ps[q + 1], ps[q + verticesPerRow], cs[q + verticesPerRow + 1], cs[q + 1], cs[q + verticesPerRow]);
-        }
-      }
-      break;
-    case MeshFigureType.TRIANGLES:
-      for (i = 0, ii = ps.length; i < ii; i += 3) {
-        drawTriangle(data, context, ps[i], ps[i + 1], ps[i + 2], cs[i], cs[i + 1], cs[i + 2]);
-      }
-      break;
-    default:
-      throw new Error("illegal figure");
-  }
-}
 class MeshShadingPattern extends BaseShadingPattern {
   constructor(IR) {
     super();
-    this._coords = IR[2];
-    this._colors = IR[3];
-    this._figures = IR[4];
+    this._posData = IR[2];
+    this._colData = IR[3];
+    this._vertexCount = IR[4];
     this._bounds = IR[5];
     this._bbox = IR[6];
     this._background = IR[7];
     this.matrix = null;
+    loadMeshShader();
   }
   _createMeshCanvas(combinedScale, backgroundColor, canvasFactory) {
     const EXPECTED_SCALE = 1.1;
@@ -16618,8 +16547,8 @@ class MeshShadingPattern extends BaseShadingPattern {
     const scaleX = boundsWidth ? boundsWidth / width : 1;
     const scaleY = boundsHeight ? boundsHeight / height : 1;
     const context = {
-      coords: this._coords,
-      colors: this._colors,
+      coords: this._posData,
+      colors: this._colData,
       offsetX: -offsetX,
       offsetY: -offsetY,
       scaleX: 1 / scaleX,
@@ -16628,8 +16557,8 @@ class MeshShadingPattern extends BaseShadingPattern {
     const paddedWidth = width + BORDER_SIZE * 2;
     const paddedHeight = height + BORDER_SIZE * 2;
     const tmpCanvas = canvasFactory.create(paddedWidth, paddedHeight);
-    if (isWebGPUMeshReady()) {
-      tmpCanvas.context.drawImage(drawMeshWithGPU(this._figures, context, backgroundColor, paddedWidth, paddedHeight, BORDER_SIZE), 0, 0);
+    if (isGPUReady() && this._vertexCount > 48) {
+      tmpCanvas.context.drawImage(drawMeshWithGPU(this._posData, this._colData, this._vertexCount, context, backgroundColor, paddedWidth, paddedHeight, BORDER_SIZE), 0, 0);
     } else {
       const data = tmpCanvas.context.createImageData(width, height);
       if (backgroundColor) {
@@ -16641,8 +16570,8 @@ class MeshShadingPattern extends BaseShadingPattern {
           bytes[i + 3] = 255;
         }
       }
-      for (const figure of this._figures) {
-        drawFigure(data, figure, context);
+      for (let i = 0, ii = this._vertexCount; i < ii; i += 3) {
+        drawTriangle(data, context, i, i + 1, i + 2, i, i + 1, i + 2);
       }
       tmpCanvas.context.putImageData(data, BORDER_SIZE, BORDER_SIZE);
     }
@@ -16716,73 +16645,127 @@ class TilingPattern {
     this.ystep = IR[6];
     this.paintType = IR[7];
     this.tilingType = IR[8];
+    this.needsIsolation = IR[9] ?? true;
     this.ctx = ctx;
     this.canvasGraphicsFactory = canvasGraphicsFactory;
     this.baseTransform = baseTransform;
+    this.patternBaseMatrix = this.matrix ? Util.transform(baseTransform, this.matrix) : baseTransform;
   }
-  createPatternCanvas(owner, opIdx) {
-    const {
-      bbox,
-      operatorList,
-      paintType,
-      tilingType,
-      color,
-      canvasGraphicsFactory
-    } = this;
-    let {
-      xstep,
-      ystep
-    } = this;
-    xstep = Math.abs(xstep);
-    ystep = Math.abs(ystep);
-    info("TilingType: " + tilingType);
-    const x0 = bbox[0],
-      y0 = bbox[1],
-      x1 = bbox[2],
-      y1 = bbox[3];
-    const width = x1 - x0;
-    const height = y1 - y0;
-    const scale = new Float32Array(2);
-    Util.singularValueDecompose2dScale(this.matrix, scale);
-    const [matrixScaleX, matrixScaleY] = scale;
-    Util.singularValueDecompose2dScale(this.baseTransform, scale);
-    const combinedScaleX = matrixScaleX * scale[0];
-    const combinedScaleY = matrixScaleY * scale[1];
-    let canvasWidth = width,
-      canvasHeight = height,
-      redrawHorizontally = false,
-      redrawVertically = false;
-    const xScaledStep = Math.ceil(xstep * combinedScaleX);
-    const yScaledStep = Math.ceil(ystep * combinedScaleY);
-    const xScaledWidth = Math.ceil(width * combinedScaleX);
-    const yScaledHeight = Math.ceil(height * combinedScaleY);
-    if (xScaledStep >= xScaledWidth) {
-      canvasWidth = xstep;
-    } else {
-      redrawHorizontally = true;
+  canSkipPatternCanvas([width, height, offsetX, offsetY]) {
+    const [x0, y0, x1, y1] = this.bbox;
+    const absXStep = Math.abs(this.xstep);
+    const absYStep = Math.abs(this.ystep);
+    if (width > absXStep + 1e-6 || height > absYStep + 1e-6) {
+      return null;
     }
-    if (yScaledStep >= yScaledHeight) {
-      canvasHeight = ystep;
-    } else {
-      redrawVertically = true;
-    }
-    const dimx = this.getSizeAndScale(canvasWidth, this.ctx.canvas.width, combinedScaleX);
-    const dimy = this.getSizeAndScale(canvasHeight, this.ctx.canvas.height, combinedScaleY);
+    const nXFirst = Math.floor((offsetX - x1) / absXStep) + 1;
+    const nXLast = Math.ceil((offsetX + width - x0) / absXStep) - 1;
+    const nYFirst = Math.floor((offsetY - y1) / absYStep) + 1;
+    const nYLast = Math.ceil((offsetY + height - y0) / absYStep) - 1;
+    return nXLast <= nXFirst && nYLast <= nYFirst ? [nXFirst, nYFirst] : null;
+  }
+  updatePatternDims(clippedBBox, dims) {
+    const inv = Util.inverseTransform(this.patternBaseMatrix);
+    const c1 = [clippedBBox[0], clippedBBox[1]];
+    const c2 = [clippedBBox[2], clippedBBox[3]];
+    Util.applyTransform(c1, inv);
+    Util.applyTransform(c2, inv);
+    dims[0] = Math.abs(c2[0] - c1[0]);
+    dims[1] = Math.abs(c2[1] - c1[1]);
+    dims[2] = Math.min(c1[0], c2[0]);
+    dims[3] = Math.min(c1[1], c2[1]);
+  }
+  _renderTileCanvas(owner, opIdx, dimx, dimy) {
+    const [x0, y0, x1, y1] = this.bbox;
     const tmpCanvas = owner.canvasFactory.create(dimx.size, dimy.size);
     const tmpCtx = tmpCanvas.context;
-    const graphics = canvasGraphicsFactory.createCanvasGraphics(tmpCtx, opIdx);
+    const graphics = this.canvasGraphicsFactory.createCanvasGraphics(tmpCtx, opIdx);
     graphics.groupLevel = owner.groupLevel;
-    this.setFillAndStrokeStyleToContext(graphics, paintType, color);
+    this.setFillAndStrokeStyleToContext(graphics, this.paintType, this.color);
     tmpCtx.translate(-dimx.scale * x0, -dimy.scale * y0);
     graphics.transform(0, dimx.scale, 0, 0, dimy.scale, 0, 0);
     tmpCtx.save();
     graphics.dependencyTracker?.save();
     this.clipBbox(graphics, x0, y0, x1, y1);
     graphics.baseTransform = getCurrentTransform(graphics.ctx);
-    graphics.executeOperatorList(operatorList);
+    graphics.executeOperatorList(this.operatorList);
     graphics.endDrawing();
     graphics.dependencyTracker?.restore();
     tmpCtx.restore();
+    return tmpCanvas;
+  }
+  _getCombinedScales() {
+    const scale = new Float32Array(2);
+    Util.singularValueDecompose2dScale(this.matrix, scale);
+    const [matrixScaleX, matrixScaleY] = scale;
+    Util.singularValueDecompose2dScale(this.baseTransform, scale);
+    return [matrixScaleX * scale[0], matrixScaleY * scale[1]];
+  }
+  drawPattern(owner, path, useEOFill = false, [n, m], opIdx) {
+    const [x0, y0, x1, y1] = this.bbox;
+    const dependencyTracker = owner.dependencyTracker;
+    if (dependencyTracker) {
+      owner.dependencyTracker = new CanvasNestedDependencyTracker(dependencyTracker, opIdx);
+    }
+    owner.save();
+    if (useEOFill) {
+      owner.ctx.clip(path, "evenodd");
+    } else {
+      owner.ctx.clip(path);
+    }
+    owner.ctx.setTransform(...this.patternBaseMatrix);
+    owner.ctx.translate(n * this.xstep, m * this.ystep);
+    if (this.needsIsolation || owner.ctx.globalAlpha !== 1 || owner.ctx.globalCompositeOperation !== "source-over" || owner.inSMaskMode) {
+      const bboxWidth = x1 - x0;
+      const bboxHeight = y1 - y0;
+      const [combinedScaleX, combinedScaleY] = this._getCombinedScales();
+      const dimx = this.getSizeAndScale(bboxWidth, this.ctx.canvas.width, combinedScaleX);
+      const dimy = this.getSizeAndScale(bboxHeight, this.ctx.canvas.height, combinedScaleY);
+      const tmpCanvas = this._renderTileCanvas(owner, opIdx, dimx, dimy);
+      owner.ctx.drawImage(tmpCanvas.canvas, x0, y0, bboxWidth, bboxHeight);
+      owner.canvasFactory.destroy(tmpCanvas);
+    } else {
+      this.setFillAndStrokeStyleToContext(owner, this.paintType, this.color);
+      this.clipBbox(owner, x0, y0, x1, y1);
+      owner.baseTransformStack.push(owner.baseTransform);
+      owner.baseTransform = getCurrentTransform(owner.ctx);
+      owner.executeOperatorList(this.operatorList);
+      owner.baseTransform = owner.baseTransformStack.pop();
+    }
+    owner.restore();
+    if (dependencyTracker) {
+      owner.dependencyTracker = dependencyTracker;
+    }
+  }
+  createPatternCanvas(owner, opIdx) {
+    const [x0, y0, x1, y1] = this.bbox;
+    const width = x1 - x0;
+    const height = y1 - y0;
+    let {
+      xstep,
+      ystep
+    } = this;
+    xstep = Math.abs(xstep);
+    ystep = Math.abs(ystep);
+    info("TilingType: " + this.tilingType);
+    const [combinedScaleX, combinedScaleY] = this._getCombinedScales();
+    let canvasWidth = width,
+      canvasHeight = height,
+      redrawHorizontally = false,
+      redrawVertically = false;
+    if (Math.ceil(xstep * combinedScaleX) >= Math.ceil(width * combinedScaleX)) {
+      canvasWidth = xstep;
+    } else {
+      redrawHorizontally = true;
+    }
+    if (Math.ceil(ystep * combinedScaleY) >= Math.ceil(height * combinedScaleY)) {
+      canvasHeight = ystep;
+    } else {
+      redrawVertically = true;
+    }
+    const dimx = this.getSizeAndScale(canvasWidth, this.ctx.canvas.width, combinedScaleX);
+    const dimy = this.getSizeAndScale(canvasHeight, this.ctx.canvas.height, combinedScaleY);
+    const tmpCanvas = this._renderTileCanvas(owner, opIdx, dimx, dimy);
     if (redrawHorizontally || redrawVertically) {
       const image = tmpCanvas.canvas;
       if (redrawHorizontally) {
@@ -16839,14 +16822,16 @@ class TilingPattern {
   clipBbox(graphics, x0, y0, x1, y1) {
     const bboxWidth = x1 - x0;
     const bboxHeight = y1 - y0;
-    graphics.ctx.rect(x0, y0, bboxWidth, bboxHeight);
+    const clip = new Path2D();
+    clip.rect(x0, y0, bboxWidth, bboxHeight);
     Util.axialAlignedBoundingBox([x0, y0, x1, y1], getCurrentTransform(graphics.ctx), graphics.current.minMax);
-    graphics.clip();
-    graphics.endPath();
+    graphics.ctx.clip(clip);
+    graphics.current.updateClipFromPath();
   }
   setFillAndStrokeStyleToContext(graphics, paintType, color) {
     const context = graphics.ctx,
       current = graphics.current;
+    current.patternFill = current.patternStroke = false;
     switch (paintType) {
       case PaintType.COLORED:
         const {
@@ -16868,13 +16853,7 @@ class TilingPattern {
     return false;
   }
   getPattern(ctx, owner, inverse, pathType, opIdx) {
-    let matrix = inverse;
-    if (pathType !== PathType.SHADING) {
-      matrix = Util.transform(matrix, owner.baseTransform);
-      if (this.matrix) {
-        matrix = Util.transform(matrix, this.matrix);
-      }
-    }
+    const matrix = pathType !== PathType.SHADING ? Util.transform(inverse, this.patternBaseMatrix) : inverse;
     const temporaryPatternCanvas = this.createPatternCanvas(owner, opIdx);
     let domMatrix = new DOMMatrix(matrix);
     domMatrix = domMatrix.translate(temporaryPatternCanvas.offsetX, temporaryPatternCanvas.offsetY);
@@ -17026,7 +17005,6 @@ const EXECUTION_STEPS = 10;
 const FULL_CHUNK_HEIGHT = 16;
 const SCALE_MATRIX = new DOMMatrix();
 const XY = new Float32Array(2);
-const MIN_MAX_INIT = new Float32Array([Infinity, Infinity, -Infinity, -Infinity]);
 function mirrorContextOperations(ctx, destCtx) {
   if (ctx._removeMirroring) {
     throw new Error("Context is already forwarding operations.");
@@ -17085,8 +17063,13 @@ function mirrorContextOperations(ctx, destCtx) {
     this.__originalTransform(a, b, c, d, e, f);
   };
   ctx.setTransform = function (a, b, c, d, e, f) {
-    destCtx.setTransform(a, b, c, d, e, f);
-    this.__originalSetTransform(a, b, c, d, e, f);
+    if (b === undefined) {
+      destCtx.setTransform(a);
+      this.__originalSetTransform(a);
+    } else {
+      destCtx.setTransform(a, b, c, d, e, f);
+      this.__originalSetTransform(a, b, c, d, e, f);
+    }
   };
   ctx.resetTransform = function () {
     destCtx.resetTransform();
@@ -17179,6 +17162,7 @@ class CanvasExtraState {
   textRise = 0;
   fillColor = "#000000";
   strokeColor = "#000000";
+  tilingPatternDims = null;
   patternFill = false;
   patternStroke = false;
   fillAlpha = 1;
@@ -17186,7 +17170,7 @@ class CanvasExtraState {
   lineWidth = 1;
   activeSMask = null;
   transferMaps = "none";
-  minMax = MIN_MAX_INIT.slice();
+  minMax = F32_BBOX_INIT.slice();
   constructor(width, height) {
     this.clipBox = new Float32Array([0, 0, width, height]);
   }
@@ -17194,6 +17178,7 @@ class CanvasExtraState {
     const clone = Object.create(this);
     clone.clipBox = this.clipBox.slice();
     clone.minMax = this.minMax.slice();
+    clone.tilingPatternDims = this.tilingPatternDims?.slice();
     return clone;
   }
   getPathBoundingBox(pathType = PathType.FILL, transform = null) {
@@ -17221,7 +17206,7 @@ class CanvasExtraState {
   }
   startNewPathAndClipBox(box) {
     this.clipBox.set(box, 0);
-    this.minMax.set(MIN_MAX_INIT, 0);
+    this.minMax.set(F32_BBOX_INIT, 0);
   }
   getClippedPathBoundingBox(pathType = PathType.FILL, transform = null) {
     return Util.intersect(this.clipBox, this.getPathBoundingBox(pathType, transform));
@@ -17413,9 +17398,12 @@ class CanvasGraphics {
     this.baseTransformStack = [];
     this.groupLevel = 0;
     this.smaskStack = [];
-    this.smaskCounter = 0;
     this.tempSMask = null;
     this.smaskGroupCanvases = [];
+    this.smaskPreparedEntry = null;
+    this.smaskPreparedFor = null;
+    this.smaskPreparedOffsetX = 0;
+    this.smaskPreparedOffsetY = 0;
     this.suspendedCtx = null;
     this.contentVisible = true;
     this.markedContentStack = markedContentStack || [];
@@ -17466,7 +17454,7 @@ class CanvasGraphics {
     if (transform) {
       this.ctx.transform(...transform);
       this.outputScaleX = transform[0];
-      this.outputScaleY = transform[0];
+      this.outputScaleY = transform[3];
     }
     this.ctx.transform(...viewport.transform);
     this.viewportScale = viewport.scale;
@@ -17555,6 +17543,7 @@ class CanvasGraphics {
       this.canvasFactory.destroy(canvas);
     }
     this.smaskGroupCanvases.length = 0;
+    this._clearPreparedSMask();
     this.tempSMask = null;
     this.smaskStack.length = 0;
     this.cachedPatterns.clear();
@@ -17594,11 +17583,11 @@ class CanvasGraphics {
       let nw = pw,
         nh = ph;
       if (ws > 2 && pw > 1) {
-        nw = pw >= 16384 ? Math.floor(pw / 2) - 1 || 1 : Math.ceil(pw / 2);
+        nw = Math.ceil(pw / 2);
         ws /= pw / nw;
       }
       if (hs > 2 && ph > 1) {
-        nh = ph >= 16384 ? Math.floor(ph / 2) - 1 || 1 : Math.ceil(ph) / 2;
+        nh = Math.ceil(ph / 2);
         hs /= ph / nh;
       }
       scaleSteps.push({
@@ -17687,7 +17676,7 @@ class CanvasGraphics {
     }
     let maskToCanvas = Util.transform(currentTransform, [1 / width, 0, 0, -1 / height, 0, 0]);
     maskToCanvas = Util.transform(maskToCanvas, [1, 0, 0, 1, 0, -height]);
-    const minMax = MIN_MAX_INIT.slice();
+    const minMax = F32_BBOX_INIT.slice();
     Util.axialAlignedBoundingBox([0, 0, width, height], maskToCanvas, minMax);
     const [minX, minY, maxX, maxY] = minMax;
     const drawnWidth = Math.round(maxX - minX) || 1;
@@ -17808,8 +17797,11 @@ class CanvasGraphics {
         case "SMask":
           this.dependencyTracker?.recordSimpleData("SMask", opIdx);
           this.current.activeSMask = value ? this.tempSMask : null;
+          if (this.current.activeSMask) {
+            this.current.activeSMask.blendMode = this.ctx.globalCompositeOperation;
+          }
           this.tempSMask = null;
-          this.checkSMaskState();
+          this.checkSMaskState(opIdx);
           break;
         case "TR":
           this.dependencyTracker?.recordSimpleData("filter", opIdx);
@@ -17821,20 +17813,93 @@ class CanvasGraphics {
   get inSMaskMode() {
     return !!this.suspendedCtx;
   }
-  checkSMaskState() {
+  _clearPreparedSMask() {
+    if (this.smaskPreparedEntry) {
+      this.canvasFactory.destroy(this.smaskPreparedEntry);
+      this.smaskPreparedEntry = null;
+    }
+    this.smaskPreparedFor = null;
+    this.smaskPreparedOffsetX = 0;
+    this.smaskPreparedOffsetY = 0;
+  }
+  _ensurePreparedSMask(smask, width, height) {
+    if (smask === this.smaskPreparedFor) {
+      return;
+    }
+    this._clearPreparedSMask();
+    this._prepareSMaskCanvas(smask, width, height);
+  }
+  checkSMaskState(opIdx) {
     const inSMaskMode = this.inSMaskMode;
     if (this.current.activeSMask && !inSMaskMode) {
-      this.beginSMaskMode();
+      this.beginSMaskMode(opIdx);
     } else if (!this.current.activeSMask && inSMaskMode) {
       this.endSMaskMode();
+    } else if (this.current.activeSMask && inSMaskMode) {
+      this._ensurePreparedSMask(this.current.activeSMask, this.ctx.canvas.width, this.ctx.canvas.height);
     }
+  }
+  _prepareSMaskCanvas(smask, width, height) {
+    const {
+      canvas: maskCanvas,
+      subtype,
+      backdrop,
+      transferMap
+    } = smask;
+    const hasFilter = subtype === "Luminosity" || subtype === "Alpha" && transferMap;
+    if (!backdrop && !hasFilter) {
+      this.smaskPreparedFor = smask;
+      return;
+    }
+    let preparedEntry, offsetX, offsetY;
+    if (backdrop && hasFilter) {
+      const srcEntry = this.canvasFactory.create(width, height);
+      const sCtx = srcEntry.context;
+      sCtx.drawImage(maskCanvas, smask.offsetX, smask.offsetY);
+      sCtx.globalCompositeOperation = "destination-atop";
+      sCtx.fillStyle = backdrop;
+      sCtx.fillRect(0, 0, width, height);
+      sCtx.globalCompositeOperation = "source-over";
+      preparedEntry = this.canvasFactory.create(width, height);
+      const pCtx = preparedEntry.context;
+      pCtx.filter = subtype === "Alpha" ? this.filterFactory.addAlphaFilter(transferMap) : this.filterFactory.addLuminosityFilter(transferMap);
+      pCtx.drawImage(srcEntry.canvas, 0, 0);
+      pCtx.filter = "none";
+      this.canvasFactory.destroy(srcEntry);
+      offsetX = offsetY = 0;
+    } else if (hasFilter) {
+      preparedEntry = this.canvasFactory.create(maskCanvas.width, maskCanvas.height);
+      const pCtx = preparedEntry.context;
+      pCtx.filter = subtype === "Alpha" ? this.filterFactory.addAlphaFilter(transferMap) : this.filterFactory.addLuminosityFilter(transferMap);
+      pCtx.drawImage(maskCanvas, 0, 0);
+      pCtx.filter = "none";
+      ({
+        offsetX,
+        offsetY
+      } = smask);
+    } else {
+      preparedEntry = this.canvasFactory.create(width, height);
+      const pCtx = preparedEntry.context;
+      pCtx.drawImage(maskCanvas, smask.offsetX, smask.offsetY);
+      pCtx.globalCompositeOperation = "destination-atop";
+      pCtx.fillStyle = backdrop;
+      pCtx.fillRect(0, 0, width, height);
+      pCtx.globalCompositeOperation = "source-over";
+      offsetX = offsetY = 0;
+    }
+    this.smaskPreparedEntry = preparedEntry;
+    this.smaskPreparedFor = smask;
+    this.smaskPreparedOffsetX = offsetX;
+    this.smaskPreparedOffsetY = offsetY;
   }
   beginSMaskMode(opIdx) {
     if (this.inSMaskMode) {
       throw new Error("beginSMaskMode called while already in smask mode");
     }
-    const drawnWidth = this.ctx.canvas.width;
-    const drawnHeight = this.ctx.canvas.height;
+    const {
+      width: drawnWidth,
+      height: drawnHeight
+    } = this.ctx.canvas;
     const scratchCanvas = this.canvasFactory.create(drawnWidth, drawnHeight);
     this.smaskScratchCanvas = scratchCanvas;
     this.suspendedCtx = this.ctx;
@@ -17842,6 +17907,7 @@ class CanvasGraphics {
     ctx.setTransform(this.suspendedCtx.getTransform());
     copyCtxState(this.suspendedCtx, ctx);
     mirrorContextOperations(ctx, this.suspendedCtx);
+    this._ensurePreparedSMask(this.current.activeSMask, drawnWidth, drawnHeight);
     this.setGState(opIdx, [["BM", "source-over"]]);
   }
   endSMaskMode() {
@@ -17854,6 +17920,7 @@ class CanvasGraphics {
     this.suspendedCtx = null;
     this.canvasFactory.destroy(this.smaskScratchCanvas);
     this.smaskScratchCanvas = null;
+    this._clearPreparedSMask();
   }
   compose(dirtyBox) {
     if (!this.current.activeSMask) {
@@ -17872,7 +17939,7 @@ class CanvasGraphics {
     this.composeSMask(suspendedCtx, smask, this.ctx, dirtyBox);
     this.ctx.save();
     this.ctx.setTransform(1, 0, 0, 1, 0, 0);
-    this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+    this.ctx.clearRect(dirtyBox[0], dirtyBox[1], dirtyBox[2] - dirtyBox[0], dirtyBox[3] - dirtyBox[1]);
     this.ctx.restore();
   }
   composeSMask(ctx, smask, layerCtx, layerBox) {
@@ -17883,60 +17950,42 @@ class CanvasGraphics {
     if (layerWidth === 0 || layerHeight === 0) {
       return;
     }
-    this.genericComposeSMask(smask.context, layerCtx, layerWidth, layerHeight, smask.subtype, smask.backdrop, smask.transferMap, layerOffsetX, layerOffsetY, smask.offsetX, smask.offsetY);
+    const preparedEntry = this.smaskPreparedEntry;
+    if (preparedEntry) {
+      const srcX = layerOffsetX - this.smaskPreparedOffsetX;
+      const srcY = layerOffsetY - this.smaskPreparedOffsetY;
+      layerCtx.save();
+      layerCtx.globalAlpha = 1;
+      layerCtx.setTransform(1, 0, 0, 1, 0, 0);
+      const clip = new Path2D();
+      clip.rect(layerOffsetX, layerOffsetY, layerWidth, layerHeight);
+      layerCtx.clip(clip);
+      layerCtx.globalCompositeOperation = "destination-in";
+      layerCtx.drawImage(preparedEntry.canvas, srcX, srcY, layerWidth, layerHeight, layerOffsetX, layerOffsetY, layerWidth, layerHeight);
+      layerCtx.restore();
+    } else {
+      this.genericComposeSMask(smask.context, layerCtx, layerWidth, layerHeight, layerOffsetX, layerOffsetY, smask.offsetX, smask.offsetY);
+    }
     ctx.save();
     ctx.globalAlpha = 1;
-    ctx.globalCompositeOperation = "source-over";
+    ctx.globalCompositeOperation = smask.blendMode || "source-over";
     ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.drawImage(layerCtx.canvas, 0, 0);
+    ctx.drawImage(layerCtx.canvas, layerOffsetX, layerOffsetY, layerWidth, layerHeight, layerOffsetX, layerOffsetY, layerWidth, layerHeight);
     ctx.restore();
   }
-  genericComposeSMask(maskCtx, layerCtx, width, height, subtype, backdrop, transferMap, layerOffsetX, layerOffsetY, maskOffsetX, maskOffsetY) {
-    let maskCanvas = maskCtx.canvas;
-    let maskX = layerOffsetX - maskOffsetX;
-    let maskY = layerOffsetY - maskOffsetY;
-    let maskExtensionEntry = null;
-    if (backdrop) {
-      if (maskX < 0 || maskY < 0 || maskX + width > maskCanvas.width || maskY + height > maskCanvas.height) {
-        maskExtensionEntry = this.canvasFactory.create(width, height);
-        const ctx = maskExtensionEntry.context;
-        ctx.drawImage(maskCanvas, -maskX, -maskY);
-        ctx.globalCompositeOperation = "destination-atop";
-        ctx.fillStyle = backdrop;
-        ctx.fillRect(0, 0, width, height);
-        ctx.globalCompositeOperation = "source-over";
-        maskCanvas = maskExtensionEntry.canvas;
-        maskX = maskY = 0;
-      } else {
-        maskCtx.save();
-        maskCtx.globalAlpha = 1;
-        maskCtx.setTransform(1, 0, 0, 1, 0, 0);
-        const clip = new Path2D();
-        clip.rect(maskX, maskY, width, height);
-        maskCtx.clip(clip);
-        maskCtx.globalCompositeOperation = "destination-atop";
-        maskCtx.fillStyle = backdrop;
-        maskCtx.fillRect(maskX, maskY, width, height);
-        maskCtx.restore();
-      }
-    }
+  genericComposeSMask(maskCtx, layerCtx, width, height, layerOffsetX, layerOffsetY, maskOffsetX, maskOffsetY) {
+    const maskCanvas = maskCtx.canvas;
+    const maskX = layerOffsetX - maskOffsetX;
+    const maskY = layerOffsetY - maskOffsetY;
     layerCtx.save();
     layerCtx.globalAlpha = 1;
     layerCtx.setTransform(1, 0, 0, 1, 0, 0);
-    if (subtype === "Alpha" && transferMap) {
-      layerCtx.filter = this.filterFactory.addAlphaFilter(transferMap);
-    } else if (subtype === "Luminosity") {
-      layerCtx.filter = this.filterFactory.addLuminosityFilter(transferMap);
-    }
     const clip = new Path2D();
     clip.rect(layerOffsetX, layerOffsetY, width, height);
     layerCtx.clip(clip);
     layerCtx.globalCompositeOperation = "destination-in";
     layerCtx.drawImage(maskCanvas, maskX, maskY, width, height, layerOffsetX, layerOffsetY, width, height);
     layerCtx.restore();
-    if (maskExtensionEntry) {
-      this.canvasFactory.destroy(maskExtensionEntry);
-    }
   }
   save(opIdx) {
     if (this.inSMaskMode) {
@@ -17960,8 +18009,9 @@ class CanvasGraphics {
     this.ctx.restore();
     if (this.inSMaskMode) {
       copyCtxState(this.suspendedCtx, this.ctx);
+      this.ctx.setTransform(this.suspendedCtx.getTransform());
     }
-    this.checkSMaskState();
+    this.checkSMaskState(opIdx);
     this.pendingClip = null;
     this._cachedScaleForStroking[0] = -1;
     this._cachedGetSinglePixelWidth = null;
@@ -17976,6 +18026,9 @@ class CanvasGraphics {
     let [path] = data;
     if (!minMax) {
       path ||= data[0] = new Path2D();
+      if (op !== OPS.stroke && op !== OPS.closeStroke) {
+        this.current.tilingPatternDims = null;
+      }
       this[op](opIdx, path);
       return;
     }
@@ -17987,6 +18040,15 @@ class CanvasGraphics {
       path = data[0] = makePathFromDrawOPS(path);
     }
     Util.axialAlignedBoundingBox(minMax, getCurrentTransform(this.ctx), this.current.minMax);
+    const tilingDims = this.current.tilingPatternDims;
+    if (tilingDims && op !== OPS.stroke && op !== OPS.closeStroke && this.current.fillColor instanceof TilingPattern) {
+      const clippedBBox = Util.intersect(this.current.clipBox, this.current.minMax);
+      if (!clippedBBox) {
+        this.current.tilingPatternDims = null;
+      } else {
+        this.current.fillColor.updatePatternDims(clippedBBox, tilingDims);
+      }
+    }
     this[op](opIdx, path);
     this._pathStartIdx = opIdx;
   }
@@ -18027,7 +18089,20 @@ class CanvasGraphics {
     const fillColor = this.current.fillColor;
     const isPatternFill = this.current.patternFill;
     let needRestore = false;
+    const intersect = this.current.getClippedPathBoundingBox();
+    this.dependencyTracker?.recordDependencies(opIdx, Dependencies.fill);
     if (isPatternFill) {
+      const dims = this.current.tilingPatternDims;
+      const tileIdx = dims && fillColor.canSkipPatternCanvas(dims);
+      if (tileIdx) {
+        fillColor.drawPattern(this, path, this.pendingEOFill, tileIdx, opIdx);
+        this.pendingEOFill = false;
+        if (consumePath) {
+          this.consumePath(opIdx, path, intersect);
+        }
+        this.current.tilingPatternDims = null;
+        return;
+      }
       const baseTransform = fillColor.isModifyingCurrentTransform() ? ctx.getTransform() : null;
       this.dependencyTracker?.save(opIdx);
       ctx.save();
@@ -18039,7 +18114,6 @@ class CanvasGraphics {
       }
       needRestore = true;
     }
-    const intersect = this.current.getClippedPathBoundingBox();
     if (this.contentVisible && intersect !== null) {
       if (this.pendingEOFill) {
         ctx.fill(path, "evenodd");
@@ -18048,7 +18122,6 @@ class CanvasGraphics {
         ctx.fill(path);
       }
     }
-    this.dependencyTracker?.recordDependencies(opIdx, Dependencies.fill);
     if (needRestore) {
       ctx.restore();
       this.dependencyTracker?.restore(opIdx);
@@ -18358,20 +18431,6 @@ class CanvasGraphics {
     const fillStrokeMode = current.textRenderingMode & TextRenderingMode.FILL_STROKE_MASK;
     const needsFill = fillStrokeMode === TextRenderingMode.FILL || fillStrokeMode === TextRenderingMode.FILL_STROKE;
     const needsStroke = fillStrokeMode === TextRenderingMode.STROKE || fillStrokeMode === TextRenderingMode.FILL_STROKE;
-    if (needsFill && current.patternFill) {
-      ctx.save();
-      const pattern = current.fillColor.getPattern(ctx, this, getCurrentTransformInverse(ctx), PathType.FILL, opIdx);
-      patternFillTransform = getCurrentTransform(ctx);
-      ctx.restore();
-      ctx.fillStyle = pattern;
-    }
-    if (needsStroke && current.patternStroke) {
-      ctx.save();
-      const pattern = current.strokeColor.getPattern(ctx, this, getCurrentTransformInverse(ctx), PathType.STROKE, opIdx);
-      patternStrokeTransform = getCurrentTransform(ctx);
-      ctx.restore();
-      ctx.strokeStyle = pattern;
-    }
     let lineWidth = current.lineWidth;
     const scale = current.textMatrixScale;
     if (scale === 0 || lineWidth === 0) {
@@ -18386,6 +18445,20 @@ class CanvasGraphics {
       lineWidth /= fontSizeScale;
     }
     ctx.lineWidth = lineWidth;
+    if (needsFill && current.patternFill) {
+      ctx.save();
+      const pattern = current.fillColor.getPattern(ctx, this, getCurrentTransformInverse(ctx), PathType.FILL, opIdx);
+      patternFillTransform = getCurrentTransform(ctx);
+      ctx.restore();
+      ctx.fillStyle = pattern;
+    }
+    if (needsStroke && current.patternStroke) {
+      ctx.save();
+      const pattern = current.strokeColor.getPattern(ctx, this, getCurrentTransformInverse(ctx), PathType.STROKE, opIdx);
+      patternStrokeTransform = getCurrentTransform(ctx);
+      ctx.restore();
+      ctx.strokeStyle = pattern;
+    }
     if (font.isInvalidPDFjsFont) {
       const chars = [];
       let width = 0;
@@ -18562,8 +18635,9 @@ class CanvasGraphics {
   }
   setFillColorN(opIdx, ...args) {
     this.dependencyTracker?.recordSimpleData("fillColor", opIdx);
-    this.current.fillColor = this.getColorN_Pattern(opIdx, args);
+    const pattern = this.current.fillColor = this.getColorN_Pattern(opIdx, args);
     this.current.patternFill = true;
+    this.current.tilingPatternDims = pattern instanceof TilingPattern ? [0, 0, 0, 0] : null;
   }
   setStrokeRGBColor(opIdx, color) {
     this.dependencyTracker?.recordSimpleData("strokeColor", opIdx);
@@ -18579,11 +18653,13 @@ class CanvasGraphics {
     this.dependencyTracker?.recordSimpleData("fillColor", opIdx);
     this.ctx.fillStyle = this.current.fillColor = color;
     this.current.patternFill = false;
+    this.current.tilingPatternDims = null;
   }
   setFillTransparent(opIdx) {
     this.dependencyTracker?.recordSimpleData("fillColor", opIdx);
     this.ctx.fillStyle = this.current.fillColor = "transparent";
     this.current.patternFill = false;
+    this.current.tilingPatternDims = null;
   }
   _getPattern(opIdx, objId, matrix = null) {
     let pattern;
@@ -18612,7 +18688,7 @@ class CanvasGraphics {
         width,
         height
       } = ctx.canvas;
-      const minMax = MIN_MAX_INIT.slice();
+      const minMax = F32_BBOX_INIT.slice();
       Util.axialAlignedBoundingBox([0, 0, width, height], inv, minMax);
       const [x0, y0, x1, y1] = minMax;
       this.ctx.fillRect(x0, y0, x1 - x0, y1 - y0);
@@ -18661,7 +18737,10 @@ class CanvasGraphics {
       return;
     }
     this.save(opIdx);
-    if (this.inSMaskMode) {
+    const {
+      inSMaskMode
+    } = this;
+    if (inSMaskMode) {
       this.endSMaskMode();
       this.current.activeSMask = null;
     }
@@ -18672,6 +18751,22 @@ class CanvasGraphics {
     if (group.knockout) {
       warn("Knockout groups not supported.");
     }
+    if (!group.needsIsolation && currentCtx.globalAlpha === 1 && currentCtx.globalCompositeOperation === "source-over" && !inSMaskMode) {
+      if (group.bbox) {
+        let clip = new Path2D();
+        const [x0, y0, x1, y1] = group.bbox;
+        clip.rect(x0, y0, x1 - x0, y1 - y0);
+        if (group.matrix) {
+          const path = new Path2D();
+          path.addPath(clip, new DOMMatrix(group.matrix));
+          clip = path;
+        }
+        currentCtx.clip(clip);
+      }
+      this.groupStack.push(null);
+      this.groupLevel++;
+      return;
+    }
     const currentTransform = getCurrentTransform(currentCtx);
     if (group.matrix) {
       currentCtx.transform(...group.matrix);
@@ -18679,7 +18774,7 @@ class CanvasGraphics {
     const canvasBounds = [0, 0, currentCtx.canvas.width, currentCtx.canvas.height];
     let bounds;
     if (group.bbox) {
-      bounds = MIN_MAX_INIT.slice();
+      bounds = F32_BBOX_INIT.slice();
       Util.axialAlignedBoundingBox(group.bbox, getCurrentTransform(currentCtx), bounds);
       bounds = Util.intersect(bounds, canvasBounds) || [0, 0, 0, 0];
     } else {
@@ -18690,9 +18785,6 @@ class CanvasGraphics {
     const drawnWidth = Math.max(Math.ceil(bounds[2]) - offsetX, 1);
     const drawnHeight = Math.max(Math.ceil(bounds[3]) - offsetY, 1);
     this.current.startNewPathAndClipBox([0, 0, drawnWidth, drawnHeight]);
-    if (group.smask) {
-      this.smaskCounter++;
-    }
     const scratchCanvas = this.canvasFactory.create(drawnWidth, drawnHeight);
     if (group.smask) {
       this.smaskGroupCanvases.push(scratchCanvas);
@@ -18700,6 +18792,12 @@ class CanvasGraphics {
     const groupCtx = scratchCanvas.context;
     groupCtx.translate(-offsetX, -offsetY);
     groupCtx.transform(...currentTransform);
+    if (!group.isolated && !group.smask && inSMaskMode && group.needsIsolation) {
+      groupCtx.save();
+      groupCtx.setTransform(1, 0, 0, 1, 0, 0);
+      groupCtx.drawImage(currentCtx.canvas, -offsetX, -offsetY);
+      groupCtx.restore();
+    }
     if (group.bbox) {
       let clip = new Path2D();
       const [x0, y0, x1, y1] = group.bbox;
@@ -18719,8 +18817,7 @@ class CanvasGraphics {
         offsetY,
         subtype: group.smask.subtype,
         backdrop: group.smask.backdrop,
-        transferMap: group.smask.transferMap || null,
-        startTransformInverse: null
+        transferMap: group.smask.transferMap || null
       });
     }
     if (!group.smask || this.dependencyTracker) {
@@ -18742,6 +18839,10 @@ class CanvasGraphics {
     this.groupLevel--;
     const groupCtx = this.ctx;
     const ctx = this.groupStack.pop();
+    if (ctx === null) {
+      this.restore(opIdx);
+      return;
+    }
     this.ctx = ctx;
     this.ctx.imageSmoothingEnabled = false;
     this.dependencyTracker?.popBaseTransform();
@@ -18750,6 +18851,9 @@ class CanvasGraphics {
       this.restore(opIdx);
       if (this.dependencyTracker) {
         this.ctx.restore();
+        if (this.inSMaskMode) {
+          this.ctx.setTransform(this.suspendedCtx.getTransform());
+        }
       }
     } else {
       this.ctx.restore();
@@ -18757,7 +18861,7 @@ class CanvasGraphics {
       this.restore(opIdx);
       this.ctx.save();
       this.ctx.setTransform(...currentMtx);
-      const dirtyBox = MIN_MAX_INIT.slice();
+      const dirtyBox = F32_BBOX_INIT.slice();
       Util.axialAlignedBoundingBox([0, 0, groupCtx.canvas.width, groupCtx.canvas.height], currentMtx, dirtyBox);
       this.ctx.drawImage(groupCtx.canvas, 0, 0);
       this.ctx.restore();
@@ -18813,8 +18917,10 @@ class CanvasGraphics {
       }
     }
     this.current = new CanvasExtraState(this.ctx.canvas.width, this.ctx.canvas.height);
+    this.baseTransformStack.push(this.baseTransform);
     this.transform(opIdx, ...transform);
     this.transform(opIdx, ...matrix);
+    this.baseTransform = getCurrentTransform(this.ctx);
   }
   endAnnotation(opIdx) {
     if (this.annotationCanvas) {
@@ -18824,6 +18930,7 @@ class CanvasGraphics {
       delete this.annotationCanvas.savedCtx;
       delete this.annotationCanvas;
     }
+    this.baseTransform = this.baseTransformStack.pop();
   }
   paintImageMaskXObject(opIdx, img) {
     if (!this.contentVisible) {
@@ -19450,6 +19557,7 @@ function getFilenameFromContentDispositionHeader(contentDisposition) {
 
 
 
+
 function createHeaders(isHttp, httpHeaders) {
   const headers = new Headers();
   if (!isHttp || !httpHeaders || typeof httpHeaders !== "object") {
@@ -19720,17 +19828,19 @@ class PDFDataTransportStream extends BasePDFStream {
       this._queuedChunks.push(buffer);
     }
     this._progressiveDone = progressiveDone;
-    pdfDataRangeTransport.addRangeListener((begin, chunk) => {
-      this.#onReceiveData(begin, chunk);
-    });
-    pdfDataRangeTransport.addProgressiveReadListener(chunk => {
-      this.#onReceiveData(undefined, chunk);
-    });
-    pdfDataRangeTransport.addProgressiveDoneListener(() => {
-      this._fullReader?.progressiveDone();
-      this._progressiveDone = true;
-    });
-    pdfDataRangeTransport.transportReady();
+    const listener = args => {
+      switch (args.type) {
+        case "range":
+        case "progressiveRead":
+          this.#onReceiveData(args.begin, args.chunk);
+          break;
+        case "progressiveDone":
+          this._fullReader?.progressiveDone();
+          this._progressiveDone = true;
+          break;
+      }
+    };
+    pdfDataRangeTransport.transportReady(listener);
   }
   #onReceiveData(begin, chunk) {
     const buffer = transport_stream_getArrayBuffer(chunk);
@@ -20204,16 +20314,13 @@ class PDFNetworkStreamRangeReader extends BasePDFStreamRangeReader {
 
 
 
-function getReadableStream(readStream) {
+function getReadableStream(url, opts = null) {
+  const fs = process.getBuiltinModule("fs");
   const {
     Readable
   } = process.getBuiltinModule("stream");
-  if (typeof Readable.toWeb === "function") {
-    return Readable.toWeb(readStream);
-  }
-  const require = process.getBuiltinModule("module").createRequire(import.meta.url);
-  const polyfill = require("node-readable-to-web-readable-stream");
-  return polyfill.makeDefaultReadableStreamFromNodeReadable(readStream);
+  const readStream = fs.createReadStream(url, opts);
+  return Readable.toWeb(readStream);
 }
 class PDFNodeStream extends BasePDFStream {
   constructor(source) {
@@ -20235,10 +20342,9 @@ class PDFNodeStreamReader extends BasePDFStreamReader {
       url
     } = stream._source;
     this._isStreamingSupported = !disableStream;
-    const fs = process.getBuiltinModule("fs");
-    fs.promises.lstat(url).then(stat => {
-      const readStream = fs.createReadStream(url);
-      const readableStream = getReadableStream(readStream);
+    const fs = process.getBuiltinModule("fs/promises");
+    fs.lstat(url).then(stat => {
+      const readableStream = getReadableStream(url);
       this._reader = readableStream.getReader();
       const {
         size
@@ -20287,13 +20393,11 @@ class PDFNodeStreamRangeReader extends BasePDFStreamRangeReader {
     const {
       url
     } = stream._source;
-    const fs = process.getBuiltinModule("fs");
     try {
-      const readStream = fs.createReadStream(url, {
+      const readableStream = getReadableStream(url, {
         start: begin,
         end: end - 1
       });
-      const readableStream = getReadableStream(readStream);
       this._reader = readableStream.getReader();
       this._readCapability.resolve();
     } catch (error) {
@@ -20644,6 +20748,7 @@ class OptionalContentConfig {
 }
 
 ;// ./src/display/pages_mapper.js
+
 
 
 
@@ -21379,6 +21484,7 @@ class TextLayer {
 
 
 
+
 const RENDERING_CANCELLED_TIMEOUT = 100;
 function getDocument(src = {}) {
   if (typeof src === "string" || src instanceof URL) {
@@ -21411,7 +21517,6 @@ function getDocument(src = {}) {
   const wasmUrl = getFactoryUrlProp(src.wasmUrl);
   const ignoreErrors = src.stopAtErrors !== true;
   const maxImageSize = Number.isInteger(src.maxImageSize) && src.maxImageSize > -1 ? src.maxImageSize : -1;
-  const isEvalSupported = src.isEvalSupported !== false;
   const isOffscreenCanvasSupported = typeof src.isOffscreenCanvasSupported === "boolean" ? src.isOffscreenCanvasSupported : !isNodeJS;
   const isImageDecoderSupported = typeof src.isImageDecoderSupported === "boolean" ? src.isImageDecoderSupported : !isNodeJS && (FeatureTest.platform.isFirefox || !globalThis.chrome);
   const canvasMaxAreaInBytes = Number.isInteger(src.canvasMaxAreaInBytes) ? src.canvasMaxAreaInBytes : -1;
@@ -21428,6 +21533,7 @@ function getDocument(src = {}) {
   const BinaryDataFactory = src.BinaryDataFactory || (isNodeJS ? NodeBinaryDataFactory : DOMBinaryDataFactory);
   const enableHWA = src.enableHWA === true;
   const enableWebGPU = src.enableWebGPU === true;
+  const gpuPromise = enableWebGPU ? initGPU() : Promise.resolve(false);
   const useWasm = src.useWasm !== false;
   const pagesMapper = src.pagesMapper || new PagesMapper();
   const useSystemFonts = typeof src.useSystemFonts === "boolean" ? src.useSystemFonts : !isNodeJS && !disableFontFace;
@@ -21458,7 +21564,7 @@ function getDocument(src = {}) {
   }
   const docParams = {
     docId,
-    apiVersion: "5.6.205",
+    apiVersion: "5.7.284",
     data,
     password,
     disableAutoFetch,
@@ -21469,7 +21575,6 @@ function getDocument(src = {}) {
       maxImageSize,
       disableFontFace,
       ignoreErrors,
-      isEvalSupported,
       isOffscreenCanvasSupported,
       isImageDecoderSupported,
       canvasMaxAreaInBytes,
@@ -21482,7 +21587,7 @@ function getDocument(src = {}) {
       iccUrl,
       standardFontDataUrl,
       wasmUrl,
-      enableWebGPU
+      hasGPU: false
     }
   };
   const transportParams = {
@@ -21495,13 +21600,14 @@ function getDocument(src = {}) {
       enableXfa
     }
   };
-  worker.promise.then(function () {
+  Promise.all([worker.promise, gpuPromise]).then(function ([, hasGPU]) {
     if (task.destroyed) {
       throw new Error("Loading aborted");
     }
     if (worker.destroyed) {
       throw new Error("Worker was destroyed");
     }
+    docParams.evaluatorOptions.hasGPU = hasGPU;
     const workerIdPromise = worker.messageHandler.sendWithPromise("GetDocRequest", docParams, data ? [data.buffer] : null);
     let networkStream;
     if (data) {} else if (rangeTransport) {
@@ -21573,9 +21679,7 @@ class PDFDocumentLoadingTask {
 }
 class PDFDataRangeTransport {
   #capability = Promise.withResolvers();
-  #progressiveDoneListeners = [];
-  #progressiveReadListeners = [];
-  #rangeListeners = [];
+  #listener = null;
   constructor(length, initialData, progressiveDone = false, contentDispositionFilename = null) {
     this.length = length;
     this.initialData = initialData;
@@ -21587,35 +21691,30 @@ class PDFDataRangeTransport {
       }
     });
   }
-  addRangeListener(listener) {
-    this.#rangeListeners.push(listener);
-  }
-  addProgressiveReadListener(listener) {
-    this.#progressiveReadListeners.push(listener);
-  }
-  addProgressiveDoneListener(listener) {
-    this.#progressiveDoneListeners.push(listener);
-  }
   onDataRange(begin, chunk) {
-    for (const listener of this.#rangeListeners) {
-      listener(begin, chunk);
-    }
+    this.#listener({
+      type: "range",
+      begin,
+      chunk
+    });
   }
   onDataProgressiveRead(chunk) {
     this.#capability.promise.then(() => {
-      for (const listener of this.#progressiveReadListeners) {
-        listener(chunk);
-      }
+      this.#listener({
+        type: "progressiveRead",
+        chunk
+      });
     });
   }
   onDataProgressiveDone() {
     this.#capability.promise.then(() => {
-      for (const listener of this.#progressiveDoneListeners) {
-        listener();
-      }
+      this.#listener({
+        type: "progressiveDone"
+      });
     });
   }
-  transportReady() {
+  transportReady(listener) {
+    this.#listener = listener;
     this.#capability.resolve();
   }
   requestDataRange(begin, end) {
@@ -22519,7 +22618,7 @@ class WorkerTransport {
     this.#pageCache.clear();
     this.#pagePromises.clear();
     this.#pageRefCache.clear();
-    if (this.hasOwnProperty("annotationStorage")) {
+    if (Object.hasOwn(this, "annotationStorage")) {
       this.annotationStorage.resetModified();
     }
     const terminated = this.messageHandler.sendWithPromise("Terminate", null);
@@ -22706,7 +22805,8 @@ class WorkerTransport {
               if (!data.dataLen) {
                 return null;
               }
-              this.commonObjs.resolve(id, structuredClone(data));
+              const copy = structuredClone(data);
+              this.commonObjs.resolve(id, copy);
               return data.dataLen;
             }
           }
@@ -22752,12 +22852,6 @@ class WorkerTransport {
         return;
       }
       this.#onProgress(data);
-    });
-    messageHandler.on("PrepareWebGPU", () => {
-      if (this.destroyed) {
-        return;
-      }
-      initWebGPUMesh();
     });
     messageHandler.on("FetchBinaryData", async data => {
       if (this.destroyed) {
@@ -23152,9 +23246,11 @@ class InternalRenderTask {
     }
   }
 }
-const version = "5.6.205";
-const build = "ada343803";
+const version = "5.7.284";
+const build = "7e5b36c2d";
 
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.math.sum-precise.js
+var es_math_sum_precise = __webpack_require__(3068);
 ;// ./src/display/editor/color_picker.js
 
 
@@ -23391,6 +23487,7 @@ class ColorPicker {
 }
 class BasicColorPicker {
   #input = null;
+  #hasAlpha = false;
   #editor = null;
   #uiManager = null;
   static #l10nColor = null;
@@ -23409,16 +23506,44 @@ class BasicColorPicker {
     const {
       editorType,
       colorType,
-      color
+      colorAndOpacityType,
+      opacityType,
+      color,
+      opacity
     } = this.#editor;
+    const hasAlpha = this.#hasAlpha = FeatureTest.isAlphaColorInputSupported && opacityType !== undefined;
     const input = this.#input = document.createElement("input");
     input.type = "color";
-    input.value = color || "#000000";
+    if (hasAlpha) {
+      input.setAttribute("alpha", "");
+      const alphaHex = Util.hexNums[Math.round((opacity ?? 1) * 255)];
+      input.value = (color || "#000000") + alphaHex;
+    } else {
+      input.value = color || "#000000";
+    }
     input.className = "basicColorPicker";
     input.tabIndex = 0;
     input.setAttribute("data-l10n-id", BasicColorPicker.#l10nColor[editorType]);
     input.addEventListener("input", () => {
-      this.#uiManager.updateParams(colorType, input.value);
+      if (hasAlpha) {
+        const rgba = getRGBA(input.value);
+        if (!rgba) {
+          return;
+        }
+        const [r, g, b, op] = rgba;
+        const hex = Util.makeHexColor(r, g, b);
+        if (colorAndOpacityType !== undefined) {
+          this.#uiManager.updateParams(colorAndOpacityType, {
+            color: hex,
+            opacity: op
+          });
+        } else {
+          this.#uiManager.updateParams(colorType, hex);
+          this.#uiManager.updateParams(opacityType, op);
+        }
+      } else {
+        this.#uiManager.updateParams(colorType, input.value);
+      }
     }, {
       signal: this.#uiManager._signal
     });
@@ -23428,7 +23553,19 @@ class BasicColorPicker {
     if (!this.#input) {
       return;
     }
-    this.#input.value = value;
+    if (this.#hasAlpha) {
+      const alphaHex = Util.hexNums[Math.round(this.#editor.opacity * 255)];
+      this.#input.value = value + alphaHex;
+    } else {
+      this.#input.value = value;
+    }
+  }
+  updateOpacity(value) {
+    if (!this.#input || !this.#hasAlpha) {
+      return;
+    }
+    const alphaHex = Util.hexNums[Math.round(value * 255)];
+    this.#input.value = this.#editor.color + alphaHex;
   }
   destroy() {
     this.#input?.remove();
@@ -23442,11 +23579,12 @@ var es_iterator_flat_map = __webpack_require__(531);
 ;// ./src/shared/scripting_utils.js
 
 
+
 function makeColorComp(n) {
-  return Math.floor(Math.max(0, Math.min(1, n)) * 255).toString(16).padStart(2, "0");
+  return Math.floor(MathClamp(n, 0, 1) * 255).toString(16).padStart(2, "0");
 }
 function scaleAndClamp(x) {
-  return Math.max(0, Math.min(255, 255 * x));
+  return MathClamp(x, 0, 1) * 255;
 }
 class ColorConverters {
   static CMYK_G([c, y, m, k]) {
@@ -23537,6 +23675,7 @@ class DOMSVGFactory extends BaseSVGFactory {
 }
 
 ;// ./src/display/annotation_layer.js
+
 
 
 
@@ -23912,7 +24051,7 @@ class AnnotationElement {
       const borderColor = data.borderColor || null;
       if (borderColor) {
         this.#hasBorder = true;
-        style.borderColor = Util.makeHexColor(borderColor[0] | 0, borderColor[1] | 0, borderColor[2] | 0);
+        style.borderColor = Util.makeHexColor(...borderColor);
       } else {
         style.borderWidth = 0;
       }
@@ -24655,7 +24794,7 @@ class WidgetAnnotationElement extends AnnotationElement {
   }
   _setBackgroundColor(element) {
     const color = this.data.backgroundColor || null;
-    element.style.backgroundColor = color === null ? "transparent" : Util.makeHexColor(color[0], color[1], color[2]);
+    element.style.backgroundColor = color === null ? "transparent" : Util.makeHexColor(...color);
   }
   _setTextStyle(element) {
     const TEXT_ALIGNMENT = ["left", "center", "right"];
@@ -24677,7 +24816,7 @@ class WidgetAnnotationElement extends AnnotationElement {
       computedFontSize = Math.min(fontSize, roundToOneDecimal(height / LINE_FACTOR));
     }
     style.fontSize = `calc(${computedFontSize}px * var(--total-scale-factor))`;
-    style.color = Util.makeHexColor(fontColor[0], fontColor[1], fontColor[2]);
+    style.color = Util.makeHexColor(...fontColor);
     if (this.data.textAlignment !== null) {
       style.textAlign = TEXT_ALIGNMENT[this.data.textAlignment];
     }
@@ -25650,7 +25789,7 @@ class PopupElement {
       const button = this.#commentButton = document.createElement("button");
       button.className = "annotationCommentButton";
       const parentContainer = this.#firstElement.container;
-      button.style.zIndex = parentContainer.style.zIndex + 1;
+      button.style.zIndex = parseInt(parentContainer.style.zIndex, 10) + 1;
       button.tabIndex = 0;
       button.ariaHasPopup = "dialog";
       button.ariaControls = "commentPopup";
@@ -26047,7 +26186,7 @@ class PopupElement {
     if (!this.isVisible) {
       this.#setPosition();
       this.#container.hidden = false;
-      this.#container.style.zIndex = parseInt(this.#container.style.zIndex) + 1000;
+      this.#container.style.zIndex = parseInt(this.#container.style.zIndex, 10) + 1000;
     } else if (this.#pinned) {
       this.#container.classList.add("focused");
     }
@@ -26058,7 +26197,7 @@ class PopupElement {
       return;
     }
     this.#container.hidden = true;
-    this.#container.style.zIndex = parseInt(this.#container.style.zIndex) - 1000;
+    this.#container.style.zIndex = parseInt(this.#container.style.zIndex, 10) - 1000;
   }
   forceHide() {
     this.#wasVisible = this.isVisible;
@@ -26635,6 +26774,7 @@ class AnnotationLayer {
   #linkService = null;
   #elements = [];
   #hasAriaAttributesFromStructTree = false;
+  zIndex = 0;
   constructor({
     div,
     accessibilityManager,
@@ -26655,7 +26795,6 @@ class AnnotationLayer {
     this.#annotationStorage = annotationStorage || new AnnotationStorage();
     this.page = page;
     this.viewport = viewport;
-    this.zIndex = 0;
     this._annotationEditorUIManager = annotationEditorUIManager;
     this._commentManager = commentManager || null;
   }
@@ -26949,6 +27088,7 @@ class AnnotationLayer {
 }
 
 ;// ./src/display/editor/freetext.js
+
 
 
 
@@ -27982,10 +28122,9 @@ class FreeDrawOutline extends Outline {
           lastPointX = ltrCallback(lastPointX, x);
         }
       } else {
-        bezierBbox[0] = bezierBbox[1] = Infinity;
-        bezierBbox[2] = bezierBbox[3] = -Infinity;
+        bezierBbox.set(BBOX_INIT, 0);
         Util.bezierBoundingBox(lastX, lastY, ...outline.slice(i, i + 6), bezierBbox);
-        Util.rectBoundingBox(bezierBbox[0], bezierBbox[1], bezierBbox[2], bezierBbox[3], minMax);
+        Util.rectBoundingBox(...bezierBbox, minMax);
         if (firstPointY > bezierBbox[1]) {
           firstPointX = bezierBbox[0];
           firstPointY = bezierBbox[1];
@@ -28060,7 +28199,7 @@ class HighlightOutliner {
   #verticalEdges = [];
   #intervals = [];
   constructor(boxes, borderWidth = 0, innerMargin = 0, isLTR = true) {
-    const minMax = [Infinity, Infinity, -Infinity, -Infinity];
+    const minMax = BBOX_INIT.slice();
     const NUMBER_OF_DIGITS = 4;
     const EPSILON = 10 ** -NUMBER_OF_DIGITS;
     for (const {
@@ -29259,6 +29398,9 @@ class DrawingEditor extends AnnotationEditor {
     this._colorPicker?.update(this.color);
     super.onUpdatedColor();
   }
+  onUpdatedOpacity() {
+    this._colorPicker?.updateOpacity?.(this.opacity);
+  }
   _addOutlines(params) {
     if (params.drawOutlines) {
       this.#createDrawOutlines(params);
@@ -29358,6 +29500,8 @@ class DrawingEditor extends AnnotationEditor {
       this.parent?.drawLayer.updateProperties(this._drawId, options.toSVGProperties());
       if (type === this.colorType) {
         this.onUpdatedColor();
+      } else if (type === this.opacityType) {
+        this.onUpdatedOpacity();
       }
     };
     this.addCommands({
@@ -29366,6 +29510,31 @@ class DrawingEditor extends AnnotationEditor {
       post: this._uiManager.updateUI.bind(this._uiManager, this),
       mustExec: true,
       type,
+      overwriteIfSameType: true,
+      keepUndo: true
+    });
+  }
+  _updateColorAndOpacity(color, opacity) {
+    const colorName = this.constructor.typesMap.get(this.colorType);
+    const opacityName = this.constructor.typesMap.get(this.opacityType);
+    const options = this._drawingOptions;
+    const savedColor = options[colorName];
+    const savedOpacity = options[opacityName];
+    const setter = (c, op) => {
+      options.updateProperty(colorName, c);
+      options.updateProperty(opacityName, op);
+      this.#drawOutlines.updateProperty(colorName, c);
+      this.#drawOutlines.updateProperty(opacityName, op);
+      this.parent?.drawLayer.updateProperties(this._drawId, options.toSVGProperties());
+      this.onUpdatedColor();
+      this.onUpdatedOpacity();
+    };
+    this.addCommands({
+      cmd: setter.bind(this, color, opacity),
+      undo: setter.bind(this, savedColor, savedOpacity),
+      post: this._uiManager.updateUI.bind(this._uiManager, this),
+      mustExec: true,
+      type: AnnotationEditorParamsType.INK_COLOR_AND_OPACITY,
       overwriteIfSameType: true,
       keepUndo: true
     });
@@ -29842,6 +30011,7 @@ class DrawingEditor extends AnnotationEditor {
 
 
 
+
 class InkDrawOutliner {
   #last = new Float64Array(6);
   #line;
@@ -30249,7 +30419,7 @@ class InkDrawOutline extends Outline {
     return [x + marginX, y + marginY, width - 2 * marginX, height - 2 * marginY];
   }
   #computeBbox() {
-    const bbox = this.#bbox = new Float32Array([Infinity, Infinity, -Infinity, -Infinity]);
+    const bbox = this.#bbox = F32_BBOX_INIT.slice();
     for (const {
       line
     } of this.#lines) {
@@ -30632,6 +30802,27 @@ class InkEditor extends DrawingEditor {
   }
   get colorType() {
     return AnnotationEditorParamsType.INK_COLOR;
+  }
+  get colorAndOpacityType() {
+    return AnnotationEditorParamsType.INK_COLOR_AND_OPACITY;
+  }
+  get opacityType() {
+    return AnnotationEditorParamsType.INK_OPACITY;
+  }
+  updateParams(type, value) {
+    if (type === AnnotationEditorParamsType.INK_COLOR_AND_OPACITY) {
+      this._updateColorAndOpacity(value.color, value.opacity);
+      return;
+    }
+    super.updateParams(type, value);
+  }
+  static updateDefaultParams(type, value) {
+    if (type === AnnotationEditorParamsType.INK_COLOR_AND_OPACITY) {
+      super.updateDefaultParams(AnnotationEditorParamsType.INK_COLOR, value.color);
+      super.updateDefaultParams(AnnotationEditorParamsType.INK_OPACITY, value.opacity);
+      return;
+    }
+    super.updateDefaultParams(type, value);
   }
   get color() {
     return this._drawingOptions.stroke;
@@ -31763,6 +31954,7 @@ class SignatureEditor extends DrawingEditor {
 
 
 
+
 class StampEditor extends AnnotationEditor {
   #bitmap = null;
   #bitmapId = null;
@@ -32208,10 +32400,10 @@ class StampEditor extends AnnotationEditor {
       const prevWidth = newWidth;
       const prevHeight = newHeight;
       if (newWidth > 2 * width) {
-        newWidth = newWidth >= 16384 ? Math.floor(newWidth / 2) - 1 : Math.ceil(newWidth / 2);
+        newWidth = Math.ceil(newWidth / 2);
       }
       if (newHeight > 2 * height) {
-        newHeight = newHeight >= 16384 ? Math.floor(newHeight / 2) - 1 : Math.ceil(newHeight / 2);
+        newHeight = Math.ceil(newHeight / 2);
       }
       const offscreen = new OffscreenCanvas(newWidth, newHeight);
       const ctx = offscreen.getContext("2d");
@@ -32677,8 +32869,7 @@ class AnnotationEditorLayer {
         }
         const editor = this.#editors.get(id);
         if (editor?.annotationElementId === null) {
-          e.stopPropagation();
-          e.preventDefault();
+          stopEvent(e);
           editor.dblclick(e);
         }
       }, {
@@ -32782,7 +32973,7 @@ class AnnotationEditorLayer {
     const {
       target
     } = event;
-    if (target === this.#textLayer.div || (target.getAttribute("role") === "img" || target.classList.contains("endOfContent")) && this.#textLayer.div.contains(target)) {
+    if (target === this.#textLayer.div || (target.getAttribute("role") === "img" || target.classList.contains("endOfContent") || target.classList.contains("textLayerImagePlaceholder")) && this.#textLayer.div.contains(target)) {
       const {
         isMac
       } = FeatureTest.platform;
@@ -33539,6 +33730,7 @@ class TextLayerImages {
 
 
 
+
 {
   globalThis._pdfjsTestingUtils = {
     HighlightOutliner: HighlightOutliner
@@ -33567,6 +33759,7 @@ globalThis.pdfjsLib = {
   getFilenameFromUrl: getFilenameFromUrl,
   getPdfFilenameFromUrl: getPdfFilenameFromUrl,
   getRGB: getRGB,
+  getRGBA: getRGBA,
   getUuid: getUuid,
   getXfaPageViewport: getXfaPageViewport,
   GlobalWorkerOptions: GlobalWorkerOptions,
@@ -33607,6 +33800,6 @@ globalThis.pdfjsLib = {
   XfaLayer: XfaLayer
 };
 
-export { AbortException, AnnotationEditorLayer, AnnotationEditorParamsType, AnnotationEditorType, AnnotationEditorUIManager, AnnotationLayer, AnnotationMode, AnnotationType, CSSConstants, ColorPicker, DOMSVGFactory, DrawLayer, FeatureTest, GlobalWorkerOptions, ImageKind, InvalidPDFException, MathClamp, OPS, OutputScale, PDFDataRangeTransport, PDFDateString, PDFWorker, PasswordResponses, PermissionFlag, PixelsPerInch, RenderingCancelledException, ResponseException, SignatureExtractor, SupportedImageMimeTypes, TextLayer, TextLayerImages, TouchManager, Util, VerbosityLevel, XfaLayer, applyOpacity, build, createValidAbsoluteUrl, fetchData, findContrastColor, getDocument, getFilenameFromUrl, getPdfFilenameFromUrl, getRGB, getUuid, getXfaPageViewport, isDataScheme, isPdfFile, isValidExplicitDest, makeArr, makeMap, makeObj, noContextMenu, normalizeUnicode, renderRichText, setLayerDimensions, shadow, stopEvent, updateUrlHash, version };
+export { AbortException, AnnotationEditorLayer, AnnotationEditorParamsType, AnnotationEditorType, AnnotationEditorUIManager, AnnotationLayer, AnnotationMode, AnnotationType, CSSConstants, ColorPicker, DOMSVGFactory, DrawLayer, FeatureTest, GlobalWorkerOptions, ImageKind, InvalidPDFException, MathClamp, OPS, OutputScale, PDFDataRangeTransport, PDFDateString, PDFWorker, PasswordResponses, PermissionFlag, PixelsPerInch, RenderingCancelledException, ResponseException, SignatureExtractor, SupportedImageMimeTypes, TextLayer, TextLayerImages, TouchManager, Util, VerbosityLevel, XfaLayer, applyOpacity, build, createValidAbsoluteUrl, fetchData, findContrastColor, getDocument, getFilenameFromUrl, getPdfFilenameFromUrl, getRGB, getRGBA, getUuid, getXfaPageViewport, isDataScheme, isPdfFile, isValidExplicitDest, makeArr, makeMap, makeObj, noContextMenu, normalizeUnicode, renderRichText, setLayerDimensions, shadow, stopEvent, updateUrlHash, version };
 
 //# sourceMappingURL=pdf.mjs.map
