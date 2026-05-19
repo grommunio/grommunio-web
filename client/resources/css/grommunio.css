@@ -6824,3 +6824,7 @@ input[type="radio"]:focus-visible {
   white-space: nowrap;
   border: 0;
 }
+
+.x-tab-panel-body, .x-tab-panel-bwrap {
+  overflow: auto;
+}
