@@ -15,6 +15,7 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 		config = config || {};
 
 		var store = new Zarafa.plugins.mdm.data.MDMDeviceStore();
+		store.on('load', this.onDeviceStoreLoad, this);
 		Ext.applyIf(config, {
 			title : _('Mobile Devices'),
 			cls : 'zarafa-settings-widget k-settings-nogap',
@@ -78,6 +79,12 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 					},{
 						dataIndex : 'devicefriendlyname',
 						header : _('Device Info'),
+						hidden : true,
+						renderer : Ext.util.Format.htmlEncode
+					},{
+						id : 'impersonatinguser-column',
+						dataIndex : 'impersonatinguser',
+						header : _('Impersonated by'),
 						hidden : true,
 						renderer : Ext.util.Format.htmlEncode
 					},{
@@ -154,6 +161,40 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 	},
 
 	/**
+	 * Show or hide the impersonation column depending on store contents.
+	 * @param {Ext.data.Store} store
+	 * @private
+	 */
+	onDeviceStoreLoad: function (store)
+	{
+		var hasImpersonated = store.findBy(function (record) {
+			return !Ext.isEmpty(record.get('impersonatinguser'));
+		}) !== -1;
+		this.setImpersonationColumnVisibility(hasImpersonated);
+	},
+
+	/**
+	 * Helper to toggle the impersonation column.
+	 * @param {Boolean} visible
+	 * @private
+	 */
+	setImpersonationColumnVisibility: function (visible)
+	{
+		var grid = this.deviceGrid;
+		if (!grid) {
+			return;
+		}
+
+		var columnModel = grid.getColumnModel();
+		var columnIndex = columnModel.getIndexById('impersonatinguser-column');
+		if (columnIndex === -1) {
+			return;
+		}
+
+		columnModel.setHidden(columnIndex, !visible);
+	},
+
+	/**
 	 * Function which handles the click event on the "authentication red bar" button, displays
 	 * a MessageBox for the user to enter password. The authenticate action is handled by
 	 * the {@link #onPasswordSubmit} function.
@@ -204,6 +245,8 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 		var customCfg = {};
 		var isAuthenticateAction = actionType === 'authenticate';
 		var isSSO = container.getServerConfig().getAuthMethod() === 'oidc';
+		var selectedRecord = scope?.deviceGrid?.getSelectionModel()?.getSelected();
+		var isImpersonatedDevice = !Ext.isEmpty(selectedRecord?.get('impersonatinguser'));
 		customCfg['customButtons'] = [{
 			name: isAuthenticateAction ? 'ok' : 'yes',
 			cls: 'zarafa-action',
@@ -244,35 +287,51 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 			}];
 		}
 
-		var asVersion = scope?.deviceGrid?.getSelectionModel()?.getSelected()?.get('asversion');
-		if (asVersion !== undefined && parseFloat(asVersion) >= 16.1 && actionType === 'wipe') {
-			customItems.push(
-				{
-					xtype: 'radiogroup',
-					name: 'wipeType',
-					ref: 'wipeType',
-					columns: 1,
-					fieldLabel: _('Wipe type'),
-					hideLabel: true,
-					style: 'margin-top: 8px',
-					value: 'accountonly',
-					items: [{
-						xtype: 'radio',
+		var asVersion = selectedRecord?.get('asversion');
+		if (actionType === 'wipe' && asVersion !== undefined && parseFloat(asVersion) >= 16.1) {
+			if (isImpersonatedDevice) {
+				customItems.push(
+					{
+						xtype: 'displayfield',
+						hideLabel: true,
+						style: 'margin-top: 8px',
+						value: _('Impersonated device: only account-only remote wipe is available.')
+					},
+					{
+						xtype: 'hidden',
 						name: 'wipeType',
-						inputValue: 'accountonly',
-						boxLabel: _('Wipe only data related to this account'),
-					},{
-						xtype: 'radio',
-						name: 'wipeType',
-						inputValue: 'alldata',
-						boxLabel: _('Wipe all data')
-					}],
-					listeners: {
-						change: scope.onRadioChange,
-						scope: this
+						value: 'accountonly'
 					}
-				}
-			);
+				);
+			}
+			else {
+				customItems.push(
+					{
+						xtype: 'radiogroup',
+						name: 'wipeType',
+						ref: 'wipeType',
+						columns: 1,
+						hideLabel: true,
+						style: 'margin-top: 8px',
+						value: 'accountonly',
+						items: [{
+							xtype: 'radio',
+							name: 'wipeType',
+							inputValue: 'accountonly',
+							boxLabel: _('Wipe only data related to this account'),
+						},{
+							xtype: 'radio',
+							name: 'wipeType',
+							inputValue: 'alldata',
+							boxLabel: _('Wipe all data')
+						}],
+						listeners: {
+							change: scope.onRadioChange,
+							scope: this
+						}
+					}
+				);
+			}
 		}
 
 		// For 'authenticate' action username is required in messagebox.
@@ -333,9 +392,13 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 	onWipeBtn : function()
 	{
 		var isSSO = container.getServerConfig().getAuthMethod() === 'oidc';
-		var message = isSSO ?
-			_('Do you really want to wipe your device?\n Type WIPE to confirm.') :
-			_('Do you really want to wipe your device?\n Enter your password to confirm.');
+		var record = this.deviceGrid.getSelectionModel().getSelected();
+		var isImpersonatedDevice = record && !Ext.isEmpty(record.get('impersonatinguser'));
+		var message = isImpersonatedDevice ?
+			_('Do you really want to wipe your device?\nOnly account-only remote wipe is available for impersonated devices.\nEnter your password to confirm.') :
+			(isSSO ?
+				_('Do you really want to wipe your device?\n Type WIPE to confirm.') :
+				_('Do you really want to wipe your device?\n Enter your password to confirm.'));
 		this.showPasswordMessageBox(message, this.onWipeDevice, 'wipe');
 	},
 
@@ -358,15 +421,18 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 			var selectionModel = mdmWidgetScope.deviceGrid.getSelectionModel();
 			var record = selectionModel.getSelected();
 			if (record) {
+				var isImpersonatedDevice = !Ext.isEmpty(record.get('impersonatinguser'));
+				var wipeType = (inputValues.wipeType == 'accountonly' || isImpersonatedDevice) ?
+					Zarafa.plugins.mdm.data.ProvisioningStatus.WIPE_PENDING_ACCOUNT_ONLY :
+					Zarafa.plugins.mdm.data.ProvisioningStatus.WIPE_PENDING;
 				var requestData = {
 					'deviceid' : record.get('entryid'),
-					'wipetype': inputValues.wipeType == 'accountonly' ?
-						Zarafa.plugins.mdm.data.ProvisioningStatus.WIPE_PENDING_ACCOUNT_ONLY :
-						Zarafa.plugins.mdm.data.ProvisioningStatus.WIPE_PENDING
+					'wipetype': wipeType
 				};
 				if (inputValues.passwordField) {
 					requestData['password'] = inputValues.passwordField;
 				}
+
 				container.getRequest().singleRequest(
 					'pluginmdmmodule',
 					'wipe',

@@ -73,6 +73,10 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceGeneralTab = Ext.extend(Ext.form.FormPanel, 
 					afterrender: this.onAfterRenderStatus,
 					scope: this
 				}
+			}, {
+				fieldLabel: _('Impersonated by'),
+				name: 'impersonatinguser',
+				hidden: true
 			}]
 		};
 	},
@@ -177,6 +181,7 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceGeneralTab = Ext.extend(Ext.form.FormPanel, 
 	update : function(record, contentReset)
 	{
 		this.getForm().loadRecord(record);
+		this.toggleImpersonatedField(record);
 	},
 
 	/**
@@ -201,6 +206,43 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceGeneralTab = Ext.extend(Ext.form.FormPanel, 
 			manager: Ext.WindowMgr,
 			record: this.dialog.record
 		});
+	},
+
+	/**
+	 * Reveal the impersonation field only when a value is available.
+	 * @param {Zarafa.core.data.IPMRecord} record
+	 * @private
+	 */
+	toggleImpersonatedField: function (record)
+	{
+		var field = this.getForm().findField('impersonatinguser');
+		if (!field) {
+			return;
+		}
+
+		var applyVisibility = function ()
+		{
+			var value = record.get('impersonatinguser');
+			var hasValue = !Ext.isEmpty(value);
+			var el = field.getEl ? field.getEl() : null;
+			var container = el ? el.up('.x-form-item') : null;
+
+			field.setValue(hasValue ? value : '');
+			if (hasValue) {
+				field.show();
+			} else {
+				field.hide();
+			}
+			if (container) {
+				container[hasValue ? 'show' : 'hide']();
+			}
+		};
+
+		if (field.rendered) {
+			applyVisibility();
+		} else {
+			field.on('afterrender', applyVisibility, this, { single: true });
+		}
 	}
 });
 

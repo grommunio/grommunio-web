@@ -290,7 +290,7 @@ class PluginMDMModule extends Module {
 	public function getDeviceProps($device) {
 		$item = [];
 		$propsList = ['devicetype', 'deviceos', 'devicefriendlyname', 'useragent', 'asversion', 'firstsynctime',
-			'lastsynctime', 'lastupdatetime', 'policyname', ];
+			'lastsynctime', 'lastupdatetime', 'policyname', 'impersonatinguser' ];
 
 		$item['entryid'] = $device->deviceid;
 		$item['message_class'] = "IPM.MDM";
