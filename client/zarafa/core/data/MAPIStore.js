@@ -362,7 +362,11 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 		}
 
 		records.forEach(function(record) {
-			if (this.indexOf(record) === -1) {
+			// Check against the full record set (snapshot when a filter is
+			// active): records hidden by a filter (e.g. collapsed conversation
+			// items) must still receive their opened data.
+			var collection = this.snapshot || this.data;
+			if (collection.indexOf(record) === -1) {
 				return;
 			}
 
