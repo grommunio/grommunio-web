@@ -5,20 +5,26 @@ Ext.namespace('Zarafa.plugins.templatesnippets');
  * @extends Zarafa.core.Plugin
  *
  * Plugin that allows users to insert predefined text snippets (templates)
- * into mail compositions. Supports both system-provided and user-defined
- * templates with separate HTML and plain text representations.
+ * into editor fields. Supports both system-provided and user-defined templates
+ * with separate HTML and plain text representations.
  */
 Zarafa.plugins.templatesnippets.TemplateSnippetsPlugin = Ext.extend(Zarafa.core.Plugin, {
+	templateButtons: undefined,
+	settingsListenersRegistered: false,
 
 	initPlugin: function() {
 		Zarafa.plugins.templatesnippets.TemplateSnippetsPlugin.superclass.initPlugin.apply(this, arguments);
 
 		this.registerInsertionPoint('context.mail.mailcreatecontentpanel.toolbar.actions', this.createTemplateButton, this);
+		this.registerInsertionPoint('context.calendar.appointmentcontentpanel.toolbar.actions', this.createTemplateButton, this);
+		this.registerInsertionPoint('context.contact.contactcontentpanel.toolbar.actions', this.createTemplateButton, this);
+		this.registerInsertionPoint('context.note.noteeditcontentpanel.toolbar.actions', this.createTemplateButton, this);
+		this.registerInsertionPoint('context.task.taskcontentpanel.toolbar.actions', this.createTemplateButton, this);
 		this.registerInsertionPoint('context.settings.categories', this.createSettingsCategory, this);
 	},
 
 	/**
-	 * Create the "Insert Template" button for the mail compose toolbar.
+	 * Create the "Insert Template" button for editor toolbars.
 	 * An initial empty menu is attached so the dropdown arrow is visible immediately.
 	 * @return {Object} Button config
 	 */
@@ -57,12 +63,32 @@ Zarafa.plugins.templatesnippets.TemplateSnippetsPlugin = Ext.extend(Zarafa.core.
 	 * @param {Ext.Button} button The rendered button
 	 */
 	onTemplateButtonRendered: function(button) {
-		this.templateButton = button;
+		this.templateButtons = this.templateButtons || [];
+		this.templateButtons.push(button);
+		button.menu.templateButton = button;
 		this.buildTemplateMenu(button);
 
-		var settingsModel = container.getSettingsModel();
-		settingsModel.on('set', this.onSettingsChanged, this);
-		settingsModel.on('remove', this.onSettingsChanged, this);
+		if (!this.settingsListenersRegistered) {
+			var settingsModel = container.getSettingsModel();
+			settingsModel.on('set', this.onSettingsChanged, this);
+			settingsModel.on('remove', this.onSettingsChanged, this);
+			this.settingsListenersRegistered = true;
+		}
+
+		button.on('destroy', this.onTemplateButtonDestroyed, this);
+	},
+
+	/**
+	 * Stop tracking a template button when its editor window is closed.
+	 * @param {Ext.Button} button The destroyed button
+	 */
+	onTemplateButtonDestroyed: function(button) {
+		if (this.templateButtons) {
+			var index = this.templateButtons.indexOf(button);
+			if (index >= 0) {
+				this.templateButtons.splice(index, 1);
+			}
+		}
 	},
 
 	/**
@@ -71,7 +97,7 @@ Zarafa.plugins.templatesnippets.TemplateSnippetsPlugin = Ext.extend(Zarafa.core.
 	 * @param {Object} changedSettings
 	 */
 	onSettingsChanged: function(settingsModel, changedSettings) {
-		if (!this.templateButton) {
+		if (Ext.isEmpty(this.templateButtons)) {
 			return;
 		}
 		var dominated = false;
@@ -89,7 +115,11 @@ Zarafa.plugins.templatesnippets.TemplateSnippetsPlugin = Ext.extend(Zarafa.core.
 				return;
 			}
 		}
-		this.buildTemplateMenu(this.templateButton);
+		Ext.each(this.templateButtons, function(button) {
+			if (!button.isDestroyed) {
+				this.buildTemplateMenu(button);
+			}
+		}, this);
 	},
 
 	/**
@@ -164,7 +194,7 @@ Zarafa.plugins.templatesnippets.TemplateSnippetsPlugin = Ext.extend(Zarafa.core.
 		var tpl = menuItem.templateData;
 
 		// Walk up from the button to find the editor field
-		var editorField = this.findEditorField(this.templateButton);
+		var editorField = this.findEditorField(menu.templateButton || menu.ownerCt);
 		if (!editorField) {
 			return;
 		}
@@ -203,6 +233,21 @@ Zarafa.plugins.templatesnippets.TemplateSnippetsPlugin = Ext.extend(Zarafa.core.
 			}
 			if (cmp.mainPanel && cmp.mainPanel.editorField) {
 				return cmp.mainPanel.editorField;
+			}
+			if (cmp.findByType) {
+				var editors = cmp.findByType('zarafa.editorfield');
+				if (!Ext.isEmpty(editors)) {
+					return editors[0];
+				}
+			}
+			if (cmp.findParentByType) {
+				var panel = cmp.findParentByType('zarafa.recordcontentpanel');
+				if (panel) {
+					var panelEditors = panel.findByType('zarafa.editorfield');
+					if (!Ext.isEmpty(panelEditors)) {
+						return panelEditors[0];
+					}
+				}
 			}
 			cmp = cmp.ownerCt;
 		}

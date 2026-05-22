@@ -7,7 +7,7 @@
 		<title>Template Snippets</title>
 		<author>grommunio</author>
 		<authorURL>https://grommunio.com</authorURL>
-		<description>Insert predefined text snippets (templates) into mail compositions. Supports system-provided and user-defined templates with HTML and plain text representations.</description>
+		<description>Insert predefined text snippets (templates) into editor fields. Supports system-provided and user-defined templates with HTML and plain text representations.</description>
 	</info>
 	<config>
 		<configfile>config.php</configfile>
