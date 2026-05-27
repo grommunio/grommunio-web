@@ -19,7 +19,7 @@ Zarafa.plugins.files.settings.ui.FeatureVersionInfoContentPanel = Ext.extend(Zar
 			stateful : false,
 			title     : _('Version Information'),
 			width      : 300,
-			height     : 100,
+			height     : 120,
 			items     : [{
 				xtype: 'filesplugin.featureversioninfopanel',
 				item : config.item
