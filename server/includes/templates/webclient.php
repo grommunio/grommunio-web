@@ -9,6 +9,7 @@ $serverConfig = array_merge($serverConfig, [
 	'base_url' => BASE_URL,
 	'webapp_title' => $webappTitle,
 	'using_sso' => false,
+	'auth_method' => !empty($_SESSION['_keycloak_auth']) ? 'oidc' : 'basic',
 	'disable_full_gab' => !ENABLE_FULL_GAB,
 	'plugin_webappmanual_url' => PLUGIN_WEBAPPMANUAL_URL,
 	'enable_shared_rules' => ENABLE_SHARED_RULES,
