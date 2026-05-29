@@ -1,71 +1,107 @@
-grommunio-web 3.17.x (development)
-==================================
+grommunio-web 3.18 (2026-05-29)
+===============================
 
 Fixes:
 
-* Sending from drafts no longer fails when ``mapi_copyto`` encounters an error
-* Settings auto-save is now debounced to batch HTTP requests
-* UI update handlers now guard against undefined records
-* S/MIME signing was fixed by removing the ``PKCS7_TEXT`` flag
-* S/MIME certificate chain verification now handles intermediate and
-  out-of-order certificates
-* OCSP response validation corrected for RFC 2560 compliance
-* S/MIME encrypt/decrypt now handles opaque-signed messages and various
-  edge cases around temp files and missing certificates
-* Certificate fields in the S/MIME detail popup are sanitized to prevent
-  stored XSS
-* S/MIME status badge display and status constants were corrected
-* Double-encoded ampersand in certificate purpose label was fixed
-* Shared store operations now provide improved error handling
-* Opening shared items no longer fails on RTF decompression errors
-* Folder bold styling is now decoupled from counter type
-* Hierarchy now treats Junk as a special folder for total item count
-* Closing grommunio-web is no longer blocked when there are no unsaved
-  changes
-* FTS multi-word search now scopes every word to the specified column,
-  fixing incomplete results when searching names in sender fields
-* KQL parser AND/OR precedence handling was rewritten to correctly group
-  mixed boolean queries
-* KQL parenthesized expressions no longer lose NOT negation when they
-  contain a single term
-* Sender and from search fields now include ``sent_representing_*``
-  properties, matching emails sent on behalf of someone
+* Sending from drafts and reliability of the send path (copy errors,
+  recipient copying, missing draft guards, accurate MAPI error reporting,
+  SMTP address-type conversion)
+* Login loop with Keycloak on Firefox
+* Preview pane size preserved across context switches
+* Shared store handling: error reporting, opening for rooms and equipment,
+  contact subfolder lookups, OOF settings, hierarchy notifier
+* Rules on shared/delegated mailboxes, including entryid canonicalization
+  and save path corrections
+* Meeting requests: duplicate When/Where, organizer hidden from
+  recipients, all-day times on first open, recurrence removal propagated
+  to attendees, ``PR_PROCESSED`` cleared on accept, reply-all entryid
+  comparison, RTF decompression on shared items
+* Search correctness for multi-word and KQL queries (AND/OR precedence,
+  NOT in parenthesized expressions, ``sent_representing_*`` matching,
+  FTS5 ``NOT`` as binary operator)
+* S/MIME: signing (``PKCS7_TEXT`` flag), chain verification with
+  intermediates, OCSP per RFC 2560, opaque-signed handling, temp file
+  and cert lookup hardening, sanitized detail popup, multi-value SAN
+  parsing, status constants and badge layout
+* Dark mode rendering in pop-out windows, month view, high-contrast
+  theme, and mail preview (CSS filter inversion preserves images)
+* Toast notifications use ``textContent`` with CSS line breaks; HTML
+  stripped from missing-folder, missing-store and connection-loss toasts
+* Task dialog reminder toggle and layout; redundant layout passes removed
+* Column resize restricted to the right edge with a wider grab zone;
+  recurrence dialog spacing widened
+* Empty folder no longer silently fails with 500+ messages
+* Notification permissions and audio on Safari
+* Many smaller UI corrections across address book, contact, calendar,
+  settings, advance search, files and MDM plugins
 
 Enhancements:
 
-* Non-critical services are now deferred until after hierarchy load
-* PHP session and state file locks are released earlier, reducing request
-  serialization on concurrent connections
-* Hierarchy is prefetched on page load, saving an initial round-trip
-* Mark-as-read is piggybacked on the message open request
-* Search result preview loading is debounced during keyboard navigation
-* Icon recoloring is batched into a single stylesheet swap, eliminating a
-  multi-second freeze on login
-* Server-side settings mutations are batched into a single MAPI save
-* Spam mails can now be un-flagged directly from the Junk folder
-* Shared stores can now be opened for rooms and equipment
-* A reminder for missing attachments is now shown before sending
-* Kendox now supports uploading e-mails without attachments
-* Kendox now supports archiving embedded images
+* Integrated dark mode with light/dark/system support, top-menu switcher,
+  and consistent application across settings, editor, templates,
+  pop-out windows and TinyMCE
+* Broad accessibility pass: ARIA landmarks, labels, roles and attributes
+  across PHP templates, ExtJS overrides, core shell, grids, trees,
+  dialogs, forms, calendar, mail, contact, task, settings and plugins,
+  plus a global accessibility foundation stylesheet
+* New Template Snippets plugin (registered on all editors) and new Toast
+  Notification plugin
+* Meeting request forward (server and client) and meeting-aware forward
+  in the mail UI; reply / reply-all in the appointment toolbar and
+  calendar context menu
+* Calendar list view shows times; icon column reordered before all-day
+* Search dropdown with history and quick filters
+* Scheduled emails can be edited and display their scheduled send time
+* Configurable name display format in the address book
+* ``SHOW_LOGOUT_BUTTON`` option to hide the logout button
+* Significant performance work: deferred non-critical services, earlier
+  release of PHP session and state file locks, shared module session
+  state, prefetched hierarchy, piggybacked mark-as-read and shared store
+  checks, batched mail-grid selection, batched server-side settings
+  mutations, batched icon recoloring (eliminates the multi-second
+  freeze on login), chunked empty-folder with progress notification,
+  optimized recurring appointment expansion and single-pass calendar
+  overlap calculation, debounced search preview loading
+* UI refresh: redesigned grid column headers, unified scrollbar styling,
+  calendar view gradients and inactive state, scrollable tab panel,
+  centered welcome viewport, improved reminder dialog, tighter tree
+  node line height
+* Spam mails can be un-flagged directly from the Junk folder
+* Attachment reminder before sending
+* Meeting responses exportable as eml/zip like regular mails
+* Email ``<style>`` blocks preserved in HTML preview
+* Print-to-PDF default filename derived from email metadata
 * S/MIME plugin migrated to CMS (RFC 5652) with AES-GCM encryption,
   per-message cipher/digest selection, RSASSA-PSS signing, algorithm
   introspection and DANE/SMIMEA certificate lookup
-* FTS search filters (date, message class, unread, attachments) are
-  pushed into the SQL query so the result limit no longer silently
-  discards valid matches
-* FTS queries that could exhaust PHP-FPM CPU are now guarded: search
-  terms shorter than 3 characters are skipped with the trigram tokenizer,
-  the number of terms is capped at ``MAX_FTS_QUERY_TERMS``, and a
-  per-search execution time limit (``MAX_FTS_EXECUTION_TIME``) aborts
-  runaway queries gracefully
+* Kendox: upload e-mails without attachments; archive embedded images
+* FTS search filters (date, message class, unread, attachments) pushed
+  into the SQL query so the result limit no longer silently discards
+  valid matches
+* FTS queries that could exhaust PHP-FPM CPU are guarded: terms shorter
+  than 3 characters skipped with the trigram tokenizer, term count
+  capped at ``MAX_FTS_QUERY_TERMS``, and a per-search execution time
+  limit (``MAX_FTS_EXECUTION_TIME``) aborts runaway queries
+* ``importEMLFile`` reconstructs a receive timestamp from
+  ``PR_CLIENT_SUBMIT_TIME`` or the ``Date`` header so imported EMLs sort
+  correctly
+* PHP 8.5 compatibility cleanups
+* JFont Checker replaced by the CSS Font Loading API; obsolete
+  fingerprint data sources removed
+* SVG resources optimized; monochrome icons now use ``currentColor`` via
+  mask-image so they adapt to light and dark themes automatically
 
 Changes:
 
 * Default S/MIME cipher changed from 3DES to AES-256-CBC
 * New ``DISABLE_FINGERPRINT_CHECK`` option for automated tooling
-* SHA-256 replaces MD5 as default certificate fingerprint
-* Translation catalogs were updated
-* Swedish translation was added
+* SHA-256 replaces MD5 as the default certificate fingerprint
+* Legacy dark theme stylesheet removed in favour of the integrated dark
+  mode; loader and legacy assets cleaned up
+* Recipient history matching is now case-insensitive and deduplicated by
+  SMTP address
+* Search folder cleanup uses date-based naming
+* Swedish translation added; translation catalogs refreshed
 
 
 grommunio-web 3.17 (2025-02-17)
