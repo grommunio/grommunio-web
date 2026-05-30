@@ -4010,7 +4010,7 @@ msgid "Your changes will be lost if you leave this page now."
 msgstr "如果您现在离开此页面，您的更改将丢失。"
 
 msgid "d-m-Y G:i"
-msgstr ""
+msgstr "d-m-Y G:i"
 
 msgid "D {0}"
 msgstr "D {0}"
@@ -4019,7 +4019,7 @@ msgid "D d-m"
 msgstr "D d-m"
 
 msgid "D d-m G:i"
-msgstr ""
+msgstr "D d-m G:i"
 
 msgid "Not enough permissions to open this store, do you want to remove it from the hierarchy?"
 msgstr "无足够权限打开此存储器，您是否欲从层次结构中将其删除？"

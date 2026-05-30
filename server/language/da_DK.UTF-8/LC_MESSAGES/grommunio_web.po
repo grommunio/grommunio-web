@@ -4043,7 +4043,7 @@ msgid "Your changes will be lost if you leave this page now."
 msgstr "Dine ændringer vil gå tabt hvis du forlader siden nu."
 
 msgid "d-m-Y G:i"
-msgstr ""
+msgstr "d.m.Y G:i"
 
 msgid "D {0}"
 msgstr "D {0}"
@@ -4052,7 +4052,7 @@ msgid "D d-m"
 msgstr "D d-m"
 
 msgid "D d-m G:i"
-msgstr ""
+msgstr "D d.m G:i"
 
 msgid "Not enough permissions to open this store, do you want to remove it from the hierarchy?"
 msgstr "Du har ikke tilstrækkelige rettigheder til at åbne postkassen, vil du fjerne den fra hierarkiet?"

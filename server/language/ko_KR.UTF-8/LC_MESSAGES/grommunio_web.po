@@ -3996,7 +3996,7 @@ msgid "Your changes will be lost if you leave this page now."
 msgstr "지금 이 페이지를 나가면 변경 사항이 손실됩니다."
 
 msgid "d-m-Y G:i"
-msgstr ""
+msgstr "d-m-Y G:i"
 
 msgid "D {0}"
 msgstr "D {0}"
@@ -4005,7 +4005,7 @@ msgid "D d-m"
 msgstr "D d-m"
 
 msgid "D d-m G:i"
-msgstr ""
+msgstr "D d-m G:i"
 
 msgid "Not enough permissions to open this store, do you want to remove it from the hierarchy?"
 msgstr "이 스토어를 열 수 있는 권한이 부족하여 계층 구조에서 제거하시겠습니까?"

@@ -4018,7 +4018,7 @@ msgid "Your changes will be lost if you leave this page now."
 msgstr "Ihre Änderungen werden beim Schliessen dieser Seite verloren gehen."
 
 msgid "d-m-Y G:i"
-msgstr ""
+msgstr "d.m.Y G:i"
 
 msgid "D {0}"
 msgstr "D {0}"
@@ -4027,7 +4027,7 @@ msgid "D d-m"
 msgstr "D, d.m.Y"
 
 msgid "D d-m G:i"
-msgstr ""
+msgstr "D, d.m G:i"
 
 msgid "Not enough permissions to open this store, do you want to remove it from the hierarchy?"
 msgstr "Sie haben keine Berechtigung, dieses Postfach zu öffnen. Wollen Sie es aus der Hierarchie entfernen?"
