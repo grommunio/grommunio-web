@@ -1473,6 +1473,14 @@ class Operations {
 				$itemData['props']["received_by_username"] = $itemData['props']["received_by_email_address"];
 			}
 
+			// Workaround to get the assignees of a task. In some cases the task might
+			// have an assignee, but display_to (PR_DISPLAY_TO) is empty.
+			if (isset($properties['owner'], $properties['display_to']) &&
+			    isset($itemData['props']['owner']) &&
+			    empty($itemData['props']['display_to'])) {
+					$itemData['props']['display_to'] = $itemData['props']['owner'];
+			}
+
 			array_push($data["item"], $itemData);
 		}
 
