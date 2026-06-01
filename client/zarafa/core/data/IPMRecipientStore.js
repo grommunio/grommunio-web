@@ -659,14 +659,20 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 
 		var entryid = record instanceof Ext.data.Record ? record.get('entryid') : record['entryid'];
 		var emailAddress = this.getRecipientEmailAddress(record);
+		var matchingEmails = true; // a recipient might have aliases
 
 		return records.some(function(recipient) {
 			if (recipient === record) {
 				return false;
 			}
 
-			if (!Ext.isEmpty(emailAddress) && this.getRecipientEmailAddress(recipient) === emailAddress) {
-				return true;
+			if (!Ext.isEmpty(emailAddress)) {
+				if (this.getRecipientEmailAddress(recipient) === emailAddress) {
+					return true;
+				}
+				else {
+					matchingEmails = false;
+				}
 			}
 
 			if (Ext.isEmpty(entryid) || Ext.isEmpty(recipient.get('entryid'))) {
@@ -676,7 +682,8 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 			if (recipient.isOneOff()) {
 				return recipient.get('entryid') === entryid;
 			}
-			return Zarafa.core.EntryId.compareEntryIds(recipient.get('entryid'), entryid);
+
+			return Zarafa.core.EntryId.compareEntryIds(recipient.get('entryid'), entryid) && matchingEmails;
 		}, scope || this);
 	}
 });

@@ -1989,6 +1989,10 @@ class Operations {
 			$property = false;
 			$body = "";
 
+			if (isset($props[PR_SENT_REPRESENTING_SMTP_ADDRESS]) && !isset($props[PR_SENT_REPRESENTING_EMAIL_ADDRESS])) {
+				$props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] = $props[PR_SENT_REPRESENTING_SMTP_ADDRESS];
+			}
+
 			// Check if the body is set.
 			if (isset($props[PR_BODY])) {
 				$body = $props[PR_BODY];
@@ -2716,6 +2720,10 @@ class Operations {
 			$props[PR_SENTMAIL_ENTRYID] = $storeprops[PR_IPM_SENTMAIL_ENTRYID];
 		}
 
+		if (isset($props[PR_SENT_REPRESENTING_SMTP_ADDRESS]) && !isset($props[PR_SENT_REPRESENTING_EMAIL_ADDRESS])) {
+			$props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] = $props[PR_SENT_REPRESENTING_SMTP_ADDRESS];
+		}
+
 		// Check if replying then set PR_INTERNET_REFERENCES and PR_IN_REPLY_TO_ID properties in props.
 		// flag is probably used wrong here but the same flag indicates if this is reply or replyall
 		if ($copyInlineAttachmentsOnly) {
@@ -2750,6 +2758,7 @@ class Operations {
 			$props[PR_SENT_REPRESENTING_ENTRYID] ??= $props[PR_SENDER_ENTRYID];
 			$props[PR_SENT_REPRESENTING_NAME] ??= $props[PR_SENDER_NAME];
 			$props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] ??= $props[PR_SENDER_EMAIL_ADDRESS];
+			$props[PR_SENT_REPRESENTING_SMTP_ADDRESS] ??= $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS];
 			$props[PR_SENT_REPRESENTING_ADDRTYPE] ??= $props[PR_SENDER_ADDRTYPE];
 			$props[PR_SENT_REPRESENTING_SEARCH_KEY] ??= $props[PR_SENDER_SEARCH_KEY];
 

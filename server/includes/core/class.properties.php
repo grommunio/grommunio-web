@@ -320,6 +320,7 @@ class Properties {
 			$properties["sent_representing_name"] = PR_SENT_REPRESENTING_NAME;
 			$properties["sent_representing_address_type"] = PR_SENT_REPRESENTING_ADDRTYPE;
 			$properties["sent_representing_email_address"] = PR_SENT_REPRESENTING_EMAIL_ADDRESS;
+			$properties["sent_representing_smtp_address"] = PR_SENT_REPRESENTING_SMTP_ADDRESS;
 			$properties["sent_representing_search_key"] = PR_SENT_REPRESENTING_SEARCH_KEY;
 			$properties["sender_email_address"] = PR_SENDER_EMAIL_ADDRESS;
 			$properties["sender_name"] = PR_SENDER_NAME;
@@ -924,6 +925,7 @@ class Properties {
 			$properties["importance"] = PR_IMPORTANCE;
 			$properties["sent_representing_name"] = PR_SENT_REPRESENTING_NAME;
 			$properties["sent_representing_email_address"] = PR_SENT_REPRESENTING_EMAIL_ADDRESS;
+			$properties["sent_representing_smtp_address"] = PR_SENT_REPRESENTING_SMTP_ADDRESS;
 			$properties["sent_representing_address_type"] = PR_SENT_REPRESENTING_ADDRTYPE;
 			$properties["sent_representing_entryid"] = PR_SENT_REPRESENTING_ENTRYID;
 			$properties["sent_representing_search_key"] = PR_SENT_REPRESENTING_SEARCH_KEY;
@@ -1152,6 +1154,7 @@ class Properties {
 			$properties["sent_representing_name"] = PR_SENT_REPRESENTING_NAME;
 			$properties["sent_representing_address_type"] = PR_SENT_REPRESENTING_ADDRTYPE;
 			$properties["sent_representing_email_address"] = PR_SENT_REPRESENTING_EMAIL_ADDRESS;
+			$properties["sent_representing_smtp_address"] = PR_SENT_REPRESENTING_SMTP_ADDRESS;
 			$properties["sent_representing_search_key"] = PR_SENT_REPRESENTING_SEARCH_KEY;
 			$properties["sender_email_address"] = PR_SENDER_EMAIL_ADDRESS;
 			$properties["sender_name"] = PR_SENDER_NAME;
