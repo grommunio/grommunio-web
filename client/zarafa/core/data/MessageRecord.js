@@ -506,6 +506,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 
 			this.set('sent_representing_name', delegatorStore.get('mailbox_owner_name'), force);
 			this.set('sent_representing_email_address', delegatorStore.get('mailbox_owner_name'), force);
+			this.set('sent_representing_smtp_address', delegatorStore.get('mailbox_owner_name'), force);
 			this.set('sent_representing_address_type', 'SMTP', force);
 			this.set('sent_representing_entryid', delegatorStore.get('mailbox_owner_entryid'), force);
 		}
@@ -548,7 +549,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 		}
 
 		var sender = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_RECIPIENT, {
-			smtp_address : this.get('sent_representing_email_address'),
+			smtp_address : this.get('sent_representing_smtp_address') || this.get('sent_representing_email_address'),
 			display_name : this.get('sent_representing_name'),
 			address_type : this.get('sent_representing_address_type'),
 			entryid : this.get('sent_representing_entryid'),
@@ -586,6 +587,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 				 if (isCreateAction && recipient['new_mail'] || isReplyAction && recipient['reply_mail'] || isForwarsAction && recipient['forward_mail']) {
 					 this.set('sent_representing_name', recipient['display_name']);
 					 this.set('sent_representing_email_address', recipient['email_address'] || recipient['smtp_address']);
+					 this.set('sent_representing_smtp_address', recipient['smtp_address'] || recipient['email_address']);
 					 this.set('sent_representing_address_type', recipient['address_type']);
 					 this.set('sent_representing_entryid', recipient['entryid']);
 					 this.set('sent_representing_search_key', recipient['search_key']);
@@ -616,6 +618,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 		var recipeintConfig = {
 			display_name: this.get('sent_representing_name'),
 			email_address: this.get('sent_representing_email_address'),
+			smtp_address: this.get('sent_representing_smtp_address') || this.get('sent_representing_email_address'),
 			address_type: this.get('sent_representing_address_type'),
 			entryid: this.get('sent_representing_entryid')
 		};
@@ -631,6 +634,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 			Ext.apply(recipeintConfig, {
 				display_name: recipient['display_name'],
 				email_address: recipient['email_address'] || recipient['smtp_address'],
+				smtp_address: recipient['smtp_address'] || recipient['email_address'],
 				address_type: recipient['address_type'],
 				entryid: recipient['entryid'],
 				object_type: recipient['object_type'],

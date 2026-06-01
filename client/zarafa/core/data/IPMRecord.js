@@ -41,6 +41,7 @@ Zarafa.core.data.IPMRecordFields = [
 	{name: 'thumbnail_photo'},
 	{name: 'sent_representing_name'},
 	{name: 'sent_representing_email_address'},
+	{name: 'sent_representing_smtp_address'},
 	{name: 'sent_representing_username'},
 	{name: 'sent_representing_address_type'},
 	{name: 'sent_representing_entryid'},
