@@ -19,7 +19,7 @@ CSSDEPLOY = $(DESTDIR)/resources/css/
 
 COPYFILESDEST = $(addprefix $(DESTDIR)/, $(COPYFILES))
 
-all: $(COPYFILESDEST) $(JSDEPLOY)/passkey.js $(JSDEPLOY)/passkey.css
+all: $(COPYFILESDEST) $(JSDEPLOY)/passkey.js $(CSSDEPLOY)/passkey.css
 
 $(JSDEPLOY)/passkey.js: $(JSFILES)
 	mkdir -p $(DESTDIR)/js

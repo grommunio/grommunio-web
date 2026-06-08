@@ -7834,8 +7834,8 @@ msgstr "Enter a name for this passkey:"
 msgid "Failed to create passkey: "
 msgstr "Failed to create passkey: "
 
-msgid 'Are you sure you want to delete the passkey "{0}"?'
-msgstr 'Are you sure you want to delete the passkey "{0}"?'
+msgid "Are you sure you want to delete the passkey \"{0}\"?"
+msgstr "Are you sure you want to delete the passkey \"{0}\"?"
 
 msgid "Passkey registered successfully"
 msgstr "Passkey registered successfully"
