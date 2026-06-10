@@ -622,18 +622,19 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 	addCSSText: function(doc)
 	{
 		var head = doc.getElementsByTagName('head')[0];
-		if (head.childElementCount != 0) {
+		if (doc.getElementById('grommunio-preview-body-css')) {
 			return;
 		}
 
 		var css = doc.createElement('style');
+		css.setAttribute('id', 'grommunio-preview-body-css');
 		css.setAttribute('type', 'text/css');
 		css.appendChild(document.createTextNode('body { margin: 0; padding: 9px; } ' +
 			// Make the blockquote element not use the default right margin of 40px
 			'blockquote { margin-right: 0px; }' +
 			// Make text in pre tags wrapped if too long for a line
 			"@font-face { font-family: firamono; font-style: normal; font-weight: 400; src: url(" + window.location.pathname + "/client/resources/fonts/FiraMono-Regular.woff2) format('woff2'); }" +
-			"pre { white-space: pre-wrap; margin: 0; font-family: firamono, monospace; }" +
+			"pre { white-space: pre-wrap; overflow-wrap: anywhere; word-wrap: break-word; margin: 0; font-family: firamono, monospace; }" +
 
 			// Scale images
 			'p > span > img, div > img, p > img { max-width: 100%; height: auto !important; }' +
