@@ -3892,7 +3892,7 @@ class Operations {
 				// check if EX-type recipients are really in the address book
 				if ($props['address_type'] === 'EX') {
 					try {
-						$abentry = mapi_ab_openentry($addrBook, $props['entryid']);
+						$abentry = mapi_ab_openentry($addrBook, hex2bin($props['entryid']));
 					}
 					catch (MAPIException $e) {
 						if ($e->getCode() == MAPI_E_NOT_FOUND || $e->getCode() == MAPI_E_INVALID_PARAMETER) {
