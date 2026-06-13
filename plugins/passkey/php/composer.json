@@ -1,0 +1,9 @@
+{
+  "require": {
+    "web-auth/webauthn-lib": "^5.3.5",
+    "spomky-labs/cbor-php": "^3.2.3",
+    "nyholm/psr7": "^1.8.2",
+    "nyholm/psr7-server": "^1.1.0",
+    "symfony/uid": "^8"
+  }
+}
