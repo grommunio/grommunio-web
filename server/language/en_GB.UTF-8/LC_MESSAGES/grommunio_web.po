@@ -7773,3 +7773,94 @@ msgstr "Malformed UTF-8 characters, possibly incorrectly encoded"
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
 msgstr "Some problem encountered when encoding/decoding JSON data: - %s"
+
+# google2fa plugin
+msgid "Google2FA Plugin"
+msgstr "Google2FA Plugin"
+
+msgid "Two-factor authentication"
+msgstr "Two-factor authentication"
+
+msgid "Configure two-factor authentication"
+msgstr "Configure two-factor authentication"
+
+msgid "The two-factor authentication provides an additional protection for the WebApp."
+msgstr "The two-factor authentication provides an additional protection for the WebApp."
+
+msgid "After activation you need next to your password an one-time code to log in."
+msgstr "After activation you need next to your password an one-time code to log in."
+
+msgid "To generate an one-time code, you have to configure a second device, usually a smartphone."
+msgstr "To generate an one-time code, you have to configure a second device, usually a smartphone."
+
+msgid "Configuration"
+msgstr "Configuration"
+
+msgid "Activate or deactivate the two-factor authentication."
+msgstr "Activate or deactivate the two-factor authentication."
+
+msgid "Current status"
+msgstr "Current status"
+
+msgid "Activate / Deactivate"
+msgstr "Activate / Deactivate"
+
+msgid "You can completely reset the configuration."
+msgstr "You can completely reset the configuration."
+
+msgid "This deletes the secret key and deactivates the two-factor authentication."
+msgstr "This deletes the secret key and deactivates the two-factor authentication."
+
+msgid "If fundamental changes in the configuration were made, for example the encryption type, this step might be useful."
+msgstr "If fundamental changes in the configuration were made, for example the encryption type, this step might be useful."
+
+msgid "Activated"
+msgstr "Activated"
+
+msgid "Deactivated"
+msgstr "Deactivated"
+
+msgid "Do you really want to reset the configuration?"
+msgstr "Do you really want to reset the configuration?"
+
+msgid "The configuration has been reset."
+msgstr "The configuration has been reset."
+
+msgid "Please install an authentication App on second device:"
+msgstr "Please install an authentication App on second device:"
+
+msgid "Google Authenticator (Android, iOS, BlackBerry), Authenticator (Windows Phone)"
+msgstr "Google Authenticator (Android, iOS, BlackBerry), Authenticator (Windows Phone)"
+
+msgid "Open and configure the authentication app by scanning the QR code below."
+msgstr "Open and configure the authentication app by scanning the QR code below."
+
+msgid "Alternatively, you can manually create an account with the following information."
+msgstr "Alternatively, you can manually create an account with the following information."
+
+msgid "Application"
+msgstr "Application"
+
+msgid "Afterwards test the function with a generated code to ensure that the configurations are correct."
+msgstr "Afterwards test the function with a generated code to ensure that the configurations are correct."
+
+msgid "Key"
+msgstr "Key"
+
+msgid "Test generated code"
+msgstr "Test generated code"
+
+msgid "Please enter code"
+msgstr "Please enter code"
+
+msgid "Valid code, you can use the two-factor authentication."
+msgstr "Valid code, you can use the two-factor authentication."
+
+msgid "Invalid code, please check code."
+msgstr "Invalid code, please check code."
+
+msgid "You can use a code only one-time."
+msgstr "You can use a code only one-time."
+
+msgid "Please make sure that time from of server and second device are correct."
+msgstr "Please make sure that time from of server and second device are correct."

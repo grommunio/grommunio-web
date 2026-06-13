@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+    <info>
+        <version>1.0</version>
+        <name>google2fa</name>
+        <title>Two-factor authentication</title>
+        <author>grommunio GmbH</author>
+        <authorURL>http://www.grommunio.com</authorURL>
+        <description>Integrate 2FA via Google Authenticator into grommunio web</description>
+    </info>
+    <config>
+        <configfile>config.php</configfile>
+    </config>
+    <components>
+        <component>
+            <files>
+                <server>
+                    <serverfile type="module" module="google2famodule">php/class.google2famodule.php</serverfile>
+                    <serverfile>php/plugin.google2fa.php</serverfile>
+                </server>
+                <client>
+                    <clientfile load="release">js/google2fa.js?debug=false</clientfile>
+                    <clientfile load="debug">js/google2fa-debug.js?debug=true</clientfile>
+                    <clientfile load="source">js/data/Configuration.js</clientfile>
+                    <clientfile load="source">js/data/ResponseHandler.js</clientfile>
+                    <clientfile load="source">js/Google2FAPlugin.js</clientfile>
+                    <clientfile load="source">js/settings/Category.js</clientfile>
+                    <clientfile load="source">js/settings/GeneralSettingsWidget.js</clientfile>
+                </client>
+                <resources>
+                    <resourcefile load="release">resources/css/google2fa.css?debug=false</resourcefile>
+                    <resourcefile load="debug">resources/css/google2fa.css?debug=true</resourcefile>
+                    <resourcefile load="source">resources/css/google2fa.css?debug=true&amp;source=true</resourcefile>
+                </resources>
+            </files>
+        </component>
+    </components>
+</plugin>

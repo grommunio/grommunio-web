@@ -1,0 +1,7 @@
+{
+  "minimum-stability" : "stable",
+  "prefer-stable" : true,
+  "require": {
+    "spomky-labs/otphp": "^11.5"
+  }
+}
