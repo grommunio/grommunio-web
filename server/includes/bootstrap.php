@@ -48,6 +48,7 @@ require_once UMAPI_PATH . '/mapitags.php';
 require_once UMAPI_PATH . '/mapiguid.php';
 require_once UMAPI_PATH . '/class.baseexception.php';
 require_once UMAPI_PATH . '/class.mapiexception.php';
+require_once UMAPI_PATH . '/class.recurrenceexception.php';
 
 require_once BASE_PATH . 'server/includes/exceptions/class.ZarafaException.php';
 require_once BASE_PATH . 'server/includes/exceptions/class.ZarafaErrorException.php';

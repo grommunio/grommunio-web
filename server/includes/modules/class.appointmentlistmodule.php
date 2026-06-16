@@ -402,7 +402,17 @@ class AppointmentListModule extends ListModule {
 
 			// Fix for all-day events which have a different timezone than the user's browser
 			$recurrence = new Recurrence($store, $calendaritem, $proptags);
-			$recuritems = $recurrence->getItems($start, $end);
+			try {
+				$recuritems = $recurrence->getItems($start, $end);
+			}
+			catch (RecurrenceException $re) {
+				error_log(sprintf("processItems RecurrenceException (%d) for item '%s' - %s - %s",
+					$re->getCode(),
+					$calendaritem[$this->properties["subject"]] ?? '<empty subject>',
+					bin2hex($calendaritem[$this->properties["entryid"]]),
+					bin2hex($calendaritem[$this->properties["recurring_data"]])));
+				continue;
+			}
 			$msgRecurrence = null;
 
 			foreach ($recuritems as $recuritem) {
@@ -455,7 +465,6 @@ class AppointmentListModule extends ListModule {
 		}
 
 		usort($items, ["AppointmentListModule", "compareCalendarItems"]);
-
 		return $items;
 	}
 
