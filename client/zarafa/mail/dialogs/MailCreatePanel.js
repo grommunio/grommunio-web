@@ -590,16 +590,18 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 
 			record.set('sent_representing_name', recipientRecord.get('display_name'));
 			record.set('sent_representing_email_address', recipientRecord.get('email_address'));
-			record.set('sent_representing_smtp_address', recipientRecord.get('smtp_address') || recipientRecord.get('email_address'));
 			record.set('sent_representing_address_type', recipientRecord.get('address_type'));
 			record.set('sent_representing_entryid', recipientRecord.get('entryid'));
 			record.set('sent_representing_search_key', recipientRecord.get('search_key'));
+			var smtpAddress = recipientRecord.get('smtp_address');
+			if (Zarafa.core.Util.validateEmailAddress(smtpAddress)) {
+				record.set('sent_representing_smtp_address', smtpAddress);
+			}
 		} else {
 			this.getTopToolbar().showFrom.enable();
 
 			record.set('sent_representing_name', '');
 			record.set('sent_representing_email_address', '');
-			record.set('sent_representing_smtp_address', '');
 			record.set('sent_representing_address_type', '');
 			record.set('sent_representing_entryid', '');
 			record.set('sent_representing_search_key', '');

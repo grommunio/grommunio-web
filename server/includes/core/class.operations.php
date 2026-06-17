@@ -2672,13 +2672,9 @@ class Operations {
 			// we do conversion here, because before passing props to saveMessage() props are converted from utf8-to-w
 			$action["props"]["sent_representing_name"] = $userprops[PR_DISPLAY_NAME];
 			$action["props"]["sent_representing_address_type"] = $userprops[PR_ADDRTYPE];
-			if ($userprops[PR_ADDRTYPE] == 'SMTP') {
-				$emailAddress = $userprops[PR_SMTP_ADDRESS];
-			}
-			else {
-				$emailAddress = $userprops[PR_EMAIL_ADDRESS];
-			}
+			$emailAddress = $userprops[PR_ADDRTYPE] == 'SMTP' ? $userprops[PR_SMTP_ADDRESS] : $emailAddress = $userprops[PR_EMAIL_ADDRESS];
 			$action["props"]["sent_representing_email_address"] = $emailAddress;
+			$action["props"]["sent_representing_smtp_address"] = $userprops[PR_SMTP_ADDRESS];
 			$action["props"]["sent_representing_search_key"] = bin2hex(strtoupper($userprops[PR_ADDRTYPE] . ':' . $emailAddress)) . '00';
 		}
 	}
@@ -2727,6 +2723,9 @@ class Operations {
 		if (isset($storeprops[PR_IPM_SENTMAIL_ENTRYID])) {
 			$props[PR_SENTMAIL_ENTRYID] = $storeprops[PR_IPM_SENTMAIL_ENTRYID];
 		}
+		if (empty($props[PR_SENT_REPRESENTING_SMTP_ADDRESS])) {
+			unset($props[PR_SENT_REPRESENTING_SMTP_ADDRESS]);
+		}
 
 		if (isset($props[PR_SENT_REPRESENTING_SMTP_ADDRESS]) && !isset($props[PR_SENT_REPRESENTING_EMAIL_ADDRESS])) {
 			$props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] = $props[PR_SENT_REPRESENTING_SMTP_ADDRESS];
@@ -2766,7 +2765,6 @@ class Operations {
 			$props[PR_SENT_REPRESENTING_ENTRYID] ??= $props[PR_SENDER_ENTRYID];
 			$props[PR_SENT_REPRESENTING_NAME] ??= $props[PR_SENDER_NAME];
 			$props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] ??= $props[PR_SENDER_EMAIL_ADDRESS];
-			$props[PR_SENT_REPRESENTING_SMTP_ADDRESS] ??= $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS];
 			$props[PR_SENT_REPRESENTING_ADDRTYPE] ??= $props[PR_SENDER_ADDRTYPE];
 			$props[PR_SENT_REPRESENTING_SEARCH_KEY] ??= $props[PR_SENDER_SEARCH_KEY];
 

@@ -239,7 +239,15 @@ class CreateMailItemModule extends ItemModule {
 		elseif (isset($action['props']['sent_representing_email_address'], $action['props']['sent_representing_address_type'])) {
 			$addrType = $action['props']['sent_representing_address_type'];
 			if (strcasecmp($addrType, 'EX') === 0 || strcasecmp($addrType, 'SMTP') === 0) {
-				$otherStore = $GLOBALS['mapisession']->addUserStore($action['props']['sent_representing_email_address']);
+				try {
+					$otherStore = $GLOBALS['mapisession']->addUserStore($action['props']['sent_representing_email_address']);
+				}
+				catch (MAPIException $e) {
+					$e->setTitle(_('Unknown error'));
+					$e->setDisplayMessage(sprintf("Unable to add store: '%s'. Please check if you have the necessary permissions.",
+						$action['props']['sent_representing_email_address']));
+					throw $e;
+				}
 				if ($otherStore && $send) {
 					$context['store'] = $otherStore;
 				}
