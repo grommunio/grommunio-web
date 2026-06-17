@@ -2672,13 +2672,9 @@ class Operations {
 			// we do conversion here, because before passing props to saveMessage() props are converted from utf8-to-w
 			$action["props"]["sent_representing_name"] = $userprops[PR_DISPLAY_NAME];
 			$action["props"]["sent_representing_address_type"] = $userprops[PR_ADDRTYPE];
-			if ($userprops[PR_ADDRTYPE] == 'SMTP') {
-				$emailAddress = $userprops[PR_SMTP_ADDRESS];
-			}
-			else {
-				$emailAddress = $userprops[PR_EMAIL_ADDRESS];
-			}
+			$emailAddress = $userprops[PR_ADDRTYPE] == 'SMTP' ? $userprops[PR_SMTP_ADDRESS] : $emailAddress = $userprops[PR_EMAIL_ADDRESS];
 			$action["props"]["sent_representing_email_address"] = $emailAddress;
+			$action["props"]["sent_representing_smtp_address"] = $userprops[PR_SMTP_ADDRESS];
 			$action["props"]["sent_representing_search_key"] = bin2hex(strtoupper($userprops[PR_ADDRTYPE] . ':' . $emailAddress)) . '00';
 		}
 	}
