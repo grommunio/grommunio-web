@@ -2925,6 +2925,7 @@ class Operations {
 					$props[PR_SENT_REPRESENTING_SMTP_ADDRESS] = $props[PR_SENDER_EMAIL_ADDRESS] = $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS];
 					$props[PR_SENDER_ADDRTYPE] = 'SMTP';
 				}
+				$sendingAsDelegate = true;
 			}
 			// Save the new message properties
 			$message = $this->saveMessage($store, $entryid, $storeprops[PR_IPM_OUTBOX_ENTRYID], $props, $messageProps, $recipients, $attachments, [], $copyFromMessage, $copyAttachments, $copyRecipients, $copyInlineAttachmentsOnly, true, true, $isPlainText);
