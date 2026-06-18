@@ -2090,9 +2090,10 @@ Note: Does not work in IE11 */
 
 /* Fix for the background-color when the titles are longer than the width of the box */
 .zarafa-hierarchy-treepanel .x-tree-root-ct {
-  display: flex;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: flex-start;
-  overflow-x: auto;
   min-width: 100%; }
 
 /* Override -- lines in hierarchytree */
