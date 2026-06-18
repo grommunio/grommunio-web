@@ -4408,7 +4408,7 @@ msgid "Saving…"
 msgstr "Salvestame…"
 
 msgid "Saved at {0}"
-msgstr "Salvestatud aadressil {0}"
+msgstr "Salvestatud kell {0}"
 
 msgid "Saving failed"
 msgstr "Salvestamine ei õnnestunud"

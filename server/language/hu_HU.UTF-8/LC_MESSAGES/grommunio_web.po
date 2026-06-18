@@ -4464,7 +4464,7 @@ msgid "Saving…"
 msgstr "Mentés…"
 
 msgid "Saved at {0}"
-msgstr "Megmentve a {0}"
+msgstr "Megmentve {0}-kor"
 
 msgid "Saving failed"
 msgstr "A mentés sikertelen"

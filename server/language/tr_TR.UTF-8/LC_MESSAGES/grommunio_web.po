@@ -4408,7 +4408,7 @@ msgid "Saving…"
 msgstr "Kaydediliyor…"
 
 msgid "Saved at {0}"
-msgstr "Mesaj {0}'da kaydedildi"
+msgstr "Mesaj {0}'de kaydedildi"
 
 msgid "Saving failed"
 msgstr "Kaydetme başarısız oldu"

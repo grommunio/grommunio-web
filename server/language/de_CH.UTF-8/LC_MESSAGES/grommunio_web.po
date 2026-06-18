@@ -4410,7 +4410,7 @@ msgid "Saving…"
 msgstr "Speichere…"
 
 msgid "Saved at {0}"
-msgstr "Nachricht gespeichert unter {0}"
+msgstr "Nachricht gespeichert um {0} Uhr"
 
 msgid "Saving failed"
 msgstr "Speichern fehlgeschlagen"

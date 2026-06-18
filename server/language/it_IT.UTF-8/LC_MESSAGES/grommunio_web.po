@@ -4414,7 +4414,7 @@ msgid "Saving…"
 msgstr "Salvataggio in corso…"
 
 msgid "Saved at {0}"
-msgstr "Messaggio salvato il {0}"
+msgstr "Messaggio salvato alle {0}"
 
 msgid "Saving failed"
 msgstr "Salvataggio fallito"

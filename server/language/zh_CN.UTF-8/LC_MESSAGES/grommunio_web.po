@@ -4401,7 +4401,7 @@ msgid "Saving…"
 msgstr "正在保存…"
 
 msgid "Saved at {0}"
-msgstr "保存时间{0}"
+msgstr "已于 {0} 保存"
 
 msgid "Saving failed"
 msgstr "保存失败"

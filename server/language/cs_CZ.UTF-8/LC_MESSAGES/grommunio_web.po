@@ -4462,7 +4462,7 @@ msgid "Saving…"
 msgstr "Ukládám…"
 
 msgid "Saved at {0}"
-msgstr "Uloženo na {0}"
+msgstr "Uloženo v {0}"
 
 msgid "Saving failed"
 msgstr "Uložení se nezdařilo"

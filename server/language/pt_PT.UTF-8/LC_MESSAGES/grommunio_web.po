@@ -4413,7 +4413,7 @@ msgid "Saving…"
 msgstr "A gravar…"
 
 msgid "Saved at {0}"
-msgstr "Gravada em {0}"
+msgstr "Gravada às {0}"
 
 msgid "Saving failed"
 msgstr "Gravar falhou"

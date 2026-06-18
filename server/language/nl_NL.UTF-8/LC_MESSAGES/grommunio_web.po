@@ -4413,7 +4413,7 @@ msgid "Saving…"
 msgstr "Opslaan…"
 
 msgid "Saved at {0}"
-msgstr "Email opgeslagen om {0}"
+msgstr "Email opgeslagen om {0} uur"
 
 msgid "Saving failed"
 msgstr "Opslaan mislukt"

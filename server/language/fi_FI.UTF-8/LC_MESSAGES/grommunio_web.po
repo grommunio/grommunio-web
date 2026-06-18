@@ -4454,7 +4454,7 @@ msgid "Saving…"
 msgstr "Tallennetaan…"
 
 msgid "Saved at {0}"
-msgstr "Tallennettu osoitteessa {0}"
+msgstr "Tallennettu klo {0}"
 
 msgid "Saving failed"
 msgstr "Tallentaminen epäonnistui"

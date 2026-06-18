@@ -4450,7 +4450,7 @@ msgid "Saving…"
 msgstr "Guardando…"
 
 msgid "Saved at {0}"
-msgstr "Guardado en {0}"
+msgstr "Guardado a las {0}"
 
 msgid "Saving failed"
 msgstr "Error al guardar"

@@ -4491,7 +4491,7 @@ msgid "Saving…"
 msgstr "توفير…"
 
 msgid "Saved at {0}"
-msgstr "تم الحفظ في{0}"
+msgstr "تم الحفظ في الساعة {0}"
 
 msgid "Saving failed"
 msgstr "فشل الحفظ"

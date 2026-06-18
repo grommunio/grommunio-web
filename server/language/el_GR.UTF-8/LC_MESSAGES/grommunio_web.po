@@ -4514,7 +4514,7 @@ msgid "Saving…"
 msgstr "Αποθήκευση…"
 
 msgid "Saved at {0}"
-msgstr "Αποθηκεύτηκε στο {0}"
+msgstr "Αποθηκεύτηκε στις {0}"
 
 msgid "Saving failed"
 msgstr "Η αποθήκευση απέτυχε"

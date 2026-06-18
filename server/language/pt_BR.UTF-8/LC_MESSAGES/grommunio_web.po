@@ -4415,7 +4415,7 @@ msgid "Saving…"
 msgstr "Salvando…"
 
 msgid "Saved at {0}"
-msgstr "Salvo em {0}"
+msgstr "Salvo às {0}"
 
 msgid "Saving failed"
 msgstr "Falha ao salvar"

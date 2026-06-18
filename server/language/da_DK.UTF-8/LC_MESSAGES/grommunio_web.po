@@ -4436,7 +4436,7 @@ msgid "Saving…"
 msgstr "Gemmer…"
 
 msgid "Saved at {0}"
-msgstr "Gemt på {0}"
+msgstr "Gemt kl. {0}"
 
 msgid "Saving failed"
 msgstr "Gemning fejlede"

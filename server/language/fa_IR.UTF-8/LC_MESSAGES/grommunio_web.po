@@ -4406,7 +4406,7 @@ msgid "Saving…"
 msgstr "در حال ذخیره…"
 
 msgid "Saved at {0}"
-msgstr "ذخیره شده در{0}"
+msgstr "ذخیره شده در {0}"
 
 msgid "Saving failed"
 msgstr "ذخیره نشد"

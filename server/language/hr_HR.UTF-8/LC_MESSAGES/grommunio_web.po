@@ -4428,7 +4428,7 @@ msgid "Saving…"
 msgstr "Spremanje..."
 
 msgid "Saved at {0}"
-msgstr "Spremljeno u{0}"
+msgstr "Spremljeno u {0}"
 
 msgid "Saving failed"
 msgstr "Spremanje nije uspjelo"

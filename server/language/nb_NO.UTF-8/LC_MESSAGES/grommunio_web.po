@@ -4408,7 +4408,7 @@ msgid "Saving…"
 msgstr "Lagre…"
 
 msgid "Saved at {0}"
-msgstr "Melding lagret {0}"
+msgstr "Melding lagret kl. {0}"
 
 msgid "Saving failed"
 msgstr "Lagring feilet"

@@ -4416,7 +4416,7 @@ msgid "Saving…"
 msgstr "שומר…"
 
 msgid "Saved at {0}"
-msgstr "נשמר ב-{0}"
+msgstr "נשמר בשעה {0}"
 
 msgid "Saving failed"
 msgstr "השמירה נכשלה"

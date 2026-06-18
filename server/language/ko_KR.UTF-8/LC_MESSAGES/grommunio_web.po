@@ -4386,7 +4386,7 @@ msgid "Saving…"
 msgstr "저장..."
 
 msgid "Saved at {0}"
-msgstr "0}에 저장됨"
+msgstr "{0}에 저장됨"
 
 msgid "Saving failed"
 msgstr "저장 실패"

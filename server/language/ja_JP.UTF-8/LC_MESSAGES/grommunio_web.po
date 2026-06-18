@@ -4430,7 +4430,7 @@ msgid "Saving…"
 msgstr "保存中…"
 
 msgid "Saved at {0}"
-msgstr "保存先{0}"
+msgstr "{0}に保存されました"
 
 msgid "Saving failed"
 msgstr "保存に失敗しました"

@@ -4408,7 +4408,7 @@ msgid "Saving…"
 msgstr "Sparande…"
 
 msgid "Saved at {0}"
-msgstr "Sparad på {0}"
+msgstr "Sparad kl. {0}"
 
 msgid "Saving failed"
 msgstr "Det gick inte att spara"

@@ -4418,7 +4418,7 @@ msgid "Saving…"
 msgstr "S'està desant…"
 
 msgid "Saved at {0}"
-msgstr "Desat a{0}"
+msgstr "Desat a les {0}"
 
 msgid "Saving failed"
 msgstr "S'ha produït un error en desar"
