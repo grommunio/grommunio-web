@@ -168,6 +168,9 @@ class ContactItemModule extends ItemModule {
 						// email address, OL07 uses Unknown as email address so we do same here
 						$item['email_address'] = 'Unknown';
 					}
+					if (empty($item['address_type']) && in_array($item['distlist_type'], [DL_DIST, DL_DIST_AB])) {
+						$item['address_type'] = 'MAPIPDL';
+					}
 
 					$oneoff = mapi_createoneoff($item['display_name'], $item['address_type'], $item['email_address']);
 
