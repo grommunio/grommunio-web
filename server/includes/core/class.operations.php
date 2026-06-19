@@ -2569,7 +2569,7 @@ class Operations {
 				 * Condition is only gets true, if recipient is distribution list and it`s belongs
 				 * to shared/internal(belongs in contact folder) folder.
 				 */
-				if ($recipientItem['object_type'] == MAPI_DISTLIST && $recipientItem['address_type'] != 'EX') {
+				if ($recipientItem['object_type'] == MAPI_DISTLIST && !$GLOBALS['entryid']->hasAddressBookRecipientGUID($recipientEntryid)) {
 					if (!$isExistInRemove) {
 						$recipientItems = $GLOBALS["operations"]->expandDistList($recipientEntryid, true);
 						foreach ($recipientItems as $recipient) {
