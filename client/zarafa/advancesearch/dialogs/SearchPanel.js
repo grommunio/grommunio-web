@@ -691,7 +691,6 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 		leftToolbar.setWidth(searchToolBox.getSize().width + margins + adjWidth);
 
 		rightToolbar.setWidth(this.centerRegion.switchBorder.getLayout().south.getSize().width);
-		rightToolbar.setPosition(leftToolbar.getWidth());
 	},
 
 	/**
