@@ -200,10 +200,11 @@ class IndexSqlite extends SQLite3 {
 				return count($entryids);
 			}
 			catch (Exception $e) {
-				$details = ['count' => count($entryids), 'error' => $e->getMessage()];
-				if (function_exists('mapi_last_hresult')) {
-					$details['hresult'] = mapi_last_hresult();
-				}
+				$details = [
+					'count' => count($entryids),
+					'error' => $e->getMessage(),
+					'hresult' => mapi_last_hresult(),
+				];
 				$this->logDebug('MAPI linkmessages (batch) failed, falling back to per-message linking', $details);
 				// fall through to the per-message path below
 			}
@@ -218,10 +219,8 @@ class IndexSqlite extends SQLite3 {
 				$details = [
 					'entryid' => self::formatBinaryFieldForLog($entryid),
 					'error' => $e->getMessage(),
+					'hresult' => mapi_last_hresult(),
 				];
-				if (function_exists('mapi_last_hresult')) {
-					$details['hresult'] = mapi_last_hresult();
-				}
 				$this->logDebug('MAPI linkmessage failed', $details);
 
 				continue;
