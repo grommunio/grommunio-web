@@ -751,7 +751,7 @@ class ListModule extends Module {
 	 * @param resource $parentFolder the FINDER_ROOT folder
 	 * @param string   $entryid      binary entryid of the folder to delete
 	 */
-	private function safeDeleteSearchFolder($parentFolder, string $entryid): void {
+	protected function safeDeleteSearchFolder($parentFolder, string $entryid): void {
 		try {
 			mapi_folder_deletefolder($parentFolder, $entryid, DEL_FOLDERS | DEL_MESSAGES | DELETE_HARD_DELETE);
 		}

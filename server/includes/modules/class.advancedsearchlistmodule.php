@@ -537,6 +537,16 @@ class AdvancedSearchListModule extends ListModule {
 			$isSetSearchFolderEntryId = false;
 		}
 
+		// Each search gets its own freshly created search folder. We populate
+		// the folder ourselves (entryid by entryid) instead of letting the
+		// server run the criteria, so a reused folder would accumulate the
+		// previous result set and, with two searches sharing one folder,
+		// double-link the same message and stall the mailbox. A fresh folder
+		// per search keeps the result set correct and isolates concurrent
+		// searches from each other.
+		$previousSearchFolderEntryId = $this->sessionData['searchFolderEntryId'] ?? null;
+		$isSetSearchFolderEntryId = false;
+
 		// create or open search folder
 		$searchFolder = $this->createSearchFolder($store, $isSetSearchFolderEntryId);
 		if ($searchFolder === false) {
@@ -557,6 +567,16 @@ class AdvancedSearchListModule extends ListModule {
 			$errorInfo["original_error_message"] = _("Error in creating search folder.");
 
 			return $this->sendSearchErrorToClient($store, $entryid, $action, $errorInfo);
+		}
+
+		// Retire the folder used by the previous search in this session now
+		// that a fresh one is in place, so old search folders do not pile up.
+		if ($previousSearchFolderEntryId !== null &&
+			$previousSearchFolderEntryId !== ($this->sessionData['searchFolderEntryId'] ?? null)) {
+			$searchFolderRoot = $this->getSearchFoldersRoot($store);
+			if ($searchFolderRoot !== false) {
+				$this->safeDeleteSearchFolder($searchFolderRoot, hex2bin((string) $previousSearchFolderEntryId));
+			}
 		}
 
 		$subfolder_flag = 0;
