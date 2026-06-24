@@ -93,8 +93,13 @@ class IndexSqlite extends SQLite3 {
 		}
 	}
 
-	private function try_insert_content(
-		$search_entryid,
+	/**
+	 * Apply the per-result filters and return the message entryid that should
+	 * be linked into the search folder, or null when the row is filtered out
+	 * or unusable. Linking itself is deferred to the caller so it can be
+	 * batched into a single RPC instead of one round trip per message.
+	 */
+	private function filter_content(
 		$row,
 		$message_classes,
 		$date_start,
@@ -119,7 +124,7 @@ class IndexSqlite extends SQLite3 {
 					'message_id' => $row['message_id'],
 				]);
 
-				return;
+				return null;
 			}
 		}
 		if (is_array($message_classes) && $message_classes !== []) {
@@ -136,7 +141,7 @@ class IndexSqlite extends SQLite3 {
 					'message_class' => $row['message_class'] ?? null,
 				]);
 
-				return;
+				return null;
 			}
 		}
 		if ($date_start !== null && $row['date'] < $date_start) {
@@ -146,7 +151,7 @@ class IndexSqlite extends SQLite3 {
 				'date_start' => $date_start,
 			]);
 
-			return;
+			return null;
 		}
 		if ($date_end !== null && $row['date'] > $date_end) {
 			$this->logDebug('Skipping message after end date filter', [
@@ -155,7 +160,7 @@ class IndexSqlite extends SQLite3 {
 				'date_end' => $date_end,
 			]);
 
-			return;
+			return null;
 		}
 		if ($unread && $row['readflag']) {
 			$this->logDebug('Skipping message because unread flag filter is active', [
@@ -163,7 +168,7 @@ class IndexSqlite extends SQLite3 {
 				'readflag' => $row['readflag'] ?? null,
 			]);
 
-			return;
+			return null;
 		}
 		if ($has_attachments && !$row['attach_indexed']) {
 			$this->logDebug('Skipping message because attachment filter is active', [
@@ -171,30 +176,60 @@ class IndexSqlite extends SQLite3 {
 				'attach_indexed' => $row['attach_indexed'] ?? null,
 			]);
 
-			return;
+			return null;
 		}
 
-		try {
-			mapi_linkmessage($this->session, $search_entryid, $row['entryid']);
-		}
-		catch (Exception $e) {
-			$details = [
-				'message_id' => $row['message_id'],
-				'entryid' => self::formatBinaryFieldForLog($row['entryid']),
-				'error' => $e->getMessage(),
-			];
-			if (function_exists('mapi_last_hresult')) {
-				$details['hresult'] = mapi_last_hresult();
-			}
-			$this->logDebug('MAPI linkmessage failed', $details);
-
-			return;
-		}
-		++$this->count;
+		return $row['entryid'];
 	}
 
-	private function result_full() {
-		return $this->count >= MAX_FTS_RESULT_ITEMS;
+	/**
+	 * Link the collected result entryids into the search folder. When the
+	 * php-mapi extension exposes the batch binding (mapi_linkmessages), all
+	 * messages are linked in a single RPC; otherwise we fall back to the
+	 * per-message mapi_linkmessage path so a new web release keeps working
+	 * against an older gromox. Returns the number of linked messages.
+	 */
+	private function link_entryids($search_entryid, array $entryids): int {
+		if ($entryids === []) {
+			return 0;
+		}
+		if (function_exists('mapi_linkmessages')) {
+			try {
+				mapi_linkmessages($this->session, $search_entryid, $entryids);
+
+				return count($entryids);
+			}
+			catch (Exception $e) {
+				$details = ['count' => count($entryids), 'error' => $e->getMessage()];
+				if (function_exists('mapi_last_hresult')) {
+					$details['hresult'] = mapi_last_hresult();
+				}
+				$this->logDebug('MAPI linkmessages (batch) failed, falling back to per-message linking', $details);
+				// fall through to the per-message path below
+			}
+		}
+
+		$linked = 0;
+		foreach ($entryids as $entryid) {
+			try {
+				mapi_linkmessage($this->session, $search_entryid, $entryid);
+			}
+			catch (Exception $e) {
+				$details = [
+					'entryid' => self::formatBinaryFieldForLog($entryid),
+					'error' => $e->getMessage(),
+				];
+				if (function_exists('mapi_last_hresult')) {
+					$details['hresult'] = mapi_last_hresult();
+				}
+				$this->logDebug('MAPI linkmessage failed', $details);
+
+				continue;
+			}
+			++$linked;
+		}
+
+		return $linked;
 	}
 
 	public function search($search_entryid, $descriptor, $folder_entryid, $recursive) {
@@ -277,7 +312,7 @@ class IndexSqlite extends SQLite3 {
 		$bindings[] = [":fts_query", $ftsQuery, SQLITE3_TEXT];
 
 		// Push filters into SQL so LIMIT applies to already-filtered rows.
-		// PHP-side filtering in try_insert_content() is kept as a safety net.
+		// PHP-side filtering in filter_content() is kept as a safety net.
 		if ($date_start !== null) {
 			$whereClauses[] = "c.date >= :date_start";
 			$bindings[] = [":date_start", (int) $date_start, SQLITE3_INTEGER];
@@ -330,6 +365,7 @@ class IndexSqlite extends SQLite3 {
 		$deadline = MAX_FTS_EXECUTION_TIME > 0 ? microtime(true) + MAX_FTS_EXECUTION_TIME : 0;
 		$matchedRows = 0;
 		$sampleRows = [];
+		$entryids = [];
 		$stmt = null;
 		$results = null;
 
@@ -367,7 +403,10 @@ class IndexSqlite extends SQLite3 {
 
 				return false;
 			}
-			while (($row = $results->fetchArray(SQLITE3_ASSOC)) && !$this->result_full()) {
+			// Collect the entryids that pass the filters; the actual linking
+			// is deferred until after the loop so it can be batched into a
+			// single RPC instead of one round trip per matched message.
+			while (($row = $results->fetchArray(SQLITE3_ASSOC)) && count($entryids) < MAX_FTS_RESULT_ITEMS) {
 				// Graceful abort when the wall-clock deadline is reached
 				// so we return partial results instead of letting PHP
 				// kill the process via max_execution_time.
@@ -375,14 +414,12 @@ class IndexSqlite extends SQLite3 {
 					$this->logDebug('Search aborted: execution time limit reached', [
 						'limit_seconds' => MAX_FTS_EXECUTION_TIME,
 						'matched_rows' => $matchedRows,
-						'linked_messages' => $this->count,
+						'selected_messages' => count($entryids),
 					]);
 					break;
 				}
 				++$matchedRows;
-				$previousCount = $this->count;
-				$this->try_insert_content(
-					$search_entryid,
+				$entryid = $this->filter_content(
 					$row,
 					$message_classes,
 					$date_start,
@@ -390,7 +427,11 @@ class IndexSqlite extends SQLite3 {
 					$unread,
 					$has_attachments
 				);
-				if ($this->count > $previousCount && count($sampleRows) < self::DEBUG_SAMPLE_LIMIT) {
+				if ($entryid === null) {
+					continue;
+				}
+				$entryids[] = $entryid;
+				if (count($sampleRows) < self::DEBUG_SAMPLE_LIMIT) {
 					$sampleRows[] = [
 						'message_id' => $row['message_id'] ?? null,
 						'entryid' => self::formatBinaryFieldForLog($row['entryid'] ?? null),
@@ -412,12 +453,15 @@ class IndexSqlite extends SQLite3 {
 			// Always restore the original time limit, even after an error.
 			set_time_limit($prevTimeLimit);
 		}
+		$this->count = $this->link_entryids($search_entryid, $entryids);
 		$durationMs = (int) round((microtime(true) - $startTime) * 1000);
 		$this->logDebug('Search completed', [
 			'fts_query' => $ftsQuery,
 			'matched_rows' => $matchedRows,
+			'selected_messages' => count($entryids),
 			'linked_messages' => $this->count,
-			'limit_reached' => $this->result_full(),
+			'batch_link' => function_exists('mapi_linkmessages'),
+			'limit_reached' => count($entryids) >= MAX_FTS_RESULT_ITEMS,
 			'folder_ids' => $whereFolderids !== [] ? $whereFolderids : null,
 			'sample_messages' => $sampleRows,
 			'duration_ms' => $durationMs,
