@@ -358,6 +358,10 @@ class CreateMailItemModule extends ItemModule {
 			$data['info']['title'] = _('Quota error');
 			$data['info']['display_message'] = _('Send quota limit reached');
 		}
+		elseif ($error === 'SENDAS_IDENTITY_MISMATCH') {
+			$data['info']['title'] = _('Sender address could not be applied');
+			$data['info']['display_message'] = _('The message was not sent because the selected sender address could not be applied. Please try again.');
+		}
 		else {
 			$data['info']['title'] = _('Operation failed');
 			$data['info']['display_message'] = sprintf(_('Email sending failed (%s). Check the log files for more information.'), $error);

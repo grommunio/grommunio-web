@@ -2731,6 +2731,30 @@ class Operations {
 			$props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] = $props[PR_SENT_REPRESENTING_SMTP_ADDRESS];
 		}
 
+		// Remember the SendAs / on-behalf identity the client requested, so that after the
+		// message has been assembled we can verify the message is actually being sent under
+		// that identity instead of silently falling back to the logged-in user's own address.
+		// We only guard a request that names a representing address different from the user.
+		// Resolve to an SMTP address: an EX (GAL) representing identity carries an X500 DN in
+		// PR_SENT_REPRESENTING_EMAIL_ADDRESS, which must be normalised the same way as the actual
+		// side of the comparison, otherwise a valid delegate send would look like a mismatch.
+		$requestedSendAsAddress = '';
+		if (!empty($props[PR_SENT_REPRESENTING_SMTP_ADDRESS])) {
+			$requestedSendAsAddress = strtolower((string) $props[PR_SENT_REPRESENTING_SMTP_ADDRESS]);
+		}
+		elseif (!empty($props[PR_SENT_REPRESENTING_EMAIL_ADDRESS])) {
+			if (strcasecmp((string) ($props[PR_SENT_REPRESENTING_ADDRTYPE] ?? ''), 'SMTP') === 0) {
+				$requestedSendAsAddress = strtolower((string) $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS]);
+			}
+			elseif (!empty($props[PR_SENT_REPRESENTING_ENTRYID])) {
+				$resolved = $this->getEmailAddress(
+					$props[PR_SENT_REPRESENTING_ENTRYID],
+					!empty($props[PR_SENT_REPRESENTING_SEARCH_KEY]) ? $props[PR_SENT_REPRESENTING_SEARCH_KEY] : false
+				);
+				$requestedSendAsAddress = strtolower((string) $resolved);
+			}
+		}
+
 		// Check if replying then set PR_INTERNET_REFERENCES and PR_IN_REPLY_TO_ID properties in props.
 		// flag is probably used wrong here but the same flag indicates if this is reply or replyall
 		if ($copyInlineAttachmentsOnly) {
@@ -2899,26 +2923,46 @@ class Operations {
 			// save changes to new message created in outbox
 			mapi_savechanges($newmessage);
 
+			// Determine the representing (SendAs / on-behalf) identity and the sender to compare
+			// against. The detection must key off the client-supplied $props (the actual request):
+			// the client never stamps PR_SENDER_* on drafts, so reading them back from the
+			// freshly mapi_copyto'd $newmessage is unreliable and the delegate enrichment below
+			// would be skipped whenever the copy did not carry these props. Fall back to the
+			// values read from the message only when the request did not supply them.
 			$reprProps = mapi_getprops($newmessage, [PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENDER_EMAIL_ADDRESS, PR_SENT_REPRESENTING_ENTRYID]);
-			if (isset($reprProps[PR_SENT_REPRESENTING_EMAIL_ADDRESS], $reprProps[PR_SENDER_EMAIL_ADDRESS], $reprProps[PR_SENT_REPRESENTING_ENTRYID]) &&
-				strcasecmp((string) $reprProps[PR_SENT_REPRESENTING_EMAIL_ADDRESS], (string) $reprProps[PR_SENDER_EMAIL_ADDRESS]) != 0) {
+			$reprEmail = $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] ?? $reprProps[PR_SENT_REPRESENTING_EMAIL_ADDRESS] ?? null;
+			$reprEntryid = $props[PR_SENT_REPRESENTING_ENTRYID] ?? $reprProps[PR_SENT_REPRESENTING_ENTRYID] ?? null;
+			$reprSender = $props[PR_SENDER_EMAIL_ADDRESS] ?? $reprProps[PR_SENDER_EMAIL_ADDRESS] ?? null;
+			if ($reprEmail !== null && $reprEntryid !== null && $reprSender !== null &&
+				strcasecmp((string) $reprEmail, (string) $reprSender) != 0) {
 				$ab = $GLOBALS['mapisession']->getAddressbook();
-				$abitem = mapi_ab_openentry($ab, $reprProps[PR_SENT_REPRESENTING_ENTRYID]);
+				$abitem = mapi_ab_openentry($ab, $reprEntryid);
 				$abitemprops = mapi_getprops($abitem, [PR_DISPLAY_NAME, PR_EMAIL_ADDRESS, PR_SEARCH_KEY]);
 
-				$props[PR_SENT_REPRESENTING_NAME] = $abitemprops[PR_DISPLAY_NAME];
-				$props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] = $abitemprops[PR_EMAIL_ADDRESS];
-				$props[PR_SENT_REPRESENTING_ADDRTYPE] = "EX";
-				$props[PR_SENT_REPRESENTING_SEARCH_KEY] = $abitemprops[PR_SEARCH_KEY];
-				$sendingAsDelegate = true;
+				// Only enrich from the address book entry when it actually resolved. Stamping the
+				// representing props from an empty mapi_getprops() result would clear the requested
+				// identity and silently fall back to the user's own address; in that case we leave
+				// the client-supplied $props untouched so the alias branch below (or the pre-submit
+				// guard) can still handle it.
+				if (isset($abitemprops[PR_EMAIL_ADDRESS]) && $abitemprops[PR_EMAIL_ADDRESS] !== '') {
+					$props[PR_SENT_REPRESENTING_NAME] = $abitemprops[PR_DISPLAY_NAME];
+					$props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] = $abitemprops[PR_EMAIL_ADDRESS];
+					$props[PR_SENT_REPRESENTING_ADDRTYPE] = "EX";
+					$props[PR_SENT_REPRESENTING_SEARCH_KEY] = $abitemprops[PR_SEARCH_KEY];
+					$sendingAsDelegate = true;
+				}
 			}
-			elseif (isset($props[PR_SENT_REPRESENTING_EMAIL_ADDRESS], $props[PR_SENDER_EMAIL_ADDRESS], $props[PR_SENT_REPRESENTING_ENTRYID]) &&
+			if (!$sendingAsDelegate &&
+				isset($props[PR_SENT_REPRESENTING_EMAIL_ADDRESS], $props[PR_SENDER_EMAIL_ADDRESS], $props[PR_SENT_REPRESENTING_ENTRYID]) &&
 				strcasecmp((string) $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS], (string) $props[PR_SENDER_EMAIL_ADDRESS]) != 0) {
 				// preserve sending from an alias
 				$ab = $GLOBALS['mapisession']->getAddressbook();
 				$abitem = mapi_ab_openentry($ab, $props[PR_SENT_REPRESENTING_ENTRYID]);
 				$abitemprops = mapi_getprops($abitem, [PR_EMS_AB_PROXY_ADDRESSES]);
-				$searchstr = 'smtp:' . $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS];
+				// Lowercase the needle as well as the haystack: proxy addresses are
+				// matched case-insensitively, so an alias address containing uppercase
+				// characters must not cause the lookup (and therefore the sender rewrite) to miss.
+				$searchstr = strtolower('smtp:' . $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS]);
 				if (isset($abitemprops[PR_EMS_AB_PROXY_ADDRESSES]) &&
 					is_array($abitemprops[PR_EMS_AB_PROXY_ADDRESSES]) &&
 					in_array($searchstr, array_map('strtolower', $abitemprops[PR_EMS_AB_PROXY_ADDRESSES]))) {
@@ -2952,6 +2996,109 @@ class Operations {
 			'entryid' => $entryid,
 			'message' => &$message,
 		]);
+
+		// Verify that a requested SendAs / on-behalf identity actually made it onto the
+		// message before submitting. The representing-sender assignment above is conditional
+		// (it depends on the draft copy carrying the props, on the address book lookup
+		// succeeding, and on the alias proxy-address match); when any of those slips the
+		// message would otherwise be submitted silently under the logged-in user's own
+		// address while the UI still reports success. Fail loudly instead of sending as the
+		// wrong identity.
+		if ($requestedSendAsAddress !== '') {
+			$finalReprProps = mapi_getprops($message, [
+				PR_SENT_REPRESENTING_SMTP_ADDRESS,
+				PR_SENT_REPRESENTING_EMAIL_ADDRESS,
+				PR_SENT_REPRESENTING_ADDRTYPE,
+				PR_SENT_REPRESENTING_ENTRYID,
+				PR_SENT_REPRESENTING_SEARCH_KEY,
+				PR_SENDER_SMTP_ADDRESS,
+				PR_SENDER_EMAIL_ADDRESS,
+			]);
+			// The representing address can be carried as an SMTP address, or - for an EX (GAL)
+			// delegate - as an X500 DN in PR_SENT_REPRESENTING_EMAIL_ADDRESS with the SMTP form
+			// only resolvable via the address book. Collect every form so a genuine match is not
+			// mistaken for a fallback to the user. PR_SENT_REPRESENTING_SMTP_ADDRESS is often only
+			// stamped by gromox during submission, so for EX entries we resolve the entryid here.
+			$actualAddresses = [];
+			if (!empty($finalReprProps[PR_SENT_REPRESENTING_SMTP_ADDRESS])) {
+				$actualAddresses[] = strtolower((string) $finalReprProps[PR_SENT_REPRESENTING_SMTP_ADDRESS]);
+			}
+			if (!empty($finalReprProps[PR_SENT_REPRESENTING_EMAIL_ADDRESS]) &&
+				strcasecmp((string) ($finalReprProps[PR_SENT_REPRESENTING_ADDRTYPE] ?? ''), 'SMTP') === 0) {
+				$actualAddresses[] = strtolower((string) $finalReprProps[PR_SENT_REPRESENTING_EMAIL_ADDRESS]);
+			}
+			if (empty($actualAddresses) && isset($finalReprProps[PR_SENT_REPRESENTING_ENTRYID])) {
+				$resolvedSmtp = $this->getEmailAddress(
+					$finalReprProps[PR_SENT_REPRESENTING_ENTRYID],
+					$finalReprProps[PR_SENT_REPRESENTING_SEARCH_KEY] ?? false
+				);
+				if (!empty($resolvedSmtp)) {
+					$actualAddresses[] = strtolower((string) $resolvedSmtp);
+				}
+			}
+			// Resolve the logged-in user's own SMTP address independently of the message: in the
+			// own-store branch gromox only stamps PR_SENDER_* during submission (after this point),
+			// so reading it back from the message here would usually be empty and the self-send
+			// short-circuit below would not fire.
+			$userOwnAddress = strtolower((string) (
+				$finalReprProps[PR_SENDER_SMTP_ADDRESS] ??
+				$finalReprProps[PR_SENDER_EMAIL_ADDRESS] ?? ''
+			));
+			if ($userOwnAddress === '') {
+				$userOwnAddress = strtolower((string) $this->getEmailAddressFromEntryID($GLOBALS["mapisession"]->getUserEntryID()));
+			}
+			$actualReprAddress = $actualAddresses[0] ?? '';
+			// Only abort when the message would actually go out under a different identity than
+			// requested. If the requested address equals the user's own (no real SendAs), there
+			// is nothing to guard; if any resolved form of the representing address matches the
+			// request, the identity was applied correctly.
+			if ($requestedSendAsAddress !== $userOwnAddress && !in_array($requestedSendAsAddress, $actualAddresses, true)) {
+				$username = $GLOBALS["mapisession"]->getUserName();
+				error_log(sprintf(
+					'submitMessage: SendAs identity mismatch for %s - requested "%s" but message carries "%s" ' .
+					'(sender "%s"); aborting send to avoid sending under the wrong address.',
+					$username,
+					$requestedSendAsAddress,
+					$actualReprAddress !== '' ? $actualReprAddress : '(none)',
+					$userOwnAddress !== '' ? $userOwnAddress : '(none)'
+				));
+
+				// The (not yet submitted) message already sits in the outbox and the original
+				// draft has been deleted. Remove the orphaned outbox copy so the abort does not
+				// leave a stray, un-submitted message behind; the client keeps the compose dialog
+				// open because the send is reported as failed.
+				try {
+					$cleanupProps = mapi_getprops($message, [PR_ENTRYID, PR_PARENT_ENTRYID]);
+					if (isset($cleanupProps[PR_ENTRYID], $cleanupProps[PR_PARENT_ENTRYID])) {
+						$cleanupFolder = mapi_msgstore_openentry($store, $cleanupProps[PR_PARENT_ENTRYID]);
+						mapi_folder_deletemessages($cleanupFolder, [$cleanupProps[PR_ENTRYID]], DELETE_HARD_DELETE);
+					}
+				}
+				catch (MAPIException $e) {
+					error_log('submitMessage: failed to clean up message after SendAs mismatch: ' . get_mapi_error_name($e->getCode()));
+					$e->setHandled();
+				}
+
+				// A copy may already have been placed in the representee's/delegate's Sent Items
+				// folder (delegate_sent_items_style). Remove it too, otherwise the abort leaves a
+				// "sent" copy behind for a message that was never actually sent.
+				if ($reprMessage !== false) {
+					try {
+						$reprCleanupProps = mapi_getprops($reprMessage, [PR_ENTRYID, PR_PARENT_ENTRYID]);
+						if (isset($reprCleanupProps[PR_ENTRYID], $reprCleanupProps[PR_PARENT_ENTRYID])) {
+							$reprCleanupFolder = mapi_msgstore_openentry($origStore, $reprCleanupProps[PR_PARENT_ENTRYID]);
+							mapi_folder_deletemessages($reprCleanupFolder, [$reprCleanupProps[PR_ENTRYID]], DELETE_HARD_DELETE);
+						}
+					}
+					catch (MAPIException $e) {
+						error_log('submitMessage: failed to clean up Sent Items copy after SendAs mismatch: ' . get_mapi_error_name($e->getCode()));
+						$e->setHandled();
+					}
+				}
+
+				return 'SENDAS_IDENTITY_MISMATCH';
+			}
+		}
 
 		// Submit the message (send)
 		try {
