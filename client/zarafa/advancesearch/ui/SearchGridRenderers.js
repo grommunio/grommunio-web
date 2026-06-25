@@ -49,7 +49,15 @@ Zarafa.advancesearch.ui.SearchGridRenderers = {
 				body = Ext.util.Format.htmlEncode(record.get('body'));
 				break;
 		}
-		return '<div>' + ( subject ? '<span class="subject">' + subject + '</span>' : '' ) + ( body ? '<span class="body">' + body + '</span>' : '' ) + '</div>';
+
+		// Search results that were folded into one row per conversation show
+		// the number of messages of the conversation.
+		var counter = '';
+		if (record.searchConversationCount > 1) {
+			counter = Zarafa.common.ui.grid.Renderers.conversationCount(record.searchConversationCount);
+		}
+
+		return '<div>' + counter + ( subject ? '<span class="subject">' + subject + '</span>' : '' ) + ( body ? '<span class="body">' + body + '</span>' : '' ) + '</div>';
 	},
 
 	/**

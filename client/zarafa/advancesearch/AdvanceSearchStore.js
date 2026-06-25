@@ -70,6 +70,107 @@ Zarafa.advancesearch.AdvanceSearchStore = Ext.extend(Zarafa.core.data.ListModule
 		});
 
 		Zarafa.advancesearch.AdvanceSearchStore.superclass.constructor.call(this, config);
+
+		// Fold search results that belong to the same conversation into one
+		// row (see #dedupeConversations). Rebuilt whenever the result set
+		// changes.
+		this.dedupeTask = new Ext.util.DelayedTask(this.dedupeConversations, this);
+		this.on('load', this.dedupeConversations, this);
+		this.on('add', this.scheduleDedupe, this);
+		this.on('remove', this.scheduleDedupe, this);
+	},
+
+	/**
+	 * Schedules a (buffered) {@link #dedupeConversations} run.
+	 * @private
+	 */
+	scheduleDedupe: function()
+	{
+		this.dedupeTask.delay(10);
+	},
+
+	/**
+	 * Returns the number of loaded records. The conversation dedupe hides
+	 * records through a filter, so the (visible) count must not be used for
+	 * live scroll paging: it would never reach the total row count and every
+	 * scroll would keep requesting the same page.
+	 *
+	 * @return {Number} The number of loaded records.
+	 */
+	getStoreLength: function()
+	{
+		return (this.snapshot || this.data).getCount();
+	},
+
+	/**
+	 * Folds search results that belong to the same conversation into a single
+	 * row: the first (most relevant) hit stays visible, carries the number of
+	 * hits and all messages of the conversation (newest first) for the
+	 * conversation preview, and the other hits are hidden. The relevance
+	 * ordering of the result list is unaffected.
+	 * @private
+	 */
+	dedupeConversations: function()
+	{
+		if (container.isEnabledConversation() === false) {
+			return;
+		}
+
+		var collection = this.snapshot || this.data;
+		var groups = {};
+		collection.each(function(record) {
+			if (!Ext.isFunction(record.isMessageClass) || !record.isMessageClass('IPM.Note', true)) {
+				return;
+			}
+			var conversationId = record.get('conversation_id');
+			if (Ext.isEmpty(conversationId)) {
+				return;
+			}
+			(groups[conversationId] = groups[conversationId] || []).push(record);
+		});
+
+		var recordTime = function(record) {
+			var date = record.get('message_delivery_time') || record.get('client_submit_time');
+			return Ext.isDate(date) ? date.getTime() : 0;
+		};
+
+		var hidden = {};
+		var hasHidden = false;
+		Ext.iterate(groups, function(conversationId, members) {
+			var primary = members[0];
+			if (members.length > 1) {
+				primary.searchConversationRecords = members.slice().sort(function(a, b) {
+					return recordTime(b) - recordTime(a);
+				});
+				primary.searchConversationCount = members.length;
+				Ext.each(members, function(member) {
+					if (member !== primary) {
+						hidden[member.id] = true;
+						hasHidden = true;
+					}
+				});
+			} else {
+				primary.searchConversationRecords = undefined;
+				primary.searchConversationCount = 0;
+			}
+		});
+
+		// Only touch the filter when the hidden set actually changed: filterBy
+		// triggers a full grid refresh, and dedupe runs after every load.
+		var signature = Object.keys(hidden).sort().join(',');
+		if (hasHidden) {
+			if (signature !== this.conversationDedupeSignature) {
+				this.conversationDedupeSignature = signature;
+				this.conversationDedupeActive = true;
+				this.filterBy(function(record) {
+					return hidden[record.id] !== true;
+				});
+			}
+		} else if (this.conversationDedupeActive === true) {
+			this.conversationDedupeActive = false;
+			this.conversationDedupeSignature = undefined;
+			this.clearFilter();
+		}
 	},
 
 	/**

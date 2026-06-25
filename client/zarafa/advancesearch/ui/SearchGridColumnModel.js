@@ -78,7 +78,9 @@ Zarafa.advancesearch.ui.SearchGridColumnModel = Ext.extend(Zarafa.common.ui.grid
 			id: grid.getId() + '-col1',
 			dataIndex: 'searchdate',
 			header: _('Date'),
-			width: 110,
+			// Wide enough for the localized date-with-time formats
+			// (e.g. '17.06.2026 13:44').
+			width: 140,
 			fixed: true,
 			resizable: false,
 			sortable: true,
@@ -120,7 +122,9 @@ Zarafa.advancesearch.ui.SearchGridColumnModel = Ext.extend(Zarafa.common.ui.grid
 			id: grid.getId() + '-col1',
 			dataIndex: 'searchdate',
 			header: _('Date'),
-			width: 110,
+			// Wide enough for the localized date-with-time formats
+			// (e.g. '17.06.2026 13:44').
+			width: 140,
 			fixed: true,
 			resizable: false,
 			sortable: true,
