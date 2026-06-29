@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 13:46+0200\n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
 "PO-Revision-Date: 2022-07-26 19:05+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -5602,6 +5602,300 @@ msgstr "Nalaganje vzorca iz serverja je spodletelo"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Funkcija Out of Office je trenutno aktivirana. Ali jo želite izklopiti?"
 
+msgid "AI Assistant"
+msgstr "Pomočnik UI"
+
+msgid "The editor could not be found."
+msgstr "Urejevalnika ni mogoče najti."
+
+msgid "Write some text in the message first."
+msgstr "Najprej vnesite nekaj besedila v sporočilo."
+
+msgid "Improved draft"
+msgstr "Izboljšani osnutek"
+
+msgid "Shortened draft"
+msgstr "Skrajšani osnutek"
+
+msgid "Expanded draft"
+msgstr "Razširjeni osnutek"
+
+msgid "Grammar & spelling"
+msgstr "Slovnica in črkovanje"
+
+msgid "Rewritten draft"
+msgstr "Prepisani osnutek"
+
+msgid "Translated draft"
+msgstr "Prevedeni osnutek"
+
+msgid "The message you were composing is no longer open."
+msgstr "Sporočilo, ki ste ga sestavljali, ni več odprto."
+
+msgid "Summarize"
+msgstr "Povzemi"
+
+msgid "Summarize thread"
+msgstr "Povzemi pogovor"
+
+msgid "Translate"
+msgstr "Prevedi"
+
+msgid "Suggest actions"
+msgstr "Predlagaj dejanja"
+
+msgid "No AI features enabled"
+msgstr "Nobena funkcija UI ni omogočena"
+
+msgid "My language"
+msgstr "Moj jezik"
+
+msgid "English"
+msgstr "Angleščina"
+
+msgid "German"
+msgstr "Nemščina"
+
+msgid "French"
+msgstr "Francoščina"
+
+msgid "Spanish"
+msgstr "Španščina"
+
+msgid "Italian"
+msgstr "Italijanščina"
+
+msgid "Dutch"
+msgstr "Nizozemščina"
+
+msgid "Portuguese"
+msgstr "Portugalščina"
+
+msgid "Polish"
+msgstr "Poljščina"
+
+msgid "Chinese"
+msgstr "Kitajščina"
+
+msgid "Japanese"
+msgstr "Japonščina"
+
+msgid "Please open or select a message first."
+msgstr "Najprej odprite ali izberite sporočilo."
+
+msgid "Suggested actions"
+msgstr "Predlagana dejanja"
+
+msgid "Looking for actions…"
+msgstr "Iščem dejanja…"
+
+msgid "Summarize with AI"
+msgstr "Povzemi z UI"
+
+msgid "Translate with AI"
+msgstr "Prevedi z UI"
+
+msgid "Thread summary"
+msgstr "Povzetek pogovora"
+
+msgid "Summary"
+msgstr "Povzetek"
+
+msgid "Translation"
+msgstr "Prevod"
+
+msgid "No suggested actions were found for this message."
+msgstr "Za to sporočilo ni predlaganih dejanj."
+
+msgid "Suggested actions — each opens a prefilled dialog you review before saving:"
+msgstr "Predlagana dejanja — vsako odpre vnaprej izpolnjeno pogovorno okno, ki ga pregledate pred shranjevanjem:"
+
+msgid "The AI request failed."
+msgstr "Zahteva UI ni uspela."
+
+msgid "An unknown error occurred."
+msgstr "Prišlo je do neznane napake."
+
+msgid "Brief"
+msgstr "Kratko"
+
+msgid "Standard"
+msgstr "Standardno"
+
+msgid "Detailed"
+msgstr "Podrobno"
+
+msgid "Neutral"
+msgstr "Nevtralen"
+
+msgid "Formal"
+msgstr "Formalen"
+
+msgid "Friendly"
+msgstr "Prijazen"
+
+msgid "Confident"
+msgstr "Samozavesten"
+
+msgid "Concise"
+msgstr "Jedrnat"
+
+msgid "Casual"
+msgstr "Sproščen"
+
+msgid "My language (automatic)"
+msgstr "Moj jezik (samodejno)"
+
+msgid "Provider"
+msgstr "Ponudnik"
+
+msgid "Configured by administrator"
+msgstr "Nastavil skrbnik"
+
+msgid "Test connection"
+msgstr "Preizkusi povezavo"
+
+msgid "Preferences"
+msgstr "Možnosti"
+
+msgid "You can turn the AI assistant on or off under Settings → Plugins."
+msgstr "Pomočnika UI lahko vklopite ali izklopite v Nastavitve → Vstavki."
+
+msgid "Summary length"
+msgstr "Dolžina povzetka"
+
+msgid "Translate into"
+msgstr "Prevedi v"
+
+msgid "Writing tone"
+msgstr "Ton pisanja"
+
+msgid "Stream responses as they are generated"
+msgstr "Pretakaj odgovore med ustvarjanjem"
+
+msgid "Features"
+msgstr "Značilnosti"
+
+msgid "Summarize emails and threads"
+msgstr "Povzemanje e-pošte in pogovorov"
+
+msgid "Translate emails"
+msgstr "Prevajanje e-pošte"
+
+msgid "Writing assistant in the composer"
+msgstr "Pisalni pomočnik pri sestavljanju sporočil"
+
+msgid "Suggest smart actions"
+msgstr "Predlaganje pametnih dejanj"
+
+msgid "Smart actions"
+msgstr "Pametna dejanja"
+
+msgid "Smart actions always open a prefilled dialog for you to review — nothing is saved or sent automatically."
+msgstr "Pametna dejanja vedno odprejo vnaprej izpolnjeno pogovorno okno, ki ga pregledate — nič se ne shrani ali pošlje samodejno."
+
+msgid "Create meetings and invite attendees"
+msgstr "Ustvarjanje sestankov in vabljenje udeležencev"
+
+msgid "Create tasks"
+msgstr "Ustvarjanje nalog"
+
+msgid "Add contacts"
+msgstr "Dodajanje kontaktov"
+
+msgid "Draft replies"
+msgstr "Sestavljanje odgovorov"
+
+msgid "{0} · model {1}"
+msgstr "{0} · model {1}"
+
+msgid "Not configured. Ask your administrator to set up a provider."
+msgstr "Ni nastavljeno. Prosite skrbnika, naj nastavi ponudnika."
+
+msgid "Disabled by administrator"
+msgstr "Onemogočil skrbnik"
+
+msgid "Testing…"
+msgstr "Preizkušanje…"
+
+msgid "Connected to {0} ({1}) — {2} ms"
+msgstr "Povezano z {0} ({1}) — {2} ms"
+
+msgid "No default {0} folder is available for this account."
+msgstr "Za ta račun ni na voljo privzete mape za {0}."
+
+msgid "calendar"
+msgstr "koledar"
+
+msgid "tasks"
+msgstr "naloge"
+
+msgid "contacts"
+msgstr "kontakte"
+
+msgid "Draft reply"
+msgstr "Sestavi odgovor"
+
+msgid "Open as reply"
+msgstr "Odpri kot odgovor"
+
+msgid "Drafting reply…"
+msgstr "Sestavljam odgovor…"
+
+msgid "The message could not be opened to draft a reply."
+msgstr "Sporočila ni mogoče odpreti za sestavljanje odgovora."
+
+msgid "Meeting: {0}"
+msgstr "Sestanek: {0}"
+
+msgid "Create meeting"
+msgstr "Ustvari sestanek"
+
+msgid "Task: {0}"
+msgstr "Naloga: {0}"
+
+msgid "Add contact: {0}"
+msgstr "Dodaj kontakt: {0}"
+
+msgid "Add contact"
+msgstr "Dodaj kontakt"
+
+msgid "Thinking…"
+msgstr "Razmišljam…"
+
+msgid "The response was interrupted and may be incomplete."
+msgstr "Odgovor je bil prekinjen in je morda nepopoln."
+
+msgid "Insert at cursor"
+msgstr "Vstavi na mesto kazalke"
+
+msgid "Replace draft"
+msgstr "Zamenjaj osnutek"
+
+msgid "Regenerate"
+msgstr "Znova ustvari"
+
+msgid "Copied"
+msgstr "Kopirano"
+
+msgid "AI writing assistant"
+msgstr "Pisalni pomočnik UI"
+
+msgid "Improve writing"
+msgstr "Izboljšaj besedilo"
+
+msgid "Shorten"
+msgstr "Skrajšaj"
+
+msgid "Expand"
+msgstr "Razširi"
+
+msgid "Change tone"
+msgstr "Spremeni ton"
+
+msgid "Fix grammar & spelling"
+msgstr "Popravi slovnico in črkovanje"
+
 msgid "Archive"
 msgstr "Arhiv"
 
@@ -5838,9 +6132,6 @@ msgstr "Razvrsti po: ID"
 
 msgid "Sort by: Backend"
 msgstr "Razvrsti po: "
-
-msgid "Features"
-msgstr "Značilnosti"
 
 msgid "Shows all available features of the backend."
 msgstr "Prikaže vse razpoložljive funkcije zaledja."
@@ -6258,6 +6549,9 @@ msgstr "d F Y, H:i"
 msgid "Last connect"
 msgstr "Zadnja povezava"
 
+msgid "Impersonated by"
+msgstr "Identiteto prevzema"
+
 msgid "Synchronize"
 msgstr "Sinhroniziraj"
 
@@ -6326,8 +6620,8 @@ msgstr "Za potrditev vnesite {0} "
 msgid "Please type {0} to confirm"
 msgstr "Za potrditev vnesite {0} "
 
-msgid "Wipe type"
-msgstr "Vrsta brisanja"
+msgid "Impersonated device: only account-only remote wipe is available."
+msgstr "Naprava s prevzeto identiteto: na voljo je samo brisanje računa na daljavo."
 
 msgid "Wipe only data related to this account"
 msgstr "Izbrišite samo podatke, povezane s tem računom"
@@ -6337,6 +6631,15 @@ msgstr "Brisanje vseh podatkov"
 
 msgid "Username"
 msgstr "Uporabniško ime"
+
+msgid ""
+"Do you really want to wipe your device?\n"
+"Only account-only remote wipe is available for impersonated devices.\n"
+"Enter your password to confirm."
+msgstr ""
+"Ali res želite izbrisati svojo napravo?\n"
+"Za naprave s prevzeto identiteto je na voljo samo brisanje računa na daljavo.\n"
+"Vnesite svoje geslo za potrditev."
 
 msgid ""
 "Do you really want to wipe your device?\n"
@@ -6889,9 +7192,6 @@ msgstr "Vstavi besedilno predlogo na mesto kazalca"
 msgid "No templates available"
 msgstr "Ni na voljo nobenih predlog"
 
-msgid "An unknown error occurred."
-msgstr "Prišlo je do neznane napake."
-
 msgid "Charm pink"
 msgstr "Čar rožnate barve"
 
@@ -6976,6 +7276,60 @@ msgstr "Avtomatično ste bili odjavljeni"
 #, fuzzy
 msgid "Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator."
 msgstr "Žal s tem uporabniškim računom ni na voljo dostop do spleta grommunio. Prosimo, da se obrnete na svojega sistemskega skrbnika."
+
+msgid "The AI request failed unexpectedly."
+msgstr "Zahteva UI je nepričakovano spodletela."
+
+msgid "This AI feature has been disabled by your administrator."
+msgstr "To funkcijo UI je onemogočil vaš skrbnik."
+
+msgid "No message was selected for the AI request."
+msgstr "Za zahtevo UI ni bilo izbrano nobeno sporočilo."
+
+msgid "The AI assistant is not enabled yet. Set PLUGIN_AI_ENABLE to true in the plugin config.php."
+msgstr "Pomočnik UI še ni omogočen. Nastavite PLUGIN_AI_ENABLE na true v config.php vstavka."
+
+msgid "No AI model or endpoint is configured in the plugin config.php."
+msgstr "V config.php vstavka ni nastavljen noben model UI ali končna točka."
+
+#, php-format
+msgid "No API key is set for the \"%s\" provider. Add your key to PLUGIN_AI_API_KEY in the plugin config.php."
+msgstr "Za ponudnika \"%s\" ni nastavljen ključ API. Dodajte svoj ključ v PLUGIN_AI_API_KEY v config.php vstavka."
+
+msgid "The selected message could not be opened."
+msgstr "Izbranega sporočila ni mogoče odpreti."
+
+msgid "connection error"
+msgstr "napaka povezave"
+
+#, php-format
+msgid "Could not reach the AI service (%s). Check the endpoint configuration."
+msgstr "Storitve UI (%s) ni mogoče doseči. Preverite nastavitve končne točke."
+
+msgid "The AI service rejected the credentials. Check the API key and endpoint."
+msgstr "Storitev UI je zavrnila poverilnice. Preverite ključ API in končno točko."
+
+msgid "The AI model or endpoint was not found. Check the model name and base URL."
+msgstr "Modela UI ali končne točke ni mogoče najti. Preverite ime modela in osnovni naslov URL."
+
+msgid "The AI service is rate-limited or out of quota. Try again later."
+msgstr "Storitev UI je omejena s številom zahtev ali je presežena kvota. Poskusite znova pozneje."
+
+msgid "The AI service reported an internal error. Try again later."
+msgstr "Storitev UI je sporočila notranjo napako. Poskusite znova pozneje."
+
+#, php-format
+msgid "The AI service returned an error (HTTP %d)."
+msgstr "Storitev UI je vrnila napako (HTTP %d)."
+
+msgid "There is no text to work with."
+msgstr "Ni besedila za obdelavo."
+
+msgid "Unknown AI feature."
+msgstr "Neznana funkcija UI."
+
+msgid "The message appears to be empty."
+msgstr "Videti je, da je sporočilo prazno."
 
 msgid "This backend provides the default WebDAV integration for Files."
 msgstr "Ta zaledni strežnik zagotavlja privzeto integracijo WebDAV za datoteke."
@@ -7526,6 +7880,12 @@ msgstr "Napaka kvote"
 
 msgid "Send quota limit reached"
 msgstr "Dosežena omejitev kvote za pošiljanje"
+
+msgid "Sender address could not be applied"
+msgstr "Naslova pošiljatelja ni mogoče uporabiti"
+
+msgid "The message was not sent because the selected sender address could not be applied. Please try again."
+msgstr "Sporočilo ni bilo poslano, ker izbranega naslova pošiljatelja ni mogoče uporabiti. Poskusite znova."
 
 #, php-format
 msgid "Email sending failed (%s). Check the log files for more information."

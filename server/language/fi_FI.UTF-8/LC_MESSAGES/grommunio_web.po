@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 13:46+0200\n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
 "PO-Revision-Date: 2022-07-26 15:25+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -5564,6 +5564,300 @@ msgstr "Mallin lataaminen palvelimelta epäonnistui"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Out of Office on tällä hetkellä aktivoitu. Haluatko ottaa sen pois päältä?"
 
+msgid "AI Assistant"
+msgstr "Tekoälyavustaja"
+
+msgid "The editor could not be found."
+msgstr "Editoria ei löytynyt."
+
+msgid "Write some text in the message first."
+msgstr "Kirjoita ensin tekstiä viestiin."
+
+msgid "Improved draft"
+msgstr "Paranneltu luonnos"
+
+msgid "Shortened draft"
+msgstr "Lyhennetty luonnos"
+
+msgid "Expanded draft"
+msgstr "Laajennettu luonnos"
+
+msgid "Grammar & spelling"
+msgstr "Kielioppi ja oikeinkirjoitus"
+
+msgid "Rewritten draft"
+msgstr "Uudelleenkirjoitettu luonnos"
+
+msgid "Translated draft"
+msgstr "Käännetty luonnos"
+
+msgid "The message you were composing is no longer open."
+msgstr "Kirjoittamasi viesti ei ole enää avoinna."
+
+msgid "Summarize"
+msgstr "Tee yhteenveto"
+
+msgid "Summarize thread"
+msgstr "Tee yhteenveto keskustelusta"
+
+msgid "Translate"
+msgstr "Käännä"
+
+msgid "Suggest actions"
+msgstr "Ehdota toimintoja"
+
+msgid "No AI features enabled"
+msgstr "Tekoälyominaisuuksia ei ole käytössä"
+
+msgid "My language"
+msgstr "Oma kieli"
+
+msgid "English"
+msgstr "Englanti"
+
+msgid "German"
+msgstr "Saksa"
+
+msgid "French"
+msgstr "Ranska"
+
+msgid "Spanish"
+msgstr "Espanja"
+
+msgid "Italian"
+msgstr "Italia"
+
+msgid "Dutch"
+msgstr "Hollanti"
+
+msgid "Portuguese"
+msgstr "Portugali"
+
+msgid "Polish"
+msgstr "Puola"
+
+msgid "Chinese"
+msgstr "Kiina"
+
+msgid "Japanese"
+msgstr "Japani"
+
+msgid "Please open or select a message first."
+msgstr "Avaa tai valitse ensin viesti."
+
+msgid "Suggested actions"
+msgstr "Ehdotetut toiminnot"
+
+msgid "Looking for actions…"
+msgstr "Etsitään toimintoja…"
+
+msgid "Summarize with AI"
+msgstr "Tee yhteenveto tekoälyllä"
+
+msgid "Translate with AI"
+msgstr "Käännä tekoälyllä"
+
+msgid "Thread summary"
+msgstr "Keskustelun yhteenveto"
+
+msgid "Summary"
+msgstr "Yhteenveto"
+
+msgid "Translation"
+msgstr "Käännös"
+
+msgid "No suggested actions were found for this message."
+msgstr "Tälle viestille ei löytynyt ehdotettuja toimintoja."
+
+msgid "Suggested actions — each opens a prefilled dialog you review before saving:"
+msgstr "Ehdotetut toiminnot — kukin avaa esitäytetyn valintaikkunan, jonka tarkistat ennen tallentamista:"
+
+msgid "The AI request failed."
+msgstr "Tekoälypyyntö epäonnistui."
+
+msgid "An unknown error occurred."
+msgstr "Tapahtui tuntematon virhe."
+
+msgid "Brief"
+msgstr "Lyhyt"
+
+msgid "Standard"
+msgstr "Vakio"
+
+msgid "Detailed"
+msgstr "Yksityiskohtainen"
+
+msgid "Neutral"
+msgstr "Neutraali"
+
+msgid "Formal"
+msgstr "Muodollinen"
+
+msgid "Friendly"
+msgstr "Ystävällinen"
+
+msgid "Confident"
+msgstr "Itsevarma"
+
+msgid "Concise"
+msgstr "Tiivis"
+
+msgid "Casual"
+msgstr "Rento"
+
+msgid "My language (automatic)"
+msgstr "Oma kieli (automaattinen)"
+
+msgid "Provider"
+msgstr "Palveluntarjoaja"
+
+msgid "Configured by administrator"
+msgstr "Järjestelmänvalvojan määrittämä"
+
+msgid "Test connection"
+msgstr "Testaa yhteys"
+
+msgid "Preferences"
+msgstr "Asetukset"
+
+msgid "You can turn the AI assistant on or off under Settings → Plugins."
+msgstr "Voit ottaa tekoälyavustajan käyttöön tai poistaa sen käytöstä kohdassa Asetukset → Pluginit."
+
+msgid "Summary length"
+msgstr "Yhteenvedon pituus"
+
+msgid "Translate into"
+msgstr "Käännä kielelle"
+
+msgid "Writing tone"
+msgstr "Kirjoituksen sävy"
+
+msgid "Stream responses as they are generated"
+msgstr "Suoratoista vastaukset sitä mukaa kun niitä luodaan"
+
+msgid "Features"
+msgstr "Ominaisuudet"
+
+msgid "Summarize emails and threads"
+msgstr "Tee yhteenvetoja sähköposteista ja keskusteluista"
+
+msgid "Translate emails"
+msgstr "Käännä sähköposteja"
+
+msgid "Writing assistant in the composer"
+msgstr "Kirjoitusavustaja viestin laatimisnäkymässä"
+
+msgid "Suggest smart actions"
+msgstr "Ehdota älykkäitä toimintoja"
+
+msgid "Smart actions"
+msgstr "Älykkäät toiminnot"
+
+msgid "Smart actions always open a prefilled dialog for you to review — nothing is saved or sent automatically."
+msgstr "Älykkäät toiminnot avaavat aina esitäytetyn valintaikkunan tarkistettavaksi — mitään ei tallenneta tai lähetetä automaattisesti."
+
+msgid "Create meetings and invite attendees"
+msgstr "Luo tapaamisia ja kutsu osallistujia"
+
+msgid "Create tasks"
+msgstr "Luo tehtäviä"
+
+msgid "Add contacts"
+msgstr "Lisää yhteystietoja"
+
+msgid "Draft replies"
+msgstr "Laadi vastauksia"
+
+msgid "{0} · model {1}"
+msgstr "{0} · malli {1}"
+
+msgid "Not configured. Ask your administrator to set up a provider."
+msgstr "Ei määritetty. Pyydä järjestelmänvalvojaa määrittämään palveluntarjoaja."
+
+msgid "Disabled by administrator"
+msgstr "Järjestelmänvalvoja on poistanut käytöstä"
+
+msgid "Testing…"
+msgstr "Testataan…"
+
+msgid "Connected to {0} ({1}) — {2} ms"
+msgstr "Yhdistetty palveluun {0} ({1}) — {2} ms"
+
+msgid "No default {0} folder is available for this account."
+msgstr "Tälle tilille ei ole käytettävissä oletusarvoista {0}-kansiota."
+
+msgid "calendar"
+msgstr "kalenteri"
+
+msgid "tasks"
+msgstr "tehtävät"
+
+msgid "contacts"
+msgstr "yhteystiedot"
+
+msgid "Draft reply"
+msgstr "Laadi vastaus"
+
+msgid "Open as reply"
+msgstr "Avaa vastauksena"
+
+msgid "Drafting reply…"
+msgstr "Laaditaan vastausta…"
+
+msgid "The message could not be opened to draft a reply."
+msgstr "Viestiä ei voitu avata vastauksen laatimista varten."
+
+msgid "Meeting: {0}"
+msgstr "Tapaaminen: {0}"
+
+msgid "Create meeting"
+msgstr "Luo tapaaminen"
+
+msgid "Task: {0}"
+msgstr "Tehtävä: {0}"
+
+msgid "Add contact: {0}"
+msgstr "Lisää yhteystieto: {0}"
+
+msgid "Add contact"
+msgstr "Lisää yhteystieto"
+
+msgid "Thinking…"
+msgstr "Ajattelee…"
+
+msgid "The response was interrupted and may be incomplete."
+msgstr "Vastaus keskeytyi ja voi olla epätäydellinen."
+
+msgid "Insert at cursor"
+msgstr "Lisää kohdistimen kohtaan"
+
+msgid "Replace draft"
+msgstr "Korvaa luonnos"
+
+msgid "Regenerate"
+msgstr "Luo uudelleen"
+
+msgid "Copied"
+msgstr "Kopioitu"
+
+msgid "AI writing assistant"
+msgstr "Tekoälyn kirjoitusavustaja"
+
+msgid "Improve writing"
+msgstr "Paranna tekstiä"
+
+msgid "Shorten"
+msgstr "Lyhennä"
+
+msgid "Expand"
+msgstr "Laajenna"
+
+msgid "Change tone"
+msgstr "Vaihda sävyä"
+
+msgid "Fix grammar & spelling"
+msgstr "Korjaa kielioppi ja oikeinkirjoitus"
+
 msgid "Archive"
 msgstr "Arkisto"
 
@@ -5800,9 +6094,6 @@ msgstr "Lajittelu: ID"
 
 msgid "Sort by: Backend"
 msgstr "Lajittelu: Backend"
-
-msgid "Features"
-msgstr "Ominaisuudet"
 
 msgid "Shows all available features of the backend."
 msgstr "Näyttää kaikki backendin käytettävissä olevat ominaisuudet."
@@ -6220,6 +6511,9 @@ msgstr "d F Y, H:i"
 msgid "Last connect"
 msgstr "Viimeisin yhteys"
 
+msgid "Impersonated by"
+msgstr "Toisena käyttäjänä esiintyy"
+
 msgid "Synchronize"
 msgstr "Synkronoida"
 
@@ -6288,8 +6582,8 @@ msgstr "Kirjoita {0} vahvistaaksesi"
 msgid "Please type {0} to confirm"
 msgstr "Kirjoita {0} vahvistaaksesi"
 
-msgid "Wipe type"
-msgstr "Pyyhkäisutyyppi"
+msgid "Impersonated device: only account-only remote wipe is available."
+msgstr "Toisena käyttäjänä käytetty laite: vain tilin etäpyyhkiminen on käytettävissä."
 
 msgid "Wipe only data related to this account"
 msgstr "Pyyhi vain tähän tiliin liittyvät tiedot"
@@ -6299,6 +6593,15 @@ msgstr "Pyyhi kaikki tiedot"
 
 msgid "Username"
 msgstr "Käyttäjätunnus"
+
+msgid ""
+"Do you really want to wipe your device?\n"
+"Only account-only remote wipe is available for impersonated devices.\n"
+"Enter your password to confirm."
+msgstr ""
+"Haluatko varmasti pyyhkiä laitteesi?\n"
+"Toisena käyttäjänä käytetyille laitteille on käytettävissä vain tilin etäpyyhkiminen.\n"
+"Vahvista antamalla salasanasi."
 
 msgid ""
 "Do you really want to wipe your device?\n"
@@ -6851,9 +7154,6 @@ msgstr "Lisää tekstimalli kohdistimen kohdalle"
 msgid "No templates available"
 msgstr "Malleja ei ole saatavilla"
 
-msgid "An unknown error occurred."
-msgstr "Tapahtui tuntematon virhe."
-
 msgid "Charm pink"
 msgstr "Charm vaaleanpunainen"
 
@@ -6938,6 +7238,60 @@ msgstr "Olet kirjautunut ulos automaattisesti"
 #, fuzzy
 msgid "Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator."
 msgstr "Valitettavasti grommunio Web ei ole käytettävissä tällä käyttäjätilillä. Ota yhteyttä järjestelmänvalvojaan."
+
+msgid "The AI request failed unexpectedly."
+msgstr "Tekoälypyyntö epäonnistui odottamatta."
+
+msgid "This AI feature has been disabled by your administrator."
+msgstr "Järjestelmänvalvojasi on poistanut tämän tekoälyominaisuuden käytöstä."
+
+msgid "No message was selected for the AI request."
+msgstr "Tekoälypyyntöä varten ei valittu viestiä."
+
+msgid "The AI assistant is not enabled yet. Set PLUGIN_AI_ENABLE to true in the plugin config.php."
+msgstr "Tekoälyavustajaa ei ole vielä otettu käyttöön. Aseta PLUGIN_AI_ENABLE arvoon true plugin config.php -tiedostossa."
+
+msgid "No AI model or endpoint is configured in the plugin config.php."
+msgstr "Plugin config.php -tiedostossa ei ole määritetty tekoälymallia tai päätepistettä."
+
+#, php-format
+msgid "No API key is set for the \"%s\" provider. Add your key to PLUGIN_AI_API_KEY in the plugin config.php."
+msgstr "Palveluntarjoajalle \"%s\" ei ole asetettu API-avainta. Lisää avaimesi PLUGIN_AI_API_KEY-asetukseen plugin config.php -tiedostossa."
+
+msgid "The selected message could not be opened."
+msgstr "Valittua viestiä ei voitu avata."
+
+msgid "connection error"
+msgstr "yhteysvirhe"
+
+#, php-format
+msgid "Could not reach the AI service (%s). Check the endpoint configuration."
+msgstr "Tekoälypalveluun (%s) ei saatu yhteyttä. Tarkista päätepisteen määritykset."
+
+msgid "The AI service rejected the credentials. Check the API key and endpoint."
+msgstr "Tekoälypalvelu hylkäsi tunnistetiedot. Tarkista API-avain ja päätepiste."
+
+msgid "The AI model or endpoint was not found. Check the model name and base URL."
+msgstr "Tekoälymallia tai päätepistettä ei löytynyt. Tarkista mallin nimi ja perus-URL."
+
+msgid "The AI service is rate-limited or out of quota. Try again later."
+msgstr "Tekoälypalvelun käyttöä on rajoitettu tai kiintiö on täynnä. Yritä myöhemmin uudelleen."
+
+msgid "The AI service reported an internal error. Try again later."
+msgstr "Tekoälypalvelu ilmoitti sisäisestä virheestä. Yritä myöhemmin uudelleen."
+
+#, php-format
+msgid "The AI service returned an error (HTTP %d)."
+msgstr "Tekoälypalvelu palautti virheen (HTTP %d)."
+
+msgid "There is no text to work with."
+msgstr "Käsiteltävää tekstiä ei ole."
+
+msgid "Unknown AI feature."
+msgstr "Tuntematon tekoälyominaisuus."
+
+msgid "The message appears to be empty."
+msgstr "Viesti vaikuttaa olevan tyhjä."
 
 msgid "This backend provides the default WebDAV integration for Files."
 msgstr "Tämä backend tarjoaa oletusarvoisen WebDAV-integraation tiedostoille."
@@ -7488,6 +7842,12 @@ msgstr "Kiintiövirhe"
 
 msgid "Send quota limit reached"
 msgstr "Lähetyskiintiö saavutettu"
+
+msgid "Sender address could not be applied"
+msgstr "Lähettäjän osoitetta ei voitu ottaa käyttöön"
+
+msgid "The message was not sent because the selected sender address could not be applied. Please try again."
+msgstr "Viestiä ei lähetetty, koska valittua lähettäjän osoitetta ei voitu ottaa käyttöön. Yritä uudelleen."
 
 #, php-format
 msgid "Email sending failed (%s). Check the log files for more information."

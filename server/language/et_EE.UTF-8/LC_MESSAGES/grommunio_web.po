@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Estonian (Estonia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 13:46+0200\n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
 "PO-Revision-Date: 2025-05-21 10:01+0000\n"
 "Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/grommunio/grommunio-web/et/>\n"
@@ -5507,6 +5507,300 @@ msgstr "Mudeli laadimine serverist ebaõnnestus"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "„Kontorist väljas“ teade on hetkel kasutusel. Kas soovid ta välja lülitada?"
 
+msgid "AI Assistant"
+msgstr "AI-assistent"
+
+msgid "The editor could not be found."
+msgstr "Redaktorit ei leitud."
+
+msgid "Write some text in the message first."
+msgstr "Kirjuta esmalt sõnumisse veidi teksti."
+
+msgid "Improved draft"
+msgstr "Täiustatud mustand"
+
+msgid "Shortened draft"
+msgstr "Lühendatud mustand"
+
+msgid "Expanded draft"
+msgstr "Laiendatud mustand"
+
+msgid "Grammar & spelling"
+msgstr "Grammatika ja õigekiri"
+
+msgid "Rewritten draft"
+msgstr "Ümberkirjutatud mustand"
+
+msgid "Translated draft"
+msgstr "Tõlgitud mustand"
+
+msgid "The message you were composing is no longer open."
+msgstr "Sõnum, mida koostasid, ei ole enam avatud."
+
+msgid "Summarize"
+msgstr "Tee kokkuvõte"
+
+msgid "Summarize thread"
+msgstr "Tee lõimest kokkuvõte"
+
+msgid "Translate"
+msgstr "Tõlgi"
+
+msgid "Suggest actions"
+msgstr "Paku toiminguid"
+
+msgid "No AI features enabled"
+msgstr "Ühtegi AI-funktsiooni pole lubatud"
+
+msgid "My language"
+msgstr "Minu keel"
+
+msgid "English"
+msgstr "Inglise"
+
+msgid "German"
+msgstr "Saksa"
+
+msgid "French"
+msgstr "Prantsuse"
+
+msgid "Spanish"
+msgstr "Hispaania"
+
+msgid "Italian"
+msgstr "Itaalia"
+
+msgid "Dutch"
+msgstr "Hollandi"
+
+msgid "Portuguese"
+msgstr "Portugali"
+
+msgid "Polish"
+msgstr "Poola"
+
+msgid "Chinese"
+msgstr "Hiina"
+
+msgid "Japanese"
+msgstr "Jaapani"
+
+msgid "Please open or select a message first."
+msgstr "Palun ava või vali esmalt sõnum."
+
+msgid "Suggested actions"
+msgstr "Soovitatud toimingud"
+
+msgid "Looking for actions…"
+msgstr "Toimingute otsimine…"
+
+msgid "Summarize with AI"
+msgstr "Tee AI abil kokkuvõte"
+
+msgid "Translate with AI"
+msgstr "Tõlgi AI abil"
+
+msgid "Thread summary"
+msgstr "Lõime kokkuvõte"
+
+msgid "Summary"
+msgstr "Kokkuvõte"
+
+msgid "Translation"
+msgstr "Tõlge"
+
+msgid "No suggested actions were found for this message."
+msgstr "Selle sõnumi jaoks ei leitud soovitatud toiminguid."
+
+msgid "Suggested actions — each opens a prefilled dialog you review before saving:"
+msgstr "Soovitatud toimingud — igaüks avab eeltäidetud dialoogi, mille vaatad enne salvestamist üle:"
+
+msgid "The AI request failed."
+msgstr "AI-päring ebaõnnestus."
+
+msgid "An unknown error occurred."
+msgstr "Tekkis tundmatu viga."
+
+msgid "Brief"
+msgstr "Lühike"
+
+msgid "Standard"
+msgstr "Tavaline"
+
+msgid "Detailed"
+msgstr "Üksikasjalik"
+
+msgid "Neutral"
+msgstr "Neutraalne"
+
+msgid "Formal"
+msgstr "Ametlik"
+
+msgid "Friendly"
+msgstr "Sõbralik"
+
+msgid "Confident"
+msgstr "Enesekindel"
+
+msgid "Concise"
+msgstr "Kokkuvõtlik"
+
+msgid "Casual"
+msgstr "Vaba"
+
+msgid "My language (automatic)"
+msgstr "Minu keel (automaatne)"
+
+msgid "Provider"
+msgstr "Teenusepakkuja"
+
+msgid "Configured by administrator"
+msgstr "Administraatori seadistatud"
+
+msgid "Test connection"
+msgstr "Testi ühendust"
+
+msgid "Preferences"
+msgstr "Eelistused"
+
+msgid "You can turn the AI assistant on or off under Settings → Plugins."
+msgstr "Saad AI-assistendi sisse või välja lülitada menüüs Seaded → Plugins."
+
+msgid "Summary length"
+msgstr "Kokkuvõtte pikkus"
+
+msgid "Translate into"
+msgstr "Tõlgi keelde"
+
+msgid "Writing tone"
+msgstr "Kirjutamise toon"
+
+msgid "Stream responses as they are generated"
+msgstr "Voogesita vastused nende loomise ajal"
+
+msgid "Features"
+msgstr "Omadused"
+
+msgid "Summarize emails and threads"
+msgstr "Tee e-kirjadest ja lõimedest kokkuvõtteid"
+
+msgid "Translate emails"
+msgstr "Tõlgi e-kirju"
+
+msgid "Writing assistant in the composer"
+msgstr "Kirjutamisabiline koostamisaknas"
+
+msgid "Suggest smart actions"
+msgstr "Paku nutikaid toiminguid"
+
+msgid "Smart actions"
+msgstr "Nutikad toimingud"
+
+msgid "Smart actions always open a prefilled dialog for you to review — nothing is saved or sent automatically."
+msgstr "Nutikad toimingud avavad alati eeltäidetud dialoogi, mille saad üle vaadata — midagi ei salvestata ega saadeta automaatselt."
+
+msgid "Create meetings and invite attendees"
+msgstr "Loo kohtumisi ja kutsu osalejaid"
+
+msgid "Create tasks"
+msgstr "Loo ülesandeid"
+
+msgid "Add contacts"
+msgstr "Lisa kontakte"
+
+msgid "Draft replies"
+msgstr "Koosta vastuseid"
+
+msgid "{0} · model {1}"
+msgstr "{0} · mudel {1}"
+
+msgid "Not configured. Ask your administrator to set up a provider."
+msgstr "Pole seadistatud. Palu administraatoril teenusepakkuja seadistada."
+
+msgid "Disabled by administrator"
+msgstr "Administraatori poolt keelatud"
+
+msgid "Testing…"
+msgstr "Testimine…"
+
+msgid "Connected to {0} ({1}) — {2} ms"
+msgstr "Ühendatud teenusega {0} ({1}) — {2} ms"
+
+msgid "No default {0} folder is available for this account."
+msgstr "Selle konto jaoks pole saadaval vaikimisi {0}-kausta."
+
+msgid "calendar"
+msgstr "kalender"
+
+msgid "tasks"
+msgstr "ülesanded"
+
+msgid "contacts"
+msgstr "kontaktid"
+
+msgid "Draft reply"
+msgstr "Koosta vastus"
+
+msgid "Open as reply"
+msgstr "Ava vastusena"
+
+msgid "Drafting reply…"
+msgstr "Vastuse koostamine…"
+
+msgid "The message could not be opened to draft a reply."
+msgstr "Sõnumit ei saanud vastuse koostamiseks avada."
+
+msgid "Meeting: {0}"
+msgstr "Kohtumine: {0}"
+
+msgid "Create meeting"
+msgstr "Loo kohtumine"
+
+msgid "Task: {0}"
+msgstr "Ülesanne: {0}"
+
+msgid "Add contact: {0}"
+msgstr "Lisa kontakt: {0}"
+
+msgid "Add contact"
+msgstr "Lisa kontakt"
+
+msgid "Thinking…"
+msgstr "Mõtleb…"
+
+msgid "The response was interrupted and may be incomplete."
+msgstr "Vastus katkestati ja see võib olla puudulik."
+
+msgid "Insert at cursor"
+msgstr "Lisa kursori kohta"
+
+msgid "Replace draft"
+msgstr "Asenda mustand"
+
+msgid "Regenerate"
+msgstr "Loo uuesti"
+
+msgid "Copied"
+msgstr "Kopeeritud"
+
+msgid "AI writing assistant"
+msgstr "AI-kirjutamisabiline"
+
+msgid "Improve writing"
+msgstr "Paranda teksti"
+
+msgid "Shorten"
+msgstr "Lühenda"
+
+msgid "Expand"
+msgstr "Laienda"
+
+msgid "Change tone"
+msgstr "Muuda tooni"
+
+msgid "Fix grammar & spelling"
+msgstr "Paranda grammatikat ja õigekirja"
+
 msgid "Archive"
 msgstr "Arhiiv"
 
@@ -5740,9 +6034,6 @@ msgstr "Järjestamine: ID"
 
 msgid "Sort by: Backend"
 msgstr "Järjestamine: taustateenus"
-
-msgid "Features"
-msgstr "Omadused"
 
 msgid "Shows all available features of the backend."
 msgstr "Näitab kõiki tagakülje olemasolevaid funktsioone."
@@ -6159,6 +6450,9 @@ msgstr "d F Y, H:i"
 msgid "Last connect"
 msgstr "Viimane ühendus"
 
+msgid "Impersonated by"
+msgstr "Kehastaja"
+
 msgid "Synchronize"
 msgstr "Sünkroniseeri"
 
@@ -6225,8 +6519,8 @@ msgstr "Kirjutage {0}, et kinnitada"
 msgid "Please type {0} to confirm"
 msgstr "Kinnitamiseks kirjutage {0} "
 
-msgid "Wipe type"
-msgstr "Puhastamise tüüp"
+msgid "Impersonated device: only account-only remote wipe is available."
+msgstr "Kehastatud seade: saadaval on ainult konto kaugkustutamine."
 
 msgid "Wipe only data related to this account"
 msgstr "Kustuta ainult selle kontoga seotud andmed"
@@ -6236,6 +6530,15 @@ msgstr "Kustuta kõik andmed"
 
 msgid "Username"
 msgstr "Kasutajanimi"
+
+msgid ""
+"Do you really want to wipe your device?\n"
+"Only account-only remote wipe is available for impersonated devices.\n"
+"Enter your password to confirm."
+msgstr ""
+"Kas soovid kindlasti oma seadme kustutada?\n"
+"Kehastatud seadmete puhul on saadaval ainult konto kaugkustutamine.\n"
+"Kinnitamiseks sisesta oma salasõna."
 
 msgid ""
 "Do you really want to wipe your device?\n"
@@ -6769,9 +7072,6 @@ msgstr "Sisesta tekstimall kursori asukohta"
 msgid "No templates available"
 msgstr "Malle pole saadaval"
 
-msgid "An unknown error occurred."
-msgstr "Tekkis tundmatu viga."
-
 msgid "Charm pink"
 msgstr "Charm roosa"
 
@@ -6855,6 +7155,60 @@ msgstr "Teid on automaatselt välja logitud"
 
 msgid "Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator."
 msgstr "Vabandame, juurdepääs grommunio Webile ei ole selle kasutajakontoga saadaval. Palun võtke ühendust oma süsteemiadministraatoriga."
+
+msgid "The AI request failed unexpectedly."
+msgstr "AI-päring ebaõnnestus ootamatult."
+
+msgid "This AI feature has been disabled by your administrator."
+msgstr "Selle AI-funktsiooni on sinu administraator keelanud."
+
+msgid "No message was selected for the AI request."
+msgstr "AI-päringu jaoks ei valitud ühtegi sõnumit."
+
+msgid "The AI assistant is not enabled yet. Set PLUGIN_AI_ENABLE to true in the plugin config.php."
+msgstr "AI-assistent pole veel lubatud. Määra plugina config.php failis PLUGIN_AI_ENABLE väärtuseks true."
+
+msgid "No AI model or endpoint is configured in the plugin config.php."
+msgstr "Plugina config.php failis pole määratud ühtegi AI-mudelit ega lõpp-punkti."
+
+#, php-format
+msgid "No API key is set for the \"%s\" provider. Add your key to PLUGIN_AI_API_KEY in the plugin config.php."
+msgstr "Teenusepakkujale \"%s\" pole määratud API-võtit. Lisa oma võti plugina config.php failis sätte PLUGIN_AI_API_KEY alla."
+
+msgid "The selected message could not be opened."
+msgstr "Valitud sõnumit ei saanud avada."
+
+msgid "connection error"
+msgstr "ühenduse viga"
+
+#, php-format
+msgid "Could not reach the AI service (%s). Check the endpoint configuration."
+msgstr "AI-teenusega (%s) ei õnnestunud ühendust luua. Kontrolli lõpp-punkti seadistust."
+
+msgid "The AI service rejected the credentials. Check the API key and endpoint."
+msgstr "AI-teenus lükkas mandaadid tagasi. Kontrolli API-võtit ja lõpp-punkti."
+
+msgid "The AI model or endpoint was not found. Check the model name and base URL."
+msgstr "AI-mudelit või lõpp-punkti ei leitud. Kontrolli mudeli nime ja baas-URL-i."
+
+msgid "The AI service is rate-limited or out of quota. Try again later."
+msgstr "AI-teenus on kiiruspiiranguga või kvoot on täis. Proovi hiljem uuesti."
+
+msgid "The AI service reported an internal error. Try again later."
+msgstr "AI-teenus teatas sisemisest veast. Proovi hiljem uuesti."
+
+#, php-format
+msgid "The AI service returned an error (HTTP %d)."
+msgstr "AI-teenus tagastas vea (HTTP %d)."
+
+msgid "There is no text to work with."
+msgstr "Pole teksti, millega töötada."
+
+msgid "Unknown AI feature."
+msgstr "Tundmatu AI-funktsioon."
+
+msgid "The message appears to be empty."
+msgstr "Sõnum näib olevat tühi."
 
 msgid "This backend provides the default WebDAV integration for Files."
 msgstr "See backend pakub failide jaoks vaikimisi WebDAV-integratsiooni."
@@ -7400,6 +7754,12 @@ msgstr "Kvoodi viga"
 
 msgid "Send quota limit reached"
 msgstr "Saatekvoodi limiit on saavutatud"
+
+msgid "Sender address could not be applied"
+msgstr "Saatja aadressi ei saanud rakendada"
+
+msgid "The message was not sent because the selected sender address could not be applied. Please try again."
+msgstr "Sõnumit ei saadetud, kuna valitud saatja aadressi ei saanud rakendada. Palun proovi uuesti."
 
 #, php-format
 msgid "Email sending failed (%s). Check the log files for more information."

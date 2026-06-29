@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 13:46+0200\n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
 "PO-Revision-Date: 2022-07-26 16:08+0200\n"
 "Last-Translator: f3rr31 <5920873@disroot.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/grommunio/grommunio-web/hu/>\n"
@@ -5570,6 +5570,300 @@ msgstr "A modell betöltése a szerverről sikertelen"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "A Hivatalon kívül jelenleg aktiválva van. Szeretné kikapcsolni?"
 
+msgid "AI Assistant"
+msgstr "MI-asszisztens"
+
+msgid "The editor could not be found."
+msgstr "A szerkesztő nem található."
+
+msgid "Write some text in the message first."
+msgstr "Először írjon valamilyen szöveget az üzenetbe."
+
+msgid "Improved draft"
+msgstr "Javított piszkozat"
+
+msgid "Shortened draft"
+msgstr "Lerövidített piszkozat"
+
+msgid "Expanded draft"
+msgstr "Bővített piszkozat"
+
+msgid "Grammar & spelling"
+msgstr "Nyelvtan és helyesírás"
+
+msgid "Rewritten draft"
+msgstr "Újraírt piszkozat"
+
+msgid "Translated draft"
+msgstr "Lefordított piszkozat"
+
+msgid "The message you were composing is no longer open."
+msgstr "A szerkesztett üzenet már nincs megnyitva."
+
+msgid "Summarize"
+msgstr "Összefoglalás"
+
+msgid "Summarize thread"
+msgstr "Beszélgetés összefoglalása"
+
+msgid "Translate"
+msgstr "Fordítás"
+
+msgid "Suggest actions"
+msgstr "Műveletek javaslása"
+
+msgid "No AI features enabled"
+msgstr "Nincs engedélyezve MI-funkció"
+
+msgid "My language"
+msgstr "Saját nyelvem"
+
+msgid "English"
+msgstr "Angol"
+
+msgid "German"
+msgstr "Német"
+
+msgid "French"
+msgstr "Francia"
+
+msgid "Spanish"
+msgstr "Spanyol"
+
+msgid "Italian"
+msgstr "Olasz"
+
+msgid "Dutch"
+msgstr "Holland"
+
+msgid "Portuguese"
+msgstr "Portugál"
+
+msgid "Polish"
+msgstr "Lengyel"
+
+msgid "Chinese"
+msgstr "Kínai"
+
+msgid "Japanese"
+msgstr "Japán"
+
+msgid "Please open or select a message first."
+msgstr "Először nyisson meg vagy válasszon ki egy üzenetet."
+
+msgid "Suggested actions"
+msgstr "Javasolt műveletek"
+
+msgid "Looking for actions…"
+msgstr "Műveletek keresése…"
+
+msgid "Summarize with AI"
+msgstr "Összefoglalás MI-vel"
+
+msgid "Translate with AI"
+msgstr "Fordítás MI-vel"
+
+msgid "Thread summary"
+msgstr "Beszélgetés összefoglalója"
+
+msgid "Summary"
+msgstr "Összefoglaló"
+
+msgid "Translation"
+msgstr "Fordítás"
+
+msgid "No suggested actions were found for this message."
+msgstr "Ehhez az üzenethez nem található javasolt művelet."
+
+msgid "Suggested actions — each opens a prefilled dialog you review before saving:"
+msgstr "Javasolt műveletek — mindegyik egy előre kitöltött párbeszédablakot nyit meg, amelyet mentés előtt áttekinthet:"
+
+msgid "The AI request failed."
+msgstr "Az MI-kérés sikertelen volt."
+
+msgid "An unknown error occurred."
+msgstr "Ismeretlen hiba történt."
+
+msgid "Brief"
+msgstr "Rövid"
+
+msgid "Standard"
+msgstr "Normál"
+
+msgid "Detailed"
+msgstr "Részletes"
+
+msgid "Neutral"
+msgstr "Semleges"
+
+msgid "Formal"
+msgstr "Hivatalos"
+
+msgid "Friendly"
+msgstr "Barátságos"
+
+msgid "Confident"
+msgstr "Magabiztos"
+
+msgid "Concise"
+msgstr "Tömör"
+
+msgid "Casual"
+msgstr "Kötetlen"
+
+msgid "My language (automatic)"
+msgstr "Saját nyelvem (automatikus)"
+
+msgid "Provider"
+msgstr "Szolgáltató"
+
+msgid "Configured by administrator"
+msgstr "Rendszergazda által beállítva"
+
+msgid "Test connection"
+msgstr "Kapcsolat tesztelése"
+
+msgid "Preferences"
+msgstr "Beállítások"
+
+msgid "You can turn the AI assistant on or off under Settings → Plugins."
+msgstr "Az MI-asszisztenst a Beállítások → Bővítmények menüben kapcsolhatja be vagy ki."
+
+msgid "Summary length"
+msgstr "Összefoglaló hossza"
+
+msgid "Translate into"
+msgstr "Fordítás nyelve"
+
+msgid "Writing tone"
+msgstr "Hangnem"
+
+msgid "Stream responses as they are generated"
+msgstr "Válaszok streamelése generálás közben"
+
+msgid "Features"
+msgstr "Képességek"
+
+msgid "Summarize emails and threads"
+msgstr "E-mailek és beszélgetések összefoglalása"
+
+msgid "Translate emails"
+msgstr "E-mailek fordítása"
+
+msgid "Writing assistant in the composer"
+msgstr "Írósegéd az üzenetszerkesztőben"
+
+msgid "Suggest smart actions"
+msgstr "Intelligens műveletek javaslása"
+
+msgid "Smart actions"
+msgstr "Intelligens műveletek"
+
+msgid "Smart actions always open a prefilled dialog for you to review — nothing is saved or sent automatically."
+msgstr "Az intelligens műveletek mindig egy előre kitöltött, áttekinthető párbeszédablakot nyitnak meg — semmi sem kerül automatikus mentésre vagy elküldésre."
+
+msgid "Create meetings and invite attendees"
+msgstr "Találkozók létrehozása és résztvevők meghívása"
+
+msgid "Create tasks"
+msgstr "Feladatok létrehozása"
+
+msgid "Add contacts"
+msgstr "Névjegyek hozzáadása"
+
+msgid "Draft replies"
+msgstr "Válaszok megfogalmazása"
+
+msgid "{0} · model {1}"
+msgstr "{0} · {1} modell"
+
+msgid "Not configured. Ask your administrator to set up a provider."
+msgstr "Nincs beállítva. Kérje meg a rendszergazdát egy szolgáltató beállítására."
+
+msgid "Disabled by administrator"
+msgstr "Rendszergazda által letiltva"
+
+msgid "Testing…"
+msgstr "Tesztelés…"
+
+msgid "Connected to {0} ({1}) — {2} ms"
+msgstr "Csatlakozva a következőhöz: {0} ({1}) — {2} ms"
+
+msgid "No default {0} folder is available for this account."
+msgstr "Ehhez a fiókhoz nem érhető el alapértelmezett {0} mappa."
+
+msgid "calendar"
+msgstr "naptár"
+
+msgid "tasks"
+msgstr "feladatok"
+
+msgid "contacts"
+msgstr "névjegyek"
+
+msgid "Draft reply"
+msgstr "Válasz megfogalmazása"
+
+msgid "Open as reply"
+msgstr "Megnyitás válaszként"
+
+msgid "Drafting reply…"
+msgstr "Válasz megfogalmazása…"
+
+msgid "The message could not be opened to draft a reply."
+msgstr "Az üzenetet nem sikerült megnyitni a válasz megfogalmazásához."
+
+msgid "Meeting: {0}"
+msgstr "Találkozó: {0}"
+
+msgid "Create meeting"
+msgstr "Találkozó létrehozása"
+
+msgid "Task: {0}"
+msgstr "Feladat: {0}"
+
+msgid "Add contact: {0}"
+msgstr "Névjegy hozzáadása: {0}"
+
+msgid "Add contact"
+msgstr "Névjegy hozzáadása"
+
+msgid "Thinking…"
+msgstr "Gondolkodik…"
+
+msgid "The response was interrupted and may be incomplete."
+msgstr "A válasz megszakadt, és hiányos lehet."
+
+msgid "Insert at cursor"
+msgstr "Beszúrás a kurzorhoz"
+
+msgid "Replace draft"
+msgstr "Piszkozat cseréje"
+
+msgid "Regenerate"
+msgstr "Újragenerálás"
+
+msgid "Copied"
+msgstr "Másolva"
+
+msgid "AI writing assistant"
+msgstr "MI-írósegéd"
+
+msgid "Improve writing"
+msgstr "Szöveg javítása"
+
+msgid "Shorten"
+msgstr "Rövidítés"
+
+msgid "Expand"
+msgstr "Bővítés"
+
+msgid "Change tone"
+msgstr "Hangnem módosítása"
+
+msgid "Fix grammar & spelling"
+msgstr "Nyelvtan és helyesírás javítása"
+
 msgid "Archive"
 msgstr "Archívum"
 
@@ -5806,9 +6100,6 @@ msgstr "Rendezés: ID"
 
 msgid "Sort by: Backend"
 msgstr "Rendezés: Típus"
-
-msgid "Features"
-msgstr "Képességek"
 
 msgid "Shows all available features of the backend."
 msgstr "Az összes képesség mutatása a kiválasztott típusban."
@@ -6225,6 +6516,9 @@ msgstr "d F Y, H:i"
 msgid "Last connect"
 msgstr "Utolsó kapcsolódás"
 
+msgid "Impersonated by"
+msgstr "Megszemélyesítő"
+
 msgid "Synchronize"
 msgstr "Szinkronizálás"
 
@@ -6293,8 +6587,8 @@ msgstr "A megerősítéshez írja be a {0} címet"
 msgid "Please type {0} to confirm"
 msgstr "Kérjük, írja be a {0} címet a megerősítéshez"
 
-msgid "Wipe type"
-msgstr "Törlés típusa"
+msgid "Impersonated device: only account-only remote wipe is available."
+msgstr "Megszemélyesített eszköz: csak a fiókra korlátozott távoli törlés érhető el."
 
 msgid "Wipe only data related to this account"
 msgstr "Csak az ehhez a fiókhoz kapcsolódó adatok törlése"
@@ -6304,6 +6598,15 @@ msgstr "Törölje az összes adatot"
 
 msgid "Username"
 msgstr "Felhasználónév"
+
+msgid ""
+"Do you really want to wipe your device?\n"
+"Only account-only remote wipe is available for impersonated devices.\n"
+"Enter your password to confirm."
+msgstr ""
+"Biztosan törölni szeretné az eszközét?\n"
+"Megszemélyesített eszközök esetén csak a fiókra korlátozott távoli törlés érhető el.\n"
+"A megerősítéshez adja meg a jelszavát."
 
 msgid ""
 "Do you really want to wipe your device?\n"
@@ -6852,9 +7155,6 @@ msgstr "Szövegsablon beszúrása a kurzor pozíciójába"
 msgid "No templates available"
 msgstr "Nincs elérhető sablon"
 
-msgid "An unknown error occurred."
-msgstr "Ismeretlen hiba történt."
-
 msgid "Charm pink"
 msgstr "Rózsaszín"
 
@@ -6939,6 +7239,60 @@ msgstr "Automatikusan ki lett jelentkeztetve"
 #, fuzzy
 msgid "Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator."
 msgstr "Sajnáljuk, a grommunio Web nem érhető el ezzel a felhasználói fiókkal. Kérjük, lépjen kapcsolatba a rendszergazdával."
+
+msgid "The AI request failed unexpectedly."
+msgstr "Az MI-kérés váratlanul sikertelen volt."
+
+msgid "This AI feature has been disabled by your administrator."
+msgstr "Ezt az MI-funkciót a rendszergazda letiltotta."
+
+msgid "No message was selected for the AI request."
+msgstr "Nem lett üzenet kiválasztva az MI-kéréshez."
+
+msgid "The AI assistant is not enabled yet. Set PLUGIN_AI_ENABLE to true in the plugin config.php."
+msgstr "Az MI-asszisztens még nincs engedélyezve. Állítsa a PLUGIN_AI_ENABLE értékét true-ra a bővítmény config.php fájljában."
+
+msgid "No AI model or endpoint is configured in the plugin config.php."
+msgstr "Nincs MI-modell vagy végpont beállítva a bővítmény config.php fájljában."
+
+#, php-format
+msgid "No API key is set for the \"%s\" provider. Add your key to PLUGIN_AI_API_KEY in the plugin config.php."
+msgstr "Nincs API-kulcs beállítva a(z) \"%s\" szolgáltatóhoz. Adja hozzá a kulcsát a PLUGIN_AI_API_KEY beállításhoz a bővítmény config.php fájljában."
+
+msgid "The selected message could not be opened."
+msgstr "A kijelölt üzenetet nem sikerült megnyitni."
+
+msgid "connection error"
+msgstr "kapcsolódási hiba"
+
+#, php-format
+msgid "Could not reach the AI service (%s). Check the endpoint configuration."
+msgstr "Nem sikerült elérni az MI-szolgáltatást (%s). Ellenőrizze a végpont beállításait."
+
+msgid "The AI service rejected the credentials. Check the API key and endpoint."
+msgstr "Az MI-szolgáltatás elutasította a hitelesítő adatokat. Ellenőrizze az API-kulcsot és a végpontot."
+
+msgid "The AI model or endpoint was not found. Check the model name and base URL."
+msgstr "Az MI-modell vagy a végpont nem található. Ellenőrizze a modell nevét és az alap-URL-címet."
+
+msgid "The AI service is rate-limited or out of quota. Try again later."
+msgstr "Az MI-szolgáltatás sebességkorlátozás alatt áll, vagy elfogyott a kerete. Próbálja újra később."
+
+msgid "The AI service reported an internal error. Try again later."
+msgstr "Az MI-szolgáltatás belső hibát jelzett. Próbálja újra később."
+
+#, php-format
+msgid "The AI service returned an error (HTTP %d)."
+msgstr "Az MI-szolgáltatás hibát adott vissza (HTTP %d)."
+
+msgid "There is no text to work with."
+msgstr "Nincs feldolgozható szöveg."
+
+msgid "Unknown AI feature."
+msgstr "Ismeretlen MI-funkció."
+
+msgid "The message appears to be empty."
+msgstr "Úgy tűnik, az üzenet üres."
 
 msgid "This backend provides the default WebDAV integration for Files."
 msgstr "Ez a háttértár biztosítja az alapértelmezett WebDAV integrációt a Fájlok számára."
@@ -7489,6 +7843,12 @@ msgstr "Kontingens hiba"
 
 msgid "Send quota limit reached"
 msgstr "Elérte a küldési kvótakorlátot"
+
+msgid "Sender address could not be applied"
+msgstr "A feladó címét nem sikerült alkalmazni"
+
+msgid "The message was not sent because the selected sender address could not be applied. Please try again."
+msgstr "Az üzenet nem lett elküldve, mert a kiválasztott feladócímet nem sikerült alkalmazni. Kérjük, próbálja újra."
 
 #, php-format
 msgid "Email sending failed (%s). Check the log files for more information."

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Danish (Denmark)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 13:46+0200\n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
 "PO-Revision-Date: 2022-07-26 14:28+0200\n"
 "Last-Translator: Mike Williams <mike.williams@grammm.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/grommunio/grommunio-web/da/>\n"
@@ -5543,6 +5543,300 @@ msgstr "Indlæsning af modellen fra serveren er fejlet"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Out of Office er aktiveret i øjeblikket. Vil du gerne slå den fra?"
 
+msgid "AI Assistant"
+msgstr "AI-assistent"
+
+msgid "The editor could not be found."
+msgstr "Editoren kunne ikke findes."
+
+msgid "Write some text in the message first."
+msgstr "Skriv noget tekst i meddelelsen først."
+
+msgid "Improved draft"
+msgstr "Forbedret kladde"
+
+msgid "Shortened draft"
+msgstr "Forkortet kladde"
+
+msgid "Expanded draft"
+msgstr "Udvidet kladde"
+
+msgid "Grammar & spelling"
+msgstr "Grammatik & stavning"
+
+msgid "Rewritten draft"
+msgstr "Omskrevet kladde"
+
+msgid "Translated draft"
+msgstr "Oversat kladde"
+
+msgid "The message you were composing is no longer open."
+msgstr "Den meddelelse, du var ved at skrive, er ikke længere åben."
+
+msgid "Summarize"
+msgstr "Opsummer"
+
+msgid "Summarize thread"
+msgstr "Opsummer tråd"
+
+msgid "Translate"
+msgstr "Oversæt"
+
+msgid "Suggest actions"
+msgstr "Foreslå handlinger"
+
+msgid "No AI features enabled"
+msgstr "Ingen AI-funktioner aktiveret"
+
+msgid "My language"
+msgstr "Mit sprog"
+
+msgid "English"
+msgstr "Engelsk"
+
+msgid "German"
+msgstr "Tysk"
+
+msgid "French"
+msgstr "Fransk"
+
+msgid "Spanish"
+msgstr "Spansk"
+
+msgid "Italian"
+msgstr "Italiensk"
+
+msgid "Dutch"
+msgstr "Nederlandsk"
+
+msgid "Portuguese"
+msgstr "Portugisisk"
+
+msgid "Polish"
+msgstr "Polsk"
+
+msgid "Chinese"
+msgstr "Kinesisk"
+
+msgid "Japanese"
+msgstr "Japansk"
+
+msgid "Please open or select a message first."
+msgstr "Åbn eller vælg en meddelelse først."
+
+msgid "Suggested actions"
+msgstr "Foreslåede handlinger"
+
+msgid "Looking for actions…"
+msgstr "Søger efter handlinger…"
+
+msgid "Summarize with AI"
+msgstr "Opsummer med AI"
+
+msgid "Translate with AI"
+msgstr "Oversæt med AI"
+
+msgid "Thread summary"
+msgstr "Trådresumé"
+
+msgid "Summary"
+msgstr "Resumé"
+
+msgid "Translation"
+msgstr "Oversættelse"
+
+msgid "No suggested actions were found for this message."
+msgstr "Der blev ikke fundet nogen foreslåede handlinger for denne meddelelse."
+
+msgid "Suggested actions — each opens a prefilled dialog you review before saving:"
+msgstr "Foreslåede handlinger — hver åbner en forudfyldt dialog, som du gennemgår før du gemmer:"
+
+msgid "The AI request failed."
+msgstr "AI-anmodningen mislykkedes."
+
+msgid "An unknown error occurred."
+msgstr "Der opstod en ukendt fejl."
+
+msgid "Brief"
+msgstr "Kort"
+
+msgid "Standard"
+msgstr "Standard"
+
+msgid "Detailed"
+msgstr "Detaljeret"
+
+msgid "Neutral"
+msgstr "Neutral"
+
+msgid "Formal"
+msgstr "Formel"
+
+msgid "Friendly"
+msgstr "Venlig"
+
+msgid "Confident"
+msgstr "Selvsikker"
+
+msgid "Concise"
+msgstr "Kortfattet"
+
+msgid "Casual"
+msgstr "Afslappet"
+
+msgid "My language (automatic)"
+msgstr "Mit sprog (automatisk)"
+
+msgid "Provider"
+msgstr "Udbyder"
+
+msgid "Configured by administrator"
+msgstr "Konfigureret af administrator"
+
+msgid "Test connection"
+msgstr "Test forbindelse"
+
+msgid "Preferences"
+msgstr "Indstillinger"
+
+msgid "You can turn the AI assistant on or off under Settings → Plugins."
+msgstr "Du kan slå AI-assistenten til eller fra under Indstillinger → Udvidelser."
+
+msgid "Summary length"
+msgstr "Længde på resumé"
+
+msgid "Translate into"
+msgstr "Oversæt til"
+
+msgid "Writing tone"
+msgstr "Skrivetone"
+
+msgid "Stream responses as they are generated"
+msgstr "Stream svar, efterhånden som de genereres"
+
+msgid "Features"
+msgstr "Funktioner"
+
+msgid "Summarize emails and threads"
+msgstr "Opsummer e-mails og tråde"
+
+msgid "Translate emails"
+msgstr "Oversæt e-mails"
+
+msgid "Writing assistant in the composer"
+msgstr "Skriveassistent i skrivevinduet"
+
+msgid "Suggest smart actions"
+msgstr "Foreslå smarte handlinger"
+
+msgid "Smart actions"
+msgstr "Smarte handlinger"
+
+msgid "Smart actions always open a prefilled dialog for you to review — nothing is saved or sent automatically."
+msgstr "Smarte handlinger åbner altid en forudfyldt dialog, som du kan gennemgå — intet gemmes eller sendes automatisk."
+
+msgid "Create meetings and invite attendees"
+msgstr "Opret møder og inviter deltagere"
+
+msgid "Create tasks"
+msgstr "Opret opgaver"
+
+msgid "Add contacts"
+msgstr "Tilføj kontakter"
+
+msgid "Draft replies"
+msgstr "Udarbejd svar"
+
+msgid "{0} · model {1}"
+msgstr "{0} · model {1}"
+
+msgid "Not configured. Ask your administrator to set up a provider."
+msgstr "Ikke konfigureret. Bed din administrator om at konfigurere en udbyder."
+
+msgid "Disabled by administrator"
+msgstr "Deaktiveret af administrator"
+
+msgid "Testing…"
+msgstr "Tester…"
+
+msgid "Connected to {0} ({1}) — {2} ms"
+msgstr "Forbundet til {0} ({1}) — {2} ms"
+
+msgid "No default {0} folder is available for this account."
+msgstr "Der er ingen standardmappe for {0} på denne konto."
+
+msgid "calendar"
+msgstr "kalender"
+
+msgid "tasks"
+msgstr "opgaver"
+
+msgid "contacts"
+msgstr "kontakter"
+
+msgid "Draft reply"
+msgstr "Udarbejd svar"
+
+msgid "Open as reply"
+msgstr "Åbn som svar"
+
+msgid "Drafting reply…"
+msgstr "Udarbejder svar…"
+
+msgid "The message could not be opened to draft a reply."
+msgstr "Meddelelsen kunne ikke åbnes for at udarbejde et svar."
+
+msgid "Meeting: {0}"
+msgstr "Møde: {0}"
+
+msgid "Create meeting"
+msgstr "Opret møde"
+
+msgid "Task: {0}"
+msgstr "Opgave: {0}"
+
+msgid "Add contact: {0}"
+msgstr "Tilføj kontakt: {0}"
+
+msgid "Add contact"
+msgstr "Tilføj kontakt"
+
+msgid "Thinking…"
+msgstr "Tænker…"
+
+msgid "The response was interrupted and may be incomplete."
+msgstr "Svaret blev afbrudt og er muligvis ufuldstændigt."
+
+msgid "Insert at cursor"
+msgstr "Indsæt ved markøren"
+
+msgid "Replace draft"
+msgstr "Erstat kladde"
+
+msgid "Regenerate"
+msgstr "Generer igen"
+
+msgid "Copied"
+msgstr "Kopieret"
+
+msgid "AI writing assistant"
+msgstr "AI-skriveassistent"
+
+msgid "Improve writing"
+msgstr "Forbedr teksten"
+
+msgid "Shorten"
+msgstr "Forkort"
+
+msgid "Expand"
+msgstr "Udvid"
+
+msgid "Change tone"
+msgstr "Skift tone"
+
+msgid "Fix grammar & spelling"
+msgstr "Ret grammatik & stavning"
+
 msgid "Archive"
 msgstr "Arkiv"
 
@@ -5779,9 +6073,6 @@ msgstr "Sorter efter: ID"
 
 msgid "Sort by: Backend"
 msgstr "Sorter efter: Backend"
-
-msgid "Features"
-msgstr "Funktioner"
 
 msgid "Shows all available features of the backend."
 msgstr "Viser alle tilgængelige funktioner i backend."
@@ -6199,6 +6490,9 @@ msgstr "d F Y, H:i"
 msgid "Last connect"
 msgstr "Sidste forbindelse"
 
+msgid "Impersonated by"
+msgstr "Imiteret af"
+
 msgid "Synchronize"
 msgstr "Synkroniser"
 
@@ -6267,8 +6561,8 @@ msgstr "Skriv {0} for at bekræfte"
 msgid "Please type {0} to confirm"
 msgstr "Skriv venligst {0} for at bekræfte"
 
-msgid "Wipe type"
-msgstr "Sletningstype"
+msgid "Impersonated device: only account-only remote wipe is available."
+msgstr "Imiteret enhed: kun kontospecifik fjernsletning er tilgængelig."
 
 msgid "Wipe only data related to this account"
 msgstr "Slet kun data relateret til denne konto"
@@ -6278,6 +6572,15 @@ msgstr "Slet alle data"
 
 msgid "Username"
 msgstr "Brugernavn"
+
+msgid ""
+"Do you really want to wipe your device?\n"
+"Only account-only remote wipe is available for impersonated devices.\n"
+"Enter your password to confirm."
+msgstr ""
+"Vil du virkelig slette din enhed?\n"
+"Kun kontospecifik fjernsletning er tilgængelig for imiterede enheder.\n"
+"Indtast din adgangskode for at bekræfte."
 
 msgid ""
 "Do you really want to wipe your device?\n"
@@ -6830,9 +7133,6 @@ msgstr "Indsæt en tekstskabelon ved markørens position"
 msgid "No templates available"
 msgstr "Der er ingen skabeloner tilgængelige"
 
-msgid "An unknown error occurred."
-msgstr "Der opstod en ukendt fejl."
-
 msgid "Charm pink"
 msgstr "Rosa"
 
@@ -6917,6 +7217,60 @@ msgstr "Du er blevet logget ud automatisk"
 #, fuzzy
 msgid "Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator."
 msgstr "Beklager, adgang til grommunio Web er ikke tilgængelig med denne brugerkonto. Kontakt venligst din systemadministrator."
+
+msgid "The AI request failed unexpectedly."
+msgstr "AI-anmodningen mislykkedes uventet."
+
+msgid "This AI feature has been disabled by your administrator."
+msgstr "Denne AI-funktion er blevet deaktiveret af din administrator."
+
+msgid "No message was selected for the AI request."
+msgstr "Der blev ikke valgt nogen meddelelse til AI-anmodningen."
+
+msgid "The AI assistant is not enabled yet. Set PLUGIN_AI_ENABLE to true in the plugin config.php."
+msgstr "AI-assistenten er ikke aktiveret endnu. Sæt PLUGIN_AI_ENABLE til true i pluginets config.php."
+
+msgid "No AI model or endpoint is configured in the plugin config.php."
+msgstr "Der er ikke konfigureret nogen AI-model eller noget endpoint i pluginets config.php."
+
+#, php-format
+msgid "No API key is set for the \"%s\" provider. Add your key to PLUGIN_AI_API_KEY in the plugin config.php."
+msgstr "Der er ikke angivet nogen API-nøgle for udbyderen \"%s\". Tilføj din nøgle til PLUGIN_AI_API_KEY i pluginets config.php."
+
+msgid "The selected message could not be opened."
+msgstr "Den valgte meddelelse kunne ikke åbnes."
+
+msgid "connection error"
+msgstr "forbindelsesfejl"
+
+#, php-format
+msgid "Could not reach the AI service (%s). Check the endpoint configuration."
+msgstr "Kunne ikke få forbindelse til AI-tjenesten (%s). Kontrollér endpoint-konfigurationen."
+
+msgid "The AI service rejected the credentials. Check the API key and endpoint."
+msgstr "AI-tjenesten afviste legitimationsoplysningerne. Kontrollér API-nøglen og endpoint."
+
+msgid "The AI model or endpoint was not found. Check the model name and base URL."
+msgstr "AI-modellen eller endpointet blev ikke fundet. Kontrollér modelnavnet og basis-URL'en."
+
+msgid "The AI service is rate-limited or out of quota. Try again later."
+msgstr "AI-tjenesten er hastighedsbegrænset eller har opbrugt sin kvote. Prøv igen senere."
+
+msgid "The AI service reported an internal error. Try again later."
+msgstr "AI-tjenesten rapporterede en intern fejl. Prøv igen senere."
+
+#, php-format
+msgid "The AI service returned an error (HTTP %d)."
+msgstr "AI-tjenesten returnerede en fejl (HTTP %d)."
+
+msgid "There is no text to work with."
+msgstr "Der er ingen tekst at arbejde med."
+
+msgid "Unknown AI feature."
+msgstr "Ukendt AI-funktion."
+
+msgid "The message appears to be empty."
+msgstr "Meddelelsen ser ud til at være tom."
 
 msgid "This backend provides the default WebDAV integration for Files."
 msgstr "Denne backend giver standard WebDAV-integration for Files."
@@ -7467,6 +7821,12 @@ msgstr "Kvotefejl"
 
 msgid "Send quota limit reached"
 msgstr "Sendekvotens grænse er nået"
+
+msgid "Sender address could not be applied"
+msgstr "Afsenderadressen kunne ikke anvendes"
+
+msgid "The message was not sent because the selected sender address could not be applied. Please try again."
+msgstr "Meddelelsen blev ikke sendt, fordi den valgte afsenderadresse ikke kunne anvendes. Prøv igen."
 
 #, php-format
 msgid "Email sending failed (%s). Check the log files for more information."

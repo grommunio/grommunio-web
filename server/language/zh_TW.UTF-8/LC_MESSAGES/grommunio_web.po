@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 13:46+0200\n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
 "PO-Revision-Date: 2022-08-27 18:15+0000\n"
 "Last-Translator: Hugel <qihu@nfschina.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/grommunio/grommunio-web/zh_Hant/>\n"
@@ -5503,6 +5503,300 @@ msgstr "伺服器載入模組失敗"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Out of Office 目前已啟動。您想關閉它嗎？"
 
+msgid "AI Assistant"
+msgstr "AI 助理"
+
+msgid "The editor could not be found."
+msgstr "找不到編輯器。"
+
+msgid "Write some text in the message first."
+msgstr "請先在郵件中輸入一些文字。"
+
+msgid "Improved draft"
+msgstr "草稿已改善"
+
+msgid "Shortened draft"
+msgstr "草稿已縮短"
+
+msgid "Expanded draft"
+msgstr "草稿已擴充"
+
+msgid "Grammar & spelling"
+msgstr "文法與拼字"
+
+msgid "Rewritten draft"
+msgstr "草稿已重新撰寫"
+
+msgid "Translated draft"
+msgstr "草稿已翻譯"
+
+msgid "The message you were composing is no longer open."
+msgstr "您正在撰寫的郵件已關閉。"
+
+msgid "Summarize"
+msgstr "摘要"
+
+msgid "Summarize thread"
+msgstr "摘要對話"
+
+msgid "Translate"
+msgstr "翻譯"
+
+msgid "Suggest actions"
+msgstr "建議動作"
+
+msgid "No AI features enabled"
+msgstr "未啟用任何 AI 功能"
+
+msgid "My language"
+msgstr "我的語言"
+
+msgid "English"
+msgstr "英文"
+
+msgid "German"
+msgstr "德文"
+
+msgid "French"
+msgstr "法文"
+
+msgid "Spanish"
+msgstr "西班牙文"
+
+msgid "Italian"
+msgstr "義大利文"
+
+msgid "Dutch"
+msgstr "荷蘭文"
+
+msgid "Portuguese"
+msgstr "葡萄牙文"
+
+msgid "Polish"
+msgstr "波蘭文"
+
+msgid "Chinese"
+msgstr "中文"
+
+msgid "Japanese"
+msgstr "日文"
+
+msgid "Please open or select a message first."
+msgstr "請先開啟或選取一封郵件。"
+
+msgid "Suggested actions"
+msgstr "建議的動作"
+
+msgid "Looking for actions…"
+msgstr "正在尋找動作…"
+
+msgid "Summarize with AI"
+msgstr "使用 AI 摘要"
+
+msgid "Translate with AI"
+msgstr "使用 AI 翻譯"
+
+msgid "Thread summary"
+msgstr "對話摘要"
+
+msgid "Summary"
+msgstr "摘要"
+
+msgid "Translation"
+msgstr "翻譯"
+
+msgid "No suggested actions were found for this message."
+msgstr "找不到此郵件的建議動作。"
+
+msgid "Suggested actions — each opens a prefilled dialog you review before saving:"
+msgstr "建議的動作 — 每一項都會開啟一個預先填入的對話方塊，供您在儲存前檢閱："
+
+msgid "The AI request failed."
+msgstr "AI 要求失敗。"
+
+msgid "An unknown error occurred."
+msgstr "發生未知錯誤。"
+
+msgid "Brief"
+msgstr "簡短"
+
+msgid "Standard"
+msgstr "標準"
+
+msgid "Detailed"
+msgstr "詳細"
+
+msgid "Neutral"
+msgstr "中性"
+
+msgid "Formal"
+msgstr "正式"
+
+msgid "Friendly"
+msgstr "友善"
+
+msgid "Confident"
+msgstr "自信"
+
+msgid "Concise"
+msgstr "簡潔"
+
+msgid "Casual"
+msgstr "輕鬆"
+
+msgid "My language (automatic)"
+msgstr "我的語言（自動）"
+
+msgid "Provider"
+msgstr "供應商"
+
+msgid "Configured by administrator"
+msgstr "由管理員設定"
+
+msgid "Test connection"
+msgstr "測試連線"
+
+msgid "Preferences"
+msgstr "偏好設定"
+
+msgid "You can turn the AI assistant on or off under Settings → Plugins."
+msgstr "您可以在「設定 → 外掛程式」中開啟或關閉 AI 助理。"
+
+msgid "Summary length"
+msgstr "摘要長度"
+
+msgid "Translate into"
+msgstr "翻譯為"
+
+msgid "Writing tone"
+msgstr "寫作語氣"
+
+msgid "Stream responses as they are generated"
+msgstr "在產生回應時即時串流顯示"
+
+msgid "Features"
+msgstr "特點"
+
+msgid "Summarize emails and threads"
+msgstr "摘要郵件與對話"
+
+msgid "Translate emails"
+msgstr "翻譯郵件"
+
+msgid "Writing assistant in the composer"
+msgstr "撰寫視窗中的寫作助理"
+
+msgid "Suggest smart actions"
+msgstr "建議智慧動作"
+
+msgid "Smart actions"
+msgstr "智慧動作"
+
+msgid "Smart actions always open a prefilled dialog for you to review — nothing is saved or sent automatically."
+msgstr "智慧動作一律會開啟預先填入的對話方塊供您檢閱 — 不會自動儲存或傳送任何內容。"
+
+msgid "Create meetings and invite attendees"
+msgstr "建立會議並邀請與會者"
+
+msgid "Create tasks"
+msgstr "建立工作"
+
+msgid "Add contacts"
+msgstr "新增連絡人"
+
+msgid "Draft replies"
+msgstr "草擬回覆"
+
+msgid "{0} · model {1}"
+msgstr "{0} · 模型 {1}"
+
+msgid "Not configured. Ask your administrator to set up a provider."
+msgstr "尚未設定。請聯絡您的管理員設定供應商。"
+
+msgid "Disabled by administrator"
+msgstr "已由管理員停用"
+
+msgid "Testing…"
+msgstr "測試中…"
+
+msgid "Connected to {0} ({1}) — {2} ms"
+msgstr "已連線到 {0}（{1}）— {2} ms"
+
+msgid "No default {0} folder is available for this account."
+msgstr "此帳戶沒有可用的預設{0}資料夾。"
+
+msgid "calendar"
+msgstr "行事曆"
+
+msgid "tasks"
+msgstr "工作"
+
+msgid "contacts"
+msgstr "連絡人"
+
+msgid "Draft reply"
+msgstr "草擬回覆"
+
+msgid "Open as reply"
+msgstr "以回覆形式開啟"
+
+msgid "Drafting reply…"
+msgstr "正在草擬回覆…"
+
+msgid "The message could not be opened to draft a reply."
+msgstr "無法開啟該郵件以草擬回覆。"
+
+msgid "Meeting: {0}"
+msgstr "會議：{0}"
+
+msgid "Create meeting"
+msgstr "建立會議"
+
+msgid "Task: {0}"
+msgstr "工作：{0}"
+
+msgid "Add contact: {0}"
+msgstr "新增連絡人：{0}"
+
+msgid "Add contact"
+msgstr "新增連絡人"
+
+msgid "Thinking…"
+msgstr "思考中…"
+
+msgid "The response was interrupted and may be incomplete."
+msgstr "回應已中斷，可能不完整。"
+
+msgid "Insert at cursor"
+msgstr "插入到游標處"
+
+msgid "Replace draft"
+msgstr "取代草稿"
+
+msgid "Regenerate"
+msgstr "重新產生"
+
+msgid "Copied"
+msgstr "已複製"
+
+msgid "AI writing assistant"
+msgstr "AI 寫作助理"
+
+msgid "Improve writing"
+msgstr "改善寫作"
+
+msgid "Shorten"
+msgstr "縮短"
+
+msgid "Expand"
+msgstr "擴充"
+
+msgid "Change tone"
+msgstr "變更語氣"
+
+msgid "Fix grammar & spelling"
+msgstr "修正文法與拼字"
+
 msgid "Archive"
 msgstr "存檔"
 
@@ -5736,9 +6030,6 @@ msgstr "排序方式：ID"
 
 msgid "Sort by: Backend"
 msgstr "排序方式後端"
-
-msgid "Features"
-msgstr "特點"
 
 msgid "Shows all available features of the backend."
 msgstr "顯示後台所有可用的功能。"
@@ -6155,6 +6446,9 @@ msgstr "d F Y, H:i"
 msgid "Last connect"
 msgstr "上次連線"
 
+msgid "Impersonated by"
+msgstr "模擬者"
+
 msgid "Synchronize"
 msgstr "同步化"
 
@@ -6221,8 +6515,8 @@ msgstr "輸入{0} 確認"
 msgid "Please type {0} to confirm"
 msgstr "請輸入{0} 確認"
 
-msgid "Wipe type"
-msgstr "清除類型"
+msgid "Impersonated device: only account-only remote wipe is available."
+msgstr "模擬裝置：僅可使用「僅限帳戶」的遠端清除。"
 
 msgid "Wipe only data related to this account"
 msgstr "只清除與此帳戶相關的資料"
@@ -6232,6 +6526,15 @@ msgstr "清除所有資料"
 
 msgid "Username"
 msgstr "使用者名稱"
+
+msgid ""
+"Do you really want to wipe your device?\n"
+"Only account-only remote wipe is available for impersonated devices.\n"
+"Enter your password to confirm."
+msgstr ""
+"您確定要清除您的裝置嗎？\n"
+"模擬裝置僅支援「僅限帳戶」的遠端清除。\n"
+"請輸入您的密碼以確認。"
 
 msgid ""
 "Do you really want to wipe your device?\n"
@@ -6765,9 +7068,6 @@ msgstr "在游標位置插入文字範本"
 msgid "No templates available"
 msgstr "沒有可用範本"
 
-msgid "An unknown error occurred."
-msgstr "發生未知錯誤。"
-
 msgid "Charm pink"
 msgstr "魅力粉紅"
 
@@ -6851,6 +7151,60 @@ msgstr "您已自動登出"
 
 msgid "Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator."
 msgstr "抱歉，此使用者帳戶無法存取 grommunio Web。請聯絡您的系統管理員。"
+
+msgid "The AI request failed unexpectedly."
+msgstr "AI 要求意外失敗。"
+
+msgid "This AI feature has been disabled by your administrator."
+msgstr "此 AI 功能已被您的管理員停用。"
+
+msgid "No message was selected for the AI request."
+msgstr "未針對 AI 要求選取任何郵件。"
+
+msgid "The AI assistant is not enabled yet. Set PLUGIN_AI_ENABLE to true in the plugin config.php."
+msgstr "AI 助理尚未啟用。請在外掛程式的 config.php 中將 PLUGIN_AI_ENABLE 設為 true。"
+
+msgid "No AI model or endpoint is configured in the plugin config.php."
+msgstr "外掛程式的 config.php 中未設定 AI 模型或端點。"
+
+#, php-format
+msgid "No API key is set for the \"%s\" provider. Add your key to PLUGIN_AI_API_KEY in the plugin config.php."
+msgstr "尚未為「%s」供應商設定 API 金鑰。請將您的金鑰新增至外掛程式 config.php 中的 PLUGIN_AI_API_KEY。"
+
+msgid "The selected message could not be opened."
+msgstr "無法開啟所選的郵件。"
+
+msgid "connection error"
+msgstr "連線錯誤"
+
+#, php-format
+msgid "Could not reach the AI service (%s). Check the endpoint configuration."
+msgstr "無法連線到 AI 服務（%s）。請檢查端點設定。"
+
+msgid "The AI service rejected the credentials. Check the API key and endpoint."
+msgstr "AI 服務拒絕了憑證。請檢查 API 金鑰與端點。"
+
+msgid "The AI model or endpoint was not found. Check the model name and base URL."
+msgstr "找不到 AI 模型或端點。請檢查模型名稱與基礎 URL。"
+
+msgid "The AI service is rate-limited or out of quota. Try again later."
+msgstr "AI 服務受到速率限制或配額已用盡。請稍後再試。"
+
+msgid "The AI service reported an internal error. Try again later."
+msgstr "AI 服務發生內部錯誤。請稍後再試。"
+
+#, php-format
+msgid "The AI service returned an error (HTTP %d)."
+msgstr "AI 服務傳回錯誤（HTTP %d）。"
+
+msgid "There is no text to work with."
+msgstr "沒有可處理的文字。"
+
+msgid "Unknown AI feature."
+msgstr "未知的 AI 功能。"
+
+msgid "The message appears to be empty."
+msgstr "郵件似乎是空的。"
 
 msgid "This backend provides the default WebDAV integration for Files."
 msgstr "此後台為檔案提供預設的 WebDAV 整合。"
@@ -7396,6 +7750,12 @@ msgstr "配額錯誤"
 
 msgid "Send quota limit reached"
 msgstr "已達傳送配額上限"
+
+msgid "Sender address could not be applied"
+msgstr "無法套用寄件者地址"
+
+msgid "The message was not sent because the selected sender address could not be applied. Please try again."
+msgstr "由於無法套用所選的寄件者地址，郵件未能傳送。請再試一次。"
 
 #, php-format
 msgid "Email sending failed (%s). Check the log files for more information."

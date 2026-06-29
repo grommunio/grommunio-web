@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 13:46+0200\n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
 "PO-Revision-Date: 2022-07-26 14:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -5575,6 +5575,300 @@ msgstr "Selhalo načítání ze serveru"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Funkce Out of Office je v současné době aktivována. Chcete ji vypnout?"
 
+msgid "AI Assistant"
+msgstr "Asistent AI"
+
+msgid "The editor could not be found."
+msgstr "Editor nebyl nalezen."
+
+msgid "Write some text in the message first."
+msgstr "Nejprve do zprávy napište nějaký text."
+
+msgid "Improved draft"
+msgstr "Vylepšený koncept"
+
+msgid "Shortened draft"
+msgstr "Zkrácený koncept"
+
+msgid "Expanded draft"
+msgstr "Rozšířený koncept"
+
+msgid "Grammar & spelling"
+msgstr "Gramatika a pravopis"
+
+msgid "Rewritten draft"
+msgstr "Přepsaný koncept"
+
+msgid "Translated draft"
+msgstr "Přeložený koncept"
+
+msgid "The message you were composing is no longer open."
+msgstr "Zpráva, kterou jste psali, již není otevřená."
+
+msgid "Summarize"
+msgstr "Shrnout"
+
+msgid "Summarize thread"
+msgstr "Shrnout vlákno"
+
+msgid "Translate"
+msgstr "Přeložit"
+
+msgid "Suggest actions"
+msgstr "Navrhnout akce"
+
+msgid "No AI features enabled"
+msgstr "Nejsou povoleny žádné funkce AI"
+
+msgid "My language"
+msgstr "Můj jazyk"
+
+msgid "English"
+msgstr "Angličtina"
+
+msgid "German"
+msgstr "Němčina"
+
+msgid "French"
+msgstr "Francouzština"
+
+msgid "Spanish"
+msgstr "Španělština"
+
+msgid "Italian"
+msgstr "Italština"
+
+msgid "Dutch"
+msgstr "Nizozemština"
+
+msgid "Portuguese"
+msgstr "Portugalština"
+
+msgid "Polish"
+msgstr "Polština"
+
+msgid "Chinese"
+msgstr "Čínština"
+
+msgid "Japanese"
+msgstr "Japonština"
+
+msgid "Please open or select a message first."
+msgstr "Nejprve otevřete nebo vyberte zprávu."
+
+msgid "Suggested actions"
+msgstr "Navrhované akce"
+
+msgid "Looking for actions…"
+msgstr "Hledání akcí…"
+
+msgid "Summarize with AI"
+msgstr "Shrnout pomocí AI"
+
+msgid "Translate with AI"
+msgstr "Přeložit pomocí AI"
+
+msgid "Thread summary"
+msgstr "Shrnutí vlákna"
+
+msgid "Summary"
+msgstr "Shrnutí"
+
+msgid "Translation"
+msgstr "Překlad"
+
+msgid "No suggested actions were found for this message."
+msgstr "Pro tuto zprávu nebyly nalezeny žádné navrhované akce."
+
+msgid "Suggested actions — each opens a prefilled dialog you review before saving:"
+msgstr "Navrhované akce — každá otevře předvyplněný dialog, který před uložením zkontrolujete:"
+
+msgid "The AI request failed."
+msgstr "Požadavek AI se nezdařil."
+
+msgid "An unknown error occurred."
+msgstr "Došlo k neznámé chybě."
+
+msgid "Brief"
+msgstr "Stručné"
+
+msgid "Standard"
+msgstr "Standardní"
+
+msgid "Detailed"
+msgstr "Podrobné"
+
+msgid "Neutral"
+msgstr "Neutrální"
+
+msgid "Formal"
+msgstr "Formální"
+
+msgid "Friendly"
+msgstr "Přátelský"
+
+msgid "Confident"
+msgstr "Sebejistý"
+
+msgid "Concise"
+msgstr "Stručný"
+
+msgid "Casual"
+msgstr "Neformální"
+
+msgid "My language (automatic)"
+msgstr "Můj jazyk (automaticky)"
+
+msgid "Provider"
+msgstr "Poskytovatel"
+
+msgid "Configured by administrator"
+msgstr "Nakonfigurováno administrátorem"
+
+msgid "Test connection"
+msgstr "Otestovat připojení"
+
+msgid "Preferences"
+msgstr "Předvolby"
+
+msgid "You can turn the AI assistant on or off under Settings → Plugins."
+msgstr "Asistenta AI můžete zapnout nebo vypnout v Nastavení → Zásuvné moduly."
+
+msgid "Summary length"
+msgstr "Délka shrnutí"
+
+msgid "Translate into"
+msgstr "Přeložit do"
+
+msgid "Writing tone"
+msgstr "Tón psaní"
+
+msgid "Stream responses as they are generated"
+msgstr "Streamovat odpovědi během generování"
+
+msgid "Features"
+msgstr "Vlastnosti"
+
+msgid "Summarize emails and threads"
+msgstr "Shrnování e-mailů a vláken"
+
+msgid "Translate emails"
+msgstr "Překlad e-mailů"
+
+msgid "Writing assistant in the composer"
+msgstr "Asistent psaní v editoru zpráv"
+
+msgid "Suggest smart actions"
+msgstr "Navrhování chytrých akcí"
+
+msgid "Smart actions"
+msgstr "Chytré akce"
+
+msgid "Smart actions always open a prefilled dialog for you to review — nothing is saved or sent automatically."
+msgstr "Chytré akce vždy otevřou předvyplněný dialog ke kontrole — nic se neukládá ani neodesílá automaticky."
+
+msgid "Create meetings and invite attendees"
+msgstr "Vytváření schůzek a zvaní účastníků"
+
+msgid "Create tasks"
+msgstr "Vytváření úkolů"
+
+msgid "Add contacts"
+msgstr "Přidávání kontaktů"
+
+msgid "Draft replies"
+msgstr "Vytváření konceptů odpovědí"
+
+msgid "{0} · model {1}"
+msgstr "{0} · model {1}"
+
+msgid "Not configured. Ask your administrator to set up a provider."
+msgstr "Není nakonfigurováno. Požádejte administrátora o nastavení poskytovatele."
+
+msgid "Disabled by administrator"
+msgstr "Zakázáno administrátorem"
+
+msgid "Testing…"
+msgstr "Testování…"
+
+msgid "Connected to {0} ({1}) — {2} ms"
+msgstr "Připojeno k {0} ({1}) — {2} ms"
+
+msgid "No default {0} folder is available for this account."
+msgstr "Pro tento účet není k dispozici žádná výchozí složka {0}."
+
+msgid "calendar"
+msgstr "kalendáře"
+
+msgid "tasks"
+msgstr "úkolů"
+
+msgid "contacts"
+msgstr "kontaktů"
+
+msgid "Draft reply"
+msgstr "Vytvořit koncept odpovědi"
+
+msgid "Open as reply"
+msgstr "Otevřít jako odpověď"
+
+msgid "Drafting reply…"
+msgstr "Vytváření konceptu odpovědi…"
+
+msgid "The message could not be opened to draft a reply."
+msgstr "Zprávu nebylo možné otevřít pro vytvoření konceptu odpovědi."
+
+msgid "Meeting: {0}"
+msgstr "Schůzka: {0}"
+
+msgid "Create meeting"
+msgstr "Vytvořit schůzku"
+
+msgid "Task: {0}"
+msgstr "Úkol: {0}"
+
+msgid "Add contact: {0}"
+msgstr "Přidat kontakt: {0}"
+
+msgid "Add contact"
+msgstr "Přidat kontakt"
+
+msgid "Thinking…"
+msgstr "Přemýšlím…"
+
+msgid "The response was interrupted and may be incomplete."
+msgstr "Odpověď byla přerušena a může být neúplná."
+
+msgid "Insert at cursor"
+msgstr "Vložit na pozici kurzoru"
+
+msgid "Replace draft"
+msgstr "Nahradit koncept"
+
+msgid "Regenerate"
+msgstr "Vygenerovat znovu"
+
+msgid "Copied"
+msgstr "Zkopírováno"
+
+msgid "AI writing assistant"
+msgstr "Asistent psaní AI"
+
+msgid "Improve writing"
+msgstr "Vylepšit text"
+
+msgid "Shorten"
+msgstr "Zkrátit"
+
+msgid "Expand"
+msgstr "Rozšířit"
+
+msgid "Change tone"
+msgstr "Změnit tón"
+
+msgid "Fix grammar & spelling"
+msgstr "Opravit gramatiku a pravopis"
+
 msgid "Archive"
 msgstr "Archiv"
 
@@ -5811,9 +6105,6 @@ msgstr "Seřadit podle: ID"
 
 msgid "Sort by: Backend"
 msgstr "Seřadit podle: Backend"
-
-msgid "Features"
-msgstr "Vlastnosti"
 
 msgid "Shows all available features of the backend."
 msgstr "Zobrazí všechny dostupné funkce backendu."
@@ -6231,6 +6522,9 @@ msgstr "d F Y, H:i"
 msgid "Last connect"
 msgstr "Poslední připojení"
 
+msgid "Impersonated by"
+msgstr "Zosobněno uživatelem"
+
 msgid "Synchronize"
 msgstr "Synchronizovat"
 
@@ -6299,8 +6593,8 @@ msgstr "Pro potvrzení zadejte {0} "
 msgid "Please type {0} to confirm"
 msgstr "Pro potvrzení zadejte {0} "
 
-msgid "Wipe type"
-msgstr "Typ vymazání"
+msgid "Impersonated device: only account-only remote wipe is available."
+msgstr "Zosobněné zařízení: k dispozici je pouze vzdálené vymazání samotného účtu."
 
 msgid "Wipe only data related to this account"
 msgstr "Vymazat pouze data související s tímto účtem"
@@ -6310,6 +6604,15 @@ msgstr "Vymazání všech dat"
 
 msgid "Username"
 msgstr "Jméno uživatele"
+
+msgid ""
+"Do you really want to wipe your device?\n"
+"Only account-only remote wipe is available for impersonated devices.\n"
+"Enter your password to confirm."
+msgstr ""
+"Opravdu chcete vymazat své zařízení?\n"
+"Pro zosobněná zařízení je k dispozici pouze vzdálené vymazání samotného účtu.\n"
+"Pro potvrzení zadejte své heslo."
 
 msgid ""
 "Do you really want to wipe your device?\n"
@@ -6862,9 +7165,6 @@ msgstr "Vložit textovou šablonu na pozici kurzoru"
 msgid "No templates available"
 msgstr "Žádné šablony nejsou k dispozici"
 
-msgid "An unknown error occurred."
-msgstr "Došlo k neznámé chybě."
-
 msgid "Charm pink"
 msgstr "Okouzlující růžová"
 
@@ -6949,6 +7249,60 @@ msgstr "Byli jste automaticky odhlášeni"
 #, fuzzy
 msgid "Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator."
 msgstr "Omlouváme se, ale s tímto uživatelským účtem není přístup na web grommunio dostupný. Obraťte se prosím na správce systému."
+
+msgid "The AI request failed unexpectedly."
+msgstr "Požadavek AI skončil neočekávanou chybou."
+
+msgid "This AI feature has been disabled by your administrator."
+msgstr "Tato funkce AI byla zakázána vaším administrátorem."
+
+msgid "No message was selected for the AI request."
+msgstr "Pro požadavek AI nebyla vybrána žádná zpráva."
+
+msgid "The AI assistant is not enabled yet. Set PLUGIN_AI_ENABLE to true in the plugin config.php."
+msgstr "Asistent AI ještě není povolen. Nastavte PLUGIN_AI_ENABLE na true v souboru config.php zásuvného modulu."
+
+msgid "No AI model or endpoint is configured in the plugin config.php."
+msgstr "V souboru config.php zásuvného modulu není nakonfigurován žádný model ani koncový bod AI."
+
+#, php-format
+msgid "No API key is set for the \"%s\" provider. Add your key to PLUGIN_AI_API_KEY in the plugin config.php."
+msgstr "Pro poskytovatele „%s” není nastaven žádný klíč API. Přidejte svůj klíč do PLUGIN_AI_API_KEY v souboru config.php zásuvného modulu."
+
+msgid "The selected message could not be opened."
+msgstr "Vybranou zprávu nebylo možné otevřít."
+
+msgid "connection error"
+msgstr "chyba připojení"
+
+#, php-format
+msgid "Could not reach the AI service (%s). Check the endpoint configuration."
+msgstr "Službu AI se nepodařilo kontaktovat (%s). Zkontrolujte konfiguraci koncového bodu."
+
+msgid "The AI service rejected the credentials. Check the API key and endpoint."
+msgstr "Služba AI odmítla přihlašovací údaje. Zkontrolujte klíč API a koncový bod."
+
+msgid "The AI model or endpoint was not found. Check the model name and base URL."
+msgstr "Model nebo koncový bod AI nebyl nalezen. Zkontrolujte název modelu a základní adresu URL."
+
+msgid "The AI service is rate-limited or out of quota. Try again later."
+msgstr "Služba AI dosáhla limitu požadavků nebo vyčerpala kvótu. Zkuste to později."
+
+msgid "The AI service reported an internal error. Try again later."
+msgstr "Služba AI nahlásila vnitřní chybu. Zkuste to později."
+
+#, php-format
+msgid "The AI service returned an error (HTTP %d)."
+msgstr "Služba AI vrátila chybu (HTTP %d)."
+
+msgid "There is no text to work with."
+msgstr "Není k dispozici žádný text ke zpracování."
+
+msgid "Unknown AI feature."
+msgstr "Neznámá funkce AI."
+
+msgid "The message appears to be empty."
+msgstr "Zpráva se zdá být prázdná."
 
 msgid "This backend provides the default WebDAV integration for Files."
 msgstr "Tento backend poskytuje výchozí integraci WebDAV pro soubory."
@@ -7499,6 +7853,12 @@ msgstr "Chyba kvóty"
 
 msgid "Send quota limit reached"
 msgstr "Dosažení limitu kvóty pro odesílání"
+
+msgid "Sender address could not be applied"
+msgstr "Adresu odesílatele nebylo možné použít"
+
+msgid "The message was not sent because the selected sender address could not be applied. Please try again."
+msgstr "Zpráva nebyla odeslána, protože vybranou adresu odesílatele nebylo možné použít. Zkuste to prosím znovu."
 
 #, php-format
 msgid "Email sending failed (%s). Check the log files for more information."

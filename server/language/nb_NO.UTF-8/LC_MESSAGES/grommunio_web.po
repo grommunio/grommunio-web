@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 13:46+0200\n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
 "PO-Revision-Date: 2023-09-06 16:56+0000\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/grommunio/grommunio-web/nb_NO/>\n"
@@ -5507,6 +5507,300 @@ msgstr "Lasting av modulen fra server feilet"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Fraværendenotis er skrudd på. Vil du skru den av?"
 
+msgid "AI Assistant"
+msgstr "AI-assistent"
+
+msgid "The editor could not be found."
+msgstr "Editoren ble ikke funnet."
+
+msgid "Write some text in the message first."
+msgstr "Skriv litt tekst i meldingen først."
+
+msgid "Improved draft"
+msgstr "Forbedret utkast"
+
+msgid "Shortened draft"
+msgstr "Forkortet utkast"
+
+msgid "Expanded draft"
+msgstr "Utvidet utkast"
+
+msgid "Grammar & spelling"
+msgstr "Grammatikk & staving"
+
+msgid "Rewritten draft"
+msgstr "Omskrevet utkast"
+
+msgid "Translated draft"
+msgstr "Oversatt utkast"
+
+msgid "The message you were composing is no longer open."
+msgstr "Meldingen du holdt på å skrive, er ikke lenger åpen."
+
+msgid "Summarize"
+msgstr "Oppsummer"
+
+msgid "Summarize thread"
+msgstr "Oppsummer tråd"
+
+msgid "Translate"
+msgstr "Oversett"
+
+msgid "Suggest actions"
+msgstr "Foreslå handlinger"
+
+msgid "No AI features enabled"
+msgstr "Ingen AI-funksjoner aktivert"
+
+msgid "My language"
+msgstr "Mitt språk"
+
+msgid "English"
+msgstr "Engelsk"
+
+msgid "German"
+msgstr "Tysk"
+
+msgid "French"
+msgstr "Fransk"
+
+msgid "Spanish"
+msgstr "Spansk"
+
+msgid "Italian"
+msgstr "Italiensk"
+
+msgid "Dutch"
+msgstr "Nederlandsk"
+
+msgid "Portuguese"
+msgstr "Portugisisk"
+
+msgid "Polish"
+msgstr "Polsk"
+
+msgid "Chinese"
+msgstr "Kinesisk"
+
+msgid "Japanese"
+msgstr "Japansk"
+
+msgid "Please open or select a message first."
+msgstr "Åpne eller velg en melding først."
+
+msgid "Suggested actions"
+msgstr "Foreslåtte handlinger"
+
+msgid "Looking for actions…"
+msgstr "Søker etter handlinger…"
+
+msgid "Summarize with AI"
+msgstr "Oppsummer med AI"
+
+msgid "Translate with AI"
+msgstr "Oversett med AI"
+
+msgid "Thread summary"
+msgstr "Trådsammendrag"
+
+msgid "Summary"
+msgstr "Sammendrag"
+
+msgid "Translation"
+msgstr "Oversettelse"
+
+msgid "No suggested actions were found for this message."
+msgstr "Ingen foreslåtte handlinger ble funnet for denne meldingen."
+
+msgid "Suggested actions — each opens a prefilled dialog you review before saving:"
+msgstr "Foreslåtte handlinger — hver åpner en forhåndsutfylt dialog som du gjennomgår før du lagrer:"
+
+msgid "The AI request failed."
+msgstr "AI-forespørselen mislyktes."
+
+msgid "An unknown error occurred."
+msgstr "Det oppstod en ukjent feil."
+
+msgid "Brief"
+msgstr "Kort"
+
+msgid "Standard"
+msgstr "Standard"
+
+msgid "Detailed"
+msgstr "Detaljert"
+
+msgid "Neutral"
+msgstr "Nøytral"
+
+msgid "Formal"
+msgstr "Formell"
+
+msgid "Friendly"
+msgstr "Vennlig"
+
+msgid "Confident"
+msgstr "Selvsikker"
+
+msgid "Concise"
+msgstr "Kortfattet"
+
+msgid "Casual"
+msgstr "Avslappet"
+
+msgid "My language (automatic)"
+msgstr "Mitt språk (automatisk)"
+
+msgid "Provider"
+msgstr "Leverandør"
+
+msgid "Configured by administrator"
+msgstr "Konfigurert av administrator"
+
+msgid "Test connection"
+msgstr "Test tilkobling"
+
+msgid "Preferences"
+msgstr "Innstillinger"
+
+msgid "You can turn the AI assistant on or off under Settings → Plugins."
+msgstr "Du kan slå AI-assistenten på eller av under Innstillinger → Plugins."
+
+msgid "Summary length"
+msgstr "Lengde på sammendrag"
+
+msgid "Translate into"
+msgstr "Oversett til"
+
+msgid "Writing tone"
+msgstr "Skrivetone"
+
+msgid "Stream responses as they are generated"
+msgstr "Strøm svar etter hvert som de genereres"
+
+msgid "Features"
+msgstr "Funksjoner"
+
+msgid "Summarize emails and threads"
+msgstr "Oppsummer e-poster og tråder"
+
+msgid "Translate emails"
+msgstr "Oversett e-poster"
+
+msgid "Writing assistant in the composer"
+msgstr "Skriveassistent i skrivevinduet"
+
+msgid "Suggest smart actions"
+msgstr "Foreslå smarte handlinger"
+
+msgid "Smart actions"
+msgstr "Smarte handlinger"
+
+msgid "Smart actions always open a prefilled dialog for you to review — nothing is saved or sent automatically."
+msgstr "Smarte handlinger åpner alltid en forhåndsutfylt dialog som du kan gjennomgå — ingenting lagres eller sendes automatisk."
+
+msgid "Create meetings and invite attendees"
+msgstr "Opprett møter og inviter deltakere"
+
+msgid "Create tasks"
+msgstr "Opprett oppgaver"
+
+msgid "Add contacts"
+msgstr "Legg til kontakter"
+
+msgid "Draft replies"
+msgstr "Lag svarutkast"
+
+msgid "{0} · model {1}"
+msgstr "{0} · modell {1}"
+
+msgid "Not configured. Ask your administrator to set up a provider."
+msgstr "Ikke konfigurert. Be administratoren din om å konfigurere en leverandør."
+
+msgid "Disabled by administrator"
+msgstr "Deaktivert av administrator"
+
+msgid "Testing…"
+msgstr "Tester…"
+
+msgid "Connected to {0} ({1}) — {2} ms"
+msgstr "Tilkoblet {0} ({1}) — {2} ms"
+
+msgid "No default {0} folder is available for this account."
+msgstr "Det finnes ingen standardmappe for {0} på denne kontoen."
+
+msgid "calendar"
+msgstr "kalender"
+
+msgid "tasks"
+msgstr "oppgaver"
+
+msgid "contacts"
+msgstr "kontakter"
+
+msgid "Draft reply"
+msgstr "Lag svarutkast"
+
+msgid "Open as reply"
+msgstr "Åpne som svar"
+
+msgid "Drafting reply…"
+msgstr "Lager svarutkast…"
+
+msgid "The message could not be opened to draft a reply."
+msgstr "Meldingen kunne ikke åpnes for å lage et svarutkast."
+
+msgid "Meeting: {0}"
+msgstr "Møte: {0}"
+
+msgid "Create meeting"
+msgstr "Opprett møte"
+
+msgid "Task: {0}"
+msgstr "Oppgave: {0}"
+
+msgid "Add contact: {0}"
+msgstr "Legg til kontakt: {0}"
+
+msgid "Add contact"
+msgstr "Legg til kontakt"
+
+msgid "Thinking…"
+msgstr "Tenker…"
+
+msgid "The response was interrupted and may be incomplete."
+msgstr "Svaret ble avbrutt og er kanskje ufullstendig."
+
+msgid "Insert at cursor"
+msgstr "Sett inn ved markøren"
+
+msgid "Replace draft"
+msgstr "Erstatt utkast"
+
+msgid "Regenerate"
+msgstr "Generer på nytt"
+
+msgid "Copied"
+msgstr "Kopiert"
+
+msgid "AI writing assistant"
+msgstr "AI-skriveassistent"
+
+msgid "Improve writing"
+msgstr "Forbedre teksten"
+
+msgid "Shorten"
+msgstr "Forkort"
+
+msgid "Expand"
+msgstr "Utvid"
+
+msgid "Change tone"
+msgstr "Endre tone"
+
+msgid "Fix grammar & spelling"
+msgstr "Rett grammatikk & staving"
+
 msgid "Archive"
 msgstr "Arkiv"
 
@@ -5740,9 +6034,6 @@ msgstr "Sorter på: ID"
 
 msgid "Sort by: Backend"
 msgstr "Sorter på: serverdel"
-
-msgid "Features"
-msgstr "Funksjoner"
 
 msgid "Shows all available features of the backend."
 msgstr "Vis alle tilgjengelige valg for denne serverdelen."
@@ -6159,6 +6450,9 @@ msgstr "d F Y, H:i"
 msgid "Last connect"
 msgstr "Siste tilkobling"
 
+msgid "Impersonated by"
+msgstr "Imitert av"
+
 msgid "Synchronize"
 msgstr "Synkronisere"
 
@@ -6225,8 +6519,8 @@ msgstr "Skriv {0} for å bekrefte"
 msgid "Please type {0} to confirm"
 msgstr "Vennligst skriv {0} for å bekrefte"
 
-msgid "Wipe type"
-msgstr "Slettetype"
+msgid "Impersonated device: only account-only remote wipe is available."
+msgstr "Imitert enhet: kun kontospesifikk fjernsletting er tilgjengelig."
 
 msgid "Wipe only data related to this account"
 msgstr "Slett bare data som er relatert til denne kontoen"
@@ -6236,6 +6530,15 @@ msgstr "Slett alle data"
 
 msgid "Username"
 msgstr "Brukernavn"
+
+msgid ""
+"Do you really want to wipe your device?\n"
+"Only account-only remote wipe is available for impersonated devices.\n"
+"Enter your password to confirm."
+msgstr ""
+"Vil du virkelig slette enheten din?\n"
+"Kun kontospesifikk fjernsletting er tilgjengelig for imiterte enheter.\n"
+"Skriv inn passordet ditt for å bekrefte."
 
 msgid ""
 "Do you really want to wipe your device?\n"
@@ -6769,9 +7072,6 @@ msgstr "Sett inn en tekstmal ved markørposisjonen"
 msgid "No templates available"
 msgstr "Ingen maler tilgjengelig"
 
-msgid "An unknown error occurred."
-msgstr "Det oppstod en ukjent feil."
-
 msgid "Charm pink"
 msgstr "Rosa"
 
@@ -6855,6 +7155,60 @@ msgstr "Du har blitt automatisk logget ut"
 
 msgid "Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator."
 msgstr "Beklager, tilgang til grommunio Web er ikke mulig for denne brukeren. Ta kontakt med din systemadministrator."
+
+msgid "The AI request failed unexpectedly."
+msgstr "AI-forespørselen mislyktes uventet."
+
+msgid "This AI feature has been disabled by your administrator."
+msgstr "Denne AI-funksjonen er deaktivert av administratoren din."
+
+msgid "No message was selected for the AI request."
+msgstr "Ingen melding ble valgt for AI-forespørselen."
+
+msgid "The AI assistant is not enabled yet. Set PLUGIN_AI_ENABLE to true in the plugin config.php."
+msgstr "AI-assistenten er ikke aktivert ennå. Sett PLUGIN_AI_ENABLE til true i pluginets config.php."
+
+msgid "No AI model or endpoint is configured in the plugin config.php."
+msgstr "Ingen AI-modell eller endepunkt er konfigurert i pluginets config.php."
+
+#, php-format
+msgid "No API key is set for the \"%s\" provider. Add your key to PLUGIN_AI_API_KEY in the plugin config.php."
+msgstr "Det er ikke angitt noen API-nøkkel for leverandøren \"%s\". Legg til nøkkelen din i PLUGIN_AI_API_KEY i pluginets config.php."
+
+msgid "The selected message could not be opened."
+msgstr "Den valgte meldingen kunne ikke åpnes."
+
+msgid "connection error"
+msgstr "tilkoblingsfeil"
+
+#, php-format
+msgid "Could not reach the AI service (%s). Check the endpoint configuration."
+msgstr "Kunne ikke nå AI-tjenesten (%s). Kontroller endepunktkonfigurasjonen."
+
+msgid "The AI service rejected the credentials. Check the API key and endpoint."
+msgstr "AI-tjenesten avviste legitimasjonen. Kontroller API-nøkkelen og endepunktet."
+
+msgid "The AI model or endpoint was not found. Check the model name and base URL."
+msgstr "AI-modellen eller endepunktet ble ikke funnet. Kontroller modellnavnet og basis-URL-en."
+
+msgid "The AI service is rate-limited or out of quota. Try again later."
+msgstr "AI-tjenesten er hastighetsbegrenset eller har brukt opp kvoten. Prøv igjen senere."
+
+msgid "The AI service reported an internal error. Try again later."
+msgstr "AI-tjenesten rapporterte en intern feil. Prøv igjen senere."
+
+#, php-format
+msgid "The AI service returned an error (HTTP %d)."
+msgstr "AI-tjenesten returnerte en feil (HTTP %d)."
+
+msgid "There is no text to work with."
+msgstr "Det er ingen tekst å arbeide med."
+
+msgid "Unknown AI feature."
+msgstr "Ukjent AI-funksjon."
+
+msgid "The message appears to be empty."
+msgstr "Meldingen ser ut til å være tom."
 
 msgid "This backend provides the default WebDAV integration for Files."
 msgstr "Denne backend-enheten gir standard WebDAV-integrasjon for Files."
@@ -7400,6 +7754,12 @@ msgstr "Kvotefeil"
 
 msgid "Send quota limit reached"
 msgstr "Sendekvotens grense nådd"
+
+msgid "Sender address could not be applied"
+msgstr "Avsenderadressen kunne ikke brukes"
+
+msgid "The message was not sent because the selected sender address could not be applied. Please try again."
+msgstr "Meldingen ble ikke sendt fordi den valgte avsenderadressen ikke kunne brukes. Prøv igjen."
 
 #, php-format
 msgid "Email sending failed (%s). Check the log files for more information."

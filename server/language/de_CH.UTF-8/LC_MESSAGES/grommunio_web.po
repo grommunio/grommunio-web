@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web German (Swiss)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 13:46+0200\n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
 "PO-Revision-Date: 2021-03-02 15:12+0000\n"
 "Last-Translator: import\n"
 "Language: de_CH\n"
@@ -5509,6 +5509,300 @@ msgstr "Das Laden des Moduls vom Server ist fehlgeschlagen"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Abwesenheitsnotiz ist momentan eingeschaltet. Möchten Sie diese abschalten?"
 
+msgid "AI Assistant"
+msgstr "KI-Assistent"
+
+msgid "The editor could not be found."
+msgstr "Der Editor konnte nicht gefunden werden."
+
+msgid "Write some text in the message first."
+msgstr "Schreiben Sie zuerst etwas Text in die Nachricht."
+
+msgid "Improved draft"
+msgstr "Verbesserter Entwurf"
+
+msgid "Shortened draft"
+msgstr "Gekürzter Entwurf"
+
+msgid "Expanded draft"
+msgstr "Erweiterter Entwurf"
+
+msgid "Grammar & spelling"
+msgstr "Grammatik & Rechtschreibung"
+
+msgid "Rewritten draft"
+msgstr "Umgeschriebener Entwurf"
+
+msgid "Translated draft"
+msgstr "Übersetzter Entwurf"
+
+msgid "The message you were composing is no longer open."
+msgstr "Die Nachricht, die Sie verfasst haben, ist nicht mehr geöffnet."
+
+msgid "Summarize"
+msgstr "Zusammenfassen"
+
+msgid "Summarize thread"
+msgstr "Thread zusammenfassen"
+
+msgid "Translate"
+msgstr "Übersetzen"
+
+msgid "Suggest actions"
+msgstr "Aktionen vorschlagen"
+
+msgid "No AI features enabled"
+msgstr "Keine KI-Funktionen aktiviert"
+
+msgid "My language"
+msgstr "Meine Sprache"
+
+msgid "English"
+msgstr "Englisch"
+
+msgid "German"
+msgstr "Deutsch"
+
+msgid "French"
+msgstr "Französisch"
+
+msgid "Spanish"
+msgstr "Spanisch"
+
+msgid "Italian"
+msgstr "Italienisch"
+
+msgid "Dutch"
+msgstr "Niederländisch"
+
+msgid "Portuguese"
+msgstr "Portugiesisch"
+
+msgid "Polish"
+msgstr "Polnisch"
+
+msgid "Chinese"
+msgstr "Chinesisch"
+
+msgid "Japanese"
+msgstr "Japanisch"
+
+msgid "Please open or select a message first."
+msgstr "Bitte öffnen oder wählen Sie zuerst eine Nachricht aus."
+
+msgid "Suggested actions"
+msgstr "Vorgeschlagene Aktionen"
+
+msgid "Looking for actions…"
+msgstr "Suche nach Aktionen…"
+
+msgid "Summarize with AI"
+msgstr "Mit KI zusammenfassen"
+
+msgid "Translate with AI"
+msgstr "Mit KI übersetzen"
+
+msgid "Thread summary"
+msgstr "Thread-Zusammenfassung"
+
+msgid "Summary"
+msgstr "Zusammenfassung"
+
+msgid "Translation"
+msgstr "Übersetzung"
+
+msgid "No suggested actions were found for this message."
+msgstr "Für diese Nachricht wurden keine vorgeschlagenen Aktionen gefunden."
+
+msgid "Suggested actions — each opens a prefilled dialog you review before saving:"
+msgstr "Vorgeschlagene Aktionen — jede öffnet einen vorausgefüllten Dialog, den Sie vor dem Speichern prüfen:"
+
+msgid "The AI request failed."
+msgstr "Die KI-Anfrage ist fehlgeschlagen."
+
+msgid "An unknown error occurred."
+msgstr "Es ist ein unbekannter Fehler aufgetreten."
+
+msgid "Brief"
+msgstr "Kurz"
+
+msgid "Standard"
+msgstr "Standard"
+
+msgid "Detailed"
+msgstr "Ausführlich"
+
+msgid "Neutral"
+msgstr "Neutral"
+
+msgid "Formal"
+msgstr "Formell"
+
+msgid "Friendly"
+msgstr "Freundlich"
+
+msgid "Confident"
+msgstr "Selbstbewusst"
+
+msgid "Concise"
+msgstr "Prägnant"
+
+msgid "Casual"
+msgstr "Locker"
+
+msgid "My language (automatic)"
+msgstr "Meine Sprache (automatisch)"
+
+msgid "Provider"
+msgstr "Anbieter"
+
+msgid "Configured by administrator"
+msgstr "Vom Administrator konfiguriert"
+
+msgid "Test connection"
+msgstr "Verbindung testen"
+
+msgid "Preferences"
+msgstr "Einstellungen"
+
+msgid "You can turn the AI assistant on or off under Settings → Plugins."
+msgstr "Sie können den KI-Assistenten unter Einstellungen → Plugins ein- oder ausschalten."
+
+msgid "Summary length"
+msgstr "Länge der Zusammenfassung"
+
+msgid "Translate into"
+msgstr "Übersetzen in"
+
+msgid "Writing tone"
+msgstr "Tonfall"
+
+msgid "Stream responses as they are generated"
+msgstr "Antworten streamen, während sie generiert werden"
+
+msgid "Features"
+msgstr "Funktionen"
+
+msgid "Summarize emails and threads"
+msgstr "E-Mails und Threads zusammenfassen"
+
+msgid "Translate emails"
+msgstr "E-Mails übersetzen"
+
+msgid "Writing assistant in the composer"
+msgstr "Schreibassistent im Editor"
+
+msgid "Suggest smart actions"
+msgstr "Intelligente Aktionen vorschlagen"
+
+msgid "Smart actions"
+msgstr "Intelligente Aktionen"
+
+msgid "Smart actions always open a prefilled dialog for you to review — nothing is saved or sent automatically."
+msgstr "Intelligente Aktionen öffnen immer einen vorausgefüllten Dialog zur Überprüfung — nichts wird automatisch gespeichert oder gesendet."
+
+msgid "Create meetings and invite attendees"
+msgstr "Besprechungen erstellen und Teilnehmer einladen"
+
+msgid "Create tasks"
+msgstr "Aufgaben erstellen"
+
+msgid "Add contacts"
+msgstr "Kontakte hinzufügen"
+
+msgid "Draft replies"
+msgstr "Antworten entwerfen"
+
+msgid "{0} · model {1}"
+msgstr "{0} · Modell {1}"
+
+msgid "Not configured. Ask your administrator to set up a provider."
+msgstr "Nicht konfiguriert. Bitten Sie Ihren Administrator, einen Anbieter einzurichten."
+
+msgid "Disabled by administrator"
+msgstr "Vom Administrator deaktiviert"
+
+msgid "Testing…"
+msgstr "Wird getestet…"
+
+msgid "Connected to {0} ({1}) — {2} ms"
+msgstr "Verbunden mit {0} ({1}) — {2} ms"
+
+msgid "No default {0} folder is available for this account."
+msgstr "Für dieses Konto ist kein Standardordner für {0} verfügbar."
+
+msgid "calendar"
+msgstr "Kalender"
+
+msgid "tasks"
+msgstr "Aufgaben"
+
+msgid "contacts"
+msgstr "Kontakte"
+
+msgid "Draft reply"
+msgstr "Antwort entwerfen"
+
+msgid "Open as reply"
+msgstr "Als Antwort öffnen"
+
+msgid "Drafting reply…"
+msgstr "Antwort wird entworfen…"
+
+msgid "The message could not be opened to draft a reply."
+msgstr "Die Nachricht konnte nicht geöffnet werden, um eine Antwort zu entwerfen."
+
+msgid "Meeting: {0}"
+msgstr "Besprechung: {0}"
+
+msgid "Create meeting"
+msgstr "Besprechung erstellen"
+
+msgid "Task: {0}"
+msgstr "Aufgabe: {0}"
+
+msgid "Add contact: {0}"
+msgstr "Kontakt hinzufügen: {0}"
+
+msgid "Add contact"
+msgstr "Kontakt hinzufügen"
+
+msgid "Thinking…"
+msgstr "Denkt nach…"
+
+msgid "The response was interrupted and may be incomplete."
+msgstr "Die Antwort wurde unterbrochen und ist möglicherweise unvollständig."
+
+msgid "Insert at cursor"
+msgstr "An Cursorposition einfügen"
+
+msgid "Replace draft"
+msgstr "Entwurf ersetzen"
+
+msgid "Regenerate"
+msgstr "Neu generieren"
+
+msgid "Copied"
+msgstr "Kopiert"
+
+msgid "AI writing assistant"
+msgstr "KI-Schreibassistent"
+
+msgid "Improve writing"
+msgstr "Text verbessern"
+
+msgid "Shorten"
+msgstr "Kürzen"
+
+msgid "Expand"
+msgstr "Erweitern"
+
+msgid "Change tone"
+msgstr "Tonfall ändern"
+
+msgid "Fix grammar & spelling"
+msgstr "Grammatik & Rechtschreibung korrigieren"
+
 msgid "Archive"
 msgstr "Archiv"
 
@@ -5742,9 +6036,6 @@ msgstr "Sortieren nach: ID"
 
 msgid "Sort by: Backend"
 msgstr "Sortieren nach: Backend"
-
-msgid "Features"
-msgstr "Funktionen"
 
 msgid "Shows all available features of the backend."
 msgstr "Zeigt alle verfügbaren Funktionen des Backends."
@@ -6161,6 +6452,9 @@ msgstr "d F Y, H:i"
 msgid "Last connect"
 msgstr "Letzte Verbindung"
 
+msgid "Impersonated by"
+msgstr "Identität übernommen von"
+
 msgid "Synchronize"
 msgstr "Synchronisieren"
 
@@ -6227,8 +6521,8 @@ msgstr "Geben Sie zur Bestätigung {0} ein"
 msgid "Please type {0} to confirm"
 msgstr "Bitte geben Sie zur Bestätigung {0} ein"
 
-msgid "Wipe type"
-msgstr "Löschart"
+msgid "Impersonated device: only account-only remote wipe is available."
+msgstr "Gerät mit übernommener Identität: Es ist ausschliesslich eine Nur-Konto-Löschung verfügbar."
 
 msgid "Wipe only data related to this account"
 msgstr "Nur Daten zu diesem Konto löschen"
@@ -6238,6 +6532,15 @@ msgstr "Alle Daten löschen"
 
 msgid "Username"
 msgstr "Benutzername"
+
+msgid ""
+"Do you really want to wipe your device?\n"
+"Only account-only remote wipe is available for impersonated devices.\n"
+"Enter your password to confirm."
+msgstr ""
+"Möchten Sie Ihr Gerät wirklich löschen?\n"
+"Für Geräte mit übernommener Identität ist ausschliesslich eine Nur-Konto-Löschung verfügbar.\n"
+"Geben Sie zur Bestätigung Ihr Passwort ein."
 
 msgid ""
 "Do you really want to wipe your device?\n"
@@ -6771,9 +7074,6 @@ msgstr "Füge eine Textvorlage an der Cursorposition ein"
 msgid "No templates available"
 msgstr "Keine Vorlagen verfügbar"
 
-msgid "An unknown error occurred."
-msgstr "Es ist ein unbekannter Fehler aufgetreten."
-
 msgid "Charm pink"
 msgstr "Rosa"
 
@@ -6857,6 +7157,60 @@ msgstr "Sie wurden automatisch ausgeloggt"
 
 msgid "Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator."
 msgstr "Der Zugriff auf grommunio Web ist mit diesem Benutzer nicht möglich. Bitte wenden Sie sich an Ihren Administrator."
+
+msgid "The AI request failed unexpectedly."
+msgstr "Die KI-Anfrage ist unerwartet fehlgeschlagen."
+
+msgid "This AI feature has been disabled by your administrator."
+msgstr "Diese KI-Funktion wurde von Ihrem Administrator deaktiviert."
+
+msgid "No message was selected for the AI request."
+msgstr "Für die KI-Anfrage wurde keine Nachricht ausgewählt."
+
+msgid "The AI assistant is not enabled yet. Set PLUGIN_AI_ENABLE to true in the plugin config.php."
+msgstr "Der KI-Assistent ist noch nicht aktiviert. Setzen Sie PLUGIN_AI_ENABLE in der config.php des Plugins auf true."
+
+msgid "No AI model or endpoint is configured in the plugin config.php."
+msgstr "In der config.php des Plugins ist kein KI-Modell und kein Endpunkt konfiguriert."
+
+#, php-format
+msgid "No API key is set for the \"%s\" provider. Add your key to PLUGIN_AI_API_KEY in the plugin config.php."
+msgstr "Für den Anbieter \"%s\" ist kein API-Schlüssel festgelegt. Fügen Sie Ihren Schlüssel zu PLUGIN_AI_API_KEY in der config.php des Plugins hinzu."
+
+msgid "The selected message could not be opened."
+msgstr "Die ausgewählte Nachricht konnte nicht geöffnet werden."
+
+msgid "connection error"
+msgstr "Verbindungsfehler"
+
+#, php-format
+msgid "Could not reach the AI service (%s). Check the endpoint configuration."
+msgstr "Der KI-Dienst (%s) konnte nicht erreicht werden. Überprüfen Sie die Endpunktkonfiguration."
+
+msgid "The AI service rejected the credentials. Check the API key and endpoint."
+msgstr "Der KI-Dienst hat die Anmeldedaten abgelehnt. Überprüfen Sie den API-Schlüssel und den Endpunkt."
+
+msgid "The AI model or endpoint was not found. Check the model name and base URL."
+msgstr "Das KI-Modell oder der Endpunkt wurde nicht gefunden. Überprüfen Sie den Modellnamen und die Basis-URL."
+
+msgid "The AI service is rate-limited or out of quota. Try again later."
+msgstr "Der KI-Dienst hat das Anfragelimit erreicht oder das Kontingent ist aufgebraucht. Versuchen Sie es später erneut."
+
+msgid "The AI service reported an internal error. Try again later."
+msgstr "Der KI-Dienst hat einen internen Fehler gemeldet. Versuchen Sie es später erneut."
+
+#, php-format
+msgid "The AI service returned an error (HTTP %d)."
+msgstr "Der KI-Dienst hat einen Fehler zurückgegeben (HTTP %d)."
+
+msgid "There is no text to work with."
+msgstr "Es ist kein Text vorhanden, mit dem gearbeitet werden kann."
+
+msgid "Unknown AI feature."
+msgstr "Unbekannte KI-Funktion."
+
+msgid "The message appears to be empty."
+msgstr "Die Nachricht scheint leer zu sein."
 
 msgid "This backend provides the default WebDAV integration for Files."
 msgstr "Dieses Backend bietet die standardmässige WebDAV-Integration für Dateien."
@@ -7402,6 +7756,12 @@ msgstr "Kontingentfehler"
 
 msgid "Send quota limit reached"
 msgstr "Sendekontingentgrenze erreicht"
+
+msgid "Sender address could not be applied"
+msgstr "Absenderadresse konnte nicht übernommen werden"
+
+msgid "The message was not sent because the selected sender address could not be applied. Please try again."
+msgstr "Die Nachricht wurde nicht gesendet, da die ausgewählte Absenderadresse nicht übernommen werden konnte. Bitte versuchen Sie es erneut."
 
 #, php-format
 msgid "Email sending failed (%s). Check the log files for more information."

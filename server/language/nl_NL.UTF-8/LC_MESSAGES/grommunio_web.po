@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Dutch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 13:46+0200\n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
 "PO-Revision-Date: 2022-12-11 14:12+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/grommunio/grommunio-web/nl/>\n"
@@ -5512,6 +5512,300 @@ msgstr "Het laden van het model van de server is mislukt"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "De Afwezigheidsassistent is ingeschakeld. Wilt u deze uitschakelen?"
 
+msgid "AI Assistant"
+msgstr "AI-assistent"
+
+msgid "The editor could not be found."
+msgstr "De editor kon niet worden gevonden."
+
+msgid "Write some text in the message first."
+msgstr "Schrijf eerst wat tekst in het bericht."
+
+msgid "Improved draft"
+msgstr "Verbeterd concept"
+
+msgid "Shortened draft"
+msgstr "Ingekort concept"
+
+msgid "Expanded draft"
+msgstr "Uitgebreid concept"
+
+msgid "Grammar & spelling"
+msgstr "Grammatica & spelling"
+
+msgid "Rewritten draft"
+msgstr "Herschreven concept"
+
+msgid "Translated draft"
+msgstr "Vertaald concept"
+
+msgid "The message you were composing is no longer open."
+msgstr "Het bericht dat u aan het opstellen was, is niet meer geopend."
+
+msgid "Summarize"
+msgstr "Samenvatten"
+
+msgid "Summarize thread"
+msgstr "Gesprek samenvatten"
+
+msgid "Translate"
+msgstr "Vertalen"
+
+msgid "Suggest actions"
+msgstr "Acties voorstellen"
+
+msgid "No AI features enabled"
+msgstr "Geen AI-functies ingeschakeld"
+
+msgid "My language"
+msgstr "Mijn taal"
+
+msgid "English"
+msgstr "Engels"
+
+msgid "German"
+msgstr "Duits"
+
+msgid "French"
+msgstr "Frans"
+
+msgid "Spanish"
+msgstr "Spaans"
+
+msgid "Italian"
+msgstr "Italiaans"
+
+msgid "Dutch"
+msgstr "Nederlands"
+
+msgid "Portuguese"
+msgstr "Portugees"
+
+msgid "Polish"
+msgstr "Pools"
+
+msgid "Chinese"
+msgstr "Chinees"
+
+msgid "Japanese"
+msgstr "Japans"
+
+msgid "Please open or select a message first."
+msgstr "Open of selecteer eerst een bericht."
+
+msgid "Suggested actions"
+msgstr "Voorgestelde acties"
+
+msgid "Looking for actions…"
+msgstr "Zoeken naar acties…"
+
+msgid "Summarize with AI"
+msgstr "Samenvatten met AI"
+
+msgid "Translate with AI"
+msgstr "Vertalen met AI"
+
+msgid "Thread summary"
+msgstr "Gesprekssamenvatting"
+
+msgid "Summary"
+msgstr "Samenvatting"
+
+msgid "Translation"
+msgstr "Vertaling"
+
+msgid "No suggested actions were found for this message."
+msgstr "Er zijn geen voorgestelde acties gevonden voor dit bericht."
+
+msgid "Suggested actions — each opens a prefilled dialog you review before saving:"
+msgstr "Voorgestelde acties — elk opent een vooraf ingevuld dialoogvenster dat u controleert voordat u opslaat:"
+
+msgid "The AI request failed."
+msgstr "Het AI-verzoek is mislukt."
+
+msgid "An unknown error occurred."
+msgstr "Er is een onbekende fout opgetreden."
+
+msgid "Brief"
+msgstr "Kort"
+
+msgid "Standard"
+msgstr "Standaard"
+
+msgid "Detailed"
+msgstr "Gedetailleerd"
+
+msgid "Neutral"
+msgstr "Neutraal"
+
+msgid "Formal"
+msgstr "Formeel"
+
+msgid "Friendly"
+msgstr "Vriendelijk"
+
+msgid "Confident"
+msgstr "Zelfverzekerd"
+
+msgid "Concise"
+msgstr "Beknopt"
+
+msgid "Casual"
+msgstr "Informeel"
+
+msgid "My language (automatic)"
+msgstr "Mijn taal (automatisch)"
+
+msgid "Provider"
+msgstr "Aanbieder"
+
+msgid "Configured by administrator"
+msgstr "Geconfigureerd door beheerder"
+
+msgid "Test connection"
+msgstr "Verbinding testen"
+
+msgid "Preferences"
+msgstr "Voorkeuren"
+
+msgid "You can turn the AI assistant on or off under Settings → Plugins."
+msgstr "U kunt de AI-assistent in- of uitschakelen onder Opties → Plugins."
+
+msgid "Summary length"
+msgstr "Lengte van samenvatting"
+
+msgid "Translate into"
+msgstr "Vertalen naar"
+
+msgid "Writing tone"
+msgstr "Schrijftoon"
+
+msgid "Stream responses as they are generated"
+msgstr "Antwoorden streamen terwijl ze worden gegenereerd"
+
+msgid "Features"
+msgstr "Functies"
+
+msgid "Summarize emails and threads"
+msgstr "E-mails en gesprekken samenvatten"
+
+msgid "Translate emails"
+msgstr "E-mails vertalen"
+
+msgid "Writing assistant in the composer"
+msgstr "Schrijfassistent in het opstelvenster"
+
+msgid "Suggest smart actions"
+msgstr "Slimme acties voorstellen"
+
+msgid "Smart actions"
+msgstr "Slimme acties"
+
+msgid "Smart actions always open a prefilled dialog for you to review — nothing is saved or sent automatically."
+msgstr "Slimme acties openen altijd een vooraf ingevuld dialoogvenster ter controle — er wordt niets automatisch opgeslagen of verzonden."
+
+msgid "Create meetings and invite attendees"
+msgstr "Bijeenkomsten maken en deelnemers uitnodigen"
+
+msgid "Create tasks"
+msgstr "Taken maken"
+
+msgid "Add contacts"
+msgstr "Contactpersonen toevoegen"
+
+msgid "Draft replies"
+msgstr "Antwoorden opstellen"
+
+msgid "{0} · model {1}"
+msgstr "{0} · model {1}"
+
+msgid "Not configured. Ask your administrator to set up a provider."
+msgstr "Niet geconfigureerd. Vraag uw beheerder om een aanbieder in te stellen."
+
+msgid "Disabled by administrator"
+msgstr "Uitgeschakeld door beheerder"
+
+msgid "Testing…"
+msgstr "Testen…"
+
+msgid "Connected to {0} ({1}) — {2} ms"
+msgstr "Verbonden met {0} ({1}) — {2} ms"
+
+msgid "No default {0} folder is available for this account."
+msgstr "Er is geen standaardmap voor {0} beschikbaar voor dit account."
+
+msgid "calendar"
+msgstr "agenda"
+
+msgid "tasks"
+msgstr "taken"
+
+msgid "contacts"
+msgstr "contactpersonen"
+
+msgid "Draft reply"
+msgstr "Antwoord opstellen"
+
+msgid "Open as reply"
+msgstr "Openen als antwoord"
+
+msgid "Drafting reply…"
+msgstr "Antwoord opstellen…"
+
+msgid "The message could not be opened to draft a reply."
+msgstr "Het bericht kon niet worden geopend om een antwoord op te stellen."
+
+msgid "Meeting: {0}"
+msgstr "Bijeenkomst: {0}"
+
+msgid "Create meeting"
+msgstr "Bijeenkomst maken"
+
+msgid "Task: {0}"
+msgstr "Taak: {0}"
+
+msgid "Add contact: {0}"
+msgstr "Contactpersoon toevoegen: {0}"
+
+msgid "Add contact"
+msgstr "Contactpersoon toevoegen"
+
+msgid "Thinking…"
+msgstr "Nadenken…"
+
+msgid "The response was interrupted and may be incomplete."
+msgstr "Het antwoord is onderbroken en is mogelijk onvolledig."
+
+msgid "Insert at cursor"
+msgstr "Invoegen bij cursor"
+
+msgid "Replace draft"
+msgstr "Concept vervangen"
+
+msgid "Regenerate"
+msgstr "Opnieuw genereren"
+
+msgid "Copied"
+msgstr "Gekopieerd"
+
+msgid "AI writing assistant"
+msgstr "AI-schrijfassistent"
+
+msgid "Improve writing"
+msgstr "Tekst verbeteren"
+
+msgid "Shorten"
+msgstr "Inkorten"
+
+msgid "Expand"
+msgstr "Uitbreiden"
+
+msgid "Change tone"
+msgstr "Toon wijzigen"
+
+msgid "Fix grammar & spelling"
+msgstr "Grammatica & spelling corrigeren"
+
 msgid "Archive"
 msgstr "Archief"
 
@@ -5745,9 +6039,6 @@ msgstr "Sorteer op: ID"
 
 msgid "Sort by: Backend"
 msgstr "Sorteer op: Backend"
-
-msgid "Features"
-msgstr "Functies"
 
 msgid "Shows all available features of the backend."
 msgstr "Toont alle beschikbare functies van de backend."
@@ -6164,6 +6455,9 @@ msgstr "d F Y, H:i"
 msgid "Last connect"
 msgstr "Laatste verbinding"
 
+msgid "Impersonated by"
+msgstr "Geïmiteerd door"
+
 msgid "Synchronize"
 msgstr "Synchroniseren"
 
@@ -6230,8 +6524,8 @@ msgstr "Typ {0} om te bevestigen"
 msgid "Please type {0} to confirm"
 msgstr "Typ {0} om te bevestigen"
 
-msgid "Wipe type"
-msgstr "Type wissen"
+msgid "Impersonated device: only account-only remote wipe is available."
+msgstr "Geïmiteerd apparaat: alleen het wissen van het account is beschikbaar."
 
 msgid "Wipe only data related to this account"
 msgstr "Alleen gegevens met betrekking tot deze account wissen"
@@ -6241,6 +6535,15 @@ msgstr "Alle gegevens wissen"
 
 msgid "Username"
 msgstr "Gebruikersnaam"
+
+msgid ""
+"Do you really want to wipe your device?\n"
+"Only account-only remote wipe is available for impersonated devices.\n"
+"Enter your password to confirm."
+msgstr ""
+"Wilt u uw apparaat echt wissen?\n"
+"Voor geïmiteerde apparaten is alleen het wissen van het account beschikbaar.\n"
+"Voer uw wachtwoord in ter bevestiging."
 
 msgid ""
 "Do you really want to wipe your device?\n"
@@ -6774,9 +7077,6 @@ msgstr "Voeg een tekstsjabloon in op de cursorpositie"
 msgid "No templates available"
 msgstr "Er zijn geen sjablonen beschikbaar"
 
-msgid "An unknown error occurred."
-msgstr "Er is een onbekende fout opgetreden."
-
 msgid "Charm pink"
 msgstr "Charm roze"
 
@@ -6860,6 +7160,60 @@ msgstr "U bent automatisch uitgelogd"
 
 msgid "Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator."
 msgstr "Sorry, toegang tot grommunio Web is niet mogelijk met dit account. Neem contact op met je systeembeheerder."
+
+msgid "The AI request failed unexpectedly."
+msgstr "Het AI-verzoek is onverwacht mislukt."
+
+msgid "This AI feature has been disabled by your administrator."
+msgstr "Deze AI-functie is uitgeschakeld door uw beheerder."
+
+msgid "No message was selected for the AI request."
+msgstr "Er is geen bericht geselecteerd voor het AI-verzoek."
+
+msgid "The AI assistant is not enabled yet. Set PLUGIN_AI_ENABLE to true in the plugin config.php."
+msgstr "De AI-assistent is nog niet ingeschakeld. Stel PLUGIN_AI_ENABLE in op true in de config.php van de plug-in."
+
+msgid "No AI model or endpoint is configured in the plugin config.php."
+msgstr "Er is geen AI-model of eindpunt geconfigureerd in de config.php van de plug-in."
+
+#, php-format
+msgid "No API key is set for the \"%s\" provider. Add your key to PLUGIN_AI_API_KEY in the plugin config.php."
+msgstr "Er is geen API-sleutel ingesteld voor de aanbieder \"%s\". Voeg uw sleutel toe aan PLUGIN_AI_API_KEY in de config.php van de plug-in."
+
+msgid "The selected message could not be opened."
+msgstr "Het geselecteerde bericht kon niet worden geopend."
+
+msgid "connection error"
+msgstr "verbindingsfout"
+
+#, php-format
+msgid "Could not reach the AI service (%s). Check the endpoint configuration."
+msgstr "Kan de AI-service (%s) niet bereiken. Controleer de eindpuntconfiguratie."
+
+msgid "The AI service rejected the credentials. Check the API key and endpoint."
+msgstr "De AI-service heeft de inloggegevens geweigerd. Controleer de API-sleutel en het eindpunt."
+
+msgid "The AI model or endpoint was not found. Check the model name and base URL."
+msgstr "Het AI-model of eindpunt is niet gevonden. Controleer de modelnaam en de basis-URL."
+
+msgid "The AI service is rate-limited or out of quota. Try again later."
+msgstr "De AI-service heeft het aanvraaglimiet bereikt of het quotum is op. Probeer het later opnieuw."
+
+msgid "The AI service reported an internal error. Try again later."
+msgstr "De AI-service heeft een interne fout gemeld. Probeer het later opnieuw."
+
+#, php-format
+msgid "The AI service returned an error (HTTP %d)."
+msgstr "De AI-service heeft een fout geretourneerd (HTTP %d)."
+
+msgid "There is no text to work with."
+msgstr "Er is geen tekst om mee te werken."
+
+msgid "Unknown AI feature."
+msgstr "Onbekende AI-functie."
+
+msgid "The message appears to be empty."
+msgstr "Het bericht lijkt leeg te zijn."
 
 msgid "This backend provides the default WebDAV integration for Files."
 msgstr "Dit backend biedt de standaard WebDAV-integratie voor Bestanden."
@@ -7405,6 +7759,12 @@ msgstr "Quota fout"
 
 msgid "Send quota limit reached"
 msgstr "Limiet verzendquota bereikt"
+
+msgid "Sender address could not be applied"
+msgstr "Afzenderadres kon niet worden toegepast"
+
+msgid "The message was not sent because the selected sender address could not be applied. Please try again."
+msgstr "Het bericht is niet verzonden omdat het geselecteerde afzenderadres niet kon worden toegepast. Probeer het opnieuw."
 
 #, php-format
 msgid "Email sending failed (%s). Check the log files for more information."

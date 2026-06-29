@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Arabic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 13:46+0200\n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
 "PO-Revision-Date: 2022-12-11 16:35+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Arabic (Saudi Arabia) <https://hosted.weblate.org/projects/grommunio/grommunio-web/ar_SA/>\n"
@@ -5594,6 +5594,300 @@ msgstr "فشل تحميل النموذج من الخادم"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "تم تفعيل \"خارج المكتب\" حاليًا. هل ترغب في إيقاف تشغيله؟"
 
+msgid "AI Assistant"
+msgstr "مساعد الذكاء الاصطناعي"
+
+msgid "The editor could not be found."
+msgstr "تعذّر العثور على المحرّر."
+
+msgid "Write some text in the message first."
+msgstr "اكتب بعض النص في الرسالة أولاً."
+
+msgid "Improved draft"
+msgstr "مسودة محسّنة"
+
+msgid "Shortened draft"
+msgstr "مسودة مختصرة"
+
+msgid "Expanded draft"
+msgstr "مسودة موسّعة"
+
+msgid "Grammar & spelling"
+msgstr "القواعد والإملاء"
+
+msgid "Rewritten draft"
+msgstr "مسودة معاد كتابتها"
+
+msgid "Translated draft"
+msgstr "مسودة مترجمة"
+
+msgid "The message you were composing is no longer open."
+msgstr "الرسالة التي كنت تكتبها لم تعد مفتوحة."
+
+msgid "Summarize"
+msgstr "تلخيص"
+
+msgid "Summarize thread"
+msgstr "تلخيص المحادثة"
+
+msgid "Translate"
+msgstr "ترجمة"
+
+msgid "Suggest actions"
+msgstr "اقتراح إجراءات"
+
+msgid "No AI features enabled"
+msgstr "لم تُفعَّل أي ميزات للذكاء الاصطناعي"
+
+msgid "My language"
+msgstr "لغتي"
+
+msgid "English"
+msgstr "الإنجليزية"
+
+msgid "German"
+msgstr "الألمانية"
+
+msgid "French"
+msgstr "الفرنسية"
+
+msgid "Spanish"
+msgstr "الإسبانية"
+
+msgid "Italian"
+msgstr "الإيطالية"
+
+msgid "Dutch"
+msgstr "الهولندية"
+
+msgid "Portuguese"
+msgstr "البرتغالية"
+
+msgid "Polish"
+msgstr "البولندية"
+
+msgid "Chinese"
+msgstr "الصينية"
+
+msgid "Japanese"
+msgstr "اليابانية"
+
+msgid "Please open or select a message first."
+msgstr "يرجى فتح رسالة أو تحديدها أولاً."
+
+msgid "Suggested actions"
+msgstr "الإجراءات المقترحة"
+
+msgid "Looking for actions…"
+msgstr "جارٍ البحث عن إجراءات…"
+
+msgid "Summarize with AI"
+msgstr "التلخيص بالذكاء الاصطناعي"
+
+msgid "Translate with AI"
+msgstr "الترجمة بالذكاء الاصطناعي"
+
+msgid "Thread summary"
+msgstr "ملخص المحادثة"
+
+msgid "Summary"
+msgstr "ملخص"
+
+msgid "Translation"
+msgstr "ترجمة"
+
+msgid "No suggested actions were found for this message."
+msgstr "لم يُعثر على إجراءات مقترحة لهذه الرسالة."
+
+msgid "Suggested actions — each opens a prefilled dialog you review before saving:"
+msgstr "الإجراءات المقترحة — يفتح كل منها مربع حوار مُعبّأ مسبقًا تراجعه قبل الحفظ:"
+
+msgid "The AI request failed."
+msgstr "فشل طلب الذكاء الاصطناعي."
+
+msgid "An unknown error occurred."
+msgstr "حدث خطأ غير معروف."
+
+msgid "Brief"
+msgstr "موجز"
+
+msgid "Standard"
+msgstr "قياسي"
+
+msgid "Detailed"
+msgstr "مفصّل"
+
+msgid "Neutral"
+msgstr "محايد"
+
+msgid "Formal"
+msgstr "رسمي"
+
+msgid "Friendly"
+msgstr "ودّي"
+
+msgid "Confident"
+msgstr "واثق"
+
+msgid "Concise"
+msgstr "مختصر"
+
+msgid "Casual"
+msgstr "غير رسمي"
+
+msgid "My language (automatic)"
+msgstr "لغتي (تلقائي)"
+
+msgid "Provider"
+msgstr "المزوّد"
+
+msgid "Configured by administrator"
+msgstr "مُهيّأ من قبل المسؤول"
+
+msgid "Test connection"
+msgstr "اختبار الاتصال"
+
+msgid "Preferences"
+msgstr "التفضيلات"
+
+msgid "You can turn the AI assistant on or off under Settings → Plugins."
+msgstr "يمكنك تشغيل مساعد الذكاء الاصطناعي أو إيقافه من الإعدادات → الإضافات."
+
+msgid "Summary length"
+msgstr "طول الملخص"
+
+msgid "Translate into"
+msgstr "الترجمة إلى"
+
+msgid "Writing tone"
+msgstr "نبرة الكتابة"
+
+msgid "Stream responses as they are generated"
+msgstr "بث الردود أثناء توليدها"
+
+msgid "Features"
+msgstr "سمات"
+
+msgid "Summarize emails and threads"
+msgstr "تلخيص الرسائل والمحادثات"
+
+msgid "Translate emails"
+msgstr "ترجمة الرسائل"
+
+msgid "Writing assistant in the composer"
+msgstr "مساعد الكتابة في نافذة الإنشاء"
+
+msgid "Suggest smart actions"
+msgstr "اقتراح إجراءات ذكية"
+
+msgid "Smart actions"
+msgstr "الإجراءات الذكية"
+
+msgid "Smart actions always open a prefilled dialog for you to review — nothing is saved or sent automatically."
+msgstr "تفتح الإجراءات الذكية دائمًا مربع حوار مُعبّأ مسبقًا لمراجعته — لا يُحفظ أو يُرسل شيء تلقائيًا."
+
+msgid "Create meetings and invite attendees"
+msgstr "إنشاء اجتماعات ودعوة الحضور"
+
+msgid "Create tasks"
+msgstr "إنشاء مهام"
+
+msgid "Add contacts"
+msgstr "إضافة جهات اتصال"
+
+msgid "Draft replies"
+msgstr "صياغة الردود"
+
+msgid "{0} · model {1}"
+msgstr "{0} · النموذج {1}"
+
+msgid "Not configured. Ask your administrator to set up a provider."
+msgstr "غير مُهيّأ. اطلب من المسؤول إعداد مزوّد."
+
+msgid "Disabled by administrator"
+msgstr "مُعطَّل من قبل المسؤول"
+
+msgid "Testing…"
+msgstr "جارٍ الاختبار…"
+
+msgid "Connected to {0} ({1}) — {2} ms"
+msgstr "متصل بـ {0} ({1}) — {2} ms"
+
+msgid "No default {0} folder is available for this account."
+msgstr "لا يتوفر مجلد {0} الافتراضي لهذا الحساب."
+
+msgid "calendar"
+msgstr "التقويم"
+
+msgid "tasks"
+msgstr "المهام"
+
+msgid "contacts"
+msgstr "جهات الاتصال"
+
+msgid "Draft reply"
+msgstr "صياغة رد"
+
+msgid "Open as reply"
+msgstr "فتح كرد"
+
+msgid "Drafting reply…"
+msgstr "جارٍ صياغة الرد…"
+
+msgid "The message could not be opened to draft a reply."
+msgstr "تعذّر فتح الرسالة لصياغة رد."
+
+msgid "Meeting: {0}"
+msgstr "اجتماع: {0}"
+
+msgid "Create meeting"
+msgstr "إنشاء اجتماع"
+
+msgid "Task: {0}"
+msgstr "مهمة: {0}"
+
+msgid "Add contact: {0}"
+msgstr "إضافة جهة اتصال: {0}"
+
+msgid "Add contact"
+msgstr "إضافة جهة اتصال"
+
+msgid "Thinking…"
+msgstr "جارٍ التفكير…"
+
+msgid "The response was interrupted and may be incomplete."
+msgstr "تمت مقاطعة الرد وقد يكون غير مكتمل."
+
+msgid "Insert at cursor"
+msgstr "إدراج عند المؤشر"
+
+msgid "Replace draft"
+msgstr "استبدال المسودة"
+
+msgid "Regenerate"
+msgstr "إعادة التوليد"
+
+msgid "Copied"
+msgstr "تم النسخ"
+
+msgid "AI writing assistant"
+msgstr "مساعد الكتابة بالذكاء الاصطناعي"
+
+msgid "Improve writing"
+msgstr "تحسين الكتابة"
+
+msgid "Shorten"
+msgstr "اختصار"
+
+msgid "Expand"
+msgstr "توسيع"
+
+msgid "Change tone"
+msgstr "تغيير النبرة"
+
+msgid "Fix grammar & spelling"
+msgstr "تصحيح القواعد والإملاء"
+
 msgid "Archive"
 msgstr "أرشيف"
 
@@ -5827,9 +6121,6 @@ msgstr "الترتيب حسب: معرف"
 
 msgid "Sort by: Backend"
 msgstr "الترتيب حسب: الخلفية"
-
-msgid "Features"
-msgstr "سمات"
 
 msgid "Shows all available features of the backend."
 msgstr "يعرض جميع الميزات المتاحة للواجهة الخلفية."
@@ -6246,6 +6537,9 @@ msgstr "د FY، H:i"
 msgid "Last connect"
 msgstr "آخر اتصال"
 
+msgid "Impersonated by"
+msgstr "مُنتحَل بواسطة"
+
 msgid "Synchronize"
 msgstr "تزامن"
 
@@ -6312,8 +6606,8 @@ msgstr "اكتب{0}للتأكيد"
 msgid "Please type {0} to confirm"
 msgstr "الرجاء كتابة{0}للتأكيد"
 
-msgid "Wipe type"
-msgstr "نوع المسح"
+msgid "Impersonated device: only account-only remote wipe is available."
+msgstr "جهاز مُنتحَل: يتوفر المسح عن بُعد على مستوى الحساب فقط."
 
 msgid "Wipe only data related to this account"
 msgstr "امسح فقط البيانات المتعلقة بهذا الحساب"
@@ -6323,6 +6617,15 @@ msgstr "مسح كافة البيانات"
 
 msgid "Username"
 msgstr "اسم المستخدم"
+
+msgid ""
+"Do you really want to wipe your device?\n"
+"Only account-only remote wipe is available for impersonated devices.\n"
+"Enter your password to confirm."
+msgstr ""
+"هل تريد فعلاً مسح جهازك؟\n"
+"لا يتوفر سوى المسح عن بُعد على مستوى الحساب للأجهزة المُنتحَلة.\n"
+"أدخل كلمة المرور للتأكيد."
 
 msgid ""
 "Do you really want to wipe your device?\n"
@@ -6856,9 +7159,6 @@ msgstr "أدخل قالب نصي في موضع المؤشر"
 msgid "No templates available"
 msgstr "لا توجد قوالب متاحة"
 
-msgid "An unknown error occurred."
-msgstr "حدث خطأ غير معروف."
-
 msgid "Charm pink"
 msgstr "سحر الوردي"
 
@@ -6942,6 +7242,60 @@ msgstr "لقد تم تسجيل خروجك تلقائيا"
 
 msgid "Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator."
 msgstr "عذرًا، لا يمكن الوصول إلى موقع grommunio Web باستخدام حساب المستخدم هذا. يرجى الاتصال بمسؤول النظام."
+
+msgid "The AI request failed unexpectedly."
+msgstr "فشل طلب الذكاء الاصطناعي بشكل غير متوقع."
+
+msgid "This AI feature has been disabled by your administrator."
+msgstr "تم تعطيل ميزة الذكاء الاصطناعي هذه من قبل المسؤول."
+
+msgid "No message was selected for the AI request."
+msgstr "لم يتم تحديد رسالة لطلب الذكاء الاصطناعي."
+
+msgid "The AI assistant is not enabled yet. Set PLUGIN_AI_ENABLE to true in the plugin config.php."
+msgstr "لم يُفعَّل مساعد الذكاء الاصطناعي بعد. عيّن PLUGIN_AI_ENABLE إلى true في ملف config.php الخاص بالإضافة."
+
+msgid "No AI model or endpoint is configured in the plugin config.php."
+msgstr "لم تتم تهيئة أي نموذج أو نقطة نهاية للذكاء الاصطناعي في ملف config.php الخاص بالإضافة."
+
+#, php-format
+msgid "No API key is set for the \"%s\" provider. Add your key to PLUGIN_AI_API_KEY in the plugin config.php."
+msgstr "لم يتم تعيين مفتاح API لمزوّد \"%s\". أضف مفتاحك إلى PLUGIN_AI_API_KEY في ملف config.php الخاص بالإضافة."
+
+msgid "The selected message could not be opened."
+msgstr "تعذّر فتح الرسالة المحددة."
+
+msgid "connection error"
+msgstr "خطأ في الاتصال"
+
+#, php-format
+msgid "Could not reach the AI service (%s). Check the endpoint configuration."
+msgstr "تعذّر الوصول إلى خدمة الذكاء الاصطناعي (%s). تحقق من تهيئة نقطة النهاية."
+
+msgid "The AI service rejected the credentials. Check the API key and endpoint."
+msgstr "رفضت خدمة الذكاء الاصطناعي بيانات الاعتماد. تحقق من مفتاح API ونقطة النهاية."
+
+msgid "The AI model or endpoint was not found. Check the model name and base URL."
+msgstr "لم يُعثر على نموذج الذكاء الاصطناعي أو نقطة النهاية. تحقق من اسم النموذج وعنوان URL الأساسي."
+
+msgid "The AI service is rate-limited or out of quota. Try again later."
+msgstr "خدمة الذكاء الاصطناعي مُقيّدة بمعدل الطلبات أو تجاوزت الحصة. حاول مرة أخرى لاحقًا."
+
+msgid "The AI service reported an internal error. Try again later."
+msgstr "أبلغت خدمة الذكاء الاصطناعي عن خطأ داخلي. حاول مرة أخرى لاحقًا."
+
+#, php-format
+msgid "The AI service returned an error (HTTP %d)."
+msgstr "أرجعت خدمة الذكاء الاصطناعي خطأً (HTTP %d)."
+
+msgid "There is no text to work with."
+msgstr "لا يوجد نص للعمل عليه."
+
+msgid "Unknown AI feature."
+msgstr "ميزة ذكاء اصطناعي غير معروفة."
+
+msgid "The message appears to be empty."
+msgstr "يبدو أن الرسالة فارغة."
 
 msgid "This backend provides the default WebDAV integration for Files."
 msgstr "توفر هذه الواجهة الخلفية تكامل WebDAV الافتراضي للملفات."
@@ -7487,6 +7841,12 @@ msgstr "خطأ في الحصة النسبية"
 
 msgid "Send quota limit reached"
 msgstr "تم الوصول إلى الحد الأقصى لحصة الإرسال"
+
+msgid "Sender address could not be applied"
+msgstr "تعذّر تطبيق عنوان المُرسِل"
+
+msgid "The message was not sent because the selected sender address could not be applied. Please try again."
+msgstr "لم تُرسَل الرسالة لأنه تعذّر تطبيق عنوان المُرسِل المحدد. يرجى المحاولة مرة أخرى."
 
 #, php-format
 msgid "Email sending failed (%s). Check the log files for more information."

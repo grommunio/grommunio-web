@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Farsi (Iran)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 13:46+0200\n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
 "PO-Revision-Date: 2017-10-05 19:48+0200\n"
 "Last-Translator: import\n"
 "Language: fa_IR\n"
@@ -5505,6 +5505,300 @@ msgstr "بارگیری مدل از سرور انجام نشد"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "خارج از دفتر در حال حاضر فعال است. آیا می خواهید آن را خاموش کنید؟"
 
+msgid "AI Assistant"
+msgstr "دستیار هوش مصنوعی"
+
+msgid "The editor could not be found."
+msgstr "ویرایشگر پیدا نشد."
+
+msgid "Write some text in the message first."
+msgstr "ابتدا مقداری متن در پیام بنویسید."
+
+msgid "Improved draft"
+msgstr "پیش‌نویس بهبودیافته"
+
+msgid "Shortened draft"
+msgstr "پیش‌نویس کوتاه‌شده"
+
+msgid "Expanded draft"
+msgstr "پیش‌نویس گسترش‌یافته"
+
+msgid "Grammar & spelling"
+msgstr "دستور زبان و املا"
+
+msgid "Rewritten draft"
+msgstr "پیش‌نویس بازنویسی‌شده"
+
+msgid "Translated draft"
+msgstr "پیش‌نویس ترجمه‌شده"
+
+msgid "The message you were composing is no longer open."
+msgstr "پیامی که در حال نوشتن آن بودید دیگر باز نیست."
+
+msgid "Summarize"
+msgstr "خلاصه‌سازی"
+
+msgid "Summarize thread"
+msgstr "خلاصه‌سازی گفتگو"
+
+msgid "Translate"
+msgstr "ترجمه"
+
+msgid "Suggest actions"
+msgstr "پیشنهاد اقدامات"
+
+msgid "No AI features enabled"
+msgstr "هیچ قابلیت هوش مصنوعی فعال نیست"
+
+msgid "My language"
+msgstr "زبان من"
+
+msgid "English"
+msgstr "انگلیسی"
+
+msgid "German"
+msgstr "آلمانی"
+
+msgid "French"
+msgstr "فرانسوی"
+
+msgid "Spanish"
+msgstr "اسپانیایی"
+
+msgid "Italian"
+msgstr "ایتالیایی"
+
+msgid "Dutch"
+msgstr "هلندی"
+
+msgid "Portuguese"
+msgstr "پرتغالی"
+
+msgid "Polish"
+msgstr "لهستانی"
+
+msgid "Chinese"
+msgstr "چینی"
+
+msgid "Japanese"
+msgstr "ژاپنی"
+
+msgid "Please open or select a message first."
+msgstr "لطفاً ابتدا یک پیام را باز یا انتخاب کنید."
+
+msgid "Suggested actions"
+msgstr "اقدامات پیشنهادی"
+
+msgid "Looking for actions…"
+msgstr "در حال جستجوی اقدامات…"
+
+msgid "Summarize with AI"
+msgstr "خلاصه‌سازی با هوش مصنوعی"
+
+msgid "Translate with AI"
+msgstr "ترجمه با هوش مصنوعی"
+
+msgid "Thread summary"
+msgstr "خلاصهٔ گفتگو"
+
+msgid "Summary"
+msgstr "خلاصه"
+
+msgid "Translation"
+msgstr "ترجمه"
+
+msgid "No suggested actions were found for this message."
+msgstr "هیچ اقدام پیشنهادی برای این پیام یافت نشد."
+
+msgid "Suggested actions — each opens a prefilled dialog you review before saving:"
+msgstr "اقدامات پیشنهادی — هر کدام یک پنجرهٔ از پیش‌پرشده باز می‌کنند که پیش از ذخیره آن را بررسی می‌کنید:"
+
+msgid "The AI request failed."
+msgstr "درخواست هوش مصنوعی ناموفق بود."
+
+msgid "An unknown error occurred."
+msgstr "یک خطای ناشناخته رخ داد."
+
+msgid "Brief"
+msgstr "کوتاه"
+
+msgid "Standard"
+msgstr "استاندارد"
+
+msgid "Detailed"
+msgstr "مفصل"
+
+msgid "Neutral"
+msgstr "خنثی"
+
+msgid "Formal"
+msgstr "رسمی"
+
+msgid "Friendly"
+msgstr "دوستانه"
+
+msgid "Confident"
+msgstr "مطمئن"
+
+msgid "Concise"
+msgstr "موجز"
+
+msgid "Casual"
+msgstr "خودمانی"
+
+msgid "My language (automatic)"
+msgstr "زبان من (خودکار)"
+
+msgid "Provider"
+msgstr "ارائه‌دهنده"
+
+msgid "Configured by administrator"
+msgstr "پیکربندی‌شده توسط مدیر"
+
+msgid "Test connection"
+msgstr "آزمایش اتصال"
+
+msgid "Preferences"
+msgstr "ترجیحات"
+
+msgid "You can turn the AI assistant on or off under Settings → Plugins."
+msgstr "می‌توانید دستیار هوش مصنوعی را از مسیر تنظیمات → افزونه‌ها روشن یا خاموش کنید."
+
+msgid "Summary length"
+msgstr "طول خلاصه"
+
+msgid "Translate into"
+msgstr "ترجمه به"
+
+msgid "Writing tone"
+msgstr "لحن نوشتار"
+
+msgid "Stream responses as they are generated"
+msgstr "پخش پاسخ‌ها هم‌زمان با تولید آن‌ها"
+
+msgid "Features"
+msgstr "ویژگی ها"
+
+msgid "Summarize emails and threads"
+msgstr "خلاصه‌سازی ایمیل‌ها و گفتگوها"
+
+msgid "Translate emails"
+msgstr "ترجمهٔ ایمیل‌ها"
+
+msgid "Writing assistant in the composer"
+msgstr "دستیار نگارش در پنجرهٔ نوشتن"
+
+msgid "Suggest smart actions"
+msgstr "پیشنهاد اقدامات هوشمند"
+
+msgid "Smart actions"
+msgstr "اقدامات هوشمند"
+
+msgid "Smart actions always open a prefilled dialog for you to review — nothing is saved or sent automatically."
+msgstr "اقدامات هوشمند همیشه یک پنجرهٔ از پیش‌پرشده برای بررسی شما باز می‌کنند — هیچ چیزی به‌طور خودکار ذخیره یا ارسال نمی‌شود."
+
+msgid "Create meetings and invite attendees"
+msgstr "ایجاد جلسات و دعوت از شرکت‌کنندگان"
+
+msgid "Create tasks"
+msgstr "ایجاد وظایف"
+
+msgid "Add contacts"
+msgstr "افزودن مخاطبین"
+
+msgid "Draft replies"
+msgstr "نگارش پاسخ‌ها"
+
+msgid "{0} · model {1}"
+msgstr "{0} · مدل {1}"
+
+msgid "Not configured. Ask your administrator to set up a provider."
+msgstr "پیکربندی نشده است. از مدیر خود بخواهید یک ارائه‌دهنده را راه‌اندازی کند."
+
+msgid "Disabled by administrator"
+msgstr "غیرفعال‌شده توسط مدیر"
+
+msgid "Testing…"
+msgstr "در حال آزمایش…"
+
+msgid "Connected to {0} ({1}) — {2} ms"
+msgstr "متصل به {0} ({1}) — {2} ms"
+
+msgid "No default {0} folder is available for this account."
+msgstr "هیچ پوشهٔ {0} پیش‌فرضی برای این حساب در دسترس نیست."
+
+msgid "calendar"
+msgstr "تقویم"
+
+msgid "tasks"
+msgstr "وظایف"
+
+msgid "contacts"
+msgstr "مخاطبین"
+
+msgid "Draft reply"
+msgstr "نگارش پاسخ"
+
+msgid "Open as reply"
+msgstr "باز کردن به‌عنوان پاسخ"
+
+msgid "Drafting reply…"
+msgstr "در حال نگارش پاسخ…"
+
+msgid "The message could not be opened to draft a reply."
+msgstr "پیام برای نگارش پاسخ باز نشد."
+
+msgid "Meeting: {0}"
+msgstr "جلسه: {0}"
+
+msgid "Create meeting"
+msgstr "ایجاد جلسه"
+
+msgid "Task: {0}"
+msgstr "وظیفه: {0}"
+
+msgid "Add contact: {0}"
+msgstr "افزودن مخاطب: {0}"
+
+msgid "Add contact"
+msgstr "افزودن مخاطب"
+
+msgid "Thinking…"
+msgstr "در حال فکر کردن…"
+
+msgid "The response was interrupted and may be incomplete."
+msgstr "پاسخ قطع شد و ممکن است ناقص باشد."
+
+msgid "Insert at cursor"
+msgstr "درج در محل مکان‌نما"
+
+msgid "Replace draft"
+msgstr "جایگزینی پیش‌نویس"
+
+msgid "Regenerate"
+msgstr "تولید مجدد"
+
+msgid "Copied"
+msgstr "کپی شد"
+
+msgid "AI writing assistant"
+msgstr "دستیار نگارش هوش مصنوعی"
+
+msgid "Improve writing"
+msgstr "بهبود نگارش"
+
+msgid "Shorten"
+msgstr "کوتاه کردن"
+
+msgid "Expand"
+msgstr "گسترش"
+
+msgid "Change tone"
+msgstr "تغییر لحن"
+
+msgid "Fix grammar & spelling"
+msgstr "اصلاح دستور زبان و املا"
+
 msgid "Archive"
 msgstr "آرشیو"
 
@@ -5738,9 +6032,6 @@ msgstr "مرتب سازی بر اساس: شناسه"
 
 msgid "Sort by: Backend"
 msgstr "مرتب سازی بر اساس: Backend"
-
-msgid "Features"
-msgstr "ویژگی ها"
 
 msgid "Shows all available features of the backend."
 msgstr "تمام ویژگی های موجود باطن را نشان می دهد."
@@ -6157,6 +6448,9 @@ msgstr "d F Y، H:i"
 msgid "Last connect"
 msgstr "آخرین اتصال"
 
+msgid "Impersonated by"
+msgstr "جعل هویت توسط"
+
 msgid "Synchronize"
 msgstr "همگام سازی کنید"
 
@@ -6223,8 +6517,8 @@ msgstr "برای تایید{0}را تایپ کنید"
 msgid "Please type {0} to confirm"
 msgstr "لطفاً برای تأیید{0}را تایپ کنید"
 
-msgid "Wipe type"
-msgstr "نوع پاک‌سازی"
+msgid "Impersonated device: only account-only remote wipe is available."
+msgstr "دستگاه با هویت جعلی: فقط پاک‌سازی از راه دور در سطح حساب در دسترس است."
 
 msgid "Wipe only data related to this account"
 msgstr "فقط داده های مربوط به این حساب را پاک کنید"
@@ -6234,6 +6528,15 @@ msgstr "تمام داده ها را پاک کنید"
 
 msgid "Username"
 msgstr "نام کاربری"
+
+msgid ""
+"Do you really want to wipe your device?\n"
+"Only account-only remote wipe is available for impersonated devices.\n"
+"Enter your password to confirm."
+msgstr ""
+"آیا واقعاً می‌خواهید دستگاه خود را پاک کنید؟\n"
+"برای دستگاه‌های با هویت جعلی فقط پاک‌سازی از راه دور در سطح حساب در دسترس است.\n"
+"برای تأیید، گذرواژهٔ خود را وارد کنید."
 
 msgid ""
 "Do you really want to wipe your device?\n"
@@ -6767,9 +7070,6 @@ msgstr "قالب متنی را در موقعیت مکان‌نما درج کنی
 msgid "No templates available"
 msgstr "هیچ قالب در دسترس نیست"
 
-msgid "An unknown error occurred."
-msgstr "یک خطای ناشناخته رخ داد."
-
 msgid "Charm pink"
 msgstr "صورتی جذاب"
 
@@ -6853,6 +7153,60 @@ msgstr "شما به طور خودکار از سیستم خارج شده اید"
 
 msgid "Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator."
 msgstr "متأسفانه دسترسی به وب‌سایت grommunio با این حساب کاربری امکان‌پذیر نیست. لطفاً با مدیر سیستم خود تماس بگیرید."
+
+msgid "The AI request failed unexpectedly."
+msgstr "درخواست هوش مصنوعی به‌طور غیرمنتظره ناموفق بود."
+
+msgid "This AI feature has been disabled by your administrator."
+msgstr "این قابلیت هوش مصنوعی توسط مدیر شما غیرفعال شده است."
+
+msgid "No message was selected for the AI request."
+msgstr "هیچ پیامی برای درخواست هوش مصنوعی انتخاب نشده است."
+
+msgid "The AI assistant is not enabled yet. Set PLUGIN_AI_ENABLE to true in the plugin config.php."
+msgstr "دستیار هوش مصنوعی هنوز فعال نشده است. PLUGIN_AI_ENABLE را در فایل config.php افزونه روی true تنظیم کنید."
+
+msgid "No AI model or endpoint is configured in the plugin config.php."
+msgstr "هیچ مدل یا نقطهٔ پایانی هوش مصنوعی در فایل config.php افزونه پیکربندی نشده است."
+
+#, php-format
+msgid "No API key is set for the \"%s\" provider. Add your key to PLUGIN_AI_API_KEY in the plugin config.php."
+msgstr "هیچ کلید API برای ارائه‌دهندهٔ \"%s\" تنظیم نشده است. کلید خود را به PLUGIN_AI_API_KEY در فایل config.php افزونه اضافه کنید."
+
+msgid "The selected message could not be opened."
+msgstr "پیام انتخاب‌شده باز نشد."
+
+msgid "connection error"
+msgstr "خطای اتصال"
+
+#, php-format
+msgid "Could not reach the AI service (%s). Check the endpoint configuration."
+msgstr "دسترسی به سرویس هوش مصنوعی (%s) ممکن نشد. پیکربندی نقطهٔ پایانی را بررسی کنید."
+
+msgid "The AI service rejected the credentials. Check the API key and endpoint."
+msgstr "سرویس هوش مصنوعی اطلاعات اعتباری را رد کرد. کلید API و نقطهٔ پایانی را بررسی کنید."
+
+msgid "The AI model or endpoint was not found. Check the model name and base URL."
+msgstr "مدل یا نقطهٔ پایانی هوش مصنوعی یافت نشد. نام مدل و نشانی پایهٔ URL را بررسی کنید."
+
+msgid "The AI service is rate-limited or out of quota. Try again later."
+msgstr "سرویس هوش مصنوعی محدودیت نرخ دارد یا سهمیه‌اش تمام شده است. بعداً دوباره تلاش کنید."
+
+msgid "The AI service reported an internal error. Try again later."
+msgstr "سرویس هوش مصنوعی یک خطای داخلی گزارش کرد. بعداً دوباره تلاش کنید."
+
+#, php-format
+msgid "The AI service returned an error (HTTP %d)."
+msgstr "سرویس هوش مصنوعی یک خطا بازگرداند (HTTP %d)."
+
+msgid "There is no text to work with."
+msgstr "هیچ متنی برای کار کردن وجود ندارد."
+
+msgid "Unknown AI feature."
+msgstr "قابلیت هوش مصنوعی ناشناخته."
+
+msgid "The message appears to be empty."
+msgstr "به نظر می‌رسد پیام خالی است."
 
 msgid "This backend provides the default WebDAV integration for Files."
 msgstr "این باطن یکپارچه سازی پیش فرض WebDAV را برای فایل ها فراهم می کند."
@@ -7398,6 +7752,12 @@ msgstr "خطای سهمیه"
 
 msgid "Send quota limit reached"
 msgstr "سهمیه ارسال به حد مجاز رسیده است"
+
+msgid "Sender address could not be applied"
+msgstr "نشانی فرستنده اعمال نشد"
+
+msgid "The message was not sent because the selected sender address could not be applied. Please try again."
+msgstr "پیام ارسال نشد زیرا نشانی فرستندهٔ انتخاب‌شده اعمال نشد. لطفاً دوباره تلاش کنید."
 
 #, php-format
 msgid "Email sending failed (%s). Check the log files for more information."

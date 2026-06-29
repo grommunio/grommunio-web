@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 13:46+0200\n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
 "PO-Revision-Date: 2022-12-12 13:00+0200\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/grommunio/grommunio-web/ja/>\n"
@@ -5538,6 +5538,300 @@ msgstr "Loading model from server failed"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "現在、オフィス外が有効になっています。オフにしますか？"
 
+msgid "AI Assistant"
+msgstr "AI アシスタント"
+
+msgid "The editor could not be found."
+msgstr "エディターが見つかりませんでした。"
+
+msgid "Write some text in the message first."
+msgstr "先にメールに本文を入力してください。"
+
+msgid "Improved draft"
+msgstr "下書きを改善しました"
+
+msgid "Shortened draft"
+msgstr "下書きを短縮しました"
+
+msgid "Expanded draft"
+msgstr "下書きを拡張しました"
+
+msgid "Grammar & spelling"
+msgstr "文法とスペル"
+
+msgid "Rewritten draft"
+msgstr "下書きを書き直しました"
+
+msgid "Translated draft"
+msgstr "下書きを翻訳しました"
+
+msgid "The message you were composing is no longer open."
+msgstr "作成中だったメールはもう開かれていません。"
+
+msgid "Summarize"
+msgstr "要約"
+
+msgid "Summarize thread"
+msgstr "スレッドを要約"
+
+msgid "Translate"
+msgstr "翻訳"
+
+msgid "Suggest actions"
+msgstr "アクションを提案"
+
+msgid "No AI features enabled"
+msgstr "有効な AI 機能がありません"
+
+msgid "My language"
+msgstr "自分の言語"
+
+msgid "English"
+msgstr "英語"
+
+msgid "German"
+msgstr "ドイツ語"
+
+msgid "French"
+msgstr "フランス語"
+
+msgid "Spanish"
+msgstr "スペイン語"
+
+msgid "Italian"
+msgstr "イタリア語"
+
+msgid "Dutch"
+msgstr "オランダ語"
+
+msgid "Portuguese"
+msgstr "ポルトガル語"
+
+msgid "Polish"
+msgstr "ポーランド語"
+
+msgid "Chinese"
+msgstr "中国語"
+
+msgid "Japanese"
+msgstr "日本語"
+
+msgid "Please open or select a message first."
+msgstr "先にメールを開くか選択してください。"
+
+msgid "Suggested actions"
+msgstr "提案されたアクション"
+
+msgid "Looking for actions…"
+msgstr "アクションを検索中…"
+
+msgid "Summarize with AI"
+msgstr "AI で要約"
+
+msgid "Translate with AI"
+msgstr "AI で翻訳"
+
+msgid "Thread summary"
+msgstr "スレッドの要約"
+
+msgid "Summary"
+msgstr "要約"
+
+msgid "Translation"
+msgstr "翻訳"
+
+msgid "No suggested actions were found for this message."
+msgstr "このメールに対して提案できるアクションが見つかりませんでした。"
+
+msgid "Suggested actions — each opens a prefilled dialog you review before saving:"
+msgstr "提案されたアクション — 各項目を選ぶと、保存前に確認できる入力済みのダイアログが開きます："
+
+msgid "The AI request failed."
+msgstr "AI リクエストに失敗しました。"
+
+msgid "An unknown error occurred."
+msgstr "不明なエラーが発生しました。"
+
+msgid "Brief"
+msgstr "簡潔"
+
+msgid "Standard"
+msgstr "標準"
+
+msgid "Detailed"
+msgstr "詳細"
+
+msgid "Neutral"
+msgstr "中立的"
+
+msgid "Formal"
+msgstr "フォーマル"
+
+msgid "Friendly"
+msgstr "フレンドリー"
+
+msgid "Confident"
+msgstr "自信のある"
+
+msgid "Concise"
+msgstr "簡潔"
+
+msgid "Casual"
+msgstr "カジュアル"
+
+msgid "My language (automatic)"
+msgstr "自分の言語（自動）"
+
+msgid "Provider"
+msgstr "プロバイダー"
+
+msgid "Configured by administrator"
+msgstr "管理者によって設定済み"
+
+msgid "Test connection"
+msgstr "接続をテスト"
+
+msgid "Preferences"
+msgstr "環境設定"
+
+msgid "You can turn the AI assistant on or off under Settings → Plugins."
+msgstr "AI アシスタントは「設定 → プラグイン」でオンまたはオフにできます。"
+
+msgid "Summary length"
+msgstr "要約の長さ"
+
+msgid "Translate into"
+msgstr "翻訳先"
+
+msgid "Writing tone"
+msgstr "文章のトーン"
+
+msgid "Stream responses as they are generated"
+msgstr "生成しながら応答をストリーミング表示する"
+
+msgid "Features"
+msgstr "機能"
+
+msgid "Summarize emails and threads"
+msgstr "メールとスレッドを要約"
+
+msgid "Translate emails"
+msgstr "メールを翻訳"
+
+msgid "Writing assistant in the composer"
+msgstr "メール作成画面のライティングアシスタント"
+
+msgid "Suggest smart actions"
+msgstr "スマートアクションを提案"
+
+msgid "Smart actions"
+msgstr "スマートアクション"
+
+msgid "Smart actions always open a prefilled dialog for you to review — nothing is saved or sent automatically."
+msgstr "スマートアクションでは常に入力済みのダイアログが開き、確認できます — 自動的に保存または送信されることはありません。"
+
+msgid "Create meetings and invite attendees"
+msgstr "会議を作成して出席者を招待"
+
+msgid "Create tasks"
+msgstr "タスクを作成"
+
+msgid "Add contacts"
+msgstr "連絡先を追加"
+
+msgid "Draft replies"
+msgstr "返信の下書き"
+
+msgid "{0} · model {1}"
+msgstr "{0} · モデル {1}"
+
+msgid "Not configured. Ask your administrator to set up a provider."
+msgstr "設定されていません。管理者にプロバイダーの設定を依頼してください。"
+
+msgid "Disabled by administrator"
+msgstr "管理者によって無効化されています"
+
+msgid "Testing…"
+msgstr "テスト中…"
+
+msgid "Connected to {0} ({1}) — {2} ms"
+msgstr "{0}（{1}）に接続しました — {2} ms"
+
+msgid "No default {0} folder is available for this account."
+msgstr "このアカウントには既定の {0} フォルダーがありません。"
+
+msgid "calendar"
+msgstr "カレンダー"
+
+msgid "tasks"
+msgstr "タスク"
+
+msgid "contacts"
+msgstr "連絡先"
+
+msgid "Draft reply"
+msgstr "返信を下書き"
+
+msgid "Open as reply"
+msgstr "返信として開く"
+
+msgid "Drafting reply…"
+msgstr "返信を作成中…"
+
+msgid "The message could not be opened to draft a reply."
+msgstr "返信を作成するためにメールを開けませんでした。"
+
+msgid "Meeting: {0}"
+msgstr "会議：{0}"
+
+msgid "Create meeting"
+msgstr "会議を作成"
+
+msgid "Task: {0}"
+msgstr "タスク：{0}"
+
+msgid "Add contact: {0}"
+msgstr "連絡先を追加：{0}"
+
+msgid "Add contact"
+msgstr "連絡先を追加"
+
+msgid "Thinking…"
+msgstr "思考中…"
+
+msgid "The response was interrupted and may be incomplete."
+msgstr "応答が中断されたため、不完全な可能性があります。"
+
+msgid "Insert at cursor"
+msgstr "カーソル位置に挿入"
+
+msgid "Replace draft"
+msgstr "下書きを置き換え"
+
+msgid "Regenerate"
+msgstr "再生成"
+
+msgid "Copied"
+msgstr "コピーしました"
+
+msgid "AI writing assistant"
+msgstr "AI ライティングアシスタント"
+
+msgid "Improve writing"
+msgstr "文章を改善"
+
+msgid "Shorten"
+msgstr "短くする"
+
+msgid "Expand"
+msgstr "詳しくする"
+
+msgid "Change tone"
+msgstr "トーンを変更"
+
+msgid "Fix grammar & spelling"
+msgstr "文法とスペルを修正"
+
 msgid "Archive"
 msgstr "アーカイブ"
 
@@ -5774,9 +6068,6 @@ msgstr "並べ替え順 : ID"
 
 msgid "Sort by: Backend"
 msgstr "並べ替え順 : バックエンド"
-
-msgid "Features"
-msgstr "機能"
 
 msgid "Shows all available features of the backend."
 msgstr "バックエンドとして利用可能な全ての機能を表示する。"
@@ -6193,6 +6484,9 @@ msgstr "d F Y, H:i"
 msgid "Last connect"
 msgstr "最終接続"
 
+msgid "Impersonated by"
+msgstr "偽装元"
+
 msgid "Synchronize"
 msgstr "同期する"
 
@@ -6260,8 +6554,8 @@ msgstr "{0} と入力して確認する。"
 msgid "Please type {0} to confirm"
 msgstr "確認のため、{0} と入力してください。"
 
-msgid "Wipe type"
-msgstr "ワイプタイプ"
+msgid "Impersonated device: only account-only remote wipe is available."
+msgstr "偽装されたデバイス：アカウントのみのリモートワイプのみ利用できます。"
 
 msgid "Wipe only data related to this account"
 msgstr "このアカウントに関連するデータのみを消去する"
@@ -6271,6 +6565,15 @@ msgstr "すべてのデータを消去する"
 
 msgid "Username"
 msgstr "ユーザー名"
+
+msgid ""
+"Do you really want to wipe your device?\n"
+"Only account-only remote wipe is available for impersonated devices.\n"
+"Enter your password to confirm."
+msgstr ""
+"本当にデバイスをワイプしますか？\n"
+"偽装されたデバイスでは、アカウントのみのリモートワイプのみ利用できます。\n"
+"確認のためパスワードを入力してください。"
 
 msgid ""
 "Do you really want to wipe your device?\n"
@@ -6810,9 +7113,6 @@ msgstr "カーソル位置にテキストテンプレートを挿入する"
 msgid "No templates available"
 msgstr "利用可能なテンプレートはありません"
 
-msgid "An unknown error occurred."
-msgstr "不明なエラーが発生しました。"
-
 msgid "Charm pink"
 msgstr "チャームピンク"
 
@@ -6897,6 +7197,60 @@ msgstr "自動的にログアウトしました。"
 #, fuzzy
 msgid "Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator."
 msgstr "このユーザーアカウントでは、grommunio Webにアクセスすることはできません。システム管理者にお問い合わせください。"
+
+msgid "The AI request failed unexpectedly."
+msgstr "AI リクエストが予期せず失敗しました。"
+
+msgid "This AI feature has been disabled by your administrator."
+msgstr "この AI 機能は管理者によって無効化されています。"
+
+msgid "No message was selected for the AI request."
+msgstr "AI リクエストに対してメールが選択されていません。"
+
+msgid "The AI assistant is not enabled yet. Set PLUGIN_AI_ENABLE to true in the plugin config.php."
+msgstr "AI アシスタントはまだ有効になっていません。プラグインの config.php で PLUGIN_AI_ENABLE を true に設定してください。"
+
+msgid "No AI model or endpoint is configured in the plugin config.php."
+msgstr "プラグインの config.php に AI モデルまたはエンドポイントが設定されていません。"
+
+#, php-format
+msgid "No API key is set for the \"%s\" provider. Add your key to PLUGIN_AI_API_KEY in the plugin config.php."
+msgstr "「%s」プロバイダーの API キーが設定されていません。プラグインの config.php の PLUGIN_AI_API_KEY にキーを追加してください。"
+
+msgid "The selected message could not be opened."
+msgstr "選択したメールを開けませんでした。"
+
+msgid "connection error"
+msgstr "接続エラー"
+
+#, php-format
+msgid "Could not reach the AI service (%s). Check the endpoint configuration."
+msgstr "AI サービス（%s）に接続できませんでした。エンドポイントの設定を確認してください。"
+
+msgid "The AI service rejected the credentials. Check the API key and endpoint."
+msgstr "AI サービスが資格情報を拒否しました。API キーとエンドポイントを確認してください。"
+
+msgid "The AI model or endpoint was not found. Check the model name and base URL."
+msgstr "AI モデルまたはエンドポイントが見つかりませんでした。モデル名とベース URL を確認してください。"
+
+msgid "The AI service is rate-limited or out of quota. Try again later."
+msgstr "AI サービスがレート制限中か、クォータを超過しています。しばらくしてから再試行してください。"
+
+msgid "The AI service reported an internal error. Try again later."
+msgstr "AI サービスで内部エラーが発生しました。しばらくしてから再試行してください。"
+
+#, php-format
+msgid "The AI service returned an error (HTTP %d)."
+msgstr "AI サービスがエラーを返しました（HTTP %d）。"
+
+msgid "There is no text to work with."
+msgstr "処理できるテキストがありません。"
+
+msgid "Unknown AI feature."
+msgstr "不明な AI 機能です。"
+
+msgid "The message appears to be empty."
+msgstr "メールは空のようです。"
 
 msgid "This backend provides the default WebDAV integration for Files."
 msgstr "このバックエンドはFilesのデフォルトのWebDAV統合を提供します。"
@@ -7446,6 +7800,12 @@ msgstr "クォータエラー"
 
 msgid "Send quota limit reached"
 msgstr "送信クォータの上限に達した"
+
+msgid "Sender address could not be applied"
+msgstr "送信者アドレスを適用できませんでした"
+
+msgid "The message was not sent because the selected sender address could not be applied. Please try again."
+msgstr "選択した送信者アドレスを適用できなかったため、メールは送信されませんでした。もう一度お試しください。"
 
 #, php-format
 msgid "Email sending failed (%s). Check the log files for more information."

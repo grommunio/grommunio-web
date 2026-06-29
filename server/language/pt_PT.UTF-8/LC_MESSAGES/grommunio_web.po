@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Portuguese (Portugal)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 13:46+0200\n"
+"POT-Creation-Date: 2026-06-29 21:36+0200\n"
 "PO-Revision-Date: 2022-07-26 18:47+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -5512,6 +5512,300 @@ msgstr "Falhou a carregar modelo do servidor"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "\"Fora do escritório\" está atualmente ativo. Deseja desativar?"
 
+msgid "AI Assistant"
+msgstr "Assistente de IA"
+
+msgid "The editor could not be found."
+msgstr "Não foi possível encontrar o editor."
+
+msgid "Write some text in the message first."
+msgstr "Escreva primeiro algum texto na mensagem."
+
+msgid "Improved draft"
+msgstr "Rascunho melhorado"
+
+msgid "Shortened draft"
+msgstr "Rascunho encurtado"
+
+msgid "Expanded draft"
+msgstr "Rascunho expandido"
+
+msgid "Grammar & spelling"
+msgstr "Gramática e ortografia"
+
+msgid "Rewritten draft"
+msgstr "Rascunho reescrito"
+
+msgid "Translated draft"
+msgstr "Rascunho traduzido"
+
+msgid "The message you were composing is no longer open."
+msgstr "A mensagem que estava a compor já não está aberta."
+
+msgid "Summarize"
+msgstr "Resumir"
+
+msgid "Summarize thread"
+msgstr "Resumir conversa"
+
+msgid "Translate"
+msgstr "Traduzir"
+
+msgid "Suggest actions"
+msgstr "Sugerir ações"
+
+msgid "No AI features enabled"
+msgstr "Nenhuma funcionalidade de IA ativada"
+
+msgid "My language"
+msgstr "O meu idioma"
+
+msgid "English"
+msgstr "Inglês"
+
+msgid "German"
+msgstr "Alemão"
+
+msgid "French"
+msgstr "Francês"
+
+msgid "Spanish"
+msgstr "Espanhol"
+
+msgid "Italian"
+msgstr "Italiano"
+
+msgid "Dutch"
+msgstr "Neerlandês"
+
+msgid "Portuguese"
+msgstr "Português"
+
+msgid "Polish"
+msgstr "Polaco"
+
+msgid "Chinese"
+msgstr "Chinês"
+
+msgid "Japanese"
+msgstr "Japonês"
+
+msgid "Please open or select a message first."
+msgstr "Primeiro, abra ou selecione uma mensagem."
+
+msgid "Suggested actions"
+msgstr "Ações sugeridas"
+
+msgid "Looking for actions…"
+msgstr "A procurar ações…"
+
+msgid "Summarize with AI"
+msgstr "Resumir com IA"
+
+msgid "Translate with AI"
+msgstr "Traduzir com IA"
+
+msgid "Thread summary"
+msgstr "Resumo da conversa"
+
+msgid "Summary"
+msgstr "Resumo"
+
+msgid "Translation"
+msgstr "Tradução"
+
+msgid "No suggested actions were found for this message."
+msgstr "Não foram encontradas ações sugeridas para esta mensagem."
+
+msgid "Suggested actions — each opens a prefilled dialog you review before saving:"
+msgstr "Ações sugeridas — cada uma abre uma caixa de diálogo pré-preenchida que pode rever antes de guardar:"
+
+msgid "The AI request failed."
+msgstr "O pedido de IA falhou."
+
+msgid "An unknown error occurred."
+msgstr "Ocorreu um erro desconhecido."
+
+msgid "Brief"
+msgstr "Breve"
+
+msgid "Standard"
+msgstr "Padrão"
+
+msgid "Detailed"
+msgstr "Detalhado"
+
+msgid "Neutral"
+msgstr "Neutro"
+
+msgid "Formal"
+msgstr "Formal"
+
+msgid "Friendly"
+msgstr "Amigável"
+
+msgid "Confident"
+msgstr "Confiante"
+
+msgid "Concise"
+msgstr "Conciso"
+
+msgid "Casual"
+msgstr "Informal"
+
+msgid "My language (automatic)"
+msgstr "O meu idioma (automático)"
+
+msgid "Provider"
+msgstr "Fornecedor"
+
+msgid "Configured by administrator"
+msgstr "Configurado pelo administrador"
+
+msgid "Test connection"
+msgstr "Testar ligação"
+
+msgid "Preferences"
+msgstr "Preferências"
+
+msgid "You can turn the AI assistant on or off under Settings → Plugins."
+msgstr "Pode ativar ou desativar o assistente de IA em Definições → Plugins."
+
+msgid "Summary length"
+msgstr "Comprimento do resumo"
+
+msgid "Translate into"
+msgstr "Traduzir para"
+
+msgid "Writing tone"
+msgstr "Tom de escrita"
+
+msgid "Stream responses as they are generated"
+msgstr "Transmitir as respostas à medida que são geradas"
+
+msgid "Features"
+msgstr "Funcionalidades"
+
+msgid "Summarize emails and threads"
+msgstr "Resumir correio eletrónico e conversas"
+
+msgid "Translate emails"
+msgstr "Traduzir correio eletrónico"
+
+msgid "Writing assistant in the composer"
+msgstr "Assistente de escrita no editor"
+
+msgid "Suggest smart actions"
+msgstr "Sugerir ações inteligentes"
+
+msgid "Smart actions"
+msgstr "Ações inteligentes"
+
+msgid "Smart actions always open a prefilled dialog for you to review — nothing is saved or sent automatically."
+msgstr "As ações inteligentes abrem sempre uma caixa de diálogo pré-preenchida para rever — nada é guardado ou enviado automaticamente."
+
+msgid "Create meetings and invite attendees"
+msgstr "Criar reuniões e convidar participantes"
+
+msgid "Create tasks"
+msgstr "Criar tarefas"
+
+msgid "Add contacts"
+msgstr "Adicionar contactos"
+
+msgid "Draft replies"
+msgstr "Redigir respostas"
+
+msgid "{0} · model {1}"
+msgstr "{0} · modelo {1}"
+
+msgid "Not configured. Ask your administrator to set up a provider."
+msgstr "Não configurado. Peça ao administrador para configurar um fornecedor."
+
+msgid "Disabled by administrator"
+msgstr "Desativado pelo administrador"
+
+msgid "Testing…"
+msgstr "A testar…"
+
+msgid "Connected to {0} ({1}) — {2} ms"
+msgstr "Ligado a {0} ({1}) — {2} ms"
+
+msgid "No default {0} folder is available for this account."
+msgstr "Não está disponível nenhuma pasta de {0} predefinida para esta conta."
+
+msgid "calendar"
+msgstr "calendário"
+
+msgid "tasks"
+msgstr "tarefas"
+
+msgid "contacts"
+msgstr "contactos"
+
+msgid "Draft reply"
+msgstr "Redigir resposta"
+
+msgid "Open as reply"
+msgstr "Abrir como resposta"
+
+msgid "Drafting reply…"
+msgstr "A redigir resposta…"
+
+msgid "The message could not be opened to draft a reply."
+msgstr "Não foi possível abrir a mensagem para redigir uma resposta."
+
+msgid "Meeting: {0}"
+msgstr "Reunião: {0}"
+
+msgid "Create meeting"
+msgstr "Criar reunião"
+
+msgid "Task: {0}"
+msgstr "Tarefa: {0}"
+
+msgid "Add contact: {0}"
+msgstr "Adicionar contacto: {0}"
+
+msgid "Add contact"
+msgstr "Adicionar contacto"
+
+msgid "Thinking…"
+msgstr "A pensar…"
+
+msgid "The response was interrupted and may be incomplete."
+msgstr "A resposta foi interrompida e pode estar incompleta."
+
+msgid "Insert at cursor"
+msgstr "Inserir no cursor"
+
+msgid "Replace draft"
+msgstr "Substituir rascunho"
+
+msgid "Regenerate"
+msgstr "Gerar novamente"
+
+msgid "Copied"
+msgstr "Copiado"
+
+msgid "AI writing assistant"
+msgstr "Assistente de escrita com IA"
+
+msgid "Improve writing"
+msgstr "Melhorar a escrita"
+
+msgid "Shorten"
+msgstr "Encurtar"
+
+msgid "Expand"
+msgstr "Expandir"
+
+msgid "Change tone"
+msgstr "Alterar o tom"
+
+msgid "Fix grammar & spelling"
+msgstr "Corrigir gramática e ortografia"
+
 msgid "Archive"
 msgstr "Arquivo"
 
@@ -5746,9 +6040,6 @@ msgstr "Ordenar por: ID"
 
 msgid "Sort by: Backend"
 msgstr "Ordenar por: Backend"
-
-msgid "Features"
-msgstr "Funcionalidades"
 
 msgid "Shows all available features of the backend."
 msgstr "Mostrar todas as funcionalidades do backend disponíveis."
@@ -6165,6 +6456,9 @@ msgstr "d F Y, H:i"
 msgid "Last connect"
 msgstr "Última ligação"
 
+msgid "Impersonated by"
+msgstr "Representado por"
+
 msgid "Synchronize"
 msgstr "Sincronizar"
 
@@ -6232,8 +6526,8 @@ msgstr "Digite {0} para confirmar"
 msgid "Please type {0} to confirm"
 msgstr "Introduzir {0} para confirmar"
 
-msgid "Wipe type"
-msgstr "Tipo de limpeza"
+msgid "Impersonated device: only account-only remote wipe is available."
+msgstr "Dispositivo representado: apenas está disponível a limpeza remota limitada à conta."
 
 msgid "Wipe only data related to this account"
 msgstr "Limpar apenas os dados relacionados com esta conta"
@@ -6243,6 +6537,15 @@ msgstr "Limpar todos os dados"
 
 msgid "Username"
 msgstr "Utilizador"
+
+msgid ""
+"Do you really want to wipe your device?\n"
+"Only account-only remote wipe is available for impersonated devices.\n"
+"Enter your password to confirm."
+msgstr ""
+"Pretende mesmo limpar o seu dispositivo?\n"
+"Para dispositivos representados, apenas está disponível a limpeza remota limitada à conta.\n"
+"Introduza a sua palavra-passe para confirmar."
 
 msgid ""
 "Do you really want to wipe your device?\n"
@@ -6782,9 +7085,6 @@ msgstr "Inserir um modelo de texto na posição do cursor"
 msgid "No templates available"
 msgstr "Não há modelos disponíveis"
 
-msgid "An unknown error occurred."
-msgstr "Ocorreu um erro desconhecido."
-
 msgid "Charm pink"
 msgstr "Rosa charmoso"
 
@@ -6868,6 +7168,60 @@ msgstr "A sessão foi automaticamente terminada"
 
 msgid "Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator."
 msgstr "Infelizmente o acesso à Webapp não está disponível para a conta deste utilizador. Por favor contacte o seu administrador de sistema."
+
+msgid "The AI request failed unexpectedly."
+msgstr "O pedido de IA falhou inesperadamente."
+
+msgid "This AI feature has been disabled by your administrator."
+msgstr "Esta funcionalidade de IA foi desativada pelo seu administrador."
+
+msgid "No message was selected for the AI request."
+msgstr "Não foi selecionada nenhuma mensagem para o pedido de IA."
+
+msgid "The AI assistant is not enabled yet. Set PLUGIN_AI_ENABLE to true in the plugin config.php."
+msgstr "O assistente de IA ainda não está ativado. Defina PLUGIN_AI_ENABLE como true no config.php do plugin."
+
+msgid "No AI model or endpoint is configured in the plugin config.php."
+msgstr "Não está configurado nenhum modelo ou endpoint de IA no config.php do plugin."
+
+#, php-format
+msgid "No API key is set for the \"%s\" provider. Add your key to PLUGIN_AI_API_KEY in the plugin config.php."
+msgstr "Não está definida nenhuma chave de API para o fornecedor «%s». Adicione a sua chave a PLUGIN_AI_API_KEY no config.php do plugin."
+
+msgid "The selected message could not be opened."
+msgstr "Não foi possível abrir a mensagem selecionada."
+
+msgid "connection error"
+msgstr "erro de ligação"
+
+#, php-format
+msgid "Could not reach the AI service (%s). Check the endpoint configuration."
+msgstr "Não foi possível contactar o serviço de IA (%s). Verifique a configuração do endpoint."
+
+msgid "The AI service rejected the credentials. Check the API key and endpoint."
+msgstr "O serviço de IA rejeitou as credenciais. Verifique a chave de API e o endpoint."
+
+msgid "The AI model or endpoint was not found. Check the model name and base URL."
+msgstr "Não foi encontrado o modelo ou o endpoint de IA. Verifique o nome do modelo e o URL base."
+
+msgid "The AI service is rate-limited or out of quota. Try again later."
+msgstr "O serviço de IA atingiu o limite de pedidos ou esgotou a quota. Tente novamente mais tarde."
+
+msgid "The AI service reported an internal error. Try again later."
+msgstr "O serviço de IA comunicou um erro interno. Tente novamente mais tarde."
+
+#, php-format
+msgid "The AI service returned an error (HTTP %d)."
+msgstr "O serviço de IA devolveu um erro (HTTP %d)."
+
+msgid "There is no text to work with."
+msgstr "Não há texto com que trabalhar."
+
+msgid "Unknown AI feature."
+msgstr "Funcionalidade de IA desconhecida."
+
+msgid "The message appears to be empty."
+msgstr "A mensagem parece estar vazia."
 
 msgid "This backend provides the default WebDAV integration for Files."
 msgstr "Este backend fornece a integração WebDAV predefinida para Ficheiros."
@@ -7416,6 +7770,12 @@ msgstr "Erro de quota"
 
 msgid "Send quota limit reached"
 msgstr "Limite de quota de envio atingido"
+
+msgid "Sender address could not be applied"
+msgstr "Não foi possível aplicar o endereço do remetente"
+
+msgid "The message was not sent because the selected sender address could not be applied. Please try again."
+msgstr "A mensagem não foi enviada porque não foi possível aplicar o endereço do remetente selecionado. Tente novamente."
 
 #, php-format
 msgid "Email sending failed (%s). Check the log files for more information."
