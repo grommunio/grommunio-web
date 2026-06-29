@@ -6829,5 +6829,19 @@ input[type="radio"]:focus-visible {
 }
 
 .x-tab-panel-body, .x-tab-panel-bwrap {
-  overflow: auto;
+  /* Vertical only. Plain `overflow: auto` also enabled the horizontal axis,
+     which made Ext border-layout content (e.g. the mail view) show a spurious
+     horizontal scrollbar from sub-pixel width rounding. Keep tall tab content
+     scrollable without that. */
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* ...but the main content tab panel (mail/calendar/contacts views) manages its
+   own inner scrolling, so its tab body must not scroll — otherwise a second
+   vertical scrollbar appears over the message's own. Restore Ext's default there
+   (only dialog tab panels need the scroll, per the rule above). */
+#zarafa-mainpanel > .x-tab-panel-bwrap,
+#zarafa-mainpanel > .x-tab-panel-bwrap > .x-tab-panel-body {
+  overflow: hidden;
 }
