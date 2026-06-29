@@ -252,7 +252,9 @@ Zarafa.common.previewer.ui.ViewerContainer = Ext.extend(Zarafa.core.ui.ContentPa
 			}
 		});
 
-		var download = frameDom.getElementById('download');
+		// The pdf.js viewer download button is 'downloadButton' (pdf.js >= 4);
+		// fall back to the legacy 'download' id for older viewer builds.
+		var download = frameDom.getElementById('downloadButton') || frameDom.getElementById('download');
 		if (download) {
 			download = Ext.get(download);
 			download.on('click', function () {
