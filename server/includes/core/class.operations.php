@@ -4752,6 +4752,12 @@ class Operations {
 				$items[] = $memberItem;
 			}
 			else {
+				// a local distlist might erroneously have the GAB distlist type
+				$noMuidGuid = $GLOBALS['entryid']->hasNoMuid(bin2hex($parts['entryid']));
+				if ($noMuidGuid && $parts['type'] === DL_DIST_AB) {
+					$memberItem['props']['distlist_type'] = $parts['type'] = DL_DIST;
+				}
+
 				if ($parts['type'] === DL_DIST && $isRecursive) {
 					// Expand distribution list to get distlist members inside the distributionlist.
 					$distlist = mapi_msgstore_openentry($store, $parts['entryid']);
