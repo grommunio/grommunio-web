@@ -1,0 +1,298 @@
+/* grommunio Web — AI Assistant plugin styles */
+
+/* ----------------------------------------------------------------------- *
+ * Icons (embedded so no extra request / path issues). Sparkle motif.
+ * ----------------------------------------------------------------------- */
+/* AI sparkle icon — two-tone background image, swapped by theme: a dark sparkle
+   on light themes, a light one in dark mode (matching grommunio's #333 / #e0e0e0
+   icon colors). Simple and predictable across toolbars, menus and dialogs. */
+.icon_ai {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23333333'%3E%3Cpath d='M11 2.5l1.7 4.6 4.6 1.7-4.6 1.7L11 15.1 9.3 10.5 4.7 8.8l4.6-1.7L11 2.5z'/%3E%3Cpath d='M18.5 13l.9 2.5 2.5.9-2.5.9-.9 2.5-.9-2.5-2.5-.9 2.5-.9.9-2.5z'/%3E%3C/svg%3E") !important;
+	background-repeat: no-repeat !important;
+	background-position: center !important;
+	background-size: contain !important;
+}
+
+/* Dark mode toolbar/settings icons: supply the light sparkle ourselves, because
+   the framework's dark-mode invert filter does NOT cover these surfaces.
+   Menu items (.x-menu-item-icon) ARE inverted by that filter, so we exclude them
+   here and let them keep the dark base image — the filter turns it light, exactly
+   like every other menu icon. (Overriding them too would get double-inverted back
+   to dark.) */
+body.dark-mode .icon_ai:not(.x-menu-item-icon):not(.k-settings-category-icon) {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23e0e0e0'%3E%3Cpath d='M11 2.5l1.7 4.6 4.6 1.7-4.6 1.7L11 15.1 9.3 10.5 4.7 8.8l4.6-1.7L11 2.5z'/%3E%3Cpath d='M18.5 13l.9 2.5 2.5.9-2.5.9-.9 2.5-.9-2.5-2.5-.9 2.5-.9.9-2.5z'/%3E%3C/svg%3E") !important;
+}
+
+/* System ("follow OS") mode: dark-mode-system is present regardless of OS state,
+   so only flip to the light icon when the OS is actually dark — mirrors how
+   grommunio's darkmode.css guards its system-mode rules. */
+@media (prefers-color-scheme: dark) {
+	body.dark-mode-system .icon_ai:not(.x-menu-item-icon):not(.k-settings-category-icon) {
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23e0e0e0'%3E%3Cpath d='M11 2.5l1.7 4.6 4.6 1.7-4.6 1.7L11 15.1 9.3 10.5 4.7 8.8l4.6-1.7L11 2.5z'/%3E%3Cpath d='M18.5 13l.9 2.5 2.5.9-2.5.9-.9 2.5-.9-2.5-2.5-.9 2.5-.9.9-2.5z'/%3E%3C/svg%3E") !important;
+	}
+}
+
+
+/* ----------------------------------------------------------------------- *
+ * Assistant window (a floating card)
+ * ----------------------------------------------------------------------- */
+.k-ai-window .x-window-body {
+	background: #fff;
+	display: flex;
+	flex-direction: column;
+}
+
+/* Dark mode: grommunio's dark theme styles the main chrome but not floating
+   windows, so the assistant window needs its own consistent dark surfaces —
+   otherwise the body, the scrollable panel and the footer show as mismatched
+   greys and content scrolls over a lighter box. */
+body.dark-mode .k-ai-window .x-window-body,
+body.dark-mode .k-ai-window .x-panel-body,
+body.dark-mode .k-ai-window .k-ai-body,
+body.dark-mode .k-ai-window .x-window-mc,
+body.dark-mode .k-ai-window .x-toolbar,
+body.dark-mode .k-ai-window .x-window-footer,
+body.dark-mode .k-ai-window .x-panel-footer {
+	background: #2b2b2b !important;
+	border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Footer buttons: keep readable text on the dark surface. */
+body.dark-mode .k-ai-window .x-btn button.x-btn-text {
+	color: #e6e6e6 !important;
+}
+
+/* ----------------------------------------------------------------------- *
+ * Body / streamed content
+ * ----------------------------------------------------------------------- */
+.k-ai-body {
+	flex: 1;
+	overflow-y: auto;
+	padding: 14px 16px;
+	min-height: 80px;
+}
+
+.k-ai-content {
+	font-size: 13px;
+	line-height: 1.55;
+	color: #1a1a1a;
+	white-space: normal;
+	word-wrap: break-word;
+}
+
+body.dark-mode .k-ai-content {
+	color: #e6e6e6;
+}
+
+.k-ai-content p {
+	margin: 0 0 10px 0;
+}
+
+/* Lists. The app's global stylesheet strips list markers, so we set them
+   explicitly: a dash for bullets (matching how the model writes them) and
+   numbers for ordered lists, with enough indent for the marker to show. */
+.k-ai-content ul,
+.k-ai-content ol {
+	margin: 6px 0 12px 0;
+}
+
+.k-ai-content ol {
+	list-style: decimal outside;
+	padding-left: 24px;
+}
+
+.k-ai-content ul {
+	list-style: none;
+	padding-left: 6px;
+}
+
+.k-ai-content li {
+	margin: 4px 0;
+	line-height: 1.5;
+}
+
+.k-ai-content ul > li {
+	position: relative;
+	padding-left: 16px;
+}
+
+.k-ai-content ul > li::before {
+	content: "\2013";
+	position: absolute;
+	left: 2px;
+	color: #0067b1;
+	font-weight: 700;
+}
+
+body.dark-mode .k-ai-content ul > li::before {
+	color: #8ab6e0;
+}
+
+.k-ai-content h1,
+.k-ai-content h2,
+.k-ai-content h3 {
+	font-size: 13px;
+	font-weight: 700;
+	margin: 14px 0 6px 0;
+}
+
+.k-ai-content h1:first-child,
+.k-ai-content h2:first-child,
+.k-ai-content h3:first-child,
+.k-ai-content p:first-child {
+	margin-top: 0;
+}
+
+.k-ai-content code {
+	font-family: monospace;
+	background: rgba(0, 0, 0, 0.06);
+	padding: 1px 4px;
+	border-radius: 3px;
+}
+
+body.dark-mode .k-ai-content code {
+	background: rgba(255, 255, 255, 0.1);
+}
+
+/* Blinking caret shown while streaming */
+.k-ai-caret {
+	display: inline-block;
+	width: 7px;
+	height: 14px;
+	margin-left: 1px;
+	vertical-align: text-bottom;
+	background: #0067b1;
+	animation: k-ai-blink 1s steps(2, start) infinite;
+}
+
+@keyframes k-ai-blink {
+	to {
+		visibility: hidden;
+	}
+}
+
+/* Status / loading row */
+.k-ai-status {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	color: #666;
+	font-size: 13px;
+	padding: 4px 0;
+}
+
+body.dark-mode .k-ai-status {
+	color: #aaa;
+}
+
+.k-ai-spinner {
+	width: 16px;
+	height: 16px;
+	border: 2px solid rgba(0, 103, 177, 0.25);
+	border-top-color: #0067b1;
+	border-radius: 50%;
+	animation: k-ai-spin 0.8s linear infinite;
+	flex: 0 0 auto;
+}
+
+@keyframes k-ai-spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.k-ai-error {
+	color: #b00020;
+	font-size: 13px;
+	padding: 4px 0;
+}
+
+body.dark-mode .k-ai-error {
+	color: #ff8a80;
+}
+
+/* Inline notice (e.g. a streamed response that was cut off) */
+.k-ai-note {
+	margin-top: 10px;
+	color: #8a6d00;
+	font-size: 12px;
+	font-style: italic;
+}
+
+body.dark-mode .k-ai-note {
+	color: #d6b94a;
+}
+
+/* ----------------------------------------------------------------------- *
+ * Suggested-action chips
+ * ----------------------------------------------------------------------- */
+.k-ai-chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	padding: 10px 16px;
+	border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+body.dark-mode .k-ai-chips {
+	border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.k-ai-chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 5px 12px;
+	border-radius: 16px;
+	border: 1px solid rgba(0, 103, 177, 0.4);
+	background: rgba(0, 103, 177, 0.06);
+	color: #0067b1;
+	font-size: 12px;
+	cursor: pointer;
+	user-select: none;
+}
+
+.k-ai-chip:hover {
+	background: rgba(0, 103, 177, 0.14);
+}
+
+body.dark-mode .k-ai-chip {
+	color: #8ab6e0;
+	border-color: rgba(120, 180, 240, 0.4);
+	background: rgba(120, 180, 240, 0.08);
+}
+
+/* ----------------------------------------------------------------------- *
+ * Settings widget
+ * ----------------------------------------------------------------------- */
+.k-ai-status-dot {
+	display: inline-block;
+	width: 9px;
+	height: 9px;
+	border-radius: 50%;
+	margin-right: 6px;
+	background: #bbb;
+	vertical-align: middle;
+}
+
+.k-ai-status-dot.k-ai-ok {
+	background: #2e7d32;
+}
+
+.k-ai-status-dot.k-ai-bad {
+	background: #b00020;
+}
+
+.k-ai-settings-section {
+	font-weight: 600;
+	margin: 6px 0;
+}
+
+.k-ai-settings-note {
+	color: #777;
+	font-size: 12px;
+}
+
+body.dark-mode .k-ai-settings-note {
+	color: #999;
+}

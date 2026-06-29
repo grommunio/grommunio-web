@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+	<info>
+		<version>1.0</version>
+		<name>ai</name>
+		<title>AI Assistant</title>
+		<author>grommunio</author>
+		<authorURL>https://grommunio.com</authorURL>
+		<description>Provider-agnostic AI assistant: summarize and translate mail, compose and reply assistance, and confirm-first smart actions (meeting/task/contact/reply). Works with a local LLM (Ollama, LM Studio, vLLM, ...), OpenAI, or Anthropic/Claude — configured centrally by the administrator; the API key never leaves the server.</description>
+	</info>
+	<config>
+		<configfile>config.php</configfile>
+	</config>
+	<translations>
+		<translationsdir>language</translationsdir>
+	</translations>
+	<components>
+		<component>
+			<files>
+				<server>
+					<serverfile>php/plugin.ai.php</serverfile>
+					<serverfile type="module" module="pluginaimodule">php/class.pluginaimodule.php</serverfile>
+				</server>
+				<client>
+					<clientfile load="release">js/ai.js</clientfile>
+					<clientfile load="debug">js/ai-debug.js</clientfile>
+					<clientfile load="source">js/data/AIResponseHandler.js</clientfile>
+					<clientfile load="source">js/data/AIClient.js</clientfile>
+					<clientfile load="source">js/ui/AIAssistantPanel.js</clientfile>
+					<clientfile load="source">js/ui/AIAssistantWindow.js</clientfile>
+					<clientfile load="source">js/ui/AIComposeMenu.js</clientfile>
+					<clientfile load="source">js/ui/AIActionChips.js</clientfile>
+					<clientfile load="source">js/SmartActions.js</clientfile>
+					<clientfile load="source">js/settings/SettingsAICategory.js</clientfile>
+					<clientfile load="source">js/settings/SettingsAIWidget.js</clientfile>
+					<clientfile load="source">js/AIPlugin.js</clientfile>
+				</client>
+				<resources>
+					<resourcefile load="release">resources/css/ai.css</resourcefile>
+					<resourcefile load="debug">resources/css/ai.css</resourcefile>
+					<resourcefile load="source">resources/css/ai.css</resourcefile>
+				</resources>
+			</files>
+		</component>
+	</components>
+</plugin>
