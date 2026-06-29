@@ -4721,19 +4721,7 @@ class Operations {
 		}
 
 		foreach ($members as $key => $item) {
-			/*
-			 * PHP 5.5.0 and greater has made the unpack function incompatible with previous versions by changing:
-			 * - a = code now retains trailing NULL bytes.
-			 * - A = code now strips all trailing ASCII whitespace (spaces, tabs, newlines, carriage
-			 * returns, and NULL bytes).
-			 * for more http://php.net/manual/en/function.unpack.php
-			 */
-			if (version_compare(PHP_VERSION, '5.5.0', '>=')) {
-				$parts = unpack('Vnull/A16guid/Ctype/a*entryid', (string) $item);
-			}
-			else {
-				$parts = unpack('Vnull/A16guid/Ctype/A*entryid', (string) $item);
-			}
+			$parts = unpack('Vnull/A16guid/Ctype/a*entryid', (string) $item);
 
 			$memberItem = [];
 			$memberItem['props'] = [];
