@@ -29,7 +29,10 @@ Zarafa.mail.MailRecordFields = [
 	{name: 'stubbed', type: 'boolean', defaultValue: false},
 	{name: 'startdate', type: 'date', dateFormat: 'timestamp', defaultValue: null},
 	{name: 'duedate', type: 'date', dateFormat: 'timestamp', defaultValue: null},
-	{name: 'user_image', type: 'string'}
+	{name: 'user_image', type: 'string'},
+	{name: 'depth', type: 'int', defaultValue: 0},
+	{name: 'conversation_count', type: 'int', defaultValue: 0},
+	{name: 'folder_name'}
 ];
 
 Zarafa.mail.MailRecordPhantomHandler = function(record) {
