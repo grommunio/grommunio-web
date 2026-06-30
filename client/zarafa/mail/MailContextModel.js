@@ -247,7 +247,8 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	/**
 	 * Get the best available HTML body from a record with robust fallbacks.
 	 * @param {Zarafa.core.data.IPMRecord} record
-	 * @param {String} htmlBody preferred HTML body candidate
+	 * @param {String} htmlBody preferred HTML body candidate (used only when the
+	 * record has no raw html_body of its own)
 	 * @param {String} plainBody plain-text fallback body
 	 * @return {String}
 	 * @private
@@ -256,15 +257,18 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	{
 		htmlBody = htmlBody || '';
 
-		if (Ext.isEmpty(htmlBody)) {
-			var rawHtmlBody = record.get('html_body') || '';
-			if (!Ext.isEmpty(rawHtmlBody) && Ext.isFunction(record.inlineImgOutlookToZarafa)) {
+		// Prefer the record's own html_body whenever it exists, even if isHTML is
+		// stale-false (e.g. a body-less notifier merged isHTML=false onto an
+		// already-opened record). The supplied candidate may be plain-text derived.
+		var rawHtmlBody = record.get('html_body') || '';
+		if (!Ext.isEmpty(rawHtmlBody)) {
+			if (Ext.isFunction(record.inlineImgOutlookToZarafa)) {
 				rawHtmlBody = record.inlineImgOutlookToZarafa(rawHtmlBody);
 			}
-			if (!Ext.isEmpty(rawHtmlBody) && container.getServerConfig().getDOMPurifyEnabled()) {
+			if (container.getServerConfig().getDOMPurifyEnabled()) {
 				rawHtmlBody = DOMPurify.sanitize(rawHtmlBody, { USE_PROFILES: { html: true } });
 			}
-			if (!Ext.isEmpty(rawHtmlBody) && Ext.isFunction(record.cleanupOutlookStyles)) {
+			if (Ext.isFunction(record.cleanupOutlookStyles)) {
 				rawHtmlBody = record.cleanupOutlookStyles(rawHtmlBody);
 			}
 			htmlBody = rawHtmlBody;
@@ -329,10 +333,11 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		}
 
 		var plainBody = this.getRecordPlainBody(origRecord);
-		// Initialize HTML body. Prefer sanitized body, but fall back aggressively
-		// to avoid empty compose editor content when switching quickly.
+		// Only seed from getSanitizedHtmlBody() when the record is genuinely HTML;
+		// when isHTML is stale-false it returns a plain-text-derived body. The real
+		// html_body is recovered by getBestEffortHtmlBody(). Mirrors MessageBody.js.
 		var quotedHtmlBody = '';
-		if (Ext.isFunction(origRecord.getSanitizedHtmlBody)) {
+		if (origRecord.get('isHTML') === true && Ext.isFunction(origRecord.getSanitizedHtmlBody)) {
 			quotedHtmlBody = origRecord.getSanitizedHtmlBody() || '';
 		}
 		quotedHtmlBody = this.getBestEffortHtmlBody(origRecord, quotedHtmlBody, plainBody);
