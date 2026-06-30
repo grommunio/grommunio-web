@@ -63,6 +63,8 @@ Zarafa.mail.settings.SettingsMailCategory = Ext.extend(Zarafa.settings.ui.Settin
 			{
 				xtype: 'zarafa.settingsincomingmailwidget'
 			},{
+				xtype: 'zarafa.settingsconversationwidget'
+			},{
 				xtype: 'zarafa.settingssignatureswidget',
 				settingsMailCategory: this
 			},

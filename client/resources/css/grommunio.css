@@ -6396,6 +6396,89 @@ input.x-form-text.x-form-field.x-form-focus {
 .tox .tox-edit-area:before {
   border: 1px solid var(--theme-primary-color) !important;
 }
+
+/******************************************************************************
+ * Conversation (threaded) view
+ ******************************************************************************/
+/* Down arrow shown on an expanded conversation header */
+.line_arrow_down_l {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiI+PHBhdGggZmlsbD0iIzIxMjEyMSIgZD0iTTIuMTQ4IDQuMTQ4YS40OTUuNDk1IDAgMCAxIC43MDQgMEw2IDcuMjkzbDMuMTQ4LTMuMTQ1YS40ODcuNDg3IDAgMCAxIC40ODUtLjEzNmMuMTc2LjA0My4zMTIuMTguMzU1LjM1NWEuNDg3LjQ4NyAwIDAgMS0uMTM2LjQ4NWwtMy41IDMuNWEuNDk1LjQ5NSAwIDAgMS0uNzA0IDBsLTMuNS0zLjVhLjQ5NS40OTUgMCAwIDEgMC0uNzA0Wm0wIDAiLz48L3N2Zz4=) !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+}
+
+/* Position the expand/collapse arrow at the left of a conversation header row */
+.x-grid3-row.k-conversation-header.k-depth-0.arrow_right_l,
+.x-grid3-row.k-conversation-header.k-depth-0.line_arrow_down_l {
+  background-size: 12px !important;
+  background-position: 10px 18px !important;
+  cursor: pointer;
+}
+
+/* Compact (right preview) header arrow sits a little higher */
+.x-grid3-row.k-conversation-header.k-depth-0.k-compact-row.arrow_right_l,
+.x-grid3-row.k-conversation-header.k-depth-0.k-compact-row.line_arrow_down_l {
+  background-position: 10px 14px !important;
+}
+
+/* The conversation count next to the header subject */
+.x-grid3-row.k-conversation-header .k-conversation-count {
+  font-weight: bold;
+  padding-left: 2px;
+}
+
+/* Conversation header rows should not show a context menu cursor on the body */
+.x-grid3-row.k-conversation-header {
+  cursor: pointer;
+}
+
+/* Indentation of conversation child items */
+.x-grid3-row.k-depth-1 .x-grid3-cell-inner {
+  padding-left: 30px;
+}
+.x-grid3-row.k-depth-1 .x-grid3-row-body {
+  padding-left: 30px;
+}
+.x-grid3-row.k-depth-1 .k-icon {
+  float: left;
+  width: 20px;
+  height: 20px;
+  padding-right: 6px;
+  background-position-x: left !important;
+}
+
+/* Thread lines connecting conversation child items.
+   A vertical line is drawn on the left with a node marker per item. */
+.x-grid3-row.k-depth-1.line_circle_l,
+.x-grid3-row.k-depth-1.line_circle_end {
+  background-image:
+    radial-gradient(circle at 14px 50%, var(--theme-primary-color, #2882d7) 0, var(--theme-primary-color, #2882d7) 3px, transparent 4px),
+    linear-gradient(var(--theme-border-color, #c9ced6), var(--theme-border-color, #c9ced6));
+  background-repeat: no-repeat, no-repeat;
+}
+/* Middle item: line spans the full height of the row */
+.x-grid3-row.k-depth-1.line_circle_l {
+  background-position: left center, 13px 0;
+  background-size: auto, 2px 100%;
+}
+/* Last item: line stops at the node marker */
+.x-grid3-row.k-depth-1.line_circle_end {
+  background-position: left center, 13px 0;
+  background-size: auto, 2px 50%;
+}
+
+/* Container for the conversation header arrow in right preview mode */
+.zarafa-grid-body-container .k-conversation-icon-container {
+  position: absolute;
+  padding-top: 4px;
+}
+.zarafa-grid-body-container .k-conversation-icon-container .k-conversation-icon {
+  display: block;
+  padding: 0 1.5px;
+  width: 23px;
+  height: 15px;
+  cursor: pointer;
+}
 /*# sourceMappingURL=grommunio.css.map */
 
 

@@ -132,9 +132,11 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 			scope: this
 		});
 
+		this.mon(this.getView(), 'beforelivescrollstart', this.onBeforeLiveScrollStart, this);
 		this.mon(this.getView(), 'livescrollstart', this.onLiveScrollStart, this);
 		this.mon(this.getView(), 'beforesort', this.onBeforeSort, this);
 
+		this.mon(this.getSelectionModel(), 'beforerowselect', this.onBeforeRowSelect, this);
 		// Add a buffer to the following 2 event handlers. These are influenced by Extjs when a record
 		// is removed from the store. However removing of records isn't performed in batches. This means
 		// that we need to offload the event handlers attached to removing of records in case that
@@ -153,6 +155,31 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 		this.mon(this.context, 'viewmodechange', this.onContextViewModeChange, this);
 		this.mon(this.context, 'viewchange', this.onContextViewChange, this);
 		this.onContextViewModeChange(this.context, this.context.getCurrentViewMode());
+
+		var store = this.getStore();
+		store.filterByConversations();
+		this.mon(store, 'load', store.manageOpenConversations, store);
+		this.mon(store, 'add', store.filterByConversations, store);
+		this.mon(store, 'remove', this.manageDeleteConversations, this);
+
+		this.mon(this.getView(), 'rowupdated', function(view, rowIndex, record) {
+			if (record.get('depth') === 0) {
+				return;
+			}
+
+			// Update the conversation header (to reflect read/unread status and flags)
+			var headerStore = record.getStore();
+			var i = rowIndex;
+			var r;
+			do {
+				i--;
+				r = headerStore.getAt(i);
+			} while (r && r.get('depth') > 0);
+
+			if (r) {
+				view.refreshRow(r);
+			}
+		}, this);
 	},
 
 	/**
@@ -215,30 +242,91 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	 */
 	viewConfigGetRowClass : function(record, rowIndex, rowParams, store)
 	{
-		var cssClass = (Ext.isFunction(record.isRead) && !record.isRead() ? 'mail_unread' : 'mail_read');
+		var cssClass = this.grid.getConversationCssClasses(record, rowIndex, store);
 
 		if (this.enableRowBody) {
 			var meta = {}; // Metadata object for Zarafa.common.ui.grid.Renderers.
 			var value = ''; // The value which must be rendered
 			rowParams.body = '<div class="zarafa-grid-body-container">';
 
-			// Render the categories
-			cssClass += ' with-categories';
-			var categories = Zarafa.common.categories.Util.getCategories(record);
-			var categoriesHtml = Zarafa.common.categories.Util.getCategoriesHtml(categories);
-			rowParams.body += '<div class="k-category-add-container"><span class="k-category-add"></span></div><div class="k-category-container">' + categoriesHtml + '</div>';
+			if (record.isConversationHeaderRecord()) {
+				/**
+				 * Add container for conversation header arrow icons.
+				 *
+				 * Note: This is just an empty container to position the arrow icons background images
+				 * and to handle on arrow click actions for right preview mode.
+				 */
+				rowParams.body += '<div class="k-conversation-icon-container"><span class="k-conversation-icon"></span></div>';
+			} else {
+				// Render the categories
+				cssClass += ' with-categories';
+				var categories = Zarafa.common.categories.Util.getCategories(record);
+				var categoriesHtml = Zarafa.common.categories.Util.getCategoriesHtml(categories);
+				rowParams.body += '<div class="k-category-add-container"><span class="k-category-add"></span></div><div class="k-category-container">' + categoriesHtml + '</div>';
+			}
 
 			// Render the subject
 			meta = {};
-			value = Zarafa.common.ui.grid.Renderers.subject(record.get('subject'), meta, record);
+			if (record.isConversationRecord()) {
+				value = Zarafa.common.ui.grid.Renderers.body(record.get('body'), meta, record);
+			} else {
+				value = Zarafa.common.ui.grid.Renderers.subject(record.get('subject'), meta, record);
+			}
 			rowParams.body += String.format('<div class="grid_compact grid_compact_left grid_compact_subject_cell {0}">{1}</div>', meta.css, value);
 
 			rowParams.body += '</div>';
+			cssClass += ' k-compact-row';
 
 			return 'x-grid3-row-expanded ' + cssClass;
 		}
 
 		return 'x-grid3-row-collapsed ' + cssClass;
+	},
+
+	/**
+	 * Helper function to get css classes related to conversation view.
+	 *
+	 * @param {Ext.data.Record} record The {@link Ext.data.Record Record} corresponding to the current row.
+	 * @param {Number} rowIndex The row index
+	 * @param {Ext.data.Store} store The Ext.data.Store this grid is bound to
+	 * @return {String} css classes related to conversation item.
+	 */
+	getConversationCssClasses: function(record, rowIndex, store)
+	{
+		var isConversationHeader = record.isConversationHeaderRecord();
+		var depth = record.get('depth');
+		var cssClass = (Ext.isFunction(record.isRead) && !record.isRead() ? 'mail_unread' : 'mail_read');
+
+		// Conversation headers should get the read/unread info from the items in the conversation
+		if (isConversationHeader) {
+			cssClass = 'mail_read';
+			var conversationRecords = store.getConversationItemsFromHeaderRecord(record);
+			conversationRecords.every(function(r) {
+				if (Ext.isFunction(r.isRead) && !r.isRead()) {
+					cssClass = 'mail_unread';
+					return false;
+				}
+				return true;
+			});
+
+			cssClass += ' k-conversation-header';
+
+			cssClass += store.isConversationOpened(record) ? ' line_arrow_down_l' : ' arrow_right_l';
+
+		} else if (record.isConversationRecord()) {
+			// If its last item of the conversation.
+			if (store.getCount() === rowIndex + 1 ||
+				store.getAt(rowIndex+1).get('normalized_subject') !== record.get('normalized_subject') ||
+				store.getAt(rowIndex+1).get('depth') === 0) {
+				cssClass += ' line_circle_end k-last-conversation-item';
+			} else {
+				cssClass += ' line_circle_l';
+			}
+		}
+
+		cssClass += ' k-depth-' + depth;
+
+		return cssClass;
 	},
 
 	/**
@@ -388,9 +476,30 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 			return;
 		}
 
+		// Expand and collapse the conversation by clicking on arrow icon.
+		if (record.isConversationHeaderRecord()) {
+			// toggle the conversation by clicking on the arrow icon of conversation header.
+			if (columnIndex === 0) {
+				var headerStore = this.store;
+				headerStore.toggleConversation(record);
+				// If conversation is open then select first record from the
+				// conversation items.
+				if (headerStore.isConversationOpened(record)) {
+					grid.selModel.selectRow(rowIndex + 1, false);
+					if (this.expandSingleConversation) {
+						record.getStore().collapseAllConversation(record);
+					}
+				}
+			}
+			return false;
+		}
+
 		var cm = this.getColumnModel();
 		var column = cm.config[columnIndex];
-		if (column.dataIndex === 'icon_index') {
+		if (
+			column.dataIndex === 'icon_index' && !(Ext.isFunction(record.isConversationRecord) && record.isConversationRecord()) ||
+			column.dataIndex === 'sent_representing_name' && Ext.isFunction(record.isConversationRecord) && record.isConversationRecord() && Ext.fly(e.target).hasClass('k-icon')
+		) {
 			Zarafa.common.Actions.markAsRead(record, !record.isRead());
 		} else if(column.dataIndex === 'flag_due_by') {
 			Zarafa.common.Actions.openFlagsMenu(record, e.getXY());
@@ -408,16 +517,50 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	 */
 	onRowClick : function(grid, rowIndex, event)
 	{
-		var record;
+		var store = this.store;
+		var keepExisting = event.ctrlKey || event.shiftKey;
+		// Get the record from the rowIndex
+		var record = store.getAt(rowIndex);
+
+		if ( Ext.get(event.target).hasClass('k-conversation-icon') ){
+			store.toggleConversation(record);
+			return;
+		}
+
+		if (record.isConversationHeaderRecord()) {
+			this.openConversation(record);
+		} else if (this.expandSingleConversation && !(keepExisting)) {
+			// close all opened conversation when user click on non conversation item.
+			var headerRecord = record.isConversationRecord() ? store.getHeaderRecordFromItem(record) : false;
+			store.collapseAllConversation(headerRecord);
+		}
 
 		if ( Ext.get(event.target).hasClass('k-category-add') ){
-			// Get the record from the rowIndex
-			record = this.store.getAt(rowIndex);
-
 			Zarafa.common.Actions.openCategoriesMenu([record], event.getXY());
 		}
 	},
 
+
+	/**
+	 * Event handler which is triggered when the user opens the context menu.
+	 * Overridden to make sure that right-clicks on conversation headers do not
+	 * generate a context menu.
+	 *
+	 * @param {Zarafa.mail.ui.MailGrid} grid The grid which was right clicked
+	 * @param {Number} rowIndex The index number of the row which was right clicked
+	 * @param {Number} cellIndex The index number of the column which was right clicked
+	 * @param {Ext.EventObject} event The event structure
+	 * @private
+	 */
+	onCellContextMenu: function(grid, rowIndex, cellIndex, event)
+	{
+		var record = this.store.getAt(rowIndex);
+		if (record && record.isConversationHeaderRecord()) {
+			return false;
+		}
+
+		return Zarafa.mail.ui.MailGrid.superclass.onCellContextMenu.call(this, grid, rowIndex, cellIndex, event);
+	},
 
 	/**
 	 * Event handler which is triggered when the user opens the context menu.
@@ -433,6 +576,11 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	 */
 	onRowBodyContextMenu: function(grid, rowIndex, event)
 	{
+		var record = this.store.getAt(rowIndex);
+		if (record && record.isConversationHeaderRecord()) {
+			return false;
+		}
+
 		this.onCellContextMenu(grid, rowIndex, -1, event);
 	},
 
@@ -465,6 +613,45 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	},
 
 	/**
+	 * Event handler before the row selection performs. If selected record is
+	 * conversation header then cancel the selection.
+	 *
+	 * @param {Zarafa.mail.ui.MailRowSelectionModel} selectionModel The selectionModel
+	 * @param {Number} rowIndex Then index to be selected.
+	 * @param {Boolean} keepExisting False if other selections will be cleared
+	 * @param {Zarafa.core.data.IPMRecord} record The record to be selected
+	 */
+	onBeforeRowSelect: function(selectionModel, rowIndex, keepExisting, record)
+	{
+		if (record.isConversationHeaderRecord()) {
+			this.openConversation(record, selectionModel, rowIndex, keepExisting);
+			return false;
+		}
+	},
+
+	/**
+	 * Function will expand the conversation if closed and select the first item of it.
+	 *
+	 * @param {Zarafa.core.data.IPMRecord} record The record needs to expand.
+	 * @param {Zarafa.mail.ui.MailRowSelectionModel} selectionModel The selectionModel
+	 * @param {Number} rowIndex Then index to be selected.
+	 * @param {Boolean} keepExisting False if other selections will be cleared
+	 */
+	openConversation: function(record, selectionModel, rowIndex, keepExisting)
+	{
+		var store = this.getStore();
+		if (!store.isConversationOpened(record)) {
+			store.expandConversation(record);
+			if (selectionModel) {
+				selectionModel.selectRow(rowIndex+1, keepExisting);
+			}
+			if (this.expandSingleConversation) {
+				store.collapseAllConversation(record);
+			}
+		}
+	},
+
+	/**
 	 * Helper function used to check {@link Zarafa.mail.settings.SettingsConversationWidget#enableConversations enabled conversation view }
 	 * and {@link Zarafa.mail.settings.SettingsConversationWidget#singleExpand single expand conversation} user setting enabled.
 	 *
@@ -490,14 +677,15 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	onRowSelect: function(selectionModel, rowNumber, record)
 	{
 		var count = selectionModel.getCount();
-		//var conversationCount = record.get('conversation_count');
-		//var depth = record.get('depth');
 
-		if (count === 0) {
-		        this.cancelPreviewRecordTask();
-		        this.model.setPreviewRecord(undefined);
+		if (Ext.isFunction(record.isConversationHeaderRecord) && record.isConversationHeaderRecord()) {
+			this.cancelPreviewRecordTask();
+			this.model.setPreviewRecord(undefined);
+		} else if (count === 0) {
+			this.cancelPreviewRecordTask();
+			this.model.setPreviewRecord(undefined);
 		} else if (count === 1 && selectionModel.getSelected() === record) {
-		        this.queuePreviewRecord(record);
+			this.queuePreviewRecord(record);
 		}
 	},
 
@@ -578,6 +766,16 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	},
 
 	/**
+	 * Event handler triggered before the live scroll start.
+	 */
+	onBeforeLiveScrollStart: function()
+	{
+		if (this.store.getStoreLength() >= this.store.getTotalCount()) {
+			return false;
+		}
+	},
+
+	/**
 	 * Event handler which triggered when scrollbar gets scrolled more then 90% of it`s height.
 	 * it will be used to start live scroll on {@link Zarafa.core.data.ListModuleStore ListModuleStore}.
 	 * also it will register event on {@link Zarafa.core.data.ListModuleStore ListModuleStore} to get
@@ -624,6 +822,69 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	hasEnabledGrouping: function ()
 	{
 		return container.getSettingsModel().get('zarafa/v1/contexts/mail/enable_grouping');
+	},
+
+	/**
+	 * Function will Filter the store to not show items in conversations that have not been expanded
+	 * and will update {@link Zarafa.mail.data.ConversationManagers#getOpenedRecordManager openedConversationManager}
+	 * with deleted conversation Header.
+	 *
+	 * @param {Zarafa.mail.MailStore} store which contains message records
+	 * @param {Zarafa.mail.MailRecord} record which is deleted.
+	 */
+	manageDeleteConversations: function(store, record)
+	{
+		if(container.isEnabledConversation() === false || !record.isConversationRecord()) {
+			return;
+		}
+
+		var openedRecordManager = store.conversationManager.getOpenedRecordManager();
+		var rowSelectionModel = this.getSelectionModel();
+		var lastIndex = rowSelectionModel.lastActive;
+		var deleteWholeConversation = [];
+		// Iterate over the each conversation and check deleted record is part of any opened
+		// conversation.
+		openedRecordManager.eachKey(function (key, items, record, store, deleteWholeConversation) {
+			var index = items.indexOf(record.get("entryid"));
+			if( index > -1) {
+				items.splice(index, 1);
+				if(items.length > 0) {
+					// Check conversation has inbox item.
+					var hasInboxItem = items.some(function (item) {
+						return store.getById(item).get('folder_name') === "inbox";
+					});
+					if (hasInboxItem === false) {
+						deleteWholeConversation.push(key);
+					}
+				} else {
+					// Remove the conversation header key when no item left in the conversation.
+					deleteWholeConversation.push(key);
+				}
+				return false;
+			}
+			return true;
+		}.createDelegate(this, [record, store, deleteWholeConversation], 2), this);
+
+		// Remove whole conversation when conversation doesn't contains
+		// any inbox item.
+		if (!Ext.isEmpty(deleteWholeConversation)) {
+			for (var conversation of deleteWholeConversation) {
+				openedRecordManager.removeKey(conversation);
+				var headerRecord = store.getById(conversation);
+				var headerRecordIndex = store.indexOf(headerRecord);
+
+				// Store the lastActive index value when a header of last selected Row is going to be removed.
+				if (headerRecordIndex === lastIndex-1) {
+					rowSelectionModel.updatedLast = headerRecordIndex;
+				}
+
+				// Also remove conversation header record from store.
+				// Note: As conversation header row can not be selected to perform deletion on it,
+				// there will not be save request from store for the header record.
+				store.remove(headerRecord);
+			}
+		}
+		store.filterByConversations();
 	},
 
 	/**
