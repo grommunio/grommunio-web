@@ -329,4 +329,19 @@ Zarafa.ABOUT = ""
 
 	+ "<p>Copyright (C) Mozilla and individual contributors</p><p>Licensed under the Apache License, version 2.0.</p>"
 
+
+	+ "<h1>docx-preview</h1>"
+
+	+ "<p>Copyright (C) Volodymyr Baydalka</p><p>Licensed under the Apache License, version 2.0.</p>"
+
+
+	+ "<h1>JSZip</h1>"
+
+	+ "<p>Copyright (C) 2009-2016 Stuart Knightley and contributors</p><p>Licensed under the MIT license.</p>"
+
+
+	+ "<h1>SheetJS</h1>"
+
+	+ "<p>Copyright (C) 2012-present SheetJS LLC</p><p>Licensed under the Apache License, version 2.0.</p>"
+
 	+ "</div>";
