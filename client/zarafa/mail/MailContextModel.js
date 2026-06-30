@@ -333,10 +333,11 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		}
 
 		var plainBody = this.getRecordPlainBody(origRecord);
-		// Initialize HTML body. Prefer sanitized body, but fall back aggressively
-		// to avoid empty compose editor content when switching quickly.
+		// Only seed from getSanitizedHtmlBody() when the record is genuinely HTML;
+		// when isHTML is stale-false it returns a plain-text-derived body. The real
+		// html_body is recovered by getBestEffortHtmlBody(). Mirrors MessageBody.js.
 		var quotedHtmlBody = '';
-		if (Ext.isFunction(origRecord.getSanitizedHtmlBody)) {
+		if (origRecord.get('isHTML') === true && Ext.isFunction(origRecord.getSanitizedHtmlBody)) {
 			quotedHtmlBody = origRecord.getSanitizedHtmlBody() || '';
 		}
 		quotedHtmlBody = this.getBestEffortHtmlBody(origRecord, quotedHtmlBody, plainBody);
