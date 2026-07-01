@@ -245,12 +245,16 @@ class AddressbookListModule extends ListModule {
 							$abprovidertype |= 4;
 						}
 
+						// The email index byte appended to the entryid is exposed as
+						// 'email_index' so the client can strip it back off to recover
+						// the openable message entryid.
 						switch ($abprovidertype) {
 							case 1:
 							case 3:
 							case 5:
 							case 7:
 								$item['entryid'] .= '01';
+								$item['email_index'] = 1;
 								$item['address_type'] = $user_data[$this->properties["email_address_type_1"]];
 								$item['email_address'] = $user_data[$this->properties["email_address_1"]];
 								break;
@@ -258,12 +262,14 @@ class AddressbookListModule extends ListModule {
 							case 2:
 							case 6:
 								$item['entryid'] .= '02';
+								$item['email_index'] = 2;
 								$item['address_type'] = $user_data[$this->properties["email_address_type_2"]];
 								$item['email_address'] = $user_data[$this->properties["email_address_2"]];
 								break;
 
 							case 4:
 								$item['entryid'] .= '03';
+								$item['email_index'] = 3;
 								$item['address_type'] = $user_data[$this->properties["email_address_type_3"]];
 								$item['email_address'] = $user_data[$this->properties["email_address_3"]];
 								break;
@@ -367,6 +373,8 @@ class AddressbookListModule extends ListModule {
 
 					array_push($items, ['props' => $item]);
 					if ($isContactFolder) {
+						// Extra rows for contacts with more than one email address, each
+						// with its own email-index byte and matching 'email_index'.
 						switch ($abprovidertype) {
 							case 3:
 								$item['address_type'] = $user_data[$this->properties["email_address_type_2"]];
@@ -374,6 +382,7 @@ class AddressbookListModule extends ListModule {
 								$item['smtp_address'] = ($item['address_type'] === 'SMTP') ? $item['email_address'] : '';
 								$item['search_key'] = bin2hex(strtoupper($item['address_type'] . ':' . $item['email_address'])) . '00';
 								$item['entryid'] = $entryid . '02';
+								$item['email_index'] = 2;
 								array_push($items, ['props' => $item]);
 								break;
 
@@ -384,6 +393,7 @@ class AddressbookListModule extends ListModule {
 								$item['smtp_address'] = ($item['address_type'] === 'SMTP') ? $item['email_address'] : '';
 								$item['search_key'] = bin2hex(strtoupper($item['address_type'] . ':' . $item['email_address'])) . '00';
 								$item['entryid'] = $entryid . '03';
+								$item['email_index'] = 3;
 								array_push($items, ['props' => $item]);
 								break;
 
@@ -393,12 +403,14 @@ class AddressbookListModule extends ListModule {
 								$item['smtp_address'] = ($item['address_type'] === 'SMTP') ? $item['email_address'] : '';
 								$item['search_key'] = bin2hex(strtoupper($item['address_type'] . ':' . $item['email_address'])) . '00';
 								$item['entryid'] = $entryid . '02';
+								$item['email_index'] = 2;
 								array_push($items, ['props' => $item]);
 								$item['address_type'] = $user_data[$this->properties["email_address_type_3"]];
 								$item['email_address'] = $user_data[$this->properties["email_address_3"]];
 								$item['smtp_address'] = ($item['address_type'] === 'SMTP') ? $item['email_address'] : '';
 								$item['search_key'] = bin2hex(strtoupper($item['address_type'] . ':' . $item['email_address'])) . '00';
 								$item['entryid'] = $entryid . '03';
+								$item['email_index'] = 3;
 								array_push($items, ['props' => $item]);
 								break;
 						}
