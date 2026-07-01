@@ -660,7 +660,7 @@ function Viewer( viewerPlugin, parameters ) {
  * @source: http://github.com/kogmbh/ViewerJS
  */
 
-/*global document, window, Viewer, ODFViewerPlugin, PDFViewerPlugin*/
+/*global document, window, Viewer, ODFViewerPlugin, DocxViewerPlugin, XlsxViewerPlugin, ImageViewerPlugin, MultimediaViewerPlugin, UnknownFilePlugin, PDFViewerPlugin*/
 
 (function () {
     "use strict";
@@ -699,6 +699,48 @@ function Viewer( viewerPlugin, parameters ) {
                     path:                  "./ODFViewerPlugin.js",
                     getClass:              function () {
                         return ODFViewerPlugin;
+                    }
+                };
+            }()),
+            (function () {
+                var docxMimetypes      = [
+                    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                    'application/vnd.openxmlformats-officedocument.wordprocessingml.template'];
+                var docxFileExtensions = [
+                    'docx',
+                    'dotx'];
+
+                return {
+                    supportsMimetype:      function ( mimetype ) {
+                        return (docxMimetypes.indexOf(mimetype) !== -1);
+                    },
+                    supportsFileExtension: function ( extension ) {
+                        return (docxFileExtensions.indexOf(extension) !== -1);
+                    },
+                    path:                  "./DocxViewerPlugin.js",
+                    getClass:              function () {
+                        return DocxViewerPlugin;
+                    }
+                };
+            }()),
+            (function () {
+                var xlsxMimetypes      = [
+                    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                    'application/vnd.openxmlformats-officedocument.spreadsheetml.template'];
+                var xlsxFileExtensions = [
+                    'xlsx',
+                    'xltx'];
+
+                return {
+                    supportsMimetype:      function ( mimetype ) {
+                        return (xlsxMimetypes.indexOf(mimetype) !== -1);
+                    },
+                    supportsFileExtension: function ( extension ) {
+                        return (xlsxFileExtensions.indexOf(extension) !== -1);
+                    },
+                    path:                  "./XlsxViewerPlugin.js",
+                    getClass:              function () {
+                        return XlsxViewerPlugin;
                     }
                 };
             }()),
