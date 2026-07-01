@@ -70,6 +70,7 @@ if ($GLOBALS['settings']->get('zarafa/v1/contexts/mail/attachment_reminder_enabl
 		<title><?php echo $webappTitle; ?></title>
 		<link rel="icon" href="<?php echo $favicon; ?>" type="image/x-icon">
 		<link rel="shortcut icon" href="<?php echo $favicon; ?>" type="image/x-icon">
+		<link rel="manifest" href="manifest.webmanifest">
 
 		<script><?php require BASE_PATH . 'client/fingerprint.js'; ?></script>
 		<script>

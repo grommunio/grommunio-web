@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="grommunio">
+    <rect width="512" height="512" rx="80" fill="#ffffff" />
+    <g transform="translate(109 126) scale(1.86)">
+        <path fill="#3f3f3f" d="m159 7.69-44.36 20 17 28.23L159 8.6zM43.14 32.87 46.12 0H1.35z" />
+        <path fill="#2dcaff"
+            d="m44.08 72.71 26.12 3-20.58-23.16zm-2.49-28.42L0 11.57l34.28 59.37zm11.26-8.59L101.71 22 97 0H56.09zm46.73-2.8L56.23 45.06l27.63 31.07zm11.52-14.44L151.94 0h-44.81zM95 74.6l29.32-5.82 1.73-3L108.66 37z" />
+        <path fill="#3f3f3f" d="m77.31 86.52-36.46-4.19L74.15 140z" />
+        <path fill="#2dcaff" d="m87.08 89.56-2.88 48.66 18.42-31.9zM96 84.53l11.86 12.79 9.88-17.11z" />
+    </g>
+</svg>

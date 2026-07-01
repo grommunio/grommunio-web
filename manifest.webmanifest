@@ -1,0 +1,15 @@
+{
+	"name": "grommunio Web",
+	"short_name": "grommunio",
+	"start_url": "./",
+	"display": "standalone",
+	"theme_color": "#2dcaff",
+	"icons": [
+		{
+			"src": "client/resources/images/grommunio-pwa.svg",
+			"sizes": "any",
+			"type": "image/svg+xml",
+			"purpose": "any maskable"
+		}
+	]
+}
