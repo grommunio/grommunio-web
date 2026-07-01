@@ -2808,11 +2808,29 @@ class Operations {
 				// its recipients and attachments also. $origStore and $oldEntryId points to mail
 				// saved in delegators draft folder
 				if ($copyFromMessage === false) {
-					$copyFromMessage = mapi_msgstore_openentry($origStore, $oldEntryId);
-					$copyRecipients = true;
+					try {
+						$copyFromMessage = mapi_msgstore_openentry($origStore, $oldEntryId);
+						$copyRecipients = true;
 
-					// Decode smime signed messages on this message
-					parse_smime($origStore, $copyFromMessage);
+						// Decode smime signed messages on this message
+						parse_smime($origStore, $copyFromMessage);
+					}
+					catch(MAPIException $e) {
+						$e->setHandled();
+						$copyFromMessage = false;
+						// the message might be in the default store, try to open it there
+						try {
+							$copyFromMessage = mapi_msgstore_openentry($store, $oldEntryId);
+							$copyRecipients = true;
+
+							// Decode smime signed messages on this message
+							parse_smime($store, $copyFromMessage);
+						}
+						catch(MAPIException $e) {
+							$e->setHandled();
+							$copyFromMessage = false;
+						}
+					}
 				}
 			}
 
@@ -2844,8 +2862,19 @@ class Operations {
 
 			// delete message from it's original location
 			if (!empty($oldEntryId) && !empty($oldParentEntryId)) {
-				$folder = mapi_msgstore_openentry($origStore, $oldParentEntryId);
-				mapi_folder_deletemessages($folder, [$oldEntryId], DELETE_HARD_DELETE);
+				$folder = null;
+				try {
+					$folder = mapi_msgstore_openentry($origStore, $oldParentEntryId);
+				}
+				catch(MAPIException) {
+					try {
+						$folder = mapi_msgstore_openentry($store, $oldParentEntryId);
+					}
+					catch(MAPIException) {}
+				}
+				if ($folder) {
+					mapi_folder_deletemessages($folder, [$oldEntryId], DELETE_HARD_DELETE);
+				}
 			}
 			if ($saveBoth || $saveRepresentee) {
 				if ($origStoreProps[PR_MDB_PROVIDER] === ZARAFA_STORE_PUBLIC_GUID) {
