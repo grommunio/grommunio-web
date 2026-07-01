@@ -169,17 +169,15 @@ Zarafa.addressbook.AddressBookRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 			distlistType = Zarafa.core.mapi.DistlistType.DL_DIST_AB;
 		}
 
-		// Check if this item is using the Contact provider, if that is the case,
-		// we must convert the entryid to a local entryid and we should update the
-		// DistlistType to indicate that it is a local item
+		// Local contacts must be stored as a local item with an openable message entryid,
+		// so opening the member resolves against the store instead of the address book.
 		var entryid = this.get('entryid');
-		if (Zarafa.core.EntryId.hasContactProviderGUID(entryid)) {
-			if (distlistType === Zarafa.core.mapi.DistlistType.DL_USER_AB) {
-				distlistType = Zarafa.core.mapi.DistlistType.DL_USER;
-			} else {
-				distlistType = Zarafa.core.mapi.DistlistType.DL_DIST;
-			}
-			entryid = Zarafa.core.EntryId.unwrapContactProviderEntryId(entryid);
+		if (this.isPersonalContact()) {
+			distlistType = Zarafa.core.mapi.DistlistType.DL_USER;
+			entryid = this.getContactMessageEntryId();
+		} else if (this.isPersonalDistList()) {
+			distlistType = Zarafa.core.mapi.DistlistType.DL_DIST;
+			entryid = this.getContactMessageEntryId();
 		}
 
 		var props = {
