@@ -13,6 +13,7 @@ $loader = new FileLoader();
 		<title><?php echo $webappTitle; ?></title>
 		<link rel="icon" href="client/resources/images/favicon.ico?v2.2.0" type="image/x-icon">
 		<link rel="shortcut icon" href="client/resources/images/favicon.ico?v2.2.0" type="image/x-icon">
+		<link rel="manifest" href="manifest.webmanifest">
 
 		<script>
 		// Resolve system dark mode preference before CSS renders
