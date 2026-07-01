@@ -8133,3 +8133,89 @@ msgstr "Malformed UTF-8 characters, possibly incorrectly encoded"
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
 msgstr "Some problem encountered when encoding/decoding JSON data: - %s"
+
+# passkey plugin
+msgid "Passkey Plugin"
+msgstr "Passkey Plugin"
+
+msgid "Passkey authentication"
+msgstr "Passkey authentication"
+
+msgid "Configure passkey authentication"
+msgstr "Configure passkey authentication"
+
+msgid "Passkeys provide a secure and convenient way to authenticate without passwords. You can register multiple passkeys and use them to log into your account."
+msgstr "Passkeys provide a secure and convenient way to authenticate without passwords. You can register multiple passkeys and use them to log into your account."
+
+msgid "WebAuthn Support"
+msgstr "WebAuthn Support"
+
+msgid "Browser Support"
+msgstr "Browser Support"
+
+msgid "Activate or deactivate passkey authentication."
+msgstr "Activate or deactivate passkey authentication."
+
+msgid "Current status"
+msgstr "Current status"
+
+msgid "Activation/Deactivation"
+msgstr "Activation/Deactivation"
+
+msgid "Registered Passkeys"
+msgstr "Registered Passkeys"
+
+msgid "Register new Passkey"
+msgstr "Register new Passkey"
+
+msgid "Delete Passkey"
+msgstr "Delete Passkey"
+
+msgid "No passkeys registered"
+msgstr "No passkeys registered"
+
+msgid "Supported"
+msgstr "Supported"
+
+msgid "Not supported - Please use a modern browser"
+msgstr "Not supported - Please use a modern browser"
+
+msgid "WebAuthn not Supported"
+msgstr "WebAuthn not Supported"
+
+msgid "Your browser does not support WebAuthn."
+msgstr "Your browser does not support WebAuthn."
+
+msgid "Register Passkey"
+msgstr "Register Passkey"
+
+msgid "Enter a name for this passkey:"
+msgstr "Enter a name for this passkey:"
+
+msgid "Failed to create passkey: "
+msgstr "Failed to create passkey: "
+
+msgid "Are you sure you want to delete the passkey \"{0}\"?"
+msgstr "Are you sure you want to delete the passkey \"{0}\"?"
+
+msgid "Passkey registered successfully"
+msgstr "Passkey registered successfully"
+
+msgid "Failed to register passkey"
+msgstr "Failed to register passkey"
+
+msgid "Authentication successful"
+msgstr "Authentication successful"
+
+msgid "Authentication failed"
+msgstr "Authentication failed"
+
+msgid "Passkey deleted successfully"
+msgstr "Passkey deleted successfully"
+
+msgid "Failed to delete passkey"
+msgstr "Failed to delete passkey"
+
+msgid "Failed to load passkeys"
+msgstr "Failed to load passkeys"
+
