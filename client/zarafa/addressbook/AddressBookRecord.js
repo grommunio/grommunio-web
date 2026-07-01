@@ -57,6 +57,7 @@ Zarafa.addressbook.AddressBookRecordFields = [
 	{name: 'icon_index'},
 	{name: 'is_shared'},
 	{name: 'is_contact_item'},
+	{name: 'email_index', type: 'int', defaultValue: -1},
 ];
 
 Zarafa.core.data.RecordFactory.addFieldToObjectType(Zarafa.core.mapi.ObjectType.MAPI_MAILUSER, Zarafa.addressbook.AddressBookRecordFields);
@@ -122,6 +123,35 @@ Zarafa.addressbook.AddressBookRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 		});
 
 		return recipientRecord;
+	},
+
+	/**
+	 * Resolve the openable message entryid for a personal contact or distlist. Contact
+	 * Provider wrapped entryids are unwrapped; contact folder items carry a trailing
+	 * email-index byte (signalled by {@link #email_index}) which is stripped. We rely on
+	 * email_index rather than inspecting the trailing bytes, as a valid message entryid can
+	 * legitimately end in those byte values.
+	 *
+	 * @return {String} The message entryid, or the original entryid for other items.
+	 */
+	getContactMessageEntryId: function()
+	{
+		var entryid = this.get('entryid');
+
+		var uscoreIndex = entryid.indexOf('_');
+		if (uscoreIndex > 0) {
+			entryid = entryid.substr(0, uscoreIndex);
+		}
+
+		if (Zarafa.core.EntryId.hasContactProviderGUID(entryid)) {
+			return Zarafa.core.EntryId.unwrapContactProviderEntryId(entryid);
+		}
+
+		if (this.get('email_index') > 0) {
+			entryid = entryid.substr(0, entryid.length - 2);
+		}
+
+		return entryid;
 	},
 
 	/**
