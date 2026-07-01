@@ -285,20 +285,7 @@ Zarafa.addressbook.AddressBookRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 */
 	convertToContactRecord: function()
 	{
-		// Entryids of personal contacts are suffixed with email id (1, 2, 3), so remove that id
-		// this is done in php to ensure that we will always have unique entryids
-		var entryid = this.get('entryid');
-		var uscoreIndex = entryid.indexOf('_');
-		if(uscoreIndex > 0) {
-			entryid = entryid.substr(0, uscoreIndex);
-		}
-
-		// When selected from the Address Book, the Contact will contain the Contact Provider
-		// GUID inside the Entryid. To correctly open the Contact, we have to unwrap this entryid
-		// to get the normal entryid back.
-		if (Zarafa.core.EntryId.hasContactProviderGUID(entryid)) {
-			entryid = Zarafa.core.EntryId.unwrapContactProviderEntryId(entryid);
-		}
+		var entryid = this.getContactMessageEntryId();
 
 		return Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.Contact', {
 			entryid: entryid,
@@ -316,20 +303,7 @@ Zarafa.addressbook.AddressBookRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 */
 	convertToDistListRecord: function()
 	{
-		// Entryids of personal contacts are suffixed with email id (1, 2, 3), so remove that id
-		// this is done in php to ensure that we will always have unique entryids
-		var entryid = this.get('entryid');
-		var uscoreIndex = entryid.indexOf('_');
-		if(uscoreIndex > 0) {
-			entryid = entryid.substr(0, uscoreIndex);
-		}
-
-		// When selected from the Address Book, the Distlist will contain the Contact Provider
-		// GUID inside the Entryid. To correctly open the Distlist, we have to unwrap this entryid
-		// to get the normal entryid back.
-		if (Zarafa.core.EntryId.hasContactProviderGUID(entryid)) {
-			entryid = Zarafa.core.EntryId.unwrapContactProviderEntryId(entryid);
-		}
+		var entryid = this.getContactMessageEntryId();
 
 		return Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.DistList', {
 			entryid: entryid,
