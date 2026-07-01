@@ -4870,10 +4870,7 @@ class Operations {
 		foreach ($members as $key => $item) {
 			$parts = unpack('Vnull/A16guid/Ctype/a*entryid', (string) $item);
 
-			$memberItem = [];
-			$memberItem['props'] = [];
-			$memberItem['props']['distlist_type'] = $parts['type'];
-
+			$memberItem = ['props' => ['distlist_type' => $parts['type']]];
 			if ($parts['guid'] === hex2bin('812b1fa4bea310199d6e00dd010f5402')) {
 				// custom e-mail address (no user or contact)
 				$oneoff = mapi_parseoneoff($item);
@@ -4903,6 +4900,7 @@ class Operations {
 					$memberItem['props']['display_name'] = $oneoffmembers[$key]['name'];
 					$memberItem['props']['address_type'] = $oneoffmembers[$key]['type'];
 					// distribution lists don't have valid email address so ignore that property
+					
 
 					if ($parts['type'] !== DL_DIST) {
 						$memberItem['props']['email_address'] = $oneoffmembers[$key]['address'];
