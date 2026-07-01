@@ -4899,9 +4899,15 @@ class Operations {
 					$memberItem['props']['entryid'] = bin2hex((string) $parts['entryid']);
 					$memberItem['props']['display_name'] = $oneoffmembers[$key]['name'];
 					$memberItem['props']['address_type'] = $oneoffmembers[$key]['type'];
-					// distribution lists don't have valid email address so ignore that property
-					
 
+					// A contact might erroneously have been saved as a distlist
+					if (($parts['type'] === DL_DIST || $parts['type'] === DL_DIST_AB) &&
+						isset($memberItem['props']['address_type']) &&
+						$memberItem['props']['address_type'] === "SMTP") {
+							$memberItem['props']['distlist_type'] = $parts['type'] = DL_USER;
+					}
+
+					// distribution lists don't have valid email address so ignore that property
 					if ($parts['type'] !== DL_DIST) {
 						$memberItem['props']['email_address'] = $oneoffmembers[$key]['address'];
 
