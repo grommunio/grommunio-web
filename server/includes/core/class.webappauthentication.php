@@ -491,7 +491,7 @@ class WebAppAuthentication {
 
 			exit;
 		}
-
+		header("X-grommunio-Authuser:" . $username);
 		return WebAppAuthentication::login($username, $password);
 	}
 
