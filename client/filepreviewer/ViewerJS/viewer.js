@@ -834,6 +834,9 @@ function Viewer( viewerPlugin, parameters ) {
                     mimetype = xhr.getResponseHeader('content-type');
 
                     if ( mimetype ) {
+                        // The content-type header may carry parameters
+                        // (e.g. "; charset=..."); strip them before matching.
+                        mimetype = mimetype.split(';')[0].trim();
                         pluginRegistry.some(function ( pluginData ) {
                             if ( pluginData.supportsMimetype(mimetype) ) {
                                 matchingPluginData = pluginData;
@@ -846,9 +849,10 @@ function Viewer( viewerPlugin, parameters ) {
                         });
                     }
                 }
-                if ( !matchingPluginData ) {
-                    matchingPluginData = unknownFileType;
-                }
+                // Leave matchingPluginData undefined when the server
+                // content-type matches no plugin, so the caller can fall back
+                // to detection by file extension before resorting to the
+                // unknown-file handler.
                 cb(matchingPluginData);
             }
         };
@@ -953,27 +957,32 @@ function Viewer( viewerPlugin, parameters ) {
 
             // trust the server most
             estimateTypeByHeaderContentType(documentUrl, function ( pluginData ) {
+                // The server content-type did not identify a supported plugin
+                // (e.g. attachments stored with a generic
+                // "application/octet-stream" mime tag). Fall back to detection
+                // by the file extension passed as the "type" parameter, and
+                // finally by the extension guessed from the path.
+                if ( !pluginData && parameters.type ) {
+                    pluginData = estimateTypeByFileExtension(parameters.type);
+                }
                 if ( !pluginData ) {
-                    if ( parameters.type ) {
-                        pluginData = estimateTypeByFileExtension(parameters.type);
-                    } else {
-                        // last ressort: try to guess from path
-                        pluginData = estimateTypeByFileExtensionFromPath(documentUrl);
-                    }
+                    pluginData = estimateTypeByFileExtensionFromPath(documentUrl);
                 }
 
-                if ( pluginData ) {
-                    if ( String(typeof loadPlugin) !== "undefined" ) {
-                        loadPlugin(pluginData.path, function () {
-                            Plugin = pluginData.getClass();
-                            viewer = new Viewer(new Plugin(), parameters);
-                        });
-                    } else {
+                // If nothing recognised the file, fall back to the generic
+                // handler that offers a download link.
+                if ( !pluginData ) {
+                    pluginData = unknownFileType;
+                }
+
+                if ( String(typeof loadPlugin) !== "undefined" ) {
+                    loadPlugin(pluginData.path, function () {
                         Plugin = pluginData.getClass();
                         viewer = new Viewer(new Plugin(), parameters);
-                    }
+                    });
                 } else {
-                    viewer = new Viewer();
+                    Plugin = pluginData.getClass();
+                    viewer = new Viewer(new Plugin(), parameters);
                 }
             });
         } else {
