@@ -358,12 +358,10 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 
 		var storeName = mapiStore.get('display_name');
 		var folderName = folder.get('display_name');
-		var folderId = folder.get('entryid');
 		var formattedTitle = '';
 		var emptyText = '';
 		var isIPMSubTree = folder.isIPMSubTree();
-		var defaultCalendarId = mapiStore.get('default_folder_calendar');
-		var isAppointmentDialog = folder.isContainerClass('IPF.Appointment', true) && defaultCalendarId === folderId;
+		var isAppointmentDialog = folder.isContainerClass('IPF.Appointment', true);
 
 		if (mapiStore.isDefaultStore() || isIPMSubTree) {
 			var text = isIPMSubTree ? storeName : folderName;
