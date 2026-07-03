@@ -39,7 +39,7 @@ class ConfigCheck {
 		# When save_path is left unset/empty, ini_get reports it as empty,
 		# even though PHP uses some directory anyway (usually /tmp).
 		$sp = ini_get("session.save_path");
-		if (strlen($sp) > 0 && !$this->checkDirectory(
+		if (ini_get("session.save_handler") === 'files' && strlen($sp) > 0 && !$this->checkDirectory(
 			$sp,
 			"w",
 			"session.save_path is not writable. This means PHP is practically running stateless, which is incompatible with the requirements of grommunio-web."

@@ -736,8 +736,9 @@ if (!defined("USE_HTML_EMAIL_PREVIEW")) {
 	define("USE_HTML_EMAIL_PREVIEW", true);
 }
 
-	// Whether to show the Logout button in grommunio-web (true or false).
-	// Show per default.
-	if (!defined('SHOW_LOGOUT_BUTTON')) {
-		define('SHOW_LOGOUT_BUTTON', true);
-	}
+// Whether to show the Logout button in grommunio-web (true or false).
+// Show per default.
+if (!defined('SHOW_LOGOUT_BUTTON')) {
+	define('SHOW_LOGOUT_BUTTON', true);
+}
+
