@@ -24,7 +24,7 @@ Zarafa.contact.printer.DistlistRenderer = Ext.extend(Zarafa.common.printer.rende
 		html += _('Members') + '\n';
 		html += '<table>\n';
 		html += '<tpl for="members">\n';
-		html += this.addRow('', '{display_name:undef}');
+		html += this.addRow('', '{display_name:undef}', '{smtp_address:undef}');
 		html += '</tpl>\n';
 		html += '</table><br><p>\n';
 		html += record.getBody(true);
@@ -47,6 +47,13 @@ Zarafa.contact.printer.DistlistRenderer = Ext.extend(Zarafa.common.printer.rende
 			// will save the escaped data to the distlist.
 			data.members[i] = Ext.apply({}, data.members[i]);
 			var member = data.members[i];
+
+			// Users and one-off members expose their address in 'smtp_address',
+			// but fall back to 'email_address' so an address is printed whenever
+			// one is known. Nested distribution lists have no address and are
+			// left blank.
+			member.smtp_address = member.smtp_address || member.email_address || '';
+
 			for (var key in member) {
 				if(Ext.isString(member[key])) {
 					member[key] = Ext.util.Format.htmlEncode(member[key]);
