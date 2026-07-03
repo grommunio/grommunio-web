@@ -784,7 +784,7 @@ class ListModule extends Module {
 		}
 		catch (MAPIException $e) {
 			$msg = "Unable to open FINDER_ROOT for store: %s.";
-			error_log(sprintf($msg, $storeProps[PR_DISPLAY_NAME]));
+			error_log(sprintf($msg, $storeProps[PR_DISPLAY_NAME]) . ": " . $e->getMessage());
 			// don't propagate the event to higher level exception handlers
 			$e->setHandled();
 		}
