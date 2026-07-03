@@ -208,7 +208,12 @@ class CreateMailItemModule extends ItemModule {
 				$copyFromMessage = false;
 
 				if ($copyFromStore && $copyMessageBinary !== false) {
-					$copyFromMessage = $GLOBALS['operations']->openMessage($copyFromStore, $copyMessageBinary, $copyFromAttachNum);
+					try {
+						$copyFromMessage = $GLOBALS['operations']->openMessage($copyFromStore, $copyMessageBinary, $copyFromAttachNum);
+					}
+					catch (MAPIException $e) {
+						$copyFromMessage = false;
+					}
 				}
 
 				if ($copyFromStore && $send) {
