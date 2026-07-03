@@ -791,7 +791,7 @@ class MAPISession {
 					if ($e->getCode() == MAPI_E_NOT_FOUND) {
 						// The user or the corresponding store couldn't be found,
 						// print an error to the log, and remove the user from the settings.
-						dump('Failed to load store for user ' . $username . ', user was not found. Removing it from settings.');
+						dump('Failed to load store for user ' . $username . ', user was not found. Removing it from settings.' . ': ' . $e->getMessage());
 						$GLOBALS["settings"]->delete("zarafa/v1/contexts/hierarchy/shared_stores/" . bin2hex($username), true);
 					}
 					else {

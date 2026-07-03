@@ -799,7 +799,7 @@ class Operations {
 				}
 				catch (MAPIException $e) {
 					$msg = "Problem in deleting search folder while reset settings. MAPI Error %s.";
-					$formattedMsg = sprintf($msg, get_mapi_error_name($e->getCode()));
+					$formattedMsg = sprintf($msg, get_mapi_error_name($e->getCode())) . ": " . $e->getMessage();
 					error_log($formattedMsg);
 					Log::Write(LOGLEVEL_ERROR, "Operations:setDefaultFavoritesFolder() " . $formattedMsg);
 				}
@@ -3104,7 +3104,7 @@ class Operations {
 					}
 				}
 				catch (MAPIException $e) {
-					error_log('submitMessage: failed to clean up message after SendAs mismatch: ' . get_mapi_error_name($e->getCode()));
+					error_log('submitMessage: failed to clean up message after SendAs mismatch: ' . get_mapi_error_name($e->getCode()) . ': ' . $e->getMessage());
 					$e->setHandled();
 				}
 
@@ -3120,7 +3120,7 @@ class Operations {
 						}
 					}
 					catch (MAPIException $e) {
-						error_log('submitMessage: failed to clean up Sent Items copy after SendAs mismatch: ' . get_mapi_error_name($e->getCode()));
+						error_log('submitMessage: failed to clean up Sent Items copy after SendAs mismatch: ' . get_mapi_error_name($e->getCode()) . ': ' . $e->getMessage());
 						$e->setHandled();
 					}
 				}

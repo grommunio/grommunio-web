@@ -157,7 +157,7 @@ class TodoList {
 			}
 
 			// Something went wrong, inform the administrator
-			error_log(sprintf("Unable to open 'To-do Search' for user: %s", $GLOBALS["mapisession"]->getUserName()));
+			error_log(sprintf("Unable to open 'To-do Search' for user: %s", $GLOBALS["mapisession"]->getUserName()) . ": " . $e->getMessage());
 
 			return null;
 		}

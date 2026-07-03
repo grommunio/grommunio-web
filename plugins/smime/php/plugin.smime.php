@@ -342,8 +342,8 @@ class Pluginsmime extends Plugin {
 		catch (MAPIException $exception) {
 			$exception->setHandled();
 			$msg = "[smime] Unable to open PR_SENT_REPRESENTING_ENTRYID. Maybe %s does not exist or was deleted from server.";
-			Log::write(LOGLEVEL_ERROR, sprintf($msg, $userProps[PR_SENT_REPRESENTING_NAME] ?? ''));
-			error_log("[smime] Unable to open PR_SENT_REPRESENTING_NAME: " . var_export($userProps[PR_SENT_REPRESENTING_NAME] ?? null, true));
+			Log::write(LOGLEVEL_ERROR, sprintf($msg, $userProps[PR_SENT_REPRESENTING_NAME] ?? '') . ": " . $exception->getMessage());
+			error_log("[smime] Unable to open PR_SENT_REPRESENTING_NAME: " . var_export($userProps[PR_SENT_REPRESENTING_NAME] ?? null, true) . ": " . $exception->getMessage());
 			$this->message['success'] = SMIME_NOPUB;
 			$this->message['info'] = SMIME_USER_DETECT_FAILURE;
 		}
