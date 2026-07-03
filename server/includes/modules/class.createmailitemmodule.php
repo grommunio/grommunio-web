@@ -156,19 +156,7 @@ class CreateMailItemModule extends ItemModule {
 	 * @return bool
 	 */
 	private function shouldPersistMessage($send, array $action, array $attachments, array $recipients) {
-		if ($send) {
-			return true;
-		}
-
-		if (!empty($action['props'])) {
-			return true;
-		}
-
-		if ($this->hasAttachmentChanges($attachments)) {
-			return true;
-		}
-
-		return !empty($recipients);
+		return $send || !empty($action['props']) || $this->hasAttachmentChanges($attachments) || !empty($recipients);
 	}
 
 	/**
