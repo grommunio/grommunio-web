@@ -109,12 +109,12 @@ clearartifacts:
 	find $(DESTDIR) -iname "*license*.txt" -exec rm -f {} \;
 	find $(DESTDIR) -iname "*gpl*.txt" -exec rm -f {} \;
 
-js: $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(JSDEPLOY)/grommunio.js $(JSDEPLOY)/extjs-mod/extjs-mod.js $(JSDEPLOY)/extjs/ext-base-all.js $(DESTDIR)/client/third-party/ux-thirdparty.js $(DEPLOYPURIFYJS) $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.sandbox.js $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.worker.js $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.js $(JSDEPLOY)/filepreviewer/pdfjs/web/viewer.js $(JSDEPLOY)/filepreviewer/ViewerJS/ImageViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/MultimediaViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/ODFViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/UnknownFilePlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/viewer.js $(JSDEPLOY)/filepreviewer/ViewerJS/video-js/video.js
+js: $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(JSDEPLOY)/grommunio.js $(JSDEPLOY)/extjs-mod/extjs-mod.js $(JSDEPLOY)/extjs/ext-base-all.js $(DESTDIR)/client/third-party/ux-thirdparty.js $(DEPLOYPURIFYJS) $(JSDEPLOY)/filepreviewer/ViewerJS/ImageViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/MultimediaViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/ODFViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/DocxViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/XlsxViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/vendor/jszip.min.js $(JSDEPLOY)/filepreviewer/ViewerJS/vendor/docx-preview.min.js $(JSDEPLOY)/filepreviewer/ViewerJS/vendor/xlsx.full.min.js $(JSDEPLOY)/filepreviewer/ViewerJS/UnknownFilePlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/viewer.js $(JSDEPLOY)/filepreviewer/ViewerJS/video-js/video.js
 	cp -rn client/tinymce $(DESTDIR)/client/
 	cp -rn client/tinymce-languages $(DESTDIR)/client/
 	cp -rn client/extjs $(DESTDIR)/client/
 	cp -rn client/filepreviewer $(DESTDIR)/client/
-	rm $(DESTDIR)/client/extjs/ext-base.js $(DESTDIR)/client/extjs/ext-base-debug.js $(DESTDIR)/client/extjs/ext-all.js $(DESTDIR)/client/filepreviewer/pdfjs/web/debugger.js
+	rm $(DESTDIR)/client/extjs/ext-base.js $(DESTDIR)/client/extjs/ext-base-debug.js $(DESTDIR)/client/extjs/ext-all.js
 
 $(DESTDIR)/%.php: %.php
 	${PHP} -l $<
@@ -163,34 +163,6 @@ $(JSDEPLOY)/resize.js: client/resize.js
 		--source-map "url='$(shell basename $@.map)'" \
 	        $(JSOPTIONS)
 
-$(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.worker.js: client/filepreviewer/pdfjs/build/pdf.worker.js
-	mkdir -p $(JSDEPLOY)/filepreviewer/pdfjs/build
-	cat $^ > $(@:.js=-debug.js)
-	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
-		--source-map "url='$(shell basename $@.map)'" \
-	        $(JSOPTIONS)
-
-$(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.sandbox.js: client/filepreviewer/pdfjs/build/pdf.sandbox.js
-	mkdir -p $(JSDEPLOY)/filepreviewer/pdfjs/build
-	cat $^ > $(@:.js=-debug.js)
-	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
-		--source-map "url='$(shell basename $@.map)'" \
-	        $(JSOPTIONS)
-
-$(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.js: client/filepreviewer/pdfjs/build/pdf.js
-	mkdir -p $(JSDEPLOY)/filepreviewer/pdfjs/build
-	cat $^ > $(@:.js=-debug.js)
-	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
-		--source-map "url='$(shell basename $@.map)'" \
-	        $(JSOPTIONS)
-
-$(JSDEPLOY)/filepreviewer/pdfjs/web/viewer.js: client/filepreviewer/pdfjs/web/viewer.js
-	mkdir -p $(JSDEPLOY)/filepreviewer/pdfjs/web
-	cat $^ > $(@:.js=-debug.js)
-	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
-		--source-map "url='$(shell basename $@.map)'" \
-	        $(JSOPTIONS)
-
 $(JSDEPLOY)/filepreviewer/ViewerJS/ImageViewerPlugin.js: client/filepreviewer/ViewerJS/ImageViewerPlugin.js
 	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS
 	cat $^ > $(@:.js=-debug.js)
@@ -211,6 +183,27 @@ $(JSDEPLOY)/filepreviewer/ViewerJS/ODFViewerPlugin.js: client/filepreviewer/View
 	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
 		--source-map "url='$(shell basename $@.map)'" \
 	        $(JSOPTIONS)
+
+$(JSDEPLOY)/filepreviewer/ViewerJS/DocxViewerPlugin.js: client/filepreviewer/ViewerJS/DocxViewerPlugin.js
+	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS
+	cat $^ > $(@:.js=-debug.js)
+	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
+		--source-map "url='$(shell basename $@.map)'" \
+	        $(JSOPTIONS)
+
+$(JSDEPLOY)/filepreviewer/ViewerJS/XlsxViewerPlugin.js: client/filepreviewer/ViewerJS/XlsxViewerPlugin.js
+	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS
+	cat $^ > $(@:.js=-debug.js)
+	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
+		--source-map "url='$(shell basename $@.map)'" \
+	        $(JSOPTIONS)
+
+# Pre-minified third-party viewer libraries (docx-preview + JSZip for .docx,
+# SheetJS for .xlsx). These ship already minified, so they are copied verbatim
+# rather than run through the minifier.
+$(JSDEPLOY)/filepreviewer/ViewerJS/vendor/%.js: client/filepreviewer/ViewerJS/vendor/%.js
+	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS/vendor
+	cp $< $@
 
 $(JSDEPLOY)/filepreviewer/ViewerJS/UnknownFilePlugin.js: client/filepreviewer/ViewerJS/UnknownFilePlugin.js
 	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS

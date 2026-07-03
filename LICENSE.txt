@@ -267,7 +267,25 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ===============================================================================
 PDF.js
-Copyright (C) Mozilla and individual contributors 
+Copyright (C) Mozilla and individual contributors
+
+Licensed under the Apache License, version 2.0.
+
+===============================================================================
+docx-preview
+Copyright (C) Volodymyr Baydalka
+
+Licensed under the Apache License, version 2.0.
+
+===============================================================================
+JSZip
+Copyright (C) 2009-2016 Stuart Knightley and contributors
+
+Licensed under the MIT license.
+
+===============================================================================
+SheetJS
+Copyright (C) 2012-present SheetJS LLC
 
 Licensed under the Apache License, version 2.0.
 

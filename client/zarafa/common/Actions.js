@@ -1467,7 +1467,7 @@ Zarafa.common.Actions = {
 	 */
 	isSupportedDocument: function (path)
 	{
-		return path.match(/^.*\.(pdf|od[tps]|jpg|jpeg|png|bmp|gif|mp4|mp3|ogg|webm|wav)$/i) ? true : false;
+		return path.match(/^.*\.(pdf|od[tps]|docx|xlsx|jpg|jpeg|png|bmp|gif|mp4|mp3|ogg|webm|wav)$/i) ? true : false;
 	},
 
 	/**

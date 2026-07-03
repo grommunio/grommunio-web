@@ -27,6 +27,11 @@ See https://github.com/adobe-type-tools/cmap-resources
     <meta name="google" content="notranslate" />
     <title>PDF.js viewer</title>
 
+  <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self' blob:; style-src 'self'; img-src 'self' blob: data:; media-src blob:; font-src 'self' data:; connect-src * blob: data:; base-uri 'none'; form-action 'none';"
+    />
+
 <!-- This snippet is used in production (included from viewer.html) -->
 <link rel="resource" type="application/l10n" href="locale/locale.json" />
 <script src="../build/pdf.mjs" type="module"></script>
@@ -105,7 +110,7 @@ See https://github.com/adobe-type-tools/cmap-resources
                         hidden="true"
                       >
                         <span data-l10n-id="pdfjs-views-manager-add-file-button-label"></span>
-                        <input id="viewsManagerAddFilePicker" type="file" accept="application/pdf" />
+                        <input id="viewsManagerAddFilePicker" type="file" accept="application/pdf,image/*" multiple />
                       </button>
                       <button
                         id="viewsManagerCurrentOutlineButton"
@@ -1172,7 +1177,7 @@ See https://github.com/adobe-type-tools/cmap-resources
           </div>
         </dialog>
 
-        <dialog id="printServiceDialog" style="min-width: 200px">
+        <dialog id="printServiceDialog">
           <div class="row">
             <span data-l10n-id="pdfjs-print-progress-message"></span>
           </div>

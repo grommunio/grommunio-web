@@ -169,7 +169,7 @@ Zarafa.common.previewer.ui.ViewerContainer = Ext.extend(Zarafa.core.ui.ContentPa
 				// Replace the hashes because otherwise pdfjs viewer will strip everything after it.
 				url += '&filename=' + this.title.replace('#', '-') + '&locale=' + pdfJSlang;
 				return root + this.pdfjsPath + '?file=' + encodeURIComponent(url) + options;
-			} else if((/(od[tps])$/i).test(extension)) {
+			} else if((/(od[tps]|docx|xlsx)$/i).test(extension)) {
 				options += '?zoom=' + container.getSettingsModel().get('zarafa/v1/main/file_previewer/odf_zoom') + '&locale=' + pdfJSlang;
 			} else {
 				// ViewerJS does not provide zooming options for images, instead sets the width. 
@@ -252,7 +252,9 @@ Zarafa.common.previewer.ui.ViewerContainer = Ext.extend(Zarafa.core.ui.ContentPa
 			}
 		});
 
-		var download = frameDom.getElementById('download');
+		// The pdf.js viewer download button is 'downloadButton' (pdf.js >= 4);
+		// fall back to the legacy 'download' id for older viewer builds.
+		var download = frameDom.getElementById('downloadButton') || frameDom.getElementById('download');
 		if (download) {
 			download = Ext.get(download);
 			download.on('click', function () {
