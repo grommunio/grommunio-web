@@ -39,6 +39,14 @@
 	// Set to 0 (or remove) for no timeout during browser session.
 	define("CLIENT_TIMEOUT", 0);
 
+	// Handler which is used for storing and retrieving data associated with a session.
+	define("SESSION_SAVE_HANDLER", "files");
+	ini_set("session.save_handler", SESSION_SAVE_HANDLER);
+
+	// Path where the session associated data is saved.
+	define("SESSION_SAVE_PATH", "/var/lib/grommunio-web/session");
+	ini_set("session.save_path", SESSION_SAVE_PATH);
+
 	// Defines the domains from which cross domain authentication requests
 	// are allowed. E.g. if WebMeetings runs under a different domain than
 	// the grommunio Web then add this domain here. Add http(s):// to the domains
