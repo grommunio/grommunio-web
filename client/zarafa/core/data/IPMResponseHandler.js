@@ -25,6 +25,17 @@ Zarafa.core.data.IPMResponseHandler = Ext.extend(Zarafa.core.data.ProxyResponseH
 		if (response.page) {
 			this.metaData.page = Ext.apply({}, response.page);
 		}
+		if (response.warning) {
+			this.metaData.warning = Ext.apply({}, response.warning);
+			if (response.warning.display_message) {
+				container.getNotifier().notify(
+					'warning.list',
+					response.warning.title || _('Warning'),
+					response.warning.display_message,
+					{ persistent: true }
+				);
+			}
+		}
 		this.receivedRecords = this.readRecordsFromResponse(response, 'item');
 	},
 
