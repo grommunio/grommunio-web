@@ -35,6 +35,16 @@ class AppointmentListModule extends ListModule {
 	protected $tzEffRuleIdx;
 
 	/**
+	 * @var int number of appointments skipped while processing a list request
+	 */
+	private $skippedCount = 0;
+
+	/**
+	 * @var string first skipped appointment subjects to include in the client message
+	 */
+	private $skippedInfo = "";
+
+	/**
 	 * Constructor.
 	 *
 	 * @param int   $id   unique id
@@ -109,6 +119,8 @@ class AppointmentListModule extends ListModule {
 		// initialize start and due date with false value so it will not take values from previous request
 		$this->startdate = false;
 		$this->enddate = false;
+		$this->skippedCount = 0;
+		$this->skippedInfo = "";
 
 		if (isset($action["restriction"])) {
 			if (isset($action["restriction"]["startdate"])) {
@@ -154,6 +166,7 @@ class AppointmentListModule extends ListModule {
 				$data["item"] = $this->getCalendarItems($store, $entryid, $this->startdate, $this->enddate);
 			}
 
+			$this->addSkippedInfo($data);
 			$this->addActionData("list", $data);
 			$GLOBALS["bus"]->addData($this->getResponseData());
 
@@ -248,8 +261,49 @@ class AppointmentListModule extends ListModule {
 			]);
 		}
 
+		$this->addSkippedInfo($data);
 		$this->addActionData($actionType, $data);
 		$GLOBALS["bus"]->addData($this->getResponseData());
+	}
+
+	/**
+	 * Adds an informational message to the list response when appointments were skipped.
+	 *
+	 * @param array $data list response data
+	 */
+	private function addSkippedInfo(&$data) {
+		if ($this->skippedCount === 0) {
+			return;
+		}
+
+		$displayMessage = sprintf(_("There were %d skipped appointment(s):"), $this->skippedCount);
+
+		if (!empty($this->skippedInfo)) {
+			$displayMessage .= $this->skippedInfo;
+		}
+
+		if ($this->skippedCount > 5) {
+			$displayMessage .= "<br/>" . _("More skipped appointments are not shown.");
+		}
+
+		$data["warning"] = [
+			"display_message" => $displayMessage,
+		];
+	}
+
+	/**
+	 * Tracks skipped appointments and stores the first few subjects for client feedback.
+	 *
+	 * @param string $subject appointment properties from the MAPI table
+	 */
+	private function recordSkipped($subject) {
+		++$this->skippedCount;
+
+		if ($this->skippedCount >= 5) {
+			return;
+		}
+
+		$this->skippedInfo .= "<br/>- " . htmlspecialchars((string) $subject, ENT_QUOTES | ENT_SUBSTITUTE, "UTF-8");
 	}
 
 	/**
@@ -402,15 +456,21 @@ class AppointmentListModule extends ListModule {
 
 			// Fix for all-day events which have a different timezone than the user's browser
 			$recurrence = new Recurrence($store, $calendaritem, $proptags);
+
 			try {
 				$recuritems = $recurrence->getItems($start, $end);
 			}
 			catch (RecurrenceException $re) {
-				error_log(sprintf("processItems RecurrenceException (%d) for item '%s' - %s - %s",
+				$subject = $calendaritem[$this->properties["subject"]] ?? '<empty subject>';
+				error_log(sprintf(
+					"processItems RecurrenceException (%d) for item '%s' - %s - %s",
 					$re->getCode(),
-					$calendaritem[$this->properties["subject"]] ?? '<empty subject>',
+					$subject,
 					bin2hex($calendaritem[$this->properties["entryid"]]),
-					bin2hex($calendaritem[$this->properties["recurring_data"]])));
+					bin2hex($calendaritem[$this->properties["recurring_data"]])
+				));
+				$this->recordSkipped($subject);
+
 				continue;
 			}
 			$msgRecurrence = null;
@@ -465,6 +525,7 @@ class AppointmentListModule extends ListModule {
 		}
 
 		usort($items, ["AppointmentListModule", "compareCalendarItems"]);
+
 		return $items;
 	}
 
