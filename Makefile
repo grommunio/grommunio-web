@@ -33,7 +33,7 @@ POS = $(wildcard server/language/*/LC_MESSAGES/grommunio_web.po)
 MOS = $(patsubst %.po,$(DESTDIR)/%.mo,$(POS))
 INCLUDES = $(sort $(shell find server/includes -name '*.php'))
 PHPFILES = $(filter-out $(DESTDIR)/config.php, $(filter-out $(DESTDIR)/debug.php, $(patsubst %.php,$(DESTDIR)/%.php,$(wildcard *.php) $(INCLUDES))))
-SERVERROOTFILES = $(addprefix $(DESTDIR)/,server/manifest.dtd)
+SERVERROOTFILES = $(addprefix $(DESTDIR)/,server/manifest.dtd manifest.webmanifest)
 IS_SUPPORTED_BUILD ?= $(if $(filter 1, $(SUPPORTED_BUILD)), supported validate-supported)
 
 # Client files

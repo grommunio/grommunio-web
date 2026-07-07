@@ -14,6 +14,7 @@
 
 		<link rel="icon" href="<?php echo $favicon; ?>" type="image/x-icon">
 		<link rel="shortcut icon" href="<?php echo $favicon; ?>" type="image/x-icon">
+		<link rel="manifest" href="manifest.webmanifest">
 
 		<link rel="stylesheet" type="text/css" href="client/resources/css/external/login.css">
 		<link rel="stylesheet" type="text/css" href="client/resources/css/darkmode.css">
