@@ -296,6 +296,15 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 	 */
 	saveRecord: function(storeSave)
 	{
+		// Safety net: a read-only item must never reach the server (it would be
+		// rejected with "Insufficient Privileges"). The editing controls are
+		// already disabled, so this only triggers via a keyboard shortcut.
+		if (this.record && this.record.isReadOnlyRecord()) {
+			container.getNotifier().notify('error', _('Insufficient privileges'), _('You do not have permission to modify this item.'));
+
+			return false;
+		}
+
 		// Before saving a meeting request, check if the attendees were already
 		// invited. If they are, then we _must_ send a meeting update to those
 		// attendees. If the organizer doesn't want that, we will not save
@@ -340,12 +349,36 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 	 */
 	sendRecord: function()
 	{
+		if (this.record && this.record.isReadOnlyRecord()) {
+			container.getNotifier().notify('error', _('Insufficient privileges'), _('You do not have permission to modify this item.'));
+
+			return false;
+		}
+
 		if(!this.record.isMeeting()) {
 			// can not send a non meeting record
 			return;
 		}
 
 		return Zarafa.calendar.dialogs.AppointmentContentPanel.superclass.sendRecord.apply(this, arguments);
+	},
+
+	/**
+	 * Delete the {@link #record}, unless the user lacks delete rights on it.
+	 * A safety net for the toolbar and keyboard delete actions so that a
+	 * read-only item cannot trigger a server-side "Insufficient Privileges"
+	 * error. New (phantom) records can always be discarded.
+	 * @overridden
+	 */
+	deleteRecord: function()
+	{
+		if (this.record && !this.record.phantom && !this.record.hasDeleteAccess()) {
+			container.getNotifier().notify('error', _('Insufficient privileges'), _('You do not have permission to delete this item.'));
+
+			return;
+		}
+
+		return Zarafa.calendar.dialogs.AppointmentContentPanel.superclass.deleteRecord.apply(this, arguments);
 	},
 
 	/**

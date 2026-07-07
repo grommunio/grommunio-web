@@ -354,6 +354,7 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 			tooltip: _('Open the categories dialog'),
 			cls: 'tb-calendar-btn-categories',
 			iconCls: 'icon_categories',
+			ref: 'categoriesButton',
 			handler: this.onCategories,
 			scope: this
 		},{
@@ -690,8 +691,9 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 			this.highPriority.setVisible(true);
 			this.lowPriority.setVisible(true);
 
-			// Only enable delete button when it is not a phantom
-			this.deleteAppointment.setDisabled(record.phantom === true);
+			// Only enable delete button when it is not a phantom and the user
+			// actually has delete rights on the item.
+			this.deleteAppointment.setDisabled(record.phantom === true || !record.hasDeleteAccess());
 
 			if (contentReset === true || record.isModifiedSinceLastUpdate('recurring')) {
 				if (Ext.isEmpty(record.get('basedate'))) {
@@ -798,6 +800,52 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 		if (layout === true) {
 			this.doLayout();
 		}
+
+		// Runs last so it wins over the meeting-status visibility switch and the
+		// priority/private toggles above.
+		this.applyReadOnlyState(record);
+	},
+
+	/**
+	 * Disable every button which modifies the record when the given record is
+	 * read-only (see {@link Zarafa.core.data.MAPIRecord#isReadOnlyRecord}).
+	 * Read-only actions (print, reply, forward, view in calendar) stay enabled,
+	 * and the delete button keeps its own delete-rights based state. It is a
+	 * no-op for records the user is allowed to modify.
+	 * @param {Zarafa.core.data.IPMRecord} record The record to check
+	 * @private
+	 */
+	applyReadOnlyState: function(record)
+	{
+		// Only decide once the record is opened: a not-yet-opened record may
+		// still carry the default (read) access instead of its authoritative
+		// PR_ACCESS, which would otherwise wrongly freeze dialogs whose record
+		// is built client-side (e.g. accepting a proposed meeting time).
+		if (!record.isOpened() || !record.isReadOnlyRecord()) {
+			return;
+		}
+
+		var writeButtons = [
+			this.sendInvitation, this.saveAppointment, this.saveMeeting,
+			this.checkNames, this.addressbookBtn, this.inviteAttendees,
+			this.cancelInvitation, this.recurrence, this.highPriority,
+			this.lowPriority, this.setPrivate, this.categoriesButton,
+			this.normalAttachmentsButton
+		];
+		Ext.each(writeButtons, function(button) {
+			if (button) {
+				button.setDisabled(true);
+			}
+		});
+
+		// Disable the meeting-response actions (Accept/Tentative/Decline/...)
+		// which would write to the calendar, but keep the navigation-only
+		// "View in calendar" button usable.
+		Ext.each(this.findByType('zarafa.meetingrequestbutton'), function(button) {
+			if (button !== this.calendarButton) {
+				button.setDisabled(true);
+			}
+		}, this);
 	}
 });
 

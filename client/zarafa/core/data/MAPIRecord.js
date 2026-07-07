@@ -1019,6 +1019,26 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	},
 
 	/**
+	 * @returns {boolean} True if the store granted MAPI_ACCESS_MODIFY on this item.
+	 */
+	hasModifyAccess: function ()
+	{
+		return (this.get('access') & Zarafa.core.mapi.Access.ACCESS_MODIFY) > 0;
+	},
+
+	/**
+	 * Determine if this is a persisted item which the user is not allowed to modify.
+	 * Phantom (new, unsaved) records are always editable. Items opened from a
+	 * read-only shared folder (and embedded sub-messages, which carry no
+	 * PR_ACCESS) lack MAPI_ACCESS_MODIFY and are therefore read-only.
+	 * @returns {boolean} True if the record may not be modified.
+	 */
+	isReadOnlyRecord: function ()
+	{
+		return !this.phantom && !this.hasModifyAccess();
+	},
+
+	/**
 	 * Event handler for the 'datachanged' event of {@link Ext.data.Store store}
 	 * When we have modal dialog open and if we receive a new email then modified, store
 	 * and sub store of the selected records are not accessible anymore,

@@ -202,12 +202,14 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			autoHeight: false,
 			items: [{
 				xtype: 'button',
+				ref: '../toButton',
 				autoHeight: true,
 				text: _('To') + ':',
 				handler: this.showRecipientContent,
 				scope: this
 			},{
 				xtype: 'zarafa.recipientfield',
+				ref: '../recipientField',
 				fieldLabel: _('To'),
 				plugins: [ 'zarafa.recordcomponentupdaterplugin' ],
 				flex: 1
@@ -779,6 +781,12 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 		this.updateUI(record, contentReset);
 		this.getForm().loadRecord(record);
 
+		// Freeze the whole form for read-only items. This runs after updateUI()
+		// and loadRecord() (which re-enable fields for editable records) so it
+		// only ever tightens the UI, and before the sub-message early-return
+		// below so embedded appointments are frozen too.
+		this.applyReadOnlyState(record);
+
 		var startDate = record.get('startdate');
 		var startDateUpdate = false;
 		if (Ext.isDate(startDate)) {
@@ -885,6 +893,54 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				}
 			}
 		}
+	},
+
+	/**
+	 * Make all editable controls in this tab non-editable when the given record
+	 * is read-only (see {@link Zarafa.core.data.MAPIRecord#isReadOnlyRecord}).
+	 * This is applied on top of the normal {@link #update} logic, so it only
+	 * ever tightens the UI and never re-enables a control. It is a no-op for
+	 * records the user is allowed to modify.
+	 * @param {Zarafa.core.data.IPMRecord} record The record to check
+	 * @private
+	 */
+	applyReadOnlyState: function(record)
+	{
+		// Only decide once the record is opened: a not-yet-opened record may
+		// still carry the default (read) access instead of its authoritative
+		// PR_ACCESS, which would otherwise wrongly freeze dialogs whose record
+		// is built client-side (e.g. accepting a proposed meeting time).
+		if (!record.isOpened() || !record.isReadOnlyRecord()) {
+			return;
+		}
+
+		var form = this.getForm();
+		Ext.each(['subject', 'location', 'alldayevent', 'reminder'], function(name) {
+			var field = form.findField(name);
+			if (field) {
+				field.setDisabled(true);
+			}
+		});
+
+		this.datetimePeriod.disable();
+		this.comboReminder.setDisabled(true);
+		this.comboBusyStatus.setDisabled(true);
+		this.comboCreateIn.setDisabled(true);
+
+		if (this.recipientField) {
+			this.recipientField.setDisabled(true);
+		}
+		if (this.toButton) {
+			this.toButton.setDisabled(true);
+		}
+
+		this.normalAttachmentsButton.setDisabled(true);
+		this.attachField.setEditable(false);
+
+		// Keep the body visible (so it can be read/copied) but non-editable.
+		// setAllowEdit(false) also removes the double-click-to-edit escape hatch.
+		this.editorField.setAllowEdit(false);
+		this.editorField.setReadOnly(true);
 	},
 
 	/**
