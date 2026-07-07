@@ -1,15 +1,31 @@
 {
 	"name": "grommunio Web",
-	"short_name": "grommunio",
-	"start_url": "./",
+	"short_name": "grommunioWeb",
+	"description": "A web client written in PHP that makes use of HTML5, JSON and ExtJS to allow users to make full use of grommunio through a web browser.",
+	"categories": ["productivity", "business"],
+	"start_url": "/",
 	"display": "standalone",
 	"theme_color": "#2dcaff",
+	"background_color": "#ffffff",
+	"scope": "/",
 	"icons": [
 		{
-			"src": "client/resources/images/grommunio-pwa.svg",
+			"src": "client/resources/images/grommunio_icon.svg",
 			"sizes": "any",
 			"type": "image/svg+xml",
-			"purpose": "any maskable"
+			"purpose": "maskable"
+		},
+		{
+			"src": "client/resources/images/grommunio_icon_192.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "client/resources/images/grommunio_icon_512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any"
 		}
 	]
 }
