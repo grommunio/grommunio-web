@@ -285,13 +285,32 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 	},
 
 	/**
+	 * Returns the records a single-message action (open, reply, forward, ...)
+	 * of this menu should act on. When the menu was opened for a conversation
+	 * header, such actions act on the newest message of the conversation
+	 * instead of on every message of it.
+	 *
+	 * @return {Zarafa.core.data.IPMRecord[]} The records to act on.
+	 * @private
+	 */
+	getResponseRecords: function()
+	{
+		if (this.conversationHeader === true && !Ext.isEmpty(this.records)) {
+			// The conversation items are ordered newest first.
+			return [ this.records[0] ];
+		}
+
+		return this.records;
+	},
+
+	/**
 	 * Event handler which is called when the user selects the 'Open in window'
 	 * item in the context menu. This will open the item in a new browser window.
 	 * @private
 	 */
 	onContextItemOpen: function()
 	{
-		Zarafa.common.Actions.openMessageContent(this.records);
+		Zarafa.common.Actions.openMessageContent(this.getResponseRecords());
 	},
 
 	/**
@@ -311,19 +330,21 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 	 */
 	onContextItemResponse: function(button)
 	{
+		var records = this.getResponseRecords();
+
 		// For meeting request messages, the Forward action should do a
 		// proper meeting forward (address book selection) rather than
 		// a plain email forward.
 		if (button.responseMode === Zarafa.mail.data.ActionTypes.FORWARD &&
-			this.records.length === 1) {
-			var messageClass = this.records[0].get('message_class') || '';
+			records.length === 1) {
+			var messageClass = records[0].get('message_class') || '';
 			if (messageClass.indexOf('IPM.Schedule.Meeting') === 0 &&
 				messageClass.indexOf('IPM.Schedule.Meeting.Notification') !== 0) {
-				Zarafa.calendar.Actions.openForwardMeetingRequestContent(this.records[0]);
+				Zarafa.calendar.Actions.openForwardMeetingRequestContent(records[0]);
 				return;
 			}
 		}
-		Zarafa.mail.Actions.openCreateMailResponseContent(this.records, this.model, button.responseMode);
+		Zarafa.mail.Actions.openCreateMailResponseContent(records, this.model, button.responseMode);
 	},
 
 	/**

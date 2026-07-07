@@ -60,6 +60,15 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
+	 * @return {Boolean} True if the conversation view may be used
+	 * (administrative kill-switch, see ENABLE_CONVERSATION_VIEW in config.php)
+	 */
+	isConversationViewEnabled: function()
+	{
+		return this.meta.enable_conversation_view !== false;
+	},
+
+	/**
 	 * @return {Boolean} True if grommunio Web is using Single Sign-On to login
 	 */
 	usingSSO: function()

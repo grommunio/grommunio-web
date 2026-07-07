@@ -169,7 +169,158 @@ Zarafa.advancesearch.ui.SearchResultPreviewPanel = Ext.extend(Zarafa.core.ui.Pre
 			return;
 		}
 
+		// Show the entire conversation of a mail search result. The search
+		// store has no conversation structure, so the complete membership of
+		// the conversation is fetched from the server once per conversation
+		// (see #fetchConversationItems); while it is underway, the matched
+		// hits (if the result was folded, see
+		// Zarafa.advancesearch.AdvanceSearchStore#dedupeConversations) or the
+		// single message are shown.
+		if (container.getSettingsModel().get('zarafa/v1/contexts/mail/enable_conversation_preview', true) !== false &&
+			container.isEnabledConversation() && record &&
+			Ext.isFunction(record.isMessageClass) && record.isMessageClass('IPM.Note', true) &&
+			!Ext.isEmpty(record.get('conversation_id'))) {
+			var conversationId = record.get('conversation_id');
+			var cached = this.getConversationCache()[conversationId];
+
+			if (cached === undefined) {
+				this.fetchConversationItems(record);
+				cached = 'pending';
+			}
+
+			var conversationRecords = Ext.isArray(cached) ? cached : record.searchConversationRecords;
+			if (Ext.isArray(conversationRecords) && conversationRecords.length > 1) {
+				this.showConversationInPanel(conversationRecords, record);
+				return;
+			}
+			// Not (yet) known to be a conversation: fall through to the normal
+			// single view; when the fetch reveals more members, the preview
+			// switches (see #onConversationItemsResponse).
+		}
+
+		if (this.get(0) instanceof Zarafa.mail.ui.ConversationViewPanel) {
+			this.removeAll();
+			this.record = undefined;
+		}
+
 		Zarafa.advancesearch.ui.SearchResultPreviewPanel.superclass.showRecordInPanel.call(this, record);
+	},
+
+	/**
+	 * Mounts the conversation panel (when needed) and shows the given records.
+	 *
+	 * @param {Zarafa.core.data.IPMRecord[]} conversationRecords The conversation, newest first.
+	 * @param {Zarafa.core.data.IPMRecord} record The selected search result.
+	 * @private
+	 */
+	showConversationInPanel: function(conversationRecords, record)
+	{
+		if (!(this.get(0) instanceof Zarafa.mail.ui.ConversationViewPanel)) {
+			this.removeAll();
+			this.add(new Zarafa.mail.ui.ConversationViewPanel({
+				resolveConversation: (function(rec) {
+					if (!rec) {
+						return false;
+					}
+					var cached = this.getConversationCache()[rec.get('conversation_id')];
+
+					return Ext.isArray(cached) ? cached : rec.searchConversationRecords;
+				}).createDelegate(this)
+			}));
+			this.doLayout();
+		}
+		this.get(0).showConversation(conversationRecords, record);
+
+		// Standard record handling: toolbar, record bookkeeping and opening of
+		// the selected record. The response actions act on the selected
+		// message of the conversation.
+		this.setRecord(record);
+		this.hideLoadMask();
+	},
+
+	/**
+	 * @return {Object} Map of conversation id to the fetched conversation
+	 * records ('pending' while a fetch is underway).
+	 * @private
+	 */
+	getConversationCache: function()
+	{
+		if (!this.conversationCache) {
+			this.conversationCache = {};
+		}
+
+		return this.conversationCache;
+	},
+
+	/**
+	 * Fetches the complete membership (inbox and sent items) of the
+	 * conversation the given record belongs to.
+	 *
+	 * @param {Zarafa.core.data.IPMRecord} record The search result.
+	 * @private
+	 */
+	fetchConversationItems: function(record)
+	{
+		var conversationId = record.get('conversation_id');
+		this.getConversationCache()[conversationId] = 'pending';
+
+		container.getRequest().singleRequest(
+			'maillistmodule',
+			'conversationitems',
+			{
+				store_entryid: record.get('store_entryid'),
+				conversation_id: conversationId,
+				include_inbox: true
+			},
+			new Zarafa.mail.data.ConversationItemsResponseHandler({
+				callback: this.onConversationItemsResponse.createDelegate(this)
+			})
+		);
+	},
+
+	/**
+	 * Handles the fetched conversation membership: caches it and, when the
+	 * currently previewed record belongs to it and it has more than one
+	 * message, switches the preview to the conversation.
+	 *
+	 * @param {Object} response The 'conversationitems' response data.
+	 * @private
+	 */
+	onConversationItemsResponse: function(response)
+	{
+		var conversationId = response ? response.conversation_id : undefined;
+		if (Ext.isEmpty(conversationId)) {
+			return;
+		}
+
+		var items = response.item || [];
+		if (!Array.isArray(items)) {
+			items = [items];
+		}
+
+		var records = [];
+		if (items.length > 0) {
+			records = this.model.store.reader.readRecords({
+				count: items.length,
+				item: items
+			}).records;
+		}
+		this.getConversationCache()[conversationId] = records;
+
+		// Switch the preview when the fetched conversation belongs to the
+		// record that is still being previewed.
+		var current = this.model.getPreviewRecord();
+		if (records.length > 1 && current && !this.isDestroyed &&
+			current.get('conversation_id') === conversationId) {
+			var selected = current;
+			Ext.each(records, function(rec) {
+				if (Zarafa.core.EntryId.compareEntryIds(rec.get('entryid'), current.get('entryid'))) {
+					selected = rec;
+					return false;
+				}
+			});
+			this.showConversationInPanel(records, selected);
+		}
 	},
 
 	/**

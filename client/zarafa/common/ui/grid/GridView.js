@@ -141,10 +141,105 @@ Zarafa.common.ui.grid.GridView = Ext.extend(Ext.grid.GroupingView, {
 	 * here manually again.
 	 * @private
 	 */
+	init: function(grid)
+	{
+		Zarafa.common.ui.grid.GridView.superclass.init.apply(this, arguments);
+
+		// Keep track of which records the rendered rows belong to; the store
+		// may already contain different data by the time the view refreshes
+		// (see #getScrollAnchor).
+		this.on('refresh', this.updateRenderedRecordIds, this);
+		this.on('rowsinserted', this.updateRenderedRecordIds, this);
+		this.on('rowremoved', this.updateRenderedRecordIds, this);
+	},
+
+	/**
+	 * Remembers the ids of the records the currently rendered rows belong to.
+	 * @private
+	 */
+	updateRenderedRecordIds: function()
+	{
+		this.renderedRecordIds = Ext.pluck(this.grid.store.getRange(), 'id');
+	},
+
 	onDataChange: function()
 	{
+		// Preserve the scroll position: the refresh caused by a data change
+		// (e.g. expanding/collapsing a conversation, or a background reload
+		// when new mail arrives) must not make the list jump.
+		var anchor = this.getScrollAnchor();
+
 		Zarafa.common.ui.grid.GridView.superclass.onDataChange.apply(this, arguments);
 		this.applyEmptyText();
+
+		this.restoreScrollAnchor(anchor);
+	},
+
+	/**
+	 * Returns the current scroll position, anchored to the topmost visible row.
+	 * Restoring an anchored position (see {@link #restoreScrollAnchor}) keeps
+	 * that row in place even when rows above it were added or removed, which a
+	 * plain pixel offset would not.
+	 *
+	 * Note that this runs when the store was already modified, while the DOM
+	 * still shows the previous data: the anchored record is therefore resolved
+	 * through {@link #renderedRecordIds}, not through the store.
+	 *
+	 * @return {Object|Boolean} The anchor, or false when there is nothing to restore.
+	 * @private
+	 */
+	getScrollAnchor: function()
+	{
+		if (!this.scroller || !this.scroller.dom || !this.grid) {
+			return false;
+		}
+
+		var scrollTop = this.scroller.dom.scrollTop;
+		var anchor = { top: scrollTop };
+		if (scrollTop === 0 || Ext.isEmpty(this.renderedRecordIds)) {
+			return anchor;
+		}
+
+		var rows = this.getRows();
+		for (var i = 0; i < rows.length; i++) {
+			if (rows[i].offsetTop + rows[i].offsetHeight > scrollTop) {
+				if (this.renderedRecordIds[i]) {
+					anchor.recordId = this.renderedRecordIds[i];
+					anchor.delta = scrollTop - rows[i].offsetTop;
+				}
+				break;
+			}
+		}
+
+		return anchor;
+	},
+
+	/**
+	 * Restores a scroll position obtained through {@link #getScrollAnchor}.
+	 * When the anchored row is still present its position is restored exactly;
+	 * otherwise the plain pixel offset is used.
+	 *
+	 * @param {Object|Boolean} anchor The anchor to restore.
+	 * @private
+	 */
+	restoreScrollAnchor: function(anchor)
+	{
+		if (anchor === false || !this.scroller || !this.scroller.dom) {
+			return;
+		}
+
+		var top = anchor.top;
+		if (anchor.recordId) {
+			var index = this.grid.store.indexOfId(anchor.recordId);
+			if (index > -1) {
+				var row = this.getRow(index);
+				if (row) {
+					top = row.offsetTop + anchor.delta;
+				}
+			}
+		}
+
+		this.scroller.dom.scrollTop = top;
 	},
 
 	/**
@@ -178,6 +273,20 @@ Zarafa.common.ui.grid.GridView = Ext.extend(Ext.grid.GroupingView, {
 		// we have to override the header menu items for
 		// grouping views.
 		Ext.grid.GroupingView.superclass.afterRenderUI.call(this);
+
+		// The grid focus anchor must never make the browser scroll: ExtJS
+		// focuses it deferred after a mousedown, and when a refresh has moved
+		// it in the meantime (onDataChange syncs it to row 0), the browser
+		// would scroll the grid to wherever it ended up — this made the list
+		// jump to the top on the first click after a data change. The grid
+		// does its own scrolling through ensureVisible.
+		if (this.focusEl && this.focusEl.dom) {
+			var focusDom = this.focusEl.dom;
+			var originalFocus = focusDom.focus;
+			focusDom.focus = function() {
+				originalFocus.call(this, { preventScroll: true });
+			};
+		}
 
 		if (this.enableGroupingMenu && this.hmenu) {
 			if (this.enableNoGroups) {
@@ -228,7 +337,12 @@ Zarafa.common.ui.grid.GridView = Ext.extend(Ext.grid.GroupingView, {
 
 			var scrollState = scrollTopMax * 0.90;
 			if(scrollState < target.scrollTop && !this.isBuffering) {
-				var cursor = this.ds.getCount();
+				// Use getStoreLength when the store provides it: it returns the
+				// number of loaded folder items, which is the correct paging
+				// offset when the store contains extra rows (conversation
+				// headers, fetched sent items) or hides the rows of collapsed
+				// conversations.
+				var cursor = Ext.isFunction(this.ds.getStoreLength) ? this.ds.getStoreLength() : this.ds.getCount();
 				if(cursor !== this.ds.totalLength) {
 					this.fireEvent('livescrollstart', cursor);
 				}

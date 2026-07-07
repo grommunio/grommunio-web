@@ -3601,3 +3601,70 @@ body.dark-mode .x-combo-list {
 }
 
 
+
+/*=============================================================================
+  Conversation (threaded) view
+=============================================================================*/
+/* The expand/collapse arrows are mask-drawn in the theme accent color
+   (see grommunio.css), which works on dark rows as-is. */
+
+/* Thread line and node markers of conversation child items: use a mix of the
+   theme accent color that stays visible on the dark row background instead of
+   the light-mode colors. */
+body.dark-mode .x-grid3-row.k-depth-1.line_circle_l,
+body.dark-mode .x-grid3-row.k-depth-1.line_circle_end {
+	background-image:
+		radial-gradient(circle at 23px 50%, color-mix(in srgb, var(--theme-primary-color) 65%, #ffffff) 0, color-mix(in srgb, var(--theme-primary-color) 65%, #ffffff) 3px, transparent 4px),
+		linear-gradient(color-mix(in srgb, var(--theme-primary-color) 45%, #2a2a2e), color-mix(in srgb, var(--theme-primary-color) 45%, #2a2a2e)) !important;
+}
+
+/* Thread line on an expanded conversation header, matching the item lines */
+body.dark-mode .x-grid3-row.k-conversation-header.k-conversation-open {
+	background-image: linear-gradient(color-mix(in srgb, var(--theme-primary-color) 45%, #2a2a2e), color-mix(in srgb, var(--theme-primary-color) 45%, #2a2a2e)) !important;
+}
+
+/* Conversation preview cards */
+/* The stack background carries the theme accent like in light mode */
+/* The id variants out-rank the generic '#zarafa-mainpanel .x-panel-body' rule */
+body.dark-mode #zarafa-mainpanel .zarafa-mailconversationpanel > .x-panel-bwrap > .x-panel-body,
+body.dark-mode #zarafa-mainpanel .zarafa-mailconversationpanel > .x-panel-body,
+body.dark-mode .zarafa-mailconversationpanel > .x-panel-bwrap > .x-panel-body,
+body.dark-mode .zarafa-mailconversationpanel > .x-panel-body {
+	background: color-mix(in srgb, var(--theme-primary-color) 9%, var(--dm-bg, #1b1b1d)) !important;
+}
+body.dark-mode #zarafa-mainpanel .zarafa-mailconversationpanel .k-conversation-item .x-panel-body,
+body.dark-mode .zarafa-mailconversationpanel .k-conversation-item .x-panel-body {
+	background: transparent !important;
+}
+body.dark-mode .zarafa-mailconversationpanel .k-conversation-item {
+	background: var(--dm-bg-paper, #232326);
+	border-color: var(--dm-border, #3a3a3e);
+}
+body.dark-mode .zarafa-mailconversationpanel .k-conversation-item.k-own-message {
+	background: color-mix(in srgb, var(--theme-primary-color) 14%, var(--dm-bg-paper, #232326));
+}
+body.dark-mode .zarafa-mailconversationpanel .k-conversation-item .x-panel-body {
+	border-top-color: var(--dm-border, #3a3a3e);
+}
+/* Match the subtle header shading of the light mode */
+body.dark-mode .zarafa-mailconversationpanel .k-conversation-item .x-panel-header {
+	background: rgba(255, 255, 255, 0.05) !important;
+}
+/* ... and for the message header (subject/recipients/attachments) of a card */
+body.dark-mode #zarafa-mainpanel .zarafa-mailconversationpanel .k-conversation-item .x-panel.preview-header,
+body.dark-mode .zarafa-mailconversationpanel .k-conversation-item .preview-header {
+	background: rgba(255, 255, 255, 0.04) !important;
+}
+/* The header collapse arrow is a legacy dark image; lighten it (applies to
+   the normal preview and the conversation cards alike) */
+body.dark-mode .preview-header-collapse {
+	filter: invert(0.88);
+}
+/* The attachment strip inherits the header shade instead of solid paper */
+body.dark-mode #zarafa-mainpanel .zarafa-mailconversationpanel .k-conversation-item .preview-attachment-data,
+body.dark-mode .zarafa-mailconversationpanel .k-conversation-item .preview-attachment-data {
+	background-color: transparent !important;
+}
+body.dark-mode .zarafa-mailconversationpanel .k-date {
+	color: var(--dm-fg-muted, #9a9aa0);
+}

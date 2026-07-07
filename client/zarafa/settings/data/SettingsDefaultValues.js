@@ -614,6 +614,27 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								'enable_live_scroll': true,
 
 								/**
+								 * zarafa/v1/contexts/mail/enable_conversation_view
+								 * @property
+								 * @type Boolean
+								 */
+								'enable_conversation_view': false,
+
+								/**
+								 * zarafa/v1/contexts/mail/expand_single_conversation
+								 * @property
+								 * @type Boolean
+								 */
+								'expand_single_conversation': false,
+
+								/**
+								 * zarafa/v1/contexts/mail/enable_conversation_preview
+								 * @property
+								 * @type Boolean
+								 */
+								'enable_conversation_preview': true,
+
+								/**
 								 * zarafa/v1/contexts/mail/readreceipt_handling
 								 * @property
 								 * @type Number

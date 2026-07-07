@@ -1,3 +1,13 @@
+grommunio-web 3.19.x (development)
+==================================
+
+Enhancements:
+
+* Conversation view: group the inbox by conversation, with a threaded
+  reading pane that shows the whole conversation, conversation-aware
+  search, and dark mode support. Opt-in per user.
+
+
 grommunio-web 3.18 (2026-05-29)
 ===============================
 

@@ -13,6 +13,7 @@ $serverConfig = array_merge($serverConfig, [
 	'disable_full_gab' => !ENABLE_FULL_GAB,
 	'plugin_webappmanual_url' => PLUGIN_WEBAPPMANUAL_URL,
 	'enable_shared_rules' => ENABLE_SHARED_RULES,
+	'enable_conversation_view' => !defined('ENABLE_CONVERSATION_VIEW') || ENABLE_CONVERSATION_VIEW,
 	'always_enabled_plugins' => $GLOBALS['PluginManager']->expandPluginList(ALWAYS_ENABLED_PLUGINS_LIST),
 	'enable_advanced_settings' => ENABLE_ADVANCED_SETTINGS ? true : false,
 	'post_max_size' => getMaxPostRequestSize(),

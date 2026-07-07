@@ -2770,6 +2770,29 @@ class Operations {
 			}
 		}
 
+		// A reply or forward continues the conversation of the original message
+		// (MS-OXOMSG): inherit its conversation index with a child block appended
+		// and keep the conversation topic. Without this the response would start
+		// a new conversation id and the thread falls apart, both here and for
+		// counterparts that thread by the exported Thread-Index header.
+		if ($copyFromMessage) {
+			$origConvProps = mapi_getprops($copyFromMessage, [PR_CONVERSATION_INDEX, PR_CONVERSATION_TOPIC, PR_NORMALIZED_SUBJECT]);
+			if (empty($props[PR_CONVERSATION_INDEX]) &&
+				isset($origConvProps[PR_CONVERSATION_INDEX]) &&
+				strlen((string) $origConvProps[PR_CONVERSATION_INDEX]) >= 22) {
+				// The child block only conveys response ordering; the conversation
+				// id is derived from the (unchanged) header block.
+				$props[PR_CONVERSATION_INDEX] = $origConvProps[PR_CONVERSATION_INDEX] .
+					pack('NC', time() & 0x7FFFFFFF, random_int(0, 255));
+			}
+			if (empty($props[PR_CONVERSATION_TOPIC])) {
+				$topic = $origConvProps[PR_CONVERSATION_TOPIC] ?? $origConvProps[PR_NORMALIZED_SUBJECT] ?? null;
+				if ($topic !== null && $topic !== '') {
+					$props[PR_CONVERSATION_TOPIC] = $topic;
+				}
+			}
+		}
+
 		if (!$GLOBALS["entryid"]->compareEntryIds(bin2hex((string) $origStoreprops[PR_ENTRYID]), bin2hex((string) $storeprops[PR_ENTRYID]))) {
 			// set properties for "on behalf of" mails
 			$origStoreProps = mapi_getprops($origStore, [PR_MAILBOX_OWNER_ENTRYID, PR_MDB_PROVIDER, PR_IPM_SENTMAIL_ENTRYID]);

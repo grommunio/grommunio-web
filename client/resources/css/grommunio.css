@@ -6396,6 +6396,228 @@ input.x-form-text.x-form-field.x-form-focus {
 .tox .tox-edit-area:before {
   border: 1px solid var(--theme-primary-color) !important;
 }
+
+/******************************************************************************
+ * Conversation (threaded) view
+ ******************************************************************************/
+/* The expand/collapse arrow of a conversation header is rendered as an icon
+   class on the icon column cell (see Renderers.icon). */
+.x-grid3-row .x-grid3-cell.k-conversation-header-icon {
+  cursor: pointer;
+  /* The generic arrow classes use background-size contain; keep the arrow
+     at its natural size like everywhere else in the UI. */
+  background-size: auto !important;
+}
+/* The expand/collapse arrows are bold chevrons in the theme accent color,
+   drawn through a mask so the color can come from a CSS variable. They are
+   centered on x=23 within the row (the first cell starts at x=7), matching
+   the thread line (2px at x=22) and the node markers (centered at x=23). */
+.x-grid3-row .x-grid3-cell.k-conversation-header-icon.arrow_right_l,
+.x-grid3-row .x-grid3-cell.k-conversation-header-icon.arrow_down_l {
+  background-image: none !important;
+  background-color: var(--theme-primary-color, #2882d7) !important;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+.x-grid3-row .x-grid3-cell.k-conversation-header-icon.arrow_right_l {
+  -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjEyIiB2aWV3Qm94PSIwIDAgOCAxMiI+PHBhdGggZD0iTTIgMSBMNyA2IEwyIDExIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMi41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=);
+  mask-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjEyIiB2aWV3Qm94PSIwIDAgOCAxMiI+PHBhdGggZD0iTTIgMSBMNyA2IEwyIDExIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMi41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=);
+  -webkit-mask-position: 12px center;
+  mask-position: 12px center;
+}
+.x-grid3-row .x-grid3-cell.k-conversation-header-icon.arrow_down_l {
+  -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI4IiB2aWV3Qm94PSIwIDAgMTIgOCI+PHBhdGggZD0iTTEgMiBMNiA3IEwxMSAyIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMi41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=);
+  mask-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI4IiB2aWV3Qm94PSIwIDAgMTIgOCI+PHBhdGggZD0iTTEgMiBMNiA3IEwxMSAyIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMi41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=);
+  -webkit-mask-position: 10px center;
+  mask-position: 10px center;
+}
+
+/* The conversation count badge rendered in front of the participant names
+   in the sender column of a header row */
+.x-grid3-row .k-conversation-count {
+  display: inline-block;
+  min-width: 14px;
+  height: 14px;
+  line-height: 14px;
+  margin-right: 3px;
+  padding: 0 1px;
+  text-align: center;
+  vertical-align: baseline;
+  font-size: 10px;
+  font-weight: bold;
+  border: 1px solid var(--theme-primary-color, #2882d7);
+  border-radius: 9px;
+}
+.x-grid3-row .k-conversation-count.k-two-digit-counter {
+  min-width: 18px;
+}
+
+/* Conversation header rows should not show a context menu cursor on the body */
+.x-grid3-row.k-conversation-header {
+  cursor: pointer;
+}
+
+/* On an expanded conversation the thread line starts at the header row,
+   right below the expand arrow, and connects to the thread line of the
+   conversation items. The line is anchored to the bottom of the row and
+   its height leaves room for the (vertically centered) arrow above it. */
+.x-grid3-row.k-conversation-header.k-conversation-open {
+  background-image: linear-gradient(var(--theme-border-color, #c9ced6), var(--theme-border-color, #c9ced6)) !important;
+  background-repeat: no-repeat !important;
+  background-position: 22px 100% !important;
+  /* The down arrow is 5px high and vertically centered: its bottom edge sits
+     at 50% + 2.5px, so a bottom-anchored line of height 50% - 2px starts
+     exactly at the arrow. */
+  background-size: 2px calc(50% - 2px) !important;
+}
+/* Compact rows are two lines high with the arrow centered on the first line */
+.x-grid3-row.k-conversation-header.k-conversation-open.k-compact-row {
+  background-size: 2px calc(100% - 16px) !important;
+}
+
+/* Conversation child items: only the row body (the subject line of the
+   compact view) is indented; the columns keep their normal position so the
+   rows do not waste horizontal space. The thread line on the left runs
+   through the icon column, which is empty for child items. */
+.x-grid3-row.k-depth-1 .x-grid3-row-body {
+  padding-left: 26px;
+}
+
+/* The message icon rendered in front of the sender of a conversation child
+   item. Inline-block with middle alignment keeps it on the text line, like
+   the icons that other rows show in the icon column. The icon masks and
+   images are 24px naturally and would be clipped in this box without the
+   contain sizing. */
+.x-grid3-row.k-depth-1 .k-icon {
+  display: inline-block;
+  width: 20px;
+  height: 16px;
+  margin-right: 4px;
+  vertical-align: middle;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  background-size: contain !important;
+}
+
+/* Own (sent) messages inside a conversation show their recipients */
+.x-grid3-row.k-depth-1 .k-conversation-sent-to {
+  font-style: italic;
+}
+
+/* Thread lines connecting conversation child items.
+   A vertical line is drawn on the left with a node marker per item.
+   The longhands are important because the selection/hover styles set the
+   background shorthand, which would otherwise wipe the thread line. */
+.x-grid3-row.k-depth-1.line_circle_l,
+.x-grid3-row.k-depth-1.line_circle_end {
+  background-image:
+    radial-gradient(circle at 23px 50%, var(--theme-primary-color, #2882d7) 0, var(--theme-primary-color, #2882d7) 3px, transparent 4px),
+    linear-gradient(var(--theme-border-color, #c9ced6), var(--theme-border-color, #c9ced6)) !important;
+  background-repeat: no-repeat, no-repeat !important;
+}
+/* Middle item: line spans the full height of the row */
+.x-grid3-row.k-depth-1.line_circle_l {
+  background-position: left center, 22px 0 !important;
+  background-size: auto, 2px 100% !important;
+}
+/* Last item: line stops at the node marker */
+.x-grid3-row.k-depth-1.line_circle_end {
+  background-position: left center, 22px 0 !important;
+  background-size: auto, 2px 50% !important;
+}
+
+/* Conversation preview: the reading pane shows all messages of a conversation
+   stacked chronologically as cards; own (sent) messages are indented and
+   accent-tinted. */
+.zarafa-mailconversationpanel .x-panel-body {
+  background: var(--theme-panel-bg, #f0f2f5);
+}
+/* The stack itself scrolls (Ext does not reliably apply autoScroll here) */
+.zarafa-mailconversationpanel > .x-panel-bwrap > .x-panel-body,
+.zarafa-mailconversationpanel > .x-panel-body {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+.zarafa-mailconversationpanel .k-conversation-item {
+  margin: 0 18px 10px 0;
+  border: 1px solid var(--theme-border-color, #c9ced6);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #ffffff;
+}
+.zarafa-mailconversationpanel .k-conversation-item.k-own-message {
+  margin: 0 0 10px 30px;
+  background: color-mix(in srgb, var(--theme-primary-color, #2882d7) 5%, #ffffff);
+}
+.zarafa-mailconversationpanel .k-conversation-item.k-conversation-item-focus {
+  border-color: var(--theme-primary-color, #2882d7);
+}
+.zarafa-mailconversationpanel .k-conversation-item .x-panel-header {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+/* The collapse tool goes to the right of the header line */
+.zarafa-mailconversationpanel .k-conversation-item .x-panel-header .x-tool {
+  order: 2;
+  float: none;
+  flex: none;
+  margin: 0 0 0 9px;
+}
+.zarafa-mailconversationpanel .k-conversation-item .x-panel-header-text {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+.zarafa-mailconversationpanel .k-avatar {
+  background: var(--theme-primary-color, #2882d7);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+  margin-right: 9px;
+  flex: none;
+}
+.zarafa-mailconversationpanel .k-conversation-item.k-own-message .k-avatar {
+  opacity: 0.75;
+}
+.zarafa-mailconversationpanel .k-sender {
+  flex: 1;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.zarafa-mailconversationpanel .k-date {
+  color: #8b9198;
+  font-weight: normal;
+  margin-left: 9px;
+  flex: none;
+}
+.zarafa-mailconversationpanel .k-conversation-item .x-panel-body {
+  background: transparent;
+  border-top: 1px solid var(--theme-border-color, #e6e9ed);
+}
+/* Keep the standard message header compact inside a card */
+.zarafa-mailconversationpanel .k-conversation-item .preview-header {
+  background: transparent;
+  padding: 4px 12px;
+}
+.zarafa-mailconversationpanel .k-conversation-item .preview-iframe {
+  display: block;
+  width: 100%;
+  border: none;
+  height: 120px;
+  background: #ffffff;
+}
 /*# sourceMappingURL=grommunio.css.map */
 
 

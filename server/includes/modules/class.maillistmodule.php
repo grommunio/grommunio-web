@@ -29,6 +29,21 @@ class MailListModule extends ListModule {
 	}
 
 	/**
+	 * Checks if the conversation view may be used. The message list itself is not
+	 * affected by this (the client groups the messages by their conversation id),
+	 * this only gates the conversationitems action that fetches the sent items
+	 * belonging to a conversation.
+	 *
+	 * @return bool true if the conversation view may be used, false otherwise
+	 */
+	public function useConversationView() {
+		// ENABLE_CONVERSATION_VIEW acts as an administrative kill-switch.
+		return
+			(!defined('ENABLE_CONVERSATION_VIEW') || ENABLE_CONVERSATION_VIEW) &&
+			$GLOBALS['settings']->get('zarafa/v1/contexts/mail/enable_conversation_view') === true;
+	}
+
+	/**
 	 * Creates the notifiers for this module,
 	 * and register them to the Bus.
 	 */
@@ -81,6 +96,15 @@ class MailListModule extends ListModule {
 
 						case "stopsearch":
 							$this->stopSearch($this->store, $entryid, $action);
+							break;
+
+						case "conversationitems":
+							$this->getDelegateFolderInfo($this->store);
+							$this->getConversationItems($this->store, $action);
+							break;
+
+						case "conversationcounts":
+							$this->getConversationCounts($this->store, $action);
 							break;
 
 						default:
@@ -175,6 +199,137 @@ class MailListModule extends ListModule {
 		}
 
 		return $this->_inboxTotalUnread;
+	}
+
+	/**
+	 * Returns, for the given list of conversation ids, how many messages of each
+	 * conversation are in the Sent Items folder. The client uses this to know
+	 * which messages must be presented as a conversation even though only one
+	 * of them is in the Inbox (a mail that was replied to).
+	 *
+	 * @param object $store  MAPI message store object
+	 * @param array  $action the action data, sent by the client
+	 */
+	public function getConversationCounts($store, $action) {
+		$counts = [];
+		$ids = $action['conversation_ids'] ?? [];
+
+		if ($this->useConversationView() && is_array($ids) && !empty($ids)) {
+			$validIds = [];
+			foreach ($ids as $id) {
+				if (is_string($id) && $id !== '' && ctype_xdigit($id)) {
+					$validIds[] = $id;
+					// The client asks per loaded page; cap the restriction size.
+					if (count($validIds) >= 500) {
+						break;
+					}
+				}
+			}
+
+			$msgstoreProps = mapi_getprops($store, [PR_IPM_SENTMAIL_ENTRYID]);
+			if (!empty($validIds) && isset($msgstoreProps[PR_IPM_SENTMAIL_ENTRYID])) {
+				$sentFolder = mapi_msgstore_openentry($store, $msgstoreProps[PR_IPM_SENTMAIL_ENTRYID]);
+				$table = mapi_folder_getcontentstable($sentFolder, MAPI_DEFERRED_ERRORS);
+
+				$subRestrictions = [];
+				foreach ($validIds as $id) {
+					$subRestrictions[] = [
+						RES_PROPERTY,
+						[
+							RELOP => RELOP_EQ,
+							ULPROPTAG => PR_CONVERSATION_ID,
+							VALUE => [PR_CONVERSATION_ID => hex2bin($id)],
+						],
+					];
+				}
+				mapi_table_restrict($table, [RES_OR, $subRestrictions], TBL_BATCH);
+
+				$rows = mapi_table_queryallrows($table, [PR_CONVERSATION_ID]);
+				foreach ($rows as $row) {
+					if (isset($row[PR_CONVERSATION_ID])) {
+						$id = bin2hex((string) $row[PR_CONVERSATION_ID]);
+						$counts[$id] = ($counts[$id] ?? 0) + 1;
+					}
+				}
+			}
+		}
+
+		$this->addActionData('conversationcounts', [
+			// Force an object so an empty result is {} instead of [].
+			'counts' => empty($counts) ? new stdClass() : $counts,
+		]);
+		$GLOBALS['bus']->addData($this->getResponseData());
+	}
+
+	/**
+	 * Returns the messages from the Sent Items folder that belong to the given
+	 * conversation, identified by its PR_CONVERSATION_ID. The inbox part of a
+	 * conversation is already available to the client through the normal message
+	 * list; this action supplies the sent counterparts when the user expands a
+	 * conversation.
+	 *
+	 * @param object $store  MAPI message store object
+	 * @param array  $action the action data, sent by the client
+	 */
+	public function getConversationItems($store, $action) {
+		$data = ['item' => []];
+		$conversationId = $action['conversation_id'] ?? '';
+		$data['conversation_id'] = $conversationId;
+
+		if ($this->useConversationView() && is_string($conversationId) && $conversationId !== '' &&
+			ctype_xdigit($conversationId)) {
+			$restriction = [
+				RES_PROPERTY,
+				[
+					RELOP => RELOP_EQ,
+					ULPROPTAG => PR_CONVERSATION_ID,
+					VALUE => [PR_CONVERSATION_ID => hex2bin($conversationId)],
+				],
+			];
+
+			$folders = [];
+			$msgstoreProps = mapi_getprops($store, [PR_IPM_SENTMAIL_ENTRYID]);
+			if (isset($msgstoreProps[PR_IPM_SENTMAIL_ENTRYID])) {
+				$folders['sent_items'] = mapi_msgstore_openentry($store, $msgstoreProps[PR_IPM_SENTMAIL_ENTRYID]);
+			}
+			// The mail list already contains the inbox part of a conversation,
+			// but callers without that context (e.g. the search results
+			// preview) need the complete conversation.
+			if (!empty($action['include_inbox'])) {
+				try {
+					$folders['inbox'] = mapi_msgstore_getreceivefolder($store);
+				}
+				catch (MAPIException $e) {
+					$e->setHandled();
+				}
+			}
+
+			foreach ($folders as $folderName => $folder) {
+				$table = mapi_folder_getcontentstable($folder, MAPI_DEFERRED_ERRORS);
+				mapi_table_restrict($table, $restriction, TBL_BATCH);
+
+				$rows = mapi_table_queryallrows($table, $this->properties);
+				foreach ($rows as $row) {
+					$item = Conversion::mapMAPI2XML($this->properties, $row);
+					$item['props']['folder_name'] = $folderName;
+					$data['item'][] = $item;
+				}
+			}
+
+			// Newest first, like the conversation items in the mail list.
+			usort($data['item'], function ($a, $b) {
+				$dateA = $a['props']['message_delivery_time'] ?? $a['props']['client_submit_time'] ?? 0;
+				$dateB = $b['props']['message_delivery_time'] ?? $b['props']['client_submit_time'] ?? 0;
+
+				return $dateB <=> $dateA;
+			});
+
+			$data = $this->filterPrivateItems($data);
+			$data['item'] = array_values($data['item']);
+		}
+
+		$this->addActionData('conversationitems', $data);
+		$GLOBALS['bus']->addData($this->getResponseData());
 	}
 
 	/**

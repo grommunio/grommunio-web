@@ -43,6 +43,93 @@ Zarafa.mail.ui.MailPreviewPanel = Ext.extend(Zarafa.core.ui.PreviewPanel, {
 	},
 
 	/**
+	 * Returns the conversation the given record belongs to when it should be
+	 * previewed as a whole conversation, or false to preview the single record.
+	 *
+	 * @param {Zarafa.core.data.MAPIRecord} record The record to be previewed.
+	 * @return {Object|Boolean} Object with 'items' (newest first), or false.
+	 * @private
+	 */
+	getConversationForRecord: function(record)
+	{
+		if (!record || record.isSyntheticConversationHeader === true) {
+			return false;
+		}
+
+		if (container.getSettingsModel().get('zarafa/v1/contexts/mail/enable_conversation_preview', true) === false) {
+			return false;
+		}
+
+		// Search results carry their conversation siblings directly (see
+		// Zarafa.advancesearch.AdvanceSearchStore#dedupeConversations).
+		if (Ext.isArray(record.searchConversationRecords) && record.searchConversationRecords.length > 1) {
+			return { items: record.searchConversationRecords };
+		}
+
+		var store = record.getStore ? record.getStore() : record.store;
+		if (!store || !Ext.isFunction(store.containsConversations) || !store.containsConversations() ||
+			!Ext.isFunction(store.getHeaderRecordFromItem)) {
+			return false;
+		}
+
+		var header = store.getHeaderRecordFromItem(record);
+		if (header === false) {
+			return false;
+		}
+
+		// A header means this is a conversation, even when only one of its
+		// messages is loaded so far (the sent items of the conversation are
+		// fetched asynchronously when it is expanded); the conversation panel
+		// refreshes itself when the other messages arrive.
+		var items = store.getConversationItemsFromHeaderRecord(header);
+		if (Ext.isEmpty(items)) {
+			return false;
+		}
+
+		return { items: items };
+	},
+
+	/**
+	 * Overridden to show the entire conversation when the previewed record is
+	 * part of one; single messages use the default behavior.
+	 *
+	 * @param {Zarafa.core.data.MAPIRecord} record The record to preview.
+	 * @private
+	 */
+	showRecordInPanel: function(record)
+	{
+		var conversation = this.getConversationForRecord(record);
+		if (conversation === false) {
+			// Leaving conversation mode: force a rebuild of the default view.
+			if (this.get(0) instanceof Zarafa.mail.ui.ConversationViewPanel) {
+				this.removeAll();
+				this.record = undefined;
+			}
+			Zarafa.mail.ui.MailPreviewPanel.superclass.showRecordInPanel.apply(this, arguments);
+			return;
+		}
+
+		if (!(this.get(0) instanceof Zarafa.mail.ui.ConversationViewPanel)) {
+			this.removeAll();
+			this.add(new Zarafa.mail.ui.ConversationViewPanel({
+				resolveConversation: (function(rec) {
+					var conv = this.getConversationForRecord(rec);
+					return conv === false ? false : conv.items;
+				}).createDelegate(this)
+			}));
+			this.doLayout();
+		}
+
+		this.get(0).showConversation(conversation.items, record);
+
+		// Standard record handling: toolbar, record bookkeeping and opening of
+		// the selected record. The response actions (reply, forward, ...) act
+		// on the selected message of the conversation.
+		this.setRecord(record);
+		this.hideLoadMask();
+	},
+
+	/**
 	 * Update the components with the given record.
 	 *
 	 * @param {Zarafa.core.data.MAPIRecord} record The record to update in this component

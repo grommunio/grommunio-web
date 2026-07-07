@@ -37,12 +37,30 @@ Zarafa.common.ui.grid.Renderers = {
 	 */
 	icon: function(value, p, record)
 	{
-		p.css = Zarafa.common.ui.IconClass.getIconClass(record);
+		var conversationCount = record.get('conversation_count');
+		var depth = record.get('depth');
+		var cssClass = '';
+		var result = '';
+
+		if (conversationCount > 0 && depth === 0) {
+			// Conversation header records show the expand/collapse arrow in place
+			// of a message icon. Putting the arrow class on the cell centers it
+			// exactly like any other icon in this column. The item counter is
+			// rendered in the sender column by {@link #sender}.
+			var headerStore = record.getStore();
+			var opened = headerStore && Ext.isFunction(headerStore.isConversationOpened) &&
+				headerStore.isConversationOpened(record);
+			cssClass = 'k-conversation-header-icon ' + (opened ? 'arrow_down_l' : 'arrow_right_l');
+		} else if (depth !== 1) {
+			cssClass = Zarafa.common.ui.IconClass.getIconClass(record);
+		}
 
 		// add extra css class for empty cell
-		p.css += ' zarafa-grid-empty-cell';
+		cssClass += ' zarafa-grid-empty-cell';
 
-		return '';
+		p.css = cssClass;
+
+		return result;
 	},
 
 	/**
@@ -59,12 +77,56 @@ Zarafa.common.ui.grid.Renderers = {
 			return '';
 		}
 
+		// Conversation header records show the paperclip when any item in the
+		// conversation has an attachment.
+		if (Ext.isFunction(record.isConversationHeaderRecord) && record.isConversationHeaderRecord()) {
+			value = Zarafa.common.ui.grid.Renderers.conversationHasAttachment(record);
+		}
+
 		p.css = (value === true) ? 'icon_paperclip' : 'icon_noattachment';
 
 		// add extra css class for empty cell
 		p.css += ' zarafa-grid-empty-cell';
 
 		return '';
+	},
+
+	/**
+	 * Helper function that finds if there is a conversation record that has an attachment
+	 *
+	 * @param {Zarafa.core.data.IPMRecord} headerRecord The header record of a conversation
+	 * @return {Boolean} True if a record with an attachment was found, false otherwise
+	 */
+	conversationHasAttachment: function(headerRecord)
+	{
+		var store = headerRecord.getStore();
+		if (!store || !Ext.isFunction(store.getConversationItemsFromHeaderRecord)) {
+			return false;
+		}
+
+		var conversationRecords = store.getConversationItemsFromHeaderRecord(headerRecord);
+		return conversationRecords.some(function(r) {
+			return r.get('hasattach') && r.get('hide_attachments') !== true;
+		});
+	},
+
+	/**
+	 * Helper function that renders the item counter badge shown on a
+	 * conversation header row in front of the participant names.
+	 *
+	 * @param {Number} count The number of items in the conversation
+	 * @return {String} The formatted counter badge
+	 */
+	conversationCount: function(count)
+	{
+		var cls = 'k-conversation-count';
+		if (count > 9) {
+			cls += ' k-two-digit-counter';
+			if (count > 99) {
+				count = '99+';
+			}
+		}
+		return '<span unselectable="on" class="' + cls + '">' + count + '</span> ';
 	},
 
 	/**
@@ -195,7 +257,65 @@ Zarafa.common.ui.grid.Renderers = {
 	 */
 	sender: function(value, p, record)
 	{
+		var retVal = '';
 		var userRecord = false;
+		var conversationCount = record.get('conversation_count');
+		var depth = record.get('depth');
+
+		if (conversationCount > 0 && depth === 0) {
+			// Conversation header record: show the item counter followed by the
+			// (unique) first names of all senders that participate in the conversation.
+			var store = record.getStore();
+			if (store && Ext.isFunction(store.getConversationItemsFromHeaderRecord)) {
+				var records = store.getConversationItemsFromHeaderRecord(record);
+
+				var names = records.filter(function(val, index) {
+					for (var i = 0; i < index; i++) {
+						// We use the value of sent_representing_name to find unique senders.
+						// This means that two persons with the same name in a conversation
+						// will be shown as a single name in the header.
+						if (val.get('sent_representing_name') === records[i].get('sent_representing_name')) {
+							return false;
+						}
+					}
+					return true;
+				}).map(function(val) {
+					var name = val ? val.get('sent_representing_name') || '' : '';
+					return Ext.util.Format.htmlEncode(name.split(' ')[0]);
+				}).filter(function(name) {
+					return !Ext.isEmpty(name);
+				}).join(', ');
+
+				if (!Ext.isEmpty(names)) {
+					return Zarafa.common.ui.grid.Renderers.conversationCount(conversationCount) + names;
+				}
+			}
+
+			// No participant names could be determined; fall through to the
+			// normal sender rendering (the header record carries the sender of
+			// the newest conversation item), prefixed with the counter.
+			retVal = Zarafa.common.ui.grid.Renderers.conversationCount(conversationCount);
+		} else if (depth > 0) {
+			// Conversation item: the message icon is rendered in front of the sender
+			// because the icon column shows the thread line instead.
+			retVal = '<span class="k-icon ' + Zarafa.common.ui.IconClass.getIconClass(record) + '"></span>';
+
+			// Own (sent) messages of a conversation show their recipients instead
+			// of the sender, like Outlook does; otherwise sent and received
+			// messages are indistinguishable (especially in a conversation with
+			// yourself).
+			if (record.get('folder_name') === 'sent_items') {
+				var recipients = String(record.get('display_to') || '').split(';').map(function(name) {
+					return Ext.util.Format.htmlEncode(name.trim().split(' ')[0]);
+				}).filter(function(name) {
+					return !Ext.isEmpty(name);
+				}).join(', ');
+
+				// The arrow marks the message as sent (to the shown recipients);
+				// deliberately language-neutral.
+				return retVal + '<span class="k-conversation-sent-to">&rarr; ' + recipients + '</span>';
+			}
+		}
 
 		// Check which of the 2 properties must be used
 		// FIXME: sent representing seems to be always set...
@@ -208,7 +328,7 @@ Zarafa.common.ui.grid.Renderers = {
 		}
 		var userName = Zarafa.common.ui.grid.Renderers.name(value, p, record);
 
-		return Zarafa.common.ui.grid.Renderers.presenceStatus(userName, p, userRecord);
+		return retVal + Zarafa.common.ui.grid.Renderers.presenceStatus(userName, p, userRecord);
 	},
 
 	/**

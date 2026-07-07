@@ -45,6 +45,17 @@ Zarafa.mail.settings.SettingsConversationWidget = Ext.extend(Zarafa.settings.ui.
 					check: this.onCheck,
 					scope: this
 				}
+			},{
+				xtype: 'checkbox',
+				name: 'zarafa/v1/contexts/mail/enable_conversation_preview',
+				boxLabel: _('Show the entire conversation in the reading pane'),
+				hideLabel: true,
+				ref: 'conversationPreview',
+				lazyInit: false,
+				listeners: {
+					check: this.onCheck,
+					scope: this
+				}
 			}]
 		});
 
@@ -66,6 +77,8 @@ Zarafa.mail.settings.SettingsConversationWidget = Ext.extend(Zarafa.settings.ui.
 		this.enableConversations.setValue(enableConversations);
 		this.singleExpand.setValue(settingsModel.get(this.singleExpand.name));
 		this.singleExpand.setDisabled(!enableConversations);
+		this.conversationPreview.setValue(settingsModel.get(this.conversationPreview.name, true) !== false);
+		this.conversationPreview.setDisabled(!enableConversations);
 	},
 
 	/**
@@ -78,6 +91,7 @@ Zarafa.mail.settings.SettingsConversationWidget = Ext.extend(Zarafa.settings.ui.
 	{
 		settingsModel.set(this.enableConversations.name, this.enableConversations.getValue());
 		settingsModel.set(this.singleExpand.name, this.singleExpand.getValue());
+		settingsModel.set(this.conversationPreview.name, this.conversationPreview.getValue());
 	},
 
 	/**
@@ -94,6 +108,12 @@ Zarafa.mail.settings.SettingsConversationWidget = Ext.extend(Zarafa.settings.ui.
 			// a change was applied
 			if (this.model.get(checkbox.name) !== checked) {
 				this.model.set(checkbox.name, checked);
+				// The mail grid and store wire up the conversation view when they
+				// are created, so switching those settings requires a reload. The
+				// reading pane setting is evaluated on the fly.
+				if (checkbox !== this.conversationPreview) {
+					this.model.requiresReload = true;
+				}
 			}
 		}
 	},
