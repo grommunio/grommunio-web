@@ -80,7 +80,9 @@ class Language {
 			$this->lang = $lang;
 			$tmp_translations = $this->getTranslations();
 			$translations = [];
-			foreach ($tmp_translations as $resources) {
+			foreach ($tmp_translations as $program => $resources) {
+				if (substr($program, 0, 1) == '_')
+					continue;
 				$resourcesCount = count($resources);
 				for ($i = 0; $i < $resourcesCount; ++$i) {
 					$msgid = $resources[$i]['msgid'];
@@ -227,7 +229,7 @@ class Language {
 				strcmp($entry, "..") == 0) {
 				continue;
 			}
-			$translations = [];
+			$translations = ["_etag" => "M".microtime(1)];
 			$translations['grommunio_web'] = $this->getTranslationsFromFile(LANGUAGE_DIR . $entry . '/LC_MESSAGES/grommunio_web.mo');
 			if (!$translations['grommunio_web']) {
 				continue;
