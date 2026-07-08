@@ -2870,8 +2870,9 @@ class Operations {
 				if (!isset($props[PR_HTML]) && isset($copyMessageProps[PR_HTML])) {
 					unset($copyMessageProps[PR_HTML]);
 				}
-				/* New EMAIL_ADDRESSes were set (various cases above), kill off old SMTP_ADDRESS. */
-				unset($copyMessageProps[PR_SENDER_SMTP_ADDRESS], $copyMessageProps[PR_SENT_REPRESENTING_SMTP_ADDRESS]);
+				// New EMAIL_ADDRESSes were set (various cases above), kill off old SMTP_ADDRESS.
+				// Clear PR_SUBJECT_PREFIX and let gromox do the work
+				unset($copyMessageProps[PR_SENDER_SMTP_ADDRESS], $copyMessageProps[PR_SENT_REPRESENTING_SMTP_ADDRESS], $copyMessageProps[PR_SUBJECT_PREFIX]);
 
 				// Merge original message props with props sent by client
 				$props = $props + $copyMessageProps;
