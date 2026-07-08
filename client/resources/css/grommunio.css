@@ -7067,3 +7067,6 @@ input[type="radio"]:focus-visible {
 #zarafa-mainpanel > .x-tab-panel-bwrap > .x-tab-panel-body {
   overflow: hidden;
 }
+
+.x-tree-root-node {
+  min-width: 100%; }
