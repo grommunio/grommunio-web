@@ -106,9 +106,9 @@ class NewMailNotifier extends Notifier {
 		if ($folderStatCache !== $sessionData) {
 			$data = ["item" => []];
 
-			foreach ($folderStatCache as $display_name => $props) {
-				if (isset($sessionData[$display_name]) &&
-					$sessionData[$display_name]['commit_time'] !== $props['commit_time']) {
+			foreach ($folderStatCache as $entryid => $props) {
+				if (isset($sessionData[$entryid]) &&
+					$sessionData[$entryid]['commit_time'] !== $props['commit_time']) {
 					if ($username) {
 						$name = $GLOBALS["mapisession"]->getDisplayNameofUser($username);
 					}
@@ -120,7 +120,7 @@ class NewMailNotifier extends Notifier {
 						'store_entryid' => $props['store_entryid'],
 						'content_count' => $props['content_count'],
 						'content_unread' => $props['content_unread'],
-						'display_name' => $display_name,
+						'display_name' => $props['display_name'],
 						'user_display_name' => $name,
 					];
 				}
