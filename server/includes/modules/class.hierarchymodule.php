@@ -338,18 +338,10 @@ class HierarchyModule extends Module {
 						break;
 
 					case "sharedstoreupdate":
-						$supported_types = ['inbox' => 1, 'all' => 1];
-						$users = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/shared_stores", []);
+						$GLOBALS["bus"]->notify(REQUEST_ENTRYID, HIERARCHY_UPDATE, ['', 'shared']);
 
-						foreach ($users as $username => $data) {
-							$key = array_keys($data)[0];
-							$folder_type = $data[$key]['folder_type'];
-
-							if (!isset($supported_types[$folder_type])) {
-								continue;
-							}
-
-							$GLOBALS["bus"]->notify(REQUEST_ENTRYID, HIERARCHY_UPDATE, [strtolower(hex2bin((string) $username)), $folder_type]);
+						if (ENABLE_PUBLIC_FOLDERS) {
+							$GLOBALS["bus"]->notify(REQUEST_ENTRYID, HIERARCHY_UPDATE, ['', 'public']);
 						}
 
 						$this->sendFeedback(true);
