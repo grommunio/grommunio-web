@@ -69,6 +69,28 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
+	 * @return {Boolean} True if dragging attachments out of grommunio Web into a
+	 * cooperating web application is enabled (administrative kill-switch, see
+	 * ENABLE_ATTACHMENT_DRAG_OUT in config.php)
+	 */
+	isAttachmentDragOutEnabled: function()
+	{
+		return this.meta.enable_attachment_drag_out !== false;
+	},
+
+	/**
+	 * @return {Number} The maximum attachment size (in bytes) whose content is
+	 * embedded in a drag operation for the attachment drag-out feature (see
+	 * ATTACHMENT_DRAG_OUT_MAX_SIZE in config.php). Defaults to 25 MiB when the
+	 * server did not provide a (valid) value.
+	 */
+	getAttachmentDragOutMaxSize: function()
+	{
+		var size = parseInt(this.meta.attachment_drag_out_max_size, 10);
+		return isNaN(size) || size < 0 ? 26214400 : size;
+	},
+
+	/**
 	 * @return {Boolean} True if grommunio Web is using Single Sign-On to login
 	 */
 	usingSSO: function()
