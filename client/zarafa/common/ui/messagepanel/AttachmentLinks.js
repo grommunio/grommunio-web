@@ -30,6 +30,28 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	maxHeight: 72,
 
 	/**
+	 * The custom {@link DataTransfer} MIME type under which the attachment
+	 * payload is exposed while dragging an attachment out of grommunio Web. A
+	 * cooperating receiving web application reads this type on drop and
+	 * reconstructs the file. The value is a JSON string of the form
+	 * <tt>{name, type, size, data}</tt> where <tt>data</tt> is the base64
+	 * encoded file content.
+	 * @property {String}
+	 * @private
+	 */
+	attachmentDragOutType: 'application/x-grommunio-attachment',
+
+	/**
+	 * Cache of base64 encoded attachment payloads, keyed by
+	 * {@link #getAttachmentCacheKey}. Populated by {@link #prefetchAttachmentFile}.
+	 * Each entry is an object <tt>{payload: String|null}</tt>; the payload is the
+	 * JSON string placed on the drag {@link DataTransfer}.
+	 * @property {Object}
+	 * @private
+	 */
+	attachmentPayloadCache: undefined,
+
+	/**
 	 * @cfg {String} fieldLabel The label which must be applied to template
 	 * as a prefix to the list of attachments.
 	 */
@@ -60,7 +82,7 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 					'<div class="preview-attachment-title icon_paperclip" aria-hidden="true"></div>' +
 					'<div class="preview-attachment-data" style="max-height: {this.maxHeight}px">' +
 						'<tpl for=".">' +
-							'<span class="zarafa-attachment-link x-zarafa-boxfield-item" viewIndex="{viewIndex}">' +
+							'<span class="zarafa-attachment-link x-zarafa-boxfield-item" viewIndex="{viewIndex}" draggable="true">' +
 								'{values.name:htmlEncodeElide(this.ellipsisStringStartLength, this.ellipsisStringEndLength)} ' +
 								'<tpl if="!Ext.isEmpty(values.size) && values.size &gt; 0">' +
 									'({values.size:fileSize})' +
@@ -97,8 +119,301 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 		this.on({
 			'contextmenu': this.onNodeContextMenu,
 			'click': this.onAttachmentClicked,
+			'render': this.onRenderRegisterDragOut,
 			scope: this
 		});
+	},
+
+	/**
+	 * Returns whether the attachment drag-out feature is enabled by the server
+	 * (see ENABLE_ATTACHMENT_DRAG_OUT in config.php) and supported by the
+	 * browser (requires <tt>window.fetch</tt> and <tt>FileReader</tt>).
+	 * @return {Boolean} True if attachment drag-out is available
+	 * @private
+	 */
+	isDragOutEnabled: function()
+	{
+		var serverConfig = container.getServerConfig();
+		if (serverConfig && Ext.isFunction(serverConfig.isAttachmentDragOutEnabled) && !serverConfig.isAttachmentDragOutEnabled()) {
+			return false;
+		}
+
+		return Ext.isFunction(window.fetch) && typeof FileReader === 'function';
+	},
+
+	/**
+	 * Returns the maximum attachment size (in bytes) whose content may be
+	 * embedded in a drag operation (see ATTACHMENT_DRAG_OUT_MAX_SIZE in
+	 * config.php). Defaults to 25 MiB.
+	 * @return {Number} maximum embeddable attachment size in bytes
+	 * @private
+	 */
+	getDragOutMaxSize: function()
+	{
+		var serverConfig = container.getServerConfig();
+		if (serverConfig && Ext.isFunction(serverConfig.getAttachmentDragOutMaxSize)) {
+			return serverConfig.getAttachmentDragOutMaxSize();
+		}
+
+		return 26214400;
+	},
+
+	/**
+	 * Overrides {@link Ext.DataView#refresh} to eagerly prefetch and encode the
+	 * content of the currently displayed attachments (up to the configured
+	 * maximum size), so they are immediately available to be dragged into a
+	 * cooperating web application without the user having to hover first.
+	 * @override
+	 */
+	refresh: function()
+	{
+		Zarafa.common.ui.messagepanel.AttachmentLinks.superclass.refresh.apply(this, arguments);
+
+		if (!this.store || !this.isDragOutEnabled()) {
+			return;
+		}
+
+		this.store.each(function(record) {
+			if (record.get('hidden') !== true) {
+				this.prefetchAttachmentFile(record);
+			}
+		}, this);
+	},
+
+	/**
+	 * Event handler for the {@link #render} event. Registers the native
+	 * <tt>dragstart</tt> (and, when the drag-out feature is enabled,
+	 * <tt>mouseover</tt>) listeners on the view element so that attachments can
+	 * be dragged out of grommunio Web. See {@link #onAttachmentDragStart}.
+	 * @private
+	 */
+	onRenderRegisterDragOut: function()
+	{
+		this.mon(this.getEl(), 'dragstart', this.onAttachmentDragStart, this);
+
+		if (this.isDragOutEnabled()) {
+			// Prefetch (and base64-encode) the attachment bytes when the user
+			// hovers over a link, so the payload is available synchronously at
+			// 'dragstart' time for dropping into a cooperating web application.
+			this.mon(this.getEl(), 'mouseover', this.onAttachmentMouseOver, this);
+		}
+	},
+
+	/**
+	 * Returns a stable cache key for an attachment record.
+	 * @param {Zarafa.core.data.IPMAttachmentRecord} record The attachment record
+	 * @return {String} cache key
+	 * @private
+	 */
+	getAttachmentCacheKey: function(record)
+	{
+		return record.get('attach_num') + '|' + (record.get('tmpname') || '') + '|' + (record.get('attach_id') || '');
+	},
+
+	/**
+	 * Native <tt>mouseover</tt> handler. Kicks off a background prefetch of the
+	 * hovered attachment so its payload is cached before the user starts
+	 * dragging. See {@link #onAttachmentDragStart}.
+	 * @param {Ext.EventObject} evt The native event wrapped by Ext.
+	 * @private
+	 */
+	onAttachmentMouseOver: function(evt)
+	{
+		if (!this.store) {
+			return;
+		}
+
+		var node = evt.getTarget(this.itemSelector, this.getEl().dom);
+		if (!node) {
+			return;
+		}
+
+		var record = this.getRecord(node);
+		if (record) {
+			this.prefetchAttachmentFile(record);
+		}
+	},
+
+	/**
+	 * Fetches the attachment content and caches it as a base64 encoded JSON
+	 * payload, keyed by the attachment record. Does nothing when the feature is
+	 * disabled, the attachment is an embedded message, its size exceeds the
+	 * configured maximum ({@link #getDragOutMaxSize}) or it is already (being)
+	 * fetched. The download uses the session cookie for authentication.
+	 *
+	 * @param {Zarafa.core.data.IPMAttachmentRecord} record The attachment record
+	 * @private
+	 */
+	prefetchAttachmentFile: function(record)
+	{
+		if (!this.isDragOutEnabled()) {
+			return;
+		}
+
+		if (Ext.isFunction(record.isEmbeddedMessage) && record.isEmbeddedMessage()) {
+			return;
+		}
+
+		var size = record.get('size') || 0;
+		if (size > this.getDragOutMaxSize()) {
+			return;
+		}
+
+		this.attachmentPayloadCache = this.attachmentPayloadCache || {};
+		var key = this.getAttachmentCacheKey(record);
+		if (this.attachmentPayloadCache[key]) {
+			// already cached or in-flight
+			return;
+		}
+
+		var url = record.getAttachmentUrl();
+		if (Ext.isEmpty(url)) {
+			return;
+		}
+
+		var name = record.get('name') || _('Untitled');
+		var mimeType = record.get('filetype') || 'application/octet-stream';
+		var entry = { payload: null };
+		this.attachmentPayloadCache[key] = entry;
+
+		window.fetch(url, { credentials: 'include' }).then(function(response) {
+			if (!response.ok) {
+				throw new Error('HTTP ' + response.status);
+			}
+			return response.blob();
+		}).then(function(blob) {
+			return new Promise(function(resolve, reject) {
+				var reader = new FileReader();
+				reader.onload = function() {
+					// readAsDataURL yields "data:<mime>;base64,<data>"; keep only
+					// the base64 portion.
+					var result = String(reader.result);
+					var comma = result.indexOf(',');
+					resolve({ base64: comma !== -1 ? result.substring(comma + 1) : '', size: blob.size });
+				};
+				reader.onerror = function() {
+					reject(reader.error || new Error('FileReader failed'));
+				};
+				reader.readAsDataURL(blob);
+			});
+		}).then(Ext.createDelegate(function(data) {
+			// Component may have been destroyed while fetching.
+			if (this.isDestroyed) {
+				return;
+			}
+			entry.payload = JSON.stringify({
+				name: name,
+				type: mimeType,
+				size: data.size,
+				data: data.base64
+			});
+		}, this)).catch(Ext.createDelegate(function() {
+			// Drop the failed entry so a later hover/drag can retry.
+			if (this.attachmentPayloadCache) {
+				delete this.attachmentPayloadCache[key];
+			}
+		}, this));
+	},
+
+	/**
+	 * Native <tt>dragstart</tt> handler which enables dragging an attachment out
+	 * of grommunio Web.
+	 *
+	 * When the drag-out feature is enabled and the attachment content has been
+	 * {@link #prefetchAttachmentFile prefetched}, the payload is exposed under
+	 * the custom {@link #attachmentDragOutType} MIME type as a JSON string
+	 * <tt>{name, type, size, data(base64)}</tt>. A cooperating receiving web
+	 * application reads this type on drop and reconstructs the file. In this case
+	 * the Chromium <tt>DownloadURL</tt> type is deliberately NOT set, because its
+	 * presence makes the browser download the file when it is dropped onto a web
+	 * page instead of handing it to the page's drop handler.
+	 *
+	 * Otherwise (feature disabled, attachment too large, embedded message, or the
+	 * payload is not ready yet), the Chromium <tt>DownloadURL</tt> type is used so
+	 * the attachment can at least be dragged onto the operating system (file
+	 * manager, desktop, ...).
+	 *
+	 * @param {Ext.EventObject} evt The native event wrapped by Ext.
+	 * @private
+	 */
+	onAttachmentDragStart: function(evt)
+	{
+		if (!this.store) {
+			return;
+		}
+
+		var node = evt.getTarget(this.itemSelector, this.getEl().dom);
+		if (!node) {
+			return;
+		}
+
+		var record = this.getRecord(node);
+		if (!record) {
+			return;
+		}
+
+		// Embedded messages are not backed by a single downloadable file, so
+		// leave the drag as a plain (in-app) drag for those.
+		if (Ext.isFunction(record.isEmbeddedMessage) && record.isEmbeddedMessage()) {
+			return;
+		}
+
+		var browserEvent = evt.browserEvent || evt;
+		var dataTransfer = browserEvent.dataTransfer;
+		if (!dataTransfer || !Ext.isFunction(dataTransfer.setData)) {
+			return;
+		}
+
+		var name = record.get('name') || _('Untitled');
+		var mimeType = record.get('filetype') || 'application/octet-stream';
+
+		// If the drag-out feature is enabled and the attachment payload was
+		// prefetched, embed it so a cooperating web application can receive the
+		// file. Do NOT also set DownloadURL in this case (it would trigger a
+		// download instead of a drop on a web page).
+		if (this.isDragOutEnabled()) {
+			this.attachmentPayloadCache = this.attachmentPayloadCache || {};
+			var entry = this.attachmentPayloadCache[this.getAttachmentCacheKey(record)];
+			if (entry && entry.payload) {
+				try {
+					dataTransfer.setData(this.attachmentDragOutType, entry.payload);
+					dataTransfer.setData('text/plain', name);
+					dataTransfer.effectAllowed = 'copy';
+
+					return;
+				} catch (e) {
+					// Fall through to the DownloadURL fallback below.
+				}
+			} else {
+				// Not prefetched yet (or in-flight): start fetching so a
+				// subsequent drag can embed the payload.
+				this.prefetchAttachmentFile(record);
+			}
+		}
+
+		// Fallback: allow dragging the attachment onto the operating system.
+		var url = record.getAttachmentUrl();
+		if (Ext.isEmpty(url)) {
+			return;
+		}
+		if (url.indexOf('://') === -1) {
+			var loc = window.location;
+			url = loc.protocol + '//' + loc.host + (url.charAt(0) === '/' ? '' : loc.pathname.replace(/[^/]*$/, '')) + url;
+		}
+
+		// Sanitize the filename: ':' is the field separator in a DownloadURL
+		// value and newlines are not permitted.
+		var safeName = String(name).replace(/[\r\n]+/g, ' ').replace(/:/g, '_');
+
+		try {
+			dataTransfer.setData('DownloadURL', mimeType + ':' + safeName + ':' + url);
+			// Also provide a plain URI so drops into browsers/editors work.
+			dataTransfer.setData('text/uri-list', url);
+			dataTransfer.setData('text/plain', url);
+			dataTransfer.effectAllowed = 'copyLink';
+		} catch (e) {
+			// Ignore browsers that reject one of the data types.
+		}
 	},
 
 	/**
