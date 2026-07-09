@@ -250,13 +250,19 @@ class DownloadAttachment extends DownloadBase {
 						VALUE => [PR_ATTACH_FILENAME => $this->attachCid],
 					],
 				],
+				[RES_CONTENT,
+					[
+						FUZZYLEVEL => FL_FULLSTRING | FL_IGNORECASE,
+						ULPROPTAG => PR_ATTACH_LONG_FILENAME,
+						VALUE => [PR_ATTACH_LONG_FILENAME => $this->attachCid],
+					],
+				],
 			],
 		];
 
 		// Get the attachment table
 		$attachTable = mapi_message_getattachmenttable($this->message);
-		mapi_table_restrict($attachTable, $restriction, TBL_BATCH);
-		$attachments = mapi_table_queryallrows($attachTable, [PR_ATTACH_NUM]);
+		$attachments = mapi_table_queryallrows($attachTable, [PR_ATTACH_NUM], $restriction);
 
 		if (count($attachments) > 0) {
 			// there should be only one attachment
