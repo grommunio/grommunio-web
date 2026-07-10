@@ -317,21 +317,25 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 
 	/**
 	 * Native <tt>dragstart</tt> handler which enables dragging an attachment out
-	 * of grommunio Web.
+	 * of grommunio Web. It populates the drag {@link DataTransfer} with two
+	 * complementary payloads so the same drag works for both drop targets:
 	 *
-	 * When the drag-out feature is enabled and the attachment content has been
-	 * {@link #prefetchAttachmentFile prefetched}, the payload is exposed under
-	 * the custom {@link #attachmentDragOutType} MIME type as a JSON string
-	 * <tt>{name, type, size, data(base64)}</tt>. A cooperating receiving web
-	 * application reads this type on drop and reconstructs the file. In this case
-	 * the Chromium <tt>DownloadURL</tt> type is deliberately NOT set, because its
-	 * presence makes the browser download the file when it is dropped onto a web
-	 * page instead of handing it to the page's drop handler.
+	 * - The Chromium <tt>DownloadURL</tt> type
+	 *   (<tt>mimeType:fileName:absoluteURL</tt>) so the attachment can be dropped
+	 *   onto the operating system (file manager / Windows Explorer / desktop),
+	 *   which then downloads the file to the drop location. (Chromium only;
+	 *   Firefox and other browsers ignore this type.)
+	 * - When the drag-out feature is enabled and the attachment content has been
+	 *   {@link #prefetchAttachmentFile prefetched}, the payload is also exposed
+	 *   under the custom {@link #attachmentDragOutType} MIME type as a JSON string
+	 *   <tt>{name, type, size, data(base64)}</tt>, so a cooperating receiving web
+	 *   application can reconstruct the file on drop.
 	 *
-	 * Otherwise (feature disabled, attachment too large, embedded message, or the
-	 * payload is not ready yet), the Chromium <tt>DownloadURL</tt> type is used so
-	 * the attachment can at least be dragged onto the operating system (file
-	 * manager, desktop, ...).
+	 * The two do not conflict: when a web page's drop handler calls
+	 * <tt>preventDefault()</tt> (as a drop zone must), the browser hands over the
+	 * custom payload and does NOT download. The <tt>DownloadURL</tt> download only
+	 * happens when the drop target does not accept the drop, i.e. the operating
+	 * system (Explorer/desktop) or a page area without a drop handler.
 	 *
 	 * @param {Ext.EventObject} evt The native event wrapped by Ext.
 	 * @private
@@ -367,22 +371,25 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 		var name = record.get('name') || _('Untitled');
 		var mimeType = record.get('filetype') || 'application/octet-stream';
 
-		// If the drag-out feature is enabled and the attachment payload was
-		// prefetched, embed it so a cooperating web application can receive the
-		// file. Do NOT also set DownloadURL in this case (it would trigger a
-		// download instead of a drop on a web page).
+		// Build an absolute URL; DownloadURL requires a fully qualified URL.
+		var url = record.getAttachmentUrl();
+		if (url && url.indexOf('://') === -1) {
+			var loc = window.location;
+			url = loc.protocol + '//' + loc.host + (url.charAt(0) === '/' ? '' : loc.pathname.replace(/[^/]*$/, '')) + url;
+		}
+
+		// (1) Custom type for dropping into a cooperating web application. Only
+		// available when the feature is enabled and the payload was prefetched.
+		var haveCustomPayload = false;
 		if (this.isDragOutEnabled()) {
 			this.attachmentPayloadCache = this.attachmentPayloadCache || {};
 			var entry = this.attachmentPayloadCache[this.getAttachmentCacheKey(record)];
 			if (entry && entry.payload) {
 				try {
 					dataTransfer.setData(this.attachmentDragOutType, entry.payload);
-					dataTransfer.setData('text/plain', name);
-					dataTransfer.effectAllowed = 'copy';
-
-					return;
+					haveCustomPayload = true;
 				} catch (e) {
-					// Fall through to the DownloadURL fallback below.
+					// Browser rejected the custom type; ignore.
 				}
 			} else {
 				// Not prefetched yet (or in-flight): start fetching so a
@@ -391,25 +398,21 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 			}
 		}
 
-		// Fallback: allow dragging the attachment onto the operating system.
-		var url = record.getAttachmentUrl();
-		if (Ext.isEmpty(url)) {
-			return;
-		}
-		if (url.indexOf('://') === -1) {
-			var loc = window.location;
-			url = loc.protocol + '//' + loc.host + (url.charAt(0) === '/' ? '' : loc.pathname.replace(/[^/]*$/, '')) + url;
-		}
-
-		// Sanitize the filename: ':' is the field separator in a DownloadURL
-		// value and newlines are not permitted.
-		var safeName = String(name).replace(/[\r\n]+/g, ' ').replace(/:/g, '_');
-
+		// (2) DownloadURL for dropping onto the operating system (file manager /
+		// Windows Explorer / desktop). This coexists with the custom type: a web
+		// drop zone that calls preventDefault() receives the custom payload and
+		// no download is triggered; only the OS (which cannot honour the custom
+		// type) uses the DownloadURL to save the file.
 		try {
-			dataTransfer.setData('DownloadURL', mimeType + ':' + safeName + ':' + url);
-			// Also provide a plain URI so drops into browsers/editors work.
-			dataTransfer.setData('text/uri-list', url);
-			dataTransfer.setData('text/plain', url);
+			if (!Ext.isEmpty(url)) {
+				// ':' is the field separator in a DownloadURL value; newlines
+				// are not permitted.
+				var safeName = String(name).replace(/[\r\n]+/g, ' ').replace(/:/g, '_');
+				dataTransfer.setData('DownloadURL', mimeType + ':' + safeName + ':' + url);
+				dataTransfer.setData('text/uri-list', url);
+			}
+			// A human-readable label; useful when dropping onto a text field.
+			dataTransfer.setData('text/plain', haveCustomPayload || Ext.isEmpty(url) ? name : url);
 			dataTransfer.effectAllowed = 'copyLink';
 		} catch (e) {
 			// Ignore browsers that reject one of the data types.
