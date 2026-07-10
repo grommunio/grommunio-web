@@ -45,6 +45,10 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	constructor: function(config)
 	{
 		config = config || {};
+		// Captured here because inside the TinyMCE `setup` callback below, `this` is
+		// bound by TinyMCE itself (not the HtmlEditor instance), so a plain `this`
+		// reference there would not point to this component.
+		var self = this;
 		// Get supported font families
 		var fontFamilies = Zarafa.common.ui.htmleditor.Fonts.getFontFamilies();
 
@@ -108,6 +112,90 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 						if (iframe) {
 							iframe.setAttribute('title', _('Message body editor'));
 						}
+					});
+					// When a file is dropped into the editor body, TinyMCE embeds
+					// images inline but blocks all other file types with an error.
+					// Instead, offer to add non-embeddable files as attachments.
+					editor.on("drop", function(e) {
+						var dt = e.dataTransfer;
+						if (!dt) {
+							return;
+						}
+
+						// Collect the files that TinyMCE cannot embed (non-images).
+						// TinyMCE handles images itself and will have already called
+						// preventDefault() for them, so we check isDefaultPrevented().
+						if (e.isDefaultPrevented()) {
+							return;
+						}
+
+						var files = dt.files;
+						if (!files || files.length === 0) {
+							return;
+						}
+
+						// Image extensions that TinyMCE can embed inline.
+						var imageExts = (editor.options.get('images_file_types') || 'jpeg,jpg,jpe,jfi,jif,jfif,png,gif,bmp,webp').split(',');
+
+						var nonEmbeddable = [];
+						for (var i = 0; i < files.length; i++) {
+							var ext = (files[i].name.split('.').pop() || '').toLowerCase();
+							if (imageExts.indexOf(ext) < 0) {
+								nonEmbeddable.push(files[i]);
+							}
+						}
+
+						if (nonEmbeddable.length === 0) {
+							return;
+						}
+
+						// Prevent TinyMCE from showing its own "not supported" error.
+						e.preventDefault();
+
+						// HTML-encode each name individually so that the '<br>' separators
+						// used to join them remain real line breaks instead of being
+						// escaped as literal text.
+						var names = nonEmbeddable.map(function(f) { return '\u2022 ' + Ext.util.Format.htmlEncode(f.name); });
+
+						// Capture the record reference before the async callback.
+						var record = self.record;
+
+						// Zarafa.core.data.IPMAttachmentStore#uploadFiles() only treats its
+						// argument as "real" files (with size/type/contents) if it is a
+						// genuine FileList (it does a strict `instanceof FileList` check).
+						// A plain Array -- which is what our filtering above produces --
+						// fails that check and would silently be handled as a list of bare
+						// filenames, so the actual file contents would never be uploaded
+						// and the resulting attachment would be broken (0 bytes, no type).
+						// Rebuild a real FileList containing only the non-embeddable files
+						// so it is uploaded/attached exactly like a drop on the Attachments
+						// field would be.
+						var uploadFileList = nonEmbeddable;
+						if (typeof DataTransfer !== 'undefined') {
+							var fileListBuilder = new DataTransfer();
+							nonEmbeddable.forEach(function(f) {
+								fileListBuilder.items.add(f);
+							});
+							uploadFileList = fileListBuilder.files;
+						}
+
+						Ext.MessageBox.confirm(
+							_('Add as attachment?'),
+							_('The following files cannot be embedded in the message body. Add them as attachments instead?') +
+								'<br><br>' + names.join('<br>'),
+							function(btn) {
+								if (btn !== 'yes' || !record) {
+									return;
+								}
+
+								var store = record.getSubStore('attachments');
+								// Run the same validation (max attachment count/size limits)
+								// that a direct drop on the Attachments field would perform.
+								if (store && store.canUploadFiles(uploadFileList, { container: this.getEl() })) {
+									store.uploadFiles(uploadFileList);
+								}
+							}.createDelegate(self)
+						);
 					});
 				}
 			}
