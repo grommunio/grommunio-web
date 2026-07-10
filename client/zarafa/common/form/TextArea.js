@@ -49,20 +49,62 @@ Zarafa.common.form.TextArea = Ext.extend(Ext.form.TextArea, {
 	},
 
 	/**
-	 * Block file drops and show an error notification. The HTML
-	 * editor (TinyMCE) does this automatically, but the plain text
-	 * textarea has no such handling.
+	 * Block file drops on the plain-text body area. When the user drops a file
+	 * that cannot be embedded (which is every file in plain-text mode), offer
+	 * to add it as a message attachment instead.
 	 * @param {Ext.EventObject} e The drop event
 	 * @private
 	 */
 	onFileDrop: function(e)
 	{
 		var dt = e.browserEvent.dataTransfer;
-		if (dt && (Array.prototype.indexOf.call(dt.types, 'Files') >= 0 || dt.files.length > 0)) {
-			e.preventDefault();
-			container.getNotifier().notify('error', _('Attachment error'),
-				_('Dropped file type is not supported'));
+		if (!dt || (Array.prototype.indexOf.call(dt.types, 'Files') < 0 && dt.files.length === 0)) {
+			return;
 		}
+
+		e.preventDefault();
+
+		var files = dt.files;
+		if (!files || files.length === 0) {
+			return;
+		}
+
+		// Build a list of filenames for the confirmation message. Each name is
+		// HTML-encoded individually so that the '<br>' separators used to join
+		// them remain real line breaks instead of being escaped as literal text.
+		var names = [];
+		for (var i = 0, len = files.length; i < len; i++) {
+			names.push('\u2022 ' + Ext.util.Format.htmlEncode(files[i].name));
+		}
+
+		var self = this;
+		var filesSnapshot = files; // keep a reference before the event is recycled
+
+		Ext.MessageBox.confirm(
+			_('Add as attachment?'),
+			_('The following files cannot be embedded in the message body. Add them as attachments instead?') +
+				'<br><br>' + names.join('<br>'),
+			function(btn) {
+				if (btn !== 'yes') {
+					return;
+				}
+
+				// Walk up to the nearest panel that holds the mail record.
+				var panel = self.findParentByType('zarafa.mailcreatepanel') ||
+				            self.findParentByType('zarafa.recordcontentpanel');
+				if (!panel || !panel.record) {
+					return;
+				}
+
+				var store = panel.record.getSubStore('attachments');
+				// Run the same validation (max attachment count/size limits) that a
+				// direct drop on the Attachments field would perform, so the file is
+				// added/rejected/notified in exactly the same way either way.
+				if (store && store.canUploadFiles(filesSnapshot, { container: panel.getEl() })) {
+					store.uploadFiles(filesSnapshot);
+				}
+			}
+		);
 	},
 
 	/**
