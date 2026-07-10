@@ -277,6 +277,9 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 			}
 
 			if (isSending && this.closeOnSend && sendAction) {
+				if (this.recordComponentPlugin) {
+					this.recordComponentPlugin.resetUserChangeTracker();
+				}
 				this.close();
 				// We closed the panel, stop the event propagation as there is
 				// no longer an UI that can be updated.
