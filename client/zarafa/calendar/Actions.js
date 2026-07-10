@@ -287,7 +287,19 @@ Zarafa.calendar.Actions = {
 				records.applyData(copy);
 			},
 			convert: function(user, field) {
-				return user.convertToRecipient(field ? field.defaultRecipientType : config.defaultRecipientType);
+				// Rooms/equipment must always be treated as resources (MAPI_BCC),
+				// regardless of which field (Required/Optional/Resource) they were
+				// added through, so that server-side auto-accept works correctly.
+				// display_type_ex can carry additional flag bits (e.g.
+				// DTE_FLAG_ACL_CAPABLE) alongside the base type, so the flags must
+				// be stripped via DTE_LOCAL() before comparing against DT_ROOM/DT_EQUIPMENT.
+				var localDisplayTypeEx = Zarafa.core.mapi.DisplayTypeEx.DTE_LOCAL(user.get('display_type_ex'));
+				var isResource = localDisplayTypeEx === Zarafa.core.mapi.DisplayTypeEx.DT_ROOM ||
+				                  localDisplayTypeEx === Zarafa.core.mapi.DisplayTypeEx.DT_EQUIPMENT;
+				var recipientType = isResource ?
+					Zarafa.core.mapi.RecipientType.MAPI_BCC :
+					(field ? field.defaultRecipientType : config.defaultRecipientType);
+				return user.convertToRecipient(recipientType);
 			},
 			store: store,
 			selectionCfg: [{
