@@ -386,6 +386,16 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 			var hasAccess = targetFolder.get('access') & Zarafa.core.mapi.Access.ACCESS_CREATE_HIERARCHY;
 			var hasCtrlKeyPressed = dropEvent.rawEvent.ctrlKey;
 
+			// Guard: dropping a folder onto the tier it already lives in must be a no-op.
+			// Compare by MAPI entryid (not tree-node identity) so this also holds for
+			// shared/favorites stores where nodes may be distinct objects. Only guard the
+			// move path; a Ctrl-copy into the same parent is a legitimate duplicate.
+			if (!hasCtrlKeyPressed &&
+				Zarafa.core.EntryId.compareEntryIds(sourceFolder.get('parent_entryid'), targetFolder.get('entryid')) &&
+				Zarafa.core.EntryId.compareEntryIds(sourceFolder.get('store_entryid'), targetFolder.get('store_entryid'))) {
+				return false;
+			}
+
 			var msg;
 			if (!hasAccess) {
 				msg = hasCtrlKeyPressed ? _("You have insufficient privileges to copy this folder. Ask the folder owner to grant you permissions or contact your system administrator.") :

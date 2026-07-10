@@ -37,12 +37,6 @@ Zarafa.hierarchy.ui.HierarchyFolderDropZone = Ext.extend(Zarafa.hierarchy.ui.Hie
 	 */
 	onBeforeNodeDrop: function(dropEvent)
 	{
-		// Multiple DropZones might have been installed on the Tree,
-		// check if this event is coming from this class.
-		if (dropEvent.source !== this) {
-			return;
-		}
-
 		var dropNode = dropEvent.dropNode;
 
 		if (Ext.isDefined(dropNode)) {
