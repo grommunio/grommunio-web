@@ -52,7 +52,7 @@ class NewMailNotifier extends Notifier {
 	}
 
 	/**
-	 * Check shared stores for hierarchy changes, throttled to avoid
+	 * Check shared and public stores for hierarchy changes, throttled to avoid
 	 * querying on every single request.
 	 */
 	private function checkSharedStores() {
@@ -62,19 +62,78 @@ class NewMailNotifier extends Notifier {
 		}
 		$this->lastSharedCheck = $now;
 
-		$supported_types = ['inbox' => 1, 'all' => 1];
-		$users = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/shared_stores", []);
+		$this->updateOpenedStoreHierachies();
 
-		foreach ($users as $username => $data) {
-			$key = array_keys($data)[0];
-			$folder_type = $data[$key]['folder_type'];
+		if (ENABLE_PUBLIC_FOLDERS) {
+			$this->updatePublicFolderHierachy();
+		}
+	}
 
-			if (!isset($supported_types[$folder_type])) {
+	/**
+	 * Update unread counters for all opened non-public stores.
+	 */
+	private function updateOpenedStoreHierachies() {
+		$stores = $GLOBALS["mapisession"]->getOtherUserStore();
+		$defaultStoreEntryId = $GLOBALS["mapisession"]->getDefaultMessageStoreEntryId();
+
+		foreach ($stores as $store) {
+			try {
+				$storeProps = mapi_getprops($store, [PR_ENTRYID, PR_MDB_PROVIDER, PR_DISPLAY_NAME, PR_MAILBOX_OWNER_NAME]);
+			}
+			catch (MAPIException $e) {
+				$e->setHandled();
 				continue;
 			}
 
-			$this->updateFolderHierachy(strtolower(hex2bin((string) $username)), $folder_type);
+			if (($storeProps[PR_MDB_PROVIDER] ?? null) == ZARAFA_STORE_PUBLIC_GUID) {
+				continue;
+			}
+
+			$storeEntryId = bin2hex((string) $storeProps[PR_ENTRYID]);
+			$isDefaultStore = $GLOBALS["entryid"]->compareEntryIds($storeEntryId, $defaultStoreEntryId);
+			$cacheKey = $isDefaultStore ? 'sessionData' : 'store_' . $storeEntryId;
+			$displayName = $isDefaultStore ? null : str_replace('Inbox - ', '', $storeProps[PR_MAILBOX_OWNER_NAME] ?? $storeProps[PR_DISPLAY_NAME] ?? '');
+			$folderType = $this->getOpenedStoreFolderType($storeProps[PR_ENTRYID]);
+
+			$this->updateFolderHierachy('', $folderType, $store, $cacheKey, $displayName);
 		}
+	}
+
+	/**
+	 * Returns the configured folder type for a manually opened shared store.
+	 * Automatically opened stores do not have a setting and use the full subtree.
+	 *
+	 * @param string $storeEntryId binary store entryid
+	 *
+	 * @return string folder type for counter updates
+	 */
+	private function getOpenedStoreFolderType($storeEntryId) {
+		$username = $GLOBALS["mapisession"]->getUserNameOfStore($storeEntryId);
+		if (!$username) {
+			return '';
+		}
+
+		$otherUsers = $GLOBALS["mapisession"]->retrieveOtherUsersFromSettings();
+		if (!isset($otherUsers[$username])) {
+			return '';
+		}
+
+		$folderType = array_key_first($otherUsers[$username]);
+		$supportedTypes = ['inbox' => 1, 'all' => 1];
+
+		return isset($supportedTypes[$folderType]) ? $folderType : '';
+	}
+
+	/**
+	 * Update unread counters for the public store hierarchy.
+	 */
+	private function updatePublicFolderHierachy() {
+		$store = $GLOBALS["mapisession"]->getPublicMessageStore();
+		if (!$store) {
+			return;
+		}
+
+		$this->updateFolderHierachy('', '', $store, 'publicStore');
 	}
 
 	/**
@@ -87,11 +146,16 @@ class NewMailNotifier extends Notifier {
 	 * @param string $username   The user for whom the store is checked for mail updates. If not set, it will be
 	 *                           current user's own store.
 	 * @param string $folderType the type of shared folder (all, inbox or calendar)
+	 * @param mixed  $store      optional already opened store
+	 * @param string $cacheKey   optional key for the counter state cache
+	 * @param string $displayName optional store display name for shared-store notifications
 	 */
-	private function updateFolderHierachy($username = '', $folderType = '') {
+	private function updateFolderHierachy($username = '', $folderType = '', $store = null, $cacheKey = null, $displayName = null) {
 		$counterState = new State('counters_sessiondata');
 		$counterState->open();
-		$cacheKey = 'sessionData';
+		if ($cacheKey === null) {
+			$cacheKey = 'sessionData';
+		}
 		if ($username) {
 			$cacheKey = $username;
 		}
@@ -101,7 +165,7 @@ class NewMailNotifier extends Notifier {
 			$sessionData = [];
 		}
 
-		$folderStatCache = updateHierarchyCounters($username, $folderType);
+		$folderStatCache = updateHierarchyCounters($username, $folderType, $store);
 
 		if ($folderStatCache !== $sessionData) {
 			$data = ["item" => []];
@@ -113,7 +177,7 @@ class NewMailNotifier extends Notifier {
 						$name = $GLOBALS["mapisession"]->getDisplayNameofUser($username);
 					}
 					else {
-						$name = null;
+						$name = $displayName;
 					}
 					$data['item'][] = [
 						'entryid' => $props['entryid'],

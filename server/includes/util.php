@@ -682,17 +682,20 @@ function getSubTree($store) {
  * @param string $username   the user who's store to retrieve hierarchy counters from.
  *                           If no username is given, the currently logged in user's store will be used.
  * @param string $folderType if inbox use the inbox as root folder
+ * @param mixed  $store      optional already opened store to retrieve hierarchy counters from
  *
  * @return array folderStatCache a cache of the hierarchy folders
  */
-function updateHierarchyCounters($username = '', $folderType = '') {
+function updateHierarchyCounters($username = '', $folderType = '', $store = null) {
 	// Open the correct store
-	if ($username) {
-		$userEntryid = $GLOBALS["mapisession"]->getStoreEntryIdOfUser($username);
-		$store = $userEntryid ? $GLOBALS["mapisession"]->openMessageStore($userEntryid) : false;
-	}
-	else {
-		$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
+	if (!$store) {
+		if ($username) {
+			$userEntryid = $GLOBALS["mapisession"]->getStoreEntryIdOfUser($username);
+			$store = $userEntryid ? $GLOBALS["mapisession"]->openMessageStore($userEntryid) : false;
+		}
+		else {
+			$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
+		}
 	}
 
 	if (!$store) {
