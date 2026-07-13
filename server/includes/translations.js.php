@@ -1,18 +1,33 @@
 <?php
 header("Content-Type: text/javascript; charset=utf-8");
+define("EXPIRES_TIME_LO", "300", 1);
 
-header('Expires: ' . gmdate('D, d M Y H:i:s', time() + EXPIRES_TIME) . ' GMT');
-header('Cache-Control: max-age=' . EXPIRES_TIME . ',must-revalidate');
+header('Expires: ' . gmdate('D, d M Y H:i:s', time() + EXPIRES_TIME_LO) . ' GMT');
+header('Cache-Control: max-age=' . EXPIRES_TIME_LO . ',must-revalidate');
 
 // Pragma: cache doesn't really exist. But since session_start() automatically
 // outputs a Pragma: no-cache, the only way to override that is to output something else
 // in that header. So that's what we do here. It might as well have read 'Pragma: foo'.
 header('Pragma: cache');
 
+$translations = $Language->getTranslations();
+if ($translations && array_key_exists("_etag", $translations)) {
+	$etag = $translations["_etag"];
+	header("Etag: $etag");
+	if (isset($_SERVER["HTTP_IF_NONE_MATCH"])) {
+		$client_etags = array_map("trim", explode(",", $_SERVER["HTTP_IF_NONE_MATCH"]));
+		if (in_array($etag, $client_etags, true) || in_array("*", $client_etags, true)) {
+			http_response_code(304);
+			exit;
+		}
+	}
+} else {
+	header("Etag: 0");
+}
+
+
 // compress output
 ob_start("ob_gzhandler");
-
-$translations = $Language->getTranslations();
 
 /**
  * Convert the charset to UTF-8. If it is an array it will loop through all it's
@@ -56,6 +71,8 @@ Translations.prototype.setTranslations = function()
 	// BEGIN TRANSLATIONS
 <?php
 foreach ($translations as $domain => $translation_list) {
+	if (substr($domain, 0, 1) == '_')
+		continue;
 	$pluralForms = false;
 	// Find the translation that contains the charset.
 	foreach ($translations[$domain] as $key => $translationdomain) {
