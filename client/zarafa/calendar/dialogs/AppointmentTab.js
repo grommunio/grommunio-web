@@ -882,7 +882,10 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				var isResouceChanged = false;
 
 				for(var i = 0; i < changedRecipients.length; i++) {
-					if(changedRecipients[i].get('display_type_ex') === Zarafa.core.mapi.DisplayTypeEx.DT_ROOM) {
+					// display_type_ex can carry additional flag bits (e.g.
+					// DTE_FLAG_ACL_CAPABLE) alongside the base type, so the flags
+					// must be stripped via DTE_LOCAL() before comparing against DT_ROOM.
+					if(Zarafa.core.mapi.DisplayTypeEx.DTE_LOCAL(changedRecipients[i].get('display_type_ex')) === Zarafa.core.mapi.DisplayTypeEx.DT_ROOM) {
 						isResouceChanged = true;
 						break;
 					}
@@ -957,7 +960,10 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 
 		// Create location suggestion string using room resources of the recipient store
 		recipientStore.each(function(recipient) {
-			if (recipient.get('display_type_ex') === Zarafa.core.mapi.DisplayTypeEx.DT_ROOM){
+			// display_type_ex can carry additional flag bits (e.g. DTE_FLAG_ACL_CAPABLE)
+			// alongside the base type, so the flags must be stripped via DTE_LOCAL()
+			// before comparing against DT_ROOM.
+			if (Zarafa.core.mapi.DisplayTypeEx.DTE_LOCAL(recipient.get('display_type_ex')) === Zarafa.core.mapi.DisplayTypeEx.DT_ROOM){
 				var name = recipient.get('display_name');
 
 				if (!Ext.isEmpty(name)) {
