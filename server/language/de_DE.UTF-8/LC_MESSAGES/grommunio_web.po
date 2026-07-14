@@ -8136,3 +8136,94 @@ msgstr "Ungültiges UTF-8-Zeichen, möglicherweise falsch enkodiert"
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
 msgstr "Bei der En-/Dekodierung von JSON-Daten ist ein Problem aufgetreten: - %s"
+
+# google2fa plugin
+msgid "Google2FA Plugin"
+msgstr "Google2FA Plugin"
+
+msgid "Two-factor authentication"
+msgstr "Zwei-Faktor Authentifizierung"
+
+msgid "Configure two-factor authentication"
+msgstr "Konfiguriere Zwei-Faktor Authentifizierung"
+
+msgid "The two-factor authentication provides an additional protection for the WebApp."
+msgstr "Die Zwei-Faktor Authentifizierung liefert einen zusätzlichen Schutz ihrer WebApp."
+
+msgid "After activation you need next to your password an one-time code to log in."
+msgstr "Nach der Aktivierung benötigen sie neben ihrem Passwort ebenfalls einen Einmalcode um sich einzuloggen."
+
+msgid "To generate an one-time code, you have to configure a second device, usually a smartphone."
+msgstr "Um einen Einmalcode zu generieren, konfigurieren sie bitte ein Zweitgerät, normalerweise ein Smartphone."
+
+msgid "Configuration"
+msgstr "Konfiguration"
+
+msgid "Activate or deactivate the two-factor authentication."
+msgstr "Aktivieren oder Deaktivieren der Zwei-Faktor Authentifizierung."
+
+msgid "Current status"
+msgstr "Aktueller Status"
+
+msgid "Activate / Deactivate"
+msgstr "Aktivieren / Deaktivieren"
+
+msgid "You can completely reset the configuration."
+msgstr "Sie können die Konfiguration vollständidg zurücksetzen."
+
+msgid "This deletes the secret key and deactivates the two-factor authentication."
+msgstr "Dies entfernt den geheimen Schlüssel und deaktiviert die Zwei-Faktor Authentifizierung."
+
+msgid "If fundamental changes in the configuration were made, for example the encryption type, this step might be useful."
+msgstr "Falls sie grundlegende Änderungen an der Konfiguration durchgeführt haben, ist dieser Schritt nützlich."
+
+msgid "Activated"
+msgstr "Aktiviert"
+
+msgid "Deactivated"
+msgstr "Deaktiviert"
+
+msgid "Do you really want to reset the configuration?"
+msgstr "Soll die Konfiguration wirklich zurückgesetzt werden?"
+
+msgid "The configuration has been reset."
+msgstr "Doe Konfiguration wurde zurückgesetzt."
+
+msgid "Please install an authentication App on second device:"
+msgstr "Bitte installieren sie eine Authentifizierungs App auf einem Zweitgerät:"
+
+msgid "Google Authenticator (Android, iOS, BlackBerry), Authenticator (Windows Phone)"
+msgstr "Google Authenticator (Android, iOS, BlackBerry), Authenticator (Windows Phone)"
+
+msgid "Open and configure the authentication app by scanning the QR code below."
+msgstr "Öffnen sie die Authentifizierungs App und scannen sie den QR-Code."
+
+msgid "Alternatively, you can manually create an account with the following information."
+msgstr "Alternativ können sie manuell einen Account mit folgenden Informationen anlegen."
+
+msgid "Application"
+msgstr "Anwendung"
+
+msgid "Afterwards test the function with a generated code to ensure that the configurations are correct."
+msgstr "Anschließend testen sie bitte die Funktion der generierten Codes um sicherzustellen dass die Konfiguration korrekt ist."
+
+msgid "Key"
+msgstr "Schlüssel"
+
+msgid "Test generated code"
+msgstr "Testen generierter Codes"
+
+msgid "Please enter code"
+msgstr "Bitte geben sie den Code ein"
+
+msgid "Valid code, you can use the two-factor authentication."
+msgstr "Gültiger Code, sie können nun die Zwei-Faktor Authentifizierung verwenden."
+
+msgid "Invalid code, please check code."
+msgstr "Ungültiger Code, bitte prüfen sie den eingegebenen Code."
+
+msgid "You can use a code only one-time."
+msgstr "Sie können einen Code nur einmalig verwenden."
+
+msgid "Please make sure that time from of server and second device are correct."
+msgstr "Bitte stellen sie sicher, dass die Zeit auf dem Server und ihrem Zweitgerät korrekt sind."

@@ -1,0 +1,8 @@
+.icon_google2fa_category {
+    background-image: url(../icons/google2fa_icon_category.png) !important;
+}
+
+.x-btn .x-btn-large .icon_google2fa_category {
+    background-image: url(../icons/google2fa_icon_category_large.png) !important;
+}
+
