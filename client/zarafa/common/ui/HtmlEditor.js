@@ -122,9 +122,8 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 							return;
 						}
 
-						// Collect the files that TinyMCE cannot embed (non-images).
-						// TinyMCE handles images itself and will have already called
-						// preventDefault() for them, so we check isDefaultPrevented().
+						// Defensive: if another plugin already handled this drop and
+						// prevented the default, leave it alone.
 						if (e.isDefaultPrevented()) {
 							return;
 						}
@@ -138,10 +137,13 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 						var imageExts = (editor.options.get('images_file_types') || 'jpeg,jpg,jpe,jfi,jif,jfif,png,gif,bmp,webp').split(',');
 
 						var nonEmbeddable = [];
+						var hasEmbeddable = false;
 						for (var i = 0; i < files.length; i++) {
 							var ext = (files[i].name.split('.').pop() || '').toLowerCase();
 							if (imageExts.indexOf(ext) < 0) {
 								nonEmbeddable.push(files[i]);
+							} else {
+								hasEmbeddable = true;
 							}
 						}
 
@@ -149,8 +151,16 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 							return;
 						}
 
-						// Prevent TinyMCE from showing its own "not supported" error.
-						e.preventDefault();
+						// Suppress TinyMCE's own "Dropped file type is not supported" error
+						// only when there is nothing for TinyMCE to embed. When the same drop
+						// also contains images, TinyMCE's paste handler (which runs after this
+						// one) embeds them and calls preventDefault() itself -- which also
+						// suppresses that error. Calling preventDefault() here in that case
+						// would make TinyMCE's handler bail on isDefaultPrevented() and the
+						// images would be silently discarded.
+						if (!hasEmbeddable) {
+							e.preventDefault();
+						}
 
 						// HTML-encode each name individually so that the '<br>' separators
 						// used to join them remain real line breaks instead of being
