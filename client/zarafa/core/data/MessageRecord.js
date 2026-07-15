@@ -504,10 +504,17 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 		if(delegatorStore) {
 			force = force || false;
 
+			// user_name is the store owner's account name (their primary email
+			// address); mailbox_owner_name is only a display name.
+			var ownerAddress = delegatorStore.get('user_name') || '';
+
 			this.set('sent_representing_name', delegatorStore.get('mailbox_owner_name'), force);
-			this.set('sent_representing_email_address', delegatorStore.get('mailbox_owner_name'), force);
+			this.set('sent_representing_email_address', ownerAddress, force);
 			this.set('sent_representing_address_type', 'SMTP', force);
 			this.set('sent_representing_entryid', delegatorStore.get('mailbox_owner_entryid'), force);
+			if (Zarafa.core.Util.validateEmailAddress(ownerAddress)) {
+				this.set('sent_representing_smtp_address', ownerAddress, force);
+			}
 		}
 	},
 
