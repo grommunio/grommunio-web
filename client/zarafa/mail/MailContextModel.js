@@ -112,6 +112,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		// initialize properties of response record
 		if (actionType === Zarafa.mail.data.ActionTypes.EDIT_AS_NEW){
 			this.copyRecordRecipients(responseRecord, record);
+			this.copySendAsIdentity(responseRecord, record);
 		} else {
 			var mapiFolderStore = this.getDefaultFolder().getMAPIFolderStore();
 			var folderIndex = mapiFolderStore.find('entryid', record.get('parent_entryid'));
@@ -562,6 +563,61 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 
 			recipientStore.add(recipient);
 		}, this);
+	},
+
+	/**
+	 * Copy the SendAs / on-behalf identity (the sent_representing_* properties)
+	 * of the {@link Zarafa.core.data.IPMRecord original record} to the
+	 * {@link Zarafa.core.data.IPMRecord new record} for "Edit as New".
+	 *
+	 * Only done for a message in the user's own Sent or Drafts folder which
+	 * was sent under another identity. Received messages also carry
+	 * sent_representing_* (the original author), which must not become the
+	 * From; shared store messages get their identity from setDelegatorInfo.
+	 *
+	 * @param {Zarafa.core.data.IPMRecord} record The record to initialize
+	 * @param {Zarafa.core.data.IPMRecord} origRecord The original record
+	 * to which the respond is created
+	 * @private
+	 */
+	copySendAsIdentity: function(record, origRecord)
+	{
+		if (!Ext.isFunction(origRecord.userIsStoreOwner) || !origRecord.userIsStoreOwner()) {
+			return;
+		}
+
+		var reprEntryId = origRecord.get('sent_representing_entryid');
+		if (Ext.isEmpty(reprEntryId)) {
+			return;
+		}
+
+		// An alias identity carries the user's own addressbook entryid with a
+		// different SMTP address, so a message only counts as sent-as-self
+		// when the address does not differ either.
+		if (Zarafa.core.EntryId.compareABEntryIds(reprEntryId, container.getUser().getEntryId())) {
+			var reprAddress = origRecord.get('sent_representing_smtp_address') ||
+				origRecord.get('sent_representing_email_address');
+			var ownAddress = container.getUser().getSMTPAddress();
+			if (!Zarafa.core.Util.validateEmailAddress(reprAddress) ||
+				String(reprAddress).toLowerCase() === String(ownAddress).toLowerCase()) {
+				return;
+			}
+		}
+
+		var folder = container.getHierarchyStore().getFolder(origRecord.get('parent_entryid'));
+		if (!folder || (folder.getDefaultFolderKey() !== 'sent' && folder.getDefaultFolderKey() !== 'drafts')) {
+			return;
+		}
+
+		record.set('sent_representing_name', origRecord.get('sent_representing_name'));
+		record.set('sent_representing_email_address', origRecord.get('sent_representing_email_address'));
+		record.set('sent_representing_address_type', origRecord.get('sent_representing_address_type'));
+		record.set('sent_representing_entryid', reprEntryId);
+		record.set('sent_representing_search_key', origRecord.get('sent_representing_search_key'));
+		var smtpAddress = origRecord.get('sent_representing_smtp_address');
+		if (Zarafa.core.Util.validateEmailAddress(smtpAddress)) {
+			record.set('sent_representing_smtp_address', smtpAddress);
+		}
 	},
 
 	/**
