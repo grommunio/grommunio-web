@@ -3492,16 +3492,16 @@ class Operations {
 			$modifyRecipients = $this->createRecipientList($recipients['modify'], 'modify', false, $send);
 		}
 
-		if (!empty($removeRecipients)) {
-			mapi_message_modifyrecipients($message, MODRECIP_REMOVE, $removeRecipients);
-		}
-
 		if (!empty($modifyRecipients)) {
 			mapi_message_modifyrecipients($message, MODRECIP_MODIFY, $modifyRecipients);
 		}
 
 		if (!empty($newRecipients)) {
 			mapi_message_modifyrecipients($message, MODRECIP_ADD, $newRecipients);
+		}
+
+		if (!empty($removeRecipients)) {
+			mapi_message_modifyrecipients($message, MODRECIP_REMOVE, $removeRecipients);
 		}
 	}
 
