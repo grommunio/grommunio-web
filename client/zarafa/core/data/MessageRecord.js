@@ -614,8 +614,8 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	getDefaultFromRecipeint: function ()
 	{
 		var settingsModel = container.getSettingsModel();
-		var defaultFromRecipients = settingsModel.get('zarafa/v1/contexts/mail/sendas');
-		
+		var defaultFromRecipients = settingsModel.get('zarafa/v1/contexts/mail/sendas') || [];
+
 		if (Ext.isEmpty(this.get('sent_representing_email_address'))) {
 			return false;
 		}
@@ -624,8 +624,10 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 		var recipeintConfig = {
 			display_name: this.get('sent_representing_name'),
 			email_address: this.get('sent_representing_email_address'),
+			smtp_address: this.get('sent_representing_smtp_address'),
 			address_type: this.get('sent_representing_address_type'),
-			entryid: this.get('sent_representing_entryid')
+			entryid: this.get('sent_representing_entryid'),
+			search_key: this.get('sent_representing_search_key')
 		};
 		
 		// Check whether the sent_representing_* properties had been set by 'from addresses' functionality.
