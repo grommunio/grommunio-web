@@ -49,6 +49,19 @@ function XlsxViewerPlugin() {
         document.head.appendChild(style);
     }
 
+    function isSheetVisible( index ) {
+        var props = workbook.Workbook && workbook.Workbook.Sheets;
+        return !(props && props[index] && props[index].Hidden);
+    }
+
+    function visibleSheetNames() {
+        var names = workbook.SheetNames.filter(function ( name, index ) {
+            return isSheetVisible(index);
+        });
+        // All sheets hidden: show everything rather than nothing.
+        return names.length ? names : workbook.SheetNames.slice();
+    }
+
     function renderSheet( name ) {
         if ( !sheetCache[name] ) {
             sheetCache[name] = XLSX.utils.sheet_to_html(workbook.Sheets[name], { editable: false, header: '', footer: '' });
@@ -69,7 +82,8 @@ function XlsxViewerPlugin() {
         content = document.createElement('div');
         content.className = 'xlsx-sheet';
 
-        workbook.SheetNames.forEach(function ( name ) {
+        var sheetNames = visibleSheetNames();
+        sheetNames.forEach(function ( name ) {
             var tab = document.createElement('span');
             tab.className   = 'xlsx-tab';
             tab.textContent = name;
@@ -90,14 +104,14 @@ function XlsxViewerPlugin() {
         container.appendChild(wrapper);
 
         // Show the first sheet, or hide the tab bar for a single-sheet workbook.
-        if ( workbook.SheetNames.length <= 1 ) {
+        if ( sheetNames.length <= 1 ) {
             tabs.style.display = 'none';
         }
         var firstTab = tabs.querySelector('.xlsx-tab');
         if ( firstTab ) {
             firstTab.classList.add('active');
         }
-        renderSheet(workbook.SheetNames[0]);
+        renderSheet(sheetNames[0]);
     }
 
     function showError( container ) {
