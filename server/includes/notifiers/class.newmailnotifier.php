@@ -168,6 +168,13 @@ class NewMailNotifier extends Notifier {
 
 		$folderStatCache = updateHierarchyCounters($username, $folderType, $store, $logErrors);
 
+		// Keep the previous counter state when the hierarchy could not be read.
+		if (empty($folderStatCache)) {
+			$counterState->close();
+
+			return;
+		}
+
 		if ($folderStatCache !== $sessionData) {
 			$data = ["item" => []];
 
