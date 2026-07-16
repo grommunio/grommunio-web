@@ -606,6 +606,7 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	onCompleteValidateSendRecord: function(success)
 	{
 		if (success) {
+			this.forceSendAsIdentityTransmission();
 			this.record.addMessageAction('send', true);
 			if (this.saveRecord() !== false) {
 				this.fireEvent('sendrecord', this, this.record);
@@ -613,6 +614,34 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 		} else {
 			this.isSending = false;
 		}
+	},
+
+	/**
+	 * Re-mark the sent_representing_* properties as modified just before the
+	 * record is sent. Only modified fields are transmitted, so after an
+	 * intermediate (auto)save a SendAs / on-behalf identity would be missing
+	 * from the send request and the server would fall back to the logged-in
+	 * user's own address.
+	 * @private
+	 */
+	forceSendAsIdentityTransmission: function()
+	{
+		var record = this.record;
+		if (Ext.isEmpty(record.get('sent_representing_email_address')) &&
+			Ext.isEmpty(record.get('sent_representing_entryid'))) {
+			return;
+		}
+
+		record.beginEdit();
+		Ext.each(['sent_representing_name', 'sent_representing_email_address',
+			'sent_representing_address_type', 'sent_representing_entryid',
+			'sent_representing_search_key', 'sent_representing_smtp_address'], function(field) {
+			var value = record.get(field);
+			if (Ext.isDefined(value)) {
+				record.set(field, value, true);
+			}
+		});
+		record.endEdit();
 	}
 });
 
