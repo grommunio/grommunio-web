@@ -658,12 +658,19 @@ class AdvancedSearchListModule extends ListModule {
 			$username = $eidObj['ServerShortname'];
 			$session = $GLOBALS["mapisession"]->getSession();
 
-			if ($username) {
+			if ($username) try {
 				$indexDB = new IndexSqlite($username, $session, $store);
+			} catch (Exception $e) {
+				// Fallback to MAPI-based search
+				return parent::search($store, $entryid, $action, $actionType);
 			}
 		}
 		else {
-			$indexDB = new IndexSqlite();
+			try {
+				$indexDB = new IndexSqlite();
+			} catch (Exception $e) {
+				return parent::search($store, $entryid, $action, $actionType);
+			}
 		}
 		$this->logFtsDebug('Dispatching search to index backend', [
 			'search_folder_entryid' => $searchFolderEntryId,
