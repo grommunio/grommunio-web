@@ -666,7 +666,7 @@ function getSubTree($store) {
 	catch (MAPIException $e) {
 		if ($e->getCode() == MAPI_E_NOT_FOUND || $e->getCode() == MAPI_E_INVALID_ENTRYID) {
 			$username = $GLOBALS["mapisession"]->getUserName();
-			error_log(sprintf('Unable to open IPM_SUBTREE for %s, trying to correct PR_IPM_SUBTREE_ENTRYID', $username) . ': ' . $e->getMessage());
+			error_log(sprintf("Unable to open IPM_SUBTREE for %s", $username) . ': ' . $e->getMessage());
 		}
 	}
 
