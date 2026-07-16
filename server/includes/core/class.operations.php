@@ -2842,6 +2842,43 @@ class Operations {
 			$props[PR_SENT_REPRESENTING_ADDRTYPE] ??= $props[PR_SENDER_ADDRTYPE];
 			$props[PR_SENT_REPRESENTING_SEARCH_KEY] ??= $props[PR_SENDER_SEARCH_KEY];
 
+			// A representing address claiming to be SMTP may in reality be a
+			// display name (older clients filled it from the store owner's
+			// display name). gromox cannot resolve such a value as the sending
+			// identity and would fall back to the logged-in user, so resolve
+			// the canonical identity through the address book instead.
+			if ((empty($props[PR_SENT_REPRESENTING_SMTP_ADDRESS]) ||
+				!$this->isEmailAddressLike($props[PR_SENT_REPRESENTING_SMTP_ADDRESS])) &&
+				!$this->isEmailAddressLike($props[PR_SENT_REPRESENTING_EMAIL_ADDRESS]) &&
+				strcasecmp((string) $props[PR_SENT_REPRESENTING_ADDRTYPE], 'SMTP') === 0 &&
+				!empty($props[PR_SENT_REPRESENTING_ENTRYID])) {
+				try {
+					$reprAbItem = mapi_ab_openentry($ab, $props[PR_SENT_REPRESENTING_ENTRYID]);
+					$reprAbProps = mapi_getprops($reprAbItem, [PR_DISPLAY_NAME, PR_EMAIL_ADDRESS, PR_SMTP_ADDRESS, PR_SEARCH_KEY]);
+					// A non-address-like SMTP address must never stay on the
+					// message; it is replaced below when the address book
+					// provides the real one.
+					unset($props[PR_SENT_REPRESENTING_SMTP_ADDRESS]);
+					if (!empty($reprAbProps[PR_SMTP_ADDRESS])) {
+						$props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] = $reprAbProps[PR_SMTP_ADDRESS];
+						$props[PR_SENT_REPRESENTING_SMTP_ADDRESS] = $reprAbProps[PR_SMTP_ADDRESS];
+					}
+					elseif (!empty($reprAbProps[PR_EMAIL_ADDRESS])) {
+						$props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] = $reprAbProps[PR_EMAIL_ADDRESS];
+						$props[PR_SENT_REPRESENTING_ADDRTYPE] = "EX";
+					}
+					if (isset($reprAbProps[PR_DISPLAY_NAME])) {
+						$props[PR_SENT_REPRESENTING_NAME] = $reprAbProps[PR_DISPLAY_NAME];
+					}
+					if (isset($reprAbProps[PR_SEARCH_KEY])) {
+						$props[PR_SENT_REPRESENTING_SEARCH_KEY] = $reprAbProps[PR_SEARCH_KEY];
+					}
+				}
+				catch (MAPIException $e) {
+					$e->setHandled();
+				}
+			}
+
 			/**
 			 * we are sending mail from delegate's account, so we can't use delegate's outbox and sent items folder
 			 * so we have to copy the mail from delegate's store to logged user's store and in outbox folder and then
