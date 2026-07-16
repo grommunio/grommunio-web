@@ -125,7 +125,7 @@ function XlsxViewerPlugin() {
                     self.onLoad();
                 })
                 .catch(function ( err ) {
-                    console.log('XlsxViewerPlugin: failed to render spreadsheet: ' + err);
+                    console.log('XlsxViewerPlugin: failed to render spreadsheet: ' + (err && err.stack ? err.stack : err));
                     showError(container);
                     self.onLoad();
                 });
