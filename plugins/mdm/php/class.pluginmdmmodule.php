@@ -507,6 +507,9 @@ class PluginMDMModule extends Module {
 					catch (MAPIException $e) {
 						// We've handled the event
 						$e->setHandled();
+
+						// no folder access, nothing to list
+						continue;
 					}
 
 					$this->getSubFolders($subtreeFolder, $store, $properties, $storeData, $storeUserName);
