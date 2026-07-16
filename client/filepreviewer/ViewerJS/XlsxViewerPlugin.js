@@ -23,7 +23,8 @@ function XlsxViewerPlugin() {
         zoomLevel    = 1,
         initialized  = false,
         kMaxPreviewRows = 5000,
-        kMaxPreviewCols = 256;
+        kMaxPreviewCols = 256,
+        kMaxPreviewCells = 200000;
 
     function loadLib( callback ) {
         var script   = document.createElement('script');
@@ -76,6 +77,8 @@ function XlsxViewerPlugin() {
         var range  = XLSX.utils.decode_range(sheet['!ref']),
             endRow = range.s.r,
             endCol = range.s.c,
+            cols,
+            budgetRows,
             truncated,
             html;
 
@@ -95,14 +98,18 @@ function XlsxViewerPlugin() {
         range.e.r = Math.min(endRow, range.s.r + kMaxPreviewRows - 1);
         range.e.c = Math.min(endCol, range.s.c + kMaxPreviewCols - 1);
 
+        // Bound the total cell count as well.
+        cols       = range.e.c - range.s.c + 1;
+        budgetRows = Math.max(1, Math.floor(kMaxPreviewCells / cols));
+        range.e.r  = Math.min(range.e.r, range.s.r + budgetRows - 1);
+
         truncated = range.e.r < endRow || range.e.c < endCol;
         sheet['!ref'] = XLSX.utils.encode_range(range);
 
         html = XLSX.utils.sheet_to_html(sheet, { editable: false, header: '', footer: '' });
         if ( truncated ) {
             html = '<div class="xlsx-truncated">Preview truncated to ' +
-                (range.e.r - range.s.r + 1) + ' rows × ' +
-                (range.e.c - range.s.c + 1) + ' columns.</div>' + html;
+                (range.e.r - range.s.r + 1) + ' rows × ' + cols + ' columns.</div>' + html;
         }
         return html;
     }
