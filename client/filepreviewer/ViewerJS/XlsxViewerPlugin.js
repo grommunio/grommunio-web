@@ -50,7 +50,7 @@ function XlsxViewerPlugin() {
             '.xlsx-sheet table{border-collapse:collapse;}' +
             '.xlsx-sheet td,.xlsx-sheet th{border:1px solid #d0d0d0;padding:2px 6px;min-width:32px;white-space:nowrap;}' +
             '.xlsx-empty{padding:24px;color:#888;}' +
-            '.xlsx-truncated{padding:6px 12px;margin-bottom:8px;background:#fff8e1;border:1px solid #e0d9b0;color:#6b5900;font-size:12px;}';
+            '.xlsx-truncated{position:sticky;left:0;padding:6px 12px;margin-bottom:8px;background:#fff8e1;border:1px solid #e0d9b0;color:#6b5900;font-size:12px;}';
         document.head.appendChild(style);
     }
 
