@@ -84,14 +84,17 @@ class IndexSqlite extends SQLite3 {
 			$this->logDebug('Opened index database', ['path' => $indexPath]);
 		}
 		catch (Exception $e) {
-			error_log(sprintf("Error opening the index database: %s", $e));
 			$this->openResult = 1;
 			$this->logDebug('Failed to open index database', [
 				'path' => $indexPath,
 				'error' => $e->getMessage(),
 			]);
-			throw $e;
 		}
+	}
+
+	public function is_open()
+	{
+		return !$this->openResult;
 	}
 
 	/**
