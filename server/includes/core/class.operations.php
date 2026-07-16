@@ -1838,6 +1838,22 @@ class Operations {
 	}
 
 	/**
+	 * Check whether a string is plausibly an email address. Several address
+	 * properties (e.g. PR_SENT_REPRESENTING_EMAIL_ADDRESS with ADDRTYPE
+	 * "SMTP") are trusted to carry an address, but may in practice contain a
+	 * display name or an X500 DN, which no send or resolution path can use.
+	 * The check is deliberately lax (no RFC validation) so unusual but real
+	 * addresses are not rejected.
+	 *
+	 * @param string $address the value to check
+	 *
+	 * @return bool true if the value looks like an email address
+	 */
+	public function isEmailAddressLike($address) {
+		return (bool) preg_match('/^[^\s@\/]+@[^\s@]+$/', (string) $address);
+	}
+
+	/**
 	 * Get and convert properties of a message into an XML array structure.
 	 *
 	 * @param object $item       The MAPI Object
@@ -2738,15 +2754,26 @@ class Operations {
 		// Resolve to an SMTP address: an EX (GAL) representing identity carries an X500 DN in
 		// PR_SENT_REPRESENTING_EMAIL_ADDRESS, which must be normalised the same way as the actual
 		// side of the comparison, otherwise a valid delegate send would look like a mismatch.
+		// Only trust a claimed SMTP address when the value actually looks like
+		// an address: a client may put a display name where an address belongs,
+		// and a guard armed with that garbage would compare two identical
+		// garbage values and pass. Fall through to the entryid resolution
+		// instead.
 		$requestedSendAsAddress = '';
-		if (!empty($props[PR_SENT_REPRESENTING_SMTP_ADDRESS])) {
+		if (!empty($props[PR_SENT_REPRESENTING_SMTP_ADDRESS]) &&
+			$this->isEmailAddressLike($props[PR_SENT_REPRESENTING_SMTP_ADDRESS])) {
 			$requestedSendAsAddress = strtolower((string) $props[PR_SENT_REPRESENTING_SMTP_ADDRESS]);
 		}
-		elseif (!empty($props[PR_SENT_REPRESENTING_EMAIL_ADDRESS])) {
-			if (strcasecmp((string) ($props[PR_SENT_REPRESENTING_ADDRTYPE] ?? ''), 'SMTP') === 0) {
+		elseif (!empty($props[PR_SENT_REPRESENTING_EMAIL_ADDRESS]) || !empty($props[PR_SENT_REPRESENTING_ENTRYID])) {
+			if (!empty($props[PR_SENT_REPRESENTING_EMAIL_ADDRESS]) &&
+				strcasecmp((string) ($props[PR_SENT_REPRESENTING_ADDRTYPE] ?? ''), 'SMTP') === 0 &&
+				$this->isEmailAddressLike($props[PR_SENT_REPRESENTING_EMAIL_ADDRESS])) {
 				$requestedSendAsAddress = strtolower((string) $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS]);
 			}
 			elseif (!empty($props[PR_SENT_REPRESENTING_ENTRYID])) {
+				// The resolver output is trusted as-is: it comes from the
+				// address book, and the actual side of the comparison resolves
+				// through the same code, so it cannot self-match client garbage.
 				$resolved = $this->getEmailAddress(
 					$props[PR_SENT_REPRESENTING_ENTRYID],
 					!empty($props[PR_SENT_REPRESENTING_SEARCH_KEY]) ? $props[PR_SENT_REPRESENTING_SEARCH_KEY] : false
