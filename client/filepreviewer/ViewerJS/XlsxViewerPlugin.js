@@ -45,7 +45,8 @@ function XlsxViewerPlugin() {
             '.xlsx-tab.active{background:#fff;font-weight:bold;}' +
             '.xlsx-sheet{padding:12px;overflow:auto;}' +
             '.xlsx-sheet table{border-collapse:collapse;}' +
-            '.xlsx-sheet td,.xlsx-sheet th{border:1px solid #d0d0d0;padding:2px 6px;min-width:32px;white-space:nowrap;}';
+            '.xlsx-sheet td,.xlsx-sheet th{border:1px solid #d0d0d0;padding:2px 6px;min-width:32px;white-space:nowrap;}' +
+            '.xlsx-empty{padding:24px;color:#888;}';
         document.head.appendChild(style);
     }
 
@@ -62,9 +63,21 @@ function XlsxViewerPlugin() {
         return names.length ? names : workbook.SheetNames.slice();
     }
 
+    function sheetToHtml( sheet ) {
+        if ( !sheet || !sheet['!ref'] ) {
+            return '<div class="xlsx-empty">This sheet is empty.</div>';
+        }
+        return XLSX.utils.sheet_to_html(sheet, { editable: false, header: '', footer: '' });
+    }
+
     function renderSheet( name ) {
         if ( !sheetCache[name] ) {
-            sheetCache[name] = XLSX.utils.sheet_to_html(workbook.Sheets[name], { editable: false, header: '', footer: '' });
+            try {
+                sheetCache[name] = sheetToHtml(workbook.Sheets[name]);
+            } catch ( err ) {
+                console.log('XlsxViewerPlugin: failed to render sheet "' + name + '": ' + (err && err.stack ? err.stack : err));
+                sheetCache[name] = '<div class="xlsx-empty">This sheet could not be rendered.</div>';
+            }
         }
         content.innerHTML = sheetCache[name];
         content.style.zoom = zoomLevel;
