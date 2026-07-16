@@ -90,6 +90,7 @@ class IndexSqlite extends SQLite3 {
 				'path' => $indexPath,
 				'error' => $e->getMessage(),
 			]);
+			throw $e;
 		}
 	}
 
