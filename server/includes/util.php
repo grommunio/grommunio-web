@@ -651,12 +651,13 @@ function json_decode_data($jsonString, $toAssoc = false) {
 /**
  * Tries to open the IPM subtree.
  *
- * @param resource $store the store to retrieve IPM subtree from
+ * @param resource $store     the store to retrieve IPM subtree from
+ * @param bool     $logErrors whether to log open failures
  *
  * @return mixed false if the subtree cannot be opened,
  *               the IPM subtree resource otherwise
  */
-function getSubTree($store) {
+function getSubTree($store, $logErrors = true) {
 	$storeProps = mapi_getprops($store, [PR_IPM_SUBTREE_ENTRYID]);
 	if (!isset($storeProps[PR_IPM_SUBTREE_ENTRYID])) {
 		return false;
@@ -666,7 +667,7 @@ function getSubTree($store) {
 		return mapi_msgstore_openentry($store, $storeProps[PR_IPM_SUBTREE_ENTRYID]);
 	}
 	catch (MAPIException $e) {
-		if ($e->getCode() == MAPI_E_NOT_FOUND || $e->getCode() == MAPI_E_INVALID_ENTRYID) {
+		if ($logErrors && ($e->getCode() == MAPI_E_NOT_FOUND || $e->getCode() == MAPI_E_INVALID_ENTRYID)) {
 			$username = $GLOBALS["mapisession"]->getUserName();
 			error_log(sprintf("Unable to open IPM_SUBTREE (%s) for %s",
 				bin2hex($storeProps[PR_IPM_SUBTREE_ENTRYID]), $username) . ': ' . $e->getMessage());
@@ -686,10 +687,11 @@ function getSubTree($store) {
  *                           If no username is given, the currently logged in user's store will be used.
  * @param string $folderType if inbox use the inbox as root folder
  * @param mixed  $store      optional already opened store to retrieve hierarchy counters from
+ * @param bool   $logErrors  whether to log root folder open failures
  *
  * @return array folderStatCache a cache of the hierarchy folders
  */
-function updateHierarchyCounters($username = '', $folderType = '', $store = null) {
+function updateHierarchyCounters($username = '', $folderType = '', $store = null, $logErrors = true) {
 	// Open the correct store
 	if (!$store) {
 		if ($username) {
@@ -712,14 +714,16 @@ function updateHierarchyCounters($username = '', $folderType = '', $store = null
 			$rootFolder = mapi_msgstore_getreceivefolder($store);
 		}
 		catch (MAPIException $e) {
-			$username = $GLOBALS["mapisession"]->getUserName();
-			error_log(sprintf("Unable to open Inbox for %s. MAPI Error '%s'", $username, get_mapi_error_name($e->getCode())) . ": " . $e->getMessage());
+			if ($logErrors) {
+				$username = $GLOBALS["mapisession"]->getUserName();
+				error_log(sprintf("Unable to open Inbox for %s. MAPI Error '%s'", $username, get_mapi_error_name($e->getCode())) . ": " . $e->getMessage());
+			}
 
 			return [];
 		}
 	}
 	else {
-		$rootFolder = getSubTree($store);
+		$rootFolder = getSubTree($store, $logErrors);
 		if (!$rootFolder) {
 			return [];
 		}

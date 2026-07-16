@@ -95,7 +95,7 @@ class NewMailNotifier extends Notifier {
 			$displayName = $isDefaultStore ? null : str_replace('Inbox - ', '', $storeProps[PR_MAILBOX_OWNER_NAME] ?? $storeProps[PR_DISPLAY_NAME] ?? '');
 			$folderType = $this->getOpenedStoreFolderType($storeProps[PR_ENTRYID]);
 
-			$this->updateFolderHierachy('', $folderType, $store, $cacheKey, $displayName);
+			$this->updateFolderHierachy('', $folderType, $store, $cacheKey, $displayName, $isDefaultStore);
 		}
 	}
 
@@ -149,8 +149,9 @@ class NewMailNotifier extends Notifier {
 	 * @param mixed  $store      optional already opened store
 	 * @param string $cacheKey   optional key for the counter state cache
 	 * @param string $displayName optional store display name for shared-store notifications
+	 * @param bool   $logErrors  whether to log root folder open failures
 	 */
-	private function updateFolderHierachy($username = '', $folderType = '', $store = null, $cacheKey = null, $displayName = null) {
+	private function updateFolderHierachy($username = '', $folderType = '', $store = null, $cacheKey = null, $displayName = null, $logErrors = true) {
 		$counterState = new State('counters_sessiondata');
 		$counterState->open();
 		if ($cacheKey === null) {
@@ -165,7 +166,7 @@ class NewMailNotifier extends Notifier {
 			$sessionData = [];
 		}
 
-		$folderStatCache = updateHierarchyCounters($username, $folderType, $store);
+		$folderStatCache = updateHierarchyCounters($username, $folderType, $store, $logErrors);
 
 		if ($folderStatCache !== $sessionData) {
 			$data = ["item" => []];
