@@ -720,6 +720,9 @@ function updateHierarchyCounters($username = '', $folderType = '', $store = null
 	}
 	else {
 		$rootFolder = getSubTree($store);
+		if (!$rootFolder) {
+			return [];
+		}
 	}
 
 	$hierarchy = mapi_folder_gethierarchytable($rootFolder, CONVENIENT_DEPTH | MAPI_DEFERRED_ERRORS);
