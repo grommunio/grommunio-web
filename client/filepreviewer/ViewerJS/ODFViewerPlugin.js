@@ -72,7 +72,7 @@ function ODFViewerPlugin() {
 
     var self         = this,
         pluginName   = "WebODF",
-        pluginURL    = "http://webodf.org",
+        pluginURL    = "https://github.com/erseco/webodf",
         odfCanvas    = null,
         odfElement   = null,
         initialized  = false,
@@ -97,12 +97,15 @@ function ODFViewerPlugin() {
 
             odfElement = document.getElementById('canvas');
             odfCanvas  = new odf.OdfCanvas(odfElement);
-            odfCanvas.load(documentUrl);
 
-            odfCanvas.addListener('statereadychange', function () {
-                root         = odfCanvas.odfContainer().rootElement;
+            odfCanvas.addListener('statereadychange', function (container) {
+                if ( initialized || container.state !== odf.OdfContainer.DONE ) {
+                    return;
+                }
+
+                root         = container.rootElement;
                 initialized  = true;
-                documentType = odfCanvas.odfContainer().getDocumentType(root);
+                documentType = container.getDocumentType(root);
                 if ( documentType === 'text' ) {
                     odfCanvas.enableAnnotations(true, false);
 
@@ -136,6 +139,8 @@ function ODFViewerPlugin() {
 
                 self.onLoad();
             });
+
+            odfCanvas.load(documentUrl);
         });
     };
 
