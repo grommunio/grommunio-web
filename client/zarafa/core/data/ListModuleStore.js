@@ -102,6 +102,8 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 	 */
 	searchUpdateTimer: undefined,
 
+	warned_about_twir: false,
+
 	/**
 	 * @constructor
 	 * @param config Configuration structure
@@ -799,6 +801,12 @@ myStore.reload(lastOptions);
 			searchState: parseInt(searchResponse.searchstate, 10),
 			results: parseInt(searchResponse.results, 10)
 		};
+		if (searchData.searchState & Zarafa.core.mapi.Search.TWIR_TOTALLY &&
+		    !this.warned_about_twir) {
+			this.warned_about_twir = true;
+			container.getNotifier().notify("warning.search.index", _("Search"),
+				_("This search is performed without using a content index"));
+		}
 
 		// paging info is not always returned
 		if(!Ext.isEmpty(page)) {
