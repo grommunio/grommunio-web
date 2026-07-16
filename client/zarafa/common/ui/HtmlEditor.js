@@ -168,6 +168,15 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		tinymceEditor.on("keydown", this.onKeyDown.createDelegate(this), this);
 		tinymceEditor.on("mousedown", this.relayIframeEvent.createDelegate(this), this);
 
+		// Auto-linkify Windows file paths (UNC \\server\share, file:// URLs and mapped drives
+		// like Z:\folder). TinyMCE's 'autolink' plugin only recognizes scheme://, www. and e-mail, so
+		// these stay plain text otherwise. We handle both pasted content and typed-then-space/enter.
+		// Note: the bundled 'officepaste' plugin cancels PastePreProcess (preventDefault) and inserts
+		// the content itself, so PastePostProcess never fires. We hook PastePreProcess with prepend=true
+		// to run *before* officepaste and linkify the content string it is about to insert.
+		tinymceEditor.on("PastePreProcess", this.onPasteFileLink.createDelegate(this), true);
+		tinymceEditor.on("keyup", this.onKeyUpFileLink.createDelegate(this));
+
 		var doc = tinymceEditor.getDoc();
 		Ext.EventManager.on(doc, 'click', this.onEditorClick, this);
 		Ext.EventManager.on(doc, 'dblclick', this.onEditorDocDblClick, this);
@@ -601,6 +610,250 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	},
 
 	/**
+	 * Returns a fresh global {RegExp} matching Windows file paths. A new object is
+	 * returned on every call so callers never share the stateful {@link RegExp#lastIndex}.
+	 * @return {RegExp}
+	 * @private
+	 */
+	getFileLinkRegExp: function()
+	{
+		return new RegExp(Zarafa.common.ui.HtmlEditor.FILE_LINK_RE.source, "gi");
+	},
+
+	/**
+	 * Build an href for a Windows file path. UNC and mapped-drive paths are turned into
+	 * a file:// URL; existing file: URLs only get their backslashes normalized. The original
+	 * text (with backslashes) is kept as the visible link label by the callers.
+	 * @param {String} raw The matched path text
+	 * @return {String} The href to use
+	 * @private
+	 */
+	buildFileHref: function(raw)
+	{
+		var s = String(raw).replace(Zarafa.common.ui.HtmlEditor.FILE_LINK_TRAILING_RE, "");
+		if ((/^file:/i).test(s)) {
+			// Trust the user's file: form, only fix Windows backslashes.
+			return s.replace(/\\/g, "/");
+		}
+		if (s.substring(0, 2) === "\\\\" || s.substring(0, 2) === "//") {
+			// UNC path: \\server\share\x -> file://server/share/x
+			return "file:" + s.replace(/\\/g, "/");
+		}
+		// Mapped-drive path: Z:\folder\file -> file:///Z:/folder/file
+		return "file:///" + s.replace(/\\/g, "/");
+	},
+
+	/**
+	 * Replace every Windows file path inside a single text node with anchor nodes,
+	 * leaving surrounding text (and any trailing punctuation) intact. Nodes already inside an
+	 * anchor are never passed here.
+	 * @param {Node} textNode The DOM text node to process
+	 * @private
+	 */
+	linkifyFileLinkTextNode: function(textNode)
+	{
+		var text = textNode.nodeValue;
+		var doc = textNode.ownerDocument;
+		var re = this.getFileLinkRegExp();
+		var frag = doc.createDocumentFragment();
+		var lastIndex = 0;
+		var match;
+		while ((match = re.exec(text)) !== null) {
+			var raw = match[0];
+			var trailing = raw.match(Zarafa.common.ui.HtmlEditor.FILE_LINK_TRAILING_RE);
+			var linkText = trailing ? raw.slice(0, raw.length - trailing[0].length) : raw;
+			// Guard against a zero-length match to avoid an endless loop.
+			if (linkText.length === 0) {
+				re.lastIndex = match.index + 1;
+				continue;
+			}
+			if (match.index > lastIndex) {
+				frag.appendChild(doc.createTextNode(text.slice(lastIndex, match.index)));
+			}
+			var href = this.buildFileHref(linkText);
+			var anchor = doc.createElement("a");
+			anchor.setAttribute("href", href);
+			anchor.setAttribute("data-mce-href", href);
+			anchor.setAttribute("target", "_blank");
+			anchor.appendChild(doc.createTextNode(linkText));
+			frag.appendChild(anchor);
+			if (trailing) {
+				frag.appendChild(doc.createTextNode(trailing[0]));
+			}
+			lastIndex = match.index + raw.length;
+		}
+		if (lastIndex === 0) {
+			return;
+		}
+		if (lastIndex < text.length) {
+			frag.appendChild(doc.createTextNode(text.slice(lastIndex)));
+		}
+		if (textNode.parentNode) {
+			textNode.parentNode.replaceChild(frag, textNode);
+		}
+	},
+
+	/**
+	 * Recursively walk a DOM subtree and linkify Windows file paths in its text nodes,
+	 * skipping any content that is already inside an anchor.
+	 * @param {Node} node The root node to scan
+	 * @private
+	 */
+	linkifyFileLinksInNode: function(node)
+	{
+		if (!node) {
+			return;
+		}
+		var child = node.firstChild;
+		while (child) {
+			// Grab the next sibling now because linkifyFileLinkTextNode may replace 'child'.
+			var next = child.nextSibling;
+			if (child.nodeType === 1) {
+				if (child.nodeName !== "A") {
+					this.linkifyFileLinksInNode(child);
+				}
+			} else if (child.nodeType === 3 && child.nodeValue &&
+				this.getFileLinkRegExp().test(child.nodeValue)) {
+				this.linkifyFileLinkTextNode(child);
+			}
+			child = next;
+		}
+	},
+
+	/**
+	 * Handler for TinyMCE's PastePreProcess event: linkify Windows file paths in the
+	 * HTML string that is about to be inserted. Runs before the 'officepaste' plugin (which
+	 * cancels the event and inserts the content itself), so we edit event.content in place.
+	 * @param {Object} event The TinyMCE paste event; event.content holds the HTML string
+	 * @private
+	 */
+	onPasteFileLink: function(event)
+	{
+		if (!event || typeof event.content !== "string" || event.content === "") {
+			return;
+		}
+		// Cheap guard: only parse the fragment when it may contain a Windows file path.
+		if (!this.getFileLinkRegExp().test(event.content)) {
+			return;
+		}
+		var container = document.createElement("div");
+		container.innerHTML = event.content;
+		this.linkifyFileLinksInNode(container);
+		event.content = container.innerHTML;
+	},
+
+	/**
+	 * Handler for keyup in the editor: when the user completes a Windows file path with
+	 * a space or Enter, linkify the just-typed path (parity with how http:// auto-links).
+	 * TinyMCE calls the listener with a single event argument, so the editor is fetched via
+	 * {@link #getEditor}.
+	 * @param {Object} event The DOM keyup event
+	 * @private
+	 */
+	onKeyUpFileLink: function(event)
+	{
+		if (!event || (event.keyCode !== 32 && event.keyCode !== 13)) {
+			return;
+		}
+		var editor = this.getEditor();
+		if (!editor) {
+			return;
+		}
+		var dom = editor.dom;
+		var selection = editor.selection;
+		if (editor.mode && editor.mode.isReadOnly && editor.mode.isReadOnly()) {
+			return;
+		}
+		// Never create a link when the caret is already inside one.
+		if (dom.getParent(selection.getNode(), "a[href]") !== null) {
+			return;
+		}
+
+		var target = this.findFileTokenBeforeCaret(editor, event.keyCode === 13);
+		if (!target) {
+			return;
+		}
+
+		var href = this.buildFileHref(target.token);
+		var bookmark = selection.getBookmark();
+		var linkRange = dom.createRng();
+		linkRange.setStart(target.node, target.start);
+		linkRange.setEnd(target.node, target.end);
+		try {
+			var anchor = dom.create("a", { href: href, "data-mce-href": href, target: "_blank" });
+			linkRange.surroundContents(anchor);
+		} catch (ignore) {
+			// Range could not be wrapped cleanly (e.g. spanning boundaries); leave text as-is.
+			selection.moveToBookmark(bookmark);
+			return;
+		}
+		selection.moveToBookmark(bookmark);
+		editor.nodeChanged();
+	},
+
+	/**
+	 * Find a Windows file path that ends right at the caret (for the space case) or at
+	 * the end of the previous block (for the Enter case).
+	 * @param {tinymce.Editor} editor The editor instance
+	 * @param {Boolean} afterEnter True when triggered by Enter (path is in the previous block)
+	 * @return {Object|null} {node, start, end, token} describing the path range, or null
+	 * @private
+	 */
+	findFileTokenBeforeCaret: function(editor, afterEnter)
+	{
+		var dom = editor.dom;
+		var node;
+		var upto;
+		if (afterEnter) {
+			// After Enter the caret sits in the freshly created block; the completed path is at
+			// the end of the previous block's last text node.
+			var block = dom.getParent(editor.selection.getNode(), dom.isBlock);
+			var prevBlock = block ? dom.getPrev(block, dom.isBlock) : null;
+			node = prevBlock ? this.getLastTextNode(prevBlock) : null;
+			upto = node ? node.nodeValue.length : 0;
+		} else {
+			var rng = editor.selection.getRng();
+			node = rng.endContainer;
+			upto = rng.endOffset;
+			if (!node || node.nodeType !== 3) {
+				return null;
+			}
+		}
+		if (!node) {
+			return null;
+		}
+
+		// Consider the text up to the caret, ignoring the trailing space/newline just typed.
+		var considered = node.nodeValue.substring(0, upto).replace(/\s+$/, "");
+		var match = considered.match(Zarafa.common.ui.HtmlEditor.FILE_LINK_TAIL_RE);
+		if (!match) {
+			return null;
+		}
+		var trailing = match[0].match(Zarafa.common.ui.HtmlEditor.FILE_LINK_TRAILING_RE);
+		var token = trailing ? match[0].slice(0, match[0].length - trailing[0].length) : match[0];
+		if (token.length === 0) {
+			return null;
+		}
+		var start = considered.length - match[0].length;
+		return { node: node, start: start, end: start + token.length, token: token };
+	},
+
+	/**
+	 * Return the deepest last text node inside the given node, or null when there is none.
+	 * @param {Node} node The root node
+	 * @return {Node|null}
+	 * @private
+	 */
+	getLastTextNode: function(node)
+	{
+		var current = node;
+		while (current && current.nodeType === 1) {
+			current = current.lastChild;
+		}
+		return current && current.nodeType === 3 ? current : null;
+	},
+
+	/**
 	 * Checks if the cursor is positioned inside a blockquote
 	 * @param {tinymce.Editor} editor The editor we will check
 	 * @return {DOMElement} The blockquote element if found or false otherwise
@@ -804,6 +1057,41 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		body.setStyle("font-size", this.defaultFontSize);
 	}
 });
+
+/**
+ * Core pattern for Windows file paths, matched anywhere within a text node.
+ * Three alternatives, tried in order:
+ *   1. file: URLs  - file://server/share, file:///C:/dir, file:\\server\share
+ *   2. UNC paths   - \\server\share\dir\file (server plus at least one segment)
+ *   3. mapped drive - X:\dir\file (a single drive letter, guarded by a lookbehind so it can
+ *                     never match the ':' inside a real scheme such as http: or a time 12:30)
+ * Matching stops at whitespace, quotes and angle brackets. Used (with the 'gi' flags) to build
+ * fresh RegExp objects so callers never share a stateful lastIndex.
+ * @property
+ * @type RegExp
+ * @static
+ */
+Zarafa.common.ui.HtmlEditor.FILE_LINK_RE =
+	/file:[\\/]{1,3}[^\s"'<>]+|\\\\[^\s\\/"'<>]+(?:[\\/][^\s\\/"'<>]+)+[\\/]?|(?<![A-Za-z0-9])[A-Za-z]:[\\/][^\s"'<>]+/;
+
+/**
+ * Same pattern as {@link #FILE_LINK_RE} but anchored to the end of the string, used to detect a
+ * path that the user just finished typing right before the caret.
+ * @property
+ * @type RegExp
+ * @static
+ */
+Zarafa.common.ui.HtmlEditor.FILE_LINK_TAIL_RE =
+	new RegExp("(?:" + Zarafa.common.ui.HtmlEditor.FILE_LINK_RE.source + ")$", "i");
+
+/**
+ * Trailing sentence punctuation that should stay as plain text rather than becoming part of the
+ * linkified path (e.g. the period in "see \\server\share.").
+ * @property
+ * @type RegExp
+ * @static
+ */
+Zarafa.common.ui.HtmlEditor.FILE_LINK_TRAILING_RE = /[.,;:!?)\]}]+$/;
 
 Ext.reg("zarafa.htmleditor", Zarafa.common.ui.HtmlEditor);
 
