@@ -382,6 +382,10 @@ class CreateMailItemModule extends ItemModule {
 		if (isset($action['props']['sent_representing_entryid']) && empty($action['props']['sent_representing_entryid'])) {
 			$propertiesToDelete[] = PR_SENT_REPRESENTING_ENTRYID;
 			$propertiesToDelete[] = PR_SENT_REPRESENTING_SEARCH_KEY;
+			// Also drop a previously stored SMTP address, otherwise it would
+			// survive the removal of the From identity on the draft and could
+			// be picked up again as the sending identity.
+			$propertiesToDelete[] = PR_SENT_REPRESENTING_SMTP_ADDRESS;
 		}
 
 		$result = $GLOBALS['operations']->saveMessage(

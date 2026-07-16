@@ -605,6 +605,9 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 			record.set('sent_representing_address_type', '');
 			record.set('sent_representing_entryid', '');
 			record.set('sent_representing_search_key', '');
+			// Also clear the SMTP address, otherwise the removed identity
+			// survives on the saved message.
+			record.set('sent_representing_smtp_address', '');
 		}
 
 		record.endEdit();
