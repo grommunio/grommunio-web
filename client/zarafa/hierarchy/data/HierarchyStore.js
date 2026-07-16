@@ -31,6 +31,18 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	state: undefined,
 
 	/**
+	 * @cfg {Number} notificationSenderLength The maximum length of the sender name
+	 * shown in a new mail notification before it is truncated.
+	 */
+	notificationSenderLength: 64,
+
+	/**
+	 * @cfg {Number} notificationSubjectLength The maximum length of the subject
+	 * shown in a new mail notification before it is truncated.
+	 */
+	notificationSubjectLength: 128,
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
@@ -863,22 +875,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 					&& folder.content_unread > folderStore.get('content_unread');
 
 				if (newmail && folder_keys.indexOf(folderKey) === -1 && folderStore.isContainerClass('IPF.Note')) {
-					var notificationMessage;
-					if ( folder.user_display_name ) {
-						// This is in a shared store. We have to show the shared store's user's name too
-						notificationMessage = String.format(
-							ngettext('There is {0} unread message in the folder {1} of {2}', 'There are {0} unread messages in the folder {1} of {2}', folder.content_unread),
-							folder.content_unread,
-							folder.display_name,
-							folder.user_display_name
-						);
-					} else {
-						notificationMessage = String.format(
-							ngettext('There is {0} unread message in the folder {1}', 'There are {0} unread messages in the folder {1}', folder.content_unread),
-							folder.content_unread,
-							folder.display_name
-						);
-					}
+					var notification = this.getNewMailNotificationText(folder, folderKey);
 
 					// New mail notification should show only on main browser window.
 					var mainBrowserWindowBody;
@@ -886,7 +883,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 						mainBrowserWindowBody = Zarafa.core.BrowserWindowMgr.getMainBrowserWindowBody();
 					}
 
-					container.getNotifier().notify('info.newmail', _('New Mail'), notificationMessage, {
+					container.getNotifier().notify('info.newmail', notification.title, notification.message, {
 						container: mainBrowserWindowBody
 					});
 				}
@@ -895,6 +892,74 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 				folderStore.set('content_count', folder.content_count);
 			}, this);
 		}
+	},
+
+	/**
+	 * Build the title and message for a new mail notification.
+	 *
+	 * When the notification reports how many messages newly arrived, that count
+	 * is shown. If exactly one message arrived and its details are known, the
+	 * sender and subject are shown instead. Without that information the total
+	 * unread count is shown.
+	 *
+	 * The message is HTML, so dynamic values in it are encoded here and the
+	 * desktop notifiers decode them again for their plain text display. The
+	 * title is plain text, the notifiers rendering it as HTML encode it.
+	 *
+	 * @param {Object} folder The folder data received in the notification
+	 * @param {String} folderKey The default folder key of the folder
+	 * @return {Object} Object containing the 'title' and 'message' to notify with
+	 * @private
+	 */
+	getNewMailNotificationText: function(folder, folderKey)
+	{
+		var encode = Ext.util.Format.htmlEncode;
+		var delta = folder.content_unread_delta;
+		var newMessage = folder.new_message;
+		var title = _('New Mail');
+		var message;
+
+		if (!Ext.isNumber(delta) || delta <= 0) {
+			if (folder.user_display_name) {
+				message = String.format(
+					ngettext('There is {0} unread message in the folder {1} of {2}', 'There are {0} unread messages in the folder {1} of {2}', folder.content_unread),
+					folder.content_unread,
+					encode(folder.display_name),
+					encode(folder.user_display_name)
+				);
+			} else {
+				message = String.format(
+					ngettext('There is {0} unread message in the folder {1}', 'There are {0} unread messages in the folder {1}', folder.content_unread),
+					folder.content_unread,
+					encode(folder.display_name)
+				);
+			}
+		} else if (delta === 1 && newMessage && (!Ext.isEmpty(newMessage.sender_name) || !Ext.isEmpty(newMessage.subject))) {
+			if (!Ext.isEmpty(newMessage.sender_name)) {
+				title = String.format(_('New mail from {0}'), Ext.util.Format.ellipsis(newMessage.sender_name, this.notificationSenderLength));
+			}
+			message = Ext.isEmpty(newMessage.subject) ? _('No subject') : encode(Ext.util.Format.ellipsis(newMessage.subject, this.notificationSubjectLength));
+			if (folder.user_display_name) {
+				message += '\n' + String.format(_('In folder {0} of {1}'), encode(folder.display_name), encode(folder.user_display_name));
+			} else if (folderKey !== 'inbox') {
+				message += '\n' + String.format(_('In folder {0}'), encode(folder.display_name));
+			}
+		} else if (folder.user_display_name) {
+			message = String.format(
+				ngettext('{0} new message in folder {1} of {2}', '{0} new messages in folder {1} of {2}', delta),
+				delta,
+				encode(folder.display_name),
+				encode(folder.user_display_name)
+			);
+		} else {
+			message = String.format(
+				ngettext('{0} new message in folder {1}', '{0} new messages in folder {1}', delta),
+				delta,
+				encode(folder.display_name)
+			);
+		}
+
+		return { title: title, message: message };
 	},
 
 	/**
