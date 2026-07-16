@@ -19,4 +19,7 @@ Zarafa.calendar.data.BusyStatus = [{
 },{
 	value: Zarafa.core.mapi.BusyStatus['OUTOFOFFICE'],
 	name: Zarafa.core.mapi.BusyStatus.getDisplayName(Zarafa.core.mapi.BusyStatus['OUTOFOFFICE'])
+},{
+	value: Zarafa.core.mapi.BusyStatus['WORKINGELSEWHERE'],
+	name: Zarafa.core.mapi.BusyStatus.getDisplayName(Zarafa.core.mapi.BusyStatus['WORKINGELSEWHERE'])
 }];

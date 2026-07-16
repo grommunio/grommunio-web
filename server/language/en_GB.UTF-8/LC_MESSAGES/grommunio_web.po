@@ -2272,6 +2272,9 @@ msgstr "Busy"
 msgid "Out of Office"
 msgstr "Out of Office"
 
+msgid "Working Elsewhere"
+msgstr "Working Elsewhere"
+
 msgid "No Information"
 msgstr "No Information"
 

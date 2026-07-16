@@ -246,6 +246,9 @@ Zarafa.calendar.ui.html.CalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstract
 					case Zarafa.core.mapi.BusyStatus.OUTOFOFFICE:
 						bgColor = '#e7d7ef';
 						break;
+					case Zarafa.core.mapi.BusyStatus.WORKINGELSEWHERE:
+						bgColor = '#dbe8f5';
+						break;
 					default:
 						break;
 				}
