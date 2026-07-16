@@ -649,19 +649,21 @@ function json_decode_data($jsonString, $toAssoc = false) {
 }
 
 /**
- * Tries to open the IPM subtree. If opening fails, it will try to fix it by
- * trying to find the correct entryid of the IPM subtree in the hierarchy.
+ * Tries to open the IPM subtree.
  *
  * @param resource $store the store to retrieve IPM subtree from
  *
- * @return mixed false if the subtree is broken beyond quick repair,
+ * @return mixed false if the subtree cannot be opened,
  *               the IPM subtree resource otherwise
  */
 function getSubTree($store) {
 	$storeProps = mapi_getprops($store, [PR_IPM_SUBTREE_ENTRYID]);
+	if (!isset($storeProps[PR_IPM_SUBTREE_ENTRYID])) {
+		return false;
+	}
 
 	try {
-		$ipmsubtree = mapi_msgstore_openentry($store, $storeProps[PR_IPM_SUBTREE_ENTRYID]);
+		return mapi_msgstore_openentry($store, $storeProps[PR_IPM_SUBTREE_ENTRYID]);
 	}
 	catch (MAPIException $e) {
 		if ($e->getCode() == MAPI_E_NOT_FOUND || $e->getCode() == MAPI_E_INVALID_ENTRYID) {
@@ -671,7 +673,7 @@ function getSubTree($store) {
 		}
 	}
 
-	return $ipmsubtree;
+	return false;
 }
 
 /**
