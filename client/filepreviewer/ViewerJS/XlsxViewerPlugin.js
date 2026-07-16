@@ -21,7 +21,9 @@ function XlsxViewerPlugin() {
         content      = null,
         sheetCache   = {},
         zoomLevel    = 1,
-        initialized  = false;
+        initialized  = false,
+        kMaxPreviewRows = 5000,
+        kMaxPreviewCols = 256;
 
     function loadLib( callback ) {
         var script   = document.createElement('script');
@@ -46,7 +48,8 @@ function XlsxViewerPlugin() {
             '.xlsx-sheet{padding:12px;overflow:auto;}' +
             '.xlsx-sheet table{border-collapse:collapse;}' +
             '.xlsx-sheet td,.xlsx-sheet th{border:1px solid #d0d0d0;padding:2px 6px;min-width:32px;white-space:nowrap;}' +
-            '.xlsx-empty{padding:24px;color:#888;}';
+            '.xlsx-empty{padding:24px;color:#888;}' +
+            '.xlsx-truncated{padding:6px 12px;margin-bottom:8px;background:#fff8e1;border:1px solid #e0d9b0;color:#6b5900;font-size:12px;}';
         document.head.appendChild(style);
     }
 
@@ -67,7 +70,41 @@ function XlsxViewerPlugin() {
         if ( !sheet || !sheet['!ref'] ) {
             return '<div class="xlsx-empty">This sheet is empty.</div>';
         }
-        return XLSX.utils.sheet_to_html(sheet, { editable: false, header: '', footer: '' });
+
+        // Declared ranges routinely cover whole columns (e.g. A1:P1048576);
+        // render only the real cell extent, capped.
+        var range  = XLSX.utils.decode_range(sheet['!ref']),
+            endRow = range.s.r,
+            endCol = range.s.c,
+            truncated,
+            html;
+
+        Object.keys(sheet).forEach(function ( key ) {
+            if ( key.charAt(0) === '!' ) {
+                return;
+            }
+            var cell = XLSX.utils.decode_cell(key);
+            if ( cell.r > endRow ) {
+                endRow = cell.r;
+            }
+            if ( cell.c > endCol ) {
+                endCol = cell.c;
+            }
+        });
+
+        range.e.r = Math.min(endRow, range.s.r + kMaxPreviewRows - 1);
+        range.e.c = Math.min(endCol, range.s.c + kMaxPreviewCols - 1);
+
+        truncated = range.e.r < endRow || range.e.c < endCol;
+        sheet['!ref'] = XLSX.utils.encode_range(range);
+
+        html = XLSX.utils.sheet_to_html(sheet, { editable: false, header: '', footer: '' });
+        if ( truncated ) {
+            html = '<div class="xlsx-truncated">Preview truncated to ' +
+                (range.e.r - range.s.r + 1) + ' rows × ' +
+                (range.e.c - range.s.c + 1) + ' columns.</div>' + html;
+        }
+        return html;
     }
 
     function renderSheet( name ) {
