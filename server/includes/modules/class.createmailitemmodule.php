@@ -48,6 +48,10 @@ class CreateMailItemModule extends ItemModule {
 		$saveChanges = $this->shouldPersistMessage($send, $action, $attachments, $recipients);
 
 		if ($saveChanges) {
+			if ($send) {
+				$this->restoreSendAsPropsFromDraft($store, $entryid, $action);
+			}
+
 			$copyContext = $this->createCopyContext($store, $action, $send);
 			$store = $copyContext['store'];
 			$copyFromMessage = $copyContext['copyFromMessage'];
@@ -175,6 +179,98 @@ class CreateMailItemModule extends ItemModule {
 		$attachmentState->close();
 
 		return $hasChanges;
+	}
+
+	/**
+	 * Restore the SendAs / on-behalf identity from a previously saved draft.
+	 *
+	 * The client only transmits properties which changed since the last save,
+	 * so a send request following an intermediate (auto)save may no longer
+	 * carry the sent_representing_* properties even though the draft was
+	 * composed under another identity. Without them both the store selection
+	 * in createCopyContext() and the representing-sender handling in
+	 * submitMessage() would silently fall back to the logged-in user's own
+	 * address. Read the identity back from the stored draft and treat it as
+	 * if the client had supplied it.
+	 *
+	 * @param mixed  $store   store containing the draft
+	 * @param string $entryid entryid of the draft, empty for an unsaved message
+	 */
+	private function restoreSendAsPropsFromDraft($store, $entryid, array &$action) {
+		if (!$entryid) {
+			return;
+		}
+
+		// The presence of any sent_representing_* key expresses client intent,
+		// even with an empty value: the client transmits empty strings when the
+		// user explicitly removes the From identity, and restoring the draft's
+		// identity in that case would send under the address the user just
+		// removed. Only a request which does not mention the identity at all
+		// (unchanged since the last save) may fall back to the stored draft.
+		foreach (['sent_representing_name', 'sent_representing_email_address',
+			'sent_representing_address_type', 'sent_representing_entryid',
+			'sent_representing_search_key', 'sent_representing_smtp_address'] as $propName) {
+			if (array_key_exists($propName, $action['props'] ?? [])) {
+				return;
+			}
+		}
+
+		try {
+			$draft = mapi_msgstore_openentry($store, $entryid);
+			$draftProps = mapi_getprops($draft, [
+				PR_SENT_REPRESENTING_NAME,
+				PR_SENT_REPRESENTING_EMAIL_ADDRESS,
+				PR_SENT_REPRESENTING_ADDRTYPE,
+				PR_SENT_REPRESENTING_ENTRYID,
+				PR_SENT_REPRESENTING_SEARCH_KEY,
+				PR_SENT_REPRESENTING_SMTP_ADDRESS,
+			]);
+		}
+		catch (MAPIException $e) {
+			$e->setHandled();
+
+			return;
+		}
+
+		$smtpAddress = (string) ($draftProps[PR_SENT_REPRESENTING_SMTP_ADDRESS] ?? '');
+		$emailAddress = (string) ($draftProps[PR_SENT_REPRESENTING_EMAIL_ADDRESS] ?? '');
+		$addrType = (string) ($draftProps[PR_SENT_REPRESENTING_ADDRTYPE] ?? '');
+		if (!$GLOBALS['operations']->isEmailAddressLike($smtpAddress)) {
+			$smtpAddress = '';
+		}
+		if ($smtpAddress === '' && strcasecmp($addrType, 'SMTP') === 0 &&
+			$GLOBALS['operations']->isEmailAddressLike($emailAddress)) {
+			$smtpAddress = $emailAddress;
+		}
+		// An EX identity carries an X500 DN - and a draft written by an older
+		// client may even carry a plain display name - in
+		// PR_SENT_REPRESENTING_EMAIL_ADDRESS. Resolve the SMTP form through
+		// the address book, like getMessageProps() does for the client.
+		if ($smtpAddress === '' && !empty($draftProps[PR_SENT_REPRESENTING_ENTRYID])) {
+			$smtpAddress = (string) $GLOBALS['operations']->getEmailAddress(
+				$draftProps[PR_SENT_REPRESENTING_ENTRYID],
+				$draftProps[PR_SENT_REPRESENTING_SEARCH_KEY] ?? false
+			);
+		}
+		// The resolver may hand back an X500 DN when the address book entry
+		// carries no SMTP address; injecting that as a claimed-SMTP identity
+		// would arm the identity guard with a value that self-matches on the
+		// assembled message. Rather inject nothing at all.
+		if (!$GLOBALS['operations']->isEmailAddressLike($smtpAddress)) {
+			return;
+		}
+
+		$action['props']['sent_representing_name'] = (string) ($draftProps[PR_SENT_REPRESENTING_NAME] ?? '') !== '' ?
+			$draftProps[PR_SENT_REPRESENTING_NAME] : $smtpAddress;
+		$action['props']['sent_representing_email_address'] = $smtpAddress;
+		$action['props']['sent_representing_address_type'] = 'SMTP';
+		$action['props']['sent_representing_smtp_address'] = $smtpAddress;
+		if (!empty($draftProps[PR_SENT_REPRESENTING_ENTRYID])) {
+			$action['props']['sent_representing_entryid'] = bin2hex((string) $draftProps[PR_SENT_REPRESENTING_ENTRYID]);
+		}
+		if (!empty($draftProps[PR_SENT_REPRESENTING_SEARCH_KEY])) {
+			$action['props']['sent_representing_search_key'] = bin2hex((string) $draftProps[PR_SENT_REPRESENTING_SEARCH_KEY]);
+		}
 	}
 
 	/**
