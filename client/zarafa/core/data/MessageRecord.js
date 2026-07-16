@@ -119,7 +119,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 
 		var body = this.getBody(true);
 		if (container.getServerConfig().getDOMPurifyEnabled()) {
-			body = DOMPurify.sanitize(body, {USE_PROFILES: {html: true}});
+			body = DOMPurify.sanitize(body);
 		}
 		this.sanitizedHTMLBody = this.cleanupOutlookStyles(body);
 

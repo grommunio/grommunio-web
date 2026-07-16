@@ -266,7 +266,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 				rawHtmlBody = record.inlineImgOutlookToZarafa(rawHtmlBody);
 			}
 			if (container.getServerConfig().getDOMPurifyEnabled()) {
-				rawHtmlBody = DOMPurify.sanitize(rawHtmlBody, { USE_PROFILES: { html: true } });
+				rawHtmlBody = DOMPurify.sanitize(rawHtmlBody);
 			}
 			if (Ext.isFunction(record.cleanupOutlookStyles)) {
 				rawHtmlBody = record.cleanupOutlookStyles(rawHtmlBody);
@@ -279,7 +279,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		}
 
 		if (!Ext.isEmpty(htmlBody) && container.getServerConfig().getDOMPurifyEnabled()) {
-			htmlBody = DOMPurify.sanitize(htmlBody, { USE_PROFILES: { html: true } });
+			htmlBody = DOMPurify.sanitize(htmlBody);
 		}
 
 		return String(htmlBody);
