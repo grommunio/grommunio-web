@@ -2991,11 +2991,13 @@ class Operations {
 					if ($origStoreProps[PR_MDB_PROVIDER] === ZARAFA_STORE_PUBLIC_GUID) {
 						$userEntryid = $GLOBALS["mapisession"]->getStoreEntryIdOfUser(strtolower((string) $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS]));
 						$origStore = $GLOBALS["mapisession"]->openMessageStore($userEntryid);
-						$origStoreprops = mapi_getprops($origStore, [PR_IPM_SENTMAIL_ENTRYID]);
+						$origStoreprops = $origStore ? mapi_getprops($origStore, [PR_IPM_SENTMAIL_ENTRYID]) : [];
 					}
-					$destfolder = mapi_msgstore_openentry($origStore, $origStoreprops[PR_IPM_SENTMAIL_ENTRYID]);
-					$reprMessage = mapi_folder_createmessage($destfolder);
-					mapi_copyto($message, [], [], $reprMessage, 0);
+					if ($origStore && isset($origStoreprops[PR_IPM_SENTMAIL_ENTRYID])) {
+						$destfolder = mapi_msgstore_openentry($origStore, $origStoreprops[PR_IPM_SENTMAIL_ENTRYID]);
+						$reprMessage = mapi_folder_createmessage($destfolder);
+						mapi_copyto($message, [], [], $reprMessage, 0);
+					}
 				}
 				catch (MAPIException $e) {
 					error_log('submitMessage: unable to create the representee sent copy: ' . get_mapi_error_name($e->getCode()));
