@@ -7070,3 +7070,21 @@ input[type="radio"]:focus-visible {
 
 .x-tree-root-node {
   min-width: 100%; }
+/* Undo history: hovering an entry marks every entry which would be undone
+   with it, since clicking one undoes the whole range down to it. Matches the
+   active-item background so the range reads as one hovered block. */
+.x-menu .x-menu-list li.x-menu-list-item.zarafa-undo-item-included a {
+  background-color: #f2f2f2 !important; }
+
+/* Undo/redo main toolbar buttons */
+.icon_large_undo {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSczMicgaGVpZ2h0PSczMicgdmlld0JveD0nLTEuNSAtMS41IDI3IDI3Jz48ZyBmaWxsPSdub25lJyBzdHJva2U9JyMwMDAnIHN0cm9rZS13aWR0aD0nMicgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJz48cG9seWxpbmUgcG9pbnRzPScxIDQgMSAxMCA3IDEwJy8+PHBhdGggZD0nTTMuNTEgMTVhOSA5IDAgMSAwIDIuMTMtOS4zNkwxIDEwJy8+PC9nPjwvc3ZnPg==) !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+}
+
+.icon_large_redo {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSczMicgaGVpZ2h0PSczMicgdmlld0JveD0nLTEuNSAtMS41IDI3IDI3Jz48ZyBmaWxsPSdub25lJyBzdHJva2U9JyMwMDAnIHN0cm9rZS13aWR0aD0nMicgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJz48cG9seWxpbmUgcG9pbnRzPScyMyA0IDIzIDEwIDE3IDEwJy8+PHBhdGggZD0nTTIwLjQ5IDE1YTkgOSAwIDEgMS0yLjEzLTkuMzZMMjMgMTAnLz48L2c+PC9zdmc+) !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+}

@@ -3308,6 +3308,157 @@ class Operations {
 	}
 
 	/**
+	 * Collect the PR_SEARCH_KEY of a set of messages. The search key is stable
+	 * across folder moves (unlike the entryid, which embeds the parent folder),
+	 * so it can be used to relocate messages after a move/copy/delete operation.
+	 *
+	 * @param object $store    MAPI Message Store Object
+	 * @param mixed  $entryids one entryid or a list of entryids (binary)
+	 *
+	 * @return array mapping of hex source entryid => binary PR_SEARCH_KEY
+	 */
+	public function getMessageSearchKeys($store, $entryids) {
+		if (!is_array($entryids)) {
+			$entryids = [$entryids];
+		}
+		$searchKeys = [];
+		foreach ($entryids as $entryid) {
+			try {
+				$message = mapi_msgstore_openentry($store, $entryid);
+				$msgProps = mapi_getprops($message, [PR_SEARCH_KEY]);
+				if (isset($msgProps[PR_SEARCH_KEY])) {
+					$searchKeys[bin2hex((string) $entryid)] = $msgProps[PR_SEARCH_KEY];
+				}
+			}
+			catch (MAPIException $e) {
+				$e->setHandled();
+			}
+		}
+
+		return $searchKeys;
+	}
+
+	/**
+	 * Collect the hex entryids of the messages currently present in the given
+	 * folder whose PR_SEARCH_KEY matches one of the supplied search keys. This
+	 * is used to snapshot the destination folder before a move/copy/delete, so
+	 * resolveNewEntryids() can exclude pre-existing items which share a search
+	 * key with the item being relocated.
+	 *
+	 * @param object $store       MAPI Message Store Object of the folder
+	 * @param string $folderentryid entryid of the folder to inspect
+	 * @param array  $searchKeys  mapping of hex source entryid => binary PR_SEARCH_KEY
+	 *                            as returned by getMessageSearchKeys()
+	 *
+	 * @return array set of hex entryids (as array keys) currently present
+	 */
+	public function getFolderEntryidsBySearchKey($store, $folderentryid, $searchKeys) {
+		if (empty($searchKeys)) {
+			return [];
+		}
+
+		try {
+			$folder = mapi_msgstore_openentry($store, $folderentryid);
+			$table = mapi_folder_getcontentstable($folder, MAPI_DEFERRED_ERRORS);
+			$restrictions = [];
+			foreach ($searchKeys as $searchKey) {
+				$restrictions[] = [RES_PROPERTY, [
+					RELOP => RELOP_EQ,
+					ULPROPTAG => PR_SEARCH_KEY,
+					VALUE => $searchKey,
+				]];
+			}
+			mapi_table_restrict($table, count($restrictions) > 1 ? [RES_OR, $restrictions] : $restrictions[0]);
+			$rows = mapi_table_queryallrows($table, [PR_ENTRYID]);
+		}
+		catch (MAPIException $e) {
+			$e->setHandled();
+
+			return [];
+		}
+
+		$entryids = [];
+		foreach ($rows as $row) {
+			if (isset($row[PR_ENTRYID])) {
+				$entryids[bin2hex((string) $row[PR_ENTRYID])] = true;
+			}
+		}
+
+		return $entryids;
+	}
+
+	/**
+	 * Resolve the new entryids of messages that were moved or copied into the
+	 * given destination folder, by matching their move-stable PR_SEARCH_KEY
+	 * against the folder contents. Used to report the new location of items
+	 * back to the client (e.g. for undo support), since a moved message gets
+	 * a new entryid which MAPI does not report to the caller.
+	 *
+	 * @param object $destStore       MAPI Message Store Object of the destination
+	 * @param string $destentryid     entryid of the destination folder
+	 * @param array  $searchKeys      mapping of hex source entryid => binary PR_SEARCH_KEY
+	 *                                as returned by getMessageSearchKeys()
+	 * @param array  $excludeEntryids set of hex entryids (as keys) which were
+	 *                                already present in the destination before
+	 *                                the operation and must therefore never be
+	 *                                mapped, so that a pre-existing item sharing
+	 *                                a PR_SEARCH_KEY (e.g. a former copy) is not
+	 *                                mistaken for the item just moved/copied.
+	 *                                Obtain it via getFolderEntryidsBySearchKey().
+	 *
+	 * @return array mapping of hex old entryid => hex new entryid; items that
+	 *               could not be resolved are omitted
+	 */
+	public function resolveNewEntryids($destStore, $destentryid, $searchKeys, $excludeEntryids = []) {
+		if (empty($searchKeys)) {
+			return [];
+		}
+
+		try {
+			$folder = mapi_msgstore_openentry($destStore, $destentryid);
+			$table = mapi_folder_getcontentstable($folder, MAPI_DEFERRED_ERRORS);
+			$restrictions = [];
+			foreach ($searchKeys as $searchKey) {
+				$restrictions[] = [RES_PROPERTY, [
+					RELOP => RELOP_EQ,
+					ULPROPTAG => PR_SEARCH_KEY,
+					VALUE => $searchKey,
+				]];
+			}
+			mapi_table_restrict($table, count($restrictions) > 1 ? [RES_OR, $restrictions] : $restrictions[0]);
+			$rows = mapi_table_queryallrows($table, [PR_ENTRYID, PR_SEARCH_KEY]);
+		}
+		catch (MAPIException $e) {
+			$e->setHandled();
+
+			return [];
+		}
+
+		$mapping = [];
+		$used = [];
+		foreach ($searchKeys as $oldEntryid => $searchKey) {
+			foreach ($rows as $i => $row) {
+				if (isset($used[$i]) || $row[PR_SEARCH_KEY] !== $searchKey) {
+					continue;
+				}
+				$newEntryid = bin2hex((string) $row[PR_ENTRYID]);
+				// For a copy into the same folder the original message also
+				// matches the restriction; never map an item onto itself, nor
+				// onto any item which was already present before the operation
+				// (a former copy sharing the same PR_SEARCH_KEY).
+				if ($newEntryid === $oldEntryid || isset($excludeEntryids[$newEntryid])) {
+					continue;
+				}
+				$used[$i] = true;
+				$mapping[$oldEntryid] = $newEntryid;
+				break;
+			}
+		}
+
+		return $mapping;
+	}
+
+	/**
 	 * Copy or move messages.
 	 *
 	 * @param object $store         MAPI Message Store Object

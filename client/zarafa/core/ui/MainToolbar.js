@@ -439,6 +439,44 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 	addActionItems: function()
 	{
 		var menuItems = [{
+			xtype: 'splitbutton',
+			id: 'zarafa-maintoolbar-undo',
+			scale: 'large',
+			overflowText: _('Undo'),
+			tooltip: _('Undo') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + Z', true),
+			iconCls: 'icon_large_undo',
+			ref: 'undoButton',
+			disabled: true,
+			handler: this.onUndo,
+			scope: this,
+			menu: {
+				xtype: 'menu',
+				items: [],
+				listeners: {
+					beforeshow: this.onBeforeShowUndoMenu,
+					scope: this
+				}
+			},
+			listeners: {
+				render: this.onRenderUndoRedoButton,
+				scope: this
+			}
+		},{
+			xtype: 'button',
+			id: 'zarafa-maintoolbar-redo',
+			scale: 'large',
+			overflowText: _('Redo'),
+			tooltip: _('Redo') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + Y', true),
+			iconCls: 'icon_large_redo',
+			ref: 'redoButton',
+			disabled: true,
+			handler: this.onRedo,
+			scope: this,
+			listeners: {
+				render: this.onRenderUndoRedoButton,
+				scope: this
+			}
+		},{
 			xtype: 'button',
 			id: 'zarafa-maintoolbar-addressbook',
 			scale: 'large',
@@ -475,6 +513,164 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 	onAddressBook: function()
 	{
 		Zarafa.addressbook.Actions.openAddressBook();
+	},
+
+	/**
+	 * Undo the most recent action via the {@link Zarafa.core.data.UndoManager UndoManager}.
+	 * @private
+	 */
+	onUndo: function()
+	{
+		container.getUndoManager().undo();
+	},
+
+	/**
+	 * Redo the most recently undone action via the {@link Zarafa.core.data.UndoManager UndoManager}.
+	 * @private
+	 */
+	onRedo: function()
+	{
+		container.getUndoManager().redo();
+	},
+
+	/**
+	 * Event handler for the render event of the undo/redo buttons. Registers
+	 * (once) for the {@link Zarafa.core.data.UndoManager#stackchange} event
+	 * so the buttons can reflect the current undo/redo availability.
+	 * @private
+	 */
+	onRenderUndoRedoButton: function()
+	{
+		if (!this.undoStackChangeRegistered) {
+			this.undoStackChangeRegistered = true;
+			container.getUndoManager().on('stackchange', this.onUndoStackChange, this);
+		}
+		this.onUndoStackChange(container.getUndoManager());
+	},
+
+	/**
+	 * Event handler for the {@link Zarafa.core.data.UndoManager#stackchange}
+	 * event. Enables/disables the undo and redo buttons and updates their
+	 * tooltips with a description of the action which would be undone/redone.
+	 * @param {Zarafa.core.data.UndoManager} undoManager The undo manager
+	 * @private
+	 */
+	onUndoStackChange: function(undoManager)
+	{
+		var undoHint = Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + Z', true);
+		var redoHint = Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + Y', true);
+
+		// The descriptions are plain text and are not encoded here: Ext.QuickTip
+		// is overridden to encode what it shows (client/extjs-mod/Ext.QuickTip.js),
+		// so encoding first would display the entities themselves.
+		if (this.undoButton && this.undoButton.rendered) {
+			this.undoButton.setDisabled(!undoManager.canUndo());
+			var next = undoManager.peekUndo();
+			this.undoButton.setTooltip(next ?
+				String.format(_('Undo: {0}'), next.description) + undoHint :
+				_('Undo') + undoHint);
+		}
+
+		if (this.redoButton && this.redoButton.rendered) {
+			this.redoButton.setDisabled(!undoManager.canRedo());
+			var redoNext = undoManager.peekRedo();
+			this.redoButton.setTooltip(redoNext ?
+				String.format(_('Redo: {0}'), redoNext.description) + redoHint :
+				_('Redo') + redoHint);
+		}
+	},
+
+	/**
+	 * Event handler for the beforeshow event of the undo button dropdown.
+	 * Rebuilds the menu with the current undo history; clicking an entry
+	 * undoes all actions up to and including that entry.
+	 * @param {Ext.menu.Menu} menu The dropdown menu
+	 * @private
+	 */
+	onBeforeShowUndoMenu: function(menu)
+	{
+		menu.removeAll();
+
+		var commands = container.getUndoManager().getUndoCommands();
+		if (Ext.isEmpty(commands)) {
+			menu.add({
+				text: _('Nothing to undo'),
+				disabled: true
+			});
+			return;
+		}
+
+		Ext.each(commands, function(command, index) {
+			menu.add({
+				// Encoded here, unlike the tooltips above: a menu item renders
+				// its text as HTML, and the description carries user-controlled
+				// text such as a message subject.
+				text: Ext.util.Format.htmlEncode(command.description),
+				undoCount: index + 1,
+				handler: this.onUndoMenuItemClick,
+				scope: this,
+				listeners: {
+					activate: this.onUndoMenuItemActivate,
+					deactivate: this.onUndoMenuItemDeactivate,
+					scope: this
+				}
+			});
+		}, this);
+	},
+
+	/**
+	 * Event handler for the activate event of an entry of the undo history
+	 * dropdown. Clicking an entry undoes every action down to it, not just that
+	 * one, so hovering it marks the whole range which would be undone; without
+	 * that the menu reads as though a single action could be picked out.
+	 * @param {Ext.menu.Item} item The activated menu item
+	 * @private
+	 */
+	onUndoMenuItemActivate: function(item)
+	{
+		if (!item.parentMenu) {
+			return;
+		}
+
+		item.parentMenu.items.each(function(other) {
+			// Ext puts its own active class on the li rather than the anchor,
+			// and the styling hangs off that, so follow it.
+			if (other.container) {
+				other.container[other.undoCount <= item.undoCount ? 'addClass' : 'removeClass'](
+					'zarafa-undo-item-included'
+				);
+			}
+		});
+	},
+
+	/**
+	 * Event handler for the deactivate event of an entry of the undo history
+	 * dropdown. Clears the range marked by {@link #onUndoMenuItemActivate}.
+	 * @param {Ext.menu.Item} item The deactivated menu item
+	 * @private
+	 */
+	onUndoMenuItemDeactivate: function(item)
+	{
+		if (!item.parentMenu) {
+			return;
+		}
+
+		item.parentMenu.items.each(function(other) {
+			if (other.container) {
+				other.container.removeClass('zarafa-undo-item-included');
+			}
+		});
+	},
+
+	/**
+	 * Event handler for a click on an entry of the undo history dropdown.
+	 * Undoes all actions from the most recent one down to the clicked entry.
+	 * @param {Ext.menu.Item} item The clicked menu item
+	 * @private
+	 */
+	onUndoMenuItemClick: function(item)
+	{
+		container.getUndoManager().undo(item.undoCount);
 	},
 
 	/**

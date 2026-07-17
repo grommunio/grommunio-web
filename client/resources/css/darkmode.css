@@ -2402,6 +2402,14 @@ body.dark-mode .zarafa-settings-category-rules,
 body.dark-mode .icon_flag_Reminder,
 body.dark-mode .icon_large_addressbook,
 body.dark-mode .icon_large_refresh,
+/* Undo history: the range which would be undone (see grommunio.css). */
+body.dark-mode .x-menu .x-menu-list li.x-menu-list-item.zarafa-undo-item-included a {
+	background-color: var(--dm-hover) !important;
+	color: var(--dm-fg) !important;
+}
+
+body.dark-mode .icon_large_undo,
+body.dark-mode .icon_large_redo,
 body.dark-mode .icon_large_print,
 body.dark-mode .icon_large_view,
 body.dark-mode .icon_contact_distlist,
