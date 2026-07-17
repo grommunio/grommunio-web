@@ -217,7 +217,7 @@ class AddressbookListModule extends ListModule {
 						$item['fileas'] = $item['display_name'];
 						$item['surname'] = $user_data[PR_SURNAME] ?? '';
 						$item['given_name'] = $user_data[$this->properties['given_name']] ?? '';
-						$item['object_type'] = ($user_data[$this->properties['icon_index']] ?? 0) == 512 ? MAPI_MAILUSER : MAPI_DISTLIST;
+						$item['object_type'] = $isContact ? MAPI_MAILUSER : MAPI_DISTLIST;
 
 						// Map contact properties to fields expected by the GAB column model
 						$item['department_name'] = $user_data[$this->properties['department_name']] ?? '';
