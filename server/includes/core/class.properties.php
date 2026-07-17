@@ -112,6 +112,11 @@ class Properties {
 		else {
 			$stores = [$store];
 			$this->store = $store;
+			// The active store changed, so the mapping key has to be resolved
+			// again. Init() only does that while $init is false, and it is reset
+			// once per request rather than once per module, so without this the
+			// next getter would answer for the previous module's store.
+			$this->init = false;
 		}
 
 		foreach ($stores as $key => $store) {
@@ -140,13 +145,26 @@ class Properties {
 	 * @return string PR_MAPPING_SIGNATURE of the given MAPI Message Store if exists else 0
 	 */
 	private function getStoreMappingSignature($store) {
+		$storeProps = [];
+
 		try {
-			$storeMapping = mapi_getprops($store, [PR_MAPPING_SIGNATURE]);
+			$storeProps = mapi_getprops($store, [PR_MAPPING_SIGNATURE, PR_ENTRYID]);
 		}
 		catch (Exception) {
 		}
 
-		return isset($storeMapping[PR_MAPPING_SIGNATURE]) ? bin2hex((string) $storeMapping[PR_MAPPING_SIGNATURE]) : '0';
+		$signature = isset($storeProps[PR_MAPPING_SIGNATURE]) ? bin2hex((string) $storeProps[PR_MAPPING_SIGNATURE]) : '';
+
+		// gromox reports an all-zero PR_MAPPING_SIGNATURE for every store, while
+		// still allocating named property ids per store. Keying the cache on that
+		// makes every store share one entry, so the first store to resolve a name
+		// hands its ids to all the others. Fall back to the store entryid, which
+		// does identify the store.
+		if ($signature === '' || strspn($signature, '0') === strlen($signature)) {
+			$signature = isset($storeProps[PR_ENTRYID]) ? bin2hex((string) $storeProps[PR_ENTRYID]) : '0';
+		}
+
+		return $signature;
 	}
 
 	/**
