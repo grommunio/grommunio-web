@@ -1070,6 +1070,24 @@ ZStream},{}]},{},[9])(9)});
         }
     }
 
+    // WebODF's CSS has no display rule for covered cells; as inline
+    // elements a whole run of them collapses into one anonymous cell and a
+    // merge occupies a single grid slot.
+    function ensureCss(doc) {
+        var style;
+        if (!doc.head || doc.getElementById("grommunioOdfRepeatCss")) {
+            return;
+        }
+        style = doc.createElement("style");
+        style.id = "grommunioOdfRepeatCss";
+        style.setAttribute("type", "text/css");
+        style.appendChild(doc.createTextNode(
+            "@namespace grmtable url(\"" + tablens + "\");\n" +
+            "grmtable|covered-table-cell { display: table-cell; }\n"
+        ));
+        doc.head.appendChild(style);
+    }
+
     function expandRepeatedElements(container) {
         var root = container.rootElement,
             budget = { cells: MAX_CELLS },
@@ -1082,6 +1100,7 @@ ZStream},{}]},{},[9])(9)});
         if (!body) {
             return;
         }
+        ensureCss(body.ownerDocument);
         // nested tables first, so row clones carry expanded copies
         tables = Array.prototype.slice.call(
             body.getElementsByTagNameNS(tablens, "table")
