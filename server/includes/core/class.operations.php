@@ -2985,14 +2985,23 @@ class Operations {
 				}
 			}
 			if ($saveBoth || $saveRepresentee) {
-				if ($origStoreProps[PR_MDB_PROVIDER] === ZARAFA_STORE_PUBLIC_GUID) {
-					$userEntryid = $GLOBALS["mapisession"]->getStoreEntryIdOfUser(strtolower((string) $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS]));
-					$origStore = $GLOBALS["mapisession"]->openMessageStore($userEntryid);
-					$origStoreprops = mapi_getprops($origStore, [PR_IPM_SENTMAIL_ENTRYID]);
+				// A missing right on the representee's sent folder must not
+				// abort the send itself.
+				try {
+					if ($origStoreProps[PR_MDB_PROVIDER] === ZARAFA_STORE_PUBLIC_GUID) {
+						$userEntryid = $GLOBALS["mapisession"]->getStoreEntryIdOfUser(strtolower((string) $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS]));
+						$origStore = $GLOBALS["mapisession"]->openMessageStore($userEntryid);
+						$origStoreprops = mapi_getprops($origStore, [PR_IPM_SENTMAIL_ENTRYID]);
+					}
+					$destfolder = mapi_msgstore_openentry($origStore, $origStoreprops[PR_IPM_SENTMAIL_ENTRYID]);
+					$reprMessage = mapi_folder_createmessage($destfolder);
+					mapi_copyto($message, [], [], $reprMessage, 0);
 				}
-				$destfolder = mapi_msgstore_openentry($origStore, $origStoreprops[PR_IPM_SENTMAIL_ENTRYID]);
-				$reprMessage = mapi_folder_createmessage($destfolder);
-				mapi_copyto($message, [], [], $reprMessage, 0);
+				catch (MAPIException $e) {
+					error_log('submitMessage: unable to create the representee sent copy: ' . get_mapi_error_name($e->getCode()));
+					$e->setHandled();
+					$reprMessage = false;
+				}
 			}
 		}
 		else {
@@ -3112,13 +3121,20 @@ class Operations {
 			$message = $this->saveMessage($store, $entryid, $storeprops[PR_IPM_OUTBOX_ENTRYID], $props, $messageProps, $recipients, $attachments, [], $copyFromMessage, $copyAttachments, $copyRecipients, $copyInlineAttachmentsOnly, true, true, $isPlainText);
 			// Sending as delegate from drafts folder
 			if ($sendingAsDelegate && ($saveBoth || $saveRepresentee)) {
-				$userEntryid = $GLOBALS["mapisession"]->getStoreEntryIdOfUser(strtolower((string) $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS]));
-				$origStore = $GLOBALS["mapisession"]->openMessageStore($userEntryid);
-				if ($origStore) {
-					$origStoreprops = mapi_getprops($origStore, [PR_ENTRYID, PR_IPM_SENTMAIL_ENTRYID]);
-					$destfolder = mapi_msgstore_openentry($origStore, $origStoreprops[PR_IPM_SENTMAIL_ENTRYID]);
-					$reprMessage = mapi_folder_createmessage($destfolder);
-					mapi_copyto($message, [], [], $reprMessage, 0);
+				try {
+					$userEntryid = $GLOBALS["mapisession"]->getStoreEntryIdOfUser(strtolower((string) $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS]));
+					$origStore = $GLOBALS["mapisession"]->openMessageStore($userEntryid);
+					if ($origStore) {
+						$origStoreprops = mapi_getprops($origStore, [PR_ENTRYID, PR_IPM_SENTMAIL_ENTRYID]);
+						$destfolder = mapi_msgstore_openentry($origStore, $origStoreprops[PR_IPM_SENTMAIL_ENTRYID]);
+						$reprMessage = mapi_folder_createmessage($destfolder);
+						mapi_copyto($message, [], [], $reprMessage, 0);
+					}
+				}
+				catch (MAPIException $e) {
+					error_log('submitMessage: unable to create the representee sent copy: ' . get_mapi_error_name($e->getCode()));
+					$e->setHandled();
+					$reprMessage = false;
 				}
 			}
 		}
@@ -3258,33 +3274,41 @@ class Operations {
 		$tmp_props = mapi_getprops($message, [PR_PARENT_ENTRYID, PR_MESSAGE_DELIVERY_TIME, PR_CLIENT_SUBMIT_TIME, PR_SEARCH_KEY, PR_MESSAGE_FLAGS]);
 		$messageProps[PR_PARENT_ENTRYID] = $tmp_props[PR_PARENT_ENTRYID];
 		if ($reprMessage !== false) {
-			mapi_setprops($reprMessage, [
-				PR_CLIENT_SUBMIT_TIME => $tmp_props[PR_CLIENT_SUBMIT_TIME] ?? time(),
-				PR_MESSAGE_DELIVERY_TIME => $tmp_props[PR_MESSAGE_DELIVERY_TIME] ?? time(),
-				PR_MESSAGE_FLAGS => $tmp_props[PR_MESSAGE_FLAGS] | MSGFLAG_READ,
-			]);
-			mapi_savechanges($reprMessage);
-			if ($saveRepresentee) {
-				// delete the message in the delegate's Sent Items folder
-				$sentFolder = mapi_msgstore_openentry($store, $storeprops[PR_IPM_SENTMAIL_ENTRYID]);
-				$sentTable = mapi_folder_getcontentstable($sentFolder, MAPI_DEFERRED_ERRORS);
-				$restriction = [RES_PROPERTY, [
-					RELOP => RELOP_EQ,
-					ULPROPTAG => PR_SEARCH_KEY,
-					VALUE => $tmp_props[PR_SEARCH_KEY],
-				]];
-				mapi_table_restrict($sentTable, $restriction);
-				$sentMessageProps = mapi_table_queryallrows($sentTable, [PR_ENTRYID, PR_SEARCH_KEY]);
-				if (mapi_table_getrowcount($sentTable) == 1) {
-					mapi_folder_deletemessages($sentFolder, [$sentMessageProps[0][PR_ENTRYID]], DELETE_HARD_DELETE);
+			// The message is already submitted; a failing sent copy must not
+			// report the send as failed.
+			try {
+				mapi_setprops($reprMessage, [
+					PR_CLIENT_SUBMIT_TIME => $tmp_props[PR_CLIENT_SUBMIT_TIME] ?? time(),
+					PR_MESSAGE_DELIVERY_TIME => $tmp_props[PR_MESSAGE_DELIVERY_TIME] ?? time(),
+					PR_MESSAGE_FLAGS => $tmp_props[PR_MESSAGE_FLAGS] | MSGFLAG_READ,
+				]);
+				mapi_savechanges($reprMessage);
+				if ($saveRepresentee) {
+					// delete the message in the delegate's Sent Items folder
+					$sentFolder = mapi_msgstore_openentry($store, $storeprops[PR_IPM_SENTMAIL_ENTRYID]);
+					$sentTable = mapi_folder_getcontentstable($sentFolder, MAPI_DEFERRED_ERRORS);
+					$restriction = [RES_PROPERTY, [
+						RELOP => RELOP_EQ,
+						ULPROPTAG => PR_SEARCH_KEY,
+						VALUE => $tmp_props[PR_SEARCH_KEY],
+					]];
+					mapi_table_restrict($sentTable, $restriction);
+					$sentMessageProps = mapi_table_queryallrows($sentTable, [PR_ENTRYID, PR_SEARCH_KEY]);
+					if (mapi_table_getrowcount($sentTable) == 1) {
+						mapi_folder_deletemessages($sentFolder, [$sentMessageProps[0][PR_ENTRYID]], DELETE_HARD_DELETE);
+					}
+					else {
+						error_log(sprintf(
+							"Found multiple entries in Sent Items with the same PR_SEARCH_KEY (%d)." .
+							" Impossible to delete email from the delegate's Sent Items folder.",
+							mapi_table_getrowcount($sentTable)
+						));
+					}
 				}
-				else {
-					error_log(sprintf(
-						"Found multiple entries in Sent Items with the same PR_SEARCH_KEY (%d)." .
-						" Impossible to delete email from the delegate's Sent Items folder.",
-						mapi_table_getrowcount($sentTable)
-					));
-				}
+			}
+			catch (MAPIException $e) {
+				error_log('submitMessage: unable to finalize the representee sent copy: ' . get_mapi_error_name($e->getCode()));
+				$e->setHandled();
 			}
 		}
 
