@@ -754,14 +754,139 @@ class ItemModule extends Module {
 
 		$soft = $action['message_action']['soft_delete'] ?? false;
 		$unread = $action['message_action']['non_read_notify'] ?? false;
+
+		// When the client asked to track the new entryids (undo support),
+		// snapshot the target wastebasket and the items' move-stable search
+		// keys before the delete, so they can be relocated afterwards.
+		$undoInfo = $this->prepareDeleteUndo($store, $parententryid, $entryid, $action, $soft);
+
 		$result = $GLOBALS["operations"]->deleteMessages($store, $parententryid, $entryid, $soft, $unread);
 		if ($result) {
 			$GLOBALS["bus"]->notify(bin2hex($parententryid), TABLE_DELETE, $props);
-			$this->sendFeedback(true);
+
+			$this->sendFeedback(true, $this->buildDeleteUndoFeedback($undoInfo));
 		}
 		else {
 			$this->sendFeedback(false);
 		}
+	}
+
+	/**
+	 * Snapshot the information needed to make a delete undoable (see the
+	 * 'track_new_entryids' message action). Determines where deleteMessages()
+	 * will move the items and remembers their move-stable PR_SEARCH_KEYs, as
+	 * well as the items already present in the target wastebasket which share
+	 * one of those keys. Only deletes that end up in a wastebasket (not
+	 * hard/soft deletes) can be tracked; otherwise null is returned.
+	 *
+	 * Must be called before the delete, while the items still exist.
+	 *
+	 * @param object $store         MAPI Message Store Object
+	 * @param string $parententryid parent entryid of the message(s)
+	 * @param mixed  $entryid       one entryid or a list of entryids
+	 * @param array  $action        the action data, sent by the client
+	 * @param bool   $soft          whether this is a soft delete
+	 *
+	 * @return null|array the undo snapshot, or null when not trackable
+	 */
+	protected function prepareDeleteUndo($store, $parententryid, $entryid, $action, $soft) {
+		if (empty($action['message_action']['track_new_entryids']) || $soft) {
+			return null;
+		}
+
+		$msgprops = mapi_getprops($store, [PR_IPM_WASTEBASKET_ENTRYID, PR_MDB_PROVIDER, PR_IPM_OUTBOX_ENTRYID]);
+
+		// Deleting from the Outbox aborts submission of deferred-send mail;
+		// an undo would restore it looking scheduled while it never sends.
+		if (isset($msgprops[PR_IPM_OUTBOX_ENTRYID]) && $msgprops[PR_IPM_OUTBOX_ENTRYID] == $parententryid) {
+			return null;
+		}
+
+		$wastebasketStore = null;
+		$wastebasketEntryid = false;
+
+		switch ($msgprops[PR_MDB_PROVIDER] ?? '') {
+			case ZARAFA_SERVICE_GUID:
+				// Own store: items move to the own wastebasket, unless
+				// they are already in it (then they are hard deleted).
+				if (isset($msgprops[PR_IPM_WASTEBASKET_ENTRYID]) && $msgprops[PR_IPM_WASTEBASKET_ENTRYID] != $parententryid) {
+					$wastebasketStore = $store;
+					$wastebasketEntryid = $msgprops[PR_IPM_WASTEBASKET_ENTRYID];
+				}
+				break;
+
+			case ZARAFA_STORE_DELEGATE_GUID:
+				// Mirror Operations::deleteMessages: hard delete in the
+				// wastebasket or with default soft delete, otherwise the
+				// style setting selects the wastebasket.
+				$softDefault = defined('ENABLE_DEFAULT_SOFT_DELETE') ? ENABLE_DEFAULT_SOFT_DELETE : false;
+				if ($softDefault || (isset($msgprops[PR_IPM_WASTEBASKET_ENTRYID]) && $msgprops[PR_IPM_WASTEBASKET_ENTRYID] == $parententryid)) {
+					break;
+				}
+				$delegateWastebasketStyle = $GLOBALS['settings']->get('zarafa/v1/contexts/mail/delegate_wastebasket_style', DELEGATE_WASTEBASKET_MAINUSER);
+				$targetStore = $store;
+				$targetProps = $msgprops;
+				if ($delegateWastebasketStyle === DELEGATE_WASTEBASKET_MAINUSER) {
+					$targetStore = $GLOBALS["mapisession"]->getDefaultMessageStore();
+					$targetProps = mapi_getprops($targetStore, [PR_IPM_WASTEBASKET_ENTRYID]);
+				}
+				if (isset($targetProps[PR_IPM_WASTEBASKET_ENTRYID]) && $targetProps[PR_IPM_WASTEBASKET_ENTRYID] != $parententryid) {
+					$wastebasketStore = $targetStore;
+					$wastebasketEntryid = $targetProps[PR_IPM_WASTEBASKET_ENTRYID];
+				}
+				break;
+		}
+
+		if ($wastebasketEntryid === false) {
+			return null;
+		}
+
+		$searchKeys = $GLOBALS["operations"]->getMessageSearchKeys($store, $entryid);
+		if (empty($searchKeys)) {
+			return null;
+		}
+
+		return [
+			'store' => $wastebasketStore,
+			'entryid' => $wastebasketEntryid,
+			'searchKeys' => $searchKeys,
+			'existing' => $GLOBALS["operations"]->getFolderEntryidsBySearchKey($wastebasketStore, $wastebasketEntryid, $searchKeys),
+		];
+	}
+
+	/**
+	 * Build the 'undo' feedback object for a completed delete from the snapshot
+	 * taken by prepareDeleteUndo(). Any failure while resolving the new
+	 * location is swallowed so the (already completed) delete is still reported
+	 * as successful.
+	 *
+	 * @param null|array $undoInfo the snapshot returned by prepareDeleteUndo(),
+	 *                             or null when the delete was not trackable
+	 *
+	 * @return array the feedback array, possibly containing an 'undo' key
+	 */
+	protected function buildDeleteUndoFeedback($undoInfo) {
+		$feedback = [];
+		if (empty($undoInfo)) {
+			return $feedback;
+		}
+
+		try {
+			$newEntryids = $GLOBALS["operations"]->resolveNewEntryids($undoInfo['store'], $undoInfo['entryid'], $undoInfo['searchKeys'], $undoInfo['existing']);
+			if (!empty($newEntryids)) {
+				$wastebasketStoreProps = mapi_getprops($undoInfo['store'], [PR_ENTRYID]);
+				$feedback['undo'] = [
+					'new_entryids' => $newEntryids,
+					'destination_parent_entryid' => bin2hex((string) $undoInfo['entryid']),
+					'destination_store_entryid' => bin2hex((string) $wastebasketStoreProps[PR_ENTRYID]),
+				];
+			}
+		}
+		catch (MAPIException $e) {
+			$e->setHandled();
+		}
+
+		return $feedback;
 	}
 
 	/**
@@ -872,6 +997,18 @@ class ItemModule extends Module {
 				}
 			}
 
+			// When the client asked to track the new entryids (undo support),
+			// remember the move-stable search keys before the operation so the
+			// items can be relocated in the destination folder afterwards, plus
+			// the items already present in the destination sharing those keys so
+			// they are not mistaken for the freshly copied/moved items.
+			$searchKeys = [];
+			$existingEntryids = [];
+			if (!empty($action["message_action"]["track_new_entryids"])) {
+				$searchKeys = $GLOBALS["operations"]->getMessageSearchKeys($store, $entryids);
+				$existingEntryids = $GLOBALS["operations"]->getFolderEntryidsBySearchKey($dest_store, $dest_folderentryid, $searchKeys);
+			}
+
 			$result = $GLOBALS["operations"]->copyMessages($store, $parententryid, $dest_store, $dest_folderentryid, $entryids, $moveMessages ? $skipCopyProperties : $this->skipCopyProperties, $moveMessages, $copyProps);
 
 			if ($result) {
@@ -889,7 +1026,27 @@ class ItemModule extends Module {
 				$GLOBALS["bus"]->notify(bin2hex($dest_folderentryid), TABLE_SAVE, $props);
 			}
 
-			$this->sendFeedback($result, []);
+			$feedback = [];
+			if ($result && !empty($searchKeys)) {
+				// Best-effort: a failure resolving the new location must not
+				// turn the already completed copy/move into an error.
+				try {
+					$newEntryids = $GLOBALS["operations"]->resolveNewEntryids($dest_store, $dest_folderentryid, $searchKeys, $existingEntryids);
+					if (!empty($newEntryids)) {
+						$destStoreProps = mapi_getprops($dest_store, [PR_ENTRYID]);
+						$feedback['undo'] = [
+							'new_entryids' => $newEntryids,
+							'destination_parent_entryid' => bin2hex($dest_folderentryid),
+							'destination_store_entryid' => bin2hex((string) $destStoreProps[PR_ENTRYID]),
+						];
+					}
+				}
+				catch (MAPIException $e) {
+					$e->setHandled();
+				}
+			}
+
+			$this->sendFeedback($result, $feedback);
 		}
 	}
 

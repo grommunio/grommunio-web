@@ -293,8 +293,49 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 			// not specifying settingsCfg as we already have an entry of opening item in all views
 		}];
 
+		var undoRedoKeys = [{
+			key: Ext.EventObject.Z,
+			ctrl: true,
+			alt: false,
+			shift: false,
+			// Don't stop the event: inside text inputs and the HTML editor
+			// Ctrl+Z must keep triggering the native text undo. The handler
+			// checks the event target itself.
+			stopEvent: false,
+			handler: this.onUndo,
+			scope: this,
+			settingsCfg: {
+				description: _('Undo the last action'),
+				category: _('All views')
+			},
+			basic: true
+		},{
+			key: Ext.EventObject.Y,
+			ctrl: true,
+			alt: false,
+			shift: false,
+			stopEvent: false,
+			handler: this.onRedo,
+			scope: this,
+			settingsCfg: {
+				description: _('Redo the last undone action'),
+				category: _('All views')
+			},
+			basic: true
+		},{
+			key: Ext.EventObject.Z,
+			ctrl: true,
+			alt: false,
+			shift: true,
+			stopEvent: false,
+			handler: this.onRedo,
+			scope: this
+			// not specifying settingsCfg as Ctrl+Y is already listed for redo
+		}];
+
 		Zarafa.core.KeyMapMgr.register('global', mainTabBar);
 		Zarafa.core.KeyMapMgr.register('global', mainToolbarKeys);
+		Zarafa.core.KeyMapMgr.register('global', undoRedoKeys);
 
 		Zarafa.core.KeyMapMgr.register('grid', selectionKey);
 		Zarafa.core.KeyMapMgr.register('view.mapimessage', selectionKey);
@@ -341,6 +382,58 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 		}
 
 		refreshButton.handler.call(refreshButton.scope);
+	},
+
+	/**
+	 * Event handler for the keydown event of the {@link Zarafa.core.KeyMap KeyMap}
+	 * when the user wants to undo the last action. The event is ignored when
+	 * it originates from a text input, so the native text undo keeps working.
+	 * @param {Number} key Key code
+	 * @param {Ext.EventObject} event The event
+	 * @param {Ext.Component} component The component on which key event is fired.
+	 */
+	onUndo: function(key, event, component)
+	{
+		if (this.isTextEditingTarget(event)) {
+			return;
+		}
+		event.stopEvent();
+		container.getUndoManager().undo();
+	},
+
+	/**
+	 * Event handler for the keydown event of the {@link Zarafa.core.KeyMap KeyMap}
+	 * when the user wants to redo the last undone action. The event is ignored
+	 * when it originates from a text input.
+	 * @param {Number} key Key code
+	 * @param {Ext.EventObject} event The event
+	 * @param {Ext.Component} component The component on which key event is fired.
+	 */
+	onRedo: function(key, event, component)
+	{
+		if (this.isTextEditingTarget(event)) {
+			return;
+		}
+		event.stopEvent();
+		container.getUndoManager().redo();
+	},
+
+	/**
+	 * Check whether a key event originates from an element in which the user
+	 * is editing text (input, textarea or contenteditable element). Undo/redo
+	 * shortcuts must not be intercepted there.
+	 * @param {Ext.EventObject} event The event to check
+	 * @return {Boolean} True when the event targets a text editing element
+	 * @private
+	 */
+	isTextEditingTarget: function(event)
+	{
+		var target = event.getTarget();
+		if (!target) {
+			return false;
+		}
+		var nodeName = target.nodeName ? target.nodeName.toLowerCase() : '';
+		return nodeName === 'input' || nodeName === 'textarea' || target.isContentEditable === true;
 	},
 
 	/**
