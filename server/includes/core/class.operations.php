@@ -2888,6 +2888,7 @@ class Operations {
 			 * that item doesn't exist and it will create a new item (in outbox of logged in user)
 			 */
 			$oldParentEntryId = false;
+			$copyIsDraft = false;
 			if ($entryid) {
 				$oldEntryId = $entryid;
 				$entryid = false;
@@ -2899,6 +2900,7 @@ class Operations {
 					try {
 						$copyFromMessage = mapi_msgstore_openentry($origStore, $oldEntryId);
 						$copyRecipients = true;
+						$copyIsDraft = true;
 
 						// Decode smime signed messages on this message
 						parse_smime($origStore, $copyFromMessage);
@@ -2910,6 +2912,7 @@ class Operations {
 						try {
 							$copyFromMessage = mapi_msgstore_openentry($store, $oldEntryId);
 							$copyRecipients = true;
+							$copyIsDraft = true;
 
 							// Decode smime signed messages on this message
 							parse_smime($store, $copyFromMessage);
@@ -2942,7 +2945,7 @@ class Operations {
 			if ($copyFromMessage) {
 				// Get properties of original message, to copy recipients and attachments in new message
 				$copyMessageProps = mapi_getprops($copyFromMessage);
-				if ($oldParentEntryId === false) {
+				if ($oldParentEntryId === false && $copyIsDraft) {
 					$oldParentEntryId = $copyMessageProps[PR_PARENT_ENTRYID] ?? false;
 				}
 
@@ -2981,7 +2984,12 @@ class Operations {
 					catch(MAPIException) {}
 				}
 				if ($folder) {
-					mapi_folder_deletemessages($folder, [$oldEntryId], DELETE_HARD_DELETE);
+					try {
+						mapi_folder_deletemessages($folder, [$oldEntryId], DELETE_HARD_DELETE);
+					}
+					catch (MAPIException $e) {
+						$e->setHandled();
+					}
 				}
 			}
 			if ($saveBoth || $saveRepresentee) {
