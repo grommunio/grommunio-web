@@ -1,6 +1,6 @@
 <?php
 header("Content-Type: text/javascript; charset=utf-8");
-define("EXPIRES_TIME_LO", "300", 1);
+define("EXPIRES_TIME_LO", "300");
 
 header('Expires: ' . gmdate('D, d M Y H:i:s', time() + EXPIRES_TIME_LO) . ' GMT');
 header('Cache-Control: max-age=' . EXPIRES_TIME_LO . ',must-revalidate');
