@@ -919,3 +919,188 @@ var max_blindex=0;if(s.level>0){if(s.strm.data_type===Z_UNKNOWN)s.strm.data_type
 static_ltree,static_dtree)}else{send_bits(s,(DYN_TREES<<1)+(last?1:0),3);send_all_trees(s,s.l_desc.max_code+1,s.d_desc.max_code+1,max_blindex+1);compress_block(s,s.dyn_ltree,s.dyn_dtree)}init_block(s);if(last)bi_windup(s)}function _tr_tally(s,dist,lc){s.pending_buf[s.d_buf+s.last_lit*2]=dist>>>8&255;s.pending_buf[s.d_buf+s.last_lit*2+1]=dist&255;s.pending_buf[s.l_buf+s.last_lit]=lc&255;s.last_lit++;if(dist===0)s.dyn_ltree[lc*2]++;else{s.matches++;dist--;s.dyn_ltree[(_length_code[lc]+LITERALS+1)*2]++;
 s.dyn_dtree[d_code(dist)*2]++}return s.last_lit===s.lit_bufsize-1}exports._tr_init=_tr_init;exports._tr_stored_block=_tr_stored_block;exports._tr_flush_block=_tr_flush_block;exports._tr_tally=_tr_tally;exports._tr_align=_tr_align},{"../utils/common":27}],39:[function(_dereq_,module,exports){function ZStream(){this.input=null;this.next_in=0;this.avail_in=0;this.total_in=0;this.output=null;this.next_out=0;this.avail_out=0;this.total_out=0;this.msg="";this.state=null;this.data_type=2;this.adler=0}module.exports=
 ZStream},{}]},{},[9])(9)});
+/*
+ * grommunio addition: expand repeated table elements for display.
+ *
+ * ODF collapses runs of identical columns, rows and cells into a single
+ * element carrying table:number-columns/rows-repeated. WebODF renders the
+ * ODF DOM directly through CSS tables, where such an element occupies one
+ * grid slot, so everything after a collapsed run shifts. Expand the runs
+ * into real clones, bounded like the xlsx preview; filler runs behind the
+ * last cell with content stay collapsed.
+ */
+(function () {
+    "use strict";
+    var tablens = "urn:oasis:names:tc:opendocument:xmlns:table:1.0",
+        officens = "urn:oasis:names:tc:opendocument:xmlns:office:1.0",
+        drawns = "urn:oasis:names:tc:opendocument:xmlns:drawing:1.0",
+        MAX_COLS = 256,
+        MAX_ROWS = 5000,
+        MAX_CELLS = 200000;
+
+    function isTableElement(node, name) {
+        return node.namespaceURI === tablens && node.localName === name;
+    }
+
+    function isCell(node) {
+        return node.namespaceURI === tablens &&
+            ("table-cell" === node.localName || "covered-table-cell" === node.localName);
+    }
+
+    function repeatCount(element, name) {
+        var value = element.getAttributeNS(tablens, name),
+            count = value ? parseInt(value, 10) : 1;
+        return (isNaN(count) || count < 1) ? 1 : count;
+    }
+
+    // Expand a run into `allowed` singular clones; any remainder stays
+    // collapsed in one trailing element, so the rendered width of a capped
+    // run does not depend on how the producer fragmented it.
+    function expand(element, name, total, allowed) {
+        var parent = element.parentNode,
+            clone,
+            i,
+            added = 0;
+        if (total > allowed) {
+            clone = element.cloneNode(true);
+            clone.setAttributeNS(tablens, "table:" + name, String(total - allowed));
+            parent.insertBefore(clone, element.nextSibling);
+            added += 1;
+        }
+        element.removeAttributeNS(tablens, name);
+        for (i = 1; i < allowed; i += 1) {
+            parent.insertBefore(element.cloneNode(true), element.nextSibling);
+            added += 1;
+        }
+        return added;
+    }
+
+    // matching descendants in document order, nested tables excluded
+    function gather(root, match) {
+        var list = [];
+        (function walk(node) {
+            var child = node.firstElementChild;
+            while (child) {
+                if (!isTableElement(child, "table")) {
+                    if (match(child)) {
+                        list.push(child);
+                    }
+                    walk(child);
+                }
+                child = child.nextElementSibling;
+            }
+        }(root));
+        return list;
+    }
+
+    // Cells with a style, text or drawing content matter for the layout;
+    // padding cells holding only empty paragraphs do not.
+    function isSignificant(cell) {
+        return cell.hasAttributeNS(tablens, "style-name") ||
+            /\S/.test(cell.textContent) ||
+            cell.getElementsByTagNameNS(drawns, "*").length > 0;
+    }
+
+    function expandTable(table, budget) {
+        var rows = gather(table, function (node) {
+                return isTableElement(node, "table-row");
+            }),
+            lastContentRow = -1,
+            position,
+            allowed,
+            count,
+            i;
+
+        rows.forEach(function (row, index) {
+            var width = 0,
+                end = 0;
+            Array.prototype.forEach.call(row.children, function (cell) {
+                if (!isCell(cell)) {
+                    return;
+                }
+                end += repeatCount(cell, "number-columns-repeated");
+                if (isSignificant(cell)) {
+                    width = end;
+                }
+            });
+            if (width > 0) {
+                lastContentRow = index;
+            }
+        });
+
+        rows.forEach(function (row, index) {
+            var cells,
+                last = -1,
+                pos = 0,
+                j;
+            if (index > lastContentRow) {
+                return;
+            }
+            cells = Array.prototype.filter.call(row.children, isCell);
+            cells.forEach(function (cell, k) {
+                if (isSignificant(cell)) {
+                    last = k;
+                }
+            });
+            for (j = 0; j <= last; j += 1) {
+                count = repeatCount(cells[j], "number-columns-repeated");
+                if (count > 1) {
+                    allowed = Math.min(count, MAX_COLS - pos, budget.cells);
+                    if (allowed >= 1) {
+                        budget.cells -=
+                            expand(cells[j], "number-columns-repeated", count, allowed);
+                    }
+                }
+                pos += count;
+            }
+        });
+
+        position = 0;
+        for (i = 0; i <= lastContentRow; i += 1) {
+            count = repeatCount(rows[i], "number-rows-repeated");
+            if (count > 1) {
+                allowed = Math.min(count, MAX_ROWS - position,
+                    Math.floor(budget.cells / Math.max(1, rows[i].children.length)));
+                if (allowed >= 1) {
+                    budget.cells -= expand(rows[i], "number-rows-repeated", count, allowed) *
+                        rows[i].children.length;
+                }
+            }
+            position += count;
+        }
+    }
+
+    function expandRepeatedElements(container) {
+        var root = container.rootElement,
+            budget = { cells: MAX_CELLS },
+            body,
+            tables;
+        if (container.state !== odf.OdfContainer.DONE || !root) {
+            return;
+        }
+        body = root.body || root.getElementsByTagNameNS(officens, "body")[0];
+        if (!body) {
+            return;
+        }
+        // nested tables first, so row clones carry expanded copies
+        tables = Array.prototype.slice.call(
+            body.getElementsByTagNameNS(tablens, "table")
+        ).reverse();
+        tables.forEach(function (table) {
+            expandTable(table, budget);
+        });
+    }
+
+    var OdfCanvasOriginal = odf.OdfCanvas;
+    odf.OdfCanvas = function (element, viewport) {
+        OdfCanvasOriginal.apply(this, arguments);
+        // runs before the listeners of the embedding page
+        this.addListener("statereadychange", function (container) {
+            try {
+                expandRepeatedElements(container);
+            } catch (e) {
+                runtime.log("Expanding repeated table elements failed: " + e.message);
+            }
+        });
+    };
+}());
