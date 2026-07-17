@@ -1405,6 +1405,14 @@ body.dark-mode .x-form-textarea.stickynote_dialog_pink { background-color: #6843
 body.dark-mode .x-form-textarea.stickynote_dialog_yellow { background-color: #4e4d00 !important; color: var(--dm-fg) !important; }
 body.dark-mode .x-form-textarea.stickynote_dialog_white { background-color: #5c5c5c !important; color: var(--dm-fg) !important; }
 
+/* Notes linked to the previewed mail, same palette as the note dialog above */
+body.dark-mode .preview-header-linkednotes .preview-header-linkednote { color: var(--dm-fg) !important; }
+body.dark-mode .preview-header-linkednotes .preview-header-linkednote.note_blue { background-color: #00233b !important; }
+body.dark-mode .preview-header-linkednotes .preview-header-linkednote.note_green { background-color: #113a00 !important; }
+body.dark-mode .preview-header-linkednotes .preview-header-linkednote.note_pink { background-color: #684363 !important; }
+body.dark-mode .preview-header-linkednotes .preview-header-linkednote.note_yellow { background-color: #4e4d00 !important; }
+body.dark-mode .preview-header-linkednotes .preview-header-linkednote.note_white { background-color: #5c5c5c !important; border-color: #6e6e6e !important; }
+
 /*=============================================================================
   Settings
 =============================================================================*/
