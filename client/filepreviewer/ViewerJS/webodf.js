@@ -934,6 +934,7 @@ ZStream},{}]},{},[9])(9)});
     var tablens = "urn:oasis:names:tc:opendocument:xmlns:table:1.0",
         officens = "urn:oasis:names:tc:opendocument:xmlns:office:1.0",
         drawns = "urn:oasis:names:tc:opendocument:xmlns:drawing:1.0",
+        helperns = "urn:webodf:names:helper",
         MAX_COLS = 256,
         MAX_ROWS = 5000,
         MAX_CELLS = 200000;
@@ -1001,14 +1002,32 @@ ZStream},{}]},{},[9])(9)});
             cell.getElementsByTagNameNS(drawns, "*").length > 0;
     }
 
+    function isSpreadsheetTable(table) {
+        var node = table.parentNode;
+        while (node && node.nodeType === 1) {
+            if (node.namespaceURI === officens && node.localName === "spreadsheet") {
+                return true;
+            }
+            node = node.parentNode;
+        }
+        return false;
+    }
+
     function expandTable(table, budget) {
         var rows = gather(table, function (node) {
                 return isTableElement(node, "table-row");
             }),
+            columns = gather(table, function (node) {
+                return isTableElement(node, "table-column");
+            }),
             lastContentRow = -1,
+            usedColumns = 1,
+            hasGutter = false,
+            columnBound,
             position,
             allowed,
             count,
+            gutter,
             i;
 
         rows.forEach(function (row, index) {
@@ -1025,8 +1044,14 @@ ZStream},{}]},{},[9])(9)});
             });
             if (width > 0) {
                 lastContentRow = index;
+                if (width > usedColumns) {
+                    usedColumns = width;
+                }
             }
         });
+        if (usedColumns > MAX_COLS) {
+            usedColumns = MAX_COLS;
+        }
 
         rows.forEach(function (row, index) {
             var cells,
@@ -1068,11 +1093,36 @@ ZStream},{}]},{},[9])(9)});
             }
             position += count;
         }
+
+        // WebODF's CSS prepends a row-number gutter cell to spreadsheet rows,
+        // which consumes the first table-column box; prepend a definition for
+        // it so the declared widths land on the right columns.
+        if (columns.length && isSpreadsheetTable(table)) {
+            if (columns[0].hasAttributeNS(helperns, "gutter")) {
+                hasGutter = true;
+            } else {
+                gutter = table.ownerDocument.createElementNS(tablens, "table:table-column");
+                gutter.setAttributeNS(helperns, "helper:gutter", "1");
+                columns[0].parentNode.insertBefore(gutter, columns[0]);
+                columns.unshift(gutter);
+                hasGutter = true;
+            }
+        }
+        columnBound = usedColumns + (hasGutter ? 1 : 0);
+        position = 0;
+        columns.forEach(function (column) {
+            count = repeatCount(column, "number-columns-repeated");
+            if (count > 1 && position < columnBound) {
+                expand(column, "number-columns-repeated",
+                    count, Math.min(count, columnBound - position));
+            }
+            position += count;
+        });
     }
 
-    // WebODF's CSS has no display rule for covered cells; as inline
-    // elements a whole run of them collapses into one anonymous cell and a
-    // merge occupies a single grid slot.
+    // WebODF's CSS has no display rules for covered cells or the column
+    // group wrappers; as inline elements a run of covered cells collapses
+    // into one anonymous cell and wrapped column definitions size nothing.
     function ensureCss(doc) {
         var style;
         if (!doc.head || doc.getElementById("grommunioOdfRepeatCss")) {
@@ -1083,7 +1133,9 @@ ZStream},{}]},{},[9])(9)});
         style.setAttribute("type", "text/css");
         style.appendChild(doc.createTextNode(
             "@namespace grmtable url(\"" + tablens + "\");\n" +
-            "grmtable|covered-table-cell { display: table-cell; }\n"
+            "grmtable|covered-table-cell { display: table-cell; }\n" +
+            "grmtable|table-columns, grmtable|table-header-columns" +
+            " { display: table-column-group; }\n"
         ));
         doc.head.appendChild(style);
     }
