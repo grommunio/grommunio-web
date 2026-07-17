@@ -2887,6 +2887,7 @@ class Operations {
 			 * if we set $entryid to false before passing it to saveMessage function then it will assume
 			 * that item doesn't exist and it will create a new item (in outbox of logged in user)
 			 */
+			$oldParentEntryId = false;
 			if ($entryid) {
 				$oldEntryId = $entryid;
 				$entryid = false;
@@ -2919,12 +2920,31 @@ class Operations {
 						}
 					}
 				}
+				else {
+					// A source message is being copied (e.g. edit as new), so
+					// the saved draft is a different message; locate its real
+					// parent folder for the cleanup below.
+					foreach ([$origStore, $store] as $draftStore) {
+						try {
+							$oldDraftProps = mapi_getprops(mapi_msgstore_openentry($draftStore, $oldEntryId), [PR_PARENT_ENTRYID]);
+							if (isset($oldDraftProps[PR_PARENT_ENTRYID])) {
+								$oldParentEntryId = $oldDraftProps[PR_PARENT_ENTRYID];
+								break;
+							}
+						}
+						catch (MAPIException $e) {
+							$e->setHandled();
+						}
+					}
+				}
 			}
 
 			if ($copyFromMessage) {
 				// Get properties of original message, to copy recipients and attachments in new message
 				$copyMessageProps = mapi_getprops($copyFromMessage);
-				$oldParentEntryId = $copyMessageProps[PR_PARENT_ENTRYID];
+				if ($oldParentEntryId === false) {
+					$oldParentEntryId = $copyMessageProps[PR_PARENT_ENTRYID] ?? false;
+				}
 
 				// unset id properties before merging the props, so we will be creating new item instead of sending same item
 				unset($copyMessageProps[PR_ENTRYID], $copyMessageProps[PR_PARENT_ENTRYID], $copyMessageProps[PR_STORE_ENTRYID], $copyMessageProps[PR_SEARCH_KEY]);
