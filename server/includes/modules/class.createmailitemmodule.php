@@ -381,15 +381,27 @@ class CreateMailItemModule extends ItemModule {
 
 		$savedUnsavedRecipients = [];
 		if ($entryid) {
+			// $store may already have been switched to the delegator's store
+			// while the draft lives in the user's own store.
+			$message = false;
 			try {
 				$message = $GLOBALS['operations']->openMessage($store, $entryid);
+			}
+			catch (MAPIException $e) {
+				$e->setHandled();
+
+				try {
+					$message = $GLOBALS['operations']->openMessage($GLOBALS['mapisession']->getDefaultMessageStore(), $entryid);
+				}
+				catch (MAPIException $e) {
+					$e->setHandled();
+				}
+			}
+			if ($message) {
 				$savedRecipients = $GLOBALS['operations']->getRecipientsInfo($message);
 				foreach ($savedRecipients as $recipient) {
 					$savedUnsavedRecipients['saved'][] = $recipient['props'];
 				}
-			}
-			catch (MAPIException $e) {
-				$e->setHandled();
 			}
 		}
 
