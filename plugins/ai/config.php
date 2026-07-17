@@ -47,11 +47,11 @@ define('PLUGIN_AI_USER_DEFAULT_ENABLE', false);
 define('PLUGIN_AI_PROVIDER', 'gemini');
 define('PLUGIN_AI_API_BASE', 'https://generativelanguage.googleapis.com/v1beta/openai');
 define('PLUGIN_AI_API_KEY', '');
-define('PLUGIN_AI_MODEL', 'gemini-2.0-flash');
+define('PLUGIN_AI_MODEL', 'gemini-3.5-flash');
 
 // Optional lighter/faster model for short tasks (e.g. translate). Leave empty
 // to always use PLUGIN_AI_MODEL.
-define('PLUGIN_AI_MODEL_FAST', 'gemini-2.0-flash-lite');
+define('PLUGIN_AI_MODEL_FAST', 'gemini-3.5-flash-lite');
 
 // --- Alternative providers — uncomment ONE block to use instead ------------
 //
