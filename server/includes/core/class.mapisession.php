@@ -915,7 +915,7 @@ class MAPISession {
 	 * @return string The entryid of the store of the user
 	 */
 	public function getStoreEntryIdOfUser($username) {
-		return $this->userstores[$username];
+		return $this->userstores[$username] ?? null;
 	}
 
 	/**

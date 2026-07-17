@@ -3133,7 +3133,9 @@ class Operations {
 			if ($sendingAsDelegate && ($saveBoth || $saveRepresentee)) {
 				try {
 					$userEntryid = $GLOBALS["mapisession"]->getStoreEntryIdOfUser(strtolower((string) $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS]));
-					$origStore = $GLOBALS["mapisession"]->openMessageStore($userEntryid);
+					$origStore = $userEntryid ?
+						$GLOBALS["mapisession"]->openMessageStore($userEntryid):
+						$GLOBALS['mapisession']->addUserStore(strtolower((string) $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS]));
 					if ($origStore) {
 						$origStoreprops = mapi_getprops($origStore, [PR_ENTRYID, PR_IPM_SENTMAIL_ENTRYID]);
 						$destfolder = mapi_msgstore_openentry($origStore, $origStoreprops[PR_IPM_SENTMAIL_ENTRYID]);
