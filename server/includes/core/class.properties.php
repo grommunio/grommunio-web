@@ -112,6 +112,9 @@ class Properties {
 		else {
 			$stores = [$store];
 			$this->store = $store;
+			// The active store changed; force Init() to resolve the mapping
+			// key again, it only does so while $init is false.
+			$this->init = false;
 		}
 
 		foreach ($stores as $key => $store) {
@@ -140,13 +143,24 @@ class Properties {
 	 * @return string PR_MAPPING_SIGNATURE of the given MAPI Message Store if exists else 0
 	 */
 	private function getStoreMappingSignature($store) {
+		$storeProps = [];
+
 		try {
-			$storeMapping = mapi_getprops($store, [PR_MAPPING_SIGNATURE]);
+			$storeProps = mapi_getprops($store, [PR_MAPPING_SIGNATURE, PR_ENTRYID]);
 		}
 		catch (Exception) {
 		}
 
-		return isset($storeMapping[PR_MAPPING_SIGNATURE]) ? bin2hex((string) $storeMapping[PR_MAPPING_SIGNATURE]) : '0';
+		$signature = isset($storeProps[PR_MAPPING_SIGNATURE]) ? bin2hex((string) $storeProps[PR_MAPPING_SIGNATURE]) : '';
+
+		// gromox reports an all-zero PR_MAPPING_SIGNATURE for every store while
+		// allocating named property ids per store, which would make all stores
+		// share one cache entry. Fall back to the store entryid.
+		if ($signature === '' || strspn($signature, '0') === strlen($signature)) {
+			$signature = isset($storeProps[PR_ENTRYID]) ? bin2hex((string) $storeProps[PR_ENTRYID]) : '0';
+		}
+
+		return $signature;
 	}
 
 	/**
