@@ -455,7 +455,7 @@ class FileLoader {
 		$extjsFiles = $this->getExtjsCSSFiles(DEBUG_LOADER);
 		$this->printFiles($extjsFiles, $cssTemplate);
 
-		$this->printFiles(["client/resources/css/grommunio.css"], $cssTemplate);
+		$this->printFiles(["client/resources/css/grommunio.css", "client/resources/css/message-security.css"], $cssTemplate);
 
 		$pluginFiles = $this->getPluginCSSFiles(DEBUG_LOADER);
 		$this->printFiles($pluginFiles, $cssTemplate);

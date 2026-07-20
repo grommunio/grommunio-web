@@ -254,7 +254,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			enableToggle: true,
 			toggleHandler: this.onFromMenuToggle,
 			scope: this
-		}];
+		}].concat(Zarafa.common.ui.SecurityButtons.createButtons());
 	},
 
 	/**
