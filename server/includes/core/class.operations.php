@@ -5236,8 +5236,8 @@ class Operations {
 			$user = $GLOBALS['mapisession']->getUser($userEntryId);
 		}
 		catch (Exception $e) {
-			$msg = "Problem while getting a user from the addressbook. Error %s : %s.";
-			$formattedMsg = sprintf($msg, $e->getCode(), $e->getMessage());
+			$formattedMsg = sprintf("Problem while getting a user from the addressbook (%s): %s (0x%x)",
+			                bin2hex($userEntryId), $e->getMessage(), $e->getCode());
 			error_log($formattedMsg);
 			Log::Write(LOGLEVEL_ERROR, "Operations:getCompressedUserImage() " . $formattedMsg);
 
