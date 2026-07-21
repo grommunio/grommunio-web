@@ -8228,3 +8228,6 @@ msgstr "Rosszul formázott UTF-8 karakterek, esetleg helytelenül kódolva"
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
 msgstr "A JSON-adatok kódolásakor/dekódolásakor valamilyen probléma merült fel: - %s"
+
+msgid "Legal Information"
+msgstr "Jogi információk"

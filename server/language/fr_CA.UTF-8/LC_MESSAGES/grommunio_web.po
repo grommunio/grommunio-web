@@ -8180,3 +8180,6 @@ msgstr "Caractères UTF-8 mal formés, éventuellement mal encodés"
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
 msgstr "Problème rencontré lors de l'encodage/décodage des données JSON: - %s"
+
+msgid "Legal Information"
+msgstr "Renseignements juridiques"

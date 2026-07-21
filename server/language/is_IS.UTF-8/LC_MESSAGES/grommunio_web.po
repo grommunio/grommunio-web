@@ -8131,3 +8131,6 @@ msgstr "Gallaðir UTF-8 stafir, hugsanlega rangt kóðaðir"
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
 msgstr "Eitthvað vandamál kom upp við kóðun/afkóðun JSON gagna: -%s"
+
+msgid "Legal Information"
+msgstr "Lagalegar upplýsingar"

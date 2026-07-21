@@ -8128,3 +8128,6 @@ msgstr "畸形 UTF-8 字元，可能未正確編碼"
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
 msgstr "編碼/解碼 JSON 資料時遇到一些問題： -%s"
+
+msgid "Legal Information"
+msgstr "法律資訊"

@@ -8203,3 +8203,6 @@ msgstr "Zniekształcone znaki UTF-8, prawdopodobnie nieprawidłowo zakodowane"
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
 msgstr "Napotkano problem podczas kodowania/dekodowania danych JSON: - %s"
+
+msgid "Legal Information"
+msgstr "Informacje prawne"
