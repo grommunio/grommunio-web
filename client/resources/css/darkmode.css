@@ -1298,6 +1298,11 @@ body.dark-mode .zarafa-freebusy-panel .x-freebusy-timeline-block-tentative {
 	background: repeating-linear-gradient(-45deg, #0f70bd 0px, #0f70bd 2.8284px, var(--dm-bg-paper) 2.8284px, var(--dm-bg-paper) 5.65685px) !important;
 }
 
+/* Working Elsewhere blocks - dotted pattern over dark base */
+body.dark-mode .zarafa-freebusy-panel .x-freebusy-timeline-block-workingelsewhere {
+	background: radial-gradient(#5b9bd5 30%, transparent 31%) 0 0 / 6px 6px, var(--dm-bg-paper) !important;
+}
+
 /* Suggestion list panel header, body, and footer */
 body.dark-mode .zarafa-freebusy-panel .zarafa-freebusy-suggestionlist .x-panel-header {
 	background-color: var(--dm-bg-paper) !important;

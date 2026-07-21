@@ -46,6 +46,10 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.calendar.printer.Ab
 				return '<svg width="7" height="20" class="k-appointment-status">'
 					+ '<rect x="0" y="0" rx="5" ry="1" width="7" height="20" style="fill:#912787; stroke:#912787; stroke-width:0;" /> ' +
 					+'</svg>';
+			case Zarafa.core.mapi.BusyStatus.WORKINGELSEWHERE:
+				return '<svg width="7" height="20" class="k-appointment-status">'
+					+ '<rect x="0" y="0" rx="5" ry="1" width="7" height="20" style="fill:#5b9bd5; stroke:#5b9bd5; stroke-width:0;" /> ' +
+					+'</svg>';
 			case Zarafa.core.mapi.BusyStatus.TENTATIVE:
 				return '<svg width="7" height="20" class="k-appointment-status">'
 					+ '<defs>'

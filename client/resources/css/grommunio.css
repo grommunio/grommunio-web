@@ -2891,6 +2891,8 @@ span.preview-header-sender-image {
       background: url(data:image/gif;base64,R0lGODlhCAAIAIABAP///wAAACH5BAEKAAEALAAAAAAIAAgAAAIPhIN2qRgKHIwPslZxpq8AADs=) repeat; }
     .k-appointment-box .k-status.k-status-outofoffice {
       background: #912787; }
+    .k-appointment-box .k-status.k-status-workingelsewhere {
+      background: #5b9bd5; }
     .k-appointment-box .k-status.k-status-free {
       background: #ffffff; }
   .k-appointment-box .k-icons {
@@ -3650,6 +3652,8 @@ div.zarafa-contact-cardview-selected {
     background-color: #0f70bd; }
   .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-timeline-block-outofoffice {
     background-color: #912787; }
+  .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-timeline-block-workingelsewhere {
+    background: radial-gradient(#5b9bd5 30%, transparent 31%) 0 0 / 6px 6px, #dbe8f5; }
   .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-timeline-block-blur {
     background: repeating-linear-gradient(45deg, #e6e6e6 0px, #e6e6e6 2.8284px, white 2.8284px, white 5.65685px); }
   .zarafa-freebusy-panel .x-panel.suggestionlist {

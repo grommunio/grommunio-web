@@ -275,6 +275,16 @@ Zarafa.common.freebusy.ui.FreebusyPanel = Ext.extend(Ext.Panel, {
 				autoWidth: true
 			},{
 				xtype: 'container',
+				cls: 'x-freebusy-timeline-block-workingelsewhere',
+				width: 24,
+				height: 24
+			},{
+				xtype: 'displayfield',
+				value: _('Working Elsewhere'),
+				hideLabel: true,
+				autoWidth: true
+			},{
+				xtype: 'container',
 				cls: 'x-freebusy-timeline-block-blur',
 				width: 24,
 				height: 24

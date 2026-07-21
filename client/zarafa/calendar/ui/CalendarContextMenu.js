@@ -278,6 +278,13 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 			busyStatus: Zarafa.core.mapi.BusyStatus.OUTOFOFFICE,
 			handler: this.onSetBusyStatus,
 			scope: this
+		},{
+			xtype: 'zarafa.conditionalitem',
+			iconCls: 'icon_busystatus_workingelsewhere',
+			text: Zarafa.core.mapi.BusyStatus.getDisplayName(Zarafa.core.mapi.BusyStatus.WORKINGELSEWHERE),
+			busyStatus: Zarafa.core.mapi.BusyStatus.WORKINGELSEWHERE,
+			handler: this.onSetBusyStatus,
+			scope: this
 		}];
 	},
 

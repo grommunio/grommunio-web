@@ -67,6 +67,9 @@ Zarafa.calendar.ui.html.AppointmentDaysView = Ext.extend(Zarafa.calendar.ui.Appo
 			case Zarafa.core.mapi.BusyStatus.OUTOFOFFICE:
 				busyClass = ' k-status-outofoffice';
 				break;
+			case Zarafa.core.mapi.BusyStatus.WORKINGELSEWHERE:
+				busyClass = ' k-status-workingelsewhere';
+				break;
 			default:
 				busyClass = ' k-status-busy';
 				break;
