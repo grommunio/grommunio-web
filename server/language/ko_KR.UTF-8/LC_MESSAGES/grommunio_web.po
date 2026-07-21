@@ -8109,3 +8109,6 @@ msgstr "잘못 인코딩되었을 가능성이 있는 잘못된 UTF-8 문자"
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
 msgstr "JSON 데이터를 인코딩/디코딩할 때 발생하는 몇 가지 문제: - %s"
+
+msgid "Legal Information"
+msgstr "법률 정보"

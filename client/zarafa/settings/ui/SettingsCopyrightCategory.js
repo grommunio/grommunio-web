@@ -39,7 +39,7 @@ Zarafa.settings.ui.SettingsCopyrightCategory = Ext.extend(Zarafa.settings.ui.Set
 		}
 
 		Ext.applyIf(config, {
-			title: _('About'),
+			title: _("Legal Information"),
 			categoryIndex: 10000,
 			iconCls: 'zarafa-settings-category-copyright',
 			items: [

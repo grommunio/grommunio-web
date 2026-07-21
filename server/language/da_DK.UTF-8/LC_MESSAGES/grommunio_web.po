@@ -8208,3 +8208,6 @@ msgstr "Misdannede UTF-8-tegn, muligvis forkert kodet"
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
 msgstr "Der opstod et problem under kodning/afkodning af JSON-data: - %s"
+
+msgid "Legal Information"
+msgstr "Juridiske oplysninger"

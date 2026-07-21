@@ -8133,3 +8133,6 @@ msgstr "Feil UTF-8-tegn, muligens feilkodet"
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
 msgstr "Det oppstod et problem ved koding/avkoding av JSON-data: - %s"
+
+msgid "Legal Information"
+msgstr "Juridisk informasjon"

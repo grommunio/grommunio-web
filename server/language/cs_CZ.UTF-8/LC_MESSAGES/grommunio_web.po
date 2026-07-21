@@ -8240,3 +8240,6 @@ msgstr "Chybné znaky UTF-8, pravděpodobně nesprávně kódované"
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
 msgstr "Při kódování/dekódování dat JSON se vyskytl nějaký problém: - %s"
+
+msgid "Legal Information"
+msgstr "Právní informace"
