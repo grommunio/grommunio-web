@@ -31,6 +31,18 @@
 	// Set to 'false' to disable the feature server-wide regardless of user settings.
 	define("ENABLE_CONVERSATION_VIEW", TRUE);
 
+	// Allow dragging attachments out of an opened e-mail directly into a
+	// cooperating web application's drop zone (the attachment bytes are embedded
+	// in the drag operation). Set to FALSE to disable server-wide.
+	// Overrides defaults.php
+	//define("ENABLE_ATTACHMENT_DRAG_OUT", TRUE);
+
+	// Maximum attachment size (in bytes) whose content is embedded in the drag
+	// operation for ENABLE_ATTACHMENT_DRAG_OUT. Larger attachments are not
+	// embedded; they can still be dragged to the operating system. Default 25 MiB.
+	// Overrides defaults.php
+	//define("ATTACHMENT_DRAG_OUT_MAX_SIZE", 26214400);
+
 	// Enable resolving hidden address book entries (disabled by default).
 	// Overrides defaults.php
 	//define("ENABLE_RESOLVE_HIDDEN_USERS", true);
