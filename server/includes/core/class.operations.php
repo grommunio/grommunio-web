@@ -2745,6 +2745,8 @@ class Operations {
 		$message = false;
 		$origStore = $store;
 		$reprMessage = false;
+		$oldDraftFolder = false;
+		$oldDraftDeleteFlags = 0;
 		$delegateSentItemsStyle = $GLOBALS['settings']->get('zarafa/v1/contexts/mail/delegate_sent_items_style');
 		$saveBoth = strcasecmp((string) $delegateSentItemsStyle, 'both') == 0;
 		$saveRepresentee = strcasecmp((string) $delegateSentItemsStyle, 'representee') == 0;
@@ -2995,10 +2997,8 @@ class Operations {
 				return false;
 			}
 
-			// FIXME: currently message is deleted from original store and new message is created
-			// in current user's store, but message should be moved
-
-			// delete message from it's original location
+			// Locate the original draft, but retain it until cryptographic hooks and
+			// submission succeed. A failed send must leave the draft recoverable.
 			if (!empty($oldEntryId) && !empty($oldParentEntryId)) {
 				try {
 					$folder = mapi_msgstore_openentry($origStore, $oldParentEntryId);
@@ -3013,12 +3013,8 @@ class Operations {
 					}
 				}
 				if ($folder) {
-					try {
-						mapi_folder_deletemessages($folder, [$oldEntryId], DELETE_HARD_DELETE);
-					}
-					catch (MAPIException $e) {
-						$e->setHandled();
-					}
+					$oldDraftFolder = $folder;
+					$oldDraftDeleteFlags = DELETE_HARD_DELETE;
 				}
 			}
 			if ($saveBoth || $saveRepresentee) {
@@ -3033,7 +3029,6 @@ class Operations {
 					if ($origStore && isset($origStoreprops[PR_IPM_SENTMAIL_ENTRYID])) {
 						$destfolder = mapi_msgstore_openentry($origStore, $origStoreprops[PR_IPM_SENTMAIL_ENTRYID]);
 						$reprMessage = mapi_folder_createmessage($destfolder);
-						mapi_copyto($message, [], [], $reprMessage, 0);
 					}
 				}
 				catch (MAPIException $e) {
@@ -3165,9 +3160,6 @@ class Operations {
 			if ($message === false) {
 				return false;
 			}
-			if ($oldDraftFolder && !empty($oldEntryId)) {
-				mapi_folder_deletemessages($oldDraftFolder, [$oldEntryId]);
-			}
 			// Sending as delegate from drafts folder
 			if ($sendingAsDelegate && ($saveBoth || $saveRepresentee)) {
 				try {
@@ -3182,7 +3174,6 @@ class Operations {
 						if (!$ownStore && isset($origStoreprops[PR_IPM_SENTMAIL_ENTRYID])) {
 							$destfolder = mapi_msgstore_openentry($origStore, $origStoreprops[PR_IPM_SENTMAIL_ENTRYID]);
 							$reprMessage = mapi_folder_createmessage($destfolder);
-							mapi_copyto($message, [], [], $reprMessage, 0);
 						}
 					}
 				}
@@ -3268,8 +3259,8 @@ class Operations {
 					$userOwnAddress !== '' ? $userOwnAddress : '(none)'
 				));
 
-				// The (not yet submitted) message already sits in the outbox and the original
-				// draft has been deleted. Remove the orphaned outbox copy so the abort does not
+				// The (not yet submitted) message already sits in the outbox. The original
+				// draft is retained. Remove the orphaned outbox copy so the abort does not
 				// leave a stray, un-submitted message behind; the client keeps the compose dialog
 				// open because the send is reported as failed.
 				try {
@@ -3305,9 +3296,28 @@ class Operations {
 			}
 		}
 
+		// Copy the final protected message. Copying before submit hooks would leave
+		// plaintext in the representee's Sent Items even when the sent mail is encrypted.
+		// Keep this copy unsaved until submission itself has succeeded.
+		if ($reprMessage !== false) {
+			try {
+				if (mapi_copyto($message, [], [], $reprMessage, 0) === false) {
+					error_log('submitMessage: unable to copy the protected message to representee Sent Items');
+					$reprMessage = false;
+				}
+			}
+			catch (MAPIException $e) {
+				error_log('submitMessage: unable to copy the protected message to representee Sent Items: ' . get_mapi_error_name($e->getCode()));
+				$e->setHandled();
+				$reprMessage = false;
+			}
+		}
+
 		// Submit the message (send)
 		try {
-			mapi_message_submitmessage($message);
+			if (mapi_message_submitmessage($message) === false) {
+				return get_mapi_error_name(mapi_last_hresult());
+			}
 		}
 		catch (MAPIException $e) {
 			$username = $GLOBALS["mapisession"]->getUserName();
@@ -3323,19 +3333,34 @@ class Operations {
 			return $errorName;
 		}
 
+		// Cleanup failures after a successful send must not encourage a duplicate send.
+		if ($oldDraftFolder && !empty($oldEntryId)) {
+			try {
+				if (mapi_folder_deletemessages($oldDraftFolder, [$oldEntryId], $oldDraftDeleteFlags) === false) {
+					error_log('submitMessage: unable to remove original draft after submission');
+				}
+			}
+			catch (MAPIException $e) {
+				error_log('submitMessage: unable to remove original draft after submission: ' . get_mapi_error_name($e->getCode()));
+				$e->setHandled();
+			}
+		}
+
 		$tmp_props = mapi_getprops($message, [PR_PARENT_ENTRYID, PR_MESSAGE_DELIVERY_TIME, PR_CLIENT_SUBMIT_TIME, PR_SEARCH_KEY, PR_MESSAGE_FLAGS]);
 		$messageProps[PR_PARENT_ENTRYID] = $tmp_props[PR_PARENT_ENTRYID];
 		if ($reprMessage !== false) {
 			// The message is already submitted; a failing sent copy must not
 			// report the send as failed.
 			try {
-				mapi_setprops($reprMessage, [
+				$reprSaved = mapi_setprops($reprMessage, [
 					PR_CLIENT_SUBMIT_TIME => $tmp_props[PR_CLIENT_SUBMIT_TIME] ?? time(),
 					PR_MESSAGE_DELIVERY_TIME => $tmp_props[PR_MESSAGE_DELIVERY_TIME] ?? time(),
 					PR_MESSAGE_FLAGS => ($tmp_props[PR_MESSAGE_FLAGS] | MSGFLAG_READ) & ~MSGFLAG_UNSENT,
-				]);
-				mapi_savechanges($reprMessage);
-				if ($saveRepresentee) {
+				]) !== false && mapi_savechanges($reprMessage) !== false;
+				if (!$reprSaved) {
+					error_log('submitMessage: unable to finalize the representee sent copy; retaining the sender sent copy');
+				}
+				elseif ($saveRepresentee) {
 					// delete the message in the delegate's Sent Items folder
 					$sentFolder = mapi_msgstore_openentry($store, $storeprops[PR_IPM_SENTMAIL_ENTRYID]);
 					$sentTable = mapi_folder_getcontentstable($sentFolder, MAPI_DEFERRED_ERRORS);
