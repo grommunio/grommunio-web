@@ -716,6 +716,13 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								'close_on_respond': true,
 
 								/**
+								 * zarafa/v1/contexts/mail/delegate_wastebasket_style
+								 * @property
+								 * @type Number
+								 */
+								'delegate_wastebasket_style': 8,
+
+								/**
 								 * zarafa/v1/contexts/mail/enable_grouping
 								 * @property
 								 * @type Boolean

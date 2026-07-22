@@ -34,12 +34,25 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 			}]
 		};
 
+		var delegateWastebasketStore = {
+			xtype: 'jsonstore',
+			autoDestroy: true,
+			fields: ['name', 'value'],
+			data: [{
+				'name': _('Into mailbox owner\'s wastebasket'),
+				'value': 4 // 4 = Stores deleted items in the mailbox owner's folder.
+			},{
+				'name': _('Into your wastebasket'),
+				'value': 8 // 8 = Stores deleted items in your folder.
+			}]
+		};
+
 		var items = [{
 			xtype: 'combo',
 			name: 'zarafa/v1/state/contexts/mail/current_view_mode',
 			ref: 'previewCombo',
 			fieldLabel: _('Location of preview pane'),
-			width: 200,
+			width: 400,
 			store: previewStore,
 			mode: 'local',
 			triggerAction: 'all',
@@ -50,7 +63,7 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 			editable: false,
 			autoSelect: true,
 			listeners: {
-				select: this.onPreviewSelect,
+				select: this.onComboSelect,
 				scope: this
 			}
 		},{
@@ -75,6 +88,26 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 			lazyInit: false,
 			listeners: {
 				check: this.onCheck,
+				scope: this
+			}
+		},{
+			xtype: 'combo',
+			name: 'zarafa/v1/contexts/mail/delegate_wastebasket_style',
+			cls:'x-font-select',
+			fieldLabel: _("Move items deleted in delegate's store"),
+			width: 400,
+			ref: 'delegateWastebasketStyleCombo',
+			store: delegateWastebasketStore,
+			triggerAction: 'all',
+			mode: 'local',
+			displayField: 'name',
+			valueField: 'value',
+			editable: false,
+			autoSelect: true,
+			forceSelection: true,
+			lazyInit: false,
+			listeners: {
+				select: this.onComboSelect,
 				scope: this
 			}
 		}];
@@ -140,6 +173,8 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 		if (Zarafa.supportsPopOut()) {
 			this.openingMailField.setValue(settingsModel.get(this.openingMailField.name));
 		}
+
+		this.delegateWastebasketStyleCombo.setValue(settingsModel.get(this.delegateWastebasketStyleCombo.name));
 	},
 
 	/**
@@ -164,7 +199,7 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 	 * @param {Ext.form.ComboBox} field The field which fired the event
 	 * @param {Ext.data.Record} record The selected record
 	 */
-	onPreviewSelect: function(field, record)
+	onComboSelect: function(field, record)
 	{
 		if (this.model) {
 			var set = record.get(field.valueField);
