@@ -235,8 +235,18 @@ Zarafa.common.flags.ui.FlagsMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMen
 				record.set(property, flagProperties[property]);
 			}
 			record.endEdit();
-			record.save();
 		}, this);
+
+		if (Ext.isEmpty(records)) {
+			return;
+		}
+
+		// Record the flag change in the undo history. This must be done
+		// explicitly since ShadowStore saves are not announced through the
+		// IPMStoreMgr. Saving all records in one batch makes the whole
+		// gesture one undo entry.
+		container.getUndoManager().capturePropertyGesture(records);
+		records[0].getStore().save(records);
 	}
 });
 

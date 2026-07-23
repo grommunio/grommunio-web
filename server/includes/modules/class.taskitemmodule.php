@@ -156,17 +156,26 @@ class TaskItemModule extends ItemModule {
 			$storeprops = mapi_getprops($store, [PR_ENTRYID]);
 			$props[PR_STORE_ENTRYID] = $storeprops[PR_ENTRYID];
 
+			// A plain task delete moves the task to the wastebasket (see
+			// deleteTask), so snapshot the undo information beforehand just
+			// like ItemModule::delete does. Occurrence deletions and
+			// task-request declines are not tracked (the client never asks to
+			// track them, as they carry an action_type).
+			$soft = $action['message_action']['soft_delete'] ?? false;
+			$undoInfo = $this->prepareDeleteUndo($store, $parententryid, $entryids, $action, $soft);
+
 			$result = $this->deleteTask($store, $parententryid, $entryids, $action);
 
 			if ($result) {
 				if (isset($result['occurrenceDeleted']) && $result['occurrenceDeleted']) {
 					// Occurrence deleted, update item
 					$GLOBALS["bus"]->notify(bin2hex($parententryid), TABLE_SAVE, $props);
+					$this->sendFeedback(true);
 				}
 				else {
 					$GLOBALS["bus"]->notify(bin2hex($parententryid), TABLE_DELETE, $props);
+					$this->sendFeedback(true, $this->buildDeleteUndoFeedback($undoInfo));
 				}
-				$this->sendFeedback(true);
 			}
 		}
 	}

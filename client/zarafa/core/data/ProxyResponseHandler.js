@@ -174,6 +174,32 @@ Zarafa.core.data.ProxyResponseHandler = Ext.extend(Zarafa.core.data.AbstractResp
 	},
 
 	/**
+	 * Handles the 'success' response. Normally this response carries no data,
+	 * but for operations for which the client requested undo tracking (via the
+	 * 'track_new_entryids' message action) the server includes an 'undo'
+	 * object describing the new location of the affected items. This object
+	 * is placed on the {@link #sendRecords} as 'undoResponse' so the
+	 * {@link Zarafa.core.data.UndoManager UndoManager} can pick it up after
+	 * the write has completed.
+	 * @param {Object} response The response object belonging to the given command.
+	 */
+	doSuccess: function(response)
+	{
+		if (Ext.isEmpty(this.sendRecords)) {
+			return;
+		}
+		Ext.each(this.sendRecords, function(record) {
+			if (response && response.undo) {
+				record.undoResponse = response.undo;
+			} else {
+				// Never leave a stale mapping from an earlier operation on
+				// the record, or a later untracked save could pick it up.
+				delete record.undoResponse;
+			}
+		});
+	},
+
+	/**
 	 * Handles the 'error' response. This means that the Request has failed
 	 * due to a problem on the PHP-side. This will fire the {@link Ext.data.DataProxy#exception exception}
 	 * event on the {@link #proxy} object.

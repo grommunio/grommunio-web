@@ -262,8 +262,13 @@ Zarafa.task.ui.TaskContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 				record.set(property, flagProperties[property]);
 			}
 			record.endEdit();
-			record.save();
 		}, this);
+
+		// Save all records in one batch so the gesture becomes a single
+		// undo entry.
+		if (!Ext.isEmpty(this.records)) {
+			this.records[0].getStore().save(this.records);
+		}
 	},
 
 	/**
