@@ -12,7 +12,15 @@ Ext.namespace('Zarafa.note');
  */
 Zarafa.note.NoteRecordFields = [
 	{name: 'icon_index', type: 'int', defaultValue:Zarafa.core.mapi.IconIndex['note_yellow']},
-	{name: 'color', type: 'int', defaultValue:Zarafa.core.mapi.NoteColor['note_yellow']}
+	{name: 'color', type: 'int', defaultValue:Zarafa.core.mapi.NoteColor['note_yellow']},
+	// The mail this note annotates, empty when it is not linked to one.
+	// See Zarafa.note.ui.LinkedNoteLinks.
+	{name: 'note_link_id', type: 'string', defaultValue: ''},
+	// entryid and parent_entryid together, because a mail record is identified by
+	// all of its id properties; one of them missing breaks comparing it to others.
+	{name: 'note_link_entryid'},
+	{name: 'note_link_parent_entryid'},
+	{name: 'note_link_subject', type: 'string', defaultValue: ''}
 ];
 
 Zarafa.core.data.RecordFactory.addFieldToMessageClass('IPM.StickyNote', Zarafa.note.NoteRecordFields);

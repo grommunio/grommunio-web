@@ -2238,10 +2238,42 @@ input.x-form-text.k-searchfolder-field.x-form-focus {
   display: block;
   padding-bottom: 6px; }
 
-.preview-header-recipients, .preview-header-meeting, .preview-header-attachments {
+.preview-header-recipients, .preview-header-meeting, .preview-header-attachments, .preview-header-linkednotes {
   display: block;
   margin-top: 6px;
   margin-left: 10px; }
+
+/* Notes linked to the previewed mail */
+.preview-header-linkednotes .preview-header-linkednotes-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 6px; }
+
+.preview-header-linkednotes .preview-header-linkednote {
+  display: block;
+  max-width: 260px;
+  max-height: 60px;
+  padding: 4px 8px;
+  border-radius: 2px;
+  cursor: pointer;
+  overflow: hidden; }
+
+.preview-header-linkednotes .preview-header-linkednote.note_yellow {
+  background: #FF9; }
+
+.preview-header-linkednotes .preview-header-linkednote.note_blue {
+  background: #DEF1FF; }
+
+.preview-header-linkednotes .preview-header-linkednote.note_green {
+  background: #CBF0BB; }
+
+.preview-header-linkednotes .preview-header-linkednote.note_pink {
+  background: #FFDBFB; }
+
+.preview-header-linkednotes .preview-header-linkednote.note_white {
+  background: #FFF;
+  border: 1px solid #DDD; }
 
 .preview-header-recipients .preview-recipient-title,
 .preview-header-attachments .preview-attachment-title {
@@ -4312,6 +4344,23 @@ div.zarafa-contact-cardview-selected {
   border-color: #d5e8f7; }
 
 /* New note background color */
+/* Names the mail a note is attached to, at the top of the note dialog */
+.stickynote_linkedmail {
+  padding: 4px 6px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
+.stickynote_linkedmail .stickynote_linkedmail_link {
+  cursor: pointer;
+  text-decoration: underline; }
+
+/* Notes made before the mail entryid was recorded can be named but not opened */
+.stickynote_linkedmail.stickynote_linkedmail_unopenable .stickynote_linkedmail_link {
+  cursor: default;
+  text-decoration: none;
+  opacity: 0.7; }
+
 .x-form-textarea.stickynote_dialog_yellow {
   background: #FF9 none repeat scroll 0 0; }
 

@@ -112,6 +112,11 @@ class Properties {
 		else {
 			$stores = [$store];
 			$this->store = $store;
+			// The active store changed, so the mapping key has to be resolved
+			// again. Init() only does that while $init is false, and it is reset
+			// once per request rather than once per module, so without this the
+			// next getter would answer for the previous module's store.
+			$this->init = false;
 		}
 
 		foreach ($stores as $key => $store) {
@@ -140,13 +145,26 @@ class Properties {
 	 * @return string PR_MAPPING_SIGNATURE of the given MAPI Message Store if exists else 0
 	 */
 	private function getStoreMappingSignature($store) {
+		$storeProps = [];
+
 		try {
-			$storeMapping = mapi_getprops($store, [PR_MAPPING_SIGNATURE]);
+			$storeProps = mapi_getprops($store, [PR_MAPPING_SIGNATURE, PR_ENTRYID]);
 		}
 		catch (Exception) {
 		}
 
-		return isset($storeMapping[PR_MAPPING_SIGNATURE]) ? bin2hex((string) $storeMapping[PR_MAPPING_SIGNATURE]) : '0';
+		$signature = isset($storeProps[PR_MAPPING_SIGNATURE]) ? bin2hex((string) $storeProps[PR_MAPPING_SIGNATURE]) : '';
+
+		// gromox reports an all-zero PR_MAPPING_SIGNATURE for every store, while
+		// still allocating named property ids per store. Keying the cache on that
+		// makes every store share one entry, so the first store to resolve a name
+		// hands its ids to all the others. Fall back to the store entryid, which
+		// does identify the store.
+		if ($signature === '' || strspn($signature, '0') === strlen($signature)) {
+			$signature = isset($storeProps[PR_ENTRYID]) ? bin2hex((string) $storeProps[PR_ENTRYID]) : '0';
+		}
+
+		return $signature;
 	}
 
 	/**
@@ -1031,6 +1049,11 @@ class Properties {
 		// Used by the client to group the mail list into conversations.
 		$properties['conversation_id'] = PR_CONVERSATION_ID;
 
+		// Identifies the mail for notes linked to it. Deliberately list-only:
+		// the open/save map is used by createmailitemmodule, where saving a new
+		// mail would write back an empty PR_INTERNET_MESSAGE_ID.
+		$properties['internet_message_id'] = PR_INTERNET_MESSAGE_ID;
+
 		unset(
 			$properties['access'],
 			$properties['appointment_duedate'],
@@ -1084,6 +1107,19 @@ class Properties {
 			$properties["color"] = "PT_LONG:PSETID_Note:0x8B00";
 			$properties["categories"] = "PT_MV_STRING8:PS_PUBLIC_STRINGS:Keywords";
 			$properties["deleted_on"] = PR_DELETED_ON;
+			// The mail this note annotates, empty when it is not linked to one.
+			// Named by string rather than dispid: the id space is shared, so a
+			// number could collide.
+			//
+			// note_link_id is PR_INTERNET_MESSAGE_ID and is what identifies the
+			// mail: it survives the mail being moved between folders, which an
+			// entryid does not. The other two only serve the note -> mail
+			// direction: the entryid opens the mail directly and the subject
+			// names it without having to fetch it first. Both are best-effort.
+			$properties["note_link_id"] = "PT_STRING8:PS_PUBLIC_STRINGS:GrommunioWebNoteLinkId";
+			$properties["note_link_entryid"] = "PT_BINARY:PS_PUBLIC_STRINGS:GrommunioWebNoteLinkEntryId";
+			$properties["note_link_parent_entryid"] = "PT_BINARY:PS_PUBLIC_STRINGS:GrommunioWebNoteLinkParentEntryId";
+			$properties["note_link_subject"] = "PT_STRING8:PS_PUBLIC_STRINGS:GrommunioWebNoteLinkSubject";
 
 			$this->mapping[$this->storeMapping]['note'] = getPropIdsFromStrings($this->store, $properties);
 		}
@@ -1097,7 +1133,15 @@ class Properties {
 	 * @return array properties for a sticky note
 	 */
 	public function getStickyNoteListProperties() {
-		return $this->getStickyNoteProperties();
+		$properties = $this->getStickyNoteProperties();
+
+		// The note text itself, so notes linked to a mail can be read where they
+		// are shown next to it rather than only after opening each one. Sticky
+		// notes are small and live in a single folder, so unlike the mail list
+		// this does not meaningfully grow the request.
+		$properties['body'] = PR_BODY;
+
+		return $properties;
 	}
 
 	/**

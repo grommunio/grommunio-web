@@ -65,6 +65,12 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 		// The control will be shown when the user selects the note context from the button panel.
 		this.registerInsertionPoint('navigation.center', this.createNoteNavigationPanel, this);
 
+		// Show the notes which annotate a mail inside the mail preview.
+		this.registerInsertionPoint('previewpanel.toolbar.detaillinks', this.getLinkedNoteDetailLinks, this);
+
+		// Adds the contextmenu item to annotate a mail with a note.
+		this.registerInsertionPoint('context.mail.contextmenu.topoptions', this.createLinkedNoteContextItem, this);
+
 		Zarafa.core.data.SharedComponentType.addProperty('note.dialog.options');
 	},
 
@@ -289,6 +295,78 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 			},
 			scope: this
 		};
+	},
+
+	/**
+	 * Returns the panel which shows the notes annotating the previewed mail, for the
+	 * 'previewpanel.toolbar.detaillinks' insertion point.
+	 *
+	 * @return {Object} configuration object for {@link Zarafa.note.ui.LinkedNoteLinks}
+	 */
+	getLinkedNoteDetailLinks: function()
+	{
+		return {
+			xtype: 'zarafa.linkednotelinks'
+		};
+	},
+
+	/**
+	 * Returns the contextmenu item used to annotate a mail with a note, for the
+	 * 'context.mail.contextmenu.topoptions' insertion point.
+	 *
+	 * @return {Object} The contextmenu item for adding a note to a mail
+	 */
+	createLinkedNoteContextItem: function()
+	{
+		return {
+			xtype: 'zarafa.conditionalitem',
+			text: _('Add note'),
+			iconCls: 'icon_new_note',
+			hidden: true,
+			handler: this.onContextItemAddNote,
+			beforeShow: this.onBeforeShowAddNote,
+			scope: this
+		};
+	},
+
+	/**
+	 * Event handler triggered when the {@link #createLinkedNoteContextItem add note}
+	 * contextmenu item is clicked.
+	 *
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} menuItem The clicked item
+	 * @private
+	 */
+	onContextItemAddNote: function(menuItem)
+	{
+		Zarafa.note.Actions.openCreateLinkedNote(menuItem.getRecords()[0]);
+	},
+
+	/**
+	 * Shows the {@link #createLinkedNoteContextItem add note} contextmenu item only
+	 * for a single mail which can actually be annotated: it needs an
+	 * 'internet_message_id' to link the note to, and a Notes folder in its own store
+	 * which this user may create in.
+	 *
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} menuItem The item about to be shown
+	 * @private
+	 */
+	onBeforeShowAddNote: function(menuItem)
+	{
+		var records = menuItem.getRecords();
+
+		if (!Array.isArray(records) || records.length !== 1) {
+			menuItem.setVisible(false);
+			return;
+		}
+
+		var record = records[0];
+		if (!record.isMessageClass('IPM.Note', true) || Ext.isEmpty(record.get('internet_message_id'))) {
+			menuItem.setVisible(false);
+			return;
+		}
+
+		var folder = Zarafa.note.Actions.getLinkedNotesFolder(record);
+		menuItem.setVisible(!!folder && folder.hasCreateRights());
 	},
 
 	/**
