@@ -3905,9 +3905,19 @@ class Operations {
 			// Set contentId to saved attachments.
 			if (isset($attachments['add']) && is_array($attachments['add']) && !empty($attachments['add'])) {
 				foreach ($attachments['add'] as $key => $attach) {
-					if ($attach && isset($attach['inline']) && $attach['inline']) {
-						$addedInlineAttachmentCidMapping[$attach['attach_num']] = $attach['cid'];
-						$msgattachment = mapi_message_openattach($message, $attach['attach_num']);
+					if (is_array($attach) && !empty($attach['inline']) && is_string($attach['cid'] ?? null) && $attach['cid'] !== '') {
+						$number = $attach['attach_num'] ?? -1;
+						$savedNumber = (is_int($number) || (is_string($number) && ctype_digit($number))) && $number >= 0 && $number <= 0x7fffffff;
+						if (!$savedNumber) {
+							// Newly uploaded attachments are indexed by their cache
+							// filename until they receive a real MAPI attachment number.
+							$tmpname = $attach['tmpname'] ?? (is_string($number) ? $number : '');
+							if (is_string($tmpname) && $tmpname !== '') {
+								$addedInlineAttachmentCidMapping[$tmpname] = $attach['cid'];
+							}
+							continue;
+						}
+						$msgattachment = mapi_message_openattach($message, (int) $number);
 						if ($msgattachment) {
 							$props = [PR_ATTACH_CONTENT_ID => $attach['cid'], PR_ATTACHMENT_HIDDEN => true];
 							mapi_setprops($msgattachment, $props);
@@ -3920,10 +3930,12 @@ class Operations {
 			// Delete saved inline images if removed from body.
 			if (isset($attachments['remove']) && is_array($attachments['remove']) && !empty($attachments['remove'])) {
 				foreach ($attachments['remove'] as $key => $attach) {
-					if ($attach && isset($attach['inline']) && $attach['inline']) {
-						$msgattachment = mapi_message_openattach($message, $attach['attach_num']);
+					$number = is_array($attach) ? ($attach['attach_num'] ?? -1) : -1;
+					$savedNumber = (is_int($number) || (is_string($number) && ctype_digit($number))) && $number >= 0 && $number <= 0x7fffffff;
+					if (is_array($attach) && !empty($attach['inline']) && $savedNumber) {
+						$msgattachment = mapi_message_openattach($message, (int) $number);
 						if ($msgattachment) {
-							mapi_message_deleteattach($message, $attach['attach_num']);
+							mapi_message_deleteattach($message, (int) $number);
 							mapi_savechanges($message);
 						}
 					}
