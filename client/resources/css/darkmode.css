@@ -700,6 +700,14 @@ body.dark-mode #zarafa-mainpanel .x-grid3-row.x-grid3-row-selected {
 	background-color: var(--dm-selected) !important;
 }
 
+/* flagged (follow-up) rows, Outlook-style; hover/selection colors win */
+body.dark-mode #zarafa-mainpanel .x-grid3-row.k-flagged:not(.x-grid3-row-over):not(.x-grid3-row-selected) {
+	background-color: #40382a !important;
+}
+body.dark-mode #zarafa-mainpanel .x-grid3-row.k-flagged.mail_read:not(.x-grid3-row-over):not(.x-grid3-row-selected) > table {
+	border-left-color: #40382a !important;
+}
+
 /*=============================================================================
   Message Preview
 =============================================================================*/

@@ -246,6 +246,11 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	{
 		var cssClass = this.grid.getConversationCssClasses(record, rowIndex, store);
 
+		// Outlook-style whole-row highlight for follow-up flagged mails
+		if (this.grid.isRowFlagged(record, store)) {
+			cssClass += ' k-flagged';
+		}
+
 		if (this.enableRowBody) {
 			var meta = {}; // Metadata object for Zarafa.common.ui.grid.Renderers.
 			var value = ''; // The value which must be rendered
@@ -272,6 +277,30 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 		}
 
 		return 'x-grid3-row-collapsed ' + cssClass;
+	},
+
+	/**
+	 * True when the record, or any mail inside a conversation header, carries
+	 * a follow-up flag. Headers lack flag_status, like they aggregate the
+	 * unread state, the flag state comes from their items.
+	 * @param {Ext.data.Record} record The row record
+	 * @param {Ext.data.Store} store The grid store
+	 * @return {Boolean} True when the row should be highlighted
+	 * @private
+	 */
+	isRowFlagged: function(record, store)
+	{
+		var flagged = Zarafa.core.mapi.FlagStatus.flagged;
+		if (record.get('flag_status') === flagged) {
+			return true;
+		}
+		if (!record.isConversationHeaderRecord()) {
+			return false;
+		}
+
+		return (store.getConversationItemsFromHeaderRecord(record) || []).some(function(item) {
+			return item.get('flag_status') === flagged;
+		});
 	},
 
 	/**
