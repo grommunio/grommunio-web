@@ -700,6 +700,19 @@ body.dark-mode #zarafa-mainpanel .x-grid3-row.x-grid3-row-selected {
 	background-color: var(--dm-selected) !important;
 }
 
+/* Flagged (follow-up) items - highlight the whole row like Outlook.
+   The tint persists on hover and when the row is selected (a touch deeper),
+   so a flagged mail stays highlighted after you click it. */
+body.dark-mode #zarafa-mainpanel .x-grid3-row.k-flagged {
+	background-color: #40382a !important;
+}
+body.dark-mode #zarafa-mainpanel .x-grid3-row.k-flagged.x-grid3-row-over {
+	background-color: #4a4130 !important;
+}
+body.dark-mode #zarafa-mainpanel .x-grid3-row.k-flagged.x-grid3-row-selected {
+	background-color: #574a33 !important;
+}
+
 /*=============================================================================
   Message Preview
 =============================================================================*/
