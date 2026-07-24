@@ -91,6 +91,17 @@ class CategoryList {
 	private $calendar = false;
 
 	/**
+	 * @var null|bool Whether the FAI config message exists; null until known.
+	 */
+	private $exists = null;
+
+	/**
+	 * @var array Root element attributes of the stored XML (e.g. Outlook's
+	 *            Quick Click category in 'default'), preserved across saves.
+	 */
+	private $rootAttributes = [];
+
+	/**
 	 * @param resource $store The (own or shared) message store to operate on.
 	 */
 	public function __construct($store) {
@@ -114,15 +125,24 @@ class CategoryList {
 	 */
 	private function getCalendarFolder() {
 		if ($this->calendar === false) {
-			$root = mapi_msgstore_openentry($this->store, null);
-			if (!$root) {
+			try {
+				$root = mapi_msgstore_openentry($this->store);
+				if (!$root) {
+					return false;
+				}
+				$props = mapi_getprops($root, [PR_IPM_APPOINTMENT_ENTRYID]);
+				if (empty($props[PR_IPM_APPOINTMENT_ENTRYID])) {
+					return false;
+				}
+				$this->calendar = mapi_msgstore_openentry($this->store, $props[PR_IPM_APPOINTMENT_ENTRYID]);
+			}
+			catch (MAPIException $e) {
+				// A store without an accessible Calendar (e.g. the public
+				// store) simply has no category list; treat it as empty.
+				$e->setHandled();
+
 				return false;
 			}
-			$props = mapi_getprops($root, [PR_IPM_APPOINTMENT_ENTRYID]);
-			if (empty($props[PR_IPM_APPOINTMENT_ENTRYID])) {
-				return false;
-			}
-			$this->calendar = mapi_msgstore_openentry($this->store, $props[PR_IPM_APPOINTMENT_ENTRYID]);
 		}
 
 		return $this->calendar;
@@ -140,27 +160,56 @@ class CategoryList {
 			return false;
 		}
 
-		$table = mapi_folder_getcontentstable($calendar, MAPI_ASSOCIATED);
-		$restriction = [RES_PROPERTY, [
-			RELOP => RELOP_EQ,
-			ULPROPTAG => PR_MESSAGE_CLASS,
-			VALUE => [PR_MESSAGE_CLASS => self::MESSAGE_CLASS],
-		]];
-		mapi_table_restrict($table, $restriction);
-		$rows = mapi_table_queryallrows($table, [PR_ENTRYID]);
+		try {
+			$table = mapi_folder_getcontentstable($calendar, MAPI_ASSOCIATED);
+			$restriction = [RES_PROPERTY, [
+				RELOP => RELOP_EQ,
+				ULPROPTAG => PR_MESSAGE_CLASS,
+				VALUE => [PR_MESSAGE_CLASS => self::MESSAGE_CLASS],
+			]];
+			mapi_table_restrict($table, $restriction);
+			$rows = mapi_table_queryallrows($table, [PR_ENTRYID]);
 
-		if (!empty($rows)) {
-			return mapi_msgstore_openentry($this->store, $rows[0][PR_ENTRYID]);
+			if (!empty($rows)) {
+				$this->exists = true;
+
+				return mapi_msgstore_openentry($this->store, $rows[0][PR_ENTRYID]);
+			}
+			$this->exists = false;
+
+			if ($create) {
+				$message = mapi_folder_createmessage($calendar, MAPI_ASSOCIATED);
+				mapi_setprops($message, [PR_MESSAGE_CLASS => self::MESSAGE_CLASS]);
+
+				return $message;
+			}
 		}
-
-		if ($create) {
-			$message = mapi_folder_createmessage($calendar, MAPI_ASSOCIATED);
-			mapi_setprops($message, [PR_MESSAGE_CLASS => self::MESSAGE_CLASS]);
-
-			return $message;
+		catch (MAPIException $e) {
+			// A save must not silently misreport success when the message
+			// cannot be created (e.g. a read-only share).
+			if ($create) {
+				throw $e;
+			}
+			// No accessible associated store / config message; treat as empty.
+			$e->setHandled();
 		}
 
 		return false;
+	}
+
+	/**
+	 * Whether a category list is stored in the mailbox at all. False both for
+	 * a mailbox never touched by categories and one whose Calendar is
+	 * inaccessible; distinguishes "seed a first list" from "list is empty".
+	 *
+	 * @return bool
+	 */
+	public function listExists() {
+		if ($this->exists === null) {
+			$this->findConfigMessage(false);
+		}
+
+		return $this->exists === true;
 	}
 
 	/**
@@ -208,13 +257,15 @@ class CategoryList {
 	public function setXml($xml) {
 		$message = $this->findConfigMessage(true);
 		if (!$message) {
-			return;
+			// no accessible Calendar folder, the save must not silently no-op
+			throw new MAPIException("Cannot store the category list.", MAPI_E_NOT_FOUND, null, _("Cannot store the category list in this mailbox."));
 		}
 		mapi_setprops($message, [
 			PR_MESSAGE_CLASS => self::MESSAGE_CLASS,
 			self::roamingXmlStreamTag() => $xml,
 		]);
 		mapi_savechanges($message);
+		$this->exists = true;
 	}
 
 	/**
@@ -232,7 +283,8 @@ class CategoryList {
 			$categories[] = [
 				'name' => isset($node['name']) ? $node['name'] : '',
 				'color' => $hex,
-				'standardIndex' => self::hexToStandardIndex($hex),
+				'standardIndex' => isset($node['x-standardindex']) && $node['x-standardindex'] !== '' ?
+					(int) $node['x-standardindex'] : self::hexToStandardIndex($hex),
 				// grommunio-only fields are carried in custom x- attributes so
 				// they survive a round trip through the shared list.
 				'quickAccess' => isset($node['x-quickaccess']) ? $node['x-quickaccess'] === '1' : false,
@@ -288,10 +340,11 @@ class CategoryList {
 
 			// Only recompute the colour index when the hex actually changed, so
 			// an untouched Outlook colour keeps its exact original index.
+			// MS-OXOCFG requires color to be an integer in [-1,24]; -1 = none.
 			$hex = isset($category['color']) ? strtolower($category['color']) : '';
 			$prevIndex = isset($node['color']) && $node['color'] !== '' ? (int) $node['color'] : -1;
 			if ($hex === '' || $hex === strtolower(self::DEFAULT_COLOR)) {
-				$node['color'] = $prevIndex >= 0 ? (string) $prevIndex : '';
+				$node['color'] = (string) $prevIndex;
 			}
 			elseif ($prevIndex >= 0 && strtolower(self::colorIndexToHex($prevIndex)) === $hex) {
 				$node['color'] = (string) $prevIndex;
@@ -312,6 +365,10 @@ class CategoryList {
 			$node['x-quickaccess'] = !empty($category['quickAccess']) ? '1' : '0';
 			$node['x-used'] = !empty($category['used']) ? '1' : '0';
 			$node['x-sortindex'] = (string) (isset($category['sortIndex']) ? (int) $category['sortIndex'] : $i);
+			// keep the flag mapping stable when a standard category is recoloured
+			if (isset($category['standardIndex']) && $category['standardIndex'] !== null && $category['standardIndex'] !== '') {
+				$node['x-standardindex'] = (string) (int) $category['standardIndex'];
+			}
 
 			$nodes[] = $node;
 		}
@@ -431,6 +488,14 @@ class CategoryList {
 			return [];
 		}
 
+		// Remember the root attributes (e.g. Outlook's Quick Click category
+		// in 'default') so buildXml can write them back.
+		if ($doc->documentElement) {
+			foreach ($doc->documentElement->attributes as $attribute) {
+				$this->rootAttributes[$attribute->name] = $attribute->value;
+			}
+		}
+
 		$nodes = [];
 		foreach ($doc->getElementsByTagName('category') as $element) {
 			$attributes = [];
@@ -456,18 +521,46 @@ class CategoryList {
 	 * @return string the XML document
 	 */
 	private function buildXml($nodes) {
+		$root = array_merge([
+			'default' => '',
+			'lastSavedSession' => '00000000',
+		], $this->rootAttributes);
+		$root['lastSavedTime'] = gmdate('Y-m-d\TH:i:s.000');
+		$root['xmlns'] = 'CategoryList.xsd';
+
 		$xml = '<?xml version="1.0"?>' . "\n";
-		$xml .= '<categories default="" lastSavedSession="00000000" lastSavedTime="' .
-			gmdate('Y-m-d\TH:i:s.000') . '" xmlns="CategoryList.xsd">';
+		$xml .= '<categories';
+		foreach ($root as $name => $value) {
+			$xml .= ' ' . $name . '="' . self::xmlAttribute($value) . '"';
+		}
+		$xml .= '>';
 		foreach ($nodes as $node) {
 			$xml .= '<category';
 			foreach ($node as $name => $value) {
-				$xml .= ' ' . $name . '="' . htmlspecialchars((string) $value, ENT_QUOTES | ENT_XML1, 'UTF-8') . '"';
+				$xml .= ' ' . $name . '="' . self::xmlAttribute($value) . '"';
 			}
 			$xml .= '/>';
 		}
 		$xml .= '</categories>';
 
 		return $xml;
+	}
+
+	/**
+	 * Escape a value for use in an XML attribute. Also strips characters that
+	 * are illegal in XML 1.0 (raw control characters), which htmlspecialchars
+	 * passes through and which would make the whole document unparseable.
+	 *
+	 * @param string $value the attribute value
+	 * @return string the escaped value
+	 */
+	private static function xmlAttribute($value) {
+		$value = preg_replace('/[^\x{09}\x{0A}\x{0D}\x{20}-\x{D7FF}\x{E000}-\x{FFFD}\x{10000}-\x{10FFFF}]/u', '', (string) $value);
+		// a non-UTF-8 byte sequence makes preg_replace return null
+		if ($value === null) {
+			$value = '';
+		}
+
+		return htmlspecialchars($value, ENT_QUOTES | ENT_XML1, 'UTF-8');
 	}
 }
