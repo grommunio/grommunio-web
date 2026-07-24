@@ -246,6 +246,12 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	{
 		var cssClass = this.grid.getConversationCssClasses(record, rowIndex, store);
 
+		// Highlight the entire row for messages that carry a follow-up flag
+		// (Outlook-style), so a flagged/tracked mail stands out in the list.
+		if (record.get('flag_status') === Zarafa.core.mapi.FlagStatus.flagged) {
+			cssClass += ' k-flagged';
+		}
+
 		if (this.enableRowBody) {
 			var meta = {}; // Metadata object for Zarafa.common.ui.grid.Renderers.
 			var value = ''; // The value which must be rendered
