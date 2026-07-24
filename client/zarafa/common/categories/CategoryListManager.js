@@ -90,6 +90,31 @@ Zarafa.common.categories.CategoryListManagerClass = Ext.extend(Ext.util.Observab
 	},
 
 	/**
+	 * Return the cached category list for a store as plain category dicts, or
+	 * null when it has not been loaded yet (callers fall back to the per-user
+	 * list). Used to seed an editable per-mailbox CategoriesStore.
+	 * @param {String} storeEntryId
+	 * @return {Object[]|null}
+	 */
+	getCategoriesData: function(storeEntryId)
+	{
+		var store = this.getCategoriesStore(storeEntryId);
+		if ( !store ){
+			return null;
+		}
+		return store.getRange().map(function(categoryRecord){
+			return {
+				name: categoryRecord.get('category'),
+				color: categoryRecord.get('color'),
+				standardIndex: categoryRecord.get('standardIndex'),
+				quickAccess: categoryRecord.get('quickAccess'),
+				sortIndex: categoryRecord.get('sortIndex'),
+				used: categoryRecord.get('used')
+			};
+		});
+	},
+
+	/**
 	 * Load the category list for the given store from the server. Does nothing
 	 * when it is already cached or a request is already in flight, unless
 	 * forceReload is true.

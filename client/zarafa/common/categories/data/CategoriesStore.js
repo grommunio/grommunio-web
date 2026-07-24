@@ -31,11 +31,17 @@ Zarafa.common.categories.data.CategoriesStore = Ext.extend(Ext.data.ArrayStore, 
 		config = config || {};
 		var categories = [];
 
-		// When a categoriesData array is supplied (e.g. a per-mailbox list
-		// loaded from the store's IPM.Configuration.CategoryList), use it as the
-		// source instead of the per-user WebApp settings. The admin additional
-		// categories and insertion points below are still applied on top.
-		var storedCategories = config.categoriesData || container.getPersistentSettingsModel().get(this.settingsKey);
+		// Source the categories from, in order: an explicit categoriesData array,
+		// the per-mailbox list for config.storeEntryId (the Outlook-compatible
+		// list in that mailbox), or the per-user WebApp settings. The admin
+		// additional categories and insertion points below are applied on top.
+		var storedCategories = config.categoriesData;
+		if ( !storedCategories && config.storeEntryId && Zarafa.common.categories.CategoryListManager ) {
+			storedCategories = Zarafa.common.categories.CategoryListManager.getCategoriesData(config.storeEntryId);
+		}
+		if ( !storedCategories ) {
+			storedCategories = container.getPersistentSettingsModel().get(this.settingsKey);
+		}
 		delete config.categoriesData;
 		if ( storedCategories ) {
 			categories = categories.concat(storedCategories);
@@ -127,10 +133,28 @@ Zarafa.common.categories.data.CategoriesStore = Ext.extend(Ext.data.ArrayStore, 
 	},
 
 	/**
-	 * Saves the categories in the store into the settings of the user
+	 * Saves the categories in the store. For a per-mailbox store (one created
+	 * with a storeEntryId) the whole list is written to that mailbox's master
+	 * category list via {@link Zarafa.common.categories.CategoryListManager};
+	 * otherwise it is saved to the per-user WebApp settings.
 	 */
 	save: function()
 	{
+		if ( this.storeEntryId && Zarafa.common.categories.CategoryListManager ) {
+			var mailboxCategories = this.getRange().map(function(categoryRecord){
+				return {
+					name: categoryRecord.get('category'),
+					color: categoryRecord.get('color'),
+					standardIndex: categoryRecord.get('standardIndex'),
+					quickAccess: categoryRecord.get('quickAccess'),
+					sortIndex: categoryRecord.get('sortIndex'),
+					used: categoryRecord.get('used')
+				};
+			});
+			Zarafa.common.categories.CategoryListManager.save(this.storeEntryId, mailboxCategories);
+			return;
+		}
+
 		var categories = this.getRange().filter(function(categoryRecord){
 			// Only save categories that were already stored before,
 			// or that have been pinned or were given a color by the user
