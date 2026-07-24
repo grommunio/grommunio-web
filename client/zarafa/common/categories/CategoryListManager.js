@@ -99,8 +99,8 @@ Zarafa.common.categories.CategoryListManagerClass = Ext.extend(Ext.util.Observab
 
 		this.loading[id] = true;
 		var responseHandler = new Zarafa.core.data.AbstractResponseHandler({
-			doList: this.onListResponse.createDelegate(this),
-			doUpdate: this.onListResponse.createDelegate(this)
+			doList: this.onListResponse.createDelegate(this, [id], true),
+			doUpdate: this.onListResponse.createDelegate(this, [id], true)
 		});
 		container.getRequest().singleRequest('categorylistmodule', 'list', { store_entryid: storeEntryId }, responseHandler);
 	},
@@ -114,9 +114,10 @@ Zarafa.common.categories.CategoryListManagerClass = Ext.extend(Ext.util.Observab
 	 */
 	save: function(storeEntryId, categories)
 	{
+		var id = this.normalizeId(storeEntryId);
 		var responseHandler = new Zarafa.core.data.AbstractResponseHandler({
-			doList: this.onListResponse.createDelegate(this),
-			doUpdate: this.onListResponse.createDelegate(this)
+			doList: this.onListResponse.createDelegate(this, [id], true),
+			doUpdate: this.onListResponse.createDelegate(this, [id], true)
 		});
 		container.getRequest().singleRequest('categorylistmodule', 'save', {
 			store_entryid: storeEntryId,
@@ -129,21 +130,41 @@ Zarafa.common.categories.CategoryListManagerClass = Ext.extend(Ext.util.Observab
 	 * {@link Zarafa.common.categories.data.CategoriesStore} and fire
 	 * {@link #load}.
 	 * @param {Object} response The action data ({store_entryid, categories})
+	 * @param {String} requestedId The (normalised) store entryid this request
+	 * was made with. Records and the hierarchy carry this id, whereas the server
+	 * echoes the store's canonical PR_ENTRYID; for shared stores the two differ,
+	 * so the list is cached under both to guarantee a lookup hit.
 	 * @private
 	 */
-	onListResponse: function(response)
+	onListResponse: function(response, requestedId)
 	{
-		if ( !response || !response.store_entryid ){
+		if ( !response ){
 			return;
 		}
-		var id = this.normalizeId(response.store_entryid);
-		delete this.loading[id];
 
-		this.stores[id] = new Zarafa.common.categories.data.CategoriesStore({
+		var categoriesStore = new Zarafa.common.categories.data.CategoriesStore({
 			categoriesData: response.categories || []
 		});
 
-		this.fireEvent('load', this, id, this.stores[id]);
+		var ids = [];
+		if ( requestedId ){
+			ids.push(requestedId);
+		}
+		if ( response.store_entryid ){
+			var responseId = this.normalizeId(response.store_entryid);
+			if ( ids.indexOf(responseId) === -1 ){
+				ids.push(responseId);
+			}
+		}
+
+		Ext.each(ids, function(id){
+			delete this.loading[id];
+			this.stores[id] = categoriesStore;
+		}, this);
+
+		if ( ids.length ){
+			this.fireEvent('load', this, ids[0], categoriesStore);
+		}
 	}
 });
 

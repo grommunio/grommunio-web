@@ -850,6 +850,10 @@ Ext.apply(Zarafa, {
 			return;
 		}
 
+		// A store's list arrives asynchronously; re-render visible grids so a
+		// grid rendered before its list loaded picks up the correct colours.
+		manager.on('load', this.onCategoryListLoaded, this);
+
 		var hierarchyStore = container.getHierarchyStore();
 		var loadForRecords = function(records) {
 			Ext.each(records, function(storeRecord) {
@@ -866,6 +870,44 @@ Ext.apply(Zarafa, {
 		hierarchyStore.on('add', function(store, records) {
 			loadForRecords(records);
 		}, this);
+	},
+
+	/**
+	 * Handler for {@link Zarafa.common.categories.CategoryListManager#load}.
+	 * Schedules a re-render of the visible grids; the short delay coalesces
+	 * the burst of per-store load events at startup into one refresh.
+	 * @private
+	 */
+	onCategoryListLoaded: function()
+	{
+		if ( !this.categoryRefreshTask ) {
+			this.categoryRefreshTask = new Ext.util.DelayedTask(this.refreshGridsForCategories, this);
+		}
+		this.categoryRefreshTask.delay(150);
+	},
+
+	/**
+	 * Re-renders any currently visible grid so category colours resolved
+	 * against a just-loaded per-mailbox list are applied. Best-effort and fully
+	 * guarded: a category list also applies on the next navigation regardless.
+	 * @private
+	 */
+	refreshGridsForCategories: function()
+	{
+		try {
+			var contentPanel = container.getContentPanel();
+			if ( !contentPanel || !Ext.isFunction(contentPanel.findByType) ) {
+				return;
+			}
+			Ext.each(contentPanel.findByType('grid'), function(grid) {
+				var view = Ext.isFunction(grid.getView) ? grid.getView() : null;
+				if ( view && Ext.isFunction(view.refresh) ) {
+					view.refresh();
+				}
+			});
+		} catch (e) {
+			// Ignore: the list will apply on the next grid render anyway.
+		}
 	},
 
 	/**
