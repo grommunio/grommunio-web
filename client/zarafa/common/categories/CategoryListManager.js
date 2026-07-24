@@ -90,6 +90,32 @@ Zarafa.common.categories.CategoryListManagerClass = Ext.extend(Ext.util.Observab
 	},
 
 	/**
+	 * Return the cached category list for a store as plain category dicts, or
+	 * null when it has not been loaded yet (callers fall back to the per-user
+	 * list). Used to seed an editable per-mailbox CategoriesStore.
+	 * @param {String} storeEntryId
+	 * @return {Object[]|null}
+	 */
+	getCategoriesData: function(storeEntryId)
+	{
+		var store = this.getCategoriesStore(storeEntryId);
+		if ( !store ){
+			return null;
+		}
+		return store.getRange().map(function(categoryRecord){
+			return {
+				name: categoryRecord.get('category'),
+				color: categoryRecord.get('color'),
+				standardIndex: categoryRecord.get('standardIndex'),
+				quickAccess: categoryRecord.get('quickAccess'),
+				sortIndex: categoryRecord.get('sortIndex'),
+				used: categoryRecord.get('used'),
+				guid: categoryRecord.get('guid')
+			};
+		});
+	},
+
+	/**
 	 * Load the category list for the given store from the server. Does nothing
 	 * when it is already cached or a request is already in flight, unless
 	 * forceReload is true.
@@ -109,9 +135,45 @@ Zarafa.common.categories.CategoryListManagerClass = Ext.extend(Ext.util.Observab
 		this.loading[id] = true;
 		var responseHandler = new Zarafa.core.data.AbstractResponseHandler({
 			doList: this.onListResponse.createDelegate(this, [id], true),
-			doUpdate: this.onListResponse.createDelegate(this, [id], true)
+			doUpdate: this.onListResponse.createDelegate(this, [id], true),
+			doError: this.onLoadError.createDelegate(this, [id], true),
+			responseFailure: this.onRequestFailure.createDelegate(this, [id])
 		});
 		container.getRequest().singleRequest('categorylistmodule', 'list', { store_entryid: storeEntryId }, responseHandler);
+	},
+
+	/**
+	 * A failed list load: unblock later loads; consumers keep using the
+	 * per-user fallback.
+	 * @private
+	 */
+	onLoadError: function(response, requestedId)
+	{
+		delete this.loading[requestedId];
+	},
+
+	/**
+	 * A failed save: report it and re-load the authoritative list, so the
+	 * cache does not keep the unsaved state.
+	 * @private
+	 */
+	onSaveError: function(response, requestedId)
+	{
+		var msg = response && response.info ? response.info.display_message : undefined;
+		container.getNotifier().notify('error', _('Categories'),
+			msg || _('Could not save the category list.'));
+		if ( requestedId ){
+			this.load(requestedId, true);
+		}
+	},
+
+	/**
+	 * A transport-level failure: unblock later loads.
+	 * @private
+	 */
+	onRequestFailure: function(requestedId)
+	{
+		delete this.loading[requestedId];
 	},
 
 	/**
@@ -126,7 +188,9 @@ Zarafa.common.categories.CategoryListManagerClass = Ext.extend(Ext.util.Observab
 		var id = this.normalizeId(storeEntryId);
 		var responseHandler = new Zarafa.core.data.AbstractResponseHandler({
 			doList: this.onListResponse.createDelegate(this, [id], true),
-			doUpdate: this.onListResponse.createDelegate(this, [id], true)
+			doUpdate: this.onListResponse.createDelegate(this, [id], true),
+			doError: this.onSaveError.createDelegate(this, [id], true),
+			responseFailure: this.onSaveError.createDelegate(this, [undefined, id])
 		});
 		container.getRequest().singleRequest('categorylistmodule', 'save', {
 			store_entryid: storeEntryId,
@@ -151,10 +215,6 @@ Zarafa.common.categories.CategoryListManagerClass = Ext.extend(Ext.util.Observab
 			return;
 		}
 
-		var categoriesStore = new Zarafa.common.categories.data.CategoriesStore({
-			categoriesData: response.categories || []
-		});
-
 		var ids = [];
 		if ( requestedId ){
 			ids.push(requestedId);
@@ -166,32 +226,45 @@ Zarafa.common.categories.CategoryListManagerClass = Ext.extend(Ext.util.Observab
 			}
 		}
 
+		// A mailbox with no stored list (or no accessible Calendar) is not
+		// cached, so consumers keep falling back to the per-user list. This
+		// also distinguishes it from a deliberately emptied list.
+		var exists = response.exists !== false;
+		var categoriesStore = exists ? new Zarafa.common.categories.data.CategoriesStore({
+			categoriesData: response.categories || []
+		}) : undefined;
+
 		Ext.each(ids, function(id){
 			delete this.loading[id];
-			this.stores[id] = categoriesStore;
+			if ( categoriesStore ){
+				this.stores[id] = categoriesStore;
+			} else {
+				delete this.stores[id];
+			}
 		}, this);
 
-		if ( ids.length ){
+		if ( ids.length && categoriesStore ){
 			this.fireEvent('load', this, ids[0], categoriesStore);
 		}
 
 		// One-time migration: give the user's own mailbox a real list by seeding
-		// its (empty) list from the per-user categories the user already has.
-		this.seedOwnStoreIfEmpty(ids, response.categories || []);
+		// it from the per-user categories the user already has.
+		this.seedOwnStoreIfEmpty(ids, response);
 	},
 
 	/**
-	 * If the just-loaded store is the user's own default store and it has no
-	 * stored category list yet, seed it from the existing per-user WebApp
+	 * If the just-loaded store is the user's own default store and no list is
+	 * STORED in it at all (response.exists === false, as opposed to a
+	 * deliberately emptied list), seed it from the existing per-user WebApp
 	 * categories (which already include the defaults) and save it back to the
 	 * mailbox. Runs at most once per session.
 	 * @param {String[]} ids The (normalised) entryids the loaded list was cached under
-	 * @param {Object[]} categories The categories that were loaded
+	 * @param {Object} response The server response ({categories, exists})
 	 * @private
 	 */
-	seedOwnStoreIfEmpty: function(ids, categories)
+	seedOwnStoreIfEmpty: function(ids, response)
 	{
-		if ( this.seeded || (categories && categories.length) ){
+		if ( this.seeded || response.exists !== false ){
 			return;
 		}
 

@@ -16,6 +16,12 @@ Zarafa.common.categories.dialogs.NewCategoryPanel = Ext.extend(Zarafa.core.ui.Co
 	store: null,
 
 	/**
+	 * @cfg {String} storeEntryId The entryid of the mailbox whose category list
+	 * the new category should be added to. Used when no {@link #store} is given.
+	 */
+	storeEntryId: null,
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
@@ -128,19 +134,22 @@ Zarafa.common.categories.dialogs.NewCategoryPanel = Ext.extend(Zarafa.core.ui.Co
 			return;
 		}
 
-		var categoryStore = new Zarafa.common.categories.data.CategoriesStore();
 		var categoryColor = this.formPanel.color.getValue();
 		var quickAccess = this.formPanel.pin.getValue();
 
-		// Add the new category to our temporary store and use it to save it.
+		// Persist only the new category through a separate store, targeting
+		// the same list the dialog edits; pending edits in the manage dialog
+		// stay pending until Apply.
+		var targetStoreEntryId = Ext.isDefined(this.store) ? this.store.storeEntryId : this.storeEntryId;
+		var categoryStore = new Zarafa.common.categories.data.CategoriesStore(
+			targetStoreEntryId ? { storeEntryId: targetStoreEntryId } : undefined
+		);
 		categoryStore.addCategory(categoryName, categoryColor, quickAccess);
 		categoryStore.save();
 
-		// Also add the new category to the store of the grid in the manage category dialog
 		if ( Ext.isDefined(this.store) ){
+			// also show it (unsaved) in the manage dialog's grid
 			this.store.addCategory(categoryName, categoryColor, quickAccess);
-
-			// scroll the new category into view, put the focus on it and select it
 			var rowIndex = this.store.findExact('category', categoryName);
 			this.grid.getView().focusRow(rowIndex);
 			this.grid.getSelectionModel().selectRow(rowIndex, true);
@@ -169,7 +178,11 @@ Zarafa.common.categories.dialogs.NewCategoryPanel = Ext.extend(Zarafa.core.ui.Co
 	 */
 	canCreateNewCategory: function(categoryName)
 	{
-		var categoryStore = new Zarafa.common.categories.data.CategoriesStore();
+		// validate against the same list the dialog edits
+		var targetStoreEntryId = Ext.isDefined(this.store) ? this.store.storeEntryId : this.storeEntryId;
+		var categoryStore = new Zarafa.common.categories.data.CategoriesStore(
+			targetStoreEntryId ? { storeEntryId: targetStoreEntryId } : undefined
+		);
 
 		// Check if the category does not exist yet (case insensitive)
 		var catIndex = categoryStore.findExactCaseInsensitive('category', categoryName);

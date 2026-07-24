@@ -42,7 +42,7 @@ Zarafa.common.categories.dialogs.CategoriesPanel = Ext.extend(Ext.Panel, {
 			layout: 'fit',
 			border: false,
 			items: [
-				this.createCategoriesGrid(config.record)
+				this.createCategoriesGrid(config.record, config.storeEntryId)
 			]
 		});
 
@@ -56,9 +56,11 @@ Zarafa.common.categories.dialogs.CategoriesPanel = Ext.extend(Ext.Panel, {
 	 * @return {Object} The configuration object for the grid panel.
 	 * @private
 	 */
-	createCategoriesGrid: function(records)
+	createCategoriesGrid: function(records, storeEntryId)
 	{
-		var store = new Zarafa.common.categories.data.CategoriesStore();
+		var store = new Zarafa.common.categories.data.CategoriesStore(
+			storeEntryId ? { storeEntryId: storeEntryId } : undefined
+		);
 		store.addCategoriesFromMapiRecords(records);
 		store.sort([
 			{field: 'quickAccess', direction: 'DESC'},
