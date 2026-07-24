@@ -326,8 +326,10 @@ Zarafa.common.flags.Util = {
 		}
 		records.forEach(function(record){
 			const flagStatus = record.get('flag_status');
-			const flagRequest = record.get('flag_request');
-			if ( flagStatus===Zarafa.core.mapi.FlagStatus.flagged && flagRequest!=='Follow up'){
+			const flagIcon = record.get('flag_icon');
+			// Mirror getCategories: only non-red (old-style coloured) flags
+			// become categories; a red flag is a follow-up/tracking flag.
+			if ( flagStatus===Zarafa.core.mapi.FlagStatus.flagged && flagIcon!==Zarafa.core.mapi.FlagIcon.red){
 				const categories = Zarafa.common.categories.Util.getCategories(record);
 				Zarafa.common.categories.Util.setCategories(record, categories);
 			}
