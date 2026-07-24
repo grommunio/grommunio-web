@@ -37,6 +37,15 @@ Zarafa.common.categories.CategoryListManagerClass = Ext.extend(Ext.util.Observab
 	loading: null,
 
 	/**
+	 * True once the one-time migration of the own mailbox's list has been
+	 * attempted this session, so it is not repeated.
+	 * @property
+	 * @type Boolean
+	 * @private
+	 */
+	seeded: false,
+
+	/**
 	 * @constructor
 	 */
 	constructor: function()
@@ -164,6 +173,47 @@ Zarafa.common.categories.CategoryListManagerClass = Ext.extend(Ext.util.Observab
 
 		if ( ids.length ){
 			this.fireEvent('load', this, ids[0], categoriesStore);
+		}
+
+		// One-time migration: give the user's own mailbox a real list by seeding
+		// its (empty) list from the per-user categories the user already has.
+		this.seedOwnStoreIfEmpty(ids, response.categories || []);
+	},
+
+	/**
+	 * If the just-loaded store is the user's own default store and it has no
+	 * stored category list yet, seed it from the existing per-user WebApp
+	 * categories (which already include the defaults) and save it back to the
+	 * mailbox. Runs at most once per session.
+	 * @param {String[]} ids The (normalised) entryids the loaded list was cached under
+	 * @param {Object[]} categories The categories that were loaded
+	 * @private
+	 */
+	seedOwnStoreIfEmpty: function(ids, categories)
+	{
+		if ( this.seeded || (categories && categories.length) ){
+			return;
+		}
+
+		var hierarchyStore = container.getHierarchyStore();
+		var defaultStore = hierarchyStore ? hierarchyStore.getDefaultStore() : null;
+		if ( !defaultStore ){
+			return;
+		}
+
+		var ownEntryId = defaultStore.get('store_entryid');
+		if ( ids.indexOf(this.normalizeId(ownEntryId)) === -1 ){
+			return; // the loaded store is not the user's own default store
+		}
+
+		this.seeded = true;
+
+		var seed = container.getPersistentSettingsModel().get('grommunio/main/categories') || [];
+		if ( !seed.length ){
+			seed = container.getServerConfig().getDefaultCategories() || [];
+		}
+		if ( seed.length ){
+			this.save(ownEntryId, seed);
 		}
 	}
 });
