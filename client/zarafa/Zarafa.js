@@ -829,6 +829,41 @@ Ext.apply(Zarafa, {
 
 		// Shared stores unread email poller
 		this.startSharedStoresHierarchyChecker();
+
+		// Preload the per-mailbox master category list for every open store.
+		this.prefetchCategoryLists();
+	},
+
+	/**
+	 * Preload the per-mailbox category list ({@link Zarafa.common.categories.CategoryListManager})
+	 * for every currently open store, and for any store opened later (e.g. a
+	 * shared mailbox). Each mailbox has its own list, so categories on its
+	 * messages resolve against that mailbox rather than the current user's.
+	 * @private
+	 */
+	prefetchCategoryLists: function()
+	{
+		var manager = Zarafa.common.categories.CategoryListManager;
+		if ( !manager ) {
+			return;
+		}
+
+		var hierarchyStore = container.getHierarchyStore();
+		var loadForRecords = function(records) {
+			Ext.each(records, function(storeRecord) {
+				var storeEntryId = storeRecord.get('store_entryid');
+				if ( storeEntryId ) {
+					manager.load(storeEntryId);
+				}
+			});
+		};
+
+		loadForRecords(hierarchyStore.getRange());
+
+		// Stores opened after boot (shared mailboxes) also get their list.
+		hierarchyStore.on('add', function(store, records) {
+			loadForRecords(records);
+		}, this);
 	},
 
 	/**

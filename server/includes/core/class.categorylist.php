@@ -114,15 +114,24 @@ class CategoryList {
 	 */
 	private function getCalendarFolder() {
 		if ($this->calendar === false) {
-			$root = mapi_msgstore_openentry($this->store, null);
-			if (!$root) {
+			try {
+				$root = mapi_msgstore_openentry($this->store);
+				if (!$root) {
+					return false;
+				}
+				$props = mapi_getprops($root, [PR_IPM_APPOINTMENT_ENTRYID]);
+				if (empty($props[PR_IPM_APPOINTMENT_ENTRYID])) {
+					return false;
+				}
+				$this->calendar = mapi_msgstore_openentry($this->store, $props[PR_IPM_APPOINTMENT_ENTRYID]);
+			}
+			catch (MAPIException $e) {
+				// A store without an accessible Calendar (e.g. the public
+				// store) simply has no category list; treat it as empty.
+				$e->setHandled();
+
 				return false;
 			}
-			$props = mapi_getprops($root, [PR_IPM_APPOINTMENT_ENTRYID]);
-			if (empty($props[PR_IPM_APPOINTMENT_ENTRYID])) {
-				return false;
-			}
-			$this->calendar = mapi_msgstore_openentry($this->store, $props[PR_IPM_APPOINTMENT_ENTRYID]);
 		}
 
 		return $this->calendar;
@@ -140,24 +149,30 @@ class CategoryList {
 			return false;
 		}
 
-		$table = mapi_folder_getcontentstable($calendar, MAPI_ASSOCIATED);
-		$restriction = [RES_PROPERTY, [
-			RELOP => RELOP_EQ,
-			ULPROPTAG => PR_MESSAGE_CLASS,
-			VALUE => [PR_MESSAGE_CLASS => self::MESSAGE_CLASS],
-		]];
-		mapi_table_restrict($table, $restriction);
-		$rows = mapi_table_queryallrows($table, [PR_ENTRYID]);
+		try {
+			$table = mapi_folder_getcontentstable($calendar, MAPI_ASSOCIATED);
+			$restriction = [RES_PROPERTY, [
+				RELOP => RELOP_EQ,
+				ULPROPTAG => PR_MESSAGE_CLASS,
+				VALUE => [PR_MESSAGE_CLASS => self::MESSAGE_CLASS],
+			]];
+			mapi_table_restrict($table, $restriction);
+			$rows = mapi_table_queryallrows($table, [PR_ENTRYID]);
 
-		if (!empty($rows)) {
-			return mapi_msgstore_openentry($this->store, $rows[0][PR_ENTRYID]);
+			if (!empty($rows)) {
+				return mapi_msgstore_openentry($this->store, $rows[0][PR_ENTRYID]);
+			}
+
+			if ($create) {
+				$message = mapi_folder_createmessage($calendar, MAPI_ASSOCIATED);
+				mapi_setprops($message, [PR_MESSAGE_CLASS => self::MESSAGE_CLASS]);
+
+				return $message;
+			}
 		}
-
-		if ($create) {
-			$message = mapi_folder_createmessage($calendar, MAPI_ASSOCIATED);
-			mapi_setprops($message, [PR_MESSAGE_CLASS => self::MESSAGE_CLASS]);
-
-			return $message;
+		catch (MAPIException $e) {
+			// No accessible associated store / config message; treat as empty.
+			$e->setHandled();
 		}
 
 		return false;

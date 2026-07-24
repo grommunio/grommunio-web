@@ -31,9 +31,14 @@ Zarafa.common.categories.data.CategoriesStore = Ext.extend(Ext.data.ArrayStore, 
 		config = config || {};
 		var categories = [];
 
-		var storedCategories = container.getPersistentSettingsModel().get(this.settingsKey);
+		// When a categoriesData array is supplied (e.g. a per-mailbox list
+		// loaded from the store's IPM.Configuration.CategoryList), use it as the
+		// source instead of the per-user WebApp settings. The admin additional
+		// categories and insertion points below are still applied on top.
+		var storedCategories = config.categoriesData || container.getPersistentSettingsModel().get(this.settingsKey);
+		delete config.categoriesData;
 		if ( storedCategories ) {
-			categories = categories.concat(container.getPersistentSettingsModel().get(this.settingsKey));
+			categories = categories.concat(storedCategories);
 		}
 		categories = categories.concat(container.populateInsertionPoint('main.categories'));
 
