@@ -141,6 +141,15 @@ Zarafa.hierarchy.ui.TreeSorter = Ext.extend(Ext.tree.TreeSorter, {
 		// we sort by the storeProperty, allowing the sorting based on
 		// the display name of the user, rather then of the folder.
 		if (folder1.isIPMSubTree() && folder2.isIPMSubTree()) {
+			// The user can give the shared stores an explicit order by dragging them
+			// in the hierarchy. That order wins over the alphabetical one below. Both
+			// stores are shared stores here, as the own and Public store were already
+			// handled by the checks above.
+			var orderCmp = Zarafa.hierarchy.data.StoreOrder.compareStores(store1, store2);
+			if (orderCmp !== 0) {
+				return dsc ? -orderCmp : orderCmp;
+			}
+
 			var cmp = this.compareRecordProp(store1, store2, this.storeProperty, dsc, cs);
 			// If the store properties are equal, then we have 2 shared folders which
 			// belong to the same store. We are going to sort those by the folderProperty.

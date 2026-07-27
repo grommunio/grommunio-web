@@ -367,6 +367,12 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 	{
 		var dropNode = dropEvent.dropNode;
 		if (Ext.isDefined(dropNode)) {
+			// A mailbox dropped between two other mailboxes changes the order of the
+			// hierarchy rather than moving anything in the mailbox itself.
+			if (Zarafa.hierarchy.ui.HierarchyFolderDropZone.isStoreReorderDrop(dropEvent)) {
+				return this.onStoreReorderDrop(dropEvent);
+			}
+
 			var targetNode = dropEvent.target;
 
 			switch (dropEvent.point) {
@@ -426,6 +432,50 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 
 			sourceFolder.save();
 		}
+	},
+
+	/**
+	 * Handle a drop which moves a mailbox to another position in the hierarchy. Nothing is
+	 * moved in the mailbox itself; the new order of the mailboxes is derived from the
+	 * position the node was dropped at and handed to
+	 * {@link Zarafa.hierarchy.data.StoreOrder} to be persisted. Every hierarchy tree then
+	 * re-sorts itself, so all trees keep showing the same order.
+	 * @param {Object} dropEvent The object describing the drop information
+	 * @return {Boolean} False when the drop could not be resolved to a new order, in
+	 * which case the hierarchy is left as it was
+	 * @private
+	 */
+	onStoreReorderDrop: function(dropEvent)
+	{
+		var dropNode = dropEvent.dropNode;
+		var targetNode = dropEvent.target;
+		var dropZone = Zarafa.hierarchy.ui.HierarchyFolderDropZone;
+
+		// Take the mailboxes as they are currently shown, leaving out the one being
+		// dragged so it can be reinserted at its new position. Reading the order from
+		// the tree rather than from the settings keeps the two in step even when a
+		// mailbox was opened after the user last reordered the hierarchy.
+		var nodes = [];
+		var siblings = dropNode.parentNode.childNodes;
+		for (var i = 0, len = siblings.length; i < len; i++) {
+			if (siblings[i] !== dropNode && dropZone.isReorderableNode(siblings[i])) {
+				nodes.push(siblings[i]);
+			}
+		}
+
+		var targetIndex = nodes.indexOf(targetNode);
+		if (targetIndex === -1) {
+			return false;
+		}
+
+		nodes.splice(dropEvent.point === 'above' ? targetIndex : targetIndex + 1, 0, dropNode);
+
+		var mapiStores = [];
+		for (var j = 0, jlen = nodes.length; j < jlen; j++) {
+			mapiStores.push(nodes[j].getFolder().getMAPIStore());
+		}
+
+		Zarafa.hierarchy.data.StoreOrder.applyOrder(mapiStores);
 	},
 
 	/**
