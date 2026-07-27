@@ -91,7 +91,7 @@ Zarafa.hierarchy.ui.HierarchyFolderDropZone = Ext.extend(Zarafa.hierarchy.ui.Hie
 		// A mailbox is dropped between mailboxes, never into one, so it has no 'append'
 		// point. Split the node in half instead of in thirds, which the code below does
 		// to leave room for 'append' - otherwise the middle of every row would be dead.
-		if (Zarafa.hierarchy.ui.HierarchyFolderDropZone.isStoreRootNode(dragNode)) {
+		if (Zarafa.hierarchy.ui.HierarchyFolderDropZone.isReorderableNode(dragNode)) {
 			var el = n.ddel;
 			var middle = Ext.lib.Dom.getY(el) + (el.offsetHeight / 2);
 			return Ext.lib.Event.getPageY(e) < middle ? 'above' : 'below';
@@ -158,11 +158,13 @@ Zarafa.hierarchy.ui.HierarchyFolderDropZone = Ext.extend(Zarafa.hierarchy.ui.Hie
 			return false;
 		}
 
-		// A mailbox is being dragged to a new position: it may only be dropped between
-		// other mailboxes which the user is allowed to reorder. In particular it must
-		// never be appended into a folder, which would read as "move this mailbox into
-		// that folder" and has no meaning.
-		if (zone.isStoreRootNode(dropNode)) {
+		// A top level node stands for a mailbox, so dragging one can only ever mean moving
+		// that mailbox to another position - never a folder move, even in a filtered tree
+		// where the node happens to be an ordinary folder. It may therefore only be
+		// dropped between other mailboxes which the user is allowed to reorder, and never
+		// appended into a folder, which would read as "move this mailbox into that folder"
+		// and has no meaning.
+		if (zone.isTopLevelNode(dropNode)) {
 			if (!zone.isReorderableNode(dropNode) || !zone.isReorderableNode(targetNode)) {
 				return false;
 			}
@@ -193,35 +195,37 @@ Zarafa.hierarchy.ui.HierarchyFolderDropZone = Ext.extend(Zarafa.hierarchy.ui.Hie
 
 Ext.apply(Zarafa.hierarchy.ui.HierarchyFolderDropZone, {
 	/**
-	 * Check if the given tree node represents a mailbox, i.e. the IPM_SUBTREE of a store.
+	 * Check if the given tree node sits at the top level of the hierarchy, i.e. directly
+	 * below the invisible root node. Which folder that is depends on the tree: in an
+	 * unfiltered tree it is the IPM_SUBTREE of a store, but in a filtered tree - the
+	 * calendar folder list, for instance - the IPM_SUBTREE of a shared store is left out
+	 * and its visible folders are lifted to the top level instead
+	 * (see {@link Zarafa.hierarchy.data.HierarchyTreeLoader#directFn}).
 	 * @param {Ext.tree.TreeNode} node The node to check
-	 * @return {Boolean} True when the node is a mailbox root node
+	 * @return {Boolean} True when the node is a top level node of the hierarchy
 	 * @static
 	 */
-	isStoreRootNode: function(node)
+	isTopLevelNode: function(node)
 	{
-		if (!node || !Ext.isFunction(node.getFolder)) {
+		if (!node || !Ext.isFunction(node.getFolder) || !node.getFolder()) {
 			return false;
 		}
 
-		var folder = node.getFolder();
-		if (!folder) {
-			return false;
-		}
-
-		return folder.isIPMSubTree();
+		return !!node.parentNode && node.parentNode.isRoot === true;
 	},
 
 	/**
-	 * Check if the given tree node represents a mailbox whose position in the hierarchy
-	 * the user is allowed to change.
+	 * Check if the given tree node stands for a mailbox whose position in the hierarchy
+	 * the user is allowed to change. In a filtered tree several nodes can stand for the
+	 * same mailbox, one per visible folder; each of them may be dragged and they move
+	 * the mailbox as a whole.
 	 * @param {Ext.tree.TreeNode} node The node to check
-	 * @return {Boolean} True when the node is a reorderable mailbox root node
+	 * @return {Boolean} True when dragging the node reorders the mailboxes
 	 * @static
 	 */
 	isReorderableNode: function(node)
 	{
-		if (!this.isStoreRootNode(node)) {
+		if (!this.isTopLevelNode(node)) {
 			return false;
 		}
 
@@ -230,7 +234,8 @@ Ext.apply(Zarafa.hierarchy.ui.HierarchyFolderDropZone, {
 
 	/**
 	 * Check if the given drop event describes a mailbox being moved to a new position in
-	 * the hierarchy, as opposed to a folder being moved or copied.
+	 * the hierarchy, as opposed to a folder being moved or copied. A drop onto another
+	 * node of the same mailbox is not a reorder - there is nothing to move.
 	 * @param {Object} dropEvent The event object which describes what node is being dropped where
 	 * @return {Boolean} True when the drop reorders the mailboxes
 	 * @static
@@ -241,6 +246,12 @@ Ext.apply(Zarafa.hierarchy.ui.HierarchyFolderDropZone, {
 			return false;
 		}
 
-		return this.isReorderableNode(dropEvent.dropNode) && this.isReorderableNode(dropEvent.target);
+		if (!this.isReorderableNode(dropEvent.dropNode) || !this.isReorderableNode(dropEvent.target)) {
+			return false;
+		}
+
+		var storeOrder = Zarafa.hierarchy.data.StoreOrder;
+		return storeOrder.getStoreKey(dropEvent.dropNode.getFolder().getMAPIStore()) !==
+			storeOrder.getStoreKey(dropEvent.target.getFolder().getMAPIStore());
 	}
 });

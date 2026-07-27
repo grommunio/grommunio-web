@@ -117,6 +117,15 @@ Zarafa.hierarchy.data.StoreOrder = Ext.extend(Ext.util.Observable, {
 	 */
 	compareStores: function(store1, store2)
 	{
+		// Both stores must be ones the user may reorder. Without this the own store,
+		// which never has an explicit position, would sort *after* every shared store
+		// that has one - visible in a filtered tree such as the calendar folder list,
+		// where the own store's folders are ordinary top level nodes and are therefore
+		// not held in place by the IPM_SUBTREE rules in the sorter.
+		if (!this.isReorderable(store1) || !this.isReorderable(store2)) {
+			return 0;
+		}
+
 		var index1 = this.indexOf(store1);
 		var index2 = this.indexOf(store2);
 
@@ -141,18 +150,19 @@ Zarafa.hierarchy.data.StoreOrder = Ext.extend(Ext.util.Observable, {
 	 * Persist a new order and inform all listeners. The complete sequence of
 	 * {@link #isReorderable reorderable} stores is written, so the stored order is
 	 * always a full description of what the user sees rather than a partial one.
-	 * @param {Zarafa.hierarchy.data.MAPIStoreRecord[]} mapiStores The stores in their new order
+	 * @param {String[]} keys The {@link #getStoreKey store keys} in their new order
 	 */
-	applyOrder: function(mapiStores)
+	setOrder: function(keys)
 	{
 		var order = [];
 
-		for (var i = 0, len = mapiStores.length; i < len; i++) {
-			var key = this.getStoreKey(mapiStores[i]);
+		for (var i = 0, len = keys.length; i < len; i++) {
 			// Guard against a store being listed twice, which would make the
 			// comparison in compareStores depend on which duplicate is found first.
-			if (!Ext.isEmpty(key) && order.indexOf(key) === -1) {
-				order.push(key);
+			// A store can legitimately have several top level nodes in a filtered
+			// tree - one per visible folder - so duplicates are expected input here.
+			if (!Ext.isEmpty(keys[i]) && order.indexOf(keys[i]) === -1) {
+				order.push(keys[i]);
 			}
 		}
 
