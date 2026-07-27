@@ -40,6 +40,13 @@ Zarafa.hierarchy.ui.HierarchyFolderDropZone = Ext.extend(Zarafa.hierarchy.ui.Hie
 		var dropNode = dropEvent.dropNode;
 
 		if (Ext.isDefined(dropNode)) {
+			// Reordering the mailboxes is a drop between siblings by definition: every
+			// mailbox hangs off the same (invisible) root node. So it must be exempt from
+			// the same-parent check below, which exists for folders being moved.
+			if (Zarafa.hierarchy.ui.HierarchyFolderDropZone.isStoreReorderDrop(dropEvent)) {
+				return;
+			}
+
 			var targetNode = dropEvent.target;
 
 			switch (dropEvent.point) {
@@ -79,6 +86,16 @@ Zarafa.hierarchy.ui.HierarchyFolderDropZone = Ext.extend(Zarafa.hierarchy.ui.Hie
 	getDropPoint: function(e, n, dd)
 	{
 		var tn = n.node;
+		var dragNode = dd && dd.dragData ? dd.dragData.node : undefined;
+
+		// A mailbox is dropped between mailboxes, never into one, so it has no 'append'
+		// point. Split the node in half instead of in thirds, which the code below does
+		// to leave room for 'append' - otherwise the middle of every row would be dead.
+		if (Zarafa.hierarchy.ui.HierarchyFolderDropZone.isStoreRootNode(dragNode)) {
+			var el = n.ddel;
+			var middle = Ext.lib.Dom.getY(el) + (el.offsetHeight / 2);
+			return Ext.lib.Event.getPageY(e) < middle ? 'above' : 'below';
+		}
 
 		if (tn.isRoot) {
 			return tn.allowChildren !== false ? 'append' : false; // always append for root
@@ -134,8 +151,27 @@ Zarafa.hierarchy.ui.HierarchyFolderDropZone = Ext.extend(Zarafa.hierarchy.ui.Hie
 	isValidDropPoint: function(n, pt, dd, e, data)
 	{
 		var targetNode = n ? n.node : undefined;
+		var dropNode = data ? data.node : undefined;
+		var zone = Zarafa.hierarchy.ui.HierarchyFolderDropZone;
+
 		if (!targetNode || !Ext.isFunction(targetNode.getFolder)) {
 			return false;
+		}
+
+		// A mailbox is being dragged to a new position: it may only be dropped between
+		// other mailboxes which the user is allowed to reorder. In particular it must
+		// never be appended into a folder, which would read as "move this mailbox into
+		// that folder" and has no meaning.
+		if (zone.isStoreRootNode(dropNode)) {
+			if (!zone.isReorderableNode(dropNode) || !zone.isReorderableNode(targetNode)) {
+				return false;
+			}
+
+			if (pt !== 'above' && pt !== 'below') {
+				return false;
+			}
+
+			return zone.superclass.isValidDropPoint.apply(this, arguments);
 		}
 
 		var folder = targetNode.getFolder();
@@ -151,6 +187,60 @@ Zarafa.hierarchy.ui.HierarchyFolderDropZone = Ext.extend(Zarafa.hierarchy.ui.Hie
 			return false;
 		}
 
-		return Zarafa.hierarchy.ui.HierarchyFolderDropZone.superclass.isValidDropPoint.apply(this, arguments);
+		return zone.superclass.isValidDropPoint.apply(this, arguments);
+	}
+});
+
+Ext.apply(Zarafa.hierarchy.ui.HierarchyFolderDropZone, {
+	/**
+	 * Check if the given tree node represents a mailbox, i.e. the IPM_SUBTREE of a store.
+	 * @param {Ext.tree.TreeNode} node The node to check
+	 * @return {Boolean} True when the node is a mailbox root node
+	 * @static
+	 */
+	isStoreRootNode: function(node)
+	{
+		if (!node || !Ext.isFunction(node.getFolder)) {
+			return false;
+		}
+
+		var folder = node.getFolder();
+		if (!folder) {
+			return false;
+		}
+
+		return folder.isIPMSubTree();
+	},
+
+	/**
+	 * Check if the given tree node represents a mailbox whose position in the hierarchy
+	 * the user is allowed to change.
+	 * @param {Ext.tree.TreeNode} node The node to check
+	 * @return {Boolean} True when the node is a reorderable mailbox root node
+	 * @static
+	 */
+	isReorderableNode: function(node)
+	{
+		if (!this.isStoreRootNode(node)) {
+			return false;
+		}
+
+		return Zarafa.hierarchy.data.StoreOrder.isReorderable(node.getFolder().getMAPIStore());
+	},
+
+	/**
+	 * Check if the given drop event describes a mailbox being moved to a new position in
+	 * the hierarchy, as opposed to a folder being moved or copied.
+	 * @param {Object} dropEvent The event object which describes what node is being dropped where
+	 * @return {Boolean} True when the drop reorders the mailboxes
+	 * @static
+	 */
+	isStoreReorderDrop: function(dropEvent)
+	{
+		if (dropEvent.point !== 'above' && dropEvent.point !== 'below') {
+			return false;
+		}
+
+		return this.isReorderableNode(dropEvent.dropNode) && this.isReorderableNode(dropEvent.target);
 	}
 });

@@ -144,6 +144,12 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 			this.treeSorter = new Zarafa.hierarchy.ui.TreeSorter(this, Ext.apply({}, this.treeSorter));
 		}
 
+		// The order of the mailboxes is shared by all hierarchy trees, so a change made
+		// in one tree must be reflected in every other tree as well.
+		if (this.treeSorter) {
+			this.mon(Zarafa.hierarchy.data.StoreOrder, 'change', this.onStoreOrderChange, this);
+		}
+
 		// filter tree on search query.
 		if (this.treeFilter && !(this.treeFilter instanceof Ext.tree.TreeFilter)) {
 			this.treeFilter = new Zarafa.hierarchy.ui.HierarchyTreeFilter(this, {autoClear: true});
@@ -184,6 +190,21 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 		// create load mask
 		if(this.loadMask) {
 			this.on('render', this.createLoadMask, this);
+		}
+	},
+
+	/**
+	 * Event handler for the {@link Zarafa.hierarchy.data.StoreOrder#change change} event,
+	 * fired when the user has given the mailboxes a new order. This re-sorts the mailboxes
+	 * in this tree, which the {@link #treeSorter} does not do by itself because no node was
+	 * added or removed.
+	 * @private
+	 */
+	onStoreOrderChange: function()
+	{
+		var rootNode = this.getRootNode();
+		if (rootNode) {
+			this.treeSorter.doSort(rootNode);
 		}
 	},
 

@@ -18,10 +18,16 @@ Zarafa.hierarchy.ui.RootFolderNode = Ext.extend(Zarafa.hierarchy.ui.FolderNode, 
 		var containerCls = 'zarafa-tree-root-container';
 		var nodeCls = 'zarafa-tree-root-node';
 
+		// A shared mailbox can be dragged to give it a position of the user's choosing
+		// within the hierarchy. The own store and the Public store stay pinned to the
+		// top and the bottom respectively, so their root nodes remain undraggable.
+		var reorderable = false;
+
 		// Format IPM subtree container differently
 		if (config.folder) {
 			if (config.folder.isIPMSubTree()) {
 				containerCls += ' zarafa-tree-ipm-subtree-container';
+				reorderable = Zarafa.hierarchy.data.StoreOrder.isReorderable(config.folder.getMAPIStore());
 			} else if (config.folder.isFavoritesRootFolder()) {
 				containerCls += ' zarafa-tree-ipm-subtree-favorites-container';
 			}
@@ -30,9 +36,15 @@ Zarafa.hierarchy.ui.RootFolderNode = Ext.extend(Zarafa.hierarchy.ui.FolderNode, 
 
 		Ext.applyIf(config, {
 			containerCls: containerCls,
-			cls: nodeCls,
-			allowDrag: false,
-			draggable: false
+			cls: nodeCls
+		});
+
+		// Set authoritatively rather than with applyIf: the HierarchyTreeLoader already
+		// assigns 'allowDrag' for every node it creates, and whether a root node can be
+		// dragged is decided here and nowhere else.
+		Ext.apply(config, {
+			allowDrag: reorderable,
+			draggable: reorderable
 		});
 
 		Zarafa.hierarchy.ui.RootFolderNode.superclass.constructor.call(this, config);

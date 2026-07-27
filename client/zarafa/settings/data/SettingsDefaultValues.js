@@ -522,7 +522,18 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 * @property
 								 * @type Boolean
 								 */
-								'scroll_favorites': false
+								'scroll_favorites': false,
+
+								/**
+								 * zarafa/v1/contexts/hierarchy/store_order
+								 * The order in which the shared mailboxes are shown in the
+								 * hierarchy, as a list of user names. Empty means the shared
+								 * mailboxes are sorted alphabetically. See
+								 * {@link Zarafa.hierarchy.data.StoreOrder}.
+								 * @property
+								 * @type Array
+								 */
+								'store_order': []
 							},
 
 							'search': {
