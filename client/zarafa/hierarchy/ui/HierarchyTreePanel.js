@@ -380,6 +380,14 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 					break;
 			}
 
+			// See HierarchyFolderDropZone#isValidDropPoint: a drop which resolves to the
+			// invisible root node of the hierarchy is not a folder move, and asking it
+			// for its folder throws. Second line of defence, in case such a drop is
+			// raised from anywhere else.
+			if (!Ext.isFunction(targetNode.getFolder)) {
+				return false;
+			}
+
 			var sourceFolder = dropNode.getFolder();
 			var targetFolder = targetNode.getFolder();
 

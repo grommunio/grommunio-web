@@ -133,10 +133,24 @@ Zarafa.hierarchy.ui.HierarchyFolderDropZone = Ext.extend(Zarafa.hierarchy.ui.Hie
 	 */
 	isValidDropPoint: function(n, pt, dd, e, data)
 	{
-		var folder = n.node.getFolder();
+		var targetNode = n ? n.node : undefined;
+		if (!targetNode || !Ext.isFunction(targetNode.getFolder)) {
+			return false;
+		}
+
+		var folder = targetNode.getFolder();
 		if (folder.isDropTargetForFolders() === false) {
 			return false;
 		}
+
+		// Dropping a folder above or below the root node of a store means dropping it
+		// into that node's parent, which is the invisible root node of the hierarchy -
+		// not a folder at all. The drop was accepted and then failed in the move
+		// handler, which reads 'target.getFolder()' on a node that has no such method.
+		if ((pt === 'above' || pt === 'below') && !targetNode.parentNode.getFolder) {
+			return false;
+		}
+
 		return Zarafa.hierarchy.ui.HierarchyFolderDropZone.superclass.isValidDropPoint.apply(this, arguments);
 	}
 });
