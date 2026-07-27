@@ -137,19 +137,29 @@ Zarafa.hierarchy.ui.TreeSorter = Ext.extend(Ext.tree.TreeSorter, {
 			}
 		}
 
-		// If both folder 1 as folder 2 are root nodes (IPM_SUBTREE) then
-		// we sort by the storeProperty, allowing the sorting based on
-		// the display name of the user, rather then of the folder.
-		if (folder1.isIPMSubTree() && folder2.isIPMSubTree()) {
-			// The user can give the shared stores an explicit order by dragging them
-			// in the hierarchy. That order wins over the alphabetical one below. Both
-			// stores are shared stores here, as the own and Public store were already
-			// handled by the checks above.
+		// The user can give the shared stores an explicit order by dragging them in the
+		// hierarchy, and that order wins over the alphabetical one below. This is checked
+		// for every pair of top level nodes, not only for two IPM_SUBTREEs: in a filtered
+		// tree such as the calendar folder list a shared store is represented by its
+		// visible folders rather than by its IPM_SUBTREE, and those must follow the same
+		// order. Nodes passed to a sort function always share a parent, so testing one of
+		// them is enough. While the user has never reordered anything,
+		// {@link Zarafa.hierarchy.data.StoreOrder#compareStores} returns 0 for every
+		// pair and the layout below stays untouched. Once an order exists it ranks every
+		// store - the own store first and the Public store last, mirroring the
+		// IPM_SUBTREE rules above - so the comparison stays transitive when their
+		// folders are ordinary top level nodes in a filtered tree.
+		if (node1.parentNode && node1.parentNode.isRoot === true) {
 			var orderCmp = Zarafa.hierarchy.data.StoreOrder.compareStores(store1, store2);
 			if (orderCmp !== 0) {
 				return dsc ? -orderCmp : orderCmp;
 			}
+		}
 
+		// If both folder 1 as folder 2 are root nodes (IPM_SUBTREE) then
+		// we sort by the storeProperty, allowing the sorting based on
+		// the display name of the user, rather then of the folder.
+		if (folder1.isIPMSubTree() && folder2.isIPMSubTree()) {
 			var cmp = this.compareRecordProp(store1, store2, this.storeProperty, dsc, cs);
 			// If the store properties are equal, then we have 2 shared folders which
 			// belong to the same store. We are going to sort those by the folderProperty.

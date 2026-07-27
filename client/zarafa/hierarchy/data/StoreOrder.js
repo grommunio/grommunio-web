@@ -91,74 +91,117 @@ Zarafa.hierarchy.data.StoreOrder = Ext.extend(Ext.util.Observable, {
 	},
 
 	/**
-	 * Obtain the position of the given store within the persisted order.
-	 * @param {Zarafa.hierarchy.data.MAPIStoreRecord} mapiStore The store to look up
-	 * @return {Number} The index of the store, or -1 when the store has no explicit position
-	 */
-	indexOf: function(mapiStore)
-	{
-		var key = this.getStoreKey(mapiStore);
-		if (Ext.isEmpty(key)) {
-			return -1;
-		}
-
-		return this.getOrder().indexOf(key);
-	},
-
-	/**
-	 * Compare two stores based on the user-defined order. Stores which have an explicit
-	 * position are placed before stores which have none, so a mailbox opened after the
-	 * user last reordered the hierarchy appears at the bottom of the shared stores
-	 * rather than in an arbitrary spot.
+	 * Compare two stores based on the user-defined order. As long as the user has never
+	 * reordered anything this returns 0 for every pair, leaving the layout entirely to
+	 * the caller. Once an explicit order exists every store is ranked by
+	 * {@link #getStoreRank}, so the comparison is transitive even when stores the user
+	 * cannot reorder - the own store's folders in a filtered tree, an archive store -
+	 * are siblings of ordered mailboxes. Deciding some pairs by the explicit order and
+	 * others by a name comparison can contradict itself, and an inconsistent comparison
+	 * makes Array.sort produce an arbitrary order.
 	 * @param {Zarafa.hierarchy.data.MAPIStoreRecord} store1 The first store to compare
 	 * @param {Zarafa.hierarchy.data.MAPIStoreRecord} store2 The second store to compare
 	 * @return {Number} -1 when store1 comes first, +1 when store2 comes first, 0 when
-	 * neither store has an explicit position and the caller must decide the order itself.
+	 * both stores rank equally and the caller must decide the order itself.
 	 */
 	compareStores: function(store1, store2)
 	{
-		var index1 = this.indexOf(store1);
-		var index2 = this.indexOf(store2);
-
-		if (index1 === index2) {
-			// Either both stores are unordered (-1), or the same store is compared
-			// with itself. Let the caller fall back to its own comparison.
+		var order = this.getOrder();
+		if (order.length === 0) {
 			return 0;
 		}
 
-		if (index1 === -1) {
-			return +1;
+		var rank1 = this.getStoreRank(store1, order);
+		var rank2 = this.getStoreRank(store2, order);
+
+		if (rank1 === rank2) {
+			return 0;
 		}
 
-		if (index2 === -1) {
-			return -1;
-		}
-
-		return index1 < index2 ? -1 : +1;
+		return rank1 < rank2 ? -1 : +1;
 	},
 
 	/**
-	 * Persist a new order and inform all listeners. The complete sequence of
-	 * {@link #isReorderable reorderable} stores is written, so the stored order is
-	 * always a full description of what the user sees rather than a partial one.
-	 * @param {Zarafa.hierarchy.data.MAPIStoreRecord[]} mapiStores The stores in their new order
+	 * Rank a store for {@link #compareStores}: the own store first, then the mailboxes
+	 * the user has given an explicit position, then everything else - mailboxes opened
+	 * after the last reorder, archive stores - and the Public store last. The own and
+	 * Public store ranks mirror the IPM_SUBTREE rules in
+	 * {@link Zarafa.hierarchy.ui.TreeSorter}, which pin them in an unfiltered tree
+	 * before this comparison is ever consulted. The rank depends on the store alone,
+	 * which is what makes the comparison transitive; stores with the same rank are left
+	 * to the caller's own comparison.
+	 * @param {Zarafa.hierarchy.data.MAPIStoreRecord} mapiStore The store to rank
+	 * @param {String[]} order The persisted order, as returned by {@link #getOrder}
+	 * @return {Number} The rank of the store, lower ranks sort first
+	 * @private
 	 */
-	applyOrder: function(mapiStores)
+	getStoreRank: function(mapiStore, order)
+	{
+		if (mapiStore) {
+			if (mapiStore.isDefaultStore()) {
+				return -1;
+			}
+
+			if (mapiStore.isPublicStore()) {
+				return order.length + 1;
+			}
+
+			// The isReorderable check keeps out a store which merely shares its
+			// user_name with an ordered mailbox, such as that mailbox's archive.
+			var index = order.indexOf(this.getStoreKey(mapiStore));
+			if (index !== -1 && this.isReorderable(mapiStore)) {
+				return index;
+			}
+		}
+
+		return order.length;
+	},
+
+	/**
+	 * Persist a new order and inform all listeners.
+	 * @param {String[]} keys The {@link #getStoreKey store keys} in their new order
+	 */
+	setOrder: function(keys)
 	{
 		var order = [];
+		var openKeys = this.getOpenStoreKeys();
 
-		for (var i = 0, len = mapiStores.length; i < len; i++) {
-			var key = this.getStoreKey(mapiStores[i]);
+		for (var i = 0, len = keys.length; i < len; i++) {
 			// Guard against a store being listed twice, which would make the
 			// comparison in compareStores depend on which duplicate is found first.
-			if (!Ext.isEmpty(key) && order.indexOf(key) === -1) {
-				order.push(key);
+			// A store can legitimately have several top level nodes in a filtered
+			// tree - one per visible folder - so duplicates are expected input here.
+			// Keys of mailboxes that are no longer open are dropped as well: the
+			// order is carried over from one write to the next, so closed mailboxes
+			// would otherwise linger in the setting forever.
+			if (!Ext.isEmpty(keys[i]) && order.indexOf(keys[i]) === -1 &&
+				openKeys.indexOf(keys[i]) !== -1) {
+				order.push(keys[i]);
 			}
 		}
 
 		container.getSettingsModel().set(this.settingsPath, order);
 
 		this.fireEvent('change', this, order);
+	},
+
+	/**
+	 * Obtain the keys of all currently opened stores the user may reorder.
+	 * @return {String[]} The {@link #getStoreKey store keys} of the opened stores
+	 * @private
+	 */
+	getOpenStoreKeys: function()
+	{
+		var keys = [];
+		var stores = container.getHierarchyStore().getRange();
+
+		for (var i = 0, len = stores.length; i < len; i++) {
+			if (this.isReorderable(stores[i])) {
+				keys.push(this.getStoreKey(stores[i]));
+			}
+		}
+
+		return keys;
 	}
 });
 

@@ -21,13 +21,19 @@ Zarafa.hierarchy.ui.RootFolderNode = Ext.extend(Zarafa.hierarchy.ui.FolderNode, 
 		// A shared mailbox can be dragged to give it a position of the user's choosing
 		// within the hierarchy. The own store and the Public store stay pinned to the
 		// top and the bottom respectively, so their root nodes remain undraggable.
+		//
+		// This node type is used for every top level node, which is the IPM_SUBTREE of a
+		// store in an unfiltered tree but the store's visible folders in a filtered one -
+		// the calendar folder list, for instance. Both stand for their mailbox here, so
+		// both can be dragged to move it.
 		var reorderable = false;
 
 		// Format IPM subtree container differently
 		if (config.folder) {
+			reorderable = Zarafa.hierarchy.data.StoreOrder.isReorderable(config.folder.getMAPIStore());
+
 			if (config.folder.isIPMSubTree()) {
 				containerCls += ' zarafa-tree-ipm-subtree-container';
-				reorderable = Zarafa.hierarchy.data.StoreOrder.isReorderable(config.folder.getMAPIStore());
 			} else if (config.folder.isFavoritesRootFolder()) {
 				containerCls += ' zarafa-tree-ipm-subtree-favorites-container';
 			}

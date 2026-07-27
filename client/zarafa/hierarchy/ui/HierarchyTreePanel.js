@@ -448,34 +448,51 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 	onStoreReorderDrop: function(dropEvent)
 	{
 		var dropNode = dropEvent.dropNode;
-		var targetNode = dropEvent.target;
 		var dropZone = Zarafa.hierarchy.ui.HierarchyFolderDropZone;
+		var storeOrder = Zarafa.hierarchy.data.StoreOrder;
 
-		// Take the mailboxes as they are currently shown, leaving out the one being
-		// dragged so it can be reinserted at its new position. Reading the order from
-		// the tree rather than from the settings keeps the two in step even when a
-		// mailbox was opened after the user last reordered the hierarchy.
-		var nodes = [];
-		var siblings = dropNode.parentNode.childNodes;
-		for (var i = 0, len = siblings.length; i < len; i++) {
-			if (siblings[i] !== dropNode && dropZone.isReorderableNode(siblings[i])) {
-				nodes.push(siblings[i]);
+		var keyOf = function(node) {
+			return storeOrder.getStoreKey(node.getFolder().getMAPIStore());
+		};
+
+		var draggedKey = keyOf(dropNode);
+		var targetKey = keyOf(dropEvent.target);
+
+		// Start from the stored order rather than from this tree: a filtered tree does
+		// not show every mailbox - one opened as a single mail folder has no node in
+		// the calendar folder list - and rebuilding the order from the visible nodes
+		// alone would silently throw away the positions of the mailboxes it misses.
+		var keys = [];
+		var stored = storeOrder.getOrder();
+		for (var i = 0, len = stored.length; i < len; i++) {
+			if (stored[i] !== draggedKey) {
+				keys.push(stored[i]);
 			}
 		}
 
-		var targetIndex = nodes.indexOf(targetNode);
+		// Append the mailboxes shown in this tree which have no stored position yet,
+		// in the sequence their nodes appear. A mailbox can have several top level
+		// nodes in a filtered tree, one per visible folder, and they all move together.
+		var siblings = dropNode.parentNode.childNodes;
+		for (var j = 0, jlen = siblings.length; j < jlen; j++) {
+			if (!dropZone.isReorderableNode(siblings[j])) {
+				continue;
+			}
+
+			var key = keyOf(siblings[j]);
+			if (key !== draggedKey && keys.indexOf(key) === -1) {
+				keys.push(key);
+			}
+		}
+
+		var targetIndex = keys.indexOf(targetKey);
 		if (targetIndex === -1) {
 			return false;
 		}
 
-		nodes.splice(dropEvent.point === 'above' ? targetIndex : targetIndex + 1, 0, dropNode);
+		keys.splice(dropEvent.point === 'above' ? targetIndex : targetIndex + 1, 0, draggedKey);
 
-		var mapiStores = [];
-		for (var j = 0, jlen = nodes.length; j < jlen; j++) {
-			mapiStores.push(nodes[j].getFolder().getMAPIStore());
-		}
-
-		Zarafa.hierarchy.data.StoreOrder.applyOrder(mapiStores);
+		storeOrder.setOrder(keys);
 	},
 
 	/**
