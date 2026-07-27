@@ -88,19 +88,21 @@ Zarafa.hierarchy.ui.HierarchyFolderDropZone = Ext.extend(Zarafa.hierarchy.ui.Hie
 		var tn = n.node;
 		var dragNode = dd && dd.dragData ? dd.dragData.node : undefined;
 
-		// A mailbox is dropped between mailboxes, never into one, so it has no 'append'
-		// point. Split the node in half instead of in thirds, which the code below does
-		// to leave room for 'append' - otherwise the middle of every row would be dead.
-		if (Zarafa.hierarchy.ui.HierarchyFolderDropZone.isReorderableNode(dragNode)) {
-			var el = n.ddel;
-			var middle = Ext.lib.Dom.getY(el) + (el.offsetHeight / 2);
-			return Ext.lib.Event.getPageY(e) < middle ? 'above' : 'below';
-		}
-
 		if (tn.isRoot) {
 			return tn.allowChildren !== false ? 'append' : false; // always append for root
 		}
 		var dragEl = n.ddel;
+
+		// A mailbox is dropped between mailboxes, never into one, so it has no 'append'
+		// point. Split the node in half instead of in thirds, which the code below does
+		// to leave room for 'append' - otherwise the middle of every row would be dead.
+		// Kept below the isRoot check above: the root node's UI has no 'elNode', so
+		// reading its geometry would throw.
+		if (Zarafa.hierarchy.ui.HierarchyFolderDropZone.isReorderableNode(dragNode)) {
+			var middle = Ext.lib.Dom.getY(dragEl) + (dragEl.offsetHeight / 2);
+			return Ext.lib.Event.getPageY(e) < middle ? 'above' : 'below';
+		}
+
 		var t = Ext.lib.Dom.getY(dragEl), b = t + dragEl.offsetHeight;
 		var y = Ext.lib.Event.getPageY(e);
 		var noAppend = tn.allowChildren === false;
@@ -207,7 +209,11 @@ Ext.apply(Zarafa.hierarchy.ui.HierarchyFolderDropZone, {
 			return false;
 		}
 
-		return !!node.parentNode && node.parentNode.isRoot === true;
+		if (!node.parentNode) {
+			return false;
+		}
+
+		return node.parentNode.isRoot === true;
 	},
 
 	/**
