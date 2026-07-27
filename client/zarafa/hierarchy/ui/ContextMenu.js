@@ -197,6 +197,27 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 				}
 			}
 		}, {
+			text: _('Remove'),
+			iconCls: 'icon_store_close',
+			handler: this.onContextItemRemoveSharedStore,
+			scope: this,
+			beforeShow: function(item, record) {
+				// A shared mailbox opened as a whole is shown in a filtered tree - the
+				// calendar folder list, for instance - as its visible folders, with no
+				// IPM_SUBTREE node to hang "Close store" on and no shared-folder key to
+				// hang "Close folder" on. Without this item such a mailbox cannot be
+				// removed from that list at all.
+				var node = this.contextNode;
+				var isTopLevel = !!node && !!node.parentNode && node.parentNode.isRoot === true;
+
+				if (isTopLevel && !record.isIPMSubTree() && !record.isSharedFolder() &&
+					record.getMAPIStore().isSharedStore()) {
+					item.setDisabled(false);
+				} else {
+					item.setDisabled(true);
+				}
+			}
+		}, {
 			xtype: 'menuseparator'
 		}, {
 			text: _('Reload'),
@@ -701,6 +722,18 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 
 		folderstore.remove(this.records);
 		folderstore.save(this.records);
+	},
+
+	/**
+	 * Fires on selecting the "Remove" menu option from the contextmenu, which is offered on
+	 * a top level folder of a shared mailbox that was opened as a whole. The mailbox is not
+	 * opened per folder, so there is no single folder to close: removing the entry means
+	 * closing the shared mailbox, which is what "Close store" does on the mailbox itself.
+	 * @private
+	 */
+	onContextItemRemoveSharedStore: function()
+	{
+		this.onContextItemCloseStore();
 	},
 
 	/**
