@@ -78,6 +78,7 @@ class Language {
 
 		if ($this->is_language($lang)) {
 			$this->lang = $lang;
+			$this->bindTextDomain($lang);
 			$tmp_translations = $this->getTranslations();
 			$translations = [];
 			foreach ($tmp_translations as $program => $resources) {
@@ -96,6 +97,60 @@ class Language {
 		else {
 			error_log(sprintf("Unknown language: '%s'", $lang));
 		}
+	}
+
+	/**
+	 * Bind the gettext text domain for the given language.
+	 *
+	 * The JavaScript client receives its strings from getTranslations(), but the PHP
+	 * side - templates, modules and plugins - calls _() directly, which is the gettext
+	 * extension's function. gettext only returns a translation once LC_MESSAGES names
+	 * an actual locale and the text domain is bound to the directory holding the .mo
+	 * files; without both it hands back the msgid, so every server-rendered string
+	 * stays English no matter which language the user selected.
+	 *
+	 * @param string $lang Language code (eg nl_NL.UTF-8)
+	 */
+	private function bindTextDomain($lang) {
+		if (!function_exists('bindtextdomain') || !defined('LC_MESSAGES')) {
+			return;
+		}
+		// No failure below may leave another request's language active in this worker.
+		$this->resetLocale();
+
+		// bindtextdomain() resolves a relative path against the working directory at
+		// lookup time, which is not ours to rely on, so hand it an absolute one.
+		$dir = realpath(LANGUAGE_DIR);
+		if ($dir === false) {
+			return;
+		}
+
+		// Only the exact spelling can work: glibc normalizes codeset spellings by
+		// itself, but composes the catalog path from the locale name, so only a
+		// locale named like the directory in LANGUAGE_DIR loads a catalog.
+		// On failure LC_MESSAGES stays "C" and gettext hands back the msgid.
+		if (setlocale(LC_MESSAGES, $lang) === false) {
+			return;
+		}
+
+		bindtextdomain('grommunio_web', $dir);
+		bind_textdomain_codeset('grommunio_web', 'UTF-8');
+		textdomain('grommunio_web');
+	}
+
+	/**
+	 * Return the process to the untranslated state. The locale is process-wide and a
+	 * PHP-FPM worker outlives the request, so one request's language would otherwise
+	 * still be active in the next one - served to a different user. LANGUAGE is
+	 * cleared because glibc consults it before LC_MESSAGES; it must never be set per
+	 * user, as glibc does not notice a changed LANGUAGE within the same process.
+	 */
+	private function resetLocale() {
+		if (!function_exists('bindtextdomain') || !defined('LC_MESSAGES')) {
+			return;
+		}
+		setlocale(LC_MESSAGES, 'C');
+		putenv('LANGUAGE=');
 	}
 
 	public static function getstring($string) {
