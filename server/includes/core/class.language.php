@@ -78,6 +78,7 @@ class Language {
 
 		if ($this->is_language($lang)) {
 			$this->lang = $lang;
+			$this->bindTextDomain($lang);
 			$tmp_translations = $this->getTranslations();
 			$translations = [];
 			foreach ($tmp_translations as $program => $resources) {
@@ -96,6 +97,46 @@ class Language {
 		else {
 			error_log(sprintf("Unknown language: '%s'", $lang));
 		}
+	}
+
+	/**
+	 * Bind the gettext text domain for the given language.
+	 *
+	 * The JavaScript client receives its strings from getTranslations(), but the PHP
+	 * side - templates, modules and plugins - calls _() directly, which is the gettext
+	 * extension's function. gettext only returns a translation once LC_MESSAGES names
+	 * an actual locale and the text domain is bound to the directory holding the .mo
+	 * files; without both it hands back the msgid, so every server-rendered string
+	 * stays English no matter which language the user selected.
+	 *
+	 * @param string $lang Language code (eg nl_NL.UTF-8)
+	 */
+	private function bindTextDomain($lang) {
+		if (!function_exists('bindtextdomain') || !defined('LC_MESSAGES')) {
+			return;
+		}
+		// bindtextdomain() resolves a relative path against the working directory at
+		// lookup time, which is not ours to rely on, so hand it an absolute one.
+		$dir = realpath(LANGUAGE_DIR);
+		if ($dir === false) {
+			return;
+		}
+
+		// A locale the system does not have leaves LC_MESSAGES at "C", under which
+		// gettext returns the msgid unchanged. Offer the alternative spellings as
+		// well: glibc writes the codeset as "utf8", and the plain language code
+		// exists on hosts that generated the locale without one.
+		$locales = [$lang];
+		$base = strstr($lang, '.', true);
+		if ($base !== false) {
+			$locales[] = $base . '.utf8';
+			$locales[] = $base;
+		}
+		setlocale(LC_MESSAGES, ...$locales);
+
+		bindtextdomain('grommunio_web', $dir);
+		bind_textdomain_codeset('grommunio_web', 'UTF-8');
+		textdomain('grommunio_web');
 	}
 
 	public static function getstring($string) {
