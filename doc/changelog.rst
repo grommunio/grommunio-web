@@ -1,12 +1,63 @@
-grommunio-web 3.19.x (development)
+grommunio-web 3.19 (2026-07-27)
 ==================================
+Fixes:
+
+* Not possible to configure multiple email addresses of the same user
+* Various send-as related fixes
+* Vendor docx-preview, JSZip and SheetJS
+* All fields of ontacts in distribution lists are empty
+* Unable to expand distlist members
+* Unable to grant free/busy permissions for calender type subfolders
+* Saving reply/forward draft fails when the source message was moved
+* "Assigned To" value for tasks is missing
+* Opening or saving a private distlist fails
+* Expanding nested private distlist fails
+* Favourites scroll out of view
+* Reply, Reply All, Forward buttons shifted to the right in search view
+* sendas silently falls back to the user's own sender
+* Wrong unread email counters
+* Embedded attachment download fails
+* Resource as location in meeting requests
+* Moving folder on same hierarchy level
+* Reset change tracker after accepting meeting request
+* Recipients are silently dropped, e.g. when sending to distlists
+* The search completely fails when the index is removed
+* xlsx/odf related fixes in filepreviewer
+* Subtree related issues
+* Sending fails when the sent copy cannot be created
 
 Enhancements:
 
 * Conversation view: group the inbox by conversation, with a threaded
   reading pane that shows the whole conversation, conversation-aware
   search, and dark mode support. Opt-in per user.
+* AI plugin
+* Show impersonation information in MDM
+* Log the authenticated user into nginx access logs
+* Optimize SVG resources
+* Custom PHP session config params
+* Include exception message in MAPIException error logs
+* Print email addresses of distribution list members
+* Gather skipped appointments' information
+* Wrap lines for plain-text messages
+* Use mapi_linkmessages for the search folders to improve performance
+* Use a fresh search folder for every search
+* Prefer stored html_body over stale isHTML
+* Web manifest to support PWA features
+* Make the appointment editor read-only for read-only items
+* Content-based cache control with conditional request support for translations endpoint
+* Span full row folder highlight
+* Update unread item counter for shared and public folders when a new email arrives
+* Support "Working Elsewhere" busy status (4)
+* Drag and drop attachments onto email body when composing an email
+* Configure Deleted Items folder for mails deleted in shared stores
 
+Changes:
+
+* pdf.js was upgraded to 6.1.200
+* dompurify was upgraded to 3.4.12
+* ODF renderer was updated
+* Rename one of the "About" entries to "Legal Information"
 
 grommunio-web 3.18 (2026-05-29)
 ===============================
