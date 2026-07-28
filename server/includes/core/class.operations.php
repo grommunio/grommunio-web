@@ -3360,14 +3360,19 @@ class Operations {
 		switch ($msgprops[PR_MDB_PROVIDER]) {
 			case ZARAFA_STORE_DELEGATE_GUID:
 				$softDelete = $softDelete || defined('ENABLE_DEFAULT_SOFT_DELETE') ? ENABLE_DEFAULT_SOFT_DELETE : false;
-				// with a store from an other user we need our own waste basket...
+				// Delete items when they are in the wastebasket already or
+				// direct deleting is enabled
 				if (isset($msgprops[PR_IPM_WASTEBASKET_ENTRYID]) && $msgprops[PR_IPM_WASTEBASKET_ENTRYID] == $parententryid || $softDelete) {
 					// except when it is the waste basket itself
 					$result = mapi_folder_deletemessages($folder, $entryids, $flags);
 					break;
 				}
-				$defaultstore = $GLOBALS["mapisession"]->getDefaultMessageStore();
-				$msgprops = mapi_getprops($defaultstore, [PR_IPM_WASTEBASKET_ENTRYID, PR_MDB_PROVIDER]);
+				$delegateWastebasketStyle = $GLOBALS['settings']->get('zarafa/v1/contexts/mail/delegate_wastebasket_style');
+				// Delete to the main user's wastebasket
+				if ($delegateWastebasketStyle === DELEGATE_WASTEBASKET_MAINUSER) {
+					$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
+					$msgprops = mapi_getprops($store, [PR_IPM_WASTEBASKET_ENTRYID]);
+				}
 
 				if (!isset($msgprops[PR_IPM_WASTEBASKET_ENTRYID]) ||
 					$msgprops[PR_IPM_WASTEBASKET_ENTRYID] == $parententryid) {
@@ -3375,14 +3380,7 @@ class Operations {
 					break;
 				}
 
-				try {
-					$result = $this->copyMessages($store, $parententryid, $defaultstore, $msgprops[PR_IPM_WASTEBASKET_ENTRYID], $entryids, [], true);
-				}
-				catch (MAPIException $e) {
-					$e->setHandled();
-					// if moving fails, try normal delete
-					$result = mapi_folder_deletemessages($folder, $entryids, $flags);
-				}
+				$result = $this->copyMessages($store, $parententryid, $store, $msgprops[PR_IPM_WASTEBASKET_ENTRYID], $entryids, [], true);
 				break;
 
 			case ZARAFA_STORE_ARCHIVER_GUID:

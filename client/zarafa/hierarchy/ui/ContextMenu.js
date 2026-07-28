@@ -555,8 +555,14 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 
 					if (isFolderDeleted) {
 						store.remove(record);
-					} else {
-						record.moveTo(container.getHierarchyStore().getDefaultFolder('wastebasket'));
+					}
+					else {
+						if (container.getSettingsModel().get('zarafa/v1/contexts/mail/delegate_wastebasket_style') === 4) {
+							record.moveTo(record.getMAPIStore().getDefaultFolder('wastebasket'));
+						}
+						else {
+							record.moveTo(container.getHierarchyStore().getDefaultFolder('wastebasket'));
+						}
 						// Set selection to the appropriate folder after the record has been moved.
 						this.setFolderSelection(record);
 

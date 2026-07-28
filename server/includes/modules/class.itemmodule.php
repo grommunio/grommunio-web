@@ -759,6 +759,9 @@ class ItemModule extends Module {
 			$GLOBALS["bus"]->notify(bin2hex($parententryid), TABLE_DELETE, $props);
 			$this->sendFeedback(true);
 		}
+		else {
+			$this->sendFeedback(false);
+		}
 	}
 
 	/**
