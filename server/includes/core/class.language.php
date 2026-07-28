@@ -76,27 +76,92 @@ class Language {
 		}
 		$lang = (empty($lang) || str_starts_with($lang, '.') || $lang == "C") ? LANG : $lang; // default language fix
 
-		if ($this->is_language($lang)) {
-			$this->lang = $lang;
-			$this->bindTextDomain($lang);
-			$tmp_translations = $this->getTranslations();
-			$translations = [];
-			foreach ($tmp_translations as $program => $resources) {
-				if (substr($program, 0, 1) == '_')
-					continue;
-				$resourcesCount = count($resources);
-				for ($i = 0; $i < $resourcesCount; ++$i) {
-					$msgid = $resources[$i]['msgid'];
-					if (isset($msgid)) {
-						$translations[$msgid] = $resources[$i]['msgstr'];
-					}
+		$available = $this->findLanguage($lang);
+		if ($available === false) {
+			error_log(sprintf("Unknown language: '%s'", $lang));
+			$this->resetLocale();
+
+			return;
+		}
+		if ($available !== $lang) {
+			error_log(sprintf("Unknown language: '%s', falling back to '%s'", $lang, $available));
+		}
+
+		$this->lang = $available;
+		$this->bindTextDomain($available);
+		$tmp_translations = $this->getTranslations();
+		$translations = [];
+		foreach ($tmp_translations as $program => $resources) {
+			if (substr($program, 0, 1) == '_')
+				continue;
+			$resourcesCount = count($resources);
+			for ($i = 0; $i < $resourcesCount; ++$i) {
+				$msgid = $resources[$i]['msgid'];
+				if (isset($msgid)) {
+					$translations[$msgid] = $resources[$i]['msgstr'];
 				}
 			}
-			$GLOBALS['translations'] = $translations;
 		}
-		else {
-			error_log(sprintf("Unknown language: '%s'", $lang));
+		$GLOBALS['translations'] = $translations;
+	}
+
+	/**
+	 * Find an installed language directory for the requested language.
+	 *
+	 * The requested language does not always name a directory in LANGUAGE_DIR. gromox
+	 * hands out PR_EC_USER_LANGUAGE as the `users.lang` column with ".UTF-8" appended,
+	 * so a bare language code stored there - "de" rather than "de_DE" - arrives here as
+	 * "de.UTF-8", for which no directory exists. Dropping such a value means serving a
+	 * client with an empty translation set, i.e. an entirely English interface, and
+	 * PR_EC_USER_LANGUAGE re-imposes the value on every login until the user explicitly
+	 * re-picks a language in Settings, which writes the choice back to it. Prefer a
+	 * territory variant of the same language over that.
+	 *
+	 * @param string $lang Language code (eg nl_NL.UTF-8)
+	 *
+	 * @return bool|string the language to use, or false if none is installed
+	 */
+	private function findLanguage($lang) {
+		if ($this->is_language($lang)) {
+			return $lang;
 		}
+
+		$resolved = self::resolveLanguage($lang);
+		if ($resolved !== $lang && $this->is_language($resolved)) {
+			return $resolved;
+		}
+
+		// Any variant of the same language beats English. Try the territory that
+		// repeats the language code first ("de" -> "de_DE"), which is the usual
+		// spelling, and settle for the first one installed otherwise.
+		$base = strstr($lang, '_', true);
+		if ($base === false) {
+			$base = stristr($lang, '.', true);
+		}
+		if ($base === false) {
+			$base = $lang;
+		}
+		if (preg_match('/^[a-z]{2,3}$/i', $base)) {
+			$base = strtolower($base);
+			// Legacy ISO 639 codes; the directories use the modern spelling.
+			$aliases = ['no' => 'nb', 'in' => 'id', 'iw' => 'he', 'tl' => 'fil'];
+			$base = $aliases[$base] ?? $base;
+			// The language configured by the administrator wins when it is a variant
+			// of the same language, so its territory is not silently overruled.
+			if (strcasecmp($base, (string) strstr(LANG, '_', true)) == 0 && $this->is_language(LANG)) {
+				return LANG;
+			}
+			$candidates = glob(LANGUAGE_DIR . $base . '_' . strtoupper($base) . '.UTF-8') ?: [];
+			if (empty($candidates)) {
+				$candidates = glob(LANGUAGE_DIR . $base . '_*.UTF-8') ?: [];
+				sort($candidates);
+			}
+			if (!empty($candidates)) {
+				return basename($candidates[0]);
+			}
+		}
+
+		return $this->is_language(LANG) ? LANG : false;
 	}
 
 	/**
