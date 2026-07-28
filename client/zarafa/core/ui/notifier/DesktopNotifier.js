@@ -25,9 +25,11 @@ Zarafa.core.ui.notifier.DesktopNotifier = Ext.extend(Zarafa.core.ui.notifier.Not
 	 */
 	notify: function(category, title, message, config)
 	{
+		// Desktop notifications render plain text, so decode the HTML
+		// entities which were encoded for the HTML based notifiers.
 		Zarafa.common.Actions.notify(title, {
 			tag: category,
-			body: message,
+			body: Ext.util.Format.htmlDecode(message),
 			icon: 'client/resources/images/grommunio.ico'
 		}, {
 			click: function() {

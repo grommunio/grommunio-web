@@ -35,9 +35,11 @@ Zarafa.plugins.desktopnotifications.js.DesktopNotifier = Ext.extend(Zarafa.core.
 	 */
 	notify : function(category, title, message, config)
 	{
+		// Desktop notifications render plain text, so decode the HTML
+		// entities which were encoded for the HTML based notifiers.
 		Zarafa.plugins.desktopnotifications.js.DesktopNotification.notify(title, {
 			tag : category,
-			body : message,
+			body : Ext.util.Format.htmlDecode(message),
 			icon : 'client/resources/images/favicon.ico?kv2.2.0'
 		}, {
 			click : function() {
