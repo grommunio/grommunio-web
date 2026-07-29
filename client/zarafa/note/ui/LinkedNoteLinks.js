@@ -106,12 +106,24 @@ Zarafa.note.ui.LinkedNoteLinks = Ext.extend(Ext.Container, {
 				 * Prepares a note body for display. Note bodies are plain text, the
 				 * sticky note module forces it, so they must be encoded before being
 				 * placed into the preview.
+				 *
+				 * A body read from a folder listing is cut off at 255 characters, the
+				 * same limit the Notes list itself shows, so say so with an ellipsis
+				 * rather than letting the text stop mid-sentence. The whole note is one
+				 * click away.
+				 *
 				 * @param {String} body The note body
 				 * @return {String} the body, safe to insert
 				 */
 				noteBody: function(body)
 				{
-					return Ext.util.Format.nl2br(Ext.util.Format.htmlEncode(body));
+					var text = Ext.util.Format.htmlEncode(body);
+
+					if (body.length >= Zarafa.note.ui.LinkedNoteLinks.bodyPreviewLimit) {
+						text += '…';
+					}
+
+					return Ext.util.Format.nl2br(text);
 				}
 			});
 		}
@@ -303,5 +315,14 @@ Zarafa.note.ui.LinkedNoteLinks = Ext.extend(Ext.Container, {
 		Zarafa.note.ui.LinkedNoteLinks.superclass.onDestroy.apply(this, arguments);
 	}
 });
+
+/**
+ * @property
+ * The number of characters a note body read from a folder listing is cut off at, by
+ * the table query rather than by this panel.
+ * @type Number
+ * @static
+ */
+Zarafa.note.ui.LinkedNoteLinks.bodyPreviewLimit = 255;
 
 Ext.reg('zarafa.linkednotelinks', Zarafa.note.ui.LinkedNoteLinks);
