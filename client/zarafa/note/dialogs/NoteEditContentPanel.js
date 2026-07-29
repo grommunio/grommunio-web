@@ -38,15 +38,17 @@ Zarafa.note.dialogs.NoteEditContentPanel = Ext.extend(Zarafa.core.ui.RecordConte
 	 */
 	createPanel: function()
 	{
-		//Add toolbar and text area in window panel
+		// Add toolbar and text area in window panel. The layout is deliberately left to
+		// the panel itself: it stacks the linked-mail bar above the editor, and a 'fit'
+		// layout imposed from here would size only the first of the two, leaving the
+		// editor without a height.
 		return {
 			iconCls		: 'icon_folder_note',
 			border		: false,
 			tbar		: {
 				xtype: 'zarafa.noteedittoolbar'
 			},
-			xtype		: 'zarafa.noteeditpanel',
-			layout		: 'fit'
+			xtype		: 'zarafa.noteeditpanel'
 		};
 	},
 
