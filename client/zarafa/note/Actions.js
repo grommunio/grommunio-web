@@ -180,6 +180,65 @@ Zarafa.note.Actions = {
 	},
 
 	/**
+	 * Returns the contextmenu item which annotates a mail with a note, for use in the
+	 * mail contextmenus.
+	 *
+	 * @return {Object} The contextmenu item for creating a note on a mail
+	 */
+	createLinkedNoteContextItem: function()
+	{
+		return {
+			xtype: 'zarafa.conditionalitem',
+			text: _('Create note'),
+			iconCls: 'icon_new_note',
+			hidden: true,
+			handler: this.onContextItemCreateNote,
+			beforeShow: this.onBeforeShowCreateNote,
+			scope: this
+		};
+	},
+
+	/**
+	 * Event handler triggered when the {@link #createLinkedNoteContextItem create note}
+	 * contextmenu item is clicked.
+	 *
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} menuItem The clicked item
+	 * @private
+	 */
+	onContextItemCreateNote: function(menuItem)
+	{
+		Zarafa.note.Actions.openCreateLinkedNote(menuItem.getRecords()[0]);
+	},
+
+	/**
+	 * Shows the {@link #createLinkedNoteContextItem create note} contextmenu item only
+	 * for a single mail which can actually be annotated: it needs an
+	 * 'internet_message_id' to link the note to, and a Notes folder in its own store
+	 * which this user may create in.
+	 *
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} menuItem The item about to be shown
+	 * @private
+	 */
+	onBeforeShowCreateNote: function(menuItem)
+	{
+		var records = menuItem.getRecords();
+
+		if (!Array.isArray(records) || records.length !== 1) {
+			menuItem.setVisible(false);
+			return;
+		}
+
+		var record = records[0];
+		if (!record.isMessageClass('IPM.Note', true) || Ext.isEmpty(record.get('internet_message_id'))) {
+			menuItem.setVisible(false);
+			return;
+		}
+
+		var folder = Zarafa.note.Actions.getLinkedNotesFolder(record);
+		menuItem.setVisible(!!folder && folder.hasCreateRights());
+	},
+
+	/**
 	 * Opens the options dialog for a note record.
 	 *
 	 * @param {Zarafa.core.data.IPMRecord|Zarafa.core.data.IPMRecord[]} records
