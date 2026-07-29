@@ -38,15 +38,15 @@ Zarafa.note.dialogs.NoteEditContentPanel = Ext.extend(Zarafa.core.ui.RecordConte
 	 */
 	createPanel: function()
 	{
-		//Add toolbar and text area in window panel
+		// Add toolbar and text area in window panel. The layout is left to the
+		// panel itself; 'fit' would size only the first of its two children.
 		return {
 			iconCls		: 'icon_folder_note',
 			border		: false,
 			tbar		: {
 				xtype: 'zarafa.noteedittoolbar'
 			},
-			xtype		: 'zarafa.noteeditpanel',
-			layout		: 'fit'
+			xtype		: 'zarafa.noteeditpanel'
 		};
 	},
 
