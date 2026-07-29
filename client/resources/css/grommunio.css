@@ -2253,11 +2253,14 @@ input.x-form-text.k-searchfolder-field.x-form-focus {
 .preview-header-linkednotes .preview-header-linkednote {
   display: block;
   max-width: 260px;
-  max-height: 60px;
+  /* Long notes stay readable: the box grows to about ten lines and scrolls beyond
+     that, rather than cutting the text off with no way to reach the rest. */
+  max-height: 12em;
   padding: 4px 8px;
   border-radius: 2px;
   cursor: pointer;
-  overflow: hidden; }
+  overflow-x: hidden;
+  overflow-y: auto; }
 
 .preview-header-linkednotes .preview-header-linkednote.note_yellow {
   background: #FF9; }
