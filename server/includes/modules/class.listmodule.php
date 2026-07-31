@@ -341,30 +341,18 @@ class ListModule extends Module {
 		// Sort
 		$this->parseSortOrder($action);
 
-		// Create the data array, which will be send back to the client
+		// Create the data array, which will be sent back to the client
 		$data = [];
-
-		// Wait until we have some data, no point in returning before we have data. Stop waiting after 10 seconds
 		$start = time();
 		$table = mapi_folder_getcontentstable($searchFolder, MAPI_DEFERRED_ERRORS);
 
-		sleep(1);
-
-		while (time() - $start < 10) {
-			$count = mapi_table_getrowcount($table);
-			$result = mapi_folder_getsearchcriteria($searchFolder);
-
-			// Stop looping if we have data or the search is finished
-			if ($count > 0) {
-				break;
-			}
-
-			if (($result["searchstate"] & SEARCH_REBUILD) == 0) {
-				break;
-			} // Search is done
-
-			sleep(1);
-		}
+		/*
+		 * Do not specifically wait for row data.
+		 * $result["searchstate"] alone is already valuable information
+		 * for the client.
+		 */
+		$count = mapi_table_getrowcount($table);
+		$result = mapi_folder_getsearchcriteria($searchFolder);
 
 		// Get the table and merge the arrays
 		$table = $GLOBALS["operations"]->getTable($store, hex2bin((string) $searchFolderEntryId), $this->properties, $this->sort, $this->start);

@@ -41,6 +41,13 @@ Zarafa.core.mapi.Search = Zarafa.core.Enum.create({
 	 */
 	SEARCH_FOREGROUND: 0x00000008,
 
+	SEARCH_COMPLETE: 0x1000,
+	SEARCH_PARTIAL: 0x2000,
+	CI_TOTALLY: 0x1000000,
+	CI_WITH_TWIR_RESIDUAL: 0x2000000,
+	TWIR_MOSTLY: 0x4000000,
+	TWIR_TOTALLY: 0x8000000,
+
 	// Flags used by SetSearchCriteria
 
 	/**
