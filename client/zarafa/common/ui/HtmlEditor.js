@@ -189,9 +189,16 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 						// Rebuild a real FileList containing only the non-embeddable files
 						// so it is uploaded/attached exactly like a drop on the Attachments
 						// field would be.
+						//
+						// The FileList has to be built with the constructor of the window
+						// uploadFiles() will check it against, which is the active browser
+						// window rather than necessarily this one: a dialog opened in its
+						// own window has its own FileList, and an object built here would
+						// fail that instanceof check and be attached as a bare filename.
+						var activeBrowserWindow = Zarafa.core.BrowserWindowMgr.getActive() || window;
 						var uploadFileList = nonEmbeddable;
-						if (typeof DataTransfer !== 'undefined') {
-							var fileListBuilder = new DataTransfer();
+						if (Ext.isFunction(activeBrowserWindow.DataTransfer)) {
+							var fileListBuilder = new activeBrowserWindow.DataTransfer();
 							nonEmbeddable.forEach(function(f) {
 								fileListBuilder.items.add(f);
 							});
