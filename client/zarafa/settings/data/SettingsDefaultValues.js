@@ -257,7 +257,28 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 										 * @property
 										 * @type String
 										 */
-										'value': 'toast'
+										'value': 'toast',
+
+										'folders': {
+											/**
+											 * zarafa/v1/main/notifier/info/newmail/folders/scope
+											 * Which folders raise a new mail notification, one of
+											 * 'all', 'own' or 'selected'
+											 * @property
+											 * @type String
+											 */
+											'scope': 'all',
+
+											/**
+											 * zarafa/v1/main/notifier/info/newmail/folders/selected
+											 * Entryids of the folders which raise a new mail
+											 * notification when the scope is 'selected',
+											 * separated by a semicolon
+											 * @property
+											 * @type String
+											 */
+											'selected': ''
+										}
 									},
 
 									'import': {
