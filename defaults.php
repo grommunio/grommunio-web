@@ -47,7 +47,12 @@ if (!defined("ENABLE_FILE_PREVIEWER")) {
 // Allow dragging attachments out of an opened e-mail directly into a
 // cooperating web application's drop zone. The attachment bytes are embedded in
 // the drag operation so the receiving site can reconstruct the file without a
-// separate authenticated download. Set to false to disable the feature.
+// separate authenticated download. Set to false to disable that embedding.
+//
+// This does not switch off dragging attachments as such: dropping an attachment
+// onto the operating system (file manager, desktop) is done by handing the
+// browser the attachment's download URL, requires no embedded bytes and stays
+// available regardless of this setting.
 if (!defined("ENABLE_ATTACHMENT_DRAG_OUT")) {
 	define("ENABLE_ATTACHMENT_DRAG_OUT", true);
 }
