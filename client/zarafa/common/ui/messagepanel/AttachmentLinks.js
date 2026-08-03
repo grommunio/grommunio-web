@@ -46,6 +46,8 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	 * {@link #getAttachmentCacheKey}. Populated by {@link #prefetchAttachmentFile}.
 	 * Each entry is an object <tt>{payload: String|null}</tt>; the payload is the
 	 * JSON string placed on the drag {@link DataTransfer}.
+	 * Reset whenever a different {@link #bindStore store is bound}, so it only
+	 * ever holds payloads belonging to the message which is currently displayed.
 	 * @property {Object}
 	 * @private
 	 */
@@ -201,13 +203,28 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 
 	/**
 	 * Returns a stable cache key for an attachment record.
+	 *
+	 * The key is scoped to the message the attachment belongs to. 'attach_num'
+	 * is only a positional index within its own attachment store and 'tmpname'
+	 * is empty for a saved message, so without the parent message two different
+	 * messages would be told apart by 'attach_id' alone -- a property this
+	 * client populates itself (PR_EC_WA_ATTACHMENT_ID, with a uniqid()
+	 * fallback), which is a weak thing for cache correctness to depend on when
+	 * the message identity is available here.
 	 * @param {Zarafa.core.data.IPMAttachmentRecord} record The attachment record
 	 * @return {String} cache key
 	 * @private
 	 */
 	getAttachmentCacheKey: function(record)
 	{
-		return record.get('attach_num') + '|' + (record.get('tmpname') || '') + '|' + (record.get('attach_id') || '');
+		var parent = '';
+		var store = record.getStore();
+		if (store && Ext.isFunction(store.getAttachmentParentRecordIds) && store.getParentRecord()) {
+			var ids = store.getAttachmentParentRecordIds();
+			parent = (ids.store_entryid || '') + '|' + (ids.entryid || '');
+		}
+
+		return parent + '|' + record.get('attach_num') + '|' + (record.get('tmpname') || '') + '|' + (record.get('attach_id') || '');
 	},
 
 	/**
@@ -308,8 +325,10 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 				data: data.base64
 			});
 		}, this)).catch(Ext.createDelegate(function() {
-			// Drop the failed entry so a later hover/drag can retry.
-			if (this.attachmentPayloadCache) {
+			// Drop the failed entry so a later hover/drag can retry. Only drop it
+			// when it is still the very entry this fetch created; the cache may
+			// have been reset (and repopulated) for another message meanwhile.
+			if (this.attachmentPayloadCache && this.attachmentPayloadCache[key] === entry) {
 				delete this.attachmentPayloadCache[key];
 			}
 		}, this));
@@ -441,6 +460,38 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 			}
 		}
 		return r;
+	},
+
+	/**
+	 * Overrides {@link Ext.DataView#bindStore} to discard the
+	 * {@link #attachmentPayloadCache}. This view is created once for the preview
+	 * panel and reused for every message which is opened, so the cached payloads
+	 * of the previous message must not survive into the next one.
+	 * @param {Ext.data.Store} store The store to bind to this view
+	 * @param {Boolean} initial True if this is the initial binding
+	 * @override
+	 */
+	bindStore: function(store, initial)
+	{
+		if (store !== this.store) {
+			this.attachmentPayloadCache = {};
+		}
+
+		Zarafa.common.ui.messagepanel.AttachmentLinks.superclass.bindStore.apply(this, arguments);
+	},
+
+	/**
+	 * Called when the component is being destroyed, releases the cached
+	 * attachment payloads.
+	 * @protected
+	 */
+	onDestroy: function()
+	{
+		// Release the payloads after the superclass has run: its own onDestroy
+		// ends in bindStore(null), which resets the cache to an empty object.
+		Zarafa.common.ui.messagepanel.AttachmentLinks.superclass.onDestroy.apply(this, arguments);
+
+		this.attachmentPayloadCache = null;
 	},
 
 	/**
