@@ -128,13 +128,19 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	},
 
 	/**
-	 * Returns whether the attachment drag-out feature is enabled by the server
-	 * (see ENABLE_ATTACHMENT_DRAG_OUT in config.php) and supported by the
-	 * browser (requires <tt>window.fetch</tt> and <tt>FileReader</tt>).
-	 * @return {Boolean} True if attachment drag-out is available
+	 * Returns whether the attachment bytes may be embedded in the drag
+	 * operation, which requires the server to allow it (see
+	 * ENABLE_ATTACHMENT_DRAG_OUT in config.php) and the browser to support it
+	 * (<tt>window.fetch</tt> and <tt>FileReader</tt>).
+	 *
+	 * This governs the {@link #attachmentDragOutType} payload only; it is not a
+	 * switch for dragging attachments as such. Dragging an attachment to the
+	 * operating system uses the <tt>DownloadURL</tt> type, needs no payload and
+	 * is always available.
+	 * @return {Boolean} True if attachment payloads may be embedded in a drag
 	 * @private
 	 */
-	isDragOutEnabled: function()
+	isDragOutEmbedEnabled: function()
 	{
 		var serverConfig = container.getServerConfig();
 		if (serverConfig && Ext.isFunction(serverConfig.isAttachmentDragOutEnabled) && !serverConfig.isAttachmentDragOutEnabled()) {
@@ -163,16 +169,17 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 
 	/**
 	 * Event handler for the {@link #render} event. Registers the native
-	 * <tt>dragstart</tt> (and, when the drag-out feature is enabled,
-	 * <tt>mouseover</tt>) listeners on the view element so that attachments can
-	 * be dragged out of grommunio Web. See {@link #onAttachmentDragStart}.
+	 * <tt>dragstart</tt> (and, when {@link #isDragOutEmbedEnabled payloads may be
+	 * embedded}, <tt>mouseover</tt>) listeners on the view element so that
+	 * attachments can be dragged out of grommunio Web.
+	 * See {@link #onAttachmentDragStart}.
 	 * @private
 	 */
 	onRenderRegisterDragOut: function()
 	{
 		this.mon(this.getEl(), 'dragstart', this.onAttachmentDragStart, this);
 
-		if (this.isDragOutEnabled()) {
+		if (this.isDragOutEmbedEnabled()) {
 			// Prefetch (and base64-encode) the attachment bytes when the user
 			// hovers over a link, so the payload is available synchronously at
 			// 'dragstart' time for dropping into a cooperating web application.
@@ -242,7 +249,7 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	 */
 	prefetchAttachmentFile: function(record)
 	{
-		if (!this.isDragOutEnabled()) {
+		if (!this.isDragOutEmbedEnabled()) {
 			return;
 		}
 
@@ -432,7 +439,7 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 		// (1) Custom type for dropping into a cooperating web application. Only
 		// available when the feature is enabled and the payload was prefetched.
 		var haveCustomPayload = false;
-		if (this.isDragOutEnabled()) {
+		if (this.isDragOutEmbedEnabled()) {
 			this.attachmentPayloadCache = this.attachmentPayloadCache || {};
 			var entry = this.attachmentPayloadCache[this.getAttachmentCacheKey(record)];
 			if (entry && entry.payload) {

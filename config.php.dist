@@ -33,7 +33,9 @@
 
 	// Allow dragging attachments out of an opened e-mail directly into a
 	// cooperating web application's drop zone (the attachment bytes are embedded
-	// in the drag operation). Set to FALSE to disable server-wide.
+	// in the drag operation). Set to FALSE to disable that embedding server-wide.
+	// Dragging an attachment onto the operating system (file manager, desktop)
+	// needs no embedded bytes and remains available either way.
 	// Overrides defaults.php
 	//define("ENABLE_ATTACHMENT_DRAG_OUT", TRUE);
 
