@@ -161,28 +161,6 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	},
 
 	/**
-	 * Overrides {@link Ext.DataView#refresh} to eagerly prefetch and encode the
-	 * content of the currently displayed attachments (up to the configured
-	 * maximum size), so they are immediately available to be dragged into a
-	 * cooperating web application without the user having to hover first.
-	 * @override
-	 */
-	refresh: function()
-	{
-		Zarafa.common.ui.messagepanel.AttachmentLinks.superclass.refresh.apply(this, arguments);
-
-		if (!this.store || !this.isDragOutEnabled()) {
-			return;
-		}
-
-		this.store.each(function(record) {
-			if (record.get('hidden') !== true) {
-				this.prefetchAttachmentFile(record);
-			}
-		}, this);
-	},
-
-	/**
 	 * Event handler for the {@link #render} event. Registers the native
 	 * <tt>dragstart</tt> (and, when the drag-out feature is enabled,
 	 * <tt>mouseover</tt>) listeners on the view element so that attachments can
