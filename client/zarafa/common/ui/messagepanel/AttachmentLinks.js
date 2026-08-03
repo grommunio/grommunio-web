@@ -420,9 +420,13 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 
 		// Build an absolute URL; DownloadURL requires a fully qualified URL.
 		var url = record.getAttachmentUrl();
-		if (url && url.indexOf('://') === -1) {
-			var loc = window.location;
-			url = loc.protocol + '//' + loc.host + (url.charAt(0) === '/' ? '' : loc.pathname.replace(/[^/]*$/, '')) + url;
+		if (!Ext.isEmpty(url)) {
+			try {
+				url = new URL(url, window.location.href).href;
+			} catch (e) {
+				// Not a resolvable URL; continue without the OS drop payload.
+				url = '';
+			}
 		}
 
 		// (1) Custom type for dropping into a cooperating web application. Only
