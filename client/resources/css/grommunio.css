@@ -2977,12 +2977,12 @@ span.preview-header-sender-image {
     overflow: hidden;
     text-overflow: ellipsis; }
   .zarafa-calendar-container-header .k-html-header-background .k-today .k-cal-header-title {
-    background: #5ebb4b;
+    background: var(--theme-primary-color);
     color: #ffffff; }
   .zarafa-calendar-container-header .k-html-header-background .k-active-border {
-    border-right: 1px solid #5ebb4b; }
+    border-right: 1px solid var(--theme-primary-color); }
   .zarafa-calendar-container-header .k-html-header-background .k-today:first-child {
-    border-left: 1px solid #5ebb4b; }
+    border-left: 1px solid var(--theme-primary-color); }
 /* Mute inactive (non-selected) calendar headers */
 .zarafa-calendar-container-header .k-html-header-background.k-inactive-calendar {
   opacity: 0.55; }
@@ -2999,9 +2999,9 @@ span.preview-header-sender-image {
     border-style: solid;
     position: relative; }
     .zarafa-calendar-container-body .k-html-body-background > div.k-active-border {
-      border-color: #5ebb4b; }
+      border-color: var(--theme-primary-color); }
   .zarafa-calendar-container-body .k-html-body-background .k-today.k-day-0 {
-    border-left: 1px solid #5ebb4b; }
+    border-left: 1px solid var(--theme-primary-color); }
 .zarafa-calendar-container-body .k-html-body-appointment {
   position: absolute;
   top: 0; }
@@ -3011,6 +3011,7 @@ span.preview-header-sender-image {
   color: black;
   box-sizing: border-box;
   border: 1px solid #ffffff;
+  border-radius: 4px;
   cursor: move;
   z-index: 100; }
   .k-appointment-box .k-status {
@@ -3042,6 +3043,7 @@ span.preview-header-sender-image {
     float: left;
     border-width: 1px 0 1px 1px;
     border-style: solid;
+    border-radius: 3px 0 0 3px;
     box-sizing: border-box;
     margin-right: 3px; }
     .k-appointment-box .k-status.k-status-tentative {
@@ -3097,14 +3099,14 @@ span.preview-header-sender-image {
     z-index: 10;
     margin-left: 1px; }
   .zarafa-calendar-boxview .zarafa-calendar-container-body .k-html-body-background .k-action-border {
-    border-right-color: #5ebb4b !important; }
+    border-right-color: var(--theme-primary-color) !important; }
   .zarafa-calendar-boxview .zarafa-calendar-container-body .k-html-body-background .k-today {
-    border-color: #5ebb4b !important;
+    border-color: var(--theme-primary-color) !important;
     border-left-width: 2px;
     border-right-width: 3px;
     border-bottom-width: 3px; }
     .zarafa-calendar-boxview .zarafa-calendar-container-body .k-html-body-background .k-today .k-header {
-      background: #5ebb4b !important;
+      background: var(--theme-primary-color) !important;
       color: #ffffff; }
   .zarafa-calendar-boxview .zarafa-calendar-container-body .k-html-body-background .k-status-tentative {
     background-image: url(data:image/gif;base64,R0lGODlhCAAIAIABAP///wAAACH5BAEKAAEALAAAAAAIAAgAAAIPhIN2qRgKHIwPslZxpq8AADs=);
@@ -3161,10 +3163,9 @@ span.preview-header-sender-image {
  */
 .zarafa-calendar-timestrip {
   position: absolute;
-  background-color: #9fbf00;
-  background-color: #f7f3f7;
+  background-color: var(--ui-surface-2);
   overflow: hidden;
-  border-left: 1px solid black; }
+  border-left: 1px solid var(--ui-border); }
 
 .zarafa-calendar-timestrip-element {
   position: absolute;
@@ -3178,7 +3179,7 @@ span.preview-header-sender-image {
 .zarafa-calendar-timestrip-line {
   overflow: hidden;
   position: absolute;
-  background-color: var(--ui-surface-3);
+  background-color: var(--ui-border);
   margin-left: 24px; }
 
 .k-calendar-timestrip-indicator-icon {
@@ -3245,7 +3246,7 @@ span.preview-header-sender-image {
   position: relative; }
 
 .zarafa-calendar-tabarea-stroke.zarafa-calendar-tab-selected {
-  border-top-color: #5ebb4b; }
+  border-top-color: var(--theme-primary-color); }
 
 /* Business card view */
 div.zarafa-contact-cardview-selected {
@@ -3793,14 +3794,14 @@ body.zarafa-webclient > .ext-el-mask {
       .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body div.x-freebusy-timeline-day table.x-freebusy-timeline-day-sum tr.x-freebusy-timeline-hour td {
         border-bottom: none; }
     .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current {
-      border-right-color: #5ebb4b; }
+      border-right-color: var(--theme-primary-color); }
       .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current table {
-        border-color: #5ebb4b; }
+        border-color: var(--theme-primary-color); }
         .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current table tr.x-freebusy-timeline-day td {
-          background: #5ebb4b;
+          background: var(--theme-primary-color);
           color: #ffffff; }
         .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current table tr.x-freebusy-timeline-hour td:first-child {
-          border-left-color: #5ebb4b; }
+          border-left-color: var(--theme-primary-color); }
       .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current table.x-freebusy-timeline-day-sum {
         border-top-color: var(--ui-border); }
   .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-body .x-freebusy-timeline-day table {
@@ -3812,9 +3813,9 @@ body.zarafa-webclient > .ext-el-mask {
       border-left: 1px solid var(--ui-border);
       box-sizing: border-box; }
   .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-body .x-freebusy-background .x-freebusy-timeline-day.x-freebusy-timeline-day-current {
-    border-right-color: #5ebb4b; }
+    border-right-color: var(--theme-primary-color); }
     .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-body .x-freebusy-background .x-freebusy-timeline-day.x-freebusy-timeline-day-current td:first-child {
-      border-left-color: #5ebb4b; }
+      border-left-color: var(--theme-primary-color); }
   .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-timeline-block-free {
     background-color: #EEE; }
   .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-timeline-block-tentative {
@@ -4994,7 +4995,7 @@ body.zarafa-webclient > .ext-el-mask {
     .x-date-picker .x-date-inner td.x-date-weeknumber {
       border-right: 1px solid var(--ui-border); }
       .x-date-picker .x-date-inner td.x-date-weeknumber a {
-        color: #5ebb4b; }
+        color: var(--theme-primary-color); }
     .x-date-picker .x-date-inner td:not(.x-date-weeknumber) {
       cursor: default; }
       .x-date-picker .x-date-inner td:not(.x-date-weeknumber) a {
@@ -5024,8 +5025,8 @@ body.zarafa-webclient > .ext-el-mask {
     .x-date-picker .x-date-inner td.x-date-weeknumber a:hover {
       background-color: transparent; }
     .x-date-picker .x-date-inner td.x-date-today a {
-      background-color: #5ebb4b;
-      border-color: #5ebb4b;
+      background-color: var(--theme-primary-color);
+      border-color: var(--theme-primary-color);
       border-width: 1px;
       color: #ffffff; }
     .x-date-picker .x-date-inner td.x-date-today:not(.x-date-selected) a:hover {
@@ -5055,9 +5056,9 @@ body.zarafa-webclient > .ext-el-mask {
     .x-date-picker .x-date-mp table td.x-date-mp-ybtn a.x-date-mp-next:hover {
       background-color: var(--ui-surface-3); }
     .x-date-picker .x-date-mp table td.x-date-mp-sel a {
-      background: #5ebb4b;
+      background: var(--theme-primary-color);
       color: #ffffff;
-      border-color: #5ebb4b; }
+      border-color: var(--theme-primary-color); }
     .x-date-picker .x-date-mp table td.x-date-mp-sep {
       border-right: 1px solid var(--ui-border); }
     .x-date-picker .x-date-mp table tr.x-date-mp-btns {
@@ -5078,7 +5079,7 @@ body.zarafa-webclient > .ext-el-mask {
           min-width: 84px;
           margin-right: 6px; }
         .x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-ok {
-          background: #5ebb4b;
+          background: var(--theme-primary-color);
           color: #ffffff; }
         .x-date-picker .x-date-mp table tr.x-date-mp-btns td button:hover {
           background: var(--ui-border-strong); }
@@ -6043,10 +6044,10 @@ body {
   --theme-primary-color: #1976d2;
   --theme-primary-hover: #1976d2;
   --theme-primary-dark: #065fa5;
-  --theme-selection-bg: #d5e8f7;
-  --theme-border-color: #e3f2fd;
-  --theme-border-hover: #64b5f6;
-  --theme-panel-bg: #e3f2fd;
+  --theme-selection-bg: color-mix(in srgb, var(--theme-primary-color) 13%, #ffffff);
+  --theme-border-color: color-mix(in srgb, var(--theme-primary-color) 10%, #ffffff);
+  --theme-border-hover: color-mix(in srgb, var(--theme-primary-color) 45%, #ffffff);
+  --theme-panel-bg: color-mix(in srgb, var(--theme-primary-color) 6%, #ffffff);
   --theme-gradient-start: #009FFD;
   --theme-gradient-end: #2a2a72;
 
@@ -6065,10 +6066,6 @@ body.theme-purple {
   --theme-primary-color: #702277;
   --theme-primary-hover: #541959;
   --theme-primary-dark: #490e67;
-  --theme-selection-bg: #e9ddf1;
-  --theme-border-color: #f3f1f4;
-  --theme-border-hover: #d7d3d9;
-  --theme-panel-bg: #f3f1f4;
   --theme-gradient-start: #5a1b5f;
   --theme-gradient-end: #952d9d;
 }
@@ -6078,10 +6075,6 @@ body.theme-orange {
   --theme-primary-color: #dc7100;
   --theme-primary-hover: #d06c00;
   --theme-primary-dark: #ec8354;
-  --theme-selection-bg: #fce8ce;
-  --theme-border-color: #fef3e9;
-  --theme-border-hover: #f8c49a;
-  --theme-panel-bg: #fef3e9;
   --theme-gradient-start: #9c5000;
   --theme-gradient-end: #dc7100;
 }
@@ -6091,10 +6084,6 @@ body.theme-lime {
   --theme-primary-color: #6da208;
   --theme-primary-hover: #5d8907;
   --theme-primary-dark: #82ba00;
-  --theme-selection-bg: #e1f5b2;
-  --theme-border-color: #f0f8db;
-  --theme-border-hover: #b3e048;
-  --theme-panel-bg: #f0f8db;
   --theme-gradient-start: #456505;
   --theme-gradient-end: #6da208;
 }
@@ -6104,10 +6093,6 @@ body.theme-magenta {
   --theme-primary-color: #e20074;
   --theme-primary-hover: #800645;
   --theme-primary-dark: #b8005e;
-  --theme-selection-bg: #fcdce9;
-  --theme-border-color: #fef0f5;
-  --theme-border-hover: #f5b3cc;
-  --theme-panel-bg: #fef0f5;
   --theme-gradient-start: #e20074;
   --theme-gradient-end: #e20074;
 }
@@ -6130,10 +6115,6 @@ body.theme-cyan {
   --theme-primary-color: #00bcd4;
   --theme-primary-hover: #00acc1;
   --theme-primary-dark: #0097a7;
-  --theme-selection-bg: #b2ebf2;
-  --theme-border-color: #e0f7fa;
-  --theme-border-hover: #4dd0e1;
-  --theme-panel-bg: #e0f7fa;
   --theme-gradient-start: #00acc1;
   --theme-gradient-end: #26c6da;
 }
@@ -6143,10 +6124,6 @@ body.theme-teal {
   --theme-primary-color: #009688;
   --theme-primary-hover: #00796b;
   --theme-primary-dark: #00695c;
-  --theme-selection-bg: #b2dfdb;
-  --theme-border-color: #e0f2f1;
-  --theme-border-hover: #4db6ac;
-  --theme-panel-bg: #e0f2f1;
   --theme-gradient-start: #00796b;
   --theme-gradient-end: #26a69a;
 }
@@ -6156,10 +6133,6 @@ body.theme-indigo {
   --theme-primary-color: #3f51b5;
   --theme-primary-hover: #303f9f;
   --theme-primary-dark: #283593;
-  --theme-selection-bg: #c5cae9;
-  --theme-border-color: #dee3ff;
-  --theme-border-hover: #7986cb;
-  --theme-panel-bg: #dee3ff;
   --theme-gradient-start: #303f9f;
   --theme-gradient-end: #5c6bc0;
 }
@@ -6169,10 +6142,6 @@ body.theme-red {
   --theme-primary-color: #d32f2f;
   --theme-primary-hover: #c62828;
   --theme-primary-dark: #b71c1c;
-  --theme-selection-bg: #ffcdd2;
-  --theme-border-color: #ffebee;
-  --theme-border-hover: #e57373;
-  --theme-panel-bg: #ffebee;
   --theme-gradient-start: #c62828;
   --theme-gradient-end: #e53935;
 }
@@ -6182,10 +6151,6 @@ body.theme-green {
   --theme-primary-color: #388e3c;
   --theme-primary-hover: #2e7d32;
   --theme-primary-dark: #1b5e20;
-  --theme-selection-bg: #c8e6c9;
-  --theme-border-color: #e8f5e9;
-  --theme-border-hover: #81c784;
-  --theme-panel-bg: #e8f5e9;
   --theme-gradient-start: #2e7d32;
   --theme-gradient-end: #43a047;
 }
@@ -6195,10 +6160,6 @@ body.theme-brown {
   --theme-primary-color: #795548;
   --theme-primary-hover: #6d4c41;
   --theme-primary-dark: #5d4037;
-  --theme-selection-bg: #d7ccc8;
-  --theme-border-color: #efebe9;
-  --theme-border-hover: #a1887f;
-  --theme-panel-bg: #efebe9;
   --theme-gradient-start: #6d4c41;
   --theme-gradient-end: #8d6e63;
 }
