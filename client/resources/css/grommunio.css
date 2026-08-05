@@ -516,7 +516,7 @@ button::-moz-focus-inner {
     .x-btn :is(.x-btn-small, .x-btn-medium, .x-btn-large) button {
       background-color: transparent;
       box-sizing: border-box;
-      color: #1d2939;
+      color: #000000;
       font-weight: 500; }
 
 /* hovered button */
@@ -531,7 +531,7 @@ button::-moz-focus-inner {
   background: #d5d9e2 !important;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); }
   .x-btn:is(.x-btn-over.x-btn-click, .x-btn-click) :is(.x-btn-small, .x-btn-medium, .x-btn-large) button {
-    color: #1d2939; }
+    color: #000000; }
 
 /* focused normal button */
 .x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-click) :is(.x-btn-small, .x-btn-medium, .x-btn-large) {
@@ -717,7 +717,7 @@ div.x-btn-group-bc {
   /* header */ }
   .x-panel .x-panel-header,
   .x-panel-ghost .x-panel-header {
-    color: #1d2939;
+    color: #000000;
     font-weight: 600;
     border-color: #e4e7ec;
     background: #f8f9fa;
@@ -980,7 +980,7 @@ body.Safari input[type="radio"] {
 .x-fieldset .x-panel-body {
   background: transparent !important; }
   .x-fieldset legend {
-    color: #344054;
+    color: #000000;
     padding: 0 8px;
     font-weight: 600;
     font-size: 13px;
@@ -1060,7 +1060,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.03em;
-      color: #666;
+      color: #000;
       overflow: visible;
       background: transparent;
       max-width: 100%;
@@ -1088,7 +1088,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   .x-grid3-hd-row td.sort-desc .x-grid3-hd-inner,
   .x-grid3-hd-row td.sort-asc .x-grid3-hd-inner {
     padding-right: 21px;
-    color: #333; }
+    color: #000; }
   .x-grid3-hd-row td.sort-desc .x-grid3-sort-icon,
   .x-grid3-hd-row td.sort-asc .x-grid3-sort-icon {
     width: 9px;
@@ -2343,7 +2343,7 @@ span.preview-header-sender-image {
   border-radius: 16px;
   border: 1px solid #d0d5dd;
   background-color: #f0f2f5;
-  color: #1d2939;
+  color: #000000;
   padding: 2px 10px;
   margin: 2px;
   box-shadow: none;
@@ -3249,7 +3249,7 @@ div.zarafa-contact-cardview-selected {
             height: 42px; }
           .x-window .x-window-tl .x-window-tr .x-window-tc .x-window-header .x-window-header-text,
           .x-panel-ghost .x-window-tl .x-window-tr .x-window-tc .x-window-header .x-window-header-text {
-            color: #1d2939;
+            color: #000000;
             font-weight: 600;
             line-height: 42px;
             display: block;
@@ -4366,7 +4366,7 @@ div.zarafa-contact-cardview-selected {
       border-bottom: 1px solid #e4e7ec !important;
       background: #f8f9fa !important;
       font-weight: 600 !important;
-      color: #1d2939 !important; }
+      color: #000000 !important; }
     #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-widget {
       margin-bottom: 12px;
       border-radius: 10px;
@@ -4382,7 +4382,7 @@ div.zarafa-contact-cardview-selected {
         border-radius: 0;
         background: #f8f9fa;
         font-weight: 600;
-        color: #1d2939; }
+        color: #000000; }
       #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-widget > .x-panel-bwrap > .x-panel-body {
         padding: 14px 16px; }
       #zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget.k-settings-nogap > .x-panel-bwrap > .x-panel-body {
@@ -4391,13 +4391,13 @@ div.zarafa-contact-cardview-selected {
       #zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-form-item {
         margin-bottom: 6px; }
       #zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-form-item label {
-        color: #475467;
+        color: #000000;
         font-weight: 500; }
       #zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-form-display-field {
-        color: #475467;
+        color: #000000;
         padding-top: 2px; }
       #zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-form-cb-label {
-        color: #344054;
+        color: #000000;
         font-weight: 400; }
       #zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .zarafa-compositefield .x-box-inner {
         display: flex;
@@ -4418,7 +4418,7 @@ div.zarafa-contact-cardview-selected {
         box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
       #zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-combo-list-item {
         padding: 6px 10px;
-        color: #344054; }
+        color: #000000; }
       #zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-combo-list-item:hover {
         background-color: #f2f4f7; }
       #zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-form-trigger-wrap {
@@ -4454,7 +4454,7 @@ div.zarafa-contact-cardview-selected {
     #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-widget:last-child {
       margin-bottom: 0; }
     #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .k-settings-label-minor {
-      opacity: 0.7;
+      opacity: 0.67;
       margin-left: 3px; }
     .k-settings-profile-widget .x-panel-body {
       padding: 0 !important; }
@@ -4481,14 +4481,14 @@ div.zarafa-contact-cardview-selected {
     .k-settings-profile-name {
       font-size: 18px;
       font-weight: 700;
-      color: #1d2939;
+      color: #000000;
       line-height: 1.3;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap; }
     .k-settings-profile-email {
       font-size: 13px;
-      color: #667085;
+      color: #555555;
       line-height: 1.4;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -4500,7 +4500,7 @@ div.zarafa-contact-cardview-selected {
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: #667085;
+      color: #000000;
       padding: 10px 0 4px;
       margin-top: 4px;
       border-top: 1px solid #e4e7ec; }
@@ -4525,12 +4525,12 @@ div.zarafa-contact-cardview-selected {
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: #717d8f;
+      color: #000000;
       padding-bottom: 8px;
       border-bottom: 1px solid #e4e7ec;
       margin-bottom: 8px; }
     .k-settings-about-info {
-      color: #667085;
+      color: #000000;
       font-size: 13px;
       line-height: 2; }
     .k-settings-about-info > span {
@@ -4538,10 +4538,10 @@ div.zarafa-contact-cardview-selected {
     .k-settings-about-info > span:not(:last-child)::after {
       content: '\00b7';
       margin: 0 10px;
-      color: #98a2b3;
+      color: #555555;
       font-weight: bold; }
     .k-settings-about-info b {
-      color: #1d2939;
+      color: #000000;
       margin-right: 5px; }
     .k-settings-about-reset-btn {
       margin: 0 16px 12px; }
@@ -4569,7 +4569,7 @@ div.zarafa-contact-cardview-selected {
       border-radius: 6px;
       margin-bottom: 4px; }
     #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-about-text {
-      color: #475467;
+      color: #000000;
       line-height: 1.6; }
     #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-about-text p {
       padding-bottom: 1em; }
@@ -4577,7 +4577,7 @@ div.zarafa-contact-cardview-selected {
       margin-bottom: 0.5em;
       margin-top: 0.5em;
       font-size: 1.2em !important;
-      color: #1d2939; }
+      color: #000000; }
     #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-about-text a {
       background: none;
       color: #1e88e5;
@@ -4657,7 +4657,7 @@ div.zarafa-contact-cardview-selected {
   font-size: 12px;
   font-weight: 500;
   line-height: 18px;
-  color: #344054;
+  color: #000000;
   background: #f9fafb;
   border: 1px solid #d0d5dd;
   border-bottom-width: 2px;
@@ -4671,7 +4671,7 @@ div.zarafa-contact-cardview-selected {
   vertical-align: middle; }
 .keyboard-desc {
   display: inline-block;
-  color: #475467;
+  color: #000000;
   vertical-align: middle; }
 
 /* Out of office Category */
@@ -4689,12 +4689,12 @@ div.zarafa-contact-cardview-selected {
 .zarafa-settings-oof-subject .label-subject {
   line-height: 24px;
   padding-right: 6px;
-  color: #475467;
+  color: #000000;
   font-weight: 500; }
 
 .zarafa-settings-oof-autoreplay {
   padding: 9px 0 6px 0;
-  color: #475467;
+  color: #000000;
   font-weight: 500; }
 
 /* OOF tab panel inner padding */
@@ -5197,7 +5197,7 @@ body .k-category-block {
     margin-bottom: 0; }
   #zarafa-mainpanel-contentpanel-settings .k-rules-widget .k-store-picker label {
     width: auto;
-    color: #475467;
+    color: #000000;
     font-weight: 500;
     border: 1px solid transparent; }
 
@@ -6946,7 +6946,7 @@ input[type="radio"]:focus-visible {
   background: #f9fafb;
 }
 #zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-grid3-hd-inner {
-  color: #475467;
+  color: #000000;
   font-weight: 600;
   font-size: 12px;
 }

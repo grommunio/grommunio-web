@@ -80,7 +80,7 @@ Zarafa.core.ui.MainViewport = Ext.extend(Ext.Viewport, {
 					position: 'fixed', top: '5px', left: '5px',
 					width: 'auto', height: 'auto', clip: 'auto',
 					'white-space': 'normal', overflow: 'visible',
-					padding: '8px 16px', background: '#fff', color: '#1d2939',
+					padding: '8px 16px', background: '#fff', color: '#000000',
 					'font-size': '14px', 'font-weight': '600',
 					'border-radius': '4px', 'box-shadow': '0 2px 8px rgba(0,0,0,0.2)',
 					margin: '0'
