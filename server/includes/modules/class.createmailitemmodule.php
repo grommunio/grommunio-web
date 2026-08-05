@@ -325,7 +325,8 @@ class CreateMailItemModule extends ItemModule {
 				$context['copyInlineAttachmentsOnly'] = in_array($actionType, ['reply', 'replyall'], true);
 			}
 		}
-		elseif (isset($action['props']['sent_representing_email_address'], $action['props']['sent_representing_address_type'])) {
+		elseif (isset($action['props']['sent_representing_email_address'], $action['props']['sent_representing_address_type']) &&
+			strlen(trim($action['props']['sent_representing_email_address'])) !== 0) {
 			$addrType = $action['props']['sent_representing_address_type'];
 			if (strcasecmp($addrType, 'EX') === 0 || strcasecmp($addrType, 'SMTP') === 0) {
 				try {
