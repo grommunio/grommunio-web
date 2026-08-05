@@ -24,11 +24,18 @@ const resizeLoginBox = (function() {
 		bgEl.style.left = -left + 'px';
 	}
 
-	var img = document.createElement('img');
-	img.onload = function() {
+	// the background may be a plain gradient without an image to wait for
+	const show = function() {
 		cntEl.style.visibility = 'visible';
 	};
-	img.src = window.getComputedStyle(maskEl, false).backgroundImage.slice(4, -1).replace(/"/g, "");
+	const bgImage = /url\("?([^")]+)"?\)/.exec(window.getComputedStyle(maskEl, false).backgroundImage);
+	if (bgImage) {
+		const img = document.createElement('img');
+		img.onload = img.onerror = show;
+		img.src = bgImage[1];
+	} else {
+		show();
+	}
 
 	// call it once to initialize the elements
 	onResize();
