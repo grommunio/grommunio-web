@@ -107,7 +107,6 @@ Zarafa.plugins.files.data.Utils = {
 			var string = "";
 			var i = 0;
 			var c = 0
-			var c1 = 0;
 			var c2 = 0;
 			var c3 = 0;
 

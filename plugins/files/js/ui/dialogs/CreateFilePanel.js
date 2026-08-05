@@ -163,7 +163,7 @@ Zarafa.plugins.files.ui.dialogs.CreateFilePanel = Ext.extend(Ext.Panel, {
 			body: JSON.stringify({ "name": fileName + this.filetype, "dir": dir }),
 		}).then(async res => {
 			const result = await res.json();
-			const { id, name, size, type, path } = result;
+			const { id, name, size, type } = result;
 			var record = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_FILES, {
 				"object_type": Zarafa.plugins.files.data.FileTypes.FILE,
 				'folder_id': dir,

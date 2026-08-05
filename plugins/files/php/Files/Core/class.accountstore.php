@@ -14,7 +14,6 @@ require_once __DIR__ . "/../Backend/class.backendstore.php";
 require_once __DIR__ . "/../Backend/class.exception.php";
 
 use Files\Backend\BackendStore;
-use Files\Backend\Exception as BackendException;
 use Files\Core\Util\Logger;
 
 class AccountStore {
