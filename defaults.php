@@ -767,3 +767,8 @@ if (!defined('ADMIN_API_ENDPOINT')) {
 if (!defined('ADMIN_API_STATUS_ENDPOINT')) {
 	define('ADMIN_API_STATUS_ENDPOINT', ADMIN_API_ENDPOINT . 'status');
 }
+
+// The grommunio admin API disabled plugins endpoint
+if (!defined('ADMIN_API_DISABLEDPLUGINS_ENDPOINT')) {
+	define('ADMIN_API_DISABLEDPLUGINS_ENDPOINT', ADMIN_API_ENDPOINT . 'disabledPluginsOfUser?username=');
+}

@@ -73,9 +73,17 @@ if (!WebAppAuthentication::isAuthenticated()) {
 	exit;
 }
 
+// get the disabled plugin list from the config and admin-api
+$disabledPlugins = DISABLED_PLUGINS_LIST;
+$res = @json_decode(@file_get_contents(
+	ADMIN_API_DISABLEDPLUGINS_ENDPOINT . $GLOBALS["mapisession"]->getUserName(), false), true);
+if (isset($res['data'])) {
+	$disabledPlugins .= ';' . implode(';', $res['data']);
+}
+
 // Instantiate Plugin Manager
 $GLOBALS['PluginManager'] = new PluginManager(ENABLE_PLUGINS);
-$GLOBALS['PluginManager']->detectPlugins(DISABLED_PLUGINS_LIST);
+$GLOBALS['PluginManager']->detectPlugins($disabledPlugins);
 
 // Initialize plugins and prevent any output which might be written as
 // plugins might be uncleanly output white-space and other stuff. We must
