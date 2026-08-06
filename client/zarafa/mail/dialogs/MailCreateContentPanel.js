@@ -127,7 +127,7 @@ Zarafa.mail.dialogs.MailCreateContentPanel = Ext.extend(Zarafa.core.ui.MessageCo
 		}
 
 		if (this.isSaving && !this.isSending) {
-			this.savingEl = container.getNotifier().notify('info.mailsaving', _('Saving…'), {
+			this.savingEl = container.getNotifier().notify('info.mailsaving', '', _('Saving…'), {
 				toolbar: this.mainPanel.getTopToolbar()
 			});
 		} else {
@@ -152,7 +152,7 @@ Zarafa.mail.dialogs.MailCreateContentPanel = Ext.extend(Zarafa.core.ui.MessageCo
 		// If there isn't any message action set on the record, then it's just the save mail action.
 		if (this.isSaving && !this.isSending) {
 			var message = (success) ? String.format(_('Saved at {0}'), this.record.get('last_modification_time').formatDefaultTime()) : _('Saving failed');
-			container.getNotifier().notify('info.mailsaved', message, {
+			container.getNotifier().notify('info.mailsaved', '', message, {
 				toolbar: this.mainPanel.getTopToolbar()
 			});
 		} else {

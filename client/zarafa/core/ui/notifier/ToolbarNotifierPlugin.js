@@ -11,22 +11,23 @@ Ext.namespace('Zarafa.core.ui.notifier');
  */
 Zarafa.core.ui.notifier.ToolbarNotifierPlugin = Ext.extend(Zarafa.core.ui.notifier.NotifyPlugin, {
 	/**
-	 * Send a notification to the user. This {@link #getPlugin requests} the plugin for the provided category.
-	 * On the plugin the {@link Zarafa.core.ui.notifier.NotifyPlugin#notify notify} function is called to display
-	 * the message to the user. If no plugin could be found for
-	 * the given category, then no message will be shown to the user.
+	 * Notify the user with a message.
+	 *
+	 * The category can be either "error", "warning", "info" or "debug", or a subtype thereof (e.g. "info.newmail").
 	 *
 	 * @param {String} category The category which applies to the notification.
+	 * @param {String} title The title which must be shown in the message. This
+	 * notifier has room for the message only, so the title is not shown.
 	 * @param {String} message The message which should be displayed.
 	 * @param {Object} config Configuration object which can be applied to the notifier
 	 * This object can contain keys like:
 	 * - toolbar: {@link Ext.Toolbar Toolbar} in which notification message will be added,
 	 * notification message will be added at right most of the toolbar.
 	 */
-	notify: function(category, message, config)
+	notify: function(category, title, message, config)
 	{
 		if(category == 'info.mailsaving' || category == 'info.mailsaved') {
-			if (config.toolbar) {
+			if (config && config.toolbar) {
 				if(!config.toolbar.saveMessageText) {
 					var addInfoText = [{
 							xtype: 'tbfill'
