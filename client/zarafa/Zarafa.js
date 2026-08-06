@@ -831,6 +831,70 @@ Ext.apply(Zarafa, {
 
 		// Shared stores unread email poller
 		this.startSharedStoresHierarchyChecker();
+
+		// Preload the per-mailbox master category list for every open store.
+		this.prefetchCategoryLists();
+	},
+
+	/**
+	 * Preload the per-mailbox category list ({@link Zarafa.common.categories.CategoryListManager})
+	 * for every currently open store, and for any store opened later (e.g. a
+	 * shared mailbox). Each mailbox has its own list, so categories on its
+	 * messages resolve against that mailbox rather than the current user's.
+	 * @private
+	 */
+	prefetchCategoryLists: function()
+	{
+		var manager = Zarafa.common.categories.CategoryListManager;
+		if ( !manager ) {
+			return;
+		}
+
+		// A store's list arrives asynchronously; re-render visible grids so a
+		// grid rendered before its list loaded picks up the correct colours.
+		manager.on('load', this.onCategoryListLoaded, this);
+
+		var hierarchyStore = container.getHierarchyStore();
+		var loadForRecords = function(records) {
+			Ext.each(records, function(storeRecord) {
+				var storeEntryId = storeRecord.get('store_entryid');
+				if ( storeEntryId ) {
+					manager.load(storeEntryId);
+				}
+			});
+		};
+
+		loadForRecords(hierarchyStore.getRange());
+
+		// Stores opened after boot (shared mailboxes) also get their list.
+		hierarchyStore.on('add', function(store, records) {
+			loadForRecords(records);
+		}, this);
+	},
+
+	/**
+	 * Handler for {@link Zarafa.common.categories.CategoryListManager#load}.
+	 * Re-renders any currently visible grid so category colours resolved
+	 * against a just-loaded per-mailbox list are applied. Best-effort and fully
+	 * guarded: a category list also applies on the next navigation regardless.
+	 * @private
+	 */
+	onCategoryListLoaded: function()
+	{
+		try {
+			var contentPanel = container.getContentPanel();
+			if ( !contentPanel || !Ext.isFunction(contentPanel.findByType) ) {
+				return;
+			}
+			Ext.each(contentPanel.findByType('grid'), function(grid) {
+				var view = Ext.isFunction(grid.getView) ? grid.getView() : null;
+				if ( view && Ext.isFunction(view.refresh) ) {
+					view.refresh();
+				}
+			});
+		} catch (e) {
+			// Ignore: the list will apply on the next grid render anyway.
+		}
 	},
 
 	/**

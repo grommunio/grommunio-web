@@ -71,7 +71,7 @@ Zarafa.common.categories.Util = {
 		// be shown as categories.
 		if ( record.get('flag_status')===Zarafa.core.mapi.FlagStatus.flagged && record.get('flag_request')!=='Follow up' ){
 			var flagColor = record.get('flag_icon');
-			var flagCategoryName = this.getCategoryNameByFlagColor(flagColor);
+			var flagCategoryName = this.getCategoryNameByFlagColor(flagColor, record.get('store_entryid'));
 
 			// The flag could already be set as a real category. In that case
 			// we will not add it again.
@@ -99,18 +99,15 @@ Zarafa.common.categories.Util = {
 			}
 		}
 
-		// Instantiate the category store only once. If any changes are done to the
-		// managed category list, the code that did the change must call {#loadCategoriesStore}!
-		if ( !this.categoriesStore ){
-			this.loadCategoriesStore();
-		}
-
-		// If a category exists in the managed category list we must make sure we will use
-		// the name in the list to avoid case sensitivity issues.
+		// If a category exists in the managed category list we must make sure we
+		// will use the name in the list to avoid case sensitivity issues. Resolve
+		// against the record's own mailbox list so items in a shared mailbox
+		// normalise against that mailbox rather than the current user's list.
+		var categoriesStore = this.getCategoriesStoreForId(record.get('store_entryid'));
 		categories = categories.map(function(category){
-			var index = this.categoriesStore.findExactCaseInsensitive('category', category);
+			var index = categoriesStore.findExactCaseInsensitive('category', category);
 			if ( index>=0 ){
-				return this.categoriesStore.getAt(index).get('category');
+				return categoriesStore.getAt(index).get('category');
 			}
 
 			return category;
@@ -336,8 +333,23 @@ Zarafa.common.categories.Util = {
 	 * @param {Zarafa.core.mapi.FlagIcon} flagColorIndex The flag color
 	 * @return {String} The matching category name
 	 */
-	getCategoryNameByFlagColor: function(flagColorIndex)
+	getCategoryNameByFlagColor: function(flagColorIndex, storeEntryId)
 	{
+		// Prefer the per-mailbox list when it has been loaded.
+		if ( storeEntryId && Zarafa.common.categories.CategoryListManager ){
+			var perStore = Zarafa.common.categories.CategoryListManager.getCategoriesStore(storeEntryId);
+			if ( perStore ){
+				var name = '';
+				perStore.each(function(category){
+					if ( category.get('standardIndex') === flagColorIndex ){
+						name = category.get('category');
+						return false;
+					}
+				});
+				return name;
+			}
+		}
+
 		var settingsModel = container.getPersistentSettingsModel();
 		var categories = settingsModel.get('grommunio/main/categories', true);
 		var retVal = '';
@@ -358,22 +370,49 @@ Zarafa.common.categories.Util = {
 	},
 
 	/**
-	 * Returns the color (css) for the given category
+	 * Returns the {@link Zarafa.common.categories.data.CategoriesStore} that holds
+	 * the available categories for the given mailbox. When that mailbox's list has
+	 * been loaded by {@link Zarafa.common.categories.CategoryListManager} it is
+	 * used; otherwise the shared per-user store is returned as a fallback.
 	 *
-	 * @param {String} category The category name
-	 * @return {String} The color of the category (hex code)
+	 * @param {String} storeEntryId (optional) The entryid of the mailbox
+	 * @return {Zarafa.common.categories.data.CategoriesStore}
 	 */
-	getCategoryColor: function(category)
+	getCategoriesStoreForId: function(storeEntryId)
 	{
-		// Instantiate the category store only once. If any changes are done to the
-		// categories, the code that did the change must call {#loadCategoriesStore}!
+		if ( storeEntryId && Zarafa.common.categories.CategoryListManager ){
+			var perStore = Zarafa.common.categories.CategoryListManager.getCategoriesStore(storeEntryId);
+			if ( perStore ){
+				return perStore;
+			}
+		}
+
+		// Instantiate the fallback (per-user) category store only once. If any
+		// changes are done to it, the code that did the change must call
+		// {#loadCategoriesStore}!
 		if ( !this.categoriesStore ){
 			this.loadCategoriesStore();
 		}
 
-		var catIndex = this.categoriesStore.findExactCaseInsensitive('category', category);
+		return this.categoriesStore;
+	},
+
+	/**
+	 * Returns the color (css) for the given category
+	 *
+	 * @param {String} category The category name
+	 * @param {String} storeEntryId (optional) The entryid of the mailbox whose
+	 * category list should resolve the colour. When omitted (or not yet loaded)
+	 * the shared per-user list is used.
+	 * @return {String} The color of the category (hex code)
+	 */
+	getCategoryColor: function(category, storeEntryId)
+	{
+		var categoriesStore = this.getCategoriesStoreForId(storeEntryId);
+
+		var catIndex = categoriesStore.findExactCaseInsensitive('category', category);
 		if ( catIndex > -1 ){
-			return this.categoriesStore.getAt(catIndex).get('color');
+			return categoriesStore.getAt(catIndex).get('color');
 		}
 
 		return Zarafa.common.categories.Util.defaultCategoryColor;
@@ -410,7 +449,7 @@ Zarafa.common.categories.Util = {
 	 * @param {String} categories The category name
 	 * @return {String} The html of the categories as colored blocks
 	 */
-	getCategoriesHtml: function(categories)
+	getCategoriesHtml: function(categories, storeEntryId)
 	{
 		// Compile the template string if not done yet
 		if (Ext.isString(this.categoriesHtmlTemplate)) {
@@ -422,7 +461,7 @@ Zarafa.common.categories.Util = {
 		var data = categories.map(function(category){
 			var dataEntry = {
 				name: Ext.util.Format.htmlEncode(category),
-				backgroundColor: this.getCategoryColor(category)
+				backgroundColor: this.getCategoryColor(category, storeEntryId)
 			};
 			if ( dataEntry.backgroundColor ){
 				dataEntry.colorClass = Zarafa.core.ColorSchemes.getLuma(dataEntry.backgroundColor) < 200 ? 'zarafa-dark' : '';

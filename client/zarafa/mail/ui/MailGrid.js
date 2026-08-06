@@ -255,7 +255,7 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 				// Render the categories
 				cssClass += ' with-categories';
 				var categories = Zarafa.common.categories.Util.getCategories(record);
-				var categoriesHtml = Zarafa.common.categories.Util.getCategoriesHtml(categories);
+				var categoriesHtml = Zarafa.common.categories.Util.getCategoriesHtml(categories, record.get('store_entryid'));
 				rowParams.body += '<div class="k-category-add-container"><span class="k-category-add"></span></div><div class="k-category-container">' + categoriesHtml + '</div>';
 			}
 

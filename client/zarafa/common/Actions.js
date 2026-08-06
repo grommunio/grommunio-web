@@ -269,6 +269,12 @@ Zarafa.common.Actions = {
 			modal: true
 		});
 
+		// The categories are managed per mailbox: edit the list of the mailbox
+		// the selected record(s) live in.
+		if ( !Ext.isDefined(config.storeEntryId) && Ext.isFunction(records[0].get) ) {
+			config.storeEntryId = records[0].get('store_entryid');
+		}
+
 		// Callback function added in config object if
 		// selected records is belongs to search store.
 		var store = records[0].getStore();

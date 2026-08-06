@@ -16,6 +16,12 @@ Zarafa.common.categories.dialogs.NewCategoryPanel = Ext.extend(Zarafa.core.ui.Co
 	store: null,
 
 	/**
+	 * @cfg {String} storeEntryId The entryid of the mailbox whose category list
+	 * the new category should be added to. Used when no {@link #store} is given.
+	 */
+	storeEntryId: null,
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
@@ -128,22 +134,26 @@ Zarafa.common.categories.dialogs.NewCategoryPanel = Ext.extend(Zarafa.core.ui.Co
 			return;
 		}
 
-		var categoryStore = new Zarafa.common.categories.data.CategoriesStore();
 		var categoryColor = this.formPanel.color.getValue();
 		var quickAccess = this.formPanel.pin.getValue();
 
-		// Add the new category to our temporary store and use it to save it.
-		categoryStore.addCategory(categoryName, categoryColor, quickAccess);
-		categoryStore.save();
-
-		// Also add the new category to the store of the grid in the manage category dialog
+		// Write to the manage dialog's store when present (it is the per-mailbox
+		// list); otherwise create a store for the active mailbox. Either way the
+		// new category lands in the right mailbox's list.
 		if ( Ext.isDefined(this.store) ){
 			this.store.addCategory(categoryName, categoryColor, quickAccess);
+			this.store.save();
 
 			// scroll the new category into view, put the focus on it and select it
 			var rowIndex = this.store.findExact('category', categoryName);
 			this.grid.getView().focusRow(rowIndex);
 			this.grid.getSelectionModel().selectRow(rowIndex, true);
+		} else {
+			var categoryStore = new Zarafa.common.categories.data.CategoriesStore(
+				this.storeEntryId ? { storeEntryId: this.storeEntryId } : undefined
+			);
+			categoryStore.addCategory(categoryName, categoryColor, quickAccess);
+			categoryStore.save();
 		}
 
 		// Update the categoriesStore in Zarafa.common.categories.Util to make sure

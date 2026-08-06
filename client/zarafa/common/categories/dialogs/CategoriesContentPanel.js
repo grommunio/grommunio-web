@@ -72,6 +72,7 @@ Zarafa.common.categories.dialogs.CategoriesContentPanel = Ext.extend(Zarafa.core
 			items: [{
 				xtype: 'zarafa.categoriespanel',
 				record: config.record,
+				storeEntryId: config.storeEntryId,
 				ref: 'categoriesPanel',
 				buttons: [{
 					text: _('Apply'),
@@ -175,9 +176,11 @@ Zarafa.common.categories.dialogs.CategoriesContentPanel = Ext.extend(Zarafa.core
 	 */
 	onNew: function()
 	{
+		var gridStore = this.categoriesPanel.categoriesGrid.getStore();
 		Zarafa.common.Actions.openNewCategoryContent({
-			store: this.categoriesPanel.categoriesGrid.getStore(),
-			grid: this.categoriesPanel.categoriesGrid
+			store: gridStore,
+			grid: this.categoriesPanel.categoriesGrid,
+			storeEntryId: gridStore.storeEntryId
 		});
 	},
 

@@ -172,9 +172,11 @@ Zarafa.common.ui.grid.Renderers = {
 	 */
 	categories: function(value, p, record)
 	{
-		// Render the categories
+		// Render the categories, resolving colours against the record's own
+		// mailbox category list (per-mailbox, Outlook-compatible).
+		var storeEntryId = record && Ext.isFunction(record.get) ? record.get('store_entryid') : undefined;
 		var categories = Zarafa.common.categories.Util.getCategories(record);
-		return Zarafa.common.categories.Util.getCategoriesHtml(categories);
+		return Zarafa.common.categories.Util.getCategoriesHtml(categories, storeEntryId);
 	},
 
 	/**
