@@ -96,6 +96,21 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 			ref: '../downButton',
 			handler: this.onRuleSequenceDown,
 			scope: this
+		}, '->', {
+			xtype: 'button',
+			text: _('Run selected'),
+			tooltip: _('Run the selected rule on the messages in a folder'),
+			disabled: true,
+			ref: '../runButton',
+			handler: this.onRuleRunSelected,
+			scope: this
+		}, {
+			xtype: 'button',
+			text: _('Run all'),
+			tooltip: _('Run all active rules on the messages in a folder'),
+			ref: '../runAllButton',
+			handler: this.onRuleRunAll,
+			scope: this
 		},
 			container.populateInsertionPoint('settings.rules.action.last')
 		];
@@ -260,6 +275,7 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 
 		this.removeButton.setDisabled(noSelection);
 		this.editButton.setDisabled(noSelection);
+		this.runButton.setDisabled(noSelection);
 
 		this.upButton.setDisabled(!selectionModel.hasPrevious());
 		this.downButton.setDisabled(!selectionModel.hasNext());
@@ -411,6 +427,102 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 		var sm = this.getSelectionModel();
 		this.upButton.setDisabled(!sm.hasPrevious());
 		this.downButton.setDisabled(!sm.hasNext());
+	},
+
+	/**
+	 * Handler for the 'Run selected' button. Runs only the currently selected
+	 * rule on the messages already present in a user-chosen folder.
+	 * @private
+	 */
+	onRuleRunSelected: function()
+	{
+		var ruleRecord = this.getSelectionModel().getSelected();
+		if (!ruleRecord) {
+			container.getNotifier().notify('error.rules', _('Error'), _('Please select a rule.'));
+			return;
+		}
+
+		this.runRules([ ruleRecord.get('rule_id') ]);
+	},
+
+	/**
+	 * Handler for the 'Run all' button. Runs all active rules on the messages
+	 * already present in a user-chosen folder.
+	 * @private
+	 */
+	onRuleRunAll: function()
+	{
+		// An empty rule list instructs the server to run all enabled rules.
+		this.runRules([]);
+	},
+
+	/**
+	 * Opens a folder selection dialog and, once a folder is chosen, requests
+	 * the server to apply the given rules to the messages in that folder.
+	 * @param {Array} ruleIds The rule_id values to run, or an empty array to
+	 * run all active rules.
+	 * @private
+	 */
+	runRules: function(ruleIds)
+	{
+		Zarafa.hierarchy.Actions.openFolderSelectionContent({
+			hideTodoList: true,
+			callback: this.onRunFolderSelected.createDelegate(this, [ ruleIds ], true),
+			scope: this,
+			modal: true
+		});
+	},
+
+	/**
+	 * Callback for the folder selection dialog. Dispatches the 'apply' request
+	 * to the rules module for the selected folder.
+	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The chosen folder
+	 * @param {Array} ruleIds The rule_id values to run (empty for all rules)
+	 * @private
+	 */
+	onRunFolderSelected: function(folder, ruleIds)
+	{
+		if (!folder) {
+			return;
+		}
+
+		container.getRequest().singleRequest('rulesmodule', 'apply', {
+			store_entryid: this.getStore().storeEntryId,
+			folder_entryid: folder.get('entryid'),
+			rule_ids: ruleIds
+		}, new Zarafa.core.data.AbstractResponseHandler({
+			doApply: this.onRulesApplied.createDelegate(this),
+			doError: this.onRulesApplyError.createDelegate(this)
+		}));
+	},
+
+	/**
+	 * Success handler for the 'apply' request. Notifies the user with a short
+	 * summary of what the rule run did.
+	 * @param {Object} response The response data containing the run counts
+	 * @private
+	 */
+	onRulesApplied: function(response)
+	{
+		var affected = (response.moved || 0) + (response.copied || 0) +
+			(response.deleted || 0) + (response.marked_read || 0) + (response.tagged || 0);
+
+		var msg = String.format(ngettext('{0} message was affected.', '{0} messages were affected.', affected), affected);
+		if (response.skipped_actions > 0) {
+			msg += ' ' + String.format(ngettext('{0} action was skipped.', '{0} actions were skipped.', response.skipped_actions), response.skipped_actions);
+		}
+
+		container.getNotifier().notify('info.rules', _('Rules applied'), msg);
+	},
+
+	/**
+	 * Error handler for the 'apply' request.
+	 * @param {Object} response The error response
+	 * @private
+	 */
+	onRulesApplyError: function(response)
+	{
+		container.getNotifier().notify('error.rules', _('Error'), _('Could not apply rules.'));
 	}
 });
 
