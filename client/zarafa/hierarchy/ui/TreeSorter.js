@@ -137,6 +137,22 @@ Zarafa.hierarchy.ui.TreeSorter = Ext.extend(Ext.tree.TreeSorter, {
 			}
 		}
 
+		// The user can give the shared stores an explicit order by dragging them in the
+		// hierarchy, and that order wins over the alphabetical one below. This is checked
+		// for every pair of top level nodes, not only for two IPM_SUBTREEs: in a filtered
+		// tree such as the calendar folder list a shared store is represented by its
+		// visible folders rather than by its IPM_SUBTREE, and those must follow the same
+		// order. Nodes passed to a sort function always share a parent, so testing one of
+		// them is enough. {@link Zarafa.hierarchy.data.StoreOrder#compareStores} returns 0
+		// unless both stores are ones the user may reorder, which is what keeps the own
+		// and the Public store in place here.
+		if (node1.parentNode && node1.parentNode.isRoot === true) {
+			var orderCmp = Zarafa.hierarchy.data.StoreOrder.compareStores(store1, store2);
+			if (orderCmp !== 0) {
+				return dsc ? -orderCmp : orderCmp;
+			}
+		}
+
 		// If both folder 1 as folder 2 are root nodes (IPM_SUBTREE) then
 		// we sort by the storeProperty, allowing the sorting based on
 		// the display name of the user, rather then of the folder.
