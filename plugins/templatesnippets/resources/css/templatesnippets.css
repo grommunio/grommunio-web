@@ -34,7 +34,7 @@ body.dark-mode .icon_templatesnippets_user {
 .k-settings-templatesnippets-widget .k-templatesnippets-section-title {
   font-weight: 600 !important;
   font-size: 13px !important;
-  color: #344054 !important;
+  color: var(--ui-text-2) !important;
   padding: 10px 0 4px 0 !important;
 }
 body.dark-mode .k-settings-templatesnippets-widget .k-templatesnippets-section-title {
@@ -54,8 +54,8 @@ body.dark-mode .k-settings-templatesnippets-widget .k-templatesnippets-section-t
   border-radius: 0 !important;
 }
 .k-settings-templatesnippets-widget .k-templatesnippets-grid > .x-panel-bwrap > .x-panel-body {
-  border: 1px solid #e4e7ec !important;
-  border-radius: 6px !important;
+  border: 1px solid var(--ui-border) !important;
+  border-radius: var(--ui-radius-sm) !important;
   overflow: hidden;
 }
 body.dark-mode .k-settings-templatesnippets-widget .k-templatesnippets-grid > .x-panel-bwrap > .x-panel-body {
@@ -70,7 +70,7 @@ body.dark-mode .k-settings-templatesnippets-widget .k-templatesnippets-grid > .x
 .k-settings-templatesnippets-widget .k-templatesnippets-editor-panel {
   margin-top: 12px !important;
   padding-top: 12px !important;
-  border-top: 1px solid #e4e7ec !important;
+  border-top: 1px solid var(--ui-border) !important;
 }
 body.dark-mode .k-settings-templatesnippets-widget .k-templatesnippets-editor-panel {
   border-top-color: #444 !important;

@@ -46,16 +46,16 @@
     helvetica,
     sans-serif;
   padding: 3px 10px 3px 10px;
-  border: 1px solid #fff;
-  border-bottom: 1px solid #eee;
+  border: 1px solid transparent;
+  border-bottom: 1px solid var(--ui-border);
   white-space: normal;
-  color: #555;
+  color: var(--ui-text-2);
 }
 .ugpredic_search_item h3 {
   display: block;
   font: inherit;
   font-weight: 700;
-  color: #222;
+  color: var(--ui-text);
 }
 .ugpredic_search_item h3 span {
   float: left;

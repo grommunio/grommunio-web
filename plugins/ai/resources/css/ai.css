@@ -37,7 +37,7 @@ body.dark-mode .icon_ai:not(.x-menu-item-icon):not(.k-settings-category-icon) {
  * Assistant window (a floating card)
  * ----------------------------------------------------------------------- */
 .k-ai-window .x-window-body {
-	background: #fff;
+	background: var(--ui-surface);
 	display: flex;
 	flex-direction: column;
 }
@@ -75,7 +75,7 @@ body.dark-mode .k-ai-window .x-btn button.x-btn-text {
 .k-ai-content {
 	font-size: 13px;
 	line-height: 1.55;
-	color: #1a1a1a;
+	color: var(--ui-text);
 	white-space: normal;
 	word-wrap: break-word;
 }
@@ -120,7 +120,7 @@ body.dark-mode .k-ai-content {
 	content: "\2013";
 	position: absolute;
 	left: 2px;
-	color: #0067b1;
+	color: var(--theme-primary-color);
 	font-weight: 700;
 }
 
@@ -161,7 +161,7 @@ body.dark-mode .k-ai-content code {
 	height: 14px;
 	margin-left: 1px;
 	vertical-align: text-bottom;
-	background: #0067b1;
+	background: var(--theme-primary-color);
 	animation: k-ai-blink 1s steps(2, start) infinite;
 }
 
@@ -176,7 +176,7 @@ body.dark-mode .k-ai-content code {
 	display: flex;
 	align-items: center;
 	gap: 10px;
-	color: #666;
+	color: var(--ui-text-3);
 	font-size: 13px;
 	padding: 4px 0;
 }
@@ -188,8 +188,8 @@ body.dark-mode .k-ai-status {
 .k-ai-spinner {
 	width: 16px;
 	height: 16px;
-	border: 2px solid rgba(0, 103, 177, 0.25);
-	border-top-color: #0067b1;
+	border: 2px solid var(--ui-accent-ring);
+	border-top-color: var(--theme-primary-color);
 	border-radius: 50%;
 	animation: k-ai-spin 0.8s linear infinite;
 	flex: 0 0 auto;
@@ -231,7 +231,7 @@ body.dark-mode .k-ai-note {
 	flex-wrap: wrap;
 	gap: 8px;
 	padding: 10px 16px;
-	border-top: 1px solid rgba(0, 0, 0, 0.08);
+	border-top: 1px solid var(--ui-border);
 }
 
 body.dark-mode .k-ai-chips {
@@ -244,16 +244,17 @@ body.dark-mode .k-ai-chips {
 	gap: 6px;
 	padding: 5px 12px;
 	border-radius: 16px;
-	border: 1px solid rgba(0, 103, 177, 0.4);
-	background: rgba(0, 103, 177, 0.06);
-	color: #0067b1;
+	border: 1px solid var(--ui-accent-ring);
+	background: var(--ui-accent-soft);
+	color: var(--ui-accent-text);
 	font-size: 12px;
 	cursor: pointer;
 	user-select: none;
+	transition: background-color 0.15s ease;
 }
 
 .k-ai-chip:hover {
-	background: rgba(0, 103, 177, 0.14);
+	background: color-mix(in srgb, var(--theme-primary-color) 22%, var(--ui-surface));
 }
 
 body.dark-mode .k-ai-chip {
@@ -289,7 +290,7 @@ body.dark-mode .k-ai-chip {
 }
 
 .k-ai-settings-note {
-	color: #777;
+	color: var(--ui-text-3);
 	font-size: 12px;
 }
 
