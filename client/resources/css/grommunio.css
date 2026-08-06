@@ -1405,6 +1405,17 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   .k-unreadborders .x-grid3-row.x-grid3-row-collapsed.mail_unread > table, .k-unreadborders .x-grid3-row.x-grid3-row-expanded.mail_unread > table {
     border-left: 4px solid #1e88e5 !important; }
 
+/* Flagged (follow-up) items - highlight the whole row like Outlook.
+   The tint persists on hover and when the row is selected (a touch deeper),
+   so a flagged mail stays highlighted after you click it; selection is still
+   indicated by the blue left border. */
+.x-grid3-row.k-flagged {
+  background-color: #fff6e5 !important; }
+.x-grid3-row.k-flagged.x-grid3-row-over {
+  background-color: #fbedd0 !important; }
+.x-grid3-row.k-flagged.x-grid3-row-selected {
+  background-color: #f8e9c4 !important; }
+
 .x-toolbar {
   background-image: none;
   background-color: #ffffff;
