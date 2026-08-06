@@ -132,15 +132,17 @@ class EncryptionStore {
 	 * @return string
 	 */
 	private function getEncryptionKey() {
-		if (empty(EncryptionStore::$_encryptionKey)) {
-			// Try to find the encryption key in the cookie
-			if (isset($_COOKIE['encryption-store-key'])) {
-				EncryptionStore::$_encryptionKey = hex2bin((string) $_COOKIE['encryption-store-key']);
-			}
-		}
+        if (empty(EncryptionStore::$_encryptionKey)) {
+            if (isset($_COOKIE['__Secure-encryption-store-key'])) {
+                EncryptionStore::$_encryptionKey = hex2bin((string) $_COOKIE['__Secure-encryption-store-key']);
+            }
+            elseif (isset($_COOKIE['encryption-store-key'])) {
+                EncryptionStore::$_encryptionKey = hex2bin((string) $_COOKIE['encryption-store-key']);
+            }
+        }
 
-		return EncryptionStore::$_encryptionKey;
-	}
+        return EncryptionStore::$_encryptionKey;
+    }
 
 	/*
 	 * Remove expired entries from the $_SESSION
