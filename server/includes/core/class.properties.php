@@ -1284,7 +1284,7 @@ class Properties {
 			$properties["content_unread"] = PR_CONTENT_UNREAD;
 			$properties["comment"] = PR_COMMENT;
 			$properties["subfolders"] = PR_SUBFOLDERS;
-			$properties["message_size"] = PR_MESSAGE_SIZE; // will be filled in by module if not exists
+			$properties["message_size"] = PR_MESSAGE_SIZE_EXTENDED;
 			$properties["deleted_on"] = PR_DELETED_ON;
 			$properties["extended_flags"] = PR_EXTENDED_FOLDER_FLAGS;
 			$properties["access"] = PR_ACCESS;
