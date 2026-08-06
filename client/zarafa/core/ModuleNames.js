@@ -190,6 +190,16 @@ Zarafa.core.ModuleNames =
 	},
 
 	/**
+	 * Module information for Junk Email Rule (sender lists)
+	 * @property
+	 * @type Mixed
+	 */
+	'JUNKMAIL': {
+		list: 'junkmailmodule',
+		item: 'junkmailmodule'
+	},
+
+	/**
 	 * Module information for Restore Soft Deleted Items
 	 * @property
 	 * @type Mixed
