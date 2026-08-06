@@ -67,15 +67,19 @@ Zarafa.common.categories.Util = {
 			categories = record.get('categories').replace(/;?\s*$/, '').split('; ');
 		}
 
-		// Flags that are not 'follow-up' flags are set before we switched to the new categories/flags and will
-		// be shown as categories.
-		if ( record.get('flag_status')===Zarafa.core.mapi.FlagStatus.flagged && record.get('flag_request')!=='Follow up' ){
+		// Old-style coloured flags (set before follow-up flags existed, or by
+		// other clients) are shown as a category of the matching colour. A red
+		// flag is the modern follow-up / tracking flag - Outlook uses it in
+		// every locale and IMAP sets it too - so it must stay a flag only and
+		// never turn into a "Red" category. Keying off the icon (rather than a
+		// localised flag_request text) keeps this locale- and client-independent.
+		if ( record.get('flag_status')===Zarafa.core.mapi.FlagStatus.flagged && record.get('flag_icon')!==Zarafa.core.mapi.FlagIcon.red ){
 			var flagColor = record.get('flag_icon');
 			var flagCategoryName = this.getCategoryNameByFlagColor(flagColor);
 
 			// The flag could already be set as a real category. In that case
 			// we will not add it again.
-			if ( categories.indexOf(flagCategoryName) === -1 ){
+			if ( flagCategoryName && categories.indexOf(flagCategoryName) === -1 ){
 				categories.push(flagCategoryName);
 			}
 		}
@@ -301,7 +305,9 @@ Zarafa.common.categories.Util = {
 			// displayed as a category. This means that the category that
 			// is being removed could also be a flag!
 			// Note that the getCategories method has already added it.
-			if ( record.get('flag_status') === Zarafa.core.mapi.FlagStatus.flagged && record.get('flag_request')!=='Follow up' ){
+			// Mirror the icon-based discriminator used in getCategories: a red
+			// flag is the follow-up/tracking flag and is never a category.
+			if ( record.get('flag_status') === Zarafa.core.mapi.FlagStatus.flagged && record.get('flag_icon')!==Zarafa.core.mapi.FlagIcon.red ){
 				var flagColor = record.get('flag_icon');
 				var flagCategoryName = this.getCategoryNameByFlagColor(flagColor);
 				if ( flagCategoryName === category ){
