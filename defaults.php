@@ -758,3 +758,17 @@ if (!defined('SHOW_LOGOUT_BUTTON')) {
 	define('SHOW_LOGOUT_BUTTON', true);
 }
 
+// The grommunio admin API endpoint
+if (!defined('ADMIN_API_ENDPOINT')) {
+	define('ADMIN_API_ENDPOINT', 'http://[::1]:8080/api/v1/');
+}
+
+// The grommunio admin API status endpoint
+if (!defined('ADMIN_API_STATUS_ENDPOINT')) {
+	define('ADMIN_API_STATUS_ENDPOINT', ADMIN_API_ENDPOINT . 'status');
+}
+
+// The grommunio admin API disabled plugins endpoint
+if (!defined('ADMIN_API_DISABLEDPLUGINS_ENDPOINT')) {
+	define('ADMIN_API_DISABLEDPLUGINS_ENDPOINT', ADMIN_API_ENDPOINT . 'disabledPluginsOfUser?username=');
+}

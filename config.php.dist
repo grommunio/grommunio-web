@@ -149,8 +149,14 @@
 	//  	array(_('B'))
 	// )));
 
+	// The grommunio admin API endpoint
+	define('ADMIN_API_ENDPOINT', 'http://[::1]:8080/api/v1/');
+
 	// The grommunio admin API status endpoint
-	define('ADMIN_API_STATUS_ENDPOINT', 'http://[::1]:8080/api/v1/status');
+	define('ADMIN_API_STATUS_ENDPOINT', ADMIN_API_ENDPOINT . 'status');
+
+	// The grommunio admin API disabled plugins endpoint
+	define('ADMIN_API_DISABLEDPLUGINS_ENDPOINT', ADMIN_API_ENDPOINT . 'disabledPluginsOfUser?username=');
 
 	// Whether to show the Logout button in grommunio-web (true or false).
 	// Show per default.

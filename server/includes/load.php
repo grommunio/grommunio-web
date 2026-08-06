@@ -20,9 +20,17 @@ if (!WebAppAuthentication::isAuthenticated()) {
 	exit;
 }
 
-// Instantiate Plugin Manager and init the plugins (btw: globals suck)
+// get the disabled plugin list from the config and admin-api
+$disabledPlugins = DISABLED_PLUGINS_LIST;
+$res = @json_decode(@file_get_contents(
+	ADMIN_API_DISABLEDPLUGINS_ENDPOINT . $GLOBALS["mapisession"]->getUserName(), false), true);
+if (isset($res['data'])) {
+	$disabledPlugins .= ';' . implode(';', $res['data']);
+}
+
+// Instantiate Plugin Manager
 $GLOBALS['PluginManager'] = new PluginManager(ENABLE_PLUGINS);
-$GLOBALS['PluginManager']->detectPlugins(DISABLED_PLUGINS_LIST);
+$GLOBALS['PluginManager']->detectPlugins($disabledPlugins);
 $GLOBALS['PluginManager']->initPlugins(DEBUG_LOADER);
 
 switch ($_GET['load']) {
