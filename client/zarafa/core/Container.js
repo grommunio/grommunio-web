@@ -337,6 +337,16 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	},
 
 	/**
+	 * Returns the {@link Zarafa.core.data.UndoManager UndoManager} instance which
+	 * records undoable user actions and performs undo/redo operations.
+	 * @return {Zarafa.core.data.UndoManager} the UndoManager instance.
+	 */
+	getUndoManager: function()
+	{
+		return this.undoManager || (this.undoManager = new Zarafa.core.data.UndoManager());
+	},
+
+	/**
 	 * Returns the application main panel.
 	 * @return {Zarafa.core.ui.MainViewport} the application main panel.
 	 */

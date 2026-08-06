@@ -474,6 +474,19 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 				record.set('isHTML', record.get('isHTML'), true);
 			}
 
+			// Record appointment edits and creations in the undo history.
+			// This must be done explicitly since these records are saved
+			// through the ShadowStore, whose saves are not announced through
+			// the IPMStoreMgr. Only appointments are captured: recording
+			// every draft save while composing would flood the history.
+			if (Zarafa.core.MessageClass.isClass(record.get('message_class'), 'IPM.Appointment', true)) {
+				if (record.phantom) {
+					container.getUndoManager().captureCreateGesture(record);
+				} else {
+					container.getUndoManager().capturePropertyGesture(record);
+				}
+			}
+
 			record.save();
 		}
 	},
