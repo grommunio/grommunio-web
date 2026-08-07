@@ -105,26 +105,11 @@ class HierarchyModule extends Module {
 
 					case "foldersize":
 						$folders = [];
-
 						$folder = mapi_msgstore_openentry($store, $entryid);
 						$data = $this->getFolderProps($store, $folder);
-
 						$info = $this->getFolderSize($store, $folder, '', $folders);
-
-						// It could be that the $props already contains the data,
-						// this happens when the folder is the IPM_SUBTREE and the
-						// folder size is read directly from the store. Adjust
-						// total_size accordingly.
-						if (isset($data["props"]["store_size"])) {
-							if (!isset($data["props"]["message_size"])) {
-								$data["props"]["message_size"] = $data["props"]["store_size"];
-							}
-							$data["props"]["total_message_size"] = $data["props"]["store_size"] + $info["total_size"];
-						}
-						else {
-							$data["props"]["message_size"] = $info["size"];
-							$data["props"]["total_message_size"] = $info["total_size"];
-						}
+						$data["props"]["message_size"] = $data["props"]["store_size"] ?? $info["size"];
+						$data["props"]["total_message_size"] = $data["props"]["store_size"] ?? $data["props"]["total_message_size"] ?? $info["total_size"];
 						$data["folders"] = [
 							"item" => $folders,
 						];
@@ -611,7 +596,7 @@ class HierarchyModule extends Module {
 
 		// calculating missing message_size
 		if (!isset($data["props"]["message_size"])) {
-			$data["props"]["message_size"] = $this->showStoreDetails ? round($GLOBALS["operations"]->calcFolderMessageSize($folder, false)) : 0;
+			$data["props"]["message_size"] = $this->showStoreDetails ? round($GLOBALS["operations"]->calcFolderMessageSize($folder)) : 0;
 		}
 
 		// retrieving folder permissions
@@ -635,7 +620,7 @@ class HierarchyModule extends Module {
 	 */
 	public function getFolderSize($store, $folder, $pathname, &$subfolders, $hidden = false) {
 		$columns = [PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID, PR_OBJECT_TYPE, PR_DISPLAY_NAME, PR_ATTR_HIDDEN];
-		$size = $GLOBALS["operations"]->calcFolderMessageSize($folder, false);
+		$size = $GLOBALS["operations"]->calcFolderMessageSize($folder);
 		$total_size = $size;
 
 		$table = mapi_folder_gethierarchytable($folder, MAPI_DEFERRED_ERRORS);
