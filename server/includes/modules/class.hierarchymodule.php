@@ -105,26 +105,11 @@ class HierarchyModule extends Module {
 
 					case "foldersize":
 						$folders = [];
-
 						$folder = mapi_msgstore_openentry($store, $entryid);
 						$data = $this->getFolderProps($store, $folder);
-
 						$info = $this->getFolderSize($store, $folder, '', $folders);
-
-						// It could be that the $props already contains the data,
-						// this happens when the folder is the IPM_SUBTREE and the
-						// folder size is read directly from the store. Adjust
-						// total_size accordingly.
-						if (isset($data["props"]["store_size"])) {
-							if (!isset($data["props"]["message_size"])) {
-								$data["props"]["message_size"] = $data["props"]["store_size"];
-							}
-							$data["props"]["total_message_size"] = $data["props"]["store_size"] + $info["total_size"];
-						}
-						else {
-							$data["props"]["message_size"] = $info["size"];
-							$data["props"]["total_message_size"] = $info["total_size"];
-						}
+						$data["props"]["message_size"] = $data["props"]["store_size"] ?? $info["size"];
+						$data["props"]["total_message_size"] = $data["props"]["store_size"] ?? $data["props"]["total_message_size"] ?? $info["total_size"];
 						$data["folders"] = [
 							"item" => $folders,
 						];
