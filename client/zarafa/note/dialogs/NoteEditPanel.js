@@ -15,6 +15,19 @@ Zarafa.note.dialogs.NoteEditPanel = Ext.extend(Ext.FormPanel, {
 	 * @type String
 	 */
 	currentColorCss: undefined,
+
+	/**
+	 * @cfg {Ext.Template/String} linkedMailTemplate The template for the bar naming the
+	 * mail this note annotates, shown only when it is linked to one.
+	 */
+	linkedMailTemplate:
+			'<span class="stickynote_linkedmail_link">' +
+				/* # TRANSLATORS: Names the mail a note is attached to, e.g. "Note on: Re: invoice" */
+				pgettext('note.dialog', 'Note on') + ': ' +
+				'<tpl if="!Ext.isEmpty(values.note_link_subject)">{note_link_subject:htmlEncode}</tpl>' +
+				'<tpl if="Ext.isEmpty(values.note_link_subject)">' + _('(no subject)') + '</tpl>' +
+			'</span>',
+
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration structure
@@ -28,13 +41,26 @@ Zarafa.note.dialogs.NoteEditPanel = Ext.extend(Ext.FormPanel, {
 
 		Ext.applyIf(config,{
 			xtype	: 'zarafa.noteeditpanel',
-			layout	: 'fit',
+			layout	: { type: 'vbox', align: 'stretch' },
 			border	: false,
 			items : [{
+				xtype: 'container',
+				ref: 'linkedMailBar',
+				cls: 'stickynote_linkedmail',
+				hidden: true,
+				autoHeight: true,
+				listeners: {
+					// The record usually arrives before this bar is rendered, so it
+					// has to be filled in once the element exists.
+					afterrender: this.onLinkedMailBarRender,
+					scope: this
+				}
+			}, {
 				xtype: 'zarafa.editorfield',
 				useHtml: false,
 				ref: 'noteText',
 				plaintextName: 'body',
+				flex: 1,
 				listeners: {
 					change: this.onTextareaChange,
 					scope: this
@@ -43,6 +69,78 @@ Zarafa.note.dialogs.NoteEditPanel = Ext.extend(Ext.FormPanel, {
 		});
 
 		Zarafa.note.dialogs.NoteEditPanel.superclass.constructor.call(this,config);
+
+		if (Ext.isString(this.linkedMailTemplate)) {
+			this.linkedMailTemplate = new Ext.XTemplate(this.linkedMailTemplate, {
+				compiled: true
+			});
+		}
+	},
+
+	/**
+	 * Binds the click handler which opens the mail this note annotates.
+	 * @private
+	 */
+	afterRender: function()
+	{
+		Zarafa.note.dialogs.NoteEditPanel.superclass.afterRender.apply(this, arguments);
+
+		// Delegated from the panel rather than the bar, whose element does not exist
+		// yet at this point.
+		this.mon(this.el, 'click', this.onLinkedMailClick, this, {
+			delegate: '.stickynote_linkedmail_link'
+		});
+	},
+
+	/**
+	 * Fills in the linked-mail bar once it has an element to render into.
+	 * @private
+	 */
+	onLinkedMailBarRender: function()
+	{
+		this.updateLinkedMailBar(this.record);
+	},
+
+	/**
+	 * Opens the mail this note annotates.
+	 * @private
+	 */
+	onLinkedMailClick: function()
+	{
+		if (this.record) {
+			Zarafa.note.Actions.openLinkedMail(this.record);
+		}
+	},
+
+	/**
+	 * Shows which mail this note annotates, or hides the bar when it annotates none.
+	 * The mail can only be opened from here if its entryid was recorded, which notes
+	 * made before this feature existed do not have.
+	 *
+	 * @param {Zarafa.core.data.IPMRecord} record The note record
+	 * @private
+	 */
+	updateLinkedMailBar: function(record)
+	{
+		var bar = this.linkedMailBar;
+
+		if (!bar || !bar.rendered) {
+			return;
+		}
+
+		if (!record || Ext.isEmpty(record.get('note_link_id'))) {
+			bar.setVisible(false);
+			return;
+		}
+
+		this.linkedMailTemplate.overwrite(bar.getEl(), record.data);
+		// Only toggle our own class here; assigning className would drop the classes
+		// Ext puts on the element, including the one that hides it.
+		bar.getEl()[Zarafa.note.Actions.getLinkedMailRecord(record) ? 'removeClass' : 'addClass'](
+			'stickynote_linkedmail_unopenable'
+		);
+		bar.setVisible(true);
+		this.doLayout();
 	},
 
 	/**
@@ -104,6 +202,8 @@ Zarafa.note.dialogs.NoteEditPanel = Ext.extend(Ext.FormPanel, {
 	update: function(record, contentReset)
 	{
 		var textArea = this.noteText.getEditor();
+
+		this.updateLinkedMailBar(record);
 
 		if (record) {
 			this.record = record;

@@ -265,7 +265,11 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 				records: records
 			}
 		},
-		container.populateInsertionPoint('context.mail.contextmenu.topoptions', this), {
+		container.populateInsertionPoint('context.mail.contextmenu.topoptions', this),
+		// Placed here rather than through the insertion point above, because items
+		// there appear in plugin load order - which puts notes ahead of tasks - while
+		// "Create note" belongs after "Create task", the order the navigation uses.
+		Zarafa.note.Actions.createLinkedNoteContextItem(), {
 			xtype: 'zarafa.conditionalitem',
 			text: _('Print'),
 			iconCls: 'icon_print',
