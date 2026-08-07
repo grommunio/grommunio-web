@@ -123,3 +123,18 @@ msgstr "{0} jildida"
 
 msgid "In folder {0} of {1}"
 msgstr "{1}ning {0} jildida"
+
+msgid "New Mail Notifications"
+msgstr "Yangi xat bildirishnomalari"
+
+msgid "Only my own mailbox"
+msgstr "Faqat oʻzimning pochta qutim"
+
+msgid "Only the folders I choose"
+msgstr "Faqat men tanlagan jildlar"
+
+msgid "Unknown folder"
+msgstr "Nomaʼlum jild"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Hech qanday jild tanlanmagan, yangi xat haqida bildirishnoma koʻrsatilmaydi."

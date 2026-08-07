@@ -8319,3 +8319,18 @@ msgstr "I mappen {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "I mappen {0} i {1}"
+
+msgid "New Mail Notifications"
+msgstr "Notifikationer om ny mail"
+
+msgid "Only my own mailbox"
+msgstr "Kun min egen postkasse"
+
+msgid "Only the folders I choose"
+msgstr "Kun de mapper, jeg vælger"
+
+msgid "Unknown folder"
+msgstr "Ukendt mappe"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Ingen mapper er valgt, der vises ingen notifikation om ny mail."

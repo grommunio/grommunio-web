@@ -123,3 +123,18 @@ msgstr "{0} қалтасында"
 
 msgid "In folder {0} of {1}"
 msgstr "{1} дегеннің {0} қалтасында"
+
+msgid "New Mail Notifications"
+msgstr "Жаңа пошта хабарландырулары"
+
+msgid "Only my own mailbox"
+msgstr "Тек өз пошта жәшігім"
+
+msgid "Only the folders I choose"
+msgstr "Тек мен таңдаған қалталар"
+
+msgid "Unknown folder"
+msgstr "Белгісіз қалта"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Қалталар таңдалмаған, жаңа пошта туралы хабарландыру көрсетілмейді."

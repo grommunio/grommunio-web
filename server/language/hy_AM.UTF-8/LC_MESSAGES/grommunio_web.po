@@ -123,3 +123,18 @@ msgstr "{0} թղթապանակում"
 
 msgid "In folder {0} of {1}"
 msgstr "{1}-ի {0} թղթապանակում"
+
+msgid "New Mail Notifications"
+msgstr "Նոր նամակների ծանուցումներ"
+
+msgid "Only my own mailbox"
+msgstr "Միայն իմ սեփական փոստարկղը"
+
+msgid "Only the folders I choose"
+msgstr "Միայն իմ ընտրած թղթապանակները"
+
+msgid "Unknown folder"
+msgstr "Անհայտ թղթապանակ"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Ոչ մի թղթապանակ ընտրված չէ, նոր նամակի մասին ծանուցում չի ցուցադրվի։"

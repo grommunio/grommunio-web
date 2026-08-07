@@ -8247,3 +8247,18 @@ msgstr "Im Ordner {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "Im Ordner {0} aus {1}"
+
+msgid "New Mail Notifications"
+msgstr "Benachrichtigungen bei neuen E-Mails"
+
+msgid "Only my own mailbox"
+msgstr "Nur mein eigenes Postfach"
+
+msgid "Only the folders I choose"
+msgstr "Nur die von mir ausgewählten Ordner"
+
+msgid "Unknown folder"
+msgstr "Unbekannter Ordner"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Keine Ordner ausgewählt, es wird keine Benachrichtigung über neue E-Mails angezeigt."

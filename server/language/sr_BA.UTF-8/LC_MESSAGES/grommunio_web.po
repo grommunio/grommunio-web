@@ -123,3 +123,18 @@ msgstr "U fascikli {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "U fascikli {0} korisnika {1}"
+
+msgid "New Mail Notifications"
+msgstr "Obavještenja o novoj pošti"
+
+msgid "Only my own mailbox"
+msgstr "Samo moje vlastito poštansko sanduče"
+
+msgid "Only the folders I choose"
+msgstr "Samo fascikle koje izaberem"
+
+msgid "Unknown folder"
+msgstr "Nepoznata fascikla"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Nije izabrana nijedna fascikla, ne prikazuje se nijedno obavještenje o novoj pošti."

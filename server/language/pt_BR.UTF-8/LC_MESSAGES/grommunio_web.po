@@ -8255,3 +8255,18 @@ msgstr "Na pasta {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "Na pasta {0} de {1}"
+
+msgid "New Mail Notifications"
+msgstr "Notificações de novas mensagens"
+
+msgid "Only my own mailbox"
+msgstr "Apenas minha própria caixa de correio"
+
+msgid "Only the folders I choose"
+msgstr "Apenas as pastas que eu escolher"
+
+msgid "Unknown folder"
+msgstr "Pasta desconhecida"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Nenhuma pasta selecionada, nenhuma notificação de nova mensagem será exibida."

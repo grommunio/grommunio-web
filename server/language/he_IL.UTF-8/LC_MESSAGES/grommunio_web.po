@@ -8256,3 +8256,18 @@ msgstr "בתיקייה {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "בתיקייה {0} של {1}"
+
+msgid "New Mail Notifications"
+msgstr "התראות על דואר חדש"
+
+msgid "Only my own mailbox"
+msgstr "רק תיבת הדואר שלי"
+
+msgid "Only the folders I choose"
+msgstr "רק התיקיות שאבחר"
+
+msgid "Unknown folder"
+msgstr "תיקיה לא ידועה"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "לא נבחרו תיקיות, ולכן לא תוצג התראה על דואר חדש."

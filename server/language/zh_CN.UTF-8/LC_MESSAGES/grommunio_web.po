@@ -8263,3 +8263,18 @@ msgstr "在文件夹{0}中"
 
 msgid "In folder {0} of {1}"
 msgstr "在{1}的文件夹{0}中"
+
+msgid "New Mail Notifications"
+msgstr "新邮件通知"
+
+msgid "Only my own mailbox"
+msgstr "仅我自己的邮箱"
+
+msgid "Only the folders I choose"
+msgstr "仅我选择的文件夹"
+
+msgid "Unknown folder"
+msgstr "未知文件夹"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "未选择任何文件夹，将不会显示新邮件通知。"

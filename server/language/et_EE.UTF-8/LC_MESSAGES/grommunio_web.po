@@ -8244,3 +8244,18 @@ msgstr "Kaustas {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "Kasutaja {1} kaustas {0}"
+
+msgid "New Mail Notifications"
+msgstr "Uue kirja teated"
+
+msgid "Only my own mailbox"
+msgstr "Ainult minu enda postkast"
+
+msgid "Only the folders I choose"
+msgstr "Ainult minu valitud kaustad"
+
+msgid "Unknown folder"
+msgstr "Tundmatu kaust"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Ühtegi kausta pole valitud, uue kirja teadet ei kuvata."

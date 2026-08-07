@@ -123,3 +123,18 @@ msgstr "{0} папкасында"
 
 msgid "In folder {0} of {1}"
 msgstr "{1} дегендин {0} папкасында"
+
+msgid "New Mail Notifications"
+msgstr "Жаңы кат билдирмелери"
+
+msgid "Only my own mailbox"
+msgstr "Өзүмдүн почта кутум гана"
+
+msgid "Only the folders I choose"
+msgstr "Мен тандаган папкалар гана"
+
+msgid "Unknown folder"
+msgstr "Белгисиз папка"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Папкалар тандалган жок, жаңы кат жөнүндө билдирме көрсөтүлбөйт."

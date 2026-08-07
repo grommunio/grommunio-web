@@ -123,3 +123,18 @@ msgstr "{0} karpetan"
 
 msgid "In folder {0} of {1}"
 msgstr "{1}(r)en {0} karpetan"
+
+msgid "New Mail Notifications"
+msgstr "Mezu berrien jakinarazpenak"
+
+msgid "Only my own mailbox"
+msgstr "Nire postontzia soilik"
+
+msgid "Only the folders I choose"
+msgstr "Nik aukeratutako karpetak soilik"
+
+msgid "Unknown folder"
+msgstr "Karpeta ezezaguna"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Ez da karpetarik hautatu; ez da mezu berrien jakinarazpenik erakutsiko."

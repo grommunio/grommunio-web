@@ -123,3 +123,18 @@ msgstr "{0} хавтаст"
 
 msgid "In folder {0} of {1}"
 msgstr "{1}-ийн {0} хавтаст"
+
+msgid "New Mail Notifications"
+msgstr "Шинэ захидлын мэдэгдэл"
+
+msgid "Only my own mailbox"
+msgstr "Зөвхөн миний өөрийн шуудангийн хайрцаг"
+
+msgid "Only the folders I choose"
+msgstr "Зөвхөн миний сонгосон хавтсууд"
+
+msgid "Unknown folder"
+msgstr "Тодорхойгүй хавтас"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Хавтас сонгоогүй тул шинэ захидлын мэдэгдэл харагдахгүй."

@@ -123,3 +123,18 @@ msgstr "Во папката {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "Во папката {0} на {1}"
+
+msgid "New Mail Notifications"
+msgstr "Известувања за нова пошта"
+
+msgid "Only my own mailbox"
+msgstr "Само моето сопствено поштенско сандаче"
+
+msgid "Only the folders I choose"
+msgstr "Само папките што ќе ги изберам"
+
+msgid "Unknown folder"
+msgstr "Непозната папка"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Не се избрани папки, па не се прикажува известување за нова пошта."

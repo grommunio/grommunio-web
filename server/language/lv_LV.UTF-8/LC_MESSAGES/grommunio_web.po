@@ -123,3 +123,18 @@ msgstr "Mapē {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "Mapē {0} ({1})"
+
+msgid "New Mail Notifications"
+msgstr "Paziņojumi par jaunu pastu"
+
+msgid "Only my own mailbox"
+msgstr "Tikai mana pastkaste"
+
+msgid "Only the folders I choose"
+msgstr "Tikai manis izvēlētās mapes"
+
+msgid "Unknown folder"
+msgstr "Nezināma mape"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Nav izvēlēta neviena mape, tāpēc netiek rādīts neviens paziņojums par jaunu pastu."

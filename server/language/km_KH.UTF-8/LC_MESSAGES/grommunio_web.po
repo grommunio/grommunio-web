@@ -123,3 +123,18 @@ msgstr "ក្នុងថត {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "ក្នុងថត {0} របស់ {1}"
+
+msgid "New Mail Notifications"
+msgstr "ការជូនដំណឹងអំពីសំបុត្រថ្មី"
+
+msgid "Only my own mailbox"
+msgstr "តែប្រអប់សំបុត្ររបស់ខ្ញុំផ្ទាល់ប៉ុណ្ណោះ"
+
+msgid "Only the folders I choose"
+msgstr "តែថតដែលខ្ញុំជ្រើសរើសប៉ុណ្ណោះ"
+
+msgid "Unknown folder"
+msgstr "ថតមិនស្គាល់"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "មិនបានជ្រើសរើសថតណាមួយទេ ដូច្នេះគ្មានការជូនដំណឹងអំពីសំបុត្រថ្មីត្រូវបានបង្ហាញឡើយ។"

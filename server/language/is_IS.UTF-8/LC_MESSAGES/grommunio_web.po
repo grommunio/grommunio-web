@@ -8242,3 +8242,18 @@ msgstr "Í möppunni {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "Í möppunni {0} af {1}"
+
+msgid "New Mail Notifications"
+msgstr "Tilkynningar um nýjan póst"
+
+msgid "Only my own mailbox"
+msgstr "Aðeins mitt eigið pósthólf"
+
+msgid "Only the folders I choose"
+msgstr "Aðeins möppurnar sem ég vel"
+
+msgid "Unknown folder"
+msgstr "Óþekkt mappa"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Engar möppur valdar, engin tilkynning um nýjan póst er sýnd."

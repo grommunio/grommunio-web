@@ -8269,3 +8269,18 @@ msgstr "U mapi {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "U mapi {0} od {1}"
+
+msgid "New Mail Notifications"
+msgstr "Obavijesti o novoj pošti"
+
+msgid "Only my own mailbox"
+msgstr "Samo moj vlastiti poštanski sandučić"
+
+msgid "Only the folders I choose"
+msgstr "Samo mape koje odaberem"
+
+msgid "Unknown folder"
+msgstr "Nepoznata mapa"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Nema odabranih mapa, obavijest o novoj pošti neće se prikazati."

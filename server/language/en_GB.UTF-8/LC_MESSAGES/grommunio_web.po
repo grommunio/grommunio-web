@@ -8239,3 +8239,18 @@ msgstr "In folder {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "In folder {0} of {1}"
+
+msgid "New Mail Notifications"
+msgstr "New Mail Notifications"
+
+msgid "Only my own mailbox"
+msgstr "Only my own mailbox"
+
+msgid "Only the folders I choose"
+msgstr "Only the folders I choose"
+
+msgid "Unknown folder"
+msgstr "Unknown folder"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "No folders selected, no new mail notification is shown."

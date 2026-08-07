@@ -123,3 +123,18 @@ msgstr "In vouer {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "In vouer {0} van {1}"
+
+msgid "New Mail Notifications"
+msgstr "Kennisgewings vir nuwe pos"
+
+msgid "Only my own mailbox"
+msgstr "Slegs my eie posbus"
+
+msgid "Only the folders I choose"
+msgstr "Slegs die vouers wat ek kies"
+
+msgid "Unknown folder"
+msgstr "Onbekende vouer"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Geen vouers gekies nie, geen kennisgewing van nuwe pos word gewys nie."

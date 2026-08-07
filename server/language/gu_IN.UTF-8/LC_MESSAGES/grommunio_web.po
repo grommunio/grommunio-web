@@ -123,3 +123,18 @@ msgstr "{0} ફોલ્ડરમાં"
 
 msgid "In folder {0} of {1}"
 msgstr "{1}ના {0} ફોલ્ડરમાં"
+
+msgid "New Mail Notifications"
+msgstr "નવા મેઇલની સૂચનાઓ"
+
+msgid "Only my own mailbox"
+msgstr "ફક્ત મારું પોતાનું મેઇલબોક્સ"
+
+msgid "Only the folders I choose"
+msgstr "ફક્ત હું પસંદ કરું તે ફોલ્ડર્સ"
+
+msgid "Unknown folder"
+msgstr "અજ્ઞાત ફોલ્ડર"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "કોઈ ફોલ્ડર પસંદ કરેલ નથી, નવા મેઇલની કોઈ સૂચના બતાવવામાં આવશે નહીં."

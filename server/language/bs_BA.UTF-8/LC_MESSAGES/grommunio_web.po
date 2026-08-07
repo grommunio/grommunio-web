@@ -123,3 +123,18 @@ msgstr "U folderu {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "U folderu {0} korisnika {1}"
+
+msgid "New Mail Notifications"
+msgstr "Obavijesti o novoj pošti"
+
+msgid "Only my own mailbox"
+msgstr "Samo moje vlastito poštansko sanduče"
+
+msgid "Only the folders I choose"
+msgstr "Samo folderi koje odaberem"
+
+msgid "Unknown folder"
+msgstr "Nepoznat folder"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Nijedan folder nije odabran, ne prikazuje se nikakva obavijest o novoj pošti."

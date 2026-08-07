@@ -123,3 +123,18 @@ msgstr "Aplanke {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "Aplanke {0} ({1})"
+
+msgid "New Mail Notifications"
+msgstr "Pranešimai apie naujus laiškus"
+
+msgid "Only my own mailbox"
+msgstr "Tik mano pašto dėžutė"
+
+msgid "Only the folders I choose"
+msgstr "Tik mano pasirinkti aplankai"
+
+msgid "Unknown folder"
+msgstr "Nežinomas aplankas"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Nepasirinktas nė vienas aplankas, todėl joks pranešimas apie naujus laiškus nerodomas."

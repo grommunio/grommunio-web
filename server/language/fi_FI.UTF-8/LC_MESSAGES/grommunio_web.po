@@ -8339,3 +8339,18 @@ msgstr "Kansiossa {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "Käyttäjän {1} kansiossa {0}"
+
+msgid "New Mail Notifications"
+msgstr "Uuden postin ilmoitukset"
+
+msgid "Only my own mailbox"
+msgstr "Vain oma postilaatikkoni"
+
+msgid "Only the folders I choose"
+msgstr "Vain valitsemani kansiot"
+
+msgid "Unknown folder"
+msgstr "Tuntematon kansio"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Kansioita ei ole valittu, joten uuden postin ilmoitusta ei näytetä."

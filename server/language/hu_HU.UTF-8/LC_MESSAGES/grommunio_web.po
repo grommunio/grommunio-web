@@ -8339,3 +8339,18 @@ msgstr "A {0} mappában"
 
 msgid "In folder {0} of {1}"
 msgstr "{1} {0} mappájában"
+
+msgid "New Mail Notifications"
+msgstr "Értesítések új levelekről"
+
+msgid "Only my own mailbox"
+msgstr "Csak a saját postafiókom"
+
+msgid "Only the folders I choose"
+msgstr "Csak az általam kiválasztott mappák"
+
+msgid "Unknown folder"
+msgstr "Ismeretlen mappa"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Nincs kiválasztva mappa, így nem jelenik meg értesítés új levelekről."

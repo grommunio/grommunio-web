@@ -8249,3 +8249,18 @@ msgstr "In de map {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "In de map {0} van {1}"
+
+msgid "New Mail Notifications"
+msgstr "Notificaties voor nieuwe e-mail"
+
+msgid "Only my own mailbox"
+msgstr "Alleen mijn eigen mailbox"
+
+msgid "Only the folders I choose"
+msgstr "Alleen de mappen die ik kies"
+
+msgid "Unknown folder"
+msgstr "Onbekende map"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Geen mappen geselecteerd, er wordt geen notificatie van nieuwe e-mail getoond."

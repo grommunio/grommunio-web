@@ -123,3 +123,18 @@ msgstr "În folderul {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "În folderul {0} al utilizatorului {1}"
+
+msgid "New Mail Notifications"
+msgstr "Notificări pentru mesaje noi"
+
+msgid "Only my own mailbox"
+msgstr "Doar propria mea căsuță poștală"
+
+msgid "Only the folders I choose"
+msgstr "Doar folderele pe care le aleg"
+
+msgid "Unknown folder"
+msgstr "Folder necunoscut"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Niciun folder selectat, nu va fi afișată nicio notificare de mesaj nou."

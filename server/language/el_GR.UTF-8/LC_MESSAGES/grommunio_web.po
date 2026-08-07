@@ -8406,3 +8406,18 @@ msgstr "Στο φάκελο {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "Στο φάκελο {0} του {1}"
+
+msgid "New Mail Notifications"
+msgstr "Ειδοποιήσεις νέου ταχυδρομείου"
+
+msgid "Only my own mailbox"
+msgstr "Μόνο το δικό μου γραμματοκιβώτιο"
+
+msgid "Only the folders I choose"
+msgstr "Μόνο οι φάκελοι που επιλέγω"
+
+msgid "Unknown folder"
+msgstr "Άγνωστος φάκελος"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Δεν έχουν επιλεγεί φάκελοι, δεν εμφανίζεται καμία ειδοποίηση νέου ταχυδρομείου."

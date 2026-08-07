@@ -8242,3 +8242,18 @@ msgstr "در پوشه {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "در پوشه {0} از صندوق {1}"
+
+msgid "New Mail Notifications"
+msgstr "اعلان‌های ایمیل جدید"
+
+msgid "Only my own mailbox"
+msgstr "فقط صندوق پستی خودم"
+
+msgid "Only the folders I choose"
+msgstr "فقط پوشه‌هایی که انتخاب می‌کنم"
+
+msgid "Unknown folder"
+msgstr "پوشه ناشناخته"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "هیچ پوشه‌ای انتخاب نشده است، بنابراین هیچ اعلان ایمیل جدیدی نمایش داده نمی‌شود."

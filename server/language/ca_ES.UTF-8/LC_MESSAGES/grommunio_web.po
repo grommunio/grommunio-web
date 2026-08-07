@@ -8257,3 +8257,18 @@ msgstr "A la carpeta {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "A la carpeta {0} de {1}"
+
+msgid "New Mail Notifications"
+msgstr "Notificacions de correu nou"
+
+msgid "Only my own mailbox"
+msgstr "Només la meva pròpia bústia"
+
+msgid "Only the folders I choose"
+msgstr "Només les carpetes que triï"
+
+msgid "Unknown folder"
+msgstr "Carpeta desconeguda"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "No s'ha seleccionat cap carpeta, no es mostrarà cap notificació de correu nou."

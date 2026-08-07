@@ -123,3 +123,18 @@ msgstr "V priečinku {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "V priečinku {0} používateľa {1}"
+
+msgid "New Mail Notifications"
+msgstr "Upozornenia na novú poštu"
+
+msgid "Only my own mailbox"
+msgstr "Len moja vlastná poštová schránka"
+
+msgid "Only the folders I choose"
+msgstr "Len priečinky, ktoré vyberiem"
+
+msgid "Unknown folder"
+msgstr "Neznámy priečinok"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Nie sú vybrané žiadne priečinky, nezobrazí sa žiadne upozornenie na novú poštu."
