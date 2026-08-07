@@ -591,6 +591,15 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 	 */
 	onResolveException: function(proxy, type, action, options, response)
 	{
+		// Mark the recipients as attempted, or every listener that re-resolves
+		// whatever was not attempted yet - the send validation, for one - would
+		// retry the same failing request indefinitely.
+		if (options && Array.isArray(options.pendingRecords)) {
+			Ext.each(options.pendingRecords, function(record) {
+				record.resolveAttempted = true;
+			});
+		}
+
 		this.fireEvent('resolved', this, options.pendingRecords);
 	},
 

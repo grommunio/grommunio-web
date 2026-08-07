@@ -175,7 +175,9 @@ Zarafa.core.plugins.AutoSaveMessagePlugin = Ext.extend(Object, {
 				}
 			});
 
-			if(!ambiguityDetected && this.field.autoSave){
+			// Also hold off while a send is being validated: the autosave's commit
+			// would unmask the dialog and disturb the send state mid-flight.
+			if(!ambiguityDetected && this.field.autoSave && this.field.isSending !== true){
 				this.field.saveRecord();
 			} else {
 				this.resetMessageAutoSaveTimer();
