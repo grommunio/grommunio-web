@@ -2679,10 +2679,15 @@ body.dark-mode #loading-mask {
 		linear-gradient(150deg, color-mix(in srgb, var(--theme-gradient-start) 55%, #0b0f14), color-mix(in srgb, var(--theme-gradient-end) 55%, #0b0f14)) !important;
 }
 
-body.dark-mode.login #form-container,
-body.dark-mode #loading-mask #form-container {
-	background: #23262b;
-	color: var(--dm-fg);
+body.dark-mode {
+	--login-card: #23262b;
+	--login-text: #e6e6e6;
+	--login-muted: #98a2b3;
+	--login-input: #2b2f36;
+	--login-input-border: #3d424a;
+	--login-error: #fda29b;
+	--login-error-bg: #3a2320;
+	--login-error-border: #5c2e2a;
 }
 
 body.dark-mode.login #form-container #logo,
@@ -2697,21 +2702,15 @@ body.dark-mode #loading-mask #form-container #logo {
 			linear-gradient(150deg, color-mix(in srgb, var(--theme-gradient-start) 55%, #0b0f14), color-mix(in srgb, var(--theme-gradient-end) 55%, #0b0f14)) !important;
 	}
 
-	body.login #form-container {
-		background: #23262b !important;
-		color: #d4d4d4;
-	}
-
-	body.login>#form-container input[type="text"],
-	body.login>#form-container input[type="password"] {
-		background: #2b2f36 !important;
-		border-color: #3d424a !important;
-		color: #e6e6e6 !important;
-	}
-
-	body.login>#form-container input:-webkit-autofill {
-		-webkit-box-shadow: 0 0 0px 1000px #2b2f36 inset;
-		-webkit-text-fill-color: #e6e6e6;
+	body.login {
+		--login-card: #23262b;
+		--login-text: #e6e6e6;
+		--login-muted: #98a2b3;
+		--login-input: #2b2f36;
+		--login-input-border: #3d424a;
+		--login-error: #fda29b;
+		--login-error-bg: #3a2320;
+		--login-error-border: #5c2e2a;
 	}
 
 	body.login #form-container #logo {

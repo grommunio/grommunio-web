@@ -975,6 +975,13 @@ body.Safari input[type="radio"] {
     vertical-align: middle;
 }
 
+.zarafa-hierarchy-node-calendar-icon {
+    height: 24px;
+    width: 24px;
+    margin: 0 -1px;
+    vertical-align: middle;
+}
+
 .x-combo-list-item.k-combo-list-item-header {
   font-weight: bold;
   font-style: italic; }
@@ -1586,7 +1593,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
         .x-menu .x-menu-list li.x-menu-list-item a.x-menu-item .x-menu-item-icon {
           left: 6px;
           top: 50%;
-          margin-top: -10px; }
+          margin-top: -13px; }
       .x-menu .x-menu-list li.x-menu-list-item a.x-menu-item-arrow {
         background-position: right 12px center !important; }
       .x-menu .x-menu-list li.x-menu-list-item a.zarafa-no-icon {
@@ -1693,6 +1700,8 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
       line-height: 16px !important;
       color: #ffffff;
       font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
       text-shadow: none;
       padding: 6px 12px;
       height: auto;
@@ -1730,6 +1739,9 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
       opacity: 1;
       font-weight: 600;
       background-image: none !important; }
+  body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .x-toolbar-right button.x-btn-text {
+    text-transform: none;
+    letter-spacing: 0; }
   body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct #mainmenu-button-settings em,
   body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct #mainmenu-button-logout em {
     background-position: 12px center !important; }
@@ -1771,7 +1783,7 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
     border-radius: var(--ui-radius); }
 
 ul.x-tab-strip {
-  padding-top: 8px;
+  padding-top: 6px;
   padding-left: 8px;
   border-color: var(--ui-border); }
   ul.x-tab-strip li {
@@ -1796,9 +1808,8 @@ ul.x-tab-strip {
           background: transparent;
           overflow: visible; }
           ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-tab-strip-text {
-            height: 23px;
-            /* 1px for the border) */
-            line-height: 23px;
+            height: 30px;
+            line-height: 30px;
             padding: 0;
             font-weight: 500;
             color: var(--ui-text-2);
@@ -1821,6 +1832,12 @@ ul.x-tab-strip {
   ul.x-tab-strip li.x-tab-strip-closable .x-tab-right {
     /* close cross is 7x7 px */
     padding-right: 25px; }
+  /* the icon sets paint the close cross of the active tab white for a filled tab */
+  body:not(.dark-mode) ul.x-tab-strip li.x-tab-strip-active.x-tab-strip-closable a.x-tab-strip-close::before,
+  body:not(.dark-mode) ul.x-tab-strip li.x-tab-strip-active.x-tab-strip-closable a.x-tab-strip-close:hover::before {
+    background-color: var(--ui-text-2); }
+  body:not(.dark-mode) ul.x-tab-strip li.x-tab-strip-active.x-tab-strip-closable a.x-tab-strip-close:hover {
+    background-color: rgba(0, 0, 0, 0.08); }
 
 ul.x-tab-strip-top li {
   border-bottom: none !important; }
@@ -1898,14 +1915,12 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-tab-strip-icon 
   /* icons are 16px wide */
   padding-left: 28px;
   background-repeat: no-repeat;
-  background-position: left 10px !important; }
+  background-position: left center !important; }
 ul.x-tab-strip li.x-tab-with-icon .x-tab-right .x-tab-left .x-tab-strip-inner .x-tab-strip-text {
   /* icons are 16px wide */
   padding-left: 28px;
   background-repeat: no-repeat;
-  background-position: left 10px !important; }
-ul.x-tab-strip li.x-tab-with-icon .x-tab-right .x-tab-left .x-tab-strip-inner .icon_cogwheel {
-  background-position: left 8px !important; }
+  background-position: left center !important; }
 
 /* iconCls for dirty messages */
 .x-tab-strip-text.zarafa-tab-edited {
@@ -2211,11 +2226,7 @@ input.x-form-text.k-searchfolder-field.x-form-focus {
   box-shadow: none !important; }
 
 /* counters */
-.zarafa-hierarchy-node-total-count span.zarafa-hierarchy-node-counter {
-  color: var(--ui-text-3);
-  font-weight: normal;
-  margin-left: 4px; }
-
+.zarafa-hierarchy-node-total-count span.zarafa-hierarchy-node-counter,
 .zarafa-hierarchy-node-unread-count span.zarafa-hierarchy-node-counter {
   display: inline-block;
   min-width: 8px;
@@ -2229,6 +2240,11 @@ input.x-form-text.k-searchfolder-field.x-form-focus {
   vertical-align: 1px;
   color: var(--ui-accent-text);
   background: var(--ui-accent-soft); }
+
+.zarafa-hierarchy-node-total-count span.zarafa-hierarchy-node-counter {
+  font-weight: 500;
+  color: var(--ui-text-2);
+  background: var(--ui-surface-3); }
 
 .zarafa-hierarchy-node-owner {
   font-weight: normal;

@@ -617,8 +617,9 @@ Ext.apply(Zarafa, {
 		var loadingMask = Ext.get('loading-mask');
 
 		if ( loadingMask ) {
-			// Hide loading mask
-			loadingMask.remove();
+			// fade out over the client, which is usable right away
+			loadingMask.addClass('k-loading-mask-hidden');
+			loadingMask.remove.defer(400, loadingMask);
 			if (Ext.isFunction(callback)) {
 				callback();
 			}

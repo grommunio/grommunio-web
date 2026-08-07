@@ -1,6 +1,7 @@
 html,body {
   height:100%;
-  font-size:13px
+  font-size:13px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif
 }
 
 body.login,
@@ -15,6 +16,14 @@ body.zarafa-welcome {
 body {
   --theme-gradient-start: #009FFD;
   --theme-gradient-end: #2a2a72;
+  --login-card: #ffffff;
+  --login-text: #1d2939;
+  --login-muted: #667085;
+  --login-input: #f2f4f7;
+  --login-input-border: #e4e7ec;
+  --login-error: #b42318;
+  --login-error-bg: #fef3f2;
+  --login-error-border: #fecdca;
 }
 
 body.theme-purple {
@@ -98,12 +107,41 @@ body.login #form-container,
   position:relative;
   overflow:hidden;
   z-index:20010;
-  color:#1d2939;
-  background:#ffffff;
+  color: var(--login-text);
+  background: var(--login-card);
   box-shadow: 0 24px 64px rgba(16, 24, 40, 0.28), 0 2px 8px rgba(16, 24, 40, 0.12);
   border-radius: 20px;
   width: 400px;
   min-height: 320px;
+  animation: login-appear 0.35s ease-out both;
+}
+
+@keyframes login-appear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+/* The loading mask fades away over the loaded client */
+#loading-mask {
+  transition: opacity 0.3s ease;
+}
+
+#loading-mask.k-loading-mask-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.login #form-container,
+  #loading-mask #form-container {
+    animation: none;
+  }
+
+  #loading-mask {
+    transition: none;
+  }
 }
 
 body.login #form-container #bg
@@ -193,35 +231,49 @@ body.login>#form-container input[type="password"] {
   padding: 0 16px !important;
   font-size: 15px;
   line-height: 1.5 !important;
-  color: #1d2939;
+  color: var(--login-text);
   border-radius: 10px;
-  border: 1px solid #d0d5dd;
-  background: #ffffff;
+  border: 1px solid var(--login-input-border);
+  background: var(--login-input);
   margin-bottom: 12px;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
 }
 
 body.login>#form-container input::placeholder {
-  color: #667085;
+  color: var(--login-muted);
 }
 
 body.login>#form-container input:-webkit-autofill {
-  -webkit-box-shadow:0 0 0px 1000px white inset
+  -webkit-box-shadow: 0 0 0px 1000px var(--login-input) inset;
+  -webkit-text-fill-color: var(--login-text);
+}
+
+body.login>#form-container input:hover {
+  border-color: color-mix(in srgb, var(--login-muted) 40%, var(--login-input-border));
 }
 
 body.login>#form-container input:focus {
   outline:0;
+  background: var(--login-card);
   border-color: var(--theme-gradient-start);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--theme-gradient-start) 18%, transparent);
 }
 
 body.login>#form-container #password {
-  margin-bottom:8px
+  margin-bottom: 12px;
 }
 
 body.login>#form-container #error {
-  color:#d92d20;
-  margin: 2px 0 8px;
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--login-error-border);
+  border-left-width: 4px;
+  background: var(--login-error-bg);
+  color: var(--login-error);
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: left;
 }
 
 body.login>#form-container #submitbutton {
