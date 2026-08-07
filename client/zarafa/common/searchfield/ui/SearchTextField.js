@@ -14,6 +14,7 @@ Ext.ns('Zarafa.common.searchfield.ui');
  * {@link #getValue} returns what the server expects.
  *
  * #dependsFile client/zarafa/common/searchfield/ui/SearchDropdownPanel.js
+ * #dependsFile client/zarafa/advancesearch/KQLParser.js
  */
 Zarafa.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField, {
 
@@ -78,11 +79,13 @@ Zarafa.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField, {
 	filterLabels: null,
 
 	/**
-	 * Supported KQL field names.
+	 * Supported KQL field names. Set from
+	 * {@link Zarafa.advancesearch.KQLParser#kqlKeys} so the field list and the
+	 * prefixes the parser accepts cannot drift apart.
 	 * @property
 	 * @type Array
 	 */
-	kqlFields: ['subject','from','to','cc','bcc','body','sender','attachment','category','unread','type','date'],
+	kqlFields: null,
 
 	/**
 	 * @constructor
@@ -99,20 +102,8 @@ Zarafa.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField, {
 		});
 
 		this.tokens = [];
-		this.filterLabels = {
-			'subject': _('Subject'),
-			'from': _('From'),
-			'to': _('To'),
-			'cc': _('Cc'),
-			'bcc': _('Bcc'),
-			'body': _('Body'),
-			'sender': _('Sender'),
-			'attachment': _('Attachment'),
-			'category': _('Category'),
-			'unread': _('Unread'),
-			'type': _('Type'),
-			'date': _('Date')
-		};
+		this.kqlFields = Zarafa.advancesearch.KQLParser.kqlKeys.slice(0);
+		this.filterLabels = Zarafa.advancesearch.KQLParser.getKeywordLabels();
 
 		this.addEvents(
 			'beforestart',
@@ -492,15 +483,19 @@ Zarafa.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField, {
 		}
 
 		var tokens = [];
-		var fieldsPattern = this.kqlFields.join('|');
+		var fieldsPattern = Zarafa.advancesearch.KQLParser.getKeywordPattern(this.kqlFields);
+		// No \b in front of the field group: it only fires between ASCII word
+		// characters, so it would reject every non-Latin alias outright. The
+		// trailing \S+ alternative already consumes whole whitespace-delimited
+		// runs, so the field alternative is only ever retried at a token start.
 		var regex = new RegExp(
-			'\\b(' + fieldsPattern + '):(\"[^\"]*\"|\'[^\']*\'|\\S*)|\\b(AND|OR|NOT)\\b|(\"[^\"]*\"|\'[^\']*\')|\\S+', 'gi'
+			'(' + fieldsPattern + '):(\"[^\"]*\"|\'[^\']*\'|\\S*)|\\b(AND|OR|NOT)\\b|(\"[^\"]*\"|\'[^\']*\')|\\S+', 'gi'
 		);
 
 		var match;
 		while ((match = regex.exec(query)) !== null) {
 			if (match[1]) {
-				var key = match[1].toLowerCase();
+				var key = Zarafa.advancesearch.KQLParser.resolveKeyword(match[1], this.kqlFields) || match[1].toLowerCase();
 				var val = match[2] || '';
 				if (val.length >= 2 &&
 					((val.charAt(0) === '"' && val.charAt(val.length - 1) === '"') ||
@@ -968,11 +963,14 @@ Zarafa.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField, {
 			return { type: 'operator', key: upper };
 		}
 
-		// Check for field:value
+		// Check for field:value. The prefix may be typed in the user's own
+		// language; resolving it to the canonical name here is what keeps the
+		// query built by buildQuery(), and therefore the search history and
+		// everything sent to the server, in canonical English.
 		var colonIdx = raw.indexOf(':');
 		if (colonIdx > 0) {
-			var key = raw.substring(0, colonIdx).toLowerCase();
-			if (this.kqlFields.indexOf(key) !== -1) {
+			var key = Zarafa.advancesearch.KQLParser.resolveKeyword(raw.substring(0, colonIdx), this.kqlFields);
+			if (key) {
 				var value = raw.substring(colonIdx + 1);
 				if (value.length >= 2 &&
 					((value.charAt(0) === '"' && value.charAt(value.length - 1) === '"') ||
