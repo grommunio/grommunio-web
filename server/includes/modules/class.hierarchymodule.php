@@ -596,7 +596,7 @@ class HierarchyModule extends Module {
 
 		// calculating missing message_size
 		if (!isset($data["props"]["message_size"])) {
-			$data["props"]["message_size"] = $this->showStoreDetails ? round($GLOBALS["operations"]->calcFolderMessageSize($folder, false)) : 0;
+			$data["props"]["message_size"] = $this->showStoreDetails ? round($GLOBALS["operations"]->calcFolderMessageSize($folder)) : 0;
 		}
 
 		// retrieving folder permissions
@@ -620,7 +620,7 @@ class HierarchyModule extends Module {
 	 */
 	public function getFolderSize($store, $folder, $pathname, &$subfolders, $hidden = false) {
 		$columns = [PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID, PR_OBJECT_TYPE, PR_DISPLAY_NAME, PR_ATTR_HIDDEN];
-		$size = $GLOBALS["operations"]->calcFolderMessageSize($folder, false);
+		$size = $GLOBALS["operations"]->calcFolderMessageSize($folder);
 		$total_size = $size;
 
 		$table = mapi_folder_gethierarchytable($folder, MAPI_DEFERRED_ERRORS);
