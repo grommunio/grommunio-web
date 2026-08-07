@@ -1324,8 +1324,16 @@ Zarafa.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField, {
 			}
 		}
 
-		// Auto-convert pasted content with multiple terms (contains spaces)
-		if (text.indexOf(' ') !== -1 && text.indexOf(':') !== -1) {
+		// Auto-convert pasted content with multiple terms (contains spaces).
+		//
+		// Not while a quote is still open: this fires on every keystroke, so it
+		// cannot tell a paste from someone halfway through typing a quoted
+		// phrase. Typing subject:"some thing" reaches this with the text
+		// subject:"some t, where the quoted alternative of the parse regex
+		// cannot match and \S* takes "some instead - splitting the phrase into
+		// a chip plus a stray word before the closing quote is ever typed.
+		// A real paste of a complete term has balanced quotes and still passes.
+		if (text.indexOf(' ') !== -1 && text.indexOf(':') !== -1 && !this.isInsideQuotes(text)) {
 			var parsed = this.parseQueryToTokens(text);
 			if (parsed.length > 1) {
 				this.tailInputEl.dom.value = '';
