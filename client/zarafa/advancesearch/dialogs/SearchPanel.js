@@ -5,6 +5,7 @@ Ext.namespace('Zarafa.advancesearch.dialogs');
  * @extends Ext.Panel
  * @xtype zarafa.searchpanel
  *
+ * #dependsFile client/zarafa/advancesearch/KQLParser.js
  */
 Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 
@@ -363,8 +364,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 		var searchField = this.searchToolbar.getAdvanceSearchField();
 
 		// Strip KQL field prefixes from the title for readability
-		var displayTitle = searchText
-			.replace(/\b(?:subject|from|to|cc|bcc|body|sender|attachment|category):["']?/gi, '')
+		var displayTitle = Zarafa.advancesearch.KQLParser.stripKeywords(searchText)
 			.replace(/["']/g, '')
 			.replace(/\b(AND|OR|NOT)\b/gi, '')
 			.replace(/\s+/g, ' ')

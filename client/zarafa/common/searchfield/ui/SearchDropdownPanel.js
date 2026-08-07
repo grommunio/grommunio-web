@@ -6,6 +6,8 @@ Ext.ns('Zarafa.common.searchfield.ui');
  *
  * A dropdown panel shown below the search field on focus. Provides quick access
  * to recent search history, KQL filter fields and folder scope selection.
+ *
+ * #dependsFile client/zarafa/advancesearch/KQLParser.js
  */
 Zarafa.common.searchfield.ui.SearchDropdownPanel = Ext.extend(Ext.Panel, {
 
@@ -48,16 +50,30 @@ Zarafa.common.searchfield.ui.SearchDropdownPanel = Ext.extend(Ext.Panel, {
 	 * @type Array
 	 */
 	filterFields: [
-		{ key: 'subject', label: _('Subject') },
-		{ key: 'from', label: _('From') },
-		{ key: 'to', label: _('To') },
-		{ key: 'cc', label: _('Cc') },
-		{ key: 'bcc', label: _('Bcc') },
-		{ key: 'body', label: _('Body') },
-		{ key: 'attachment', label: _('Attachment') },
-		{ key: 'category', label: _('Category') },
-		{ key: 'unread', label: _('Unread'), value: 'true' }
+		{ key: 'subject' },
+		{ key: 'from' },
+		{ key: 'to' },
+		{ key: 'cc' },
+		{ key: 'bcc' },
+		{ key: 'body' },
+		{ key: 'attachment' },
+		{ key: 'category' },
+		{ key: 'unread', value: 'true' }
 	],
+
+	/**
+	 * The label to show for a filter. Taken from the same map that supplies the
+	 * accepted prefixes, so what the dropdown offers and what may be typed can
+	 * never disagree.
+	 * @param {String} key The canonical field name
+	 * @return {String} The translated label
+	 * @private
+	 */
+	getFilterLabel: function(key)
+	{
+		var labels = Zarafa.advancesearch.KQLParser.getKeywordLabels();
+		return labels[key] || key;
+	},
 
 	/**
 	 * Message type options for the dropdown.
@@ -269,7 +285,7 @@ Zarafa.common.searchfield.ui.SearchDropdownPanel = Ext.extend(Ext.Panel, {
 				html += ' data-filter-value="' + enc(f.value) + '"';
 			}
 			html += '>';
-			html += '<span class="k-search-filter-label">' + enc(f.label) + '</span>';
+			html += '<span class="k-search-filter-label">' + enc(this.getFilterLabel(f.key)) + '</span>';
 			html += '</span>';
 		}
 		html += '</div>';
