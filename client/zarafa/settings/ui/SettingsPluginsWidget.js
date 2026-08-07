@@ -306,6 +306,11 @@ Zarafa.settings.ui.SettingsPluginsWidget = Ext.extend(Zarafa.settings.ui.Setting
 	{
 		record.set('enabled', false);
 		this.model.set(record.get('settings_base') + '/enable', false);
+		// Set notifier values to default after disabling the desktopnotifications plugin
+		if (record.get('settings_base') == 'zarafa/v1/plugins/desktopnotifications') {
+			this.model.set('zarafa/v1/main/notifier/info/newmail/value', 'toast');
+			this.model.set('zarafa/v1/main/notifier/info/reminder/value', 'none');
+		}
 		this.model.requiresReload = true;
 	}
 });
