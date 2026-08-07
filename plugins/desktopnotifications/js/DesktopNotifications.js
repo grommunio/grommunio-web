@@ -92,7 +92,7 @@ Zarafa.plugins.desktopnotifications.js.DesktopNotification = (function() {
 			}
 
 			var settingsModel = container.getSettingsModel();
-			var soundDisabled = settingsModel.get('zarafa/v1/plugins/desktopnotifications/disable_sound');
+			var soundDisabled = settingsModel.get('zarafa/v1/main/desktop_notification/disable_sound');
 
 			var notification = new Notification(title, {
 				icon : options.icon,

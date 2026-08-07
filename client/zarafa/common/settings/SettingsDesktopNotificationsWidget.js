@@ -217,7 +217,7 @@ Zarafa.common.settings.SettingsDesktopNotificationsWidget = Ext.extend(Zarafa.se
 		// Note: Desktop plugin settings needs to be applied in webapp main settings
 		// due to desktop notification plugin has been included into webapp core.
 		// Fetch plugin settings if any and apply them.
-		this.pluginSettingsApplied = Ext.isDefined(settingsModel.get('zarafa/v1/plugins/desktopnotifications/enable'));
+		this.pluginSettingsApplied = settingsModel.get('zarafa/v1/plugins/desktopnotifications/enable') === true;
 		var name = this.pluginSettingsApplied ? "pluginSettingName" : "name";
 		var autoHideBoxEnabled = settingsModel.get(this.autoHideBox[name]);
 		var spinnerValue = settingsModel.get(this.autoHideTimeSpinner[name]);

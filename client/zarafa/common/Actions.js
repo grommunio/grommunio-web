@@ -2046,9 +2046,9 @@ Zarafa.common.Actions = {
 		// Otherwise use webapp main settings.
 		var settingsModel = container.getSettingsModel();
 		var pluginBasePath = 'zarafa/v1/plugins/desktopnotifications/';
-		var isPlugInEnabled = Ext.isDefined(settingsModel.get(pluginBasePath+'enable'));
+		var isPlugInEnabled = settingsModel.get(pluginBasePath + 'enable') === true;
 		var baseSettingPath = isPlugInEnabled ? pluginBasePath : 'zarafa/v1/main/desktop_notification/';
-		var soundDisabled = settingsModel.get(baseSettingPath + 'disable_sound');
+		var soundDisabled = !isPlugInEnabled || settingsModel.get('zarafa/v1/main/desktop_notification/disable_sound');
 
 		var notification = new Notification(title, {
 			icon: options.icon,

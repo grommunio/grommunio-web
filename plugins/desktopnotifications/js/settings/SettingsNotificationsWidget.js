@@ -121,6 +121,14 @@ Zarafa.plugins.desktopnotifications.js.settings.SettingsNotificationsWidget = Ex
 					},
 					plugins: ['zarafa.numberspinner']
 				}]
+			}, {
+				xtype: 'checkbox',
+				boxLabel: _('Disable sound'),
+				name: 'zarafa/v1/main/desktop_notification/disable_sound',
+				handler: this.onFieldChange,
+				scope: this,
+				hideLabel: true,
+				ref: '../disableSound'
 			}]
 		}];
 	},
@@ -196,10 +204,20 @@ Zarafa.plugins.desktopnotifications.js.settings.SettingsNotificationsWidget = Ex
 
 		var spinnerValue = this.model.get(this.autoHideTimeSpinner.name);
 		if (spinnerValue === 0 || !Ext.isDefined(spinnerValue))  {
-			this.autoHideTimeSpinner.setValue(5); // Default 5 minutes
+			this.autoHideTimeSpinner.setValue(5); // Default 5 seconds
 		} else {
 			this.autoHideTimeSpinner.setValue(spinnerValue);
 		}
+
+		/********
+		 * Sound
+		 ********/
+		var	soundCheckbox = this.model.get(this.disableSound.name);
+		// Disable sound checkbox
+		this.disableSound.setDisabled(!hasPermission);
+
+		// Show the correct value of the checkbox
+		this.disableSound.setValue(soundCheckbox);
 	},
 
 	/**
@@ -217,6 +235,7 @@ Zarafa.plugins.desktopnotifications.js.settings.SettingsNotificationsWidget = Ex
 
 		settingsModel.beginEdit();
 		settingsModel.set(this.autoHideTimeSpinner.name, spinnerValue);
+		settingsModel.set(this.disableSound.name, this.disableSound.getValue());
 		settingsModel.endEdit();
 	},
 
