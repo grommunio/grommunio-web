@@ -274,6 +274,7 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 			if (sendAction) {
 				this.fireEvent('aftersendrecord', this, this.record);
 				this.isSending = false;
+				this.unlockPendingAction();
 			}
 
 			if (isSending && this.closeOnSend && sendAction) {
@@ -302,6 +303,7 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 
 		if (type !== "open") {
 			this.isSending = false;
+			this.unlockPendingAction();
 		}
 	},
 
@@ -327,6 +329,11 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 		}
 
 		this.isSending = true;
+
+		// Lock here rather than when the store starts saving: the validation queue
+		// below is asynchronous, so without this the Send button stays live for the
+		// whole of it.
+		this.lockPendingAction(this.sendingText.msg);
 
 		// Start the validation queue to determine if the record can be
 		// send to the recipients correctly. If successful, onCompleteValidateSendRecord
@@ -612,7 +619,10 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 				this.fireEvent('sendrecord', this, this.record);
 			}
 		} else {
+			// Validation refused the send (no recipients, unresolved names, ...).
+			// Nothing is in flight, so give the dialog back to the user.
 			this.isSending = false;
+			this.unlockPendingAction();
 		}
 	},
 
