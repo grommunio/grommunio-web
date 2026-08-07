@@ -9,6 +9,228 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 	lexer: null,
 
 	/**
+	 * The canonical KQL field names, in collision-priority order: when two
+	 * fields would end up with the same localized alias, the one listed first
+	 * keeps it.
+	 * @property
+	 * @type Array
+	 */
+	kqlKeys: ['subject', 'from', 'to', 'cc', 'bcc', 'body', 'sender', 'attachment', 'category', 'unread', 'type', 'date'],
+
+	/**
+	 * The subset of {@link #kqlKeys} that this parser turns into a restriction.
+	 * 'unread', 'type' and 'date' are handled by the search tool box instead, so
+	 * they must stay out of the lexer or {@link #isKqlQuery} would start
+	 * reporting explicit syntax for queries that never used it.
+	 * @property
+	 * @type Array
+	 */
+	restrictionKeys: ['body', 'attachment', 'subject', 'sender', 'from', 'to', 'cc', 'bcc', 'category'],
+
+	/**
+	 * Characters that stop a translated label from being usable as a prefix:
+	 * whitespace and the KQL operators would break the token, and the rest are
+	 * regular expression metacharacters we would rather not see in an alias.
+	 * @property
+	 * @type RegExp
+	 */
+	unusableAliasRe: /[\s :=<>()[\]{}"'`|&!^$*?+\\/,;~%#@]/,
+
+	/**
+	 * Minimum length of a localized alias. Catalan, Spanish and Italian all
+	 * translate "To" to a single letter, which is far too small a token to
+	 * claim the prefix namespace with.
+	 * @property
+	 * @type Number
+	 */
+	minAliasLength: 2,
+
+	keywordLabels: null,
+	keywordAliasCache: null,
+	keywordPatternCache: null,
+
+	/**
+	 * The user-visible label for every canonical field name. Also the source of
+	 * the localized prefixes - see {@link #getKeywordAliasMap}.
+	 * @return {Object} Map of canonical key to translated label
+	 */
+	getKeywordLabels: function() {
+		if ( !this.keywordLabels ) {
+			this.keywordLabels = {
+				'subject': _('Subject'),
+				'from': _('From'),
+				'to': _('To'),
+				'cc': _('Cc'),
+				'bcc': _('Bcc'),
+				'body': _('Body'),
+				'sender': _('Sender'),
+				'attachment': _('Attachment'),
+				'category': _('Category'),
+				'unread': _('Unread'),
+				'type': _('Type'),
+				'date': _('Date')
+			};
+		}
+
+		return this.keywordLabels;
+	},
+
+	/**
+	 * Whether a translated label can serve as a search prefix.
+	 * @param {String} label The translated label
+	 * @return {Boolean} True if it can be typed as "<label>:value"
+	 */
+	isUsableAlias: function(label) {
+		if ( !label ) {
+			return false;
+		}
+
+		var alias = String(label);
+		if ( alias.length < this.minAliasLength || alias.length > 24 ) {
+			return false;
+		}
+		// '-' is a boolean operator in its own right.
+		if ( alias.charAt(0) === '-' ) {
+			return false;
+		}
+		if ( this.unusableAliasRe.test(alias) ) {
+			return false;
+		}
+		var upper = alias.toUpperCase();
+		if ( upper === 'AND' || upper === 'OR' || upper === 'NOT' ) {
+			return false;
+		}
+
+		return true;
+	},
+
+	/**
+	 * Escapes a string for literal use inside a regular expression.
+	 * @param {String} str The string to escape
+	 * @return {String} The escaped string
+	 */
+	regExpEscape: function(str) {
+		return String(str).replace(/[.*+?^${}()|[\]\\/-]/g, '\\$&');
+	},
+
+	/**
+	 * Every accepted spelling of a search prefix, mapped to its canonical field
+	 * name, so that a German user can type "von:" and a French one "objet:"
+	 * instead of the English "from:" and "subject:".
+	 *
+	 * The aliases are derived from the labels the UI already shows for each
+	 * field, so no separate list has to be kept in step with the translations.
+	 *
+	 * Two rules keep this predictable:
+	 *
+	 * - The canonical English names are claimed first and are never
+	 *   overwritten. Should some language translate one field's label to
+	 *   another field's English name, the English meaning wins - queries are
+	 *   stored and shared in canonical form, and silently repointing a prefix
+	 *   at a different property would change what those stored queries mean.
+	 * - Where two fields share a label, the one listed first in the given key
+	 *   order keeps it, rather than whichever happened to be iterated last.
+	 *
+	 * @param {Array} keys (optional) The canonical keys to include
+	 * @return {Object} Map of lower-cased alias to canonical key
+	 */
+	getKeywordAliasMap: function(keys) {
+		keys = keys || this.kqlKeys;
+		var cacheKey = keys.join('|');
+		this.keywordAliasCache = this.keywordAliasCache || {};
+		if ( this.keywordAliasCache[cacheKey] ) {
+			return this.keywordAliasCache[cacheKey];
+		}
+
+		var labels = this.getKeywordLabels();
+		var map = {};
+		var i;
+
+		for ( i = 0; i < keys.length; i++ ) {
+			map[keys[i]] = keys[i];
+		}
+
+		for ( i = 0; i < keys.length; i++ ) {
+			var label = labels[keys[i]];
+			if ( !this.isUsableAlias(label) ) {
+				continue;
+			}
+			var alias = String(label).toLowerCase();
+			if ( !map.hasOwnProperty(alias) ) {
+				map[alias] = keys[i];
+			}
+		}
+
+		this.keywordAliasCache[cacheKey] = map;
+		return map;
+	},
+
+	/**
+	 * A regular expression alternation matching any accepted prefix spelling.
+	 * Longest first, so the pattern stays correct even where one alias is a
+	 * prefix of another - German "an" and "anhang", for instance.
+	 * @param {Array} keys (optional) The canonical keys to include
+	 * @return {String} The alternation, without the surrounding group
+	 */
+	getKeywordPattern: function(keys) {
+		keys = keys || this.kqlKeys;
+		var cacheKey = keys.join('|');
+		this.keywordPatternCache = this.keywordPatternCache || {};
+		if ( this.keywordPatternCache[cacheKey] ) {
+			return this.keywordPatternCache[cacheKey];
+		}
+
+		var aliases = [];
+		var map = this.getKeywordAliasMap(keys);
+		for ( var alias in map ) {
+			if ( map.hasOwnProperty(alias) ) {
+				aliases.push(alias);
+			}
+		}
+		aliases.sort(function(a, b) {
+			return b.length - a.length || (a < b ? -1 : (a > b ? 1 : 0));
+		});
+
+		var escaped = [];
+		for ( var i = 0; i < aliases.length; i++ ) {
+			escaped.push(this.regExpEscape(aliases[i]));
+		}
+
+		this.keywordPatternCache[cacheKey] = escaped.join('|');
+		return this.keywordPatternCache[cacheKey];
+	},
+
+	/**
+	 * Resolves a typed prefix to its canonical field name.
+	 * @param {String} word The prefix as typed, in any accepted spelling
+	 * @param {Array} keys (optional) The canonical keys to consider
+	 * @return {String/Boolean} The canonical key, or false if unrecognised
+	 */
+	resolveKeyword: function(word, keys) {
+		if ( !word ) {
+			return false;
+		}
+
+		var map = this.getKeywordAliasMap(keys);
+		var raw = String(word);
+		return map[raw] || map[raw.toLowerCase()] || false;
+	},
+
+	/**
+	 * Removes "<prefix>:" from a query, whichever spelling was used. Intended
+	 * for building a human-readable title out of a search string.
+	 * @param {String} text The query
+	 * @param {Array} keys (optional) The canonical keys to consider
+	 * @return {String} The query without its prefixes
+	 */
+	stripKeywords: function(text, keys) {
+		var pattern = this.getKeywordPattern(keys);
+		// Not \b: it is defined over ASCII word characters and never fires in
+		// front of, say, a Cyrillic alias.
+		return String(text).replace(new RegExp('(^|[\\s(])(?:' + pattern + '):["\']?', 'gi'), '$1');
+	},
+
+	/**
 	 * Creates a tokenizer with rules to split strings into KQL tokens.
 	 * The tokenizer is an instance of Tokenizr.
 	 * See {@link https://github.com/rse/tokenizr}
@@ -22,17 +244,7 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 		// eslint-disable-next-line no-undef
 		this.lexer = new Tokenizr();
 
-		var keys = [
-			'body',
-			'attachment',
-			'subject',
-			'sender',
-			'from',
-			'to',
-			'cc',
-			'bcc',
-			'category'
-		];
+		var self = this;
 		var ops = [':', '=', '<>'];
 		var boolOps = ['AND', 'OR', 'NOT', '+', '-'];
 
@@ -73,9 +285,11 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 			ctx.accept('parenthesis', 'close');
 			ctx.pop();
 		}, 'parensclose');
-		this.lexer.rule(new RegExp('(' + keys.join('|') + ')(' + ops.join('|') + ')', 'i'), function(ctx, match) {
+		this.lexer.rule(new RegExp('(' + this.getKeywordPattern(this.restrictionKeys) + ')(' + ops.join('|') + ')', 'i'), function(ctx, match) {
 			ctx.ignore();
-			keyword = match[1].toLowerCase();
+			// Accept the localized spelling but hand the canonical name on, so
+			// everything downstream - propMap included - is unaffected.
+			keyword = self.resolveKeyword(match[1], self.restrictionKeys) || match[1].toLowerCase();
 			operator = match[2];
 		}, 'keyword');
 		this.lexer.rule(/"(.*?)"/, function(ctx, match) {
