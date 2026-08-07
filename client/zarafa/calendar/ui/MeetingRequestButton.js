@@ -131,7 +131,14 @@ Zarafa.calendar.ui.MeetingRequestButton = Ext.extend(Ext.Button, {
 			case Zarafa.calendar.data.MeetingRequestButtonNames.REMOVEFROMCALENDAR:
 				// When the meeting is canceled, the user is allowed to remove the appointment
 				// from the calendar.
-				this.visible = isMeetingCanceled && !isSubMessage && !apptNotFound;
+				//
+				// 'appointment_not_found' is only supplied by the server when the item is
+				// opened, so on a record straight from the list it still holds the field
+				// default of false. Deciding on that default means the button is shown for
+				// as long as the open request takes and then disappears again, which reads
+				// as an action that was offered and withdrawn before it could be clicked.
+				// Wait until the record is loaded before offering the action at all.
+				this.visible = isMeetingCanceled && !isSubMessage && !apptNotFound && record.isOpened();
 				break;
 			case Zarafa.calendar.data.MeetingRequestButtonNames.NORESPONSE:
 				// When this meeting is current, but the user did send this meeting request to himself,
