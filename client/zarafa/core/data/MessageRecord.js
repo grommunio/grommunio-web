@@ -326,41 +326,39 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 */
 	shouldBlockExternalContent: function()
 	{
-		// check settings
-		if(!container.getSettingsModel().get('zarafa/v1/contexts/mail/block_external_content')) {
+		var senderSMTPAddress = (this.get('sent_representing_email_address') || this.get('sender_email_address') || '').toLowerCase();
+		var junkStore = Zarafa.mail.data.JunkMailStore;
+
+		// Safe senders always win - never block external content from safe senders
+		if (junkStore.isSafeSender(senderSMTPAddress)) {
 			return false;
 		}
 
-		var blockExternalContent = true;
-		var ignoreChecks = false;
-		var senderSMTPAddress = (this.get('sent_representing_email_address') || this.get('sender_email_address') || '').toLowerCase();
-		var safeSenders = container.getSettingsModel().get('zarafa/v1/contexts/mail/safe_senders_list', true);
-		safeSenders = Ext.isArray(safeSenders) ? safeSenders.map(function(s){ return String(s).toLowerCase(); }) : [];
-
-		// if block_status property is set correctly then ignore all settings and show external content
-		if(this.checkBlockStatus()) {
-			blockExternalContent = false;
-			ignoreChecks = true;
-		}
-
-		// first check for perfect match
-		if(!ignoreChecks) {
-			// safe sender list will have higher priority then blocked sender list
-			if(safeSenders.indexOf(senderSMTPAddress) != -1) {
-				blockExternalContent = false;
-				ignoreChecks = true;
+		// Fallback: check old webapp safe senders setting during migration window
+		var oldSafeSenders = container.getSettingsModel().get('zarafa/v1/contexts/mail/safe_senders_list', true);
+		if (Ext.isArray(oldSafeSenders) && oldSafeSenders.length > 0) {
+			oldSafeSenders = oldSafeSenders.map(function(s) { return String(s).toLowerCase(); });
+			if (oldSafeSenders.indexOf(senderSMTPAddress) !== -1 ||
+				Zarafa.core.Util.inArray(oldSafeSenders, senderSMTPAddress, true, true)) {
+				return false;
 			}
 		}
 
-		// now check for partial matches
-		if(!ignoreChecks) {
-			// safe sender list will have higher priority then blocked sender list
-			if(Zarafa.core.Util.inArray(safeSenders, senderSMTPAddress, true, true)) {
-				blockExternalContent = false;
-			}
+		// The user explicitly chose to show this message's pictures.
+		if (this.checkBlockStatus()) {
+			return false;
 		}
 
-		return blockExternalContent;
+		// Blocked senders block even with the global setting off.
+		if (junkStore.isBlockedSender(senderSMTPAddress)) {
+			return true;
+		}
+
+		if (!container.getSettingsModel().get('zarafa/v1/contexts/mail/block_external_content')) {
+			return false;
+		}
+
+		return true;
 	},
 
 	/**

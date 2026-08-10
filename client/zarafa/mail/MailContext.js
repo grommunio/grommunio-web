@@ -48,6 +48,9 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 
 		Zarafa.mail.MailContext.superclass.constructor.call(this, config);
 
+		// Load Outlook-compatible sender lists from FAI message
+		Zarafa.mail.data.JunkMailStore.load();
+
 		// The "New email" button which is available in all contexts
 		this.registerInsertionPoint('main.maintoolbar.new.item', this.createNewMailButton, this);
 		this.registerInsertionPoint('context.mainpaneltoolbar.item', this.createFilterButton, this);
