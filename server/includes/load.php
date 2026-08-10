@@ -68,6 +68,10 @@ switch ($_GET['load']) {
 		include BASE_PATH . 'server/includes/download_appointment.php';
 		break;
 
+	case "bimi":
+		include BASE_PATH . 'server/includes/bimi.php';
+		break;
+
 	case "separate_window":
 		$GLOBALS['PluginManager']->triggerHook("server.index.load.separate_window.before");
 		include BASE_PATH . 'server/includes/templates/webclient_separatewindow.php';

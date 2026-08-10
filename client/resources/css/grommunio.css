@@ -2409,6 +2409,25 @@ span.zarafa-emailaddress-link:hover {
 .preview-header-sentinfo {
   margin-left: 10px; }
   
+.preview-header-sentinfo span.zarafa-emailaddress-link {
+  color: var(--ui-text);
+  font-weight: 600;
+  font-size: 15px; }
+
+.preview-header-sentinfo span.zarafa-emailaddress-link:hover {
+  color: var(--ui-text); }
+
+.preview-sender-address {
+  color: var(--ui-text-3);
+  font-weight: 400;
+  font-size: 13px; }
+
+span.preview-header-sender-initial.k-bimi {
+  color: transparent;
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 0 0 1px var(--ui-border); }
+
 span.preview-header-sender-initial {
   background: var(--ui-accent-soft);
   color: var(--ui-accent-text);

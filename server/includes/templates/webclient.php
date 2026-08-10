@@ -43,6 +43,7 @@ $serverConfig = array_merge($serverConfig, [
 	'shared_store_polling_interval' => SHARED_STORE_POLLING_INTERVAL,
 	'enable_dompurify' => ENABLE_DOMPURIFY_FILTER,
 	'enable_file_previewer' => ENABLE_FILE_PREVIEWER,
+	'enable_bimi' => ENABLE_BIMI,
 	'enable_themes' => ENABLE_THEMES,
 	'enable_iconsets' => ENABLE_ICONSETS,
 	'enable_widgets' => ENABLE_WIDGETS,
