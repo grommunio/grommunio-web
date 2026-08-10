@@ -275,6 +275,11 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		tinymceEditor.on("PastePreProcess", this.onPasteFileLink.createDelegate(this), true);
 		tinymceEditor.on("keyup", this.onKeyUpFileLink.createDelegate(this));
 
+		// Recover the images of a paste coming from Microsoft Word. This needs the
+		// raw clipboard, which PastePreProcess does not carry, so it hooks 'paste'
+		// itself -- prepended so it runs before TinyMCE consumes the event.
+		tinymceEditor.on("paste", this.onPasteWordImages.createDelegate(this), true);
+
 		var doc = tinymceEditor.getDoc();
 		Ext.EventManager.on(doc, 'click', this.onEditorClick, this);
 		Ext.EventManager.on(doc, 'dblclick', this.onEditorDocDblClick, this);
@@ -838,6 +843,60 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		container.innerHTML = event.content;
 		this.linkifyFileLinksInNode(container);
 		event.content = container.innerHTML;
+	},
+
+	/**
+	 * Handler for the editor's 'paste' event: put back the images of a paste that
+	 * comes from Microsoft Word.
+	 *
+	 * Word references its images with file:// URLs that a web page cannot load,
+	 * and puts the actual bytes only in the text/rtf flavour of the clipboard --
+	 * see {@link Zarafa.common.ui.htmleditor.WordClipboard}. TinyMCE's own
+	 * clipboard-image handling does not apply, because it only runs for a paste
+	 * that carries no HTML at all.
+	 *
+	 * The rewritten HTML is handed back to TinyMCE with 'mceInsertClipboardContent'
+	 * rather than inserted directly, so that the normal paste pipeline -- including
+	 * the 'officepaste' plugin's Word cleanup -- still runs over it.
+	 *
+	 * @param {Object} event The DOM paste event, as dispatched by TinyMCE
+	 * @private
+	 */
+	onPasteWordImages: function(event)
+	{
+		if (!event || event.isDefaultPrevented() || !event.clipboardData) {
+			return;
+		}
+
+		var clipboard = event.clipboardData;
+		var html = clipboard.getData("text/html");
+		var wordClipboard = Zarafa.common.ui.htmleditor.WordClipboard;
+		// Cheap guard first: the RTF flavour of a Word paste is routinely several
+		// megabytes, so it is only fetched and parsed when the HTML actually
+		// references an image the browser will not be able to load.
+		if (!wordClipboard.needsImageRecovery(html)) {
+			return;
+		}
+
+		var rtf = clipboard.getData("text/rtf");
+		if (Ext.isEmpty(rtf)) {
+			return;
+		}
+
+		var pictures = wordClipboard.parsePictures(rtf);
+		if (Ext.isEmpty(pictures)) {
+			return;
+		}
+
+		var result = wordClipboard.rewriteImages(html, pictures);
+		if (result.replaced === 0) {
+			return;
+		}
+
+		event.preventDefault();
+		this.getEditor().execCommand("mceInsertClipboardContent", false, {
+			html: result.html
+		});
 	},
 
 	/**
