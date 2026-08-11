@@ -202,6 +202,76 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	},
 
 	/**
+	 * Check whether this record claims to be {@link Zarafa.core.data.MAPIRecord#isOpened opened}
+	 * while carrying no body at all, which means the body must be fetched again.
+	 *
+	 * This state is reachable because the properties sent for a list row (and for
+	 * a table notification) do not include a body, but the record fields still
+	 * exist and hold an empty string. Applying such data onto an already opened
+	 * record therefore replaces its body with '', while the opened flag is only
+	 * ever set and never cleared. Since {@link Zarafa.core.data.MAPIRecord#open}
+	 * returns early for an opened record, nothing refetches the body afterwards.
+	 *
+	 * @return {Boolean} True if the record is opened but holds no body.
+	 */
+	isBodyMissing: function()
+	{
+		// A phantom has no server-side counterpart to load a body from.
+		if (this.phantom === true || !this.isOpened()) {
+			return false;
+		}
+
+		// A message can legitimately have no body at all. Reloading it would
+		// return an empty body again, so only ever ask once per record.
+		if (this.bodyReloadForced === true) {
+			return false;
+		}
+
+		if (!this.fields.containsKey('body') && !this.fields.containsKey('html_body')) {
+			return false;
+		}
+
+		return Ext.isEmpty(this.get('body')) && Ext.isEmpty(this.get('html_body'));
+	},
+
+	/**
+	 * Set to true while a reload has been requested by {@link #isBodyMissing} so
+	 * the request is not repeated for a message which has no body at all. It is
+	 * cleared again as soon as a body does arrive, which keeps a later loss of
+	 * the body repairable.
+	 * @property
+	 * @type Boolean
+	 */
+	bodyReloadForced: false,
+
+	/**
+	 * Request the body to be loaded again for a record which is
+	 * {@link Zarafa.core.data.MAPIRecord#isOpened opened} but {@link #isBodyMissing
+	 * carries no body}. A plain {@link Zarafa.core.data.MAPIRecord#open open} would
+	 * return early for such a record, so the load is forced.
+	 */
+	reloadBody: function()
+	{
+		this.bodyReloadForced = true;
+		this.open({forceLoad: true});
+	},
+
+	/**
+	 * Called by the store after the record was opened. Clears {@link #bodyReloadForced}
+	 * once a body has actually arrived, so that losing the body again later can
+	 * still be repaired by a reload.
+	 * @private
+	 */
+	afterOpen: function()
+	{
+		Zarafa.core.data.IPMRecord.superclass.afterOpen.apply(this, arguments);
+
+		if (!Ext.isEmpty(this.get('body')) || !Ext.isEmpty(this.get('html_body'))) {
+			this.bodyReloadForced = false;
+		}
+	},
+
+	/**
 	 * Helper function to get contents of body property of {@link Zarafa.core.data.IPMRecord IPMRecord}
 	 * @param {Boolean} preferHTML True if the HTML body should be returned or not, false if the plain-text
 	 * body should be returned.

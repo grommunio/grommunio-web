@@ -134,12 +134,21 @@ Zarafa.mail.Actions = {
 					}
 				};
 
-				if (record.isOpened()) {
+				// An opened record which carries no body must be loaded again,
+				// otherwise the quote is built from an empty body and the reply
+				// ends up containing only the quoted header. See
+				// Zarafa.core.data.IPMRecord#isBodyMissing.
+				if (record.isOpened() && !record.isBodyMissing()) {
 					response = model.createResponseRecord(record, actionType);
 					Zarafa.core.data.UIFactory.openCreateRecord(response, config);
 				} else {
 					record.getStore().on('open', openHandler, record);
-					record.open();
+					if (record.isOpened()) {
+						// Flagged as opened, so a plain open() would return early.
+						record.reloadBody();
+					} else {
+						record.open();
+					}
 				}
 			}
 		}
