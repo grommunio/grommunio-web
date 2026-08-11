@@ -564,7 +564,7 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 		var r = [];
 		for (var i = 0, len = records.length; i < len; i++) {
 			var record = records[i];
-			if (record.get('hidden') !== true) {
+			if (record.isEmbeddedInBody() !== true) {
 				r[r.length] = this.prepareData(record.data, record.get('attach_num'), record);
 			}
 		}

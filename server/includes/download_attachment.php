@@ -418,8 +418,14 @@ class DownloadAttachment extends DownloadBase {
 
 			// Set the headers
 			header('Pragma: public');
-			header('Expires: 0'); // set expiration time
-			header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+			if ($inline) {
+				// Immutable per URL (message entryid + content id); cacheable.
+				header('Cache-Control: private, max-age=604800');
+			}
+			else {
+				header('Expires: 0'); // set expiration time
+				header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+			}
 			header('Content-Disposition: ' . $this->contentDispositionType . '; filename="' . addslashes(browserDependingHTTPHeaderEncode($filename)) . '"');
 			header('Content-Type: ' . $contentType);
 			header('Content-Transfer-Encoding: binary');
@@ -1052,6 +1058,10 @@ class DownloadAttachment extends DownloadBase {
 
 // create instance of class to download attachment
 $attachInstance = new DownloadAttachment();
+
+// Nothing below writes to the session; release its lock, or the several
+// requests of a mail full of inline images queue behind one another.
+session_write_close();
 
 try {
 	// initialize variables
