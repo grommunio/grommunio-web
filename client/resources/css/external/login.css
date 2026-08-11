@@ -19,8 +19,8 @@ body {
   --login-card: #ffffff;
   --login-text: #1d2939;
   --login-muted: #667085;
-  --login-input: #f2f4f7;
-  --login-input-border: #e4e7ec;
+  --login-input: #eef0f3;
+  --login-input-hover: #e6e9ee;
   --login-error: #b42318;
   --login-error-bg: #fef3f2;
   --login-error-border: #fecdca;
@@ -233,7 +233,7 @@ body.login>#form-container input[type="password"] {
   line-height: 1.5 !important;
   color: var(--login-text);
   border-radius: 10px;
-  border: 1px solid var(--login-input-border);
+  border: 1px solid transparent;
   background: var(--login-input);
   margin-bottom: 12px;
   transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
@@ -249,7 +249,7 @@ body.login>#form-container input:-webkit-autofill {
 }
 
 body.login>#form-container input:hover {
-  border-color: color-mix(in srgb, var(--login-muted) 40%, var(--login-input-border));
+  background: var(--login-input-hover);
 }
 
 body.login>#form-container input:focus {
@@ -261,6 +261,10 @@ body.login>#form-container input:focus {
 
 body.login>#form-container #password {
   margin-bottom: 12px;
+}
+
+body.login>#form-container #error:empty {
+  display: none;
 }
 
 body.login>#form-container #error {

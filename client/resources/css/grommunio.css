@@ -45,7 +45,12 @@ body,
 .x-date-mp td,
 .x-fieldset legend,
 .loading-indicator {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 14px; }
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
 
 /* Accessibility: global focus indicator for keyboard navigation */
 *:focus-visible {
@@ -413,12 +418,22 @@ td.sort-asc .x-grid3-sort-icon {
 /* Set the background color to the body and make all other panels transparent when needed */
 body {
   /* TODO: The important is only needed because it was added in our original stylesheet. It should be removed from there and then here */
-  background-color: #ffffff !important;
+  background-color: var(--ui-surface) !important;
   color: var(--ui-text); }
 
-.x-tree-node, .x-tree-node a, .x-dd-drag-ghost a,
-.x-grid3-cell-text, .x-grid3-hd-text {
+.x-tree-node, .x-tree-node a, .x-tree-node a span, .x-dd-drag-ghost, .x-dd-drag-ghost a, .x-dd-drag-ghost a span,
+.x-grid3-cell-text, .x-grid3-hd-text, .x-grid3-row td, .x-grid3-cell-selected span,
+a.x-menu-item, .x-date-mmenu .x-menu-item, .x-combo-list-item, .x-combo-list-hd,
+.x-form-field, .x-form-display-field, .x-form-check-group-label,
+.x-window-mc, .x-list-body, .x-date-inner a, .x-box-mc, .x-progress-text-back, .ext-el-mask-msg div {
   color: var(--ui-text); }
+
+.x-btn-group-header, .x-paging-info, .x-tree-node-loading a span,
+.x-grid3-body .x-grid3-td-numberer .x-grid3-cell-inner {
+  color: var(--ui-text-2); }
+
+.x-grid3, .x-combo-list, .x-combo-list-inner, .x-window-body {
+  background-color: var(--ui-surface); }
 
 .zarafa-panel-body,
 .zarafa-panel,
@@ -429,7 +444,7 @@ body {
   border: none; }
 
 .x-panel-body {
-  background-color: white; }
+  background-color: var(--ui-surface); }
 
 .x-panel-body,
 .x-panel-bwrap,
@@ -583,27 +598,32 @@ button::-moz-focus-inner {
   height: 36px;
   width: 36px; }
 
-/* split button and arrow button */
+/* split button and arrow button: the separator only shows on hover */
 .x-btn em.x-btn-split, .x-btn em.x-btn-arrow {
   background-color: transparent !important;
   background-position: right 2px center !important;
   padding-right: 14px; }
   .x-btn em.x-btn-split button, .x-btn em.x-btn-arrow button {
-    border-right: 1px solid var(--ui-border); }
+    border-right: 1px solid transparent;
+    transition: border-color 0.15s ease; }
+  .x-btn.x-btn-over em.x-btn-split button, .x-btn.x-btn-over em.x-btn-arrow button {
+    border-right-color: var(--ui-border-strong); }
 
 .x-btn .x-btn-small em.x-btn-split, .x-btn .x-btn-small em.x-btn-arrow {
   background-position: right 2px center !important;
   padding-right: 14px; }
   .x-btn .x-btn-small em.x-btn-split button, .x-btn .x-btn-small em.x-btn-arrow button {
     border: none;
-    border-right: 1px solid var(--ui-border); }
+    border-right: 1px solid transparent; }
+  .x-btn.x-btn-over .x-btn-small em.x-btn-split button, .x-btn.x-btn-over .x-btn-small em.x-btn-arrow button {
+    border-right-color: var(--ui-border-strong); }
 
 .x-btn.zarafa-action .x-btn-small em.x-btn-split, .x-btn.zarafa-action .x-btn-small em.x-btn-arrow {
   background-position: right 2px center !important;
   padding-right: 14px; }
-  .x-btn.zarafa-action .x-btn-small em.x-btn-split button, .x-btn.zarafa-action .x-btn-small em.x-btn-arrow button {
-    border: none;
-    border-right: 1px solid rgba(255, 255, 255, 0.45); }
+  .x-btn.zarafa-action em.x-btn-split button, .x-btn.zarafa-action em.x-btn-arrow button,
+  .x-btn.zarafa-action.x-btn-over em.x-btn-split button, .x-btn.zarafa-action.x-btn-over em.x-btn-arrow button {
+    border-right-color: rgba(255, 255, 255, 0.3); }
 
 /**************************************
  * Action buttons
@@ -662,7 +682,7 @@ button::-moz-focus-inner {
   background-color: var(--ui-surface) !important;
   border: 1px solid var(--ui-border) !important; }
 .x-window :is(.x-panel-footer, .x-window-footer) :is(.x-toolbar-left-row, .x-toolbar-right-row) .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) :is(.x-btn-small, .x-btn-medium, .x-btn-large) button {
-  color: #000000; }
+  color: var(--ui-text); }
 /* hovered normal button */
 .x-window :is(.x-panel-footer, .x-window-footer) :is(.x-toolbar-left-row, .x-toolbar-right-row) .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-action):not(.k-recipient-hover-card-button) :is(.x-btn-small, .x-btn-medium, .x-btn-large) {
   background: var(--ui-surface-2) !important;
@@ -803,7 +823,7 @@ div.x-btn-group-bc {
 
 /* panel footer */
 .x-panel-footer {
-  background: #ffffff; }
+  background: var(--ui-surface); }
 
 .x-panel-footer.x-panel-btns {
   padding: 6px 9px; }
@@ -871,7 +891,7 @@ body.Safari input[type="radio"] {
 
 /* inputs and textareas */
 .x-form-text, textarea.x-form-field {
-  background: var(--ui-surface);
+  background: var(--ui-input);
   border: 1px solid var(--ui-border-strong);
   padding: 6px 0 0 6px;
   border-radius: var(--ui-radius-sm);
@@ -883,16 +903,20 @@ body.Safari input[type="radio"] {
 .x-form-text:hover, textarea.x-form-field:hover {
   border-color: var(--ui-text-3); }
 
-.x-form-text.x-form-focus:not(.x-trigger-noedit) {
+.x-form-text.x-form-focus:not(.x-trigger-noedit),
+.x-form-field-wrap.x-trigger-wrap-focus:not(.x-freebusy-userlist-container) {
   border-color: var(--theme-primary-color) !important;
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--theme-primary-color) 15%, transparent);
+  box-shadow: 0 0 0 3px var(--ui-focus-ring);
   position: relative;
   z-index: 99 }
 
-.x-form-field-wrap.x-trigger-wrap-focus:not(.x-freebusy-userlist-container) {
-  border-color: #3094e3; }
-  .x-form-field-wrap.x-trigger-wrap-focus:not(.x-freebusy-userlist-container) input.x-form-text.x-form-field.x-form-focus {
-    border-color: #3094e3 !important; }
+.x-form-field-wrap.x-trigger-wrap-focus:not(.x-freebusy-userlist-container) input.x-form-text.x-form-field.x-form-focus {
+  border-color: var(--theme-primary-color) !important;
+  box-shadow: none; }
+
+.x-form-field-wrap.x-trigger-wrap-focus:not(.x-freebusy-userlist-container) .x-form-trigger,
+.x-form-field-wrap.x-trigger-wrap-focus:not(.x-freebusy-userlist-container) .x-form-spinner-trigger {
+  border-color: var(--theme-primary-color) !important; }
 
 .x-form-text:not(.x-zarafa-boxfield):not(.x-zarafa-boxfield-input),
 .ext-strict .x-form-text:not(.x-zarafa-boxfield):not(.x-zarafa-boxfield-input),
@@ -951,7 +975,8 @@ body.Safari input[type="radio"] {
 .x-combo-list {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
   border-color: var(--ui-border);
-  border-radius: 8px; }
+  border-radius: 8px;
+  overflow: hidden; }
 
 .x-combo-list-inner {
   padding: 4px 0; }
@@ -959,10 +984,9 @@ body.Safari input[type="radio"] {
     -webkit-user-select: none;
     user-select: none;
     line-height: 20px;
-    padding: 8px 12px;
-    margin: 2px 4px;
+    padding: 8px 6px;
+    margin: 0;
     border: none !important;
-    border-radius: 6px;
     transition: background-color 0.15s ease; }
   .x-combo-list-inner .x-combo-list-item:hover {
     background-color: var(--ui-surface-3); }
@@ -1014,7 +1038,7 @@ body.Safari input[type="radio"] {
 
 .x-form-item .x-form-cb-label {
   top: 0;
-  margin-left: 3px; }
+  margin-left: 6px; }
 
 .zarafa-delayeddelivery-invalid-date {
   color: var(--color-error); }
@@ -1336,7 +1360,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   right: 0;
   top: 0;
   padding: 3.5px 0 3.5px 3px;
-  background-color: #ffffff; }
+  background-color: var(--ui-surface); }
 
 .x-grid3 .x-grid3-row-over .zarafa-grid-button-container {
   background-color: var(--ui-surface-2); }
@@ -1395,13 +1419,13 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.35);
   padding-left: 12px;
   padding-right: 12px;
-  background-color: #FFFFFF;
+  background-color: var(--ui-surface);
   height: 30px;
   line-height: 2.5; }
 
 /* Read items */
 .x-grid3-row.x-grid3-row-expanded.mail_read > table, .x-grid3-row.x-grid3-row-collapsed.mail_read > table {
-  border-left: 4px solid #ffffff !important; }
+  border-left: 4px solid var(--ui-surface) !important; }
 
 /* x-grid-3 should have a little more padding */
 .x-grid3-row {
@@ -1509,7 +1533,9 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
     border: 1px solid var(--theme-primary-color); }
   .x-toolbar .x-btn .x-btn-small .x-btn-split button.x-btn-text {
     border: none;
-    border-right: 1px solid var(--ui-border); }
+    border-right: 1px solid transparent; }
+  .x-toolbar .x-btn.x-btn-over .x-btn-small .x-btn-split button.x-btn-text {
+    border-right-color: var(--ui-border-strong); }
   .x-toolbar .x-toolbar-right-row td:last-child .x-btn:not(.zarafa-action) {
     margin-right: 0; }
   .x-toolbar .x-btn.zarafa-action {
@@ -1554,7 +1580,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   padding-left: 0 !important; }
 
 .x-menu-plain {
-  background: #ffffff !important; }
+  background: var(--ui-surface) !important; }
 
 .x-menu {
   box-shadow: var(--ui-shadow-2);
@@ -1682,7 +1708,7 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
   color: #ffffff;
   padding: 0 4px; }
   body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct * {
-    font-size: 15px !important; }
+    font-size: 13px !important; }
   body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .x-btn {
     padding: 0;
     margin: 4px 2px;
@@ -1696,12 +1722,12 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
       border: none;
       margin: 0; }
     body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .x-btn button.x-btn-text {
-      font-size: 15px !important;
+      font-size: 13px !important;
       line-height: 16px !important;
       color: #ffffff;
-      font-weight: 500;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.04em;
       text-shadow: none;
       padding: 6px 12px;
       height: auto;
@@ -1741,7 +1767,8 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
       background-image: none !important; }
   body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .x-toolbar-right button.x-btn-text {
     text-transform: none;
-    letter-spacing: 0; }
+    letter-spacing: 0;
+    font-weight: 500; }
   body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct #mainmenu-button-settings em,
   body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct #mainmenu-button-logout em {
     background-position: 12px center !important; }
@@ -2128,7 +2155,7 @@ Note: Does not work in IE11 */
   .zarafa-tree-ipm-subtree-favorites-container {
     position: sticky;
     top: 0;
-    background: #ffffff;
+    background: var(--ui-surface);
     border-bottom: 1px solid var(--ui-border);
     z-index: 99; } }
 .zarafa-tree-ipm-subtree-container, .zarafa-tree-ipm-subtree-favorites-container {
@@ -2178,7 +2205,7 @@ Note: Does not work in IE11 */
   line-height: 24px; }
   .x-tree-node-el a {
     margin-left: 6px;
-    font-size: 15px; }
+    font-size: 14px; }
 
 .x-tree-node a span, .x-dd-drag-ghost a span {
   padding-left: 0; }
@@ -2206,6 +2233,7 @@ Note: Does not work in IE11 */
 /* Hierarchy tree search field */
 /* Hierarchy tree search field */
 input.x-form-text.k-searchfolder-field {
+  color: var(--ui-text);
   background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'%3E%3Cpath fill='%23999' d='M6.667 1.667a5 5 0 0 1 3.976 8.032l3.162 3.163a.667.667 0 0 1-.88.998l-.063-.055-3.163-3.163A5 5 0 1 1 6.667 1.667m0 1.333a3.667 3.667 0 1 0 0 7.333 3.667 3.667 0 0 0 0-7.333'/%3E%3C/svg%3E") no-repeat 6px center / 14px 14px !important;
   border: none !important;
   border-radius: 0 !important;
@@ -2342,7 +2370,7 @@ input.x-form-text.k-searchfolder-field.x-form-focus {
   background: #FFDBFB; }
 
 .preview-header-linkednotes .preview-header-linkednote.note_white {
-  background: #FFF;
+  background: var(--ui-surface);
   border: 1px solid #DDD; }
 
 .preview-header-recipients .preview-recipient-title,
@@ -2396,10 +2424,9 @@ input.x-form-text.k-searchfolder-field.x-form-focus {
 /* Preview header email address */
 span.zarafa-emailaddress-link {
   cursor: pointer;
-  color: var(--theme-primary-color); }
+  color: var(--ui-accent-text); }
 
 span.zarafa-emailaddress-link:hover {
-  color: color-mix(in srgb, var(--theme-primary-color) 70%, black);
   text-decoration: underline; }
   
 .preview-header-sentinfo .preview-timestamp {
@@ -2855,7 +2882,7 @@ span.preview-header-sender-image {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: left top;
-    background-color: #ffffff; }
+    background-color: var(--ui-surface); }
   .zarafa-contactcreatepanel .zarafa-contactgeneraltab .contact_photo_box:hover {
     border-color: #222222; }
   .zarafa-contactcreatepanel .zarafa-contactgeneraltab .default_contact_photo {
@@ -3186,7 +3213,7 @@ span.preview-header-sender-image {
 
 /* Timestrip */
 .zarafa-calendar-timestrip-element div {
-  color: #333333;
+  color: var(--ui-text-2);
   padding-right: 22px; }
 
 /* Margin between checkbox and calendar icon in hieracy */
@@ -3204,7 +3231,7 @@ span.preview-header-sender-image {
 
 .zarafa-calendar-timestrip-element {
   position: absolute;
-  color: #393839;
+  color: var(--ui-text);
   text-align: right; }
 
 .zarafa-calendar-timestrip-element div {
@@ -3334,7 +3361,7 @@ div.zarafa-contact-cardview-selected {
 
 /* Body of contact cardview */
 .zarafa-card-body {
-  background-color: white !important;
+  background-color: var(--ui-surface) !important;
   border: none;
   font-weight: normal; }
 
@@ -3378,7 +3405,7 @@ body.zarafa-webclient > .ext-el-mask {
   background: #f8f8ff !important; }
 
 .x-panel-ghost .x-window-header-text {
-  color: #333333 !important; }
+  color: var(--ui-text) !important; }
 
 .x-window.k-error-dialog {
   border-left: 2px solid #DC3023; }
@@ -3410,7 +3437,7 @@ body.zarafa-webclient > .ext-el-mask {
   .x-window .x-window-tl,
   .x-panel-ghost .x-window-tl {
     padding-left: 9px;
-    background: #ffffff;
+    background: var(--ui-surface);
     border-radius: 12px 12px 0 0; }
     .x-window .x-window-tl .x-window-tr,
     .x-panel-ghost .x-window-tl .x-window-tr {
@@ -3465,7 +3492,7 @@ body.zarafa-webclient > .ext-el-mask {
             background-position-x: right; }
   .x-window .x-window-bwrap,
   .x-panel-ghost .x-window-bwrap {
-    background: #ffffff; }
+    background: var(--ui-surface); }
     .x-window .x-window-bwrap .x-window-ml,
     .x-panel-ghost .x-window-bwrap .x-window-ml {
       padding-left: 0;
@@ -3486,11 +3513,11 @@ body.zarafa-webclient > .ext-el-mask {
         /* panel header */ }
         .x-window .x-window-bwrap .x-window-body > div > .x-panel > .x-panel-header,
         .x-panel-ghost .x-window-bwrap .x-window-body > div > .x-panel > .x-panel-header {
-          background: #ffffff;
+          background: var(--ui-surface);
           line-height: 20px;
           padding: 1px 9px 2px;
           border-bottom: 1px solid var(--ui-border);
-          color: #000000;
+          color: var(--ui-text);
           font-weight: normal; }
         .x-window .x-window-bwrap .x-window-body > div > .x-panel > .x-panel-bwrap,
         .x-panel-ghost .x-window-bwrap .x-window-body > div > .x-panel > .x-panel-bwrap {
@@ -3896,7 +3923,7 @@ body.zarafa-webclient > .ext-el-mask {
   top: 0px;
   width: 100%;
   /* Set the background to white so the space between different days is white and not grey */
-  background-color: #FFF; }
+  background-color: var(--ui-surface); }
 
 .x-freebusy-timeline-container .x-freebusy-header-body {
   position: absolute;
@@ -3908,7 +3935,7 @@ body.zarafa-webclient > .ext-el-mask {
   overflow: scroll;
   width: 100%;
   /* Set the background to white so the space between different days is white and not grey */
-  background-color: #FFF; }
+  background-color: var(--ui-surface); }
 
 /** Selector **/
 .x-freebusy-timeline-container .x-freebusy-selectorcontainer .x-freebusy-selector {
@@ -3996,7 +4023,7 @@ body.zarafa-webclient > .ext-el-mask {
   overflow: hidden;
   transition: background-color 0.15s ease; }
   .k-search-token-input.k-search-focused {
-    background-color: #fff; }
+    background-color: var(--ui-surface); }
 
 /* Shared base for value inputs and tail input */
 .k-search-token-value,
@@ -4005,7 +4032,7 @@ body.zarafa-webclient > .ext-el-mask {
   outline: none;
   background: transparent;
   font-size: 13px;
-  color: #333;
+  color: var(--ui-text);
   padding: 0 2px;
   font-family: inherit;
   line-height: normal; }
@@ -4135,7 +4162,7 @@ body.zarafa-webclient > .ext-el-mask {
 
 /* Search dropdown panel */
 .k-search-dropdown {
-  background: #fff;
+  background: var(--ui-surface);
   border: 1px solid var(--ui-border);
   border-top: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -4208,7 +4235,7 @@ body.zarafa-webclient > .ext-el-mask {
   cursor: pointer;
   border-radius: 3px;
   font-size: 13px;
-  color: #333;
+  color: var(--ui-text);
   transition: background-color 0.1s ease; }
   .k-search-folder-option:hover,
   .k-search-folder-option:focus-visible {
@@ -4283,7 +4310,7 @@ body.zarafa-webclient > .ext-el-mask {
   cursor: pointer;
   border-radius: 3px;
   font-size: 13px;
-  color: #333;
+  color: var(--ui-text);
   transition: background-color 0.1s ease;
   user-select: none; }
   .k-search-history-row:hover,
@@ -4415,7 +4442,7 @@ body.zarafa-webclient > .ext-el-mask {
 
 /* The toolbox */
 .zarafa-search-toolbox {
-  background-color: #ffffff; }
+  background-color: var(--ui-surface); }
   .zarafa-search-toolbox > .x-plain-bwrap > .x-plain-body {
     border-top: 1px solid var(--ui-border);
     border-right: 1px solid var(--ui-border);
@@ -4838,7 +4865,7 @@ body.zarafa-webclient > .ext-el-mask {
     border-top: 1px solid var(--ui-border);
     margin-bottom: -1px; }
   .zarafa-settings-signatures .x-grid3-row-selected .x-grid3-cell {
-    background-color: #f0f6ff !important; }
+    background-color: var(--theme-selection-bg) !important; }
 
 /* Signatures widget: reduce body padding so grid sits flush */
 #zarafa-mainpanel-contentpanel-settings .k-settings-signatures-widget > .x-panel-bwrap > .x-panel-body {
@@ -4938,6 +4965,14 @@ body.zarafa-webclient > .ext-el-mask {
 #zarafa-mainpanel-contentpanel-settings .k-settings-nogap .x-box-layout-ct .x-btn td.x-btn-center {
   text-align: center; }
 
+#zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-box-layout-ct .x-btn.x-box-item .x-btn-small {
+  width: 100%; }
+#zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-box-layout-ct .x-btn.x-box-item td.x-btn-center {
+  text-align: center; }
+#zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget:not(.k-settings-nogap) .zarafa-settings-widget-extrainfo {
+  padding-left: 0;
+  padding-right: 0; }
+
 /* Grid-based settings: prevent horizontal scrollbar */
 #zarafa-mainpanel-contentpanel-settings .k-settings-nogap,
 #zarafa-mainpanel-contentpanel-settings .k-settings-nogap .x-panel-bwrap,
@@ -5000,28 +5035,28 @@ body.zarafa-webclient > .ext-el-mask {
   .x-date-picker .x-date-middle {
     padding: 6px 6px 6px 6px; }
     .x-date-picker .x-date-middle .x-btn-small {
-      background-color: white;
+      background-color: var(--ui-surface);
       box-shadow: none; }
       .x-date-picker .x-date-middle .x-btn-small em {
         background-color: var(--ui-surface-2) !important;
         border: 1px solid var(--ui-border); }
         .x-date-picker .x-date-middle .x-btn-small em button {
-          background-color: white;
-          color: black;
+          background-color: var(--ui-surface);
+          color: var(--ui-text);
           border-right: 1px solid var(--ui-border);
           height: 22px; }
       .x-date-picker .x-date-middle .x-btn-small em:hover {
         background-color: var(--ui-surface-3) !important; }
     .x-date-picker .x-date-middle .x-btn-small:active {
-      background-color: white !important;
+      background-color: var(--ui-surface) !important;
       box-shadow: none; }
   .x-date-picker .x-date-inner {
     cursor: default;
     width: 100%; }
     .x-date-picker .x-date-inner th {
-      background: white;
+      background: var(--ui-surface);
       font-weight: bold;
-      color: black;
+      color: var(--ui-text);
       border-bottom: 1px solid var(--ui-border);
       height: 24px;
       vertical-align: middle; }
@@ -5035,7 +5070,7 @@ body.zarafa-webclient > .ext-el-mask {
       cursor: default; }
       .x-date-picker .x-date-inner td:not(.x-date-weeknumber) a {
         cursor: pointer;
-        color: black;
+        color: var(--ui-text);
         text-align: center; }
         .x-date-picker .x-date-inner td:not(.x-date-weeknumber) a em {
           display: inline-block;
@@ -5044,12 +5079,12 @@ body.zarafa-webclient > .ext-el-mask {
           .x-date-picker .x-date-inner td:not(.x-date-weeknumber) a em span {
             cursor: pointer; }
     .x-date-picker .x-date-inner td.x-date-prevday a, .x-date-picker .x-date-inner td.x-date-nextday a {
-      color: #b6b6b6; }
+      color: var(--ui-text-3); }
     .x-date-picker .x-date-inner td.x-date-selected a {
       background-color: #d5e8f7;
       background-image: none;
       border-color: #d5e8f7;
-      color: black;
+      color: var(--ui-text);
       cursor: default; }
       .x-date-picker .x-date-inner td.x-date-selected a span {
         font-weight: normal; }
@@ -5066,7 +5101,7 @@ body.zarafa-webclient > .ext-el-mask {
       color: #ffffff; }
     .x-date-picker .x-date-inner td.x-date-today:not(.x-date-selected) a:hover {
       background-color: var(--ui-surface-3);
-      color: black; }
+      color: var(--ui-text); }
     .x-date-picker .x-date-inner td.x-date-busy span {
       font-weight: bold; }
   .x-date-picker .x-date-bottom {
@@ -5082,9 +5117,9 @@ body.zarafa-webclient > .ext-el-mask {
         .x-date-picker .x-date-bottom .x-btn .x-btn-small button {
           width: 100%; }
   .x-date-picker .x-date-mp {
-    background: white; }
+    background: var(--ui-surface); }
     .x-date-picker .x-date-mp table td a {
-      color: black; }
+      color: var(--ui-text); }
     .x-date-picker .x-date-mp table td a:hover {
       background: var(--ui-surface-3); }
     .x-date-picker .x-date-mp table td.x-date-mp-ybtn a.x-date-mp-prev:hover,
@@ -5110,7 +5145,7 @@ body.zarafa-webclient > .ext-el-mask {
           background: var(--ui-surface-3);
           box-sizing: border-box;
           height: 24px;
-          color: black;
+          color: var(--ui-text);
           min-width: 84px;
           margin-right: 6px; }
         .x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-ok {
@@ -5133,7 +5168,7 @@ body.zarafa-webclient > .ext-el-mask {
 .x-date-picker .x-date-left,
 .x-date-picker .x-date-middle,
 .x-date-picker .x-date-right {
-  background: #ffffff; }
+  background: var(--ui-surface); }
 
 .k-colorpicker-box,
 .k-colorpicker-box:hover::after {
@@ -5247,7 +5282,7 @@ body.zarafa-webclient > .ext-el-mask {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); }
 
 .zarafa-welcome-body > .x-panel-bwrap > .x-panel-body {
-  background: #ffffff;
+  background: var(--ui-surface);
   border: none; }
 
 .zarafa-welcome-body > .x-panel-bwrap > .x-panel-body > div {
@@ -5268,7 +5303,7 @@ body.zarafa-webclient > .ext-el-mask {
 .zarafa-welcome-body > .x-panel-bwrap .x-panel-footer {
   padding: 16px 20px;
   border: none;
-  background: #ffffff; }
+  background: var(--ui-surface); }
 
 .zarafa-welcome-body .zarafa-settings-widget-welcome .zarafa-settings-reload-warning {
   position: absolute !important;
@@ -5545,7 +5580,7 @@ body .k-category-block {
   align-items: flex-start;
   min-width: 400px;
   max-width: 560px;
-  background: #fff;
+  background: var(--ui-surface);
   border-radius: 10px;
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.14), 0 2px 6px rgba(0, 0, 0, 0.08);
   pointer-events: auto;
@@ -5638,7 +5673,7 @@ body .k-category-block {
 
 .grommunio-toast-close:hover {
   background: rgba(0, 0, 0, 0.06);
-  color: #333; }
+  color: var(--ui-text); }
 
 .grommunio-toast-progress {
   position: absolute;
@@ -5811,7 +5846,7 @@ body .k-category-block {
 }
 
 .x-mask-row {
-  background-color: #ffffff; }
+  background-color: var(--ui-surface); }
 
 .x-mask-loading > div {
   border-color: var(--ui-border-strong); }
@@ -5967,8 +6002,8 @@ body .k-category-block {
 /* (legacy scrollbar block removed — unified scrollbar defined at end of file) */
 
 input.x-tree-node-cb {
-    height: 14px;
-    width: 14px;
+    height: 18px;
+    width: 18px;
 }
 
 .x-tree-lines .x-tree-elbow, .x-tree-lines .x-tree-elbow-end, .x-tree-lines .x-tree-elbow-line .arrow_right_l, .light-background .zarafa-calendar-tab-icon-separate, .x-date-mp-ybtn a, .x-date-right a, .x-layout-collapsed .x-tool.x-tool-toggle.x-tool-expand-west, .x-menu-item-arrow, .x-panel-header .x-tool.x-tool-collapse-east, .x-tab-scroller-right, .x-tool.x-tool-toggle.x-tool-collapse-east, .x-tree-lines .x-tree-elbow-end-plus, .x-tree-lines .x-tree-elbow-plus .arrow_down_l, .x-panel-collapsed .x-tool.x-tool-toggle, .x-tree-lines .x-tree-elbow-end-minus, .x-tree-lines .x-tree-elbow-minus, .zarafa-rules-sequence-down, td.sort-desc .x-grid3-sort-icon .arrow_right_l, .light-background .zarafa-calendar-tab-icon-separate, .x-date-mp-ybtn a, .x-date-right a, .x-layout-collapsed .x-tool.x-tool-expand-west, .x-layout-collapsed .x-tool.x-tool-toggle.x-tool-expand-west, .x-menu-item-arrow, .x-panel-header .x-tool.x-tool-collapse-east, .x-tab-scroller-right, .x-tool.x-tool-toggle.x-tool-collapse-east, .x-tree-lines .x-tree-elbow-end-plus, .x-tree-lines .x-tree-elbow-plus, .x-date-picker .x-date-left a {
@@ -6068,6 +6103,8 @@ body {
   --ui-accent-text: var(--theme-primary-color);
   --ui-accent-soft: color-mix(in srgb, var(--theme-primary-color) 12%, #ffffff);
   --ui-accent-ring: color-mix(in srgb, var(--theme-primary-color) 24%, transparent);
+  --ui-focus-ring: color-mix(in srgb, var(--theme-primary-color) 15%, transparent);
+  --ui-input: #ffffff;
   --ui-radius-sm: 6px;
   --ui-radius: 8px;
   --ui-radius-lg: 12px;
@@ -6323,7 +6360,7 @@ div.zarafa-contact-cardview-selected,
 .k-taskgeneraltab .zarafa-calendar-appointment-extrainfo div,
 .zarafa-mailcreatepanel > .x-panel-bwrap > .x-panel-body .zarafa-mailcreatepanel-extrainfo div {
   background: var(--theme-selection-bg) !important;
-  color: #222222;
+  color: var(--ui-text);
 }
 
 /*********************************************************************
@@ -6445,15 +6482,7 @@ input:focus {
   border-color: var(--theme-primary-color) !important;
 }
 
-.x-form-field-wrap.x-trigger-wrap-focus:not(.x-freebusy-userlist-container) {
-  border-color: var(--theme-primary-color);
-}
-
 input.x-form-text.x-form-field.x-form-focus {
-  border-color: var(--theme-primary-color) !important;
-}
-
-.x-form-field-wrap.x-trigger-wrap-focus:not(.x-freebusy-userlist-container) input.x-form-text.x-form-field.x-form-focus {
   border-color: var(--theme-primary-color) !important;
 }
 
@@ -6645,7 +6674,7 @@ input.x-form-text.x-form-field.x-form-focus {
   border: 1px solid var(--theme-border-color, #c9ced6);
   border-radius: 8px;
   overflow: hidden;
-  background: #ffffff;
+  background: var(--ui-surface);
 }
 .zarafa-mailconversationpanel .k-conversation-item.k-own-message {
   margin: 0 0 10px 30px;
@@ -6752,75 +6781,72 @@ input.x-form-text.x-form-field.x-form-focus {
 input[type="checkbox"] {
   appearance: none;
   -webkit-appearance: none;
-  width: 14px;
-  height: 14px;
-  min-width: 14px;
-  min-height: 14px;
-  border: 1.5px solid var(--ui-border-strong);
-  border-radius: 3px;
-  background: #ffffff;
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  min-height: 18px;
+  margin: 0 2px;
+  border: 2px solid var(--ui-text-3);
+  border-radius: 4px;
+  background: var(--ui-input);
   cursor: pointer;
   position: relative;
-  transition: all 0.15s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
   vertical-align: middle; }
 
 input[type="checkbox"]:hover {
-  border-color: var(--theme-primary-color); }
+  border-color: var(--theme-primary-color);
+  box-shadow: 0 0 0 4px var(--ui-focus-ring); }
 
 input[type="checkbox"]:checked {
-  background: var(--theme-primary-color);
-  border-color: var(--theme-primary-color); }
+  background: var(--theme-primary-fg, var(--theme-primary-color));
+  border-color: var(--theme-primary-fg, var(--theme-primary-color)); }
 
 input[type="checkbox"]:checked::after {
   content: '';
   position: absolute;
-  left: 3px;
-  top: 1px;
-  width: 4px;
-  height: 7px;
-  border: solid #ffffff;
-  border-width: 0 1.5px 1.5px 0;
-  transform: rotate(45deg); }
+  inset: 0;
+  background: var(--ui-check-mark, #ffffff);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E") center / 14px 14px no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E") center / 14px 14px no-repeat; }
 
 input[type="checkbox"]:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--theme-primary-color) 15%, transparent); }
+  box-shadow: 0 0 0 4px var(--ui-focus-ring); }
 
 /* Modern radio button styling */
 input[type="radio"] {
   appearance: none;
   -webkit-appearance: none;
-  width: 14px;
-  height: 14px;
-  min-width: 14px;
-  min-height: 14px;
-  border: 1.5px solid var(--ui-border-strong);
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  min-height: 18px;
+  margin: 0 2px;
+  border: 2px solid var(--ui-text-3);
   border-radius: 50%;
-  background: #ffffff;
+  background: var(--ui-input);
   cursor: pointer;
   position: relative;
-  transition: all 0.15s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
   vertical-align: middle; }
 
 input[type="radio"]:hover {
-  border-color: var(--theme-primary-color); }
+  border-color: var(--theme-primary-color);
+  box-shadow: 0 0 0 4px var(--ui-focus-ring); }
 
 input[type="radio"]:checked {
-  border-color: var(--theme-primary-color); }
-
-input[type="radio"]:checked::after {
-  content: '';
-  position: absolute;
-  left: 3px;
-  top: 3px;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--theme-primary-color); }
+  border-color: var(--theme-primary-fg, var(--theme-primary-color));
+  background: var(--theme-primary-fg, var(--theme-primary-color));
+  box-shadow: inset 0 0 0 3px var(--ui-input); }
 
 input[type="radio"]:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--theme-primary-color) 15%, transparent); }
+  box-shadow: 0 0 0 4px var(--ui-focus-ring); }
+
+input[type="radio"]:checked:hover,
+input[type="radio"]:checked:focus-visible {
+  box-shadow: inset 0 0 0 3px var(--ui-input), 0 0 0 4px var(--ui-focus-ring); }
 
 /* Modern tooltip */
 .x-tip {
@@ -7032,7 +7058,7 @@ input[type="radio"]:focus-visible {
   background-color: var(--ui-surface-2) !important;
 }
 #zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-grid3-row-selected .x-grid3-cell {
-  background-color: #f0f6ff !important;
+  background-color: var(--theme-selection-bg) !important;
 }
 
 /* Remove border from grids already inside a bordered panel body */
