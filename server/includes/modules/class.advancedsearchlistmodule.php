@@ -18,18 +18,17 @@ class AdvancedSearchListModule extends ListModule {
 		$this->properties = array_merge($this->properties, $GLOBALS["properties"]->getContactListProperties());
 		$this->properties = array_merge($this->properties, $GLOBALS["properties"]->getStickyNoteListProperties());
 		$this->properties = array_merge($this->properties, $GLOBALS["properties"]->getTaskListProperties());
+		// Note: no html_body here. Table rows are truncated by the server
+		// (gromox caps table cells), and a truncated html_body from the row
+		// would survive the open merge and poison the preview pane whenever
+		// the opened item returns no html_body (e.g. plaintext mails).
 		$this->properties = array_merge($this->properties, [
 			'body' => PR_BODY,
-			'html_body' => PR_HTML,
 			'startdate' => "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentStartWhole,
 			'duedate' => "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentEndWhole,
 			'creation_time' => PR_CREATION_TIME,
 			"task_duedate" => "PT_SYSTIME:PSETID_Task:" . PidLidTaskDueDate,
 		]);
-		$useHtmlPreview = $GLOBALS['settings']->get('zarafa/v1/contexts/mail/use_html_email_preview', USE_HTML_EMAIL_PREVIEW);
-		if (!$useHtmlPreview) {
-			unset($this->properties['html_body']);
-		}
 		$this->properties = getPropIdsFromStrings($GLOBALS["mapisession"]->getDefaultMessageStore(), $this->properties);
 		$this->sort = [
 			PR_MESSAGE_DELIVERY_TIME => TABLE_SORT_DESCEND,
