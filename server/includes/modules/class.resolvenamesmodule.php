@@ -90,12 +90,7 @@ class ResolveNamesModule extends Module {
 	 * @param bool     $excludeGABGroups flag to exclude groups from resolving
 	 */
 	public function searchAddressBook($ab, $ab_dir, $query, $excludeGABGroups) {
-		// Prefer resolving the email_address. This allows the user
-		// to resolve recipients with a display name that matches a EX
-		// user with an alternative (external) email address.
-		$emailAddress = trim((string) ($query['email_address'] ?? ''));
-		$displayName = trim((string) ($query['display_name'] ?? ''));
-		$searchstr = $emailAddress !== '' ? $emailAddress : $displayName;
+		$searchstr = $this->getSearchString($query);
 		if ($searchstr === '') {
 			return [];
 		}
@@ -151,12 +146,13 @@ class ResolveNamesModule extends Module {
 				if (empty($rows) && (($query['address_type'] ?? '') === 'SMTP')) {
 					// If we still can't find anything, and we were searching for a SMTP user
 					// we can generate a oneoff entry which contains the information of the user.
-					if (!empty($query['email_address'])) {
+					// Only for an actual address, else the one-off would be undeliverable.
+					if ($GLOBALS['operations']->isEmailAddressLike($searchstr)) {
 						$rows[] = [
-							PR_ACCOUNT => $query['email_address'], PR_ADDRTYPE => 'SMTP', PR_EMAIL_ADDRESS => $query['email_address'],
+							PR_ACCOUNT => $searchstr, PR_ADDRTYPE => 'SMTP', PR_EMAIL_ADDRESS => $searchstr,
 							PR_DISPLAY_NAME => $query['display_name'], PR_DISPLAY_TYPE_EX => DT_REMOTE_MAILUSER, PR_DISPLAY_TYPE => DT_MAILUSER,
-							PR_SMTP_ADDRESS => $query['email_address'], PR_OBJECT_TYPE => MAPI_MAILUSER,
-							PR_ENTRYID => mapi_createoneoff($query['display_name'], 'SMTP', $query['email_address']),
+							PR_SMTP_ADDRESS => $searchstr, PR_OBJECT_TYPE => MAPI_MAILUSER,
+							PR_ENTRYID => mapi_createoneoff($query['display_name'], 'SMTP', $searchstr),
 						];
 					}
 					// Check also the user's contacts folders
@@ -250,6 +246,37 @@ class ResolveNamesModule extends Module {
 		}
 
 		return $items;
+	}
+
+	/**
+	 * Pick the string used to resolve a recipient: a plausible email_address
+	 * first, Exchange DNs as-is (exact DN match), then smtp_address, then
+	 * display name. Legacy non-address values in email_address (e.g. old
+	 * account names) would otherwise fuzzy-match unrelated GAB entries.
+	 *
+	 * @param array $query resolve request sent by the client
+	 *
+	 * @return string the search string, may be empty
+	 */
+	public function getSearchString($query) {
+		$emailAddress = trim((string) ($query['email_address'] ?? ''));
+		$smtpAddress = trim((string) ($query['smtp_address'] ?? ''));
+		$displayName = trim((string) ($query['display_name'] ?? ''));
+
+		if ($emailAddress !== '' &&
+			($GLOBALS['operations']->isEmailAddressLike($emailAddress) || stripos($emailAddress, '/o=') === 0)) {
+			return $emailAddress;
+		}
+		// Only when a (legacy) email_address was present: an empty one means
+		// the client deliberately asked for display name resolution.
+		if ($emailAddress !== '' && $GLOBALS['operations']->isEmailAddressLike($smtpAddress)) {
+			return $smtpAddress;
+		}
+		if ($displayName !== '') {
+			return $displayName;
+		}
+
+		return $emailAddress;
 	}
 
 	/**

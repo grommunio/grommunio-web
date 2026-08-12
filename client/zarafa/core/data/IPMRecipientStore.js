@@ -306,12 +306,19 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 				} else {
 					emailAddress = '';
 				}
+			} else if (!Zarafa.core.Util.validateEmailAddress(emailAddress) &&
+			           emailAddress.toLowerCase().indexOf('/o=') !== 0 &&
+			           Zarafa.core.Util.validateEmailAddress(smtpAddress)) {
+				// Legacy history entries may carry a non-address here (e.g. an
+				// old account name); resolve by the visible smtp_address instead.
+				emailAddress = smtpAddress;
 			}
 
 			resolveRequests.push({
 				id: recipientRecord.id,
 				display_name: displayName,
 				email_address: emailAddress,
+				smtp_address: smtpAddress,
 				address_type: addressType
 			});
 
@@ -394,6 +401,7 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 				id: record.id,
 				display_name: Ext.value(record.get('display_name'), '').trim(),
 				email_address: smtpAddress,
+				smtp_address: smtpAddress,
 				address_type: record.get('address_type')
 			}],
 			exclude_local_contacts: !this.allowResolvingToLocalContacts,
