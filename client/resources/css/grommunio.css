@@ -1266,7 +1266,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   /* reposition checkboxes (size of checkbox is 15x15) */ }
   .x-grid3-row .x-grid3-cell-inner {
     line-height: 100%;
-    padding: 9px 7px;
+    padding: var(--ui-row-pad) 7px;
     position: relative; }
   .x-grid3-row .x-grid3-cell-inner.x-grid3-col-categories {
     text-overflow: clip; }
@@ -1292,16 +1292,52 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
     background: transparent; }
     .x-grid3-row .x-grid3-check-col-td .x-grid3-cell-inner,
     .x-grid3-row .x-grid3-td-checker .x-grid3-cell-inner {
-      padding-top: 8px !important;
+      padding-top: calc(var(--ui-row-pad) - 1px) !important;
       /* important is needed because Ext also added it */ }
 
 .x-grid3-row.x-grid3-row-expanded .x-grid3-cell-inner {
-  padding-bottom: 5px; }
+  padding-bottom: var(--ui-row-pad-2); }
 .x-grid3-row.x-grid3-row-expanded .x-grid3-row-body {
-  padding-bottom: 9px; }
+  padding-bottom: var(--ui-row-pad); }
 
 .x-grid3-row.x-grid3-row-expanded.with-categories .x-grid3-row-body {
-  padding-bottom: 6px; }
+  padding-bottom: calc(var(--ui-row-pad) - 3px); }
+
+body.k-density-compact {
+  --ui-row-pad: 5px;
+  --ui-row-pad-2: 2px; }
+
+/* Quick actions over the hovered mail row */
+.k-row-actions {
+  position: absolute;
+  right: 12px;
+  display: flex;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius-sm);
+  background: var(--ui-surface);
+  box-shadow: var(--ui-shadow-1);
+  z-index: 5; }
+.k-row-actions .k-row-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 4px;
+  color: var(--ui-text-2);
+  cursor: pointer; }
+.k-row-actions .k-row-action:hover {
+  background: var(--ui-surface-3);
+  color: var(--ui-text); }
+.k-row-actions .k-row-action > span {
+  display: block;
+  width: 18px;
+  height: 18px;
+  background-size: 18px 18px;
+  -webkit-mask-size: 18px 18px;
+  mask-size: 18px 18px; }
 
 .x-grid3-row-over {
   background: var(--ui-surface-2);
@@ -6104,6 +6140,8 @@ body {
   --ui-accent-soft: color-mix(in srgb, var(--theme-primary-color) 12%, #ffffff);
   --ui-accent-ring: color-mix(in srgb, var(--theme-primary-color) 24%, transparent);
   --ui-focus-ring: color-mix(in srgb, var(--theme-primary-color) 15%, transparent);
+  --ui-row-pad: 9px;
+  --ui-row-pad-2: 5px;
   --ui-input: #ffffff;
   --ui-radius-sm: 6px;
   --ui-radius: 8px;
@@ -6603,7 +6641,7 @@ input.x-form-text.x-form-field.x-form-focus {
 }
 /* Compact rows are two lines high with the arrow centered on the first line */
 .x-grid3-row.k-conversation-header.k-conversation-open.k-compact-row {
-  background-size: 2px calc(100% - 16px) !important;
+  background-size: 2px calc(100% - var(--ui-row-pad) - 7px) !important;
 }
 
 /* Conversation child items: only the row body (the subject line of the

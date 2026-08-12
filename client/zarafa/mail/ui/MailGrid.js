@@ -92,6 +92,12 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 		}
 		config.store = Ext.StoreMgr.lookup(config.store);
 
+		config.plugins = Ext.value(config.plugins, []);
+		if (!Ext.isArray(config.plugins)) {
+			config.plugins = [ config.plugins ];
+		}
+		config.plugins.push('zarafa.mailgridrowactions');
+
 		Ext.applyIf(config, {
 			xtype: 'zarafa.mailgrid',
 			ariaLabel: _('Message list'),

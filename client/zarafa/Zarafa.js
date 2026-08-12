@@ -206,6 +206,7 @@ Ext.apply(Zarafa, {
 
 		// Initialize dark mode system (handles OnlyOffice theme, TinyMCE, mail preview)
 		Zarafa.core.DarkMode.init();
+		Zarafa.core.Density.init();
 
 		// Load all persistent settings (i.e. settings that will not be deleted when the user resets his settings)
 		// Persistent settings are not added to the welcome screen, so check if they exist first.

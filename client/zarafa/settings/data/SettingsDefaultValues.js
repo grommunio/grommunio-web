@@ -126,6 +126,14 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 							 */
 							'unread_borders': true,
 
+							/**
+							 * zarafa/v1/main/density
+							 * List spacing, 'comfortable' or 'compact'
+							 * @property
+							 * @type String
+							 */
+							'density': 'comfortable',
+
 							'notifier': {
 								/**
 								 * zarafa/v1/main/notifier/default
@@ -683,6 +691,14 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 * @type Boolean
 								 */
 								'enable_conversation_view': false,
+
+								/**
+								 * zarafa/v1/contexts/mail/hover_actions
+								 * Show quick actions over the hovered message
+								 * @property
+								 * @type Boolean
+								 */
+								'hover_actions': true,
 
 								/**
 								 * zarafa/v1/contexts/mail/expand_single_conversation
