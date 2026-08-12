@@ -4896,12 +4896,21 @@ class Operations {
 		}
 
 		$emailAddressLower = strtolower($emailAddress);
+		$smtpAddressLower = strtolower(trim((string) ($emailProps['smtp_address'] ?? '')));
 
 		foreach ($historyRecipients as &$recipient) {
-			if (
-				$emailAddressLower !== strtolower((string) ($recipient['email_address'] ?? '')) &&
-				$emailAddressLower !== strtolower((string) ($recipient['smtp_address'] ?? ''))
-			) {
+			$entryEmailLower = strtolower((string) ($recipient['email_address'] ?? ''));
+			$entrySmtpLower = strtolower((string) ($recipient['smtp_address'] ?? ''));
+
+			// Match by the resolved address, but also by the recipient's SMTP
+			// address: for GAB recipients the resolved address is an Exchange
+			// DN while (sanitized) history entries are keyed by SMTP address,
+			// and matching only the DN would append a duplicate entry.
+			$matches = $emailAddressLower === $entryEmailLower || $emailAddressLower === $entrySmtpLower;
+			if (!$matches && $smtpAddressLower !== '') {
+				$matches = $smtpAddressLower === $entryEmailLower || $smtpAddressLower === $entrySmtpLower;
+			}
+			if (!$matches) {
 				continue;
 			}
 
@@ -4909,11 +4918,20 @@ class Operations {
 			$recipient['count'] = isset($recipient['count']) ? $recipient['count'] + 1 : 1;
 			$recipient['last_used'] = $timestamp;
 
-			// Normalize to SMTP when possible so future lookups are consistent
+			// Normalize to SMTP when possible so future lookups are consistent.
+			// Personal distribution lists are keyed by display name by design
+			// and must keep their address_type.
 			$smtpAddr = $emailProps['smtp_address'] ?? ($recipient['smtp_address'] ?? '');
-			if ($smtpAddr !== '') {
+			if ($smtpAddr !== '' && (($recipient['address_type'] ?? '') !== 'MAPIPDL')) {
 				$recipient['smtp_address'] = $smtpAddr;
 				$recipient['address_type'] = 'SMTP';
+
+				// Heal legacy email_address values (old account names such as
+				// "phil", Exchange DNs) so the entry resolves to the address
+				// the suggestion list actually shows.
+				if (!$this->isEmailAddressLike((string) ($recipient['email_address'] ?? ''))) {
+					$recipient['email_address'] = $smtpAddr;
+				}
 			}
 
 			return true;
@@ -4952,11 +4970,28 @@ class Operations {
 	 * @return array normalized recipient history entry payload
 	 */
 	private function buildRecipientHistoryEntry(array $emailProps, $timestamp) {
+		$smtpAddress = $emailProps['smtp_address'] ?? '';
+		$emailAddress = $emailProps['email_address'] ?? '';
+		$addressType = $emailProps['address_type'] ?? '';
+
+		// GAB recipients carry an Exchange DN in email_address (and rows on
+		// migrated stores may carry legacy account names such as "phil").
+		// Store the SMTP address instead: the suggestion list shows it and
+		// the resolve flow searches by it, while non-address values resolve
+		// to unrelated or even wrong GAB entries. Personal distribution
+		// lists (MAPIPDL) keep their display name in email_address by design.
+		if ($addressType !== 'MAPIPDL' &&
+			!$this->isEmailAddressLike((string) $emailAddress) &&
+			$this->isEmailAddressLike((string) $smtpAddress)) {
+			$emailAddress = $smtpAddress;
+			$addressType = 'SMTP';
+		}
+
 		return [
 			'display_name' => $emailProps['display_name'] ?? '',
-			'smtp_address' => $emailProps['smtp_address'] ?? '',
-			'email_address' => $emailProps['email_address'] ?? '',
-			'address_type' => $emailProps['address_type'] ?? '',
+			'smtp_address' => $smtpAddress,
+			'email_address' => $emailAddress,
+			'address_type' => $addressType,
 			'count' => 1,
 			'last_used' => $timestamp,
 			'object_type' => $emailProps['object_type'] ?? null,
