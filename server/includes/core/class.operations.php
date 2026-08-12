@@ -3359,7 +3359,7 @@ class Operations {
 
 		switch ($msgprops[PR_MDB_PROVIDER]) {
 			case ZARAFA_STORE_DELEGATE_GUID:
-				$softDelete = $softDelete || defined('ENABLE_DEFAULT_SOFT_DELETE') ? ENABLE_DEFAULT_SOFT_DELETE : false;
+				$softDelete = $softDelete || (defined('ENABLE_DEFAULT_SOFT_DELETE') ? ENABLE_DEFAULT_SOFT_DELETE : false);
 				// Delete items when they are in the wastebasket already or
 				// direct deleting is enabled
 				if (isset($msgprops[PR_IPM_WASTEBASKET_ENTRYID]) && $msgprops[PR_IPM_WASTEBASKET_ENTRYID] == $parententryid || $softDelete) {
@@ -3367,11 +3367,13 @@ class Operations {
 					$result = mapi_folder_deletemessages($folder, $entryids, $flags);
 					break;
 				}
-				$delegateWastebasketStyle = $GLOBALS['settings']->get('zarafa/v1/contexts/mail/delegate_wastebasket_style');
-				// Delete to the main user's wastebasket
+				$delegateWastebasketStyle = $GLOBALS['settings']->get('zarafa/v1/contexts/mail/delegate_wastebasket_style', DELEGATE_WASTEBASKET_MAINUSER);
+				// Delete to the main user's wastebasket; the source folder still
+				// lives in the delegate store, so only the destination may change
+				$wastebasketStore = $store;
 				if ($delegateWastebasketStyle === DELEGATE_WASTEBASKET_MAINUSER) {
-					$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
-					$msgprops = mapi_getprops($store, [PR_IPM_WASTEBASKET_ENTRYID]);
+					$wastebasketStore = $GLOBALS["mapisession"]->getDefaultMessageStore();
+					$msgprops = mapi_getprops($wastebasketStore, [PR_IPM_WASTEBASKET_ENTRYID]);
 				}
 
 				if (!isset($msgprops[PR_IPM_WASTEBASKET_ENTRYID]) ||
@@ -3380,7 +3382,17 @@ class Operations {
 					break;
 				}
 
-				$result = $this->copyMessages($store, $parententryid, $store, $msgprops[PR_IPM_WASTEBASKET_ENTRYID], $entryids, [], true);
+				try {
+					$result = $this->copyMessages($store, $parententryid, $wastebasketStore, $msgprops[PR_IPM_WASTEBASKET_ENTRYID], $entryids, [], true);
+				}
+				catch (MAPIException $e) {
+					$e->setHandled();
+					$result = false;
+				}
+				if (!$result) {
+					// moving to a wastebasket failed (e.g. no rights on it), delete in place
+					$result = mapi_folder_deletemessages($folder, $entryids, $flags);
+				}
 				break;
 
 			case ZARAFA_STORE_ARCHIVER_GUID:
