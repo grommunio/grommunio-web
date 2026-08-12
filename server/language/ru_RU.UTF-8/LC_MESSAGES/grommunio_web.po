@@ -8309,3 +8309,24 @@ msgstr "{0}: {1}"
 
 msgid "{0}: {1} items"
 msgstr "{0}: элементы ({1})"
+
+msgid "New mail from {0}"
+msgstr "Новое письмо от {0}"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "{0} новое сообщение в папке {1}"
+msgstr[1] "{0} новых сообщения в папке {1}"
+msgstr[2] "{0} новых сообщений в папке {1}"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "{0} новое сообщение в папке {1} пользователя {2}"
+msgstr[1] "{0} новых сообщения в папке {1} пользователя {2}"
+msgstr[2] "{0} новых сообщений в папке {1} пользователя {2}"
+
+msgid "In folder {0}"
+msgstr "В папке {0}"
+
+msgid "In folder {0} of {1}"
+msgstr "В папке {0} пользователя {1}"

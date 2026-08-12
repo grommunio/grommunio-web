@@ -8320,3 +8320,22 @@ msgstr "{0}: {1}"
 
 msgid "{0}: {1} items"
 msgstr "{0}: {1} kohdetta"
+
+msgid "New mail from {0}"
+msgstr "Uusi viesti lähettäjältä {0}"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "Kansiossa {1} on {0} uusi viesti"
+msgstr[1] "Kansiossa {1} on {0} uutta viestiä"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "Käyttäjän {2} kansiossa {1} on {0} uusi viesti"
+msgstr[1] "Käyttäjän {2} kansiossa {1} on {0} uutta viestiä"
+
+msgid "In folder {0}"
+msgstr "Kansiossa {0}"
+
+msgid "In folder {0} of {1}"
+msgstr "Käyttäjän {1} kansiossa {0}"

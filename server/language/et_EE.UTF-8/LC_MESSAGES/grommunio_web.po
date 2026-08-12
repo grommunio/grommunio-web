@@ -8225,3 +8225,22 @@ msgstr "{0}: {1}"
 
 msgid "{0}: {1} items"
 msgstr "{0}: {1} kirjet"
+
+msgid "New mail from {0}"
+msgstr "Uus kiri saatjalt {0}"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "Kaustas {1} on {0} uus sõnum"
+msgstr[1] "Kaustas {1} on {0} uut sõnumit"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "Kasutaja {2} kaustas {1} on {0} uus sõnum"
+msgstr[1] "Kasutaja {2} kaustas {1} on {0} uut sõnumit"
+
+msgid "In folder {0}"
+msgstr "Kaustas {0}"
+
+msgid "In folder {0} of {1}"
+msgstr "Kasutaja {1} kaustas {0}"

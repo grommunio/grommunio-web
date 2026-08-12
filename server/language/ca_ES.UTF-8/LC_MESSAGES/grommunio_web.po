@@ -8238,3 +8238,22 @@ msgstr "{0}: {1}"
 
 msgid "{0}: {1} items"
 msgstr "{0}: {1} elements"
+
+msgid "New mail from {0}"
+msgstr "Correu nou de {0}"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "{0} missatge nou a la carpeta {1}"
+msgstr[1] "{0} missatges nous a la carpeta {1}"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "{0} missatge nou a la carpeta {1} de {2}"
+msgstr[1] "{0} missatges nous a la carpeta {1} de {2}"
+
+msgid "In folder {0}"
+msgstr "A la carpeta {0}"
+
+msgid "In folder {0} of {1}"
+msgstr "A la carpeta {0} de {1}"

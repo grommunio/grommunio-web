@@ -104,3 +104,22 @@ msgstr "{0}: {1}"
 
 msgid "{0}: {1} items"
 msgstr "{0}: {1} आइटम"
+
+msgid "New mail from {0}"
+msgstr "{0} से नया मेल"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "फ़ोल्डर {1} में {0} नया संदेश"
+msgstr[1] "फ़ोल्डर {1} में {0} नए संदेश"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "{2} के फ़ोल्डर {1} में {0} नया संदेश"
+msgstr[1] "{2} के फ़ोल्डर {1} में {0} नए संदेश"
+
+msgid "In folder {0}"
+msgstr "फ़ोल्डर {0} में"
+
+msgid "In folder {0} of {1}"
+msgstr "{1} के फ़ोल्डर {0} में"

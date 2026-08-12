@@ -104,3 +104,22 @@ msgstr "{0}: {1}"
 
 msgid "{0}: {1} items"
 msgstr "{0}: {1} elementu"
+
+msgid "New mail from {0}"
+msgstr "{0}(r)en mezu berria"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "{0} mezu berri {1} karpetan"
+msgstr[1] "{0} mezu berri {1} karpetan"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "{0} mezu berri {2}(r)en {1} karpetan"
+msgstr[1] "{0} mezu berri {2}(r)en {1} karpetan"
+
+msgid "In folder {0}"
+msgstr "{0} karpetan"
+
+msgid "In folder {0} of {1}"
+msgstr "{1}(r)en {0} karpetan"
