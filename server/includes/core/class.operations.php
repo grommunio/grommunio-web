@@ -4835,8 +4835,12 @@ class Operations {
 				continue;
 			}
 
-			if (!isset($l_aNewHistoryItems[$emailAddress])) {
-				$l_aNewHistoryItems[$emailAddress] = $this->buildRecipientHistoryEntry($emailProps, $timestamp);
+			$newEntry = $this->buildRecipientHistoryEntry($emailProps, $timestamp);
+			// Key by the stored address so one send cannot add duplicates
+			// for the same person (EX row + SMTP one-off).
+			$newKey = strtolower((string) $newEntry['email_address']);
+			if (!isset($l_aNewHistoryItems[$newKey])) {
+				$l_aNewHistoryItems[$newKey] = $newEntry;
 			}
 		}
 
@@ -4901,13 +4905,13 @@ class Operations {
 		foreach ($historyRecipients as &$recipient) {
 			$entryEmailLower = strtolower((string) ($recipient['email_address'] ?? ''));
 			$entrySmtpLower = strtolower((string) ($recipient['smtp_address'] ?? ''));
+			$entryType = (string) ($recipient['address_type'] ?? '');
 
-			// Match by the resolved address, but also by the recipient's SMTP
-			// address: for GAB recipients the resolved address is an Exchange
-			// DN while (sanitized) history entries are keyed by SMTP address,
-			// and matching only the DN would append a duplicate entry.
+			// Also match by SMTP address: GAB recipients resolve to an
+			// Exchange DN, while entries may be keyed by SMTP address.
+			// MAPIPDL entries are keyed by display name and are skipped here.
 			$matches = $emailAddressLower === $entryEmailLower || $emailAddressLower === $entrySmtpLower;
-			if (!$matches && $smtpAddressLower !== '') {
+			if (!$matches && $smtpAddressLower !== '' && $entryType !== 'MAPIPDL') {
 				$matches = $smtpAddressLower === $entryEmailLower || $smtpAddressLower === $entrySmtpLower;
 			}
 			if (!$matches) {
@@ -4918,17 +4922,18 @@ class Operations {
 			$recipient['count'] = isset($recipient['count']) ? $recipient['count'] + 1 : 1;
 			$recipient['last_used'] = $timestamp;
 
-			// Normalize to SMTP when possible so future lookups are consistent.
-			// Personal distribution lists are keyed by display name by design
-			// and must keep their address_type.
-			$smtpAddr = $emailProps['smtp_address'] ?? ($recipient['smtp_address'] ?? '');
-			if ($smtpAddr !== '' && (($recipient['address_type'] ?? '') !== 'MAPIPDL')) {
+			// Normalize to SMTP so future lookups are consistent. Only with a
+			// real address (legacy rows may carry account names in
+			// smtp_address too), never for MAPIPDL entries.
+			$smtpAddr = trim((string) ($emailProps['smtp_address'] ?? ''));
+			if (!$this->isEmailAddressLike($smtpAddr)) {
+				$smtpAddr = (string) ($recipient['smtp_address'] ?? '');
+			}
+			if ($this->isEmailAddressLike($smtpAddr) && $entryType !== 'MAPIPDL') {
 				$recipient['smtp_address'] = $smtpAddr;
 				$recipient['address_type'] = 'SMTP';
 
-				// Heal legacy email_address values (old account names such as
-				// "phil", Exchange DNs) so the entry resolves to the address
-				// the suggestion list actually shows.
+				// Heal legacy email_address values (account names, Exchange DNs)
 				if (!$this->isEmailAddressLike((string) ($recipient['email_address'] ?? ''))) {
 					$recipient['email_address'] = $smtpAddr;
 				}
@@ -4974,12 +4979,9 @@ class Operations {
 		$emailAddress = $emailProps['email_address'] ?? '';
 		$addressType = $emailProps['address_type'] ?? '';
 
-		// GAB recipients carry an Exchange DN in email_address (and rows on
-		// migrated stores may carry legacy account names such as "phil").
-		// Store the SMTP address instead: the suggestion list shows it and
-		// the resolve flow searches by it, while non-address values resolve
-		// to unrelated or even wrong GAB entries. Personal distribution
-		// lists (MAPIPDL) keep their display name in email_address by design.
+		// Store the SMTP address instead of Exchange DNs or legacy account
+		// names: resolving such values matches unrelated or wrong GAB entries.
+		// MAPIPDL entries keep their display name in email_address by design.
 		if ($addressType !== 'MAPIPDL' &&
 			!$this->isEmailAddressLike((string) $emailAddress) &&
 			$this->isEmailAddressLike((string) $smtpAddress)) {
