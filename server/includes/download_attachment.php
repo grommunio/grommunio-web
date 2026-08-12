@@ -373,18 +373,19 @@ class DownloadAttachment extends DownloadBase {
 			// Set filename
 			if ($inline) {
 				/*
-				 * Inline attachments are set to "inline.txt"
-				 * by e.g. KGWC (but not Gromox), see
-				 * inetmapi/VMIMEToMAPI.cpp and search for
-				 * inline.txt. KGWC would have to extract the
-				 * alt/title tag from the img tag when converting
-				 * it to MAPI. Since it does not handle this,
-				 * set the filename to CONTENT_ID plus mime tag.
+				 * Gromox preserves the original filename of inline
+				 * attachments, so prefer it. KGWC stores the placeholder
+				 * "inline.txt" instead (see inetmapi/VMIMEToMAPI.cpp); in
+				 * that case, or without any stored filename, fall back to
+				 * CONTENT_ID plus mime tag.
 				 */
-				$tags = explode('/', (string) $props[PR_ATTACH_MIME_TAG]);
-				// IE 11 is weird, when a user renames the file it's not saved as in image, when
-				// the filename is "test.jpeg", but it works when it's "test.jpg".
-				$filename = $props[PR_ATTACH_CONTENT_ID] . '.' . str_replace('jpeg', 'jpg', $tags[1]);
+				$filename = $props[PR_ATTACH_LONG_FILENAME] ?? $props[PR_ATTACH_FILENAME] ?? '';
+				if ($filename === '' || strcasecmp($filename, 'inline.txt') === 0) {
+					$tags = explode('/', (string) ($props[PR_ATTACH_MIME_TAG] ?? ''));
+					// IE 11 is weird, when a user renames the file it's not saved as in image, when
+					// the filename is "test.jpeg", but it works when it's "test.jpg".
+					$filename = (($props[PR_ATTACH_CONTENT_ID] ?? '') ?: 'inline') . '.' . str_replace('jpeg', 'jpg', $tags[1] ?? 'bin');
+				}
 			}
 			elseif (isset($props[PR_ATTACH_LONG_FILENAME])) {
 				$filename = $props[PR_ATTACH_LONG_FILENAME];
