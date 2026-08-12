@@ -59,6 +59,21 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 
 		this.defaultFontFamily = container.getSettingsModel().get("zarafa/v1/main/default_font");
 		this.defaultFontSize = Zarafa.common.ui.htmleditor.Fonts.getDefaultFontSize();
+
+		// Style for every root block tinymce creates by itself: the paragraph of an
+		// empty body, the paragraph created by pressing ENTER and the paragraphs
+		// loose content is wrapped in. The default font belongs here, because the
+		// font of the editor body is never part of the message: getContent() returns
+		// the body's inner HTML, so a paragraph without its own font is sent without
+		// one and the recipient renders that line in their own default font.
+		// Same order of properties as the signature in Zarafa.mail.MailContextModel.
+		this.defaultFontStyle = "";
+		if (!Ext.isEmpty(this.defaultFontFamily) && !Ext.isEmpty(this.defaultFontSize)) {
+			this.defaultFontStyle = "font-family: " + this.defaultFontFamily + "; " +
+				"font-size: " + this.defaultFontSize + "; ";
+		}
+		var defaultBlockStyle = this.defaultFontStyle + "padding: 0; margin: 0; ";
+
 		config = Ext.applyIf(config, {
 			xtype: "zarafa.tinymcetextarea",
 			hideLabel: true,
@@ -94,7 +109,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 				remove_script_host: false,
 				forced_root_block: 'P',
 				forced_root_block_attrs: {
-					'style': 'padding: 0; margin: 0; '
+					'style': defaultBlockStyle
 				},
 				content_style: "body{ word-wrap: break-word; margin: 1rem !important;" +
 					(themeIsDark ? " background-color: #1e1e1e !important; color: #e0e0e0 !important; color-scheme: dark;" : "") +
@@ -323,10 +338,11 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		Ext.EventManager.on(this.getEditor().getWin(), listeners);
 		tinymceEditor.on("focus", this.onFocus.createDelegate(this), this);
 		tinymceEditor.on("blur", this.onBlur.createDelegate(this), this);
+		tinymceEditor.on("NewBlock", this.onNewBlock.createDelegate(this));
 
-		// Apply default formatting after initialization
+		// Show the default font in the editor itself. The font of the message is
+		// carried by the paragraphs (see forced_root_block_attrs), not by the body.
 		this.applyFontStyles();
-		this.addDefaultFormatting();
 	},
 
 	isHtmlEditor: function()
@@ -335,18 +351,28 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	},
 
 	/**
-	 * Check whether the given action type belongs to reply/forward style compose actions.
-	 * @param {String} actionType The message action type.
-	 * @return {Boolean}
+	 * Handler for the editor's 'NewBlock' event. When ENTER splits a paragraph in
+	 * two, tinymce stamps forced_root_block_attrs - and so the default font - onto
+	 * the half holding the text after the caret. Mirror the first half instead,
+	 * which kept the paragraph's own style, so splitting quoted or loaded content
+	 * does not change how it looks. A new empty block keeps the default font.
+	 * @param {Object} event The NewBlock event, carrying the created block
 	 * @private
 	 */
-	isResponseAction: function(actionType)
+	onNewBlock: function(event)
 	{
-		return actionType === Zarafa.mail.data.ActionTypes.REPLY ||
-			actionType === Zarafa.mail.data.ActionTypes.REPLYALL ||
-			actionType === Zarafa.mail.data.ActionTypes.FORWARD ||
-			actionType === Zarafa.mail.data.ActionTypes.FORWARD_ATTACH ||
-			actionType === Zarafa.mail.data.ActionTypes.EDIT_AS_NEW;
+		var block = event.newBlock;
+		if (!block || block.nodeName !== "P" || this.getEditor().dom.isEmpty(block)) {
+			return;
+		}
+
+		var prev = block.previousSibling;
+		if (!prev || prev.nodeName !== "P") {
+			return;
+		}
+
+		block.style.fontFamily = prev.style.fontFamily;
+		block.style.fontSize = prev.style.fontSize;
 	},
 
 	/**
@@ -407,58 +433,6 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	},
 
 	/**
-	 * Event handler is called when fonct family combobox gets change the font type.
-	 * @param {object} event the event object
-	 */
-	onFontFamilyChange: function(event)
-	{
-		this.defaultFontFamily = event.control.settings.value;
-	},
-
-	/**
-	 * Event handler is called when fonct size combobox gets change the font size.
-	 * @param {object} event the event object
-	 */
-	onFontSizeChange: function(event)
-	{
-		this.defaultFontSize = event.control.settings.value;
-	},
-
-	/**
-	 * Function is used to execute a tinymce command to compose
-	 * default formatting as a style attribute of currently selected node.
-	 * @param {tinymce.Editor} editor The tinymce editor instance
-	 * @private
-	 */
-	composeDefaultFormatting: function(editor)
-	{
-		editor.execCommand("FontSize", false, this.defaultFontSize, {
-			skip_focus: true
-		});
-		editor.execCommand("FontName", false, this.defaultFontFamily, {
-			skip_focus: true
-		});
-		this.repositionBrTag(editor);
-	},
-
-	/**
-	 * Function is used to add the BR tag to inner SPAN tag of P tag and remove BR tag from P tag.
-	 * it required because BR tag is used to identify the cursor location as wall as after pressing
-	 * enter or pasting content in editor default formatting gets repeated in next line , to make cursor
-	 * position ideal it required that BR tag must be in SPAN tag.
-	 * @param {tinymce.Editor} editor The tinymce editor instance
-	 */
-	repositionBrTag: function(editor)
-	{
-		var node = editor.selection.getNode();
-		editor.dom.add(node, "br");
-		var parentNode = editor.dom.getParent(node, "P");
-		if (parentNode && parentNode.lastChild.nodeName === "BR") {
-			parentNode.removeChild(parentNode.lastChild);
-		}
-	},
-
-	/**
 	 * Function will set value in the editor and will call {@link #checkValueCorrection}
 	 * to update tinymce's editor value into record. for more information check code/comments
 	 * of {@link #checkValueCorrection}.
@@ -487,34 +461,6 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	},
 
 	/**
-	 * Add the default formatting before composing a new mail.
-	 * @private
-	 */
-	addDefaultFormatting: function()
-	{
-		var tinymceEditor = this.getEditor();
-		if (tinymceEditor.getContent({
-			format: "text"
-		}).trim()) {
-			// Only add default formatting when there is no content
-			// Otherwise is has already been added
-			return;
-		}
-		tinymceEditor.selection.setCursorLocation(tinymceEditor.getBody().firstChild, 0);
-		this.composeDefaultFormatting(tinymceEditor);
-		// HTML styles will be applied while selecting default values from comboboxes.
-		// We need to set those styles into the record to avoid change detection in record.
-		// For reply/forward records, don't push this temporary default formatting into
-		// the bound record as it can race with quoted body initialization.
-		var actionType = this.record && Ext.isFunction(this.record.getMessageAction) ? this.record.getMessageAction('action_type') : null;
-		if (!this.isResponseAction(actionType)) {
-			this.checkValueCorrection(this, "");
-		}
-		// Remove all the undo level from tinymce, so that user can't rollback the default HTML styles.
-		tinymceEditor.undoManager.clear();
-	},
-
-	/**
 	* Toggle read only mode for the underlying TinyMCE editor without
 	* disabling the component.
 	* @param {Boolean} readOnly True to make the editor read-only
@@ -532,7 +478,6 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 
 	/**
 	 * Enable this component by calling parent class {@link Ext.ux.form.TinyMCETextArea.enable enable} function.
-	 * It also call the {@link #addDefaultFormatting} function to add the default formatting.
 	 */
 	enable: function()
 	{
@@ -543,10 +488,6 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 			// tinymce editor is being used by composing multiple signatures. it just enabled/disabled
 			// with new/updated content.
 			editor.selection.lastFocusBookmark = null;
-			// Apply default formatting for the signature editor.
-			if (Ext.isEmpty(editor.getContent())) {
-				this.addDefaultFormatting(editor);
-			}
 		}
 	},
 
@@ -573,9 +514,9 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 
 	/**
 	 * Function is called when double clicked in the editor.
-	 * While body is empty and double click in editor then firefox consider current selection on P tag instead of Span
-	 * and P tag doesn't have formatting that's way default formatting will remove.
-	 * Handle above situation by setting up selection on Span tag then after fire nodechange event of editor.
+	 * While the body is empty, firefox puts the selection on the P tag itself; when the
+	 * paragraph holds a font SPAN (a manual font change), move the cursor inside it so
+	 * typing keeps that font.
 	 */
 	onDBLClick: function()
 	{
@@ -586,7 +527,10 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		var isEmptyBody = editor.selection.getContent({
 			format: "text"
 		}) === "";
-		if (element === editor.getBody().firstChild && isEmptyBody) {
+		// The first child of an empty paragraph is a BR, which has no child to place
+		// the cursor in. Only descend when there is something to descend into.
+		if (element === editor.getBody().firstChild && isEmptyBody &&
+			element.firstChild && element.firstChild.firstChild) {
 			editor.selection.setCursorLocation(element.firstChild.firstChild, 0);
 		}
 	},
@@ -685,15 +629,16 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 			// We will do this in a deferred function to make sure that tiny first adds the bogus BR element to empty paragraphs
 			(function() {
 				var node = editor.selection.getNode();
-				// When we created an empty P tag by pressing ENTER we must apply default formatting to it.
-				// When we already have an empty SPAN with formatting in the P tag tiny adds a BR node with the attribute
-				// 'data-mce-bogus' because otherwise it is not possible to move the cursor there. Tiny will remove those
-				// bogus nodes when we get the content value. But we have removed the padding and margin of P-tags,
-				// resulting in empty P nodes not being visible to the user. That's why we will remove the attribute
-				// 'data-mce-bogus' of the BR nodes, so tiny will not remove them.
+				// Tiny adds a BR node with the attribute 'data-mce-bogus' to an empty
+				// paragraph, because otherwise it is not possible to move the cursor
+				// there. Tiny will remove those bogus nodes when we get the content
+				// value. But we have removed the padding and margin of P-tags,
+				// resulting in empty P nodes not being visible to the user. That's why
+				// we will remove the attribute 'data-mce-bogus' of the BR nodes, so
+				// tiny will not remove them.
 				if (node.nodeName === "P") {
-					if (!node.hasChildNodes() || node.firstChild.nodeName === "BR") {
-						this.composeDefaultFormatting(editor);
+					if (node.hasChildNodes() && node.firstChild.nodeName === "BR") {
+						node.firstChild.removeAttribute("data-mce-bogus");
 					}
 				} else if (node.nodeName === "SPAN" && node.hasChildNodes() && node.firstChild.nodeName === "BR") {
 					// This one is for when we created an empty paragraph by pressing ENTER while on the cursor was on end of a line
@@ -705,10 +650,10 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 				var prevPNode = editor.dom.getPrev(pNode, "p");
 				if (prevPNode && prevPNode.hasChildNodes()) {
 					if (prevPNode.firstChild.nodeName === "SPAN" && prevPNode.firstChild.hasChildNodes() && prevPNode.firstChild.firstChild.nodeName === "BR") {
-						// When we have a paragraph on which we added our default formatting, there will be a SPAN
+						// An empty line whose font was changed by hand carries a SPAN
 						prevPNode.firstChild.firstChild.removeAttribute("data-mce-bogus");
 					} else if (prevPNode.firstChild.nodeName === "BR") {
-						// When we have a plain paragraph without our crappy default formatting there will only be a BR
+						// A plain empty paragraph holds only its BR
 						prevPNode.firstChild.removeAttribute("data-mce-bogus");
 					}
 				}
@@ -1080,9 +1025,10 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		range.insertNode(marker);
 		// Split the blockquote at the marker
 				const newBlockquote = editor.dom.split(blockquote, marker);
-		// Create a new paragraph with custom margin for the content after the split
+		// Create a new paragraph with custom margin for the content after the split.
+		// Carry the default font, as this paragraph bypasses forced_root_block_attrs.
 				const newParagraph = editor.dom.create("p", {
-			style: "margin: 10px 0 10px 0;"
+			style: this.defaultFontStyle + "margin: 10px 0 10px 0;"
 		}, '<br data-mce-bogus="1" />');
 		editor.dom.insertAfter(newParagraph, newBlockquote);
 		// Move the cursor to the new paragraph (between the split)
@@ -1160,9 +1106,8 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		this.originalValue = this.getRawValue();
 		this.hasFocus = true;
 		this.fireEvent("focus", this);
-		// While body is empty and switching a focus in editor after tab change then
-		// some how firefox consider current selection on P tag instead of span and
-		// P tag doesn't have formatting that's way default formatting will remove.
+		// While the body is empty and focus returns after a tab change, firefox
+		// leaves the selection on the P tag; reset it to a proper caret position.
 		if (this.isTabChanged) {
 			this.getEditor().selection.setCursorLocation();
 			this.isTabChanged = false;
@@ -1179,11 +1124,8 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		// check If editor instance is available or not
 		if (editor) {
 			this.withEd((function() {
-				// Here we need to fire the focusin event of editor because
-				// in default formatting we have two span tags, so somehow
-				// when mail is reply/forward cursor set in first outer span which is not contains any
-				// formatting so default formatting gets lost. to overcome this problem
-				// we need to fire the focusin event of editor.
+				// Fire the focusin event so the caret lands on a proper position
+				// on reply/forward instead of the outermost element.
 				editor.dispatch("focusin", {
 					target: editor.getBody(),
 					relatedTarget: null
