@@ -3726,20 +3726,19 @@ class Operations {
 	 *
 	 * @return string correct foldername
 	 */
-	public function checkFolderNameConflict($store, $folder, $foldername) {
+	public function checkFolderNameConflict(/** @scrutinizer ignore-unused */ $store, $folder, $foldername) {
 		$folderNames = [];
 
 		$hierarchyTable = mapi_folder_gethierarchytable($folder, MAPI_DEFERRED_ERRORS);
 		mapi_table_sort($hierarchyTable, [PR_DISPLAY_NAME => TABLE_SORT_ASCEND], TBL_BATCH);
 
-		$subfolders = mapi_table_queryallrows($hierarchyTable, [PR_ENTRYID]);
+		$subfolders = mapi_table_queryallrows($hierarchyTable, [PR_DISPLAY_NAME]);
 
 		if (is_array($subfolders)) {
 			foreach ($subfolders as $subfolder) {
-				$folderObject = mapi_msgstore_openentry($store, $subfolder[PR_ENTRYID]);
-				$folderProps = mapi_getprops($folderObject, [PR_DISPLAY_NAME]);
-
-				array_push($folderNames, strtolower((string) $folderProps[PR_DISPLAY_NAME]));
+				if (isset($subfolder[PR_DISPLAY_NAME])) {
+					$folderNames[] = strtolower((string) $subfolder[PR_DISPLAY_NAME]);
+				}
 			}
 		}
 
