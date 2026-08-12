@@ -1696,11 +1696,9 @@ class Operations {
 			}
 
 			$props['props']['isHTML'] = false;
-			$htmlcontent = null;
 			if ($loadBody) {
 				$body = $this->getMessageBody($message, $html2text);
 				$props['props'] = array_merge($props['props'], $body);
-				$htmlcontent = $body['html_body'] ?? null;
 			}
 
 			// Get reply-to information, otherwise consider the sender to be the reply-to person.
@@ -1746,58 +1744,15 @@ class Operations {
 				];
 			}
 
-			// Get attachments
+			// Get attachments. Inline (cid:) references in html_body are left
+			// as-is: the client rewrites them to download_attachment URLs.
+			// Embedding them as data: URIs would lose the filename when the
+			// image is saved ("download.jpeg") and hide the attachment.
 			$attachments = $GLOBALS["operations"]->getAttachmentsInfo($message);
 			if (!empty($attachments)) {
 				$props["attachments"] = [
 					"item" => $attachments,
 				];
-				$cid_found = false;
-				foreach ($attachments as $attachment) {
-					if (isset($attachment["props"]["cid"])) {
-						$cid_found = true;
-					}
-				}
-				if ($loadBody && $cid_found === true && $htmlcontent !== null) {
-					preg_match_all('/src="cid:(.*)"/Uims', $htmlcontent, $matches);
-					if (count($matches) > 0) {
-						$search = [];
-						$replace = [];
-						foreach ($matches[1] as $match) {
-							$idx = -1;
-							foreach ($attachments as $key => $attachment) {
-								if (isset($attachment["props"]["cid"]) &&
-									strcasecmp($match, $attachment["props"]["cid"]) == 0) {
-									$idx = $key;
-									$num = $attachment["props"]["attach_num"];
-								}
-							}
-							if ($idx == -1) {
-								continue;
-							}
-							$attach = mapi_message_openattach($message, $num);
-							if (empty($attach)) {
-								continue;
-							}
-							$attachprop = mapi_getprops($attach, [PR_ATTACH_DATA_BIN, PR_ATTACH_MIME_TAG]);
-							if (empty($attachprop) || !isset($attachprop[PR_ATTACH_DATA_BIN])) {
-								continue;
-							}
-							if (!isset($attachprop[PR_ATTACH_MIME_TAG])) {
-								$mime_tag = "text/plain";
-							}
-							else {
-								$mime_tag = $attachprop[PR_ATTACH_MIME_TAG];
-							}
-							$search[] = "src=\"cid:{$match}\"";
-							$replace[] = "src=\"data:{$mime_tag};base64," . base64_encode((string) $attachprop[PR_ATTACH_DATA_BIN]) . "\"";
-							unset($props["attachments"]["item"][$idx]);
-						}
-						$props["attachments"]["item"] = array_values($props["attachments"]["item"]);
-						$htmlcontent = str_replace($search, $replace, $htmlcontent);
-						$props["props"]["html_body"] = $htmlcontent;
-					}
-				}
 			}
 
 			// for distlists, we need to get members data
