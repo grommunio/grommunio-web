@@ -59,6 +59,20 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 
 		this.defaultFontFamily = container.getSettingsModel().get("zarafa/v1/main/default_font");
 		this.defaultFontSize = Zarafa.common.ui.htmleditor.Fonts.getDefaultFontSize();
+
+		// Style for every root block tinymce creates by itself: the paragraph of an
+		// empty body, the paragraph created by pressing ENTER and the paragraphs
+		// loose content is wrapped in. The default font belongs here, because the
+		// font of the editor body is never part of the message: getContent() returns
+		// the body's inner HTML, so a paragraph without its own font is sent without
+		// one and the recipient renders that line in their own default font.
+		// Same order of properties as the signature in Zarafa.mail.MailContextModel.
+		var defaultBlockStyle = "padding: 0; margin: 0; ";
+		if (!Ext.isEmpty(this.defaultFontFamily) && !Ext.isEmpty(this.defaultFontSize)) {
+			defaultBlockStyle = "font-family: " + this.defaultFontFamily + "; " +
+				"font-size: " + this.defaultFontSize + "; " + defaultBlockStyle;
+		}
+
 		config = Ext.applyIf(config, {
 			xtype: "zarafa.tinymcetextarea",
 			hideLabel: true,
@@ -94,7 +108,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 				remove_script_host: false,
 				forced_root_block: 'P',
 				forced_root_block_attrs: {
-					'style': 'padding: 0; margin: 0; '
+					'style': defaultBlockStyle
 				},
 				content_style: "body{ word-wrap: break-word; margin: 1rem !important;" +
 					(themeIsDark ? " background-color: #1e1e1e !important; color: #e0e0e0 !important; color-scheme: dark;" : "") +
@@ -298,9 +312,9 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		tinymceEditor.on("focus", this.onFocus.createDelegate(this), this);
 		tinymceEditor.on("blur", this.onBlur.createDelegate(this), this);
 
-		// Apply default formatting after initialization
+		// Show the default font in the editor itself. The font of the message is
+		// carried by the paragraphs (see forced_root_block_attrs), not by the body.
 		this.applyFontStyles();
-		this.addDefaultFormatting();
 	},
 
 	isHtmlEditor: function()
@@ -381,58 +395,6 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	},
 
 	/**
-	 * Event handler is called when fonct family combobox gets change the font type.
-	 * @param {object} event the event object
-	 */
-	onFontFamilyChange: function(event)
-	{
-		this.defaultFontFamily = event.control.settings.value;
-	},
-
-	/**
-	 * Event handler is called when fonct size combobox gets change the font size.
-	 * @param {object} event the event object
-	 */
-	onFontSizeChange: function(event)
-	{
-		this.defaultFontSize = event.control.settings.value;
-	},
-
-	/**
-	 * Function is used to execute a tinymce command to compose
-	 * default formatting as a style attribute of currently selected node.
-	 * @param {tinymce.Editor} editor The tinymce editor instance
-	 * @private
-	 */
-	composeDefaultFormatting: function(editor)
-	{
-		editor.execCommand("FontSize", false, this.defaultFontSize, {
-			skip_focus: true
-		});
-		editor.execCommand("FontName", false, this.defaultFontFamily, {
-			skip_focus: true
-		});
-		this.repositionBrTag(editor);
-	},
-
-	/**
-	 * Function is used to add the BR tag to inner SPAN tag of P tag and remove BR tag from P tag.
-	 * it required because BR tag is used to identify the cursor location as wall as after pressing
-	 * enter or pasting content in editor default formatting gets repeated in next line , to make cursor
-	 * position ideal it required that BR tag must be in SPAN tag.
-	 * @param {tinymce.Editor} editor The tinymce editor instance
-	 */
-	repositionBrTag: function(editor)
-	{
-		var node = editor.selection.getNode();
-		editor.dom.add(node, "br");
-		var parentNode = editor.dom.getParent(node, "P");
-		if (parentNode && parentNode.lastChild.nodeName === "BR") {
-			parentNode.removeChild(parentNode.lastChild);
-		}
-	},
-
-	/**
 	 * Function will set value in the editor and will call {@link #checkValueCorrection}
 	 * to update tinymce's editor value into record. for more information check code/comments
 	 * of {@link #checkValueCorrection}.
@@ -461,34 +423,6 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	},
 
 	/**
-	 * Add the default formatting before composing a new mail.
-	 * @private
-	 */
-	addDefaultFormatting: function()
-	{
-		var tinymceEditor = this.getEditor();
-		if (tinymceEditor.getContent({
-			format: "text"
-		}).trim()) {
-			// Only add default formatting when there is no content
-			// Otherwise is has already been added
-			return;
-		}
-		tinymceEditor.selection.setCursorLocation(tinymceEditor.getBody().firstChild, 0);
-		this.composeDefaultFormatting(tinymceEditor);
-		// HTML styles will be applied while selecting default values from comboboxes.
-		// We need to set those styles into the record to avoid change detection in record.
-		// For reply/forward records, don't push this temporary default formatting into
-		// the bound record as it can race with quoted body initialization.
-		var actionType = this.record && Ext.isFunction(this.record.getMessageAction) ? this.record.getMessageAction('action_type') : null;
-		if (!this.isResponseAction(actionType)) {
-			this.checkValueCorrection(this, "");
-		}
-		// Remove all the undo level from tinymce, so that user can't rollback the default HTML styles.
-		tinymceEditor.undoManager.clear();
-	},
-
-	/**
 	* Toggle read only mode for the underlying TinyMCE editor without
 	* disabling the component.
 	* @param {Boolean} readOnly True to make the editor read-only
@@ -506,7 +440,6 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 
 	/**
 	 * Enable this component by calling parent class {@link Ext.ux.form.TinyMCETextArea.enable enable} function.
-	 * It also call the {@link #addDefaultFormatting} function to add the default formatting.
 	 */
 	enable: function()
 	{
@@ -517,10 +450,6 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 			// tinymce editor is being used by composing multiple signatures. it just enabled/disabled
 			// with new/updated content.
 			editor.selection.lastFocusBookmark = null;
-			// Apply default formatting for the signature editor.
-			if (Ext.isEmpty(editor.getContent())) {
-				this.addDefaultFormatting(editor);
-			}
 		}
 	},
 
@@ -560,7 +489,10 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		var isEmptyBody = editor.selection.getContent({
 			format: "text"
 		}) === "";
-		if (element === editor.getBody().firstChild && isEmptyBody) {
+		// The first child of an empty paragraph is a BR, which has no child to place
+		// the cursor in. Only descend when there is something to descend into.
+		if (element === editor.getBody().firstChild && isEmptyBody &&
+			element.firstChild && element.firstChild.firstChild) {
 			editor.selection.setCursorLocation(element.firstChild.firstChild, 0);
 		}
 	},
@@ -659,15 +591,16 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 			// We will do this in a deferred function to make sure that tiny first adds the bogus BR element to empty paragraphs
 			(function() {
 				var node = editor.selection.getNode();
-				// When we created an empty P tag by pressing ENTER we must apply default formatting to it.
-				// When we already have an empty SPAN with formatting in the P tag tiny adds a BR node with the attribute
-				// 'data-mce-bogus' because otherwise it is not possible to move the cursor there. Tiny will remove those
-				// bogus nodes when we get the content value. But we have removed the padding and margin of P-tags,
-				// resulting in empty P nodes not being visible to the user. That's why we will remove the attribute
-				// 'data-mce-bogus' of the BR nodes, so tiny will not remove them.
+				// Tiny adds a BR node with the attribute 'data-mce-bogus' to an empty
+				// paragraph, because otherwise it is not possible to move the cursor
+				// there. Tiny will remove those bogus nodes when we get the content
+				// value. But we have removed the padding and margin of P-tags,
+				// resulting in empty P nodes not being visible to the user. That's why
+				// we will remove the attribute 'data-mce-bogus' of the BR nodes, so
+				// tiny will not remove them.
 				if (node.nodeName === "P") {
-					if (!node.hasChildNodes() || node.firstChild.nodeName === "BR") {
-						this.composeDefaultFormatting(editor);
+					if (node.hasChildNodes() && node.firstChild.nodeName === "BR") {
+						node.firstChild.removeAttribute("data-mce-bogus");
 					}
 				} else if (node.nodeName === "SPAN" && node.hasChildNodes() && node.firstChild.nodeName === "BR") {
 					// This one is for when we created an empty paragraph by pressing ENTER while on the cursor was on end of a line
