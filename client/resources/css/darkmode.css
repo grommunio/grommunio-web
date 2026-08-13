@@ -2360,3 +2360,25 @@ body.dark-mode .zarafa-mailconversationpanel .k-conversation-item .preview-attac
 body.dark-mode .zarafa-mailconversationpanel .k-date {
 	color: var(--dm-fg-muted, #9a9aa0);
 }
+
+/* Command palette: iconset images are black and need the same inversion as
+   the tree icons, masks already follow the text colour */
+body.dark-mode .k-command-palette-icon.k-command-palette-icon-image {
+	filter: invert(0.88) !important;
+}
+body.dark-mode .k-command-palette-icon.k-command-palette-icon-mask {
+	filter: none !important;
+}
+
+/* The note folder icons are yellow by design and stay so */
+body.dark-mode .icon_folder_default_note,
+body.dark-mode .icon_folder_stickynote,
+body.dark-mode .k-command-palette-icon.icon_folder_default_note,
+body.dark-mode .k-command-palette-icon.icon_folder_stickynote {
+	filter: none !important;
+}
+
+/* Submenu arrows: Ext ships a black gif */
+body.dark-mode .x-menu .x-menu-list li.x-menu-list-item a.x-menu-item-arrow {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='9'%3E%3Cpath fill='%23d6d6d6' d='M0 0v9l5-4.5z'/%3E%3C/svg%3E") !important;
+}

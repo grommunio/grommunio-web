@@ -164,8 +164,16 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 				displayField: 'displayName',
 				ref: '../themeCombo',
 				name: 'zarafa/v1/main/active_theme',
+				cls: 'k-theme-combo',
+				tpl: new Ext.XTemplate(
+					'<tpl for="."><div class="x-combo-list-item">',
+						'{[this.dot(values.name)]}{displayName:htmlEncode}',
+					'</div></tpl>',
+					{ dot: this.getThemeDot }
+				),
 				listeners: {
 					select: this.onThemeSelect,
+					afterrender: this.onThemeComboRender,
 					scope: this
 				}
 			});
@@ -457,10 +465,52 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 
 			this.activeTheme = value;
 		}
+		this.updateThemeDot();
 
 		if (this.model) {
 			this.model.set(combo.name, value);
 		}
+	},
+
+	/**
+	 * @param {String} name The theme name
+	 * @return {String} A colour dot for the themes whose colour the stylesheet knows
+	 * @private
+	 */
+	getThemeDot: function(name)
+	{
+		var known = name === 'basic' || Zarafa.core.Themes.themes.some(function(theme) {
+			return theme.name === name;
+		});
+		return known ? '<span class="k-theme-dot theme-' + Ext.util.Format.htmlEncode(name) + '"></span>' : '';
+	},
+
+	/**
+	 * Adds the dot showing the selected colour in front of the theme field.
+	 * @param {Ext.form.ComboBox} combo The theme combo
+	 * @private
+	 */
+	onThemeComboRender: function(combo)
+	{
+		this.themeDot = combo.wrap.createChild({ tag: 'span', cls: 'k-theme-dot k-theme-combo-dot' });
+		this.updateThemeDot();
+	},
+
+	/**
+	 * @private
+	 */
+	updateThemeDot: function()
+	{
+		if (!this.themeDot || !this.themeCombo) {
+			return;
+		}
+		var name = this.themeCombo.getValue();
+		if (Ext.isEmpty(name) || this.themeCombo.store.find('name', name) === -1) {
+			name = 'basic';
+		}
+		var dot = this.getThemeDot(name);
+		this.themeDot.dom.className = 'k-theme-dot k-theme-combo-dot' + (dot ? ' theme-' + name : ' k-theme-dot-unknown');
+		this.themeCombo.wrap[dot ? 'addClass' : 'removeClass']('k-theme-combo-known');
 	},
 
 	/**
@@ -527,9 +577,10 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 			this.activeTheme = settingsModel.get(this.themeCombo.name);
 			// Check if a theme was set and if this theme has not been removed by the admin
 			if ( !this.activeTheme || this.themeCombo.store.find('name', this.activeTheme)===-1 ){
-				this.activeTheme = container.getServerConfig().getActiveTheme() || this.defaultThemeName;
+				this.activeTheme = container.getServerConfig().getActiveTheme() || 'basic';
 			}
 			this.themeCombo.setValue(this.activeTheme);
+			this.updateThemeDot();
 		}
 
 		this.activeIconset = settingsModel.get(this.iconsetCombo.name);

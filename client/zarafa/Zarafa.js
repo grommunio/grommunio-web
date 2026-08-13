@@ -283,6 +283,7 @@ Ext.apply(Zarafa, {
 		container.getRequest().on('connectionparalyzed', this.onConnectionParalyze, this);
 		container.getRequest().on('connectioninterrupted', this.onConnectionLoss, this);
 		container.getRequest().on('connectionrestored', this.onConnectionRestore, this);
+		container.getRequest().on('versionchanged', this.onVersionChanged, this);
 		container.getResponseRouter().on('receiveexception', this.onReceiveException, this);
 		// We listen on the Ext.data.DataProxy object to listen in on all exception events
 		Ext.data.DataProxy.on('exception', this.onException, this);
@@ -573,6 +574,23 @@ Ext.apply(Zarafa, {
 			container.getNotifier().notify('info.connection.restore', _('Connection restored'), _('Connection with server has been restored'));
 			delete this.connEl;
 		}
+	},
+
+	/**
+	 * Offers a reload when the server runs another grommunio Web than this page.
+	 * @param {Zarafa.core.Request} request
+	 * @param {String} version The version the server runs now
+	 * @private
+	 */
+	onVersionChanged: function(request, version)
+	{
+		container.getNotifier().notify('info.version', _('grommunio Web was updated'), _('A new version is available, click here to reload.'), {
+			persistent: true,
+			listeners: {
+				click: Zarafa.core.Util.reloadWebapp,
+				scope: Zarafa.core.Util
+			}
+		});
 	},
 
 	/**

@@ -97,7 +97,7 @@ Zarafa.mail.ui.MailGridRowActions = Ext.extend(Object, {
 		grid.mon(view.scroller, 'mouseleave', this.hide, this);
 		grid.mon(this.bar, {
 			'mousedown': this.onBarMouseDown,
-			'contextmenu': this.onBarMouseDown,
+			'contextmenu': this.onBarContextMenu,
 			'click': this.onBarClick,
 			'mouseenter': this.onBarEnter,
 			'mouseleave': this.onBarLeave,
@@ -195,6 +195,31 @@ Zarafa.mail.ui.MailGridRowActions = Ext.extend(Object, {
 	onBarMouseDown: function(e)
 	{
 		e.stopEvent();
+	},
+
+	/**
+	 * Hides the actions and hands the right click to the row underneath,
+	 * so the context menu opens as if the actions were not there.
+	 * @param {Ext.EventObject} e The contextmenu event
+	 * @private
+	 */
+	onBarContextMenu: function(e)
+	{
+		e.stopEvent();
+		this.hide();
+
+		var browserEvent = e.browserEvent;
+		var target = document.elementFromPoint(browserEvent.clientX, browserEvent.clientY);
+		if (target) {
+			target.dispatchEvent(new MouseEvent('contextmenu', {
+				bubbles: true,
+				cancelable: true,
+				view: window,
+				button: 2,
+				clientX: browserEvent.clientX,
+				clientY: browserEvent.clientY
+			}));
+		}
 	},
 
 	/**

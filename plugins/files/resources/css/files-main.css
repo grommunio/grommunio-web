@@ -27,8 +27,11 @@ button.icon_files {
 	background-position: 4px center;
 }
 
-.x-menu-item-icon.icon_files_category {
+.x-menu-item-icon.icon_files_category,
+.x-menu-item-icon.files_icon_action_upload,
+.x-btn .files_icon_action_upload {
 	background-position: center;
+	background-repeat: no-repeat;
 }
 
 .icon_cache {

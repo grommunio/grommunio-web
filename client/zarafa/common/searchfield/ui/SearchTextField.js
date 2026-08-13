@@ -1403,14 +1403,11 @@ Zarafa.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField, {
 	onTailKeyDown: function(e)
 	{
 		if (e.getKey() === Ext.EventObject.ENTER) {
-			// If a history row is highlighted, apply it instead
-			if (this.dropdownPanel && this.dropdownPanel.isVisible()) {
-				var entry = this.dropdownPanel.getHighlightedEntry();
-				if (entry) {
-					e.preventDefault();
-					this.dropdownPanel.applyHistoryEntry(entry);
-					return;
-				}
+			// A highlighted option wins over running the search
+			if (this.dropdownPanel && this.dropdownPanel.isVisible() && this.dropdownPanel.getHighlightedOption()) {
+				e.preventDefault();
+				this.dropdownPanel.activateHighlightedOption();
+				return;
 			}
 			// Commit any uncommitted tail text first
 			if (this.tailInputEl.dom.value.trim()) {
@@ -1431,18 +1428,22 @@ Zarafa.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField, {
 		} else if (e.getKey() === Ext.EventObject.DOWN) {
 			if (this.dropdownPanel && this.dropdownPanel.isVisible()) {
 				e.preventDefault();
-				this.dropdownPanel.moveHistoryHighlight(1);
+				this.dropdownPanel.moveOptionHighlight(1);
 			}
 		} else if (e.getKey() === Ext.EventObject.UP) {
 			if (this.dropdownPanel && this.dropdownPanel.isVisible()) {
 				e.preventDefault();
-				this.dropdownPanel.moveHistoryHighlight(-1);
+				this.dropdownPanel.moveOptionHighlight(-1);
 			}
 		} else if (e.getKey() === Ext.EventObject.TAB) {
-			// Tab always commits current text as a chip
+			// Tab commits typed text as a chip, otherwise it walks the
+			// dropdown options while the dropdown is open
 			if (this.tailInputEl.dom.value.trim()) {
 				e.preventDefault();
 				this.commitTailInput();
+			} else if (this.dropdownPanel && this.dropdownPanel.isVisible()) {
+				e.preventDefault();
+				this.dropdownPanel.moveOptionHighlight(e.shiftKey ? -1 : 1);
 			}
 		} else if (e.getKey() === 32) { // SPACE
 			var tailText = this.tailInputEl.dom.value;

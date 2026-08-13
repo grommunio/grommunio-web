@@ -8271,3 +8271,48 @@ msgstr "Favoriten desselben Typs in jeder Ordnerliste anzeigen"
 
 msgid "Show all favorites in every folder list"
 msgstr "Alle Favoriten in jeder Ordnerliste anzeigen"
+
+msgid "Search folders, views, settings and actions"
+msgstr "Ordner, Ansichten, Einstellungen und Aktionen suchen"
+
+msgid "Command palette"
+msgstr "Befehlspalette"
+
+msgid "Results"
+msgstr "Ergebnisse"
+
+msgid "Views"
+msgstr "Ansichten"
+
+msgid "Tools"
+msgstr "Werkzeuge"
+
+msgid "Switch to dark mode"
+msgstr "Zum dunklen Modus wechseln"
+
+msgid "Switch to light mode"
+msgstr "Zum hellen Modus wechseln"
+
+msgid "Compact list spacing"
+msgstr "Kompakte Listenabstände"
+
+msgid "Comfortable list spacing"
+msgstr "Komfortable Listenabstände"
+
+msgid "No matching commands"
+msgstr "Keine passenden Befehle"
+
+msgid "Open the command palette"
+msgstr "Befehlspalette öffnen"
+
+msgid "Show quick actions when hovering over a message"
+msgstr "Schnellaktionen beim Überfahren einer Nachricht anzeigen"
+
+msgid "Arrow keys or Tab select, Enter opens, Esc closes"
+msgstr "Pfeiltasten oder Tab wählen aus, Enter öffnet, Esc schließt"
+
+msgid "grommunio Web was updated"
+msgstr "grommunio Web wurde aktualisiert"
+
+msgid "A new version is available, click here to reload."
+msgstr "Eine neue Version ist verfügbar, zum Neuladen hier klicken."

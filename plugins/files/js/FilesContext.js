@@ -487,7 +487,7 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 			xtype       : 'menuitem',
 			text        : _('Upload file'),
 			plugins     : 'zarafa.menuitemtooltipplugin',
-			iconCls     : 'icon_files_category',
+			iconCls     : 'files_icon_action_upload',
 			newMenuIndex: 6,
 			context     : this.getName(),
 			handler     : function () {
