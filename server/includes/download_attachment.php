@@ -419,8 +419,9 @@ class DownloadAttachment extends DownloadBase {
 			// Set the headers
 			header('Pragma: public');
 			if ($inline) {
-				// Immutable per URL (message entryid + content id); cacheable.
-				header('Cache-Control: private, max-age=604800');
+				// The URL embeds message entryid and content id; an hour bounds
+				// the exposure of a cached copy after logout or a draft edit.
+				header('Cache-Control: private, max-age=3600');
 			}
 			else {
 				header('Expires: 0'); // set expiration time
@@ -1058,10 +1059,6 @@ class DownloadAttachment extends DownloadBase {
 
 // create instance of class to download attachment
 $attachInstance = new DownloadAttachment();
-
-// Nothing below writes to the session; release its lock, or the several
-// requests of a mail full of inline images queue behind one another.
-session_write_close();
 
 try {
 	// initialize variables
