@@ -121,6 +121,75 @@ Zarafa.common.ui.DraggableDataView = Ext.extend(Ext.DataView, {
 		Zarafa.common.ui.DraggableDataView.superclass.afterRender.apply(this, arguments);
 		// This will activate keymaps for mapID 'view.mapimessage'
 		Zarafa.core.KeyMapMgr.activate(this, 'view.mapimessage');
+
+		// Keyboard requests never reach the template element the view listens on.
+		this.mon(this.getEl(), 'contextmenu', this.onKeyboardContextMenu, this);
+	},
+
+	/**
+	 * Event handler which is triggered when the user opens the context menu on a node.
+	 *
+	 * @param {Zarafa.common.ui.DraggableDataView} dataView This view
+	 * @param {Number} index The index of the node
+	 * @param {HTMLElement} node The node on which the context menu was requested
+	 * @param {Ext.EventObject} event The event structure
+	 * @private
+	 */
+	onNodeContextMenu: function(dataView, index, node, event)
+	{
+		this.openContextMenuForNode(index, node, event);
+	},
+
+	/**
+	 * Open the context menu for the given node.
+	 *
+	 * @param {Number} index The index of the node
+	 * @param {HTMLElement} node The node to open the context menu for
+	 * @param {Ext.EventObject} event The event which requested the context menu
+	 * @return {Ext.menu.Menu} The context menu which was opened
+	 * @protected
+	 */
+	openContextMenuForNode: function(index, node, event)
+	{
+		if (!this.isSelected(node)) {
+			this.select(node);
+		}
+
+		return Zarafa.core.data.UIFactory.openDefaultContextMenu(this.getSelectedRecords(), { position: event.getXY() });
+	},
+
+	/**
+	 * Event handler for the 'contextmenu' event on the {@link #el element}. The context
+	 * menu key (and Shift + F10) fire the event on the off-screen focus element of the
+	 * {@link Zarafa.core.plugins.EnableFocusPlugin plugin} instead of on a node, such a
+	 * request is handled on the node which was selected last.
+	 *
+	 * @param {Ext.EventObject} event The event structure
+	 * @private
+	 */
+	onKeyboardContextMenu: function(event)
+	{
+		if (!Zarafa.core.data.UIFactory.isKeyboardContextMenu(event)) {
+			return;
+		}
+
+		// 'last' is false when the view has no selection.
+		var index = this.last;
+		var node = Ext.isNumber(index) ? this.getNode(index) : null;
+		if (!node) {
+			return;
+		}
+
+		event.stopEvent();
+
+		// The keyboard provides no position and the focus element is off-screen.
+		var menuEvent = new Ext.EventObjectImpl(event);
+		var xy = Ext.fly(node).getXY();
+		menuEvent.xy = [xy[0] + 8, xy[1] + 16];
+
+		var menu = this.openContextMenuForNode(index, node, menuEvent);
+		var plugin = this.enableFocusPlugin;
+		Zarafa.core.data.UIFactory.initKeyboardMenuNavigation(menu, plugin ? plugin.focusEl : undefined);
 	},
 
 	/**

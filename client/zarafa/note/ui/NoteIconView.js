@@ -112,7 +112,7 @@ Zarafa.note.ui.NoteIconView = Ext.extend(Zarafa.common.ui.DraggableDataView, {
 	initEvents: function()
 	{
 		this.on({
-			'contextmenu': this.onNoteIconContextMenu,
+			'contextmenu': this.onNodeContextMenu,
 			'dblclick': this.onIconDblClick,
 			'selectionchange': this.onSelectionChange,
 			'afterrender': this.onAfterRender,
@@ -131,24 +131,6 @@ Zarafa.note.ui.NoteIconView = Ext.extend(Zarafa.common.ui.DraggableDataView, {
 			'mouseleave': this.onMouseLeave,
 			scope: this
 		});
-	},
-
-	/*
-	 * Event handler which is triggered when user opens context menu
-	 * @param {Ext.DataView} dataview dataview object
-	 * @param {Number} rowIndex	index of row
-	 * @param {node} target html node
-	 * @param {Ext.event} eventObj eventObj object of the event
-	 * @private
-	 */
-	onNoteIconContextMenu: function(dataview, index, node, eventObj)
-	{
-		// check row is already selected or not, if its not selected then select it first
-		if (!dataview.isSelected(node)) {
-			dataview.select(node);
-		}
-
-		Zarafa.core.data.UIFactory.openDefaultContextMenu(dataview.getSelectedRecords(), { position: eventObj.getXY() });
 	},
 
 	/**

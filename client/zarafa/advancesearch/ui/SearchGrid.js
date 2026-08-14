@@ -379,6 +379,7 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 	 * @param {Zarafa.advancesearch.ui.SearchGrid} grid The grid which was right clicked
 	 * @param {Number} rowIndex The index number of the row which was right clicked
 	 * @param {Ext.EventObject} event The event structure
+	 * @return {Ext.menu.Menu} The context menu which was opened
 	 * @private
 	 */
 	onRowContextMenu: function(grid, rowIndex, event)
@@ -401,7 +402,21 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 
 		var records = sm.getSelections();
 
-		Zarafa.core.data.UIFactory.openDefaultContextMenu(records, { position: event.getXY(), context: this.searchContext, shadowEdit: false });
+		return Zarafa.core.data.UIFactory.openDefaultContextMenu(records, { position: event.getXY(), context: this.searchContext, shadowEdit: false });
+	},
+
+	/**
+	 * Open the context menu for the given row, overridden to open the one of the
+	 * search results, like a right click on a row does.
+	 *
+	 * @param {Number} rowIndex The index of the row to open the context menu for
+	 * @param {Ext.EventObject} event The event which requested the context menu
+	 * @return {Ext.menu.Menu} The context menu which was opened
+	 * @protected
+	 */
+	openContextMenuForRow: function(rowIndex, event)
+	{
+		return this.onRowContextMenu(this, rowIndex, event);
 	},
 
 	/**

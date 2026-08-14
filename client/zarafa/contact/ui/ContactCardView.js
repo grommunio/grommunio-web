@@ -104,24 +104,6 @@ Zarafa.contact.ui.ContactCardView = Ext.extend(Zarafa.common.ui.DraggableDataVie
 	},
 
 	/**
-	 * Event handler which is triggered when user opens context menu
-	 * @param {Zarafa.contact.ContactCardView} dataView data view object
-	 * @param {Number} index index of node
-	 * @param {HTMLElement} node node object
-	 * @param {Ext.EventObject} event event object
-	 * @private
-	 */
-	onNodeContextMenu: function(dataView, index, node, event)
-	{
-		// check row is already selected or not, if its not selected then select it first
-		if (!dataView.isSelected(node)) {
-			dataView.select(node);
-		}
-
-		Zarafa.core.data.UIFactory.openDefaultContextMenu(dataView.getSelectedRecords(), { position: event.getXY() });
-	},
-
-	/**
 	 * Event handler function will be called when any node is double clicked.
 	 * @param {Zarafa.contact.ContactCardView} dataView data view object
 	 * @param {Number} index index of node

@@ -56,6 +56,7 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 		this.on({
 			'afterrender': this.onRenderGrid,
 			'cellcontextmenu': this.onCellContextMenu,
+			'containercontextmenu': this.onContainerContextMenu,
 			scope: this
 		});
 
@@ -125,26 +126,109 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 
 		switch (dataIndex) {
 			case 'importance':
-				Zarafa.core.data.UIFactory.openContextMenu(Zarafa.core.data.SharedComponentType['common.contextmenu.importance'], records, { position: event.getXY() });
-				break;
+				return Zarafa.core.data.UIFactory.openContextMenu(Zarafa.core.data.SharedComponentType['common.contextmenu.importance'], records, { position: event.getXY() });
 			default:
 				// If the click was on a category, we must open the category context menu
 				var targetElement = Ext.get(event.target);
 				if ( targetElement.hasClass('k-category-block') ){
-					Zarafa.core.data.UIFactory.openContextMenu(Zarafa.core.data.SharedComponentType['common.contextmenu.category'], records, {
+					return Zarafa.core.data.UIFactory.openContextMenu(Zarafa.core.data.SharedComponentType['common.contextmenu.category'], records, {
 						category: targetElement.dom.textContent,
 						position: event.getXY()
 					});
-					return;
 				}
 
-				Zarafa.core.data.UIFactory.openDefaultContextMenu(records, {
+				return Zarafa.core.data.UIFactory.openDefaultContextMenu(records, {
 					position: event.getXY(),
 					context: this.context,
 					actsOnTodoListFolder: this.model.getDefaultFolder().isTodoListFolder()
 				});
-				break;
 		}
+	},
+
+	/**
+	 * Event handler which is triggered when a context menu is requested outside of
+	 * any row. The context menu key (and Shift + F10) fire the event on the focused
+	 * element, which in a grid is the hidden focus element of the view, so keyboard
+	 * requests end up here and are handled on the row which has the focus.
+	 *
+	 * @param {Zarafa.common.ui.grid.MapiMessageGrid} grid The grid on which the context menu was requested
+	 * @param {Ext.EventObject} event The event structure
+	 * @private
+	 */
+	onContainerContextMenu: function(grid, event)
+	{
+		if (!Zarafa.core.data.UIFactory.isKeyboardContextMenu(event)) {
+			return;
+		}
+
+		var rowIndex = this.getFocusedRowIndex();
+		if (rowIndex === false) {
+			return;
+		}
+
+		event.stopEvent();
+
+		// The contextmenu handlers read the position for the menu from the event.
+		var menuEvent = new Ext.EventObjectImpl(event);
+		menuEvent.xy = this.getKeyboardContextMenuXY();
+
+		var menu = this.openContextMenuForRow(rowIndex, menuEvent);
+
+		// Pass the focus element as it is, focusing a row would scroll the grid to
+		// the row which was selected last.
+		Zarafa.core.data.UIFactory.initKeyboardMenuNavigation(menu, this.getView().focusEl);
+	},
+
+	/**
+	 * Obtain the index of the row which has the keyboard focus.
+	 *
+	 * @return {Number|Boolean} The index of the row, or false when no row has the focus
+	 * @private
+	 */
+	getFocusedRowIndex: function()
+	{
+		var selectionModel = this.getSelectionModel();
+
+		// lastActive follows the focus, last is the row which was selected last.
+		var rowIndex = selectionModel.lastActive;
+		if (!Ext.isNumber(rowIndex)) {
+			rowIndex = selectionModel.last;
+		}
+
+		if (!Ext.isNumber(rowIndex) || rowIndex < 0 || rowIndex >= this.getStore().getCount()) {
+			return false;
+		}
+
+		return rowIndex;
+	},
+
+	/**
+	 * Obtain the position for a context menu which was requested with the keyboard,
+	 * the focus element of the view sits on the row which has the focus.
+	 *
+	 * @return {Array} The X and Y coordinate for the context menu
+	 * @private
+	 */
+	getKeyboardContextMenuXY: function()
+	{
+		var view = this.getView();
+		var xy = view.focusEl ? view.focusEl.getXY() : this.getEl().getXY();
+
+		return [xy[0] + 8, xy[1] + 16];
+	},
+
+	/**
+	 * Open the context menu for the given row, without a column index as a keyboard
+	 * request is not related to a single column.
+	 *
+	 * @param {Number} rowIndex The index of the row to open the context menu for
+	 * @param {Ext.EventObject} event The event which requested the context menu
+	 * @return {Ext.menu.Menu} The context menu which was opened
+	 * @protected
+	 */
+	openContextMenuForRow: function(rowIndex, event)
+	{
+		return this.onCellContextMenu(this, rowIndex, -1, event);
 	},
 
 	/**
