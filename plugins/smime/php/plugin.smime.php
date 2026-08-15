@@ -453,6 +453,19 @@ class Pluginsmime extends Plugin {
 			$opensslError = $this->extract_openssl_error();
 			$this->validateSignedMessage($signedOk, $opensslError);
 
+			if (!$signedOk && $opensslError === OPENSSL_CA_VERIFY_FAIL) {
+				// Chain could not be built - try to complete it with
+				// intermediates fetched through AIA and verify again.
+				$aiaCerts = fetchMissingIntermediates($cert, $caCerts);
+				if (!empty($aiaCerts)) {
+					$signedOk = $this->retryVerifyWithAia($messageFile, $cert, array_merge($caCerts, $aiaCerts), $caBundle, $outCertFile, true);
+					if ($signedOk) {
+						$opensslError = 0;
+						$caCerts = array_merge($caCerts, $aiaCerts);
+					}
+				}
+			}
+
 			if (!$signedOk || $opensslError === OPENSSL_CA_VERIFY_FAIL) {
 				continue;
 			}
@@ -504,6 +517,27 @@ class Pluginsmime extends Plugin {
 		$opensslError = $this->extract_openssl_error();
 		$this->validateSignedMessage($signedOk, $opensslError);
 
+		$caCerts = null;
+		if (!$signedOk && $opensslError === OPENSSL_CA_VERIFY_FAIL) {
+			// The p7s may contain only the end-entity certificate
+			// (allowed by RFC 8551). Complete the chain with
+			// intermediates fetched through AIA and verify again.
+			$signerFile = $this->createTempFile('smime_signer_');
+			$this->cms->verify($messageFile, PKCS7_NOVERIFY, $signerFile);
+			$signerPem = file_get_contents($signerFile);
+			$this->cleanupTempFiles([$signerFile]);
+
+			$caCerts = $this->extractCAs($messageFile);
+			$aiaCerts = empty($signerPem) ? [] : fetchMissingIntermediates($signerPem, $caCerts);
+			if (!empty($aiaCerts)) {
+				$signedOk = $this->retryVerifyWithAia($messageFile, $signerPem, array_merge($caCerts, $aiaCerts), $caBundle, $outCertFile, false);
+				if ($signedOk) {
+					$opensslError = 0;
+					$caCerts = array_merge($caCerts, $aiaCerts);
+				}
+			}
+		}
+
 		if (!$signedOk || $opensslError === OPENSSL_CA_VERIFY_FAIL) {
 			$this->handleMissingPublicKey();
 
@@ -516,13 +550,58 @@ class Pluginsmime extends Plugin {
 		}
 
 		$parsedImport = openssl_x509_parse($importCert);
-		$caCerts = $this->extractCAs($messageFile);
+		if ($caCerts === null) {
+			$caCerts = $this->extractCAs($messageFile);
+		}
 
 		if ($parsedImport === false || !verifyOCSP($importCert, $caCerts, $this->message)) {
 			return ['status' => 'skip', 'importCert' => null, 'parsedImportCert' => null, 'caCerts' => $caCerts];
 		}
 
 		return ['status' => 'import', 'importCert' => $importCert, 'parsedImportCert' => $parsedImport, 'caCerts' => $caCerts];
+	}
+
+	/**
+	 * Retry message verification after supplementing the chain with
+	 * AIA-fetched intermediates.
+	 *
+	 * OpenSSL only uses the extra-certificates argument of
+	 * PKCS7/CMS_verify for chain building since 3.2. On older versions
+	 * that first attempt still fails, so the chain is then validated
+	 * separately with openssl_x509_checkpurpose() and the signature
+	 * with a NOVERIFY pass. Untrusted certificates can never become
+	 * trust anchors in either variant.
+	 *
+	 * @param string $messageFile path of the message to verify
+	 * @param string $signerPem   end-entity certificate (PEM)
+	 * @param array  $chainCerts  intermediate certificates (PEM)
+	 * @param array  $caBundle    CA store locations
+	 * @param string $outCertFile receives the signer certificate
+	 * @param bool   $nointern    restrict signer lookup to the supplied certificates
+	 *
+	 * @return bool true when both chain and signature verify
+	 */
+	private function retryVerifyWithAia($messageFile, $signerPem, array $chainCerts, array $caBundle, $outCertFile, $nointern) {
+		$chainFile = $this->createTempFile('smime_chain_');
+		file_put_contents($chainFile, $signerPem . "\n" . implode("\n", $chainCerts));
+
+		$flags = $nointern ? PKCS7_NOINTERN : 0;
+		$this->clear_openssl_error();
+		$signedOk = $this->cms->verify($messageFile, $flags, $outCertFile, $caBundle, $chainFile) === true;
+		$opensslError = $this->extract_openssl_error();
+
+		if (!$signedOk && $opensslError === OPENSSL_CA_VERIFY_FAIL &&
+			openssl_x509_checkpurpose($signerPem, X509_PURPOSE_SMIME_SIGN, $caBundle, $chainFile) === true) {
+			// Chain is valid, verify only the signature.
+			$this->clear_openssl_error();
+			$signedOk = $this->cms->verify($messageFile, $flags | PKCS7_NOVERIFY, $outCertFile, [], $chainFile) === true;
+			$opensslError = $this->extract_openssl_error();
+		}
+
+		$this->cleanupTempFiles([$chainFile]);
+		$this->validateSignedMessage($signedOk, $opensslError);
+
+		return $signedOk;
 	}
 
 	/**
@@ -1320,6 +1399,13 @@ class Pluginsmime extends Plugin {
 		if ($this->openssl_error) {
 			$openssl_error_list = explode(":", $this->openssl_error);
 			$openssl_error_code = $openssl_error_list[1];
+			// The numeric code differs between OpenSSL 1.1/3.x and the
+			// PKCS7/CMS backends, the reason text does not. Normalize
+			// chain verification failures to the legacy PKCS7 code
+			// compared throughout the plugin.
+			if (str_contains($this->openssl_error, 'certificate verify error')) {
+				$openssl_error_code = OPENSSL_CA_VERIFY_FAIL;
+			}
 		}
 
 		return $openssl_error_code;
