@@ -1,9 +1,19 @@
 <?php
 
 define('PLUGIN_SMIME_USER_DEFAULT_ENABLE_SMIME', true);
-// CA Certificates used to verify client certificates, for custom CA's copy your CA to /etc/ssl/certs/ and call update-ca-certificates.
-// Multiple CA locations can be defined by separating them with a semicolon
-//
+// CA certificates used to verify S/MIME certificate chains.
+// Multiple CA locations (bundle files or hashed directories) can be defined
+// by separating them with a semicolon.
+// On Debian based systems /etc/ssl/certs contains the full trust store.
+// On SUSE based systems /etc/ssl/certs only contains TLS (server-auth) CAs;
+// the unfiltered store /var/lib/ca-certificates/openssl, which also holds
+// email-only roots, is picked up automatically in addition.
+// On RHEL based systems /etc/ssl/certs is not a hashed directory; the
+// email-purpose bundle /etc/pki/ca-trust/extracted/pem/email-ca-bundle.pem
+// is picked up automatically in addition.
+// To add a custom CA, copy it to /usr/local/share/ca-certificates (Debian),
+// /etc/pki/ca-trust/source/anchors (RHEL) or /etc/pki/trust/anchors (SUSE)
+// and run update-ca-certificates (Debian/SUSE) or update-ca-trust (RHEL).
 define('PLUGIN_SMIME_CACERTS', '/etc/ssl/certs');
 
 // Legacy cipher constant (integer). Retained for backward compatibility.

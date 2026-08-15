@@ -142,6 +142,59 @@ function der2pem($certificate) {
 }
 
 /**
+ * Resolve PLUGIN_SMIME_CACERTS into the list of CA stores handed to OpenSSL.
+ *
+ * On SUSE-based systems /etc/ssl/certs is a purpose-filtered trust store
+ * (server-auth only) which lacks email-only roots such as the HARICA Client
+ * CAs. When the configured store is that filtered directory, the unfiltered
+ * anchor store /var/lib/ca-certificates/openssl is appended so chains ending
+ * in an email-only root can still be verified. On RHEL-based systems
+ * /etc/ssl/certs is not a hashed directory at all; the extracted
+ * email-purpose bundle is appended there. On Debian the configured value is
+ * used as-is.
+ *
+ * @return array list of CA bundle paths
+ */
+function getCaBundle() {
+	$paths = [];
+	foreach (explode(';', PLUGIN_SMIME_CACERTS) as $path) {
+		$path = trim($path);
+		if ($path !== '') {
+			$paths[] = $path;
+		}
+	}
+
+	$suseAnchors = '/var/lib/ca-certificates/openssl';
+	if (is_dir($suseAnchors) && !in_array($suseAnchors, $paths, true)) {
+		$filteredStore = realpath('/var/lib/ca-certificates/pem');
+		foreach ($paths as $path) {
+			if ($path === '/etc/ssl/certs' ||
+				($filteredStore !== false && realpath($path) === $filteredStore)) {
+				$paths[] = $suseAnchors;
+				break;
+			}
+		}
+	}
+
+	// RHEL: /etc/ssl/certs -> /etc/pki/tls/certs contains only bundle
+	// files, not a hashed directory, so OpenSSL directory lookup finds
+	// no anchors there. Use the extracted email-purpose bundle instead.
+	$rhelEmailBundle = '/etc/pki/ca-trust/extracted/pem/email-ca-bundle.pem';
+	if (is_file($rhelEmailBundle) && !in_array($rhelEmailBundle, $paths, true)) {
+		$tlsCerts = realpath('/etc/pki/tls/certs');
+		foreach ($paths as $path) {
+			if ($path === '/etc/ssl/certs' ||
+				($tlsCerts !== false && realpath($path) === $tlsCerts)) {
+				$paths[] = $rhelEmailBundle;
+				break;
+			}
+		}
+	}
+
+	return $paths;
+}
+
+/**
  * Function which does an OCSP/CRL check on the certificate to find out if it has been
  * revoked.
  *

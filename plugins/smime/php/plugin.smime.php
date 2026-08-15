@@ -431,7 +431,7 @@ class Pluginsmime extends Plugin {
 			return ['status' => 'retry', 'importCert' => null, 'parsedImportCert' => null, 'caCerts' => null];
 		}
 
-		$caBundle = explode(';', PLUGIN_SMIME_CACERTS);
+		$caBundle = getCaBundle();
 		$caCerts = $this->extractCAs($messageFile);
 
 		// Collect intermediate certificates so OpenSSL can build the full
@@ -498,7 +498,7 @@ class Pluginsmime extends Plugin {
 	 * @return array verification result metadata
 	 */
 	private function verifyUsingMessageCertificate($messageFile, $outCertFile) {
-		$caBundle = explode(';', PLUGIN_SMIME_CACERTS);
+		$caBundle = getCaBundle();
 		$this->clear_openssl_error();
 		$signedOk = $this->cms->verify($messageFile, 0, $outCertFile, $caBundle);
 		$opensslError = $this->extract_openssl_error();
