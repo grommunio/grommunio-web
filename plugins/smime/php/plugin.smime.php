@@ -35,6 +35,10 @@ define('SMIME_WEAK_RSA', 16);
 define('SMIME_KEY_USAGE_MISMATCH', 17);
 define('SMIME_EFAIL_CBC_WARNING', 18);
 define('SMIME_SIGNING_TIME_SKEW', 19);
+// Chain could not be verified against the configured CA store
+// (missing/untrusted root or intermediate). Distinct from SMIME_CA,
+// which is reserved for an unreachable OCSP/CRL verification service.
+define('SMIME_CA_UNTRUSTED', 20);
 
 // OpenSSL Error Constants
 // openssl_error_string() returns error codes when an operation fails, since we return custom error strings
@@ -618,12 +622,16 @@ class Pluginsmime extends Plugin {
 	}
 
 	/**
-	 * Record diagnostics when a message cannot be verified due to missing keys.
+	 * Record diagnostics when a message cannot be verified. The info code
+	 * set by validateSignedMessage() is kept so the frontend can
+	 * distinguish an untrusted chain from other verification failures.
 	 */
 	private function handleMissingPublicKey() {
-		Log::write(LOGLEVEL_INFO, sprintf("[smime] Unable to verify message without public key, openssl error: '%s'", $this->openssl_error));
+		Log::write(LOGLEVEL_INFO, sprintf("[smime] Unable to verify message, openssl error: '%s'", $this->openssl_error));
 		$this->message['success'] = SMIME_STATUS_FAIL;
-		$this->message['info'] = SMIME_CA;
+		if (!isset($this->message['info'])) {
+			$this->message['info'] = SMIME_CA_UNTRUSTED;
+		}
 	}
 
 	/**
@@ -890,7 +898,7 @@ class Pluginsmime extends Plugin {
 		}
 		$this->message['success'] = SMIME_STATUS_FAIL;
 		if ($openssl_errors === OPENSSL_CA_VERIFY_FAIL) {
-			$this->message['info'] = SMIME_CA;
+			$this->message['info'] = SMIME_CA_UNTRUSTED;
 		}
 		else { // Catch general errors
 			$this->message['info'] = SMIME_ERROR;
