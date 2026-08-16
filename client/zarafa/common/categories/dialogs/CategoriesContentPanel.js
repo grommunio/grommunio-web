@@ -124,6 +124,10 @@ Zarafa.common.categories.dialogs.CategoriesContentPanel = Ext.extend(Zarafa.core
 		}, this);
 
 		if (this.autoSave) {
+			// Record the category change in the undo history. This must be
+			// done explicitly since ShadowStore saves are not announced
+			// through the IPMStoreMgr.
+			container.getUndoManager().capturePropertyGesture(this.record);
 			this.record[0].getStore().save(this.record);
 		}
 

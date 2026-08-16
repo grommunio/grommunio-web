@@ -94,8 +94,15 @@ Zarafa.common.flags.dialogs.CustomFlagContentPanel = Ext.extend(Zarafa.core.ui.C
 				record.set(property, flagProperties[property]);
 			}
 			record.endEdit();
-			record.save();
 		}, this);
+
+		if (!Ext.isEmpty(this.record)) {
+			// Record the flag change in the undo history. This must be done
+			// explicitly since ShadowStore saves are not announced through
+			// the IPMStoreMgr.
+			container.getUndoManager().capturePropertyGesture(this.record);
+			this.record[0].getStore().save(this.record);
+		}
 		this.close();
 	},
 
