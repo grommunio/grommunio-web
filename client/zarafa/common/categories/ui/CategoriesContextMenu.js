@@ -74,7 +74,12 @@ Zarafa.common.categories.ui.CategoriesContextMenu = Ext.extend(Ext.menu.Menu, {
 	 */
 	createCategoryItems: function()
 	{
-		var categoriesStore = new Zarafa.common.categories.data.CategoriesStore();
+		// build the submenu from the records' own mailbox list
+		var storeEntryId = !Ext.isEmpty(this.records) && Ext.isFunction(this.records[0].get) ?
+			this.records[0].get('store_entryid') : undefined;
+		var categoriesStore = new Zarafa.common.categories.data.CategoriesStore(
+			storeEntryId ? { storeEntryId: storeEntryId } : undefined
+		);
 		// Add categories that are set on the record(s) but don't exist in the categoryStore
 		categoriesStore.addCategoriesFromMapiRecords(this.records);
 
@@ -161,7 +166,12 @@ Zarafa.common.categories.ui.CategoriesContextMenu = Ext.extend(Ext.menu.Menu, {
 			// Remove this category from all records
 			Zarafa.common.categories.Util.removeCategory(this.records, item.plainText, true);
 		} else {
-			var categories = container.getPersistentSettingsModel().get('grommunio/main/categories');
+			// the records' mailbox list when loaded, else the per-user list
+			var storeEntryId = !Ext.isEmpty(this.records) && Ext.isFunction(this.records[0].get) ?
+				this.records[0].get('store_entryid') : undefined;
+			var categories = (storeEntryId && Zarafa.common.categories.CategoryListManager ?
+				Zarafa.common.categories.CategoryListManager.getCategoriesData(storeEntryId) : null) ||
+				container.getPersistentSettingsModel().get('grommunio/main/categories');
 			var category = categories.find(function (category) {
 				if(!Ext.isEmpty(category.standardIndex) && (category.name === item.plainText)){
 					return category;
@@ -173,7 +183,11 @@ Zarafa.common.categories.ui.CategoriesContextMenu = Ext.extend(Ext.menu.Menu, {
 					categoryName: category.name,
 					records: this.records,
 					color: item.color,
-					recordStore: this.store
+					recordStore: this.store,
+					// the panel must edit the same list the check read
+					store: new Zarafa.common.categories.data.CategoriesStore(
+						storeEntryId ? { storeEntryId: storeEntryId } : undefined
+					)
 				});
 			} else {
 				// Add this category to all records that don't have it yet'

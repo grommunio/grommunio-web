@@ -97,9 +97,10 @@ Zarafa.common.ui.messagepanel.CategoryLinks = Ext.extend(Ext.Container, {
 				this.el.dom.innerHTML = '';
 				return;
 			}
-			// Render the categories
+			// Render the categories, resolving colours against the record's own
+			// mailbox category list.
 			var categories = Zarafa.common.categories.Util.getCategories(record);
-			var html = Zarafa.common.categories.Util.getCategoriesHtml(categories);
+			var html = Zarafa.common.categories.Util.getCategoriesHtml(categories, record.get('store_entryid'));
 			this.el.dom.innerHTML = html;
 		}
 	}
