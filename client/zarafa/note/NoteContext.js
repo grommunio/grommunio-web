@@ -65,6 +65,9 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 		// The control will be shown when the user selects the note context from the button panel.
 		this.registerInsertionPoint('navigation.center', this.createNoteNavigationPanel, this);
 
+		// Show the notes which annotate a mail inside the mail preview.
+		this.registerInsertionPoint('previewpanel.toolbar.detaillinks', this.getLinkedNoteDetailLinks, this);
+
 		Zarafa.core.data.SharedComponentType.addProperty('note.dialog.options');
 	},
 
@@ -288,6 +291,19 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 				Zarafa.note.Actions.openCreateNoteContent(this.getModel());
 			},
 			scope: this
+		};
+	},
+
+	/**
+	 * Returns the panel which shows the notes annotating the previewed mail, for the
+	 * 'previewpanel.toolbar.detaillinks' insertion point.
+	 *
+	 * @return {Object} configuration object for {@link Zarafa.note.ui.LinkedNoteLinks}
+	 */
+	getLinkedNoteDetailLinks: function()
+	{
+		return {
+			xtype: 'zarafa.linkednotelinks'
 		};
 	},
 

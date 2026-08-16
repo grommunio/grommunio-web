@@ -33,7 +33,8 @@ Zarafa.mail.MailRecordFields = [
 	{name: 'depth', type: 'int', defaultValue: 0},
 	{name: 'conversation_count', type: 'int', defaultValue: 0},
 	{name: 'conversation_id'},
-	{name: 'folder_name'}
+	{name: 'folder_name'},
+	{name: 'internet_message_id'}
 ];
 
 Zarafa.mail.MailRecordPhantomHandler = function(record) {
