@@ -121,8 +121,21 @@ class EncryptionStore {
 			'domain' => $domain,
 			'secure' => $secure,
 			'httponly' => true,
-			'samesite' => 'None',
+			// SameSite=None without Secure is rejected by browsers
+			'samesite' => $secure ? 'None' : 'Lax',
 		]);
+		if (!$secure) {
+			// expire a stale prefixed cookie from an earlier secure config,
+			// it would otherwise shadow the one written above
+			setcookie('__Secure-encryption-store-key', '', [
+				'expires' => 1,
+				'path' => $path,
+				'domain' => $domain,
+				'secure' => true,
+				'httponly' => true,
+				'samesite' => 'None',
+			]);
+		}
 	}
 
 	/**
@@ -133,8 +146,16 @@ class EncryptionStore {
 	 */
 	private function getEncryptionKey() {
 		if (empty(EncryptionStore::$_encryptionKey)) {
-			// Try to find the encryption key in the cookie
-			if (isset($_COOKIE['encryption-store-key'])) {
+			// Try to find the encryption key in the cookie. The read mirrors
+			// createEncryptionKey(): with secure cookies the name carries the
+			// __Secure- prefix. The unprefixed fallback covers sessions from
+			// before the prefixed name was read; the prefixed name is ignored
+			// with SECURE_COOKIES=false, where it can only be a stale cookie
+			// the server is unable to overwrite.
+			if (useSecureCookies() && isset($_COOKIE['__Secure-encryption-store-key'])) {
+				EncryptionStore::$_encryptionKey = hex2bin((string) $_COOKIE['__Secure-encryption-store-key']);
+			}
+			elseif (isset($_COOKIE['encryption-store-key'])) {
 				EncryptionStore::$_encryptionKey = hex2bin((string) $_COOKIE['encryption-store-key']);
 			}
 		}
