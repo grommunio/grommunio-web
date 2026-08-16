@@ -142,6 +142,343 @@ function der2pem($certificate) {
 }
 
 /**
+ * Resolve PLUGIN_SMIME_CACERTS into the list of CA stores handed to OpenSSL.
+ *
+ * On SUSE-based systems /etc/ssl/certs is a purpose-filtered trust store
+ * (server-auth only) which lacks email-only roots such as the HARICA Client
+ * CAs. When the configured store is that filtered directory, the unfiltered
+ * anchor store /var/lib/ca-certificates/openssl is appended so chains ending
+ * in an email-only root can still be verified. On RHEL-based systems
+ * /etc/ssl/certs is not a hashed directory at all; the extracted
+ * email-purpose bundle is appended there. On Debian the configured value is
+ * used as-is.
+ *
+ * @return array list of CA bundle paths
+ */
+function getCaBundle() {
+	$paths = [];
+	foreach (explode(';', PLUGIN_SMIME_CACERTS) as $path) {
+		$path = trim($path);
+		if ($path !== '') {
+			$paths[] = $path;
+		}
+	}
+
+	$suseAnchors = '/var/lib/ca-certificates/openssl';
+	if (is_dir($suseAnchors) && !in_array($suseAnchors, $paths, true)) {
+		$filteredStore = realpath('/var/lib/ca-certificates/pem');
+		foreach ($paths as $path) {
+			if ($path === '/etc/ssl/certs' ||
+				($filteredStore !== false && realpath($path) === $filteredStore)) {
+				$paths[] = $suseAnchors;
+				break;
+			}
+		}
+	}
+
+	// RHEL: /etc/ssl/certs -> /etc/pki/tls/certs contains only bundle
+	// files, not a hashed directory, so OpenSSL directory lookup finds
+	// no anchors there. Use the extracted email-purpose bundle instead.
+	$rhelEmailBundle = '/etc/pki/ca-trust/extracted/pem/email-ca-bundle.pem';
+	if (is_file($rhelEmailBundle) && !in_array($rhelEmailBundle, $paths, true)) {
+		$tlsCerts = realpath('/etc/pki/tls/certs');
+		foreach ($paths as $path) {
+			if ($path === '/etc/ssl/certs' ||
+				($tlsCerts !== false && realpath($path) === $tlsCerts)) {
+				$paths[] = $rhelEmailBundle;
+				break;
+			}
+		}
+	}
+
+	return $paths;
+}
+
+/**
+ * Build a DN string in /key=value notation from a parsed certificate field.
+ *
+ * @param array  $parsed openssl_x509_parse() result
+ * @param string $field  'subject' or 'issuer'
+ *
+ * @return string
+ */
+function certDnString($parsed, $field) {
+	$dn = '';
+	foreach ($parsed[$field] ?? [] as $key => $value) {
+		foreach ((array) $value as $entry) {
+			$dn .= "/{$key}={$entry}";
+		}
+	}
+
+	return $dn;
+}
+
+/**
+ * Extract all PEM certificate blocks from a string.
+ *
+ * @param string $data
+ *
+ * @return array list of PEM certificates
+ */
+function extractPemCerts($data) {
+	if (preg_match_all('/-----BEGIN CERTIFICATE-----.+?-----END CERTIFICATE-----/s', (string) $data, $matches)) {
+		return $matches[0];
+	}
+
+	return [];
+}
+
+/**
+ * Decode an AIA "CA Issuers" response into PEM certificates.
+ * Endpoints serve either a single certificate (PEM or DER) or a
+ * PKCS#7 certs-only bundle (.p7c).
+ *
+ * @param string $data raw response body
+ *
+ * @return array list of PEM certificates
+ */
+function decodeCaIssuerResponse($data) {
+	if (strpos($data, '-----BEGIN CERTIFICATE-----') !== false) {
+		return extractPemCerts($data);
+	}
+
+	$pem = der2pem($data);
+	if (@openssl_x509_parse($pem) !== false) {
+		return [$pem];
+	}
+
+	if (strpos($data, '-----BEGIN PKCS7-----') !== false) {
+		$p7b = $data;
+	}
+	else {
+		$p7b = "-----BEGIN PKCS7-----\n" . chunk_split(base64_encode($data), 64, "\n") . "-----END PKCS7-----\n";
+	}
+	$certs = [];
+	if (@openssl_pkcs7_read($p7b, $certs)) {
+		return $certs;
+	}
+
+	return [];
+}
+
+/**
+ * Resolve the host of an AIA URL and require it to point at public
+ * addresses only (SSRF hardening, the URL comes from an unauthenticated
+ * message). The resolved addresses are returned as a CURLOPT_RESOLVE pin
+ * so curl connects to exactly the checked addresses (no DNS rebinding).
+ *
+ * @param string $url
+ *
+ * @return null|array CURLOPT_RESOLVE entries, empty array for public IP
+ *                    literals, null when no public address remains
+ */
+function aiaResolvePin($url) {
+	$parts = parse_url($url);
+	if ($parts === false || empty($parts['host'])) {
+		return null;
+	}
+	$host = $parts['host'];
+	$port = $parts['port'] ?? (strtolower($parts['scheme'] ?? 'http') === 'https' ? 443 : 80);
+
+	$isPublic = function ($ip) {
+		return filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) !== false;
+	};
+
+	$literal = trim($host, '[]');
+	if (filter_var($literal, FILTER_VALIDATE_IP) !== false) {
+		return $isPublic($literal) ? [] : null;
+	}
+
+	$ips = [];
+	foreach (@dns_get_record($host, DNS_A | DNS_AAAA) ?: [] as $rr) {
+		$ip = $rr['ip'] ?? $rr['ipv6'] ?? '';
+		if ($ip !== '' && $isPublic($ip)) {
+			$ips[] = $ip;
+		}
+	}
+	if (empty($ips)) {
+		return null;
+	}
+
+	return ["{$host}:{$port}:" . implode(',', $ips)];
+}
+
+/**
+ * Download certificates from an AIA "CA Issuers" URL (RFC 5280 4.2.2.1).
+ *
+ * Responses are cached in TMP_PATH/smime, successful downloads for 30 days
+ * and failures for one hour to avoid hammering unreachable endpoints.
+ * Downloads are capped at 1 MiB, redirects are not followed and private,
+ * loopback and link-local destinations are rejected unless
+ * PLUGIN_SMIME_AIA_ALLOW_PRIVATE is enabled (internal PKI).
+ *
+ * @param string $url CA Issuers URI
+ *
+ * @return array list of PEM certificates, empty on failure
+ */
+function fetchCaIssuerCerts($url) {
+	if (!function_exists('curl_init') || !preg_match('#^https?://#i', $url)) {
+		return [];
+	}
+	// URLs originate from certificate extensions of unauthenticated mail,
+	// keep control characters out of the logs.
+	$logUrl = preg_replace('/[^\x20-\x7e]/', '?', $url);
+
+	$cacheDir = (defined('TMP_PATH') ? TMP_PATH : sys_get_temp_dir()) . '/smime';
+	$cacheFile = $cacheDir . '/aia-' . hash('sha256', $url) . '.pem';
+	if (is_file($cacheFile)) {
+		$age = time() - (int) filemtime($cacheFile);
+		$cached = file_get_contents($cacheFile);
+		if ($cached !== false && $cached !== '' && $age < 30 * 86400) {
+			return extractPemCerts($cached);
+		}
+		if ($cached === '' && $age < 3600) {
+			return [];
+		}
+	}
+	if (!is_dir($cacheDir)) {
+		@mkdir($cacheDir, 0770, true);
+	}
+
+	$allowPrivate = defined('PLUGIN_SMIME_AIA_ALLOW_PRIVATE') && PLUGIN_SMIME_AIA_ALLOW_PRIVATE;
+	$pin = [];
+	if (!$allowPrivate) {
+		$pin = aiaResolvePin($url);
+		if ($pin === null) {
+			error_log(sprintf("[smime] CA issuer URL '%s' does not resolve to a public address, refusing to fetch", $logUrl));
+			@file_put_contents($cacheFile, '');
+
+			return [];
+		}
+	}
+
+	$body = '';
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_FAILONERROR, true);
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+	curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+	curl_setopt($ch, CURLOPT_PROTOCOLS, CURLPROTO_HTTP | CURLPROTO_HTTPS);
+	curl_setopt($ch, CURLOPT_MAXFILESIZE, 1048576);
+	// Hard cap independent of Content-Length (CURLOPT_MAXFILESIZE only
+	// bounds transfers in progress since curl 8.4.0).
+	curl_setopt($ch, CURLOPT_WRITEFUNCTION, function ($ch, $chunk) use (&$body) {
+		$body .= $chunk;
+
+		return strlen($body) > 1048576 ? -1 : strlen($chunk);
+	});
+	if (!empty($pin)) {
+		curl_setopt($ch, CURLOPT_RESOLVE, $pin);
+	}
+
+	// HTTP Proxy settings
+	if (defined('PLUGIN_SMIME_PROXY') && PLUGIN_SMIME_PROXY != '') {
+		curl_setopt($ch, CURLOPT_PROXY, PLUGIN_SMIME_PROXY);
+	}
+	if (defined('PLUGIN_SMIME_PROXY_PORT') && PLUGIN_SMIME_PROXY_PORT != '') {
+		curl_setopt($ch, CURLOPT_PROXYPORT, PLUGIN_SMIME_PROXY_PORT);
+	}
+	if (defined('PLUGIN_SMIME_PROXY_USERPWD') && PLUGIN_SMIME_PROXY_USERPWD != '') {
+		curl_setopt($ch, CURLOPT_PROXYUSERPWD, PLUGIN_SMIME_PROXY_USERPWD);
+	}
+
+	curl_exec($ch);
+	$httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+	$curlError = curl_error($ch);
+	curl_close($ch);
+
+	$certs = [];
+	if ($curlError || $httpStatus !== 200 || $body === '') {
+		error_log(sprintf("[smime] Unable to fetch CA issuer certificate from '%s': '%s', http status: %s", $logUrl, $curlError, $httpStatus));
+	}
+	else {
+		$certs = decodeCaIssuerResponse($body);
+		if (empty($certs)) {
+			error_log(sprintf("[smime] CA issuer URL '%s' did not return a usable certificate", $logUrl));
+		}
+	}
+
+	@file_put_contents($cacheFile, implode("\n", $certs));
+
+	return $certs;
+}
+
+/**
+ * Complete a signer's certificate chain by downloading missing intermediates
+ * through the AIA "CA Issuers" extension. Many senders embed only the
+ * end-entity certificate in the p7s (allowed by RFC 8551), in which case
+ * OpenSSL cannot build the chain from the message alone.
+ *
+ * Walks up from the end-entity certificate; issuers already present in
+ * $knownCerts are used as-is, missing ones are fetched. Stops at self-signed
+ * certificates and after six levels.
+ *
+ * @param string $signerPem  end-entity certificate in PEM format
+ * @param array  $knownCerts intermediate certificates already available (PEM)
+ *
+ * @return array downloaded certificates (PEM) that belong to the chain
+ */
+function fetchMissingIntermediates($signerPem, $knownCerts) {
+	$fetched = [];
+	$pool = [];
+	foreach ($knownCerts as $pem) {
+		$pool[] = ['pem' => $pem, 'downloaded' => false];
+	}
+
+	$findIssuer = function ($issuerDn) use (&$pool) {
+		foreach ($pool as $i => $entry) {
+			$parsed = @openssl_x509_parse($entry['pem']);
+			if ($parsed !== false && certDnString($parsed, 'subject') === $issuerDn) {
+				unset($pool[$i]);
+
+				return $entry;
+			}
+		}
+
+		return null;
+	};
+
+	$currentPem = $signerPem;
+	for ($depth = 0; $depth < 6; ++$depth) {
+		$parsed = @openssl_x509_parse($currentPem);
+		if ($parsed === false) {
+			break;
+		}
+		$issuerDn = certDnString($parsed, 'issuer');
+		if ($issuerDn === '' || certDnString($parsed, 'subject') === $issuerDn) {
+			// Self-signed - chain is complete.
+			break;
+		}
+
+		$next = $findIssuer($issuerDn);
+		if ($next === null) {
+			$aia = $parsed['extensions']['authorityInfoAccess'] ?? '';
+			if (!preg_match('/CA Issuers - URI:(.*)/', $aia, $matches)) {
+				break;
+			}
+			foreach (fetchCaIssuerCerts(trim($matches[1])) as $pem) {
+				$pool[] = ['pem' => $pem, 'downloaded' => true];
+			}
+			$next = $findIssuer($issuerDn);
+			if ($next === null) {
+				break;
+			}
+		}
+
+		if ($next['downloaded']) {
+			if (openssl_x509_verify($currentPem, $next['pem']) !== 1) {
+				// Served certificate does not actually sign the child.
+				break;
+			}
+			$fetched[] = $next['pem'];
+		}
+		$currentPem = $next['pem'];
+	}
+
+	return $fetched;
+}
+
+/**
  * Function which does an OCSP/CRL check on the certificate to find out if it has been
  * revoked.
  *

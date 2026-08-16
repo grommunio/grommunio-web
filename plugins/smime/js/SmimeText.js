@@ -83,6 +83,9 @@ Zarafa.plugins.smime.SmimeText = function () {
 			// Signing time skew
 			case 19:
 				return Zarafa.plugins.smime.SmimeText.createMessage(_('The signing time in the digital signature differs significantly from the expected time. This may indicate a clock synchronization issue or message tampering.'));
+			// Certificate chain could not be verified against the CA store
+			case 20:
+				return Zarafa.plugins.smime.SmimeText.createMessage(_('The certificate chain of the sender\'s certificate could not be verified: the certificate authority that issued it is not in the server\'s trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority.'));
 			default:
 				return '';
 			}
@@ -137,6 +140,8 @@ Zarafa.plugins.smime.SmimeText = function () {
 				return _('Decrypted (CBC mode - consider AES-GCM for stronger protection)');
 			case 19:
 				return _('Signing time differs from expected time');
+			case 20:
+				return _('Could not verify signature, certificate authority is not trusted');
 			default:
 				return '';
 			}
