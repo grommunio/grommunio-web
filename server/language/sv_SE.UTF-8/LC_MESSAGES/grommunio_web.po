@@ -6839,7 +6839,7 @@ msgid "encryption"
 msgstr "kryptering"
 
 msgid "signing & encryption"
-msgstr "signering &amp; kryptering"
+msgstr "signering & kryptering"
 
 msgid "Sign message"
 msgstr "Signera meddelande"
