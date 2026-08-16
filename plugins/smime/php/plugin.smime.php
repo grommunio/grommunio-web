@@ -675,6 +675,38 @@ class Pluginsmime extends Plugin {
 		return str_contains($derData, $authEnvOid);
 	}
 
+	/**
+	 * Properties of the encrypted message which have to survive the decrypted
+	 * content being parsed over it.
+	 *
+	 * mapi_inetmapi_imtomapi() rebuilds the message from the decrypted MIME and
+	 * replaces the envelope while doing so. The inner MIME of a signed and
+	 * encrypted message usually carries no sender of its own, so what remains
+	 * is a placeholder address: the message then shows an invalid sender, and
+	 * a reply has no recipient because the reply-to falls back to it.
+	 *
+	 * @return array the property tags to carry over
+	 */
+	private function preservedEnvelopeProps() {
+		return [
+			PR_MESSAGE_DELIVERY_TIME,
+			PR_TRANSPORT_MESSAGE_HEADERS,
+			PR_SENDER_ENTRYID,
+			PR_SENDER_NAME,
+			PR_SENDER_EMAIL_ADDRESS,
+			PR_SENDER_ADDRTYPE,
+			PR_SENDER_SEARCH_KEY,
+			PR_SENDER_SMTP_ADDRESS,
+			PR_SENT_REPRESENTING_ENTRYID,
+			PR_SENT_REPRESENTING_NAME,
+			PR_SENT_REPRESENTING_EMAIL_ADDRESS,
+			PR_SENT_REPRESENTING_ADDRTYPE,
+			PR_SENT_REPRESENTING_SEARCH_KEY,
+			PR_SENT_REPRESENTING_SMTP_ADDRESS,
+			PR_REPLY_RECIPIENT_ENTRIES,
+		];
+	}
+
 	public function join_xph(&$prop, $msg) {
 		$a = mapi_getprops($msg, [PR_TRANSPORT_MESSAGE_HEADERS]);
 		$a = $a === false ? "" : ($a[PR_TRANSPORT_MESSAGE_HEADERS] ?? "");
@@ -729,7 +761,7 @@ class Pluginsmime extends Plugin {
 
 		if ($isOpaqueSigned === true && !empty($opaqueContent)) {
 			$this->message['type'] = 'signed';
-			$copyProps = mapi_getprops($data['message'], [PR_MESSAGE_DELIVERY_TIME, PR_SENDER_ENTRYID, PR_SENT_REPRESENTING_ENTRYID, PR_TRANSPORT_MESSAGE_HEADERS]);
+			$copyProps = mapi_getprops($data['message'], $this->preservedEnvelopeProps());
 			mapi_inetmapi_imtomapi(
 				$GLOBALS['mapisession']->getSession(),
 				$data['store'],
@@ -794,7 +826,7 @@ class Pluginsmime extends Plugin {
 				$this->cleanupTempFiles([$olmsg, $olcert]);
 			}
 
-			$copyProps = mapi_getprops($data['message'], [PR_MESSAGE_DELIVERY_TIME, PR_SENDER_ENTRYID, PR_SENT_REPRESENTING_ENTRYID, PR_TRANSPORT_MESSAGE_HEADERS]);
+			$copyProps = mapi_getprops($data['message'], $this->preservedEnvelopeProps());
 			mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $data['store'], $GLOBALS['mapisession']->getAddressbook(), $data['message'], $content, ['parse_smime_signed' => true]);
 			$this->join_xph($copyProps, $data['message']);
 			// Manually set time back to the received time, since mapi_inetmapi_imtomapi overwrites this
@@ -838,7 +870,7 @@ class Pluginsmime extends Plugin {
 			$eml = file_get_contents($tmpFile);
 			$this->cleanupTempFiles([$tmpFile, $msg]);
 			if ($ret === true && !empty($content)) {
-				$copyProps = mapi_getprops($data['message'], [PR_MESSAGE_DELIVERY_TIME, PR_SENDER_ENTRYID, PR_SENT_REPRESENTING_ENTRYID, PR_TRANSPORT_MESSAGE_HEADERS]);
+				$copyProps = mapi_getprops($data['message'], $this->preservedEnvelopeProps());
 				mapi_inetmapi_imtomapi(
 					$GLOBALS['mapisession']->getSession(),
 					$data['store'],
