@@ -8162,3 +8162,10 @@ msgstr "在编码/解码JSON数据时遇到一些问题： - %s"
 
 msgid "Legal Information"
 msgstr "法律信息"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "还有 {0} 条提示"
+
+msgid "Show less"
+msgstr "收起"

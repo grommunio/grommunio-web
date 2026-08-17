@@ -15,3 +15,11 @@ msgstr ""
 
 msgid "Legal Information"
 msgstr "Teisinė informacija"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "Dar {0} pranešimas"
+msgstr[1] "Dar {0} pranešimai"
+
+msgid "Show less"
+msgstr "Rodyti mažiau"

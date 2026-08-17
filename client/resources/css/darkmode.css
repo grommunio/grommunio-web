@@ -1163,8 +1163,14 @@ body.dark-mode .zarafa-calendar-container-header .icon_recurrence {
 	filter: none !important;
 }
 
+/* Open-URL anchor next to the location field */
+body.dark-mode .k-appointmentcreatetab .k-location-panel a.k-location-open {
+	filter: invert(0.88);
+}
+
 /* Calendar extra info */
-body.dark-mode .k-appointmentcreatetab .zarafa-calendar-appointment-extrainfo div {
+body.dark-mode .k-appointmentcreatetab .zarafa-calendar-appointment-extrainfo div,
+body.dark-mode .k-appointmentcreatetab .zarafa-calendar-appointment-extrainfo .k-extrainfo-toggle {
 	background: color-mix(in srgb, var(--theme-primary-color) 25%, #1e1e1e) !important;
 	color: var(--dm-fg);
 }
@@ -1176,8 +1182,9 @@ body.dark-mode .k-appointmentcreatetab .zarafa-calendar-appointment-extrainfo di
 body.dark-mode .k-appointmentcreatetab .k-field-to,
 body.dark-mode .k-taskgeneraltab .k-field-to,
 body.dark-mode .k-appointmentcreatetab .k-subject-panel,
-body.dark-mode .k-appointmentcreatetab .k-createin-panel,
 body.dark-mode .k-appointmentcreatetab .k-location-panel,
+body.dark-mode .k-appointmentcreatetab .k-organizer-panel,
+body.dark-mode .k-appointmentcreatetab .k-appointment-options-panel,
 body.dark-mode .k-taskgeneraltab .k-subject-panel,
 body.dark-mode .k-taskgeneraltab .k-createin-panel,
 body.dark-mode .k-taskgeneraltab .k-location-panel,
@@ -1188,7 +1195,6 @@ body.dark-mode .k-taskgeneraltab .k-body-panel textarea {
 	border-color: var(--dm-border) !important;
 }
 
-body.dark-mode .k-appointmentcreatetab .k-busystatus-panel,
 body.dark-mode .k-appointmentcreatetab .k-label-panel,
 body.dark-mode .k-appointmentcreatetab .k-status-panel,
 body.dark-mode .k-appointmentcreatetab .k-priority-complete-panel {

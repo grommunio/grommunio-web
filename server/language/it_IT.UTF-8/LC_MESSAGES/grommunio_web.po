@@ -8162,3 +8162,11 @@ msgstr "Si è verificato un problema durante la codifica/decodifica dei dati JSO
 
 msgid "Legal Information"
 msgstr "Informazioni legali"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "{0} altro avviso"
+msgstr[1] "{0} altri avvisi"
+
+msgid "Show less"
+msgstr "Mostra meno"

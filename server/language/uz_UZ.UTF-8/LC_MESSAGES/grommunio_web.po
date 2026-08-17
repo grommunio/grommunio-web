@@ -15,3 +15,11 @@ msgstr ""
 
 msgid "Legal Information"
 msgstr "Huquqiy axborot"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "Yana {0} ta bildirishnoma"
+msgstr[1] "Yana {0} ta bildirishnoma"
+
+msgid "Show less"
+msgstr "Kamroq ko'rsatish"

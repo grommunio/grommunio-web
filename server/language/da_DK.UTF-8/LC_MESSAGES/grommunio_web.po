@@ -8211,3 +8211,11 @@ msgstr "Der opstod et problem under kodning/afkodning af JSON-data: - %s"
 
 msgid "Legal Information"
 msgstr "Juridiske oplysninger"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "{0} notifikation mere"
+msgstr[1] "{0} notifikationer mere"
+
+msgid "Show less"
+msgstr "Vis mindre"

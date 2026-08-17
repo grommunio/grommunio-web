@@ -8227,3 +8227,15 @@ msgstr "تمت مواجهة بعض المشكلات عند تشفير/فك تش�
 
 msgid "Legal Information"
 msgstr "المعلومات القانونية"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "{0} تنبيهات إضافية"
+msgstr[1] "{0} تنبيه إضافي"
+msgstr[2] "تنبيهان إضافيان ({0})"
+msgstr[3] "{0} تنبيهات إضافية"
+msgstr[4] "{0} تنبيهًا إضافيًا"
+msgstr[5] "{0} تنبيه إضافي"
+
+msgid "Show less"
+msgstr "إظهار أقل"

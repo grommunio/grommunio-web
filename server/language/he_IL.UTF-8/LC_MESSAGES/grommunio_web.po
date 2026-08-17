@@ -8148,3 +8148,11 @@ msgstr "בעיה מסוימת שנתקלה בעת קידוד/פענוח נתונ
 
 msgid "Legal Information"
 msgstr "מידע משפטי"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "{0} הודעה נוספת"
+msgstr[1] "{0} הודעות נוספות"
+
+msgid "Show less"
+msgstr "הראה פחות"

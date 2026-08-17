@@ -15,3 +15,11 @@ msgstr ""
 
 msgid "Legal Information"
 msgstr "Maelezo ya kisheria"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "arifa {0} zaidi"
+msgstr[1] "arifa {0} zaidi"
+
+msgid "Show less"
+msgstr "Onyesha kidogo"

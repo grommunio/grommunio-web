@@ -2481,6 +2481,35 @@ span.preview-header-sender-image {
   .k-taskgeneraltab .zarafa-calendar-appointment-extrainfo div {
     padding: 6px;
     background: #d5e8f7; }
+
+/* Collapsible notices: with more than one notice only the first line is shown
+   (single line, ellipsized) next to the expand/collapse toggle. */
+.zarafa-calendar-appointment-extrainfo.k-extrainfo-collapsed {
+  display: flex; }
+.zarafa-calendar-appointment-extrainfo.k-extrainfo-collapsed > div {
+  flex: 1 1 auto;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+.zarafa-calendar-appointment-extrainfo.k-extrainfo-collapsed > div ~ div {
+  display: none; }
+.zarafa-calendar-appointment-extrainfo .k-extrainfo-toggle {
+  flex: 0 0 auto;
+  display: block;
+  padding: 6px;
+  background: #d5e8f7;
+  color: inherit;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  text-decoration: none; }
+.zarafa-calendar-appointment-extrainfo .k-extrainfo-toggle:hover,
+.zarafa-calendar-appointment-extrainfo .k-extrainfo-toggle:focus {
+  text-decoration: underline; }
+/* Expanded: the toggle becomes a right-aligned line below the notices. */
+.zarafa-calendar-appointment-extrainfo:not(.k-extrainfo-collapsed) .k-extrainfo-toggle {
+  text-align: right; }
 .k-appointmentcreatetab .k-field-to,
 .k-taskgeneraltab .k-field-to {
   padding: 6px;
@@ -2496,16 +2525,16 @@ span.preview-header-sender-image {
     line-height: 28px;
     text-align: left; }
 .k-appointmentcreatetab .k-subject-panel,
-.k-appointmentcreatetab .k-createin-panel,
 .k-appointmentcreatetab .k-location-panel,
+.k-appointmentcreatetab .k-organizer-panel,
 .k-taskgeneraltab .k-subject-panel,
 .k-taskgeneraltab .k-createin-panel,
 .k-taskgeneraltab .k-location-panel {
   padding: 6px;
   border-bottom: 1px solid #e6e6e6; }
   .k-appointmentcreatetab .k-subject-panel label,
-  .k-appointmentcreatetab .k-createin-panel label,
   .k-appointmentcreatetab .k-location-panel label,
+  .k-appointmentcreatetab .k-organizer-panel label,
   .k-taskgeneraltab .k-subject-panel label,
   .k-taskgeneraltab .k-createin-panel label,
   .k-taskgeneraltab .k-location-panel label {
@@ -2514,6 +2543,12 @@ span.preview-header-sender-image {
     line-height: 20px;
     padding-top: 2px;
     width: 72px !important; }
+  /* Display fields (Organizer, Recurrence) have no input chrome; pad them to
+     the same baseline and line-height as the labels next to them. */
+  .k-appointmentcreatetab .k-organizer-panel .x-form-display-field,
+  .k-appointmentcreatetab .k-recurrence-panel .x-form-display-field {
+    padding-top: 6px;
+    line-height: 20px; }
   .k-taskgeneraltab .k-subject-panel label.x-form-item-label {
     padding-left: 6px; }
 .k-taskgeneraltab .k-datetime-panel table {
@@ -2540,12 +2575,51 @@ span.preview-header-sender-image {
     line-height: 20px;
     padding-top: 2px;
     width: 110px !important; }
-.k-appointmentcreatetab .k-busystatus-panel,
 .k-appointmentcreatetab .k-label-panel,
 .k-appointmentcreatetab .k-status-panel,
 .k-appointmentcreatetab .k-priority-complete-panel {
   padding: 6px;
   border-bottom: 1px solid #e6e6e6; }
+
+/* Open-URL anchor next to the location field, shown when the location
+   contains an http(s) URL */
+.k-appointmentcreatetab .k-location-panel a.k-location-open {
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxNicgaGVpZ2h0PScxNicgdmlld0JveD0nMCAwIDI0IDI0JyBmaWxsPSdub25lJyBzdHJva2U9JyMwMDAnIHN0cm9rZS13aWR0aD0nMicgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJz48cGF0aCBkPSdNMTggMTN2NmEyIDIgMCAwIDEtMiAySDVhMiAyIDAgMCAxLTItMlY4YTIgMiAwIDAgMSAyLTJoNicvPjxwb2x5bGluZSBwb2ludHM9JzE1IDMgMjEgMyAyMSA5Jy8+PGxpbmUgeDE9JzEwJyB5MT0nMTQnIHgyPScyMScgeTI9JzMnLz48L3N2Zz4=);
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.65; }
+.k-appointmentcreatetab .k-location-panel a.k-location-open:hover,
+.k-appointmentcreatetab .k-location-panel a.k-location-open:focus {
+  opacity: 1; }
+
+/* Single-row "Show as | Reminder | Create in" options panel */
+.k-appointmentcreatetab .k-appointment-options-panel {
+  padding: 6px;
+  border-bottom: 1px solid #e6e6e6; }
+  .k-appointmentcreatetab .k-appointment-options-panel td {
+    vertical-align: middle; }
+  /* No left padding: the label text starts at the same x as the form labels
+     of the rows above (their left padding is 0 too). */
+  .k-appointmentcreatetab .k-appointment-options-panel label.k-options-label {
+    display: inline-block;
+    text-align: left;
+    padding: 0 6px 0 0;
+    line-height: 24px;
+    white-space: nowrap; }
+  /* Size the first label like the form rows above it (labelWidth 85 + Ext's
+     default labelPad 5) so the first combo lines up with the inputs above
+     (min-width: longer translations may grow it). */
+  .k-appointmentcreatetab .k-appointment-options-panel label.k-options-label-first {
+    box-sizing: border-box;
+    min-width: 90px; }
+  .k-appointmentcreatetab .k-appointment-options-panel label.k-options-label-gap {
+    margin-left: 18px; }
+  .k-appointmentcreatetab .k-appointment-options-panel .x-form-check-wrap {
+    line-height: 20px;
+    padding-top: 2px; }
 .k-taskgeneraltab .k-busystatus-panel,
 .k-taskgeneraltab .k-label-panel,
 .k-taskgeneraltab .k-status-panel,
@@ -2555,10 +2629,8 @@ span.preview-header-sender-image {
 .k-taskgeneraltab .k-status-panel,
 .k-taskgeneraltab .k-priority-complete-panel {
   padding-left: 12px; }
-  .k-appointmentcreatetab .k-busystatus-panel label,
   .k-appointmentcreatetab .k-label-panel label,
   .k-appointmentcreatetab .k-status-panel label,
-  .k-appointmentcreatetab .k-reminder-panel label,
   .k-taskgeneraltab .k-busystatus-panel label,
   .k-taskgeneraltab .k-label-panel label,
   .k-taskgeneraltab .k-status-panel label {
@@ -2567,12 +2639,10 @@ span.preview-header-sender-image {
     line-height: 20px;
     padding-top: 2px;
     width: 72px !important; }
-.k-appointmentcreatetab .k-reminder-panel,
 .k-appointmentcreatetab .k-taskrequestsettings,
 .k-taskgeneraltab .k-reminder-panel,
 .k-taskgeneraltab .k-taskrequestsettings {
   padding: 6px; }
-  .k-appointmentcreatetab .k-reminder-panel .x-form-check-wrap,
   .k-appointmentcreatetab .k-taskrequestsettings .x-form-check-wrap,
   .k-taskgeneraltab .k-reminder-panel .x-form-check-wrap,
   .k-taskgeneraltab .k-taskrequestsettings .x-form-check-wrap {
@@ -6269,6 +6339,7 @@ div.zarafa-contact-cardview-selected,
 .preview-header-extrainfobox,
 .preview-header-extrainfobox-item,
 .k-appointmentcreatetab .zarafa-calendar-appointment-extrainfo div,
+.k-appointmentcreatetab .zarafa-calendar-appointment-extrainfo .k-extrainfo-toggle,
 .k-taskgeneraltab .zarafa-calendar-appointment-extrainfo div,
 .zarafa-mailcreatepanel > .x-panel-bwrap > .x-panel-body .zarafa-mailcreatepanel-extrainfo div {
   background: var(--theme-selection-bg) !important;
@@ -7131,6 +7202,15 @@ input[type="radio"]:focus-visible {
 #zarafa-mainpanel > .x-tab-panel-bwrap,
 #zarafa-mainpanel > .x-tab-panel-bwrap > .x-tab-panel-body {
   overflow: hidden;
+}
+
+/* The appointment form has a fixed minimum width (date/time and options
+   rows). When the dialog is narrower than that, allow horizontal scrolling
+   there instead of cutting the fields off. Other dialogs — and the other
+   tabs of the same dialog, whose inactive cards stay in the DOM with
+   x-hide-display — keep overflow-x hidden (see above). */
+.x-tab-panel-body:has(> .k-appointmentcreatetab:not(.x-hide-display)) {
+  overflow-x: auto;
 }
 
 .x-tree-root-node {

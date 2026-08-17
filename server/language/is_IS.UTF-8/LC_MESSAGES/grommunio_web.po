@@ -8134,3 +8134,11 @@ msgstr "Eitthvað vandamál kom upp við kóðun/afkóðun JSON gagna: -%s"
 
 msgid "Legal Information"
 msgstr "Lagalegar upplýsingar"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "{0} tilkynning í viðbót"
+msgstr[1] "{0} tilkynningar í viðbót"
+
+msgid "Show less"
+msgstr "Sýna minna"

@@ -15,3 +15,11 @@ msgstr ""
 
 msgid "Legal Information"
 msgstr "ព័ត៌មាន​ផ្លូវ​ច្បាប"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "សេចក្តីជូនដំណឹង {0} ទៀត"
+msgstr[1] "សេចក្តីជូនដំណឹង {0} ទៀត"
+
+msgid "Show less"
+msgstr "បង្ហាញតិចជាងនេះ"

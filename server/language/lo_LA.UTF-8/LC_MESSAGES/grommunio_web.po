@@ -15,3 +15,11 @@ msgstr ""
 
 msgid "Legal Information"
 msgstr "ຂໍ້ມູນທາງກົດໝາຍ"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "ແຈ້ງການອີກ {0} ລາຍການ"
+msgstr[1] "ແຈ້ງການອີກ {0} ລາຍການ"
+
+msgid "Show less"
+msgstr "ສະແດງໜ້ອຍລົງ"

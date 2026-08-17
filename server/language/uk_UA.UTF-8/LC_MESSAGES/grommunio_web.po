@@ -8159,3 +8159,12 @@ msgstr "Виникла проблема при кодуванні/декодув
 
 msgid "Legal Information"
 msgstr "Правова інформація"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "Ще {0} сповіщення"
+msgstr[1] "Ще {0} сповіщення"
+msgstr[2] "Ще {0} сповіщень"
+
+msgid "Show less"
+msgstr "Показати менше"

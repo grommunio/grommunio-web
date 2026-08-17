@@ -8183,3 +8183,11 @@ msgstr "Problème rencontré lors de l'encodage/décodage des données JSON: - %
 
 msgid "Legal Information"
 msgstr "Informations légales"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "{0} autre avis"
+msgstr[1] "{0} autres avis"
+
+msgid "Show less"
+msgstr "Afficher moins"

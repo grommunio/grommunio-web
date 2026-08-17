@@ -15,3 +15,11 @@ msgstr ""
 
 msgid "Legal Information"
 msgstr "Pravne informacije"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "Još {0} obavijest"
+msgstr[1] "Još {0} obavijesti"
+
+msgid "Show less"
+msgstr "Prikaži manje"

@@ -8231,3 +8231,11 @@ msgstr "A JSON-adatok kódolásakor/dekódolásakor valamilyen probléma merült
 
 msgid "Legal Information"
 msgstr "Jogi információk"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "még {0} értesítés"
+msgstr[1] "még {0} értesítés"
+
+msgid "Show less"
+msgstr "Kevesebb megjelenítése"

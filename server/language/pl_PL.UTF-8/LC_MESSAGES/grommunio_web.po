@@ -8206,3 +8206,12 @@ msgstr "Napotkano problem podczas kodowania/dekodowania danych JSON: - %s"
 
 msgid "Legal Information"
 msgstr "Informacje prawne"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "jeszcze {0} powiadomienie"
+msgstr[1] "jeszcze {0} powiadomienia"
+msgstr[2] "jeszcze {0} powiadomień"
+
+msgid "Show less"
+msgstr "Pokaż mniej"

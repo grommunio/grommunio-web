@@ -15,3 +15,11 @@ msgstr ""
 
 msgid "Legal Information"
 msgstr "Lege-informazioa"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "beste {0} abisu"
+msgstr[1] "beste {0} abisu"
+
+msgid "Show less"
+msgstr "Erakutsi gutxiago"
