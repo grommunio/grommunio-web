@@ -123,6 +123,17 @@ body.login #form-container,
   }
 }
 
+/* The loading card needs no script: it is centred by the stylesheet and
+   visible with the first paint, so the gradient never shows on its own */
+#loading-mask #form-container {
+  visibility: visible !important;
+  position: absolute;
+  left: 50%;
+  top: 43.75%;
+  transform: translate(-50%, -50%);
+  animation: none;
+}
+
 /* The loading mask fades away over the loaded client */
 #loading-mask {
   transition: opacity 0.3s ease;
@@ -243,9 +254,22 @@ body.login>#form-container input::placeholder {
   color: var(--login-muted);
 }
 
-body.login>#form-container input:-webkit-autofill {
+/* Browsers paint autofilled fields in their own colours; an inset shadow covers
+   that and the text colour is forced, also while the field is focused */
+body.login>#form-container input:-webkit-autofill,
+body.login>#form-container input:-webkit-autofill:hover {
   -webkit-box-shadow: 0 0 0px 1000px var(--login-input) inset;
+  box-shadow: 0 0 0px 1000px var(--login-input) inset;
   -webkit-text-fill-color: var(--login-text);
+  caret-color: var(--login-text);
+}
+
+body.login>#form-container input:autofill,
+body.login>#form-container input:autofill:hover {
+  box-shadow: 0 0 0px 1000px var(--login-input) inset;
+  -webkit-text-fill-color: var(--login-text);
+  color: var(--login-text);
+  caret-color: var(--login-text);
 }
 
 body.login>#form-container input:hover {
@@ -257,6 +281,15 @@ body.login>#form-container input:focus {
   background: var(--login-card);
   border-color: var(--theme-gradient-start);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--theme-gradient-start) 18%, transparent);
+}
+
+body.login>#form-container input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px var(--login-card) inset, 0 0 0 3px color-mix(in srgb, var(--theme-gradient-start) 18%, transparent);
+  box-shadow: 0 0 0px 1000px var(--login-card) inset, 0 0 0 3px color-mix(in srgb, var(--theme-gradient-start) 18%, transparent);
+}
+
+body.login>#form-container input:autofill:focus {
+  box-shadow: 0 0 0px 1000px var(--login-card) inset, 0 0 0 3px color-mix(in srgb, var(--theme-gradient-start) 18%, transparent);
 }
 
 body.login>#form-container #password {

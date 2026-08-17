@@ -87,23 +87,29 @@ Zarafa.note.dialogs.NoteEditToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 			scope: this
 		}, {
 			xtype: 'combo',
-			width: 75,
+			width: 130,
 			fieldLabel: _('Color'),
 			overflowText: _('Color'),
 			ref: 'colorCombo',
 			cls: 'tb-notes-combo-color',
 			store: {
 				xtype: 'arraystore',
-				fields: ['icon_index', 'name'],
-				data: [ [768, _("Blue")],[769, _("Green")],[770, _("Pink")],[771, _("Yellow")],[772, _("White")]]
+				fields: ['icon_index', 'name', 'color'],
+				data: [ [768, _("Blue"), 'blue'],[769, _("Green"), 'green'],[770, _("Pink"), 'pink'],[771, _("Yellow"), 'yellow'],[772, _("White"), 'white']]
 			},
 			displayField: 'name',
 			valueField: 'icon_index',
 			mode: 'local',
 			editable: false,
 			triggerAction: 'all',
+			tpl: new Ext.XTemplate(
+				'<tpl for="."><div class="x-combo-list-item">',
+					'<span class="k-note-dot k-note-dot-{color}"></span>{name:htmlEncode}',
+				'</div></tpl>'
+			),
 			listeners: {
 				select: this.onComboSelect,
+				afterrender: this.onColorComboRender,
 				scope: this
 			},
 			plugins: [ 'zarafa.fieldlabeler' ]
@@ -141,8 +147,34 @@ Zarafa.note.dialogs.NoteEditToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * @param {Number} selected index of combo box
 	 * @private
 	 */
+	/**
+	 * Adds the swatch showing the selected colour in front of the field.
+	 * @param {Ext.form.ComboBox} combo The colour combo
+	 * @private
+	 */
+	onColorComboRender: function(combo)
+	{
+		this.colorDot = combo.wrap.createChild({ tag: 'span', cls: 'k-note-dot k-theme-combo-dot' });
+		combo.wrap.addClass('k-theme-combo-known');
+		this.updateColorDot();
+	},
+
+	/**
+	 * @private
+	 */
+	updateColorDot: function()
+	{
+		if (!this.colorDot || !this.colorCombo) {
+			return;
+		}
+		var index = this.colorCombo.store.find('icon_index', this.colorCombo.getValue());
+		var color = index !== -1 ? this.colorCombo.store.getAt(index).get('color') : 'yellow';
+		this.colorDot.dom.className = 'k-note-dot k-theme-combo-dot k-note-dot-' + color;
+	},
+
 	onComboSelect: function(form, record, selectedIndex)
 	{
+		this.updateColorDot();
 		// set new icon index value for record
 		this.record.set('icon_index', record.get('icon_index'));
 
@@ -193,6 +225,7 @@ Zarafa.note.dialogs.NoteEditToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 
 		// set combobox selected value as record's color
 		this.colorCombo.setValue(record.get('icon_index'));
+		this.updateColorDot();
 
 		this.doLayout();
 	},

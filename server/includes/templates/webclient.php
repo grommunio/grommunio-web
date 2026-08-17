@@ -114,7 +114,7 @@ elseif ($darkMode === 'system') {
 ?>">
 		<a class="skip-link" href="#zarafa-mainpanel"><?php echo _("Skip to main content"); ?></a>
 		<div id="loading-mask" role="status" aria-label="<?php echo _("Loading"); ?>">
-			<div id="form-container" class="loading" style="visibility: hidden;">
+			<div id="form-container" class="loading">
 				<div id="bg"></div>
 				<div id="content">
 					<div class="left">

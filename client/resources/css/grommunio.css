@@ -1080,17 +1080,26 @@ body.Safari input[type="radio"] {
 .x-form-text.x-form-focus:not(.x-trigger-noedit),
 .x-form-field-wrap.x-trigger-wrap-focus:not(.x-freebusy-userlist-container) {
   border-color: var(--theme-primary-color) !important;
-  box-shadow: 0 0 0 3px var(--ui-focus-ring);
   position: relative;
   z-index: 99 }
 
-.x-form-field-wrap.x-trigger-wrap-focus:not(.x-freebusy-userlist-container) input.x-form-text.x-form-field.x-form-focus {
+.x-form-text.x-form-focus:not(.x-trigger-noedit) {
+  box-shadow: 0 0 0 3px var(--ui-focus-ring); }
+
+/* Trigger fields: Ext sizes the wrapper wider than input plus trigger, so the
+   ring is drawn on both parts and clipped where they meet, which also keeps it
+   on the rounded corners of the field */
+.x-form-field-wrap.x-trigger-wrap-focus:not(.x-freebusy-userlist-container) input.x-form-text.x-form-field.x-form-focus,
+.x-form-field-wrap.x-trigger-wrap-focus:not(.x-freebusy-userlist-container) input.x-form-text.x-form-field {
   border-color: var(--theme-primary-color) !important;
-  box-shadow: none; }
+  box-shadow: 0 0 0 3px var(--ui-focus-ring);
+  clip-path: inset(-4px 0 -4px -4px); }
 
 .x-form-field-wrap.x-trigger-wrap-focus:not(.x-freebusy-userlist-container) .x-form-trigger,
 .x-form-field-wrap.x-trigger-wrap-focus:not(.x-freebusy-userlist-container) .x-form-spinner-trigger {
-  border-color: var(--theme-primary-color) !important; }
+  border-color: var(--theme-primary-color) !important;
+  box-shadow: 0 0 0 3px var(--ui-focus-ring);
+  clip-path: inset(-4px -4px -4px 0); }
 
 .x-form-text:not(.x-zarafa-boxfield):not(.x-zarafa-boxfield-input),
 .ext-strict .x-form-text:not(.x-zarafa-boxfield):not(.x-zarafa-boxfield-input),
@@ -1341,7 +1350,10 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
       .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner .zarafa-x-grid3-hd-title p {
         position: relative;
         display: inline-block;
-        min-width: 20px; }
+        min-width: 20px;
+        height: 20px;
+        background-size: 18px 18px !important;
+        background-position: center center !important; }
         .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner .zarafa-x-grid3-hd-title p .title {
           position: absolute;
           width: 1px;
@@ -1364,29 +1376,27 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   .x-grid3-hd-row td.zarafa-icon-column:hover .x-grid3-hd-inner {
     background: transparent !important;
     border-color: transparent !important; }
-  /* Icon columns: sort indicator - show below the icon */
-  .x-grid3-hd-row td.zarafa-icon-column.sort-asc p,
-  .x-grid3-hd-row td.zarafa-icon-column.sort-desc p {
-    display: none; }
+  /* Icon columns: the sorted column keeps its icon, gets an accent line and a small arrow below */
   .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner {
     overflow: visible !important; }
   .x-grid3-hd-row td.zarafa-icon-column.sort-asc .x-grid3-sort-icon,
   .x-grid3-hd-row td.zarafa-icon-column.sort-desc .x-grid3-sort-icon {
     margin: 0;
-    width: 9px;
-    height: 9px;
+    width: 7px;
+    height: 7px;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     top: auto;
-    bottom: 0; }
-  /* Icon columns: sorted state - no border, no background change, extra bottom padding for sort icon */
+    bottom: -9px; }
   .x-grid3-hd-row td.zarafa-icon-column.sort-asc .x-grid3-hd-inner,
   .x-grid3-hd-row td.zarafa-icon-column.sort-desc .x-grid3-hd-inner {
     background: transparent !important;
     border: none !important;
-    padding-bottom: 12px;
-    position: relative; }
+    box-shadow: inset 0 -2px 0 var(--theme-primary-color);
+    position: relative;
+    /* lifted a little so the arrow below keeps its distance from the row line */
+    transform: translateY(-4px); }
 
 /****************************************************************************
  * Icons in the 'Show columns' menu
@@ -1394,9 +1404,12 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 .x-menu .x-menu-check-item {
   /* check/uncheck images are 14 px wide */
   padding-left: 23px; }
+  /* every entry reserves the same slot for the column icon, so the labels line up */
   .x-menu .x-menu-check-item .x-menu-item-text p {
-    padding-left: 20px;
-    background-position: 2px center !important; }
+    padding-left: 26px;
+    min-height: 20px;
+    background-size: 18px 18px !important;
+    background-position: 0 center !important; }
 
 /******************************************************************************
  * Empty text
@@ -1596,6 +1609,28 @@ body.k-density-compact {
 .x-form-field-wrap.k-theme-combo-known input.x-form-text {
   padding-left: 28px; }
 
+/* Note colour swatches in the colour selector; toolbar inputs force their padding */
+.x-toolbar .x-form-field-wrap.k-theme-combo-known input.x-form-text {
+  padding-left: 28px !important; }
+.k-note-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 8px;
+  border-radius: 50%;
+  vertical-align: -1px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.18); }
+.k-note-dot-yellow {
+  background: #FF9; }
+.k-note-dot-blue {
+  background: #DEF1FF; }
+.k-note-dot-green {
+  background: #CBF0BB; }
+.k-note-dot-pink {
+  background: #FFDBFB; }
+.k-note-dot-white {
+  background: #FFF; }
+
 .x-grid3-row-over {
   background: var(--ui-surface-2);
   border-color: var(--ui-border);
@@ -1611,6 +1646,11 @@ body.k-density-compact {
 .x-grid3-row:not(.x-grid3-row-over) .x-grid3-col.icon_flag,
 .x-grid3-row.k-conversation-header .x-grid3-col.icon_flag {
   background-image: none !important; }
+
+/* Icon columns of the lists: 18px glyphs centred in the cell */
+.x-grid3-row td.x-grid3-cell[class*="icon_"] {
+  background-size: 18px 18px !important;
+  background-position: center center !important; }
 
 /* Mail grid */
 #mail-grid .x-grid3-row,
@@ -6645,6 +6685,10 @@ body.theme-highcontrast #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct #main
 /*********************************************************************
  * Side panels
  *********************************************************************/
+/* The navigation slides in over the content when it is collapsed */
+#zarafa-navigationpanel.x-panel-floating {
+  box-shadow: var(--ui-shadow-3); }
+
 #zarafa-navigationpanel .x-panel-header,
 .zarafa-widgetpanel .x-panel-header {
   background-color: var(--ui-surface);

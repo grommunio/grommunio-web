@@ -36,7 +36,7 @@ Zarafa.common.flags.dialogs.CustomFlagContentPanel = Ext.extend(Zarafa.core.ui.C
 			layout: 'fit',
 			title: _('Set custom flag'),
 			width: 350,
-			height: 160,
+			height: 220,
 			items: [{
 				xtype: 'zarafa.customflagpanel',
 				ref:'customFlagPanel',

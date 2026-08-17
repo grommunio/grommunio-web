@@ -274,6 +274,12 @@ body.dark-mode #zarafa-navigationpanel > div {
 	background-color: transparent !important;
 }
 
+/* The header must stay opaque: the panel floats over the tabs when it slides in */
+body.dark-mode #zarafa-navigationpanel > .x-panel-header {
+	background-color: var(--dm-bg-paper) !important;
+	border-bottom-color: var(--dm-border) !important;
+}
+
 body.dark-mode #zarafa-navigationpanel,
 body.dark-mode #zarafa-navigationpanel .zarafa-hierarchy-treepanel,
 body.dark-mode #zarafa-navigationpanel .x-panel,
