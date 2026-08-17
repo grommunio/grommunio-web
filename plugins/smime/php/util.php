@@ -586,8 +586,11 @@ function validateUploadedPKCS($certificate, $passphrase, $emailAddress) {
 		$validFrom = $publickeyData['validFrom_time_t'];
 		$validTo = $publickeyData['validTo_time_t'];
 
-		// Check priv key for signing capabilities
-		if (!openssl_x509_checkpurpose($privatekey, X509_PURPOSE_SMIME_SIGN)) {
+		// Validate local key usage without imposing system trust-chain policy at
+		// import time. A private key is not valid input for certificate purpose checks.
+		$purpose = getCertPurpose($publickey);
+		if (!openssl_x509_check_private_key($publickey, $privatekey) ||
+			!in_array($purpose, ['sign', 'both'], true)) {
 			$message = _('Private key can\'t be used to sign email');
 		}
 		// Check if the certificate owner matches the grommunio Web users email address
