@@ -8298,3 +8298,11 @@ msgstr "Παρουσιάστηκε κάποιο πρόβλημα κατά την
 
 msgid "Legal Information"
 msgstr "Νομικές πληροφορίες"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "{0} ακόμη ειδοποίηση"
+msgstr[1] "{0} ακόμη ειδοποιήσεις"
+
+msgid "Show less"
+msgstr "Εμφάνιση λιγότερων"

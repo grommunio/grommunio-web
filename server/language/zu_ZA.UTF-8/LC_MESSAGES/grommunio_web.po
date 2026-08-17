@@ -15,3 +15,11 @@ msgstr ""
 
 msgid "Legal Information"
 msgstr "Uwazi olusemthethweni"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "{0} isaziso esengeziwe"
+msgstr[1] "{0} izaziso ezengeziwe"
+
+msgid "Show less"
+msgstr "Bonisa okuncane"

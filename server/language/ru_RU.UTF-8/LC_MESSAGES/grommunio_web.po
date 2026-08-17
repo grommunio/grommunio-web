@@ -8219,3 +8219,12 @@ msgstr "При кодировании/декодировании данных JS
 
 msgid "Legal Information"
 msgstr "Юридическая информация"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "еще {0} уведомление"
+msgstr[1] "еще {0} уведомления"
+msgstr[2] "еще {0} уведомлений"
+
+msgid "Show less"
+msgstr "Показать меньше"

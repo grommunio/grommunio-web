@@ -8131,3 +8131,10 @@ msgstr "編碼/解碼 JSON 資料時遇到一些問題： -%s"
 
 msgid "Legal Information"
 msgstr "法律資訊"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "還有 {0} 則提示"
+
+msgid "Show less"
+msgstr "收合"

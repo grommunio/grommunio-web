@@ -8141,3 +8141,11 @@ msgstr "Er is een probleem opgetreden bij het coderen/decoderen van JSON-gegeven
 
 msgid "Legal Information"
 msgstr "Juridische informatie"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "Nog {0} melding"
+msgstr[1] "Nog {0} meldingen"
+
+msgid "Show less"
+msgstr "Toon minder"

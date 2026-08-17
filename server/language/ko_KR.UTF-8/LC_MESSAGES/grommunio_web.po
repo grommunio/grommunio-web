@@ -8112,3 +8112,10 @@ msgstr "JSON 데이터를 인코딩/디코딩할 때 발생하는 몇 가지 문
 
 msgid "Legal Information"
 msgstr "법률 정보"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "안내 {0}개 더 보기"
+
+msgid "Show less"
+msgstr "간략히 보기"

@@ -8136,3 +8136,11 @@ msgstr "Något problem uppstod vid kodning/avkodning av JSON-data: - %s"
 
 msgid "Legal Information"
 msgstr "Juridisk information"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "{0} avisering till"
+msgstr[1] "{0} aviseringar till"
+
+msgid "Show less"
+msgstr "Visa mindre"

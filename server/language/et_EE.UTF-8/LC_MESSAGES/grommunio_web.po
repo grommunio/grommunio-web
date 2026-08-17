@@ -8136,3 +8136,11 @@ msgstr "JSON-andmete kodeerimisel/dekodeerimisel on tekkinud mingi probleem: - %
 
 msgid "Legal Information"
 msgstr "Juriidiline teave"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "veel {0} teade"
+msgstr[1] "veel {0} teadet"
+
+msgid "Show less"
+msgstr "Näita vähem"

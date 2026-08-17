@@ -8231,3 +8231,11 @@ msgstr "JSON-tietojen koodauksessa/dekoodauksessa ilmeni ongelmia: - %s"
 
 msgid "Legal Information"
 msgstr "Oikeudelliset tiedot"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "{0} ilmoitus lisää"
+msgstr[1] "{0} ilmoitusta lisää"
+
+msgid "Show less"
+msgstr "Näytä vähemmän"

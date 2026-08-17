@@ -8271,3 +8271,13 @@ msgstr "Pri kodiranju/dekodiranju podatkov JSON je prišlo do težave: - %s"
 
 msgid "Legal Information"
 msgstr "Pravne informacije"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "še {0} obvestilo"
+msgstr[1] "še {0} obvestili"
+msgstr[2] "še {0} obvestila"
+msgstr[3] "še {0} obvestil"
+
+msgid "Show less"
+msgstr "Pokaži manj"

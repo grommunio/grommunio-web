@@ -8133,3 +8133,10 @@ msgstr "مشکلی که هنگام رمزگذاری/رمزگشایی داده‌
 
 msgid "Legal Information"
 msgstr "اطلاعات حقوقی"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "{0} اطلاعیه دیگر"
+
+msgid "Show less"
+msgstr "نمایش کمتر"

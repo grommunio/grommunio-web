@@ -8243,3 +8243,12 @@ msgstr "Při kódování/dekódování dat JSON se vyskytl nějaký problém: - 
 
 msgid "Legal Information"
 msgstr "Právní informace"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "{0} další upozornění"
+msgstr[1] "{0} další upozornění"
+msgstr[2] "{0} dalších upozornění"
+
+msgid "Show less"
+msgstr "Zobrazit méně"

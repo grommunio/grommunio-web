@@ -8188,3 +8188,10 @@ msgstr "JSONデータのエンコード/デコード時に問題が発生しま�
 
 msgid "Legal Information"
 msgstr "法的情報"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "他 {0} 件の通知"
+
+msgid "Show less"
+msgstr "表示を減らす"

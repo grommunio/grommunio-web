@@ -8156,3 +8156,11 @@ msgstr "Encontrámos um problema ao codificar/decodificar dados JSON: - %s"
 
 msgid "Legal Information"
 msgstr "Informações legais"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "mais {0} aviso"
+msgstr[1] "mais {0} avisos"
+
+msgid "Show less"
+msgstr "Mostrar menos"

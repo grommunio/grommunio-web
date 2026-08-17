@@ -15,3 +15,11 @@ msgstr ""
 
 msgid "Legal Information"
 msgstr "Правна информация"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "Още {0} известие"
+msgstr[1] "Още {0} известия"
+
+msgid "Show less"
+msgstr "Покажи по-малко"

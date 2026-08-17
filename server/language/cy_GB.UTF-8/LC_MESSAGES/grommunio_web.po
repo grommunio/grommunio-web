@@ -15,3 +15,11 @@ msgstr ""
 
 msgid "Legal Information"
 msgstr "Gwybodaeth gyfreithiol"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "{0} hysbysiad arall"
+msgstr[1] "{0} hysbysiad arall"
+
+msgid "Show less"
+msgstr "Dangos llai"

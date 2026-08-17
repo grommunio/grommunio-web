@@ -8136,3 +8136,11 @@ msgstr "JSON verileri kodlanırken/kod çözülürken bazı sorunlarla karşıla
 
 msgid "Legal Information"
 msgstr "Yasal bilgiler"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "{0} bildirim daha"
+msgstr[1] "{0} bildirim daha"
+
+msgid "Show less"
+msgstr "Daha az göster"
