@@ -23,3 +23,84 @@ msgstr[1] "Yana {0} ta bildirishnoma"
 
 msgid "Show less"
 msgstr "Kamroq ko'rsatish"
+
+msgid "Undo and redo"
+msgstr "Bekor qilish va qayta bajarish"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Xabar amallarini bekor qilish va qayta bajarishni yoqish"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Xabarlarni oʻchirish, koʻchirish yoki bayroqcha bilan belgilash kabi amallarni bekor qilish (Ctrl+Z) va qayta bajarish (Ctrl+Y). Bu amallarni qayd etish ozgina qoʻshimcha yuk tugʻdiradi, shu sababli bu funksiya standart holatda oʻchirib qoʻyilgan."
+
+msgid "Undo"
+msgstr "Bekor qilish"
+
+msgid "Redo"
+msgstr "Qayta bajarish"
+
+msgid "Undo: {0}"
+msgstr "Bekor qilish: {0}"
+
+msgid "Redo: {0}"
+msgstr "Qayta bajarish: {0}"
+
+msgid "Nothing to undo"
+msgstr "Bekor qilinadigan amal yoʻq"
+
+msgid "Undo the last action"
+msgstr "Oxirgi amalni bekor qilish"
+
+msgid "Redo the last undone action"
+msgstr "Oxirgi bekor qilingan amalni qayta bajarish"
+
+msgid "Undo failed"
+msgstr "Bekor qilish amalga oshmadi"
+
+msgid "Redo failed"
+msgstr "Qayta bajarish amalga oshmadi"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} amalini bekor qilib boʻlmadi. Element bu orada koʻchirilgan, oʻzgartirilgan yoki oʻchirilgan boʻlishi mumkin."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} amalini qayta bajarib boʻlmadi. Element bu orada koʻchirilgan, oʻzgartirilgan yoki oʻchirilgan boʻlishi mumkin."
+
+msgid "Delete {0}"
+msgstr "{0}ni oʻchirish"
+
+msgid "Delete {0} items"
+msgstr "{0} ta elementni oʻchirish"
+
+msgid "Move {0} to {1}"
+msgstr "{0}ni {1}ga koʻchirish"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} ta elementni {1}ga koʻchirish"
+
+msgid "Copy {0} to {1}"
+msgstr "{0}ni {1}ga nusxalash"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} ta elementni {1}ga nusxalash"
+
+msgid "Create {0}"
+msgstr "{0}ni yaratish"
+
+msgid "Change flag"
+msgstr "Bayroqchani oʻzgartirish"
+
+msgid "Change categories"
+msgstr "Kategoriyalarni oʻzgartirish"
+
+msgid "Change appointment time"
+msgstr "Uchrashuv vaqtini oʻzgartirish"
+
+msgid "another folder"
+msgstr "boshqa jild"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} ta element"

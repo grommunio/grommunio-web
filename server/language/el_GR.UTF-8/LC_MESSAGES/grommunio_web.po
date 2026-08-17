@@ -8306,3 +8306,84 @@ msgstr[1] "{0} ακόμη ειδοποιήσεις"
 
 msgid "Show less"
 msgstr "Εμφάνιση λιγότερων"
+
+msgid "Undo and redo"
+msgstr "Αναίρεση και επανάληψη"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Ενεργοποίηση αναίρεσης και επανάληψης ενεργειών μηνυμάτων"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Αναίρεση (Ctrl+Z) και επανάληψη (Ctrl+Y) ενεργειών όπως η διαγραφή, η μετακίνηση ή η επισήμανση μηνυμάτων με σημαία. Η καταγραφή αυτών των ενεργειών προσθέτει μια μικρή επιβάρυνση, γι' αυτό η λειτουργία είναι απενεργοποιημένη από προεπιλογή."
+
+msgid "Undo"
+msgstr "Αναίρεση"
+
+msgid "Redo"
+msgstr "Επανάληψη"
+
+msgid "Undo: {0}"
+msgstr "Αναίρεση: {0}"
+
+msgid "Redo: {0}"
+msgstr "Επανάληψη: {0}"
+
+msgid "Nothing to undo"
+msgstr "Δεν υπάρχει τίποτα για αναίρεση"
+
+msgid "Undo the last action"
+msgstr "Αναίρεση της τελευταίας ενέργειας"
+
+msgid "Redo the last undone action"
+msgstr "Επανάληψη της τελευταίας ενέργειας που αναιρέθηκε"
+
+msgid "Undo failed"
+msgstr "Η αναίρεση απέτυχε"
+
+msgid "Redo failed"
+msgstr "Η επανάληψη απέτυχε"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Δεν ήταν δυνατή η αναίρεση της ενέργειας {0}. Το στοιχείο ενδέχεται να έχει μετακινηθεί, τροποποιηθεί ή αφαιρεθεί στο μεταξύ."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Δεν ήταν δυνατή η επανάληψη της ενέργειας {0}. Το στοιχείο ενδέχεται να έχει μετακινηθεί, τροποποιηθεί ή αφαιρεθεί στο μεταξύ."
+
+msgid "Delete {0}"
+msgstr "Διαγραφή {0}"
+
+msgid "Delete {0} items"
+msgstr "Διαγραφή {0} στοιχείων"
+
+msgid "Move {0} to {1}"
+msgstr "Μετακίνηση {0} σε {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Μετακίνηση {0} στοιχείων σε {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Αντιγραφή {0} σε {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Αντιγραφή {0} στοιχείων σε {1}"
+
+msgid "Create {0}"
+msgstr "Δημιουργία {0}"
+
+msgid "Change flag"
+msgstr "Αλλαγή σημαίας"
+
+msgid "Change categories"
+msgstr "Αλλαγή κατηγοριών"
+
+msgid "Change appointment time"
+msgstr "Αλλαγή ώρας ραντεβού"
+
+msgid "another folder"
+msgstr "άλλο φάκελο"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} στοιχεία"

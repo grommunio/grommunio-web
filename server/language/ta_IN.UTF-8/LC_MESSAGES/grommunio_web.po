@@ -23,3 +23,84 @@ msgstr[1] "மேலும் {0} அறிவிப்புகள்"
 
 msgid "Show less"
 msgstr "குறைவாகக் காட்டு"
+
+msgid "Undo and redo"
+msgstr "செயல்தவிர்த்தல் மற்றும் மீண்டும் செய்தல்"
+
+msgid "Enable undo and redo of message actions"
+msgstr "செய்தி செயல்களைச் செயல்தவிர்க்கவும் மீண்டும் செய்யவும் இயக்கு"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "நீக்குதல், நகர்த்துதல் அல்லது செய்திகளுக்குக் கொடி குறியிடுதல் போன்ற செயல்களைச் செயல்தவிர்க்க (Ctrl+Z) மற்றும் மீண்டும் செய்ய (Ctrl+Y). இந்தச் செயல்களைப் பதிவு செய்வது சிறிய கூடுதல் சுமையை ஏற்படுத்துவதால், இந்த அம்சம் இயல்பாக முடக்கப்பட்டுள்ளது."
+
+msgid "Undo"
+msgstr "செயல்தவிர்"
+
+msgid "Redo"
+msgstr "மீண்டும் செய்"
+
+msgid "Undo: {0}"
+msgstr "செயல்தவிர்: {0}"
+
+msgid "Redo: {0}"
+msgstr "மீண்டும் செய்: {0}"
+
+msgid "Nothing to undo"
+msgstr "செயல்தவிர்க்க எதுவும் இல்லை"
+
+msgid "Undo the last action"
+msgstr "கடைசிச் செயலைச் செயல்தவிர்"
+
+msgid "Redo the last undone action"
+msgstr "கடைசியாகச் செயல்தவிர்க்கப்பட்ட செயலை மீண்டும் செய்"
+
+msgid "Undo failed"
+msgstr "செயல்தவிர்க்க முடியவில்லை"
+
+msgid "Redo failed"
+msgstr "மீண்டும் செய்ய முடியவில்லை"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} செயலைச் செயல்தவிர்க்க முடியவில்லை. இதற்கிடையில் உருப்படி நகர்த்தப்பட்டோ, மாற்றப்பட்டோ அல்லது அகற்றப்பட்டோ இருக்கலாம்."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} செயலை மீண்டும் செய்ய முடியவில்லை. இதற்கிடையில் உருப்படி நகர்த்தப்பட்டோ, மாற்றப்பட்டோ அல்லது அகற்றப்பட்டோ இருக்கலாம்."
+
+msgid "Delete {0}"
+msgstr "{0} ஐ நீக்கு"
+
+msgid "Delete {0} items"
+msgstr "{0} உருப்படிகளை நீக்கு"
+
+msgid "Move {0} to {1}"
+msgstr "{0} ஐ {1}க்கு நகர்த்து"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} உருப்படிகளை {1}க்கு நகர்த்து"
+
+msgid "Copy {0} to {1}"
+msgstr "{0} ஐ {1}க்கு நகலெடு"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} உருப்படிகளை {1}க்கு நகலெடு"
+
+msgid "Create {0}"
+msgstr "{0} ஐ உருவாக்கு"
+
+msgid "Change flag"
+msgstr "கொடியை மாற்று"
+
+msgid "Change categories"
+msgstr "வகைகளை மாற்று"
+
+msgid "Change appointment time"
+msgstr "சந்திப்பு நேரத்தை மாற்று"
+
+msgid "another folder"
+msgstr "வேறொரு கோப்புறை"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} உருப்படிகள்"

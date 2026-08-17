@@ -23,3 +23,84 @@ msgstr[1] "مزید {0} اطلاعات"
 
 msgid "Show less"
 msgstr "کم دکھائیں"
+
+msgid "Undo and redo"
+msgstr "کالعدم کرنا اور دوبارہ کرنا"
+
+msgid "Enable undo and redo of message actions"
+msgstr "پیغام کی کارروائیوں کو کالعدم اور دوبارہ کرنا فعال کریں"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "پیغامات کو حذف کرنے، منتقل کرنے یا فلیگ کرنے جیسی کارروائیوں کو کالعدم (Ctrl+Z) اور دوبارہ (Ctrl+Y) کرنا۔ ان کارروائیوں کو ریکارڈ کرنے سے تھوڑا اضافی بوجھ پڑتا ہے، اس لیے یہ خصوصیت طے شدہ طور پر غیر فعال ہے۔"
+
+msgid "Undo"
+msgstr "کالعدم کریں"
+
+msgid "Redo"
+msgstr "دوبارہ کریں"
+
+msgid "Undo: {0}"
+msgstr "کالعدم کریں: {0}"
+
+msgid "Redo: {0}"
+msgstr "دوبارہ کریں: {0}"
+
+msgid "Nothing to undo"
+msgstr "کالعدم کرنے کے لیے کچھ نہیں"
+
+msgid "Undo the last action"
+msgstr "آخری کارروائی کالعدم کریں"
+
+msgid "Redo the last undone action"
+msgstr "آخری کالعدم کی گئی کارروائی دوبارہ کریں"
+
+msgid "Undo failed"
+msgstr "کالعدم کرنا ناکام رہا"
+
+msgid "Redo failed"
+msgstr "دوبارہ کرنا ناکام رہا"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} کو کالعدم نہیں کیا جا سکا۔ ممکن ہے کہ اس دوران آئٹم منتقل، تبدیل یا حذف کر دیا گیا ہو۔"
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} کو دوبارہ نہیں کیا جا سکا۔ ممکن ہے کہ اس دوران آئٹم منتقل، تبدیل یا حذف کر دیا گیا ہو۔"
+
+msgid "Delete {0}"
+msgstr "{0} کو حذف کرنا"
+
+msgid "Delete {0} items"
+msgstr "{0} آئٹمز کو حذف کرنا"
+
+msgid "Move {0} to {1}"
+msgstr "{0} کو {1} میں منتقل کرنا"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} آئٹمز کو {1} میں منتقل کرنا"
+
+msgid "Copy {0} to {1}"
+msgstr "{0} کو {1} میں کاپی کرنا"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} آئٹمز کو {1} میں کاپی کرنا"
+
+msgid "Create {0}"
+msgstr "{0} بنانا"
+
+msgid "Change flag"
+msgstr "فلیگ تبدیل کرنا"
+
+msgid "Change categories"
+msgstr "زمرہ جات تبدیل کرنا"
+
+msgid "Change appointment time"
+msgstr "اپائنٹمنٹ کا وقت تبدیل کرنا"
+
+msgid "another folder"
+msgstr "ایک اور فولڈر"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} آئٹمز"

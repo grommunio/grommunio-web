@@ -8157,3 +8157,84 @@ msgstr[1] "{0} avisos més"
 
 msgid "Show less"
 msgstr "Mostra'n menys"
+
+msgid "Undo and redo"
+msgstr "Desfer i refer"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Habilita desfer i refer les accions dels missatges"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Desfer (Ctrl+Z) i refer (Ctrl+Y) accions com ara eliminar, moure o marcar missatges amb una bandera. El registre d'aquestes accions afegeix una petita sobrecàrrega; per això, aquesta funció està desactivada per defecte."
+
+msgid "Undo"
+msgstr "Desfés"
+
+msgid "Redo"
+msgstr "Refés"
+
+msgid "Undo: {0}"
+msgstr "Desfés: {0}"
+
+msgid "Redo: {0}"
+msgstr "Refés: {0}"
+
+msgid "Nothing to undo"
+msgstr "No hi ha res per desfer"
+
+msgid "Undo the last action"
+msgstr "Desfés l'última acció"
+
+msgid "Redo the last undone action"
+msgstr "Refés l'última acció desfeta"
+
+msgid "Undo failed"
+msgstr "No s'ha pogut desfer"
+
+msgid "Redo failed"
+msgstr "No s'ha pogut refer"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "No s'ha pogut desfer: {0}. És possible que mentrestant l'element s'hagi mogut, canviat o eliminat."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "No s'ha pogut refer: {0}. És possible que mentrestant l'element s'hagi mogut, canviat o eliminat."
+
+msgid "Delete {0}"
+msgstr "Eliminar {0}"
+
+msgid "Delete {0} items"
+msgstr "Eliminar {0} elements"
+
+msgid "Move {0} to {1}"
+msgstr "Moure {0} a {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Moure {0} elements a {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Copiar {0} a {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Copiar {0} elements a {1}"
+
+msgid "Create {0}"
+msgstr "Crear {0}"
+
+msgid "Change flag"
+msgstr "Canviar la bandera"
+
+msgid "Change categories"
+msgstr "Canviar les categories"
+
+msgid "Change appointment time"
+msgstr "Canviar l'hora de la cita"
+
+msgid "another folder"
+msgstr "una altra carpeta"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} elements"

@@ -23,3 +23,84 @@ msgstr[1] "edhe {0} njoftime"
 
 msgid "Show less"
 msgstr "Shfaq më pak"
+
+msgid "Undo and redo"
+msgstr "Zhbërja dhe ribërja"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Aktivizo zhbërjen dhe ribërjen e veprimeve me mesazhet"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Zhbërja (Ctrl+Z) dhe ribërja (Ctrl+Y) e veprimeve si fshirja, zhvendosja ose shënimi i mesazheve me flamur. Regjistrimi i këtyre veprimeve shton një ngarkesë të vogël, prandaj funksioni është i çaktivizuar si parazgjedhje."
+
+msgid "Undo"
+msgstr "Zhbëj"
+
+msgid "Redo"
+msgstr "Ribëj"
+
+msgid "Undo: {0}"
+msgstr "Zhbëj: {0}"
+
+msgid "Redo: {0}"
+msgstr "Ribëj: {0}"
+
+msgid "Nothing to undo"
+msgstr "Asgjë për t'u zhbërë"
+
+msgid "Undo the last action"
+msgstr "Zhbëj veprimin e fundit"
+
+msgid "Redo the last undone action"
+msgstr "Ribëj veprimin e fundit të zhbërë"
+
+msgid "Undo failed"
+msgstr "Zhbërja dështoi"
+
+msgid "Redo failed"
+msgstr "Ribërja dështoi"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Nuk u zhbë dot {0}. Elementi mund të jetë zhvendosur, ndryshuar ose hequr ndërkohë."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Nuk u ribë dot {0}. Elementi mund të jetë zhvendosur, ndryshuar ose hequr ndërkohë."
+
+msgid "Delete {0}"
+msgstr "Fshi {0}"
+
+msgid "Delete {0} items"
+msgstr "Fshi {0} elemente"
+
+msgid "Move {0} to {1}"
+msgstr "Zhvendos {0} te {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Zhvendos {0} elemente te {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Kopjo {0} te {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Kopjo {0} elemente te {1}"
+
+msgid "Create {0}"
+msgstr "Krijo {0}"
+
+msgid "Change flag"
+msgstr "Ndrysho flamurin"
+
+msgid "Change categories"
+msgstr "Ndrysho kategoritë"
+
+msgid "Change appointment time"
+msgstr "Ndrysho orarin e takimit"
+
+msgid "another folder"
+msgstr "një dosje tjetër"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} elemente"

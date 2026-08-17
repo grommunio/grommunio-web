@@ -23,3 +23,84 @@ msgstr[1] "Дахин {0} мэдэгдэл"
 
 msgid "Show less"
 msgstr "Цөөнийг харуулах"
+
+msgid "Undo and redo"
+msgstr "Буцаах ба дахин хийх"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Зурвасын үйлдлүүдийг буцаах, дахин хийхийг идэвхжүүлэх"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Зурвас устгах, зөөх, туг тавих зэрэг үйлдлүүдийг буцаах (Ctrl+Z) болон дахин хийх (Ctrl+Y) боломж. Эдгээр үйлдлийг бүртгэх нь бага зэрэг нэмэлт ачаалал үүсгэдэг тул уг боломж анхдагчаар идэвхгүй байдаг."
+
+msgid "Undo"
+msgstr "Буцаах"
+
+msgid "Redo"
+msgstr "Дахин хийх"
+
+msgid "Undo: {0}"
+msgstr "Буцаах: {0}"
+
+msgid "Redo: {0}"
+msgstr "Дахин хийх: {0}"
+
+msgid "Nothing to undo"
+msgstr "Буцаах зүйл алга"
+
+msgid "Undo the last action"
+msgstr "Сүүлийн үйлдлийг буцаах"
+
+msgid "Redo the last undone action"
+msgstr "Сүүлд буцаасан үйлдлийг дахин хийх"
+
+msgid "Undo failed"
+msgstr "Буцаах амжилтгүй боллоо"
+
+msgid "Redo failed"
+msgstr "Дахин хийх амжилтгүй боллоо"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} үйлдлийг буцааж чадсангүй. Уг зүйл энэ хооронд зөөгдсөн, өөрчлөгдсөн эсвэл устгагдсан байж магадгүй."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} үйлдлийг дахин хийж чадсангүй. Уг зүйл энэ хооронд зөөгдсөн, өөрчлөгдсөн эсвэл устгагдсан байж магадгүй."
+
+msgid "Delete {0}"
+msgstr "{0}-г устгах"
+
+msgid "Delete {0} items"
+msgstr "{0} зүйлийг устгах"
+
+msgid "Move {0} to {1}"
+msgstr "{0}-г {1} руу зөөх"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} зүйлийг {1} руу зөөх"
+
+msgid "Copy {0} to {1}"
+msgstr "{0}-г {1} руу хуулах"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} зүйлийг {1} руу хуулах"
+
+msgid "Create {0}"
+msgstr "{0}-г үүсгэх"
+
+msgid "Change flag"
+msgstr "Туг өөрчлөх"
+
+msgid "Change categories"
+msgstr "Ангилал өөрчлөх"
+
+msgid "Change appointment time"
+msgstr "Уулзалтын цагийг өөрчлөх"
+
+msgid "another folder"
+msgstr "өөр хавтас"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} зүйл"

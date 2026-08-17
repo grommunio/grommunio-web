@@ -23,3 +23,84 @@ msgstr[1] "дагы {0} билдирүү"
 
 msgid "Show less"
 msgstr "Азыраак көрсөтүү"
+
+msgid "Undo and redo"
+msgstr "Артка кайтаруу жана кайра аткаруу"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Билдирүү аракеттерин артка кайтарууну жана кайра аткарууну иштетүү"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Билдирүүлөрдү өчүрүү, жылдыруу же желекче коюу сыяктуу аракеттерди артка кайтаруу (Ctrl+Z) жана кайра аткаруу (Ctrl+Y). Бул аракеттерди жаздыруу бир аз кошумча жүк жаратат, ошондуктан бул функция демейки боюнча өчүрүлгөн."
+
+msgid "Undo"
+msgstr "Артка кайтаруу"
+
+msgid "Redo"
+msgstr "Кайра аткаруу"
+
+msgid "Undo: {0}"
+msgstr "Артка кайтаруу: {0}"
+
+msgid "Redo: {0}"
+msgstr "Кайра аткаруу: {0}"
+
+msgid "Nothing to undo"
+msgstr "Артка кайтара турган эч нерсе жок"
+
+msgid "Undo the last action"
+msgstr "Акыркы аракетти артка кайтаруу"
+
+msgid "Redo the last undone action"
+msgstr "Акыркы артка кайтарылган аракетти кайра аткаруу"
+
+msgid "Undo failed"
+msgstr "Артка кайтаруу ишке ашкан жок"
+
+msgid "Redo failed"
+msgstr "Кайра аткаруу ишке ашкан жок"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} аракетин артка кайтаруу мүмкүн болгон жок. Бул элемент ошол убакыттын ичинде жылдырылып, өзгөртүлүп же өчүрүлүп калышы мүмкүн."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} аракетин кайра аткаруу мүмкүн болгон жок. Бул элемент ошол убакыттын ичинде жылдырылып, өзгөртүлүп же өчүрүлүп калышы мүмкүн."
+
+msgid "Delete {0}"
+msgstr "{0} өчүрүү"
+
+msgid "Delete {0} items"
+msgstr "{0} элементти өчүрүү"
+
+msgid "Move {0} to {1}"
+msgstr "{0} дегенди {1} дегенге жылдыруу"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} элементти {1} дегенге жылдыруу"
+
+msgid "Copy {0} to {1}"
+msgstr "{0} дегенди {1} дегенге көчүрүү"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} элементти {1} дегенге көчүрүү"
+
+msgid "Create {0}"
+msgstr "{0} түзүү"
+
+msgid "Change flag"
+msgstr "Желекчени өзгөртүү"
+
+msgid "Change categories"
+msgstr "Категорияларды өзгөртүү"
+
+msgid "Change appointment time"
+msgstr "Жолугушуунун убактысын өзгөртүү"
+
+msgid "another folder"
+msgstr "башка папка"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} элемент"

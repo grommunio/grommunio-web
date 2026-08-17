@@ -23,3 +23,84 @@ msgstr[1] "beste {0} abisu"
 
 msgid "Show less"
 msgstr "Erakutsi gutxiago"
+
+msgid "Undo and redo"
+msgstr "Desegin eta berregin"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Gaitu mezu-ekintzak desegitea eta berregitea"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Desegin (Ctrl+Z) eta berregin (Ctrl+Y) ekintzak, adibidez mezuak ezabatzea, lekuz aldatzea edo banderaz markatzea. Ekintza horiek erregistratzeak karga txiki bat gehitzen du; horregatik, eginbidea desgaituta dago lehenespenez."
+
+msgid "Undo"
+msgstr "Desegin"
+
+msgid "Redo"
+msgstr "Berregin"
+
+msgid "Undo: {0}"
+msgstr "Desegin: {0}"
+
+msgid "Redo: {0}"
+msgstr "Berregin: {0}"
+
+msgid "Nothing to undo"
+msgstr "Ez dago ezer desegiteko"
+
+msgid "Undo the last action"
+msgstr "Desegin azken ekintza"
+
+msgid "Redo the last undone action"
+msgstr "Berregin desegindako azken ekintza"
+
+msgid "Undo failed"
+msgstr "Desegiteak huts egin du"
+
+msgid "Redo failed"
+msgstr "Berregiteak huts egin du"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Ezin izan da {0} desegin. Baliteke elementua bitartean lekuz aldatu, aldatu edo kendu izana."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Ezin izan da {0} berregin. Baliteke elementua bitartean lekuz aldatu, aldatu edo kendu izana."
+
+msgid "Delete {0}"
+msgstr "Ezabatu {0}"
+
+msgid "Delete {0} items"
+msgstr "Ezabatu {0} elementu"
+
+msgid "Move {0} to {1}"
+msgstr "Eraman {0} hona: {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Eraman {0} elementu hona: {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Kopiatu {0} hona: {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Kopiatu {0} elementu hona: {1}"
+
+msgid "Create {0}"
+msgstr "Sortu {0}"
+
+msgid "Change flag"
+msgstr "Aldatu bandera"
+
+msgid "Change categories"
+msgstr "Aldatu kategoriak"
+
+msgid "Change appointment time"
+msgstr "Aldatu hitzorduaren ordua"
+
+msgid "another folder"
+msgstr "beste karpeta bat"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} elementu"

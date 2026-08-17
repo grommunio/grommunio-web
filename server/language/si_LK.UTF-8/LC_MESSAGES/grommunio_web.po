@@ -23,3 +23,84 @@ msgstr[1] "තවත් දැනුම්දීම් {0}ක්"
 
 msgid "Show less"
 msgstr "අඩුවෙන් පෙන්වන්න"
+
+msgid "Undo and redo"
+msgstr "අහෝසි කිරීම සහ යළි කිරීම"
+
+msgid "Enable undo and redo of message actions"
+msgstr "පණිවිඩ ක්‍රියා අහෝසි කිරීම සහ යළි කිරීම සබල කරන්න"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "පණිවිඩ මැකීම, ගෙන යාම හෝ ධජ යෙදීම වැනි ක්‍රියා අහෝසි කිරීම (Ctrl+Z) සහ යළි කිරීම (Ctrl+Y). මෙම ක්‍රියා වාර්තා කිරීමෙන් කුඩා අමතර බරක් එක් වන බැවින්, මෙම විශේෂාංගය පෙරනිමියෙන් අබල කර ඇත."
+
+msgid "Undo"
+msgstr "අහෝසි කරන්න"
+
+msgid "Redo"
+msgstr "යළි කරන්න"
+
+msgid "Undo: {0}"
+msgstr "අහෝසි කරන්න: {0}"
+
+msgid "Redo: {0}"
+msgstr "යළි කරන්න: {0}"
+
+msgid "Nothing to undo"
+msgstr "අහෝසි කිරීමට කිසිවක් නැත"
+
+msgid "Undo the last action"
+msgstr "අවසාන ක්‍රියාව අහෝසි කරන්න"
+
+msgid "Redo the last undone action"
+msgstr "අවසාන අහෝසි කළ ක්‍රියාව යළි කරන්න"
+
+msgid "Undo failed"
+msgstr "අහෝසි කිරීම අසාර්ථක විය"
+
+msgid "Redo failed"
+msgstr "යළි කිරීම අසාර්ථක විය"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} අහෝසි කළ නොහැකි විය. මේ අතරතුර අයිතමය ගෙන ගොස්, වෙනස් කර හෝ ඉවත් කර ඇති විය හැක."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} යළි කළ නොහැකි විය. මේ අතරතුර අයිතමය ගෙන ගොස්, වෙනස් කර හෝ ඉවත් කර ඇති විය හැක."
+
+msgid "Delete {0}"
+msgstr "{0} මැකීම"
+
+msgid "Delete {0} items"
+msgstr "අයිතම {0}ක් මැකීම"
+
+msgid "Move {0} to {1}"
+msgstr "{0} {1} වෙත ගෙන යාම"
+
+msgid "Move {0} items to {1}"
+msgstr "අයිතම {0}ක් {1} වෙත ගෙන යාම"
+
+msgid "Copy {0} to {1}"
+msgstr "{0} {1} වෙත පිටපත් කිරීම"
+
+msgid "Copy {0} items to {1}"
+msgstr "අයිතම {0}ක් {1} වෙත පිටපත් කිරීම"
+
+msgid "Create {0}"
+msgstr "{0} සෑදීම"
+
+msgid "Change flag"
+msgstr "ධජය වෙනස් කිරීම"
+
+msgid "Change categories"
+msgstr "ප්‍රවර්ග වෙනස් කිරීම"
+
+msgid "Change appointment time"
+msgstr "හමුවීමේ වේලාව වෙනස් කිරීම"
+
+msgid "another folder"
+msgstr "වෙනත් ෆෝල්ඩරයක්"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: අයිතම {1}ක්"

@@ -819,22 +819,18 @@ msgstr "每个{0}{1}有效的{2}均发生。"
 msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
 msgstr[0] "从{3} 到{4} ，每{0} 自{1} 起出现{2} 。"
-msgstr[1] "从{3} 到{4} ，每{0} 自{1} 起出现{2} 。"
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
 msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
 msgstr[0] "从{4} 到{5} ，每{0} {1} 有效{2} ，{3} 出现。"
-msgstr[1] "每{0} {1} 有效{2} 为{3} 出现{4} 至{5} 。"
 
 msgid "Occurs every {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
 msgstr[0] "每{0} 发生一次，有效期为{1} ，{2} 发生一次。"
-msgstr[1] "每{0} 出现一次，有效期为{1} ，{2} 出现一次。"
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
 msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
 msgstr[0] "每{0} {1} {2} 有效，{3} 出现。"
-msgstr[1] "每{0} {1} 有效{2} ，{3} 出现。"
 
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
 msgstr "从{3}至{4}，每个{0}有效的{1}均发生，直至{2}。"
@@ -8169,3 +8165,84 @@ msgstr[0] "还有 {0} 条提示"
 
 msgid "Show less"
 msgstr "收起"
+
+msgid "Undo and redo"
+msgstr "撤销和重做"
+
+msgid "Enable undo and redo of message actions"
+msgstr "启用邮件操作的撤销和重做"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "撤销 (Ctrl+Z) 和重做 (Ctrl+Y) 删除、移动或为邮件设置标志等操作。记录这些操作会产生少量开销，因此该功能默认处于禁用状态。"
+
+msgid "Undo"
+msgstr "撤销"
+
+msgid "Redo"
+msgstr "重做"
+
+msgid "Undo: {0}"
+msgstr "撤销：{0}"
+
+msgid "Redo: {0}"
+msgstr "重做：{0}"
+
+msgid "Nothing to undo"
+msgstr "没有可撤销的操作"
+
+msgid "Undo the last action"
+msgstr "撤销上一个操作"
+
+msgid "Redo the last undone action"
+msgstr "重做上一个已撤销的操作"
+
+msgid "Undo failed"
+msgstr "撤销失败"
+
+msgid "Redo failed"
+msgstr "重做失败"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "无法撤销{0}。该项目在此期间可能已被移动、更改或删除。"
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "无法重做{0}。该项目在此期间可能已被移动、更改或删除。"
+
+msgid "Delete {0}"
+msgstr "删除{0}"
+
+msgid "Delete {0} items"
+msgstr "删除 {0} 个项目"
+
+msgid "Move {0} to {1}"
+msgstr "将{0}移动到{1}"
+
+msgid "Move {0} items to {1}"
+msgstr "将 {0} 个项目移动到{1}"
+
+msgid "Copy {0} to {1}"
+msgstr "将{0}复制到{1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "将 {0} 个项目复制到{1}"
+
+msgid "Create {0}"
+msgstr "创建{0}"
+
+msgid "Change flag"
+msgstr "更改标志"
+
+msgid "Change categories"
+msgstr "更改类别"
+
+msgid "Change appointment time"
+msgstr "更改预约时间"
+
+msgid "another folder"
+msgstr "另一个文件夹"
+
+msgid "{0}: {1}"
+msgstr "{0}：{1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}：{1} 个项目"

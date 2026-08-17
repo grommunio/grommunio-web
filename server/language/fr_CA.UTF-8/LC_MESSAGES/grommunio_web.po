@@ -8191,3 +8191,84 @@ msgstr[1] "{0} autres avis"
 
 msgid "Show less"
 msgstr "Afficher moins"
+
+msgid "Undo and redo"
+msgstr "Annuler et rétablir"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Activer l'annulation et le rétablissement des actions sur les messages"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Annulation (Ctrl+Z) et rétablissement (Ctrl+Y) d'actions telles que la suppression, le déplacement ou le marquage de messages. L'enregistrement de ces actions entraîne une légère surcharge, la fonctionnalité est donc désactivée par défaut."
+
+msgid "Undo"
+msgstr "Annuler"
+
+msgid "Redo"
+msgstr "Rétablir"
+
+msgid "Undo: {0}"
+msgstr "Annuler : {0}"
+
+msgid "Redo: {0}"
+msgstr "Rétablir : {0}"
+
+msgid "Nothing to undo"
+msgstr "Rien à annuler"
+
+msgid "Undo the last action"
+msgstr "Annuler la dernière action"
+
+msgid "Redo the last undone action"
+msgstr "Rétablir la dernière action annulée"
+
+msgid "Undo failed"
+msgstr "Échec de l'annulation"
+
+msgid "Redo failed"
+msgstr "Échec du rétablissement"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Impossible d'annuler {0}. L'élément a peut-être été déplacé, modifié ou supprimé entre-temps."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Impossible de rétablir {0}. L'élément a peut-être été déplacé, modifié ou supprimé entre-temps."
+
+msgid "Delete {0}"
+msgstr "Supprimer {0}"
+
+msgid "Delete {0} items"
+msgstr "Supprimer {0} éléments"
+
+msgid "Move {0} to {1}"
+msgstr "Déplacer {0} vers {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Déplacer {0} éléments vers {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Copier {0} vers {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Copier {0} éléments vers {1}"
+
+msgid "Create {0}"
+msgstr "Créer {0}"
+
+msgid "Change flag"
+msgstr "Modifier l'indicateur"
+
+msgid "Change categories"
+msgstr "Modifier les catégories"
+
+msgid "Change appointment time"
+msgstr "Modifier l'heure du rendez-vous"
+
+msgid "another folder"
+msgstr "un autre dossier"
+
+msgid "{0}: {1}"
+msgstr "{0} : {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0} : {1} éléments"

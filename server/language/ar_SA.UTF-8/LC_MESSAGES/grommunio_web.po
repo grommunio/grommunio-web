@@ -8239,3 +8239,84 @@ msgstr[5] "{0} تنبيه إضافي"
 
 msgid "Show less"
 msgstr "إظهار أقل"
+
+msgid "Undo and redo"
+msgstr "التراجع والإعادة"
+
+msgid "Enable undo and redo of message actions"
+msgstr "تمكين التراجع عن إجراءات الرسائل وإعادتها"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "التراجع (Ctrl+Z) والإعادة (Ctrl+Y) لإجراءات مثل حذف الرسائل أو نقلها أو تعيين العلم لها. يضيف تسجيل هذه الإجراءات عبئًا بسيطًا، ولذلك تكون هذه الميزة معطلة افتراضيًا."
+
+msgid "Undo"
+msgstr "تراجع"
+
+msgid "Redo"
+msgstr "إعادة"
+
+msgid "Undo: {0}"
+msgstr "تراجع: {0}"
+
+msgid "Redo: {0}"
+msgstr "إعادة: {0}"
+
+msgid "Nothing to undo"
+msgstr "لا يوجد شيء للتراجع عنه"
+
+msgid "Undo the last action"
+msgstr "التراجع عن الإجراء الأخير"
+
+msgid "Redo the last undone action"
+msgstr "إعادة آخر إجراء تم التراجع عنه"
+
+msgid "Undo failed"
+msgstr "فشل التراجع"
+
+msgid "Redo failed"
+msgstr "فشلت الإعادة"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "تعذر التراجع عن {0}. ربما تم نقل العنصر أو تغييره أو إزالته في هذه الأثناء."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "تعذرت إعادة {0}. ربما تم نقل العنصر أو تغييره أو إزالته في هذه الأثناء."
+
+msgid "Delete {0}"
+msgstr "حذف {0}"
+
+msgid "Delete {0} items"
+msgstr "حذف {0} من العناصر"
+
+msgid "Move {0} to {1}"
+msgstr "نقل {0} إلى {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "نقل {0} من العناصر إلى {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "نسخ {0} إلى {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "نسخ {0} من العناصر إلى {1}"
+
+msgid "Create {0}"
+msgstr "إنشاء {0}"
+
+msgid "Change flag"
+msgstr "تغيير العلم"
+
+msgid "Change categories"
+msgstr "تغيير الفئات"
+
+msgid "Change appointment time"
+msgstr "تغيير وقت الميعاد"
+
+msgid "another folder"
+msgstr "مجلد آخر"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} من العناصر"

@@ -23,3 +23,84 @@ msgstr[1] "{0} izaziso ezengeziwe"
 
 msgid "Show less"
 msgstr "Bonisa okuncane"
+
+msgid "Undo and redo"
+msgstr "Ukuhlehlisa nokuphinda"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Vumela ukuhlehlisa nokuphinda izenzo zemilayezo"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Ukuhlehlisa (Ctrl+Z) nokuphinda (Ctrl+Y) izenzo ezinjengokususa, ukuhambisa noma ukufaka ifulegi emilayezweni. Ukurekhoda lezi zenzo kwengeza umthwalo omncane, ngakho lesi sici sivaliwe ngokuzenzakalelayo."
+
+msgid "Undo"
+msgstr "Hlehlisa"
+
+msgid "Redo"
+msgstr "Phinda wenze"
+
+msgid "Undo: {0}"
+msgstr "Hlehlisa: {0}"
+
+msgid "Redo: {0}"
+msgstr "Phinda wenze: {0}"
+
+msgid "Nothing to undo"
+msgstr "Akukho okungahlehliswa"
+
+msgid "Undo the last action"
+msgstr "Hlehlisa isenzo sokugcina"
+
+msgid "Redo the last undone action"
+msgstr "Phinda wenze isenzo sokugcina esihlehlisiwe"
+
+msgid "Undo failed"
+msgstr "Ukuhlehlisa kuhlulekile"
+
+msgid "Redo failed"
+msgstr "Ukuphinda kuhlulekile"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Akukwazekanga ukuhlehlisa {0}. Kungenzeka ukuthi le nto ihanjisiwe, yashintshwa noma yasuswa phakathi naleso sikhathi."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Akukwazekanga ukuphinda {0}. Kungenzeka ukuthi le nto ihanjisiwe, yashintshwa noma yasuswa phakathi naleso sikhathi."
+
+msgid "Delete {0}"
+msgstr "Susa {0}"
+
+msgid "Delete {0} items"
+msgstr "Susa izinto ezingu-{0}"
+
+msgid "Move {0} to {1}"
+msgstr "Hambisa {0} ku-{1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Hambisa izinto ezingu-{0} ku-{1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Kopisha {0} ku-{1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Kopisha izinto ezingu-{0} ku-{1}"
+
+msgid "Create {0}"
+msgstr "Dala {0}"
+
+msgid "Change flag"
+msgstr "Shintsha ifulegi"
+
+msgid "Change categories"
+msgstr "Shintsha izigaba"
+
+msgid "Change appointment time"
+msgstr "Shintsha isikhathi se-aphoyintimenti"
+
+msgid "another folder"
+msgstr "enye ifolda"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: izinto ezingu-{1}"

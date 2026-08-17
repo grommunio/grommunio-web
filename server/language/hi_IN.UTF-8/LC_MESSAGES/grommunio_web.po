@@ -23,3 +23,84 @@ msgstr[1] "{0} और सूचनाएँ"
 
 msgid "Show less"
 msgstr "कम दिखाएँ"
+
+msgid "Undo and redo"
+msgstr "पूर्ववत करें और फिर से करें"
+
+msgid "Enable undo and redo of message actions"
+msgstr "संदेश क्रियाओं को पूर्ववत करने और फिर से करने की सुविधा सक्षम करें"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "संदेशों को हटाने, स्थानांतरित करने या ध्वजांकित करने जैसी क्रियाओं को पूर्ववत (Ctrl+Z) और फिर से (Ctrl+Y) करें। इन क्रियाओं को रिकॉर्ड करने से थोड़ा अतिरिक्त भार पड़ता है, इसलिए यह सुविधा डिफ़ॉल्ट रूप से अक्षम है।"
+
+msgid "Undo"
+msgstr "पूर्ववत करें"
+
+msgid "Redo"
+msgstr "फिर से करें"
+
+msgid "Undo: {0}"
+msgstr "पूर्ववत करें: {0}"
+
+msgid "Redo: {0}"
+msgstr "फिर से करें: {0}"
+
+msgid "Nothing to undo"
+msgstr "पूर्ववत करने के लिए कुछ नहीं"
+
+msgid "Undo the last action"
+msgstr "अंतिम क्रिया पूर्ववत करें"
+
+msgid "Redo the last undone action"
+msgstr "अंतिम पूर्ववत की गई क्रिया फिर से करें"
+
+msgid "Undo failed"
+msgstr "पूर्ववत करना विफल"
+
+msgid "Redo failed"
+msgstr "फिर से करना विफल"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} को पूर्ववत नहीं किया जा सका। हो सकता है कि आइटम इस बीच स्थानांतरित, परिवर्तित या हटा दिया गया हो।"
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} को फिर से नहीं किया जा सका। हो सकता है कि आइटम इस बीच स्थानांतरित, परिवर्तित या हटा दिया गया हो।"
+
+msgid "Delete {0}"
+msgstr "{0} हटाएँ"
+
+msgid "Delete {0} items"
+msgstr "{0} आइटम हटाएँ"
+
+msgid "Move {0} to {1}"
+msgstr "{0} को {1} में ले जाएँ"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} आइटम {1} में ले जाएँ"
+
+msgid "Copy {0} to {1}"
+msgstr "{0} को {1} में कॉपी करें"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} आइटम {1} में कॉपी करें"
+
+msgid "Create {0}"
+msgstr "{0} बनाएँ"
+
+msgid "Change flag"
+msgstr "ध्वज बदलें"
+
+msgid "Change categories"
+msgstr "श्रेणियाँ बदलें"
+
+msgid "Change appointment time"
+msgstr "अपॉइंटमेंट का समय बदलें"
+
+msgid "another folder"
+msgstr "किसी अन्य फ़ोल्डर"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} आइटम"

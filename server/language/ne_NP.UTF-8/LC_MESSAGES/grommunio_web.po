@@ -23,3 +23,84 @@ msgstr[1] "थप {0} सूचनाहरू"
 
 msgid "Show less"
 msgstr "कम देखाउनुहोस्"
+
+msgid "Undo and redo"
+msgstr "पूर्ववत गर्नुहोस् र पुनः गर्नुहोस्"
+
+msgid "Enable undo and redo of message actions"
+msgstr "सन्देश कार्यहरू पूर्ववत गर्ने र पुनः गर्ने सुविधा सक्षम गर्नुहोस्"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "सन्देश मेट्ने, सार्ने वा झन्डा लगाउने जस्ता कार्यहरू पूर्ववत (Ctrl+Z) र पुनः (Ctrl+Y) गर्न सकिन्छ। यी कार्यहरू रेकर्ड गर्दा थोरै अतिरिक्त भार पर्ने भएकाले यो सुविधा पूर्वनिर्धारित रूपमा असक्षम गरिएको छ।"
+
+msgid "Undo"
+msgstr "पूर्ववत गर्नुहोस्"
+
+msgid "Redo"
+msgstr "पुनः गर्नुहोस्"
+
+msgid "Undo: {0}"
+msgstr "पूर्ववत गर्नुहोस्: {0}"
+
+msgid "Redo: {0}"
+msgstr "पुनः गर्नुहोस्: {0}"
+
+msgid "Nothing to undo"
+msgstr "पूर्ववत गर्न केही छैन"
+
+msgid "Undo the last action"
+msgstr "पछिल्लो कार्य पूर्ववत गर्नुहोस्"
+
+msgid "Redo the last undone action"
+msgstr "पछिल्लो पूर्ववत गरिएको कार्य पुनः गर्नुहोस्"
+
+msgid "Undo failed"
+msgstr "पूर्ववत गर्न असफल"
+
+msgid "Redo failed"
+msgstr "पुनः गर्न असफल"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} पूर्ववत गर्न सकिएन। यस बीचमा वस्तु सारिएको, परिवर्तन गरिएको वा हटाइएको हुन सक्छ।"
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} पुनः गर्न सकिएन। यस बीचमा वस्तु सारिएको, परिवर्तन गरिएको वा हटाइएको हुन सक्छ।"
+
+msgid "Delete {0}"
+msgstr "{0} मेटाउने"
+
+msgid "Delete {0} items"
+msgstr "{0} वस्तुहरू मेटाउने"
+
+msgid "Move {0} to {1}"
+msgstr "{0} लाई {1} मा सार्ने"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} वस्तुहरू {1} मा सार्ने"
+
+msgid "Copy {0} to {1}"
+msgstr "{0} लाई {1} मा प्रतिलिपि गर्ने"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} वस्तुहरू {1} मा प्रतिलिपि गर्ने"
+
+msgid "Create {0}"
+msgstr "{0} सिर्जना गर्ने"
+
+msgid "Change flag"
+msgstr "झन्डा परिवर्तन"
+
+msgid "Change categories"
+msgstr "कोटिहरू परिवर्तन"
+
+msgid "Change appointment time"
+msgstr "भेटघाटको समय परिवर्तन"
+
+msgid "another folder"
+msgstr "अर्को फोल्डर"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} वस्तुहरू"

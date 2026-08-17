@@ -23,3 +23,84 @@ msgstr[1] "ևս {0} ծանուցում"
 
 msgid "Show less"
 msgstr "Ցուցադրել ավելի քիչ"
+
+msgid "Undo and redo"
+msgstr "Հետարկում և կրկնում"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Միացնել նամակների գործողությունների հետարկումը և կրկնումը"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Գործողությունների հետարկում (Ctrl+Z) և կրկնում (Ctrl+Y), օրինակ՝ նամակների ջնջում, տեղափոխում կամ դրոշակավորում։ Այս գործողությունների գրանցումը փոքր լրացուցիչ ծանրաբեռնվածություն է ստեղծում, ուստի գործառույթը լռելյայն անջատված է։"
+
+msgid "Undo"
+msgstr "Հետարկել"
+
+msgid "Redo"
+msgstr "Կրկնել"
+
+msgid "Undo: {0}"
+msgstr "Հետարկել՝ {0}"
+
+msgid "Redo: {0}"
+msgstr "Կրկնել՝ {0}"
+
+msgid "Nothing to undo"
+msgstr "Հետարկելու բան չկա"
+
+msgid "Undo the last action"
+msgstr "Հետարկել վերջին գործողությունը"
+
+msgid "Redo the last undone action"
+msgstr "Կրկնել վերջին հետարկված գործողությունը"
+
+msgid "Undo failed"
+msgstr "Հետարկումը ձախողվեց"
+
+msgid "Redo failed"
+msgstr "Կրկնումը ձախողվեց"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Չհաջողվեց հետարկել {0}։ Հնարավոր է՝ տարրն այդ ընթացքում տեղափոխվել, փոփոխվել կամ հեռացվել է։"
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Չհաջողվեց կրկնել {0}։ Հնարավոր է՝ տարրն այդ ընթացքում տեղափոխվել, փոփոխվել կամ հեռացվել է։"
+
+msgid "Delete {0}"
+msgstr "Ջնջել {0}"
+
+msgid "Delete {0} items"
+msgstr "Ջնջել {0} տարր"
+
+msgid "Move {0} to {1}"
+msgstr "Տեղափոխել {0}-ը դեպի {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Տեղափոխել {0} տարր դեպի {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Պատճենել {0}-ը դեպի {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Պատճենել {0} տարր դեպի {1}"
+
+msgid "Create {0}"
+msgstr "Ստեղծել {0}"
+
+msgid "Change flag"
+msgstr "Փոխել դրոշակը"
+
+msgid "Change categories"
+msgstr "Փոխել կատեգորիաները"
+
+msgid "Change appointment time"
+msgstr "Փոխել հանդիպման ժամանակը"
+
+msgid "another folder"
+msgstr "մեկ այլ թղթապանակ"
+
+msgid "{0}: {1}"
+msgstr "{0}՝ {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}՝ {1} տարր"

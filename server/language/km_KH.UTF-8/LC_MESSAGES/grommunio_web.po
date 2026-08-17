@@ -23,3 +23,84 @@ msgstr[1] "សេចក្តីជូនដំណឹង {0} ទៀត"
 
 msgid "Show less"
 msgstr "បង្ហាញតិចជាងនេះ"
+
+msgid "Undo and redo"
+msgstr "មិនធ្វើវិញ និងធ្វើវិញ"
+
+msgid "Enable undo and redo of message actions"
+msgstr "បើកមុខងារមិនធ្វើវិញ និងធ្វើវិញនៃសកម្មភាពសារ"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "មិនធ្វើវិញ (Ctrl+Z) និងធ្វើវិញ (Ctrl+Y) នៃសកម្មភាពដូចជា ការលុប ការផ្លាស់ទី ឬការដាក់ទង់សម្គាល់សារ។ ការកត់ត្រាសកម្មភាពទាំងនេះបន្ថែមបន្ទុកបន្តិចបន្តួច ដូច្នេះមុខងារនេះត្រូវបានបិទតាមលំនាំដើម។"
+
+msgid "Undo"
+msgstr "មិនធ្វើវិញ"
+
+msgid "Redo"
+msgstr "ធ្វើវិញ"
+
+msgid "Undo: {0}"
+msgstr "មិនធ្វើវិញ៖ {0}"
+
+msgid "Redo: {0}"
+msgstr "ធ្វើវិញ៖ {0}"
+
+msgid "Nothing to undo"
+msgstr "គ្មានអ្វីត្រូវមិនធ្វើវិញទេ"
+
+msgid "Undo the last action"
+msgstr "មិនធ្វើវិញសកម្មភាពចុងក្រោយ"
+
+msgid "Redo the last undone action"
+msgstr "ធ្វើវិញសកម្មភាពដែលបានមិនធ្វើវិញចុងក្រោយ"
+
+msgid "Undo failed"
+msgstr "ការមិនធ្វើវិញបានបរាជ័យ"
+
+msgid "Redo failed"
+msgstr "ការធ្វើវិញបានបរាជ័យ"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "មិនអាចមិនធ្វើវិញ {0} បានទេ។ ធាតុនេះប្រហែលជាត្រូវបានផ្លាស់ទី ផ្លាស់ប្ដូរ ឬលុបចេញក្នុងពេលនោះ។"
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "មិនអាចធ្វើវិញ {0} បានទេ។ ធាតុនេះប្រហែលជាត្រូវបានផ្លាស់ទី ផ្លាស់ប្ដូរ ឬលុបចេញក្នុងពេលនោះ។"
+
+msgid "Delete {0}"
+msgstr "លុប {0}"
+
+msgid "Delete {0} items"
+msgstr "លុបធាតុចំនួន {0}"
+
+msgid "Move {0} to {1}"
+msgstr "ផ្លាស់ទី {0} ទៅ {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "ផ្លាស់ទីធាតុចំនួន {0} ទៅ {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "ចម្លង {0} ទៅ {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "ចម្លងធាតុចំនួន {0} ទៅ {1}"
+
+msgid "Create {0}"
+msgstr "បង្កើត {0}"
+
+msgid "Change flag"
+msgstr "ផ្លាស់ប្ដូរទង់សម្គាល់"
+
+msgid "Change categories"
+msgstr "ផ្លាស់ប្ដូរប្រភេទ"
+
+msgid "Change appointment time"
+msgstr "ផ្លាស់ប្ដូរពេលវេលាណាត់ជួប"
+
+msgid "another folder"
+msgstr "ថតផ្សេងទៀត"
+
+msgid "{0}: {1}"
+msgstr "{0}៖ {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}៖ {1} ធាតុ"

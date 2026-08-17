@@ -8146,3 +8146,84 @@ msgstr[1] "{0} weitere Hinweise"
 
 msgid "Show less"
 msgstr "Weniger anzeigen"
+
+msgid "Undo and redo"
+msgstr "Rückgängig und Wiederholen"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Rückgängig und Wiederholen für Nachrichtenaktionen aktivieren"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Rückgängig (Strg+Z) und Wiederholen (Strg+Y) von Aktionen wie dem Löschen, Verschieben oder Kennzeichnen von Nachrichten. Das Aufzeichnen dieser Aktionen verursacht einen geringen Mehraufwand, daher ist die Funktion standardmässig deaktiviert."
+
+msgid "Undo"
+msgstr "Rückgängig"
+
+msgid "Redo"
+msgstr "Wiederholen"
+
+msgid "Undo: {0}"
+msgstr "Rückgängig: {0}"
+
+msgid "Redo: {0}"
+msgstr "Wiederholen: {0}"
+
+msgid "Nothing to undo"
+msgstr "Nichts rückgängig zu machen"
+
+msgid "Undo the last action"
+msgstr "Letzte Aktion rückgängig machen"
+
+msgid "Redo the last undone action"
+msgstr "Letzte rückgängig gemachte Aktion wiederholen"
+
+msgid "Undo failed"
+msgstr "Rückgängig machen fehlgeschlagen"
+
+msgid "Redo failed"
+msgstr "Wiederholen fehlgeschlagen"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} konnte nicht rückgängig gemacht werden. Das Element wurde in der Zwischenzeit möglicherweise verschoben, geändert oder entfernt."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} konnte nicht wiederholt werden. Das Element wurde in der Zwischenzeit möglicherweise verschoben, geändert oder entfernt."
+
+msgid "Delete {0}"
+msgstr "{0} löschen"
+
+msgid "Delete {0} items"
+msgstr "{0} Elemente löschen"
+
+msgid "Move {0} to {1}"
+msgstr "{0} in {1} verschieben"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} Elemente in {1} verschieben"
+
+msgid "Copy {0} to {1}"
+msgstr "{0} in {1} kopieren"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} Elemente in {1} kopieren"
+
+msgid "Create {0}"
+msgstr "{0} erstellen"
+
+msgid "Change flag"
+msgstr "Kennzeichnung ändern"
+
+msgid "Change categories"
+msgstr "Kategorien ändern"
+
+msgid "Change appointment time"
+msgstr "Terminzeit ändern"
+
+msgid "another folder"
+msgstr "einen anderen Ordner"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} Elemente"

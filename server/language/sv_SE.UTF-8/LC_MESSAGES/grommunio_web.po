@@ -8144,3 +8144,84 @@ msgstr[1] "{0} aviseringar till"
 
 msgid "Show less"
 msgstr "Visa mindre"
+
+msgid "Undo and redo"
+msgstr "Ångra och gör om"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Aktivera ångra och gör om för meddelandeåtgärder"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Ångra (Ctrl+Z) och gör om (Ctrl+Y) åtgärder som att radera, flytta eller flagga meddelanden. Att registrera dessa åtgärder medför en liten extra belastning, därför är funktionen inaktiverad som standard."
+
+msgid "Undo"
+msgstr "Ångra"
+
+msgid "Redo"
+msgstr "Gör om"
+
+msgid "Undo: {0}"
+msgstr "Ångra: {0}"
+
+msgid "Redo: {0}"
+msgstr "Gör om: {0}"
+
+msgid "Nothing to undo"
+msgstr "Inget att ångra"
+
+msgid "Undo the last action"
+msgstr "Ångra den senaste åtgärden"
+
+msgid "Redo the last undone action"
+msgstr "Gör om den senast ångrade åtgärden"
+
+msgid "Undo failed"
+msgstr "Ångra misslyckades"
+
+msgid "Redo failed"
+msgstr "Gör om misslyckades"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Det gick inte att ångra {0}. Objektet kan ha flyttats, ändrats eller tagits bort under tiden."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Det gick inte att göra om {0}. Objektet kan ha flyttats, ändrats eller tagits bort under tiden."
+
+msgid "Delete {0}"
+msgstr "Radera {0}"
+
+msgid "Delete {0} items"
+msgstr "Radera {0} objekt"
+
+msgid "Move {0} to {1}"
+msgstr "Flytta {0} till {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Flytta {0} objekt till {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Kopiera {0} till {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Kopiera {0} objekt till {1}"
+
+msgid "Create {0}"
+msgstr "Skapa {0}"
+
+msgid "Change flag"
+msgstr "Ändra flagga"
+
+msgid "Change categories"
+msgstr "Ändra kategorier"
+
+msgid "Change appointment time"
+msgstr "Ändra mötestid"
+
+msgid "another folder"
+msgstr "en annan mapp"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} objekt"

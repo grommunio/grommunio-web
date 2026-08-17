@@ -23,3 +23,84 @@ msgstr[1] "आणखी {0} सूचना"
 
 msgid "Show less"
 msgstr "कमी दाखवा"
+
+msgid "Undo and redo"
+msgstr "पूर्ववत करा आणि पुन्हा करा"
+
+msgid "Enable undo and redo of message actions"
+msgstr "संदेश क्रिया पूर्ववत करणे आणि पुन्हा करणे सक्षम करा"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "संदेश हटवणे, हलवणे किंवा ध्वजांकित करणे यांसारख्या क्रिया पूर्ववत (Ctrl+Z) आणि पुन्हा (Ctrl+Y) करता येतात. या क्रियांची नोंद ठेवल्याने थोडा अतिरिक्त भार पडतो, त्यामुळे हे वैशिष्ट्य डीफॉल्टनुसार अक्षम असते."
+
+msgid "Undo"
+msgstr "पूर्ववत करा"
+
+msgid "Redo"
+msgstr "पुन्हा करा"
+
+msgid "Undo: {0}"
+msgstr "पूर्ववत करा: {0}"
+
+msgid "Redo: {0}"
+msgstr "पुन्हा करा: {0}"
+
+msgid "Nothing to undo"
+msgstr "पूर्ववत करण्यासारखे काही नाही"
+
+msgid "Undo the last action"
+msgstr "शेवटची क्रिया पूर्ववत करा"
+
+msgid "Redo the last undone action"
+msgstr "शेवटची पूर्ववत केलेली क्रिया पुन्हा करा"
+
+msgid "Undo failed"
+msgstr "पूर्ववत करणे अयशस्वी झाले"
+
+msgid "Redo failed"
+msgstr "पुन्हा करणे अयशस्वी झाले"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} पूर्ववत करता आले नाही. आयटम या दरम्यान हलवला, बदलला किंवा काढून टाकला गेला असावा."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} पुन्हा करता आले नाही. आयटम या दरम्यान हलवला, बदलला किंवा काढून टाकला गेला असावा."
+
+msgid "Delete {0}"
+msgstr "{0} हटवा"
+
+msgid "Delete {0} items"
+msgstr "{0} आयटम हटवा"
+
+msgid "Move {0} to {1}"
+msgstr "{0} {1} फोल्डरमध्ये हलवा"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} आयटम {1} फोल्डरमध्ये हलवा"
+
+msgid "Copy {0} to {1}"
+msgstr "{0} {1} फोल्डरमध्ये कॉपी करा"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} आयटम {1} फोल्डरमध्ये कॉपी करा"
+
+msgid "Create {0}"
+msgstr "{0} तयार करा"
+
+msgid "Change flag"
+msgstr "ध्वज बदला"
+
+msgid "Change categories"
+msgstr "श्रेण्या बदला"
+
+msgid "Change appointment time"
+msgstr "अपॉइंटमेंटची वेळ बदला"
+
+msgid "another folder"
+msgstr "दुसऱ्या"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} आयटम"

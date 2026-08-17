@@ -8139,3 +8139,84 @@ msgstr "Some problem encountered when encoding/decoding JSON data: - %s"
 
 msgid "Legal Information"
 msgstr "Legal Information"
+
+msgid "Undo and redo"
+msgstr "Undo and redo"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Enable undo and redo of message actions"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+
+msgid "Undo"
+msgstr "Undo"
+
+msgid "Redo"
+msgstr "Redo"
+
+msgid "Undo: {0}"
+msgstr "Undo: {0}"
+
+msgid "Redo: {0}"
+msgstr "Redo: {0}"
+
+msgid "Nothing to undo"
+msgstr "Nothing to undo"
+
+msgid "Undo the last action"
+msgstr "Undo the last action"
+
+msgid "Redo the last undone action"
+msgstr "Redo the last undone action"
+
+msgid "Undo failed"
+msgstr "Undo failed"
+
+msgid "Redo failed"
+msgstr "Redo failed"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+
+msgid "Delete {0}"
+msgstr "Delete {0}"
+
+msgid "Delete {0} items"
+msgstr "Delete {0} items"
+
+msgid "Move {0} to {1}"
+msgstr "Move {0} to {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Move {0} items to {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Copy {0} to {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Copy {0} items to {1}"
+
+msgid "Create {0}"
+msgstr "Create {0}"
+
+msgid "Change flag"
+msgstr "Change flag"
+
+msgid "Change categories"
+msgstr "Change categories"
+
+msgid "Change appointment time"
+msgstr "Change appointment time"
+
+msgid "another folder"
+msgstr "another folder"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} items"

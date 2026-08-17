@@ -8167,3 +8167,84 @@ msgstr[2] "još {0} obavijesti"
 
 msgid "Show less"
 msgstr "Prikaži manje"
+
+msgid "Undo and redo"
+msgstr "Poništavanje i ponavljanje"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Omogući poništavanje i ponavljanje radnji nad porukama"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Poništavanje (Ctrl+Z) i ponavljanje (Ctrl+Y) radnji kao što su brisanje, premještanje ili označavanje poruka zastavom. Bilježenje tih radnji stvara mali dodatni trošak, stoga je značajka prema zadanim postavkama onemogućena."
+
+msgid "Undo"
+msgstr "Poništi"
+
+msgid "Redo"
+msgstr "Ponovi"
+
+msgid "Undo: {0}"
+msgstr "Poništi: {0}"
+
+msgid "Redo: {0}"
+msgstr "Ponovi: {0}"
+
+msgid "Nothing to undo"
+msgstr "Ništa za poništiti"
+
+msgid "Undo the last action"
+msgstr "Poništi zadnju radnju"
+
+msgid "Redo the last undone action"
+msgstr "Ponovi zadnju poništenu radnju"
+
+msgid "Undo failed"
+msgstr "Poništavanje nije uspjelo"
+
+msgid "Redo failed"
+msgstr "Ponavljanje nije uspjelo"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Nije moguće poništiti {0}. Stavka je u međuvremenu možda premještena, promijenjena ili uklonjena."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Nije moguće ponoviti {0}. Stavka je u međuvremenu možda premještena, promijenjena ili uklonjena."
+
+msgid "Delete {0}"
+msgstr "Izbriši {0}"
+
+msgid "Delete {0} items"
+msgstr "Izbriši stavke ({0})"
+
+msgid "Move {0} to {1}"
+msgstr "Premjesti {0} u {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Premjesti stavke ({0}) u {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Kopiraj {0} u {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Kopiraj stavke ({0}) u {1}"
+
+msgid "Create {0}"
+msgstr "Stvori {0}"
+
+msgid "Change flag"
+msgstr "Promijeni zastavu"
+
+msgid "Change categories"
+msgstr "Promijeni kategorije"
+
+msgid "Change appointment time"
+msgstr "Promijeni vrijeme termina"
+
+msgid "another folder"
+msgstr "drugu mapu"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: stavke ({1})"

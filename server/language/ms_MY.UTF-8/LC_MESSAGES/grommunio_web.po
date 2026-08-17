@@ -23,3 +23,84 @@ msgstr[1] "{0} notis lagi"
 
 msgid "Show less"
 msgstr "Tunjukkan kurang"
+
+msgid "Undo and redo"
+msgstr "Buat asal dan buat semula"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Dayakan buat asal dan buat semula bagi tindakan mesej"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Buat asal (Ctrl+Z) dan buat semula (Ctrl+Y) tindakan seperti memadam, mengalihkan atau menandakan bendera pada mesej. Merekod tindakan ini menambah sedikit beban tambahan, oleh itu ciri ini dinyahdayakan secara lalai."
+
+msgid "Undo"
+msgstr "Buat asal"
+
+msgid "Redo"
+msgstr "Buat semula"
+
+msgid "Undo: {0}"
+msgstr "Buat asal: {0}"
+
+msgid "Redo: {0}"
+msgstr "Buat semula: {0}"
+
+msgid "Nothing to undo"
+msgstr "Tiada tindakan untuk dibuat asal"
+
+msgid "Undo the last action"
+msgstr "Buat asal tindakan terakhir"
+
+msgid "Redo the last undone action"
+msgstr "Buat semula tindakan terakhir yang dibuat asal"
+
+msgid "Undo failed"
+msgstr "Buat asal gagal"
+
+msgid "Redo failed"
+msgstr "Buat semula gagal"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Tidak dapat membuat asal {0}. Item tersebut mungkin telah dialihkan, diubah atau dibuang sementara itu."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Tidak dapat membuat semula {0}. Item tersebut mungkin telah dialihkan, diubah atau dibuang sementara itu."
+
+msgid "Delete {0}"
+msgstr "Padam {0}"
+
+msgid "Delete {0} items"
+msgstr "Padam {0} item"
+
+msgid "Move {0} to {1}"
+msgstr "Alihkan {0} ke {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Alihkan {0} item ke {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Salin {0} ke {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Salin {0} item ke {1}"
+
+msgid "Create {0}"
+msgstr "Cipta {0}"
+
+msgid "Change flag"
+msgstr "Ubah bendera"
+
+msgid "Change categories"
+msgstr "Ubah kategori"
+
+msgid "Change appointment time"
+msgstr "Ubah masa janji temu"
+
+msgid "another folder"
+msgstr "folder lain"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} item"

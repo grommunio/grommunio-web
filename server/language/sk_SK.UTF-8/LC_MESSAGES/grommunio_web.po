@@ -23,3 +23,84 @@ msgstr[1] "{0} ďalšie upozornenia"
 
 msgid "Show less"
 msgstr "Zobraziť menej"
+
+msgid "Undo and redo"
+msgstr "Späť a znova"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Povoliť funkcie Späť a Znova pre akcie so správami"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Vrátenie späť (Ctrl+Z) a opätovné vykonanie (Ctrl+Y) akcií, ako je odstránenie, presunutie alebo označenie správ príznakom. Zaznamenávanie týchto akcií spôsobuje malú dodatočnú záťaž, preto je táto funkcia predvolene vypnutá."
+
+msgid "Undo"
+msgstr "Späť"
+
+msgid "Redo"
+msgstr "Znova"
+
+msgid "Undo: {0}"
+msgstr "Späť: {0}"
+
+msgid "Redo: {0}"
+msgstr "Znova: {0}"
+
+msgid "Nothing to undo"
+msgstr "Nie je čo vrátiť späť"
+
+msgid "Undo the last action"
+msgstr "Vrátiť späť poslednú akciu"
+
+msgid "Redo the last undone action"
+msgstr "Znova vykonať poslednú vrátenú akciu"
+
+msgid "Undo failed"
+msgstr "Vrátenie späť zlyhalo"
+
+msgid "Redo failed"
+msgstr "Opätovné vykonanie zlyhalo"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Nepodarilo sa vrátiť späť: {0}. Položka mohla byť medzitým presunutá, zmenená alebo odstránená."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Nepodarilo sa znova vykonať: {0}. Položka mohla byť medzitým presunutá, zmenená alebo odstránená."
+
+msgid "Delete {0}"
+msgstr "Odstránenie {0}"
+
+msgid "Delete {0} items"
+msgstr "Odstránenie položiek ({0})"
+
+msgid "Move {0} to {1}"
+msgstr "Presunutie {0} do {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Presunutie položiek ({0}) do {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Skopírovanie {0} do {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Skopírovanie položiek ({0}) do {1}"
+
+msgid "Create {0}"
+msgstr "Vytvorenie {0}"
+
+msgid "Change flag"
+msgstr "Zmena príznaku"
+
+msgid "Change categories"
+msgstr "Zmena kategórií"
+
+msgid "Change appointment time"
+msgstr "Zmena času plánovanej činnosti"
+
+msgid "another folder"
+msgstr "iného priečinka"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: položky ({1})"

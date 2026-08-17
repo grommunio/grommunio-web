@@ -23,3 +23,84 @@ msgstr[1] "Още {0} известия"
 
 msgid "Show less"
 msgstr "Покажи по-малко"
+
+msgid "Undo and redo"
+msgstr "Отмяна и връщане"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Разрешаване на отмяна и връщане на действията със съобщения"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Отмяна (Ctrl+Z) и връщане (Ctrl+Y) на действия като изтриване, преместване или маркиране на съобщения с флаг. Записването на тези действия добавя малко допълнително натоварване, затова функцията е изключена по подразбиране."
+
+msgid "Undo"
+msgstr "Отмени"
+
+msgid "Redo"
+msgstr "Върни"
+
+msgid "Undo: {0}"
+msgstr "Отмени: {0}"
+
+msgid "Redo: {0}"
+msgstr "Върни: {0}"
+
+msgid "Nothing to undo"
+msgstr "Няма нищо за отмяна"
+
+msgid "Undo the last action"
+msgstr "Отмяна на последното действие"
+
+msgid "Redo the last undone action"
+msgstr "Връщане на последното отменено действие"
+
+msgid "Undo failed"
+msgstr "Неуспешна отмяна"
+
+msgid "Redo failed"
+msgstr "Неуспешно връщане"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Не можа да се отмени: {0}. Възможно е междувременно елементът да е бил преместен, променен или премахнат."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Не можа да се върне: {0}. Възможно е междувременно елементът да е бил преместен, променен или премахнат."
+
+msgid "Delete {0}"
+msgstr "Изтриване на {0}"
+
+msgid "Delete {0} items"
+msgstr "Изтриване на {0} елемента"
+
+msgid "Move {0} to {1}"
+msgstr "Преместване на {0} в {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Преместване на {0} елемента в {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Копиране на {0} в {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Копиране на {0} елемента в {1}"
+
+msgid "Create {0}"
+msgstr "Създаване на {0}"
+
+msgid "Change flag"
+msgstr "Промяна на флага"
+
+msgid "Change categories"
+msgstr "Промяна на категориите"
+
+msgid "Change appointment time"
+msgstr "Промяна на часа на срещата"
+
+msgid "another folder"
+msgstr "друга папка"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} елемента"

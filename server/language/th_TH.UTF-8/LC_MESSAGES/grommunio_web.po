@@ -23,3 +23,84 @@ msgstr[1] "การแจ้งเตือนอีก {0} รายการ"
 
 msgid "Show less"
 msgstr "แสดงน้อยลง"
+
+msgid "Undo and redo"
+msgstr "เลิกทำและทำซ้ำ"
+
+msgid "Enable undo and redo of message actions"
+msgstr "เปิดใช้งานการเลิกทำและทำซ้ำการดำเนินการกับข้อความ"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "เลิกทำ (Ctrl+Z) และทำซ้ำ (Ctrl+Y) การดำเนินการต่าง ๆ เช่น การลบ การย้าย หรือการตั้งค่าสถานะข้อความ การบันทึกการดำเนินการเหล่านี้เพิ่มภาระเล็กน้อย ฟีเจอร์นี้จึงถูกปิดใช้งานตามค่าเริ่มต้น"
+
+msgid "Undo"
+msgstr "เลิกทำ"
+
+msgid "Redo"
+msgstr "ทำซ้ำ"
+
+msgid "Undo: {0}"
+msgstr "เลิกทำ: {0}"
+
+msgid "Redo: {0}"
+msgstr "ทำซ้ำ: {0}"
+
+msgid "Nothing to undo"
+msgstr "ไม่มีสิ่งที่จะเลิกทำ"
+
+msgid "Undo the last action"
+msgstr "เลิกทำการดำเนินการล่าสุด"
+
+msgid "Redo the last undone action"
+msgstr "ทำซ้ำการดำเนินการที่เลิกทำล่าสุด"
+
+msgid "Undo failed"
+msgstr "การเลิกทำล้มเหลว"
+
+msgid "Redo failed"
+msgstr "การทำซ้ำล้มเหลว"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "ไม่สามารถเลิกทำ {0} ได้ รายการอาจถูกย้าย เปลี่ยนแปลง หรือลบไปแล้วในระหว่างนี้"
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "ไม่สามารถทำซ้ำ {0} ได้ รายการอาจถูกย้าย เปลี่ยนแปลง หรือลบไปแล้วในระหว่างนี้"
+
+msgid "Delete {0}"
+msgstr "ลบ {0}"
+
+msgid "Delete {0} items"
+msgstr "ลบ {0} รายการ"
+
+msgid "Move {0} to {1}"
+msgstr "ย้าย {0} ไปยัง {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "ย้าย {0} รายการไปยัง {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "คัดลอก {0} ไปยัง {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "คัดลอก {0} รายการไปยัง {1}"
+
+msgid "Create {0}"
+msgstr "สร้าง {0}"
+
+msgid "Change flag"
+msgstr "เปลี่ยนค่าสถานะ"
+
+msgid "Change categories"
+msgstr "เปลี่ยนหมวดหมู่"
+
+msgid "Change appointment time"
+msgstr "เปลี่ยนเวลาการนัดหมาย"
+
+msgid "another folder"
+msgstr "โฟลเดอร์อื่น"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} รายการ"

@@ -23,3 +23,84 @@ msgstr[1] "ଆଉ {0}ଟି ବିଜ୍ଞପ୍ତି"
 
 msgid "Show less"
 msgstr "କମ୍ ଦେଖାନ୍ତୁ"
+
+msgid "Undo and redo"
+msgstr "ପୂର୍ବବତ୍ ଏବଂ ପୁନଃ କରନ୍ତୁ"
+
+msgid "Enable undo and redo of message actions"
+msgstr "ବାର୍ତ୍ତା କାର୍ଯ୍ୟଗୁଡ଼ିକୁ ପୂର୍ବବତ୍ ଏବଂ ପୁନଃ କରିବା ସକ୍ଷମ କରନ୍ତୁ"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "ବାର୍ତ୍ତା ବିଲୋପ କରିବା, ଘୁଞ୍ଚାଇବା କିମ୍ବା ଫ୍ଲାଗ୍ କରିବା ଭଳି କାର୍ଯ୍ୟଗୁଡ଼ିକୁ ପୂର୍ବବତ୍ (Ctrl+Z) ଏବଂ ପୁନଃ (Ctrl+Y) କରନ୍ତୁ। ଏହି କାର୍ଯ୍ୟଗୁଡ଼ିକୁ ରେକର୍ଡ କରିବା ଦ୍ୱାରା ସାମାନ୍ୟ ଅତିରିକ୍ତ ଭାର ପଡ଼େ, ତେଣୁ ଏହି ସୁବିଧା ଡିଫଲ୍ଟ ଭାବରେ ଅକ୍ଷମ ଅଛି।"
+
+msgid "Undo"
+msgstr "ପୂର୍ବବତ୍ କରନ୍ତୁ"
+
+msgid "Redo"
+msgstr "ପୁନଃ କରନ୍ତୁ"
+
+msgid "Undo: {0}"
+msgstr "ପୂର୍ବବତ୍ କରନ୍ତୁ: {0}"
+
+msgid "Redo: {0}"
+msgstr "ପୁନଃ କରନ୍ତୁ: {0}"
+
+msgid "Nothing to undo"
+msgstr "ପୂର୍ବବତ୍ କରିବାକୁ କିଛି ନାହିଁ"
+
+msgid "Undo the last action"
+msgstr "ଶେଷ କାର୍ଯ୍ୟକୁ ପୂର୍ବବତ୍ କରନ୍ତୁ"
+
+msgid "Redo the last undone action"
+msgstr "ଶେଷ ପୂର୍ବବତ୍ କରାଯାଇଥିବା କାର୍ଯ୍ୟକୁ ପୁନଃ କରନ୍ତୁ"
+
+msgid "Undo failed"
+msgstr "ପୂର୍ବବତ୍ କରିବା ବିଫଳ ହେଲା"
+
+msgid "Redo failed"
+msgstr "ପୁନଃ କରିବା ବିଫଳ ହେଲା"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} ପୂର୍ବବତ୍ କରିହେଲା ନାହିଁ। ଏହି ମଧ୍ୟରେ ଆଇଟମ୍ ଘୁଞ୍ଚାଯାଇଥାଇପାରେ, ପରିବର୍ତ୍ତନ କରାଯାଇଥାଇପାରେ କିମ୍ବା ହଟାଯାଇଥାଇପାରେ।"
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} ପୁନଃ କରିହେଲା ନାହିଁ। ଏହି ମଧ୍ୟରେ ଆଇଟମ୍ ଘୁଞ୍ଚାଯାଇଥାଇପାରେ, ପରିବର୍ତ୍ତନ କରାଯାଇଥାଇପାରେ କିମ୍ବା ହଟାଯାଇଥାଇପାରେ।"
+
+msgid "Delete {0}"
+msgstr "{0} ବିଲୋପ କରିବା"
+
+msgid "Delete {0} items"
+msgstr "{0}ଟି ଆଇଟମ୍ ବିଲୋପ କରିବା"
+
+msgid "Move {0} to {1}"
+msgstr "{0}କୁ {1}କୁ ଘୁଞ୍ଚାଇବା"
+
+msgid "Move {0} items to {1}"
+msgstr "{0}ଟି ଆଇଟମ୍ {1}କୁ ଘୁଞ୍ଚାଇବା"
+
+msgid "Copy {0} to {1}"
+msgstr "{0}କୁ {1}କୁ କପି କରିବା"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0}ଟି ଆଇଟମ୍ {1}କୁ କପି କରିବା"
+
+msgid "Create {0}"
+msgstr "{0} ସୃଷ୍ଟି କରିବା"
+
+msgid "Change flag"
+msgstr "ଫ୍ଲାଗ୍ ପରିବର୍ତ୍ତନ"
+
+msgid "Change categories"
+msgstr "ବର୍ଗ ପରିବର୍ତ୍ତନ"
+
+msgid "Change appointment time"
+msgstr "ଆପଏଣ୍ଟମେଣ୍ଟ ସମୟ ପରିବର୍ତ୍ତନ"
+
+msgid "another folder"
+msgstr "ଅନ୍ୟ ଏକ ଫୋଲ୍ଡର"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1}ଟି ଆଇଟମ୍"

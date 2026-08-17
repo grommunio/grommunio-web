@@ -23,3 +23,84 @@ msgstr[1] "{0} thông báo khác"
 
 msgid "Show less"
 msgstr "Thu gọn"
+
+msgid "Undo and redo"
+msgstr "Hoàn tác và làm lại"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Bật hoàn tác và làm lại các thao tác với thư"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Hoàn tác (Ctrl+Z) và làm lại (Ctrl+Y) các thao tác như xóa, di chuyển hoặc gắn cờ thư. Việc ghi lại các thao tác này tạo thêm một chút chi phí xử lý, do đó tính năng này bị tắt theo mặc định."
+
+msgid "Undo"
+msgstr "Hoàn tác"
+
+msgid "Redo"
+msgstr "Làm lại"
+
+msgid "Undo: {0}"
+msgstr "Hoàn tác: {0}"
+
+msgid "Redo: {0}"
+msgstr "Làm lại: {0}"
+
+msgid "Nothing to undo"
+msgstr "Không có gì để hoàn tác"
+
+msgid "Undo the last action"
+msgstr "Hoàn tác thao tác cuối cùng"
+
+msgid "Redo the last undone action"
+msgstr "Làm lại thao tác vừa hoàn tác"
+
+msgid "Undo failed"
+msgstr "Hoàn tác thất bại"
+
+msgid "Redo failed"
+msgstr "Làm lại thất bại"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Không thể hoàn tác {0}. Mục này có thể đã bị di chuyển, thay đổi hoặc xóa trong thời gian đó."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Không thể làm lại {0}. Mục này có thể đã bị di chuyển, thay đổi hoặc xóa trong thời gian đó."
+
+msgid "Delete {0}"
+msgstr "Xóa {0}"
+
+msgid "Delete {0} items"
+msgstr "Xóa {0} mục"
+
+msgid "Move {0} to {1}"
+msgstr "Di chuyển {0} đến {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Di chuyển {0} mục đến {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Sao chép {0} vào {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Sao chép {0} mục vào {1}"
+
+msgid "Create {0}"
+msgstr "Tạo {0}"
+
+msgid "Change flag"
+msgstr "Thay đổi cờ"
+
+msgid "Change categories"
+msgstr "Thay đổi danh mục"
+
+msgid "Change appointment time"
+msgstr "Thay đổi thời gian cuộc hẹn"
+
+msgid "another folder"
+msgstr "thư mục khác"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} mục"

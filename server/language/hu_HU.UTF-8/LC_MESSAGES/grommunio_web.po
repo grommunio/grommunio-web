@@ -8239,3 +8239,84 @@ msgstr[1] "még {0} értesítés"
 
 msgid "Show less"
 msgstr "Kevesebb megjelenítése"
+
+msgid "Undo and redo"
+msgstr "Visszavonás és ismétlés"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Üzenetműveletek visszavonásának és ismétlésének engedélyezése"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Olyan műveletek visszavonása (Ctrl+Z) és ismétlése (Ctrl+Y), mint az üzenetek törlése, áthelyezése vagy megjelölése. A műveletek rögzítése kis többletterheléssel jár, ezért a funkció alapértelmezés szerint ki van kapcsolva."
+
+msgid "Undo"
+msgstr "Visszavonás"
+
+msgid "Redo"
+msgstr "Ismétlés"
+
+msgid "Undo: {0}"
+msgstr "Visszavonás: {0}"
+
+msgid "Redo: {0}"
+msgstr "Ismétlés: {0}"
+
+msgid "Nothing to undo"
+msgstr "Nincs visszavonható művelet"
+
+msgid "Undo the last action"
+msgstr "Az utolsó művelet visszavonása"
+
+msgid "Redo the last undone action"
+msgstr "Az utoljára visszavont művelet megismétlése"
+
+msgid "Undo failed"
+msgstr "A visszavonás nem sikerült"
+
+msgid "Redo failed"
+msgstr "Az ismétlés nem sikerült"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Nem sikerült visszavonni a következő műveletet: {0}. Az elemet időközben áthelyezhették, módosíthatták vagy eltávolíthatták."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Nem sikerült megismételni a következő műveletet: {0}. Az elemet időközben áthelyezhették, módosíthatták vagy eltávolíthatták."
+
+msgid "Delete {0}"
+msgstr "{0} törlése"
+
+msgid "Delete {0} items"
+msgstr "{0} elem törlése"
+
+msgid "Move {0} to {1}"
+msgstr "{0} áthelyezése ide: {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} elem áthelyezése ide: {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "{0} másolása ide: {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} elem másolása ide: {1}"
+
+msgid "Create {0}"
+msgstr "{0} létrehozása"
+
+msgid "Change flag"
+msgstr "Jelölő módosítása"
+
+msgid "Change categories"
+msgstr "Kategóriák módosítása"
+
+msgid "Change appointment time"
+msgstr "Találkozó időpontjának módosítása"
+
+msgid "another folder"
+msgstr "másik mappa"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} elem"

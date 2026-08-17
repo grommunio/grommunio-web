@@ -23,3 +23,84 @@ msgstr[1] "మరిన్ని {0} గమనికలు"
 
 msgid "Show less"
 msgstr "తక్కువ చూపించు"
+
+msgid "Undo and redo"
+msgstr "చర్యరద్దు మరియు మళ్ళీ చేయడం"
+
+msgid "Enable undo and redo of message actions"
+msgstr "సందేశ చర్యలను చర్యరద్దు చేయడం మరియు మళ్ళీ చేయడం ప్రారంభించండి"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "సందేశాలను తొలగించడం, తరలించడం లేదా ఫ్లాగ్ చేయడం వంటి చర్యల చర్యరద్దు (Ctrl+Z) మరియు మళ్ళీ చేయడం (Ctrl+Y). ఈ చర్యలను నమోదు చేయడం వలన కొంత అదనపు భారం పడుతుంది, అందువల్ల ఈ ఫీచర్ డిఫాల్ట్‌గా నిలిపివేయబడింది."
+
+msgid "Undo"
+msgstr "చర్యరద్దు"
+
+msgid "Redo"
+msgstr "మళ్ళీ చేయి"
+
+msgid "Undo: {0}"
+msgstr "చర్యరద్దు: {0}"
+
+msgid "Redo: {0}"
+msgstr "మళ్ళీ చేయి: {0}"
+
+msgid "Nothing to undo"
+msgstr "చర్యరద్దు చేయడానికి ఏమీ లేదు"
+
+msgid "Undo the last action"
+msgstr "చివరి చర్యను రద్దు చేయండి"
+
+msgid "Redo the last undone action"
+msgstr "చివరిగా రద్దు చేసిన చర్యను మళ్ళీ చేయండి"
+
+msgid "Undo failed"
+msgstr "చర్యరద్దు విఫలమైంది"
+
+msgid "Redo failed"
+msgstr "మళ్ళీ చేయడం విఫలమైంది"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} రద్దు చేయలేకపోయాము. ఈలోగా అంశం తరలించబడి, మార్చబడి లేదా తీసివేయబడి ఉండవచ్చు."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} మళ్ళీ చేయలేకపోయాము. ఈలోగా అంశం తరలించబడి, మార్చబడి లేదా తీసివేయబడి ఉండవచ్చు."
+
+msgid "Delete {0}"
+msgstr "{0}ను తొలగించడం"
+
+msgid "Delete {0} items"
+msgstr "{0} అంశాలను తొలగించడం"
+
+msgid "Move {0} to {1}"
+msgstr "{0}ను {1}కు తరలించడం"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} అంశాలను {1}కు తరలించడం"
+
+msgid "Copy {0} to {1}"
+msgstr "{0}ను {1}కు కాపీ చేయడం"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} అంశాలను {1}కు కాపీ చేయడం"
+
+msgid "Create {0}"
+msgstr "{0}ను సృష్టించడం"
+
+msgid "Change flag"
+msgstr "ఫ్లాగ్ మార్చడం"
+
+msgid "Change categories"
+msgstr "వర్గాలను మార్చడం"
+
+msgid "Change appointment time"
+msgstr "అపాయింట్‌మెంట్ సమయాన్ని మార్చడం"
+
+msgid "another folder"
+msgstr "మరో ఫోల్డర్"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} అంశాలు"

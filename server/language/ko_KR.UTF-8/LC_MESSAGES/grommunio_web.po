@@ -8119,3 +8119,84 @@ msgstr[0] "안내 {0}개 더 보기"
 
 msgid "Show less"
 msgstr "간략히 보기"
+
+msgid "Undo and redo"
+msgstr "실행 취소 및 다시 실행"
+
+msgid "Enable undo and redo of message actions"
+msgstr "메시지 작업의 실행 취소 및 다시 실행 사용 설정"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "메시지 삭제, 이동, 플래그 설정과 같은 작업의 실행 취소(Ctrl+Z) 및 다시 실행(Ctrl+Y) 기능입니다. 이러한 작업을 기록하면 약간의 오버헤드가 발생하므로 이 기능은 기본적으로 비활성화되어 있습니다."
+
+msgid "Undo"
+msgstr "실행 취소"
+
+msgid "Redo"
+msgstr "다시 실행"
+
+msgid "Undo: {0}"
+msgstr "실행 취소: {0}"
+
+msgid "Redo: {0}"
+msgstr "다시 실행: {0}"
+
+msgid "Nothing to undo"
+msgstr "실행 취소할 작업 없음"
+
+msgid "Undo the last action"
+msgstr "마지막 작업 실행 취소"
+
+msgid "Redo the last undone action"
+msgstr "마지막으로 실행 취소한 작업 다시 실행"
+
+msgid "Undo failed"
+msgstr "실행 취소 실패"
+
+msgid "Redo failed"
+msgstr "다시 실행 실패"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} 작업을 실행 취소할 수 없습니다. 해당 항목이 그동안 이동, 변경 또는 삭제되었을 수 있습니다."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} 작업을 다시 실행할 수 없습니다. 해당 항목이 그동안 이동, 변경 또는 삭제되었을 수 있습니다."
+
+msgid "Delete {0}"
+msgstr "{0} 삭제"
+
+msgid "Delete {0} items"
+msgstr "{0}개 항목 삭제"
+
+msgid "Move {0} to {1}"
+msgstr "{0}을(를) {1}(으)로 이동"
+
+msgid "Move {0} items to {1}"
+msgstr "{0}개 항목을 {1}(으)로 이동"
+
+msgid "Copy {0} to {1}"
+msgstr "{0}을(를) {1}(으)로 복사"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0}개 항목을 {1}(으)로 복사"
+
+msgid "Create {0}"
+msgstr "{0} 만들기"
+
+msgid "Change flag"
+msgstr "플래그 변경"
+
+msgid "Change categories"
+msgstr "카테고리 변경"
+
+msgid "Change appointment time"
+msgstr "약속 시간 변경"
+
+msgid "another folder"
+msgstr "다른 폴더"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1}개 항목"

@@ -8170,3 +8170,84 @@ msgstr[1] "{0} altri avvisi"
 
 msgid "Show less"
 msgstr "Mostra meno"
+
+msgid "Undo and redo"
+msgstr "Annulla e ripeti"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Abilita l'annullamento e la ripetizione delle azioni sui messaggi"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Annullamento (Ctrl+Z) e ripetizione (Ctrl+Y) di azioni come eliminare, spostare o contrassegnare i messaggi. La registrazione di queste azioni comporta un piccolo sovraccarico, pertanto la funzione è disabilitata per impostazione predefinita."
+
+msgid "Undo"
+msgstr "Annulla"
+
+msgid "Redo"
+msgstr "Ripeti"
+
+msgid "Undo: {0}"
+msgstr "Annulla: {0}"
+
+msgid "Redo: {0}"
+msgstr "Ripeti: {0}"
+
+msgid "Nothing to undo"
+msgstr "Niente da annullare"
+
+msgid "Undo the last action"
+msgstr "Annulla l'ultima azione"
+
+msgid "Redo the last undone action"
+msgstr "Ripeti l'ultima azione annullata"
+
+msgid "Undo failed"
+msgstr "Annullamento non riuscito"
+
+msgid "Redo failed"
+msgstr "Ripetizione non riuscita"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Impossibile annullare {0}. Nel frattempo l'elemento potrebbe essere stato spostato, modificato o rimosso."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Impossibile ripetere {0}. Nel frattempo l'elemento potrebbe essere stato spostato, modificato o rimosso."
+
+msgid "Delete {0}"
+msgstr "Elimina {0}"
+
+msgid "Delete {0} items"
+msgstr "Elimina {0} elementi"
+
+msgid "Move {0} to {1}"
+msgstr "Sposta {0} in {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Sposta {0} elementi in {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Copia {0} in {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Copia {0} elementi in {1}"
+
+msgid "Create {0}"
+msgstr "Crea {0}"
+
+msgid "Change flag"
+msgstr "Cambia bandierina"
+
+msgid "Change categories"
+msgstr "Cambia categorie"
+
+msgid "Change appointment time"
+msgstr "Cambia orario dell'appuntamento"
+
+msgid "another folder"
+msgstr "un'altra cartella"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} elementi"

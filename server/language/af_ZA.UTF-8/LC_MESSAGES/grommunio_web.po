@@ -23,3 +23,84 @@ msgstr[1] "Nog {0} kennisgewings"
 
 msgid "Show less"
 msgstr "Wys minder"
+
+msgid "Undo and redo"
+msgstr "Ontdoen en herdoen"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Aktiveer ontdoen en herdoen van boodskapaksies"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Ontdoen (Ctrl+Z) en herdoen (Ctrl+Y) van aksies soos om boodskappe uit te vee, te skuif of van 'n vlaggie te voorsien. Die aanteken van hierdie aksies veroorsaak 'n klein bykomende las; daarom is hierdie funksie by verstek gedeaktiveer."
+
+msgid "Undo"
+msgstr "Ontdoen"
+
+msgid "Redo"
+msgstr "Herdoen"
+
+msgid "Undo: {0}"
+msgstr "Ontdoen: {0}"
+
+msgid "Redo: {0}"
+msgstr "Herdoen: {0}"
+
+msgid "Nothing to undo"
+msgstr "Niks om te ontdoen nie"
+
+msgid "Undo the last action"
+msgstr "Ontdoen die laaste aksie"
+
+msgid "Redo the last undone action"
+msgstr "Herdoen die laaste aksie wat ontdoen is"
+
+msgid "Undo failed"
+msgstr "Ontdoen het misluk"
+
+msgid "Redo failed"
+msgstr "Herdoen het misluk"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Kon nie {0} ontdoen nie. Die item is dalk intussen geskuif, gewysig of verwyder."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Kon nie {0} herdoen nie. Die item is dalk intussen geskuif, gewysig of verwyder."
+
+msgid "Delete {0}"
+msgstr "{0} uitvee"
+
+msgid "Delete {0} items"
+msgstr "{0} items uitvee"
+
+msgid "Move {0} to {1}"
+msgstr "{0} na {1} skuif"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} items na {1} skuif"
+
+msgid "Copy {0} to {1}"
+msgstr "{0} na {1} kopieer"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} items na {1} kopieer"
+
+msgid "Create {0}"
+msgstr "{0} skep"
+
+msgid "Change flag"
+msgstr "Vlaggie verander"
+
+msgid "Change categories"
+msgstr "Kategorieë verander"
+
+msgid "Change appointment time"
+msgstr "Afspraaktyd verander"
+
+msgid "another folder"
+msgstr "'n ander vouer"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} items"

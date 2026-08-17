@@ -8155,3 +8155,84 @@ msgstr[1] "mais {0} avisos"
 
 msgid "Show less"
 msgstr "Mostrar menos"
+
+msgid "Undo and redo"
+msgstr "Desfazer e refazer"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Habilitar o desfazer e refazer de ações em mensagens"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Desfazer (Ctrl+Z) e refazer (Ctrl+Y) ações como excluir, mover ou sinalizar mensagens. O registro dessas ações gera uma pequena sobrecarga, por isso o recurso vem desativado por padrão."
+
+msgid "Undo"
+msgstr "Desfazer"
+
+msgid "Redo"
+msgstr "Refazer"
+
+msgid "Undo: {0}"
+msgstr "Desfazer: {0}"
+
+msgid "Redo: {0}"
+msgstr "Refazer: {0}"
+
+msgid "Nothing to undo"
+msgstr "Nada para desfazer"
+
+msgid "Undo the last action"
+msgstr "Desfazer a última ação"
+
+msgid "Redo the last undone action"
+msgstr "Refazer a última ação desfeita"
+
+msgid "Undo failed"
+msgstr "Falha ao desfazer"
+
+msgid "Redo failed"
+msgstr "Falha ao refazer"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Não foi possível desfazer {0}. O item pode ter sido movido, alterado ou removido nesse meio-tempo."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Não foi possível refazer {0}. O item pode ter sido movido, alterado ou removido nesse meio-tempo."
+
+msgid "Delete {0}"
+msgstr "Excluir {0}"
+
+msgid "Delete {0} items"
+msgstr "Excluir {0} itens"
+
+msgid "Move {0} to {1}"
+msgstr "Mover {0} para {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Mover {0} itens para {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Copiar {0} para {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Copiar {0} itens para {1}"
+
+msgid "Create {0}"
+msgstr "Criar {0}"
+
+msgid "Change flag"
+msgstr "Alterar bandeira"
+
+msgid "Change categories"
+msgstr "Alterar categorias"
+
+msgid "Change appointment time"
+msgstr "Alterar horário do compromisso"
+
+msgid "another folder"
+msgstr "outra pasta"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} itens"

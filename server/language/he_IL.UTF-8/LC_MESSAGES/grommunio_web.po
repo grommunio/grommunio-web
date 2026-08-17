@@ -8156,3 +8156,84 @@ msgstr[1] "{0} הודעות נוספות"
 
 msgid "Show less"
 msgstr "הראה פחות"
+
+msgid "Undo and redo"
+msgstr "ביטול וביצוע מחדש"
+
+msgid "Enable undo and redo of message actions"
+msgstr "אפשר ביטול וביצוע מחדש של פעולות על הודעות"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "ביטול (Ctrl+Z) וביצוע מחדש (Ctrl+Y) של פעולות כגון מחיקה, העברה או סימון בדגל של הודעות. תיעוד פעולות אלה מוסיף עומס קל, ולכן התכונה מושבתת כברירת מחדל."
+
+msgid "Undo"
+msgstr "בטל"
+
+msgid "Redo"
+msgstr "בצע שוב"
+
+msgid "Undo: {0}"
+msgstr "בטל: {0}"
+
+msgid "Redo: {0}"
+msgstr "בצע שוב: {0}"
+
+msgid "Nothing to undo"
+msgstr "אין מה לבטל"
+
+msgid "Undo the last action"
+msgstr "בטל את הפעולה האחרונה"
+
+msgid "Redo the last undone action"
+msgstr "בצע שוב את הפעולה האחרונה שבוטלה"
+
+msgid "Undo failed"
+msgstr "הביטול נכשל"
+
+msgid "Redo failed"
+msgstr "הביצוע מחדש נכשל"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "לא ניתן היה לבטל את {0}. ייתכן שהפריט הועבר, שונה או הוסר בינתיים."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "לא ניתן היה לבצע שוב את {0}. ייתכן שהפריט הועבר, שונה או הוסר בינתיים."
+
+msgid "Delete {0}"
+msgstr "מחיקת {0}"
+
+msgid "Delete {0} items"
+msgstr "מחיקת {0} פריטים"
+
+msgid "Move {0} to {1}"
+msgstr "העברת {0} אל {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "העברת {0} פריטים אל {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "העתקת {0} אל {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "העתקת {0} פריטים אל {1}"
+
+msgid "Create {0}"
+msgstr "יצירת {0}"
+
+msgid "Change flag"
+msgstr "שינוי דגל"
+
+msgid "Change categories"
+msgstr "שינוי קטגוריות"
+
+msgid "Change appointment time"
+msgstr "שינוי שעת הפגישה"
+
+msgid "another folder"
+msgstr "תיקיה אחרת"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} פריטים"

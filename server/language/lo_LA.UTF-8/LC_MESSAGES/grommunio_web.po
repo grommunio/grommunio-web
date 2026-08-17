@@ -23,3 +23,84 @@ msgstr[1] "ແຈ້ງການອີກ {0} ລາຍການ"
 
 msgid "Show less"
 msgstr "ສະແດງໜ້ອຍລົງ"
+
+msgid "Undo and redo"
+msgstr "ຍົກເລີກ ແລະ ເຮັດຄືນ"
+
+msgid "Enable undo and redo of message actions"
+msgstr "ເປີດໃຊ້ການຍົກເລີກ ແລະ ເຮັດຄືນການກະທຳກັບຂໍ້ຄວາມ"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "ຍົກເລີກ (Ctrl+Z) ແລະ ເຮັດຄືນ (Ctrl+Y) ການກະທຳຕ່າງໆ ເຊັ່ນ ການລຶບ, ການຍ້າຍ ຫຼື ການຕິດທຸງຂໍ້ຄວາມ. ການບັນທຶກການກະທຳເຫຼົ່ານີ້ເພີ່ມພາລະເລັກນ້ອຍ, ດັ່ງນັ້ນຄຸນສົມບັດນີ້ຈຶ່ງຖືກປິດໄວ້ໂດຍຄ່າເລີ່ມຕົ້ນ."
+
+msgid "Undo"
+msgstr "ຍົກເລີກ"
+
+msgid "Redo"
+msgstr "ເຮັດຄືນ"
+
+msgid "Undo: {0}"
+msgstr "ຍົກເລີກ: {0}"
+
+msgid "Redo: {0}"
+msgstr "ເຮັດຄືນ: {0}"
+
+msgid "Nothing to undo"
+msgstr "ບໍ່ມີຫຍັງໃຫ້ຍົກເລີກ"
+
+msgid "Undo the last action"
+msgstr "ຍົກເລີກການກະທຳຫຼ້າສຸດ"
+
+msgid "Redo the last undone action"
+msgstr "ເຮັດຄືນການກະທຳທີ່ຖືກຍົກເລີກຫຼ້າສຸດ"
+
+msgid "Undo failed"
+msgstr "ການຍົກເລີກລົ້ມເຫຼວ"
+
+msgid "Redo failed"
+msgstr "ການເຮັດຄືນລົ້ມເຫຼວ"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "ບໍ່ສາມາດຍົກເລີກ {0} ໄດ້. ລາຍການອາດຖືກຍ້າຍ, ປ່ຽນແປງ ຫຼື ລຶບອອກໄປແລ້ວໃນລະຫວ່າງນັ້ນ."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "ບໍ່ສາມາດເຮັດຄືນ {0} ໄດ້. ລາຍການອາດຖືກຍ້າຍ, ປ່ຽນແປງ ຫຼື ລຶບອອກໄປແລ້ວໃນລະຫວ່າງນັ້ນ."
+
+msgid "Delete {0}"
+msgstr "ລຶບ {0}"
+
+msgid "Delete {0} items"
+msgstr "ລຶບ {0} ລາຍການ"
+
+msgid "Move {0} to {1}"
+msgstr "ຍ້າຍ {0} ໄປທີ່ {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "ຍ້າຍ {0} ລາຍການໄປທີ່ {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "ສຳເນົາ {0} ໄປທີ່ {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "ສຳເນົາ {0} ລາຍການໄປທີ່ {1}"
+
+msgid "Create {0}"
+msgstr "ສ້າງ {0}"
+
+msgid "Change flag"
+msgstr "ປ່ຽນທຸງ"
+
+msgid "Change categories"
+msgstr "ປ່ຽນໝວດໝູ່"
+
+msgid "Change appointment time"
+msgstr "ປ່ຽນເວລານັດໝາຍ"
+
+msgid "another folder"
+msgstr "ໂຟນເດີອື່ນ"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} ລາຍການ"

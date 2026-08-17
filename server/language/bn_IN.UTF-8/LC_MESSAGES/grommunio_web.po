@@ -23,3 +23,84 @@ msgstr[1] "আরও {0}টি বিজ্ঞপ্তি"
 
 msgid "Show less"
 msgstr "কম দেখান"
+
+msgid "Undo and redo"
+msgstr "পূর্বাবস্থায় ফেরানো ও পুনরায় করা"
+
+msgid "Enable undo and redo of message actions"
+msgstr "বার্তা সংক্রান্ত কাজ পূর্বাবস্থায় ফেরানো ও পুনরায় করার সুবিধা সক্রিয় করুন"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "বার্তা মুছে ফেলা, সরানো বা পতাকা দিয়ে চিহ্নিত করার মতো কাজ পূর্বাবস্থায় ফেরানো (Ctrl+Z) ও পুনরায় করা (Ctrl+Y)। এই কাজগুলি রেকর্ড করলে সামান্য অতিরিক্ত চাপ পড়ে, তাই বৈশিষ্ট্যটি ডিফল্টরূপে নিষ্ক্রিয় থাকে।"
+
+msgid "Undo"
+msgstr "পূর্বাবস্থায় ফেরান"
+
+msgid "Redo"
+msgstr "পুনরায় করুন"
+
+msgid "Undo: {0}"
+msgstr "পূর্বাবস্থায় ফেরান: {0}"
+
+msgid "Redo: {0}"
+msgstr "পুনরায় করুন: {0}"
+
+msgid "Nothing to undo"
+msgstr "পূর্বাবস্থায় ফেরানোর কিছু নেই"
+
+msgid "Undo the last action"
+msgstr "শেষ কাজটি পূর্বাবস্থায় ফেরান"
+
+msgid "Redo the last undone action"
+msgstr "পূর্বাবস্থায় ফেরানো শেষ কাজটি পুনরায় করুন"
+
+msgid "Undo failed"
+msgstr "পূর্বাবস্থায় ফেরানো ব্যর্থ হয়েছে"
+
+msgid "Redo failed"
+msgstr "পুনরায় করা ব্যর্থ হয়েছে"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} পূর্বাবস্থায় ফেরানো যায়নি। আইটেমটি ইতিমধ্যে সরানো, পরিবর্তন করা বা মুছে ফেলা হয়ে থাকতে পারে।"
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} পুনরায় করা যায়নি। আইটেমটি ইতিমধ্যে সরানো, পরিবর্তন করা বা মুছে ফেলা হয়ে থাকতে পারে।"
+
+msgid "Delete {0}"
+msgstr "{0} মুছে ফেলা"
+
+msgid "Delete {0} items"
+msgstr "{0}টি আইটেম মুছে ফেলা"
+
+msgid "Move {0} to {1}"
+msgstr "{0} {1} ফোল্ডারে সরানো"
+
+msgid "Move {0} items to {1}"
+msgstr "{0}টি আইটেম {1} ফোল্ডারে সরানো"
+
+msgid "Copy {0} to {1}"
+msgstr "{0} {1} ফোল্ডারে কপি করা"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0}টি আইটেম {1} ফোল্ডারে কপি করা"
+
+msgid "Create {0}"
+msgstr "{0} তৈরি করা"
+
+msgid "Change flag"
+msgstr "পতাকা পরিবর্তন"
+
+msgid "Change categories"
+msgstr "বিভাগ পরিবর্তন"
+
+msgid "Change appointment time"
+msgstr "অ্যাপয়েন্টমেন্টের সময় পরিবর্তন"
+
+msgid "another folder"
+msgstr "অন্য একটি"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1}টি আইটেম"

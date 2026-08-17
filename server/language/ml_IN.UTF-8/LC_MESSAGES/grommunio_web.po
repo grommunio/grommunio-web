@@ -23,3 +23,84 @@ msgstr[1] "{0} അറിയിപ്പുകൾ കൂടി"
 
 msgid "Show less"
 msgstr "കുറച്ച് കാണിക്കുക"
+
+msgid "Undo and redo"
+msgstr "പഴയപടിയാക്കലും വീണ്ടും ചെയ്യലും"
+
+msgid "Enable undo and redo of message actions"
+msgstr "സന്ദേശ പ്രവർത്തനങ്ങൾ പഴയപടിയാക്കാനും വീണ്ടും ചെയ്യാനും പ്രാപ്തമാക്കുക"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "സന്ദേശങ്ങൾ ഇല്ലാതാക്കുക, നീക്കുക, ഫ്ലാഗ് ചെയ്യുക തുടങ്ങിയ പ്രവർത്തനങ്ങൾ പഴയപടിയാക്കാനും (Ctrl+Z) വീണ്ടും ചെയ്യാനും (Ctrl+Y) കഴിയും. ഈ പ്രവർത്തനങ്ങൾ രേഖപ്പെടുത്തുന്നത് ചെറിയ അധികഭാരം ഉണ്ടാക്കുന്നതിനാൽ ഈ സവിശേഷത സ്ഥിരസ്ഥിതിയായി പ്രവർത്തനരഹിതമാണ്."
+
+msgid "Undo"
+msgstr "പഴയപടിയാക്കുക"
+
+msgid "Redo"
+msgstr "വീണ്ടും ചെയ്യുക"
+
+msgid "Undo: {0}"
+msgstr "പഴയപടിയാക്കുക: {0}"
+
+msgid "Redo: {0}"
+msgstr "വീണ്ടും ചെയ്യുക: {0}"
+
+msgid "Nothing to undo"
+msgstr "പഴയപടിയാക്കാൻ ഒന്നുമില്ല"
+
+msgid "Undo the last action"
+msgstr "അവസാന പ്രവർത്തനം പഴയപടിയാക്കുക"
+
+msgid "Redo the last undone action"
+msgstr "അവസാനം പഴയപടിയാക്കിയ പ്രവർത്തനം വീണ്ടും ചെയ്യുക"
+
+msgid "Undo failed"
+msgstr "പഴയപടിയാക്കൽ പരാജയപ്പെട്ടു"
+
+msgid "Redo failed"
+msgstr "വീണ്ടും ചെയ്യൽ പരാജയപ്പെട്ടു"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} പഴയപടിയാക്കാൻ കഴിഞ്ഞില്ല. ഇനം ഇതിനിടയിൽ നീക്കുകയോ മാറ്റുകയോ നീക്കംചെയ്യുകയോ ചെയ്തിരിക്കാം."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} വീണ്ടും ചെയ്യാൻ കഴിഞ്ഞില്ല. ഇനം ഇതിനിടയിൽ നീക്കുകയോ മാറ്റുകയോ നീക്കംചെയ്യുകയോ ചെയ്തിരിക്കാം."
+
+msgid "Delete {0}"
+msgstr "{0} ഇല്ലാതാക്കുക"
+
+msgid "Delete {0} items"
+msgstr "{0} ഇനങ്ങൾ ഇല്ലാതാക്കുക"
+
+msgid "Move {0} to {1}"
+msgstr "{0} {1} ഫോൾഡറിലേക്ക് നീക്കുക"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} ഇനങ്ങൾ {1} ഫോൾഡറിലേക്ക് നീക്കുക"
+
+msgid "Copy {0} to {1}"
+msgstr "{0} {1} ഫോൾഡറിലേക്ക് പകർത്തുക"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} ഇനങ്ങൾ {1} ഫോൾഡറിലേക്ക് പകർത്തുക"
+
+msgid "Create {0}"
+msgstr "{0} സൃഷ്ടിക്കുക"
+
+msgid "Change flag"
+msgstr "ഫ്ലാഗ് മാറ്റുക"
+
+msgid "Change categories"
+msgstr "വിഭാഗങ്ങൾ മാറ്റുക"
+
+msgid "Change appointment time"
+msgstr "അപ്പോയിന്റ്മെന്റ് സമയം മാറ്റുക"
+
+msgid "another folder"
+msgstr "മറ്റൊരു"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} ഇനങ്ങൾ"

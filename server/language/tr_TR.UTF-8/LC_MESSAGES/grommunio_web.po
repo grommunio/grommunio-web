@@ -8144,3 +8144,84 @@ msgstr[1] "{0} bildirim daha"
 
 msgid "Show less"
 msgstr "Daha az göster"
+
+msgid "Undo and redo"
+msgstr "Geri alma ve yineleme"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Mesaj eylemleri için geri alma ve yinelemeyi etkinleştir"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Silme, taşıma veya bayrakla işaretleme gibi mesaj eylemlerini geri alma (Ctrl+Z) ve yineleme (Ctrl+Y). Bu eylemlerin kaydedilmesi küçük bir ek yük oluşturduğundan, bu özellik varsayılan olarak devre dışıdır."
+
+msgid "Undo"
+msgstr "Geri al"
+
+msgid "Redo"
+msgstr "Yinele"
+
+msgid "Undo: {0}"
+msgstr "Geri al: {0}"
+
+msgid "Redo: {0}"
+msgstr "Yinele: {0}"
+
+msgid "Nothing to undo"
+msgstr "Geri alınacak işlem yok"
+
+msgid "Undo the last action"
+msgstr "Son eylemi geri al"
+
+msgid "Redo the last undone action"
+msgstr "Geri alınan son eylemi yinele"
+
+msgid "Undo failed"
+msgstr "Geri alma başarısız oldu"
+
+msgid "Redo failed"
+msgstr "Yineleme başarısız oldu"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} işlemi geri alınamadı. Öğe bu sırada taşınmış, değiştirilmiş veya kaldırılmış olabilir."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} işlemi yinelenemedi. Öğe bu sırada taşınmış, değiştirilmiş veya kaldırılmış olabilir."
+
+msgid "Delete {0}"
+msgstr "{0} öğesini silme"
+
+msgid "Delete {0} items"
+msgstr "{0} öğeyi silme"
+
+msgid "Move {0} to {1}"
+msgstr "{0} öğesini şuraya taşıma: {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} öğeyi şuraya taşıma: {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "{0} öğesini şuraya kopyalama: {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} öğeyi şuraya kopyalama: {1}"
+
+msgid "Create {0}"
+msgstr "{0} öğesini oluşturma"
+
+msgid "Change flag"
+msgstr "Bayrağı değiştirme"
+
+msgid "Change categories"
+msgstr "Kategorileri değiştirme"
+
+msgid "Change appointment time"
+msgstr "Randevu saatini değiştirme"
+
+msgid "another folder"
+msgstr "başka bir klasör"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} öğe"

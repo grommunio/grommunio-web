@@ -23,3 +23,84 @@ msgstr[1] "{0} hysbysiad arall"
 
 msgid "Show less"
 msgstr "Dangos llai"
+
+msgid "Undo and redo"
+msgstr "Dadwneud ac ailwneud"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Galluogi dadwneud ac ailwneud gweithredoedd negeseuon"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Dadwneud (Ctrl+Z) ac ailwneud (Ctrl+Y) gweithredoedd fel dileu, symud neu fflagio negeseuon. Mae cofnodi'r gweithredoedd hyn yn ychwanegu ychydig o lwyth ychwanegol, felly mae'r nodwedd wedi'i hanalluogi yn ddiofyn."
+
+msgid "Undo"
+msgstr "Dadwneud"
+
+msgid "Redo"
+msgstr "Ailwneud"
+
+msgid "Undo: {0}"
+msgstr "Dadwneud: {0}"
+
+msgid "Redo: {0}"
+msgstr "Ailwneud: {0}"
+
+msgid "Nothing to undo"
+msgstr "Dim byd i'w ddadwneud"
+
+msgid "Undo the last action"
+msgstr "Dadwneud y weithred ddiwethaf"
+
+msgid "Redo the last undone action"
+msgstr "Ailwneud y weithred a ddadwnaed ddiwethaf"
+
+msgid "Undo failed"
+msgstr "Dadwneud wedi methu"
+
+msgid "Redo failed"
+msgstr "Ailwneud wedi methu"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Nid oedd modd dadwneud {0}. Efallai fod yr eitem wedi cael ei symud, ei newid neu ei dileu yn y cyfamser."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Nid oedd modd ailwneud {0}. Efallai fod yr eitem wedi cael ei symud, ei newid neu ei dileu yn y cyfamser."
+
+msgid "Delete {0}"
+msgstr "Dileu {0}"
+
+msgid "Delete {0} items"
+msgstr "Dileu {0} eitem"
+
+msgid "Move {0} to {1}"
+msgstr "Symud {0} i {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Symud {0} eitem i {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Copïo {0} i {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Copïo {0} eitem i {1}"
+
+msgid "Create {0}"
+msgstr "Creu {0}"
+
+msgid "Change flag"
+msgstr "Newid fflag"
+
+msgid "Change categories"
+msgstr "Newid categorïau"
+
+msgid "Change appointment time"
+msgstr "Newid amser apwyntiad"
+
+msgid "another folder"
+msgstr "ffolder arall"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} eitem"

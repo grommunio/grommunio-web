@@ -23,3 +23,84 @@ msgstr[1] "კიდევ {0} შეტყობინება"
 
 msgid "Show less"
 msgstr "ნაკლების ჩვენება"
+
+msgid "Undo and redo"
+msgstr "დაბრუნება და გამეორება"
+
+msgid "Enable undo and redo of message actions"
+msgstr "შეტყობინების მოქმედებების დაბრუნებისა და გამეორების ჩართვა"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "მოქმედებების დაბრუნება (Ctrl+Z) და გამეორება (Ctrl+Y), როგორიცაა შეტყობინებების წაშლა, გადატანა ან ალმის დაყენება. ამ მოქმედებების ჩაწერა მცირე დამატებით დატვირთვას იწვევს, ამიტომ ეს ფუნქცია ნაგულისხმევად გამორთულია."
+
+msgid "Undo"
+msgstr "დაბრუნება"
+
+msgid "Redo"
+msgstr "გამეორება"
+
+msgid "Undo: {0}"
+msgstr "დაბრუნება: {0}"
+
+msgid "Redo: {0}"
+msgstr "გამეორება: {0}"
+
+msgid "Nothing to undo"
+msgstr "დასაბრუნებელი არაფერია"
+
+msgid "Undo the last action"
+msgstr "ბოლო მოქმედების დაბრუნება"
+
+msgid "Redo the last undone action"
+msgstr "ბოლო დაბრუნებული მოქმედების გამეორება"
+
+msgid "Undo failed"
+msgstr "დაბრუნება ვერ მოხერხდა"
+
+msgid "Redo failed"
+msgstr "გამეორება ვერ მოხერხდა"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0}-ის დაბრუნება ვერ მოხერხდა. ელემენტი ამასობაში შეიძლება გადატანილი, შეცვლილი ან წაშლილი იყოს."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0}-ის გამეორება ვერ მოხერხდა. ელემენტი ამასობაში შეიძლება გადატანილი, შეცვლილი ან წაშლილი იყოს."
+
+msgid "Delete {0}"
+msgstr "{0}-ის წაშლა"
+
+msgid "Delete {0} items"
+msgstr "{0} ელემენტის წაშლა"
+
+msgid "Move {0} to {1}"
+msgstr "{0}-ის გადატანა {1}-ში"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} ელემენტის გადატანა {1}-ში"
+
+msgid "Copy {0} to {1}"
+msgstr "{0}-ის კოპირება {1}-ში"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} ელემენტის კოპირება {1}-ში"
+
+msgid "Create {0}"
+msgstr "{0}-ის შექმნა"
+
+msgid "Change flag"
+msgstr "ალმის შეცვლა"
+
+msgid "Change categories"
+msgstr "კატეგორიების შეცვლა"
+
+msgid "Change appointment time"
+msgstr "შეხვედრის დროის შეცვლა"
+
+msgid "another folder"
+msgstr "სხვა საქაღალდე"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} ელემენტი"

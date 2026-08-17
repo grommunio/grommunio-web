@@ -8215,3 +8215,84 @@ msgstr[2] "jeszcze {0} powiadomień"
 
 msgid "Show less"
 msgstr "Pokaż mniej"
+
+msgid "Undo and redo"
+msgstr "Cofanie i ponawianie"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Włącz cofanie i ponawianie akcji na wiadomościach"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Cofanie (Ctrl+Z) i ponawianie (Ctrl+Y) akcji takich jak usuwanie, przenoszenie lub oznaczanie wiadomości flagą. Rejestrowanie tych akcji powoduje niewielkie dodatkowe obciążenie, dlatego funkcja ta jest domyślnie wyłączona."
+
+msgid "Undo"
+msgstr "Cofnij"
+
+msgid "Redo"
+msgstr "Ponów"
+
+msgid "Undo: {0}"
+msgstr "Cofnij: {0}"
+
+msgid "Redo: {0}"
+msgstr "Ponów: {0}"
+
+msgid "Nothing to undo"
+msgstr "Nie ma nic do cofnięcia"
+
+msgid "Undo the last action"
+msgstr "Cofnij ostatnią akcję"
+
+msgid "Redo the last undone action"
+msgstr "Ponów ostatnio cofniętą akcję"
+
+msgid "Undo failed"
+msgstr "Cofnięcie nie powiodło się"
+
+msgid "Redo failed"
+msgstr "Ponowienie nie powiodło się"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Nie można cofnąć akcji: {0}. Element mógł zostać w międzyczasie przeniesiony, zmieniony lub usunięty."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Nie można ponowić akcji: {0}. Element mógł zostać w międzyczasie przeniesiony, zmieniony lub usunięty."
+
+msgid "Delete {0}"
+msgstr "Usunięcie {0}"
+
+msgid "Delete {0} items"
+msgstr "Usunięcie elementów ({0})"
+
+msgid "Move {0} to {1}"
+msgstr "Przeniesienie {0} do {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Przeniesienie elementów ({0}) do {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Skopiowanie {0} do {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Skopiowanie elementów ({0}) do {1}"
+
+msgid "Create {0}"
+msgstr "Utworzenie {0}"
+
+msgid "Change flag"
+msgstr "Zmiana flagi"
+
+msgid "Change categories"
+msgstr "Zmiana kategorii"
+
+msgid "Change appointment time"
+msgstr "Zmiana terminu spotkania"
+
+msgid "another folder"
+msgstr "innego folderu"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: elementy ({1})"

@@ -23,3 +23,84 @@ msgstr[1] "နောက်ထပ် အသိပေးချက် {0} ခု"
 
 msgid "Show less"
 msgstr "လျှော့ပြရန်"
+
+msgid "Undo and redo"
+msgstr "ပြန်ဖျက်ခြင်းနှင့် ပြန်လုပ်ခြင်း"
+
+msgid "Enable undo and redo of message actions"
+msgstr "မက်ဆေ့ဂျ် လုပ်ဆောင်ချက်များကို ပြန်ဖျက်ခြင်းနှင့် ပြန်လုပ်ခြင်း ဖွင့်ရန်"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "မက်ဆေ့ဂျ်များ ဖျက်ခြင်း၊ ရွှေ့ခြင်း သို့မဟုတ် အလံတပ်ခြင်း စသည့် လုပ်ဆောင်ချက်များကို ပြန်ဖျက် (Ctrl+Z) နိုင်ပြီး ပြန်လုပ် (Ctrl+Y) နိုင်သည်။ ဤလုပ်ဆောင်ချက်များကို မှတ်တမ်းတင်ခြင်းက ဝန်အနည်းငယ် ပိုစေသောကြောင့် ဤလုပ်ဆောင်ချက်ကို ပုံသေအားဖြင့် ပိတ်ထားသည်။"
+
+msgid "Undo"
+msgstr "ပြန်ဖျက်ရန်"
+
+msgid "Redo"
+msgstr "ပြန်လုပ်ရန်"
+
+msgid "Undo: {0}"
+msgstr "ပြန်ဖျက်ရန်: {0}"
+
+msgid "Redo: {0}"
+msgstr "ပြန်လုပ်ရန်: {0}"
+
+msgid "Nothing to undo"
+msgstr "ပြန်ဖျက်စရာ မရှိပါ"
+
+msgid "Undo the last action"
+msgstr "နောက်ဆုံး လုပ်ဆောင်ချက်ကို ပြန်ဖျက်ရန်"
+
+msgid "Redo the last undone action"
+msgstr "နောက်ဆုံး ပြန်ဖျက်ခဲ့သော လုပ်ဆောင်ချက်ကို ပြန်လုပ်ရန်"
+
+msgid "Undo failed"
+msgstr "ပြန်ဖျက်၍ မရပါ"
+
+msgid "Redo failed"
+msgstr "ပြန်လုပ်၍ မရပါ"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} ကို ပြန်ဖျက်၍ မရပါ။ အဆိုပါ အရာကို ဤအတောအတွင်း ရွှေ့ထား၊ ပြောင်းလဲထား သို့မဟုတ် ဖယ်ရှားထားနိုင်သည်။"
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} ကို ပြန်လုပ်၍ မရပါ။ အဆိုပါ အရာကို ဤအတောအတွင်း ရွှေ့ထား၊ ပြောင်းလဲထား သို့မဟုတ် ဖယ်ရှားထားနိုင်သည်။"
+
+msgid "Delete {0}"
+msgstr "{0} ကို ဖျက်ခြင်း"
+
+msgid "Delete {0} items"
+msgstr "အရာ {0} ခုကို ဖျက်ခြင်း"
+
+msgid "Move {0} to {1}"
+msgstr "{0} ကို {1} သို့ ရွှေ့ခြင်း"
+
+msgid "Move {0} items to {1}"
+msgstr "အရာ {0} ခုကို {1} သို့ ရွှေ့ခြင်း"
+
+msgid "Copy {0} to {1}"
+msgstr "{0} ကို {1} သို့ ကူးယူခြင်း"
+
+msgid "Copy {0} items to {1}"
+msgstr "အရာ {0} ခုကို {1} သို့ ကူးယူခြင်း"
+
+msgid "Create {0}"
+msgstr "{0} ကို ဖန်တီးခြင်း"
+
+msgid "Change flag"
+msgstr "အလံ ပြောင်းလဲခြင်း"
+
+msgid "Change categories"
+msgstr "အမျိုးအစားများ ပြောင်းလဲခြင်း"
+
+msgid "Change appointment time"
+msgstr "ချိန်းဆိုမှုအချိန် ပြောင်းလဲခြင်း"
+
+msgid "another folder"
+msgstr "အခြားဖိုင်တွဲ"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: အရာ {1} ခု"

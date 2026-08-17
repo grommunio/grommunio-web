@@ -8149,3 +8149,84 @@ msgstr[1] "Nog {0} meldingen"
 
 msgid "Show less"
 msgstr "Toon minder"
+
+msgid "Undo and redo"
+msgstr "Ongedaan maken en opnieuw uitvoeren"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Ongedaan maken en opnieuw uitvoeren van berichtacties inschakelen"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Ongedaan maken (Ctrl+Z) en opnieuw uitvoeren (Ctrl+Y) van acties zoals het verwijderen, verplaatsen of markeren van berichten. Het vastleggen van deze acties brengt een kleine overhead met zich mee, daarom is deze functie standaard uitgeschakeld."
+
+msgid "Undo"
+msgstr "Ongedaan maken"
+
+msgid "Redo"
+msgstr "Opnieuw uitvoeren"
+
+msgid "Undo: {0}"
+msgstr "Ongedaan maken: {0}"
+
+msgid "Redo: {0}"
+msgstr "Opnieuw uitvoeren: {0}"
+
+msgid "Nothing to undo"
+msgstr "Niets om ongedaan te maken"
+
+msgid "Undo the last action"
+msgstr "De laatste actie ongedaan maken"
+
+msgid "Redo the last undone action"
+msgstr "De laatst ongedaan gemaakte actie opnieuw uitvoeren"
+
+msgid "Undo failed"
+msgstr "Ongedaan maken mislukt"
+
+msgid "Redo failed"
+msgstr "Opnieuw uitvoeren mislukt"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Kon {0} niet ongedaan maken. Het item is mogelijk intussen verplaatst, gewijzigd of verwijderd."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Kon {0} niet opnieuw uitvoeren. Het item is mogelijk intussen verplaatst, gewijzigd of verwijderd."
+
+msgid "Delete {0}"
+msgstr "{0} verwijderen"
+
+msgid "Delete {0} items"
+msgstr "{0} items verwijderen"
+
+msgid "Move {0} to {1}"
+msgstr "{0} naar {1} verplaatsen"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} items naar {1} verplaatsen"
+
+msgid "Copy {0} to {1}"
+msgstr "{0} naar {1} kopiëren"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} items naar {1} kopiëren"
+
+msgid "Create {0}"
+msgstr "{0} aanmaken"
+
+msgid "Change flag"
+msgstr "Markering wijzigen"
+
+msgid "Change categories"
+msgstr "Categorieën wijzigen"
+
+msgid "Change appointment time"
+msgstr "Afspraaktijd wijzigen"
+
+msgid "another folder"
+msgstr "een andere map"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} items"

@@ -23,3 +23,84 @@ msgstr[1] "Уште {0} известувања"
 
 msgid "Show less"
 msgstr "Прикажи помалку"
+
+msgid "Undo and redo"
+msgstr "Врати и повтори"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Овозможи враќање и повторување на дејствата со пораки"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Враќање (Ctrl+Z) и повторување (Ctrl+Y) на дејства како бришење, преместување или означување пораки со знаменце. Снимањето на овие дејства додава мал дополнителен товар, затоа оваа функција е стандардно оневозможена."
+
+msgid "Undo"
+msgstr "Врати"
+
+msgid "Redo"
+msgstr "Повтори"
+
+msgid "Undo: {0}"
+msgstr "Врати: {0}"
+
+msgid "Redo: {0}"
+msgstr "Повтори: {0}"
+
+msgid "Nothing to undo"
+msgstr "Нема што да се врати"
+
+msgid "Undo the last action"
+msgstr "Врати го последното дејство"
+
+msgid "Redo the last undone action"
+msgstr "Повтори го последното вратено дејство"
+
+msgid "Undo failed"
+msgstr "Враќањето не успеа"
+
+msgid "Redo failed"
+msgstr "Повторувањето не успеа"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Не можеше да се врати {0}. Ставката можеби во меѓувреме е преместена, променета или отстранета."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Не можеше да се повтори {0}. Ставката можеби во меѓувреме е преместена, променета или отстранета."
+
+msgid "Delete {0}"
+msgstr "Бришење на {0}"
+
+msgid "Delete {0} items"
+msgstr "Бришење на {0} ставки"
+
+msgid "Move {0} to {1}"
+msgstr "Преместување на {0} во {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Преместување на {0} ставки во {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Копирање на {0} во {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Копирање на {0} ставки во {1}"
+
+msgid "Create {0}"
+msgstr "Создавање на {0}"
+
+msgid "Change flag"
+msgstr "Промена на знаменцето"
+
+msgid "Change categories"
+msgstr "Промена на категориите"
+
+msgid "Change appointment time"
+msgstr "Промена на времето на терминот"
+
+msgid "another folder"
+msgstr "друга папка"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} ставки"

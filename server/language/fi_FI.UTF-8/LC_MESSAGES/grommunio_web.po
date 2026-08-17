@@ -8239,3 +8239,84 @@ msgstr[1] "{0} ilmoitusta lisää"
 
 msgid "Show less"
 msgstr "Näytä vähemmän"
+
+msgid "Undo and redo"
+msgstr "Kumoaminen ja uudelleen tekeminen"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Ota viestitoimintojen kumoaminen ja uudelleen tekeminen käyttöön"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Toimintojen, kuten viestien poistamisen, siirtämisen tai merkitsemisen, kumoaminen (Ctrl+Z) ja tekeminen uudelleen (Ctrl+Y). Näiden toimintojen tallentaminen aiheuttaa pienen lisäkuormituksen, joten ominaisuus on oletusarvoisesti pois käytöstä."
+
+msgid "Undo"
+msgstr "Kumoa"
+
+msgid "Redo"
+msgstr "Tee uudelleen"
+
+msgid "Undo: {0}"
+msgstr "Kumoa: {0}"
+
+msgid "Redo: {0}"
+msgstr "Tee uudelleen: {0}"
+
+msgid "Nothing to undo"
+msgstr "Ei kumottavaa"
+
+msgid "Undo the last action"
+msgstr "Kumoa viimeisin toiminto"
+
+msgid "Redo the last undone action"
+msgstr "Tee viimeisin kumottu toiminto uudelleen"
+
+msgid "Undo failed"
+msgstr "Kumoaminen epäonnistui"
+
+msgid "Redo failed"
+msgstr "Uudelleen tekeminen epäonnistui"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Toiminnon {0} kumoaminen ei onnistunut. Kohde on saatettu siirtää, muuttaa tai poistaa sillä välin."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Toiminnon {0} tekeminen uudelleen ei onnistunut. Kohde on saatettu siirtää, muuttaa tai poistaa sillä välin."
+
+msgid "Delete {0}"
+msgstr "Poista {0}"
+
+msgid "Delete {0} items"
+msgstr "Poista {0} kohdetta"
+
+msgid "Move {0} to {1}"
+msgstr "Siirrä {0} kansioon {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Siirrä {0} kohdetta kansioon {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Kopioi {0} kansioon {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Kopioi {0} kohdetta kansioon {1}"
+
+msgid "Create {0}"
+msgstr "Luo {0}"
+
+msgid "Change flag"
+msgstr "Muuta merkintää"
+
+msgid "Change categories"
+msgstr "Muuta kategorioita"
+
+msgid "Change appointment time"
+msgstr "Muuta tapaamisen aikaa"
+
+msgid "another folder"
+msgstr "toinen kansio"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} kohdetta"

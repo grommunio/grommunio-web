@@ -23,3 +23,84 @@ msgstr[1] "{0} وڌيڪ اطلاعون"
 
 msgid "Show less"
 msgstr "گهٽ ڏيکاريو"
+
+msgid "Undo and redo"
+msgstr "واپس ڪرڻ ۽ ورجائڻ"
+
+msgid "Enable undo and redo of message actions"
+msgstr "پيغامن جي عملن کي واپس ڪرڻ ۽ ورجائڻ فعال ڪريو"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "عملن کي واپس ڪرڻ (Ctrl+Z) ۽ ورجائڻ (Ctrl+Y)، جهڙوڪ پيغام ڊاهڻ، منتقل ڪرڻ يا جهنڊو لڳائڻ. انهن عملن کي رڪارڊ ڪرڻ سان ٿورو اضافي بار پوي ٿو، تنهنڪري هيءَ سهولت ڊيفالٽ طور بند آهي."
+
+msgid "Undo"
+msgstr "واپس ڪريو"
+
+msgid "Redo"
+msgstr "ورجايو"
+
+msgid "Undo: {0}"
+msgstr "واپس ڪريو: {0}"
+
+msgid "Redo: {0}"
+msgstr "ورجايو: {0}"
+
+msgid "Nothing to undo"
+msgstr "واپس ڪرڻ لاءِ ڪجهه ناهي"
+
+msgid "Undo the last action"
+msgstr "آخري عمل واپس ڪريو"
+
+msgid "Redo the last undone action"
+msgstr "آخري واپس ڪيل عمل ورجايو"
+
+msgid "Undo failed"
+msgstr "واپس ڪرڻ ناڪام ٿيو"
+
+msgid "Redo failed"
+msgstr "ورجائڻ ناڪام ٿيو"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} واپس نه ٿي سگهيو. ٿي سگهي ٿو ته شئي هن وچ ۾ منتقل، تبديل يا ختم ڪئي وئي هجي."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} ورجائي نه سگهيو. ٿي سگهي ٿو ته شئي هن وچ ۾ منتقل، تبديل يا ختم ڪئي وئي هجي."
+
+msgid "Delete {0}"
+msgstr "{0} ڊاهڻ"
+
+msgid "Delete {0} items"
+msgstr "{0} شيون ڊاهڻ"
+
+msgid "Move {0} to {1}"
+msgstr "{0} کي {1} ۾ منتقل ڪرڻ"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} شيون {1} ۾ منتقل ڪرڻ"
+
+msgid "Copy {0} to {1}"
+msgstr "{0} کي {1} ۾ ڪاپي ڪرڻ"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} شيون {1} ۾ ڪاپي ڪرڻ"
+
+msgid "Create {0}"
+msgstr "{0} ٺاهڻ"
+
+msgid "Change flag"
+msgstr "جهنڊو تبديل ڪرڻ"
+
+msgid "Change categories"
+msgstr "زمرا تبديل ڪرڻ"
+
+msgid "Change appointment time"
+msgstr "ملاقات جو وقت تبديل ڪرڻ"
+
+msgid "another folder"
+msgstr "ٻئي فولڊر"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} شيون"

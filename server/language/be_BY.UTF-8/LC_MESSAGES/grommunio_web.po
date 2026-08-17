@@ -23,3 +23,84 @@ msgstr[1] "Яшчэ {0} апавяшчэнні"
 
 msgid "Show less"
 msgstr "Паказаць менш"
+
+msgid "Undo and redo"
+msgstr "Адмена і вяртанне"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Уключыць адмену і вяртанне дзеянняў з паведамленнямі"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Адмена (Ctrl+Z) і вяртанне (Ctrl+Y) такіх дзеянняў, як выдаленне, перамяшчэнне або пазначэнне паведамленняў сцяжком. Запіс гэтых дзеянняў стварае невялікую дадатковую нагрузку, таму гэтая функцыя па змаўчанні адключана."
+
+msgid "Undo"
+msgstr "Адмяніць"
+
+msgid "Redo"
+msgstr "Вярнуць"
+
+msgid "Undo: {0}"
+msgstr "Адмяніць: {0}"
+
+msgid "Redo: {0}"
+msgstr "Вярнуць: {0}"
+
+msgid "Nothing to undo"
+msgstr "Няма чаго адмяняць"
+
+msgid "Undo the last action"
+msgstr "Адмяніць апошняе дзеянне"
+
+msgid "Redo the last undone action"
+msgstr "Вярнуць апошняе адмененае дзеянне"
+
+msgid "Undo failed"
+msgstr "Не ўдалося адмяніць"
+
+msgid "Redo failed"
+msgstr "Не ўдалося вярнуць"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Не ўдалося адмяніць дзеянне: {0}. Магчыма, элемент тым часам быў перамешчаны, зменены або выдалены."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Не ўдалося вярнуць дзеянне: {0}. Магчыма, элемент тым часам быў перамешчаны, зменены або выдалены."
+
+msgid "Delete {0}"
+msgstr "Выдаліць {0}"
+
+msgid "Delete {0} items"
+msgstr "Выдаліць элементы ({0})"
+
+msgid "Move {0} to {1}"
+msgstr "Перамясціць {0} у {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Перамясціць элементы ({0}) у {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Скапіяваць {0} у {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Скапіяваць элементы ({0}) у {1}"
+
+msgid "Create {0}"
+msgstr "Стварыць {0}"
+
+msgid "Change flag"
+msgstr "Змяніць сцяжок"
+
+msgid "Change categories"
+msgstr "Змяніць катэгорыі"
+
+msgid "Change appointment time"
+msgstr "Змяніць час сустрэчы"
+
+msgid "another folder"
+msgstr "іншую папку"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: элементы ({1})"

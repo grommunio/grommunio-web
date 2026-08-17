@@ -8281,3 +8281,84 @@ msgstr[3] "še {0} obvestil"
 
 msgid "Show less"
 msgstr "Pokaži manj"
+
+msgid "Undo and redo"
+msgstr "Razveljavitev in ponovna uveljavitev"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Omogoči razveljavitev in ponovno uveljavitev dejanj s sporočili"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Razveljavitev (Ctrl+Z) in ponovna uveljavitev (Ctrl+Y) dejanj, kot so brisanje, premikanje ali označevanje sporočil z zastavico. Beleženje teh dejanj povzroči manjšo dodatno obremenitev, zato je funkcija privzeto onemogočena."
+
+msgid "Undo"
+msgstr "Razveljavi"
+
+msgid "Redo"
+msgstr "Ponovno uveljavi"
+
+msgid "Undo: {0}"
+msgstr "Razveljavi: {0}"
+
+msgid "Redo: {0}"
+msgstr "Ponovno uveljavi: {0}"
+
+msgid "Nothing to undo"
+msgstr "Ničesar ni mogoče razveljaviti"
+
+msgid "Undo the last action"
+msgstr "Razveljavi zadnje dejanje"
+
+msgid "Redo the last undone action"
+msgstr "Ponovno uveljavi zadnje razveljavljeno dejanje"
+
+msgid "Undo failed"
+msgstr "Razveljavitev ni uspela"
+
+msgid "Redo failed"
+msgstr "Ponovna uveljavitev ni uspela"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Dejanja {0} ni bilo mogoče razveljaviti. Element je bil morda vmes premaknjen, spremenjen ali odstranjen."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Dejanja {0} ni bilo mogoče ponovno uveljaviti. Element je bil morda vmes premaknjen, spremenjen ali odstranjen."
+
+msgid "Delete {0}"
+msgstr "Izbriši {0}"
+
+msgid "Delete {0} items"
+msgstr "Izbriši elemente ({0})"
+
+msgid "Move {0} to {1}"
+msgstr "Premakni {0} v {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Premakni elemente ({0}) v {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Kopiraj {0} v {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Kopiraj elemente ({0}) v {1}"
+
+msgid "Create {0}"
+msgstr "Ustvari {0}"
+
+msgid "Change flag"
+msgstr "Spremeni zastavico"
+
+msgid "Change categories"
+msgstr "Spremeni kategorije"
+
+msgid "Change appointment time"
+msgstr "Spremeni čas sestanka"
+
+msgid "another folder"
+msgstr "drugo mapo"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: elementi ({1})"

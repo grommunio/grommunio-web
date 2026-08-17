@@ -8144,3 +8144,84 @@ msgstr[1] "veel {0} teadet"
 
 msgid "Show less"
 msgstr "Näita vähem"
+
+msgid "Undo and redo"
+msgstr "Tagasivõtmine ja uuesti tegemine"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Võimaldage sõnumitoimingute tagasivõtmine ja uuesti tegemine"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Tagasivõtmine (Ctrl+Z) ja uuesti tegemine (Ctrl+Y) toimingute puhul, nagu sõnumite kustutamine, teisaldamine või lipuga märkimine. Nende toimingute salvestamine lisab väikese lisakoormuse, seetõttu on see funktsioon vaikimisi keelatud."
+
+msgid "Undo"
+msgstr "Võta tagasi"
+
+msgid "Redo"
+msgstr "Tee uuesti"
+
+msgid "Undo: {0}"
+msgstr "Võta tagasi: {0}"
+
+msgid "Redo: {0}"
+msgstr "Tee uuesti: {0}"
+
+msgid "Nothing to undo"
+msgstr "Pole midagi tagasi võtta"
+
+msgid "Undo the last action"
+msgstr "Võta viimane toiming tagasi"
+
+msgid "Redo the last undone action"
+msgstr "Tee viimane tagasivõetud toiming uuesti"
+
+msgid "Undo failed"
+msgstr "Tagasivõtmine ebaõnnestus"
+
+msgid "Redo failed"
+msgstr "Uuesti tegemine ebaõnnestus"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Toimingut {0} ei õnnestunud tagasi võtta. Kirje võib olla vahepeal teisaldatud, muudetud või eemaldatud."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Toimingut {0} ei õnnestunud uuesti teha. Kirje võib olla vahepeal teisaldatud, muudetud või eemaldatud."
+
+msgid "Delete {0}"
+msgstr "Kustuta {0}"
+
+msgid "Delete {0} items"
+msgstr "Kustuta {0} kirjet"
+
+msgid "Move {0} to {1}"
+msgstr "Teisalda {0} kausta: {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Teisalda {0} kirjet kausta: {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Kopeeri {0} kausta: {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Kopeeri {0} kirjet kausta: {1}"
+
+msgid "Create {0}"
+msgstr "Loo {0}"
+
+msgid "Change flag"
+msgstr "Muuda lippu"
+
+msgid "Change categories"
+msgstr "Muuda kategooriaid"
+
+msgid "Change appointment time"
+msgstr "Muuda kohtumise aega"
+
+msgid "another folder"
+msgstr "teine kaust"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} kirjet"

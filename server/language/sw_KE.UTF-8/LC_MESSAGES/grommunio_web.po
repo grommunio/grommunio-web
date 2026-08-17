@@ -23,3 +23,84 @@ msgstr[1] "arifa {0} zaidi"
 
 msgid "Show less"
 msgstr "Onyesha kidogo"
+
+msgid "Undo and redo"
+msgstr "Kutendua na kurudia"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Washa kutendua na kurudia vitendo vya ujumbe"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Kutendua (Ctrl+Z) na kurudia (Ctrl+Y) vitendo kama vile kufuta, kuhamisha au kuweka bendera kwenye jumbe. Kurekodi vitendo hivi huongeza mzigo mdogo, kwa hivyo kipengele hiki kimezimwa kwa chaguomsingi."
+
+msgid "Undo"
+msgstr "Tendua"
+
+msgid "Redo"
+msgstr "Rudia"
+
+msgid "Undo: {0}"
+msgstr "Tendua: {0}"
+
+msgid "Redo: {0}"
+msgstr "Rudia: {0}"
+
+msgid "Nothing to undo"
+msgstr "Hakuna cha kutendua"
+
+msgid "Undo the last action"
+msgstr "Tendua kitendo cha mwisho"
+
+msgid "Redo the last undone action"
+msgstr "Rudia kitendo cha mwisho kilichotenduliwa"
+
+msgid "Undo failed"
+msgstr "Kutendua kumeshindikana"
+
+msgid "Redo failed"
+msgstr "Kurudia kumeshindikana"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Imeshindikana kutendua {0}. Huenda kipengee kimehamishwa, kimebadilishwa au kimeondolewa tangu wakati huo."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Imeshindikana kurudia {0}. Huenda kipengee kimehamishwa, kimebadilishwa au kimeondolewa tangu wakati huo."
+
+msgid "Delete {0}"
+msgstr "Futa {0}"
+
+msgid "Delete {0} items"
+msgstr "Futa vipengee {0}"
+
+msgid "Move {0} to {1}"
+msgstr "Hamisha {0} hadi {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Hamisha vipengee {0} hadi {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Nakili {0} hadi {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Nakili vipengee {0} hadi {1}"
+
+msgid "Create {0}"
+msgstr "Unda {0}"
+
+msgid "Change flag"
+msgstr "Badilisha bendera"
+
+msgid "Change categories"
+msgstr "Badilisha kategoria"
+
+msgid "Change appointment time"
+msgstr "Badilisha wakati wa miadi"
+
+msgid "another folder"
+msgstr "folda nyingine"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: vipengee {1}"

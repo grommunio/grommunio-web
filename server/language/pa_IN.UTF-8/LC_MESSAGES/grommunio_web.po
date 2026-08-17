@@ -23,3 +23,84 @@ msgstr[1] "{0} ਹੋਰ ਸੂਚਨਾਵਾਂ"
 
 msgid "Show less"
 msgstr "ਘੱਟ ਦਿਖਾਓ"
+
+msgid "Undo and redo"
+msgstr "ਅਣਕੀਤਾ ਕਰੋ ਅਤੇ ਮੁੜ ਕਰੋ"
+
+msgid "Enable undo and redo of message actions"
+msgstr "ਸੁਨੇਹਾ ਕਾਰਵਾਈਆਂ ਨੂੰ ਅਣਕੀਤਾ ਕਰਨ ਅਤੇ ਮੁੜ ਕਰਨ ਦੀ ਸਹੂਲਤ ਚਾਲੂ ਕਰੋ"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "ਸੁਨੇਹੇ ਹਟਾਉਣ, ਲਿਜਾਣ ਜਾਂ ਫਲੈਗ ਕਰਨ ਵਰਗੀਆਂ ਕਾਰਵਾਈਆਂ ਨੂੰ ਅਣਕੀਤਾ (Ctrl+Z) ਅਤੇ ਮੁੜ (Ctrl+Y) ਕਰੋ। ਇਹਨਾਂ ਕਾਰਵਾਈਆਂ ਨੂੰ ਰਿਕਾਰਡ ਕਰਨ ਨਾਲ ਥੋੜ੍ਹਾ ਵਾਧੂ ਭਾਰ ਪੈਂਦਾ ਹੈ, ਇਸ ਲਈ ਇਹ ਸਹੂਲਤ ਮੂਲ ਰੂਪ ਵਿੱਚ ਬੰਦ ਹੈ।"
+
+msgid "Undo"
+msgstr "ਅਣਕੀਤਾ ਕਰੋ"
+
+msgid "Redo"
+msgstr "ਮੁੜ ਕਰੋ"
+
+msgid "Undo: {0}"
+msgstr "ਅਣਕੀਤਾ ਕਰੋ: {0}"
+
+msgid "Redo: {0}"
+msgstr "ਮੁੜ ਕਰੋ: {0}"
+
+msgid "Nothing to undo"
+msgstr "ਅਣਕੀਤਾ ਕਰਨ ਲਈ ਕੁਝ ਨਹੀਂ"
+
+msgid "Undo the last action"
+msgstr "ਆਖਰੀ ਕਾਰਵਾਈ ਅਣਕੀਤੀ ਕਰੋ"
+
+msgid "Redo the last undone action"
+msgstr "ਆਖਰੀ ਅਣਕੀਤੀ ਕੀਤੀ ਕਾਰਵਾਈ ਮੁੜ ਕਰੋ"
+
+msgid "Undo failed"
+msgstr "ਅਣਕੀਤਾ ਕਰਨਾ ਅਸਫਲ ਰਿਹਾ"
+
+msgid "Redo failed"
+msgstr "ਮੁੜ ਕਰਨਾ ਅਸਫਲ ਰਿਹਾ"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} ਨੂੰ ਅਣਕੀਤਾ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ। ਹੋ ਸਕਦਾ ਹੈ ਕਿ ਇਸ ਦੌਰਾਨ ਆਈਟਮ ਲਿਜਾਈ ਗਈ, ਬਦਲੀ ਗਈ ਜਾਂ ਹਟਾਈ ਗਈ ਹੋਵੇ।"
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} ਨੂੰ ਮੁੜ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ। ਹੋ ਸਕਦਾ ਹੈ ਕਿ ਇਸ ਦੌਰਾਨ ਆਈਟਮ ਲਿਜਾਈ ਗਈ, ਬਦਲੀ ਗਈ ਜਾਂ ਹਟਾਈ ਗਈ ਹੋਵੇ।"
+
+msgid "Delete {0}"
+msgstr "{0} ਹਟਾਉਣਾ"
+
+msgid "Delete {0} items"
+msgstr "{0} ਆਈਟਮਾਂ ਹਟਾਉਣਾ"
+
+msgid "Move {0} to {1}"
+msgstr "{0} ਨੂੰ {1} ਵਿੱਚ ਲਿਜਾਣਾ"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} ਆਈਟਮਾਂ {1} ਵਿੱਚ ਲਿਜਾਣਾ"
+
+msgid "Copy {0} to {1}"
+msgstr "{0} ਨੂੰ {1} ਵਿੱਚ ਕਾਪੀ ਕਰਨਾ"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} ਆਈਟਮਾਂ {1} ਵਿੱਚ ਕਾਪੀ ਕਰਨਾ"
+
+msgid "Create {0}"
+msgstr "{0} ਬਣਾਉਣਾ"
+
+msgid "Change flag"
+msgstr "ਫਲੈਗ ਬਦਲਣਾ"
+
+msgid "Change categories"
+msgstr "ਸ਼੍ਰੇਣੀਆਂ ਬਦਲਣਾ"
+
+msgid "Change appointment time"
+msgstr "ਮੁਲਾਕਾਤ ਦਾ ਸਮਾਂ ਬਦਲਣਾ"
+
+msgid "another folder"
+msgstr "ਕਿਸੇ ਹੋਰ ਫੋਲਡਰ"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} ਆਈਟਮਾਂ"

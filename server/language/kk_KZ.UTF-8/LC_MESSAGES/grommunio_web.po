@@ -23,3 +23,84 @@ msgstr[1] "тағы {0} хабарлама"
 
 msgid "Show less"
 msgstr "Азырақ көрсету"
+
+msgid "Undo and redo"
+msgstr "Болдырмау және қайталау"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Хабарлама әрекеттерін болдырмау және қайталауды іске қосу"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Хабарламаларды өшіру, жылжыту немесе жалауша орнату сияқты әрекеттерді болдырмау (Ctrl+Z) және қайталау (Ctrl+Y). Бұл әрекеттерді жазып отыру шағын қосымша жүктеме тудырады, сондықтан бұл мүмкіндік әдепкіде сөндірулі тұр."
+
+msgid "Undo"
+msgstr "Болдырмау"
+
+msgid "Redo"
+msgstr "Қайталау"
+
+msgid "Undo: {0}"
+msgstr "Болдырмау: {0}"
+
+msgid "Redo: {0}"
+msgstr "Қайталау: {0}"
+
+msgid "Nothing to undo"
+msgstr "Болдырмайтын ештеңе жоқ"
+
+msgid "Undo the last action"
+msgstr "Соңғы әрекетті болдырмау"
+
+msgid "Redo the last undone action"
+msgstr "Соңғы болдырмаған әрекетті қайталау"
+
+msgid "Undo failed"
+msgstr "Болдырмау сәтсіз аяқталды"
+
+msgid "Redo failed"
+msgstr "Қайталау сәтсіз аяқталды"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} әрекетін болдырмау мүмкін болмады. Элемент осы уақыт ішінде жылжытылған, өзгертілген немесе өшірілген болуы мүмкін."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} әрекетін қайталау мүмкін болмады. Элемент осы уақыт ішінде жылжытылған, өзгертілген немесе өшірілген болуы мүмкін."
+
+msgid "Delete {0}"
+msgstr "{0} дегенді өшіру"
+
+msgid "Delete {0} items"
+msgstr "{0} элементті өшіру"
+
+msgid "Move {0} to {1}"
+msgstr "{0} дегенді {1} ішіне жылжыту"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} элементті {1} ішіне жылжыту"
+
+msgid "Copy {0} to {1}"
+msgstr "{0} дегенді {1} ішіне көшіру"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} элементті {1} ішіне көшіру"
+
+msgid "Create {0}"
+msgstr "{0} дегенді жасау"
+
+msgid "Change flag"
+msgstr "Жалаушаны өзгерту"
+
+msgid "Change categories"
+msgstr "Санаттарды өзгерту"
+
+msgid "Change appointment time"
+msgstr "Кездесу уақытын өзгерту"
+
+msgid "another folder"
+msgstr "басқа қалта"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} элемент"

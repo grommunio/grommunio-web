@@ -23,3 +23,84 @@ msgstr[1] "{0} વધુ સૂચનાઓ"
 
 msgid "Show less"
 msgstr "ઓછું બતાવો"
+
+msgid "Undo and redo"
+msgstr "પૂર્વવત્ કરો અને ફરીથી કરો"
+
+msgid "Enable undo and redo of message actions"
+msgstr "સંદેશ ક્રિયાઓ માટે પૂર્વવત્ કરો અને ફરીથી કરો સક્ષમ કરો"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "કાઢી નાખવા, ખસેડવા અથવા ધ્વજાંકિત કરવા જેવી સંદેશ ક્રિયાઓને પૂર્વવત્ (Ctrl+Z) અને ફરીથી (Ctrl+Y) કરી શકાય છે. આ ક્રિયાઓ રેકોર્ડ કરવાથી થોડો વધારાનો ભાર પડે છે, તેથી આ સુવિધા મૂળભૂત રીતે નિષ્ક્રિય હોય છે."
+
+msgid "Undo"
+msgstr "પૂર્વવત્ કરો"
+
+msgid "Redo"
+msgstr "ફરીથી કરો"
+
+msgid "Undo: {0}"
+msgstr "પૂર્વવત્ કરો: {0}"
+
+msgid "Redo: {0}"
+msgstr "ફરીથી કરો: {0}"
+
+msgid "Nothing to undo"
+msgstr "પૂર્વવત્ કરવા માટે કંઈ નથી"
+
+msgid "Undo the last action"
+msgstr "છેલ્લી ક્રિયા પૂર્વવત્ કરો"
+
+msgid "Redo the last undone action"
+msgstr "છેલ્લી પૂર્વવત્ કરેલી ક્રિયા ફરીથી કરો"
+
+msgid "Undo failed"
+msgstr "પૂર્વવત્ કરવું નિષ્ફળ થયું"
+
+msgid "Redo failed"
+msgstr "ફરીથી કરવું નિષ્ફળ થયું"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} પૂર્વવત્ કરી શકાયું નહીં. કદાચ આ આઇટમ એ દરમિયાન ખસેડવામાં, બદલવામાં અથવા દૂર કરવામાં આવી હોય."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} ફરીથી કરી શકાયું નહીં. કદાચ આ આઇટમ એ દરમિયાન ખસેડવામાં, બદલવામાં અથવા દૂર કરવામાં આવી હોય."
+
+msgid "Delete {0}"
+msgstr "{0} કાઢી નાખો"
+
+msgid "Delete {0} items"
+msgstr "{0} આઇટમ્સ કાઢી નાખો"
+
+msgid "Move {0} to {1}"
+msgstr "{0}ને {1}માં ખસેડો"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} આઇટમ્સને {1}માં ખસેડો"
+
+msgid "Copy {0} to {1}"
+msgstr "{0}ની {1}માં નકલ કરો"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} આઇટમ્સની {1}માં નકલ કરો"
+
+msgid "Create {0}"
+msgstr "{0} બનાવો"
+
+msgid "Change flag"
+msgstr "ધ્વજ બદલો"
+
+msgid "Change categories"
+msgstr "શ્રેણીઓ બદલો"
+
+msgid "Change appointment time"
+msgstr "મુલાકાતનો સમય બદલો"
+
+msgid "another folder"
+msgstr "બીજા ફોલ્ડર"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} આઇટમ્સ"

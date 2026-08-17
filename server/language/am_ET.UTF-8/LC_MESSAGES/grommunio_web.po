@@ -23,3 +23,84 @@ msgstr[1] "{0} ተጨማሪ ማሳወቂያዎች"
 
 msgid "Show less"
 msgstr "ያነሰ አሳይ"
+
+msgid "Undo and redo"
+msgstr "መቀልበስ እና መድገም"
+
+msgid "Enable undo and redo of message actions"
+msgstr "የመልእክት እርምጃዎችን መቀልበስ እና መድገም አንቃ"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "እንደ መልእክቶችን መሰረዝ፣ ማንቀሳቀስ ወይም ባንዲራ ማድረግ ያሉ እርምጃዎችን መቀልበስ (Ctrl+Z) እና መድገም (Ctrl+Y)። እነዚህን እርምጃዎች መመዝገብ ትንሽ ተጨማሪ ጫና ይጨምራል፣ ስለዚህ ባህሪው በነባሪ ተሰናክሏል።"
+
+msgid "Undo"
+msgstr "ቀልብስ"
+
+msgid "Redo"
+msgstr "ድገም"
+
+msgid "Undo: {0}"
+msgstr "ቀልብስ፦ {0}"
+
+msgid "Redo: {0}"
+msgstr "ድገም፦ {0}"
+
+msgid "Nothing to undo"
+msgstr "የሚቀለበስ ነገር የለም"
+
+msgid "Undo the last action"
+msgstr "የመጨረሻውን እርምጃ ቀልብስ"
+
+msgid "Redo the last undone action"
+msgstr "የመጨረሻውን የተቀለበሰ እርምጃ ድገም"
+
+msgid "Undo failed"
+msgstr "መቀልበስ አልተሳካም"
+
+msgid "Redo failed"
+msgstr "መድገም አልተሳካም"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0}ን መቀልበስ አልተቻለም። ንጥሉ በዚህ መሃል ተንቀሳቅሶ፣ ተቀይሮ ወይም ተወግዶ ሊሆን ይችላል።"
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0}ን መድገም አልተቻለም። ንጥሉ በዚህ መሃል ተንቀሳቅሶ፣ ተቀይሮ ወይም ተወግዶ ሊሆን ይችላል።"
+
+msgid "Delete {0}"
+msgstr "{0}ን ሰርዝ"
+
+msgid "Delete {0} items"
+msgstr "{0} ንጥሎችን ሰርዝ"
+
+msgid "Move {0} to {1}"
+msgstr "{0}ን ወደ {1} አንቀሳቅስ"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} ንጥሎችን ወደ {1} አንቀሳቅስ"
+
+msgid "Copy {0} to {1}"
+msgstr "{0}ን ወደ {1} ቅዳ"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} ንጥሎችን ወደ {1} ቅዳ"
+
+msgid "Create {0}"
+msgstr "{0}ን ፍጠር"
+
+msgid "Change flag"
+msgstr "ባንዲራ ለውጥ"
+
+msgid "Change categories"
+msgstr "ምድቦችን ለውጥ"
+
+msgid "Change appointment time"
+msgstr "የቀጠሮ ሰዓት ለውጥ"
+
+msgid "another folder"
+msgstr "ሌላ አቃፊ"
+
+msgid "{0}: {1}"
+msgstr "{0}፦ {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}፦ {1} ንጥሎች"

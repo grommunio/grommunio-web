@@ -4077,7 +4077,6 @@ msgstr "空の{0}... ({1}%)"
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
 msgstr[0] "のフォルダ{1} に{0} の未読メッセージがある。{2}"
-msgstr[1] "のフォルダ{1} に{0} の未読メッセージがある。{2}"
 
 msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
@@ -8195,3 +8194,84 @@ msgstr[0] "他 {0} 件の通知"
 
 msgid "Show less"
 msgstr "表示を減らす"
+
+msgid "Undo and redo"
+msgstr "元に戻す・やり直し"
+
+msgid "Enable undo and redo of message actions"
+msgstr "メッセージ操作の元に戻す/やり直しを有効にする"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "メッセージの削除、移動、フラグ設定などの操作の元に戻す (Ctrl+Z) とやり直し (Ctrl+Y)。これらの操作の記録には多少のオーバーヘッドが生じるため、この機能はデフォルトで無効になっています。"
+
+msgid "Undo"
+msgstr "元に戻す"
+
+msgid "Redo"
+msgstr "やり直し"
+
+msgid "Undo: {0}"
+msgstr "元に戻す: {0}"
+
+msgid "Redo: {0}"
+msgstr "やり直し: {0}"
+
+msgid "Nothing to undo"
+msgstr "元に戻す操作はありません"
+
+msgid "Undo the last action"
+msgstr "直前の操作を元に戻す"
+
+msgid "Redo the last undone action"
+msgstr "元に戻した操作をやり直す"
+
+msgid "Undo failed"
+msgstr "元に戻す操作に失敗しました"
+
+msgid "Redo failed"
+msgstr "やり直し操作に失敗しました"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "操作「{0}」を元に戻せませんでした。アイテムはその間に移動、変更、または削除された可能性があります。"
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "操作「{0}」をやり直せませんでした。アイテムはその間に移動、変更、または削除された可能性があります。"
+
+msgid "Delete {0}"
+msgstr "{0} を削除"
+
+msgid "Delete {0} items"
+msgstr "{0} 件のアイテムを削除"
+
+msgid "Move {0} to {1}"
+msgstr "{0} を {1} に移動"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} 件のアイテムを {1} に移動"
+
+msgid "Copy {0} to {1}"
+msgstr "{0} を {1} にコピー"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} 件のアイテムを {1} にコピー"
+
+msgid "Create {0}"
+msgstr "{0} を作成"
+
+msgid "Change flag"
+msgstr "フラグの変更"
+
+msgid "Change categories"
+msgstr "カテゴリーの変更"
+
+msgid "Change appointment time"
+msgstr "予定の日時の変更"
+
+msgid "another folder"
+msgstr "別のフォルダ"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} 件のアイテム"

@@ -23,3 +23,84 @@ msgstr[1] "{0} avisos máis"
 
 msgid "Show less"
 msgstr "Mostrar menos"
+
+msgid "Undo and redo"
+msgstr "Desfacer e refacer"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Activar o desfacer e refacer das accións sobre mensaxes"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Desfacer (Ctrl+Z) e refacer (Ctrl+Y) accións como eliminar, mover ou marcar mensaxes. O rexistro destas accións engade unha pequena sobrecarga, polo que a función está desactivada de xeito predeterminado."
+
+msgid "Undo"
+msgstr "Desfacer"
+
+msgid "Redo"
+msgstr "Refacer"
+
+msgid "Undo: {0}"
+msgstr "Desfacer: {0}"
+
+msgid "Redo: {0}"
+msgstr "Refacer: {0}"
+
+msgid "Nothing to undo"
+msgstr "Nada que desfacer"
+
+msgid "Undo the last action"
+msgstr "Desfacer a última acción"
+
+msgid "Redo the last undone action"
+msgstr "Refacer a última acción desfeita"
+
+msgid "Undo failed"
+msgstr "Fallo ao desfacer"
+
+msgid "Redo failed"
+msgstr "Fallo ao refacer"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Non foi posible desfacer {0}. Pode que o elemento fose movido, cambiado ou eliminado mentres tanto."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Non foi posible refacer {0}. Pode que o elemento fose movido, cambiado ou eliminado mentres tanto."
+
+msgid "Delete {0}"
+msgstr "Eliminar {0}"
+
+msgid "Delete {0} items"
+msgstr "Eliminar {0} elementos"
+
+msgid "Move {0} to {1}"
+msgstr "Mover {0} a {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Mover {0} elementos a {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Copiar {0} a {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Copiar {0} elementos a {1}"
+
+msgid "Create {0}"
+msgstr "Crear {0}"
+
+msgid "Change flag"
+msgstr "Cambiar a marca"
+
+msgid "Change categories"
+msgstr "Cambiar as categorías"
+
+msgid "Change appointment time"
+msgstr "Cambiar a hora da cita"
+
+msgid "another folder"
+msgstr "outro cartafol"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} elementos"

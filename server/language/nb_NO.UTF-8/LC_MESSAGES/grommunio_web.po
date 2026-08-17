@@ -8144,3 +8144,84 @@ msgstr[1] "{0} varsler til"
 
 msgid "Show less"
 msgstr "Vis mindre"
+
+msgid "Undo and redo"
+msgstr "Angre og gjør om"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Aktiver angre og gjør om for meldingshandlinger"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Angre (Ctrl+Z) og gjør om (Ctrl+Y) handlinger som sletting, flytting eller flagging av meldinger. Registrering av disse handlingene medfører en liten ekstra belastning, og funksjonen er derfor deaktivert som standard."
+
+msgid "Undo"
+msgstr "Angre"
+
+msgid "Redo"
+msgstr "Gjør om"
+
+msgid "Undo: {0}"
+msgstr "Angre: {0}"
+
+msgid "Redo: {0}"
+msgstr "Gjør om: {0}"
+
+msgid "Nothing to undo"
+msgstr "Ingenting å angre"
+
+msgid "Undo the last action"
+msgstr "Angre den siste handlingen"
+
+msgid "Redo the last undone action"
+msgstr "Gjør om den sist angrede handlingen"
+
+msgid "Undo failed"
+msgstr "Angring mislyktes"
+
+msgid "Redo failed"
+msgstr "Omgjøring mislyktes"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Kunne ikke angre {0}. Elementet kan ha blitt flyttet, endret eller fjernet i mellomtiden."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Kunne ikke gjøre om {0}. Elementet kan ha blitt flyttet, endret eller fjernet i mellomtiden."
+
+msgid "Delete {0}"
+msgstr "Slett {0}"
+
+msgid "Delete {0} items"
+msgstr "Slett {0} elementer"
+
+msgid "Move {0} to {1}"
+msgstr "Flytt {0} til {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Flytt {0} elementer til {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Kopier {0} til {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Kopier {0} elementer til {1}"
+
+msgid "Create {0}"
+msgstr "Opprett {0}"
+
+msgid "Change flag"
+msgstr "Endre flagg"
+
+msgid "Change categories"
+msgstr "Endre kategorier"
+
+msgid "Change appointment time"
+msgstr "Endre avtaletidspunkt"
+
+msgid "another folder"
+msgstr "en annen mappe"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} elementer"

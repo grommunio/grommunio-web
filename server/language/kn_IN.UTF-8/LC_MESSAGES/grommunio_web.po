@@ -23,3 +23,84 @@ msgstr[1] "ಇನ್ನೂ {0} ಸೂಚನೆಗಳು"
 
 msgid "Show less"
 msgstr "ಕಡಿಮೆ ತೋರಿಸಿ"
+
+msgid "Undo and redo"
+msgstr "ರದ್ದುಮಾಡುವಿಕೆ ಮತ್ತು ಪುನಃ ಮಾಡುವಿಕೆ"
+
+msgid "Enable undo and redo of message actions"
+msgstr "ಸಂದೇಶ ಕ್ರಿಯೆಗಳ ರದ್ದುಮಾಡುವಿಕೆ ಮತ್ತು ಪುನಃ ಮಾಡುವಿಕೆಯನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "ಸಂದೇಶಗಳನ್ನು ಅಳಿಸುವುದು, ಸ್ಥಳಾಂತರಿಸುವುದು ಅಥವಾ ಧ್ವಜ ಹಾಕುವುದು ಮುಂತಾದ ಕ್ರಿಯೆಗಳ ರದ್ದುಮಾಡುವಿಕೆ (Ctrl+Z) ಮತ್ತು ಪುನಃ ಮಾಡುವಿಕೆ (Ctrl+Y). ಈ ಕ್ರಿಯೆಗಳ ದಾಖಲೆಯು ಸ್ವಲ್ಪ ಹೆಚ್ಚುವರಿ ಹೊರೆಯನ್ನು ಸೇರಿಸುವುದರಿಂದ, ಈ ವೈಶಿಷ್ಟ್ಯವು ಡೀಫಾಲ್ಟ್ ಆಗಿ ನಿಷ್ಕ್ರಿಯವಾಗಿರುತ್ತದೆ."
+
+msgid "Undo"
+msgstr "ರದ್ದುಮಾಡು"
+
+msgid "Redo"
+msgstr "ಪುನಃ ಮಾಡು"
+
+msgid "Undo: {0}"
+msgstr "ರದ್ದುಮಾಡು: {0}"
+
+msgid "Redo: {0}"
+msgstr "ಪುನಃ ಮಾಡು: {0}"
+
+msgid "Nothing to undo"
+msgstr "ರದ್ದುಮಾಡಲು ಏನೂ ಇಲ್ಲ"
+
+msgid "Undo the last action"
+msgstr "ಕೊನೆಯ ಕ್ರಿಯೆಯನ್ನು ರದ್ದುಮಾಡಿ"
+
+msgid "Redo the last undone action"
+msgstr "ಕೊನೆಯದಾಗಿ ರದ್ದುಮಾಡಿದ ಕ್ರಿಯೆಯನ್ನು ಪುನಃ ಮಾಡಿ"
+
+msgid "Undo failed"
+msgstr "ರದ್ದುಮಾಡುವಿಕೆ ವಿಫಲವಾಗಿದೆ"
+
+msgid "Redo failed"
+msgstr "ಪುನಃ ಮಾಡುವಿಕೆ ವಿಫಲವಾಗಿದೆ"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} ಅನ್ನು ರದ್ದುಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಈ ನಡುವೆ ಐಟಂ ಅನ್ನು ಸ್ಥಳಾಂತರಿಸಿರಬಹುದು, ಬದಲಾಯಿಸಿರಬಹುದು ಅಥವಾ ತೆಗೆದುಹಾಕಿರಬಹುದು."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} ಅನ್ನು ಪುನಃ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಈ ನಡುವೆ ಐಟಂ ಅನ್ನು ಸ್ಥಳಾಂತರಿಸಿರಬಹುದು, ಬದಲಾಯಿಸಿರಬಹುದು ಅಥವಾ ತೆಗೆದುಹಾಕಿರಬಹುದು."
+
+msgid "Delete {0}"
+msgstr "{0} ಅನ್ನು ಅಳಿಸಿ"
+
+msgid "Delete {0} items"
+msgstr "{0} ಐಟಂಗಳನ್ನು ಅಳಿಸಿ"
+
+msgid "Move {0} to {1}"
+msgstr "{0} ಅನ್ನು {1} ಗೆ ಸ್ಥಳಾಂತರಿಸಿ"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} ಐಟಂಗಳನ್ನು {1} ಗೆ ಸ್ಥಳಾಂತರಿಸಿ"
+
+msgid "Copy {0} to {1}"
+msgstr "{0} ಅನ್ನು {1} ಗೆ ನಕಲಿಸಿ"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} ಐಟಂಗಳನ್ನು {1} ಗೆ ನಕಲಿಸಿ"
+
+msgid "Create {0}"
+msgstr "{0} ಅನ್ನು ರಚಿಸಿ"
+
+msgid "Change flag"
+msgstr "ಧ್ವಜ ಬದಲಾವಣೆ"
+
+msgid "Change categories"
+msgstr "ವರ್ಗಗಳ ಬದಲಾವಣೆ"
+
+msgid "Change appointment time"
+msgstr "ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್ ಸಮಯದ ಬದಲಾವಣೆ"
+
+msgid "another folder"
+msgstr "ಇನ್ನೊಂದು ಫೋಲ್ಡರ್"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} ಐಟಂಗಳು"

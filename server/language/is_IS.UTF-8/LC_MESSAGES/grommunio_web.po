@@ -8142,3 +8142,84 @@ msgstr[1] "{0} tilkynningar í viðbót"
 
 msgid "Show less"
 msgstr "Sýna minna"
+
+msgid "Undo and redo"
+msgstr "Afturköllun og endurtekning"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Virkja afturköllun og endurtekningu aðgerða á skilaboðum"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Afturköllun (Ctrl+Z) og endurtekning (Ctrl+Y) aðgerða eins og að eyða, færa eða merkja skilaboð. Skráning þessara aðgerða veldur smávægilegu aukaálagi og því er eiginleikinn sjálfgefið óvirkur."
+
+msgid "Undo"
+msgstr "Afturkalla"
+
+msgid "Redo"
+msgstr "Endurtaka"
+
+msgid "Undo: {0}"
+msgstr "Afturkalla: {0}"
+
+msgid "Redo: {0}"
+msgstr "Endurtaka: {0}"
+
+msgid "Nothing to undo"
+msgstr "Ekkert til að afturkalla"
+
+msgid "Undo the last action"
+msgstr "Afturkalla síðustu aðgerð"
+
+msgid "Redo the last undone action"
+msgstr "Endurtaka síðustu afturkölluðu aðgerð"
+
+msgid "Undo failed"
+msgstr "Afturköllun mistókst"
+
+msgid "Redo failed"
+msgstr "Endurtekning mistókst"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Ekki tókst að afturkalla {0}. Atriðið gæti hafa verið fært, breytt eða fjarlægt í millitíðinni."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Ekki tókst að endurtaka {0}. Atriðið gæti hafa verið fært, breytt eða fjarlægt í millitíðinni."
+
+msgid "Delete {0}"
+msgstr "Eyða {0}"
+
+msgid "Delete {0} items"
+msgstr "Eyða {0} atriðum"
+
+msgid "Move {0} to {1}"
+msgstr "Færa {0} í {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Færa {0} atriði í {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Afrita {0} í {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Afrita {0} atriði í {1}"
+
+msgid "Create {0}"
+msgstr "Búa til {0}"
+
+msgid "Change flag"
+msgstr "Breyta merki"
+
+msgid "Change categories"
+msgstr "Breyta flokkum"
+
+msgid "Change appointment time"
+msgstr "Breyta tímasetningu tímabókunar"
+
+msgid "another folder"
+msgstr "aðra möppu"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} atriði"

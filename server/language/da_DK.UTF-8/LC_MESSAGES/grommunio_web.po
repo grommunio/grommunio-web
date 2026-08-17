@@ -8219,3 +8219,84 @@ msgstr[1] "{0} notifikationer mere"
 
 msgid "Show less"
 msgstr "Vis mindre"
+
+msgid "Undo and redo"
+msgstr "Fortryd og omgør"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Aktivér fortryd og omgør for meddelelseshandlinger"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Fortryd (Ctrl+Z) og omgør (Ctrl+Y) handlinger som at slette, flytte eller markere meddelelser med flag. Registrering af disse handlinger medfører en lille ekstra belastning, derfor er funktionen som standard deaktiveret."
+
+msgid "Undo"
+msgstr "Fortryd"
+
+msgid "Redo"
+msgstr "Omgør"
+
+msgid "Undo: {0}"
+msgstr "Fortryd: {0}"
+
+msgid "Redo: {0}"
+msgstr "Omgør: {0}"
+
+msgid "Nothing to undo"
+msgstr "Intet at fortryde"
+
+msgid "Undo the last action"
+msgstr "Fortryd den seneste handling"
+
+msgid "Redo the last undone action"
+msgstr "Omgør den senest fortrudte handling"
+
+msgid "Undo failed"
+msgstr "Fortryd mislykkedes"
+
+msgid "Redo failed"
+msgstr "Omgør mislykkedes"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Kunne ikke fortryde {0}. Elementet kan i mellemtiden være blevet flyttet, ændret eller fjernet."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Kunne ikke omgøre {0}. Elementet kan i mellemtiden være blevet flyttet, ændret eller fjernet."
+
+msgid "Delete {0}"
+msgstr "Slet {0}"
+
+msgid "Delete {0} items"
+msgstr "Slet {0} elementer"
+
+msgid "Move {0} to {1}"
+msgstr "Flyt {0} til {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Flyt {0} elementer til {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Kopier {0} til {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Kopier {0} elementer til {1}"
+
+msgid "Create {0}"
+msgstr "Opret {0}"
+
+msgid "Change flag"
+msgstr "Skift flag"
+
+msgid "Change categories"
+msgstr "Skift kategorier"
+
+msgid "Change appointment time"
+msgstr "Skift aftaletidspunkt"
+
+msgid "another folder"
+msgstr "en anden mappe"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} elementer"

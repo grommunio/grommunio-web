@@ -23,3 +23,84 @@ msgstr[1] "Vēl {0} paziņojumi"
 
 msgid "Show less"
 msgstr "Rādīt mazāk"
+
+msgid "Undo and redo"
+msgstr "Atsaukšana un atkārtošana"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Iespējot ziņojumu darbību atsaukšanu un atkārtošanu"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Atsauciet (Ctrl+Z) un atkārtojiet (Ctrl+Y) tādas darbības kā ziņojumu dzēšana, pārvietošana vai atzīmēšana ar karodziņu. Šo darbību ierakstīšana rada nelielu papildu slodzi, tāpēc šī funkcija pēc noklusējuma ir atspējota."
+
+msgid "Undo"
+msgstr "Atsaukt"
+
+msgid "Redo"
+msgstr "Atkārtot"
+
+msgid "Undo: {0}"
+msgstr "Atsaukt: {0}"
+
+msgid "Redo: {0}"
+msgstr "Atkārtot: {0}"
+
+msgid "Nothing to undo"
+msgstr "Nav ko atsaukt"
+
+msgid "Undo the last action"
+msgstr "Atsaukt pēdējo darbību"
+
+msgid "Redo the last undone action"
+msgstr "Atkārtot pēdējo atsaukto darbību"
+
+msgid "Undo failed"
+msgstr "Atsaukšana neizdevās"
+
+msgid "Redo failed"
+msgstr "Atkārtošana neizdevās"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Neizdevās atsaukt: {0}. Iespējams, vienums pa šo laiku ir pārvietots, mainīts vai izdzēsts."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Neizdevās atkārtot: {0}. Iespējams, vienums pa šo laiku ir pārvietots, mainīts vai izdzēsts."
+
+msgid "Delete {0}"
+msgstr "{0} dzēšana"
+
+msgid "Delete {0} items"
+msgstr "{0} vienumu dzēšana"
+
+msgid "Move {0} to {1}"
+msgstr "{0} pārvietošana uz {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} vienumu pārvietošana uz {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "{0} kopēšana uz {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} vienumu kopēšana uz {1}"
+
+msgid "Create {0}"
+msgstr "{0} izveide"
+
+msgid "Change flag"
+msgstr "Karodziņa maiņa"
+
+msgid "Change categories"
+msgstr "Kategoriju maiņa"
+
+msgid "Change appointment time"
+msgstr "Tikšanās laika maiņa"
+
+msgid "another folder"
+msgstr "citu mapi"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} vienumi"

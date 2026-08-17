@@ -23,3 +23,84 @@ msgstr[1] "আৰু {0} জাননী"
 
 msgid "Show less"
 msgstr "কম দেখুৱাওক"
+
+msgid "Undo and redo"
+msgstr "পূৰ্বাৱস্থালৈ নিয়া আৰু পুনৰ কৰা"
+
+msgid "Enable undo and redo of message actions"
+msgstr "বাৰ্তাৰ কাৰ্যসমূহ পূৰ্বাৱস্থালৈ নিয়া আৰু পুনৰ কৰা সক্ষম কৰক"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "বাৰ্তা মচি পেলোৱা, স্থানান্তৰ কৰা বা ফ্লেগ লগোৱাৰ দৰে কাৰ্যসমূহ পূৰ্বাৱস্থালৈ নিয়া (Ctrl+Z) আৰু পুনৰ কৰা (Ctrl+Y)। এই কাৰ্যসমূহ ৰেকৰ্ড কৰিলে অলপ অতিৰিক্ত ভাৰ পৰে, সেয়ে এই সুবিধাটো অবিকল্পিতভাৱে নিষ্ক্ৰিয় কৰা থাকে।"
+
+msgid "Undo"
+msgstr "পূৰ্বাৱস্থালৈ নিয়ক"
+
+msgid "Redo"
+msgstr "পুনৰ কৰক"
+
+msgid "Undo: {0}"
+msgstr "পূৰ্বাৱস্থালৈ নিয়ক: {0}"
+
+msgid "Redo: {0}"
+msgstr "পুনৰ কৰক: {0}"
+
+msgid "Nothing to undo"
+msgstr "পূৰ্বাৱস্থালৈ নিবলৈ একো নাই"
+
+msgid "Undo the last action"
+msgstr "শেষ কাৰ্যটো পূৰ্বাৱস্থালৈ নিয়ক"
+
+msgid "Redo the last undone action"
+msgstr "শেষত পূৰ্বাৱস্থালৈ নিয়া কাৰ্যটো পুনৰ কৰক"
+
+msgid "Undo failed"
+msgstr "পূৰ্বাৱস্থালৈ নিয়া বিফল হ'ল"
+
+msgid "Redo failed"
+msgstr "পুনৰ কৰা বিফল হ'ল"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} পূৰ্বাৱস্থালৈ নিব পৰা নগ'ল। ইতিমধ্যে বস্তুটো স্থানান্তৰ কৰা, সলনি কৰা বা আঁতৰোৱা হৈ থাকিব পাৰে।"
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} পুনৰ কৰিব পৰা নগ'ল। ইতিমধ্যে বস্তুটো স্থানান্তৰ কৰা, সলনি কৰা বা আঁতৰোৱা হৈ থাকিব পাৰে।"
+
+msgid "Delete {0}"
+msgstr "{0} মচি পেলোৱা"
+
+msgid "Delete {0} items"
+msgstr "{0} টা বস্তু মচি পেলোৱা"
+
+msgid "Move {0} to {1}"
+msgstr "{0}ক {1}লৈ স্থানান্তৰ কৰা"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} টা বস্তু {1}লৈ স্থানান্তৰ কৰা"
+
+msgid "Copy {0} to {1}"
+msgstr "{0}ক {1}লৈ নকল কৰা"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} টা বস্তু {1}লৈ নকল কৰা"
+
+msgid "Create {0}"
+msgstr "{0} সৃষ্টি কৰা"
+
+msgid "Change flag"
+msgstr "ফ্লেগ সলনি কৰা"
+
+msgid "Change categories"
+msgstr "শ্ৰেণীসমূহ সলনি কৰা"
+
+msgid "Change appointment time"
+msgstr "সাক্ষাৎকাৰৰ সময় সলনি কৰা"
+
+msgid "another folder"
+msgstr "আন এটা ফোল্ডাৰ"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} টা বস্তু"
