@@ -2581,6 +2581,20 @@ span.preview-header-sender-image {
   padding: 6px;
   border-bottom: 1px solid #e6e6e6; }
 
+/* Open-URL anchor next to the location field, shown when the location
+   contains an http(s) URL */
+.k-appointmentcreatetab .k-location-panel a.k-location-open {
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxNicgaGVpZ2h0PScxNicgdmlld0JveD0nMCAwIDI0IDI0JyBmaWxsPSdub25lJyBzdHJva2U9JyMwMDAnIHN0cm9rZS13aWR0aD0nMicgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJz48cGF0aCBkPSdNMTggMTN2NmEyIDIgMCAwIDEtMiAySDVhMiAyIDAgMCAxLTItMlY4YTIgMiAwIDAgMSAyLTJoNicvPjxwb2x5bGluZSBwb2ludHM9JzE1IDMgMjEgMyAyMSA5Jy8+PGxpbmUgeDE9JzEwJyB5MT0nMTQnIHgyPScyMScgeTI9JzMnLz48L3N2Zz4=);
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.65; }
+.k-appointmentcreatetab .k-location-panel a.k-location-open:hover,
+.k-appointmentcreatetab .k-location-panel a.k-location-open:focus {
+  opacity: 1; }
+
 /* Single-row "Show as | Reminder | Create in" options panel */
 .k-appointmentcreatetab .k-appointment-options-panel {
   padding: 6px;

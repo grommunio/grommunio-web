@@ -1163,6 +1163,11 @@ body.dark-mode .zarafa-calendar-container-header .icon_recurrence {
 	filter: none !important;
 }
 
+/* Open-URL anchor next to the location field */
+body.dark-mode .k-appointmentcreatetab .k-location-panel a.k-location-open {
+	filter: invert(0.88);
+}
+
 /* Calendar extra info */
 body.dark-mode .k-appointmentcreatetab .zarafa-calendar-appointment-extrainfo div,
 body.dark-mode .k-appointmentcreatetab .zarafa-calendar-appointment-extrainfo .k-extrainfo-toggle {

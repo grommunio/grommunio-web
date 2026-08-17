@@ -267,7 +267,8 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 
 	/**
 	 * Create the {@link Ext.Panel panel} containing the form element
-	 * to set the location
+	 * to set the location. Next to the field an anchor is shown which opens
+	 * the URL when the location contains one.
 	 * @return {Object} Configuration object for the panel containing the fields
 	 * @private
 	 */
@@ -282,18 +283,81 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			autoHeight: true,
 			border: false,
 			items: [{
-				xtype: 'textfield',
-				name: 'location',
+				xtype: 'zarafa.compositefield',
 				fieldLabel: _('Location'),
 				anchor: '99%',
-				enableKeyEvents: true,
-				listeners: {
-					change: this.onFieldChange,
-					keypress: this.onLocationKeyPress,
-					scope: this
-				}
+				autoHeight: true,
+				items: [{
+					xtype: 'textfield',
+					name: 'location',
+					ref: '../../locationField',
+					flex: 1,
+					enableKeyEvents: true,
+					listeners: {
+						change: this.onLocationFieldChange,
+						keypress: this.onLocationKeyPress,
+						keyup: this.updateLocationOpenLink,
+						scope: this
+					}
+				},{
+					// A real anchor (not a button) so browser-native link
+					// behavior works, and it stays usable when the field
+					// itself is disabled for read-only records.
+					xtype: 'box',
+					ref: '../../locationOpenLink',
+					autoEl: {
+						tag: 'a',
+						target: '_blank',
+						rel: 'noopener noreferrer',
+						cls: 'k-location-open'
+					},
+					width: 24,
+					height: 24,
+					hidden: true
+				}]
 			}]
 		};
+	},
+
+	/**
+	 * Event handler which is fired when the location field has been changed.
+	 * Updates the {@link Zarafa.core.data.IPMRecord record} like
+	 * {@link #onFieldChange} and refreshes the open-URL anchor.
+	 * @param {Ext.form.Field} field The field which has changed
+	 * @param {Mixed} newValue The new value for the field
+	 * @param {Mixed} oldValue The original value for the field
+	 * @private
+	 */
+	onLocationFieldChange: function(field, newValue, oldValue)
+	{
+		this.onFieldChange(field, newValue, oldValue);
+		this.updateLocationOpenLink();
+	},
+
+	/**
+	 * Show the {@link #locationOpenLink} anchor pointing at the first
+	 * http(s) URL in the location field, or hide it when there is none.
+	 * @private
+	 */
+	updateLocationOpenLink: function()
+	{
+		var link = this.locationOpenLink;
+		if (!link || !link.rendered || !this.locationField) {
+			return;
+		}
+
+		var match = /(https?:\/\/[^\s"'<>]+)/i.exec(this.locationField.getValue() || '');
+		var url = match ? match[1].replace(/[.,;:)\]]+$/, '') : null;
+
+		if (url) {
+			// The tooltip shows the target, so no translated label is needed.
+			link.el.set({ href: url, title: url, 'aria-label': url });
+		}
+
+		if (link.isVisible() !== !!url) {
+			link.setVisible(!!url);
+			link.ownerCt.doLayout();
+		}
 	},
 
 	/**
@@ -810,6 +874,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 
 		this.updateUI(record, contentReset);
 		this.getForm().loadRecord(record);
+		this.updateLocationOpenLink();
 
 		// Freeze the whole form for read-only items. This runs after updateUI()
 		// and loadRecord() (which re-enable fields for editable records) so it
