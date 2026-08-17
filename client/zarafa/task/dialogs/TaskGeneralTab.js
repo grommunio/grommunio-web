@@ -486,6 +486,9 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			layout: 'fit',
 			border: false,
 			flex: 1,
+			// The vbox layout stops shrinking this panel at minHeight; the
+			// surplus overflows the tab body which then becomes scrollable.
+			minHeight: 180,
 			items: [{
 				xtype: 'zarafa.editorfield',
 				ref: '../editorField',

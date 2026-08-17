@@ -110,6 +110,24 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 	hasUserSetLocation: false,
 
 	/**
+	 * True when the user has expanded the {@link #extraInfoPanel} to show all
+	 * notices. When multiple notices are present only the first one is shown
+	 * (collapsed) by default to keep the form header compact.
+	 * @property
+	 * @type Boolean
+	 * @private
+	 */
+	extraInfoExpanded: false,
+
+	/**
+	 * @cfg {Number} minBodyHeight The minimum height in pixels of the body
+	 * editor panel. When the dialog gets smaller than the form needs, the
+	 * editor stops shrinking at this height and the tab body becomes
+	 * scrollable instead.
+	 */
+	minBodyHeight: 180,
+
+	/**
 	 * @constructor
 	 * @param {Object} config
 	 */
@@ -136,7 +154,6 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				this.createSubjectPanel(),
 				this.createLocationPanel(),
 				this.createDateTimePanel(),
-				this.createinPanel(),
 				this.createAttachmentsPanel(),
 				this.createBodyPanel()
 			]
@@ -171,16 +188,18 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 	{
 		return {
 			xtype: 'panel',
+			cls: 'k-organizer-panel',
 			ref: 'meetingOrganizerPanel',
 			layout: 'form',
+			labelWidth: 85,
+			labelAlign: 'left',
 			autoHeight: true,
 			border: false,
 			items: [{
 				xtype: 'displayfield',
 				ref: '../meetingOrganizerField',
 				fieldLabel: _('Organizer'),
-				htmlEncode: true,
-				flex: 1
+				htmlEncode: true
 			}],
 			hidden: true
 		};
@@ -279,8 +298,8 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 
 	/**
 	 * Create the {@link Ext.Panel panel} containing the following elements
-	 * in a table layout: the date panel, recurrence panel, busy status panel,
-	 * reminder panel, and the label panel.
+	 * in a table layout: the date panel, recurrence panel, and the options
+	 * panel with busy status, reminder and target calendar.
 	 * @return {Object} Configuration object for the panel containing the fields
 	 * @private
 	 */
@@ -294,8 +313,101 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			items: [
 				this.createDatePanel(),
 				this.createRecurrencePanel(),
-				this.createBusyStatusPanel(),
-				this.createReminderPanel(),
+				this.createOptionsPanel()
+			]
+		};
+	},
+
+	/**
+	 * Create the {@link Ext.Panel panel} containing the busy status, reminder
+	 * and target calendar ("Create in") selections on a single row to keep
+	 * the form header compact. The table layout lets the labels size to their
+	 * translated text.
+	 * @return {Object} Configuration object for the panel containing the fields
+	 * @private
+	 */
+	createOptionsPanel: function()
+	{
+		var busyStore = {
+			xtype: 'jsonstore',
+			fields: ['name', 'value'],
+			data: Zarafa.calendar.data.BusyStatus
+		};
+
+		var reminderStore = {
+			xtype: 'jsonstore',
+			fields: ['name', 'value'],
+			data: Zarafa.calendar.data.ReminderPeriods
+		};
+
+		var busyComboId = Ext.id();
+		var reminderCheckId = Ext.id();
+
+		return {
+			xtype: 'panel',
+			cls: 'k-appointment-options-panel',
+			layout: {
+				type: 'table',
+				columns: 6
+			},
+			autoHeight: true,
+			border: false,
+			items: [{
+				xtype: 'label',
+				text: _('Show as') + ':',
+				forId: busyComboId,
+				cls: 'k-options-label k-options-label-first'
+			},{
+				xtype: 'combo',
+				id: busyComboId,
+				ref: '../../comboBusyStatus',
+				name: 'busystatus',
+				width: 130,
+				store: busyStore,
+				mode: 'local',
+				triggerAction: 'all',
+				displayField: 'name',
+				valueField: 'value',
+				lazyInit: false,
+				forceSelection: true,
+				editable: false,
+				listeners: {
+					select: this.onFieldSelect,
+					scope: this
+				}
+			},{
+				xtype: 'label',
+				text: _('Reminder') + ':',
+				forId: reminderCheckId,
+				cls: 'k-options-label k-options-label-gap'
+			},{
+				xtype: 'checkbox',
+				id: reminderCheckId,
+				name: 'reminder',
+				handler: this.onToggleReminder,
+				scope: this
+			},{
+				xtype: 'combo',
+				ref: '../../comboReminder',
+				name: 'reminder_minutes',
+				width: 140,
+				store: reminderStore,
+				mode: 'local',
+				triggerAction: 'all',
+				displayField: 'name',
+				valueField: 'value',
+				lazyInit: false,
+				forceSelection: true,
+				editable: false,
+				listeners: {
+					select: this.onFieldSelect,
+					afterrender: function(combo) {
+						combo.el.set({ 'aria-label': _('Reminder') });
+					},
+					scope: this
+				}
+			},
+				this.createinPanel()
 			]
 		};
 	},
@@ -303,7 +415,8 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 	/**
 	 * Create the {@link Ext.Panel panel} containing the form element
 	 * to set the calendar in which the appointment or meeting-request will be
-	 * created.
+	 * created. It is placed as the last cell of the
+	 * {@link #createOptionsPanel options panel}.
 	 * @return {Object} Configuration object for the panel containing the fields
 	 * @private
 	 */
@@ -327,23 +440,32 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			'</div>' +
 		'</tpl>';
 
+		const createInComboId = Ext.id();
+
 		return {
 			xtype: 'panel',
-			cls: 'k-createin-panel',
-			layout: 'form',
-			labelWidth: 85,
-			labelAlign: 'left',
-			ref: 'createInPanel',
+			ref: '../../createInPanel',
+			layout: {
+				type: 'table',
+				columns: 2
+			},
 			autoHeight: true,
 			border: false,
 			items: [{
+				xtype: 'label',
+				text: _('Create in') + ':',
+				forId: createInComboId,
+				cls: 'k-options-label k-options-label-gap'
+			},{
 				xtype: 'combo',
+				id: createInComboId,
 				tpl: tplString,
-				fieldLabel: _('Create in'),
-				ref: '../comboCreateIn',
+				ref: '../../../comboCreateIn',
 				store: createInStore,
 				cls: 'k-createin-combo',
 				listClass: 'k-createin-combo-list-svg',
+				width: 240,
+				minListWidth: 300,
 				mode: 'local',
 				triggerAction: 'all',
 				displayField: 'displayString',
@@ -445,101 +567,6 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 	},
 
 	/**
-	 * Create the {@link Ext.Panel Panel} containing the form fields
-	 * for setting the reminder information.
-	 * @return {Object} Configuration object for the panel with reminder fields
-	 * @private
-	 */
-	createReminderPanel: function()
-	{
-		var reminderStore = {
-			xtype: 'jsonstore',
-			fields: ['name', 'value'],
-			data: Zarafa.calendar.data.ReminderPeriods
-		};
-
-		return {
-			xtype: 'panel',
-			cls: 'k-reminder-panel',
-			layout: 'form',
-			labelWidth: 85,
-			autoHeight: true,
-			border: false,
-			items: [{
-				xtype: 'zarafa.compositefield',
-				fieldLabel: _('Reminder'),
-				autoHeight: true,
-				items: [{
-					xtype: 'checkbox',
-					name: 'reminder',
-					handler: this.onToggleReminder,
-					scope: this
-				},{
-					xtype: 'combo',
-					ref: '../../../comboReminder',
-					name: 'reminder_minutes',
-					fieldLabel: _('Reminder'),
-					store: reminderStore,
-					mode: 'local',
-					triggerAction: 'all',
-					displayField: 'name',
-					valueField: 'value',
-					lazyInit: false,
-					forceSelection: true,
-					editable: false,
-					listeners: {
-						select: this.onFieldSelect,
-						scope: this
-					}
-				}]
-			}]
-		};
-	},
-
-	/**
-	 * Create the {@link Ext.Panel Panel} containing the form fields
-	 * for setting the busy status.
-	 * @return {Object} Configuration object for the panel with reminder fields
-	 * @private
-	 */
-	createBusyStatusPanel: function()
-	{
-		var busyStore = {
-			xtype: 'jsonstore',
-			fields: ['name', 'value'],
-			data: Zarafa.calendar.data.BusyStatus
-		};
-
-		return {
-			xtype: 'panel',
-			cls: 'k-busystatus-panel',
-			layout: 'form',
-			autoHeight: true,
-			border: false,
-			labelAlign: 'left',
-			labelWidth: 85,
-			items: [{
-				xtype: 'combo',
-				ref: '../../comboBusyStatus',
-				name: 'busystatus',
-				fieldLabel: _('Show as'),
-				store: busyStore,
-				mode: 'local',
-				triggerAction: 'all',
-				displayField: 'name',
-				valueField: 'value',
-				lazyInit: false,
-				forceSelection: true,
-				editable: false,
-				listeners: {
-					select: this.onFieldSelect,
-					scope: this
-				}
-			}]
-		};
-	},
-
-	/**
 	 * Create the {@link Ext.Panel Panel} which contains all attachment selection fields
 	 * @return {Object} configuration object for the panel containing the attachment fields
 	 * @private
@@ -600,6 +627,9 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			layout: 'fit',
 			border: false,
 			flex: 1,
+			// The vbox layout stops shrinking this panel at minHeight; the
+			// surplus overflows the tab body which then becomes scrollable.
+			minHeight: this.minBodyHeight,
 			autoHeight: false,
 			items: [{
 				xtype: 'zarafa.editorfield',
@@ -1420,67 +1450,124 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 
 	/**
 	 * Function will update the {@link #extraInfoPanel} with extra information that should be shown
-	 * for the meeting item.
+	 * for the meeting item. The notices are collected in order of importance; when there is more
+	 * than one, only the first is shown and the rest can be expanded with a toggle.
 	 * @private
 	 */
 	updateExtraInfoPanel: function()
 	{
-		// clear the previous contents
 		var el = this.extraInfoPanel.getEl();
-		if(Ext.isDefined(el.dom)) {
-			el.dom.innerHTML = '';
-		}
+		var notices = [];
 
-		var visible = this.setOldAppointmentInfo(el);
-
-		if(this.record.isRecurringOccurrence()){
-			visible = (this.setRecurrencePatternInfo(el) === true) ? true : visible;
-		}
-
-		if(this.record.isMeeting()) {
-			if(!this.record.phantom) {
-				if (this.record.isMeetingOrganized()) {
-					// set information for organizer
-					if (!this.record.isMeetingSent()) {
-						visible = (this.setMeetingUnsentInfo(el) === true) ? true : visible;
-					} else {
-						visible = (this.setMeetingResponseInfo(el) === true) ? true : visible;
-					}
+		// Collect the most relevant notice first: in the collapsed state only
+		// the first line is visible.
+		if(this.record.isMeeting() && !this.record.phantom) {
+			if (this.record.isMeetingOrganized()) {
+				// set information for organizer
+				if (!this.record.isMeetingSent()) {
+					this.setMeetingUnsentInfo(notices);
 				} else {
-					var responseStatus = this.record.get('responsestatus');
+					this.setMeetingResponseInfo(notices);
+				}
+			} else {
+				var responseStatus = this.record.get('responsestatus');
 
-					if(responseStatus !== Zarafa.core.mapi.ResponseStatus.RESPONSE_NONE) {
-						this.setOrganizerInfo();
-						visible = (this.setMeetingOverwrittenInfo(el) === true) ? true : visible;
-					}
+				if (this.record.isMeetingCanceled()) {
+					// set information for canceled meeting in attendee's calendar
+					this.setMeetingCanceledInfo(notices);
+				} else if (this.record.isMeetingResponseRequired()) {
+					// set information for attendees
+					this.setReplyTimeInfo(responseStatus, notices);
+				}
 
-					if (this.record.isMeetingCanceled()) {
-						// set information for canceled meeting in attendee's calendar
-						visible = (this.setMeetingCanceledInfo(el) === true) ? true : visible;
-					} else if (this.record.isMeetingResponseRequired()) {
-						// set information for attendees
-						visible = (this.setReplyTimeInfo(responseStatus, el) === true) ? true : visible;
-					}
+				if(responseStatus !== Zarafa.core.mapi.ResponseStatus.RESPONSE_NONE) {
+					this.setOrganizerInfo();
+					this.setMeetingOverwrittenInfo(notices);
 				}
 			}
 		}
 
-		this.extraInfoPanel.setVisible(visible);
+		if(this.record.isRecurringOccurrence()){
+			this.setRecurrencePatternInfo(notices);
+		}
+
+		this.setOldAppointmentInfo(notices);
+
+		var collapsed = !this.extraInfoExpanded && notices.length > 1;
+
+		// Rebuild the DOM only when the content actually changed: record
+		// updates (e.g. a field blur) call this function too, and replacing
+		// the toggle mid-click would swallow the click.
+		var signature = collapsed + '|' + notices.join('|');
+		if (signature === this.extraInfoSignature) {
+			return;
+		}
+		this.extraInfoSignature = signature;
+
+		// clear the previous contents
+		if(Ext.isDefined(el.dom)) {
+			el.dom.innerHTML = '';
+		}
+
+		el[collapsed ? 'addClass' : 'removeClass']('k-extrainfo-collapsed');
+
+		Ext.each(notices, function(notice) {
+			el.createChild({tag: 'div', html: notice});
+		});
+
+		if (notices.length > 1) {
+			// _() and ngettext() already return HTML-encoded strings
+			var toggleText;
+			if (collapsed) {
+				var more = notices.length - 1;
+				toggleText = String.format(ngettext('{0} more notice', '{0} more notices', more), more) +
+					' <span aria-hidden="true">▾</span>';
+			} else {
+				toggleText = _('Show less') + ' <span aria-hidden="true">▴</span>';
+			}
+
+			el.createChild({
+				tag: 'a',
+				href: '#',
+				cls: 'k-extrainfo-toggle',
+				role: 'button',
+				'aria-expanded': collapsed ? 'false' : 'true',
+				html: toggleText
+			});
+
+			if (!this.extraInfoToggleInitialized) {
+				this.mon(el, 'click', this.onExtraInfoToggle, this, { delegate: '.k-extrainfo-toggle' });
+				this.extraInfoToggleInitialized = true;
+			}
+		}
+
+		this.extraInfoPanel.setVisible(notices.length > 0);
 		this.doLayout();
+	},
+
+	/**
+	 * Event handler for the expand/collapse toggle of the {@link #extraInfoPanel}.
+	 * @param {Ext.EventObject} event The click event
+	 * @private
+	 */
+	onExtraInfoToggle: function(event)
+	{
+		event.preventDefault();
+		this.extraInfoExpanded = !this.extraInfoExpanded;
+		this.updateExtraInfoPanel();
 	},
 
 	/**
 	 * Function will display message regarding response's from attendee(s) in the dialog
 	 * thus will update the status of attendee(s) to meeting organizer
-	 * @param {HtmlElement} HTML element
-	 * @return Boolean true if new component is added in {@link #extraInfoPanel} else false.
+	 * @param {Array} notices The list of notices to add to
 	 * @private
 	 */
-	setMeetingResponseInfo: function(el)
+	setMeetingResponseInfo: function(notices)
 	{
 		// check for meeting items which are not sent yet
-		if(this.record.isMeetingSent()) {
-			return false;
+		if(!this.record.isMeetingSent()) {
+			return;
 		}
 
 		var accepted = 0, tentative = 0, declined = 0, numProposingAttendees = 0;
@@ -1508,33 +1595,28 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 
 		if(accepted !== 0 || tentative !== 0 || declined !== 0) {
 			// set response string
-			var trackString = String.format(this.trackingInfoString, accepted, tentative, declined);
-			el.createChild({tag: 'div', html: trackString});
+			notices.push(String.format(this.trackingInfoString, accepted, tentative, declined));
 
 			if(this.record.get('counter_proposal') && numProposingAttendees !== 0) {
-				var proposeString = String.format(this.proposedTimeInfoString, numProposingAttendees);
-				el.createChild({tag: 'div', html: proposeString});
+				notices.push(String.format(this.proposedTimeInfoString, numProposingAttendees));
 			}
 		} else {
 			// set no response string
-			el.createChild({tag: 'div', html: this.noResponseReceivedString });
+			notices.push(this.noResponseReceivedString);
 		}
-
-		return true;
 	},
 
 	/**
 	 * Function will display message regarding request accepted time for an attendee
 	 * @param {Zarafa.core.mapi.ResponseStatus} responseStatus for the meeting
-	 * @param {HtmlElement} HTML element
-	 * @return Boolean true if new component is added in {@link #extraInfoPanel} else false.
+	 * @param {Array} notices The list of notices to add to
 	 * @private
 	 */
-	setReplyTimeInfo: function(responseStatus,el)
+	setReplyTimeInfo: function(responseStatus, notices)
 	{
 		var responseString = '';
 		var replyTime = this.record.get('reply_time');
-		var replyName = this.record.get('reply_name');
+		var replyName = Ext.util.Format.htmlEncode(this.record.get('reply_name'));
 		var dueDate = this.record.get('duedate');
 
 		if(responseStatus !== Zarafa.core.mapi.ResponseStatus.RESPONSE_NOT_RESPONDED) {
@@ -1573,28 +1655,20 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 		}
 
 		if(!Ext.isEmpty(responseString)) {
-			el.createChild({tag: 'div', html: responseString});
-			return true;
+			notices.push(responseString);
 		}
-
-		return false;
 	},
 
 	/**
 	 * Function will set information string to show that appointment occurs in past.
-	 * @param {HtmlElement} HTML element
-	 * @return Boolean true if new component is added in {@link #extraInfoPanel} else false.
+	 * @param {Array} notices The list of notices to add to
 	 * @private
 	 */
-	setOldAppointmentInfo: function(el)
+	setOldAppointmentInfo: function(notices)
 	{
 		if(this.record.isAppointmentInPast()) {
-			el.createChild({tag: 'div', html: this.elapsedTimeInfoString});
-
-			return true;
+			notices.push(this.elapsedTimeInfoString);
 		}
-
-		return false;
 	},
 
 	/**
@@ -1608,51 +1682,43 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 
 	/**
 	 * Function will set information string to show that meeting is canceled in the attendee's calendar.
-	 * @param {HtmlElement} HTML element
-	 * @return Boolean true if new component is added in {@link #extraInfoPanel} else false.
+	 * @param {Array} notices The list of notices to add to
 	 * @private
 	 */
-	setMeetingCanceledInfo: function(el)
+	setMeetingCanceledInfo: function(notices)
 	{
-		el.createChild({tag: 'div', html: this.meetingCanceledString});
-		return true;
+		notices.push(this.meetingCanceledString);
 	},
 
 	/**
 	 * Function will set information string to show that meeting invites have not yet been sent.
-	 * @param {HtmlElement} HTML element
-	 * @return Boolean true if new component is added in {@link #extraInfoPanel} else false.
+	 * @param {Array} notices The list of notices to add to
 	 * @private
 	 */
-	setMeetingUnsentInfo: function(el)
+	setMeetingUnsentInfo: function(notices)
 	{
-		el.createChild({tag: 'div', html: this.meetingUnsentString});
-		return true;
+		notices.push(this.meetingUnsentString);
 	},
 
 	/**
 	 * Function will set the information string to show that changes made by attendee will
 	 * be overwritten when the meeting request is updated by the organizer.
-	 * @param {HtmlElement} HTML element
-	 * @return Boolean true if new component is added in {@link #extraInfoPanel} else false.
+	 * @param {Array} notices The list of notices to add to
 	 * @private
 	 */
-	setMeetingOverwrittenInfo: function(el)
+	setMeetingOverwrittenInfo: function(notices)
 	{
-		el.createChild({tag: 'div', html: this.meetingOverwrittenString});
-		return true;
+		notices.push(this.meetingOverwrittenString);
 	},
 
 	/**
 	 * Function will set information string to show the recurring pattern the occurrence is part of.
-	 * @param {HtmlElement} HTML element
-	 * @return Boolean true if new component is added in {@link #extraInfoPanel} else false.
+	 * @param {Array} notices The list of notices to add to
 	 * @private
 	 */
-	setRecurrencePatternInfo: function(el)
+	setRecurrencePatternInfo: function(notices)
 	{
-		el.createChild({tag: 'div', html: Ext.util.Format.htmlEncode(this.record.get('recurring_pattern'))});
-		return true;
+		notices.push(Ext.util.Format.htmlEncode(this.record.get('recurring_pattern')));
 	}
 });
 
