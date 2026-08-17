@@ -438,45 +438,52 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 	 */
 	addActionItems: function()
 	{
-		var menuItems = [{
-			xtype: 'splitbutton',
-			id: 'zarafa-maintoolbar-undo',
-			scale: 'large',
-			overflowText: _('Undo'),
-			tooltip: _('Undo') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + Z', true),
-			iconCls: 'icon_large_undo',
-			ref: 'undoButton',
-			disabled: true,
-			handler: this.onUndo,
-			scope: this,
-			menu: {
-				xtype: 'menu',
-				items: [],
+		var menuItems = [];
+
+		// The undo/redo feature is opt-in, see Zarafa.core.data.UndoManager#enabled.
+		if (container.getSettingsModel().get('zarafa/v1/main/undo_redo/enable') === true) {
+			menuItems.push({
+				xtype: 'splitbutton',
+				id: 'zarafa-maintoolbar-undo',
+				scale: 'large',
+				overflowText: _('Undo'),
+				tooltip: _('Undo') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + Z', true),
+				iconCls: 'icon_large_undo',
+				ref: 'undoButton',
+				disabled: true,
+				handler: this.onUndo,
+				scope: this,
+				menu: {
+					xtype: 'menu',
+					items: [],
+					listeners: {
+						beforeshow: this.onBeforeShowUndoMenu,
+						scope: this
+					}
+				},
 				listeners: {
-					beforeshow: this.onBeforeShowUndoMenu,
+					render: this.onRenderUndoRedoButton,
 					scope: this
 				}
-			},
-			listeners: {
-				render: this.onRenderUndoRedoButton,
-				scope: this
-			}
-		},{
-			xtype: 'button',
-			id: 'zarafa-maintoolbar-redo',
-			scale: 'large',
-			overflowText: _('Redo'),
-			tooltip: _('Redo') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + Y', true),
-			iconCls: 'icon_large_redo',
-			ref: 'redoButton',
-			disabled: true,
-			handler: this.onRedo,
-			scope: this,
-			listeners: {
-				render: this.onRenderUndoRedoButton,
-				scope: this
-			}
-		},{
+			},{
+				xtype: 'button',
+				id: 'zarafa-maintoolbar-redo',
+				scale: 'large',
+				overflowText: _('Redo'),
+				tooltip: _('Redo') + Zarafa.core.KeyMapMgr.formatShortcutHint('Ctrl + Y', true),
+				iconCls: 'icon_large_redo',
+				ref: 'redoButton',
+				disabled: true,
+				handler: this.onRedo,
+				scope: this,
+				listeners: {
+					render: this.onRenderUndoRedoButton,
+					scope: this
+				}
+			});
+		}
+
+		menuItems.push({
 			xtype: 'button',
 			id: 'zarafa-maintoolbar-addressbook',
 			scale: 'large',
@@ -500,7 +507,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 				render: this.onRenderRefreshButton,
 				scope: this
 			}
-		}];
+		});
 
 		this.addItems(menuItems, 'main.toolbar.actions');
 	},

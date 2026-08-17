@@ -481,6 +481,22 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 * Default zoom mode for ODF documents. (default: auto) [Allowed: "auto", "page-actual", "page-width"]
 								 */
 								'odf_zoom': 'page-width'
+							},
+
+							/**
+							 * zarafa/v1/main/undo_redo
+							 *
+							 */
+							'undo_redo': {
+								/**
+								 * zarafa/v1/main/undo_redo/enable
+								 * Whether undo/redo of message actions is available.
+								 * Disabled by default: recording undo information
+								 * adds overhead to every message action.
+								 * @property
+								 * @type Boolean
+								 */
+								'enable': false
 							}
 						},
 

@@ -51,9 +51,11 @@ Zarafa.core.KeyMap = Ext.extend(Ext.KeyMap, {
 Property      Type    Description
 ----------     ---------  ----------------------------------------------------------------------
 enableGlobally   Boolean   A flag to indicate the key binding should also be registered with the body of webapp so that key combination can globally be disabled
-settingsCfg    Object   Object containing two keys:
+settingsCfg    Object   Object containing the following keys:
                   1) description - description of the key combination to show in keyboard settings widget
                   2) category - name of the category in which this key combination will be added
+                  3) hidden - (optional) function returning true when the key combination should not
+                    be listed in the keyboard settings widget, e.g. because its feature is disabled
 </pre>
 	 */
 	addBinding: function(config)

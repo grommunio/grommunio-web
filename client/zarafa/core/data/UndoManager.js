@@ -24,6 +24,9 @@ Ext.namespace('Zarafa.core.data');
  * Operations with side effects that cannot be reverted (anything that sends
  * an email, like meeting requests, cancellations or responses, as well as
  * soft deletes and recurrence exception changes) are never recorded.
+ *
+ * The whole feature is opt-in through the 'zarafa/v1/main/undo_redo/enable'
+ * setting, see {@link #enabled}.
  */
 Zarafa.core.data.UndoManager = Ext.extend(Ext.util.Observable, {
 	/**
@@ -96,6 +99,18 @@ Zarafa.core.data.UndoManager = Ext.extend(Ext.util.Observable, {
 	],
 
 	/**
+	 * True when the undo/redo feature has been enabled by the user through
+	 * the 'zarafa/v1/main/undo_redo/enable' setting. The feature is opt-in:
+	 * recording undo information attaches the 'track_new_entryids' message
+	 * action to every eligible operation, which adds server-side overhead.
+	 * When disabled, no store events are listened to and capture requests
+	 * are ignored. Changing the setting takes effect after a reload.
+	 * @property
+	 * @type Boolean
+	 */
+	enabled: false,
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
@@ -103,6 +118,8 @@ Zarafa.core.data.UndoManager = Ext.extend(Ext.util.Observable, {
 	{
 		config = config || {};
 		Ext.apply(this, config);
+
+		this.enabled = container.getSettingsModel().get('zarafa/v1/main/undo_redo/enable') === true;
 
 		this.undoStack = [];
 		this.redoStack = [];
@@ -129,9 +146,11 @@ Zarafa.core.data.UndoManager = Ext.extend(Ext.util.Observable, {
 
 		Zarafa.core.data.UndoManager.superclass.constructor.call(this, config);
 
-		Zarafa.core.data.IPMStoreMgr.on('beforerecordsave', this.onBeforeRecordSave, this);
-		Zarafa.core.data.IPMStoreMgr.on('afterrecordwrite', this.onAfterRecordWrite, this);
-		Zarafa.core.data.IPMStoreMgr.on('storeexception', this.onStoreException, this);
+		if (this.enabled) {
+			Zarafa.core.data.IPMStoreMgr.on('beforerecordsave', this.onBeforeRecordSave, this);
+			Zarafa.core.data.IPMStoreMgr.on('afterrecordwrite', this.onAfterRecordWrite, this);
+			Zarafa.core.data.IPMStoreMgr.on('storeexception', this.onStoreException, this);
+		}
 	},
 
 	/*
@@ -505,7 +524,7 @@ Zarafa.core.data.UndoManager = Ext.extend(Ext.util.Observable, {
 	 */
 	capturePropertyGesture: function(records)
 	{
-		if (this.executing) {
+		if (!this.enabled || this.executing) {
 			return;
 		}
 		this.sweepPending();
@@ -520,7 +539,7 @@ Zarafa.core.data.UndoManager = Ext.extend(Ext.util.Observable, {
 	 */
 	captureCreateGesture: function(records)
 	{
-		if (this.executing) {
+		if (!this.enabled || this.executing) {
 			return;
 		}
 		this.sweepPending();

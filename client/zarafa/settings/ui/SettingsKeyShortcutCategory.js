@@ -52,6 +52,13 @@ Zarafa.settings.ui.SettingsKeyShortcutCategory = Ext.extend(Zarafa.settings.ui.S
 					continue;
 				}
 
+				// A binding may hide itself from the listing, e.g. when the
+				// feature it belongs to is disabled. This is a function since
+				// bindings are registered before the settings are available.
+				if(Ext.isFunction(settingsCfg.hidden) && settingsCfg.hidden()) {
+					continue;
+				}
+
 				var category = settingsCfg.category;
 
 				if(!Ext.isObject(keyDescription[category])) {

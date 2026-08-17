@@ -293,6 +293,14 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 			// not specifying settingsCfg as we already have an entry of opening item in all views
 		}];
 
+		// Hide the undo/redo shortcuts from the shortcut listing in the
+		// settings while the opt-in undo/redo feature is disabled. Evaluated
+		// when the listing is built: at registration time (script parse) the
+		// settings are not available yet.
+		var undoRedoHidden = function() {
+			return !this.isUndoRedoEnabled();
+		}.createDelegate(this);
+
 		var undoRedoKeys = [{
 			key: Ext.EventObject.Z,
 			ctrl: true,
@@ -306,7 +314,8 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 			scope: this,
 			settingsCfg: {
 				description: _('Undo the last action'),
-				category: _('All views')
+				category: _('All views'),
+				hidden: undoRedoHidden
 			},
 			basic: true
 		},{
@@ -319,7 +328,8 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 			scope: this,
 			settingsCfg: {
 				description: _('Redo the last undone action'),
-				category: _('All views')
+				category: _('All views'),
+				hidden: undoRedoHidden
 			},
 			basic: true
 		},{
@@ -387,14 +397,16 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 	/**
 	 * Event handler for the keydown event of the {@link Zarafa.core.KeyMap KeyMap}
 	 * when the user wants to undo the last action. The event is ignored when
-	 * it originates from a text input, so the native text undo keeps working.
+	 * the undo/redo feature is not enabled (it is opt-in, see
+	 * {@link Zarafa.core.data.UndoManager#enabled}) and when it originates
+	 * from a text input, so the native text undo keeps working.
 	 * @param {Number} key Key code
 	 * @param {Ext.EventObject} event The event
 	 * @param {Ext.Component} component The component on which key event is fired.
 	 */
 	onUndo: function(key, event, component)
 	{
-		if (this.isTextEditingTarget(event)) {
+		if (!this.isUndoRedoEnabled() || this.isTextEditingTarget(event)) {
 			return;
 		}
 		event.stopEvent();
@@ -404,18 +416,31 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 	/**
 	 * Event handler for the keydown event of the {@link Zarafa.core.KeyMap KeyMap}
 	 * when the user wants to redo the last undone action. The event is ignored
-	 * when it originates from a text input.
+	 * when the undo/redo feature is not enabled and when it originates from a
+	 * text input.
 	 * @param {Number} key Key code
 	 * @param {Ext.EventObject} event The event
 	 * @param {Ext.Component} component The component on which key event is fired.
 	 */
 	onRedo: function(key, event, component)
 	{
-		if (this.isTextEditingTarget(event)) {
+		if (!this.isUndoRedoEnabled() || this.isTextEditingTarget(event)) {
 			return;
 		}
 		event.stopEvent();
 		container.getUndoManager().redo();
+	},
+
+	/**
+	 * Check whether the opt-in undo/redo feature has been enabled by the user.
+	 * The shortcuts are registered unconditionally (registration happens before
+	 * the settings are available), so the handlers check the setting instead.
+	 * @return {Boolean} True when the undo/redo feature is enabled
+	 * @private
+	 */
+	isUndoRedoEnabled: function()
+	{
+		return container.getSettingsModel().get('zarafa/v1/main/undo_redo/enable') === true;
 	},
 
 	/**
