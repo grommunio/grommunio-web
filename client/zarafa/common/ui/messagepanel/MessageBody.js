@@ -630,12 +630,12 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			head.appendChild(css);
 		}
 
-		// The user's default font, so a message that carries no font of its own is
-		// not left to the browser's serif. A message with its own fonts keeps them,
-		// and plain-text bodies keep the monospace set on pre below. Only a plain
-		// unquoted font list is accepted: this stylesheet lives in the iframe with
-		// the message, and a stray quote from a hand-edited setting would swallow
-		// every rule after it.
+		// Apply a fallback font for when a HTML message does not
+		// specify anything else. Plain-text bodies keep on using the
+		// monospace declared for <pre>. Only a plain unquoted font
+		// list is accepted: this stylesheet lives in the iframe with
+		// the message, and a stray quote from a hand-edited setting
+		// would swallow every rule after it.
 		var fontFamily = container.getSettingsModel().get('zarafa/v1/main/default_font');
 		var bodyFont = '';
 		if (Ext.isString(fontFamily) && (/^[\w ,-]+$/).test(fontFamily)) {
@@ -646,8 +646,9 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			// Make the blockquote element not use the default right margin of 40px
 			'blockquote { margin-right: 0px; }' +
 			// Make text in pre tags wrapped if too long for a line
-			// Registered under 'fira mono' as well: that is the family name the
-			// default-font setting uses.
+			// The font is registered under 'fira mono' as well,
+			// because that is the family name the default-font
+			// setting uses.
 			"@font-face { font-family: firamono; font-style: normal; font-weight: 400; src: url(" + window.location.pathname + "/client/resources/fonts/FiraMono-Regular.woff2) format('woff2'); }" +
 			"@font-face { font-family: fira mono; font-style: normal; font-weight: 400; src: url(" + window.location.pathname + "/client/resources/fonts/FiraMono-Regular.woff2) format('woff2'); }" +
 			"pre { white-space: pre-wrap; overflow-wrap: anywhere; word-wrap: break-word; margin: 0; font-family: firamono, monospace; }" +

@@ -49,7 +49,7 @@ Zarafa.mail.settings.SettingsSafeSenderCategory = Ext.extend(Zarafa.settings.ui.
 
 		Zarafa.mail.settings.SettingsSafeSenderCategory.superclass.constructor.call(this, config);
 
-		// Start from fresh lists whenever the category is opened; another
+		// Start from fresh lists whenever the category is opened. Another
 		// client may have edited the same rule since login.
 		this.on('activate', function() {
 			Zarafa.mail.data.JunkMailStore.load();
@@ -59,7 +59,7 @@ Zarafa.mail.settings.SettingsSafeSenderCategory = Ext.extend(Zarafa.settings.ui.
 	/**
 	 * Event handler for the
 	 * {@link Zarafa.settings.SettingsContextModel ContextModel}#{@link Zarafa.settings.SettingsContextModel#beforesavesettings beforesavesettings}
-	 * event. Hooks into the save flow to also persist JunkMailStore to server.
+	 * event. It hooks into the save flow to also persist JunkMailStore to server.
 	 * @private
 	 */
 	onBeforeSaveSettingsModel: function()

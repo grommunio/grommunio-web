@@ -78,8 +78,8 @@ Zarafa.common.ui.messagepanel.ExtraInfoContextMenu = Ext.extend(Zarafa.core.ui.m
 	},
 
 	/**
-	 * Function will add domain address of sender of this mail to the safe senders list
-	 * so the mails from this domain will not be checked for blocking external content.
+	 * This function adds domain address of sender of this mail to the safe senders list,
+	 * so mails from this domain will not have external content blocked.
 	 * @private
 	 */
 	addDomainToSafeList: function()

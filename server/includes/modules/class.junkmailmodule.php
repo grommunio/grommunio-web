@@ -5,7 +5,7 @@ require_once BASE_PATH . 'server/includes/core/class.junkrule.php';
 /**
  * JunkMailModule Module.
  *
- * Reads and writes the Outlook Junk Email Rule (MS-OXCSPAM): the
+ * This class reads and writes the Outlook Junk Email Rule (MS-OXCSPAM). The
  * IPM.ExtendedRule.Message FAI message in the inbox whose extended rule
  * condition carries the blocked senders, safe senders and safe recipients
  * lists. Outlook reads and writes the same message, so both clients see
@@ -88,7 +88,7 @@ class JunkMailModule extends Module {
 	}
 
 	/**
-	 * Read the lists and options. Never creates the rule: a mailbox without
+	 * Read the lists and options. Never creates the rule, because a mailbox without
 	 * one simply has empty lists, like a fresh Outlook profile.
 	 */
 	public function getJunkSettings() {
@@ -202,8 +202,8 @@ class JunkMailModule extends Module {
 		$safeRecipients ??= $current['safe_recipients'];
 		$blockedSenders ??= $current['blocked_senders'];
 
-		// MS-OXCSPAM 2.2.2.2: the contacts clause must be empty while the
-		// option is off; Outlook repopulates it when re-enabled.
+		// MS-OXCSPAM v12 §2.2.2.2: The contacts clause must be empty while the
+		// option is off. Outlook repopulates it when re-enabled.
 		$includeContacts = isset($props['junk_include_contacts'])
 			? (empty($props['junk_include_contacts']) ? 0 : 1)
 			: $current['junk_include_contacts'];
@@ -218,7 +218,7 @@ class JunkMailModule extends Module {
 		$writeProps = [
 			PR_EXTENDED_RULE_MSG_CONDITION => $condition,
 			PR_EXTENDED_RULE_MSG_ACTIONS => $actions,
-			// Re-enable on every save; Outlook may have flagged ST_ERROR.
+			// Re-enable on every save. Outlook may have flagged ST_ERROR.
 			PR_RULE_MSG_STATE => JunkRule::RULE_STATE,
 		];
 		if (isset($props['junk_include_contacts'])) {
@@ -248,7 +248,7 @@ class JunkMailModule extends Module {
 		mapi_setprops($message, $writeProps);
 		mapi_savechanges($message);
 
-		// zcore silently rejects an oversized or non-FAI condition write:
+		// zcore silently rejects an oversized or non-FAI condition write.
 		// mapi_setprops still succeeds, so the only proof is reading back.
 		$check = mapi_getprops($message, [PR_EXTENDED_RULE_MSG_CONDITION]);
 		$stored = $check[PR_EXTENDED_RULE_MSG_CONDITION] ?? streamProperty($message, PR_EXTENDED_RULE_MSG_CONDITION);
@@ -309,7 +309,7 @@ class JunkMailModule extends Module {
 	}
 
 	/**
-	 * The junk folder entryid: PR_ADDITIONAL_REN_ENTRYIDS index 4 on the inbox.
+	 * The junk folder entryid is PR_ADDITIONAL_REN_ENTRYIDS index 4 on the inbox.
 	 *
 	 * @param resource $inbox
 	 *
@@ -326,8 +326,8 @@ class JunkMailModule extends Module {
 	}
 
 	/**
-	 * The junk email move stamp: PR_ADDITIONAL_REN_ENTRYIDS index 5 on the
-	 * inbox; generated and stored there when absent (MS-OXCSPAM 3.2.4.1).
+	 * The junk email move stamp is PR_ADDITIONAL_REN_ENTRYIDS index 5 on the
+	 * inbox, generated and stored there when absent (MS-OXCSPAM v12 §3.2.4.1).
 	 *
 	 * @param resource $inbox
 	 *
@@ -355,7 +355,7 @@ class JunkMailModule extends Module {
 	/**
 	 * Delete the old webapp setting after a verified save. An explicitly sent
 	 * safe senders list was built from the merged view (the client refuses to
-	 * save before loading), so deletions in it are deliberate; otherwise the
+	 * save before loading), so deletions in it are deliberate. Otherwise, the
 	 * setting is kept until a save covers every remaining entry.
 	 *
 	 * @param array $safeSenders the just-saved safe senders

@@ -192,9 +192,9 @@ Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 		}
 
 		// Check if this store contains the inbox. It is the only folder that can be rendered
-		// with conversation view. The inbox is taken from the mapi store this list belongs
-		// to, so the inbox of a shared mailbox is grouped like the own inbox. Stores without
-		// a receive folder (the public store) have no inbox and are shown flat.
+		// with conversation view. The inbox is taken from the MAPI store this list belongs
+		// to, so the inbox of a shared mailbox is grouped like one's own inbox. Public stores without
+		// any receive folders are shown flat.
 		var storeEntryId = this.storeEntryId;
 		if (!Ext.isString(storeEntryId)) {
 			// The list combines the contents of multiple folders, it has no single

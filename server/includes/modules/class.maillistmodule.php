@@ -204,12 +204,10 @@ class MailListModule extends ListModule {
 
 	/**
 	 * Opens the contents table of the Sent Items folder of the given store, or
-	 * returns false when it is not available. A store does not necessarily have
-	 * one (the public store), and a shared mailbox can grant access to the Inbox
-	 * while withholding Sent Items - where the refusal surfaces at the folder or
-	 * at its table, depending on the rights granted. In either case the
-	 * conversations of that mailbox simply have no sent counterparts, which must
-	 * not turn into an error for the whole request.
+	 * returns false when it is not available. Public stores do not have that
+	 * folder. Shared mailboxes can withhold access, where the refusal surfaces
+	 * at the folder or at its table, depending on the rights granted. In any
+	 * case, these conditions must not turn into an error for the whole request.
 	 *
 	 * @param object $store MAPI message store object
 	 *
@@ -280,8 +278,8 @@ class MailListModule extends ListModule {
 					}
 
 					// getConversationItems() removes private items from the
-					// conversation, so they must not be counted here either:
-					// the count is what the conversation header announces.
+					// conversation, so they must not be counted here either.
+					// The count is what the conversation header announces.
 					$props = [];
 					if (isset($row[PR_SENSITIVITY])) {
 						$props['sensitivity'] = $row[PR_SENSITIVITY];
