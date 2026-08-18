@@ -622,18 +622,34 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 	addCSSText: function(doc)
 	{
 		var head = doc.getElementsByTagName('head')[0];
-		if (doc.getElementById('grommunio-preview-body-css')) {
-			return;
+		var css = doc.getElementById('grommunio-preview-body-css');
+		if (!css) {
+			css = doc.createElement('style');
+			css.setAttribute('id', 'grommunio-preview-body-css');
+			css.setAttribute('type', 'text/css');
+			head.appendChild(css);
 		}
 
-		var css = doc.createElement('style');
-		css.setAttribute('id', 'grommunio-preview-body-css');
-		css.setAttribute('type', 'text/css');
-		css.appendChild(document.createTextNode('body { margin: 0; padding: 9px; } ' +
+		// The user's default font, so a message that carries no font of its own is
+		// not left to the browser's serif. A message with its own fonts keeps them,
+		// and plain-text bodies keep the monospace set on pre below. Only a plain
+		// unquoted font list is accepted: this stylesheet lives in the iframe with
+		// the message, and a stray quote from a hand-edited setting would swallow
+		// every rule after it.
+		var fontFamily = container.getSettingsModel().get('zarafa/v1/main/default_font');
+		var bodyFont = '';
+		if (Ext.isString(fontFamily) && (/^[\w ,-]+$/).test(fontFamily)) {
+			bodyFont = 'font-family: ' + fontFamily + '; ';
+		}
+
+		css.textContent = ('body { margin: 0; padding: 9px; ' + bodyFont + '} ' +
 			// Make the blockquote element not use the default right margin of 40px
 			'blockquote { margin-right: 0px; }' +
 			// Make text in pre tags wrapped if too long for a line
+			// Registered under 'fira mono' as well: that is the family name the
+			// default-font setting uses.
 			"@font-face { font-family: firamono; font-style: normal; font-weight: 400; src: url(" + window.location.pathname + "/client/resources/fonts/FiraMono-Regular.woff2) format('woff2'); }" +
+			"@font-face { font-family: fira mono; font-style: normal; font-weight: 400; src: url(" + window.location.pathname + "/client/resources/fonts/FiraMono-Regular.woff2) format('woff2'); }" +
 			"pre { white-space: pre-wrap; overflow-wrap: anywhere; word-wrap: break-word; margin: 0; font-family: firamono, monospace; }" +
 
 			// Scale images
@@ -646,9 +662,7 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			// k-original: class that we set on img click
 			// table img: all images in tables. Often used in newsletters
 			'.k-original, table img { max-width: none !important; }'
-		));
-
-		head.appendChild(css);
+		);
 	},
 
 	/**
