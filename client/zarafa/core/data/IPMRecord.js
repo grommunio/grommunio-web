@@ -202,28 +202,18 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	},
 
 	/**
-	 * Check whether this record claims to be {@link Zarafa.core.data.MAPIRecord#isOpened opened}
-	 * while carrying no body at all, which means the body must be fetched again.
-	 *
-	 * This state is reachable because the properties sent for a list row (and for
-	 * a table notification) do not include a body, but the record fields still
-	 * exist and hold an empty string. Applying such data onto an already opened
-	 * record therefore replaces its body with '', while the opened flag is only
-	 * ever set and never cleared. Since {@link Zarafa.core.data.MAPIRecord#open}
-	 * returns early for an opened record, nothing refetches the body afterwards.
-	 *
+	 * Whether this record is {@link Zarafa.core.data.MAPIRecord#isOpened opened}
+	 * yet carries no body, so the body must be fetched again. Reachable because
+	 * list-row and table-notification data omit the body, replacing an opened
+	 * record's body with '' while the opened flag stays set, so
+	 * {@link Zarafa.core.data.MAPIRecord#open} would return early and never
+	 * refetch. A record whose open genuinely returned no body ({@link #bodyKnownEmpty})
+	 * is not reported, so it is not reloaded on every reply.
 	 * @return {Boolean} True if the record is opened but holds no body.
 	 */
 	isBodyMissing: function()
 	{
-		// A phantom has no server-side counterpart to load a body from.
-		if (this.phantom === true || !this.isOpened()) {
-			return false;
-		}
-
-		// A message can legitimately have no body at all. Reloading it would
-		// return an empty body again, so only ever ask once per record.
-		if (this.bodyReloadForced === true) {
+		if (this.phantom === true || !this.isOpened() || this.bodyKnownEmpty === true) {
 			return false;
 		}
 
@@ -235,40 +225,35 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	},
 
 	/**
-	 * Set to true while a reload has been requested by {@link #isBodyMissing} so
-	 * the request is not repeated for a message which has no body at all. It is
-	 * cleared again as soon as a body does arrive, which keeps a later loss of
-	 * the body repairable.
+	 * True once an {@link #afterOpen open} has confirmed this record genuinely has
+	 * no body. A later loss of the body (a list-row update setting it to '') is
+	 * still detected, because that path does not open the record.
 	 * @property
 	 * @type Boolean
 	 */
-	bodyReloadForced: false,
+	bodyKnownEmpty: false,
 
 	/**
-	 * Request the body to be loaded again for a record which is
-	 * {@link Zarafa.core.data.MAPIRecord#isOpened opened} but {@link #isBodyMissing
-	 * carries no body}. A plain {@link Zarafa.core.data.MAPIRecord#open open} would
-	 * return early for such a record, so the load is forced.
+	 * Force the body to be fetched again for an
+	 * {@link Zarafa.core.data.MAPIRecord#isOpened opened} record which
+	 * {@link #isBodyMissing carries no body}; a plain open() would return early.
 	 */
 	reloadBody: function()
 	{
-		this.bodyReloadForced = true;
 		this.open({forceLoad: true});
 	},
 
 	/**
-	 * Called by the store after the record was opened. Clears {@link #bodyReloadForced}
-	 * once a body has actually arrived, so that losing the body again later can
-	 * still be repaired by a reload.
+	 * Called by the store after the record was opened. Records whether a body
+	 * actually arrived; a failed open never reaches here, so a failed reload can
+	 * be retried rather than latching the record as body-less.
 	 * @private
 	 */
 	afterOpen: function()
 	{
 		Zarafa.core.data.IPMRecord.superclass.afterOpen.apply(this, arguments);
 
-		if (!Ext.isEmpty(this.get('body')) || !Ext.isEmpty(this.get('html_body'))) {
-			this.bodyReloadForced = false;
-		}
+		this.bodyKnownEmpty = Ext.isEmpty(this.get('body')) && Ext.isEmpty(this.get('html_body'));
 	},
 
 	/**
