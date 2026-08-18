@@ -1150,27 +1150,16 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	},
 
 	/**
-	 * Returns the record which a file dropped onto the editor body should be
-	 * attached to.
-	 *
-	 * {@link #bindRecord} is only called by
-	 * {@link Zarafa.mail.dialogs.MailCreatePanel the mail compose panel}, so for
-	 * every other editor -- appointment, task, contact, note and the quick-item
-	 * widgets -- the record has to be taken from the dialog which owns it. This
-	 * is the same lookup {@link Zarafa.common.form.TextArea} performs for the
-	 * plain-text body.
+	 * Returns the record a file dropped onto the editor body should be attached
+	 * to. {@link #bindRecord} sets this.record only for the mail composer and the
+	 * settings signature editor; every other editor is resolved from the dialog
+	 * which owns it. See {@link Zarafa.core.Util#getDropTargetRecord}.
 	 * @return {Zarafa.core.data.IPMRecord} The record being edited, or undefined
 	 * when this editor is not editing a record at all.
 	 */
 	getAttachmentRecord: function()
 	{
-		if (this.record) {
-			return this.record;
-		}
-
-		var panel = this.findParentByType('zarafa.recordcontentpanel');
-
-		return panel ? panel.record : undefined;
+		return Zarafa.core.Util.getDropTargetRecord(this);
 	},
 
 	/**

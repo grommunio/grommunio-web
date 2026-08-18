@@ -924,5 +924,27 @@ Zarafa.core.Util =
 	{
 		return str.match(/.{1,2}/g).reduce((str, hex) =>
 			str += String.fromCharCode(parseInt(hex, 16)), '');
+	},
+
+	/**
+	 * Returns the {@link Zarafa.core.data.IPMRecord} a file dropped onto a message
+	 * body editor should be attached to: the record the field is bound to, else
+	 * the record of the mail-compose or record-content panel that owns it. Shared
+	 * by both body editors ({@link Zarafa.common.form.TextArea} and
+	 * {@link Zarafa.common.ui.HtmlEditor}) so their drop-to-attach behaviour cannot
+	 * drift apart.
+	 * @param {Ext.Component} field The body editor the file was dropped on
+	 * @return {Zarafa.core.data.IPMRecord} The owning record, or undefined
+	 */
+	getDropTargetRecord : function(field)
+	{
+		if (field.record) {
+			return field.record;
+		}
+
+		var panel = field.findParentByType('zarafa.mailcreatepanel') ||
+			field.findParentByType('zarafa.recordcontentpanel');
+
+		return panel ? panel.record : undefined;
 	}
 };
