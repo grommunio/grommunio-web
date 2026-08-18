@@ -148,7 +148,8 @@ class OutOfOfficeSettingsModule extends Module {
 		$oofSettings = $action['props'];
 		$store = $GLOBALS['mapisession']->openMessageStore(hex2bin((string) $storeEntryId));
 		$props = Conversion::mapXML2MAPI($this->properties, $oofSettings);
-		$oofProps = mapi_getprops($store, [PR_EC_OUTOFOFFICE, PR_EC_OUTOFOFFICE_FROM, PR_EC_OUTOFOFFICE_UNTIL]);
+		$oofProps = mapi_getprops($store, [PR_EC_OUTOFOFFICE, PR_EC_OUTOFOFFICE_FROM, PR_EC_OUTOFOFFICE_UNTIL,
+			PR_EC_OUTOFOFFICE_SUBJECT, PR_EC_EXTERNAL_SUBJECT]);
 
 		// If client sent until value as 0 or User set OOF to true but don't set until
 		// then save FUTURE_ENDDATE as until date. Also when OOF is already ON and User
@@ -169,6 +170,23 @@ class OutOfOfficeSettingsModule extends Module {
 		if ($oofSet && isset($oofSettings['from']) && intval($oofSettings['from']) > time()) {
 			$props[$this->properties['set']] = 2;
 		}
+		// A reply carrying no subject at all reaches the sender as a blank line in
+		// their mailbox, so make sure a subject is stored whenever out of office
+		// is on. The client offers the same default in the settings form, but it
+		// is not the only way these properties are written.
+		foreach (['internal_subject', 'external_subject'] as $subject) {
+			$tag = $this->properties[$subject];
+
+			if (array_key_exists($tag, $props)) {
+				if (trim((string) $props[$tag]) === '') {
+					$props[$tag] = Language::getstring('Out of Office');
+				}
+			}
+			elseif ($oofSet && trim((string) ($oofProps[$tag] ?? '')) === '') {
+				$props[$tag] = Language::getstring('Out of Office');
+			}
+		}
+
 		if (!empty($props)) {
 			mapi_setprops($store, $props);
 			mapi_savechanges($store);
