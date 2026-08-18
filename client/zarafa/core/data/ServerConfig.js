@@ -69,9 +69,11 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
-	 * @return {Boolean} True if dragging attachments out of grommunio Web into a
-	 * cooperating web application is enabled (administrative kill-switch, see
-	 * ENABLE_ATTACHMENT_DRAG_OUT in config.php)
+	 * @return {Boolean} True if the attachment bytes may be embedded in a drag
+	 * operation, so a cooperating web application can reconstruct the file on
+	 * drop (see ENABLE_ATTACHMENT_DRAG_OUT in config.php). This does not affect
+	 * dragging an attachment onto the operating system, which needs no embedded
+	 * bytes.
 	 */
 	isAttachmentDragOutEnabled: function()
 	{

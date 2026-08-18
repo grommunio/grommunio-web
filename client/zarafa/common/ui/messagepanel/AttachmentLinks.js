@@ -43,13 +43,26 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 
 	/**
 	 * Cache of base64 encoded attachment payloads, keyed by
-	 * {@link #getAttachmentCacheKey}. Populated by {@link #prefetchAttachmentFile}.
-	 * Each entry is an object <tt>{payload: String|null}</tt>; the payload is the
-	 * JSON string placed on the drag {@link DataTransfer}.
+	 * {@link #getAttachmentCacheKey}. Each entry is
+	 * <tt>{payload: String|null, bytes: Number, oversize: Boolean, lru: Number}</tt>.
+	 * Reset on {@link #bindStore}, so it only holds payloads of the displayed message.
 	 * @property {Object}
 	 * @private
 	 */
 	attachmentPayloadCache: undefined,
+
+	/**
+	 * @cfg {Number} maxConcurrentPrefetch Maximum number of attachment downloads
+	 * {@link #prefetchAttachmentFile} may have in flight at once.
+	 */
+	maxConcurrentPrefetch: 3,
+
+	/**
+	 * @cfg {Number} payloadCacheBudgetFactor Multiple of the per-attachment embed
+	 * limit ({@link #getDragOutMaxSize}) used as the total cache byte budget, so
+	 * several attachments can stay ready without evicting each other.
+	 */
+	payloadCacheBudgetFactor: 4,
 
 	/**
 	 * @cfg {String} fieldLabel The label which must be applied to template
@@ -116,6 +129,13 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	{
 		Zarafa.common.ui.messagepanel.AttachmentLinks.superclass.initComponent.call(this);
 
+		// Drag-out prefetch state, initialised once so the cache is always an object.
+		this.attachmentPayloadCache = {};
+		this.activePrefetches = [];
+		this.pendingPrefetchCount = 0;
+		this.prefetchGeneration = 0;
+		this.payloadCacheSeq = 0;
+
 		this.on({
 			'contextmenu': this.onNodeContextMenu,
 			'click': this.onAttachmentClicked,
@@ -125,13 +145,19 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	},
 
 	/**
-	 * Returns whether the attachment drag-out feature is enabled by the server
-	 * (see ENABLE_ATTACHMENT_DRAG_OUT in config.php) and supported by the
-	 * browser (requires <tt>window.fetch</tt> and <tt>FileReader</tt>).
-	 * @return {Boolean} True if attachment drag-out is available
+	 * Returns whether the attachment bytes may be embedded in the drag
+	 * operation, which requires the server to allow it (see
+	 * ENABLE_ATTACHMENT_DRAG_OUT in config.php) and the browser to support it
+	 * (<tt>window.fetch</tt> and <tt>FileReader</tt>).
+	 *
+	 * This governs the {@link #attachmentDragOutType} payload only; it is not a
+	 * switch for dragging attachments as such. Dragging an attachment to the
+	 * operating system uses the <tt>DownloadURL</tt> type, needs no payload and
+	 * is always available.
+	 * @return {Boolean} True if attachment payloads may be embedded in a drag
 	 * @private
 	 */
-	isDragOutEnabled: function()
+	isDragOutEmbedEnabled: function()
 	{
 		var serverConfig = container.getServerConfig();
 		if (serverConfig && Ext.isFunction(serverConfig.isAttachmentDragOutEnabled) && !serverConfig.isAttachmentDragOutEnabled()) {
@@ -159,65 +185,63 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	},
 
 	/**
-	 * Overrides {@link Ext.DataView#refresh} to eagerly prefetch and encode the
-	 * content of the currently displayed attachments (up to the configured
-	 * maximum size), so they are immediately available to be dragged into a
-	 * cooperating web application without the user having to hover first.
-	 * @override
+	 * Returns the total payload-cache byte budget: {@link #payloadCacheBudgetFactor}
+	 * times the per-attachment embed limit ({@link #getDragOutMaxSize}).
+	 * @return {Number} maximum retained payload bytes
+	 * @private
 	 */
-	refresh: function()
+	getPayloadCacheBudget: function()
 	{
-		Zarafa.common.ui.messagepanel.AttachmentLinks.superclass.refresh.apply(this, arguments);
-
-		if (!this.store || !this.isDragOutEnabled()) {
-			return;
-		}
-
-		this.store.each(function(record) {
-			if (record.get('hidden') !== true) {
-				this.prefetchAttachmentFile(record);
-			}
-		}, this);
+		return this.payloadCacheBudgetFactor * this.getDragOutMaxSize();
 	},
 
 	/**
 	 * Event handler for the {@link #render} event. Registers the native
-	 * <tt>dragstart</tt> (and, when the drag-out feature is enabled,
-	 * <tt>mouseover</tt>) listeners on the view element so that attachments can
-	 * be dragged out of grommunio Web. See {@link #onAttachmentDragStart}.
+	 * <tt>dragstart</tt> (and, when {@link #isDragOutEmbedEnabled payloads may be
+	 * embedded}, the priming listeners) on the view element so that attachments
+	 * can be dragged out of grommunio Web. See {@link #onAttachmentDragStart}.
 	 * @private
 	 */
 	onRenderRegisterDragOut: function()
 	{
 		this.mon(this.getEl(), 'dragstart', this.onAttachmentDragStart, this);
 
-		if (this.isDragOutEnabled()) {
-			// Prefetch (and base64-encode) the attachment bytes when the user
-			// hovers over a link, so the payload is available synchronously at
-			// 'dragstart' time for dropping into a cooperating web application.
-			this.mon(this.getEl(), 'mouseover', this.onAttachmentMouseOver, this);
+		if (this.isDragOutEmbedEnabled()) {
+			// Prime the payload ahead of a drag. 'mousedown' also covers input
+			// paths that do not fire 'mouseover' first (e.g. pen); a drag with no
+			// primed payload falls back to the always-available DownloadURL.
+			this.mon(this.getEl(), 'mouseover', this.onAttachmentPrimePayload, this);
+			this.mon(this.getEl(), 'mousedown', this.onAttachmentPrimePayload, this);
 		}
 	},
 
 	/**
-	 * Returns a stable cache key for an attachment record.
+	 * Returns a stable cache key for an attachment record: its download URL, which
+	 * already scopes to the parent message and attachment number (and is the
+	 * resource the payload is fetched from). Returns '' (caching disabled, rather
+	 * than a colliding key) when the attachment is not part of a message-bound store.
 	 * @param {Zarafa.core.data.IPMAttachmentRecord} record The attachment record
-	 * @return {String} cache key
+	 * @return {String} cache key, or '' when no stable key is available
 	 * @private
 	 */
 	getAttachmentCacheKey: function(record)
 	{
-		return record.get('attach_num') + '|' + (record.get('tmpname') || '') + '|' + (record.get('attach_id') || '');
+		var store = record.getStore();
+		if (!store || !Ext.isFunction(store.getParentRecord) || !store.getParentRecord()) {
+			return '';
+		}
+
+		return record.getAttachmentUrl() || '';
 	},
 
 	/**
-	 * Native <tt>mouseover</tt> handler. Kicks off a background prefetch of the
-	 * hovered attachment so its payload is cached before the user starts
-	 * dragging. See {@link #onAttachmentDragStart}.
+	 * Native priming handler (bound to <tt>mouseover</tt> and <tt>mousedown</tt>).
+	 * Kicks off a background prefetch of the targeted attachment so its payload is
+	 * cached before the user starts dragging. See {@link #onAttachmentDragStart}.
 	 * @param {Ext.EventObject} evt The native event wrapped by Ext.
 	 * @private
 	 */
-	onAttachmentMouseOver: function(evt)
+	onAttachmentPrimePayload: function(evt)
 	{
 		if (!this.store) {
 			return;
@@ -235,34 +259,55 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	},
 
 	/**
-	 * Fetches the attachment content and caches it as a base64 encoded JSON
-	 * payload, keyed by the attachment record. Does nothing when the feature is
-	 * disabled, the attachment is an embedded message, its size exceeds the
-	 * configured maximum ({@link #getDragOutMaxSize}) or it is already (being)
-	 * fetched. The download uses the session cookie for authentication.
-	 *
+	 * Stamps a cache entry as most-recently-used, so {@link #evictPayloadCache}
+	 * keeps the payloads the user has most recently hovered or dragged.
+	 * @param {Object} entry A {@link #attachmentPayloadCache} entry
+	 * @private
+	 */
+	touchCacheEntry: function(entry)
+	{
+		if (entry) {
+			entry.lru = ++this.payloadCacheSeq;
+		}
+	},
+
+	/**
+	 * Fetches the attachment content and caches it as a base64 encoded JSON payload,
+	 * keyed by {@link #getAttachmentCacheKey}. Skips embedded messages, over-limit
+	 * attachments (checked against the metadata size and again against the response),
+	 * ones already cached/in-flight/known-too-large, and starts nothing once
+	 * {@link #maxConcurrentPrefetch} fetches are in flight. The fetch is aborted on
+	 * {@link #bindStore} or destroy. Callers must have checked
+	 * {@link #isDragOutEmbedEnabled}; both call sites are gated on it.
 	 * @param {Zarafa.core.data.IPMAttachmentRecord} record The attachment record
 	 * @private
 	 */
 	prefetchAttachmentFile: function(record)
 	{
-		if (!this.isDragOutEnabled()) {
-			return;
-		}
-
 		if (Ext.isFunction(record.isEmbeddedMessage) && record.isEmbeddedMessage()) {
 			return;
 		}
 
+		var maxSize = this.getDragOutMaxSize();
+
+		// A missing/zero size is unknown, not empty; the real size is enforced
+		// against the response below.
 		var size = record.get('size') || 0;
-		if (size > this.getDragOutMaxSize()) {
+		if (size > maxSize) {
 			return;
 		}
 
-		this.attachmentPayloadCache = this.attachmentPayloadCache || {};
 		var key = this.getAttachmentCacheKey(record);
+		if (Ext.isEmpty(key)) {
+			return;
+		}
 		if (this.attachmentPayloadCache[key]) {
-			// already cached or in-flight
+			// Already cached, in-flight or known too large: refresh recency only.
+			this.touchCacheEntry(this.attachmentPayloadCache[key]);
+			return;
+		}
+
+		if (this.pendingPrefetchCount >= this.maxConcurrentPrefetch) {
 			return;
 		}
 
@@ -273,15 +318,31 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 
 		var name = record.get('name') || _('Untitled');
 		var mimeType = record.get('filetype') || 'application/octet-stream';
-		var entry = { payload: null };
+		var entry = { payload: null, bytes: 0, oversize: false, lru: ++this.payloadCacheSeq };
 		this.attachmentPayloadCache[key] = entry;
 
-		window.fetch(url, { credentials: 'include' }).then(function(response) {
+		var self = this;
+		var generation = this.prefetchGeneration;
+		var controller = (typeof AbortController === 'function') ? new AbortController() : null;
+		if (controller) {
+			this.activePrefetches.push(controller);
+		}
+		this.pendingPrefetchCount++;
+
+		window.fetch(url, { credentials: 'include', signal: controller ? controller.signal : undefined }).then(function(response) {
 			if (!response.ok) {
 				throw new Error('HTTP ' + response.status);
 			}
+			// Enforce the limit against the real size (Content-Length, then bytes).
+			var declared = parseInt(response.headers.get('Content-Length'), 10);
+			if (!isNaN(declared) && declared > maxSize) {
+				throw Ext.apply(new Error('oversize'), { oversize: true });
+			}
 			return response.blob();
 		}).then(function(blob) {
+			if (blob.size > maxSize) {
+				throw Ext.apply(new Error('oversize'), { oversize: true });
+			}
 			return new Promise(function(resolve, reject) {
 				var reader = new FileReader();
 				reader.onload = function() {
@@ -296,9 +357,9 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 				};
 				reader.readAsDataURL(blob);
 			});
-		}).then(Ext.createDelegate(function(data) {
-			// Component may have been destroyed while fetching.
-			if (this.isDestroyed) {
+		}).then(function(data) {
+			// Discard the result if the view was destroyed or the store rebound.
+			if (self.isDestroyed || self.attachmentPayloadCache[key] !== entry) {
 				return;
 			}
 			entry.payload = JSON.stringify({
@@ -307,12 +368,77 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 				size: data.size,
 				data: data.base64
 			});
-		}, this)).catch(Ext.createDelegate(function() {
-			// Drop the failed entry so a later hover/drag can retry.
-			if (this.attachmentPayloadCache) {
-				delete this.attachmentPayloadCache[key];
+			entry.bytes = data.size;
+			entry.lru = ++self.payloadCacheSeq;
+
+			self.evictPayloadCache();
+		}).catch(function(err) {
+			// Ignore results for an entry already reset/replaced (includes aborts).
+			if (self.attachmentPayloadCache[key] !== entry) {
+				return;
 			}
-		}, this));
+			if (err && err.oversize) {
+				// Keep a marker so later hovers/drags do not re-download it.
+				entry.oversize = true;
+				entry.payload = null;
+				entry.bytes = 0;
+			} else {
+				// Transient failure: drop the entry so a later hover/drag can retry.
+				delete self.attachmentPayloadCache[key];
+			}
+		}).then(function() {
+			// Settle the in-flight bookkeeping once. A fetch abandoned by a rebind
+			// (older generation) had its slot released already, so skip it here.
+			if (generation !== self.prefetchGeneration) {
+				return;
+			}
+			self.pendingPrefetchCount = Math.max(0, self.pendingPrefetchCount - 1);
+			if (controller) {
+				var idx = self.activePrefetches.indexOf(controller);
+				if (idx !== -1) {
+					self.activePrefetches.splice(idx, 1);
+				}
+			}
+		});
+	},
+
+	/**
+	 * Evicts least-recently-used {@link #attachmentPayloadCache} entries until the
+	 * total attachment bytes are within {@link #getPayloadCacheBudget}. Sizes count
+	 * attachment bytes (not the inflated base64), and in-flight entries (payload
+	 * null, size unknown) are never discarded.
+	 * @private
+	 */
+	evictPayloadCache: function()
+	{
+		var cache = this.attachmentPayloadCache;
+		var budget = this.getPayloadCacheBudget();
+
+		var keys = Object.keys(cache);
+		var total = 0;
+		var i;
+
+		for (i = 0; i < keys.length; i++) {
+			total += cache[keys[i]].bytes || 0;
+		}
+
+		if (total <= budget) {
+			return;
+		}
+
+		// Evict completed payloads least-recently-used first, so the attachments
+		// the user has most recently hovered or dragged are the ones kept.
+		var evictable = keys.filter(function(k) {
+			return cache[k].payload !== null;
+		});
+		evictable.sort(function(a, b) {
+			return (cache[a].lru || 0) - (cache[b].lru || 0);
+		});
+
+		for (i = 0; i < evictable.length && total > budget; i++) {
+			total -= cache[evictable[i]].bytes || 0;
+			delete cache[evictable[i]];
+		}
 	},
 
 	/**
@@ -371,20 +497,19 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 		var name = record.get('name') || _('Untitled');
 		var mimeType = record.get('filetype') || 'application/octet-stream';
 
-		// Build an absolute URL; DownloadURL requires a fully qualified URL.
+		// DownloadURL requires a fully qualified URL.
 		var url = record.getAttachmentUrl();
-		if (url && url.indexOf('://') === -1) {
-			var loc = window.location;
-			url = loc.protocol + '//' + loc.host + (url.charAt(0) === '/' ? '' : loc.pathname.replace(/[^/]*$/, '')) + url;
+		if (!Ext.isEmpty(url)) {
+			url = new URL(url, window.location.href).href;
 		}
 
 		// (1) Custom type for dropping into a cooperating web application. Only
 		// available when the feature is enabled and the payload was prefetched.
 		var haveCustomPayload = false;
-		if (this.isDragOutEnabled()) {
-			this.attachmentPayloadCache = this.attachmentPayloadCache || {};
+		if (this.isDragOutEmbedEnabled()) {
 			var entry = this.attachmentPayloadCache[this.getAttachmentCacheKey(record)];
 			if (entry && entry.payload) {
+				this.touchCacheEntry(entry);
 				try {
 					dataTransfer.setData(this.attachmentDragOutType, entry.payload);
 					haveCustomPayload = true;
@@ -405,10 +530,13 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 		// type) uses the DownloadURL to save the file.
 		try {
 			if (!Ext.isEmpty(url)) {
-				// ':' is the field separator in a DownloadURL value; newlines
-				// are not permitted.
+				// Name and MIME type are sender-controlled; ':' is the DownloadURL
+				// field separator, so strip it from both or a crafted value could
+				// hijack the URL (everything after the second ':' is the URL).
 				var safeName = String(name).replace(/[\r\n]+/g, ' ').replace(/:/g, '_');
-				dataTransfer.setData('DownloadURL', mimeType + ':' + safeName + ':' + url);
+				var baseMime = String(mimeType).split(';')[0].trim();
+				var safeMime = /^[\w.+-]+\/[\w.+-]+$/.test(baseMime) ? baseMime : 'application/octet-stream';
+				dataTransfer.setData('DownloadURL', safeMime + ':' + safeName + ':' + url);
 				dataTransfer.setData('text/uri-list', url);
 			}
 			// A human-readable label; useful when dropping onto a text field.
@@ -444,6 +572,83 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	},
 
 	/**
+	 * Overrides {@link Ext.DataView#bindStore} to discard the
+	 * {@link #attachmentPayloadCache} (and abort any in-flight prefetch). This
+	 * view is created once for the preview panel and reused for every message
+	 * which is opened, so the cached payloads of the previous message must not
+	 * survive into the next one.
+	 * @param {Ext.data.Store} store The store to bind to this view
+	 * @param {Boolean} initial True if this is the initial binding
+	 * @override
+	 */
+	bindStore: function(store, initial)
+	{
+		// Resolve to the instance (as the superclass does) before comparing, so a
+		// re-bind of the same store under a different reference keeps the cache.
+		var resolved = store ? Ext.StoreMgr.lookup(store) : null;
+		if (resolved !== this.store) {
+			this.abortPrefetches();
+			this.attachmentPayloadCache = {};
+		}
+
+		Zarafa.common.ui.messagepanel.AttachmentLinks.superclass.bindStore.apply(this, arguments);
+	},
+
+	/**
+	 * Ext.DataView aliases setStore to the base bindStore, bypassing this class'
+	 * override; route it back through {@link #bindStore}.
+	 * @param {Ext.data.Store} store The store to bind to this view
+	 * @param {Boolean} initial True if this is the initial binding
+	 * @override
+	 */
+	setStore: function(store, initial)
+	{
+		return this.bindStore.apply(this, arguments);
+	},
+
+	/**
+	 * Aborts any in-flight prefetch downloads. Called when the bound store
+	 * changes or the component is destroyed, so a download started for one
+	 * message is not left running (its result would be discarded anyway).
+	 * @private
+	 */
+	abortPrefetches: function()
+	{
+		// Advance the generation and clear the slot count so the next message starts
+		// fresh; fetches that settle afterwards skip their bookkeeping.
+		this.prefetchGeneration = (this.prefetchGeneration || 0) + 1;
+		this.pendingPrefetchCount = 0;
+
+		if (this.activePrefetches) {
+			for (var i = 0; i < this.activePrefetches.length; i++) {
+				try {
+					this.activePrefetches[i].abort();
+				} catch (e) {
+					// Ignore an AbortController that refuses to abort.
+				}
+			}
+			this.activePrefetches = [];
+		}
+	},
+
+	/**
+	 * Called when the component is being destroyed. Cancels a pending deferred
+	 * bind and aborts any in-flight prefetch, then lets the superclass run.
+	 * @protected
+	 */
+	onDestroy: function()
+	{
+		if (this.bindStoreTask) {
+			window.clearTimeout(this.bindStoreTask);
+			this.bindStoreTask = null;
+		}
+		this.abortPrefetches();
+
+		// The superclass ends in bindStore(null), which resets the cache.
+		Zarafa.common.ui.messagepanel.AttachmentLinks.superclass.onDestroy.apply(this, arguments);
+	},
+
+	/**
 	 * Apply a record on the DataView. If the record is {@link Zarafa.core.data.IPMRecord#isOpened},
 	 * then the {@link Zarafa.core.data.IPMRecord#getAttachmentStore attachment store} will be
 	 * {@link #bindStore bound} to this view.
@@ -451,10 +656,21 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	 */
 	setRecord: function(record)
 	{
+		// Cancel a superseded deferred bind so a fast switch cannot bind the
+		// previous message's store.
+		if (this.bindStoreTask) {
+			window.clearTimeout(this.bindStoreTask);
+			this.bindStoreTask = null;
+		}
+
 		if (record && record.get('hasattach') && record.hasVisibleAttachments()) {
 			if (record.isOpened()) {
 				// Defer binding the attachment store so message text renders first.
-				Ext.defer(function(){
+				this.bindStoreTask = Ext.defer(function(){
+					this.bindStoreTask = null;
+					if (this.isDestroyed) {
+						return;
+					}
 					this.bindStore(record.getAttachmentStore());
 					this.setVisible(true);
 				}, 100, this);
