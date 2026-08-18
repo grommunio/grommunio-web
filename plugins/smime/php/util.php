@@ -262,30 +262,114 @@ function decodeCaIssuerResponse($data) {
 }
 
 /**
+ * Test whether an IP address belongs to a CIDR range.
+ *
+ * @param string $ip
+ * @param string $cidr
+ *
+ * @return bool
+ */
+function smimeIpInCidr($ip, $cidr) {
+	[$network, $prefix] = explode('/', $cidr, 2);
+	$addressBytes = @inet_pton($ip);
+	$networkBytes = @inet_pton($network);
+	$prefix = (int) $prefix;
+	if ($addressBytes === false || $networkBytes === false || strlen($addressBytes) !== strlen($networkBytes) ||
+		$prefix < 0 || $prefix > strlen($addressBytes) * 8) {
+		return false;
+	}
+
+	$wholeBytes = intdiv($prefix, 8);
+	if ($wholeBytes > 0 && substr($addressBytes, 0, $wholeBytes) !== substr($networkBytes, 0, $wholeBytes)) {
+		return false;
+	}
+	$remainingBits = $prefix % 8;
+	if ($remainingBits === 0) {
+		return true;
+	}
+	$mask = (0xFF << (8 - $remainingBits)) & 0xFF;
+
+	return (ord($addressBytes[$wholeBytes]) & $mask) === (ord($networkBytes[$wholeBytes]) & $mask);
+}
+
+/**
+ * Require a globally routable unicast address. PHP's NO_RES_RANGE filter
+ * does not cover ranges such as carrier-grade NAT, benchmarks,
+ * documentation networks, IPv6 translation prefixes or multicast.
+ *
+ * @param string $ip
+ *
+ * @return bool
+ */
+function smimeIsPublicIp($ip) {
+	if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) === false) {
+		return false;
+	}
+
+	$nonPublicRanges = [
+		'100.64.0.0/10', '192.0.0.0/24', '192.0.2.0/24',
+		'192.88.99.0/24', '198.18.0.0/15', '198.51.100.0/24',
+		'203.0.113.0/24', '224.0.0.0/4',
+		'64:ff9b::/96', '64:ff9b:1::/48', '100::/64',
+		'2001::/23', '2001:db8::/32', '2002::/16',
+		'3fff::/20', '5f00::/16', 'ff00::/8',
+	];
+	foreach ($nonPublicRanges as $range) {
+		if (smimeIpInCidr($ip, $range)) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
+/**
  * Resolve the host of an AIA URL and require it to point at public
  * addresses only (SSRF hardening, the URL comes from an unauthenticated
  * message). The resolved addresses are returned as a CURLOPT_RESOLVE pin
  * so curl connects to exactly the checked addresses (no DNS rebinding).
  *
  * @param string $url
+ * @param bool   $allowPrivate include private destinations for internal PKI
  *
- * @return null|array CURLOPT_RESOLVE entries, empty array for public IP
- *                    literals, null when no public address remains
+ * @return null|array CURLOPT_RESOLVE entries, empty array for IP literals or
+ *                    the private-PKI opt-in, null when no allowed address remains
  */
-function aiaResolvePin($url) {
+function aiaResolvePin($url, $allowPrivate = false) {
 	$parts = parse_url($url);
-	if ($parts === false || empty($parts['host'])) {
+	if ($parts === false || empty($parts['host']) ||
+		!in_array(strtolower($parts['scheme'] ?? ''), ['http', 'https'], true) ||
+		isset($parts['user']) || isset($parts['pass'])) {
 		return null;
 	}
 	$host = $parts['host'];
 	$port = $parts['port'] ?? (strtolower($parts['scheme'] ?? 'http') === 'https' ? 443 : 80);
-
-	$isPublic = function ($ip) {
-		return filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) !== false;
-	};
+	if ($port < 1 || $port > 65535) {
+		return null;
+	}
 
 	$literal = trim($host, '[]');
-	if (filter_var($literal, FILTER_VALIDATE_IP) !== false) {
+	$isIpLiteral = filter_var($literal, FILTER_VALIDATE_IP) !== false;
+	if (!$isIpLiteral) {
+		// Keep PHP's and curl's URL parsers from disagreeing about the
+		// authority (for example on backslashes or alternate numeric IPs).
+		$dnsHost = rtrim($host, '.');
+		if ($dnsHost === '' || strlen($dnsHost) > 253 ||
+			preg_match('/\A(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?)(?:\.(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?))*\z/D', $dnsHost) !== 1 ||
+			preg_match('/\A[0-9.]+\z/D', $dnsHost) === 1) {
+			return null;
+		}
+	}
+	if ($allowPrivate) {
+		// Preserve libc (/etc/hosts, split DNS) resolution for internal PKIs.
+		return [];
+	}
+
+	$isPublic = function ($ip) {
+		return smimeIsPublicIp($ip);
+	};
+
+	if ($isIpLiteral) {
 		return $isPublic($literal) ? [] : null;
 	}
 
@@ -300,7 +384,107 @@ function aiaResolvePin($url) {
 		return null;
 	}
 
-	return ["{$host}:{$port}:" . implode(',', $ips)];
+	$ips = array_values(array_unique($ips));
+	$pinnedIps = array_map(function ($ip) {
+		return strpos($ip, ':') === false ? $ip : "[{$ip}]";
+	}, $ips);
+
+	return ["{$host}:{$port}:" . implode(',', $pinnedIps)];
+}
+
+/**
+ * Fetch an HTTP(S) resource referenced by an untrusted certificate.
+ *
+ * The destination is restricted to public addresses and pinned to the DNS
+ * result checked above, unless the administrator explicitly allows private
+ * AIA destinations for an internal PKI. Redirects are never followed and the
+ * response is bounded independently of the server's Content-Length header.
+ *
+ * @param string $url       certificate-supplied URL
+ * @param string $method    GET or POST
+ * @param string $content   request body
+ * @param array  $headers   request headers
+ * @param int    $timeout   total timeout in seconds
+ * @param int    $maxBytes  maximum response size
+ *
+ * @return false|string response body, or false on refusal/failure
+ */
+function fetchSmimeHttpResource($url, $method = 'GET', $content = '', $headers = [], $timeout = 10, $maxBytes = 1048576) {
+	$method = strtoupper((string) $method);
+	if (!function_exists('curl_init') || !is_string($url) || strlen($url) > 4096 ||
+		preg_match('/[\x00-\x20\x7f]/', $url) || !in_array($method, ['GET', 'POST'], true)) {
+		return false;
+	}
+
+	$allowPrivate = defined('PLUGIN_SMIME_AIA_ALLOW_PRIVATE') && PLUGIN_SMIME_AIA_ALLOW_PRIVATE;
+	$pin = aiaResolvePin($url, $allowPrivate);
+	if ($pin === null) {
+		return false;
+	}
+
+	$body = '';
+	$maxBytes = max(1, (int) $maxBytes);
+	$timeout = max(1, (int) $timeout);
+	$ch = curl_init();
+	if ($ch === false) {
+		return false;
+	}
+
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_FAILONERROR, true);
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, min(5, $timeout));
+	curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
+	curl_setopt($ch, CURLOPT_PROTOCOLS, CURLPROTO_HTTP | CURLPROTO_HTTPS);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false);
+	curl_setopt($ch, CURLOPT_MAXREDIRS, 0);
+	curl_setopt($ch, CURLOPT_MAXFILESIZE, $maxBytes);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+	curl_setopt($ch, CURLOPT_WRITEFUNCTION, function ($ch, $chunk) use (&$body, $maxBytes) {
+		$length = strlen($chunk);
+		if ($length > $maxBytes - strlen($body)) {
+			return 0;
+		}
+		$body .= $chunk;
+
+		return $length;
+	});
+	if (!empty($pin)) {
+		curl_setopt($ch, CURLOPT_RESOLVE, $pin);
+	}
+	if ($method === 'POST') {
+		curl_setopt($ch, CURLOPT_POST, true);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $content);
+	}
+	if (!empty($headers)) {
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+	}
+
+	// HTTP Proxy settings. When configured, the trusted proxy controls the
+	// ultimate name resolution and must enforce the same egress policy.
+	if (defined('PLUGIN_SMIME_PROXY') && PLUGIN_SMIME_PROXY != '') {
+		curl_setopt($ch, CURLOPT_PROXY, PLUGIN_SMIME_PROXY);
+	}
+	else {
+		// Do not silently inherit HTTP(S)_PROXY from the PHP-FPM environment:
+		// a proxy performs its own DNS lookup and would bypass CURLOPT_RESOLVE.
+		curl_setopt($ch, CURLOPT_PROXY, '');
+	}
+	if (defined('PLUGIN_SMIME_PROXY_PORT') && PLUGIN_SMIME_PROXY_PORT != '') {
+		curl_setopt($ch, CURLOPT_PROXYPORT, PLUGIN_SMIME_PROXY_PORT);
+	}
+	if (defined('PLUGIN_SMIME_PROXY_USERPWD') && PLUGIN_SMIME_PROXY_USERPWD != '') {
+		curl_setopt($ch, CURLOPT_PROXYUSERPWD, PLUGIN_SMIME_PROXY_USERPWD);
+	}
+
+	$result = curl_exec($ch);
+	$httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+	$success = $result !== false && $httpStatus === 200 && $body !== '';
+	// PHP 8 uses CurlHandle objects; explicitly release the handle without the
+	// PHP 8.5-deprecated curl_close() no-op.
+	unset($ch);
+
+	return $success ? $body : false;
 }
 
 /**
@@ -317,7 +501,7 @@ function aiaResolvePin($url) {
  * @return array list of PEM certificates, empty on failure
  */
 function fetchCaIssuerCerts($url) {
-	if (!function_exists('curl_init') || !preg_match('#^https?://#i', $url)) {
+	if (!is_string($url)) {
 		return [];
 	}
 	// URLs originate from certificate extensions of unauthenticated mail,
@@ -340,56 +524,11 @@ function fetchCaIssuerCerts($url) {
 		@mkdir($cacheDir, 0770, true);
 	}
 
-	$allowPrivate = defined('PLUGIN_SMIME_AIA_ALLOW_PRIVATE') && PLUGIN_SMIME_AIA_ALLOW_PRIVATE;
-	$pin = [];
-	if (!$allowPrivate) {
-		$pin = aiaResolvePin($url);
-		if ($pin === null) {
-			error_log(sprintf("[smime] CA issuer URL '%s' does not resolve to a public address, refusing to fetch", $logUrl));
-			@file_put_contents($cacheFile, '');
-
-			return [];
-		}
-	}
-
-	$body = '';
-	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, $url);
-	curl_setopt($ch, CURLOPT_FAILONERROR, true);
-	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-	curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-	curl_setopt($ch, CURLOPT_PROTOCOLS, CURLPROTO_HTTP | CURLPROTO_HTTPS);
-	curl_setopt($ch, CURLOPT_MAXFILESIZE, 1048576);
-	// Hard cap independent of Content-Length (CURLOPT_MAXFILESIZE only
-	// bounds transfers in progress since curl 8.4.0).
-	curl_setopt($ch, CURLOPT_WRITEFUNCTION, function ($ch, $chunk) use (&$body) {
-		$body .= $chunk;
-
-		return strlen($body) > 1048576 ? -1 : strlen($chunk);
-	});
-	if (!empty($pin)) {
-		curl_setopt($ch, CURLOPT_RESOLVE, $pin);
-	}
-
-	// HTTP Proxy settings
-	if (defined('PLUGIN_SMIME_PROXY') && PLUGIN_SMIME_PROXY != '') {
-		curl_setopt($ch, CURLOPT_PROXY, PLUGIN_SMIME_PROXY);
-	}
-	if (defined('PLUGIN_SMIME_PROXY_PORT') && PLUGIN_SMIME_PROXY_PORT != '') {
-		curl_setopt($ch, CURLOPT_PROXYPORT, PLUGIN_SMIME_PROXY_PORT);
-	}
-	if (defined('PLUGIN_SMIME_PROXY_USERPWD') && PLUGIN_SMIME_PROXY_USERPWD != '') {
-		curl_setopt($ch, CURLOPT_PROXYUSERPWD, PLUGIN_SMIME_PROXY_USERPWD);
-	}
-
-	curl_exec($ch);
-	$httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-	$curlError = curl_error($ch);
-	curl_close($ch);
+	$body = fetchSmimeHttpResource($url);
 
 	$certs = [];
-	if ($curlError || $httpStatus !== 200 || $body === '') {
-		error_log(sprintf("[smime] Unable to fetch CA issuer certificate from '%s': '%s', http status: %s", $logUrl, $curlError, $httpStatus));
+	if ($body === false) {
+		error_log(sprintf("[smime] Refused or failed to fetch CA issuer certificate from '%s'", $logUrl));
 	}
 	else {
 		$certs = decodeCaIssuerResponse($body);
