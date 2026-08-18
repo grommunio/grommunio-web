@@ -22,7 +22,14 @@ if ($translations && array_key_exists("_etag", $translations)) {
 		}
 	}
 } else {
+	/*
+	 * No strings to hand out. Do not let this answer be stored: a client that keeps
+	 * it shows an untranslated interface until it revalidates, even though the
+	 * server may have recovered right after.
+	 */
 	header("Etag: 0");
+	header('Cache-Control: no-store');
+	header('Expires: 0');
 }
 
 

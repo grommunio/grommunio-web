@@ -4,6 +4,10 @@
  * Language handling class.
  */
 class Language {
+	// Key and size of the shared memory segment the parsed translations live in.
+	private const CACHE_KEY = 0x950412DE;
+	private const CACHE_SIZE = 16 * 1024 * 1024;
+
 	private $languages = ["en_US.UTF-8" => "English"];
 	private $lang;
 	private $loaded = false;
@@ -76,26 +80,146 @@ class Language {
 		}
 		$lang = (empty($lang) || str_starts_with($lang, '.') || $lang == "C") ? LANG : $lang; // default language fix
 
-		if ($this->is_language($lang)) {
-			$this->lang = $lang;
-			$tmp_translations = $this->getTranslations();
-			$translations = [];
-			foreach ($tmp_translations as $program => $resources) {
-				if (substr($program, 0, 1) == '_')
-					continue;
-				$resourcesCount = count($resources);
-				for ($i = 0; $i < $resourcesCount; ++$i) {
-					$msgid = $resources[$i]['msgid'];
-					if (isset($msgid)) {
-						$translations[$msgid] = $resources[$i]['msgstr'];
-					}
+		$available = $this->findLanguage($lang);
+		if ($available === false) {
+			error_log(sprintf("Unknown language: '%s'", $lang));
+			$this->resetLocale();
+
+			return;
+		}
+		if ($available !== $lang) {
+			error_log(sprintf("Unknown language: '%s', falling back to '%s'", $lang, $available));
+		}
+
+		$this->lang = $available;
+		$this->bindTextDomain($available);
+		$tmp_translations = $this->getTranslations();
+		$translations = [];
+		foreach ($tmp_translations as $program => $resources) {
+			if (substr($program, 0, 1) == '_')
+				continue;
+			$resourcesCount = count($resources);
+			for ($i = 0; $i < $resourcesCount; ++$i) {
+				$msgid = $resources[$i]['msgid'];
+				if (isset($msgid)) {
+					$translations[$msgid] = $resources[$i]['msgstr'];
 				}
 			}
-			$GLOBALS['translations'] = $translations;
 		}
-		else {
-			error_log(sprintf("Unknown language: '%s'", $lang));
+		$GLOBALS['translations'] = $translations;
+	}
+
+	/**
+	 * Find an installed language directory for the requested language.
+	 *
+	 * The requested language does not always name a directory in LANGUAGE_DIR. gromox
+	 * hands out PR_EC_USER_LANGUAGE as the `users.lang` column with ".UTF-8" appended,
+	 * so a bare language code stored there - "de" rather than "de_DE" - arrives here as
+	 * "de.UTF-8", for which no directory exists. Dropping such a value means serving a
+	 * client with an empty translation set, i.e. an entirely English interface, and
+	 * PR_EC_USER_LANGUAGE re-imposes the value on every login until the user explicitly
+	 * re-picks a language in Settings, which writes the choice back to it. Prefer a
+	 * territory variant of the same language over that.
+	 *
+	 * @param string $lang Language code (eg nl_NL.UTF-8)
+	 *
+	 * @return bool|string the language to use, or false if none is installed
+	 */
+	private function findLanguage($lang) {
+		if ($this->is_language($lang)) {
+			return $lang;
 		}
+
+		$resolved = self::resolveLanguage($lang);
+		if ($resolved !== $lang && $this->is_language($resolved)) {
+			return $resolved;
+		}
+
+		// Any variant of the same language beats English. Try the territory that
+		// repeats the language code first ("de" -> "de_DE"), which is the usual
+		// spelling, and settle for the first one installed otherwise.
+		$base = strstr($lang, '_', true);
+		if ($base === false) {
+			$base = stristr($lang, '.', true);
+		}
+		if ($base === false) {
+			$base = $lang;
+		}
+		if (preg_match('/^[a-z]{2,3}$/i', $base)) {
+			$base = strtolower($base);
+			// Legacy ISO 639 codes; the directories use the modern spelling.
+			$aliases = ['no' => 'nb', 'in' => 'id', 'iw' => 'he', 'tl' => 'fil'];
+			$base = $aliases[$base] ?? $base;
+			// The language configured by the administrator wins when it is a variant
+			// of the same language, so its territory is not silently overruled.
+			if (strcasecmp($base, (string) strstr(LANG, '_', true)) == 0 && $this->is_language(LANG)) {
+				return LANG;
+			}
+			$candidates = glob(LANGUAGE_DIR . $base . '_' . strtoupper($base) . '.UTF-8') ?: [];
+			if (empty($candidates)) {
+				$candidates = glob(LANGUAGE_DIR . $base . '_*.UTF-8') ?: [];
+				sort($candidates);
+			}
+			if (!empty($candidates)) {
+				return basename($candidates[0]);
+			}
+		}
+
+		return $this->is_language(LANG) ? LANG : false;
+	}
+
+	/**
+	 * Bind the gettext text domain for the given language.
+	 *
+	 * The JavaScript client receives its strings from getTranslations(), but the PHP
+	 * side - templates, modules and plugins - calls _() directly, which is the gettext
+	 * extension's function. gettext only returns a translation once LC_MESSAGES names
+	 * an actual locale and the text domain is bound to the directory holding the .mo
+	 * files; without both it hands back the msgid, so every server-rendered string
+	 * stays English no matter which language the user selected.
+	 *
+	 * @param string $lang Language code (eg nl_NL.UTF-8)
+	 */
+	private function bindTextDomain($lang) {
+		if (!function_exists('bindtextdomain') || !defined('LC_MESSAGES')) {
+			return;
+		}
+		// No failure below may leave another request's language active in this worker.
+		$this->resetLocale();
+
+		// bindtextdomain() resolves a relative path against the working directory at
+		// lookup time, which is not ours to rely on, so hand it an absolute one.
+		$dir = realpath(LANGUAGE_DIR);
+		if ($dir === false) {
+			return;
+		}
+
+		// Only the exact spelling can work: glibc normalizes codeset spellings by
+		// itself, but composes the catalog path from the locale name, so only a
+		// locale named like the directory in LANGUAGE_DIR loads a catalog.
+		// On failure LC_MESSAGES stays "C" and gettext hands back the msgid.
+		if (setlocale(LC_MESSAGES, $lang) === false) {
+			return;
+		}
+
+		bindtextdomain('grommunio_web', $dir);
+		bind_textdomain_codeset('grommunio_web', 'UTF-8');
+		textdomain('grommunio_web');
+	}
+
+	/**
+	 * Return the process to the untranslated state. The locale is process-wide and a
+	 * PHP-FPM worker outlives the request, so one request's language would otherwise
+	 * still be active in the next one - served to a different user. LANGUAGE is
+	 * cleared because glibc consults it before LC_MESSAGES; it must never be set per
+	 * user, as glibc does not notice a changed LANGUAGE within the same process.
+	 */
+	private function resetLocale() {
+		if (!function_exists('bindtextdomain') || !defined('LC_MESSAGES')) {
+			return;
+		}
+		setlocale(LC_MESSAGES, 'C');
+		putenv('LANGUAGE=');
 	}
 
 	public static function getstring($string) {
@@ -186,36 +310,80 @@ class Language {
 	}
 
 	public function getTranslations() {
-		$memid = @shm_attach(0x950412DE, 16 * 1024 * 1024, 0644);
+		$selected_lang = $this->getSelected();
+		$memid = @shm_attach(self::CACHE_KEY, self::CACHE_SIZE, 0644);
 		if ($memid && @shm_has_var($memid, 0)) {
 			$cache_table = @shm_get_var($memid, 0);
-			$selected_lang = $this->getSelected();
-			if (empty($cache_table) || empty($cache_table[$selected_lang])) {
-				@shm_remove_var($memid, 0);
+			// An empty array is a valid table: a host without compiled catalogs
+			// would otherwise destroy and rebuild the segment on every request.
+			if (is_array($cache_table)) {
+				if (!empty($cache_table[$selected_lang])) {
+					$translations = @shm_get_var($memid, $cache_table[$selected_lang]);
+					if (!empty($translations)) {
+						@shm_detach($memid);
+
+						return $translations;
+					}
+
+					/*
+					 * The table promises a payload the segment does not hold, so the
+					 * write behind it failed unnoticed - running out of room in the
+					 * segment does that. Dropping only the table would leave every
+					 * payload allocated, so the rebuild would run out of room again
+					 * and again while still advertising its entries, and this language
+					 * would stay untranslated until the segment is removed by hand.
+					 */
+					$memid = $this->resetCache($memid);
+
+					return $this->buildTranslations($memid);
+				}
+
+				/*
+				 * A usable table that simply does not list this language. Read it from
+				 * disk rather than rebuilding: a rebuild would write a second copy of
+				 * every other language into a segment that already holds them.
+				 */
 				@shm_detach($memid);
 
-				return ['grommunio_web' => []];
+				return $this->selectedTranslations($this->parseLanguage($selected_lang));
 			}
-			$translation_id = $cache_table[$selected_lang];
-			if (empty($translation_id)) {
-				@shm_remove_var($memid, 0);
-				@shm_detach($memid);
-
-				return ['grommunio_web' => []];
-			}
-			$translations = @shm_get_var($memid, $translation_id);
-			if (empty($translations)) {
-				@shm_remove_var($memid, 0);
-				@shm_detach($memid);
-
-				return ['grommunio_web' => []];
-			}
-			@shm_detach($memid);
-
-			return $translations;
+			// The table itself is unusable, for instance left behind by another PHP
+			// version, whose serialized data this one cannot read back.
+			$memid = $this->resetCache($memid);
 		}
+
+		return $this->buildTranslations($memid);
+	}
+
+	/**
+	 * Discard the translation cache in its entirety and start a new one.
+	 *
+	 * shm_remove_var() frees a single variable, which is not enough once the segment
+	 * is in a state the code cannot read: the payloads stay allocated and the next
+	 * rebuild has nowhere to put its own. Removing the segment releases everything.
+	 *
+	 * @param resource|SysvSharedMemory $memid the segment to discard
+	 *
+	 * @return bool|resource|SysvSharedMemory a fresh segment, or false without one
+	 */
+	private function resetCache($memid) {
+		@shm_remove($memid);
+		@shm_detach($memid);
+
+		return @shm_attach(self::CACHE_KEY, self::CACHE_SIZE, 0644);
+	}
+
+	/**
+	 * Read every installed language from disk, caching what fits in the segment.
+	 *
+	 * @param bool|resource|SysvSharedMemory $memid the segment to fill, or false to skip caching
+	 *
+	 * @return array the translations for the selected language
+	 */
+	private function buildTranslations($memid) {
 		$handle = opendir(LANGUAGE_DIR);
-		if ($handle == false) {
+		if ($handle === false) {
+			error_log(sprintf("Cannot read translations from '%s'", LANGUAGE_DIR));
 			if ($memid) {
 				@shm_detach($memid);
 			}
@@ -224,45 +392,92 @@ class Language {
 		}
 		$last_id = 1;
 		$cache_table = [];
+		$ret_val = false;
 		while (false !== ($entry = readdir($handle))) {
 			if (strcmp($entry, ".") == 0 ||
 				strcmp($entry, "..") == 0) {
 				continue;
 			}
-			$translations = ["_etag" => "M".microtime(1)];
-			$translations['grommunio_web'] = $this->getTranslationsFromFile(LANGUAGE_DIR . $entry . '/LC_MESSAGES/grommunio_web.mo');
-			if (!$translations['grommunio_web']) {
+			$translations = $this->parseLanguage($entry);
+			if ($translations === false) {
 				continue;
 			}
-			if (isset($GLOBALS['PluginManager'])) {
-				// What we did above, we are also now going to do for each plugin that has translations.
-				$pluginTranslationPaths = $GLOBALS['PluginManager']->getTranslationFilePaths();
-				foreach ($pluginTranslationPaths as $pluginname => $path) {
-					$plugin_translations = $this->getTranslationsFromFile($path . '/' . $entry . '/LC_MESSAGES/plugin_' . $pluginname . '.mo');
-					if ($plugin_translations) {
-						$translations['plugin_' . $pluginname] = $plugin_translations;
-					}
-				}
-			}
-			$cache_table[$entry] = $last_id;
-			if ($memid) {
-				@shm_put_var($memid, $last_id, $translations);
-			}
-			if (strcmp($entry, $this->getSelected()) == 0) {
+			// Answer this request from what was just read, whether or not it caches.
+			if (strcmp($entry, (string) $this->getSelected()) == 0) {
 				$ret_val = $translations;
 			}
-			++$last_id;
+			if (!$memid) {
+				continue;
+			}
+			// Advertise only what the segment really holds. An entry pointing at a
+			// payload that failed to store makes every later request resolve it to
+			// nothing, which is served as an untranslated interface.
+			if (@shm_put_var($memid, $last_id, $translations)) {
+				$cache_table[$entry] = $last_id;
+				++$last_id;
+			}
 		}
 		closedir($handle);
 		if ($memid) {
 			@shm_put_var($memid, 0, $cache_table);
 			@shm_detach($memid);
 		}
-		if (empty($ret_val)) {
-			return ['grommunio_web' => []];
-		}
 
-		return $ret_val;
+		return $this->selectedTranslations($ret_val);
+	}
+
+	/**
+	 * Read one language's translations, including those of the plugins.
+	 *
+	 * @param string $entry name of the directory in LANGUAGE_DIR
+	 *
+	 * @return array|bool the translations per domain, or false if there are none
+	 */
+	private function parseLanguage($entry) {
+		$file = LANGUAGE_DIR . $entry . '/LC_MESSAGES/grommunio_web.mo';
+		$translations = [];
+		$translations['grommunio_web'] = $this->getTranslationsFromFile($file);
+		if (!$translations['grommunio_web']) {
+			return false;
+		}
+		$etag = [$entry, @filemtime($file), @filesize($file)];
+		if (isset($GLOBALS['PluginManager'])) {
+			// What we did above, we are also now going to do for each plugin that has translations.
+			$pluginTranslationPaths = $GLOBALS['PluginManager']->getTranslationFilePaths();
+			foreach ($pluginTranslationPaths as $pluginname => $path) {
+				$pluginFile = $path . '/' . $entry . '/LC_MESSAGES/plugin_' . $pluginname . '.mo';
+				$plugin_translations = $this->getTranslationsFromFile($pluginFile);
+				if ($plugin_translations) {
+					$translations['plugin_' . $pluginname] = $plugin_translations;
+					$etag[] = $pluginname . '@' . @filemtime($pluginFile);
+				}
+			}
+		}
+		// Derived from the files rather than the clock, so a language served from
+		// disk keeps a stable Etag and clients can still revalidate with 304.
+		$translations['_etag'] = 'M' . md5(implode('|', $etag));
+
+		return $translations;
+	}
+
+	/**
+	 * Hand back the translations that were found, and say so when there are none.
+	 *
+	 * An empty set means the entire interface falls back to its English msgids, which
+	 * is worth a line in the log: it is otherwise indistinguishable from a user who
+	 * selected English, and the .mo files themselves are usually fine.
+	 *
+	 * @param array|bool $translations the translations found for the selected language
+	 *
+	 * @return array
+	 */
+	private function selectedTranslations($translations) {
+		if (!empty($translations)) {
+			return $translations;
+		}
+		error_log(sprintf("No translations available for language '%s'", (string) $this->getSelected()));
+
+		return ['grommunio_web' => []];
 	}
 
 	/**
