@@ -335,26 +335,19 @@ Zarafa.hierarchy.data.MAPIFolderRecord = Ext.extend(Zarafa.core.data.IPFRecord, 
 	 */
 	isInDeletedItems: function()
 	{
-		var mapiStore = this.getMAPIStore();
-		if(mapiStore){
-			if(mapiStore.isDefaultStore()) {
-				var parentFolder = this.getParentFolder();
-				if (!parentFolder || parentFolder.isIPMSubTree()) {
-					// If there is no parent folder, or the parent is the subtree,
-					// then the item is definitely not in the deleted items.
-					return false;
-				} else if (parentFolder.isSpecialFolder('wastebasket') || parentFolder.isSpecialFolder('junk')) {
-					// The item is in the wastebasker or junk folder.
-					// It is considered to be deleted.
-					return true;
-				} else {
-					// Perhaps the parent is inside the deleted items?
-					return parentFolder.isInDeletedItems();
-				}
-			}
+		var parentFolder = this.getParentFolder();
+		if (!parentFolder || parentFolder.isIPMSubTree()) {
+			// If there is no parent folder, or the parent is the subtree,
+			// then the item is definitely not in the deleted items.
+			return false;
+		} else if (parentFolder.isSpecialFolder('wastebasket') || parentFolder.isSpecialFolder('junk')) {
+			// The item is in the wastebasker or junk folder.
+			// It is considered to be deleted.
+			return true;
+		} else {
+			// Perhaps the parent is inside the deleted items?
+			return parentFolder.isInDeletedItems();
 		}
-
-		return false;
 	},
 
 	/**
