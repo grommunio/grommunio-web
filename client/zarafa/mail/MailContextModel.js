@@ -756,7 +756,11 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		var lineStyle = 'font-family:'+fontFamily+'; font-size:'+fontSize+'; padding: 0; margin: 0;';
 		var emptyLine = '<p style="' + lineStyle + '"><span><br/></span></p>';
 
-		return emptyLine + emptyLine + '<div class="signatureContainer">'+signature+'</div>';
+		// Fallback so a signature with no font of its own is not sent fontless;
+		// the editor body font is not part of the message.
+		var containerStyle = 'font-family:'+fontFamily+'; font-size:'+fontSize+';';
+
+		return emptyLine + emptyLine + '<div class="signatureContainer" style="' + containerStyle + '">'+signature+'</div>';
 	},
 
 	/**
