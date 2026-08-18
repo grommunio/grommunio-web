@@ -125,6 +125,39 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	},
 
 	/**
+	 * An attachment shown inside the message body: marked hidden, or referenced
+	 * from the HTML body by its content id (senders routinely set a content id
+	 * without the hidden flag).
+	 * @return {Boolean} True if the attachment is embedded in the message body
+	 */
+	isEmbeddedInBody: function()
+	{
+		if (this.get('hidden') === true) {
+			return true;
+		}
+
+		var cid = this.get('cid');
+		if (Ext.isEmpty(cid) || !this.store || !Ext.isFunction(this.store.getParentRecord)) {
+			return false;
+		}
+
+		// Plain-text rendering shows no images; keep the attachment reachable.
+		var message = this.store.getParentRecord();
+		if (!message || message.get('isHTML') !== true) {
+			return false;
+		}
+
+		// Only src= references are rendered (see HTMLParser.cidToUrlRe); anything
+		// else - background=, href=, quoted text - must not hide the attachment.
+		var body = message.get('html_body');
+		if (!Ext.isString(body)) {
+			return false;
+		}
+
+		return new RegExp('src\\s*=\\s*["\']?cid:' + Ext.escapeRe(cid) + '(["\'\\s>]|$)', 'i').test(body);
+	},
+
+	/**
 	 * @return {Boolean} True if the attachment is an exception to a recurring appointment
 	 */
 	isRecurrenceException: function()

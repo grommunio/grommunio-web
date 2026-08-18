@@ -418,8 +418,15 @@ class DownloadAttachment extends DownloadBase {
 
 			// Set the headers
 			header('Pragma: public');
-			header('Expires: 0'); // set expiration time
-			header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+			if ($inline) {
+				// The URL embeds message entryid and content id; an hour bounds
+				// the exposure of a cached copy after logout or a draft edit.
+				header('Cache-Control: private, max-age=3600');
+			}
+			else {
+				header('Expires: 0'); // set expiration time
+				header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+			}
 			header('Content-Disposition: ' . $this->contentDispositionType . '; filename="' . addslashes(browserDependingHTTPHeaderEncode($filename)) . '"');
 			header('Content-Type: ' . $contentType);
 			header('Content-Transfer-Encoding: binary');

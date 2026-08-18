@@ -527,7 +527,7 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 		var names = [];
 
 		store.each(function(attach) {
-			if(!attach.get('hidden')) {
+			if(attach.isEmbeddedInBody() !== true) {
 				names.push(attach.get('name'));
 			}
 		}, this);
@@ -608,7 +608,7 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 		var visible = false;
 		var attachments = this.getAttachmentStore().getRange();
 		Ext.each(attachments, function(attachment){
-			if(attachment.get('hidden') === false){
+			if(attachment.isEmbeddedInBody() !== true){
 				visible = true;
 			}
 		}, this);

@@ -129,7 +129,7 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 		// Here, 'query' method of Ext.data.Store is useless in case where there is same id(-1) of all the unsaved attachments.
 		if(record.store.getCount() > 1) {
 			record.store.each(function(record){
-				if(!record.get('hidden')) {
+				if(record.isEmbeddedInBody() !== true) {
 					normalAttachmentCounter++;
 				}
 			});
