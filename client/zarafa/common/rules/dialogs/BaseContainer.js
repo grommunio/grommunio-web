@@ -86,7 +86,7 @@ Zarafa.common.rules.dialogs.BaseContainer = Ext.extend(Ext.Container, {
       items: [{
         xtype: 'combo',
         fieldLabel: _('Condition'),
-        width: 300,
+        width: 500,
         store: profileStore,
         mode: 'local',
         triggerAction: 'all',
