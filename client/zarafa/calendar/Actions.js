@@ -26,7 +26,9 @@ Zarafa.calendar.Actions = {
 						return;
 					}
 					if (Ext.isEmpty(record.getStore())) {
-						record = this.getById(record.get('entryid'));
+						// getById resolves by the bare series entryid and would pick an
+						// arbitrary occurrence; look the exact one up by its keyed id.
+						record = this.data.key(this.getRecordKey(record)) || record;
 					}
 					// Convert the record to the requested type
 					if (radio.id !== 'recurrence_series') {
