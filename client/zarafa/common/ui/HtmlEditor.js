@@ -151,6 +151,18 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 							return;
 						}
 
+						// Resolve the target record before anything is offered to the
+						// user, so we never show a confirmation we cannot honour.
+						var record = self.getAttachmentRecord();
+						var attachmentStore = record && Ext.isFunction(record.getSubStore) ? record.getSubStore('attachments') : undefined;
+						if (!attachmentStore) {
+							// This editor is not editing a record which can carry
+							// attachments (for instance the signature editor in the
+							// settings). Leave the drop to TinyMCE, which reports the
+							// unsupported file type itself.
+							return;
+						}
+
 						// Suppress TinyMCE's own "Dropped file type is not supported" error
 						// only when there is nothing for TinyMCE to embed. When the same drop
 						// also contains images, TinyMCE's paste handler (which runs after this
@@ -167,9 +179,6 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 						// escaped as literal text.
 						var names = nonEmbeddable.map(function(f) { return '\u2022 ' + Ext.util.Format.htmlEncode(f.name); });
 
-						// Capture the record reference before the async callback.
-						var record = self.record;
-
 						// Zarafa.core.data.IPMAttachmentStore#uploadFiles() only treats its
 						// argument as "real" files (with size/type/contents) if it is a
 						// genuine FileList (it does a strict `instanceof FileList` check).
@@ -180,9 +189,16 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 						// Rebuild a real FileList containing only the non-embeddable files
 						// so it is uploaded/attached exactly like a drop on the Attachments
 						// field would be.
+						//
+						// The FileList has to be built with the constructor of the window
+						// uploadFiles() will check it against, which is the active browser
+						// window rather than necessarily this one: a dialog opened in its
+						// own window has its own FileList, and an object built here would
+						// fail that instanceof check and be attached as a bare filename.
+						var activeBrowserWindow = Zarafa.core.BrowserWindowMgr.getActive() || window;
 						var uploadFileList = nonEmbeddable;
-						if (typeof DataTransfer !== 'undefined') {
-							var fileListBuilder = new DataTransfer();
+						if (Ext.isFunction(activeBrowserWindow.DataTransfer)) {
+							var fileListBuilder = new activeBrowserWindow.DataTransfer();
 							nonEmbeddable.forEach(function(f) {
 								fileListBuilder.items.add(f);
 							});
@@ -194,15 +210,14 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 							_('The following files cannot be embedded in the message body. Add them as attachments instead?') +
 								'<br><br>' + names.join('<br>'),
 							function(btn) {
-								if (btn !== 'yes' || !record) {
+								if (btn !== 'yes') {
 									return;
 								}
 
-								var store = record.getSubStore('attachments');
 								// Run the same validation (max attachment count/size limits)
 								// that a direct drop on the Attachments field would perform.
-								if (store && store.canUploadFiles(uploadFileList, { container: this.getEl() })) {
-									store.uploadFiles(uploadFileList);
+								if (attachmentStore.canUploadFiles(uploadFileList, { container: this.getEl() })) {
+									attachmentStore.uploadFiles(uploadFileList);
 								}
 							}.createDelegate(self)
 						);
@@ -1132,6 +1147,19 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	bindRecord: function(record)
 	{
 		this.record = record;
+	},
+
+	/**
+	 * Returns the record a file dropped onto the editor body should be attached
+	 * to. {@link #bindRecord} sets this.record only for the mail composer and the
+	 * settings signature editor; every other editor is resolved from the dialog
+	 * which owns it. See {@link Zarafa.core.Util#getDropTargetRecord}.
+	 * @return {Zarafa.core.data.IPMRecord} The record being edited, or undefined
+	 * when this editor is not editing a record at all.
+	 */
+	getAttachmentRecord: function()
+	{
+		return Zarafa.core.Util.getDropTargetRecord(this);
 	},
 
 	/**

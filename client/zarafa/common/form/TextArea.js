@@ -89,18 +89,16 @@ Zarafa.common.form.TextArea = Ext.extend(Ext.form.TextArea, {
 					return;
 				}
 
-				// Walk up to the nearest panel that holds the mail record.
-				var panel = self.findParentByType('zarafa.mailcreatepanel') ||
-				            self.findParentByType('zarafa.recordcontentpanel');
-				if (!panel || !panel.record) {
+				var record = Zarafa.core.Util.getDropTargetRecord(self);
+				if (!record) {
 					return;
 				}
 
-				var store = panel.record.getSubStore('attachments');
+				var store = record.getSubStore('attachments');
 				// Run the same validation (max attachment count/size limits) that a
 				// direct drop on the Attachments field would perform, so the file is
 				// added/rejected/notified in exactly the same way either way.
-				if (store && store.canUploadFiles(filesSnapshot, { container: panel.getEl() })) {
+				if (store && store.canUploadFiles(filesSnapshot, { container: self.getEl() })) {
 					store.uploadFiles(filesSnapshot);
 				}
 			}
