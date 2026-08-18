@@ -104,6 +104,7 @@ class MailListModule extends ListModule {
 							break;
 
 						case "conversationcounts":
+							$this->getDelegateFolderInfo($this->store);
 							$this->getConversationCounts($this->store, $action);
 							break;
 
@@ -202,6 +203,37 @@ class MailListModule extends ListModule {
 	}
 
 	/**
+	 * Opens the contents table of the Sent Items folder of the given store, or
+	 * returns false when it is not available. A store does not necessarily have
+	 * one (the public store), and a shared mailbox can grant access to the Inbox
+	 * while withholding Sent Items - where the refusal surfaces at the folder or
+	 * at its table, depending on the rights granted. In either case the
+	 * conversations of that mailbox simply have no sent counterparts, which must
+	 * not turn into an error for the whole request.
+	 *
+	 * @param object $store MAPI message store object
+	 *
+	 * @return bool|resource the Sent Items contents table, or false when unavailable
+	 */
+	protected function openSentItemsTable($store) {
+		$msgstoreProps = mapi_getprops($store, [PR_IPM_SENTMAIL_ENTRYID]);
+		if (!isset($msgstoreProps[PR_IPM_SENTMAIL_ENTRYID])) {
+			return false;
+		}
+
+		try {
+			$sentFolder = mapi_msgstore_openentry($store, $msgstoreProps[PR_IPM_SENTMAIL_ENTRYID]);
+
+			return mapi_folder_getcontentstable($sentFolder, MAPI_DEFERRED_ERRORS);
+		}
+		catch (MAPIException $e) {
+			$e->setHandled();
+		}
+
+		return false;
+	}
+
+	/**
 	 * Returns, for the given list of conversation ids, how many messages of each
 	 * conversation are in the Sent Items folder. The client uses this to know
 	 * which messages must be presented as a conversation even though only one
@@ -226,11 +258,8 @@ class MailListModule extends ListModule {
 				}
 			}
 
-			$msgstoreProps = mapi_getprops($store, [PR_IPM_SENTMAIL_ENTRYID]);
-			if (!empty($validIds) && isset($msgstoreProps[PR_IPM_SENTMAIL_ENTRYID])) {
-				$sentFolder = mapi_msgstore_openentry($store, $msgstoreProps[PR_IPM_SENTMAIL_ENTRYID]);
-				$table = mapi_folder_getcontentstable($sentFolder, MAPI_DEFERRED_ERRORS);
-
+			$table = empty($validIds) ? false : $this->openSentItemsTable($store);
+			if ($table !== false) {
 				$subRestrictions = [];
 				foreach ($validIds as $id) {
 					$subRestrictions[] = [
@@ -244,12 +273,25 @@ class MailListModule extends ListModule {
 				}
 				mapi_table_restrict($table, [RES_OR, $subRestrictions], TBL_BATCH);
 
-				$rows = mapi_table_queryallrows($table, [PR_CONVERSATION_ID]);
+				$rows = mapi_table_queryallrows($table, [PR_CONVERSATION_ID, PR_SENSITIVITY]);
 				foreach ($rows as $row) {
-					if (isset($row[PR_CONVERSATION_ID])) {
-						$id = bin2hex((string) $row[PR_CONVERSATION_ID]);
-						$counts[$id] = ($counts[$id] ?? 0) + 1;
+					if (!isset($row[PR_CONVERSATION_ID])) {
+						continue;
 					}
+
+					// getConversationItems() removes private items from the
+					// conversation, so they must not be counted here either:
+					// the count is what the conversation header announces.
+					$props = [];
+					if (isset($row[PR_SENSITIVITY])) {
+						$props['sensitivity'] = $row[PR_SENSITIVITY];
+					}
+					if ($this->checkPrivateItem(['props' => $props])) {
+						continue;
+					}
+
+					$id = bin2hex((string) $row[PR_CONVERSATION_ID]);
+					$counts[$id] = ($counts[$id] ?? 0) + 1;
 				}
 			}
 		}
@@ -287,25 +329,25 @@ class MailListModule extends ListModule {
 				],
 			];
 
-			$folders = [];
-			$msgstoreProps = mapi_getprops($store, [PR_IPM_SENTMAIL_ENTRYID]);
-			if (isset($msgstoreProps[PR_IPM_SENTMAIL_ENTRYID])) {
-				$folders['sent_items'] = mapi_msgstore_openentry($store, $msgstoreProps[PR_IPM_SENTMAIL_ENTRYID]);
+			$tables = [];
+			$sentTable = $this->openSentItemsTable($store);
+			if ($sentTable !== false) {
+				$tables['sent_items'] = $sentTable;
 			}
 			// The mail list already contains the inbox part of a conversation,
 			// but callers without that context (e.g. the search results
 			// preview) need the complete conversation.
 			if (!empty($action['include_inbox'])) {
 				try {
-					$folders['inbox'] = mapi_msgstore_getreceivefolder($store);
+					$inbox = mapi_msgstore_getreceivefolder($store);
+					$tables['inbox'] = mapi_folder_getcontentstable($inbox, MAPI_DEFERRED_ERRORS);
 				}
 				catch (MAPIException $e) {
 					$e->setHandled();
 				}
 			}
 
-			foreach ($folders as $folderName => $folder) {
-				$table = mapi_folder_getcontentstable($folder, MAPI_DEFERRED_ERRORS);
+			foreach ($tables as $folderName => $table) {
 				mapi_table_restrict($table, $restriction, TBL_BATCH);
 
 				$rows = mapi_table_queryallrows($table, $this->properties);
