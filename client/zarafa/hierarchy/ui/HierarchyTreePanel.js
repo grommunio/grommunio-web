@@ -367,6 +367,12 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 	{
 		var dropNode = dropEvent.dropNode;
 		if (Ext.isDefined(dropNode)) {
+			// A mailbox dropped between two other mailboxes changes the order of the
+			// hierarchy rather than moving anything in the mailbox itself.
+			if (Zarafa.hierarchy.ui.HierarchyFolderDropZone.isStoreReorderDrop(dropEvent)) {
+				return this.onStoreReorderDrop(dropEvent);
+			}
+
 			var targetNode = dropEvent.target;
 
 			switch (dropEvent.point) {
@@ -378,6 +384,14 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 				/* falls through */
 				default:
 					break;
+			}
+
+			// See HierarchyFolderDropZone#isValidDropPoint: a drop which resolves to the
+			// invisible root node of the hierarchy is not a folder move, and asking it
+			// for its folder throws. Second line of defence, in case such a drop is
+			// raised from anywhere else.
+			if (!Ext.isFunction(targetNode.getFolder)) {
+				return false;
 			}
 
 			var sourceFolder = dropNode.getFolder();
@@ -418,6 +432,67 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 
 			sourceFolder.save();
 		}
+	},
+
+	/**
+	 * Handle a drop which moves a mailbox to another position in the hierarchy. Nothing is
+	 * moved in the mailbox itself; the new order of the mailboxes is derived from the
+	 * position the node was dropped at and handed to
+	 * {@link Zarafa.hierarchy.data.StoreOrder} to be persisted. Every hierarchy tree then
+	 * re-sorts itself, so all trees keep showing the same order.
+	 * @param {Object} dropEvent The object describing the drop information
+	 * @return {Boolean} False when the drop could not be resolved to a new order, in
+	 * which case the hierarchy is left as it was
+	 * @private
+	 */
+	onStoreReorderDrop: function(dropEvent)
+	{
+		var dropNode = dropEvent.dropNode;
+		var dropZone = Zarafa.hierarchy.ui.HierarchyFolderDropZone;
+		var storeOrder = Zarafa.hierarchy.data.StoreOrder;
+
+		var keyOf = function(node) {
+			return storeOrder.getStoreKey(node.getFolder().getMAPIStore());
+		};
+
+		var draggedKey = keyOf(dropNode);
+		var targetKey = keyOf(dropEvent.target);
+
+		// Start from the stored order rather than from this tree: a filtered tree does
+		// not show every mailbox - one opened as a single mail folder has no node in
+		// the calendar folder list - and rebuilding the order from the visible nodes
+		// alone would silently throw away the positions of the mailboxes it misses.
+		var keys = [];
+		var stored = storeOrder.getOrder();
+		for (var i = 0, len = stored.length; i < len; i++) {
+			if (stored[i] !== draggedKey) {
+				keys.push(stored[i]);
+			}
+		}
+
+		// Append the mailboxes shown in this tree which have no stored position yet,
+		// in the sequence their nodes appear. A mailbox can have several top level
+		// nodes in a filtered tree, one per visible folder, and they all move together.
+		var siblings = dropNode.parentNode.childNodes;
+		for (var j = 0, jlen = siblings.length; j < jlen; j++) {
+			if (!dropZone.isReorderableNode(siblings[j])) {
+				continue;
+			}
+
+			var key = keyOf(siblings[j]);
+			if (key !== draggedKey && keys.indexOf(key) === -1) {
+				keys.push(key);
+			}
+		}
+
+		var targetIndex = keys.indexOf(targetKey);
+		if (targetIndex === -1) {
+			return false;
+		}
+
+		keys.splice(dropEvent.point === 'above' ? targetIndex : targetIndex + 1, 0, draggedKey);
+
+		storeOrder.setOrder(keys);
 	},
 
 	/**
