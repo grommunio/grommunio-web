@@ -592,9 +592,10 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 	 */
 	updateSettings: function()
 	{
-		// We must either set the requested subject, or the default subject
-		var intsubject = this.intSubjectField.getValue() || this.intSubjectField.emptyText;
-		var extsubject = this.extSubjectField.getValue() || this.extSubjectField.emptyText;
+		// We must either set the requested subject, or the default subject.
+		// A subject of nothing but spaces is as empty as no subject at all.
+		var intsubject = this.intSubjectField.getValue().trim() || this.intSubjectField.emptyText;
+		var extsubject = this.extSubjectField.getValue().trim() || this.extSubjectField.emptyText;
 
 		// We must either set the requested body, or the default body
 		var intbody = this.intBodyField.getValue() || this.intBodyField.emptyText;

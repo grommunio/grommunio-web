@@ -169,6 +169,26 @@ class OutOfOfficeSettingsModule extends Module {
 		if ($oofSet && isset($oofSettings['from']) && intval($oofSettings['from']) > time()) {
 			$props[$this->properties['set']] = 2;
 		}
+		// A reply carrying no subject at all reaches the sender as a blank line in
+		// their mailbox, so make sure a subject is stored whenever out of office
+		// is on. The client offers the same default in the settings form, but it
+		// is not the only way these properties are written.
+		foreach (['internal_subject', 'external_subject'] as $subject) {
+			$tag = $this->properties[$subject];
+
+			if (array_key_exists($tag, $props)) {
+				if (trim((string) $props[$tag]) === '') {
+					$props[$tag] = _('Out of Office');
+				}
+			}
+			elseif ($oofSet) {
+				$stored = mapi_getprops($store, [$tag]);
+				if (trim((string) ($stored[$tag] ?? '')) === '') {
+					$props[$tag] = _('Out of Office');
+				}
+			}
+		}
+
 		if (!empty($props)) {
 			mapi_setprops($store, $props);
 			mapi_savechanges($store);
