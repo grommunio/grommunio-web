@@ -420,6 +420,22 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	},
 
 	/**
+	 * Obtain the {@link Ext.data.Record record} which a notification refers to.
+	 * A notification identifies its subject by entryid alone, which is enough
+	 * whenever an entryid identifies at most one record in the store.
+	 *
+	 * @param {Object} item The notification item, containing at least an entryid
+	 * @return {Ext.data.Record} The record, or undefined when the store does not
+	 * hold it. Subclasses may return false to indicate that the notification
+	 * cannot be resolved and that they handle it themselves.
+	 * @protected
+	 */
+	getRecordFromNotification: function(item)
+	{
+		return this.getById(item.entryid);
+	},
+
+	/**
 	 * Compare a {@link Ext.data.Record#id ids} to determine if they are equal.
 	 * @param {String} a The first id to compare
 	 * @param {String} b The second id to compare

@@ -53,6 +53,37 @@ Zarafa.calendar.AppointmentStore = Ext.extend(Zarafa.core.data.ListModuleStore, 
 	},
 
 	/**
+	 * Obtain the {@link Zarafa.calendar.AppointmentRecord record} which a notification
+	 * refers to. Every occurrence of a series carries the entryid of the series, and a
+	 * notification carries no basedate, so an entryid can match several records here.
+	 *
+	 * @param {Object} item The notification item, containing at least an entryid
+	 * @return {Zarafa.calendar.AppointmentRecord} The record, undefined when the store
+	 * does not hold it, or false when the entryid matches more than one occurrence.
+	 * @protected
+	 */
+	getRecordFromNotification: function(item)
+	{
+		var matches = [];
+
+		this.each(function(record) {
+			if (Zarafa.core.EntryId.compareEntryIds(record.get('entryid'), item.entryid)) {
+				matches.push(record);
+			}
+		});
+
+		if (matches.length < 2) {
+			return matches[0];
+		}
+
+		// The notification names the series, so which occurrence it is about cannot
+		// be determined. Reload rather than apply it to one of them.
+		this.reload();
+
+		return false;
+	},
+
+	/**
 	 * Event handler fired by the {@link Ext.data.Store} when a record is being removed
 	 * from the store. This adds a special case to the default behavior of the {@link Ext.data.Store#destroyRecord}
 	 * especially for recurring appointments. When the appointment is recurring, and no basedate is provided, we

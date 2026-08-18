@@ -24,7 +24,14 @@ Zarafa.core.data.IPMNotificationResponseHandler = Ext.extend(Zarafa.core.data.Ab
 			for (var j = 0, len = recordData.length; j < len; j++) {
 				var item = recordData[j];
 
-				var record = this.store.getById(item.entryid);
+				var record = this.store.getRecordFromNotification(item);
+				if (record === false) {
+					// The store cannot tell which of its records the notification is
+					// about and handles it itself. Treating it as a new object here
+					// would add a second copy of an item the store already has.
+					continue;
+				}
+
 				if (!Ext.isDefined(record)) {
 					this.addNotification(Zarafa.core.data.Notifications.objectCreated, null, item);
 				} else {
@@ -51,7 +58,7 @@ Zarafa.core.data.IPMNotificationResponseHandler = Ext.extend(Zarafa.core.data.Ab
 		for (var i = 0, len = items.length; i < len; i++) {
 			var item = items[i];
 
-			var record = this.store.getById(item.entryid);
+			var record = this.store.getRecordFromNotification(item);
 			if (record) {
 				this.addNotification(Zarafa.core.data.Notifications.objectDeleted, record, item);
 			}
