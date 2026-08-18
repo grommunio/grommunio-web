@@ -9,12 +9,12 @@ Ext.namespace("Zarafa.common.ui.htmleditor");
  * Word never puts its images in the HTML flavour of the clipboard. It writes
  * them to a temporary directory and references them, either as VML
  * <v:imagedata src="file:///.../clip_image001.png"> or as a plain
- * <img src="file:///...">, neither of which a web page is allowed to load. The
+ * <img src="file:///...">. A webpage is not allowed to load either of those. The
  * image bytes are on the clipboard, but only inside the text/rtf flavour, as
  * hex-encoded \pngblip / \jpegblip picture groups.
  *
- * TinyMCE cannot help here: its clipboard-image handling only runs for a paste
- * that carries no HTML at all, and a Word paste always carries HTML. So the
+ * TinyMCE cannot help here. Its clipboard-image handling only runs for a paste
+ * that carries no HTML at all, but a Word paste always carries HTML. So the
  * pictures are mined out of the RTF and substituted back into the HTML before
  * it is inserted.
  */
@@ -72,7 +72,7 @@ Zarafa.common.ui.htmleditor.WordClipboard = {
 		for (var i = 0; i < rtf.length; i++) {
 			var c = rtf.charAt(i);
 			if (c === "\\") {
-				// A \bin run is raw bytes: brace bytes inside it are data, not
+				// A \bin run is raw bytes. Brace bytes inside it are data, not
 				// structure, and would corrupt every extent after them.
 				var bin = /^\\bin(\d+) ?/.exec(rtf.substr(i, 20));
 				if (bin) {
@@ -123,7 +123,7 @@ Zarafa.common.ui.htmleditor.WordClipboard = {
 	 * Extract the pictures from an RTF clipboard payload, in document order.
 	 *
 	 * Each picture carries the shape name Word gave it, which is what matches it
-	 * back to the HTML -- see {@link #rewriteImages}.
+	 * back to the HTML. See {@link #rewriteImages}.
 	 *
 	 * @param {String} rtf the text/rtf flavour
 	 * @return {Array} objects with {name, mime, base64, width, height}
@@ -196,11 +196,11 @@ Zarafa.common.ui.htmleditor.WordClipboard = {
 			}
 
 			// The picture's shape name is stored in one of two places depending
-			// on how the image is anchored: an inline picture carries it in
-			// {\*\picprop} inside the \pict group itself, a floating one in the
-			// enclosing {\shp} as a sibling property -- where it may appear
-			// either before or after the picture, so the enclosing group and not
-			// proximity is what identifies it.
+			// on how the image is anchored. An inline picture carries the name
+			// in {\*\picprop} inside the \pict group itself. A floating one has
+			// the name in the enclosing {\shp} as a sibling property, where the
+			// name may appear either before or after the picture. Therefore,
+			// the enclosing group identifies it, not proximity.
 			var shapeName = null;
 			var nameMatch = nameRe.exec(group);
 			if (!nameMatch) {
@@ -273,9 +273,9 @@ Zarafa.common.ui.htmleditor.WordClipboard = {
 	 * Collect the image references that the browser would actually try to
 	 * render, in document order.
 	 *
-	 * Word emits each picture twice: once as VML inside a downlevel-hidden
-	 * conditional comment, once as an <img> inside a downlevel-revealed block --
-	 * or, when it relies on VML, only the VML and no <img> at all. Comments are
+	 * Word emits each picture twice, once as VML inside a downlevel-hidden
+	 * conditional comment, and once as an <img> inside a downlevel-revealed block.
+	 * Alternatively, when it relies on VML, only the VML and no <img> at all. Comments are
 	 * blanked out first so that exactly one representation per picture is left.
 	 *
 	 * @param {String} html the text/html flavour
@@ -289,9 +289,9 @@ Zarafa.common.ui.htmleditor.WordClipboard = {
 			return new Array(comment.length + 1).join(" ");  // keep offsets stable
 		});
 
-		// The self-closed alternative must come first: a child-less autoshape is
+		// The self-closed alternative must come first. A child-less autoshape is
 		// written <v:shape ... />, and letting it fall into the paired form would
-		// extend the match - and the slot to be replaced - to the next </v:shape>.
+		// extend the match — and the slot to be replaced — to the next </v:shape>.
 		var re = /<img\b[^>]*>|<v:shape\b[^>]*\/>|<v:shape\b[^>]*>[\s\S]*?<\/v:shape>/gi;
 		var match;
 		while ((match = re.exec(visible)) !== null) {
@@ -339,8 +339,8 @@ Zarafa.common.ui.htmleditor.WordClipboard = {
 	 * from the RTF.
 	 *
 	 * Matching is by shape name, because the order of the pictures in the RTF
-	 * does NOT follow the order of the references in the HTML: for a floating
-	 * image Word writes the pictures in anchor order while laying them out in
+	 * does NOT follow the order of the references in the HTML. For a floating
+	 * image, Word writes the pictures in anchor order while laying them out in
 	 * reading order, so pairing them by index silently swaps images that sit
 	 * next to each other. Size is used only for shapes Word left unnamed, and
 	 * the position only when neither is available.
@@ -368,7 +368,7 @@ Zarafa.common.ui.htmleditor.WordClipboard = {
 			}
 			if (slot.width && slot.height) {
 				// The two representations round to the pixel differently, so a
-				// small tolerance is needed -- but a size match is only accepted
+				// small tolerance is needed, but a size match is only accepted
 				// when it is unambiguous.
 				var hits = [];
 				for (candidate = 0; candidate < pictures.length; candidate++) {
@@ -384,7 +384,7 @@ Zarafa.common.ui.htmleditor.WordClipboard = {
 				}
 			}
 			// Positional pairing is only sound when the two lists can line up at
-			// all: parsePictures skips metafiles and linked images for which the
+			// all. parsePictures skips metafiles and linked images for which the
 			// HTML still has a slot, and pairing across that gap would put the
 			// bytes of one picture into the frame of another. Take the first
 			// unused picture, as earlier name matches may have consumed entries
@@ -405,10 +405,10 @@ Zarafa.common.ui.htmleditor.WordClipboard = {
 			if (!picture) {
 				continue;
 			}
-			// Always as width/height attributes: the editor's extended_valid_elements
-			// permits only src/alt/width/height on an <img>, so a style carrying the
-			// size is stripped and the picture renders at its full native size --
-			// which for a screenshot means it overflows the message and pushes the
+			// Handle this always as width/height attributes. The editor's extended_valid_elements
+			// permits only src/alt/width/height on an <img> tag, so a style carrying the
+			// size is stripped and the picture renders at its full native size.
+			// For a screenshot, this means it overflows the message and pushes the
 			// text into a narrow column beside it.
 			var dimensions = slots[i].width && slots[i].height ?
 				' width="' + slots[i].width + '" height="' + slots[i].height + '"' : "";
@@ -427,14 +427,15 @@ Zarafa.common.ui.htmleditor.WordClipboard = {
 		}
 
 		// Now that the pictures have been taken out of it, drop the leftover VML
-		// and Office markup. This is not cosmetic: Word writes these elements
-		// self-closing (<v:rect ... />), and an HTML parser does not honour that
-		// on an unknown element -- so such a tag stays OPEN and adopts the rest of
-		// the paragraph as its children. A floating annotation shape carries
-		// position:absolute plus its own narrow width, which then lays the
-		// following text out as a narrow column on top of the image.
-		// Quote-aware, since a '>' inside a quoted attribute value would otherwise
-		// end the match early and promote the value's remainder to live markup.
+		// and Office markup. This is not just cosmetic. Word writes these elements
+		// with self-closing notation (<v:rect ... />), and an HTML parser does not
+		// honour that on an unknown element. Therefore, such a tag would stay open
+		// and adopt the rest of the paragraph as its children. A floating
+		// annotation shape carries position:absolute plus its own narrow width,
+		// which then lays the following text out as a narrow column on top of the
+		// image. This is quote-aware, since a '>' inside a quoted attribute value
+		// would otherwise end the match early and promote the value's remainder to
+		// live markup.
 		out = out.replace(/<\/?(?:v|o|w|x)\:[a-zA-Z][a-zA-Z0-9]*\b(?:"[^"]*"|'[^']*'|[^"'>])*>/g, "");
 
 		return { html: out, replaced: replacements.length };
