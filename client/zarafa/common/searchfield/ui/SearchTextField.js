@@ -851,15 +851,10 @@ Zarafa.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField, {
 
 		input.addEventListener('input', function() {
 			input.style.width = Math.max(4, input.value.length + 1) + 'ch';
-			// Auto-commit on closing quote
-			var text = input.value;
-			if (text.length >= 2) {
-				var lastChar = text.charAt(text.length - 1);
-				if ((lastChar === '"' || lastChar === "'") && !self.isInsideQuotes(text)) {
-					self.commitEdit(index);
-					self.tailInputEl.focus();
-					return;
-				}
+			// Auto-commit the moment a quoted phrase is closed.
+			if (self.endsByClosingQuote(input.value)) {
+				self.commitEdit(index);
+				self.tailInputEl.focus();
 			}
 		});
 
@@ -988,19 +983,77 @@ Zarafa.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField, {
 	},
 
 	/**
-	 * Checks whether the given text has unmatched quotes (i.e. cursor is inside quotes).
+	 * Whether the text ends inside an open quoted phrase. A quote opens a phrase
+	 * only at a term boundary (start, or after whitespace or ':'), so an
+	 * apostrophe inside a word (o'brien) is not treated as a quote.
 	 * @param {String} text
 	 * @return {Boolean}
 	 * @private
 	 */
 	isInsideQuotes: function(text)
 	{
-		var dq = 0, sq = 0;
+		var open = null;
 		for (var i = 0; i < text.length; i++) {
-			if (text.charAt(i) === '"') { dq++; }
-			else if (text.charAt(i) === "'") { sq++; }
+			var ch = text.charAt(i);
+			if (open !== null) {
+				if (ch === open) {
+					open = null;
+				}
+			} else if (ch === '"' || ch === "'") {
+				var prev = text.charAt(i - 1);
+				if (i === 0 || prev === ' ' || prev === '\t' || prev === ':') {
+					open = ch;
+				}
+			}
 		}
-		return (dq % 2 === 1) || (sq % 2 === 1);
+		return open !== null;
+	},
+
+	/**
+	 * Whether the last character closed a quoted phrase (inside before it,
+	 * balanced after). A trailing apostrophe in a word closes nothing.
+	 * @param {String} text
+	 * @return {Boolean}
+	 * @private
+	 */
+	endsByClosingQuote: function(text)
+	{
+		if (!text) {
+			return false;
+		}
+		var last = text.charAt(text.length - 1);
+		if (last !== '"' && last !== "'") {
+			return false;
+		}
+		return this.isInsideQuotes(text.substring(0, text.length - 1)) && !this.isInsideQuotes(text);
+	},
+
+	/**
+	 * Whether the text has a term-separating space, i.e. one outside any quotes.
+	 * A space inside quotes (subject:"a b") is part of a single term.
+	 * @param {String} text
+	 * @return {Boolean}
+	 * @private
+	 */
+	hasUnquotedSpace: function(text)
+	{
+		var open = null;
+		for (var i = 0; i < text.length; i++) {
+			var ch = text.charAt(i);
+			if (open !== null) {
+				if (ch === open) {
+					open = null;
+				}
+			} else if (ch === '"' || ch === "'") {
+				var prev = text.charAt(i - 1);
+				if (i === 0 || prev === ' ' || prev === '\t' || prev === ':') {
+					open = ch;
+				}
+			} else if (ch === ' ' || ch === '\t') {
+				return true;
+			}
+		}
+		return false;
 	},
 
 	/**
@@ -1315,17 +1368,10 @@ Zarafa.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField, {
 		}
 		var text = this.tailInputEl.dom.value;
 
-		// Auto-commit on closing quote
-		if (text.length >= 2) {
-			var lastChar = text.charAt(text.length - 1);
-			if ((lastChar === '"' || lastChar === "'") && !this.isInsideQuotes(text)) {
-				this.commitTailInput();
-				return;
-			}
-		}
-
-		// Auto-convert pasted content with multiple terms (contains spaces)
-		if (text.indexOf(' ') !== -1 && text.indexOf(':') !== -1) {
+		// Auto-convert a paste of several terms. Gated on a term-separating space
+		// (outside quotes), and checked before the single-term commit below, so a
+		// lone quoted phrase (subject:"a b") is committed there, not split here.
+		if (this.hasUnquotedSpace(text) && text.indexOf(':') !== -1 && !this.isInsideQuotes(text)) {
 			var parsed = this.parseQueryToTokens(text);
 			if (parsed.length > 1) {
 				this.tailInputEl.dom.value = '';
@@ -1337,6 +1383,12 @@ Zarafa.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField, {
 				this.fireEvent('chipchange', this, this.getFilterChips());
 				return;
 			}
+		}
+
+		// Auto-commit the moment a single quoted term is closed.
+		if (this.endsByClosingQuote(text)) {
+			this.commitTailInput();
+			return;
 		}
 
 		// Plain text — just sync the hidden input
