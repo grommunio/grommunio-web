@@ -834,10 +834,14 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 */
 	idComparison: function(entryIdOne, entryIdTwo)
 	{
-		entryIdOne = Zarafa.core.EntryId.hasContactProviderGUID(entryIdOne) ?
+		// hasContactProviderGUID() dereferences the id, so a substore record
+		// without one must not reach it - a 'reply-to' record has no entryid
+		// when the stored sender has none. compareEntryIds() below already
+		// rejects anything which is not a string.
+		entryIdOne = Ext.isString(entryIdOne) && Zarafa.core.EntryId.hasContactProviderGUID(entryIdOne) ?
 			Zarafa.core.EntryId.unwrapContactProviderEntryId(entryIdOne): entryIdOne;
 
-		entryIdTwo = Zarafa.core.EntryId.hasContactProviderGUID(entryIdTwo) ?
+		entryIdTwo = Ext.isString(entryIdTwo) && Zarafa.core.EntryId.hasContactProviderGUID(entryIdTwo) ?
 			Zarafa.core.EntryId.unwrapContactProviderEntryId(entryIdTwo): entryIdTwo;
 
 		return Zarafa.core.EntryId.compareEntryIds(entryIdOne, entryIdTwo);

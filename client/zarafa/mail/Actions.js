@@ -131,15 +131,43 @@ Zarafa.mail.Actions = {
 						Zarafa.core.data.UIFactory.openCreateRecord(response, config);
 
 						store.un('open', openHandler, record);
+						store.un('exception', failHandler, record);
 					}
 				};
 
-				if (record.isOpened()) {
+				// Stop listening if this record's open/reload fails, otherwise the
+				// handler leaks and a later successful open would build an
+				// unexpected second compose window. The store's 'exception' fires
+				// for every record on it, so match on the failed record.
+				var failHandler = function(proxy, type, action, options, response, args) {
+					if (action !== Ext.data.Api.actions.open) {
+						return;
+					}
+					var failed = args ? args.sendRecords : null;
+					if (failed !== this && !(Array.isArray(failed) && failed.indexOf(this) !== -1)) {
+						return;
+					}
+					this.getStore().un('open', openHandler, this);
+					this.getStore().un('exception', failHandler, this);
+				};
+
+				// An opened record which carries no body must be loaded again,
+				// otherwise the quote is built from an empty body and the reply
+				// ends up containing only the quoted header. See
+				// Zarafa.core.data.IPMRecord#isBodyMissing.
+				if (record.isOpened() && !record.isBodyMissing()) {
 					response = model.createResponseRecord(record, actionType);
 					Zarafa.core.data.UIFactory.openCreateRecord(response, config);
 				} else {
-					record.getStore().on('open', openHandler, record);
-					record.open();
+					var store = record.getStore();
+					store.on('open', openHandler, record);
+					store.on('exception', failHandler, record);
+					if (record.isOpened()) {
+						// Flagged as opened, so a plain open() would return early.
+						record.reloadBody();
+					} else {
+						record.open();
+					}
 				}
 			}
 		}

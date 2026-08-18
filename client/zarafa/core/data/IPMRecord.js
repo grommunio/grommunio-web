@@ -202,6 +202,61 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	},
 
 	/**
+	 * Whether this record is {@link Zarafa.core.data.MAPIRecord#isOpened opened}
+	 * yet carries no body, so the body must be fetched again. Reachable because
+	 * list-row and table-notification data omit the body, replacing an opened
+	 * record's body with '' while the opened flag stays set, so
+	 * {@link Zarafa.core.data.MAPIRecord#open} would return early and never
+	 * refetch. A record whose open genuinely returned no body ({@link #bodyKnownEmpty})
+	 * is not reported, so it is not reloaded on every reply.
+	 * @return {Boolean} True if the record is opened but holds no body.
+	 */
+	isBodyMissing: function()
+	{
+		if (this.phantom === true || !this.isOpened() || this.bodyKnownEmpty === true) {
+			return false;
+		}
+
+		if (!this.fields.containsKey('body') && !this.fields.containsKey('html_body')) {
+			return false;
+		}
+
+		return Ext.isEmpty(this.get('body')) && Ext.isEmpty(this.get('html_body'));
+	},
+
+	/**
+	 * True once an {@link #afterOpen open} has confirmed this record genuinely has
+	 * no body. A later loss of the body (a list-row update setting it to '') is
+	 * still detected, because that path does not open the record.
+	 * @property
+	 * @type Boolean
+	 */
+	bodyKnownEmpty: false,
+
+	/**
+	 * Force the body to be fetched again for an
+	 * {@link Zarafa.core.data.MAPIRecord#isOpened opened} record which
+	 * {@link #isBodyMissing carries no body}; a plain open() would return early.
+	 */
+	reloadBody: function()
+	{
+		this.open({forceLoad: true});
+	},
+
+	/**
+	 * Called by the store after the record was opened. Records whether a body
+	 * actually arrived; a failed open never reaches here, so a failed reload can
+	 * be retried rather than latching the record as body-less.
+	 * @private
+	 */
+	afterOpen: function()
+	{
+		Zarafa.core.data.IPMRecord.superclass.afterOpen.apply(this, arguments);
+
+		this.bodyKnownEmpty = Ext.isEmpty(this.get('body')) && Ext.isEmpty(this.get('html_body'));
+	},
+
+	/**
 	 * Helper function to get contents of body property of {@link Zarafa.core.data.IPMRecord IPMRecord}
 	 * @param {Boolean} preferHTML True if the HTML body should be returned or not, false if the plain-text
 	 * body should be returned.
