@@ -242,7 +242,10 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 		if (data &&
 		  ((data.update && data.update.indexOf(this.record) >= 0) ||
 		   (data.create && data.create.indexOf(this.record) >= 0))) {
-			this.isSending = this.record.hasMessageAction('send') || this.record.hasMessageAction('sendResponse');
+			// Never clear the flag here: a draft save committing while the send
+			// validation is still pending must not reset the send state.
+			this.isSending = this.isSending ||
+				this.record.hasMessageAction('send') || this.record.hasMessageAction('sendResponse');
 		}
 		Zarafa.core.ui.MessageContentPanel.superclass.onBeforeSaveRecord.apply(this, arguments);
 	},
@@ -274,6 +277,7 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 			if (sendAction) {
 				this.fireEvent('aftersendrecord', this, this.record);
 				this.isSending = false;
+				this.unlockPendingAction();
 			}
 
 			if (isSending && this.closeOnSend && sendAction) {
@@ -302,6 +306,7 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 
 		if (type !== "open") {
 			this.isSending = false;
+			this.unlockPendingAction();
 		}
 	},
 
@@ -327,6 +332,11 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 		}
 
 		this.isSending = true;
+
+		// Lock here rather than when the store starts saving: the validation queue
+		// below is asynchronous, so without this the Send button stays live for the
+		// whole of it.
+		this.lockPendingAction(this.sendingText.msg);
 
 		// Start the validation queue to determine if the record can be
 		// send to the recipients correctly. If successful, onCompleteValidateSendRecord
@@ -608,11 +618,19 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 		if (success) {
 			this.forceSendAsIdentityTransmission();
 			this.record.addMessageAction('send', true);
-			if (this.saveRecord() !== false) {
+			if (this.saveRecord() === false) {
+				// The save was refused (a racing save, a beforesaverecord veto, an
+				// invalid record): nothing is in flight, nothing would ever unmask.
+				this.isSending = false;
+				this.unlockPendingAction();
+			} else {
 				this.fireEvent('sendrecord', this, this.record);
 			}
 		} else {
+			// Validation refused the send (no recipients, unresolved names, ...).
+			// Nothing is in flight, so give the dialog back to the user.
 			this.isSending = false;
+			this.unlockPendingAction();
 		}
 	},
 

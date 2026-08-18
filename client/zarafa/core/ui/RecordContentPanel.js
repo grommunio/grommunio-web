@@ -248,6 +248,16 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 			'afterlayout': this.onAfterLayout,
 			'scope': this
 		});
+
+		// A dropped connection produces neither a commit nor an exception - the
+		// request is queued for retry - so nothing else would ever unmask. Give the
+		// dialog back; isSaving/isSending stay set, as they did before the mask
+		// existed, until the retried request answers.
+		this.mon(container.getRequest(), {
+			'connectioninterrupted': this.unlockPendingAction,
+			'connectionparalyzed': this.unlockPendingAction,
+			'scope': this
+		});
 	},
 
 	/**
@@ -343,6 +353,51 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	},
 
 	/**
+	 * Block interaction with this panel while a save or send is in flight.
+	 *
+	 * The {@link #isSaving} and {@link #isSending} re-entrancy guards already stop a
+	 * second request from being issued, but they are invisible: the Save/Send button
+	 * stays lit and clickable, and nothing on screen says the first click registered.
+	 * That is what makes people click again. Masking the panel both blocks the second
+	 * click and shows that something is happening.
+	 *
+	 * Deliberately independent of {@link #showInfoMask}: that config only governs the
+	 * "Saving…" notifier, and turning the notification off should not also turn off
+	 * the input blocking.
+	 *
+	 * @param {String} text The message to show on the mask
+	 * @protected
+	 */
+	lockPendingAction: function(text)
+	{
+		if (!this.rendered || !this.el || this.isPendingActionLocked === true) {
+			return;
+		}
+
+		this.isPendingActionLocked = true;
+		this.el.mask(text || '', 'x-mask-loading');
+	},
+
+	/**
+	 * Undo {@link #lockPendingAction}. Safe to call when no lock is held, so every
+	 * path that clears {@link #isSaving} or {@link #isSending} can call it without
+	 * first checking - including the failure paths, where leaving the panel masked
+	 * would strand the user in a dialog they cannot use or close.
+	 * @protected
+	 */
+	unlockPendingAction: function()
+	{
+		if (this.isPendingActionLocked !== true) {
+			return;
+		}
+
+		this.isPendingActionLocked = false;
+		if (this.rendered && this.el) {
+			this.el.unmask();
+		}
+	},
+
+	/**
 	 * See {@link Zarafa.core.plugins.RecordComponentPlugin#setRecord}.
 	 *
 	 * @param {Zarafa.core.data.MAPIRecord} record The record to set
@@ -434,6 +489,13 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 		// Check if saving is allowed, and if by chance we aren't
 		// saving already.
 		if (this.recordComponentPlugin.allowWrite === false || this.isSaving === true) {
+			return false;
+		}
+
+		// While a send is being validated only the send's own save may pass; a
+		// keyboard-shortcut draft save would unmask the dialog on its commit and
+		// reset the send state mid-flight.
+		if (this.isSending === true && !this.record.hasMessageAction('send')) {
 			return false;
 		}
 
@@ -619,6 +681,15 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 
 			if(!this.hasInternalAction()) {
 				this.displayInfoMask();
+				// Only lock when the user is waiting on this save: a dialog that
+				// closes on completion, or a send. Background saves - the compose
+				// autosave, mark-as-read - must not block input.
+				if (this.closeOnSave === true || this.isSending === true) {
+					var text = this.isSending === true && this.sendingText
+						? this.sendingText.msg
+						: this.savingText.msg;
+					this.lockPendingAction(text);
+				}
 			}
 		}
 	},
@@ -643,6 +714,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 			}
 
 			this.isSaving = false;
+			this.unlockPendingAction();
 			this.fireEvent('aftersaverecord', this, this.record);
 
 			if (this.closeOnSave) {
@@ -678,6 +750,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 			} else {
 				this.hideInfoMask(false);
 				this.isSaving = false;
+				this.unlockPendingAction();
 			}
 		}
 	},
