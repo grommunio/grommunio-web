@@ -279,39 +279,7 @@ Zarafa.task.ui.TaskContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 	 */
 	onMarkCompleteItemClick: function (item)
 	{
-		var complete = item.isMarkComplete;
-		var showWarning = false;
-		Ext.each(this.records, function (record) {
-			record.beginEdit();
-			record.set('complete', complete);
-			record.set('percent_complete', complete);
-			record.set('status', complete ? Zarafa.core.mapi.TaskStatus.COMPLETE : Zarafa.core.mapi.TaskStatus.NOT_STARTED);
-			record.set('date_completed', complete ? new Date() : null);
-			record.set('flag_icon', complete ? Zarafa.core.mapi.FlagIcon.clear : Zarafa.core.mapi.FlagIcon.red);
-			record.set('flag_complete_time', complete ? new Date() : null);
-			record.set('flag_request', complete ? '' : 'Follow up');
-			record.set('flag_status', complete ? Zarafa.core.mapi.FlagStatus.completed : Zarafa.core.mapi.FlagStatus.flagged);
-			record.endEdit();
-
-			if (!record.isNormalTask()) {
-				if (!record.isTaskOwner() && !record.isTaskRequest()) {
-					showWarning = true;
-				} else {
-					record.addMessageAction('response_type', Zarafa.core.mapi.TaskMode.UPDATE);
-				}
-			}
-		}, this);
-
-		if (showWarning) {
-			Ext.MessageBox.show({
-				title: _('Changes to assigned task'),
-				msg:_('Please note that assigned task(s) will be overwritten when the assignee makes changes.'),
-				buttons: Ext.MessageBox.OK
-			});
-		}
-		if (!Ext.isEmpty(this.records) && Ext.isDefined(this.records[0])) {
-			this.records[0].getStore().save();
-		}
+		Zarafa.task.Actions.markComplete(this.records, item.isMarkComplete);
 	},
 
   /**

@@ -1494,6 +1494,33 @@ body.k-density-compact {
   --ui-row-pad: 5px;
   --ui-row-pad-2: 2px; }
 
+/* Files dragged over an item dialog */
+.k-drop-target {
+  position: relative; }
+.k-drop-overlay {
+  position: absolute;
+  inset: 8px;
+  z-index: 20000;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 2px dashed var(--theme-primary-color);
+  border-radius: var(--ui-radius);
+  background: color-mix(in srgb, var(--ui-surface) 88%, transparent);
+  color: var(--ui-accent-text);
+  font-size: 15px;
+  font-weight: 500; }
+.k-drop-overlay.k-drop-overlay-active {
+  display: flex; }
+.k-drop-overlay-icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-size: 40px 40px !important;
+  background-position: center !important; }
+
 /* Quick actions over the hovered mail row */
 .k-row-actions {
   position: absolute;

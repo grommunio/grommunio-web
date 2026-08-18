@@ -2376,6 +2376,16 @@ body.dark-mode .k-command-palette-icon.k-command-palette-icon-mask {
 	filter: none !important;
 }
 
+/* Quick action bar: iconset images are black, coloured flags stay */
+body.dark-mode .k-row-actions .k-row-action > span {
+	filter: invert(0.88);
+}
+body.dark-mode .k-row-actions .k-row-action > .icon_flag_red,
+body.dark-mode .k-row-actions .k-row-action > .icon_task_complete,
+body.dark-mode .x-menu-item-icon.icon_task_complete {
+	filter: none;
+}
+
 /* The note folder icons are yellow by design and stay so */
 body.dark-mode .icon_folder_default_note,
 body.dark-mode .icon_folder_stickynote,

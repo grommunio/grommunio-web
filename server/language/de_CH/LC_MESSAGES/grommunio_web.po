@@ -8315,3 +8315,9 @@ msgstr "grommunio Web wurde aktualisiert"
 
 msgid "A new version is available, click here to reload."
 msgstr "Eine neue Version ist verfügbar, zum Neuladen hier klicken."
+
+msgid "Drop files here to attach them"
+msgstr "Dateien hier ablegen, um sie anzuhängen"
+
+msgid "Show quick actions when hovering over a list item"
+msgstr "Schnellaktionen beim Überfahren eines Listeneintrags anzeigen"

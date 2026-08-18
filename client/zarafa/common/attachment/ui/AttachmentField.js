@@ -57,6 +57,114 @@ Zarafa.common.attachment.ui.AttachmentField = Ext.extend(Zarafa.common.ui.BoxFie
 		this.wrap.on('dragover', this.onBrowserDragOver, this);
 		this.wrap.on('dragleave', this.onBrowserDragLeave, this);
 		this.wrap.on('drop', this.onBrowserDrop, this);
+
+		this.initDropOverlay();
+	},
+
+	/**
+	 * Lets the whole dialog accept dropped files. While files are dragged over
+	 * it an overlay shows where they will go, and a drop on the overlay is
+	 * handled like a drop on the field.
+	 * @private
+	 */
+	initDropOverlay: function()
+	{
+		var panel = this.findParentByType('zarafa.recordcontentpanel');
+		if (!panel || !this.editable || !panel.rendered) {
+			return;
+		}
+
+		this.dropPanel = panel;
+		this.dropDepth = 0;
+		panel.el.addClass('k-drop-target');
+		this.dropOverlay = panel.el.createChild({
+			tag: 'div',
+			cls: 'k-drop-overlay',
+			'aria-hidden': 'true',
+			cn: [{ tag: 'span', cls: 'k-drop-overlay-icon icon_paperclip' }, { tag: 'span', html: Ext.util.Format.htmlEncode(_('Drop files here to attach them')) }]
+		});
+
+		this.mon(panel.el, {
+			'dragenter': this.onPanelDragEnter,
+			'dragover': this.onPanelDragOver,
+			'dragleave': this.onPanelDragLeave,
+			'drop': this.onPanelDrop,
+			scope: this
+		});
+		this.on('destroy', function() {
+			if (this.dropOverlay) {
+				this.dropOverlay.remove();
+				this.dropOverlay = undefined;
+			}
+		}, this);
+	},
+
+	/**
+	 * @param {Ext.EventObject} event The drag event
+	 * @return {Boolean} True when files are being dragged
+	 * @private
+	 */
+	isFileDrag: function(event)
+	{
+		var transfer = event.browserEvent.dataTransfer;
+		var types = transfer ? transfer.types : null;
+		return !!types && Array.prototype.indexOf.call(types, 'Files') !== -1;
+	},
+
+	/**
+	 * @param {Ext.EventObject} event The dragenter event
+	 * @private
+	 */
+	onPanelDragEnter: function(event)
+	{
+		if (!this.isFileDrag(event)) {
+			return;
+		}
+		event.preventDefault();
+		this.dropDepth++;
+		this.dropOverlay.addClass('k-drop-overlay-active');
+	},
+
+	/**
+	 * @param {Ext.EventObject} event The dragover event
+	 * @private
+	 */
+	onPanelDragOver: function(event)
+	{
+		if (this.isFileDrag(event)) {
+			// without this the browser refuses the drop
+			event.preventDefault();
+		}
+	},
+
+	/**
+	 * @param {Ext.EventObject} event The dragleave event
+	 * @private
+	 */
+	onPanelDragLeave: function(event)
+	{
+		if (!this.isFileDrag(event) || this.dropDepth === 0) {
+			return;
+		}
+		this.dropDepth--;
+		if (this.dropDepth === 0) {
+			this.dropOverlay.removeClass('k-drop-overlay-active');
+		}
+	},
+
+	/**
+	 * Handles a drop anywhere on the dialog like a drop on the field.
+	 * @param {Ext.EventObject} event The drop event
+	 * @private
+	 */
+	onPanelDrop: function(event)
+	{
+		this.dropDepth = 0;
+		this.dropOverlay.removeClass('k-drop-overlay-active');
+		if (!this.isFileDrag(event) || this.wrap.contains(event.getTarget())) {
+			return;
+		}
+		this.onBrowserDrop(event);
 	},
 
 	/**

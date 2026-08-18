@@ -94,7 +94,7 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 			xtype: 'checkbox',
 			name: 'zarafa/v1/contexts/mail/hover_actions',
 			ref: 'hoverActions',
-			boxLabel: _('Show quick actions when hovering over a message'),
+			boxLabel: _('Show quick actions when hovering over a list item'),
 			hideLabel: true,
 			lazyInit: false,
 			listeners: {
