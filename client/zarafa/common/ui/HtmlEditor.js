@@ -60,13 +60,20 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		this.defaultFontFamily = container.getSettingsModel().get("zarafa/v1/main/default_font");
 		this.defaultFontSize = Zarafa.common.ui.htmleditor.Fonts.getDefaultFontSize();
 
-		// Style for every root block tinymce creates by itself: the paragraph of an
-		// empty body, the paragraph created by pressing ENTER and the paragraphs
-		// loose content is wrapped in. The default font belongs here, because the
-		// font of the editor body is never part of the message: getContent() returns
-		// the body's inner HTML, so a paragraph without its own font is sent without
-		// one and the recipient renders that line in their own default font.
-		// Same order of properties as the signature in Zarafa.mail.MailContextModel.
+		// The style for every root block that TinyMCE creates by
+		// itself. Those are:
+		//
+		// * the paragraph of an empty body
+		// * the paragraph created by pressing Enter
+		// * paragraphs where loose content is wrapped in
+		//
+		// The default font belongs here, because the font of the
+		// editor body is never part of the message. getContent()
+		// returns the body's inner HTML, so a paragraph without its
+		// own font is sent without a font declaration, making the
+		// recipient render such a line in their own default font. The
+		// same order of properties as the signature in
+		// Zarafa.mail.MailContextModel is used here.
 		this.defaultFontStyle = "";
 		if (!Ext.isEmpty(this.defaultFontFamily) && !Ext.isEmpty(this.defaultFontSize)) {
 			this.defaultFontStyle = "font-family: " + this.defaultFontFamily + "; " +
@@ -305,11 +312,12 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		tinymceEditor.on("PastePreProcess", this.onPasteFileLink.createDelegate(this), true);
 		tinymceEditor.on("keyup", this.onKeyUpFileLink.createDelegate(this));
 
-		// Recover the images of a paste coming from Microsoft Word. This needs the
-		// raw clipboard, which PastePreProcess does not carry, so it hooks 'paste'
-		// itself -- prepended so it runs before TinyMCE consumes the event.
+		// Recover the images of a paste coming from Microsoft Word.
+		// This needs the raw clipboard, which PastePreProcess does not
+		// have the value of. Therefore, it hooks 'paste' itself. This
+		// is prepended, so it runs before TinyMCE consumes the event.
 		tinymceEditor.on("paste", this.onPasteWordImages.createDelegate(this), true);
-		// TinyMCE tracks paste-as-plain-text on keydown internally; mirror it, or
+		// TinyMCE tracks paste-as-plain-text on keydown internally. Mirror it, or
 		// the hook above would paste formatted content on Ctrl+Shift+V.
 		tinymceEditor.on("keydown", function(event) {
 			this.isPlainTextPaste = event.keyCode === 86 && event.shiftKey &&
@@ -513,22 +521,25 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	},
 
 	/**
-	 * Function is called when double clicked in the editor.
-	 * While the body is empty, firefox puts the selection on the P tag itself; when the
-	 * paragraph holds a font SPAN (a manual font change), move the cursor inside it so
-	 * typing keeps that font.
+	 * This function is called when a double click is made in the editor.
+	 * While the body is empty, Firefox puts the selection on the <p> tag
+	 * itself. When the paragraph holds a font <span> (a manual font
+	 * change), move the cursor inside it so that typing some text uses
+	 * that font.
 	 */
 	onDBLClick: function()
 	{
 		var editor = this.getEditor();
 		var element = editor.selection.getStart();
-		// tinymce used zero width space characters as character container in empty line,
-		// So needs to verify body is empty or not.
+		// TinyMCE uses zero width space characters as character
+		// containers in an empty line. Therfore, verify whether the
+		// body is actually empty or not.
 		var isEmptyBody = editor.selection.getContent({
 			format: "text"
 		}) === "";
-		// The first child of an empty paragraph is a BR, which has no child to place
-		// the cursor in. Only descend when there is something to descend into.
+		// The first child of an empty paragraph is a <br>, which has
+		// no child to place the cursor in. Only descend when there is
+		// something to descend into.
 		if (element === editor.getBody().firstChild && isEmptyBody &&
 			element.firstChild && element.firstChild.firstChild) {
 			editor.selection.setCursorLocation(element.firstChild.firstChild, 0);
@@ -812,18 +823,18 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	},
 
 	/**
-	 * Handler for the editor's 'paste' event: put back the images of a paste that
+	 * Handler for the editor's 'paste' event. It puts back the images of a paste that
 	 * comes from Microsoft Word.
 	 *
 	 * Word references its images with file:// URLs that a web page cannot load,
-	 * and puts the actual bytes only in the text/rtf flavour of the clipboard --
-	 * see {@link Zarafa.common.ui.htmleditor.WordClipboard}. TinyMCE's own
-	 * clipboard-image handling does not apply, because it only runs for a paste
+	 * and puts the actual bytes only in the text/rtf flavour of the clipboard.
+	 * See {@link Zarafa.common.ui.htmleditor.WordClipboard}. TinyMCE's own
+	 * clipboard image handling does not apply, because it only runs for a paste
 	 * that carries no HTML at all.
 	 *
 	 * The rewritten HTML is handed back to TinyMCE with 'mceInsertClipboardContent'
-	 * rather than inserted directly, so that the normal paste pipeline -- including
-	 * the 'officepaste' plugin's Word cleanup -- still runs over it.
+	 * rather than inserted directly, so that the normal paste pipeline, including
+	 * the 'officepaste' plugin's Word cleanup, still runs over it.
 	 *
 	 * @param {Object} event The DOM paste event, as dispatched by TinyMCE
 	 * @private
@@ -846,16 +857,17 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		var clipboard = event.clipboardData;
 		var html = clipboard.getData("text/html");
 		var wordClipboard = Zarafa.common.ui.htmleditor.WordClipboard;
-		// Cheap guard first: the RTF flavour of a Word paste is routinely several
+		// First, a cheap guard. The RTF flavour of a Word paste is routinely several
 		// megabytes, so it is only fetched and parsed when the HTML actually
 		// references an image the browser will not be able to load.
 		if (!wordClipboard.needsImageRecovery(html)) {
 			return;
 		}
 
-		// Mirror TinyMCE's trimHtml, which the mceInsertClipboardContent command
-		// does not apply: without it Word's <head> stylesheet is inserted as a
-		// live <style> element and restyles the whole message.
+		// Mirror TinyMCE's trimHtml. The mceInsertClipboardContent
+		// command does not apply this transformation. Without it,
+		// Word's <head> stylesheet is inserted as a live <style>
+		// element and restyles the whole message.
 		html = html.replace(/^[\s\S]*<body[^>]*>\s*|\s*<\/body[^>]*>[\s\S]*$/ig, '')
 			.replace(/<!--StartFragment-->|<!--EndFragment-->/g, '');
 
@@ -1026,7 +1038,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		// Split the blockquote at the marker
 				const newBlockquote = editor.dom.split(blockquote, marker);
 		// Create a new paragraph with custom margin for the content after the split.
-		// Carry the default font, as this paragraph bypasses forced_root_block_attrs.
+		// Copy the default font declaration, as this paragraph bypasses forced_root_block_attrs.
 				const newParagraph = editor.dom.create("p", {
 			style: this.defaultFontStyle + "margin: 10px 0 10px 0;"
 		}, '<br data-mce-bogus="1" />');
@@ -1106,8 +1118,9 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		this.originalValue = this.getRawValue();
 		this.hasFocus = true;
 		this.fireEvent("focus", this);
-		// While the body is empty and focus returns after a tab change, firefox
-		// leaves the selection on the P tag; reset it to a proper caret position.
+		// While the body is empty and focus returns after a tab
+		// change, Firefox leaves the selection on the <p> tag. Reset
+		// it to a proper caret position.
 		if (this.isTabChanged) {
 			this.getEditor().selection.setCursorLocation();
 			this.isTabChanged = false;
