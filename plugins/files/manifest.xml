@@ -73,8 +73,6 @@
 					<clientfile load="source">js/ui/dialogs/UploadStatusPanel.js</clientfile>
 					<clientfile load="source">js/ui/snippets/FilesQuotaBar.js</clientfile>
 					<clientfile load="source">js/ui/snippets/FilesNavigationBar.js</clientfile>
-					<clientfile load="source">js/ui/snippets/WebODFPanel.js</clientfile>
-					<clientfile load="source">js/ui/snippets/PDFjsPanel.js</clientfile>
 					<clientfile load="source">js/settings/SettingsAccountWidget.js</clientfile>
 					<clientfile load="source">js/settings/SettingsMainCategory.js</clientfile>
 					<clientfile load="source">js/settings/SettingsResetWidget.js</clientfile>
@@ -128,8 +126,6 @@
 					<resourcefile load="source">resources/css/files-main.css</resourcefile>
 					<resourcefile load="source">resources/css/icons.css</resourcefile>
 					<resourcefile load="source">resources/css/navbar.css</resourcefile>
-					<resourcefile load="source">resources/css/pdfjspanel.css</resourcefile>
-					<resourcefile load="source">resources/css/webodfpanel.css</resourcefile>
 				</resources>
 			</files>
 		</component>

@@ -52,6 +52,19 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(
 			return [
 				{
 					xtype: 'zarafa.conditionalitem',
+					text: _('Preview'),
+					iconCls: 'files_icon_action files_icon_action_preview',
+					handler: this.onContextItemPreview,
+					beforeShow: function (item, records) {
+						var selection = Ext.isArray(records) ? records : [records];
+
+						item.setVisible(selection.length === 1 &&
+							Zarafa.plugins.files.data.Actions.isPreviewable(selection[0]));
+					},
+					scope: this,
+				},
+				{
+					xtype: 'zarafa.conditionalitem',
 					text: _('Download'),
 					iconCls: 'files_icon_action files_icon_action_download',
 					handler: this.onContextItemDownload,
@@ -238,6 +251,15 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(
 					scope: this,
 				},
 			];
+		},
+
+		/**
+		 * Handler called when 'Preview' context menu item is pressed.
+		 */
+		onContextItemPreview: function () {
+			var records = Ext.isArray(this.records) ? this.records : [this.records];
+
+			Zarafa.plugins.files.data.Actions.previewFile(records[0]);
 		},
 
 		/**
