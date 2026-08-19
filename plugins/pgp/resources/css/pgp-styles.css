@@ -1,0 +1,172 @@
+.icon_pgp_key,
+.icon_pgp_encrypt,
+.icon_pgp_encrypt_selected,
+.icon_pgp_sign,
+.icon_pgp_sign_selected {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 20px 20px;
+}
+
+.icon_pgp_key {
+	background-image: url(../icons/key.svg);
+}
+
+.icon_pgp_encrypt,
+.icon_pgp_encrypt_selected {
+	background-image: url(../icons/lock.svg);
+}
+
+.icon_pgp_sign,
+.icon_pgp_sign_selected {
+	background-image: url(../icons/sign.svg);
+}
+
+.x-btn-text.icon_pgp_key,
+.x-btn-text.icon_pgp_encrypt,
+.x-btn-text.icon_pgp_encrypt_selected,
+.x-btn-text.icon_pgp_sign,
+.x-btn-text.icon_pgp_sign_selected {
+	background-position: 3px center !important;
+	padding-left: 27px !important;
+}
+
+.x-btn-text.icon_pgp_encrypt_selected,
+.x-btn-text.icon_pgp_sign_selected {
+	background-color: #dcfce7;
+	border-radius: 3px;
+	box-shadow: inset 0 -2px 0 #15803d;
+}
+
+.pgp-info {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 5px 10px;
+	text-align: left;
+}
+
+.pgp-info .x-btn-text {
+	white-space: normal;
+	text-align: left;
+	color: #1d2939;
+}
+
+.pgp-info-info {
+	background-color: #dbeafe;
+	box-shadow: inset 4px 0 0 #2563eb;
+}
+
+.pgp-info-good {
+	background-color: #dcfce7;
+	box-shadow: inset 4px 0 0 #15803d;
+}
+
+.pgp-info-warning {
+	background-color: #ffedd5;
+	box-shadow: inset 4px 0 0 #c2410c;
+}
+
+.pgp-info-bad {
+	background-color: #fee2e2;
+	box-shadow: inset 4px 0 0 #b91c1c;
+}
+
+.pgp-fingerprint,
+.pgp-armored {
+	font-family: monospace;
+}
+
+.pgp-fingerprint {
+	white-space: normal;
+	word-break: break-word;
+}
+
+.pgp-explanation {
+	line-height: 1.5;
+	padding: 8px 0;
+}
+
+.pgp-dialog .pgp-explanation {
+	padding: 12px 12px 0;
+}
+
+.pgp-settings .x-form-item {
+	margin-top: 10px;
+}
+
+.pgp-operation-status {
+	padding: 9px 12px;
+	margin: 8px 0;
+	line-height: 1.45;
+	border-left: 3px solid #2776a8;
+	background: #edf5fa;
+	color: #25384a;
+	white-space: normal;
+	word-break: break-word;
+}
+
+.pgp-operation-status.pgp-operation-error {
+	border-left-color: #c13f36;
+	background: #fff1ef;
+	color: #8c2d28;
+}
+
+body.dark-mode .pgp-operation-status {
+	border-left-color: #7bbde6;
+	background: #193346;
+	color: var(--dm-fg, #d4d4d4);
+}
+
+body.dark-mode .pgp-operation-status.pgp-operation-error {
+	border-left-color: #f18d85;
+	background: #472b2b;
+}
+
+.x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner p.icon_pgp_key {
+	width: 18px;
+	height: 20px;
+}
+
+body.dark-mode .icon_pgp_key {
+	background-image: url(../icons/key-dark.svg);
+}
+
+body.dark-mode .icon_pgp_encrypt,
+body.dark-mode .icon_pgp_encrypt_selected {
+	background-image: url(../icons/lock-dark.svg);
+}
+
+body.dark-mode .icon_pgp_sign,
+body.dark-mode .icon_pgp_sign_selected {
+	background-image: url(../icons/sign-dark.svg);
+}
+
+body.dark-mode .x-btn-text.icon_pgp_encrypt_selected,
+body.dark-mode .x-btn-text.icon_pgp_sign_selected {
+	background-color: #153d2c;
+	box-shadow: inset 0 -2px 0 #66bb6a;
+}
+
+body.dark-mode .pgp-info .x-btn-text {
+	color: var(--dm-fg, #d4d4d4);
+}
+
+body.dark-mode .pgp-info-info {
+	background-color: #17304d;
+	box-shadow: inset 4px 0 0 #64b5f6;
+}
+
+body.dark-mode .pgp-info-good {
+	background-color: #153d2c;
+	box-shadow: inset 4px 0 0 #66bb6a;
+}
+
+body.dark-mode .pgp-info-warning {
+	background-color: #452d19;
+	box-shadow: inset 4px 0 0 #ffd54f;
+}
+
+body.dark-mode .pgp-info-bad {
+	background-color: #471f25;
+	box-shadow: inset 4px 0 0 #f97066;
+}
