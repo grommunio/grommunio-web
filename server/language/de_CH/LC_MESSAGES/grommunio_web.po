@@ -8321,3 +8321,17 @@ msgstr "Dateien hier ablegen, um sie anzuhängen"
 
 msgid "Show quick actions when hovering over a list item"
 msgstr "Schnellaktionen beim Überfahren eines Listeneintrags anzeigen"
+
+msgid "Search settings"
+msgstr "Einstellungen durchsuchen"
+
+msgid "Clear search"
+msgstr "Suche leeren"
+
+msgid "No settings match"
+msgstr "Keine passenden Einstellungen"
+
+msgid "{0} setting matches"
+msgid_plural "{0} settings match"
+msgstr[0] "{0} passende Einstellung"
+msgstr[1] "{0} passende Einstellungen"

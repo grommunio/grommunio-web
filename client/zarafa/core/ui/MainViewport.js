@@ -129,6 +129,7 @@ Zarafa.core.ui.MainViewport = Ext.extend(Ext.Viewport, {
 			statefulName: 'hierarchybar',
 			statefulRelativeDimensions: true
 		});
+		this.navigationRail = new Zarafa.core.ui.NavigationRail({ panel: this.navigationPanel });
 		return this.navigationPanel;
 	},
 

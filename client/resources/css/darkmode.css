@@ -844,27 +844,9 @@ body.dark-mode .k-appointmentcreatetab .filler {
 	border-left-color: var(--dm-border) !important;
 }
 
-/* Form field wrappers - remove the lighter gray box around inputs.
-   Match background to the surrounding panel so inputs blend in seamlessly. */
-body.dark-mode .k-appointmentcreatetab .x-form-field-wrap,
-body.dark-mode .k-appointmentcreatetab .x-form-field-trigger-wrap,
-body.dark-mode .k-taskgeneraltab .x-form-field-wrap,
-body.dark-mode .k-taskgeneraltab .x-form-field-trigger-wrap {
-	background-color: transparent !important;
-	border-color: transparent !important;
-}
-
 body.dark-mode .k-appointmentcreatetab .x-form-text,
 body.dark-mode .k-taskgeneraltab .x-form-text {
-	background-color: transparent !important;
-	border-color: var(--dm-border) !important;
 	color: var(--dm-fg) !important;
-}
-
-body.dark-mode .k-appointmentcreatetab .x-form-trigger,
-body.dark-mode .k-taskgeneraltab .x-form-trigger {
-	background-color: transparent !important;
-	border-color: var(--dm-border) !important;
 }
 
 /* Attachment bar - hide visible border/background like in mail compose */
@@ -1151,7 +1133,17 @@ body.dark-mode .x-form-trigger:not(.icon_magnifier) {
 body.dark-mode .k-addressbookmainpanel-header .icon_magnifier,
 body.dark-mode .x-form-trigger.icon_magnifier {
 	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyNCcgaGVpZ2h0PScyNCcgZmlsbD0nbm9uZSc+PHBhdGggZmlsbD0nI2UwZTBlMCcgZD0nTTEwIDIuNWE3LjUgNy41IDAgMCAxIDUuOTY0IDEyLjA0OGw0Ljc0MyA0Ljc0NWExIDEgMCAwIDEtMS4zMiAxLjQ5N2wtLjA5NC0uMDgzLTQuNzQ1LTQuNzQzQTcuNSA3LjUgMCAxIDEgMTAgMi41bTAgMmE1LjUgNS41IDAgMSAwIDAgMTEgNS41IDUuNSAwIDAgMCAwLTExJy8+PC9zdmc+) !important;
-	background-color: var(--dm-bg-elevated) !important;
+	background-color: transparent !important;
+}
+
+body.dark-mode .x-form-field-wrap .x-form-trigger:not(.x-form-spinner-trigger):not(.icon_magnifier):not(.k-settings-search-clear) {
+	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMicgaGVpZ2h0PScxMicgZmlsbD0nbm9uZScgc3Ryb2tlPScjY2ZkNGRjJyBzdHJva2Utd2lkdGg9JzEuNicgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJz48cGF0aCBkPSdNMi41IDQuNSA2IDhsMy41LTMuNScvPjwvc3ZnPg==) !important;
+}
+
+body.dark-mode .x-form-text.x-form-invalid,
+body.dark-mode textarea.x-form-field.x-form-invalid,
+body.dark-mode .x-form-field-wrap:has(> .x-form-invalid) {
+	background: color-mix(in srgb, var(--color-error) 22%, var(--ui-input)) !important;
 }
 
 /* Modern search field - dark mode */
@@ -2276,20 +2268,19 @@ body.dark-mode .zarafa-settings-widget-extrainfo {
 body.dark-mode .x-form-field-wrap .x-form-spinner-trigger {
 	background:
 		url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgMTIgNiI+PHBhdGggZmlsbD0iI2UwZTBlMCIgZD0iTTkuMzk1IDQuMTk1YS41MDIuNTAyIDAgMCAxLS4wNjMuNjhjLS4yLjE3Mi0uNS4xNjQtLjY4NC0uMDIzTDYgMi4yMDcgMy4zNTIgNC44NTJsLS4wNDcuMDQzYS41MDIuNTAyIDAgMCAxLS42OC0uMDYzLjUwMS41MDEgMCAwIDEgLjAyMy0uNjg0bDMtMyAuMDQ3LS4wNDNhLjQ5Mi40OTIgMCAwIDEgLjY1Ny4wNDNsMyAzWiIvPjwvc3ZnPg==) no-repeat center calc(25% - 2px),
-		url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDYgMTIgNiI+PHBhdGggZmlsbD0iI2UwZTBlMCIgZD0iTTIuNjA1IDcuODA1YS41MDIuNTAyIDAgMCAxIC4wNjMtLjY4Yy4yLS4xNzIuNS0uMTY0LjY4NC4wMjNMNiA5Ljc5M2wyLjY0OC0yLjY0NS4wNDctLjA0M2EuNTAyLjUwMiAwIDAgMSAuNjguMDYzYy4xNzIuMi4xNjQuNS0uMDIzLjY4NGwtMyAzLS4wNDcuMDQzYS40OTIuNDkyIDAgMCAxLS42NTctLjA0M2wtMy0zWiIvPjwvc3ZnPg==) no-repeat center calc(75% + 2px),
-		linear-gradient(to bottom, var(--dm-bg-elevated) calc(50% - 0.5px), var(--dm-border) calc(50% - 0.5px), var(--dm-border) calc(50% + 0.5px), var(--dm-bg-elevated) calc(50% + 0.5px)) !important;
+		url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDYgMTIgNiI+PHBhdGggZmlsbD0iI2UwZTBlMCIgZD0iTTIuNjA1IDcuODA1YS41MDIuNTAyIDAgMCAxIC4wNjMtLjY4Yy4yLS4xNzIuNS0uMTY0LjY4NC4wMjNMNiA5Ljc5M2wyLjY0OC0yLjY0NS4wNDctLjA0M2EuNTAyLjUwMiAwIDAgMSAuNjguMDYzYy4xNzIuMi4xNjQuNS0uMDIzLjY4NGwtMyAzLS4wNDcuMDQzYS40OTIuNDkyIDAgMCAxLS42NTctLjA0M2wtMy0zWiIvPjwvc3ZnPg==) no-repeat center calc(75% + 2px) !important;
 }
 body.dark-mode .x-form-field-wrap .x-form-spinner-trigger.x-form-spinner-overup {
 	background:
 		url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgMTIgNiI+PHBhdGggZmlsbD0iI2UwZTBlMCIgZD0iTTkuMzk1IDQuMTk1YS41MDIuNTAyIDAgMCAxLS4wNjMuNjhjLS4yLjE3Mi0uNS4xNjQtLjY4NC0uMDIzTDYgMi4yMDcgMy4zNTIgNC44NTJsLS4wNDcuMDQzYS41MDIuNTAyIDAgMCAxLS42OC0uMDYzLjUwMS41MDEgMCAwIDEgLjAyMy0uNjg0bDMtMyAuMDQ3LS4wNDNhLjQ5Mi40OTIgMCAwIDEgLjY1Ny4wNDNsMyAzWiIvPjwvc3ZnPg==) no-repeat center calc(25% - 2px),
 		url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDYgMTIgNiI+PHBhdGggZmlsbD0iI2UwZTBlMCIgZD0iTTIuNjA1IDcuODA1YS41MDIuNTAyIDAgMCAxIC4wNjMtLjY4Yy4yLS4xNzIuNS0uMTY0LjY4NC4wMjNMNiA5Ljc5M2wyLjY0OC0yLjY0NS4wNDctLjA0M2EuNTAyLjUwMiAwIDAgMSAuNjguMDYzYy4xNzIuMi4xNjQuNS0uMDIzLjY4NGwtMyAzLS4wNDcuMDQzYS40OTIuNDkyIDAgMCAxLS42NTctLjA0M2wtMy0zWiIvPjwvc3ZnPg==) no-repeat center calc(75% + 2px),
-		linear-gradient(to bottom, #3a3a3a calc(50% - 0.5px), var(--dm-border) calc(50% - 0.5px), var(--dm-border) calc(50% + 0.5px), var(--dm-bg-elevated) calc(50% + 0.5px)) !important;
+		linear-gradient(to bottom, #3a3a3a 50%, transparent 50%) !important;
 }
 body.dark-mode .x-form-field-wrap .x-form-spinner-trigger.x-form-spinner-overdown {
 	background:
 		url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgMTIgNiI+PHBhdGggZmlsbD0iI2UwZTBlMCIgZD0iTTkuMzk1IDQuMTk1YS41MDIuNTAyIDAgMCAxLS4wNjMuNjhjLS4yLjE3Mi0uNS4xNjQtLjY4NC0uMDIzTDYgMi4yMDcgMy4zNTIgNC44NTJsLS4wNDcuMDQzYS41MDIuNTAyIDAgMCAxLS42OC0uMDYzLjUwMS41MDEgMCAwIDEgLjAyMy0uNjg0bDMtMyAuMDQ3LS4wNDNhLjQ5Mi40OTIgMCAwIDEgLjY1Ny4wNDNsMyAzWiIvPjwvc3ZnPg==) no-repeat center calc(25% - 2px),
 		url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDYgMTIgNiI+PHBhdGggZmlsbD0iI2UwZTBlMCIgZD0iTTIuNjA1IDcuODA1YS41MDIuNTAyIDAgMCAxIC4wNjMtLjY4Yy4yLS4xNzIuNS0uMTY0LjY4NC4wMjNMNiA5Ljc5M2wyLjY0OC0yLjY0NS4wNDctLjA0M2EuNTAyLjUwMiAwIDAgMSAuNjguMDYzYy4xNzIuMi4xNjQuNS0uMDIzLjY4NGwtMyAzLS4wNDcuMDQzYS40OTIuNDkyIDAgMCAxLS42NTctLjA0M2wtMy0zWiIvPjwvc3ZnPg==) no-repeat center calc(75% + 2px),
-		linear-gradient(to bottom, var(--dm-bg-elevated) calc(50% - 0.5px), var(--dm-border) calc(50% - 0.5px), var(--dm-border) calc(50% + 0.5px), #3a3a3a calc(50% + 0.5px)) !important;
+		linear-gradient(to bottom, transparent 50%, #3a3a3a 50%) !important;
 }
 
 /* Fix: Notification/info bars in dark mode */
@@ -2386,9 +2377,16 @@ body.dark-mode .x-menu-item-icon.icon_task_complete {
 	filter: none;
 }
 
+/* Rail icons are the black iconset images; note folders stay yellow below */
+body.dark-mode .k-nav-rail-icon {
+	filter: invert(0.88);
+}
+
 /* The note folder icons are yellow by design and stay so */
 body.dark-mode .icon_folder_default_note,
 body.dark-mode .icon_folder_stickynote,
+body.dark-mode .k-nav-rail-icon.icon_folder_default_note,
+body.dark-mode .k-nav-rail-icon.icon_folder_stickynote,
 body.dark-mode .k-command-palette-icon.icon_folder_default_note,
 body.dark-mode .k-command-palette-icon.icon_folder_stickynote {
 	filter: none !important;

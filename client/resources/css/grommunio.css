@@ -1057,8 +1057,9 @@ body.Safari input[type="radio"] {
   border-color: var(--color-error);
   background: #fef3f2; }
 
-.x-form-invalid.x-form-text + .x-form-trigger {
-  border-color: var(--color-error); }
+.x-form-field-wrap:not(.x-zarafa-boxfield):not(.x-freebusy-userlist-container):not(.k-search-container *):has(> .x-form-invalid) {
+  border-color: var(--color-error);
+  background: #fef3f2; }
 
 .x-form-invalid.x-form-composite {
   background: transparent !important; }
@@ -1086,20 +1087,23 @@ body.Safari input[type="radio"] {
 .x-form-text.x-form-focus:not(.x-trigger-noedit) {
   box-shadow: 0 0 0 3px var(--ui-focus-ring); }
 
-/* Trigger fields: Ext sizes the wrapper wider than input plus trigger, so the
-   ring is drawn on both parts and clipped where they meet, which also keeps it
-   on the rounded corners of the field */
-.x-form-field-wrap.x-trigger-wrap-focus:not(.x-freebusy-userlist-container) input.x-form-text.x-form-field.x-form-focus,
-.x-form-field-wrap.x-trigger-wrap-focus:not(.x-freebusy-userlist-container) input.x-form-text.x-form-field {
-  border-color: var(--theme-primary-color) !important;
-  box-shadow: 0 0 0 3px var(--ui-focus-ring);
-  clip-path: inset(-4px 0 -4px -4px); }
-
-.x-form-field-wrap.x-trigger-wrap-focus:not(.x-freebusy-userlist-container) .x-form-trigger,
-.x-form-field-wrap.x-trigger-wrap-focus:not(.x-freebusy-userlist-container) .x-form-spinner-trigger {
-  border-color: var(--theme-primary-color) !important;
-  box-shadow: 0 0 0 3px var(--ui-focus-ring);
-  clip-path: inset(-4px -4px -4px 0); }
+/* Trigger and spinner fields: the wrapper draws the field, input and trigger
+   sit borderless inside it */
+.x-form-field-wrap:not(.x-zarafa-boxfield):not(.x-freebusy-userlist-container):not(.k-search-container *) {
+  height: 26px !important;
+  border: 1px solid var(--ui-border-strong);
+  border-radius: var(--ui-radius-sm);
+  background: var(--ui-input);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+.x-form-field-wrap:not(.x-zarafa-boxfield):not(.x-freebusy-userlist-container):not(.k-search-container *):hover {
+  border-color: var(--ui-text-3); }
+.x-form-field-wrap.x-trigger-wrap-focus:not(.x-zarafa-boxfield):not(.x-freebusy-userlist-container):not(.k-search-container *) {
+  box-shadow: 0 0 0 3px var(--ui-focus-ring); }
+.x-form-field-wrap.x-item-disabled:not(.x-zarafa-boxfield):not(.x-freebusy-userlist-container):not(.k-search-container *) {
+  background: var(--ui-surface-2); }
+.x-zarafa-boxfield .x-zarafa-boxfield-input.x-form-focus {
+  box-shadow: none !important;
+  border-color: transparent !important; }
 
 .x-form-text:not(.x-zarafa-boxfield):not(.x-zarafa-boxfield-input),
 .ext-strict .x-form-text:not(.x-zarafa-boxfield):not(.x-zarafa-boxfield-input),
@@ -1110,46 +1114,45 @@ body.Safari input[type="radio"] {
   /* subtract 2 for the border-width */ }
 
 /* combobox and spinner field */
-.x-form-field-trigger-wrap .x-form-text,
-.x-form-field-wrap .x-form-text {
+.x-form-field-wrap:not(.x-zarafa-boxfield):not(.x-freebusy-userlist-container):not(.k-search-container *) .x-form-text,
+.ext-strict .ext-webkit .x-form-field-wrap:not(.x-zarafa-boxfield):not(.x-freebusy-userlist-container):not(.k-search-container *) .x-form-text,
+.x-panel-tbar .x-toolbar .x-toolbar-cell .x-form-field-wrap:not(.x-zarafa-boxfield):not(.x-freebusy-userlist-container):not(.k-search-container *) .x-form-text {
   line-height: 26px;
-  height: 28px;
+  height: 26px !important;
   box-sizing: border-box;
-  border-radius: var(--ui-radius-sm) 0 0 var(--ui-radius-sm); }
-.x-form-field-trigger-wrap .x-form-trigger,
-.x-form-field-trigger-wrap .x-form-spinner-trigger,
+  border: 0 !important;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none !important; }
 .x-form-field-wrap .x-form-trigger,
 .x-form-field-wrap .x-form-spinner-trigger {
-  height: 28px !important;
+  height: 26px !important;
   width: 24px;
   box-sizing: border-box;
-  border: 1px solid var(--ui-border-strong);
-  border-left: none;
-  background-color: var(--ui-surface-2) !important;
-  border-radius: 0 var(--ui-radius-sm) var(--ui-radius-sm) 0;
-  transition: background 0.2s ease; }
-.x-form-field-trigger-wrap .x-form-trigger-over,
-.x-form-field-wrap .x-form-trigger-over {
-  background-color: var(--ui-surface-3) !important; }
+  border: 0;
+  border-radius: 0;
+  background-color: transparent !important; }
+.x-form-field-wrap .x-form-trigger:not(.x-form-spinner-trigger):not(.icon_magnifier):not(.k-settings-search-clear) {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMicgaGVpZ2h0PScxMicgZmlsbD0nbm9uZScgc3Ryb2tlPScjNjY3MDg1JyBzdHJva2Utd2lkdGg9JzEuNicgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJz48cGF0aCBkPSdNMi41IDQuNSA2IDhsMy41LTMuNScvPjwvc3ZnPg==) !important;
+  background-size: 12px 12px !important; }
 
 /* Spinner field - separate up/down arrows centered in each half */
 .x-form-field-wrap .x-form-spinner-trigger {
   background:
     url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgMTIgNiI+PHBhdGggZmlsbD0iIzIxMjEyMSIgZD0iTTkuMzk1IDQuMTk1YS41MDIuNTAyIDAgMCAxLS4wNjMuNjhjLS4yLjE3Mi0uNS4xNjQtLjY4NC0uMDIzTDYgMi4yMDcgMy4zNTIgNC44NTJsLS4wNDcuMDQzYS41MDIuNTAyIDAgMCAxLS42OC0uMDYzLjUwMS41MDEgMCAwIDEgLjAyMy0uNjg0bDMtMyAuMDQ3LS4wNDNhLjQ5Mi40OTIgMCAwIDEgLjY1Ny4wNDNsMyAzWiIvPjwvc3ZnPg==) no-repeat center calc(25% - 2px),
-    url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDYgMTIgNiI+PHBhdGggZmlsbD0iIzIxMjEyMSIgZD0iTTIuNjA1IDcuODA1YS41MDIuNTAyIDAgMCAxIC4wNjMtLjY4Yy4yLS4xNzIuNS0uMTY0LjY4NC4wMjNMNiA5Ljc5M2wyLjY0OC0yLjY0NS4wNDctLjA0M2EuNTAyLjUwMiAwIDAgMSAuNjguMDYzYy4xNzIuMi4xNjQuNS0uMDIzLjY4NGwtMyAzLS4wNDcuMDQzYS40OTIuNDkyIDAgMCAxLS42NTctLjA0M2wtMy0zWiIvPjwvc3ZnPg==) no-repeat center calc(75% + 2px),
-    linear-gradient(to bottom, var(--ui-surface-3) calc(50% - 0.5px), var(--ui-border-strong) calc(50% - 0.5px), var(--ui-border-strong) calc(50% + 0.5px), var(--ui-surface-3) calc(50% + 0.5px)) !important;
+    url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDYgMTIgNiI+PHBhdGggZmlsbD0iIzIxMjEyMSIgZD0iTTIuNjA1IDcuODA1YS41MDIuNTAyIDAgMCAxIC4wNjMtLjY4Yy4yLS4xNzIuNS0uMTY0LjY4NC4wMjNMNiA5Ljc5M2wyLjY0OC0yLjY0NS4wNDctLjA0M2EuNTAyLjUwMiAwIDAgMSAuNjguMDYzYy4xNzIuMi4xNjQuNS0uMDIzLjY4NGwtMyAzLS4wNDcuMDQzYS40OTIuNDkyIDAgMCAxLS42NTctLjA0M2wtMy0zWiIvPjwvc3ZnPg==) no-repeat center calc(75% + 2px) !important;
   cursor: default; }
 .x-form-field-wrap .x-form-spinner-trigger.x-form-spinner-overup {
   background:
     url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgMTIgNiI+PHBhdGggZmlsbD0iIzIxMjEyMSIgZD0iTTkuMzk1IDQuMTk1YS41MDIuNTAyIDAgMCAxLS4wNjMuNjhjLS4yLjE3Mi0uNS4xNjQtLjY4NC0uMDIzTDYgMi4yMDcgMy4zNTIgNC44NTJsLS4wNDcuMDQzYS41MDIuNTAyIDAgMCAxLS42OC0uMDYzLjUwMS41MDEgMCAwIDEgLjAyMy0uNjg0bDMtMyAuMDQ3LS4wNDNhLjQ5Mi40OTIgMCAwIDEgLjY1Ny4wNDNsMyAzWiIvPjwvc3ZnPg==) no-repeat center calc(25% - 2px),
     url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDYgMTIgNiI+PHBhdGggZmlsbD0iIzIxMjEyMSIgZD0iTTIuNjA1IDcuODA1YS41MDIuNTAyIDAgMCAxIC4wNjMtLjY4Yy4yLS4xNzIuNS0uMTY0LjY4NC4wMjNMNiA5Ljc5M2wyLjY0OC0yLjY0NS4wNDctLjA0M2EuNTAyLjUwMiAwIDAgMSAuNjguMDYzYy4xNzIuMi4xNjQuNS0uMDIzLjY4NGwtMyAzLS4wNDcuMDQzYS40OTIuNDkyIDAgMCAxLS42NTctLjA0M2wtMy0zWiIvPjwvc3ZnPg==) no-repeat center calc(75% + 2px),
-    linear-gradient(to bottom, var(--ui-border) calc(50% - 0.5px), var(--ui-border-strong) calc(50% - 0.5px), var(--ui-border-strong) calc(50% + 0.5px), var(--ui-surface-3) calc(50% + 0.5px)) !important;
+    linear-gradient(to bottom, var(--ui-surface-3) 50%, transparent 50%) !important;
   cursor: pointer; }
 .x-form-field-wrap .x-form-spinner-trigger.x-form-spinner-overdown {
   background:
     url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgMTIgNiI+PHBhdGggZmlsbD0iIzIxMjEyMSIgZD0iTTkuMzk1IDQuMTk1YS41MDIuNTAyIDAgMCAxLS4wNjMuNjhjLS4yLjE3Mi0uNS4xNjQtLjY4NC0uMDIzTDYgMi4yMDcgMy4zNTIgNC44NTJsLS4wNDcuMDQzYS41MDIuNTAyIDAgMCAxLS42OC0uMDYzLjUwMS41MDEgMCAwIDEgLjAyMy0uNjg0bDMtMyAuMDQ3LS4wNDNhLjQ5Mi40OTIgMCAwIDEgLjY1Ny4wNDNsMyAzWiIvPjwvc3ZnPg==) no-repeat center calc(25% - 2px),
     url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDYgMTIgNiI+PHBhdGggZmlsbD0iIzIxMjEyMSIgZD0iTTIuNjA1IDcuODA1YS41MDIuNTAyIDAgMCAxIC4wNjMtLjY4Yy4yLS4xNzIuNS0uMTY0LjY4NC4wMjNMNiA5Ljc5M2wyLjY0OC0yLjY0NS4wNDctLjA0M2EuNTAyLjUwMiAwIDAgMSAuNjguMDYzYy4xNzIuMi4xNjQuNS0uMDIzLjY4NGwtMyAzLS4wNDcuMDQzYS40OTIuNDkyIDAgMCAxLS42NTctLjA0M2wtMy0zWiIvPjwvc3ZnPg==) no-repeat center calc(75% + 2px),
-    linear-gradient(to bottom, var(--ui-surface-3) calc(50% - 0.5px), var(--ui-border-strong) calc(50% - 0.5px), var(--ui-border-strong) calc(50% + 0.5px), var(--ui-border) calc(50% + 0.5px)) !important;
+    linear-gradient(to bottom, transparent 50%, var(--ui-surface-3) 50%) !important;
   cursor: pointer; }
 .x-form-field-trigger-wrap .x-form-spinner-splitter,
 .x-form-field-wrap .x-form-spinner-splitter {
@@ -4959,9 +4962,10 @@ body.zarafa-webclient > .ext-el-mask {
 #zarafa-mainpanel-contentpanel-settings {
   /* The categories panel */
   /* The main settings panel that contains all settings widgets */ }
+  #zarafa-mainpanel-contentpanel-settings .k-settings-sidebar {
+    border-right: 1px solid var(--ui-border); }
   #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-panel {
-    border-right: 1px solid var(--ui-border);
-    padding-top: 8px; }
+    padding-top: 4px; }
     #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-panel .zarafa-settings-category-tab {
       padding: 8px 10px;
       padding-left: 8px;
@@ -6716,6 +6720,80 @@ body.theme-highcontrast #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct #main
 #zarafa-navigationpanel.x-panel-floating {
   box-shadow: var(--ui-shadow-3); }
 
+/* Collapsed navigation: a rail with the favorites and default folders */
+#zarafa-navigationpanel-xcollapsed {
+  width: 52px;
+  padding: 6px 0 0;
+  background: var(--ui-surface);
+  border-right: 1px solid var(--ui-border);
+  overflow: hidden; }
+#zarafa-navigationpanel-xcollapsed.x-layout-collapsed-over {
+  background: var(--ui-surface); }
+#zarafa-navigationpanel-xcollapsed .x-tool.x-tool-expand-west {
+  float: none;
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin: 0 auto 6px;
+  padding: 0;
+  border-radius: 8px;
+  background-color: var(--ui-text-2) !important;
+  background-image: none !important;
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M6 3.5 10.5 8 6 12.5'/></svg>") no-repeat center / 16px 16px;
+  mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M6 3.5 10.5 8 6 12.5'/></svg>") no-repeat center / 16px 16px;
+  transition: background-color 0.15s ease; }
+#zarafa-navigationpanel-xcollapsed .x-tool.x-tool-expand-west:hover {
+  background-color: var(--theme-primary-color) !important; }
+.k-nav-rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px; }
+.k-nav-rail-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 8px;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.15s ease; }
+.k-nav-rail-item:hover {
+  background: var(--ui-surface-3); }
+.k-nav-rail-item.k-nav-rail-item-active {
+  background: var(--theme-selection-bg); }
+.k-nav-rail-item:focus-visible {
+  outline: 2px solid var(--theme-primary-color);
+  outline-offset: -2px; }
+.k-nav-rail-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 20px 20px !important; }
+.k-nav-rail-badge {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  min-width: 10px;
+  padding: 0 3px;
+  border-radius: 8px;
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--theme-primary-color); }
+.k-nav-rail-sep {
+  width: 24px;
+  height: 1px;
+  margin: 4px 0;
+  background: var(--ui-border); }
+
 #zarafa-navigationpanel .x-panel-header,
 .zarafa-widgetpanel .x-panel-header {
   background-color: var(--ui-surface);
@@ -7470,6 +7548,58 @@ input[type="radio"]:checked:focus-visible {
 #zarafa-mainpanel-contentpanel-settings .x-form-field-trigger-wrap {
   min-width: 200px;
 }
+
+/* Settings search */
+#zarafa-mainpanel-contentpanel-settings .k-settings-search-wrap {
+  min-width: 0; }
+#zarafa-mainpanel-contentpanel-settings .k-settings-search-wrap .x-form-text {
+  padding-left: 30px; }
+.k-settings-search-icon {
+  position: absolute;
+  left: 9px;
+  top: 5px;
+  width: 16px;
+  height: 16px;
+  background-color: var(--ui-text-3);
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'><path fill='%23000' d='M6.667 1.667a5 5 0 0 1 3.976 8.032l3.162 3.163a.667.667 0 0 1-.88.998l-.063-.055-3.163-3.163A5 5 0 1 1 6.667 1.667m0 1.333a3.667 3.667 0 1 0 0 7.333 3.667 3.667 0 0 0 0-7.333'/></svg>") no-repeat center / 16px 16px;
+  mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'><path fill='%23000' d='M6.667 1.667a5 5 0 0 1 3.976 8.032l3.162 3.163a.667.667 0 0 1-.88.998l-.063-.055-3.163-3.163A5 5 0 1 1 6.667 1.667m0 1.333a3.667 3.667 0 1 0 0 7.333 3.667 3.667 0 0 0 0-7.333'/></svg>") no-repeat center / 16px 16px;
+  pointer-events: none; }
+.x-form-field-wrap .x-form-trigger.k-settings-search-clear {
+  background-color: var(--ui-text-3) !important;
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23000' stroke-width='1.6' stroke-linecap='round'><path d='M3 3l6 6M9 3l-6 6'/></svg>") no-repeat center / 12px 12px;
+  mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23000' stroke-width='1.6' stroke-linecap='round'><path d='M3 3l6 6M9 3l-6 6'/></svg>") no-repeat center / 12px 12px; }
+.x-form-field-wrap .x-form-trigger.k-settings-search-clear:hover {
+  background-color: var(--ui-text) !important; }
+.k-settings-search-status {
+  position: absolute;
+  left: 0;
+  top: 34px;
+  width: 100%;
+  font-size: 12px;
+  color: var(--ui-text-3);
+  white-space: normal;
+  clip-path: inset(50%); }
+.k-settings-search-status.k-settings-search-status-empty {
+  clip-path: none;
+  padding: 6px 2px; }
+.k-settings-tab-count {
+  float: right;
+  min-width: 18px;
+  padding: 0 6px;
+  border-radius: 9px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 18px;
+  margin-top: 1px;
+  text-align: center;
+  color: var(--theme-primary-color);
+  background: color-mix(in srgb, var(--theme-primary-color) 14%, transparent); }
+.k-settings-hit {
+  background: color-mix(in srgb, var(--theme-primary-color) 14%, transparent) !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--theme-primary-color) 14%, transparent);
+  border-radius: 3px; }
+#zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-panel-header.k-settings-hit {
+  box-shadow: none; }
 
 /* Rules store picker divider */
 #zarafa-mainpanel-contentpanel-settings .k-rules-widget .k-store-picker {
