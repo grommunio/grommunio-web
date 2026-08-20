@@ -173,11 +173,13 @@ Zarafa.core.data.UIFactory = {
 	 * The record/records for which the contextmenu should be shown
 	 * @param {Object} position The X and Y coordinate where the contextmenu was requested
 	 * @param {Object} configuration object which should be applied to the contextmenu.
+	 * @return {Ext.menu.Menu} The contextmenu which was opened, or undefined when
+	 * no contextmenu is registered for the given records.
 	 */
 	openDefaultContextMenu: function(records, config)
 	{
 		var componentType = Zarafa.core.data.SharedComponentType['common.contextmenu'];
-		this.openContextMenu(componentType, records, config);
+		return this.openContextMenu(componentType, records, config);
 	},
 
 	/**
@@ -186,13 +188,77 @@ Zarafa.core.data.UIFactory = {
 	 * @param {Number} componentType Shared component type taken from {@link Zarafa.core.data.SharedComponentType}
 	 * @param {Zarafa.core.data.MAPIRecord|Zarafa.core.data.MAPIRecord[]} records The record(s) for which the contextmenu will be shown
 	 * @param {Object} config Configuration object
+	 * @return {Ext.menu.Menu} The contextmenu which was opened, or undefined when
+	 * no contextmenu is registered for the given componentType and records.
 	 */
 	openContextMenu: function(componentType, records, config)
 	{
 		var ComponentConstructor = container.getSharedComponent(componentType, records);
-		if (ComponentConstructor) {
-			new ComponentConstructor(Ext.applyIf(config || {}, {records: records })).showAt(config.position);
+		if (!ComponentConstructor) {
+			return;
 		}
+
+		config = config || {};
+
+		var menu = new ComponentConstructor(Ext.applyIf(config, {records: records }));
+		menu.showAt(config.position);
+
+		return menu;
+	},
+
+	/**
+	 * Check if the given 'contextmenu' event was requested with the keyboard, which
+	 * reports no mouse button and targets the focused element.
+	 *
+	 * @param {Ext.EventObject} event The event to check
+	 * @return {Boolean} True when the contextmenu was requested with the keyboard
+	 */
+	isKeyboardContextMenu: function(event)
+	{
+		if (event.button === 2) {
+			return false;
+		}
+
+		return event.getTarget() === document.activeElement;
+	},
+
+	/**
+	 * Prepare a contextmenu which was opened with the keyboard: activate the first
+	 * item for the arrow keys and give the focus back to the given element when the
+	 * menu is dismissed, unless something else took it meanwhile, e.g. a dialog which
+	 * was opened by the item that was clicked.
+	 *
+	 * @param {Ext.menu.Menu} menu The contextmenu which was opened
+	 * @param {Ext.Element} focusEl The element which must be focused again
+	 */
+	initKeyboardMenuNavigation: function(menu, focusEl)
+	{
+		if (!(menu instanceof Ext.menu.Menu) || menu.hidden) {
+			return;
+		}
+
+		// By itself the menu only activates an item on the first arrow key.
+		menu.tryActivate(0, 1);
+
+		if (!focusEl) {
+			return;
+		}
+
+		menu.on('hide', function() {
+			var restoreFocus = function() {
+				var active = document.activeElement;
+				if (active && active !== document.body && (!menu.el || !menu.el.contains(active))) {
+					return;
+				}
+
+				if (focusEl.dom && Ext.getBody().contains(focusEl)) {
+					focusEl.focus();
+				}
+			};
+
+			// Leave time for the action of a clicked item to claim the focus.
+			restoreFocus.defer(100);
+		}, this, { single: true });
 	},
 
 	/**

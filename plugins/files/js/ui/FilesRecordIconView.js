@@ -90,7 +90,7 @@ Zarafa.plugins.files.ui.FilesRecordIconView = Ext.extend(Zarafa.common.ui.Dragga
 	initEvents: function ()
 	{
 		this.on({
-			'contextmenu'    : this.onFilesIconContextMenu,
+			'contextmenu'    : this.onNodeContextMenu,
 			'dblclick'       : this.onIconDblClick,
 			'selectionchange': this.onSelectionChange,
 			'afterrender'    : this.onAfterRender,
@@ -245,13 +245,13 @@ Zarafa.plugins.files.ui.FilesRecordIconView = Ext.extend(Zarafa.common.ui.Dragga
 		Zarafa.plugins.files.data.Actions.uploadAsyncItems(files, this.getStore());
 	},
 
-	onFilesIconContextMenu: function (dataview, index, node, eventObj) {
+	openContextMenuForNode: function (index, node, event) {
 
-		if (!dataview.isSelected(node)) {
-			dataview.select(node);
+		if (!this.isSelected(node)) {
+			this.select(node);
 		}
 
-		var records = dataview.getSelectedRecords();
+		var records = this.getSelectedRecords();
 
 		var show = true;
 		Ext.each(records, function (record) {
@@ -262,8 +262,8 @@ Zarafa.plugins.files.ui.FilesRecordIconView = Ext.extend(Zarafa.common.ui.Dragga
 		});
 
 		if (show) {
-			Zarafa.core.data.UIFactory.openDefaultContextMenu(records, {
-				position: eventObj.getXY(),
+			return Zarafa.core.data.UIFactory.openDefaultContextMenu(records, {
+				position: event.getXY(),
 				context : this.context
 			});
 		}
