@@ -559,7 +559,10 @@ class PluginSmimeModule extends Module {
 	/**
 	 * Look up certificates for an email via LDAP.
 	 *
-	 * @param array $actionData action data with 'email' and optional LDAP config
+	 * The LDAP endpoint and search base are administrator-controlled. Request
+	 * data may repeat these values for compatibility, but may not override them.
+	 *
+	 * @param array $actionData action data with an 'email' key
 	 *
 	 * @return array lookup result
 	 */
@@ -569,16 +572,26 @@ class PluginSmimeModule extends Module {
 			return ['status' => false, 'certs' => []];
 		}
 
-		require_once __DIR__ . '/class.ldapcerts.php';
-
-		$ldapUri = $actionData['ldap_uri'] ?? (defined('PLUGIN_SMIME_LDAP_URI') ? PLUGIN_SMIME_LDAP_URI : '');
-		$baseDn = $actionData['base_dn'] ?? (defined('PLUGIN_SMIME_LDAP_BASE_DN') ? PLUGIN_SMIME_LDAP_BASE_DN : '');
+		$ldapUri = defined('PLUGIN_SMIME_LDAP_URI') ? (string) PLUGIN_SMIME_LDAP_URI : '';
+		$baseDn = defined('PLUGIN_SMIME_LDAP_BASE_DN') ? (string) PLUGIN_SMIME_LDAP_BASE_DN : '';
 		$bindDn = defined('PLUGIN_SMIME_LDAP_BIND_DN') ? PLUGIN_SMIME_LDAP_BIND_DN : '';
 		$bindPw = defined('PLUGIN_SMIME_LDAP_BIND_PASSWORD') ? PLUGIN_SMIME_LDAP_BIND_PASSWORD : '';
 
 		if (empty($ldapUri) || empty($baseDn)) {
 			return ['status' => false, 'certs' => [], 'message' => _('LDAP not configured')];
 		}
+
+		// Never combine configured bind credentials with a request-selected
+		// endpoint or search base. Exact repeats are accepted for compatibility,
+		// but the trusted configured values below are always used.
+		if ((array_key_exists('ldap_uri', $actionData) && $actionData['ldap_uri'] !== $ldapUri) ||
+			(array_key_exists('base_dn', $actionData) && $actionData['base_dn'] !== $baseDn)) {
+			error_log('[smime] Rejected request attempting to override LDAP configuration');
+
+			return ['status' => false, 'certs' => [], 'message' => _('Invalid LDAP configuration')];
+		}
+
+		require_once __DIR__ . '/class.ldapcerts.php';
 
 		$ldap = new LdapCertLookup($ldapUri, $baseDn, $bindDn, $bindPw);
 		$certs = $ldap->lookup($email);

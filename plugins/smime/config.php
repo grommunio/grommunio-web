@@ -65,7 +65,10 @@ define('PLUGIN_SMIME_PROXY', '');
 define('PLUGIN_SMIME_PROXY_PORT', '');
 define('PLUGIN_SMIME_PROXY_USERPWD', '');
 
-// LDAP certificate lookup settings (for class.ldapcerts.php)
+// LDAP certificate lookup settings (for class.ldapcerts.php). The URI and
+// search base are fixed here and cannot be overridden by a client request, so
+// configured bind credentials are only sent to this administrator-selected
+// directory. Prefer ldaps:// when credentials are configured.
 // define('PLUGIN_SMIME_LDAP_URI', 'ldap://ldap.example.com');
 // define('PLUGIN_SMIME_LDAP_BASE_DN', 'dc=example,dc=com');
 // define('PLUGIN_SMIME_LDAP_BIND_DN', '');
