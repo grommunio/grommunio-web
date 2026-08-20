@@ -24,6 +24,16 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 	customButton: undefined,
 
 	/**
+	 * The items which the last call to {@link #initDialog} must add to the
+	 * {@link Ext.MessageBox messagebox} when it is shown.
+	 *
+	 * @property
+	 * @type Array
+	 * @private
+	 */
+	dlgItems: undefined,
+
+	/**
 	 * Initialize the {@link Ext.MessageBox.dlg Dialog}.
 	 * Because the {@link Ext.MessageBox MessageBox} hides the usable
 	 * interface from use, we must apply a hack to access the Dialog
@@ -49,24 +59,51 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 			this.dlgItemContainer.render(dlg.body);
 		}
 
+		// Close a messagebox which is still open, Ext.MessageBox#show hides it only
+		// after the handlers below were registered and would consume them.
+		this.hide();
+
+		this.dlgItems = items;
+
 		// Automatically remove all items which we had added.
 		// This makes sure we can use the same Dialog multiple times
-		dlg.on('hide', function(dlg) {
-			this.dlgItemContainer.removeAll();
-		}, this, {single: true});
+		dlg.on('hide', this.onRemoveDialogItems, this, {single: true});
 
 		// In case the 'hide' event was not fired,
 		// we also listen to the destroy event as fallback.
-		dlg.on('destroy', function(dlg) {
-			this.dlgItemContainer.removeAll();
-		}, this, {single: true});
+		dlg.on('destroy', this.onRemoveDialogItems, this, {single: true});
 
 		// Before showing the dialog, we must first
 		// add all items to the dialog.
-		dlg.on('show', function(dlg) {
-			this.dlgItemContainer.add(items);
-			this.dlgItemContainer.doLayout();
-		}, this, {single: true});
+		dlg.on('show', this.onShowDialogItems, this, {single: true});
+	},
+
+	/**
+	 * Add the {@link #dlgItems items} of the last {@link #initDialog} call to the
+	 * {@link Ext.MessageBox messagebox}.
+	 * @param {Ext.Window} dlg The window
+	 * @private
+	 */
+	onShowDialogItems: function(dlg)
+	{
+		if(Ext.isEmpty(this.dlgItems)) {
+			return;
+		}
+
+		this.dlgItemContainer.add(this.dlgItems);
+		this.dlgItemContainer.doLayout();
+	},
+
+	/**
+	 * Remove the items which {@link #initDialog} had added to the
+	 * {@link Ext.MessageBox messagebox}.
+	 * @param {Ext.Window} dlg The window
+	 * @private
+	 */
+	onRemoveDialogItems: function(dlg)
+	{
+		this.dlgItems = undefined;
+		this.dlgItemContainer.removeAll();
 	},
 
   /**
