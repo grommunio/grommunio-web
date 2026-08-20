@@ -54,8 +54,8 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	editingCount: 0,
 
 	/**
-	 * The list of properties which have been modified during a {@link #editing transaction}.
-	 * Will be reset on {@link #endEdit}.
+	 * The list of properties which have been modified and are waiting to be saved.
+	 * Entries are dropped by {@link #commitSaveAction} once the server confirmed them.
 	 * @property
 	 * @type Array
 	 */
@@ -63,22 +63,24 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 
 	/**
 	 * The list of properties which have been restored during a {@link #editing transaction}.
-	 * Will be reset on {@link #endEdit}.
+	 * Reported through the {@link #set} event by {@link #afterEdit} and then cleared, the
+	 * default values themselves are not saved to the server.
 	 * @property
 	 * @type Array
 	 */
 	restored: undefined,
 
 	/**
-	 * The list of properties which have been deleted during a {@link #editing transaction}.
-	 * Will be reset on {@link #endEdit}.
+	 * The list of properties which have been deleted and are waiting to be saved.
+	 * Entries are dropped by {@link #commitSaveAction} once the server confirmed them.
 	 * @property
 	 * @type Array
 	 */
 	deleted: undefined,
 
 	/**
-	 * The list of properties which have been reset from server.
+	 * The list of properties which must be reset to their default on the server.
+	 * Entries are dropped by {@link #commitSaveAction} once the server confirmed them.
 	 * @property
 	 * @type Array
 	 */
@@ -434,16 +436,18 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 
 		request.reset();
 
+		// Send a copy of each list, so a setting which changes while the request is in
+		// flight is neither sent along nor dropped when the response comes in.
 		if (hasDeleted) {
-			queued = this.addSaveAction(request, moduleName, Zarafa.core.Actions['delete'], this.deleted) || queued;
+			queued = this.addSaveAction(request, moduleName, Zarafa.core.Actions['delete'], this.deleted.slice()) || queued;
 		}
 
 		if (hasModified) {
-			queued = this.addSaveAction(request, moduleName, Zarafa.core.Actions['set'], this.modified) || queued;
+			queued = this.addSaveAction(request, moduleName, Zarafa.core.Actions['set'], this.modified.slice()) || queued;
 		}
 
 		if (hasReset) {
-			queued = this.addSaveAction(request, moduleName, Zarafa.core.Actions['reset'], this.resetSettings) || queued;
+			queued = this.addSaveAction(request, moduleName, Zarafa.core.Actions['reset'], this.resetSettings.slice()) || queued;
 		}
 
 		if (queued) {
@@ -481,32 +485,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	},
 
 	/**
-	 * Send the save action to the server.
-	 * @param {Zarafa.core.Actions} action The action which must be performed on the server
-	 * @param {Object} parameters The action parameters which must be send to the server.
-	 * @private
-	 */
-	execute: function(action, parameters)
-	{
-		if (this.fireEvent('beforesave', this, { action: parameters}) !== false) {
-			// FIXME: Perhaps this needs to be moved into a Ext.data.DataProxy
-			container.getRequest().singleRequest(
-				Zarafa.core.ModuleNames.getListName('settings'),
-				action,
-				{ 'setting': parameters},
-				new Zarafa.core.data.ProxyResponseHandler({
-					proxy: this,
-					action: Ext.data.Api.actions['update'],
-					options: {action: action, parameters: parameters,'requiresReload': this.requiresReload },
-					callback:  this.onExecuteComplete,
-					scope: this
-				})
-			);
-		}
-	},
-
-	/**
-	 * Event handler which is fired when the Request made in the {@link #execute} function
+	 * Event handler which is fired when the Request made in the {@link #save} function
 	 * has been completed. This will fire the {@link #save 'save'} event.
 	 * @param {Ext.data.Api} action The action which was executed
 	 * @param {Object} parameters The parameters which were send to the server
@@ -515,16 +494,65 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 */
 	onExecuteComplete: function(action, parameters, success)
 	{
-		if (success) {
-			this.fireEvent('save', this, parameters);
-			this.commit();
+		// A failed action keeps its settings pending, so a later save sends them again.
+		// Not a reset though: the server treats it as a delete of the whole subtree, so
+		// riding along with an unrelated save would discard settings which the user
+		// never asked to reset. The error is reported, resetting again is one click.
+		if (!success) {
+			if (parameters.action === Zarafa.core.Actions['reset']) {
+				this.commitSaveAction(parameters.action, parameters.parameters);
+			}
+			return;
+		}
+
+		// A save is split into actions which all report back on their own, so only the
+		// first one which carried the flag asks for a reload.
+		parameters.requiresReload = parameters.requiresReload && this.requiresReload;
+		if (parameters.requiresReload) {
+			this.requiresReload = false;
+		}
+
+		this.fireEvent('save', this, parameters);
+		this.commitSaveAction(parameters.action, parameters.parameters);
+	},
+
+	/**
+	 * Drop the settings of a save action from the list of pending changes. Only the
+	 * settings which that action carried are dropped, anything which was changed while
+	 * the request was in flight stays pending for the next {@link #save}.
+	 * @param {Zarafa.core.Actions} action The action which was sent
+	 * @param {Array} parameters The settings which that action carried
+	 * @private
+	 */
+	commitSaveAction: function(action, parameters)
+	{
+		var list;
+
+		switch (action) {
+			case Zarafa.core.Actions['delete']:
+				list = this.deleted;
+				break;
+			case Zarafa.core.Actions['set']:
+				list = this.modified;
+				break;
+			case Zarafa.core.Actions['reset']:
+				list = this.resetSettings;
+				break;
+			default:
+				return;
+		}
+
+		for (var i = 0, len = parameters.length; i < len; i++) {
+			var index = list.indexOf(parameters[i]);
+			if (index >= 0) {
+				list.splice(index, 1);
+			}
 		}
 	},
 
 	/**
-	 * Called after all settings were saved, this will reset the {@link #deleted}
-	 * and {@link #modified} arrays (which held all changes since the previous
-	 * call to {@link #commit}.
+	 * Discard every pending change, this will reset the {@link #deleted},
+	 * {@link #modified} and {@link #resetSettings} arrays without saving them.
 	 */
 	commit: function()
 	{
@@ -582,7 +610,10 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 		var obj = this.getSettingsObject(parentPath, settings);
 		var flatSettings = [];
 
-		if (obj) {
+		// A setting whose local value is undefined holds nothing to delete, asking the
+		// server to remove it is a wasted request. Note this looks at the value, not at
+		// the presence of the key: the defaults declare keys without a value.
+		if (obj && Ext.isDefined(obj[settingName])) {
 			var setting = obj[settingName];
 
 			if (Ext.isObject(setting) && !Ext.isDate(setting) && !Array.isArray(setting)) {

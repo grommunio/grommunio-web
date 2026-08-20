@@ -655,23 +655,6 @@ Zarafa.core.Util =
 	},
 
 	/**
-	 * Helper function which used to show the {@link Ext.MessageBox}
-	 * and {@link window.Zarafa.core.Util#disableLeaveRequester disable Leave Requester}
-	 *
-	 * @param {Object} options The options object which used to construct the {@link Ext.MessageBox}.
-	 * @param {boolean} custom True to show {@link Zarafa.common.dialogs.MessageBox.addCustomButtons messageBox}.
-	 */
-	showMessageBox: function(options, custom)
-	{
-		Zarafa.core.Util.disableLeaveRequester();
-		if (custom){
-			Zarafa.common.dialogs.MessageBox.addCustomButtons(options);
-		} else {
-			Ext.MessageBox.show(options);
-		}
-	},
-
-	/**
 	 * Helper function which add the given text into
 	 * browser clipboard data.
 	 *

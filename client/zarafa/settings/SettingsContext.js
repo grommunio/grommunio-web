@@ -7,6 +7,16 @@ Ext.namespace('Zarafa.settings');
 Zarafa.settings.SettingsContext = Ext.extend(Zarafa.core.Context, {
 
 	/**
+	 * The context switch which waits for the user to answer the required reload
+	 * message box, as a 'folder' and 'context' pair. Set by {@link #applyChangesContext}
+	 * and consumed by {@link #onAfterRequiredReload}.
+	 * @property
+	 * @type Object
+	 * @private
+	 */
+	pendingContextSwitch: undefined,
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
@@ -37,6 +47,12 @@ Zarafa.settings.SettingsContext = Ext.extend(Zarafa.core.Context, {
 		// Add a listener to the contextswitch event to collapse the navigation panel
 		// when we switch to the settings context
 		container.on('contextswitch', this.onContextSwitch);
+
+		// Watch the settings for the rest of the session rather than only while this
+		// context is enabled: the server answers an apply whenever it answers it, which
+		// can be well after the user left the settings, and the prompt to reload still
+		// has to come up. This is the model which #getModel hands out as its real one.
+		container.getSettingsModel().on('save', this.onSaveSettings, this);
 	},
 
 	/**
@@ -132,7 +148,6 @@ Zarafa.settings.SettingsContext = Ext.extend(Zarafa.core.Context, {
 		Zarafa.settings.SettingsContext.superclass.enable.apply(this, arguments);
 
 		container.on('beforecontextswitch', this.onBeforeContextSwitch, this);
-		this.getModel().getRealSettingsModel().on('save', this.onSaveSettings, this);
 	},
 
 	/**
@@ -191,7 +206,7 @@ Zarafa.settings.SettingsContext = Ext.extend(Zarafa.core.Context, {
 	reloadWebapp: function(button)
 	{
 		if(button === 'reload') {
-			this.getModel().getRealSettingsModel().un('save', this.onSaveSettings, this);
+			container.getSettingsModel().un('save', this.onSaveSettings, this);
 			Zarafa.core.Util.reloadWebapp();
 		}
 		this.fireEvent('afterrequiredreload', this, button);
@@ -381,7 +396,8 @@ Zarafa.settings.SettingsContext = Ext.extend(Zarafa.core.Context, {
 		 * button pressed by the user from required reload message box.
 		 */
 		if(model.getRealSettingsModel().requiresReload) {
-			this.on('afterrequiredreload', this.onAfterRequiredReload.createDelegate(this, [ folder, newContext ],1), this, {single: true});
+			this.pendingContextSwitch = { folder: folder, context: newContext };
+			this.on('afterrequiredreload', this.onAfterRequiredReload, this, {single: true});
 		} else {
 			container.switchContext(newContext, folder);
 		}
@@ -408,16 +424,16 @@ Zarafa.settings.SettingsContext = Ext.extend(Zarafa.core.Context, {
 	 * required reload message box.
 	 *
 	 * @param {Zarafa.core.Context} currentContext The current context.
-	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The folder to which to
-	 * switch when the user is wishes to switch context.
-	 * @param {Zarafa.core.Context} newContext The context to which to switch
 	 * @param {String} button The button which the user pressed from required reload message box
 	 * @private
 	 */
-	onAfterRequiredReload: function(currentContext, newContextFolder, newContext, button)
+	onAfterRequiredReload: function(currentContext, button)
 	{
-		if(button === 'cancel') {
-			container.switchContext(newContext, newContextFolder);
+		var pending = this.pendingContextSwitch;
+		delete this.pendingContextSwitch;
+
+		if(button === 'cancel' && pending) {
+			container.switchContext(pending.context, pending.folder);
 		}
 	}
 });

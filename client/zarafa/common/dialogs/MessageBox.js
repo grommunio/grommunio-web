@@ -13,14 +13,39 @@ Ext.namespace('Zarafa.common.dialogs');
 // the existing object.
 Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 	/**
-	 * The custom buttons which are added in {@link Ext.MessageBox messagebox}.
-	 * it will be removed when {@link Ext.MessageBox messagebox} gets hide.
+	 * The items which the last call to {@link #initDialog} must add to the
+	 * {@link Ext.MessageBox messagebox} when it is shown.
 	 *
 	 * @property
 	 * @type Array
 	 * @private
 	 */
-	customButton: undefined,
+	dlgItems: undefined,
+
+	/**
+	 * The {@link #addCustomButtons} configurations which arrived while another
+	 * messagebox was still waiting for an answer, in the order in which they must
+	 * still be shown.
+	 *
+	 * @property
+	 * @type Array
+	 * @private
+	 */
+	queuedMessageBoxes: undefined,
+
+	/**
+	 * The per browser window state of {@link Ext.MessageBox}. This messagebox is a copy
+	 * of that singleton and builds its own dialog, so it needs its own collection:
+	 * {@link Ext.MessageBox#getDialog} records the current dialog here, and sharing the
+	 * collection overwrites the entry which {@link Ext.MessageBox#setActiveWindowMessageBox}
+	 * restores from when the active browser window changes. Nothing reads the entries of
+	 * this copy.
+	 *
+	 * @property
+	 * @type Ext.util.MixedCollection
+	 * @private
+	 */
+	browserWindowsMessageBox: new Ext.util.MixedCollection(),
 
 	/**
 	 * Initialize the {@link Ext.MessageBox.dlg Dialog}.
@@ -48,24 +73,56 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 			this.dlgItemContainer.render(dlg.body);
 		}
 
+		// Close a messagebox which is still open, Ext.MessageBox#show hides it only
+		// after the handlers below were registered and would consume them.
+		this.hide();
+
+		this.dlgItems = items;
+
 		// Automatically remove all items which we had added.
 		// This makes sure we can use the same Dialog multiple times
-		dlg.on('hide', function(dlg) {
-			this.dlgItemContainer.removeAll();
-		}, this, {single: true});
+		dlg.on('hide', this.onRemoveDialogItems, this, {single: true});
 
 		// In case the 'hide' event was not fired,
 		// we also listen to the destroy event as fallback.
-		dlg.on('destroy', function(dlg) {
-			this.dlgItemContainer.removeAll();
-		}, this, {single: true});
+		dlg.on('destroy', this.onRemoveDialogItems, this, {single: true});
 
 		// Before showing the dialog, we must first
 		// add all items to the dialog.
-		dlg.on('show', function(dlg) {
-			this.dlgItemContainer.add(items);
-			this.dlgItemContainer.doLayout();
-		}, this, {single: true});
+		dlg.on('show', this.onShowDialogItems, this, {single: true});
+	},
+
+	/**
+	 * Add the {@link #dlgItems items} of the last {@link #initDialog} call to the
+	 * {@link Ext.MessageBox messagebox}.
+	 * @param {Ext.Window} dlg The window
+	 * @private
+	 */
+	onShowDialogItems: function(dlg)
+	{
+		var items = this.dlgItems;
+
+		// Take the items along, so a later hide can no longer discard the ones which
+		// a following #initDialog has put there in the meantime.
+		this.dlgItems = undefined;
+
+		if(Ext.isEmpty(items)) {
+			return;
+		}
+
+		this.dlgItemContainer.add(items);
+		this.dlgItemContainer.doLayout();
+	},
+
+	/**
+	 * Remove the items which {@link #initDialog} had added to the
+	 * {@link Ext.MessageBox messagebox}.
+	 * @param {Ext.Window} dlg The window
+	 * @private
+	 */
+	onRemoveDialogItems: function(dlg)
+	{
+		this.dlgItemContainer.removeAll();
 	},
 
   /**
@@ -168,15 +225,16 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 				scope: this
 			}
 		});
-		this.initDialog([{
+		var items = [{
 			xtype: 'container',
 			anchor: '100% 100%',
 			items: [ radioGroup ]
-		}]);
+		}];
 
 		if(!Ext.isEmpty(customButton)) {
-			var config = {};
-			Ext.apply(config, {
+			// The items travel along with the config: this messagebox may have to wait
+			// for its turn, and until then they must not be put in another one.
+			this.addCustomButtons({
 				title: title,
 				msg: msg + '<br />',
 				minWidth: this.minPromptWidth,
@@ -186,10 +244,11 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 				prompt: false,
 				value: value,
 				customButton: customButton,
-				radioGroup: radioGroup
+				radioGroup: radioGroup,
+				dlgItems: items
 			});
-			this.addCustomButtons(config);
 		} else {
+			this.initDialog(items);
 			this.show({
 				title: title,
 				msg: msg + '<br />',
@@ -232,23 +291,90 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 	 */
 	addCustomButtons: function(config)
 	{
+		// There is only one dialog to show this in, so a messagebox which is still
+		// waiting for an answer must not be replaced: its question would be gone and
+		// its caller would never hear back. Line up behind it instead.
+		if(this.isVisible() || !Ext.isEmpty(this.queuedMessageBoxes)) {
+			this.queuedMessageBoxes = this.queuedMessageBoxes || [];
+			this.queuedMessageBoxes.push(config);
+			return;
+		}
+
+		this.showCustomButtons(config);
+	},
+
+	/**
+	 * Display the {@link Ext.MessageBox messagebox} for a {@link #addCustomButtons}
+	 * configuration. Only called when no other messagebox is on screen.
+	 * @param {Object} config The configuration of the message box and its custom buttons
+	 * @private
+	 */
+	showCustomButtons: function(config)
+	{
+		// A #select messagebox brings its own items, which are added when the dialog is
+		// shown, so they must be registered before it is.
+		if(!Ext.isEmpty(config.dlgItems)) {
+			this.initDialog(config.dlgItems);
+		}
+
 		var dlg = this.getDialog();
-		this.customButton = dlg.getFooterToolbar().add(config.customButton);
+
+		// Close a messagebox which is still open, Ext.MessageBox#show hides it only
+		// after we added our buttons and would then remove those instead of its own.
+		this.hide();
+		this.removeCustomButtons(dlg);
+
+		var buttons = dlg.getFooterToolbar().add(config.customButton);
+		Ext.each(buttons, function(button) {
+			button.isCustomButton = true;
+		});
+		// #show wraps config.fn when a checkbox was requested, so the handlers
+		// can only be created after it.
 		this.show(config);
 
-		if(!Ext.isEmpty(this.customButton)) {
-			Ext.each(this.customButton, function(button) {
-				var args = [];
-				args.push(config.fn);
-				if(Ext.isDefined(config.radioGroup)) {
-					args.push(config.radioGroup);
-				}
-				dlg.mon(button, 'click', Ext.createDelegate(this.onButtonClick, config.scope, args, true), this);
-			}, this);
-		}
+		Ext.each(buttons, function(button) {
+			var args = [];
+			args.push(config.fn);
+			if(Ext.isDefined(config.radioGroup)) {
+				args.push(config.radioGroup);
+			}
+			button.customButtonHandler = Ext.createDelegate(this.onButtonClick, config.scope, args, true);
+			dlg.mon(button, 'click', button.customButtonHandler, this);
+		}, this);
 
 		dlg.on('hide', this.onDestroy, this, {single: true});
 		dlg.on('destroy', this.onDestroy, this, {single: true});
+		dlg.on('hide', this.onDialogHidden, this);
+	},
+
+	/**
+	 * Event handler which is triggered whenever the {@link Ext.MessageBox messagebox} is
+	 * hidden. Hands the dialog over to the next messagebox which is waiting for it.
+	 * @private
+	 */
+	onDialogHidden: function()
+	{
+		if(Ext.isEmpty(this.queuedMessageBoxes)) {
+			return;
+		}
+
+		// Let the callback of the messagebox which was just answered run first, it may
+		// well want to show a messagebox of its own.
+		this.showQueuedMessageBox.defer(1, this);
+	},
+
+	/**
+	 * Show the next {@link #queuedMessageBoxes queued} messagebox, unless something else
+	 * claimed the dialog in the meantime. The hide of that one brings us back here.
+	 * @private
+	 */
+	showQueuedMessageBox: function()
+	{
+		if(this.isVisible() || Ext.isEmpty(this.queuedMessageBoxes)) {
+			return;
+		}
+
+		this.showCustomButtons(this.queuedMessageBoxes.shift());
 	},
 
 	/**
@@ -277,11 +403,29 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 	 */
 	onDestroy: function(dlg)
 	{
-		if(!Ext.isEmpty(this.customButton)) {
-			for(var i = 0; i < this.customButton.length; i++) {
-				dlg.getFooterToolbar().remove(this.customButton[i]);
+		this.removeCustomButtons(dlg);
+	},
+
+	/**
+	 * Remove the buttons which {@link #addCustomButtons} had added to the footer of
+	 * the given dialog. The buttons are looked up in the toolbar itself, so buttons
+	 * which were left behind by an earlier messagebox are removed as well.
+	 * @param {Ext.Window} dlg The window
+	 * @private
+	 */
+	removeCustomButtons: function(dlg)
+	{
+		var fbar = dlg.getFooterToolbar();
+
+		fbar.items.each(function(button) {
+			if(button.isCustomButton !== true) {
+				return;
 			}
-			this.customButton = [];
-		}
+
+			if(button.customButtonHandler) {
+				dlg.mun(button, 'click', button.customButtonHandler, this);
+			}
+			fbar.remove(button);
+		}, this);
 	}
 }, Ext.MessageBox);
