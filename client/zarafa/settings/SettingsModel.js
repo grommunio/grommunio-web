@@ -585,7 +585,9 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 		var obj = this.getSettingsObject(parentPath, settings);
 		var flatSettings = [];
 
-		if (obj) {
+		// Only settings which actually hold a value have to be deleted on the server,
+		// asking for the removal of a setting which is not there is a wasted request.
+		if (obj && Ext.isDefined(obj[settingName])) {
 			var setting = obj[settingName];
 
 			if (Ext.isObject(setting) && !Ext.isDate(setting) && !Array.isArray(setting)) {
