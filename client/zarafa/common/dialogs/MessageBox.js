@@ -13,17 +13,6 @@ Ext.namespace('Zarafa.common.dialogs');
 // the existing object.
 Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 	/**
-	 * The custom buttons which were added in {@link Ext.MessageBox messagebox}.
-	 * The buttons themselves are marked with an isCustomButton property,
-	 * {@link #removeCustomButtons} uses that instead of this reference.
-	 *
-	 * @property
-	 * @type Array
-	 * @private
-	 */
-	customButton: undefined,
-
-	/**
 	 * The items which the last call to {@link #initDialog} must add to the
 	 * {@link Ext.MessageBox messagebox} when it is shown.
 	 *
@@ -35,9 +24,11 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 
 	/**
 	 * The per browser window state of {@link Ext.MessageBox}. This messagebox is a copy
-	 * of that singleton and builds its own dialog, so it needs its own collection.
-	 * Sharing it lets {@link Ext.MessageBox#getDialog} hand out our dialog when the
-	 * active browser window changes.
+	 * of that singleton and builds its own dialog, so it needs its own collection:
+	 * {@link Ext.MessageBox#getDialog} records the current dialog here, and sharing the
+	 * collection overwrites the entry which {@link Ext.MessageBox#setActiveWindowMessageBox}
+	 * restores from when the active browser window changes. Nothing reads the entries of
+	 * this copy.
 	 *
 	 * @property
 	 * @type Ext.util.MixedCollection
@@ -298,8 +289,6 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 		Ext.each(buttons, function(button) {
 			button.isCustomButton = true;
 		});
-		this.customButton = buttons;
-
 		// #show wraps config.fn when a checkbox was requested, so the handlers
 		// can only be created after it.
 		this.show(config);
@@ -368,7 +357,5 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 			}
 			fbar.remove(button);
 		}, this);
-
-		this.customButton = [];
 	}
 }, Ext.MessageBox);
