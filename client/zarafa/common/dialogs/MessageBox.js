@@ -98,11 +98,17 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 	 */
 	onShowDialogItems: function(dlg)
 	{
-		if(Ext.isEmpty(this.dlgItems)) {
+		var items = this.dlgItems;
+
+		// Take the items along, so a later hide can no longer discard the ones which
+		// a following #initDialog has put there in the meantime.
+		this.dlgItems = undefined;
+
+		if(Ext.isEmpty(items)) {
 			return;
 		}
 
-		this.dlgItemContainer.add(this.dlgItems);
+		this.dlgItemContainer.add(items);
 		this.dlgItemContainer.doLayout();
 	},
 
@@ -114,7 +120,6 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 	 */
 	onRemoveDialogItems: function(dlg)
 	{
-		this.dlgItems = undefined;
 		this.dlgItemContainer.removeAll();
 	},
 
