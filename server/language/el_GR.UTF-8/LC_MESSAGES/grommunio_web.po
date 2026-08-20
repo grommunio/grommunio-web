@@ -711,7 +711,7 @@ msgid "Subject"
 msgstr "Θέμα"
 
 msgid "Body & Attachments"
-msgstr "Σώμα &amp; εξαρτήματα"
+msgstr "Σώμα & εξαρτήματα"
 
 msgid "Favorites"
 msgstr "Αγαπημένα"
@@ -5038,7 +5038,7 @@ msgid "About"
 msgstr "Σχετικά"
 
 msgid "Date & Time"
-msgstr "Ημερομηνία &amp; ώρα"
+msgstr "Ημερομηνία & ώρα"
 
 msgid "Date format"
 msgstr "Μορφή ημερομηνίας"
@@ -6869,7 +6869,7 @@ msgid "Encrypt"
 msgstr "Κρυπτογράφηση"
 
 msgid "Sign & Encrypt"
-msgstr "Υπογραφή &amp; κρυπτογράφηση"
+msgstr "Υπογραφή & κρυπτογράφηση"
 
 msgid "Loading certificates"
 msgstr "Φόρτωση πιστοποιητικών"
@@ -6891,7 +6891,7 @@ msgid "Encryption"
 msgstr "Κρυπτογράφηση"
 
 msgid "Signing & Encryption"
-msgstr "Υπογραφή &amp; κρυπτογράφηση"
+msgstr "Υπογραφή & κρυπτογράφηση"
 
 msgid "Serial"
 msgstr "Σειριακό"
@@ -6918,7 +6918,7 @@ msgid "Filter on Email"
 msgstr "Φίλτρο στο Email"
 
 msgid "Public & Private certificates"
-msgstr "Δημόσια &amp; ιδιωτικά πιστοποιητικά"
+msgstr "Δημόσια & ιδιωτικά πιστοποιητικά"
 
 msgid "S/MIME"
 msgstr "S/MIME"
@@ -6973,7 +6973,7 @@ msgid "encryption"
 msgstr "κρυπτογράφηση"
 
 msgid "signing & encryption"
-msgstr "υπογραφή &amp; κρυπτογράφηση"
+msgstr "υπογραφή & κρυπτογράφηση"
 
 msgid "Sign message"
 msgstr "Μήνυμα υπογραφής"
@@ -7290,7 +7290,7 @@ msgid "Suppliers"
 msgstr "Προμηθευτές"
 
 msgid "Time & Expenses"
-msgstr "Χρόνος &amp; έξοδα"
+msgstr "Χρόνος & έξοδα"
 
 msgid "VIP"
 msgstr "VIP"

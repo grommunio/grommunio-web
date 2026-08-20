@@ -6739,7 +6739,7 @@ msgid "Encrypt"
 msgstr "Verschlüsseln"
 
 msgid "Sign & Encrypt"
-msgstr "Signieren &amp; Verschlüsseln"
+msgstr "Signieren & Verschlüsseln"
 
 msgid "Loading certificates"
 msgstr "Zertifikate werden geladen"

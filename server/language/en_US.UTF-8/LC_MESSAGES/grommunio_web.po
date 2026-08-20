@@ -4928,7 +4928,7 @@ msgid "About"
 msgstr "About"
 
 msgid "Date & Time"
-msgstr "Date &amp; Time"
+msgstr "Date & Time"
 
 msgid "Date format"
 msgstr "Date format"
@@ -6736,7 +6736,7 @@ msgid "Encrypt"
 msgstr "Encrypt"
 
 msgid "Sign & Encrypt"
-msgstr "Sign &amp; Encrypt"
+msgstr "Sign & Encrypt"
 
 msgid "Loading certificates"
 msgstr "Loading certificates"
@@ -6757,7 +6757,7 @@ msgid "Encryption"
 msgstr "Encryption"
 
 msgid "Signing & Encryption"
-msgstr "Signing &amp; Encryption"
+msgstr "Signing & Encryption"
 
 msgid "Serial"
 msgstr "Serial"
@@ -6838,7 +6838,7 @@ msgid "encryption"
 msgstr "encryption"
 
 msgid "signing & encryption"
-msgstr "signing &amp; encryption"
+msgstr "signing & encryption"
 
 msgid "Sign message"
 msgstr "Sign message"
