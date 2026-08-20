@@ -47,6 +47,12 @@ Zarafa.settings.SettingsContext = Ext.extend(Zarafa.core.Context, {
 		// Add a listener to the contextswitch event to collapse the navigation panel
 		// when we switch to the settings context
 		container.on('contextswitch', this.onContextSwitch);
+
+		// Watch the settings for the rest of the session rather than only while this
+		// context is enabled: the server answers an apply whenever it answers it, which
+		// can be well after the user left the settings, and the prompt to reload still
+		// has to come up. This is the model which #getModel hands out as its real one.
+		container.getSettingsModel().on('save', this.onSaveSettings, this);
 	},
 
 	/**
@@ -142,7 +148,6 @@ Zarafa.settings.SettingsContext = Ext.extend(Zarafa.core.Context, {
 		Zarafa.settings.SettingsContext.superclass.enable.apply(this, arguments);
 
 		container.on('beforecontextswitch', this.onBeforeContextSwitch, this);
-		this.getModel().getRealSettingsModel().on('save', this.onSaveSettings, this);
 	},
 
 	/**
@@ -201,7 +206,7 @@ Zarafa.settings.SettingsContext = Ext.extend(Zarafa.core.Context, {
 	reloadWebapp: function(button)
 	{
 		if(button === 'reload') {
-			this.getModel().getRealSettingsModel().un('save', this.onSaveSettings, this);
+			container.getSettingsModel().un('save', this.onSaveSettings, this);
 			Zarafa.core.Util.reloadWebapp();
 		}
 		this.fireEvent('afterrequiredreload', this, button);
