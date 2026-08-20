@@ -25,7 +25,7 @@ $loader = new FileLoader();
 			});
 		})();
 		</script>
-		<link rel="stylesheet" href="client/resources/css/darkmode.css" >
+		<link rel="stylesheet" href="client/resources/css/darkmode.css?version=<?php echo getWebappVersion(); ?>" >
 		<?php
 			$loader->cssOrder();
 echo Theming::getStyles($theme);

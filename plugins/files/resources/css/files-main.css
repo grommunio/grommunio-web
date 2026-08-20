@@ -33,9 +33,9 @@ button.icon_files {
 	background-position: center;
 	background-repeat: no-repeat;
 }
-/* the filled New button draws its icons in white */
+/* the filled New button draws its icon in white, in both modes */
 .x-btn.zarafa-action button.x-btn-text.files_icon_action_upload {
-	filter: brightness(0) invert(1);
+	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTYuMDg3IDcuNzVhNS43NTIgNS43NTIgMCAwIDEgMTEuMzI2IDBoLjA4N2E0IDQgMCAwIDEgMy45NjIgNC41NTIgNi41MzQgNi41MzQgMCAwIDAtMS41OTctMS4zNjRBMi41MDEgMi41MDEgMCAwIDAgMTcuNSA5LjI1aC0uNzU2YS43NS43NSAwIDAgMS0uNzUtLjcxMyA0LjI1IDQuMjUgMCAwIDAtOC40ODkgMCAuNzUuNzUgMCAwIDEtLjc0OS43MTNINmEyLjUgMi41IDAgMCAwIDAgNWg0LjRhNi40NTggNi40NTggMCAwIDAtLjM1NyAxLjVINmE0IDQgMCAwIDEgMC04aC4wODdaTTIyIDE2LjVhNS41IDUuNSAwIDEgMS0xMSAwIDUuNSA1LjUgMCAwIDEgMTEgMFptLTYtMS43OTNWMTkuNWEuNS41IDAgMCAwIDEgMHYtNC43OTNsMS42NDYgMS42NDdhLjUuNSAwIDAgMCAuNzA4LS43MDhsLTIuNS0yLjVhLjUuNSAwIDAgMC0uNzA4IDBsLTIuNSAyLjVhLjUuNSAwIDAgMCAuNzA4LjcwOEwxNiAxNC43MDdaIi8+PC9zdmc+) !important;
 }
 
 .icon_cache {

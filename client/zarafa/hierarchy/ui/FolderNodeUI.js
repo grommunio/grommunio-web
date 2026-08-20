@@ -17,7 +17,7 @@ Ext.namespace('Zarafa.hierarchy.ui');
 			<img class="x-tree-elbow-line">
 		</span>
 		<img class="x-tree-ec-icon x-tree-elbow">	// expand icon
-		<img unselectable="on" class="x-tree-node-icon icon_folder_note">	// folder icon
+		<span unselectable="on" class="x-tree-node-icon icon_folder_note">	// folder icon
 		<a tabindex="1" href="" class="x-tree-node-anchor" hidefocus="on">
 			<span unselectable="on"> node text </span>						// text node
 		</a>
@@ -31,7 +31,7 @@ Ext.namespace('Zarafa.hierarchy.ui');
 			<img class="x-tree-elbow-line">
 		</span>
 		<img class="x-tree-ec-icon x-tree-elbow">	// expand icon
-		<img unselectable="on" class="x-tree-node-icon icon_folder_note">	// folder icon
+		<span unselectable="on" class="x-tree-node-icon icon_folder_note">	// folder icon
 		<a tabindex="1" href="" class="x-tree-node-anchor" hidefocus="on">
 			<span unselectable="on" class="zarafa-hierarchy-node-text"> node text </span>	// text node
 			<span unselectable="on" class="zarafa-hierarchy-node-unread-count">(2)</span>	// counter node
@@ -98,7 +98,8 @@ Zarafa.hierarchy.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 			checkboxMarkup = '<input class="x-tree-node-cb zarafa-hierarchy-node-cb" type="checkbox" id="' + checkboxId + '" name="' + checkboxId + '"' + (a.checked ? ' checked="checked"' : '') + ' />';
 		}
 
-		var icon = '<img src="' + (a.icon || this.emptyIcon) + '" class="x-tree-node-icon" unselectable="on" alt="" />',
+		// a span can carry the two-tone icons drawn with pseudo elements
+		var icon = a.icon ? '<img src="' + a.icon + '" class="x-tree-node-icon" unselectable="on" alt="" />' : '<span class="x-tree-node-icon" unselectable="on" aria-hidden="true"></span>',
 		nel,
 		href = a.href ? a.href : Ext.isGecko ? "" : "#",
 		buf = '<li class="x-tree-node">' +

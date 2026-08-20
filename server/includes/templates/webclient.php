@@ -90,8 +90,8 @@ if ($GLOBALS['settings']->get('zarafa/v1/contexts/mail/attachment_reminder_enabl
 		</script>
 
 		<!-- load the login css first as we need it immediately! -->
-		<link rel="stylesheet" href="client/resources/css/external/login.css" >
-		<link rel="stylesheet" href="client/resources/css/darkmode.css" >
+		<link rel="stylesheet" href="client/resources/css/external/login.css?version=<?php echo getWebappVersion(); ?>" >
+		<link rel="stylesheet" href="client/resources/css/darkmode.css?version=<?php echo getWebappVersion(); ?>" >
 		<?php
 			$loader->cssOrder();
 echo Theming::getStyles($theme);

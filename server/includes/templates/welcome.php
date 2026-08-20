@@ -34,8 +34,8 @@ $serverConfig = [
 		<link rel="manifest" href="manifest.webmanifest">
 
 		<!-- load the login css first as we need it immediately! -->
-		<link rel="stylesheet" href="client/resources/css/external/login.css" >
-		<link rel="stylesheet" href="client/resources/css/darkmode.css" >
+		<link rel="stylesheet" href="client/resources/css/external/login.css?version=<?php echo getWebappVersion(); ?>" >
+		<link rel="stylesheet" href="client/resources/css/darkmode.css?version=<?php echo getWebappVersion(); ?>" >
 
 		<script><?php require BASE_PATH . 'client/fingerprint.js'; ?></script>
 		<?php
