@@ -493,7 +493,13 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	onExecuteComplete: function(action, parameters, success)
 	{
 		// A failed action keeps its settings pending, so a later save sends them again.
+		// Not a reset though: the server treats it as a delete of the whole subtree, so
+		// riding along with an unrelated save would discard settings which the user
+		// never asked to reset. The error is reported, resetting again is one click.
 		if (!success) {
+			if (parameters.action === Zarafa.core.Actions['reset']) {
+				this.commitSaveAction(parameters.action, parameters.parameters);
+			}
 			return;
 		}
 
@@ -509,11 +515,11 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	},
 
 	/**
-	 * Drop the settings of a completed save action from the list of pending changes.
-	 * Only the settings which were actually saved are dropped, anything which was
-	 * changed while the request was in flight stays pending for the next {@link #save}.
-	 * @param {Zarafa.core.Actions} action The action which was completed
-	 * @param {Array} parameters The settings which were saved
+	 * Drop the settings of a save action from the list of pending changes. Only the
+	 * settings which that action carried are dropped, anything which was changed while
+	 * the request was in flight stays pending for the next {@link #save}.
+	 * @param {Zarafa.core.Actions} action The action which was sent
+	 * @param {Array} parameters The settings which that action carried
 	 * @private
 	 */
 	commitSaveAction: function(action, parameters)
