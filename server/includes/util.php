@@ -707,7 +707,7 @@ function updateHierarchyCounters($username = '', $folderType = '', $store = null
 		return [];
 	}
 
-	$props = [PR_DISPLAY_NAME, PR_LOCAL_COMMIT_TIME_MAX, PR_CONTENT_COUNT, PR_CONTENT_UNREAD, PR_ENTRYID, PR_STORE_ENTRYID];
+	$props = [PR_DISPLAY_NAME, PR_LOCAL_COMMIT_TIME_MAX, PR_CONTENT_COUNT, PR_CONTENT_UNREAD, PR_ENTRYID, PR_STORE_ENTRYID, PR_CONTAINER_CLASS];
 
 	if ($folderType === 'inbox') {
 		try {
@@ -747,6 +747,8 @@ function updateHierarchyCounters($username = '', $folderType = '', $store = null
 			'content_count' => $folder[PR_CONTENT_COUNT] ?? -1,
 			'content_unread' => $folder[PR_CONTENT_UNREAD] ?? -1,
 			'display_name' => $folder[PR_DISPLAY_NAME],
+			// Folders without the property are mail folders, as in Operations::setFolder.
+			'container_class' => $folder[PR_CONTAINER_CLASS] ?? 'IPF.Note',
 		];
 	}
 

@@ -42,7 +42,9 @@ Zarafa.core.ui.notifier.ConsolePlugin = Ext.extend(Zarafa.core.ui.notifier.Notif
 			return;
 		}
 
-		var str = title + ': ' + message;
+		// The console renders plain text, so decode the HTML entities
+		// which were encoded for the HTML based notifiers.
+		var str = title + ': ' + Ext.util.Format.htmlDecode(message);
 
 		if (category.indexOf('info') === 0) {
 			console.info(str);

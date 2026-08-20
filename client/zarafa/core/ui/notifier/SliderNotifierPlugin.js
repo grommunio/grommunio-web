@@ -140,8 +140,14 @@ Zarafa.core.ui.notifier.SliderNotifierPlugin = Ext.extend(Zarafa.core.ui.notifie
 		var basecls = this.itemCls;
 		var categorycls = this.categoryCls + '-' + category.split('.')[0] + ' ' + this.categoryCls + '-' + category.replace(/\./g, '-');
 
-		// Create the HTML string which we want to generate
-		var html = this.msgTemplate.apply({ title: title, message: message, basecls: basecls, categorycls: categorycls });
+		// Create the HTML string which we want to generate. The title is plain
+		// text while the template renders it as HTML.
+		var html = this.msgTemplate.apply({
+			title: Ext.util.Format.htmlEncode(title || ''),
+			message: message,
+			basecls: basecls,
+			categorycls: categorycls
+		});
 		var slider = this.getSliderContainer(config.container, this.sliderContainerPosition);
 
 		if (config.reference) {

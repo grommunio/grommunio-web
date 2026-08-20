@@ -8223,3 +8223,22 @@ msgstr "{0}: {1}"
 
 msgid "{0}: {1} items"
 msgstr "{0}: {1} مورد"
+
+msgid "New mail from {0}"
+msgstr "ایمیل جدید از {0}"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "{0} پیام جدید در پوشه {1}"
+msgstr[1] "{0} پیام جدید در پوشه {1}"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "{0} پیام جدید در پوشه {1} از صندوق {2}"
+msgstr[1] "{0} پیام جدید در پوشه {1} از صندوق {2}"
+
+msgid "In folder {0}"
+msgstr "در پوشه {0}"
+
+msgid "In folder {0} of {1}"
+msgstr "در پوشه {0} از صندوق {1}"

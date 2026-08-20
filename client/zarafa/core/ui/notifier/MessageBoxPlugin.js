@@ -40,6 +40,9 @@ Zarafa.core.ui.notifier.MessageBoxPlugin = Ext.extend(Zarafa.core.ui.notifier.No
 			dialogCls = Ext.MessageBox.ERROR_CLS;
 		}
 
+		// The title is plain text while the dialog renders it as HTML.
+		title = Ext.util.Format.htmlEncode(title || '');
+
 		if (Ext.isDefined(config) && !Ext.isEmpty(config.details_message)) {
 			return new Zarafa.common.dialogs.CustomMessageBox({
 				title: title,

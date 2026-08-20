@@ -104,3 +104,22 @@ msgstr "{0}՝ {1}"
 
 msgid "{0}: {1} items"
 msgstr "{0}՝ {1} տարր"
+
+msgid "New mail from {0}"
+msgstr "Նոր նամակ {0}-ից"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "{0} նոր հաղորդագրություն {1} թղթապանակում"
+msgstr[1] "{0} նոր հաղորդագրություն {1} թղթապանակում"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "{0} նոր հաղորդագրություն {2}-ի {1} թղթապանակում"
+msgstr[1] "{0} նոր հաղորդագրություն {2}-ի {1} թղթապանակում"
+
+msgid "In folder {0}"
+msgstr "{0} թղթապանակում"
+
+msgid "In folder {0} of {1}"
+msgstr "{1}-ի {0} թղթապանակում"

@@ -104,3 +104,22 @@ msgstr "{0}: {1}"
 
 msgid "{0}: {1} items"
 msgstr "{0}: {1} mục"
+
+msgid "New mail from {0}"
+msgstr "Thư mới từ {0}"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "{0} thư mới trong thư mục {1}"
+msgstr[1] "{0} thư mới trong thư mục {1}"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "{0} thư mới trong thư mục {1} của {2}"
+msgstr[1] "{0} thư mới trong thư mục {1} của {2}"
+
+msgid "In folder {0}"
+msgstr "Trong thư mục {0}"
+
+msgid "In folder {0} of {1}"
+msgstr "Trong thư mục {0} của {1}"

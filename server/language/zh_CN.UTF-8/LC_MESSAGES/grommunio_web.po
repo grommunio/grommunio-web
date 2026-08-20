@@ -8246,3 +8246,20 @@ msgstr "{0}：{1}"
 
 msgid "{0}: {1} items"
 msgstr "{0}：{1} 个项目"
+
+msgid "New mail from {0}"
+msgstr "来自{0}的新邮件"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "文件夹{1}中有{0}条新消息"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "{2}的文件夹{1}中有{0}条新消息"
+
+msgid "In folder {0}"
+msgstr "在文件夹{0}中"
+
+msgid "In folder {0} of {1}"
+msgstr "在{1}的文件夹{0}中"

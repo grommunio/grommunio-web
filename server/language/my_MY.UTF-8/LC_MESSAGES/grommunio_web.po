@@ -104,3 +104,22 @@ msgstr "{0}: {1}"
 
 msgid "{0}: {1} items"
 msgstr "{0}: အရာ {1} ခု"
+
+msgid "New mail from {0}"
+msgstr "{0} ထံမှ စာအသစ်"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "{1} ဖိုင်တွဲတွင် မက်ဆေ့ဂျ်အသစ် {0} စောင်"
+msgstr[1] "{1} ဖိုင်တွဲတွင် မက်ဆေ့ဂျ်အသစ် {0} စောင်"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "{2} ၏ {1} ဖိုင်တွဲတွင် မက်ဆေ့ဂျ်အသစ် {0} စောင်"
+msgstr[1] "{2} ၏ {1} ဖိုင်တွဲတွင် မက်ဆေ့ဂျ်အသစ် {0} စောင်"
+
+msgid "In folder {0}"
+msgstr "{0} ဖိုင်တွဲတွင်"
+
+msgid "In folder {0} of {1}"
+msgstr "{1} ၏ {0} ဖိုင်တွဲတွင်"

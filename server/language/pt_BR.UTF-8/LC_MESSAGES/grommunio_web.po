@@ -8236,3 +8236,22 @@ msgstr "{0}: {1}"
 
 msgid "{0}: {1} items"
 msgstr "{0}: {1} itens"
+
+msgid "New mail from {0}"
+msgstr "Novo e-mail de {0}"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "{0} nova mensagem na pasta {1}"
+msgstr[1] "{0} novas mensagens na pasta {1}"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "{0} nova mensagem na pasta {1} de {2}"
+msgstr[1] "{0} novas mensagens na pasta {1} de {2}"
+
+msgid "In folder {0}"
+msgstr "Na pasta {0}"
+
+msgid "In folder {0} of {1}"
+msgstr "Na pasta {0} de {1}"

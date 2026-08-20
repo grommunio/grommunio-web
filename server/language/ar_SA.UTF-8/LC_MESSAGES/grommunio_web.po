@@ -8320,3 +8320,30 @@ msgstr "{0}: {1}"
 
 msgid "{0}: {1} items"
 msgstr "{0}: {1} من العناصر"
+
+msgid "New mail from {0}"
+msgstr "بريد جديد من {0}"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "{0} رسالة جديدة في المجلد {1}"
+msgstr[1] "{0} رسالة جديدة في المجلد {1}"
+msgstr[2] "{0} رسالتان جديدتان في المجلد {1}"
+msgstr[3] "{0} رسائل جديدة في المجلد {1}"
+msgstr[4] "{0} رسالة جديدة في المجلد {1}"
+msgstr[5] "{0} رسالة جديدة في المجلد {1}"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "{0} رسالة جديدة في المجلد {1} الخاص بـ{2}"
+msgstr[1] "{0} رسالة جديدة في المجلد {1} الخاص بـ{2}"
+msgstr[2] "{0} رسالتان جديدتان في المجلد {1} الخاص بـ{2}"
+msgstr[3] "{0} رسائل جديدة في المجلد {1} الخاص بـ{2}"
+msgstr[4] "{0} رسالة جديدة في المجلد {1} الخاص بـ{2}"
+msgstr[5] "{0} رسالة جديدة في المجلد {1} الخاص بـ{2}"
+
+msgid "In folder {0}"
+msgstr "في المجلد {0}"
+
+msgid "In folder {0} of {1}"
+msgstr "في المجلد {0} الخاص بـ{1}"

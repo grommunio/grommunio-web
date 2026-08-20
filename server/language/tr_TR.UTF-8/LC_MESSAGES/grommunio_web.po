@@ -8225,3 +8225,22 @@ msgstr "{0}: {1}"
 
 msgid "{0}: {1} items"
 msgstr "{0}: {1} öğe"
+
+msgid "New mail from {0}"
+msgstr "{0} kişisinden yeni e-posta"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "{1} klasöründe {0} yeni mesaj"
+msgstr[1] "{1} klasöründe {0} yeni mesaj"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "{2} kullanıcısının {1} klasöründe {0} yeni mesaj"
+msgstr[1] "{2} kullanıcısının {1} klasöründe {0} yeni mesaj"
+
+msgid "In folder {0}"
+msgstr "{0} klasöründe"
+
+msgid "In folder {0} of {1}"
+msgstr "{1} kullanıcısının {0} klasöründe"
