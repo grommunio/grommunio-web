@@ -74,17 +74,7 @@ if (!WebAppAuthentication::isAuthenticated()) {
 }
 
 // get the disabled plugin list from the config and admin-api
-$disabledPlugins = DISABLED_PLUGINS_LIST;
-// The endpoint resolves the domain out of the address, so it needs the SMTP
-// address rather than the name the user logged on with.
-$adminApiUser = $GLOBALS["mapisession"]->getSMTPAddress() ?: $GLOBALS["mapisession"]->getEmailAddress();
-if ($adminApiUser) {
-	$res = @json_decode(@file_get_contents(
-		ADMIN_API_DISABLEDPLUGINS_ENDPOINT . urlencode($adminApiUser), false), true);
-	if (isset($res['data'])) {
-		$disabledPlugins .= ';' . implode(';', $res['data']);
-	}
-}
+$disabledPlugins = getDisabledPluginsList();
 
 // Instantiate Plugin Manager
 $GLOBALS['PluginManager'] = new PluginManager(ENABLE_PLUGINS);

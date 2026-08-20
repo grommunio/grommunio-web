@@ -160,6 +160,15 @@
 	// The grommunio admin API disabled plugins endpoint
 	define('ADMIN_API_DISABLEDPLUGINS_ENDPOINT', ADMIN_API_ENDPOINT . 'disabledPluginsOfUser?username=');
 
+	// How long the disabled plugins answer of the admin API is cached for a
+	// session, in seconds. A change an administrator makes takes at most this
+	// long to reach a user who is already logged on.
+	define('ADMIN_API_DISABLEDPLUGINS_CACHE_TIME', 300);
+
+	// How long to wait before asking again when the admin API could not be
+	// read, in seconds.
+	define('ADMIN_API_DISABLEDPLUGINS_RETRY_TIME', 30);
+
 	// Whether to show the Logout button in grommunio-web (true or false).
 	// Show per default.
 	define('SHOW_LOGOUT_BUTTON', true);

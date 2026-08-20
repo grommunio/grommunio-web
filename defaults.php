@@ -777,3 +777,13 @@ if (!defined('ADMIN_API_STATUS_ENDPOINT')) {
 if (!defined('ADMIN_API_DISABLEDPLUGINS_ENDPOINT')) {
 	define('ADMIN_API_DISABLEDPLUGINS_ENDPOINT', ADMIN_API_ENDPOINT . 'disabledPluginsOfUser?username=');
 }
+
+// Seconds to cache the disabled plugins admin-api answers for a session
+if (!defined('ADMIN_API_DISABLEDPLUGINS_CACHE_TIME')) {
+	define('ADMIN_API_DISABLEDPLUGINS_CACHE_TIME', 300);
+}
+
+// Seconds to wait before asking again after the endpoint could not be read
+if (!defined('ADMIN_API_DISABLEDPLUGINS_RETRY_TIME')) {
+	define('ADMIN_API_DISABLEDPLUGINS_RETRY_TIME', 30);
+}

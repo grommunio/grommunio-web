@@ -754,6 +754,78 @@ function updateHierarchyCounters($username = '', $folderType = '', $store = null
 }
 
 /**
+ * Returns the list of plugins which are disabled for the current user, the
+ * configured ones together with the ones the admin API reports.
+ *
+ * @return string semicolon separated list of plugin names
+ */
+function getDisabledPluginsList() {
+	$adminApiPlugins = getAdminApiDisabledPlugins();
+
+	return $adminApiPlugins === '' ? DISABLED_PLUGINS_LIST : DISABLED_PLUGINS_LIST . ';' . $adminApiPlugins;
+}
+
+/**
+ * Asks the admin API which plugins are disabled for the current user.
+ *
+ * Every request of a session would otherwise repeat this HTTP request, so the
+ * answer is cached for the session. A failed lookup is cached as well, for a
+ * shorter time, so an unreachable endpoint is not contacted over and over.
+ *
+ * @return string semicolon separated list of plugin names, empty when the
+ *                admin API named none or could not be asked
+ */
+function getAdminApiDisabledPlugins() {
+	// Without a session the cache would be shared between users.
+	if (session_id() === '') {
+		return queryAdminApiDisabledPlugins() ?? '';
+	}
+
+	$readState = new State('disabledplugins');
+	$readState->open();
+	$cache = $readState->read('adminapi');
+	$readState->close();
+
+	if (is_array($cache) && isset($cache['plugins'], $cache['expires']) && $cache['expires'] > time()) {
+		return $cache['plugins'];
+	}
+
+	// Deliberately not while holding the state lock, so a slow endpoint does
+	// not hold up the other requests of this session.
+	$plugins = queryAdminApiDisabledPlugins();
+	$lifetime = $plugins === null ? ADMIN_API_DISABLEDPLUGINS_RETRY_TIME : ADMIN_API_DISABLEDPLUGINS_CACHE_TIME;
+	$plugins ??= '';
+
+	$writeState = new State('disabledplugins');
+	$writeState->open();
+	$writeState->write('adminapi', ['plugins' => $plugins, 'expires' => time() + $lifetime]);
+	$writeState->close();
+
+	return $plugins;
+}
+
+/**
+ * Performs the actual admin API request for the current user.
+ *
+ * The endpoint resolves the domain out of the address, so it needs the SMTP
+ * address rather than the name the user logged on with.
+ *
+ * @return null|string semicolon separated list of plugin names, or null when
+ *                     the endpoint could not be read
+ */
+function queryAdminApiDisabledPlugins() {
+	$user = $GLOBALS["mapisession"]->getSMTPAddress() ?: $GLOBALS["mapisession"]->getEmailAddress();
+	if (!$user) {
+		return null;
+	}
+
+	$res = @json_decode(@file_get_contents(
+		ADMIN_API_DISABLEDPLUGINS_ENDPOINT . urlencode((string) $user), false), true);
+
+	return isset($res['data']) ? implode(';', $res['data']) : null;
+}
+
+/**
  * Helper function which provide protocol used by current request.
  *
  * @return string it can be either https or http
