@@ -23,6 +23,17 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 	dlgItems: undefined,
 
 	/**
+	 * The {@link #addCustomButtons} configurations which arrived while another
+	 * messagebox was still waiting for an answer, in the order in which they must
+	 * still be shown.
+	 *
+	 * @property
+	 * @type Array
+	 * @private
+	 */
+	queuedMessageBoxes: undefined,
+
+	/**
 	 * The per browser window state of {@link Ext.MessageBox}. This messagebox is a copy
 	 * of that singleton and builds its own dialog, so it needs its own collection:
 	 * {@link Ext.MessageBox#getDialog} records the current dialog here, and sharing the
@@ -214,15 +225,16 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 				scope: this
 			}
 		});
-		this.initDialog([{
+		var items = [{
 			xtype: 'container',
 			anchor: '100% 100%',
 			items: [ radioGroup ]
-		}]);
+		}];
 
 		if(!Ext.isEmpty(customButton)) {
-			var config = {};
-			Ext.apply(config, {
+			// The items travel along with the config: this messagebox may have to wait
+			// for its turn, and until then they must not be put in another one.
+			this.addCustomButtons({
 				title: title,
 				msg: msg + '<br />',
 				minWidth: this.minPromptWidth,
@@ -232,10 +244,11 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 				prompt: false,
 				value: value,
 				customButton: customButton,
-				radioGroup: radioGroup
+				radioGroup: radioGroup,
+				dlgItems: items
 			});
-			this.addCustomButtons(config);
 		} else {
+			this.initDialog(items);
 			this.show({
 				title: title,
 				msg: msg + '<br />',
@@ -278,6 +291,32 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 	 */
 	addCustomButtons: function(config)
 	{
+		// There is only one dialog to show this in, so a messagebox which is still
+		// waiting for an answer must not be replaced: its question would be gone and
+		// its caller would never hear back. Line up behind it instead.
+		if(this.isVisible() || !Ext.isEmpty(this.queuedMessageBoxes)) {
+			this.queuedMessageBoxes = this.queuedMessageBoxes || [];
+			this.queuedMessageBoxes.push(config);
+			return;
+		}
+
+		this.showCustomButtons(config);
+	},
+
+	/**
+	 * Display the {@link Ext.MessageBox messagebox} for a {@link #addCustomButtons}
+	 * configuration. Only called when no other messagebox is on screen.
+	 * @param {Object} config The configuration of the message box and its custom buttons
+	 * @private
+	 */
+	showCustomButtons: function(config)
+	{
+		// A #select messagebox brings its own items, which are added when the dialog is
+		// shown, so they must be registered before it is.
+		if(!Ext.isEmpty(config.dlgItems)) {
+			this.initDialog(config.dlgItems);
+		}
+
 		var dlg = this.getDialog();
 
 		// Close a messagebox which is still open, Ext.MessageBox#show hides it only
@@ -305,6 +344,37 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 
 		dlg.on('hide', this.onDestroy, this, {single: true});
 		dlg.on('destroy', this.onDestroy, this, {single: true});
+		dlg.on('hide', this.onDialogHidden, this);
+	},
+
+	/**
+	 * Event handler which is triggered whenever the {@link Ext.MessageBox messagebox} is
+	 * hidden. Hands the dialog over to the next messagebox which is waiting for it.
+	 * @private
+	 */
+	onDialogHidden: function()
+	{
+		if(Ext.isEmpty(this.queuedMessageBoxes)) {
+			return;
+		}
+
+		// Let the callback of the messagebox which was just answered run first, it may
+		// well want to show a messagebox of its own.
+		this.showQueuedMessageBox.defer(1, this);
+	},
+
+	/**
+	 * Show the next {@link #queuedMessageBoxes queued} messagebox, unless something else
+	 * claimed the dialog in the meantime. The hide of that one brings us back here.
+	 * @private
+	 */
+	showQueuedMessageBox: function()
+	{
+		if(this.isVisible() || Ext.isEmpty(this.queuedMessageBoxes)) {
+			return;
+		}
+
+		this.showCustomButtons(this.queuedMessageBoxes.shift());
 	},
 
 	/**
