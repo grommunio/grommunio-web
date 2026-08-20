@@ -18,7 +18,7 @@ Zarafa.plugins.files.settings.ui.FeatureQuotaInfoContentPanel = Ext.extend(Zaraf
 
 			xtype: 'filesplugin.featurequotainfocontentpanel',
 			title     : _('Quota Information'),
-			statefull : false,
+			stateful  : false,
 			width     : 200,
 			autoHeight: true,
 			items     : [{
