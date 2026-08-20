@@ -483,32 +483,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	},
 
 	/**
-	 * Send the save action to the server.
-	 * @param {Zarafa.core.Actions} action The action which must be performed on the server
-	 * @param {Object} parameters The action parameters which must be send to the server.
-	 * @private
-	 */
-	execute: function(action, parameters)
-	{
-		if (this.fireEvent('beforesave', this, { action: parameters}) !== false) {
-			// FIXME: Perhaps this needs to be moved into a Ext.data.DataProxy
-			container.getRequest().singleRequest(
-				Zarafa.core.ModuleNames.getListName('settings'),
-				action,
-				{ 'setting': parameters},
-				new Zarafa.core.data.ProxyResponseHandler({
-					proxy: this,
-					action: Ext.data.Api.actions['update'],
-					options: {action: action, parameters: parameters,'requiresReload': this.requiresReload },
-					callback:  this.onExecuteComplete,
-					scope: this
-				})
-			);
-		}
-	},
-
-	/**
-	 * Event handler which is fired when the Request made in the {@link #execute} function
+	 * Event handler which is fired when the Request made in the {@link #save} function
 	 * has been completed. This will fire the {@link #save 'save'} event.
 	 * @param {Ext.data.Api} action The action which was executed
 	 * @param {Object} parameters The parameters which were send to the server
