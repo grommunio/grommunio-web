@@ -954,14 +954,6 @@ class HierarchyModule extends Module {
 							$GLOBALS["bus"]->notify(bin2hex((string) $message[PR_ENTRYID]), OBJECT_SAVE, $message);
 						}
 					}
-					elseif (isset($message[PR_WLINK_STORE_ENTRYID])) {
-						$storeObj = $GLOBALS["mapisession"]->openMessageStore($message[PR_WLINK_STORE_ENTRYID]);
-						$storeProps = mapi_getprops($storeObj, [PR_ENTRYID]);
-						if ($GLOBALS['entryid']->compareEntryIds($message[PR_WLINK_ENTRYID], $storeProps[PR_ENTRYID])) {
-							mapi_folder_deletemessages($commonViewsFolder, [$message[PR_ENTRYID]]);
-							$this->sendFeedback(true);
-						}
-					}
 				}
 			}
 		}
