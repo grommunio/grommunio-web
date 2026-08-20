@@ -8270,3 +8270,18 @@ msgstr "У папці {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "У папці {0} користувача {1}"
+
+msgid "New Mail Notifications"
+msgstr "Сповіщення про нову пошту"
+
+msgid "Only my own mailbox"
+msgstr "Лише моя власна поштова скринька"
+
+msgid "Only the folders I choose"
+msgstr "Лише вибрані мною папки"
+
+msgid "Unknown folder"
+msgstr "Невідома папка"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Не вибрано жодної папки, сповіщення про нову пошту не показуватиметься."

@@ -123,3 +123,18 @@ msgstr "ໃນໂຟນເດີ {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "ໃນໂຟນເດີ {0} ຂອງ {1}"
+
+msgid "New Mail Notifications"
+msgstr "ການແຈ້ງເຕືອນອີເມວໃໝ່"
+
+msgid "Only my own mailbox"
+msgstr "ສະເພາະກ່ອງຈົດໝາຍຂອງຂ້ອຍເອງ"
+
+msgid "Only the folders I choose"
+msgstr "ສະເພາະໂຟນເດີທີ່ຂ້ອຍເລືອກ"
+
+msgid "Unknown folder"
+msgstr "ໂຟນເດີທີ່ບໍ່ຮູ້ຈັກ"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "ບໍ່ໄດ້ເລືອກໂຟນເດີໃດເລີຍ, ຈຶ່ງບໍ່ສະແດງການແຈ້ງເຕືອນອີເມວໃໝ່."

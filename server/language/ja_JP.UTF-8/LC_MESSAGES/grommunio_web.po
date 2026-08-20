@@ -8292,3 +8292,18 @@ msgstr "{0}フォルダ内"
 
 msgid "In folder {0} of {1}"
 msgstr "{1}の{0}フォルダ内"
+
+msgid "New Mail Notifications"
+msgstr "新着メールの通知"
+
+msgid "Only my own mailbox"
+msgstr "自分のメールボックスのみ"
+
+msgid "Only the folders I choose"
+msgstr "選択したフォルダのみ"
+
+msgid "Unknown folder"
+msgstr "不明なフォルダ"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "フォルダが選択されていないため、新着メールの通知は表示されません。"

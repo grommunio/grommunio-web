@@ -123,3 +123,18 @@ msgstr "{0} ဖိုင်တွဲတွင်"
 
 msgid "In folder {0} of {1}"
 msgstr "{1} ၏ {0} ဖိုင်တွဲတွင်"
+
+msgid "New Mail Notifications"
+msgstr "မေးလ်အသစ် အကြောင်းကြားချက်များ"
+
+msgid "Only my own mailbox"
+msgstr "ကျွန်ုပ်၏ ကိုယ်ပိုင် မေးလ်ပုံးသာ"
+
+msgid "Only the folders I choose"
+msgstr "ကျွန်ုပ် ရွေးချယ်သည့် ဖိုင်တွဲများသာ"
+
+msgid "Unknown folder"
+msgstr "မသိသော ဖိုင်တွဲ"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "ဖိုင်တွဲ မရွေးချယ်ထားသဖြင့် မေးလ်အသစ် အကြောင်းကြားချက် ပြသမည် မဟုတ်ပါ။"

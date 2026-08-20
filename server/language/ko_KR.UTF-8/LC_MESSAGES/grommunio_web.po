@@ -8217,3 +8217,18 @@ msgstr "폴더 {0}에서"
 
 msgid "In folder {0} of {1}"
 msgstr "{1}의 폴더 {0}에서"
+
+msgid "New Mail Notifications"
+msgstr "새 메일 알림"
+
+msgid "Only my own mailbox"
+msgstr "내 사서함만"
+
+msgid "Only the folders I choose"
+msgstr "내가 선택한 폴더만"
+
+msgid "Unknown folder"
+msgstr "알 수 없는 폴더"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "선택된 폴더가 없어 새 메일 알림이 표시되지 않습니다."

@@ -8244,3 +8244,18 @@ msgstr "I mappen {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "I mappen {0} i {1}"
+
+msgid "New Mail Notifications"
+msgstr "Aviseringar om ny e-post"
+
+msgid "Only my own mailbox"
+msgstr "Endast min egen brevlåda"
+
+msgid "Only the folders I choose"
+msgstr "Endast de mappar jag väljer"
+
+msgid "Unknown folder"
+msgstr "Okänd mapp"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Inga mappar valda, ingen avisering om ny e-post visas."

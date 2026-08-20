@@ -123,3 +123,18 @@ msgstr "{0} საქაღალდეში"
 
 msgid "In folder {0} of {1}"
 msgstr "{1}-ის {0} საქაღალდეში"
+
+msgid "New Mail Notifications"
+msgstr "ახალი ფოსტის შეტყობინებები"
+
+msgid "Only my own mailbox"
+msgstr "მხოლოდ ჩემი საკუთარი საფოსტო ყუთი"
+
+msgid "Only the folders I choose"
+msgstr "მხოლოდ ჩემ მიერ არჩეული საქაღალდეები"
+
+msgid "Unknown folder"
+msgstr "უცნობი საქაღალდე"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "საქაღალდეები არჩეული არ არის, ახალი ფოსტის შეტყობინება არ გამოჩნდება."

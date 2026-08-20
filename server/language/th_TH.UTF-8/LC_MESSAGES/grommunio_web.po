@@ -123,3 +123,18 @@ msgstr "ในโฟลเดอร์ {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "ในโฟลเดอร์ {0} ของ {1}"
+
+msgid "New Mail Notifications"
+msgstr "การแจ้งเตือนอีเมลใหม่"
+
+msgid "Only my own mailbox"
+msgstr "เฉพาะกล่องจดหมายของฉันเท่านั้น"
+
+msgid "Only the folders I choose"
+msgstr "เฉพาะโฟลเดอร์ที่ฉันเลือกเท่านั้น"
+
+msgid "Unknown folder"
+msgstr "โฟลเดอร์ที่ไม่รู้จัก"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "ไม่ได้เลือกโฟลเดอร์ใด จะไม่มีการแสดงการแจ้งเตือนอีเมลใหม่"

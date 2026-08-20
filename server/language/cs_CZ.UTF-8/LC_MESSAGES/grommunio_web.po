@@ -8354,3 +8354,18 @@ msgstr "Ve složce {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "Ve složce {0} uživatele {1}"
+
+msgid "New Mail Notifications"
+msgstr "Oznámení o nové poště"
+
+msgid "Only my own mailbox"
+msgstr "Pouze moje vlastní poštovní schránka"
+
+msgid "Only the folders I choose"
+msgstr "Pouze složky, které vyberu"
+
+msgid "Unknown folder"
+msgstr "Neznámá složka"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Nejsou vybrány žádné složky, nezobrazí se žádné oznámení o nové poště."

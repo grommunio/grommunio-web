@@ -8291,3 +8291,18 @@ msgstr "Dans le dossier {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "Dans le dossier {0} de {1}"
+
+msgid "New Mail Notifications"
+msgstr "Notifications de nouveau courriel"
+
+msgid "Only my own mailbox"
+msgstr "Uniquement ma propre boîte aux lettres"
+
+msgid "Only the folders I choose"
+msgstr "Uniquement les dossiers que je choisis"
+
+msgid "Unknown folder"
+msgstr "Dossier inconnu"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Aucun dossier sélectionné, aucune notification de nouveau courriel n'est affichée."

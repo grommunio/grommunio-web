@@ -8244,3 +8244,18 @@ msgstr "{0} klasöründe"
 
 msgid "In folder {0} of {1}"
 msgstr "{1} kullanıcısının {0} klasöründe"
+
+msgid "New Mail Notifications"
+msgstr "Yeni E-posta Bildirimleri"
+
+msgid "Only my own mailbox"
+msgstr "Yalnızca kendi posta kutum"
+
+msgid "Only the folders I choose"
+msgstr "Yalnızca seçtiğim klasörler"
+
+msgid "Unknown folder"
+msgstr "Bilinmeyen klasör"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Hiçbir klasör seçilmedi, yeni e-posta bildirimi gösterilmez."

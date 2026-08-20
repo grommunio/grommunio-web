@@ -123,3 +123,18 @@ msgstr "{0} qovluğunda"
 
 msgid "In folder {0} of {1}"
 msgstr "{1} poçt qutusundakı {0} qovluğunda"
+
+msgid "New Mail Notifications"
+msgstr "Yeni məktub bildirişləri"
+
+msgid "Only my own mailbox"
+msgstr "Yalnız öz poçt qutum"
+
+msgid "Only the folders I choose"
+msgstr "Yalnız seçdiyim qovluqlar"
+
+msgid "Unknown folder"
+msgstr "Naməlum qovluq"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Heç bir qovluq seçilməyib, yeni məktub bildirişi göstərilməyəcək."

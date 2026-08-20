@@ -874,7 +874,8 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 				var newmail = folder.content_unread !== 0
 					&& folder.content_unread > folderStore.get('content_unread');
 
-				if (newmail && folder_keys.indexOf(folderKey) === -1 && folderStore.isContainerClass('IPF.Note')) {
+				if (newmail && folder_keys.indexOf(folderKey) === -1 && folderStore.isContainerClass('IPF.Note') &&
+					Zarafa.hierarchy.data.HierarchyStore.notifiesNewMail(folderStore)) {
 					var notification = this.getNewMailNotificationText(folder, folderKey);
 
 					// New mail notification should show only on main browser window.
@@ -1165,3 +1166,45 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 });
 
 Ext.reg('zarafa.hierarchystore', Zarafa.hierarchy.data.HierarchyStore);
+
+/**
+ * Check if a folder is one the user wants to be notified about when new mail
+ * arrives in it, following the folder scope in the notification settings.
+ *
+ * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The folder in which the mail arrived
+ * @return {Boolean} True when a notification should be shown for this folder
+ * @static
+ */
+Zarafa.hierarchy.data.HierarchyStore.notifiesNewMail = function(folder)
+{
+	var settings = container.getSettingsModel();
+	var scope = settings.get('zarafa/v1/main/notifier/info/newmail/folders/scope');
+
+	if (scope === 'own') {
+		var store = folder.getMAPIStore();
+		return !!store && store.isDefaultStore();
+	}
+
+	if (scope === 'selected') {
+		var selected = settings.get('zarafa/v1/main/notifier/info/newmail/folders/selected');
+		if (Ext.isEmpty(selected)) {
+			return false;
+		}
+
+		var entryid = folder.get('entryid');
+		if (Ext.isEmpty(entryid)) {
+			return false;
+		}
+
+		var folders = selected.split(';');
+		for (var i = 0, len = folders.length; i < len; i++) {
+			if (!Ext.isEmpty(folders[i]) && Zarafa.core.EntryId.compareEntryIds(folders[i], entryid)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	return true;
+};

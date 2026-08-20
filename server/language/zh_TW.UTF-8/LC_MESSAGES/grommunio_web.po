@@ -8228,3 +8228,18 @@ msgstr "在資料夾 {0} 中"
 
 msgid "In folder {0} of {1}"
 msgstr "在 {1} 的資料夾 {0} 中"
+
+msgid "New Mail Notifications"
+msgstr "新郵件通知"
+
+msgid "Only my own mailbox"
+msgstr "僅限我自己的信箱"
+
+msgid "Only the folders I choose"
+msgstr "僅限我選擇的資料夾"
+
+msgid "Unknown folder"
+msgstr "未知的資料夾"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "未選擇任何資料夾，將不會顯示新郵件通知。"

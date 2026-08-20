@@ -123,3 +123,18 @@ msgstr "Katika folda {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "Katika folda {0} ya {1}"
+
+msgid "New Mail Notifications"
+msgstr "Arifa za barua pepe mpya"
+
+msgid "Only my own mailbox"
+msgstr "Sanduku langu la barua pekee"
+
+msgid "Only the folders I choose"
+msgstr "Folda ninazochagua pekee"
+
+msgid "Unknown folder"
+msgstr "Folda isiyojulikana"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Hakuna folda zilizochaguliwa, hakuna arifa ya barua pepe mpya itakayoonyeshwa."

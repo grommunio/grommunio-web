@@ -123,3 +123,18 @@ msgstr "No cartafol {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "No cartafol {0} de {1}"
+
+msgid "New Mail Notifications"
+msgstr "Notificacións de correo novo"
+
+msgid "Only my own mailbox"
+msgstr "Só a miña propia caixa de correo"
+
+msgid "Only the folders I choose"
+msgstr "Só os cartafoles que eu escolla"
+
+msgid "Unknown folder"
+msgstr "Cartafol descoñecido"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Non hai ningún cartafol seleccionado, polo que non se mostra ningunha notificación de correo novo."

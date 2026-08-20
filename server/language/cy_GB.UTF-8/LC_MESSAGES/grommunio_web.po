@@ -123,3 +123,18 @@ msgstr "Yn y ffolder {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "Yn ffolder {0} y defnyddiwr {1}"
+
+msgid "New Mail Notifications"
+msgstr "Hysbysiadau post newydd"
+
+msgid "Only my own mailbox"
+msgstr "Fy mlwch post fy hun yn unig"
+
+msgid "Only the folders I choose"
+msgstr "Dim ond y ffolderi rwy'n eu dewis"
+
+msgid "Unknown folder"
+msgstr "Ffolder anhysbys"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Ni ddewiswyd unrhyw ffolderi, ni ddangosir unrhyw hysbysiad post newydd."

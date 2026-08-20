@@ -123,3 +123,18 @@ msgstr "Di folder {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "Di folder {0} milik {1}"
+
+msgid "New Mail Notifications"
+msgstr "Pemberitahuan email baru"
+
+msgid "Only my own mailbox"
+msgstr "Hanya kotak surat saya sendiri"
+
+msgid "Only the folders I choose"
+msgstr "Hanya folder yang saya pilih"
+
+msgid "Unknown folder"
+msgstr "Folder tidak dikenal"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Tidak ada folder yang dipilih, tidak ada pemberitahuan email baru yang ditampilkan."

@@ -123,3 +123,18 @@ msgstr "በ{0} አቃፊ ውስጥ"
 
 msgid "In folder {0} of {1}"
 msgstr "የ{1} {0} አቃፊ ውስጥ"
+
+msgid "New Mail Notifications"
+msgstr "የአዲስ መልእክት ማሳወቂያዎች"
+
+msgid "Only my own mailbox"
+msgstr "የራሴ የመልእክት ሳጥን ብቻ"
+
+msgid "Only the folders I choose"
+msgstr "የምመርጣቸው አቃፊዎች ብቻ"
+
+msgid "Unknown folder"
+msgstr "ያልታወቀ አቃፊ"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "ምንም አቃፊ አልተመረጠም፣ የአዲስ መልእክት ማሳወቂያ አይታይም።"

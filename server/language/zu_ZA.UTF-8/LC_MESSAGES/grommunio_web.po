@@ -123,3 +123,18 @@ msgstr "Kufolda {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "Kufolda {0} ka-{1}"
+
+msgid "New Mail Notifications"
+msgstr "Izaziso zeposi elisha"
+
+msgid "Only my own mailbox"
+msgstr "Ibhokisi leposi lami kuphela"
+
+msgid "Only the folders I choose"
+msgstr "Amafolda engiwakhethayo kuphela"
+
+msgid "Unknown folder"
+msgstr "Ifolda engaziwa"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Awekho amafolda akhethiwe, akukho saziso seposi elisha esiboniswayo."

@@ -8270,3 +8270,18 @@ msgstr "Nella cartella {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "Nella cartella {0} di {1}"
+
+msgid "New Mail Notifications"
+msgstr "Notifiche di nuova posta"
+
+msgid "Only my own mailbox"
+msgstr "Solo la mia casella di posta"
+
+msgid "Only the folders I choose"
+msgstr "Solo le cartelle che scelgo"
+
+msgid "Unknown folder"
+msgstr "Cartella sconosciuta"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Nessuna cartella selezionata, non viene mostrata alcuna notifica di nuova posta."

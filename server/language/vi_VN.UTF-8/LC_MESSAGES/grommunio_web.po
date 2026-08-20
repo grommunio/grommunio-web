@@ -123,3 +123,18 @@ msgstr "Trong thư mục {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "Trong thư mục {0} của {1}"
+
+msgid "New Mail Notifications"
+msgstr "Thông báo thư mới"
+
+msgid "Only my own mailbox"
+msgstr "Chỉ hộp thư của riêng tôi"
+
+msgid "Only the folders I choose"
+msgstr "Chỉ các thư mục tôi chọn"
+
+msgid "Unknown folder"
+msgstr "Thư mục không xác định"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Chưa chọn thư mục nào, sẽ không có thông báo thư mới nào được hiển thị."

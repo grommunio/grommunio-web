@@ -123,3 +123,18 @@ msgstr "Në dosjen {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "Në dosjen {0} e {1}"
+
+msgid "New Mail Notifications"
+msgstr "Njoftime për postë të re"
+
+msgid "Only my own mailbox"
+msgstr "Vetëm kutia ime postare"
+
+msgid "Only the folders I choose"
+msgstr "Vetëm dosjet që zgjedh"
+
+msgid "Unknown folder"
+msgstr "Dosje e panjohur"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Nuk është zgjedhur asnjë dosje, nuk shfaqet asnjë njoftim për postë të re."

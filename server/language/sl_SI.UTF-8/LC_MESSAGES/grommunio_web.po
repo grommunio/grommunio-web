@@ -8385,3 +8385,18 @@ msgstr "V mapi {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "V mapi {0} uporabnika {1}"
+
+msgid "New Mail Notifications"
+msgstr "Obvestila o novi pošti"
+
+msgid "Only my own mailbox"
+msgstr "Samo moj lastni nabiralnik"
+
+msgid "Only the folders I choose"
+msgstr "Samo mape, ki jih izberem"
+
+msgid "Unknown folder"
+msgstr "Neznana mapa"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Nobena mapa ni izbrana, obvestilo o novi pošti se ne prikaže."

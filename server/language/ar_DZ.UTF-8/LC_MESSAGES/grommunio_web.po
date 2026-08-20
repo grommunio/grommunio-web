@@ -8346,3 +8346,18 @@ msgstr "في المجلد {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "في المجلد {0} الخاص بـ{1}"
+
+msgid "New Mail Notifications"
+msgstr "إشعارات البريد الجديد"
+
+msgid "Only my own mailbox"
+msgstr "صندوق بريدي الخاص فقط"
+
+msgid "Only the folders I choose"
+msgstr "المجلدات التي أختارها فقط"
+
+msgid "Unknown folder"
+msgstr "مجلد مجهول"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "لم يتم تحديد أي مجلدات، لن يتم عرض أي إشعار بريد جديد."

@@ -34,6 +34,9 @@ Zarafa.common.settings.SettingsNotificationsCategory = Ext.extend(Zarafa.setting
 			items: [{
 					xtype: 'zarafa.settingsdesktopnotificationswidget',
 					settingsContext: config.settingsContext
+				}, {
+					xtype: 'zarafa.settingsnewmailfolderswidget',
+					settingsContext: config.settingsContext
 				},
 				container.populateInsertionPoint('context.settings.category.notifications', this)
 			]
