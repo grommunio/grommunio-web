@@ -31,21 +31,24 @@ Zarafa.settings.PersistentSettingsModel = Ext.extend(Zarafa.settings.SettingsMod
 	 */
 	save: function()
 	{
+		// Send a copy of each list, so a setting which changes while the request is in
+		// flight is neither sent along nor dropped when the response comes in.
 		if (!Ext.isEmpty(this.deleted)) {
-			this.execute(Zarafa.core.Actions['delete'], this.deleted);
+			this.execute(Zarafa.core.Actions['delete'], this.deleted.slice());
 		}
 
 		if (!Ext.isEmpty(this.modified)) {
-			this.execute(Zarafa.core.Actions['set'], this.modified);
+			this.execute(Zarafa.core.Actions['set'], this.modified.slice());
 		}
 
 		if (!Ext.isEmpty(this.resetSettings)) {
-			this.execute(Zarafa.core.Actions['reset'], this.resetSettings);
+			this.execute(Zarafa.core.Actions['reset'], this.resetSettings.slice());
 		}
 	},
 
 	/**
-	 * Send the save action to the server. Overridden to set the actionData in 'persistentSetting' instead of 'setting'.
+	 * Send the save action to the server, the actionData goes into 'persistentSetting'
+	 * instead of 'setting'.
 	 * @param {Zarafa.core.Actions} action The action which must be performed on the server
 	 * @param {Object} parameters The action parameters which must be send to the server.
 	 * @private

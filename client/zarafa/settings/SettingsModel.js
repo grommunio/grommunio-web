@@ -434,16 +434,18 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 
 		request.reset();
 
+		// Send a copy of each list, so a setting which changes while the request is in
+		// flight is neither sent along nor dropped when the response comes in.
 		if (hasDeleted) {
-			queued = this.addSaveAction(request, moduleName, Zarafa.core.Actions['delete'], this.deleted) || queued;
+			queued = this.addSaveAction(request, moduleName, Zarafa.core.Actions['delete'], this.deleted.slice()) || queued;
 		}
 
 		if (hasModified) {
-			queued = this.addSaveAction(request, moduleName, Zarafa.core.Actions['set'], this.modified) || queued;
+			queued = this.addSaveAction(request, moduleName, Zarafa.core.Actions['set'], this.modified.slice()) || queued;
 		}
 
 		if (hasReset) {
-			queued = this.addSaveAction(request, moduleName, Zarafa.core.Actions['reset'], this.resetSettings) || queued;
+			queued = this.addSaveAction(request, moduleName, Zarafa.core.Actions['reset'], this.resetSettings.slice()) || queued;
 		}
 
 		if (queued) {
@@ -515,19 +517,59 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 */
 	onExecuteComplete: function(action, parameters, success)
 	{
-		if (success) {
-			// A save is split into actions which all report back on their own, and
-			// #commit clears the flag, so only the first one asks for a reload.
-			parameters.requiresReload = parameters.requiresReload && this.requiresReload;
-			this.fireEvent('save', this, parameters);
-			this.commit();
+		// A failed action keeps its settings pending, so a later save sends them again.
+		if (!success) {
+			return;
+		}
+
+		// A save is split into actions which all report back on their own, so only the
+		// first one which carried the flag asks for a reload.
+		parameters.requiresReload = parameters.requiresReload && this.requiresReload;
+		if (parameters.requiresReload) {
+			this.requiresReload = false;
+		}
+
+		this.fireEvent('save', this, parameters);
+		this.commitSaveAction(parameters.action, parameters.parameters);
+	},
+
+	/**
+	 * Drop the settings of a completed save action from the list of pending changes.
+	 * Only the settings which were actually saved are dropped, anything which was
+	 * changed while the request was in flight stays pending for the next {@link #save}.
+	 * @param {Zarafa.core.Actions} action The action which was completed
+	 * @param {Array} parameters The settings which were saved
+	 * @private
+	 */
+	commitSaveAction: function(action, parameters)
+	{
+		var list;
+
+		switch (action) {
+			case Zarafa.core.Actions['delete']:
+				list = this.deleted;
+				break;
+			case Zarafa.core.Actions['set']:
+				list = this.modified;
+				break;
+			case Zarafa.core.Actions['reset']:
+				list = this.resetSettings;
+				break;
+			default:
+				return;
+		}
+
+		for (var i = 0, len = parameters.length; i < len; i++) {
+			var index = list.indexOf(parameters[i]);
+			if (index >= 0) {
+				list.splice(index, 1);
+			}
 		}
 	},
 
 	/**
-	 * Called after all settings were saved, this will reset the {@link #deleted}
-	 * and {@link #modified} arrays (which held all changes since the previous
-	 * call to {@link #commit}.
+	 * Discard every pending change, this will reset the {@link #deleted},
+	 * {@link #modified} and {@link #resetSettings} arrays without saving them.
 	 */
 	commit: function()
 	{
