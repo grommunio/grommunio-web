@@ -54,8 +54,8 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	editingCount: 0,
 
 	/**
-	 * The list of properties which have been modified during a {@link #editing transaction}.
-	 * Will be reset on {@link #endEdit}.
+	 * The list of properties which have been modified and are waiting to be saved.
+	 * Entries are dropped by {@link #commitSaveAction} once the server confirmed them.
 	 * @property
 	 * @type Array
 	 */
@@ -63,22 +63,24 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 
 	/**
 	 * The list of properties which have been restored during a {@link #editing transaction}.
-	 * Will be reset on {@link #endEdit}.
+	 * Reported through the {@link #set} event by {@link #afterEdit} and then cleared, the
+	 * default values themselves are not saved to the server.
 	 * @property
 	 * @type Array
 	 */
 	restored: undefined,
 
 	/**
-	 * The list of properties which have been deleted during a {@link #editing transaction}.
-	 * Will be reset on {@link #endEdit}.
+	 * The list of properties which have been deleted and are waiting to be saved.
+	 * Entries are dropped by {@link #commitSaveAction} once the server confirmed them.
 	 * @property
 	 * @type Array
 	 */
 	deleted: undefined,
 
 	/**
-	 * The list of properties which have been reset from server.
+	 * The list of properties which must be reset to their default on the server.
+	 * Entries are dropped by {@link #commitSaveAction} once the server confirmed them.
 	 * @property
 	 * @type Array
 	 */
@@ -608,8 +610,9 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 		var obj = this.getSettingsObject(parentPath, settings);
 		var flatSettings = [];
 
-		// Only settings which actually hold a value have to be deleted on the server,
-		// asking for the removal of a setting which is not there is a wasted request.
+		// A setting whose local value is undefined holds nothing to delete, asking the
+		// server to remove it is a wasted request. Note this looks at the value, not at
+		// the presence of the key: the defaults declare keys without a value.
 		if (obj && Ext.isDefined(obj[settingName])) {
 			var setting = obj[settingName];
 
