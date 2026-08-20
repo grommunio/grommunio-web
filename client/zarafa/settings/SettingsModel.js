@@ -516,6 +516,9 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	onExecuteComplete: function(action, parameters, success)
 	{
 		if (success) {
+			// A save is split into actions which all report back on their own, and
+			// #commit clears the flag, so only the first one asks for a reload.
+			parameters.requiresReload = parameters.requiresReload && this.requiresReload;
 			this.fireEvent('save', this, parameters);
 			this.commit();
 		}
