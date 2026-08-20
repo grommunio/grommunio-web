@@ -722,13 +722,6 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								'block_external_content': true,
 
 								/**
-								 * zarafa/v1/contexts/mail/safe_senders_list
-								 * @property
-								 * @type Array
-								 */
-								'safe_senders_list': [],
-
-								/**
 								 * zarafa/v1/context/mail/use_english_abbreviations
 								 * @property
 								 * @type Boolean

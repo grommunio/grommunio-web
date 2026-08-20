@@ -6,13 +6,9 @@ Ext.namespace('Zarafa.mail.settings');
  * @xtype zarafa.settingssafesenderswidget
  *
  * The {@link Zarafa.settings.ui.SettingsWidget widget} for configuring
- * safesenders in the {@link Zarafa.mail.settings.SettingsMailCategory mail category}
+ * the safe senders list, backed by the Outlook-compatible FAI message.
  */
 Zarafa.mail.settings.SettingsSafeSendersWidget = Ext.extend(Zarafa.settings.ui.SettingsWidget, {
-	/**
-	 * @property {Zarafa.settings.SettingsModel} model
-	 */
-	model: undefined,
 
 	/**
 	 * @constructor
@@ -26,7 +22,6 @@ Zarafa.mail.settings.SettingsSafeSendersWidget = Ext.extend(Zarafa.settings.ui.S
 			title: _('Safe Senders'),
 			cls: 'zarafa-settings-widget k-settings-nogap',
 			xtype: 'zarafa.settingssafesenderswidget',
-			name: 'zarafa/v1/contexts/mail/safe_senders_list',
 			height: 400,
 			layout: {
 				type: 'vbox',
@@ -46,7 +41,8 @@ Zarafa.mail.settings.SettingsSafeSendersWidget = Ext.extend(Zarafa.settings.ui.S
 				items: [{
 					xtype: 'zarafa.safesendergrid',
 					ref: '../safeSendersGrid',
-					flex:1
+					emptyText: _('Safe Senders list is empty'),
+					flex: 1
 				},{
 					xtype: 'container',
 					height: 400,
@@ -91,38 +87,33 @@ Zarafa.mail.settings.SettingsSafeSendersWidget = Ext.extend(Zarafa.settings.ui.S
 	{
 		Zarafa.mail.settings.SettingsSafeSendersWidget.superclass.initEvents.call(this);
 
-		// register event to enable/disable buttons
 		this.mon(this.safeSendersGrid.getSelectionModel(), 'selectionchange', this.onGridSelectionChange, this);
 		this.mon(this.safeSendersGrid.getView(), 'refresh', this.onRefreshView, this);
 
-		// register event to set settingsContextModel dirty.
 		this.mon(this.getStore(), {
 			'remove': this.doStoreRemove,
 			'clear': this.doStoreRemove,
 			scope: this
 		});
+
+		// The lists may arrive after the category was opened.
+		this.mon(Zarafa.mail.data.JunkMailStore, 'load', this.update, this);
 	},
 
 	/**
-	 * Event handler will be called when grid is refreshed in {@link Zarafa.mail.settings.SafeSenderGrid GridView}
-	 * This handler will toggle 'Delete All' button and select first row of grid on every refresh.
+	 * Event handler for grid view refresh.
 	 * @param {Ext.grid.View} gridView that fired the event
 	 */
 	onRefreshView: function(gridView)
 	{
-		var safeSendersGrid = this.safeSendersGrid;
-		if (!Ext.isEmpty(safeSendersGrid.getSafeSenders())) {
-			safeSendersGrid.getSelectionModel().selectFirstRow();
+		if (!Ext.isEmpty(this.safeSendersGrid.getSafeSenders())) {
+			this.safeSendersGrid.getSelectionModel().selectFirstRow();
 		}
-
-		var hasRows = gridView.hasRows();
-		this.deleteAllButton.setDisabled(!hasRows);
+		this.deleteAllButton.setDisabled(!gridView.hasRows());
 	},
 
 	/**
-	 * Returns the {@link Ext.data.JsonStore store} associated
-	 * with grid in this widget.
-	 * @return {Ext.data.JsonStore} The store
+	 * @return {Ext.data.JsonStore} The store associated with the grid.
 	 */
 	getStore: function()
 	{
@@ -130,75 +121,52 @@ Zarafa.mail.settings.SettingsSafeSendersWidget = Ext.extend(Zarafa.settings.ui.S
 	},
 
 	/**
-	 * Event handler will be called when selection in {@link Zarafa.mail.settings.SafeSenderGrid safesenderGrid}
-	 * has been changed.
-	 * @param {Ext.grid.RowSelectionModel} selectionModel selection model that fired the event
+	 * Event handler for grid selection change.
+	 * @param {Ext.grid.RowSelectionModel} selectionModel
 	 */
 	onGridSelectionChange: function(selectionModel)
 	{
-		var hasSelection = selectionModel.hasSelection();
-		var hasRows = this.safeSendersGrid.getView().hasRows();
-
-		// Disable the 'Delete' button if there is no selected rows
-		// and also disable 'Delete All' button if there is no row left in grid.
-		this.deleteButton.setDisabled(!hasSelection);
-		this.deleteAllButton.setDisabled(!hasRows);
+		this.deleteButton.setDisabled(!selectionModel.hasSelection());
+		this.deleteAllButton.setDisabled(!this.safeSendersGrid.getView().hasRows());
 	},
 
 	/**
-	 * Called by the {@link Zarafa.settings.ui.SettingsCategory Category} when
-	 * it has been called with {@link zarafa.settings.ui.SettingsCategory#update}.
-	 * This is used to load the latest version of the settings from the
-	 * {@link Zarafa.settings.SettingsModel} into the UI grid of this widget.
-	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to load
+	 * Load safe senders from JunkMailStore into the grid.
 	 */
-	update: function(settingsModel)
+	update: function()
 	{
-		this.model = settingsModel;
-		var safeSenders = settingsModel.get(this.name, true);
-
-		// Load all safesenders into the GridPanel
-		var safeSendersNameList = {'item': []};
-		Ext.each(safeSenders, function(item, index) {
-			safeSendersNameList.item.push({name: item, id: index});
+		var entries = Zarafa.mail.data.JunkMailStore.getSafeSenders();
+		var data = {'item': []};
+		Ext.each(entries, function(item, index) {
+			data.item.push({name: item, id: index});
 		});
-
-		var store = this.getStore();
-		store.loadData(safeSendersNameList);
+		this.loadingView = true;
+		this.getStore().loadData(data);
+		this.loadingView = false;
 	},
 
 	/**
-	 * Called by the {@link Zarafa.settings.ui.SettingsCategory Category} when
-	 * it has been called with {@link zarafa.settings.ui.SettingsCategory#updateSettings}.
-	 * This is used to update the settings from the UI into the {@link Zarafa.settings.SettingsModel settings model}.
-	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to update
+	 * Save safe senders from the grid back to JunkMailStore.
 	 */
-	updateSettings: function(settingsModel)
+	updateSettings: function()
 	{
-		settingsModel.beginEdit();
-		settingsModel.set(this.safeSendersGrid.name, this.safeSendersGrid.getSafeSenders());
-		settingsModel.endEdit();
+		if (Zarafa.mail.data.JunkMailStore.loaded) {
+			Zarafa.mail.data.JunkMailStore.setSafeSenders(this.safeSendersGrid.getSafeSenders());
+		}
 	},
 
 	/**
-	 * Event handler for the {@link Ext.data.JsonStore#remove} event which is fired
-	 * by the {@link Ext.data.JsonStore JsonStore} associated with the {@link #safeSendersGrid}.
-	 * This will mark the {@link Zarafa.settings.SettingsContextModel} as
-	 * {@link Zarafa.settings.SettingsContextModel#setDirty dirty}.
-	 * @param {Ext.data.Store} store The store which fired the event
-	 * @param {Ext.data.Record} record The record which is removed
-	 * @param {Number} index index of the record in store which is removed
 	 * @private
 	 */
-	doStoreRemove: function(store, record, index)
+	doStoreRemove: function()
 	{
-		this.settingsContext.getModel().setDirty();
+		// Rendering the loaded lists is not a user change.
+		if (!this.loadingView) {
+			this.settingsContext.getModel().setDirty();
+		}
 	},
 
 	/**
-	 * Handler function which is called when the 'Delete' button has been pressed. This
-	 * will call {@link Zarafa.mail.settings.SafeSenderGrid#deleteSafeSender} to remove selected row in
-	 * {@link Zarafa.mail.settings.SafeSenderGrid grid}
 	 * @private
 	 */
 	onDeleteSafeSender: function()
@@ -207,16 +175,12 @@ Zarafa.mail.settings.SettingsSafeSendersWidget = Ext.extend(Zarafa.settings.ui.S
 	},
 
 	/**
-	 * Handler function which is called when the 'Delete all' button has been pressed. This
-	 * will call {@link Zarafa.mail.settings.SafeSenderGrid#deleteAllSafeSender} to remove all rows in
-	 * {@link Zarafa.mail.settings.SafeSenderGrid grid}
 	 * @private
 	 */
 	onDeleteAll: function()
 	{
 		this.safeSendersGrid.deleteAllSafeSender();
 	}
-
 });
 
 Ext.reg('zarafa.settingssafesenderswidget', Zarafa.mail.settings.SettingsSafeSendersWidget);

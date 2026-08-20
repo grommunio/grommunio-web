@@ -1,19 +1,20 @@
 Ext.namespace('Zarafa.mail.settings');
 
 /**
- * @class Zarafa.settings.ui.SettingsSafeSenderCategory
+ * @class Zarafa.mail.settings.SettingsSafeSenderCategory
  * @extends Zarafa.settings.ui.SettingsCategory
  * @xtype zarafa.settingssafesendercategory
  *
- * The category for users which will allow the user to update safe senders list.
+ * The category for configuring sender lists (safe senders, safe recipients,
+ * blocked senders) stored in the Outlook-compatible Junk Email Rule FAI message.
  */
 Zarafa.mail.settings.SettingsSafeSenderCategory = Ext.extend(Zarafa.settings.ui.SettingsCategory, {
 
 	/**
 	 * @insert context.settings.category.safesender
 	 * Insertion point to register new {@link Zarafa.settings.ui.SettingsWidget widgets}
-	 * for the {@link Zarafa.mail.settings.SettingsSafeSenderCategory Safe Senders Category}.
-	 * @param {Zarafa.mail.settings.SettingsSafeSenderCategory} category The Safe Senders
+	 * for the {@link Zarafa.mail.settings.SettingsSafeSenderCategory Sender Lists Category}.
+	 * @param {Zarafa.mail.settings.SettingsSafeSenderCategory} category The Sender Lists
 	 * category to which the widgets will be added.
 	 */
 
@@ -26,11 +27,20 @@ Zarafa.mail.settings.SettingsSafeSenderCategory = Ext.extend(Zarafa.settings.ui.
 		config = config || {};
 
 		Ext.applyIf(config, {
-			title: _('Safe Senders'),
+			title: _('Sender Lists'),
 			categoryIndex: 8,
 			iconCls: 'zarafa-settings-category-safesenders',
 			items: [{
 				xtype: 'zarafa.settingssafesenderswidget',
+				settingsContext: config.settingsContext
+			},{
+				xtype: 'zarafa.settingssaferecipientswidget',
+				settingsContext: config.settingsContext
+			},{
+				xtype: 'zarafa.settingsblockedsenderswidget',
+				settingsContext: config.settingsContext
+			},{
+				xtype: 'zarafa.settingssenderlistsoptionswidget',
 				settingsContext: config.settingsContext
 			},
 				container.populateInsertionPoint('context.settings.category.safesender', this)
@@ -38,6 +48,28 @@ Zarafa.mail.settings.SettingsSafeSenderCategory = Ext.extend(Zarafa.settings.ui.
 		});
 
 		Zarafa.mail.settings.SettingsSafeSenderCategory.superclass.constructor.call(this, config);
+
+		// Start from fresh lists whenever the category is opened; another
+		// client may have edited the same rule since login.
+		this.on('activate', function() {
+			Zarafa.mail.data.JunkMailStore.load();
+		}, this);
+	},
+
+	/**
+	 * Event handler for the
+	 * {@link Zarafa.settings.SettingsContextModel ContextModel}#{@link Zarafa.settings.SettingsContextModel#beforesavesettings beforesavesettings}
+	 * event. Hooks into the save flow to also persist JunkMailStore to server.
+	 * @private
+	 */
+	onBeforeSaveSettingsModel: function()
+	{
+		Zarafa.mail.settings.SettingsSafeSenderCategory.superclass.onBeforeSaveSettingsModel.apply(this, arguments);
+
+		this.displaySavingMask();
+		Zarafa.mail.data.JunkMailStore.save(function(success) {
+			this.hideSavingMask(success);
+		}, this);
 	}
 });
 

@@ -68,45 +68,29 @@ Zarafa.common.ui.messagepanel.ExtraInfoContextMenu = Ext.extend(Zarafa.core.ui.m
 	addSenderToSafeList: function()
 	{
 		var smtpAddress = this.records.get('sent_representing_email_address') || this.records.get('sender_email_address');
-		if(Ext.isEmpty(smtpAddress)) {
+		if (Ext.isEmpty(smtpAddress)) {
 			return;
 		}
 
-		var safeSenders = container.getSettingsModel().get('zarafa/v1/contexts/mail/safe_senders_list', true);
-
-		if(!Ext.isEmpty(safeSenders)) {
-			safeSenders.push(smtpAddress);
-		} else {
-			safeSenders = [smtpAddress];
-		}
-
-		container.getSettingsModel().set('zarafa/v1/contexts/mail/safe_senders_list', safeSenders);
+		Zarafa.mail.data.JunkMailStore.addSafeSender(smtpAddress);
 
 		this.setBlockStatus();
 	},
 
 	/**
-	 * Function will add domain address of sender of this mail to {@link Zarafa.settings.SettingsModel #safe_senders_list}
+	 * Function will add domain address of sender of this mail to the safe senders list
 	 * so the mails from this domain will not be checked for blocking external content.
 	 * @private
 	 */
 	addDomainToSafeList: function()
 	{
 		var smtpAddress = this.records.get('sent_representing_email_address') || this.records.get('sender_email_address');
-		var domainName = smtpAddress.substr(smtpAddress.indexOf('@') + 1);
-		if(Ext.isEmpty(domainName)) {
+		var domainName = '@' + smtpAddress.substr(smtpAddress.indexOf('@') + 1);
+		if (Ext.isEmpty(domainName) || domainName === '@') {
 			return;
 		}
 
-		var safeSenders = container.getSettingsModel().get('zarafa/v1/contexts/mail/safe_senders_list', true);
-
-		if(!Ext.isEmpty(safeSenders)) {
-			safeSenders.push(domainName);
-		} else {
-			safeSenders = [domainName];
-		}
-
-		container.getSettingsModel().set('zarafa/v1/contexts/mail/safe_senders_list', safeSenders);
+		Zarafa.mail.data.JunkMailStore.addSafeSender(domainName);
 
 		this.setBlockStatus();
 	},

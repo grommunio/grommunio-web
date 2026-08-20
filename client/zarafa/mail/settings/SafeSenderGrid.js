@@ -33,7 +33,6 @@ Zarafa.mail.settings.SafeSenderGrid = Ext.extend(Ext.grid.GridPanel, {
 
 		Ext.applyIf(config, {
 			xtype: 'zarafa.safesendergrid',
-			name: 'zarafa/v1/contexts/mail/safe_senders_list',
 			height: 320,
 			forceFit: true,
 			store: store,
@@ -44,7 +43,7 @@ Zarafa.mail.settings.SafeSenderGrid = Ext.extend(Ext.grid.GridPanel, {
 			viewConfig: {
 				forceFit: true,
 				deferEmptyText: false,
-				emptyText: '<div class="emptytext">' + _('Safe Senders list is empty') + '</div>'
+				emptyText: '<div class="emptytext">' + (config.emptyText || _('List is empty')) + '</div>'
 			},
 			columns: [{
 				dataIndex: 'name',
@@ -82,7 +81,7 @@ Zarafa.mail.settings.SafeSenderGrid = Ext.extend(Ext.grid.GridPanel, {
 		var rowToSelect;
 
 		if(Ext.isEmpty(safeSenderRecord)) {
-			Ext.Msg.alert(_('Alert'), _('Please select a safe sender record.'));
+			Ext.Msg.alert(_('Alert'), _('Please select a record.'));
 			return;
 		}
 
@@ -110,8 +109,8 @@ Zarafa.mail.settings.SafeSenderGrid = Ext.extend(Ext.grid.GridPanel, {
 	deleteAllSafeSender: function()
 	{
 		Ext.MessageBox.show({
-			title: _('Delete all safe senders'),
-			msg: _('Are you sure you want to delete all safe senders?'),
+			title: _('Delete all entries'),
+			msg: _('Are you sure you want to delete all entries?'),
 			buttons: Ext.MessageBox.YESNO,
 			fn: function (buttonClicked) {
 				if (buttonClicked == 'yes') {
@@ -137,6 +136,36 @@ Zarafa.mail.settings.SafeSenderGrid = Ext.extend(Ext.grid.GridPanel, {
 		return records.map(function(record){
 			return record.get("name");
 		});
+	},
+
+	/**
+	 * Add a validated entry to the grid, deduplicated case-insensitively.
+	 * @param {String} name email address or @domain
+	 * @return {Boolean} True when the entry was added
+	 */
+	addEntry: function(name)
+	{
+		name = String(name).trim();
+		if (!Zarafa.mail.data.JunkMailStore.isValidEntry(name)) {
+			return false;
+		}
+
+		var store = this.getStore();
+		var lower = name.toLowerCase();
+		var exists = store.findBy(function(record) {
+			return record.get('name').toLowerCase() === lower;
+		}) !== -1;
+		if (exists) {
+			return false;
+		}
+
+		var maxId = 0;
+		store.each(function(record) {
+			maxId = Math.max(maxId, record.get('id'));
+		});
+		store.add(new store.recordType({ id: maxId + 1, name: name }, maxId + 1));
+
+		return true;
 	}
 });
 

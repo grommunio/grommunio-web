@@ -4102,7 +4102,8 @@ class Operations {
 	 * @return bool true if sender of original mail was safe sender else false
 	 */
 	public function isSafeSender($copyFromMessage) {
-		$safeSenderList = $GLOBALS['settings']->get('zarafa/v1/contexts/mail/safe_senders_list');
+		require_once BASE_PATH . 'server/includes/modules/class.junkmailmodule.php';
+
 		$senderEntryid = mapi_getprops($copyFromMessage, [PR_SENT_REPRESENTING_ENTRYID]);
 		$senderEntryid = $senderEntryid[PR_SENT_REPRESENTING_ENTRYID];
 
@@ -4134,14 +4135,17 @@ class Operations {
 			$address = $address[PR_EMAIL_ADDRESS];
 		}
 
-		// Obtain the Domain address from smtp/email address.
-		$domain = substr((string) $address, strpos((string) $address, "@") + 1);
+		$address = strtolower((string) $address);
+		$domain = '@' . substr($address, strpos($address, '@') + 1);
 
-		if (!empty($safeSenderList)) {
-			foreach ($safeSenderList as $safeSender) {
-				if ($safeSender === $address || $safeSender === $domain) {
-					return true;
-				}
+		// The Outlook junk email rule lists; getSenderLists already folds in the
+		// old webapp setting until it is retired, and caches per request.
+		$store = $GLOBALS['mapisession']->getDefaultMessageStore();
+		$lists = JunkMailModule::getSenderLists($store);
+		foreach ($lists['safe_senders'] as $entry) {
+			$entry = strtolower($entry);
+			if ($entry === $address || $entry === $domain) {
+				return true;
 			}
 		}
 
