@@ -34,6 +34,18 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 	dlgItems: undefined,
 
 	/**
+	 * The per browser window state of {@link Ext.MessageBox}. This messagebox is a copy
+	 * of that singleton and builds its own dialog, so it needs its own collection.
+	 * Sharing it lets {@link Ext.MessageBox#getDialog} hand out our dialog when the
+	 * active browser window changes.
+	 *
+	 * @property
+	 * @type Ext.util.MixedCollection
+	 * @private
+	 */
+	browserWindowsMessageBox: new Ext.util.MixedCollection(),
+
+	/**
 	 * Initialize the {@link Ext.MessageBox.dlg Dialog}.
 	 * Because the {@link Ext.MessageBox MessageBox} hides the usable
 	 * interface from use, we must apply a hack to access the Dialog
