@@ -74,12 +74,7 @@ if (!WebAppAuthentication::isAuthenticated()) {
 }
 
 // get the disabled plugin list from the config and admin-api
-$disabledPlugins = DISABLED_PLUGINS_LIST;
-$res = @json_decode(@file_get_contents(
-	ADMIN_API_DISABLEDPLUGINS_ENDPOINT . $GLOBALS["mapisession"]->getUserName(), false), true);
-if (isset($res['data'])) {
-	$disabledPlugins .= ';' . implode(';', $res['data']);
-}
+$disabledPlugins = getDisabledPluginsList();
 
 // Instantiate Plugin Manager
 $GLOBALS['PluginManager'] = new PluginManager(ENABLE_PLUGINS);
