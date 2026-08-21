@@ -44,7 +44,7 @@ Zarafa.common.settings.SettingsNewMailFoldersWidget = Ext.extend(Zarafa.settings
 	},
 
 	/**
-	 * Function will return object which will be used to create items for this settings widget
+	 * Returns an object which will be used to create items for this settings widget
 	 * @return {Array} Array containing configuration objects of child items
 	 * @private
 	 */
@@ -121,7 +121,7 @@ Zarafa.common.settings.SettingsNewMailFoldersWidget = Ext.extend(Zarafa.settings
 	},
 
 	/**
-	 * Event handler for a change of the folder scope, shows the folder list
+	 * Event handler for a change of the folder scope. Shows the folder list
 	 * only when the user picked a selection of folders.
 	 * @param {Ext.form.RadioGroup} group The radio group which fired the event
 	 * @param {Ext.form.Radio} radio The selected radio button
@@ -142,7 +142,7 @@ Zarafa.common.settings.SettingsNewMailFoldersWidget = Ext.extend(Zarafa.settings
 	},
 
 	/**
-	 * Event handler for a selection change in the folder list, the remove button
+	 * Event handler for a selection change in the folder list. The remove button
 	 * only applies to a selected folder.
 	 * @private
 	 */
@@ -152,7 +152,7 @@ Zarafa.common.settings.SettingsNewMailFoldersWidget = Ext.extend(Zarafa.settings
 	},
 
 	/**
-	 * Event handler for the 'Add' button, opens the folder selection dialog.
+	 * Event handler for the 'Add' button. Opens the folder selection dialog.
 	 * @private
 	 */
 	onAddFolder: function()
@@ -166,7 +166,7 @@ Zarafa.common.settings.SettingsNewMailFoldersWidget = Ext.extend(Zarafa.settings
 	},
 
 	/**
-	 * Callback of the folder selection dialog, adds the folder to the list
+	 * Callback of the folder selection dialog. Adds the folder to the list
 	 * unless it is already in there.
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The selected folder
 	 * @private
@@ -186,7 +186,7 @@ Zarafa.common.settings.SettingsNewMailFoldersWidget = Ext.extend(Zarafa.settings
 	},
 
 	/**
-	 * Event handler for the 'Remove' button, removes the selected folder from the list.
+	 * Event handler for the 'Remove' button. Removes the selected folder from the list.
 	 * @private
 	 */
 	onRemoveFolder: function()

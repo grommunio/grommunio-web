@@ -161,7 +161,7 @@ Zarafa.common.ui.DraggableDataView = Ext.extend(Ext.DataView, {
 	/**
 	 * Event handler for the 'contextmenu' event on the {@link #el element}. The context
 	 * menu key (and Shift + F10) fire the event on the off-screen focus element of the
-	 * {@link Zarafa.core.plugins.EnableFocusPlugin plugin} instead of on a node, such a
+	 * {@link Zarafa.core.plugins.EnableFocusPlugin plugin} instead of on a node. Such a
 	 * request is handled on the node which was selected last.
 	 *
 	 * @param {Ext.EventObject} event The event structure

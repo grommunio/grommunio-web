@@ -900,12 +900,12 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 *
 	 * When the notification reports how many messages newly arrived, that count
 	 * is shown. If exactly one message arrived and its details are known, the
-	 * sender and subject are shown instead. Without that information the total
+	 * sender and subject are shown instead. Without that information, the total
 	 * unread count is shown.
 	 *
 	 * The message is HTML, so dynamic values in it are encoded here and the
 	 * desktop notifiers decode them again for their plain text display. The
-	 * title is plain text, the notifiers rendering it as HTML encode it.
+	 * title is plain text. The notifiers rendering it as HTML encode it.
 	 *
 	 * @param {Object} folder The folder data received in the notification
 	 * @param {String} folderKey The default folder key of the folder

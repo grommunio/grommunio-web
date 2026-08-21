@@ -35,7 +35,7 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 
 	/**
 	 * The per browser window state of {@link Ext.MessageBox}. This messagebox is a copy
-	 * of that singleton and builds its own dialog, so it needs its own collection:
+	 * of that singleton and builds its own dialog, so it needs its own collection, because
 	 * {@link Ext.MessageBox#getDialog} records the current dialog here, and sharing the
 	 * collection overwrites the entry which {@link Ext.MessageBox#setActiveWindowMessageBox}
 	 * restores from when the active browser window changes. Nothing reads the entries of
@@ -73,7 +73,7 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 			this.dlgItemContainer.render(dlg.body);
 		}
 
-		// Close a messagebox which is still open, Ext.MessageBox#show hides it only
+		// Close a messagebox which is still open. Ext.MessageBox#show hides it only
 		// after the handlers below were registered and would consume them.
 		this.hide();
 
@@ -292,7 +292,7 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 	addCustomButtons: function(config)
 	{
 		// There is only one dialog to show this in, so a messagebox which is still
-		// waiting for an answer must not be replaced: its question would be gone and
+		// waiting for an answer must not be replaced, because its question would be gone and
 		// its caller would never hear back. Line up behind it instead.
 		if(this.isVisible() || !Ext.isEmpty(this.queuedMessageBoxes)) {
 			this.queuedMessageBoxes = this.queuedMessageBoxes || [];
@@ -319,7 +319,7 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 
 		var dlg = this.getDialog();
 
-		// Close a messagebox which is still open, Ext.MessageBox#show hides it only
+		// Close a messagebox which is still open. Ext.MessageBox#show hides it only
 		// after we added our buttons and would then remove those instead of its own.
 		this.hide();
 		this.removeCustomButtons(dlg);

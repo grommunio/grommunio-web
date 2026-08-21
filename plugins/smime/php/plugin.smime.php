@@ -682,7 +682,7 @@ class Pluginsmime extends Plugin {
 	 * mapi_inetmapi_imtomapi() rebuilds the message from the decrypted MIME and
 	 * replaces the envelope while doing so. The inner MIME of a signed and
 	 * encrypted message usually carries no sender of its own, so what remains
-	 * is a placeholder address: the message then shows an invalid sender, and
+	 * is a placeholder address. The message then shows an invalid sender, and
 	 * a reply has no recipient because the reply-to falls back to it.
 	 *
 	 * @return array the property tags to carry over
