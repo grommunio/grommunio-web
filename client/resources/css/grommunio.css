@@ -6655,7 +6655,7 @@ body .k-category-block {
   border-color: var(--ui-border-strong); }
 
 .x-tip {
-  background: #1d2939;
+  background: var(--theme-primary-color);
   border-radius: 8px; }
 
 /* tooltip for example Address book button large */
@@ -8035,16 +8035,42 @@ input[type="radio"]:checked:focus-visible {
   outline: none;
 }
 
-/* Focus-visible indicators for keyboard navigation */
+/* Focus-visible indicators for keyboard navigation. Ext ships
+   ".ext-webkit :focus { outline: none !important }", so the keyboard ring
+   has to be important as well; text fields draw their own ring. */
+.ext-webkit :focus-visible {
+  outline: 2px solid var(--theme-primary-color) !important;
+  outline-offset: 2px !important;
+}
+
+.ext-webkit input.x-form-text:focus-visible,
+.ext-webkit textarea:focus-visible,
+.ext-webkit input[type="checkbox"]:focus-visible,
+.ext-webkit input[type="radio"]:focus-visible,
+.ext-webkit .k-search-tail-input:focus-visible,
+.ext-webkit .k-search-token-input:focus-visible,
+.ext-webkit .k-search-token-input *:focus-visible,
+.ext-webkit [tabindex="-1"]:focus-visible,
+.ext-webkit .x-grid3-focus:focus-visible,
+.ext-webkit iframe:focus-visible,
+.ext-webkit body:focus-visible {
+  outline: none !important;
+}
+
 .x-tree-node a:focus-visible {
-  outline: 2px solid var(--theme-primary-color);
-  outline-offset: -2px;
+  outline: 2px solid var(--theme-primary-color) !important;
+  outline-offset: -2px !important;
   border-radius: 3px;
 }
 
-.x-tab-strip li a:focus-visible {
-  outline: 2px solid var(--theme-primary-color);
-  outline-offset: -2px;
+.x-tab-strip li a:focus-visible,
+.x-btn button:focus-visible,
+.x-menu-item:focus-visible,
+.x-grid3-row:focus-visible,
+.k-nav-rail-item:focus-visible,
+.zarafa-settings-category-tab:focus-visible {
+  outline: 2px solid var(--theme-primary-color) !important;
+  outline-offset: -2px !important;
 }
 
 .grommunio-toast-close:focus-visible,

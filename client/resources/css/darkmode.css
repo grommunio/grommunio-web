@@ -1640,8 +1640,11 @@ body.dark-mode .zarafa-welcome-body .zarafa-settings-widget-welcome .x-panel-hea
 	color: var(--dm-fg-muted);
 }
 
-body.dark-mode.zarafa-welcome,
 body.dark-mode #loading-mask {
+	background: #121212;
+}
+
+body.dark-mode.zarafa-welcome {
 	background:
 		url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIwIDEwODAiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjA3Ij48cGF0aCBkPSJNMCAyNjUuMTZzMi41Ny0yLjkzIDIxLjYxIDE1LjkzbDM2NC44NCAzNjEuNTcgMzY0Ljg0IDM2MS41N2MzMC43MSAzMC40MyAyOC4zOCA3NS43NCAyOC4zOCA3NS43NEgwVjI2NS4xNloiLz48cGF0aCBkPSJNMCAwdjYyNGwxMzQuMzkgMTMzLjA3YzE5LjAzIDE4Ljg2IDQzLjk4IDI4LjMgNjguOTMgMjguM3M0OS45LTkuNDMgNjguOTMtMjguM0w2MzcuMDkgMzk1LjVsMzY0Ljg0LTM2MS41OEMxMDI4LjI5IDExLjY2IDEwMjQgMCAxMDI0IDBIMFpNMTkyMCAxMDgwaC0zNzdsLTE0NS43MS0xNDYuMWMtMTguOTQtMTkuMTItMjguNDItNDQuMTctMjguNDItNjkuMjIgMC0yNS4wNSA5LjQ3LTUwLjExIDI4LjQyLTY5LjIyTDE5MjAgMjY4djgxMloiLz48L2c+PC9zdmc+) no-repeat center center / cover,
 		linear-gradient(150deg, color-mix(in srgb, var(--theme-gradient-start) 55%, #0b0f14), color-mix(in srgb, var(--theme-gradient-end) 55%, #0b0f14)) !important;
@@ -2426,6 +2429,16 @@ body.dark-mode .k-nav-rail-icon.icon_folder_public_store,
 body.dark-mode .zarafa-hierarchy-treepanel .x-tree-node-icon.icon_folder_shared_undefined,
 body.dark-mode .k-nav-rail-icon.icon_folder_shared_undefined {
 	filter: none;
+}
+
+/* Coloured iconset images keep their colour */
+body.dark-mode .icon_contact_user,
+body.dark-mode .icon_calendar_appt_cancelled,
+body.dark-mode .icon_no_response_required,
+body.dark-mode .x-menu-item-icon.icon_contact_user,
+body.dark-mode .x-menu-item-icon.icon_calendar_appt_cancelled,
+body.dark-mode .x-menu-item-icon.icon_no_response_required {
+	filter: none !important;
 }
 
 /* The note folder icons are yellow by design and stay so */

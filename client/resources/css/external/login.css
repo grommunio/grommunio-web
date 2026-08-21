@@ -82,7 +82,6 @@ body.theme-brown {
 }
 
 body.login,
-#loading-mask,
 body.zarafa-welcome {
   background:
     url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIwIDEwODAiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjA3Ij48cGF0aCBkPSJNMCAyNjUuMTZzMi41Ny0yLjkzIDIxLjYxIDE1LjkzbDM2NC44NCAzNjEuNTcgMzY0Ljg0IDM2MS41N2MzMC43MSAzMC40MyAyOC4zOCA3NS43NCAyOC4zOCA3NS43NEgwVjI2NS4xNloiLz48cGF0aCBkPSJNMCAwdjYyNGwxMzQuMzkgMTMzLjA3YzE5LjAzIDE4Ljg2IDQzLjk4IDI4LjMgNjguOTMgMjguM3M0OS45LTkuNDMgNjguOTMtMjguM0w2MzcuMDkgMzk1LjVsMzY0Ljg0LTM2MS41OEMxMDI4LjI5IDExLjY2IDEwMjQgMCAxMDI0IDBIMFpNMTkyMCAxMDgwaC0zNzdsLTE0NS43MS0xNDYuMWMtMTguOTQtMTkuMTItMjguNDItNDQuMTctMjguNDItNjkuMjIgMC0yNS4wNSA5LjQ3LTUwLjExIDI4LjQyLTY5LjIyTDE5MjAgMjY4djgxMloiLz48L2c+PC9zdmc+) no-repeat center center / cover,
@@ -90,6 +89,8 @@ body.zarafa-welcome {
     linear-gradient(150deg, var(--theme-gradient-start), var(--theme-gradient-end));
 }
 
+/* The loading screen sits between login and application and uses the
+   application ground, so no theme colour flashes in between */
 #loading-mask {
   position:absolute;
   top:0;
@@ -97,6 +98,10 @@ body.zarafa-welcome {
   width:100%;
   height:100%;
   z-index:20002;
+  background: #f7f8fa;
+}
+#loading-mask #form-container.loading {
+  box-shadow: 0 8px 32px rgba(16, 24, 40, 0.12), 0 1px 3px rgba(16, 24, 40, 0.08);
 }
 
 body.login #form-container,
