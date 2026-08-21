@@ -8245,7 +8245,7 @@ msgid "In folder {0}"
 msgstr "Im Ordner {0}"
 
 msgid "In folder {0} of {1}"
-msgstr "Im Ordner {0} aus {1}"
+msgstr "Im Ordner {0} von {1}"
 
 msgid "New Mail Notifications"
 msgstr "Benachrichtigungen bei neuen E-Mails"

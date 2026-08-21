@@ -8311,14 +8311,14 @@ msgstr[1] "{0} nye meddelelser i mappen {1}"
 
 msgid "{0} new message in folder {1} of {2}"
 msgid_plural "{0} new messages in folder {1} of {2}"
-msgstr[0] "{0} ny meddelelse i mappen {1} i {2}"
-msgstr[1] "{0} nye meddelelser i mappen {1} i {2}"
+msgstr[0] "{0} ny meddelelse i mappen {1} af {2}"
+msgstr[1] "{0} nye meddelelser i mappen {1} af {2}"
 
 msgid "In folder {0}"
 msgstr "I mappen {0}"
 
 msgid "In folder {0} of {1}"
-msgstr "I mappen {0} i {1}"
+msgstr "I mappen {0} af {1}"
 
 msgid "New Mail Notifications"
 msgstr "Notifikationer om ny mail"
