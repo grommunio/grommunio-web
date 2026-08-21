@@ -495,9 +495,9 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	onExecuteComplete: function(action, parameters, success)
 	{
 		// A failed action keeps its settings pending, so a later save sends them again.
-		// Not a reset though: the server treats it as a delete of the whole subtree, so
+		// This is not a reset though. The server treats it as a deletion of the whole subtree, so
 		// riding along with an unrelated save would discard settings which the user
-		// never asked to reset. The error is reported, resetting again is one click.
+		// never asked to reset. The error is reported. Resetting again is one click.
 		if (!success) {
 			if (parameters.action === Zarafa.core.Actions['reset']) {
 				this.commitSaveAction(parameters.action, parameters.parameters);
@@ -518,7 +518,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 
 	/**
 	 * Drop the settings of a save action from the list of pending changes. Only the
-	 * settings which that action carried are dropped, anything which was changed while
+	 * settings which that action carried are dropped. Anything which was changed while
 	 * the request was in flight stays pending for the next {@link #save}.
 	 * @param {Zarafa.core.Actions} action The action which was sent
 	 * @param {Array} parameters The settings which that action carried
@@ -612,7 +612,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 
 		// A setting whose local value is undefined holds nothing to delete, asking the
 		// server to remove it is a wasted request. Note this looks at the value, not at
-		// the presence of the key: the defaults declare keys without a value.
+		// the presence of the key, because the defaults declare keys without a value.
 		if (obj && Ext.isDefined(obj[settingName])) {
 			var setting = obj[settingName];
 

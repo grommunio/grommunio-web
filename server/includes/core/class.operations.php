@@ -4138,7 +4138,7 @@ class Operations {
 		$address = strtolower((string) $address);
 		$domain = '@' . substr($address, strpos($address, '@') + 1);
 
-		// The Outlook junk email rule lists; getSenderLists already folds in the
+		// getSenderLists already folds in the
 		// old webapp setting until it is retired, and caches per request.
 		$store = $GLOBALS['mapisession']->getDefaultMessageStore();
 		$lists = JunkMailModule::getSenderLists($store);

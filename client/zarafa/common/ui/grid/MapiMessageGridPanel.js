@@ -203,8 +203,8 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 	},
 
 	/**
-	 * Obtain the position for a context menu which was requested with the keyboard,
-	 * the focus element of the view sits on the row which has the focus.
+	 * Obtain the position for a context menu which was requested with the keyboard.
+	 * The focus element of the view sits on the row which has the focus.
 	 *
 	 * @return {Array} The X and Y coordinate for the context menu
 	 * @private
@@ -218,7 +218,7 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 	},
 
 	/**
-	 * Open the context menu for the given row, without a column index as a keyboard
+	 * Open the context menu for the given row, and without a column index, as a keyboard
 	 * request is not related to a single column.
 	 *
 	 * @param {Number} rowIndex The index of the row to open the context menu for

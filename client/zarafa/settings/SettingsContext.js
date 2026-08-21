@@ -49,8 +49,8 @@ Zarafa.settings.SettingsContext = Ext.extend(Zarafa.core.Context, {
 		container.on('contextswitch', this.onContextSwitch);
 
 		// Watch the settings for the rest of the session rather than only while this
-		// context is enabled: the server answers an apply whenever it answers it, which
-		// can be well after the user left the settings, and the prompt to reload still
+		// context is enabled. The server answers an apply at an unspecified time, which
+		// can be well after the user has left the settings, yet the prompt to reload still
 		// has to come up. This is the model which #getModel hands out as its real one.
 		container.getSettingsModel().on('save', this.onSaveSettings, this);
 	},

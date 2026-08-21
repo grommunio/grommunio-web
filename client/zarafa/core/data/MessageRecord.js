@@ -329,7 +329,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 		var senderSMTPAddress = (this.get('sent_representing_email_address') || this.get('sender_email_address') || '').toLowerCase();
 		var junkStore = Zarafa.mail.data.JunkMailStore;
 
-		// Safe senders always win - never block external content from safe senders
+		// Never block external content when originating from safe senders.
 		if (junkStore.isSafeSender(senderSMTPAddress)) {
 			return false;
 		}
@@ -349,7 +349,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 			return false;
 		}
 
-		// Blocked senders block even with the global setting off.
+		// Blocked senders get content blocked even with the global setting off.
 		if (junkStore.isBlockedSender(senderSMTPAddress)) {
 			return true;
 		}

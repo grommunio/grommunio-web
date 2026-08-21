@@ -4,7 +4,7 @@ Ext.namespace('Zarafa.mail.data');
  * @class Zarafa.mail.data.JunkMailStore
  * @extends Ext.util.Observable
  *
- * Singleton around the Outlook Junk Email Rule: safe senders, safe recipients
+ * A singleton around the Outlook Junk Email Rule, containing safe senders, safe recipients
  * and blocked senders, served by the junkmailmodule from the rule's condition.
  * All mutations are guarded by the loaded state, so a failed or pending load
  * can never overwrite the server-side lists.
@@ -138,7 +138,7 @@ Zarafa.mail.data.JunkMailStore = Ext.extend(Ext.util.Observable, {
 	},
 
 	/**
-	 * Save the lists to the server. Refused while not {@link #loaded}: an
+	 * Save the lists to the server. Refused while not {@link #loaded}, since an
 	 * unloaded cache would overwrite the stored lists with emptiness.
 	 * @param {Function} callback (optional) called with true/false
 	 * @param {Object} scope (optional) scope for the callback

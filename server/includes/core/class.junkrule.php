@@ -7,14 +7,15 @@
  * FAI message in the inbox whose PR_EXTENDED_RULE_MSG_CONDITION carries the
  * blocked senders, safe senders and safe recipients lists in the restriction
  * format of MS-OXORULE, exactly as Outlook reads and writes them (MS-OXCSPAM).
- * All integers little-endian; strings inside the blobs UTF-16LE, NUL-included;
- * array counts 32-bit (extended-rule flavour of MS-OXCDATA 2.12).
+ * All integers little-endian. Strings inside the blobs UTF-16LE, including
+ * trailing U+0000 codepoint.
+ * Array counts are 32-bit (extended rule flavour of MS-OXCDATA v20 §2.12).
  */
 class JunkRule {
 	public const PROVIDER = 'JunkEmailRule';
 	public const RULE_NAME = 'Junk E-mail rule';
 
-	// ST_ENABLED | ST_EXIT_LEVEL | ST_SKIP_IF_SCL_IS_SAFE (MS-OXCSPAM 3.1.4.1)
+	// ST_ENABLED | ST_EXIT_LEVEL | ST_SKIP_IF_SCL_IS_SAFE (MS-OXCSPAM v12 §3.1.4.1)
 	public const RULE_STATE = 0x31;
 
 	private const RES_AND = 0x00;
@@ -38,11 +39,11 @@ class JunkRule {
 	private const PS_PUBLIC_STRINGS = "\x29\x03\x02\x00\x00\x00\x00\x00\xC0\x00\x00\x00\x00\x00\x00\x46";
 
 	/**
-	 * Serialize the junk rule condition (MS-OXCSPAM 2.2.4 template).
+	 * Serialize the junk rule condition (MS-OXCSPAM v12 §2.2.4 template).
 	 *
-	 * Every list entry starting with '@' is a domain (substring clause), any
-	 * other entry an address (fullstring clause). $contacts carries the trusted
-	 * contact addresses Outlook maintains; pass through what parse() returned.
+	 * Every list entry starting with '@' is a domain (substring clause). Any
+	 * other entry is an address (fullstring clause). $contacts carries the trusted
+	 * contact addresses Outlook maintains. Pass through what parse() returned.
 	 *
 	 * @param array $blockedSenders  addresses and @domains
 	 * @param array $safeSenders    addresses and @domains
@@ -87,8 +88,8 @@ class JunkRule {
 	}
 
 	/**
-	 * Serialize the junk rule actions: OP_MOVE to the junk folder plus OP_TAG
-	 * with PidNameExchangeJunkEmailMoveStamp (MS-OXORULE 2.2.4.1.9).
+	 * Serialize the junk rule actions, i.e. OP_MOVE to the junk folder plus OP_TAG
+	 * with PidNameExchangeJunkEmailMoveStamp (MS-OXORULE v23 §2.2.4.1.9).
 	 *
 	 * @param string $junkFolderEntryId the 46-byte junk folder entryid
 	 * @param int    $moveStamp         the stamp from PR_ADDITIONAL_REN_ENTRYIDS[5]
@@ -338,7 +339,7 @@ class JunkRule {
 	}
 
 	/**
-	 * Pull a property value of the given PT type; strings decoded to UTF-8.
+	 * Pull a property value of the given PT type. Strings decode to UTF-8.
 	 */
 	private static function pullValue($blob, &$pos, $type) {
 		switch ($type) {
@@ -405,8 +406,8 @@ class JunkRule {
 
 	/**
 	 * Classify every string comparison in the tree into the four lists.
-	 * $negated: inside an odd number of RES_NOT. $inRecipients: inside a
-	 * RES_SUB on the recipients table.
+	 * $negated: inside an odd number of RES_NOT.
+	 * $inRecipients: inside a RES_SUB on the recipients table.
 	 */
 	private static function collect($node, $negated, $inRecipients, &$lists) {
 		switch ($node['t']) {
@@ -441,8 +442,8 @@ class JunkRule {
 					$lists['blocked_senders'][] = $val;
 				}
 				elseif ($substring && $val[0] !== '@') {
-					// Outlook's trusted-contacts clause: full addresses matched
-					// as substrings. Preserved, never shown as safe senders.
+					// Outlook's trusted-contacts clause contains full addresses matched
+					// as substrings. It is preserved, and never shown as safe senders.
 					$lists['contacts'][] = $val;
 				}
 				else {

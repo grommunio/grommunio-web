@@ -223,7 +223,7 @@ Zarafa.core.data.UIFactory = {
 	},
 
 	/**
-	 * Prepare a contextmenu which was opened with the keyboard: activate the first
+	 * Prepare a contextmenu which was opened with the keyboard. Activate the first
 	 * item for the arrow keys and give the focus back to the given element when the
 	 * menu is dismissed, unless something else took it meanwhile, e.g. a dialog which
 	 * was opened by the item that was clicked.
