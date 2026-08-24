@@ -291,6 +291,7 @@ Ext.apply(Zarafa, {
 
 		// Enable tooltips
 		Ext.QuickTips.init();
+		Zarafa.core.KeyboardFocus.init(document);
 	},
 
 	/**

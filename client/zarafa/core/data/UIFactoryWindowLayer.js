@@ -106,6 +106,28 @@ Zarafa.core.data.UIFactoryWindowLayer = Ext.extend(Zarafa.core.data.UIFactoryLay
 		}
 
 		window.show();
+		this.keepBelowTopBar(window);
+	},
+
+	/**
+	 * A window taller than the space under the main tab bar is centered over
+	 * the bar; shrink it to the space and move it below the bar.
+	 * @param {Ext.Window} window The shown window
+	 * @private
+	 */
+	keepBelowTopBar: function(window)
+	{
+		var bar = window.el.dom.ownerDocument.getElementById('zarafa-mainmenu');
+		var minY = (bar ? bar.getBoundingClientRect().bottom : 0) + 8;
+		var box = window.getBox();
+		var maxHeight = Ext.lib.Dom.getViewHeight() - minY - 8;
+
+		if (box.height > maxHeight) {
+			window.setHeight(maxHeight);
+		}
+		if (box.y < minY) {
+			window.setPosition(box.x, minY);
+		}
 	},
 
 	/**

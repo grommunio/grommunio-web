@@ -26,62 +26,82 @@ body {
   --login-error-border: #fecdca;
 }
 
-body.theme-purple {
+body.theme-purple,
+#loading-mask.theme-purple {
   --theme-gradient-start: #5a1b5f;
   --theme-gradient-end: #952d9d;
 }
 
-body.theme-orange {
+body.theme-orange,
+#loading-mask.theme-orange {
   --theme-gradient-start: #9c5000;
   --theme-gradient-end: #dc7100;
 }
 
-body.theme-lime {
+body.theme-lime,
+#loading-mask.theme-lime {
   --theme-gradient-start: #456505;
   --theme-gradient-end: #6da208;
 }
 
-body.theme-magenta {
+body.theme-magenta,
+#loading-mask.theme-magenta {
   --theme-gradient-start: #e20074;
   --theme-gradient-end: #e20074;
 }
 
-body.theme-highcontrast {
+body.theme-highcontrast,
+#loading-mask.theme-highcontrast {
   --theme-gradient-start: #191919;
   --theme-gradient-end: #323232;
 }
 
-body.theme-cyan {
+body.theme-cyan,
+#loading-mask.theme-cyan {
   --theme-gradient-start: #00acc1;
   --theme-gradient-end: #26c6da;
 }
 
-body.theme-teal {
+body.theme-teal,
+#loading-mask.theme-teal {
   --theme-gradient-start: #00796b;
   --theme-gradient-end: #26a69a;
 }
 
-body.theme-indigo {
+body.theme-indigo,
+#loading-mask.theme-indigo {
   --theme-gradient-start: #303f9f;
   --theme-gradient-end: #5c6bc0;
 }
 
-body.theme-red {
+body.theme-red,
+#loading-mask.theme-red {
   --theme-gradient-start: #c62828;
   --theme-gradient-end: #e53935;
 }
 
-body.theme-green {
+body.theme-green,
+#loading-mask.theme-green {
   --theme-gradient-start: #2e7d32;
   --theme-gradient-end: #43a047;
 }
 
-body.theme-brown {
+body.theme-brown,
+#loading-mask.theme-brown {
   --theme-gradient-start: #6d4c41;
   --theme-gradient-end: #8d6e63;
 }
 
+/* The loading screen keeps the look of the login page (its theme comes
+   from the server default, not from the user), so nothing changes until
+   the application appears */
+#loading-mask.theme-basic {
+  --theme-gradient-start: #009FFD;
+  --theme-gradient-end: #2a2a72;
+}
+
 body.login,
+#loading-mask,
 body.zarafa-welcome {
   background:
     url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIwIDEwODAiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjA3Ij48cGF0aCBkPSJNMCAyNjUuMTZzMi41Ny0yLjkzIDIxLjYxIDE1LjkzbDM2NC44NCAzNjEuNTcgMzY0Ljg0IDM2MS41N2MzMC43MSAzMC40MyAyOC4zOCA3NS43NCAyOC4zOCA3NS43NEgwVjI2NS4xNloiLz48cGF0aCBkPSJNMCAwdjYyNGwxMzQuMzkgMTMzLjA3YzE5LjAzIDE4Ljg2IDQzLjk4IDI4LjMgNjguOTMgMjguM3M0OS45LTkuNDMgNjguOTMtMjguM0w2MzcuMDkgMzk1LjVsMzY0Ljg0LTM2MS41OEMxMDI4LjI5IDExLjY2IDEwMjQgMCAxMDI0IDBIMFpNMTkyMCAxMDgwaC0zNzdsLTE0NS43MS0xNDYuMWMtMTguOTQtMTkuMTItMjguNDItNDQuMTctMjguNDItNjkuMjIgMC0yNS4wNSA5LjQ3LTUwLjExIDI4LjQyLTY5LjIyTDE5MjAgMjY4djgxMloiLz48L2c+PC9zdmc+) no-repeat center center / cover,
@@ -89,8 +109,6 @@ body.zarafa-welcome {
     linear-gradient(150deg, var(--theme-gradient-start), var(--theme-gradient-end));
 }
 
-/* The loading screen sits between login and application and uses the
-   application ground, so no theme colour flashes in between */
 #loading-mask {
   position:absolute;
   top:0;
@@ -98,10 +116,6 @@ body.zarafa-welcome {
   width:100%;
   height:100%;
   z-index:20002;
-  background: #f7f8fa;
-}
-#loading-mask #form-container.loading {
-  box-shadow: 0 8px 32px rgba(16, 24, 40, 0.12), 0 1px 3px rgba(16, 24, 40, 0.08);
 }
 
 body.login #form-container,

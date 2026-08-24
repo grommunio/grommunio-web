@@ -128,6 +128,8 @@ Zarafa.hierarchy.dialogs.FolderPropertiesGeneralTab = Ext.extend(Ext.form.FormPa
 			},{
 				xtype : 'textfield',
 				fieldLabel : _('Object ID'),
+				anchor: '100%',
+				readOnly: true,
 				name : 'x_fidtext'
 			}],
 			buttonAlign: 'left',
