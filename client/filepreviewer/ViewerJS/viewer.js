@@ -689,7 +689,7 @@ function Viewer( viewerPlugin, parameters ) {
  * @source: http://github.com/kogmbh/ViewerJS
  */
 
-/*global document, window, Viewer, ViewerSupport, ODFViewerPlugin, DocxViewerPlugin, XlsxViewerPlugin, ImageViewerPlugin, MultimediaViewerPlugin, UnknownFilePlugin*/
+/*global document, window, Viewer, ViewerSupport, ODFViewerPlugin, DocxViewerPlugin, XlsxViewerPlugin, ImageViewerPlugin, MultimediaViewerPlugin, TextViewerPlugin, UnknownFilePlugin*/
 
 (function () {
     "use strict";
@@ -751,6 +751,17 @@ function Viewer( viewerPlugin, parameters ) {
                 'audio/aac', 'audio/mp4', 'audio/mpeg', 'audio/ogg', 'audio/wav',
                 'audio/webm', 'audio/flac', 'audio/opus'
             ]
+        },
+        text: {
+            path:        "./TextViewerPlugin.js",
+            getClass:    function () { return TextViewerPlugin; },
+            extensions:  ['txt', 'text', 'log', 'md', 'markdown', 'json', 'xml', 'yaml',
+                          'yml', 'ini', 'cfg', 'conf', 'diff', 'patch', 'sql', 'htm',
+                          'html', 'css', 'js', 'ts', 'php', 'py', 'pl', 'rb', 'sh',
+                          'bat', 'ps1', 'c', 'h', 'cpp', 'hpp', 'cs', 'java', 'go',
+                          'rs', 'tex', 'toml', 'properties'],
+            mimetypes:   ['text/plain', 'text/markdown', 'application/json', 'text/xml',
+                          'application/xml']
         }
     };
 
