@@ -129,11 +129,9 @@ Zarafa.mail.Actions = {
 					if (actionType === Zarafa.mail.data.ActionTypes.FORWARD_ATTACH) {
 						response = model.createResponseRecord(record, actionType, response, config);
 					} else {
-						response = model.createResponseRecord(record, actionType);
-						Zarafa.core.data.UIFactory.openCreateRecord(response, config);
-
 						store.un('open', openHandler, record);
 						store.un('exception', failHandler, record);
+						Zarafa.mail.Actions.openReadyMailResponse(record, model, actionType, config);
 					}
 				};
 
@@ -158,8 +156,7 @@ Zarafa.mail.Actions = {
 				// ends up containing only the quoted header. See
 				// Zarafa.core.data.IPMRecord#isBodyMissing.
 				if (record.isOpened() && !record.isBodyMissing()) {
-					response = model.createResponseRecord(record, actionType);
-					Zarafa.core.data.UIFactory.openCreateRecord(response, config);
+					Zarafa.mail.Actions.openReadyMailResponse(record, model, actionType, config);
 				} else {
 					var store = record.getStore();
 					store.on('open', openHandler, record);
@@ -177,6 +174,39 @@ Zarafa.mail.Actions = {
 		if (actionType === Zarafa.mail.data.ActionTypes.FORWARD_ATTACH) {
 			Zarafa.core.data.UIFactory.openCreateRecord(response, config);
 		}
+	},
+
+	/** Wait for local decryption and attachment uploads before quoting a message. */
+	openReadyMailResponse: function(record, model, actionType, config)
+	{
+		if (record.browserResponsePending) { return; }
+		var info = record.get('pgp');
+		var open = function() {
+			var response = model.createResponseRecord(record, actionType, undefined, config);
+			if (response.browserAttachmentsReady) {
+				return response.browserAttachmentsReady.then(function() { Zarafa.core.data.UIFactory.openCreateRecord(response, config); });
+			}
+			Zarafa.core.data.UIFactory.openCreateRecord(response, config);
+		};
+		if (!info) { return open(); }
+		record.browserResponsePending = true;
+		var transport = Zarafa.plugins && Zarafa.plugins.pgp && Zarafa.plugins.pgp.PgpTransport;
+		var ready = Promise.resolve().then(function() {
+			if (!transport) { throw new Error(_('Enable OpenPGP before replying to this protected message.')); }
+			return transport.open(record);
+		});
+		return ready.then(function() {
+			var status = record.get('pgp') || {};
+			if (status.encrypted && !status.decrypted && status.locked) { return transport.unlockAndOpen(record); }
+		}).then(function() {
+			var status = record.get('pgp') || {};
+			if (status.error || status.pending || (status.encrypted && !status.decrypted)) {
+				throw new Error(_('The protected message could not be opened. No reply or forward was created.'));
+			}
+			return open();
+		}).catch(function(error) {
+			if (!error.cancelled) { container.getNotifier().notify('info.saved', _('Unable to open response'), Ext.util.Format.htmlEncode(error.message)); }
+		}).then(function() { record.browserResponsePending = false; });
 	},
 
 	/**

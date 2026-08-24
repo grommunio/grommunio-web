@@ -1904,7 +1904,7 @@ class Operations {
 	 * @param resource    $store       MAPI message store
 	 * @param string      $entryid     entryid of the message
 	 * @param array|false $attach_num  a list of attachment numbers, or false
-	 * @param bool        $parse_smime whether to parse an S/MIME message
+	 * @param bool        $parse_smime whether to parse a protected S/MIME or OpenPGP message
 	 *
 	 * @return false|resource MAPI message, or false when it cannot be opened
 	 */
@@ -1914,10 +1914,11 @@ class Operations {
 			return false;
 		}
 
-		// Needed for S/MIME messages with embedded message attachments
+		// Protected MIME must be decoded before looking up embedded attachments.
 		if ($parse_smime) {
 			$p = mapi_getprops($message, [PR_MESSAGE_CLASS]);
-			if (isset($p[PR_MESSAGE_CLASS]) && stripos((string) $p[PR_MESSAGE_CLASS], "SMIME") !== false) {
+			if ((defined('PLUGIN_PGP_ENABLE') && PLUGIN_PGP_ENABLE) ||
+				(isset($p[PR_MESSAGE_CLASS]) && stripos((string) $p[PR_MESSAGE_CLASS], "SMIME") !== false)) {
 				parse_smime($store, $message);
 			}
 		}

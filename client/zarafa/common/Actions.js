@@ -1320,6 +1320,10 @@ Zarafa.common.Actions = {
 	 */
 	downloadAttachment: function(record, allAsZip)
 	{
+		if (record.localContent) {
+			record.localContent.download(allAsZip);
+			return;
+		}
 		if (this.downloadFrame) {
 			// If download frame is not available in active browser window then
 			// create new download frame under active browser window.

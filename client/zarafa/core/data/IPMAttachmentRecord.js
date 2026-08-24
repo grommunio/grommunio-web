@@ -76,12 +76,21 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 		Ext.apply(this.modified, record.modified);
 
 		this.inline = record.inline;
+		this.localContent = record.localContent;
 		this.uploadAttempted = record.uploadAttempted;
 		this.dirty = record.dirty;
 
 		this.endEdit(false);
 
 		return this;
+	},
+	/** Preserve browser-only content when opening a read view in another layer. */
+	copy: function(newId)
+	{
+		var copy = Zarafa.core.data.IPMAttachmentRecord.superclass.copy.call(this, newId);
+		copy.localContent = this.localContent;
+		copy.inline = this.inline;
+		return copy;
 	},
 	/**
 	 * @param {Boolean} inline
@@ -97,6 +106,7 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	 */
 	isUploaded: function()
 	{
+		if (this.localContent) { return !!this.localContent.blob; }
 		return !Ext.isEmpty(this.get('tmpname')) || !this.isTmpFile();
 	},
 
@@ -187,6 +197,9 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	 */
 	canBeImported: function()
 	{
+		// A browser-decrypted file has no server-side attachment number. It can
+		// be downloaded; server import must not target the encrypted envelope.
+		if (this.localContent) { return false; }
 		var isSupportedExtension = false;
 		if (this.isEmbeddedMessage()) {
 			isSupportedExtension = Zarafa.core.MessageClass.isClass(this.get('attach_message_class'), ['IPM.Note', 'IPM.Contact', 'IPM.TaskRequest', 'IPM.Schedule.Meeting.Resp', 'IPM.Schedule.Meeting.Request' ,'REPORT.IPM.Note'], true);

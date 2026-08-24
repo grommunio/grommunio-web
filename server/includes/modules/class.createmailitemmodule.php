@@ -315,6 +315,13 @@ class CreateMailItemModule extends ItemModule {
 					$context['store'] = $copyFromStore;
 				}
 
+				if (($action['message_action']['browser_decrypted'] ?? false) === true) {
+					// The browser has uploaded the selected decrypted attachments
+					// through the normal attachment pipeline. Copying the source
+					// here would duplicate its opaque encrypted MIME envelope.
+					// Source IDs remain available for the reply/forward marker.
+					$copyFromMessage = false;
+				}
 				if ($copyFromStore && $copyFromMessage) {
 					parse_smime($copyFromStore, $copyFromMessage);
 				}

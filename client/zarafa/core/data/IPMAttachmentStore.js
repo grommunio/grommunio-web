@@ -74,6 +74,10 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 */
 	onAttachmentsChange: function()
 	{
+		if (this.localOnly && this.getParentRecord()) {
+			this.getParentRecord().data.hasattach = this.getCount() > 0;
+			return;
+		}
 		if(this.getParentRecord()){
 			if(this.getCount() > 0) {
 				this.getParentRecord().set('hasattach', true);
@@ -111,6 +115,7 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 */
 	getInlineImageUrl: function(attachmentRecord)
 	{
+		if (attachmentRecord.localContent) { return attachmentRecord.localContent.inlineUrl || ''; }
 		var url = this.getDownloadAttachmentUrl(attachmentRecord);
 		return Ext.urlAppend(url, 'contentDispositionType=inline');
 	},
@@ -124,6 +129,7 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 */
 	getAttachmentUrl: function(attachmentRecord, allAsZip)
 	{
+		if (attachmentRecord.localContent) { return this.getDownloadAttachmentUrl(attachmentRecord, allAsZip); }
 		var url = this.getDownloadAttachmentUrl(attachmentRecord, allAsZip);
 		return Ext.urlAppend(url, 'contentDispositionType=attachment');
 	},
@@ -146,6 +152,10 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	{
 		if (Ext.isEmpty(attachmentRecords)) {
 			return '';
+		}
+		if (attachmentRecords.some(function(record) { return !!record.localContent; })) {
+			return attachmentRecords.every(function(record) { return !!record.localContent; })
+				? attachmentRecords[0].localContent.zip(attachmentRecords) : '';
 		}
 
 		var attachNums = [];
@@ -175,6 +185,9 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 */
 	getDownloadAttachmentUrl: function(attachmentRecord, allAsZip)
 	{
+		if (attachmentRecord.localContent) {
+			return allAsZip ? attachmentRecord.localContent.zip(this.getRange()) : attachmentRecord.localContent.url;
+		}
 		var parentRecord = this.getParentRecord();
 		var isSubMessage = parentRecord.isSubMessage();
 
