@@ -84,7 +84,7 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 				}
 			}],
 			buttons: [{
-				cls: 'zarafa-normal',
+				cls: 'zarafa-action',
 				text: _('Add'),
 				ref: '../../addUserBtn',
 				handler: this.onUserAdd,
@@ -340,7 +340,8 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 					}]
 				},{
 					xtype: "checkbox",
-					style: 'margin-top: 8px;',
+					hideLabel: true,
+					itemCls: 'k-recursive-item',
 					name: 'recursive',
 					boxLabel: _('Apply (copy) changed permissions recursively'),
 					handler: this.onFolderFieldChange,

@@ -2466,6 +2466,12 @@ body.dark-mode .x-menu-item-icon.icon-select-color {
 	filter: none !important;
 }
 
+body.dark-mode .zarafa-hierarchy-treepanel .x-tree-node-icon.icon_inbox,
+body.dark-mode .k-nav-rail-icon.icon_inbox,
+body.dark-mode .zarafa-folderproperties .folder-dialog-icon.icon_inbox {
+	filter: none;
+}
+
 /* Coloured iconset images keep their colour */
 body.dark-mode .icon_contact_user,
 body.dark-mode .icon_calendar_appt_cancelled,
