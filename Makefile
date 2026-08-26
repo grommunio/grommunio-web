@@ -88,6 +88,11 @@ css:
 		! -path "$(DESTDIR)/client/filepreviewer/pdfjs/web/viewer.css" \
 		-exec $(CSSCOMPILER) $(CSSOPTIONS) --output {}.min {} \; -exec mv {}.min {} \;
 	find $(DESTDIR)/plugins -name "*.css" -exec $(CSSCOMPILER) $(CSSOPTIONS) --output {}.min {} \; -exec mv {}.min {} \;
+	# postcss-preset-env guards relative-colour rules with an @supports
+	# test that crashes the Firefox 154 style parser; drop the part of
+	# the test that triggers it, the guard still detects the feature
+	find $(DESTDIR)/client $(DESTDIR)/plugins -name "*.css" \
+		-exec sed -i 's#lab(from red l 1 1%/calc(alpha + 0.1))#lab(from red l 1 1%)#g' {} +
 
 svgo: node_modules
 	find client plugins -type f -name "*.svg" -exec $(SVGCOMPRESS) --multipass {} \;

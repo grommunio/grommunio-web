@@ -8109,6 +8109,17 @@ input[type="radio"]:checked:focus-visible {
   color: var(--ui-text-2);
 }
 
+/* Caption spans replace labels that would point at a non-form element; they
+   must lay out like the label they stand in for (float beside the field) */
+.x-form-item span.x-form-item-label {
+  display: block;
+  float: left;
+  clear: left;
+  position: relative;
+  padding: 6px 3px 3px 0;
+  color: var(--ui-text-2);
+}
+
 
 /* Addressbook General Tab - modern layout */
 .k-ab-general-tab > .x-panel-bwrap > .x-panel-body {
