@@ -689,7 +689,7 @@ function Viewer( viewerPlugin, parameters ) {
  * @source: http://github.com/kogmbh/ViewerJS
  */
 
-/*global document, window, Viewer, ViewerSupport, ODFViewerPlugin, DocxViewerPlugin, XlsxViewerPlugin, ImageViewerPlugin, MultimediaViewerPlugin, TextViewerPlugin, UnknownFilePlugin*/
+/*global document, window, Viewer, ViewerSupport, ODFViewerPlugin, DocxViewerPlugin, SheetViewerPlugin, ImageViewerPlugin, MultimediaViewerPlugin, TextViewerPlugin, UnknownFilePlugin*/
 
 (function () {
     "use strict";
@@ -722,13 +722,19 @@ function Viewer( viewerPlugin, parameters ) {
                 'application/vnd.openxmlformats-officedocument.wordprocessingml.template'
             ]
         },
-        xlsx: {
-            path:        "./XlsxViewerPlugin.js",
-            getClass:    function () { return XlsxViewerPlugin; },
-            extensions:  ['xlsx', 'xltx'],
+        sheet: {
+            path:        "./SheetViewerPlugin.js",
+            getClass:    function () { return SheetViewerPlugin; },
+            extensions:  ['xls', 'xlt', 'xlsx', 'xlsm', 'xltx', 'xltm', 'xlsb',
+                          'csv', 'tsv', 'dbf', 'dif', 'slk', 'prn'],
             mimetypes:   [
                 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-                'application/vnd.openxmlformats-officedocument.spreadsheetml.template'
+                'application/vnd.openxmlformats-officedocument.spreadsheetml.template',
+                'application/vnd.ms-excel',
+                'application/vnd.ms-excel.sheet.macroenabled.12',
+                'application/vnd.ms-excel.sheet.binary.macroenabled.12',
+                'text/csv',
+                'text/tab-separated-values'
             ]
         },
         image: {
