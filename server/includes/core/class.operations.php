@@ -2719,6 +2719,40 @@ class Operations {
 	}
 
 	/**
+	 * Check raw compose protection intent before mapping optional plugin fields.
+	 * An unloaded plugin must never silently turn a protected send into plaintext.
+	 */
+	public static function assertOpenPgpAvailable(array $props): void {
+		if (empty($props['pgp_sign']) && empty($props['pgp_encrypt'])) {
+			return;
+		}
+		$plugin = $GLOBALS['PluginManager']->plugins['pgp'] ?? null;
+		if (!defined('PLUGIN_PGP_ENABLE') || !PLUGIN_PGP_ENABLE || !($plugin instanceof Pluginpgp)) {
+			$error = new MAPIException('OpenPGP protection is unavailable', MAPI_E_NO_SUPPORT);
+			$error->setTitle(_('OpenPGP: message was not sent'));
+			$error->setDisplayMessage(_('OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption.'));
+			throw $error;
+		}
+	}
+
+	/** Check saved draft intent even when the optional plugin is no longer loaded. */
+	public static function assertOpenPgpApplied($store, $message): void {
+		// These identifiers are also used by Pluginpgp::propertyNames(). Core
+		// must resolve them independently so removed plugins cannot hide intent.
+		$map = getPropIdsFromStrings($store, [
+			'pgp_sign' => 'PT_BOOLEAN:{9ae1e2cd-14c9-4d51-a235-3a19ccff9d34}:sign',
+			'pgp_encrypt' => 'PT_BOOLEAN:{9ae1e2cd-14c9-4d51-a235-3a19ccff9d34}:encrypt',
+		]);
+		$props = is_array($map) && isset($map['pgp_sign'], $map['pgp_encrypt']) ? mapi_getprops($message, array_values($map)) : false;
+		if (!is_array($props) || !empty($props[$map['pgp_sign']]) || !empty($props[$map['pgp_encrypt']])) {
+			$error = new MAPIException('OpenPGP protection was not applied', MAPI_E_NO_SUPPORT);
+			$error->setTitle(_('OpenPGP: message was not sent'));
+			$error->setDisplayMessage(_('This draft requests OpenPGP protection, but it was not applied. The message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption.'));
+			throw $error;
+		}
+	}
+
+	/**
 	 * Submit a message for sending.
 	 *
 	 * This function is an extension of the saveMessage() function, with the extra functionality
@@ -3193,6 +3227,7 @@ class Operations {
 			'entryid' => $entryid,
 			'message' => &$message,
 		]);
+		self::assertOpenPgpApplied($store, $message);
 
 		// Verify that a requested SendAs / on-behalf identity actually made it onto the
 		// message before submitting. The representing-sender assignment above is conditional
