@@ -66,16 +66,51 @@ class State {
 	 * Open the session file.
 	 *
 	 * The session file is opened and locked so that other processes can not access the state information
+	 *
+	 * @return bool true when the file is locked
 	 */
 	public function open() {
 		if ($this->fp === false) {
 			if (!is_dir($this->basedir)) {
-				mkdir($this->basedir, 0755, true /* recursive */);
+				if (!@mkdir($this->basedir, 0755, true /* recursive */) && !is_dir($this->basedir)) {
+					error_log('[STATE ERROR] State directory "' . $this->basedir . '" could not be created.');
+
+					return false;
+				}
 			}
-			$this->fp = fopen($this->filename, "a+");
+			$cleanupLock = @fopen($this->basedir . DIRECTORY_SEPARATOR . '.cleanup.lock', 'c');
+			if ($cleanupLock === false || !flock($cleanupLock, LOCK_SH)) {
+				if (is_resource($cleanupLock)) {
+					fclose($cleanupLock);
+				}
+				error_log('[STATE ERROR] State cleanup lock could not be acquired.');
+
+				return false;
+			}
+			$this->fp = @fopen($this->filename, "a+");
+			if ($this->fp === false) {
+				flock($cleanupLock, LOCK_UN);
+				fclose($cleanupLock);
+				error_log('[STATE ERROR] State file "' . $this->filename . '" could not be opened.');
+
+				return false;
+			}
 			$this->sessioncache = [];
-			flock($this->fp, LOCK_EX);
+			if (!flock($this->fp, LOCK_EX)) {
+				fclose($this->fp);
+				$this->fp = false;
+				flock($cleanupLock, LOCK_UN);
+				fclose($cleanupLock);
+				error_log('[STATE ERROR] State file "' . $this->filename . '" could not be locked.');
+
+				return false;
+			}
+			flock($cleanupLock, LOCK_UN);
+			fclose($cleanupLock);
+			@touch($this->filename);
 		}
+
+		return true;
 	}
 
 	/**
@@ -83,15 +118,20 @@ class State {
 	 *
 	 * @param string $name Name of the setting to retrieve
 	 *
-	 * @return null|string Value of the state value, or null if not found
+	 * @return mixed Value of the state value, or null if not found
 	 */
 	public function read($name) {
 		if ($this->fp !== false) {
 			// If the file has already been read, we only have to access
 			// our cache to obtain the requeste data.
 			if (empty($this->sessioncache)) {
-				$this->contents = file_get_contents($this->filename);
-				$this->sessioncache = unserialize($this->contents);
+				rewind($this->fp);
+				$contents = stream_get_contents($this->fp);
+				$this->contents = $contents === false ? '' : $contents;
+				$this->sessioncache = $this->contents === '' ? [] : unserialize($this->contents);
+				if (!is_array($this->sessioncache)) {
+					$this->sessioncache = [];
+				}
 			}
 
 			if (isset($this->sessioncache[$name])) {
@@ -164,12 +204,17 @@ class State {
 	 * This closes and unlocks the state file so that other processes can access the state
 	 */
 	public function close() {
-		if (isset($this->fp)) {
+		if ($this->fp !== false) {
 			// release write lock -- fclose does this automatically
 			// but only in PHP <= 5.3.2
 			flock($this->fp, LOCK_UN);
 			fclose($this->fp);
+			$this->fp = false;
 		}
+	}
+
+	public function __destruct() {
+		$this->close();
 	}
 
 	/**
@@ -178,6 +223,63 @@ class State {
 	 * @param int $maxLifeTime the maximum allowed age of files in seconds
 	 */
 	public function clean($maxLifeTime = STATE_FILE_MAX_LIFETIME) {
-		cleanTemp($this->basedir, $maxLifeTime);
+		if (!is_dir($this->basedir)) {
+			return;
+		}
+
+		$directory = @opendir($this->basedir);
+		if ($directory === false) {
+			return;
+		}
+		$stalePaths = [];
+		while (($file = readdir($directory)) !== false) {
+			if ($file === '.' || $file === '..' || $file === '.cleanup.lock') {
+				continue;
+			}
+			$path = $this->basedir . DIRECTORY_SEPARATOR . $file;
+			$fileInfo = @lstat($path);
+			if ($fileInfo === false || ($fileInfo['mode'] & 0170000) !== 0100000) {
+				continue;
+			}
+			if ($fileInfo['atime'] < time() - $maxLifeTime) {
+				$stalePaths[] = $path;
+			}
+		}
+		closedir($directory);
+		if (empty($stalePaths)) {
+			return;
+		}
+
+		$cleanupLock = @fopen($this->basedir . DIRECTORY_SEPARATOR . '.cleanup.lock', 'c');
+		if ($cleanupLock === false || !flock($cleanupLock, LOCK_EX)) {
+			if (is_resource($cleanupLock)) {
+				fclose($cleanupLock);
+			}
+
+			return;
+		}
+		foreach ($stalePaths as $path) {
+			$fileInfo = @lstat($path);
+			if ($fileInfo === false || ($fileInfo['mode'] & 0170000) !== 0100000 ||
+				$fileInfo['atime'] >= time() - $maxLifeTime) {
+				continue;
+			}
+
+			$handle = @fopen($path, 'r+');
+			if ($handle === false) {
+				continue;
+			}
+			if (flock($handle, LOCK_EX | LOCK_NB)) {
+				clearstatcache(true, $path);
+				$fileInfo = @stat($path);
+				if ($fileInfo !== false && $fileInfo['atime'] < time() - $maxLifeTime) {
+					@unlink($path);
+				}
+				flock($handle, LOCK_UN);
+			}
+			fclose($handle);
+		}
+		flock($cleanupLock, LOCK_UN);
+		fclose($cleanupLock);
 	}
 }
