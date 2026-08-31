@@ -232,6 +232,18 @@ class EncryptionStore {
 	}
 
 	/**
+	 * Removes the entry stored for the given $key, if any. Used for values
+	 * that must be consumed exactly once (e.g. a single-use WebAuthn challenge).
+	 *
+	 * @param string $key The key to remove
+	 */
+	public function remove($key) {
+		$session_did_exists = $this->open_session(true);
+		unset($_SESSION[EncryptionStore::_SESSION_KEY][$key]);
+		$this->close_session($session_did_exists);
+	}
+
+	/**
 	 * Open the php session if it isn't open.
 	 *
 	 * @return bool return if the session was opened or not

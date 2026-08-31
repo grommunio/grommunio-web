@@ -20,6 +20,15 @@ WebAppAuthentication::authenticate();
 // store the mapisession as global
 $GLOBALS["mapisession"] = WebAppAuthentication::getMAPISession();
 
+// Enforce the second factor (e.g. passkey) for the JSON dispatcher and the
+// REST service controllers. This runs BEFORE the service dispatch below and
+// before the hard auth gate, so a half-authenticated (password-only) session
+// cannot reach any module action or service endpoint that touches mailbox
+// data. No-op when no second factor is pending or for exempt endpoints
+// (authenticate/token/logout/fingerprint/ping) so the user can still complete
+// the factor or log out.
+WebAppAuthentication::enforceSecondFactor('json');
+
 // Get the language from the session
 // before we close the session.
 if (isset($_SESSION["lang"])) {
