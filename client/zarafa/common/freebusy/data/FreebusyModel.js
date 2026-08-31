@@ -1007,43 +1007,43 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 		// Always start with a clean store
 		this.suggestionBlockStore.removeAll();
 
-		if (this.freeBlockStore.getCount() > 0) {
-			var start = this.suggestionRange.getStartTime() / 1000;
-			var end = this.suggestionRange.getDueTime() / 1000;
-			var duration = this.selectorRange.getDuration(Date.SECOND);
-			var interval = Ext.min([duration, 30 * 60]); // FIXME: make configurable
+		var start = this.suggestionRange.getStartTime() / 1000;
+		var end = this.suggestionRange.getDueTime() / 1000;
+		var duration = this.selectorRange.getDuration(Date.SECOND);
+		var interval = Ext.min([duration, 30 * 60]); // FIXME: make configurable
 
-			// But what if the appointment takes 0 minutes..
-			// That would be dumb, but we won't be fooled!
-			if (interval <= 0) {
-				interval = 30 * 60;
+		// But what if the appointment takes 0 minutes..
+		// That would be dumb, but we won't be fooled!
+		if (interval <= 0) {
+			interval = 30 * 60;
+		}
+
+		// An empty store means nobody is occupied, which is the case where every
+		// slot is a suggestion. The leftover below covers the whole range.
+		this.freeBlockStore.each(function(sumBlock) {
+			var sumStart = sumBlock.get('start');
+			var sumEnd = sumBlock.get('end');
+
+			if (sumEnd < start || sumStart > end) {
+				// The block falls entirely before or entirely after the
+				// requested range, so it contributes nothing. Any range left
+				// over after the loop is added below.
+				return;
+			} else if (sumStart <= start) {
+				// The block overlap our range, our new start
+				// time is the end time of this block.
+				start = sumEnd;
+			} else {
+				// The entire block falls after our start range,
+				// simply add a suggestionblock from start to the sumBlock start.
+				this.suggestionBlockStore.add(this.createSuggestionBlocks(start, Ext.min([sumStart, end]), duration, interval));
+				start = sumEnd;
 			}
+		}, this);
 
-			this.freeBlockStore.each(function(sumBlock) {
-				var sumStart = sumBlock.get('start');
-				var sumEnd = sumBlock.get('end');
-
-				if (sumEnd < start || sumStart > end) {
-					// The block falls entirely before or entirely after the
-					// requested range, so it contributes nothing. Any range left
-					// over after the loop is added below.
-					return;
-				} else if (sumStart <= start) {
-					// The block overlap our range, our new start
-					// time is the end time of this block.
-					start = sumEnd;
-				} else {
-					// The entire block falls after our start range,
-					// simply add a suggestionblock from start to the sumBlock start.
-					this.suggestionBlockStore.add(this.createSuggestionBlocks(start, Ext.min([sumStart, end]), duration, interval));
-					start = sumEnd;
-				}
-			}, this);
-
-			// Check if we still have a leftover...
-			if (start < end) {
-				this.suggestionBlockStore.add(this.createSuggestionBlocks(start, end, duration, interval));
-			}
+		// Check if we still have a leftover...
+		if (start < end) {
+			this.suggestionBlockStore.add(this.createSuggestionBlocks(start, end, duration, interval));
 		}
 
 		this.suggestionBlockStore.fireEvent('load', this.suggestionBlockStore, this.suggestionBlockStore.getRange(), {});
