@@ -223,7 +223,7 @@ function Viewer( viewerPlugin, parameters ) {
             options = {
                 pageAutoOption:   'Automatic',
                 pageActualOption: 'Actual size',
-                pageWidthOption:  'Full width'
+                pageWidthOption:  'Page width'
             };
 
         Object.keys(titles).forEach(function ( id ) {
@@ -689,7 +689,7 @@ function Viewer( viewerPlugin, parameters ) {
  * @source: http://github.com/kogmbh/ViewerJS
  */
 
-/*global document, window, Viewer, ViewerSupport, ODFViewerPlugin, DocxViewerPlugin, SheetViewerPlugin, ImageViewerPlugin, MultimediaViewerPlugin, TextViewerPlugin, UnknownFilePlugin*/
+/*global document, window, Viewer, ViewerSupport, ODFViewerPlugin, DocViewerPlugin, DocxViewerPlugin, RtfViewerPlugin, SheetViewerPlugin, ImageViewerPlugin, MultimediaViewerPlugin, TextViewerPlugin, UnknownFilePlugin*/
 
 (function () {
     "use strict";
@@ -713,6 +713,12 @@ function Viewer( viewerPlugin, parameters ) {
                 'application/vnd.oasis.opendocument.spreadsheet-template'
             ]
         },
+        doc: {
+            path:        "./DocViewerPlugin.js",
+            getClass:    function () { return DocViewerPlugin; },
+            extensions:  ['doc', 'dot'],
+            mimetypes:   ['application/msword']
+        },
         docx: {
             path:        "./DocxViewerPlugin.js",
             getClass:    function () { return DocxViewerPlugin; },
@@ -721,6 +727,12 @@ function Viewer( viewerPlugin, parameters ) {
                 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
                 'application/vnd.openxmlformats-officedocument.wordprocessingml.template'
             ]
+        },
+        rtf: {
+            path:        "./RtfViewerPlugin.js",
+            getClass:    function () { return RtfViewerPlugin; },
+            extensions:  ['rtf'],
+            mimetypes:   ['application/rtf', 'text/rtf']
         },
         sheet: {
             path:        "./SheetViewerPlugin.js",

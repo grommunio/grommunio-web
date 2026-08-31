@@ -1,7 +1,11 @@
 /**
- * Unknown File Plugin
+ * The renderer for a file with no renderer: says so, and offers the download.
+ *
  * @author grommunio GmbH <dev@grommunio.com>
  */
+
+/*global document, ViewerSupport*/
+
 function UnknownFilePlugin() {
     "use strict";
 
@@ -25,9 +29,17 @@ function UnknownFilePlugin() {
     }
 
     this.initialize = function ( viewerElement, documentUrl ) {
+        var message = document.createElement('p'),
+            link    = document.createElement('a');
+
         divElement = document.createElement("div");
         divElement.setAttribute('class', 'unknown-file');
-        divElement.innerHTML = 'This file cannot be previewed using your browser. <br><br><a class="download-button" href="' + documentUrl + '">Click here to download</a>';
+        message.textContent = ViewerSupport.t('This file cannot be previewed.');
+        link.className      = 'download-button';
+        link.href           = documentUrl;
+        link.textContent    = ViewerSupport.t('Download');
+        divElement.appendChild(message);
+        divElement.appendChild(link);
 
         viewerElement.appendChild(divElement);
         viewerElement.style.overflow = "auto";

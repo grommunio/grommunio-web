@@ -1,160 +1,93 @@
 /**
- * Word (OOXML .docx) viewer plugin for ViewerJS.
- *
- * Renders a .docx attachment to HTML entirely in the browser using the
- * docx-preview library (https://github.com/VolodymyrBaydalka/docxjs,
- * Apache-2.0), which in turn depends on JSZip (MIT). Both libraries are
- * vendored under ./vendor/ and loaded on demand, mirroring the way
- * ODFViewerPlugin loads webodf.js.
+ * Word (OOXML .docx) viewer plugin, using docx-preview (Apache-2.0) and JSZip
+ * (MIT), both vendored under ./vendor/.
  *
  * @author grommunio GmbH <dev@grommunio.com>
  */
 
-/*global document, fetch, docx, console*/
+/*global document, fetch, docx, console, ViewerSupport*/
 
 function DocxViewerPlugin() {
     "use strict";
 
-    var self         = this,
-        pluginName   = "DocxViewer",
-        pluginURL    = "https://github.com/VolodymyrBaydalka/docxjs",
-        wrapper      = null,
-        zoomLevel    = 1,
-        initialized  = false;
+    var self = this;
 
-    // Sequentially load the vendored libraries. docx-preview reads the global
-    // JSZip at load time, so JSZip must be present before it is evaluated.
-    function loadLibs( callback ) {
-        var libs = ['./vendor/jszip.min.js', './vendor/docx-preview.min.js'];
+    ViewerSupport.flow(self, {
+        name:         "DocxViewer",
+        url:          "https://github.com/VolodymyrBaydalka/docxjs",
+        // Pages are laid out as sections, which is what the page switcher
+        // of the viewer steps through.
+        pageSelector: 'section.docx'
+    });
 
-        function loadNext( index ) {
-            if ( index >= libs.length ) {
-                callback();
+    // Word writes a bullet as a Symbol or Wingdings character, which lands
+    // in the private use area where no fallback font has a glyph.
+    var bullets = {
+        '': '•', '': '▪', '': '●',
+        '': '■', '': '❖', '': '♦',
+        '': '◘', '': '➢', '': '✔',
+        '': '➨', '': '☺', '': '○'
+    };
+
+    /**
+     * Put a bullet the reader can actually see in front of every list item.
+     * The marker is written into the stylesheet docx-preview produces, so
+     * that is where it is corrected, font and all.
+     */
+    function replaceBullets( container ) {
+        Array.prototype.forEach.call(container.querySelectorAll('style'), function ( element ) {
+            var css = element.textContent;
+
+            if ( !/[-]/.test(css) ) {
                 return;
             }
-            var script  = document.createElement('script');
-            script.async = false;
-            script.src   = libs[index];
-            script.type  = 'text/javascript';
-            script.onload = function () {
-                loadNext(index + 1);
-            };
-            document.head.appendChild(script);
-        }
-
-        loadNext(0);
+            css = css.replace(/[-]/g, function ( character ) {
+                return bullets[character] || '•';
+            });
+            // The marker font would only be substituted at random now.
+            css = css.replace(/font-family:\s*(Symbol|Wingdings[^;"]*|Webdings|Marlett)\s*;/gi, '');
+            element.textContent = css;
+        });
     }
 
-    function showError( container ) {
-        container.innerHTML = '<div class="unknown-file">This document could not be previewed.</div>';
+    /**
+     * A picture in a format the browser cannot show - a metafile, say - is
+     * left without a source and would render broken.
+     */
+    function dropBrokenImages( container ) {
+        Array.prototype.forEach.call(container.querySelectorAll('img'), function ( image ) {
+            var source = image.getAttribute('src');
+
+            if ( !source || source === 'null' || source === 'undefined' ) {
+                image.parentNode.removeChild(image);
+            }
+        });
     }
 
     this.initialize = function ( viewerElement, documentUrl ) {
-        loadLibs(function () {
-            var container = document.getElementById('canvas');
+        var container = ViewerSupport.canvas();
 
-            // Fetch the attachment as a Blob (same-origin request, so the
-            // session cookies are sent) and hand it to docx-preview.
-            fetch(documentUrl, { credentials: 'same-origin' })
-                .then(function ( response ) {
-                    if ( !response.ok ) {
-                        throw new Error('HTTP ' + response.status);
-                    }
-                    return response.blob();
-                })
-                .then(function ( blob ) {
-                    return docx.renderAsync(blob, container, null, {
-                        className:              'docx',
-                        inWrapper:              true,
-                        ignoreWidth:            false,
-                        ignoreHeight:           false,
-                        breakPages:             true,
-                        ignoreLastRenderedPageBreak: true,
-                        useBase64URL:           true
-                    });
-                })
-                .then(function () {
-                    wrapper     = container.querySelector('.docx-wrapper') || container;
-                    initialized = true;
-                    self.onLoad();
-                })
-                .catch(function ( err ) {
-                    console.log('DocxViewerPlugin: failed to render document: ' + err);
-                    showError(container);
-                    self.onLoad();
+        ViewerSupport.loadScripts(['./vendor/jszip.min.js', './vendor/docx-preview.min.js'], function () {
+            ViewerSupport.fetchDocument(documentUrl, 'blob').then(function ( blob ) {
+                return docx.renderAsync(blob, container, null, {
+                    className:                   'docx',
+                    inWrapper:                   true,
+                    ignoreWidth:                 false,
+                    ignoreHeight:                false,
+                    breakPages:                  true,
+                    ignoreLastRenderedPageBreak: true,
+                    useBase64URL:                true
                 });
+            }).then(function () {
+                replaceBullets(container);
+                dropBrokenImages(container);
+                self.wrapper = container.querySelector('.docx-wrapper') || container;
+                self.ready();
+            }).catch(function ( err ) {
+                console.log('DocxViewerPlugin: failed to render document: ' + (err && err.stack || err));
+                ViewerSupport.showError(container);
+                self.ready();
+            });
         });
-    };
-
-    this.isSlideshow = function () {
-        return false;
-    };
-
-    this.onLoad = function () {
-    };
-
-    // Documents read best fitted to the available width. All fit modes map to
-    // a width fit; the container scrolls vertically.
-    function naturalWidth() {
-        if ( !wrapper ) {
-            return 0;
-        }
-        var page = wrapper.querySelector('section.docx');
-        return (page && page.offsetWidth) || wrapper.scrollWidth || 0;
-    }
-
-    this.fitToWidth = function ( width ) {
-        var natural = naturalWidth();
-        if ( natural > 0 && width > 0 ) {
-            self.setZoomLevel(width / natural);
-        }
-    };
-
-    this.fitToHeight = function ( height ) {
-        // Height-fit is not meaningful for a flowing, multi-page document;
-        // keep the current width-based zoom.
-    };
-
-    this.fitToPage = function ( width, height ) {
-        self.fitToWidth(width);
-    };
-
-    this.fitSmart = function ( width ) {
-        // Never upscale past 100% when the page already fits.
-        var natural = naturalWidth();
-        if ( natural > 0 && width > 0 ) {
-            self.setZoomLevel(Math.min(1, width / natural));
-        }
-    };
-
-    this.getZoomLevel = function () {
-        return zoomLevel;
-    };
-
-    this.setZoomLevel = function ( value ) {
-        zoomLevel = value;
-        if ( wrapper ) {
-            // CSS zoom reflows the content so the scrollbars stay correct.
-            wrapper.style.zoom = value;
-        }
-    };
-
-    this.getPages = function () {
-        return [1];
-    };
-
-    this.showPage = function ( n ) {
-    };
-
-    this.getPluginName = function () {
-        return pluginName;
-    };
-
-    this.getPluginVersion = function () {
-        return "From Source";
-    };
-
-    this.getPluginURL = function () {
-        return pluginURL;
     };
 }

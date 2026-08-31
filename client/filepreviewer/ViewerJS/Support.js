@@ -169,9 +169,24 @@ var ViewerSupport = (function () {
      * @param {String} message The message to show
      */
     function showError( container, message ) {
-        var box = document.createElement('div');
+        var box   = document.createElement('div'),
+            text  = document.createElement('p'),
+            url   = window.viewerParameters && window.viewerParameters.documentUrl,
+            link;
+
         box.className = 'unknown-file';
-        box.appendChild(document.createTextNode(message || t('This document could not be previewed.')));
+        text.appendChild(document.createTextNode(message || t('This document could not be previewed.')));
+        box.appendChild(text);
+
+        // A preview that could not be made is still a file the reader wants.
+        if ( url ) {
+            link = document.createElement('a');
+            link.className   = 'download-button';
+            link.href        = url + (url.indexOf('?') === -1 ? '?' : '&') + 'contentDispositionType=attachment';
+            link.textContent = t('Download');
+            box.appendChild(link);
+        }
+
         container.innerHTML = '';
         container.appendChild(box);
     }
@@ -235,6 +250,10 @@ var ViewerSupport = (function () {
         };
 
         plugin.ready = function () {
+            // A document of a single page has no use for a page switcher.
+            if ( options.pageSelector && pageElements().length > 1 ) {
+                plugin.getPageInView = pageInView;
+            }
             plugin.onLoad();
         };
 
@@ -298,30 +317,30 @@ var ViewerSupport = (function () {
             return options.url || "https://grommunio.com";
         };
 
-        // The page switcher of the viewer appears for a renderer that can say
-        // which page is in view, so only offer it for a paged document.
-        if ( options.pageSelector ) {
-            plugin.getPageInView = function () {
-                var pages     = pageElements(),
-                    container = document.getElementById('canvasContainer'),
-                    middle,
-                    i,
-                    box;
+        /**
+         * The page the reader is looking at: the last one that starts above
+         * the upper third of the document area.
+         */
+        function pageInView() {
+            var pages     = pageElements(),
+                container = document.getElementById('canvasContainer'),
+                middle,
+                i,
+                box;
 
-                if ( pages.length < 2 || !container ) {
-                    return pages.length ? 1 : null;
+            if ( !pages.length || !container ) {
+                return null;
+            }
+
+            middle = container.getBoundingClientRect().top + container.clientHeight / 3;
+            for ( i = pages.length - 1; i >= 0; i -= 1 ) {
+                box = pages[i].getBoundingClientRect();
+                if ( box.top <= middle ) {
+                    return i + 1;
                 }
+            }
 
-                middle = container.getBoundingClientRect().top + container.clientHeight / 3;
-                for ( i = pages.length - 1; i >= 0; i -= 1 ) {
-                    box = pages[i].getBoundingClientRect();
-                    if ( box.top <= middle ) {
-                        return i + 1;
-                    }
-                }
-
-                return 1;
-            };
+            return 1;
         }
 
         return plugin;
