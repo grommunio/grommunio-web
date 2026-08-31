@@ -251,6 +251,7 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 		if (!record) {
 			return;
 		}
+		button.setDisabled(!!(record.get('pgp_sign') || record.get('pgp_encrypt')));
 		if (button.iconCls === 'icon_smime_sign_selected') {
 			button.setIconClass('icon_smime_sign');
 		} else if (button.iconCls === 'icon_smime_encrypt_selected') {
@@ -337,7 +338,7 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 		smimeInfoBox.removeClass('smime-info-partial');
 		smimeInfoBox.removeClass('smime-info-info');
 
-		if (!record) {
+		if (!record || record.get('pgp') || record.get('pgp_message_class') || record.get('pgp_signed') || record.get('pgp_encrypted')) {
 			return;
 		}
 
@@ -399,6 +400,9 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 	 */
 	onBeforeSendRecord : function(dialog, record) {
 		if (!/^IPM\.Note\.deferSMIME(?:\.|$)/i.test(record.get('message_class') || '')) { return true; }
+		if (record.get('pgp_sign') || record.get('pgp_encrypt')) {
+			return false;
+		}
 		// Always append the currently logged in user.
 		var user = container.getUser();
 		var myself = {
@@ -447,6 +451,9 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 		var record = dialog.record;
 		if (!record)
 			return;
+		if (record.get('pgp_sign') || record.get('pgp_encrypt')) {
+			return;
+		}
 
 		switch (record.get('message_class')) {
 		// Unselecting encrypt functionality
@@ -501,7 +508,7 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 	* @param {Object} response Json object containing the response from PHP
 	*/
 	onEncryptCertificateCallback : function(dialog, button, messageClass, response) {
-		if (dialog.isDestroyed || !dialog.record) {
+		if (dialog.isDestroyed || !dialog.record || dialog.record.get('pgp_sign') || dialog.record.get('pgp_encrypt')) {
 			return;
 		}
 		if (response.status) {
@@ -528,6 +535,9 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 		var record = dialog.record;
 		if (!record) {
 			dialog.saveRecord();
+			return;
+		}
+		if (record.get('pgp_sign') || record.get('pgp_encrypt')) {
 			return;
 		}
 		var plugin = this;
@@ -577,7 +587,7 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 		// TODO: improve functionality with less callbacks
 		var btn = this;
 		var dialog = btn.securityDialog;
-		if (dialog && dialog.isDestroyed) { return; }
+		if (dialog && (dialog.isDestroyed || dialog.record.get('pgp_sign') || dialog.record.get('pgp_encrypt'))) { return; }
 		if(response.status) {
 			Zarafa.core.data.UIFactory.openLayerComponent(Zarafa.core.data.SharedComponentType['plugin.smime.dialog.passphrasewindow'], btn, {manager: Ext.WindowMgr});
 		} else {
@@ -639,6 +649,9 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 			width : 24,
 			sortable : false,
 			renderer :  function(value, p, record) {
+				if (record.get('pgp') || record.get('pgp_message_class') || record.get('pgp_signed') || record.get('pgp_encrypted')) {
+					return '';
+				}
 				var messageClass = record.get('message_class');
 				if (messageClass === 'IPM.Note.SMIME' ||
 				    messageClass === 'IPM.Note.deferSMIME' ||
@@ -665,6 +678,9 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 	 *
 	 */
 	showMessageClass : function(insertionPoint, record) {
+		if (record.get('pgp') || record.get('pgp_message_class') || record.get('pgp_signed') || record.get('pgp_encrypted')) {
+			return '<td style="width: 24px"></td>';
+		}
 		var messageClass = record.get('message_class');
 		var icon = "";
 		if (messageClass === 'IPM.Note.SMIME' ||
