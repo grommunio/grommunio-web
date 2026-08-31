@@ -503,7 +503,7 @@ class ListModule extends Module {
 		}
 
 		// search is finished so we no more need entryids of search results so clear it up
-		if ($searchState & SEARCH_REBUILD === 0) {
+		if (($searchState & SEARCH_REBUILD) === 0) {
 			// remove search result entryids stored in session
 			unset($this->sessionData['searchResults'][$entryid]);
 		}
@@ -544,7 +544,7 @@ class ListModule extends Module {
 		$searchResult = mapi_folder_getsearchcriteria($searchFolder);
 
 		// check if search folder exists and search is in progress
-		if ($searchResult !== false && ($searchResult["searchstate"] & SEARCH_REBUILD !== 0)) {
+		if ($searchResult !== false && (($searchResult["searchstate"] & SEARCH_REBUILD) !== 0)) {
 			mapi_folder_setsearchcriteria($searchFolder, $searchResult['restriction'], $searchResult['folderlist'], STOP_SEARCH);
 		}
 
