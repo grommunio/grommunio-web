@@ -163,6 +163,9 @@ class AccountStore {
 	 */
 	public function deleteAccount($accountId) {
 		$account = $this->getAccount($accountId);
+		if ($account === null) {
+			throw new Exception(_("Unknown account ID"));
+		}
 		// Do not allow deleting administrative accounts, but fail silently.
 		if (!$account->getCannotChangeFlag()) {
 			$GLOBALS["settings"]->delete(self::ACCOUNT_STORAGE_PATH . "/" . $accountId);
@@ -177,10 +180,10 @@ class AccountStore {
 	 *
 	 * @param mixed $accountId
 	 *
-	 * @return Account
+	 * @return null|Account
 	 */
 	public function getAccount($accountId) {
-		return $this->accounts[$accountId];
+		return $this->accounts[$accountId] ?? null;
 	}
 
 	/**

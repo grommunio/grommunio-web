@@ -49,9 +49,18 @@ class SettingsModule extends Module {
 
 						case "delete":
 						case "reset":
-							$userStore = $GLOBALS['mapisession']->getDefaultMessageStore();
-							$inbox = mapi_msgstore_getreceivefolder($userStore);
-							mapi_deleteprops($inbox, [PR_ADDITIONAL_REN_ENTRYIDS_EX, PR_ADDITIONAL_REN_ENTRYIDS]);
+							$renState = new State('additional-ren-entryids-write');
+							if (!$renState->open()) {
+								throw new RuntimeException('Unable to lock additional folder entryids');
+							}
+							try {
+								$userStore = $GLOBALS['mapisession']->getDefaultMessageStore();
+								$inbox = mapi_msgstore_getreceivefolder($userStore);
+								mapi_deleteprops($inbox, [PR_ADDITIONAL_REN_ENTRYIDS_EX, PR_ADDITIONAL_REN_ENTRYIDS]);
+							}
+							finally {
+								$renState->close();
+							}
 							$this->delete($action["setting"], false);
 							$needsSave = true;
 							break;

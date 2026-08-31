@@ -91,7 +91,9 @@ class Settings {
 		$this->persistentSettings = [];
 		$this->sysAdminDefaults = [];
 		$this->settings_string = '';
+		$this->persistentSettingsString = '';
 		$this->modified = [];
+		$this->modifiedPersistent = [];
 		$this->init = false;
 		$this->loadFailed = false;
 		$this->settingsLoaded = false;
@@ -220,38 +222,18 @@ class Settings {
 		}
 
 		if ((bool) $persistent) {
-			$this->modifiedPersistent[$path] = $value;
+			$this->modifiedPersistent[] = ['path' => $path, 'value' => $value];
 		}
 		else {
-			$this->modified[$path] = $value;
+			$this->modified[] = ['path' => $path, 'value' => $value, 'delete' => false];
 		}
 
-		$path = explode('/', $path);
-
-		// Save the last key separately
-		$lastKey = array_pop($path);
-
-		// Walk over the settings to find the object
-		// which we can manipulate
 		if ((bool) $persistent) {
-			$pointer = &$this->persistentSettings;
+			$this->setPathValue($this->persistentSettings, $path, $value);
 		}
 		else {
-			$pointer = &$this->settings;
+			$this->setPathValue($this->settings, $path, $value);
 		}
-
-		for ($i = 0, $len = count($path); $i < $len; ++$i) {
-			$key = $path[$i];
-
-			if (!isset($pointer[$key])) {
-				$pointer[$key] = [];
-			}
-
-			$pointer = &$pointer[$key];
-		}
-
-		$pointer[$lastKey] = $value;
-		unset($pointer);
 
 		if ($autoSave === true) {
 			(bool) $persistent ? $this->savePersistentSettings() : $this->saveSettings();
@@ -286,29 +268,10 @@ class Settings {
 			$this->Init();
 		}
 
-		$this->modified[$path] = '';
-		$path = explode('/', $path);
-		$tmp = &$this->settings;
-
-		// We have to get the second to last level to unset the value through a reference.
-		$prevEntry = null;
-
-		foreach ($path as $pointer) {
-			if (!empty($pointer)) {
-				if (!isset($tmp[$pointer])) {
-					return;
-				}
-				$prevEntry = &$tmp;
-				$tmp = &$tmp[$pointer];
-			}
+		$this->modified[] = ['path' => $path, 'delete' => true];
+		if (!$this->deletePathValue($this->settings, $path)) {
+			return;
 		}
-
-		/*
-		 * If we do unset($tmp) the reference is removed and not the value
-		 * it points to. If we do $prevEntry[$pointer] we change a value
-		 * inside the reference. In that case it will work.
-		 */
-		unset($prevEntry[$pointer]);
 
 		if ($autoSave === true) {
 			$this->saveSettings();
@@ -485,6 +448,115 @@ class Settings {
 	}
 
 	/**
+	 * Set one slash-separated path in a settings array.
+	 */
+	private function setPathValue(&$settings, $path, $value) {
+		$path = explode('/', $path);
+		$lastKey = array_pop($path);
+		$pointer = &$settings;
+
+		foreach ($path as $key) {
+			if (!isset($pointer[$key]) || !is_array($pointer[$key])) {
+				$pointer[$key] = [];
+			}
+			$pointer = &$pointer[$key];
+		}
+		$pointer[$lastKey] = $value;
+		unset($pointer);
+	}
+
+	/**
+	 * Remove one slash-separated path from a settings array.
+	 */
+	private function deletePathValue(&$settings, $path) {
+		$keys = array_values(array_filter(explode('/', $path), static fn ($key) => $key !== ''));
+		$lastKey = array_pop($keys);
+		if ($lastKey === null) {
+			return false;
+		}
+
+		$pointer = &$settings;
+		foreach ($keys as $key) {
+			if (!isset($pointer[$key]) || !is_array($pointer[$key])) {
+				return false;
+			}
+			$pointer = &$pointer[$key];
+		}
+		if (!array_key_exists($lastKey, $pointer)) {
+			return false;
+		}
+		unset($pointer[$lastKey]);
+		unset($pointer);
+
+		return true;
+	}
+
+	/**
+	 * Reload the latest regular settings and replay this request's changes.
+	 */
+	private function reloadModifiedSettings() {
+		$settings = $this->settings;
+		$settingsString = $this->settings_string;
+		$this->settings = [];
+		$this->settings_string = '';
+
+		try {
+			$this->retrieveSettings();
+		}
+		catch (Throwable $e) {
+			$this->settings = $settings;
+			$this->settings_string = $settingsString;
+
+			throw $e;
+		}
+
+		foreach ($this->modified as $operation) {
+			if ($operation['delete']) {
+				$this->deletePathValue($this->settings, $operation['path']);
+			}
+			else {
+				$this->setPathValue($this->settings, $operation['path'], $operation['value']);
+			}
+		}
+	}
+
+	/**
+	 * Reload the latest persistent settings and replay this request's changes.
+	 */
+	private function reloadModifiedPersistentSettings() {
+		$settings = $this->persistentSettings;
+		$settingsString = $this->persistentSettingsString;
+		$this->persistentSettings = [];
+		$this->persistentSettingsString = '';
+
+		try {
+			$this->retrievePersistentSettings();
+		}
+		catch (Throwable $e) {
+			$this->persistentSettings = $settings;
+			$this->persistentSettingsString = $settingsString;
+
+			throw $e;
+		}
+
+		foreach ($this->modifiedPersistent as $operation) {
+			$this->setPathValue($this->persistentSettings, $operation['path'], $operation['value']);
+		}
+	}
+
+	/**
+	 * Refresh regular settings while preserving unsaved local changes.
+	 */
+	public function refreshSettings() {
+		if (!$this->init) {
+			$this->Init();
+		}
+		if ($this->settingsLoaded) {
+			$this->reloadModifiedSettings();
+		}
+	}
+
+	/**
 	 * Save settings to store.
 	 *
 	 * This function saves all settings to the store's PR_EC_WEBACCESS_SETTINGS_JSON property, and to the
@@ -503,6 +575,27 @@ class Settings {
 
 			return;
 		}
+		if (empty($this->modified)) {
+			return;
+		}
+
+		$settingsState = new State('settings-write');
+		if (!$settingsState->open()) {
+			throw new RuntimeException('Unable to lock settings for writing');
+		}
+		try {
+			$this->reloadModifiedSettings();
+			$this->writeSettings();
+		}
+		finally {
+			$settingsState->close();
+		}
+	}
+
+	/**
+	 * Write the merged regular settings.
+	 */
+	private function writeSettings() {
 
 		if (isset($this->settings['zarafa']['v1'])) {
 			unset($this->settings['zarafa']['v1']['contexts']['mail']['outofoffice']);
@@ -577,12 +670,13 @@ class Settings {
 				mapi_savechanges($this->store);
 			}
 			catch (Exception) {
+				return;
 			}
 
-			// Settings saved, update settings_string and modified array
+			// Settings saved, update settings_string.
 			$this->settings_string = $settings;
-			$this->modified = [];
 		}
+		$this->modified = [];
 	}
 
 	/**
@@ -602,6 +696,27 @@ class Settings {
 
 			return;
 		}
+		if (empty($this->modifiedPersistent)) {
+			return;
+		}
+
+		$settingsState = new State('settings-write');
+		if (!$settingsState->open()) {
+			throw new RuntimeException('Unable to lock persistent settings for writing');
+		}
+		try {
+			$this->reloadModifiedPersistentSettings();
+			$this->writePersistentSettings();
+		}
+		finally {
+			$settingsState->close();
+		}
+	}
+
+	/**
+	 * Write the merged persistent settings.
+	 */
+	private function writePersistentSettings() {
 
 		$persistentSettings = json_encode(['settings' => $this->persistentSettings]);
 
@@ -613,9 +728,10 @@ class Settings {
 			mapi_stream_commit($stream);
 			mapi_savechanges($this->store);
 
-			// Settings saved, update settings string and modified array
+			// Settings saved, update settings string.
 			$this->persistentSettingsString = $persistentSettings;
 		}
+		$this->modifiedPersistent = [];
 	}
 
 	/**

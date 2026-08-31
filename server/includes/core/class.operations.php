@@ -4982,6 +4982,25 @@ class Operations {
 			return;
 		}
 
+		$historyState = new State('recipient-history-write');
+		if (!$historyState->open()) {
+			return;
+		}
+		try {
+			$this->addRecipientsToRecipientHistoryLocked($emailAddresses);
+		}
+		finally {
+			$historyState->close();
+		}
+	}
+
+	/**
+	 * Update recipient history while its session lock is held.
+	 *
+	 * @param array $emailAddresses resolved recipient property sets
+	 */
+	private function addRecipientsToRecipientHistoryLocked($emailAddresses) {
+
 		// Retrieve the recipient history
 		$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
 		$storeProps = mapi_getprops($store, [PR_EC_RECIPIENT_HISTORY_JSON]);
@@ -5525,17 +5544,26 @@ class Operations {
 			$encryptionStore = EncryptionStore::getInstance();
 			$key = $encryptionStore->get('filesenckey');
 			if ($key === null) {
-				$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
-				$props = mapi_getprops($store, [PR_EC_WA_FILES_ENCRYPTION_KEY]);
-				if (isset($props[PR_EC_WA_FILES_ENCRYPTION_KEY])) {
-					$key = $props[PR_EC_WA_FILES_ENCRYPTION_KEY];
+				$keyState = new State('files-encryption-key-write');
+				if (!$keyState->open()) {
+					throw new RuntimeException('Unable to lock the files encryption key');
 				}
-				else {
-					$key = sodium_crypto_secretbox_keygen();
-					$encryptionStore->add('filesenckey', $key);
-					mapi_setprops($store, [PR_EC_WA_FILES_ENCRYPTION_KEY => $key]);
-					mapi_savechanges($store);
+				try {
+					$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
+					$props = mapi_getprops($store, [PR_EC_WA_FILES_ENCRYPTION_KEY]);
+					if (isset($props[PR_EC_WA_FILES_ENCRYPTION_KEY])) {
+						$key = $props[PR_EC_WA_FILES_ENCRYPTION_KEY];
+					}
+					else {
+						$key = sodium_crypto_secretbox_keygen();
+						mapi_setprops($store, [PR_EC_WA_FILES_ENCRYPTION_KEY => $key]);
+						mapi_savechanges($store);
+					}
 				}
+				finally {
+					$keyState->close();
+				}
+				$encryptionStore->add('filesenckey', $key);
 			}
 		}
 

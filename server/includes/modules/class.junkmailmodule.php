@@ -210,10 +210,19 @@ class JunkMailModule extends Module {
 
 		$condition = JunkRule::buildCondition($blockedSenders, $safeSenders, $safeRecipients,
 			$includeContacts ? $current['contacts'] : []);
-		$actions = JunkRule::buildActions(
-			$this->getJunkFolderEntryId($inbox),
-			$this->getMoveStamp($inbox)
-		);
+		$renState = new State('additional-ren-entryids-write');
+		if (!$renState->open()) {
+			throw new RuntimeException('Unable to lock additional folder entryids');
+		}
+		try {
+			$actions = JunkRule::buildActions(
+				$this->getJunkFolderEntryId($inbox),
+				$this->getMoveStamp($inbox)
+			);
+		}
+		finally {
+			$renState->close();
+		}
 
 		$writeProps = [
 			PR_EXTENDED_RULE_MSG_CONDITION => $condition,
