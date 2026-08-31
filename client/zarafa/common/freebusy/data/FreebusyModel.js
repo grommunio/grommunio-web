@@ -938,10 +938,30 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 			// FIXME: We should actually build this store while building
 			// the busy blocks. This is most likely faster then doing it
 			// separately.
-			this.mergeBlocksToSumBlockStore(records, this.freeBlockStore, false);
+			// The blocks are filtered here rather than in the sum blocks, so a
+			// status that does not occupy the attendee stays on the timeline.
+			this.mergeBlocksToSumBlockStore(records.filter(function(record) {
+				return this.occupiesAttendee(record.get('status'));
+			}, this), this.freeBlockStore, false);
 		}
 
 		this.loadSuggestionBlocks();
+	},
+
+	/**
+	 * Whether a busy status makes an attendee unavailable for a new meeting.
+	 * Working Elsewhere does not. The attendee is working, only not at their
+	 * usual location, which is the status Outlook assigns to a home office day.
+	 * @param {Zarafa.core.mapi.BusyStatus} status The busy status to check
+	 * @return {Boolean} True if the attendee cannot take a meeting
+	 */
+	occupiesAttendee: function(status)
+	{
+		var BusyStatus = Zarafa.core.mapi.BusyStatus;
+
+		return status !== BusyStatus.FREE &&
+			status !== BusyStatus.UNKNOWN &&
+			status !== BusyStatus.WORKINGELSEWHERE;
 	},
 
 	/**
@@ -1118,7 +1138,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 			// remove appointments occurring extremely before our selected time
 			if (record.get('end') > periodStartTime) {
 				// check if we are really interested in this block
-				if (record.get('status') === Zarafa.core.mapi.BusyStatus.FREE || record.get('status') === Zarafa.core.mapi.BusyStatus.UNKNOWN) {
+				if (!this.occupiesAttendee(record.get('status'))) {
 					continue;
 				}
 
