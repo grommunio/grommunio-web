@@ -179,6 +179,54 @@
 			}
 
 			orig_selectToday.apply(this, arguments);
+		},
+
+		/**
+		 * Marks the cell holding {@link #value}, and no other, as the selected one.
+		 * {@link #update} marks the date it is handed, which for a change of month
+		 * is the same day in the new month rather than the selected date.
+		 * @private
+		 */
+		markSelectedDate: function()
+		{
+			if(!this.rendered || !this.cells) {
+				return;
+			}
+
+			this.cells.removeClass('x-date-selected');
+
+			if(!Ext.isDate(this.value)) {
+				return;
+			}
+
+			var selected = this.value.clearTime(true).getTime();
+
+			this.cells.each(function(cell) {
+				if(cell.dom.firstChild.dateValue === selected) {
+					cell.addClass('x-date-selected');
+
+					return false;
+				}
+			});
 		}
+	});
+
+	// Every one of these ends in update() with a date in another month, carrying
+	// the day across. Cursor movement inside a month is left alone, so the arrow
+	// keys keep marking where they are.
+	Ext.each([
+		'showPrevMonth',
+		'showNextMonth',
+		'showPrevYear',
+		'showNextYear',
+		'onMonthClick',
+		'onMonthDblClick'
+	], function(name) {
+		var orig = Ext.DatePicker.prototype[name];
+
+		Ext.DatePicker.prototype[name] = function() {
+			orig.apply(this, arguments);
+			this.markSelectedDate();
+		};
 	});
 })();
