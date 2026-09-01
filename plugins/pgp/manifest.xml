@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+	<info>
+		<version>1.0</version>
+		<name>OpenPGP Plugin</name>
+		<title>OpenPGP</title>
+		<author>grommunio</author>
+		<authorURL>https://www.grommunio.com</authorURL>
+		<description>OpenPGP signing, encryption, and key management</description>
+	</info>
+	<config><configfile>config.php</configfile></config>
+	<optional/>
+	<components>
+		<component>
+			<files>
+				<server>
+					<serverfile>php/plugin.pgp.php</serverfile>
+					<serverfile type="module" module="pluginpgpmodule">php/class.pluginpgpmodule.php</serverfile>
+				</server>
+				<client>
+					<clientfile load="release">resources/vendor/pgp-vendor.js</clientfile>
+					<clientfile load="debug">resources/vendor/pgp-vendor.js</clientfile>
+					<clientfile load="source">resources/vendor/pgp-vendor.js</clientfile>
+					<clientfile load="release">js/pgp.js</clientfile>
+					<clientfile load="debug">js/pgp-debug.js</clientfile>
+					<clientfile load="source">js/crypto/BrowserCrypto.js</clientfile>
+					<clientfile load="source">js/crypto/PgpMime.js</clientfile>
+					<clientfile load="source">js/data/PgpResponseHandler.js</clientfile>
+					<clientfile load="source">js/PgpUtils.js</clientfile>
+					<clientfile load="source">js/dialogs/PgpDialogs.js</clientfile>
+					<clientfile load="source">js/settings/SettingsPgpWidget.js</clientfile>
+					<clientfile load="source">js/settings/SettingsPgpCategory.js</clientfile>
+					<clientfile load="source">js/PgpTransport.js</clientfile>
+					<clientfile load="source">js/PgpPlugin.js</clientfile>
+				</client>
+				<resources>
+					<resourcefile load="release">resources/css/pgp.css</resourcefile>
+					<resourcefile load="source">resources/css/pgp-styles.css</resourcefile>
+				</resources>
+			</files>
+		</component>
+	</components>
+</plugin>
