@@ -2655,6 +2655,35 @@ class Operations {
 	}
 
 	/**
+	 * Whether an address denotes the logged-in user themselves. Their identity
+	 * reaches us in more than one spelling, the logon name among them, so each
+	 * is compared rather than the SMTP address alone.
+	 *
+	 * @param mixed $address address to test
+	 *
+	 * @return bool true when the address is one of the logged-in user's own
+	 */
+	private function isOwnIdentity($address) {
+		if (empty($address)) {
+			return false;
+		}
+
+		$own = [
+			$GLOBALS['mapisession']->getSMTPAddress(),
+			$GLOBALS['mapisession']->getEmailAddress(),
+			$GLOBALS['mapisession']->getUserName(),
+		];
+
+		foreach ($own as $mine) {
+			if (!empty($mine) && strcasecmp((string) $address, (string) $mine) == 0) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
 	 * Submit a message for sending.
 	 *
 	 * This function is an extension of the saveMessage() function, with the extra functionality
@@ -3050,8 +3079,12 @@ class Operations {
 			$reprEmail = $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] ?? $reprProps[PR_SENT_REPRESENTING_EMAIL_ADDRESS] ?? null;
 			$reprEntryid = $props[PR_SENT_REPRESENTING_ENTRYID] ?? $reprProps[PR_SENT_REPRESENTING_ENTRYID] ?? null;
 			$reprSender = $props[PR_SENDER_EMAIL_ADDRESS] ?? $reprProps[PR_SENDER_EMAIL_ADDRESS] ?? null;
+			// The two addresses can spell the same person differently, so a send is
+			// only on behalf of somebody else when the representing identity is
+			// not the sender's own.
 			if ($reprEmail !== null && $reprEntryid !== null && $reprSender !== null &&
-				strcasecmp((string) $reprEmail, (string) $reprSender) != 0) {
+				strcasecmp((string) $reprEmail, (string) $reprSender) != 0 &&
+				!$this->isOwnIdentity($reprEmail)) {
 				$ab = $GLOBALS['mapisession']->getAddressbook();
 				$abitem = mapi_ab_openentry($ab, $reprEntryid);
 				$abitemprops = mapi_getprops($abitem, [PR_DISPLAY_NAME, PR_EMAIL_ADDRESS, PR_SEARCH_KEY]);
@@ -3071,7 +3104,8 @@ class Operations {
 			}
 			if (!$sendingAsDelegate &&
 				isset($props[PR_SENT_REPRESENTING_EMAIL_ADDRESS], $props[PR_SENDER_EMAIL_ADDRESS], $props[PR_SENT_REPRESENTING_ENTRYID]) &&
-				strcasecmp((string) $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS], (string) $props[PR_SENDER_EMAIL_ADDRESS]) != 0) {
+				strcasecmp((string) $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS], (string) $props[PR_SENDER_EMAIL_ADDRESS]) != 0 &&
+				!$this->isOwnIdentity($props[PR_SENT_REPRESENTING_EMAIL_ADDRESS])) {
 				// preserve sending from an alias
 				$ab = $GLOBALS['mapisession']->getAddressbook();
 				$abitem = mapi_ab_openentry($ab, $props[PR_SENT_REPRESENTING_ENTRYID]);
