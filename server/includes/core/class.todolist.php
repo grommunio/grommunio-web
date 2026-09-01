@@ -9,14 +9,14 @@ class TodoList {
 	 * The entryid of the Todo-list search folder. TodoList::getEntryId will retrieve it
 	 * if it isn't yet.
 	 *
-	 * @var string
+	 * @var false|string
 	 */
 	private static $_entryId = false;
 
 	/**
 	 * Returns the entryid of the To-do list search folder.
 	 *
-	 * @return string The entryid of the To-do list search folder
+	 * @return false|string entry ID of the To-do list search folder, or false when unavailable
 	 */
 	public static function getEntryId() {
 		if (!TodoList::$_entryId) {
@@ -50,6 +50,8 @@ class TodoList {
 	 * Read the stored To-do search folder entryid.
 	 *
 	 * @param mixed $root
+	 *
+	 * @return false|string stored entry ID, or false when none is present
 	 */
 	private static function readEntryId($root) {
 		$rootProperties = mapi_getprops($root, [PR_ADDITIONAL_REN_ENTRYIDS_EX]);
@@ -85,7 +87,7 @@ class TodoList {
 	 *
 	 * @param null|mixed $expectedEntryId
 	 *
-	 * @return string Entryid of the new search folder for the To-do list
+	 * @return false|string entry ID of the new search folder, or false when it cannot be created
 	 */
 	public static function createTodoSearchFolder($expectedEntryId = null) {
 		$renState = State::forStore('additional-ren-entryids-write');
@@ -105,6 +107,8 @@ class TodoList {
 	 * Create the To-do search folder while the entryid property is locked.
 	 *
 	 * @param mixed $expectedEntryId
+	 *
+	 * @return false|string entry ID of the search folder, or false when it cannot be created
 	 */
 	private static function createTodoSearchFolderLocked($expectedEntryId) {
 		$userStore = $GLOBALS['mapisession']->getDefaultMessageStore();
@@ -171,10 +175,9 @@ class TodoList {
 	/**
 	 * Retrieves the Todo search folder and creates it if not found.
 	 *
-	 * @param MAPIObject user store, the store of the user
-	 * @param mixed $store
+	 * @param resource $store user's MAPI store
 	 *
-	 * @return MAPIObject Mapi Search Folder of the To-Do list
+	 * @return null|false|resource MAPI search folder, false on an open failure, or null after an exception
 	 */
 	public static function getTodoSearchFolder($store) {
 		$entryid = self::getEntryId();

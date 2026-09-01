@@ -610,9 +610,9 @@ class Operations {
 	 *
 	 * @param array  &$faultyLinkMsg   reference in which faulty linked messages will be stored
 	 * @param array  $allMessageStores Associative array with entryid -> mapistore of all open stores (private, public, delegate)
-	 * @param object $linkedMessage    link message which belongs to associated contains table of IPM_COMMON_VIEWS folder
+	 * @param array  $linkedMessage    link message from the associated contents table of IPM_COMMON_VIEWS
 	 *
-	 * @return true if linked message of favorite item is faulty or false
+	 * @return bool true when the favorite's linked message is faulty
 	 */
 	public function checkFaultyFavoritesLinkedFolder(&$faultyLinkMsg, $allMessageStores, $linkedMessage) {
 		// Find faulty link messages which does not linked to any message. if link message
@@ -644,7 +644,7 @@ class Operations {
 	 * @param array $linkMessageProps properties of link message which belongs to
 	 *                                associated contains table of IPM_COMMON_VIEWS folder
 	 *
-	 * @return array List of properties of a folder
+	 * @return array|false folder properties, or false when the linked folder cannot be opened
 	 */
 	public function getFavoriteLinkedFolderProps($linkMessageProps) {
 		// In webapp we use IPM_SUBTREE as root folder for the Hierarchy but OL is use IMsgStore as a
@@ -1198,7 +1198,7 @@ class Operations {
 	 * Deleting a folder normally just moves the folder to the wastebasket, which is what this function does. However,
 	 * if the folder was already in the wastebasket, then the folder is really deleted.
 	 *
-	 * @param object $store         MAPI Message Store Object
+	 * @param resource $store         MAPI message store
 	 * @param string $parententryid The parent in which the folder should be deleted
 	 * @param string $entryid       The entryid of the folder which will be deleted
 	 * @param array  $folderProps   reference to an array which will be filled with PR_ENTRYID, PR_STORE_ENTRYID of the deleted object
@@ -1510,7 +1510,7 @@ class Operations {
 	/**
 	 * Returns TRUE of the MAPI message only has inline attachments.
 	 *
-	 * @param mapimessage $message The MAPI message object to check
+	 * @param resource $message MAPI message to check
 	 *
 	 * @return bool TRUE if the item contains only inline attachments, FALSE otherwise
 	 *
@@ -1883,7 +1883,7 @@ class Operations {
 	 * @param object $store         MAPI Message Store Object
 	 * @param string $parententryid The entryid of the folder in which the new message is to be created
 	 *
-	 * @return mapimessage Created MAPI message resource
+	 * @return resource created MAPI message
 	 */
 	public function createMessage($store, $parententryid) {
 		$folder = mapi_msgstore_openentry($store, $parententryid);
@@ -1894,12 +1894,12 @@ class Operations {
 	/**
 	 * Open a MAPI message.
 	 *
-	 * @param object $store       MAPI Message Store Object
+	 * @param resource $store       MAPI message store
 	 * @param string $entryid     entryid of the message
 	 * @param array  $attach_num  a list of attachment numbers (aka 2,1 means 'attachment nr 1 of attachment nr 2')
 	 * @param bool   $parse_smime (optional) call parse_smime on the opened message or not IFF it's an SMIME message
 	 *
-	 * @return object MAPI Message
+	 * @return false|resource MAPI message, or false when it cannot be opened
 	 */
 	public function openMessage($store, $entryid, $attach_num = false, $parse_smime = false) {
 		$message = mapi_msgstore_openentry($store, $entryid);
@@ -1950,14 +1950,14 @@ class Operations {
 	 * the message, we pass the same $dialog_attachments ID as when we uploaded the file.
 	 *
 	 * @param object      $store                     MAPI Message Store Object
-	 * @param binary      $entryid                   entryid of the message
-	 * @param binary      $parententryid             Parent entryid of the message
+	 * @param string      $entryid                   entry ID of the message
+	 * @param string      $parententryid             parent folder entry ID
 	 * @param array       $props                     The MAPI properties to be saved
 	 * @param array       $messageProps              reference to an array which will be filled with PR_ENTRYID and PR_STORE_ENTRYID of the saved message
 	 * @param array       $recipients                XML array structure of recipients for the recipient table
 	 * @param array       $attachments               attachments array containing unique check number which checks if attachments should be added
 	 * @param array       $propertiesToDelete        Properties specified in this array are deleted from the MAPI message
-	 * @param MAPIMessage $copyFromMessage           resource of the message from which we should
+	 * @param resource    $copyFromMessage           message from which we should
 	 *                                               copy attachments and/or recipients to the current message
 	 * @param bool        $copyAttachments           if set we copy all attachments from the $copyFromMessage
 	 * @param bool        $copyRecipients            if set we copy all recipients from the $copyFromMessage
@@ -1966,7 +1966,7 @@ class Operations {
 	 * @param bool        $send                      true if this function is called from submitMessage else false
 	 * @param bool        $isPlainText               if true then message body will be generated using PR_BODY otherwise PR_HTML will be used in saveMessage() function
 	 *
-	 * @return mapimessage Saved MAPI message resource
+	 * @return false|resource saved MAPI message, or false when it cannot be created
 	 */
 	public function saveMessage($store, $entryid, $parententryid, $props, &$messageProps, $recipients = [], $attachments = [], $propertiesToDelete = [], $copyFromMessage = false, $copyAttachments = false, $copyRecipients = false, $copyInlineAttachmentsOnly = false, $saveChanges = true, $send = false, $isPlainText = false) {
 		$message = false;
@@ -2134,7 +2134,7 @@ class Operations {
 	 * in the action, that we will attempt to open an existing exception and change that, and if that
 	 * fails, create a new exception with the specified data.
 	 *
-	 * @param mapistore $store                       MAPI store of the message
+	 * @param resource $store                       MAPI store of the message
 	 * @param string    $entryid                     entryid of the message
 	 * @param string    $parententryid               Parent entryid of the message (folder entryid, NOT message entryid)
 	 * @param array     $action                      Action array containing XML request
@@ -2645,7 +2645,7 @@ class Operations {
 	 * should contain email_address of user, who is the owner of store(in which the appointment
 	 * is created).
 	 *
-	 * @param mapistore $store  MAPI store of the message
+	 * @param resource $store  MAPI store of the message
 	 * @param array     $action reference to action array containing XML request
 	 */
 	public function setSenderAddress($store, &$action) {
@@ -2707,20 +2707,20 @@ class Operations {
 	 *
 	 * @see Operations::saveMessage() for more information on the parameters, which are identical.
 	 *
-	 * @param mapistore   $store                     MAPI Message Store Object
-	 * @param binary      $entryid                   Entryid of the message
+	 * @param resource    $store                     MAPI message store
+	 * @param string      $entryid                   entry ID of the message
 	 * @param array       $props                     The properties to be saved
 	 * @param array       $messageProps              reference to an array which will be filled with PR_ENTRYID, PR_PARENT_ENTRYID and PR_STORE_ENTRYID
 	 * @param array       $recipients                XML array structure of recipients for the recipient table
 	 * @param array       $attachments               array of attachments consisting unique ID of attachments for this message
-	 * @param MAPIMessage $copyFromMessage           resource of the message from which we should
+	 * @param resource    $copyFromMessage           message from which we should
 	 *                                               copy attachments and/or recipients to the current message
 	 * @param bool        $copyAttachments           if set we copy all attachments from the $copyFromMessage
 	 * @param bool        $copyRecipients            if set we copy all recipients from the $copyFromMessage
 	 * @param bool        $copyInlineAttachmentsOnly if true then copy only inline attachments
 	 * @param bool        $isPlainText               if true then message body will be generated using PR_BODY otherwise PR_HTML will be used in saveMessage() function
 	 *
-	 * @return bool false if action succeeded, anything else indicates an error (e.g. a string)
+	 * @return bool|string false if the action succeeded, otherwise an error name
 	 */
 	public function submitMessage($store, $entryid, $props, &$messageProps, $recipients = [], $attachments = [], $copyFromMessage = false, $copyAttachments = false, $copyRecipients = false, $copyInlineAttachmentsOnly = false, $isPlainText = false) {
 		$message = false;
@@ -3356,7 +3356,7 @@ class Operations {
 	 * - Items in other users stores are moved to our own wastebasket
 	 * - Items in the public store are deleted
 	 *
-	 * @param mapistore $store         MAPI Message Store Object
+	 * @param resource $store         MAPI message store
 	 * @param string    $parententryid parent entryid of the messages to be deleted
 	 * @param array     $entryids      a list of entryids which will be deleted
 	 * @param bool      $softDelete    flag for soft-deleteing (when user presses Shift+Del)
@@ -3808,7 +3808,7 @@ class Operations {
 	 * If we are sending mail from a delegator's folder, we need to copy all recipients from the original message
 	 *
 	 * @param object      $message         MAPI Message Object
-	 * @param MAPIMessage $copyFromMessage If set we copy all recipients from this message
+	 * @param resource $copyFromMessage message from which to copy recipients
 	 */
 	public function copyRecipients($message, $copyFromMessage = false) {
 		$recipienttable = mapi_message_getrecipienttable($copyFromMessage);
@@ -4028,7 +4028,7 @@ class Operations {
 	 *
 	 * @param object          $message                   MAPI Message Object
 	 * @param string          $attachments
-	 * @param MAPIMessage     $copyFromMessage           if set, copy the attachments from this message in addition to the uploaded attachments
+	 * @param resource        $copyFromMessage           message from which to copy attachments in addition to uploaded attachments
 	 * @param bool            $copyInlineAttachmentsOnly if true then copy only inline attachments
 	 * @param AttachmentState $attachment_state          the state object in which the attachments are saved
 	 *                                                   between different requests
@@ -4157,7 +4157,7 @@ class Operations {
 	/**
 	 * Function was used to identify the sender or domain of original mail in safe sender list.
 	 *
-	 * @param MAPIMessage $copyFromMessage resource of the message from which we should get
+	 * @param resource $copyFromMessage message from which to obtain sender information
 	 *                                     the sender of message
 	 *
 	 * @return bool true if sender of original mail was safe sender else false
@@ -4216,7 +4216,7 @@ class Operations {
 	/**
 	 * get attachments information of a particular message.
 	 *
-	 * @param MapiMessage $message       MAPI Message Object
+	 * @param resource $message       MAPI message
 	 * @param bool        $excludeHidden exclude hidden attachments
 	 */
 	public function getAttachmentsInfo($message, $excludeHidden = false) {
@@ -4701,7 +4701,7 @@ class Operations {
 	 * Function Which convert the shared/internal(local contact folder distlist)
 	 * folder's distlist members to recipient type.
 	 *
-	 * @param mapistore $store  MAPI store of the message
+	 * @param resource $store  MAPI store of the message
 	 * @param array     $member of distribution list contacts
 	 *
 	 * @return array members properties converted in to recipient
@@ -4938,7 +4938,7 @@ class Operations {
 	/**
 	 * Calculate the total size for all items in the given folder.
 	 *
-	 * @param mapifolder $folder The folder for which the size must be calculated
+	 * @param resource $folder folder for which the size must be calculated
 	 *
 	 * @return number The folder size
 	 */
@@ -4951,7 +4951,7 @@ class Operations {
 	/**
 	 * Detect plaintext body type of message.
 	 *
-	 * @param mapimessage $message MAPI message resource to check
+	 * @param resource $message MAPI message to check
 	 *
 	 * @return bool TRUE if the message is a plaintext message, FALSE if otherwise
 	 */
@@ -5244,7 +5244,7 @@ class Operations {
 	 * @param array    $listEntryIDs list of already expanded Distribution list from contacts folder,
 	 *                               This parameter is used for recursive call of the function
 	 *
-	 * @return object $items all members of a distlist
+	 * @return array all members of the distribution list
 	 */
 	public function getMembersFromDistributionList($store, $message, $properties, $isRecursive = false, $listEntryIDs = []) {
 		$items = [];
@@ -5343,7 +5343,7 @@ class Operations {
 	 * replace the img src tag with the 'cid' which corresponds with the attachments
 	 * cid.
 	 *
-	 * @param MAPIMessage $message the distribution list message
+	 * @param resource $message distribution list message
 	 */
 	public function convertInlineImage($message) {
 		$body = streamProperty($message, PR_HTML);
@@ -5427,7 +5427,7 @@ class Operations {
 	/**
 	 * Delete the deleted inline image attachment from attachment store.
 	 *
-	 * @param MAPIMessage $message  the distribution list message
+	 * @param resource $message  distribution list message
 	 * @param array       $imageIDs Array of existing inline image PR_ATTACH_CONTENT_ID
 	 */
 	public function clearDeletedInlineAttachments($message, $imageIDs = []) {
@@ -5497,9 +5497,7 @@ class Operations {
 	 * Function used to compressed the image.
 	 *
 	 * @param string $image the image which is going to compress
-	 * @param int compressedQuality The compression factor range from 0 (high) to 100 (low)
-	 * Default value is set to 10 which is nearly extreme compressed image
-	 * @param mixed $compressedQuality
+	 * @param int $compressedQuality compression factor from 0 (high quality) to 100 (low quality)
 	 *
 	 * @return string A base64 encoded string (data url)
 	 */

@@ -237,9 +237,9 @@ class DownloadAttachment extends DownloadBase {
 	 * we need to compare passed attachCid with PR_ATTACH_CONTENT_ID, PR_ATTACH_CONTENT_LOCATION or
 	 * PR_ATTACH_FILENAME and if that matches then we can get that attachment.
 	 *
-	 * @param MAPIAttach $attachment (optional) embedded message attachment from where we need to get the inline image
+	 * @param false|resource $attachment embedded message attachment from which to get the inline image
 	 *
-	 * @return MAPIAttach attachment that is requested and will be sent to client
+	 * @return false|resource requested attachment, or false when it cannot be opened
 	 */
 	public function getAttachmentByAttachCid($attachment = false) {
 		// If the inline image was in a submessage, we have to open that first
@@ -299,7 +299,7 @@ class DownloadAttachment extends DownloadBase {
 	 * Returns attachment based on specified attachNum, additionally it will also get embedded message
 	 * if we want to get the inline image attachment.
 	 *
-	 * @return MAPIAttach embedded message attachment or attachment that is requested
+	 * @return resource embedded message attachment or requested attachment
 	 */
 	public function getAttachmentByAttachNum() {
 		$attachment = false;
@@ -380,7 +380,7 @@ class DownloadAttachment extends DownloadBase {
 	 * Function will open passed attachment and generate response for that attachment to send it to client.
 	 * This should only be used to download attachment that is already saved in MAPIMessage.
 	 *
-	 * @param MAPIAttach $attachment attachment which will be dumped to client side
+	 * @param resource $attachment attachment to send to the client
 	 * @param bool       $inline     inline attachment or not
 	 */
 	public function downloadSavedAttachment($attachment, $inline = false) {

@@ -412,9 +412,9 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 	 *  )
 	 * )
 	 *
-	 * @param $patharray Simple array with path's to files or folders
+	 * @param string[] $patharray paths to files or folders
 	 *
-	 * @return array
+	 * @return array|false sharing details, or false when no paths were supplied
 	 */
 	public function sharingDetails($patharray) {
 		$result = [];
@@ -505,7 +505,7 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 	 * @param bool  $update
 	 * @param mixed $shareparams
 	 *
-	 * @return bool
+	 * @return array|false sharing results, or false when no parameters were supplied
 	 */
 	public function share($shareparams, $update = false) {
 		$result = [];

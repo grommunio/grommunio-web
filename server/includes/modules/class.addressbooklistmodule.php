@@ -443,7 +443,7 @@ class AddressbookListModule extends ListModule {
 	/**
 	 *	Function will create a restriction based on parameters passed for hiding users.
 	 *
-	 * @param array $hide_users list of users that should not be shown
+	 * @param array|bool $hide_users list of hidden user types, or true to hide every user
 	 *
 	 * @return null|array restriction for hiding provided users
 	 */
@@ -648,7 +648,7 @@ class AddressbookListModule extends ListModule {
 	/**
 	 *	Function will create a restriction based on parameters passed for hiding groups.
 	 *
-	 * @param array $hide_groups list of groups that should not be shown
+	 * @param array|bool $hide_groups list of hidden group types, or true to hide every group
 	 *
 	 * @return null|array restriction for hiding provided users
 	 */
@@ -1280,8 +1280,8 @@ class AddressbookListModule extends ListModule {
 	/**
 	 * Returns the hiding users/groups restriction for the ab items.
 	 *
-	 * @param bool $hide_users
-	 * @param bool $hide_groups
+	 * @param array|bool $hide_users
+	 * @param array|bool $hide_groups
 	 * @param bool $hide_companies
 	 *
 	 * @return array

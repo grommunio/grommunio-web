@@ -6,7 +6,7 @@
  */
 class RulesModule extends Module {
 	/**
-	 * @var MAPITable contains resource of rules modify table
+	 * @var resource rules modification table
 	 */
 	private $rulesFolder;
 
@@ -353,7 +353,7 @@ class RulesModule extends Module {
 	 *
 	 * @param object     $e             exception object
 	 * @param string     $actionType    the action type, sent by the client
-	 * @param MAPIobject $store         store object of the message
+	 * @param resource   $store         MAPI store containing the message
 	 * @param string     $parententryid parent entryid of the message
 	 * @param string     $entryid       entryid of the message/folder
 	 * @param array      $action        the action data, sent by the client

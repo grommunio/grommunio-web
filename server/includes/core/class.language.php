@@ -521,10 +521,10 @@ class Language {
 	 *
 	 * @param array|bool $translations the translations found for the selected language
 	 *
-	 * @return array
+	 * @return array translations, or the empty fallback domain
 	 */
 	private function selectedTranslations($translations) {
-		if (!empty($translations)) {
+		if (is_array($translations) && !empty($translations)) {
 			return $translations;
 		}
 		error_log(sprintf("No translations available for language '%s'", (string) $this->getSelected()));

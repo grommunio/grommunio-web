@@ -112,11 +112,9 @@ class Bus {
 	 * which are handling the requests. For example a notifier is registered on the inbox can receive changes
 	 * of the item count of the inbox by specifying the entryid of the inbox here and the event
 	 *
-	 * @param string $notifierName The classname of the notifier to register
-	 * @param Array/Binary $entryid The entryid or entryids on which the notifier should
-	 * be registered
-	 * @param bool $store optional If true, the $entryid points to the store and all events within the store are
-	 *                    bubbled to this notifier object
+	 * @param string         $notifierName class name of the notifier to register
+	 * @param string|string[] $entryid      entry ID or entry IDs on which to register the notifier
+	 * @param bool           $store         whether the entry ID points to a store whose events should bubble
 	 */
 	public function registerNotifier($notifierName, $entryid, $store = false) {
 		if (!isset($this->notifiers[$notifierName])) {
@@ -450,7 +448,7 @@ class Bus {
 	/**
 	 * Function which returns the data stored via addData().
 	 *
-	 * @return array response data
+	 * @return array|string response data, or an encoded empty response when no data is available
 	 */
 	public function getData() {
 		if (empty($this->responseData)) {

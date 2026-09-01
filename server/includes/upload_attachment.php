@@ -256,7 +256,7 @@ class UploadAttachment {
 	 * @param string $attachTempName a temporary file name of server location where it actually saved/available
 	 * @param string $filename       an actual file name
 	 *
-	 * @return bool true if the import is successful, false otherwise
+	 * @return array|bool imported entry IDs on success, otherwise a boolean result
 	 */
 	public function importFiles($attachTempName, $filename) {
 		$filepath = $this->attachment_state->getAttachmentPath($attachTempName);
@@ -376,7 +376,7 @@ class UploadAttachment {
 	 * @param object $destinationFolder the folder which holds the message which we need to import from file
 	 * @param string $attachmentStream  the attachment as a stream
 	 *
-	 * @return array $contacts the array of contact(s) to be imported
+	 * @return array|false contacts to import, or false when none could be parsed
 	 */
 	public function convertVCFContactsToMapi($destinationFolder, $attachmentStream) {
 		$contacts = [];

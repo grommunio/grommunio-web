@@ -9,12 +9,12 @@ require_once BASE_PATH . 'server/includes/core/class.properties.php';
  */
 class MAPISession {
 	/**
-	 * @var resource This holds the MAPI Session
+	 * @var false|resource MAPI session, or false before login
 	 */
 	private $session;
 
 	/**
-	 * @var resource This can hold the addressbook resource
+	 * @var false|resource address book, or false before it is opened
 	 */
 	private $ab;
 
@@ -44,7 +44,7 @@ class MAPISession {
 	private $userstores;
 
 	/**
-	 * @var int Makes sure retrieveUserData is called only once
+	 * @var bool makes sure retrieveUserData is called only once
 	 */
 	private $userDataRetrieved;
 
@@ -134,7 +134,7 @@ class MAPISession {
 	 *
 	 * @param string $userEntryid The user entryid which is going to open. default is false.
 	 *
-	 * @return object an user MAPI object
+	 * @return false|resource user MAPI object, or false when it cannot be opened
 	 */
 	public function getUser($userEntryid = false) {
 		if ($userEntryid === false) {
@@ -158,7 +158,7 @@ class MAPISession {
 	 * The function only populates the information once, subsequent calls will return without error and without
 	 * doing anything.
 	 *
-	 * @return array Array of information about the currently logged-on user
+	 * @return null|int MAPI result code, or null when the data was already retrieved
 	 */
 	public function retrieveUserData() {
 		if ($this->userDataRetrieved) {
@@ -226,7 +226,7 @@ class MAPISession {
 	/**
 	 * Get MAPI session object.
 	 *
-	 * @return mapisession Current MAPI session
+	 * @return false|resource current MAPI session, or false before login
 	 */
 	public function getSession() {
 		return $this->session;
@@ -235,8 +235,7 @@ class MAPISession {
 	/**
 	 * Set MAPI session object.
 	 *
-	 * @param mapisession The MAPI session
-	 * @param mixed $session
+	 * @param false|resource $session MAPI session, or false to clear it
 	 */
 	public function setSession($session) {
 		$this->session = $session;
@@ -250,7 +249,7 @@ class MAPISession {
 	 * @param bool $loadSharedContactsProvider when set to true it denotes that shared folders are
 	 *                                         required to be configured to load the contacts from
 	 *
-	 * @return mixed An addressbook object to be used with mapi_ab_* or an error code
+	 * @return false|int|resource address book resource, false, or a MAPI error code
 	 */
 	public function getAddressbook($providerless = false, $loadSharedContactsProvider = false) {
 		if ($providerless) {
@@ -338,7 +337,7 @@ class MAPISession {
 	/**
 	 * Get current user's full name.
 	 *
-	 * @return string User's full name
+	 * @return false|string user's full name, or false when unavailable
 	 */
 	public function getFullName() {
 		$this->retrieveUserData();
@@ -349,7 +348,7 @@ class MAPISession {
 	/**
 	 * Get current user's smtp address.
 	 *
-	 * @return string User's smtp address
+	 * @return false|string user's SMTP address, or false when unavailable
 	 */
 	public function getSMTPAddress() {
 		$this->retrieveUserData();
@@ -360,7 +359,7 @@ class MAPISession {
 	/**
 	 * Get current user's email address.
 	 *
-	 * @return string User's email address
+	 * @return false|string user's email address, or false when unavailable
 	 */
 	public function getEmailAddress() {
 		$this->retrieveUserData();
@@ -371,7 +370,7 @@ class MAPISession {
 	/**
 	 * Get current user's image from the LDAP server.
 	 *
-	 * @return string A base64 encoded string (data url)
+	 * @return false|string base64-encoded data URL, or false when unavailable
 	 */
 	public function getUserImage() {
 		$this->retrieveUserData();
@@ -525,7 +524,7 @@ class MAPISession {
 	public function isGwebEnabled() {
 		$store_props = mapi_getprops($this->getDefaultMessageStore(), [PR_EC_ENABLED_FEATURES_L]);
 
-		return $store_props[PR_EC_ENABLED_FEATURES_L] & UP_WEB;
+		return ($store_props[PR_EC_ENABLED_FEATURES_L] & UP_WEB) !== 0;
 	}
 
 	/**
@@ -647,10 +646,9 @@ class MAPISession {
 	 *
 	 * The store is opened only once, subsequent calls will return the previous store object
 	 *
-	 * @param bool reopen force re-open
-	 * @param mixed $reopen
+	 * @param bool $reopen force the store to be reopened
 	 *
-	 * @return mapistore User's default message store object
+	 * @return false|resource user's default message store, or false when it cannot be opened
 	 */
 	public function getDefaultMessageStore($reopen = false) {
 		// Return cached default store if we have one
@@ -696,7 +694,7 @@ class MAPISession {
 	 *
 	 * The store is opened only once, subsequent calls will return the previous store object
 	 *
-	 * @return mapistore Public message store object
+	 * @return false|resource public message store, or false when it cannot be opened
 	 */
 	public function getPublicMessageStore() {
 		// Return cached public store if we have one
@@ -731,7 +729,7 @@ class MAPISession {
 	 * @param string $entryid string representation of the binary entryid of the store
 	 * @param string $name    The name of the store. Will be logged when opening fails.
 	 *
-	 * @return false|mapistore The opened store on success, false otherwise
+	 * @return false|resource opened store, or false on error
 	 */
 	public function openMessageStore($entryid, $name = '') {
 		// Check the cache before opening
@@ -831,7 +829,7 @@ class MAPISession {
 	 *
 	 * @param string $username The username
 	 *
-	 * @return Binary|int Entryid of the user on success otherwise the hresult error code
+	 * @return int|string user entry ID on success, otherwise the HRESULT error code
 	 */
 	public function resolveStrictUserName($username) {
 		$storeEntryid = mapi_msgstore_createentryid($this->getDefaultMessageStore(), $username);
@@ -878,7 +876,7 @@ class MAPISession {
 	 *
 	 * @param string $username The username whose store should be added to the list of other users' stores
 	 *
-	 * @return mapistore The store of the user or false on error;
+	 * @return false|resource user's store, or false on error
 	 */
 	public function addUserStore($username) {
 		$user_entryid = mapi_msgstore_createentryid($this->getDefaultMessageStore(), $username);
@@ -890,6 +888,8 @@ class MAPISession {
 
 			return $this->openMessageStore($user_entryid, $username);
 		}
+
+		return false;
 	}
 
 	/**
@@ -897,7 +897,7 @@ class MAPISession {
 	 *
 	 * @param string $username The username whose store should be deleted from the list of other users' stores
 	 *
-	 * @return string The entryid of the store which was removed
+	 * @return null|string entry ID of the removed store, or null when it was not registered
 	 */
 	public function removeUserStore($username) {
 		// Remove the reference to the store if we had one
@@ -916,7 +916,7 @@ class MAPISession {
 	 *
 	 * @param string $username The username whose store is being looked up
 	 *
-	 * @return string The entryid of the store of the user
+	 * @return null|string entry ID of the user's store, or null when it is not registered
 	 */
 	public function getStoreEntryIdOfUser($username) {
 		return $this->userstores[$username] ?? null;
@@ -944,7 +944,7 @@ class MAPISession {
 	 *
 	 * @param string $entryid EntryID of the store
 	 *
-	 * @return string Username of the specified store or false if it is not found
+	 * @return false|string username of the specified store, or false when it is not found
 	 */
 	public function getUserNameOfStore($entryid) {
 		foreach ($this->userstores as $username => $storeentryid) {
@@ -963,7 +963,7 @@ class MAPISession {
 	 *
 	 * @param string $entryid entryid of the message
 	 *
-	 * @return object MAPI Message
+	 * @return resource MAPI message
 	 */
 	public function openMessage($entryid) {
 		return mapi_openentry($this->session, $entryid);
@@ -1075,7 +1075,7 @@ class MAPISession {
 	 * Get the store entryid, folder entryid and display name of the contact folders in the
 	 * user's store. It returns an array prepared by getContactFolders.
 	 *
-	 * @param mapiStore $store The mapi store to look for folders in
+	 * @param resource $store MAPI store to search
 	 *
 	 * @return array Contact folder information
 	 */
@@ -1118,7 +1118,7 @@ class MAPISession {
 	 *     PR_DISPLAY_NAME  => 'Contact folder'
 	 * ).
 	 *
-	 * @param mapiStore $store         The mapi store of the user
+	 * @param resource $store         user's MAPI store
 	 * @param string    $folderEntryid EntryID of the folder to look for contact folders in
 	 * @param int       $depthSearch   flag to search into all the folder levels
 	 *

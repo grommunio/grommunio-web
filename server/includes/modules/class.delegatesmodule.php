@@ -163,7 +163,7 @@ class DelegatesModule extends Module {
 	 *
 	 * @param string $entryId entryid of delegate
 	 *
-	 * @return int index of the delegate information
+	 * @return false|int|string index of the delegate information, or false when it is absent
 	 */
 	public function getDelegateIndex($entryId) {
 		$delegateProps = $this->getDelegateProps();
@@ -319,7 +319,7 @@ class DelegatesModule extends Module {
 	/**
 	 * Function will return properties of meeting rule that is used to send meeting related messages to delegate.
 	 *
-	 * @return array delegate meeting rule information
+	 * @return array|false delegate meeting rule information, or false when no rule exists
 	 */
 	public function getDelegateMeetingRule() {
 		$inbox = mapi_msgstore_getreceivefolder($this->getDefaultStore());
@@ -759,7 +759,7 @@ class DelegatesModule extends Module {
 	 *
 	 * @param object     $e             Exception object
 	 * @param string     $actionType    the action type, sent by the client
-	 * @param MAPIobject $store         store object of the current user
+	 * @param resource   $store         current user's MAPI store
 	 * @param string     $parententryid parent entryid of the message
 	 * @param string     $entryid       entryid of the message/folder
 	 * @param array      $action        the action data, sent by the client

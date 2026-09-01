@@ -210,9 +210,8 @@ class SettingsModule extends Module {
 	/**
 	 * Function will delete a setting indicated by setting path.
 	 *
-	 * @param      $path string/array path of the setting that needs to be deleted
-	 * @param bool $save If true the settings will be saved to the MAPI store
-	 *                   immediately.  Pass false to defer saving.
+	 * @param null|string|string[] $path path or paths of the settings to delete
+	 * @param bool                 $save whether to save the settings to the MAPI store immediately
 	 */
 	public function delete($path, $save = true) {
 		if (isset($path)) {

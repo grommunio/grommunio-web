@@ -454,7 +454,7 @@ class ContactItemModule extends ItemModule {
 	 * @param array  $action the action data, sent by the client
 	 * @param string $type   type of appointment that should be created/updated, valid values are 'birthday' and 'wedding_anniversary'
 	 *
-	 * @return HexString entryid of the newly created appointment in hex format
+	 * @return false|string entry ID of the newly created appointment in hexadecimal form, or false
 	 */
 	public function updateAppointments($store, $action, $type) {
 		$result = false;
@@ -585,8 +585,8 @@ class ContactItemModule extends ItemModule {
 	/**
 	 * Function will delete the appointment on the respective date of birthday or anniversary in user's calendar.
 	 *
-	 * @param object $store   MAPI Message Store Object
-	 * @param        $entryid of the message with will be deleted,sent by the client
+	 * @param resource $store   MAPI message store
+	 * @param string   $entryid entry ID of the message to delete
 	 */
 	public function deleteSpecialDateAppointment($store, $entryid) {
 		$root = mapi_msgstore_openentry($store);

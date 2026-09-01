@@ -34,7 +34,7 @@ function readData() {
  * Add in config specified default domain to email if no domain is set in form.
  * If no default domain is set in config, the input string will be return without changes.
  *
- * @param string user the user to append domain to
+ * @param string $user the user to append the domain to
  * @return string email
  */
 function appendDefaultDomain($user) {
@@ -52,8 +52,7 @@ function appendDefaultDomain($user) {
  * Function which is called every time the "session_start" method is called.
  * It unserializes the objects in the session. This function called by PHP.
  *
- * @param string @className the className of the object in the session
- * @param mixed $className
+ * @param string $className the class name of the object in the session
  */
 function sessionNotifierLoader($className) {
 	$className = strtolower((string) $className); // for PHP5 set className to lower case to find the file (see ticket #839 for more information)
@@ -456,8 +455,8 @@ function parse_smime__join_xph(&$prop, $msg) {
 /**
  * Function will be used to decode smime messages and convert it to normal messages.
  *
- * @param MAPIStore   $store   user's store
- * @param MAPIMessage $message smime message
+ * @param resource $store   user's store
+ * @param resource $message S/MIME message
  */
 function parse_smime($store, $message) {
 	$props = mapi_getprops($message, [PR_MESSAGE_CLASS, PR_MESSAGE_FLAGS,
@@ -591,8 +590,8 @@ function isSmimePluginEnabled() {
 /**
  * Helper to stream a MAPI property.
  *
- * @param MAPIObject $mapiobj mapi message or store
- * @param mixed      $proptag
+ * @param resource $mapiobj MAPI message or store
+ * @param int      $proptag MAPI property tag
  *
  * @return string $datastring the streamed data
  */
@@ -634,7 +633,7 @@ function streamProperty($mapiobj, $proptag) {
  *                           returned as objects or arrays, true means it will return associative array as arrays and
  *                           false will return associative arrays as objects
  *
- * @return object decoded data
+ * @return mixed decoded data
  */
 function json_decode_data($jsonString, $toAssoc = false) {
 	$data = json_decode($jsonString, $toAssoc);
@@ -922,7 +921,7 @@ function useSecureCookies() {
  *
  * @param string $attachment content fetched from PR_ATTACH_DATA_BIN property of an attachment
  *
- * @return true if eml is broken, false otherwise
+ * @return bool true if the EML is broken, false otherwise
  */
 function isBrokenEml($attachment) {
 	// Get header part to process further

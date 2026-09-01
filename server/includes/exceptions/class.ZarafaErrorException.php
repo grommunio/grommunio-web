@@ -29,8 +29,7 @@ class ZarafaErrorException extends BaseException {
 	/**
 	 * Function sets the filename where the exception was thrown.
 	 *
-	 * @param string filename name of the file where exception was thrown
-	 * @param mixed $filename
+	 * @param string $filename name of the file where the exception was thrown
 	 */
 	protected function setFile($filename = '') {
 		$this->file = $filename;
@@ -39,8 +38,7 @@ class ZarafaErrorException extends BaseException {
 	/**
 	 * Function sets the line where the exception was thrown.
 	 *
-	 * @param string lineno no of the line in file where exception was thrown
-	 * @param mixed $lineno
+	 * @param int $lineno line number where the exception was thrown
 	 */
 	protected function setLineNo($lineno = '') {
 		$this->line = $lineno;

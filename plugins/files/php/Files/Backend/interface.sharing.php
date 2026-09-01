@@ -39,7 +39,7 @@ interface iFeatureSharing {
 	 *  )
 	 * )
 	 *
-	 * @param $patharray Simple array with path's to files or folders
+	 * @param string[] $patharray paths to files or folders
 	 *
 	 * @return array
 	 */

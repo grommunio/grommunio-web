@@ -126,7 +126,7 @@ class KendoxModule extends Module {
 	 * @param mixed  $apiUrl
 	 * @param mixed  $userEMail
 	 *
-	 * @return object
+	 * @return array upload result
 	 */
 	private function upload($storeId, $mailEntryId, $uploadType, $selectedAttachments, $environment, $apiUrl, $userEMail) {
 		$emlFile = null;
@@ -457,7 +457,7 @@ class KendoxModule extends Module {
 	 *
 	 * @param array $messageProps properties of this particular message
 	 *
-	 * @return Stream $stream the eml stream obtained from message
+	 * @return resource EML stream obtained from the message
 	 */
 	public function getEmlStream($messageProps) {
 		$addrBook = $GLOBALS['mapisession']->getAddressbook();

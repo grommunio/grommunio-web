@@ -13,6 +13,7 @@ require_once __DIR__ . "/class.exception.php";
 require_once __DIR__ . "/../Backend/class.backendstore.php";
 require_once __DIR__ . "/../Backend/class.exception.php";
 
+use Files\Backend\AbstractBackend;
 use Files\Backend\BackendStore;
 use Files\Core\Util\Logger;
 
@@ -295,7 +296,7 @@ class AccountStore {
 	 * @param array $backendConfig Backend specific account settings
 	 *                             like username, password, serveraddress, ...
 	 *
-	 * @return an unique id
+	 * @return string unique account identifier
 	 */
 	private function createNewId($backendConfig) {
 		// lets create a hash
@@ -347,10 +348,10 @@ class AccountStore {
 	/**
 	 * Encrypt the given string.
 	 *
-	 * @param       $version the storage version used to identify what encryption to use
-	 * @param mixed $value
+	 * @param mixed $value   value to encrypt
+	 * @param int   $version storage version used to identify the encryption scheme
 	 *
-	 * @return string
+	 * @return mixed encrypted value, or an unchanged boolean value
 	 */
 	private function encryptBackendConfigProperty($value, $version = 0) {
 		if ($version == self::ACCOUNT_VERSION && !is_bool($value)) {
@@ -377,10 +378,10 @@ class AccountStore {
 	/**
 	 * Decrypt the given string.
 	 *
-	 * @param       $version the storage version used to identify what encryption to use
-	 * @param mixed $value
+	 * @param mixed $value   value to decrypt
+	 * @param int   $version storage version used to identify the encryption scheme
 	 *
-	 * @return string
+	 * @return mixed decrypted value, or an unchanged boolean value
 	 */
 	private function decryptBackendConfigProperty($value, $version = 0) {
 		if (is_bool($value)) {
