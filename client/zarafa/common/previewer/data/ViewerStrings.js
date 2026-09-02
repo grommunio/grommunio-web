@@ -50,10 +50,6 @@ Zarafa.common.previewer.data.ViewerStrings = {
 			'Wrap lines': _('Wrap lines'),
 			'Line numbers': _('Line numbers'),
 
-			// Presentations
-			'Slide {0}': _('Slide {0}'),
-			'Speaker notes': _('Speaker notes'),
-
 			// Messages
 			'From': _('From'),
 			'To': _('To'),
