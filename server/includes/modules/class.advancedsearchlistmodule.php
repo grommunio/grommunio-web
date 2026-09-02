@@ -668,6 +668,7 @@ class AdvancedSearchListModule extends ListModule {
 		}
 
 		$username = null;
+		$indexDB = null;
 		if ($store_props[PR_MDB_PROVIDER] == ZARAFA_STORE_DELEGATE_GUID) {
 			$eidObj = $GLOBALS["entryid"]->createMsgStoreEntryIdObj(hex2bin((string) $action['store_entryid']));
 			$username = $eidObj['ServerShortname'];
@@ -680,7 +681,7 @@ class AdvancedSearchListModule extends ListModule {
 		else {
 			$indexDB = new IndexSqlite();
 		}
-		if (!$indexDB->is_open()) {
+		if (!($indexDB instanceof IndexSqlite) || !$indexDB->is_open()) {
 			return parent::search($store, $entryid, $action, $actionType);
 		}
 

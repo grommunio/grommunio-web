@@ -780,6 +780,7 @@ class MAPISession {
 				continue;
 			}
 			$storeOk = true;
+			$sharedStore = false;
 
 			if (is_array($folder) && !empty($folder)) {
 				try {
@@ -806,7 +807,7 @@ class MAPISession {
 					}
 				}
 				finally {
-					if (!$storeOk && ($sharedStore == ecLoginPerm || $sharedStore == MAPI_E_NOT_FOUND)) {
+					if (!$storeOk && ($sharedStore === ecLoginPerm || $sharedStore === MAPI_E_NOT_FOUND)) {
 						// The user or the corresponding store couldn't be opened
 						// (e.g. the user was deleted or permissions revoked),
 						// print an error to the log, and remove the user from the settings.

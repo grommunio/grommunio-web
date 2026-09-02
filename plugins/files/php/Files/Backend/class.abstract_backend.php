@@ -13,6 +13,7 @@ require_once __DIR__ . "/interface.version.php";
 require_once __DIR__ . "/interface.streaming.php";
 require_once __DIR__ . "/interface.sharing.php";
 require_once __DIR__ . "/interface.oauth.php";
+require_once __DIR__ . "/interface.recipient.php";
 
 abstract class AbstractBackend {
 	/**

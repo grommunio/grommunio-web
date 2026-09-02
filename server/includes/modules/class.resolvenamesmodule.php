@@ -428,6 +428,7 @@ class ResolveNamesModule extends Module {
 		// Get the 'Contact Folders'
 		$hierarchyTable = mapi_folder_gethierarchytable($abRootContainer, MAPI_DEFERRED_ERRORS);
 		$abHierarchyRows = mapi_table_queryallrows($hierarchyTable, [PR_AB_PROVIDER_ID, PR_ENTRYID]);
+		$abContactContainerEntryid = null;
 
 		// Look for the 'Contacts Folders'
 		for ($i = 0,$len = count($abHierarchyRows); $i < $len; ++$i) {

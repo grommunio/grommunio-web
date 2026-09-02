@@ -184,11 +184,11 @@ class AppointmentItemModule extends ItemModule {
 						 * all occurrences before the 'flagdueby' value(of recurring item)
 						 * should not show that reminder is set.
 						 */
-						if (isset($exceptionProps['props']['reminder']) && $data['item']['props']['reminder'] == true) {
+						if (isset($data['item']['props']['reminder']) && $data['item']['props']['reminder'] == true) {
 							$flagDueByDay = $recur->dayStartOf($data['item']['props']['flagdueby']);
 
 							if ($flagDueByDay > $basedate) {
-								$exceptionProps['props']['reminder'] = false;
+								$data['item']['props']['reminder'] = false;
 							}
 						}
 					}

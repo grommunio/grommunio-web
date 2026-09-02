@@ -185,19 +185,19 @@ class TaskItemModule extends ItemModule {
 	 *
 	 * deletes occurrence if task is a recurring item.
 	 *
-	 * @param mapistore $store         MAPI Message Store Object
-	 * @param string    $parententryid parent entryid of the messages to be deleted
-	 * @param array     $entryids      a list of entryids which will be deleted
-	 * @param mixed     $action
+	 * @param resource     $store         MAPI message store
+	 * @param string       $parententryid parent entry ID of the messages to delete
+	 * @param array|string $entryids      entry ID or list of entry IDs to delete
+	 * @param array        $action        action data from the client
 	 *
-	 * @return bool true if action succeeded, false if not
+	 * @return array|bool occurrence result, or whether deleting the task succeeded
 	 */
 	public function deleteTask($store, $parententryid, $entryids, $action) {
 		$result = false;
-		$message = mapi_msgstore_openentry($store, $entryids);
 		$messageAction = $action["message_action"]["action_type"] ?? false;
 		// If user wants to delete only occurrence then delete this occurrence
 		if (!is_array($entryids) && $messageAction) {
+			$message = mapi_msgstore_openentry($store, $entryids);
 			if ($message) {
 				if ($messageAction == 'occurrence') {
 					$recur = new TaskRecurrence($store, $message);
@@ -218,15 +218,21 @@ class TaskItemModule extends ItemModule {
 		// Deleting occurrence failed, maybe that was its last occurrence, so now we delete whole series.
 		if (!isset($occurrenceDeleted) || !$occurrenceDeleted) {
 			$properties = $GLOBALS["properties"]->getTaskProperties();
-			$goid = mapi_getprops($message, [$properties["task_goid"]]);
-			// If task is assigned task to assignee and user is trying to delete the task.
-			// then we have to remove respective task request(IPM.TaskRequest.Accept/Decline/Update)
-			// notification mail from inbox.
-			if (isset($goid[$properties["task_goid"]]) && !empty($goid[$properties["task_goid"]])) {
-				$taskReq = new TaskRequest($store, $message, $GLOBALS["mapisession"]->getSession());
-				$result = $taskReq->deleteReceivedTR();
-				if ($result) {
-					$GLOBALS["bus"]->notify(bin2hex((string) $result[PR_PARENT_ENTRYID]), TABLE_DELETE, $result);
+			foreach (is_array($entryids) ? $entryids : [$entryids] as $entryid) {
+				$message = mapi_msgstore_openentry($store, $entryid);
+				if (!$message) {
+					continue;
+				}
+
+				$goid = mapi_getprops($message, [$properties["task_goid"]]);
+				// If task is assigned task to assignee and user is trying to delete the task,
+				// remove the corresponding task request notification from the inbox.
+				if (!empty($goid[$properties["task_goid"]])) {
+					$taskReq = new TaskRequest($store, $message, $GLOBALS["mapisession"]->getSession());
+					$taskRequestProps = $taskReq->deleteReceivedTR();
+					if ($taskRequestProps) {
+						$GLOBALS["bus"]->notify(bin2hex((string) $taskRequestProps[PR_PARENT_ENTRYID]), TABLE_DELETE, $taskRequestProps);
+					}
 				}
 			}
 

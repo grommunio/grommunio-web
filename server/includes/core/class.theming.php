@@ -441,6 +441,7 @@ class Theming {
 
 		// Add the defined stylesheets
 		if (isset($themeProps['stylesheets'])) {
+			$stylesheets = [];
 			if (is_string($themeProps['stylesheets'])) {
 				$stylesheets = explode(' ', $themeProps['stylesheets']);
 			}

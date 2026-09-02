@@ -2174,6 +2174,8 @@ class Operations {
 		// PidLidAppointmentTimeZoneDefinitionEndDisplay so that the allday
 		// events are displayed correctly
 		if (!empty($action['props']['timezone_iana'])) {
+			$tzdef = false;
+
 			try {
 				$tzdef = mapi_ianatz_to_tzdef($action['props']['timezone_iana']);
 			}
@@ -4183,20 +4185,24 @@ class Operations {
 		}
 
 		$addressType = mapi_getprops($mailuser, [PR_ADDRTYPE]);
+		$address = '';
 
 		// Here it will check that sender of original mail was address book user.
 		// If PR_ADDRTYPE is ZARAFA, it means sender of original mail was address book contact.
-		if ($addressType[PR_ADDRTYPE] === 'EX') {
-			$address = mapi_getprops($mailuser, [PR_SMTP_ADDRESS]);
-			$address = $address[PR_SMTP_ADDRESS];
+		if (($addressType[PR_ADDRTYPE] ?? null) === 'EX') {
+			$addressProps = mapi_getprops($mailuser, [PR_SMTP_ADDRESS]);
+			$address = $addressProps[PR_SMTP_ADDRESS] ?? '';
 		}
-		elseif ($addressType[PR_ADDRTYPE] === 'SMTP') {
+		elseif (($addressType[PR_ADDRTYPE] ?? null) === 'SMTP') {
 			// If PR_ADDRTYPE is SMTP, it means sender of original mail was external sender.
-			$address = mapi_getprops($mailuser, [PR_EMAIL_ADDRESS]);
-			$address = $address[PR_EMAIL_ADDRESS];
+			$addressProps = mapi_getprops($mailuser, [PR_EMAIL_ADDRESS]);
+			$address = $addressProps[PR_EMAIL_ADDRESS] ?? '';
 		}
 
 		$address = strtolower((string) $address);
+		if ($address === '' || strpos($address, '@') === false) {
+			return false;
+		}
 		$domain = '@' . substr($address, strpos($address, '@') + 1);
 
 		// getSenderLists already folds in the

@@ -702,8 +702,10 @@ class DownloadAttachment extends DownloadBase {
 		$attachment = $this->getAttachmentByAttachNum();
 		$attachmentProps = mapi_attach_getprops($attachment, [PR_ATTACH_LONG_FILENAME]);
 		$attachmentStream = streamProperty($attachment, PR_ATTACH_DATA_BIN);
+		$extension = strtolower(pathinfo((string) $attachmentProps[PR_ATTACH_LONG_FILENAME], PATHINFO_EXTENSION));
+		$ok = false;
 
-		switch (pathinfo((string) $attachmentProps[PR_ATTACH_LONG_FILENAME], PATHINFO_EXTENSION)) {
+		switch ($extension) {
 			case 'eml':
 				if (isBrokenEml($attachmentStream)) {
 					throw new ZarafaException(_("Eml is corrupted"));
@@ -800,7 +802,7 @@ class DownloadAttachment extends DownloadBase {
 			];
 
 			// send hierarchy notification only in case of 'eml'
-			if (pathinfo((string) $attachmentProps[PR_ATTACH_LONG_FILENAME], PATHINFO_EXTENSION) === 'eml') {
+			if ($extension === 'eml') {
 				$hierarchynotifier = [
 					'hierarchynotifier1' => [
 						'folders' => [

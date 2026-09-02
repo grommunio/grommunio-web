@@ -70,6 +70,10 @@ class HierarchyModule extends Module {
 				continue;
 			}
 
+			$store = null;
+			$parententryid = null;
+			$entryid = null;
+
 			try {
 				$store = $this->getActionStore($action);
 				$parententryid = $this->getActionParentEntryID($action);
@@ -177,7 +181,7 @@ class HierarchyModule extends Module {
 										if ($destentryid && $deststore) {
 											$this->copyFolder($store, $parententryid, $entryid, $destentryid, $deststore, $action["message_action"]["action_type"] == "move");
 										}
-										if ($data["props"]["container_class"] === "IPF.Contact") {
+										if (($data["props"]["container_class"] ?? null) === "IPF.Contact") {
 											$GLOBALS["bus"]->notify(ADDRESSBOOK_ENTRYID, OBJECT_SAVE);
 										}
 										break;

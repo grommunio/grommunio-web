@@ -80,6 +80,10 @@ class ListModule extends Module {
 	public function execute() {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
+				$store = null;
+				$parententryid = null;
+				$entryid = null;
+
 				try {
 					$store = $this->getActionStore($action);
 					$parententryid = $this->getActionParentEntryID($action);

@@ -543,12 +543,10 @@ final class SeafileApi {
 	 * @param int|int[]   $group
 	 * @param null|string $permission [optional] r, rw, admin (default: r)
 	 *
-	 * @return array
-	 *
 	 * @throws Exception
 	 * @throws InvalidArgumentException
 	 */
-	public function shareLibraryPathToGroup(string $lib, string $path, $group, ?string $permission = null) {
+	public function shareLibraryPathToGroup(string $lib, string $path, $group, ?string $permission = null): object {
 		$lib = $this->verifyLib($lib);
 		$path = $this->normalizePath($path);
 		$pathEncoded = rawurlencode($path);
@@ -576,12 +574,10 @@ final class SeafileApi {
 	 *
 	 * @param null|string $permission [optional] r, rw, admin (default: r)
 	 *
-	 * @return array
-	 *
 	 * @throws Exception
 	 * @throws InvalidArgumentException
 	 */
-	public function shareLibraryPathToUser(string $lib, string $path, string $user, ?string $permission = null) {
+	public function shareLibraryPathToUser(string $lib, string $path, string $user, ?string $permission = null): array|object {
 		$lib = $this->verifyLib($lib);
 		$path = $this->normalizePath($path);
 		$pathEncoded = rawurlencode($path);
@@ -756,14 +752,18 @@ final class SeafileApi {
 	 *
 	 * get file contents of a file in a library
 	 *
-	 * @return false|string on failure
+	 * @return string file contents
 	 *
 	 * @throws Exception|InvalidArgumentException
 	 */
-	public function downloadFileAsBuffer(string $lib, string $path) {
+	public function downloadFileAsBuffer(string $lib, string $path): string {
 		$url = $this->downloadFile($lib, $path);
+		$result = $this->get($url);
+		if (!is_string($result)) {
+			throw new InvalidResponseException('Expected file contents from Seafile.');
+		}
 
-		return $this->get($url);
+		return $result;
 	}
 
 	/**
@@ -806,8 +806,9 @@ final class SeafileApi {
 	 */
 	public function downloadFileToStream(string $lib, string $path, $handle): bool {
 		$url = $this->downloadFile($lib, $path);
+		$this->get($url, [CURLOPT_RETURNTRANSFER => true, CURLOPT_FILE => $handle]);
 
-		return $this->get($url, [CURLOPT_RETURNTRANSFER => true, CURLOPT_FILE => $handle]);
+		return true;
 	}
 
 	/**
@@ -829,6 +830,7 @@ final class SeafileApi {
 				"{$this->baseurl}/api2/repos/{$lib}/dir/?p={$pathEncoded}",
 				[CURLOPT_HTTPHEADER => ['Authorization: Token ' . $this->token]],
 			),
+			self::JSON_DECODE_ACCEPT_ARRAY | self::JSON_DECODE_ACCEPT_OBJECT,
 		);
 
 		if (is_object($result)) {
@@ -1246,6 +1248,9 @@ final class SeafileApi {
 		$buffer = \strtr($lib, self::HEX_ALPHA_UPPER, self::HEX_ALPHA_LOWER);
 		$format = '%04x%04x-%04x-%04x-%04x-%04x%04x%04x';
 		$values = sscanf($buffer, $format);
+		if (!is_array($values) || count($values) !== 8 || in_array(null, $values, true)) {
+			throw new InvalidArgumentException(sprintf('Not a library id: "%s"', $lib));
+		}
 		$result = vsprintf($format, $values);
 
 		if ($buffer !== $result) {
@@ -1267,6 +1272,9 @@ final class SeafileApi {
 		$buffer = \strtr($token, self::HEX_ALPHA_UPPER, self::HEX_ALPHA_LOWER);
 		$format = '%04x%04x%04x%04x%04x';
 		$values = sscanf($buffer, $format);
+		if (!is_array($values) || count($values) !== 5 || in_array(null, $values, true)) {
+			throw new InvalidArgumentException(sprintf('Not a token: "%s"', $token));
+		}
 		$result = vsprintf($format, $values);
 
 		if ($buffer !== $result) {
@@ -1474,7 +1482,7 @@ final class SeafileApi {
 	 * @throws ConnectionException
 	 */
 	private function curlExecHandleResult($curlResult): void {
-		if (empty($curlResult)) {
+		if ($curlResult === false) {
 			throw new ConnectionException(curl_error($this->handle), -1);
 		}
 
