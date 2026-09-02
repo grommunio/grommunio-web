@@ -90,7 +90,7 @@ require_once UMAPI_PATH . '/class.taskrecurrence.php';
 require_once UMAPI_PATH . '/class.taskrequest.php';
 
 require_once BASE_PATH . 'server/includes/util.php';
-require_once BASE_PATH . 'server/includes/gettext.php';
+require_once UMAPI_PATH . '/gettext.php';
 
 require_once BASE_PATH . 'server/includes/core/class.conversion.php';
 require_once BASE_PATH . 'server/includes/core/class.mapisession.php';
