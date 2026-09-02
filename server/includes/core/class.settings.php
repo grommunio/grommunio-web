@@ -328,7 +328,7 @@ class Settings {
 				}
 			}
 			if (isset($storeProps[PR_EC_USER_LANGUAGE])) {
-				$settings["settings"]["zarafa"]["v1"]["main"]["language"] = $storeProps[PR_EC_USER_LANGUAGE];
+				$settings["settings"]["zarafa"]["v1"]["main"]["language"] = Language::resolveLanguage($storeProps[PR_EC_USER_LANGUAGE]);
 			}
 			elseif (isset($_COOKIE['lang'])) {
 				$settings["settings"]["zarafa"]["v1"]["main"]["language"] = $_COOKIE['lang'];
@@ -346,7 +346,7 @@ class Settings {
 			 * while webapp loads.
 			 */
 			if (isset($storeProps[PR_EC_USER_LANGUAGE])) {
-				$settings["settings"]["zarafa"]["v1"]["main"]["language"] = $storeProps[PR_EC_USER_LANGUAGE];
+				$settings["settings"]["zarafa"]["v1"]["main"]["language"] = Language::resolveLanguage($storeProps[PR_EC_USER_LANGUAGE]);
 			}
 			elseif (isset($_COOKIE['lang'])) {
 				$settings["settings"]["zarafa"]["v1"]["main"]["language"] = $_COOKIE['lang'];
@@ -567,7 +567,7 @@ class Settings {
 		$store = $GLOBALS['mapisession']->getDefaultMessageStore();
 		$storeProps = mapi_getprops($store, [PR_EC_USER_LANGUAGE]);
 		if (!empty($storeProps[PR_EC_USER_LANGUAGE])) {
-			$lang = $storeProps[PR_EC_USER_LANGUAGE];
+			$lang = $Language->resolveLanguage($storeProps[PR_EC_USER_LANGUAGE]);
 		}
 		else {
 			$lang = $this->get('zarafa/v1/main/language', LANG);
