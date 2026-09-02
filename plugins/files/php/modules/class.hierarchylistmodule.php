@@ -2,6 +2,9 @@
 
 require_once __DIR__ . "/class.fileslistmodule.php";
 
+use Files\Backend\Exception as BackendException;
+use Files\Core\Exception as AccountException;
+
 /**
  * This module handles all list and change requests for the files browser.
  *

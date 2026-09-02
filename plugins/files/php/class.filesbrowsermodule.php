@@ -1247,7 +1247,7 @@ class FilesBrowserModule extends FilesListModule {
 			]);
 		}
 
-		$account = $this->accountStore->getAccount($accountID);
+		$account = $this->accountFromId($accountID);
 
 		// initialize the backend
 		$initializedBackend = $this->initializeBackend($account);
@@ -1302,7 +1302,7 @@ class FilesBrowserModule extends FilesListModule {
 			]);
 		}
 
-		$account = $this->accountStore->getAccount($accountID);
+		$account = $this->accountFromId($accountID);
 
 		// initialize the backend
 		$initializedBackend = $this->initializeBackend($account);
@@ -1339,7 +1339,7 @@ class FilesBrowserModule extends FilesListModule {
 	public function updateCache($actionType, $actionData) {
 		$nodeId = $actionData['id'];
 		$accountID = $this->accountIDFromNode($nodeId);
-		$account = $this->accountStore->getAccount($accountID);
+		$account = $this->accountFromId($accountID);
 		// initialize the backend
 		$initializedBackend = $this->initializeBackend($account, true);
 		$relNodeId = substr((string) $nodeId, strpos((string) $nodeId, '/'));

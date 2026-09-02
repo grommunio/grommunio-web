@@ -4,6 +4,8 @@
  * Settings Module.
  */
 class SettingsModule extends Module {
+	private const FILES_ACCOUNT_SETTINGS = 'zarafa/v1/plugins/files/accounts';
+
 	/**
 	 * Constructor.
 	 *
@@ -12,6 +14,60 @@ class SettingsModule extends Module {
 	 */
 	public function __construct($id, $data) {
 		parent::__construct($id, $data);
+	}
+
+	#[Override]
+	protected function getExecutionLockName() {
+		foreach ($this->data as $actionType => $action) {
+			if ($actionType === 'set') {
+				if ($this->settingsTouchFilesAccounts($action['setting'] ?? null, true)) {
+					return 'files';
+				}
+			}
+			elseif (($actionType === 'delete' || $actionType === 'reset') &&
+				$this->settingsTouchFilesAccounts($action['setting'] ?? null, false)) {
+				return 'files';
+			}
+		}
+
+		return parent::getExecutionLockName();
+	}
+
+	/**
+	 * Check whether a settings action overlaps the Files account tree.
+	 */
+	private function settingsTouchFilesAccounts($settings, $withValues) {
+		if ($withValues) {
+			if (isset($settings['path'])) {
+				$settings = [$settings];
+			}
+			if (!is_array($settings)) {
+				return false;
+			}
+			$paths = [];
+			foreach ($settings as $setting) {
+				if (is_array($setting) && isset($setting['path']) && is_string($setting['path'])) {
+					$paths[] = $setting['path'];
+				}
+			}
+		}
+		else {
+			$paths = is_array($settings) ? $settings : [$settings];
+		}
+
+		foreach ($paths as $path) {
+			if (!is_string($path)) {
+				continue;
+			}
+			$path = implode('/', array_values(array_filter(explode('/', $path), static fn ($key) => $key !== '')));
+			if ($path === self::FILES_ACCOUNT_SETTINGS ||
+				str_starts_with($path, self::FILES_ACCOUNT_SETTINGS . '/') ||
+				str_starts_with(self::FILES_ACCOUNT_SETTINGS, $path . '/')) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	/**

@@ -36,6 +36,11 @@ class NewMailNotifier extends Notifier {
 		return HIERARCHY_UPDATE | REQUEST_END;
 	}
 
+	#[Override]
+	public function usePersistentStateLock($event = null) {
+		return false;
+	}
+
 	/**
 	 * If an event elsewhere has occurred, it enters in this method. This method
 	 * executes one or more actions, depends on the event.
@@ -65,6 +70,25 @@ class NewMailNotifier extends Notifier {
 		$now = time();
 		if (($now - $this->lastSharedCheck) < self::SHARED_CHECK_INTERVAL) {
 			return;
+		}
+
+		$requestStateId = $GLOBALS['request_state_id'] ?? null;
+		if (is_string($requestStateId) && $requestStateId !== '') {
+			$checkState = new State('newmail-check-lease-' . hash('sha256', $requestStateId));
+			if ($checkState->open()) {
+				try {
+					$lastSharedCheck = max((int) $checkState->read('lastSharedCheck'), $this->lastSharedCheck);
+					if (($now - $lastSharedCheck) < self::SHARED_CHECK_INTERVAL) {
+						$this->lastSharedCheck = $lastSharedCheck;
+
+						return;
+					}
+					$checkState->write('lastSharedCheck', $now);
+				}
+				finally {
+					$checkState->close();
+				}
+			}
 		}
 		$this->lastSharedCheck = $now;
 
@@ -171,8 +195,6 @@ class NewMailNotifier extends Notifier {
 			}
 		}
 
-		$counterState = new State('counters_sessiondata');
-		$counterState->open();
 		if ($cacheKey === null) {
 			$cacheKey = 'sessionData';
 		}
@@ -180,7 +202,33 @@ class NewMailNotifier extends Notifier {
 			$cacheKey = $username;
 		}
 
-		$sessionData = $counterState->read($cacheKey);
+		$counterLock = new State('counter-lock-' . hash('sha256', $cacheKey));
+		if (!$counterLock->open()) {
+			return;
+		}
+		try {
+			$this->updateFolderHierachyLocked($username, $folderType, $store, $cacheKey, $displayName, $logErrors);
+		}
+		finally {
+			$counterLock->close();
+		}
+	}
+
+	/**
+	 * Update one counter cache while its computation lock is held.
+	 */
+	private function updateFolderHierachyLocked($username, $folderType, $store, $cacheKey, $displayName, $logErrors) {
+		$counterState = new State('counters_sessiondata');
+		if (!$counterState->open()) {
+			return;
+		}
+		try {
+			$sessionData = $counterState->read($cacheKey);
+		}
+		finally {
+			$counterState->close();
+		}
+
 		if (!is_array($sessionData)) {
 			$sessionData = [];
 		}
@@ -189,8 +237,6 @@ class NewMailNotifier extends Notifier {
 
 		// Keep the previous counter state when the hierarchy could not be read.
 		if (empty($folderStatCache)) {
-			$counterState->close();
-
 			return;
 		}
 
@@ -237,10 +283,17 @@ class NewMailNotifier extends Notifier {
 			$this->addNotificationActionData("newmail", $data);
 			$GLOBALS["bus"]->addData($this->createNotificationResponseData());
 
-			$counterState->write($cacheKey, $folderStatCache);
+			$counterState = new State('counters_sessiondata');
+			if (!$counterState->open()) {
+				return;
+			}
+			try {
+				$counterState->write($cacheKey, $folderStatCache);
+			}
+			finally {
+				$counterState->close();
+			}
 		}
-
-		$counterState->close();
 	}
 
 	/**

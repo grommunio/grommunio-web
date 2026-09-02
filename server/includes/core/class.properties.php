@@ -93,6 +93,51 @@ class Properties {
 	}
 
 	/**
+	 * Merge named-property mappings created by another request.
+	 * Mappings are append-only and isolated by store mapping signature.
+	 *
+	 * @param Properties $properties request-local property cache
+	 */
+	public function mergePersistentState($properties) {
+		if (!($properties instanceof self) || !is_array($properties->mapping)) {
+			return;
+		}
+
+		if (!is_array($this->mapping)) {
+			$this->mapping = [];
+		}
+
+		foreach ($properties->mapping as $storeMapping => $mappings) {
+			if (!is_array($mappings)) {
+				continue;
+			}
+			if (!isset($this->mapping[$storeMapping])) {
+				$this->mapping[$storeMapping] = $mappings;
+
+				continue;
+			}
+			if (!is_array($this->mapping[$storeMapping])) {
+				continue;
+			}
+
+			foreach ($mappings as $name => $mapping) {
+				if (!isset($this->mapping[$storeMapping][$name])) {
+					$this->mapping[$storeMapping][$name] = $mapping;
+				}
+				elseif (is_array($mapping) && is_array($this->mapping[$storeMapping][$name])) {
+					foreach ($mapping as $property => $tag) {
+						if (!isset($this->mapping[$storeMapping][$name][$property])) {
+							$this->mapping[$storeMapping][$name][$property] = $tag;
+						}
+					}
+				}
+			}
+		}
+
+		$this->reset();
+	}
+
+	/**
 	 * Setter function which set the store.
 	 *
 	 * @param array|bool|object MAPI Message Store Object or array of MAPI Message Store Objects, false if storeid is not found in the request

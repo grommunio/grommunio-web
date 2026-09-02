@@ -27,6 +27,10 @@ class PluginMDMModule extends Module {
 		$this->stateFolder = null;
 		$this->deviceStates = [];
 		$this->devices = [];
+	}
+
+	#[Override]
+	protected function afterLoadSessionData() {
 		$this->setupDevices();
 	}
 
