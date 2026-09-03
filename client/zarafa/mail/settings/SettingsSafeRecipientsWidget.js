@@ -36,8 +36,10 @@ Zarafa.mail.settings.SettingsSafeRecipientsWidget = Ext.extend(Zarafa.settings.u
 				height: 10
 			},{
 				xtype: 'container',
+				flex: 1,
 				layout: {
 					type: 'hbox',
+					align: 'stretch',
 					pack: 'start'
 				},
 				items: [{
@@ -47,7 +49,6 @@ Zarafa.mail.settings.SettingsSafeRecipientsWidget = Ext.extend(Zarafa.settings.u
 					flex: 1
 				},{
 					xtype: 'container',
-					height: 400,
 					width: 160,
 					layout: {
 						type: 'vbox',

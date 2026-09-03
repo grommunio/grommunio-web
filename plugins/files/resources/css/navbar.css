@@ -28,7 +28,7 @@
 .files_navbar_button.x-btn-over .x-btn-small  {
     background: none;
     box-shadow: none;
-    border: 1px solid #e6e6e6;
+    border: 1px solid var(--ui-border);
 }
 
 /** Navigation bar button **/
@@ -38,7 +38,7 @@
     padding: 0 4px !important;
     margin: 0 !important;
     min-width: 0 !important;
-    background-color: white;
+    background-color: transparent;
     box-shadow: none;
     line-height: 20px;
     display: inline-block;
@@ -52,13 +52,13 @@
 /** Navigation bar last/Focus/Active button **/
 .files_navbar_button_last button {
     font-weight: bold;
-    border: 1px solid #e6e6e6;
+    border: 1px solid var(--ui-border);
     box-shadow: none;
-    background-color: #f8f8f8 !important;
+    background-color: var(--ui-surface-2) !important;
     box-sizing: border-box;
     line-height: 20px;
     display: inline-block;
-    border-radius: 2px;
+    border-radius: var(--ui-radius-sm);
     padding: 1px 6px;
     overflow: visible;
 }
@@ -86,6 +86,6 @@
 
 .zarafa-hierarchy-node-backend {
     font-weight: normal;
-    color: #777777 !important;
+    color: var(--ui-text-3) !important;
     font-style: italic !important;
 }

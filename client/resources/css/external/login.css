@@ -1,39 +1,112 @@
 html,body {
   height:100%;
-  font-size:13px
+  font-size:13px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif
 }
 
 body.login,
 #loading-mask,
-#bg,body.zarafa-welcome {
+#bg,
+body.zarafa-welcome {
   margin:0;
   padding:0;
-  background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJMYXllcl8xIiB2aWV3Qm94PSIwIDAgMTkyMCAxMDgwIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2NjYztvcGFjaXR5Oi4yfTwvc3R5bGU+PC9kZWZzPjxwYXRoIGQ9Ik0wIDBoMTkyMHYxMDgwSDB6IiBzdHlsZT0iZmlsbDojZmNmY2ZjIi8+PHBhdGggZD0iTTAgMjY1LjE2czIuNTctMi45MyAyMS42MSAxNS45M2wzNjQuODQgMzYxLjU3IDM2NC44NCAzNjEuNTdjMzAuNzEgMzAuNDMgMjguMzggNzUuNzQgMjguMzggNzUuNzRIMFYyNjUuMTZaIiBjbGFzcz0iY2xzLTEiLz48cGF0aCBkPSJNMCAwdjYyNGwxMzQuMzkgMTMzLjA3YzE5LjAzIDE4Ljg2IDQzLjk4IDI4LjMgNjguOTMgMjguM3M0OS45LTkuNDMgNjguOTMtMjguM0w2MzcuMDkgMzk1LjVsMzY0Ljg0LTM2MS41OEMxMDI4LjI5IDExLjY2IDEwMjQgMCAxMDI0IDBIMFpNMTkyMCAxMDgwaC0zNzdsLTE0NS43MS0xNDYuMWMtMTguOTQtMTkuMTItMjguNDItNDQuMTctMjguNDItNjkuMjIgMC0yNS4wNSA5LjQ3LTUwLjExIDI4LjQyLTY5LjIyTDE5MjAgMjY4djgxMloiIGNsYXNzPSJjbHMtMSIvPjwvc3ZnPg==) no-repeat center center;
-  background-size:cover;
 }
 
-body.login.theme-basic:after,
-body.theme-basic #loading-mask:after,
-body.theme-basic #bg:after,
-body.theme-basic.zarafa-welcome:after,
-body.login.theme-highcontrast:after,
-body.theme-highcontrast #loading-mask:after,
-body.theme-highcontrast #bg:after,
-body.theme-highcontrast.zarafa-welcome:after,
-body.login.theme-dark:after,
-body.theme-dark #loading-mask:after,
-body.theme-dark #bg:after,
-body.theme-dark.zarafa-welcome:after {
-  content:'';
-  position:absolute;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
-  margin:0;
-  padding:0;
-  background-size:cover;
-  z-index:-1
+/* The gradient follows the theme; grommunio.css is not loaded on the login page */
+body {
+  --theme-gradient-start: #009FFD;
+  --theme-gradient-end: #2a2a72;
+  --login-card: #ffffff;
+  --login-text: #1d2939;
+  --login-muted: #667085;
+  --login-input: #eef0f3;
+  --login-input-hover: #e6e9ee;
+  --login-error: #b42318;
+  --login-error-bg: #fef3f2;
+  --login-error-border: #fecdca;
+}
+
+body.theme-purple,
+#loading-mask.theme-purple {
+  --theme-gradient-start: #5a1b5f;
+  --theme-gradient-end: #952d9d;
+}
+
+body.theme-orange,
+#loading-mask.theme-orange {
+  --theme-gradient-start: #9c5000;
+  --theme-gradient-end: #dc7100;
+}
+
+body.theme-lime,
+#loading-mask.theme-lime {
+  --theme-gradient-start: #456505;
+  --theme-gradient-end: #6da208;
+}
+
+body.theme-magenta,
+#loading-mask.theme-magenta {
+  --theme-gradient-start: #e20074;
+  --theme-gradient-end: #e20074;
+}
+
+body.theme-highcontrast,
+#loading-mask.theme-highcontrast {
+  --theme-gradient-start: #191919;
+  --theme-gradient-end: #323232;
+}
+
+body.theme-cyan,
+#loading-mask.theme-cyan {
+  --theme-gradient-start: #00acc1;
+  --theme-gradient-end: #26c6da;
+}
+
+body.theme-teal,
+#loading-mask.theme-teal {
+  --theme-gradient-start: #00796b;
+  --theme-gradient-end: #26a69a;
+}
+
+body.theme-indigo,
+#loading-mask.theme-indigo {
+  --theme-gradient-start: #303f9f;
+  --theme-gradient-end: #5c6bc0;
+}
+
+body.theme-red,
+#loading-mask.theme-red {
+  --theme-gradient-start: #c62828;
+  --theme-gradient-end: #e53935;
+}
+
+body.theme-green,
+#loading-mask.theme-green {
+  --theme-gradient-start: #2e7d32;
+  --theme-gradient-end: #43a047;
+}
+
+body.theme-brown,
+#loading-mask.theme-brown {
+  --theme-gradient-start: #6d4c41;
+  --theme-gradient-end: #8d6e63;
+}
+
+/* The loading screen keeps the look of the login page (its theme comes
+   from the server default, not from the user), so nothing changes until
+   the application appears */
+#loading-mask.theme-basic {
+  --theme-gradient-start: #009FFD;
+  --theme-gradient-end: #2a2a72;
+}
+
+body.login,
+#loading-mask,
+body.zarafa-welcome {
+  background:
+    url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIwIDEwODAiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjA3Ij48cGF0aCBkPSJNMCAyNjUuMTZzMi41Ny0yLjkzIDIxLjYxIDE1LjkzbDM2NC44NCAzNjEuNTcgMzY0Ljg0IDM2MS41N2MzMC43MSAzMC40MyAyOC4zOCA3NS43NCAyOC4zOCA3NS43NEgwVjI2NS4xNloiLz48cGF0aCBkPSJNMCAwdjYyNGwxMzQuMzkgMTMzLjA3YzE5LjAzIDE4Ljg2IDQzLjk4IDI4LjMgNjguOTMgMjguM3M0OS45LTkuNDMgNjguOTMtMjguM0w2MzcuMDkgMzk1LjVsMzY0Ljg0LTM2MS41OEMxMDI4LjI5IDExLjY2IDEwMjQgMCAxMDI0IDBIMFpNMTkyMCAxMDgwaC0zNzdsLTE0NS43MS0xNDYuMWMtMTguOTQtMTkuMTItMjguNDItNDQuMTctMjguNDItNjkuMjIgMC0yNS4wNSA5LjQ3LTUwLjExIDI4LjQyLTY5LjIyTDE5MjAgMjY4djgxMloiLz48L2c+PC9zdmc+) no-repeat center center / cover,
+    radial-gradient(120% 90% at 100% 100%, rgba(255, 255, 255, 0.14), transparent 55%),
+    linear-gradient(150deg, var(--theme-gradient-start), var(--theme-gradient-end));
 }
 
 #loading-mask {
@@ -53,11 +126,52 @@ body.login #form-container,
   position:relative;
   overflow:hidden;
   z-index:20010;
-  color:#222;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-  border-radius: 30px;
+  color: var(--login-text);
+  background: var(--login-card);
+  box-shadow: 0 24px 64px rgba(16, 24, 40, 0.28), 0 2px 8px rgba(16, 24, 40, 0.12);
+  border-radius: 20px;
   width: 400px;
   min-height: 320px;
+  animation: login-appear 0.35s ease-out both;
+}
+
+@keyframes login-appear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+/* The loading card needs no script: it is centred by the stylesheet and
+   visible with the first paint, so the gradient never shows on its own */
+#loading-mask #form-container {
+  visibility: visible !important;
+  position: absolute;
+  left: 50%;
+  top: 43.75%;
+  transform: translate(-50%, -50%);
+  animation: none;
+}
+
+/* The loading mask fades away over the loaded client */
+#loading-mask {
+  transition: opacity 0.3s ease;
+}
+
+#loading-mask.k-loading-mask-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.login #form-container,
+  #loading-mask #form-container {
+    animation: none;
+  }
+
+  #loading-mask {
+    transition: none;
+  }
 }
 
 body.login #form-container #bg
@@ -71,10 +185,10 @@ body.login #form-container #bg
 
 body.login #form-container #content,
 #loading-mask #form-container #content {
-  padding: 35px 25px;
-  background:rgba(243, 243, 243, 1.0);
+  padding: 40px 40px 36px;
   position:relative;
-  min-width: 350px;
+  box-sizing: border-box;
+  min-width: 400px;
 }
 
 body.login #form-container #content:after,
@@ -84,15 +198,11 @@ body.login #form-container #content:after,
   clear:both
 }
 
-body.login #form-container .left,
-#loading-mask #form-container .left {
-}
-
 body.login #form-container .right,
 #loading-mask #form-container .right {
-  width: 300px;
+  width: 320px;
   min-height: 150px;
-  margin: 40px auto 0px;
+  margin: 32px auto 0px;
 }
 
 body.login #form-container h1,
@@ -101,13 +211,13 @@ body.login #form-container h1,
   line-height:36px;
   font-weight:normal;
   margin:0 0 30px
-} 
+}
 
 body.login #form-container h2,
 #loading-mask #form-container h2 {
   font-size:13px;
   font-weight:normal;
-  text-align:right 
+  text-align:right
 }
 
 body.login #form-container #logo,
@@ -145,57 +255,111 @@ body.login>#form-container label {
 body.login>#form-container input[type="text"],
 body.login>#form-container input[type="password"] {
   display:block;
-  width:273px;
-  padding: 5px !important;
+  box-sizing: border-box;
+  width: 100%;
+  height: 44px;
+  padding: 0 16px !important;
+  font-size: 15px;
   line-height: 1.5 !important;
-  border-radius: 25px;
-  border:1px solid #e6e6e6;
-  padding:0 6px;
-  padding-left: 20px !important;
-  margin-bottom:15px;height:24px;
+  color: var(--login-text);
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: var(--login-input);
+  margin-bottom: 12px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
 }
 
-body.login>#form-container input:-webkit-autofill {
-  -webkit-box-shadow:0 0 0px 1000px white inset
+body.login>#form-container input::placeholder {
+  color: var(--login-muted);
+}
+
+/* Browsers paint autofilled fields in their own colours; an inset shadow covers
+   that and the text colour is forced, also while the field is focused */
+body.login>#form-container input:-webkit-autofill,
+body.login>#form-container input:-webkit-autofill:hover {
+  -webkit-box-shadow: 0 0 0px 1000px var(--login-input) inset;
+  box-shadow: 0 0 0px 1000px var(--login-input) inset;
+  -webkit-text-fill-color: var(--login-text);
+  caret-color: var(--login-text);
+}
+
+body.login>#form-container input:autofill,
+body.login>#form-container input:autofill:hover {
+  box-shadow: 0 0 0px 1000px var(--login-input) inset;
+  -webkit-text-fill-color: var(--login-text);
+  color: var(--login-text);
+  caret-color: var(--login-text);
+}
+
+body.login>#form-container input:hover {
+  background: var(--login-input-hover);
 }
 
 body.login>#form-container input:focus {
   outline:0;
-  border-color:#3094e3
+  background: var(--login-card);
+  border-color: var(--theme-gradient-start);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--theme-gradient-start) 18%, transparent);
+}
+
+body.login>#form-container input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px var(--login-card) inset, 0 0 0 3px color-mix(in srgb, var(--theme-gradient-start) 18%, transparent);
+  box-shadow: 0 0 0px 1000px var(--login-card) inset, 0 0 0 3px color-mix(in srgb, var(--theme-gradient-start) 18%, transparent);
+}
+
+body.login>#form-container input:autofill:focus {
+  box-shadow: 0 0 0px 1000px var(--login-card) inset, 0 0 0 3px color-mix(in srgb, var(--theme-gradient-start) 18%, transparent);
 }
 
 body.login>#form-container #password {
-  margin-bottom:8px
+  margin-bottom: 12px;
+}
+
+body.login>#form-container #error:empty {
+  display: none;
 }
 
 body.login>#form-container #error {
-  color:#e40023
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--login-error-border);
+  border-left-width: 4px;
+  background: var(--login-error-bg);
+  color: var(--login-error);
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: left;
 }
 
 body.login>#form-container #submitbutton {
-  background:#0f70bd;
+  background: var(--theme-gradient-start);
   color:white;
-  height:28px;
+  height: 44px;
+  font-size: 15px;
+  font-weight: 600;
   line-height:1.5;
   border:1px solid transparent;
-  border-radius: 25px;
+  border-radius: 10px;
   padding:0 9px;
   width: 100%;
   margin:12px 0 0;
-  box-shadow:0px 1px 1px 0px rgba(0,0,0,0.35)
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.16);
+  transition: filter 0.15s ease, box-shadow 0.15s ease;
 }
 
 body.login>#form-container #submitbutton:hover {
-  background-color:#065fa5;
+  filter: brightness(0.92);
   cursor: pointer;
 }
 
 body.login>#form-container #submitbutton:active {
-  background-color:#065fa5
+  filter: brightness(0.86);
 }
 
-body.login>#form-container #submitbutton:focus {
-  box-shadow:0 0 0 1px #fff inset
+body.login>#form-container #submitbutton:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px var(--theme-gradient-start);
 }
 
 /* Screen reader only - visually hidden but accessible */
@@ -216,10 +380,14 @@ body.login>#form-container #submitbutton:focus {
   position: absolute;
   bottom: 0;
   width: 100%;
+  padding: 12px 0;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.disclaimer a {
+  color: #ffffff;
 }
 
 .grommunio-welcome-viewport .x-box-inner {
   overflow: auto !important;
 }
-
-/*# sourceMappingURL=login.css.map */

@@ -44,6 +44,14 @@ if (!defined("ENABLE_FILE_PREVIEWER")) {
 	define("ENABLE_FILE_PREVIEWER", true);
 }
 
+/*
+ * Show the BIMI logo of the sender domain in the message header for mails that passed DMARC.
+ * The server looks the logo up over DNS and HTTPS and caches it in TMP_PATH.
+ */
+if (!defined("ENABLE_BIMI")) {
+	define("ENABLE_BIMI", true);
+}
+
 // Allow dragging attachments out of an opened e-mail directly into a
 // cooperating web application's drop zone. The attachment bytes are embedded in
 // the drag operation so the receiving site can reconstruct the file without a

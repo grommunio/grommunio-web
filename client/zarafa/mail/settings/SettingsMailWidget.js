@@ -91,6 +91,17 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 				scope: this
 			}
 		},{
+			xtype: 'checkbox',
+			name: 'zarafa/v1/contexts/mail/hover_actions',
+			ref: 'hoverActions',
+			boxLabel: _('Show quick actions when hovering over a list item'),
+			hideLabel: true,
+			lazyInit: false,
+			listeners: {
+				check: this.onCheck,
+				scope: this
+			}
+		},{
 			xtype: 'combo',
 			name: 'zarafa/v1/contexts/mail/delegate_wastebasket_style',
 			cls:'x-font-select',
@@ -168,6 +179,7 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 		}
 		this.previewCombo.setValue(previewLocation);
 		this.closeCheck.setValue(settingsModel.get(this.closeCheck.name));
+		this.hoverActions.setValue(settingsModel.get(this.hoverActions.name) !== false);
 		this.englishAbb.setValue(settingsModel.get(this.englishAbb.name));
 
 		if (Zarafa.supportsPopOut()) {
@@ -187,6 +199,7 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 	{
 		settingsModel.set(this.previewCombo.name, this.previewCombo.getValue());
 		settingsModel.set(this.closeCheck.name, this.closeCheck.getValue());
+		settingsModel.set(this.hoverActions.name, this.hoverActions.getValue());
 
 		if (Zarafa.supportsPopOut()) {
 			settingsModel.set(this.openingMailField.name, this.openingMailField.getValue().inputValue);

@@ -378,6 +378,14 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
+	 * @return {Boolean} True if BIMI logos of sender domains may be shown
+	 */
+	isBimiEnabled: function ()
+	{
+		return this.meta.enable_bimi === true;
+	},
+
+	/**
 	 * @returns {Boolean} True if theming is enabled by admin(from config.php) else false.
 	 */
 	isThemingEnabled: function ()

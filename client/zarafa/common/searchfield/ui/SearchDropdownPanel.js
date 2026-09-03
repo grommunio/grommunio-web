@@ -31,6 +31,12 @@ Zarafa.common.searchfield.ui.SearchDropdownPanel = Ext.extend(Ext.Panel, {
 	historyIndex: -1,
 
 	/**
+	 * @property {Number} optionIndex The index of the option highlighted with the
+	 * keyboard in {@link #getOptionElements}, -1 for none.
+	 */
+	optionIndex: -1,
+
+	/**
 	 * The localStorage key for search history.
 	 * @property
 	 * @type String
@@ -357,6 +363,7 @@ Zarafa.common.searchfield.ui.SearchDropdownPanel = Ext.extend(Ext.Panel, {
 
 		var entries = this.getHistory();
 		this.historyIndex = -1;
+		this.optionIndex = -1;
 
 		if (!entries.length) {
 			sectionEl.setDisplayed(false);
@@ -436,8 +443,94 @@ Zarafa.common.searchfield.ui.SearchDropdownPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * Resets the history highlight to none.
 	 */
+	/**
+	 * @return {Array} The visible options of the dropdown in document order
+	 */
+	getOptionElements: function()
+	{
+		if (!this.body) {
+			return [];
+		}
+		return Array.prototype.filter.call(this.body.dom.querySelectorAll('[role="option"]'), function(el) {
+			return el.offsetParent !== null;
+		});
+	},
+
+	/**
+	 * Moves the keyboard highlight through the options, wrapping at both ends.
+	 * @param {Number} delta 1 or -1
+	 * @return {Boolean} True when an option is highlighted
+	 */
+	moveOptionHighlight: function(delta)
+	{
+		var options = this.getOptionElements();
+		if (!options.length) {
+			return false;
+		}
+
+		var current = this.getHighlightedOption();
+		var index = current ? options.indexOf(current) : -1;
+		if (index < 0) {
+			index = delta > 0 ? 0 : options.length - 1;
+		} else {
+			index = (index + delta + options.length) % options.length;
+		}
+
+		this.resetOptionHighlight();
+		var option = options[index];
+		this.optionIndex = index;
+		Ext.fly(option).addClass('k-search-option-active');
+		option.scrollIntoView({ block: 'nearest' });
+		if (this.searchTextField && this.searchTextField.tailInputEl) {
+			this.searchTextField.tailInputEl.set({ 'aria-activedescendant': Ext.id(option) });
+		}
+		return true;
+	},
+
+	/**
+	 * @return {HTMLElement} The highlighted option, or undefined
+	 */
+	getHighlightedOption: function()
+	{
+		if (this.optionIndex < 0 || !this.body) {
+			return undefined;
+		}
+		return this.body.dom.querySelector('.k-search-option-active') || undefined;
+	},
+
+	/**
+	 * Clicks the highlighted option, which runs the same handler a mouse click would.
+	 * @return {Boolean} True when an option was activated
+	 */
+	activateHighlightedOption: function()
+	{
+		var option = this.getHighlightedOption();
+		if (!option) {
+			return false;
+		}
+		option.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+		return true;
+	},
+
+	/**
+	 * Removes the keyboard highlight.
+	 */
+	resetOptionHighlight: function()
+	{
+		if (this.body) {
+			Ext.each(this.body.dom.querySelectorAll('.k-search-option-active'), function(el) {
+				Ext.fly(el).removeClass('k-search-option-active');
+			});
+		}
+		this.optionIndex = -1;
+		if (this.searchTextField && this.searchTextField.tailInputEl) {
+			this.searchTextField.tailInputEl.dom.removeAttribute('aria-activedescendant');
+		}
+	},
+
 	resetHistoryHighlight: function()
 	{
+		this.resetOptionHighlight();
 		if (this.historyIndex >= 0) {
 			var listEl = Ext.get(this.getId() + '-history-list');
 			if (listEl) {
@@ -537,6 +630,7 @@ Zarafa.common.searchfield.ui.SearchDropdownPanel = Ext.extend(Ext.Panel, {
 	 */
 	updateFolders: function()
 	{
+		this.optionIndex = -1;
 		var foldersEl = Ext.get(this.getId() + '-folders');
 		if (!foldersEl || !this.searchFolderCombo) {
 			return;

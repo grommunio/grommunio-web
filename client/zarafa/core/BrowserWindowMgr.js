@@ -230,6 +230,7 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	{
 		// Enable tooltips
 		Ext.QuickTips.init();
+		Zarafa.core.KeyboardFocus.init(separateWindowInstance.document);
 
 		var separateWindowId = separateWindowInstance.name;
 

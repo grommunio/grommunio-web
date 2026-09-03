@@ -2,7 +2,7 @@
 .smime-info-fatal,
 .smime-info-partial,
 .smime-info-info {
-	color: #222;
+	color: #1d2939;
         width: 100%;
         height: 34px;
         padding: 10px 65px 0px 10px;
@@ -13,19 +13,23 @@
 }
 
 .smime-info-good {
-	background-color: #d1fbd5;
+	background-color: #dcfce7;
+	box-shadow: inset 4px 0 0 #16a34a;
 }
 
 .smime-info-fatal {
-	background-color: #f9cbca;
+	background-color: #fee2e2;
+	box-shadow: inset 4px 0 0 #dc2626;
 }
 
 .smime-info-partial {
-	background-color: #fae0c1;
+	background-color: #ffedd5;
+	box-shadow: inset 4px 0 0 #ea580c;
 }
 
 .smime-info-info {
-	background-color: #d7e8f8;
+	background-color: #dbeafe;
+	box-shadow: inset 4px 0 0 #2563eb;
 }
 
 .icon_smime_encrypt {
@@ -137,7 +141,7 @@
 /* Algorithm tag in the S/MIME info bar */
 .smime-algo-tag {
 	font-size: 11px;
-	color: #666;
+	color: var(--ui-text-3);
 	margin-left: 4px;
 }
 
@@ -158,6 +162,6 @@
 }
 
 .x-menu-item-checked .x-menu-group-item .x-menu-item-icon {
-	border-color: #0078d4;
-	background: radial-gradient(circle, #0078d4 40%, transparent 45%) !important;
+	border-color: var(--theme-primary-color);
+	background: radial-gradient(circle, var(--theme-primary-color) 40%, transparent 45%) !important;
 }

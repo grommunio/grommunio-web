@@ -179,6 +179,14 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 
 			this.addEvents(
 				/**
+				 * @event versionchanged
+				 * Fired once when a response reports another grommunio Web version
+				 * than the one this page was loaded with.
+				 * @param {Zarafa.core.Request} request
+				 * @param {String} version The version the server runs now
+				 */
+				'versionchanged',
+				/**
 				 * @event connectionparalyzed
 				 * Fired when the window is about to be unloaded. At this moment
 				 * grommunio Web will shutdown and start dropping all communication with the PHP
@@ -243,6 +251,27 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 			activeRequests = {};
 			queuedInterruptedHttpRequests = [];
 			subSystemId = this.subSystemPrefix + '_' + new Date().getTime();
+		},
+
+		/**
+		 * Fires {@link #versionchanged} the first time a response carries another
+		 * grommunio Web version than the loaded one.
+		 * @param {XMLHttpRequest} xmlHttpRequest The completed request
+		 * @private
+		 */
+		checkVersion: function(xmlHttpRequest)
+		{
+			if (this.versionNotified) {
+				return;
+			}
+
+			var server = xmlHttpRequest.getResponseHeader('X-grommunio');
+			var version = container.getVersion();
+			var client = version ? version.getWebApp() : undefined;
+			if (!Ext.isEmpty(server) && !Ext.isEmpty(client) && server !== client) {
+				this.versionNotified = true;
+				this.fireEvent('versionchanged', this, server);
+			}
 		},
 
 		/**
@@ -706,6 +735,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 					if (this.hasQueuedHttpRequests()) {
 						this.dequeueHttpRequest();
 					}
+					this.checkVersion(xmlHttpRequest);
 					break;
 				default: /* Connection errors */
 					// Interrupt the connection

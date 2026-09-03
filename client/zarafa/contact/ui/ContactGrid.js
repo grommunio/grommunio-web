@@ -43,6 +43,12 @@ Zarafa.contact.ui.ContactGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid
 		}
 		config.store = Ext.StoreMgr.lookup(config.store);
 
+		config.plugins = Ext.value(config.plugins, []);
+		if (!Ext.isArray(config.plugins)) {
+			config.plugins = [ config.plugins ];
+		}
+		config.plugins.push('zarafa.contactgridrowactions');
+
 		Ext.applyIf(config, {
 			xtype: 'zarafa.contactgrid',
 			ariaLabel: _('Contacts list'),

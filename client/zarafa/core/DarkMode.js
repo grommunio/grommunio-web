@@ -394,9 +394,13 @@ Zarafa.core.DarkMode = {
 						'[style*="background-image"] canvas,' +
 						'[style*="background-image"] svg {' +
 						'  filter: none !important;' +
-						'}';
+						'}' +
+						// Emoji are glyphs and would be inverted with the text
+						'.grommunio-emoji { display: inline-block; filter: invert(1) hue-rotate(180deg); }' +
+						'[style*="background-image"] .grommunio-emoji { filter: none !important; }';
 
 					this.adjustBodyBackground(doc);
+					this.protectEmoji(doc);
 				}
 			} else {
 				style.textContent = scrollbarCss;
@@ -459,6 +463,56 @@ Zarafa.core.DarkMode = {
 		var g = parseInt(m[2], 10) / 255;
 		var b = parseInt(m[3], 10) / 255;
 		return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+	},
+
+	/**
+	 * Wraps emoji in spans so the inversion applied to the mail can be
+	 * undone for them. Text nodes already wrapped are skipped, so this can
+	 * run again on the same document.
+	 * @param {Document} doc The mail document
+	 * @private
+	 */
+	protectEmoji: function(doc)
+	{
+		var pattern = /\p{Extended_Pictographic}(?:\uFE0F|\u20E3|[\u{1F3FB}-\u{1F3FF}]|\u200D\p{Extended_Pictographic})*/gu;
+		var walker = doc.createTreeWalker(doc.body, NodeFilter.SHOW_TEXT, null, false);
+		var nodes = [];
+		var node;
+
+		while ((node = walker.nextNode())) {
+			var parent = node.parentNode;
+			var tag = parent ? parent.nodeName : '';
+			if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'TEXTAREA' || (parent.className === 'grommunio-emoji')) {
+				continue;
+			}
+			if (pattern.test(node.nodeValue)) {
+				nodes.push(node);
+			}
+			pattern.lastIndex = 0;
+		}
+
+		Ext.each(nodes, function(text) {
+			var value = text.nodeValue;
+			var fragment = doc.createDocumentFragment();
+			var last = 0;
+			var match;
+
+			pattern.lastIndex = 0;
+			while ((match = pattern.exec(value))) {
+				if (match.index > last) {
+					fragment.appendChild(doc.createTextNode(value.substring(last, match.index)));
+				}
+				var span = doc.createElement('span');
+				span.className = 'grommunio-emoji';
+				span.textContent = match[0];
+				fragment.appendChild(span);
+				last = match.index + match[0].length;
+			}
+			if (last < value.length) {
+				fragment.appendChild(doc.createTextNode(value.substring(last)));
+			}
+			text.parentNode.replaceChild(fragment, text);
+		});
 	},
 
 	/**

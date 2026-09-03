@@ -112,7 +112,16 @@ class Language {
 					$fh = fopen(LANGUAGE_DIR . $entry . "/language.txt", "r");
 					$lang_title = fgets($fh);
 					fclose($fh);
-					$this->languages[$entry] = "{$entry}: " . trim($lang_title);
+					$lang_title = trim($lang_title);
+					// Names in other scripts get the English name next to them, so
+					// the entry stays readable without a font for that script
+					if (class_exists('Locale') && !preg_match('/\\p{Latin}/u', $lang_title)) {
+						$english = Locale::getDisplayLanguage($entry, 'en');
+						if (!empty($english) && $english !== $entry) {
+							$lang_title .= " ({$english})";
+						}
+					}
+					$this->languages[$entry] = "{$entry}: " . $lang_title;
 				}
 			}
 		}

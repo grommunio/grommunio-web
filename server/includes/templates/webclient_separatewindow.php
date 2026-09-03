@@ -8,6 +8,16 @@ $loader = new FileLoader();
 
 	<head>
 		<meta name="Generator" content="grommunio-web v<?php echo $loader->getVersion(); ?>">
+<?php
+// The canvas is dark before any stylesheet arrives, so a reload does not flash white
+$darkMode = WebAppAuthentication::isAuthenticated() ? $GLOBALS['settings']->get('zarafa/v1/main/dark_mode') : 'light';
+if ($darkMode === 'dark') {
+	echo "\t\t<style>html { background: #121212; }</style>\n";
+}
+elseif ($darkMode === 'system') {
+	echo "\t\t<style>@media (prefers-color-scheme: dark) { html { background: #121212; } }</style>\n";
+}
+?>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<title><?php echo $webappTitle; ?></title>
@@ -15,17 +25,7 @@ $loader = new FileLoader();
 		<link rel="shortcut icon" href="client/resources/images/favicon.ico?v2.2.0" type="image/x-icon">
 		<link rel="manifest" href="manifest.webmanifest">
 
-		<script>
-		// Resolve system dark mode preference before CSS renders
-		(function() {
-			document.addEventListener('DOMContentLoaded', function() {
-				if (document.body.classList.contains('dark-mode-system') && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-					document.body.classList.add('dark-mode');
-				}
-			});
-		})();
-		</script>
-		<link rel="stylesheet" href="client/resources/css/darkmode.css" >
+		<link rel="stylesheet" href="client/resources/css/darkmode.css?version=<?php echo getWebappVersion(); ?>" >
 		<?php
 			$loader->cssOrder();
 echo Theming::getStyles($theme);
@@ -42,6 +42,13 @@ if ($darkMode === 'dark') {
 	echo ' dark-mode-system';
 }
 ?>">
+		<script>
+		// Resolve the system dark mode before anything renders; waiting for
+		// DOMContentLoaded showed the light loading screen until the scripts ran
+		if (document.body.classList.contains('dark-mode-system') && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			document.body.classList.add('dark-mode');
+		}
+		</script>
 		<?php
 	$jsTemplate = "\t\t<script src=\"{file}\"></script>";
 if (DEBUG_LOADER === LOAD_RELEASE) {

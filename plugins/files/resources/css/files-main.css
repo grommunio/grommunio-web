@@ -27,8 +27,15 @@ button.icon_files {
 	background-position: 4px center;
 }
 
-.x-menu-item-icon.icon_files_category {
+.x-menu-item-icon.icon_files_category,
+.x-menu-item-icon.files_icon_action_upload,
+.x-btn .files_icon_action_upload {
 	background-position: center;
+	background-repeat: no-repeat;
+}
+/* the filled New button draws its icon in white, in both modes */
+.x-btn.zarafa-action button.x-btn-text.files_icon_action_upload {
+	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTYuMDg3IDcuNzVhNS43NTIgNS43NTIgMCAwIDEgMTEuMzI2IDBoLjA4N2E0IDQgMCAwIDEgMy45NjIgNC41NTIgNi41MzQgNi41MzQgMCAwIDAtMS41OTctMS4zNjRBMi41MDEgMi41MDEgMCAwIDAgMTcuNSA5LjI1aC0uNzU2YS43NS43NSAwIDAgMS0uNzUtLjcxMyA0LjI1IDQuMjUgMCAwIDAtOC40ODkgMCAuNzUuNzUgMCAwIDEtLjc0OS43MTNINmEyLjUgMi41IDAgMCAwIDAgNWg0LjRhNi40NTggNi40NTggMCAwIDAtLjM1NyAxLjVINmE0IDQgMCAwIDEgMC04aC4wODdaTTIyIDE2LjVhNS41IDUuNSAwIDEgMS0xMSAwIDUuNSA1LjUgMCAwIDEgMTEgMFptLTYtMS43OTNWMTkuNWEuNS41IDAgMCAwIDEgMHYtNC43OTNsMS42NDYgMS42NDdhLjUuNSAwIDAgMCAuNzA4LS43MDhsLTIuNS0yLjVhLjUuNSAwIDAgMC0uNzA4IDBsLTIuNSAyLjVhLjUuNSAwIDAgMCAuNzA4LjcwOEwxNiAxNC43MDdaIi8+PC9zdmc+) !important;
 }
 
 .icon_cache {
@@ -58,8 +65,8 @@ span.error_files {
 }
 
 /** top toolbar */
-.x-toolbar {
-	background-color: var(--primary-paper-background) !important;
+.files_top_toolbar {
+	background-color: var(--ui-surface) !important;
 }
 
 .files_top_toolbar .x-toolbar-left table{
@@ -82,7 +89,9 @@ span.error_files {
 	margin-top: 3px;
 }
 .files_quota_bar {
-	border: 1px solid #e6e6e6;
+	border: 1px solid var(--ui-border);
+	border-radius: 4px;
+	overflow: hidden;
 	height: 18px !important;
 }
 .files_quota_bar .x-progress-inner{
@@ -91,8 +100,8 @@ span.error_files {
 }
 .files_quota_bar .x-progress-bar{
 	background-image: none;
-	background: #d5e9f9;
-	border-color: #e6e6e6;
+	background: var(--ui-accent-soft);
+	border-color: var(--ui-border);
 	height: 18px !important;
 }
 
@@ -190,7 +199,8 @@ span.error_files {
 	padding-top:2px;
 	text-align:center;
 	width:130px;
-	border:2px solid #fff;
+	border:2px solid transparent;
+	border-radius: var(--ui-radius);
 	text-overflow:ellipsis;
 }
 
@@ -202,25 +212,19 @@ span.error_files {
 }
 
 .zarafa-files-iconview {
-	 background-color: white;
+	 background-color: var(--ui-surface);
 }
 
 .zarafa-files-iconview-over {
-	background-color:#EFEFFF;
-	border:2px solid #DDDDDD;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	color:#0E62BB;
+	background-color: var(--ui-surface-3);
+	border-color: var(--ui-surface-3);
 }
 .zarafa-files-iconview-selected	{
-	background-color:#CEE3F6;
-	border:2px solid #7EACD6;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	color:#0E62BB;
+	background-color: var(--theme-selection-bg);
+	border-color: var(--theme-selection-bg);
 }
 .zarafa-files-iconview-subject {
-	color: #000;
+	color: var(--ui-text);
 	text-overflow:ellipsis;
 	overflow:hidden;
 }
@@ -231,12 +235,12 @@ span.error_files {
 }
 
 .zarafa-files-context-mainpanel {
-	border-right: 1px solid #e6e6e6;
+	border-right: 1px solid var(--ui-border);
 }
 
 /* account view */
 .zarafa-files-accountview {
-	background-color: white;
+	background-color: var(--ui-surface);
 }
 
 .zarafa-files-accountview-container {
@@ -250,7 +254,8 @@ span.error_files {
 	padding-top:2px;
 	text-align:center;
 	width:300px;
-	border:2px solid #fff;
+	border:2px solid transparent;
+	border-radius: var(--ui-radius);
 	text-overflow:ellipsis;
 }
 
@@ -264,19 +269,13 @@ span.error_files {
 }
 
 .zarafa-files-accountview-selected {
-	background-color:#CEE3F6;
-	border:2px solid #7EACD6;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	color:#0E62BB;
+	background-color: var(--theme-selection-bg);
+	border-color: var(--theme-selection-bg);
 }
 
 .zarafa-files-accountview-over {
-	background-color:#EFEFFF;
-	border:2px solid #DDDDDD;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	color:#0E62BB;
+	background-color: var(--ui-surface-3);
+	border-color: var(--ui-surface-3);
 }
 
 .zarafa-files-account-info {
@@ -560,7 +559,7 @@ span.error_files {
 }
 
 .zarafa-files-hierarchypanel-subpanel > .x-panel-header {
-	background-color: white;
+	background-color: var(--ui-surface);
 	padding: 12px 9px 12px 12px;
 }
 

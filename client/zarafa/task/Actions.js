@@ -135,6 +135,53 @@ Zarafa.task.Actions = {
 	},
 
 	/**
+	 * Marks the given tasks complete or incomplete and saves them. Assigned
+	 * tasks owned by someone else get a warning that the assignee overwrites
+	 * the change.
+	 *
+	 * @param {Zarafa.core.data.IPMRecord/Array} records The task(s) to change
+	 * @param {Boolean} complete True to mark complete, false to mark incomplete
+	 */
+	markComplete: function(records, complete)
+	{
+		records = Array.isArray(records) ? records : [ records ];
+		if (Ext.isEmpty(records)) {
+			return;
+		}
+
+		var showWarning = false;
+		Ext.each(records, function(record) {
+			record.beginEdit();
+			record.set('complete', complete);
+			record.set('percent_complete', complete);
+			record.set('status', complete ? Zarafa.core.mapi.TaskStatus.COMPLETE : Zarafa.core.mapi.TaskStatus.NOT_STARTED);
+			record.set('date_completed', complete ? new Date() : null);
+			record.set('flag_icon', complete ? Zarafa.core.mapi.FlagIcon.clear : Zarafa.core.mapi.FlagIcon.red);
+			record.set('flag_complete_time', complete ? new Date() : null);
+			record.set('flag_request', complete ? '' : 'Follow up');
+			record.set('flag_status', complete ? Zarafa.core.mapi.FlagStatus.completed : Zarafa.core.mapi.FlagStatus.flagged);
+			record.endEdit();
+
+			if (!record.isNormalTask()) {
+				if (!record.isTaskOwner() && !record.isTaskRequest()) {
+					showWarning = true;
+				} else {
+					record.addMessageAction('response_type', Zarafa.core.mapi.TaskMode.UPDATE);
+				}
+			}
+		});
+
+		if (showWarning) {
+			Ext.MessageBox.show({
+				title: _('Changes to assigned task'),
+				msg: _('Please note that assigned task(s) will be overwritten when the assignee makes changes.'),
+				buttons: Ext.MessageBox.OK
+			});
+		}
+		records[0].getStore().save();
+	},
+
+	/**
 	 * Deletes all passed {@link Zarafa.core.data.IPMRecord records}. A
 	 * {@link Zarafa.common.dialogs.MessageBox.show MessageBox} will be shown to explain that the records will be
 	 * deleted from their original folder.

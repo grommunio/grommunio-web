@@ -134,6 +134,28 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 						if (iframe) {
 							iframe.setAttribute('title', _('Message body editor'));
 						}
+						// the font size input of the toolbar comes without id or name,
+						// and the toolbar renders after init
+						var nameInputs = function() {
+							var toolbarInputs = editor.getContainer().querySelectorAll('.tox-number-input input');
+							for (var i = 0; i < toolbarInputs.length; i++) {
+								if (!toolbarInputs[i].id) {
+									toolbarInputs[i].id = editor.id + '-fontsize-' + i;
+								}
+								if (!toolbarInputs[i].name) {
+									toolbarInputs[i].name = 'fontsize';
+								}
+							}
+							return toolbarInputs.length > 0;
+						};
+						if (!nameInputs()) {
+							var observer = new MutationObserver(function() {
+								if (nameInputs()) {
+									observer.disconnect();
+								}
+							});
+							observer.observe(editor.getContainer(), { childList: true, subtree: true });
+						}
 					});
 					// When a file is dropped into the editor body, TinyMCE embeds
 					// images inline but blocks all other file types with an error.

@@ -231,7 +231,7 @@ Zarafa.common.reminder.dialogs.ReminderPanel = Ext.extend(Ext.Panel, {
 					width: 10
 				},{
 					xtype	: 'button',
-					width: 90,
+					minWidth: 90,
 					text	: _('Snooze'),
 					handler	: this.onSnooze,
 					ref: '../../snoozeButton',
