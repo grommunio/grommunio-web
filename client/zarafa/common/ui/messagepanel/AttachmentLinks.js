@@ -969,8 +969,13 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	 * Called when user right-clicks on an item in {@link Zarafa.common.ui.messagepanel.AttachmentLinks}
 	 * invokes {@link Zarafa.core.data.UIFactory#openDefaultContextMenu} with the selected {@link Zarafa.core.data.IPMRecord}
 	 *
-	 * Passes an array only when the gesture covers several attachments, so a
-	 * plain right-click hands the menu exactly what it has always been handed.
+	 * 🛑 The selection is passed in the config, not as the first argument.
+	 * {@link Zarafa.core.data.UIFactory#openContextMenu} first asks the plugins
+	 * to bid for a component to show, and they bid on a single record: handing
+	 * that call an array makes every bid fail, whereupon it returns silently and
+	 * no menu opens at all. So the bid is given one record, exactly as before,
+	 * and `records` rides in the config, which <tt>Ext.applyIf</tt> then leaves
+	 * alone. Measured in the browser after a multiple selection opened nothing.
 	 *
 	 * @param {Ext.DataView} dataView DataView from which the event comes
 	 * @param {Number} index
@@ -985,7 +990,8 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 			return;
 		}
 
-		Zarafa.core.data.UIFactory.openDefaultContextMenu(records.length > 1 ? records : records[0], {
+		Zarafa.core.data.UIFactory.openDefaultContextMenu(records[0], {
+			records: records.length > 1 ? records : records[0],
 			position: evt.getXY(),
 			model: this.model
 		});
