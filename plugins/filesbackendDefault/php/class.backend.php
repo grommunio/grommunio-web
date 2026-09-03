@@ -335,15 +335,14 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing, 
 		$versiondata = curl_exec($ch);
 		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
-		if ($httpcode && $httpcode == "200" && $versiondata) {
-			$versions = json_decode($versiondata);
-			$version = $versions->versionstring;
-		}
-		else {
-			$version = "Undetected (no ownCloud?)";
+		if ($httpcode === 200) {
+			$version = $this->parseServerVersionResponse($versiondata);
+			if ($version !== null) {
+				return $version;
+			}
 		}
 
-		return $version;
+		return "Undetected (no ownCloud?)";
 	}
 
 	/**

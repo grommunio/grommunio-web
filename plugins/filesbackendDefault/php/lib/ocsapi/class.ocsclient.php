@@ -118,7 +118,7 @@ class ocsclient {
 	 *
 	 * @param string $url URL for the request
 	 *
-	 * @return bool|string response body, or a boolean cURL result
+	 * @return string response body
 	 */
 	private function doCurlGetRequest($url) {
 		return $this->doCurlRequest($url, []);
@@ -130,7 +130,7 @@ class ocsclient {
 	 * @param string $url         URL for the request
 	 * @param array  $curlOptions additional cURL options
 	 *
-	 * @return bool|string response body, or a boolean cURL result
+	 * @return string response body
 	 *
 	 * @throws ConnectionException
 	 * @throws InvalidResponseException
@@ -151,20 +151,25 @@ class ocsclient {
 		$responsedata = curl_exec($ch);
 		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
-		if ($httpcode == 0) {
+		if ($httpcode === 0) {
 			$message = curl_errno($ch);
 		}
 		else {
 			$message = $httpcode;
 		}
 
-		if ($httpcode && $httpcode == "200") {
+		if ($httpcode === 200) {
+			if (!is_string($responsedata)) {
+				$this->loaded = false;
+
+				throw new InvalidResponseException('Invalid response body');
+			}
 			$this->loaded = true;
 
 			return $responsedata;
 		}
 		$this->loaded = false;
-		if ($httpcode == "0") {
+		if ($httpcode === 0) {
 			throw new ConnectionException($message, $httpcode);
 		}
 
@@ -264,14 +269,9 @@ class ocsclient {
 		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
 		if ($httpcode === 200) {
-			try {
-				$xmldata = new \SimpleXMLElement($responsedata);
-			}
-			catch (\Exception) {
-				throw new InvalidResponseException($responsedata);
-			}
+			$xmldata = $this->parseXMLResponse($responsedata);
 
-			if (!$xmldata || !isset($xmldata->meta) || !$this->parseResponseMeta($xmldata->meta) || !isset($xmldata->data)) {
+			if (!isset($xmldata->meta) || !$this->parseResponseMeta($xmldata->meta) || !isset($xmldata->data)) {
 				return false;
 			}
 
@@ -436,7 +436,7 @@ class ocsclient {
 	/**
 	 * Parse the response of a create or modify request.
 	 *
-	 * @param mixed $response
+	 * @param string $response
 	 *
 	 * @return false|ocsshare
 	 *
@@ -447,32 +447,15 @@ class ocsclient {
 	 * @throws PermissionDeniedException
 	 */
 	private function parseModificationResponse($response) {
-		if ($response) {
-			try {
-				$xmldata = new \SimpleXMLElement($response);
-			}
-			catch (\Exception) {
-				throw new InvalidResponseException($response);
-			}
-
-			if ($xmldata) {
-				$ok = false;
-				if (isset($xmldata->meta)) {
-					$ok = $this->parseResponseMeta($xmldata->meta);
-				}
-
-				if ($ok) {
-					// create a new ocsshare
-					if (isset($xmldata->data)) {
-						return new ocsshare($xmldata->data);
-					}
-
-					return false;
-				}
-			}
-		}
-		else {
+		if (!$response) {
 			throw new InvalidResponseException($response);
+		}
+		$xmldata = $this->parseXMLResponse($response);
+		if (!isset($xmldata->meta) || !$this->parseResponseMeta($xmldata->meta)) {
+			return false;
+		}
+		if (isset($xmldata->data)) {
+			return new ocsshare($xmldata->data);
 		}
 
 		return false;
@@ -481,7 +464,7 @@ class ocsclient {
 	/**
 	 * Parse the request response.
 	 *
-	 * @param mixed $response
+	 * @param string $response
 	 *
 	 * @throws FileNotFoundException
 	 * @throws InvalidArgumentException
@@ -494,24 +477,34 @@ class ocsclient {
 			throw new InvalidResponseException($response);
 		}
 
+		$xmldata = $this->parseXMLResponse($response);
+		if (!isset($xmldata->meta) || !$this->parseResponseMeta($xmldata->meta)) {
+			return;
+		}
+		if (isset($xmldata->data)) {
+			$this->parseResponseData($xmldata->data);
+		}
+	}
+
+	/**
+	 * Convert an OCS response body into XML.
+	 *
+	 * @param bool|string $response response body returned by cURL
+	 *
+	 * @return \SimpleXMLElement parsed response
+	 *
+	 * @throws InvalidResponseException
+	 */
+	private function parseXMLResponse($response) {
+		if (!is_string($response)) {
+			throw new InvalidResponseException('Invalid response body');
+		}
+
 		try {
-			$xmldata = new \SimpleXMLElement($response);
+			return new \SimpleXMLElement($response);
 		}
 		catch (\Exception) {
 			throw new InvalidResponseException($response);
-		}
-
-		if ($xmldata) {
-			$ok = false;
-			if (isset($xmldata->meta)) {
-				$ok = $this->parseResponseMeta($xmldata->meta);
-			}
-
-			if ($ok) {
-				if (isset($xmldata->data)) {
-					$this->parseResponseData($xmldata->data);
-				}
-			}
 		}
 	}
 
