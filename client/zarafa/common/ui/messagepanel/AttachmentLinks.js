@@ -90,7 +90,7 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 			anchor: '100%',
 			iconCls: 'icon_paperclip',
 			cls: 'preview-header-attachments',
-			multiSelect: false,
+			multiSelect: true,
 			overClass: 'zarafa-attachment-link-over',
 			itemSelector: 'span.zarafa-attachment-link',
 			tpl: new Ext.XTemplate(
@@ -769,6 +769,12 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	/**
 	 * Called when the {@link #click} event is fired. This will
 	 * {@link Zarafa.core.data.UIFactory#openViewRecord open} the selected attachment
+	 *
+	 * A click carrying a modifier is a selection gesture and must not open
+	 * anything: {@link Ext.DataView#doMultiSelection} has already extended or
+	 * reduced the selection by the time this runs, and opening the attachment on
+	 * top of that would make a selection impossible to build.
+	 *
 	 * @param {Ext.DataView} dataview Reference to this object
 	 * @param {Number} index
 	 * @param {HTMLElement} node The target HTML element
@@ -783,12 +789,52 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 			return;
 		}
 
+		if (evt && (evt.ctrlKey || evt.shiftKey || evt.metaKey)) {
+			return;
+		}
+
 		var attachment = dataview.getRecord(node);
 		Zarafa.common.Actions.openAttachmentRecord(attachment);
 	},
+
+	/**
+	 * The records a gesture on <tt>node</tt> applies to: the whole selection when
+	 * that node is part of a selection of several, and otherwise only the node
+	 * itself, leaving any selection untouched.
+	 *
+	 * This is the behaviour of Explorer and Outlook, and it is what lets a drag
+	 * or a context menu act on several attachments without a visible selection
+	 * control: the user builds the selection with ctrl/shift and then starts the
+	 * gesture on one of the selected items.
+	 *
+	 * @param {HTMLElement} node The node the gesture started on
+	 * @return {Zarafa.core.data.IPMAttachmentRecord[]} The records, possibly empty
+	 * @private
+	 */
+	getGestureRecords: function(node)
+	{
+		var record = this.getRecord(node);
+		if (!record) {
+			return [];
+		}
+
+		if (this.getSelectionCount() > 1 && this.isSelected(node)) {
+			var selected = this.getSelectedRecords();
+			if (!Ext.isEmpty(selected)) {
+				return selected;
+			}
+		}
+
+		return [record];
+	},
+
 	/**
 	 * Called when user right-clicks on an item in {@link Zarafa.common.ui.messagepanel.AttachmentLinks}
 	 * invokes {@link Zarafa.core.data.UIFactory#openDefaultContextMenu} with the selected {@link Zarafa.core.data.IPMRecord}
+	 *
+	 * Passes an array only when the gesture covers several attachments, so a
+	 * plain right-click hands the menu exactly what it has always been handed.
+	 *
 	 * @param {Ext.DataView} dataView DataView from which the event comes
 	 * @param {Number} index
 	 * @param {HTMLElement} node HTML node from which the event originates
@@ -797,7 +843,12 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	 */
 	onNodeContextMenu: function(dataView, index, node, evt)
 	{
-		Zarafa.core.data.UIFactory.openDefaultContextMenu(dataView.getRecord(node), {
+		var records = this.getGestureRecords(node);
+		if (Ext.isEmpty(records)) {
+			return;
+		}
+
+		Zarafa.core.data.UIFactory.openDefaultContextMenu(records.length > 1 ? records : records[0], {
 			position: evt.getXY(),
 			model: this.model
 		});
