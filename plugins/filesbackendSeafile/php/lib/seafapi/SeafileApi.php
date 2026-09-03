@@ -631,12 +631,10 @@ final class SeafileApi {
 	 *
 	 * @see https://download.seafile.com/published/web-api/v2.1/share.md#user-content-Unshare%20a%20Library%20from%20User
 	 *
-	 * @param string|string[] $user
-	 *
 	 * @throws Exception
 	 * @throws InvalidArgumentException
 	 */
-	public function unshareLibraryPathToUser(string $lib, string $path, $user): object {
+	public function unshareLibraryPathToUser(string $lib, string $path, string $user): object {
 		$lib = $this->verifyLib($lib);
 		$path = $this->normalizePath($path);
 		$pathEncoded = rawurlencode($path);
@@ -688,12 +686,12 @@ final class SeafileApi {
 	 *
 	 * @throws Exception|InvalidArgumentException
 	 */
-	public function createNewDirectory(string $lib, string $path) {
+	public function createNewDirectory(string $lib, string $path): object|string {
 		$lib = $this->verifyLib($lib);
 		$path = $this->normalizePath($path);
 		$pathEncoded = rawurlencode($path);
 
-		return $this->jsonDecode(
+		$response = $this->jsonDecode(
 			$this->post(
 				"{$this->baseurl}/api2/repos/{$lib}/dir/?p={$pathEncoded}",
 				['operation' => 'mkdir'],
@@ -701,6 +699,11 @@ final class SeafileApi {
 			),
 			self::JSON_DECODE_ACCEPT_STRING | self::JSON_DECODE_ACCEPT_OBJECT,
 		);
+		if (!is_string($response) && !is_object($response)) {
+			throw new InvalidResponseException('Expected directory creation result from Seafile.');
+		}
+
+		return $response;
 	}
 
 	/**
@@ -715,18 +718,23 @@ final class SeafileApi {
 	 *
 	 * @throws Exception|InvalidArgumentException
 	 */
-	public function deleteFile(string $lib, string $path) {
+	public function deleteFile(string $lib, string $path): object|string {
 		$lib = $this->verifyLib($lib);
 		$path = $this->normalizePath($path);
 		$pathEncoded = rawurlencode($path);
 
-		return $this->jsonDecode(
+		$response = $this->jsonDecode(
 			$this->delete(
 				"{$this->baseurl}/api2/repos/{$lib}/file/?p={$pathEncoded}",
 				[CURLOPT_HTTPHEADER => ["Authorization: Token {$this->token}"]],
 			),
 			self::JSON_DECODE_ACCEPT_STRING | self::JSON_DECODE_ACCEPT_OBJECT,
 		);
+		if (!is_string($response) && !is_object($response)) {
+			throw new InvalidResponseException('Expected file deletion result from Seafile.');
+		}
+
+		return $response;
 	}
 
 	/**
@@ -838,7 +846,7 @@ final class SeafileApi {
 			self::JSON_DECODE_ACCEPT_ARRAY | self::JSON_DECODE_ACCEPT_OBJECT,
 		);
 
-		if (is_object($result)) {
+		if (!is_array($result)) {
 			// likely a folder not found.
 			$result = [];
 		}
@@ -883,12 +891,12 @@ final class SeafileApi {
 	 *
 	 * @throws Exception
 	 */
-	public function renameFile(string $lib, string $path, string $newName) {
+	public function renameFile(string $lib, string $path, string $newName): object|string {
 		$lib = $this->verifyLib($lib);
 		$path = $this->normalizePath($path);
 		$pathEncoded = rawurlencode($path);
 
-		return $this->jsonDecode(
+		$response = $this->jsonDecode(
 			$this->post(
 				"{$this->baseurl}/api2/repos/{$lib}/file/?p={$pathEncoded}",
 				['operation' => 'rename', 'newname' => $newName],
@@ -896,6 +904,11 @@ final class SeafileApi {
 			),
 			self::JSON_DECODE_ACCEPT_STRING | self::JSON_DECODE_ACCEPT_OBJECT,
 		);
+		if (!is_string($response) && !is_object($response)) {
+			throw new InvalidResponseException('Expected file rename result from Seafile.');
+		}
+
+		return $response;
 	}
 
 	/**
@@ -1379,7 +1392,11 @@ final class SeafileApi {
 	 *
 	 * @throws InvalidResponseException
 	 */
-	private function jsonDecode(string $jsonText, int $flags = self::JSON_DECODE_ACCEPT_DEFAULT) {
+	private function jsonDecode(bool|string $jsonText, int $flags = self::JSON_DECODE_ACCEPT_DEFAULT) {
+		if (!is_string($jsonText)) {
+			throw new InvalidResponseException('Expected an HTTP response body from Seafile.');
+		}
+
 		$accept = $flags & self::JSON_DECODE_ACCEPT_MASK;
 		if ($accept === 0) {
 			return $jsonText;
