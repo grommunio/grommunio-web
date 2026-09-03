@@ -151,14 +151,30 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 */
 	doLogout: function(preserveUser, preserveSession, reauthenticate)
 	{
-		var user = ((preserveUser === true) ? ('&user=' + this.getUser().getUserName()) : '');
+		var user = ((preserveUser === true) ? this.getUser().getUserName() : '');
 
 		Zarafa.core.Util.disableLeaveRequester();
 		// OIDC is enabled, signout via oidc-client.
 		if (preserveSession !== true) {
-			window.location = 'index.php?logout' + user;
+			var form = document.createElement('form');
+			form.method = 'post';
+			form.action = 'index.php';
+			var logoutField = document.createElement('input');
+			logoutField.type = 'hidden';
+			logoutField.name = 'logout';
+			logoutField.value = '1';
+			form.appendChild(logoutField);
+			if (preserveUser === true) {
+				var userField = document.createElement('input');
+				userField.type = 'hidden';
+				userField.name = 'user';
+				userField.value = user;
+				form.appendChild(userField);
+			}
+			document.body.appendChild(form);
+			form.submit();
 		} else {
-			window.location = 'index.php?load=logon' + user;
+			window.location = 'index.php?load=logon' + ((preserveUser === true) ? ('&user=' + encodeURIComponent(user)) : '');
 		}
 	},
 

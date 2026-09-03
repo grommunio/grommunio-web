@@ -27,9 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 	Response::wrongMethod();
 }
 
-// Add CORS headers if necessary
-Response::addCorsHeaders();
-
 // We will always respond with status 200 for this request.
 // The response will tell the requester if he is authenticated
 // or not.

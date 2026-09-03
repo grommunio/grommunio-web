@@ -70,9 +70,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 	Response::wrongMethod();
 }
 
-// Add CORS headers if necessary
-Response::addCorsHeaders();
-
 $new = isset($_POST['new']);
 
 if (isset($_POST['token'])) {

@@ -30,10 +30,11 @@
 	<body class="login theme-<?php echo strtolower((string) $theme ?: 'basic'); ?>">
 
 	<?php
-		$keycloak = KeyCloak::getInstance();
+		$keycloak = WebAppKeyCloak::getInstance();
 		if (!is_null($keycloak) && (!defined('DISABLE_KEYCLOAK') || !DISABLE_KEYCLOAK)) {
+			$keycloakLoginUrl = $keycloak->login_url($keycloak->redirect_url);
 			?>
-	<meta http-equiv='Refresh' content="1;URL='<?php echo $keycloak->login_url($keycloak->redirect_url); ?>'"/>
+	<meta http-equiv="refresh" content="1; url=<?php echo htmlspecialchars($keycloakLoginUrl, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); ?>">
 	<?php
 					echo "<div id='form-container' class='loading' >";
 		}

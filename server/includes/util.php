@@ -314,12 +314,102 @@ function dechex_32($dec) {
  * @return string Encoded string
  */
 function browserDependingHTTPHeaderEncode($input) {
-	$input = preg_replace("/\r|\n/", "", $input);
+	$input = removeHTTPControlCharacters($input);
 	if (!isEdge()) {
 		return $input;
 	}
 
 	return rawurlencode((string) $input);
+}
+
+/**
+ * Remove characters which cannot safely occur in an HTTP response header.
+ *
+ * @param mixed $value
+ *
+ * @return string
+ */
+function removeHTTPControlCharacters($value) {
+	return (string) preg_replace('/[\x00-\x1f\x7f]/', '', (string) $value);
+}
+
+/**
+ * Normalize an untrusted MIME type for use in a Content-Type header.
+ *
+ * Parameters are deliberately discarded. Download responses do not need
+ * them, and accepting only the media type keeps the header grammar small.
+ *
+ * @param mixed  $contentType MIME type to normalize
+ * @param string $fallback    MIME type returned for invalid input
+ *
+ * @return string normalized lowercase MIME type
+ */
+function normalizeHTTPContentType($contentType, $fallback = 'application/octet-stream') {
+	$contentType = trim(explode(';', (string) $contentType, 2)[0]);
+	if (preg_match('/\A[a-z0-9][a-z0-9.+_-]*\/[a-z0-9][a-z0-9.+_-]*\z/i', $contentType) !== 1) {
+		return $fallback;
+	}
+
+	return strtolower($contentType);
+}
+
+/**
+ * Check whether a MIME type is safe to render inline in the webapp origin.
+ *
+ * Scriptable document formats such as HTML, XML and SVG are intentionally not
+ * included. Keep this list aligned with the file preview components.
+ *
+ * @param mixed $contentType normalized or raw MIME type
+ *
+ * @return bool true when inline rendering is allowed
+ */
+function isSafeInlineContentType($contentType) {
+	return in_array(normalizeHTTPContentType($contentType), [
+		'application/pdf',
+		'audio/aac',
+		'audio/flac',
+		'audio/mp4',
+		'audio/mpeg',
+		'audio/ogg',
+		'audio/wav',
+		'audio/webm',
+		'audio/x-wav',
+		'image/avif',
+		'image/bmp',
+		'image/gif',
+		'image/jpeg',
+		'image/png',
+		'image/tiff',
+		'image/vnd.microsoft.icon',
+		'image/webp',
+		'image/x-icon',
+		'text/plain',
+		'video/mp4',
+		'video/mpeg',
+		'video/ogg',
+		'video/quicktime',
+		'video/webm',
+	], true);
+}
+
+/**
+ * Select a safe Content-Disposition value for a download response.
+ *
+ * @param mixed $requestedDisposition requested value
+ * @param mixed $contentType          response MIME type
+ *
+ * @return string "inline" for safe preview types, otherwise "attachment"
+ */
+function getDownloadContentDisposition($requestedDisposition, $contentType) {
+	return $requestedDisposition === 'inline' && isSafeInlineContentType($contentType) ? 'inline' : 'attachment';
+}
+
+/**
+ * Prevent downloaded content from being promoted to an executable document.
+ */
+function sendDownloadSecurityHeaders() {
+	header('X-Content-Type-Options: nosniff');
+	header("Content-Security-Policy: sandbox; default-src 'none'");
 }
 
 /**
@@ -386,13 +476,13 @@ function storeURLDataToSession() {
 }
 
 // Constants for regular expressions which are used in get method to verify the input string
-define("ID_REGEX", "/^[a-z0-9_]+$/im");
-define("STRING_REGEX", "/^[a-z0-9_\\s()@]+$/im");
-define("USERNAME_REGEX", "/^[a-z0-9\\-\\.\\'_@]+$/im");
-define("ALLOWED_EMAIL_CHARS_REGEX", "/^[-a-z0-9_\\.@!#\$%&'\\*\\+\\/\\=\\?\\^_`\\{\\|\\}~]+$/im");
-define("NUMERIC_REGEX", "/^[0-9]+$/im");
+define("ID_REGEX", "/\\A[a-z0-9_]+\\z/i");
+define("STRING_REGEX", "/\\A[a-z0-9_\\s()@]+\\z/i");
+define("USERNAME_REGEX", "/\\A[a-z0-9\\-\\.\\'_@]+\\z/i");
+define("ALLOWED_EMAIL_CHARS_REGEX", "/\\A[-a-z0-9_\\.@!#\$%&'\\*\\+\\/\\=\\?\\^_`\\{\\|\\}~]+\\z/i");
+define("NUMERIC_REGEX", "/\\A[0-9]+\\z/i");
 // Don't allow "\/:*?"<>|" characters in filename.
-define("FILENAME_REGEX", "/^[^\\/\\:\\*\\?\"\\<\\>\\|]+$/im");
+define("FILENAME_REGEX", "/\\A[^\\/\\:\\*\\?\"\\<\\>\\|]+\\z/i");
 
 /**
  * Function to sanitize user input values to prevent XSS attacks.
@@ -402,10 +492,14 @@ define("FILENAME_REGEX", "/^[^\\/\\:\\*\\?\"\\<\\>\\|]+$/im");
  * @param string $regex   regex to validate values based on type of value passed
  */
 function sanitizeValue($value, $default = '', $regex = false) {
-	$result = addslashes((string) $value);
+	$value = (string) $value;
+	if (preg_match('/[\x00-\x1f\x7f]/', $value)) {
+		return $default;
+	}
+
+	$result = addslashes($value);
 	if ($regex) {
-		$match = preg_match_all($regex, $result);
-		if (!$match) {
+		if (preg_match($regex, $result) !== 1) {
 			$result = $default;
 		}
 	}

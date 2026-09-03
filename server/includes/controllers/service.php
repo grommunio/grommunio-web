@@ -11,16 +11,10 @@
 
 require_once BASE_PATH . 'server/includes/core/class.response.php';
 
-// When in dev mode (LOAD_SOURCE) it will be possible to mimic a POST request with a GET request
-// by adding the GET parameter 'post'
-if (DEBUG_LOADER === LOAD_SOURCE && isset($_GET['post'])) {
-	$_POST = $_GET;
-	$_SERVER['REQUEST_METHOD'] = 'POST';
-}
-
-if (file_exists(BASE_PATH . 'server/includes/controllers/service.' . $_GET['service'] . '.php')) {
-	include BASE_PATH . 'server/includes/controllers/service.' . $_GET['service'] . '.php';
-}
-else {
+$service = $_GET['service'] ?? null;
+if (!is_string($service) || preg_match('/\A[a-z]+\z/D', $service) !== 1 ||
+	!file_exists(BASE_PATH . 'server/includes/controllers/service.' . $service . '.php')) {
 	Response::notFound();
 }
+
+include BASE_PATH . 'server/includes/controllers/service.' . $service . '.php';

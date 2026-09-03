@@ -35,6 +35,15 @@ require_once BASE_PATH . 'server/includes/core/constants.php';
 require_once BASE_PATH . 'config.php';
 require_once BASE_PATH . 'defaults.php';
 
+// Reject foreign browser requests before session startup can refresh or destroy
+// state. Requests without Origin remain available to legacy/non-browser clients.
+if (isset($_SERVER['HTTP_ORIGIN'])) {
+	require_once BASE_PATH . 'server/includes/core/class.response.php';
+	if (!Response::isOriginAllowed()) {
+		Response::forbidden();
+	}
+}
+
 // check if configuration is correct (only for the index.php)
 if (defined("CONFIG_CHECK") && basename((string) $_SERVER['SCRIPT_NAME']) === 'index.php') {
 	require_once BASE_PATH . 'server/includes/core/class.configcheck.php';
