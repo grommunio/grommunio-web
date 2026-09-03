@@ -597,11 +597,8 @@ function streamProperty($mapiobj, $proptag) {
 	$stat = mapi_stream_stat($stream);
 	mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
 
-	// Read until the whole property is assembled rather than assuming every read
-	// returns a full block. Advancing by BLOCK_SIZE regardless of what came back
-	// silently returns a short value, and the callers parse what they are given:
-	// a truncated PR_EC_WEBACCESS_SETTINGS_JSON is what makes the settings of a
-	// store fail to load.
+	// A read may return less than a full block, so count bytes rather than
+	// iterations: advancing by BLOCK_SIZE regardless returns a short value.
 	$datastring = '';
 	while (strlen($datastring) < $stat['cb']) {
 		$chunk = mapi_stream_read($stream, BLOCK_SIZE);
@@ -612,8 +609,7 @@ function streamProperty($mapiobj, $proptag) {
 		$datastring .= $chunk;
 	}
 
-	// Still short: the value is incomplete and the caller cannot see that, so
-	// leave a trace rather than handing back something that merely looks valid.
+	// The caller cannot tell a short value from a complete one, so say so here.
 	if (strlen($datastring) < $stat['cb']) {
 		error_log(sprintf(
 			"streamProperty(): property 0x%08X is truncated, read %d of %d bytes",
