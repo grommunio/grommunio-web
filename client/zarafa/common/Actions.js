@@ -1503,12 +1503,27 @@ Zarafa.common.Actions = {
 	},
 
 	/**
-	 * The {@link Zarafa.core.data.UIFactory} layer a preview opens in, from
-	 * zarafa/v1/main/file_previewer/target.
+	 * The {@link Zarafa.core.data.UIFactory} layers a preview can open in, in the
+	 * order they are offered. A browser window needs
+	 * {@link Zarafa#supportsPopOut pop-out}, so it is absent where that is missing.
 	 *
-	 * A browser window is only offered where {@link Zarafa#supportsPopOut pop-out}
-	 * works, so a stored choice of it is answered with the dialog elsewhere rather
-	 * than with a layer that cannot open.
+	 * @return {String[]} layer types
+	 */
+	getFilePreviewerTargets: function ()
+	{
+		var targets = ['dialogs', 'tabs'];
+
+		if (Zarafa.supportsPopOut()) {
+			targets.push('separateWindows');
+		}
+
+		return targets;
+	},
+
+	/**
+	 * The layer a preview opens in, from zarafa/v1/main/file_previewer/target.
+	 * An unavailable or unknown choice is answered with the dialog rather than
+	 * with a layer that cannot open.
 	 *
 	 * @return {String} a layer type: 'dialogs', 'tabs' or 'separateWindows'
 	 */
@@ -1516,11 +1531,7 @@ Zarafa.common.Actions = {
 	{
 		var target = container.getSettingsModel().get('zarafa/v1/main/file_previewer/target');
 
-		if (Ext.isEmpty(target) || (target === 'separateWindows' && !Zarafa.supportsPopOut())) {
-			return 'dialogs';
-		}
-
-		return target;
+		return Zarafa.common.Actions.getFilePreviewerTargets().indexOf(target) === -1 ? 'dialogs' : target;
 	},
 
 	/**

@@ -65,27 +65,20 @@ Zarafa.settings.ui.SettingsFilePreviewerWidget = Ext.extend(Zarafa.settings.ui.S
 	        }
 	    ]));
 
-	    var targets = [{
-	        xtype: 'radio',
-	        name: 'previewTarget',
-	        inputValue: 'dialogs',
-	        boxLabel: _('Dialog')
-	    },{
-	        xtype: 'radio',
-	        name: 'previewTarget',
-	        inputValue: 'tabs',
-	        boxLabel: _('grommunio Web tab')
-	    }];
+	    var labels = {
+	        'dialogs': _('Dialog'),
+	        'tabs': _('grommunio Web tab'),
+	        'separateWindows': _('Browser window')
+	    };
 
-	    // A browser window is offered only where pop-out works, as for mail.
-	    if (Zarafa.supportsPopOut()) {
-	        targets.push({
+	    var targets = Zarafa.common.Actions.getFilePreviewerTargets().map(function(target) {
+	        return {
 	            xtype: 'radio',
 	            name: 'previewTarget',
-	            inputValue: 'separateWindows',
-	            boxLabel: _('Browser window')
-	        });
-	    }
+	            inputValue: target,
+	            boxLabel: labels[target]
+	        };
+	    });
 
 	    items.push({
 	        xtype: 'displayfield',
