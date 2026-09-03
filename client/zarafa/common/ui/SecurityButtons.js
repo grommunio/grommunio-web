@@ -104,7 +104,7 @@ Zarafa.common.ui.SecurityButtons = {
 				menu.add({
 					text: provider.label + ' ' + _('options'),
 					disabled: !allowed,
-					menu: {items: options}
+					menu: {cls: 'message-security-menu', items: options}
 				});
 			}
 		});
@@ -128,6 +128,7 @@ Zarafa.common.ui.SecurityButtons = {
 					beforeshow: function(button) { manager.attach(button); }
 				},
 				menu: {
+					cls: 'message-security-menu',
 					items: [],
 					listeners: {beforeshow: function(menu) { manager.populateMenu(menu, menu.ownerCt); }}
 				}

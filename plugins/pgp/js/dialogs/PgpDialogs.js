@@ -118,7 +118,7 @@ Zarafa.plugins.pgp.dialogs.PgpDialogs = {
 	armored: function(title, armor, fingerprint, secret, suffix)
 	{
 		var field = new Ext.form.TextArea({value: armor, readOnly: true, selectOnFocus: true, cls: 'pgp-armored'});
-		var win = new Ext.Window({title: title, modal: true, width: 680, height: 420, layout: 'fit', stateful: false,
+		var win = new Ext.Window({title: title, modal: true, width: 680, height: 420, layout: 'fit', stateful: false, cls: 'pgp-dialog',
 			items: [field], buttons: [{text: _('Download'), handler: function() {
 				var blob = new Blob([field.getValue()], {type: 'application/pgp-keys'});
 				var url = window.URL.createObjectURL(blob), link = document.createElement('a');

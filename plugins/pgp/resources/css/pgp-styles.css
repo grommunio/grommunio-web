@@ -90,8 +90,50 @@
 	padding: 12px 12px 0;
 }
 
-.pgp-settings .x-form-item {
-	margin-top: 10px;
+.pgp-settings .pgp-explanation {
+	padding: 0;
+	margin: 0 0 12px;
+}
+
+.pgp-settings .x-grid-panel {
+	margin-bottom: 12px;
+}
+
+.pgp-settings .x-btn.pgp-keyservers-button {
+	display: inline-block;
+	width: auto;
+	margin: 6px 0 12px;
+}
+
+/* Use the standard outlined settings button for icon, text and split actions.
+ * Toolbar icon buttons normally get a separate flat-button treatment. */
+#zarafa-mainpanel-contentpanel-settings .pgp-settings .x-toolbar .x-btn.pgp-settings-button {
+	padding: 0;
+	margin: 0 4px 0 0;
+	background-color: transparent !important;
+}
+
+#zarafa-mainpanel-contentpanel-settings .pgp-settings .x-btn.pgp-settings-button .x-btn-small {
+	margin: 0;
+	border: 1px solid var(--ui-border) !important;
+	border-radius: var(--ui-radius-sm);
+	background: var(--ui-surface) !important;
+	box-shadow: var(--ui-shadow-1) !important;
+}
+
+#zarafa-mainpanel-contentpanel-settings .pgp-settings .x-btn.pgp-settings-button.x-btn-over .x-btn-small {
+	border-color: var(--ui-border-strong) !important;
+	background: var(--ui-surface-2) !important;
+}
+
+#zarafa-mainpanel-contentpanel-settings .pgp-settings .x-btn.pgp-settings-button.x-btn-click .x-btn-small {
+	background: var(--ui-surface-3) !important;
+	box-shadow: none !important;
+}
+
+#zarafa-mainpanel-contentpanel-settings .pgp-settings .x-btn.pgp-settings-button.x-btn-focus:not(.x-btn-click) .x-btn-small {
+	border-color: var(--theme-primary-color) !important;
+	box-shadow: 0 0 0 2px var(--ui-accent-ring) !important;
 }
 
 .pgp-operation-status {
@@ -129,6 +171,17 @@ body.dark-mode .pgp-operation-status.pgp-operation-error {
 
 body.dark-mode .icon_pgp_key {
 	background-image: url(../icons/key-dark.svg);
+}
+
+/* The dark SVGs are already light: category, menu and grid icon inversion
+ * must not turn them dark again. */
+body.dark-mode :is(.icon_pgp_key, .icon_pgp_encrypt, .icon_pgp_encrypt_selected, .icon_pgp_sign, .icon_pgp_sign_selected) {
+	filter: none !important;
+}
+
+body.zarafa-webclient.dark-mode .x-btn.x-btn-text-icon:not(.zarafa-action) :is(.x-btn-small, .x-btn-medium, .x-btn-large) button.x-btn-text:is(.icon_pgp_key, .icon_pgp_encrypt, .icon_pgp_encrypt_selected, .icon_pgp_sign, .icon_pgp_sign_selected) {
+	color: var(--dm-fg, #d4d4d4) !important;
+	filter: none !important;
 }
 
 body.dark-mode .icon_pgp_encrypt,

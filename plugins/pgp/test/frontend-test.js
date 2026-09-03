@@ -36,12 +36,17 @@ function runtime() {
 			return String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 		}}},
 		Msg: {alert(title, message) { alerts.push({title, message}); }},
+		data: {
+			JsonStore: function(config) { Object.assign(this, config); },
+			ArrayStore: function(config) { Object.assign(this, config); }
+		},
+		grid: {RowSelectionModel: function(config) { Object.assign(this, config); }},
 		reg() {},
 		id() { return 'test'; }
 	};
 	context.Zarafa = {core: {Plugin: function() {}, ContextModel: function() {}, ui: {Toolbar: function() {}}, data: {
 		AbstractResponseHandler: function(config) { Object.assign(this, config); }, RecordFactory: {addFieldToMessageClass(messageClass, list) { fields.push(...list); }}
-	}}, settings: {ui: {SettingsWidget: function() {}}}, onReady() {}};
+	}}, settings: {ui: {SettingsWidget: function(config) { Object.assign(this, config); }}}, onReady() {}};
 	context.container = {getSettingsModel: () => ({get: (key, fallback) => fallback}), getUser: () => ({getSMTPAddress: () => 'alice@example.test'})};
 	vm.createContext(context);
 	vm.runInContext("String.format = function(text, value) { return text.replace('{0}', value); };", context);
@@ -143,6 +148,92 @@ test('shared toolbar has exactly Sign and Encrypt for either or both plugins', (
 	assert.equal(manager.providers.length, 2, 're-registration never duplicates a provider');
 	manager.providers = [smime.securityProvider()];
 	assert.equal(manager.createButtons().length, 2);
+});
+
+test('both shared security menus and every provider submenu use the scoped menu layout', () => {
+	const {plugin, context} = runtime(), manager = context.Zarafa.common.ui.SecurityButtons;
+	const pgp = plugin.securityProvider(), smime = new context.Zarafa.plugins.smime.SmimePlugin().securityProvider();
+	for (const providers of [[pgp], [smime], [smime, pgp]]) {
+		manager.providers = providers;
+		const buttons = manager.createButtons();
+		assert.equal(buttons.length, 2);
+		for (const config of buttons) {
+			assert.equal(config.menu.cls, 'message-security-menu');
+			const items = [], mail = record(), button = {...buttonFor(mail, config.securityAction), ...config};
+			const menu = {ownerCt: button, removeAll() { items.length = 0; }, add(item) { items.push(item); }};
+			config.menu.listeners.beforeshow(menu);
+			const submenus = items.filter(item => item.menu);
+			assert.equal(submenus.length, providers.length);
+			assert.deepEqual(submenus.map(item => item.text), providers.map(provider => provider.label + ' options'));
+			for (const item of submenus) {
+				assert.equal(item.menu.cls, 'message-security-menu');
+				assert.ok(item.menu.items.length > 0);
+			}
+		}
+	}
+});
+
+test('key settings retain native section spacing and direct form references', () => {
+	const {context} = runtime();
+	const widget = new context.Zarafa.plugins.pgp.settings.SettingsPgpWidget();
+	assert.deepEqual(widget.cls.split(/\s+/).sort(), ['pgp-settings', 'zarafa-settings-widget']);
+	assert.equal(widget.layout, 'form');
+	assert.equal(widget.labelWidth, 200);
+	assert.deepEqual(Array.from(widget.items.filter(item => item.ref), item => [item.ref, item.xtype]), [
+		['keyGrid', 'grid'], ['operationStatus', 'box'], ['defaultKey', 'combo'],
+		['defaultSign', 'checkbox'], ['defaultEncrypt', 'checkbox']
+	]);
+	const grid = widget.items.find(item => item.ref === 'keyGrid');
+	assert.equal(grid.store, widget.keyStore);
+	assert.equal(grid.selModel.listeners.selectionchange, widget.onSelectionChange);
+	assert.equal(grid.selModel.listeners.scope, widget);
+});
+
+test('key settings use consistent button styling and a fit-width keyserver action', () => {
+	const {context} = runtime();
+	const widget = new context.Zarafa.plugins.pgp.settings.SettingsPgpWidget();
+	const grid = widget.items.find(item => item.ref === 'keyGrid');
+	const top = grid.tbar.filter(item => typeof item === 'object');
+	const bottom = grid.bbar.filter(item => typeof item === 'object');
+	assert.equal(top.length, 4);
+	assert.equal(bottom.length, 5);
+	for (const button of [...top, ...bottom]) {
+		assert.equal(button.cls, 'pgp-settings-button', button.text);
+	}
+	assert.equal(top[0].iconCls, 'icon_pgp_key', 'the key icon remains available in the unified button style');
+	const manage = widget.items.find(item => item.text === 'Manage keyservers');
+	assert.equal(manage.xtype, 'button');
+	assert.equal(manage.cls, 'pgp-settings-button pgp-keyservers-button');
+	assert.equal(manage.width, undefined, 'translated labels determine the button width');
+	assert.equal(manage.anchor, undefined, 'the keyserver button does not stretch across the form');
+	assert.equal(manage.handler, widget.manageKeyservers);
+	assert.equal(manage.scope, widget);
+});
+
+test('key actions stay disabled until a suitable key is selected', () => {
+	const {context} = runtime();
+	const widget = new context.Zarafa.plugins.pgp.settings.SettingsPgpWidget();
+	const grid = widget.items.find(item => item.ref === 'keyGrid');
+	const actions = Object.fromEntries(grid.bbar.filter(item => item.itemId).map(item => [item.itemId, {
+		...item, setDisabled(value) { this.disabled = value; }
+	}]));
+	assert.deepEqual(Object.keys(actions), ['verify', 'export', 'private', 'delete']);
+	for (const action of Object.values(actions)) { assert.equal(action.disabled, true); }
+	let selected = null;
+	widget.keyGrid = {rendered: true, getSelectionModel: () => ({getSelected: () => selected}),
+		getBottomToolbar: () => ({getComponent: id => actions[id]})};
+	widget.onSelectionChange();
+	for (const action of Object.values(actions)) { assert.equal(action.disabled, true); }
+	selected = record({secret: false});
+	widget.onSelectionChange();
+	for (const id of ['verify', 'export', 'delete']) { assert.equal(actions[id].disabled, false); }
+	assert.equal(actions.private.disabled, true);
+	selected = record({secret: true});
+	widget.onSelectionChange();
+	for (const action of Object.values(actions)) { assert.equal(action.disabled, false); }
+	selected = null;
+	widget.onSelectionChange();
+	for (const action of Object.values(actions)) { assert.equal(action.disabled, true); }
 });
 
 test('protocol exclusion covers sign, encrypt and cross-protocol combinations', () => {

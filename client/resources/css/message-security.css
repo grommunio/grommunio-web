@@ -45,3 +45,17 @@ body.dark-mode .x-btn-text.icon_security_sign_selected::before,
 body.dark-mode .x-btn-text.icon_security_encrypt_selected::before {
 	background-color: #7bd99b;
 }
+
+/* These masks already follow the theme. Do not use the legacy dark text
+ * compensation intended for bitmap buttons whose entire contents are inverted. */
+body.zarafa-webclient.dark-mode .x-btn.x-btn-text-icon:not(.zarafa-action) :is(.x-btn-small, .x-btn-medium, .x-btn-large) button.x-btn-text:is(.icon_security_sign, .icon_security_sign_selected, .icon_security_encrypt, .icon_security_encrypt_selected) {
+	color: var(--dm-fg, #d4d4d4) !important;
+	filter: none !important;
+}
+
+/* Reserve a separate gutter for submenu arrows, including long translations.
+ * The iconset's background-size: contain would otherwise stretch the arrow. */
+.x-menu.message-security-menu .x-menu-list li.x-menu-list-item a.x-menu-item-arrow {
+	padding-right: 32px;
+	background-size: 5px 9px;
+}

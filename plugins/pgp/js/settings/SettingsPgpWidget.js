@@ -14,7 +14,7 @@ Zarafa.plugins.pgp.settings.SettingsPgpWidget = Ext.extend(Zarafa.settings.ui.Se
 		this.keyservers = [];
 		this.allowedKeyservers = [];
 		Ext.applyIf(config, {
-			title: _('Personal and public keys'), layout: 'form', cls: 'pgp-settings', labelWidth: 205,
+			title: _('Personal and public keys'), layout: 'form', cls: 'zarafa-settings-widget pgp-settings', labelWidth: 200,
 			items: [{xtype: 'box', autoEl: {tag: 'p', cls: 'pgp-explanation', html: utils.encode(_('Your keys are stored in your mailbox. Private keys stay passphrase-protected; signing, encryption and unlocking happen in this browser. Verify your contacts’ fingerprints through a separate trusted channel. Key changes take effect immediately.'))}}, {
 				xtype: 'grid', ref: 'keyGrid', store: this.keyStore, height: 300, border: true,
 				selModel: new Ext.grid.RowSelectionModel({singleSelect: true, listeners: {selectionchange: this.onSelectionChange, scope: this}}),
@@ -35,19 +35,19 @@ Zarafa.plugins.pgp.settings.SettingsPgpWidget = Ext.extend(Zarafa.settings.ui.Se
 				}}, {header: _('Expires'), dataIndex: 'expires', width: 90, renderer: function(value) {
 					return value ? utils.encode(new Date(Number(value) * 1000).toLocaleDateString()) : _('No expiry');
 				}}],
-				tbar: [{text: _('Generate key'), iconCls: 'icon_pgp_key', handler: this.generateKey, scope: this},
-					{text: _('Import key'), handler: this.importKey, scope: this},
-					{text: _('Find public key'), handler: this.lookupKey, scope: this}, '->',
-					{text: _('Refresh'), handler: this.reload, scope: this}],
-				bbar: [{text: _('Details / verify'), itemId: 'verify', disabled: true, handler: this.verifyKey, scope: this},
-					{xtype: 'splitbutton', text: _('Export public key'), itemId: 'export', disabled: true, handler: this.exportPublic, scope: this,
+				tbar: [{text: _('Generate key'), cls: 'pgp-settings-button', iconCls: 'icon_pgp_key', handler: this.generateKey, scope: this},
+					{text: _('Import key'), cls: 'pgp-settings-button', handler: this.importKey, scope: this},
+					{text: _('Find public key'), cls: 'pgp-settings-button', handler: this.lookupKey, scope: this}, '->',
+					{text: _('Refresh'), cls: 'pgp-settings-button', handler: this.reload, scope: this}],
+				bbar: [{text: _('Details / verify'), cls: 'pgp-settings-button', itemId: 'verify', disabled: true, handler: this.verifyKey, scope: this},
+					{xtype: 'splitbutton', text: _('Export public key'), cls: 'pgp-settings-button', itemId: 'export', disabled: true, handler: this.exportPublic, scope: this,
 						menu: {items: [{text: _('Back up private key'), secretOnly: true, handler: this.exportPrivate, scope: this}],
 							listeners: {beforeshow: this.updateKeyMenu, scope: this}}},
-					{text: _('Private key'), itemId: 'private', disabled: true, menu: {items: [
+					{text: _('Private key'), cls: 'pgp-settings-button', itemId: 'private', disabled: true, menu: {items: [
 						{text: _('Unlock in this browser'), handler: this.unlockKey, scope: this},
 						{text: _('Change passphrase'), handler: this.changePassphrase, scope: this}]}},
-					{text: _('Delete'), itemId: 'delete', disabled: true, handler: this.deleteKey, scope: this}, '->',
-					{text: _('Lock all'), handler: this.lockKeys, scope: this}]
+					{text: _('Delete'), cls: 'pgp-settings-button', itemId: 'delete', disabled: true, handler: this.deleteKey, scope: this}, '->',
+					{text: _('Lock all'), cls: 'pgp-settings-button', handler: this.lockKeys, scope: this}]
 			}, {xtype: 'box', ref: 'operationStatus', hidden: true, autoEl: {tag: 'p', cls: 'pgp-operation-status', role: 'status', 'aria-live': 'polite'}},
 			{xtype: 'combo', ref: 'defaultKey', fieldLabel: _('Default private key'),
 				store: this.defaultStore, valueField: 'fingerprint', displayField: 'label', mode: 'local',
@@ -55,7 +55,7 @@ Zarafa.plugins.pgp.settings.SettingsPgpWidget = Ext.extend(Zarafa.settings.ui.Se
 				triggerAction: 'all', editable: false, forceSelection: true, anchor: '100%'
 			}, {xtype: 'checkbox', ref: 'defaultSign', fieldLabel: _('Sign new messages by default')},
 			{xtype: 'checkbox', ref: 'defaultEncrypt', fieldLabel: _('Encrypt new messages by default')},
-			{xtype: 'button', text: _('Manage keyservers'), handler: this.manageKeyservers, scope: this},
+			{xtype: 'button', text: _('Manage keyservers'), cls: 'pgp-settings-button pgp-keyservers-button', handler: this.manageKeyservers, scope: this},
 			{xtype: 'box', autoEl: {tag: 'p', cls: 'pgp-explanation', html: utils.encode(_('Compose defaults apply to new OpenPGP messages only. S/MIME and OpenPGP cannot be combined on the same message.'))}}]
 		});
 		Zarafa.plugins.pgp.settings.SettingsPgpWidget.superclass.constructor.call(this, config);

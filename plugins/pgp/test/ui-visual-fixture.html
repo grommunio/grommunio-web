@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>OpenPGP local UI regression fixture</title>
+	<!-- Match webclient.php / FileLoader::cssOrder(), including the last iconset. -->
+	<link rel="stylesheet" href="../../../client/resources/css/darkmode.css">
+	<link rel="stylesheet" href="../../../client/extjs/resources/css/ext-all-ux.css">
+	<link rel="stylesheet" href="../../../client/resources/css/grommunio.css">
+	<link rel="stylesheet" href="../../../client/resources/css/message-security.css">
+	<link rel="stylesheet" href="../resources/css/pgp-styles.css">
+	<link rel="stylesheet" href="../../smime/resources/css/smime-styles.css">
+	<link rel="stylesheet" href="../../../client/resources/iconsets/breeze/breeze-icons.css">
+	<style>
+		/* Fixture framing only: no overrides of the production widgets under test. */
+		html, body { height: auto; overflow: auto; }
+		.fixture-shell { max-width: 1100px; margin: 20px auto; padding: 0 16px; }
+		.fixture-shell > h1 { font-size: 20px; margin-bottom: 8px; }
+		.fixture-help { line-height: 1.5; margin: 8px 0 14px; }
+		.fixture-section { margin-top: 16px; }
+		#fixture-results { white-space: pre-wrap; font: 12px/1.5 monospace; margin-top: 16px; padding: 12px; background: var(--ui-surface-2); color: var(--ui-text); }
+		#fixture-category-icon { width: 20px; height: 20px; }
+	</style>
+	<script src="../../../client/extjs/ext-base-debug.js"></script>
+	<script src="../../../client/extjs/ext-all-debug.js"></script>
+	<!-- Real DOM templates and layout overrides used by the application. -->
+	<script src="../../../client/extjs-mod/Ext.Button.js"></script>
+	<script src="../../../client/extjs-mod/Ext.Toolbar.js"></script>
+	<script src="../../../client/extjs-mod/Ext.layout.ToolbarLayout.js"></script>
+	<script src="../../../client/extjs-mod/Ext.layout.FormLayout.js"></script>
+	<script src="../../../client/extjs-mod/Ext.grid.GridView.js"></script>
+	<script src="../../../client/extjs-mod/Ext.menu.Menu.js"></script>
+	<script src="../../../client/extjs-mod/Ext.menu.CheckItem.js"></script>
+	<script src="ui-visual-fixture.js"></script>
+	<script src="../../../client/zarafa/settings/ui/SettingsWidget.js"></script>
+	<script src="../../../client/zarafa/common/ui/SecurityButtons.js"></script>
+	<script src="../js/dialogs/PgpDialogs.js"></script>
+	<script src="../js/settings/SettingsPgpWidget.js"></script>
+</head>
+<body class="zarafa-webclient theme-purple dark-mode">
+	<main class="fixture-shell">
+		<h1>OpenPGP UI regression fixture</h1>
+		<p class="fixture-help">Local, synthetic UI only: no mailbox, account, key material, or network API. Toggle the theme, open Sign/Encrypt options, select the sample key, and inspect key-management dialogs. “Run checks” tests both themes and restores this view. Reload to reset all local state.</p>
+		<div id="fixture-controls"></div>
+		<div id="fixture-compose" class="fixture-section"></div>
+		<div id="fixture-icon-grid" class="fixture-section"></div>
+		<div id="zarafa-mainpanel-contentpanel-settings" class="fixture-section">
+			<div class="zarafa-settings-category-panel">
+				<div class="zarafa-settings-category-tab k-with-icon zarafa-settings-category-tab-active">
+					<img id="fixture-category-icon" class="k-settings-category-icon icon_pgp_key" alt="">
+					OpenPGP
+				</div>
+			</div>
+			<div id="fixture-settings" class="zarafa-settings-category-widget-panel"></div>
+		</div>
+		<pre id="fixture-results" role="status" aria-live="polite">Loading real application widgets…</pre>
+	</main>
+</body>
+</html>
