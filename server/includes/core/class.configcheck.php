@@ -357,7 +357,7 @@ class ConfigCheck {
 				break;
 
 			case LOAD_DEBUG:
-				if (!is_file(BASE_PATH . '/client/zarafa-debug.js')) {
+				if (!is_file(BASE_PATH . '/client/grommunio-debug.js')) {
 					$this->error('<strong>LOAD_DEBUG configured, but no debug files found</strong>', $help_msg);
 					$result = false;
 				}
@@ -372,7 +372,7 @@ class ConfigCheck {
 					$this->error('<strong>LOAD_SOURCE configured, but no source files found</strong>', $help_msg);
 					$result = false;
 				}
-				elseif (is_file(BASE_PATH . '/client/grommunio.js') || is_file(BASE_PATH . '/client/zarafa-debug.js')) {
+				elseif (is_file(BASE_PATH . '/client/grommunio.js') || is_file(BASE_PATH . '/client/grommunio-debug.js')) {
 					$this->error('<strong>LOAD_SOURCE configured, but release & debug file were found</strong>', $help_msg);
 					$result = false;
 				}

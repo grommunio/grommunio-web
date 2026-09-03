@@ -51,7 +51,8 @@ ICONS = $(foreach iconsetdir,$(ICONSETS),$(wildcard client/resources/iconsets/$(
 ICONSETSDEST = $(addprefix $(DESTDIR)/client/resources/iconsets/, $(ICONSETS))
 ICONSETSCSS = $(foreach iconsetdir,$(ICONSETS),client/resources/iconsets/$(iconsetdir)/$(iconsetdir)-icons.css)
 ICONSETSCSSDEST = $(addprefix $(DESTDIR)/, $(ICONSETSCSS))
-EXTJS = client/extjs/ext-base.js client/extjs/ext-all.js
+EXTJS = client/extjs/ext-base.js client/extjs/ext-all.js client/extjs/ux/ux-all.js
+EXTJSDEBUG = $(EXTJS:.js=-debug.js)
 THIRDPARTY = $(sort $(shell find client/third-party -name '*.js')) client/third-party/tokenizr/tokenizr.js
 
 PURIFYJS = client/dompurify/purify.min.js
@@ -112,20 +113,24 @@ clearartifacts: client plugins
 
 # Vendored trees are mirrored whole whenever anything below them changed;
 # one copied file stands for the tree, a directory could be created early
-# as a side effect of another rule
+# as a side effect of another rule. Files that other rules derive are removed
+# from the fresh copy, or their newer mtime would make those rules skip.
 define vendor_tree
 $(JSDEPLOY)/$(1)/$(2): $$(shell find client/$(1) -type f -o -type d)
 	rm -rf $(JSDEPLOY)/$(1)
 	mkdir -p $(JSDEPLOY)
 	cp -r client/$(1) $(JSDEPLOY)/$(1)
+	$(if $(3),rm -f $(addprefix $(JSDEPLOY)/$(1)/,$(3)))
 VENDORED += $(JSDEPLOY)/$(1)/$(2)
 endef
+VIEWERJS = $(addprefix ViewerJS/,ImageViewerPlugin.js MultimediaViewerPlugin.js ODFViewerPlugin.js DocxViewerPlugin.js XlsxViewerPlugin.js UnknownFilePlugin.js viewer.js video-js/video.js vendor/jszip.min.js vendor/docx-preview.min.js vendor/xlsx.full.min.js)
+PREVIEWERDERIVED = $(VIEWERJS) ViewerJS/index.html pdfjs/web/viewer.html pdfjs/web/viewer.mjs
 $(eval $(call vendor_tree,tinymce,tinymce.min.js))
 $(eval $(call vendor_tree,tinymce-languages,de.js))
-$(eval $(call vendor_tree,extjs,ext-all-debug.js))
-$(eval $(call vendor_tree,filepreviewer,ViewerJS/webodf.js))
+$(eval $(call vendor_tree,extjs,resources/images/default/s.gif,$(notdir $(EXTJS) $(EXTJSDEBUG)) $(addprefix ux/,$(notdir $(filter %ux-all.js %ux-all-debug.js,$(EXTJS) $(EXTJSDEBUG))))))
+$(eval $(call vendor_tree,filepreviewer,ViewerJS/webodf.js,$(PREVIEWERDERIVED)))
 
-js: $(VENDORED) $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(JSDEPLOY)/grommunio.js $(JSDEPLOY)/extjs-mod/extjs-mod.js $(JSDEPLOY)/extjs/ext-base-all.js $(DESTDIR)/client/third-party/ux-thirdparty.js $(DEPLOYPURIFYJS) $(JSDEPLOY)/filepreviewer/ViewerJS/ImageViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/MultimediaViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/ODFViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/DocxViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/XlsxViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/vendor/jszip.min.js $(JSDEPLOY)/filepreviewer/ViewerJS/vendor/docx-preview.min.js $(JSDEPLOY)/filepreviewer/ViewerJS/vendor/xlsx.full.min.js $(JSDEPLOY)/filepreviewer/ViewerJS/UnknownFilePlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/viewer.js $(JSDEPLOY)/filepreviewer/ViewerJS/video-js/video.js
+js: $(VENDORED) $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(JSDEPLOY)/grommunio.js $(JSDEPLOY)/extjs-mod/extjs-mod.js $(JSDEPLOY)/extjs/ext-base-all.js $(JSDEPLOY)/extjs/ext-base-all-debug.js $(DESTDIR)/client/third-party/ux-thirdparty.js $(DEPLOYPURIFYJS) $(addprefix $(JSDEPLOY)/filepreviewer/,$(VIEWERJS))
 
 $(DESTDIR)/%.php: %.php
 	${PHP} -l $<
@@ -144,9 +149,13 @@ $(DESTDIR)/version: version
 	git describe --abbrev=7 --always  --long | sed 's#grommunio-web-##' > version
 	cp $< $@
 
-$(DESTDIR)/client/extjs/ext-base-all.js: $(EXTJS) $(JSDEPLOY)/extjs/ext-all-debug.js
-	rm -f $(@D)/ext-base.js $(@D)/ext-all.js
-	cat $(EXTJS) > $@
+# One ExtJS bundle per loader mode; the copies of its parts do not ship
+$(DESTDIR)/client/extjs/ext-base-all.js: $(EXTJS) $(JSDEPLOY)/extjs/resources/images/default/s.gif
+	rm -f $(addprefix $(DESTDIR)/,$(EXTJS) $(EXTJSDEBUG))
+	for f in $(EXTJS); do cat $$f; echo; done > $@
+
+$(DESTDIR)/client/extjs/ext-base-all-debug.js: $(EXTJSDEBUG) $(JSDEPLOY)/extjs/resources/images/default/s.gif
+	for f in $(EXTJSDEBUG); do cat $$f; echo; done > $@
 
 $(JSDEPLOY)/fingerprint.js: client/fingerprint.js
 	mkdir -p $(JSDEPLOY)
