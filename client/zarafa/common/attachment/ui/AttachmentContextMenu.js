@@ -87,6 +87,13 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	},
 
 	/**
+	 * @cfg {Zarafa.core.data.IPMAttachmentRecord} primaryRecord The attachment the
+	 * pointer was on when the menu was opened. Optional; when absent the first of
+	 * {@link #records} is used. See {@link #getPrimaryRecord}.
+	 */
+	primaryRecord: undefined,
+
+	/**
 	 * The single attachment the per-item actions apply to.
 	 *
 	 * The menu is opened with a bare record for a plain right-click and with an
@@ -102,6 +109,13 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	 */
 	getPrimaryRecord: function(records)
 	{
+		// The opener names the attachment the pointer was on. Falling back to
+		// the first of the selection would make a right-click inside a selection
+		// act on a different attachment than the one that was clicked.
+		if (this.primaryRecord) {
+			return this.primaryRecord;
+		}
+
 		var candidate = Ext.isDefined(records) ? records : this.records;
 		return Ext.isArray(candidate) ? candidate[0] : candidate;
 	},

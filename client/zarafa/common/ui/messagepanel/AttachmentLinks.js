@@ -990,8 +990,16 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 			return;
 		}
 
-		Zarafa.core.data.UIFactory.openDefaultContextMenu(records[0], {
-			records: records.length > 1 ? records : records[0],
+		// `primaryRecord` is the attachment the pointer was actually on. Every
+		// item except "Save selection to folder" acts on one attachment, and
+		// without this they would act on the first of the selection instead of
+		// the one that was clicked: measured, right-clicking the third of three
+		// selected and choosing Download downloaded the first.
+		var record = this.getRecord(node);
+
+		Zarafa.core.data.UIFactory.openDefaultContextMenu(record, {
+			records: records.length > 1 ? records : record,
+			primaryRecord: record,
 			position: evt.getXY(),
 			model: this.model
 		});
