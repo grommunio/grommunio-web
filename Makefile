@@ -20,7 +20,7 @@ HTMLCOMPILER ?= node_modules/html-minifier-terser/cli.js
 SVGCOMPRESS ?= node_modules/svgo/bin/svgo
 
 JSOPTIONS = --compress ecma=2015,computed_props=false --mangle reserved=['FormData','Ext','Zarafa','container','settings','properties','languages','serverconfig','user','version','urlActionData','console','Tokenizr','module','define','global','require','proxy','_','dgettext','dngettext','dnpgettext','ngettext','pgettext','onResize','tinymce','resizeLoginBox','userManager','DOMPurify','PDFJS','odf','L','GeoSearch','inlineCSS','CSSTree']
-CSSOPTIONS = --no-map --use postcss-preset-env --use cssnano --verbose
+CSSOPTIONS = --no-map --use postcss-preset-env --use cssnano
 HTMLOPTIONS = --collapse-whitespace --remove-comments
 
 # Server files
@@ -38,7 +38,8 @@ IS_SUPPORTED_BUILD ?= $(if $(filter 1, $(SUPPORTED_BUILD)), supported validate-s
 
 # Client files
 
-CSS = $(wildcard client/resources/css/*.* client/resources/css/*/*.* client/extjs/ux/css/ux-all.css client/extjs/resources/css/*.css)
+# the ExtJS stylesheets arrive with the mirrored extjs tree
+CSS = $(filter-out client/resources/css/icon-masks.css client/resources/css/plugin-icons.css, $(wildcard client/resources/css/*.* client/resources/css/*/*.*))
 CSSDEST = $(addprefix $(DESTDIR)/, $(CSS))
 IMAGEDIR = client/resources/images
 IMAGES = $(filter-out client/resources/images/app-icons.extensions.json, $(wildcard $(IMAGEDIR)/*.*))
@@ -61,7 +62,7 @@ JSFILES = $(sort $(shell find client/zarafa -name '*.js'))
 
 # Build
 
-.PHONY: deploy server client all
+.PHONY: deploy server client all js css html clearartifacts
 
 all: deploy
 
@@ -83,16 +84,13 @@ server: mos $(LANGTXTDEST) $(PHPFILES) $(DISTFILES) $(DESTDIR)/version $(SERVERR
 client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) html js
 	cp -r client/resources/fonts $(DESTDIR)/client/resources/
 
-css:
-	find $(DESTDIR)/client -name "*.css" \
-		! -path "$(DESTDIR)/client/filepreviewer/pdfjs/web/viewer.css" \
-		-exec $(CSSCOMPILER) $(CSSOPTIONS) --output {}.min {} \; -exec mv {}.min {} \;
-	find $(DESTDIR)/plugins -name "*.css" -exec $(CSSCOMPILER) $(CSSOPTIONS) --output {}.min {} \; -exec mv {}.min {} \;
-	# postcss-preset-env guards relative-colour rules with an @supports
-	# test that crashes the Firefox 154 style parser; drop the part of
-	# the test that triggers it, the guard still detects the feature
-	find $(DESTDIR)/client $(DESTDIR)/plugins -name "*.css" \
-		-exec sed -i 's#lab(from red l 1 1%/calc(alpha + 0.1))#lab(from red l 1 1%)#g' {} +
+# TinyMCE ships minified CSS; re-processing it only added an @supports
+# probe that crashed the Firefox 154 style parser
+css: client plugins
+	$(CSSCOMPILER) $(CSSOPTIONS) --replace \
+		"$(DESTDIR)/client/**/*.css" "!$(DESTDIR)/client/tinymce/**" \
+		"!$(DESTDIR)/client/filepreviewer/pdfjs/web/viewer.css" \
+		"$(DESTDIR)/plugins/**/*.css"
 
 svgo: node_modules
 	find client plugins -type f -name "*.svg" -exec $(SVGCOMPRESS) --multipass {} \;
@@ -109,17 +107,25 @@ sync-images: node_modules
 sync-images-report: node_modules
 	node tools/sync-images.js --report
 
-clearartifacts:
+clearartifacts: client plugins
 	find $(DESTDIR) -iname "*readme*" -exec rm -f {} \;
-	find $(DESTDIR) -iname "*license*.txt" -exec rm -f {} \;
-	find $(DESTDIR) -iname "*gpl*.txt" -exec rm -f {} \;
 
-js: $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(JSDEPLOY)/grommunio.js $(JSDEPLOY)/extjs-mod/extjs-mod.js $(JSDEPLOY)/extjs/ext-base-all.js $(DESTDIR)/client/third-party/ux-thirdparty.js $(DEPLOYPURIFYJS) $(JSDEPLOY)/filepreviewer/ViewerJS/ImageViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/MultimediaViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/ODFViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/DocxViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/XlsxViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/vendor/jszip.min.js $(JSDEPLOY)/filepreviewer/ViewerJS/vendor/docx-preview.min.js $(JSDEPLOY)/filepreviewer/ViewerJS/vendor/xlsx.full.min.js $(JSDEPLOY)/filepreviewer/ViewerJS/UnknownFilePlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/viewer.js $(JSDEPLOY)/filepreviewer/ViewerJS/video-js/video.js
-	cp -rn client/tinymce $(DESTDIR)/client/
-	cp -rn client/tinymce-languages $(DESTDIR)/client/
-	cp -rn client/extjs $(DESTDIR)/client/
-	cp -rn client/filepreviewer $(DESTDIR)/client/
-	rm $(DESTDIR)/client/extjs/ext-base.js $(DESTDIR)/client/extjs/ext-base-debug.js $(DESTDIR)/client/extjs/ext-all.js
+# Vendored trees are mirrored whole whenever anything below them changed;
+# one copied file stands for the tree, a directory could be created early
+# as a side effect of another rule
+define vendor_tree
+$(JSDEPLOY)/$(1)/$(2): $$(shell find client/$(1) -type f -o -type d)
+	rm -rf $(JSDEPLOY)/$(1)
+	mkdir -p $(JSDEPLOY)
+	cp -r client/$(1) $(JSDEPLOY)/$(1)
+VENDORED += $(JSDEPLOY)/$(1)/$(2)
+endef
+$(eval $(call vendor_tree,tinymce,tinymce.min.js))
+$(eval $(call vendor_tree,tinymce-languages,de.js))
+$(eval $(call vendor_tree,extjs,ext-all-debug.js))
+$(eval $(call vendor_tree,filepreviewer,ViewerJS/webodf.js))
+
+js: $(VENDORED) $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(JSDEPLOY)/grommunio.js $(JSDEPLOY)/extjs-mod/extjs-mod.js $(JSDEPLOY)/extjs/ext-base-all.js $(DESTDIR)/client/third-party/ux-thirdparty.js $(DEPLOYPURIFYJS) $(JSDEPLOY)/filepreviewer/ViewerJS/ImageViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/MultimediaViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/ODFViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/DocxViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/XlsxViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/vendor/jszip.min.js $(JSDEPLOY)/filepreviewer/ViewerJS/vendor/docx-preview.min.js $(JSDEPLOY)/filepreviewer/ViewerJS/vendor/xlsx.full.min.js $(JSDEPLOY)/filepreviewer/ViewerJS/UnknownFilePlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/viewer.js $(JSDEPLOY)/filepreviewer/ViewerJS/video-js/video.js
 
 $(DESTDIR)/%.php: %.php
 	${PHP} -l $<
@@ -138,125 +144,126 @@ $(DESTDIR)/version: version
 	git describe --abbrev=7 --always  --long | sed 's#grommunio-web-##' > version
 	cp $< $@
 
-$(DESTDIR)/client/extjs/ext-base-all.js: $(EXTJS)
-	cat $+ > $@
+$(DESTDIR)/client/extjs/ext-base-all.js: $(EXTJS) $(JSDEPLOY)/extjs/ext-all-debug.js
+	rm -f $(@D)/ext-base.js $(@D)/ext-all.js
+	cat $(EXTJS) > $@
 
 $(JSDEPLOY)/fingerprint.js: client/fingerprint.js
 	mkdir -p $(JSDEPLOY)
-	cat $^ > $(@:.js=-debug.js)
+	cat $< > $(@:.js=-debug.js)
 	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
-		--source-map "url='/web/client/$(shell basename $@.map)'" \
+		--source-map "base='$(@D)',url='client/$(@F).map'" \
 	        $(JSOPTIONS)
 
 $(JSDEPLOY)/grommunio.js: $(JSFILES)
 	$(PHP) tools/loadorder.php grommunio $(@:.js=-debug.js)
 	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
-		--source-map "url='$(shell basename $@.map)'" \
+		--source-map "base='$(@D)',url='$(@F).map'" \
 	        $(JSOPTIONS)
 
 $(JSDEPLOY)/extjs-mod/extjs-mod.js: $(EXTJSMODFILES)
 	mkdir -p $(JSDEPLOY)/extjs-mod
 	$(PHP) tools/loadorder.php extjs $(@:.js=-debug.js)
 	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
-		--source-map "url='$(shell basename $@.map)'" \
+		--source-map "base='$(@D)',url='$(@F).map'" \
 	        $(JSOPTIONS)
 
 $(JSDEPLOY)/resize.js: client/resize.js
 	mkdir -p $(JSDEPLOY)
-	cat $^ > $(@:.js=-debug.js)
+	cat $< > $(@:.js=-debug.js)
 	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
-		--source-map "url='$(shell basename $@.map)'" \
+		--source-map "base='$(@D)',url='$(@F).map'" \
 	        $(JSOPTIONS)
 
-$(JSDEPLOY)/filepreviewer/ViewerJS/ImageViewerPlugin.js: client/filepreviewer/ViewerJS/ImageViewerPlugin.js
+$(JSDEPLOY)/filepreviewer/ViewerJS/ImageViewerPlugin.js: client/filepreviewer/ViewerJS/ImageViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/webodf.js
 	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS
-	cat $^ > $(@:.js=-debug.js)
+	cat $< > $(@:.js=-debug.js)
 	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
-		--source-map "url='$(shell basename $@.map)'" \
+		--source-map "base='$(@D)',url='$(@F).map'" \
 	        $(JSOPTIONS)
 
-$(JSDEPLOY)/filepreviewer/ViewerJS/MultimediaViewerPlugin.js: client/filepreviewer/ViewerJS/MultimediaViewerPlugin.js
+$(JSDEPLOY)/filepreviewer/ViewerJS/MultimediaViewerPlugin.js: client/filepreviewer/ViewerJS/MultimediaViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/webodf.js
 	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS
-	cat $^ > $(@:.js=-debug.js)
+	cat $< > $(@:.js=-debug.js)
 	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
-		--source-map "url='$(shell basename $@.map)'" \
+		--source-map "base='$(@D)',url='$(@F).map'" \
 	        $(JSOPTIONS)
 
-$(JSDEPLOY)/filepreviewer/ViewerJS/ODFViewerPlugin.js: client/filepreviewer/ViewerJS/ODFViewerPlugin.js
+$(JSDEPLOY)/filepreviewer/ViewerJS/ODFViewerPlugin.js: client/filepreviewer/ViewerJS/ODFViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/webodf.js
 	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS
-	cat $^ > $(@:.js=-debug.js)
+	cat $< > $(@:.js=-debug.js)
 	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
-		--source-map "url='$(shell basename $@.map)'" \
+		--source-map "base='$(@D)',url='$(@F).map'" \
 	        $(JSOPTIONS)
 
-$(JSDEPLOY)/filepreviewer/ViewerJS/DocxViewerPlugin.js: client/filepreviewer/ViewerJS/DocxViewerPlugin.js
+$(JSDEPLOY)/filepreviewer/ViewerJS/DocxViewerPlugin.js: client/filepreviewer/ViewerJS/DocxViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/webodf.js
 	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS
-	cat $^ > $(@:.js=-debug.js)
+	cat $< > $(@:.js=-debug.js)
 	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
-		--source-map "url='$(shell basename $@.map)'" \
+		--source-map "base='$(@D)',url='$(@F).map'" \
 	        $(JSOPTIONS)
 
-$(JSDEPLOY)/filepreviewer/ViewerJS/XlsxViewerPlugin.js: client/filepreviewer/ViewerJS/XlsxViewerPlugin.js
+$(JSDEPLOY)/filepreviewer/ViewerJS/XlsxViewerPlugin.js: client/filepreviewer/ViewerJS/XlsxViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/webodf.js
 	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS
-	cat $^ > $(@:.js=-debug.js)
+	cat $< > $(@:.js=-debug.js)
 	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
-		--source-map "url='$(shell basename $@.map)'" \
+		--source-map "base='$(@D)',url='$(@F).map'" \
 	        $(JSOPTIONS)
 
 # Pre-minified third-party viewer libraries (docx-preview + JSZip for .docx,
 # SheetJS for .xlsx). These ship already minified, so they are copied verbatim
 # rather than run through the minifier.
-$(JSDEPLOY)/filepreviewer/ViewerJS/vendor/%.js: client/filepreviewer/ViewerJS/vendor/%.js
+$(JSDEPLOY)/filepreviewer/ViewerJS/vendor/%.js: client/filepreviewer/ViewerJS/vendor/%.js $(JSDEPLOY)/filepreviewer/ViewerJS/webodf.js
 	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS/vendor
 	cp $< $@
 
-$(JSDEPLOY)/filepreviewer/ViewerJS/UnknownFilePlugin.js: client/filepreviewer/ViewerJS/UnknownFilePlugin.js
+$(JSDEPLOY)/filepreviewer/ViewerJS/UnknownFilePlugin.js: client/filepreviewer/ViewerJS/UnknownFilePlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/webodf.js
 	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS
-	cat $^ > $(@:.js=-debug.js)
+	cat $< > $(@:.js=-debug.js)
 	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
-		--source-map "url='$(shell basename $@.map)'" \
+		--source-map "base='$(@D)',url='$(@F).map'" \
 	        $(JSOPTIONS)
 
-$(JSDEPLOY)/filepreviewer/ViewerJS/viewer.js: client/filepreviewer/ViewerJS/viewer.js
+$(JSDEPLOY)/filepreviewer/ViewerJS/viewer.js: client/filepreviewer/ViewerJS/viewer.js $(JSDEPLOY)/filepreviewer/ViewerJS/webodf.js
 	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS
-	cat $^ > $(@:.js=-debug.js)
+	cat $< > $(@:.js=-debug.js)
 	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
-		--source-map "url='$(shell basename $@.map)'" \
+		--source-map "base='$(@D)',url='$(@F).map'" \
 	        $(JSOPTIONS)
 
-$(JSDEPLOY)/filepreviewer/ViewerJS/video-js/video.js: client/filepreviewer/ViewerJS/video-js/video.js
+$(JSDEPLOY)/filepreviewer/ViewerJS/video-js/video.js: client/filepreviewer/ViewerJS/video-js/video.js $(JSDEPLOY)/filepreviewer/ViewerJS/webodf.js
 	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS/video-js
-	cat $^ > $(@:.js=-debug.js)
+	cat $< > $(@:.js=-debug.js)
 	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
-		--source-map "url='$(shell basename $@.map)'" \
+		--source-map "base='$(@D)',url='$(@F).map'" \
 	        $(JSOPTIONS)
 
 $(DEPLOYPURIFYJS): $(PURIFYJS)
 	mkdir -p $(DEPLOYPURIFY)
 	# concatenate using cat
-	cat $^ > $(@:.js=-debug.js)
+	cat $< > $(@:.js=-debug.js)
 	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
-		--source-map "url='$(shell basename $@.map)'" \
+		--source-map "base='$(@D)',url='$(@F).map'" \
 	        $(JSOPTIONS)
 
 $(JSDEPLOY)/third-party/ux-thirdparty.js: $(THIRDPARTY)
 	mkdir -p $(JSDEPLOY)/third-party
 	cat $^ > $(@:.js=-debug.js)
 	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
-		--source-map "url='$(shell basename $@.map)'" \
+		--source-map "base='$(@D)',url='$(@F).map'" \
 	        $(JSOPTIONS)
 
 html: $(DESTDIR)/client/filepreviewer/pdfjs/web/viewer.html $(DESTDIR)/client/filepreviewer/ViewerJS/index.html
 
-$(DESTDIR)/client/filepreviewer/pdfjs/web/viewer.html: client/filepreviewer/pdfjs/web/viewer.html
+$(DESTDIR)/client/filepreviewer/pdfjs/web/viewer.html: client/filepreviewer/pdfjs/web/viewer.html $(JSDEPLOY)/filepreviewer/ViewerJS/webodf.js
 	mkdir -p $(JSDEPLOY)/filepreviewer/pdfjs/web
-	cat $^ > $(@:.html=-orig.html)
+	cat $< > $(@:.html=-orig.html)
 	$(HTMLCOMPILER) $(HTMLOPTIONS) --output $@ $(@:.html=-orig.html)
 	rm $(@:.html=-orig.html)
 
-$(DESTDIR)/client/filepreviewer/ViewerJS/index.html: client/filepreviewer/ViewerJS/index.html
+$(DESTDIR)/client/filepreviewer/ViewerJS/index.html: client/filepreviewer/ViewerJS/index.html $(JSDEPLOY)/filepreviewer/ViewerJS/webodf.js
 	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS
-	cat $^ > $(@:.html=-orig.html)
+	cat $< > $(@:.html=-orig.html)
 	$(HTMLCOMPILER) $(HTMLOPTIONS) --output $@ $(@:.html=-orig.html)
 	rm $(@:.html=-orig.html)
 
@@ -307,11 +314,11 @@ node_modules:
 # Icons
 
 .SECONDEXPANSION:
-$(ICONSETSDEST): $$(subst deploy/,,$$@)/iconset.json $$@/$$(notdir $$@)-icons.css
+$(ICONSETSDEST): $$(patsubst $(DESTDIR)/%,%,$$@)/iconset.json $$@/$$(notdir $$@)-icons.css
 	mkdir -p $@
 	cp $< $@
 
-$(ICONSETSCSSDEST): $$(subst deploy/,,$$@)
+$(ICONSETSCSSDEST): $$(patsubst $(DESTDIR)/%,%,$$@)
 	mkdir -p $(@D)
 	cp $< $@
 
@@ -341,7 +348,7 @@ tokenizr: node_modules
 
 .PHONY: plugins
 plugins:
-	${MAKE} -C plugins
+	${MAKE} -C plugins DESTDIR=$(abspath $(DESTDIR))/plugins
 
 .PHONY: clean
 clean:

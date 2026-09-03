@@ -110,7 +110,7 @@ $(JSDEPLOY)/files.js: $(JSFILES)
 	mkdir -p $(DESTDIR)/js
 	cat $(JSFILES) > $(@:.js=-debug.js)
 	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
-		--source-map "url='/web/plugins/files/js/$(shell basename $@.map)'" \
+		--source-map "base='$(@D)',url='/web/plugins/files/js/$(@F).map'" \
 	        $(JSOPTIONS)
 
 $(CSSDEPLOY)/files.css: $(CSSFILES)
