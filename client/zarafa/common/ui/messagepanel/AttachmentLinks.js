@@ -580,11 +580,14 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	 * (<tt>content/public/common/drop_data.h</tt>), and its multi-valued file list
 	 * is the inbound direction, which is why dropping many files INTO the browser
 	 * works and the reverse does not. The custom type has no such limit because
-	 * the receiving page reconstructs the files itself. So a selection of several
-	 * is offered to a cooperating web application and NOT to the operating
-	 * system: writing the one attachment under the cursor would look like it had
-	 * written them all. Several files reach the disk through the context menu's
-	 * "Save selection to folder" instead.
+	 * the receiving page reconstructs the files itself.
+	 *
+	 * A selection of several therefore travels as two different things at once:
+	 * the loose files under the custom type, and, for the operating system, a
+	 * single ZIP of exactly that selection. One file is all the OS will take, so
+	 * it gets the one file that holds all of them — the one attachment under the
+	 * cursor would instead look like it had written them all. Loose files on disk
+	 * come from the context menu's "Save selection to folder".
 	 *
 	 * @param {Ext.EventObject} evt The native event wrapped by Ext.
 	 * @private
@@ -647,23 +650,25 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 		// Windows Explorer / desktop). This coexists with the custom type: a web
 		// drop zone that calls preventDefault() receives the custom payload and
 		// no download is triggered; only the OS (which cannot honour the custom
-		// type) uses the DownloadURL to save the file. Offered for a single
-		// attachment only, see the note above.
+		// type) uses the DownloadURL to save the file. One attachment goes as
+		// itself, several go as one ZIP of exactly that selection.
 		try {
+			var name, url, safeName;
+
 			if (!multiple) {
 				var record = records[0];
-				var name = record.get('name') || _('Untitled');
+				name = record.get('name') || _('Untitled');
 				var mimeType = record.get('filetype') || 'application/octet-stream';
 
 				// DownloadURL requires a fully qualified URL.
-				var url = record.getAttachmentUrl();
+				url = record.getAttachmentUrl();
 				if (!Ext.isEmpty(url)) {
 					url = new URL(url, window.location.href).href;
 
 					// Name and MIME type are sender-controlled; ':' is the DownloadURL
 					// field separator, so strip it from both or a crafted value could
 					// hijack the URL (everything after the second ':' is the URL).
-					var safeName = String(name).replace(/[\r\n]+/g, ' ').replace(/:/g, '_');
+					safeName = String(name).replace(/[\r\n]+/g, ' ').replace(/:/g, '_');
 					var baseMime = String(mimeType).split(';')[0].trim();
 					var safeMime = /^[\w.+-]+\/[\w.+-]+$/.test(baseMime) ? baseMime : 'application/octet-stream';
 					dataTransfer.setData('DownloadURL', safeMime + ':' + safeName + ':' + url);
@@ -673,6 +678,17 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 				// A human-readable label; useful when dropping onto a text field.
 				dataTransfer.setData('text/plain', haveCustomPayload || Ext.isEmpty(url) ? name : url);
 			} else {
+				// The archive is built by the server from the attachment numbers
+				// the URL names, so the drop costs nothing until it happens.
+				url = this.store.getSelectionZipUrl(records);
+				if (!Ext.isEmpty(url)) {
+					url = new URL(url, window.location.href).href;
+					name = this.getSelectionZipName();
+					safeName = String(name).replace(/[\r\n]+/g, ' ').replace(/:/g, '_');
+					dataTransfer.setData('DownloadURL', 'application/zip:' + safeName + ':' + url);
+					dataTransfer.setData('text/uri-list', url);
+				}
+
 				var names = [];
 				for (i = 0; i < records.length; i++) {
 					names.push(records[i].get('name') || _('Untitled'));
@@ -684,6 +700,26 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 		} catch (e) {
 			// Ignore browsers that reject one of the data types.
 		}
+	},
+
+	/**
+	 * The file name for the ZIP a multiple selection is dragged out as.
+	 *
+	 * It mirrors what <tt>download_attachment.php</tt> puts in the
+	 * <tt>Content-Disposition</tt> header — the word "Attachments", a space, and
+	 * the message subject with everything outside <tt>[a-z0-9 ()]</tt> replaced —
+	 * so the file the operating system writes carries the name the server would
+	 * have given it.
+	 *
+	 * @return {String} The archive file name
+	 * @private
+	 */
+	getSelectionZipName: function()
+	{
+		var parentRecord = this.store && Ext.isFunction(this.store.getParentRecord) ? this.store.getParentRecord() : null;
+		var subject = parentRecord ? (parentRecord.get('subject') || '') : '';
+
+		return _('Attachments') + ' ' + String(subject).replace(/[^a-z0-9 ()]/gi, '_') + '.zip';
 	},
 
 	/**
