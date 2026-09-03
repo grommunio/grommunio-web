@@ -71,6 +71,12 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 			handler: this.onDownloadAllAsZip,
 			beforeShow: this.onDownloadZipBeforeShow
 		}, {
+			text: _('Save selection to folder'),
+			iconCls: 'icon_download',
+			scope: this,
+			handler: this.onSaveSelectionToFolder,
+			beforeShow: this.onSaveSelectionBeforeShow
+		}, {
 			text: _('Import to folder'),
 			iconCls: 'icon_import_attachment',
 			handler: this.onImportToFolder,
@@ -169,6 +175,26 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	 * @param {Zarafa.core.ui.menu.ConditionalItem} item context menu item
 	 * @param {Zarafa.core.data.IPMAttachmentRecord|Zarafa.core.data.IPMAttachmentRecord[]} records attachment record(s) on which context menu is shown
 	 */
+	onSaveSelectionBeforeShow: function(item, records)
+	{
+		var saver = Zarafa.common.attachment.AttachmentFolderSaver;
+
+		// This answers a need only a selection has: several loose files on disk,
+		// which neither the drag (one file at most) nor the ZIP (an archive of
+		// everything) gives. A single attachment is what "Download" is for, so
+		// the item stays out of the menu until there are several to write.
+		var visible = Ext.isArray(records) && saver.isSupported() &&
+			saver.getSaveableRecords(records).length > 1;
+
+		item.setVisible(visible);
+	},
+
+	/**
+	 * Function will be called before {@link Zarafa.common.attachment.ui.AttachmentContextMenu AttachmentContextMenu} is shown
+	 * so we can decide which item should be disabled.
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} item context menu item
+	 * @param {Zarafa.core.data.IPMAttachmentRecord|Zarafa.core.data.IPMAttachmentRecord[]} records attachment record(s) on which context menu is shown
+	 */
 	onImportToFolderBeforeShow: function(item, records)
 	{
 		var record = this.getPrimaryRecord(records);
@@ -239,6 +265,17 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	onDownloadAllAsZip: function()
 	{
 		Zarafa.common.Actions.downloadAttachment(this.getPrimaryRecord(), true);
+	},
+
+	/**
+	 * Event handler which is called when the user selects the 'Save selection to
+	 * folder' item in the context menu. Writes the selected attachments as loose
+	 * files into a folder the user picks.
+	 * @private
+	 */
+	onSaveSelectionToFolder: function()
+	{
+		Zarafa.common.attachment.AttachmentFolderSaver.save(this.records);
 	},
 
 	/**
