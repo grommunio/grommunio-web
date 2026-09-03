@@ -135,6 +135,7 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 		// Drag-out prefetch state, initialised once so the cache is always an object.
 		this.attachmentPayloadCache = {};
 		this.activePrefetches = [];
+		this.prefetchQueue = [];
 		this.pendingPrefetchCount = 0;
 		this.prefetchGeneration = 0;
 		this.payloadCacheSeq = 0;
@@ -143,6 +144,7 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 			'contextmenu': this.onNodeContextMenu,
 			'click': this.onAttachmentClicked,
 			'render': this.onRenderRegisterDragOut,
+			'selectionchange': this.onSelectionChangePrefetch,
 			scope: this
 		});
 	},
@@ -311,6 +313,10 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 		}
 
 		if (this.pendingPrefetchCount >= this.maxConcurrentPrefetch) {
+			// Queue instead of dropping it. A drag over a selection needs every
+			// one of its payloads, and nothing would ever start the ones beyond
+			// the concurrency limit again.
+			this.queuePrefetch(record, key);
 			return;
 		}
 
@@ -402,7 +408,108 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 					self.activePrefetches.splice(idx, 1);
 				}
 			}
+
+			self.drainPrefetchQueue();
 		});
+	},
+
+	/**
+	 * Remembers an attachment whose prefetch could not be started because
+	 * {@link #maxConcurrentPrefetch} downloads are already in flight, so
+	 * {@link #drainPrefetchQueue} can start it when a slot frees up. Ignores an
+	 * attachment already waiting.
+	 * @param {Zarafa.core.data.IPMAttachmentRecord} record The attachment record
+	 * @param {String} key Its {@link #getAttachmentCacheKey cache key}
+	 * @private
+	 */
+	queuePrefetch: function(record, key)
+	{
+		for (var i = 0; i < this.prefetchQueue.length; i++) {
+			if (this.getAttachmentCacheKey(this.prefetchQueue[i]) === key) {
+				return;
+			}
+		}
+
+		this.prefetchQueue.push(record);
+	},
+
+	/**
+	 * Starts queued prefetches while there is a free slot. The queue only ever
+	 * shrinks here: entries are taken off it before being started, and one is
+	 * queued again only from a state where every slot is busy.
+	 * @private
+	 */
+	drainPrefetchQueue: function()
+	{
+		while (!Ext.isEmpty(this.prefetchQueue) && this.pendingPrefetchCount < this.maxConcurrentPrefetch) {
+			this.prefetchAttachmentFile(this.prefetchQueue.shift());
+		}
+	},
+
+	/**
+	 * Event handler for {@link #selectionchange}. Starts fetching the payloads of
+	 * a multiple selection, so that dragging it out finds them ready: the drag
+	 * itself cannot wait for a download, and {@link #onAttachmentDragStart} hands
+	 * over a selection only when every payload is present.
+	 * @private
+	 */
+	onSelectionChangePrefetch: function()
+	{
+		if (!this.isDragOutEmbedEnabled() || this.getSelectionCount() < 2) {
+			return;
+		}
+
+		var records = this.getSelectedRecords();
+		for (var i = 0; i < records.length; i++) {
+			if (this.isDraggableAttachment(records[i])) {
+				this.prefetchAttachmentFile(records[i]);
+			}
+		}
+	},
+
+	/**
+	 * Whether an attachment can take part in a drag out of grommunio Web.
+	 * Embedded messages cannot: they are not backed by a single downloadable
+	 * file, so they have neither a download URL nor a payload.
+	 * @param {Zarafa.core.data.IPMAttachmentRecord} record The attachment record
+	 * @return {Boolean} True if the attachment can be dragged out
+	 * @private
+	 */
+	isDraggableAttachment: function(record)
+	{
+		return !!record && !(Ext.isFunction(record.isEmbeddedMessage) && record.isEmbeddedMessage());
+	},
+
+	/**
+	 * Collects the cached payloads of the given attachments, all of them or none.
+	 *
+	 * A payload cannot be fetched from within <tt>dragstart</tt>, which is
+	 * synchronous, so handing over the subset that happens to be ready would drop
+	 * the rest of the selection without telling anyone — a drop that looks
+	 * complete and is not. When one is missing its fetch is started instead, so a
+	 * later drag of the same selection carries everything.
+	 *
+	 * @param {Zarafa.core.data.IPMAttachmentRecord[]} records The attachments to be dragged
+	 * @return {String[]} The payloads as JSON strings, or null when incomplete
+	 * @private
+	 */
+	collectDragPayloads: function(records)
+	{
+		var payloads = [];
+		var complete = true;
+
+		for (var i = 0; i < records.length; i++) {
+			var entry = this.attachmentPayloadCache[this.getAttachmentCacheKey(records[i])];
+			if (entry && entry.payload) {
+				this.touchCacheEntry(entry);
+				payloads.push(entry.payload);
+			} else {
+				complete = false;
+				this.prefetchAttachmentFile(records[i]);
+			}
+		}
+
+		return complete ? payloads : null;
 	},
 
 	/**
@@ -458,13 +565,26 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	 *   {@link #prefetchAttachmentFile prefetched}, the payload is also exposed
 	 *   under the custom {@link #attachmentDragOutType} MIME type as a JSON string
 	 *   <tt>{name, type, size, data(base64)}</tt>, so a cooperating receiving web
-	 *   application can reconstruct the file on drop.
+	 *   application can reconstruct the file on drop. Several attachments travel
+	 *   as an array of those objects, which the reader has always accepted.
 	 *
 	 * The two do not conflict: when a web page's drop handler calls
 	 * <tt>preventDefault()</tt> (as a drop zone must), the browser hands over the
 	 * custom payload and does NOT download. The <tt>DownloadURL</tt> download only
 	 * happens when the drop target does not accept the drop, i.e. the operating
 	 * system (Explorer/desktop) or a page area without a drop handler.
+	 *
+	 * 🛑 The two are not equally capable, and that governs what a multiple
+	 * selection can do. A drag can hand the operating system at most ONE file:
+	 * Chromium's drop data holds a single optional <tt>DownloadUrlMetadata</tt>
+	 * (<tt>content/public/common/drop_data.h</tt>), and its multi-valued file list
+	 * is the inbound direction, which is why dropping many files INTO the browser
+	 * works and the reverse does not. The custom type has no such limit because
+	 * the receiving page reconstructs the files itself. So a selection of several
+	 * is offered to a cooperating web application and NOT to the operating
+	 * system: writing the one attachment under the cursor would look like it had
+	 * written them all. Several files reach the disk through the context menu's
+	 * "Save selection to folder" instead.
 	 *
 	 * @param {Ext.EventObject} evt The native event wrapped by Ext.
 	 * @private
@@ -480,14 +600,19 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 			return;
 		}
 
-		var record = this.getRecord(node);
-		if (!record) {
-			return;
+		// Embedded messages take no part in the drag. Dropping them out of a
+		// mixed selection keeps the rest of it draggable, and a gesture that
+		// covers nothing else stays a plain (in-app) drag.
+		var gesture = this.getGestureRecords(node);
+		var records = [];
+		var i;
+		for (i = 0; i < gesture.length; i++) {
+			if (this.isDraggableAttachment(gesture[i])) {
+				records.push(gesture[i]);
+			}
 		}
 
-		// Embedded messages are not backed by a single downloadable file, so
-		// leave the drag as a plain (in-app) drag for those.
-		if (Ext.isFunction(record.isEmbeddedMessage) && record.isEmbeddedMessage()) {
+		if (Ext.isEmpty(records)) {
 			return;
 		}
 
@@ -497,32 +622,24 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 			return;
 		}
 
-		var name = record.get('name') || _('Untitled');
-		var mimeType = record.get('filetype') || 'application/octet-stream';
-
-		// DownloadURL requires a fully qualified URL.
-		var url = record.getAttachmentUrl();
-		if (!Ext.isEmpty(url)) {
-			url = new URL(url, window.location.href).href;
-		}
+		var multiple = records.length > 1;
 
 		// (1) Custom type for dropping into a cooperating web application. Only
-		// available when the feature is enabled and the payload was prefetched.
+		// available when the feature is enabled and every payload was prefetched.
 		var haveCustomPayload = false;
 		if (this.isDragOutEmbedEnabled()) {
-			var entry = this.attachmentPayloadCache[this.getAttachmentCacheKey(record)];
-			if (entry && entry.payload) {
-				this.touchCacheEntry(entry);
+			var payloads = this.collectDragPayloads(records);
+			if (payloads) {
 				try {
-					dataTransfer.setData(this.attachmentDragOutType, entry.payload);
+					// The cached payloads are JSON strings already, so the array
+					// is assembled textually rather than by decoding and
+					// re-encoding megabytes of base64 during dragstart.
+					dataTransfer.setData(this.attachmentDragOutType,
+						multiple ? '[' + payloads.join(',') + ']' : payloads[0]);
 					haveCustomPayload = true;
 				} catch (e) {
 					// Browser rejected the custom type; ignore.
 				}
-			} else {
-				// Not prefetched yet (or in-flight): start fetching so a
-				// subsequent drag can embed the payload.
-				this.prefetchAttachmentFile(record);
 			}
 		}
 
@@ -530,20 +647,39 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 		// Windows Explorer / desktop). This coexists with the custom type: a web
 		// drop zone that calls preventDefault() receives the custom payload and
 		// no download is triggered; only the OS (which cannot honour the custom
-		// type) uses the DownloadURL to save the file.
+		// type) uses the DownloadURL to save the file. Offered for a single
+		// attachment only, see the note above.
 		try {
-			if (!Ext.isEmpty(url)) {
-				// Name and MIME type are sender-controlled; ':' is the DownloadURL
-				// field separator, so strip it from both or a crafted value could
-				// hijack the URL (everything after the second ':' is the URL).
-				var safeName = String(name).replace(/[\r\n]+/g, ' ').replace(/:/g, '_');
-				var baseMime = String(mimeType).split(';')[0].trim();
-				var safeMime = /^[\w.+-]+\/[\w.+-]+$/.test(baseMime) ? baseMime : 'application/octet-stream';
-				dataTransfer.setData('DownloadURL', safeMime + ':' + safeName + ':' + url);
-				dataTransfer.setData('text/uri-list', url);
+			if (!multiple) {
+				var record = records[0];
+				var name = record.get('name') || _('Untitled');
+				var mimeType = record.get('filetype') || 'application/octet-stream';
+
+				// DownloadURL requires a fully qualified URL.
+				var url = record.getAttachmentUrl();
+				if (!Ext.isEmpty(url)) {
+					url = new URL(url, window.location.href).href;
+
+					// Name and MIME type are sender-controlled; ':' is the DownloadURL
+					// field separator, so strip it from both or a crafted value could
+					// hijack the URL (everything after the second ':' is the URL).
+					var safeName = String(name).replace(/[\r\n]+/g, ' ').replace(/:/g, '_');
+					var baseMime = String(mimeType).split(';')[0].trim();
+					var safeMime = /^[\w.+-]+\/[\w.+-]+$/.test(baseMime) ? baseMime : 'application/octet-stream';
+					dataTransfer.setData('DownloadURL', safeMime + ':' + safeName + ':' + url);
+					dataTransfer.setData('text/uri-list', url);
+				}
+
+				// A human-readable label; useful when dropping onto a text field.
+				dataTransfer.setData('text/plain', haveCustomPayload || Ext.isEmpty(url) ? name : url);
+			} else {
+				var names = [];
+				for (i = 0; i < records.length; i++) {
+					names.push(records[i].get('name') || _('Untitled'));
+				}
+				dataTransfer.setData('text/plain', names.join('\n'));
 			}
-			// A human-readable label; useful when dropping onto a text field.
-			dataTransfer.setData('text/plain', haveCustomPayload || Ext.isEmpty(url) ? name : url);
+
 			dataTransfer.effectAllowed = 'copyLink';
 		} catch (e) {
 			// Ignore browsers that reject one of the data types.
@@ -621,6 +757,7 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 		// fresh; fetches that settle afterwards skip their bookkeeping.
 		this.prefetchGeneration = (this.prefetchGeneration || 0) + 1;
 		this.pendingPrefetchCount = 0;
+		this.prefetchQueue = [];
 
 		if (this.activePrefetches) {
 			for (var i = 0; i < this.activePrefetches.length; i++) {
