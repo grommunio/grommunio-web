@@ -102,7 +102,25 @@ class Settings {
 		}
 		catch (SettingsException $e) {
 			$e->setHandled();
+
+			// $this->init stays false, so from here get() answers with its
+			// default for every path.
+			Log::Write(LOGLEVEL_ERROR, "Settings::Init(): the settings of this store could not be loaded, continuing with defaults for every setting: " . $e->getMessage());
 		}
+	}
+
+	/**
+	 * False means the load threw and was handled, so {@link #get} answers with
+	 * its default for every path rather than with a stored value.
+	 *
+	 * @return bool true when the settings came from the store
+	 */
+	public function isLoaded() {
+		if (!$this->init) {
+			$this->Init();
+		}
+
+		return $this->init;
 	}
 
 	/**
