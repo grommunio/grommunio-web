@@ -169,6 +169,14 @@
 	// read, in seconds.
 	define('ADMIN_API_DISABLEDPLUGINS_RETRY_TIME', 30);
 
+	// The grommunio admin API endpoint reporting the out of office subject
+	// prefix gromox applies when a mailbox has none of its own.
+	define('ADMIN_API_OOFSUBJECTPREFIX_ENDPOINT', ADMIN_API_ENDPOINT . 'oofSubjectPrefix');
+
+	// How long to wait for it, in seconds. The out of office form waits on
+	// this, so keep it short.
+	define('ADMIN_API_OOFSUBJECTPREFIX_TIMEOUT', 3);
+
 	// Whether to show the Logout button in grommunio-web (true or false).
 	// Show per default.
 	define('SHOW_LOGOUT_BUTTON', true);

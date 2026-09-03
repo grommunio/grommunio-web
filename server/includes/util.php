@@ -828,6 +828,28 @@ function queryAdminApiDisabledPlugins() {
 }
 
 /**
+ * Asks the admin API for the subject prefix the server applies when a mailbox
+ * has no out of office subject of its own. An unset directive counts as no
+ * prefix, because the default that then applies is compiled into the server.
+ *
+ * @return null|string the prefix, or null when none applies or it could not
+ *                     be asked
+ */
+function queryAdminApiOofSubjectPrefix() {
+	$context = stream_context_create([
+		'http' => ['timeout' => ADMIN_API_OOFSUBJECTPREFIX_TIMEOUT],
+	]);
+	$res = @json_decode(@file_get_contents(
+		ADMIN_API_OOFSUBJECTPREFIX_ENDPOINT, false, $context), true);
+
+	if (empty($res['data']['configured']) || !is_string($res['data']['prefix'] ?? null)) {
+		return null;
+	}
+
+	return $res['data']['prefix'];
+}
+
+/**
  * Helper function which provide protocol used by current request.
  *
  * @return string it can be either https or http

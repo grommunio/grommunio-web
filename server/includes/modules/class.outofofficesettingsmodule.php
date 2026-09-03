@@ -5,6 +5,14 @@
  */
 class OutOfOfficeSettingsModule extends Module {
 	/**
+	 * Server side subject prefix, null when it applies none, false until
+	 * looked up.
+	 *
+	 * @var null|bool|string
+	 */
+	private $subjectPrefix = false;
+
+	/**
 	 * Constructor.
 	 *
 	 * @param int   $id   unique id
@@ -14,6 +22,19 @@ class OutOfOfficeSettingsModule extends Module {
 		parent::__construct($id, $data);
 
 		$this->properties = $GLOBALS["properties"]->getOutOfOfficeProperties();
+	}
+
+	/**
+	 * Asked for at most once per request.
+	 *
+	 * @return null|string the prefix, or null when the server applies none
+	 */
+	private function getSubjectPrefix() {
+		if ($this->subjectPrefix === false) {
+			$this->subjectPrefix = queryAdminApiOofSubjectPrefix();
+		}
+
+		return $this->subjectPrefix;
 	}
 
 	/**
@@ -45,6 +66,9 @@ class OutOfOfficeSettingsModule extends Module {
 	public function getOofSettings() {
 		$otherStores = $this->getOwnerPermissionStores();
 		array_unshift($otherStores, $GLOBALS['mapisession']->getDefaultMessageStore());
+
+		// Server wide, so the same for every store below.
+		$subjectPrefix = $this->getSubjectPrefix();
 
 		$oofSettings = [];
 		foreach ($otherStores as $storeEntryId => $storeObj) {
@@ -88,6 +112,8 @@ class OutOfOfficeSettingsModule extends Module {
 			$externalProps['props']['external_audience'] = $props[PR_EC_EXTERNAL_AUDIENCE];
 			$externalProps['props']['external_reply'] = trim((string) $props[PR_EC_EXTERNAL_REPLY]);
 			$externalProps['props']['external_subject'] = trim((string) $props[PR_EC_EXTERNAL_SUBJECT]);
+			$externalProps['props']['subject_prefix_set'] = $subjectPrefix !== null;
+			$externalProps['props']['subject_prefix'] = $subjectPrefix ?? '';
 
 			array_push($oofSettings, $externalProps);
 		}
@@ -174,16 +200,20 @@ class OutOfOfficeSettingsModule extends Module {
 		// their mailbox, so make sure a subject is stored whenever out of office
 		// is on. The client offers the same default in the settings form, but it
 		// is not the only way these properties are written.
-		foreach (['internal_subject', 'external_subject'] as $subject) {
-			$tag = $this->properties[$subject];
+		// Unless the server has a prefix, where an empty property is what
+		// activates it and what it sends beats this default.
+		if ($this->getSubjectPrefix() === null) {
+			foreach (['internal_subject', 'external_subject'] as $subject) {
+				$tag = $this->properties[$subject];
 
-			if (array_key_exists($tag, $props)) {
-				if (trim((string) $props[$tag]) === '') {
+				if (array_key_exists($tag, $props)) {
+					if (trim((string) $props[$tag]) === '') {
+						$props[$tag] = Language::getstring('Out of Office');
+					}
+				}
+				elseif ($oofSet && trim((string) ($oofProps[$tag] ?? '')) === '') {
 					$props[$tag] = Language::getstring('Out of Office');
 				}
-			}
-			elseif ($oofSet && trim((string) ($oofProps[$tag] ?? '')) === '') {
-				$props[$tag] = Language::getstring('Out of Office');
 			}
 		}
 

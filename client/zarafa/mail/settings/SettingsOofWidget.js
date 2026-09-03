@@ -545,10 +545,18 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 			this.backDateTimeField.setValue(this.backDateTimeField.defaultValue);
 		}
 
-		var intSubject = record.get(this.intSubjectField.name) || this.intSubjectField.defaultValue;
+		// An empty field is what asks the server for its own subject, so it must
+		// not be prefilled with a default of ours.
+		var prefix = this.getServerSubjectPrefix();
+		this.applySubjectPrefix(this.intSubjectField, prefix);
+		this.applySubjectPrefix(this.extSubjectField, prefix);
+
+		var intSubject = record.get(this.intSubjectField.name) ||
+			(prefix === null ? this.intSubjectField.defaultValue : '');
 		this.intSubjectField.setValue(intSubject);
 
-		var extSubject = record.get(this.extSubjectField.name) || this.extSubjectField.defaultValue;
+		var extSubject = record.get(this.extSubjectField.name) ||
+			(prefix === null ? this.extSubjectField.defaultValue : '');
 		this.extSubjectField.setValue(extSubject);
 
 		var intBody = record.get(this.intBodyField.name) || this.intBodyField.defaultValue;
@@ -560,6 +568,48 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 		}
 
 		this.loading = false;
+	},
+
+	/**
+	 * @return {String} the server side prefix, null when it applies none. An
+	 * empty string means it was told to send no subject at all.
+	 * @private
+	 */
+	getServerSubjectPrefix: function()
+	{
+		if (!this.record || this.record.get('subject_prefix_set') !== true) {
+			return null;
+		}
+
+		return this.record.get('subject_prefix') || '';
+	},
+
+	/**
+	 * @param {Ext.form.TextField} field subject field to describe
+	 * @param {String} prefix server side prefix, null when it has none
+	 * @private
+	 */
+	applySubjectPrefix: function(field, prefix)
+	{
+		var previous = field.emptyText;
+
+		if (prefix === null) {
+			field.emptyText = field.defaultValue;
+		} else if (prefix === '') {
+			field.emptyText = _('No subject');
+		} else {
+			// Assembled as the server will, separator included.
+			field.emptyText = prefix + _('Subject of the message replied to');
+		}
+
+		// applyEmptyText skips a field that is not empty, and one still showing
+		// the previous placeholder does not look empty to it.
+		if (field.rendered && field.emptyText !== previous) {
+			if (field.el.dom.value === previous) {
+				field.setRawValue('');
+			}
+			field.applyEmptyText();
+		}
 	},
 
 	/**
@@ -594,8 +644,15 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 	{
 		// We must either set the requested subject, or the default subject.
 		// A subject of nothing but spaces is as empty as no subject at all.
-		var intsubject = this.intSubjectField.getValue().trim() || this.intSubjectField.emptyText;
-		var extsubject = this.extSubjectField.getValue().trim() || this.extSubjectField.emptyText;
+		// Except with a server prefix, where storing nothing is what asks for
+		// it and the placeholder is not a storable subject.
+		var prefix = this.getServerSubjectPrefix();
+		var intsubject = this.intSubjectField.getValue().trim();
+		var extsubject = this.extSubjectField.getValue().trim();
+		if (prefix === null) {
+			intsubject = intsubject || this.intSubjectField.emptyText;
+			extsubject = extsubject || this.extSubjectField.emptyText;
+		}
 
 		// We must either set the requested body, or the default body
 		var intbody = this.intBodyField.getValue() || this.intBodyField.emptyText;

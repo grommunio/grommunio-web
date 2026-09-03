@@ -787,3 +787,13 @@ if (!defined('ADMIN_API_DISABLEDPLUGINS_CACHE_TIME')) {
 if (!defined('ADMIN_API_DISABLEDPLUGINS_RETRY_TIME')) {
 	define('ADMIN_API_DISABLEDPLUGINS_RETRY_TIME', 30);
 }
+
+// The grommunio admin API out of office subject prefix endpoint
+if (!defined('ADMIN_API_OOFSUBJECTPREFIX_ENDPOINT')) {
+	define('ADMIN_API_OOFSUBJECTPREFIX_ENDPOINT', ADMIN_API_ENDPOINT . 'oofSubjectPrefix');
+}
+
+// Seconds to wait for the out of office subject prefix answer
+if (!defined('ADMIN_API_OOFSUBJECTPREFIX_TIMEOUT')) {
+	define('ADMIN_API_OOFSUBJECTPREFIX_TIMEOUT', 3);
+}

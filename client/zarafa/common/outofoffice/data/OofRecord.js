@@ -24,7 +24,10 @@ Zarafa.common.outofoffice.data.OofRecordFields = [
   {name: 'allow_external'},
   {name: 'external_audience'},
   {name: 'external_reply'},
-  {name: 'external_subject'}
+  {name: 'external_subject'},
+  // Read only, filled in from the server's configuration.
+  {name: 'subject_prefix_set', type: 'boolean'},
+  {name: 'subject_prefix'}
 ];
 
 /**
