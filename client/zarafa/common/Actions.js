@@ -1354,17 +1354,25 @@ Zarafa.common.Actions = {
 	openAttachmentRecord: function(record, config)
 	{
 		var modal = false;
+		var layerType;
 		if(record.isEmbeddedMessage()) {
 			// if we are going to open embedded message then we need to first convert it into mail record
 			record = record.convertToIPMRecord();
-		} else {
-			modal = Zarafa.common.Actions.isSupportedDocument(record.get("name"));
+		} else if (Zarafa.common.Actions.isSupportedDocument(record.get("name"))) {
+			// 'modal' is accepted by the dialog layer alone, and passing it forces
+			// that layer whatever the setting asks for.
+			layerType = Zarafa.common.Actions.getFilePreviewerTarget();
+			modal = layerType === 'dialogs';
 		}
 
 		config = Ext.applyIf(config||{}, {
 			modal: modal,
 			autoResize: true
 		});
+
+		if (!modal && !Ext.isEmpty(layerType)) {
+			config = Ext.applyIf(config, {layerType: layerType});
+		}
 
 		if(record) {
 			Zarafa.core.data.UIFactory.openViewRecord(record, config);
@@ -1492,6 +1500,27 @@ Zarafa.common.Actions = {
 		}
 		// First of all check if filepreviewer plugin settings available else check main settings.
 		return container.getSettingsModel().getOneOf('zarafa/v1/plugins/filepreviewer/enable', 'zarafa/v1/main/file_previewer/enable');
+	},
+
+	/**
+	 * The {@link Zarafa.core.data.UIFactory} layer a preview opens in, from
+	 * zarafa/v1/main/file_previewer/target.
+	 *
+	 * A browser window is only offered where {@link Zarafa#supportsPopOut pop-out}
+	 * works, so a stored choice of it is answered with the dialog elsewhere rather
+	 * than with a layer that cannot open.
+	 *
+	 * @return {String} a layer type: 'dialogs', 'tabs' or 'separateWindows'
+	 */
+	getFilePreviewerTarget: function ()
+	{
+		var target = container.getSettingsModel().get('zarafa/v1/main/file_previewer/target');
+
+		if (Ext.isEmpty(target) || (target === 'separateWindows' && !Zarafa.supportsPopOut())) {
+			return 'dialogs';
+		}
+
+		return target;
 	},
 
 	/**

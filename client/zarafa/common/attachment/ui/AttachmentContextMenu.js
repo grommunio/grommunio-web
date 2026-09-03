@@ -257,14 +257,23 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 
 	/**
 	 * Event handler which is called when the user selects the 'Preview'
-	 * item in the context menu. This will open the item in a new dialog.
+	 * item in the context menu. This will open the item in the layer the user
+	 * configured: a dialog, a grommunio Web tab or a browser window.
 	 * @private
 	 */
 	onPreviewItem: function()
 	{
 		//should already have a component that has won the bid
 		//invoke that component to open the preview
-		Zarafa.core.data.UIFactory.openViewRecord(this.getPrimaryRecord(), {modal: true, autoResize: true});
+		var layerType = Zarafa.common.Actions.getFilePreviewerTarget();
+		var config = {modal: layerType === 'dialogs', autoResize: true};
+
+		// 'modal' would force the dialog layer, so it and layerType are exclusive.
+		if (!config.modal) {
+			config.layerType = layerType;
+		}
+
+		Zarafa.core.data.UIFactory.openViewRecord(this.getPrimaryRecord(), config);
 	},
 
 	/**

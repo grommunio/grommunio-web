@@ -65,6 +65,45 @@ Zarafa.settings.ui.SettingsFilePreviewerWidget = Ext.extend(Zarafa.settings.ui.S
 	        }
 	    ]));
 
+	    var targets = [{
+	        xtype: 'radio',
+	        name: 'previewTarget',
+	        inputValue: 'dialogs',
+	        boxLabel: _('Dialog')
+	    },{
+	        xtype: 'radio',
+	        name: 'previewTarget',
+	        inputValue: 'tabs',
+	        boxLabel: _('grommunio Web tab')
+	    }];
+
+	    // A browser window is offered only where pop-out works, as for mail.
+	    if (Zarafa.supportsPopOut()) {
+	        targets.push({
+	            xtype: 'radio',
+	            name: 'previewTarget',
+	            inputValue: 'separateWindows',
+	            boxLabel: _('Browser window')
+	        });
+	    }
+
+	    items.push({
+	        xtype: 'displayfield',
+	        hideLabel: true,
+	        value: _('Open a preview in a') + ':'
+	    },{
+	        xtype: 'radiogroup',
+	        name: 'zarafa/v1/main/file_previewer/target',
+	        ref: 'previewTarget',
+	        columns: 1,
+	        hideLabel: true,
+	        items: targets,
+	        listeners: {
+	            change: this.onRadioChange,
+	            scope: this
+	        }
+	    });
+
 	    Ext.applyIf(config, {
 	        xtype: 'zarafa.settingsdisplaywidget',
 	        title: _('File previewing'),
@@ -120,6 +159,7 @@ Zarafa.settings.ui.SettingsFilePreviewerWidget = Ext.extend(Zarafa.settings.ui.S
 		this.pdfZoom.setDisabled(!checked);
 		this.odfZoom.disableLabel(!checked);
 		this.pdfZoom.disableLabel(!checked);
+		this.previewTarget.setDisabled(!checked);
 	},
 
 	/**
@@ -148,6 +188,10 @@ Zarafa.settings.ui.SettingsFilePreviewerWidget = Ext.extend(Zarafa.settings.ui.S
 		this.odfZoom.setValue(settingsModel.get(this.odfZoom.name));
 		this.odfZoom.setDisabled(!enableFilePreviewer);
 		this.odfZoom.disableLabel(!enableFilePreviewer);
+
+		// Where a preview opens
+		this.previewTarget.setValue(settingsModel.get(this.previewTarget.name));
+		this.previewTarget.setDisabled(!enableFilePreviewer);
 	},
 
 	/**
@@ -170,6 +214,12 @@ Zarafa.settings.ui.SettingsFilePreviewerWidget = Ext.extend(Zarafa.settings.ui.S
 
 		// Set the value for ODFzoom
 		settingsModel.set(this.odfZoom.name, this.odfZoom.getValue());
+
+		// A stored value whose radio is not offered leaves the group unset.
+		var target = this.previewTarget.getValue();
+		if (target) {
+			settingsModel.set(this.previewTarget.name, target.inputValue);
+		}
 	},
 
 	/**
@@ -203,6 +253,19 @@ Zarafa.settings.ui.SettingsFilePreviewerWidget = Ext.extend(Zarafa.settings.ui.S
 			if (this.model.get(field.name) !== field.getValue()) {
 				this.model.set(field.name, field.getValue());
 			}
+		}
+	},
+
+	/**
+	 * Event handler which is fired when a radio in the {@link Ext.form.RadioGroup group}
+	 * has been selected.
+	 * @param {Ext.form.RadioGroup} group The group which fired the event
+	 * @param {Ext.form.Radio} radio The selected radio
+	 */
+	onRadioChange : function(group, radio)
+	{
+		if (this.model && radio && this.model.get(group.name) !== radio.inputValue) {
+			this.model.set(group.name, radio.inputValue);
 		}
 	}
 
