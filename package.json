@@ -27,7 +27,7 @@
 		"postcss": "^8.4.31",
 		"postcss-cli": "^10.1.0",
 		"postcss-preset-env": "^9.2.0",
-		"svgo": "^3.0.2",
+		"svgo": "^3.3.5",
 		"terser": "^5.21.0"
 	}
 }
