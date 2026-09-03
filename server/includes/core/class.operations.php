@@ -716,12 +716,9 @@ class Operations {
 	 * @param array  $storeData               the store data which use to create restriction
 	 */
 	public function setDefaultFavoritesFolder($commonViewFolderEntryid, $store, $storeData) {
-		// The branch below deletes every favourite and every saved search of this
-		// user, so it may only run when the flag it tests was really read from
-		// the store. If loading the settings failed, get() answers with its
-		// default for every path, an absent flag is indistinguishable from a
-		// mailbox that has never been initialised, and the user's favourites are
-		// deleted because of a failed read.
+		// An unloaded settings object answers get() with defaults, so an absent
+		// flag would read as "never initialised" and the branch below would
+		// delete every favorite and saved search this user has.
 		if (!$GLOBALS["settings"]->isLoaded()) {
 			$msg = "Operations:setDefaultFavoritesFolder() skipped: the settings of this store could not be loaded, so whether the default favourites are still wanted is unknown.";
 			error_log($msg);
