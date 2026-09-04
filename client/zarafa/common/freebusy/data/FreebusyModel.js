@@ -894,12 +894,13 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 			this.mergeBlocksToSumBlockStore(this.blockStore.getRange(), this.sumBlockStore);
 		}
 
-		// Sort all sumblocks based on the status. This will force the
-		// TENTATIVE records to be rendered before the BUSY which in turn is before
-		// the OUTOFOFFICE. This in turn forces the browser to position the OUTOFOFFICE
-		// divs on top of the BUSY blocks (which in turn are on top of TENTATIVE) when
-		// the blocks overlap.
-		this.sumBlockStore.sort('status', 'ASC');
+		// DOM order is paint order: non-occupying blocks first, then TENTATIVE, BUSY, OUTOFOFFICE on top.
+		var self = this;
+		this.sumBlockStore.data.sort('ASC', function(blockA, blockB) {
+			var occupied = (self.occupiesAttendee(blockA.get('status')) ? 1 : 0) -
+				(self.occupiesAttendee(blockB.get('status')) ? 1 : 0);
+			return occupied !== 0 ? occupied : blockA.get('status') - blockB.get('status');
+		});
 
 		this.sumBlockStore.fireEvent('load', this.sumBlockStore, this.sumBlockStore.getRange(), {});
 	},
@@ -938,10 +939,30 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 			// FIXME: We should actually build this store while building
 			// the busy blocks. This is most likely faster then doing it
 			// separately.
-			this.mergeBlocksToSumBlockStore(records, this.freeBlockStore, false);
+			// The blocks are filtered here rather than in the sum blocks, so a
+			// status that does not occupy the attendee stays on the timeline.
+			this.mergeBlocksToSumBlockStore(records.filter(function(record) {
+				return this.occupiesAttendee(record.get('status'));
+			}, this), this.freeBlockStore, false);
 		}
 
 		this.loadSuggestionBlocks();
+	},
+
+	/**
+	 * Whether a busy status makes an attendee unavailable for a new meeting.
+	 * Working Elsewhere does not. The attendee is working, only not at their
+	 * usual location, which is the status Outlook assigns to a home office day.
+	 * @param {Zarafa.core.mapi.BusyStatus} status The busy status to check
+	 * @return {Boolean} True if the attendee cannot take a meeting
+	 */
+	occupiesAttendee: function(status)
+	{
+		var BusyStatus = Zarafa.core.mapi.BusyStatus;
+
+		return status !== BusyStatus.FREE &&
+			status !== BusyStatus.UNKNOWN &&
+			status !== BusyStatus.WORKINGELSEWHERE;
 	},
 
 	/**
@@ -1007,43 +1028,43 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 		// Always start with a clean store
 		this.suggestionBlockStore.removeAll();
 
-		if (this.freeBlockStore.getCount() > 0) {
-			var start = this.suggestionRange.getStartTime() / 1000;
-			var end = this.suggestionRange.getDueTime() / 1000;
-			var duration = this.selectorRange.getDuration(Date.SECOND);
-			var interval = Ext.min([duration, 30 * 60]); // FIXME: make configurable
+		var start = this.suggestionRange.getStartTime() / 1000;
+		var end = this.suggestionRange.getDueTime() / 1000;
+		var duration = this.selectorRange.getDuration(Date.SECOND);
+		var interval = Ext.min([duration, 30 * 60]); // FIXME: make configurable
 
-			// But what if the appointment takes 0 minutes..
-			// That would be dumb, but we won't be fooled!
-			if (interval <= 0) {
-				interval = 30 * 60;
+		// But what if the appointment takes 0 minutes..
+		// That would be dumb, but we won't be fooled!
+		if (interval <= 0) {
+			interval = 30 * 60;
+		}
+
+		// An empty store means nobody is occupied, which is the case where every
+		// slot is a suggestion. The leftover below covers the whole range.
+		this.freeBlockStore.each(function(sumBlock) {
+			var sumStart = sumBlock.get('start');
+			var sumEnd = sumBlock.get('end');
+
+			if (sumEnd < start || sumStart > end) {
+				// The block falls entirely before or entirely after the
+				// requested range, so it contributes nothing. Any range left
+				// over after the loop is added below.
+				return;
+			} else if (sumStart <= start) {
+				// The block overlap our range, our new start
+				// time is the end time of this block.
+				start = sumEnd;
+			} else {
+				// The entire block falls after our start range,
+				// simply add a suggestionblock from start to the sumBlock start.
+				this.suggestionBlockStore.add(this.createSuggestionBlocks(start, Ext.min([sumStart, end]), duration, interval));
+				start = sumEnd;
 			}
+		}, this);
 
-			this.freeBlockStore.each(function(sumBlock) {
-				var sumStart = sumBlock.get('start');
-				var sumEnd = sumBlock.get('end');
-
-				if (sumEnd < start || sumStart > end) {
-					// The block falls entirely before or entirely after the
-					// requested range, so it contributes nothing. Any range left
-					// over after the loop is added below.
-					return;
-				} else if (sumStart <= start) {
-					// The block overlap our range, our new start
-					// time is the end time of this block.
-					start = sumEnd;
-				} else {
-					// The entire block falls after our start range,
-					// simply add a suggestionblock from start to the sumBlock start.
-					this.suggestionBlockStore.add(this.createSuggestionBlocks(start, Ext.min([sumStart, end]), duration, interval));
-					start = sumEnd;
-				}
-			}, this);
-
-			// Check if we still have a leftover...
-			if (start < end) {
-				this.suggestionBlockStore.add(this.createSuggestionBlocks(start, end, duration, interval));
-			}
+		// Check if we still have a leftover...
+		if (start < end) {
+			this.suggestionBlockStore.add(this.createSuggestionBlocks(start, end, duration, interval));
 		}
 
 		this.suggestionBlockStore.fireEvent('load', this.suggestionBlockStore, this.suggestionBlockStore.getRange(), {});
@@ -1081,7 +1102,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * @param {String} userid The userid of the user to check for availability
 	 * @param {Date} periodStartTime object of start time
 	 * @param {Date} periodEndTime object of end time
-	 * @return {Boolean} return true if the attendee is free.
+	 * @return {Boolean} True when a block occupying the user overlaps the period
 	 */
 	checkAttendeeBusyStatus: function(userid, periodStartTime, periodEndTime)
 	{
@@ -1090,54 +1111,28 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 			return false;
 		}
 
-		// Ensure that only the current userid is shown
-		blockStore.filter('userid', userid, false, true, true);
-
-		// Sort on start date
-		blockStore.sort('start', 'ASC');
-
 		// We need timestamps rather then Date objects
 		periodStartTime = periodStartTime.getTime() / 1000;
 		periodEndTime = periodEndTime.getTime() / 1000;
 
-		// Lets search the block for Blocks that overlap with the requested period.
-		var busy = false;
+		// The store is remoteSort, so it cannot be ordered locally; check every block.
+		var records = blockStore.getRange();
+		for (var index = 0, len = records.length; index < len; index++) {
+			var record = records[index];
 
-		for (var index = 0, len = blockStore.getCount(); index < len; index++) {
-			var record = blockStore.getAt(index);
+			if (record.get('userid') != userid) {
+				continue;
+			}
 
-			/*
-			 * First we need to remove appointments which are occurring extremely before/after our
-			 * selected time, because then we have only set of appointments which are overlapping/inside
-			 * our time slot.
-			 * For that to achieve we first need sort the records based on start time and then to find
-			 * out sum block record whose end time is greater then our selected start time
-			 * and start time is less then our selected end time then we can say that
-			 * the selected time is not proper for all the attendees.
-			 */
-			// remove appointments occurring extremely before our selected time
-			if (record.get('end') > periodStartTime) {
-				// check if we are really interested in this block
-				if (record.get('status') === Zarafa.core.mapi.BusyStatus.FREE || record.get('status') === Zarafa.core.mapi.BusyStatus.UNKNOWN) {
-					continue;
-				}
+			if (!this.occupiesAttendee(record.get('status'))) {
+				continue;
+			}
 
-				// before we have sorted the records based on start time so we will be having a record which either
-				// overlaps current selected time or doesn't overlap it
-				// below condition will check if the record overlaps current selected time
-				if (record.get('start') < periodEndTime) {
-					busy = true;
-				}
-
-				// if the above condition is not satisfied then we can say that
-				// record is not overlapping current selected time and therefore
-				// break the loop
-				break;
+			if (record.get('end') > periodStartTime && record.get('start') < periodEndTime) {
+				return true;
 			}
 		}
 
-		blockStore.clearFilter();
-
-		return busy;
+		return false;
 	}
 });

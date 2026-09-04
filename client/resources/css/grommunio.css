@@ -5009,7 +5009,7 @@ body.zarafa-webclient > .ext-el-mask {
   .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-timeline-block-workingelsewhere {
     background: radial-gradient(#5b9bd5 30%, transparent 31%) 0 0 / 6px 6px, #dbe8f5; }
   .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-timeline-block-blur {
-    background: repeating-linear-gradient(45deg, var(--ui-surface-3) 0px, var(--ui-surface-3) 2.8284px, white 2.8284px, white 5.65685px); }
+    background: repeating-linear-gradient(45deg, var(--ui-surface-3) 0px, var(--ui-surface-3) 2.8284px, var(--ui-surface) 2.8284px, var(--ui-surface) 5.65685px); }
   .zarafa-freebusy-panel .x-panel.suggestionlist {
     padding: 6px; }
     .zarafa-freebusy-panel .x-panel.suggestionlist .x-btn.zarafa-freebusy-suggestionrow:last-of-type {
