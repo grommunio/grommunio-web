@@ -73,6 +73,24 @@ if (!WebAppAuthentication::isAuthenticated()) {
 	exit;
 }
 
+// The dispatcher only accepts JSON POST requests. Besides rejecting malformed
+// clients early, requiring a non-simple request content type prevents a foreign
+// website from submitting authenticated actions with a plain HTML form. Browser
+// requests using application/json are subject to the same-origin/CORS checks.
+if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
+	header('Allow: POST');
+	http_response_code(405);
+
+	exit;
+}
+
+$contentType = strtolower(trim(explode(';', (string) ($_SERVER['CONTENT_TYPE'] ?? ''), 2)[0]));
+if ($contentType !== 'application/json') {
+	http_response_code(415);
+
+	exit;
+}
+
 // get the disabled plugin list from the config and admin-api
 $disabledPlugins = getDisabledPluginsList();
 

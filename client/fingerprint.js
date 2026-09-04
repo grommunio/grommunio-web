@@ -87,10 +87,9 @@ const sendKeepAlive = (function(){
 window.addEventListener('DOMContentLoaded', function(){
 	var request = new XMLHttpRequest();
 	request.open('POST', 'grommunio.php?service=fingerprint');
-	request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	request.setRequestHeader("Content-Type", "application/json");
 	// Add the fingerprint to the content body of the request
-	var params = 'fingerprint='+fingerprint.get();
-	request.send(params);
+	request.send(JSON.stringify({ fingerprint: fingerprint.get() }));
 
 	// Start sending keep-alive requests after a reasonable initial delay.
 	// The fingerprint POST above already refreshes the session, so we
