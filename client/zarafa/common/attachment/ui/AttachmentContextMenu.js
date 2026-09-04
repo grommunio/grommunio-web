@@ -94,13 +94,19 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	primaryRecord: undefined,
 
 	/**
+	 * @cfg {Zarafa.core.data.IPMAttachmentRecord[]} selectedRecords The whole
+	 * selection the gesture covered, see
+	 * {@link Zarafa.common.ui.messagepanel.AttachmentLinks#getGestureRecords}.
+	 * {@link #records} stays a single record: ConditionalMenu hands it to every
+	 * item's beforeShow, plugin items included.
+	 */
+	selectedRecords: undefined,
+
+	/**
 	 * The single attachment the per-item actions apply to.
 	 *
-	 * The menu is opened with a bare record for a plain right-click and with an
-	 * array when the click lands inside a selection of several, see
-	 * {@link Zarafa.common.ui.messagepanel.AttachmentLinks#getGestureRecords}.
 	 * Every item here acts on one attachment, so they all resolve through this;
-	 * an item that acts on the whole selection reads {@link #records} itself.
+	 * an item that acts on the whole selection reads {@link #selectedRecords}.
 	 *
 	 * @param {Zarafa.core.data.IPMAttachmentRecord|Zarafa.core.data.IPMAttachmentRecord[]} records
 	 * The records the menu was opened with, defaulting to the menu's own
@@ -187,11 +193,11 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	 * Function will be called before {@link Zarafa.common.attachment.ui.AttachmentContextMenu AttachmentContextMenu} is shown
 	 * so we can decide which item should be disabled.
 	 * @param {Zarafa.core.ui.menu.ConditionalItem} item context menu item
-	 * @param {Zarafa.core.data.IPMAttachmentRecord|Zarafa.core.data.IPMAttachmentRecord[]} records attachment record(s) on which context menu is shown
 	 */
-	onSaveSelectionBeforeShow: function(item, records)
+	onSaveSelectionBeforeShow: function(item)
 	{
 		var saver = Zarafa.common.attachment.AttachmentFolderSaver;
+		var records = this.selectedRecords;
 
 		// This answers a need only a selection has: several loose files on disk,
 		// which neither the drag (one file at most) nor the ZIP (an archive of
@@ -289,7 +295,7 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	 */
 	onSaveSelectionToFolder: function()
 	{
-		Zarafa.common.attachment.AttachmentFolderSaver.save(this.records);
+		Zarafa.common.attachment.AttachmentFolderSaver.save(this.selectedRecords);
 	},
 
 	/**

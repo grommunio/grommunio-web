@@ -996,8 +996,10 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	 * to bid for a component to show, and they bid on a single record: handing
 	 * that call an array makes every bid fail, whereupon it returns silently and
 	 * no menu opens at all. So the bid is given one record, exactly as before,
-	 * and `records` rides in the config, which <tt>Ext.applyIf</tt> then leaves
-	 * alone. Measured in the browser after a multiple selection opened nothing.
+	 * and the selection rides in the config as <tt>selectedRecords</tt>, which
+	 * <tt>Ext.applyIf</tt> leaves alone. The menu's <tt>records</tt> stays that
+	 * one record as well: ConditionalMenu hands it to every item's beforeShow,
+	 * plugin items included, and they expect a single record there.
 	 *
 	 * @param {Ext.DataView} dataView DataView from which the event comes
 	 * @param {Number} index
@@ -1020,7 +1022,7 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 		var record = this.getRecord(node);
 
 		Zarafa.core.data.UIFactory.openDefaultContextMenu(record, {
-			records: records.length > 1 ? records : record,
+			selectedRecords: records,
 			primaryRecord: record,
 			position: evt.getXY(),
 			model: this.model
