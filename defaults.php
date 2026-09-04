@@ -795,3 +795,8 @@ if (!defined('ADMIN_API_DISABLEDPLUGINS_CACHE_TIME')) {
 if (!defined('ADMIN_API_DISABLEDPLUGINS_RETRY_TIME')) {
 	define('ADMIN_API_DISABLEDPLUGINS_RETRY_TIME', 30);
 }
+
+// Seconds to wait for an answer of the admin API
+if (!defined('ADMIN_API_TIMEOUT')) {
+	define('ADMIN_API_TIMEOUT', 2);
+}

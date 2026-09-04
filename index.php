@@ -136,8 +136,7 @@ if (isset($_GET['code']) || (WebAppAuthentication::isUsingLoginForm() || isset($
 $GLOBALS['mapisession'] = WebAppAuthentication::getMAPISession();
 
 // check if it's DB or LDAP for the password plugin
-$result = @json_decode(@file_get_contents(ADMIN_API_STATUS_ENDPOINT, false), true);
-if (isset($result['ldap']) && $result['ldap']) {
+if (getAdminApiUsersInLdap()) {
 	$GLOBALS['usersinldap'] = true;
 }
 
@@ -160,20 +159,6 @@ $GLOBALS["settings"] = new Settings();
 
 // Create global operations object
 $GLOBALS["operations"] = new Operations();
-
-// Prefetch hierarchy for inline delivery to the client, eliminating
-// the first AJAX round-trip after page load.
-$prefetchedHierarchy = null;
-
-try {
-	$properties = new Properties();
-	$properties->Init();
-	$listProperties = $properties->getFolderListProperties();
-	$prefetchedHierarchy = $GLOBALS["operations"]->getHierarchyList($listProperties);
-}
-catch (Exception $e) {
-	// If prefetch fails, client falls back to normal AJAX load
-}
 
 // If webapp feature is not enabled for the user,
 // we will show the login page with appropriated error message.
@@ -279,6 +264,20 @@ else {
 
 	// clean search folders
 	cleanSearchFolders();
+
+	// Prefetch hierarchy for inline delivery to the client, eliminating
+	// the first AJAX round-trip after page load.
+	$prefetchedHierarchy = null;
+
+	try {
+		$properties = new Properties();
+		$properties->Init();
+		$listProperties = $properties->getFolderListProperties();
+		$prefetchedHierarchy = $GLOBALS["operations"]->getHierarchyList($listProperties);
+	}
+	catch (Exception $e) {
+		// If prefetch fails, client falls back to normal AJAX load
+	}
 
 	// These hooks are defined twice (also when there is a "load" argument supplied)
 	$GLOBALS['PluginManager']->triggerHook("server.index.load.main.before");

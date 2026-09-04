@@ -778,32 +778,44 @@ function getDisabledPluginsList() {
  *                admin API named none or could not be asked
  */
 function getAdminApiDisabledPlugins() {
+	return adminApiCached('adminapi', 'queryAdminApiDisabledPlugins') ?? '';
+}
+
+/**
+ * Answers a session-cached admin API query; a failed lookup (null) is kept
+ * for the shorter retry time.
+ *
+ * @param string   $key   cache key in the session's state file
+ * @param callable $query returns the value, or null when the endpoint could not be read
+ *
+ * @return mixed
+ */
+function adminApiCached($key, callable $query) {
 	// Without a session the cache would be shared between users.
 	if (session_id() === '') {
-		return queryAdminApiDisabledPlugins() ?? '';
+		return $query();
 	}
 
 	$readState = new State('disabledplugins');
 	$readState->open();
-	$cache = $readState->read('adminapi');
+	$cache = $readState->read($key);
 	$readState->close();
 
-	if (is_array($cache) && isset($cache['plugins'], $cache['expires']) && $cache['expires'] > time()) {
-		return $cache['plugins'];
+	if (is_array($cache) && array_key_exists('value', $cache) && isset($cache['expires']) && $cache['expires'] > time()) {
+		return $cache['value'];
 	}
 
 	// Deliberately not while holding the state lock, so a slow endpoint does
 	// not hold up the other requests of this session.
-	$plugins = queryAdminApiDisabledPlugins();
-	$lifetime = $plugins === null ? ADMIN_API_DISABLEDPLUGINS_RETRY_TIME : ADMIN_API_DISABLEDPLUGINS_CACHE_TIME;
-	$plugins ??= '';
+	$value = $query();
+	$lifetime = $value === null ? ADMIN_API_DISABLEDPLUGINS_RETRY_TIME : ADMIN_API_DISABLEDPLUGINS_CACHE_TIME;
 
 	$writeState = new State('disabledplugins');
 	$writeState->open();
-	$writeState->write('adminapi', ['plugins' => $plugins, 'expires' => time() + $lifetime]);
+	$writeState->write($key, ['value' => $value, 'expires' => time() + $lifetime]);
 	$writeState->close();
 
-	return $plugins;
+	return $value;
 }
 
 /**
@@ -821,10 +833,41 @@ function queryAdminApiDisabledPlugins() {
 		return null;
 	}
 
-	$res = @json_decode(@file_get_contents(
-		ADMIN_API_DISABLEDPLUGINS_ENDPOINT . urlencode((string) $user), false), true);
+	$res = @json_decode((string) adminApiGet(ADMIN_API_DISABLEDPLUGINS_ENDPOINT . urlencode((string) $user)), true);
 
 	return isset($res['data']) ? implode(';', $res['data']) : null;
+}
+
+/**
+ * Whether the admin API reports LDAP users.
+ *
+ * @return bool
+ */
+function getAdminApiUsersInLdap() {
+	return (bool) adminApiCached('status', 'queryAdminApiUsersInLdap');
+}
+
+/**
+ * @return null|bool null when the endpoint could not be read
+ */
+function queryAdminApiUsersInLdap() {
+	$result = @json_decode((string) adminApiGet(ADMIN_API_STATUS_ENDPOINT), true);
+
+	return is_array($result) ? !empty($result['ldap']) : null;
+}
+
+/**
+ * Reads from the admin API with a bounded wait, so an unresponsive endpoint
+ * cannot stall the page.
+ *
+ * @param string $url
+ *
+ * @return false|string
+ */
+function adminApiGet($url) {
+	$context = stream_context_create(['http' => ['timeout' => ADMIN_API_TIMEOUT]]);
+
+	return @file_get_contents($url, false, $context);
 }
 
 /**

@@ -169,6 +169,9 @@
 	// read, in seconds.
 	define('ADMIN_API_DISABLEDPLUGINS_RETRY_TIME', 30);
 
+	// How long to wait for an answer of the admin API, in seconds.
+	define('ADMIN_API_TIMEOUT', 2);
+
 	// Whether to show the Logout button in grommunio-web (true or false).
 	// Show per default.
 	define('SHOW_LOGOUT_BUTTON', true);
