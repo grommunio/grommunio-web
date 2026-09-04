@@ -361,7 +361,9 @@ class Language {
 
 	private function readTranslations() {
 		$selected_lang = (string) $this->getSelected();
-		$memid = @shm_attach(self::CACHE_KEY, self::CACHE_SIZE, 0644);
+		// sysvshm is an optional PHP extension. Hosts without it can still read
+		// the selected catalog from disk; they merely miss the shared cache.
+		$memid = function_exists('shm_attach') ? @shm_attach(self::CACHE_KEY, self::CACHE_SIZE, 0644) : false;
 		if ($memid && @shm_has_var($memid, 0)) {
 			$cache_table = @shm_get_var($memid, 0);
 			// An empty array is a valid table: a host without compiled catalogs
