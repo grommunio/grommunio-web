@@ -3302,7 +3302,7 @@ class Operations {
 				mapi_setprops($reprMessage, [
 					PR_CLIENT_SUBMIT_TIME => $tmp_props[PR_CLIENT_SUBMIT_TIME] ?? time(),
 					PR_MESSAGE_DELIVERY_TIME => $tmp_props[PR_MESSAGE_DELIVERY_TIME] ?? time(),
-					PR_MESSAGE_FLAGS => $tmp_props[PR_MESSAGE_FLAGS] | MSGFLAG_READ,
+					PR_MESSAGE_FLAGS => ($tmp_props[PR_MESSAGE_FLAGS] | MSGFLAG_READ) & ~MSGFLAG_UNSENT,
 				]);
 				mapi_savechanges($reprMessage);
 				if ($saveRepresentee) {
