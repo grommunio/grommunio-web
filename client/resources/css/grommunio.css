@@ -2074,7 +2074,7 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
   color: #ffffff;
   padding: 0 4px; }
   body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct * {
-    font-size: 13px !important; }
+    font-size: 15px !important; }
   body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .x-btn {
     padding: 0;
     margin: 4px 2px;
@@ -2088,14 +2088,14 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
       border: none;
       margin: 0; }
     body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .x-btn button.x-btn-text {
-      font-size: 13px !important;
-      line-height: 16px !important;
+      font-size: 15px !important;
+      line-height: 18px !important;
       color: #ffffff;
-      font-weight: 600;
+      font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0;
       text-shadow: none;
-      padding: 6px 12px;
+      padding: 5px 10px;
       height: auto;
       opacity: 0.8;
       width: auto;
@@ -2188,7 +2188,7 @@ ul.x-tab-strip {
     overflow: hidden;
     transition: background-color 0.15s ease, box-shadow 0.15s ease; }
     ul.x-tab-strip li .x-tab-right {
-      background: transparent;
+      background: var(--ui-surface-3);
       padding-left: 12px;
       padding-right: 12px;
       border-radius: var(--ui-radius-sm) var(--ui-radius-sm) 0 0;
@@ -2208,7 +2208,7 @@ ul.x-tab-strip {
             color: var(--ui-text-2);
             transition: color 0.15s ease; }
   ul.x-tab-strip li:hover:not(.x-tab-strip-active) .x-tab-right {
-    background: var(--ui-surface-3); }
+    background: var(--ui-border); }
   ul.x-tab-strip li:hover:not(.x-tab-strip-active) .x-tab-strip-text {
     color: var(--ui-text); }
   /* The active tab is marked by an accent underline instead of a filled box */
