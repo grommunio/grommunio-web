@@ -107,7 +107,7 @@ class Iconsets {
 		$iconsets = Iconsets::getIconsets();
 		$activeIconset = Iconsets::getActiveIconset();
 
-		return $iconsets[$activeIconset]['stylesheet'];
+		return versionedUrl($iconsets[$activeIconset]['stylesheet']);
 	}
 
 	/**

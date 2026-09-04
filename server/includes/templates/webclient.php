@@ -85,7 +85,7 @@ elseif ($darkMode === 'system') {
 		<title><?php echo $webappTitle; ?></title>
 		<link rel="icon" href="<?php echo $favicon; ?>" type="image/x-icon">
 		<link rel="shortcut icon" href="<?php echo $favicon; ?>" type="image/x-icon">
-		<link rel="manifest" href="manifest.webmanifest">
+		<link rel="manifest" href="<?php echo versionedUrl('manifest.webmanifest'); ?>">
 
 		<script><?php require BASE_PATH . 'client/fingerprint.js'; ?></script>
 		<script>
@@ -144,18 +144,10 @@ elseif ($darkMode === 'system') {
 		</div>
 
 		<!-- Translations -->
-		<script src="index.php?version=<?php echo $loader->getVersion(); ?>&load=translations.js&lang=<?php echo $Language->getSelected(); ?>"></script>
+		<script src="index.php?version=<?php echo $loader->getVersion(); ?>&load=translations.js&lang=<?php echo $Language->getSelected(); ?>&v=<?php echo $Language->getTranslationsEtag(); ?>"></script>
 		<!-- JS Files -->
 		<?php
 		$loader->jsOrder();
-// get URL data from session and dump it for client to use
-$urlActionData = [];
-if (!empty($_SESSION['url_action'])) {
-	$urlActionData = $_SESSION['url_action'];
-
-	// remove data from session so if user reloads webapp then we will again not execute url action
-	unset($_SESSION['url_action']);
-}
 ?>
 
 		<script><?php require BASE_PATH . 'client/resize.js'; ?></script>

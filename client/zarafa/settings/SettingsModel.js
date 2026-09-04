@@ -426,6 +426,11 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 */
 	save: function()
 	{
+		// The server ignores entries without a value, they would be sent on every save
+		this.modified = this.modified.filter(function(setting) {
+			return Ext.isDefined(setting.value);
+		});
+
 		var hasDeleted = !Ext.isEmpty(this.deleted);
 		var hasModified = !Ext.isEmpty(this.modified);
 		var hasReset = !Ext.isEmpty(this.resetSettings);

@@ -20,13 +20,13 @@ if (!WebAppAuthentication::isAuthenticated()) {
 	exit;
 }
 
-// get the disabled plugin list from the config and admin-api
-$disabledPlugins = getDisabledPluginsList();
-
-// Instantiate Plugin Manager
-$GLOBALS['PluginManager'] = new PluginManager(ENABLE_PLUGINS);
-$GLOBALS['PluginManager']->detectPlugins($disabledPlugins);
-$GLOBALS['PluginManager']->initPlugins(DEBUG_LOADER);
+// index.php has the plugins loaded already for an authenticated user
+if (!isset($GLOBALS['PluginManager'])) {
+	$disabledPlugins = getDisabledPluginsList();
+	$GLOBALS['PluginManager'] = new PluginManager(ENABLE_PLUGINS);
+	$GLOBALS['PluginManager']->detectPlugins($disabledPlugins);
+	$GLOBALS['PluginManager']->initPlugins(DEBUG_LOADER);
+}
 
 switch ($_GET['load']) {
 	case "translations.js":

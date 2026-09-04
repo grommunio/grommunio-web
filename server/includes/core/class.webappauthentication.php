@@ -485,11 +485,12 @@ class WebAppAuthentication {
 		// Check if the browser fingerprint is the same as that of the browser that was
 		// used to login in the first place.
 		if (!DISABLE_FINGERPRINT_CHECK && $_SESSION['fingerprint'] !== BrowserFingerprint::getFingerprint()) {
-			// Something bad has happened. This must be someone who stole a session cookie!!!
-			// We will delete the session and stop the script without any error message
+			// Another browser presents this session cookie; end the session the way a
+			// timeout does, every entry point answers that with its login or 401 path
 			WebAppAuthentication::$_phpSession->destroy();
+			WebAppAuthentication::$_errorCode = MAPI_E_END_OF_SESSION;
 
-			exit;
+			return WebAppAuthentication::getErrorCode();
 		}
 		header("X-grommunio-Authuser:" . $username);
 		return WebAppAuthentication::login($username, $password);

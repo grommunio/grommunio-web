@@ -31,7 +31,7 @@ $serverConfig = [
 		<title><?php echo $webappTitle; ?></title>
 		<link rel="icon" href="<?php echo $favicon; ?>" type="image/x-icon">
 		<link rel="shortcut icon" href="<?php echo $favicon; ?>" type="image/x-icon">
-		<link rel="manifest" href="manifest.webmanifest">
+		<link rel="manifest" href="<?php echo versionedUrl('manifest.webmanifest'); ?>">
 
 		<!-- load the login css first as we need it immediately! -->
 		<link rel="stylesheet" href="client/resources/css/external/login.css?version=<?php echo getWebappVersion(); ?>" >
@@ -61,7 +61,7 @@ echo Theming::getStyles($theme);
 		<script><?php require BASE_PATH . 'client/resize.js'; ?></script>
 
 		<!-- Translations -->
-		<script src="index.php?version=<?php echo getWebappVersion(); ?>&load=translations.js&lang=<?php echo $Language->getSelected(); ?>"></script>
+		<script src="index.php?version=<?php echo getWebappVersion(); ?>&load=translations.js&lang=<?php echo $Language->getSelected(); ?>&v=<?php echo $Language->getTranslationsEtag(); ?>"></script>
 		<!-- JS Files -->
 		<?php $loader->jsOrder(); ?>
 

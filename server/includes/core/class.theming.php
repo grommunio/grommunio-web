@@ -136,17 +136,15 @@ class Theming {
 		$themePath = constant('THEME_PATH_' . DEBUG_LOADER);
 
 		// First check if we can find a core theme with this name
+		// A theme package can replace its icon without a grommunio Web release, so the
+		// file's own mtime is the cache buster
 		if ($theme && is_dir(BASE_PATH . $themePath . '/' . $theme) && is_file(BASE_PATH . $themePath . '/' . $theme . '/favicon.ico')) {
-			// Add a date as GET parameter, so we will fetch a new icon every day
-			// This way themes can update the favicon and it will show the next day latest.
-			return $themePath . '/' . $theme . '/favicon.ico?' . date('Ymd');
+			return $themePath . '/' . $theme . '/favicon.ico?' . filemtime(BASE_PATH . $themePath . '/' . $theme . '/favicon.ico');
 		}
 
 		// If no core theme was found, let's try to find a theme plugin with this name
 		if ($theme && is_dir(BASE_PATH . PATH_PLUGIN_DIR . '/' . $theme) && is_file(BASE_PATH . PATH_PLUGIN_DIR . '/' . $theme . '/favicon.ico')) {
-			// Add a date as GET parameter, so we will fetch a new icon every day
-			// This way themes can update the favicon and it will show the next day latest.
-			return PATH_PLUGIN_DIR . '/' . $theme . '/favicon.ico?' . date('Ymd');
+			return PATH_PLUGIN_DIR . '/' . $theme . '/favicon.ico?' . filemtime(BASE_PATH . PATH_PLUGIN_DIR . '/' . $theme . '/favicon.ico');
 		}
 
 		return false;
@@ -352,7 +350,7 @@ class Theming {
 			return $url;
 		}
 
-		return PATH_PLUGIN_DIR . '/' . $theme . '/' . $url;
+		return versionedUrl(PATH_PLUGIN_DIR . '/' . $theme . '/' . $url);
 	}
 
 	/**
@@ -367,7 +365,7 @@ class Theming {
 		if (!Theming::isJsonTheme($theme)) {
 			$css = Theming::getCss($theme);
 			foreach ($css as $file) {
-				$styles .= '<link rel="stylesheet" type="text/css" href="' . $file . '" />' . "\n";
+				$styles .= '<link rel="stylesheet" type="text/css" href="' . versionedUrl($file) . '" />' . "\n";
 			}
 
 			return $styles;

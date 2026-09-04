@@ -4,8 +4,10 @@ SUBDIRS = ai archive chat desktopnotifications files filesbackendDefault filesba
 
 subdirs: $(SUBDIRS)
 
+DESTDIR ?= ../../deploy/plugins
+
 $(SUBDIRS):
-	$(MAKE) DESTDIR=../../deploy/plugins/$@ -C $@
+	$(MAKE) DESTDIR=$(DESTDIR)/$@ -C $@
 
 all: subdirs
 

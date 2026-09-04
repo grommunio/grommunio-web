@@ -51,7 +51,9 @@ if (isset($_GET['type']) && $_GET['type'] === 'keepalive') {
 // Store the fingerprint in the session when the user is not yet
 // authenticated. (i.e. when the login page is loaded)
 if (!WebAppAuthentication::isAuthenticated()) {
-	$_SESSION['frontend-fingerprint'] = $_POST['fingerprint'];
+	updateSession(function () {
+		$_SESSION['frontend-fingerprint'] = $_POST['fingerprint'];
+	});
 
 	exit;
 }
@@ -60,7 +62,9 @@ if (!WebAppAuthentication::isAuthenticated()) {
 // the login page is skipped or the fingerprint request was cancelled
 // during redirect), store it now instead of killing the session.
 if (!isset($_SESSION['frontend-fingerprint'])) {
-	$_SESSION['frontend-fingerprint'] = $_POST['fingerprint'];
+	updateSession(function () {
+		$_SESSION['frontend-fingerprint'] = $_POST['fingerprint'];
+	});
 }
 elseif (!DISABLE_FINGERPRINT_CHECK && $_POST['fingerprint'] !== $_SESSION['frontend-fingerprint']) {
 	error_log('frontend-fingerprint did not match. Session terminated. ' . WebAppAuthentication::getUserName());

@@ -21,16 +21,13 @@ class FileLoader {
 
 		if ($load == LOAD_RELEASE) {
 			$jsLoadingSequence[] = "client/extjs/ext-base-all.js";
-			$jsLoadingSequence[] = "client/extjs/ux/ux-all.js";
 			$jsLoadingSequence[] = "client/extjs-mod/extjs-mod.js";
 			$jsLoadingSequence[] = "client/tinymce/tinymce.min.js";
 			$jsLoadingSequence[] = "client/third-party/ux-thirdparty.js";
 			$jsLoadingSequence[] = "client/dompurify/purify.js";
 		}
 		elseif ($load == LOAD_DEBUG) {
-			$jsLoadingSequence[] = "client/extjs/ext-base-debug.js";
-			$jsLoadingSequence[] = "client/extjs/ext-all-debug.js";
-			$jsLoadingSequence[] = "client/extjs/ux/ux-all-debug.js";
+			$jsLoadingSequence[] = "client/extjs/ext-base-all-debug.js";
 			$jsLoadingSequence[] = "client/extjs-mod/extjs-mod-debug.js";
 			$jsLoadingSequence[] = "client/tinymce/tinymce.js";
 			$jsLoadingSequence[] = "client/third-party/ux-thirdparty-debug.js";
@@ -168,7 +165,7 @@ class FileLoader {
 		foreach ($files as $file) {
 			$file = $base === true ? basename((string) $file) : $file;
 			if ($concatVersion) {
-				$file = $file . "?version=" . $this->getVersion();
+				$file = versionedUrl($file);
 			}
 			echo str_replace('{file}', $file, $template) . PHP_EOL;
 		}
@@ -180,7 +177,7 @@ class FileLoader {
 	 * @return string returns grommunio Web version
 	 */
 	public function getVersion() {
-		return trim(file_get_contents('version'));
+		return getWebappVersion();
 	}
 
 	/**

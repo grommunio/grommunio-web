@@ -168,7 +168,8 @@ Zarafa.common.previewer.ui.ViewerContainer = Ext.extend(Zarafa.core.ui.ContentPa
 	generateUrl: function (url, extension)
 	{
 		var root = container.getBasePath();
-		var options = '';
+		// The viewer pages are cached by the browser, the version fetches a fresh copy after an upgrade
+		var options = '?version=' + container.getVersion().getWebApp();
 		var pdfJSlang = container.getSettingsModel().get('zarafa/v1/main/language').split('.')[0].replace('_', '-');
 		if(Ext.isDefined(extension)) {
 			if (extension === 'pdf') {
@@ -176,13 +177,13 @@ Zarafa.common.previewer.ui.ViewerContainer = Ext.extend(Zarafa.core.ui.ContentPa
 				// Add the filename to the url to make sure that the pdfjs viewer will use it when downloaded.
 				// Replace the hashes because otherwise pdfjs viewer will strip everything after it.
 				url += '&filename=' + this.title.replace('#', '-') + '&locale=' + pdfJSlang;
-				return root + this.pdfjsPath + '?file=' + encodeURIComponent(url) + options;
+				return root + this.pdfjsPath + '?file=' + encodeURIComponent(url) + '&' + options.substring(1);
 			} else if((/(od[tps]|docx|xlsx)$/i).test(extension)) {
-				options += '?zoom=' + container.getSettingsModel().get('zarafa/v1/main/file_previewer/odf_zoom') + '&locale=' + pdfJSlang;
+				options += '&zoom=' + container.getSettingsModel().get('zarafa/v1/main/file_previewer/odf_zoom') + '&locale=' + pdfJSlang;
 			} else {
 				// ViewerJS does not provide zooming options for images, instead sets the width. 
 				// Hence, we only keep the 'auto' option for images.
-				options += '?zoom=auto' + '&locale=' + pdfJSlang;
+				options += '&zoom=auto' + '&locale=' + pdfJSlang;
 			}
 			options += '&type=' + extension;
 		}
