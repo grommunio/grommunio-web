@@ -894,12 +894,13 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 			this.mergeBlocksToSumBlockStore(this.blockStore.getRange(), this.sumBlockStore);
 		}
 
-		// Sort all sumblocks based on the status. This will force the
-		// TENTATIVE records to be rendered before the BUSY which in turn is before
-		// the OUTOFOFFICE. This in turn forces the browser to position the OUTOFOFFICE
-		// divs on top of the BUSY blocks (which in turn are on top of TENTATIVE) when
-		// the blocks overlap.
-		this.sumBlockStore.sort('status', 'ASC');
+		// DOM order is paint order: non-occupying blocks first, then TENTATIVE, BUSY, OUTOFOFFICE on top.
+		var self = this;
+		this.sumBlockStore.data.sort('ASC', function(blockA, blockB) {
+			var occupied = (self.occupiesAttendee(blockA.get('status')) ? 1 : 0) -
+				(self.occupiesAttendee(blockB.get('status')) ? 1 : 0);
+			return occupied !== 0 ? occupied : blockA.get('status') - blockB.get('status');
+		});
 
 		this.sumBlockStore.fireEvent('load', this.sumBlockStore, this.sumBlockStore.getRange(), {});
 	},
