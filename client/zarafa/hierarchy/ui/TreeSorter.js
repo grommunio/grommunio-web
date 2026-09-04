@@ -77,6 +77,7 @@ Zarafa.hierarchy.ui.TreeSorter = Ext.extend(Ext.tree.TreeSorter, {
 		Zarafa.hierarchy.ui.TreeSorter.superclass.constructor.apply(this, arguments);
 
 		this.sortFn = this.hierarchySort.createDelegate(this);
+		this.collator = new Intl.Collator(container.getSettingsModel().get('zarafa/v1/main/language').split('_')[0]);
 	},
 
 	/**
@@ -251,7 +252,6 @@ Zarafa.hierarchy.ui.TreeSorter = Ext.extend(Ext.tree.TreeSorter, {
 			v2 = !Ext.isEmpty(v2) ? v2.toLowerCase() : v2;
 		}
 
-		var langTag = container.getSettingsModel().get('zarafa/v1/main/language').split('_')[0];
-		return (descending ? -1 : 1) * Intl.Collator(langTag).compare(v1, v2);
+		return (descending ? -1 : 1) * this.collator.compare(v1, v2);
 	}
 });
