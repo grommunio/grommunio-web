@@ -195,18 +195,29 @@
 
 			this.cells.removeClass('x-date-selected');
 
-			if(!Ext.isDate(this.value)) {
+			if(!Ext.isDate(this.value) || !Ext.isDate(this.activeDate)) {
+				return;
+			}
+
+			// the 42-cell grid spills into the neighbouring months
+			if(this.activeDate.getMonth() !== this.value.getMonth() ||
+			   this.activeDate.getFullYear() !== this.value.getFullYear()) {
 				return;
 			}
 
 			var selected = this.value.clearTime(true).getTime();
 
 			this.cells.each(function(cell) {
-				if(cell.dom.firstChild.dateValue === selected) {
-					cell.addClass('x-date-selected');
-
-					return false;
+				if(cell.dom.firstChild.dateValue !== selected) {
+					return;
 				}
+
+				// update() strips the mark off the cells it disabled
+				if(!cell.hasClass('x-date-disabled')) {
+					cell.addClass('x-date-selected');
+				}
+
+				return false;
 			});
 		}
 	});
