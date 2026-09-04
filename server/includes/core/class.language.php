@@ -66,6 +66,7 @@ class Language {
 	private $languages = ["en_US" => "English"];
 	private $lang;
 	private $loaded = false;
+	private $translations;
 
 	/**
 	 * Default constructor.
@@ -154,6 +155,7 @@ class Language {
 			return;
 		}
 		$this->lang = $selected;
+		$this->translations = null;
 		$this->bindTextDomain($selected);
 		$tmp_translations = $this->getTranslations();
 		$translations = [];
@@ -342,6 +344,22 @@ class Language {
 	 * the translations of the currently selected language.
 	 */
 	public function getTranslations() {
+		if ($this->translations === null) {
+			$this->translations = $this->readTranslations();
+		}
+
+		return $this->translations;
+	}
+
+	/**
+	 * @return string fingerprint of the selected language's translations, empty when
+	 *                there are none; a URL carrying it changes whenever they do
+	 */
+	public function getTranslationsEtag() {
+		return $this->getTranslations()['_etag'] ?? '';
+	}
+
+	private function readTranslations() {
 		$selected_lang = (string) $this->getSelected();
 		$memid = @shm_attach(self::CACHE_KEY, self::CACHE_SIZE, 0644);
 		if ($memid && @shm_has_var($memid, 0)) {

@@ -61,7 +61,7 @@ echo Theming::getStyles($theme);
 		<script><?php require BASE_PATH . 'client/resize.js'; ?></script>
 
 		<!-- Translations -->
-		<script src="index.php?version=<?php echo getWebappVersion(); ?>&load=translations.js&lang=<?php echo $Language->getSelected(); ?>"></script>
+		<script src="index.php?version=<?php echo getWebappVersion(); ?>&load=translations.js&lang=<?php echo $Language->getSelected(); ?>&v=<?php echo $Language->getTranslationsEtag(); ?>"></script>
 		<!-- JS Files -->
 		<?php $loader->jsOrder(); ?>
 
