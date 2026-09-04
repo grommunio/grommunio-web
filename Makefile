@@ -15,7 +15,7 @@ JSDEPLOY = $(DESTDIR)/client
 DEPLOYPURIFY = $(JSDEPLOY)/dompurify
 
 JSCOMPILER ?= node_modules/terser/bin/terser
-CSSCOMPILER ?= node_modules/postcss-cli/index.js
+CSSCOMPILER ?= BROWSERSLIST_CONFIG=$(CURDIR)/.browserslistrc node_modules/postcss-cli/index.js
 HTMLCOMPILER ?= node_modules/html-minifier-terser/cli.js
 SVGCOMPRESS ?= node_modules/svgo/bin/svgo
 
