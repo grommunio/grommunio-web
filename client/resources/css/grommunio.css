@@ -8124,6 +8124,21 @@ input[type="radio"]:checked:focus-visible {
   color: var(--ui-text-2);
 }
 
+/* ...and disappear with it: Ext only hides label elements */
+.x-hide-label span.x-form-item-label,
+.x-form-label-top .x-hide-label span.x-form-item-label {
+  display: none;
+}
+
+.x-form-label-top .x-form-item span.x-form-item-label {
+  width: auto;
+  float: none;
+  clear: none;
+  display: inline;
+  margin-bottom: 4px;
+  position: static;
+}
+
 
 /* Addressbook General Tab - modern layout */
 .k-ab-general-tab > .x-panel-bwrap > .x-panel-body {
