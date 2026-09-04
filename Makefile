@@ -18,6 +18,7 @@ JSCOMPILER ?= node_modules/terser/bin/terser
 CSSCOMPILER ?= BROWSERSLIST_CONFIG=$(CURDIR)/.browserslistrc node_modules/postcss-cli/index.js
 HTMLCOMPILER ?= node_modules/html-minifier-terser/cli.js
 SVGCOMPRESS ?= node_modules/svgo/bin/svgo
+PRECOMPRESS ?= node tools/precompress.mjs
 
 JSOPTIONS = --compress ecma=2015,computed_props=false --mangle reserved=['FormData','Ext','Zarafa','container','settings','properties','languages','serverconfig','user','version','urlActionData','console','Tokenizr','module','define','global','require','proxy','_','dgettext','dngettext','dnpgettext','ngettext','pgettext','onResize','tinymce','resizeLoginBox','userManager','DOMPurify','PDFJS','odf','L','GeoSearch','inlineCSS','CSSTree']
 CSSOPTIONS = --no-map --use postcss-preset-env --use cssnano
@@ -63,11 +64,11 @@ JSFILES = $(sort $(shell find client/zarafa -name '*.js'))
 
 # Build
 
-.PHONY: deploy server client all js css html clearartifacts
+.PHONY: deploy server client all js css html clearartifacts precompress
 
 all: deploy
 
-deploy: node_modules server client plugins css clearartifacts
+deploy: node_modules server client plugins css clearartifacts precompress
 
 build: node_modules deploy
 
@@ -110,6 +111,11 @@ sync-images-report: node_modules
 
 clearartifacts: client plugins
 	find $(DESTDIR) -iname "*readme*" -exec rm -f {} \;
+
+# .br/.gz siblings for nginx brotli_static/gzip_static; debug bundles and
+# source maps are left to runtime compression
+precompress: css clearartifacts
+	$(PRECOMPRESS) --skip '-debug\.js$$' --skip '\.map$$' $(DESTDIR)
 
 # Vendored trees are mirrored whole whenever anything below them changed;
 # one copied file stands for the tree, a directory could be created early
