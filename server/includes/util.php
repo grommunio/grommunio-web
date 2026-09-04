@@ -883,7 +883,24 @@ function isBrokenEml($attachment) {
  * @return string webapp version
  */
 function getWebappVersion() {
-	return trim(file_get_contents('version'));
+	static $version = null;
+	if ($version === null) {
+		$version = trim((string) @file_get_contents(BASE_PATH . 'version'));
+	}
+
+	return $version;
+}
+
+/**
+ * Append the grommunio Web version to an asset URL, so that an upgrade
+ * is never served from the browser cache.
+ *
+ * @param string $url relative URL of the asset, may already carry a query string
+ *
+ * @return string
+ */
+function versionedUrl($url) {
+	return $url . (str_contains($url, '?') ? '&' : '?') . 'version=' . getWebappVersion();
 }
 
 /**

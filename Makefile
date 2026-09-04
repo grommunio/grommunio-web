@@ -21,7 +21,8 @@ SVGCOMPRESS ?= node_modules/svgo/bin/svgo
 PRECOMPRESS ?= node tools/precompress.mjs
 
 JSOPTIONS = --compress ecma=2015,computed_props=false --mangle reserved=['FormData','Ext','Zarafa','container','settings','properties','languages','serverconfig','user','version','urlActionData','console','Tokenizr','module','define','global','require','proxy','_','dgettext','dngettext','dnpgettext','ngettext','pgettext','onResize','tinymce','resizeLoginBox','userManager','DOMPurify','PDFJS','odf','L','GeoSearch','inlineCSS','CSSTree']
-CSSOPTIONS = --no-map --use postcss-preset-env --use cssnano
+CSSOPTIONS = --no-map --use postcss-preset-env --use cssnano --use $(CURDIR)/tools/postcss-asset-version.mjs
+WEBAPPVERSION = $(shell git describe --abbrev=7 --always --long | sed 's/grommunio-web-//')
 HTMLOPTIONS = --collapse-whitespace --remove-comments
 
 # Server files
@@ -190,68 +191,21 @@ $(JSDEPLOY)/resize.js: client/resize.js
 		--source-map "base='$(@D)',url='$(@F).map'" \
 	        $(JSOPTIONS)
 
-$(JSDEPLOY)/filepreviewer/ViewerJS/ImageViewerPlugin.js: client/filepreviewer/ViewerJS/ImageViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/webodf.js
-	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS
-	cat $< > $(@:.js=-debug.js)
+# ViewerJS loads its plugins and libraries at run time by relative URL, so
+# those literals get the version too. The vendored docx-preview, JSZip and
+# SheetJS ship minified and are copied verbatim.
+$(JSDEPLOY)/filepreviewer/ViewerJS/%.js: client/filepreviewer/ViewerJS/%.js
+	mkdir -p $(@D)
+	sed -E "s#([\"'])(\./[A-Za-z0-9_./-]+\.js)\1#\1\2?version=$(WEBAPPVERSION)\1#g" $< > $(@:.js=-debug.js)
 	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
 		--source-map "base='$(@D)',url='$(@F).map'" \
 	        $(JSOPTIONS)
 
-$(JSDEPLOY)/filepreviewer/ViewerJS/MultimediaViewerPlugin.js: client/filepreviewer/ViewerJS/MultimediaViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/webodf.js
-	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS
-	cat $< > $(@:.js=-debug.js)
-	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
-		--source-map "base='$(@D)',url='$(@F).map'" \
-	        $(JSOPTIONS)
-
-$(JSDEPLOY)/filepreviewer/ViewerJS/ODFViewerPlugin.js: client/filepreviewer/ViewerJS/ODFViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/webodf.js
-	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS
-	cat $< > $(@:.js=-debug.js)
-	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
-		--source-map "base='$(@D)',url='$(@F).map'" \
-	        $(JSOPTIONS)
-
-$(JSDEPLOY)/filepreviewer/ViewerJS/DocxViewerPlugin.js: client/filepreviewer/ViewerJS/DocxViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/webodf.js
-	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS
-	cat $< > $(@:.js=-debug.js)
-	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
-		--source-map "base='$(@D)',url='$(@F).map'" \
-	        $(JSOPTIONS)
-
-$(JSDEPLOY)/filepreviewer/ViewerJS/XlsxViewerPlugin.js: client/filepreviewer/ViewerJS/XlsxViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/webodf.js
-	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS
-	cat $< > $(@:.js=-debug.js)
-	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
-		--source-map "base='$(@D)',url='$(@F).map'" \
-	        $(JSOPTIONS)
-
-# Pre-minified third-party viewer libraries (docx-preview + JSZip for .docx,
-# SheetJS for .xlsx). These ship already minified, so they are copied verbatim
-# rather than run through the minifier.
-$(JSDEPLOY)/filepreviewer/ViewerJS/vendor/%.js: client/filepreviewer/ViewerJS/vendor/%.js $(JSDEPLOY)/filepreviewer/ViewerJS/webodf.js
-	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS/vendor
+$(JSDEPLOY)/filepreviewer/ViewerJS/vendor/%.js: client/filepreviewer/ViewerJS/vendor/%.js
+	mkdir -p $(@D)
 	cp $< $@
 
-$(JSDEPLOY)/filepreviewer/ViewerJS/UnknownFilePlugin.js: client/filepreviewer/ViewerJS/UnknownFilePlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/webodf.js
-	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS
-	cat $< > $(@:.js=-debug.js)
-	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
-		--source-map "base='$(@D)',url='$(@F).map'" \
-	        $(JSOPTIONS)
-
-$(JSDEPLOY)/filepreviewer/ViewerJS/viewer.js: client/filepreviewer/ViewerJS/viewer.js $(JSDEPLOY)/filepreviewer/ViewerJS/webodf.js
-	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS
-	cat $< > $(@:.js=-debug.js)
-	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
-		--source-map "base='$(@D)',url='$(@F).map'" \
-	        $(JSOPTIONS)
-
-$(JSDEPLOY)/filepreviewer/ViewerJS/video-js/video.js: client/filepreviewer/ViewerJS/video-js/video.js $(JSDEPLOY)/filepreviewer/ViewerJS/webodf.js
-	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS/video-js
-	cat $< > $(@:.js=-debug.js)
-	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
-		--source-map "base='$(@D)',url='$(@F).map'" \
-	        $(JSOPTIONS)
+$(addprefix $(JSDEPLOY)/filepreviewer/,$(PREVIEWERDERIVED)): $(JSDEPLOY)/filepreviewer/ViewerJS/webodf.js
 
 $(DEPLOYPURIFYJS): $(PURIFYJS)
 	mkdir -p $(DEPLOYPURIFY)
@@ -268,19 +222,28 @@ $(JSDEPLOY)/third-party/ux-thirdparty.js: $(THIRDPARTY)
 		--source-map "base='$(@D)',url='$(@F).map'" \
 	        $(JSOPTIONS)
 
-html: $(DESTDIR)/client/filepreviewer/pdfjs/web/viewer.html $(DESTDIR)/client/filepreviewer/ViewerJS/index.html
+html: $(DESTDIR)/client/filepreviewer/pdfjs/web/viewer.html $(DESTDIR)/client/filepreviewer/pdfjs/web/viewer.mjs $(DESTDIR)/client/filepreviewer/ViewerJS/index.html
 
-$(DESTDIR)/client/filepreviewer/pdfjs/web/viewer.html: client/filepreviewer/pdfjs/web/viewer.html $(JSDEPLOY)/filepreviewer/ViewerJS/webodf.js
+# The viewer pages load their scripts relative to themselves, so those URLs
+# need the version too or the two month cache serves the previous pdf.js
+$(DESTDIR)/client/filepreviewer/pdfjs/web/viewer.html: client/filepreviewer/pdfjs/web/viewer.html
 	mkdir -p $(JSDEPLOY)/filepreviewer/pdfjs/web
 	cat $< > $(@:.html=-orig.html)
 	$(HTMLCOMPILER) $(HTMLOPTIONS) --output $@ $(@:.html=-orig.html)
 	rm $(@:.html=-orig.html)
+	sed -i -E 's#(src|href)="([^"?:]+\.(mjs|js|css|json))"#\1="\2?version=$(WEBAPPVERSION)"#g' $@
 
-$(DESTDIR)/client/filepreviewer/ViewerJS/index.html: client/filepreviewer/ViewerJS/index.html $(JSDEPLOY)/filepreviewer/ViewerJS/webodf.js
+$(DESTDIR)/client/filepreviewer/pdfjs/web/viewer.mjs: client/filepreviewer/pdfjs/web/viewer.mjs
+	mkdir -p $(JSDEPLOY)/filepreviewer/pdfjs/web
+	sed -e 's#"../build/pdf.worker.mjs"#"../build/pdf.worker.mjs?version=$(WEBAPPVERSION)"#' \
+	    -e 's#"../build/pdf.sandbox.mjs"#"../build/pdf.sandbox.mjs?version=$(WEBAPPVERSION)"#' $< > $@
+
+$(DESTDIR)/client/filepreviewer/ViewerJS/index.html: client/filepreviewer/ViewerJS/index.html
 	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS
 	cat $< > $(@:.html=-orig.html)
 	$(HTMLCOMPILER) $(HTMLOPTIONS) --output $@ $(@:.html=-orig.html)
 	rm $(@:.html=-orig.html)
+	sed -i -E 's#(src|href)="([^"?:]+\.(mjs|js|css|json))"#\1="\2?version=$(WEBAPPVERSION)"#g' $@
 
 config:
 	cp $(DESTDIR)/config.php.dist $(DESTDIR)/config.php

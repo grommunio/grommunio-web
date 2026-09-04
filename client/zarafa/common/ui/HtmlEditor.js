@@ -53,7 +53,8 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		var fontFamilies = Zarafa.common.ui.htmleditor.Fonts.getFontFamilies();
 
 		var baseUrl = container.getServerConfig().getBaseUrl();
-		const cacheBuster = "8.1.2.369";
+		// TinyMCE appends this to every theme, plugin, skin and language URL it loads
+		var cacheBuster = container.getVersion().getWebApp();
 
 		var themeIsDark = Zarafa.core.DarkMode.isDark();
 

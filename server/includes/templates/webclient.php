@@ -85,7 +85,7 @@ elseif ($darkMode === 'system') {
 		<title><?php echo $webappTitle; ?></title>
 		<link rel="icon" href="<?php echo $favicon; ?>" type="image/x-icon">
 		<link rel="shortcut icon" href="<?php echo $favicon; ?>" type="image/x-icon">
-		<link rel="manifest" href="manifest.webmanifest">
+		<link rel="manifest" href="<?php echo versionedUrl('manifest.webmanifest'); ?>">
 
 		<script><?php require BASE_PATH . 'client/fingerprint.js'; ?></script>
 		<script>

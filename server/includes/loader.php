@@ -165,7 +165,7 @@ class FileLoader {
 		foreach ($files as $file) {
 			$file = $base === true ? basename((string) $file) : $file;
 			if ($concatVersion) {
-				$file = $file . "?version=" . $this->getVersion();
+				$file = versionedUrl($file);
 			}
 			echo str_replace('{file}', $file, $template) . PHP_EOL;
 		}
@@ -177,7 +177,7 @@ class FileLoader {
 	 * @return string returns grommunio Web version
 	 */
 	public function getVersion() {
-		return trim(file_get_contents('version'));
+		return getWebappVersion();
 	}
 
 	/**

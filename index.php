@@ -18,7 +18,7 @@ function getFavicon($theme) {
 	$favicon = Theming::getFavicon($theme);
 
 	if (!isset($favicon) || $favicon === false) {
-		$favicon = 'client/resources/images/favicon.ico?kv2.2.0';
+		$favicon = versionedUrl('client/resources/images/favicon.ico');
 	}
 
 	return $favicon;
