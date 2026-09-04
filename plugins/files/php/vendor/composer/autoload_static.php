@@ -7,7 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInit6c951d886d53bc9c3b700a1be3508206
 {
     public static $prefixLengthsPsr4 = array (
-        'P' => 
+        'P' =>
         array (
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Cache\\' => 10,
@@ -16,15 +16,15 @@ class ComposerStaticInit6c951d886d53bc9c3b700a1be3508206
     );
 
     public static $prefixDirsPsr4 = array (
-        'Psr\\SimpleCache\\' => 
+        'Psr\\SimpleCache\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/simple-cache/src',
         ),
-        'Psr\\Cache\\' => 
+        'Psr\\Cache\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/cache/src',
         ),
-        'Phpfastcache\\' => 
+        'Phpfastcache\\' =>
         array (
             0 => __DIR__ . '/..' . '/phpfastcache/phpfastcache/lib/Phpfastcache',
         ),
