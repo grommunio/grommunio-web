@@ -316,7 +316,8 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	/**
 	 * Labels one of the two alternative preview items and hides it when there is
 	 * no layer left for its slot, which is the case for the second one where
-	 * pop-out is unavailable. Visibility otherwise follows the 'Preview' item.
+	 * pop-out is unavailable or the menu is shown from a popped-out window.
+	 * Visibility otherwise follows the 'Preview' item.
 	 * @param {Zarafa.core.ui.menu.ConditionalItem} item context menu item
 	 * @param {Zarafa.core.data.IPMAttachmentRecord} record attachment record on which context menu is shown
 	 */
@@ -324,7 +325,7 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	{
 		var configured = Zarafa.common.Actions.getFilePreviewerTarget();
 		var alternatives = Zarafa.common.Actions.getFilePreviewerTargets().filter(function(target) {
-			return target !== configured;
+			return target !== configured && Zarafa.common.Actions.canPreviewInTarget(target);
 		});
 
 		item.previewTarget = alternatives[item.previewSlot];

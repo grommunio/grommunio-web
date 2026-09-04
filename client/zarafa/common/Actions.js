@@ -1522,6 +1522,23 @@ Zarafa.common.Actions = {
 	},
 
 	/**
+	 * Whether a preview can open in the given layer from the browser window the
+	 * request comes from.
+	 *
+	 * @param {String} target a layer type
+	 * @return {Boolean} True when a preview can open in that layer right now
+	 */
+	canPreviewInTarget: function (target)
+	{
+		if (Zarafa.common.Actions.getFilePreviewerTargets().indexOf(target) === -1) {
+			return false;
+		}
+
+		// The tab panel belongs to the main window, so a tab opened from a popped-out window lands behind it.
+		return target !== 'tabs' || Zarafa.core.BrowserWindowMgr.isMainWindowActive();
+	},
+
+	/**
 	 * The layer a preview opens in, from zarafa/v1/main/file_previewer/target.
 	 * An unavailable or unknown choice is answered with the dialog rather than
 	 * with a layer that cannot open.
@@ -1532,7 +1549,7 @@ Zarafa.common.Actions = {
 	{
 		var target = container.getSettingsModel().get('zarafa/v1/main/file_previewer/target');
 
-		return Zarafa.common.Actions.getFilePreviewerTargets().indexOf(target) === -1 ? 'dialogs' : target;
+		return Zarafa.common.Actions.canPreviewInTarget(target) ? target : 'dialogs';
 	},
 
 	/**
