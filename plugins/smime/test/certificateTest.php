@@ -10,6 +10,18 @@ require_once 'php/util.php';
  * @coversNothing
  */
 class CertificateTest extends SMIMETest {
+	protected $countryName;
+	protected $stateOrProvinceName;
+	protected $localityName;
+	protected $organizationName;
+	protected $organizationalUnitName;
+	protected $commonName;
+	protected $emailAddress;
+	protected $validFrom;
+	protected $validTo;
+	protected $certdata;
+	protected $cert;
+
 	protected function setUp() {
 		$this->countryName = "NL";
 		$this->stateOrProvinceName = "Zuid Holland";

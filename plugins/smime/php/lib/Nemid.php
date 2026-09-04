@@ -102,7 +102,7 @@ class NemidCertificateCheck {
 		$this->verifySignature($xml, $xp, $leafcertificate, $nonce);
 		$this->simpleVerifyCertificateChain($certchain, ['digitalSignature'], $trustedroots, $nemidfixedpathlength);
 		if (!$disableocspcheck) {
-			$this->checkOcsp($certchain, $x509);
+			$this->checkOcsp($certchain);
 		}
 
 		return $leafcertificate;
@@ -152,10 +152,8 @@ class NemidCertificateCheck {
 			$extensions = $certchain[$issuer]['tbsCertificate']['extensions'];
 			$extensions['basicConstraints']['extnValue']['cA'] or
 					trigger_error('Issueing certificate has not cA = true', E_USER_ERROR);
-			if (isset($extensions['basicConstraints']['extnValue']['pathLenConstraint'])) {
-				$pathLenConstraint = @$extensions['basicConstraints']['extnValue']['pathLenConstraint'];
-			}
-			(empty($pathLenConstraint) || $pathLenConstraint >= $leaf - $issuer - 1) or
+			$pathLenConstraint = $extensions['basicConstraints']['extnValue']['pathLenConstraint'] ?? null;
+			($pathLenConstraint === null || $pathLenConstraint >= $leaf - $issuer - 1) or
 					trigger_error('pathLenConstraint violated', E_USER_ERROR);
 			$extensions['keyUsage']['extnValue']['keyCertSign'] or
 					trigger_error('Issueing certificate has not keyUsage: keyCertSign', E_USER_ERROR);
@@ -164,7 +162,7 @@ class NemidCertificateCheck {
 		# first digest is for the root ...
 		# check the root digest against a list of known root oces certificates
 		$digest = hash('sha256', (string) $certchain[0]['certificate_der']);
-		in_array($digest, array_values($trustedroots->trustedrootdigests)) or trigger_error('Certificate chain not signed by any trustedroots', E_USER_ERROR);
+		in_array($digest, array_values($trustedroots->trustedrootdigests), true) or trigger_error('Certificate chain not signed by any trustedroots', E_USER_ERROR);
 	}
 
 	/**
@@ -192,8 +190,8 @@ class NemidCertificateCheck {
 
 		if (!((hash('sha256', (string) $signedElement, true) == $digestValue) &&
 				openssl_verify($signedInfo, $signatureValue, $publicKey, 'sha256WithRSAEncryption') == 1)) {
-			trigger_error('Error verifying incoming XMLsignature' . PHP_EOL .
-					openssl_error_string() . PHP_EOL . 'XMLsignature: ' . print_r(htmlspecialchars((string) $message), 1), E_USER_ERROR);
+			trigger_error('Error verifying incoming XML signature' . PHP_EOL .
+					openssl_error_string() . PHP_EOL . 'XML signature: ' . print_r(htmlspecialchars((string) $message), 1), E_USER_ERROR);
 		}
 	}
 
@@ -202,18 +200,19 @@ class NemidCertificateCheck {
 	 * $certchain contains root + intermediate + user certs.
 	 *
 	 * @param mixed $certchain
-	 * @param mixed $x509
 	 */
-	protected function checkOcsp($certchain, $x509) {
+	protected function checkOcsp($certchain) {
 		$certificate = array_pop($certchain); # the cert we are checking
 		$issuer = array_pop($certchain); # assumed to be the issuer of the signing certificate of the ocsp response as well
 		$ocspclient = new OCSP();
 
 		$certID = $ocspclient->certOcspID([
 			'issuerName' => $issuer['tbsCertificate']['subject_der'],
-			/* remember to skip the first byte it is the number of unused bits and it is alwayf 0 for keys and certificates */
+			/* Skip the first byte: it is the number of unused bits and is always 0 for keys and certificates. */
 			'issuerKey' => substr((string) $issuer['tbsCertificate']['subjectPublicKeyInfo']['subjectPublicKey'], 1),
-			'serialNumber_der' => $certificate['tbsCertificate']['serialNumber_der'], ]);
+			'serialNumber_der' => $certificate['tbsCertificate']['serialNumber_der'],
+			'serialNumber' => $certificate['tbsCertificate']['serialNumber'],
+		]);
 
 		$ocspreq = $ocspclient->request([$certID]);
 
@@ -231,8 +230,12 @@ class NemidCertificateCheck {
 
 		$context = stream_context_create($stream_options);
 		$derresponse = file_get_contents($url, false, $context);
+		if ($derresponse === false) {
+			trigger_error('Unable to fetch OCSP response', E_USER_ERROR);
+		}
 
 		$ocspresponse = $ocspclient->response($derresponse);
+		$ocspresponse['responseStatus'] === 'successful' or trigger_error("OCSP Response Status not 'successful'", E_USER_ERROR);
 
 		/* check that the response was signed with the accompanying certificate */
 		$der = $ocspresponse['responseBytes']['BasicOCSPResponse']['tbsResponseData_der'];
@@ -252,7 +255,6 @@ class NemidCertificateCheck {
 
 		$resp = $ocspresponse['responseBytes']['BasicOCSPResponse']['tbsResponseData']['responses'][0];
 
-		$ocspresponse['responseStatus'] === 'successful' or trigger_error("OCSP Response Status not 'successful'", E_USER_ERROR);
 		$resp['certStatus'] === 'good' or trigger_error("OCSP Revocation status is not 'good'", E_USER_ERROR);
 		$resp['certID']['hashAlgorithm'] === 'sha-256' &&
 				$resp['certID']['issuerNameHash'] === $certID['issuerNameHash'] &&
@@ -260,8 +262,12 @@ class NemidCertificateCheck {
 				$resp['certID']['serialNumber'] === $certID['serialNumber'] or
 				trigger_error("OCSP Revocation, mismatch between original and checked certificate", E_USER_ERROR);
 		$now = gmdate(self::GENERALIZED_TIME_FORMAT);
-		$resp['thisUpdate'] <= $now && $now <= $resp['nextupdate'] or
-				trigger_error("OCSP Revocation status not current: {$returnedCertResponse['thisUpdate']} <= {$now} <= {$returnedCertResponse['nextupdate']}", E_USER_ERROR);
+		$resp['thisUpdate'] <= $now or
+				trigger_error("OCSP Revocation status is not current: {$resp['thisUpdate']} > {$now}", E_USER_ERROR);
+		if (isset($resp['nextupdate'])) {
+			$now <= $resp['nextupdate'] or
+					trigger_error("OCSP Revocation status is not current: {$now} > {$resp['nextupdate']}", E_USER_ERROR);
+		}
 
 		$ocspcertificateextns = $ocspcertificate['tbsCertificate']['extensions'];
 		$ocspcertificateextns['extKeyUsage']['extnValue']['ocspSigning'] or trigger_error('ocspcertificate is not for ocspSigning', E_USER_ERROR);
@@ -279,6 +285,7 @@ class NemidCertificateCheck {
 	 */
 	protected function xml2certs($xp, $x509) {
 		$nodeList = $xp->query('/openoces:signature/ds:Signature/ds:KeyInfo/ds:X509Data/ds:X509Certificate');
+		$certsbysubject = [];
 
 		foreach ($nodeList as $node) {
 			$cert = $node->nodeValue;
@@ -300,7 +307,7 @@ class NemidCertificateCheck {
 		$checks = array_count_values($count);
 
 		# the subject of the leaf certificate appears only once ...
-		if ($checks[1] != 1) {
+		if (($checks[1] ?? 0) != 1) {
 			trigger_error("Couldn't find leaf certificate ...", E_USER_ERROR);
 		}
 

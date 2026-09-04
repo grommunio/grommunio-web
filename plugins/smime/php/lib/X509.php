@@ -13,6 +13,7 @@ require_once 'Der.php';
 class X509Helper extends Der {
 	public function generalName() {
 		$tag = $this->peek();
+		$res = [];
 
 		switch ($tag) {
 			case 0:
@@ -28,9 +29,10 @@ class X509Helper extends Der {
 				break;
 
 			case 4:
-				$this->next(4);
+				$this->begin(4);
 				$res['directoryName'] = $this->name();
 				$res['directoryName_'] = $this->nameasstring($res['directoryName']);
+				$this->end();
 				break;
 
 			case 6:
@@ -89,6 +91,7 @@ class X509Helper extends Der {
 
 class X509 extends Der {
 	protected $xtns;
+	private bool $allowNameConstraints = false;
 
 	protected $keyUsages = [
 		'digitalSignature',
@@ -106,13 +109,21 @@ class X509 extends Der {
 		$this->xtns = new X509Helper();
 	}
 
-	public function certificate($der) {
+	/**
+	 * Decode a certificate, optionally allowing issuer name constraints that
+	 * have already been enforced by the caller's OpenSSL chain validation.
+	 *
+	 * @param mixed $der
+	 */
+	public function certificate($der, bool $allowNameConstraints = false) {
+		$this->allowNameConstraints = $allowNameConstraints;
 		$this->init($der);
 
 		return $this->certificate_do();
 	}
 
 	protected function certificate_do() {
+		$cert = [];
 		$cert['certificate_der'] = $this->der(); # inclusive signatureAlgorithm and signature
 		$this->beginsequence();
 		$cert['tbsCertificate'] = $this->tbsCertificate();
@@ -125,6 +136,7 @@ class X509 extends Der {
 	}
 
 	protected function tbsCertificate() {
+		$res = [];
 		$res['tbsCertificate_der'] = $this->der();
 		$this->beginsequence();
 		$res['version'] = 0;
@@ -145,14 +157,15 @@ class X509 extends Der {
 		$res['subjectPublicKeyInfo']['algorithm'] = $this->signatureAlgorithm();
 		$res['subjectPublicKeyInfo']['subjectPublicKey'] = $this->next(3);
 		$this->end();
-		if ($this->peek() == 1) { # issuerUniqueID IMPLICIT
+		if ($this->peek() === 1) { # issuerUniqueID IMPLICIT
 			$this->next(1);
 		}
-		if ($this->peek() == 2) { # subjectUniqueID IMPLICIT
-			$this->next(1);
+		if ($this->peek() === 2) { # subjectUniqueID IMPLICIT
+			$this->next(2);
 		}
 		if ($this->peek(3)) {
-			$res['extensions'] = $this->extensions();
+			$allowedUnsupportedCritical = $this->allowNameConstraints ? ['nameConstraints'] : [];
+			$res['extensions'] = $this->extensions($allowedUnsupportedCritical);
 		}
 		$this->end();
 
@@ -179,7 +192,10 @@ class X509 extends Der {
 
 		$unusedbits = ord(substr((string) $bitstring, 0, 1));
 		$ku = base_convert(bin2hex(chr(1) . substr((string) $bitstring, 1)), 16, 2);
-		$ku = substr($ku, 1, -$unusedbits);
+		$ku = substr($ku, 1);
+		if ($unusedbits > 0) {
+			$ku = substr($ku, 0, -$unusedbits);
+		}
 		$res = [];
 		for ($c = 0; $c < strlen($ku); ++$c) {
 			if ($ku[$c]) {
@@ -192,6 +208,7 @@ class X509 extends Der {
 
 	protected function authorityInfoAccess($der) {
 		$this->xtns->init($der);
+		$res = [];
 		$this->xtns->beginsequence();
 		while ($this->xtns->in()) {
 			$this->xtns->beginsequence();
@@ -213,6 +230,7 @@ class X509 extends Der {
 		$res = [];
 		$this->xtns->beginsequence();
 		while ($this->xtns->in()) {
+			$PolicyInformation = [];
 			$this->xtns->beginsequence();
 			$PolicyInformation['policyIdentifier'] = $this->xtns->oid();
 			if ($this->xtns->in()) {
@@ -227,7 +245,7 @@ class X509 extends Der {
 					}
 					elseif ($policyQualifierId == 'unotice') {
 						$this->xtns->beginsequence();
-						if ($this->xtns->peek() == 16) {
+						if ($this->xtns->peek() === 16) {
 							$this->xtns->beginsequence();
 							$policyQualifier['UserNotice']['noticeRef']['organisation'] = $this->xtns->next();
 							$this->xtns->beginsequence();
@@ -258,22 +276,23 @@ class X509 extends Der {
 
 	protected function cRLDistributionPoints($der) {
 		$this->xtns->init($der);
+		$crldps = [];
 		$this->xtns->beginsequence();
 		while ($this->xtns->in()) {
 			$res = [];
 			$this->xtns->beginsequence();
 			if ($this->xtns->peek(0)) {
-				if ($this->xtns->peek() == 0) {
+				if ($this->xtns->peek() === 0) {
 					$res['distributionPoint']['fullname'][] = $this->xtns->generalnames(0);
 				}
-				if ($this->xtns->peek() == 1) {
+				if ($this->xtns->peek() === 1) {
 					$res['distributionPoint']['nameRelativeToCRLIssuer'][] = $this->xtns->name(1);
 				}
 			}
-			if ($this->xtns->peek() == 1) {
+			if ($this->xtns->peek() === 1) {
 				$res['reasons'] = $this->xtns->next(1);
 			}
-			if ($this->xtns->peek() == 2) {
+			if ($this->xtns->peek() === 2) {
 				$res['cRLIssuer'] = $this->xtns->next(2);
 			}
 			$this->xtns->end();
@@ -286,14 +305,15 @@ class X509 extends Der {
 
 	protected function authorityKeyIdentifier($der) {
 		$this->xtns->init($der);
+		$res = [];
 		$this->xtns->beginsequence();
-		if ($this->xtns->peek() == 0) {
+		if ($this->xtns->peek() === 0) {
 			$res['keyIdentifier'] = chunk_split(bin2hex((string) $this->xtns->next()), 2, ':');
 		}
-		if ($this->xtns->in() && $this->xtns->peek() == 1) {
+		if ($this->xtns->in() && $this->xtns->peek() === 1) {
 			$res['authorityCertIssuer'] = $this->xtns->GeneralNames();
 		}
-		if ($this->xtns->in() && $this->xtns->peek() == 2) {
+		if ($this->xtns->in() && $this->xtns->peek() === 2) {
 			$res['authorityCertSerialNumber'] = $this->xtns->next();
 		}
 		$this->xtns->end();
@@ -303,13 +323,14 @@ class X509 extends Der {
 
 	protected function subjectKeyIdentifier($der) {
 		$this->xtns->init($der);
+		$res = [];
 		$res['keyIdentifier'] = chunk_split(bin2hex((string) $this->xtns->next(4)), 2, ':');
 
 		return $res;
 	}
 
 	protected function basicConstraints($der) {
-		$res['cA'] = false;
+		$res = ['cA' => false];
 		$this->xtns->init($der);
 		$this->xtns->beginsequence();
 		if ($this->xtns->in()) {
@@ -326,6 +347,7 @@ class X509 extends Der {
 
 	protected function extKeyUsage($der) {
 		$this->xtns->init($der);
+		$res = [];
 		$this->xtns->beginsequence();
 		while ($this->xtns->in()) {
 			$res[$this->xtns->oid()] = 1;
@@ -337,6 +359,7 @@ class X509 extends Der {
 
 	protected function subjectAltName($der) {
 		$this->xtns->init($der);
+		$res = ['subjectAltName' => []];
 		$this->xtns->beginsequence();
 		while ($this->xtns->in()) {
 			$res['subjectAltName'][] = $this->xtns->generalName();
@@ -348,11 +371,12 @@ class X509 extends Der {
 
 	protected function privateKeyUsagePeriod($der) {
 		$this->xtns->init($der);
+		$res = [];
 		$this->xtns->beginsequence();
-		if ($this->xtns->in() && $this->xtns->peek() == 0) {
+		if ($this->xtns->in() && $this->xtns->peek() === 0) {
 			$res['notBefore'] = $this->xtns->time(-24);
 		}
-		if ($this->xtns->in() && $this->xtns->peek() == 1) {
+		if ($this->xtns->in() && $this->xtns->peek() === 1) {
 			$res['notAfter'] = $this->xtns->time(-24);
 		}
 		$this->xtns->end();
@@ -370,8 +394,9 @@ class X509 extends Der {
 
 	public function RSASignatureValue($der) {
 		$this->xtns->init($der);
+		$res = [];
 		$res['digestAlgorithm']['algorithm'] = $this->xtns->oid();
-		$res['digestAlgorithm']['parameters'] = $this->next();
+		$res['digestAlgorithm']['parameters'] = $this->xtns->next();
 
 		return $res;
 	}

@@ -1,17 +1,17 @@
 <?php
 
-/**
+/*
  * This file contains functions which are used in plugin.smime.php and class.pluginsmimemodule.php and therefore
  * exists here to avoid code-duplication.
- *
- * @param mixed $certificate
  */
 
 /**
  * Function which extracts the email address from a certificate, and tries to get the subjectAltName if
  * subject/emailAddress is not set.
  *
- * @param mixed $certificate certificate data
+ * @param array $certificate parsed certificate data
+ *
+ * @return string certificate email address, or an empty string when absent
  */
 function getCertEmail($certificate) {
 	$certEmailAddress = "";
@@ -41,7 +41,7 @@ function getCertEmail($certificate) {
  * @param string   $type         of message_class
  * @param string   $emailAddress email address to specify
  *
- * @return bool|resource the mapi message containing the private certificate, returns false if no certificate is found
+ * @return array<int, array<int, mixed>>|false certificate message rows, or false if no certificate is found
  */
 function getMAPICert($store, $type = 'WebApp.Security.Private', $emailAddress = '') {
 	$root = mapi_msgstore_openentry($store);
@@ -89,7 +89,7 @@ function getMAPICert($store, $type = 'WebApp.Security.Private', $emailAddress = 
  * @param string   $passphrase passphrase for private certificate
  * @param bool     $singleCert if true, returns the first certificate, which was successfully decrypted with $passphrase
  *
- * @return mixed collection of certificates, empty if none if decrypting fails or stored private certificate isn't found
+ * @return array<int, array<string, mixed>>|array<string, mixed> unlocked PKCS#12 data, or an empty array
  */
 function readPrivateCert($store, $passphrase, $singleCert = true) {
 	$unlockedCerts = [];
@@ -132,10 +132,9 @@ function readPrivateCert($store, $passphrase, $singleCert = true) {
 /**
  * Converts X509 DER format string to PEM format.
  *
- * @param string X509 Certificate in DER format
- * @param mixed $certificate
+ * @param string $certificate X.509 certificate in DER format
  *
- * @return string X509 Certificate in PEM format
+ * @return string X.509 certificate in PEM format
  */
 function der2pem($certificate) {
 	return "-----BEGIN CERTIFICATE-----\n" . chunk_split(base64_encode((string) $certificate), 64, "\n") . "-----END CERTIFICATE-----\n";
@@ -262,6 +261,94 @@ function decodeCaIssuerResponse($data) {
 }
 
 /**
+ * Ensure the AIA cache directory cannot be modified by other local users.
+ *
+ * @param string $cacheDir cache directory
+ *
+ * @return bool true when the directory is safe and writable
+ */
+function ensureAiaCacheDir($cacheDir) {
+	if (is_link($cacheDir)) {
+		return false;
+	}
+	if (!is_dir($cacheDir) && !@mkdir($cacheDir, 0700, true) && !is_dir($cacheDir)) {
+		return false;
+	}
+	// Older releases created this directory group-writable. Tighten it when
+	// possible; otherwise do not trust or write cache entries in it.
+	@chmod($cacheDir, 0700);
+	$stat = @lstat($cacheDir);
+	if ($stat === false || ($stat['mode'] & 0170000) !== 0040000 || ($stat['mode'] & 0077) !== 0) {
+		return false;
+	}
+	if (function_exists('posix_geteuid') && $stat['uid'] !== posix_geteuid()) {
+		return false;
+	}
+
+	return is_writable($cacheDir);
+}
+
+/**
+ * Read an AIA cache entry without following a pre-created link.
+ *
+ * @param string $cacheFile cache filename
+ *
+ * @return null|string cached data, or null for an unsafe/unreadable entry
+ */
+function readAiaCacheFile($cacheFile) {
+	if (!is_file($cacheFile) || is_link($cacheFile)) {
+		return null;
+	}
+	$stat = @lstat($cacheFile);
+	$dirStat = @lstat(dirname($cacheFile));
+	if ($stat === false || $dirStat === false ||
+		($stat['mode'] & 0170000) !== 0100000 ||
+		($dirStat['mode'] & 0170000) !== 0040000 ||
+		($dirStat['mode'] & 0077) !== 0 ||
+		($stat['mode'] & 0077) !== 0 ||
+		$stat['uid'] !== $dirStat['uid']) {
+		return null;
+	}
+
+	$cached = @file_get_contents($cacheFile);
+
+	return is_string($cached) ? $cached : null;
+}
+
+/**
+ * Atomically replace an AIA cache entry without following a pre-created link.
+ *
+ * @param string $cacheDir  cache directory
+ * @param string $cacheFile cache filename
+ * @param string $data      cache contents
+ *
+ * @return bool true when the cache entry was written
+ */
+function writeAiaCacheFile($cacheDir, $cacheFile, $data) {
+	if (!ensureAiaCacheDir($cacheDir)) {
+		return false;
+	}
+	$tmpFile = tempnam($cacheDir, '.aia-');
+	if ($tmpFile === false) {
+		return false;
+	}
+
+	try {
+		$written = file_put_contents($tmpFile, $data, LOCK_EX);
+		if ($written !== strlen($data) || !@chmod($tmpFile, 0600)) {
+			return false;
+		}
+
+		return @rename($tmpFile, $cacheFile);
+	}
+	finally {
+		if (is_file($tmpFile)) {
+			@unlink($tmpFile);
+		}
+	}
+}
+
+/**
  * Test whether an IP address belongs to a CIDR range.
  *
  * @param string $ip
@@ -354,9 +441,13 @@ function aiaResolvePin($url, $allowPrivate = false) {
 		// Keep PHP's and curl's URL parsers from disagreeing about the
 		// authority (for example on backslashes or alternate numeric IPs).
 		$dnsHost = rtrim($host, '.');
+		$legacyNumericHost = preg_match(
+			'/\A(?:0[xX][0-9A-Fa-f]+|[0-9]+)(?:\.(?:0[xX][0-9A-Fa-f]+|[0-9]+))*\z/D',
+			$dnsHost
+		) === 1;
 		if ($dnsHost === '' || strlen($dnsHost) > 253 ||
 			preg_match('/\A(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?)(?:\.(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?))*\z/D', $dnsHost) !== 1 ||
-			preg_match('/\A[0-9.]+\z/D', $dnsHost) === 1) {
+			$legacyNumericHost) {
 			return null;
 		}
 	}
@@ -510,18 +601,16 @@ function fetchCaIssuerCerts($url) {
 
 	$cacheDir = (defined('TMP_PATH') ? TMP_PATH : sys_get_temp_dir()) . '/smime';
 	$cacheFile = $cacheDir . '/aia-' . hash('sha256', $url) . '.pem';
-	if (is_file($cacheFile)) {
+	$cacheReady = ensureAiaCacheDir($cacheDir);
+	if ($cacheReady && is_file($cacheFile) && !is_link($cacheFile)) {
 		$age = time() - (int) filemtime($cacheFile);
-		$cached = file_get_contents($cacheFile);
-		if ($cached !== false && $cached !== '' && $age < 30 * 86400) {
+		$cached = readAiaCacheFile($cacheFile);
+		if ($cached !== null && $cached !== '' && $age < 30 * 86400) {
 			return extractPemCerts($cached);
 		}
 		if ($cached === '' && $age < 3600) {
 			return [];
 		}
-	}
-	if (!is_dir($cacheDir)) {
-		@mkdir($cacheDir, 0770, true);
 	}
 
 	$body = fetchSmimeHttpResource($url);
@@ -537,7 +626,9 @@ function fetchCaIssuerCerts($url) {
 		}
 	}
 
-	@file_put_contents($cacheFile, implode("\n", $certs));
+	if ($cacheReady) {
+		writeAiaCacheFile($cacheDir, $cacheFile, implode("\n", $certs));
+	}
 
 	return $certs;
 }
@@ -618,42 +709,18 @@ function fetchMissingIntermediates($signerPem, $knownCerts) {
 }
 
 /**
- * Function which does an OCSP/CRL check on the certificate to find out if it has been
- * revoked.
+ * Build the certificate chain represented by a leaf and unordered extra certificates.
  *
- * For an OCSP request we need the following items:
- * - Client certificate which we need to verify
- * - Issuer certificate (Authority Information Access: Ca Issuers) openssl x509 -in certificate.crt -text
- * - OCSP URL (Authority Information Access: OCSP Url)
+ * @param string $certificate leaf certificate
+ * @param array  $extracerts  intermediate and root certificates
  *
- * The issuer certificate is fetched once and stored in /var/lib/grommunio-web/tmp/smime
- * We create the directory if it does not exists, check if the certificate is already stored. If it is already
- * stored we, use stat() to determine if it is not very old (> 1 Month) and otherwise fetch the certificate and store it.
- *
- * @param string $certificate
- * @param array  $extracerts  an array of intermediate certificates
- * @param mixed  $message
- *
- * @return bool true is OCSP verification has succeeded or when there is no OCSP support, false if it hasn't
+ * @return array ordered Certificate objects, starting with the leaf
  */
-function verifyOCSP($certificate, $extracerts, &$message) {
-	if (!PLUGIN_SMIME_ENABLE_OCSP) {
-		$message['success'] = SMIME_STATUS_SUCCESS;
-		$message['info'] = SMIME_OCSP_DISABLED;
-
-		return true;
-	}
-
+function buildSmimeCertificateChain($certificate, $extracerts) {
 	$pubcert = new Certificate($certificate);
-
-	/*
-	 * Walk over the provided extra intermediate certificates and setup the
-	 * issuer chain.  Certificates inside a PKCS#7 structure are not
-	 * guaranteed to be in order, so we iteratively match issuers until the
-	 * chain is fully built or no more progress can be made.
-	 */
 	$parent = $pubcert;
-	if (!isset($extracerts) || !is_array($extracerts)) {
+	$chain = [$pubcert];
+	if (!is_array($extracerts)) {
 		$extracerts = [];
 	}
 	$remaining = [];
@@ -670,6 +737,7 @@ function verifyOCSP($certificate, $extracerts, &$message) {
 			if ($cert->getName() === $parent->getIssuerName()) {
 				$parent->setIssuer($cert);
 				$parent = $cert;
+				$chain[] = $cert;
 				unset($remaining[$i]);
 				$changed = true;
 				break;
@@ -677,24 +745,62 @@ function verifyOCSP($certificate, $extracerts, &$message) {
 		}
 	}
 
-	try {
-		$pubcert->verify();
-		$issuer = $pubcert->issuer();
-		if ($issuer && $issuer->issuer()) {
-			$issuer->verify();
+	return $chain;
+}
+
+/**
+ * Check a certificate's OCSP status.
+ *
+ * For an OCSP request we need the following items:
+ * - Client certificate which we need to verify
+ * - Issuer certificate (Authority Information Access: Ca Issuers) openssl x509 -in certificate.crt -text
+ * - OCSP URL (Authority Information Access: OCSP Url)
+ *
+ * @param string     $certificate
+ * @param array      $extracerts       an array of intermediate certificates
+ * @param array      $message          reference to the status message array
+ * @param null|array $failedCertificates reference populated with certificates whose OCSP status was unavailable
+ *
+ * @return bool true when OCSP succeeds or is disabled, false on any OCSP failure
+ */
+function verifyOCSP($certificate, $extracerts, &$message, &$failedCertificates = null) {
+	$failedCertificates = [];
+	if (!PLUGIN_SMIME_ENABLE_OCSP) {
+		$message['success'] = SMIME_STATUS_SUCCESS;
+		$message['info'] = SMIME_OCSP_DISABLED;
+
+		return true;
+	}
+
+	$chain = buildSmimeCertificateChain($certificate, $extracerts);
+
+	foreach ($chain as $cert) {
+		// Root certificates are trust anchors. Check every certificate below
+		// the root so a revoked intermediate cannot validate a leaf.
+		if ($cert->getName() !== $cert->getIssuerName()) {
+			try {
+				$cert->verify();
+			}
+			catch (OCSPException $e) {
+				if ($e->getCode() === OCSP_CERT_STATUS && $e->getCertStatus() === OCSP_CERT_STATUS_REVOKED) {
+					$message['info'] = SMIME_REVOKED;
+					$message['success'] = SMIME_STATUS_FAIL;
+
+					return false;
+				}
+				error_log(sprintf("[SMIME] OCSP verification warning: '%s'", $e->getMessage()));
+				$failedCertificates[] = $cert;
+			}
 		}
 	}
-	catch (OCSPException $e) {
-		if ($e->getCode() === OCSP_CERT_STATUS && $e->getCertStatus() === OCSP_CERT_STATUS_REVOKED) {
-			$message['info'] = SMIME_REVOKED;
-			$message['success'] = SMIME_STATUS_PARTIAL;
 
-			return false;
-		}
-		error_log(sprintf("[SMIME] OCSP verification warning: '%s'", $e->getMessage()));
+	if (!empty($failedCertificates)) {
+		$message['info'] = SMIME_OCSP_FAILED;
+		$message['success'] = SMIME_STATUS_FAIL;
+
+		return false;
 	}
 
-	// Certificate does not support OCSP
 	$message['info'] = SMIME_SUCCESS;
 	$message['success'] = SMIME_STATUS_SUCCESS;
 
@@ -758,9 +864,15 @@ function validateUploadedPKCS($certificate, $passphrase, $emailAddress) {
 			elseif ($validFrom > time()) {
 				$message = _('Certificate is not yet valid ') . date('Y-m-d', $validFrom) . '. ' . _('Certificate has not been imported');
 			}
-			// We allow users to import private certificate which have no OCSP support
-			elseif (!verifyOCSP($certs['cert'], $extracerts, $data)) {
-				$message = _('Certificate is revoked, but was imported.');
+			// Allow importing a private certificate even when its revocation status
+			// cannot be established; message verification still fails closed.
+			elseif (!verifyRevocation($certs['cert'], $extracerts, $data)) {
+				if (in_array($data['info'] ?? null, [SMIME_REVOKED, SMIME_CRL_REVOKED], true)) {
+					$message = _('Certificate is revoked, but was imported.');
+				}
+				else {
+					$message = _('Certificate revocation status could not be verified. Certificate was imported.');
+				}
 				$imported = true;
 			}
 			else {
@@ -779,7 +891,7 @@ function validateUploadedPKCS($certificate, $passphrase, $emailAddress) {
 /**
  * Get key type information from a certificate or public key.
  *
- * @param mixed $cert PEM certificate string or OpenSSL resource
+ * @param OpenSSLCertificate|resource|string $cert PEM certificate or OpenSSL certificate
  *
  * @return array ['type' => 'RSA'|'EC'|'Ed25519'|'unknown', 'bits' => int, 'curve' => string|null]
  */
@@ -823,7 +935,7 @@ function getKeyTypeInfo($cert) {
 /**
  * Get Key Usage flags from a certificate.
  *
- * @param mixed $cert PEM certificate string
+ * @param string $cert PEM certificate
  *
  * @return array key usage flags as associative array
  */
@@ -846,7 +958,7 @@ function getKeyUsage($cert) {
 /**
  * Get Extended Key Usage OIDs from a certificate.
  *
- * @param mixed $cert PEM certificate string
+ * @param string $cert PEM certificate
  *
  * @return array EKU names/OIDs
  */
@@ -862,7 +974,7 @@ function getExtendedKeyUsage($cert) {
 /**
  * Determine certificate purpose from Key Usage extension.
  *
- * @param mixed $cert PEM certificate string
+ * @param string $cert PEM certificate
  *
  * @return string 'sign', 'encrypt', 'both', or 'unknown'
  */
@@ -911,10 +1023,13 @@ function emailMatchesCert(string $certEmail, string $userEmail): bool {
  */
 function verifyRevocation($certificate, $extracerts, &$message) {
 	// Try OCSP first
-	$ocspResult = verifyOCSP($certificate, $extracerts, $message);
+	$ocspFailures = [];
+	$ocspResult = verifyOCSP($certificate, $extracerts, $message, $ocspFailures);
 
-	// If OCSP succeeded (good or disabled), return that result
-	if ($ocspResult) {
+	// A positive OCSP response is conclusive. If OCSP is disabled, continue
+	// into CRL validation when it has been enabled explicitly.
+	$crlEnabled = defined('PLUGIN_SMIME_ENABLE_CRL') && PLUGIN_SMIME_ENABLE_CRL;
+	if ($ocspResult && (($message['info'] ?? null) !== SMIME_OCSP_DISABLED || !$crlEnabled)) {
 		return true;
 	}
 
@@ -924,25 +1039,39 @@ function verifyRevocation($certificate, $extracerts, &$message) {
 	}
 
 	// OCSP failed/unavailable — try CRL if enabled
-	if (defined('PLUGIN_SMIME_ENABLE_CRL') && PLUGIN_SMIME_ENABLE_CRL) {
+	if ($crlEnabled) {
 		if (class_exists('CrlManager')) {
 			$crlManager = new CrlManager();
-			$pubcert = new Certificate($certificate);
-			$revoked = $crlManager->isRevoked($pubcert);
-
-			if ($revoked === true) {
-				$message['info'] = SMIME_CRL_REVOKED;
-				$message['success'] = SMIME_STATUS_FAIL;
-
-				return false;
+			$crlCandidates = $ocspFailures;
+			if (($message['info'] ?? null) === SMIME_OCSP_DISABLED) {
+				$crlCandidates = array_filter(
+					buildSmimeCertificateChain($certificate, $extracerts),
+					static function ($cert) {
+						return $cert->getName() !== $cert->getIssuerName();
+					}
+				);
 			}
-			if ($revoked === null) {
-				$message['info'] = SMIME_CRL_UNAVAILABLE;
-				$message['success'] = SMIME_STATUS_PARTIAL;
+			foreach ($crlCandidates as $pubcert) {
+				$revoked = $crlManager->isRevoked($pubcert);
 
-				// CRL unavailable is not a hard failure
-				return true;
+				if ($revoked === true) {
+					$message['info'] = SMIME_CRL_REVOKED;
+					$message['success'] = SMIME_STATUS_FAIL;
+
+					return false;
+				}
+				if ($revoked === null) {
+					$message['info'] = SMIME_CRL_UNAVAILABLE;
+					$message['success'] = SMIME_STATUS_FAIL;
+
+					return false;
+				}
 			}
+
+			$message['info'] = SMIME_SUCCESS;
+			$message['success'] = SMIME_STATUS_SUCCESS;
+
+			return true;
 		}
 	}
 
