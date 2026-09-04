@@ -450,7 +450,8 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	 * Event handler for {@link #selectionchange}. Starts fetching the payloads of
 	 * a multiple selection, so that dragging it out finds them ready: the drag
 	 * itself cannot wait for a download, and {@link #onAttachmentDragStart} hands
-	 * over a selection only when every payload is present.
+	 * over a selection only when every payload is present. A selection no drag
+	 * could carry (see {@link #collectDragPayloads}) is not downloaded at all.
 	 * @private
 	 */
 	onSelectionChangePrefetch: function()
@@ -459,11 +460,25 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 			return;
 		}
 
-		var records = this.getSelectedRecords();
-		for (var i = 0; i < records.length; i++) {
-			if (this.isDraggableAttachment(records[i])) {
-				this.prefetchAttachmentFile(records[i]);
+		var selected = this.getSelectedRecords();
+		var records = [];
+		var i;
+		for (i = 0; i < selected.length; i++) {
+			if (!this.isDraggableAttachment(selected[i])) {
+				continue;
 			}
+			if (this.exceedsDragOutMaxSize(selected[i])) {
+				return;
+			}
+			records.push(selected[i]);
+		}
+
+		if (!this.fitsPayloadCache(records)) {
+			return;
+		}
+
+		for (i = 0; i < records.length; i++) {
+			this.prefetchAttachmentFile(records[i]);
 		}
 	},
 
@@ -481,6 +496,42 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	},
 
 	/**
+	 * Whether the attachment is over the embed limit, so that no drag can ever
+	 * carry its payload: {@link #prefetchAttachmentFile} refuses it by its
+	 * metadata size, or the response has already shown it to be too large.
+	 * @param {Zarafa.core.data.IPMAttachmentRecord} record The attachment record
+	 * @return {Boolean} True when it exceeds {@link #getDragOutMaxSize}
+	 * @private
+	 */
+	exceedsDragOutMaxSize: function(record)
+	{
+		var entry = this.attachmentPayloadCache[this.getAttachmentCacheKey(record)];
+		if (entry && entry.oversize) {
+			return true;
+		}
+
+		return (record.get('size') || 0) > this.getDragOutMaxSize();
+	},
+
+	/**
+	 * Whether the payloads of these attachments can be held at once. A set
+	 * larger than {@link #getPayloadCacheBudget} evicts its own members as they
+	 * arrive, so it never becomes complete and every drag downloads it again.
+	 * @param {Zarafa.core.data.IPMAttachmentRecord[]} records The attachments
+	 * @return {Boolean} True when they fit the payload cache budget
+	 * @private
+	 */
+	fitsPayloadCache: function(records)
+	{
+		var total = 0;
+		for (var i = 0; i < records.length; i++) {
+			total += records[i].get('size') || 0;
+		}
+
+		return total <= this.getPayloadCacheBudget();
+	},
+
+	/**
 	 * Collects the cached payloads of the given attachments, all of them or none.
 	 *
 	 * A payload cannot be fetched from within <tt>dragstart</tt>, which is
@@ -489,27 +540,46 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	 * complete and is not. When one is missing its fetch is started instead, so a
 	 * later drag of the same selection carries everything.
 	 *
+	 * That holds only for a selection which can become complete at all. One with
+	 * a member over the embed limit, or with more bytes than the payload cache
+	 * holds, never does: nothing is fetched for it and nothing handed over, while
+	 * the operating system still receives it as the ZIP.
+	 *
 	 * @param {Zarafa.core.data.IPMAttachmentRecord[]} records The attachments to be dragged
 	 * @return {String[]} The payloads as JSON strings, or null when incomplete
 	 * @private
 	 */
 	collectDragPayloads: function(records)
 	{
-		var payloads = [];
-		var complete = true;
+		if (!this.fitsPayloadCache(records)) {
+			return null;
+		}
 
-		for (var i = 0; i < records.length; i++) {
+		var payloads = [];
+		var missing = [];
+		var i;
+
+		for (i = 0; i < records.length; i++) {
+			if (this.exceedsDragOutMaxSize(records[i])) {
+				return null;
+			}
+
 			var entry = this.attachmentPayloadCache[this.getAttachmentCacheKey(records[i])];
 			if (entry && entry.payload) {
 				this.touchCacheEntry(entry);
 				payloads.push(entry.payload);
 			} else {
-				complete = false;
-				this.prefetchAttachmentFile(records[i]);
+				missing.push(records[i]);
 			}
 		}
 
-		return complete ? payloads : null;
+		// Started only once the whole selection has passed, so an over-limit
+		// member further on does not leave a download running for nothing.
+		for (i = 0; i < missing.length; i++) {
+			this.prefetchAttachmentFile(missing[i]);
+		}
+
+		return Ext.isEmpty(missing) ? payloads : null;
 	},
 
 	/**
