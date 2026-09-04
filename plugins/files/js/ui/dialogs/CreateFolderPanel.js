@@ -137,13 +137,7 @@ Zarafa.plugins.files.ui.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 		var folderName = this.newNameField.getValue();
 
 		if (Ext.isEmpty(folderName.trim())) {
-			Ext.MessageBox.show({
-				title: _('grommunio Web'),
-				msg: _('You must specify a name.'),
-				buttons: Ext.MessageBox.OK,
-				icon: Ext.MessageBox.INFO,
-				scope : this
-			});
+			container.getNotifier().notify('warning.files', _('Files'), _('You must specify a name.'));
 			return;
 		}
 
