@@ -3133,9 +3133,13 @@ class Operations {
 						$GLOBALS['mapisession']->addUserStore(strtolower((string) $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS]));
 					if ($origStore) {
 						$origStoreprops = mapi_getprops($origStore, [PR_ENTRYID, PR_IPM_SENTMAIL_ENTRYID]);
-						$destfolder = mapi_msgstore_openentry($origStore, $origStoreprops[PR_IPM_SENTMAIL_ENTRYID]);
-						$reprMessage = mapi_folder_createmessage($destfolder);
-						mapi_copyto($message, [], [], $reprMessage, 0);
+						// An alias resolves to the sender's own store, where the message lands anyway
+						$ownStore = $GLOBALS["entryid"]->compareEntryIds(bin2hex((string) ($origStoreprops[PR_ENTRYID] ?? '')), bin2hex((string) $storeprops[PR_ENTRYID]));
+						if (!$ownStore && isset($origStoreprops[PR_IPM_SENTMAIL_ENTRYID])) {
+							$destfolder = mapi_msgstore_openentry($origStore, $origStoreprops[PR_IPM_SENTMAIL_ENTRYID]);
+							$reprMessage = mapi_folder_createmessage($destfolder);
+							mapi_copyto($message, [], [], $reprMessage, 0);
+						}
 					}
 				}
 				catch (MAPIException $e) {
