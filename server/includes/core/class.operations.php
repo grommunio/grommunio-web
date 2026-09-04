@@ -194,9 +194,9 @@ class Operations {
 				$subtreeFolderEntryID = $msgstore_props[PR_IPM_SUBTREE_ENTRYID];
 
 				$openWholeStore = true;
+				$sharedFolders = [];
 				if ($storeType == ZARAFA_STORE_DELEGATE_GUID) {
 					$username = strtolower((string) $storeData["props"]["user_name"]);
-					$sharedFolders = [];
 
 					// Check whether we should open the whole store or just single folders
 					if (isset($otherUsers[$username])) {
@@ -321,6 +321,7 @@ class Operations {
 					else {
 						foreach ($sharedFolders as $type => $sharedFolder) {
 							$openSubFolders = ($sharedFolder["show_subfolders"] == true);
+							$folder = false;
 
 							// See if the folders exists by checking if it is in the default folders entryid list
 							$store_access = true;
@@ -369,7 +370,7 @@ class Operations {
 
 							// Check if a error handler already inserted a error folder,
 							// or if we can insert the real folders here.
-							if ($store_access === true) {
+							if ($store_access === true && $folder !== false) {
 								// check if we need subfolders or not
 								if ($openSubFolders === true) {
 									// add folder data (with all subfolders recursively)
@@ -944,9 +945,10 @@ class Operations {
 	 *
 	 * @param array  &$storeData    The store data which will be updated
 	 * @param string $folderType    The foldertype which was attempted to be loaded
-	 * @param array  $folderEntryID The entryid of the which was attempted to be opened
+	 * @param false|string $folderEntryID The entryid of the folder which was attempted to be opened
 	 */
 	public function invalidateResponseStore(&$storeData, $folderType, $folderEntryID) {
+		$folderEntryID = (string) $folderEntryID;
 		$folderName = "Folder";
 		$containerClass = "IPF.Note";
 
@@ -1804,7 +1806,7 @@ class Operations {
 	 */
 	public function getEmailAddress($entryId, $searchKey = false) {
 		$emailAddress = $this->getEmailAddressFromEntryID($entryId);
-		if (empty($emailAddress) && $searchKey !== false) {
+		if (empty($emailAddress) && is_string($searchKey)) {
 			$emailAddress = $this->getEmailAddressFromSearchKey($searchKey);
 		}
 
@@ -1915,7 +1917,7 @@ class Operations {
 		// Needed for S/MIME messages with embedded message attachments
 		if ($parse_smime) {
 			$p = mapi_getprops($message, [PR_MESSAGE_CLASS]);
-			if ($p && stripos($p[PR_MESSAGE_CLASS], "SMIME") !== false) {
+			if (isset($p[PR_MESSAGE_CLASS]) && stripos((string) $p[PR_MESSAGE_CLASS], "SMIME") !== false) {
 				parse_smime($store, $message);
 			}
 		}
@@ -2565,6 +2567,7 @@ class Operations {
 	public function convertLocalDistlistMembersToRecipients($recipients, $remove = []) {
 		$addRecipients = [];
 		$removeRecipients = [];
+		$newRecipients = [];
 
 		foreach ($recipients as $key => $recipientGroup) {
 			foreach ($recipientGroup as $recipientItem) {
@@ -3379,7 +3382,7 @@ class Operations {
 	 *
 	 * @param resource $store         MAPI message store
 	 * @param string    $parententryid parent entryid of the messages to be deleted
-	 * @param array     $entryids      a list of entryids which will be deleted
+	 * @param array|string $entryids   one entry ID or a list of entry IDs to delete
 	 * @param bool      $softDelete    flag for soft-deleteing (when user presses Shift+Del)
 	 * @param bool      $unread        message is unread
 	 *
@@ -3762,11 +3765,9 @@ class Operations {
 
 		$subfolders = mapi_table_queryallrows($hierarchyTable, [PR_DISPLAY_NAME]);
 
-		if (is_array($subfolders)) {
-			foreach ($subfolders as $subfolder) {
-				if (isset($subfolder[PR_DISPLAY_NAME])) {
-					$folderNames[] = strtolower((string) $subfolder[PR_DISPLAY_NAME]);
-				}
+		foreach ($subfolders as $subfolder) {
+			if (isset($subfolder[PR_DISPLAY_NAME])) {
+				$folderNames[] = strtolower((string) $subfolder[PR_DISPLAY_NAME]);
 			}
 		}
 

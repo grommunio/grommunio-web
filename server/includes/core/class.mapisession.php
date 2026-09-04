@@ -1124,7 +1124,7 @@ class MAPISession {
 
 		try {
 			// Only searches one level deep, otherwise deleted contact folders will also be included.
-			$contactFolders = $this->getContactFolders($store, $storeProps[PR_IPM_SUBTREE_ENTRYID], $storeProps[PR_MDB_PROVIDER] === ZARAFA_STORE_PUBLIC_GUID ? true : false);
+			$contactFolders = $this->getContactFolders($store, $storeProps[PR_IPM_SUBTREE_ENTRYID], $storeProps[PR_MDB_PROVIDER] === ZARAFA_STORE_PUBLIC_GUID);
 		}
 		catch (Exception) {
 			return [];
@@ -1159,7 +1159,7 @@ class MAPISession {
 	 *
 	 * @param resource $store         user's MAPI store
 	 * @param string    $folderEntryid EntryID of the folder to look for contact folders in
-	 * @param int       $depthSearch   flag to search into all the folder levels
+	 * @param bool      $depthSearch   flag to search into all the folder levels
 	 *
 	 * @return array an array in which founded contact-folders will be pushed
 	 */

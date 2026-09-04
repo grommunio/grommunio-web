@@ -240,7 +240,7 @@ function cleanTemp($directory = TMP_PATH, $maxLifeTime = STATE_FILE_MAX_LIFETIME
 		else {
 			$fileinfo = stat($path);
 
-			if ($fileinfo && $fileinfo["atime"] < time() - $maxLifeTime) {
+			if ($fileinfo !== false && $fileinfo["atime"] < time() - $maxLifeTime) {
 				unlink($path);
 			}
 			else {
@@ -486,9 +486,9 @@ define("FILENAME_REGEX", "/\\A[^\\/\\:\\*\\?\"\\<\\>\\|]+\\z/i");
 /**
  * Function to sanitize user input values to prevent XSS attacks.
  *
- * @param mixed  $value   value that should be sanitized
- * @param mixed  $default default value to return when value is not safe
- * @param string $regex   regex to validate values based on type of value passed
+ * @param mixed        $value   value that should be sanitized
+ * @param mixed        $default default value to return when value is not safe
+ * @param false|string $regex   regex to validate values based on type of value passed
  */
 function sanitizeValue($value, $default = '', $regex = false) {
 	$value = (string) $value;
@@ -509,9 +509,9 @@ function sanitizeValue($value, $default = '', $regex = false) {
 /**
  * Function to sanitize user input values to prevent XSS attacks.
  *
- * @param string $key     key that should be used to get value from $_GET to sanitize value
- * @param mixed  $default default value to return when value is not safe
- * @param string $regex   regex to validate values based on type of value passed
+ * @param string       $key     key that should be used to get value from $_GET to sanitize value
+ * @param mixed        $default default value to return when value is not safe
+ * @param false|string $regex   regex to validate values based on type of value passed
  */
 function sanitizeGetValue($key, $default = '', $regex = false) {
 	// check if value really exists
@@ -525,9 +525,9 @@ function sanitizeGetValue($key, $default = '', $regex = false) {
 /**
  * Function to sanitize user input values to prevent XSS attacks.
  *
- * @param string $key     key that should be used to get value from $_POST to sanitize value
- * @param mixed  $default default value to return when value is not safe
- * @param string $regex   regex to validate values based on type of value passed
+ * @param string       $key     key that should be used to get value from $_POST to sanitize value
+ * @param mixed        $default default value to return when value is not safe
+ * @param false|string $regex   regex to validate values based on type of value passed
  */
 function sanitizePostValue($key, $default = '', $regex = false) {
 	// check if value really exists
@@ -1132,7 +1132,8 @@ function formatDateTimeString($relDayofWeek, $dayOfWeek, $month, $year, $hour, $
  * @return string PHP TimeZone offset
  */
 function convertOffset($minutes) {
-	$m = abs($minutes);
+	$minutes = (int) $minutes;
+	$m = (int) abs($minutes);
 
 	return sprintf("%s%02d%02d", $minutes > 0 ? '-' : '+', intdiv($m, 60), $m % 60);
 }

@@ -63,7 +63,7 @@ class MailListModule extends ListModule {
 			if (isset($actionType)) {
 				try {
 					$this->store = $this->getActionStore($action);
-					$entryid = $this->getActionEntryID($action);
+					$entryid = $this->getActionSingleEntryID($action);
 					if ($this->store === false || is_array($this->store)) {
 						$this->sendFeedback(false);
 

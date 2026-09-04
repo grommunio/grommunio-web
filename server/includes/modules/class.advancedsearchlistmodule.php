@@ -44,7 +44,7 @@ class AdvancedSearchListModule extends ListModule {
 			if (isset($actionType)) {
 				try {
 					$store = $this->getActionStore($action);
-					$entryid = $this->getActionEntryID($action);
+					$entryid = $this->getActionSingleEntryID($action);
 					if ($store === false || is_array($store)) {
 						$this->sendFeedback(false);
 
@@ -469,10 +469,10 @@ class AdvancedSearchListModule extends ListModule {
 	 *	Function will set search restrictions on search folder and start search process
 	 *	and it will also parse visible columns and sorting data when sending results to client.
 	 *
-	 * @param resource $store      MAPI message store
-	 * @param string   $entryid    entryid of the folder scope
-	 * @param array    $action     the action data, sent by the client
-	 * @param string   $actionType the action type, sent by the client
+	 * @param resource     $store      MAPI message store
+	 * @param false|string $entryid    entryid of the folder scope, or false when absent
+	 * @param array        $action     the action data, sent by the client
+	 * @param string       $actionType the action type, sent by the client
 	 */
 	#[Override]
 	public function search($store, $entryid, $action, $actionType) {
@@ -493,6 +493,11 @@ class AdvancedSearchListModule extends ListModule {
 			 * it will give us the restricted results
 			 */
 			parent::messageList($store, $entryid, $action, "list");
+
+			return;
+		}
+		if (!is_string($entryid) || $entryid === '') {
+			$this->sendFeedback(false);
 
 			return;
 		}

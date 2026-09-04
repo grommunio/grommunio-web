@@ -73,6 +73,7 @@ class TaskItemModule extends ItemModule {
 	 * @return array $data item properties of given message
 	 */
 	public function getMessageProps($store, $entryid, $action, $task) {
+		$data = [];
 		if (isset($action["message_action"]["open_task"]) && $action["message_action"]["open_task"] && $task !== false) {
 			$taskProps = mapi_getprops($task, [PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID]);
 			$message = $GLOBALS['operations']->openMessage($store, $taskProps[PR_ENTRYID]);

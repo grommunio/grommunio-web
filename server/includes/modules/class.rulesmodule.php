@@ -96,13 +96,8 @@ class RulesModule extends Module {
 				switch ($actionType) {
 					case 'list':
 						$rules = $this->getRules($store);
-						if ($rules) {
-							$this->addActionData('list', $rules);
-							$GLOBALS['bus']->addData($this->getResponseData());
-						}
-						else {
-							$this->sendFeedback(false);
-						}
+						$this->addActionData('list', $rules);
+						$GLOBALS['bus']->addData($this->getResponseData());
 						break;
 
 					case 'save':
@@ -122,13 +117,8 @@ class RulesModule extends Module {
 
 						// Respond with the full set of rules.
 						$rules = $this->getRules($store);
-						if ($rules) {
-							$this->addActionData('update', $rules);
-							$GLOBALS['bus']->addData($this->getResponseData());
-						}
-						else {
-							$this->sendFeedback(false);
-						}
+						$this->addActionData('update', $rules);
+						$GLOBALS['bus']->addData($this->getResponseData());
 						break;
 
 					default:

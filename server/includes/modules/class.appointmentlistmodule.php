@@ -72,6 +72,36 @@ class AppointmentListModule extends ListModule {
 	}
 
 	/**
+	 * Normalize paired message stores and folder entry IDs and discard failed opens.
+	 *
+	 * @param array<int, false|resource>|false|resource $store   MAPI message store or stores
+	 * @param array<int, false|string>|false|string             $entryid folder entry ID or IDs
+	 *
+	 * @return array{0: resource[], 1: string[]} valid store/folder pairs
+	 */
+	private function normalizeStoreEntryIds($store, $entryid) {
+		$stores = is_array($store) ? $store : [$store];
+		$entryids = is_array($entryid) ? $entryid : [$entryid];
+		if (count($stores) !== count($entryids)) {
+			return [[], []];
+		}
+
+		$validStores = [];
+		$validEntryids = [];
+		foreach ($stores as $index => $messageStore) {
+			$folderEntryid = $entryids[$index];
+			if ($messageStore === false || !is_string($folderEntryid) || $folderEntryid === '') {
+				continue;
+			}
+
+			$validStores[] = $messageStore;
+			$validEntryids[] = $folderEntryid;
+		}
+
+		return [$validStores, $validEntryids];
+	}
+
+	/**
 	 * Executes all the actions in the $data variable.
 	 */
 	#[Override]
@@ -96,10 +126,20 @@ class AppointmentListModule extends ListModule {
 						break;
 
 					case "updatesearch":
+						if ($store === false || is_array($store) || is_array($entryid)) {
+							$this->sendFeedback(false);
+
+							break;
+						}
 						$this->updatesearch($store, $entryid, $action);
 						break;
 
 					case "stopsearch":
+						if ($store === false || is_array($store) || is_array($entryid)) {
+							$this->sendFeedback(false);
+
+							break;
+						}
 						$this->stopSearch($store, $entryid, $action);
 						break;
 
@@ -119,14 +159,15 @@ class AppointmentListModule extends ListModule {
 	/**
 	 * Function which retrieves a list of calendar items in a calendar folder.
 	 *
-	 * @param object $store      MAPI Message Store Object
-	 * @param string $entryid    entryid of the folder
-	 * @param array  $action     the action data, sent by the client
-	 * @param string $actionType the action type, sent by the client
+	 * @param array<int, false|resource>|false|resource $store      MAPI message store or stores
+	 * @param array<int, false|string>|false|string     $entryid    entryid of the folder or folders
+	 * @param array                                     $action     the action data, sent by the client
+	 * @param string                                    $actionType the action type, sent by the client
 	 */
 	#[Override]
 	public function messageList($store, $entryid, $action, $actionType) {
-		if (!$store || !$entryid) {
+		[$store, $entryid] = $this->normalizeStoreEntryIds($store, $entryid);
+		if ($store === []) {
 			return;
 		}
 		// initialize start and due date with false value so it will not take values from previous request
@@ -159,25 +200,19 @@ class AppointmentListModule extends ListModule {
 		if ($this->startdate && $this->enddate) {
 			$data = [];
 
-			if (is_array($entryid) && !empty($entryid)) {
-				$data["item"] = [];
-				for ($index = 0, $index2 = count($entryid); $index < $index2; ++$index) {
-					$this->getDelegateFolderInfo($store[$index]);
+			$data["item"] = [];
+			for ($index = 0, $index2 = count($entryid); $index < $index2; ++$index) {
+				$this->getDelegateFolderInfo($store[$index]);
 
-					// Set the active store in properties class and get the props based on active store.
-					// we need to do this because of multi server env where shared store belongs to the different server.
-					// Here name space is different per server. e.g. There is user A and user B and both are belongs to
-					// different server and user B is shared store of user A because of that user A has 'categories' => -2062020578
-					// and user B 'categories' => -2062610402,
-					$GLOBALS["properties"]->setActiveStore($store[$index]);
-					$this->properties = $GLOBALS["properties"]->getAppointmentListProperties();
+				// Set the active store in properties class and get the props based on active store.
+				// we need to do this because of multi server env where shared store belongs to the different server.
+				// Here name space is different per server. e.g. There is user A and user B and both are belongs to
+				// different server and user B is shared store of user A because of that user A has 'categories' => -2062020578
+				// and user B 'categories' => -2062610402,
+				$GLOBALS["properties"]->setActiveStore($store[$index]);
+				$this->properties = $GLOBALS["properties"]->getAppointmentListProperties();
 
-					array_push($data["item"], ...$this->getCalendarItems($store[$index], $entryid[$index], $this->startdate, $this->enddate));
-				}
-			}
-			else {
-				$this->getDelegateFolderInfo($store);
-				$data["item"] = $this->getCalendarItems($store, $entryid, $this->startdate, $this->enddate);
+				array_push($data["item"], ...$this->getCalendarItems($store[$index], $entryid[$index], $this->startdate, $this->enddate));
 			}
 
 			$this->addSkippedInfo($data);
@@ -189,17 +224,11 @@ class AppointmentListModule extends ListModule {
 		// for list view in calendar as startdate and enddate is passed as false
 		// this will set sorting and paging for items in listview.
 
-		$this->getDelegateFolderInfo($store);
-
 		/* This is an override for parent::messageList(), which ignores an array of entryids / stores.
 		*	 The following block considers this possibly and merges the data of several folders / stores.
 		*/
 
 		$this->searchFolderList = false; // Set to indicate this is not the search result, but a normal folder content
-
-		if (!$store || !$entryid) {
-			return;
-		}
 
 		// Restriction
 		$this->parseRestriction($action);
@@ -216,12 +245,16 @@ class AppointmentListModule extends ListModule {
 		}
 
 		$isSearchFolder = isset($action['search_folder_entryid']);
-		$entryid = $isSearchFolder ? hex2bin((string) $action['search_folder_entryid']) : $entryid;
-
-		if (!is_array($entryid) && !is_array($store)) {
-			$entryid = [$entryid];
-			$store = [$store];
+		if ($isSearchFolder) {
+			$searchFolderEntryid = hex2bin((string) $action['search_folder_entryid']);
+			if ($searchFolderEntryid === false) {
+				return;
+			}
+			$entryid = [$searchFolderEntryid];
+			$store = [$store[0]];
 		}
+
+		$this->getDelegateFolderInfo($store[0]);
 
 		// Get the table and merge the arrays
 		$data = [];
@@ -324,7 +357,7 @@ class AppointmentListModule extends ListModule {
 	 * Function to return all Calendar items in a given timeframe. This
 	 * function also takes recurring items into account.
 	 *
-	 * @param object $store   message store
+	 * @param resource $store   message store
 	 * @param mixed  $entryid entryid of the folder
 	 * @param mixed  $start   startdate of the interval
 	 * @param mixed  $end     enddate of the interval
@@ -448,11 +481,11 @@ class AppointmentListModule extends ListModule {
 	/**
 	 * Process calendar items to prepare them for being sent back to the client.
 	 *
-	 * @param array  $calendaritems array of appointments retrieved from the mapi tablwe
-	 * @param object $store         message store
-	 * @param mixed  $entryid
-	 * @param mixed  $start         startdate of the interval
-	 * @param mixed  $end           enddate of the interval
+	 * @param array    $calendaritems array of appointments retrieved from the MAPI table
+	 * @param resource $store         MAPI message store
+	 * @param mixed    $entryid
+	 * @param mixed    $start         startdate of the interval
+	 * @param mixed    $end           enddate of the interval
 	 *
 	 * @return array $items processed items
 	 */
@@ -595,11 +628,11 @@ class AppointmentListModule extends ListModule {
 	}
 
 	/**
-	 * Processes an all-day item and calculates the correct starttime if necessary.
+	 * Processes an all-day item and calculates the correct start time if necessary.
 	 *
-	 * @param object $store
-	 * @param array  $calendaritem
-	 * @param array  $openedMessages
+	 * @param resource $store
+	 * @param array    $calendaritem
+	 * @param array    $openedMessages
 	 */
 	private function processAllDayItem($store, &$calendaritem, &$openedMessages) {
 		// If the appointment doesn't have tzdefstart property, it was probably
@@ -683,12 +716,12 @@ class AppointmentListModule extends ListModule {
 	/**
 	 * Adds items to return items list.
 	 *
-	 * @param object $store
-	 * @param array  $openedMessages
-	 * @param mixed  $start          startdate of the interval
-	 * @param mixed  $end            enddate of the interval
-	 * @param array  $items
-	 * @param mixed  $item
+	 * @param resource $store
+	 * @param array    $openedMessages
+	 * @param mixed    $start          startdate of the interval
+	 * @param mixed    $end            enddate of the interval
+	 * @param array    $items
+	 * @param mixed    $item
 	 */
 	private function addItems($store, &$item, &$openedMessages, $start, $end, &$items) {
 		$item = $this->processPrivateItem($item);
@@ -719,10 +752,10 @@ class AppointmentListModule extends ListModule {
 	/**
 	 * Gets items using freebusy entry point.
 	 *
-	 * @param object $store         message store
-	 * @param mixed  $folderEntryid entryid of the folder
-	 * @param mixed  $start         startdate of the interval
-	 * @param mixed  $end           enddate of the interval
+	 * @param resource $store         MAPI message store
+	 * @param mixed    $folderEntryid entryid of the folder
+	 * @param mixed    $start         startdate of the interval
+	 * @param mixed    $end           enddate of the interval
 	 */
 	public function getFreebusyItems($store, $folderEntryid, $start, $end) {
 		$items = [];

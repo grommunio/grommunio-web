@@ -17,17 +17,17 @@ class DelegatesModule extends Module {
 	private $delegateProps;
 
 	/**
-	 * @var resource of LocalFreeBusy Message. This contains for delegates.
+	 * @var false|resource LocalFreeBusy message, or false before it is opened
 	 */
 	private $localFreeBusyMessage;
 
 	/**
-	 * @var resource of FreeBusy Folder in IPM_SUBTREE. This permissions for freebusy folder used in calendar.
+	 * @var false|resource FreeBusy folder in IPM_SUBTREE, or false before it is opened
 	 */
 	private $freeBusyFolder;
 
 	/**
-	 * @var resource of default store of the current user
+	 * @var false|resource default store of the current user, or false before it is opened
 	 */
 	private $defaultStore;
 

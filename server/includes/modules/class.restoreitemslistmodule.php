@@ -29,7 +29,7 @@ class RestoreItemsListModule extends ListModule {
 					}
 					$store = $this->getActionStore($action);
 					$parententryid = $this->getActionParentEntryID($action);
-					$folderentryid = $this->getActionEntryID($action);
+					$folderentryid = $this->getActionSingleEntryID($action);
 					if ($store === false || is_array($store)) {
 						throw new MAPIException(_("Could not process request data properly."), MAPI_E_INVALID_PARAMETER);
 					}
@@ -212,6 +212,7 @@ class RestoreItemsListModule extends ListModule {
 		 * that particular item gets changed, so to notify client about changes we need to
 		 * notify parent folder where we have restored the message
 		 */
+		$props = [];
 		$props[PR_PARENT_ENTRYID] = $folderProps[PR_ENTRYID];
 		$props[PR_STORE_ENTRYID] = $folderProps[PR_STORE_ENTRYID];
 
@@ -333,6 +334,7 @@ class RestoreItemsListModule extends ListModule {
 		 * that particular item gets changed, so to notify client about changes we need to
 		 * notify parent folder where we have restored the message
 		 */
+		$props = [];
 		$props[PR_PARENT_ENTRYID] = $folderProps[PR_ENTRYID];
 		$props[PR_STORE_ENTRYID] = $folderProps[PR_STORE_ENTRYID];
 		$GLOBALS["bus"]->notify(bin2hex((string) $folderProps[PR_ENTRYID]), TABLE_SAVE, $props);
@@ -374,7 +376,6 @@ class RestoreItemsListModule extends ListModule {
 		$sfolder = mapi_msgstore_openentry($store, $parententryid);
 		$folder = mapi_msgstore_openentry($store, $folderentryid, SHOW_SOFT_DELETES);
 		$folderNameProps = mapi_getprops($folder, [PR_DISPLAY_NAME]);
-		$delSrfFld = false;
 
 		try {
 			/*
@@ -383,13 +384,11 @@ class RestoreItemsListModule extends ListModule {
 			 * and restore folder with the generated name.
 			 */
 			mapi_folder_copyfolder($sfolder, $folderentryid, $sfolder, $folderNameProps[PR_DISPLAY_NAME]);
-			$delSrfFld = true;
 		}
 		catch (MAPIException $e) {
 			if ($e->getCode() == MAPI_E_COLLISION) {
 				$foldername = $GLOBALS["operations"]->checkFolderNameConflict($store, $sfolder, $folderNameProps[PR_DISPLAY_NAME]);
 				mapi_folder_copyfolder($sfolder, $folderentryid, $sfolder, $foldername);
-				$delSrfFld = true;
 			}
 			else {
 				// all other errors should be propagated to higher level exception handlers
@@ -397,10 +396,8 @@ class RestoreItemsListModule extends ListModule {
 			}
 		}
 
-		// Hard delete the folder previously marked as deleted only if restoring succeeds.
-		if ($delSrfFld) {
-			mapi_folder_deletefolder($sfolder, $folderentryid, DEL_MESSAGES | DEL_FOLDERS | DELETE_HARD_DELETE);
-		}
+		// Reaching this point means the folder was copied successfully.
+		mapi_folder_deletefolder($sfolder, $folderentryid, DEL_MESSAGES | DEL_FOLDERS | DELETE_HARD_DELETE);
 
 		// notify the parent folder
 		$parentFolder = mapi_msgstore_openentry($store, $parententryid);
@@ -425,12 +422,10 @@ class RestoreItemsListModule extends ListModule {
 
 		$subfolders = mapi_table_queryallrows($hierarchyTable, [PR_ENTRYID]);
 
-		if (is_array($subfolders)) {
-			foreach ($subfolders as $subfolder) {
-				$folderObject = mapi_msgstore_openentry($store, $subfolder[PR_ENTRYID]);
-				$folderProps = mapi_getprops($folderObject, [PR_ENTRYID, PR_STORE_ENTRYID]);
-				$GLOBALS["bus"]->notify(bin2hex((string) $subfolder[PR_ENTRYID]), OBJECT_SAVE, $folderProps);
-			}
+		foreach ($subfolders as $subfolder) {
+			$folderObject = mapi_msgstore_openentry($store, $subfolder[PR_ENTRYID]);
+			$folderProps = mapi_getprops($folderObject, [PR_ENTRYID, PR_STORE_ENTRYID]);
+			$GLOBALS["bus"]->notify(bin2hex((string) $subfolder[PR_ENTRYID]), OBJECT_SAVE, $folderProps);
 		}
 
 		$folderProps = mapi_getprops($parentFolder, [PR_ENTRYID, PR_STORE_ENTRYID]);

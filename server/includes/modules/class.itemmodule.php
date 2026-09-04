@@ -86,6 +86,7 @@ class ItemModule extends Module {
 
 			$parententryid = null;
 			$entryid = null;
+			$singleEntryid = null;
 
 			try {
 				$store = $this->getActionStore($action);
@@ -96,10 +97,11 @@ class ItemModule extends Module {
 				}
 				$parententryid = $this->getActionParentEntryID($action);
 				$entryid = $this->getActionEntryID($action);
+				$singleEntryid = is_string($entryid) ? $entryid : false;
 
 				switch ($actionType) {
 					case "open":
-						$this->open($store, $entryid, $action);
+						$this->open($store, $singleEntryid, $action);
 						break;
 
 					case "save":
@@ -111,7 +113,7 @@ class ItemModule extends Module {
 							 *
 							 * we can also assume that user has permission to right in his own store
 							 */
-							$this->save($store, $parententryid, $entryid, $action);
+							$this->save($store, $parententryid, $singleEntryid, $action);
 							break;
 						}
 						/*
@@ -122,14 +124,19 @@ class ItemModule extends Module {
 						 *   - declineMeetingRequest: attendee has declined mr
 						 */
 						if (!isset($action["message_action"], $action["message_action"]["action_type"])) {
-							$this->save($store, $parententryid, $entryid, $action);
+							$this->save($store, $parententryid, $singleEntryid, $action);
 							break;
 						}
 
 						switch ($action["message_action"]["action_type"]) {
 							case "declineMeetingRequest":
 							case "acceptMeetingRequest":
-								$message = $GLOBALS["operations"]->openMessage($store, $entryid);
+								if ($singleEntryid === false) {
+									$this->sendFeedback(false);
+
+									break;
+								}
+								$message = $GLOBALS["operations"]->openMessage($store, $singleEntryid);
 								$basedate = ($action['basedate'] ?? false);
 								$delete = false;
 
@@ -229,7 +236,12 @@ class ItemModule extends Module {
 
 							case "acceptTaskRequest":
 							case "declineTaskRequest":
-								$message = $GLOBALS["operations"]->openMessage($store, $entryid);
+								if ($singleEntryid === false) {
+									$this->sendFeedback(false);
+
+									break;
+								}
+								$message = $GLOBALS["operations"]->openMessage($store, $singleEntryid);
 
 								if (isset($action["props"]) && !empty($action["props"])) {
 									$properties = $GLOBALS["properties"]->getTaskProperties();
@@ -267,14 +279,19 @@ class ItemModule extends Module {
 								break;
 
 							case "forwardMeetingRequest":
-								$this->forwardMeetingRequest($store, $entryid, $action, $this->directBookingMeetingRequest);
+								if ($singleEntryid === false) {
+									$this->sendFeedback(false);
+
+									break;
+								}
+								$this->forwardMeetingRequest($store, $singleEntryid, $action, $this->directBookingMeetingRequest);
 								break;
 
 							case "reply":
 							case "replyall":
 							case "forward":
 							default:
-								$this->save($store, $parententryid, $entryid, $action);
+								$this->save($store, $parententryid, $singleEntryid, $action);
 						}
 						break;
 
@@ -293,35 +310,35 @@ class ItemModule extends Module {
 						 */
 						switch ($subActionType) {
 							case "removeFromCalendar":
-								if ($store === false || $entryid === false) {
+								if ($store === false || $singleEntryid === false) {
 									$this->sendFeedback(false);
 
 									break;
 								}
 								$basedate = (isset($action['basedate']) && !empty($action['basedate'])) ? $action['basedate'] : false;
 
-								$this->removeFromCalendar($store, $entryid, $basedate, $this->directBookingMeetingRequest);
+								$this->removeFromCalendar($store, $singleEntryid, $basedate, $this->directBookingMeetingRequest);
 								$this->sendFeedback(true);
 								break;
 
 							case "cancelInvitation":
-								if ($store === false || $entryid === false) {
+								if ($store === false || $singleEntryid === false) {
 									$this->sendFeedback(false);
 
 									break;
 								}
-								$this->cancelInvitation($store, $entryid, $action, $this->directBookingMeetingRequest);
+								$this->cancelInvitation($store, $singleEntryid, $action, $this->directBookingMeetingRequest);
 								$this->sendFeedback(true);
 								break;
 
 							case "declineMeeting":
-								if ($store === false || $entryid === false) {
+								if ($store === false || $singleEntryid === false) {
 									$this->sendFeedback(false);
 
 									break;
 								}
 								// @FIXME can we somehow merge declineMeeting and declineMeetingRequest sub actions?
-								$message = $GLOBALS["operations"]->openMessage($store, $entryid);
+								$message = $GLOBALS["operations"]->openMessage($store, $singleEntryid);
 								$basedate = (isset($action['basedate']) && !empty($action['basedate'])) ? $action['basedate'] : false;
 
 								$req = $this->createMeetingRequest($store, $message);
@@ -343,7 +360,7 @@ class ItemModule extends Module {
 
 							case "snooze":
 							case "dismiss":
-								$this->delete($store, $parententryid, $entryid, $action);
+								$this->delete($store, $parententryid, $singleEntryid, $action);
 								break;
 
 							default:
@@ -351,7 +368,7 @@ class ItemModule extends Module {
 								// generate an exception. So when the basedate is provided, we actually
 								// perform a save rather then delete.
 								if (isset($action['basedate']) && !empty($action['basedate'])) {
-									$this->save($store, $parententryid, $entryid, $action, "delete");
+									$this->save($store, $parententryid, $singleEntryid, $action, "delete");
 								}
 								else {
 									$this->delete($store, $parententryid, $entryid, $action);
@@ -365,7 +382,7 @@ class ItemModule extends Module {
 				}
 			}
 			catch (MAPIException $e) {
-				$this->processException($e, $actionType, $store, $parententryid, $entryid, $action);
+				$this->processException($e, $actionType, $store, $parententryid, $singleEntryid, $action);
 			}
 		}
 	}
@@ -1007,16 +1024,32 @@ class ItemModule extends Module {
 	/**
 	 * Function which copies or moves one or more items.
 	 *
-	 * @param resource $store         MAPI Message Store Object
-	 * @param string   $parententryid entryid of the folder
-	 * @param mixed    $entryids      list of entryids which will be copied or moved (in binary format)
-	 * @param array    $action        the action data, sent by the client
+	 * @param false|resource $store         MAPI message store, or false when it was not resolved
+	 * @param string         $parententryid entryid of the folder
+	 * @param mixed          $entryids      list of entryids which will be copied or moved (in binary format)
+	 * @param array          $action        the action data, sent by the client
 	 */
 	public function copy($store, $parententryid, $entryids, $action) {
-		if ($store && $parententryid && $entryids) {
+		if ($store !== false && $parententryid && $entryids) {
+			$destinationParentEntryid = $action["message_action"]["destination_parent_entryid"] ?? null;
+			if (!is_string($destinationParentEntryid) || $destinationParentEntryid === '' ||
+				(strlen($destinationParentEntryid) % 2) !== 0 || !ctype_xdigit($destinationParentEntryid)) {
+				$this->sendFeedback(false);
+
+				return;
+			}
+			$dest_folderentryid = hex2bin($destinationParentEntryid);
+
 			$dest_store = $store;
 			if (isset($action["message_action"]["destination_store_entryid"])) {
-				$dest_storeentryid = hex2bin($action["message_action"]["destination_store_entryid"]);
+				$destinationStoreEntryid = $action["message_action"]["destination_store_entryid"];
+				if (!is_string($destinationStoreEntryid) || $destinationStoreEntryid === '' ||
+					(strlen($destinationStoreEntryid) % 2) !== 0 || !ctype_xdigit($destinationStoreEntryid)) {
+					$this->sendFeedback(false);
+
+					return;
+				}
+				$dest_storeentryid = hex2bin($destinationStoreEntryid);
 				$dest_store = $GLOBALS["mapisession"]->openMessageStore($dest_storeentryid);
 			}
 			if (!$dest_store) {
@@ -1031,11 +1064,6 @@ class ItemModule extends Module {
 				return;
 			}
 			$dest_storeentryid = $destStoreProps[PR_ENTRYID];
-
-			$dest_folderentryid = false;
-			if (isset($action["message_action"]["destination_parent_entryid"])) {
-				$dest_folderentryid = hex2bin($action["message_action"]["destination_parent_entryid"]);
-			}
 
 			$moveMessages = false;
 			if (isset($action["message_action"]["action_type"]) && $action["message_action"]["action_type"] == "move") {

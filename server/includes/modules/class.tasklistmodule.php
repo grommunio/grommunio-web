@@ -40,7 +40,7 @@ class TaskListModule extends ListModule {
 			if (isset($actionType)) {
 				try {
 					$store = $this->getActionStore($action);
-					$entryid = $this->getActionEntryID($action);
+					$entryid = $this->getActionSingleEntryID($action);
 					if ($store === false || is_array($store)) {
 						$this->sendFeedback(false);
 

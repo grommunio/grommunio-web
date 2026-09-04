@@ -323,7 +323,7 @@ class FilesBrowserModule extends FilesListModule {
 			FilesLogger::debug(self::LOG_CONTEXT, "Checking for shared took {$time} s!");
 		}
 
-		if ($dir) {
+		if ($dir !== []) {
 			$updateCache = false;
 			foreach ($dir as $id => $node) {
 				$type = FILES_FILE;

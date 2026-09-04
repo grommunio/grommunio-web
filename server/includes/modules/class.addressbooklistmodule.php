@@ -38,7 +38,7 @@ class AddressbookListModule extends ListModule {
 				try {
 					$store = $this->getActionStore($action);
 					$parententryid = $this->getActionParentEntryID($action);
-					$entryid = $this->getActionEntryID($action);
+					$entryid = $this->getActionSingleEntryID($action);
 
 					if (isset($action['subActionType']) && $action['subActionType'] !== '') {
 						$subActionType = $action['subActionType'];
@@ -459,7 +459,7 @@ class AddressbookListModule extends ListModule {
 	/**
 	 *	Function will create a restriction based on parameters passed for hiding users.
 	 *
-	 * @param array|bool $hide_users list of hidden user types, or true to hide every user
+	 * @param array|bool|string $hide_users list of hidden user types, a single type, or true to hide every user
 	 *
 	 * @return null|array restriction for hiding provided users
 	 */
@@ -664,7 +664,7 @@ class AddressbookListModule extends ListModule {
 	/**
 	 *	Function will create a restriction based on parameters passed for hiding groups.
 	 *
-	 * @param array|bool $hide_groups list of hidden group types, or true to hide every group
+	 * @param array|bool|string $hide_groups list of hidden group types, a single type, or true to hide every group
 	 *
 	 * @return null|array restriction for hiding provided users
 	 */
@@ -1188,10 +1188,10 @@ class AddressbookListModule extends ListModule {
 	/**
 	 * Returns the restriction for the ab items.
 	 *
-	 * @param string $searchstring
-	 * @param bool   $hide_users
-	 * @param bool   $hide_groups
-	 * @param bool   $hide_companies
+	 * @param string            $searchstring
+	 * @param array|bool|string $hide_users
+	 * @param array|bool|string $hide_groups
+	 * @param bool              $hide_companies
 	 *
 	 * @return array
 	 */
@@ -1296,9 +1296,9 @@ class AddressbookListModule extends ListModule {
 	/**
 	 * Returns the hiding users/groups restriction for the ab items.
 	 *
-	 * @param array|bool $hide_users
-	 * @param array|bool $hide_groups
-	 * @param bool $hide_companies
+	 * @param array|bool|string $hide_users
+	 * @param array|bool|string $hide_groups
+	 * @param bool              $hide_companies
 	 *
 	 * @return array
 	 */
@@ -1309,19 +1309,19 @@ class AddressbookListModule extends ListModule {
 			$userRestrictions = [];
 			if ($hide_users) {
 				$tmp = $this->createUsersRestriction($hide_users);
-				if ($tmp) {
+				if (!empty($tmp)) {
 					$userRestrictions[] = $tmp;
 				}
 			}
 			if ($hide_groups) {
 				$tmp = $this->createGroupsRestriction($hide_groups);
-				if ($tmp) {
+				if (!empty($tmp)) {
 					$userRestrictions[] = $tmp;
 				}
 			}
 			if ($hide_companies) {
 				$tmp = $this->createCompanyRestriction($hide_companies);
-				if ($tmp) {
+				if (!empty($tmp)) {
 					$userRestrictions[] = $tmp;
 				}
 			}
@@ -1336,10 +1336,10 @@ class AddressbookListModule extends ListModule {
 	 * This allows finding users that are hidden from the GAB when the search string exactly matches
 	 * their display name, email address, or account name.
 	 *
-	 * @param resource $ab          The addressbook resource
-	 * @param string   $searchstr   The search string to match exactly
-	 * @param bool     $hide_users  Whether to exclude users from results
-	 * @param bool     $hide_groups Whether to exclude groups from results
+	 * @param resource          $ab          The addressbook resource
+	 * @param string            $searchstr   The search string to match exactly
+	 * @param array|bool|string $hide_users  User types to exclude from results
+	 * @param array|bool|string $hide_groups Group types to exclude from results
 	 *
 	 * @return array Array of user rows in the same format as table query results
 	 */
