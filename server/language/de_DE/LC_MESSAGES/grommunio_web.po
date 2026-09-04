@@ -4659,6 +4659,21 @@ msgstr "grommunio Web-Reiter"
 msgid "Browser window"
 msgstr "Browserfenster"
 
+msgid "Dialog"
+msgstr "Dialog"
+
+msgid "Open a preview in a"
+msgstr "Vorschau öffnen in"
+
+msgid "Preview in a dialog"
+msgstr "Vorschau im Dialog"
+
+msgid "Preview in a grommunio Web tab"
+msgstr "Vorschau im grommunio Web-Reiter"
+
+msgid "Preview in a browser window"
+msgstr "Vorschau im Browserfenster"
+
 msgid "Update Out of Office settings for"
 msgstr "Abwesenheitseinstellungen aktualisieren für"
 
