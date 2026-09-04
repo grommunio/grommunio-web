@@ -41,6 +41,16 @@ class Settings {
 	private $init;
 
 	/**
+	 * True once retrieveSettings() returned, i.e. $this->settings came from the store.
+	 */
+	private $settingsLoaded;
+
+	/**
+	 * True once retrievePersistentSettings() returned.
+	 */
+	private $persistentSettingsLoaded;
+
+	/**
 	 *  Array Settings that are defined by system admin.
 	 */
 	private $sysAdminDefaults;
@@ -84,6 +94,8 @@ class Settings {
 		$this->modified = [];
 		$this->init = false;
 		$this->loadFailed = false;
+		$this->settingsLoaded = false;
+		$this->persistentSettingsLoaded = false;
 	}
 
 	/**
@@ -105,7 +117,9 @@ class Settings {
 		// ignore exceptions when loading settings
 		try {
 			$this->retrieveSettings();
+			$this->settingsLoaded = true;
 			$this->retrievePersistentSettings();
+			$this->persistentSettingsLoaded = true;
 
 			// this object will only be initialized when we are able to retrieve existing settings correctly
 			$this->init = true;
@@ -133,7 +147,7 @@ class Settings {
 			$this->Init();
 		}
 
-		return $this->init;
+		return $this->settingsLoaded;
 	}
 
 	/**
@@ -481,6 +495,15 @@ class Settings {
 			$this->Init();
 		}
 
+		// Saving now would replace stored settings that could not be read.
+		if (!$this->settingsLoaded) {
+			$msg = "Settings::saveSettings() skipped: the settings of this store could not be read, saving would replace them.";
+			error_log($msg);
+			Log::Write(LOGLEVEL_ERROR, $msg);
+
+			return;
+		}
+
 		if (isset($this->settings['zarafa']['v1'])) {
 			unset($this->settings['zarafa']['v1']['contexts']['mail']['outofoffice']);
 		}
@@ -568,6 +591,18 @@ class Settings {
 	 * This function saves all persistent settings to the store's PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON property.
 	 */
 	public function savePersistentSettings() {
+		if (!$this->init) {
+			$this->Init();
+		}
+
+		if (!$this->persistentSettingsLoaded) {
+			$msg = "Settings::savePersistentSettings() skipped: the persistent settings of this store could not be read.";
+			error_log($msg);
+			Log::Write(LOGLEVEL_ERROR, $msg);
+
+			return;
+		}
+
 		$persistentSettings = json_encode(['settings' => $this->persistentSettings]);
 
 		// Check if the settings have been changed.
