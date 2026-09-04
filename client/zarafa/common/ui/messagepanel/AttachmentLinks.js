@@ -858,22 +858,6 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	},
 
 	/**
-	 * overridden to get the viewIndex from an HTML element's attribute
-	 * by default the index is taken from the element's position within the group;
-	 * however if there are more than one groups, the indexes are wrong
-	 * @private
-	 */
-	updateIndexes: function(startIndex, endIndex)
-	{
-		var ns = this.all.elements;
-		startIndex = startIndex || 0;
-		endIndex = endIndex || ((endIndex === 0) ? 0: (ns.length - 1));
-		for(var i = startIndex; i <= endIndex; i++){
-				ns[i].viewIndex = ns[i].getAttribute('viewIndex');
-		}
-	},
-
-	/**
 	 * overridden to provide the correct index to {@link Ext.DataView#getRecord}
 	 * otherwise behaviour breaks when there is more than one group in the records (e.g. CC, BCC, etc.)
 	 * @param {Zarafa.core.data.IPMRecipientRecord} data The recipient record to be prepared
@@ -904,13 +888,15 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 
 	/**
 	 * Gets a record from a node
+	 * The viewIndex attribute is the attach_num, not the node position: attachments
+	 * shown in the body are left out of the view by {@link #collectData}.
 	 * @param {HTMLElement} node The node to evaluate
 	 * @return {Record} record The {@link Ext.data.Record} object
 	 * @override
 	 */
 	getRecord: function(node)
 	{
-		return this.store.getAt(this.store.findExact('attach_num', parseInt(node.viewIndex, 10)));
+		return this.store.getAt(this.store.findExact('attach_num', parseInt(node.getAttribute('viewIndex'), 10)));
 	},
 
 	/**
