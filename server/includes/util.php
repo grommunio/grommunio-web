@@ -935,6 +935,23 @@ function getWebappVersion() {
 }
 
 /**
+ * Runs $fn with the PHP session open. Authentication closes the session before
+ * the MAPI logon, so later writes to $_SESSION are lost without this.
+ *
+ * @param callable $fn
+ */
+function updateSession(callable $fn) {
+	$wasActive = session_status() === PHP_SESSION_ACTIVE;
+	if (!$wasActive) {
+		session_start();
+	}
+	$fn();
+	if (!$wasActive) {
+		session_write_close();
+	}
+}
+
+/**
  * Append the grommunio Web version to an asset URL, so that an upgrade
  * is never served from the browser cache.
  *

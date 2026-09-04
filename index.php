@@ -183,9 +183,12 @@ if ($GLOBALS['mapisession']->isWebappDisableAsFeature()) {
 $Language = new Language();
 
 // Set session settings (language & style)
-foreach ($GLOBALS["settings"]->getSessionSettings() as $key => $value) {
-	$_SESSION[$key] = $value;
-}
+$sessionSettings = $GLOBALS["settings"]->getSessionSettings();
+updateSession(function () use ($sessionSettings) {
+	foreach ($sessionSettings as $key => $value) {
+		$_SESSION[$key] = $value;
+	}
+});
 
 // Get language from the request, or the session, or the user settings, or the config
 if (isset($_REQUEST["language"]) && $Language->isLanguage($_REQUEST["language"])) {
@@ -281,6 +284,15 @@ else {
 
 	// These hooks are defined twice (also when there is a "load" argument supplied)
 	$GLOBALS['PluginManager']->triggerHook("server.index.load.main.before");
+
+	// URL data (mailto) is executed once; taken out of the session before any output
+	$urlActionData = [];
+	if (!empty($_SESSION['url_action'])) {
+		$urlActionData = $_SESSION['url_action'];
+		updateSession(function () {
+			unset($_SESSION['url_action']);
+		});
+	}
 
 	// Include webclient
 	include BASE_PATH . 'server/includes/templates/webclient.php';

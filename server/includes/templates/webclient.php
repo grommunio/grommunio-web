@@ -148,14 +148,6 @@ elseif ($darkMode === 'system') {
 		<!-- JS Files -->
 		<?php
 		$loader->jsOrder();
-// get URL data from session and dump it for client to use
-$urlActionData = [];
-if (!empty($_SESSION['url_action'])) {
-	$urlActionData = $_SESSION['url_action'];
-
-	// remove data from session so if user reloads webapp then we will again not execute url action
-	unset($_SESSION['url_action']);
-}
 ?>
 
 		<script><?php require BASE_PATH . 'client/resize.js'; ?></script>
