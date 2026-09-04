@@ -121,6 +121,10 @@ Zarafa.plugins.pgp.PgpUtils = {
 	{
 		var parts = [], severity = 'info';
 		if (info.pending && !info.locked) { return {text: _('OpenPGP: checking message security…'), severity: 'info'}; }
+		if (info.unverifiable) {
+			return {text: 'OpenPGP: ' + (info.encrypted ? _('Encrypted message stored without its MIME envelope — save the attachment and decrypt it with an OpenPGP tool') :
+				_('Signed message stored without its original MIME — the signature cannot be verified')), severity: 'warning'};
+		}
 		if (info.encrypted) {
 			parts.push(info.decrypted ? _('Message decrypted') : info.error ?
 				_('Message could not be decrypted — click for details or retry') : _('Encrypted message — unlock your private key to read'));

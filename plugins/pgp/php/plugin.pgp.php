@@ -48,20 +48,25 @@ class Pluginpgp extends Plugin {
 					$this->protect($data['store'], $data['message']);
 					break;
 				case 'server.util.parse_secure.before':
-					if (PLUGIN_PGP_ENABLE) { $this->open($data); }
+					if ($this->enabledForUser()) { $this->open($data); }
 					break;
 				case 'server.module.itemmodule.open.after':
 					$id = $this->messageId($data['message']);
-					if (isset($this->status[$id])) {
-						$data['data']['item']['props']['pgp'] = $this->status[$id];
-						unset($data['data']['item']['props']['smime']);
-						$data['data']['item']['props']['pgp_signed'] = $this->status[$id]['signed'];
-						$data['data']['item']['props']['pgp_encrypted'] = $this->status[$id]['encrypted'];
-						$data['data']['item']['props']['pgp_sign'] = false;
-						$data['data']['item']['props']['pgp_encrypt'] = false;
-						// The browser supplies local decrypted attachment records, not MAPI numbers.
-						if (!$this->status[$id]['inline']) { $data['data']['item']['attachments'] = ['item' => []]; }
-					}
+					if (!isset($this->status[$id])) { break; }
+					$status = $this->status[$id];
+					$props = &$data['data']['item']['props'];
+					$props['pgp'] = $status;
+					$props['pgp_signed'] = $status['signed'];
+					$props['pgp_encrypted'] = $status['encrypted'];
+					$props['pgp_sign'] = false;
+					$props['pgp_encrypt'] = false;
+					if ($status['advisory']) { break; }
+					// The browser derives body and attachments from the verified entity.
+					unset($props['smime']);
+					$props['body'] = '';
+					$props['html_body'] = '';
+					$props['isHTML'] = false;
+					if (!$status['inline']) { $data['data']['item']['attachments'] = ['item' => []]; }
 					break;
 			}
 		}
@@ -74,6 +79,12 @@ class Pluginpgp extends Plugin {
 			}
 			throw $error;
 		}
+	}
+
+	/** The read hooks follow the per-user plugin switch that also withholds the client files. */
+	private function enabledForUser(): bool {
+		return PLUGIN_PGP_ENABLE && isset($GLOBALS['settings']) &&
+			$GLOBALS['settings']->get('zarafa/v1/plugins/pgp/enable', false) === true;
 	}
 
 	private function assertExclusive(string $class, bool $smime = false): void {
@@ -452,10 +463,15 @@ class Pluginpgp extends Plugin {
 	public function open(array &$data): void {
 		$message = $data['message'];
 		$id = $this->messageId($message);
-		if (isset($this->status[$id])) { $data['handled'] = true; return; }
-		$props = mapi_getprops($message, [PR_MESSAGE_CLASS, PR_TRANSPORT_MESSAGE_HEADERS]);
+		if (isset($this->status[$id])) {
+			$data['handled'] = !$this->status[$id]['advisory'];
+			return;
+		}
+		$props = mapi_getprops($message, [PR_MESSAGE_CLASS, PR_MESSAGE_FLAGS, PR_TRANSPORT_MESSAGE_HEADERS]);
 		if (!is_array($props)) { return; }
 		$class = $props[PR_MESSAGE_CLASS] ?? '';
+		// Drafts keep their editable body; other item types have no OpenPGP presentation.
+		if (!preg_match('/^IPM\.Note(?:\.|$)/i', $class) || (($props[PR_MESSAGE_FLAGS] ?? 0) & MSGFLAG_UNSENT)) { return; }
 		$hint = preg_match('/^IPM\.Note\.GpgOL\.(MultipartEncrypted|MultipartSigned|PGPMessage|ClearSigned)(?:\.|$)/i', $class, $match) === 1;
 		$kind = $hint ? (in_array(strtolower($match[1]), ['multipartencrypted', 'pgpmessage'], true) ? 'encrypted' : 'signed') : null;
 		try { $kind = PgpMime::kind(rtrim($props[PR_TRANSPORT_MESSAGE_HEADERS] ?? '')) ?: $kind; }
@@ -501,27 +517,29 @@ class Pluginpgp extends Plugin {
 					$inline = true;
 				}
 			}
-			if ($kind && !$mime) {
-				throw new RuntimeException('The original OpenPGP MIME bytes were not preserved. Reimport the original email after updating Gromox.');
-			}
 			if ($mime !== null && strlen($mime) > PLUGIN_PGP_MAX_MESSAGE_BYTES) {
 				throw new RuntimeException('The OpenPGP message exceeds the administrator size limit.');
 			}
 		}
 		catch (Throwable $failure) { $error = $failure; }
 		if (!$kind) { return; }
-		$data['handled'] = true;
-		$status = ['encrypted' => $kind === 'encrypted', 'signed' => $kind === 'signed',
+		$sender = '';
+		try { $sender = $this->senderEmail($message, true); }
+		catch (Throwable $ignored) { /* A malformed From address only loses the sender comparison. */ }
+		$status = ['advisory' => false, 'unverifiable' => false, 'encrypted' => $kind === 'encrypted', 'signed' => $kind === 'signed',
 			'pending' => $error === null, 'decrypted' => false, 'signature_valid' => false,
 			'signer_trusted' => false, 'sender_match' => false, 'locked' => $kind === 'encrypted',
 			'error' => $error !== null, 'format' => $inline ? 'inline' : 'mime', 'inline' => $inline,
-			'mime' => $error === null ? base64_encode($mime) : '',
+			'mime' => $error === null && $mime !== null ? base64_encode($mime) : '',
 			'message' => $error instanceof RuntimeException ? $error->getMessage() : ($error ? _('The OpenPGP message could not be read.') : ''),
-			'sender' => $this->senderEmail($message, true)];
-		// Never present a forged clear preview alongside ciphertext. These edits
-		// remain request-local; marking read must not persist different content.
-		if (mapi_deleteprops($message, [PR_BODY, self::BODY_ANSI, PR_HTML, PR_RTF_COMPRESSED]) === false) {
-			throw new RuntimeException('Cannot clear the protected message preview.');
+			'sender' => $sender];
+		if ($mime === null && $error === null) {
+			// An older converter stored the parts as body/attachments: render as stored, advisory status only.
+			$status['advisory'] = $status['unverifiable'] = true;
+			$status['pending'] = $status['locked'] = false;
+		}
+		else {
+			$data['handled'] = true;
 		}
 		$this->status[$id] = $status;
 		$this->statusMessages[$id] = $message;

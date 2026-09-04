@@ -31,7 +31,7 @@ define('PLUGIN_PGP_KEYSERVER_ALLOWLIST', [
 ]);
 ```
 
-The plugin is disabled by default. Users can also enable it through normal plugin settings. Unlock state exists in browser memory for a bounded lifetime; **Lock all** removes the browser's unlocked-key references. Reloading the browser requires unlocking again.
+The plugin is disabled by default. Users can also enable it through normal plugin settings; the server-side message hooks follow that per-user switch. Unlock state exists in browser memory for a bounded lifetime; **Lock all** removes the browser's unlocked-key references. Reloading the browser requires unlocking again.
 
 Keys and trust policy are stored in the authenticated user's default mailbox root as hidden, non-transmittable associated messages. The exact classes, private GUID, named-property types, update revisions and limits are documented in [MAPI key storage](docs/mapi-key-storage.md). Neither `PR_USER_X509_CERTIFICATE` nor `PR_USER_CERTIFICATE` is repurposed for OpenPGP or private keys. Include associated information and named-property mappings in mailbox backups, and keep a separate encrypted private-key backup.
 
@@ -56,7 +56,7 @@ The converter accepts GpgOL's outgoing `IPM.Note.InfoPathForm.GpgOL.SMIME.Multip
 
 For OpenPGP wrappers, the converter omits the outer Bcc header while retaining the MAPI Bcc recipient table for envelope delivery and Sent Items. The protected inner MIME entity also excludes Bcc. This prevents disclosure of hidden addresses through MIME headers independently of any MTA cleanup rules.
 
-Older Gromox versions can import OpenPGP as ordinary body parts and attachments, losing the exact MIME bytes protected by a detached signature. Re-exporting that MAPI item cannot reliably recreate those bytes. An updated converter preserves new arrivals; it cannot repair historical signatures. Where available, an administrator can recover such items by reimporting their original RFC822 source. Encrypted legacy messages can often still be read from their intact ciphertext attachment.
+Older Gromox versions can import OpenPGP as ordinary body parts and attachments, losing the exact MIME bytes protected by a detached signature. Re-exporting that MAPI item cannot reliably recreate those bytes. An updated converter preserves new arrivals; it cannot repair historical signatures. Such messages keep their stored body and attachments in the web client and show an advisory OpenPGP status instead of a verification result. Where available, an administrator can recover such items by reimporting their original RFC822 source. Encrypted legacy messages can often still be read from their intact ciphertext attachment.
 
 ## Using keys
 

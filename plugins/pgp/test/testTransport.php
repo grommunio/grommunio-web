@@ -107,7 +107,7 @@ function mapi_getprops($object, $tags) {
 	return $result;
 }
 function mapi_setprops($object, $props) { if (!empty($object->faults['setprops'])) { return false; } $object->props = array_replace($object->props, $props); return true; }
-function mapi_deleteprops($object, $tags) { if (!empty($object->faults['deleteprops'])) { return false; } foreach ($tags as $tag) { unset($object->props[$tag]); } return true; }
+function mapi_deleteprops($object, $tags) { $GLOBALS['deleteprops'] = ($GLOBALS['deleteprops'] ?? 0) + 1; if (!empty($object->faults['deleteprops'])) { return false; } foreach ($tags as $tag) { unset($object->props[$tag]); } return true; }
 function mapi_savechanges($object) { if (!empty($object->faults['save'])) { return false; } ++$object->saves; return true; }
 function mapi_message_getattachmenttable($message) {
 	if (!empty($message->faults['attachment_table'])) { return false; }
@@ -161,7 +161,7 @@ $GLOBALS['mapisession'] = new class {
 	public function getSession() { return null; }
 	public function getAddressbook() { return null; }
 };
-$GLOBALS['settings'] = new class { public function get($path, $default = null) { return $default; } };
+$GLOBALS['settings'] = new class { public array $values = []; public function get($path, $default = null) { return $this->values[$path] ?? $default; } };
 $GLOBALS['bus'] = new class { public function addData($data): void {} };
 $GLOBALS['probe_faults'] = [];
 $GLOBALS['bad_converter'] = false;
@@ -292,8 +292,9 @@ transportRejects(fn () => $plugin->protect($GLOBALS['store'], $GLOBALS['draft'])
 transportCheck(isset($GLOBALS['draft']->props[PR_BODY]) && $GLOBALS['draft']->saves === 0, 'Converter probe is isolated from real draft');
 $GLOBALS['bad_converter'] = false;
 
+$deletesBefore = $GLOBALS['deleteprops'] ?? 0;
 foreach (['signed', 'encrypted', 'inline', 'inline_long', 'class_inline_long', 'inline_long_fault', 'ordinary', 'smime', 'extra', 'broken', 'streamfault'] as $case) {
-	$plugin = new Pluginpgp(); $message = fixture(false, false); $message->props[PR_HTML] = '<p>forged preview</p>';
+	$plugin = new Pluginpgp(); $message = fixture(false, false); $message->props[PR_HTML] = '<p>forged preview</p>'; $message->props[PR_MESSAGE_FLAGS] = 0;
 	$envelope = $case === 'signed' ? PgpMime::signed("Content-Type: text/plain\r\n\r\nExact signed body", 'signature', 'pgp-sha256') : PgpMime::encrypted('ciphertext');
 	$isInline = str_contains($case, 'inline');
 	if ($isInline) {
@@ -311,14 +312,51 @@ foreach (['signed', 'encrypted', 'inline', 'inline_long', 'class_inline_long', '
 	$incomingBody = $message->props[PR_BODY];
 	$event = ['message' => $message, 'handled' => false]; $plugin->open($event);
 	if (in_array($case, ['ordinary', 'smime'], true)) { transportCheck(!$event['handled'] && isset($message->props[PR_BODY]), 'Unrelated ' . $case . ' stays with its parser'); continue; }
-	transportCheck($event['handled'] && !isset($message->props[PR_BODY], $message->props[PR_HTML]) && $message->saves === 0, 'Incoming ' . $case . ' strips preview only in memory');
-	$opened = ['message' => $message, 'data' => ['item' => ['props' => ['smime' => ['stale' => true]], 'attachments' => ['item' => [['old' => true]]]]]];
+	transportCheck($event['handled'] && isset($message->props[PR_BODY], $message->props[PR_HTML]) && $message->saves === 0, 'Incoming ' . $case . ' leaves the stored message untouched');
+	$opened = ['message' => $message, 'data' => ['item' => ['props' => ['smime' => ['stale' => true], 'body' => 'stored preview', 'html_body' => '<p>forged preview</p>', 'isHTML' => true], 'attachments' => ['item' => [['old' => true]]]]]];
 	$plugin->execute('server.module.itemmodule.open.after', $opened); $status = $opened['data']['item']['props']['pgp'];
 	$failed = in_array($case, ['extra', 'broken', 'streamfault', 'inline_long_fault'], true);
 	transportCheck($status['error'] === $failed && $status['pending'] !== $failed && !$status['decrypted'] && !$status['signature_valid'] && !$status['signer_trusted'], 'Server never asserts private crypto success for ' . $case);
 	transportCheck(!isset($opened['data']['item']['props']['smime']) && $opened['data']['item']['attachments']['item'] === ($isInline && !$failed ? [['old' => true]] : []), 'Browser-local attachment status replaces stale S/MIME for ' . $case);
+	transportCheck($opened['data']['item']['props']['body'] === '' && $opened['data']['item']['props']['html_body'] === '' && $opened['data']['item']['props']['isHTML'] === false, 'Stored preview never reaches the browser for ' . $case);
 	if (!$failed) { transportCheck(base64_decode($status['mime']) === ($isInline ? $incomingBody : $envelope), 'Exact incoming ' . $case . ' bytes reach browser'); }
 }
+// Without a preserved envelope the message renders as stored; the status is advisory only.
+foreach (['headers_only', 'hint_only', 'hint_encrypted'] as $case) {
+	$plugin = new Pluginpgp(); $message = fixture(false, false); $message->props[PR_MESSAGE_FLAGS] = 0;
+	if ($case === 'headers_only') { $message->props[PR_TRANSPORT_MESSAGE_HEADERS] = "Content-Type: multipart/signed; protocol=\"application/pgp-signature\"; boundary=\"legacy\"\r\n\r\n"; }
+	else { $message->props[PR_MESSAGE_CLASS] = $case === 'hint_only' ? 'IPM.Note.GpgOL.MultipartSigned' : 'IPM.Note.GpgOL.MultipartEncrypted'; }
+	$legacy = attachment("-----BEGIN PGP SIGNATURE-----\r\nlegacy\r\n-----END PGP SIGNATURE-----\r\n"); $legacy->props[PR_ATTACH_MIME_TAG] = 'application/pgp-signature';
+	$version = attachment('Version: 1'); $version->props[PR_ATTACH_MIME_TAG] = 'application/pgp-encrypted';
+	$message->attachments = $case === 'hint_encrypted' ? [$version, $legacy] : [$legacy];
+	$event = ['message' => $message, 'handled' => false]; $plugin->open($event);
+	transportCheck(!$event['handled'] && isset($message->props[PR_BODY]), 'Legacy ' . $case . ' layout stays with the normal renderer');
+	$opened = ['message' => $message, 'data' => ['item' => ['props' => ['body' => 'Signed text', 'isHTML' => false], 'attachments' => ['item' => [['old' => true]]]]]];
+	$plugin->execute('server.module.itemmodule.open.after', $opened); $status = $opened['data']['item']['props']['pgp'];
+	transportCheck($status['unverifiable'] === true && !$status['pending'] && !$status['error'] && $status['mime'] === '' && $status['signed'] === ($case !== 'hint_encrypted') && $status['encrypted'] === ($case === 'hint_encrypted'), 'Legacy ' . $case . ' reports an advisory status');
+	transportCheck($opened['data']['item']['props']['body'] === 'Signed text' && $opened['data']['item']['attachments']['item'] === [['old' => true]], 'Legacy ' . $case . ' keeps body and attachments');
+}
+// Drafts, other item types and users who switched the plugin off are never touched.
+$envelope = PgpMime::signed("Content-Type: text/plain\r\n\r\nExact signed body", 'signature', 'pgp-sha256');
+foreach (['draft', 'meeting', 'bad_sender', 'user_off', 'user_on'] as $case) {
+	$plugin = new Pluginpgp(); $message = fixture(false, false); $message->props[PR_MESSAGE_FLAGS] = $case === 'draft' ? MSGFLAG_UNSENT : 0;
+	if ($case === 'draft') { $message->props[PR_BODY] = "-----BEGIN PGP MESSAGE-----\r\nopaque\r\n-----END PGP MESSAGE-----"; }
+	else {
+		$message->props[PR_MESSAGE_CLASS] = $case === 'meeting' ? 'IPM.Schedule.Meeting.Request' : 'IPM.Note.SMIME.MultipartSigned';
+		$item = attachment($envelope); $item->props[PR_ATTACH_MIME_TAG] = 'multipart/signed'; $message->attachments = [$item];
+	}
+	if ($case === 'bad_sender') { $message->props[PR_SENT_REPRESENTING_SMTP_ADDRESS] = 'not an address'; }
+	$GLOBALS['settings']->values['zarafa/v1/plugins/pgp/enable'] = $case === 'user_on';
+	$event = ['message' => $message, 'handled' => false];
+	if (str_starts_with($case, 'user_')) { $plugin->execute('server.util.parse_secure.before', $event); } else { $plugin->open($event); }
+	$opened = ['message' => $message, 'data' => ['item' => ['props' => ['body' => 'stored'], 'attachments' => ['item' => [['old' => true]]]]]];
+	$plugin->execute('server.module.itemmodule.open.after', $opened);
+	$expectHandled = in_array($case, ['bad_sender', 'user_on'], true);
+	transportCheck($event['handled'] === $expectHandled && isset($opened['data']['item']['props']['pgp']) === $expectHandled && isset($message->props[PR_BODY]), 'Case ' . $case . ' is ' . ($expectHandled ? 'decoded in the browser' : 'left alone'));
+	if ($case === 'bad_sender') { transportCheck($opened['data']['item']['props']['pgp']['sender'] === '' && $opened['data']['item']['props']['pgp']['pending'], 'A malformed From address does not fail the open'); }
+}
+unset($GLOBALS['settings']->values['zarafa/v1/plugins/pgp/enable']);
+transportCheck(($GLOBALS['deleteprops'] ?? 0) === $deletesBefore, 'Opening never deletes properties on the stored message');
 $module = new PluginPgpModule();
 foreach (['passphrase', 'password', 'unlocked_key', 'private_key'] as $field) {
 	transportRejects(fn () => $module->request(['operation' => 'list', $field => 'never accepted']), 'Forbidden endpoint secret field ' . $field);
