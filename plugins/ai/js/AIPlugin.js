@@ -50,7 +50,7 @@ Zarafa.plugins.ai.AIPlugin = Ext.extend(Zarafa.core.Plugin, {
 		}
 		var editor = menu.getEditor ? menu.getEditor() : null;
 		if (!editor) {
-			Ext.MessageBox.alert(_('AI Assistant'), _('The editor could not be found.'));
+			container.getNotifier().notify('error.ai', _('AI Assistant'), _('The editor could not be found.'));
 			return;
 		}
 		this.runCompose(item.aiOpts, editor);
@@ -70,7 +70,7 @@ Zarafa.plugins.ai.AIPlugin = Ext.extend(Zarafa.core.Plugin, {
 		var text = isHtml ? Zarafa.core.HTMLParser.convertHTMLToPlain(raw) : raw;
 
 		if (!text.replace(/\s+/g, '')) {
-			Ext.MessageBox.alert(_('AI Assistant'), _('Write some text in the message first.'));
+			container.getNotifier().notify('warning.ai', _('AI Assistant'), _('Write some text in the message first.'));
 			return;
 		}
 
@@ -103,7 +103,7 @@ Zarafa.plugins.ai.AIPlugin = Ext.extend(Zarafa.core.Plugin, {
 			return editor && !editor.isDestroyed;
 		};
 		var editorGone = function() {
-			Ext.MessageBox.alert(_('AI Assistant'), _('The message you were composing is no longer open.'));
+			container.getNotifier().notify('warning.ai', _('AI Assistant'), _('The message you were composing is no longer open.'));
 		};
 
 		Zarafa.plugins.ai.ui.AIAssistantWindow.showFeature({
@@ -307,7 +307,7 @@ Zarafa.plugins.ai.AIPlugin = Ext.extend(Zarafa.core.Plugin, {
 		}
 		var record = menu.getRecord ? menu.getRecord() : null;
 		if (!record) {
-			Ext.MessageBox.alert(_('AI Assistant'), _('Please open or select a message first.'));
+			container.getNotifier().notify('warning.ai', _('AI Assistant'), _('Please open or select a message first.'));
 			return;
 		}
 		if (item.feature === 'suggest_actions') {
