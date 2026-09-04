@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-29 21:36+0200\n"
+"POT-Creation-Date: 2026-09-04 14:41+0200\n"
 "PO-Revision-Date: 2022-07-26 15:25+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -718,6 +718,30 @@ msgstr "Suosikit"
 msgid "Select Folder"
 msgstr "Valitse kansio"
 
+msgid "From"
+msgstr "Lähettäjä"
+
+msgid "To"
+msgstr "Vastaanottaja"
+
+msgid "Cc"
+msgstr "Kopio"
+
+msgid "Bcc"
+msgstr "Piilokopio"
+
+msgid "Body"
+msgstr "Sisältö"
+
+msgid "Attachment"
+msgstr "Liite"
+
+msgid "Category"
+msgstr "Luokka"
+
+msgid "Type"
+msgstr "Kirjoita"
+
 msgid "Delete search folder"
 msgstr "Poista hakukansio"
 
@@ -742,9 +766,6 @@ msgstr "Tarkoititko"
 
 msgid "With"
 msgstr "Kanssa"
-
-msgid "To"
-msgstr "Vastaanottaja"
 
 msgid "No date"
 msgstr "Ei päivämäärää"
@@ -1013,9 +1034,6 @@ msgstr "l"
 msgid "All text fields"
 msgstr "Kaikki tekstikentät"
 
-msgid "Body"
-msgstr "Sisältö"
-
 msgid "Subject or Sender"
 msgstr "Aihe tai lähettäjä"
 
@@ -1029,11 +1047,20 @@ msgctxt "calendar.dialog"
 msgid "Resources have been planned"
 msgstr "Resurssit on suunniteltu"
 
+msgid "Insufficient privileges"
+msgstr "Riittämättömät oikeudet"
+
+msgid "You do not have permission to modify this item."
+msgstr "Sinulla ei ole oikeutta muokata tätä kohdetta."
+
 msgid "Send update"
 msgstr "Lähetä päivitys"
 
 msgid "Do you want to send an update to all recipients?"
 msgstr "Haluatko lähettää päivityksen kaikille vastaanottajille?"
+
+msgid "You do not have permission to delete this item."
+msgstr "Sinulla ei ole oikeutta poistaa tätä kohdetta."
 
 msgid "Send update to attendees"
 msgstr "Lähetä päivitys osallistujille"
@@ -1121,6 +1148,12 @@ msgctxt "calendar.dialog"
 msgid "Please note that any changes you make will be overwritten when this meeting request is updated by the organizer"
 msgstr "Huomaa, että kaikki tekemäsi muutokset korvataan, kun järjestäjä päivittää tämän kokouspyynnön"
 
+msgid "Show as"
+msgstr "Näytä"
+
+msgid "Reminder"
+msgstr "Muistutus"
+
 msgid "Create in"
 msgstr "Luo"
 
@@ -1132,12 +1165,6 @@ msgstr "saakka"
 
 msgid "Recurrence"
 msgstr "Toistuvuus"
-
-msgid "Reminder"
-msgstr "Muistutus"
-
-msgid "Show as"
-msgstr "Näytä"
 
 msgid "Warning"
 msgstr "Varoitus"
@@ -1153,6 +1180,14 @@ msgstr "Päivitä sijainti"
 
 msgid "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
 msgstr "Haluatko päivittää sijainnin \"{0}\" uudella sijainnilla \"{1}\"?"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "{0} ilmoitus lisää"
+msgstr[1] "{0} ilmoitusta lisää"
+
+msgid "Show less"
+msgstr "Näytä vähemmän"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y {0}"
@@ -1427,6 +1462,9 @@ msgstr "Työpäivinä"
 msgid "Show busy dates as bold in the date picker"
 msgstr "Näytä varatut päivät lihavoituina päivämäärän valinnassa"
 
+msgid "Delete the meeting request from the inbox when answering from the calendar"
+msgstr "Poista kokouspyyntö Saapuneet viestit -kansiosta, kun vastaat kalenterista"
+
 msgid "Side-by-side mode"
 msgstr "Rinnakkainen näkymä"
 
@@ -1608,9 +1646,6 @@ msgstr "Sinulla ei ole riittäviä oikeuksia tämän kohteen siirtämiseen ja ko
 #, fuzzy
 msgid "You have insufficient privileges to copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
 msgstr "Sinulla ei ole riittäviä oikeuksia tämän kohteen kopioimiseen. Pyydä kansion omistajaa myöntämään sinulle oikeudet tai ota yhteyttä järjestelmänvalvojaan."
-
-msgid "Insufficient privileges"
-msgstr "Riittämättömät oikeudet"
 
 #, fuzzy
 msgid "Copying this appointment will unset it as private. Are you sure you want to continue?"
@@ -1918,15 +1953,6 @@ msgstr "Sinulla ei ole riittäviä oikeuksia näiden kohteiden siirtämiseen. Ha
 msgid "You have insufficient privileges to move this item. Would you like to copy instead?"
 msgstr "Sinulla ei ole riittäviä oikeuksia tämän kohteen siirtämiseen. Haluaisitko kopioida sen sijaan?"
 
-msgid "Cc"
-msgstr "Kopio"
-
-msgid "Bcc"
-msgstr "Piilokopio"
-
-msgid "From"
-msgstr "Lähettäjä"
-
 msgid "Insert item"
 msgstr "Lisää kohde"
 
@@ -1935,9 +1961,6 @@ msgstr "Aseta as"
 
 msgid "Text only"
 msgstr "Vain tekstiä"
-
-msgid "Attachment"
-msgstr "Liite"
 
 msgid "Attach Item"
 msgstr "Liitä kohde"
@@ -2003,6 +2026,9 @@ msgstr "ZIP-tiedostoa ei voi luoda, Sallittu enimmäiskoko on 30 Mt."
 msgid "Unable to download"
 msgstr "Lataaminen ei onnistu"
 
+msgid "Drop files here to attach them"
+msgstr "Liitä tiedostot pudottamalla ne tähän"
+
 msgid "Picture format is not supported. "
 msgstr "Kuvaformaattia ei tueta. "
 
@@ -2011,6 +2037,9 @@ msgstr "Tuetut kontaktikuvien muodot ovat"
 
 msgid "Attachment Error"
 msgstr "Liitevirhe"
+
+msgid "Could not save the category list."
+msgstr "Kategorialuettelon tallentaminen epäonnistui."
 
 msgid "Manage Categories"
 msgstr "Hallitse kategorioita"
@@ -2188,13 +2217,13 @@ msgid "Folder '{0}' selected."
 msgstr "Kansio '{0}' on valittu."
 
 msgid "The selected items cannot be moved into this folder because it holds a different type of content."
-msgstr ""
+msgstr "Valittuja kohteita ei voi siirtää tähän kansioon, koska siinä on erityyppistä sisältöä."
 
 msgid "The selected items cannot be copied into this folder because it holds a different type of content."
-msgstr ""
+msgstr "Valittuja kohteita ei voi kopioida tähän kansioon, koska siinä on erityyppistä sisältöä."
 
 msgid "Incompatible folder"
-msgstr ""
+msgstr "Yhteensopimaton kansio"
 
 msgid "Unable to perform action"
 msgstr "Toimintoa ei voitu suorittaa"
@@ -2270,8 +2299,11 @@ msgstr "tällä viikolla"
 msgid "next week"
 msgstr "ensi viikolla"
 
-msgid "Dropped file type is not supported"
-msgstr "Tätä tiedostotyyppiä ei tueta"
+msgid "Add as attachment?"
+msgstr "Lisätäänkö liitetiedostona?"
+
+msgid "The following files cannot be embedded in the message body. Add them as attachments instead?"
+msgstr "Seuraavia tiedostoja ei voi upottaa viestin tekstiin. Lisätäänkö ne sen sijaan liitetiedostoina?"
 
 msgid "Edit recipient"
 msgstr "Muokkaa vastaanottajia"
@@ -2299,6 +2331,9 @@ msgstr "Varattu"
 
 msgid "Out of Office"
 msgstr "Poissa toimistolta"
+
+msgid "Working Elsewhere"
+msgstr "Työskentelee muualla"
 
 msgid "No Information"
 msgstr "Ei tietoja"
@@ -2372,6 +2407,15 @@ msgstr "Poista valittu kohde"
 #, fuzzy
 msgid "Delete selected item without moving it to the Deleted Items folder. The deleted item can still be restored."
 msgstr "Poista valittu kohde siirtämättä sitä Poistetut kohteet -kansioon. Poistetun kohteen voi silti palauttaa."
+
+msgid "Undo the last action"
+msgstr "Kumoa viimeisin toiminto"
+
+msgid "Redo the last undone action"
+msgstr "Tee viimeisin kumottu toiminto uudelleen"
+
+msgid "Open the command palette"
+msgstr "Avaa komentopaletti"
 
 msgid "Add/Edit Cc recipient"
 msgstr "Lisää/muokkaa Cc-vastaanottajaa"
@@ -2889,9 +2933,6 @@ msgstr "Soveltaa muutoksia"
 msgid "Do you wish to apply the changes?"
 msgstr "Haluatko tallentaa muutokset?"
 
-msgid "Category"
-msgstr "Luokka"
-
 msgid "Recent searches"
 msgstr "Viimeisimmät haut"
 
@@ -2921,9 +2962,6 @@ msgstr "Kaikki kansiot"
 
 msgid "Other…"
 msgstr "Muu…"
-
-msgid "Type"
-msgstr "Kirjoita"
 
 msgid "Search"
 msgstr "Etsi"
@@ -2991,6 +3029,24 @@ msgstr "{A} Työpöytäilmoituksen automaattinen piilottaminen sekunnin (sekunti
 
 msgid "Disable sound"
 msgstr "Poista ääni käytöstä"
+
+msgid "New Mail Notifications"
+msgstr "Uuden postin ilmoitukset"
+
+msgid "Only my own mailbox"
+msgstr "Vain oma postilaatikkoni"
+
+msgid "Only the folders I choose"
+msgstr "Vain valitsemani kansiot"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Kansioita ei ole valittu, joten uuden postin ilmoitusta ei näytetä."
+
+msgid "Folder"
+msgstr "Kansio"
+
+msgid "Unknown folder"
+msgstr "Tuntematon kansio"
 
 msgid "Notifications"
 msgstr "Ilmoitukset"
@@ -3073,6 +3129,9 @@ msgstr "Viestiä ei voitu ladata"
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "Liitetiedostot"
+
+msgid "Untitled"
+msgstr "Nimetön"
 
 msgid "Download Pictures"
 msgstr "Lataa kuvat"
@@ -3736,9 +3795,6 @@ msgstr "Avaa uudessa selainikkunassa"
 msgid "Your browser seems to have blocked one or more pop-ups. Please change your browser's settings to always allow pop-ups from grommunio Web."
 msgstr "Selaimesi näyttää estäneen yhden tai useamman ponnahdusikkunan. Ole hyvä ja muuta selaimesi asetuksia siten, että sallit aina ponnahdusikkunat grommunio Webistä."
 
-msgid "Untitled"
-msgstr "Nimetön"
-
 msgid "Cannot upload attachment, only {0} attachments are allowed to be added to the message"
 msgstr "Liitettä ei voida ladata, viestiin voi lisätä vain {0} liitettä"
 
@@ -3760,6 +3816,63 @@ msgstr "Liitetiedostoa ei voi ladata, liitetiedostoja on yhteensä {0} tiedostoa
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
 msgstr "{0}, käyttäjän {1} puolesta"
+
+msgid "This search is performed without using a content index"
+msgstr "Tämä haku suoritetaan käyttämättä sisältöhakemistoa"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Toiminnon {0} kumoaminen ei onnistunut. Kohde on saatettu siirtää, muuttaa tai poistaa sillä välin."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Toiminnon {0} tekeminen uudelleen ei onnistunut. Kohde on saatettu siirtää, muuttaa tai poistaa sillä välin."
+
+msgid "Undo failed"
+msgstr "Kumoaminen epäonnistui"
+
+msgid "Redo failed"
+msgstr "Uudelleen tekeminen epäonnistui"
+
+msgid "Delete {0}"
+msgstr "Poista {0}"
+
+msgid "Delete {0} items"
+msgstr "Poista {0} kohdetta"
+
+msgid "Move {0} to {1}"
+msgstr "Siirrä {0} kansioon {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Siirrä {0} kohdetta kansioon {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Kopioi {0} kansioon {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Kopioi {0} kohdetta kansioon {1}"
+
+msgid "Create {0}"
+msgstr "Luo {0}"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} kohdetta"
+
+msgid "Change appointment time"
+msgstr "Muuta tapaamisen aikaa"
+
+msgid "Change flag"
+msgstr "Muuta merkintää"
+
+msgid "Change categories"
+msgstr "Muuta kategorioita"
+
+msgid "No subject"
+msgstr "Ei aihetta"
+
+msgid "another folder"
+msgstr "toinen kansio"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F"
@@ -3879,14 +3992,50 @@ msgstr "Punainen"
 msgid "Brown"
 msgstr "Ruskea"
 
-msgid "Main navigation"
-msgstr "Päävalikko"
+msgid "Search folders, views, settings and actions"
+msgstr "Hae kansioista, näkymistä, asetuksista ja toiminnoista"
+
+msgid "Results"
+msgstr "Tulokset"
+
+msgid "Arrow keys or Tab select, Enter opens, Esc closes"
+msgstr "Valitse nuolinäppäimillä tai Tab-näppäimellä, avaa Enter-näppäimellä ja sulje Esc-näppäimellä"
+
+msgid "Command palette"
+msgstr "Komentopaletti"
+
+msgid "Views"
+msgstr "Näkymät"
+
+msgid "Settings"
+msgstr "Asetukset"
+
+msgid "Tools"
+msgstr "Työkalut"
+
+msgid "Appearance"
+msgstr "Ulkonäkö"
+
+msgid "Switch to light mode"
+msgstr "Vaihda vaaleaan tilaan"
+
+msgid "Switch to dark mode"
+msgstr "Vaihda tummaan tilaan"
+
+msgid "Comfortable list spacing"
+msgstr "Väljä luetteloasettelu"
+
+msgid "Compact list spacing"
+msgstr "Tiivis luetteloasettelu"
 
 msgid "Logout"
 msgstr "Kirjaudu ulos"
 
-msgid "Appearance"
-msgstr "Ulkonäkö"
+msgid "No matching commands"
+msgstr "Vastaavia komentoja ei löytynyt"
+
+msgid "Main navigation"
+msgstr "Päävalikko"
 
 msgid "Light"
 msgstr "Vaalea"
@@ -3902,6 +4051,21 @@ msgstr "Päätyökalurivi"
 
 msgid "Switch view"
 msgstr "Vaihda näkymää"
+
+msgid "Undo"
+msgstr "Kumoa"
+
+msgid "Redo"
+msgstr "Tee uudelleen"
+
+msgid "Undo: {0}"
+msgstr "Kumoa: {0}"
+
+msgid "Redo: {0}"
+msgstr "Tee uudelleen: {0}"
+
+msgid "Nothing to undo"
+msgstr "Ei kumottavaa"
 
 msgid "Skip to main content"
 msgstr "Siirry pääsisältöön"
@@ -3944,9 +4108,6 @@ msgstr "Puuttuu liite"
 
 msgid "Your message appears to reference an attachment but no file is attached. Send anyway?"
 msgstr "Viestisi näyttää viittaavan liitteeseen, mutta tiedostoa ei ole liitetty. Lähetetäänkö silti?"
-
-msgid "No subject"
-msgstr "Ei aihetta"
 
 msgid "Send this message without a subject?"
 msgstr "Lähetä tämä viesti ilman aihetta?"
@@ -4105,6 +4266,25 @@ msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Kansiossa {1} on {0} lukematon viesti"
 msgstr[1] "Kansiossa {1} on {0} lukematonta viestiä"
+
+msgid "New mail from {0}"
+msgstr "Uusi viesti lähettäjältä {0}"
+
+msgid "In folder {0} of {1}"
+msgstr "Käyttäjän {1} kansiossa {0}"
+
+msgid "In folder {0}"
+msgstr "Kansiossa {0}"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "Käyttäjän {2} kansiossa {1} on {0} uusi viesti"
+msgstr[1] "Käyttäjän {2} kansiossa {1} on {0} uutta viestiä"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "Kansiossa {1} on {0} uusi viesti"
+msgstr[1] "Kansiossa {1} on {0} uutta viestiä"
 
 msgid "Publishing Editor"
 msgstr "Kustannustoimittaja"
@@ -4408,6 +4588,12 @@ msgstr "Järjestä: Vastaanottaja"
 msgid "Sent"
 msgstr "Lähetetty"
 
+msgid "Sender lists"
+msgstr "Lähettäjäluettelot"
+
+msgid "The sender lists could not be saved"
+msgstr "Lähettäjäluetteloita ei voitu tallentaa"
+
 msgid "Original message"
 msgstr "Alkuperäinen viesti"
 
@@ -4568,17 +4754,35 @@ msgstr "LÄHETTÄJÄ"
 msgid "on behalf of"
 msgstr "seuraavien puolesta"
 
-msgid "Safe Senders list is empty"
-msgstr "Turvallisten lähettäjien luettelo on tyhjä"
+msgid "List is empty"
+msgstr "Luettelo on tyhjä"
 
-msgid "Please select a safe sender record."
-msgstr "Valitse turvallinen lähettäjätietue."
+msgid "Please select a record."
+msgstr "Valitse tietue."
 
-msgid "Delete all safe senders"
-msgstr "Poista kaikki turvalliset lähettäjät"
+msgid "Delete all entries"
+msgstr "Poista kaikki merkinnät"
 
-msgid "Are you sure you want to delete all safe senders?"
-msgstr "Haluatko varmasti poistaa kaikki turvalliset lähettäjät?"
+msgid "Are you sure you want to delete all entries?"
+msgstr "Haluatko varmasti poistaa kaikki merkinnät?"
+
+msgid "Blocked Senders"
+msgstr "Estetyt lähettäjät"
+
+msgid "External content from blocked senders will always be blocked, even if the global block external content setting is disabled. Safe senders take priority over blocked senders."
+msgstr "Estetyiltä lähettäjiltä tuleva ulkoinen sisältö estetään aina, vaikka yleinen ulkoisen sisällön esto olisi poistettu käytöstä. Turvalliset lähettäjät ovat etusijalla estettyihin lähettäjiin nähden."
+
+msgid "Blocked Senders list is empty"
+msgstr "Estettyjen lähettäjien luettelo on tyhjä"
+
+msgid "user@domain or @domain"
+msgstr "user@domain tai @domain"
+
+msgid "Delete all"
+msgstr "Poista kaikki"
+
+msgid "Enter an email address or @domain"
+msgstr "Anna sähköpostiosoite tai @domain"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4630,6 +4834,9 @@ msgstr "Ota käyttöön keskustelunäkymä"
 msgid "Collapse conversation when selecting a different email"
 msgstr "Sulje keskustelu, kun valitset eri sähköpostin"
 
+msgid "Show the entire conversation in the reading pane"
+msgstr "Näytä koko keskustelu lukuruudussa"
+
 msgid "Incoming mail"
 msgstr "Saapuva posti"
 
@@ -4662,6 +4869,12 @@ msgstr "Oikea"
 msgid "Bottom"
 msgstr "Alareuna"
 
+msgid "Into mailbox owner's wastebasket"
+msgstr "Postilaatikon omistajan Poistetut kohteet -kansioon"
+
+msgid "Into your wastebasket"
+msgstr "Omaan Poistetut kohteet -kansioosi"
+
 msgid "Location of preview pane"
 msgstr "Esikatseluruudun sijainti"
 
@@ -4670,6 +4883,12 @@ msgstr "Käytä aiheen etuliitteitä RFC 5256/5322:n mukaisesti."
 
 msgid "Close original message on reply or forward"
 msgstr "Sulje alkuperäinen viesti vastauksen tai välityksen yhteydessä"
+
+msgid "Show quick actions when hovering over a list item"
+msgstr "Näytä pikatoiminnot, kun osoitin viedään luettelokohteen päälle"
+
+msgid "Move items deleted in delegate's store"
+msgstr "Siirrä edustajana poistamasi kohteet"
 
 msgid "General mail settings"
 msgstr "Yleiset postiasetukset"
@@ -4729,6 +4948,18 @@ msgstr "Kuka tahansa organisaationi ulkopuolella"
 msgid "The time you entered is before the out of office date. Please reschedule."
 msgstr "Syöttämäsi aika on ennen virka-ajan päättymispäivää. Pyydämme teitä siirtämään ajanvarauksen."
 
+msgid "Safe Recipients"
+msgstr "Turvalliset vastaanottajat"
+
+msgid "Mailing lists or distribution lists that you have added to the Safe Recipients List are considered trustworthy."
+msgstr "Turvallisten vastaanottajien luetteloon lisäämiäsi postitus- tai jakelulistoja pidetään luotettavina."
+
+msgid "Safe Recipients list is empty"
+msgstr "Turvallisten vastaanottajien luettelo on tyhjä"
+
+msgid "Sender Lists"
+msgstr "Lähettäjäluettelot"
+
 msgid "Safe Senders"
 msgstr "Turvalliset lähettäjät"
 
@@ -4736,8 +4967,11 @@ msgstr "Turvalliset lähettäjät"
 msgid "To protect your privacy email addresses or domains can only be added via the \"Add to safe sender list\" functionality in an opened email."
 msgstr "Yksityisyytesi suojaamiseksi sähköpostiosoitteita tai verkkotunnuksia voi lisätä vain avatun sähköpostin \"Lisää turvallisen lähettäjän luetteloon\" -toiminnon kautta."
 
-msgid "Delete all"
-msgstr "Poista kaikki"
+msgid "Safe Senders list is empty"
+msgstr "Turvallisten lähettäjien luettelo on tyhjä"
+
+msgid "Also trust email from my Contacts"
+msgstr "Luota myös yhteystiedoissani olevilta lähettäjiltä tuleviin sähköpostiviesteihin"
 
 msgid "Signatures"
 msgstr "Allekirjoitukset"
@@ -4844,6 +5078,12 @@ msgstr "Viestiluettelo"
 msgid "Loading mail"
 msgstr "Ladataan postia"
 
+msgid "Conversation view"
+msgstr "Keskustelunäkymä"
+
+msgid "Sorting shows the flat message list. Sort by \"Received\" (newest first) to show conversations again."
+msgstr "Lajittelu näyttää viestit ryhmittelemättömänä luettelona. Saat keskustelut jälleen näkyviin lajittelemalla \"Vastaanotettu\"-kentän mukaan (uusin ensin)."
+
 msgid "No unread mail."
 msgstr "Ei lukemattomia posteja."
 
@@ -4852,6 +5092,17 @@ msgstr "Lukemattomat postit"
 
 msgid "Quick Mail"
 msgstr "Pikaposti"
+
+msgid "Create note"
+msgstr "Luo muistiinpano"
+
+#. TRANSLATORS: Names the mail a note is attached to, e.g. "Note on: Re: invoice"
+msgctxt "note.dialog"
+msgid "Note on"
+msgstr "Muistiinpano viestistä"
+
+msgid "(no subject)"
+msgstr "(ei aihetta)"
 
 msgid "Print note"
 msgstr "Tulosta huomautus"
@@ -4910,9 +5161,6 @@ msgstr "Sinun on ladattava grommunio Web uudelleen, jotta muutokset tulevat voim
 
 msgid "Reload grommunio Web"
 msgstr "Lataa uudelleen grommunio Web"
-
-msgid "Settings"
-msgstr "Asetukset"
 
 msgid "Basic"
 msgstr "Perus"
@@ -4974,8 +5222,8 @@ msgstr "Poista asetukset"
 msgid "{0} Iconset"
 msgstr "{0} Iconset"
 
-msgid "About"
-msgstr "Koskien"
+msgid "Legal Information"
+msgstr "Oikeudelliset tiedot"
 
 msgid "Date & Time"
 msgstr "Päivämäärä ja aika"
@@ -5003,6 +5251,15 @@ msgstr "Piilota suosikit"
 
 msgid "Unpin favorites from top"
 msgstr "Unpin suosikit ylhäältä"
+
+msgid "Show favorites in the mail folder list only"
+msgstr "Näytä suosikit vain sähköpostin kansioluettelossa"
+
+msgid "Show favorites of the same type in every folder list"
+msgstr "Näytä samantyyppiset suosikit kaikissa kansioluetteloissa"
+
+msgid "Show all favorites in every folder list"
+msgstr "Näytä kaikki suosikit kaikissa kansioluetteloissa"
 
 msgid "Interface"
 msgstr "Liitäntä"
@@ -5149,17 +5406,43 @@ msgstr "Tyhjennä"
 msgid "Reloading, Please wait."
 msgstr "Uudelleenlataus, odota."
 
+msgid "Search settings"
+msgstr "Hae asetuksista"
+
+msgid "Clear search"
+msgstr "Tyhjennä haku"
+
+msgid "{0} setting matches"
+msgid_plural "{0} settings match"
+msgstr[0] "Löytyi {0} vastaava asetus"
+msgstr[1] "Löytyi {0} vastaavaa asetusta"
+
+msgid "No settings match"
+msgstr "Vastaavia asetuksia ei löytynyt"
+
 msgid "Setting"
 msgstr "Asetus"
 
 msgid "The setting '{0}' can not be edited"
 msgstr "Asetusta '{0}' ei voida muokata"
 
+msgid "Undo and redo"
+msgstr "Kumoaminen ja uudelleen tekeminen"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Toimintojen, kuten viestien poistamisen, siirtämisen tai merkitsemisen, kumoaminen (Ctrl+Z) ja tekeminen uudelleen (Ctrl+Y). Näiden toimintojen tallentaminen aiheuttaa pienen lisäkuormituksen, joten ominaisuus on oletusarvoisesti pois käytöstä."
+
+msgid "Enable undo and redo of message actions"
+msgstr "Ota viestitoimintojen kumoaminen ja uudelleen tekeminen käyttöön"
+
 msgid "OpenID Connect"
 msgstr "OpenID Connect"
 
 msgid "Basic Authentication"
 msgstr "Perustodennus"
+
+msgid "About"
+msgstr "Koskien"
 
 msgid "System information"
 msgstr "Järjestelmätiedot"
@@ -5178,6 +5461,13 @@ msgstr "Huolto"
 
 msgid "Reset all settings to defaults"
 msgstr "Nollaa kaikki asetukset oletusasetuksiin"
+
+msgid "Changes to assigned task"
+msgstr "Muutokset osoitettuun tehtävään"
+
+#, fuzzy
+msgid "Please note that assigned task(s) will be overwritten when the assignee makes changes."
+msgstr "Huomaa, että osoitetut tehtävät korvataan, kun vastaanottaja tekee muutoksia."
 
 msgid "Delete confirmation"
 msgstr "Poista vahvistus"
@@ -5386,13 +5676,6 @@ msgstr "Merkitse keskeneräiseksi"
 msgid "Remove from To-Do List"
 msgstr "Poista tehtävälistalta"
 
-msgid "Changes to assigned task"
-msgstr "Muutokset osoitettuun tehtävään"
-
-#, fuzzy
-msgid "Please note that assigned task(s) will be overwritten when the assignee makes changes."
-msgstr "Huomaa, että osoitetut tehtävät korvataan, kun vastaanottaja tekee muutoksia."
-
 msgid "Sort by: Complete"
 msgstr "Järjestä: Valmiit"
 
@@ -5488,6 +5771,12 @@ msgstr "Yhteys palautettu"
 
 msgid "Connection with server has been restored"
 msgstr "Yhteys palvelimeen palautettu"
+
+msgid "grommunio Web was updated"
+msgstr "grommunio Web päivitettiin"
+
+msgid "A new version is available, click here to reload."
+msgstr "Uusi versio on saatavilla. Lataa sivu uudelleen napsauttamalla tästä."
 
 #. TRANSLATORS: Example: HTTP 404
 msgid "HTTP {0}"
@@ -6306,9 +6595,6 @@ msgstr "Selaimesi ei tue videotiedostojen esikatselua!"
 msgid "d.m.Y G:i"
 msgstr "d.m.Y G:i"
 
-msgid "Folder"
-msgstr "Kansio"
-
 msgid "File ({0})"
 msgstr "Tiedosto ({0})"
 
@@ -7022,6 +7308,9 @@ msgstr "Tämä viesti on salattu CBC-tilassa (ei todennettua salausta). Vaikka v
 msgid "The signing time in the digital signature differs significantly from the expected time. This may indicate a clock synchronization issue or message tampering."
 msgstr "Digitaalisen allekirjoituksen allekirjoitusajankohta poikkeaa merkittävästi odotetusta ajankohdasta. Tämä voi viitata kellon synkronointiongelmaan tai viestin väärentämiseen."
 
+msgid "The certificate chain of the sender's certificate could not be verified: the certificate authority that issued it is not in the server's trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority."
+msgstr "Lähettäjän varmenteen varmenneketjua ei voitu tarkistaa: varmenteen myöntänyttä varmentajaa ei ole palvelimen S/MIME-käyttöön luotettujen varmentajien CA-säilössä tai välivarmenne puuttuu. Pyydä järjestelmänvalvojaa asentamaan puuttuvan varmentajan varmenne."
+
 msgid "Signature verified successfully"
 msgstr "Allekirjoitus vahvistettu onnistuneesti"
 
@@ -7084,6 +7373,9 @@ msgstr "Purettu (CBC-tila - harkitse AES-GCM:ää vahvemman suojan saamiseksi)"
 
 msgid "Signing time differs from expected time"
 msgstr "Allekirjoitusaika poikkeaa odotetusta ajasta"
+
+msgid "Could not verify signature, certificate authority is not trusted"
+msgstr "Allekirjoitusta ei voitu tarkistaa, koska varmentajaan ei luoteta"
 
 msgid "Digest"
 msgstr "Digest"
@@ -7639,6 +7931,9 @@ msgstr "Tietoja ei voi lisätä väylään, jos väylässä on sama toimintatyyp
 msgid "Response data requested from bus but it doesn't have any data."
 msgstr "Vastausdataa pyydetään väylästä, mutta sillä ei ole tietoja."
 
+msgid "Cannot store the category list in this mailbox."
+msgstr "Kategorialuetteloa ei voi tallentaa tähän postilaatikkoon."
+
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
 msgstr "Tuntematon moduuli '%s' tunnuksella '%s'"
@@ -7823,8 +8118,18 @@ msgstr "Kokousta ei voitu lähettää."
 msgid "Meeting could not be saved."
 msgstr "Kokousta ei voitu tallentaa."
 
+#, php-format
+msgid "There were %d skipped appointment(s):"
+msgstr "Ohitettujen tapaamisten määrä oli %d:"
+
+msgid "More skipped appointments are not shown."
+msgstr "Muita ohitettuja tapaamisia ei näytetä."
+
 msgid "Private Appointment"
 msgstr "Yksityinen tapaaminen"
+
+msgid "Could not open the requested mailbox."
+msgstr "Pyydettyä postilaatikkoa ei voitu avata."
 
 #, php-format
 msgid "%s's Birthday"
@@ -8228,138 +8533,3 @@ msgstr "Epämuodostuneet UTF-8-merkit, mahdollisesti väärin koodattuina"
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
 msgstr "JSON-tietojen koodauksessa/dekoodauksessa ilmeni ongelmia: - %s"
-
-msgid "Legal Information"
-msgstr "Oikeudelliset tiedot"
-
-msgid "{0} more notice"
-msgid_plural "{0} more notices"
-msgstr[0] "{0} ilmoitus lisää"
-msgstr[1] "{0} ilmoitusta lisää"
-
-msgid "Show less"
-msgstr "Näytä vähemmän"
-
-msgid "Undo and redo"
-msgstr "Kumoaminen ja uudelleen tekeminen"
-
-msgid "Enable undo and redo of message actions"
-msgstr "Ota viestitoimintojen kumoaminen ja uudelleen tekeminen käyttöön"
-
-msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
-msgstr "Toimintojen, kuten viestien poistamisen, siirtämisen tai merkitsemisen, kumoaminen (Ctrl+Z) ja tekeminen uudelleen (Ctrl+Y). Näiden toimintojen tallentaminen aiheuttaa pienen lisäkuormituksen, joten ominaisuus on oletusarvoisesti pois käytöstä."
-
-msgid "Undo"
-msgstr "Kumoa"
-
-msgid "Redo"
-msgstr "Tee uudelleen"
-
-msgid "Undo: {0}"
-msgstr "Kumoa: {0}"
-
-msgid "Redo: {0}"
-msgstr "Tee uudelleen: {0}"
-
-msgid "Nothing to undo"
-msgstr "Ei kumottavaa"
-
-msgid "Undo the last action"
-msgstr "Kumoa viimeisin toiminto"
-
-msgid "Redo the last undone action"
-msgstr "Tee viimeisin kumottu toiminto uudelleen"
-
-msgid "Undo failed"
-msgstr "Kumoaminen epäonnistui"
-
-msgid "Redo failed"
-msgstr "Uudelleen tekeminen epäonnistui"
-
-msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
-msgstr "Toiminnon {0} kumoaminen ei onnistunut. Kohde on saatettu siirtää, muuttaa tai poistaa sillä välin."
-
-msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
-msgstr "Toiminnon {0} tekeminen uudelleen ei onnistunut. Kohde on saatettu siirtää, muuttaa tai poistaa sillä välin."
-
-msgid "Delete {0}"
-msgstr "Poista {0}"
-
-msgid "Delete {0} items"
-msgstr "Poista {0} kohdetta"
-
-msgid "Move {0} to {1}"
-msgstr "Siirrä {0} kansioon {1}"
-
-msgid "Move {0} items to {1}"
-msgstr "Siirrä {0} kohdetta kansioon {1}"
-
-msgid "Copy {0} to {1}"
-msgstr "Kopioi {0} kansioon {1}"
-
-msgid "Copy {0} items to {1}"
-msgstr "Kopioi {0} kohdetta kansioon {1}"
-
-msgid "Create {0}"
-msgstr "Luo {0}"
-
-msgid "Change flag"
-msgstr "Muuta merkintää"
-
-msgid "Change categories"
-msgstr "Muuta kategorioita"
-
-msgid "Change appointment time"
-msgstr "Muuta tapaamisen aikaa"
-
-msgid "another folder"
-msgstr "toinen kansio"
-
-msgid "{0}: {1}"
-msgstr "{0}: {1}"
-
-msgid "{0}: {1} items"
-msgstr "{0}: {1} kohdetta"
-
-msgid "New mail from {0}"
-msgstr "Uusi viesti lähettäjältä {0}"
-
-msgid "{0} new message in folder {1}"
-msgid_plural "{0} new messages in folder {1}"
-msgstr[0] "Kansiossa {1} on {0} uusi viesti"
-msgstr[1] "Kansiossa {1} on {0} uutta viestiä"
-
-msgid "{0} new message in folder {1} of {2}"
-msgid_plural "{0} new messages in folder {1} of {2}"
-msgstr[0] "Käyttäjän {2} kansiossa {1} on {0} uusi viesti"
-msgstr[1] "Käyttäjän {2} kansiossa {1} on {0} uutta viestiä"
-
-msgid "In folder {0}"
-msgstr "Kansiossa {0}"
-
-msgid "In folder {0} of {1}"
-msgstr "Käyttäjän {1} kansiossa {0}"
-
-msgid "New Mail Notifications"
-msgstr "Uuden postin ilmoitukset"
-
-msgid "Only my own mailbox"
-msgstr "Vain oma postilaatikkoni"
-
-msgid "Only the folders I choose"
-msgstr "Vain valitsemani kansiot"
-
-msgid "Unknown folder"
-msgstr "Tuntematon kansio"
-
-msgid "No folders selected, no new mail notification is shown."
-msgstr "Kansioita ei ole valittu, joten uuden postin ilmoitusta ei näytetä."
-
-msgid "Show favorites in the mail folder list only"
-msgstr "Näytä suosikit vain sähköpostin kansioluettelossa"
-
-msgid "Show favorites of the same type in every folder list"
-msgstr "Näytä samantyyppiset suosikit kaikissa kansioluetteloissa"
-
-msgid "Show all favorites in every folder list"
-msgstr "Näytä kaikki suosikit kaikissa kansioluetteloissa"
