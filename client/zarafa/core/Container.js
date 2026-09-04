@@ -648,11 +648,27 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 			//
 			// A handler that throws leaves the ones behind it unreached, so the
 			// second event fires either way and lets the interface catch up. The
-			// error still surfaces once it has.
+			// error that aborted the switch is rethrown once it has.
+			var error;
 			try {
 				this.fireEvent('contextswitch', folder, oldContext, context);
-			} finally {
+			} catch (e) {
+				error = e;
+			}
+
+			try {
 				this.fireEvent('aftercontextswitch', folder, oldContext, context);
+			} catch (e) {
+				if (error) {
+					// eslint-disable-next-line no-console
+					console.error(e);
+				} else {
+					error = e;
+				}
+			}
+
+			if (error) {
+				throw error;
 			}
 		}
 	},
