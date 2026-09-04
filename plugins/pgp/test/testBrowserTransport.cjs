@@ -295,7 +295,7 @@ async function testCore(context) {
 	const sourceAttachment = new Record({name: 'inline.png', cid: 'response-cid', hidden: true, filetype: 'image/png'});
 	sourceAttachment.localContent = {blob: new Blob([Uint8Array.of(0, 255, 65)]), url: 'blob:source', inlineUrl: 'data:image/png;base64,AA=='};
 	const uploadResponse = context.Zarafa.mail.MailContextModel.uploadLocalResponseAttachment;
-	equal(await uploadResponse.call({}, responseRecord, sourceAttachment), uploadRecord, 'Reply/forward local upload correlates the exact completed record');
+	equal(await uploadResponse.call({}, responseRecord, sourceAttachment, true), uploadRecord, 'Reply/forward local upload correlates the exact completed record');
 	check(uploadRecord.isInline() && uploadRecord.get('cid') === 'response-cid' && uploadRecord.get('hidden'), 'Reply/forward helper restores inline state and CID after upload');
 	equal(responseRecord.get('html_body'), '<img src="cid:response-cid"><img src="cid:response-cid">', 'Reply/forward HTML replaces only local attachment URLs with original CID');
 	check(uploadedFile.name === 'inline.png' && uploadedFile.parts[0] === sourceAttachment.localContent.blob, 'Reply/forward upload uses local attachment bytes rather than server source IDs');

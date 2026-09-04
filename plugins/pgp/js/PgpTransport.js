@@ -227,7 +227,7 @@ Zarafa.plugins.pgp.PgpTransport = (function() {
 		state.urls.push(url);
 		return url;
 	}
-	function localAttachment(item, state) {
+	function localAttachment(item, state, html) {
 		var content = item.content instanceof Uint8Array ? item.content : new Uint8Array(item.content);
 		var type = String(item.mimeType || 'application/octet-stream').toLowerCase();
 		var name = safeName(item.filename), cid = String(item.contentId || '').replace(/^<|>$/g, '');
@@ -235,7 +235,8 @@ Zarafa.plugins.pgp.PgpTransport = (function() {
 		var url = URL.createObjectURL(blob);
 		state.urls.push(url);
 		var attachment = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.mapi.ObjectType.MAPI_ATTACH, {
-			name: name, size: content.length, filetype: type, cid: cid, hidden: item.disposition === 'inline' && !!cid,
+			// Only files the body references are inline; a Content-ID alone keeps a file visible.
+			name: name, size: content.length, filetype: type, cid: cid, hidden: !!cid && html.indexOf('cid:' + cid) !== -1,
 			attach_method: Zarafa.core.mapi.AttachMethod.ATTACH_BY_VALUE, attach_num: -1,
 			extension: name.indexOf('.') < 0 ? '' : name.split('.').pop().toLowerCase()
 		});
@@ -314,7 +315,7 @@ Zarafa.plugins.pgp.PgpTransport = (function() {
 		var html = parsed.html ? DOMPurify.sanitize(parsed.html, {FORBID_TAGS: ['style', 'form', 'input', 'button', 'svg', 'math'], FORBID_ATTR: ['srcset', 'background']}) : '';
 		html = html ? Zarafa.core.HTMLParser.blockExternalContent(html) : '';
 		revoke(state);
-		state.attachments = (parsed.attachments || []).map(function(item) { return localAttachment(item, state); });
+		state.attachments = (parsed.attachments || []).map(function(item) { return localAttachment(item, state, html); });
 		record.data.body = parsed.text || '';
 		record.data.html_body = html;
 		record.data.isHTML = !!html;

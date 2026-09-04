@@ -466,21 +466,23 @@ test('reply rejects signed-only decoding errors but allows a rendered invalid si
 test('decrypted response attachment selection keeps inline replies and full forwards', async () => {
 	const {context} = runtime();
 	const model = Object.create(context.Zarafa.mail.MailContextModel.prototype), copied = [];
-	const attachments = [record({name: 'photo.png', cid: 'inline'}), record({name: 'document.pdf'}), record({name: 'opaque.mime'})];
+	const attachments = [record({name: 'photo.png', cid: 'inline'}), record({name: 'document.pdf'}), record({name: 'opaque.mime'}), record({name: 'report.pdf', cid: 'unreferenced'})];
 	attachments[0].localContent = {blob: {}};
 	attachments[1].localContent = {blob: {}};
-	const source = {getAttachmentStore: () => ({each: fn => attachments.forEach(fn)})};
+	attachments[3].localContent = {blob: {}};
+	const source = record({html_body: '<p>Quoted</p><img src="cid:inline">'});
+	source.getAttachmentStore = () => ({each: fn => attachments.forEach(fn)});
 	const response = record({isHTML: true});
 	response.getAttachmentStore = () => ({getCount: () => copied.length});
 	response.getMessageActions = () => ({browser_decrypted: true});
-	model.uploadLocalResponseAttachment = async (target, attachment) => { copied.push(attachment.get('name')); };
+	model.uploadLocalResponseAttachment = async (target, attachment, inline) => { copied.push(attachment.get('name') + (inline ? '*' : '')); };
 	model.initRecordAttachments(response, source, 'reply');
 	await response.browserAttachmentsReady;
-	assert.deepEqual(copied, ['photo.png']);
+	assert.deepEqual(copied, ['photo.png*']);
 	copied.length = 0;
 	model.initRecordAttachments(response, source, 'forward');
 	await response.browserAttachmentsReady;
-	assert.deepEqual(copied, ['photo.png', 'document.pdf']);
+	assert.deepEqual(copied, ['photo.png*', 'document.pdf', 'report.pdf']);
 });
 
 test('decrypted attachment uploads preserve bytes and CID without a source message reference', async () => {
@@ -502,9 +504,34 @@ test('decrypted attachment uploads preserve bytes and CID without a source messa
 	const source = record({name: 'binary.png', cid: 'image@example.test', filetype: 'image/png', hidden: true});
 	source.localContent = {blob: bytes, inlineUrl: 'data:image/png;base64,AA=='};
 	const model = Object.create(context.Zarafa.mail.MailContextModel.prototype);
-	await model.uploadLocalResponseAttachment(response, source);
+	await model.uploadLocalResponseAttachment(response, source, true);
 	assert.equal(uploaded.get('cid'), 'image@example.test');
 	assert.equal(uploaded.inline, true);
 	assert.equal(response.get('html_body'), '<img src="cid:image@example.test">');
 	assert.equal(Object.keys(listeners).length, 0);
+});
+
+test('a decrypted file with an unreferenced Content-ID is attached as a visible file', async () => {
+	const {context} = runtime(), listeners = {}, uploaded = record();
+	uploaded.setInline = value => { uploaded.inline = value; };
+	const win = {File: class { constructor(parts, name, options) { this.parts = parts; this.name = name; this.type = options.type; } },
+		DataTransfer: class { constructor() { this.files = []; this.items = {add: file => this.files.push(file)}; } }, setTimeout, clearTimeout};
+	context.Zarafa.core.BrowserWindowMgr = {getActive: () => win};
+	let hiddenUpload;
+	const store = {canUploadFiles: () => true, on: (event, fn) => { listeners[event] = fn; }, un: event => { delete listeners[event]; },
+		uploadFiles(files, form, hidden) {
+			hiddenUpload = hidden;
+			listeners.add(store, [uploaded]);
+			listeners.write(store, 'create', {}, {}, [uploaded]);
+		}};
+	const response = record({html_body: '<p>Quoted text only</p>'});
+	response.getAttachmentStore = () => store;
+	const source = record({name: 'report.pdf', cid: 'part1@mail.example', filetype: 'application/pdf', hidden: false});
+	source.localContent = {blob: new Uint8Array([1, 2, 3]), url: 'blob:report'};
+	const model = Object.create(context.Zarafa.mail.MailContextModel.prototype);
+	await model.uploadLocalResponseAttachment(response, source, false);
+	assert.equal(hiddenUpload, false);
+	assert.equal(uploaded.get('cid'), undefined);
+	assert.equal(uploaded.inline, undefined);
+	assert.equal(response.get('html_body'), '<p>Quoted text only</p>');
 });

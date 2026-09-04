@@ -652,15 +652,17 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		var store = record.getAttachmentStore();
 		if (record.getMessageActions().browser_decrypted === true) {
 			var model = this, files = [], reply = actionType === Zarafa.mail.data.ActionTypes.REPLY || actionType === Zarafa.mail.data.ActionTypes.REPLYALL;
+			var html = String(origRecord.get('html_body') || '');
 			origRecord.getAttachmentStore().each(function(attach) {
 				if (!attach.localContent) { return; }
-				var inline = !!attach.get('cid');
-				if (!reply || (inline && record.get('isHTML'))) { files.push(attach); }
+				// A Content-ID alone does not make a file inline; the body must use it.
+				var cid = attach.get('cid'), inline = !!cid && html.indexOf('cid:' + cid) !== -1;
+				if (!reply || (inline && record.get('isHTML'))) { files.push({attachment: attach, inline: inline}); }
 			});
 			// Sequential uploads keep duplicate filenames and response correlation
 			// unambiguous. Open compose only after all files are accounted for.
-			record.browserAttachmentsReady = files.reduce(function(previous, attachment) {
-				return previous.then(function() { return model.uploadLocalResponseAttachment(record, attachment); });
+			record.browserAttachmentsReady = files.reduce(function(previous, file) {
+				return previous.then(function() { return model.uploadLocalResponseAttachment(record, file.attachment, file.inline); });
 			}, Promise.resolve()).then(function() {
 				record.set('hasattach', store.getCount() > 0);
 			});
@@ -688,7 +690,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	},
 
 	/** Upload a decrypted file without sending a server-side source attachment ID. */
-	uploadLocalResponseAttachment: function(record, source)
+	uploadLocalResponseAttachment: function(record, source, inline)
 	{
 		var store = record.getAttachmentStore(), local = source.localContent;
 		return new Promise(function(resolve, reject) {
@@ -716,9 +718,9 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 				if (uploadedRecords && (Array.isArray(uploadedRecords) ? uploadedRecords.indexOf(uploaded) === -1 : uploadedRecords !== uploaded)) { return; }
 				cleanup();
 				var cid = source.get('cid');
-				if (cid) {
+				if (inline === true && cid) {
 					uploaded.set('cid', cid);
-					uploaded.set('hidden', source.get('hidden'));
+					uploaded.set('hidden', true);
 					uploaded.setInline(true);
 					var html = record.get('html_body') || '';
 					Ext.each([local.inlineUrl, local.url], function(url) {
@@ -736,7 +738,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 			store.on('write', onWrite);
 			store.on('exception', onError);
 			timeout = win.setTimeout(onError, 120000);
-			try { store.uploadFiles(transfer.files, undefined, source.get('hidden')); }
+			try { store.uploadFiles(transfer.files, undefined, inline === true); }
 			catch (error) { cleanup(); reject(error); }
 		});
 	},
