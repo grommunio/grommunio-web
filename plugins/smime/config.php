@@ -16,9 +16,9 @@ define('PLUGIN_SMIME_USER_DEFAULT_ENABLE_SMIME', true);
 // and run update-ca-certificates (Debian/SUSE) or update-ca-trust (RHEL).
 define('PLUGIN_SMIME_CACERTS', '/etc/ssl/certs');
 
-// Allow AIA "CA Issuers" certificate downloads from private, loopback or
-// link-local addresses. Enable when an internal PKI publishes its CA
-// certificates on the intranet; leave disabled otherwise (SSRF hardening).
+// Allow AIA "CA Issuers" and OCSP downloads from private, loopback or
+// link-local addresses. Enable when an internal PKI publishes these endpoints
+// on the intranet; leave disabled otherwise (SSRF hardening).
 define('PLUGIN_SMIME_AIA_ALLOW_PRIVATE', false);
 
 // Legacy cipher constant (integer). Retained for backward compatibility.
