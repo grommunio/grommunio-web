@@ -1101,7 +1101,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * @param {String} userid The userid of the user to check for availability
 	 * @param {Date} periodStartTime object of start time
 	 * @param {Date} periodEndTime object of end time
-	 * @return {Boolean} return true if the attendee is free.
+	 * @return {Boolean} True when a block occupying the user overlaps the period
 	 */
 	checkAttendeeBusyStatus: function(userid, periodStartTime, periodEndTime)
 	{
@@ -1110,54 +1110,28 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 			return false;
 		}
 
-		// Ensure that only the current userid is shown
-		blockStore.filter('userid', userid, false, true, true);
-
-		// Sort on start date
-		blockStore.sort('start', 'ASC');
-
 		// We need timestamps rather then Date objects
 		periodStartTime = periodStartTime.getTime() / 1000;
 		periodEndTime = periodEndTime.getTime() / 1000;
 
-		// Lets search the block for Blocks that overlap with the requested period.
-		var busy = false;
+		// The store is remoteSort, so it cannot be ordered locally; check every block.
+		var records = blockStore.getRange();
+		for (var index = 0, len = records.length; index < len; index++) {
+			var record = records[index];
 
-		for (var index = 0, len = blockStore.getCount(); index < len; index++) {
-			var record = blockStore.getAt(index);
+			if (record.get('userid') != userid) {
+				continue;
+			}
 
-			/*
-			 * First we need to remove appointments which are occurring extremely before/after our
-			 * selected time, because then we have only set of appointments which are overlapping/inside
-			 * our time slot.
-			 * For that to achieve we first need sort the records based on start time and then to find
-			 * out sum block record whose end time is greater then our selected start time
-			 * and start time is less then our selected end time then we can say that
-			 * the selected time is not proper for all the attendees.
-			 */
-			// remove appointments occurring extremely before our selected time
-			if (record.get('end') > periodStartTime) {
-				// check if we are really interested in this block
-				if (!this.occupiesAttendee(record.get('status'))) {
-					continue;
-				}
+			if (!this.occupiesAttendee(record.get('status'))) {
+				continue;
+			}
 
-				// before we have sorted the records based on start time so we will be having a record which either
-				// overlaps current selected time or doesn't overlap it
-				// below condition will check if the record overlaps current selected time
-				if (record.get('start') < periodEndTime) {
-					busy = true;
-				}
-
-				// if the above condition is not satisfied then we can say that
-				// record is not overlapping current selected time and therefore
-				// break the loop
-				break;
+			if (record.get('end') > periodStartTime && record.get('start') < periodEndTime) {
+				return true;
 			}
 		}
 
-		blockStore.clearFilter();
-
-		return busy;
+		return false;
 	}
 });
