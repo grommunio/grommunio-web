@@ -348,9 +348,6 @@ body.dark-mode .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner .zarafa-x
 }
 
 /* Status bar */
-body.dark-mode .zarafa-notifier-eventdropdown-item,
-body.dark-mode .zarafa-notifier-popup-item,
-body.dark-mode .zarafa-notifier-dropdown-item,
 body.dark-mode .ext-el-mask,
 body.dark-mode #zarafa-mainpanel .k-slider {
 	border-color: var(--dm-selected);
