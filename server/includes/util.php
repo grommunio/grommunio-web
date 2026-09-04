@@ -597,9 +597,26 @@ function streamProperty($mapiobj, $proptag) {
 	$stat = mapi_stream_stat($stream);
 	mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
 
+	// A read may return less than a full block, so count bytes rather than
+	// iterations: advancing by BLOCK_SIZE regardless returns a short value.
 	$datastring = '';
-	for ($i = 0; $i < $stat['cb']; $i += BLOCK_SIZE) {
-		$datastring .= mapi_stream_read($stream, BLOCK_SIZE);
+	while (strlen($datastring) < $stat['cb']) {
+		$chunk = mapi_stream_read($stream, BLOCK_SIZE);
+		if ($chunk === false || $chunk === '') {
+			break;
+		}
+
+		$datastring .= $chunk;
+	}
+
+	// The caller cannot tell a short value from a complete one, so say so here.
+	if (strlen($datastring) < $stat['cb']) {
+		error_log(sprintf(
+			"streamProperty(): property 0x%08X is truncated, read %d of %d bytes",
+			$proptag,
+			strlen($datastring),
+			$stat['cb']
+		));
 	}
 
 	return $datastring;

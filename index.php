@@ -251,7 +251,8 @@ if (isset($_GET['load'])) {
 	exit;
 }
 
-if (ENABLE_WELCOME_SCREEN && $GLOBALS["settings"]->get("zarafa/v1/main/show_welcome") !== false) {
+// Unloaded settings answer with defaults and refuse to save, so the welcome screen would come back on every load.
+if (ENABLE_WELCOME_SCREEN && $GLOBALS["settings"]->isLoaded() && $GLOBALS["settings"]->get("zarafa/v1/main/show_welcome") !== false) {
 	// These hooks are defined twice (also when there is a "load" argument supplied)
 	$GLOBALS['PluginManager']->triggerHook("server.index.load.welcome.before");
 	include BASE_PATH . 'server/includes/templates/welcome.php';
