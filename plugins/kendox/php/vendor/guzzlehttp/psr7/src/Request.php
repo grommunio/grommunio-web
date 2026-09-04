@@ -16,14 +16,11 @@ class Request implements RequestInterface
 {
     use MessageTrait;
 
-    /** @var string */
-    private $method;
+    private string $method;
 
-    /** @var string|null */
-    private $requestTarget;
+    private ?string $requestTarget = null;
 
-    /** @var UriInterface */
-    private $uri;
+    private UriInterface $uri;
 
     /**
      * @param string                               $method  HTTP method
@@ -40,11 +37,14 @@ class Request implements RequestInterface
         string $version = '1.1'
     ) {
         $this->assertMethod($method);
-        if (!($uri instanceof UriInterface)) {
+        $this->assertProtocolVersion($version);
+
+        if (!$uri instanceof UriInterface) {
             $uri = new Uri($uri);
         }
+        self::getRequestTargetFromUri($uri);
 
-        $this->method = strtoupper($method);
+        $this->method = $method;
         $this->uri = $uri;
         $this->setHeaders($headers);
         $this->protocol = $version;
@@ -64,24 +64,12 @@ class Request implements RequestInterface
             return $this->requestTarget;
         }
 
-        $target = $this->uri->getPath();
-        if ($target === '') {
-            $target = '/';
-        }
-        if ($this->uri->getQuery() != '') {
-            $target .= '?'.$this->uri->getQuery();
-        }
-
-        return $target;
+        return self::getRequestTargetFromUri($this->uri);
     }
 
-    public function withRequestTarget($requestTarget): RequestInterface
+    public function withRequestTarget(string $requestTarget): RequestInterface
     {
-        if (preg_match('#\s#', $requestTarget)) {
-            throw new InvalidArgumentException(
-                'Invalid request target provided; cannot contain whitespace'
-            );
-        }
+        self::assertRequestTarget($requestTarget);
 
         $new = clone $this;
         $new->requestTarget = $requestTarget;
@@ -94,11 +82,11 @@ class Request implements RequestInterface
         return $this->method;
     }
 
-    public function withMethod($method): RequestInterface
+    public function withMethod(string $method): RequestInterface
     {
         $this->assertMethod($method);
         $new = clone $this;
-        $new->method = strtoupper($method);
+        $new->method = $method;
 
         return $new;
     }
@@ -108,17 +96,30 @@ class Request implements RequestInterface
         return $this->uri;
     }
 
-    public function withUri(UriInterface $uri, $preserveHost = false): RequestInterface
+    public function withUri(UriInterface $uri, bool $preserveHost = false): RequestInterface
     {
-        if ($uri === $this->uri) {
+        $sameUri = $uri === $this->uri;
+
+        if (!$sameUri && $this->requestTarget === null) {
+            self::getRequestTargetFromUri($uri);
+        }
+
+        $currentHost = $this->getHeaderLine('Host');
+        $host = null;
+
+        if (!$preserveHost || $currentHost === '') {
+            $host = $this->getHostFromUri($uri);
+        }
+
+        if ($sameUri && ($host === null || $currentHost === $host)) {
             return $this;
         }
 
         $new = clone $this;
         $new->uri = $uri;
 
-        if (!$preserveHost || !isset($this->headerNames['host'])) {
-            $new->updateHostFromUri();
+        if ($host !== null) {
+            $new->setHostHeader($host);
         }
 
         return $new;
@@ -126,16 +127,36 @@ class Request implements RequestInterface
 
     private function updateHostFromUri(): void
     {
-        $host = $this->uri->getHost();
+        $host = $this->getHostFromUri($this->uri);
 
-        if ($host == '') {
+        if ($host === null) {
             return;
         }
 
-        if (($port = $this->uri->getPort()) !== null) {
+        $this->setHostHeader($host);
+    }
+
+    private function getHostFromUri(UriInterface $uri): ?string
+    {
+        $host = $uri->getHost();
+
+        if ($host === '') {
+            return null;
+        }
+
+        Uri::assertValidHost($host);
+
+        if (($port = $uri->getPort()) !== null) {
             $host .= ':'.$port;
         }
 
+        $this->assertValue('Host', $host);
+
+        return $host;
+    }
+
+    private function setHostHeader(string $host): void
+    {
         if (isset($this->headerNames['host'])) {
             $header = $this->headerNames['host'];
         } else {
@@ -143,17 +164,47 @@ class Request implements RequestInterface
             $this->headerNames['host'] = 'Host';
         }
         // Ensure Host is the first header.
-        // See: https://datatracker.ietf.org/doc/html/rfc7230#section-5.4
+        // See: https://datatracker.ietf.org/doc/html/rfc9110#section-7.2
         $this->headers = [$header => [$host]] + $this->headers;
     }
 
-    /**
-     * @param mixed $method
-     */
-    private function assertMethod($method): void
+    private function assertMethod(string $method): void
     {
-        if (!is_string($method) || $method === '') {
-            throw new InvalidArgumentException('Method must be a non-empty string.');
+        if (!Rfc9110::isToken($method)) {
+            throw new InvalidArgumentException('Method must be a valid HTTP token.');
         }
+    }
+
+    private static function getRequestTargetFromUri(UriInterface $uri): string
+    {
+        $target = self::normalizePathForOriginForm($uri->getPath());
+        if ($target === '') {
+            $target = '/';
+        }
+        if ($uri->getQuery() != '') {
+            $target .= '?'.$uri->getQuery();
+        }
+
+        self::assertRequestTarget($target);
+
+        return $target;
+    }
+
+    private static function assertRequestTarget(string $requestTarget): void
+    {
+        if (!Rfc9112::isValidRequestTarget($requestTarget)) {
+            throw new InvalidArgumentException(
+                'Invalid request target provided; cannot be empty or contain whitespace or control characters'
+            );
+        }
+    }
+
+    private static function normalizePathForOriginForm(string $path): string
+    {
+        if (str_starts_with($path, '//')) {
+            return '/'.ltrim($path, '/');
+        }
+
+        return $path;
     }
 }

@@ -13,17 +13,16 @@ use Psr\Http\Message\StreamInterface;
  */
 final class AppendStream implements StreamInterface
 {
+    use NonSerializableStreamTrait;
+
     /** @var StreamInterface[] Streams being decorated */
-    private $streams = [];
+    private array $streams = [];
 
-    /** @var bool */
-    private $seekable = true;
+    private bool $seekable = true;
 
-    /** @var int */
-    private $current = 0;
+    private int $current = 0;
 
-    /** @var int */
-    private $pos = 0;
+    private int $pos = 0;
 
     /**
      * @param StreamInterface[] $streams Streams to decorate. Each stream must
@@ -38,18 +37,9 @@ final class AppendStream implements StreamInterface
 
     public function __toString(): string
     {
-        try {
-            $this->rewind();
+        $this->rewind();
 
-            return $this->getContents();
-        } catch (\Throwable $e) {
-            if (\PHP_VERSION_ID >= 70400) {
-                throw $e;
-            }
-            trigger_error(sprintf('%s::__toString exception: %s', self::class, (string) $e), E_USER_ERROR);
-
-            return '';
-        }
+        return $this->getContents();
     }
 
     /**
@@ -132,7 +122,7 @@ final class AppendStream implements StreamInterface
             if ($s === null) {
                 return null;
             }
-            $size += $s;
+            $size = Integers::add($size, $s);
         }
 
         return $size;
@@ -153,7 +143,7 @@ final class AppendStream implements StreamInterface
     /**
      * Attempts to seek to the given position. Only supports SEEK_SET.
      */
-    public function seek($offset, $whence = SEEK_SET): void
+    public function seek(int $offset, int $whence = SEEK_SET): void
     {
         if (!$this->seekable) {
             throw new \RuntimeException('This AppendStream is not seekable');
@@ -185,8 +175,16 @@ final class AppendStream implements StreamInterface
     /**
      * Reads from all of the appended streams until the length is met or EOF.
      */
-    public function read($length): string
+    public function read(int $length): string
     {
+        if ($length < 0) {
+            throw new \RuntimeException('Length parameter cannot be negative');
+        }
+
+        if ($this->streams === []) {
+            return '';
+        }
+
         $buffer = '';
         $total = count($this->streams) - 1;
         $remaining = $length;
@@ -202,7 +200,7 @@ final class AppendStream implements StreamInterface
                 ++$this->current;
             }
 
-            $result = $this->streams[$this->current]->read($remaining);
+            $result = StreamTimeout::read($this->streams[$this->current], $remaining, 'Unable to read from stream: timed out');
 
             if ($result === '') {
                 $progressToNext = true;
@@ -213,7 +211,7 @@ final class AppendStream implements StreamInterface
             $remaining = $length - strlen($buffer);
         }
 
-        $this->pos += strlen($buffer);
+        $this->pos = Integers::add($this->pos, strlen($buffer));
 
         return $buffer;
     }
@@ -233,16 +231,13 @@ final class AppendStream implements StreamInterface
         return $this->seekable;
     }
 
-    public function write($string): int
+    public function write(string $string): int
     {
         throw new \RuntimeException('Cannot write to an AppendStream');
     }
 
-    /**
-     * @return mixed
-     */
-    public function getMetadata($key = null)
+    public function getMetadata(?string $key = null): ?array
     {
-        return $key ? null : [];
+        return $key === null ? [] : null;
     }
 }

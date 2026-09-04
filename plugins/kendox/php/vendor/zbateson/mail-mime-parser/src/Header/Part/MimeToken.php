@@ -43,7 +43,8 @@ class MimeToken extends Token
     public function __construct(LoggerInterface $logger, MbWrapper $charsetConverter, string $value)
     {
         parent::__construct($logger, $charsetConverter, $value);
-        $this->value = $this->decodeMime(\preg_replace('/\r|\n/', '', $this->value));
+        $decoded = $this->decodeMime(\preg_replace('/\r|\n/', '', $this->value));
+        $this->value = \preg_replace('/[\r\n]+/', '', $decoded) ?? '';
         $pattern = self::MIME_PART_PATTERN;
         $this->canIgnoreSpacesBefore = (bool) \preg_match("/^\s*{$pattern}|\s+/", $this->rawValue);
         $this->canIgnoreSpacesAfter = (bool) \preg_match("/{$pattern}\s*|\s+\$/", $this->rawValue);
@@ -80,10 +81,7 @@ class MimeToken extends Token
         }
         $this->charset = $matches[1];
         $this->language = (!empty($matches[2])) ? $matches[2] : null;
-        if ($this->charset !== null) {
-            return $this->convertEncoding($body, $this->charset, true);
-        }
-        return $this->convertEncoding($body, 'ISO-8859-1', true);
+        return $this->convertEncoding($body, $this->charset, true);
     }
 
     /**

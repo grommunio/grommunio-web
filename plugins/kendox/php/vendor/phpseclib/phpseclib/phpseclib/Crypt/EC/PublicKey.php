@@ -4,24 +4,23 @@
  * EC Public Key
  *
  * @author    Jim Wigginton <terrafrost@php.net>
- * @copyright 2015 Jim Wigginton
+ * @copyright 2019-2026 Jim Wigginton
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link      http://phpseclib.sourceforge.net
+ * @link      https://phpseclib.com/
  */
 
-namespace phpseclib3\Crypt\EC;
+declare(strict_types=1);
 
-use phpseclib3\Common\Functions\Strings;
-use phpseclib3\Crypt\Common;
-use phpseclib3\Crypt\EC;
-use phpseclib3\Crypt\EC\BaseCurves\Montgomery as MontgomeryCurve;
-use phpseclib3\Crypt\EC\BaseCurves\TwistedEdwards as TwistedEdwardsCurve;
-use phpseclib3\Crypt\EC\Curves\Ed25519;
-use phpseclib3\Crypt\EC\Formats\Keys\PKCS1;
-use phpseclib3\Crypt\EC\Formats\Signature\ASN1 as ASN1Signature;
-use phpseclib3\Crypt\Hash;
-use phpseclib3\Exception\UnsupportedOperationException;
-use phpseclib3\Math\BigInteger;
+namespace phpseclib4\Crypt\EC;
+
+use phpseclib4\Common\Functions\Strings;
+use phpseclib4\Crypt\{Common, EC, Hash};
+use phpseclib4\Crypt\EC\BaseCurves\{Montgomery as MontgomeryCurve, TwistedEdwards as TwistedEdwardsCurve};
+use phpseclib4\Crypt\EC\Curves\{Ed25519, Ed448};
+use phpseclib4\Crypt\EC\Formats\Keys\PKCS1;
+use phpseclib4\Crypt\EC\Formats\Signature\ASN1 as ASN1Signature;
+use phpseclib4\Exception\{BadConfigurationException, BadMethodCallException, UnexpectedValueException};
+use phpseclib4\Math\BigInteger;
 
 /**
  * EC Public Key
@@ -36,32 +35,94 @@ final class PublicKey extends EC implements Common\PublicKey
      * Verify a signature
      *
      * @see self::verify()
-     * @param string $message
-     * @param string $signature
-     * @return mixed
      */
-    public function verify($message, $signature)
+    public function verify(string $message, string|array $signature): bool
     {
         if ($this->curve instanceof MontgomeryCurve) {
-            throw new UnsupportedOperationException('Montgomery Curves cannot be used to create signatures');
+            throw new BadMethodCallException('Montgomery Curves cannot be used to create signatures');
         }
 
         $shortFormat = $this->shortFormat;
         $format = $this->sigFormat;
-        if ($format === false) {
-            return false;
+
+        if ($shortFormat == 'Raw') {
+            if (is_string($signature)) {
+                throw new UnexpectedValueException('Raw signatures must be arrays');
+            }
+        } elseif (is_array($signature)) {
+            throw new UnexpectedValueException('The only signature format that takes in arrays is the Raw format');
         }
 
-        $order = $this->curve->getOrder();
+        if (self::$forcedEngine === 'libsodium' && !$this->curve instanceof Ed25519) {
+            throw new BadConfigurationException('Engine libsodium is only supported for Ed25519');
+        }
+
+        // at this point either self::$forcedEngine is NOT libsodium or the curve is Ed25519
+
+        if ($this->curve instanceof Ed25519 && self::$forcedEngine !== 'PHP' && self::$forcedEngine !== 'OpenSSL') {
+            if (self::$forcedEngine === 'libsodium') {
+                if (!function_exists('sodium_crypto_sign_verify_detached')) {
+                    throw new BadConfigurationException('Engine libsodium is forced but unsupported for Ed25519 / Ed448');
+                }
+                if (isset($this->context)) {
+                    throw new BadConfigurationException('Engine libsodium is forced but unsupported for Ed25519ctx (context)');
+                }
+            }
+            if (function_exists('sodium_crypto_sign_verify_detached') && !isset($this->context)) {
+                if ($shortFormat == 'SSH2') {
+                    [$type, $signature] = Strings::unpackSSH2('ss', $signature);
+                    if ($type != 'ssh-ed25519') {
+                        return false;
+                    }
+                }
+                if (strlen($signature) != 64) {
+                    return false;
+                }
+
+                return sodium_crypto_sign_verify_detached($signature, $message, $this->toString('libsodium'));
+            }
+        }
+
+        // at this point self::$forcedEngine CAN'T be libsodium so we won't check for it henceforth
 
         if ($this->curve instanceof TwistedEdwardsCurve) {
             if ($shortFormat == 'SSH2') {
-                list(, $signature) = Strings::unpackSSH2('ss', $signature);
+                [$type, $signature] = Strings::unpackSSH2('ss', $signature);
+                if ($this->curve instanceof Ed25519 && $type != 'ssh-ed25519') {
+                    return false;
+                }
+                if ($this->curve instanceof Ed448 && $type != 'ssh-ed448') {
+                    return false;
+                }
+            }
+            if (strlen($signature) != 2 * $this->curve::SIZE) {
+                return false;
             }
 
-            if ($this->curve instanceof Ed25519 && self::$engines['libsodium'] && !isset($this->context)) {
-                return sodium_crypto_sign_verify_detached($signature, $message, $this->toString('libsodium'));
+            if (self::$forcedEngine !== 'PHP') {
+                $keyTypeConstant = $this->curve instanceof Ed25519 ? 'OPENSSL_KEYTYPE_ED25519' : 'OPENSSL_KEYTYPE_ED448';
+                if (self::$forcedEngine === 'OpenSSL') {
+                    if (!defined($keyTypeConstant)) {
+                        throw new BadConfigurationException('Engine OpenSSL is forced but unsupported for Ed25519 / Ed448');
+                    }
+                    // OpenSSL supports Ed25519/Ed448 but not Ed25519ctx (context), so skip if context is set
+                    if (isset($this->context)) {
+                        throw new BadConfigurationException('Engine OpenSSL is forced but unsupported for Ed25519 / Ed448 curves with context\'s');
+                    }
+                }
+                if (defined($keyTypeConstant) && !isset($this->context)) {
+                    // algorithm 0 is used because EdDSA has a built-in hash
+                    $result = openssl_verify($message, $signature, $this->toString('PKCS8'), 0) === 1;
+                    if ($result !== -1 && $result !== false) {
+                        return (bool) $result;
+                    }
+                    if (self::$forcedEngine === 'OpenSSL') {
+                        throw new BadConfigurationException('Engine OpenSSL is forced but was unable to create signature because of ' . openssl_error_string());
+                    }
+                }
             }
+
+            $order = $this->curve->getOrder();
 
             $curve = $this->curve;
             if (strlen($signature) != 2 * $curve::SIZE) {
@@ -74,7 +135,7 @@ final class PublicKey extends EC implements Common\PublicKey
             try {
                 $R = PKCS1::extractPoint($R, $curve);
                 $R = $this->curve->convertToInternal($R);
-            } catch (\Exception $e) {
+            } catch (\Exception) {
                 return false;
             }
 
@@ -91,7 +152,7 @@ final class PublicKey extends EC implements Common\PublicKey
                 $dom2 = !isset($this->context) ? '' :
                     'SigEd25519 no Ed25519 collisions' . "\0" . chr(strlen($this->context)) . $this->context;
             } else {
-                $context = isset($this->context) ? $this->context : '';
+                $context = $this->context ?? '';
                 $dom2 = 'SigEd448' . "\0" . chr(strlen($context)) . $context;
             }
 
@@ -99,7 +160,7 @@ final class PublicKey extends EC implements Common\PublicKey
             $k = $hash->hash($dom2 . substr($signature, 0, $curve::SIZE) . $A . $message);
             $k = strrev($k);
             $k = new BigInteger($k, 256);
-            list(, $k) = $k->divide($order);
+            [, $k] = $k->divide($order);
 
             $qa = $curve->convertToInternal($this->QA);
 
@@ -111,22 +172,36 @@ final class PublicKey extends EC implements Common\PublicKey
             return $lhs[0]->equals($rhs[0]) && $lhs[1]->equals($rhs[1]);
         }
 
-        $params = $format::load($signature);
-        if ($params === false || count($params) != 2) {
+        try {
+            ['r' => $r, 's' => $s] = $format::load($signature);
+        } catch (\Exception) {
             return false;
         }
-        $r = $params['r'];
-        $s = $params['s'];
 
-        if (self::$engines['OpenSSL'] && in_array($this->hash->getHash(), openssl_get_md_methods())) {
-            $sig = $format != 'ASN1' ? ASN1Signature::save($r, $s) : $signature;
+        if (self::$forcedEngine === 'OpenSSL' && !function_exists('openssl_get_md_methods')) {
+            throw new BadConfigurationException('Engine OpenSSL is forced but unsupported for ECDSA');
+        }
 
-            $result = openssl_verify($message, $sig, $this->toString('PKCS8', ['namedCurve' => false]), $this->hash->getHash());
+        // at this point $forcedEngine is either PHP or null. either that OR openssl_get_md_methods() exists
 
-            if ($result != -1) {
-                return (bool) $result;
+        if (self::$forcedEngine !== 'PHP') {
+            if (in_array($this->hash->getHash(), openssl_get_md_methods())) {
+                $sig = $format != 'ASN1' ? ASN1Signature::save($r, $s) : $signature;
+
+                $result = openssl_verify($message, $sig, $this->toString('PKCS8', ['namedCurve' => false]), $this->hash->getHash());
+
+                if ($result !== -1 && $result !== false) {
+                    return (bool) $result;
+                }
+                if (self::$forcedEngine === 'OpenSSL') {
+                    throw new BadConfigurationException('Engine OpenSSL is forced but was unable to verify signature because of ' . openssl_error_string());
+                }
+            } elseif (self::$forcedEngine === 'OpenSSL') {
+                throw new BadConfigurationException('Engine OpenSSL is forced but unsupported for ECDSA / ' . $this->hash->getHash());
             }
         }
+
+        $order = $this->curve->getOrder();
 
         $n_1 = $order->subtract(self::$one);
         if (!$r->between(self::$one, $n_1) || !$s->between(self::$one, $n_1)) {
@@ -140,31 +215,28 @@ final class PublicKey extends EC implements Common\PublicKey
         $z = $Ln > 0 ? $e->bitwise_rightShift($Ln) : $e;
 
         $w = $s->modInverse($order);
-        list(, $u1) = $z->multiply($w)->divide($order);
-        list(, $u2) = $r->multiply($w)->divide($order);
+        [, $u1] = $z->multiply($w)->divide($order);
+        [, $u2] = $r->multiply($w)->divide($order);
 
         $u1 = $this->curve->convertInteger($u1);
         $u2 = $this->curve->convertInteger($u2);
 
-        list($x1, $y1) = $this->curve->multiplyAddPoints(
+        // multiplyPoint() always returns [$x, $y]; only $x is needed here
+        [$x1, ] = $this->curve->multiplyAddPoints(
             [$this->curve->getBasePoint(), $this->QA],
             [$u1, $u2]
         );
 
         $x1 = $x1->toBigInteger();
-        list(, $x1) = $x1->divide($order);
+        [, $x1] = $x1->divide($order);
 
         return $x1->equals($r);
     }
 
     /**
      * Returns the public key
-     *
-     * @param string $type
-     * @param array $options optional
-     * @return string
      */
-    public function toString($type, array $options = [])
+    public function toString(string $type, array $options = []): string
     {
         $type = self::validatePlugin('Keys', $type, 'savePublicKey');
 
