@@ -1365,9 +1365,10 @@ Zarafa.common.Actions = {
 			modal = layerType === 'dialogs';
 		}
 
+		// autoResize sizes the panel from the main window's viewport, which fits the dialog layer alone.
 		config = Ext.applyIf(config||{}, {
 			modal: modal,
-			autoResize: true
+			autoResize: modal
 		});
 
 		if (!modal && !Ext.isEmpty(layerType)) {

@@ -304,7 +304,8 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	openPreviewIn: function(layerType)
 	{
 		// 'modal' would force the dialog layer, so it and layerType are exclusive.
-		var config = {modal: layerType === 'dialogs', autoResize: true};
+		// autoResize sizes the panel from the main window's viewport, which fits the dialog layer alone.
+		var config = {modal: layerType === 'dialogs', autoResize: layerType === 'dialogs'};
 		if (!config.modal) {
 			config.layerType = layerType;
 		}
