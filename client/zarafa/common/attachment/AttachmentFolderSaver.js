@@ -145,27 +145,34 @@ Zarafa.common.attachment.AttachmentFolderSaver = {
 				throw new Error('HTTP ' + response.status);
 			}
 
+			// download_attachment.php reports a failure as HTTP 200 with an inline JSON body.
+			if (!(/^\s*attachment/i).test(response.headers.get('Content-Disposition') || '')) {
+				throw new Error('not an attachment body');
+			}
+
 			return response.blob();
 		}).then(function(blob) {
 			return self.reserveFileName(dirHandle, record.get('name'), taken).then(function(name) {
+				var writable = null;
+
 				return dirHandle.getFileHandle(name, { create: true }).then(function(fileHandle) {
 					return fileHandle.createWritable();
-				}).then(function(writable) {
-					return writable.write(blob).then(function() {
-						return writable.close();
-					}, function(err) {
-						// Discard the writes and remove the entry this call
-						// created: an empty file carrying an attachment's name
-						// reads as a saved attachment and is not one.
-						return writable.abort().catch(function() {
-							// An unabortable stream still must not keep the file.
-						}).then(function() {
-							return dirHandle.removeEntry(name).catch(function() {
-								// Nothing more can be done about the leftover.
-							});
-						}).then(function() {
-							throw err;
-						});
+				}).then(function(stream) {
+					writable = stream;
+
+					return writable.write(blob);
+				}).then(function() {
+					return writable.close();
+				}).catch(function(err) {
+					// The entry exists from the moment it is asked for, so a failing
+					// createWritable() or close() must take it away as well: an empty
+					// file carrying an attachment's name reads as a saved attachment.
+					var discarded = writable ? writable.abort().catch(Ext.emptyFn) : Promise.resolve();
+
+					return discarded.then(function() {
+						return dirHandle.removeEntry(name).catch(Ext.emptyFn);
+					}).then(function() {
+						throw err;
 					});
 				});
 			});
@@ -208,6 +215,11 @@ Zarafa.common.attachment.AttachmentFolderSaver = {
 				// It resolved, so the folder already holds this name.
 				return attempt(n + 1);
 			}, function(err) {
+				// A directory of this name holds the name just as a file does.
+				if (err && err.name === 'TypeMismatchError') {
+					return attempt(n + 1);
+				}
+
 				if (err && err.name === 'NotFoundError') {
 					taken[name.toLowerCase()] = true;
 					return name;
@@ -235,8 +247,14 @@ Zarafa.common.attachment.AttachmentFolderSaver = {
 			.replace(/^.*[\\/]/, '')
 			.replace(this.invalidFileNameChars, '_')
 			.replace(/^\.+/, '_')
-			.replace(/[. ]+$/, '')
-			.substring(0, 200);
+			.replace(/[. ]+$/, '');
+
+		if (clean.length > 200) {
+			// Cut the stem, not the tail: the tail carries the extension.
+			var dot = clean.lastIndexOf('.');
+			var ext = dot > 0 && clean.length - dot <= 16 ? clean.substring(dot) : '';
+			clean = (clean.substring(0, 200 - ext.length) + ext).replace(/[. ]+$/, '');
+		}
 
 		return Ext.isEmpty(clean) ? _('Untitled') : clean;
 	},
@@ -255,9 +273,15 @@ Zarafa.common.attachment.AttachmentFolderSaver = {
 			msg = _('The attachments could not be saved.');
 		} else {
 			msg = String.format(
-				ngettext('{0} attachment was saved. This one could not be: {1}',
-					'{0} attachments were saved. These could not be: {1}', written),
-				written, Ext.util.Format.htmlEncode(failed.join(', ')));
+				ngettext('This attachment could not be saved: {0}',
+					'These attachments could not be saved: {0}', failed.length),
+				Ext.util.Format.htmlEncode(failed.join(', ')));
+
+			if (written > 0) {
+				msg = String.format(
+					ngettext('{0} attachment was saved.',
+						'{0} attachments were saved.', written), written) + ' ' + msg;
+			}
 		}
 
 		Ext.MessageBox.show({
