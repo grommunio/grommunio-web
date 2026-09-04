@@ -50,6 +50,12 @@ Zarafa.common.previewer.ui.ViewerContainer = Ext.extend(Zarafa.core.ui.ContentPa
 	defaultScale: 0.8,
 
 	/**
+	 * @property {String} plainTitle The {@link #title} before it was HTML-encoded
+	 * for the window header, for a tab caption which encodes on its own.
+	 */
+	plainTitle: undefined,
+
+	/**
 	 * @constructor
 	 * @param config
 	 */
@@ -82,6 +88,8 @@ Zarafa.common.previewer.ui.ViewerContainer = Ext.extend(Zarafa.core.ui.ContentPa
 		}
 
 		var viewSize = Ext.getBody().getViewSize();
+
+		this.plainTitle = this.title;
 
     Ext.applyIf(config, {
 			xtype: 'zarafa.viewercontainer',

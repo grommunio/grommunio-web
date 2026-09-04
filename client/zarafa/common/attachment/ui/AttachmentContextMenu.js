@@ -59,6 +59,22 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 			handler: this.onPreviewItem,
 			beforeShow: this.onPreviewBeforeShow
 		}, {
+			// The layers the setting did not pick. Their text is set in
+			// beforeShow, since which two they are depends on the setting.
+			text: _('Preview in a dialog'),
+			iconCls: 'icon_attachment_preview',
+			previewSlot: 0,
+			scope: this,
+			handler: this.onPreviewInTarget,
+			beforeShow: this.onPreviewInTargetBeforeShow
+		}, {
+			text: _('Preview in a dialog'),
+			iconCls: 'icon_attachment_preview',
+			previewSlot: 1,
+			scope: this,
+			handler: this.onPreviewInTarget,
+			beforeShow: this.onPreviewInTargetBeforeShow
+		}, {
 			text: _('Download'),
 			iconCls: 'icon_download',
 			scope: this,
@@ -257,14 +273,87 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 
 	/**
 	 * Event handler which is called when the user selects the 'Preview'
-	 * item in the context menu. This will open the item in a new dialog.
+	 * item in the context menu. This will open the item in the layer the user
+	 * configured: a dialog, a grommunio Web tab or a browser window.
 	 * @private
 	 */
 	onPreviewItem: function()
 	{
 		//should already have a component that has won the bid
 		//invoke that component to open the preview
-		Zarafa.core.data.UIFactory.openViewRecord(this.getPrimaryRecord(), {modal: true, autoResize: true});
+		this.openPreviewIn(Zarafa.common.Actions.getFilePreviewerTarget());
+	},
+
+	/**
+	 * Event handler for the two items which preview in a layer other than the
+	 * configured one. The layer was put on the item by
+	 * {@link #onPreviewInTargetBeforeShow}.
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The clicked item
+	 * @private
+	 */
+	onPreviewInTarget: function(item)
+	{
+		this.openPreviewIn(item.previewTarget);
+	},
+
+	/**
+	 * Opens the preview in the given {@link Zarafa.core.data.UIFactory} layer.
+	 * @param {String} layerType 'dialogs', 'tabs' or 'separateWindows'
+	 * @private
+	 */
+	openPreviewIn: function(layerType)
+	{
+		// 'modal' would force the dialog layer, so it and layerType are exclusive.
+		// autoResize sizes the panel from the main window's viewport, which fits the dialog layer alone.
+		var config = {modal: layerType === 'dialogs', autoResize: layerType === 'dialogs'};
+		if (!config.modal) {
+			config.layerType = layerType;
+		}
+
+		Zarafa.core.data.UIFactory.openViewRecord(this.getPrimaryRecord(), config);
+	},
+
+	/**
+	 * Labels one of the two alternative preview items and hides it when there is
+	 * no layer left for its slot, which is the case for the second one where
+	 * pop-out is unavailable or the menu is shown from a popped-out window.
+	 * Visibility otherwise follows the 'Preview' item.
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} item context menu item
+	 * @param {Zarafa.core.data.IPMAttachmentRecord} record attachment record on which context menu is shown
+	 */
+	onPreviewInTargetBeforeShow: function(item, record)
+	{
+		var configured = Zarafa.common.Actions.getFilePreviewerTarget();
+		var alternatives = Zarafa.common.Actions.getFilePreviewerTargets().filter(function(target) {
+			return target !== configured && Zarafa.common.Actions.canPreviewInTarget(target);
+		});
+
+		item.previewTarget = alternatives[item.previewSlot];
+		if (!item.previewTarget) {
+			item.setVisible(false);
+
+			return;
+		}
+
+		item.setText(this.getPreviewTargetText(item.previewTarget));
+		this.onPreviewBeforeShow(item, record);
+	},
+
+	/**
+	 * @param {String} target 'dialogs', 'tabs' or 'separateWindows'
+	 * @return {String} the menu text offering a preview in that layer
+	 * @private
+	 */
+	getPreviewTargetText: function(target)
+	{
+		switch (target) {
+			case 'tabs':
+				return _('Preview in a grommunio Web tab');
+			case 'separateWindows':
+				return _('Preview in a browser window');
+			default:
+				return _('Preview in a dialog');
+		}
 	},
 
 	/**

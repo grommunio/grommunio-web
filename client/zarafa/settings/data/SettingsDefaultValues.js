@@ -509,7 +509,14 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 * zarafa/v1/main/file_previewer/odf_zoom
 								 * Default zoom mode for ODF documents. (default: auto) [Allowed: "auto", "page-actual", "page-width"]
 								 */
-								'odf_zoom': 'page-width'
+								'odf_zoom': 'page-width',
+
+								/**
+								 * zarafa/v1/main/file_previewer/target
+								 * Where a preview opens. (default: dialogs) [Allowed: "dialogs", "tabs", "separateWindows"]
+								 * The values are layer types of Zarafa.core.data.UIFactory.
+								 */
+								'target': 'dialogs'
 							},
 
 							/**

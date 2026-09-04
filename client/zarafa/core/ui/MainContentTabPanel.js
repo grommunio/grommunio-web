@@ -106,8 +106,8 @@ Zarafa.core.ui.MainContentTabPanel = Ext.extend(Ext.TabPanel, {
 		if(!Ext.isEmpty(title)) {
 			// provide a tooltip for tab titles
 			item.tabTip = title;
-			// now we can shorten the length of title if its exceeding 20 characters
-			item.title = Ext.util.Format.htmlEncodeElide(title, 20, 0);
+			// shorten a title exceeding 20 characters; plainTitle, where a panel has one, is title unencoded
+			item.title = Ext.util.Format.htmlEncodeElide(item.plainTitle || title, 20, 0);
 		}
 
 		Zarafa.core.ui.MainContentTabPanel.superclass.initTab.call(this, item, index);

@@ -1354,17 +1354,26 @@ Zarafa.common.Actions = {
 	openAttachmentRecord: function(record, config)
 	{
 		var modal = false;
+		var layerType;
 		if(record.isEmbeddedMessage()) {
 			// if we are going to open embedded message then we need to first convert it into mail record
 			record = record.convertToIPMRecord();
-		} else {
-			modal = Zarafa.common.Actions.isSupportedDocument(record.get("name"));
+		} else if (Zarafa.common.Actions.isSupportedDocument(record.get("name"))) {
+			// 'modal' is accepted by the dialog layer alone, and passing it forces
+			// that layer whatever the setting asks for.
+			layerType = Zarafa.common.Actions.getFilePreviewerTarget();
+			modal = layerType === 'dialogs';
 		}
 
+		// autoResize sizes the panel from the main window's viewport, which fits the dialog layer alone.
 		config = Ext.applyIf(config||{}, {
 			modal: modal,
-			autoResize: true
+			autoResize: modal
 		});
+
+		if (!modal && !Ext.isEmpty(layerType)) {
+			config = Ext.applyIf(config, {layerType: layerType});
+		}
 
 		if(record) {
 			Zarafa.core.data.UIFactory.openViewRecord(record, config);
@@ -1492,6 +1501,55 @@ Zarafa.common.Actions = {
 		}
 		// First of all check if filepreviewer plugin settings available else check main settings.
 		return container.getSettingsModel().getOneOf('zarafa/v1/plugins/filepreviewer/enable', 'zarafa/v1/main/file_previewer/enable');
+	},
+
+	/**
+	 * The {@link Zarafa.core.data.UIFactory} layers a preview can open in, in the
+	 * order they are offered. A browser window needs
+	 * {@link Zarafa#supportsPopOut pop-out}, so it is absent where that is missing.
+	 *
+	 * @return {String[]} layer types
+	 */
+	getFilePreviewerTargets: function ()
+	{
+		var targets = ['dialogs', 'tabs'];
+
+		if (Zarafa.supportsPopOut()) {
+			targets.push('separateWindows');
+		}
+
+		return targets;
+	},
+
+	/**
+	 * Whether a preview can open in the given layer from the browser window the
+	 * request comes from.
+	 *
+	 * @param {String} target a layer type
+	 * @return {Boolean} True when a preview can open in that layer right now
+	 */
+	canPreviewInTarget: function (target)
+	{
+		if (Zarafa.common.Actions.getFilePreviewerTargets().indexOf(target) === -1) {
+			return false;
+		}
+
+		// The tab panel belongs to the main window, so a tab opened from a popped-out window lands behind it.
+		return target !== 'tabs' || Zarafa.core.BrowserWindowMgr.isMainWindowActive();
+	},
+
+	/**
+	 * The layer a preview opens in, from zarafa/v1/main/file_previewer/target.
+	 * An unavailable or unknown choice is answered with the dialog rather than
+	 * with a layer that cannot open.
+	 *
+	 * @return {String} a layer type: 'dialogs', 'tabs' or 'separateWindows'
+	 */
+	getFilePreviewerTarget: function ()
+	{
+		var target = container.getSettingsModel().get('zarafa/v1/main/file_previewer/target');
+
+		return Zarafa.common.Actions.canPreviewInTarget(target) ? target : 'dialogs';
 	},
 
 	/**
