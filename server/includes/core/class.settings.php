@@ -46,6 +46,11 @@ class Settings {
 	private $sysAdminDefaults;
 
 	/**
+	 * True once a load attempt threw, so it is not retried on every accessor.
+	 */
+	private $loadFailed;
+
+	/**
 	 * Json encoded string which represents existing set of settings, this can be compared with json encoded
 	 * string of $this->settings to check if there was a change in settings and we need to save the changes
 	 * to mapi.
@@ -78,6 +83,7 @@ class Settings {
 		$this->settings_string = '';
 		$this->modified = [];
 		$this->init = false;
+		$this->loadFailed = false;
 	}
 
 	/**
@@ -88,6 +94,10 @@ class Settings {
 	 * instance of the Settings class
 	 */
 	public function Init() {
+		if ($this->init || $this->loadFailed) {
+			return;
+		}
+
 		$GLOBALS['PluginManager']->triggerHook('server.core.settings.init.before', ['settingsObj' => $this]);
 
 		$this->store = $GLOBALS['mapisession']->getDefaultMessageStore();
@@ -105,7 +115,10 @@ class Settings {
 
 			// $this->init stays false, so from here get() answers with its
 			// default for every path.
-			Log::Write(LOGLEVEL_ERROR, "Settings::Init(): the settings of this store could not be loaded, continuing with defaults for every setting: " . $e->getMessage());
+			$this->loadFailed = true;
+			$msg = "Settings::Init(): the settings of this store could not be loaded, continuing with defaults for every setting: " . $e->getMessage();
+			error_log($msg);
+			Log::Write(LOGLEVEL_ERROR, $msg);
 		}
 	}
 
