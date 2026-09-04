@@ -16,9 +16,9 @@ define('PLUGIN_SMIME_USER_DEFAULT_ENABLE_SMIME', true);
 // and run update-ca-certificates (Debian/SUSE) or update-ca-trust (RHEL).
 define('PLUGIN_SMIME_CACERTS', '/etc/ssl/certs');
 
-// Allow AIA "CA Issuers" certificate downloads from private, loopback or
-// link-local addresses. Enable when an internal PKI publishes its CA
-// certificates on the intranet; leave disabled otherwise (SSRF hardening).
+// Allow AIA "CA Issuers" and OCSP downloads from private, loopback or
+// link-local addresses. Enable when an internal PKI publishes these endpoints
+// on the intranet; leave disabled otherwise (SSRF hardening).
 define('PLUGIN_SMIME_AIA_ALLOW_PRIVATE', false);
 
 // Legacy cipher constant (integer). Retained for backward compatibility.
@@ -65,7 +65,10 @@ define('PLUGIN_SMIME_PROXY', '');
 define('PLUGIN_SMIME_PROXY_PORT', '');
 define('PLUGIN_SMIME_PROXY_USERPWD', '');
 
-// LDAP certificate lookup settings (for class.ldapcerts.php)
+// LDAP certificate lookup settings (for class.ldapcerts.php). The URI and
+// search base are fixed here and cannot be overridden by a client request, so
+// configured bind credentials are only sent to this administrator-selected
+// directory. Prefer ldaps:// when credentials are configured.
 // define('PLUGIN_SMIME_LDAP_URI', 'ldap://ldap.example.com');
 // define('PLUGIN_SMIME_LDAP_BASE_DN', 'dc=example,dc=com');
 // define('PLUGIN_SMIME_LDAP_BIND_DN', '');

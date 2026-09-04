@@ -6,18 +6,18 @@
  * Returns a PublicKey or PrivateKey object.
  *
  * @author    Jim Wigginton <terrafrost@php.net>
- * @copyright 2019-2026 Jim Wigginton
+ * @copyright 2009 Jim Wigginton
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link      https://phpseclib.com/
+ * @link      http://phpseclib.sourceforge.net
  */
 
-declare(strict_types=1);
+namespace phpseclib3\Crypt;
 
-namespace phpseclib4\Crypt;
-
-use phpseclib4\Crypt\Common\{AsymmetricKey, PrivateKey, PublicKey};
-use phpseclib4\Exception\NoKeyLoadedException;
-use phpseclib4\File\{ASN1, X509};
+use phpseclib3\Crypt\Common\AsymmetricKey;
+use phpseclib3\Crypt\Common\PrivateKey;
+use phpseclib3\Crypt\Common\PublicKey;
+use phpseclib3\Exception\NoKeyLoadedException;
+use phpseclib3\File\X509;
 
 /**
  * PublicKeyLoader
@@ -29,54 +29,36 @@ abstract class PublicKeyLoader
     /**
      * Loads a public or private key
      *
+     * @return AsymmetricKey
+     * @param string|array $key
+     * @param string $password optional
      * @throws NoKeyLoadedException if key is not valid
      */
-    public static function load(
-        #[\SensitiveParameter] string|array $key,
-        #[\SensitiveParameter] ?string $password = null
-    ): AsymmetricKey {
-        // use ASN1::EXCEPTIONS_EVERY_TIME here because without it a valid RSAPublicKey
-        // will be recognized as an invalid RSAPrivateKey
-        $reenable = ASN1::isBlobsOnBadDecodesEnabled();
-        ASN1::disableBlobsOnBadDecodes();
+    public static function load($key, $password = false)
+    {
         try {
-            $key = EC::load($key, $password);
-            if ($reenable) {
-                ASN1::enableBlobsOnBadDecodes();
-            }
-            return $key;
-        } catch (NoKeyLoadedException) {
+            return EC::load($key, $password);
+        } catch (NoKeyLoadedException $e) {
         }
 
         try {
-            $key = RSA::load($key, $password);
-            if ($reenable) {
-                ASN1::enableBlobsOnBadDecodes();
-            }
-            return $key;
-        } catch (NoKeyLoadedException) {
+            return RSA::load($key, $password);
+        } catch (NoKeyLoadedException $e) {
         }
 
         try {
-            $key = DSA::load($key, $password);
-            if ($reenable) {
-                ASN1::enableBlobsOnBadDecodes();
-            }
-            return $key;
-        } catch (NoKeyLoadedException) {
+            return DSA::load($key, $password);
+        } catch (NoKeyLoadedException $e) {
         }
 
         try {
-            $key = X509::load($key)->getPublicKey();
-            if ($reenable) {
-                ASN1::enableBlobsOnBadDecodes();
+            $x509 = new X509();
+            $x509->loadX509($key);
+            $key = $x509->getPublicKey();
+            if ($key) {
+                return $key;
             }
-            return $key;
-        } catch (\Exception) {
-        }
-
-        if ($reenable) {
-            ASN1::enableBlobsOnBadDecodes();
+        } catch (\Exception $e) {
         }
 
         throw new NoKeyLoadedException('Unable to read key');
@@ -84,11 +66,13 @@ abstract class PublicKeyLoader
 
     /**
      * Loads a private key
+     *
+     * @return PrivateKey
+     * @param string|array $key
+     * @param string $password optional
      */
-    public static function loadPrivateKey(
-        #[\SensitiveParameter] string|array $key,
-        #[\SensitiveParameter] ?string $password = null
-    ): PrivateKey {
+    public static function loadPrivateKey($key, $password = false)
+    {
         $key = self::load($key, $password);
         if (!$key instanceof PrivateKey) {
             throw new NoKeyLoadedException('The key that was loaded was not a private key');
@@ -98,8 +82,11 @@ abstract class PublicKeyLoader
 
     /**
      * Loads a public key
+     *
+     * @return PublicKey
+     * @param string|array $key
      */
-    public static function loadPublicKey(string|array $key): PublicKey
+    public static function loadPublicKey($key)
     {
         $key = self::load($key);
         if (!$key instanceof PublicKey) {
@@ -110,11 +97,14 @@ abstract class PublicKeyLoader
 
     /**
      * Loads parameters
+     *
+     * @return AsymmetricKey
+     * @param string|array $key
      */
-    public static function loadParameters(string $key): AsymmetricKey
+    public static function loadParameters($key)
     {
         $key = self::load($key);
-        if ($key instanceof PrivateKey || $key instanceof PublicKey) {
+        if (!$key instanceof PrivateKey && !$key instanceof PublicKey) {
             throw new NoKeyLoadedException('The key that was loaded was not a parameter');
         }
         return $key;

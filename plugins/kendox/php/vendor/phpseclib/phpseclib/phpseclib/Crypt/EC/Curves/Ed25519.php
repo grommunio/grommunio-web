@@ -3,27 +3,23 @@
 /**
  * Ed25519
  *
- * PHP version 8.1+
+ * PHP version 5 and 7
  *
  * @author    Jim Wigginton <terrafrost@php.net>
- * @copyright 2018-2026 Jim Wigginton
+ * @copyright 2017 Jim Wigginton
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
  */
 
-declare(strict_types=1);
+namespace phpseclib3\Crypt\EC\Curves;
 
-namespace phpseclib4\Crypt\EC\Curves;
+use phpseclib3\Crypt\EC\BaseCurves\TwistedEdwards;
+use phpseclib3\Crypt\Hash;
+use phpseclib3\Crypt\Random;
+use phpseclib3\Math\BigInteger;
 
-use phpseclib4\Crypt\EC\BaseCurves\TwistedEdwards;
-use phpseclib4\Crypt\Hash;
-use phpseclib4\Exception\{InvalidStateException, UnexpectedValueException, UnsupportedValueException};
-use phpseclib4\Math\BigInteger;
-use phpseclib4\Math\PrimeField\Integer as PrimeInteger;
-
-/** @psalm-api */
 class Ed25519 extends TwistedEdwards
 {
-    public const HASH = 'sha512';
+    const HASH = 'sha512';
     /*
       Per https://tools.ietf.org/html/rfc8032#page-6 EdDSA has several parameters, one of which is b:
 
@@ -34,13 +30,12 @@ class Ed25519 extends TwistedEdwards
 
       SIZE corresponds to b
     */
-    public const SIZE = 32;
+    const SIZE = 32;
 
     public function __construct()
     {
         // 2^255 - 19
-        $modulo = new BigInteger('7FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFED', 16);
-        $this->setModulo($modulo);
+        $this->setModulo(new BigInteger('7FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFED', 16));
         $this->setCoefficients(
             // -1
             new BigInteger('7FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEC', 16), // a
@@ -54,11 +49,12 @@ class Ed25519 extends TwistedEdwards
         $this->setOrder(new BigInteger('1000000000000000000000000000000014DEF9DEA2F79CD65812631A5CF5D3ED', 16));
         // algorithm 14.47 from http://cacr.uwaterloo.ca/hac/about/chap14.pdf#page=16
         /*
-        $this->setReduction(function(BigInteger $x) use ($modulo) {
+        $this->setReduction(function($x) {
             $parts = $x->bitwise_split(255);
+            $className = $this->className;
 
             if (count($parts) > 2) {
-                [, $r] = $x->divide($modulo);
+                list(, $r) = $x->divide($className::$modulo);
                 return $r;
             }
 
@@ -67,11 +63,11 @@ class Ed25519 extends TwistedEdwards
 
             switch (count($parts)) {
                 case 2:
-                    [$qi, $ri] = $parts;
+                    list($qi, $ri) = $parts;
                     break;
                 case 1:
                     $qi = $zero;
-                    [$ri] = $parts;
+                    list($ri) = $parts;
                     break;
                 case 0:
                     return $zero;
@@ -81,16 +77,16 @@ class Ed25519 extends TwistedEdwards
             while ($qi->compare($zero) > 0) {
                 $temp = $qi->multiply($c)->bitwise_split(255);
                 if (count($temp) == 2) {
-                    [$qi, $ri] = $temp;
+                    list($qi, $ri) = $temp;
                 } else {
                     $qi = $zero;
-                    [$ri] = $temp;
+                    list($ri) = $temp;
                 }
                 $r = $r->add($ri);
             }
 
-            while ($r->compare($modulo) > 0) {
-                $r = $r->subtract($modulo);
+            while ($r->compare($className::$modulo) > 0) {
+                $r = $r->subtract($className::$modulo);
             }
             return $r;
         });
@@ -104,9 +100,11 @@ class Ed25519 extends TwistedEdwards
      *
      * Used by EC\Keys\Common.php
      *
-     * @return PrimeInteger[]
+     * @param BigInteger $y
+     * @param boolean $sign
+     * @return object[]
      */
-    public function recoverX(BigInteger $y, bool $sign): array
+    public function recoverX(BigInteger $y, $sign)
     {
         $y = $this->factory->newInteger($y);
 
@@ -116,9 +114,9 @@ class Ed25519 extends TwistedEdwards
         $x2 = $u->divide($v);
         if ($x2->equals($this->zero)) {
             if ($sign) {
-                throw new UnexpectedValueException('Unable to recover X coordinate (x2 = 0)');
+                throw new \RuntimeException('Unable to recover X coordinate (x2 = 0)');
             }
-            return [clone $this->zero, $y];
+            return clone $this->zero;
         }
         // find the square root
         /* we don't do $x2->squareRoot() because, quoting from
@@ -140,7 +138,7 @@ class Ed25519 extends TwistedEdwards
             $temp = $this->two->pow($temp);
             $x = $x->multiply($temp);
             if (!$x->multiply($x)->subtract($x2)->equals($this->zero)) {
-                throw new UnexpectedValueException('Unable to recover X coordinate');
+                throw new \RuntimeException('Unable to recover X coordinate');
             }
         }
         if ($x->isOdd() != $sign) {
@@ -156,11 +154,14 @@ class Ed25519 extends TwistedEdwards
      * Implements steps 1-3 at https://tools.ietf.org/html/rfc8032#section-5.1.5
      *
      * Used by the various key handlers
+     *
+     * @param string $str
+     * @return array
      */
-    public function extractSecret(string $str): array
+    public function extractSecret($str)
     {
         if (strlen($str) != 32) {
-            throw new UnexpectedValueException('Private Key should be 32-bytes long');
+            throw new \LengthException('Private Key should be 32-bytes long');
         }
         // 1.  Hash the 32-byte private key using SHA-512, storing the digest in
         //     a 64-octet large buffer, denoted h.  Only the lower 32 bytes are
@@ -180,16 +181,19 @@ class Ed25519 extends TwistedEdwards
 
         return [
             'dA' => $dA,
-            'secret' => $str,
+            'secret' => $str
         ];
     }
 
     /**
      * Encode a point as a string
+     *
+     * @param array $point
+     * @return string
      */
-    public function encodePoint(array $point): string
+    public function encodePoint($point)
     {
-        [$x, $y] = $point;
+        list($x, $y) = $point;
         $y = $y->toBytes();
         $y[0] = $y[0] & chr(0x7F);
         if ($x->isOdd()) {
@@ -202,10 +206,12 @@ class Ed25519 extends TwistedEdwards
 
     /**
      * Creates a random scalar multiplier
+     *
+     * @return \phpseclib3\Math\PrimeField\Integer
      */
-    public function createRandomMultiplier(): BigInteger
+    public function createRandomMultiplier()
     {
-        return $this->extractSecret(random_bytes(32))['dA'];
+        return $this->extractSecret(Random::string(32))['dA'];
     }
 
     /**
@@ -216,9 +222,9 @@ class Ed25519 extends TwistedEdwards
      * A point (x,y) is represented in extended homogeneous coordinates (X, Y, Z, T),
      * with x = X/Z, y = Y/Z, x * y = T/Z.
      *
-     * @return PrimeInteger[]
+     * @return \phpseclib3\Math\PrimeField\Integer[]
      */
-    public function convertToInternal(array $p): array
+    public function convertToInternal(array $p)
     {
         if (empty($p)) {
             return [clone $this->zero, clone $this->one, clone $this->one, clone $this->zero];
@@ -237,12 +243,12 @@ class Ed25519 extends TwistedEdwards
     /**
      * Doubles a point on a curve
      *
-     * @return PrimeInteger[]
+     * @return FiniteField[]
      */
-    public function doublePoint(array $p): array
+    public function doublePoint(array $p)
     {
         if (!isset($this->factory)) {
-            throw new InvalidStateException('setModulo needs to be called before this method');
+            throw new \RuntimeException('setModulo needs to be called before this method');
         }
 
         if (!count($p)) {
@@ -250,11 +256,12 @@ class Ed25519 extends TwistedEdwards
         }
 
         if (!isset($p[2])) {
-            throw new UnsupportedValueException('Affine coordinates need to be manually converted to "Jacobi" coordinates or vice versa');
+            throw new \RuntimeException('Affine coordinates need to be manually converted to "Jacobi" coordinates or vice versa');
         }
 
         // from https://tools.ietf.org/html/rfc8032#page-12
-        [$x1, $y1, $z1] = $p; // $p has a fourth parameter as well - $t1
+
+        list($x1, $y1, $z1, $t1) = $p;
 
         $a = $x1->multiply($x1);
         $b = $y1->multiply($y1);
@@ -276,12 +283,12 @@ class Ed25519 extends TwistedEdwards
     /**
      * Adds two points on the curve
      *
-     * @return PrimeInteger[]
+     * @return FiniteField[]
      */
-    public function addPoint(array $p, array $q): array
+    public function addPoint(array $p, array $q)
     {
         if (!isset($this->factory)) {
-            throw new InvalidStateException('setModulo needs to be called before this method');
+            throw new \RuntimeException('setModulo needs to be called before this method');
         }
 
         if (!count($p) || !count($q)) {
@@ -295,7 +302,7 @@ class Ed25519 extends TwistedEdwards
         }
 
         if (!isset($p[2]) || !isset($q[2])) {
-            throw new UnsupportedValueException('Affine coordinates need to be manually converted to "Jacobi" coordinates or vice versa');
+            throw new \RuntimeException('Affine coordinates need to be manually converted to "Jacobi" coordinates or vice versa');
         }
 
         if ($p[0]->equals($q[0])) {
@@ -304,8 +311,8 @@ class Ed25519 extends TwistedEdwards
 
         // from https://tools.ietf.org/html/rfc8032#page-12
 
-        [$x1, $y1, $z1, $t1] = $p;
-        [$x2, $y2, $z2, $t2] = $q;
+        list($x1, $y1, $z1, $t1) = $p;
+        list($x2, $y2, $z2, $t2) = $q;
 
         $a = $y1->subtract($x1)->multiply($y2->subtract($x2));
         $b = $y1->add($x1)->multiply($y2->add($x2));

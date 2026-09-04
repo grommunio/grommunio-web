@@ -3,26 +3,23 @@
 /**
  * BCMath Dynamic Barrett Modular Exponentiation Engine
  *
- * PHP version 8.1+
+ * PHP version 5 and 7
  *
  * @author    Jim Wigginton <terrafrost@php.net>
- * @copyright 2017-2026 Jim Wigginton
+ * @copyright 2017 Jim Wigginton
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link      https://phpseclib.com/
+ * @link      http://pear.php.net/package/Math_BigInteger
  */
 
-declare(strict_types=1);
+namespace phpseclib3\Math\BigInteger\Engines\BCMath\Reductions;
 
-namespace phpseclib4\Math\BigInteger\Engines\BCMath\Reductions;
-
-use phpseclib4\Math\BigInteger\Engines\BCMath;
-use phpseclib4\Math\BigInteger\Engines\BCMath\Base;
+use phpseclib3\Math\BigInteger\Engines\BCMath;
+use phpseclib3\Math\BigInteger\Engines\BCMath\Base;
 
 /**
  * PHP Barrett Modular Exponentiation Engine
  *
  * @author  Jim Wigginton <terrafrost@php.net>
- * @psalm-api
  */
 abstract class EvalBarrett extends Base
 {
@@ -31,15 +28,19 @@ abstract class EvalBarrett extends Base
      *
      * @see self::generateCustomReduction
      */
-    private static \Closure $custom_reduction;
+    private static $custom_reduction;
 
     /**
      * Barrett Modular Reduction
      *
      * This calls a dynamically generated loop unrolled function that's specific to a given modulo.
      * Array lookups are avoided as are if statements testing for how many bits the host OS supports, etc.
+     *
+     * @param string $n
+     * @param string $m
+     * @return string
      */
-    protected static function reduce(string $n, string $m): string
+    protected static function reduce($n, $m)
     {
         $inline = self::$custom_reduction;
         return $inline($n);
@@ -47,17 +48,20 @@ abstract class EvalBarrett extends Base
 
     /**
      * Generate Custom Reduction
+     *
+     * @param BCMath $m
+     * @param string $class
+     * @return callable|void
      */
-    protected static function generateCustomReduction(BCMath $m, string $class): \Closure
+    protected static function generateCustomReduction(BCMath $m, $class)
     {
-        $m = $m->value;
         $m_length = strlen($m);
 
         if ($m_length < 5) {
-            $code = 'return bcmod($x, $n, 0);';
+            $code = 'return self::BCMOD_THREE_PARAMS ? bcmod($x, $n, 0) : bcmod($x, $n);';
             eval('$func = function ($n) { ' . $code . '};');
             self::$custom_reduction = $func;
-            return $func;
+            return;
         }
 
         $lhs = '1' . str_repeat('0', $m_length + ($m_length >> 1));

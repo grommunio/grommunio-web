@@ -3,21 +3,20 @@
 /**
  * Pure-PHP implementation of Salsa20.
  *
- * PHP version 8.1+
+ * PHP version 5
  *
  * @author    Jim Wigginton <terrafrost@php.net>
- * @copyright 2019-2026 Jim Wigginton
+ * @copyright 2019 Jim Wigginton
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link      https://phpseclib.com/
+ * @link      http://phpseclib.sourceforge.net
  */
 
-declare(strict_types=1);
+namespace phpseclib3\Crypt;
 
-namespace phpseclib4\Crypt;
-
-use phpseclib4\Common\Functions\Strings;
-use phpseclib4\Crypt\Common\StreamCipher;
-use phpseclib4\Exception\{BadDecryptionException, InvalidStateException, LengthException};
+use phpseclib3\Common\Functions\Strings;
+use phpseclib3\Crypt\Common\StreamCipher;
+use phpseclib3\Exception\BadDecryptionException;
+use phpseclib3\Exception\InsufficientSetupException;
 
 /**
  * Pure-PHP implementation of Salsa20.
@@ -28,68 +27,87 @@ class Salsa20 extends StreamCipher
 {
     /**
      * Part 1 of the state
+     *
+     * @var string|false
      */
-    protected ?string $p1 = null;
+    protected $p1 = false;
 
     /**
      * Part 2 of the state
+     *
+     * @var string|false
      */
-    protected ?string $p2 = null;
+    protected $p2 = false;
 
     /**
      * Key Length (in bytes)
+     *
+     * @var int
      */
-    protected int $key_length = 32; // = 256 bits
+    protected $key_length = 32; // = 256 bits
 
     /**
-     * @see \phpseclib4\Crypt\Salsa20::crypt()
+     * @see Salsa20::crypt()
      */
-    public const ENCRYPT = 0;
+    const ENCRYPT = 0;
 
     /**
-     * @see \phpseclib4\Crypt\Salsa20::crypt()
+     * @see Salsa20::crypt()
      */
-    public const DECRYPT = 1;
+    const DECRYPT = 1;
 
     /**
      * Encryption buffer for continuous mode
+     *
+     * @var array
      */
-    protected array $enbuffer;
+    protected $enbuffer;
 
     /**
      * Decryption buffer for continuous mode
+     *
+     * @var array
      */
-    protected array $debuffer;
+    protected $debuffer;
 
     /**
      * Counter
+     *
+     * @var int
      */
-    protected int $counter = 0;
+    protected $counter = 0;
 
     /**
      * Using Generated Poly1305 Key
+     *
+     * @var boolean
      */
-    protected bool $usingGeneratedPoly1305Key = false;
+    protected $usingGeneratedPoly1305Key = false;
 
     /**
      * Salsa20 uses a nonce
+     *
+     * @return bool
      */
-    public function usesNonce(): bool
+    public function usesNonce()
     {
         return true;
     }
 
     /**
      * Sets the key.
+     *
+     * @param string $key
+     * @throws \LengthException if the key length isn't supported
      */
-    public function setKey(#[\SensitiveParameter] string $key): void
+    public function setKey($key)
     {
         switch (strlen($key)) {
             case 16:
             case 32:
                 break;
             default:
-                throw new LengthException('Key of size ' . strlen($key) . ' not supported by this algorithm. Only keys of sizes 16 or 32 are supported');
+                throw new \LengthException('Key of size ' . strlen($key) . ' not supported by this algorithm. Only keys of sizes 16 or 32 are supported');
         }
 
         parent::setKey($key);
@@ -97,11 +115,13 @@ class Salsa20 extends StreamCipher
 
     /**
      * Sets the nonce.
+     *
+     * @param string $nonce
      */
-    public function setNonce(string $nonce): void
+    public function setNonce($nonce)
     {
         if (strlen($nonce) != 8) {
-            throw new LengthException('Nonce of size ' . strlen($nonce) . ' not supported by this algorithm. Only an 64-bit nonce is supported');
+            throw new \LengthException('Nonce of size ' . strlen($key) . ' not supported by this algorithm. Only an 64-bit nonce is supported');
         }
 
         $this->nonce = $nonce;
@@ -111,8 +131,10 @@ class Salsa20 extends StreamCipher
 
     /**
      * Sets the counter.
+     *
+     * @param int $counter
      */
-    public function setCounter(int $counter): void
+    public function setCounter($counter)
     {
         $this->counter = $counter;
         $this->setEngine();
@@ -123,14 +145,14 @@ class Salsa20 extends StreamCipher
      *
      * See https://tools.ietf.org/html/rfc8439#section-2.6.1
      */
-    protected function createPoly1305Key(): void
+    protected function createPoly1305Key()
     {
-        if (!isset($this->nonce)) {
-            throw new InvalidStateException('No nonce has been defined - call setNonce() first');
+        if ($this->nonce === false) {
+            throw new InsufficientSetupException('No nonce has been defined');
         }
 
-        if (!isset($this->key)) {
-            throw new InvalidStateException('No key has been defined - call setKey() first');
+        if ($this->key === false) {
+            throw new InsufficientSetupException('No key has been defined');
         }
 
         $c = clone $this;
@@ -142,8 +164,6 @@ class Salsa20 extends StreamCipher
         if ($this->counter == 0) {
             $this->counter++;
         }
-
-        $this->usingGeneratedPoly1305Key = true;
     }
 
     /**
@@ -164,7 +184,7 @@ class Salsa20 extends StreamCipher
      * @see self::setNonce()
      * @see self::disableContinuousBuffer()
      */
-    protected function setup(): void
+    protected function setup()
     {
         if (!$this->changed) {
             return;
@@ -174,12 +194,12 @@ class Salsa20 extends StreamCipher
 
         $this->changed = $this->nonIVChanged = false;
 
-        if (!isset($this->nonce)) {
-            throw new InvalidStateException('No nonce has been defined - call setNonce() first');
+        if ($this->nonce === false) {
+            throw new InsufficientSetupException('No nonce has been defined');
         }
 
-        if (!isset($this->key)) {
-            throw new InvalidStateException('No key has been defined - call setKey() first');
+        if ($this->key === false) {
+            throw new InsufficientSetupException('No key has been defined');
         }
 
         if ($this->usePoly1305 && !isset($this->poly1305Key)) {
@@ -208,7 +228,7 @@ class Salsa20 extends StreamCipher
     /**
      * Setup the key (expansion)
      */
-    protected function setupKey(): void
+    protected function setupKey()
     {
         // Salsa20 does not utilize this method
     }
@@ -216,11 +236,12 @@ class Salsa20 extends StreamCipher
     /**
      * Encrypts a message.
      *
-     * @return string $ciphertext
-     * @see \phpseclib4\Crypt\Common\SymmetricKey::decrypt()
+     * @see SymmetricKey::decrypt()
      * @see self::crypt()
+     * @param string $plaintext
+     * @return string $ciphertext
      */
-    public function encrypt(#[\SensitiveParameter] string $plaintext): string
+    public function encrypt($plaintext)
     {
         $ciphertext = $this->crypt($plaintext, self::ENCRYPT);
         if (isset($this->poly1305Key)) {
@@ -235,22 +256,23 @@ class Salsa20 extends StreamCipher
      * $this->decrypt($this->encrypt($plaintext)) == $this->encrypt($this->encrypt($plaintext)).
      * At least if the continuous buffer is disabled.
      *
-     * @return string $plaintext
-     * @see \phpseclib4\Crypt\Common\SymmetricKey::encrypt()
+     * @see SymmetricKey::encrypt()
      * @see self::crypt()
+     * @param string $ciphertext
+     * @return string $plaintext
      */
-    public function decrypt(string $ciphertext): string
+    public function decrypt($ciphertext)
     {
         if (isset($this->poly1305Key)) {
-            if (!isset($this->oldtag)) {
-                throw new InvalidStateException('Authentication Tag has not been set - call setTag() first');
+            if ($this->oldtag === false) {
+                throw new InsufficientSetupException('Authentication Tag has not been set');
             }
             $newtag = $this->poly1305($ciphertext);
             if ($this->oldtag != substr($newtag, 0, strlen($this->oldtag))) {
-                $this->oldtag = null;
+                $this->oldtag = false;
                 throw new BadDecryptionException('Derived authentication tag and supplied authentication tag do not match');
             }
-            $this->oldtag = null;
+            $this->oldtag = false;
         }
 
         return $this->crypt($ciphertext, self::DECRYPT);
@@ -258,29 +280,34 @@ class Salsa20 extends StreamCipher
 
     /**
      * Encrypts a block
+     *
+     * @param string $in
      */
-    protected function encryptBlock(string $in): string
+    protected function encryptBlock($in)
     {
         // Salsa20 does not utilize this method
-        return '';
     }
 
     /**
      * Decrypts a block
+     *
+     * @param string $in
      */
-    protected function decryptBlock(string $in): string
+    protected function decryptBlock($in)
     {
         // Salsa20 does not utilize this method
-        return '';
     }
 
     /**
      * Encrypts or decrypts a message.
      *
-     * @see self::decrypt()
      * @see self::encrypt()
+     * @see self::decrypt()
+     * @param string $text
+     * @param int $mode
+     * @return string $text
      */
-    private function crypt(string $text, int $mode): string
+    private function crypt($text, $mode)
     {
         $this->setup();
         if (!$this->continuousBuffer) {
@@ -372,8 +399,12 @@ class Salsa20 extends StreamCipher
 
     /**
      * Left Rotate
+     *
+     * @param int $x
+     * @param int $n
+     * @return int
      */
-    protected static function leftRotate(int $x, int $n): int
+    protected static function leftRotate($x, $n)
     {
         if (PHP_INT_SIZE == 8) {
             $r1 = $x << $n;
@@ -390,8 +421,13 @@ class Salsa20 extends StreamCipher
 
     /**
      * The quarterround function
+     *
+     * @param int $a
+     * @param int $b
+     * @param int $c
+     * @param int $d
      */
-    protected static function quarterRound(int &$a, int &$b, int &$c, int &$d): void
+    protected static function quarterRound(&$a, &$b, &$c, &$d)
     {
         $b ^= self::leftRotate($a + $d, 7);
         $c ^= self::leftRotate($b + $a, 9);
@@ -401,8 +437,25 @@ class Salsa20 extends StreamCipher
 
     /**
      * The doubleround function
+     *
+     * @param int $x0 (by reference)
+     * @param int $x1 (by reference)
+     * @param int $x2 (by reference)
+     * @param int $x3 (by reference)
+     * @param int $x4 (by reference)
+     * @param int $x5 (by reference)
+     * @param int $x6 (by reference)
+     * @param int $x7 (by reference)
+     * @param int $x8 (by reference)
+     * @param int $x9 (by reference)
+     * @param int $x10 (by reference)
+     * @param int $x11 (by reference)
+     * @param int $x12 (by reference)
+     * @param int $x13 (by reference)
+     * @param int $x14 (by reference)
+     * @param int $x15 (by reference)
      */
-    protected static function doubleRound(int &$x0, int &$x1, int &$x2, int &$x3, int &$x4, int &$x5, int &$x6, int &$x7, int &$x8, int &$x9, int &$x10, int &$x11, int &$x12, int &$x13, int &$x14, int &$x15): void
+    protected static function doubleRound(&$x0, &$x1, &$x2, &$x3, &$x4, &$x5, &$x6, &$x7, &$x8, &$x9, &$x10, &$x11, &$x12, &$x13, &$x14, &$x15)
     {
         // columnRound
         static::quarterRound($x0, $x4, $x8, $x12);
@@ -418,8 +471,10 @@ class Salsa20 extends StreamCipher
 
     /**
      * The Salsa20 hash function function
+     *
+     * @param string $x
      */
-    protected static function salsa20(string $x): string
+    protected static function salsa20($x)
     {
         $z = $x = unpack('V*', $x);
         for ($i = 0; $i < 10; $i++) {
@@ -438,11 +493,13 @@ class Salsa20 extends StreamCipher
      *
      * @see self::decrypt()
      * @see self::encrypt()
+     * @param string $ciphertext
+     * @return string
      */
-    protected function poly1305(string $text): string
+    protected function poly1305($ciphertext)
     {
         if (!$this->usingGeneratedPoly1305Key) {
-            return parent::poly1305($this->aad . $text);
+            return parent::poly1305($this->aad . $ciphertext);
         } else {
             /*
             sodium_crypto_aead_chacha20poly1305_encrypt does not calculate the poly1305 tag
@@ -462,9 +519,9 @@ class Salsa20 extends StreamCipher
             */
             return parent::poly1305(
                 self::nullPad128($this->aad) .
-                self::nullPad128($text) .
+                self::nullPad128($ciphertext) .
                 pack('V', strlen($this->aad)) . "\0\0\0\0" .
-                pack('V', strlen($text)) . "\0\0\0\0"
+                pack('V', strlen($ciphertext)) . "\0\0\0\0"
             );
         }
     }

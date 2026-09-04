@@ -3,31 +3,26 @@
 /**
  * PuTTY Formatted EC Key Handler
  *
- * PHP version 8.1+
+ * PHP version 5
  *
  * @author    Jim Wigginton <terrafrost@php.net>
- * @copyright 2018-2026 Jim Wigginton
+ * @copyright 2015 Jim Wigginton
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link      https://phpseclib.com/
+ * @link      http://phpseclib.sourceforge.net
  */
 
-declare(strict_types=1);
+namespace phpseclib3\Crypt\EC\Formats\Keys;
 
-namespace phpseclib4\Crypt\EC\Formats\Keys;
-
-use phpseclib4\Common\Functions\Strings;
-use phpseclib4\Crypt\Common\Formats\Keys\PuTTY as Progenitor;
-use phpseclib4\Crypt\EC\BaseCurves\{Base as BaseCurve, TwistedEdwards as TwistedEdwardsCurve};
-use phpseclib4\Exception\UnexpectedValueException;
-use phpseclib4\Math\BigInteger;
-use phpseclib4\Math\Common\FiniteField;
-use phpseclib4\Math\Common\FiniteField\Integer;
+use phpseclib3\Common\Functions\Strings;
+use phpseclib3\Crypt\Common\Formats\Keys\PuTTY as Progenitor;
+use phpseclib3\Crypt\EC\BaseCurves\Base as BaseCurve;
+use phpseclib3\Crypt\EC\BaseCurves\TwistedEdwards as TwistedEdwardsCurve;
+use phpseclib3\Math\BigInteger;
 
 /**
  * PuTTY Formatted EC Key Handler
  *
  * @author  Jim Wigginton <terrafrost@php.net>
- * @psalm-api
  */
 abstract class PuTTY extends Progenitor
 {
@@ -38,25 +33,29 @@ abstract class PuTTY extends Progenitor
      *
      * @var string
      */
-    public const PUBLIC_HANDLER = OpenSSH::class;
+    const PUBLIC_HANDLER = 'phpseclib3\Crypt\EC\Formats\Keys\OpenSSH';
 
     /**
      * Supported Key Types
+     *
+     * @var array
      */
-    protected static array $types = [
+    protected static $types = [
         'ecdsa-sha2-nistp256',
         'ecdsa-sha2-nistp384',
         'ecdsa-sha2-nistp521',
-        'ssh-ed25519',
+        'ssh-ed25519'
     ];
 
     /**
      * Break a public or private key down into its constituent components
+     *
+     * @param string $key
+     * @param string $password optional
+     * @return array
      */
-    public static function load(
-        #[\SensitiveParameter] string $key,
-        #[\SensitiveParameter] ?string $password
-    ): array {
+    public static function load($key, $password = '')
+    {
         $components = parent::load($key, $password);
         if (!isset($components['private'])) {
             return $components;
@@ -69,13 +68,13 @@ abstract class PuTTY extends Progenitor
 
         if ($components['curve'] instanceof TwistedEdwardsCurve) {
             if (Strings::shift($private, 4) != "\0\0\0\x20") {
-                throw new UnexpectedValueException('Length of ssh-ed25519 key should be 32');
+                throw new \RuntimeException('Length of ssh-ed25519 key should be 32');
             }
             $arr = $components['curve']->extractSecret($private);
             $components['dA'] = $arr['dA'];
             $components['secret'] = $arr['secret'];
         } else {
-            [$components['dA']] = Strings::unpackSSH2('i', $private);
+            list($components['dA']) = Strings::unpackSSH2('i', $private);
             $components['curve']->rangeCheck($components['dA']);
         }
 
@@ -85,22 +84,22 @@ abstract class PuTTY extends Progenitor
     /**
      * Convert a private key to the appropriate format.
      *
-     * @param Integer[] $publicKey
+     * @param BigInteger $privateKey
+     * @param BaseCurve $curve
+     * @param \phpseclib3\Math\Common\FiniteField\Integer[] $publicKey
+     * @param string $secret optional
+     * @param string $password optional
+     * @param array $options optional
+     * @return string
      */
-    public static function savePrivateKey(
-        #[\SensitiveParameter] BigInteger $privateKey,
-        BaseCurve $curve,
-        array $publicKey,
-        #[\SensitiveParameter] ?string $secret = null,
-        #[\SensitiveParameter] ?string $password = null,
-        array $options = []
-    ): string {
+    public static function savePrivateKey(BigInteger $privateKey, BaseCurve $curve, array $publicKey, $secret = null, $password = false, array $options = [])
+    {
         self::initialize_static_variables();
 
         $public = explode(' ', OpenSSH::savePublicKey($curve, $publicKey));
         $name = $public[0];
         $public = Strings::base64_decode($public[1]);
-        [, $length] = unpack('N', Strings::shift($public, 4));
+        list(, $length) = unpack('N', Strings::shift($public, 4));
         Strings::shift($public, $length);
 
         // PuTTY pads private keys with a null byte per the following:
@@ -122,15 +121,16 @@ abstract class PuTTY extends Progenitor
     /**
      * Convert an EC public key to the appropriate format
      *
-     * @param Integer[] $publicKey
-     * @psalm-suppress PossiblyUnusedParam
+     * @param BaseCurve $curve
+     * @param \phpseclib3\Math\Common\FiniteField[] $publicKey
+     * @return string
      */
-    public static function savePublicKey(BaseCurve $curve, array $publicKey, array $options = []): string
+    public static function savePublicKey(BaseCurve $curve, array $publicKey)
     {
         $public = explode(' ', OpenSSH::savePublicKey($curve, $publicKey));
         $type = $public[0];
         $public = Strings::base64_decode($public[1]);
-        [, $length] = unpack('N', Strings::shift($public, 4));
+        list(, $length) = unpack('N', Strings::shift($public, 4));
         Strings::shift($public, $length);
 
         return self::wrapPublicKey($public, $type);

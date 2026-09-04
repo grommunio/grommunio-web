@@ -3,25 +3,22 @@
 /**
  * OpenSSL Modular Exponentiation Engine
  *
- * PHP version 8.1+
+ * PHP version 5 and 7
  *
  * @author    Jim Wigginton <terrafrost@php.net>
- * @copyright 2017-2026 Jim Wigginton
+ * @copyright 2017 Jim Wigginton
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link      https://phpseclib.com/
+ * @link      http://pear.php.net/package/Math_BigInteger
  */
 
-declare(strict_types=1);
+namespace phpseclib3\Math\BigInteger\Engines\PHP;
 
-namespace phpseclib4\Math\BigInteger\Engines\PHP;
-
-use phpseclib4\Math\BigInteger\Engines\OpenSSL as Progenitor;
+use phpseclib3\Math\BigInteger\Engines\OpenSSL as Progenitor;
 
 /**
  * OpenSSL Modular Exponentiation Engine
  *
  * @author  Jim Wigginton <terrafrost@php.net>
- * @psalm-api
  */
 abstract class OpenSSL extends Progenitor
 {

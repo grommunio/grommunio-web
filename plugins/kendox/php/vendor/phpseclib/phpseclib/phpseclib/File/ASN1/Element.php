@@ -3,17 +3,15 @@
 /**
  * ASN.1 Raw Element
  *
- * PHP version 8.1+
+ * PHP version 5
  *
  * @author    Jim Wigginton <terrafrost@php.net>
- * @copyright 2014-2026 Jim Wigginton
+ * @copyright 2012 Jim Wigginton
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link      https://phpseclib.com/
+ * @link      http://phpseclib.sourceforge.net
  */
 
-declare(strict_types=1);
-
-namespace phpseclib4\File\ASN1;
+namespace phpseclib3\File\ASN1;
 
 /**
  * ASN.1 Raw Element
@@ -25,33 +23,21 @@ namespace phpseclib4\File\ASN1;
  */
 class Element
 {
-    /** @psalm-suppress PossiblyUnusedProperty */
-    public array $metadata = [];
+    /**
+     * Raw element value
+     *
+     * @var string
+     */
+    public $element;
 
     /**
      * Constructor
+     *
+     * @param string $encoded
+     * @return Element
      */
-    public function __construct(public string $value)
+    public function __construct($encoded)
     {
-    }
-
-    public function __debugInfo(): array
-    {
-        return ['value' => bin2hex($this->value)];
-    }
-
-    public function __toString(): string
-    {
-        return $this->value;
-    }
-
-    public function getEncoded(): string
-    {
-        return $this->value;
-    }
-
-    public function addMetadata(array $metadata): void
-    {
-        $this->metadata = $metadata;
+        $this->element = $encoded;
     }
 }

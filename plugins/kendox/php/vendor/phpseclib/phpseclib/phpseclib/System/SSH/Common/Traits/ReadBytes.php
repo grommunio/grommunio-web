@@ -3,19 +3,15 @@
 /**
  * ReadBytes trait
  *
- * PHP version 8.1+
+ * PHP version 5
  *
  * @author    Jim Wigginton <terrafrost@php.net>
- * @copyright 2022-2026 Jim Wigginton
+ * @copyright 2015 Jim Wigginton
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link      https://phpseclib.com/
+ * @link      http://phpseclib.sourceforge.net
  */
 
-declare(strict_types=1);
-
-namespace phpseclib4\System\SSH\Common\Traits;
-
-use phpseclib4\Exception\{ConnectionClosedException, UnexpectedValueException};
+namespace phpseclib3\System\SSH\Common\Traits;
 
 /**
  * ReadBytes trait
@@ -26,15 +22,15 @@ trait ReadBytes
 {
     /**
      * Read data
+     *
+     * @param int $length
+     * @throws \RuntimeException on connection errors
      */
-    public function readBytes(int $length): string
+    public function readBytes($length)
     {
         $temp = fread($this->fsock, $length);
-        if ($temp === false) {
-            throw new ConnectionClosedException('\fread() failed.');
-        }
-        if (strlen($temp) !== $length) {
-            throw new UnexpectedValueException("Expected $length bytes; got " . strlen($temp));
+        if (strlen($temp) != $length) {
+            throw new \RuntimeException("Expected $length bytes; got " . strlen($temp));
         }
         return $temp;
     }

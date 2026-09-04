@@ -4,17 +4,15 @@
  * DH Private Key
  *
  * @author    Jim Wigginton <terrafrost@php.net>
- * @copyright 2019-2026 Jim Wigginton
+ * @copyright 2015 Jim Wigginton
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link      https://phpseclib.com/
+ * @link      http://phpseclib.sourceforge.net
  */
 
-declare(strict_types=1);
+namespace phpseclib3\Crypt\DH;
 
-namespace phpseclib4\Crypt\DH;
-
-use phpseclib4\Crypt\{Common, DH};
-use phpseclib4\Math\BigInteger;
+use phpseclib3\Crypt\Common;
+use phpseclib3\Crypt\DH;
 
 /**
  * DH Private Key
@@ -27,17 +25,30 @@ final class PrivateKey extends DH
 
     /**
      * Private Key
+     *
+     * @var \phpseclib3\Math\BigInteger
      */
-    protected BigInteger $privateKey;
+    protected $privateKey;
+
+    /**
+     * Public Key
+     *
+     * @var \phpseclib3\Math\BigInteger
+     */
+    protected $publicKey;
 
     /**
      * Returns the public key
+     *
+     * @return PublicKey
      */
-    public function getPublicKey(): PublicKey
+    public function getPublicKey()
     {
         $type = self::validatePlugin('Keys', 'PKCS8', 'savePublicKey');
 
-        $this->publicKey ??= $this->base->powMod($this->privateKey, $this->prime);
+        if (!isset($this->publicKey)) {
+            $this->publicKey = $this->base->powMod($this->privateKey, $this->prime);
+        }
 
         $key = $type::savePublicKey($this->prime, $this->base, $this->publicKey);
 
@@ -45,13 +56,19 @@ final class PrivateKey extends DH
     }
 
     /**
-     * Returns the private key as a string
+     * Returns the private key
+     *
+     * @param string $type
+     * @param array $options optional
+     * @return string
      */
-    public function toString(string $type, array $options = []): string
+    public function toString($type, array $options = [])
     {
         $type = self::validatePlugin('Keys', $type, 'savePrivateKey');
 
-        $this->publicKey ??= $this->base->powMod($this->privateKey, $this->prime);
+        if (!isset($this->publicKey)) {
+            $this->publicKey = $this->base->powMod($this->privateKey, $this->prime);
+        }
 
         return $type::savePrivateKey($this->prime, $this->base, $this->privateKey, $this->publicKey, $this->password, $options);
     }

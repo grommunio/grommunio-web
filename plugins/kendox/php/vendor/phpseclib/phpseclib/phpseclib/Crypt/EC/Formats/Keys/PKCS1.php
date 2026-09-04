@@ -3,7 +3,7 @@
 /**
  * "PKCS1" (RFC5915) Formatted EC Key Handler
  *
- * PHP version 8.1+
+ * PHP version 5
  *
  * Used by File/X509.php
  *
@@ -18,33 +18,27 @@
  * all. I suppose this could also be named IETF but idk
  *
  * @author    Jim Wigginton <terrafrost@php.net>
- * @copyright 2018-2026 Jim Wigginton
+ * @copyright 2015 Jim Wigginton
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link      https://phpseclib.com/
+ * @link      http://phpseclib.sourceforge.net
  */
 
-declare(strict_types=1);
+namespace phpseclib3\Crypt\EC\Formats\Keys;
 
-namespace phpseclib4\Crypt\EC\Formats\Keys;
-
-use phpseclib4\Common\Functions\Strings;
-use phpseclib4\Crypt\Common\Formats\Keys\PKCS1 as Progenitor;
-use phpseclib4\Crypt\EC\BaseCurves\{
-    Base as BaseCurve,
-    Montgomery as MontgomeryCurve,
-    TwistedEdwards as TwistedEdwardsCurve
-};
-use phpseclib4\Exception\{UnexpectedValueException, UnsupportedCurveException};
-use phpseclib4\File\ASN1;
-use phpseclib4\File\ASN1\Maps;
-use phpseclib4\Math\BigInteger;
-use phpseclib4\Math\Common\FiniteField\Integer;
+use phpseclib3\Common\Functions\Strings;
+use phpseclib3\Crypt\Common\Formats\Keys\PKCS1 as Progenitor;
+use phpseclib3\Crypt\EC\BaseCurves\Base as BaseCurve;
+use phpseclib3\Crypt\EC\BaseCurves\Montgomery as MontgomeryCurve;
+use phpseclib3\Crypt\EC\BaseCurves\TwistedEdwards as TwistedEdwardsCurve;
+use phpseclib3\Exception\UnsupportedCurveException;
+use phpseclib3\File\ASN1;
+use phpseclib3\File\ASN1\Maps;
+use phpseclib3\Math\BigInteger;
 
 /**
  * "PKCS1" (RFC5915) Formatted EC Key Handler
  *
  * @author  Jim Wigginton <terrafrost@php.net>
- * @psalm-api
  */
 abstract class PKCS1 extends Progenitor
 {
@@ -52,73 +46,94 @@ abstract class PKCS1 extends Progenitor
 
     /**
      * Break a public or private key down into its constituent components
+     *
+     * @param string $key
+     * @param string $password optional
+     * @return array
      */
-    public static function load(
-        #[\SensitiveParameter] string $key,
-        #[\SensitiveParameter] ?string $password = null
-    ): array {
+    public static function load($key, $password = '')
+    {
         self::initialize_static_variables();
 
-        if (str_contains($key, 'BEGIN EC PARAMETERS') && str_contains($key, 'BEGIN EC PRIVATE KEY')) {
+        if (!Strings::is_stringable($key)) {
+            throw new \UnexpectedValueException('Key should be a string - not a ' . gettype($key));
+        }
+
+        if (strpos($key, 'BEGIN EC PARAMETERS') && strpos($key, 'BEGIN EC PRIVATE KEY')) {
             $components = [];
 
             preg_match('#-*BEGIN EC PRIVATE KEY-*[^-]*-*END EC PRIVATE KEY-*#s', $key, $matches);
-            $decoded = parent::loadHelper($matches[0], $password);
+            $decoded = parent::load($matches[0], $password);
             $decoded = ASN1::decodeBER($decoded);
-            $ecPrivate = ASN1::map($decoded, Maps\ECPrivateKey::MAP)->toArray();
+            if (!$decoded) {
+                throw new \RuntimeException('Unable to decode BER');
+            }
+
+            $ecPrivate = ASN1::asn1map($decoded[0], Maps\ECPrivateKey::MAP);
+            if (!is_array($ecPrivate)) {
+                throw new \RuntimeException('Unable to perform ASN1 mapping');
+            }
 
             if (isset($ecPrivate['parameters'])) {
                 $components['curve'] = self::loadCurveByParam($ecPrivate['parameters']);
             }
 
             preg_match('#-*BEGIN EC PARAMETERS-*[^-]*-*END EC PARAMETERS-*#s', $key, $matches);
-            $decoded = parent::loadHelper($matches[0], '');
+            $decoded = parent::load($matches[0], '');
             $decoded = ASN1::decodeBER($decoded);
-            $ecParams = ASN1::map($decoded, Maps\ECParameters::MAP)->toArray();
+            if (!$decoded) {
+                throw new \RuntimeException('Unable to decode BER');
+            }
+            $ecParams = ASN1::asn1map($decoded[0], Maps\ECParameters::MAP);
+            if (!is_array($ecParams)) {
+                throw new \RuntimeException('Unable to perform ASN1 mapping');
+            }
             $ecParams = self::loadCurveByParam($ecParams);
 
             // comparing $ecParams and $components['curve'] directly won't work because they'll have different Math\Common\FiniteField classes
             // even if the modulo is the same
             if (isset($components['curve']) && self::encodeParameters($ecParams, false, []) != self::encodeParameters($components['curve'], false, [])) {
-                throw new UnexpectedValueException('EC PARAMETERS does not correspond to EC PRIVATE KEY');
+                throw new \RuntimeException('EC PARAMETERS does not correspond to EC PRIVATE KEY');
             }
 
             if (!isset($components['curve'])) {
                 $components['curve'] = $ecParams;
             }
 
-            $components['dA'] = new BigInteger((string) $ecPrivate['privateKey'], 256);
+            $components['dA'] = new BigInteger($ecPrivate['privateKey'], 256);
             $components['curve']->rangeCheck($components['dA']);
             $components['QA'] = isset($ecPrivate['publicKey']) ?
-                self::extractPoint((string) $ecPrivate['publicKey'], $components['curve']) :
+                self::extractPoint($ecPrivate['publicKey'], $components['curve']) :
                 $components['curve']->multiplyPoint($components['curve']->getBasePoint(), $components['dA']);
 
             return $components;
         }
 
-        $key = parent::loadHelper($key, $password);
-        $decoded = ASN1::decodeBER($key);
+        $key = parent::load($key, $password);
 
-        try {
-            $key = ASN1::map($decoded, Maps\ECParameters::MAP)->toArray();
-        } catch (\Exception) {
-            $key = null;
+        $decoded = ASN1::decodeBER($key);
+        if (!$decoded) {
+            throw new \RuntimeException('Unable to decode BER');
         }
 
+        $key = ASN1::asn1map($decoded[0], Maps\ECParameters::MAP);
         if (is_array($key)) {
             return ['curve' => self::loadCurveByParam($key)];
         }
 
-        $key = ASN1::map($decoded, Maps\ECPrivateKey::MAP)->toArray();
+        $key = ASN1::asn1map($decoded[0], Maps\ECPrivateKey::MAP);
+        if (!is_array($key)) {
+            throw new \RuntimeException('Unable to perform ASN1 mapping');
+        }
         if (!isset($key['parameters'])) {
-            throw new UnexpectedValueException('Key cannot be loaded without parameters');
+            throw new \RuntimeException('Key cannot be loaded without parameters');
         }
 
         $components = [];
         $components['curve'] = self::loadCurveByParam($key['parameters']);
-        $components['dA'] = new BigInteger((string) $key['privateKey'], 256);
+        $components['dA'] = new BigInteger($key['privateKey'], 256);
         $components['QA'] = isset($key['publicKey']) ?
-            self::extractPoint((string) $key['publicKey'], $components['curve']) :
+            self::extractPoint($key['publicKey'], $components['curve']) :
             $components['curve']->multiplyPoint($components['curve']->getBasePoint(), $components['dA']);
 
         return $components;
@@ -126,8 +141,10 @@ abstract class PKCS1 extends Progenitor
 
     /**
      * Convert EC parameters to the appropriate format
+     *
+     * @return string
      */
-    public static function saveParameters(BaseCurve $curve, array $options = []): string
+    public static function saveParameters(BaseCurve $curve, array $options = [])
     {
         self::initialize_static_variables();
 
@@ -144,21 +161,20 @@ abstract class PKCS1 extends Progenitor
 
     /**
      * Convert a private key to the appropriate format.
-?     *
-     * @param Integer[] $publicKey
-     * @psalm-suppress PossiblyUnusedParam
+     *
+     * @param BigInteger $privateKey
+     * @param BaseCurve $curve
+     * @param \phpseclib3\Math\Common\FiniteField\Integer[] $publicKey
+     * @param string $secret optional
+     * @param string $password optional
+     * @param array $options optional
+     * @return string
      */
-    public static function savePrivateKey(
-        #[\SensitiveParameter] BigInteger $privateKey,
-        BaseCurve $curve,
-        array $publicKey,
-        #[\SensitiveParameter] ?string $secret = null,
-        #[\SensitiveParameter] ?string $password = null,
-        array $options = []
-    ): string {
+    public static function savePrivateKey(BigInteger $privateKey, BaseCurve $curve, array $publicKey, $secret = null, $password = '', array $options = [])
+    {
         self::initialize_static_variables();
 
-        if ($curve instanceof TwistedEdwardsCurve || $curve instanceof MontgomeryCurve) {
+        if ($curve instanceof TwistedEdwardsCurve  || $curve instanceof MontgomeryCurve) {
             throw new UnsupportedCurveException('TwistedEdwards Curves are not supported');
         }
 
@@ -168,7 +184,7 @@ abstract class PKCS1 extends Progenitor
             'version' => 'ecPrivkeyVer1',
             'privateKey' => $privateKey->toBytes(),
             'parameters' => new ASN1\Element(self::encodeParameters($curve)),
-            'publicKey' => "\0" . $publicKey,
+            'publicKey' => "\0" . $publicKey
         ];
 
         $key = ASN1::encodeDER($key, Maps\ECPrivateKey::MAP);

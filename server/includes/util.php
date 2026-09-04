@@ -205,10 +205,13 @@ function cleanTemp($directory = TMP_PATH, $maxLifeTime = STATE_FILE_MAX_LIFETIME
 	// is current.
 	clearstatcache();
 
-	$dir = opendir($directory);
+	$dir = @opendir($directory);
+	if ($dir === false) {
+		return false;
+	}
 	$is_empty = true;
 
-	while ($file = readdir($dir)) {
+	while (($file = readdir($dir)) !== false) {
 		// Skip special folders
 		if ($file === '.' || $file === '..') {
 			continue;
@@ -247,6 +250,7 @@ function cleanTemp($directory = TMP_PATH, $maxLifeTime = STATE_FILE_MAX_LIFETIME
 			}
 		}
 	}
+	closedir($dir);
 
 	return $is_empty;
 }

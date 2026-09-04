@@ -3,19 +3,17 @@
 /**
  * PrivateDomainName
  *
- * PHP version 8.1+
+ * PHP version 5
  *
  * @author    Jim Wigginton <terrafrost@php.net>
- * @copyright 2016-2026 Jim Wigginton
+ * @copyright 2016 Jim Wigginton
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link      https://phpseclib.com/
+ * @link      http://phpseclib.sourceforge.net
  */
 
-declare(strict_types=1);
+namespace phpseclib3\File\ASN1\Maps;
 
-namespace phpseclib4\File\ASN1\Maps;
-
-use phpseclib4\File\ASN1;
+use phpseclib3\File\ASN1;
 
 /**
  * PrivateDomainName
@@ -24,11 +22,11 @@ use phpseclib4\File\ASN1;
  */
 abstract class PrivateDomainName
 {
-    public const MAP = [
+    const MAP = [
         'type' => ASN1::TYPE_CHOICE,
         'children' => [
             'numeric' => ['type' => ASN1::TYPE_NUMERIC_STRING],
-            'printable' => ['type' => ASN1::TYPE_PRINTABLE_STRING],
-        ],
+            'printable' => ['type' => ASN1::TYPE_PRINTABLE_STRING]
+        ]
     ];
 }

@@ -9,39 +9,40 @@
  *  supports signature modes and so the application of server generated keys and key recovery is of limited
  *  value"
  *
- * PHP version 8.1+
+ * PHP version 5
  *
  * @author    Jim Wigginton <terrafrost@php.net>
- * @copyright 2016-2026 Jim Wigginton
+ * @copyright 2015 Jim Wigginton
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link      https://phpseclib.com/
+ * @link      http://phpseclib.sourceforge.net
  */
 
-declare(strict_types=1);
+namespace phpseclib3\Crypt\DSA\Formats\Keys;
 
-namespace phpseclib4\Crypt\DSA\Formats\Keys;
-
-use phpseclib4\Common\Functions\Strings;
-use phpseclib4\Exception\{BadConfigurationException, UnexpectedValueException};
-use phpseclib4\Math\BigInteger;
+use phpseclib3\Common\Functions\Strings;
+use phpseclib3\Exception\BadConfigurationException;
+use phpseclib3\Math\BigInteger;
 
 /**
  * XML Formatted DSA Key Handler
  *
  * @author  Jim Wigginton <terrafrost@php.net>
- * @psalm-api
  */
 abstract class XML
 {
     /**
      * Break a public or private key down into its constituent components
      *
-     * @psalm-suppress PossiblyUnusedParam
+     * @param string $key
+     * @param string $password optional
+     * @return array
      */
-    public static function load(
-        #[\SensitiveParameter] string $key,
-        #[\SensitiveParameter] ?string $password = null
-    ): array {
+    public static function load($key, $password = '')
+    {
+        if (!Strings::is_stringable($key)) {
+            throw new \UnexpectedValueException('Key should be a string - not a ' . gettype($key));
+        }
+
         if (!class_exists('DOMDocument')) {
             throw new BadConfigurationException('The dom extension is not setup correctly on this system');
         }
@@ -53,14 +54,11 @@ abstract class XML
             $key = '<xml>' . $key . '</xml>';
         }
         if (!$dom->loadXML($key)) {
-            $e = libxml_get_last_error();
-            $message = 'Error loading XML - ' . $e->message;
             libxml_use_internal_errors($use_errors);
-            throw new UnexpectedValueException($message, $e->code);
+            throw new \UnexpectedValueException('Key does not appear to contain XML');
         }
         $xpath = new \DOMXPath($dom);
         $keys = ['p', 'q', 'g', 'y', 'j', 'seed', 'pgencounter'];
-        $components = [];
         foreach ($keys as $key) {
             // $dom->getElementsByTagName($key) is case-sensitive
             $temp = $xpath->query("//*[translate(local-name(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='$key']");
@@ -84,7 +82,6 @@ abstract class XML
                 case 'y': // G**X mod P (where X is part of the private key and not made public)
                     $components['y'] = $value;
                     // the remaining options do not do anything
-                    // no break
                 case 'j': // (P - 1) / Q
                     // Parameter J is available for inclusion solely for efficiency as it is calculatable from
                     // P and Q
@@ -99,7 +96,7 @@ abstract class XML
         libxml_use_internal_errors($use_errors);
 
         if (!isset($components['y'])) {
-            throw new UnexpectedValueException('Key is missing y component');
+            throw new \UnexpectedValueException('Key is missing y component');
         }
 
         switch (true) {
@@ -117,15 +114,14 @@ abstract class XML
      *
      * See https://www.w3.org/TR/xmldsig-core/#sec-DSAKeyValue
      *
-     * @psalm-suppress PossiblyUnusedParam
+     * @param BigInteger $p
+     * @param BigInteger $q
+     * @param BigInteger $g
+     * @param BigInteger $y
+     * @return string
      */
-    public static function savePublicKey(
-        BigInteger $p,
-        BigInteger $q,
-        BigInteger $g,
-        BigInteger $y,
-        array $options = []
-    ): string {
+    public static function savePublicKey(BigInteger $p, BigInteger $q, BigInteger $g, BigInteger $y)
+    {
         return "<DSAKeyValue>\r\n" .
                '  <P>' . Strings::base64_encode($p->toBytes()) . "</P>\r\n" .
                '  <Q>' . Strings::base64_encode($q->toBytes()) . "</Q>\r\n" .

@@ -10,39 +10,41 @@
  * http://en.wikipedia.org/wiki/XML_Signature
  * http://en.wikipedia.org/wiki/XKMS
  *
- * PHP version 8.1+
+ * PHP version 5
  *
  * @author    Jim Wigginton <terrafrost@php.net>
- * @copyright 2015-2026 Jim Wigginton
+ * @copyright 2015 Jim Wigginton
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link      https://phpseclib.com/
+ * @link      http://phpseclib.sourceforge.net
  */
 
-declare(strict_types=1);
+namespace phpseclib3\Crypt\RSA\Formats\Keys;
 
-namespace phpseclib4\Crypt\RSA\Formats\Keys;
-
-use phpseclib4\Common\Functions\Strings;
-use phpseclib4\Exception\{BadConfigurationException, InvalidArgumentException, UnexpectedValueException};
-use phpseclib4\Math\BigInteger;
+use phpseclib3\Common\Functions\Strings;
+use phpseclib3\Exception\BadConfigurationException;
+use phpseclib3\Exception\UnsupportedFormatException;
+use phpseclib3\Math\BigInteger;
 
 /**
  * XML Formatted RSA Key Handler
  *
  * @author  Jim Wigginton <terrafrost@php.net>
- * @psalm-api
  */
 abstract class XML
 {
     /**
      * Break a public or private key down into its constituent components
      *
-     * @psalm-suppress PossiblyUnusedParam
+     * @param string $key
+     * @param string $password optional
+     * @return array
      */
-    public static function load(
-        #[\SensitiveParameter] string $key,
-        #[\SensitiveParameter] ?string $password = null
-    ): array {
+    public static function load($key, $password = '')
+    {
+        if (!Strings::is_stringable($key)) {
+            throw new \UnexpectedValueException('Key should be a string - not a ' . gettype($key));
+        }
+
         if (!class_exists('DOMDocument')) {
             throw new BadConfigurationException('The dom extension is not setup correctly on this system');
         }
@@ -51,7 +53,7 @@ abstract class XML
             'isPublicKey' => false,
             'primes' => [],
             'exponents' => [],
-            'coefficients' => [],
+            'coefficients' => []
         ];
 
         $use_errors = libxml_use_internal_errors(true);
@@ -61,10 +63,8 @@ abstract class XML
             $key = '<xml>' . $key . '</xml>';
         }
         if (!$dom->loadXML($key)) {
-            $e = libxml_get_last_error();
-            $message = 'Error loading XML - ' . $e->message;
             libxml_use_internal_errors($use_errors);
-            throw new UnexpectedValueException($message, $e->code);
+            throw new \UnexpectedValueException('Key does not appear to contain XML');
         }
         $xpath = new \DOMXPath($dom);
         $keys = ['modulus', 'exponent', 'p', 'q', 'dp', 'dq', 'inverseq', 'd'];
@@ -117,30 +117,29 @@ abstract class XML
             return $components;
         }
 
-        throw new UnexpectedValueException('Modulus / exponent not present');
+        throw new \UnexpectedValueException('Modulus / exponent not present');
     }
 
     /**
      * Convert a private key to the appropriate format.
      *
-     * @psalm-suppress PossiblyUnusedParam
+     * @param BigInteger $n
+     * @param BigInteger $e
+     * @param BigInteger $d
+     * @param array $primes
+     * @param array $exponents
+     * @param array $coefficients
+     * @param string $password optional
+     * @return string
      */
-    public static function savePrivateKey(
-        BigInteger $n,
-        BigInteger $e,
-        #[\SensitiveParameter] BigInteger $d,
-        #[\SensitiveParameter] array $primes,
-        #[\SensitiveParameter] array $exponents,
-        #[\SensitiveParameter] array $coefficients,
-        #[\SensitiveParameter] ?string $password = null,
-        array $options = []
-    ): string {
+    public static function savePrivateKey(BigInteger $n, BigInteger $e, BigInteger $d, array $primes, array $exponents, array $coefficients, $password = '')
+    {
         if (count($primes) != 2) {
-            throw new InvalidArgumentException('XML does not support multi-prime RSA keys');
+            throw new \InvalidArgumentException('XML does not support multi-prime RSA keys');
         }
 
-        if (isset($password)) {
-            throw new InvalidArgumentException('XML private keys do not support encryption');
+        if (!empty($password) && is_string($password)) {
+            throw new UnsupportedFormatException('XML private keys do not support encryption');
         }
 
         return "<RSAKeyPair>\r\n" .
@@ -158,9 +157,11 @@ abstract class XML
     /**
      * Convert a public key to the appropriate format
      *
-     * @psalm-suppress PossiblyUnusedParam
+     * @param BigInteger $n
+     * @param BigInteger $e
+     * @return string
      */
-    public static function savePublicKey(BigInteger $n, BigInteger $e, array $options = []): string
+    public static function savePublicKey(BigInteger $n, BigInteger $e)
     {
         return "<RSAKeyValue>\r\n" .
                '  <Modulus>' . Strings::base64_encode($n->toBytes()) . "</Modulus>\r\n" .

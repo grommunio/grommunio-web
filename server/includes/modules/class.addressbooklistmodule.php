@@ -158,9 +158,7 @@ class AddressbookListModule extends ListModule {
 					$rowCount += count($hiddenUserRows);
 				}
 
-				for ($i = 0, $len = $rowCount; $i < $len; ++$i) {
-					// Use array_shift to so we won't double memory usage!
-					$user_data = array_shift($rows);
+				foreach ($rows as $user_data) {
 					$abprovidertype = 0;
 					$item = [];
 					$entryid = bin2hex((string) $user_data[$this->properties['entryid']]);

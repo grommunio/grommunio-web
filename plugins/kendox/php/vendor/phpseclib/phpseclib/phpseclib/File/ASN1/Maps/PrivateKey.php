@@ -3,19 +3,17 @@
 /**
  * PrivateKey
  *
- * PHP version 8.1+
+ * PHP version 5
  *
  * @author    Jim Wigginton <terrafrost@php.net>
- * @copyright 2015-2026 Jim Wigginton
+ * @copyright 2016 Jim Wigginton
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link      https://phpseclib.com/
+ * @link      http://phpseclib.sourceforge.net
  */
 
-declare(strict_types=1);
+namespace phpseclib3\File\ASN1\Maps;
 
-namespace phpseclib4\File\ASN1\Maps;
-
-use phpseclib4\File\ASN1;
+use phpseclib3\File\ASN1;
 
 /**
  * PrivateKey
@@ -24,5 +22,5 @@ use phpseclib4\File\ASN1;
  */
 abstract class PrivateKey
 {
-    public const MAP = ['type' => ASN1::TYPE_OCTET_STRING];
+    const MAP = ['type' => ASN1::TYPE_OCTET_STRING];
 }

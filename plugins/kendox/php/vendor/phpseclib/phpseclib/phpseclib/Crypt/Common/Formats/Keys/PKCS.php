@@ -3,17 +3,15 @@
 /**
  * PKCS Formatted Key Handler
  *
- * PHP version 8.1+
+ * PHP version 5
  *
  * @author    Jim Wigginton <terrafrost@php.net>
- * @copyright 2016-2026 Jim Wigginton
+ * @copyright 2015 Jim Wigginton
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link      https://phpseclib.com/
+ * @link      http://phpseclib.sourceforge.net
  */
 
-declare(strict_types=1);
-
-namespace phpseclib4\Crypt\Common\Formats\Keys;
+namespace phpseclib3\Crypt\Common\Formats\Keys;
 
 /**
  * PKCS1 Formatted Key Handler
@@ -25,34 +23,38 @@ abstract class PKCS
     /**
      * Auto-detect the format
      */
-    public const MODE_ANY = 0;
+    const MODE_ANY = 0;
     /**
      * Require base64-encoded PEM's be supplied
      */
-    public const MODE_PEM = 1;
+    const MODE_PEM = 1;
     /**
      * Require raw DER's be supplied
      */
-    public const MODE_DER = 2;
+    const MODE_DER = 2;
     /**#@-*/
 
     /**
      * Is the key a base-64 encoded PEM, DER or should it be auto-detected?
+     *
+     * @var int
      */
-    protected static int $format = self::MODE_ANY;
+    protected static $format = self::MODE_ANY;
 
     /**
      * Require base64-encoded PEM's be supplied
+     *
      */
-    public static function requirePEM(): void
+    public static function requirePEM()
     {
         self::$format = self::MODE_PEM;
     }
 
     /**
      * Require raw DER's be supplied
+     *
      */
-    public static function requireDER(): void
+    public static function requireDER()
     {
         self::$format = self::MODE_DER;
     }
@@ -61,8 +63,9 @@ abstract class PKCS
      * Accept any format and auto detect the format
      *
      * This is the default setting
+     *
      */
-    public static function requireAny(): void
+    public static function requireAny()
     {
         self::$format = self::MODE_ANY;
     }

@@ -30,6 +30,22 @@ require_once __DIR__ . '/lib/class.aimailreader.php';
 require_once __DIR__ . '/lib/class.aiprompts.php';
 require_once __DIR__ . '/lib/class.airequest.php';
 
+// This endpoint performs authenticated, potentially billable work. Requiring
+// JSON prevents a foreign site from triggering it with a CORS-simple form POST.
+if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
+	header('Allow: POST');
+	http_response_code(405);
+
+	exit;
+}
+
+$contentType = strtolower(trim(explode(';', (string) ($_SERVER['CONTENT_TYPE'] ?? ''), 2)[0]));
+if ($contentType !== 'application/json') {
+	http_response_code(415);
+
+	exit;
+}
+
 // Authenticate using the existing session. A transport-level failure here makes
 // the client fall back to the buffered module path.
 WebAppAuthentication::authenticate();
@@ -43,10 +59,12 @@ if (!WebAppAuthentication::isAuthenticated()) {
 $mapisession = WebAppAuthentication::getMAPISession();
 $GLOBALS['mapisession'] = $mapisession;
 
-// Read the JSON request body (fall back to form fields).
+// Read the JSON request body.
 $input = json_decode((string) file_get_contents('php://input'), true);
 if (!is_array($input)) {
-	$input = $_POST;
+	http_response_code(400);
+
+	exit;
 }
 // NOTE: this script runs in the global scope, so local names must not collide
 // with grommunio's globals. In particular `$entryid` would clobber the global

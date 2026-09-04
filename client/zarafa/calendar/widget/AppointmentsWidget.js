@@ -17,6 +17,14 @@ Ext.namespace('Zarafa.calendar.widget');
  */
 Zarafa.calendar.widget.AppointmentsWidget = Ext.extend(Zarafa.core.ui.widget.AbstractFolderWidget, {
 	/**
+	 * The task that periodically removes past appointments from the widget.
+	 * @property
+	 * @type Object
+	 * @private
+	 */
+	filterTask: undefined,
+
+	/**
 	 * The folder which was selected by the user
 	 * @property
 	 * @type Zarafa.hierarchy.data.MAPIFolderRecord
@@ -336,11 +344,29 @@ Zarafa.calendar.widget.AppointmentsWidget = Ext.extend(Zarafa.core.ui.widget.Abs
 	*/
 	startFilterTask: function ()
 	{
-		Ext.TaskMgr.start({
+		if (this.filterTask) {
+			Ext.TaskMgr.stop(this.filterTask);
+		}
+
+		this.filterTask = Ext.TaskMgr.start({
 			run: this.updateFilter,
 			interval: 30000,
 			scope: this
 		});
+	},
+
+	/**
+	 * Stop the periodic appointment filter when this widget is destroyed.
+	 * @protected
+	 */
+	onDestroy: function ()
+	{
+		if (this.filterTask) {
+			Ext.TaskMgr.stop(this.filterTask);
+			this.filterTask = undefined;
+		}
+
+		Zarafa.calendar.widget.AppointmentsWidget.superclass.onDestroy.apply(this, arguments);
 	},
 
 	/**

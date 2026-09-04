@@ -3,28 +3,24 @@
 /**
  * PuTTY Formatted RSA Key Handler
  *
- * PHP version 8.1+
+ * PHP version 5
  *
  * @author    Jim Wigginton <terrafrost@php.net>
- * @copyright 2016-2026 Jim Wigginton
+ * @copyright 2015 Jim Wigginton
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link      https://phpseclib.com/
+ * @link      http://phpseclib.sourceforge.net
  */
 
-declare(strict_types=1);
+namespace phpseclib3\Crypt\RSA\Formats\Keys;
 
-namespace phpseclib4\Crypt\RSA\Formats\Keys;
-
-use phpseclib4\Common\Functions\Strings;
-use phpseclib4\Crypt\Common\Formats\Keys\PuTTY as Progenitor;
-use phpseclib4\Exception\InvalidArgumentException;
-use phpseclib4\Math\BigInteger;
+use phpseclib3\Common\Functions\Strings;
+use phpseclib3\Crypt\Common\Formats\Keys\PuTTY as Progenitor;
+use phpseclib3\Math\BigInteger;
 
 /**
  * PuTTY Formatted RSA Key Handler
  *
  * @author  Jim Wigginton <terrafrost@php.net>
- * @psalm-api
  */
 abstract class PuTTY extends Progenitor
 {
@@ -33,20 +29,24 @@ abstract class PuTTY extends Progenitor
      *
      * @var string
      */
-    public const PUBLIC_HANDLER = OpenSSH::class;
+    const PUBLIC_HANDLER = 'phpseclib3\Crypt\RSA\Formats\Keys\OpenSSH';
 
     /**
      * Algorithm Identifier
+     *
+     * @var array
      */
-    protected static array $types = ['ssh-rsa'];
+    protected static $types = ['ssh-rsa'];
 
     /**
      * Break a public or private key down into its constituent components
+     *
+     * @param string $key
+     * @param string $password optional
+     * @return array
      */
-    public static function load(
-        #[\SensitiveParameter] string $key,
-        #[\SensitiveParameter] ?string $password
-    ): array {
+    public static function load($key, $password = '')
+    {
         static $one;
         if (!isset($one)) {
             $one = new BigInteger(1);
@@ -56,19 +56,26 @@ abstract class PuTTY extends Progenitor
         if (!isset($components['private'])) {
             return $components;
         }
-        [
-            //'type' => $type,
-            'comment' => $comment,
-            'public' => $public,
-            'private' => $private
-        ] = $components;
+        $type = $components['type'];
+        $comment = $components['comment'];
+        $public = $components['public'];
+        $private = $components['private'];
         unset($components['public'], $components['private']);
 
         $isPublicKey = false;
 
+        $result = Strings::unpackSSH2('ii', $public);
+        if ($result === false) {
+            throw new \UnexpectedValueException('Key appears to be malformed');
+        }
+        list($publicExponent, $modulus) = $result;
+
+        $result = Strings::unpackSSH2('iiii', $private);
+        if ($result === false) {
+            throw new \UnexpectedValueException('Key appears to be malformed');
+        }
         $primes = $coefficients = [];
-        [$publicExponent, $modulus] = Strings::unpackSSH2('ii', $public);
-        [$privateExponent, $primes[1], $primes[2], $coefficients[2]] = Strings::unpackSSH2('iiii', $private);
+        list($privateExponent, $primes[1], $primes[2], $coefficients[2]) = $result;
 
         $temp = $primes[1]->subtract($one);
         $exponents = [1 => $publicExponent->modInverse($temp)];
@@ -81,20 +88,20 @@ abstract class PuTTY extends Progenitor
     /**
      * Convert a private key to the appropriate format.
      *
-     * @psalm-suppress PossiblyUnusedParam
+     * @param BigInteger $n
+     * @param BigInteger $e
+     * @param BigInteger $d
+     * @param array $primes
+     * @param array $exponents
+     * @param array $coefficients
+     * @param string $password optional
+     * @param array $options optional
+     * @return string
      */
-    public static function savePrivateKey(
-        BigInteger $n,
-        BigInteger $e,
-        #[\SensitiveParameter] BigInteger $d,
-        #[\SensitiveParameter] array $primes,
-        #[\SensitiveParameter] array $exponents,
-        #[\SensitiveParameter] array $coefficients,
-        #[\SensitiveParameter] ?string $password = null,
-        array $options = []
-    ): string {
+    public static function savePrivateKey(BigInteger $n, BigInteger $e, BigInteger $d, array $primes, array $exponents, array $coefficients, $password = '', array $options = [])
+    {
         if (count($primes) != 2) {
-            throw new InvalidArgumentException('PuTTY does not support multi-prime RSA keys');
+            throw new \InvalidArgumentException('PuTTY does not support multi-prime RSA keys');
         }
 
         $public =  Strings::packSSH2('ii', $e, $n);
@@ -106,9 +113,11 @@ abstract class PuTTY extends Progenitor
     /**
      * Convert a public key to the appropriate format
      *
-     * @psalm-suppress PossiblyUnusedParam
+     * @param BigInteger $n
+     * @param BigInteger $e
+     * @return string
      */
-    public static function savePublicKey(BigInteger $n, BigInteger $e, array $options = []): string
+    public static function savePublicKey(BigInteger $n, BigInteger $e)
     {
         return self::wrapPublicKey(Strings::packSSH2('ii', $e, $n), 'ssh-rsa');
     }

@@ -16,6 +16,13 @@ Ext.namespace('Zarafa.common.widget');
  * outside of grommunio Web.
  */
 Zarafa.common.widget.DatepickerWidget = Ext.extend(Zarafa.core.ui.widget.AbstractFolderWidget, {
+	/**
+	 * The task that periodically refreshes busy-day highlighting.
+	 * @property
+	 * @type Object
+	 * @private
+	 */
+	updateTask: undefined,
 
 	/**
 	 * @constructor
@@ -52,11 +59,25 @@ Zarafa.common.widget.DatepickerWidget = Ext.extend(Zarafa.core.ui.widget.Abstrac
 
 		// FIXME Workaround for KW-1812 (not rendering busy days bold when coming back to current month)
 		// We use the polling interval setting multiplied by 1000, because the interval is in seconds.
-		Ext.TaskMgr.start({
+		this.updateTask = Ext.TaskMgr.start({
 			run: this.updateFilter,
 			interval: container.getSettingsModel().get('zarafa/v1/main/reminder/polling_interval') * 1000,
 			scope: this
 		});
+	},
+
+	/**
+	 * Stop the periodic busy-day refresh when this widget is destroyed.
+	 * @protected
+	 */
+	onDestroy: function ()
+	{
+		if (this.updateTask) {
+			Ext.TaskMgr.stop(this.updateTask);
+			this.updateTask = undefined;
+		}
+
+		Zarafa.common.widget.DatepickerWidget.superclass.onDestroy.apply(this, arguments);
 	},
 
 	/**
