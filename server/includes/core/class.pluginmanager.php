@@ -162,7 +162,8 @@ class PluginManager {
 		$pluginState = new State('plugin');
 		$pluginState->open();
 
-		if (!DEBUG_PLUGINS_DISABLE_CACHE) {
+		// A cache written by another build would keep serving its manifests
+		if (!DEBUG_PLUGINS_DISABLE_CACHE && $pluginState->read("version") === getWebappVersion()) {
 			$this->plugindata = $pluginState->read("plugindata");
 			$pluginOrder = $pluginState->read("pluginorder");
 			$this->plugindata = $this->normalizePluginData($this->plugindata ?? []);
@@ -195,6 +196,7 @@ class PluginManager {
 
 			// Write the newly built plugin data back to the state.
 			if (!DEBUG_PLUGINS_DISABLE_CACHE) {
+				$pluginState->write("version", getWebappVersion(), false);
 				$pluginState->write("plugindata", $this->plugindata, false);
 				$pluginState->write("pluginorder", $this->pluginorder);
 			}

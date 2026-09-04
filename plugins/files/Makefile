@@ -88,8 +88,6 @@ JSFILES = js/FilesContext.js \
           js/ui/FilesRootFolderNode.js
 
 COPYFILES = manifest.xml config.php \
-        js/external/Ext.ux.form.MetaForm-debug.js \
-        js/external/Ext.ux.form.MetaForm.js \
         $(shell find resources/icons/ -type f \( -name '*.png' -o -name '*.gif' -o -name '*.jpg' \) ) \
         $(wildcard resources/images/**/*.png) \
         $(shell find php/ -type f \! -name '.*' -not -path '*/tests/*' -not -path '*/examples/*' -not -path '*/vendor/bin/*' -not -path '*/.github/*' -not -iname '*.py' -not -iname 'naturalselection')
@@ -106,9 +104,9 @@ COPYFILESDEST = $(addprefix $(DESTDIR)/, $(COPYFILES))
 
 all: $(COPYFILESDEST) $(JSDEPLOY)/files.js $(CSSDEPLOY)/files.css
 
-$(JSDEPLOY)/files.js: $(JSFILES)
+$(JSDEPLOY)/files.js: js/external/Ext.ux.form.MetaForm-debug.js $(JSFILES)
 	mkdir -p $(DESTDIR)/js
-	cat $(JSFILES) > $(@:.js=-debug.js)
+	cat $^ > $(@:.js=-debug.js)
 	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
 		--source-map "base='$(@D)',url='/web/plugins/files/js/$(@F).map'" \
 	        $(JSOPTIONS)
