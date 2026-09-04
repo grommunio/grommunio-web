@@ -1964,6 +1964,25 @@ msgstr "Herunterladen"
 msgid "Download all as ZIP"
 msgstr "Alle als ZIP-Datei herunterladen"
 
+msgid "Save selection to folder"
+msgstr "Auswahl in Ordner speichern"
+
+msgid "Save attachments"
+msgstr "Anhänge speichern"
+
+msgid "The attachments could not be saved."
+msgstr "Die Anhänge konnten nicht gespeichert werden."
+
+msgid "This attachment could not be saved: {0}"
+msgid_plural "These attachments could not be saved: {0}"
+msgstr[0] "Dieser Anhang konnte nicht gespeichert werden: {0}"
+msgstr[1] "Diese Anhänge konnten nicht gespeichert werden: {0}"
+
+msgid "{0} attachment was saved."
+msgid_plural "{0} attachments were saved."
+msgstr[0] "{0} Anhang wurde gespeichert."
+msgstr[1] "{0} Anhänge wurden gespeichert."
+
 msgid "Import to folder"
 msgstr "Einfügen in Ordner"
 
