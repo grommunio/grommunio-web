@@ -211,6 +211,10 @@ foreach ([[true, false], [false, true], [true, true]] as [$sign, $encrypt]) {
 	transportCheck(reset($copy->attachments)->props[PR_ATTACH_DATA_BIN] === $envelope && $copy->recipients === $originalRecipients, 'Exact browser bytes and delivery recipient table preserved');
 	transportCheck($copy->props[PR_MESSAGE_CLASS] === ($encrypt ? 'IPM.Note.GpgOL.MultipartEncrypted' : 'IPM.Note.GpgOL.MultipartSigned') && !$copy->props[0x8001000b] && !$copy->props[0x8002000b], 'GpgOL transport class and cleared compose flags');
 }
+$plugin = new Pluginpgp(); $draft = fixture(); unset($draft->props[PR_SENT_REPRESENTING_SMTP_ADDRESS]);
+[$data, $prepared] = preparation($plugin, $draft); accept($plugin, $data);
+$copy = unserialize(serialize($GLOBALS['draft'])); $plugin->protect($GLOBALS['store'], $copy);
+transportCheck($prepared['sender'] === 'sender@example.test' && $copy->saves === 1 && !isset($copy->props[PR_BODY]), 'Draft without a From identity is protected with the logon address');
 $plugin = new Pluginpgp(); [$data] = preparation($plugin);
 foreach ([
 	'changed store' => static function (&$data) { $data['action']['store_entryid'] = '44'; },

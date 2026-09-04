@@ -105,7 +105,7 @@ class Pluginpgp extends Plugin {
 		$encrypt = !empty($props[$map['pgp_encrypt']]);
 		if (!$sign && !$encrypt) { throw new RuntimeException('No OpenPGP protection was selected.'); }
 		$key = $keys->key($props[$map['pgp_key']] ?? '', true);
-		$sender = $this->senderEmail($message, true) ?: PgpKeyStore::email($GLOBALS['mapisession']->getSMTPAddress());
+		$sender = $this->effectiveSender($message);
 		if (empty($key['secret']) || !PgpKeyStore::hasUid($key, $sender)) {
 			throw new RuntimeException('Choose a private OpenPGP key matching the From address.');
 		}
@@ -211,7 +211,7 @@ class Pluginpgp extends Plugin {
 		$recipientDetails = $this->recipientDetails($message);
 		if (!$state || $state['sign'] !== $sign || $state['encrypt'] !== $encrypt ||
 			$state['key'] !== ($props[$map['pgp_key']] ?? '') ||
-			$state['sender'] !== $this->senderEmail($message) || $state['recipient_details'] !== $recipientDetails) {
+			$state['sender'] !== $this->effectiveSender($message) || $state['recipient_details'] !== $recipientDetails) {
 			throw new RuntimeException('The sender, recipients, or OpenPGP selection changed. Prepare the message again.');
 		}
 		if (!hash_equals($state['content_hash'], $this->contentDigest($message))) {
@@ -382,6 +382,11 @@ class Pluginpgp extends Plugin {
 			$email = $sender[PR_SMTP_ADDRESS] ?? '';
 		}
 		return $email === '' && $allowEmpty ? '' : PgpKeyStore::email($email);
+	}
+
+	/** The converter stamps the logon address on a message that names no From identity. */
+	private function effectiveSender($message): string {
+		return $this->senderEmail($message, true) ?: PgpKeyStore::email($GLOBALS['mapisession']->getSMTPAddress());
 	}
 
 	private function writeEnvelope($message, string $envelope, string $class, string $mime, array $map): void {
