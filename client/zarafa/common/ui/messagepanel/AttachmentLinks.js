@@ -90,7 +90,7 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 			anchor: '100%',
 			iconCls: 'icon_paperclip',
 			cls: 'preview-header-attachments',
-			multiSelect: false,
+			multiSelect: true,
 			overClass: 'zarafa-attachment-link-over',
 			itemSelector: 'span.zarafa-attachment-link',
 			tpl: new Ext.XTemplate(
@@ -135,6 +135,7 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 		// Drag-out prefetch state, initialised once so the cache is always an object.
 		this.attachmentPayloadCache = {};
 		this.activePrefetches = [];
+		this.prefetchQueue = [];
 		this.pendingPrefetchCount = 0;
 		this.prefetchGeneration = 0;
 		this.payloadCacheSeq = 0;
@@ -143,6 +144,7 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 			'contextmenu': this.onNodeContextMenu,
 			'click': this.onAttachmentClicked,
 			'render': this.onRenderRegisterDragOut,
+			'selectionchange': this.onSelectionChangePrefetch,
 			scope: this
 		});
 	},
@@ -311,6 +313,10 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 		}
 
 		if (this.pendingPrefetchCount >= this.maxConcurrentPrefetch) {
+			// Queue instead of dropping it. A drag over a selection needs every
+			// one of its payloads, and nothing would ever start the ones beyond
+			// the concurrency limit again.
+			this.queuePrefetch(record, key);
 			return;
 		}
 
@@ -402,7 +408,178 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 					self.activePrefetches.splice(idx, 1);
 				}
 			}
+
+			self.drainPrefetchQueue();
 		});
+	},
+
+	/**
+	 * Remembers an attachment whose prefetch could not be started because
+	 * {@link #maxConcurrentPrefetch} downloads are already in flight, so
+	 * {@link #drainPrefetchQueue} can start it when a slot frees up. Ignores an
+	 * attachment already waiting.
+	 * @param {Zarafa.core.data.IPMAttachmentRecord} record The attachment record
+	 * @param {String} key Its {@link #getAttachmentCacheKey cache key}
+	 * @private
+	 */
+	queuePrefetch: function(record, key)
+	{
+		for (var i = 0; i < this.prefetchQueue.length; i++) {
+			if (this.getAttachmentCacheKey(this.prefetchQueue[i]) === key) {
+				return;
+			}
+		}
+
+		this.prefetchQueue.push(record);
+	},
+
+	/**
+	 * Starts queued prefetches while there is a free slot. The queue only ever
+	 * shrinks here: entries are taken off it before being started, and one is
+	 * queued again only from a state where every slot is busy.
+	 * @private
+	 */
+	drainPrefetchQueue: function()
+	{
+		while (!Ext.isEmpty(this.prefetchQueue) && this.pendingPrefetchCount < this.maxConcurrentPrefetch) {
+			this.prefetchAttachmentFile(this.prefetchQueue.shift());
+		}
+	},
+
+	/**
+	 * Event handler for {@link #selectionchange}. Starts fetching the payloads of
+	 * a multiple selection, so that dragging it out finds them ready: the drag
+	 * itself cannot wait for a download, and {@link #onAttachmentDragStart} hands
+	 * over a selection only when every payload is present. A selection no drag
+	 * could carry (see {@link #collectDragPayloads}) is not downloaded at all.
+	 * @private
+	 */
+	onSelectionChangePrefetch: function()
+	{
+		if (!this.isDragOutEmbedEnabled() || this.getSelectionCount() < 2) {
+			return;
+		}
+
+		var selected = this.getSelectedRecords();
+		var records = [];
+		var i;
+		for (i = 0; i < selected.length; i++) {
+			if (!this.isDraggableAttachment(selected[i])) {
+				continue;
+			}
+			if (this.exceedsDragOutMaxSize(selected[i])) {
+				return;
+			}
+			records.push(selected[i]);
+		}
+
+		if (!this.fitsPayloadCache(records)) {
+			return;
+		}
+
+		for (i = 0; i < records.length; i++) {
+			this.prefetchAttachmentFile(records[i]);
+		}
+	},
+
+	/**
+	 * Whether an attachment can take part in a drag out of grommunio Web.
+	 * Embedded messages cannot: they are not backed by a single downloadable
+	 * file, so they have neither a download URL nor a payload.
+	 * @param {Zarafa.core.data.IPMAttachmentRecord} record The attachment record
+	 * @return {Boolean} True if the attachment can be dragged out
+	 * @private
+	 */
+	isDraggableAttachment: function(record)
+	{
+		return !!record && !(Ext.isFunction(record.isEmbeddedMessage) && record.isEmbeddedMessage());
+	},
+
+	/**
+	 * Whether the attachment is over the embed limit, so that no drag can ever
+	 * carry its payload: {@link #prefetchAttachmentFile} refuses it by its
+	 * metadata size, or the response has already shown it to be too large.
+	 * @param {Zarafa.core.data.IPMAttachmentRecord} record The attachment record
+	 * @return {Boolean} True when it exceeds {@link #getDragOutMaxSize}
+	 * @private
+	 */
+	exceedsDragOutMaxSize: function(record)
+	{
+		var entry = this.attachmentPayloadCache[this.getAttachmentCacheKey(record)];
+		if (entry && entry.oversize) {
+			return true;
+		}
+
+		return (record.get('size') || 0) > this.getDragOutMaxSize();
+	},
+
+	/**
+	 * Whether the payloads of these attachments can be held at once. A set
+	 * larger than {@link #getPayloadCacheBudget} evicts its own members as they
+	 * arrive, so it never becomes complete and every drag downloads it again.
+	 * @param {Zarafa.core.data.IPMAttachmentRecord[]} records The attachments
+	 * @return {Boolean} True when they fit the payload cache budget
+	 * @private
+	 */
+	fitsPayloadCache: function(records)
+	{
+		var total = 0;
+		for (var i = 0; i < records.length; i++) {
+			total += records[i].get('size') || 0;
+		}
+
+		return total <= this.getPayloadCacheBudget();
+	},
+
+	/**
+	 * Collects the cached payloads of the given attachments, all of them or none.
+	 *
+	 * A payload cannot be fetched from within <tt>dragstart</tt>, which is
+	 * synchronous, so handing over the subset that happens to be ready would drop
+	 * the rest of the selection without telling anyone — a drop that looks
+	 * complete and is not. When one is missing its fetch is started instead, so a
+	 * later drag of the same selection carries everything.
+	 *
+	 * That holds only for a selection which can become complete at all. One with
+	 * a member over the embed limit, or with more bytes than the payload cache
+	 * holds, never does: nothing is fetched for it and nothing handed over, while
+	 * the operating system still receives it as the ZIP.
+	 *
+	 * @param {Zarafa.core.data.IPMAttachmentRecord[]} records The attachments to be dragged
+	 * @return {String[]} The payloads as JSON strings, or null when incomplete
+	 * @private
+	 */
+	collectDragPayloads: function(records)
+	{
+		if (!this.fitsPayloadCache(records)) {
+			return null;
+		}
+
+		var payloads = [];
+		var missing = [];
+		var i;
+
+		for (i = 0; i < records.length; i++) {
+			if (this.exceedsDragOutMaxSize(records[i])) {
+				return null;
+			}
+
+			var entry = this.attachmentPayloadCache[this.getAttachmentCacheKey(records[i])];
+			if (entry && entry.payload) {
+				this.touchCacheEntry(entry);
+				payloads.push(entry.payload);
+			} else {
+				missing.push(records[i]);
+			}
+		}
+
+		// Started only once the whole selection has passed, so an over-limit
+		// member further on does not leave a download running for nothing.
+		for (i = 0; i < missing.length; i++) {
+			this.prefetchAttachmentFile(missing[i]);
+		}
+
+		return Ext.isEmpty(missing) ? payloads : null;
 	},
 
 	/**
@@ -458,13 +635,29 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	 *   {@link #prefetchAttachmentFile prefetched}, the payload is also exposed
 	 *   under the custom {@link #attachmentDragOutType} MIME type as a JSON string
 	 *   <tt>{name, type, size, data(base64)}</tt>, so a cooperating receiving web
-	 *   application can reconstruct the file on drop.
+	 *   application can reconstruct the file on drop. Several attachments travel
+	 *   as an array of those objects, which the reader has always accepted.
 	 *
 	 * The two do not conflict: when a web page's drop handler calls
 	 * <tt>preventDefault()</tt> (as a drop zone must), the browser hands over the
 	 * custom payload and does NOT download. The <tt>DownloadURL</tt> download only
 	 * happens when the drop target does not accept the drop, i.e. the operating
 	 * system (Explorer/desktop) or a page area without a drop handler.
+	 *
+	 * 🛑 The two are not equally capable, and that governs what a multiple
+	 * selection can do. A drag can hand the operating system at most ONE file:
+	 * Chromium's drop data holds a single optional <tt>DownloadUrlMetadata</tt>
+	 * (<tt>content/public/common/drop_data.h</tt>), and its multi-valued file list
+	 * is the inbound direction, which is why dropping many files INTO the browser
+	 * works and the reverse does not. The custom type has no such limit because
+	 * the receiving page reconstructs the files itself.
+	 *
+	 * A selection of several therefore travels as two different things at once:
+	 * the loose files under the custom type, and, for the operating system, a
+	 * single ZIP of exactly that selection. One file is all the OS will take, so
+	 * it gets the one file that holds all of them — the one attachment under the
+	 * cursor would instead look like it had written them all. Loose files on disk
+	 * come from the context menu's "Save selection to folder".
 	 *
 	 * @param {Ext.EventObject} evt The native event wrapped by Ext.
 	 * @private
@@ -480,14 +673,19 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 			return;
 		}
 
-		var record = this.getRecord(node);
-		if (!record) {
-			return;
+		// Embedded messages take no part in the drag. Dropping them out of a
+		// mixed selection keeps the rest of it draggable, and a gesture that
+		// covers nothing else stays a plain (in-app) drag.
+		var gesture = this.getGestureRecords(node);
+		var records = [];
+		var i;
+		for (i = 0; i < gesture.length; i++) {
+			if (this.isDraggableAttachment(gesture[i])) {
+				records.push(gesture[i]);
+			}
 		}
 
-		// Embedded messages are not backed by a single downloadable file, so
-		// leave the drag as a plain (in-app) drag for those.
-		if (Ext.isFunction(record.isEmbeddedMessage) && record.isEmbeddedMessage()) {
+		if (Ext.isEmpty(records)) {
 			return;
 		}
 
@@ -497,32 +695,24 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 			return;
 		}
 
-		var name = record.get('name') || _('Untitled');
-		var mimeType = record.get('filetype') || 'application/octet-stream';
-
-		// DownloadURL requires a fully qualified URL.
-		var url = record.getAttachmentUrl();
-		if (!Ext.isEmpty(url)) {
-			url = new URL(url, window.location.href).href;
-		}
+		var multiple = records.length > 1;
 
 		// (1) Custom type for dropping into a cooperating web application. Only
-		// available when the feature is enabled and the payload was prefetched.
+		// available when the feature is enabled and every payload was prefetched.
 		var haveCustomPayload = false;
 		if (this.isDragOutEmbedEnabled()) {
-			var entry = this.attachmentPayloadCache[this.getAttachmentCacheKey(record)];
-			if (entry && entry.payload) {
-				this.touchCacheEntry(entry);
+			var payloads = this.collectDragPayloads(records);
+			if (payloads) {
 				try {
-					dataTransfer.setData(this.attachmentDragOutType, entry.payload);
+					// The cached payloads are JSON strings already, so the array
+					// is assembled textually rather than by decoding and
+					// re-encoding megabytes of base64 during dragstart.
+					dataTransfer.setData(this.attachmentDragOutType,
+						multiple ? '[' + payloads.join(',') + ']' : payloads[0]);
 					haveCustomPayload = true;
 				} catch (e) {
 					// Browser rejected the custom type; ignore.
 				}
-			} else {
-				// Not prefetched yet (or in-flight): start fetching so a
-				// subsequent drag can embed the payload.
-				this.prefetchAttachmentFile(record);
 			}
 		}
 
@@ -530,24 +720,76 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 		// Windows Explorer / desktop). This coexists with the custom type: a web
 		// drop zone that calls preventDefault() receives the custom payload and
 		// no download is triggered; only the OS (which cannot honour the custom
-		// type) uses the DownloadURL to save the file.
+		// type) uses the DownloadURL to save the file. One attachment goes as
+		// itself, several go as one ZIP of exactly that selection.
 		try {
-			if (!Ext.isEmpty(url)) {
-				// Name and MIME type are sender-controlled; ':' is the DownloadURL
-				// field separator, so strip it from both or a crafted value could
-				// hijack the URL (everything after the second ':' is the URL).
-				var safeName = String(name).replace(/[\r\n]+/g, ' ').replace(/:/g, '_');
-				var baseMime = String(mimeType).split(';')[0].trim();
-				var safeMime = /^[\w.+-]+\/[\w.+-]+$/.test(baseMime) ? baseMime : 'application/octet-stream';
-				dataTransfer.setData('DownloadURL', safeMime + ':' + safeName + ':' + url);
-				dataTransfer.setData('text/uri-list', url);
+			var name, url, safeName;
+
+			if (!multiple) {
+				var record = records[0];
+				name = record.get('name') || _('Untitled');
+				var mimeType = record.get('filetype') || 'application/octet-stream';
+
+				// DownloadURL requires a fully qualified URL.
+				url = record.getAttachmentUrl();
+				if (!Ext.isEmpty(url)) {
+					url = new URL(url, window.location.href).href;
+
+					// Name and MIME type are sender-controlled; ':' is the DownloadURL
+					// field separator, so strip it from both or a crafted value could
+					// hijack the URL (everything after the second ':' is the URL).
+					safeName = String(name).replace(/[\r\n]+/g, ' ').replace(/:/g, '_');
+					var baseMime = String(mimeType).split(';')[0].trim();
+					var safeMime = /^[\w.+-]+\/[\w.+-]+$/.test(baseMime) ? baseMime : 'application/octet-stream';
+					dataTransfer.setData('DownloadURL', safeMime + ':' + safeName + ':' + url);
+					dataTransfer.setData('text/uri-list', url);
+				}
+
+				// A human-readable label; useful when dropping onto a text field.
+				dataTransfer.setData('text/plain', haveCustomPayload || Ext.isEmpty(url) ? name : url);
+			} else {
+				// The archive is built by the server from the attachment numbers
+				// the URL names, so the drop costs nothing until it happens.
+				url = this.store.getSelectionZipUrl(records);
+				if (!Ext.isEmpty(url)) {
+					url = new URL(url, window.location.href).href;
+					name = this.getSelectionZipName();
+					safeName = String(name).replace(/[\r\n]+/g, ' ').replace(/:/g, '_');
+					dataTransfer.setData('DownloadURL', 'application/zip:' + safeName + ':' + url);
+					dataTransfer.setData('text/uri-list', url);
+				}
+
+				var names = [];
+				for (i = 0; i < records.length; i++) {
+					names.push(records[i].get('name') || _('Untitled'));
+				}
+				dataTransfer.setData('text/plain', names.join('\n'));
 			}
-			// A human-readable label; useful when dropping onto a text field.
-			dataTransfer.setData('text/plain', haveCustomPayload || Ext.isEmpty(url) ? name : url);
+
 			dataTransfer.effectAllowed = 'copyLink';
 		} catch (e) {
 			// Ignore browsers that reject one of the data types.
 		}
+	},
+
+	/**
+	 * The file name for the ZIP a multiple selection is dragged out as.
+	 *
+	 * It mirrors what <tt>download_attachment.php</tt> puts in the
+	 * <tt>Content-Disposition</tt> header — the word "Attachments", a space, and
+	 * the message subject with everything outside <tt>[a-z0-9 ()]</tt> replaced —
+	 * so the file the operating system writes carries the name the server would
+	 * have given it.
+	 *
+	 * @return {String} The archive file name
+	 * @private
+	 */
+	getSelectionZipName: function()
+	{
+		var parentRecord = this.store && Ext.isFunction(this.store.getParentRecord) ? this.store.getParentRecord() : null;
+		var subject = parentRecord ? (parentRecord.get('subject') || '') : '';
+
+		return _('Attachments') + ' ' + String(subject).replace(/[^a-z0-9 ()]/gi, '_') + '.zip';
 	},
 
 	/**
@@ -621,6 +863,7 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 		// fresh; fetches that settle afterwards skip their bookkeeping.
 		this.prefetchGeneration = (this.prefetchGeneration || 0) + 1;
 		this.pendingPrefetchCount = 0;
+		this.prefetchQueue = [];
 
 		if (this.activePrefetches) {
 			for (var i = 0; i < this.activePrefetches.length; i++) {
@@ -685,22 +928,6 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	},
 
 	/**
-	 * overridden to get the viewIndex from an HTML element's attribute
-	 * by default the index is taken from the element's position within the group;
-	 * however if there are more than one groups, the indexes are wrong
-	 * @private
-	 */
-	updateIndexes: function(startIndex, endIndex)
-	{
-		var ns = this.all.elements;
-		startIndex = startIndex || 0;
-		endIndex = endIndex || ((endIndex === 0) ? 0: (ns.length - 1));
-		for(var i = startIndex; i <= endIndex; i++){
-				ns[i].viewIndex = ns[i].getAttribute('viewIndex');
-		}
-	},
-
-	/**
 	 * overridden to provide the correct index to {@link Ext.DataView#getRecord}
 	 * otherwise behaviour breaks when there is more than one group in the records (e.g. CC, BCC, etc.)
 	 * @param {Zarafa.core.data.IPMRecipientRecord} data The recipient record to be prepared
@@ -731,13 +958,15 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 
 	/**
 	 * Gets a record from a node
+	 * The viewIndex attribute is the attach_num, not the node position: attachments
+	 * shown in the body are left out of the view by {@link #collectData}.
 	 * @param {HTMLElement} node The node to evaluate
 	 * @return {Record} record The {@link Ext.data.Record} object
 	 * @override
 	 */
 	getRecord: function(node)
 	{
-		return this.store.getAt(this.store.findExact('attach_num', parseInt(node.viewIndex, 10)));
+		return this.store.getAt(this.store.findExact('attach_num', parseInt(node.getAttribute('viewIndex'), 10)));
 	},
 
 	/**
@@ -769,6 +998,12 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	/**
 	 * Called when the {@link #click} event is fired. This will
 	 * {@link Zarafa.core.data.UIFactory#openViewRecord open} the selected attachment
+	 *
+	 * A click carrying a modifier is a selection gesture and must not open
+	 * anything: {@link Ext.DataView#doMultiSelection} has already extended or
+	 * reduced the selection by the time this runs, and opening the attachment on
+	 * top of that would make a selection impossible to build.
+	 *
 	 * @param {Ext.DataView} dataview Reference to this object
 	 * @param {Number} index
 	 * @param {HTMLElement} node The target HTML element
@@ -783,12 +1018,59 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 			return;
 		}
 
+		if (evt && (evt.ctrlKey || evt.shiftKey || evt.metaKey)) {
+			return;
+		}
+
 		var attachment = dataview.getRecord(node);
 		Zarafa.common.Actions.openAttachmentRecord(attachment);
 	},
+
+	/**
+	 * The records a gesture on <tt>node</tt> applies to: the whole selection when
+	 * that node is part of a selection of several, and otherwise only the node
+	 * itself, leaving any selection untouched.
+	 *
+	 * This is the behaviour of Explorer and Outlook, and it is what lets a drag
+	 * or a context menu act on several attachments without a visible selection
+	 * control: the user builds the selection with ctrl/shift and then starts the
+	 * gesture on one of the selected items.
+	 *
+	 * @param {HTMLElement} node The node the gesture started on
+	 * @return {Zarafa.core.data.IPMAttachmentRecord[]} The records, possibly empty
+	 * @private
+	 */
+	getGestureRecords: function(node)
+	{
+		var record = this.getRecord(node);
+		if (!record) {
+			return [];
+		}
+
+		if (this.getSelectionCount() > 1 && this.isSelected(node)) {
+			var selected = this.getSelectedRecords();
+			if (!Ext.isEmpty(selected)) {
+				return selected;
+			}
+		}
+
+		return [record];
+	},
+
 	/**
 	 * Called when user right-clicks on an item in {@link Zarafa.common.ui.messagepanel.AttachmentLinks}
 	 * invokes {@link Zarafa.core.data.UIFactory#openDefaultContextMenu} with the selected {@link Zarafa.core.data.IPMRecord}
+	 *
+	 * 🛑 The selection is passed in the config, not as the first argument.
+	 * {@link Zarafa.core.data.UIFactory#openContextMenu} first asks the plugins
+	 * to bid for a component to show, and they bid on a single record: handing
+	 * that call an array makes every bid fail, whereupon it returns silently and
+	 * no menu opens at all. So the bid is given one record, exactly as before,
+	 * and the selection rides in the config as <tt>selectedRecords</tt>, which
+	 * <tt>Ext.applyIf</tt> leaves alone. The menu's <tt>records</tt> stays that
+	 * one record as well: ConditionalMenu hands it to every item's beforeShow,
+	 * plugin items included, and they expect a single record there.
+	 *
 	 * @param {Ext.DataView} dataView DataView from which the event comes
 	 * @param {Number} index
 	 * @param {HTMLElement} node HTML node from which the event originates
@@ -797,7 +1079,21 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	 */
 	onNodeContextMenu: function(dataView, index, node, evt)
 	{
-		Zarafa.core.data.UIFactory.openDefaultContextMenu(dataView.getRecord(node), {
+		var records = this.getGestureRecords(node);
+		if (Ext.isEmpty(records)) {
+			return;
+		}
+
+		// `primaryRecord` is the attachment the pointer was actually on. Every
+		// item except "Save selection to folder" acts on one attachment, and
+		// without this they would act on the first of the selection instead of
+		// the one that was clicked: measured, right-clicking the third of three
+		// selected and choosing Download downloaded the first.
+		var record = this.getRecord(node);
+
+		Zarafa.core.data.UIFactory.openDefaultContextMenu(record, {
+			selectedRecords: records,
+			primaryRecord: record,
 			position: evt.getXY(),
 			model: this.model
 		});

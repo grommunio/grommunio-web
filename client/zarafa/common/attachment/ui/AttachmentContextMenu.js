@@ -71,6 +71,12 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 			handler: this.onDownloadAllAsZip,
 			beforeShow: this.onDownloadZipBeforeShow
 		}, {
+			text: _('Save selection to folder'),
+			iconCls: 'icon_download',
+			scope: this,
+			handler: this.onSaveSelectionToFolder,
+			beforeShow: this.onSaveSelectionBeforeShow
+		}, {
 			text: _('Import to folder'),
 			iconCls: 'icon_import_attachment',
 			handler: this.onImportToFolder,
@@ -81,13 +87,55 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	},
 
 	/**
+	 * @cfg {Zarafa.core.data.IPMAttachmentRecord} primaryRecord The attachment the
+	 * pointer was on when the menu was opened. Optional; when absent the first of
+	 * {@link #records} is used. See {@link #getPrimaryRecord}.
+	 */
+	primaryRecord: undefined,
+
+	/**
+	 * @cfg {Zarafa.core.data.IPMAttachmentRecord[]} selectedRecords The whole
+	 * selection the gesture covered, see
+	 * {@link Zarafa.common.ui.messagepanel.AttachmentLinks#getGestureRecords}.
+	 * {@link #records} stays a single record: ConditionalMenu hands it to every
+	 * item's beforeShow, plugin items included.
+	 */
+	selectedRecords: undefined,
+
+	/**
+	 * The single attachment the per-item actions apply to.
+	 *
+	 * Every item here acts on one attachment, so they all resolve through this;
+	 * an item that acts on the whole selection reads {@link #selectedRecords}.
+	 *
+	 * @param {Zarafa.core.data.IPMAttachmentRecord|Zarafa.core.data.IPMAttachmentRecord[]} records
+	 * The records the menu was opened with, defaulting to the menu's own
+	 * @return {Zarafa.core.data.IPMAttachmentRecord} The record to act on
+	 * @private
+	 */
+	getPrimaryRecord: function(records)
+	{
+		// The opener names the attachment the pointer was on. Falling back to
+		// the first of the selection would make a right-click inside a selection
+		// act on a different attachment than the one that was clicked.
+		if (this.primaryRecord) {
+			return this.primaryRecord;
+		}
+
+		var candidate = Ext.isDefined(records) ? records : this.records;
+		return Ext.isArray(candidate) ? candidate[0] : candidate;
+	},
+
+	/**
 	 * Function will be called before {@link Zarafa.common.attachment.ui.AttachmentContextMenu AttachmentContextMenu} is shown
 	 * so we can decide which item should be disabled.
 	 * @param {Zarafa.core.ui.menu.ConditionalItem} item context menu item
-	 * @param {Zarafa.core.data.IPMAttachmentRecord} record attachment record on which context menu is shown
+	 * @param {Zarafa.core.data.IPMAttachmentRecord|Zarafa.core.data.IPMAttachmentRecord[]} records attachment record(s) on which context menu is shown
 	 */
-	onPreviewBeforeShow: function(item, record)
+	onPreviewBeforeShow: function(item, records)
 	{
+		var record = this.getPrimaryRecord(records);
+
 		if (!Zarafa.common.Actions.isFilePreviewerEnabled()) {
 			item.setVisible(false);
 			return;
@@ -108,22 +156,23 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	 * Function will be called before {@link Zarafa.common.attachment.ui.AttachmentContextMenu AttachmentContextMenu} is shown
 	 * so we can decide which item should be disabled.
 	 * @param {Zarafa.core.ui.menu.ConditionalItem} item context menu item
-	 * @param {Zarafa.core.data.IPMAttachmentRecord} record attachment record on which context menu is shown
+	 * @param {Zarafa.core.data.IPMAttachmentRecord|Zarafa.core.data.IPMAttachmentRecord[]} records attachment record(s) on which context menu is shown
 	 */
-	onDownloadBeforeShow: function(item, record)
+	onDownloadBeforeShow: function(item, records)
 	{
 		// embedded messages can not be downloaded
-		item.setDisabled(record.isEmbeddedMessage());
+		item.setDisabled(this.getPrimaryRecord(records).isEmbeddedMessage());
 	},
 
 	/**
 	 * Function will be called before {@link Zarafa.common.attachment.ui.AttachmentContextMenu AttachmentContextMenu} is shown
 	 * so we can decide which item should be disabled.
 	 * @param {Zarafa.core.ui.menu.ConditionalItem} item context menu item
-	 * @param {Zarafa.core.data.IPMAttachmentRecord} record attachment record on which context menu is shown
+	 * @param {Zarafa.core.data.IPMAttachmentRecord|Zarafa.core.data.IPMAttachmentRecord[]} records attachment record(s) on which context menu is shown
 	 */
-	onDownloadZipBeforeShow: function(item, record)
+	onDownloadZipBeforeShow: function(item, records)
 	{
+		var record = this.getPrimaryRecord(records);
 		var normalAttachmentCounter = 0;
 		// Check if there is more than one normal attachments.
 		// Here, 'query' method of Ext.data.Store is useless in case where there is same id(-1) of all the unsaved attachments.
@@ -144,10 +193,31 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	 * Function will be called before {@link Zarafa.common.attachment.ui.AttachmentContextMenu AttachmentContextMenu} is shown
 	 * so we can decide which item should be disabled.
 	 * @param {Zarafa.core.ui.menu.ConditionalItem} item context menu item
-	 * @param {Zarafa.core.data.IPMAttachmentRecord} record attachment record on which context menu is shown
 	 */
-	onImportToFolderBeforeShow: function(item, record)
+	onSaveSelectionBeforeShow: function(item)
 	{
+		var saver = Zarafa.common.attachment.AttachmentFolderSaver;
+		var records = this.selectedRecords;
+
+		// This answers a need only a selection has: several loose files on disk,
+		// which neither the drag (one file at most) nor the ZIP (an archive of
+		// everything) gives. A single attachment is what "Download" is for, so
+		// the item stays out of the menu until there are several to write.
+		var visible = Ext.isArray(records) && saver.isSupported() &&
+			saver.getSaveableRecords(records).length > 1;
+
+		item.setVisible(visible);
+	},
+
+	/**
+	 * Function will be called before {@link Zarafa.common.attachment.ui.AttachmentContextMenu AttachmentContextMenu} is shown
+	 * so we can decide which item should be disabled.
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} item context menu item
+	 * @param {Zarafa.core.data.IPMAttachmentRecord|Zarafa.core.data.IPMAttachmentRecord[]} records attachment record(s) on which context menu is shown
+	 */
+	onImportToFolderBeforeShow: function(item, records)
+	{
+		var record = this.getPrimaryRecord(records);
 		var store = record.getStore();
 		var parentRecord = store.getParentRecord();
 		item.setDisabled(!record.canBeImported() || parentRecord.phantom);
@@ -161,7 +231,9 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	onImportToFolderAfterRender: function(item)
 	{
 		var serverConfig = container.getServerConfig();
-		var attachRecord = this.getRecords();
+		// 'this' is the menu item here, so the records are reached through the
+		// root menu, which normalises a selection down to a single attachment.
+		var attachRecord = this.getRootMenu().getPrimaryRecord();
 		if (!serverConfig.isVCfImportSupported() && attachRecord.isVCFAttachment()) {
 			var tooltip = _('In order to use the vCard import feature, upgrade your Gromox to version 0 or higher.');
 			this.setTooltipOnImportButton(this.getEl(), tooltip);
@@ -192,7 +264,7 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	{
 		//should already have a component that has won the bid
 		//invoke that component to open the preview
-		Zarafa.core.data.UIFactory.openViewRecord(this.records, {modal: true, autoResize: true});
+		Zarafa.core.data.UIFactory.openViewRecord(this.getPrimaryRecord(), {modal: true, autoResize: true});
 	},
 
 	/**
@@ -202,7 +274,7 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	 */
 	onDownloadItem: function()
 	{
-		Zarafa.common.Actions.downloadAttachment(this.records);
+		Zarafa.common.Actions.downloadAttachment(this.getPrimaryRecord());
 	},
 
 	/**
@@ -212,7 +284,18 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	 */
 	onDownloadAllAsZip: function()
 	{
-		Zarafa.common.Actions.downloadAttachment(this.records, true);
+		Zarafa.common.Actions.downloadAttachment(this.getPrimaryRecord(), true);
+	},
+
+	/**
+	 * Event handler which is called when the user selects the 'Save selection to
+	 * folder' item in the context menu. Writes the selected attachments as loose
+	 * files into a folder the user picks.
+	 * @private
+	 */
+	onSaveSelectionToFolder: function()
+	{
+		Zarafa.common.attachment.AttachmentFolderSaver.save(this.selectedRecords);
 	},
 
 	/**
@@ -222,7 +305,7 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	 */
 	onImportToFolder: function()
 	{
-		Zarafa.common.Actions.importToFolder(this.records);
+		Zarafa.common.Actions.importToFolder(this.getPrimaryRecord());
 	}
 });
 

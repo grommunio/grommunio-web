@@ -39,6 +39,13 @@ class DownloadAttachment extends DownloadBase {
 	private $attachCid;
 
 	/**
+	 * Attachment numbers a ZIP request is restricted to. Empty means every attachment of the message,
+	 * which is what 'AllAsZip' has always done; a non-empty list narrows the archive to exactly those
+	 * attachments, which is how a selection of several is downloaded as one file.
+	 */
+	private $selectedAttachNum;
+
+	/**
 	 * A string that will be initialized with grommunio Web-specific and common-for-all file name for ZIP file.
 	 */
 	private $zipFileName;
@@ -88,6 +95,7 @@ class DownloadAttachment extends DownloadBase {
 	public function __construct() {
 		$this->contentDispositionType = 'attachment';
 		$this->attachNum = [];
+		$this->selectedAttachNum = [];
 		$this->attachCid = false;
 		$this->zipFileName = _('Attachments') . '%s.zip';
 		$this->messageSubject = '';
@@ -143,6 +151,21 @@ class DownloadAttachment extends DownloadBase {
 				}
 				else {
 					array_push($this->attachNum, (int) $num);
+				}
+			}
+		}
+
+		if (!empty($data['selectedAttachNum']) && is_array($data['selectedAttachNum'])) {
+			/*
+			 * Restricts an 'AllAsZip' request to the named attachments. Only numeric attachment
+			 * numbers are accepted: an unsaved attachment of a draft is identified by a temporary
+			 * name rather than a number and cannot be part of such a selection.
+			 */
+			foreach ($data['selectedAttachNum'] as $attachNum) {
+				$num = sanitizeValue($attachNum, false, NUMERIC_REGEX);
+
+				if ($num !== false) {
+					array_push($this->selectedAttachNum, (int) $num);
 				}
 			}
 		}
@@ -532,13 +555,22 @@ class DownloadAttachment extends DownloadBase {
 		// Get all the attachments from message
 		$attachmentTable = mapi_message_getattachmenttable($this->message);
 		$attachments = mapi_table_queryallrows($attachmentTable, [PR_ATTACH_NUM, PR_ATTACH_METHOD]);
+		$isSelection = !empty($this->selectedAttachNum);
 
 		foreach ($attachments as $attachmentRow) {
+			// A selection narrows the archive to the attachments it names; without one
+			// every attachment of the message goes in, as it always has.
+			if ($isSelection &&
+				!in_array((int) $attachmentRow[PR_ATTACH_NUM], $this->selectedAttachNum, true)) {
+				continue;
+			}
+
 			if ($attachmentRow[PR_ATTACH_METHOD] !== ATTACH_EMBEDDED_MSG) {
 				$attachment = mapi_message_openattach($this->message, $attachmentRow[PR_ATTACH_NUM]);
 
-				// Prevent inclusion of inline attachments and contact photos into ZIP
-				if (!$attachment_state->isInlineAttachment($attachment) && !$attachment_state->isContactPhoto($attachment)) {
+				// Keep inline attachments and contact photos out of an archive of everything
+				// only: this test is wider than the one the attachment list hides by.
+				if ($isSelection || (!$attachment_state->isInlineAttachment($attachment) && !$attachment_state->isContactPhoto($attachment))) {
 					$props = mapi_attach_getprops($attachment, [PR_ATTACH_LONG_FILENAME]);
 
 					// Open a stream to get the attachment data
@@ -560,9 +592,13 @@ class DownloadAttachment extends DownloadBase {
 
 		// Go for adding unsaved attachments in ZIP, if any.
 		// This situation arise while user upload attachments in draft.
-		$attachmentFiles = $attachment_state->getAttachmentFiles($this->dialogAttachments);
-		if ($attachmentFiles) {
-			$this->addUnsavedAttachmentsToZipArchive($attachment_state, $zip);
+		// A selection names attachments by number, which an unsaved one does not have,
+		// so adding them would put files into the archive that were never selected.
+		if (!$isSelection) {
+			$attachmentFiles = $attachment_state->getAttachmentFiles($this->dialogAttachments);
+			if ($attachmentFiles) {
+				$this->addUnsavedAttachmentsToZipArchive($attachment_state, $zip);
+			}
 		}
 	}
 
@@ -910,6 +946,14 @@ class DownloadAttachment extends DownloadBase {
 			}
 			else {
 				// Throw exception if ZIP is not created successfully
+				throw new ZarafaException(_("ZIP is not created successfully"));
+			}
+
+			// A selection that matched nothing must not become an empty archive on disk.
+			if (!empty($this->selectedAttachNum) && $zip->numFiles === 0) {
+				$zip->close();
+				@unlink($randomZipName);
+
 				throw new ZarafaException(_("ZIP is not created successfully"));
 			}
 

@@ -3625,6 +3625,10 @@ span.preview-header-sender-image {
   background-color: var(--ui-surface-3);
   border-color: var(--ui-border-strong); }
 
+.preview-header-attachments .zarafa-attachment-link.x-view-selected {
+  background-color: var(--theme-selection-bg);
+  border-color: var(--theme-primary-color); }
+
 .preview-header-task .preview-from .task-info-container span {
   min-width: 80px;
   padding-top: 5px;
