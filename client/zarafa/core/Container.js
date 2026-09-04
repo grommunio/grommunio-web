@@ -640,13 +640,36 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 			this.currentContext = context;
 
 			this.fireEvent('folderselect', folder);
-			this.fireEvent('contextswitch', folder, oldContext, context);
 
 			// Nothing needs to be done between 'contextswitch' and 'aftercontextswitch',
 			// the difference between the two events is that the first one can be used
 			// internally for building up the UI, while the latter event is ideal for
 			// plugins which want the UI components to be setup correctly.
-			this.fireEvent('aftercontextswitch', folder, oldContext, context);
+			//
+			// A handler that throws leaves the ones behind it unreached, so the
+			// second event fires either way and lets the interface catch up. The
+			// error that aborted the switch is rethrown once it has.
+			var error;
+			try {
+				this.fireEvent('contextswitch', folder, oldContext, context);
+			} catch (e) {
+				error = e;
+			}
+
+			try {
+				this.fireEvent('aftercontextswitch', folder, oldContext, context);
+			} catch (e) {
+				if (error) {
+					// eslint-disable-next-line no-console
+					console.error(e);
+				} else {
+					error = e;
+				}
+			}
+
+			if (error) {
+				throw error;
+			}
 		}
 	},
 
