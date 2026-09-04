@@ -3,22 +3,17 @@
 /**
  * Curve methods common to all curves
  *
- * PHP version 8.1+
+ * PHP version 5 and 7
  *
  * @author    Jim Wigginton <terrafrost@php.net>
- * @copyright 2018-2026 Jim Wigginton
+ * @copyright 2017 Jim Wigginton
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link      https://phpseclib.com/
+ * @link      http://pear.php.net/package/Math_BigInteger
  */
 
-declare(strict_types=1);
+namespace phpseclib3\Crypt\EC\BaseCurves;
 
-namespace phpseclib4\Crypt\EC\BaseCurves;
-
-use phpseclib4\Exception\{InvalidStateException, UnexpectedValueException};
-use phpseclib4\Math\BigInteger;
-use phpseclib4\Math\Common\FiniteField;
-use phpseclib4\Math\Common\FiniteField\Integer;
+use phpseclib3\Math\BigInteger;
 
 /**
  * Base
@@ -29,25 +24,34 @@ abstract class Base
 {
     /**
      * The Order
+     *
+     * @var BigInteger
      */
-    protected BigInteger $order;
+    protected $order;
+
+    /**
+     * Finite Field Integer factory
+     *
+     * @var FiniteField\Integer
+     */
+    protected $factory;
 
     /**
      * Returns a random integer
      *
-     * @psalm-suppress UndefinedThisPropertyFetch
+     * @return object
      */
-    public function randomInteger(): Integer
+    public function randomInteger()
     {
         return $this->factory->randomInteger();
     }
 
     /**
-     * Converts a BigInteger to a \phpseclib4\Math\FiniteField\Integer integer
+     * Converts a BigInteger to a FiniteField\Integer integer
      *
-     * @psalm-suppress UndefinedThisPropertyFetch
+     * @return object
      */
-    public function convertInteger(BigInteger $x): Integer
+    public function convertInteger(BigInteger $x)
     {
         return $this->factory->newInteger($x);
     }
@@ -55,9 +59,9 @@ abstract class Base
     /**
      * Returns the length, in bytes, of the modulo
      *
-     * @psalm-suppress UndefinedThisPropertyFetch
+     * @return integer
      */
-    public function getLengthInBytes(): int
+    public function getLengthInBytes()
     {
         return $this->factory->getLengthInBytes();
     }
@@ -65,10 +69,9 @@ abstract class Base
     /**
      * Returns the length, in bits, of the modulo
      *
-     * @psalm-suppress PossiblyUnusedMethod
-     * @psalm-suppress UndefinedThisPropertyFetch
+     * @return integer
      */
-    public function getLength(): int
+    public function getLength()
     {
         return $this->factory->getLength();
     }
@@ -80,8 +83,10 @@ abstract class Base
      *
      * https://en.wikipedia.org/wiki/Elliptic_curve_point_multiplication#Montgomery_ladder
      * https://github.com/phpecc/phpecc/issues/16#issuecomment-59176772
+     *
+     * @return array
      */
-    public function multiplyPoint(array $p, BigInteger $d): array
+    public function multiplyPoint(array $p, BigInteger $d)
     {
         $alreadyInternal = isset($p[2]);
         $r = $alreadyInternal ?
@@ -100,8 +105,10 @@ abstract class Base
 
     /**
      * Creates a random scalar multiplier
+     *
+     * @return BigInteger
      */
-    public function createRandomMultiplier(): BigInteger
+    public function createRandomMultiplier()
     {
         static $one;
         if (!isset($one)) {
@@ -114,7 +121,7 @@ abstract class Base
     /**
      * Performs range check
      */
-    public function rangeCheck(BigInteger $x): void
+    public function rangeCheck(BigInteger $x)
     {
         static $zero;
         if (!isset($zero)) {
@@ -122,25 +129,27 @@ abstract class Base
         }
 
         if (!isset($this->order)) {
-            throw new InvalidStateException('setOrder needs to be called before this method');
+            throw new \RuntimeException('setOrder needs to be called before this method');
         }
         if ($x->compare($this->order) > 0 || $x->compare($zero) <= 0) {
-            throw new UnexpectedValueException('x must be between 1 and the order of the curve');
+            throw new \RangeException('x must be between 1 and the order of the curve');
         }
     }
 
     /**
      * Sets the Order
      */
-    public function setOrder(BigInteger $order): void
+    public function setOrder(BigInteger $order)
     {
         $this->order = $order;
     }
 
     /**
      * Returns the Order
+     *
+     * @return BigInteger
      */
-    public function getOrder(): BigInteger
+    public function getOrder()
     {
         return $this->order;
     }
@@ -148,38 +157,43 @@ abstract class Base
     /**
      * Use a custom defined modular reduction function
      *
-     * @psalm-suppress PossiblyUnusedMethod
-     * @psalm-suppress UndefinedThisPropertyFetch
+     * @return object
      */
-    public function setReduction(\Closure $func): void
+    public function setReduction(callable $func)
     {
         $this->factory->setReduction($func);
     }
 
     /**
      * Returns the affine point
+     *
+     * @return object[]
      */
-    public function convertToAffine(array $p): array
+    public function convertToAffine(array $p)
     {
         return $p;
     }
 
     /**
      * Converts an affine point to a jacobian coordinate
+     *
+     * @return object[]
      */
-    public function convertToInternal(array $p): array
+    public function convertToInternal(array $p)
     {
         return $p;
     }
 
     /**
      * Negates a point
+     *
+     * @return object[]
      */
-    public function negatePoint(array $p): array
+    public function negatePoint(array $p)
     {
         $temp = [
             $p[0],
-            $p[1]->negate(),
+            $p[1]->negate()
         ];
         if (isset($p[2])) {
             $temp[] = $p[2];
@@ -189,8 +203,10 @@ abstract class Base
 
     /**
      * Multiply and Add Points
+     *
+     * @return int[]
      */
-    public function multiplyAddPoints(array $points, array $scalars): array
+    public function multiplyAddPoints(array $points, array $scalars)
     {
         $p1 = $this->convertToInternal($points[0]);
         $p2 = $this->convertToInternal($points[1]);

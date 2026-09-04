@@ -11,53 +11,54 @@
  * and subtraction become the same operation as XOR.
  * eg. 1 + 1 + 1 == 3 % 2 == 1 or 0 - 1 == -1 % 2 == 1
  *
- * PHP version 8.1+
+ * PHP version 5 and 7
  *
  * @author    Jim Wigginton <terrafrost@php.net>
- * @copyright 2018-2026 Jim Wigginton
+ * @copyright 2017 Jim Wigginton
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
  */
 
-declare(strict_types=1);
+namespace phpseclib3\Math\BinaryField;
 
-namespace phpseclib4\Math\BinaryField;
-
-use phpseclib4\Common\Functions\Strings;
-use phpseclib4\Exception\InvalidArgumentException;
-use phpseclib4\Math\{BigInteger, BinaryField};
-use phpseclib4\Math\Common\FiniteField\Integer as Base;
+use phpseclib3\Common\Functions\Strings;
+use phpseclib3\Math\BigInteger;
+use phpseclib3\Math\BinaryField;
+use phpseclib3\Math\Common\FiniteField\Integer as Base;
 
 /**
  * Binary Finite Fields
  *
  * @author  Jim Wigginton <terrafrost@php.net>
- * @psalm-api
  */
 class Integer extends Base
 {
     /**
      * Holds the BinaryField's value
+     *
+     * @var string
      */
-    protected string $value;
+    protected $value;
 
     /**
      * Keeps track of current instance
+     *
+     * @var int
      */
-    protected int $instanceID;
+    protected $instanceID;
 
     /**
      * Holds the PrimeField's modulo
      *
      * @var array<int, string>
      */
-    protected static array $modulo;
+    protected static $modulo;
 
     /**
      * Holds a pre-generated function to perform modulo reductions
      *
      * @var callable[]
      */
-    protected static array $reduce;
+    protected static $reduce;
 
     /**
      * Default constructor
@@ -75,8 +76,10 @@ class Integer extends Base
 
     /**
      * Set the modulo for a given instance
+     * @param int $instanceID
+     * @param string $modulo
      */
-    public static function setModulo(int $instanceID, string $modulo): void
+    public static function setModulo($instanceID, $modulo)
     {
         static::$modulo[$instanceID] = $modulo;
     }
@@ -84,7 +87,7 @@ class Integer extends Base
     /**
      * Set the modulo for a given instance
      */
-    public static function setRecurringModuloFunction($instanceID, callable $function): void
+    public static function setRecurringModuloFunction($instanceID, callable $function)
     {
         static::$reduce[$instanceID] = $function;
     }
@@ -94,17 +97,19 @@ class Integer extends Base
      *
      * Throws an exception if the incorrect class is being utilized
      */
-    private static function checkInstance(self $x, self $y): void
+    private static function checkInstance(self $x, self $y)
     {
         if ($x->instanceID != $y->instanceID) {
-            throw new InvalidArgumentException('The instances of the two BinaryField\Integer objects do not match');
+            throw new \UnexpectedValueException('The instances of the two BinaryField\Integer objects do not match');
         }
     }
 
     /**
      * Tests the equality of two numbers.
+     *
+     * @return bool
      */
-    public function equals(self $x): bool
+    public function equals(self $x)
     {
         static::checkInstance($this, $x);
 
@@ -113,8 +118,10 @@ class Integer extends Base
 
     /**
      * Compares two numbers.
+     *
+     * @return int
      */
-    public function compare(self $x): int
+    public function compare(self $x)
     {
         static::checkInstance($this, $x);
 
@@ -131,8 +138,11 @@ class Integer extends Base
 
     /**
      * Returns the degree of the polynomial
+     *
+     * @param string $x
+     * @return int
      */
-    private static function deg(string $x): int
+    private static function deg($x)
     {
         $x = ltrim($x, "\0");
         $xbit = decbin(ord($x[0]));
@@ -150,7 +160,7 @@ class Integer extends Base
      * @return string[]
      * @link https://en.wikipedia.org/wiki/Polynomial_greatest_common_divisor#Euclidean_division
      */
-    private static function polynomialDivide(string $x, string $y): array
+    private static function polynomialDivide($x, $y)
     {
         // in wikipedia's description of the algorithm, lc() is the leading coefficient. over a binary field that's
         // always going to be 1.
@@ -177,9 +187,10 @@ class Integer extends Base
     /**
      * Perform polynomial multiplation in the traditional way
      *
+     * @return string
      * @link https://en.wikipedia.org/wiki/Finite_field_arithmetic#Multiplication
      */
-    private static function regularPolynomialMultiply(string $x, string $y): string
+    private static function regularPolynomialMultiply($x, $y)
     {
         $precomputed = [ltrim($x, "\0")];
         $x = strrev(BinaryField::base256ToBase2($x));
@@ -215,9 +226,10 @@ class Integer extends Base
      *
      * Uses karatsuba multiplication to reduce x-bit multiplications to a series of 32-bit multiplications
      *
+     * @return string
      * @link https://en.wikipedia.org/wiki/Karatsuba_algorithm
      */
-    private static function polynomialMultiply(string $x, string $y): string
+    private static function polynomialMultiply($x, $y)
     {
         if (strlen($x) == strlen($y)) {
             $length = strlen($x);
@@ -265,9 +277,12 @@ class Integer extends Base
      * Perform polynomial multiplication on 2x 32-bit numbers, returning
      * a 64-bit number
      *
+     * @param string $x
+     * @param string $y
+     * @return string
      * @link https://www.bearssl.org/constanttime.html#ghash-for-gcm
      */
-    private static function subMultiply(string $x, string $y): string
+    private static function subMultiply($x, $y)
     {
         $x = unpack('N', $x)[1];
         $y = unpack('N', $y)[1];
@@ -299,8 +314,12 @@ class Integer extends Base
 
     /**
      * Adds two numbers
+     *
+     * @param string $x
+     * @param string $y
+     * @return string
      */
-    private static function subAdd2(string $x, string $y): string
+    private static function subAdd2($x, $y)
     {
         $length = max(strlen($x), strlen($y));
         $x = str_pad($x, $length, "\0", STR_PAD_LEFT);
@@ -310,8 +329,12 @@ class Integer extends Base
 
     /**
      * Adds three numbers
+     *
+     * @param string $x
+     * @param string $y
+     * @return string
      */
-    private static function subAdd3(string $x, string $y, $z): string
+    private static function subAdd3($x, $y, $z)
     {
         $length = max(strlen($x), strlen($y), strlen($z));
         $x = str_pad($x, $length, "\0", STR_PAD_LEFT);
@@ -322,8 +345,10 @@ class Integer extends Base
 
     /**
      * Adds two BinaryFieldIntegers.
+     *
+     * @return static
      */
-    public function add(self $y): self
+    public function add(self $y)
     {
         static::checkInstance($this, $y);
 
@@ -337,16 +362,20 @@ class Integer extends Base
 
     /**
      * Subtracts two BinaryFieldIntegers.
+     *
+     * @return static
      */
-    public function subtract(self $x): self
+    public function subtract(self $x)
     {
         return $this->add($x);
     }
 
     /**
      * Multiplies two BinaryFieldIntegers.
+     *
+     * @return static
      */
-    public function multiply(self $y): self
+    public function multiply(self $y)
     {
         static::checkInstance($this, $y);
 
@@ -355,8 +384,10 @@ class Integer extends Base
 
     /**
      * Returns the modular inverse of a BinaryFieldInteger
+     *
+     * @return static
      */
-    public function modInverse(): self
+    public function modInverse()
     {
         $remainder0 = static::$modulo[$this->instanceID];
         $remainder1 = $this->value;
@@ -368,7 +399,7 @@ class Integer extends Base
         $aux0 = "\0";
         $aux1 = "\1";
         while ($remainder1 != "\1") {
-            [$q, $r] = static::polynomialDivide($remainder0, $remainder1);
+            list($q, $r) = static::polynomialDivide($remainder0, $remainder1);
             $remainder0 = $remainder1;
             $remainder1 = $r;
             // the auxiliary in row n is given by the sum of the auxiliary in
@@ -388,8 +419,10 @@ class Integer extends Base
 
     /**
      * Divides two PrimeFieldIntegers.
+     *
+     * @return static
      */
-    public function divide(self $x): self
+    public function divide(self $x)
     {
         static::checkInstance($this, $x);
 
@@ -402,8 +435,10 @@ class Integer extends Base
      *
      * A negative number can be written as 0-12. With modulos, 0 is the same thing as the modulo
      * so 0-12 is the same thing as modulo-12
+     *
+     * @return object
      */
-    public function negate(): self
+    public function negate()
     {
         $x = str_pad($this->value, strlen(static::$modulo[$this->instanceID]), "\0", STR_PAD_LEFT);
 
@@ -412,32 +447,40 @@ class Integer extends Base
 
     /**
      * Returns the modulo
+     *
+     * @return string
      */
-    public static function getModulo(int $instanceID): string
+    public static function getModulo($instanceID)
     {
         return static::$modulo[$instanceID];
     }
 
     /**
      * Converts an Integer to a byte string (eg. base-256).
+     *
+     * @return string
      */
-    public function toBytes(): string
+    public function toBytes()
     {
         return str_pad($this->value, strlen(static::$modulo[$this->instanceID]), "\0", STR_PAD_LEFT);
     }
 
     /**
      * Converts an Integer to a hex string (eg. base-16).
+     *
+     * @return string
      */
-    public function toHex(): string
+    public function toHex()
     {
         return Strings::bin2hex($this->toBytes());
     }
 
     /**
      * Converts an Integer to a bit string (eg. base-2).
+     *
+     * @return string
      */
-    public function toBits(): string
+    public function toBits()
     {
         //return str_pad(BinaryField::base256ToBase2($this->value), strlen(static::$modulo[$this->instanceID]), '0', STR_PAD_LEFT);
         return BinaryField::base256ToBase2($this->value);
@@ -448,23 +491,25 @@ class Integer extends Base
      *
      * @return string
      */
-    public function toBigInteger(): BigInteger
+    public function toBigInteger()
     {
         return new BigInteger($this->value, 256);
     }
 
     /**
      *  __toString() magic method
+     *
      */
-    public function __toString(): string
+    public function __toString()
     {
         return (string) $this->toBigInteger();
     }
 
     /**
      *  __debugInfo() magic method
+     *
      */
-    public function __debugInfo(): array
+    public function __debugInfo()
     {
         return ['value' => $this->toHex()];
     }

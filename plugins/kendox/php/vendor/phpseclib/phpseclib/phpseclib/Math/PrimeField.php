@@ -5,39 +5,39 @@
  *
  * Utilizes the factory design pattern
  *
- * PHP version 8.1+
+ * PHP version 5 and 7
  *
  * @author    Jim Wigginton <terrafrost@php.net>
- * @copyright 2018-2026 Jim Wigginton
+ * @copyright 2017 Jim Wigginton
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link      https://phpseclib.com/
+ * @link      http://pear.php.net/package/Math_BigInteger
  */
 
-declare(strict_types=1);
+namespace phpseclib3\Math;
 
-namespace phpseclib4\Math;
-
-use phpseclib4\Exception\InvalidArgumentException;
-use phpseclib4\Math\Common\FiniteField;
-use phpseclib4\Math\PrimeField\Integer;
+use phpseclib3\Math\Common\FiniteField;
+use phpseclib3\Math\PrimeField\Integer;
 
 /**
  * Prime Finite Fields
  *
  * @author  Jim Wigginton <terrafrost@php.net>
- * @psalm-api
  */
 class PrimeField extends FiniteField
 {
     /**
      * Instance Counter
+     *
+     * @var int
      */
-    private static int $instanceCounter = 0;
+    private static $instanceCounter = 0;
 
     /**
      * Keeps track of current instance
+     *
+     * @var int
      */
-    protected int $instanceID;
+    protected $instanceID;
 
     /**
      * Default constructor
@@ -45,7 +45,7 @@ class PrimeField extends FiniteField
     public function __construct(BigInteger $modulo)
     {
         if (!$modulo->isPrime()) {
-            throw new InvalidArgumentException('PrimeField requires a prime number be passed to the constructor');
+            throw new \UnexpectedValueException('PrimeField requires a prime number be passed to the constructor');
         }
 
         $this->instanceID = self::$instanceCounter++;
@@ -55,24 +55,30 @@ class PrimeField extends FiniteField
 
     /**
      * Use a custom defined modular reduction function
+     *
+     * @return void
      */
-    public function setReduction(\Closure $func): void
+    public function setReduction(\Closure $func)
     {
-        Integer::setRecurringModuloFunction($this->instanceID, $func->bindTo($this, $this));
+        $this->reduce = $func->bindTo($this, $this);
     }
 
     /**
      * Returns an instance of a dynamically generated PrimeFieldInteger class
+     *
+     * @return Integer
      */
-    public function newInteger(BigInteger $num): Integer
+    public function newInteger(BigInteger $num)
     {
         return new Integer($this->instanceID, $num);
     }
 
     /**
      * Returns an integer on the finite field between one and the prime modulo
+     *
+     * @return Integer
      */
-    public function randomInteger(): Integer
+    public function randomInteger()
     {
         static $one;
         if (!isset($one)) {
@@ -84,16 +90,20 @@ class PrimeField extends FiniteField
 
     /**
      * Returns the length of the modulo in bytes
+     *
+     * @return int
      */
-    public function getLengthInBytes(): int
+    public function getLengthInBytes()
     {
         return Integer::getModulo($this->instanceID)->getLengthInBytes();
     }
 
     /**
      * Returns the length of the modulo in bits
+     *
+     * @return int
      */
-    public function getLength(): int
+    public function getLength()
     {
         return Integer::getModulo($this->instanceID)->getLength();
     }

@@ -3,17 +3,15 @@
 /**
  * Password Protected Trait for Private Keys
  *
- * PHP version 8.1+
+ * PHP version 5
  *
  * @author    Jim Wigginton <terrafrost@php.net>
- * @copyright 2019-2026 Jim Wigginton
+ * @copyright 2015 Jim Wigginton
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link      https://phpseclib.com/
+ * @link      http://phpseclib.sourceforge.net
  */
 
-declare(strict_types=1);
-
-namespace phpseclib4\Crypt\Common\Traits;
+namespace phpseclib3\Crypt\Common\Traits;
 
 /**
  * Password Protected Trait for Private Keys
@@ -22,7 +20,12 @@ namespace phpseclib4\Crypt\Common\Traits;
  */
 trait PasswordProtected
 {
-    protected ?string $password = null;
+    /**
+     * Password
+     *
+     * @var string|bool
+     */
+    private $password = false;
 
     /**
      * Sets the password
@@ -32,23 +35,12 @@ trait PasswordProtected
      *
      * @see self::createKey()
      * @see self::load()
-     *
-     * @return static
+     * @param string|bool $password
      */
-    public function withPassword(#[\SensitiveParameter] ?string $password = null): self
+    public function withPassword($password = false)
     {
         $new = clone $this;
         $new->password = $password;
         return $new;
-    }
-
-    public function withoutPassword(): self
-    {
-        return $this->withPassword();
-    }
-
-    public function hasPassword(): bool
-    {
-        return isset($this->password);
     }
 }

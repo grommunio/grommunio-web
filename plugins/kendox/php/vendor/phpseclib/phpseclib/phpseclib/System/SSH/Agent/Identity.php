@@ -5,42 +5,37 @@
  *
  * {@internal See http://api.libssh.org/rfc/PROTOCOL.agent}
  *
- * PHP version 8.1+
+ * PHP version 5
  *
  * @author    Jim Wigginton <terrafrost@php.net>
- * @copyright 2014-2026 Jim Wigginton
+ * @copyright 2009 Jim Wigginton
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link      https://phpseclib.com/
+ * @link      http://phpseclib.sourceforge.net
  */
 
-declare(strict_types=1);
+namespace phpseclib3\System\SSH\Agent;
 
-namespace phpseclib4\System\SSH\Agent;
-
-use phpseclib4\Common\Functions\Strings;
-use phpseclib4\Crypt\Common\{PrivateKey, PublicKey};
-use phpseclib4\Crypt\{DSA, EC, RSA};
-use phpseclib4\Exception\{
-    BadMethodCallException,
-    ConnectionClosedException,
-    UnexpectedValueException,
-    UnsupportedAlgorithmException
-};
-use phpseclib4\File\Common\Signable;
-use phpseclib4\File\CSR;
-use phpseclib4\System\SSH\Agent;
-use phpseclib4\System\SSH\Common\Traits\ReadBytes;
+use phpseclib3\Common\Functions\Strings;
+use phpseclib3\Crypt\Common\PrivateKey;
+use phpseclib3\Crypt\Common\PublicKey;
+use phpseclib3\Crypt\DSA;
+use phpseclib3\Crypt\EC;
+use phpseclib3\Crypt\RSA;
+use phpseclib3\Exception\UnsupportedAlgorithmException;
+use phpseclib3\System\SSH\Agent;
+use phpseclib3\System\SSH\Common\Traits\ReadBytes;
 
 /**
  * Pure-PHP ssh-agent client identity object
  *
- * Instantiation should only be performed by \phpseclib4\System\SSH\Agent class.
- * This could be thought of as implementing an interface that phpseclib4\Crypt\RSA
+ * Instantiation should only be performed by \phpseclib3\System\SSH\Agent class.
+ * This could be thought of as implementing an interface that phpseclib3\Crypt\RSA
  * implements. ie. maybe a Net_SSH_Auth_PublicKey interface or something.
  * The methods in this interface would be getPublicKey and sign since those are the
  * methods phpseclib looks for to perform public key authentication.
  *
  * @author  Jim Wigginton <terrafrost@php.net>
+ * @internal
  */
 class Identity implements PrivateKey
 {
@@ -48,22 +43,24 @@ class Identity implements PrivateKey
 
     // Signature Flags
     // See https://tools.ietf.org/html/draft-miller-ssh-agent-00#section-5.3
-    public const SSH_AGENT_RSA2_256 = 2;
-    public const SSH_AGENT_RSA2_512 = 4;
+    const SSH_AGENT_RSA2_256 = 2;
+    const SSH_AGENT_RSA2_512 = 4;
 
     /**
      * Key Object
      *
+     * @var PublicKey
      * @see self::getPublicKey()
      */
-    private PublicKey $key;
+    private $key;
 
     /**
      * Key Blob
      *
+     * @var string
      * @see self::sign()
      */
-    private string $key_blob;
+    private $key_blob;
 
     /**
      * Socket Resource
@@ -76,24 +73,29 @@ class Identity implements PrivateKey
     /**
      * Signature flags
      *
+     * @var int
      * @see self::sign()
      * @see self::setHash()
      */
-    private int $flags = 0;
+    private $flags = 0;
 
     /**
      * Comment
+     *
+     * @var null|string
      */
-    private ?string $comment;
+    private $comment;
 
     /**
      * Curve Aliases
+     *
+     * @var array
      */
-    private static array $curveAliases = [
+    private static $curveAliases = [
         'secp256r1' => 'nistp256',
         'secp384r1' => 'nistp384',
         'secp521r1' => 'nistp521',
-        'Ed25519' => 'Ed25519',
+        'Ed25519' => 'Ed25519'
     ];
 
     /**
@@ -109,9 +111,11 @@ class Identity implements PrivateKey
     /**
      * Set Public Key
      *
-     * Called by \phpseclib4\System\SSH\Agent::requestIdentities()
+     * Called by \phpseclib3\System\SSH\Agent::requestIdentities()
+     *
+     * @param PublicKey $key
      */
-    public function withPublicKey(PublicKey $key): Identity
+    public function withPublicKey(PublicKey $key)
     {
         if ($key instanceof EC) {
             if (is_array($key->getCurve()) || !isset(self::$curveAliases[$key->getCurve()])) {
@@ -127,10 +131,12 @@ class Identity implements PrivateKey
     /**
      * Set Public Key
      *
-     * Called by \phpseclib4\System\SSH\Agent::requestIdentities(). The key blob could be extracted from $this->key
+     * Called by \phpseclib3\System\SSH\Agent::requestIdentities(). The key blob could be extracted from $this->key
      * but this saves a small amount of computation.
+     *
+     * @param string $key_blob
      */
-    public function withPublicKeyBlob(string $key_blob): Identity
+    public function withPublicKeyBlob($key_blob)
     {
         $new = clone $this;
         $new->key_blob = $key_blob;
@@ -141,8 +147,10 @@ class Identity implements PrivateKey
      * Get Public Key
      *
      * Wrapper for $this->key->getPublicKey()
+     *
+     * @return mixed
      */
-    public function getPublicKey(): PublicKey
+    public function getPublicKey()
     {
         return $this->key;
     }
@@ -150,28 +158,42 @@ class Identity implements PrivateKey
     /**
      * Sets the hash
      *
-     * @psalm-suppress PossiblyUnusedMethod
+     * @param string $hash
      */
-    public function withHash(string $hash): Identity
+    public function withHash($hash)
     {
         $new = clone $this;
 
         $hash = strtolower($hash);
 
         if ($this->key instanceof RSA) {
-            $new->flags = match ($hash) {
-                'sha1' => 0,
-                'sha256' => self::SSH_AGENT_RSA2_256,
-                'sha512' => self::SSH_AGENT_RSA2_512,
-                default => throw new UnsupportedAlgorithmException('The only supported hashes for RSA are sha1, sha256 and sha512')
-            };
+            $new->flags = 0;
+            switch ($hash) {
+                case 'sha1':
+                    break;
+                case 'sha256':
+                    $new->flags = self::SSH_AGENT_RSA2_256;
+                    break;
+                case 'sha512':
+                    $new->flags = self::SSH_AGENT_RSA2_512;
+                    break;
+                default:
+                    throw new UnsupportedAlgorithmException('The only supported hashes for RSA are sha1, sha256 and sha512');
+            }
         }
         if ($this->key instanceof EC) {
-            $expectedHash = match ($this->key->getCurve()) {
-                'secp256r1' => 'sha256',
-                'secp384r1' => 'sha384',
-                default => 'sha512' // eg. secp512r1 or Ed25519
-            };
+            switch ($this->key->getCurve()) {
+                case 'secp256r1':
+                    $expectedHash = 'sha256';
+                    break;
+                case 'secp384r1':
+                    $expectedHash = 'sha384';
+                    break;
+                //case 'secp521r1':
+                //case 'Ed25519':
+                default:
+                    $expectedHash = 'sha512';
+            }
             if ($hash != $expectedHash) {
                 throw new UnsupportedAlgorithmException('The only supported hash for ' . self::$curveAliases[$this->key->getCurve()] . ' is ' . $expectedHash);
             }
@@ -189,14 +211,14 @@ class Identity implements PrivateKey
      *
      * Only PKCS1 padding is supported
      *
-     * @psalm-suppress PossiblyUnusedMethod
+     * @param string $padding
      */
-    public function withPadding(int $padding): Identity
+    public function withPadding($padding)
     {
         if (!$this->key instanceof RSA) {
             throw new UnsupportedAlgorithmException('Only RSA keys support padding');
         }
-        if ($padding != RSA::SIGNATURE_PKCS1) {
+        if ($padding != RSA::SIGNATURE_PKCS1 && $padding != RSA::SIGNATURE_RELAXED_PKCS1) {
             throw new UnsupportedAlgorithmException('ssh-agent can only create PKCS1 signatures');
         }
         return $this;
@@ -207,9 +229,9 @@ class Identity implements PrivateKey
      *
      * Valid values are: ASN1, SSH2, Raw
      *
-     * @psalm-suppress PossiblyUnusedMethod
+     * @param string $format
      */
-    public function withSignatureFormat(string $format): Identity
+    public function withSignatureFormat($format)
     {
         if ($this->key instanceof RSA) {
             throw new UnsupportedAlgorithmException('Only DSA and EC keys support signature format setting');
@@ -226,9 +248,9 @@ class Identity implements PrivateKey
      *
      * Returns a string if it's a named curve, an array if not
      *
-     * @psalm-suppress PossiblyUnusedMethod
+     * @return string|array
      */
-    public function getCurve(): string|array
+    public function getCurve()
     {
         if (!$this->key instanceof EC) {
             throw new UnsupportedAlgorithmException('Only EC keys have curves');
@@ -241,19 +263,14 @@ class Identity implements PrivateKey
      * Create a signature
      *
      * See "2.6.2 Protocol 2 private key signature request"
+     *
+     * @param string $message
+     * @return string
+     * @throws \RuntimeException on connection errors
+     * @throws UnsupportedAlgorithmException if the algorithm is unsupported
      */
-    public function sign(string|Signable $source): string
+    public function sign($message)
     {
-        if ($source instanceof Signable) {
-            if ($source instanceof CSR && !$source->hasPublicKey()) {
-                $source->setPublicKey($this->getPublicKey());
-            }
-            $source->identifySignatureAlgorithm($this);
-            $message = $source->getSignableSection();
-        } else {
-            $message = $source;
-        }
-
         // the last parameter (currently 0) is for flags and ssh-agent only defines one flag (for ssh-dss): SSH_AGENT_OLD_SIGNATURE
         $packet = Strings::packSSH2(
             'CssN',
@@ -263,50 +280,54 @@ class Identity implements PrivateKey
             $this->flags
         );
         $packet = Strings::packSSH2('s', $packet);
-        if (strlen($packet) != fwrite($this->fsock, $packet)) {
-            throw new ConnectionClosedException('Connection closed during signing');
+        if (strlen($packet) != fputs($this->fsock, $packet)) {
+            throw new \RuntimeException('Connection closed during signing');
         }
 
         $length = current(unpack('N', $this->readBytes(4)));
         $packet = $this->readBytes($length);
 
-        [$type, $signature_blob] = Strings::unpackSSH2('Cs', $packet);
+        list($type, $signature_blob) = Strings::unpackSSH2('Cs', $packet);
         if ($type != Agent::SSH_AGENT_SIGN_RESPONSE) {
-            throw new UnexpectedValueException('Unable to retrieve signature');
+            throw new \RuntimeException('Unable to retrieve signature');
         }
 
-        if ($this->key instanceof RSA) {
-            [$type, $signature_blob] = Strings::unpackSSH2('ss', $signature_blob);
-            unset($type);
+        if (!$this->key instanceof RSA) {
+            return $signature_blob;
         }
 
-        if ($source instanceof Signable) {
-            $source->setSignature($signature_blob);
-        }
+        list($type, $signature_blob) = Strings::unpackSSH2('ss', $signature_blob);
 
         return $signature_blob;
     }
 
     /**
      * Returns the private key
+     *
+     * @param string $type
+     * @param array $options optional
+     * @return string
      */
-    public function toString(string $type, array $options = []): string
+    public function toString($type, array $options = [])
     {
-        throw new BadMethodCallException('ssh-agent does not provide a mechanism to get the private key');
+        throw new \RuntimeException('ssh-agent does not provide a mechanism to get the private key');
     }
 
     /**
      * Sets the password
+     *
+     * @param string|bool $password
+     * @return never
      */
-    public function withPassword(#[\SensitiveParameter] ?string $password = null): PrivateKey
+    public function withPassword($password = false)
     {
-        throw new BadMethodCallException('ssh-agent does not provide a mechanism to get the private key');
+        throw new \RuntimeException('ssh-agent does not provide a mechanism to get the private key');
     }
 
     /**
      * Sets the comment
      */
-    public function withComment($comment = null): PrivateKey
+    public function withComment($comment = null)
     {
         $new = clone $this;
         $new->comment = $comment;
@@ -316,9 +337,9 @@ class Identity implements PrivateKey
     /**
      * Returns the comment
      *
-     * @psalm-suppress PossiblyUnusedMethod
+     * @return null|string
      */
-    public function getComment(): ?string
+    public function getComment()
     {
         return $this->comment;
     }

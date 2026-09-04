@@ -5,22 +5,19 @@
  *
  * This is the NIST P-192 curve
  *
- * PHP version 8.1+
+ * PHP version 5 and 7
  *
  * @author    Jim Wigginton <terrafrost@php.net>
- * @copyright 2018-2026 Jim Wigginton
+ * @copyright 2017 Jim Wigginton
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link      https://phpseclib.com/
+ * @link      http://pear.php.net/package/Math_BigInteger
  */
 
-declare(strict_types=1);
+namespace phpseclib3\Crypt\EC\Curves;
 
-namespace phpseclib4\Crypt\EC\Curves;
+use phpseclib3\Crypt\EC\BaseCurves\Prime;
+use phpseclib3\Math\BigInteger;
 
-use phpseclib4\Crypt\EC\BaseCurves\Prime;
-use phpseclib4\Math\BigInteger;
-
-/** @psalm-api */
 class secp192r1 extends Prime
 {
     public function __construct()
@@ -36,16 +33,17 @@ class secp192r1 extends Prime
            enough to offset whatever else might be gained by a simplified reduction algorithm.
            now, if PHP supported unsigned integers things might be different. no bit-shifting
            would be required for the PHP engine and it'd be a lot faster. but as is, BigInteger
-           uses base-2**31 or base-2**26 depending on whether or not the system is a 32-bit
+           uses base-2**31 or base-2**26 depending on whether or not the system is has a 32-bit
            or a 64-bit OS.
         */
         /*
         $m_length = $this->getLengthInBytes();
-        $this->setReduction(function(BigInteger $c) use ($modulo, $m_length) {
+        $this->setReduction(function($c) use ($m_length) {
             $cBytes = $c->toBytes();
+            $className = $this->className;
 
             if (strlen($cBytes) > 2 * $m_length) {
-                [], $r] = $c->divide($modulo);
+                list(, $r) = $c->divide($className::$modulo);
                 return $r;
             }
 
@@ -59,8 +57,8 @@ class secp192r1 extends Prime
             $s4 = new BigInteger($c[5] . $c[5] . $c[5], 256);
 
             $r = $s1->add($s2)->add($s3)->add($s4);
-            while ($r->compare($modulo) >= 0) {
-                $r = $r->subtract($modulo);
+            while ($r->compare($className::$modulo) >= 0) {
+                $r = $r->subtract($className::$modulo);
             }
 
             return $r;

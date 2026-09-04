@@ -1,18 +1,16 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * Finite Field Integer Base Class
  *
- * PHP version 8.1+
+ * PHP version 5 and 7
  *
  * @author    Jim Wigginton <terrafrost@php.net>
- * @copyright 2017-2026 Jim Wigginton
+ * @copyright 2017 Jim Wigginton
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
  */
 
-namespace phpseclib4\Math\Common\FiniteField;
+namespace phpseclib3\Math\Common\FiniteField;
 
 /**
  * Finite Field Integer
@@ -31,13 +29,16 @@ abstract class Integer implements \JsonSerializable
      *
      * @return array{hex: string}
      */
-    public function jsonSerialize(): mixed
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
     {
         return ['hex' => $this->toHex(true)];
     }
 
     /**
      * Converts an Integer to a hex string (eg. base-16).
+     *
+     * @return string
      */
-    abstract public function toHex(): string;
+    abstract public function toHex();
 }

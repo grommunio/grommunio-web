@@ -3,50 +3,59 @@
 /**
  * ASN1 Signature Handler
  *
- * PHP version 8.1+
+ * PHP version 5
  *
  * Handles signatures in the format described in
  * https://tools.ietf.org/html/rfc3279#section-2.2.3
  *
  * @author    Jim Wigginton <terrafrost@php.net>
- * @copyright 2016-2026 Jim Wigginton
+ * @copyright 2016 Jim Wigginton
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link      https://phpseclib.com/
+ * @link      http://phpseclib.sourceforge.net
  */
 
-declare(strict_types=1);
+namespace phpseclib3\Crypt\EC\Formats\Signature;
 
-namespace phpseclib4\Crypt\EC\Formats\Signature;
-
-use phpseclib4\File\ASN1 as Encoder;
-use phpseclib4\File\ASN1\Maps\EcdsaSigValue;
-use phpseclib4\Math\BigInteger;
+use phpseclib3\File\ASN1 as Encoder;
+use phpseclib3\File\ASN1\Maps\EcdsaSigValue;
+use phpseclib3\Math\BigInteger;
 
 /**
  * ASN1 Signature Handler
  *
  * @author  Jim Wigginton <terrafrost@php.net>
- * @psalm-api
  */
 abstract class ASN1
 {
     /**
      * Loads a signature
      *
+     * @param string $sig
      * @return array
      */
-    public static function load(string $sig): array
+    public static function load($sig)
     {
-        $decoded = Encoder::decodeBER($sig);
-        $components = Encoder::map($decoded, EcdsaSigValue::MAP);
+        if (!is_string($sig)) {
+            return false;
+        }
 
-        return $components->toArray();
+        $decoded = Encoder::decodeBER($sig);
+        if (empty($decoded)) {
+            return false;
+        }
+        $components = Encoder::asn1map($decoded[0], EcdsaSigValue::MAP);
+
+        return $components;
     }
 
     /**
      * Returns a signature in the appropriate format
+     *
+     * @param BigInteger $r
+     * @param BigInteger $s
+     * @return string
      */
-    public static function save(BigInteger $r, BigInteger $s): string
+    public static function save(BigInteger $r, BigInteger $s)
     {
         return Encoder::encodeDER(compact('r', 's'), EcdsaSigValue::MAP);
     }

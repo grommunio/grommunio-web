@@ -3,22 +3,19 @@
 /**
  * prime239v2
  *
- * PHP version 8.1+
+ * PHP version 5 and 7
  *
  * @author    Jim Wigginton <terrafrost@php.net>
- * @copyright 2018-2026 Jim Wigginton
+ * @copyright 2017 Jim Wigginton
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link      https://phpseclib.com/
+ * @link      http://pear.php.net/package/Math_BigInteger
  */
 
-declare(strict_types=1);
+namespace phpseclib3\Crypt\EC\Curves;
 
-namespace phpseclib4\Crypt\EC\Curves;
+use phpseclib3\Crypt\EC\BaseCurves\Prime;
+use phpseclib3\Math\BigInteger;
 
-use phpseclib4\Crypt\EC\BaseCurves\Prime;
-use phpseclib4\Math\BigInteger;
-
-/** @psalm-api */
 class prime239v2 extends Prime
 {
     public function __construct()
