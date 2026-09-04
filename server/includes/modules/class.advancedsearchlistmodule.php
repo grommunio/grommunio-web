@@ -509,7 +509,8 @@ class AdvancedSearchListModule extends ListModule {
 
 			return;
 		}
-		if ($GLOBALS['entryid']->compareEntryIds(bin2hex($entryid), bin2hex(TodoList::getEntryId()))) {
+		$todoListEntryId = TodoList::getEntryId();
+		if ($todoListEntryId !== false && $GLOBALS['entryid']->compareEntryIds(bin2hex($entryid), bin2hex($todoListEntryId))) {
 			$this->logFtsDebug('Search fallback: todo list uses legacy restriction path', []);
 
 			// todo list do not need to perform full text index search

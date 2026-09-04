@@ -594,6 +594,9 @@ class HierarchyModule extends Module {
 		}
 
 		$permissions = $this->getFolderPermissions($folder);
+		if ($permissions === false) {
+			$permissions = [];
+		}
 
 		// replace "IPM_SUBTREE" with the display name of the store, and use the store message size
 		$store_props = mapi_getprops($store, [PR_IPM_SUBTREE_ENTRYID]);
@@ -719,11 +722,21 @@ class HierarchyModule extends Module {
 		mapi_savechanges($folder);
 	}
 
+	/**
+	 * Read and format a folder's permission rules.
+	 *
+	 * @param mixed $folder
+	 *
+	 * @return array|false formatted permissions, or false when the rules cannot be read
+	 */
 	public function getFolderPermissions($folder) {
 		$eidObj = $GLOBALS["entryid"]->createMsgStoreEntryIdObj(hex2bin((string) $this->store_entryid));
 		$cnUserPos = strrpos((string) $eidObj['MailboxDN'], '/cn=');
 		$cnUserBase = ($cnUserPos !== false) ? substr((string) $eidObj['MailboxDN'], 0, $cnUserPos) : '';
 		$grants = mapi_zarafa_getpermissionrules($folder, ACCESS_TYPE_GRANT);
+		if ($grants === false) {
+			return false;
+		}
 		foreach ($grants as $id => $grant) {
 			// The mapi_zarafa_getpermissionrules returns the entryid in the userid key
 			$userinfo = $this->getUserInfo($grant, $cnUserBase);
@@ -748,6 +761,9 @@ class HierarchyModule extends Module {
 		$folderProps = mapi_getprops($folder, [PR_DISPLAY_NAME, PR_STORE_ENTRYID, PR_ENTRYID]);
 		$store = $GLOBALS["mapisession"]->openMessageStore($folderProps[PR_STORE_ENTRYID]);
 		$currentPermissions = $this->getFolderPermissions($folder);
+		if ($currentPermissions === false) {
+			throw new RuntimeException('Unable to read folder permissions');
+		}
 
 		// check if the folder is the default calendar, if so we also need to set the same permissions on the freebusy folder
 		$root = mapi_msgstore_openentry($store);
@@ -760,6 +776,9 @@ class HierarchyModule extends Module {
 
 		// first, get the current permissions because we need to delete all current acl's
 		$curAcls = mapi_zarafa_getpermissionrules($folder, ACCESS_TYPE_GRANT);
+		if ($curAcls === false) {
+			throw new RuntimeException('Unable to read folder permissions');
+		}
 		$eidObj = $GLOBALS["entryid"]->createMsgStoreEntryIdObj(hex2bin((string) $this->store_entryid));
 		$cnUserPos = strrpos((string) $eidObj['MailboxDN'], '/cn=');
 		$cnUserBase = ($cnUserPos !== false) ? substr((string) $eidObj['MailboxDN'], 0, $cnUserPos) : '';

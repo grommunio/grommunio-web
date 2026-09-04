@@ -380,6 +380,11 @@ class DownloadAttachment extends DownloadBase {
 			$bytes_to_read = min($buffer_size, $bytes_left);
 			$bytes_left -= $bytes_to_read;
 			$contents = mapi_stream_read($stream, $bytes_to_read);
+			if ($contents === false) {
+				error_log('Unable to read attachment stream');
+
+				break;
+			}
 			echo $contents;
 			flush();
 		}
@@ -667,6 +672,9 @@ class DownloadAttachment extends DownloadBase {
 
 			// Read the appointment as RFC2445-formatted ics stream.
 			$appointmentStream = mapi_mapitoical($GLOBALS['mapisession']->getSession(), $addrBook, $message, []);
+			if ($appointmentStream === false) {
+				throw new RuntimeException('Unable to convert appointment');
+			}
 
 			$filename = (!empty($messageProps[PR_SUBJECT])) ? $messageProps[PR_SUBJECT] : _('Untitled');
 			$filename .= '.ics';

@@ -1086,14 +1086,6 @@ class Pluginsmime extends Plugin {
 		// Read the message as RFC822-formatted e-mail stream.
 		$emlMessageStream = mapi_inetmapi_imtoinet($GLOBALS['mapisession']->getSession(), $GLOBALS['mapisession']->getAddressbook(), $message, []);
 
-		// Remove all attachments, since they are stored in the attached signed message
-		$atable = mapi_message_getattachmenttable($message);
-		$rows = mapi_table_queryallrows($atable, [PR_ATTACH_MIME_TAG, PR_ATTACH_NUM]);
-		foreach ($rows as $row) {
-			$attnum = $row[PR_ATTACH_NUM];
-			mapi_message_deleteattach($message, $attnum);
-		}
-
 		// create temporary files
 		$tmpSendEmail = $this->createTempFile('smime_send_');
 		$tmpSendSmimeEmail = $this->createTempFile('smime_out_');
@@ -1102,12 +1094,36 @@ class Pluginsmime extends Plugin {
 		$stat = mapi_stream_stat($emlMessageStream);
 
 		$fhandle = fopen($tmpSendEmail, 'w');
+		if ($fhandle === false) {
+			mapi_setprops($message, [PR_MESSAGE_CLASS => $origMessageClass]);
+			mapi_savechanges($message);
+			$this->cleanupTempFiles([$tmpSendEmail, $tmpSendSmimeEmail]);
+			Log::Write(LOGLEVEL_ERROR, '[smime] Unable to open temporary message file');
+
+			return;
+		}
 		for ($i = 0; $i < $stat["cb"]; $i += BLOCK_SIZE) {
 			// Write stream
 			$buffer = mapi_stream_read($emlMessageStream, BLOCK_SIZE);
-			fwrite($fhandle, $buffer, strlen($buffer));
+			if ($buffer === false || fwrite($fhandle, $buffer, strlen($buffer)) === false) {
+				fclose($fhandle);
+				mapi_setprops($message, [PR_MESSAGE_CLASS => $origMessageClass]);
+				mapi_savechanges($message);
+				$this->cleanupTempFiles([$tmpSendEmail, $tmpSendSmimeEmail]);
+				Log::Write(LOGLEVEL_ERROR, '[smime] Unable to save the message stream');
+
+				return;
+			}
 		}
 		fclose($fhandle);
+
+		// Remove all attachments, since they are stored in the attached signed message
+		$atable = mapi_message_getattachmenttable($message);
+		$rows = mapi_table_queryallrows($atable, [PR_ATTACH_MIME_TAG, PR_ATTACH_NUM]);
+		foreach ($rows as $row) {
+			$attnum = $row[PR_ATTACH_NUM];
+			mapi_message_deleteattach($message, $attnum);
+		}
 
 		// Create attachment for S/MIME message
 		$signedAttach = mapi_message_createattach($message);

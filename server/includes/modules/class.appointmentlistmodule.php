@@ -609,6 +609,10 @@ class AppointmentListModule extends ListModule {
 		$tzdefstart = $isTzdefstartSet ?
 			hex2bin((string) $calendaritem['props']['tzdefstart']) :
 			mapi_ianatz_to_tzdef("Etc/UTC");
+		if ($tzdefstart === false) {
+			$isTzdefstartSet = false;
+			$tzdefstart = '';
+		}
 
 		// queryrows only returns 510 chars max, so if tzdef is longer than that
 		// it was probably silently truncated. In such case we need to open

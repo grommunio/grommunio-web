@@ -100,7 +100,7 @@ class AddressbookListModule extends ListModule {
 			$ab = $GLOBALS['mapisession']->getAddressbook(false, true);
 			$entryid = !empty($action['entryid']) ? hex2bin((string) $action['entryid']) : mapi_ab_getdefaultdir($ab);
 
-			if ($folderType === 'contacts') {
+			if ($entryid !== false && $folderType === 'contacts') {
 				// Personal contact folder: open directly from the default store.
 				// These use raw entry IDs (not AB-wrapped), so we must not go
 				// through mapi_ab_openentry which may partially succeed but
@@ -111,7 +111,7 @@ class AddressbookListModule extends ListModule {
 				$table = mapi_folder_getcontentstable($contactsFolder, MAPI_DEFERRED_ERRORS);
 				$this->properties = $GLOBALS['properties']->getContactProperties();
 			}
-			elseif ($isSharedFolder) {
+			elseif ($entryid !== false && $isSharedFolder) {
 				// Shared/public contact folder: open from the specified store
 				$sharedStore = $GLOBALS["mapisession"]->openMessageStore(
 					hex2bin((string) $action["sharedFolder"]["store_entryid"])
@@ -120,17 +120,19 @@ class AddressbookListModule extends ListModule {
 				$table = mapi_folder_getcontentstable($sharedContactsFolder, MAPI_DEFERRED_ERRORS);
 				$this->properties = $GLOBALS['properties']->getContactProperties();
 			}
-			else {
+			elseif ($entryid !== false) {
 				// GAB or other AB entry: open through the address book
 				try {
 					$dir = mapi_ab_openentry($ab, $entryid);
 
-					/**
+					/*
 					 * @TODO: 'All Address Lists' on IABContainer gives MAPI_E_INVALID_PARAMETER,
 					 * as it contains subfolders only. When #7344 is fixed, MAPI will return error here,
 					 * handle it here and return false.
 					 */
-					$table = mapi_folder_getcontentstable($dir, MAPI_DEFERRED_ERRORS);
+					if ($dir !== false) {
+						$table = mapi_folder_getcontentstable($dir, MAPI_DEFERRED_ERRORS);
+					}
 				}
 				catch (MAPIException) {
 					// AB entry could not be opened

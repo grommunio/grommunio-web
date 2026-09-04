@@ -21,6 +21,25 @@ class ContactItemModule extends ItemModule {
 	}
 
 	/**
+	 * Create a one-off entry ID and fail the save if MAPI cannot produce one.
+	 *
+	 * @param mixed $displayName
+	 * @param mixed $addressType
+	 * @param mixed $emailAddress
+	 * @param mixed $flags
+	 *
+	 * @return string binary one-off entry ID
+	 */
+	private function createOneOffEntryId($displayName, $addressType, $emailAddress, $flags = 0) {
+		$entryId = mapi_createoneoff($displayName, $addressType, $emailAddress, $flags);
+		if ($entryId === false) {
+			throw new RuntimeException('Unable to create one-off entry ID');
+		}
+
+		return $entryId;
+	}
+
+	/**
 	 * Function which opens an item.
 	 *
 	 * @param resource $store   MAPI message store
@@ -175,7 +194,7 @@ class ContactItemModule extends ItemModule {
 						$item['address_type'] = 'MAPIPDL';
 					}
 
-					$oneoff = mapi_createoneoff($item['display_name'], $item['address_type'], $item['email_address']);
+					$oneoff = $this->createOneOffEntryId($item['display_name'], $item['address_type'], $item['email_address']);
 
 					if ($item['distlist_type'] == DL_EXTERNAL_MEMBER) {
 						$member = $oneoff;
@@ -215,13 +234,13 @@ class ContactItemModule extends ItemModule {
 				// generate one-off entryids for email addresses
 				for ($index = 1; $index < 4; ++$index) {
 					if (!empty($action['props']['email_address_' . $index]) && !empty($action['props']['email_address_display_name_' . $index])) {
-						$action['props']['email_address_entryid_' . $index] = bin2hex(mapi_createoneoff($action['props']['email_address_display_name_' . $index], $action['props']['email_address_type_' . $index], $action['props']['email_address_' . $index]));
+						$action['props']['email_address_entryid_' . $index] = bin2hex($this->createOneOffEntryId($action['props']['email_address_display_name_' . $index], $action['props']['email_address_type_' . $index], $action['props']['email_address_' . $index]));
 					}
 				}
 
 				// set properties for primary fax number
 				if (isset($action['props']['fax_1_email_address']) && !empty($action['props']['fax_1_email_address'])) {
-					$action['props']['fax_1_original_entryid'] = bin2hex(mapi_createoneoff($action['props']['fax_1_original_display_name'], $action['props']['fax_1_address_type'], $action['props']['fax_1_email_address'], MAPI_UNICODE));
+					$action['props']['fax_1_original_entryid'] = bin2hex($this->createOneOffEntryId($action['props']['fax_1_original_display_name'], $action['props']['fax_1_address_type'], $action['props']['fax_1_email_address'], MAPI_UNICODE));
 				}
 				else {
 					// delete properties to remove previous values
@@ -233,7 +252,7 @@ class ContactItemModule extends ItemModule {
 
 				// set properties for business fax number
 				if (isset($action['props']['fax_2_email_address']) && !empty($action['props']['fax_2_email_address'])) {
-					$action['props']['fax_2_original_entryid'] = bin2hex(mapi_createoneoff($action['props']['fax_2_original_display_name'], $action['props']['fax_2_address_type'], $action['props']['fax_2_email_address'], MAPI_UNICODE));
+					$action['props']['fax_2_original_entryid'] = bin2hex($this->createOneOffEntryId($action['props']['fax_2_original_display_name'], $action['props']['fax_2_address_type'], $action['props']['fax_2_email_address'], MAPI_UNICODE));
 				}
 				else {
 					$propertiesToDelete[] = $this->properties['fax_2_address_type'];
@@ -244,7 +263,7 @@ class ContactItemModule extends ItemModule {
 
 				// set properties for home fax number
 				if (isset($action['props']['fax_3_email_address']) && !empty($action['props']['fax_3_email_address'])) {
-					$action['props']['fax_3_original_entryid'] = bin2hex(mapi_createoneoff($action['props']['fax_3_original_display_name'], $action['props']['fax_3_address_type'], $action['props']['fax_3_email_address'], MAPI_UNICODE));
+					$action['props']['fax_3_original_entryid'] = bin2hex($this->createOneOffEntryId($action['props']['fax_3_original_display_name'], $action['props']['fax_3_address_type'], $action['props']['fax_3_email_address'], MAPI_UNICODE));
 				}
 				else {
 					$propertiesToDelete[] = $this->properties['fax_3_address_type'];

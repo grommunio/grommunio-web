@@ -125,7 +125,13 @@ class ResolveNamesModule extends Module {
 		catch (MAPIException $e) {
 			if ($e->getCode() == MAPI_E_AMBIGUOUS_RECIP) {
 				$ab_entryid = mapi_ab_getdefaultdir($ab);
+				if ($ab_entryid === false) {
+					throw $e;
+				}
 				$ab_dir = mapi_ab_openentry($ab, $ab_entryid);
+				if ($ab_dir === false) {
+					throw $e;
+				}
 				// Ambiguous, show possibilities:
 				$table = mapi_folder_getcontentstable($ab_dir, MAPI_DEFERRED_ERRORS);
 				$restriction = $this->getAmbigiousContactRestriction($searchstr, $excludeGABGroups, PR_ACCOUNT);
@@ -157,12 +163,15 @@ class ResolveNamesModule extends Module {
 					// we can generate a oneoff entry which contains the information of the user.
 					// Only for an actual address, else the one-off would be undeliverable.
 					if ($GLOBALS['operations']->isEmailAddressLike($searchstr)) {
-						$rows[] = [
-							PR_ACCOUNT => $searchstr, PR_ADDRTYPE => 'SMTP', PR_EMAIL_ADDRESS => $searchstr,
-							PR_DISPLAY_NAME => $query['display_name'], PR_DISPLAY_TYPE_EX => DT_REMOTE_MAILUSER, PR_DISPLAY_TYPE => DT_MAILUSER,
-							PR_SMTP_ADDRESS => $searchstr, PR_OBJECT_TYPE => MAPI_MAILUSER,
-							PR_ENTRYID => mapi_createoneoff($query['display_name'], 'SMTP', $searchstr),
-						];
+						$entryId = mapi_createoneoff($query['display_name'], 'SMTP', $searchstr);
+						if ($entryId !== false) {
+							$rows[] = [
+								PR_ACCOUNT => $searchstr, PR_ADDRTYPE => 'SMTP', PR_EMAIL_ADDRESS => $searchstr,
+								PR_DISPLAY_NAME => $query['display_name'], PR_DISPLAY_TYPE_EX => DT_REMOTE_MAILUSER, PR_DISPLAY_TYPE => DT_MAILUSER,
+								PR_SMTP_ADDRESS => $searchstr, PR_OBJECT_TYPE => MAPI_MAILUSER,
+								PR_ENTRYID => $entryId,
+							];
+						}
 					}
 					// Check also the user's contacts folders
 					else {

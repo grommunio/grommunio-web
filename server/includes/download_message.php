@@ -36,7 +36,13 @@ class DownloadMessage extends DownloadBase {
 		// Read whole message and echo it.
 		for ($i = 0; $i < $stat['cb']; $i += BLOCK_SIZE) {
 			// Print stream
-			echo mapi_stream_read($stream, BLOCK_SIZE);
+			$contents = mapi_stream_read($stream, BLOCK_SIZE);
+			if ($contents === false) {
+				error_log('Unable to read message stream');
+
+				throw new RuntimeException('Unable to read message stream');
+			}
+			echo $contents;
 
 			// Need to discard the buffer contents to prevent memory
 			// exhaustion while echoing large content.
@@ -73,7 +79,15 @@ class DownloadMessage extends DownloadBase {
 				// Get the stream
 				$datastring = '';
 				for ($i = 0; $i < $stat['cb']; $i += BLOCK_SIZE) {
-					$datastring .= mapi_stream_read($stream, BLOCK_SIZE);
+					$contents = mapi_stream_read($stream, BLOCK_SIZE);
+					if ($contents === false) {
+						$zip->close();
+						unlink($randomZipName);
+						error_log('Unable to read message stream');
+
+						throw new RuntimeException('Unable to read message stream');
+					}
+					$datastring .= $contents;
 					// Need to discard the buffer contents to prevent memory
 					// exhaustion.
 					ob_flush();
