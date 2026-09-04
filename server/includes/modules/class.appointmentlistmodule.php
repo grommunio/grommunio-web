@@ -665,7 +665,7 @@ class AppointmentListModule extends ListModule {
 				// Open the message and add it to the openedMessages property
 				$openedMessages[$calendaritem['entryid']] = mapi_msgstore_openentry($store, hex2bin((string) $calendaritem['entryid']));
 			}
-			$tzdefstart = streamProperty($openedMessages[$calendaritem['entryid']], $this->properties['tzdefstart']);
+			$tzdefstart = readMapiPropStream($openedMessages[$calendaritem['entryid']], $this->properties['tzdefstart']);
 		}
 
 		$duration = $calendaritem['props']['duedate'] - $calendaritem['props']['startdate'];

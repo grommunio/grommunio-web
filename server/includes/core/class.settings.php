@@ -408,8 +408,9 @@ class Settings {
 
 		$settings = ["settings" => ["grommunio" => ["v1" => ["main" => []]]]];
 		// Check if property exists, if it does not exist then we can continue with empty set of settings
-		if (isset($storeProps[PR_EC_WEBACCESS_SETTINGS_JSON]) || propIsError(PR_EC_WEBACCESS_SETTINGS_JSON, $storeProps) == MAPI_E_NOT_ENOUGH_MEMORY) {
-			$this->settings_string = streamProperty($this->store, PR_EC_WEBACCESS_SETTINGS_JSON);
+		$settingsString = readMapiProp($this->store, PR_EC_WEBACCESS_SETTINGS_JSON, $storeProps);
+		if ($settingsString !== null) {
+			$this->settings_string = $settingsString;
 
 			if (!empty($this->settings_string)) {
 				$settings = json_decode_data($this->settings_string, true);
@@ -460,14 +461,9 @@ class Settings {
 		$storeProps = mapi_getprops($this->store, [PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON]);
 
 		// Check if property exists, if it does not exist then we can continue with empty set of settings
-		if (isset($storeProps[PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON]) ||
-			propIsError(PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON, $storeProps) == MAPI_E_NOT_ENOUGH_MEMORY) {
-			if (propIsError(PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON, $storeProps) == MAPI_E_NOT_ENOUGH_MEMORY) {
-				$this->persistentSettingsString = streamProperty($this->store, PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON);
-			}
-			else {
-				$this->persistentSettingsString = $storeProps[PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON];
-			}
+		$persistentSettingsString = readMapiProp($this->store, PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON, $storeProps);
+		if ($persistentSettingsString !== null) {
+			$this->persistentSettingsString = $persistentSettingsString;
 
 			if (!empty($this->persistentSettingsString)) {
 				try {

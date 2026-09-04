@@ -1226,12 +1226,8 @@ class ItemModule extends Module {
 	 */
 	public function getNDRbody($message) {
 		$message_props = mapi_getprops($message, [PR_ORIGINAL_SUBJECT, PR_ORIGINAL_SUBMIT_TIME, PR_BODY]);
-		$body = '';
-
 		// use PR_BODY if it's there, otherwise create a recipient failed message
-		if (isset($message_props[PR_BODY]) || propIsError(PR_BODY, $message_props) == MAPI_E_NOT_ENOUGH_MEMORY) {
-			$body = mapi_openproperty($message, PR_BODY);
-		}
+		$body = readMapiProp($message, PR_BODY, $message_props) ?? '';
 
 		if (empty($body)) {
 			$body = _("Your message did not reach some or all of the intended recipients") . "\n\n";

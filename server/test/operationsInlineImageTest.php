@@ -52,8 +52,8 @@ class InlineTestAttachmentState {
 	}
 }
 
-if (!function_exists('streamProperty')) {
-	function streamProperty($object, $tag) {
+if (!function_exists('readMapiPropStream')) {
+	function readMapiPropStream($object, $tag) {
 		return $object->props[$tag] ?? '';
 	}
 }

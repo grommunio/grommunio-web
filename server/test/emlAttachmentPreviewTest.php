@@ -128,6 +128,23 @@ class TestMapiSession {
 
 $GLOBALS['mapisession'] = new TestMapiSession();
 
+if (!function_exists('readMapiPropStream')) {
+	function readMapiPropStream($object, $proptag) {
+		$stream = mapi_openproperty($object, $proptag, null, 0, 0);
+		$stat = mapi_stream_stat($stream);
+		$data = '';
+		while (strlen($data) < $stat['cb']) {
+			$chunk = mapi_stream_read($stream, $stat['cb']);
+			if ($chunk === '') {
+				break;
+			}
+			$data .= $chunk;
+		}
+
+		return $data;
+	}
+}
+
 require_once dirname(__DIR__) . '/includes/util.php';
 
 // --- isEmlAttachment -------------------------------------------------------
