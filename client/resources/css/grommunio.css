@@ -7586,15 +7586,6 @@ div.zarafa-contact-cardview-selected,
 /*********************************************************************
  * Settings
  *********************************************************************/
-/* Links in the About text in Settings */
-#zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-about-text a {
-  background-color: var(--theme-primary-dark);
-}
-
-#zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-about-text a:hover {
-  background-color: var(--theme-primary-color);
-}
-
 /*********************************************************************
  * Lines and borders
  *********************************************************************/
