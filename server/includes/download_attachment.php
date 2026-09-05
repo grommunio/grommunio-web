@@ -302,8 +302,6 @@ class DownloadAttachment extends DownloadBase {
 	 * @return MAPIAttach embedded message attachment or attachment that is requested
 	 */
 	public function getAttachmentByAttachNum() {
-		$attachment = false;
-
 		$len = count($this->attachNum);
 
 		// Loop through the attachNums, message in message in message ...
@@ -952,7 +950,9 @@ class DownloadAttachment extends DownloadBase {
 			// A selection that matched nothing must not become an empty archive on disk.
 			if (!empty($this->selectedAttachNum) && $zip->numFiles === 0) {
 				$zip->close();
-				@unlink($randomZipName);
+				if (is_file($randomZipName) && !@unlink($randomZipName)) {
+					error_log('Unable to remove empty attachment archive: ' . $randomZipName);
+				}
 
 				throw new ZarafaException(_("ZIP is not created successfully"));
 			}

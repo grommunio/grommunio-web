@@ -55,7 +55,7 @@ class StringUtil {
 		// $chars - all allowed characters
 		$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
-		mt_srand((float) microtime() * 1000000);
+		mt_srand((int) ((float) microtime() * 1000000));
 		$i = 0;
 		$pass = "";
 		while ($i < $length) {

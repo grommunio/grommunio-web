@@ -135,7 +135,7 @@ class KendoxModule extends Module {
 		// Send to Kendox InfoShare
 		$uploadFiles = [];
 		if ($uploadType == "fullEmail") {
-			$emlFile = $this->createTempEmlFileFromMapiMessage($mailEntryId);
+			$emlFile = $this->createTempEmlFileFromMapiMessage();
 			if (!file_exists($emlFile)) {
 				throw new Exception("EML file " . $emlFile . " not available.");
 			}
@@ -171,11 +171,13 @@ class KendoxModule extends Module {
 			throw $ex;
 		}
 		finally {
-			if ($emlFile != null) {
-				@unlink($emlFile);
+			if ($emlFile !== null && is_file($emlFile) && !@unlink($emlFile)) {
+				error_log('Unable to remove temporary Kendox message file: ' . $emlFile);
 			}
 			foreach ($uploadFiles as $uploadFile) {
-				@unlink($uploadFile->tempFile);
+				if (is_file($uploadFile->tempFile) && !@unlink($uploadFile->tempFile)) {
+					error_log('Unable to remove temporary Kendox attachment file: ' . $uploadFile->tempFile);
+				}
 			}
 		}
 
@@ -190,13 +192,11 @@ class KendoxModule extends Module {
 			$response["kendoxFiles"] = $uploadFiles;
 		}
 		catch (Exception $ex) {
-			if ($emlFile != null) {
+			if ($emlFile !== null) {
 				@unlink($emlFile);
 			}
-			if ($uploadFiles != null) {
-				foreach ($uploadFiles as $uploadFile) {
-					@unlink($uploadFile->tempFile);
-				}
+			foreach ($uploadFiles as $uploadFile) {
+				@unlink($uploadFile->tempFile);
 			}
 			$this->logErrorAndThrow("Error on building response message", $ex);
 		}
@@ -221,7 +221,7 @@ class KendoxModule extends Module {
 		}
 	}
 
-	private function createTempEmlFileFromMapiMessage($mailEntryId) {
+	private function createTempEmlFileFromMapiMessage() {
 		// Read message properties
 		try {
 			$messageProps = mapi_getprops($this->mapiMessage, [PR_SUBJECT, PR_MESSAGE_CLASS]);
@@ -232,7 +232,6 @@ class KendoxModule extends Module {
 
 		// Get EML-Stream
 		try {
-			$fileName = $this->sanitizeValue($mailEntryId, '', ID_REGEX) . '.eml';
 			$stream = $this->getEmlStream($messageProps);
 			$stat = mapi_stream_stat($stream);
 		}
@@ -312,7 +311,7 @@ class KendoxModule extends Module {
 		if (function_exists('com_create_guid')) {
 			return com_create_guid();
 		}
-		mt_srand((float) microtime() * 10000); // optional for php 4.2.0 and up.
+		mt_srand((int) ((float) microtime() * 10000)); // optional for php 4.2.0 and up.
 		$charid = strtoupper(md5(uniqid(random_int(0, mt_getrandmax()), true)));
 		$hyphen = chr(45); // "-"
 
@@ -344,7 +343,9 @@ class KendoxModule extends Module {
 					$uploadFiles[] = $file;
 				}
 				catch (Exception $exFile) {
-					@unlink($tmpFile);
+					if (is_file($tmpFile) && !@unlink($tmpFile)) {
+						error_log('Unable to remove temporary Kendox attachment file: ' . $tmpFile);
+					}
 
 					throw $exFile;
 				}
@@ -386,7 +387,7 @@ class KendoxModule extends Module {
 				throw new Exception(_("Kendox certificate is not readable."));
 			}
 			$this->kendoxClient = new Client($apiUrl);
-			$uid = $this->kendoxClient->loginWithToken($pfx, $pfxPw, "svc_grommunio");
+			$this->kendoxClient->loginWithToken($pfx, $pfxPw, "svc_grommunio");
 			$query = [
 				[
 					"ColumnName" => "email",

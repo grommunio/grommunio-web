@@ -27,7 +27,7 @@
  * Please also note that removing or adding properties to these lists have a profound effect on the rest of the code;
  * If a property is listed here, the code will read that property from the item, and send it via XML. If that property
  * contains megabytes of data, this will mean that you'll be sending megabytes of redundant data over the wire each time
- * one of the objects (or, wores, an entire table) is retrieved by the client.
+ * one of the objects (or, worse, an entire table) is retrieved by the client.
  */
 class Properties {
 	/**
@@ -194,6 +194,7 @@ class Properties {
 			$storeProps = mapi_getprops($store, [PR_MAPPING_SIGNATURE, PR_ENTRYID]);
 		}
 		catch (Exception) {
+			return '0';
 		}
 
 		$signature = isset($storeProps[PR_MAPPING_SIGNATURE]) ? bin2hex((string) $storeProps[PR_MAPPING_SIGNATURE]) : '';

@@ -228,7 +228,9 @@ class ListModule extends Module {
 			 * method instead we will pass restriction to messageList and
 			 * it will give us the restricted results
 			 */
-			return $this->messageList($store, $entryid, $action, "list");
+			$this->messageList($store, $entryid, $action, "list");
+
+			return;
 		}
 
 		$this->searchFolderList = true; // Set to indicate this is not the normal folder, but a search folder
@@ -312,7 +314,7 @@ class ListModule extends Module {
 			if (!empty($this->sessionData['searchOriginalEntryids'])) {
 				// get entryids of original folders, and use it to set new search criteria
 				$entryids = [];
-				for ($index = 0; $index < count($this->sessionData['searchOriginalEntryids']); ++$index) {
+				for ($index = 0, $len = count($this->sessionData['searchOriginalEntryids']); $index < $len; ++$index) {
 					$entryids[] = hex2bin((string) $this->sessionData['searchOriginalEntryids'][$index]);
 				}
 			}
@@ -343,7 +345,6 @@ class ListModule extends Module {
 
 		// Create the data array, which will be sent back to the client
 		$data = [];
-		$start = time();
 		$table = mapi_folder_getcontentstable($searchFolder, MAPI_DEFERRED_ERRORS);
 
 		/*
@@ -351,8 +352,8 @@ class ListModule extends Module {
 		 * $result["searchstate"] alone is already valuable information
 		 * for the client.
 		 */
-		$count = mapi_table_getrowcount($table);
-		$result = mapi_folder_getsearchcriteria($searchFolder);
+		mapi_table_getrowcount($table);
+		mapi_folder_getsearchcriteria($searchFolder);
 
 		// Get the table and merge the arrays
 		$table = $GLOBALS["operations"]->getTable($store, hex2bin((string) $searchFolderEntryId), $this->properties, $this->sort, $this->start);
@@ -797,9 +798,6 @@ class ListModule extends Module {
 		if ($errorInfo) {
 			$exception = new SearchException($errorInfo["original_error_message"] ?? $errorInfo['error_message'], mapi_last_hresult());
 			$exception->setDisplayMessage($errorInfo['error_message']);
-
-			// after sending error, remove error data
-			$errorInfo = [];
 
 			throw $exception;
 		}

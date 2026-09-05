@@ -26,11 +26,19 @@ class TemplateSnippetsModule extends Module {
 
 						continue;
 					}
-					match ($actionType) {
-						'save' => $this->saveTemplate($actionData),
-						'delete' => $this->deleteTemplate($actionData),
-						default => $this->handleUnknownActionType($actionType),
-					};
+
+					switch ($actionType) {
+						case 'save':
+							$this->saveTemplate($actionData);
+							break;
+
+						case 'delete':
+							$this->deleteTemplate($actionData);
+							break;
+
+						default:
+							$this->handleUnknownActionType($actionType);
+					}
 				}
 				catch (MAPIException $e) {
 					$this->sendFeedback(false, $this->errorDetailsFromException($e));

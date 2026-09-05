@@ -10,12 +10,14 @@ require_once __DIR__ . "/Files/Core/Util/class.arrayutil.php";
 require_once __DIR__ . "/Files/Core/Util/class.logger.php";
 
 use Files\Backend\BackendStore;
-use Files\Backend\Exception;
 use Files\Backend\Exception as BackendException;
+use Files\Backend\iFeatureOAUTH;
+use Files\Backend\iFeatureQuota;
+use Files\Backend\iFeatureVersionInfo;
 use Files\Core\AccountStore;
 use Files\Core\Exception as AccountException;
 use Files\Core\Util\ArrayUtil;
-use Files\Core\Util\Logger;
+use Files\Core\Util\Logger as FilesLogger;
 
 class FilesAccountModule extends ListModule {
 	#[Override]
@@ -175,7 +177,7 @@ class FilesAccountModule extends ListModule {
 		try {
 			$account->beforeDelete();
 		}
-		catch (Exception) {
+		catch (BackendException) {
 			// ignore errors here
 		}
 
@@ -233,7 +235,7 @@ class FilesAccountModule extends ListModule {
 			$sortDir = $actionData['sort'][0]['direction'];
 		}
 
-		Logger::debug(self::LOG_CONTEXT, "Sorting by " . $sortKey . " in direction: " . $sortDir);
+		FilesLogger::debug(self::LOG_CONTEXT, "Sorting by " . $sortKey . " in direction: " . $sortDir);
 
 		$accountList = ArrayUtil::sort_props_by_key($accountList, $sortKey, $sortDir);
 
@@ -360,7 +362,7 @@ class FilesAccountModule extends ListModule {
 		$backendInstance = $backendStore->getInstanceOfBackend($currentAccount->getBackend());
 
 		// check if backend really supports this feature
-		if (!$backendInstance->supports(BackendStore::FEATURE_QUOTA)) {
+		if (!$backendInstance instanceof iFeatureQuota) {
 			throw new AccountException(_('Feature "Quota Information" is not supported by this backend!'));
 		}
 
@@ -408,7 +410,7 @@ class FilesAccountModule extends ListModule {
 		$backendInstance = $backendStore->getInstanceOfBackend($currentAccount->getBackend());
 
 		// check if backend really supports this feature
-		if (!$backendInstance->supports(BackendStore::FEATURE_VERSION)) {
+		if (!$backendInstance instanceof iFeatureVersionInfo) {
 			throw new AccountException(_('Feature "Version Information" is not supported by this backend!'));
 		}
 
@@ -456,7 +458,7 @@ class FilesAccountModule extends ListModule {
 		$backendInstance = $backendStore->getInstanceOfBackend($currentAccount->getBackend());
 
 		// check if backend really supports this feature
-		if (!$backendInstance->supports(BackendStore::FEATURE_OAUTH)) {
+		if (!$backendInstance instanceof iFeatureOAUTH) {
 			throw new AccountException(_('Feature "OAUTH" is not supported by this backend!'));
 		}
 

@@ -188,8 +188,9 @@ class Theming {
 			// Always rewind an iterator before using it!!! See https://bugs.php.net/bug.php?id=62914 (it might save you a couple of hours debugging)
 			$iterator->rewind();
 			while ($iterator->valid()) {
-				$fileName = $iterator->getFilename();
-				if (!$iterator->isDir() && (strtolower($iterator->getExtension()) === 'css' || str_ends_with($fileName, '.css.php'))) {
+				$file = $iterator->current();
+				$fileName = $file->getFilename();
+				if (!$file->isDir() && (strtolower($file->getExtension()) === 'css' || str_ends_with($fileName, '.css.php'))) {
 					$cssFiles[] = substr((string) $iterator->key(), strlen(BASE_PATH));
 				}
 				$iterator->next();

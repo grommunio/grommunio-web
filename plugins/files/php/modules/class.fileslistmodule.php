@@ -14,7 +14,7 @@ require_once __DIR__ . "/../vendor/autoload.php";
 use Files\Backend\BackendStore;
 use Files\Core\Account;
 use Files\Core\AccountStore;
-use Files\Core\Util\Logger;
+use Files\Core\Util\Logger as FilesLogger;
 use Files\Core\Util\StringUtil;
 use Phpfastcache\CacheManager;
 use Phpfastcache\Drivers\Redis\Config as RedisConfig;
@@ -91,7 +91,7 @@ class FilesListModule extends ListModule {
 		// @see https://github.com/PHPSocialNetwork/phpfastcache/blob/8.1.2/docs/migration/MigratingFromV5ToV6.md
 		$this->uid = str_replace(['{', '}', '(', ')', '/', '\\', '@'], '_', $this->uid);
 
-		Logger::debug(self::LOG_CONTEXT, "[constructor]: executing the module as uid: " . $this->uid);
+		FilesLogger::debug(self::LOG_CONTEXT, "[constructor]: executing the module as uid: " . $this->uid);
 	}
 
 	#[Override]
@@ -160,7 +160,7 @@ class FilesListModule extends ListModule {
 				$subFolders = $this->getSubFolders($realNodeId, $initializedBackend);
 			}
 			catch (Exception $e) {
-				Logger::error(self::LOG_CONTEXT, "Failed to load account '{$accountName}': " . $e->getMessage());
+				FilesLogger::error(self::LOG_CONTEXT, "Failed to load account '{$accountName}': " . $e->getMessage());
 				$nodes["props"]["status"] = Account::STATUS_ERROR;
 				$nodes["props"]["status_description"] = $e->getMessage();
 				$subFolders = [];
@@ -401,10 +401,10 @@ class FilesListModule extends ListModule {
 				$errorCode === self::FTP_WD_OWNCLOUD_ERR_FORBIDDEN ||
 				$errorCode === self::ALL_BACKEND_ERR_NOTFOUND) {
 					if ($errorCode === self::ALL_BACKEND_ERR_NOTFOUND) {
-						Logger::error(self::LOG_CONTEXT, '[hasSubFolder]: folder ' . $id . ' not found');
+						FilesLogger::error(self::LOG_CONTEXT, '[hasSubFolder]: folder ' . $id . ' not found');
 					}
 					else {
-						Logger::error(self::LOG_CONTEXT, '[hasSubFolder]: Access denied for folder ' . $id);
+						FilesLogger::error(self::LOG_CONTEXT, '[hasSubFolder]: Access denied for folder ' . $id);
 					}
 
 					return null;
@@ -416,7 +416,7 @@ class FilesListModule extends ListModule {
 		}
 
 		if ($dir) {
-			foreach ($dir as $id => $node) {
+			foreach ($dir as $node) {
 				if (strcmp((string) $node['resourcetype'], "collection") === 0) {
 					// we have a folder
 					return true;
@@ -737,7 +737,7 @@ class FilesListModule extends ListModule {
 	 */
 	public function setCache($accountID, $path, $data) {
 		$key = $this->makeCacheKey($accountID, $path);
-		Logger::debug(self::LOG_CONTEXT, "Setting cache for node: " . $accountID . $path . " ## " . $key);
+		FilesLogger::debug(self::LOG_CONTEXT, "Setting cache for node: " . $accountID . $path . " ## " . $key);
 		$this->cache->save($this->cache->getItem($key)->set($data));
 	}
 
@@ -751,7 +751,7 @@ class FilesListModule extends ListModule {
 	 */
 	public function getCache($accountID, $path) {
 		$key = $this->makeCacheKey($accountID, $path);
-		Logger::debug(self::LOG_CONTEXT, "Getting cache for node: " . $accountID . $path . " ## " . $key);
+		FilesLogger::debug(self::LOG_CONTEXT, "Getting cache for node: " . $accountID . $path . " ## " . $key);
 
 		return $this->cache->getItem($key)->get();
 	}
@@ -764,7 +764,7 @@ class FilesListModule extends ListModule {
 	 */
 	public function deleteCache($accountID, $path) {
 		$key = $this->makeCacheKey($accountID, $path);
-		Logger::debug(self::LOG_CONTEXT, "Removing cache for node: " . $accountID . $path . " ## " . $key);
+		FilesLogger::debug(self::LOG_CONTEXT, "Removing cache for node: " . $accountID . $path . " ## " . $key);
 		$this->cache->deleteItem($key);
 	}
 

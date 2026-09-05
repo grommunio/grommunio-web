@@ -134,7 +134,11 @@ class CategoryList {
 				if (empty($props[PR_IPM_APPOINTMENT_ENTRYID])) {
 					return false;
 				}
-				$this->calendar = mapi_msgstore_openentry($this->store, $props[PR_IPM_APPOINTMENT_ENTRYID]);
+				$calendar = mapi_msgstore_openentry($this->store, $props[PR_IPM_APPOINTMENT_ENTRYID]);
+				if ($calendar === false) {
+					return false;
+				}
+				$this->calendar = $calendar;
 			}
 			catch (MAPIException $e) {
 				// A store without an accessible Calendar (e.g. the public

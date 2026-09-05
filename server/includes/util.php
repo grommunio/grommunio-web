@@ -52,8 +52,7 @@ function appendDefaultDomain($user) {
  * Function which is called every time the "session_start" method is called.
  * It unserializes the objects in the session. This function called by PHP.
  *
- * @param string @className the className of the object in the session
- * @param mixed $className
+ * @param string $className the class name of the object in the session
  */
 function sessionNotifierLoader($className) {
 	$className = strtolower((string) $className); // for PHP5 set className to lower case to find the file (see ticket #839 for more information)

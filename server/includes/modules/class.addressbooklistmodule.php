@@ -40,14 +40,25 @@ class AddressbookListModule extends ListModule {
 						$subActionType = $action['subActionType'];
 					}
 
-					match ($actionType) {
-						'list' => match ($subActionType) {
-							'hierarchy' => $this->getHierarchy($action),
-							'globaladdressbook' => $this->GABUsers($action, $subActionType),
-							default => $this->handleUnknownActionType($actionType),
-						},
-						default => $this->handleUnknownActionType($actionType),
-					};
+					switch ($actionType) {
+						case 'list':
+							switch ($subActionType) {
+								case 'hierarchy':
+									$this->getHierarchy($action);
+									break;
+
+								case 'globaladdressbook':
+									$this->GABUsers($action, $subActionType);
+									break;
+
+								default:
+									$this->handleUnknownActionType($actionType);
+							}
+							break;
+
+						default:
+							$this->handleUnknownActionType($actionType);
+					}
 				}
 				catch (MAPIException $e) {
 					$this->processException($e, $actionType, $store, $parententryid, $entryid, $action);
@@ -77,7 +88,6 @@ class AddressbookListModule extends ListModule {
 		$sortingDir = $action["sort"][0]["direction"] ?? 'ASC';
 		$sortingField = $this->getSortingField($action, $map, $sortingDir);
 		$folderType = $action['folderType'];
-		$sharedStore = null;
 		$isSharedFolder = $folderType === 'sharedcontacts' && isset($action["sharedFolder"]["store_entryid"]);
 		$isContactFolder = ($folderType === 'contacts' || $folderType === 'sharedcontacts');
 

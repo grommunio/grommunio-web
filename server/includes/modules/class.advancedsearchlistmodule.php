@@ -44,7 +44,6 @@ class AdvancedSearchListModule extends ListModule {
 			if (isset($actionType)) {
 				try {
 					$store = $this->getActionStore($action);
-					$parententryid = $this->getActionParentEntryID($action);
 					$entryid = $this->getActionEntryID($action);
 
 					switch ($actionType) {
@@ -119,7 +118,6 @@ class AdvancedSearchListModule extends ListModule {
 			if ($actionType == 'search') {
 				$rows = [[PR_ENTRYID => $entryid]];
 				if (isset($action['subfolders']) && $action['subfolders']) {
-					$folder = null;
 					$inboxEntryId = null;
 
 					try {
@@ -489,7 +487,9 @@ class AdvancedSearchListModule extends ListModule {
 			 * method instead we will pass restriction to messageList and
 			 * it will give us the restricted results
 			 */
-			return parent::messageList($store, $entryid, $action, "list");
+			parent::messageList($store, $entryid, $action, "list");
+
+			return;
 		}
 		$store_props = mapi_getprops($store, [PR_MDB_PROVIDER, PR_DEFAULT_STORE, PR_IPM_SUBTREE_ENTRYID]);
 		$this->logFtsDebug('Resolved store properties for search', [
@@ -500,13 +500,17 @@ class AdvancedSearchListModule extends ListModule {
 			$this->logFtsDebug('Search fallback: public store does not support search folders', []);
 
 			// public store does not support search folders
-			return parent::messageList($store, $entryid, $action, "search");
+			parent::messageList($store, $entryid, $action, "search");
+
+			return;
 		}
 		if ($GLOBALS['entryid']->compareEntryIds(bin2hex($entryid), bin2hex(TodoList::getEntryId()))) {
 			$this->logFtsDebug('Search fallback: todo list uses legacy restriction path', []);
 
 			// todo list do not need to perform full text index search
-			return parent::messageList($store, $entryid, $action, "list");
+			parent::messageList($store, $entryid, $action, "list");
+
+			return;
 		}
 
 		$this->searchFolderList = true; // Set to indicate this is not the normal folder, but a search folder
@@ -543,13 +547,8 @@ class AdvancedSearchListModule extends ListModule {
 			'fts_descriptor' => $ftsDescriptor,
 		]);
 
-		$isSetSearchFolderEntryId = isset($action['search_folder_entryid']);
-		if ($isSetSearchFolderEntryId) {
+		if (isset($action['search_folder_entryid'])) {
 			$this->sessionData['searchFolderEntryId'] = $action['search_folder_entryid'];
-		}
-
-		if (isset($action['forceCreateSearchFolder']) && $action['forceCreateSearchFolder']) {
-			$isSetSearchFolderEntryId = false;
 		}
 
 		// Each search gets its own freshly created search folder. We populate

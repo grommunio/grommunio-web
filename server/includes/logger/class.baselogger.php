@@ -37,7 +37,7 @@ abstract class Logger {
 	/**
 	 * Sets the current user.
 	 *
-	 * @param array $value user information which is currently login
+	 * @param string $value name of the currently logged-in user
 	 */
 	public function SetUser($value) {
 		$this->user = $value;

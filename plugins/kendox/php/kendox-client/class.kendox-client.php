@@ -72,7 +72,7 @@ class Client {
 			$logoutParameters = [
 				"connectionId" => $this->ConnectionId,
 			];
-			$result = $this->post("Authentication/Logout", $logoutParameters);
+			$this->post("Authentication/Logout", $logoutParameters);
 			$this->ConnectionId = null;
 
 			return true;

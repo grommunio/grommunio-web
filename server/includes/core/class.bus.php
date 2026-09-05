@@ -230,14 +230,14 @@ class Bus {
 			$storeEntryid = bin2hex($data[PR_STORE_ENTRYID]);
 
 			// Update the store notifier
-			foreach ($this->registeredStoreNotifiers as $key => &$storeNotifier) {
+			foreach ($this->registeredStoreNotifiers as &$storeNotifier) {
 				if ($entryidCmp->compareEntryIds($storeNotifier['entryid'], $storeEntryid)) {
-					foreach ($storeNotifier as $key => $notifier) {
+					foreach ($storeNotifier as $notifierName => $notifier) {
 						if (isset($notifier['events']) && ($notifier['events'] & $event)) {
-							if (!isset($updatedNotifiers[$key])) {
-								if (isset($this->notifiers[$key]) && is_object($this->notifiers[$key])) {
-									$this->updateNotifier($key, $event, $entryID, $data);
-									$updatedNotifiers[$key] = true;
+							if (!isset($updatedNotifiers[$notifierName])) {
+								if (isset($this->notifiers[$notifierName]) && is_object($this->notifiers[$notifierName])) {
+									$this->updateNotifier($notifierName, $event, $entryID, $data);
+									$updatedNotifiers[$notifierName] = true;
 								}
 							}
 						}
@@ -249,15 +249,15 @@ class Bus {
 		}
 
 		// Update the notifier
-		foreach ($this->registeredNotifiers as $key => &$folderNotifier) {
+		foreach ($this->registeredNotifiers as &$folderNotifier) {
 			if (($entryID === REQUEST_ENTRYID && $folderNotifier['entryid'] === REQUEST_ENTRYID) ||
 			$entryidCmp->compareEntryIds($folderNotifier['entryid'], $entryID)) {
-				foreach ($folderNotifier as $key => $notifier) {
+				foreach ($folderNotifier as $notifierName => $notifier) {
 					if (isset($notifier['events']) && ($notifier['events'] & $event)) {
-						if (!isset($updatedNotifiers[$key])) {
-							if (isset($this->notifiers[$key]) && is_object($this->notifiers[$key])) {
-								$this->updateNotifier($key, $event, $entryID, $data);
-								$updatedNotifiers[$key] = true;
+						if (!isset($updatedNotifiers[$notifierName])) {
+							if (isset($this->notifiers[$notifierName]) && is_object($this->notifiers[$notifierName])) {
+								$this->updateNotifier($notifierName, $event, $entryID, $data);
+								$updatedNotifiers[$notifierName] = true;
 							}
 						}
 					}

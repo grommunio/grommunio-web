@@ -31,9 +31,8 @@ class CreateMailItemModule extends ItemModule {
 	#[Override]
 	public function save($store, $parententryid, $entryid, $action, $actionType = 'save') {
 		$messageProps = [];
-		$result = false;
 
-		$store = $this->resolveStore($store, $action);
+		$store = $this->resolveStore($store);
 		if (!$store) {
 			return;
 		}
@@ -96,7 +95,7 @@ class CreateMailItemModule extends ItemModule {
 	 *
 	 * @return mixed
 	 */
-	private function resolveStore($store, array $action) {
+	private function resolveStore($store) {
 		if ($store) {
 			return $store;
 		}

@@ -39,6 +39,7 @@ filter:
     - "*/vendor/**"
     - "plugins/files/php/Files/Backend/Webdav/sabredav/"
   excluded_paths:
+    - ".php-cs-fixer.dist.php"
     - "*/build/**"
     - "*.min.js"
     - "client/dompurify/**"
@@ -49,5 +50,7 @@ checks:
   php:
     code_rating: true
     duplication: true
+    # Endpoint controllers intentionally stop after emitting their response.
+    no_exit: false
     excluded_dependencies:
       - phpunit/phpunit

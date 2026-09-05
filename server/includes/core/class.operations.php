@@ -40,6 +40,8 @@ class Operations {
 	 * @return array Return structure
 	 */
 	public function getHierarchyList($properties, $type = HIERARCHY_GET_ALL, $store = null, $storeOptions = null, $username = null) {
+		$storelist = [];
+
 		switch ($type) {
 			case HIERARCHY_GET_ALL:
 				$storelist = $GLOBALS["mapisession"]->getAllMessageStores();
@@ -557,6 +559,7 @@ class Operations {
 		$rows = mapi_table_queryallrows($table, $GLOBALS["properties"]->getFavoritesFolderProperties());
 		$faultyLinkMsg = [];
 		foreach ($rows as $row) {
+			$props = null;
 			if (isset($row[PR_WLINK_TYPE]) && $row[PR_WLINK_TYPE] > wblSharedFolder) {
 				continue;
 			}
@@ -566,7 +569,7 @@ class Operations {
 					// Find faulty link messages which does not linked to any message. if link message
 					// does not contains store entryid in which actual message is located then it consider as
 					// faulty link message.
-					if (isset($row[PR_WLINK_STORE_ENTRYID]) && empty($row[PR_WLINK_STORE_ENTRYID]) ||
+					if ((isset($row[PR_WLINK_STORE_ENTRYID]) && empty($row[PR_WLINK_STORE_ENTRYID])) ||
 						!isset($row[PR_WLINK_STORE_ENTRYID])) {
 						// Outlook apparently doesn't set PR_WLINK_STORE_ENTRYID
 						// for with free/busy permission only opened shared calendars,
@@ -594,7 +597,9 @@ class Operations {
 				continue;
 			}
 
-			array_push($storeData['favorites']['item'], $this->setFavoritesFolder($props));
+			if ($props !== null) {
+				array_push($storeData['favorites']['item'], $this->setFavoritesFolder($props));
+			}
 		}
 
 		if (!empty($faultyLinkMsg)) {
@@ -1085,7 +1090,6 @@ class Operations {
 		if (!$folder) {
 			return false;
 		}
-		$result = false;
 		$folderProps = mapi_getprops($folder, [PR_ENTRYID, PR_STORE_ENTRYID, PR_DISPLAY_NAME]);
 
 		/*
@@ -1096,7 +1100,6 @@ class Operations {
 		try {
 			mapi_setprops($folder, [PR_DISPLAY_NAME => $name]);
 			mapi_savechanges($folder);
-			$result = true;
 		}
 		catch (MAPIException $e) {
 			if ($e->getCode() == MAPI_E_COLLISION) {
@@ -1114,7 +1117,7 @@ class Operations {
 			throw $e;
 		}
 
-		return $result;
+		return true;
 	}
 
 	/**
@@ -1330,7 +1333,6 @@ class Operations {
 			}
 
 			$folderProps = mapi_getprops($folder, [PR_ENTRYID, PR_STORE_ENTRYID]);
-			$result = true;
 		}
 
 		return $result;
@@ -1513,8 +1515,6 @@ class Operations {
 	 * @param mapimessage $message The MAPI message object to check
 	 *
 	 * @return bool TRUE if the item contains only inline attachments, FALSE otherwise
-	 *
-	 * @deprecated This function is not used, because it is much too slow to run on all messages in your inbox
 	 */
 	public function hasOnlyInlineAttachments($message) {
 		$attachmentTable = @mapi_message_getattachmenttable($message);
@@ -2141,7 +2141,7 @@ class Operations {
 	 * @param string    $actionType                  The action type which triggered this action
 	 * @param bool      $directBookingMeetingRequest Indicates if a Meeting Request should use direct booking or not. Defaults to true.
 	 *
-	 * @return array of PR_ENTRYID, PR_PARENT_ENTRYID and PR_STORE_ENTRYID properties of modified item
+	 * @return array|false PR_ENTRYID, PR_PARENT_ENTRYID and PR_STORE_ENTRYID properties of the modified item, or false for an invalid target
 	 */
 	public function saveAppointment($store, $entryid, $parententryid, $action, $actionType = 'save', $directBookingMeetingRequest = true) {
 		$messageProps = [];
@@ -2154,6 +2154,9 @@ class Operations {
 		$send = false;
 		$oldProps = [];
 		$pasteRecord = false;
+		if (!$store || !$parententryid) {
+			return false;
+		}
 
 		if (isset($action['message_action'], $action['message_action']['send'])) {
 			$send = $action['message_action']['send'];
@@ -2194,7 +2197,6 @@ class Operations {
 				$message = mapi_msgstore_openentry($store, $entryid);
 
 				if ($message) {
-					$props = mapi_getprops($message, $properties);
 					// Do not update timezone information if the appointment times haven't changed
 					if (!isset($action['props']['commonstart']) &&
 						!isset($action['props']['commonend']) &&
@@ -2550,8 +2552,8 @@ class Operations {
 		$addRecipients = [];
 		$removeRecipients = [];
 
-		foreach ($recipients as $key => $recipient) {
-			foreach ($recipient as $recipientItem) {
+		foreach ($recipients as $key => $recipientGroup) {
+			foreach ($recipientGroup as $recipientItem) {
 				$recipientEntryid = $recipientItem["entryid"];
 				$isExistInRemove = $this->isExistInRemove($recipientEntryid, $remove);
 
@@ -2562,10 +2564,10 @@ class Operations {
 				if ($recipientItem['object_type'] == MAPI_DISTLIST && !$GLOBALS['entryid']->hasAddressBookRecipientGUID($recipientEntryid)) {
 					if (!$isExistInRemove) {
 						$recipientItems = $GLOBALS["operations"]->expandDistList($recipientEntryid, true);
-						foreach ($recipientItems as $recipient) {
+						foreach ($recipientItems as $expandedRecipient) {
 							// set recipient type of each members as per the distribution list recipient type
-							$recipient['recipient_type'] = $recipientItem['recipient_type'];
-							array_push($addRecipients, $recipient);
+							$expandedRecipient['recipient_type'] = $recipientItem['recipient_type'];
+							array_push($addRecipients, $expandedRecipient);
 						}
 
 						if ($key === "saved") {
@@ -2662,7 +2664,7 @@ class Operations {
 			// we do conversion here, because before passing props to saveMessage() props are converted from utf8-to-w
 			$action["props"]["sent_representing_name"] = $userprops[PR_DISPLAY_NAME];
 			$action["props"]["sent_representing_address_type"] = $userprops[PR_ADDRTYPE];
-			$emailAddress = $userprops[PR_ADDRTYPE] == 'SMTP' ? $userprops[PR_SMTP_ADDRESS] : $emailAddress = $userprops[PR_EMAIL_ADDRESS];
+			$emailAddress = $userprops[PR_ADDRTYPE] == 'SMTP' ? $userprops[PR_SMTP_ADDRESS] : $userprops[PR_EMAIL_ADDRESS];
 			$action["props"]["sent_representing_email_address"] = $emailAddress;
 			$action["props"]["sent_representing_smtp_address"] = $userprops[PR_SMTP_ADDRESS];
 			$action["props"]["sent_representing_search_key"] = bin2hex(strtoupper($userprops[PR_ADDRTYPE] . ':' . $emailAddress)) . '00';
@@ -2912,7 +2914,6 @@ class Operations {
 					}
 					catch (MAPIException $e) {
 						$e->setHandled();
-						$copyFromMessage = false;
 
 						// the message might be in the default store, try to open it there
 						try {
@@ -2979,8 +2980,6 @@ class Operations {
 
 			// delete message from it's original location
 			if (!empty($oldEntryId) && !empty($oldParentEntryId)) {
-				$folder = null;
-
 				try {
 					$folder = mapi_msgstore_openentry($origStore, $oldParentEntryId);
 				}
@@ -2988,7 +2987,9 @@ class Operations {
 					try {
 						$folder = mapi_msgstore_openentry($store, $oldParentEntryId);
 					}
-					catch (MAPIException) {
+					catch (MAPIException $e) {
+						$e->setHandled();
+						$folder = null;
 					}
 				}
 				if ($folder) {
@@ -3379,7 +3380,7 @@ class Operations {
 				$softDelete = $softDelete || (defined('ENABLE_DEFAULT_SOFT_DELETE') ? ENABLE_DEFAULT_SOFT_DELETE : false);
 				// Delete items when they are in the wastebasket already or
 				// direct deleting is enabled
-				if (isset($msgprops[PR_IPM_WASTEBASKET_ENTRYID]) && $msgprops[PR_IPM_WASTEBASKET_ENTRYID] == $parententryid || $softDelete) {
+				if ((isset($msgprops[PR_IPM_WASTEBASKET_ENTRYID]) && $msgprops[PR_IPM_WASTEBASKET_ENTRYID] == $parententryid) || $softDelete) {
 					// except when it is the waste basket itself
 					$result = mapi_folder_deletemessages($folder, $entryids, $flags);
 					break;
@@ -3420,7 +3421,7 @@ class Operations {
 
 			case ZARAFA_SERVICE_GUID:
 				// delete message when in your own waste basket, else move it to the waste basket
-				if (isset($msgprops[PR_IPM_WASTEBASKET_ENTRYID]) && $msgprops[PR_IPM_WASTEBASKET_ENTRYID] == $parententryid || $softDelete === true) {
+				if ((isset($msgprops[PR_IPM_WASTEBASKET_ENTRYID]) && $msgprops[PR_IPM_WASTEBASKET_ENTRYID] == $parententryid) || $softDelete === true) {
 					$result = mapi_folder_deletemessages($folder, $entryids, $flags);
 					break;
 				}
@@ -3836,7 +3837,7 @@ class Operations {
 		// Check if attachments should be deleted. This is set in the "upload_attachment.php" file
 		if (isset($attachments['dialog_attachments'])) {
 			$deleted = $attachment_state->getDeletedAttachments($attachments['dialog_attachments']);
-			if ($deleted) {
+			if (!empty($deleted)) {
 				foreach ($deleted as $attach_num) {
 					try {
 						mapi_message_deleteattach($message, (int) $attach_num);
@@ -4056,7 +4057,7 @@ class Operations {
 			foreach ($existingAttachments as $props) {
 				// check if this attachment is "deleted"
 
-				if ($deletedAttachments && in_array($props[PR_ATTACH_NUM], $deletedAttachments)) {
+				if (!empty($deletedAttachments) && in_array($props[PR_ATTACH_NUM], $deletedAttachments)) {
 					// skip attachment, remove reference from state as it no longer applies.
 					$attachment_state->removeDeletedAttachment($attachments['dialog_attachments'], $props[PR_ATTACH_NUM]);
 
@@ -4097,7 +4098,7 @@ class Operations {
 					}
 
 					$contentID = $props[PR_ATTACH_CONTENT_ID];
-					if (!str_contains($body, (string) $contentID)) {
+					if (!str_contains((string) $body, (string) $contentID)) {
 						continue;
 					}
 				}
@@ -4295,9 +4296,6 @@ class Operations {
 				if (isset($attachmentRow[PR_ATTACHMENT_CONTACTPHOTO]) && $attachmentRow[PR_ATTACHMENT_CONTACTPHOTO]) {
 					$props["attachment_contactphoto"] = $attachmentRow[PR_ATTACHMENT_CONTACTPHOTO];
 					$props["hidden"] = true;
-
-					// Open contact photo attachment in binary format.
-					$attach = mapi_message_openattach($message, $props["attach_num"]);
 				}
 
 				if ($props["attach_method"] == ATTACH_EMBEDDED_MSG) {
@@ -4392,7 +4390,7 @@ class Operations {
 				// check if EX-type recipients are really in the address book
 				if ($props['address_type'] === 'EX') {
 					try {
-						$abentry = mapi_ab_openentry($addrBook, hex2bin($props['entryid']));
+						mapi_ab_openentry($addrBook, hex2bin($props['entryid']));
 					}
 					catch (MAPIException $e) {
 						if ($e->getCode() == MAPI_E_NOT_FOUND || $e->getCode() == MAPI_E_INVALID_PARAMETER) {
@@ -4590,7 +4588,10 @@ class Operations {
 					return $store;
 				}
 			}
-			catch (MAPIException) {
+			catch (MAPIException $e) {
+				$e->setHandled();
+
+				continue;
 			}
 		}
 
@@ -5357,7 +5358,11 @@ class Operations {
 			$codepage = $cpprops[PR_INTERNET_CPID] ?? 1252;
 			$hackEncoding = '<meta http-equiv="Content-Type" content="text/html; charset=' . Conversion::getCodepageCharset($codepage) . '">';
 			// TinyMCE does not generate valid HTML, so we must suppress warnings.
-			@$doc->loadHTML($hackEncoding . $body);
+			if (!@$doc->loadHTML($hackEncoding . $body)) {
+				error_log('[INLINE IMAGE] Message body could not be parsed as HTML.');
+
+				return;
+			}
 			$images = $doc->getElementsByTagName('img');
 			$saveChanges = false;
 

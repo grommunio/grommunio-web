@@ -16,7 +16,8 @@ require_once __DIR__ . "/Util/util.php";
 require_once __DIR__ . "/Util/class.logger.php";
 
 use Files\Backend\BackendStore;
-use Files\Backend\Exception;
+use Files\Backend\Exception as BackendException;
+use Files\Backend\iFeatureStreaming;
 use Files\Core\Util\Logger;
 
 class UploadHandler {
@@ -63,7 +64,7 @@ class UploadHandler {
 		try {
 			$initializedBackend->open();
 		}
-		catch (Exception $e) {
+		catch (BackendException $e) {
 			Logger::error(self::LOG_CONTEXT, "backend initialization failed: " . $e->getMessage());
 			echo json_encode(['success' => false, 'response' => $e->getCode(), 'message' => $e->getMessage()]);
 
@@ -74,7 +75,7 @@ class UploadHandler {
 		if (isset($_SERVER['HTTP_X_FILE_NAME'], $_SERVER['HTTP_X_FILE_SIZE'])) { // use the ajax method
 			$targetPath = stringToUTF8Encode($relNodeId . $_SERVER['HTTP_X_FILE_NAME']);
 			// check if backend supports streaming - this is the preferred way to upload files!
-			if ($initializedBackend->supports(BackendStore::FEATURE_STREAMING)) {
+			if ($initializedBackend instanceof iFeatureStreaming) {
 				$fileReader = fopen('php://input', "r");
 				$targetPath = UploadHandler::checkFilesNameConflict($targetPath, $initializedBackend, $relNodeId);
 				$fileWriter = $initializedBackend->getStreamwriter($targetPath);
@@ -129,7 +130,7 @@ class UploadHandler {
 
 				// upload the file
 				// check if backend supports streaming - this is the preferred way to upload files!
-				if ($initializedBackend->supports(BackendStore::FEATURE_STREAMING)) {
+				if ($initializedBackend instanceof iFeatureStreaming) {
 					$fileReader = fopen($_FILES['attachments']['tmp_name'][$i], "r");
 					$fileWriter = $initializedBackend->getStreamwriter($targetPath);
 
@@ -155,7 +156,7 @@ class UploadHandler {
 
 			exit;
 		}
-		catch (Exception $e) {
+		catch (BackendException $e) {
 			Logger::error(self::LOG_CONTEXT, "upload failed: " . $e->getMessage());
 			echo json_encode(['success' => false, 'response' => $e->getCode(), 'message' => $e->getMessage()]);
 

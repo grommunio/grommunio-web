@@ -21,14 +21,14 @@ class Settings {
 	private $store;
 
 	/**
-	 * Associative Array that will store all the settings of webapp, this will be filled by retreiveAllSettings
+	 * Associative array that stores all webapp settings; it is filled by retrieveAllSettings()
 	 * and will be used when we call saveSettings.
 	 */
 	private $settings;
 
 	/**
-	 * Associative Array that will store all the persistent settings of webapp, this will be filled by
-	 * retreiveAllSettings and will be used when we call saveSettings.
+	 * Associative array that stores all persistent webapp settings; it is filled by
+	 * retrieveAllSettings() and used when saveSettings() is called.
 	 */
 	private $persistentSettings;
 
@@ -251,7 +251,7 @@ class Settings {
 	 *                         this defaults to false as the settings will be saved at the end of the request
 	 */
 	public function setPersistent($path, $value, $autoSave = false) {
-		return $this->set($path, $value, $autoSave, true);
+		$this->set($path, $value, $autoSave, true);
 	}
 
 	/**
@@ -391,6 +391,7 @@ class Settings {
 					$persistentSettings = json_decode_data($this->persistentSettingsString, true);
 				}
 				catch (Exception) {
+					throw new SettingsException(_('Error retrieving existing persistent settings'));
 				}
 
 				if (empty($persistentSettings) || empty($persistentSettings['settings'])) {
@@ -640,7 +641,6 @@ class Settings {
 						}
 						if ($im) {
 							$n_width = 144;
-							$n_height = 144;
 							$width = imagesx($im);
 							$height = imagesy($im);
 							$n_height = ($n_width / $width) * $height;

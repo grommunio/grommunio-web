@@ -15,7 +15,8 @@ require_once __DIR__ . "/Util/class.pathutil.php";
 require_once __DIR__ . "/Util/class.logger.php";
 
 use Files\Backend\BackendStore;
-use Files\Backend\Exception;
+use Files\Backend\Exception as BackendException;
+use Files\Backend\iFeatureStreaming;
 use Files\Core\Util\Logger;
 use Files\Core\Util\PathUtil;
 
@@ -58,7 +59,7 @@ class DownloadHandler {
 		try {
 			$initializedBackend->open();
 		}
-		catch (Exception $e) {
+		catch (BackendException $e) {
 			Logger::error(self::LOG_CONTEXT, "Could not open the backend: " . $e->getMessage());
 
 			if ((isset($_GET["inline"]) && $_GET["inline"] == "false") || (isset($_GET["contentDispositionType"]) && $_GET["contentDispositionType"] == "attachment")) {
@@ -123,7 +124,7 @@ class DownloadHandler {
 			$relNodeId = substr((string) $_GET["id"], strpos((string) $_GET["id"], '/'));
 			$stream = false;
 
-			if (!$initializedBackend->supports(BackendStore::FEATURE_STREAMING)) {
+			if (!$initializedBackend instanceof iFeatureStreaming) {
 				$tmpfile = tempnam(TMP_PATH, stripslashes(base64_encode($relNodeId)));
 				$initializedBackend->get_file($relNodeId, $tmpfile);
 				$filesize = filesize($tmpfile);
@@ -168,7 +169,7 @@ class DownloadHandler {
 
 			exit;
 		}
-		catch (Exception $e) {
+		catch (BackendException $e) {
 			Logger::error(self::LOG_CONTEXT, "Downloading failed: " . $e->getMessage());
 
 			if (isset($_GET["inline"]) && $_GET["inline"] == "false") {

@@ -29,11 +29,18 @@ class CategoryListModule extends Module {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
 				try {
-					match ($actionType) {
-						"list" => $this->listCategories($action),
-						"save" => $this->saveCategories($action),
-						default => $this->handleUnknownActionType($actionType),
-					};
+					switch ($actionType) {
+						case "list":
+							$this->listCategories($action);
+							break;
+
+						case "save":
+							$this->saveCategories($action);
+							break;
+
+						default:
+							$this->handleUnknownActionType($actionType);
+					}
 				}
 				catch (MAPIException $e) {
 					$this->processException($e, $actionType);

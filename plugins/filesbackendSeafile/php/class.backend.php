@@ -89,7 +89,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 
 	private readonly Config $config;
 
-	private ?SsoBackend $sso = null;
+	private SsoBackend $sso;
 
 	/**
 	 * Backend name used in translations.
@@ -104,6 +104,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 		$this->debug = PLUGIN_FILESBROWSER_LOGLEVEL === 'DEBUG';
 
 		$this->config = new Config();
+		$this->sso = new SsoBackend();
 
 		$this->init_form();
 
@@ -594,7 +595,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 
 		$this->config->importConfigArray($config);
 
-		SsoBackend::bind($this->sso)->initBackend($this->config);
+		$this->sso->initBackend($this->config);
 
 		Logger::debug(self::LOG_CONTEXT, __FUNCTION__ . ' done.');
 	}

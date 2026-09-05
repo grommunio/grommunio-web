@@ -277,20 +277,17 @@ class UploadAttachment {
 				$this->notifierModule = 'maillistnotifier';
 
 				return $this->importEMLFile($attachmentStream, $filename);
-				break;
 
 			case 'ICS':
 			case 'VCS':
 				$this->notifierModule = 'appointmentlistnotifier';
 
 				return $this->importICSFile($attachmentStream, $filename);
-				break;
 
 			case 'VCF':
 				$this->notifierModule = 'contactlistnotifier';
 
 				return $this->importVCFFile($attachmentStream, $filename);
-				break;
 		}
 
 		return false;
@@ -656,8 +653,6 @@ class UploadAttachment {
 	 * @return object folder object in which item gets imported
 	 */
 	public function getDestinationFolder() {
-		$destinationFolder = null;
-
 		try {
 			$destinationFolder = mapi_msgstore_openentry($this->store, hex2bin((string) $this->destinationFolderId));
 		}
@@ -864,8 +859,6 @@ class UploadAttachment {
 	 * @param string $title     title which used to show as title of exception dialog
 	 */
 	public function handleUploadException($exception, $title = null) {
-		$return = [];
-
 		// MAPI_E_NOT_FOUND exception contains generalize exception message.
 		// Set proper exception message as display message should be user understandable.
 		if ($exception->getCode() == MAPI_E_NOT_FOUND) {

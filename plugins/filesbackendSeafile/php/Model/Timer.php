@@ -7,8 +7,8 @@ namespace Files\Backend\Seafile\Model;
 /**
  * Simple Timer.
  */
-final readonly class Timer implements \Stringable {
-	private float $start;
+final class Timer implements \Stringable {
+	private readonly float $start;
 
 	public function __construct() {
 		$this->start = microtime(true);
