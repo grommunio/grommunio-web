@@ -31,9 +31,14 @@
 
 	<?php
 		$keycloak = KeyCloak::getInstance();
-		if (!is_null($keycloak) && (!defined('DISABLE_KEYCLOAK') || !DISABLE_KEYCLOAK)) {
+		$oidcEnabled = !is_null($keycloak) && (!defined('DISABLE_KEYCLOAK') || !DISABLE_KEYCLOAK);
+		// login_url() mints a fresh state on every call, so build it once and
+		// reuse it for both the redirect and the button.
+		$oidcLoginUrl = $oidcEnabled ? $keycloak->login_url($keycloak->redirect_url) : '';
+		$oidcLabel = OIDC_BUTTON_LABEL !== '' ? OIDC_BUTTON_LABEL : _("Sign in with OpenID Connect");
+		if ($oidcEnabled && OIDC_AUTO_REDIRECT) {
 			?>
-	<meta http-equiv='Refresh' content="1;URL='<?php echo $keycloak->login_url($keycloak->redirect_url); ?>'"/>
+	<meta http-equiv='Refresh' content="1;URL='<?php echo $oidcLoginUrl; ?>'"/>
 	<?php
 					echo "<div id='form-container' class='loading' >";
 		}
@@ -63,6 +68,11 @@
 
 						<input id="submitbutton" class="button" type="submit" value="<?php echo _("Sign in"); ?>">
 					</form>
+					<?php if ($oidcEnabled && !OIDC_AUTO_REDIRECT) { ?>
+					<div id="oidc-login">
+						<a id="oidcbutton" class="button" href="<?php echo htmlspecialchars($oidcLoginUrl, ENT_QUOTES); ?>"><?php echo htmlspecialchars((string) $oidcLabel, ENT_QUOTES); ?></a>
+					</div>
+					<?php } ?>
 				</div>
 			</div>
 		</div>

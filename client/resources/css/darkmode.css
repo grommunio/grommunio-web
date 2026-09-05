@@ -1684,6 +1684,24 @@ body.dark-mode #loading-mask #form-container #logo {
 	body.login #form-container #logo {
 		filter: invert(1) hue-rotate(180deg);
 	}
+
+	/* #0f70bd as text on the dark panel is roughly 2:1, so lighten the outlined
+	   OpenID Connect button rather than inheriting it. */
+	body.login>#form-container #oidcbutton {
+		color: #6cb6f0;
+		border-color: #6cb6f0;
+	}
+
+	body.login>#form-container #oidcbutton:hover,
+	body.login>#form-container #oidcbutton:active {
+		background-color: #6cb6f0;
+		border-color: #6cb6f0;
+		color: #1c1d21;
+	}
+
+	body.login>#form-container #oidcbutton:focus {
+		box-shadow: 0 0 0 2px rgba(108, 182, 240, 0.45);
+	}
 }
 
 /*=============================================================================

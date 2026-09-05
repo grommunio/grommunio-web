@@ -160,6 +160,25 @@ if (!defined("ENABLE_REMOTE_USER_LOGIN")) {
 }
 
 /*
+ * When an OpenID Connect provider is configured, the login page redirects to it
+ * immediately. Set to false to show the login form with an additional sign-in
+ * button instead, so the provider is only used when the user picks it.
+ * Has no effect when no provider is configured or when DISABLE_KEYCLOAK is set.
+ */
+if (!defined("OIDC_AUTO_REDIRECT")) {
+	define("OIDC_AUTO_REDIRECT", true);
+}
+
+/*
+ * Label of the OpenID Connect sign-in button, e.g. "Sign in with Contoso".
+ * Leave empty to use the translated default. Only used when OIDC_AUTO_REDIRECT
+ * is false.
+ */
+if (!defined("OIDC_BUTTON_LABEL")) {
+	define("OIDC_BUTTON_LABEL", '');
+}
+
+/*
  * When set to false this disables the welcome screen shown to new users.
  */
 if (!defined("ENABLE_WELCOME_SCREEN")) {

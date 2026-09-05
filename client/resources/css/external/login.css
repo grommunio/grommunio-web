@@ -362,6 +362,49 @@ body.login>#form-container #submitbutton:focus-visible {
   box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px var(--theme-gradient-start);
 }
 
+/* Separator above the OpenID Connect button, drawn without text so it needs
+   no translation. */
+body.login>#form-container #oidc-login {
+  border-top:1px solid rgba(128,128,128,0.35);
+  margin:18px 0 0;
+  padding:6px 0 0
+}
+
+/* Same shape as #submitbutton, but an anchor, so it needs the box model and
+   text centering that the input element brings along by itself. */
+body.login>#form-container #oidcbutton {
+  display:block;
+  box-sizing:border-box;
+  background:transparent;
+  color:#0f70bd;
+  min-height:28px;
+  line-height:1.5;
+  border:1px solid #0f70bd;
+  border-radius: 25px;
+  padding:2px 9px;
+  width: 100%;
+  margin:12px 0 0;
+  text-align:center;
+  text-decoration:none;
+  overflow-wrap:anywhere
+}
+
+body.login>#form-container #oidcbutton:hover {
+  background-color:#0f70bd;
+  color:white;
+  cursor: pointer;
+}
+
+body.login>#form-container #oidcbutton:active {
+  background-color:#065fa5;
+  border-color:#065fa5;
+  color:white
+}
+
+body.login>#form-container #oidcbutton:focus {
+  box-shadow:0 0 0 2px rgba(15,112,189,0.4)
+}
+
 /* Screen reader only - visually hidden but accessible */
 .sr-only {
   position: absolute;
