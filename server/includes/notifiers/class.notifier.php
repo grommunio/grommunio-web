@@ -41,9 +41,11 @@ class Notifier {
 	/**
 	 * Whether updates need serialized persistent notifier state.
 	 *
+	 * Specialized notifiers may make this decision based on the event.
+	 *
 	 * @param null|mixed $event
 	 */
-	public function usePersistentStateLock($event = null) {
+	public function usePersistentStateLock(/* @scrutinizer ignore-unused */ $event = null) {
 		static $statefulClasses = [];
 		$className = get_class($this);
 		if (isset($statefulClasses[$className])) {
@@ -115,11 +117,13 @@ class Notifier {
 	 * If an event elsewhere has occurred, it enters in this method. This method
 	 * executes one or more actions, depends on the event.
 	 *
+	 * Implementations receive all three values; the default hook is intentionally empty.
+	 *
 	 * @param int    $event   event
 	 * @param string $entryid entryid
 	 * @param array  $data    array of data
 	 */
-	public function update($event, $entryid, $data) {
+	public function update(/* @scrutinizer ignore-unused */ $event, /* @scrutinizer ignore-unused */ $entryid, /* @scrutinizer ignore-unused */ $data) {
 		// you must implement this function for each notifier
 	}
 }

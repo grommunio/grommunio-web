@@ -366,11 +366,11 @@ class AppointmentItemModule extends ItemModule {
 	/**
 	 * Processes an all-day item and calculates the correct starttime if necessary.
 	 *
-	 * @param object $store
-	 * @param array  $calendaritem
-	 * @param object $message
+	 * @param resource $store
+	 * @param array    $calendaritem
+	 * @param resource $message
 	 */
-	private function processAllDayItem($store, &$calendaritem, $message) {
+	private function processAllDayItem(/* @scrutinizer ignore-unused */ $store, &$calendaritem, /* @scrutinizer ignore-unused */ $message) {
 		// If the appointment doesn't have tzdefstart property, it was probably
 		// created on a mobile device (mobile devices do not send a timezone for
 		// all-day events).
