@@ -377,8 +377,6 @@ class IndexSqlite extends SQLite3 {
 		$matchedRows = 0;
 		$sampleRows = [];
 		$entryids = [];
-		$stmt = null;
-		$results = null;
 
 		try {
 			$stmt = $this->prepare($sql);
@@ -455,10 +453,10 @@ class IndexSqlite extends SQLite3 {
 			}
 		}
 		finally {
-			if ($results instanceof SQLite3Result) {
+			if (isset($results) && $results !== false) {
 				$results->finalize();
 			}
-			if ($stmt instanceof SQLite3Stmt) {
+			if (isset($stmt) && $stmt !== false) {
 				$stmt->close();
 			}
 			// Always restore the original time limit, even after an error.
