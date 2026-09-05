@@ -716,6 +716,17 @@ class Operations {
 	 * @param array  $storeData               the store data which use to create restriction
 	 */
 	public function setDefaultFavoritesFolder($commonViewFolderEntryid, $store, $storeData) {
+		// An unloaded settings object answers get() with defaults, so an absent
+		// flag would read as "never initialised" and the branch below would
+		// delete every favorite and saved search this user has.
+		if (!$GLOBALS["settings"]->isLoaded()) {
+			$msg = "Operations:setDefaultFavoritesFolder() skipped: the settings of this store could not be loaded, so whether the default favourites are still wanted is unknown.";
+			error_log($msg);
+			Log::Write(LOGLEVEL_ERROR, $msg);
+
+			return;
+		}
+
 		if ($GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/show_default_favorites") !== false) {
 			$commonViewFolder = mapi_msgstore_openentry($store, $commonViewFolderEntryid);
 
@@ -2655,6 +2666,35 @@ class Operations {
 	}
 
 	/**
+	 * Whether an address denotes the logged-in user themselves. Their identity
+	 * reaches us in more than one spelling, the logon name among them, so each
+	 * is compared rather than the SMTP address alone.
+	 *
+	 * @param mixed $address address to test
+	 *
+	 * @return bool true when the address is one of the logged-in user's own
+	 */
+	private function isOwnIdentity($address) {
+		if (empty($address)) {
+			return false;
+		}
+
+		$own = [
+			$GLOBALS['mapisession']->getSMTPAddress(),
+			$GLOBALS['mapisession']->getEmailAddress(),
+			$GLOBALS['mapisession']->getUserName(),
+		];
+
+		foreach ($own as $mine) {
+			if (!empty($mine) && strcasecmp((string) $address, (string) $mine) == 0) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
 	 * Submit a message for sending.
 	 *
 	 * This function is an extension of the saveMessage() function, with the extra functionality
@@ -3050,8 +3090,12 @@ class Operations {
 			$reprEmail = $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] ?? $reprProps[PR_SENT_REPRESENTING_EMAIL_ADDRESS] ?? null;
 			$reprEntryid = $props[PR_SENT_REPRESENTING_ENTRYID] ?? $reprProps[PR_SENT_REPRESENTING_ENTRYID] ?? null;
 			$reprSender = $props[PR_SENDER_EMAIL_ADDRESS] ?? $reprProps[PR_SENDER_EMAIL_ADDRESS] ?? null;
+			// The two addresses can spell the same person differently, so a send is
+			// only on behalf of somebody else when the representing identity is
+			// not the sender's own.
 			if ($reprEmail !== null && $reprEntryid !== null && $reprSender !== null &&
-				strcasecmp((string) $reprEmail, (string) $reprSender) != 0) {
+				strcasecmp((string) $reprEmail, (string) $reprSender) != 0 &&
+				!$this->isOwnIdentity($reprEmail)) {
 				$ab = $GLOBALS['mapisession']->getAddressbook();
 				$abitem = mapi_ab_openentry($ab, $reprEntryid);
 				$abitemprops = mapi_getprops($abitem, [PR_DISPLAY_NAME, PR_EMAIL_ADDRESS, PR_SEARCH_KEY]);
@@ -3071,7 +3115,8 @@ class Operations {
 			}
 			if (!$sendingAsDelegate &&
 				isset($props[PR_SENT_REPRESENTING_EMAIL_ADDRESS], $props[PR_SENDER_EMAIL_ADDRESS], $props[PR_SENT_REPRESENTING_ENTRYID]) &&
-				strcasecmp((string) $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS], (string) $props[PR_SENDER_EMAIL_ADDRESS]) != 0) {
+				strcasecmp((string) $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS], (string) $props[PR_SENDER_EMAIL_ADDRESS]) != 0 &&
+				!$this->isOwnIdentity($props[PR_SENT_REPRESENTING_EMAIL_ADDRESS])) {
 				// preserve sending from an alias
 				$ab = $GLOBALS['mapisession']->getAddressbook();
 				$abitem = mapi_ab_openentry($ab, $props[PR_SENT_REPRESENTING_ENTRYID]);
@@ -3099,9 +3144,13 @@ class Operations {
 						$GLOBALS['mapisession']->addUserStore(strtolower((string) $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS]));
 					if ($origStore) {
 						$origStoreprops = mapi_getprops($origStore, [PR_ENTRYID, PR_IPM_SENTMAIL_ENTRYID]);
-						$destfolder = mapi_msgstore_openentry($origStore, $origStoreprops[PR_IPM_SENTMAIL_ENTRYID]);
-						$reprMessage = mapi_folder_createmessage($destfolder);
-						mapi_copyto($message, [], [], $reprMessage, 0);
+						// An alias resolves to the sender's own store, where the message lands anyway
+						$ownStore = $GLOBALS["entryid"]->compareEntryIds(bin2hex((string) ($origStoreprops[PR_ENTRYID] ?? '')), bin2hex((string) $storeprops[PR_ENTRYID]));
+						if (!$ownStore && isset($origStoreprops[PR_IPM_SENTMAIL_ENTRYID])) {
+							$destfolder = mapi_msgstore_openentry($origStore, $origStoreprops[PR_IPM_SENTMAIL_ENTRYID]);
+							$reprMessage = mapi_folder_createmessage($destfolder);
+							mapi_copyto($message, [], [], $reprMessage, 0);
+						}
 					}
 				}
 				catch (MAPIException $e) {
@@ -3253,7 +3302,7 @@ class Operations {
 				mapi_setprops($reprMessage, [
 					PR_CLIENT_SUBMIT_TIME => $tmp_props[PR_CLIENT_SUBMIT_TIME] ?? time(),
 					PR_MESSAGE_DELIVERY_TIME => $tmp_props[PR_MESSAGE_DELIVERY_TIME] ?? time(),
-					PR_MESSAGE_FLAGS => $tmp_props[PR_MESSAGE_FLAGS] | MSGFLAG_READ,
+					PR_MESSAGE_FLAGS => ($tmp_props[PR_MESSAGE_FLAGS] | MSGFLAG_READ) & ~MSGFLAG_UNSENT,
 				]);
 				mapi_savechanges($reprMessage);
 				if ($saveRepresentee) {
@@ -3677,20 +3726,19 @@ class Operations {
 	 *
 	 * @return string correct foldername
 	 */
-	public function checkFolderNameConflict($store, $folder, $foldername) {
+	public function checkFolderNameConflict(/** @scrutinizer ignore-unused */ $store, $folder, $foldername) {
 		$folderNames = [];
 
 		$hierarchyTable = mapi_folder_gethierarchytable($folder, MAPI_DEFERRED_ERRORS);
 		mapi_table_sort($hierarchyTable, [PR_DISPLAY_NAME => TABLE_SORT_ASCEND], TBL_BATCH);
 
-		$subfolders = mapi_table_queryallrows($hierarchyTable, [PR_ENTRYID]);
+		$subfolders = mapi_table_queryallrows($hierarchyTable, [PR_DISPLAY_NAME]);
 
 		if (is_array($subfolders)) {
 			foreach ($subfolders as $subfolder) {
-				$folderObject = mapi_msgstore_openentry($store, $subfolder[PR_ENTRYID]);
-				$folderProps = mapi_getprops($folderObject, [PR_DISPLAY_NAME]);
-
-				array_push($folderNames, strtolower((string) $folderProps[PR_DISPLAY_NAME]));
+				if (isset($subfolder[PR_DISPLAY_NAME])) {
+					$folderNames[] = strtolower((string) $subfolder[PR_DISPLAY_NAME]);
+				}
 			}
 		}
 

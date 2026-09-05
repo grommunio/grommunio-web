@@ -343,8 +343,24 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 			// not specifying settingsCfg as Ctrl+Y is already listed for redo
 		}];
 
+		var paletteKeys = [{
+			key: Ext.EventObject.K,
+			ctrl: true,
+			alt: false,
+			shift: false,
+			stopEvent: true,
+			handler: this.onCommandPalette,
+			scope: this,
+			settingsCfg: {
+				description: _('Open the command palette'),
+				category: _('Basic navigation')
+			},
+			basic: true
+		}];
+
 		Zarafa.core.KeyMapMgr.register('global', mainTabBar);
 		Zarafa.core.KeyMapMgr.register('global', mainToolbarKeys);
+		Zarafa.core.KeyMapMgr.register('global', paletteKeys);
 		Zarafa.core.KeyMapMgr.register('global', undoRedoKeys);
 
 		Zarafa.core.KeyMapMgr.register('grid', selectionKey);
@@ -772,6 +788,15 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 				selectionModel.selectAll();
 			}
 		}
+	},
+
+	/**
+	 * Opens or closes the {@link Zarafa.core.ui.CommandPalette command palette}.
+	 * @private
+	 */
+	onCommandPalette: function()
+	{
+		Zarafa.core.ui.CommandPalette.toggle();
 	}
 });
 

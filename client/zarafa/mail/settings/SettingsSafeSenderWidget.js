@@ -20,7 +20,7 @@ Zarafa.mail.settings.SettingsSafeSendersWidget = Ext.extend(Zarafa.settings.ui.S
 
 		Ext.applyIf(config, {
 			title: _('Safe Senders'),
-			cls: 'zarafa-settings-widget k-settings-nogap',
+			cls: 'zarafa-settings-widget',
 			xtype: 'zarafa.settingssafesenderswidget',
 			height: 400,
 			layout: {
@@ -34,8 +34,10 @@ Zarafa.mail.settings.SettingsSafeSendersWidget = Ext.extend(Zarafa.settings.ui.S
 				fieldClass: 'x-form-display-field zarafa-settings-widget-extrainfo'
 			},{
 				xtype: 'container',
+				flex: 1,
 				layout: {
 					type: 'hbox',
+					align: 'stretch',
 					pack: 'start'
 				},
 				items: [{
@@ -45,7 +47,6 @@ Zarafa.mail.settings.SettingsSafeSendersWidget = Ext.extend(Zarafa.settings.ui.S
 					flex: 1
 				},{
 					xtype: 'container',
-					height: 400,
 					width: 160,
 					layout: {
 						type: 'vbox',

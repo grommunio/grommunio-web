@@ -50,15 +50,15 @@
 .ugpredic_search_item {
 	font-size:smaller;
 	padding:5px 5px;
-	border:1px solid #fff;
-	border-bottom:1px solid #eeeeee;
+	border:1px solid transparent;
+	border-bottom:1px solid var(--ui-border);
 	white-space:normal;
 }
 .ugpredic_search_item h3 {
 	display:block;
 	font:inherit;
 	font-weight:bold;
-	color:#222;
+	color:var(--ui-text);
 }
 
 .ugpredic_search_item h3 span {

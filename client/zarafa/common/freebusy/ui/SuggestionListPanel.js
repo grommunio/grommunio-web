@@ -140,7 +140,7 @@ Zarafa.common.freebusy.ui.SuggestionListPanel = Ext.extend(Ext.Panel, {
 	onDateRangeUpdate: function(newRange, oldRange)
 	{
 		this.suggestionDate.setMinDate(newRange.getStartDate());
-		this.suggestionDate.setmaxDate(newRange.getDueDate());
+		this.suggestionDate.setMaxDate(newRange.getDueDate());
 	},
 
 	/**

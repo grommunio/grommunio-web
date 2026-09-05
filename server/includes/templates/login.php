@@ -14,10 +14,10 @@
 
 		<link rel="icon" href="<?php echo $favicon; ?>" type="image/x-icon">
 		<link rel="shortcut icon" href="<?php echo $favicon; ?>" type="image/x-icon">
-		<link rel="manifest" href="manifest.webmanifest">
+		<link rel="manifest" href="<?php echo versionedUrl('manifest.webmanifest'); ?>">
 
-		<link rel="stylesheet" type="text/css" href="client/resources/css/external/login.css">
-		<link rel="stylesheet" type="text/css" href="client/resources/css/darkmode.css">
+		<link rel="stylesheet" type="text/css" href="client/resources/css/external/login.css?version=<?php echo getWebappVersion(); ?>">
+		<link rel="stylesheet" type="text/css" href="client/resources/css/darkmode.css?version=<?php echo getWebappVersion(); ?>">
 
 		<?php
 			/* Add the styling of the theme */

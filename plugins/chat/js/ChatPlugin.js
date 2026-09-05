@@ -131,7 +131,6 @@ Zarafa.plugins.chat.Chat = Ext.extend(Zarafa.core.Plugin, {
 	 */
 	getSharedComponent : function(type, record)
 	{
-		var component;
 		switch (type)
 		{
 			case Zarafa.core.data.SharedComponentType['plugins.chat.panel']:

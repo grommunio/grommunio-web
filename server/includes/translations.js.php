@@ -1,9 +1,7 @@
 <?php
 header("Content-Type: text/javascript; charset=utf-8");
 define("EXPIRES_TIME_LO", "300");
-
-header('Expires: ' . gmdate('D, d M Y H:i:s', time() + EXPIRES_TIME_LO) . ' GMT');
-header('Cache-Control: max-age=' . EXPIRES_TIME_LO . ',must-revalidate');
+define("EXPIRES_TIME_HI", "31536000");
 
 // Pragma: cache doesn't really exist. But since session_start() automatically
 // outputs a Pragma: no-cache, the only way to override that is to output something else
@@ -14,6 +12,15 @@ $translations = $Language->getTranslations();
 if ($translations && array_key_exists("_etag", $translations)) {
 	$etag = $translations["_etag"];
 	header("Etag: $etag");
+	if (isset($_GET['v']) && $_GET['v'] === $etag) {
+		// The page puts this fingerprint in the URL, so the URL changes with the content
+		header('Expires: ' . gmdate('D, d M Y H:i:s', time() + EXPIRES_TIME_HI) . ' GMT');
+		header('Cache-Control: private, max-age=' . EXPIRES_TIME_HI . ', immutable');
+	}
+	else {
+		header('Expires: ' . gmdate('D, d M Y H:i:s', time() + EXPIRES_TIME_LO) . ' GMT');
+		header('Cache-Control: max-age=' . EXPIRES_TIME_LO . ',must-revalidate');
+	}
 	if (isset($_SERVER["HTTP_IF_NONE_MATCH"])) {
 		$client_etags = array_map("trim", explode(",", $_SERVER["HTTP_IF_NONE_MATCH"]));
 		if (in_array($etag, $client_etags, true) || in_array("*", $client_etags, true)) {

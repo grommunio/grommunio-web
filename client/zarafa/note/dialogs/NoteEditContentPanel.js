@@ -19,6 +19,8 @@ Zarafa.note.dialogs.NoteEditContentPanel = Ext.extend(Zarafa.core.ui.RecordConte
 		Ext.applyIf(config, {
 			xtype	: 'zarafa.noteeditcontentpanel',
 			layout	: 'fit',
+			width: 520,
+			height: 420,
 			title: _('Note'),
 			recordComponentPluginConfig: Ext.applyIf(config.recordComponentPluginConfig || {}, {
 				allowWrite: true

@@ -28,7 +28,7 @@
 .mdm-field-sep {
 	border-top-width: 1px;
 	border-top-style: solid;
-	border-color: #e6e6e6;
+	border-color: var(--ui-border);
 }
 
 .mdm-synchronize-panel {

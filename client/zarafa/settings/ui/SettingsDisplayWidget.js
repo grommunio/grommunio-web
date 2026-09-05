@@ -145,6 +145,27 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 					scope: this
 				}
 			},{
+				xtype: 'radiogroup',
+				name: 'zarafa/v1/main/density',
+				ref: 'density',
+				hideLabel: true,
+				columns: 1,
+				items: [{
+					xtype: 'radio',
+					name: 'density',
+					inputValue: 'comfortable',
+					boxLabel: _('Comfortable list spacing')
+				},{
+					xtype: 'radio',
+					name: 'density',
+					inputValue: 'compact',
+					boxLabel: _('Compact list spacing')
+				}],
+				listeners: {
+					change: this.onRadioChange,
+					scope: this
+				}
+			},{
 				xtype: 'checkbox',
 				name: 'zarafa/v1/main/help_manual/show',
 				ref: 'helpManual',
@@ -212,6 +233,7 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 		this.contextFavorites.setValue(favoritesMode);
 		this.contextFavorites.setDisabled(this.hideFavorites.getValue() === true);
 		this.unreadBorders.setValue(settingsModel.get(this.unreadBorders.name));
+		this.density.setValue(settingsModel.get(this.density.name) === 'compact' ? 'compact' : 'comfortable');
 		this.hideWidgetpanel.setValue(settingsModel.get(this.hideWidgetpanel.name));
 		// Check if help manual plugin's settings available else check main settings.
 		var helpManualPluginSetting = settingsModel.get(this.helpManual.pluginSettingPath);
@@ -243,6 +265,10 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 			settingsModel.set(this.contextFavorites.name, contextFavorites.inputValue);
 		}
 		settingsModel.set(this.unreadBorders.name, this.unreadBorders.getValue());
+		var density = this.density.getValue();
+		if (density) {
+			settingsModel.set(this.density.name, density.inputValue);
+		}
 		settingsModel.set(this.hideWidgetpanel.name, this.hideWidgetpanel.getValue());
 
 		// Remove webapp manual plugin settings.

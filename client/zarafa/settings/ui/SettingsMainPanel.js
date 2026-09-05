@@ -63,11 +63,24 @@ Zarafa.settings.ui.SettingsMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPa
 				align: 'stretch'
 			},
 			items: [{
-				xtype: 'zarafa.settingscategorypanel',
+				xtype: 'container',
+				cls: 'k-settings-sidebar',
 				width: 250,
-				context: config.context,
-				autoScroll: true,
-				items: tabs
+				layout: {
+					type: 'vbox',
+					align: 'stretch'
+				},
+				items: [{
+					xtype: 'zarafa.settingssearchfield',
+					context: config.context,
+					margins: '10 6 4 6'
+				},{
+					xtype: 'zarafa.settingscategorypanel',
+					flex: 1,
+					context: config.context,
+					autoScroll: true,
+					items: tabs
+				}]
 			},{
 				xtype: 'container',
 				flex : 1,

@@ -44,6 +44,14 @@ if (!defined("ENABLE_FILE_PREVIEWER")) {
 	define("ENABLE_FILE_PREVIEWER", true);
 }
 
+/*
+ * Show the BIMI logo of the sender domain in the message header for mails that passed DMARC.
+ * The server looks the logo up over DNS and HTTPS and caches it in TMP_PATH.
+ */
+if (!defined("ENABLE_BIMI")) {
+	define("ENABLE_BIMI", true);
+}
+
 // Allow dragging attachments out of an opened e-mail directly into a
 // cooperating web application's drop zone. The attachment bytes are embedded in
 // the drag operation so the receiving site can reconstruct the file without a
@@ -786,4 +794,9 @@ if (!defined('ADMIN_API_DISABLEDPLUGINS_CACHE_TIME')) {
 // Seconds to wait before asking again after the endpoint could not be read
 if (!defined('ADMIN_API_DISABLEDPLUGINS_RETRY_TIME')) {
 	define('ADMIN_API_DISABLEDPLUGINS_RETRY_TIME', 30);
+}
+
+// Seconds to wait for an answer of the admin API
+if (!defined('ADMIN_API_TIMEOUT')) {
+	define('ADMIN_API_TIMEOUT', 2);
 }

@@ -77,10 +77,12 @@ class FreeBusyModule extends Module {
 		}
 		catch (Exception $e) {
 			error_log(sprintf("getFreeBusyInfo exception: %s (0x%08X)", $e->getMessage(), $e->getCode()));
+			// -1 is the client's status for an absent answer. fbNoData cannot
+			// say it here, because it shares its value with fbWorkingElsewhere.
 			$result[] = [
 				'start' => $start,
 				'end' => $end,
-				'status' => fbNoData,
+				'status' => -1,
 			];
 		}
 

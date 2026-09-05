@@ -141,8 +141,10 @@ Zarafa.plugins.files.ui.FilesRecordIconView = Ext.extend(Zarafa.common.ui.Dragga
 	initDropTarget: function () {
 		var iconViewDropTargetEl = this.getEl();
 
-		var wrap = iconViewDropTargetEl.wrap({cls: 'x-form-field-wrap'});
+		var wrap = iconViewDropTargetEl.wrap({cls: 'files-iconview-wrap'});
 		this.mon(wrap, 'drop', this.onDropItemToUpload, this);
+		// the wrapper is outside our element and would survive the view
+		this.on('destroy', wrap.remove, wrap);
 
 		this.dropTarget = new Ext.dd.DropTarget(iconViewDropTargetEl, {
 			ddGroup    : 'dd.filesrecord',

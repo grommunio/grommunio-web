@@ -199,6 +199,25 @@ Zarafa.core.ui.NavigationPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 	},
 
 	/**
+	 * Brings the panel to the active Context when the 'contextswitch' handler did
+	 * not reach it, which is what happens when a handler ahead of it threw. Does
+	 * nothing when the panel already followed.
+	 * @param {Object} parameters contains folder details
+	 * @param {Context} oldContext previously selected context
+	 * @param {Context} newContext selected context
+	 *
+	 * @private
+	 */
+	onAfterContextSwitch: function(parameters, oldContext, newContext)
+	{
+		if (!newContext || this.activeContext === newContext) {
+			return;
+		}
+
+		this.onContextSwitch(parameters, oldContext, newContext);
+	},
+
+	/**
 	 * Set all components that are related to the active Context to visible and hide the other
 	 * ones. The {@link #centerPanel centerPanel} is always visible and contains a card layout. It
 	 * will switch to the tab that is related to the active Context as well. If no tab is related
@@ -323,6 +342,7 @@ Zarafa.core.ui.NavigationPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 	{
 		this.activeContext = container.getCurrentContext();
 		this.mon(container, 'contextswitch', this.onContextSwitch, this);
+		this.mon(container, 'aftercontextswitch', this.onAfterContextSwitch, this);
 		this.onContextSwitch(null, this.activeContext, this.activeContext);
 
 		this.on('resize', this.onResizePanel, this);

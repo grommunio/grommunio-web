@@ -140,8 +140,6 @@ Zarafa.plugins.files.ui.dialogs.FilesUploadContentPanel = Ext.extend(Zarafa.core
 	 */
 	onUploadFieldChanged: function (field, newValue, oldValue) {
 		if (!Ext.isEmpty(newValue)) {
-			var form = field.ownerCt.ownerCt.getForm();
-
 			var files;
 			files = this.mainuploadfield.fileInput.dom.files;
 

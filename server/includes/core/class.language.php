@@ -66,6 +66,7 @@ class Language {
 	private $languages = ["en_US" => "English"];
 	private $lang;
 	private $loaded = false;
+	private $translations;
 
 	/**
 	 * Default constructor.
@@ -112,7 +113,16 @@ class Language {
 					$fh = fopen(LANGUAGE_DIR . $entry . "/language.txt", "r");
 					$lang_title = fgets($fh);
 					fclose($fh);
-					$this->languages[$entry] = "{$entry}: " . trim($lang_title);
+					$lang_title = trim($lang_title);
+					// Names in other scripts get the English name next to them, so
+					// the entry stays readable without a font for that script
+					if (class_exists('Locale') && !preg_match('/\\p{Latin}/u', $lang_title)) {
+						$english = Locale::getDisplayLanguage($entry, 'en');
+						if (!empty($english) && $english !== $entry) {
+							$lang_title .= " ({$english})";
+						}
+					}
+					$this->languages[$entry] = "{$entry}: " . $lang_title;
 				}
 			}
 		}
@@ -145,6 +155,7 @@ class Language {
 			return;
 		}
 		$this->lang = $selected;
+		$this->translations = null;
 		$this->bindTextDomain($selected);
 		$tmp_translations = $this->getTranslations();
 		$translations = [];
@@ -333,8 +344,26 @@ class Language {
 	 * the translations of the currently selected language.
 	 */
 	public function getTranslations() {
+		if ($this->translations === null) {
+			$this->translations = $this->readTranslations();
+		}
+
+		return $this->translations;
+	}
+
+	/**
+	 * @return string fingerprint of the selected language's translations, empty when
+	 *                there are none; a URL carrying it changes whenever they do
+	 */
+	public function getTranslationsEtag() {
+		return $this->getTranslations()['_etag'] ?? '';
+	}
+
+	private function readTranslations() {
 		$selected_lang = (string) $this->getSelected();
-		$memid = @shm_attach(self::CACHE_KEY, self::CACHE_SIZE, 0644);
+		// sysvshm is an optional PHP extension. Hosts without it can still read
+		// the selected catalog from disk; they merely miss the shared cache.
+		$memid = function_exists('shm_attach') ? @shm_attach(self::CACHE_KEY, self::CACHE_SIZE, 0644) : false;
 		if ($memid && @shm_has_var($memid, 0)) {
 			$cache_table = @shm_get_var($memid, 0);
 			// An empty array is a valid table: a host without compiled catalogs

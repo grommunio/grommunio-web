@@ -137,7 +137,6 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditPanel = Ext.extend(
 		 */
 		createPanelItems: function () {
 			var type = 'user'; // user or group
-			var shareWith = ''; // user/group name
 			var shareWithDisplayname = ''; // user/group displayname
 			var permissionCreate = false;
 			var permissionChange = false;
@@ -145,7 +144,6 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditPanel = Ext.extend(
 			var permissionShare = false;
 			if (this.record) {
 				type = this.record.get('type');
-				shareWith = this.record.get('shareWith');
 				shareWithDisplayname = this.record.get('shareWithDisplayname');
 				permissionShare = this.record.get('permissionShare');
 				permissionChange = this.record.get('permissionChange');

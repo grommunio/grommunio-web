@@ -25,13 +25,13 @@ if (!WebAppAuthentication::isAuthenticated()) {
 // contacts or appointments via index.php?load=...
 WebAppAuthentication::enforceSecondFactor('json');
 
-// get the disabled plugin list from the config and admin-api
-$disabledPlugins = getDisabledPluginsList();
-
-// Instantiate Plugin Manager
-$GLOBALS['PluginManager'] = new PluginManager(ENABLE_PLUGINS);
-$GLOBALS['PluginManager']->detectPlugins($disabledPlugins);
-$GLOBALS['PluginManager']->initPlugins(DEBUG_LOADER);
+// index.php has the plugins loaded already for an authenticated user
+if (!isset($GLOBALS['PluginManager'])) {
+	$disabledPlugins = getDisabledPluginsList();
+	$GLOBALS['PluginManager'] = new PluginManager(ENABLE_PLUGINS);
+	$GLOBALS['PluginManager']->detectPlugins($disabledPlugins);
+	$GLOBALS['PluginManager']->initPlugins(DEBUG_LOADER);
+}
 
 switch ($_GET['load']) {
 	case "translations.js":
@@ -71,6 +71,10 @@ switch ($_GET['load']) {
 
 	case "download_appointment":
 		include BASE_PATH . 'server/includes/download_appointment.php';
+		break;
+
+	case "bimi":
+		include BASE_PATH . 'server/includes/bimi.php';
 		break;
 
 	case "separate_window":

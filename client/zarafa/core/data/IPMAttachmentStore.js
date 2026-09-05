@@ -129,6 +129,44 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	},
 
 	/**
+	 * Builds the URL which downloads exactly the given attachments as one ZIP,
+	 * rather than every attachment of the message as {@link #getAttachmentUrl}
+	 * with <tt>allAsZip</tt> does.
+	 *
+	 * Returns '' when the selection cannot be expressed this way, which is the
+	 * case for an attachment that is not saved yet: those are identified by a
+	 * temporary name rather than by an attachment number, so the server cannot
+	 * be asked for them by number. Returning nothing is deliberate — an archive
+	 * silently missing one of the chosen files is worse than none at all.
+	 *
+	 * @param {Zarafa.core.data.IPMAttachmentRecord[]} attachmentRecords The attachments to archive
+	 * @return {String} URL for downloading them as a single ZIP, or ''
+	 */
+	getSelectionZipUrl: function(attachmentRecords)
+	{
+		if (Ext.isEmpty(attachmentRecords)) {
+			return '';
+		}
+
+		var attachNums = [];
+		for (var i = 0, len = attachmentRecords.length; i < len; i++) {
+			var attachNum = attachmentRecords[i].get('attach_num');
+			if (!Ext.isNumber(attachNum) || attachNum === -1) {
+				return '';
+			}
+
+			attachNums.push(attachNum);
+		}
+
+		var url = this.getAttachmentUrl(attachmentRecords[0], true);
+		for (i = 0; i < attachNums.length; i++) {
+			url = Ext.urlAppend(url, 'selectedAttachNum[]=' + encodeURIComponent(attachNums[i]));
+		}
+
+		return url;
+	},
+
+	/**
 	 * Builds and returns attachment URL to download inline images/attachments,
 	 * it uses {@link Zarafa.core.data.IPMRecord IPMRecord} to get store and message entryids.
 	 * @param {Zarafa.core.data.IPMAttachmentRecord} attachmentRecord Attachment record.

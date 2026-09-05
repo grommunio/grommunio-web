@@ -596,10 +596,11 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 				var title = this.tooltipTitleTpl.apply(appointment.data);
 				var text = this.tooltipTextTpl.apply(appointment.data);
 				var categories = Zarafa.common.categories.Util.getCategories(appointment);
+				var scheme = this.model.getColorScheme(appointment.get('parent_entryid'));
 
 				// As component ID we use the RecordKey, use the MixedCollection#getKey,
 				// as that will generate a fully unique ID in case of recurring series.
-				tooltip.show(id, { title: title, text: text, categories: categories }, event);
+				tooltip.show(id, { title: title, text: text, categories: categories, color: scheme ? scheme.header : undefined }, event);
 			}
 		}
 

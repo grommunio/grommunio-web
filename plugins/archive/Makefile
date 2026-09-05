@@ -18,5 +18,5 @@ $(JSDEPLOY)/archive.js: $(JSFILES)
 	mkdir -p $(DESTDIR)/js
 	cat $(JSFILES) > $(@:.js=-debug.js)
 	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
-		--source-map "url='$(shell basename $@.map)'" \
+		--source-map "base='$(@D)',url='$(@F).map'" \
 	        $(JSOPTIONS)

@@ -55,7 +55,7 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 						'<span class="zarafa-presence-status-icon" aria-hidden="true"></span>' +
 						'{sent_representing_name:htmlEncodeElide(this.ellipsisStringStartLength, this.ellipsisStringEndLength)}&nbsp;' +
 						'<tpl if="this.shouldRenderAddress(values.sent_representing_email_address, values.record_is_opened)">' +
-							'&lt;{sent_representing_email_address:htmlEncode}&gt;'+
+							'<span class="preview-sender-address">&lt;{sent_representing_email_address:htmlEncode}&gt;</span>'+
 						'</tpl>' +
 					'</span>' +
 				'</span>' +
@@ -74,7 +74,7 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 				'<span class="zarafa-emailaddress-link zarafa-sentinfo-link">' +
 					'{sender_name:htmlEncodeElide(this.ellipsisStringStartLength, this.ellipsisStringEndLength)}&nbsp;' +
 					'<tpl if="this.shouldRenderAddress(values.sender_email_address, values.record_is_opened)">' +
-						'&lt;{sender_email_address:htmlEncode}&gt;'+
+						'<span class="preview-sender-address">&lt;{sender_email_address:htmlEncode}&gt;</span>'+
 					'</tpl>' +
 				'</span>' +
 			'</span>' +
@@ -221,6 +221,7 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 				record.data.record_is_opened = Ext.isFunction(record.isOpened) && record.isOpened();
 
 				this.senderTemplate.overwrite(senderElem, record.data);
+				this.applyBimiLogo(record);
 				//bind click events after template has been populated
 				this.mon(senderElem.select('.zarafa-sentinfo-link'), 'contextmenu', this.onSenderRightClick, this);
 				this.mon(senderElem.select('.zarafa-sentinfo-on-behalf'), 'contextmenu', this.onSenderRightClick, this);
@@ -233,6 +234,54 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 			}
 		}
 		this.record = record;
+	},
+
+	/**
+	 * Show the BIMI logo of the sender domain instead of the initials, when the domain publishes
+	 * one and the message passed DMARC. Logos are fetched once per domain and session.
+	 * @param {Zarafa.core.data.IPMRecord} record The displayed record
+	 * @private
+	 */
+	applyBimiLogo: function(record)
+	{
+		if (!container.getServerConfig().isBimiEnabled() || !Ext.isEmpty(record.get('user_image'))) {
+			return;
+		}
+
+		var headers = record.get('transport_message_headers');
+		if (!Ext.isString(headers) || !/dmarc=pass/i.test(headers)) {
+			return;
+		}
+
+		var address = record.get('sent_representing_smtp_address') || record.get('sender_email_address') || '';
+		var domain = address.substring(address.lastIndexOf('@') + 1).toLowerCase();
+		var initials = Ext.get(this.senderElem).child('.preview-header-sender-initial');
+		if (!initials || !/^[a-z0-9-]+(\.[a-z0-9-]+)+$/.test(domain)) {
+			return;
+		}
+
+		var logos = Zarafa.common.ui.messagepanel.SentInfoLinks.bimiLogos;
+		var url = Ext.urlAppend(container.getBaseURL(), 'load=bimi&domain=' + encodeURIComponent(domain));
+		var show = function() {
+			if (document.body.contains(initials.dom)) {
+				initials.addClass('k-bimi');
+				initials.setStyle('background-image', 'url(' + url + ')');
+			}
+		};
+
+		if (logos[domain] === true) {
+			show();
+		} else if (logos[domain] !== false) {
+			var image = new Image();
+			image.onload = function() {
+				logos[domain] = true;
+				show();
+			};
+			image.onerror = function() {
+				logos[domain] = false;
+			};
+			image.src = url;
+		}
 	},
 
 	/**
@@ -333,3 +382,9 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 });
 
 Ext.reg('zarafa.sentinfolinks', Zarafa.common.ui.messagepanel.SentInfoLinks);
+
+/**
+ * Domains already resolved to a BIMI logo (true) or known not to have one (false).
+ * @static
+ */
+Zarafa.common.ui.messagepanel.SentInfoLinks.bimiLogos = {};

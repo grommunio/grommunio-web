@@ -200,7 +200,6 @@ Zarafa.plugins.meet.Plugin = Ext.extend(Zarafa.core.Plugin, {
   },
   
   getSharedComponent: function(type, record){
-    var component;
     switch(type){
       case Zarafa.core.data.SharedComponentType['plugins.meet.panel']:
         return Zarafa.plugins.meet.ui.ContentPanel;

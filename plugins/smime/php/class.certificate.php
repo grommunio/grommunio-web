@@ -359,45 +359,17 @@ class Certificate {
 			return null;
 		}
 
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL, $caUrl);
-		curl_setopt($ch, CURLOPT_FAILONERROR, true);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+		foreach (fetchCaIssuerCerts(trim($caUrl)) as $cert) {
+			// An AIA response may contain a bundle. Only accept the certificate
+			// that actually signed this certificate.
+			if (@openssl_x509_verify($this->cert, $cert) === 1) {
+				$this->issuer = new Certificate($cert);
 
-		// HTTP Proxy settings
-		if (defined('PLUGIN_SMIME_PROXY') && PLUGIN_SMIME_PROXY != '') {
-			curl_setopt($ch, CURLOPT_PROXY, PLUGIN_SMIME_PROXY);
-		}
-		if (defined('PLUGIN_SMIME_PROXY_PORT') && PLUGIN_SMIME_PROXY_PORT != '') {
-			curl_setopt($ch, CURLOPT_PROXYPORT, PLUGIN_SMIME_PROXY_PORT);
-		}
-		if (defined('PLUGIN_SMIME_PROXY_USERPWD') && PLUGIN_SMIME_PROXY_USERPWD != '') {
-			curl_setopt($ch, CURLOPT_PROXYUSERPWD, PLUGIN_SMIME_PROXY_USERPWD);
+				return $this->issuer;
+			}
 		}
 
-		$output = curl_exec($ch);
-		$http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-		$curl_error = curl_error($ch);
-
-		if ($curl_error || $http_status !== 200 || empty($output)) {
-			Log::Write(LOGLEVEL_ERROR, sprintf("[smime] Error when downloading intermediate certificate '%s', http status: '%s'", $curl_error, $http_status));
-
-			return null;
-		}
-
-		// Detect PEM vs DER format — AIA URLs typically serve DER, but
-		// some CAs return PEM.
-		if (strpos($output, '-----BEGIN CERTIFICATE-----') !== false) {
-			$cert = $output;
-		}
-		else {
-			$cert = $this->der2pem($output);
-		}
-
-		$this->issuer = new Certificate($cert);
-
-		return $this->issuer;
+		return null;
 	}
 
 	/**
@@ -437,51 +409,50 @@ class Certificate {
 		 * standard.
 		 */
 		set_error_handler("tempErrorHandler");
+		try {
+			$x509 = new X509();
+			$issuer = $x509->certificate($issuer->der());
+			$certificate = $x509->certificate($this->der());
 
-		$x509 = new X509();
-		$issuer = $x509->certificate($issuer->der());
-		$certificate = $x509->certificate($this->der());
+			$ocspclient = new OCSP();
+			$certID = $ocspclient->certOcspID(
+				[
+					'issuerName' => $issuer['tbsCertificate']['subject_der'],
+					// remember to skip the first byte it is the number of
+					// unused bits and it is always 0 for keys and certificates
+					'issuerKey' => substr((string) $issuer['tbsCertificate']['subjectPublicKeyInfo']['subjectPublicKey'], 1),
+					'serialNumber_der' => $certificate['tbsCertificate']['serialNumber_der'],
+				],
+				'sha1'
+			);
 
-		$ocspclient = new OCSP();
-		$certID = $ocspclient->certOcspID(
-			[
-				'issuerName' => $issuer['tbsCertificate']['subject_der'],
-				// remember to skip the first byte it is the number of
-				// unused bits and it is always 0 for keys and certificates
-				'issuerKey' => substr((string) $issuer['tbsCertificate']['subjectPublicKeyInfo']['subjectPublicKey'], 1),
-				'serialNumber_der' => $certificate['tbsCertificate']['serialNumber_der'],
-			],
-			'sha1'
-		);
+			$ocspreq = $ocspclient->request([$certID]);
 
-		$ocspreq = $ocspclient->request([$certID]);
-
-		$stream_options = [
-			'http' => [
-				'ignore_errors' => false,
-				'method' => 'POST',
-				'header' => 'Content-type: application/ocsp-request' . "\r\n",
-				'content' => $ocspreq,
-				'timeout' => 1,
-			],
-		];
-
-		$ocspUrl = $this->ocspURL();
-		// The OCSP URL is empty, import certificate, but show a warning.
-		if (strlen($ocspUrl) == 0) {
-			throw new OCSPException('The OCSP URL is empty', OCSP_NO_RESPONSE);
+			$ocspUrl = $this->ocspURL();
+			// The OCSP URL is empty, import certificate, but show a warning.
+			if (strlen($ocspUrl) == 0) {
+				throw new OCSPException('The OCSP URL is empty', OCSP_NO_RESPONSE);
+			}
+			// Do the OCSP request through the same SSRF-safe transport as AIA.
+			$derresponse = fetchSmimeHttpResource(
+				trim($ocspUrl),
+				'POST',
+				$ocspreq,
+				['Content-Type: application/ocsp-request', 'Accept: application/ocsp-response'],
+				1,
+				1048576
+			);
+			// OCSP service not available, import certificate, but show a warning.
+			if ($derresponse === false) {
+				throw new OCSPException('No response', OCSP_NO_RESPONSE);
+			}
+			$ocspresponse = $ocspclient->response($derresponse);
 		}
-		// Do the OCSP request
-		$context = stream_context_create($stream_options);
-		$derresponse = file_get_contents($ocspUrl, false, $context);
-		// OCSP service not available, import certificate, but show a warning.
-		if ($derresponse === false) {
-			throw new OCSPException('No response', OCSP_NO_RESPONSE);
+		finally {
+			// Do not leave the request-wide warning handler installed when an
+			// OCSP endpoint is refused or unavailable.
+			restore_error_handler();
 		}
-		$ocspresponse = $ocspclient->response($derresponse);
-
-		// Restore the previous error handler
-		restore_error_handler();
 
 		// responseStatuses: successful, malformedRequest,
 		// internalError, tryLater, sigRequired, unauthorized.

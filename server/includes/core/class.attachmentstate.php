@@ -115,6 +115,9 @@ class AttachmentState {
 	 */
 	public function getAttachmentTmpPath($filename) {
 		$attachmentPath = tempnam($this->getAttachmentFolder(), mb_basename($filename));
+		if ($attachmentPath === false) {
+			throw new ZarafaException(_('Could not attach item as an attachment.'));
+		}
 
 		// Convert in UTF-8 properly if any Malformed UTF-8 characters.
 		return mb_convert_encoding($attachmentPath, 'UTF-8');
@@ -230,8 +233,36 @@ class AttachmentState {
 		// Obtain the generated filename
 		$tmpname = mb_basename($filepath);
 
-		// Move the uploaded file to tmpname location
-		rename($sourcefile, $filepath);
+		$attachmentBase = realpath($this->basedir);
+		$attachmentFolder = realpath($this->getAttachmentFolder());
+		clearstatcache(true, $this->getAttachmentFolder());
+		$attachmentFolderStat = @lstat($this->getAttachmentFolder());
+		clearstatcache(true, $sourcefile);
+		$sourceStat = @lstat($sourcefile);
+		if ($attachmentBase === false || $attachmentFolder === false ||
+			$attachmentFolderStat === false || ($attachmentFolderStat['mode'] & 0170000) !== 0040000 ||
+			dirname($attachmentFolder) !== $attachmentBase || realpath(dirname($filepath)) !== $attachmentFolder ||
+			$sourceStat === false || ($sourceStat['mode'] & 0170000) !== 0100000) {
+			@unlink($filepath);
+
+			throw new ZarafaException(_('Could not attach item as an attachment.'));
+		}
+
+		// Move the provided regular file into the session directory. Only register
+		// it after both the move and the post-move file type check succeeded.
+		if (!@rename($sourcefile, $filepath)) {
+			@unlink($filepath);
+
+			throw new ZarafaException(_('Could not attach item as an attachment.'));
+		}
+
+		clearstatcache(true, $filepath);
+		$movedFileStat = @lstat($filepath);
+		if ($movedFileStat === false || ($movedFileStat['mode'] & 0170000) !== 0100000) {
+			@unlink($filepath);
+
+			throw new ZarafaException(_('Could not attach item as an attachment.'));
+		}
 
 		$this->addAttachmentFile($message_id, $tmpname, $fileinfo);
 

@@ -206,6 +206,8 @@ Ext.apply(Zarafa, {
 
 		// Initialize dark mode system (handles OnlyOffice theme, TinyMCE, mail preview)
 		Zarafa.core.DarkMode.init();
+		Zarafa.core.Density.init();
+		Zarafa.core.FolderType.init();
 
 		// Load all persistent settings (i.e. settings that will not be deleted when the user resets his settings)
 		// Persistent settings are not added to the welcome screen, so check if they exist first.
@@ -282,12 +284,14 @@ Ext.apply(Zarafa, {
 		container.getRequest().on('connectionparalyzed', this.onConnectionParalyze, this);
 		container.getRequest().on('connectioninterrupted', this.onConnectionLoss, this);
 		container.getRequest().on('connectionrestored', this.onConnectionRestore, this);
+		container.getRequest().on('versionchanged', this.onVersionChanged, this);
 		container.getResponseRouter().on('receiveexception', this.onReceiveException, this);
 		// We listen on the Ext.data.DataProxy object to listen in on all exception events
 		Ext.data.DataProxy.on('exception', this.onException, this);
 
 		// Enable tooltips
 		Ext.QuickTips.init();
+		Zarafa.core.KeyboardFocus.init(document);
 	},
 
 	/**
@@ -575,6 +579,23 @@ Ext.apply(Zarafa, {
 	},
 
 	/**
+	 * Offers a reload when the server runs another grommunio Web than this page.
+	 * @param {Zarafa.core.Request} request
+	 * @param {String} version The version the server runs now
+	 * @private
+	 */
+	onVersionChanged: function(request, version)
+	{
+		container.getNotifier().notify('info.version', _('grommunio Web was updated'), _('A new version is available, click here to reload.'), {
+			persistent: true,
+			listeners: {
+				click: Zarafa.core.Util.reloadWebapp,
+				scope: Zarafa.core.Util
+			}
+		});
+	},
+
+	/**
 	 * Event handler called when the PHP server returned an error
 	 * in the root of the response. This indicates that the communication
 	 * with the PHP server failed and the user should login again.
@@ -617,8 +638,9 @@ Ext.apply(Zarafa, {
 		var loadingMask = Ext.get('loading-mask');
 
 		if ( loadingMask ) {
-			// Hide loading mask
-			loadingMask.remove();
+			// fade out over the client, which is usable right away
+			loadingMask.addClass('k-loading-mask-hidden');
+			loadingMask.remove.defer(400, loadingMask);
 			if (Ext.isFunction(callback)) {
 				callback();
 			}

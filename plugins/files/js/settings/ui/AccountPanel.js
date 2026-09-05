@@ -18,7 +18,6 @@ Zarafa.plugins.files.settings.ui.AccountPanel = Ext.extend(Ext.Panel, {
 			layout: 'fit',
 			items : [{
 				xtype: "filesplugin.accountgrid",
-				backendStore : config.model.backendStore,
 				store : config.store,
 				flex : 1
 			}]

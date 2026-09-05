@@ -53,7 +53,8 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		var fontFamilies = Zarafa.common.ui.htmleditor.Fonts.getFontFamilies();
 
 		var baseUrl = container.getServerConfig().getBaseUrl();
-		const cacheBuster = "8.1.2.369";
+		// TinyMCE appends this to every theme, plugin, skin and language URL it loads
+		var cacheBuster = container.getVersion().getWebApp();
 
 		var themeIsDark = Zarafa.core.DarkMode.isDark();
 
@@ -133,6 +134,28 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 						var iframe = editor.iframeElement;
 						if (iframe) {
 							iframe.setAttribute('title', _('Message body editor'));
+						}
+						// the font size input of the toolbar comes without id or name,
+						// and the toolbar renders after init
+						var nameInputs = function() {
+							var toolbarInputs = editor.getContainer().querySelectorAll('.tox-number-input input');
+							for (var i = 0; i < toolbarInputs.length; i++) {
+								if (!toolbarInputs[i].id) {
+									toolbarInputs[i].id = editor.id + '-fontsize-' + i;
+								}
+								if (!toolbarInputs[i].name) {
+									toolbarInputs[i].name = 'fontsize';
+								}
+							}
+							return toolbarInputs.length > 0;
+						};
+						if (!nameInputs()) {
+							var observer = new MutationObserver(function() {
+								if (nameInputs()) {
+									observer.disconnect();
+								}
+							});
+							observer.observe(editor.getContainer(), { childList: true, subtree: true });
 						}
 					});
 					// When a file is dropped into the editor body, TinyMCE embeds
@@ -1271,12 +1294,21 @@ Zarafa.common.ui.HtmlEditor.FILE_LINK_TRAILING_RE = /[.,;:!?)\]}]+$/;
 
 Ext.reg("zarafa.htmleditor", Zarafa.common.ui.HtmlEditor);
 
-// Create a hidden html editor to prefetch all tiny files
-Zarafa.onReady((function()
+// Warm up TinyMCE with a hidden editor once the UI is up and the browser is idle,
+// so the first compose opens without loading theme, plugins and skin
+Zarafa.onUIReady(function()
 {
 	var body = Ext.getBody();
 	// Only prefetch for the webclient not for the welcome screen
-	if (body.hasClass("zarafa-webclient")) {
+	if (!body.hasClass("zarafa-webclient")) {
+		return;
+	}
+
+	var prefetch = function() {
+		// An editor opened by the user in the meantime already loaded everything
+		if (window.tinymce && !Ext.isEmpty(tinymce.get())) {
+			return;
+		}
 		var el = body.createChild({
 			id: "tiny-prefetch",
 			style: {
@@ -1303,5 +1335,15 @@ Zarafa.onReady((function()
 				useHtml: true
 			} ]
 		});
-	}
-}));
+	};
+
+	// Wait out the mail list and the deferred services, then take an idle slot
+	var schedule = function() {
+		if (Ext.isFunction(window.requestIdleCallback)) {
+			window.requestIdleCallback(prefetch, { timeout: 3000 });
+		} else {
+			prefetch();
+		}
+	};
+	schedule.defer(2000);
+});

@@ -104,6 +104,8 @@ Zarafa.calendar.ui.ToolTip = Ext.extend(Ext.ToolTip, {
 		}
 
         this.body.dom.innerHTML = html;
+		// the tip takes the colour of the calendar the appointment belongs to
+		this.el.setStyle('background-color', config.color || '');
 
 		Zarafa.calendar.ui.ToolTip.superclass.show.call(this);
 

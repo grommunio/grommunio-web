@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-29 21:36+0200\n"
+"POT-Creation-Date: 2026-09-04 14:41+0200\n"
 "PO-Revision-Date: 2022-08-27 18:15+0000\n"
 "Last-Translator: Hugel <qihu@nfschina.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/grommunio/grommunio-web/zh_Hant/>\n"
@@ -709,6 +709,30 @@ msgstr "我的最愛"
 msgid "Select Folder"
 msgstr "選擇資料夾"
 
+msgid "From"
+msgstr "寄件者"
+
+msgid "To"
+msgstr "收件人"
+
+msgid "Cc"
+msgstr "副本"
+
+msgid "Bcc"
+msgstr "密件副本"
+
+msgid "Body"
+msgstr "內文"
+
+msgid "Attachment"
+msgstr "附件"
+
+msgid "Category"
+msgstr "類別"
+
+msgid "Type"
+msgstr "類型"
+
 msgid "Delete search folder"
 msgstr "刪除搜尋資料夾"
 
@@ -732,9 +756,6 @@ msgstr "你的意思是"
 
 msgid "With"
 msgstr "與"
-
-msgid "To"
-msgstr "收件人"
 
 msgid "No date"
 msgstr "無日期"
@@ -998,9 +1019,6 @@ msgstr "l"
 msgid "All text fields"
 msgstr "所有文字欄位"
 
-msgid "Body"
-msgstr "內文"
-
 msgid "Subject or Sender"
 msgstr "主旨或寄件者"
 
@@ -1015,11 +1033,20 @@ msgctxt "calendar.dialog"
 msgid "Resources have been planned"
 msgstr "資源已被預約"
 
+msgid "Insufficient privileges"
+msgstr "特權不足"
+
+msgid "You do not have permission to modify this item."
+msgstr "您沒有修改此項目的權限。"
+
 msgid "Send update"
 msgstr "傳送更新"
 
 msgid "Do you want to send an update to all recipients?"
 msgstr "您要將更新傳送給所有收件者嗎？"
+
+msgid "You do not have permission to delete this item."
+msgstr "您沒有刪除此項目的權限。"
 
 msgid "Send update to attendees"
 msgstr "傳送更新給與會者"
@@ -1105,6 +1132,12 @@ msgctxt "calendar.dialog"
 msgid "Please note that any changes you make will be overwritten when this meeting request is updated by the organizer"
 msgstr "請注意，當主辦人更新此會議邀請時，您所做的任何變更將會被覆寫"
 
+msgid "Show as"
+msgstr "顯示成"
+
+msgid "Reminder"
+msgstr "提醒"
+
 msgid "Create in"
 msgstr "在"
 
@@ -1116,12 +1149,6 @@ msgstr "直到"
 
 msgid "Recurrence"
 msgstr "週期"
-
-msgid "Reminder"
-msgstr "提醒"
-
-msgid "Show as"
-msgstr "顯示成"
 
 msgid "Warning"
 msgstr "警告"
@@ -1137,6 +1164,13 @@ msgstr "更新位置"
 
 msgid "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
 msgstr "你想要更新此位置\"{0}\" 到新的位置\"{1}\"嗎?"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "還有 {0} 則提示"
+
+msgid "Show less"
+msgstr "收合"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y {0}"
@@ -1411,6 +1445,9 @@ msgstr "工作日"
 msgid "Show busy dates as bold in the date picker"
 msgstr "在日期選擇上顯示粗體的繁忙日期"
 
+msgid "Delete the meeting request from the inbox when answering from the calendar"
+msgstr "從行事曆回覆時，刪除收件夾中的會議邀請"
+
 msgid "Side-by-side mode"
 msgstr "並列模式"
 
@@ -1589,9 +1626,6 @@ msgstr "您沒有足夠的權限來移動或複製此項目。請向資料夾擁
 
 msgid "You have insufficient privileges to copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
 msgstr "您的權限不足，無法複製此項目。請向資料夾擁有者請求授予權限，或聯絡您的系統管理員。"
-
-msgid "Insufficient privileges"
-msgstr "特權不足"
 
 msgid "Copying this appointment will unset it as private. Are you sure you want to continue?"
 msgstr "複製此約會將取消其「私人」設定。您確定要繼續嗎？"
@@ -1893,15 +1927,6 @@ msgstr "您的權限不足以移動這些項目。您要改為複製嗎？"
 msgid "You have insufficient privileges to move this item. Would you like to copy instead?"
 msgstr "您的權限不足以移動此項目。您要改為複製嗎？"
 
-msgid "Cc"
-msgstr "副本"
-
-msgid "Bcc"
-msgstr "密件副本"
-
-msgid "From"
-msgstr "寄件者"
-
 msgid "Insert item"
 msgstr "插入項目"
 
@@ -1910,9 +1935,6 @@ msgstr "插入為"
 
 msgid "Text only"
 msgstr "僅文字"
-
-msgid "Attachment"
-msgstr "附件"
 
 msgid "Attach Item"
 msgstr "附加項目"
@@ -1974,6 +1996,9 @@ msgstr "無法建立 ZIP，允許的最大大小為 30 MB。"
 msgid "Unable to download"
 msgstr "無法下載"
 
+msgid "Drop files here to attach them"
+msgstr "將檔案拖放到此處以新增為附件"
+
 msgid "Picture format is not supported. "
 msgstr "不支援圖片格式。 "
 
@@ -1982,6 +2007,9 @@ msgstr "連絡人圖片的支援格式為"
 
 msgid "Attachment Error"
 msgstr "附件錯誤"
+
+msgid "Could not save the category list."
+msgstr "無法儲存類別清單。"
 
 msgid "Manage Categories"
 msgstr "管理類別"
@@ -2153,13 +2181,13 @@ msgid "Folder '{0}' selected."
 msgstr "選擇了 '{0}' 資料夾"
 
 msgid "The selected items cannot be moved into this folder because it holds a different type of content."
-msgstr ""
+msgstr "無法將選取的項目移至此資料夾，因為該資料夾存放的是其他類型的內容。"
 
 msgid "The selected items cannot be copied into this folder because it holds a different type of content."
-msgstr ""
+msgstr "無法將選取的項目複製到此資料夾，因為該資料夾存放的是其他類型的內容。"
 
 msgid "Incompatible folder"
-msgstr ""
+msgstr "不相容的資料夾"
 
 msgid "Unable to perform action"
 msgstr "無法執行動作"
@@ -2233,8 +2261,11 @@ msgstr "本週"
 msgid "next week"
 msgstr "下星期"
 
-msgid "Dropped file type is not supported"
-msgstr "所拖放的檔案類型不被支援"
+msgid "Add as attachment?"
+msgstr "要新增為附件嗎？"
+
+msgid "The following files cannot be embedded in the message body. Add them as attachments instead?"
+msgstr "下列檔案無法嵌入郵件本文。要改為將其新增為附件嗎？"
 
 msgid "Edit recipient"
 msgstr "編輯收件者"
@@ -2262,6 +2293,9 @@ msgstr "繁忙"
 
 msgid "Out of Office"
 msgstr "不在辦公室"
+
+msgid "Working Elsewhere"
+msgstr "在其他地方工作"
 
 msgid "No Information"
 msgstr "無相關資訊"
@@ -2334,6 +2368,15 @@ msgstr "刪除選取的項目"
 
 msgid "Delete selected item without moving it to the Deleted Items folder. The deleted item can still be restored."
 msgstr "刪除選取的項目，但不會將其移至「已刪除項目」資料夾。已刪除的項目仍可還原。"
+
+msgid "Undo the last action"
+msgstr "復原上一個動作"
+
+msgid "Redo the last undone action"
+msgstr "重做上一個已復原的動作"
+
+msgid "Open the command palette"
+msgstr "開啟命令選擇區"
 
 msgid "Add/Edit Cc recipient"
 msgstr "新增/編輯抄送收件人"
@@ -2846,9 +2889,6 @@ msgstr "應用變更"
 msgid "Do you wish to apply the changes?"
 msgstr "你要套用此改變嗎?"
 
-msgid "Category"
-msgstr "類別"
-
 msgid "Recent searches"
 msgstr "最近的搜尋"
 
@@ -2878,9 +2918,6 @@ msgstr "所有資料夾"
 
 msgid "Other…"
 msgstr "其他..."
-
-msgid "Type"
-msgstr "類型"
 
 msgid "Search"
 msgstr "搜尋"
@@ -2947,6 +2984,24 @@ msgstr "{A}秒後自動隱藏桌面通知 {B}"
 
 msgid "Disable sound"
 msgstr "停用聲音"
+
+msgid "New Mail Notifications"
+msgstr "新郵件通知"
+
+msgid "Only my own mailbox"
+msgstr "僅限我自己的信箱"
+
+msgid "Only the folders I choose"
+msgstr "僅限我選擇的資料夾"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "未選擇任何資料夾，將不會顯示新郵件通知。"
+
+msgid "Folder"
+msgstr "資料夾"
+
+msgid "Unknown folder"
+msgstr "未知的資料夾"
 
 msgid "Notifications"
 msgstr "通知"
@@ -3028,6 +3083,9 @@ msgstr "訊息無法載入"
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "附件"
+
+msgid "Untitled"
+msgstr "無題"
 
 msgid "Download Pictures"
 msgstr "下載圖片"
@@ -3682,9 +3740,6 @@ msgstr "在新的瀏覽器視窗中開啟"
 msgid "Your browser seems to have blocked one or more pop-ups. Please change your browser's settings to always allow pop-ups from grommunio Web."
 msgstr "您的瀏覽器似乎已封鎖了一個或多個彈出視窗。請變更瀏覽器設定，以始終允許來自 grommunio Web 的彈出視窗。"
 
-msgid "Untitled"
-msgstr "無題"
-
 msgid "Cannot upload attachment, only {0} attachments are allowed to be added to the message"
 msgstr "無法上傳附件，只有{0}可以附加到此郵件"
 
@@ -3703,6 +3758,63 @@ msgstr "無法上傳附件，附件總數為 {0} 個檔案，而單次請求最�
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
 msgstr "{0} 代表 {1} "
+
+msgid "This search is performed without using a content index"
+msgstr "此次搜尋未使用內容索引"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "無法復原{0}。該項目在此期間可能已被移動、變更或移除。"
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "無法重做{0}。該項目在此期間可能已被移動、變更或移除。"
+
+msgid "Undo failed"
+msgstr "復原失敗"
+
+msgid "Redo failed"
+msgstr "重做失敗"
+
+msgid "Delete {0}"
+msgstr "刪除{0}"
+
+msgid "Delete {0} items"
+msgstr "刪除 {0} 個項目"
+
+msgid "Move {0} to {1}"
+msgstr "將{0}移動到{1}"
+
+msgid "Move {0} items to {1}"
+msgstr "將 {0} 個項目移動到{1}"
+
+msgid "Copy {0} to {1}"
+msgstr "將{0}複製到{1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "將 {0} 個項目複製到{1}"
+
+msgid "Create {0}"
+msgstr "建立{0}"
+
+msgid "{0}: {1}"
+msgstr "{0}：{1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}：{1} 個項目"
+
+msgid "Change appointment time"
+msgstr "變更約會時間"
+
+msgid "Change flag"
+msgstr "變更旗標"
+
+msgid "Change categories"
+msgstr "變更類別"
+
+msgid "No subject"
+msgstr "無主題"
+
+msgid "another folder"
+msgstr "另一個資料夾"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F"
@@ -3822,14 +3934,50 @@ msgstr "紅色"
 msgid "Brown"
 msgstr "棕色"
 
-msgid "Main navigation"
-msgstr "主導覽列"
+msgid "Search folders, views, settings and actions"
+msgstr "搜尋資料夾、檢視、設定和動作"
+
+msgid "Results"
+msgstr "結果"
+
+msgid "Arrow keys or Tab select, Enter opens, Esc closes"
+msgstr "使用方向鍵或 Tab 鍵選取，按 Enter 鍵開啟，按 Esc 鍵關閉"
+
+msgid "Command palette"
+msgstr "命令選擇區"
+
+msgid "Views"
+msgstr "檢視"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid "Tools"
+msgstr "工具"
+
+msgid "Appearance"
+msgstr "外觀"
+
+msgid "Switch to light mode"
+msgstr "切換至淺色模式"
+
+msgid "Switch to dark mode"
+msgstr "切換至深色模式"
+
+msgid "Comfortable list spacing"
+msgstr "寬鬆清單間距"
+
+msgid "Compact list spacing"
+msgstr "緊密清單間距"
 
 msgid "Logout"
 msgstr "登出"
 
-msgid "Appearance"
-msgstr "外觀"
+msgid "No matching commands"
+msgstr "找不到相符的命令"
+
+msgid "Main navigation"
+msgstr "主導覽列"
 
 msgid "Light"
 msgstr "淺色"
@@ -3845,6 +3993,21 @@ msgstr "主工具列"
 
 msgid "Switch view"
 msgstr "切換檢視"
+
+msgid "Undo"
+msgstr "復原"
+
+msgid "Redo"
+msgstr "重做"
+
+msgid "Undo: {0}"
+msgstr "復原：{0}"
+
+msgid "Redo: {0}"
+msgstr "重做：{0}"
+
+msgid "Nothing to undo"
+msgstr "沒有可復原的動作"
 
 msgid "Skip to main content"
 msgstr "跳至主要內容"
@@ -3887,9 +4050,6 @@ msgstr "缺少配件"
 
 msgid "Your message appears to reference an attachment but no file is attached. Send anyway?"
 msgstr "您的郵件似乎引用了附件，但沒有附加任何文件。還是發送？"
-
-msgid "No subject"
-msgstr "無主題"
 
 msgid "Send this message without a subject?"
 msgstr "要傳送沒有主旨的郵件嗎?"
@@ -4046,6 +4206,23 @@ msgstr[0] "{1} 的資料夾中有{0} 未讀郵件。{2}"
 msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "有{0}未讀的郵件在資料夾中{1}"
+
+msgid "New mail from {0}"
+msgstr "來自 {0} 的新郵件"
+
+msgid "In folder {0} of {1}"
+msgstr "在 {1} 的資料夾 {0} 中"
+
+msgid "In folder {0}"
+msgstr "在資料夾 {0} 中"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "{2} 的資料夾 {1} 中有 {0} 封新郵件"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "資料夾 {1} 中有 {0} 封新郵件"
 
 msgid "Publishing Editor"
 msgstr "出版編輯"
@@ -4348,6 +4525,12 @@ msgstr "依收件者排序"
 msgid "Sent"
 msgstr "已傳送"
 
+msgid "Sender lists"
+msgstr "寄件者清單"
+
+msgid "The sender lists could not be saved"
+msgstr "無法儲存寄件者清單"
+
 msgid "Original message"
 msgstr "原始郵件"
 
@@ -4508,17 +4691,35 @@ msgstr "發件人"
 msgid "on behalf of"
 msgstr "代表"
 
-msgid "Safe Senders list is empty"
-msgstr "安全发件人列表为空"
+msgid "List is empty"
+msgstr "清單為空"
 
-msgid "Please select a safe sender record."
-msgstr "请选择一个安全的发件人记录。"
+msgid "Please select a record."
+msgstr "請選取一筆記錄。"
 
-msgid "Delete all safe senders"
-msgstr "删除所有安全发件人"
+msgid "Delete all entries"
+msgstr "刪除所有項目"
 
-msgid "Are you sure you want to delete all safe senders?"
-msgstr "您确定要删除所有安全发件人吗？"
+msgid "Are you sure you want to delete all entries?"
+msgstr "確定要刪除所有項目嗎？"
+
+msgid "Blocked Senders"
+msgstr "封鎖的寄件者"
+
+msgid "External content from blocked senders will always be blocked, even if the global block external content setting is disabled. Safe senders take priority over blocked senders."
+msgstr "即使全域「封鎖外部內容」設定已停用，來自已封鎖寄件者的外部內容也一律會被封鎖。安全寄件者的優先順序高於已封鎖的寄件者。"
+
+msgid "Blocked Senders list is empty"
+msgstr "封鎖的寄件者清單為空"
+
+msgid "user@domain or @domain"
+msgstr "user@domain 或 @domain"
+
+msgid "Delete all"
+msgstr "全部刪除"
+
+msgid "Enter an email address or @domain"
+msgstr "輸入電子郵件地址或 @domain"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4570,6 +4771,9 @@ msgstr "啟用對話檢視"
 msgid "Collapse conversation when selecting a different email"
 msgstr "選擇不同的電子郵件時會折疊會話"
 
+msgid "Show the entire conversation in the reading pane"
+msgstr "在閱讀窗格中顯示完整對話"
+
 msgid "Incoming mail"
 msgstr "收到的郵件"
 
@@ -4602,6 +4806,12 @@ msgstr "右"
 msgid "Bottom"
 msgstr "底"
 
+msgid "Into mailbox owner's wastebasket"
+msgstr "移至信箱擁有者的「已刪除項目」資料夾"
+
+msgid "Into your wastebasket"
+msgstr "移至您的「已刪除項目」資料夾"
+
 msgid "Location of preview pane"
 msgstr "預覽窗格的位置"
 
@@ -4610,6 +4820,12 @@ msgstr "根據 RFC 5256/5322 使用主題前綴"
 
 msgid "Close original message on reply or forward"
 msgstr "回覆或轉寄時關閉原始訊息"
+
+msgid "Show quick actions when hovering over a list item"
+msgstr "當滑鼠游標停留在清單項目上時顯示快速動作"
+
+msgid "Move items deleted in delegate's store"
+msgstr "移動您以代理人身分刪除的項目"
 
 msgid "General mail settings"
 msgstr "一般郵件設定"
@@ -4668,14 +4884,29 @@ msgstr "我組織以外的任何人"
 msgid "The time you entered is before the out of office date. Please reschedule."
 msgstr "您輸入的時間早於「不在辦公室」的日期。請重新安排時間。"
 
+msgid "Safe Recipients"
+msgstr "安全收件者"
+
+msgid "Mailing lists or distribution lists that you have added to the Safe Recipients List are considered trustworthy."
+msgstr "您新增至「安全收件者」清單的郵寄清單或通訊群組，均會被視為可信任的對象。"
+
+msgid "Safe Recipients list is empty"
+msgstr "安全收件者清單為空"
+
+msgid "Sender Lists"
+msgstr "寄件者清單"
+
 msgid "Safe Senders"
 msgstr "安全寄件者"
 
 msgid "To protect your privacy email addresses or domains can only be added via the \"Add to safe sender list\" functionality in an opened email."
 msgstr "為保護您的隱私，電子郵件地址或網域僅能透過已開啟的電子郵件中的「新增至安全寄件者清單」功能進行新增。"
 
-msgid "Delete all"
-msgstr "全部刪除"
+msgid "Safe Senders list is empty"
+msgstr "安全发件人列表为空"
+
+msgid "Also trust email from my Contacts"
+msgstr "也信任我的聯絡人寄來的電子郵件"
 
 msgid "Signatures"
 msgstr "簽名檔"
@@ -4782,6 +5013,12 @@ msgstr "訊息清單"
 msgid "Loading mail"
 msgstr "載入郵件中"
 
+msgid "Conversation view"
+msgstr "對話檢視"
+
+msgid "Sorting shows the flat message list. Sort by \"Received\" (newest first) to show conversations again."
+msgstr "排序後會顯示非對話式郵件清單。依「接收」排序（最新郵件優先）即可再次顯示對話。"
+
 msgid "No unread mail."
 msgstr "沒有未讀郵件"
 
@@ -4790,6 +5027,17 @@ msgstr "未讀郵件"
 
 msgid "Quick Mail"
 msgstr "新增郵件"
+
+msgid "Create note"
+msgstr "建立筆記"
+
+#. TRANSLATORS: Names the mail a note is attached to, e.g. "Note on: Re: invoice"
+msgctxt "note.dialog"
+msgid "Note on"
+msgstr "關於以下郵件的筆記"
+
+msgid "(no subject)"
+msgstr "（無主旨）"
 
 msgid "Print note"
 msgstr "列印說明"
@@ -4847,9 +5095,6 @@ msgstr "您必須重新載入 grommunio Web 才能使變更生效。未儲存的
 
 msgid "Reload grommunio Web"
 msgstr "重新載入 grommunio Web"
-
-msgid "Settings"
-msgstr "設定"
 
 msgid "Basic"
 msgstr "基本"
@@ -4911,8 +5156,8 @@ msgstr "刪除設定"
 msgid "{0} Iconset"
 msgstr "{0} 圖示集"
 
-msgid "About"
-msgstr "關於"
+msgid "Legal Information"
+msgstr "法律資訊"
 
 msgid "Date & Time"
 msgstr "日期與時間"
@@ -4940,6 +5185,15 @@ msgstr "隱藏我的最愛"
 
 msgid "Unpin favorites from top"
 msgstr "從最上方解除我的最愛"
+
+msgid "Show favorites in the mail folder list only"
+msgstr "僅在郵件資料夾清單中顯示我的最愛"
+
+msgid "Show favorites of the same type in every folder list"
+msgstr "在每個資料夾清單中顯示相同類型的我的最愛"
+
+msgid "Show all favorites in every folder list"
+msgstr "在每個資料夾清單中顯示所有我的最愛"
 
 msgid "Interface"
 msgstr "介面"
@@ -5082,17 +5336,42 @@ msgstr "重設"
 msgid "Reloading, Please wait."
 msgstr "重裝，請稍候。"
 
+msgid "Search settings"
+msgstr "搜尋設定"
+
+msgid "Clear search"
+msgstr "清除搜尋"
+
+msgid "{0} setting matches"
+msgid_plural "{0} settings match"
+msgstr[0] "找到 {0} 項相符的設定"
+
+msgid "No settings match"
+msgstr "找不到相符的設定"
+
 msgid "Setting"
 msgstr "設定"
 
 msgid "The setting '{0}' can not be edited"
 msgstr "這個設定 '{0}' 無法編輯"
 
+msgid "Undo and redo"
+msgstr "復原與重做"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "復原 (Ctrl+Z) 與重做 (Ctrl+Y) 刪除、移動或為郵件設定旗標等動作。記錄這些動作會產生少許額外負擔，因此此功能預設為停用。"
+
+msgid "Enable undo and redo of message actions"
+msgstr "啟用郵件動作的復原與重做"
+
 msgid "OpenID Connect"
 msgstr "OpenID Connect"
 
 msgid "Basic Authentication"
 msgstr "基本驗證"
+
+msgid "About"
+msgstr "關於"
 
 msgid "System information"
 msgstr "系統資訊"
@@ -5111,6 +5390,12 @@ msgstr "維護"
 
 msgid "Reset all settings to defaults"
 msgstr "將所有設定重設為預設值"
+
+msgid "Changes to assigned task"
+msgstr "變更指派的任務"
+
+msgid "Please note that assigned task(s) will be overwritten when the assignee makes changes."
+msgstr "請注意，當指派對象進行變更時，已指派的任務將會被覆寫。"
 
 msgid "Delete confirmation"
 msgstr "刪除確認"
@@ -5319,12 +5604,6 @@ msgstr "標記不完整"
 msgid "Remove from To-Do List"
 msgstr "從待辦事項清單中移除"
 
-msgid "Changes to assigned task"
-msgstr "變更指派的任務"
-
-msgid "Please note that assigned task(s) will be overwritten when the assignee makes changes."
-msgstr "請注意，當指派對象進行變更時，已指派的任務將會被覆寫。"
-
 msgid "Sort by: Complete"
 msgstr "依完成排序"
 
@@ -5420,6 +5699,12 @@ msgstr "連線回復"
 
 msgid "Connection with server has been restored"
 msgstr "已連線到伺服器"
+
+msgid "grommunio Web was updated"
+msgstr "grommunio Web 已更新"
+
+msgid "A new version is available, click here to reload."
+msgstr "已有新版本可用，請按一下這裡重新載入。"
 
 #. TRANSLATORS: Example: HTTP 404
 msgid "HTTP {0}"
@@ -6233,9 +6518,6 @@ msgstr "您的瀏覽器不支援預覽視訊檔案！"
 msgid "d.m.Y G:i"
 msgstr "d.m.Y G:i"
 
-msgid "Folder"
-msgstr "資料夾"
-
 msgid "File ({0})"
 msgstr "檔案 ({0})"
 
@@ -6928,6 +7210,9 @@ msgstr "此訊息是使用 CBC 模式（非經認證的加密）進行加密的�
 msgid "The signing time in the digital signature differs significantly from the expected time. This may indicate a clock synchronization issue or message tampering."
 msgstr "數位簽章中的簽署時間與預期時間存在顯著差異。這可能表示時鐘同步問題或訊息遭篡改。"
 
+msgid "The certificate chain of the sender's certificate could not be verified: the certificate authority that issued it is not in the server's trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority."
+msgstr "無法驗證寄件者憑證的憑證鏈：簽發該憑證的憑證授權機構不在伺服器的 S/MIME 受信任 CA 存放區中，或缺少中繼憑證。請聯絡您的系統管理員，以安裝缺少的憑證授權機構憑證。"
+
 msgid "Signature verified successfully"
 msgstr "簽名驗證成功"
 
@@ -6990,6 +7275,9 @@ msgstr "已解密 (CBC 模式 - 考慮使用 AES-GCM 以獲得更強的保護)"
 
 msgid "Signing time differs from expected time"
 msgstr "簽署時間與預期時間不同"
+
+msgid "Could not verify signature, certificate authority is not trusted"
+msgstr "無法驗證簽章，憑證授權機構不受信任"
 
 msgid "Digest"
 msgstr "摘要"
@@ -7542,6 +7830,9 @@ msgstr "無法新增資料至匯流排，相同的動作類型已存在於匯流
 msgid "Response data requested from bus but it doesn't have any data."
 msgstr "從匯流排要求回應資料，但沒有任何資料。"
 
+msgid "Cannot store the category list in this mailbox."
+msgstr "無法將類別清單儲存在此信箱中。"
+
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
 msgstr "未知模組 '%s 「 ID 為 」%s'"
@@ -7723,8 +8014,18 @@ msgstr "會議無法傳送。"
 msgid "Meeting could not be saved."
 msgstr "會議無法繼續。"
 
+#, php-format
+msgid "There were %d skipped appointment(s):"
+msgstr "已略過 %d 個約會："
+
+msgid "More skipped appointments are not shown."
+msgstr "其餘略過的約會未顯示。"
+
 msgid "Private Appointment"
 msgstr "私人約會"
+
+msgid "Could not open the requested mailbox."
+msgstr "無法開啟指定的信箱。"
 
 #, php-format
 msgid "%s's Birthday"
@@ -8120,135 +8421,3 @@ msgstr "畸形 UTF-8 字元，可能未正確編碼"
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
 msgstr "編碼/解碼 JSON 資料時遇到一些問題： -%s"
-
-msgid "Legal Information"
-msgstr "法律資訊"
-
-msgid "{0} more notice"
-msgid_plural "{0} more notices"
-msgstr[0] "還有 {0} 則提示"
-
-msgid "Show less"
-msgstr "收合"
-
-msgid "Undo and redo"
-msgstr "復原與重做"
-
-msgid "Enable undo and redo of message actions"
-msgstr "啟用郵件動作的復原與重做"
-
-msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
-msgstr "復原 (Ctrl+Z) 與重做 (Ctrl+Y) 刪除、移動或為郵件設定旗標等動作。記錄這些動作會產生少許額外負擔，因此此功能預設為停用。"
-
-msgid "Undo"
-msgstr "復原"
-
-msgid "Redo"
-msgstr "重做"
-
-msgid "Undo: {0}"
-msgstr "復原：{0}"
-
-msgid "Redo: {0}"
-msgstr "重做：{0}"
-
-msgid "Nothing to undo"
-msgstr "沒有可復原的動作"
-
-msgid "Undo the last action"
-msgstr "復原上一個動作"
-
-msgid "Redo the last undone action"
-msgstr "重做上一個已復原的動作"
-
-msgid "Undo failed"
-msgstr "復原失敗"
-
-msgid "Redo failed"
-msgstr "重做失敗"
-
-msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
-msgstr "無法復原{0}。該項目在此期間可能已被移動、變更或移除。"
-
-msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
-msgstr "無法重做{0}。該項目在此期間可能已被移動、變更或移除。"
-
-msgid "Delete {0}"
-msgstr "刪除{0}"
-
-msgid "Delete {0} items"
-msgstr "刪除 {0} 個項目"
-
-msgid "Move {0} to {1}"
-msgstr "將{0}移動到{1}"
-
-msgid "Move {0} items to {1}"
-msgstr "將 {0} 個項目移動到{1}"
-
-msgid "Copy {0} to {1}"
-msgstr "將{0}複製到{1}"
-
-msgid "Copy {0} items to {1}"
-msgstr "將 {0} 個項目複製到{1}"
-
-msgid "Create {0}"
-msgstr "建立{0}"
-
-msgid "Change flag"
-msgstr "變更旗標"
-
-msgid "Change categories"
-msgstr "變更類別"
-
-msgid "Change appointment time"
-msgstr "變更約會時間"
-
-msgid "another folder"
-msgstr "另一個資料夾"
-
-msgid "{0}: {1}"
-msgstr "{0}：{1}"
-
-msgid "{0}: {1} items"
-msgstr "{0}：{1} 個項目"
-
-msgid "New mail from {0}"
-msgstr "來自 {0} 的新郵件"
-
-msgid "{0} new message in folder {1}"
-msgid_plural "{0} new messages in folder {1}"
-msgstr[0] "資料夾 {1} 中有 {0} 封新郵件"
-
-msgid "{0} new message in folder {1} of {2}"
-msgid_plural "{0} new messages in folder {1} of {2}"
-msgstr[0] "{2} 的資料夾 {1} 中有 {0} 封新郵件"
-
-msgid "In folder {0}"
-msgstr "在資料夾 {0} 中"
-
-msgid "In folder {0} of {1}"
-msgstr "在 {1} 的資料夾 {0} 中"
-
-msgid "New Mail Notifications"
-msgstr "新郵件通知"
-
-msgid "Only my own mailbox"
-msgstr "僅限我自己的信箱"
-
-msgid "Only the folders I choose"
-msgstr "僅限我選擇的資料夾"
-
-msgid "Unknown folder"
-msgstr "未知的資料夾"
-
-msgid "No folders selected, no new mail notification is shown."
-msgstr "未選擇任何資料夾，將不會顯示新郵件通知。"
-
-msgid "Show favorites in the mail folder list only"
-msgstr "僅在郵件資料夾清單中顯示我的最愛"
-
-msgid "Show favorites of the same type in every folder list"
-msgstr "在每個資料夾清單中顯示相同類型的我的最愛"
-
-msgid "Show all favorites in every folder list"
-msgstr "在每個資料夾清單中顯示所有我的最愛"

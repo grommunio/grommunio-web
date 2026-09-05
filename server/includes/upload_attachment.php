@@ -752,23 +752,48 @@ class UploadAttachment {
 	 * Function adds attachment in case of OOo.
 	 */
 	public function uploadWhenWendViaOOO() {
-		$providedFile = sys_get_temp_dir() . DIRECTORY_SEPARATOR . $_GET['attachment_id'];
+		$attachmentID = $_GET['attachment_id'] ?? null;
+		if (!is_string($attachmentID) || preg_match('/\A[A-Za-z0-9][A-Za-z0-9._-]{0,254}\z/D', $attachmentID) !== 1) {
+			throw new ZarafaException(_('Could not find attachment.'));
+		}
+
+		$stagingDirectory = realpath(sys_get_temp_dir());
+		if ($stagingDirectory === false) {
+			throw new ZarafaException(_('Could not attach item as an attachment.'));
+		}
+
+		$providedFile = $stagingDirectory . DIRECTORY_SEPARATOR . $attachmentID;
+		if (dirname($providedFile) !== $stagingDirectory) {
+			throw new ZarafaException(_('Could not find attachment.'));
+		}
 
 		// check whether the doc is already moved
-		if (file_exists($providedFile)) {
-			$filename = mb_basename(stripslashes((string) $_GET['name']));
+		clearstatcache(true, $providedFile);
+		$providedFileStat = @lstat($providedFile);
+		if ($providedFileStat !== false) {
+			// OOo must provide a regular file directly in the system staging directory.
+			// In particular, do not follow symlinks out of that directory.
+			if (($providedFileStat['mode'] & 0170000) !== 0100000) {
+				throw new ZarafaException(_('Could not find attachment.'));
+			}
+
+			$providedName = $_GET['name'] ?? '';
+			if (!is_string($providedName)) {
+				throw new ZarafaException(_('Could not find attachment.'));
+			}
+			$filename = mb_basename(stripslashes($providedName));
 
 			// Move the uploaded file to the session
-			$this->attachment_state->addProvidedAttachmentFile($_REQUEST['attachment_id'], $filename, $providedFile, [
+			$this->attachment_state->addProvidedAttachmentFile($attachmentID, $filename, $providedFile, [
 				'name' => $filename,
-				'size' => filesize($providedFile),
+				'size' => $providedFileStat['size'],
 				'type' => mime_content_type($providedFile),
 				'sourcetype' => 'default',
 			]);
 		}
 		else {
 			// Check if no files are uploaded with this attachmentid
-			$this->attachment_state->clearAttachmentFiles($_GET['attachment_id']);
+			$this->attachment_state->clearAttachmentFiles($attachmentID);
 		}
 	}
 

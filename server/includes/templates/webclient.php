@@ -43,6 +43,7 @@ $serverConfig = array_merge($serverConfig, [
 	'shared_store_polling_interval' => SHARED_STORE_POLLING_INTERVAL,
 	'enable_dompurify' => ENABLE_DOMPURIFY_FILTER,
 	'enable_file_previewer' => ENABLE_FILE_PREVIEWER,
+	'enable_bimi' => ENABLE_BIMI,
 	'enable_themes' => ENABLE_THEMES,
 	'enable_iconsets' => ENABLE_ICONSETS,
 	'enable_widgets' => ENABLE_WIDGETS,
@@ -69,12 +70,22 @@ if ($GLOBALS['settings']->get('zarafa/v1/contexts/mail/attachment_reminder_enabl
 
 	<head>
 		<meta name="Generator" content="grommunio-web v<?php echo $loader->getVersion(); ?>">
+<?php
+// The canvas is dark before any stylesheet arrives, so a reload does not flash white
+$darkMode = WebAppAuthentication::isAuthenticated() ? $GLOBALS['settings']->get('zarafa/v1/main/dark_mode') : 'light';
+if ($darkMode === 'dark') {
+	echo "\t\t<style>html { background: #121212; }</style>\n";
+}
+elseif ($darkMode === 'system') {
+	echo "\t\t<style>@media (prefers-color-scheme: dark) { html { background: #121212; } }</style>\n";
+}
+?>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<title><?php echo $webappTitle; ?></title>
 		<link rel="icon" href="<?php echo $favicon; ?>" type="image/x-icon">
 		<link rel="shortcut icon" href="<?php echo $favicon; ?>" type="image/x-icon">
-		<link rel="manifest" href="manifest.webmanifest">
+		<link rel="manifest" href="<?php echo versionedUrl('manifest.webmanifest'); ?>">
 
 		<script><?php require BASE_PATH . 'client/fingerprint.js'; ?></script>
 		<script>
@@ -89,8 +100,8 @@ if ($GLOBALS['settings']->get('zarafa/v1/contexts/mail/attachment_reminder_enabl
 		</script>
 
 		<!-- load the login css first as we need it immediately! -->
-		<link rel="stylesheet" href="client/resources/css/external/login.css" >
-		<link rel="stylesheet" href="client/resources/css/darkmode.css" >
+		<link rel="stylesheet" href="client/resources/css/external/login.css?version=<?php echo getWebappVersion(); ?>" >
+		<link rel="stylesheet" href="client/resources/css/darkmode.css?version=<?php echo getWebappVersion(); ?>" >
 		<?php
 			$loader->cssOrder();
 echo Theming::getStyles($theme);
@@ -111,9 +122,16 @@ elseif ($darkMode === 'system') {
 	echo ' dark-mode-system';
 }
 ?>">
+		<script>
+		// Resolve the system dark mode before anything renders; waiting for
+		// DOMContentLoaded showed the light loading screen until the scripts ran
+		if (document.body.classList.contains('dark-mode-system') && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			document.body.classList.add('dark-mode');
+		}
+		</script>
 		<a class="skip-link" href="#zarafa-mainpanel"><?php echo _("Skip to main content"); ?></a>
-		<div id="loading-mask" role="status" aria-label="<?php echo _("Loading"); ?>">
-			<div id="form-container" class="loading" style="visibility: hidden;">
+		<div id="loading-mask" class="theme-<?php echo strtolower(THEME !== "" ? THEME : 'basic'); ?>" role="status" aria-label="<?php echo _("Loading"); ?>">
+			<div id="form-container" class="loading">
 				<div id="bg"></div>
 				<div id="content">
 					<div class="left">
@@ -126,18 +144,10 @@ elseif ($darkMode === 'system') {
 		</div>
 
 		<!-- Translations -->
-		<script src="index.php?version=<?php echo $loader->getVersion(); ?>&load=translations.js&lang=<?php echo $Language->getSelected(); ?>"></script>
+		<script src="index.php?version=<?php echo $loader->getVersion(); ?>&load=translations.js&lang=<?php echo $Language->getSelected(); ?>&v=<?php echo $Language->getTranslationsEtag(); ?>"></script>
 		<!-- JS Files -->
 		<?php
 		$loader->jsOrder();
-// get URL data from session and dump it for client to use
-$urlActionData = [];
-if (!empty($_SESSION['url_action'])) {
-	$urlActionData = $_SESSION['url_action'];
-
-	// remove data from session so if user reloads webapp then we will again not execute url action
-	unset($_SESSION['url_action']);
-}
 ?>
 
 		<script><?php require BASE_PATH . 'client/resize.js'; ?></script>

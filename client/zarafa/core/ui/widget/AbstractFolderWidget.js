@@ -162,6 +162,20 @@ Zarafa.core.ui.widget.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.widget.Wi
 	updateFilter: Ext.emptyFn,
 
 	/**
+	 * Stop the periodic folder reload when this widget is destroyed.
+	 * @protected
+	 */
+	onDestroy: function ()
+	{
+		if (this.reloadTask) {
+			Ext.TaskMgr.stop(this.reloadTask);
+			this.reloadTask = undefined;
+		}
+
+		Zarafa.core.ui.widget.AbstractFolderWidget.superclass.onDestroy.apply(this, arguments);
+	},
+
+	/**
 	 * Apply custom style and content for the row body. This will color
 	 * a task in red when its due-date is reached. If categories are applied
 	 * to a task these categories will be displayed.

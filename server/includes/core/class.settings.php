@@ -41,9 +41,24 @@ class Settings {
 	private $init;
 
 	/**
+	 * True once retrieveSettings() returned, i.e. $this->settings came from the store.
+	 */
+	private $settingsLoaded;
+
+	/**
+	 * True once retrievePersistentSettings() returned.
+	 */
+	private $persistentSettingsLoaded;
+
+	/**
 	 *  Array Settings that are defined by system admin.
 	 */
 	private $sysAdminDefaults;
+
+	/**
+	 * True once a load attempt threw, so it is not retried on every accessor.
+	 */
+	private $loadFailed;
 
 	/**
 	 * Json encoded string which represents existing set of settings, this can be compared with json encoded
@@ -78,6 +93,9 @@ class Settings {
 		$this->settings_string = '';
 		$this->modified = [];
 		$this->init = false;
+		$this->loadFailed = false;
+		$this->settingsLoaded = false;
+		$this->persistentSettingsLoaded = false;
 	}
 
 	/**
@@ -88,6 +106,10 @@ class Settings {
 	 * instance of the Settings class
 	 */
 	public function Init() {
+		if ($this->init || $this->loadFailed) {
+			return;
+		}
+
 		$GLOBALS['PluginManager']->triggerHook('server.core.settings.init.before', ['settingsObj' => $this]);
 
 		$this->store = $GLOBALS['mapisession']->getDefaultMessageStore();
@@ -95,14 +117,37 @@ class Settings {
 		// ignore exceptions when loading settings
 		try {
 			$this->retrieveSettings();
+			$this->settingsLoaded = true;
 			$this->retrievePersistentSettings();
+			$this->persistentSettingsLoaded = true;
 
 			// this object will only be initialized when we are able to retrieve existing settings correctly
 			$this->init = true;
 		}
 		catch (SettingsException $e) {
 			$e->setHandled();
+
+			// $this->init stays false, so from here get() answers with its
+			// default for every path.
+			$this->loadFailed = true;
+			$msg = "Settings::Init(): the settings of this store could not be loaded, continuing with defaults for every setting: " . $e->getMessage();
+			error_log($msg);
+			Log::Write(LOGLEVEL_ERROR, $msg);
 		}
+	}
+
+	/**
+	 * False means the load threw and was handled, so {@link #get} answers with
+	 * its default for every path rather than with a stored value.
+	 *
+	 * @return bool true when the settings came from the store
+	 */
+	public function isLoaded() {
+		if (!$this->init) {
+			$this->Init();
+		}
+
+		return $this->settingsLoaded;
 	}
 
 	/**
@@ -450,6 +495,15 @@ class Settings {
 			$this->Init();
 		}
 
+		// Saving now would replace stored settings that could not be read.
+		if (!$this->settingsLoaded) {
+			$msg = "Settings::saveSettings() skipped: the settings of this store could not be read, saving would replace them.";
+			error_log($msg);
+			Log::Write(LOGLEVEL_ERROR, $msg);
+
+			return;
+		}
+
 		if (isset($this->settings['zarafa']['v1'])) {
 			unset($this->settings['zarafa']['v1']['contexts']['mail']['outofoffice']);
 		}
@@ -537,6 +591,18 @@ class Settings {
 	 * This function saves all persistent settings to the store's PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON property.
 	 */
 	public function savePersistentSettings() {
+		if (!$this->init) {
+			$this->Init();
+		}
+
+		if (!$this->persistentSettingsLoaded) {
+			$msg = "Settings::savePersistentSettings() skipped: the persistent settings of this store could not be read.";
+			error_log($msg);
+			Log::Write(LOGLEVEL_ERROR, $msg);
+
+			return;
+		}
+
 		$persistentSettings = json_encode(['settings' => $this->persistentSettings]);
 
 		// Check if the settings have been changed.

@@ -205,10 +205,13 @@ function cleanTemp($directory = TMP_PATH, $maxLifeTime = STATE_FILE_MAX_LIFETIME
 	// is current.
 	clearstatcache();
 
-	$dir = opendir($directory);
+	$dir = @opendir($directory);
+	if ($dir === false) {
+		return false;
+	}
 	$is_empty = true;
 
-	while ($file = readdir($dir)) {
+	while (($file = readdir($dir)) !== false) {
 		// Skip special folders
 		if ($file === '.' || $file === '..') {
 			continue;
@@ -247,6 +250,7 @@ function cleanTemp($directory = TMP_PATH, $maxLifeTime = STATE_FILE_MAX_LIFETIME
 			}
 		}
 	}
+	closedir($dir);
 
 	return $is_empty;
 }
@@ -597,9 +601,26 @@ function streamProperty($mapiobj, $proptag) {
 	$stat = mapi_stream_stat($stream);
 	mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
 
+	// A read may return less than a full block, so count bytes rather than
+	// iterations: advancing by BLOCK_SIZE regardless returns a short value.
 	$datastring = '';
-	for ($i = 0; $i < $stat['cb']; $i += BLOCK_SIZE) {
-		$datastring .= mapi_stream_read($stream, BLOCK_SIZE);
+	while (strlen($datastring) < $stat['cb']) {
+		$chunk = mapi_stream_read($stream, BLOCK_SIZE);
+		if ($chunk === false || $chunk === '') {
+			break;
+		}
+
+		$datastring .= $chunk;
+	}
+
+	// The caller cannot tell a short value from a complete one, so say so here.
+	if (strlen($datastring) < $stat['cb']) {
+		error_log(sprintf(
+			"streamProperty(): property 0x%08X is truncated, read %d of %d bytes",
+			$proptag,
+			strlen($datastring),
+			$stat['cb']
+		));
 	}
 
 	return $datastring;
@@ -778,32 +799,44 @@ function getDisabledPluginsList() {
  *                admin API named none or could not be asked
  */
 function getAdminApiDisabledPlugins() {
+	return adminApiCached('adminapi', 'queryAdminApiDisabledPlugins') ?? '';
+}
+
+/**
+ * Answers a session-cached admin API query; a failed lookup (null) is kept
+ * for the shorter retry time.
+ *
+ * @param string   $key   cache key in the session's state file
+ * @param callable $query returns the value, or null when the endpoint could not be read
+ *
+ * @return mixed
+ */
+function adminApiCached($key, callable $query) {
 	// Without a session the cache would be shared between users.
 	if (session_id() === '') {
-		return queryAdminApiDisabledPlugins() ?? '';
+		return $query();
 	}
 
 	$readState = new State('disabledplugins');
 	$readState->open();
-	$cache = $readState->read('adminapi');
+	$cache = $readState->read($key);
 	$readState->close();
 
-	if (is_array($cache) && isset($cache['plugins'], $cache['expires']) && $cache['expires'] > time()) {
-		return $cache['plugins'];
+	if (is_array($cache) && array_key_exists('value', $cache) && isset($cache['expires']) && $cache['expires'] > time()) {
+		return $cache['value'];
 	}
 
 	// Deliberately not while holding the state lock, so a slow endpoint does
 	// not hold up the other requests of this session.
-	$plugins = queryAdminApiDisabledPlugins();
-	$lifetime = $plugins === null ? ADMIN_API_DISABLEDPLUGINS_RETRY_TIME : ADMIN_API_DISABLEDPLUGINS_CACHE_TIME;
-	$plugins ??= '';
+	$value = $query();
+	$lifetime = $value === null ? ADMIN_API_DISABLEDPLUGINS_RETRY_TIME : ADMIN_API_DISABLEDPLUGINS_CACHE_TIME;
 
 	$writeState = new State('disabledplugins');
 	$writeState->open();
-	$writeState->write('adminapi', ['plugins' => $plugins, 'expires' => time() + $lifetime]);
+	$writeState->write($key, ['value' => $value, 'expires' => time() + $lifetime]);
 	$writeState->close();
 
-	return $plugins;
+	return $value;
 }
 
 /**
@@ -821,10 +854,41 @@ function queryAdminApiDisabledPlugins() {
 		return null;
 	}
 
-	$res = @json_decode(@file_get_contents(
-		ADMIN_API_DISABLEDPLUGINS_ENDPOINT . urlencode((string) $user), false), true);
+	$res = @json_decode((string) adminApiGet(ADMIN_API_DISABLEDPLUGINS_ENDPOINT . urlencode((string) $user)), true);
 
 	return isset($res['data']) ? implode(';', $res['data']) : null;
+}
+
+/**
+ * Whether the admin API reports LDAP users.
+ *
+ * @return bool
+ */
+function getAdminApiUsersInLdap() {
+	return (bool) adminApiCached('status', 'queryAdminApiUsersInLdap');
+}
+
+/**
+ * @return null|bool null when the endpoint could not be read
+ */
+function queryAdminApiUsersInLdap() {
+	$result = @json_decode((string) adminApiGet(ADMIN_API_STATUS_ENDPOINT), true);
+
+	return is_array($result) ? !empty($result['ldap']) : null;
+}
+
+/**
+ * Reads from the admin API with a bounded wait, so an unresponsive endpoint
+ * cannot stall the page.
+ *
+ * @param string $url
+ *
+ * @return false|string
+ */
+function adminApiGet($url) {
+	$context = stream_context_create(['http' => ['timeout' => ADMIN_API_TIMEOUT]]);
+
+	return @file_get_contents($url, false, $context);
 }
 
 /**
@@ -883,7 +947,41 @@ function isBrokenEml($attachment) {
  * @return string webapp version
  */
 function getWebappVersion() {
-	return trim(file_get_contents('version'));
+	static $version = null;
+	if ($version === null) {
+		$version = trim((string) @file_get_contents(BASE_PATH . 'version'));
+	}
+
+	return $version;
+}
+
+/**
+ * Runs $fn with the PHP session open. Authentication closes the session before
+ * the MAPI logon, so later writes to $_SESSION are lost without this.
+ *
+ * @param callable $fn
+ */
+function updateSession(callable $fn) {
+	$wasActive = session_status() === PHP_SESSION_ACTIVE;
+	if (!$wasActive) {
+		session_start();
+	}
+	$fn();
+	if (!$wasActive) {
+		session_write_close();
+	}
+}
+
+/**
+ * Append the grommunio Web version to an asset URL, so that an upgrade
+ * is never served from the browser cache.
+ *
+ * @param string $url relative URL of the asset, may already carry a query string
+ *
+ * @return string
+ */
+function versionedUrl($url) {
+	return $url . (str_contains($url, '?') ? '&' : '?') . 'version=' . getWebappVersion();
 }
 
 /**

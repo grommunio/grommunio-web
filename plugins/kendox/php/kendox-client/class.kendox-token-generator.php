@@ -170,7 +170,6 @@ class TokenGenerator {
 			return com_create_guid();
 		}
 
-		mt_srand((float) microtime() * 10000);
 		$charid = strtoupper(md5(uniqid(random_int(0, mt_getrandmax()), true)));
 		$hyphen = chr(45); // "-"
 

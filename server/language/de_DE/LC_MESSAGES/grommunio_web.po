@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-29 21:36+0200\n"
+"POT-Creation-Date: 2026-09-04 14:41+0200\n"
 "PO-Revision-Date: 2025-03-30 04:00+0000\n"
 "Last-Translator: DeepL <noreply-mt-deepl@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/grommunio/grommunio-web/de/>\n"
@@ -717,6 +717,30 @@ msgstr "Favoriten"
 msgid "Select Folder"
 msgstr "Ordner auswählen"
 
+msgid "From"
+msgstr "Von"
+
+msgid "To"
+msgstr "An"
+
+msgid "Cc"
+msgstr "CC"
+
+msgid "Bcc"
+msgstr "BCC"
+
+msgid "Body"
+msgstr "Inhalt"
+
+msgid "Attachment"
+msgstr "Anhang"
+
+msgid "Category"
+msgstr "Kategorie"
+
+msgid "Type"
+msgstr "Typ"
+
 msgid "Delete search folder"
 msgstr "Suchordner löschen"
 
@@ -740,9 +764,6 @@ msgstr "Meinten Sie"
 
 msgid "With"
 msgstr "Mit"
-
-msgid "To"
-msgstr "An"
 
 msgid "No date"
 msgstr "Kein Datum"
@@ -1010,9 +1031,6 @@ msgstr "l"
 msgid "All text fields"
 msgstr "Alle Textfelder"
 
-msgid "Body"
-msgstr "Inhalt"
-
 msgid "Subject or Sender"
 msgstr "Betreff oder Sender"
 
@@ -1026,11 +1044,20 @@ msgctxt "calendar.dialog"
 msgid "Resources have been planned"
 msgstr "Die Ressourcen wurden geplant"
 
+msgid "Insufficient privileges"
+msgstr "Ungenügende Berechtigungen"
+
+msgid "You do not have permission to modify this item."
+msgstr "Sie haben keine Berechtigung, dieses Element zu ändern."
+
 msgid "Send update"
 msgstr "Aktualisierung senden"
 
 msgid "Do you want to send an update to all recipients?"
 msgstr "Möchten Sie eine Aktualisierung an alle Teilnehmer senden?"
+
+msgid "You do not have permission to delete this item."
+msgstr "Sie haben keine Berechtigung, dieses Element zu löschen."
 
 msgid "Send update to attendees"
 msgstr "Aktualisierung an Teilnehmer versenden"
@@ -1116,6 +1143,12 @@ msgctxt "calendar.dialog"
 msgid "Please note that any changes you make will be overwritten when this meeting request is updated by the organizer"
 msgstr "Bitte beachten Sie, dass alle von Ihnen gemachten Änderungen überschrieben werden, wenn der Organisator die Besprechung aktualisiert"
 
+msgid "Show as"
+msgstr "Zeigen als"
+
+msgid "Reminder"
+msgstr "Erinnerung"
+
 msgid "Create in"
 msgstr "Erstellen in"
 
@@ -1127,12 +1160,6 @@ msgstr "bis"
 
 msgid "Recurrence"
 msgstr "Wiederholung"
-
-msgid "Reminder"
-msgstr "Erinnerung"
-
-msgid "Show as"
-msgstr "Zeigen als"
 
 msgid "Warning"
 msgstr "Warnung"
@@ -1148,6 +1175,14 @@ msgstr "Ort aktualisieren"
 
 msgid "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
 msgstr "Wollen Sie den Ort „{0}“ mit dem neuen Ort „{1}“ aktualisieren?"
+
+msgid "{0} more notice"
+msgid_plural "{0} more notices"
+msgstr[0] "{0} weiterer Hinweis"
+msgstr[1] "{0} weitere Hinweise"
+
+msgid "Show less"
+msgstr "Weniger anzeigen"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y {0}"
@@ -1420,6 +1455,9 @@ msgstr "Arbeitstage"
 msgid "Show busy dates as bold in the date picker"
 msgstr "Belegte Termine in der Datumsauswahl in fett anzeigen"
 
+msgid "Delete the meeting request from the inbox when answering from the calendar"
+msgstr "Besprechungsanfragen aus dem Posteingang löschen, wenn sie im Kalender beantwortet werden"
+
 msgid "Side-by-side mode"
 msgstr "Seite-an-Seite-Modus"
 
@@ -1599,9 +1637,6 @@ msgstr "Sie haben keine Berechtigung, diesen Ordner zu verschieben/zu kopieren. 
 
 msgid "You have insufficient privileges to copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
 msgstr "Sie haben keine Berechtigung, dieses Element zu kopieren. Bitten Sie den Ordnereigentümer, Ihnen Berechtigungen zu erteilen, oder wenden Sie sich an Ihren Systemadministrator."
-
-msgid "Insufficient privileges"
-msgstr "Ungenügende Berechtigungen"
 
 msgid "Copying this appointment will unset it as private. Are you sure you want to continue?"
 msgstr "Die Terminkopie wird keine „privat“-Markierung mehr enthalten. Sind Sie sicher, dass Sie fortfahren möchten?"
@@ -1902,15 +1937,6 @@ msgstr "Sie haben keine Berechtigung, diese Elemente zu verschieben. Möchten Si
 msgid "You have insufficient privileges to move this item. Would you like to copy instead?"
 msgstr "Sie haben keine Berechtigung, dieses Element zu verschieben. Möchten Sie stattdessen kopieren?"
 
-msgid "Cc"
-msgstr "CC"
-
-msgid "Bcc"
-msgstr "BCC"
-
-msgid "From"
-msgstr "Von"
-
 msgid "Insert item"
 msgstr "Element einfügen"
 
@@ -1919,9 +1945,6 @@ msgstr "Einfügen als"
 
 msgid "Text only"
 msgstr "Nur-Text"
-
-msgid "Attachment"
-msgstr "Anhang"
 
 msgid "Attach Item"
 msgstr "Element anhängen"
@@ -1965,6 +1988,25 @@ msgstr "Herunterladen"
 msgid "Download all as ZIP"
 msgstr "Alle als ZIP-Datei herunterladen"
 
+msgid "Save selection to folder"
+msgstr "Auswahl in Ordner speichern"
+
+msgid "Save attachments"
+msgstr "Anhänge speichern"
+
+msgid "The attachments could not be saved."
+msgstr "Die Anhänge konnten nicht gespeichert werden."
+
+msgid "This attachment could not be saved: {0}"
+msgid_plural "These attachments could not be saved: {0}"
+msgstr[0] "Dieser Anhang konnte nicht gespeichert werden: {0}"
+msgstr[1] "Diese Anhänge konnten nicht gespeichert werden: {0}"
+
+msgid "{0} attachment was saved."
+msgid_plural "{0} attachments were saved."
+msgstr[0] "{0} Anhang wurde gespeichert."
+msgstr[1] "{0} Anhänge wurden gespeichert."
+
 msgid "Import to folder"
 msgstr "Einfügen in Ordner"
 
@@ -1983,6 +2025,9 @@ msgstr "ZIP-Datei konnte nicht erstellt werden. Die Größe ist auf 30 MB besch
 msgid "Unable to download"
 msgstr "Kann nicht heruntergeladen werden"
 
+msgid "Drop files here to attach them"
+msgstr "Dateien hier ablegen, um sie anzuhängen"
+
 msgid "Picture format is not supported. "
 msgstr "Bildformat wird nicht unterstützt. "
 
@@ -1991,6 +2036,9 @@ msgstr "Die folgenden Formate werden für Kontaktbilder unterstützt"
 
 msgid "Attachment Error"
 msgstr "Problem mit dem Anhang"
+
+msgid "Could not save the category list."
+msgstr "Die Kategorienliste konnte nicht gespeichert werden."
 
 msgid "Manage Categories"
 msgstr "Kategorien verwalten"
@@ -2163,13 +2211,13 @@ msgid "Folder '{0}' selected."
 msgstr "Ordner „{0}“ ausgewählt."
 
 msgid "The selected items cannot be moved into this folder because it holds a different type of content."
-msgstr ""
+msgstr "Die ausgewählten Elemente können nicht in diesen Ordner verschoben werden, da er für einen anderen Inhaltstyp vorgesehen ist."
 
 msgid "The selected items cannot be copied into this folder because it holds a different type of content."
-msgstr ""
+msgstr "Die ausgewählten Elemente können nicht in diesen Ordner kopiert werden, da er für einen anderen Inhaltstyp vorgesehen ist."
 
 msgid "Incompatible folder"
-msgstr ""
+msgstr "Inkompatibler Ordner"
 
 msgid "Unable to perform action"
 msgstr "Aktion kann nicht ausgeführt werden"
@@ -2243,8 +2291,11 @@ msgstr "Diese Woche"
 msgid "next week"
 msgstr "Nächste Woche"
 
-msgid "Dropped file type is not supported"
-msgstr "Der per Drag & Drop verschobene Dateityp wird nicht unterstützt"
+msgid "Add as attachment?"
+msgstr "Als Anhang hinzufügen?"
+
+msgid "The following files cannot be embedded in the message body. Add them as attachments instead?"
+msgstr "Die folgenden Dateien können nicht in den Nachrichtentext eingebettet werden. Möchten Sie sie stattdessen als Anhänge hinzufügen?"
 
 msgid "Edit recipient"
 msgstr "Empfänger bearbeiten"
@@ -2272,6 +2323,9 @@ msgstr "Gebucht"
 
 msgid "Out of Office"
 msgstr "Abwesend"
+
+msgid "Working Elsewhere"
+msgstr "An anderem Ort tätig"
 
 msgid "No Information"
 msgstr "Keine Information"
@@ -2344,6 +2398,15 @@ msgstr "Ausgewähltes Element löschen"
 
 msgid "Delete selected item without moving it to the Deleted Items folder. The deleted item can still be restored."
 msgstr "Das ausgewählte Element löschen, ohne es in den Ordner „Gelöschte Objekte“ zu verschieben. Das gelöschte Element kann wiederhergestellt werden."
+
+msgid "Undo the last action"
+msgstr "Letzte Aktion rückgängig machen"
+
+msgid "Redo the last undone action"
+msgstr "Letzte rückgängig gemachte Aktion wiederholen"
+
+msgid "Open the command palette"
+msgstr "Befehlspalette öffnen"
 
 msgid "Add/Edit Cc recipient"
 msgstr "CC-Empfänger hinzufügen/bearbeiten"
@@ -2859,9 +2922,6 @@ msgstr "Änderungen übernehmen"
 msgid "Do you wish to apply the changes?"
 msgstr "Möchten Sie die Änderungen übernehmen?"
 
-msgid "Category"
-msgstr "Kategorie"
-
 msgid "Recent searches"
 msgstr "Letzte Suchen"
 
@@ -2891,9 +2951,6 @@ msgstr "Alle Ordner"
 
 msgid "Other…"
 msgstr "Andere…"
-
-msgid "Type"
-msgstr "Typ"
 
 msgid "Search"
 msgstr "Suche"
@@ -2960,6 +3017,24 @@ msgstr "{A} Desktopbenachrichtigung automatisch nach … Sekunden ausblenden {B}
 
 msgid "Disable sound"
 msgstr "Ton deaktivieren"
+
+msgid "New Mail Notifications"
+msgstr "Benachrichtigungen bei neuen E-Mails"
+
+msgid "Only my own mailbox"
+msgstr "Nur mein eigenes Postfach"
+
+msgid "Only the folders I choose"
+msgstr "Nur die von mir ausgewählten Ordner"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "Keine Ordner ausgewählt, es wird keine Benachrichtigung über neue E-Mails angezeigt."
+
+msgid "Folder"
+msgstr "Ordner"
+
+msgid "Unknown folder"
+msgstr "Unbekannter Ordner"
 
 msgid "Notifications"
 msgstr "Benachrichtigungen"
@@ -3044,6 +3119,9 @@ msgstr "Nachricht konnte nicht geladen werden"
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "Anhänge"
+
+msgid "Untitled"
+msgstr "Unbenannt"
 
 msgid "Download Pictures"
 msgstr "Bilder herunterladen"
@@ -3698,9 +3776,6 @@ msgstr "In einem eigenen Fenster öffnen"
 msgid "Your browser seems to have blocked one or more pop-ups. Please change your browser's settings to always allow pop-ups from grommunio Web."
 msgstr "Ihr Browser scheint ein oder mehrere Pop-Up-Fenster blockiert zu haben. Bitte überprüfen Sie die Einstellungen Ihres Browsers."
 
-msgid "Untitled"
-msgstr "Unbenannt"
-
 msgid "Cannot upload attachment, only {0} attachments are allowed to be added to the message"
 msgstr "Der Anhang konnte nicht hochgeladen werden. Es sind nur {0} Anhänge erlaubt"
 
@@ -3719,6 +3794,63 @@ msgstr "Anlage konnte nicht hochgeladen werden. Sie versuchen, {0} Anhänge hoch
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
 msgstr "{0} im Auftrag von {1}"
+
+msgid "This search is performed without using a content index"
+msgstr "Diese Suche wird ohne Inhaltsindex durchgeführt"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} konnte nicht rückgängig gemacht werden. Das Element wurde in der Zwischenzeit möglicherweise verschoben, geändert oder entfernt."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "{0} konnte nicht wiederholt werden. Das Element wurde in der Zwischenzeit möglicherweise verschoben, geändert oder entfernt."
+
+msgid "Undo failed"
+msgstr "Rückgängig machen fehlgeschlagen"
+
+msgid "Redo failed"
+msgstr "Wiederholen fehlgeschlagen"
+
+msgid "Delete {0}"
+msgstr "{0} löschen"
+
+msgid "Delete {0} items"
+msgstr "{0} Elemente löschen"
+
+msgid "Move {0} to {1}"
+msgstr "{0} in {1} verschieben"
+
+msgid "Move {0} items to {1}"
+msgstr "{0} Elemente in {1} verschieben"
+
+msgid "Copy {0} to {1}"
+msgstr "{0} in {1} kopieren"
+
+msgid "Copy {0} items to {1}"
+msgstr "{0} Elemente in {1} kopieren"
+
+msgid "Create {0}"
+msgstr "{0} erstellen"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} Elemente"
+
+msgid "Change appointment time"
+msgstr "Terminzeit ändern"
+
+msgid "Change flag"
+msgstr "Kennzeichnung ändern"
+
+msgid "Change categories"
+msgstr "Kategorien ändern"
+
+msgid "No subject"
+msgstr "Kein Betreff"
+
+msgid "another folder"
+msgstr "einen anderen Ordner"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F"
@@ -3838,14 +3970,50 @@ msgstr "Rot"
 msgid "Brown"
 msgstr "Braun"
 
-msgid "Main navigation"
-msgstr "Hauptnavigation"
+msgid "Search folders, views, settings and actions"
+msgstr "Ordner, Ansichten, Einstellungen und Aktionen suchen"
+
+msgid "Results"
+msgstr "Ergebnisse"
+
+msgid "Arrow keys or Tab select, Enter opens, Esc closes"
+msgstr "Pfeiltasten oder Tab wählen aus, Enter öffnet, Esc schließt"
+
+msgid "Command palette"
+msgstr "Befehlspalette"
+
+msgid "Views"
+msgstr "Ansichten"
+
+msgid "Settings"
+msgstr "Einstellungen"
+
+msgid "Tools"
+msgstr "Werkzeuge"
+
+msgid "Appearance"
+msgstr "Erscheinungsbild"
+
+msgid "Switch to light mode"
+msgstr "Zum hellen Modus wechseln"
+
+msgid "Switch to dark mode"
+msgstr "Zum dunklen Modus wechseln"
+
+msgid "Comfortable list spacing"
+msgstr "Komfortable Listenabstände"
+
+msgid "Compact list spacing"
+msgstr "Kompakte Listenabstände"
 
 msgid "Logout"
 msgstr "Ausloggen"
 
-msgid "Appearance"
-msgstr "Erscheinungsbild"
+msgid "No matching commands"
+msgstr "Keine passenden Befehle"
+
+msgid "Main navigation"
+msgstr "Hauptnavigation"
 
 msgid "Light"
 msgstr "Hell"
@@ -3861,6 +4029,21 @@ msgstr "Hauptsymbolleiste"
 
 msgid "Switch view"
 msgstr "Ansicht umschalten"
+
+msgid "Undo"
+msgstr "Rückgängig"
+
+msgid "Redo"
+msgstr "Wiederholen"
+
+msgid "Undo: {0}"
+msgstr "Rückgängig: {0}"
+
+msgid "Redo: {0}"
+msgstr "Wiederholen: {0}"
+
+msgid "Nothing to undo"
+msgstr "Nichts rückgängig zu machen"
 
 msgid "Skip to main content"
 msgstr "Zum Hauptinhalt springen"
@@ -3903,9 +4086,6 @@ msgstr "Fehlender Anhang"
 
 msgid "Your message appears to reference an attachment but no file is attached. Send anyway?"
 msgstr "Ihre Nachricht scheint auf einen Anhang zu verweisen, es ist jedoch keine Datei angehängt. Trotzdem senden?"
-
-msgid "No subject"
-msgstr "Kein Betreff"
 
 msgid "Send this message without a subject?"
 msgstr "Diese Nachricht ohne einen Betreff versenden?"
@@ -4063,6 +4243,25 @@ msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Im Ordner {1} befindet sich {0} ungelesene Nachricht"
 msgstr[1] "Im Ordner {1} befinden sich {0} ungelesene Nachrichten"
+
+msgid "New mail from {0}"
+msgstr "Neue E-Mail von {0}"
+
+msgid "In folder {0} of {1}"
+msgstr "Im Ordner {0} von {1}"
+
+msgid "In folder {0}"
+msgstr "Im Ordner {0}"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "{0} neue Nachricht im Ordner {1} aus {2}"
+msgstr[1] "{0} neue Nachrichten im Ordner {1} aus {2}"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "{0} neue Nachricht im Ordner {1}"
+msgstr[1] "{0} neue Nachrichten im Ordner {1}"
 
 msgid "Publishing Editor"
 msgstr "Veröffentlichender Bearbeiter"
@@ -4365,6 +4564,12 @@ msgstr "Sortien nach: An"
 msgid "Sent"
 msgstr "Gesendet"
 
+msgid "Sender lists"
+msgstr "Absenderlisten"
+
+msgid "The sender lists could not be saved"
+msgstr "Die Absenderlisten konnten nicht gespeichert werden"
+
 msgid "Original message"
 msgstr "Ursprüngliche Nachricht"
 
@@ -4525,17 +4730,35 @@ msgstr "VON"
 msgid "on behalf of"
 msgstr "im Auftrag von"
 
-msgid "Safe Senders list is empty"
-msgstr "Liste sicherer Absender ist leer"
+msgid "List is empty"
+msgstr "Liste ist leer"
 
-msgid "Please select a safe sender record."
-msgstr "Bitte wählen Sie ein Eintrag."
+msgid "Please select a record."
+msgstr "Bitte wählen Sie einen Eintrag aus."
 
-msgid "Delete all safe senders"
-msgstr "Alle sicheren Absender löschen"
+msgid "Delete all entries"
+msgstr "Alle Einträge löschen"
 
-msgid "Are you sure you want to delete all safe senders?"
-msgstr "Sind Sie sicher, dass Sie alle sicheren Absender löschen wollen?"
+msgid "Are you sure you want to delete all entries?"
+msgstr "Möchten Sie wirklich alle Einträge löschen?"
+
+msgid "Blocked Senders"
+msgstr "Blockierte Absender"
+
+msgid "External content from blocked senders will always be blocked, even if the global block external content setting is disabled. Safe senders take priority over blocked senders."
+msgstr "Externe Inhalte von blockierten Absendern werden immer blockiert, auch wenn die globale Einstellung zum Blockieren externer Inhalte deaktiviert ist. Sichere Absender haben Vorrang vor blockierten Absendern."
+
+msgid "Blocked Senders list is empty"
+msgstr "Liste blockierter Absender ist leer"
+
+msgid "user@domain or @domain"
+msgstr "benutzer@domain oder @domain"
+
+msgid "Delete all"
+msgstr "Alle löschen"
+
+msgid "Enter an email address or @domain"
+msgstr "Geben Sie eine E-Mail-Adresse oder @domain ein"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4587,6 +4810,9 @@ msgstr "Nachrichten nach Unterhaltungen angeordnet anzeigen"
 msgid "Collapse conversation when selecting a different email"
 msgstr "Unterhaltung reduzieren, wenn Sie eine andere E-Mail auswählen"
 
+msgid "Show the entire conversation in the reading pane"
+msgstr "Gesamte Unterhaltung im Vorschaufenster anzeigen"
+
 msgid "Incoming mail"
 msgstr "Eingehende E-Mail"
 
@@ -4619,6 +4845,12 @@ msgstr "Rechts"
 msgid "Bottom"
 msgstr "Unten"
 
+msgid "Into mailbox owner's wastebasket"
+msgstr "In den Ordner „Gelöschte Objekte“ des Postfachbesitzers"
+
+msgid "Into your wastebasket"
+msgstr "In Ihren Ordner „Gelöschte Objekte“"
+
 msgid "Location of preview pane"
 msgstr "Position des Vorschaufensters"
 
@@ -4627,6 +4859,12 @@ msgstr "Verwende Betreffzeilenpräfixe gemäß RFC 5256/5322"
 
 msgid "Close original message on reply or forward"
 msgstr "Ursprüngliche Nachricht schließen, wenn diese beantwortet oder weitergeleitet wird"
+
+msgid "Show quick actions when hovering over a list item"
+msgstr "Schnellaktionen beim Überfahren eines Listeneintrags anzeigen"
+
+msgid "Move items deleted in delegate's store"
+msgstr "Als Stellvertreter gelöschte Elemente verschieben"
 
 msgid "General mail settings"
 msgstr "Allgemeine E-Mail-Einstellungen"
@@ -4639,6 +4877,21 @@ msgstr "grommunio Web-Reiter"
 
 msgid "Browser window"
 msgstr "Browserfenster"
+
+msgid "Dialog"
+msgstr "Dialog"
+
+msgid "Open a preview in a"
+msgstr "Vorschau öffnen in"
+
+msgid "Preview in a dialog"
+msgstr "Vorschau im Dialog"
+
+msgid "Preview in a grommunio Web tab"
+msgstr "Vorschau im grommunio Web-Reiter"
+
+msgid "Preview in a browser window"
+msgstr "Vorschau im Browserfenster"
 
 msgid "Update Out of Office settings for"
 msgstr "Abwesenheitseinstellungen aktualisieren für"
@@ -4685,14 +4938,29 @@ msgstr "Jedem außerhalb meiner Organisation"
 msgid "The time you entered is before the out of office date. Please reschedule."
 msgstr "Die eingegebene Zeit liegt vor dem Abwesenheitsdatum. Bitte geben Sie eine spätere Zeit ein."
 
+msgid "Safe Recipients"
+msgstr "Sichere Empfänger"
+
+msgid "Mailing lists or distribution lists that you have added to the Safe Recipients List are considered trustworthy."
+msgstr "Mailinglisten oder Verteilerlisten, die Sie der Liste sicherer Empfänger hinzugefügt haben, gelten als vertrauenswürdig."
+
+msgid "Safe Recipients list is empty"
+msgstr "Liste sicherer Empfänger ist leer"
+
+msgid "Sender Lists"
+msgstr "Absenderlisten"
+
 msgid "Safe Senders"
 msgstr "Sichere Absender"
 
 msgid "To protect your privacy email addresses or domains can only be added via the \"Add to safe sender list\" functionality in an opened email."
 msgstr "Zum Schutz Ihrer Privatsphäre können E-Mail-Adressen oder Domains nur über die Funktion „Zur Liste sicherer Absender hinzufügen“ in einer geöffneten E-Mail hinzugefügt werden."
 
-msgid "Delete all"
-msgstr "Alle löschen"
+msgid "Safe Senders list is empty"
+msgstr "Liste sicherer Absender ist leer"
+
+msgid "Also trust email from my Contacts"
+msgstr "E-Mails von meinen Kontakten ebenfalls als vertrauenswürdig behandeln"
 
 msgid "Signatures"
 msgstr "Signaturen"
@@ -4799,6 +5067,12 @@ msgstr "Nachrichtenliste"
 msgid "Loading mail"
 msgstr "E-Mail wird geladen"
 
+msgid "Conversation view"
+msgstr "Unterhaltungsansicht"
+
+msgid "Sorting shows the flat message list. Sort by \"Received\" (newest first) to show conversations again."
+msgstr "Beim Sortieren wird eine ungruppierte Nachrichtenliste angezeigt. Sortieren Sie nach „Empfangen“ (neueste zuerst), um wieder zur Unterhaltungsansicht zu wechseln."
+
 msgid "No unread mail."
 msgstr "Keine ungelesene E-Mail."
 
@@ -4807,6 +5081,17 @@ msgstr "Ungelesene E-Mail"
 
 msgid "Quick Mail"
 msgstr "Schnell-E-Mail"
+
+msgid "Create note"
+msgstr "Notiz erstellen"
+
+#. TRANSLATORS: Names the mail a note is attached to, e.g. "Note on: Re: invoice"
+msgctxt "note.dialog"
+msgid "Note on"
+msgstr "Notiz zu"
+
+msgid "(no subject)"
+msgstr "(kein Betreff)"
 
 msgid "Print note"
 msgstr "Diese Notiz drucken"
@@ -4864,9 +5149,6 @@ msgstr "Bitte laden Sie die grommunio Web neu, um die Änderungen zu übernehmen
 
 msgid "Reload grommunio Web"
 msgstr "grommunio Web neu laden"
-
-msgid "Settings"
-msgstr "Einstellungen"
 
 msgid "Basic"
 msgstr "Basis"
@@ -4928,8 +5210,8 @@ msgstr "Einstellungen löschen"
 msgid "{0} Iconset"
 msgstr "{0} Symbol-Set"
 
-msgid "About"
-msgstr "Über"
+msgid "Legal Information"
+msgstr "Rechtliche Hinweise"
 
 msgid "Date & Time"
 msgstr "Datum und Uhrzeit"
@@ -4957,6 +5239,15 @@ msgstr "Favoriten verstecken"
 
 msgid "Unpin favorites from top"
 msgstr "Favoriten nicht oben anzeigen"
+
+msgid "Show favorites in the mail folder list only"
+msgstr "Favoriten nur in der E-Mail-Ordnerliste anzeigen"
+
+msgid "Show favorites of the same type in every folder list"
+msgstr "Favoriten desselben Typs in jeder Ordnerliste anzeigen"
+
+msgid "Show all favorites in every folder list"
+msgstr "Alle Favoriten in jeder Ordnerliste anzeigen"
 
 msgid "Interface"
 msgstr "Schnittstelle"
@@ -5099,17 +5390,43 @@ msgstr "Zurücksetzen"
 msgid "Reloading, Please wait."
 msgstr "Webapp wird neu geladen. Bitte warten."
 
+msgid "Search settings"
+msgstr "Einstellungen durchsuchen"
+
+msgid "Clear search"
+msgstr "Suche leeren"
+
+msgid "{0} setting matches"
+msgid_plural "{0} settings match"
+msgstr[0] "{0} passende Einstellung"
+msgstr[1] "{0} passende Einstellungen"
+
+msgid "No settings match"
+msgstr "Keine passenden Einstellungen"
+
 msgid "Setting"
 msgstr "Einstellung"
 
 msgid "The setting '{0}' can not be edited"
 msgstr "Die Einstellung „{0}“ kann nicht bearbeitet werden"
 
+msgid "Undo and redo"
+msgstr "Rückgängig und Wiederholen"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Rückgängig (Strg+Z) und Wiederholen (Strg+Y) von Aktionen wie dem Löschen, Verschieben oder Kennzeichnen von Nachrichten. Das Aufzeichnen dieser Aktionen verursacht einen geringen Mehraufwand, daher ist die Funktion standardmäßig deaktiviert."
+
+msgid "Enable undo and redo of message actions"
+msgstr "Rückgängig und Wiederholen für Nachrichtenaktionen aktivieren"
+
 msgid "OpenID Connect"
 msgstr "OpenID-Verbindung"
 
 msgid "Basic Authentication"
 msgstr "Grundlegende Authentifizierung"
+
+msgid "About"
+msgstr "Über"
 
 msgid "System information"
 msgstr "Informationen zum System"
@@ -5128,6 +5445,12 @@ msgstr "Wartung"
 
 msgid "Reset all settings to defaults"
 msgstr "Alle Einstellungen auf Standardwerte zurücksetzen"
+
+msgid "Changes to assigned task"
+msgstr "Änderungen an delegierter Aufgabe"
+
+msgid "Please note that assigned task(s) will be overwritten when the assignee makes changes."
+msgstr "Bitte beachten Sie, dass alle von Ihnen gemachten Änderungen überschrieben werden, wenn der Zuständige die Aufgabe aktualisiert."
 
 msgid "Delete confirmation"
 msgstr "Bestätigung löschen"
@@ -5287,13 +5610,13 @@ msgid "Total work"
 msgstr "Gesamtaufwand"
 
 msgid "{totalwork} hours"
-msgstr "{Gesamtaufwand} Stunden"
+msgstr "{totalwork} Stunden"
 
 msgid "Actual work"
 msgstr "Ist-Aufwand"
 
 msgid "{actualwork} hours"
-msgstr "{Ist-Aufwand} Stunden"
+msgstr "{actualwork} Stunden"
 
 msgid "Open Shared Tasks"
 msgstr "Gemeinsame Aufgaben öffnen"
@@ -5333,12 +5656,6 @@ msgstr "Als unfertig markieren"
 
 msgid "Remove from To-Do List"
 msgstr "Aus der To-Do Liste entfernen"
-
-msgid "Changes to assigned task"
-msgstr "Änderungen an delegierter Aufgabe"
-
-msgid "Please note that assigned task(s) will be overwritten when the assignee makes changes."
-msgstr "Bitte beachten Sie, dass alle von Ihnen gemachten Änderungen überschrieben werden, wenn der Zuständige die Aufgabe aktualisiert."
 
 msgid "Sort by: Complete"
 msgstr "Sortieren nach: Erledigt"
@@ -5435,6 +5752,12 @@ msgstr "Verbindung wiederhergestellt"
 
 msgid "Connection with server has been restored"
 msgstr "Die Verbindung zum Server wurde wiederhergestellt"
+
+msgid "grommunio Web was updated"
+msgstr "grommunio Web wurde aktualisiert"
+
+msgid "A new version is available, click here to reload."
+msgstr "Eine neue Version ist verfügbar, zum Neuladen hier klicken."
 
 #. TRANSLATORS: Example: HTTP 404
 msgid "HTTP {0}"
@@ -6248,9 +6571,6 @@ msgstr "Ihr Browser unterstützt die Vorschau von Video-Dateien nicht!"
 msgid "d.m.Y G:i"
 msgstr "d.m.Y G:i"
 
-msgid "Folder"
-msgstr "Ordner"
-
 msgid "File ({0})"
 msgstr "Datei ({0})"
 
@@ -6943,6 +7263,9 @@ msgstr "Diese Nachricht wurde im CBC-Modus (nicht authentifizierte Verschlüssel
 msgid "The signing time in the digital signature differs significantly from the expected time. This may indicate a clock synchronization issue or message tampering."
 msgstr "Die Signaturzeit in der digitalen Signatur weicht erheblich von der erwarteten Zeit ab. Dies kann auf ein Problem mit der Uhrensynchronisation oder auf eine Manipulation der Nachricht hindeuten."
 
+msgid "The certificate chain of the sender's certificate could not be verified: the certificate authority that issued it is not in the server's trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority."
+msgstr "Die Zertifikatskette des Absenderzertifikats konnte nicht überprüft werden: Die ausstellende Zertifizierungsstelle ist nicht im S/MIME-Vertrauensspeicher des Servers enthalten oder ein Zwischenzertifikat fehlt. Bitten Sie Ihren Systemadministrator, das fehlende Zertifikat der Zertifizierungsstelle zu installieren."
+
 msgid "Signature verified successfully"
 msgstr "Die Signatur hat die Prüfung bestanden"
 
@@ -7005,6 +7328,9 @@ msgstr "Entschlüsselt (CBC-Modus - für stärkeren Schutz AES-GCM in Betracht z
 
 msgid "Signing time differs from expected time"
 msgstr "Signaturzeit weicht von der erwarteten Zeit ab"
+
+msgid "Could not verify signature, certificate authority is not trusted"
+msgstr "Die Signatur konnte nicht überprüft werden, da die Zertifizierungsstelle nicht vertrauenswürdig ist"
 
 msgid "Digest"
 msgstr "Auszug"
@@ -7557,6 +7883,9 @@ msgstr "Konnte Daten nicht zum Bus hinzufügen, selbe Aktion ist auf dem Bus vor
 msgid "Response data requested from bus but it doesn't have any data."
 msgstr "Antwortdaten vom Bus angefragt, enthalten aber keine Daten."
 
+msgid "Cannot store the category list in this mailbox."
+msgstr "Die Kategorienliste kann nicht in diesem Postfach gespeichert werden."
+
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
 msgstr "Unbekanntes Modul „%s“ mit ID „%s“"
@@ -7738,8 +8067,18 @@ msgstr "Termin konnte nicht versandt werden."
 msgid "Meeting could not be saved."
 msgstr "Termin konnte nicht gespeichert werden."
 
+#, php-format
+msgid "There were %d skipped appointment(s):"
+msgstr "Übersprungene Termine (%d):"
+
+msgid "More skipped appointments are not shown."
+msgstr "Weitere übersprungene Termine werden nicht angezeigt."
+
 msgid "Private Appointment"
 msgstr "Privater Termin"
+
+msgid "Could not open the requested mailbox."
+msgstr "Das angeforderte Postfach konnte nicht geöffnet werden."
 
 #, php-format
 msgid "%s's Birthday"

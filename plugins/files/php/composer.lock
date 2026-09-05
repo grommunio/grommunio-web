@@ -11,12 +11,12 @@
             "version": "9.2.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/PHPSocialNetwork/phpfastcache.git",
+                "url": "https://github.com/TruCopilot/phpfastcache.git",
                 "reference": "7c24491baf23ffb637b18e485f517144cd9af203"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPSocialNetwork/phpfastcache/zipball/7c24491baf23ffb637b18e485f517144cd9af203",
+                "url": "https://api.github.com/repos/TruCopilot/phpfastcache/zipball/7c24491baf23ffb637b18e485f517144cd9af203",
                 "reference": "7c24491baf23ffb637b18e485f517144cd9af203",
                 "shasum": ""
             },
@@ -242,10 +242,10 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.9.0"
 }

@@ -53,12 +53,9 @@ class WebAppSession {
 
 		$this->start();
 
-		// For grommunio.php, release the session file lock early
-		// so parallel requests from the same browser session are
-		// not serialized behind it.  Service requests (e.g.
-		// fingerprint) still need a writable session, so skip
-		// the early close for those — grommunio.php line 50
-		// closes the session for services after they finish.
+		// For grommunio.php, release the session file lock early so parallel
+		// requests from the same browser session are not serialized behind it;
+		// a later write reopens it with updateSession()
 		$isGrommunioPhp = basename((string) $_SERVER['PHP_SELF']) === 'grommunio.php';
 		if (!$isGrommunioPhp) {
 			// We will only check for timeout in the grommunio.php page
@@ -66,9 +63,7 @@ class WebAppSession {
 		}
 		else {
 			$this->checkForTimeout();
-			if (!isset($_GET['service'])) {
-				session_write_close();
-			}
+			session_write_close();
 		}
 	}
 
