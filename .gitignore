@@ -19,6 +19,8 @@
 /.settings
 # NPM modules
 node_modules
+# Composer dependencies
+/vendor/
 # macOS metadata
 .DS_Store
 /tools/php-cs-fixer*

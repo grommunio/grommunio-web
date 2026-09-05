@@ -12,6 +12,7 @@ build:
     analysis:
       dependencies:
         before:
+          - 'composer install --no-interaction --no-progress --prefer-dist'
           - 'mkdir -p analysis-deps'
           - 'git clone --depth 1 --branch 2.2 https://github.com/grommunio/mapi-header-php.git analysis-deps/mapi-header-php'
           - 'test "$(git -C analysis-deps/mapi-header-php rev-parse HEAD)" = 4af93f0248f84fcb435535be8daedea7da939859'
@@ -23,9 +24,6 @@ build:
       tests:
         override:
           - php-scrutinizer-run --enable-security-analysis
-          - command: 'composer require --dev --no-interaction --no-progress "squizlabs/php_codesniffer=3.13.6"'
-            cwd: .
-            stop_on_failure: true
           - command: './vendor/bin/phpcs --version'
             cwd: .
             stop_on_failure: true
@@ -42,6 +40,7 @@ build:
 filter:
   dependency_paths:
     - "analysis-deps/mapi-header-php/"
+    - "vendor/**"
     - "*/vendor/**"
     - "plugins/files/php/Files/Backend/Webdav/sabredav/"
   excluded_paths:
