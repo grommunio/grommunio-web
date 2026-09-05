@@ -877,7 +877,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * Event handler which is fired after the {@link Ext.form.FormPanel FormPanel}
 	 * has been {@link Ext.Component#afterrender rendered}. Here contact photo box has
 	 * listen {@link Ext.Element#click single click}, {@link Ext.Element#dblclick double click} and
-	 * {@link Ext.Element#contextmenu context menu} evetns.
+	 * {@link Ext.Element#contextmenu context menu} events.
 	 * @param {Ext.Component} contactPhotoBox which show the contact picture.
 	 * @private
 	 */
@@ -1481,7 +1481,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
   },
 
   /**
-   * Event handler which is fired when the the {@link Ext.data.Store store} for the {@link #record}
+   * Event handler which is fired when the {@link Ext.data.Store store} for the {@link #record}
    * fires the {@link Ext.data.Store#beforesave} event.
    * This will check all phone number fields if any of this has "x" as a extension separator then
    * replace it with "-".

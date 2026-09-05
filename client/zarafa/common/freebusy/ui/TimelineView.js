@@ -30,7 +30,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	defaultHourCellWidth: 60,
 	/**
 	 * @cfg {Number} bufferTimesViewportWidth
-	 * To determine what range should be loaded this property is used to to see how many times the
+	 * To determine what range should be loaded this property is used to see how many times the
 	 * width of the viewport should be loaded in days. If the viewport is 100px wide and the
 	 * bufferTimesViewportWidth is set to 5, the range that will be loaded is 500px.(defaults to 5).
 	 */

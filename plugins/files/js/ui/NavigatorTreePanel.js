@@ -41,7 +41,7 @@ Zarafa.plugins.files.ui.NavigatorTreePanel = Ext.extend(Zarafa.plugins.files.ui.
 
 	/**
 	 * Event handler which is fired when the {@link #store} fires the
-	 * {@link Zarafa.hierarchy.data.HierarchyStore#removeFolder} event handlerr. This will check
+	 * {@link Zarafa.hierarchy.data.HierarchyStore#removeFolder} event handler. This will check
 	 * if the folder is currently opened, and will deselect that folder.
 	 *
 	 * @param {Zarafa.plugins.files.data.FilesHierarchyStore} store The store which fired the event

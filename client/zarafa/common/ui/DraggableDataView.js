@@ -12,7 +12,7 @@ Zarafa.common.ui.DraggableDataView = Ext.extend(Ext.DataView, {
 	ddGroup: undefined,
 
 	/**
-	 * @cfg {Boolean} enableDragDrop Enables dragging of the selected utems of the DataView. Defaults to false.
+	 * @cfg {Boolean} enableDragDrop Enables dragging of the selected items of the DataView. Defaults to false.
 	 */
 	enableDragDrop: false,
 

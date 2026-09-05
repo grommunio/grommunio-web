@@ -74,7 +74,7 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 			this.maxValue = Date.parseDate(this.maxValue, this.dateFormat + ' ' + this.timeFormat);
 		}
 
-		// Hide the labels, as we will draw them ourself to have more control over them
+		// Hide the labels, as we will draw them ourselves to have more control over them
 		config.hideLabels = true;
 
 		var items = [];
@@ -251,7 +251,7 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 	},
 
 	/**
-	 * Event handler which is raised when the timeSpinner has been spinned
+	 * Event handler which is raised when the timeSpinner has been spun
 	 * this will call {@link #doTimeChange} for updating the new Field value
 	 * and firing the {@link #change} event.
 	 * @param {Zarafa.common.plugins.TimeSpinner} spinner The spinner plugin

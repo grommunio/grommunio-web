@@ -296,7 +296,7 @@ Zarafa.core.data.MAPIProxy = Ext.extend(Ext.data.DataProxy, {
 	},
 
 	/**
-	 * Initialize the the {@link Zarafa.core.Request request} structure. The initial
+	 * Initialize the {@link Zarafa.core.Request request} structure. The initial
 	 * {@link Zarafa.core.Request request} will be reset and new requests will be added
 	 * for each individual {@link Zarafa.core.date.MAPIRecord record} which was provided.
 	 * @param {Zarafa.core.Actions} serverAction The action to perform on the server.

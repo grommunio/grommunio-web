@@ -49,7 +49,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	},
 
 	/**
-	 * Create all buttons which should be added by default the the `Action` buttons
+	 * Create all buttons which should be added by default to the `Action` buttons
 	 * This contains the buttons to reply and forward the message.
 	 *
 	 * @return {Array} The {@link Ext.Button} elements which should be added in the Action section of the {@link Ext.Toolbar}.
@@ -125,7 +125,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	},
 
 	/**
-	 * Create all buttons which should be added by default the the `Options` buttons.
+	 * Create all buttons which should be added by default to the `Options` buttons.
 	 *
 	 * @return {Array} The {@link Ext.Button} elements which should be added in the Options section of the {@link Ext.Toolbar}.
 	 * @private

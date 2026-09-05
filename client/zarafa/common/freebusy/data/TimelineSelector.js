@@ -28,7 +28,7 @@ Zarafa.common.freebusy.data.TimelineSelector = Ext.extend(Ext.util.Observable,
 	/**
 	 * @cfg {Number} dragSelectionEdgeArea
 	 * The number of pixels from the edge the cursor snaps to the edge of the selection and drags
-	 * either the start date or end date. If the cursor is further away from the either egdge than
+	 * either the start date or end date. If the cursor is further away from either edge than
 	 * the supplied number than the a click will create a whole new selection (defaults to 10).
 	 */
 	dragSelectionEdgeArea: 10,

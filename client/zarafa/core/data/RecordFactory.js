@@ -245,7 +245,7 @@ Zarafa.core.data.RecordFactory = {
 	 * this function will return undefined.
 	 *
 	 * @param {Object} recordData The record data from which the record class must be detected
-	 * it slaos contains the properties of which provide values for the new Record's fields.
+	 * It also contains the properties which provide values for the new Record's fields.
 	 * @param {Object} id (Optional) The id of the Record. The id is used by the
 	 * {@link Ext.data.Store Store} object which owns the {@link Ext.data.Record}
 	 * to index its collection of Records (therefore this id should be unique within

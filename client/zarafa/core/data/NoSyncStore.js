@@ -381,7 +381,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * See also {@link Ext.data.Record}<tt>{@link Ext.data.Record#markDirty markDirty}.</tt>.
 	 * @return {Ext.data.Record[]} An array of {@link Ext.data.Record Records} containing outstanding
 	 * modifications. To obtain modified fields within a modified record see
-	 *{@link Ext.data.Record}<tt>{@link Ext.data.Record#modified modified}.</tt>.
+	 * {@link Ext.data.Record}<tt>{@link Ext.data.Record#modified modified}.</tt>.
 	 */
 	getModifiedRecords: function()
 	{

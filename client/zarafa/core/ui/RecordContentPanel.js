@@ -604,7 +604,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 
 	/**
 	 * Event handler that will make sure that the loadmask is shown when the panel is rendered
-	 * and the {#link showLoadMaskOnStart} property has been set to true.
+	 * and the {@link #showLoadMaskOnStart} property has been set to true.
 	 */
 	onAfterLayout: function()
 	{
@@ -664,7 +664,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	},
 
 	/**
-	 * Event handler which is fired when the the {@link Ext.data.Store store} for the {@link #record}
+	 * Event handler which is fired when the {@link Ext.data.Store store} for the {@link #record}
 	 * fires the {@link Ext.data.Store#beforesave} event. This will check if the event was really regarding
 	 * {@link #record} and will update the {@link #isSaving} property and {@link #displayInfoMask display the infobox}.
 	 * @param {Ext.data.Store} store The store which fired the event

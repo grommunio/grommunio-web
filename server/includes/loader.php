@@ -79,7 +79,7 @@ class FileLoader {
 		if ($load == LOAD_RELEASE) {
 			return ["client/grommunio.js"];
 		}
-		elseif ($load == LOAD_DEBUG) {
+		if ($load == LOAD_DEBUG) {
 			return ["client/grommunio-debug.js"];
 		}
 

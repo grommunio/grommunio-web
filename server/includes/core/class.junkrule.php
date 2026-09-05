@@ -150,6 +150,7 @@ class JunkRule {
 
 	/**
 	 * @param array $entries
+	 *
 	 * @return array [addresses, domains] split on the leading '@'
 	 */
 	private static function splitList($entries) {
@@ -204,6 +205,10 @@ class JunkRule {
 	}
 
 	/**
+	 * @param mixed $entries
+	 * @param mixed $tag
+	 * @param mixed $fuzzy
+	 *
 	 * @return string a RES_OR of one RES_CONTENT per entry (zero-count when empty)
 	 */
 	private static function contentList($entries, $tag, $fuzzy) {
@@ -238,6 +243,10 @@ class JunkRule {
 	 * Pull one restriction. Returns a node array or false.
 	 * Nodes: ['t' => type, 'subs' => [], 'tag' => int, 'fuzzy' => int, 'val' => string].
 	 * A depth bound keeps a hostile deeply-nested blob from exhausting memory.
+	 *
+	 * @param mixed $blob
+	 * @param mixed $pos
+	 * @param mixed $depth
 	 */
 	private static function pullRestriction($blob, &$pos, $depth = 0) {
 		if ($pos >= strlen($blob) || $depth > 64) {
@@ -340,6 +349,10 @@ class JunkRule {
 
 	/**
 	 * Pull a property value of the given PT type. Strings decode to UTF-8.
+	 *
+	 * @param mixed $blob
+	 * @param mixed $pos
+	 * @param mixed $type
 	 */
 	private static function pullValue($blob, &$pos, $type) {
 		switch ($type) {
@@ -408,6 +421,11 @@ class JunkRule {
 	 * Classify every string comparison in the tree into the four lists.
 	 * $negated: inside an odd number of RES_NOT.
 	 * $inRecipients: inside a RES_SUB on the recipients table.
+	 *
+	 * @param mixed $node
+	 * @param mixed $negated
+	 * @param mixed $inRecipients
+	 * @param mixed $lists
 	 */
 	private static function collect($node, $negated, $inRecipients, &$lists) {
 		switch ($node['t']) {

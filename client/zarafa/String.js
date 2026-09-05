@@ -61,7 +61,7 @@ if (!String.prototype.padStart) {
 if (!String.prototype.repeat) {
 
 	/**
-	 * IE does not supported repeat function so, add a function into string to available repeat the string function.
+	 * IE does not support String.prototype.repeat, so provide a compatible implementation.
 	 * @param {Number} times an integer indicating the number of times to repeat the string in the newly-created string.
 	 * @returns {string} A new string containing the specified number of copies of the given string.
 	 */

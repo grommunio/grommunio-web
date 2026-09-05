@@ -409,7 +409,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 		settings = Zarafa.core.Util.uniqueArray(settings, 'path');
 
 		// Now remove any settings which are added now,
-		// but are alreasdy in one of the editing lists.
+		// but are already in one of the editing lists.
 		var path = Ext.pluck(settings, 'path');
 		this.filterDuplicates(this.modified, path);
 		this.filterDuplicates(this.restored, path);

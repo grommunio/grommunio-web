@@ -194,7 +194,7 @@ class DaneLookup {
 	/**
 	 * Convert PEM to DER.
 	 */
-	private function pem2der(string $pem): string|false {
+	private function pem2der(string $pem): false|string {
 		$begin = 'CERTIFICATE-----';
 		$end = '-----END';
 		$start = strpos($pem, $begin);

@@ -796,7 +796,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * Event handler which is triggered when status fields
 	 * has been changed by the user. It will validate the new value,
 	 * and if correct, will apply it to the {@link Zarafa.core.data.IPMRecord record}.
-	 * @param {Ext.form.Field} field The {@link Ext.form.Field field} which was spinned.
+	 * @param {Ext.form.Field} field The {@link Ext.form.Field field} which was spun.
 	 * @private
 	 */
 	onCompleteSpin: function(field)

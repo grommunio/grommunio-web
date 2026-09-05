@@ -284,7 +284,7 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 	 * Event handler which is fired after the {@link Ext.form.FormPanel FormPanel}
 	 * has been {@link Ext.Component#afterrender rendered}. Here thumbnail photo box has
 	 * listen {@link Ext.Element#click single click}, {@link Ext.Element#dblclick double click} and
-	 * {@link Ext.Element#contextmenu context menu} evetns.
+	 * {@link Ext.Element#contextmenu context menu} events.
 	 * @param {Ext.Component} thumbnailPhotoBox which show the thumbnail picture.
 	 * @private
 	 */

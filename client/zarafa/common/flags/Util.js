@@ -238,7 +238,7 @@ Zarafa.common.flags.Util = {
 	},
 
 	/**
-	 * Retrieves the values for {#firstWorkingDay} and {#lastWorkingDay}.
+	 * Retrieves the values for {@link #firstWorkingDay} and {@link #lastWorkingDay}.
 	 */
 	retrieveWorkingDays: function()
 	{

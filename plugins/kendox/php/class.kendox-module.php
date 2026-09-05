@@ -21,7 +21,7 @@ class KendoxModule extends Module {
 	public $kendoxClient;
 
 	/**
-	 * @constructor
+	 * Initialize the module and its Kendox connection settings.
 	 *
 	 * @param mixed $id
 	 * @param mixed $data
@@ -430,7 +430,7 @@ class KendoxModule extends Module {
 			return '';
 		}
 
-		if ($path[0] === '/' || preg_match('/^[A-Za-z]:[\\\\\\/]/', $path) === 1) {
+		if ($path[0] === '/' || preg_match('/^[A-Za-z]:[\\\\\/]/', $path) === 1) {
 			return $path;
 		}
 

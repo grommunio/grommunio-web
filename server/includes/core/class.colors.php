@@ -120,7 +120,7 @@ class Colors {
 	}
 
 	/**
-	 * Transforms an red-green-blue color to a hue-saturation-luminence color object
+	 * Transforms a red-green-blue color object to a hue-saturation-luminance object.
 	 * See http://www.niwa.nu/2013/05/math-behind-colorspace-conversions-rgb-hsl/ for
 	 * more information.
 	 *
@@ -175,7 +175,7 @@ class Colors {
 	}
 
 	/**
-	 * Transforms an hue-saturation-luminence to a red-green-blue color color object
+	 * Transforms a hue-saturation-luminance object to a red-green-blue color object.
 	 * See http://www.niwa.nu/2013/05/math-behind-colorspace-conversions-rgb-hsl/ for
 	 * more information.
 	 *

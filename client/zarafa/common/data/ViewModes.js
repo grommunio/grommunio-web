@@ -45,15 +45,12 @@ Zarafa.common.data.ViewModes = Zarafa.core.Enum.create({
 	LIVESCROLL: 4,
 
 	/**
-	 * Function was used to check that current view mode
-	 * was one of the view mode from {@link #NO_PREVIEW},
-	 * {@link #RIGHT_PREVIEW} and {@link #BOTTOM_PREVIEW}.
+	 * Checks whether the current view mode is {@link #NO_PREVIEW},
+	 * {@link #RIGHT_PREVIEW}, or {@link #BOTTOM_PREVIEW}.
 	 *
-	 * @param {Zarafa.common.data.ViewModes} viewMode the viewMode which currently selected.
-	 * @return return true if current view mode is {@link #NO_PREVIEW}, {@link #RIGHT_PREVIEW}
-	 * and {@link #BOTTOM_PREVIEW} else return false.
-	 * @trurn {Boolean} return the true if view mode is {@link #NO_PREVIEW},
-	 * {@link #RIGHT_PREVIEW} and {@link #BOTTOM_PREVIEW} else return false
+	 * @param {Zarafa.common.data.ViewModes} viewMode The currently selected view mode.
+	 * @return {Boolean} True if the view mode is {@link #NO_PREVIEW},
+	 * {@link #RIGHT_PREVIEW}, or {@link #BOTTOM_PREVIEW}; otherwise, false.
 	 */
 	isMainViewMode: function(viewMode)
 	{

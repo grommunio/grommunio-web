@@ -150,7 +150,7 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Zarafa.common.r
 		var conditions = [];
 		var conditionsValid = true;
 
-		// initAtleastCond and initAtmostCond are flags for initial at least and at most conditions respectively.
+		// initAtleastCond and initAtmostCond are flags for initial "at least" and "at most" conditions respectively.
 		var initAtleastCond = true;
 		var initAtmostCond = true;
 
@@ -164,8 +164,8 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Zarafa.common.r
 				condition = activeItem.getCondition();
 			}
 
-			// For conditions Atleast and Atmost, for first time in loop 'rule_msg_atleast_size_unit' and
-			// 'rule_msg_atmost_size_unit' props in record will be overwritten.
+			// On the first iteration, "at least" and "at most" conditions overwrite
+			// the 'rule_msg_atleast_size_unit' and 'rule_msg_atmost_size_unit' properties in the record.
 			if (activeItem.id.indexOf('atleastsize') >= 0) {
 				activeItem.setSizeUnit(record, initAtleastCond);
 				if (initAtleastCond) {

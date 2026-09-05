@@ -118,7 +118,7 @@ abstract class Logger {
 	 * @param int    $logLevel      The log level which will be configured in config file
 	 * @param string $message       The log message which we want to log in user specific log file
 	 * @param mixed  $detailMessage (optional) The detailed log message. it can be Error/Exception array.
-	 * @param mixed  $request       (optional) The request log the the request data which sent by the user
+	 * @param mixed  $request       (optional) The request data sent by the user
 	 */
 	public function Log($logLevel, $message, $detailMessage = false, $request = false) {
 		if ($logLevel <= LOG_USER_LEVEL) {
@@ -153,7 +153,7 @@ abstract class Logger {
 	 * @param int    $logLevel      The log level which will be configured in config file
 	 * @param string $message       The log message which we want to log in user specific log file
 	 * @param mixed  $detailMessage (optional) The detailed log message. it can be Error/Exception array.
-	 * @param mixed  $request       (optional) The request log the the request data which sent by the user
+	 * @param mixed  $request       (optional) The request data sent by the user
 	 */
 	abstract protected function Write($logLevel, $message, $detailMessage, $request);
 }

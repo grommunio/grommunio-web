@@ -110,7 +110,7 @@ Zarafa.plugins.kendox.UploadDialog = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	configDialogUrl: undefined,
 
 	/**
-	 * Type of opload (fullEMail or attachmentsOnly)
+	 * Type of upload (fullEMail or attachmentsOnly)
 	 */
 	uploadType: "fullEmail",
 

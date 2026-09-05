@@ -9,7 +9,7 @@ class Exception extends \Exception {
 	public $title;
 
 	/**
-	 * @constructor
+	 * Create a files exception.
 	 *
 	 * @param string $message The error message
 	 * @param int    $code    The error code

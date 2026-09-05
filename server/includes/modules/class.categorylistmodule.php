@@ -49,6 +49,7 @@ class CategoryListModule extends Module {
 	 * would silently read or overwrite the wrong mailbox's list.
 	 *
 	 * @param array $action the action data sent by the client
+	 *
 	 * @return resource the message store to operate on
 	 */
 	private function getStoreForAction($action) {

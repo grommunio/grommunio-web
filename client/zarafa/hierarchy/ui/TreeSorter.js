@@ -197,8 +197,8 @@ Zarafa.hierarchy.ui.TreeSorter = Ext.extend(Ext.tree.TreeSorter, {
 		var bothRecordsStore = isRecord1Store && isRecord2Store;
 
 		// First look at the folders Order, because they have a predefined order
-		// For the sorting of folders of Favorites, get the oroginal records which helps getting FullyQualifiedName later.
-		// Escape getting the oroginal records for search type folders.
+		// For the sorting of Favorites folders, get the original records to retrieve FullyQualifiedName later.
+		// Skip getting the original records for search folders.
 		// Escape getting default folder key for Shared type folders. For the store records and other than favorites records,
     // directly get the default folder key.
 		if(!bothRecordsStore && record1.isFavoritesFolder() && record2.isFavoritesFolder()) {

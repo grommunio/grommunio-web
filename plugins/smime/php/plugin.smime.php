@@ -1045,8 +1045,9 @@ class Pluginsmime extends Plugin {
 			return;
 		}
 		if (!class_match_prefix($messageClass, "IPM.Note.deferSMIME") &&
-		    !class_match_prefix($messageClass, "IPM.Note.SMIME"))
+			!class_match_prefix($messageClass, "IPM.Note.SMIME")) {
 			return;
+		}
 
 		// Apply user settings as fallback when no per-message override was set
 		// by onCertificateCheck (e.g. for sign-only messages).
@@ -1118,6 +1119,7 @@ class Pluginsmime extends Plugin {
 
 		$tmpExtra = [];
 		$ok = false;
+
 		// Sign then Encrypt email
 		switch ($messageClass) {
 			case 'IPM.Note.deferSMIME.SignedEncrypt':
@@ -1328,14 +1330,12 @@ class Pluginsmime extends Plugin {
 	}
 
 	/**
-	 * Retrieves the public certificates stored in the MAPI UserStore and belonging to the
-	 * emailAdddress, returns "" if there is no certificate for that user.
+	 * Retrieves the public certificates stored in the MAPI user store for an email address.
 	 *
-	 * @param string emailAddress
-	 * @param mixed $emailAddress
-	 * @param mixed $multiple
+	 * @param string $emailAddress
+	 * @param bool   $multiple     return all matching certificates when true
 	 *
-	 * @return string $certificate
+	 * @return array|string matching certificates, or an empty string when none exist
 	 */
 	public function getPublicKey($emailAddress, $multiple = false) {
 		$certificates = [];
@@ -1367,12 +1367,10 @@ class Pluginsmime extends Plugin {
 	}
 
 	/**
-	 * Function which is used to check if there is a public certificate for the provided emailAddress.
+	 * Check whether a public certificate exists for the provided email address.
 	 *
-	 * @param string emailAddress emailAddres of recipient
-	 * @param bool gabUser is the user of PR_ADDRTYPE == ZARAFA
-	 * @param mixed $emailAddress
-	 * @param mixed $gabUser
+	 * @param string $emailAddress recipient email address
+	 * @param bool   $gabUser      whether the recipient has PR_ADDRTYPE == ZARAFA
 	 *
 	 * @return bool true if public certificate exists
 	 */

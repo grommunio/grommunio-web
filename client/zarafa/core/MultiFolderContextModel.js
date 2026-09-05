@@ -124,7 +124,7 @@ Zarafa.core.MultiFolderContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	},
 
 	/**
-	 * Set the mergeState to force eiher the UI components to merge or separate
+	 * Set the mergeState to force either the UI components to merge or separate
 	 * all folders currently in the view. If the lock argument is not given, or
 	 * is currently This will only act upon the currently open folders in the view.
 	 * @param {Boolean} mergeState True to merge all folders into a single view

@@ -128,7 +128,7 @@ Zarafa.calendar.ui.html.AppointmentBoxView = Ext.extend(Zarafa.calendar.ui.Appoi
 	destroyHeader: Ext.emptyFn,
 
 	/**
-	 * Lays out the body of the view. This will generate the Body bounts using the
+	 * Lays out the body of the view. This will generate the body bounds using the
 	 * function {@link Zarafa.calendar.ui.AbstractCalendarBoxView.dateRangeToBodyBounds dateRangeToBodyBounds},
 	 * the bounds will be used for laying out the body elements using {@link #layoutBodyElements}.
 	 * @private

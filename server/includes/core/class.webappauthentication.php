@@ -35,9 +35,7 @@ class WebAppAuthentication {
 	private static $_mapiSession;
 
 	/**
-	 * @var 0|int An code that reflects the latest error
-	 *
-	 * @see $UMAPI_PATH/mapicodes.php
+	 * @var 0|int a code that reflects the latest error
 	 */
 	private static $_errorCode = NOERROR;
 
@@ -100,8 +98,6 @@ class WebAppAuthentication {
 
 	/**
 	 * Returns the MAPISession instance.
-	 *
-	 * @see server/includes/core/class.mapisession.php
 	 *
 	 * @return MAPISession
 	 */
@@ -493,6 +489,7 @@ class WebAppAuthentication {
 			return WebAppAuthentication::getErrorCode();
 		}
 		header("X-grommunio-Authuser:" . $username);
+
 		return WebAppAuthentication::login($username, $password);
 	}
 

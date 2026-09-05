@@ -95,6 +95,8 @@ abstract class AIProvider {
 
 	/**
 	 * Execute a buffered (non-streaming) request.
+	 *
+	 * @param mixed $ch
 	 */
 	private function execBuffered($ch): string {
 		$resp = curl_exec($ch);
@@ -117,6 +119,8 @@ abstract class AIProvider {
 
 	/**
 	 * Execute a streaming request, dispatching each text fragment to $onDelta.
+	 *
+	 * @param mixed $ch
 	 */
 	private function execStreaming($ch, callable $onDelta): string {
 		$buffer = '';
@@ -171,6 +175,7 @@ abstract class AIProvider {
 
 		if ($code >= 400) {
 			$json = json_decode($raw, true);
+
 			throw new AIException($this->httpError($code, is_array($json) ? $json : null));
 		}
 		// Surface a mid-stream provider error rather than presenting a blank or

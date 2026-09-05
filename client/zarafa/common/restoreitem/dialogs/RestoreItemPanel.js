@@ -210,7 +210,7 @@ Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Zarafa.common.ui
 
 	/**
 	 * Event handler when the "Delete All" button has been pressed.
-	 * This will raise a Conformation which ask user that he/she want to go ahead and
+	 * This will request confirmation that the user wants to continue and
 	 * Permanently delete all the items or not.
 	 * @param {Ext.Button} button button component
 	 * @param {Ext.EventObject} eventObj event object for the click event.
@@ -285,7 +285,7 @@ Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Zarafa.common.ui
 
 	/**
 	 * Event handler when the "Restore All" button has been pressed.
-	 * This will raise a Conformation which ask user that he/she want to go ahead and
+	 * This will request confirmation that the user wants to continue and
 	 * restore all the items or not.
 	 * @param {Ext.Button} button button component
 	 * @param {Ext.EventObject} eventObj event object for the click event.

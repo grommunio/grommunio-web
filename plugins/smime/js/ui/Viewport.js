@@ -1,6 +1,6 @@
 Ext.namespace('Zarafa.plugins.smime.ui');
 
-// Adding some functionality to the the Ext.EventManager so our viewport can handle the resizing of the iframe
+// Add functionality to Ext.EventManager so our viewport can handle iframe resizing
 Ext.apply(Ext.EventManager, function(){
 	var resizeEvent;
 	var resizeTask;

@@ -2,7 +2,7 @@ Ext.namespace('Zarafa.common.rules.dialogs');
 
 /**
  * @class Zarafa.common.rules.dialogs.NoneLink
- * @extends Zarfa.common.rules.BaseLink
+ * @extends Zarafa.common.rules.dialogs.BaseLink
  * @xtype zarafa.nonelink
  *
  * Condition component for the {@link Zarafa.common.rules.data.ConditionFlags#NONE NONE}

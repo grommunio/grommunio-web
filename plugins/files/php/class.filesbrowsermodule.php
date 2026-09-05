@@ -28,10 +28,6 @@ use Files\Core\Util\StringUtil;
 
 /**
  * This module handles all list and change requests for the files browser.
- *
- * @class FilesBrowserModule
- *
- * @extends ListModule
  */
 class FilesBrowserModule extends FilesListModule {
 	public const LOG_CONTEXT = "FilesBrowserModule"; // Context for the Logger
@@ -342,7 +338,7 @@ class FilesBrowserModule extends FilesListModule {
 					continue;
 				}
 
-				// Check if foldernames have a trailing slash, if not, add one!
+				// Check if folder names have a trailing slash, if not, add one!
 				if ($type === FILES_FOLDER && !StringUtil::endsWith($id, "/")) {
 					$id .= "/";
 				}
@@ -354,7 +350,7 @@ class FilesBrowserModule extends FilesListModule {
 				$filename = stringToUTF8Encode(basename((string) $id));
 
 				$size = $node['getcontentlength'] === null ? -1 : intval($node['getcontentlength']);
-				$size = $type == FILES_FOLDER ? -1 : $size; // folder's dont have a size
+				$size = $type == FILES_FOLDER ? -1 : $size; // Folders do not have a size
 
 				$fileid = $node['fileid'] === "-1" ? -1 : intval($node['fileid']);
 

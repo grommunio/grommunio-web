@@ -547,7 +547,7 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 			});
 		} else {
 			// case (2)
-			// This is both the firstBox as well as the lastBox (everythhing is within the range).
+			// This is both the firstBox and the lastBox (everything is within the range).
 			// The left and right position is read from the positions from the correct dayColumns
 			// with padding applied.
 			return new Zarafa.calendar.data.AppointmentBounds({

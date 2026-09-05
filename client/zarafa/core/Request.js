@@ -148,7 +148,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		 * @cfg {String} subSystemPrefix string that will be used to generate session filename which
 		 * will be used to store session data in php. current timestamp will be appended to this string
 		 * so different tabs opened in same browser will have different session data. So every request object
-		 * corresponds to one unique subSystem string id (accuracy upto milliseconds).
+		 * corresponds to one unique subSystem string id (accuracy up to milliseconds).
 		 */
 		subSystemPrefix: 'webapp',
 
@@ -494,7 +494,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 
 		/**
 		 * Obtain and dequeue any requests from {@link #queuedRequests}. Use
-		 * {@link #activateRequests} to add them the the {@link #activeRequests} array
+		 * {@link #activateRequests} to add them to the {@link #activeRequests} array
 		 * once the request has been send out.
 		 * @return {Array} The array of previously queued requests
 		 * @private

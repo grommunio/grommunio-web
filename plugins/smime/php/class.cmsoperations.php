@@ -312,7 +312,7 @@ class CmsOperations {
 	 * @param array       $certs   recipient certificates (PEM strings or resources)
 	 * @param array       $headers additional MIME headers
 	 * @param int         $flags   CMS/PKCS7 flags
-	 * @param string|int  $cipher  cipher name (string) or OPENSSL_CIPHER_* constant
+	 * @param int|string  $cipher  cipher name (string) or OPENSSL_CIPHER_* constant
 	 *
 	 * @return bool true on success
 	 */
@@ -468,7 +468,7 @@ class CmsOperations {
 	/**
 	 * Normalize a cipher specification to a canonical string name.
 	 *
-	 * @param string|int $cipher string name or OPENSSL_CIPHER_* constant
+	 * @param int|string $cipher string name or OPENSSL_CIPHER_* constant
 	 *
 	 * @return string canonical cipher name
 	 */
@@ -491,8 +491,6 @@ class CmsOperations {
 	 * Check whether a given cipher is a GCM (AEAD) cipher.
 	 *
 	 * @param string $cipher cipher name
-	 *
-	 * @return bool
 	 */
 	public function isGcmCipher(string $cipher): bool {
 		return str_contains(strtolower($cipher), 'gcm');
@@ -664,6 +662,9 @@ class CmsOperations {
 
 	/**
 	 * Decrypt using OpenSSL CLI (for AuthEnvelopedData).
+	 *
+	 * @param mixed $certificate
+	 * @param mixed $privateKey
 	 */
 	private function decryptCli(
 		string $infile,

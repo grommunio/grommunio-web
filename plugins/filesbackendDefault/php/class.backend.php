@@ -10,7 +10,6 @@ require_once __DIR__ . "/../../files/php/Files/Backend/interface.version.php";
 require_once __DIR__ . "/../../files/php/Files/Backend/interface.sharing.php";
 require_once __DIR__ . "/lib/ocsapi/class.ocsclient.php";
 
-use Files\Backend\AbstractBackend;
 use Files\Backend\Exception as BackendException;
 use Files\Backend\iFeatureSharing;
 use Files\Backend\Webdav\sabredav\FilesWebDavClient;
@@ -23,12 +22,8 @@ use Sabre\DAV\Exception;
 use Sabre\HTTP\ClientException;
 
 /**
- * This is a file backend for owncloud servers.
- * It requires the Webdav File Backend!
- *
- * @class   Backend
- *
- * @extends AbstractBackend
+ * This is a file backend for ownCloud servers.
+ * It requires the WebDAV file backend.
  */
 class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 	/**
@@ -37,7 +32,7 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 	public $ocs_client;
 
 	/**
-	 * @constructor
+	 * Initialize the default WebDAV backend.
 	 */
 	public function __construct() {
 		// initialization

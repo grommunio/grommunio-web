@@ -245,7 +245,7 @@ class ocsclient {
 	 *
 	 * @param mixed $search
 	 *
-	 * @return [] or FALSE
+	 * @return array|false matching recipients, or false for an invalid response
 	 *
 	 * @throws ConnectionException
 	 * @throws InvalidResponseException

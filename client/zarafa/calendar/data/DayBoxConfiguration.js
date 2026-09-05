@@ -87,13 +87,10 @@ Zarafa.calendar.data.DayBoxConfiguration = Ext.extend(Object, {
 	overflow: false,
 
 	/**
-	 * True if this DayBox must be rendered as active. And non-active DayBox means that
+	 * True if this DayBox must be rendered as active. A non-active DayBox means that
 	 * it is being rendered but the day which is represented by this box does not fall
 	 * within the requested {@link Zarafa.core.DateRange daterange} for which the appointments
 	 * have been requested.
-	 *
-	 * and the appointments for this day have been loaded. It can be
-	 * false if this is a day whi
 	 * @property
 	 * @type Boolean
 	 */

@@ -141,7 +141,7 @@ Ext.ux.form.field.PasswordMeter = Ext.extend(Ext.form.TextField, {
 			score += 18;
 		}
 
-		// LETTERS (Not exactly implemented as dictacted above
+		// LETTERS (Not exactly implemented as dictated above
 		// because of my limited understanding of Regex)
 		if (p.match(/[a-z]/)) {
 			// [verified] at least one lower case letter

@@ -162,7 +162,7 @@ Zarafa.settings.ui.SettingsKeyShortcutCategory = Ext.extend(Zarafa.settings.ui.S
 
 	/**
 	 * Generate the key Combinations based on available {@link Zarafa.core.KeyMap KeyMap} configurations.
-	 * It will also concate the combination for special keys like ENTER, F5, DELETE accordingly.
+	 * It will also concatenate the combination for special keys like ENTER, F5, and DELETE accordingly.
 	 * @param {Object|Array} keyConfig The {@link Zarafa.core.KeyMap KeyMap} configurations.
 	 * @return {Object} {@link #keyDescription} keyConfig contains the Key-Combination and Description.
 	 * @private

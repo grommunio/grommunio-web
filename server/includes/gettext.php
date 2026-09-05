@@ -43,5 +43,4 @@ if (!function_exists('pgettext')) {
 
 		return $translation;
 	}
-
 }

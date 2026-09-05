@@ -53,7 +53,7 @@ Zarafa.common.ui.ColorPicker = Ext.extend(Ext.form.Field, {
 
 	/**
 	 * The element that is rendered as a colored box on which a user
-	 * can click to show {#menu the color picker menu}
+	 * can click to show {@link #menu the color picker menu}
 	 * @type Ext.Element
 	 * @property
 	 */
@@ -83,7 +83,7 @@ Zarafa.common.ui.ColorPicker = Ext.extend(Ext.form.Field, {
 			'show',
 
 			/**
-			 * @event hideu
+			 * @event hide
 			 * Fired when the menu is hidden.
 			 *
 			 * @param {Zarafa.common.ui.ColorPicker} this The color picker.
@@ -169,7 +169,7 @@ Zarafa.common.ui.ColorPicker = Ext.extend(Ext.form.Field, {
 
   /**
    * Initializes event handlers. Adds a handler for the click event
-   * on {#box the colored box}
+   * on {@link #box the colored box}
    */
   initEvents: function(){
     Zarafa.common.ui.ColorPicker.superclass.initEvents.call(this);

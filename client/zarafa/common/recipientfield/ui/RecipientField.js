@@ -131,7 +131,7 @@ Zarafa.common.recipientfield.ui.RecipientField = Ext.extend(Zarafa.common.ui.Box
 	 * this component need to handle the input. Has to be overwritten to implement the desired
 	 * behavior and the creation of the correct type of record.
 	 *
-	 * It will split up the input string if it has multiple email addresses or valid delimeteres.
+	 * It will split up the input string if it has multiple email addresses or valid delimiters.
 	 * It will split following types of multiple email addresses string
 	 *   1. Email addresses with valid delimiters , and ; and spaces
 	 *   2. Email addresses with user name where email address is enclosed in < >
@@ -144,27 +144,27 @@ Zarafa.common.recipientfield.ui.RecipientField = Ext.extend(Zarafa.common.ui.Box
 
 		// fetch the email addresses from string.
 		var emailAddresses = value.match(Zarafa.reMultipleEmailAddresses);
-		var splitted = [];
+		var splitAddresses = [];
 
 		// If string doesn't have email address and
 		// it has only user name with delimiter then split the string with that delimiter
 		if (Ext.isEmpty(emailAddresses)) {
-			splitted = value.split(new RegExp(this.delimiterCharacters.join('|'), 'g'));
+			splitAddresses = value.split(new RegExp(this.delimiterCharacters.join('|'), 'g'));
 
-			if(Ext.isEmpty(splitted)) {
-				splitted.push(value);
+			if(Ext.isEmpty(splitAddresses)) {
+				splitAddresses.push(value);
 			}
 		} else {
-			splitted = emailAddresses;
+			splitAddresses = emailAddresses;
 		}
 
 		// Remove duplicate email addresses.
-		splitted = splitted.filter(function (emailAddress, index, self) {
+		splitAddresses = splitAddresses.filter(function (emailAddress, index, self) {
 			self[index] = self[index].trim();
 			return index === self.indexOf(emailAddress.trim());
 		});
 
-		var newRecords = splitted.map(function (emailAddress) {
+		var newRecords = splitAddresses.map(function (emailAddress) {
 			return this.boxStore.parseRecipient(emailAddress.trim(), this.defaultRecipientType);
 		}, this);
 

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdocumentor
+    configVersion="3"
+    xmlns="https://www.phpdoc.org"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/phpDocumentor/phpDocumentor/master/data/xsd/phpdoc.xsd"
+>
+    <title>grommunio Web PHP API</title>
+    <paths>
+        <output>doc/api</output>
+        <cache>.phpdoc/cache</cache>
+    </paths>
+    <version number="latest">
+        <api>
+            <source dsn=".">
+                <path>*.php</path>
+                <path>server/**/*.php</path>
+                <path>plugins/**/*.php</path>
+            </source>
+            <ignore hidden="true" symlinks="true">
+                <path>plugins/**/test/**/*</path>
+                <path>plugins/**/vendor/**/*</path>
+                <path>server/includes/mapi/**/*</path>
+            </ignore>
+            <extensions>
+                <extension>php</extension>
+            </extensions>
+            <default-package-name>grommunio Web</default-package-name>
+            <include-source>false</include-source>
+        </api>
+    </version>
+</phpdocumentor>

@@ -38,7 +38,8 @@ $iconsetStylesheet = Iconsets::getActiveStylesheet();
 $darkMode = WebAppAuthentication::isAuthenticated() ? $GLOBALS['settings']->get('zarafa/v1/main/dark_mode') : 'light';
 if ($darkMode === 'dark') {
 	echo ' dark-mode';
-} elseif ($darkMode === 'system') {
+}
+elseif ($darkMode === 'system') {
 	echo ' dark-mode-system';
 }
 ?>">

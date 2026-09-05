@@ -9,13 +9,13 @@ use ArrayAccess;
 /**
  * Class Config.
  *
- * @property string server Seafile server. FQN or IP address (v4 only).
- * @property int port TCP port of Seafile server. Default is 443.
- * @property bool ssl Use https (true) or http (false) scheme. Default is true.
- * @property string path Base path. Commonly empty.
- * @property string user Username for authentication.
- * @property string pass Password for authentication.
- * @property string sso_auth_user_token Token for SSO user authentication
+ * @property string $server              Seafile server. FQN or IP address (v4 only).
+ * @property int    $port                TCP port of Seafile server. Default is 443.
+ * @property bool   $ssl                 Use https (true) or http (false) scheme. Default is true.
+ * @property string $path                Base path. Commonly empty.
+ * @property string $user                Username for authentication.
+ * @property string $pass                Password for authentication.
+ * @property string $sso_auth_user_token Token for SSO user authentication
  */
 class Config implements \ArrayAccess {
 	private const DEF = [

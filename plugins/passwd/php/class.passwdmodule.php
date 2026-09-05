@@ -26,7 +26,7 @@ class PasswdModule extends Module {
 	}
 
 	/**
-	 * Change the password of user. Do some calidation and call proper methods based on
+	 * Change the user's password. Perform validation and call the appropriate methods based on the
 	 * zarafa setup.
 	 *
 	 * @param array $data data sent by client

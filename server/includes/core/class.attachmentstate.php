@@ -169,7 +169,7 @@ class AttachmentState {
 	 *
 	 * @param MAPIAttach $attachment MAPI attachment Object
 	 *
-	 * @return return true if attachment was inline attachment else return false
+	 * @return bool true if the attachment is inline, otherwise false
 	 */
 	public function isInlineAttachment($attachment) {
 		$props = mapi_attach_getprops($attachment, [PR_ATTACH_CONTENT_ID, PR_ATTACHMENT_HIDDEN, PR_ATTACH_FLAGS]);
@@ -183,7 +183,7 @@ class AttachmentState {
 	 *
 	 * @param MAPIAttach $attachment MAPI attachment Object
 	 *
-	 * @return return true if attachment is contact photo else return false
+	 * @return bool true if the attachment is a contact photo, otherwise false
 	 */
 	public function isContactPhoto($attachment) {
 		$attachmentProps = mapi_attach_getprops($attachment, [PR_ATTACHMENT_CONTACTPHOTO, PR_ATTACHMENT_HIDDEN]);

@@ -5,9 +5,9 @@ Fixes:
 * Not possible to configure multiple email addresses of the same user
 * Various send-as related fixes
 * Vendor docx-preview, JSZip and SheetJS
-* All fields of ontacts in distribution lists are empty
+* All fields of contacts in distribution lists are empty
 * Unable to expand distlist members
-* Unable to grant free/busy permissions for calender type subfolders
+* Unable to grant free/busy permissions for calendar-type subfolders
 * Saving reply/forward draft fails when the source message was moved
 * "Assigned To" value for tasks is missing
 * Opening or saving a private distlist fails
@@ -291,7 +291,7 @@ Enhancements:
 * Full HTML support for appointments and contacts as well
 * Calendar coalescing improves performance with large calendar setups
   (>= 5 calendars in store)
-* Introduce object preloading, noticably enhancing performance by preloading
+* Introduce object preloading, noticeably enhancing performance by preloading
   objects in the users visibility area
 * Calendar objects can now be copied with CTRL+drag (OL-like behavior)
 * Updated pdf.js enhances the pdf handling experience with better

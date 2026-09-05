@@ -116,7 +116,7 @@ class Language {
 					$lang_title = trim($lang_title);
 					// Names in other scripts get the English name next to them, so
 					// the entry stays readable without a font for that script
-					if (class_exists('Locale') && !preg_match('/\\p{Latin}/u', $lang_title)) {
+					if (class_exists('Locale') && !preg_match('/\p{Latin}/u', $lang_title)) {
 						$english = Locale::getDisplayLanguage($entry, 'en');
 						if (!empty($english) && $english !== $entry) {
 							$lang_title .= " ({$english})";

@@ -174,7 +174,7 @@ Zarafa.advancesearch.AdvanceSearchStore = Ext.extend(Zarafa.core.data.ListModule
 	},
 
 	/**
-	 * Initialize all events which this {#Zarafa.advancesearch.AdvanceSearchStore AdvanceSearchStore} will listen to.
+	 * Initialize all events which this {@link Zarafa.advancesearch.AdvanceSearchStore AdvanceSearchStore} will listen to.
 	 * @private
 	 */
 	initEvents: function()
@@ -219,7 +219,7 @@ Zarafa.advancesearch.AdvanceSearchStore = Ext.extend(Zarafa.core.data.ListModule
 	},
 
 	/**
-	 * Event handler for the load event of this {#Zarafa.advancesearch.AdvanceSearchStore}
+	 * Event handler for the load event of this {@link Zarafa.advancesearch.AdvanceSearchStore}
 	 * @param {Zarafa.advancesearch.AdvanceSearchStore} store This store
 	 * @param {Zarafa.core.data.IPMRecord[]} records loaded record set
 	 * @param {Object} options the options (parameters) with which the load was invoked.

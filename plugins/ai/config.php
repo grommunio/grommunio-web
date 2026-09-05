@@ -1,4 +1,5 @@
 <?php
+
 /*
  * grommunio Web — AI Assistant plugin configuration.
  *

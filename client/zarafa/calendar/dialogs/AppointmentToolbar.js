@@ -40,7 +40,7 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 	},
 
 	/**
-	 * Create all buttons which should be added by default the the `Actions` buttons.
+	 * Create all buttons which should be added by default to the `Actions` buttons.
 	 * These buttons are used to send, save and add attachments to the message. And it contains
 	 * also buttons to check the recipient names or add a signature.
 	 *
@@ -288,7 +288,7 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 	},
 
 	/**
-	 * Create all buttons which should be added by default the the `Options` buttons.
+	 * Create all buttons which should be added by default to the `Options` buttons.
 	 * This contains the buttons to set the message options like priority and read receipt.
 	 *
 	 * @return {Array} The {@link Ext.Button Button} elements which should be

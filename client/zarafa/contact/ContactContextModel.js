@@ -88,7 +88,7 @@ Zarafa.contact.ContactContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Zarafa.core.IPMFolder} folder (optional) The target folder in which the new record must be
 	 * created. If this is not provided the default folder will be used.
 	 * @param {Boolean} isDistlist True to create a distributionlist rather then a Contact
-	 * @return {Zarafa.coore.data.IPMRecord} The new {@link Zarafa.core.data.IPMRecord IPMRecord}.
+	 * @return {Zarafa.core.data.IPMRecord} The new {@link Zarafa.core.data.IPMRecord IPMRecord}.
 	 */
 	createRecord: function(folder, isDistlist)
 	{

@@ -39,7 +39,7 @@ function getCertEmail($certificate) {
  *
  * @param resource $store        user's store
  * @param string   $type         of message_class
- * @param string   $emailAddress emailaddress to specify
+ * @param string   $emailAddress email address to specify
  *
  * @return bool|resource the mapi message containing the private certificate, returns false if no certificate is found
  */
@@ -705,7 +705,7 @@ function verifyOCSP($certificate, $extracerts, &$message) {
  *
  * @param string $certificate the pkcs#12 cert
  * @param string $passphrase the pkcs#12 passphrase
- * @param string $emailAddres the users email address (must match certificate email)
+ * @param string $emailAddress the user's email address (must match certificate email)
  */
 function validateUploadedPKCS($certificate, $passphrase, $emailAddress) {
 	if (!openssl_pkcs12_read($certificate, $certs, $passphrase)) {
@@ -952,7 +952,7 @@ function verifyRevocation($certificate, $extracerts, &$message) {
 /**
  * Detect if the encryptionstore has a third parameter which sets the expiration.
  *
- * @return {boolean} true is expiration is supported
+ * @return bool true if expiration is supported
  */
 function encryptionStoreExpirationSupport() {
 	$refClass = new ReflectionClass('EncryptionStore');

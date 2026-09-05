@@ -16,11 +16,7 @@ use Sabre\DAV\Exception;
 use Sabre\HTTP\ClientException;
 
 /**
- * This is a file backend for webdav servers.
- *
- * @class   Backend
- *
- * @extends AbstractBackend
+ * This is a file backend for WebDAV servers.
  */
 class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionInfo {
 	/**
@@ -98,7 +94,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	public $backendTransName;
 
 	/**
-	 * @constructor
+	 * Initialize the generic WebDAV backend.
 	 */
 	public function __construct() {
 		// initialization
@@ -162,8 +158,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			[
 				"name" => "server_path",
 				"fieldLabel" => _('Webdav base path'),
-				"editor" => [
-				],
+				"editor" => [],
 			],
 			[
 				"name" => "user",

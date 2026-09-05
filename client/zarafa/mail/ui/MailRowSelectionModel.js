@@ -70,7 +70,7 @@ Zarafa.mail.ui.MailRowSelectionModel = Ext.extend(Ext.grid.RowSelectionModel, {
 				}
 
 				// Index of the last record might have changed.
-				// So, fetch the latest index for the the last record.
+				// So, fetch the latest index for the last record.
 				rowIndex = store.indexOf(recordAtEndIndex);
 			}
 
@@ -184,7 +184,7 @@ Zarafa.mail.ui.MailRowSelectionModel = Ext.extend(Ext.grid.RowSelectionModel, {
 
 		// If header record is found at the end index of the selection range
 		// and if that conversation is closed then expand that conversation.
-		// And update endIndex accordig to the selection direction.
+		// And update endIndex according to the selection direction.
 		if (isHeaderRecord && !store.isConversationOpened(record)) {
 			store.expandConversation(record);
 			if (up) {
@@ -299,7 +299,7 @@ Zarafa.mail.ui.MailRowSelectionModel = Ext.extend(Ext.grid.RowSelectionModel, {
 	/**
 	 * Handler for the key press event.
 	 *
-	 * Note: we need to modify this function because on dynamically addintion of rows in grid
+	 * Note: we need to modify this function because dynamically adding rows to the grid
 	 * {@link #last} might be changed. So to overcome this situation we are getting updated value
 	 * for {@link #last} from {@link #selectRange} method.
 	 *

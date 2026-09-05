@@ -16,7 +16,7 @@ Zarafa.contact.dialogs.ContactAddressPanel = Ext.extend(Ext.form.FormPanel, {
 	property: '',
 	/**
 	 * @cfg {Object} parsedData if data is already parsed then it can be passed here,
-	 * so no need to prase same data again
+	 * so there is no need to parse the same data again
 	 */
 	parsedData: null,
 	/**

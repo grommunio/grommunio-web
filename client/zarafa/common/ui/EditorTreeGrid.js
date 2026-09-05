@@ -123,7 +123,7 @@ Zarafa.common.ui.EditorTreeGrid = Ext.extend(Zarafa.common.ui.TreeGrid, {
 
 	/**
 	 * Called to initiate the editing of a given column for the provided node.
-	 * This will obain the {@link #getCellEditor editor} to be used for the column,
+	 * This will obtain the {@link #getCellEditor editor} to be used for the column,
 	 * if an editor is provided it will be rendered into the given cell to allow
 	 * the user to edit the cell.
 	 * @param {Ext.tree.TreeNode} node The node on which the editing will take place

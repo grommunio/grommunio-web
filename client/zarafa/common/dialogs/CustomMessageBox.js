@@ -41,7 +41,7 @@ Zarafa.common.dialogs.CustomMessageBox = Ext.extend(Ext.Window, {
 
 	/**
 	 * A CSS class that provides a background image to be used as the body icon for the dialog.
-	 *@type String
+	 * @type String
 	 */
 	icon: '',
 
@@ -142,7 +142,7 @@ Zarafa.common.dialogs.CustomMessageBox = Ext.extend(Ext.Window, {
 
 
 	/**
-	 * Initialize the {@link Zarafa.common.dialogs.CustomMessageBox Dialog} with {#customItems}.
+	 * Initialize the {@link Zarafa.common.dialogs.CustomMessageBox Dialog} with {@link #customItems}.
 	 * @param {Array} items The array of items which must be added to the Custom MessageBox.
 	 * @private
 	 */
@@ -165,7 +165,7 @@ Zarafa.common.dialogs.CustomMessageBox = Ext.extend(Ext.Window, {
 	},
 
 	/**
-	 * Updates the custom message box body text with {#msg} and
+	 * Updates the custom message box body text with {@link #msg} and
 	 * resize the dialog width as per content of message.
 	 */
 	updateText: function ()
@@ -194,8 +194,8 @@ Zarafa.common.dialogs.CustomMessageBox = Ext.extend(Ext.Window, {
 	},
 
 	/**
-	 * Adds {#icon} class into the {#iconEl} icon element of the dialog.
-	 * If icon is not available then set hidden class for the {#iconEl} icon element
+	 * Adds the {@link #icon} class to the dialog's {@link #iconEl} icon element.
+	 * If an icon is not available, sets the hidden class on the {@link #iconEl} icon element.
 	 */
 	setIcon: function ()
 	{
@@ -209,7 +209,7 @@ Zarafa.common.dialogs.CustomMessageBox = Ext.extend(Ext.Window, {
 	},
 
 	/**
-	 * Handler for click event of all {#customButtons buttons}
+	 * Handler for click events from all {@link #customButtons buttons}.
 	 * It will call callback of button and close the custom message box.
 	 * @param {Ext.Button} button button which is clicked.
 	 */

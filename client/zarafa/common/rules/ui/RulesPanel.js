@@ -139,7 +139,7 @@ Zarafa.common.rules.ui.RulesPanel = Ext.extend(Ext.Container, {
 	 * @param {Number} index The index of the selected record
 	 *
 	 * @return {Mixed} False if there are pending changes. The selecting will then be
-	 * handled by {#applyChanges}. Undefined otherwise.
+	 * handled by {@link #applyChanges}. Undefined otherwise.
 	 */
 	onBeforeUserSelect: function(field, nextRecord, index)
 	{

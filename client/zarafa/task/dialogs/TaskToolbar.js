@@ -176,7 +176,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 	},
 
 	/**
-	 * Create all buttons which should be added by default the the `Options` buttons.
+	 * Create all buttons which should be added by default to the `Options` buttons.
 	 * This contains the buttons to assign the task and set the task as a recurrence.
 	 *
 	 * @return {Array} The {@link Ext.Button Button} elements which should be
@@ -313,7 +313,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 	},
 
 	/**
-	 * Event handler which is is called when the user presses the "Mark as Complete" button.
+	 * Event handler which is called when the user presses the "Mark as Complete" button.
 	 * This will mark the record as "complete".
 	 * @param {Ext.Button} button The button which has been pressed
 	 * @private

@@ -103,7 +103,7 @@ Zarafa.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 
 	/**
 	 * Creates the recurrence recurrence pattern panel, in which the user can configure
-	 * the recurrence pattern (daily/weekly/monhtly/yearly) for this message.
+	 * the recurrence pattern (daily/weekly/monthly/yearly) for this message.
 	 * @return {Object} The configuration object for the Recurrence Pattern
 	 * @private
 	 */

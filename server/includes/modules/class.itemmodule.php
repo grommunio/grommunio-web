@@ -643,7 +643,7 @@ class ItemModule extends Module {
 					}
 				}
 				catch (MAPIException $e) {
-					// if quota is exceeded or or we don't have permission to write in calendar folder than ignore the exception.
+					// If the quota is exceeded or we cannot write to the calendar folder, ignore the exception.
 					if ($e->getCode() !== MAPI_E_STORE_FULL && $e->getCode() !== MAPI_E_NO_ACCESS) {
 						// re-throw the exception if it is not one of quota/calendar permission.
 						throw $e;
@@ -1417,7 +1417,8 @@ class ItemModule extends Module {
 			$email = $recip[PR_SMTP_ADDRESS] ?? $recip[PR_EMAIL_ADDRESS] ?? '';
 			if (!empty($name) && !empty($email) && $name !== $email) {
 				$forwardedTo[] = $name . ' (' . $email . ')';
-			} else {
+			}
+			else {
 				$forwardedTo[] = !empty($name) ? $name : $email;
 			}
 		}
@@ -1507,7 +1508,8 @@ class ItemModule extends Module {
 		];
 		if (!empty($messageProps[PR_SENT_REPRESENTING_ENTRYID])) {
 			$organizerRecip[PR_ENTRYID] = $messageProps[PR_SENT_REPRESENTING_ENTRYID];
-		} else {
+		}
+		else {
 			$organizerRecip[PR_ENTRYID] = mapi_createoneoff($organizerName, $addrType, $organizerEmail);
 		}
 		if (!empty($messageProps[PR_SENT_REPRESENTING_SEARCH_KEY])) {

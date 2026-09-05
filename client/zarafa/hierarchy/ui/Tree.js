@@ -242,7 +242,7 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 
 		if (ct) {
 			// When autoScroll is enabled, the 'body' of the component will
-			// have the the actual scrollbar attached to it.
+			// have the actual scrollbar attached to it.
 			this.registerScrollContainer(ct.body || ct.el);
 		}
 	},

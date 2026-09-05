@@ -12,7 +12,7 @@ Ext.namespace('Zarafa.core.ui.notifier');
  * and the maximum speed limit, the user will probably never hear from this message again.
  *
  * In case the message is received by Aliens before it has arrived at its destination,
- * we can only hope they will be friendly and bring some of their delicous food when they
+	 * we can only hope they will be friendly and bring some of their delicious food when they
  * come and visit.
  *
  * This plugin will be registered to the {@link Zarafa.core.ui.notifier.Notifier notifier}

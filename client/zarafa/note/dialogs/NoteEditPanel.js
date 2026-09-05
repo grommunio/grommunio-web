@@ -155,10 +155,10 @@ Zarafa.note.dialogs.NoteEditPanel = Ext.extend(Ext.FormPanel, {
 	},
 
 	/**
-	 * this function returns css class in response to icon index
-	 * to set background color of Note Dialog's text area
-	 * @param{String/Number} String or Int icon index value
-	 * @return css class name
+	 * Returns the CSS class for the icon index used to set the note editor's background color.
+	 *
+	 * @param {String/Number} iconIndex The icon index.
+	 * @return {String} The CSS class name.
 	 * @private
 	 */
 	getTextAreaColor: function(iconIndex)

@@ -22,7 +22,7 @@ Zarafa.common.ui.PagingToolbar = Ext.extend(Ext.PagingToolbar, {
 
 	/**
 	 * Initialises the paging component.
-	 * This will build the paging component listen to some exents
+	 * This will build the paging component and listen to some events
 	 * @private
 	 */
 	initComponent: function()

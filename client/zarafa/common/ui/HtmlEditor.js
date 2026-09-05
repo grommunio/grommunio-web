@@ -570,7 +570,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		var editor = this.getEditor();
 		var element = editor.selection.getStart();
 		// TinyMCE uses zero width space characters as character
-		// containers in an empty line. Therfore, verify whether the
+		// containers in an empty line. Therefore, verify whether the
 		// body is actually empty or not.
 		var isEmptyBody = editor.selection.getContent({
 			format: "text"

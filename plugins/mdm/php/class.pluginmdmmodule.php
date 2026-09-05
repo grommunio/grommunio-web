@@ -352,9 +352,9 @@ class PluginMDMModule extends Module {
 	}
 
 	/**
-	 * Function which is use to get general type like Mail,Calendar,Contacts,etc. from folder type.
+	 * Get the general type (such as Mail, Calendar, or Contacts) from a folder type.
 	 *
-	 * @param int $type foldertype for a folder already known to the mobile
+	 * @param int $type folder type for a folder already known to the mobile device
 	 *
 	 * @return string general folder type
 	 */

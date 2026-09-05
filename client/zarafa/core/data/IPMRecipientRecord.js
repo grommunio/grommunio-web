@@ -100,7 +100,7 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 	/**
 	 * See {@link Ext.data.Record.isResolved}. Recipients which meeting organizer are always considered
 	 * invalid to prevent them to be saved to the server.
-	 * @return {Boolean} False if this this is the meeting organizer recipient.
+	 * @return {Boolean} False if this is the meeting organizer recipient.
 	 */
 	isValid: function()
 	{

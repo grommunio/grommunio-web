@@ -9,7 +9,7 @@ class Iconsets {
 	/**
 	 * A hash that is used to cache the properties of iconsets.
 	 *
-	 * @property
+	 * @var array
 	 */
 	private static $iconsetsCache = [];
 

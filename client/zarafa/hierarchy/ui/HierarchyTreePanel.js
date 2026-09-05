@@ -33,10 +33,10 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 	bbarConfig: undefined,
 
 	/**
-	 *@cfg {String} filterSearchBoxValue will contain the current value of {@link Ext.form.textfield filterSearchTextBox}.
+	 * @cfg {String} filterSearchBoxValue The current value of {@link Ext.form.textfield filterSearchTextBox}.
 	 * This will be used in {@link #setSearchFilter} to check whether the value is changed.
 	 */
-	 filterSearchBoxValue: undefined,
+	filterSearchBoxValue: undefined,
 
 	/**
 	 * @cfg {Boolean} showAllFoldersDefaultValue True to render the 'Show all folders'
@@ -319,7 +319,7 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 
 	/**
 	 * Checks the height of the hierarchy tree. When it is smaller then the height of the containing box
-	 * it will add a class so the the css can handle the position of the bottombar.
+	 * it will add a class so the CSS can handle the position of the bottom bar.
 	 */
 	checkTreeHeight: function(){
 		if(!this.ownerCt) {
@@ -611,7 +611,7 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 
 	/**
 	 * Event handler which is fired when the {@link #store} fires the
-	 * {@link Zarafa.hierarchy.data.HierarchyStore#removeFolder} event handlerr. This will check
+	 * {@link Zarafa.hierarchy.data.HierarchyStore#removeFolder} event handler. This will check
 	 * if the folder is currently opened, and will deselect that folder.
 	 *
 	 * @param {Zarafa.hierarchy.data.HierarchyStore} store The store which fired the event
