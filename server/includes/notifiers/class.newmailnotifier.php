@@ -112,6 +112,7 @@ class NewMailNotifier extends Notifier {
 			}
 			catch (MAPIException $e) {
 				$e->setHandled();
+
 				continue;
 			}
 
@@ -173,13 +174,13 @@ class NewMailNotifier extends Notifier {
 	 * The returned hierarchy is cached in the session state and compared when the function is called, when
 	 * the data differs newmail notifications for the changed folder(s) are created and send to the client.
 	 *
-	 * @param string $username   The user for whom the store is checked for mail updates. If not set, it will be
-	 *                           current user's own store.
-	 * @param string $folderType the type of shared folder (all, inbox or calendar)
-	 * @param mixed  $store      optional already opened store
-	 * @param string $cacheKey   optional key for the counter state cache
+	 * @param string $username    The user for whom the store is checked for mail updates. If not set, it will be
+	 *                            current user's own store.
+	 * @param string $folderType  the type of shared folder (all, inbox or calendar)
+	 * @param mixed  $store       optional already opened store
+	 * @param string $cacheKey    optional key for the counter state cache
 	 * @param string $displayName optional store display name for shared-store notifications
-	 * @param bool   $logErrors  whether to log root folder open failures
+	 * @param bool   $logErrors   whether to log root folder open failures
 	 */
 	private function updateFolderHierachy($username = '', $folderType = '', $store = null, $cacheKey = null, $displayName = null, $logErrors = true) {
 		if (!$store) {
@@ -206,6 +207,7 @@ class NewMailNotifier extends Notifier {
 		if (!$counterLock->open()) {
 			return;
 		}
+
 		try {
 			$this->updateFolderHierachyLocked($username, $folderType, $store, $cacheKey, $displayName, $logErrors);
 		}
@@ -216,12 +218,20 @@ class NewMailNotifier extends Notifier {
 
 	/**
 	 * Update one counter cache while its computation lock is held.
+	 *
+	 * @param mixed $username
+	 * @param mixed $folderType
+	 * @param mixed $store
+	 * @param mixed $cacheKey
+	 * @param mixed $displayName
+	 * @param mixed $logErrors
 	 */
 	private function updateFolderHierachyLocked($username, $folderType, $store, $cacheKey, $displayName, $logErrors) {
 		$counterState = new State('counters_sessiondata');
 		if (!$counterState->open()) {
 			return;
 		}
+
 		try {
 			$sessionData = $counterState->read($cacheKey);
 		}
@@ -287,6 +297,7 @@ class NewMailNotifier extends Notifier {
 			if (!$counterState->open()) {
 				return;
 			}
+
 			try {
 				$counterState->write($cacheKey, $folderStatCache);
 			}

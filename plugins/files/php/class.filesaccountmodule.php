@@ -31,8 +31,6 @@ class FilesAccountModule extends ListModule {
 	public const LOG_CONTEXT = "FilesAccountModule"; // Context for the Logger
 
 	/**
-	 * @constructor
-	 *
 	 * @param mixed $id
 	 * @param mixed $data
 	 */

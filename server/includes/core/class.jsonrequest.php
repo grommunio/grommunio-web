@@ -56,6 +56,7 @@ class JSONRequest {
 							if (!$GLOBALS["bus"]->synchronizePersistentState()) {
 								throw new RuntimeException('Unable to publish notifier state');
 							}
+
 							try {
 								$moduleObj->loadSessionData();
 

@@ -579,6 +579,7 @@ class PluginManager {
 			if (!$sessState->open()) {
 				throw new RuntimeException('Unable to read plugin session state');
 			}
+
 			try {
 				$this->sessionData = $sessState->read("sessionData");
 			}
@@ -636,6 +637,7 @@ class PluginManager {
 
 			return;
 		}
+
 		try {
 			$currentSessionData = $sessState->read("sessionData");
 			if (!is_array($currentSessionData)) {
@@ -665,6 +667,10 @@ class PluginManager {
 
 	/**
 	 * Merge keys changed by one plugin instance into the latest state.
+	 *
+	 * @param mixed $current
+	 * @param mixed $local
+	 * @param mixed $base
 	 */
 	private function mergePluginSessionData($current, $local, $base) {
 		if (!is_array($current) || !is_array($local) || !is_array($base)) {

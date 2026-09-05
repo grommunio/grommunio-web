@@ -40,6 +40,8 @@ class Notifier {
 
 	/**
 	 * Whether updates need serialized persistent notifier state.
+	 *
+	 * @param null|mixed $event
 	 */
 	public function usePersistentStateLock($event = null) {
 		static $statefulClasses = [];

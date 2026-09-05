@@ -62,8 +62,6 @@ class FilesListModule extends ListModule {
 	public $backendStore;
 
 	/**
-	 * @constructor
-	 *
 	 * @param mixed $id
 	 * @param mixed $data
 	 */
@@ -165,7 +163,7 @@ class FilesListModule extends ListModule {
 				// Get sub folder of root folder.
 				$subFolders = $this->getSubFolders($realNodeId, $initializedBackend);
 			}
-			catch (\Exception $e) {
+			catch (Exception $e) {
 				Logger::error(self::LOG_CONTEXT, "Failed to load account '{$accountName}': " . $e->getMessage());
 				$nodes["props"]["status"] = Account::STATUS_ERROR;
 				$nodes["props"]["status_description"] = $e->getMessage();
@@ -656,11 +654,13 @@ class FilesListModule extends ListModule {
 
 	/**
 	 * Get an account or report a stale client-side identifier.
+	 *
+	 * @param mixed $accountID
 	 */
 	public function accountFromId($accountID) {
 		$account = $this->accountStore->getAccount($accountID);
 		if ($account === null) {
-			throw new \Files\Core\Exception(_("Unknown account ID"));
+			throw new Files\Core\Exception(_("Unknown account ID"));
 		}
 
 		return $account;

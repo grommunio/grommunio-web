@@ -163,6 +163,7 @@ if (!$state->open()) {
 
 	exit;
 }
+
 try {
 	$bus = $state->read("bus");
 	$properties = $state->read("properties");
@@ -171,7 +172,7 @@ finally {
 	$state->close();
 }
 
-if (!($bus instanceof Bus)) {
+if (!$bus instanceof Bus) {
 	$bus = new Bus();
 }
 
@@ -185,7 +186,7 @@ $baseBus = unserialize($busSnapshot);
 $GLOBALS['request_bus_base'] = $baseBus;
 
 // Create global properties object
-if (!($properties instanceof Properties)) {
+if (!$properties instanceof Properties) {
 	$properties = new Properties();
 }
 $GLOBALS["properties"] = $properties;
