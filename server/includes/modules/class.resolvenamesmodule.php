@@ -4,6 +4,11 @@
  * ResolveNames Module.
  */
 class ResolveNamesModule extends Module {
+	#[Override]
+	protected function getExecutionLockName() {
+		return null;
+	}
+
 	/**
 	 * Constructor.
 	 *

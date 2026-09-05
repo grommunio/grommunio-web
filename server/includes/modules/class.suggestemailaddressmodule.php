@@ -16,6 +16,11 @@
  * }
  */
 class suggestEmailAddressModule extends Module {
+	#[Override]
+	protected function getExecutionLockName() {
+		return null;
+	}
+
 	public function __construct($id, $data) {
 		parent::__construct($id, $data);
 	}

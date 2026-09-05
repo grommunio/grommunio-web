@@ -7,6 +7,10 @@
  * - Check the code at deleteFolder and at copyFolder. Looks the same.
  */
 class HierarchyModule extends Module {
+	#[Override]
+	protected function getExecutionLockName() {
+		return null;
+	}
 	private $store_entryid;
 
 	/**
@@ -574,7 +578,7 @@ class HierarchyModule extends Module {
 		$store_props = mapi_getprops($store, [PR_IPM_SUBTREE_ENTRYID]);
 		if ($data["entryid"] == bin2hex((string) $store_props[PR_IPM_SUBTREE_ENTRYID])) {
 			$store_props = mapi_getprops($store, [PR_MAILBOX_OWNER_ENTRYID, PR_DISPLAY_NAME, PR_MESSAGE_SIZE_EXTENDED,
-			PR_CONTENT_COUNT, PR_QUOTA_WARNING_THRESHOLD, PR_PROHIBIT_SEND_QUOTA, PR_PROHIBIT_RECEIVE_QUOTA, ]);
+				PR_CONTENT_COUNT, PR_QUOTA_WARNING_THRESHOLD, PR_PROHIBIT_SEND_QUOTA, PR_PROHIBIT_RECEIVE_QUOTA, ]);
 			if (!$GLOBALS['entryid']->compareEntryIds($store_props[PR_MAILBOX_OWNER_ENTRYID], $GLOBALS['mapisession']->getUserEntryID())) {
 				$permissions = $this->getStoreGrants($permissions);
 			}
@@ -1443,8 +1447,6 @@ class HierarchyModule extends Module {
 	/**
 	 * Returns the visible permissions of the store for the current user.
 	 *
-	 * @param array $permissions
-	 *
 	 * @return array of grants
 	 */
 	public function getStoreGrants(array $permissions): array {
@@ -1455,6 +1457,7 @@ class HierarchyModule extends Module {
 				// user has owner rights, return all permissions
 				if (($grant['props']['rights'] & ecRightsFolderAccess) || ($grant['props']['rights'] & ecRightsGromoxStoreOwner)) {
 					unset($grants);
+
 					return $permissions;
 				}
 				$grants[] = $grant;

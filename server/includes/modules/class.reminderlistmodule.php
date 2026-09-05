@@ -6,6 +6,10 @@
  * TODO: add description
  */
 class ReminderListModule extends ListModule {
+	#[Override]
+	protected function getExecutionLockName() {
+		return null;
+	}
 	private $reminderEntryId;
 
 	/**
@@ -278,9 +282,9 @@ class ReminderListModule extends ListModule {
 				$remindertimeinseconds = (int) ($row[$this->properties["reminder_minutes"]] ?? 0) * 60;
 				$flagDueBy = $row[$this->properties["flagdueby"]] ?? null;
 				if (!is_numeric($flagDueBy)) {
-					$flagDueBy = $row[$this->properties["reminder_time"]]
-						?? $row[$this->properties["appointment_startdate"]]
-						?? null;
+					$flagDueBy = $row[$this->properties["reminder_time"]] ??
+						$row[$this->properties["appointment_startdate"]] ??
+						null;
 				}
 				$flagDueBy = is_numeric($flagDueBy) ? (int) $flagDueBy : null;
 

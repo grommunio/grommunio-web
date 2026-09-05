@@ -30,7 +30,7 @@ class SettingsModule extends Module {
 			}
 		}
 
-		return parent::getExecutionLockName();
+		return null;
 	}
 
 	/**

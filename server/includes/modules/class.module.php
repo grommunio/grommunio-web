@@ -48,7 +48,7 @@ class Module {
 	public $_sharedSessionState;
 
 	/**
-	 * @var State|false per-module execution lock
+	 * @var false|State per-module execution lock
 	 */
 	private $sessionExecutionLock = false;
 
@@ -480,7 +480,7 @@ class Module {
 	}
 
 	/**
-	 * Resource group whose requests must execute serially.
+	 * Resource group whose requests must execute serially, null to run unlocked.
 	 */
 	protected function getExecutionLockName() {
 		return $this->getModuleName();
@@ -518,7 +518,7 @@ class Module {
 	 *
 	 * @param State $sharedState optional shared State object so that
 	 *                           multiple modules can reuse a single lock
-	 *                           and avoid repeated open/serialize/close cycles.
+	 *                           and avoid repeated open/serialize/close cycles
 	 */
 	public function loadSessionData($sharedState = null) {
 		if ($sharedState) {
@@ -532,7 +532,15 @@ class Module {
 		}
 
 		$moduleName = $this->getModuleName();
-		$this->sessionExecutionLock = new State('module-lock-' . hash('sha256', $this->getExecutionLockName()));
+		$lockName = $this->getExecutionLockName();
+		if ($lockName === null) {
+			$this->sessionData = null;
+			$this->sessionDataSnapshot = serialize(null);
+			$this->afterLoadSessionData();
+
+			return;
+		}
+		$this->sessionExecutionLock = new State('module-lock-' . hash('sha256', $lockName));
 		if (!$this->sessionExecutionLock->open()) {
 			throw new RuntimeException('Unable to lock module session state');
 		}
@@ -541,6 +549,7 @@ class Module {
 		if (!$this->sessionState->open()) {
 			throw new RuntimeException('Unable to read module session state');
 		}
+
 		try {
 			$this->sessionData = $this->sessionState->read($moduleName);
 			$this->sessionDataSnapshot = serialize($this->sessionData);
@@ -576,6 +585,7 @@ class Module {
 
 				return;
 			}
+
 			try {
 				$currentSessionData = $this->sessionState->read($moduleName);
 				if ($this->sessionDataSnapshot !== null && serialize($currentSessionData) !== $this->sessionDataSnapshot) {
