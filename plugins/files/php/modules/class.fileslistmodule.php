@@ -17,6 +17,7 @@ use Files\Core\AccountStore;
 use Files\Core\Util\Logger as FilesLogger;
 use Files\Core\Util\StringUtil;
 use Phpfastcache\CacheManager;
+use Phpfastcache\Core\Pool\ExtendedCacheItemPoolInterface;
 use Phpfastcache\Drivers\Redis\Config as RedisConfig;
 
 /**
@@ -38,7 +39,7 @@ class FilesListModule extends ListModule {
 	public const ALL_BACKEND_ERR_NOTFOUND = 404;
 
 	/**
-	 * @var phpFastCache cache handler
+	 * @var ExtendedCacheItemPoolInterface cache handler
 	 */
 	public $cache;
 
@@ -70,7 +71,7 @@ class FilesListModule extends ListModule {
 		// Setup the cache
 		$config = new RedisConfig();
 		$config->setHost(PLUGIN_FILES_REDIS_HOST);
-		$config->setPort(PLUGIN_FILES_REDIS_PORT);
+		$config->setPort((int) PLUGIN_FILES_REDIS_PORT);
 		$config->setPassword(PLUGIN_FILES_REDIS_AUTH);
 
 		$this->cache = CacheManager::getInstance('Redis', $config);
@@ -680,7 +681,7 @@ class FilesListModule extends ListModule {
 	 * @param string $displayName display name of the backend or file plugin
 	 * @param string $accountID   Id of the account of the data to cache
 	 *
-	 * @return string version data or null if nothing was found
+	 * @return null|string version data or null if nothing was found
 	 */
 	public function getVersionFromCache($displayName, $accountID = '') {
 		$key = $this->uid . $accountID . $displayName;
@@ -733,7 +734,7 @@ class FilesListModule extends ListModule {
 	 *
 	 * @param string $accountID Id of the account of the data to cache
 	 * @param string $path      Path of the file or folder to create the cache element for
-	 * @param string $data      Data to be cached
+	 * @param array  $data      Data to be cached
 	 */
 	public function setCache($accountID, $path, $data) {
 		$key = $this->makeCacheKey($accountID, $path);
@@ -747,7 +748,7 @@ class FilesListModule extends ListModule {
 	 * @param string $accountID Id of the account of the data to get
 	 * @param string $path      Path of the file or folder to retrieve the cache element for
 	 *
-	 * @return iterable The directory data or null if nothing was found
+	 * @return null|array The directory data or null if nothing was found
 	 */
 	public function getCache($accountID, $path) {
 		$key = $this->makeCacheKey($accountID, $path);

@@ -294,9 +294,9 @@ class Conversion {
 	 * Convert an JSON restriction structure into a MAPI SRestriction array.
 	 *
 	 * @param array $mapping An associative array mapping property keys to MAPI proptags
-	 * @param array $json    The parsed JSON array data
+	 * @param mixed $json    The parsed JSON restriction data
 	 *
-	 * @return array MAPI restriction array compatible with MAPI extension restriction format
+	 * @return mixed MAPI restriction data compatible with MAPI extension restriction format
 	 */
 	public static function json2restriction($mapping, $json) {
 		if (!is_array($json)) {
@@ -482,9 +482,9 @@ class Conversion {
 	 * Multivalued properties has different property tags in VALUES part
 	 * so we need to find that singlevalued property tag
 	 *
-	 * @param int $propTag The multivalued property tag in string
+	 * @param int|string $propTag The multivalued property tag
 	 *
-	 * @return int The singlevalued property tag
+	 * @return int|string The singlevalued property tag
 	 */
 	public static function convertToSingleValuedProperty($propTag) {
 		if (is_string($propTag)) {

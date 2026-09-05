@@ -68,7 +68,7 @@ interface iFeatureSharing {
 	/**
 	 * Disable sharing for the given files/folders.
 	 *
-	 * @param $patharray Simple array with path's to files or folders
+	 * @param string[] $patharray paths to files or folders
 	 *
 	 * @return bool
 	 */

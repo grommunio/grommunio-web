@@ -923,7 +923,7 @@ class DownloadAttachment extends DownloadBase {
 	 *
 	 * @param string $attachment content fetched from PR_ATTACH_DATA_BIN property of an attachment
 	 *
-	 * @return true if eml is broken, false otherwise
+	 * @return bool true if eml is broken, false otherwise
 	 */
 	public function isBroken($attachment) {
 		// Get header part to process further
