@@ -40,6 +40,16 @@ class State {
 	private $filename;
 
 	/**
+	 * Name of the subsystem, used in log messages.
+	 */
+	private $subsystem;
+
+	/**
+	 * Files without content only carry a lock and expire earlier.
+	 */
+	private const LOCK_FILE_MAX_LIFETIME = 3600;
+
+	/**
 	 * The directory in which the session files are created.
 	 */
 	private $sessiondir = "session";
@@ -55,11 +65,24 @@ class State {
 	public $contents;
 
 	/**
-	 * @param string $subsystem Name of the subsystem
+	 * @param string      $subsystem Name of the subsystem
+	 * @param null|string $owner     File prefix, defaults to the session id
 	 */
-	public function __construct($subsystem) {
+	public function __construct($subsystem, $owner = null) {
 		$this->basedir = TMP_PATH . DIRECTORY_SEPARATOR . $this->sessiondir;
-		$this->filename = $this->basedir . DIRECTORY_SEPARATOR . session_id() . "." . $subsystem;
+		$this->subsystem = $subsystem;
+		$this->filename = $this->basedir . DIRECTORY_SEPARATOR . ($owner ?? session_id()) . "." . $subsystem;
+	}
+
+	/**
+	 * State shared by every session of the store owner.
+	 *
+	 * @param string $subsystem Name of the subsystem
+	 *
+	 * @return State
+	 */
+	public static function forStore($subsystem) {
+		return new self($subsystem, 'store_' . hash('sha256', $GLOBALS['mapisession']->getDefaultMessageStoreEntryId()));
 	}
 
 	/**
@@ -67,9 +90,11 @@ class State {
 	 *
 	 * The session file is opened and locked so that other processes can not access the state information
 	 *
+	 * @param int $retry Reopen attempts when clean() replaced the file while waiting for its lock
+	 *
 	 * @return bool true when the file is locked
 	 */
-	public function open() {
+	public function open($retry = 2) {
 		if ($this->fp === false) {
 			if (!is_dir($this->basedir)) {
 				if (!@mkdir($this->basedir, 0755, true /* recursive */) && !is_dir($this->basedir)) {
@@ -91,26 +116,47 @@ class State {
 			if ($this->fp === false) {
 				flock($cleanupLock, LOCK_UN);
 				fclose($cleanupLock);
-				error_log('[STATE ERROR] State file "' . $this->filename . '" could not be opened.');
+				error_log('[STATE ERROR] State file for "' . $this->subsystem . '" could not be opened.');
 
 				return false;
 			}
 			$this->sessioncache = [];
-			if (!flock($this->fp, LOCK_EX)) {
+			// Never wait for a busy state file while holding the cleanup lock
+			$locked = flock($this->fp, LOCK_EX | LOCK_NB);
+			flock($cleanupLock, LOCK_UN);
+			fclose($cleanupLock);
+			if (!$locked && !flock($this->fp, LOCK_EX)) {
 				fclose($this->fp);
 				$this->fp = false;
-				flock($cleanupLock, LOCK_UN);
-				fclose($cleanupLock);
-				error_log('[STATE ERROR] State file "' . $this->filename . '" could not be locked.');
+				error_log('[STATE ERROR] State file for "' . $this->subsystem . '" could not be locked.');
 
 				return false;
 			}
-			flock($cleanupLock, LOCK_UN);
-			fclose($cleanupLock);
+			if (!$locked && !$this->isLinked()) {
+				$this->close();
+				if ($retry <= 0) {
+					error_log('[STATE ERROR] State file for "' . $this->subsystem . '" was replaced while locking.');
+
+					return false;
+				}
+
+				return $this->open($retry - 1);
+			}
 			@touch($this->filename);
 		}
 
 		return true;
+	}
+
+	/**
+	 * @return bool true when the locked handle still is the file at $this->filename
+	 */
+	private function isLinked() {
+		clearstatcache(true, $this->filename);
+		$open = fstat($this->fp);
+		$disk = @stat($this->filename);
+
+		return $open !== false && $disk !== false && $open['ino'] === $disk['ino'] && $open['dev'] === $disk['dev'];
 	}
 
 	/**
@@ -241,7 +287,7 @@ class State {
 			if ($fileInfo === false || ($fileInfo['mode'] & 0170000) !== 0100000) {
 				continue;
 			}
-			if ($fileInfo['atime'] < time() - $maxLifeTime) {
+			if ($this->isStale($fileInfo, $maxLifeTime)) {
 				$stalePaths[] = $path;
 			}
 		}
@@ -260,8 +306,7 @@ class State {
 		}
 		foreach ($stalePaths as $path) {
 			$fileInfo = @lstat($path);
-			if ($fileInfo === false || ($fileInfo['mode'] & 0170000) !== 0100000 ||
-				$fileInfo['atime'] >= time() - $maxLifeTime) {
+			if ($fileInfo === false || ($fileInfo['mode'] & 0170000) !== 0100000 || !$this->isStale($fileInfo, $maxLifeTime)) {
 				continue;
 			}
 
@@ -272,7 +317,7 @@ class State {
 			if (flock($handle, LOCK_EX | LOCK_NB)) {
 				clearstatcache(true, $path);
 				$fileInfo = @stat($path);
-				if ($fileInfo !== false && $fileInfo['atime'] < time() - $maxLifeTime) {
+				if ($fileInfo !== false && $this->isStale($fileInfo, $maxLifeTime)) {
 					@unlink($path);
 				}
 				flock($handle, LOCK_UN);
@@ -281,5 +326,17 @@ class State {
 		}
 		flock($cleanupLock, LOCK_UN);
 		fclose($cleanupLock);
+	}
+
+	/**
+	 * @param array $fileInfo    stat() result of a regular file
+	 * @param int   $maxLifeTime the maximum allowed age of state files in seconds
+	 *
+	 * @return bool
+	 */
+	private function isStale($fileInfo, $maxLifeTime) {
+		$lifeTime = $fileInfo['size'] === 0 ? min($maxLifeTime, self::LOCK_FILE_MAX_LIFETIME) : $maxLifeTime;
+
+		return $fileInfo['atime'] < time() - $lifeTime;
 	}
 }
