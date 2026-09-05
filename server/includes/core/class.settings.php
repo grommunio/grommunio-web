@@ -449,6 +449,10 @@ class Settings {
 
 	/**
 	 * Set one slash-separated path in a settings array.
+	 *
+	 * @param mixed $settings
+	 * @param mixed $path
+	 * @param mixed $value
 	 */
 	private function setPathValue(&$settings, $path, $value) {
 		$path = explode('/', $path);
@@ -467,6 +471,9 @@ class Settings {
 
 	/**
 	 * Remove one slash-separated path from a settings array.
+	 *
+	 * @param mixed $settings
+	 * @param mixed $path
 	 */
 	private function deletePathValue(&$settings, $path) {
 		$keys = array_values(array_filter(explode('/', $path), static fn ($key) => $key !== ''));
@@ -485,8 +492,7 @@ class Settings {
 		if (!array_key_exists($lastKey, $pointer)) {
 			return false;
 		}
-		unset($pointer[$lastKey]);
-		unset($pointer);
+		unset($pointer[$lastKey], $pointer);
 
 		return true;
 	}
@@ -579,10 +585,11 @@ class Settings {
 			return;
 		}
 
-		$settingsState = new State('settings-write');
+		$settingsState = State::forStore('settings-write');
 		if (!$settingsState->open()) {
 			throw new RuntimeException('Unable to lock settings for writing');
 		}
+
 		try {
 			$this->reloadModifiedSettings();
 			$this->writeSettings();
@@ -596,7 +603,6 @@ class Settings {
 	 * Write the merged regular settings.
 	 */
 	private function writeSettings() {
-
 		if (isset($this->settings['zarafa']['v1'])) {
 			unset($this->settings['zarafa']['v1']['contexts']['mail']['outofoffice']);
 		}
@@ -700,10 +706,11 @@ class Settings {
 			return;
 		}
 
-		$settingsState = new State('settings-write');
+		$settingsState = State::forStore('settings-write');
 		if (!$settingsState->open()) {
 			throw new RuntimeException('Unable to lock persistent settings for writing');
 		}
+
 		try {
 			$this->reloadModifiedPersistentSettings();
 			$this->writePersistentSettings();
@@ -717,7 +724,6 @@ class Settings {
 	 * Write the merged persistent settings.
 	 */
 	private function writePersistentSettings() {
-
 		$persistentSettings = json_encode(['settings' => $this->persistentSettings]);
 
 		// Check if the settings have been changed.

@@ -25,7 +25,7 @@ class suggestEmailAddressModule extends Module {
 		$actionType = null;
 		$historyState = false;
 		if (isset($this->data['delete'])) {
-			$historyState = new State('recipient-history-write');
+			$historyState = State::forStore('recipient-history-write');
 			if (!$historyState->open()) {
 				throw new RuntimeException('Unable to lock recipient history for writing');
 			}
@@ -166,7 +166,8 @@ class suggestEmailAddressModule extends Module {
 					if (($entry['count'] ?? 0) > $prevCount) {
 						// Replace previous entry with this one
 						unset($l_aResult[$prevLevel][$prevIndex]);
-					} else {
+					}
+					else {
 						continue;
 					}
 				}

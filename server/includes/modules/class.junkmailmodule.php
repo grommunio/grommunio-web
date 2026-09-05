@@ -204,16 +204,21 @@ class JunkMailModule extends Module {
 
 		// MS-OXCSPAM v12 §2.2.2.2: The contacts clause must be empty while the
 		// option is off. Outlook repopulates it when re-enabled.
-		$includeContacts = isset($props['junk_include_contacts'])
-			? (empty($props['junk_include_contacts']) ? 0 : 1)
-			: $current['junk_include_contacts'];
+		$includeContacts = isset($props['junk_include_contacts']) ?
+			(empty($props['junk_include_contacts']) ? 0 : 1) :
+			$current['junk_include_contacts'];
 
-		$condition = JunkRule::buildCondition($blockedSenders, $safeSenders, $safeRecipients,
-			$includeContacts ? $current['contacts'] : []);
-		$renState = new State('additional-ren-entryids-write');
+		$condition = JunkRule::buildCondition(
+			$blockedSenders,
+			$safeSenders,
+			$safeRecipients,
+			$includeContacts ? $current['contacts'] : []
+		);
+		$renState = State::forStore('additional-ren-entryids-write');
 		if (!$renState->open()) {
 			throw new RuntimeException('Unable to lock additional folder entryids');
 		}
+
 		try {
 			$actions = JunkRule::buildActions(
 				$this->getJunkFolderEntryId($inbox),
@@ -285,7 +290,7 @@ class JunkMailModule extends Module {
 	/**
 	 * @param mixed $list the client-sent list
 	 *
-	 * @return array|false|null null when absent, false when invalid
+	 * @return null|array|false null when absent, false when invalid
 	 */
 	private function sanitizeList($list) {
 		if ($list === null) {
@@ -398,6 +403,7 @@ class JunkMailModule extends Module {
 
 	/**
 	 * @param string $entry
+	 *
 	 * @return bool True when the entry can live in a sender list
 	 */
 	private static function isSaneEntry($entry) {

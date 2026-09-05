@@ -52,6 +52,20 @@ class DelegatesModule extends Module {
 	 */
 	#[Override]
 	public function execute() {
+		$delegatesLock = State::forStore('delegates-write');
+		if (!$delegatesLock->open()) {
+			throw new RuntimeException('Unable to lock the delegate settings');
+		}
+
+		try {
+			$this->executeLocked();
+		}
+		finally {
+			$delegatesLock->close();
+		}
+	}
+
+	private function executeLocked() {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
 				try {

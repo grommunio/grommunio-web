@@ -35,6 +35,9 @@ class SettingsModule extends Module {
 
 	/**
 	 * Check whether a settings action overlaps the Files account tree.
+	 *
+	 * @param mixed $settings
+	 * @param mixed $withValues
 	 */
 	private function settingsTouchFilesAccounts($settings, $withValues) {
 		if ($withValues) {
@@ -105,10 +108,11 @@ class SettingsModule extends Module {
 
 						case "delete":
 						case "reset":
-							$renState = new State('additional-ren-entryids-write');
+							$renState = State::forStore('additional-ren-entryids-write');
 							if (!$renState->open()) {
 								throw new RuntimeException('Unable to lock additional folder entryids');
 							}
+
 							try {
 								$userStore = $GLOBALS['mapisession']->getDefaultMessageStore();
 								$inbox = mapi_msgstore_getreceivefolder($userStore);
@@ -206,7 +210,7 @@ class SettingsModule extends Module {
 	/**
 	 * Function will delete a setting indicated by setting path.
 	 *
-	 * @param $path string/array path of the setting that needs to be deleted
+	 * @param      $path string/array path of the setting that needs to be deleted
 	 * @param bool $save If true the settings will be saved to the MAPI store
 	 *                   immediately.  Pass false to defer saving.
 	 */

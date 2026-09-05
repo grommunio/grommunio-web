@@ -48,6 +48,8 @@ class TodoList {
 
 	/**
 	 * Read the stored To-do search folder entryid.
+	 *
+	 * @param mixed $root
 	 */
 	private static function readEntryId($root) {
 		$rootProperties = mapi_getprops($root, [PR_ADDITIONAL_REN_ENTRYIDS_EX]);
@@ -81,13 +83,16 @@ class TodoList {
 	 * Creates a search folder for the To-do list under the root folder of the store. Adds the entryid
 	 * to the PR_ADDITIONAL_REN_ENTRYIDS_EX property of the root folder, and also stores it in TodoList::$_entryId.
 	 *
+	 * @param null|mixed $expectedEntryId
+	 *
 	 * @return string Entryid of the new search folder for the To-do list
 	 */
 	public static function createTodoSearchFolder($expectedEntryId = null) {
-		$renState = new State('additional-ren-entryids-write');
+		$renState = State::forStore('additional-ren-entryids-write');
 		if (!$renState->open()) {
 			throw new RuntimeException('Unable to lock additional folder entryids');
 		}
+
 		try {
 			return self::createTodoSearchFolderLocked($expectedEntryId);
 		}
@@ -98,6 +103,8 @@ class TodoList {
 
 	/**
 	 * Create the To-do search folder while the entryid property is locked.
+	 *
+	 * @param mixed $expectedEntryId
 	 */
 	private static function createTodoSearchFolderLocked($expectedEntryId) {
 		$userStore = $GLOBALS['mapisession']->getDefaultMessageStore();
