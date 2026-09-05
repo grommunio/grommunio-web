@@ -23,14 +23,8 @@ build:
       tests:
         override:
           - php-scrutinizer-run --enable-security-analysis
-          # phpcs-run currently falls back to PHPCS 3.6.0. Its advisory only
-          # affects blame reports, which the Scrutinizer analysis does not use.
-          # Keep the advisory visible to audits while allowing this installation.
-          - command: >-
-              composer config --global --merge --json policy.advisories.ignore-id
-              '{"GHSA-hmqg-cxww-wqhq":{"on-block":true,"on-audit":false,"reason":"Scrutinizer phpcs-run does not use the affected blame reports."},"PKSA-rdkp-vv9z-mjkg":{"on-block":true,"on-audit":false,"reason":"Alias of GHSA-hmqg-cxww-wqhq."}}'
-            stop_on_failure: true
-          - command: phpcs-run
+          # Override the vulnerable PHPCS 3.6.0 default used by phpcs-run.
+          - command: 'SCRUTINIZER_TOOLCONFIG_PHPCS_VERSION=3.13.6 phpcs-run'
             use_website_config: true
     tests:
       dependencies:
