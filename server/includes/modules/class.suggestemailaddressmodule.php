@@ -16,12 +16,26 @@
  * }
  */
 class suggestEmailAddressModule extends Module {
+	#[Override]
+	protected function getExecutionLockName() {
+		return null;
+	}
+
 	public function __construct($id, $data) {
 		parent::__construct($id, $data);
 	}
 
 	#[Override]
 	public function execute() {
+		$actionType = null;
+		$historyState = false;
+		if (isset($this->data['delete'])) {
+			$historyState = State::forStore('recipient-history-write');
+			if (!$historyState->open()) {
+				throw new RuntimeException('Unable to lock recipient history for writing');
+			}
+		}
+
 		try {
 			// Retrieve the recipient history
 			$storeProps = mapi_getprops($GLOBALS["mapisession"]->getDefaultMessageStore(), [PR_EC_RECIPIENT_HISTORY_JSON]);
@@ -56,6 +70,11 @@ class suggestEmailAddressModule extends Module {
 		}
 		catch (MAPIException $e) {
 			$this->processException($e, $actionType);
+		}
+		finally {
+			if ($historyState instanceof State) {
+				$historyState->close();
+			}
 		}
 	}
 
@@ -152,7 +171,8 @@ class suggestEmailAddressModule extends Module {
 					if (($entry['count'] ?? 0) > $prevCount) {
 						// Replace previous entry with this one
 						unset($l_aResult[$prevLevel][$prevIndex]);
-					} else {
+					}
+					else {
 						continue;
 					}
 				}

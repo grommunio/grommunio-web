@@ -28,6 +28,45 @@ class RulesModule extends Module {
 	 */
 	#[Override]
 	public function execute() {
+		$locks = [];
+		foreach ($this->storeEntryIds() as $storeEntryId) {
+			$lock = new State('rules-write', 'store_' . hash('sha256', $storeEntryId));
+			if (!$lock->open()) {
+				throw new RuntimeException('Unable to lock the mail filters');
+			}
+			$locks[] = $lock;
+		}
+
+		try {
+			$this->executeLocked();
+		}
+		finally {
+			foreach (array_reverse($locks) as $lock) {
+				$lock->close();
+			}
+		}
+	}
+
+	/**
+	 * Sorted hex entryids of the stores addressed by this request.
+	 */
+	private function storeEntryIds() {
+		$ids = [];
+		foreach ($this->data as $action) {
+			if (!isset($action[0]) && isset($action['props'])) {
+				$action = [$action];
+			}
+			$id = isset($action[0]) ? ($action[0]['message_action']['store_entryid'] ?? null) : ($action['store_entryid'] ?? null);
+			if (is_string($id) && $id !== '') {
+				$ids[strtolower($id)] = strtolower($id);
+			}
+		}
+		sort($ids);
+
+		return $ids;
+	}
+
+	private function executeLocked() {
 		foreach ($this->data as $actionType => $action) {
 			// The client proxy may send rule data as an indexed array
 			// (multiple rules) or as a single associative array (one

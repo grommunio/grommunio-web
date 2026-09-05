@@ -48,6 +48,16 @@ class Module {
 	public $_sharedSessionState;
 
 	/**
+	 * @var false|State per-module execution lock
+	 */
+	private $sessionExecutionLock = false;
+
+	/**
+	 * @var null|string serialized module state loaded before execution
+	 */
+	private $sessionDataSnapshot;
+
+	/**
 	 * Constructor.
 	 *
 	 * @param int   $id   unique id
@@ -58,6 +68,8 @@ class Module {
 		$this->responseData = [];
 		$this->sessionState = false;
 		$this->sessionData = false;
+		$this->_sharedSessionState = false;
+		$this->sessionDataSnapshot = null;
 
 		$this->createNotifiers();
 
@@ -468,6 +480,18 @@ class Module {
 	}
 
 	/**
+	 * Resource group whose requests must execute serially, null to run unlocked.
+	 */
+	protected function getExecutionLockName() {
+		return $this->getModuleName();
+	}
+
+	/**
+	 * Initialize resources that need the module execution lock.
+	 */
+	protected function afterLoadSessionData() {}
+
+	/**
 	 * Function which will handle unknown action type for all modules.
 	 *
 	 * @param string $actionType action type
@@ -494,32 +518,99 @@ class Module {
 	 *
 	 * @param State $sharedState optional shared State object so that
 	 *                           multiple modules can reuse a single lock
-	 *                           and avoid repeated open/serialize/close cycles.
+	 *                           and avoid repeated open/serialize/close cycles
 	 */
 	public function loadSessionData($sharedState = null) {
 		if ($sharedState) {
 			$this->sessionState = $sharedState;
 			$this->_sharedSessionState = true;
+			$this->sessionData = $this->sessionState->read($this->getModuleName());
+			$this->sessionDataSnapshot = serialize($this->sessionData);
+			$this->afterLoadSessionData();
+
+			return;
 		}
-		else {
-			$this->sessionState = new State('module_sessiondata');
-			$this->sessionState->open();
-			$this->_sharedSessionState = false;
+
+		$moduleName = $this->getModuleName();
+		$lockName = $this->getExecutionLockName();
+		if ($lockName === null) {
+			$this->sessionData = null;
+			$this->sessionDataSnapshot = serialize(null);
+			$this->afterLoadSessionData();
+
+			return;
 		}
-		$this->sessionData = $this->sessionState->read($this->getModuleName());
+		$this->sessionExecutionLock = new State('module-lock-' . hash('sha256', $lockName));
+		if (!$this->sessionExecutionLock->open()) {
+			throw new RuntimeException('Unable to lock module session state');
+		}
+
+		$this->sessionState = new State('module_sessiondata');
+		if (!$this->sessionState->open()) {
+			throw new RuntimeException('Unable to read module session state');
+		}
+
+		try {
+			$this->sessionData = $this->sessionState->read($moduleName);
+			$this->sessionDataSnapshot = serialize($this->sessionData);
+		}
+		finally {
+			$this->sessionState->close();
+		}
+		$this->afterLoadSessionData();
 	}
 
 	/**
 	 * Saves sessiondata of the module to the state file on disk.
 	 */
 	public function saveSessionData() {
-		if ($this->sessionData !== false) {
-			// When using a shared state, defer flush to the caller.
-			$this->sessionState->write($this->getModuleName(), $this->sessionData, false);
+		if ($this->_sharedSessionState) {
+			if ($this->sessionData !== false) {
+				$this->sessionState->write($this->getModuleName(), $this->sessionData, false);
+			}
+
+			return;
 		}
-		if (empty($this->_sharedSessionState)) {
-			$this->sessionState->flush();
-			$this->sessionState->close();
+
+		if ($this->sessionData !== false) {
+			$sessionData = serialize($this->sessionData);
+			if ($sessionData === $this->sessionDataSnapshot) {
+				return;
+			}
+
+			$moduleName = $this->getModuleName();
+			$this->sessionState = new State('module_sessiondata');
+			if (!$this->sessionState->open()) {
+				error_log('Unable to save module session state: ' . $moduleName);
+
+				return;
+			}
+
+			try {
+				$currentSessionData = $this->sessionState->read($moduleName);
+				if ($this->sessionDataSnapshot !== null && serialize($currentSessionData) !== $this->sessionDataSnapshot) {
+					error_log('Module session state changed without its execution lock: ' . $moduleName);
+					$this->sessionData = $currentSessionData;
+					$this->sessionDataSnapshot = serialize($currentSessionData);
+
+					return;
+				}
+				$this->sessionState->write($moduleName, $this->sessionData);
+				$this->sessionDataSnapshot = $sessionData;
+			}
+			finally {
+				$this->sessionState->close();
+			}
+		}
+	}
+
+	/**
+	 * Release this module's execution lock.
+	 */
+	public function closeSessionData() {
+		if (!$this->_sharedSessionState && $this->sessionExecutionLock instanceof State) {
+			$this->sessionExecutionLock->close();
+			$this->sessionExecutionLock = false;
 		}
 	}
 }

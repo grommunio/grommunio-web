@@ -36,6 +36,11 @@ class NewMailNotifier extends Notifier {
 		return HIERARCHY_UPDATE | REQUEST_END;
 	}
 
+	#[Override]
+	public function usePersistentStateLock($event = null) {
+		return false;
+	}
+
 	/**
 	 * If an event elsewhere has occurred, it enters in this method. This method
 	 * executes one or more actions, depends on the event.
@@ -66,6 +71,25 @@ class NewMailNotifier extends Notifier {
 		if (($now - $this->lastSharedCheck) < self::SHARED_CHECK_INTERVAL) {
 			return;
 		}
+
+		$requestStateId = $GLOBALS['request_state_id'] ?? null;
+		if (is_string($requestStateId) && $requestStateId !== '') {
+			$checkState = new State('newmail-check-lease-' . hash('sha256', $requestStateId));
+			if ($checkState->open()) {
+				try {
+					$lastSharedCheck = max((int) $checkState->read('lastSharedCheck'), $this->lastSharedCheck);
+					if (($now - $lastSharedCheck) < self::SHARED_CHECK_INTERVAL) {
+						$this->lastSharedCheck = $lastSharedCheck;
+
+						return;
+					}
+					$checkState->write('lastSharedCheck', $now);
+				}
+				finally {
+					$checkState->close();
+				}
+			}
+		}
 		$this->lastSharedCheck = $now;
 
 		$this->updateOpenedStoreHierachies();
@@ -88,6 +112,7 @@ class NewMailNotifier extends Notifier {
 			}
 			catch (MAPIException $e) {
 				$e->setHandled();
+
 				continue;
 			}
 
@@ -149,13 +174,13 @@ class NewMailNotifier extends Notifier {
 	 * The returned hierarchy is cached in the session state and compared when the function is called, when
 	 * the data differs newmail notifications for the changed folder(s) are created and send to the client.
 	 *
-	 * @param string $username   The user for whom the store is checked for mail updates. If not set, it will be
-	 *                           current user's own store.
-	 * @param string $folderType the type of shared folder (all, inbox or calendar)
-	 * @param mixed  $store      optional already opened store
-	 * @param string $cacheKey   optional key for the counter state cache
+	 * @param string $username    The user for whom the store is checked for mail updates. If not set, it will be
+	 *                            current user's own store.
+	 * @param string $folderType  the type of shared folder (all, inbox or calendar)
+	 * @param mixed  $store       optional already opened store
+	 * @param string $cacheKey    optional key for the counter state cache
 	 * @param string $displayName optional store display name for shared-store notifications
-	 * @param bool   $logErrors  whether to log root folder open failures
+	 * @param bool   $logErrors   whether to log root folder open failures
 	 */
 	private function updateFolderHierachy($username = '', $folderType = '', $store = null, $cacheKey = null, $displayName = null, $logErrors = true) {
 		if (!$store) {
@@ -171,8 +196,6 @@ class NewMailNotifier extends Notifier {
 			}
 		}
 
-		$counterState = new State('counters_sessiondata');
-		$counterState->open();
 		if ($cacheKey === null) {
 			$cacheKey = 'sessionData';
 		}
@@ -180,7 +203,42 @@ class NewMailNotifier extends Notifier {
 			$cacheKey = $username;
 		}
 
-		$sessionData = $counterState->read($cacheKey);
+		$counterLock = new State('counter-lock-' . hash('sha256', $cacheKey));
+		if (!$counterLock->open()) {
+			return;
+		}
+
+		try {
+			$this->updateFolderHierachyLocked($username, $folderType, $store, $cacheKey, $displayName, $logErrors);
+		}
+		finally {
+			$counterLock->close();
+		}
+	}
+
+	/**
+	 * Update one counter cache while its computation lock is held.
+	 *
+	 * @param mixed $username
+	 * @param mixed $folderType
+	 * @param mixed $store
+	 * @param mixed $cacheKey
+	 * @param mixed $displayName
+	 * @param mixed $logErrors
+	 */
+	private function updateFolderHierachyLocked($username, $folderType, $store, $cacheKey, $displayName, $logErrors) {
+		$counterState = new State('counters_sessiondata');
+		if (!$counterState->open()) {
+			return;
+		}
+
+		try {
+			$sessionData = $counterState->read($cacheKey);
+		}
+		finally {
+			$counterState->close();
+		}
+
 		if (!is_array($sessionData)) {
 			$sessionData = [];
 		}
@@ -189,8 +247,6 @@ class NewMailNotifier extends Notifier {
 
 		// Keep the previous counter state when the hierarchy could not be read.
 		if (empty($folderStatCache)) {
-			$counterState->close();
-
 			return;
 		}
 
@@ -237,10 +293,18 @@ class NewMailNotifier extends Notifier {
 			$this->addNotificationActionData("newmail", $data);
 			$GLOBALS["bus"]->addData($this->createNotificationResponseData());
 
-			$counterState->write($cacheKey, $folderStatCache);
-		}
+			$counterState = new State('counters_sessiondata');
+			if (!$counterState->open()) {
+				return;
+			}
 
-		$counterState->close();
+			try {
+				$counterState->write($cacheKey, $folderStatCache);
+			}
+			finally {
+				$counterState->close();
+			}
+		}
 	}
 
 	/**

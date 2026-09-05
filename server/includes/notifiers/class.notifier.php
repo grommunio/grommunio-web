@@ -39,6 +39,31 @@ class Notifier {
 	}
 
 	/**
+	 * Whether updates need serialized persistent notifier state.
+	 *
+	 * @param null|mixed $event
+	 */
+	public function usePersistentStateLock($event = null) {
+		static $statefulClasses = [];
+		$className = get_class($this);
+		if (isset($statefulClasses[$className])) {
+			return $statefulClasses[$className];
+		}
+
+		$reflection = new ReflectionObject($this);
+		while ($reflection !== false && $reflection->getName() !== self::class) {
+			foreach ($reflection->getProperties() as $property) {
+				if ($property->getDeclaringClass()->getName() === $reflection->getName() && !$property->isStatic()) {
+					return $statefulClasses[$className] = true;
+				}
+			}
+			$reflection = $reflection->getParentClass();
+		}
+
+		return $statefulClasses[$className] = false;
+	}
+
+	/**
 	 * Function which returns name of the notifier class.
 	 *
 	 * @return string notifier name

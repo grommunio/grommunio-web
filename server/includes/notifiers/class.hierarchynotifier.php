@@ -39,6 +39,17 @@ class HierarchyNotifier extends Notifier {
 		return OBJECT_SAVE | OBJECT_DELETE | TABLE_SAVE | TABLE_DELETE | REQUEST_START | REQUEST_END;
 	}
 
+	#[Override]
+	public function reset() {
+		parent::reset();
+		$this->reopenStore = false;
+	}
+
+	#[Override]
+	public function usePersistentStateLock($event = null) {
+		return $event === REQUEST_END;
+	}
+
 	/**
 	 * If an event elsewhere has occurred, it enters in this method. This method
 	 * executes one or more actions, depends on the event.

@@ -20,6 +20,11 @@ require_once __DIR__ . '/lib/class.airequest.php';
  * module="pluginaimodule".
  */
 class PluginAIModule extends Module {
+	#[Override]
+	protected function getExecutionLockName() {
+		return null;
+	}
+
 	/**
 	 * Dispatch incoming actions from the client.
 	 */
@@ -200,7 +205,7 @@ class PluginAIModule extends Module {
 	 * the fields needed to be useful.
 	 */
 	private function sanitizeAction(string $type, array $action): ?array {
-		$str = static fn($value, int $max = 500): string => mb_substr(trim((string) ($value ?? '')), 0, $max);
+		$str = static fn ($value, int $max = 500): string => mb_substr(trim((string) ($value ?? '')), 0, $max);
 
 		switch ($type) {
 			case 'meeting':

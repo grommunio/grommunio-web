@@ -1490,10 +1490,9 @@ class Operations {
 
 			// Workaround to get the assignees of a task. In some cases the task might
 			// have an assignee, but display_to (PR_DISPLAY_TO) is empty.
-			if (isset($properties['owner'], $properties['display_to']) &&
-			    isset($itemData['props']['owner']) &&
-			    empty($itemData['props']['display_to'])) {
-					$itemData['props']['display_to'] = $itemData['props']['owner'];
+			if (isset($properties['owner'], $properties['display_to'], $itemData['props']['owner']) &&
+				 empty($itemData['props']['display_to'])) {
+				$itemData['props']['display_to'] = $itemData['props']['owner'];
 			}
 
 			array_push($data["item"], $itemData);
@@ -1908,8 +1907,9 @@ class Operations {
 		// Needed for S/MIME messages with embedded message attachments
 		if ($parse_smime) {
 			$p = mapi_getprops($message, [PR_MESSAGE_CLASS]);
-			if ($p && stripos($p[PR_MESSAGE_CLASS], "SMIME") !== false)
+			if ($p && stripos($p[PR_MESSAGE_CLASS], "SMIME") !== false) {
 				parse_smime($store, $message);
+			}
 		}
 
 		if ($message && $attach_num) {
@@ -2445,14 +2445,18 @@ class Operations {
 				// Append body if the request action requires this
 				if (isset($action['message_action'], $action['message_action']['append_body'])) {
 					$bodyProps = mapi_getprops($message, [$tag]);
-					if (isset($bodyProps[$tag]) || propIsError($tag, $bodyProps) == MAPI_E_NOT_ENOUGH_MEMORY)
+					if (isset($bodyProps[$tag]) || propIsError($tag, $bodyProps) == MAPI_E_NOT_ENOUGH_MEMORY) {
 						$bodyProps[$tag] = streamProperty($message, $tag);
-					if (isset($action['message_action']['meetingTimeInfo'], $bodyProps[$tag]))
+					}
+					if (isset($action['message_action']['meetingTimeInfo'], $bodyProps[$tag])) {
 						$action['message_action']['meetingTimeInfo'] .= $bodyProps[$tag];
+					}
 				}
 
-				$request->setMeetingTimeInfo($action['message_action']['meetingTimeInfo'],
-					$action['message_action']['mti_html'] ?? false); /* cf. mapi-header-php */
+				$request->setMeetingTimeInfo(
+					$action['message_action']['meetingTimeInfo'],
+					$action['message_action']['mti_html'] ?? false
+				); /* cf. mapi-header-php */
 				unset($action['message_action']['meetingTimeInfo']);
 			}
 
@@ -2792,7 +2796,7 @@ class Operations {
 				PR_CONVERSATION_TOPIC,
 				PR_NORMALIZED_SUBJECT,
 				PR_INTERNET_MESSAGE_ID,
-				PR_INTERNET_REFERENCES
+				PR_INTERNET_REFERENCES,
 			]);
 			// Check if replying then set PR_INTERNET_REFERENCES and PR_IN_REPLY_TO_ID properties in props.
 			// flag is probably used wrong here but the same flag indicates if this is reply or replyall
@@ -2906,9 +2910,10 @@ class Operations {
 						// Decode smime signed messages on this message
 						parse_smime($origStore, $copyFromMessage);
 					}
-					catch(MAPIException $e) {
+					catch (MAPIException $e) {
 						$e->setHandled();
 						$copyFromMessage = false;
+
 						// the message might be in the default store, try to open it there
 						try {
 							$copyFromMessage = mapi_msgstore_openentry($store, $oldEntryId);
@@ -2918,7 +2923,7 @@ class Operations {
 							// Decode smime signed messages on this message
 							parse_smime($store, $copyFromMessage);
 						}
-						catch(MAPIException $e) {
+						catch (MAPIException $e) {
 							$e->setHandled();
 							$copyFromMessage = false;
 						}
@@ -2975,14 +2980,16 @@ class Operations {
 			// delete message from it's original location
 			if (!empty($oldEntryId) && !empty($oldParentEntryId)) {
 				$folder = null;
+
 				try {
 					$folder = mapi_msgstore_openentry($origStore, $oldParentEntryId);
 				}
-				catch(MAPIException) {
+				catch (MAPIException) {
 					try {
 						$folder = mapi_msgstore_openentry($store, $oldParentEntryId);
 					}
-					catch(MAPIException) {}
+					catch (MAPIException) {
+					}
 				}
 				if ($folder) {
 					try {
@@ -3140,7 +3147,7 @@ class Operations {
 				try {
 					$userEntryid = $GLOBALS["mapisession"]->getStoreEntryIdOfUser(strtolower((string) $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS]));
 					$origStore = $userEntryid ?
-						$GLOBALS["mapisession"]->openMessageStore($userEntryid):
+						$GLOBALS["mapisession"]->openMessageStore($userEntryid) :
 						$GLOBALS['mapisession']->addUserStore(strtolower((string) $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS]));
 					if ($origStore) {
 						$origStoreprops = mapi_getprops($origStore, [PR_ENTRYID, PR_IPM_SENTMAIL_ENTRYID]);
@@ -3485,10 +3492,10 @@ class Operations {
 	 * resolveNewEntryids() can exclude pre-existing items which share a search
 	 * key with the item being relocated.
 	 *
-	 * @param object $store       MAPI Message Store Object of the folder
+	 * @param object $store         MAPI Message Store Object of the folder
 	 * @param string $folderentryid entryid of the folder to inspect
-	 * @param array  $searchKeys  mapping of hex source entryid => binary PR_SEARCH_KEY
-	 *                            as returned by getMessageSearchKeys()
+	 * @param array  $searchKeys    mapping of hex source entryid => binary PR_SEARCH_KEY
+	 *                              as returned by getMessageSearchKeys()
 	 *
 	 * @return array set of hex entryids (as array keys) currently present
 	 */
@@ -3726,7 +3733,7 @@ class Operations {
 	 *
 	 * @return string correct foldername
 	 */
-	public function checkFolderNameConflict(/** @scrutinizer ignore-unused */ $store, $folder, $foldername) {
+	public function checkFolderNameConflict(/* @scrutinizer ignore-unused */ $store, $folder, $foldername) {
 		$folderNames = [];
 
 		$hierarchyTable = mapi_folder_gethierarchytable($folder, MAPI_DEFERRED_ERRORS);
@@ -4982,6 +4989,25 @@ class Operations {
 			return;
 		}
 
+		$historyState = State::forStore('recipient-history-write');
+		if (!$historyState->open()) {
+			return;
+		}
+
+		try {
+			$this->addRecipientsToRecipientHistoryLocked($emailAddresses);
+		}
+		finally {
+			$historyState->close();
+		}
+	}
+
+	/**
+	 * Update recipient history while its session lock is held.
+	 *
+	 * @param array $emailAddresses resolved recipient property sets
+	 */
+	private function addRecipientsToRecipientHistoryLocked($emailAddresses) {
 		// Retrieve the recipient history
 		$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
 		$storeProps = mapi_getprops($store, [PR_EC_RECIPIENT_HISTORY_JSON]);
@@ -5288,7 +5314,7 @@ class Operations {
 					if (($parts['type'] === DL_DIST || $parts['type'] === DL_DIST_AB) &&
 						isset($memberItem['props']['address_type']) &&
 						$memberItem['props']['address_type'] === "SMTP") {
-							$memberItem['props']['distlist_type'] = $parts['type'] = DL_USER;
+						$memberItem['props']['distlist_type'] = $parts['type'] = DL_USER;
 					}
 
 					// distribution lists don't have valid email address so ignore that property
@@ -5447,8 +5473,12 @@ class Operations {
 			$user = $GLOBALS['mapisession']->getUser($userEntryId);
 		}
 		catch (Exception $e) {
-			$formattedMsg = sprintf("Problem while getting a user from the addressbook (%s): %s (0x%x)",
-			                bin2hex($userEntryId), $e->getMessage(), $e->getCode());
+			$formattedMsg = sprintf(
+				"Problem while getting a user from the addressbook (%s): %s (0x%x)",
+				bin2hex($userEntryId),
+				$e->getMessage(),
+				$e->getCode()
+			);
 			error_log($formattedMsg);
 			Log::Write(LOGLEVEL_ERROR, "Operations:getCompressedUserImage() " . $formattedMsg);
 
@@ -5525,17 +5555,27 @@ class Operations {
 			$encryptionStore = EncryptionStore::getInstance();
 			$key = $encryptionStore->get('filesenckey');
 			if ($key === null) {
-				$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
-				$props = mapi_getprops($store, [PR_EC_WA_FILES_ENCRYPTION_KEY]);
-				if (isset($props[PR_EC_WA_FILES_ENCRYPTION_KEY])) {
-					$key = $props[PR_EC_WA_FILES_ENCRYPTION_KEY];
+				$keyState = State::forStore('files-encryption-key-write');
+				if (!$keyState->open()) {
+					throw new RuntimeException('Unable to lock the files encryption key');
 				}
-				else {
-					$key = sodium_crypto_secretbox_keygen();
-					$encryptionStore->add('filesenckey', $key);
-					mapi_setprops($store, [PR_EC_WA_FILES_ENCRYPTION_KEY => $key]);
-					mapi_savechanges($store);
+
+				try {
+					$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
+					$props = mapi_getprops($store, [PR_EC_WA_FILES_ENCRYPTION_KEY]);
+					if (isset($props[PR_EC_WA_FILES_ENCRYPTION_KEY])) {
+						$key = $props[PR_EC_WA_FILES_ENCRYPTION_KEY];
+					}
+					else {
+						$key = sodium_crypto_secretbox_keygen();
+						mapi_setprops($store, [PR_EC_WA_FILES_ENCRYPTION_KEY => $key]);
+						mapi_savechanges($store);
+					}
 				}
+				finally {
+					$keyState->close();
+				}
+				$encryptionStore->add('filesenckey', $key);
 			}
 		}
 

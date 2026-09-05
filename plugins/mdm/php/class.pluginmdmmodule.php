@@ -27,6 +27,10 @@ class PluginMDMModule extends Module {
 		$this->stateFolder = null;
 		$this->deviceStates = [];
 		$this->devices = [];
+	}
+
+	#[Override]
+	protected function afterLoadSessionData() {
 		$this->setupDevices();
 	}
 
@@ -290,7 +294,7 @@ class PluginMDMModule extends Module {
 	public function getDeviceProps($device) {
 		$item = [];
 		$propsList = ['devicetype', 'deviceos', 'devicefriendlyname', 'useragent', 'asversion', 'firstsynctime',
-			'lastsynctime', 'lastupdatetime', 'policyname', 'impersonatinguser' ];
+			'lastsynctime', 'lastupdatetime', 'policyname', 'impersonatinguser'];
 
 		$item['entryid'] = $device->deviceid;
 		$item['message_class'] = "IPM.MDM";

@@ -18,11 +18,19 @@ use Files\Core\Util\ArrayUtil;
 use Files\Core\Util\Logger;
 
 class FilesAccountModule extends ListModule {
+	#[Override]
+	protected function getExecutionLockName() {
+		return 'files';
+	}
+
+	#[Override]
+	protected function afterLoadSessionData() {
+		$GLOBALS['settings']->refreshSettings();
+	}
+
 	public const LOG_CONTEXT = "FilesAccountModule"; // Context for the Logger
 
 	/**
-	 * @constructor
-	 *
 	 * @param mixed $id
 	 * @param mixed $data
 	 */
@@ -157,11 +165,15 @@ class FilesAccountModule extends ListModule {
 	 */
 	public function accountDelete($actionType, $actionData) {
 		$response = [];
+		$accountStore = new AccountStore();
+		$account = $accountStore->getAccount($actionData['entryid']);
+		if ($account === null) {
+			throw new AccountException(_("Unknown account ID"));
+		}
 
 		// check if account needs to clean things up before it gets deleted
 		try {
-			$accountStore = new AccountStore();
-			$accountStore->getAccount($actionData['entryid'])->beforeDelete();
+			$account->beforeDelete();
 		}
 		catch (Exception) {
 			// ignore errors here
@@ -246,6 +258,9 @@ class FilesAccountModule extends ListModule {
 		// create a new account in our backend
 		$accountStore = new AccountStore();
 		$currentAccount = $accountStore->getAccount($actionData['entryid']);
+		if ($currentAccount === null) {
+			throw new AccountException(_("Unknown account ID"));
+		}
 
 		// apply changes to the account object
 		if (isset($actionData['props']['name'])) {

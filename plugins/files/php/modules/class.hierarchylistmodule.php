@@ -2,6 +2,9 @@
 
 require_once __DIR__ . "/class.fileslistmodule.php";
 
+use Files\Backend\Exception as BackendException;
+use Files\Core\Exception as AccountException;
+
 /**
  * This module handles all list and change requests for the files browser.
  *
@@ -121,7 +124,7 @@ class HierarchyListModule extends FilesListModule {
 	/**
 	 * @return array|void
 	 *
-	 * @throws Files\Backend\Exception
+	 * @throws BackendException
 	 */
 	#[Override]
 	public function save($actionData) {
@@ -186,7 +189,7 @@ class HierarchyListModule extends FilesListModule {
 			try {
 				$initializedBackend->delete($relNodeId);
 			}
-			catch (Files\Backend\Exception) {
+			catch (BackendException) {
 				// TODO: this might fails because the file was already deleted.
 				// fire error message if any other error occurred.
 				// Logger::debug(self::LOG_CONTEXT, "deleted a directory that was no longer available");

@@ -4,6 +4,11 @@
  * FreeBusyModule Module.
  */
 class FreeBusyModule extends Module {
+	#[Override]
+	protected function getExecutionLockName() {
+		return null;
+	}
+
 	public function __construct($id, $data) {
 		parent::__construct($id, $data);
 	}
@@ -64,9 +69,10 @@ class FreeBusyModule extends Module {
 	 */
 	public function getFreeBusyInfo($entryID, $start, $end) {
 		$result = [];
+
 		try {
 			$fbdata = mapi_getuserfreebusy($GLOBALS['mapisession']->getSession(), hex2bin($entryID), $start, $end);
-	
+
 			foreach ($fbdata['fbevents'] as $event) {
 				$result[] = [
 					'start' => $event['start'],

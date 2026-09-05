@@ -77,6 +77,17 @@ class Bus {
 	private $notifiers;
 
 	/**
+	 * Monotonic versions for notifier state persisted independently of the Bus.
+	 */
+	private $notifierVersions;
+
+	/**
+	 * Registration generation observed by this request.
+	 */
+	private $synchronizedRegistrationVersion;
+	private $registrationStateDirty;
+
+	/**
 	 * Constructor.
 	 */
 	public function __construct() {
@@ -85,6 +96,9 @@ class Bus {
 		$this->registeredNotifiers = [];
 		$this->registeredStoreNotifiers = [];
 		$this->notifiers = [];
+		$this->notifierVersions = [];
+		$this->synchronizedRegistrationVersion = null;
+		$this->registrationStateDirty = false;
 	}
 
 	/**
@@ -107,6 +121,7 @@ class Bus {
 	public function registerNotifier($notifierName, $entryid, $store = false) {
 		if (!isset($this->notifiers[$notifierName])) {
 			$this->notifiers[$notifierName] = $GLOBALS["dispatcher"]->loadNotifier($notifierName);
+			$this->registrationStateDirty = true;
 		}
 
 		// Obtain the events which are supported by this notifier
@@ -138,6 +153,9 @@ class Bus {
 	 *                             bubbled to this notifier object
 	 */
 	public function registerEvent($notifierName, $entryid, $events, $store = false) {
+		if (!self::isRegistrationEntryid($entryid)) {
+			return;
+		}
 		$entryidCmp = $GLOBALS["entryid"];
 
 		if ($store) {
@@ -145,6 +163,9 @@ class Bus {
 
 			foreach ($this->registeredStoreNotifiers as $key => &$storeNotifier) {
 				if ($entryidCmp->compareEntryIds($storeNotifier['entryid'], $entryid)) {
+					if (!isset($storeNotifier[$notifierName]['events']) || $storeNotifier[$notifierName]['events'] !== $events) {
+						$this->registrationStateDirty = true;
+					}
 					$storeNotifier[$notifierName] = ['events' => $events];
 					$found = true;
 					break;
@@ -157,6 +178,7 @@ class Bus {
 					'entryid' => $entryid,
 					$notifierName => ['events' => $events],
 				];
+				$this->registrationStateDirty = true;
 			}
 		}
 		else {
@@ -164,6 +186,9 @@ class Bus {
 
 			foreach ($this->registeredNotifiers as $key => &$folderNotifier) {
 				if ($entryidCmp->compareEntryIds($folderNotifier['entryid'], $entryid)) {
+					if (!isset($folderNotifier[$notifierName]['events']) || $folderNotifier[$notifierName]['events'] !== $events) {
+						$this->registrationStateDirty = true;
+					}
 					$folderNotifier[$notifierName] = ['events' => $events];
 					$found = true;
 					break;
@@ -176,6 +201,7 @@ class Bus {
 					'entryid' => $entryid,
 					$notifierName => ['events' => $events],
 				];
+				$this->registrationStateDirty = true;
 			}
 		}
 	}
@@ -190,6 +216,9 @@ class Bus {
 	 * @param array  $data    the data which is used to execute the event, which differs for each event type
 	 */
 	public function notify($entryID, $event, $data = null) {
+		if (!$this->synchronizePersistentState() && $event === REQUEST_START) {
+			throw new RuntimeException('Unable to synchronize notifier state');
+		}
 		$entryidCmp = $GLOBALS["entryid"];
 
 		// Notifiers must be get only ONE update
@@ -207,7 +236,7 @@ class Bus {
 						if (isset($notifier['events']) && ($notifier['events'] & $event)) {
 							if (!isset($updatedNotifiers[$key])) {
 								if (isset($this->notifiers[$key]) && is_object($this->notifiers[$key])) {
-									$this->notifiers[$key]->update($event, $entryID, $data);
+									$this->updateNotifier($key, $event, $entryID, $data);
 									$updatedNotifiers[$key] = true;
 								}
 							}
@@ -227,7 +256,7 @@ class Bus {
 					if (isset($notifier['events']) && ($notifier['events'] & $event)) {
 						if (!isset($updatedNotifiers[$key])) {
 							if (isset($this->notifiers[$key]) && is_object($this->notifiers[$key])) {
-								$this->notifiers[$key]->update($event, $entryID, $data);
+								$this->updateNotifier($key, $event, $entryID, $data);
 								$updatedNotifiers[$key] = true;
 							}
 						}
@@ -237,6 +266,152 @@ class Bus {
 			}
 		}
 		unset($folderNotifier);
+	}
+
+	/**
+	 * Update one notifier against its latest persistent state.
+	 *
+	 * @param mixed $notifierName
+	 * @param mixed $event
+	 * @param mixed $entryID
+	 * @param mixed $data
+	 */
+	private function updateNotifier($notifierName, $event, $entryID, $data) {
+		$notifier = $this->notifiers[$notifierName] ?? null;
+		if (!is_object($notifier)) {
+			return;
+		}
+		if (method_exists($notifier, 'usePersistentStateLock') && !$notifier->usePersistentStateLock($event)) {
+			$notifier->update($event, $entryID, $data);
+
+			return;
+		}
+
+		$stateId = $GLOBALS['request_state_id'] ?? null;
+		if (!is_string($stateId) || $stateId === '' || ($GLOBALS['bus'] ?? null) !== $this) {
+			$notifier->update($event, $entryID, $data);
+
+			return;
+		}
+
+		// A notifier that notifies itself must not wait for its own lock
+		static $updating = [];
+		if (isset($updating[$notifierName])) {
+			$notifier->update($event, $entryID, $data);
+
+			return;
+		}
+		$updating[$notifierName] = true;
+
+		try {
+			$this->updateNotifierLocked($notifierName, $notifier, $event, $entryID, $data, $stateId);
+		}
+		finally {
+			unset($updating[$notifierName]);
+		}
+	}
+
+	/**
+	 * Run one notifier update under its persistent state lock.
+	 *
+	 * @param mixed $notifierName
+	 * @param mixed $notifier
+	 * @param mixed $event
+	 * @param mixed $entryID
+	 * @param mixed $data
+	 * @param mixed $stateId
+	 */
+	private function updateNotifierLocked($notifierName, $notifier, $event, $entryID, $data, $stateId) {
+		$notifierState = new State('bus-notifier-' . hash('sha256', $stateId . "\0" . $notifierName));
+		if (!$notifierState->open()) {
+			if ($event === REQUEST_START) {
+				throw new RuntimeException('Unable to lock notifier state');
+			}
+			$notifier->update($event, $entryID, $data);
+
+			return;
+		}
+
+		try {
+			$version = isset($this->notifierVersions[$notifierName]) ? (int) $this->notifierVersions[$notifierName] : 0;
+			$storedNotifier = $notifierState->read('notifier');
+			$storedVersion = (int) $notifierState->read('version');
+			if (is_object($storedNotifier) && get_class($storedNotifier) === get_class($notifier) && $storedVersion > $version) {
+				$notifier = $this->mergeNotifierPersistentState($notifier, $storedNotifier);
+				$version = $storedVersion;
+				$this->notifiers[$notifierName] = $notifier;
+			}
+
+			$before = serialize($this->persistentNotifierCopy($notifier));
+
+			try {
+				$notifier->update($event, $entryID, $data);
+			}
+			finally {
+				$persistentNotifier = $this->persistentNotifierCopy($notifier);
+				if (serialize($persistentNotifier) !== $before) {
+					++$version;
+					$notifierState->write('notifier', $persistentNotifier, false);
+					$notifierState->write('version', $version, false);
+					$notifierState->flush();
+				}
+				$this->notifierVersions[$notifierName] = $version;
+			}
+		}
+		finally {
+			$notifierState->close();
+		}
+	}
+
+	/**
+	 * Clone a notifier in the same reset form stored with the Bus.
+	 *
+	 * @param mixed $notifier
+	 */
+	private function persistentNotifierCopy($notifier) {
+		if (!is_object($notifier)) {
+			return $notifier;
+		}
+		$copy = unserialize(serialize($notifier));
+		$copy->reset();
+
+		return $copy;
+	}
+
+	/**
+	 * Import reset-form state without replacing request-local notifier data.
+	 *
+	 * @param mixed $local
+	 * @param mixed $persistent
+	 */
+	private function mergeNotifierPersistentState($local, $persistent) {
+		if (!is_object($local) || !is_object($persistent) || get_class($local) !== get_class($persistent)) {
+			return $local;
+		}
+
+		$resetLocal = $this->persistentNotifierCopy($local);
+		$reflection = new ReflectionObject($local);
+		do {
+			foreach ($reflection->getProperties() as $property) {
+				if ($property->getDeclaringClass()->getName() !== $reflection->getName() ||
+					$property->isStatic() || $property->isReadOnly()) {
+					continue;
+				}
+				$localInitialized = $property->isInitialized($local);
+				$resetInitialized = $property->isInitialized($resetLocal);
+				if ($localInitialized !== $resetInitialized ||
+					($localInitialized && serialize($property->getValue($local)) !== serialize($property->getValue($resetLocal)))) {
+					continue;
+				}
+				if ($property->isInitialized($persistent)) {
+					$property->setValue($local, $property->getValue($persistent));
+				}
+			}
+			$reflection = $reflection->getParentClass();
+		}
+		while ($reflection !== false);
+
+		return $local;
 	}
 
 	/**
@@ -290,6 +465,320 @@ class Bus {
 	}
 
 	/**
+	 * Merge persistent registrations from a concurrently completed request.
+	 * Existing notifier instances belong to the newer on-disk state; notifier
+	 * names and registrations only present in the other request are additive.
+	 *
+	 * @param Bus      $bus               request-local bus state
+	 * @param null|Bus $baseBus           state from which the request started
+	 * @param bool     $reset             clear transient notifier and response data
+	 * @param bool     $preserveTransient retain request-local notifier data while importing
+	 */
+	public function mergePersistentState($bus, $baseBus = null, $reset = true, $preserveTransient = false) {
+		if (!$bus instanceof self) {
+			return;
+		}
+
+		if (!is_array($this->notifiers)) {
+			$this->notifiers = [];
+		}
+		if (!is_array($this->notifierVersions)) {
+			$this->notifierVersions = [];
+		}
+		if (is_array($bus->notifiers)) {
+			foreach ($bus->notifiers as $notifierName => $notifier) {
+				$currentVersion = isset($this->notifierVersions[$notifierName]) ? (int) $this->notifierVersions[$notifierName] : 0;
+				$otherVersion = isset($bus->notifierVersions[$notifierName]) ? (int) $bus->notifierVersions[$notifierName] : 0;
+				if (!isset($this->notifiers[$notifierName])) {
+					$this->notifiers[$notifierName] = $notifier;
+					$this->notifierVersions[$notifierName] = $otherVersion;
+				}
+				elseif ($otherVersion > $currentVersion) {
+					$this->notifiers[$notifierName] = $preserveTransient ?
+						$this->mergeNotifierPersistentState($this->notifiers[$notifierName], $notifier) : $notifier;
+					$this->notifierVersions[$notifierName] = $otherVersion;
+				}
+				elseif ($otherVersion === $currentVersion && $baseBus instanceof self && isset($baseBus->notifiers[$notifierName])) {
+					$baseNotifier = serialize($baseBus->notifiers[$notifierName]);
+					if (serialize($this->notifiers[$notifierName]) === $baseNotifier && serialize($notifier) !== $baseNotifier) {
+						$this->notifiers[$notifierName] = $preserveTransient ?
+							$this->mergeNotifierPersistentState($this->notifiers[$notifierName], $notifier) : $notifier;
+						$this->notifierVersions[$notifierName] = $otherVersion;
+					}
+				}
+			}
+		}
+
+		$baseRegistrations = $baseBus instanceof self ? $baseBus->registeredNotifiers : [];
+		$baseStoreRegistrations = $baseBus instanceof self ? $baseBus->registeredStoreNotifiers : [];
+		$this->mergeRegistrations($bus->registeredNotifiers, $baseRegistrations, false);
+		$this->mergeRegistrations($bus->registeredStoreNotifiers, $baseStoreRegistrations, true);
+		if ($reset) {
+			$this->reset();
+		}
+	}
+
+	/**
+	 * Publish new registrations before module execution and import registrations
+	 * published by requests that started from the same state snapshot.
+	 */
+	public function synchronizePersistentState() {
+		$stateId = $GLOBALS['request_state_id'] ?? null;
+		if (!is_string($stateId) || $stateId === '' || ($GLOBALS['bus'] ?? null) !== $this) {
+			return true;
+		}
+
+		$registrationState = new State('bus-registration-' . hash('sha256', $stateId));
+		if (!$registrationState->open()) {
+			return false;
+		}
+		$version = (int) $registrationState->read('version');
+		if ($this->synchronizedRegistrationVersion === $version && !$this->registrationStateDirty) {
+			$registrationState->close();
+
+			return true;
+		}
+
+		$state = new State($stateId);
+		if (!$state->open()) {
+			$registrationState->close();
+
+			return false;
+		}
+
+		try {
+			$currentBus = $state->read('bus');
+			if ($currentBus instanceof self) {
+				$currentBus->reset();
+			}
+			else {
+				$currentBus = unserialize(serialize($this));
+				$currentBus->reset();
+			}
+
+			$before = serialize($currentBus);
+			$beforeTopology = $currentBus->persistentTopologyFingerprint();
+			$baseBus = $GLOBALS['request_bus_base'] ?? null;
+			$localCopy = clone $this;
+			$localCopy->responseData = [];
+			foreach ($this->notifiers as $notifierName => $notifier) {
+				$localCopy->notifiers[$notifierName] = $this->persistentNotifierCopy($notifier);
+			}
+			$currentBus->mergePersistentState($localCopy, $baseBus instanceof self ? $baseBus : null);
+			$topology = $currentBus->persistentTopologyFingerprint();
+			if ($topology !== $beforeTopology) {
+				++$version;
+				$registrationState->write('version', $version);
+			}
+			$currentBus->synchronizedRegistrationVersion = $version;
+			$currentBus->registrationStateDirty = false;
+			if (serialize($currentBus) !== $before) {
+				$state->write('bus', $currentBus);
+			}
+		}
+		finally {
+			$state->close();
+			$registrationState->close();
+		}
+
+		$this->mergePersistentState($currentBus, null, false, true);
+		$this->synchronizedRegistrationVersion = $version;
+		$this->registrationStateDirty = false;
+		if ($baseBus instanceof self) {
+			$baseBus->mergePublishedBaseline($currentBus);
+		}
+
+		return true;
+	}
+
+	/**
+	 * Extend a request's merge baseline with registrations it has observed.
+	 *
+	 * @param mixed $bus
+	 */
+	private function mergePublishedBaseline($bus) {
+		if (!$bus instanceof self) {
+			return;
+		}
+		foreach ($bus->notifiers as $notifierName => $notifier) {
+			$currentVersion = isset($this->notifierVersions[$notifierName]) ? (int) $this->notifierVersions[$notifierName] : 0;
+			$otherVersion = isset($bus->notifierVersions[$notifierName]) ? (int) $bus->notifierVersions[$notifierName] : 0;
+			if (!isset($this->notifiers[$notifierName]) || $otherVersion > $currentVersion) {
+				$this->notifiers[$notifierName] = unserialize(serialize($notifier));
+				$this->notifierVersions[$notifierName] = $otherVersion;
+			}
+		}
+		$baseRegistrations = $this->registeredNotifiers;
+		$baseStoreRegistrations = $this->registeredStoreNotifiers;
+		$this->mergeRegistrations($bus->registeredNotifiers, $baseRegistrations, false);
+		$this->mergeRegistrations($bus->registeredStoreNotifiers, $baseStoreRegistrations, true);
+		$this->synchronizedRegistrationVersion = $bus->synchronizedRegistrationVersion;
+		$this->registrationStateDirty = false;
+	}
+
+	/**
+	 * Fingerprint notifier names and their append-only registrations.
+	 */
+	private function persistentTopologyFingerprint() {
+		$notifierClasses = [];
+		if (is_array($this->notifiers)) {
+			foreach ($this->notifiers as $name => $notifier) {
+				$notifierClasses[$name] = is_object($notifier) ? get_class($notifier) : gettype($notifier);
+			}
+		}
+		ksort($notifierClasses);
+
+		return hash('sha256', serialize([
+			$notifierClasses,
+			$this->registeredNotifiers,
+			$this->registeredStoreNotifiers,
+		]));
+	}
+
+	/**
+	 * Three-way merge one of the append-only registration lists.
+	 *
+	 * @param mixed $registrations     registrations from another Bus
+	 * @param mixed $baseRegistrations registrations from its starting state
+	 * @param bool  $store             whether these are store registrations
+	 */
+	private function mergeRegistrations($registrations, $baseRegistrations, $store) {
+		if (!is_array($registrations)) {
+			return;
+		}
+
+		if ($store) {
+			$target = &$this->registeredStoreNotifiers;
+		}
+		else {
+			$target = &$this->registeredNotifiers;
+		}
+		if (!is_array($target)) {
+			$target = [];
+		}
+
+		$basePairs = [];
+		$baseEntries = [];
+		if (is_array($baseRegistrations)) {
+			foreach ($baseRegistrations as $registration) {
+				if (!is_array($registration) || !self::isRegistrationEntryid($registration['entryid'] ?? null)) {
+					continue;
+				}
+				$entryKey = $this->registrationEntryKey($registration['entryid']);
+				if (isset($baseEntries[$entryKey])) {
+					continue;
+				}
+				$baseEntries[$entryKey] = true;
+				foreach ($registration as $notifierName => $notifier) {
+					if ($notifierName !== 'entryid' && is_string($notifierName) && is_array($notifier) && isset($notifier['events'])) {
+						$basePairs[$this->registrationPairKey($entryKey, $notifierName)] = $notifier['events'];
+					}
+				}
+			}
+		}
+
+		$targetEntries = [];
+		$targetPairs = [];
+		foreach ($target as $index => $registration) {
+			if (!is_array($registration) || !self::isRegistrationEntryid($registration['entryid'] ?? null)) {
+				continue;
+			}
+			$entryKey = $this->registrationEntryKey($registration['entryid']);
+			if (isset($targetEntries[$entryKey])) {
+				continue;
+			}
+			$targetEntries[$entryKey] = $index;
+			foreach ($registration as $notifierName => $notifier) {
+				if ($notifierName !== 'entryid' && is_string($notifierName) && is_array($notifier) && isset($notifier['events'])) {
+					$targetPairs[$this->registrationPairKey($entryKey, $notifierName)] = $notifier['events'];
+				}
+			}
+		}
+
+		$localEntries = [];
+		foreach ($registrations as $registration) {
+			if (!is_array($registration) || !self::isRegistrationEntryid($registration['entryid'] ?? null)) {
+				continue;
+			}
+			$entryKey = $this->registrationEntryKey($registration['entryid']);
+			if (isset($localEntries[$entryKey])) {
+				continue;
+			}
+			$localEntries[$entryKey] = true;
+
+			foreach ($registration as $notifierName => $notifier) {
+				if ($notifierName === 'entryid' || !is_string($notifierName) || !is_array($notifier) || !isset($notifier['events'])) {
+					continue;
+				}
+
+				$pairKey = $this->registrationPairKey($entryKey, $notifierName);
+				$baseHasPair = array_key_exists($pairKey, $basePairs);
+				if ($baseHasPair && $basePairs[$pairKey] === $notifier['events']) {
+					continue;
+				}
+
+				$targetHasPair = array_key_exists($pairKey, $targetPairs);
+				$targetMatchesBase = $targetHasPair === $baseHasPair &&
+					(!$baseHasPair || $targetPairs[$pairKey] === $basePairs[$pairKey]);
+				if (!$targetMatchesBase) {
+					continue;
+				}
+
+				if (!isset($targetEntries[$entryKey])) {
+					$target[] = ['entryid' => $registration['entryid']];
+					$targetEntries[$entryKey] = array_key_last($target);
+				}
+				$target[$targetEntries[$entryKey]][$notifierName] = ['events' => $notifier['events']];
+				$targetPairs[$pairKey] = $notifier['events'];
+			}
+		}
+		unset($target);
+	}
+
+	/**
+	 * Registrations without an entryid never match a notification.
+	 */
+	private function pruneRegistrations() {
+		foreach (['registeredNotifiers', 'registeredStoreNotifiers'] as $list) {
+			if (!is_array($this->{$list})) {
+				$this->{$list} = [];
+
+				continue;
+			}
+			$this->{$list} = array_values(array_filter($this->{$list}, static fn ($registration) => is_array($registration) &&
+				self::isRegistrationEntryid($registration['entryid'] ?? null)));
+		}
+	}
+
+	/**
+	 * @param mixed $entryid
+	 *
+	 * @return bool
+	 */
+	private static function isRegistrationEntryid($entryid) {
+		return is_string($entryid) && $entryid !== '';
+	}
+
+	/**
+	 * Build a type-safe index key for an entryid.
+	 *
+	 * @param mixed $entryid
+	 */
+	private function registrationEntryKey($entryid) {
+		return 'e' . strlen($entryid) . ':' . $entryid;
+	}
+
+	/**
+	 * Build a type-safe index key for an entryid/notifier pair.
+	 *
+	 * @param mixed $entryKey
+	 * @param mixed $notifierName
+	 */
+	private function registrationPairKey($entryKey, $notifierName) {
+		return $entryKey . '|n' . strlen($notifierName) . ':' . $notifierName;
+	}
+
+	/**
 	 * Reset the bus state and response data, and send resets to all notifier.
 	 *
 	 * Since the bus is a global, persistent object, the reset() function is called before or after
@@ -298,6 +787,7 @@ class Bus {
 	 */
 	public function reset() {
 		$this->responseData = [];
+		$this->pruneRegistrations();
 
 		foreach ($this->notifiers as $key => $notifier) {
 			$this->notifiers[$key]->reset();

@@ -669,7 +669,7 @@ class MAPISession {
 	 * @return string the entryid of the default messagestore
 	 */
 	public function getDefaultMessageStoreEntryId() {
-		if (!isset($this->defaultstore)) {
+		if (empty($this->defaultstore)) {
 			$this->loadMessageStoresFromSession();
 		}
 
@@ -731,7 +731,7 @@ class MAPISession {
 	 * @param string $entryid string representation of the binary entryid of the store
 	 * @param string $name    The name of the store. Will be logged when opening fails.
 	 *
-	 * @return mapistore|false The opened store on success, false otherwise
+	 * @return false|mapistore The opened store on success, false otherwise
 	 */
 	public function openMessageStore($entryid, $name = '') {
 		// Check the cache before opening
@@ -752,9 +752,13 @@ class MAPISession {
 		}
 		catch (Exception $e) {
 			// mapi_openmsgstore seems to not only throw MAPIException
-			error_log(sprintf("openmsgstore %s failed (actor:%s, name:%s): %s",
-				bin2hex($entryid), $this->session_info["username"], $name,
-				method_exists($e, 'getDisplayMessage') ? $e->getDisplayMessage() : $e->getMessage()));
+			error_log(sprintf(
+				"openmsgstore %s failed (actor:%s, name:%s): %s",
+				bin2hex($entryid),
+				$this->session_info["username"],
+				$name,
+				method_exists($e, 'getDisplayMessage') ? $e->getDisplayMessage() : $e->getMessage()
+			));
 
 			return false;
 		}
@@ -791,7 +795,7 @@ class MAPISession {
 					if ($e->getCode() == MAPI_E_NOT_FOUND) {
 						// The user or the corresponding store couldn't be found,
 						// print an error to the log, and remove the user from the settings.
-						dump('Failed to load store for user ' . $username . ', user was not found. Removing it from settings.' . ': ' . $e->getMessage());
+						dump('Failed to load store for user ' . $username . ', user was not found. Removing it from settings.: ' . $e->getMessage());
 						$GLOBALS["settings"]->delete("zarafa/v1/contexts/hierarchy/shared_stores/" . bin2hex($username), true);
 					}
 					else {

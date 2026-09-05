@@ -27,6 +27,11 @@ use Phpfastcache\Drivers\Redis\Config as RedisConfig;
  * @extends ListModule
  */
 class FilesListModule extends ListModule {
+	#[Override]
+	protected function getExecutionLockName() {
+		return 'files';
+	}
+
 	public const LOG_CONTEXT = "FilesListModule"; // Context for the Logger
 
 	// Unauthorized errors of different backends.
@@ -57,16 +62,13 @@ class FilesListModule extends ListModule {
 	public $backendStore;
 
 	/**
-	 * @constructor
-	 *
 	 * @param mixed $id
 	 * @param mixed $data
 	 */
 	public function __construct($id, $data) {
 		parent::__construct($id, $data);
 
-		// Initialize the account and backendstore
-		$this->accountStore = new AccountStore();
+		// Initialize the backend store
 		$this->backendStore = BackendStore::getInstance();
 
 		// Setup the cache
@@ -94,6 +96,12 @@ class FilesListModule extends ListModule {
 		$this->uid = str_replace(['{', '}', '(', ')', '/', '\\', '@'], '_', $this->uid);
 
 		Logger::debug(self::LOG_CONTEXT, "[constructor]: executing the module as uid: " . $this->uid);
+	}
+
+	#[Override]
+	protected function afterLoadSessionData() {
+		$GLOBALS['settings']->refreshSettings();
+		$this->accountStore = new AccountStore();
 	}
 
 	/**
@@ -155,7 +163,7 @@ class FilesListModule extends ListModule {
 				// Get sub folder of root folder.
 				$subFolders = $this->getSubFolders($realNodeId, $initializedBackend);
 			}
-			catch (\Exception $e) {
+			catch (Exception $e) {
 				Logger::error(self::LOG_CONTEXT, "Failed to load account '{$accountName}': " . $e->getMessage());
 				$nodes["props"]["status"] = Account::STATUS_ERROR;
 				$nodes["props"]["status_description"] = $e->getMessage();
@@ -641,7 +649,21 @@ class FilesListModule extends ListModule {
 	 * @return object The account for $nodeId
 	 */
 	public function accountFromNode($nodeID) {
-		return $this->accountStore->getAccount($this->accountIDFromNode($nodeID));
+		return $this->accountFromId($this->accountIDFromNode($nodeID));
+	}
+
+	/**
+	 * Get an account or report a stale client-side identifier.
+	 *
+	 * @param mixed $accountID
+	 */
+	public function accountFromId($accountID) {
+		$account = $this->accountStore->getAccount($accountID);
+		if ($account === null) {
+			throw new Files\Core\Exception(_("Unknown account ID"));
+		}
+
+		return $account;
 	}
 
 	/**

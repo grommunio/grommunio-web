@@ -39,6 +39,17 @@ class DownloadHandler {
 		$backendStore = BackendStore::getInstance();
 
 		$account = $accountStore->getAccount($accountID);
+		if ($account === null) {
+			Logger::error(self::LOG_CONTEXT, "Unknown account ID: " . $accountID);
+			if ((isset($_GET["inline"]) && $_GET["inline"] == "false") || (isset($_GET["contentDispositionType"]) && $_GET["contentDispositionType"] == "attachment")) {
+				echo "<script>alert('" . _('Unknown account ID') . "');</script>";
+			}
+			else {
+				echo _('Unknown account ID');
+			}
+
+			exit;
+		}
 
 		// initialize the backend
 		$initializedBackend = $backendStore->getInstanceOfBackend($account->getBackend());

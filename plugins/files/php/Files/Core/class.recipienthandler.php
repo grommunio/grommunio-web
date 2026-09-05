@@ -31,6 +31,12 @@ class RecipientHandler {
 		$backendStore = BackendStore::getInstance();
 
 		$account = $accountStore->getAccount($accountID);
+		if ($account === null) {
+			Logger::error(self::LOG_CONTEXT, "Unknown account ID: " . $accountID);
+			echo json_encode(['success' => false, 'response' => 'Unknown account ID', 'message' => _('Unknown account ID')]);
+
+			exit;
+		}
 
 		// initialize the backend
 		$initializedBackend = $backendStore->getInstanceOfBackend($account->getBackend());

@@ -73,6 +73,11 @@ class PluginManager {
 	public $sessionData;
 
 	/**
+	 * Serialized plugin session data at load time, keyed by plugin name.
+	 */
+	private $sessionDataSnapshots;
+
+	/**
 	 * Plugins whose client files are not sent to the current user,
 	 * see getUnloadedPlugins().
 	 * [pluginname] = true.
@@ -125,6 +130,7 @@ class PluginManager {
 		$this->modules = [];
 		$this->notifiers = [];
 		$this->sessionData = false;
+		$this->sessionDataSnapshots = [];
 		if ($this->enabled) {
 			$this->pluginpath = PATH_PLUGIN_DIR;
 			$this->pluginconfigpath = PATH_PLUGIN_CONFIG_DIR;
@@ -562,20 +568,27 @@ class PluginManager {
 	 * To improve performance the data is only loaded if a
 	 * plugin requests (reads or saves) the data.
 	 *
-	 * @param $pluginname string Identifier of the plugin
+	 * @param string $pluginname Identifier of the plugin
 	 */
 	public function loadSessionData($pluginname) {
 		$canonicalName = $this->normalizePluginName($pluginname);
 
 		// lazy reading of sessionData
-		if (!$this->sessionData) {
+		if ($this->sessionData === false) {
 			$sessState = new State('plugin_sessiondata');
-			$sessState->open();
-			$this->sessionData = $sessState->read("sessionData");
+			if (!$sessState->open()) {
+				throw new RuntimeException('Unable to read plugin session state');
+			}
+
+			try {
+				$this->sessionData = $sessState->read("sessionData");
+			}
+			finally {
+				$sessState->close();
+			}
 			if (!isset($this->sessionData) || $this->sessionData == "") {
 				$this->sessionData = [];
 			}
-			$sessState->close();
 		}
 
 		if ($pluginname !== $canonicalName && isset($this->sessionData[$pluginname])) {
@@ -588,6 +601,7 @@ class PluginManager {
 			if (!isset($this->sessionData[$canonicalName])) {
 				$this->sessionData[$canonicalName] = [];
 			}
+			$this->sessionDataSnapshots[$canonicalName] = serialize($this->sessionData[$canonicalName]);
 			$this->plugins[$canonicalName]->setSessionData($this->sessionData[$canonicalName]);
 		}
 	}
@@ -597,19 +611,87 @@ class PluginManager {
 	 *
 	 * Saves sessiondata of the plugins to the disk.
 	 *
-	 * @param $pluginname string Identifier of the plugin
+	 * @param string $pluginname Identifier of the plugin
 	 */
 	public function saveSessionData($pluginname) {
 		$canonicalName = $this->normalizePluginName($pluginname);
-		if ($this->pluginExists($canonicalName)) {
-			$this->sessionData[$canonicalName] = $this->plugins[$canonicalName]->getSessionData();
+		if (!$this->pluginExists($canonicalName)) {
+			return;
 		}
-		if ($this->sessionData) {
-			$sessState = new State('plugin_sessiondata');
-			$sessState->open();
-			$sessState->write("sessionData", $this->sessionData);
+
+		$pluginSessionData = $this->plugins[$canonicalName]->getSessionData();
+		if (isset($this->sessionDataSnapshots[$canonicalName])) {
+			$baseSessionData = unserialize($this->sessionDataSnapshots[$canonicalName]);
+		}
+		else {
+			$baseSessionData = is_array($this->sessionData) && array_key_exists($canonicalName, $this->sessionData) ?
+				$this->sessionData[$canonicalName] : [];
+		}
+		if (!is_array($this->sessionData)) {
+			$this->sessionData = [];
+		}
+
+		$sessState = new State('plugin_sessiondata');
+		if (!$sessState->open()) {
+			error_log('Unable to save plugin session state: ' . $canonicalName);
+
+			return;
+		}
+
+		try {
+			$currentSessionData = $sessState->read("sessionData");
+			if (!is_array($currentSessionData)) {
+				$currentSessionData = [];
+			}
+			if ($pluginname !== $canonicalName) {
+				if (!isset($currentSessionData[$canonicalName]) && isset($currentSessionData[$pluginname])) {
+					$currentSessionData[$canonicalName] = $currentSessionData[$pluginname];
+				}
+				unset($currentSessionData[$pluginname]);
+			}
+			$currentPluginData = $currentSessionData[$canonicalName] ?? [];
+			$currentSessionData[$canonicalName] = $this->mergePluginSessionData(
+				$currentPluginData,
+				$pluginSessionData,
+				$baseSessionData
+			);
+			$sessState->write("sessionData", $currentSessionData);
+			$this->sessionData = $currentSessionData;
+			$this->plugins[$canonicalName]->setSessionData($currentSessionData[$canonicalName]);
+			$this->sessionDataSnapshots[$canonicalName] = serialize($currentSessionData[$canonicalName]);
+		}
+		finally {
 			$sessState->close();
 		}
+	}
+
+	/**
+	 * Merge keys changed by one plugin instance into the latest state.
+	 *
+	 * @param mixed $current
+	 * @param mixed $local
+	 * @param mixed $base
+	 */
+	private function mergePluginSessionData($current, $local, $base) {
+		if (!is_array($current) || !is_array($local) || !is_array($base)) {
+			return $local;
+		}
+
+		foreach ($base as $key => $value) {
+			if (!array_key_exists($key, $local)) {
+				unset($current[$key]);
+			}
+			elseif (serialize($local[$key]) !== serialize($value)) {
+				$current[$key] = $local[$key];
+			}
+		}
+		foreach ($local as $key => $value) {
+			if (!array_key_exists($key, $base)) {
+				$current[$key] = $value;
+			}
+		}
+
+		return $current;
 	}
 
 	/**
