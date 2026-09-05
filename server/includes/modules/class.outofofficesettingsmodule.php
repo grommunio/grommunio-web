@@ -120,6 +120,7 @@ class OutOfOfficeSettingsModule extends Module {
 				// Skip stores that are inaccessible or where we
 				// don't have rights to open the folder.
 				$e->setHandled();
+
 				continue;
 			}
 

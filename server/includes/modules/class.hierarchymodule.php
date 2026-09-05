@@ -1010,7 +1010,7 @@ class HierarchyModule extends Module {
 	 * in associated contains of IPM_COMMON_VIEWS folder.
 	 *
 	 * @param string $store   $store entryid of the store
-	 * @param string $entryid $entryid entryid of the MAPI folder
+	 * @param string $entryid entryid of the MAPI folder
 	 */
 	public function addToFavorite($store, $entryid) {
 		$commonViewsFolder = $this->getCommonViewsFolder();

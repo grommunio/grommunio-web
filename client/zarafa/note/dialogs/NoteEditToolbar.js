@@ -193,7 +193,7 @@ Zarafa.note.dialogs.NoteEditToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	},
 
 	/**
-	 * Handler for the Print toolbar buttoon
+	 * Handler for the Print toolbar button
 	 * This will call {@link Zarafa.common.Actions#openPrintDialog}.
 	 * @private
 	 */

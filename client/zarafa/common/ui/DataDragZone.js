@@ -122,7 +122,7 @@ Zarafa.common.ui.DataDragZone = Ext.extend(Ext.dd.DragZone, {
 	},
 
 	/**
-	 * An empty immplementation. Implement this to provide behaviour after a repair of an invalid drop. An implementation might highlight
+	 * An empty implementation. Implement this to provide behaviour after a repair of an invalid drop. An implementation might highlight
 	 * the selected rows to show that they have not been dragged.
 	 * @private
 	 */
@@ -175,5 +175,6 @@ Zarafa.common.ui.DataDragZone = Ext.extend(Ext.dd.DragZone, {
 	 */
 	beforeInvalidDrop: function(e, id)
 	{
+		// Intentionally empty hook for subclasses.
 	}
 });

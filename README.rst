@@ -100,7 +100,34 @@ Coding style
 ------------
 
 This repository follows a custom coding style, which can be validated anytime
-using the repository's provided `configuration file <.phpcs>`_.
+using the repository's provided
+`PHP CS Fixer configuration <.php-cs-fixer.dist.php>`_.
+Run ``php-cs-fixer fix --dry-run --diff`` to check the PHP sources, or
+``php-cs-fixer fix`` to format them. JavaScript can be checked with
+``npm run lint``.
+
+API documentation
+-----------------
+
+The PHP API reference is generated with phpDocumentor 3. Install phpDocumentor
+as a standalone development tool, then run:
+
+.. code-block:: sh
+
+	make phpdoc
+
+If phpDocumentor is available as a PHAR rather than as ``phpdoc``, override the
+command without adding it as an application dependency:
+
+.. code-block:: sh
+
+	make phpdoc PHPDOC='php /path/to/phpDocumentor.phar'
+
+The generated reference starts at ``doc/api/index.html``. The committed
+``phpdoc.dist.xml`` configuration includes the first-party PHP application and
+plugins while excluding bundled dependencies and tests. Developers can create
+an ignored ``phpdoc.xml`` and select it with
+``make phpdoc PHPDOC_CONFIG=phpdoc.xml`` to override the defaults locally.
 
 Setup of the development environment
 ------------------------------------

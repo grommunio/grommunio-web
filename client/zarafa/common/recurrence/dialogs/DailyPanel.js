@@ -120,7 +120,7 @@ Zarafa.common.recurrence.dialogs.DailyPanel = Ext.extend(Zarafa.common.recurrenc
 	 * this panel allows Tasks to recur N days after the given task
 	 * is completed.
 	 *
-	 *return @return {Object} Configuration object for the panel
+	 * @return {Object} Configuration object for the panel.
 	 * @private
 	 */
 	createRegeneratePanel: function()

@@ -427,7 +427,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 
 		/**
 		 * Eventhandler for the "copy url" button.
-		 * Copies the sharelink url to the users clipboarl. When IE is no
+		 * Copies the share link URL to the user's clipboard. When IE is no
 		 * longer supported switch to the navigator.clipboard API.
 		 * @private
 		 */

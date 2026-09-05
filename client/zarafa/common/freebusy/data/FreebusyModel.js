@@ -834,7 +834,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 
 	/**
 	 * Walk through the {@link Ext.data.Record records} from the {@link #sumBlockStore}
-	 * to determine if any {@link Ext.data.Record record} overlapse. If this is the
+	 * to determine if any {@link Ext.data.Record records} overlap. If this is the
 	 * case the two {@link Ext.data.Record records} will be merged into a single block.
 	 * @param {Zarafa.common.freebusy.data.FreebusyBlockStore} sumBlockStore The store containing the sumblocks
 	 */

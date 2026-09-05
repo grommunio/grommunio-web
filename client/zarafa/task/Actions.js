@@ -82,7 +82,7 @@ Zarafa.task.Actions = {
 	/**
 	 * Opens a {@link Zarafa.task.dialogs.SendTaskRequestConfirmationContentPanel}.
 	 *
-	 * @param {Zarafa.task.TaskRecord} record The record, or records, for which the task conformation will be send.
+	 * @param {Zarafa.task.TaskRecord} record The record, or records, for which the task confirmation will be sent.
 	 * @param {Object} config (optional) Configuration object used to create the ContentPanel
 	 */
 	openSendConfirmationContent: function(record, config)

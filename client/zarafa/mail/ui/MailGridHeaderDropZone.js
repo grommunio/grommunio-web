@@ -111,7 +111,7 @@ Zarafa.mail.ui.MailGridHeaderDropZone = Ext.extend(Ext.grid.HeaderDropZone, {
 	/**
 	 * Event handler called when node is drop somewhere in grid header. It will check
 	 * column is marked 'preventColSwitch' or next/previous visible column are not marked as a 'preventColSwitch'
-	 * then dont allow to switch that column.
+	 * then don't allow switching that column.
 	 *
 	 * @param {Ext.Element} n The node element which is drag and drop.
 	 * @param {Ext.dd.DD} dd A DragDrop implementation where the linked element follows the mouse cursor during a drag.

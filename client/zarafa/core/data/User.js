@@ -57,7 +57,7 @@ Zarafa.core.data.User = Ext.extend(Object, {
 	},
 	
 	/**
-	 * @return {String} The thumbnail photho for this user
+	 * @return {String} The thumbnail photo for this user
 	 */
 	getUserImage : function()
 	{

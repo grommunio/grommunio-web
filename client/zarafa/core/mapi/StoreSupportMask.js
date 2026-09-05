@@ -4,7 +4,7 @@ Ext.namespace('Zarafa.core.mapi');
  * @class Zarafa.core.mapi.StoreSupportMask
  * @extends Zarafa.core.Enum
  *
- * Enumerates the different flgas used in store's property PR_SUPPORT_MASK
+ * Enumerates the different flags used in the store's PR_SUPPORT_MASK property
  *
  * @singleton
  */

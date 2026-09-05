@@ -240,7 +240,7 @@ Zarafa.common.ui.Box = Ext.extend(Ext.BoxComponent, {
 	 * Renders the {@link #textEl} into the main {@link #el} element.
 	 * This element will contain the actual contents which is being updated
 	 * during {@link #update}.
-	 * @Private
+	 * @private
 	 */
 	renderBox: function()
 	{

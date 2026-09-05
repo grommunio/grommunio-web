@@ -351,9 +351,9 @@ final class SeafileApi {
 	 *
 	 * @see https://download.seafile.com/published/web-api/v2.1/share-links.md#user-content-Create%20Share%20Link
 	 *
-	 * @param ?string                 $password    [optional]
-	 * @param \DateTimeInterface|?int $expire      [optional] number of days to expire (int) or DateTime to expire
-	 * @param ?array                  $permissions [optional] see seafile api docs
+	 * @param ?string                     $password    [optional]
+	 * @param null|\DateTimeInterface|int $expire      [optional] number of days to expire (int) or DateTime to expire
+	 * @param ?array                      $permissions [optional] see seafile api docs
 	 *
 	 * @throws Exception
 	 * @throws InvalidArgumentException
@@ -408,7 +408,7 @@ final class SeafileApi {
 	 *
 	 * @param ?string $lib [optional] library id (guid), default/null for all libraries
 	 *
-	 * @return object[]
+	 * @return array|object|string
 	 *
 	 * @throws Exception
 	 */
@@ -520,12 +520,10 @@ final class SeafileApi {
 	/**
 	 * list groups for user sharing.
 	 *
-	 * @return array|object|string
+	 * @return object[]
 	 *
 	 * @throws Exception
 	 * @throws InvalidResponseException
-	 *
-	 * @see (undocumented)
 	 */
 	public function shareableGroups(): array {
 		return $this->jsonDecode(
@@ -710,7 +708,7 @@ final class SeafileApi {
 	 * @see https://download.seafile.com/published/web-api/v2.1/file.md#user-content-Delete%20File
 	 *
 	 * @param string $lib  library id (guid)
-	 * @param string $path of the fle to delete (e.g.: "/path/to/file-to-delete", leading and trailing slashes can be omitted)
+	 * @param string $path of the file to delete (e.g.: "/path/to/file-to-delete", leading and trailing slashes can be omitted)
 	 *
 	 * @return object|string the common "success" or the known object with error_msg property
 	 *

@@ -184,7 +184,7 @@ Zarafa.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, {
 
 	/**
 	 * Called when user clicks on a {@link Zarafa.common.rules.dialogs.UserSelectionLink}
-	 * It opens user selection dialog dialog
+	 * It opens the user selection dialog
 	 * @param {Ext.DataView} dataView Reference to this object
 	 * @param {Number} index The index of the target node
 	 * @param {HTMLElement} node The target node

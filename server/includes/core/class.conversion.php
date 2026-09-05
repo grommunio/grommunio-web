@@ -613,7 +613,7 @@ class Conversion {
 	 * it isn't in. Because this mostly happens with iso-8859-1 that says they are in
 	 * utf-8, we use this order to first check if it isn't iso-8859-1.
 	 *
-	 * @property
+	 * @var array<int, string>
 	 */
 	private static $_CODEPAGES = [
 		37 => "IBM037",
@@ -762,7 +762,6 @@ class Conversion {
 	/**
 	 * Get charset name from a codepage.
 	 *
-	 * @param int codepage Codepage
 	 * @param mixed $codepage
 	 *
 	 * @return string iconv-compatible charset name

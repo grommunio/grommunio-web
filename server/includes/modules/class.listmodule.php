@@ -945,7 +945,6 @@ class ListModule extends Module {
 	 * Helper function which loop through each item and filter out
 	 * private items, if any.
 	 *
-	 * @param array array structure with row search data
 	 * @param mixed $data
 	 *
 	 * @return array array structure with row search data
@@ -1015,7 +1014,7 @@ class ListModule extends Module {
 						$localFreeBusyMessageProps = mapi_getprops($this->localFreeBusyMessage, [PR_SCHDINFO_DELEGATE_ENTRYIDS, PR_DELEGATE_FLAGS]);
 
 						if (isset($localFreeBusyMessageProps[PR_SCHDINFO_DELEGATE_ENTRYIDS], $localFreeBusyMessageProps[PR_DELEGATE_FLAGS])) {
-							// if more then one delegates info is stored then find index of
+							// If information for more than one delegate is stored, find the index of the
 							// current user
 							$userEntryId = $GLOBALS['mapisession']->getUserEntryID();
 

@@ -49,7 +49,7 @@ Zarafa.common.reminder.data.ReminderStore = Ext.extend(Zarafa.core.data.ListModu
 	pollTask: null,
 
 	/**
-	 * The notifier plugin that is used to show 'error.json' notifications. If the {#link load loading} of reminders
+	 * The notifier plugin that is used to show 'error.json' notifications. If the {@link #load loading} of reminders
 	 * is failing because the backend produces an error, we will show the notification once using the originally
 	 * registered notification plugin, and after that we will move the noficiations to the console to not bother the
 	 * user with the same message notification over and over again. Once the backend returns valid responses again
@@ -208,7 +208,7 @@ Zarafa.common.reminder.data.ReminderStore = Ext.extend(Zarafa.core.data.ListModu
 	 * and if action type is search then it will call {@link #updateSearchInfo} as a callback function.
 	 * @param {Object} data data that is returned by the proxy after processing it. will contain
 	 * {@link Zarafa.core.data.IPMRecords records}.
-	 * @param {Object} options options that are paased through {@link #load} event.
+	 * @param {Object} options Options that are passed through the {@link #load} event.
 	 * @param {Boolean} success success status of request.
 	 */
 	loadRecords: function(data, options, success)

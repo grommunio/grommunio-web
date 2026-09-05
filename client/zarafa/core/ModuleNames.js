@@ -224,7 +224,7 @@ Zarafa.core.ModuleNames =
 	 * The key could either be a component name, or a Message Class.
 	 *
 	 * @param {String} key The key for which the module must be found
-	 * @param {Boolean} baseOnly (optional) When the the key is not exactly
+	 * @param {Boolean} baseOnly (optional) When the key is not exactly
 	 * matched againsts a moduleName, remove everything after the last '.',
 	 * defaults to false.
 	 * @return {Object} An object containing a 'list' and 'item' key,
@@ -252,7 +252,7 @@ Zarafa.core.ModuleNames =
 	 * itemModulename from the result.
 	 *
 	 * @param {String} key The key for which the module must be found
-	 * @param {Boolean} baseOnly (optional) When the the key is not exactly
+	 * @param {Boolean} baseOnly (optional) When the key is not exactly
 	 * matched againsts a moduleName, remove everything after the last '.',
 	 * defaults to false.
 	 * @return {String} The item moduleName for the requested module
@@ -271,7 +271,7 @@ Zarafa.core.ModuleNames =
 	 * listModulename from the result.
 	 *
 	 * @param {String} key The key for which the module must be found
-	 * @param {Boolean} baseOnly (optional) When the the key is not exactly
+	 * @param {Boolean} baseOnly (optional) When the key is not exactly
 	 * matched againsts a moduleName, remove everything after the last '.',
 	 * defaults to false.
 	 * @return {String} The list moduleName for the requested module

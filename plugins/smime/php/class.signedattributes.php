@@ -173,7 +173,6 @@ class SignedAttributes {
 	 */
 	public function parseSmimeCapabilities(string $der): array {
 		$caps = [];
-		$parser = new \WAYF\Der();
 
 		try {
 			set_error_handler(function () { return true; });
@@ -199,7 +198,7 @@ class SignedAttributes {
 			}
 			restore_error_handler();
 		}
-		catch (\Throwable $e) {
+		catch (Throwable $e) {
 			restore_error_handler();
 		}
 

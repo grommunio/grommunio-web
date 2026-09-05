@@ -1042,7 +1042,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	},
 
 	/**
-	 * Intialialize the {@link #state state component}
+	 * Initialize the {@link #state state component}.
 	 * @private
 	 */
 	initState: function()

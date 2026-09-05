@@ -1049,7 +1049,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 	 * @param mixed $message
 	 * @param int   $backSteps [optional] offset of call point in stacktrace
 	 *
-	 * @see \Files\Backend\Seafile\Backend::log()
+	 * @see Backend::log()
 	 */
 	public function debugLog($message, int $backSteps = 0): void {
 		$baseDir = dirname(__DIR__);

@@ -405,7 +405,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		// Simply, Don't use reply-to information in case of "sent items"
 		if(!isSentFolder) {
 			// This line will prevent logged-in user from recipients,
-			// When we are in 'sent items', we want to include ourself in TO,CC,BCC
+			// When we are in 'sent items', we want to include ourselves in TO, CC, and BCC
 			var loggedInEntryId = container.getUser().getEntryId();
 			addedRecipientEntryids.push(loggedInEntryId);
 			var loggedInSmtp = container.getUser().getSMTPAddress();

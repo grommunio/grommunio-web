@@ -15,14 +15,14 @@ class Theming {
 	/**
 	 * A hash that is used to cache if a theme is a json theme.
 	 *
-	 * @property
+	 * @var array<string, bool>
 	 */
 	private static $isJsonThemeCache = [];
 
 	/**
 	 * A hash that is used to cache the properties of json themes.
 	 *
-	 * @property
+	 * @var array
 	 */
 	private static $jsonThemePropsCache = [];
 
@@ -464,7 +464,7 @@ class Theming {
 	/**
 	 * The templates of the styles that a json theme can add to the page.
 	 *
-	 * @property
+	 * @var array<string, string>
 	 */
 	private static $styles = [
 		'primary-color' => '

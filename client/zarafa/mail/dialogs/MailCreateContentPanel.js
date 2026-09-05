@@ -204,7 +204,7 @@ Zarafa.mail.dialogs.MailCreateContentPanel = Ext.extend(Zarafa.core.ui.MessageCo
 				record.setDelegatorInfo(delegator);
 			}
 			
-			// Get the recipeint for the from field.
+			// Get the recipient for the From field.
 			var delegatorRecord = record.getDefaultFromRecipeint();
 
 			if(Ext.isDefined(delegatorRecord) && delegatorRecord) {

@@ -13,7 +13,6 @@ class SignedReceipts {
 	public const OID_CONTENT_IDENTIFIER  = '1.2.840.113549.1.9.16.2.7';
 	public const OID_MSG_SIG_DIGEST      = '1.2.840.113549.1.9.16.2.5';
 
-	/** @var CmsOperations */
 	private CmsOperations $cms;
 
 	public function __construct(CmsOperations $cms) {

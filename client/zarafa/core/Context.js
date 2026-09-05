@@ -387,7 +387,7 @@ Zarafa.core.Context = Ext.extend(Zarafa.core.Plugin, {
 		var scrolling = model && model.isLiveScrolling();
 
 		/*
-		 * True when live scroll is performed and and current view mode should not be
+		 * True when live scroll is performed and the current view mode should not be
 		 * one of the main view mode (NO_PREVIEW, RIGHT_PREVIEW, BOTTOM_PREVIEW).
 		 * it gets false when user search something, use live scroll and then close the search
 		 */

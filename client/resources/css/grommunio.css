@@ -2242,7 +2242,7 @@ ul.x-tab-strip-bottom li {
  *  Special case: the tabs of the main content panel
  ********************************************************/
 #zarafa-mainpanel > .x-tab-panel-header ul.x-tab-strip-top {
-  /* Move the border from the tab-strip to the panels below it so we can have 'seperated' grid panel and preview panel */
+  /* Move the border from the tab-strip to the panels below it so we can have separated grid and preview panels */
   border-bottom: none;
   padding-top: 0;
   padding-left: 0; }

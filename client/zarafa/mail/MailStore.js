@@ -141,7 +141,7 @@ Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 	},
 
 	/**
-	 * Function is used to set the filter restriction if {#hasFilterApplied filter is enabled}
+	 * Function is used to set the filter restriction if {@link #hasFilterApplied the filter is enabled}.
 	 * while reloading mail store.
 	 * @param {Object} options An options which set the filter restriction in params
 	 * if filter was already applied on store.

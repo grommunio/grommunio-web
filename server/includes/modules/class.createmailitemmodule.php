@@ -336,6 +336,7 @@ class CreateMailItemModule extends ItemModule {
 					$e->setTitle(_('Unknown error'));
 					$e->setDisplayMessage(sprintf("Unable to add store: '%s'. Please check if you have the necessary permissions.",
 						$action['props']['sent_representing_email_address']));
+
 					throw $e;
 				}
 				if ($otherStore && $send) {
@@ -385,6 +386,7 @@ class CreateMailItemModule extends ItemModule {
 			// $store may already have been switched to the delegator's store
 			// while the draft lives in the user's own store.
 			$message = false;
+
 			try {
 				$message = $GLOBALS['operations']->openMessage($store, $entryid);
 			}

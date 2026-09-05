@@ -3,7 +3,7 @@
 /**
  * Passwd plugin.
  *
- * Allows to change user password from grommunio Web.
+ * Allows users to change their grommunio Web password.
  */
 class Pluginpasswd extends Plugin {
 	public function __construct() {}

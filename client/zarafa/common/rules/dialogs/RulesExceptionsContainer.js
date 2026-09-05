@@ -144,7 +144,7 @@ Zarafa.common.rules.dialogs.RulesExceptionContainer = Ext.extend(Zarafa.common.r
   removeComboBoxContainer: function()
   {
     if (this.boxContainerCount >= 1) {
-      // if removed condition was atleast / atmost size condition then reset the size unit property in the record accordingly.
+      // If the removed condition was an "at least" or "at most" size condition, reset its size unit in the record.
       var conditionBoxToRemove = this.get(this.items.getCount() - 2).get(0);
       var exceptionFlag = conditionBoxToRemove.getValue();
       if (exceptionFlag === Zarafa.common.rules.data.ConditionFlags.ATMOST_SIZE) {
@@ -193,7 +193,7 @@ Zarafa.common.rules.dialogs.RulesExceptionContainer = Ext.extend(Zarafa.common.r
     var exceptionsValid = true;
     var RestrictionFactory = Zarafa.core.data.RestrictionFactory;
 
-    // initAtleastException and initAtmostException are flags for initial atleast and atmost conditions respectively.
+    // initAtleastException and initAtmostException are flags for initial "at least" and "at most" conditions respectively.
     var initAtleastException = true;
     var initAtmostException = true;
 
@@ -207,8 +207,8 @@ Zarafa.common.rules.dialogs.RulesExceptionContainer = Ext.extend(Zarafa.common.r
         exception = activeItem.getCondition();
       }
 
-      // For exceptions Atleast and Atmost, for first time in loop 'rule_exception_atleast_size_unit' and
-      // 'rule_exception_atmost_size_unit' props in record will be overwritten.
+      // On the first iteration, "at least" and "at most" exceptions overwrite
+      // the 'rule_exception_atleast_size_unit' and 'rule_exception_atmost_size_unit' properties in the record.
       if (activeItem.id.indexOf('atleastsize') >= 0) {
         activeItem.setSizeUnit(record, initAtleastException, true);
         if (initAtleastException) {
@@ -250,7 +250,7 @@ Zarafa.common.rules.dialogs.RulesExceptionContainer = Ext.extend(Zarafa.common.r
       record.setConditionsValid(exceptionsValid);
     }
 
-    // Set latest Exceptions in the the record.
+    // Set the latest exceptions in the record.
     this.updateConditionsInRecord(record, exceptions, true);
   },
 
@@ -259,7 +259,7 @@ Zarafa.common.rules.dialogs.RulesExceptionContainer = Ext.extend(Zarafa.common.r
    * onto the {@link Ext.Container} which was created by {@link #addComboBoxContainer}.
    * @param {Ext.Container} panel The container on which the exception will be loaded
    * @param {Object} exception The exception which should be loaded
-   * @param {Zarafa.common.data.SizeUnits} sizeUnit selected size unit for the atleast and atmost size exception components.
+   * @param {Zarafa.common.data.SizeUnits} sizeUnit Selected size unit for the "at least" and "at most" size exception components.
    * @private
    */
   applyException: function(panel, exception, sizeUnit)

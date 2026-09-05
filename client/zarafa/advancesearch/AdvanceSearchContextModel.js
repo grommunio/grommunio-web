@@ -16,7 +16,7 @@ Zarafa.advancesearch.AdvanceSearchContextModel = Ext.extend(Zarafa.core.ContextM
 	 * particular search tab from {@link #stores}. While switching between search tabs we find the relevant
 	 * {@link Zarafa.advancesearch.AdvanceSearchStore AdvanceStore} from {@link #stores} and set it to store config of
 	 * model using {@link #setActiveStore} so model can use that store for performing operation on that tab.
-	 * @Private
+	 * @private
 	 */
 	stores: {},
 

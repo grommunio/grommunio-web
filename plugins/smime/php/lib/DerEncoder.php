@@ -194,6 +194,7 @@ class DerEncoder {
 	 */
 	public static function enumerated(int $value): string {
 		$inner = self::integer($value);
+
 		// Replace integer tag with enumerated tag
 		return "\x0A" . substr($inner, 1);
 	}
@@ -314,7 +315,7 @@ class DerEncoder {
 	// ----------------------------------------------------------------
 
 	/**
-	 * AlgorithmIdentifier ::= SEQUENCE { algorithm OID, parameters ANY OPTIONAL }
+	 * AlgorithmIdentifier ::= SEQUENCE { algorithm OID, parameters ANY OPTIONAL }.
 	 *
 	 * @param string      $algorithmOid dotted notation
 	 * @param null|string $parameters   DER-encoded parameters (null = absent, '' = NULL)
@@ -332,7 +333,7 @@ class DerEncoder {
 	}
 
 	/**
-	 * Attribute ::= SEQUENCE { attrType OID, attrValues SET OF ANY }
+	 * Attribute ::= SEQUENCE { attrType OID, attrValues SET OF ANY }.
 	 *
 	 * @param string $oid    dotted notation
 	 * @param string $values DER-encoded concatenation of attribute values

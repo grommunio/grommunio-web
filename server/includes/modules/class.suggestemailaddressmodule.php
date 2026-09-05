@@ -238,7 +238,7 @@ class suggestEmailAddressModule extends Module {
 				 * email address), name and finally on the email address. This is done
 				 * by a natural sort. When this first list already contains the maximum
 				 * number of returned items the second list needs no sorting. If it has
-				 * less, then the second list is sorted and included in the first list
+				 * fewer items, the second list is sorted and included in the first list
 				 * as well. At the end the final list is sorted on name and email again.
 				 */
 				$l_iMaxNumListItems = 10;

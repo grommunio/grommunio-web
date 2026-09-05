@@ -12,7 +12,7 @@ class FileLog extends Logger {
 	 * @param int    $logLevel      one of the defined LOGLEVELS
 	 * @param string $message       The log message which we want to log in user specific log file
 	 * @param mixed  $detailMessage (optional) The detailed log message. it can be Error/Exception array.
-	 * @param mixed  $request       (optional) The request log the the request data which sent by the user
+	 * @param mixed  $request       (optional) The request data sent by the user
 	 */
 	protected function Write($logLevel, $message, $detailMessage = false, $request = false) {
 		$dir = LOG_FILE_DIR;
@@ -65,7 +65,7 @@ class FileLog extends Logger {
 	 * @param int    $loglevel      one of the defined LOGLEVELS
 	 * @param string $message       The log message which we want to log in user specific log file
 	 * @param mixed  $detailMessage (optional) The detailed log message. it can be Error/Exception array.
-	 * @param mixed  $request       (optional) The request log the the request data which sent by the user
+	 * @param mixed  $request       (optional) The request data sent by the user
 	 *
 	 * @return string
 	 */

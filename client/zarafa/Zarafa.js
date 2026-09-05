@@ -509,7 +509,7 @@ Ext.apply(Zarafa, {
 			reference: this.connEl,
 			listeners: {
 				// If the user clicks on the notification,
-				// immediately retry to connect to to the server.
+				// immediately retry to connect to the server.
 				click: service.retry,
 				scope: service
 			}
@@ -629,7 +629,7 @@ Ext.apply(Zarafa, {
 	/**
 	 * Hide the loading mask which is shown before the {@link Ext.Viewport} is being rendered.
 	 * The loadmask is marked with the element classname 'loading' and the background 'loading-mask'.
-	 * @param {Function} callback An optional callback function that will be called when the the
+	 * @param {Function} callback An optional callback function that will be called when the
 	 * loading mask is completely hidden.
 	 * @private
 	 */

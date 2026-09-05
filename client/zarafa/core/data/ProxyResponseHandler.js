@@ -75,7 +75,7 @@ Zarafa.core.data.ProxyResponseHandler = Ext.extend(Zarafa.core.data.AbstractResp
 	receivedTime: undefined,
 
 	/**
-	 * The meta data that is received with response that will be sent to the {#callback} function.
+	 * The metadata received with the response that will be sent to the {@link #callback} function.
 	 * this can contain pagination information or search information.
 	 * @property
 	 * @type Mixed

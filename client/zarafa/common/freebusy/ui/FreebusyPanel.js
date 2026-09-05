@@ -61,7 +61,7 @@ Zarafa.common.freebusy.ui.FreebusyPanel = Ext.extend(Ext.Panel, {
 	editable: true,
 	/**
 	 * @cfg {Boolean} showLegenda
-	 * When set to true it will show the legenda at the bottom. When set to false it will hide it
+	 * When set to true it will show the legend at the bottom. When set to false it will hide it
 	 * (defaults to true).
 	 */
 	showLegenda: true,
@@ -230,9 +230,9 @@ Zarafa.common.freebusy.ui.FreebusyPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * This will create the legenda panel which contains all the possible
+	 * This will create the legend panel which contains all the possible
 	 * block colors which will be used in the timelineview.
-	 * @return {Object} configuration object for the legenda
+	 * @return {Object} Configuration object for the legend
 	 * @private
 	 */
 	createLegendaView: function()

@@ -16,7 +16,7 @@ class WebAppSession {
 	// Use public static method getInstance() to retrieve its value
 	private static $instance;
 
-	// Set to true when the the session has timed out
+	// Set to true when the session has timed out
 	// Use public method hasTimedOut() to retrieve its value
 	private $timeout = false;
 

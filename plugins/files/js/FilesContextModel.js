@@ -59,7 +59,7 @@ Zarafa.plugins.files.FilesContextModel = Ext.extend(Zarafa.core.ContextModel, {
 
 	/**
 	 * Event handler triggered when {@link Zarafa.plugins.files.data.AccountStore AccountStore} has been
-	 * updated. it will load the the {@link Zarafa.plugins.files.data.FilesHierarchyStore FilesHierarchyStore} to update the
+	 * updated. It will load the {@link Zarafa.plugins.files.data.FilesHierarchyStore FilesHierarchyStore} to update the
 	 * {@link Zarafa.plugins.files.ui.Tree Tree}.
 	 */
 	updateAccountStore : function()

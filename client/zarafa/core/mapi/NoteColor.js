@@ -52,10 +52,10 @@ Zarafa.core.mapi.NoteColor = Zarafa.core.Enum.create({
 	},
 
 	/**
-	 * Function is used to get the color value based on icon index.
+	 * Returns the color value for an icon index.
 	 *
-	 * @param{Number} icon index value.
-	 * @return return the color value.
+	 * @param {Number} iconIndex The icon index.
+	 * @return {Number} The color value.
 	 */
 	getColorValue: function(iconIndex)
 	{

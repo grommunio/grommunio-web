@@ -17,7 +17,7 @@ Ext.namespace('Zarafa.core');
  * '00000000' as version flag.
  *
  * server part of EID and EID_V0 indicates server name and it can be variable length, padding can be
- * upto 3 bytes so it can be anything between 0 to 3 bytes.
+ * up to 3 bytes so it can be anything between 0 and 3 bytes.
  *
  * in public store public root folder, ipm_subtree and favorites folder are custom folders
  * so they have static uniqueids.
@@ -101,7 +101,7 @@ Zarafa.core.EntryId = (function()
 		type: '',       // ULONG,   4 bytes, 8 hex characters
 		uniqueId: '',     // GUID,   16 bytes, 32 hex characters
 		server: '',      // CHAR,   variable length
-		padding: '',      // TCHAR[3], 4 bytes, 8 hex characters (upto 4 bytes)
+		padding: '',      // TCHAR[3], 4 bytes, 8 hex characters (up to 4 bytes)
 
 		MIN_LENGTH: 88,
 		name: 'EID',
@@ -142,7 +142,7 @@ Zarafa.core.EntryId = (function()
 		type: '',       // ULONG,   4 bytes, 8 hex characters
 		id: '',        // ULONG,   4 bytes, 8 hex characters
 		server: '',      // CHAR,   variable length
-		padding: '',      // TCHAR[3], 4 bytes, 8 hex characters (upto 4 bytes)
+		padding: '',      // TCHAR[3], 4 bytes, 8 hex characters (up to 4 bytes)
 
 		MIN_LENGTH: 64,
 		name: 'EID_V0',

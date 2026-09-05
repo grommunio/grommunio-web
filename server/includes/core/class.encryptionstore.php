@@ -20,7 +20,7 @@ class EncryptionStore {
 	/**
 	 * Holds the only instance of this class.
 	 *
-	 * @property
+	 * @var null|EncryptionStore
 	 */
 	private static $_instance;
 
@@ -233,6 +233,8 @@ class EncryptionStore {
 
 	/**
 	 * Open the php session if it isn't open.
+	 *
+	 * @param mixed $forWrite
 	 *
 	 * @return bool return if the session was opened or not
 	 */

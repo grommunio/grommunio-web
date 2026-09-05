@@ -18,7 +18,7 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 
 	/**
 	 * An array with userIdObjects for which a presence status
-	 * will be requested from all {#presencePlugins}
+	 * will be requested from all {@link #presencePlugins}
 	 * @property
 	 * @private
 	 */
@@ -157,7 +157,7 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 	/**
 	 * {@link Ext.util.DelayedTask} handler that requests a
 	 * {@link Zarafa.core.data.PresenceStatus presence status} for all
-	 * users in the {#requestQueue queue}.
+	 * users in the {@link #requestQueue queue}.
 	 */
 	doQueuedRequests: function()
 	{
@@ -174,8 +174,8 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 	},
 
 	/**
-	 * Rearanges an array with presence statuses that is originally orderded by user
-	 * (e.g. the return value of {#link getPresenceStatusForUsers}) to an array
+	 * Rearranges an array with presence statuses that is originally ordered by user
+	 * (e.g. the return value of {@link #getPresenceStatusForUsers}) to an array
 	 * that is ordered by pluginName)
 	 * @param {Zarafa.core.data.UserIdObject[]} users An array with users
 	 * @param {Object[]} statuses An array with objects that contain a presence
@@ -241,7 +241,7 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 	},
 
 	/**
-	 * Unregisters a store that was previously registered with the {#registerStore}.
+	 * Unregisters a store that was previously registered with {@link #registerStore}.
 	 * @param {Zarafa.core.data.MAPIStore|Zarafa.core.data.MAPISubStore} store The store
 	 * that will be unregistered.
 	 */

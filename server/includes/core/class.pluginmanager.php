@@ -476,7 +476,7 @@ class PluginManager {
 				++$failedCount;
 			}
 
-			// If the $failedCount matches the the number of items in the $plugins array,
+			// If the $failedCount matches the number of items in the $plugins array,
 			// it means that all unordered plugins have unmet dependencies. This could only
 			// happen for circular dependencies. In that case we will refuse to load those plugins.
 			if ($failedCount === count($plugins)) {
@@ -1113,7 +1113,7 @@ class PluginManager {
 	/**
 	 * getTranslationFilePaths.
 	 *
-	 * Returning an array of paths to to the translations files. This will be
+	 * Returning an array of paths to the translation files. This will be
 	 * used by the gettext functionality.
 	 *
 	 * @return array list of paths to translations

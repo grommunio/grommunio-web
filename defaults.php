@@ -19,7 +19,7 @@ if (!defined("CONFIG_CHECK_COOKIES_SSL")) {
 }
 
 // Time that the state files are allowed to survive (in seconds)
-// For filesystems on which relatime is used, this value should be larger then the relatime_interval
+// For filesystems on which relatime is used, this value should be larger than the relatime_interval
 // for kernels 2.6.30 and above relatime is enabled by default, and the relatime_interval is set to
 // 24 hours.
 if (!defined("STATE_FILE_MAX_LIFETIME")) {

@@ -21,10 +21,6 @@ use Phpfastcache\Drivers\Redis\Config as RedisConfig;
 
 /**
  * This module handles all list and change requests for the files browser.
- *
- * @class FilesListModule
- *
- * @extends ListModule
  */
 class FilesListModule extends ListModule {
 	#[Override]
@@ -260,7 +256,7 @@ class FilesListModule extends ListModule {
 					continue;
 				}
 
-				// Check if foldernames have a trailing slash, if not, add one!
+				// Check if folder names have a trailing slash, if not, add one!
 				if (!StringUtil::endsWith($id, "/")) {
 					unset($dir[$id]);
 					$id .= "/";
@@ -268,7 +264,7 @@ class FilesListModule extends ListModule {
 				}
 
 				$size = $node['getcontentlength'] === null ? -1 : intval($node['getcontentlength']);
-				// folder's dont have a size
+				// Folders do not have a size
 				$size = $objectType == FILES_FILE ? $size : -1;
 
 				$realID = $nodeIdPrefix . $id;
@@ -554,7 +550,7 @@ class FilesListModule extends ListModule {
 				/* create the response object */
 				$folder = [];
 
-				// some requests might not contain a new filename... so dont update the store
+				// Some requests might not contain a new filename, so do not update the store
 				if (isset($props['filename'])) {
 					$folder = [
 						'props' => [

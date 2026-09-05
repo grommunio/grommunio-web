@@ -140,7 +140,7 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 	},
 
 	/**
-	 * Handler for the beforeshow event of the {#moreMenuButtons more menu}. Will
+	 * Handler for the beforeshow event of the {@link #moreMenuButtons more menu}. Will
 	 * hide the Download and Edit-As-New buttons for any item that isn't a mail
 	 * item And It will show and hide the 'Mark Read' and 'Mark Unread' depends on
 	 * record read status.

@@ -5,7 +5,7 @@ Ext.namespace('Zarafa.common.plugins');
  * @extends Object
  * @ptype zarafa.icondragselectorplugin
  *
- * Copied from Ext.ux.IconDragSelector, as that class is non-extentible
+ * Copied from Ext.ux.IconDragSelector, as that class is non-extensible
  * and contains some issues regarding drag & drop of items in combination
  * with a dragselection.
  *

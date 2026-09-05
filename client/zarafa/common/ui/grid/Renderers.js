@@ -523,7 +523,7 @@ Zarafa.common.ui.grid.Renderers = {
 
 	/**
 	 * Render the cell as date with time (l d/m/Y G:i) when the user has set the long display format
-	 * or the 'nice' date when the the short display format has been set.
+	 * or the 'nice' date when the short display format has been set.
 	 *
 	 * @param {Object} value The data value for the cell.
 	 * @param {Object} p An object with metadata
@@ -561,7 +561,7 @@ Zarafa.common.ui.grid.Renderers = {
 	/**
 	 * Render the cell as date with time (l d/m/Y G:i when the user has set the Long display
 	 * format, or d-m-Y, G:i when the short format has been set) This renderer should be used
-	 * instead of {#datetime} when a time should always be shown, e.g. for the reminder time.
+	 * instead of {@link #datetime} when a time should always be shown, e.g. for the reminder time.
 	 *
 	 * @param {Object} value The data value for the cell.
 	 * @param {Object} p An object with metadata

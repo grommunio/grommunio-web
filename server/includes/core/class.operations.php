@@ -1316,9 +1316,9 @@ class Operations {
 			}
 			else {
 				// Delete all items of selected folder without
-				// removing child folder and it's content.
-				// FIXME: it is effecting performance because mapi_folder_emptyfolder function not provide facility to
-				// remove only selected folder items without touching child folder and it's items.
+				// removing child folders and their content.
+				// FIXME: this affects performance because mapi_folder_emptyfolder cannot
+				// remove only selected folder items without touching child folders and their items.
 				// for more check KC-1268
 				$table = mapi_folder_getcontentstable($folder, MAPI_DEFERRED_ERRORS);
 				$rows = mapi_table_queryallrows($table, [PR_ENTRYID]);
@@ -4071,7 +4071,7 @@ class Operations {
 				 */
 				if ($copyInlineAttachmentsOnly) {
 					/*
-					 * if message is reply/reply all and format is plain text than ignore inline attachments
+					 * if message is reply/reply all and format is plain text, then ignore inline attachments
 					 * and normal attachments to copy from original mail.
 					 */
 					if ($plainText || !$isInlineAttachment) {
@@ -4564,7 +4564,7 @@ class Operations {
 	 *
 	 * @param string $entryid entryid of the shared folder record
 	 *
-	 * @return object/boolean $store store of shared folder if found otherwise false
+	 * @return false|mapistore store of the shared folder if found, otherwise false
 	 *
 	 * FIXME: this function is pretty inefficient, since it opens the store for every
 	 * shared user in the worst case. Might be that we could extract the guid from
@@ -5321,7 +5321,7 @@ class Operations {
 					if ($parts['type'] !== DL_DIST) {
 						$memberItem['props']['email_address'] = $oneoffmembers[$key]['address'];
 
-						// internal members in distribution list don't have smtp address so add add that property
+						// Internal members in a distribution list do not have an SMTP address, so add that property
 						$memberProps = $this->convertDistlistMemberToRecipient($store, $memberItem);
 						$memberItem['props']['smtp_address'] = $memberProps["smtp_address"] ?? $memberProps["email_address"];
 					}

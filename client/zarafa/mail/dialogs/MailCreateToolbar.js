@@ -48,7 +48,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 
 	/**
 	 * Called automatically when the {@link Zarafa.mail.dialogs.MailCreateContentPanel content panel}
-	 * is being rendered. This will add a listener to to the {@link Zarafa.mail.dialogs.MailCreateContentPanel#bcctoggle} button.
+	 * is being rendered. This will add a listener to the {@link Zarafa.mail.dialogs.MailCreateContentPanel#bcctoggle} button.
 	 * @private
 	 */
 	onRender: function ()
@@ -69,7 +69,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	},
 
 	/**
-	 * Create all buttons which should be added by default the the `Actions` buttons.
+	 * Create all buttons which should be added by default to the `Actions` buttons.
 	 * These buttons are used to send, save and add attachments to the message. And it contains
 	 * also buttons to check the recipient names or add a signature.
 	 *
@@ -183,7 +183,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	},
 
 	/**
-	 * Create all buttons which should be added by default the the `Options` Buttons.
+	 * Create all buttons which should be added by default to the `Options` buttons.
 	 * This contains the buttons to set the message options like priority and read receipt.
 	 *
 	 * @return {Array} The {@link Ext.Button Button} elements which should be added in the Options section of the {@link Ext.Toolbar}.
@@ -481,9 +481,9 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 
 	/**
 	 * Event handler which is called when show Bcc recipientfield buttons have been
-	 * toggled. If this is the case, the Bcc recipeint field is visible in dialog
+	 * toggled. If this is the case, the Bcc recipient field is visible in the dialog
 	 * if the button is untoggled, then showBcc buttons is untoggled and
-	 * the bcc field is hidden from the dailog.
+	 * the Bcc field is hidden from the dialog.
 	 * @param {Ext.Button} button showBcc recipient button is pressed
 	 * @param {Boolean} state The state in which the button currently is.
 	 * @private
@@ -495,9 +495,9 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 
 	/**
 	 * Event handler which is called when show Bcc recipientfield buttons have been
-	 * toggled. If this is the case, the Bcc recipeint field is visible in dialog
+	 * toggled. If this is the case, the Bcc recipient field is visible in the dialog
 	 * if the button is untoggled, then showBcc buttons is untoggled and
-	 * the bcc field is hidden from the dailog.
+	 * the Bcc field is hidden from the dialog.
 	 * @param {Ext.Button} button showBcc recipient button is pressed
 	 * @param {Boolean} state The state in which the button currently is.
 	 * @private
@@ -511,7 +511,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	 * Event that is fired when visibility of the BCC field must be changed.
 	 * This will update UI of the {@link Zarafa.mail.dialogs.MailCreateContentPanel}
 	 * @param {Zarafa.core.ui.ContentPanel} contentpanel
-	 * @param {Boolean} enabled true if the the BCC field should be shown
+	 * @param {Boolean} enabled true if the BCC field should be shown
 	 * @private
 	 */
 	onContentPanelBccToggle: function (contentpanel, pressed)
@@ -523,7 +523,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	 * Event that is fired when visibility of the From field must be changed.
 	 * This will update UI of the {@link Zarafa.mail.dialogs.MailCreateContentPanel}
 	 * @param {Zarafa.core.ui.ContentPanel} contentpanel
-	 * @param {Boolean} enabled true if the the From field should be shown
+	 * @param {Boolean} enabled true if the From field should be shown
 	 * @private
 	 */
 	onContentPanelFromToggle: function (contentpanel, pressed)

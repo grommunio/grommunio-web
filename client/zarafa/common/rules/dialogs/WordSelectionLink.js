@@ -178,8 +178,8 @@ Zarafa.common.rules.dialogs.WordSelectionLink = Ext.extend(Ext.BoxComponent, {
 					for (var i = 0, len = subs.length; i < len; i++) {
 						var value;
 						var subResVal = subs[i][1][Restrictions.RESTRICTION];
-						//if condition has sub Restriction (i.e restriction of Recepient's words rule )
-						// then take value of restriction available in sub restriction.
+						// If the condition has a sub-restriction (i.e. a recipient-words rule),
+						// then take the value from the sub-restriction.
 						if (subResVal) {
 							value = subResVal[1][Restrictions.VALUE];
 						} else {

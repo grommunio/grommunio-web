@@ -1,5 +1,7 @@
 <?php
 
+use WAYF\CrlParser;
+
 require_once __DIR__ . '/lib/Crl.php';
 
 /**
@@ -145,13 +147,13 @@ class CrlManager {
 		try {
 			// Suppress errors from the DER parser for malformed CRLs
 			set_error_handler(function () { return true; });
-			$parser = new \WAYF\CrlParser();
+			$parser = new CrlParser();
 			$result = $parser->checkSerial($crlDer, $serial);
 			restore_error_handler();
 
 			return $result;
 		}
-		catch (\Throwable $e) {
+		catch (Throwable $e) {
 			restore_error_handler();
 			error_log(sprintf("[smime] CRL parsing error: %s", $e->getMessage()));
 

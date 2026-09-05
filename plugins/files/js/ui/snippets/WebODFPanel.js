@@ -31,68 +31,68 @@ Zarafa.plugins.files.ui.snippets.WebODFPanel = Ext.extend(Ext.Panel, {
 	title: '',
 
 	/**
-	 * @cfg{String} loadingMessage
+	 * @cfg {String} loadingMessage
 	 * The text displayed when loading the PDF.
 	 */
 	loadingMessage: 'Loading PDF, please wait...',
 
 	/**
-	 * @cfg{String} beforePageText
+	 * @cfg {String} beforePageText
 	 * The text displayed before the input item.
 	 */
 	beforePageText: 'Page',
 
 	/**
-	 * @cfg{String} afterPageText
+	 * @cfg {String} afterPageText
 	 * Customizable piece of the default paging text. Note that this string is formatted using
-	 *{0} as a token that is replaced by the number of total pages. This token should be preserved when overriding this
+	 * {0} as a token that is replaced by the number of total pages. This token should be preserved when overriding this
 	 * string if showing the total page count is desired.
 	 */
 	afterPageText: 'of {0}',
 
 	/**
-	 * @cfg{String} firstText
+	 * @cfg {String} firstText
 	 * The quicktip text displayed for the first page button.
 	 * **Note**: quick tips must be initialized for the quicktip to show.
 	 */
 	firstText: 'First Page',
 
 	/**
-	 * @cfg{String} prevText
+	 * @cfg {String} prevText
 	 * The quicktip text displayed for the previous page button.
 	 * **Note**: quick tips must be initialized for the quicktip to show.
 	 */
 	prevText: 'Previous Page',
 
 	/**
-	 * @cfg{String} nextText
+	 * @cfg {String} nextText
 	 * The quicktip text displayed for the next page button.
 	 * **Note**: quick tips must be initialized for the quicktip to show.
 	 */
 	nextText: 'Next Page',
 
 	/**
-	 * @cfg{String} lastText
+	 * @cfg {String} lastText
 	 * The quicktip text displayed for the last page button.
 	 * **Note**: quick tips must be initialized for the quicktip to show.
 	 */
 	lastText: 'Last Page',
 
 	/**
-	 * @cfg{String} fullscreenText
+	 * @cfg {String} fullscreenText
 	 * The quicktip text displayed for the fullscreen button.
 	 * **Note**: quick tips must be initialized for the quicktip to show.
 	 */
 	fullscreenText: 'Fullscreen',
 
 	/**
-	 * @cfg{Number} inputItemWidth
+	 * @cfg {Number} inputItemWidth
 	 * The width in pixels of the input field used to display and change the current page number.
 	 */
 	inputItemWidth: 30,
 
 	/**
-	 * @cfg{Number} inputItemWidth
+	 * @cfg {Number} inputItemWidth
 	 * The width in pixels of the combobox used to change display scale of the PDF.
 	 */
 	scaleWidth: 60,
@@ -201,7 +201,7 @@ Zarafa.plugins.files.ui.snippets.WebODFPanel = Ext.extend(Ext.Panel, {
 				editable: false,
 				autoSelect: true,
 				disabled    : true,
-				hidden: true, // dont show this element . (for now... TODO)
+				hidden: true, // Don't show this element for now. TODO: Enable it when supported.
 				width       : me.scaleWidth,
 				store       : {
 					xtype: 'jsonstore',

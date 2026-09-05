@@ -2,7 +2,7 @@ Ext.namespace('Zarafa.common.ui');
 
 /**
  * @class Zarafa.common.ui.DurationField
- * @extend Ext.form.NumberField
+ * @extends Ext.form.NumberField
  * @xtype zarafa.durationfield
  *
  * The duration field is a special case of the {@link Ext.form.NumberField}.

@@ -1,15 +1,10 @@
 <?php
 
-/**
- * A custom exception class for webdav exceptions.
- *
- * @class   BackendException
- *
- * @extends Exception
- */
-
 namespace Files\Backend;
 
+/**
+ * A custom exception class for WebDAV backend errors.
+ */
 class Exception extends \Exception {
 	/**
 	 * The exception title to show as a message box title at client side.
@@ -17,7 +12,7 @@ class Exception extends \Exception {
 	public $title;
 
 	/**
-	 * @constructor
+	 * Create a files backend exception.
 	 *
 	 * @param string $message The error message
 	 * @param int    $code    The error code

@@ -7,7 +7,7 @@ build:
       ini:
         xdebug.mode: coverage
     node:
-      version: 20.19.5
+      version: 20.19.0
   nodes:
     analysis:
       dependencies:
@@ -17,7 +17,7 @@ build:
           - 'test "$(git -C analysis-deps/mapi-header-php rev-parse HEAD)" = 4af93f0248f84fcb435535be8daedea7da939859'
           - 'sudo ln -sfnT "$PWD/analysis-deps/mapi-header-php" /usr/share/php-mapi'
       environment:
-        node: 20.19.5
+        node: 20.19.0
       project_setup:
         override: true
       tests:

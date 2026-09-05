@@ -11,7 +11,7 @@ Ext.namespace('Zarafa.core.data');
 Zarafa.core.data.UIFactoryLayer = Ext.extend(Object, {
 	/**
 	 * @cfg {String} type The name of the Content Layer
-	 * which uniqely identifies this layer.
+	 * which uniquely identifies this layer.
 	 */
 	type: '',
 

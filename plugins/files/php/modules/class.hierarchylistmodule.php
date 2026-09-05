@@ -7,10 +7,6 @@ use Files\Core\Exception as AccountException;
 
 /**
  * This module handles all list and change requests for the files browser.
- *
- * @class HierarchyListModule
- *
- * @extends FilesListModule
  */
 class HierarchyListModule extends FilesListModule {
 	/**

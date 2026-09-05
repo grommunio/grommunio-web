@@ -409,6 +409,7 @@ class Certificate {
 		 * standard.
 		 */
 		set_error_handler("tempErrorHandler");
+
 		try {
 			$x509 = new X509();
 			$issuer = $x509->certificate($issuer->der());

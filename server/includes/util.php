@@ -96,7 +96,7 @@ function is_assoc_array($data) {
  * gets maximum upload size of attachment from php ini settings
  * important settings are upload_max_filesize and post_max_size
  * upload_max_filesize specifies maximum upload size for attachments
- * post_max_size must be larger then upload_max_filesize.
+ * post_max_size must be larger than upload_max_filesize.
  * these values are overwritten in .htaccess file of WA.
  *
  * @param mixed $as_string
@@ -108,9 +108,8 @@ function getMaxUploadSize($as_string = false) {
 	$post_max_value = getMaxPostRequestSize();
 
 	/*
-	 * if POST_MAX_SIZE is lower then UPLOAD_MAX_FILESIZE, then we have to check based on that value
-	 * as we will not be able to upload attachment larger then POST_MAX_SIZE (file size + header data)
-	 * so set POST_MAX_SIZE value to higher then UPLOAD_MAX_FILESIZE
+	 * If POST_MAX_SIZE is lower than UPLOAD_MAX_FILESIZE, it becomes the
+	 * effective upload limit because the request also contains header data.
 	 */
 
 	// calculate upload_max_value value to bytes
@@ -561,8 +560,9 @@ function parse_smime($store, $message) {
 			// deleting an attachment removes an actual attachment of the message
 			$mprops = mapi_getprops($message, [PR_MESSAGE_CLASS]);
 			if (isSmimePluginEnabled() &&
-			    class_match_prefix($mprops[PR_MESSAGE_CLASS], "IPM.Note.SMIME"))
+				class_match_prefix($mprops[PR_MESSAGE_CLASS], "IPM.Note.SMIME")) {
 				mapi_message_deleteattach($message, $attnum);
+			}
 
 			$decapRcptTable = mapi_message_getrecipienttable($message);
 			$decapRecipients = mapi_table_queryallrows($decapRcptTable, $GLOBALS["properties"]->getRecipientProperties());
@@ -958,8 +958,6 @@ function getWebappVersion() {
 /**
  * Runs $fn with the PHP session open. Authentication closes the session before
  * the MAPI logon, so later writes to $_SESSION are lost without this.
- *
- * @param callable $fn
  */
 function updateSession(callable $fn) {
 	$wasActive = session_status() === PHP_SESSION_ACTIVE;
@@ -1149,7 +1147,7 @@ function getLocalStart($ts, $tz) {
 		);
 		$interval = $clientDate->getTimestamp() - $clientMidnight->getTimestamp();
 		// The code here is based on assumption that if the interval
-		// is greater than 12 hours then the appointment takes place
+		// is greater than 12 hours, the appointment takes place
 		// on the day before or after. This should be fine for all the
 		// timezones which do not exceed 12 hour difference to UTC.
 		$ts = $interval > 0 ?
@@ -1161,16 +1159,20 @@ function getLocalStart($ts, $tz) {
 }
 
 /**
- * @h:	PR_MESSAGE_CLASS value
- * @n:	prefix to test for
+ * Check whether a message class matches a prefix at a component boundary.
+ *
+ * @param mixed $h PR_MESSAGE_CLASS value
+ * @param mixed $n prefix to test for
  */
-function class_match_prefix($h, $n)
-{
-	if (!isset($h))
+function class_match_prefix($h, $n) {
+	if (!isset($h)) {
 		return false;
+	}
 	$z = strlen($n);
 	$r = strncasecmp($h, $n, $z);
-	if ($r != 0)
+	if ($r != 0) {
 		return false;
+	}
+
 	return strlen($h) == $z || $h[$z] == '.' ? true : false;
 }

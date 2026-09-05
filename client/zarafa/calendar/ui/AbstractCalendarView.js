@@ -299,7 +299,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	groupId: undefined,
 
 	/**
-	 * @cfg {Boolean} active Flag whether this view is the currently active one inside the {@link Zarafa.calenaar.CalendarMultiView}
+	 * @cfg {Boolean} active Flag whether this view is the currently active one inside the {@link Zarafa.calendar.ui.CalendarMultiView}
 	 * There is one active group, but each group has a selected calendar in it
 	 */
 	active: false,

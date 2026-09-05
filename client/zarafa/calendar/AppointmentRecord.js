@@ -637,7 +637,7 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 			// slight differences. The series doesn't have a basedate, and the startdate
 			// and duedate properties are the values from the first occurrence.
 			// When the record is being opened, it might already have been hooked to a
-			// UI componennt, which at this moment has been initialized with the data
+			// UI component, which at this moment has been initialized with the data
 			// from the occurrence. Force all fields which will likely to be different
 			// between the occurrence and series to be marked as modified, forcing the
 			// UI to reinitialize the components which belong to it.
@@ -912,7 +912,7 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 		if(this.hasIdProp('basedate') === false) {
 			var cloneRec = this.copy();
 
-			// For occurrences the the 'recurring' property must
+			// For occurrences, the 'recurring' property must
 			// always be false (as the occurrence itself doesn't recur.
 			cloneRec.set('recurring', false);
 
@@ -935,7 +935,7 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 
 	/**
 	 * Function is used to convert an occurrence record to a series record.
-	 * Series and occurrence records has some silghtly differences in properties so we need to reset some
+	 * Series and occurrence records have slight differences in their properties, so we need to reset some
 	 * properties which are only valid for occurrence record not for series record.
 	 * Also we need to remove basedate property from {@link #idProperties} so record will be correctly identified
 	 * as a series record.

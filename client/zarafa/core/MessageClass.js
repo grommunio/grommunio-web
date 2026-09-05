@@ -11,7 +11,7 @@ Zarafa.core.MessageClass = {
 
 	/**
 	 * Check if the given messageclass property on this record matches the given 'expectedClass'.
-	 * This comparison is done in a case-insensite way. This function can be used
+	 * This comparison is done in a case-insensitive way. This function can be used
 	 * for comparing the value of 'message_class' safely.
 	 *
 	 * @param {String} className The className which should be checked,

@@ -272,7 +272,7 @@ Zarafa.hierarchy.data.IPFSubStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	save: function()
 	{
 		// If the removed array is non-empty shared stores are being closed
-		// shared stores get a special treatmeent
+		// Shared stores get special treatment.
 		if (this.removed.length) {
 			var removed = [];
 			var sharedfolders = [];

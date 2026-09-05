@@ -92,8 +92,7 @@ class IndexSqlite extends SQLite3 {
 		}
 	}
 
-	public function is_open()
-	{
+	public function is_open() {
 		return !$this->openResult;
 	}
 
@@ -102,6 +101,13 @@ class IndexSqlite extends SQLite3 {
 	 * be linked into the search folder, or null when the row is filtered out
 	 * or unusable. Linking itself is deferred to the caller so it can be
 	 * batched into a single RPC instead of one round trip per message.
+	 *
+	 * @param mixed $row
+	 * @param mixed $message_classes
+	 * @param mixed $date_start
+	 * @param mixed $date_end
+	 * @param mixed $unread
+	 * @param mixed $has_attachments
 	 */
 	private function filter_content(
 		$row,
@@ -192,6 +198,8 @@ class IndexSqlite extends SQLite3 {
 	 * messages are linked in a single RPC; otherwise we fall back to the
 	 * per-message mapi_linkmessage path so a new web release keeps working
 	 * against an older gromox. Returns the number of linked messages.
+	 *
+	 * @param mixed $search_entryid
 	 */
 	private function link_entryids($search_entryid, array $entryids): int {
 		if ($entryids === []) {

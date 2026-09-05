@@ -40,7 +40,7 @@ class ExpandDistlistModule extends Module {
 
 	/**
 	 * Function which expands a distribution list, optionally expands a distribution list in a distribution list.
-	 * Duplicate members will not be be filtered.
+	 * Duplicate members will not be filtered.
 	 *
 	 * @param string $entryid   entryid of distribution list
 	 * @param array  $data      an array of members in the distribution list

@@ -109,7 +109,7 @@ else # Plugin case
 	fi
 
 	if [ -n "${update}" ]; then
-		echo 'Upating language is not supported for plugins'
+		echo 'Updating languages is not supported for plugins'
 	fi
 fi
 

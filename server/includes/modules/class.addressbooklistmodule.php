@@ -1039,6 +1039,7 @@ class AddressbookListModule extends ListModule {
 			}
 			catch (MAPIException $e) {
 				$e->setHandled();
+
 				continue;
 			}
 		}
@@ -1359,6 +1360,7 @@ class AddressbookListModule extends ListModule {
 						}
 						$filteredRows[] = $row;
 					}
+
 					return $filteredRows;
 				}
 			}

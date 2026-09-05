@@ -95,7 +95,7 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 
 	/**
 	 * Timer function that will be used to update search results after specified interval.
-	 * this property should be cleared when {#stopSearch} has been called so it will cancel further
+	 * this property should be cleared when {@link #stopSearch} has been called so it will cancel further
 	 * requests for updating search results.
 	 * @property
 	 * @type Function
@@ -717,7 +717,7 @@ myStore.reload(lastOptions);
 	 * and if action type is search then it will call {@link #updateSearchInfo} as a callback function.
 	 * @param {Object} data data that is returned by the proxy after processing it. will contain
 	 * {@link Zarafa.core.data.IPMRecords records}.
-	 * @param {Object} options options that are paased through {@link #load} event.
+	 * @param {Object} options Options that are passed through the {@link #load} event.
 	 * @param {Boolean} success success status of request.
 	 * @param {Object} metaData extra information that is received with response data.
 	 */
@@ -835,7 +835,7 @@ myStore.reload(lastOptions);
 	},
 
 	/**
-	 * Clear the {#hasFilterApplied} flag which used to indicate that filter in
+	 * Clear the {@link #hasFilterApplied} flag which is used to indicate that a filter in
 	 * enabled or not.
 	 */
 	stopFilter: function()

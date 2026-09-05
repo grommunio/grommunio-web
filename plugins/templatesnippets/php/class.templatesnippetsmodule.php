@@ -8,7 +8,6 @@
  * files stored under PLUGIN_TEMPLATESNIPPETS_SYSTEM_DIR.
  */
 class TemplateSnippetsModule extends Module {
-
 	/**
 	 * Process incoming actions from the client.
 	 */
@@ -24,6 +23,7 @@ class TemplateSnippetsModule extends Module {
 								'display_message' => _('You do not have permission to manage system templates.'),
 							],
 						]);
+
 						continue;
 					}
 					match ($actionType) {
@@ -49,13 +49,14 @@ class TemplateSnippetsModule extends Module {
 			return false;
 		}
 		$smtpAddress = $GLOBALS['mapisession']->getSMTPAddress();
+
 		return in_array($smtpAddress, PLUGIN_TEMPLATESNIPPETS_ADMIN_USERS, true);
 	}
 
 	/**
 	 * Return the system templates directory, ensuring it exists.
 	 *
-	 * @return string|false The directory path, or false on failure
+	 * @return false|string The directory path, or false on failure
 	 */
 	private function getTemplateDir() {
 		$dir = defined('PLUGIN_TEMPLATESNIPPETS_SYSTEM_DIR') ? PLUGIN_TEMPLATESNIPPETS_SYSTEM_DIR : '/var/lib/grommunio-web/templates';
@@ -64,6 +65,7 @@ class TemplateSnippetsModule extends Module {
 				return false;
 			}
 		}
+
 		return $dir;
 	}
 
@@ -71,6 +73,7 @@ class TemplateSnippetsModule extends Module {
 	 * Sanitize a template key to a safe filename component.
 	 *
 	 * @param string $key
+	 *
 	 * @return string
 	 */
 	private function sanitizeKey($key) {
@@ -88,6 +91,7 @@ class TemplateSnippetsModule extends Module {
 				'type' => ERROR_ZARAFA,
 				'info' => ['display_message' => _('Template name is required.')],
 			]);
+
 			return;
 		}
 
@@ -97,6 +101,7 @@ class TemplateSnippetsModule extends Module {
 				'type' => ERROR_ZARAFA,
 				'info' => ['display_message' => _('Cannot create template directory.')],
 			]);
+
 			return;
 		}
 
@@ -117,6 +122,7 @@ class TemplateSnippetsModule extends Module {
 				'type' => ERROR_ZARAFA,
 				'info' => ['display_message' => _('Failed to write template file.')],
 			]);
+
 			return;
 		}
 
@@ -141,6 +147,7 @@ class TemplateSnippetsModule extends Module {
 				'type' => ERROR_ZARAFA,
 				'info' => ['display_message' => _('Template key is required.')],
 			]);
+
 			return;
 		}
 
@@ -150,6 +157,7 @@ class TemplateSnippetsModule extends Module {
 				'type' => ERROR_ZARAFA,
 				'info' => ['display_message' => _('Template directory not found.')],
 			]);
+
 			return;
 		}
 
@@ -161,6 +169,7 @@ class TemplateSnippetsModule extends Module {
 				'type' => ERROR_ZARAFA,
 				'info' => ['display_message' => _('Template file not found.')],
 			]);
+
 			return;
 		}
 
@@ -169,6 +178,7 @@ class TemplateSnippetsModule extends Module {
 				'type' => ERROR_ZARAFA,
 				'info' => ['display_message' => _('Failed to delete template file.')],
 			]);
+
 			return;
 		}
 

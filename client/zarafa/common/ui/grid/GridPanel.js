@@ -96,7 +96,7 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 	},
 
 	/**
-	 * Called when the GridPanel has been destroyed. Will destroy the {#dateTooltip}
+	 * Called when the GridPanel has been destroyed. Will destroy the {@link #dateTooltip}
 	 * @private
 	 */
 	onDestroy: function()
