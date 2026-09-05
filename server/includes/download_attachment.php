@@ -958,9 +958,9 @@ class DownloadAttachment extends DownloadBase {
 			}
 
 			$zip->close();
+			$attachment_state->close();
 
 			$this->sendZipResponse($randomZipName);
-			$attachment_state->close();
 		// check if inline image is requested
 		}
 		elseif ($this->attachCid) {

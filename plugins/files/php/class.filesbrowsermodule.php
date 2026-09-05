@@ -751,13 +751,15 @@ class FilesBrowserModule extends FilesListModule {
 		$response = [];
 
 		$attachment_state = new AttachmentState();
-		$attachment_state->open();
+		$downloaded = [];
 
 		$account = $this->accountFromNode($ids[0]);
 
 		// initialize the backend
 		$initializedBackend = $this->initializeBackend($account);
 
+		// Download without the attachment state lock: the backend transfer must not
+		// stall attachment uploads and message saves elsewhere in the session.
 		foreach ($ids as $file) {
 			$filename = basename((string) $file);
 			$tmpname = $attachment_state->getAttachmentTmpPath($filename);
@@ -778,17 +780,21 @@ class FilesBrowserModule extends FilesListModule {
 				'tmpname' => PathUtil::getFilenameFromPath($tmpname),
 			];
 
-			$attachment_state->addAttachmentFile($dialogAttachmentId, PathUtil::getFilenameFromPath($tmpname), [
+			$downloaded[PathUtil::getFilenameFromPath($tmpname)] = [
 				"name" => $filename,
 				"size" => $filesize,
 				"type" => PathUtil::get_mime($tmpname),
 				"attach_id" => $attach_id,
 				"sourcetype" => 'default',
-			]);
+			];
 
 			Logger::debug(self::LOG_CONTEXT, "filesize: " . $filesize);
 		}
 
+		$attachment_state->open();
+		foreach ($downloaded as $tmpname => $fileinfo) {
+			$attachment_state->addAttachmentFile($dialogAttachmentId, $tmpname, $fileinfo);
+		}
 		$attachment_state->close();
 		$response['status'] = true;
 		$this->addActionData($actionType, $response);
@@ -1063,8 +1069,8 @@ class FilesBrowserModule extends FilesListModule {
 			$messageProps = mapi_getprops($message, [PR_SUBJECT, PR_MESSAGE_CLASS]);
 			$cls = $messageProps[PR_MESSAGE_CLASS];
 			$isSupportedMessage = class_match_prefix($cls, "IPM.Note") ||
-			                      class_match_prefix($cls, "Report.IPM.Note") ||
-			                      class_match_prefix($cls, "IPM.Schedule");
+								  class_match_prefix($cls, "Report.IPM.Note") ||
+								  class_match_prefix($cls, "IPM.Schedule");
 
 			if ($isSupportedMessage) {
 				// Get addressbook for current session

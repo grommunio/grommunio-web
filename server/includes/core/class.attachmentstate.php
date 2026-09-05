@@ -58,10 +58,7 @@ class AttachmentState {
 	 * The session file is opened and locked so that other processes can not access the state information
 	 */
 	public function open() {
-		if (!is_dir($this->sessiondir)) {
-			mkdir($this->sessiondir, 0755, true /* recursive */);
-		}
-
+		$this->ensureSessionDir();
 		$this->state->open();
 		$this->files = $this->state->read('files');
 		$this->deleteattachment = $this->state->read('deleteattachment');
@@ -71,6 +68,15 @@ class AttachmentState {
 		if (!empty($this->abortedattachment)) {
 			// Remove aborted attachments
 			$this->removeAbortedAttachments();
+		}
+	}
+
+	/**
+	 * Create the session attachment folder when it does not exist yet.
+	 */
+	private function ensureSessionDir() {
+		if (!is_dir($this->sessiondir)) {
+			mkdir($this->sessiondir, 0755, true /* recursive */);
 		}
 	}
 
@@ -114,6 +120,7 @@ class AttachmentState {
 	 * @return string The full path to the attachment file
 	 */
 	public function getAttachmentTmpPath($filename) {
+		$this->ensureSessionDir();
 		$attachmentPath = tempnam($this->getAttachmentFolder(), mb_basename($filename));
 		if ($attachmentPath === false) {
 			throw new ZarafaException(_('Could not attach item as an attachment.'));
