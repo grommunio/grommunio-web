@@ -1,9 +1,0 @@
-{
-	"name": "grommunio/grommunio-web",
-	"description": "Web user interface for grommunio",
-	"type": "project",
-	"license": "AGPL-3.0-or-later",
-	"require-dev": {
-		"squizlabs/php_codesniffer": "3.13.6"
-	}
-}

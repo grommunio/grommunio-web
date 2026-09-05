@@ -12,7 +12,6 @@ build:
     analysis:
       dependencies:
         before:
-          - 'composer install --no-interaction --no-progress --prefer-dist'
           - 'mkdir -p analysis-deps'
           - 'git clone --depth 1 --branch 2.2 https://github.com/grommunio/mapi-header-php.git analysis-deps/mapi-header-php'
           - 'test "$(git -C analysis-deps/mapi-header-php rev-parse HEAD)" = 4af93f0248f84fcb435535be8daedea7da939859'
@@ -24,11 +23,14 @@ build:
       tests:
         override:
           - php-scrutinizer-run --enable-security-analysis
-          - command: './vendor/bin/phpcs --version'
-            cwd: .
+          # phpcs-run currently falls back to PHPCS 3.6.0. Its advisory only
+          # affects blame reports, which the Scrutinizer analysis does not use.
+          # Keep the advisory visible to audits while allowing this installation.
+          - command: >-
+              composer config --global --merge --json policy.advisories.ignore-id
+              '{"GHSA-hmqg-cxww-wqhq":{"on-block":true,"on-audit":false,"reason":"Scrutinizer phpcs-run does not use the affected blame reports."},"PKSA-rdkp-vv9z-mjkg":{"on-block":true,"on-audit":false,"reason":"Alias of GHSA-hmqg-cxww-wqhq."}}'
             stop_on_failure: true
           - command: phpcs-run
-            cwd: .
             use_website_config: true
     tests:
       dependencies:
@@ -40,7 +42,6 @@ build:
 filter:
   dependency_paths:
     - "analysis-deps/mapi-header-php/"
-    - "vendor/**"
     - "*/vendor/**"
     - "plugins/files/php/Files/Backend/Webdav/sabredav/"
   excluded_paths:
