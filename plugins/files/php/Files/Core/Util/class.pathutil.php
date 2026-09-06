@@ -92,14 +92,19 @@ class PathUtil {
 		$ext = strtolower($last);
 
 		if (function_exists('mime_content_type') && is_file($filename) && $mode == 0) {
-			return mime_content_type($filename);
+			$mimetype = mime_content_type($filename);
+			if (is_string($mimetype) && $mimetype !== '') {
+				return $mimetype;
+			}
 		}
 		if (function_exists('finfo_open') && is_file($filename) && $mode == 0) {
-			$finfo = finfo_open(FILEINFO_MIME);
+			$finfo = finfo_open(FILEINFO_MIME_TYPE);
 			$mimetype = finfo_file($finfo, $filename);
 			finfo_close($finfo);
 
-			return $mimetype;
+			if (is_string($mimetype) && $mimetype !== '') {
+				return $mimetype;
+			}
 		}
 		if (array_key_exists($ext, $mime_types)) {
 			return $mime_types[$ext];

@@ -106,6 +106,7 @@ class DownloadHandler {
 				$zip->close();
 
 				// no caching
+				sendDownloadSecurityHeaders();
 				header('Content-Disposition: attachment; filename="' . basename($zipname) . '"');
 				header("Expires: 0"); // set expiration time
 				header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
@@ -127,21 +128,29 @@ class DownloadHandler {
 				$tmpfile = tempnam(TMP_PATH, stripslashes(base64_encode($relNodeId)));
 				$initializedBackend->get_file($relNodeId, $tmpfile);
 				$filesize = filesize($tmpfile);
+				$mime = PathUtil::get_mime($tmpfile);
 			}
 			else {
 				$gpi = $initializedBackend->gpi($relNodeId);
 				$stream = true;
 				$filesize = $gpi["getcontentlength"];
+				// A backend node ID is not a local filename. Use its extension
+				// instead of probing a matching path on the web server.
+				$mime = PathUtil::get_mime($relNodeId, 1);
 			}
 
-			$mime = PathUtil::get_mime($relNodeId);
+			$mime = normalizeHTTPContentType($mime);
+			$requestedDisposition = (isset($_GET["inline"]) && $_GET["inline"] == "false") ||
+				(isset($_GET["contentDispositionType"]) && $_GET["contentDispositionType"] == "attachment")
+				? 'attachment'
+				: 'inline';
+			$contentDisposition = getDownloadContentDisposition($requestedDisposition, $mime);
+			$filename = addslashes(browserDependingHTTPHeaderEncode(PathUtil::getFilenameFromPath($relNodeId)));
 
 			// set headers here
-			if ((isset($_GET["inline"]) && $_GET["inline"] == "false") || (isset($_GET["contentDispositionType"]) && $_GET["contentDispositionType"] == "attachment")) {
-				header('Content-Disposition: attachment; filename="' . PathUtil::getFilenameFromPath($relNodeId) . '"');
-			}
-
 			// no caching
+			sendDownloadSecurityHeaders();
+			header('Content-Disposition: ' . $contentDisposition . '; filename="' . $filename . '"');
 			header("Expires: 0"); // set expiration time
 			header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 			header('Content-Length: ' . $filesize);

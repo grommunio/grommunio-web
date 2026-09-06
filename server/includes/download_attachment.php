@@ -126,7 +126,9 @@ class DownloadAttachment extends DownloadBase {
 		}
 
 		if (isset($data['contentDispositionType'])) {
-			$this->contentDispositionType = sanitizeValue($data['contentDispositionType'], 'attachment', STRING_REGEX);
+			$this->contentDispositionType = in_array($data['contentDispositionType'], ['inline', 'attachment'], true)
+				? $data['contentDispositionType']
+				: 'attachment';
 		}
 
 		if (!empty($data['attachNum'])) {
@@ -422,7 +424,7 @@ class DownloadAttachment extends DownloadBase {
 
 			// Set content type if available, otherwise it will be default to application/octet-stream
 			if (isset($props[PR_ATTACH_MIME_TAG])) {
-				$contentType = $props[PR_ATTACH_MIME_TAG];
+				$contentType = normalizeHTTPContentType($props[PR_ATTACH_MIME_TAG]);
 			}
 
 			// Open the stream before sending headers so a missing
@@ -450,7 +452,9 @@ class DownloadAttachment extends DownloadBase {
 				header('Expires: 0'); // set expiration time
 				header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 			}
-			header('Content-Disposition: ' . $this->contentDispositionType . '; filename="' . addslashes(browserDependingHTTPHeaderEncode($filename)) . '"');
+			$contentDisposition = getDownloadContentDisposition($this->contentDispositionType, $contentType);
+			sendDownloadSecurityHeaders();
+			header('Content-Disposition: ' . $contentDisposition . '; filename="' . addslashes(browserDependingHTTPHeaderEncode($filename)) . '"');
 			header('Content-Type: ' . $contentType);
 			header('Content-Transfer-Encoding: binary');
 
@@ -529,12 +533,15 @@ class DownloadAttachment extends DownloadBase {
 		$subject = isset($this->messageSubject) ? ' ' . $this->messageSubject : '';
 
 		// Set the headers
+		$contentType = 'application/zip';
+		$contentDisposition = getDownloadContentDisposition($this->contentDispositionType, $contentType);
+		sendDownloadSecurityHeaders();
 		header('Pragma: public');
 		header('Expires: 0'); // set expiration time
 		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-		header('Content-Disposition: ' . $this->contentDispositionType . '; filename="' . addslashes(browserDependingHTTPHeaderEncode(sprintf($this->zipFileName, $subject))) . '"');
+		header('Content-Disposition: ' . $contentDisposition . '; filename="' . addslashes(browserDependingHTTPHeaderEncode(sprintf($this->zipFileName, $subject))) . '"');
 		header('Content-Transfer-Encoding: binary');
-		header('Content-Type:  application/zip');
+		header('Content-Type: ' . $contentType);
 		header('Content-Length: ' . filesize($randomZipName));
 
 		// Send the actual response as ZIP file
@@ -617,13 +624,18 @@ class DownloadAttachment extends DownloadBase {
 
 		// Check if the file still exists
 		if (is_file($tmpname)) {
+			$contentType = function_exists('mime_content_type') ? mime_content_type($tmpname) : false;
+			$contentType = normalizeHTTPContentType($contentType);
+			$contentDisposition = getDownloadContentDisposition($this->contentDispositionType, $contentType);
+
 			// Set the headers
+			sendDownloadSecurityHeaders();
 			header('Pragma: public');
 			header('Expires: 0'); // set expiration time
 			header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-			header('Content-Disposition: ' . $this->contentDispositionType . '; filename="' . addslashes(browserDependingHTTPHeaderEncode($fileinfo['name'])) . '"');
+			header('Content-Disposition: ' . $contentDisposition . '; filename="' . addslashes(browserDependingHTTPHeaderEncode($fileinfo['name'])) . '"');
 			header('Content-Transfer-Encoding: binary');
-			header('Content-Type: application/octet-stream');
+			header('Content-Type: ' . $contentType);
 			header('Content-Length: ' . filesize($tmpname));
 
 			// Open the uploaded file and print it
@@ -649,16 +661,19 @@ class DownloadAttachment extends DownloadBase {
 
 			$filename = (!empty($messageProps[PR_SUBJECT])) ? $messageProps[PR_SUBJECT] : _('Untitled');
 			$filename .= '.ics';
+			$contentType = 'application/octet-stream';
+			$contentDisposition = getDownloadContentDisposition($this->contentDispositionType, $contentType);
 			// Set the headers
+			sendDownloadSecurityHeaders();
 			header('Pragma: public');
 			header('Expires: 0'); // set expiration time
 			header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 			header('Content-Transfer-Encoding: binary');
 
 			// Set Content Disposition header
-			header('Content-Disposition: ' . $this->contentDispositionType . '; filename="' . addslashes(browserDependingHTTPHeaderEncode($filename)) . '"');
+			header('Content-Disposition: ' . $contentDisposition . '; filename="' . addslashes(browserDependingHTTPHeaderEncode($filename)) . '"');
 			// Set content type header
-			header('Content-Type: application/octet-stream');
+			header('Content-Type: ' . $contentType);
 
 			// Set the file length
 			header('Content-Length: ' . strlen($appointmentStream));

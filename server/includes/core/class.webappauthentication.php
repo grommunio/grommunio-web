@@ -2,6 +2,7 @@
 
 require_once UMAPI_PATH . '/mapi.util.php';
 require_once UMAPI_PATH . '/class.keycloak.php';
+require_once BASE_PATH . 'server/includes/core/class.webappkeycloak.php';
 
 require_once BASE_PATH . 'server/includes/core/class.encryptionstore.php';
 require_once BASE_PATH . 'server/includes/core/class.webappsession.php';
@@ -121,9 +122,11 @@ class WebAppAuthentication {
 	 * php session.
 	 */
 	public static function authenticate() {
-		WebAppAuthentication::regenerate_access_token();
+		if (!WebAppAuthentication::regenerate_access_token()) {
+			return;
+		}
 		if (isset($_GET['code']) && (!defined('DISABLE_KEYCLOAK') || !DISABLE_KEYCLOAK)) {
-			WebAppAuthentication::authenticateWithAccessToken($_GET['code']);
+			WebAppAuthentication::authenticateWithAccessToken($_GET['code'], $_GET['state'] ?? null);
 		}
 		elseif (WebAppAuthentication::isUsingLoginForm()) {
 			WebAppAuthentication::authenticateWithPostedCredentials();
@@ -135,16 +138,44 @@ class WebAppAuthentication {
 		}
 	}
 
-	/*
-	* Checks if keycloak features are enabled and regenerates
-	* the access token before expiration.
-	*/
+	/**
+	 * Checks if keycloak features are enabled and regenerates
+	 * the access token before expiration.
+	 *
+	 * @return bool false when the request must stop and reauthenticate
+	 */
 	public static function regenerate_access_token() {
 		if (isset($_SESSION['_keycloak_auth'])) {
 			$_keycloak_auth = $_SESSION['_keycloak_auth'];
 			if (time() - $_keycloak_auth->get_last_refresh_time() > 280) {
 				if (!$_keycloak_auth->refresh_grant_req() && !$_keycloak_auth->validate_grant()) {
-					header('Location:' . $_keycloak_auth->login_url($_keycloak_auth->redirect_url) . '');
+					$reopenedSession = false;
+					$sessionActive = session_status() === PHP_SESSION_ACTIVE;
+					if (!$sessionActive) {
+						$reopenedSession = session_start();
+						$sessionActive = $reopenedSession;
+					}
+					$keycloak = null;
+					if ($sessionActive) {
+						$keycloak = $_keycloak_auth instanceof WebAppKeyCloak
+							? $_keycloak_auth
+							: WebAppKeyCloak::getInstance();
+					}
+					if ($keycloak !== null) {
+						header('Location:' . $keycloak->login_url($keycloak->redirect_url));
+					}
+
+					// Do not let a later authentication path reuse either the invalid
+					// Keycloak object or its encrypted access-token credentials. Keep
+					// the newly generated OAuth state in this same session.
+					unset($_SESSION['_keycloak_auth']);
+					$_SESSION[EncryptionStore::_SESSION_KEY] = [];
+					if ($reopenedSession) {
+						session_write_close();
+					}
+					WebAppAuthentication::$_errorCode = MAPI_E_END_OF_SESSION;
+
+					return false;
 				}
 				$token = $_keycloak_auth->access_token->get_payload();
 				$user = $_keycloak_auth->access_token->get_claims('email');
@@ -160,6 +191,8 @@ class WebAppAuthentication {
 				session_write_close();
 			}
 		}
+
+		return true;
 	}
 
 	/**
@@ -350,12 +383,14 @@ class WebAppAuthentication {
 	 * keycloak server verifies grant, and sends access token.
 	 * access token is used to authenticate user.
 	 *
-	 * @param mixed $code
+	 * @param mixed $code  authorization code
+	 * @param mixed $state OAuth state returned by Keycloak
 	 */
-	public static function authenticateWithAccessToken($code) {
-		$keycloak = KeyCloak::getInstance();
+	public static function authenticateWithAccessToken($code, $state = null) {
+		$keycloak = WebAppKeyCloak::getInstance();
 		if (!is_null($keycloak)) {
-			if ($keycloak->client_credential_grant_req($code) && $keycloak->validate_grant()) {
+			if (is_string($code) && $keycloak->consumeState($state) &&
+				$keycloak->client_credential_grant_req($code) && $keycloak->validate_grant()) {
 				$keycloak->set_last_refresh_time(time());
 				$_SESSION['_keycloak_auth'] = $keycloak;
 
@@ -393,7 +428,7 @@ class WebAppAuthentication {
 					}
 				}
 			}
-			header('Location:' . $keycloak->login_url($keycloak->redirect_url) . '');
+			header('Location:' . $keycloak->login_url($keycloak->redirect_url));
 		}
 
 		return WebAppAuthentication::getErrorCode();
@@ -488,7 +523,7 @@ class WebAppAuthentication {
 
 			return WebAppAuthentication::getErrorCode();
 		}
-		header("X-grommunio-Authuser:" . $username);
+		header('X-grommunio-Authuser:' . removeHTTPControlCharacters($username));
 
 		return WebAppAuthentication::login($username, $password);
 	}

@@ -8,6 +8,25 @@
 // Bootstrap the script
 require_once 'server/includes/bootstrap.grommunio.php';
 
+// Reject foreign service requests before authentication or a controller can
+// refresh, create, or destroy session state. Requests without Origin remain
+// available to legacy and non-browser clients.
+if (isset($_GET['service'])) {
+	require_once BASE_PATH . 'server/includes/core/class.response.php';
+	$service = $_GET['service'];
+	$serviceMethods = [
+		'authenticate' => 'POST',
+		'authenticated' => 'GET',
+		'fingerprint' => 'POST',
+		'logout' => 'POST',
+		'token' => 'POST',
+	];
+	if (!is_string($service) || !isset($serviceMethods[$service])) {
+		Response::notFound();
+	}
+	Response::enforceCors($serviceMethods[$service]);
+}
+
 // Callback function for unserialize
 // Notifier objects of the previous request are stored in the session. With this
 // function they are restored to PHP objects.
