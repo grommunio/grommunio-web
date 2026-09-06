@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-04 14:41+0200\n"
+"POT-Creation-Date: 2026-09-06 21:29+0200\n"
 "PO-Revision-Date: 2022-07-26 14:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -1962,6 +1962,27 @@ msgstr "K přesunu těchto položek nemáte dostatečná oprávnění. Chcete m�
 msgid "You have insufficient privileges to move this item. Would you like to copy instead?"
 msgstr "Nemáte dostatečná oprávnění k přesunu této položky. Chcete místo toho kopírovat?"
 
+msgid "Untitled"
+msgstr "Nepojmenovaný"
+
+msgid "The attachments could not be saved."
+msgstr ""
+
+msgid "This attachment could not be saved: {0}"
+msgid_plural "These attachments could not be saved: {0}"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid "{0} attachment was saved."
+msgid_plural "{0} attachments were saved."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid "Save attachments"
+msgstr ""
+
 msgid "Insert item"
 msgstr "Vložit položku"
 
@@ -2007,11 +2028,17 @@ msgstr "Přidat přílohu"
 msgid "Preview"
 msgstr "Náhled"
 
+msgid "Preview in a dialog"
+msgstr ""
+
 msgid "Download"
 msgstr "Stáhnout"
 
 msgid "Download all as ZIP"
 msgstr "Stáhnout vše jako ZIP"
+
+msgid "Save selection to folder"
+msgstr ""
 
 msgid "Import to folder"
 msgstr "Import do složky"
@@ -2023,6 +2050,12 @@ msgstr "Abyste mohli používat funkci importu vCard, aktualizujte aplikaci Grom
 #, fuzzy
 msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to version 0 or higher."
 msgstr "Chcete-li používat funkci importu ICS / VCS, aktualizujte systém Gromox na verzi 0 nebo vyšší."
+
+msgid "Preview in a grommunio Web tab"
+msgstr ""
+
+msgid "Preview in a browser window"
+msgstr ""
 
 msgid "Attachment error"
 msgstr "Chyba přílohy"
@@ -3137,9 +3170,6 @@ msgstr "Zprávu se nepodařilo načíst"
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "Přílohy"
-
-msgid "Untitled"
-msgstr "Nepojmenovaný"
 
 msgid "Download Pictures"
 msgstr "Stáhnout obrázky"
@@ -5304,6 +5334,12 @@ msgstr "Výchozí zvětšení dokumentu"
 
 msgid "PDF zoom"
 msgstr "Přiblížení ve formátu PDF"
+
+msgid "Dialog"
+msgstr ""
+
+msgid "Open a preview in a"
+msgstr ""
 
 msgid "File previewing"
 msgstr "Náhled souborů"
@@ -7630,12 +7666,6 @@ msgstr "Přístup zamítnut"
 msgid "Connection failed"
 msgstr "Připojení se nezdařilo"
 
-msgid "Sabre error"
-msgstr "Chyba Sabre"
-
-msgid "Copying failed"
-msgstr "Kopírování se nezdařilo"
-
 msgid "Unknown error"
 msgstr "Neznámá chyba"
 
@@ -7762,6 +7792,9 @@ msgstr "Soubory WebDAV Backend: "
 msgid "PHP-CURL is not installed"
 msgstr "PHP-CURL není nainstalován"
 
+msgid "Sabre error"
+msgstr "Chyba Sabre"
+
 msgid "Directory creation failed"
 msgstr "Vytvoření adresáře se nezdařilo"
 
@@ -7777,8 +7810,8 @@ msgstr "Problémy s dočasnými adresáři"
 msgid "File or folder not found"
 msgstr "Soubor nebo složka nebyly nalezeny"
 
-msgid "Not implemented"
-msgstr "Neimplementováno"
+msgid "Copying failed"
+msgstr "Kopírování se nezdařilo"
 
 msgid "Please contact your system administrator"
 msgstr "Obraťte se na správce systému"
@@ -7788,6 +7821,9 @@ msgstr "Souborový server není dosažitelný. Ověřte prosím připojení."
 
 msgid "PHP-CURL not installed"
 msgstr "PHP-CURL není nainstalován"
+
+msgid "Unknown backend"
+msgstr ""
 
 msgid "Account is ready to use."
 msgstr "Účet je připraven k použití."
@@ -7800,6 +7836,12 @@ msgstr "Generování souboru Zip se nezdařilo. Informujte prosím správce."
 
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Tento soubor již není k dispozici. Prosím, načtěte složku znovu."
+
+msgid "Recipient search is not supported by this backend"
+msgstr ""
+
+msgid "Unable to look up recipients"
+msgstr ""
 
 msgid "Kendox certificate path is not configured."
 msgstr "Cesta k certifikátu Kendox není nakonfigurována."
@@ -7819,6 +7861,9 @@ msgstr "Zásuvný modul pro správu mobilních zařízení"
 #, fuzzy, php-format
 msgid "Unexpected error occurred. Please contact your system administrator. Error code: %s"
 msgstr "Došlo k neočekávané chybě. Obraťte se prosím na správce systému. Kód chyby: %s"
+
+msgid "Managing shared folders is not supported by this server."
+msgstr ""
 
 msgid "No data received."
 msgstr "Nebyla přijata žádná data."
@@ -7863,8 +7908,14 @@ msgstr "Nelze číst certifikáty"
 msgid "Unable to generate certs-only message"
 msgstr "Nelze vygenerovat zprávu pouze pro certifikáty"
 
+msgid "Unable to read certs-only message"
+msgstr ""
+
 msgid "LDAP not configured"
 msgstr "LDAP není nakonfigurován"
+
+msgid "Invalid LDAP configuration"
+msgstr ""
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "Chybějící veřejné certifikáty pro následující příjemce: "
@@ -7910,6 +7961,9 @@ msgstr "Certifikát nebyl importován"
 msgid "Certificate is revoked, but was imported."
 msgstr "Certifikát je odvolán, ale byl importován."
 
+msgid "Certificate revocation status could not be verified. Certificate was imported."
+msgstr ""
+
 msgid "Unable to read public certificate"
 msgstr "Nelze přečíst veřejný certifikát"
 
@@ -7939,6 +7993,9 @@ msgstr "Nepodařilo se odstranit soubor šablony."
 
 msgid "Template deleted successfully."
 msgstr "Šablona byla úspěšně odstraněna."
+
+msgid "Could not attach item as an attachment."
+msgstr "Nelze připojit položku jako přílohu."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "Nelze přidat data do sběrnice, ve sběrnici je stejný typ akce"
@@ -7997,6 +8054,9 @@ msgstr "Neznámá chyba MAPI"
 msgid "Destination folder not found."
 msgstr "Cílová složka nebyla nalezena."
 
+msgid "Could not find attachment."
+msgstr "Nepodařilo se najít přílohu."
+
 msgid "Eml is corrupted"
 msgstr "Eml je poškozený"
 
@@ -8034,9 +8094,6 @@ msgstr "ZIP nebyl úspěšně vytvořen"
 
 msgid "Attachments can not be downloaded"
 msgstr "Přílohy nelze stáhnout"
-
-msgid "Could not find attachment."
-msgstr "Nepodařilo se najít přílohu."
 
 msgid "Operation failed"
 msgstr "Operace se nezdařila"
@@ -8326,9 +8383,6 @@ msgstr "Nemáte dostatečná práva k odstranění položek v této složce"
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "Nemáte oprávnění připojit položku jako přílohu."
-
-msgid "Could not attach item as an attachment."
-msgstr "Nelze připojit položku jako přílohu."
 
 msgid "You have insufficient privileges to reclaim the ownership for the Task Request."
 msgstr "Nemáte oprávnění znovu nabýt odpovědnosti pro zadání úkolu."

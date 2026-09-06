@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hebrew (Israel)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-04 14:41+0200\n"
+"POT-Creation-Date: 2026-09-06 21:29+0200\n"
 "PO-Revision-Date: 2017-10-03 22:09+0200\n"
 "Last-Translator: import\n"
 "Language: he_IL\n"
@@ -1944,6 +1944,25 @@ msgstr "אין לך הרשאות מספיקות להעברת פריטים אלה
 msgid "You have insufficient privileges to move this item. Would you like to copy instead?"
 msgstr "אין לך הרשאות מספיקות כדי להעביר פריט זה. האם ברצונך להעתיק אותו במקום זאת?"
 
+msgid "Untitled"
+msgstr "ללא כותרת."
+
+msgid "The attachments could not be saved."
+msgstr ""
+
+msgid "This attachment could not be saved: {0}"
+msgid_plural "These attachments could not be saved: {0}"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "{0} attachment was saved."
+msgid_plural "{0} attachments were saved."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Save attachments"
+msgstr ""
+
 msgid "Insert item"
 msgstr "הכנס פריט"
 
@@ -1989,11 +2008,17 @@ msgstr "צרף פריט"
 msgid "Preview"
 msgstr "תצוגה מקדימה"
 
+msgid "Preview in a dialog"
+msgstr ""
+
 msgid "Download"
 msgstr "הורד"
 
 msgid "Download all as ZIP"
 msgstr "הורד הכל כ-ZIP"
+
+msgid "Save selection to folder"
+msgstr ""
 
 msgid "Import to folder"
 msgstr "ייבא לתיקיה"
@@ -2003,6 +2028,12 @@ msgstr "כדי להשתמש בתכונת ייבוא vCard, שדרג את Gromox 
 
 msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to version 0 or higher."
 msgstr "כדי להשתמש בתכונת הייבוא של ICS / VCS, שדרג את Gromox לגרסה 0 או לגרסה מתקדמת יותר."
+
+msgid "Preview in a grommunio Web tab"
+msgstr ""
+
+msgid "Preview in a browser window"
+msgstr ""
 
 msgid "Attachment error"
 msgstr "שגיאת קובץ מצורף"
@@ -3105,9 +3136,6 @@ msgstr "לא ניתן היה לטעון את ההודעה"
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "קבצים מצורפים"
-
-msgid "Untitled"
-msgstr "ללא כותרת."
 
 msgid "Download Pictures"
 msgstr "הורד תמונות"
@@ -5252,6 +5280,12 @@ msgstr "זום ברירת מחדל למסמך"
 
 msgid "PDF zoom"
 msgstr "זום PDF"
+
+msgid "Dialog"
+msgstr ""
+
+msgid "Open a preview in a"
+msgstr ""
 
 msgid "File previewing"
 msgstr "תצוגה מקדימה של קבצים"
@@ -7544,12 +7578,6 @@ msgstr "הגִישָׁה נִדחֲתָה"
 msgid "Connection failed"
 msgstr "החיבור נכשל"
 
-msgid "Sabre error"
-msgstr "שגיאת סבר"
-
-msgid "Copying failed"
-msgstr "ההעתקה נכשלה"
-
 msgid "Unknown error"
 msgstr "שגיאה לא ידועה"
 
@@ -7676,6 +7704,9 @@ msgstr "קבצים WebDAV Backend:"
 msgid "PHP-CURL is not installed"
 msgstr "PHP-CURL אינו מותקן"
 
+msgid "Sabre error"
+msgstr "שגיאת סבר"
+
 msgid "Directory creation failed"
 msgstr "יצירת הספרייה נכשלה"
 
@@ -7691,8 +7722,8 @@ msgstr "בעיות זמניות בספרייה"
 msgid "File or folder not found"
 msgstr "הקובץ או התיקיה לא נמצאו"
 
-msgid "Not implemented"
-msgstr "לא מיושם"
+msgid "Copying failed"
+msgstr "ההעתקה נכשלה"
 
 msgid "Please contact your system administrator"
 msgstr "אנא פנה למנהל המערכת שלך"
@@ -7702,6 +7733,9 @@ msgstr "לא ניתן להגיע לשרת הקבצים. נא לאמת את הח�
 
 msgid "PHP-CURL not installed"
 msgstr "PHP-CURL לא מותקן"
+
+msgid "Unknown backend"
+msgstr ""
 
 msgid "Account is ready to use."
 msgstr "החשבון מוכן לשימוש."
@@ -7714,6 +7748,12 @@ msgstr "יצירת קובץ Zip נכשלה. נא ליידע את המנהל."
 
 msgid "This file is no longer available. Please reload the folder."
 msgstr "קובץ זה אינו זמין יותר. טען מחדש את התיקיה."
+
+msgid "Recipient search is not supported by this backend"
+msgstr ""
+
+msgid "Unable to look up recipients"
+msgstr ""
 
 msgid "Kendox certificate path is not configured."
 msgstr "נתיב אישור Kendox לא מוגדר."
@@ -7733,6 +7773,9 @@ msgstr "תוסף ניהול מכשירים ניידים"
 #, php-format
 msgid "Unexpected error occurred. Please contact your system administrator. Error code: %s"
 msgstr "אירעה שגיאה בלתי צפויה. אנא פנה למנהל המערכת שלך. קוד שגיאה: %s"
+
+msgid "Managing shared folders is not supported by this server."
+msgstr ""
 
 msgid "No data received."
 msgstr "לא התקבלו נתונים."
@@ -7776,8 +7819,14 @@ msgstr "לא ניתן לקרוא תעודות"
 msgid "Unable to generate certs-only message"
 msgstr "לא ניתן ליצור הודעת אישורים בלבד"
 
+msgid "Unable to read certs-only message"
+msgstr ""
+
 msgid "LDAP not configured"
 msgstr "LDAP לא מוגדר"
+
+msgid "Invalid LDAP configuration"
+msgstr ""
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "חסרות תעודות ציבוריות עבור הנמענים הבאים:"
@@ -7822,6 +7871,9 @@ msgstr "האישור לא יובא"
 msgid "Certificate is revoked, but was imported."
 msgstr "האישור בוטל, אך יובא."
 
+msgid "Certificate revocation status could not be verified. Certificate was imported."
+msgstr ""
+
 msgid "Unable to read public certificate"
 msgstr "לא ניתן לקרוא תעודה ציבורית"
 
@@ -7851,6 +7903,9 @@ msgstr "לא ניתן למחוק את קובץ התבנית."
 
 msgid "Template deleted successfully."
 msgstr "התבנית נמחקה בהצלחה."
+
+msgid "Could not attach item as an attachment."
+msgstr "לא ניתן לצרף את הפריט כקובץ מצורף."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "לא ניתן להוסיף נתונים לאוטובוס, אותו סוג פעולה קיים באוטובוס"
@@ -7907,6 +7962,9 @@ msgstr "שגיאת MAPI לא ידועה"
 msgid "Destination folder not found."
 msgstr "תיקיית היעד לא נמצאה."
 
+msgid "Could not find attachment."
+msgstr "לא ניתן היה למצוא את הקובץ המצורף."
+
 msgid "Eml is corrupted"
 msgstr "אמל מושחת"
 
@@ -7944,9 +8002,6 @@ msgstr "ZIP לא נוצר בהצלחה"
 
 msgid "Attachments can not be downloaded"
 msgstr "לא ניתן להוריד קבצים מצורפים"
-
-msgid "Could not find attachment."
-msgstr "לא ניתן היה למצוא את הקובץ המצורף."
 
 msgid "Operation failed"
 msgstr "הפעולה נכשלה"
@@ -8232,9 +8287,6 @@ msgstr "אין לך הרשאות מספיקות כדי למחוק פריטים �
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "אין ברשותך הרשאות מספקות בכדי לצרף פריט כקובץ מצורף."
-
-msgid "Could not attach item as an attachment."
-msgstr "לא ניתן לצרף את הפריט כקובץ מצורף."
 
 msgid "You have insufficient privileges to reclaim the ownership for the Task Request."
 msgstr "אין ברשותך הרשאות מספקות בכדי לדרוש מחדש את הבעלות על בקשת משימה זו."

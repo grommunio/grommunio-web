@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Simplified)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-04 14:41+0200\n"
+"POT-Creation-Date: 2026-09-06 21:29+0200\n"
 "PO-Revision-Date: 2022-07-26 18:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -1925,6 +1925,23 @@ msgstr "您无足够权限移动这些项目。您是否欲复制这些项目？
 msgid "You have insufficient privileges to move this item. Would you like to copy instead?"
 msgstr "您无足够权限移动此项目。您是否欲复制此项目？"
 
+msgid "Untitled"
+msgstr "无标题"
+
+msgid "The attachments could not be saved."
+msgstr ""
+
+msgid "This attachment could not be saved: {0}"
+msgid_plural "These attachments could not be saved: {0}"
+msgstr[0] ""
+
+msgid "{0} attachment was saved."
+msgid_plural "{0} attachments were saved."
+msgstr[0] ""
+
+msgid "Save attachments"
+msgstr ""
+
 msgid "Insert item"
 msgstr "插入项目"
 
@@ -1970,11 +1987,17 @@ msgstr "附加项目"
 msgid "Preview"
 msgstr "预览"
 
+msgid "Preview in a dialog"
+msgstr ""
+
 msgid "Download"
 msgstr "下载"
 
 msgid "Download all as ZIP"
 msgstr "全部下载为ZIP"
+
+msgid "Save selection to folder"
+msgstr ""
 
 msgid "Import to folder"
 msgstr "导入至文件夹"
@@ -1986,6 +2009,12 @@ msgstr "为了使用vCard导入功能，请将您的Gromox升级到0或更高版
 #, fuzzy
 msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to version 0 or higher."
 msgstr "为了使用ICS/VCS导入功能，请将您的Gromox升级到0或更高版本。"
+
+msgid "Preview in a grommunio Web tab"
+msgstr ""
+
+msgid "Preview in a browser window"
+msgstr ""
 
 msgid "Attachment error"
 msgstr "附件错误"
@@ -3084,9 +3113,6 @@ msgstr "无法加载消息"
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "附件"
-
-msgid "Untitled"
-msgstr "无标题"
 
 msgid "Download Pictures"
 msgstr "下载图片"
@@ -5230,6 +5256,12 @@ msgstr "文件默认缩放"
 
 msgid "PDF zoom"
 msgstr "PDF 缩放"
+
+msgid "Dialog"
+msgstr ""
+
+msgid "Open a preview in a"
+msgstr ""
 
 msgid "File previewing"
 msgstr "文件预览"
@@ -7542,12 +7574,6 @@ msgstr "拒绝访问"
 msgid "Connection failed"
 msgstr "连接失败"
 
-msgid "Sabre error"
-msgstr "Sabre 错误"
-
-msgid "Copying failed"
-msgstr "复制失败"
-
 msgid "Unknown error"
 msgstr "未知错误"
 
@@ -7674,6 +7700,9 @@ msgstr "文件WebDAV后端。 "
 msgid "PHP-CURL is not installed"
 msgstr "未安装 PHP-CURL"
 
+msgid "Sabre error"
+msgstr "Sabre 错误"
+
 msgid "Directory creation failed"
 msgstr "目录创建失败"
 
@@ -7689,8 +7718,8 @@ msgstr "临时目录问题"
 msgid "File or folder not found"
 msgstr "未找到文件或文件夹"
 
-msgid "Not implemented"
-msgstr "无法执行"
+msgid "Copying failed"
+msgstr "复制失败"
 
 msgid "Please contact your system administrator"
 msgstr "请联系您的系统管理员"
@@ -7700,6 +7729,9 @@ msgstr "文件服务器无法连接。请验证连接。"
 
 msgid "PHP-CURL not installed"
 msgstr "未安装 PHP-CURL"
+
+msgid "Unknown backend"
+msgstr ""
 
 msgid "Account is ready to use."
 msgstr "账户可随时使用。"
@@ -7712,6 +7744,12 @@ msgstr "Zip 文件生成失败。请通知管理员。"
 
 msgid "This file is no longer available. Please reload the folder."
 msgstr "该文件已不可用。请重新加载文件夹。"
+
+msgid "Recipient search is not supported by this backend"
+msgstr ""
+
+msgid "Unable to look up recipients"
+msgstr ""
 
 msgid "Kendox certificate path is not configured."
 msgstr "未配置 Kendox 证书路径。"
@@ -7731,6 +7769,9 @@ msgstr "移动设备管理插件"
 #, fuzzy, php-format
 msgid "Unexpected error occurred. Please contact your system administrator. Error code: %s"
 msgstr "发生了意想不到的错误。请联系您的系统管理员。错误代码。%s"
+
+msgid "Managing shared folders is not supported by this server."
+msgstr ""
 
 msgid "No data received."
 msgstr "未收到数据。"
@@ -7775,8 +7816,14 @@ msgstr "无法读取证书"
 msgid "Unable to generate certs-only message"
 msgstr "无法生成纯证书信息"
 
+msgid "Unable to read certs-only message"
+msgstr ""
+
 msgid "LDAP not configured"
 msgstr "未配置 LDAP"
+
+msgid "Invalid LDAP configuration"
+msgstr ""
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "缺少以下收件人的公共证书。 "
@@ -7822,6 +7869,9 @@ msgstr "证书尚未导入"
 msgid "Certificate is revoked, but was imported."
 msgstr "证书已废止，但已导入。"
 
+msgid "Certificate revocation status could not be verified. Certificate was imported."
+msgstr ""
+
 msgid "Unable to read public certificate"
 msgstr "无法读取公共证书"
 
@@ -7851,6 +7901,9 @@ msgstr "无法删除模板文件。"
 
 msgid "Template deleted successfully."
 msgstr "模板已成功删除。"
+
+msgid "Could not attach item as an attachment."
+msgstr "无法将项目作为附件添加。"
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "无法向总线添加数据，总线中存在相同的操作类型"
@@ -7908,6 +7961,9 @@ msgstr "未知的应用程序编程接口（MAPI）错误"
 msgid "Destination folder not found."
 msgstr "未找到目标文件夹。"
 
+msgid "Could not find attachment."
+msgstr "找不到附件。"
+
 msgid "Eml is corrupted"
 msgstr "Eml 已损坏"
 
@@ -7945,9 +8001,6 @@ msgstr "未成功创建 ZIP"
 
 msgid "Attachments can not be downloaded"
 msgstr "无法下载附件"
-
-msgid "Could not find attachment."
-msgstr "找不到附件。"
 
 msgid "Operation failed"
 msgstr "操作失败"
@@ -8236,9 +8289,6 @@ msgstr "您无足够的权限删除此文件夹中的项目"
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "您无足够的权限将项目作为附件添加。"
-
-msgid "Could not attach item as an attachment."
-msgstr "无法将项目作为附件添加。"
 
 msgid "You have insufficient privileges to reclaim the ownership for the Task Request."
 msgstr "您无足够的权限收回任务请求的所有权。"

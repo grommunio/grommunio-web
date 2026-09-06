@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-04 14:41+0200\n"
+"POT-Creation-Date: 2026-09-06 21:29+0200\n"
 "PO-Revision-Date: 2022-07-26 16:08+0200\n"
 "Last-Translator: f3rr31 <5920873@disroot.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/grommunio/grommunio-web/hu/>\n"
@@ -1969,6 +1969,25 @@ msgstr "Nem rendelkezik elegendő jogosultsággal ahhoz, hogy ezeket az elemeket
 msgid "You have insufficient privileges to move this item. Would you like to copy instead?"
 msgstr "Nincs elegendő jogosultsága az elem mozgatásához. Szeretne inkább másolni?"
 
+msgid "Untitled"
+msgstr "Névtelen"
+
+msgid "The attachments could not be saved."
+msgstr ""
+
+msgid "This attachment could not be saved: {0}"
+msgid_plural "These attachments could not be saved: {0}"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "{0} attachment was saved."
+msgid_plural "{0} attachments were saved."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Save attachments"
+msgstr ""
+
 msgid "Insert item"
 msgstr "Elem beszúrása"
 
@@ -2014,11 +2033,17 @@ msgstr "Elem csatolása"
 msgid "Preview"
 msgstr "Előnézet"
 
+msgid "Preview in a dialog"
+msgstr ""
+
 msgid "Download"
 msgstr "Letöltés"
 
 msgid "Download all as ZIP"
 msgstr "Összes letöltése ZIP-ként"
+
+msgid "Save selection to folder"
+msgstr ""
 
 msgid "Import to folder"
 msgstr "Importálás mappába"
@@ -2030,6 +2055,12 @@ msgstr "A vCard importálási funkció használatához frissítse a Gromoxot a 0
 #, fuzzy
 msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to version 0 or higher."
 msgstr "Az ICS / VCS importálási funkció használatához frissítse a Gromoxot a 0 vagy magasabb verzióra."
+
+msgid "Preview in a grommunio Web tab"
+msgstr ""
+
+msgid "Preview in a browser window"
+msgstr ""
 
 msgid "Attachment error"
 msgstr "Csatolmány hiba"
@@ -3142,9 +3173,6 @@ msgstr "Az üzenet nem tölthető be"
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "Mellékletek"
-
-msgid "Untitled"
-msgstr "Névtelen"
 
 msgid "Download Pictures"
 msgstr "Képek letöltése"
@@ -5302,6 +5330,12 @@ msgstr "Dokumentum alapértelmezett nagyítása"
 
 msgid "PDF zoom"
 msgstr "PDF zoom"
+
+msgid "Dialog"
+msgstr ""
+
+msgid "Open a preview in a"
+msgstr ""
 
 msgid "File previewing"
 msgstr "Fájl előnézet"
@@ -7616,12 +7650,6 @@ msgstr "Hozzáférés megtagadva"
 msgid "Connection failed"
 msgstr "Kapcsolat nem sikerült"
 
-msgid "Sabre error"
-msgstr "Sabre hiba"
-
-msgid "Copying failed"
-msgstr "A másolás sikertelen"
-
 msgid "Unknown error"
 msgstr "Ismeretlen hiba"
 
@@ -7748,6 +7776,9 @@ msgstr "Fájlok WebDAV Backend: "
 msgid "PHP-CURL is not installed"
 msgstr "A PHP-CURL nincs telepítve"
 
+msgid "Sabre error"
+msgstr "Sabre hiba"
+
 msgid "Directory creation failed"
 msgstr "A könyvtár létrehozása sikertelen"
 
@@ -7763,8 +7794,8 @@ msgstr "Ideiglenes könyvtár problémák"
 msgid "File or folder not found"
 msgstr "Fájl vagy mappa nem található"
 
-msgid "Not implemented"
-msgstr "Nincs végrehajtva"
+msgid "Copying failed"
+msgstr "A másolás sikertelen"
 
 msgid "Please contact your system administrator"
 msgstr "Kérjük, forduljon a rendszergazdához"
@@ -7774,6 +7805,9 @@ msgstr "A fájlkiszolgáló nem érhető el. Kérjük, ellenőrizze a kapcsolato
 
 msgid "PHP-CURL not installed"
 msgstr "PHP-CURL nincs telepítve"
+
+msgid "Unknown backend"
+msgstr ""
 
 msgid "Account is ready to use."
 msgstr "A fiók már használatban van."
@@ -7786,6 +7820,12 @@ msgstr "A zip fájl készítése sikertelen. Kérjük értesítse a rendszergazd
 
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Ez a fájl már nem elérhető. Frissítse a mappát."
+
+msgid "Recipient search is not supported by this backend"
+msgstr ""
+
+msgid "Unable to look up recipients"
+msgstr ""
 
 msgid "Kendox certificate path is not configured."
 msgstr "A Kendox tanúsítvány elérési útja nincs beállítva."
@@ -7805,6 +7845,9 @@ msgstr "Mobileszköz-kezelő plugin"
 #, fuzzy, php-format
 msgid "Unexpected error occurred. Please contact your system administrator. Error code: %s"
 msgstr "Váratlan hiba történt. Kérjük, lépjen kapcsolatba a rendszergazdával. Hibakód: %s"
+
+msgid "Managing shared folders is not supported by this server."
+msgstr ""
 
 msgid "No data received."
 msgstr "Nem érkezett adat."
@@ -7849,8 +7892,14 @@ msgstr "Tanúsítványok olvasása nem lehetséges"
 msgid "Unable to generate certs-only message"
 msgstr "Csak tanúsítványokat tartalmazó üzenet generálása nem lehetséges"
 
+msgid "Unable to read certs-only message"
+msgstr ""
+
 msgid "LDAP not configured"
 msgstr "LDAP nincs konfigurálva"
+
+msgid "Invalid LDAP configuration"
+msgstr ""
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "Hiányzó nyilvános tanúsítványok a következő címzettek esetében: "
@@ -7896,6 +7945,9 @@ msgstr "A tanúsítványt nem importálták"
 msgid "Certificate is revoked, but was imported."
 msgstr "A tanúsítványt visszavonták, de importálták."
 
+msgid "Certificate revocation status could not be verified. Certificate was imported."
+msgstr ""
+
 msgid "Unable to read public certificate"
 msgstr "Nem lehet nyilvános tanúsítványt olvasni"
 
@@ -7925,6 +7977,9 @@ msgstr "A sablonfájl törlése nem sikerült."
 
 msgid "Template deleted successfully."
 msgstr "A sablon sikeresen törölve."
+
+msgid "Could not attach item as an attachment."
+msgstr "Az elem nem csatolható mellékletként."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "Nem lehet adatot hozzáadni a buszhoz, ha ugyanaz a művelettípus van a buszban"
@@ -7983,6 +8038,9 @@ msgstr "Ismeretlen MAPI hiba: %s"
 msgid "Destination folder not found."
 msgstr "A célmappa nem található."
 
+msgid "Could not find attachment."
+msgstr "Nem találta a mellékletet."
+
 msgid "Eml is corrupted"
 msgstr "Eml sérült"
 
@@ -8020,9 +8078,6 @@ msgstr "A ZIP nem jött létre sikeresen"
 
 msgid "Attachments can not be downloaded"
 msgstr "A mellékletek nem tölthetők le"
-
-msgid "Could not find attachment."
-msgstr "Nem találta a mellékletet."
 
 msgid "Operation failed"
 msgstr "A művelet sikertelen"
@@ -8311,9 +8366,6 @@ msgstr "Nincsen jogosultsága az elemek eltávolításához ebben a mappában"
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "Nincs elég jogosultsága, hogy az elemet mellékletként csatolja."
-
-msgid "Could not attach item as an attachment."
-msgstr "Az elem nem csatolható mellékletként."
 
 msgid "You have insufficient privileges to reclaim the ownership for the Task Request."
 msgstr "Nincs megfelelő jogosultsága, hogy magához rendelje a feladatot."

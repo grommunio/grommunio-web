@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-04 14:41+0200\n"
+"POT-Creation-Date: 2026-09-06 21:29+0200\n"
 "PO-Revision-Date: 2023-09-06 16:56+0000\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/grommunio/grommunio-web/nb_NO/>\n"
@@ -1936,6 +1936,25 @@ msgstr "Du har ikke tilstrekkelig med rettigheter til å kunne flytte disse elem
 msgid "You have insufficient privileges to move this item. Would you like to copy instead?"
 msgstr "Du har ikke tilstrekkelig med rettigheter til å kunne flytte dette elementet. Vil du kopierer det istedenfor?"
 
+msgid "Untitled"
+msgstr "Uten navn"
+
+msgid "The attachments could not be saved."
+msgstr ""
+
+msgid "This attachment could not be saved: {0}"
+msgid_plural "These attachments could not be saved: {0}"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "{0} attachment was saved."
+msgid_plural "{0} attachments were saved."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Save attachments"
+msgstr ""
+
 msgid "Insert item"
 msgstr "Sett inn element"
 
@@ -1981,11 +2000,17 @@ msgstr "Legg ved element"
 msgid "Preview"
 msgstr "Forhåndsvisning"
 
+msgid "Preview in a dialog"
+msgstr ""
+
 msgid "Download"
 msgstr "Last ned"
 
 msgid "Download all as ZIP"
 msgstr "Last ned som ZIP"
+
+msgid "Save selection to folder"
+msgstr ""
 
 msgid "Import to folder"
 msgstr "Importer til mappe"
@@ -1995,6 +2020,12 @@ msgstr "For å kunne bruke vCard-importfunksjonen må du oppgradere Gromox til v
 
 msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to version 0 or higher."
 msgstr "For å kunne bruke ICS/VCS-importfunksjonen må du oppgradere Gromox til versjon 0 eller høyere."
+
+msgid "Preview in a grommunio Web tab"
+msgstr ""
+
+msgid "Preview in a browser window"
+msgstr ""
 
 msgid "Attachment error"
 msgstr "Feil med vedlegg"
@@ -3097,9 +3128,6 @@ msgstr "Meldingen kunne ikke lastes inn"
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "Vedlegg"
-
-msgid "Untitled"
-msgstr "Uten navn"
 
 msgid "Download Pictures"
 msgstr "Last ned bildene"
@@ -5244,6 +5272,12 @@ msgstr "Dokumentets standard zoom"
 
 msgid "PDF zoom"
 msgstr "PDF-zoom"
+
+msgid "Dialog"
+msgstr ""
+
+msgid "Open a preview in a"
+msgstr ""
 
 msgid "File previewing"
 msgstr "Forhåndsvisning av fil"
@@ -7532,12 +7566,6 @@ msgstr "Tilgang avslått"
 msgid "Connection failed"
 msgstr "Tilkobling mislyktes"
 
-msgid "Sabre error"
-msgstr "Sabrefeil"
-
-msgid "Copying failed"
-msgstr "Kopieringen mislyktes"
-
 msgid "Unknown error"
 msgstr "Ukjent feil"
 
@@ -7664,6 +7692,9 @@ msgstr "Filer WebDAV Backend:"
 msgid "PHP-CURL is not installed"
 msgstr "PHP-CURL er ikke installert"
 
+msgid "Sabre error"
+msgstr "Sabrefeil"
+
 msgid "Directory creation failed"
 msgstr "Opprettelse av katalog mislyktes"
 
@@ -7679,8 +7710,8 @@ msgstr "Problemer med midlertidige kataloger"
 msgid "File or folder not found"
 msgstr "Fil eller mappe ble ikke funnet"
 
-msgid "Not implemented"
-msgstr "Ikke implementert"
+msgid "Copying failed"
+msgstr "Kopieringen mislyktes"
 
 msgid "Please contact your system administrator"
 msgstr "Ta kontakt med systemadministratoren din"
@@ -7690,6 +7721,9 @@ msgstr "Filserveren kan ikke nås. Vennligst bekreft tilkoblingen."
 
 msgid "PHP-CURL not installed"
 msgstr "PHP-CURL ikke installert"
+
+msgid "Unknown backend"
+msgstr ""
 
 msgid "Account is ready to use."
 msgstr "Kontoen er klar til bruk."
@@ -7702,6 +7736,12 @@ msgstr "Generering av zip-fil mislyktes. Vennligst informer administratoren."
 
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Denne filen er ikke lenger tilgjengelig. Vennligst last inn mappa på nytt."
+
+msgid "Recipient search is not supported by this backend"
+msgstr ""
+
+msgid "Unable to look up recipients"
+msgstr ""
 
 msgid "Kendox certificate path is not configured."
 msgstr "Stien til Kendox-sertifikatet er ikke konfigurert."
@@ -7721,6 +7761,9 @@ msgstr "Plugin for administrasjon av mobile enheter"
 #, php-format
 msgid "Unexpected error occurred. Please contact your system administrator. Error code: %s"
 msgstr "Det oppstod en uventet feil. Vennligst kontakt systemadministratoren din. Feilkode: %s"
+
+msgid "Managing shared folders is not supported by this server."
+msgstr ""
 
 msgid "No data received."
 msgstr "Ingen data mottatt."
@@ -7764,8 +7807,14 @@ msgstr "Kan ikke lese sertifikater"
 msgid "Unable to generate certs-only message"
 msgstr "Kunne ikke generere melding om kun sertifikater"
 
+msgid "Unable to read certs-only message"
+msgstr ""
+
 msgid "LDAP not configured"
 msgstr "LDAP er ikke konfigurert"
+
+msgid "Invalid LDAP configuration"
+msgstr ""
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "Mangler offentlige sertifikater for følgende mottakere:"
@@ -7810,6 +7859,9 @@ msgstr "Sertifikatet har ikke blitt importert"
 msgid "Certificate is revoked, but was imported."
 msgstr "Sertifikatet er tilbakekalt, men ble importert."
 
+msgid "Certificate revocation status could not be verified. Certificate was imported."
+msgstr ""
+
 msgid "Unable to read public certificate"
 msgstr "Kan ikke lese offentlig sertifikat"
 
@@ -7839,6 +7891,9 @@ msgstr "Kunne ikke slette malfilen."
 
 msgid "Template deleted successfully."
 msgstr "Malen er slettet."
+
+msgid "Could not attach item as an attachment."
+msgstr "Kunne ikke legge ved elementet som et vedlegg."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "Kan ikke legge til data i bussen, samme handlingstype finnes i bussen"
@@ -7895,6 +7950,9 @@ msgstr "Ukjent MAPI feil"
 msgid "Destination folder not found."
 msgstr "Målmappen ble ikke funnet."
 
+msgid "Could not find attachment."
+msgstr "Fant ikke vedlegget."
+
 msgid "Eml is corrupted"
 msgstr "Eml er ødelagt"
 
@@ -7932,9 +7990,6 @@ msgstr "ZIP-filen er ikke opprettet"
 
 msgid "Attachments can not be downloaded"
 msgstr "Vedlegg kan ikke lastes ned"
-
-msgid "Could not find attachment."
-msgstr "Fant ikke vedlegget."
 
 msgid "Operation failed"
 msgstr "Operasjonen mislyktes"
@@ -8220,9 +8275,6 @@ msgstr "Du har ikke tilstrekkelige rettigheter til å slette elementer i denne m
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "Du har ikke tilstrekkelige rettigheter til å legge ved elementet som et vedlegg."
-
-msgid "Could not attach item as an attachment."
-msgstr "Kunne ikke legge ved elementet som et vedlegg."
 
 msgid "You have insufficient privileges to reclaim the ownership for the Task Request."
 msgstr "Du har ikke tilstrekkelig rettigheter til å ta eierskap for denne oppgaveforespørselen."

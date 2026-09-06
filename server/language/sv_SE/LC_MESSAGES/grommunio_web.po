@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Swedish (Sweden)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-04 14:41+0200\n"
+"POT-Creation-Date: 2026-09-06 21:29+0200\n"
 "PO-Revision-Date: 2026-02-17 22:26+0000\n"
 "Last-Translator: DeepL <noreply-mt-deepl@weblate.org>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/grommunio/grommunio-web/se/>\n"
@@ -1936,6 +1936,25 @@ msgstr "Du har inte tillräckliga rättigheter för att flytta dessa objekt. Vil
 msgid "You have insufficient privileges to move this item. Would you like to copy instead?"
 msgstr "Du har inte tillräckliga rättigheter för att flytta detta objekt. Vill du kopiera istället?"
 
+msgid "Untitled"
+msgstr "Ofrälse"
+
+msgid "The attachments could not be saved."
+msgstr ""
+
+msgid "This attachment could not be saved: {0}"
+msgid_plural "These attachments could not be saved: {0}"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "{0} attachment was saved."
+msgid_plural "{0} attachments were saved."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Save attachments"
+msgstr ""
+
 msgid "Insert item"
 msgstr "Infoga objekt"
 
@@ -1981,11 +2000,17 @@ msgstr "Bifoga objekt"
 msgid "Preview"
 msgstr "Förhandsvisning"
 
+msgid "Preview in a dialog"
+msgstr ""
+
 msgid "Download"
 msgstr "Ladda ner"
 
 msgid "Download all as ZIP"
 msgstr "Ladda ner allt som ZIP"
+
+msgid "Save selection to folder"
+msgstr ""
 
 msgid "Import to folder"
 msgstr "Importera till mapp"
@@ -1995,6 +2020,12 @@ msgstr "För att använda vCard-importfunktionen, uppgradera din Gromox till ver
 
 msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to version 0 or higher."
 msgstr "För att använda ICS/VCS-importfunktionen, uppgradera din Gromox till version 0 eller högre."
+
+msgid "Preview in a grommunio Web tab"
+msgstr ""
+
+msgid "Preview in a browser window"
+msgstr ""
 
 msgid "Attachment error"
 msgstr "Bilaga fel"
@@ -3097,9 +3128,6 @@ msgstr "Meddelandet kunde inte laddas"
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "Bilagor"
-
-msgid "Untitled"
-msgstr "Ofrälse"
 
 msgid "Download Pictures"
 msgstr "Ladda ner bilder"
@@ -5244,6 +5272,12 @@ msgstr "Dokumentets standardzoom"
 
 msgid "PDF zoom"
 msgstr "PDF-zoom"
+
+msgid "Dialog"
+msgstr ""
+
+msgid "Open a preview in a"
+msgstr ""
 
 msgid "File previewing"
 msgstr "Filförhandsgranskning"
@@ -7532,12 +7566,6 @@ msgstr "Åtkomst nekad"
 msgid "Connection failed"
 msgstr "Anslutning misslyckades"
 
-msgid "Sabre error"
-msgstr "Sabre-fel"
-
-msgid "Copying failed"
-msgstr "Kopieringen misslyckades"
-
 msgid "Unknown error"
 msgstr "Okänt fel"
 
@@ -7664,6 +7692,9 @@ msgstr "Filer WebDAV Backend:"
 msgid "PHP-CURL is not installed"
 msgstr "PHP-CURL är inte installerat"
 
+msgid "Sabre error"
+msgstr "Sabre-fel"
+
 msgid "Directory creation failed"
 msgstr "Det gick inte att skapa katalog"
 
@@ -7679,8 +7710,8 @@ msgstr "Tillfälliga katalogproblem"
 msgid "File or folder not found"
 msgstr "Fil eller mapp hittades inte"
 
-msgid "Not implemented"
-msgstr "Inte genomfört"
+msgid "Copying failed"
+msgstr "Kopieringen misslyckades"
 
 msgid "Please contact your system administrator"
 msgstr "Kontakta din systemadministratör"
@@ -7690,6 +7721,9 @@ msgstr "Filservern är inte tillgänglig. Vänligen verifiera anslutningen."
 
 msgid "PHP-CURL not installed"
 msgstr "PHP-CURL inte installerat"
+
+msgid "Unknown backend"
+msgstr ""
 
 msgid "Account is ready to use."
 msgstr "Kontot är redo att användas."
@@ -7702,6 +7736,12 @@ msgstr "Generering av zip-filer misslyckades. Vänligen informera administratör
 
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Den här filen är inte längre tillgänglig. Ladda om mappen."
+
+msgid "Recipient search is not supported by this backend"
+msgstr ""
+
+msgid "Unable to look up recipients"
+msgstr ""
 
 msgid "Kendox certificate path is not configured."
 msgstr "Kendox certifikatsökväg är inte konfigurerad."
@@ -7721,6 +7761,9 @@ msgstr "Plugin för hantering av mobila enheter"
 #, php-format
 msgid "Unexpected error occurred. Please contact your system administrator. Error code: %s"
 msgstr "Ett oväntat fel inträffade. Kontakta din systemadministratör. Felkod: %s"
+
+msgid "Managing shared folders is not supported by this server."
+msgstr ""
 
 msgid "No data received."
 msgstr "Ingen data mottagen."
@@ -7764,8 +7807,14 @@ msgstr "Det går inte att läsa certifikat"
 msgid "Unable to generate certs-only message"
 msgstr "Det går inte att generera ett meddelande med enbart certifikat"
 
+msgid "Unable to read certs-only message"
+msgstr ""
+
 msgid "LDAP not configured"
 msgstr "LDAP är inte konfigurerad"
+
+msgid "Invalid LDAP configuration"
+msgstr ""
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "Offentliga certifikat saknas för följande mottagare:"
@@ -7810,6 +7859,9 @@ msgstr "Certifikatet har inte importerats"
 msgid "Certificate is revoked, but was imported."
 msgstr "Certifikatet är återkallat, men importerades."
 
+msgid "Certificate revocation status could not be verified. Certificate was imported."
+msgstr ""
+
 msgid "Unable to read public certificate"
 msgstr "Det går inte att läsa offentligt certifikat"
 
@@ -7839,6 +7891,9 @@ msgstr "Det gick inte att ta bort mallfilen."
 
 msgid "Template deleted successfully."
 msgstr "Mallen har raderats."
+
+msgid "Could not attach item as an attachment."
+msgstr "Det gick inte att bifoga objektet som en bilaga."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "Det går inte att lägga till data till bussen, samma åtgärdstyp finns i bussen"
@@ -7895,6 +7950,9 @@ msgstr "Okänt MAPI-fel"
 msgid "Destination folder not found."
 msgstr "Destinationsmappen hittades inte."
 
+msgid "Could not find attachment."
+msgstr "Det gick inte att hitta bilagan."
+
 msgid "Eml is corrupted"
 msgstr "Eml är skadad"
 
@@ -7932,9 +7990,6 @@ msgstr "ZIP skapades inte framgångsrikt"
 
 msgid "Attachments can not be downloaded"
 msgstr "Bilagor kan inte laddas ner"
-
-msgid "Could not find attachment."
-msgstr "Det gick inte att hitta bilagan."
 
 msgid "Operation failed"
 msgstr "Åtgärden misslyckades"
@@ -8220,9 +8275,6 @@ msgstr "Du har inte tillräckliga rättigheter för att ta bort objekt i den hä
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "Du har inte tillräckliga rättigheter för att bifoga objekt som en bilaga."
-
-msgid "Could not attach item as an attachment."
-msgstr "Det gick inte att bifoga objektet som en bilaga."
 
 msgid "You have insufficient privileges to reclaim the ownership for the Task Request."
 msgstr "Du har otillräckliga privilegier för att återta äganderätten för uppgiftsbegäran."

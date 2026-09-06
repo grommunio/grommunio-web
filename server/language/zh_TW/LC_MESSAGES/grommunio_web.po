@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-04 14:41+0200\n"
+"POT-Creation-Date: 2026-09-06 21:29+0200\n"
 "PO-Revision-Date: 2022-08-27 18:15+0000\n"
 "Last-Translator: Hugel <qihu@nfschina.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/grommunio/grommunio-web/zh_Hant/>\n"
@@ -1927,6 +1927,23 @@ msgstr "您的權限不足以移動這些項目。您要改為複製嗎？"
 msgid "You have insufficient privileges to move this item. Would you like to copy instead?"
 msgstr "您的權限不足以移動此項目。您要改為複製嗎？"
 
+msgid "Untitled"
+msgstr "無題"
+
+msgid "The attachments could not be saved."
+msgstr ""
+
+msgid "This attachment could not be saved: {0}"
+msgid_plural "These attachments could not be saved: {0}"
+msgstr[0] ""
+
+msgid "{0} attachment was saved."
+msgid_plural "{0} attachments were saved."
+msgstr[0] ""
+
+msgid "Save attachments"
+msgstr ""
+
 msgid "Insert item"
 msgstr "插入項目"
 
@@ -1972,11 +1989,17 @@ msgstr "附加項目"
 msgid "Preview"
 msgstr "預覽"
 
+msgid "Preview in a dialog"
+msgstr ""
+
 msgid "Download"
 msgstr "下載"
 
 msgid "Download all as ZIP"
 msgstr "以 ZIP 檔案下載所有內容"
+
+msgid "Save selection to folder"
+msgstr ""
 
 msgid "Import to folder"
 msgstr "匯入至資料夾"
@@ -1986,6 +2009,12 @@ msgstr "若要使用 vCard 匯入功能，請將您的 Gromox 升級至 0 版或
 
 msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to version 0 or higher."
 msgstr "若要使用 ICS / VCS 匯入功能，請將您的 Gromox 升級至 0 版或更高版本。"
+
+msgid "Preview in a grommunio Web tab"
+msgstr ""
+
+msgid "Preview in a browser window"
+msgstr ""
 
 msgid "Attachment error"
 msgstr "附件錯誤"
@@ -3083,9 +3112,6 @@ msgstr "訊息無法載入"
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "附件"
-
-msgid "Untitled"
-msgstr "無題"
 
 msgid "Download Pictures"
 msgstr "下載圖片"
@@ -5227,6 +5253,12 @@ msgstr "文件預設縮放"
 
 msgid "PDF zoom"
 msgstr "PDF 縮放"
+
+msgid "Dialog"
+msgstr ""
+
+msgid "Open a preview in a"
+msgstr ""
 
 msgid "File previewing"
 msgstr "檔案預覽"
@@ -7516,12 +7548,6 @@ msgstr "拒絕存取"
 msgid "Connection failed"
 msgstr "連線失敗"
 
-msgid "Sabre error"
-msgstr "Sabre 錯誤"
-
-msgid "Copying failed"
-msgstr "複製失敗"
-
 msgid "Unknown error"
 msgstr "未知錯誤"
 
@@ -7648,6 +7674,9 @@ msgstr "檔案 WebDAV 後端： "
 msgid "PHP-CURL is not installed"
 msgstr "未安裝 PHP-CURL"
 
+msgid "Sabre error"
+msgstr "Sabre 錯誤"
+
 msgid "Directory creation failed"
 msgstr "目錄建立失敗"
 
@@ -7663,8 +7692,8 @@ msgstr "暫存目錄問題"
 msgid "File or folder not found"
 msgstr "未找到檔案或資料夾"
 
-msgid "Not implemented"
-msgstr "未執行"
+msgid "Copying failed"
+msgstr "複製失敗"
 
 msgid "Please contact your system administrator"
 msgstr "請聯絡您的系統管理員"
@@ -7674,6 +7703,9 @@ msgstr "檔案伺服器無法連線。請確認連線。"
 
 msgid "PHP-CURL not installed"
 msgstr "未安裝 PHP-CURL"
+
+msgid "Unknown backend"
+msgstr ""
 
 msgid "Account is ready to use."
 msgstr "帳戶可隨時使用。"
@@ -7686,6 +7718,12 @@ msgstr "Zip 檔生成失敗。請通知管理員。"
 
 msgid "This file is no longer available. Please reload the folder."
 msgstr "此檔案不再可用。請重新載入資料夾。"
+
+msgid "Recipient search is not supported by this backend"
+msgstr ""
+
+msgid "Unable to look up recipients"
+msgstr ""
 
 msgid "Kendox certificate path is not configured."
 msgstr "尚未設定 Kendox 憑證路徑。"
@@ -7705,6 +7743,9 @@ msgstr "行動裝置管理外掛程式"
 #, php-format
 msgid "Unexpected error occurred. Please contact your system administrator. Error code: %s"
 msgstr "發生意外錯誤。請聯絡您的系統管理員。錯誤代碼：%s"
+
+msgid "Managing shared folders is not supported by this server."
+msgstr ""
 
 msgid "No data received."
 msgstr "未收到資料。"
@@ -7748,8 +7789,14 @@ msgstr "無法讀取憑證"
 msgid "Unable to generate certs-only message"
 msgstr "無法產生僅憑憑證訊息"
 
+msgid "Unable to read certs-only message"
+msgstr ""
+
 msgid "LDAP not configured"
 msgstr "未設定 LDAP"
+
+msgid "Invalid LDAP configuration"
+msgstr ""
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "下列收件人的公開憑證遺失： "
@@ -7794,6 +7841,9 @@ msgstr "證書尚未匯入"
 msgid "Certificate is revoked, but was imported."
 msgstr "憑證已撤銷，但已匯入。"
 
+msgid "Certificate revocation status could not be verified. Certificate was imported."
+msgstr ""
+
 msgid "Unable to read public certificate"
 msgstr "無法讀取公開憑證"
 
@@ -7823,6 +7873,9 @@ msgstr "無法刪除範本檔案。"
 
 msgid "Template deleted successfully."
 msgstr "範本已成功刪除。"
+
+msgid "Could not attach item as an attachment."
+msgstr "Could not attach item as an attachment."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "無法新增資料至匯流排，相同的動作類型已存在於匯流排中"
@@ -7879,6 +7932,9 @@ msgstr "不明 MAPI 錯誤"
 msgid "Destination folder not found."
 msgstr "未找到目標資料夾。"
 
+msgid "Could not find attachment."
+msgstr "無法找到附件。"
+
 msgid "Eml is corrupted"
 msgstr "Eml 已損毀"
 
@@ -7916,9 +7972,6 @@ msgstr "ZIP 未成功建立"
 
 msgid "Attachments can not be downloaded"
 msgstr "無法下載附件"
-
-msgid "Could not find attachment."
-msgstr "無法找到附件。"
 
 msgid "Operation failed"
 msgstr "操作失敗"
@@ -8204,9 +8257,6 @@ msgstr "您的權限不足以刪除此資料夾中的項目"
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "你沒有權限新增附件到此項目"
-
-msgid "Could not attach item as an attachment."
-msgstr "Could not attach item as an attachment."
 
 msgid "You have insufficient privileges to reclaim the ownership for the Task Request."
 msgstr "You have insufficient privileges to reclaim the ownership for the TaskRequest."

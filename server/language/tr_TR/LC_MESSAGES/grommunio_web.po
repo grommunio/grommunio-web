@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Turkish\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-04 14:41+0200\n"
+"POT-Creation-Date: 2026-09-06 21:29+0200\n"
 "PO-Revision-Date: 2022-12-10 22:44+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/grommunio/grommunio-web/tr/>\n"
@@ -1936,6 +1936,25 @@ msgstr "Bu öğeleri taşımak için yeterli yetkiye sahip değilsiniz. Bunun ye
 msgid "You have insufficient privileges to move this item. Would you like to copy instead?"
 msgstr "Bu öğeyi taşımak için yeterli yetkiye sahip değilsiniz. Bunun yerine kopyalamak ister misiniz?"
 
+msgid "Untitled"
+msgstr "Başlıksız"
+
+msgid "The attachments could not be saved."
+msgstr ""
+
+msgid "This attachment could not be saved: {0}"
+msgid_plural "These attachments could not be saved: {0}"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "{0} attachment was saved."
+msgid_plural "{0} attachments were saved."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Save attachments"
+msgstr ""
+
 msgid "Insert item"
 msgstr "Öğe ekle"
 
@@ -1981,11 +2000,17 @@ msgstr "Öğeyi ekleyin"
 msgid "Preview"
 msgstr "Önizleme"
 
+msgid "Preview in a dialog"
+msgstr ""
+
 msgid "Download"
 msgstr "Indir"
 
 msgid "Download all as ZIP"
 msgstr "Tümünü ZIP olarak indirin"
+
+msgid "Save selection to folder"
+msgstr ""
 
 msgid "Import to folder"
 msgstr "Klasöre aktar"
@@ -1995,6 +2020,12 @@ msgstr "vCard içe aktarma özelliğini kullanmak için Gromox'unuzu 0 veya daha
 
 msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to version 0 or higher."
 msgstr "ICS / VCS içe aktarma özelliğini kullanmak için Gromox'unuzu 0 veya daha yüksek bir sürüme yükseltin."
+
+msgid "Preview in a grommunio Web tab"
+msgstr ""
+
+msgid "Preview in a browser window"
+msgstr ""
 
 msgid "Attachment error"
 msgstr "Eklenti hatası"
@@ -3097,9 +3128,6 @@ msgstr "Mesaj yüklenemedi"
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "Eklenti"
-
-msgid "Untitled"
-msgstr "Başlıksız"
 
 msgid "Download Pictures"
 msgstr "Resimleri indir"
@@ -5244,6 +5272,12 @@ msgstr "Varsayılan yakınlaştırma"
 
 msgid "PDF zoom"
 msgstr "PDF yakınlaştırma"
+
+msgid "Dialog"
+msgstr ""
+
+msgid "Open a preview in a"
+msgstr ""
 
 msgid "File previewing"
 msgstr "Dosya önizleme"
@@ -7532,12 +7566,6 @@ msgstr "Erişim reddedildi"
 msgid "Connection failed"
 msgstr "Bağlantı başarısız"
 
-msgid "Sabre error"
-msgstr "Sabre hatası"
-
-msgid "Copying failed"
-msgstr "Kopyalama başarısız oldu"
-
 msgid "Unknown error"
 msgstr "Bilinmeyen hata"
 
@@ -7664,6 +7692,9 @@ msgstr "Dosyalar WebDAV veritabanı: "
 msgid "PHP-CURL is not installed"
 msgstr "PHP-CURL yüklü değil"
 
+msgid "Sabre error"
+msgstr "Sabre hatası"
+
 msgid "Directory creation failed"
 msgstr "Dizin oluşturma başarısız oldu"
 
@@ -7679,8 +7710,8 @@ msgstr "Geçici dizin sorunları"
 msgid "File or folder not found"
 msgstr "Dosya veya klasör bulunamadı"
 
-msgid "Not implemented"
-msgstr "Uygulanmadı"
+msgid "Copying failed"
+msgstr "Kopyalama başarısız oldu"
 
 msgid "Please contact your system administrator"
 msgstr "Lütfen sistem yöneticinizle iletişime geçin"
@@ -7690,6 +7721,9 @@ msgstr "Dosya sunucusuna ulaşılamıyor. Lütfen bağlantıyı doğrulayın."
 
 msgid "PHP-CURL not installed"
 msgstr "PHP-CURL yüklü değil"
+
+msgid "Unknown backend"
+msgstr ""
 
 msgid "Account is ready to use."
 msgstr "Hesap kullanıma hazırdır."
@@ -7702,6 +7736,12 @@ msgstr "Zip dosyası oluşturma başarısız oldu. Lütfen yöneticiyi bilgilend
 
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Bu dosya artık mevcut değil. Lütfen klasörü yeniden yükleyin."
+
+msgid "Recipient search is not supported by this backend"
+msgstr ""
+
+msgid "Unable to look up recipients"
+msgstr ""
 
 msgid "Kendox certificate path is not configured."
 msgstr "Kendox sertifika yolu yapılandırılmamış."
@@ -7721,6 +7761,9 @@ msgstr "Mobil cihaz yönetimi eklentisi"
 #, php-format
 msgid "Unexpected error occurred. Please contact your system administrator. Error code: %s"
 msgstr "Beklenmeyen bir hata oluştu. Lütfen sistem yöneticinize başvurun. Hata kodu: %s"
+
+msgid "Managing shared folders is not supported by this server."
+msgstr ""
 
 msgid "No data received."
 msgstr "Veri alınamadı."
@@ -7764,8 +7807,14 @@ msgstr "Sertifikalar okunamıyor"
 msgid "Unable to generate certs-only message"
 msgstr "Yalnızca certs iletisi oluşturulamıyor"
 
+msgid "Unable to read certs-only message"
+msgstr ""
+
 msgid "LDAP not configured"
 msgstr "LDAP yapılandırılmamış"
+
+msgid "Invalid LDAP configuration"
+msgstr ""
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "Aşağıdaki alıcılar için eksik kamu sertifikaları: "
@@ -7810,6 +7859,9 @@ msgstr "Sertifika içe aktarılmadı"
 msgid "Certificate is revoked, but was imported."
 msgstr "Sertifika iptal edildi, ancak içe aktarıldı."
 
+msgid "Certificate revocation status could not be verified. Certificate was imported."
+msgstr ""
+
 msgid "Unable to read public certificate"
 msgstr "Genel sertifika okunamıyor"
 
@@ -7839,6 +7891,9 @@ msgstr "Şablon dosyası silinemedi."
 
 msgid "Template deleted successfully."
 msgstr "Şablon başarıyla silindi."
+
+msgid "Could not attach item as an attachment."
+msgstr "Öğe ek olarak eklenemedi."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "Veri yoluna veri eklenemiyor, aynı eylem türü veri yolunda mevcut"
@@ -7895,6 +7950,9 @@ msgstr "Bilinmeyen MAPI hatası"
 msgid "Destination folder not found."
 msgstr "Hedef klasör bulunamadı."
 
+msgid "Could not find attachment."
+msgstr "Ek bulunamadı."
+
 msgid "Eml is corrupted"
 msgstr "Eml bozuk"
 
@@ -7932,9 +7990,6 @@ msgstr "ZIP başarıyla oluşturulmadı"
 
 msgid "Attachments can not be downloaded"
 msgstr "Ekler indirilemiyor"
-
-msgid "Could not find attachment."
-msgstr "Ek bulunamadı."
 
 msgid "Operation failed"
 msgstr "Işlem başarısız oldu"
@@ -8220,9 +8275,6 @@ msgstr "Bu klasörde öğe silmek için yeterli yetkiye sahip değilsiniz"
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "Öğeyi ek olarak eklemek için yeterli ayrıcalığa sahip değilsiniz."
-
-msgid "Could not attach item as an attachment."
-msgstr "Öğe ek olarak eklenemedi."
 
 msgid "You have insufficient privileges to reclaim the ownership for the Task Request."
 msgstr "Görev Talebinin sahipliğini geri almak için yeterli ayrıcalığınız yok."

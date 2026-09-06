@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web German (Swiss)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-04 14:41+0200\n"
+"POT-Creation-Date: 2026-09-06 21:29+0200\n"
 "PO-Revision-Date: 2021-03-02 15:12+0000\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -1937,6 +1937,25 @@ msgstr "Sie haben keine Berechtigung, diese Elemente zu verschieben. Möchten Si
 msgid "You have insufficient privileges to move this item. Would you like to copy instead?"
 msgstr "Sie haben keine Berechtigung, dieses Element zu verschieben. Möchten Sie stattdessen kopieren?"
 
+msgid "Untitled"
+msgstr "Unbenannt"
+
+msgid "The attachments could not be saved."
+msgstr "Die Anhänge konnten nicht gespeichert werden."
+
+msgid "This attachment could not be saved: {0}"
+msgid_plural "These attachments could not be saved: {0}"
+msgstr[0] "Dieser Anhang konnte nicht gespeichert werden: {0}"
+msgstr[1] "Diese Anhänge konnten nicht gespeichert werden: {0}"
+
+msgid "{0} attachment was saved."
+msgid_plural "{0} attachments were saved."
+msgstr[0] "{0} Anhang wurde gespeichert."
+msgstr[1] "{0} Anhänge wurden gespeichert."
+
+msgid "Save attachments"
+msgstr "Anhänge speichern"
+
 msgid "Insert item"
 msgstr "Element einfügen"
 
@@ -1982,6 +2001,9 @@ msgstr "Element anhängen"
 msgid "Preview"
 msgstr "Vorschau"
 
+msgid "Preview in a dialog"
+msgstr "Vorschau im Dialog"
+
 msgid "Download"
 msgstr "Herunterladen"
 
@@ -1991,22 +2013,6 @@ msgstr "Alle als ZIP-Datei herunterladen"
 msgid "Save selection to folder"
 msgstr "Auswahl in Ordner speichern"
 
-msgid "Save attachments"
-msgstr "Anhänge speichern"
-
-msgid "The attachments could not be saved."
-msgstr "Die Anhänge konnten nicht gespeichert werden."
-
-msgid "This attachment could not be saved: {0}"
-msgid_plural "These attachments could not be saved: {0}"
-msgstr[0] "Dieser Anhang konnte nicht gespeichert werden: {0}"
-msgstr[1] "Diese Anhänge konnten nicht gespeichert werden: {0}"
-
-msgid "{0} attachment was saved."
-msgid_plural "{0} attachments were saved."
-msgstr[0] "{0} Anhang wurde gespeichert."
-msgstr[1] "{0} Anhänge wurden gespeichert."
-
 msgid "Import to folder"
 msgstr "Einfügen in Ordner"
 
@@ -2015,6 +2021,12 @@ msgstr "Um das vCard-Importfeature zu nutzen, aktualisieren Sie Gromox auf Versi
 
 msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to version 0 or higher."
 msgstr "Um das ICS/VCS-Importfeature zu nutzen, aktualisieren Sie Gromox auf Version 0 oder höher."
+
+msgid "Preview in a grommunio Web tab"
+msgstr "Vorschau im grommunio Web-Reiter"
+
+msgid "Preview in a browser window"
+msgstr "Vorschau im Browserfenster"
 
 msgid "Attachment error"
 msgstr "Problem mit dem Anhang"
@@ -3119,9 +3131,6 @@ msgstr "Nachricht konnte nicht geladen werden"
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "Anhänge"
-
-msgid "Untitled"
-msgstr "Unbenannt"
 
 msgid "Download Pictures"
 msgstr "Bilder herunterladen"
@@ -4878,21 +4887,6 @@ msgstr "grommunio Web-Registerkarte"
 msgid "Browser window"
 msgstr "Browserfenster"
 
-msgid "Dialog"
-msgstr "Dialog"
-
-msgid "Open a preview in a"
-msgstr "Vorschau öffnen in"
-
-msgid "Preview in a dialog"
-msgstr "Vorschau im Dialog"
-
-msgid "Preview in a grommunio Web tab"
-msgstr "Vorschau im grommunio Web-Reiter"
-
-msgid "Preview in a browser window"
-msgstr "Vorschau im Browserfenster"
-
 msgid "Update Out of Office settings for"
 msgstr "Abwesenheitseinstellungen aktualisieren für"
 
@@ -5281,6 +5275,12 @@ msgstr "Standardzoom für Dokumente"
 
 msgid "PDF zoom"
 msgstr "PDF-Zoom"
+
+msgid "Dialog"
+msgstr "Dialog"
+
+msgid "Open a preview in a"
+msgstr "Vorschau öffnen in"
 
 msgid "File previewing"
 msgstr "Dateivorschau"
@@ -7569,12 +7569,6 @@ msgstr "Zugriff verweigert"
 msgid "Connection failed"
 msgstr "Verbindung fehlgeschlagen"
 
-msgid "Sabre error"
-msgstr "Sabre-Fehler"
-
-msgid "Copying failed"
-msgstr "Kopiervorgang fehlgeschlagen"
-
 msgid "Unknown error"
 msgstr "Unbekannter Fehler"
 
@@ -7701,6 +7695,9 @@ msgstr "Files' WebDAV-Backend: "
 msgid "PHP-CURL is not installed"
 msgstr "php-curl ist nicht installiert"
 
+msgid "Sabre error"
+msgstr "Sabre-Fehler"
+
 msgid "Directory creation failed"
 msgstr "Ordner erstellen fehlgeschlagen"
 
@@ -7716,8 +7713,8 @@ msgstr "Temporäres Problem mit Verzeichnissen"
 msgid "File or folder not found"
 msgstr "Datei oder Ordner nicht gefunden"
 
-msgid "Not implemented"
-msgstr "Nicht implementiert"
+msgid "Copying failed"
+msgstr "Kopiervorgang fehlgeschlagen"
 
 msgid "Please contact your system administrator"
 msgstr "Bitte kontaktieren Sie Ihren Systemadministrator"
@@ -7727,6 +7724,9 @@ msgstr "Dateiserver ist nicht erreichbar. Bitte überprüfen Sie die Verbindung.
 
 msgid "PHP-CURL not installed"
 msgstr "php-curl ist nicht installiert"
+
+msgid "Unknown backend"
+msgstr ""
 
 msgid "Account is ready to use."
 msgstr "Account ist einsatzbereit."
@@ -7739,6 +7739,12 @@ msgstr "Erstellung der ZIP-Datei fehlgeschlagen. Bitte den Administrator kontakt
 
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Diese Datei existiert nicht mehr. Bitte den Ordner neu laden."
+
+msgid "Recipient search is not supported by this backend"
+msgstr ""
+
+msgid "Unable to look up recipients"
+msgstr ""
 
 msgid "Kendox certificate path is not configured."
 msgstr "Der Pfad des Kendox-Zertifikats ist nicht konfiguriert."
@@ -7758,6 +7764,9 @@ msgstr "Plugin für Mobile Device Management"
 #, php-format
 msgid "Unexpected error occurred. Please contact your system administrator. Error code: %s"
 msgstr "Ein unerwarteter Fehler ist aufgetreten. Bitte kontaktieren Sie Ihren System Administrator. Fehlercode: %s"
+
+msgid "Managing shared folders is not supported by this server."
+msgstr ""
 
 msgid "No data received."
 msgstr "Keine Daten erhalten."
@@ -7801,8 +7810,14 @@ msgstr "Zertifikate können nicht gelesen werden"
 msgid "Unable to generate certs-only message"
 msgstr "Meldung \"Nur Zertifikate\" kann nicht generiert werden"
 
+msgid "Unable to read certs-only message"
+msgstr ""
+
 msgid "LDAP not configured"
 msgstr "LDAP nicht konfiguriert"
+
+msgid "Invalid LDAP configuration"
+msgstr ""
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "Für folgenden Empfänger fehlen die öffentlichen Zertifikate: "
@@ -7847,6 +7862,9 @@ msgstr "Zertifikat wurde nicht importiert"
 msgid "Certificate is revoked, but was imported."
 msgstr "Das Zertifikat ist widerrufen, wurde aber importiert."
 
+msgid "Certificate revocation status could not be verified. Certificate was imported."
+msgstr ""
+
 msgid "Unable to read public certificate"
 msgstr "Kann öffentliches Zertifikat nicht lesen"
 
@@ -7876,6 +7894,9 @@ msgstr "Das Löschen der Vorlagendatei ist fehlgeschlagen."
 
 msgid "Template deleted successfully."
 msgstr "Vorlage erfolgreich gelöscht."
+
+msgid "Could not attach item as an attachment."
+msgstr "Das Element konnte nicht angehängt werden."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "Konnte Daten nicht zum Bus hinzufügen, selbe Aktion ist auf dem Bus vorhanden"
@@ -7932,6 +7953,9 @@ msgstr "Unbekannter MAPI-Fehler"
 msgid "Destination folder not found."
 msgstr "Zielordner nicht gefunden."
 
+msgid "Could not find attachment."
+msgstr "Konnte Anhang nicht finden."
+
 msgid "Eml is corrupted"
 msgstr "EML ist korrupt"
 
@@ -7969,9 +7993,6 @@ msgstr "ZIP-Datei wurde nicht erfolgreich erstellt"
 
 msgid "Attachments can not be downloaded"
 msgstr "Anhänge können nicht heruntergeladen werden"
-
-msgid "Could not find attachment."
-msgstr "Konnte Anhang nicht finden."
 
 msgid "Operation failed"
 msgstr "Operation fehlgeschlagen"
@@ -8257,9 +8278,6 @@ msgstr "Sie haben keine Berechtigung, Elemente in diesem Ordner zu löschen"
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "Sie haben keine Berechtigung, dieses Element anzuhängen."
-
-msgid "Could not attach item as an attachment."
-msgstr "Das Element konnte nicht angehängt werden."
 
 msgid "You have insufficient privileges to reclaim the ownership for the Task Request."
 msgstr "Sie haben keine Berechtigung, die Besitzrechte der Aufgabenanfrage zurückzufordern."

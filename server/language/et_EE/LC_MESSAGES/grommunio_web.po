@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Estonian (Estonia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-04 14:41+0200\n"
+"POT-Creation-Date: 2026-09-06 21:29+0200\n"
 "PO-Revision-Date: 2025-05-21 10:01+0000\n"
 "Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/grommunio/grommunio-web/et/>\n"
@@ -1936,6 +1936,25 @@ msgstr "Teil ei ole nende esemete liigutamiseks piisavalt õigusi. Kas soovite h
 msgid "You have insufficient privileges to move this item. Would you like to copy instead?"
 msgstr "Teil ei ole piisavalt õigusi selle objekti liigutamiseks. Kas soovite hoopis kopeerida?"
 
+msgid "Untitled"
+msgstr "Ilma nimeta"
+
+msgid "The attachments could not be saved."
+msgstr ""
+
+msgid "This attachment could not be saved: {0}"
+msgid_plural "These attachments could not be saved: {0}"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "{0} attachment was saved."
+msgid_plural "{0} attachments were saved."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Save attachments"
+msgstr ""
+
 msgid "Insert item"
 msgstr "Sisesta kirje"
 
@@ -1981,11 +2000,17 @@ msgstr "Kinnitage objekt"
 msgid "Preview"
 msgstr "Eelvaade"
 
+msgid "Preview in a dialog"
+msgstr ""
+
 msgid "Download"
 msgstr "Laadi alla"
 
 msgid "Download all as ZIP"
 msgstr "Laadi kõik alla zip-failina"
+
+msgid "Save selection to folder"
+msgstr ""
 
 msgid "Import to folder"
 msgstr "Impordi kausta"
@@ -1995,6 +2020,12 @@ msgstr "Selleks, et kasutada vCard'i impordi funktsiooni, uuendada oma Gromoxi v
 
 msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to version 0 or higher."
 msgstr "ICS / VCS impordifunktsiooni kasutamiseks uuenda oma Gromox versioonile 0 või uuemale."
+
+msgid "Preview in a grommunio Web tab"
+msgstr ""
+
+msgid "Preview in a browser window"
+msgstr ""
 
 msgid "Attachment error"
 msgstr "Kinnitusviga"
@@ -3097,9 +3128,6 @@ msgstr "Sõnumit ei saanud laadida"
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "Lisad"
-
-msgid "Untitled"
-msgstr "Ilma nimeta"
 
 msgid "Download Pictures"
 msgstr "Piltide allalaadimine"
@@ -5244,6 +5272,12 @@ msgstr "Dokumendi vaikimisi suumimine"
 
 msgid "PDF zoom"
 msgstr "PDF-suumimine"
+
+msgid "Dialog"
+msgstr ""
+
+msgid "Open a preview in a"
+msgstr ""
 
 msgid "File previewing"
 msgstr "Faili eelvaade"
@@ -7532,12 +7566,6 @@ msgstr "Juurdepääs keelatud"
 msgid "Connection failed"
 msgstr "Ühendus ebaõnnestus"
 
-msgid "Sabre error"
-msgstr "Sabre viga"
-
-msgid "Copying failed"
-msgstr "Kopeerimine ebaõnnestus"
-
 msgid "Unknown error"
 msgstr "Teadmata viga"
 
@@ -7664,6 +7692,9 @@ msgstr "WebDAVi taustateenus failidele: "
 msgid "PHP-CURL is not installed"
 msgstr "PHP-CURL ei ole paigaldatud"
 
+msgid "Sabre error"
+msgstr "Sabre viga"
+
 msgid "Directory creation failed"
 msgstr "Kataloogi loomine ebaõnnestus"
 
@@ -7679,8 +7710,8 @@ msgstr "Ajutise kataloogi probleemid"
 msgid "File or folder not found"
 msgstr "Faili või kausta ei leitud"
 
-msgid "Not implemented"
-msgstr "Ei ole rakendatud"
+msgid "Copying failed"
+msgstr "Kopeerimine ebaõnnestus"
 
 msgid "Please contact your system administrator"
 msgstr "Palun võtke ühendust oma süsteemiadministraatoriga"
@@ -7690,6 +7721,9 @@ msgstr "Failiserver ei ole kättesaadav. Palun kontrollige ühendust."
 
 msgid "PHP-CURL not installed"
 msgstr "PHP-CURL ei ole paigaldatud"
+
+msgid "Unknown backend"
+msgstr ""
 
 msgid "Account is ready to use."
 msgstr "Konto on kasutusvalmis."
@@ -7702,6 +7736,12 @@ msgstr "Zip-faili genereerimine ebaõnnestus. Palun teavitage administraatorit."
 
 msgid "This file is no longer available. Please reload the folder."
 msgstr "See fail ei ole enam saadaval. Palun laadi kaust uuesti."
+
+msgid "Recipient search is not supported by this backend"
+msgstr ""
+
+msgid "Unable to look up recipients"
+msgstr ""
 
 msgid "Kendox certificate path is not configured."
 msgstr "Kendoxi sertifikaadi tee pole seadistatud."
@@ -7721,6 +7761,9 @@ msgstr "Mobiilse seadme haldamise plugin"
 #, php-format
 msgid "Unexpected error occurred. Please contact your system administrator. Error code: %s"
 msgstr "Tekkis ootamatu viga. Palun võtke ühendust oma süsteemiadministraatoriga. Veakood: %s"
+
+msgid "Managing shared folders is not supported by this server."
+msgstr ""
 
 msgid "No data received."
 msgstr "Andmeid ei ole saadud."
@@ -7764,8 +7807,14 @@ msgstr "Sertifikaate ei ole võimalik lugeda"
 msgid "Unable to generate certs-only message"
 msgstr "Ei ole võimalik genereerida ainult sertifikaate sisaldavat teadet"
 
+msgid "Unable to read certs-only message"
+msgstr ""
+
 msgid "LDAP not configured"
 msgstr "LDAP ei ole konfigureeritud"
+
+msgid "Invalid LDAP configuration"
+msgstr ""
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "Järgmiste saajate avalikud sertifikaadid puuduvad: "
@@ -7810,6 +7859,9 @@ msgstr "Sertifikaati ei ole imporditud"
 msgid "Certificate is revoked, but was imported."
 msgstr "Sertifikaat on tühistatud, kuid see on imporditud."
 
+msgid "Certificate revocation status could not be verified. Certificate was imported."
+msgstr ""
+
 msgid "Unable to read public certificate"
 msgstr "Ei saa lugeda avalikku sertifikaati"
 
@@ -7839,6 +7891,9 @@ msgstr "Malli faili kustutamine ebaõnnestus."
 
 msgid "Template deleted successfully."
 msgstr "Mall kustutati edukalt."
+
+msgid "Could not attach item as an attachment."
+msgstr "Ei saanud objekti manusena lisada."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "Ei saa lisada andmeid bussi, sama tegevuse tüüp on bussis olemas"
@@ -7895,6 +7950,9 @@ msgstr "MAPI tundmatu viga"
 msgid "Destination folder not found."
 msgstr "Sihtkausta ei leitud."
 
+msgid "Could not find attachment."
+msgstr "Ei suutnud leida manustust."
+
 msgid "Eml is corrupted"
 msgstr "Eml on rikutud"
 
@@ -7932,9 +7990,6 @@ msgstr "ZIP ei ole edukalt loodud"
 
 msgid "Attachments can not be downloaded"
 msgstr "Manuseid ei saa alla laadida"
-
-msgid "Could not find attachment."
-msgstr "Ei suutnud leida manustust."
 
 msgid "Operation failed"
 msgstr "Operatsioon ebaõnnestus"
@@ -8220,9 +8275,6 @@ msgstr "Sul ei ole piisavalt õigusi selles kaustas olevate kirjete kustutamisek
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "Teil ei ole piisavalt õigusi, et lisada objekt manusena."
-
-msgid "Could not attach item as an attachment."
-msgstr "Ei saanud objekti manusena lisada."
 
 msgid "You have insufficient privileges to reclaim the ownership for the Task Request."
 msgstr "Teil ei ole piisavalt õigusi, et nõuda ülesande taotluse omandiõigust tagasi."

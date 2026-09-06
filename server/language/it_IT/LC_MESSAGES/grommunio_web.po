@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Italian (Italy)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-04 14:41+0200\n"
+"POT-Creation-Date: 2026-09-06 21:29+0200\n"
 "PO-Revision-Date: 2022-12-11 16:35+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/grommunio/grommunio-web/it/>\n"
@@ -1937,6 +1937,25 @@ msgstr "Non hai privilegi sufficienti per spostare questi elementi. Vuoi copiarl
 msgid "You have insufficient privileges to move this item. Would you like to copy instead?"
 msgstr "Non hai privilegi sufficienti per spostare questo elemento. Vuoi copiare invece?"
 
+msgid "Untitled"
+msgstr "Senza titolo"
+
+msgid "The attachments could not be saved."
+msgstr ""
+
+msgid "This attachment could not be saved: {0}"
+msgid_plural "These attachments could not be saved: {0}"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "{0} attachment was saved."
+msgid_plural "{0} attachments were saved."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Save attachments"
+msgstr ""
+
 msgid "Insert item"
 msgstr "Inserisci elemento"
 
@@ -1982,11 +2001,17 @@ msgstr "Allega elemento"
 msgid "Preview"
 msgstr "Anteprima"
 
+msgid "Preview in a dialog"
+msgstr ""
+
 msgid "Download"
 msgstr "Scarica"
 
 msgid "Download all as ZIP"
 msgstr "Scarica tutti come file ZIP"
+
+msgid "Save selection to folder"
+msgstr ""
 
 msgid "Import to folder"
 msgstr "Importa nella cartella"
@@ -1996,6 +2021,12 @@ msgstr "Per utilizzare la funzione di importazione di vCard, aggiornare Gromox a
 
 msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to version 0 or higher."
 msgstr "Per utilizzare la funzione di importazione ICS / VCS, aggiornare Gromox alla versione 0 o superiore."
+
+msgid "Preview in a grommunio Web tab"
+msgstr ""
+
+msgid "Preview in a browser window"
+msgstr ""
 
 msgid "Attachment error"
 msgstr "Errore allegato"
@@ -3099,9 +3130,6 @@ msgstr "Impossibile caricare il messaggio"
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "Allegati"
-
-msgid "Untitled"
-msgstr "Senza titolo"
 
 msgid "Download Pictures"
 msgstr "Scarica immagini"
@@ -5246,6 +5274,12 @@ msgstr "Zoom predefinito del documento"
 
 msgid "PDF zoom"
 msgstr "Zoom in PDF"
+
+msgid "Dialog"
+msgstr ""
+
+msgid "Open a preview in a"
+msgstr ""
 
 msgid "File previewing"
 msgstr "Anteprima file"
@@ -7534,12 +7568,6 @@ msgstr "Accesso negato"
 msgid "Connection failed"
 msgstr "Connessione fallita"
 
-msgid "Sabre error"
-msgstr "Errore Sabre"
-
-msgid "Copying failed"
-msgstr "Copia non riuscita"
-
 msgid "Unknown error"
 msgstr "Errore sconosciuto"
 
@@ -7666,6 +7694,9 @@ msgstr "File Backend WebDAV: "
 msgid "PHP-CURL is not installed"
 msgstr "PHP-CURL non è installato"
 
+msgid "Sabre error"
+msgstr "Errore Sabre"
+
 msgid "Directory creation failed"
 msgstr "Creazione della directory fallita"
 
@@ -7681,8 +7712,8 @@ msgstr "Problemi di directory temporanea"
 msgid "File or folder not found"
 msgstr "File o cartella non trovati"
 
-msgid "Not implemented"
-msgstr "Non implementato"
+msgid "Copying failed"
+msgstr "Copia non riuscita"
 
 msgid "Please contact your system administrator"
 msgstr "Contattare l'amministratore di sistema"
@@ -7692,6 +7723,9 @@ msgstr "Il file server non è raggiungibile. Verificare la connessione."
 
 msgid "PHP-CURL not installed"
 msgstr "PHP-CURL non installato"
+
+msgid "Unknown backend"
+msgstr ""
 
 msgid "Account is ready to use."
 msgstr "L'account è pronto per l'utilizzo."
@@ -7704,6 +7738,12 @@ msgstr "Generazione file ZIP fallita. Contattare l'amministratore di sistema."
 
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Questo file non è più disponibile. Provare a ricaricare la cartella."
+
+msgid "Recipient search is not supported by this backend"
+msgstr ""
+
+msgid "Unable to look up recipients"
+msgstr ""
 
 msgid "Kendox certificate path is not configured."
 msgstr "Il percorso del certificato Kendox non è configurato."
@@ -7723,6 +7763,9 @@ msgstr "Plugin per la gestione dei dispositivi mobili"
 #, php-format
 msgid "Unexpected error occurred. Please contact your system administrator. Error code: %s"
 msgstr "Si è verificato un errore inatteso. Contattare l'amministratore di sistema. Codice di errore: %s"
+
+msgid "Managing shared folders is not supported by this server."
+msgstr ""
 
 msgid "No data received."
 msgstr "Nessun dato ricevuto."
@@ -7766,8 +7809,14 @@ msgstr "Impossibile leggere i certificati"
 msgid "Unable to generate certs-only message"
 msgstr "Impossibile generare un messaggio di soli certificati"
 
+msgid "Unable to read certs-only message"
+msgstr ""
+
 msgid "LDAP not configured"
 msgstr "LDAP non configurato"
+
+msgid "Invalid LDAP configuration"
+msgstr ""
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "Certificato pubblico mancante per i seguenti destinatari: "
@@ -7812,6 +7861,9 @@ msgstr "Il certificato non e` stato importato"
 msgid "Certificate is revoked, but was imported."
 msgstr "Il certificato è revocato, ma è stato importato."
 
+msgid "Certificate revocation status could not be verified. Certificate was imported."
+msgstr ""
+
 msgid "Unable to read public certificate"
 msgstr "Non e` possibile leggere il certificato pubblico"
 
@@ -7841,6 +7893,9 @@ msgstr "Impossibile eliminare il file del modello."
 
 msgid "Template deleted successfully."
 msgstr "Modello eliminato con successo."
+
+msgid "Could not attach item as an attachment."
+msgstr "Impossibile allegare l'elemento."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "Non è possibile aggiungere dati al bus, se lo stesso tipo di azione è presente nel bus"
@@ -7897,6 +7952,9 @@ msgstr "Errore MAPI sconosciuto"
 msgid "Destination folder not found."
 msgstr "Cartella di destinazione non trovata."
 
+msgid "Could not find attachment."
+msgstr "Impossibile trovare l'allegato."
+
 msgid "Eml is corrupted"
 msgstr "L'Eml è danneggiato"
 
@@ -7934,9 +7992,6 @@ msgstr "Lo ZIP non è stato creato correttamente"
 
 msgid "Attachments can not be downloaded"
 msgstr "Gli allegati non possono essere scaricati"
-
-msgid "Could not find attachment."
-msgstr "Impossibile trovare l'allegato."
 
 msgid "Operation failed"
 msgstr "Operazione fallita"
@@ -8222,9 +8277,6 @@ msgstr "Non hai permessi sufficienti per eliminare elementi da questa cartella"
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "Non hai i permessi sufficienti per allegare l'elemento."
-
-msgid "Could not attach item as an attachment."
-msgstr "Impossibile allegare l'elemento."
 
 msgid "You have insufficient privileges to reclaim the ownership for the Task Request."
 msgstr "Non hai i permessi sufficienti per reclamare la proprietà di questa richiesta di attività."

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Greek\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-04 14:41+0200\n"
+"POT-Creation-Date: 2026-09-06 21:29+0200\n"
 "PO-Revision-Date: 2022-07-26 14:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -1984,6 +1984,25 @@ msgstr "Δεν έχετε επαρκή δικαιώματα για να μετα
 msgid "You have insufficient privileges to move this item. Would you like to copy instead?"
 msgstr "Δεν έχετε επαρκή δικαιώματα για να μετακινήσετε αυτό το στοιχείο. Θα θέλατε να αντιγράψετε"
 
+msgid "Untitled"
+msgstr "Χωρίς τίτλο"
+
+msgid "The attachments could not be saved."
+msgstr ""
+
+msgid "This attachment could not be saved: {0}"
+msgid_plural "These attachments could not be saved: {0}"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "{0} attachment was saved."
+msgid_plural "{0} attachments were saved."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Save attachments"
+msgstr ""
+
 msgid "Insert item"
 msgstr "Εισαγωγή στοιχείου"
 
@@ -2031,11 +2050,17 @@ msgstr "Επισυνάψτε το αντικείμενο"
 msgid "Preview"
 msgstr "Προεπισκόπηση"
 
+msgid "Preview in a dialog"
+msgstr ""
+
 msgid "Download"
 msgstr "Λήψη"
 
 msgid "Download all as ZIP"
 msgstr "Κατεβάστε τα όλα ως ZIP"
+
+msgid "Save selection to folder"
+msgstr ""
 
 msgid "Import to folder"
 msgstr "Εισαγωγή σε φάκελο"
@@ -2047,6 +2072,12 @@ msgstr "Για να χρησιμοποιήσετε τη δυνατότητα ε�
 #, fuzzy
 msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to version 0 or higher."
 msgstr "Για να χρησιμοποιήσετε τη λειτουργία εισαγωγής ICS / VCS, αναβαθμίστε το Gromox σας στην έκδοση 0 ή νεότερη."
+
+msgid "Preview in a grommunio Web tab"
+msgstr ""
+
+msgid "Preview in a browser window"
+msgstr ""
 
 msgid "Attachment error"
 msgstr "Σφάλμα συνημμένου"
@@ -3161,9 +3192,6 @@ msgstr "Το μήνυμα δεν μπορούσε να φορτωθεί"
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "Συνημμένα"
-
-msgid "Untitled"
-msgstr "Χωρίς τίτλο"
 
 msgid "Download Pictures"
 msgstr "Λήψη εικόνων"
@@ -5353,6 +5381,12 @@ msgstr "Προεπιλεγμένο ζουμ εγγράφου"
 
 msgid "PDF zoom"
 msgstr "Ζουμ PDF"
+
+msgid "Dialog"
+msgstr ""
+
+msgid "Open a preview in a"
+msgstr ""
 
 msgid "File previewing"
 msgstr "Προεπισκόπηση αρχείων"
@@ -7681,12 +7715,6 @@ msgstr "Δεν επιτρέπεπεται η πρόσβαση"
 msgid "Connection failed"
 msgstr "Η σύνδεση απέτυχε"
 
-msgid "Sabre error"
-msgstr "Σφάλμα Sabre"
-
-msgid "Copying failed"
-msgstr "Η αντιγραφή απέτυχε"
-
 msgid "Unknown error"
 msgstr "Άγνωστο σφάλμα"
 
@@ -7813,6 +7841,9 @@ msgstr "Αρχεία WebDAV Backend: "
 msgid "PHP-CURL is not installed"
 msgstr "Το PHP-CURL δεν είναι εγκατεστημένο"
 
+msgid "Sabre error"
+msgstr "Σφάλμα Sabre"
+
 msgid "Directory creation failed"
 msgstr "Η δημιουργία καταλόγου απέτυχε"
 
@@ -7828,8 +7859,8 @@ msgstr "Προβλήματα προσωρινού καταλόγου"
 msgid "File or folder not found"
 msgstr "Δεν βρέθηκε αρχείο ή φάκελος"
 
-msgid "Not implemented"
-msgstr "Δεν έχει εφαρμοστεί"
+msgid "Copying failed"
+msgstr "Η αντιγραφή απέτυχε"
 
 msgid "Please contact your system administrator"
 msgstr "Επικοινωνήστε με το διαχειριστή του συστήματός σας"
@@ -7839,6 +7870,9 @@ msgstr "Ο διακομιστής αρχείων δεν είναι προσβά�
 
 msgid "PHP-CURL not installed"
 msgstr "Το PHP-CURL δεν έχει εγκατασταθεί"
+
+msgid "Unknown backend"
+msgstr ""
 
 msgid "Account is ready to use."
 msgstr "Ο λογαριασμός είναι έτοιμος για χρήση."
@@ -7851,6 +7885,12 @@ msgstr "Η δημιουργία αρχείου Zip απέτυχε. Παρακα�
 
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Αυτό το αρχείο δεν είναι πλέον διαθέσιμο. Παρακαλούμε επαναφορτώστε το φάκελο."
+
+msgid "Recipient search is not supported by this backend"
+msgstr ""
+
+msgid "Unable to look up recipients"
+msgstr ""
 
 msgid "Kendox certificate path is not configured."
 msgstr "Η διαδρομή του πιστοποιητικού Kendox δεν έχει ρυθμιστεί."
@@ -7870,6 +7910,9 @@ msgstr "Πρόσθετο διαχείρισης κινητών συσκευών"
 #, fuzzy, php-format
 msgid "Unexpected error occurred. Please contact your system administrator. Error code: %s"
 msgstr "Εμφανίστηκε απροσδόκητο σφάλμα. Επικοινωνήστε με το διαχειριστή του συστήματός σας. Κωδικός σφάλματος: %s"
+
+msgid "Managing shared folders is not supported by this server."
+msgstr ""
 
 msgid "No data received."
 msgstr "Δεν ελήφθησαν δεδομένα."
@@ -7914,8 +7957,14 @@ msgstr "Αδυναμία ανάγνωσης πιστοποιητικών"
 msgid "Unable to generate certs-only message"
 msgstr "Αδυναμία δημιουργίας μηνύματος certs-only"
 
+msgid "Unable to read certs-only message"
+msgstr ""
+
 msgid "LDAP not configured"
 msgstr "Το LDAP δεν έχει ρυθμιστεί"
+
+msgid "Invalid LDAP configuration"
+msgstr ""
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "Λείπουν δημόσια πιστοποιητικά για τους ακόλουθους παραλήπτες: "
@@ -7961,6 +8010,9 @@ msgstr "Το πιστοποιητικό δεν έχει εισαχθεί"
 msgid "Certificate is revoked, but was imported."
 msgstr "Το πιστοποιητικό έχει ανακληθεί, αλλά εισήχθη."
 
+msgid "Certificate revocation status could not be verified. Certificate was imported."
+msgstr ""
+
 msgid "Unable to read public certificate"
 msgstr "Αδυναμία ανάγνωσης δημόσιου πιστοποιητικού"
 
@@ -7990,6 +8042,9 @@ msgstr "Δεν κατέστη δυνατή η διαγραφή του αρχεί
 
 msgid "Template deleted successfully."
 msgstr "Το πρότυπο διαγράφηκε με επιτυχία."
+
+msgid "Could not attach item as an attachment."
+msgstr "Δεν μπόρεσε να επισυνάψει το στοιχείο ως συνημμένο."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "Δεν μπορείτε να προσθέσετε δεδομένα στο δίαυλο, ο ίδιος τύπος ενέργειας υπάρχει στο δίαυλο"
@@ -8048,6 +8103,9 @@ msgstr "Άγνωστο σφάλμα MAPI"
 msgid "Destination folder not found."
 msgstr "Ο φάκελος προορισμού δεν βρέθηκε."
 
+msgid "Could not find attachment."
+msgstr "Δεν μπόρεσε να βρει συνημμένο."
+
 msgid "Eml is corrupted"
 msgstr "Το Eml είναι κατεστραμμένο"
 
@@ -8085,9 +8143,6 @@ msgstr "Το ZIP δεν δημιουργείται με επιτυχία"
 
 msgid "Attachments can not be downloaded"
 msgstr "Δεν είναι δυνατή η λήψη συνημμένων"
-
-msgid "Could not find attachment."
-msgstr "Δεν μπόρεσε να βρει συνημμένο."
 
 msgid "Operation failed"
 msgstr "Η λειτουργία απέτυχε"
@@ -8377,9 +8432,6 @@ msgstr "Δεν έχετε επαρκή δικαιώματα για να διαγ
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "Δεν έχετε επαρκή δικαιώματα για να επισυνάψετε το στοιχείο ως συνημμένο."
-
-msgid "Could not attach item as an attachment."
-msgstr "Δεν μπόρεσε να επισυνάψει το στοιχείο ως συνημμένο."
 
 #, fuzzy
 msgid "You have insufficient privileges to reclaim the ownership for the Task Request."

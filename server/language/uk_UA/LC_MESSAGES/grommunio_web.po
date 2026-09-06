@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Ukrainian (Ukraine)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-04 14:41+0200\n"
+"POT-Creation-Date: 2026-09-06 21:29+0200\n"
 "PO-Revision-Date: 2022-08-23 04:19+0000\n"
 "Last-Translator: Artem <artem@molotov.work>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/grommunio/grommunio-web/uk/>\n"
@@ -1951,6 +1951,27 @@ msgstr "У вас недостатньо привілеїв для перемі�
 msgid "You have insufficient privileges to move this item. Would you like to copy instead?"
 msgstr "У вас недостатньо привілеїв для переміщення цього елемента. Бажаєте скопіювати?"
 
+msgid "Untitled"
+msgstr "Без назви"
+
+msgid "The attachments could not be saved."
+msgstr ""
+
+msgid "This attachment could not be saved: {0}"
+msgid_plural "These attachments could not be saved: {0}"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid "{0} attachment was saved."
+msgid_plural "{0} attachments were saved."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid "Save attachments"
+msgstr ""
+
 msgid "Insert item"
 msgstr "Вставити елемент"
 
@@ -1996,11 +2017,17 @@ msgstr "Прикріпити елемент"
 msgid "Preview"
 msgstr "Попередній перегляд"
 
+msgid "Preview in a dialog"
+msgstr ""
+
 msgid "Download"
 msgstr "Завантажити"
 
 msgid "Download all as ZIP"
 msgstr "Завантажити все у форматі ZIP"
+
+msgid "Save selection to folder"
+msgstr ""
 
 msgid "Import to folder"
 msgstr "Імпорт до папки"
@@ -2010,6 +2037,12 @@ msgstr "Щоб використовувати функцію імпорту vCar
 
 msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to version 0 or higher."
 msgstr "Щоб використовувати функцію імпорту ICS / VCS, оновіть Gromox до версії 0 або вище."
+
+msgid "Preview in a grommunio Web tab"
+msgstr ""
+
+msgid "Preview in a browser window"
+msgstr ""
 
 msgid "Attachment error"
 msgstr "Помилка вкладення"
@@ -3117,9 +3150,6 @@ msgstr "Повідомлення не вдалося завантажити"
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "Вкладення"
-
-msgid "Untitled"
-msgstr "Без назви"
 
 msgid "Download Pictures"
 msgstr "Завантажити зображення"
@@ -5268,6 +5298,12 @@ msgstr "Масштаб документа за замовчуванням"
 
 msgid "PDF zoom"
 msgstr "Масштаб PDF"
+
+msgid "Dialog"
+msgstr ""
+
+msgid "Open a preview in a"
+msgstr ""
 
 msgid "File previewing"
 msgstr "Попередній перегляд файлів"
@@ -7558,12 +7594,6 @@ msgstr "У доступі відмовлено."
 msgid "Connection failed"
 msgstr "Не вдалося встановити з'єднання"
 
-msgid "Sabre error"
-msgstr "Помилка Sabre"
-
-msgid "Copying failed"
-msgstr "Не вдалося скопіювати"
-
 msgid "Unknown error"
 msgstr "Невідома помилка"
 
@@ -7690,6 +7720,9 @@ msgstr "Файли WebDAV Backend:"
 msgid "PHP-CURL is not installed"
 msgstr "PHP-CURL не встановлено"
 
+msgid "Sabre error"
+msgstr "Помилка Sabre"
+
 msgid "Directory creation failed"
 msgstr "Не вдалося створити каталог"
 
@@ -7705,8 +7738,8 @@ msgstr "Проблеми з тимчасовими каталогами"
 msgid "File or folder not found"
 msgstr "Файл або папку не знайдено"
 
-msgid "Not implemented"
-msgstr "Не реалізовано"
+msgid "Copying failed"
+msgstr "Не вдалося скопіювати"
 
 msgid "Please contact your system administrator"
 msgstr "Зверніться до вашого системного адміністратора"
@@ -7716,6 +7749,9 @@ msgstr "Файловий сервер недоступний. Будь ласк�
 
 msgid "PHP-CURL not installed"
 msgstr "PHP-CURL не встановлено"
+
+msgid "Unknown backend"
+msgstr ""
 
 msgid "Account is ready to use."
 msgstr "Обліковий запис готовий до використання."
@@ -7728,6 +7764,12 @@ msgstr "Не вдалося згенерувати Zip-файл. Будь лас
 
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Цей файл більше не доступний. Будь ласка, перезавантажте папку."
+
+msgid "Recipient search is not supported by this backend"
+msgstr ""
+
+msgid "Unable to look up recipients"
+msgstr ""
 
 msgid "Kendox certificate path is not configured."
 msgstr "Шлях до сертифіката Kendox не налаштовано."
@@ -7747,6 +7789,9 @@ msgstr "Плагін для керування мобільними пристр
 #, php-format
 msgid "Unexpected error occurred. Please contact your system administrator. Error code: %s"
 msgstr "Виникла непередбачувана помилка. Зверніться до системного адміністратора. Код помилки: %s"
+
+msgid "Managing shared folders is not supported by this server."
+msgstr ""
 
 msgid "No data received."
 msgstr "Не отримано жодних даних."
@@ -7790,8 +7835,14 @@ msgstr "Неможливо прочитати сертифікати"
 msgid "Unable to generate certs-only message"
 msgstr "Не вдається згенерувати повідомлення лише для сертифікатів"
 
+msgid "Unable to read certs-only message"
+msgstr ""
+
 msgid "LDAP not configured"
 msgstr "LDAP не налаштовано"
+
+msgid "Invalid LDAP configuration"
+msgstr ""
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "Відсутні відкриті сертифікати для наступних одержувачів:"
@@ -7836,6 +7887,9 @@ msgstr "Сертифікат не був імпортований"
 msgid "Certificate is revoked, but was imported."
 msgstr "Сертифікат анульовано, але товар був імпортований."
 
+msgid "Certificate revocation status could not be verified. Certificate was imported."
+msgstr ""
+
 msgid "Unable to read public certificate"
 msgstr "Не вдається прочитати відкритий сертифікат"
 
@@ -7865,6 +7919,9 @@ msgstr "Не вдалося видалити файл шаблону."
 
 msgid "Template deleted successfully."
 msgstr "Шаблон успішно видалено."
+
+msgid "Could not attach item as an attachment."
+msgstr "Не вдалося прикріпити товар як вкладення."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "Неможливо додати дані до шини, в шині присутній той самий тип дії"
@@ -7921,6 +7978,9 @@ msgstr "Невідома помилка MAPI"
 msgid "Destination folder not found."
 msgstr "Теку призначення не знайдено."
 
+msgid "Could not find attachment."
+msgstr "Не вдалося знайти вкладення."
+
 msgid "Eml is corrupted"
 msgstr "Eml пошкоджено"
 
@@ -7958,9 +8018,6 @@ msgstr "ZIP не вдається створити успішно"
 
 msgid "Attachments can not be downloaded"
 msgstr "Вкладення не можуть бути завантажені"
-
-msgid "Could not find attachment."
-msgstr "Не вдалося знайти вкладення."
 
 msgid "Operation failed"
 msgstr "Операція не вдалася"
@@ -8246,9 +8303,6 @@ msgstr "У вас недостатньо прав, щоб видалити ск�
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "У вас недостатньо привілеїв, щоб прикріпити елемент як вкладення."
-
-msgid "Could not attach item as an attachment."
-msgstr "Не вдалося прикріпити товар як вкладення."
 
 msgid "You have insufficient privileges to reclaim the ownership for the Task Request."
 msgstr "У вас недостатньо привілеїв, щоб повернути право власності на Запит на завдання."

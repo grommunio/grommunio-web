@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-04 14:41+0200\n"
+"POT-Creation-Date: 2026-09-06 21:29+0200\n"
 "PO-Revision-Date: 2022-07-26 19:05+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -1983,6 +1983,29 @@ msgstr "Za premikanje teh elementov nimate dovolj pravic. Ali želite namesto te
 msgid "You have insufficient privileges to move this item. Would you like to copy instead?"
 msgstr "Za premikanje tega elementa nimate dovolj pravic. Želite namesto tega kopirati?"
 
+msgid "Untitled"
+msgstr "Nenaslovljen"
+
+msgid "The attachments could not be saved."
+msgstr ""
+
+msgid "This attachment could not be saved: {0}"
+msgid_plural "These attachments could not be saved: {0}"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "{0} attachment was saved."
+msgid_plural "{0} attachments were saved."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "Save attachments"
+msgstr ""
+
 msgid "Insert item"
 msgstr "Vstavi predmet"
 
@@ -2030,11 +2053,17 @@ msgstr "Pripni datoteko"
 msgid "Preview"
 msgstr "Predogled"
 
+msgid "Preview in a dialog"
+msgstr ""
+
 msgid "Download"
 msgstr "Naloži"
 
 msgid "Download all as ZIP"
 msgstr "Prenesite vse kot ZIP"
+
+msgid "Save selection to folder"
+msgstr ""
 
 msgid "Import to folder"
 msgstr "Uvoz v mapo"
@@ -2046,6 +2075,12 @@ msgstr "Če želite uporabljati funkcijo uvoza vCard, nadgradite program Gromox 
 #, fuzzy
 msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to version 0 or higher."
 msgstr "Če želite uporabljati funkcijo uvoza ICS/VCS, nadgradite Gromox na različico 0 ali novejšo."
+
+msgid "Preview in a grommunio Web tab"
+msgstr ""
+
+msgid "Preview in a browser window"
+msgstr ""
 
 msgid "Attachment error"
 msgstr "Napaka priloge"
@@ -3169,9 +3204,6 @@ msgstr "Sporočila ni bilo mogoče naložiti"
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "Priloge"
-
-msgid "Untitled"
-msgstr "Nenaslovljen"
 
 msgid "Download Pictures"
 msgstr "Naloži fotografije"
@@ -5336,6 +5368,12 @@ msgstr "Privzeta povečava dokumenta"
 
 msgid "PDF zoom"
 msgstr "Povečanje PDF"
+
+msgid "Dialog"
+msgstr ""
+
+msgid "Open a preview in a"
+msgstr ""
 
 msgid "File previewing"
 msgstr "Predogled datotek"
@@ -7661,12 +7699,6 @@ msgstr "Zavrnjen dostop"
 msgid "Connection failed"
 msgstr "Povezava ni uspela"
 
-msgid "Sabre error"
-msgstr "Napaka Sabre"
-
-msgid "Copying failed"
-msgstr "Kopiranje ni uspelo"
-
 msgid "Unknown error"
 msgstr "Neznana napaka"
 
@@ -7793,6 +7825,9 @@ msgstr "Datoteke Spletni strežnik WebDAV: "
 msgid "PHP-CURL is not installed"
 msgstr "PHP-CURL ni nameščen"
 
+msgid "Sabre error"
+msgstr "Napaka Sabre"
+
 msgid "Directory creation failed"
 msgstr "Ustvarjanje imenika ni uspelo"
 
@@ -7808,8 +7843,8 @@ msgstr "Težave z začasnim imenikom"
 msgid "File or folder not found"
 msgstr "Datoteka ali mapa ni bila najdena"
 
-msgid "Not implemented"
-msgstr "Ni izvedeno"
+msgid "Copying failed"
+msgstr "Kopiranje ni uspelo"
 
 msgid "Please contact your system administrator"
 msgstr "Obrnite se na skrbnika sistema"
@@ -7819,6 +7854,9 @@ msgstr "Datotečni strežnik ni dosegljiv. Preverite povezavo."
 
 msgid "PHP-CURL not installed"
 msgstr "PHP-CURL ni nameščen"
+
+msgid "Unknown backend"
+msgstr ""
 
 msgid "Account is ready to use."
 msgstr "Račun je pripravljen za uporabo."
@@ -7831,6 +7869,12 @@ msgstr "Generiranje datoteke Zip ni uspelo. O tem obvestite skrbnika."
 
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Ta datoteka ni več na voljo. Ponovno naložite mapo."
+
+msgid "Recipient search is not supported by this backend"
+msgstr ""
+
+msgid "Unable to look up recipients"
+msgstr ""
 
 msgid "Kendox certificate path is not configured."
 msgstr "Pot certifikata Kendox ni nastavljena."
@@ -7850,6 +7894,9 @@ msgstr "Vtičnik za upravljanje mobilnih naprav"
 #, fuzzy, php-format
 msgid "Unexpected error occurred. Please contact your system administrator. Error code: %s"
 msgstr "Zgodila se je nepričakovana napaka. Obrnite se na skrbnika sistema. Koda napake: %s"
+
+msgid "Managing shared folders is not supported by this server."
+msgstr ""
 
 msgid "No data received."
 msgstr "Ni prejetih podatkov."
@@ -7894,8 +7941,14 @@ msgstr "Ni mogoče prebrati certifikatov"
 msgid "Unable to generate certs-only message"
 msgstr "Ni mogoče ustvariti sporočila samo za certifikate"
 
+msgid "Unable to read certs-only message"
+msgstr ""
+
 msgid "LDAP not configured"
 msgstr "LDAP ni konfiguriran"
+
+msgid "Invalid LDAP configuration"
+msgstr ""
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "Manjkajo javna potrdila za naslednje prejemnike: "
@@ -7941,6 +7994,9 @@ msgstr "Potrdilo ni bilo uvoženo"
 msgid "Certificate is revoked, but was imported."
 msgstr "Potrdilo je preklicano, vendar je bilo uvoženo."
 
+msgid "Certificate revocation status could not be verified. Certificate was imported."
+msgstr ""
+
 msgid "Unable to read public certificate"
 msgstr "Ni mogoče prebrati javnega potrdila"
 
@@ -7970,6 +8026,9 @@ msgstr "Izbris datoteke predloge ni uspel."
 
 msgid "Template deleted successfully."
 msgstr "Predloga je bila uspešno izbrisana."
+
+msgid "Could not attach item as an attachment."
+msgstr "Predmeta ni bilo mogoče priložiti kot prilogo."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "Ne morem dodati podatkov v vodilo, ker je v vodilu prisotna ista vrsta akcije"
@@ -8028,6 +8087,9 @@ msgstr "Neznana napaka MAPI"
 msgid "Destination folder not found."
 msgstr "Ciljna mapa ni bila najdena."
 
+msgid "Could not find attachment."
+msgstr "Ni bilo mogoče najti priponke."
+
 msgid "Eml is corrupted"
 msgstr "Eml je poškodovan"
 
@@ -8065,9 +8127,6 @@ msgstr "ZIP ni uspešno ustvarjen"
 
 msgid "Attachments can not be downloaded"
 msgstr "Priponk ni mogoče prenesti"
-
-msgid "Could not find attachment."
-msgstr "Ni bilo mogoče najti priponke."
 
 msgid "Operation failed"
 msgstr "Operacija ni uspela"
@@ -8357,9 +8416,6 @@ msgstr "Za brisanje elementov v tej mapi nimate dovolj pravic"
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "Nimate dovolj dovoljenj za prilaganje predmetov kot prilogo."
-
-msgid "Could not attach item as an attachment."
-msgstr "Predmeta ni bilo mogoče priložiti kot prilogo."
 
 msgid "You have insufficient privileges to reclaim the ownership for the Task Request."
 msgstr "Nimate dovolj dovoljenj za povračilo lastništva za zahtevek za nalogo."
