@@ -532,9 +532,9 @@ class PluginManager {
 	 * Read in the manifest and get the files that need to be included
 	 * for placing hooks, defining modules, etc.
 	 *
-	 * @param $dirname string name of the directory of the plugin
+	 * @param string $dirname name of the directory of the plugin
 	 *
-	 * @return array The plugin data read from the given directory
+	 * @return array|false the plugin data, or false for an invalid manifest
 	 */
 	public function processPlugin($dirname) {
 		// Read XML manifest file of plugin

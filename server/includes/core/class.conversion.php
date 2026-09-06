@@ -271,9 +271,9 @@ class Conversion {
 	 *
 	 * @example property2json(0x0037001e) => 'PR_SUBJECT'
 	 *
-	 * @param int $property property tag
+	 * @param int|string $property property tag or an already converted value
 	 *
-	 * @return string the symbolic name of the property tag
+	 * @return string the symbolic name or original string value
 	 */
 	public static function property2json($property) {
 		if (is_integer($property)) {

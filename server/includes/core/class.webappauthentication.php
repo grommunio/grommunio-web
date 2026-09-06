@@ -41,7 +41,7 @@ class WebAppAuthentication {
 	private static $_errorCode = NOERROR;
 
 	/**
-	 * @var bool True if MAPI session savng support exists
+	 * @var bool true if MAPI session saving support exists
 	 */
 	private static $_sessionSaveSupport = false;
 
@@ -81,7 +81,7 @@ class WebAppAuthentication {
 	}
 
 	/**
-	 * Returns an error message that goed with the error code of
+	 * Returns an error message that corresponds to the error code of
 	 * the last logon attempt.
 	 *
 	 * @return string
@@ -107,9 +107,9 @@ class WebAppAuthentication {
 	}
 
 	/**
-	 * Set the MAPISession instance.
+	 * Set the underlying MAPI session handle.
 	 *
-	 * @param MAPISession $session the mapisession to set
+	 * @param false|resource $session the MAPI session handle to set
 	 */
 	public static function setMAPISession($session) {
 		WebAppAuthentication::$_mapiSession->setSession($session);
@@ -261,7 +261,7 @@ class WebAppAuthentication {
 	 * Store a serialized MAPI Session, which can be used by _restoreMAPISession to re-create
 	 * a MAPISession, which saves a login call.
 	 *
-	 * @param MAPISession $session the session to serialize and save
+	 * @param resource $session the MAPI session handle to serialize and save
 	 */
 	private static function _storeMAPISession($session) {
 		if (!WebAppAuthentication::$_sessionSaveSupport) {

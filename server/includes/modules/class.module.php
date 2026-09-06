@@ -351,7 +351,7 @@ class Module {
 	 * Function which returns MAPI Message Store Object. It
 	 * searches in the variable $action for a storeid.
 	 *
-	 * @param array $action the XML data retrieved from the client
+	 * @param array|false $action XML action data, or false when none is present
 	 *
 	 * @return array<int, false|resource>|false|resource MAPI store or stores, or false when no store ID is present
 	 */

@@ -732,11 +732,11 @@ class ItemModule extends Module {
 	/**
 	 * Function which saves an item.
 	 *
-	 * @param object $store         MAPI Message Store Object
-	 * @param string $parententryid parent entryid of the message
-	 * @param mixed  $entryid       entryid of the message
-	 * @param array  $action        the action data, sent by the client
-	 * @param string $actionType    The action type which triggered this action
+	 * @param false|resource $store         MAPI message store, or false to use the default
+	 * @param false|string   $parententryid parent entry ID, or false to infer it
+	 * @param false|string   $entryid       entry ID of the message, or false for a new item
+	 * @param array          $action        the action data, sent by the client
+	 * @param string         $actionType    The action type which triggered this action
 	 */
 	public function save($store, $parententryid, $entryid, $action, $actionType = 'save') {
 		$result = false;

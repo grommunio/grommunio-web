@@ -301,7 +301,7 @@ class DownloadAttachment extends DownloadBase {
 	 * Returns attachment based on specified attachNum, additionally it will also get embedded message
 	 * if we want to get the inline image attachment.
 	 *
-	 * @return resource embedded message attachment or requested attachment
+	 * @return false|resource embedded message attachment or requested attachment, or false on failure
 	 */
 	public function getAttachmentByAttachNum() {
 		$len = count($this->attachNum);
@@ -380,8 +380,8 @@ class DownloadAttachment extends DownloadBase {
 	 * Function will open passed attachment and generate response for that attachment to send it to client.
 	 * This should only be used to download attachment that is already saved in MAPIMessage.
 	 *
-	 * @param resource $attachment attachment to send to the client
-	 * @param bool       $inline     inline attachment or not
+	 * @param false|resource $attachment attachment to send to the client, or false if unavailable
+	 * @param bool           $inline     inline attachment or not
 	 */
 	public function downloadSavedAttachment($attachment, $inline = false) {
 		// Check if the attachment is opened
@@ -458,6 +458,8 @@ class DownloadAttachment extends DownloadBase {
 
 			$bodyoffset = 0;
 			$ranges = null;
+			$first = 0;
+			$last = 0;
 
 			if ($stream !== false && $bodysize > 0 && $_SERVER['REQUEST_METHOD'] == 'GET' && isset($_SERVER['HTTP_RANGE']) && $range = stristr(trim((string) $_SERVER['HTTP_RANGE']), 'bytes=')) {
 				$range = substr($range, 6);
@@ -715,7 +717,7 @@ class DownloadAttachment extends DownloadBase {
 		$attachment = $this->getAttachmentByAttachNum();
 		$attachmentProps = mapi_attach_getprops($attachment, [PR_ATTACH_LONG_FILENAME]);
 		$attachmentStream = streamProperty($attachment, PR_ATTACH_DATA_BIN);
-		$extension = strtolower(pathinfo((string) $attachmentProps[PR_ATTACH_LONG_FILENAME], PATHINFO_EXTENSION));
+		$extension = strtolower((string) pathinfo((string) $attachmentProps[PR_ATTACH_LONG_FILENAME], PATHINFO_EXTENSION));
 		$ok = false;
 
 		switch ($extension) {

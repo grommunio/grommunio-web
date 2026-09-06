@@ -278,9 +278,8 @@ class DelegatesModule extends Module {
 	/**
 	 * Function will return information of a particular delegate from current user's store.
 	 *
-	 * @param string $userEntryId         entryid of the delegate
-	 * @param array  $delegateMeetingRule (optional) information of the delegate meeting rule that can be used to check if
-	 *                                    current delegate exists in the meeting rule
+	 * @param string      $userEntryId         entryid of the delegate
+	 * @param array|false $delegateMeetingRule optional meeting-rule information, or false when no rule exists
 	 *
 	 * @return array delegate information
 	 */

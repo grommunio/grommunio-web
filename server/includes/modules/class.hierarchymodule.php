@@ -536,10 +536,10 @@ class HierarchyModule extends Module {
 	/**
 	 * Adds a folder to the hierarchylist.
 	 *
-	 * @param object $store         message Store Object
-	 * @param string $parententryid entryid of the parent folder
-	 * @param string $name          name of the new folder
-	 * @param string $type          type of the folder (calendar, mail, ...).
+	 * @param resource $store         MAPI message store
+	 * @param string   $parententryid entryid of the parent folder
+	 * @param string   $name          name of the new folder
+	 * @param string   $type          type of the folder (calendar, mail, ...).
 	 *
 	 * @return bool true on success or false on failure
 	 */
@@ -672,9 +672,9 @@ class HierarchyModule extends Module {
 	/**
 	 * Function which saves changed properties to a folder.
 	 *
-	 * @param object $store  MAPI object of the store
-	 * @param object $folder MAPI object of the folder
-	 * @param mixed  $action
+	 * @param resource $store  MAPI message store
+	 * @param resource $folder MAPI folder
+	 * @param array    $action action data sent by the client
 	 */
 	public function save($store, $folder, $action) {
 		// Rename folder
@@ -1019,8 +1019,8 @@ class HierarchyModule extends Module {
 	 * Function is used to create link message for the selected folder
 	 * in associated contains of IPM_COMMON_VIEWS folder.
 	 *
-	 * @param string $store   $store entryid of the store
-	 * @param string $entryid entryid of the MAPI folder
+	 * @param resource $store   MAPI message store
+	 * @param string   $entryid entryid of the MAPI folder
 	 */
 	public function addToFavorite($store, $entryid) {
 		$commonViewsFolder = $this->getCommonViewsFolder();
@@ -1038,13 +1038,12 @@ class HierarchyModule extends Module {
 	}
 
 	/**
-	 * Function which is used delete the search folder from respective store.
+	 * Delete a search folder from its store.
 	 *
-	 * @param object $store         $store $store MAPI store in which search folder is belongs
-	 * @param array  $parententryid $parententryid parent folder to search folder it is FIND_ROOT folder which
-	 *                              treated as search root folder
-	 * @param string $entryid       $entryid search folder entryid which is going to remove
-	 * @param array  $action        the action data, sent by the client
+	 * @param resource $store         MAPI store containing the search folder
+	 * @param string   $parententryid FINDER_ROOT parent folder entry ID
+	 * @param string   $entryid       search folder entry ID to remove
+	 * @param array    $action        action data sent by the client
 	 */
 	public function deleteSearchFolder($store, $parententryid, $entryid, $action) {
 		$folder = mapi_msgstore_openentry($store, $entryid);
@@ -1126,10 +1125,10 @@ class HierarchyModule extends Module {
 	/**
 	 * Deletes a folder in the hierarchylist.
 	 *
-	 * @param object $store         message Store Object
-	 * @param string $parententryid entryid of the parent folder
-	 * @param string $entryid       entryid of the folder
-	 * @param array  $action        the action data, sent by the client
+	 * @param resource $store         MAPI message store
+	 * @param string   $parententryid entryid of the parent folder
+	 * @param string   $entryid       entryid of the folder
+	 * @param array    $action        the action data, sent by the client
 	 */
 	public function deleteFolder($store, $parententryid, $entryid, $action) {
 		$props = [];
@@ -1184,8 +1183,8 @@ class HierarchyModule extends Module {
 	/**
 	 * Deletes all messages in a folder.
 	 *
-	 * @param object $store   message Store Object
-	 * @param string $entryid entryid of the folder
+	 * @param resource $store   MAPI message store
+	 * @param string   $entryid entryid of the folder
 	 */
 	public function emptyFolder($store, $entryid) {
 		$props = [];
@@ -1230,9 +1229,9 @@ class HierarchyModule extends Module {
 	/**
 	 * Deletes messages in a folder in batches, reporting progress after each batch.
 	 *
-	 * @param object $store     message Store Object
-	 * @param string $entryid   entryid of the folder
-	 * @param int    $batchSize number of messages to delete per batch
+	 * @param resource $store     MAPI message store
+	 * @param string   $entryid   entryid of the folder
+	 * @param int      $batchSize number of messages to delete per batch
 	 */
 	public function emptyFolderBatch($store, $entryid, $batchSize) {
 		$folder = mapi_msgstore_openentry($store, $entryid);
@@ -1316,14 +1315,14 @@ class HierarchyModule extends Module {
 	}
 
 	/**
-	 * Copies of moves a folder in the hierarchylist.
+	 * Copies or moves a folder in the hierarchy list.
 	 *
-	 * @param object $store               message Store Object
-	 * @param string $parententryid       entryid of the parent folder
-	 * @param string $sourcefolderentryid entryid of the folder to be copied of moved
-	 * @param string $destfolderentryid   entryid of the destination folder
-	 * @param mixed  $deststore
-	 * @param mixed  $moveFolder
+	 * @param resource $store               source MAPI message store
+	 * @param string   $parententryid       entryid of the parent folder
+	 * @param string   $sourcefolderentryid entryid of the folder to be copied or moved
+	 * @param string   $destfolderentryid   entryid of the destination folder
+	 * @param resource $deststore           destination MAPI message store
+	 * @param bool     $moveFolder          whether to move instead of copy
 	 */
 	public function copyFolder($store, $parententryid, $sourcefolderentryid, $destfolderentryid, $deststore, $moveFolder) {
 		$props = [];
@@ -1429,8 +1428,8 @@ class HierarchyModule extends Module {
 	/**
 	 * Set all messages read.
 	 *
-	 * @param object $store   message Store Object
-	 * @param string $entryid entryid of the folder
+	 * @param resource $store   MAPI message store
+	 * @param string   $entryid entryid of the folder
 	 */
 	public function setReadFlags($store, $entryid) {
 		$folder = mapi_msgstore_openentry($store, $entryid);

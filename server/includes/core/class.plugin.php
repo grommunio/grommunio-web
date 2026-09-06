@@ -1,8 +1,8 @@
 <?php
 
 class Plugin {
-	// Identifying name of the plugin.
-	private $pluginname = false;
+	/** @var string identifying name assigned by PluginManager */
+	private $pluginname = '';
 	// holds session data of the plugin
 	private $sessionData = false;
 
@@ -24,7 +24,7 @@ class Plugin {
 	 *
 	 * Gets the identifying name of the plugin.
 	 *
-	 * @return false|string identifying name of the plugin, or false before initialization
+	 * @return string identifying name of the plugin
 	 */
 	public function getPluginName() {
 		return $this->pluginname;
@@ -116,11 +116,13 @@ class Plugin {
 	 * @return string path
 	 */
 	public function getPluginPath() {
-		return PATH_PLUGIN_DIR . "/" . $this->getPluginName() . "/";
+		return PATH_PLUGIN_DIR . "/" . (string) $this->getPluginName() . "/";
 	}
 
-	// Placeholder functions
-	public function execute($eventID, &$data) {}
+	// Placeholder functions keep the signature implemented by event hooks.
+	public function execute($eventID, &$data) {
+		unset($eventID, $data);
+	}
 
 	public function init() {}
 }

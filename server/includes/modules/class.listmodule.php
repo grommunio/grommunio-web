@@ -38,14 +38,14 @@ class ListModule extends Module {
 	public $searchResults;
 
 	/**
-	 * @var resource free/busy message which holds
+	 * @var false|resource free/busy message which holds
 	 *                  information regarding delegation details, this variable will
 	 *                  only be populated when user is a delegate
 	 */
 	public $localFreeBusyMessage;
 
 	/**
-	 * @var string binary value of the PR_MDB_PROVIDER property
+	 * @var false|string binary value of the PR_MDB_PROVIDER property
 	 *                of a store, this variable will only be populated when user is a delegate
 	 */
 	public $storeProviderGuid;
@@ -219,10 +219,10 @@ class ListModule extends Module {
 	 *	Function will set search restrictions on search folder and start search process
 	 *	and it will also parse visible columns and sorting data when sending results to client.
 	 *
-	 * @param object $store      MAPI Message Store Object
-	 * @param string $entryid    entryid of the folder
-	 * @param object $action     the action data, sent by the client
-	 * @param string $actionType the action type, sent by the client
+	 * @param resource $store      MAPI message store
+	 * @param string   $entryid    entryid of the folder
+	 * @param array    $action     action data sent by the client
+	 * @param string   $actionType the action type, sent by the client
 	 */
 	public function search($store, $entryid, $action, $actionType) {
 		$useSearchFolder = $action["use_searchfolder"] ?? false;
@@ -972,7 +972,7 @@ class ListModule extends Module {
 	 * hide the data. This function will entirely remove the private message but
 	 * if any child class needs different behavior then this can be overridden.
 	 *
-	 * @param object $item item properties
+	 * @param array $item item properties
 	 *
 	 * @return array item properties, or an empty array for a private item
 	 */
@@ -992,7 +992,7 @@ class ListModule extends Module {
 	 * This function will check we are dealing with delegate stores or not if it is then
 	 * the delegator has permission to see private items of delegate.
 	 *
-	 * @param object $item item properties
+	 * @param array $item item properties
 	 *
 	 * @return bool true if items should be processed as private else false
 	 */

@@ -170,16 +170,16 @@ class Properties {
 	}
 
 	/**
-	 * Getter function which get the store.
+	 * Get the current message store.
 	 *
-	 * @return resource MAPI message store
+	 * @return false|resource MAPI message store, or false if none is available
 	 */
 	public function getStore() {
 		return $this->store !== false ? $this->store : $GLOBALS["mapisession"]->getDefaultMessageStore();
 	}
 
 	/**
-	 * Function which used to get the PR_MAPPING_SIGNATURE value from given store.
+	 * Get the PR_MAPPING_SIGNATURE value from the given store.
 	 *
 	 * @param resource $store MAPI message store
 	 *

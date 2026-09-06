@@ -464,10 +464,10 @@ class AdvancedSearchListModule extends ListModule {
 	 *	Function will set search restrictions on search folder and start search process
 	 *	and it will also parse visible columns and sorting data when sending results to client.
 	 *
-	 * @param object $store      MAPI Message Store Object
-	 * @param string $entryid    entryid of the folder
-	 * @param object $action     the action data, sent by the client
-	 * @param string $actionType the action type, sent by the client
+	 * @param resource $store      MAPI message store
+	 * @param string   $entryid    entryid of the folder
+	 * @param array    $action     action data sent by the client
+	 * @param string   $actionType the action type, sent by the client
 	 */
 	#[Override]
 	public function search($store, $entryid, $action, $actionType) {
