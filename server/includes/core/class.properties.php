@@ -31,7 +31,7 @@
  */
 class Properties {
 	/**
-	 * MAPI Message Store object.
+	 * @var false|resource current MAPI message store, or false before initialization
 	 */
 	private $store = false;
 
@@ -66,6 +66,10 @@ class Properties {
 		}
 
 		$this->store = $this->getStore();
+		if ($this->store === false) {
+			return;
+		}
+
 		$storeMapping = $this->getStoreMappingSignature($this->store);
 
 		if ($this->storeMapping !== $storeMapping) {
@@ -175,7 +179,11 @@ class Properties {
 	 * @return false|resource MAPI message store, or false if none is available
 	 */
 	public function getStore() {
-		return $this->store !== false ? $this->store : $GLOBALS["mapisession"]->getDefaultMessageStore();
+		if ($this->store !== false) {
+			return /** @scrutinizer ignore-type */ $this->store;
+		}
+
+		return /** @scrutinizer ignore-type */ $GLOBALS["mapisession"]->getDefaultMessageStore();
 	}
 
 	/**

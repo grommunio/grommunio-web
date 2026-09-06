@@ -97,14 +97,14 @@ class TaskItemModule extends ItemModule {
 	#[Override]
 	public function save($store, $parententryid, $entryid, $action, $actionType = 'save') {
 		if (isset($action["props"])) {
-			if (!$store && !$parententryid) {
+			if ($store === false && !$parententryid) {
 				if (isset($action["props"]["message_class"])) {
 					$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
 					$parententryid = $this->getDefaultFolderEntryID($store, $action["props"]["message_class"]);
 				}
 			}
 
-			if ($store && $parententryid) {
+			if ($store !== false && $parententryid) {
 				// Set the message flag for the item
 				if (isset($action['props']['message_flags']) && $entryid) {
 					$GLOBALS['operations']->setMessageFlag($store, $entryid, $action['props']['message_flags']);
@@ -145,10 +145,10 @@ class TaskItemModule extends ItemModule {
 	/**
 	 * Function which deletes an item.
 	 *
-	 * @param resource $store         MAPI message store
-	 * @param string   $parententryid parent entryid of the message
-	 * @param mixed    $entryids
-	 * @param array    $action        the action data, sent by the client
+	 * @param false|resource     $store         MAPI message store, or false when unavailable
+	 * @param false|string       $parententryid parent entry ID, or false when unavailable
+	 * @param array|false|string $entryids      entry IDs to delete, or false when unavailable
+	 * @param array              $action        action data sent by the client
 	 */
 	#[Override]
 	public function delete($store, $parententryid, $entryids, $action) {
@@ -156,7 +156,7 @@ class TaskItemModule extends ItemModule {
 			return;
 		}
 
-		if ($store && $parententryid) {
+		if ($store !== false && $parententryid) {
 			$props = [];
 			$props[PR_PARENT_ENTRYID] = $parententryid;
 			$props[PR_ENTRYID] = $entryids;
@@ -274,7 +274,7 @@ class TaskItemModule extends ItemModule {
 		$messageProps = [];
 		$send = $action["message_action"]["send"] ?? false;
 
-		if ($store && $parententryid) {
+		if ($store !== false && $parententryid) {
 			if (isset($action["props"])) {
 				if (isset($action["entryid"]) && empty($action["entryid"])) {
 					$GLOBALS["operations"]->setSenderAddress($store, $action);

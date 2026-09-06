@@ -242,6 +242,18 @@ class MAPISession {
 	}
 
 	/**
+	 * Open the session address book through php-mapi.
+	 *
+	 * The native extension returns a resource or false. Its userland analysis
+	 * stub cannot express a native resource return type without broadening it.
+	 *
+	 * @return false|resource address book, or false when it cannot be opened
+	 */
+	private function openAddressbookResource() {
+		return /** @scrutinizer ignore-type */ mapi_openaddressbook($this->session);
+	}
+
+	/**
 	 * Get MAPI addressbook object.
 	 *
 	 * @param bool $providerless               When set to true it will return an addressbook resource
@@ -254,14 +266,12 @@ class MAPISession {
 	public function getAddressbook($providerless = false, $loadSharedContactsProvider = false) {
 		if ($providerless) {
 			try {
-				return mapi_openaddressbook($this->session);
+				return $this->openAddressbookResource();
 			}
 			catch (MAPIException $e) {
 				return $e->getCode();
 			}
 		}
-
-		$result = NOERROR;
 
 		if ($this->ab === false) {
 			$this->setupContactProviderAddressbook($loadSharedContactsProvider);
@@ -269,18 +279,14 @@ class MAPISession {
 
 		try {
 			if ($this->ab === false) {
-				$this->ab = mapi_openaddressbook($this->session);
+				$this->ab = $this->openAddressbookResource();
 			}
 
-			if ($this->ab !== false) {
-				$result = $this->ab;
-			}
+			return /** @scrutinizer ignore-type */ $this->ab;
 		}
 		catch (MAPIException $e) {
-			$result = $e->getCode();
+			return $e->getCode();
 		}
-
-		return $result;
 	}
 
 	/**
