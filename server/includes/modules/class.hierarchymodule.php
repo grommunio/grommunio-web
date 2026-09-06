@@ -79,8 +79,9 @@ class HierarchyModule extends Module {
 				$entryid = $this->getActionSingleEntryID($action);
 				$this->store_entryid = $action["store_entryid"] ?? '';
 				// These actions address the session, not a store, and are sent
-				// without store_entryid.
-				$storelessActions = ['keepalive', 'destroysession', 'list', 'opensharedfolder', 'sharedstoreupdate'];
+				// without store_entryid. A shared store is closed from the session
+				// even when it can no longer be opened.
+				$storelessActions = ['keepalive', 'destroysession', 'list', 'opensharedfolder', 'closesharedfolder', 'sharedstoreupdate'];
 				if (is_array($store)) {
 					if (!in_array($actionType, $storelessActions, true)) {
 						$this->sendFeedback(false);
