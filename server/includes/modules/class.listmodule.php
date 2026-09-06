@@ -125,7 +125,7 @@ class ListModule extends Module {
 	#[Override]
 	public function handleException(&$e, $actionType = null, $store = null, $parententryid = null, $entryid = null, $action = null) {
 		if (is_null($e->displayMessage)) {
-			$hexEntryid = $entryid != null ? bin2hex($entryid) : 'null';
+			$hexEntryid = $entryid !== null ? bin2hex($entryid) : 'null';
 
 			switch ($actionType) {
 				case "list":
@@ -418,9 +418,9 @@ class ListModule extends Module {
 	 *	and it will also send intermediate results of search, so we don't have to wait
 	 *	until search is finished on server to send results.
 	 *
-	 * @param object    $store   MAPI Message Store Object
-	 * @param string $entryid folder entry ID in hexadecimal form
-	 * @param object    $action  the action data, sent by the client
+	 * @param false|resource $store   MAPI Message Store Object, or false when unavailable
+	 * @param false|string   $entryid binary folder entry ID, or false when absent
+	 * @param array          $action  the action data, sent by the client
 	 */
 	public function updatesearch($store, $entryid, $action) {
 		if (!isset($entryid) || !$entryid) {
@@ -429,8 +429,13 @@ class ListModule extends Module {
 		}
 
 		$listData = [];
-		if (isset($action['search_folder_entryid'])) {
-			$entryid = hex2bin($action['search_folder_entryid']);
+		if (array_key_exists('search_folder_entryid', $action)) {
+			$searchFolderEntryid = $action['search_folder_entryid'];
+			if (!is_string($searchFolderEntryid) || $searchFolderEntryid === '' ||
+				(strlen($searchFolderEntryid) % 2) !== 0 || !ctype_xdigit($searchFolderEntryid)) {
+				return;
+			}
+			$entryid = hex2bin($searchFolderEntryid);
 		}
 		$searchFolder = mapi_msgstore_openentry($store, $entryid);
 		$searchResult = mapi_folder_getsearchcriteria($searchFolder);
@@ -538,9 +543,9 @@ class ListModule extends Module {
 	/**
 	 *	Function will stop search on the server if search folder exists.
 	 *
-	 * @param object    $store   MAPI Message Store Object
-	 * @param string $entryid folder entry ID in hexadecimal form
-	 * @param object    $action  the action data, sent by the client
+	 * @param false|resource $store   MAPI Message Store Object, or false when unavailable
+	 * @param false|string   $entryid binary folder entry ID, or false when absent
+	 * @param array          $action  the action data, sent by the client
 	 */
 	public function stopSearch($store, $entryid, $action) {
 		// if no entryid is present in the request then get the search folder entryid from session data
@@ -579,9 +584,9 @@ class ListModule extends Module {
 	/**
 	 * Function will delete search folder.
 	 *
-	 * @param object    $store   MAPI Message Store Object
-	 * @param string $entryid folder entry ID in hexadecimal form
-	 * @param array     $action  the action data, sent by the client
+	 * @param false|resource $store   MAPI Message Store Object, or false when unavailable
+	 * @param false|string   $entryid binary folder entry ID, or false when absent
+	 * @param array          $action  the action data, sent by the client
 	 *
 	 * @return bool true on success or false on failure
 	 */
@@ -592,7 +597,7 @@ class ListModule extends Module {
 			$finderFolder = mapi_msgstore_openentry($store, $storeProps[PR_FINDER_ENTRYID]);
 
 			if (mapi_last_hresult() != NOERROR) {
-				return;
+				return false;
 			}
 
 			$hierarchyTable = mapi_folder_gethierarchytable($finderFolder, MAPI_DEFERRED_ERRORS);
@@ -612,7 +617,7 @@ class ListModule extends Module {
 			$folders = mapi_table_queryrows($hierarchyTable, [PR_ENTRYID], 0, 1);
 
 			// delete search folder
-			if (is_array($folders) && is_array($folders[0])) {
+			if (is_array($folders) && isset($folders[0]) && is_array($folders[0]) && isset($folders[0][PR_ENTRYID])) {
 				mapi_folder_deletefolder($finderFolder, $folders[0][PR_ENTRYID]);
 			}
 

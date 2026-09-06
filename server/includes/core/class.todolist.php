@@ -8,18 +8,16 @@ class TodoList {
 	/**
 	 * The entryid of the Todo-list search folder. TodoList::getEntryId will retrieve it
 	 * if it isn't yet.
-	 *
-	 * @var false|string
 	 */
-	private static $_entryId = false;
+	private static false|string $_entryId = false;
 
 	/**
 	 * Returns the entryid of the To-do list search folder.
 	 *
 	 * @return false|string entry ID of the To-do list search folder, or false when unavailable
 	 */
-	public static function getEntryId() {
-		if (!TodoList::$_entryId) {
+	public static function getEntryId(): false|string {
+		if (TodoList::$_entryId === false) {
 			TodoList::_retrieveEntryId();
 		}
 
@@ -34,12 +32,12 @@ class TodoList {
 	 *
 	 * @return false|string The entryid of the Todo-list search folder, or false when unavailable
 	 */
-	private static function _retrieveEntryId() {
+	private static function _retrieveEntryId(): false|string {
 		$userStore = $GLOBALS['mapisession']->getDefaultMessageStore();
 		$root = mapi_msgstore_openentry($userStore);
-		TodoList::$_entryId = self::readEntryId($root);
+		TodoList::$_entryId = self::normalizeEntryId(self::readEntryId($root));
 
-		if (!TodoList::$_entryId) {
+		if (TodoList::$_entryId === false) {
 			TodoList::createTodoSearchFolder();
 		}
 
@@ -53,7 +51,7 @@ class TodoList {
 	 *
 	 * @return false|string stored entry ID, or false when none is present
 	 */
-	private static function readEntryId($root) {
+	private static function readEntryId($root): false|string {
 		$rootProperties = mapi_getprops($root, [PR_ADDITIONAL_REN_ENTRYIDS_EX]);
 		$additionalRenEntryidsEx = $rootProperties[PR_ADDITIONAL_REN_ENTRYIDS_EX] ?? '';
 
@@ -82,6 +80,15 @@ class TodoList {
 	}
 
 	/**
+	 * Accept only non-empty binary entry IDs for the static cache.
+	 *
+	 * @param mixed $entryId
+	 */
+	private static function normalizeEntryId($entryId): false|string {
+		return is_string($entryId) && $entryId !== '' ? $entryId : false;
+	}
+
+	/**
 	 * Creates a search folder for the To-do list under the root folder of the store. Adds the entryid
 	 * to the PR_ADDITIONAL_REN_ENTRYIDS_EX property of the root folder, and also stores it in TodoList::$_entryId.
 	 *
@@ -89,7 +96,7 @@ class TodoList {
 	 *
 	 * @return false|string entry ID of the new search folder, or false when it cannot be created
 	 */
-	public static function createTodoSearchFolder($expectedEntryId = null) {
+	public static function createTodoSearchFolder($expectedEntryId = null): false|string {
 		$renState = State::forStore('additional-ren-entryids-write');
 		if (!$renState->open()) {
 			throw new RuntimeException('Unable to lock additional folder entryids');
@@ -110,11 +117,11 @@ class TodoList {
 	 *
 	 * @return false|string entry ID of the search folder, or false when it cannot be created
 	 */
-	private static function createTodoSearchFolderLocked($expectedEntryId) {
+	private static function createTodoSearchFolderLocked($expectedEntryId): false|string {
 		$userStore = $GLOBALS['mapisession']->getDefaultMessageStore();
 		$root = mapi_msgstore_openentry($userStore);
-		$entryid = self::readEntryId($root);
-		if ($entryid && ($expectedEntryId === null || $entryid !== $expectedEntryId)) {
+		$entryid = self::normalizeEntryId(self::readEntryId($root));
+		if ($entryid !== false && ($expectedEntryId === null || $entryid !== $expectedEntryId)) {
 			TodoList::$_entryId = $entryid;
 
 			return $entryid;
@@ -129,7 +136,7 @@ class TodoList {
 				mapi_folder_setsearchcriteria($resource, TodoList::_createRestriction(), [$ipmSubTreeEntryId], RECURSIVE_SEARCH);
 
 				$props = mapi_getprops($resource, [PR_ENTRYID]);
-				$entryid = $props[PR_ENTRYID];
+				$entryid = self::normalizeEntryId($props[PR_ENTRYID] ?? false);
 			}
 		}
 		catch (MAPIException $e) {
@@ -137,7 +144,7 @@ class TodoList {
 			$e->setHandled();
 		}
 
-		if (!$entryid) {
+		if ($entryid === false) {
 			return false;
 		}
 
@@ -165,7 +172,7 @@ class TodoList {
 			$e->setHandled();
 		}
 
-		if ($entryid) {
+		if ($entryid !== false) {
 			TodoList::$_entryId = $entryid;
 		}
 
@@ -193,7 +200,7 @@ class TodoList {
 			if ($e->getCode() === MAPI_E_NOT_FOUND || $e->getCode() === MAPI_E_INVALID_ENTRYID) {
 				// Entryid invalid or no not found
 				$entryid = self::createTodoSearchFolder($entryid);
-				if ($entryid) {
+				if ($entryid !== false) {
 					return mapi_msgstore_openentry($store, $entryid);
 				}
 			}

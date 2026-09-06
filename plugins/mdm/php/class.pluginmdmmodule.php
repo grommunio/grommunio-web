@@ -185,7 +185,7 @@ class PluginMDMModule extends Module {
 		}
 		error_log(sprintf(
 			"mdm plugin removeDevice state folder %s device state folder %s",
-			$stateFolder,
+			(string) $stateFolder,
 			$deviceStateFolder
 		));
 

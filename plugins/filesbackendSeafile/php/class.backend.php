@@ -167,10 +167,11 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 	public function ls($dir, $hidefirst = true) {
 		$timer = new Timer();
 		$this->log("[LS] '{$dir}'");
+		$seafapi = $this->getSeafileApi();
 
 		if (trim($dir, '/') === '') {
 			try {
-				$listing = $this->seafapi->listLibraries();
+				$listing = $seafapi->listLibraries();
 			}
 			catch (\Throwable $throwable) {
 				$this->backendException($throwable);
@@ -188,7 +189,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 		}
 
 		try {
-			$listing = $this->seafapi->listItemsInDirectory($lsDir->lib, $lsDir->path ?? '');
+			$listing = $seafapi->listItemsInDirectory($lsDir->lib, $lsDir->path ?? '');
 		}
 		catch (\Throwable $throwable) {
 			$this->backendException($throwable);
@@ -199,12 +200,12 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 		$result = [];
 		$baseDir = rtrim($dir, '/') . '/';
 		foreach ($listing as $node) {
-			if (!isset($this->seafapi::TYPES[$node->type])) {
+			if (!isset(SeafileApi::TYPES[$node->type])) {
 				$this->backendException(
 					new \UnexpectedValueException(sprintf('Unhandled Seafile node-type "%s" (for "%s")', $node->type, $node->name))
 				);
 			}
-			$isDir = isset($this->seafapi::TYPES_DIR_LIKE[$node->type]);
+			$isDir = isset(SeafileApi::TYPES_DIR_LIKE[$node->type]);
 			$name = rtrim($baseDir . $node->name, '/') . '/';
 			$isDir || $name = rtrim($name, '/');
 			$result[$name] = [
@@ -234,11 +235,12 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 	public function mkcol($dir) {
 		$timer = new Timer();
 		$this->log("[MKCOL] '{$dir}'");
+		$seafapi = $this->getSeafileApi();
 
 		if ($this->isLibrary($dir)) {
 			// create library
 			try {
-				$result = $this->seafapi->createLibrary($dir);
+				$result = $seafapi->createLibrary($dir);
 				unset($result);
 			}
 			catch (\Throwable $throwable) {
@@ -248,11 +250,11 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 		}
 		else {
 			// create directory within library
-			$lib = $this->seafapi->getLibraryFromPath($dir)->id;
+			$lib = $seafapi->getLibraryFromPath($dir)->id;
 			[, $path] = explode('/', trim($dir, '/'), 2);
 
 			try {
-				$result = $this->seafapi->createNewDirectory($lib, $path);
+				$result = $seafapi->createNewDirectory($lib, $path);
 			}
 			catch (\Throwable $throwable) {
 				$this->backendException($throwable);
@@ -277,11 +279,13 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 	public function delete($path) {
 		$timer = new Timer();
 		$this->log("[DELETE] '{$path}'");
+		$seafapi = $this->getSeafileApi();
+		$result = false;
 
 		if ($this->isLibrary($path)) {
 			// delete library
 			try {
-				$this->seafapi->deleteLibraryByName($path);
+				$seafapi->deleteLibraryByName($path);
 				$result = 'success';
 			}
 			catch (\Throwable $throwable) {
@@ -293,7 +297,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 			$deletePath = $this->splitGrommunioPath($path);
 
 			try {
-				$result = $this->seafapi->deleteFile($deletePath->lib, $deletePath->path);
+				$result = $seafapi->deleteFile($deletePath->lib, $deletePath->path);
 			}
 			catch (\Throwable $throwable) {
 				$this->backendException($throwable);
@@ -319,6 +323,8 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 	public function move($src_path, $dst_path, $overwrite = false) {
 		$timer = new Timer();
 		$this->log("[MOVE] '{$src_path}' -> '{$dst_path}'");
+		$seafapi = $this->getSeafileApi();
+		$result = null;
 
 		// check if the move operation would move src into itself - error condition
 		if (str_starts_with($dst_path, $src_path . '/')) {
@@ -343,7 +349,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 			}
 
 			try {
-				$this->seafapi->renameLibrary($src->libName, $dst->libName);
+				$seafapi->renameLibrary($src->libName, $dst->libName);
 				$result = true;
 			}
 			catch (\Throwable $throwable) {
@@ -369,7 +375,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 		// 3/5: rename file/directory
 		if ($isIntraLibTransaction && $pathsHaveSameDirNames) {
 			try {
-				$result = $this->seafapi->renameFile($src->lib, $src->path, basename($dst->path));
+				$result = $seafapi->renameFile($src->lib, $src->path, basename($dst->path));
 			}
 			catch (\Throwable $throwable) {
 				$this->backendException($throwable);
@@ -381,7 +387,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 		// 4/5: move file/directory
 		if (isset($src->path, $dst->lib)) {
 			try {
-				$result = $this->seafapi->moveFile($src->lib, $src->path, $dst->lib, $dirNames[1]);
+				$result = $seafapi->moveFile($src->lib, $src->path, $dst->lib, $dirNames[1]);
 			}
 			catch (\Throwable $throwable) {
 				$this->backendException($throwable);
@@ -391,7 +397,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 		done:
 
 		// 5/5: every other operation (move library into another library, not implemented)
-		if (!isset($result)) {
+		if ($result === null) {
 			$this->backendError(self::SFA_ERR_UNIMPLEMENTED, 'Not implemented.');
 		}
 
@@ -413,11 +419,12 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 	public function get($path, &$buffer) {
 		$timer = new Timer();
 		$this->log("[GET] '{$path}'");
+		$seafapi = $this->getSeafileApi();
 
 		$src = $this->splitGrommunioPath($path);
 
 		try {
-			$result = $this->seafapi->downloadFileAsBuffer($src->lib, $src->path);
+			$result = $seafapi->downloadFileAsBuffer($src->lib, $src->path);
 		}
 		catch (\Throwable $throwable) {
 			$this->backendException($throwable);
@@ -447,11 +454,12 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 	public function get_file($srcpath, $localpath) {
 		$timer = new Timer();
 		$this->log("[GET_FILE] '{$srcpath}' -> '{$localpath}'");
+		$seafapi = $this->getSeafileApi();
 
 		$src = $this->splitGrommunioPath($srcpath);
 
 		try {
-			$result = $this->seafapi->downloadFileToFile($src->lib, $src->path, $localpath);
+			$result = $seafapi->downloadFileToFile($src->lib, $src->path, $localpath);
 		}
 		catch (\Throwable $throwable) {
 			$this->backendException($throwable);
@@ -477,12 +485,12 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 	public function put($path, $data) {
 		$timer = new Timer();
 		$this->log(sprintf("[PUT] start: path: %s (%d)", $path, strlen((string) $data)));
+		$seafapi = $this->getSeafileApi();
 
 		$target = $this->splitGrommunioPath($path);
 
 		try {
-			/** @noinspection PhpUnusedLocalVariableInspection */
-			$result = $this->seafapi->uploadBuffer($target->lib, $target->path, $data);
+			$seafapi->uploadBuffer($target->lib, $target->path, $data);
 		}
 		catch (\Throwable $throwable) {
 			$this->backendException($throwable);
@@ -511,13 +519,14 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 		if (empty($filename)) {
 			return false;
 		}
+		$seafapi = $this->getSeafileApi();
 
 		$target = $this->splitGrommunioPath($path);
 
 		// put file into users default library if no library given
 		if ($target->path === null && $target->libName !== null) {
 			try {
-				$defaultLibrary = $this->seafapi->getDefaultLibrary();
+				$defaultLibrary = $seafapi->getDefaultLibrary();
 			}
 			catch (\Throwable $throwable) {
 				$this->backendException($throwable);
@@ -530,8 +539,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 		}
 
 		try {
-			/** @noinspection PhpUnusedLocalVariableInspection */
-			$result = $this->seafapi->uploadFile($target->lib, $target->path, $filename);
+			$seafapi->uploadFile($target->lib, $target->path, $filename);
 		}
 		catch (\Throwable $throwable) {
 			$this->backendException($throwable);
@@ -560,10 +568,8 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 			if (class_exists('EncryptionStore')) {
 				// Get the username and password from the Encryption store
 				$encryptionStore = \EncryptionStore::getInstance();
-				if ($encryptionStore instanceof \EncryptionStore) {
-					$config['user'] = $encryptionStore->get('username');
-					$config['password'] = $encryptionStore->get('password');
-				}
+				$config['user'] = $encryptionStore->get('username');
+				$config['password'] = $encryptionStore->get('password');
 			}
 			else {
 				$config['user'] = ConfigUtil::loadSmtpAddress();
@@ -634,10 +640,11 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 	public function getRecipients($search): array|false {
 		$search = trim((string) $search);
 		$groups = [];
+		$seafapi = $this->getSeafileApi();
 
 		try {
-			$userSearch = $this->seafapi->searchUser($search);
-			$groups = $this->seafapi->shareableGroups();
+			$userSearch = $seafapi->searchUser($search);
+			$groups = $seafapi->shareableGroups();
 		}
 		catch (\Throwable $throwable) {
 			$this->backendException($throwable);
@@ -820,8 +827,10 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 	 * @throws BackendException
 	 */
 	public function getServerVersion() {
+		$seafapi = $this->getSeafileApi();
+
 		try {
-			return $this->seafapi->getServerVersion();
+			return $seafapi->getServerVersion();
 		}
 		catch (\Throwable $throwable) {
 			$this->backendException($throwable);
@@ -841,7 +850,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 	 * @noinspection PhpUnusedParameterInspection
 	 */
 	public function getQuotaBytesUsed($dir) {
-		$return = $this->seafapi->checkAccountInfo();
+		$return = $this->getSeafileApi()->checkAccountInfo();
 
 		return ($return->usage ?? 0) * self::QUOTA_MULTIPLIER_SEAFILE_TO_GROMMUNIO;
 	}
@@ -855,7 +864,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 	 * @noinspection PhpMissingParamTypeInspection
 	 */
 	public function getQuotaBytesAvailable($dir) {
-		$return = $this->seafapi->checkAccountInfo();
+		$return = $this->getSeafileApi()->checkAccountInfo();
 		$avail = $return->total - $return->usage;
 		if ((int) $return->total === -2) {
 			return -1;
@@ -867,6 +876,19 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 	// ///////////////////////////////////////////////////////////
 	// @internal private helper methods                        //
 	// ///////////////////////////////////////////////////////////
+
+	/**
+	 * Return the initialized Seafile API client.
+	 *
+	 * @throws BackendException if the backend has not been opened
+	 */
+	private function getSeafileApi(): SeafileApi {
+		if ($this->seafapi === null) {
+			$this->backendError(self::SFA_ERR_UNREACHABLE);
+		}
+
+		return $this->seafapi;
+	}
 
 	/**
 	 * Initialise form fields.
@@ -965,7 +987,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 	 */
 	private function splitGrommunioPath(string $grommunioPath): object {
 		static $libraries;
-		$libraries ??= array_column($this->seafapi->listLibraries(), null, 'name');
+		$libraries ??= array_column($this->getSeafileApi()->listLibraries(), null, 'name');
 
 		[, $libName, $path] = explode('/', $grommunioPath, 3) + [null, null, null];
 		if ($path !== null) {
