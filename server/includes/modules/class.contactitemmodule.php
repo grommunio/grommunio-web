@@ -604,7 +604,10 @@ class ContactItemModule extends ItemModule {
 				$messageProps = $GLOBALS['operations']->saveAppointment($store, false, hex2bin($parentEntryId), $data);
 			}
 			else {
-				throw $e;
+				// The calendar entry is a convenience; the contact is saved regardless.
+				$e->setHandled();
+				error_log(sprintf('Unable to save the %s appointment of a contact: %s', $type, $e->getMessage()));
+				$messageProps = false;
 			}
 		}
 

@@ -109,9 +109,11 @@ class Response {
 			return self::normalizeOrigin($_SERVER['HTTP_ORIGIN']) === $requestOrigin;
 		}
 
+		// "none" marks a navigation the user started (typed URL, bookmark);
+		// no other site can produce it.
 		$fetchSite = strtolower(trim((string) ($_SERVER['HTTP_SEC_FETCH_SITE'] ?? '')));
 		if ($fetchSite !== '') {
-			return $fetchSite === 'same-origin';
+			return $fetchSite === 'same-origin' || $fetchSite === 'none';
 		}
 
 		if (isset($_SERVER['HTTP_REFERER'])) {

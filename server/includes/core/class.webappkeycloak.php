@@ -187,8 +187,10 @@ class WebAppKeyCloak extends KeyCloak {
 	/**
 	 * Choose and normalize the OAuth callback URL.
 	 *
-	 * SERVER_NAME is expected to be fixed by the web-server configuration.
-	 * Deployments which derive it from Host must set redirect-url explicitly.
+	 * A fixed SERVER_NAME is preferred. The stock nginx configuration serves
+	 * grommunio Web from a catch-all server block (server_name _;), so the Host
+	 * header is used when SERVER_NAME is not a usable host name. Set redirect-url
+	 * in keycloak.json to pin the callback explicitly.
 	 *
 	 * @param array $config keycloak.json configuration
 	 *
@@ -199,7 +201,6 @@ class WebAppKeyCloak extends KeyCloak {
 			return self::normalizeCallbackUrl($config['redirect-url']);
 		}
 
-		$serverName = (string) ($_SERVER['SERVER_NAME'] ?? '');
 		$scriptName = (string) ($_SERVER['SCRIPT_NAME'] ?? '/index.php');
 		$scriptName = preg_replace('/[\x00-\x1f\x7f]/', '', str_replace('\\', '/', $scriptName));
 		$scriptName = '/' . ltrim($scriptName, '/');
@@ -209,7 +210,18 @@ class WebAppKeyCloak extends KeyCloak {
 			$scriptName = rtrim(dirname($scriptName), '/') . '/index.php';
 		}
 
-		return self::normalizeCallbackUrl('https://' . $serverName . $scriptName);
+		foreach ([$_SERVER['SERVER_NAME'] ?? '', $_SERVER['HTTP_HOST'] ?? ''] as $authority) {
+			$authority = (string) $authority;
+			if ($authority === '') {
+				continue;
+			}
+			$url = self::normalizeCallbackUrl('https://' . $authority . $scriptName);
+			if ($url !== null) {
+				return $url;
+			}
+		}
+
+		return null;
 	}
 
 	/**
