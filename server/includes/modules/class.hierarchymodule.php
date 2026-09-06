@@ -177,7 +177,8 @@ class HierarchyModule extends Module {
 							//   - emptyfolder: Delete all items within the folder
 							//   - readflags: Mark all items within the folder as read
 							//   - addtofavorites: Add the folder to "favorites"
-							if (!isset($action["message_action"]["isSearchFolder"])) {
+							$data = null;
+							if (empty($action["message_action"]["isSearchFolder"])) {
 								$folder = mapi_msgstore_openentry($store, $entryid);
 								$data = $this->getFolderProps($store, $folder);
 							}
@@ -198,7 +199,7 @@ class HierarchyModule extends Module {
 										if ($destentryid && $deststore) {
 											$this->copyFolder($store, $parententryid, $entryid, $destentryid, $deststore, $action["message_action"]["action_type"] == "move");
 										}
-										if (($data["props"]["container_class"] ?? null) === "IPF.Contact") {
+										if (isset($data["props"]["container_class"]) && $data["props"]["container_class"] === "IPF.Contact") {
 											$GLOBALS["bus"]->notify(ADDRESSBOOK_ENTRYID, OBJECT_SAVE);
 										}
 										break;
@@ -594,9 +595,7 @@ class HierarchyModule extends Module {
 		}
 
 		$permissions = $this->getFolderPermissions($folder);
-		if ($permissions === false) {
-			$permissions = [];
-		}
+		$permissions = is_array($permissions) ? $permissions : [];
 
 		// replace "IPM_SUBTREE" with the display name of the store, and use the store message size
 		$store_props = mapi_getprops($store, [PR_IPM_SUBTREE_ENTRYID]);
