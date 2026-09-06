@@ -588,7 +588,7 @@ final class SeafileApi {
 			'permission' => $permission ?? 'r',
 		];
 
-		return $this->jsonDecode(
+		$response = $this->jsonDecode(
 			$this->put(
 				"{$this->baseurl}/api2/repos/{$lib}/dir/shared_items/?p={$pathEncoded}",
 				$fields,
@@ -597,6 +597,11 @@ final class SeafileApi {
 			// either array of objects -or- failure object
 			self::JSON_DECODE_ACCEPT_ARRAY | self::JSON_DECODE_ACCEPT_OBJECT,
 		);
+		if (!is_array($response) && !is_object($response)) {
+			throw new InvalidResponseException('Expected share details from Seafile.');
+		}
+
+		return $response;
 	}
 
 	/**

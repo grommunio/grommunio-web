@@ -379,21 +379,19 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing, 
 		$shares = $this->ocs_client->getAllShares();
 
 		$result[$path] = [];
-		if ($shares !== false) {
-			foreach ($shares as $id => $options) {
-				$result[$path][$id] = [
-					"shared" => true,
-					"id" => $options->getId(),
-					"path" => $options->getPath(),
-					"shareType" => $options->getShareType(),
-					"permissions" => $options->getPermissions(),
-					"expiration" => $options->getExpiration(),
-					"token" => $options->getToken(),
-					"url" => $options->getUrl(),
-					"shareWith" => $options->getShareWith(),
-					"shareWithDisplayname" => $options->getShareWithDisplayname(),
-				];
-			}
+		foreach ($shares ?: [] as $id => $options) {
+			$result[$path][$id] = [
+				"shared" => true,
+				"id" => $options->getId(),
+				"path" => $options->getPath(),
+				"shareType" => $options->getShareType(),
+				"permissions" => $options->getPermissions(),
+				"expiration" => $options->getExpiration(),
+				"token" => $options->getToken(),
+				"url" => $options->getUrl(),
+				"shareWith" => $options->getShareWith(),
+				"shareWithDisplayname" => $options->getShareWithDisplayname(),
+			];
 		}
 
 		return $result;
@@ -463,20 +461,18 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing, 
 
 				$result[$patharray[0]] = [];
 
-				if ($shares !== false) {
-					foreach ($shares as $id => $share) {
-						$result[$patharray[0]][$id] = [
-							"shared" => true,
-							"id" => $share->getId(),
-							"shareType" => $share->getShareType(),
-							"permissions" => $share->getPermissions(),
-							"expiration" => $share->getExpiration(),
-							"token" => $share->getToken(),
-							"url" => $share->getUrl(),
-							"shareWith" => $share->getShareWith(),
-							"shareWithDisplayname" => $share->getShareWithDisplayName(),
-						];
-					}
+				foreach ($shares ?: [] as $id => $share) {
+					$result[$patharray[0]][$id] = [
+						"shared" => true,
+						"id" => $share->getId(),
+						"shareType" => $share->getShareType(),
+						"permissions" => $share->getPermissions(),
+						"expiration" => $share->getExpiration(),
+						"token" => $share->getToken(),
+						"url" => $share->getUrl(),
+						"shareWith" => $share->getShareWith(),
+						"shareWithDisplayname" => $share->getShareWithDisplayName(),
+					];
 				}
 			}
 			else {

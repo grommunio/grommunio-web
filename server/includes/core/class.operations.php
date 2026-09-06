@@ -1976,10 +1976,13 @@ class Operations {
 			$message = $this->openMessage($store, $entryid);
 		}
 		else {
+			if ($parententryid === false) {
+				return false;
+			}
 			$message = $this->createMessage($store, $parententryid);
 		}
 
-		if ($message) {
+		if ($message !== false) {
 			$property = false;
 			$body = "";
 
@@ -2711,18 +2714,18 @@ class Operations {
 	 *
 	 * @see Operations::saveMessage() for more information on the parameters, which are identical.
 	 *
-	 * @param resource    $store                     MAPI message store
-	 * @param string      $entryid                   entry ID of the message
-	 * @param array       $props                     The properties to be saved
-	 * @param array       $messageProps              reference to an array which will be filled with PR_ENTRYID, PR_PARENT_ENTRYID and PR_STORE_ENTRYID
-	 * @param array       $recipients                XML array structure of recipients for the recipient table
-	 * @param array       $attachments               array of attachments consisting unique ID of attachments for this message
-	 * @param resource    $copyFromMessage           message from which we should
-	 *                                               copy attachments and/or recipients to the current message
-	 * @param bool        $copyAttachments           if set we copy all attachments from the $copyFromMessage
-	 * @param bool        $copyRecipients            if set we copy all recipients from the $copyFromMessage
-	 * @param bool        $copyInlineAttachmentsOnly if true then copy only inline attachments
-	 * @param bool        $isPlainText               if true then message body will be generated using PR_BODY otherwise PR_HTML will be used in saveMessage() function
+	 * @param resource       $store                     MAPI message store
+	 * @param false|string   $entryid                   entry ID, or false for a new message
+	 * @param array          $props                     The properties to be saved
+	 * @param array          $messageProps              reference to an array which will be filled with PR_ENTRYID, PR_PARENT_ENTRYID and PR_STORE_ENTRYID
+	 * @param array          $recipients                XML array structure of recipients for the recipient table
+	 * @param array          $attachments               array of attachments consisting unique ID of attachments for this message
+	 * @param false|resource $copyFromMessage           message from which we should
+	 *                                                  copy attachments and/or recipients to the current message
+	 * @param bool           $copyAttachments           if set we copy all attachments from the $copyFromMessage
+	 * @param bool           $copyRecipients            if set we copy all recipients from the $copyFromMessage
+	 * @param bool           $copyInlineAttachmentsOnly if true then copy only inline attachments
+	 * @param bool           $isPlainText               if true then message body will be generated using PR_BODY otherwise PR_HTML will be used in saveMessage() function
 	 *
 	 * @return bool|string false if the action succeeded, otherwise an error name
 	 */
@@ -2794,7 +2797,7 @@ class Operations {
 		// and keep the conversation topic. Without this the response would start
 		// a new conversation id and the thread falls apart, both here and for
 		// counterparts that thread by the exported Thread-Index header.
-		if ($copyFromMessage) {
+		if ($copyFromMessage !== false) {
 			$origMsgProps = mapi_getprops($copyFromMessage, [
 				PR_CONVERSATION_INDEX,
 				PR_CONVERSATION_TOPIC,
@@ -3697,7 +3700,7 @@ class Operations {
 	public function setMessageFlag($store, $entryid, $flags, $msg_action = false, &$props = false) {
 		$message = $this->openMessage($store, $entryid);
 
-		if ($message) {
+		if ($message !== false) {
 			/**
 			 * convert flags of PR_MESSAGE_FLAGS property to flags that is
 			 * used in mapi_message_setreadflag.
