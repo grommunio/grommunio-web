@@ -127,7 +127,7 @@ class AttachmentState {
 		}
 
 		// Convert in UTF-8 properly if any Malformed UTF-8 characters.
-		return mb_convert_encoding($attachmentPath, 'UTF-8');
+		return (string) mb_convert_encoding($attachmentPath, 'UTF-8');
 	}
 
 	/**
@@ -139,6 +139,15 @@ class AttachmentState {
 	 */
 	public function getAttachmentPath($filename) {
 		return $this->getAttachmentFolder() . DIRECTORY_SEPARATOR . mb_basename($filename);
+	}
+
+	/**
+	 * Remove a temporary attachment and report cleanup failures.
+	 */
+	private function deleteTemporaryFile(string $filepath): void {
+		if ((is_file($filepath) || is_link($filepath)) && !@unlink($filepath)) {
+			error_log("Unable to remove temporary attachment file: {$filepath}");
+		}
 	}
 
 	/**
@@ -250,7 +259,7 @@ class AttachmentState {
 			$attachmentFolderStat === false || ($attachmentFolderStat['mode'] & 0170000) !== 0040000 ||
 			dirname($attachmentFolder) !== $attachmentBase || realpath(dirname($filepath)) !== $attachmentFolder ||
 			$sourceStat === false || ($sourceStat['mode'] & 0170000) !== 0100000) {
-			@unlink($filepath);
+			$this->deleteTemporaryFile($filepath);
 
 			throw new ZarafaException(_('Could not attach item as an attachment.'));
 		}
@@ -258,7 +267,7 @@ class AttachmentState {
 		// Move the provided regular file into the session directory. Only register
 		// it after both the move and the post-move file type check succeeded.
 		if (!@rename($sourcefile, $filepath)) {
-			@unlink($filepath);
+			$this->deleteTemporaryFile($filepath);
 
 			throw new ZarafaException(_('Could not attach item as an attachment.'));
 		}
@@ -266,7 +275,7 @@ class AttachmentState {
 		clearstatcache(true, $filepath);
 		$movedFileStat = @lstat($filepath);
 		if ($movedFileStat === false || ($movedFileStat['mode'] & 0170000) !== 0100000) {
-			@unlink($filepath);
+			$this->deleteTemporaryFile($filepath);
 
 			throw new ZarafaException(_('Could not attach item as an attachment.'));
 		}
@@ -308,7 +317,7 @@ class AttachmentState {
 		// previously been placed in the attachment folder
 		$filepath = $this->getAttachmentPath($filename);
 		if (is_file($filepath)) {
-			unlink($filepath);
+			$this->deleteTemporaryFile($filepath);
 		}
 
 		$this->removeAttachmentFile($message_id, mb_basename($filepath), $attachID);
@@ -393,7 +402,7 @@ class AttachmentState {
 							$found = true;
 							$filepath = $this->getAttachmentPath($tmpName);
 							if (is_file($filepath)) {
-								unlink($filepath);
+								$this->deleteTemporaryFile($filepath);
 							}
 							unset($this->files[$tmpDir][$tmpName]);
 						}
@@ -518,7 +527,7 @@ class AttachmentState {
 					// If respective file is still there in tmp directory then remove
 					$filepath = $this->getAttachmentPath($tmpName);
 					if (is_file($filepath)) {
-						unlink($filepath);
+						$this->deleteTemporaryFile($filepath);
 					}
 
 					// Remove attachment from state as well

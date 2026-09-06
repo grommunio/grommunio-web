@@ -923,9 +923,9 @@ class CmsOperations {
 	private function execCli(string $cmd): bool {
 		$output = [];
 		$exitCode = -1;
-		@exec($cmd, $output, $exitCode);
+		$lastLine = @exec($cmd, $output, $exitCode);
 
-		if ($exitCode !== 0) {
+		if ($lastLine === false || $exitCode !== 0) {
 			$outputStr = implode("\n", $output);
 			error_log("[smime] OpenSSL CLI error (exit {$exitCode}): {$outputStr}");
 
@@ -1013,7 +1013,9 @@ class CmsOperations {
 			return null;
 		}
 		if (!@chmod($tmpFile, 0600)) {
-			@unlink($tmpFile);
+			if (!@unlink($tmpFile)) {
+				error_log("[smime] Could not remove temporary file: {$tmpFile}");
+			}
 
 			return null;
 		}
