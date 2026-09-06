@@ -125,7 +125,8 @@ class DownloadHandler {
 			$relNodeId = substr((string) $_GET["id"], strpos((string) $_GET["id"], '/'));
 			$stream = false;
 
-			if (!$initializedBackend instanceof iFeatureStreaming) {
+			// Backends are loaded dynamically, so their optional interfaces cannot be inferred statically.
+			if (!/** @scrutinizer ignore-type */ $initializedBackend instanceof iFeatureStreaming) {
 				$tmpfile = tempnam(TMP_PATH, stripslashes(base64_encode($relNodeId)));
 				$initializedBackend->get_file($relNodeId, $tmpfile);
 				$filesize = filesize($tmpfile);
@@ -135,9 +136,7 @@ class DownloadHandler {
 				$gpi = $initializedBackend->gpi($relNodeId);
 				$stream = true;
 				$filesize = $gpi["getcontentlength"];
-				// A backend node ID is not a local filename. Use its extension
-				// instead of probing a matching path on the web server.
-				$mime = PathUtil::get_mime($relNodeId, 1);
+				$mime = PathUtil::getMimeFromExtension($relNodeId);
 			}
 
 			$mime = normalizeHTTPContentType($mime);
@@ -155,10 +154,13 @@ class DownloadHandler {
 			header("Expires: 0"); // set expiration time
 			header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 			header('Content-Length: ' . $filesize);
+			// normalizeHTTPContentType() rejects control characters and invalid media types.
+
+			/** @scrutinizer ignore-call */
 			header('Content-Type: ' . $mime);
 			flush();
 
-			if (!$stream) {
+			if (!/** @scrutinizer ignore-type */ $stream) {
 				// print the downloaded file
 				readfile($tmpfile);
 				ignore_user_abort(true);
@@ -166,6 +168,9 @@ class DownloadHandler {
 			}
 			else {
 				// stream the file directly from the backend - much faster
+				// The feature check above guarantees that the dynamic backend provides this method.
+
+				/** @scrutinizer ignore-call */
 				$fh = $initializedBackend->getStreamReader($relNodeId);
 				while (!feof($fh)) {
 					set_time_limit(0);

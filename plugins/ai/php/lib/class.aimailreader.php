@@ -133,9 +133,8 @@ class AIMailReader {
 				VALUE => [$topicTag => $topic],
 			]];
 			mapi_table_sort($table, [PR_MESSAGE_DELIVERY_TIME => TABLE_SORT_ASCEND]);
-			$rows = mapi_table_queryallrows($table, [PR_ENTRYID], $restriction);
 
-			return is_array($rows) ? $rows : [];
+			return mapi_table_queryallrows($table, [PR_ENTRYID], $restriction);
 		}
 		catch (Throwable) {
 			return [];

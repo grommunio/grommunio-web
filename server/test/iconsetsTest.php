@@ -35,7 +35,8 @@ try {
 	}
 
 	$errors = file_get_contents($logFile);
-	if (!is_string($errors) ||
+	// file_get_contents() can fail even though the analyzer models this call as string-only.
+	if (!is_string(/** @scrutinizer ignore-type */ $errors) ||
 		!str_contains($errors, "iconset 'missing' does not have a readable iconset.json file") ||
 		!str_contains($errors, "iconset 'malformed' does not have a valid iconset.json file") ||
 		!str_contains($errors, "iconset 'scalar' iconset.json file must contain an array of properties")) {

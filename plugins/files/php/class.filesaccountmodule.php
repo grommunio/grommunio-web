@@ -203,27 +203,25 @@ class FilesAccountModule extends ListModule {
 		$accounts = $accountStore->getAllAccounts();
 		$accountList = [];
 
-		if (is_array($accounts)) {
-			foreach ($accounts as $account) {
-				$account = $accountStore->updateAccount($account);
-				$accountList[$account->getId()] = [
-					"props" => [
-						"id" => $account->getId(),
-						"name" => $account->getName(),
-						"type" => "account", // to prevent warning while sorting
-						"status" => $account->getStatus(),
-						"status_description" => $account->getStatusDescription(),
-						"backend" => $account->getBackend(),
-						"backend_config" => $account->getBackendConfig(),
-						'backend_features' => $account->getFeatures(),
-						'account_sequence' => $account->getSequence(),
-						'cannot_change' => $account->getCannotChangeFlag(),
-					],
-					'entryid' => $account->getId(),
-					'store_entryid' => 'filesaccount',
-					'parent_entryid' => 'accountstoreroot',
-				];
-			}
+		foreach ($accounts as $account) {
+			$account = $accountStore->updateAccount($account);
+			$accountList[$account->getId()] = [
+				"props" => [
+					"id" => $account->getId(),
+					"name" => $account->getName(),
+					"type" => "account", // to prevent warning while sorting
+					"status" => $account->getStatus(),
+					"status_description" => $account->getStatusDescription(),
+					"backend" => $account->getBackend(),
+					"backend_config" => $account->getBackendConfig(),
+					'backend_features' => $account->getFeatures(),
+					'account_sequence' => $account->getSequence(),
+					'cannot_change' => $account->getCannotChangeFlag(),
+				],
+				'entryid' => $account->getId(),
+				'store_entryid' => 'filesaccount',
+				'parent_entryid' => 'accountstoreroot',
+			];
 		}
 
 		// sort the accounts
@@ -361,15 +359,19 @@ class FilesAccountModule extends ListModule {
 		$backendStore = BackendStore::getInstance();
 		$backendInstance = $backendStore->getInstanceOfBackend($currentAccount->getBackend());
 
-		// check if backend really supports this feature
-		if (!$backendInstance instanceof iFeatureQuota) {
+		// Backends are loaded dynamically, so their optional interfaces cannot be inferred statically.
+		if (!/** @scrutinizer ignore-type */ $backendInstance instanceof iFeatureQuota) {
 			throw new AccountException(_('Feature "Quota Information" is not supported by this backend!'));
 		}
 
-		// init backend instance
+		// Feature interfaces are additive; concrete backends also inherit the shared lifecycle methods.
+
+		/** @scrutinizer ignore-call */
 		$backendInstance->init_backend($currentAccount->getBackendConfig());
 
 		// get quota info
+
+		/** @scrutinizer ignore-call */
 		$backendInstance->open();
 		$qUsed = $backendInstance->getQuotaBytesUsed($rootPath);
 		$qAvailable = $backendInstance->getQuotaBytesAvailable($rootPath);
@@ -409,17 +411,23 @@ class FilesAccountModule extends ListModule {
 		$backendStore = BackendStore::getInstance();
 		$backendInstance = $backendStore->getInstanceOfBackend($currentAccount->getBackend());
 
-		// check if backend really supports this feature
-		if (!$backendInstance instanceof iFeatureVersionInfo) {
+		// Backends are loaded dynamically, so their optional interfaces cannot be inferred statically.
+		if (!/** @scrutinizer ignore-type */ $backendInstance instanceof iFeatureVersionInfo) {
 			throw new AccountException(_('Feature "Version Information" is not supported by this backend!'));
 		}
 
-		// init backend instance
+		// Feature interfaces are additive; concrete backends also inherit the shared lifecycle methods.
+
+		/** @scrutinizer ignore-call */
 		$backendInstance->init_backend($currentAccount->getBackendConfig());
 
 		// get quota info
+
+		/** @scrutinizer ignore-call */
 		$backendInstance->open();
 		$serverVersion = $backendInstance->getServerVersion();
+
+		/** @scrutinizer ignore-call */
 		$backendVersion = $backendInstance->getBackendVersion();
 
 		$response['status'] = true;
@@ -457,12 +465,14 @@ class FilesAccountModule extends ListModule {
 		$backendStore = BackendStore::getInstance();
 		$backendInstance = $backendStore->getInstanceOfBackend($currentAccount->getBackend());
 
-		// check if backend really supports this feature
-		if (!$backendInstance instanceof iFeatureOAUTH) {
+		// Backends are loaded dynamically, so their optional interfaces cannot be inferred statically.
+		if (!/** @scrutinizer ignore-type */ $backendInstance instanceof iFeatureOAUTH) {
 			throw new AccountException(_('Feature "OAUTH" is not supported by this backend!'));
 		}
 
-		// init backend instance
+		// Feature interfaces are additive; concrete backends also inherit the shared lifecycle methods.
+
+		/** @scrutinizer ignore-call */
 		$backendInstance->init_backend($currentAccount->getBackendConfig());
 		$backendInstance->changeAccessToken($actionData["access_token"]);
 

@@ -84,7 +84,6 @@ class ItemModule extends Module {
 				continue;
 			}
 
-			$store = null;
 			$parententryid = null;
 			$entryid = null;
 
@@ -994,8 +993,6 @@ class ItemModule extends Module {
 	 * @param array    $action        the action data, sent by the client
 	 */
 	public function copy($store, $parententryid, $entryids, $action) {
-		$result = false;
-
 		if ($store && $parententryid && $entryids) {
 			$dest_store = $store;
 			if (isset($action["message_action"]["destination_store_entryid"])) {

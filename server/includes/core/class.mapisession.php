@@ -1082,14 +1082,13 @@ class MAPISession {
 	 */
 	public function getContactFoldersForABContactProvider($store) {
 		$storeProps = mapi_getprops($store, [PR_ENTRYID, PR_MDB_PROVIDER, PR_IPM_SUBTREE_ENTRYID, PR_IPM_PUBLIC_FOLDERS_ENTRYID]);
-		$contactFolders = [];
 
 		try {
 			// Only searches one level deep, otherwise deleted contact folders will also be included.
 			$contactFolders = $this->getContactFolders($store, $storeProps[PR_IPM_SUBTREE_ENTRYID], $storeProps[PR_MDB_PROVIDER] === ZARAFA_STORE_PUBLIC_GUID ? true : false);
 		}
 		catch (Exception) {
-			return $contactFolders;
+			return [];
 		}
 
 		// Need to search all the contact-subfolders within first level contact folders.

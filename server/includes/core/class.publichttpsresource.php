@@ -328,7 +328,7 @@ final class PublicHttpsResource {
 	 * @return null|string normalized redirect URL
 	 */
 	private static function resolveRedirectUrl($baseUrl, $location) {
-		if (!is_string($location) || $location === '' || strlen($location) > self::MAX_URL_LENGTH ||
+		if ($location === '' || strlen($location) > self::MAX_URL_LENGTH ||
 			preg_match('/[\x00-\x20\x5c\x7f]/', $location) === 1) {
 			return null;
 		}
