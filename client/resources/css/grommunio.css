@@ -2676,7 +2676,7 @@ input.x-form-text.k-searchfolder-field.x-form-focus {
 
 /* Hierarchy and rail icons: the folder in the text colour, its detail in the
    theme colour, both drawn as masks so they follow the theme and dark mode */
-.zarafa-hierarchy-treepanel span.x-tree-node-icon {
+span.x-tree-node-icon {
   display: inline-block;
   vertical-align: middle; }
 .zarafa-hierarchy-treepanel .x-tree-node-icon.icon_folder_default_inbox,
