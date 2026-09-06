@@ -18,7 +18,7 @@ class CmsOperationsTest extends SMIMETest {
 	private $firstOutputFile;
 	private $secondOutputFile;
 
-	protected function setUp() {
+	protected function setUp(): void {
 		[$this->keys[], $this->certificates[]] = $this->createCertificate('First OAEP recipient');
 		[$this->keys[], $this->certificates[]] = $this->createCertificate('Second OAEP recipient');
 		$this->inputFile = $this->temporaryFile('smime_oaep_input_');
@@ -28,9 +28,11 @@ class CmsOperationsTest extends SMIMETest {
 		file_put_contents($this->inputFile, 'OAEP regression payload');
 	}
 
-	protected function tearDown() {
+	protected function tearDown(): void {
 		foreach ($this->temporaryFiles as $file) {
-			@unlink($file);
+			if ((is_file($file) || is_link($file)) && !unlink($file)) {
+				$this->fail("Unable to remove OAEP test file: {$file}");
+			}
 		}
 	}
 

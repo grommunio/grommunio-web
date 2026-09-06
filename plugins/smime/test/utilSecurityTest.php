@@ -53,10 +53,18 @@ class UtilSecurityTest extends SMIMETest {
 			$this->assertNull(readAiaCacheFile($cacheFile));
 		}
 		finally {
-			@unlink($cacheFile);
-			@unlink($target);
-			@rmdir($cacheDir);
-			@rmdir($baseDir);
+			if ((is_file($cacheFile) || is_link($cacheFile)) && !unlink($cacheFile)) {
+				$this->fail("Unable to remove AIA cache test file: {$cacheFile}");
+			}
+			if ((is_file($target) || is_link($target)) && !unlink($target)) {
+				$this->fail("Unable to remove AIA cache test target: {$target}");
+			}
+			if (is_dir($cacheDir) && !rmdir($cacheDir)) {
+				$this->fail("Unable to remove AIA cache test directory: {$cacheDir}");
+			}
+			if (is_dir($baseDir) && !rmdir($baseDir)) {
+				$this->fail("Unable to remove AIA test directory: {$baseDir}");
+			}
 		}
 	}
 }

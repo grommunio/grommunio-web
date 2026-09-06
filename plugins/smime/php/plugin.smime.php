@@ -1102,7 +1102,6 @@ class Pluginsmime extends Plugin {
 		$stat = mapi_stream_stat($emlMessageStream);
 
 		$fhandle = fopen($tmpSendEmail, 'w');
-		$buffer = null;
 		for ($i = 0; $i < $stat["cb"]; $i += BLOCK_SIZE) {
 			// Write stream
 			$buffer = mapi_stream_read($emlMessageStream, BLOCK_SIZE);
@@ -1233,7 +1232,10 @@ class Pluginsmime extends Plugin {
 		$user = $this->getGABUser($email);
 		$cert = $this->getGABCert($user);
 		if (empty($cert)) {
-			$cert = base64_decode($this->getPublicKey($email));
+			$storeCert = $this->getPublicKey($email);
+			if (is_string($storeCert)) {
+				$cert = base64_decode($storeCert);
+			}
 		}
 
 		if (!empty($cert)) {
@@ -1302,13 +1304,23 @@ class Pluginsmime extends Plugin {
 			],
 		]]);
 
+		return $this->getPublicKeysForRecipients($recips);
+	}
+
+	/**
+	 * Resolve public certificates for recipient table rows.
+	 *
+	 * @param array[] $recips recipient rows
+	 *
+	 * @return array public certificates
+	 */
+	protected function getPublicKeysForRecipients(array $recips): array {
 		$publicCerts = [];
-		$storeCert = '';
-		$gabCert = '';
 
 		foreach ($recips as $recip) {
 			$emailAddr = $recip[PR_SMTP_ADDRESS] ?? '';
 			$addrType = $recip[PR_ADDRTYPE] ?? '';
+			$gabCert = '';
 
 			if (empty($emailAddr)) {
 				continue;
@@ -1324,7 +1336,7 @@ class Pluginsmime extends Plugin {
 			if (!empty($gabCert)) {
 				array_push($publicCerts, $gabCert);
 			}
-			elseif (!empty($storeCert)) {
+			elseif (is_string($storeCert) && $storeCert !== '') {
 				array_push($publicCerts, base64_decode($storeCert));
 			}
 		}

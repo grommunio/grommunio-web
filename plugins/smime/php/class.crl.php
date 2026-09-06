@@ -312,8 +312,8 @@ class CrlManager {
 			return @rename($tmpFile, $cacheFile);
 		}
 		finally {
-			if (is_file($tmpFile)) {
-				@unlink($tmpFile);
+			if ((is_file($tmpFile) || is_link($tmpFile)) && !@unlink($tmpFile)) {
+				error_log("[smime] Could not remove temporary CRL cache file: {$tmpFile}");
 			}
 		}
 	}

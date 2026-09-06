@@ -18,6 +18,9 @@ class TestableDerOcsp extends OCSP {
 		$this->beginsequence();
 		$value = $this->next(4);
 		$this->end();
+		if (!is_string($value)) {
+			throw new UnexpectedValueException('Expected DER OCTET STRING contents');
+		}
 
 		return $value;
 	}

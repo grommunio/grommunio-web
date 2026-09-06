@@ -392,7 +392,7 @@ class Certificate {
 	/**
 	 * Set the issuer of a certificate.
 	 *
-	 * @param Certificate $issuer issuer certificate
+	 * @param mixed $issuer candidate issuer certificate
 	 */
 	public function setIssuer($issuer) {
 		if ($issuer instanceof self) {

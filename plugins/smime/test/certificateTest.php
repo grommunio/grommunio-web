@@ -22,7 +22,7 @@ class CertificateTest extends SMIMETest {
 	protected $certdata;
 	protected $cert;
 
-	protected function setUp() {
+	protected function setUp(): void {
 		$this->countryName = "NL";
 		$this->stateOrProvinceName = "Zuid Holland";
 		$this->localityName = "Delft";

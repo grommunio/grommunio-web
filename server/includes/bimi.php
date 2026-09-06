@@ -59,7 +59,10 @@ class BimiLogo {
 
 		// Tighten directories made group-writable by older releases. If the
 		// process does not own the directory, never trust entries from it.
-		@chmod($dir, 0700);
+		if (!@chmod($dir, 0700)) {
+			return false;
+		}
+		clearstatcache(true, $dir);
 		$stat = @lstat($dir);
 		if ($stat === false || ($stat['mode'] & 0170000) !== 0040000 || ($stat['mode'] & 0077) !== 0 ||
 			(function_exists('posix_geteuid') && $stat['uid'] !== posix_geteuid())) {
@@ -107,8 +110,8 @@ class BimiLogo {
 			return @rename($tmpFile, $file);
 		}
 		finally {
-			if (is_file($tmpFile)) {
-				@unlink($tmpFile);
+			if ((is_file($tmpFile) || is_link($tmpFile)) && !@unlink($tmpFile)) {
+				error_log("[bimi] Could not remove temporary cache file: {$tmpFile}");
 			}
 		}
 	}
