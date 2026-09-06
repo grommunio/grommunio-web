@@ -260,16 +260,32 @@ class UploadAttachment {
 	 */
 	public function importFiles($attachTempName, $filename) {
 		$filepath = $this->attachment_state->getAttachmentPath($attachTempName);
-		$handle = fopen($filepath, "r");
-		$attachmentStream = '';
-		while (!feof($handle)) {
-			$attachmentStream .= fread($handle, BLOCK_SIZE);
+		$handle = fopen($filepath, "rb");
+		if ($handle === false) {
+			throw new ZarafaException(_("File is not imported successfully"));
 		}
 
-		fclose($handle);
-		unlink($filepath);
+		$attachmentStream = '';
 
-		$extension = pathinfo($filename, PATHINFO_EXTENSION);
+		try {
+			while (!feof($handle)) {
+				$chunk = fread($handle, BLOCK_SIZE);
+				if ($chunk === false) {
+					throw new ZarafaException(_("File is not imported successfully"));
+				}
+				$attachmentStream .= $chunk;
+			}
+		}
+		finally {
+			if (!fclose($handle)) {
+				error_log("Unable to close uploaded attachment: {$filepath}");
+			}
+			if (is_file($filepath) && !unlink($filepath)) {
+				error_log("Unable to remove uploaded attachment: {$filepath}");
+			}
+		}
+
+		$extension = (string) pathinfo($filename, PATHINFO_EXTENSION);
 
 		// Set the module id of the notifier according to the file type
 		switch (strtoupper($extension)) {
@@ -715,7 +731,7 @@ class UploadAttachment {
 			'attach_id' => $attachID,
 		]);
 
-		$returnfiles[] = [
+		$returnfiles = [[
 			'props' => [
 				'attach_num' => -1,
 				'tmpname' => $attachTampName,
@@ -724,7 +740,7 @@ class UploadAttachment {
 				// this is only needed to identify response for a particular attachment record on client side
 				'name' => $_POST['name'],
 			],
-		];
+		]];
 
 		$return = [
 			// 'success' property is needed for Extjs Ext.form.Action.Submit#success handler
