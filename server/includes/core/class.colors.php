@@ -7,9 +7,9 @@ class Colors {
 	/**
 	 * Creates a lighter color.
 	 *
-	 * @param object|string $color      A hexstring or color object (array with r, g, b keys)
-	 * @param float         $percentage the percentage with which the luminance of the color
-	 *                                  should be changed
+	 * @param array|string $color      A hexstring or color array with r, g, b keys
+	 * @param float        $percentage the percentage with which the luminance of the color
+	 *                                 should be changed
 	 *
 	 * @return string A hexstring with the new color (including '#')
 	 */
@@ -31,9 +31,9 @@ class Colors {
 	/**
 	 * Creates a darker color.
 	 *
-	 * @param object|string $color      A hexstring or color object (array with r, g, b keys)
-	 * @param float         $percentage the percentage with which the luminance of the color
-	 *                                  should be changed
+	 * @param array|string $color      A hexstring or color array with r, g, b keys
+	 * @param float        $percentage the percentage with which the luminance of the color
+	 *                                 should be changed
 	 *
 	 * @return string A hexstring with the new color (including '#')
 	 */
@@ -44,9 +44,9 @@ class Colors {
 	/**
 	 * Sets the luminance to a certain value.
 	 *
-	 * @param object|string $color      A hexstring or color object (array with r, g, b keys)
-	 * @param float         $percentage the percentage to which the luminance of the color
-	 *                                  should be set
+	 * @param array|string $color      A hexstring or color array with r, g, b keys
+	 * @param float        $percentage the percentage to which the luminance of the color
+	 *                                 should be set
 	 *
 	 * @return string A hexstring with the new color (including '#')
 	 */
@@ -124,7 +124,7 @@ class Colors {
 	 * See http://www.niwa.nu/2013/05/math-behind-colorspace-conversions-rgb-hsl/ for
 	 * more information.
 	 *
-	 * @param array $color An array with values for r, g, b
+	 * @param array|string $color A hexstring or an array with values for r, g, b
 	 *
 	 * @return array An array with values for h, s, l
 	 */

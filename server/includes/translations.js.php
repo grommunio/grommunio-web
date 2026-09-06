@@ -47,8 +47,8 @@ ob_start("ob_gzhandler");
 /**
  * Convert the charset to UTF-8. If the source is an array, convert each item.
  *
- * @param array|string $source  input string or array of strings
- * @param string       $charset original charset of the source string(s)
+ * @param array|false|string $source  input string, array of strings, or false
+ * @param string             $charset original charset of the source string(s)
  *
  * @return array|false|string source data encoded with the new charset
  */

@@ -12,6 +12,7 @@ class PluginMDMModule extends Module {
 	public const FOLDERTYPE = 2;
 	public const FOLDERBACKENDID = 5;
 
+	/** @var null|false|resource */
 	private $stateFolder;
 	private $deviceStates;
 	private $devices;
@@ -312,7 +313,7 @@ class PluginMDMModule extends Module {
 	/**
 	 * Function which is use to gather some statistics about synchronized folders.
 	 *
-	 * @param array $device array of device props
+	 * @param object $device object containing device properties
 	 *
 	 * @return array $syncFoldersProps has list of properties related to synchronized folders
 	 */
@@ -696,7 +697,7 @@ class PluginMDMModule extends Module {
 	 * Returns MAPIFolder object which contains the state information.
 	 * Creates this folder if it is not available yet.
 	 *
-	 * @return MAPIFolder
+	 * @return null|false|resource
 	 */
 	public function getStoreStateFolder() {
 		if (!$this->stateFolder) {
