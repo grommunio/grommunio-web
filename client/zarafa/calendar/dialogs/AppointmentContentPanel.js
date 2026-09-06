@@ -59,6 +59,8 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 			// Override from Ext.Component
 			layout: 'fit',
 			cls: 'k-apptcreatepanel',
+			// the single date and options rows need more than the 800px default
+			width: 900,
 			recordComponentPluginConfig: Ext.applyIf(config.recordComponentPluginConfig || {}, {
 				allowWrite: true
 			}),

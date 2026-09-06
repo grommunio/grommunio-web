@@ -1022,16 +1022,6 @@ body.dark-mode .preview-header-linkednotes .preview-header-linkednote.note_white
 /*=============================================================================
   Settings
 =============================================================================*/
-body.dark-mode .zarafa-settings-about-text a,
-body.dark-mode .zarafa-settings-about-text a:visited {
-	background-color: var(--dm-bg-paper) !important;
-	color: var(--dm-fg);
-}
-
-body.dark-mode .zarafa-settings-about-text a:hover {
-	background-color: var(--dm-hover) !important;
-}
-
 body.dark-mode .k-settings-profile-photo:hover {
 	border-color: #64b5f6 !important;
 }
