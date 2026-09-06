@@ -156,10 +156,19 @@ class OcspValidationTest extends SMIMETest {
 		$this->assertOcspFailure($response, OCSP_RESPONDER_UNAUTHORIZED);
 	}
 
-	public function testStaleResponseIsRejected() {
+	public function testStaleResponseWithValidNextUpdateIsAccepted() {
 		$x509 = new X509();
 		$issuerData = $x509->certificate($this->pemToDer($this->issuerPem), true);
 		$response = $this->signedResponse($this->issuerKey, $issuerData, [], time() - 172800);
+
+		$result = $this->validator()->validateResponse($response, $this->certId(), new Certificate($this->issuerPem));
+		$this->assertSame('good', $result['certStatus']);
+	}
+
+	public function testStaleResponseWithoutNextUpdateIsRejected() {
+		$x509 = new X509();
+		$issuerData = $x509->certificate($this->pemToDer($this->issuerPem), true);
+		$response = $this->signedResponse($this->issuerKey, $issuerData, [], time() - 172800, false, false);
 
 		$this->assertOcspFailure($response, OCSP_RESPONSE_TIME_INVALID);
 	}
@@ -183,7 +192,8 @@ class OcspValidationTest extends SMIMETest {
 		array $signerData,
 		array $embeddedCertificates = [],
 		?int $thisUpdate = null,
-		bool $rsaPss = false
+		bool $rsaPss = false,
+		bool $withNextUpdate = true
 	): array {
 		$now = time();
 		$thisUpdate ??= $now - 60;
@@ -204,8 +214,10 @@ class OcspValidationTest extends SMIMETest {
 			],
 			'certStatus' => 'good',
 			'thisUpdate' => gmdate('YmdHis\Z', $thisUpdate),
-			'nextupdate' => gmdate('YmdHis\Z', $now + 3600),
 		];
+		if ($withNextUpdate) {
+			$singleResponse['nextupdate'] = gmdate('YmdHis\Z', $now + 3600);
+		}
 		$basicResponse = [
 			'tbsResponseData_der' => $tbsResponseData,
 			'tbsResponseData' => [

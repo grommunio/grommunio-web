@@ -775,14 +775,16 @@ class Certificate {
 		if ($thisUpdate > $producedAt + $clockSkew) {
 			throw new OCSPException('OCSP thisUpdate is later than producedAt', OCSP_RESPONSE_TIME_INVALID);
 		}
-		if ($thisUpdate < $now - $maxAge - $clockSkew) {
-			throw new OCSPException('OCSP response is older than the configured maximum age', OCSP_RESPONSE_TIME_INVALID);
-		}
 		if (isset($singleResponse['nextupdate'])) {
+			// The responder states how long its answer is valid; CA level
+			// responses commonly live for days.
 			$nextUpdate = $this->parseOcspTime($singleResponse['nextupdate']);
 			if ($nextUpdate < $thisUpdate || $nextUpdate < $now - $clockSkew) {
 				throw new OCSPException('OCSP response has expired', OCSP_RESPONSE_TIME_INVALID);
 			}
+		}
+		elseif ($thisUpdate < $now - $maxAge - $clockSkew) {
+			throw new OCSPException('OCSP response is older than the configured maximum age', OCSP_RESPONSE_TIME_INVALID);
 		}
 	}
 

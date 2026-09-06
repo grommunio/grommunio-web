@@ -179,19 +179,6 @@ class AppointmentItemModule extends ItemModule {
 						$data['item']['props']['commonstart'] = $data['item']['props']['startdate'];
 						$data['item']['props']['commonend'] = $data['item']['props']['duedate'];
 						unset($data['item']['props']['reminder_time']);
-
-						/*
-						 * If recurring item has set reminder to true then
-						 * all occurrences before the 'flagdueby' value(of recurring item)
-						 * should not show that reminder is set.
-						 */
-						if (isset($data['item']['props']['reminder']) && $data['item']['props']['reminder'] == true) {
-							$flagDueByDay = $recur->dayStartOf($data['item']['props']['flagdueby']);
-
-							if ($flagDueByDay > $basedate) {
-								$data['item']['props']['reminder'] = false;
-							}
-						}
 					}
 				}
 				else {

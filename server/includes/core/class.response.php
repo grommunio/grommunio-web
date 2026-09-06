@@ -211,22 +211,30 @@ class Response {
 		$directHttps = (!empty($_SERVER['HTTPS']) && strtolower((string) $_SERVER['HTTPS']) !== 'off') ||
 			(int) ($_SERVER['SERVER_PORT'] ?? 0) === 443;
 		$https = $directHttps;
+		// A TLS-terminating proxy reports the public scheme in X-Forwarded-Proto.
+		$forwardedProto = strtolower(trim(explode(',', (string) ($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? ''), 2)[0]));
+		if ($forwardedProto === 'https') {
+			$https = true;
+		}
 		// Secure cookies are the default and require the public application URL to use HTTPS.
 		if (!$https && (!defined('SECURE_COOKIES') || SECURE_COOKIES !== false)) {
 			$https = true;
 		}
 		$scheme = $https ? 'https' : 'http';
 		// HTTP_HOST is the authority the browser used for this request and carries
-		// aliases and public ports through common reverse proxies. Use it only for
-		// this same-request origin comparison; redirects and OAuth callbacks must
-		// continue to use separately trusted configuration.
-		if (isset($_SERVER['HTTP_HOST'])) {
-			if (!is_string($_SERVER['HTTP_HOST']) ||
-				preg_match('/[\x00-\x20\x23\x2f\x3f\x40\x5c\x7f]/', $_SERVER['HTTP_HOST']) === 1 ||
-				str_ends_with($_SERVER['HTTP_HOST'], ':')) {
+		// aliases and public ports through common reverse proxies. A proxy that
+		// rewrites Host passes the public authority in X-Forwarded-Host. Use them
+		// only for this same-request origin comparison; redirects and OAuth
+		// callbacks must continue to use separately trusted configuration.
+		$forwardedHost = trim(explode(',', (string) ($_SERVER['HTTP_X_FORWARDED_HOST'] ?? ''), 2)[0]);
+		$host = $forwardedHost !== '' ? $forwardedHost : ($_SERVER['HTTP_HOST'] ?? null);
+		if ($host !== null) {
+			if (!is_string($host) ||
+				preg_match('/[\x00-\x20\x23\x2f\x3f\x40\x5c\x7f]/', $host) === 1 ||
+				str_ends_with($host, ':')) {
 				return null;
 			}
-			$hostOrigin = self::normalizeOrigin($scheme . '://' . $_SERVER['HTTP_HOST']);
+			$hostOrigin = self::normalizeOrigin($scheme . '://' . $host);
 			if ($hostOrigin === null) {
 				return null;
 			}
