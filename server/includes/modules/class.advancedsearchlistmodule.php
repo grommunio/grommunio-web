@@ -470,8 +470,8 @@ class AdvancedSearchListModule extends ListModule {
 	 *	and it will also parse visible columns and sorting data when sending results to client.
 	 *
 	 * @param resource $store      MAPI message store
-	 * @param string   $entryid    entryid of the folder
-	 * @param array    $action     action data sent by the client
+	 * @param string   $entryid    entryid of the folder scope
+	 * @param array    $action     the action data, sent by the client
 	 * @param string   $actionType the action type, sent by the client
 	 */
 	#[Override]
@@ -606,12 +606,7 @@ class AdvancedSearchListModule extends ListModule {
 			$subfolder_flag = RECURSIVE_SEARCH;
 		}
 
-		if (!is_array($entryid)) {
-			$entryids = [$entryid];
-		}
-		else {
-			$entryids = $entryid;
-		}
+		$entryids = (array) $entryid;
 
 		$searchFolderEntryId = $this->sessionData['searchFolderEntryId'];
 
@@ -706,7 +701,7 @@ class AdvancedSearchListModule extends ListModule {
 		]);
 
 		$search_result = $indexDB->search(hex2bin((string) $searchFolderEntryId), $ftsDescriptor, $entryid, $recursive);
-		if ($search_result == false) {
+		if ($search_result === false) {
 			$this->logFtsDebug('Index search returned no data', [
 				'search_folder_entryid' => $searchFolderEntryId,
 				'restriction_signature' => $restrictionSignature,

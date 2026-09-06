@@ -738,11 +738,8 @@ class AppointmentListModule extends ListModule {
 			$end = time() + 7776000;
 		}
 		$fbdata = mapi_getuserfreebusy($GLOBALS['mapisession']->getSession(), $storeProps[PR_MAILBOX_OWNER_ENTRYID], $start, $end);
-		if (empty($fbdata['fbevents'])) {
-			return $items;
-		}
-
-		foreach ($fbdata['fbevents'] as $fbEvent) {
+		$fbEvents = $fbdata['fbevents'] ?? [];
+		foreach ($fbEvents as $fbEvent) {
 			// check if the event is in start - end range
 			if ($fbEvent['end'] < $start || $fbEvent['start'] > $end) {
 				continue;

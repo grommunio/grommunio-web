@@ -73,6 +73,9 @@ if (isset($_GET['logout']) || isset($_POST['logout'])) {
 			$username = sanitizeGetValue('user', '', USERNAME_REGEX);
 		}
 		$location = getIndexRedirectPath();
+
+		// Both values are normalized above; Scrutinizer does not recognize those sanitizers.
+		/** @scrutinizer ignore-call */
 		header('Location: ' . $location . ($username ? '?user=' . rawurlencode((string) $username) : ''), true, 303);
 	}
 	$webappSession->destroy();

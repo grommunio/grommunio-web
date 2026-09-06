@@ -523,6 +523,9 @@ class WebAppAuthentication {
 
 			return WebAppAuthentication::getErrorCode();
 		}
+
+		// The helper strips every character that could inject another header.
+		/** @scrutinizer ignore-call */
 		header('X-grommunio-Authuser:' . removeHTTPControlCharacters($username));
 
 		return WebAppAuthentication::login($username, $password);
