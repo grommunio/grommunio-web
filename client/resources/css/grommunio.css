@@ -1083,7 +1083,6 @@ body.Safari input[type="radio"] {
 .x-form-text.x-form-focus:not(.x-trigger-noedit),
 .x-form-field-wrap.x-trigger-wrap-focus:not(.x-freebusy-userlist-container) {
   border-color: var(--theme-primary-color) !important;
-  position: relative;
   z-index: 99 }
 
 .x-form-text.x-form-focus:not(.x-trigger-noedit) {
@@ -2074,7 +2073,7 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
   color: #ffffff;
   padding: 0 4px; }
   body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct * {
-    font-size: 13px !important; }
+    font-size: 15px !important; }
   body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .x-btn {
     padding: 0;
     margin: 4px 2px;
@@ -2088,14 +2087,14 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
       border: none;
       margin: 0; }
     body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .x-btn button.x-btn-text {
-      font-size: 13px !important;
-      line-height: 16px !important;
+      font-size: 15px !important;
+      line-height: 18px !important;
       color: #ffffff;
-      font-weight: 600;
+      font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0;
       text-shadow: none;
-      padding: 6px 12px;
+      padding: 5px 10px;
       height: auto;
       opacity: 0.8;
       width: auto;
@@ -2188,7 +2187,7 @@ ul.x-tab-strip {
     overflow: hidden;
     transition: background-color 0.15s ease, box-shadow 0.15s ease; }
     ul.x-tab-strip li .x-tab-right {
-      background: transparent;
+      background: var(--ui-surface-3);
       padding-left: 12px;
       padding-right: 12px;
       border-radius: var(--ui-radius-sm) var(--ui-radius-sm) 0 0;
@@ -2208,7 +2207,7 @@ ul.x-tab-strip {
             color: var(--ui-text-2);
             transition: color 0.15s ease; }
   ul.x-tab-strip li:hover:not(.x-tab-strip-active) .x-tab-right {
-    background: var(--ui-surface-3); }
+    background: var(--ui-border); }
   ul.x-tab-strip li:hover:not(.x-tab-strip-active) .x-tab-strip-text {
     color: var(--ui-text); }
   /* The active tab is marked by an accent underline instead of a filled box */
@@ -6622,72 +6621,6 @@ body .k-category-block {
 .k-ruleseditpanel .zarafa-compositefield {
   padding-top: 6px; }
 
-/* Pop-up notifications */
-.zarafa-notifier-eventdropdown-item,
-.zarafa-notifier-popup-item,
-.zarafa-notifier-dropdown-item {
-  background-color: #f4f4f4;
-  text-align: left;
-  display: table;
-  width: 100%;
-  box-shadow: 0 1px 1px white;
-  border-style: solid;
-  border-color: var(--ui-border-strong); }
-  .zarafa-notifier-eventdropdown-item .left,
-  .zarafa-notifier-popup-item .left,
-  .zarafa-notifier-dropdown-item .left {
-    display: table-cell;
-    width: 40px;
-    padding: 5px;
-    box-sizing: border-box;
-    vertical-align: middle; }
-  .zarafa-notifier-eventdropdown-item .right,
-  .zarafa-notifier-popup-item .right,
-  .zarafa-notifier-dropdown-item .right {
-    display: table-cell;
-    text-align: left;
-    padding: 10px 10px 10px 0px; }
-
-.zarafa-notifier-dropdown-item,
-.zarafa-notifier-eventdropdown-item {
-  border-width: 0 1px 1px 1px; }
-
-.zarafa-notifier-popup-item {
-  border-width: 1px 0 0 1px; }
-
-.zarafa-notifier-dropdown-item-title,
-.zarafa-notifier-eventdropdown-item-title,
-.zarafa-notifier-popup-item-title {
-  font-weight: bold; }
-
-.zarafa-notifier-container {
-  position: absolute;
-  z-index: 1000000000;
-  width: 356px; }
-
-.zarafa-slide-notifier-icon {
-  height: 30px; }
-
-.zarafa-slide-notifier-info .icon,
-.zarafa-slide-notifier-warning .icon,
-.zarafa-slide-notifier-error .icon {
-  height: 30px;
-  width: 30px; }
-
-.zarafa-slide-notifier-error {
-  background-color: #f4eaea; }
-
-.zarafa-slide-notifier-warning {
-  background-color: #f4eac0; }
-
-.zarafa-slide-notifier-info {
-  background-color: #eaf4ea; }
-
-/* Create a normal formatted list in the Missing Default Folder notifier */
-.zarafa-slide-notifier-error-hierarchy-defaultfolder ul {
-  list-style: disc;
-  padding-left: 40px; }
-
 /* Modern toast notifications */
 .grommunio-toast-container {
   position: fixed;
@@ -7586,15 +7519,6 @@ div.zarafa-contact-cardview-selected,
 /*********************************************************************
  * Settings
  *********************************************************************/
-/* Links in the About text in Settings */
-#zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-about-text a {
-  background-color: var(--theme-primary-dark);
-}
-
-#zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-about-text a:hover {
-  background-color: var(--theme-primary-color);
-}
-
 /*********************************************************************
  * Lines and borders
  *********************************************************************/
@@ -8122,6 +8046,21 @@ input[type="radio"]:checked:focus-visible {
   position: relative;
   padding: 6px 3px 3px 0;
   color: var(--ui-text-2);
+}
+
+/* ...and disappear with it: Ext only hides label elements */
+.x-hide-label span.x-form-item-label,
+.x-form-label-top .x-hide-label span.x-form-item-label {
+  display: none;
+}
+
+.x-form-label-top .x-form-item span.x-form-item-label {
+  width: auto;
+  float: none;
+  clear: none;
+  display: inline;
+  margin-bottom: 4px;
+  position: static;
 }
 
 

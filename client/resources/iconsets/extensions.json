@@ -134,9 +134,5 @@
 
 	".icon_reply_white": ".x-btn.x-btn-text-icon.zarafa-action .x-btn-small .icon_reply",
 	".icon_calendar_appt_accept_white": ".x-btn.x-btn-text-icon.zarafa-action .x-btn-small .icon_calendar_appt_accept",
-	".icon_calendar_white": ".x-btn.x-btn-text-icon.zarafa-action .x-btn-small .icon_calendar",
-
-	".icon_notification_error": ".zarafa-slide-notifier-error .icon",
-	".icon_notification_warning": ".zarafa-slide-notifier-warning .icon",
-	".icon_notification_info": ".zarafa-slide-notifier-info .icon"
+	".icon_calendar_white": ".x-btn.x-btn-text-icon.zarafa-action .x-btn-small .icon_calendar"
 }

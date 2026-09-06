@@ -402,13 +402,8 @@ Zarafa.plugins.kendox.UploadDialog = Ext.extend(Zarafa.core.ui.ContentPanel, {
 			this.mainPanel.panelSelectAttachments.doLayout();
 			this.updateViewstate();
 		} else {
-			Ext.MessageBox.show({
-				title: _("Kendox InfoShare") + " plugin",
-				msg:   _("Reading attachment information failed") + ":\n" +
-				       response.errorMessage,
-				buttons: Ext.MessageBox.OK,
-				icon: Ext.MessageBox.ERROR,
-			});
+			container.getNotifier().notify('error.kendox', _("Kendox InfoShare") + " plugin",
+				_("Reading attachment information failed") + ":\n" + Ext.util.Format.htmlEncode(response.errorMessage));
 		}
 	},
 
@@ -442,32 +437,22 @@ Zarafa.plugins.kendox.UploadDialog = Ext.extend(Zarafa.core.ui.ContentPanel, {
 				});
 			if (selectedAttachments.length > this.maxAttachmentsNumber) {
 				this.loadingMask.hide();
-				Ext.MessageBox.show({
-					title: _("Kendox InfoShare") + " plugin",
-					msg:
-						_("With the selection of separate attachments a maximum of") + " " +
-						this.maxAttachmentsNumber.toLocaleString() + " " +
-						_("attachments can be selected. There have been") + " " +
-						selectedAttachments.length.toLocaleString() + " " +
-						_("attachments selected"),
-					buttons: Ext.MessageBox.OK,
-					icon: Ext.MessageBox.ERROR,
-				});
+				container.getNotifier().notify('error.kendox', _("Kendox InfoShare") + " plugin",
+					_("With the selection of separate attachments a maximum of") + " " +
+					this.maxAttachmentsNumber.toLocaleString() + " " +
+					_("attachments can be selected. There have been") + " " +
+					selectedAttachments.length.toLocaleString() + " " +
+					_("attachments selected"));
 				return;
 			}
 			if (attachmentsTotalSize / 1024 / 1000 > this.maxAttachmentsSizeMb) {
 				this.loadingMask.hide();
-				Ext.MessageBox.show({
-					title: _("Kendox InfoShare") + " plugin",
-					msg:
-						_("With the selection of separate attachments the total size of all attachments may not exceed") + " " +
-						this.maxAttachmentsSizeMb.toLocaleString() + " " +
-						_("MB. There have been") + " " +
-						(attachmentsTotalSize / 1024 / 1000).toLocaleString() + " " +
-						_("MB selected."),
-					buttons: Ext.MessageBox.OK,
-					icon: Ext.MessageBox.ERROR,
-				});
+				container.getNotifier().notify('error.kendox', _("Kendox InfoShare") + " plugin",
+					_("With the selection of separate attachments the total size of all attachments may not exceed") + " " +
+					this.maxAttachmentsSizeMb.toLocaleString() + " " +
+					_("MB. There have been") + " " +
+					(attachmentsTotalSize / 1024 / 1000).toLocaleString() + " " +
+					_("MB selected."));
 				return;
 			}
 		}
@@ -500,12 +485,7 @@ Zarafa.plugins.kendox.UploadDialog = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	onErrorCallback: function () {
 		this.loadingMask.hide();
 		this.close();
-		Ext.MessageBox.show({
-			title: _("Kendox InfoShare") + " plugin",
-			msg: _("Sending of mail failed"),
-			buttons: Ext.MessageBox.OK,
-			icon: Ext.MessageBox.ERROR,
-		});
+		container.getNotifier().notify('error.kendox', _("Kendox InfoShare") + " plugin", _("Sending of mail failed"));
 	},
 
 	/**
@@ -520,12 +500,8 @@ Zarafa.plugins.kendox.UploadDialog = Ext.extend(Zarafa.core.ui.ContentPanel, {
 		if (response.Successful === true) {
 			this.openWebDialog(response);
 		} else {
-			Ext.MessageBox.show({
-				title: _("Kendox InfoShare") + " plugin",
-				msg: _("Sending of mail failed") + ":\n" + response.errorMessage,
-				buttons: Ext.MessageBox.OK,
-				icon: Ext.MessageBox.ERROR,
-			});
+			container.getNotifier().notify('error.kendox', _("Kendox InfoShare") + " plugin",
+				_("Sending of mail failed") + ":\n" + Ext.util.Format.htmlEncode(response.errorMessage));
 		}
 	},
 

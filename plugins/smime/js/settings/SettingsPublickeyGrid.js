@@ -158,12 +158,7 @@ Zarafa.plugins.smime.settings.PublickeyGrid = Ext.extend(Ext.grid.GridPanel, {
 		var certificate = selectionModel.getSelected();
 
 		if(!certificate) {
-			Ext.MessageBox.show({
-				title: _('S/MIME Plugin'),
-				msg: _('Please select a certificate.'),
-				buttons: Ext.MessageBox.OK,
-				icon: Ext.MessageBox.INFO
-			});
+			container.getNotifier().notify('warning.smime', _('S/MIME Plugin'), _('Please select a certificate.'));
 			return;
 		} else if(certificate.get('type') === 'private') {
 			Ext.MessageBox.show({

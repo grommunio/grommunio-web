@@ -64,21 +64,21 @@ Zarafa.plugins.passwd.settings.SettingsPasswdWidget = Ext.extend(Zarafa.settings
 		}
 		// do some quick checks before submitting
 		if(this.passwdPanel.new_password.getValue() != this.passwdPanel.new_password_repeat.getValue()) {
-			Ext.MessageBox.alert(_('Error'), _('New passwords do not match.'));
+			container.getNotifier().notify('warning.passwd', _('Error'), _('New passwords do not match.'));
 			return false;
 		} else if(Ext.isEmpty(this.passwdPanel.current_password.getValue())) {
-			Ext.MessageBox.alert(_('Error'), _('Current password is empty.'));
+			container.getNotifier().notify('warning.passwd', _('Error'), _('Current password is empty.'));
 			return false;
 		} else if(Ext.isEmpty(this.passwdPanel.new_password.getValue()) || Ext.isEmpty(this.passwdPanel.new_password_repeat.getValue())) {
-			Ext.MessageBox.alert(_('Error'), _('New password is empty.'));
+			container.getNotifier().notify('warning.passwd', _('Error'), _('New password is empty.'));
 			return false;
 		} else if(!this.passwdPanel.getForm().isValid()) {
-			Ext.MessageBox.alert(_('Error'), _('One or more fields does contain errors.'));
+			container.getNotifier().notify('warning.passwd', _('Error'), _('One or more fields does contain errors.'));
 			return false;
 		} else if (container.getSettingsModel().get("zarafa/v1/plugins/passwd/enable_strict_check")) {
 			// do a quick score check:
 			if(this.passwdPanel.new_password.getScore() < 70) {
-				Ext.MessageBox.alert(_('Error'), _('Password is weak. Password should contain capital, non-capital letters and numbers. Password should have 8 to 20 characters.'));
+				container.getNotifier().notify('warning.passwd', _('Error'), _('Password is weak. Password should contain capital, non-capital letters and numbers. Password should have 8 to 20 characters.'));
 				return false;
 			}
 		}
