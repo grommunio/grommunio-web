@@ -278,7 +278,7 @@ class PluginMDMModule extends Module {
 				catch (Exception $e) {
 					$title = _('Mobile device management plugin');
 					$display_message = sprintf(_('Unexpected error occurred. Please contact your system administrator. Error code: %s'), $e->getMessage());
-					$this->sendFeedback(true, ["type" => ERROR_GENERAL, "info" => ['title' => $title, 'display_message' => $display_message]]);
+					$this->sendFeedback(false, ["type" => ERROR_GENERAL, "info" => ['title' => $title, 'display_message' => $display_message]]);
 				}
 			}
 		}
@@ -338,14 +338,6 @@ class PluginMDMModule extends Module {
 			$synchronizedFolders += $value;
 			$syncFoldersProps[strtolower($key) . 'folder'] = $value;
 		}
-		/*
-		TODO getAdditionalFolderList
-		$client = $this->getSoapClient();
-		$items = $client->AdditionalFolderList($device['deviceid']);
-		$syncFoldersProps['sharedfolders'] = count($items);
-		$syncFoldersProps["shortfolderids"] = $device['hasfolderidmapping'] ? _("Yes") : _("No");
-		$syncFoldersProps['synchronizedfolders'] = $synchronizedFolders + count($items);
-		*/
 		$syncFoldersProps['synchronizedfolders'] = $synchronizedFolders;
 
 		return $syncFoldersProps;
@@ -376,28 +368,8 @@ class PluginMDMModule extends Module {
 	 * @return array has list of properties related to shared folders
 	 */
 	public function getAdditionalFolderList($devid) {
+		// The former SOAP endpoint is unavailable; keep the disabled UI's empty-list contract.
 		return [];
-		// TODO implement
-		$stores = $GLOBALS["mapisession"]->getAllMessageStores();
-		$client = $this->getSoapClient();
-		$items = $client->AdditionalFolderList($devid);
-		$data = [];
-		foreach ($items as $item) {
-			foreach ($stores as $store) {
-				try {
-					$entryid = mapi_msgstore_entryidfromsourcekey($store, hex2bin((string) $item->folderid));
-				}
-				catch (MAPIException) {
-					continue;
-				}
-			}
-			if (isset($entryid)) {
-				$item->entryid = bin2hex($entryid);
-			}
-			array_push($data, ["props" => $item]);
-		}
-
-		return $data;
 	}
 
 	/**
@@ -407,8 +379,7 @@ class PluginMDMModule extends Module {
 	 * @param string $folderid id of folder which will remove from device
 	 */
 	public function additionalFolderRemove($entryId, $folderid) {
-		$client = $this->getSoapClient();
-		$client->AdditionalFolderRemove($entryId, $folderid);
+		throw new RuntimeException(_('Managing shared folders is not supported by this server.'));
 	}
 
 	/**
@@ -418,13 +389,7 @@ class PluginMDMModule extends Module {
 	 * @param array  $folder  folder which will share with device
 	 */
 	public function additionalFolderAdd($entryId, $folder) {
-		$client = $this->getSoapClient();
-		$containerClass = $folder[PR_CONTAINER_CLASS] ?? "IPF.Note";
-		$folderId = bin2hex((string) $folder[PR_SOURCE_KEY]);
-		$userName = $folder["user"];
-		$folderName = $userName === "SYSTEM" ? $folder[PR_DISPLAY_NAME] : $folder[PR_DISPLAY_NAME] . " - " . $userName;
-		$folderType = $this->getFolderTypeFromContainerClass($containerClass);
-		$client->AdditionalFolderAdd($entryId, $userName, $folderId, $folderName, $folderType, FLD_FLAGS_REPLYASUSER);
+		throw new RuntimeException(_('Managing shared folders is not supported by this server.'));
 	}
 
 	/**
@@ -434,28 +399,8 @@ class PluginMDMModule extends Module {
 	 * @param array $data array of added and removed folders
 	 */
 	public function saveDevice($data) {
-		$entryid = $data["entryid"];
-		if (isset($data['sharedfolders'])) {
-			if (isset($data['sharedfolders']['remove'])) {
-				$deletedFolders = $data['sharedfolders']['remove'];
-				foreach ($deletedFolders as $folder) {
-					$this->additionalFolderRemove($entryid, $folder["folderid"]);
-				}
-			}
-			if (isset($data['sharedfolders']['add'])) {
-				$addFolders = $data['sharedfolders']['add'];
-				$hierarchyFolders = $this->getHierarchyList();
-				foreach ($addFolders as $folder) {
-					foreach ($hierarchyFolders as $hierarchyFolder) {
-						$folderEntryid = bin2hex((string) $hierarchyFolder[PR_ENTRYID]);
-						if ($folderEntryid === $folder["entryid"]) {
-							$this->additionalFolderAdd($entryid, $hierarchyFolder);
-
-							continue 2;
-						}
-					}
-				}
-			}
+		if (!empty($data['sharedfolders']['remove']) || !empty($data['sharedfolders']['add'])) {
+			throw new RuntimeException(_('Managing shared folders is not supported by this server.'));
 		}
 	}
 
@@ -470,10 +415,10 @@ class PluginMDMModule extends Module {
 		$properties = $GLOBALS["properties"]->getFolderListProperties();
 		$otherUsers = $GLOBALS["mapisession"]->retrieveOtherUsersFromSettings();
 		$properties["source_key"] = PR_SOURCE_KEY;
-		$openWholeStore = true;
 		$storeData = [];
 
 		foreach ($storeList as $store) {
+			$openWholeStore = true;
 			$msgstore_props = mapi_getprops($store, [PR_MDB_PROVIDER, PR_ENTRYID, PR_IPM_SUBTREE_ENTRYID, PR_USER_NAME]);
 			$storeType = $msgstore_props[PR_MDB_PROVIDER];
 
@@ -528,7 +473,7 @@ class PluginMDMModule extends Module {
 	 * Helper function to get the shared folder list.
 	 *
 	 * @param object $store         message Store Object
-	 * @param object $sharedFolders mapi Folder Object
+	 * @param array  $sharedFolders folders shared with the current user
 	 * @param array  $properties    MAPI property mappings for folders
 	 * @param string $storeUserName owner name of store
 	 *
@@ -538,6 +483,8 @@ class PluginMDMModule extends Module {
 		$msgstore_props = mapi_getprops($store, [PR_ENTRYID, PR_DISPLAY_NAME, PR_IPM_SUBTREE_ENTRYID, PR_IPM_OUTBOX_ENTRYID, PR_IPM_SENTMAIL_ENTRYID, PR_IPM_WASTEBASKET_ENTRYID, PR_MDB_PROVIDER, PR_IPM_PUBLIC_FOLDERS_ENTRYID, PR_IPM_FAVORITES_ENTRYID, PR_OBJECT_TYPE, PR_STORE_SUPPORT_MASK, PR_MAILBOX_OWNER_ENTRYID, PR_MAILBOX_OWNER_NAME, PR_USER_ENTRYID, PR_USER_NAME, PR_QUOTA_WARNING_THRESHOLD, PR_QUOTA_SEND_THRESHOLD, PR_QUOTA_RECEIVE_THRESHOLD, PR_MESSAGE_SIZE_EXTENDED, PR_MAPPING_SIGNATURE, PR_COMMON_VIEWS_ENTRYID, PR_FINDER_ENTRYID]);
 		$storeData = [];
 		$folders = [];
+
+		$inboxProps = [];
 
 		try {
 			$inbox = mapi_msgstore_getreceivefolder($store);
@@ -609,38 +556,39 @@ class PluginMDMModule extends Module {
 			}
 		}
 
-		$store_access = true;
-		$openSubFolders = false;
-		foreach ($sharedFolders as $type => $sharedFolder) {
-			$openSubFolders = ($sharedFolder["show_subfolders"] == true);
-			$folderEntryID = hex2bin($storeData["props"]["default_folder_" . $sharedFolder["folder_type"]]);
+		foreach ($sharedFolders as $sharedFolder) {
+			$defaultFolderKey = "default_folder_" . ($sharedFolder["folder_type"] ?? '');
+			if (!isset($storeData["props"][$defaultFolderKey])) {
+				continue;
+			}
+			$folderEntryID = hex2bin($storeData["props"][$defaultFolderKey]);
+			if ($folderEntryID === false) {
+				continue;
+			}
 
 			try {
 				// load folder props
 				$folder = mapi_msgstore_openentry($store, $folderEntryID);
 			}
 			catch (MAPIException $e) {
-				// Indicate that we don't have access to the store,
-				// so no more attempts to read properties or open entries.
-				$store_access = false;
-
 				// We've handled the event
 				$e->setHandled();
-			}
-		}
 
-		if ($store_access === true) {
+				continue;
+			}
+			if ($folder === false) {
+				continue;
+			}
+
 			$folderProps = mapi_getprops($folder, $properties);
 			$folderProps["user"] = $storeUserName;
 			array_push($folders, $folderProps);
 
 			// If folder has sub folders then add its.
-			if ($openSubFolders === true) {
-				if ($folderProps[PR_SUBFOLDERS] != false) {
-					$subFoldersData = [];
-					$this->getSubFolders($folder, $store, $properties, $subFoldersData, $storeUserName);
-					$folders = array_merge($folders, $subFoldersData);
-				}
+			if (!empty($sharedFolder["show_subfolders"]) && !empty($folderProps[PR_SUBFOLDERS])) {
+				$subFoldersData = [];
+				$this->getSubFolders($folder, $store, $properties, $subFoldersData, $storeUserName);
+				$folders = array_merge($folders, $subFoldersData);
 			}
 		}
 

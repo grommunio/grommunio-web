@@ -10,6 +10,7 @@ require_once __DIR__ . '/../../files/php/Files/Backend/class.abstract_backend.ph
 require_once __DIR__ . '/../../files/php/Files/Backend/class.exception.php';
 require_once __DIR__ . '/../../files/php/Files/Backend/interface.quota.php';
 require_once __DIR__ . '/../../files/php/Files/Backend/interface.version.php';
+require_once __DIR__ . '/../../files/php/Files/Backend/interface.recipient.php';
 require_once __DIR__ . '/lib/seafapi/autoload.php';
 
 require_once __DIR__ . '/Model/Timer.php';
@@ -21,6 +22,7 @@ use Datamate\SeafileApi\Exception;
 use Datamate\SeafileApi\SeafileApi;
 use Files\Backend\AbstractBackend;
 use Files\Backend\Exception as BackendException;
+use Files\Backend\iFeatureRecipientSearch;
 use Files\Backend\iFeatureVersionInfo;
 use Files\Backend\Seafile\Model\Config;
 use Files\Backend\Seafile\Model\ConfigUtil;
@@ -35,7 +37,7 @@ use Throwable;
  * Seafile backend for the Grommunio files plugin; bound against the Seafile
  * REST API {@link https://download.seafile.com/published/web-api}.
  */
-final class Backend extends AbstractBackend implements iFeatureVersionInfo {
+final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFeatureRecipientSearch {
 	public const LOG_CONTEXT = "SeafileBackend"; // Context for the Logger
 
 	/**
@@ -600,24 +602,94 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 	}
 
 	/**
-	 * @return false|string
+	 * @return string JSON-encoded form configuration
 	 *
 	 * @noinspection PhpMultipleClassDeclarationsInspection Grommunio has a \JsonException shim
 	 */
-	public function getFormConfig() {
+	public function getFormConfig(): string {
 		try {
-			$json = json_encode($this->metaConfig, JSON_THROW_ON_ERROR);
+			return json_encode($this->metaConfig, JSON_THROW_ON_ERROR);
 		}
 		catch (\JsonException $e) {
 			$this->log(sprintf('[%s]: %s', $e::class, $e->getMessage()));
-			$json = false;
-		}
 
-		return $json;
+			return '{"success":false,"message":"Unable to encode backend form"}';
+		}
 	}
 
-	public function getFormConfigWithData() {
+	public function getFormConfigWithData(): string {
 		return $this->getFormConfig();
+	}
+
+	/**
+	 * Find Seafile users and groups that can receive a share.
+	 *
+	 * @param string $search
+	 *
+	 * @return array<int, array{0: string, 1: int|string, 2: int}>
+	 *
+	 * @throws BackendException
+	 */
+	public function getRecipients($search): array|false {
+		$search = trim((string) $search);
+
+		try {
+			$userSearch = $this->seafapi->searchUser($search);
+			$groups = $this->seafapi->shareableGroups();
+		}
+		catch (\Throwable $throwable) {
+			$this->backendException($throwable);
+		}
+
+		return self::formatRecipients($userSearch, $groups, $search);
+	}
+
+	/**
+	 * Convert Seafile users and groups to rows consumed by Ext.data.ArrayStore.
+	 *
+	 * @param object   $userSearch Seafile user-search response
+	 * @param object[] $groups     Seafile shareable-group response
+	 * @param string   $search     normalized search string
+	 *
+	 * @return array<int, array{0: string, 1: int|string, 2: int}>
+	 */
+	private static function formatRecipients(object $userSearch, array $groups, string $search): array {
+		$recipients = [];
+		$users = $userSearch->users ?? [];
+		if (is_iterable($users)) {
+			foreach ($users as $user) {
+				$email = $user->email ?? null;
+				if (!is_string($email) || $email === '') {
+					continue;
+				}
+
+				$displayName = $user->name ?? $user->contact_email ?? $email;
+				$recipients[] = [
+					is_string($displayName) && $displayName !== '' ? $displayName : $email,
+					$email,
+					0,
+				];
+			}
+		}
+
+		foreach ($groups as $group) {
+			$groupId = $group->id ?? $group->group_id ?? null;
+			$groupName = $group->name ?? $group->group_name ?? null;
+			if ((!is_int($groupId) && !is_string($groupId)) || !is_string($groupName) || $groupName === '') {
+				continue;
+			}
+			if ($search !== '' && stripos($groupName, $search) === false) {
+				continue;
+			}
+
+			$recipients[] = [
+				$groupName,
+				$groupId,
+				1,
+			];
+		}
+
+		return $recipients;
 	}
 
 	/**
@@ -915,11 +987,9 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 	 * @param int     $errorCode one of the Backend::SFA_ERR_* codes, e.g. {@see Backend::SFA_ERR_INTERNAL}
 	 * @param ?string $title     msg-id from the plugin_files domain, e.g. 'PHP-CURL not installed'
 	 *
-	 * @return never
-	 *
 	 * @throws BackendException
 	 */
-	private function backendError(int $errorCode, ?string $title = null) {
+	private function backendError(int $errorCode, ?string $title = null): never {
 		$message = $this->parseErrorCodeToMessage($errorCode);
 		$title = $this->backendTransName;
 		$this->backendErrorThrow($title, $message, $errorCode);
@@ -941,11 +1011,9 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 	/**
 	 * Turn a throwable/exception with the Seafile API into a Backend exception.
 	 *
-	 * @return never
-	 *
 	 * @throws BackendException
 	 */
-	private function backendException(\Throwable $t) {
+	private function backendException(\Throwable $t): never {
 		// if it is already a backend exception, throw it.
 		if ($t instanceof BackendException) {
 			throw $t;
@@ -976,7 +1044,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo {
 	 *
 	 * @throws BackendException
 	 */
-	private function backendExceptionSeafapi(Exception $exception) {
+	private function backendExceptionSeafapi(Exception $exception): never {
 		$code = $exception->getCode();
 		$message = $exception->getMessage();
 

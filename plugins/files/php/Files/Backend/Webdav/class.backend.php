@@ -849,9 +849,10 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 		}
 		else {
 			$overwrite = 'F';
-		}["Destination" => $dst_path, 'Overwrite' => $overwrite];
+		}
+		$settings = ["Destination" => $dst_path, 'Overwrite' => $overwrite];
 		if ($coll) {
-			$settings = ["Destination" => $dst_path, 'Depth' => 'Infinity'];
+			$settings['Depth'] = 'Infinity';
 		}
 
 		try {

@@ -46,6 +46,35 @@ class ItemModule extends Module {
 	}
 
 	/**
+	 * Create a meeting-request helper against either the four- or five-argument
+	 * mapi-header-php constructor.
+	 *
+	 * The remove-on-response option was added as a fifth constructor argument.
+	 * Older supported mapi-header-php releases do not expose it, so they retain
+	 * their original behavior while newer releases receive the configured value.
+	 *
+	 * @param resource $store
+	 * @param resource $message
+	 *
+	 * @return Meetingrequest
+	 */
+	protected function createMeetingRequest($store, $message) {
+		$reflection = new ReflectionClass(Meetingrequest::class);
+		$arguments = [
+			$store,
+			$message,
+			$GLOBALS['mapisession']->getSession(),
+			$this->directBookingMeetingRequest,
+		];
+		$constructor = $reflection->getConstructor();
+		if ($constructor !== null && $constructor->getNumberOfParameters() >= 5) {
+			$arguments[] = $this->removeRequestOnResponse;
+		}
+
+		return $reflection->newInstanceArgs($arguments);
+	}
+
+	/**
 	 * Executes all the actions in the $data variable.
 	 */
 	#[Override]
@@ -54,6 +83,10 @@ class ItemModule extends Module {
 			if (!isset($actionType)) {
 				continue;
 			}
+
+			$store = null;
+			$parententryid = null;
+			$entryid = null;
 
 			try {
 				$store = $this->getActionStore($action);
@@ -121,7 +154,7 @@ class ItemModule extends Module {
 								// auto-processing in open().
 								mapi_deleteprops($message, [PR_PROCESSED]);
 
-								$req = new Meetingrequest($store, $message, $GLOBALS["mapisession"]->getSession(), $this->directBookingMeetingRequest, $this->removeRequestOnResponse);
+								$req = $this->createMeetingRequest($store, $message);
 
 								// Update extra body information
 								if (isset($action["message_action"]['meetingTimeInfo']) && !empty($action["message_action"]['meetingTimeInfo'])) {
@@ -272,7 +305,7 @@ class ItemModule extends Module {
 								$message = $GLOBALS["operations"]->openMessage($store, $entryid);
 								$basedate = (isset($action['basedate']) && !empty($action['basedate'])) ? $action['basedate'] : false;
 
-								$req = new Meetingrequest($store, $message, $GLOBALS["mapisession"]->getSession(), $this->directBookingMeetingRequest, $this->removeRequestOnResponse);
+								$req = $this->createMeetingRequest($store, $message);
 
 								// @FIXME: may be we can remove this body check any get it while declining meeting 'body'
 								$body = false;
@@ -469,6 +502,7 @@ class ItemModule extends Module {
 	 */
 	public function open($store, $entryid, $action) {
 		$data = [];
+		$message = false;
 
 		if ($entryid) {
 			if ($store) {
@@ -968,6 +1002,18 @@ class ItemModule extends Module {
 				$dest_storeentryid = hex2bin($action["message_action"]["destination_store_entryid"]);
 				$dest_store = $GLOBALS["mapisession"]->openMessageStore($dest_storeentryid);
 			}
+			if (!$dest_store) {
+				$this->sendFeedback(false);
+
+				return;
+			}
+			$destStoreProps = mapi_getprops($dest_store, [PR_ENTRYID]);
+			if (!isset($destStoreProps[PR_ENTRYID])) {
+				$this->sendFeedback(false);
+
+				return;
+			}
+			$dest_storeentryid = $destStoreProps[PR_ENTRYID];
 
 			$dest_folderentryid = false;
 			if (isset($action["message_action"]["destination_parent_entryid"])) {
@@ -1043,11 +1089,10 @@ class ItemModule extends Module {
 				try {
 					$newEntryids = $GLOBALS["operations"]->resolveNewEntryids($dest_store, $dest_folderentryid, $searchKeys, $existingEntryids);
 					if (!empty($newEntryids)) {
-						$destStoreProps = mapi_getprops($dest_store, [PR_ENTRYID]);
 						$feedback['undo'] = [
 							'new_entryids' => $newEntryids,
 							'destination_parent_entryid' => bin2hex($dest_folderentryid),
-							'destination_store_entryid' => bin2hex((string) $destStoreProps[PR_ENTRYID]),
+							'destination_store_entryid' => bin2hex($dest_storeentryid),
 						];
 					}
 				}

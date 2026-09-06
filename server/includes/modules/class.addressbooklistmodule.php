@@ -31,12 +31,17 @@ class AddressbookListModule extends ListModule {
 	public function execute() {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
+				$store = null;
+				$parententryid = null;
+				$entryid = null;
+				$subActionType = '';
+
 				try {
 					$store = $this->getActionStore($action);
 					$parententryid = $this->getActionParentEntryID($action);
 					$entryid = $this->getActionEntryID($action);
 
-					if (isset($action['subActionType']) && $action['subActionType'] != '') {
+					if (isset($action['subActionType']) && $action['subActionType'] !== '') {
 						$subActionType = $action['subActionType'];
 					}
 

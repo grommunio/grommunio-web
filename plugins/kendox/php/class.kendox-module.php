@@ -28,7 +28,6 @@ class KendoxModule extends Module {
 	 */
 	public function __construct($id, $data) {
 		parent::__construct($id, $data);
-		$this->store = $GLOBALS['mapisession']->getDefaultMessageStore();
 		$this->pfxFile = $this->resolvePfxPath($this->getConfigValue('PLUGIN_KENDOX_PFX_FILE'));
 		$this->pfxPw = $this->getConfigValue('PLUGIN_KENDOX_PFX_PASSWORD');
 		$this->pfxFileTest = $this->resolvePfxPath($this->getConfigValue('PLUGIN_KENDOX_PFX_FILE_TEST'));
@@ -190,7 +189,7 @@ class KendoxModule extends Module {
 			$response["kendoxFiles"] = $uploadFiles;
 		}
 		catch (Exception $ex) {
-			if ($emlFile != null) {
+			if ($emlFile !== null) {
 				@unlink($emlFile);
 			}
 			if ($uploadFiles != null) {

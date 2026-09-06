@@ -8,9 +8,11 @@ require_once __DIR__ . "/../../files/php/Files/Backend/class.exception.php";
 require_once __DIR__ . "/../../files/php/Files/Backend/interface.quota.php";
 require_once __DIR__ . "/../../files/php/Files/Backend/interface.version.php";
 require_once __DIR__ . "/../../files/php/Files/Backend/interface.sharing.php";
+require_once __DIR__ . "/../../files/php/Files/Backend/interface.recipient.php";
 require_once __DIR__ . "/lib/ocsapi/class.ocsclient.php";
 
 use Files\Backend\Exception as BackendException;
+use Files\Backend\iFeatureRecipientSearch;
 use Files\Backend\iFeatureSharing;
 use Files\Backend\Webdav\sabredav\FilesWebDavClient;
 use OCSAPI\Exception\ConnectionException;
@@ -25,7 +27,7 @@ use Sabre\HTTP\ClientException;
  * This is a file backend for ownCloud servers.
  * It requires the WebDAV file backend.
  */
-class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
+class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing, iFeatureRecipientSearch {
 	/**
 	 * @var ocsclient the OCS Api client
 	 */
@@ -560,13 +562,14 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 		return true;
 	}
 
-	/*
-	 * Get Recipients that could be shared with, matching the search string
+	/**
+	 * Get Recipients that could be shared with, matching the search string.
 	 *
-	 * @param $search Searchstring to use
-	 * @return The response from the osc client API
+	 * @param string $search Search string to use
+	 *
+	 * @return array|false The response from the OCS client API
 	 */
-	public function getRecipients($search) {
+	public function getRecipients($search): array|false {
 		return $this->ocs_client->getRecipients($search);
 	}
 }

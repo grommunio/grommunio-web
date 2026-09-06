@@ -31,6 +31,7 @@ class ContactItemModule extends ItemModule {
 	public function open($store, $entryid, $action) {
 		$data = [];
 		$orEntryid = $entryid;
+		$message = false;
 
 		if ($entryid) {
 			// Check if OneOff entryid is a local contact
@@ -127,6 +128,7 @@ class ContactItemModule extends ItemModule {
 	#[Override]
 	public function save($store, $parententryid, $entryid, $action, $actionType = 'save') {
 		$properiesToDelete = []; // create an array of properties which should be deleted
+		$isCopyGABToContact = false;
 		// this array is passed to $GLOBALS['operations']->saveMessage() function
 
 		if (!$store && !$parententryid) {

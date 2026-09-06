@@ -56,7 +56,7 @@ class EncryptionStore {
 		else {
 			// If there is a encryption store in the session then we
 			// can get the encryption key from the cookie.
-			EncryptionStore::getEncryptionKey();
+			$this->getEncryptionKey();
 		}
 
 		$this->removeExpiredEntries();
