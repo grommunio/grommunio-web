@@ -256,7 +256,7 @@ class UploadAttachment {
 	 * @param string $attachTempName a temporary file name of server location where it actually saved/available
 	 * @param string $filename       an actual file name
 	 *
-	 * @return array|bool imported entry IDs on success, otherwise a boolean result
+	 * @return array|false|string imported entry ID(s) on success, otherwise false
 	 */
 	public function importFiles($attachTempName, $filename) {
 		$filepath = $this->attachment_state->getAttachmentPath($attachTempName);
@@ -300,7 +300,7 @@ class UploadAttachment {
 	 * @param string $attachmentStream the attachment as a stream
 	 * @param string $filename         an actual file name
 	 *
-	 * @return array the new contact to be imported
+	 * @return array|false imported contact entry IDs, or false when none were imported
 	 */
 	public function importVCFFile($attachmentStream, $filename) {
 		$this->destinationFolder = $this->getDestinationFolder();
@@ -492,7 +492,7 @@ class UploadAttachment {
 	 * @param string $attachmentStream the attachment as a stream
 	 * @param string $filename         an actual file name
 	 *
-	 * @return bool true if the import is successful, false otherwise
+	 * @return array|false imported appointment entry IDs, or false when none were imported
 	 */
 	public function importICSFile($attachmentStream, $filename) {
 		$this->destinationFolder = $this->getDestinationFolder();

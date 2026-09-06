@@ -229,7 +229,7 @@ class MAPISession {
 	 * @return false|resource current MAPI session, or false before login
 	 */
 	public function getSession() {
-		return $this->session;
+		return /** @scrutinizer ignore-type */ $this->session;
 	}
 
 	/**
@@ -782,12 +782,22 @@ class MAPISession {
 
 			if (is_array($folder) && !empty($folder)) {
 				try {
-					$user_entryid = mapi_msgstore_createentryid($this->getDefaultMessageStore(), $username);
-
-					$sharedStore = $this->openMessageStore($user_entryid, $username);
-					if ($sharedStore === false || $sharedStore === ecLoginPerm ||
-						$sharedStore === MAPI_E_CALL_FAILED || $sharedStore === MAPI_E_NOT_FOUND) {
+					$defaultStore = $this->getDefaultMessageStore();
+					if ($defaultStore === false) {
 						$storeOk = false;
+					}
+					else {
+						$user_entryid = mapi_msgstore_createentryid($defaultStore, $username);
+						if ($user_entryid === false) {
+							$storeOk = false;
+						}
+						else {
+							$sharedStore = $this->openMessageStore($user_entryid, $username);
+							if ($sharedStore === false || $sharedStore === ecLoginPerm ||
+								$sharedStore === MAPI_E_CALL_FAILED || $sharedStore === MAPI_E_NOT_FOUND) {
+								$storeOk = false;
+							}
+						}
 					}
 				}
 				catch (MAPIException $e) {

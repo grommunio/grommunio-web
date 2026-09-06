@@ -23,17 +23,17 @@ class CreateMailItemModule extends ItemModule {
 	/**
 	 * Function which saves and/or sends an item.
 	 *
-	 * @param object $store         MAPI Message Store Object
-	 * @param string $parententryid parent entryid of the message
-	 * @param string $entryid       entryid of the message
-	 * @param array  $action        the action data, sent by the client
+	 * @param false|resource $store         MAPI message store, or false when unavailable
+	 * @param false|string   $parententryid parent entry ID of the message
+	 * @param false|string   $entryid       entry ID of the message
+	 * @param array          $action        the action data, sent by the client
 	 */
 	#[Override]
 	public function save($store, $parententryid, $entryid, $action, $actionType = 'save') {
 		$messageProps = [];
 
 		$store = $this->resolveStore($store);
-		if (!$store) {
+		if ($store === false) {
 			return;
 		}
 
@@ -91,12 +91,12 @@ class CreateMailItemModule extends ItemModule {
 	/**
 	 * Resolve the message store that should be used for the save operation.
 	 *
-	 * @param mixed $store
+	 * @param false|resource $store MAPI message store, or false when unavailable
 	 *
-	 * @return mixed
+	 * @return false|resource resolved MAPI message store, or false when unavailable
 	 */
 	private function resolveStore($store) {
-		if ($store) {
+		if ($store !== false) {
 			return $store;
 		}
 
@@ -106,10 +106,10 @@ class CreateMailItemModule extends ItemModule {
 	/**
 	 * Resolve parent entry id based on provided data or defaults.
 	 *
-	 * @param mixed  $store
-	 * @param string $parententryid
+	 * @param resource     $store         MAPI message store
+	 * @param false|string $parententryid parent entry ID, or false when unspecified
 	 *
-	 * @return string
+	 * @return false|string resolved parent entry ID, or false when unavailable
 	 */
 	private function resolveParentEntryId($store, $parententryid, array $action) {
 		if ($parententryid) {
@@ -192,8 +192,8 @@ class CreateMailItemModule extends ItemModule {
 	 * address. Read the identity back from the stored draft and treat it as
 	 * if the client had supplied it.
 	 *
-	 * @param mixed  $store   store containing the draft
-	 * @param string $entryid entryid of the draft, empty for an unsaved message
+	 * @param resource     $store   store containing the draft
+	 * @param false|string $entryid entryid of the draft, false for an unsaved message
 	 */
 	private function restoreSendAsPropsFromDraft($store, $entryid, array &$action) {
 		if (!$entryid) {

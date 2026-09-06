@@ -89,6 +89,11 @@ class ItemModule extends Module {
 
 			try {
 				$store = $this->getActionStore($action);
+				if (is_array($store)) {
+					$this->sendFeedback(false);
+
+					continue;
+				}
 				$parententryid = $this->getActionParentEntryID($action);
 				$entryid = $this->getActionEntryID($action);
 
@@ -495,9 +500,9 @@ class ItemModule extends Module {
 	/**
 	 * Function which opens an item.
 	 *
-	 * @param object $store   MAPI Message Store Object
-	 * @param string $entryid entryid of the message
-	 * @param array  $action  the action data, sent by the client
+	 * @param false|resource $store   MAPI message store, or false if it was not supplied
+	 * @param false|string   $entryid entryid of the message, or false if it was not supplied
+	 * @param array          $action  the action data, sent by the client
 	 */
 	public function open($store, $entryid, $action) {
 		$data = [];
@@ -516,7 +521,7 @@ class ItemModule extends Module {
 			}
 		}
 
-		if (empty($message)) {
+		if (empty($message) || $store === false) {
 			return;
 		}
 
@@ -779,10 +784,10 @@ class ItemModule extends Module {
 	/**
 	 * Function which deletes an item.
 	 *
-	 * @param object $store         MAPI Message Store Object
-	 * @param string $parententryid parent entryid of the message
-	 * @param string $entryid       entryid of the message
-	 * @param array  $action        the action data, sent by the client
+	 * @param false|resource     $store         MAPI message store, or false
+	 * @param false|string       $parententryid parent entryid of the message, or false
+	 * @param array|false|string $entryid      entryid or entryids of the message, or false
+	 * @param array              $action        the action data, sent by the client
 	 */
 	public function delete($store, $parententryid, $entryid, $action) {
 		if (!$store || !$parententryid || !$entryid) {

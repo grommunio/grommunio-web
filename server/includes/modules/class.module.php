@@ -98,12 +98,12 @@ class Module {
 	 * This will call $handleException of updating the MAPIException based in the module data.
 	 * When this is done, $sendFeedback will be called to send the message to the client.
 	 *
-	 * @param object     $e             exception object
-	 * @param string     $actionType    the action type, sent by the client
-	 * @param resource   $store         MAPI store
-	 * @param string     $parententryid parent entryid of the message
-	 * @param string     $entryid       entryid of the message/folder
-	 * @param array      $action        the action data, sent by the client
+	 * @param object                    $e             exception object
+	 * @param null|string               $actionType    the action type, sent by the client
+	 * @param null|array|false|resource $store         MAPI store or stores
+	 * @param null|false|string         $parententryid parent entryid of the message
+	 * @param null|false|string         $entryid       entryid of the message/folder
+	 * @param null|array                $action        the action data, sent by the client
 	 */
 	public function processException(&$e, $actionType = null, $store = null, $parententryid = null, $entryid = null, $action = null) {
 		$this->handleException($e, $actionType, $store, $parententryid, $entryid, $action);
