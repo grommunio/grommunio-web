@@ -158,11 +158,11 @@ class Settings {
 	 * Retrieves the setting at the path specified. If the setting is not found, and no $default value
 	 * is passed, returns null.
 	 *
-	 * @param string $path       path to the setting you want to get, separated with slashes
-	 * @param string $default    If the setting is not found, and this parameter is passed, then this value is returned
+	 * @param null|string $path       path to the setting you want to get, separated with slashes
+	 * @param mixed       $default    value returned when the setting is not found
 	 * @param bool   $persistent set to true to get the given $path from the persistent settings
 	 *
-	 * @return string Setting data, or $default if not found or null of no default is found
+	 * @return mixed setting data, the complete settings array when no path is supplied, or the default
 	 */
 	public function get($path = null, $default = null, $persistent = false) {
 		if (!$this->init) {
@@ -196,10 +196,10 @@ class Settings {
 	 * Retrieves the setting at the path specified. If the setting is not found, and no $default value
 	 * is passed, returns null.
 	 *
-	 * @param string $path    path to the setting you want to get, separated with slashes
-	 * @param string $default If the setting is not found, and this parameter is passed, then this value is returned
+	 * @param null|string $path    path to the setting you want to get, separated with slashes
+	 * @param mixed       $default value returned when the setting is not found
 	 *
-	 * @return string Setting data, or $default if not found or null of no default is found
+	 * @return mixed setting data, the complete settings array when no path is supplied, or the default
 	 */
 	public function getPersistent($path = null, $default = null) {
 		return $this->get($path, $default, true);

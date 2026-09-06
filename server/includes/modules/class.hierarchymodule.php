@@ -361,7 +361,7 @@ class HierarchyModule extends Module {
 	 *
 	 * @param object     $e             Exception object
 	 * @param string     $actionType    the action type, sent by the client
-	 * @param MAPIobject $store         store object of the folder
+	 * @param resource   $store         MAPI store containing the folder
 	 * @param string     $parententryid parent entryid of the message
 	 * @param string     $entryid       entryid of the folder
 	 * @param array      $action        the action data, sent by the client
@@ -614,8 +614,8 @@ class HierarchyModule extends Module {
 	/**
 	 * Returns the size and total_size of the given folder.
 	 *
-	 * @param mapistore  $store       The store to which the folder belongs
-	 * @param mapifolder $folder      The folder for which the size must be calculated
+	 * @param resource   $store       store to which the folder belongs
+	 * @param resource   $folder      folder for which the size must be calculated
 	 * @param string     $pathname    The path of the current folder
 	 * @param array      &$subfolders The array in which all information for the subfolders are stored
 	 * @param bool       $hidden      True to prevent the subfolders to be stored into the $subfolders argument

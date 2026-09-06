@@ -140,8 +140,7 @@ class Properties {
 	/**
 	 * Setter function which set the store.
 	 *
-	 * @param array|bool|object MAPI Message Store Object or array of MAPI Message Store Objects, false if storeid is not found in the request
-	 * @param mixed $store
+	 * @param false|resource|resource[] $store MAPI store or stores, or false when no store ID is present
 	 */
 	public function setStore($store = false) {
 		$stores = [];
@@ -173,7 +172,7 @@ class Properties {
 	/**
 	 * Getter function which get the store.
 	 *
-	 * @return object MAPI Message Store Object
+	 * @return resource MAPI message store
 	 */
 	public function getStore() {
 		return $this->store !== false ? $this->store : $GLOBALS["mapisession"]->getDefaultMessageStore();
@@ -182,8 +181,7 @@ class Properties {
 	/**
 	 * Function which used to get the PR_MAPPING_SIGNATURE value from given store.
 	 *
-	 * @param object MAPI Message Store Object
-	 * @param mixed $store
+	 * @param resource $store MAPI message store
 	 *
 	 * @return string PR_MAPPING_SIGNATURE of the given MAPI Message Store if exists else 0
 	 */
@@ -211,8 +209,7 @@ class Properties {
 	/**
 	 * Helper function which set the store as a active store and storeMapping.
 	 *
-	 * @param object MAPI Message Store Object
-	 * @param mixed $store
+	 * @param resource $store MAPI message store
 	 */
 	public function setActiveStore($store) {
 		$storeMapping = $this->getStoreMappingSignature($store);

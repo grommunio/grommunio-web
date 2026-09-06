@@ -167,7 +167,7 @@ class AttachmentState {
 	/**
 	 * Function which identifies whether an attachment is an inline or normal attachment.
 	 *
-	 * @param MAPIAttach $attachment MAPI attachment Object
+	 * @param resource $attachment MAPI attachment object
 	 *
 	 * @return bool true if the attachment is inline, otherwise false
 	 */
@@ -181,7 +181,7 @@ class AttachmentState {
 	/**
 	 * Function which identifies whether an attachment is contact photo or normal attachment.
 	 *
-	 * @param MAPIAttach $attachment MAPI attachment Object
+	 * @param resource $attachment MAPI attachment object
 	 *
 	 * @return bool true if the attachment is a contact photo, otherwise false
 	 */
@@ -203,7 +203,7 @@ class AttachmentState {
 	 * @param string $uploadedfile The file which was uploaded and will be moved to the attachments directory
 	 * @param array  $fileinfo     The attachment data
 	 *
-	 * @return The attachment identifier to be used for referencing the file in the tmp folder
+	 * @return string attachment identifier used to reference the file in the temporary folder
 	 */
 	public function addUploadedAttachmentFile($message_id, $filename, $uploadedfile, $fileinfo) {
 		// Create the destination path, the attachment must
@@ -230,7 +230,7 @@ class AttachmentState {
 	 * @param string $sourcefile The path of the file to move to the attachments directory
 	 * @param array  $fileinfo   The attachment data
 	 *
-	 * @return The attachment identifier to be used for referencing the file in the tmp folder
+	 * @return string attachment identifier used to reference the file in the temporary folder
 	 */
 	public function addProvidedAttachmentFile($message_id, $filename, $sourcefile, $fileinfo) {
 		// Create the destination path, the attachment must
@@ -283,7 +283,7 @@ class AttachmentState {
 	 *                           attachments for a single message
 	 * @param array  $fileinfo   The attachment data
 	 *
-	 * @return The attachment identifier to be used for referencing the file in the tmp folder
+	 * @return string attachment identifier used to reference the file in the temporary folder
 	 */
 	public function addEmbeddedAttachment($message_id, $fileinfo) {
 		// generate a random number to be used as unique id of attachment
@@ -320,7 +320,7 @@ class AttachmentState {
 	 * @param string $message_id The unique identifier for referencing the
 	 *                           attachments for a single message
 	 *
-	 * @return array The array of attachments
+	 * @return array|false the attachments, or false when no attachments are registered
 	 */
 	public function getAttachmentFiles($message_id) {
 		if ($this->files && isset($this->files[$message_id])) {
@@ -339,7 +339,7 @@ class AttachmentState {
 	 * @param string $attachid   The unique identifier for referencing the
 	 *                           attachment
 	 *
-	 * @return array The attachment description for the requested attachment
+	 * @return array|false the attachment description, or false when it is not registered
 	 */
 	public function getAttachmentFile($message_id, $attachid) {
 		if ($this->files && isset($this->files[$message_id], $this->files[$message_id][$attachid])) {
@@ -430,7 +430,7 @@ class AttachmentState {
 	 * @param string $message_id The unique identifier for referencing the
 	 *                           attachments for a single message
 	 *
-	 * @return array The array of attachments
+	 * @return array|false the deleted attachments, or false when none are registered
 	 */
 	public function getDeletedAttachments($message_id) {
 		if ($this->deleteattachment && isset($this->deleteattachment[$message_id])) {

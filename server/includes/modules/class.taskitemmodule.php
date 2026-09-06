@@ -248,7 +248,7 @@ class TaskItemModule extends ItemModule {
 	 * to regenerate task if it is recurring and client has changed either set as complete or delete or
 	 * given new start or end date.
 	 *
-	 * @param mapistore $store         MAPI store of the message
+	 * @param resource $store         MAPI store of the message
 	 * @param string    $parententryid Parent entryid of the message (folder entryid, NOT message entryid)
 	 * @param array     $action        Action array containing XML request
 	 * @param mixed     $entryid

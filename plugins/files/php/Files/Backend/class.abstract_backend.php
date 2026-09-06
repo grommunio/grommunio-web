@@ -257,7 +257,7 @@ abstract class AbstractBackend {
 	abstract public function exists($path);
 
 	/**
-	 * This function will return an array with configuration values for the settings form.
+	 * Return JSON-encoded configuration values for the settings form.
 	 *
 	 * Example return value:
 	 * array(
@@ -273,12 +273,12 @@ abstract class AbstractBackend {
 	 *      ),
 	 * )
 	 *
-	 * @return array
+	 * @return false|string JSON configuration, or false when it cannot be encoded
 	 */
 	abstract public function getFormConfig();
 
 	/**
-	 * This function will return an array with configuration values for the settings form.
+	 * Return JSON-encoded configuration values for the settings form.
 	 * The returned value will also contain the data values for each form field.
 	 *
 	 * Example return value:
@@ -295,7 +295,7 @@ abstract class AbstractBackend {
 	 *      ),
 	 * )
 	 *
-	 * @return array
+	 * @return false|string JSON configuration with current values, or false when it cannot be encoded
 	 */
 	abstract public function getFormConfigWithData();
 

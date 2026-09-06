@@ -217,7 +217,7 @@ class RestoreItemsListModule extends ListModule {
 	 * Function to retrieve the list of messages or folder of particular folder.
 	 *
 	 * @param object $store   store object
-	 * @param binary $entryid entry id of that particular folder
+	 * @param string $entryid entry ID of the folder
 	 * @param object $action  request data
 	 */
 	public function itemList($store, $entryid, $action) {
@@ -256,7 +256,7 @@ class RestoreItemsListModule extends ListModule {
 	 * Function to delete selected items of particular folder.
 	 *
 	 * @param object $store         store object
-	 * @param binary $parententryid entry id of the folder which contain particular item to be deleted
+	 * @param string $parententryid entry ID of the folder containing the item to delete
 	 * @param object $items         request data
 	 */
 	public function deleteItems($store, $parententryid, $items) {
@@ -277,7 +277,7 @@ class RestoreItemsListModule extends ListModule {
 	 * Function to restore message present into the selected folder.
 	 *
 	 * @param object $store         store object
-	 * @param binary $parententryid entry id of the folder which contain particular item to be restored
+	 * @param string $parententryid entry ID of the folder containing the item to restore
 	 * @param object $items         request data
 	 */
 	public function restoreItems($store, $parententryid, $items) {
@@ -310,7 +310,7 @@ class RestoreItemsListModule extends ListModule {
 	 * Function to delete selected folders.
 	 *
 	 * @param object $store         store object
-	 * @param binary $parententryid entry id of the folder which contain particular folder to be deleted
+	 * @param string $parententryid entry ID of the parent folder
 	 * @param object $folders       request data
 	 */
 	public function deleteFolder($store, $parententryid, $folders) {

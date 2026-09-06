@@ -146,7 +146,7 @@ class MailListModule extends ListModule {
 	/**
 	 * Returns the entryid of the Inbox folder of the currently used store if found, false otherwise.
 	 *
-	 * @return string hexamdecimal representation of the entryid of the Inbox
+	 * @return false|string hexadecimal Inbox entry ID, or false when unavailable
 	 */
 	public function getInboxEntryId() {
 		if ($this->_inboxEntryId === null) {
@@ -209,9 +209,9 @@ class MailListModule extends ListModule {
 	 * at the folder or at its table, depending on the rights granted. In any
 	 * case, these conditions must not turn into an error for the whole request.
 	 *
-	 * @param object $store MAPI message store object
+	 * @param resource $store MAPI message store
 	 *
-	 * @return bool|resource the Sent Items contents table, or false when unavailable
+	 * @return false|resource Sent Items contents table, or false when unavailable
 	 */
 	protected function openSentItemsTable($store) {
 		$msgstoreProps = mapi_getprops($store, [PR_IPM_SENTMAIL_ENTRYID]);
@@ -379,7 +379,7 @@ class MailListModule extends ListModule {
 	 *
 	 * @param object     $e             Exception object
 	 * @param string     $actionType    the action type, sent by the client
-	 * @param MAPIobject $store         store object of the current user
+	 * @param resource   $store         current user's MAPI store
 	 * @param string     $parententryid parent entryid of the message
 	 * @param string     $entryid       entryid of the message
 	 * @param array      $action        the action data, sent by the client
@@ -424,12 +424,10 @@ class MailListModule extends ListModule {
 	 * Overridden to rewrite the sorting for flags. (because the flags that are shown in grommunio Web
 	 * are a combination of several properties).
 	 *
-	 * @param array      $action               the action data, sent by the client
-	 * @param array|bool $map                  Normally properties are mapped from the XML to MAPI by the standard
-	 *                                         $this->properties mapping. However, if you want other mappings, you can specify them in this parameter.
-	 * @param bool       $allow_multi_instance Sort as multi-value instance (every value a different row)
-	 * @param array|bool a custom set of properties to use instead of the properties stored in module
-	 * @param mixed $properties
+	 * @param array       $action               action data sent by the client
+	 * @param array|false $map                  optional property mapping
+	 * @param bool        $allow_multi_instance whether to sort each multi-value instance as a separate row
+	 * @param array|false $properties           custom properties, or false to use the module properties
 	 */
 	#[Override]
 	public function parseSortOrder($action, $map = false, $allow_multi_instance = false, $properties = false) {

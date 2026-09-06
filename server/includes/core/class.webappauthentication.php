@@ -35,7 +35,7 @@ class WebAppAuthentication {
 	private static $_mapiSession;
 
 	/**
-	 * @var 0|int a code that reflects the latest error
+	 * @var int code that reflects the latest error
 	 */
 	private static $_errorCode = NOERROR;
 

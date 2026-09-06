@@ -116,9 +116,9 @@ class ocsclient {
 	/**
 	 * Shortcut for curl get requests.
 	 *
-	 * @param $url string URL for the request
+	 * @param string $url URL for the request
 	 *
-	 * @return curl response data
+	 * @return bool|string response body, or a boolean cURL result
 	 */
 	private function doCurlGetRequest($url) {
 		return $this->doCurlRequest($url, []);
@@ -127,10 +127,10 @@ class ocsclient {
 	/**
 	 * Execute curl request with parameters.
 	 *
-	 * @param       $url         string URL for the request
-	 * @param mixed $curlOptions
+	 * @param string $url         URL for the request
+	 * @param array  $curlOptions additional cURL options
 	 *
-	 * @return curl responsedata
+	 * @return bool|string response body, or a boolean cURL result
 	 *
 	 * @throws ConnectionException
 	 * @throws InvalidResponseException
@@ -199,7 +199,7 @@ class ocsclient {
 	 *
 	 * @param mixed $id
 	 *
-	 * @return ocsshare or FALSE
+	 * @return false|ocsshare
 	 *
 	 * @throws ConnectionException
 	 * @throws InvalidResponseException
@@ -217,7 +217,7 @@ class ocsclient {
 	 *
 	 * @param mixed $path
 	 *
-	 * @return ocsshare[] or FALSE
+	 * @return false|ocsshare[]
 	 *
 	 * @throws ConnectionException
 	 * @throws InvalidResponseException
@@ -284,7 +284,7 @@ class ocsclient {
 	/**
 	 * Get all loaded shares. Will return FALSE if the store is not loaded yet.
 	 *
-	 * @return ocsshare or FALSE
+	 * @return false|ocsshare[]
 	 */
 	public function getAllShares() {
 		if (!$this->loaded) {
@@ -299,7 +299,7 @@ class ocsclient {
 	 *
 	 * @param mixed $id
 	 *
-	 * @return ocsshare or bool
+	 * @return false|ocsshare
 	 */
 	public function getShareByID($id) {
 		if (!$this->loaded) {
@@ -314,7 +314,7 @@ class ocsclient {
 	 *
 	 * @param mixed $path
 	 *
-	 * @return ocsshare[] or bool
+	 * @return false|ocsshare[]
 	 */
 	public function getShareByPath($path) {
 		if (!$this->loaded) {
@@ -347,7 +347,7 @@ class ocsclient {
 	 * @param mixed $path
 	 * @param mixed $options
 	 *
-	 * @return ocsshare
+	 * @return false|ocsshare
 	 *
 	 * @throws ConnectionException
 	 * @throws InvalidResponseException
@@ -384,7 +384,7 @@ class ocsclient {
 	 * @param mixed $key
 	 * @param mixed $value
 	 *
-	 * @return ocsshare Returns a empty share
+	 * @return false|ocsshare an empty share, or false for an invalid response
 	 *
 	 * @throws ConnectionException
 	 * @throws InvalidResponseException
@@ -418,7 +418,7 @@ class ocsclient {
 	 *
 	 * @param mixed $id
 	 *
-	 * @return ocsshare Returns a empty share
+	 * @return false|ocsshare an empty share, or false for an invalid response
 	 *
 	 * @throws ConnectionException
 	 * @throws InvalidResponseException
@@ -438,7 +438,7 @@ class ocsclient {
 	 *
 	 * @param mixed $response
 	 *
-	 * @return ocsshare
+	 * @return false|ocsshare
 	 *
 	 * @throws FileNotFoundException
 	 * @throws InvalidArgumentException
@@ -554,7 +554,7 @@ class ocsclient {
 	/**
 	 * Parse the response data block.
 	 *
-	 * @param SimpleXMLElement $response from owncloud server
+	 * @param \SimpleXMLElement $response from ownCloud server
 	 */
 	private function parseResponseData($response) {
 		// parse each element in the data section
@@ -575,7 +575,7 @@ class ocsclient {
 	 *  - shareWith is the user or group id
 	 *  - shareType is type of the recipient: user or group.
 	 *
-	 * @param SimpleXMLElement $response the response data from the request
+	 * @param \SimpleXMLElement $response the response data from the request
 	 *
 	 * @return array array of recipients
 	 */

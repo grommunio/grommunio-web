@@ -38,7 +38,7 @@ class BackendStore {
 	public const FEATURE_OAUTH = "OAUTH";
 
 	/**
-	 * @var AbstractBackend
+	 * @var string[]
 	 */
 	private $backends = [];
 	protected static $_instance;
@@ -169,7 +169,7 @@ class BackendStore {
 	 *
 	 * @param mixed $backend
 	 *
-	 * @return AbstractBackend
+	 * @return AbstractBackend|false backend instance, or false when the backend is not registered
 	 */
 	public function getInstanceOfBackend($backend) {
 		$canonical = $this->normalizeBackendName($backend);
@@ -196,7 +196,7 @@ class BackendStore {
 	/**
 	 * Return all registered backend internal names.
 	 *
-	 * @return array
+	 * @return string[]
 	 */
 	public function getRegisteredBackendNames() {
 		return $this->backends;

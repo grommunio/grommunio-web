@@ -325,7 +325,7 @@ class ItemModule extends Module {
 	 *
 	 * @param object     $e             Exception object
 	 * @param string     $actionType    the action type, sent by the client
-	 * @param MAPIobject $store         store object of message
+	 * @param resource   $store         MAPI store containing the message
 	 * @param string     $parententryid parent entryid of the message
 	 * @param string     $entryid       entryid of the message
 	 * @param array      $action        the action data, sent by the client
@@ -1113,7 +1113,7 @@ class ItemModule extends Module {
 	 * This function reads the necessary properties from the passed message and constructs
 	 * a user-readable NDR message from those properties
 	 *
-	 * @param mapimessage $message The NDR message to read the information from
+	 * @param resource $message NDR message to read
 	 *
 	 * @return string NDR body message as plaintext message
 	 */
@@ -1149,7 +1149,7 @@ class ItemModule extends Module {
 	 * This function sends a meeting cancellation for the meeting references by the passed entryid. It
 	 * will send the meeting cancellation and move the item itself to the waste basket.
 	 *
-	 * @param mapistore $store                       The store in which the meeting request resides
+	 * @param resource $store                       store containing the meeting request
 	 * @param string    $entryid                     entryid of the appointment for which the cancellation should be sent
 	 * @param object    $action                      data sent by client
 	 * @param bool      $directBookingMeetingRequest Indicates if a Meeting Request should use direct booking or not
@@ -1191,7 +1191,7 @@ class ItemModule extends Module {
 	 * This function searches the default calendar for all meeting requests for the specified
 	 * meeting. All those appointments are then removed.
 	 *
-	 * @param mapistore $store                       Mapi store in which the meeting request and the calendar reside
+	 * @param resource $store                       MAPI store containing the meeting request and calendar
 	 * @param string    $entryid                     Entryid of the meeting request or appointment for which all items should be deleted
 	 * @param string    $basedate                    if specified contains starttime of day of an occurrence
 	 * @param bool      $directBookingMeetingRequest Indicates if a Meeting Request should use direct booking or not
@@ -1214,7 +1214,7 @@ class ItemModule extends Module {
 	 * Creates a new IPM.Schedule.Meeting.Request message addressed to the
 	 * specified recipients and sends a forward notification to the organizer.
 	 *
-	 * @param mapistore $store                       MAPI store of the appointment
+	 * @param resource $store                       MAPI store of the appointment
 	 * @param string    $entryid                     entryid of the appointment to forward
 	 * @param array     $action                      action data from the client
 	 * @param bool      $directBookingMeetingRequest direct-booking flag
@@ -1385,12 +1385,12 @@ class ItemModule extends Module {
 	 * Send a forward notification to the meeting organizer informing them
 	 * that the meeting was forwarded to additional recipients.
 	 *
-	 * @param mapistore $store          MAPI store containing the appointment
+	 * @param resource $store          MAPI store containing the appointment
 	 * @param resource  $message        original appointment MAPI message
 	 * @param array     $messageProps   properties of the source message
 	 * @param array     $recipientRows  MAPI recipient rows of forward targets
 	 * @param array     $props          property tag mapping
-	 * @param mapistore $userStore      current user's default store
+	 * @param resource $userStore      current user's default store
 	 */
 	private function sendForwardNotification($store, $message, $messageProps, $recipientRows, $props, $userStore) {
 		// Do not notify if the current user is the organizer

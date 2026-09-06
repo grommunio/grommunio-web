@@ -892,7 +892,7 @@ class FilesBrowserModule extends FilesListModule {
 	 *
 	 * @param mixed $item
 	 *
-	 * @return array (tmpname, filename) or false on error
+	 * @return array|false temporary path and filename, or false on error
 	 */
 	private function prepareAttachmentForUpload($item) {
 		// Check which type isset
@@ -1036,7 +1036,7 @@ class FilesBrowserModule extends FilesListModule {
 	 *
 	 * @param mixed $item
 	 *
-	 * @return array (tmpname, filename) or false on error
+	 * @return array|false temporary path and filename, or false on error
 	 */
 	private function prepareEmailForUpload($item) {
 		// Get store id

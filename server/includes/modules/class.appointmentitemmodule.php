@@ -229,7 +229,7 @@ class AppointmentItemModule extends ItemModule {
 	 *
 	 * @param object     $e             Exception object
 	 * @param string     $actionType    the action type, sent by the client
-	 * @param MAPIobject $store         store object of message
+	 * @param resource   $store         MAPI store containing the message
 	 * @param string     $parententryid parent entryid of the message
 	 * @param string     $entryid       entryid of the message
 	 * @param array      $action        the action data, sent by the client
@@ -262,7 +262,7 @@ class AppointmentItemModule extends ItemModule {
 	/**
 	 * Save the give appointment or meeting request to the calendar.
 	 *
-	 * @param mapistore $store         MAPI store of the message
+	 * @param resource  $store         MAPI store of the message
 	 * @param string    $parententryid Parent entryid of the message (folder entryid, NOT message entryid)
 	 * @param string    $entryid       entryid of the message
 	 * @param array     $action        Action array containing json request

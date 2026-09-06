@@ -38,14 +38,14 @@ class ListModule extends Module {
 	public $searchResults;
 
 	/**
-	 * @var MAPIMessage resource of the freebusy message which holds
+	 * @var resource free/busy message which holds
 	 *                  information regarding delegation details, this variable will
 	 *                  only be populated when user is a delegate
 	 */
 	public $localFreeBusyMessage;
 
 	/**
-	 * @var BinString binary string of PR_MDB_PROVIDER property
+	 * @var string binary value of the PR_MDB_PROVIDER property
 	 *                of a store, this variable will only be populated when user is a delegate
 	 */
 	public $storeProviderGuid;
@@ -109,7 +109,7 @@ class ListModule extends Module {
 	 *
 	 * @param object     $e             Exception object
 	 * @param string     $actionType    the action type, sent by the client
-	 * @param MAPIobject $store         store object of the current user
+	 * @param resource   $store         current user's MAPI store
 	 * @param string     $parententryid parent entryid of the message
 	 * @param string     $entryid       entryid of the message/folder
 	 * @param array      $action        the action data, sent by the client
@@ -402,7 +402,7 @@ class ListModule extends Module {
 	 *	until search is finished on server to send results.
 	 *
 	 * @param object    $store   MAPI Message Store Object
-	 * @param hexString $entryid entryid of the folder
+	 * @param string $entryid folder entry ID in hexadecimal form
 	 * @param object    $action  the action data, sent by the client
 	 */
 	public function updatesearch($store, $entryid, $action) {
@@ -522,7 +522,7 @@ class ListModule extends Module {
 	 *	Function will stop search on the server if search folder exists.
 	 *
 	 * @param object    $store   MAPI Message Store Object
-	 * @param hexString $entryid entryid of the folder
+	 * @param string $entryid folder entry ID in hexadecimal form
 	 * @param object    $action  the action data, sent by the client
 	 */
 	public function stopSearch($store, $entryid, $action) {
@@ -563,7 +563,7 @@ class ListModule extends Module {
 	 * Function will delete search folder.
 	 *
 	 * @param object    $store   MAPI Message Store Object
-	 * @param hexString $entryid entryid of the folder
+	 * @param string $entryid folder entry ID in hexadecimal form
 	 * @param array     $action  the action data, sent by the client
 	 *
 	 * @return bool true on success or false on failure
@@ -625,10 +625,10 @@ class ListModule extends Module {
 	 *	is removed automatically, as well as legacy folders named exactly
 	 *	"grommunio Web Search Folder".
 	 *
-	 * @param object $store        MAPI Message Store Object
+	 * @param resource $store        MAPI message store
 	 * @param bool   $openIfExists open if folder exists
 	 *
-	 * @return bool|resource $folder created search folder
+	 * @return false|resource created search folder, or false when it cannot be created
 	 */
 	public function createSearchFolder($store, $openIfExists = true) {
 		if (isset($this->sessionData['searchFolderEntryId']) && $openIfExists) {
@@ -757,10 +757,9 @@ class ListModule extends Module {
 	 *	Function will open FINDER_ROOT folder in root container
 	 *	public folder's don't have FINDER_ROOT folder.
 	 *
-	 *	@param		object			store MAPI message store object
-	 * @param mixed $store
+	 * @param resource $store MAPI message store
 	 *
-	 * @return bool|resource finder root folder for search folders
+	 * @return false|resource finder root folder, or false when search folders are unsupported
 	 */
 	public function getSearchFoldersRoot($store) {
 		$searchRootFolder = false;
@@ -789,7 +788,7 @@ class ListModule extends Module {
 	 *	Function will send error message to client if any error has occurred in search.
 	 *
 	 * @param object    $store     MAPI Message Store Object
-	 * @param hexString $entryid   entryid of the folder
+	 * @param string $entryid   folder entry ID in hexadecimal form
 	 * @param object    $action    the action data, sent by the client
 	 * @param object    $errorInfo the error information object
 	 */
@@ -973,7 +972,7 @@ class ListModule extends Module {
 	 *
 	 * @param object $item item properties
 	 *
-	 * @return object item properties if its non private item otherwise empty array
+	 * @return array item properties, or an empty array for a private item
 	 */
 	public function processPrivateItem($item) {
 		if ($this->checkPrivateItem($item)) {

@@ -27,7 +27,7 @@ class Conversion {
 	 *
 	 * @param int $unixtime The unix timestamp to convert
 	 *
-	 * @return int COleDateTime binary string representing the same day
+	 * @return string COleDateTime binary string representing the same day
 	 */
 	public static function UnixTimeToCOleDateTime($unixtime) {
 		$days = ($unixtime / (60 * 60 * 24)) + 25569;
@@ -271,8 +271,7 @@ class Conversion {
 	 *
 	 * @example property2json(0x0037001e) => 'PR_SUBJECT'
 	 *
-	 * @param int The property tag
-	 * @param mixed $property
+	 * @param int $property property tag
 	 *
 	 * @return string the symbolic name of the property tag
 	 */

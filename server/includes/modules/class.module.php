@@ -100,7 +100,7 @@ class Module {
 	 *
 	 * @param object     $e             exception object
 	 * @param string     $actionType    the action type, sent by the client
-	 * @param MAPIobject $store         store object of the store
+	 * @param resource   $store         MAPI store
 	 * @param string     $parententryid parent entryid of the message
 	 * @param string     $entryid       entryid of the message/folder
 	 * @param array      $action        the action data, sent by the client
@@ -117,7 +117,7 @@ class Module {
 	 *
 	 * @param object     $e             exception object
 	 * @param string     $actionType    the action type, sent by the client
-	 * @param MAPIobject $store         store object of the message
+	 * @param resource   $store         MAPI store containing the message
 	 * @param string     $parententryid parent entryid of the message
 	 * @param string     $entryid       entryid of the message/folder
 	 * @param array      $action        the action data, sent by the client
@@ -353,7 +353,7 @@ class Module {
 	 *
 	 * @param array $action the XML data retrieved from the client
 	 *
-	 * @return object MAPI Message Store Object, false if storeid is not found in the $action variable
+	 * @return array<int, false|resource>|false|resource MAPI store or stores, or false when no store ID is present
 	 */
 	public function getActionStore($action) {
 		$store = false;
@@ -383,7 +383,7 @@ class Module {
 	 *
 	 * @param array $action the XML data retrieved from the client
 	 *
-	 * @return object MAPI Message Store Object, false if parententryid is not found in the $action variable
+	 * @return false|string binary parent entry ID, or false when it is not present
 	 */
 	public function getActionParentEntryID($action) {
 		$parententryid = false;
@@ -426,7 +426,7 @@ class Module {
 	 *
 	 * @param array $data list of all actions
 	 *
-	 * @return array $action the json data retrieved from the client
+	 * @return array|false JSON action data, or false when no action is present
 	 */
 	public function getActionData($data) {
 		$actionData = false;
@@ -455,7 +455,7 @@ class Module {
 	 * Function which returns response data that will be sent to client. If there isn't any data added
 	 * to response data then it will return a blank array.
 	 *
-	 * @return object response data
+	 * @return array response data
 	 */
 	public function getResponseData() {
 		if (!empty($this->responseData)) {

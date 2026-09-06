@@ -11,13 +11,13 @@ require_once 'server/includes/bootstrap.php';
 /*
  * Get the favicon either from theme or use the default.
  *
- * @param string theme the users theme
+ * @param string $theme the user's theme
  * @return string favicon
  */
 function getFavicon($theme) {
 	$favicon = Theming::getFavicon($theme);
 
-	if (!isset($favicon) || $favicon === false) {
+	if ($favicon === false) {
 		$favicon = versionedUrl('client/resources/images/favicon.ico');
 	}
 

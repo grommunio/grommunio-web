@@ -145,9 +145,8 @@ class PathUtil {
 	 *
 	 * @static
 	 *
-	 * @param string secid A random id
-	 * @param mixed $basepath
-	 * @param mixed $secid
+	 * @param string $basepath base directory for the security file
+	 * @param string $secid    random identifier
 	 */
 	public static function createSecIDFile($basepath, $secid) {
 		$lockFile = $basepath . DIRECTORY_SEPARATOR . "secid." . $secid;

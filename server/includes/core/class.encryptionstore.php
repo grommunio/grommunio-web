@@ -210,8 +210,7 @@ class EncryptionStore {
 	/**
 	 * Returns the value that has been stored for the given $key.
 	 *
-	 * @param string The key for which the value will be retrieved\
-	 * @param mixed $key
+	 * @param string $key key whose value should be retrieved
 	 *
 	 * @return null|string
 	 */
@@ -257,8 +256,7 @@ class EncryptionStore {
 	/**
 	 * Close session if it was explicitly opened.
 	 *
-	 * @param bool True if session was opened, false if not
-	 * @param mixed $opened
+	 * @param bool $opened whether the session was opened
 	 */
 	private function close_session($opened) {
 		if ($this->session_exists() && $opened) {

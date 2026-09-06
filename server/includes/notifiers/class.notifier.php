@@ -88,7 +88,7 @@ class Notifier {
 	 * Function which returns notification data that will be sent to client. If there isn't any data added
 	 * to response data then it will return a blank array.
 	 *
-	 * @return object response data
+	 * @return array response data
 	 */
 	protected function createNotificationResponseData() {
 		if (!empty($this->responseNotificationData)) {

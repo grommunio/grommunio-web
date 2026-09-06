@@ -46,8 +46,7 @@ class StringUtil {
 	 *
 	 * @static
 	 *
-	 * @param int length The length of the random string
-	 * @param mixed $length
+	 * @param int $length the length of the random string
 	 *
 	 * @return string a random string
 	 */

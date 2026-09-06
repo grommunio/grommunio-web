@@ -130,7 +130,7 @@ class Theming {
 	 * @param string $theme the name of the theme for which the css will be returned.
 	 *                      Note: This is the directory name of the theme plugin.
 	 *
-	 * 	 * @return bool|string
+	 * @return false|string favicon path, or false when the theme has no favicon
 	 */
 	public static function getFavicon($theme) {
 		$themePath = constant('THEME_PATH_' . DEBUG_LOADER);
@@ -151,12 +151,12 @@ class Theming {
 	}
 
 	/**
-	 * Returns the contents of the css files in the $theme as a string.
+	 * Returns the CSS files provided by the theme.
 	 *
 	 * @param string $theme the name of the theme for which the css will be returned.
 	 *                      Note: This is the directory name of the theme plugin.
 	 *
-	 * @return string
+	 * @return string[] paths relative to the application root
 	 */
 	public static function getCss($theme) {
 		$themePathCoreThemes = BASE_PATH . constant('THEME_PATH_' . DEBUG_LOADER);
@@ -209,8 +209,7 @@ class Theming {
 	 *
 	 * @param mixed $propName
 	 *
-	 * @return string the value that the active theme has set for the property,
-	 *                or NULL
+	 * @return mixed the configured value, or false when the theme or property is unavailable
 	 */
 	public static function getThemeProperty($propName) {
 		$theme = Theming::getActiveTheme();
@@ -232,8 +231,7 @@ class Theming {
 	 * Note: Only SVG icons of an iconset that has defined the primary color
 	 * can be 'recolored'.
 	 *
-	 * @return string the color that the active theme has set for the primary
-	 *                color of the icons, or FALSE
+	 * @return false|string primary icon color, or false when it is not configured
 	 */
 	public static function getPrimaryIconColor() {
 		$val = Theming::getThemeProperty('icons-primary-color');
@@ -247,8 +245,7 @@ class Theming {
 	 * Note: Only SVG icons of an iconset that has defined the secondary color
 	 * can be 'recolored'.
 	 *
-	 * @return string the color that the active theme has set for the secondary
-	 *                color of the icons, or FALSE
+	 * @return false|string secondary icon color, or false when it is not configured
 	 */
 	public static function getSecondaryIconColor() {
 		$val = Theming::getThemeProperty('icons-secondary-color');
@@ -294,7 +291,7 @@ class Theming {
 	 *
 	 * @param string $theme The theme for which the properties should be retrieved
 	 *
-	 * @return array The decoded array of properties defined in the theme.json file
+	 * @return array|false the decoded properties, or false when the theme is not a JSON theme
 	 */
 	public static function getJsonThemeProps($theme) {
 		if (!Theming::isJsonTheme($theme)) {
@@ -304,12 +301,15 @@ class Theming {
 		// Check if we have the props in the cache before reading the file
 		if (!isset(Theming::$jsonThemePropsCache[$theme])) {
 			$json = file_get_contents(BASE_PATH . PATH_PLUGIN_DIR . '/' . $theme . '/theme.json');
-			Theming::$jsonThemePropsCache[$theme] = json_decode($json, true);
+			$props = json_decode($json, true);
 
-			if (json_last_error() !== JSON_ERROR_NONE) {
-				error_log("The theme '{$theme}' does not have a valid theme.json file. " . json_last_error_msg());
-				Theming::$jsonThemePropsCache[$theme] = '';
+			if (!is_array($props) || json_last_error() !== JSON_ERROR_NONE) {
+				$reason = json_last_error() === JSON_ERROR_NONE ? 'The root value must be an object.' : json_last_error_msg();
+				error_log("The theme '{$theme}' does not have a valid theme.json file. {$reason}");
+				$props = false;
 			}
+
+			Theming::$jsonThemePropsCache[$theme] = $props;
 		}
 
 		return Theming::$jsonThemePropsCache[$theme];

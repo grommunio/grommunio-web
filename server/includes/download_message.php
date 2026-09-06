@@ -124,7 +124,7 @@ class DownloadMessage extends DownloadBase {
 	 *
 	 * @param array $messageProps properties of this particular message
 	 *
-	 * @return Stream $stream the eml stream obtained from message
+	 * @return resource EML stream obtained from the message
 	 */
 	public function getEmlStream($messageProps) {
 		// Get addressbook for current session

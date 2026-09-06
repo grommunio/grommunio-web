@@ -699,7 +699,7 @@ class PluginManager {
 	 *
 	 * Checks if plugin exists.
 	 *
-	 * @param $pluginname string Identifier of the plugin
+	 * @param string $pluginname identifier of the plugin
 	 *
 	 * @return bool true when plugin exists, false when it does not
 	 */
@@ -717,9 +717,9 @@ class PluginManager {
 	 *
 	 * Obtain the filepath of the given modulename
 	 *
-	 * @param $modulename string Identifier of the modulename
+	 * @param string $modulename identifier of the module
 	 *
-	 * @return string The path to the file for the module
+	 * @return false|string path to the module file, or false when it is unknown
 	 */
 	public function getModuleFilePath($modulename) {
 		return $this->modules[$modulename] ?? false;
@@ -730,9 +730,9 @@ class PluginManager {
 	 *
 	 * Obtain the filepath of the given notifiername
 	 *
-	 * @param $notifiername string Identifier of the notifiername
+	 * @param string $notifiername identifier of the notifier
 	 *
-	 * @return string The path to the file for the notifier
+	 * @return false|string path to the notifier file, or false when it is unknown
 	 */
 	public function getNotifierFilePath($notifiername) {
 		return $this->notifiers[$notifiername] ?? false;
@@ -1141,10 +1141,10 @@ class PluginManager {
 	 *
 	 * Extracts all the data from the Plugin XML manifest.
 	 *
-	 * @param $xml     string XML manifest of plugin
-	 * @param $dirname string name of the directory of the plugin
+	 * @param string $xml     plugin XML manifest
+	 * @param string $dirname plugin directory name
 	 *
-	 * @return array data from XML converted into array that the PluginManager can use
+	 * @return array|false plugin data, or false when the manifest is unsupported or incomplete
 	 */
 	public function extractPluginDataFromXML($xml, $dirname) {
 		$plugindata = [
