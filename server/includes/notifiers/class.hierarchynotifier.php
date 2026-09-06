@@ -82,7 +82,8 @@ class HierarchyNotifier extends Notifier {
 				// We won't send notifiers for changes to the todolist folder, since there is nothing to
 				// be updated by the client.
 				$entryIdUtil = new EntryId();
-				if ($entryIdUtil->compareEntryIds(bin2hex($folderEntryid), bin2hex(TodoList::getEntryId()))) {
+				$todoListEntryId = TodoList::getEntryId();
+				if ($folderEntryid !== false && $todoListEntryId !== false && $entryIdUtil->compareEntryIds(bin2hex($folderEntryid), bin2hex($todoListEntryId))) {
 					return;
 				}
 

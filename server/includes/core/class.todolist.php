@@ -32,7 +32,7 @@ class TodoList {
 	 *
 	 * @see https://msdn.microsoft.com/en-us/library/office/cc842311.aspx
 	 *
-	 * @return bool|string The entryid of the Todo-list search folder
+	 * @return false|string The entryid of the Todo-list search folder, or false when unavailable
 	 */
 	private static function _retrieveEntryId() {
 		$userStore = $GLOBALS['mapisession']->getDefaultMessageStore();
@@ -181,6 +181,9 @@ class TodoList {
 	 */
 	public static function getTodoSearchFolder($store) {
 		$entryid = self::getEntryId();
+		if ($entryid === false) {
+			return false;
+		}
 
 		try {
 			return mapi_msgstore_openentry($store, $entryid);

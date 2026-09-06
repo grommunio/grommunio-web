@@ -25,7 +25,10 @@ class TaskListModule extends ListModule {
 	public function createNotifiers() {
 		$entryid = $this->getEntryID();
 		$GLOBALS["bus"]->registerNotifier('tasklistnotifier', $entryid);
-		$GLOBALS["bus"]->registerNotifier('newtodotasknotifier', bin2hex(TodoList::getEntryId()));
+		$todoListEntryId = TodoList::getEntryId();
+		if ($todoListEntryId !== false) {
+			$GLOBALS["bus"]->registerNotifier('newtodotasknotifier', bin2hex($todoListEntryId));
+		}
 	}
 
 	/**

@@ -90,6 +90,7 @@ class Operations {
 				$storeUserName = $msgstore_props[PR_USER_NAME] ?? $GLOBALS["mapisession"]->getUserName();
 			}
 
+			$todoListEntryId = TodoList::getEntryId();
 			$storeData = [
 				"store_entryid" => bin2hex((string) $msgstore_props[PR_ENTRYID]),
 				"props" => [
@@ -106,7 +107,7 @@ class Operations {
 					"quota_hard" => $msgstore_props[PR_QUOTA_RECEIVE_THRESHOLD] ?? 0,
 					"common_view_entryid" => isset($msgstore_props[PR_COMMON_VIEWS_ENTRYID]) ? bin2hex((string) $msgstore_props[PR_COMMON_VIEWS_ENTRYID]) : "",
 					"finder_entryid" => isset($msgstore_props[PR_FINDER_ENTRYID]) ? bin2hex((string) $msgstore_props[PR_FINDER_ENTRYID]) : "",
-					"todolist_entryid" => bin2hex(TodoList::getEntryId()),
+					"todolist_entryid" => $todoListEntryId === false ? "" : bin2hex($todoListEntryId),
 				],
 			];
 
@@ -3946,6 +3947,9 @@ class Operations {
 
 					// Read the appointment as RFC2445-formatted ics stream.
 					$appointmentStream = mapi_mapitoical($GLOBALS['mapisession']->getSession(), $addrBook, $copyFrom, []);
+					if ($appointmentStream === false) {
+						throw new RuntimeException('Unable to create appointment attachment');
+					}
 
 					$filename = (!empty($messageProps[PR_SUBJECT])) ? $messageProps[PR_SUBJECT] : _('Untitled');
 					$filename .= '.ics';
@@ -3966,7 +3970,9 @@ class Operations {
 
 					// Stream the file to the PR_ATTACH_DATA_BIN property
 					$stream = mapi_openproperty($attachment, PR_ATTACH_DATA_BIN, IID_IStream, 0, MAPI_CREATE | MAPI_MODIFY);
-					mapi_stream_write($stream, $appointmentStream);
+					if (mapi_stream_write($stream, $appointmentStream) === false) {
+						throw new RuntimeException('Unable to write appointment attachment');
+					}
 
 					// Commit the stream and save changes
 					mapi_stream_commit($stream);
@@ -4161,7 +4167,10 @@ class Operations {
 						$newstream = mapi_openproperty($new, PR_ATTACH_DATA_BIN, IID_IStream, 0, MAPI_CREATE | MAPI_MODIFY);
 						mapi_stream_setsize($newstream, $stat['cb']);
 						for ($i = 0; $i < $stat['cb']; $i += BLOCK_SIZE) {
-							mapi_stream_write($newstream, mapi_stream_read($oldstream, BLOCK_SIZE));
+							$buffer = mapi_stream_read($oldstream, BLOCK_SIZE);
+							if ($buffer === false || mapi_stream_write($newstream, $buffer) === false) {
+								throw new RuntimeException('Unable to copy attachment stream');
+							}
 						}
 						mapi_stream_commit($newstream);
 						mapi_savechanges($new);
@@ -4391,7 +4400,8 @@ class Operations {
 				// gromox-kdb2mt might import items without an entryid and
 				// PR_ADDRTYPE 'ZARAFA' which causes issues when opening such messages.
 				if (empty($props['entryid']) && ($props['address_type'] === 'SMTP' || $props['address_type'] === 'ZARAFA')) {
-					$props['entryid'] = bin2hex(mapi_createoneoff($props['display_name'], $props['address_type'], $props['smtp_address'], MAPI_UNICODE));
+					$oneOffEntryId = mapi_createoneoff($props['display_name'], $props['address_type'], $props['smtp_address'], MAPI_UNICODE);
+					$props['entryid'] = $oneOffEntryId === false ? '' : bin2hex($oneOffEntryId);
 				}
 
 				// Set propose new time properties
@@ -4416,7 +4426,8 @@ class Operations {
 						if ($e->getCode() == MAPI_E_NOT_FOUND || $e->getCode() == MAPI_E_INVALID_PARAMETER) {
 							$props['email_address'] = $props['smtp_address'];
 							$props['address_type'] = 'SMTP';
-							$props['entryid'] = bin2hex(mapi_createoneoff($props['display_name'], $props['address_type'], $props['smtp_address'], MAPI_UNICODE));
+							$oneOffEntryId = mapi_createoneoff($props['display_name'], $props['address_type'], $props['smtp_address'], MAPI_UNICODE);
+							$props['entryid'] = $oneOffEntryId === false ? '' : bin2hex($oneOffEntryId);
 						}
 					}
 				}

@@ -1003,6 +1003,13 @@ class FilesBrowserModule extends FilesListModule {
 						for ($i = 0; $i < $stat["cb"]; $i += BLOCK_SIZE) {
 							// Write stream
 							$buffer = mapi_stream_read($stream, BLOCK_SIZE);
+							if ($buffer === false) {
+								fclose($fhandle);
+								unlink($tmpname);
+								FilesLogger::error(self::LOG_CONTEXT, "attachment stream could not be read");
+
+								return false;
+							}
 							fwrite($fhandle, $buffer, strlen($buffer));
 						}
 						fclose($fhandle);
@@ -1081,6 +1088,13 @@ class FilesBrowserModule extends FilesListModule {
 				for ($i = 0; $i < $stat["cb"]; $i += BLOCK_SIZE) {
 					// Write stream
 					$buffer = mapi_stream_read($stream, BLOCK_SIZE);
+					if ($buffer === false) {
+						fclose($fhandle);
+						unlink($tmpname);
+						FilesLogger::error(self::LOG_CONTEXT, "message stream could not be read");
+
+						return false;
+					}
 					fwrite($fhandle, $buffer, strlen($buffer));
 				}
 				fclose($fhandle);

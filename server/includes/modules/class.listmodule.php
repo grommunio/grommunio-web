@@ -243,7 +243,8 @@ class ListModule extends Module {
 
 		$this->searchFolderList = true; // Set to indicate this is not the normal folder, but a search folder
 		$this->restriction = false;
-		$searchInTodoList = $GLOBALS['entryid']->compareEntryIds(bin2hex($entryid), bin2hex(TodoList::getEntryId()));
+		$todoListEntryId = TodoList::getEntryId();
+		$searchInTodoList = $todoListEntryId !== false && $GLOBALS['entryid']->compareEntryIds(bin2hex($entryid), bin2hex($todoListEntryId));
 
 		// Parse Restriction
 		$this->parseRestriction($action);
