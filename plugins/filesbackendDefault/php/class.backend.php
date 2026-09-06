@@ -62,7 +62,7 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing, 
 		$this->formConfig = [
 			"labelAlign" => "left",
 			"columnCount" => 1,
-			"labelWidth" => 80,
+			"labelWidth" => 180,
 			"defaults" => [
 				"width" => 292,
 			],

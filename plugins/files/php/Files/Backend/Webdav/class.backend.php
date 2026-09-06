@@ -123,7 +123,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 		$this->formConfig = [
 			"labelAlign" => "left",
 			"columnCount" => 1,
-			"labelWidth" => 80,
+			"labelWidth" => 180,
 			"defaults" => [
 				"width" => 292,
 			],
