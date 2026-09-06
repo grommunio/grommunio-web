@@ -470,6 +470,25 @@ class ContactItemModule extends ItemModule {
 	}
 
 	/**
+	 * Calculate the number of minutes from the start of a timestamp's year to its month.
+	 *
+	 * @param int $timestamp
+	 *
+	 * @return int
+	 */
+	private static function getMonthOffset($timestamp) {
+		$month = (int) date('m', $timestamp);
+		$year = (int) date('Y', $timestamp);
+
+		$yearStart = new DateTime();
+		$yearStart->setDate($year, 1, 1);
+		$monthStart = clone $yearStart;
+		$monthStart->setDate($year, $month, 1);
+
+		return $monthStart->diff($yearStart)->days * 24 * 60;
+	}
+
+	/**
 	 * Function will create/update a yearly recurring appointment on the respective date of birthday or anniversary in user's calendar.
 	 *
 	 * @param resource $store  MAPI message store
@@ -501,16 +520,7 @@ class ContactItemModule extends ItemModule {
 
 		// Find the number of minutes since the start of the year to the given month,
 		// taking leap years into account.
-		$month = date('m', $startDate);
-		$year = date('y', $startDate);
-
-		$d1 = new DateTime();
-		$d1->setDate($year, 1, 1);
-		$d2 = new DateTime();
-		$d2->setDate($year, $month, 1);
-
-		$diff = $d2->diff($d1);
-		$month = $diff->days * 24 * 60;
+		$month = self::getMonthOffset($startDate);
 
 		$defAllDayReminder = $GLOBALS['settings']->get('zarafa/v1/contexts/calendar/default_allday_reminder_time', 1080);
 
