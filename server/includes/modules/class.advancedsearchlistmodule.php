@@ -45,6 +45,11 @@ class AdvancedSearchListModule extends ListModule {
 				try {
 					$store = $this->getActionStore($action);
 					$entryid = $this->getActionEntryID($action);
+					if ($store === false || is_array($store)) {
+						$this->sendFeedback(false);
+
+						continue;
+					}
 
 					switch ($actionType) {
 						case "list":
@@ -93,17 +98,17 @@ class AdvancedSearchListModule extends ListModule {
 	/**
 	 * Function which retrieves a list of messages in a folder.
 	 *
-	 * @param object $store      MAPI Message Store Object
-	 * @param string $entryid    entryid of the folder
-	 * @param array  $action     the action data, sent by the client
-	 * @param string $actionType the action type, sent by the client
+	 * @param false|resource $store      MAPI message store, or false when unavailable
+	 * @param false|string   $entryid    entryid of the folder, or false when unavailable
+	 * @param array          $action     the action data, sent by the client
+	 * @param string         $actionType the action type, sent by the client
 	 */
 	#[Override]
 	public function messageList($store, $entryid, $action, $actionType) {
 		$this->searchFolderList = false; // Set to indicate this is not the search result, but a normal folder content
 		$data = [];
 
-		if ($store && $entryid) {
+		if ($store !== false && $entryid !== false) {
 			// Restriction
 			$this->parseRestriction($action);
 

@@ -149,6 +149,10 @@ class TaskItemModule extends ItemModule {
 	 */
 	#[Override]
 	public function delete($store, $parententryid, $entryids, $action) {
+		if ($entryids === false) {
+			return;
+		}
+
 		if ($store && $parententryid) {
 			$props = [];
 			$props[PR_PARENT_ENTRYID] = $parententryid;

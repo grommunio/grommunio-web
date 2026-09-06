@@ -1341,13 +1341,13 @@ class Operations {
 	/**
 	 * Copy or move a folder.
 	 *
-	 * @param object $store               MAPI Message Store Object
-	 * @param string $parentfolderentryid The parent entryid of the folder which will be copied or moved
-	 * @param string $sourcefolderentryid The entryid of the folder which will be copied or moved
-	 * @param string $destfolderentryid   The entryid of the folder which the folder will be copied or moved to
-	 * @param bool   $moveFolder          true - move folder, false - copy folder
-	 * @param array  $folderProps         reference to an array which will be filled with entryids
-	 * @param mixed  $deststore
+	 * @param resource $store               MAPI message store
+	 * @param string   $parentfolderentryid The parent entryid of the folder which will be copied or moved
+	 * @param string   $sourcefolderentryid The entryid of the folder which will be copied or moved
+	 * @param string   $destfolderentryid   The entryid of the folder which the folder will be copied or moved to
+	 * @param bool     $moveFolder          true - move folder, false - copy folder
+	 * @param array    $folderProps         reference to an array which will be filled with entryids
+	 * @param resource $deststore           destination MAPI message store
 	 *
 	 * @return bool true if action succeeded, false if not
 	 */
@@ -1612,11 +1612,11 @@ class Operations {
 	 * Reads a message and returns the data as an XML array structure with all data from the message that is needed
 	 * to show a message (for example in the preview pane)
 	 *
-	 * @param object $store      MAPI Message Store Object
-	 * @param object $message    The MAPI Message Object
-	 * @param array  $properties Mapping of properties that should be read
-	 * @param bool   $html2text  true - body will be converted from html to text, false - html body will be returned
-	 * @param bool   $loadBody   true - fetch body content, false - skip body retrieval
+	 * @param resource $store      MAPI message store
+	 * @param resource $message    MAPI message
+	 * @param array    $properties Mapping of properties that should be read
+	 * @param bool     $html2text  true - body will be converted from html to text, false - html body will be returned
+	 * @param bool     $loadBody   true - fetch body content, false - skip body retrieval
 	 *
 	 * @return array item properties
 	 *
