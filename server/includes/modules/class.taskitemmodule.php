@@ -61,14 +61,14 @@ class TaskItemModule extends ItemModule {
 	}
 
 	/**
-	 * Function which used to open and get the all properties of the message. if message_action
-	 * "open_task" is true then it will open the associated task of task request and return its data item
-	 * else return the task request data item.
+	 * Open a task request and collect its message properties. If message_action
+	 * "open_task" is true, open the associated task and return its data;
+	 * otherwise, return the task-request data.
 	 *
-	 * @param object $store   MAPI Message Store Object
-	 * @param string $entryid entryid of the message
-	 * @param object $task    associated task of task request
-	 * @param mixed  $action
+	 * @param resource       $store   MAPI message store
+	 * @param string         $entryid entry ID of the message
+	 * @param array          $action  action data sent by the client
+	 * @param false|resource $task    associated task, or false when unavailable
 	 *
 	 * @return array $data item properties of given message
 	 */
@@ -88,10 +88,11 @@ class TaskItemModule extends ItemModule {
 	/**
 	 * Function which saves an item.
 	 *
-	 * @param object $store         MAPI Message Store Object
-	 * @param string $parententryid parent entryid of the message
-	 * @param array  $action        the action data, sent by the client
-	 * @param mixed  $entryid
+	 * @param false|resource $store         MAPI message store, or false to use the default
+	 * @param false|string   $parententryid parent entry ID, or false to infer it
+	 * @param false|string   $entryid       entry ID of the message, or false for a new item
+	 * @param array          $action        action data sent by the client
+	 * @param string         $actionType    action type that triggered the save
 	 */
 	#[Override]
 	public function save($store, $parententryid, $entryid, $action, $actionType = 'save') {
@@ -141,10 +142,10 @@ class TaskItemModule extends ItemModule {
 	/**
 	 * Function which deletes an item.
 	 *
-	 * @param object $store         MAPI Message Store Object
-	 * @param string $parententryid parent entryid of the message
-	 * @param mixed  $entryids
-	 * @param array  $action        the action data, sent by the client
+	 * @param resource $store         MAPI message store
+	 * @param string   $parententryid parent entryid of the message
+	 * @param mixed    $entryids
+	 * @param array    $action        the action data, sent by the client
 	 */
 	#[Override]
 	public function delete($store, $parententryid, $entryids, $action) {
@@ -254,10 +255,10 @@ class TaskItemModule extends ItemModule {
 	 * to regenerate task if it is recurring and client has changed either set as complete or delete or
 	 * given new start or end date.
 	 *
-	 * @param resource $store         MAPI store of the message
-	 * @param string    $parententryid Parent entryid of the message (folder entryid, NOT message entryid)
-	 * @param array     $action        Action array containing XML request
-	 * @param mixed     $entryid
+	 * @param false|resource $store         MAPI store of the message, or false
+	 * @param false|string   $parententryid parent folder entry ID, or false
+	 * @param false|string   $entryid       entry ID of the message, or false for a new item
+	 * @param array          $action        action data sent by the client
 	 *
 	 * @return array of PR_ENTRYID, PR_PARENT_ENTRYID and PR_STORE_ENTRYID properties of modified item
 	 */

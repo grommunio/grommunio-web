@@ -237,8 +237,8 @@ class MailListModule extends ListModule {
 	 * which messages must be presented as a conversation even though only one
 	 * of them is in the Inbox (a mail that was replied to).
 	 *
-	 * @param object $store  MAPI message store object
-	 * @param array  $action the action data, sent by the client
+	 * @param resource $store  MAPI message store
+	 * @param array    $action the action data, sent by the client
 	 */
 	public function getConversationCounts($store, $action) {
 		$counts = [];
@@ -308,8 +308,8 @@ class MailListModule extends ListModule {
 	 * list; this action supplies the sent counterparts when the user expands a
 	 * conversation.
 	 *
-	 * @param object $store  MAPI message store object
-	 * @param array  $action the action data, sent by the client
+	 * @param resource $store  MAPI message store
+	 * @param array    $action the action data, sent by the client
 	 */
 	public function getConversationItems($store, $action) {
 		$data = ['item' => []];

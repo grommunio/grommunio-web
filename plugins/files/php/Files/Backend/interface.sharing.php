@@ -41,7 +41,7 @@ interface iFeatureSharing {
 	 *
 	 * @param string[] $patharray paths to files or folders
 	 *
-	 * @return array
+	 * @return array|false sharing details, or false when no paths were supplied
 	 */
 	public function sharingDetails($patharray);
 
@@ -58,10 +58,10 @@ interface iFeatureSharing {
 	 *      "path2" => options2
 	 * )
 	 *
+	 * @param array $shareparams
 	 * @param bool  $update
-	 * @param mixed $shareparams
 	 *
-	 * @return bool
+	 * @return array|false updated sharing data, or false when no parameters were supplied
 	 */
 	public function share($shareparams, $update = false);
 

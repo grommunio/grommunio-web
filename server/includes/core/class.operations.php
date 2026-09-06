@@ -1126,8 +1126,8 @@ class Operations {
 	 * All default MAPI folders such as 'inbox', 'outbox', etc have special permissions; you can not rename them for example. This
 	 * function returns TRUE if the specified folder is 'special'.
 	 *
-	 * @param object $store   MAPI Message Store Object
-	 * @param string $entryid The entryid of the folder
+	 * @param resource $store   MAPI message store
+	 * @param string   $entryid The entryid of the folder
 	 *
 	 * @return bool true if folder is a special folder, false if not
 	 */
@@ -1543,9 +1543,9 @@ class Operations {
 	 * code pages and extracting both the HTML and plain text bodies. It can be
 	 * called independently to lazily fetch body data when required.
 	 *
-	 * @param object $message   The MAPI Message Object
-	 * @param bool   $html2text true - body will be converted from html to text,
-	 *                          false - html body will be returned
+	 * @param resource $message   MAPI message
+	 * @param bool     $html2text true - body will be converted from html to text,
+	 *                            false - html body will be returned
 	 *
 	 * @return array associative array containing keys 'body', 'html_body' and 'isHTML'
 	 */
@@ -1825,8 +1825,8 @@ class Operations {
 	/**
 	 * Get and convert properties of a message into an XML array structure.
 	 *
-	 * @param object $item       The MAPI Object
-	 * @param array  $properties Mapping of properties that should be read
+	 * @param false|resource $item       MAPI object, or false when unavailable
+	 * @param array          $properties mapping of properties to read
 	 *
 	 * @return array XML array structure
 	 *
@@ -1849,11 +1849,11 @@ class Operations {
 	 * Returns the same data as getMessageProps, but then for a specific sub/sub/sub message
 	 * of a MAPI message.
 	 *
-	 * @param object $store         MAPI Message Store Object
-	 * @param object $message       MAPI Message Object
-	 * @param array  $properties    a set of properties which will be selected
-	 * @param array  $parentMessage MAPI Message Object of parent
-	 * @param array  $attach_num    a list of attachment numbers (aka 2,1 means 'attachment nr 1 of attachment nr 2')
+	 * @param resource $store         MAPI message store
+	 * @param resource $message       embedded MAPI message
+	 * @param array    $properties    properties to select
+	 * @param resource $parentMessage parent MAPI message
+	 * @param array    $attach_num    list of attachment numbers
 	 *
 	 * @return array item XML array structure of the embedded message
 	 */
@@ -1880,8 +1880,8 @@ class Operations {
 	/**
 	 * Create a MAPI message.
 	 *
-	 * @param object $store         MAPI Message Store Object
-	 * @param string $parententryid The entryid of the folder in which the new message is to be created
+	 * @param resource $store         MAPI message store
+	 * @param string   $parententryid The entryid of the folder in which the new message is to be created
 	 *
 	 * @return resource created MAPI message
 	 */
@@ -1894,10 +1894,10 @@ class Operations {
 	/**
 	 * Open a MAPI message.
 	 *
-	 * @param resource $store       MAPI message store
-	 * @param string $entryid     entryid of the message
-	 * @param array  $attach_num  a list of attachment numbers (aka 2,1 means 'attachment nr 1 of attachment nr 2')
-	 * @param bool   $parse_smime (optional) call parse_smime on the opened message or not IFF it's an SMIME message
+	 * @param resource    $store       MAPI message store
+	 * @param string      $entryid     entryid of the message
+	 * @param array|false $attach_num  a list of attachment numbers, or false
+	 * @param bool        $parse_smime whether to parse an S/MIME message
 	 *
 	 * @return false|resource MAPI message, or false when it cannot be opened
 	 */
@@ -1949,22 +1949,21 @@ class Operations {
 	 * way, when we save the message into MAPI, we know which attachment was previously uploaded ready for this message, because when the user saves
 	 * the message, we pass the same $dialog_attachments ID as when we uploaded the file.
 	 *
-	 * @param object      $store                     MAPI Message Store Object
-	 * @param string      $entryid                   entry ID of the message
-	 * @param string      $parententryid             parent folder entry ID
-	 * @param array       $props                     The MAPI properties to be saved
-	 * @param array       $messageProps              reference to an array which will be filled with PR_ENTRYID and PR_STORE_ENTRYID of the saved message
-	 * @param array       $recipients                XML array structure of recipients for the recipient table
-	 * @param array       $attachments               attachments array containing unique check number which checks if attachments should be added
-	 * @param array       $propertiesToDelete        Properties specified in this array are deleted from the MAPI message
-	 * @param resource    $copyFromMessage           message from which we should
-	 *                                               copy attachments and/or recipients to the current message
-	 * @param bool        $copyAttachments           if set we copy all attachments from the $copyFromMessage
-	 * @param bool        $copyRecipients            if set we copy all recipients from the $copyFromMessage
-	 * @param bool        $copyInlineAttachmentsOnly if true then copy only inline attachments
-	 * @param bool        $saveChanges               if true then save all change in mapi message
-	 * @param bool        $send                      true if this function is called from submitMessage else false
-	 * @param bool        $isPlainText               if true then message body will be generated using PR_BODY otherwise PR_HTML will be used in saveMessage() function
+	 * @param resource       $store                     MAPI message store
+	 * @param false|string   $entryid                   entry ID, or false for a new message
+	 * @param false|string   $parententryid             parent folder entry ID
+	 * @param array          $props                     MAPI properties to save
+	 * @param array          $messageProps              receives PR_ENTRYID and PR_STORE_ENTRYID of the saved message
+	 * @param array          $recipients                recipient table data
+	 * @param array          $attachments               attachments to add
+	 * @param array          $propertiesToDelete        properties to delete from the message
+	 * @param false|resource $copyFromMessage           source message for attachments or recipients
+	 * @param bool           $copyAttachments           whether to copy all attachments
+	 * @param bool           $copyRecipients            whether to copy all recipients
+	 * @param bool           $copyInlineAttachmentsOnly whether to copy inline attachments only
+	 * @param bool           $saveChanges               whether to save the MAPI message
+	 * @param bool           $send                      whether the message is being submitted
+	 * @param bool           $isPlainText               whether to generate PR_BODY instead of PR_HTML
 	 *
 	 * @return false|resource saved MAPI message, or false when it cannot be created
 	 */
@@ -2134,12 +2133,12 @@ class Operations {
 	 * in the action, that we will attempt to open an existing exception and change that, and if that
 	 * fails, create a new exception with the specified data.
 	 *
-	 * @param resource $store                       MAPI store of the message
-	 * @param string    $entryid                     entryid of the message
-	 * @param string    $parententryid               Parent entryid of the message (folder entryid, NOT message entryid)
-	 * @param array     $action                      Action array containing XML request
-	 * @param string    $actionType                  The action type which triggered this action
-	 * @param bool      $directBookingMeetingRequest Indicates if a Meeting Request should use direct booking or not. Defaults to true.
+	 * @param false|resource $store                       MAPI store of the message, or false
+	 * @param false|string   $entryid                     entry ID of the message, or false for a new item
+	 * @param false|string   $parententryid               parent folder entry ID, or false for an invalid target
+	 * @param array          $action                      action data sent by the client
+	 * @param string         $actionType                  action type that triggered this action
+	 * @param bool           $directBookingMeetingRequest whether a meeting request should use direct booking
 	 *
 	 * @return array|false PR_ENTRYID, PR_PARENT_ENTRYID and PR_STORE_ENTRYID properties of the modified item, or false for an invalid target
 	 */
@@ -3611,15 +3610,15 @@ class Operations {
 	/**
 	 * Copy or move messages.
 	 *
-	 * @param object $store         MAPI Message Store Object
-	 * @param string $parententryid parent entryid of the messages
-	 * @param string $destentryid   destination folder
-	 * @param array  $entryids      a list of entryids which will be copied or moved
-	 * @param array  $ignoreProps   a list of proptags which should not be copied over
-	 *                              to the new message
-	 * @param bool   $moveMessages  true - move messages, false - copy messages
-	 * @param array  $props         a list of proptags which should set in new messages
-	 * @param mixed  $destStore
+	 * @param resource     $store         source MAPI message store
+	 * @param string       $parententryid parent entryid of the messages
+	 * @param resource     $destStore     destination MAPI message store
+	 * @param string       $destentryid   destination folder
+	 * @param array|string $entryids      a list of entryids which will be copied or moved
+	 * @param array        $ignoreProps   a list of proptags which should not be copied over
+	 *                                    to the new message
+	 * @param bool         $moveMessages  true - move messages, false - copy messages
+	 * @param array        $props         a list of proptags to set in new messages
 	 *
 	 * @return bool true if action succeeded, false if not
 	 */
@@ -3686,11 +3685,11 @@ class Operations {
 	/**
 	 * Set message read flag.
 	 *
-	 * @param object $store      MAPI Message Store Object
-	 * @param string $entryid    entryid of the message
-	 * @param int    $flags      Bitmask of values (read, has attachment etc.)
-	 * @param array  $props      properties of the message
-	 * @param mixed  $msg_action
+	 * @param resource    $store      MAPI message store
+	 * @param string      $entryid    entryid of the message
+	 * @param int         $flags      Bitmask of values (read, has attachment etc.)
+	 * @param array|false $msg_action action data, or false when omitted
+	 * @param array|false $props      properties of the message, or false when omitted
 	 *
 	 * @return bool true if action succeeded, false if not
 	 */
@@ -3730,9 +3729,9 @@ class Operations {
 	 * This function is used for copying of moving a folder to another folder. It returns
 	 * a unique foldername.
 	 *
-	 * @param object $store      MAPI Message Store Object
-	 * @param object $folder     MAPI Folder Object
-	 * @param string $foldername the folder name
+	 * @param resource $store      MAPI message store
+	 * @param resource $folder     MAPI folder
+	 * @param string   $foldername the folder name
 	 *
 	 * @return string correct foldername
 	 */
@@ -3810,10 +3809,14 @@ class Operations {
 	 *
 	 * If we are sending mail from a delegator's folder, we need to copy all recipients from the original message
 	 *
-	 * @param object      $message         MAPI Message Object
-	 * @param resource $copyFromMessage message from which to copy recipients
+	 * @param resource       $message         destination MAPI message
+	 * @param false|resource $copyFromMessage source message, or false when absent
 	 */
 	public function copyRecipients($message, $copyFromMessage = false) {
+		if ($copyFromMessage === false) {
+			return;
+		}
+
 		$recipienttable = mapi_message_getrecipienttable($copyFromMessage);
 		$messageRecipients = mapi_table_queryallrows($recipienttable, $GLOBALS["properties"]->getRecipientProperties());
 		if (!empty($messageRecipients)) {
@@ -4029,8 +4032,8 @@ class Operations {
 	 *
 	 * @see Operations::saveMessage()
 	 *
-	 * @param object          $message                   MAPI Message Object
-	 * @param string          $attachments
+	 * @param resource        $message                   destination MAPI message
+	 * @param array           $attachments
 	 * @param resource        $copyFromMessage           message from which to copy attachments in addition to uploaded attachments
 	 * @param bool            $copyInlineAttachmentsOnly if true then copy only inline attachments
 	 * @param AttachmentState $attachment_state          the state object in which the attachments are saved

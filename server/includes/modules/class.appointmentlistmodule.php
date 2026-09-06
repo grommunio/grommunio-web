@@ -551,9 +551,9 @@ class AppointmentListModule extends ListModule {
 	 * can decide what to do with the private items, remove the entire row or just
 	 * hide the data. This function will only hide the data of the private appointments.
 	 *
-	 * @param object $item item properties
+	 * @param array $item item properties
 	 *
-	 * @return object item properties after processing private items
+	 * @return array item properties after processing private items
 	 */
 	#[Override]
 	public function processPrivateItem($item) {

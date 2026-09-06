@@ -504,8 +504,8 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing, 
 	 *      "id1" => options1 (ONLY if $update = true)
 	 * )
 	 *
+	 * @param array $shareparams
 	 * @param bool  $update
-	 * @param mixed $shareparams
 	 *
 	 * @return array|false sharing results, or false when no parameters were supplied
 	 */

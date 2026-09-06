@@ -23,9 +23,9 @@ class ContactItemModule extends ItemModule {
 	/**
 	 * Function which opens an item.
 	 *
-	 * @param object $store   MAPI Message Store Object
-	 * @param string $entryid entryid of the message
-	 * @param array  $action  the action data, sent by the client
+	 * @param resource $store   MAPI message store
+	 * @param string   $entryid entryid of the message
+	 * @param array    $action  the action data, sent by the client
 	 */
 	#[Override]
 	public function open($store, $entryid, $action) {
@@ -120,14 +120,15 @@ class ContactItemModule extends ItemModule {
 	 * Function which saves an item. It sets the right properties for a contact
 	 * item (address book properties).
 	 *
-	 * @param object $store         MAPI Message Store Object
-	 * @param string $parententryid parent entryid of the message
-	 * @param string $entryid       entryid of the message
-	 * @param array  $action        the action data, sent by the client
+	 * @param false|resource $store         MAPI message store, or false to use the default
+	 * @param false|string   $parententryid parent folder entry ID, or false to infer it
+	 * @param false|string   $entryid       entry ID of the message, or false for a new item
+	 * @param array          $action        action data sent by the client
+	 * @param string         $actionType    action type that triggered the save
 	 */
 	#[Override]
 	public function save($store, $parententryid, $entryid, $action, $actionType = 'save') {
-		$properiesToDelete = []; // create an array of properties which should be deleted
+		$propertiesToDelete = []; // create an array of properties which should be deleted
 		$isCopyGABToContact = false;
 		// this array is passed to $GLOBALS['operations']->saveMessage() function
 
@@ -196,8 +197,8 @@ class ContactItemModule extends ItemModule {
 					$props[$this->properties['oneoff_members']] = $oneoff_members;
 				}
 				else {
-					$properiesToDelete[] = $this->properties['members'];
-					$properiesToDelete[] = $this->properties['oneoff_members'];
+					$propertiesToDelete[] = $this->properties['members'];
+					$propertiesToDelete[] = $this->properties['oneoff_members'];
 				}
 
 				unset($action['members']);
@@ -224,10 +225,10 @@ class ContactItemModule extends ItemModule {
 				}
 				else {
 					// delete properties to remove previous values
-					$properiesToDelete[] = $this->properties['fax_1_address_type'];
-					$properiesToDelete[] = $this->properties['fax_1_original_display_name'];
-					$properiesToDelete[] = $this->properties['fax_1_email_address'];
-					$properiesToDelete[] = $this->properties['fax_1_original_entryid'];
+					$propertiesToDelete[] = $this->properties['fax_1_address_type'];
+					$propertiesToDelete[] = $this->properties['fax_1_original_display_name'];
+					$propertiesToDelete[] = $this->properties['fax_1_email_address'];
+					$propertiesToDelete[] = $this->properties['fax_1_original_entryid'];
 				}
 
 				// set properties for business fax number
@@ -235,10 +236,10 @@ class ContactItemModule extends ItemModule {
 					$action['props']['fax_2_original_entryid'] = bin2hex(mapi_createoneoff($action['props']['fax_2_original_display_name'], $action['props']['fax_2_address_type'], $action['props']['fax_2_email_address'], MAPI_UNICODE));
 				}
 				else {
-					$properiesToDelete[] = $this->properties['fax_2_address_type'];
-					$properiesToDelete[] = $this->properties['fax_2_original_display_name'];
-					$properiesToDelete[] = $this->properties['fax_2_email_address'];
-					$properiesToDelete[] = $this->properties['fax_2_original_entryid'];
+					$propertiesToDelete[] = $this->properties['fax_2_address_type'];
+					$propertiesToDelete[] = $this->properties['fax_2_original_display_name'];
+					$propertiesToDelete[] = $this->properties['fax_2_email_address'];
+					$propertiesToDelete[] = $this->properties['fax_2_original_entryid'];
 				}
 
 				// set properties for home fax number
@@ -246,10 +247,10 @@ class ContactItemModule extends ItemModule {
 					$action['props']['fax_3_original_entryid'] = bin2hex(mapi_createoneoff($action['props']['fax_3_original_display_name'], $action['props']['fax_3_address_type'], $action['props']['fax_3_email_address'], MAPI_UNICODE));
 				}
 				else {
-					$properiesToDelete[] = $this->properties['fax_3_address_type'];
-					$properiesToDelete[] = $this->properties['fax_3_original_display_name'];
-					$properiesToDelete[] = $this->properties['fax_3_email_address'];
-					$properiesToDelete[] = $this->properties['fax_3_original_entryid'];
+					$propertiesToDelete[] = $this->properties['fax_3_address_type'];
+					$propertiesToDelete[] = $this->properties['fax_3_original_display_name'];
+					$propertiesToDelete[] = $this->properties['fax_3_email_address'];
+					$propertiesToDelete[] = $this->properties['fax_3_original_entryid'];
 				}
 
 				// check for properties which should be deleted
@@ -257,32 +258,32 @@ class ContactItemModule extends ItemModule {
 					// check for empty email address properties
 					for ($i = 1; $i < 4; ++$i) {
 						if (isset($action['props']['email_address_' . $i]) && empty($action['props']['email_address_' . $i])) {
-							array_push($properiesToDelete, $this->properties['email_address_entryid_' . $i]);
-							array_push($properiesToDelete, $this->properties['email_address_' . $i]);
-							array_push($properiesToDelete, $this->properties['email_address_display_name_' . $i]);
-							array_push($properiesToDelete, $this->properties['email_address_display_name_email_' . $i]);
-							array_push($properiesToDelete, $this->properties['email_address_type_' . $i]);
+							array_push($propertiesToDelete, $this->properties['email_address_entryid_' . $i]);
+							array_push($propertiesToDelete, $this->properties['email_address_' . $i]);
+							array_push($propertiesToDelete, $this->properties['email_address_display_name_' . $i]);
+							array_push($propertiesToDelete, $this->properties['email_address_display_name_email_' . $i]);
+							array_push($propertiesToDelete, $this->properties['email_address_type_' . $i]);
 						}
 					}
 
 					// check for empty address_book_mv and address_book_long properties
 					if (isset($action['props']['address_book_long']) && $action['props']['address_book_long'] === 0) {
-						$properiesToDelete[] = $this->properties['address_book_mv'];
-						$properiesToDelete[] = $this->properties['address_book_long'];
+						$propertiesToDelete[] = $this->properties['address_book_mv'];
+						$propertiesToDelete[] = $this->properties['address_book_long'];
 					}
 
 					// Check if the birthday and anniversary properties are empty. If so delete them.
 					if (array_key_exists('birthday', $action['props']) && empty($action['props']['birthday'])) {
-						array_push($properiesToDelete, $this->properties['birthday']);
-						array_push($properiesToDelete, $this->properties['birthday_eventid']);
+						array_push($propertiesToDelete, $this->properties['birthday']);
+						array_push($propertiesToDelete, $this->properties['birthday_eventid']);
 						if (!empty($action['props']['birthday_eventid'])) {
 							$this->deleteSpecialDateAppointment($store, $action['props']['birthday_eventid']);
 						}
 					}
 
 					if (array_key_exists('wedding_anniversary', $action['props']) && empty($action['props']['wedding_anniversary'])) {
-						array_push($properiesToDelete, $this->properties['wedding_anniversary']);
-						array_push($properiesToDelete, $this->properties['anniversary_eventid']);
+						array_push($propertiesToDelete, $this->properties['wedding_anniversary']);
+						array_push($propertiesToDelete, $this->properties['anniversary_eventid']);
 						if (!empty($action['props']['anniversary_eventid'])) {
 							$this->deleteSpecialDateAppointment($store, $action['props']['anniversary_eventid']);
 						}
@@ -322,7 +323,7 @@ class ContactItemModule extends ItemModule {
 
 			$messageProps = [];
 
-			$result = $GLOBALS['operations']->saveMessage($store, $entryid, $parententryid, $props, $messageProps, [], $action['attachments'] ?? [], $properiesToDelete);
+			$result = $GLOBALS['operations']->saveMessage($store, $entryid, $parententryid, $props, $messageProps, [], $action['attachments'] ?? [], $propertiesToDelete);
 
 			if ($result) {
 				$GLOBALS['bus']->notify(bin2hex($parententryid), TABLE_SAVE, $messageProps);
@@ -391,10 +392,10 @@ class ContactItemModule extends ItemModule {
 	 * Function which deletes an item. Extended here to also delete corresponding birthday/anniversary
 	 * appointments from calendar.
 	 *
-	 * @param object $store         MAPI Message Store Object
-	 * @param string $parententryid parent entryid of the message
-	 * @param string $entryid       entryid of the message
-	 * @param array  $action        the action data, sent by the client
+	 * @param false|resource $store         MAPI message store, or false to infer it
+	 * @param false|string   $parententryid parent folder entry ID, or false to infer it
+	 * @param string         $entryid       entry ID of the message
+	 * @param array          $action        action data sent by the client
 	 */
 	#[Override]
 	public function delete($store, $parententryid, $entryid, $action) {
@@ -452,9 +453,9 @@ class ContactItemModule extends ItemModule {
 	/**
 	 * Function will create/update a yearly recurring appointment on the respective date of birthday or anniversary in user's calendar.
 	 *
-	 * @param object $store  MAPI Message Store Object
-	 * @param array  $action the action data, sent by the client
-	 * @param string $type   type of appointment that should be created/updated, valid values are 'birthday' and 'wedding_anniversary'
+	 * @param resource $store  MAPI message store
+	 * @param array    $action the action data, sent by the client
+	 * @param string   $type   type of appointment that should be created/updated, valid values are 'birthday' and 'wedding_anniversary'
 	 *
 	 * @return false|string entry ID of the newly created appointment in hexadecimal form, or false
 	 */

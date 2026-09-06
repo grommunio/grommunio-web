@@ -71,9 +71,9 @@ class StickyNoteListModule extends ListModule {
 	 * sticky notes doesn't have private items so function is overridden to not do
 	 * any processing.
 	 *
-	 * @param object $item item properties
+	 * @param array $item item properties
 	 *
-	 * @return object item properties if its non private item otherwise empty array
+	 * @return array unchanged item properties
 	 */
 	#[Override]
 	public function processPrivateItem($item) {
