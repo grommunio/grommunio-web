@@ -13,6 +13,9 @@ require_once 'Der.php';
 class X509Helper extends Der {
 	public function generalName() {
 		$tag = $this->peek();
+		if ($tag === null) {
+			throw new \UnexpectedValueException('Missing GeneralName value');
+		}
 		$res = [];
 
 		switch ($tag) {

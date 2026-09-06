@@ -2,8 +2,8 @@
 
 namespace WAYF;
 
-include 'X509.php';
-include 'Ocsp.php';
+require_once 'X509.php';
+require_once 'Ocsp.php';
 
 class NemidLogin {
 	/**
@@ -18,6 +18,8 @@ class NemidLogin {
 	 * }.
 	 *
 	 * @param mixed $config
+	 *
+	 * @throws \RuntimeException when the request parameters cannot be encoded
 	 */
 	public function prepareparamsfornemid($config) {
 		$paramcert = file_get_contents($config->certificate);
@@ -39,6 +41,9 @@ class NemidLogin {
 			$normalized .= strtolower($name) . $value;
 		}
 		$normalized = mb_convert_encoding($normalized, 'UTF-8', 'ISO-8859-1');
+		if (!is_string($normalized)) {
+			throw new \RuntimeException('Unable to normalize NemID request parameters.');
+		}
 		$paramsdigest = hash('sha256', $normalized, true);
 		$params['paramsdigest'] = base64_encode($paramsdigest);
 
@@ -94,7 +99,6 @@ class NemidCertificateCheck {
 		$x509 = new X509();
 
 		$certchain = $this->xml2certs($xp, $x509);
-		print_r($certchain);
 
 		$nemidfixedpathlength = 1; # as per RFC 5280: 'maximum number of non-self-issued intermediate certificates'
 
@@ -191,7 +195,7 @@ class NemidCertificateCheck {
 		if (!((hash('sha256', (string) $signedElement, true) == $digestValue) &&
 				openssl_verify($signedInfo, $signatureValue, $publicKey, 'sha256WithRSAEncryption') == 1)) {
 			trigger_error('Error verifying incoming XML signature' . PHP_EOL .
-					openssl_error_string() . PHP_EOL . 'XML signature: ' . print_r(htmlspecialchars((string) $message), 1), E_USER_ERROR);
+					openssl_error_string() . PHP_EOL . 'XML signature: ' . (string) print_r(htmlspecialchars((string) $message), true), E_USER_ERROR);
 		}
 	}
 
@@ -375,18 +379,17 @@ class NemidCertificateCheck {
 			'cpr' => $cpr,
 		];
 
-		$element = $xp->query('/method/request')->item(0);
+		$element = $this->requireXPathElement($xp, '/method/request');
 		$element->setAttribute("id", uniqid());
 
 		foreach ((array) $pidCprRequestParams as $p => $v) {
-			$element = $xp->query('/method/request/' . $p)->item(0);
-			$newelement = $document->createTextNode($v);
-			$element->replaceChild($newelement, $element->firstChild);
+			$element = $this->requireXPathElement($xp, '/method/request/' . $p);
+			$this->replaceElementText($document, $element, $v);
 		}
 
 		if (!$cpr) {
-			$element = $xp->query('/method/request/cpr')->item(0);
-			$element->parentNode->removeChild($element);
+			$element = $this->requireXPathElement($xp, '/method/request/cpr');
+			$this->removeElement($element);
 		}
 
 		$pidCprRequest = $document->saveXML();
@@ -428,6 +431,51 @@ class NemidCertificateCheck {
 		}
 		$errormsg = $xp->query('/method/response/status/statusText[@language=\'UK\']')->item(0)->nodeValue;
 		trigger_error("PID: {$pid} Status: {$status}, {$errormsg}", E_USER_ERROR);
+	}
+
+	/**
+	 * Return a required element from a NemID XML document.
+	 *
+	 * @throws \UnexpectedValueException when the document does not match the expected structure
+	 */
+	protected function requireXPathElement(\DOMXPath $xpath, string $query): \DOMElement {
+		$nodes = $xpath->query($query);
+		$element = $nodes !== false ? $nodes->item(0) : null;
+		if (!$element instanceof \DOMElement) {
+			throw new \UnexpectedValueException("Missing NemID XML element: {$query}");
+		}
+
+		return $element;
+	}
+
+	/**
+	 * Replace the existing value node of a required NemID XML element.
+	 *
+	 * @param mixed $value
+	 *
+	 * @throws \UnexpectedValueException when the element has no value node
+	 */
+	protected function replaceElementText(\DOMDocument $document, \DOMElement $element, $value): void {
+		$firstChild = $element->firstChild;
+		if (!$firstChild instanceof \DOMNode) {
+			throw new \UnexpectedValueException("NemID XML element '{$element->tagName}' has no value node");
+		}
+
+		$element->replaceChild($document->createTextNode((string) $value), $firstChild);
+	}
+
+	/**
+	 * Remove a required NemID XML element from its parent.
+	 *
+	 * @throws \UnexpectedValueException when the element is detached
+	 */
+	protected function removeElement(\DOMElement $element): void {
+		$parent = $element->parentNode;
+		if (!$parent instanceof \DOMNode) {
+			throw new \UnexpectedValueException("NemID XML element '{$element->tagName}' has no parent node");
+		}
+
+		$parent->removeChild($element);
 	}
 }
 
