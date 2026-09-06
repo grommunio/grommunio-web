@@ -97,9 +97,12 @@ class TokenGenerator {
 			throw new \Exception("Password not set for PFX-File.");
 		}
 		$pfxContent = file_get_contents($this->PfxFile);
+		if ($pfxContent === false) {
+			throw new \Exception("PFX-File could not be read.");
+		}
 		$results = [];
 		$read = openssl_pkcs12_read($pfxContent, $results, $this->PfxPassword);
-		if ($read == false) {
+		if ($read === false) {
 			throw new \Exception("Error on reading PFX-File: " . openssl_error_string());
 		}
 		$this->Certificate = $results['pkey'] . $results['cert'];
