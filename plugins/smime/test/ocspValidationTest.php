@@ -27,7 +27,7 @@ class OcspValidationTest extends SMIMETest {
 	private $responderWithoutEkuKey;
 	private $responderWithoutEkuData;
 
-	protected function setUp() {
+	protected function setUp(): void {
 		$this->configFile = tempnam(sys_get_temp_dir(), 'smime_openssl_');
 		if ($this->configFile === false || file_put_contents($this->configFile, $this->opensslConfig()) === false) {
 			$this->fail('Unable to create the OpenSSL test configuration');
@@ -52,9 +52,11 @@ class OcspValidationTest extends SMIMETest {
 		$this->responderWithoutEkuData = $x509->certificate($this->pemToDer($responderWithoutEkuPem));
 	}
 
-	protected function tearDown() {
-		if (is_string($this->configFile)) {
-			@unlink($this->configFile);
+	protected function tearDown(): void {
+		if (is_string($this->configFile) &&
+			(is_file($this->configFile) || is_link($this->configFile)) &&
+			!unlink($this->configFile)) {
+			$this->fail("Unable to remove OCSP test configuration: {$this->configFile}");
 		}
 	}
 
@@ -301,6 +303,7 @@ class OcspValidationTest extends SMIMETest {
 			['config' => $this->configFile, 'x509_extensions' => $extension, 'digest_alg' => 'sha256'],
 			random_int(1, PHP_INT_MAX)
 		);
+		$pem = '';
 		if ($certificate === false || !openssl_x509_export($certificate, $pem)) {
 			$this->fail('Unable to create an OCSP test certificate');
 		}

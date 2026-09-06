@@ -341,7 +341,7 @@ class Der extends Oids {
 				$atArcStart = false;
 			}
 		}
-		if (!$atArcStart) {
+		if ((ord($oid[$len - 1]) & 0x80) !== 0) {
 			throw new \UnexpectedValueException('Truncated DER OBJECT IDENTIFIER arc');
 		}
 

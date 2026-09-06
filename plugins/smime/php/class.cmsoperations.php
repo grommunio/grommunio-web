@@ -1035,9 +1035,12 @@ class CmsOperations {
 	 */
 	private function removeTemporaryFiles(array $tmpFiles): void {
 		foreach ($tmpFiles as $tmpFile) {
-			if ((is_file($tmpFile) || is_link($tmpFile)) && !@unlink($tmpFile)) {
-				// Best-effort truncation prevents a failed unlink from leaving key material behind.
-				@file_put_contents($tmpFile, '', LOCK_EX);
+			$isLink = is_link($tmpFile);
+			if ((is_file($tmpFile) || $isLink) && !@unlink($tmpFile)) {
+				// Never follow a symlink while attempting to clear key material.
+				if (!$isLink && @file_put_contents($tmpFile, '', LOCK_EX) === false) {
+					error_log("[smime] Could not clear temporary OpenSSL file: {$tmpFile}");
+				}
 				error_log("[smime] Could not remove temporary OpenSSL file: {$tmpFile}");
 			}
 		}

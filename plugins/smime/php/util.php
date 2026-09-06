@@ -276,7 +276,10 @@ function ensureAiaCacheDir($cacheDir) {
 	}
 	// Older releases created this directory group-writable. Tighten it when
 	// possible; otherwise do not trust or write cache entries in it.
-	@chmod($cacheDir, 0700);
+	if (!@chmod($cacheDir, 0700)) {
+		return false;
+	}
+	clearstatcache(true, $cacheDir);
 	$stat = @lstat($cacheDir);
 	if ($stat === false || ($stat['mode'] & 0170000) !== 0040000 || ($stat['mode'] & 0077) !== 0) {
 		return false;
@@ -342,8 +345,8 @@ function writeAiaCacheFile($cacheDir, $cacheFile, $data) {
 		return @rename($tmpFile, $cacheFile);
 	}
 	finally {
-		if (is_file($tmpFile)) {
-			@unlink($tmpFile);
+		if ((is_file($tmpFile) || is_link($tmpFile)) && !@unlink($tmpFile)) {
+			error_log("[smime] Could not remove temporary AIA cache file: {$tmpFile}");
 		}
 	}
 }

@@ -19,7 +19,7 @@ class CrlValidationTest extends SMIMETest {
 	private $issuerKey;
 	private $issuerPem;
 
-	protected function setUp() {
+	protected function setUp(): void {
 		$this->configFile = tempnam(sys_get_temp_dir(), 'smime_crl_openssl_');
 		if ($this->configFile === false || file_put_contents($this->configFile, $this->opensslConfig()) === false) {
 			$this->fail('Unable to create the OpenSSL test configuration');
@@ -48,9 +48,11 @@ class CrlValidationTest extends SMIMETest {
 		}
 	}
 
-	protected function tearDown() {
-		if (is_string($this->configFile)) {
-			@unlink($this->configFile);
+	protected function tearDown(): void {
+		if (is_string($this->configFile) &&
+			(is_file($this->configFile) || is_link($this->configFile)) &&
+			!unlink($this->configFile)) {
+			$this->fail("Unable to remove CRL test configuration: {$this->configFile}");
 		}
 	}
 
