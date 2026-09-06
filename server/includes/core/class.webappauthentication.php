@@ -240,12 +240,12 @@ class WebAppAuthentication {
 				if (count($tmp) == 2) {
 					setcookie('domainname', $tmp[1], ['expires' => time() + 31536000, 'path' => '/', 'domain' => '', 'secure' => true, 'httponly' => true, 'samesite' => 'Lax']);
 				}
-				$wa_title = WebAppAuthentication::$_mapiSession->getFullName();
-				$companyname = WebAppAuthentication::$_mapiSession->getCompanyName();
-				if (isset($companyname) && strlen($companyname) != 0) {
+				$wa_title = (string) WebAppAuthentication::$_mapiSession->getFullName();
+				$companyname = (string) WebAppAuthentication::$_mapiSession->getCompanyName();
+				if ($companyname !== '') {
 					$wa_title .= " ({$companyname})";
 				}
-				if (strlen($wa_title) != 0) {
+				if ($wa_title !== '') {
 					setcookie('webapp_title', $wa_title, ['expires' => time() + 31536000, 'path' => '/', 'domain' => '', 'secure' => true, 'httponly' => true, 'samesite' => 'Lax']);
 				}
 			}

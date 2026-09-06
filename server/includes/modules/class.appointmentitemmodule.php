@@ -241,6 +241,9 @@ class AppointmentItemModule extends ItemModule {
 			switch ($actionType) {
 				case "save":
 					if ($e->getCode() == MAPI_E_NO_ACCESS) {
+						if ($store === null || $store === false || !$entryid) {
+							break;
+						}
 						$message = mapi_msgstore_openentry($store, $entryid);
 						$messageProps = mapi_getprops($message, [PR_MESSAGE_CLASS, PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID]);
 						$messageClass = $messageProps[PR_MESSAGE_CLASS];

@@ -1903,6 +1903,9 @@ class Operations {
 	 */
 	public function openMessage($store, $entryid, $attach_num = false, $parse_smime = false) {
 		$message = mapi_msgstore_openentry($store, $entryid);
+		if ($message === false) {
+			return false;
+		}
 
 		// Needed for S/MIME messages with embedded message attachments
 		if ($parse_smime) {
@@ -1912,7 +1915,7 @@ class Operations {
 			}
 		}
 
-		if ($message && $attach_num) {
+		if ($attach_num) {
 			for ($index = 0, $count = count($attach_num); $index < $count; ++$index) {
 				// attach_num cannot have value of -1
 				// if we get that then we are trying to open an embedded message which
@@ -1924,11 +1927,12 @@ class Operations {
 				}
 
 				$attachment = mapi_message_openattach($message, $attach_num[$index]);
-
-				if ($attachment) {
-					$message = mapi_attach_openobj($attachment);
+				if ($attachment === false) {
+					return false;
 				}
-				else {
+
+				$message = mapi_attach_openobj($attachment);
+				if ($message === false) {
 					return false;
 				}
 			}
@@ -2176,12 +2180,11 @@ class Operations {
 		// PidLidAppointmentTimeZoneDefinitionEndDisplay so that the allday
 		// events are displayed correctly
 		if (!empty($action['props']['timezone_iana'])) {
-			$tzdef = false;
-
 			try {
 				$tzdef = mapi_ianatz_to_tzdef($action['props']['timezone_iana']);
 			}
 			catch (Exception) {
+				$tzdef = false;
 			}
 			if ($tzdef !== false) {
 				$action['props']['tzdefstart'] = $action['props']['tzdefend'] = bin2hex($tzdef);
@@ -2975,6 +2978,9 @@ class Operations {
 
 			// Save the new message properties
 			$message = $this->saveMessage($store, $entryid, $storeprops[PR_IPM_OUTBOX_ENTRYID], $props, $messageProps, $recipients, $attachments, [], $copyFromMessage, $copyAttachments, $copyRecipients, $copyInlineAttachmentsOnly, true, true, $isPlainText);
+			if ($message === false) {
+				return false;
+			}
 
 			// FIXME: currently message is deleted from original store and new message is created
 			// in current user's store, but message should be moved
@@ -3031,6 +3037,7 @@ class Operations {
 			// Open the old and the new message
 			$newmessage = mapi_folder_createmessage($outbox);
 			$oldEntryId = $entryid;
+			$oldDraftFolder = false;
 
 			// Remember the new entryid
 			$newprops = mapi_getprops($newmessage, [PR_ENTRYID]);
@@ -3071,18 +3078,16 @@ class Operations {
 					$tmpProps = mapi_getprops($message);
 					$oldParentEntryId = $tmpProps[PR_PARENT_ENTRYID];
 					if ($storeprops[PR_IPM_OUTBOX_ENTRYID] == $oldParentEntryId) {
-						$folder = $outbox;
+						$oldDraftFolder = $outbox;
 					}
 					else {
-						$folder = mapi_msgstore_openentry($store, $oldParentEntryId);
+						$oldDraftFolder = mapi_msgstore_openentry($store, $oldParentEntryId);
 					}
 
 					// Copy message_class for S/MIME plugin
 					if (isset($tmpProps[PR_MESSAGE_CLASS])) {
 						$props[PR_MESSAGE_CLASS] = $tmpProps[PR_MESSAGE_CLASS];
 					}
-					// Delete the old message
-					mapi_folder_deletemessages($folder, [$oldEntryId]);
 				}
 			}
 
@@ -3144,6 +3149,12 @@ class Operations {
 			}
 			// Save the new message properties
 			$message = $this->saveMessage($store, $entryid, $storeprops[PR_IPM_OUTBOX_ENTRYID], $props, $messageProps, $recipients, $attachments, [], $copyFromMessage, $copyAttachments, $copyRecipients, $copyInlineAttachmentsOnly, true, true, $isPlainText);
+			if ($message === false) {
+				return false;
+			}
+			if ($oldDraftFolder && !empty($oldEntryId)) {
+				mapi_folder_deletemessages($oldDraftFolder, [$oldEntryId]);
+			}
 			// Sending as delegate from drafts folder
 			if ($sendingAsDelegate && ($saveBoth || $saveRepresentee)) {
 				try {
@@ -3170,9 +3181,6 @@ class Operations {
 			}
 		}
 
-		if (!$message) {
-			return false;
-		}
 		// Allowing to hook in just before the data sent away to be sent to the client
 		$GLOBALS['PluginManager']->triggerHook('server.core.operations.submitmessage', [
 			'moduleObject' => $this,
@@ -4691,8 +4699,15 @@ class Operations {
 			$distlist = $this->openMessage($store, hex2bin((string) $distlistEntryid));
 		}
 		catch (Exception) {
-			// the distribution list is in a public folder
-			$distlist = $this->openMessage($GLOBALS["mapisession"]->getPublicMessageStore(), hex2bin((string) $distlistEntryid));
+			$distlist = false;
+		}
+		if ($distlist === false) {
+			// The distribution list may be in a public folder.
+			$store = $GLOBALS["mapisession"]->getPublicMessageStore();
+			$distlist = $store === false ? false : $this->openMessage($store, hex2bin((string) $distlistEntryid));
+		}
+		if ($distlist === false) {
+			return [];
 		}
 
 		// Retrieve the members from distribution list.
@@ -4701,7 +4716,9 @@ class Operations {
 
 		foreach ($distlistMembers as $member) {
 			$props = $this->convertDistlistMemberToRecipient($store, $member);
-			array_push($recipients, $props);
+			if (!empty($props)) {
+				array_push($recipients, $props);
+			}
 		}
 
 		return $recipients;
@@ -4741,7 +4758,14 @@ class Operations {
 				$distlist = $this->openMessage($store, hex2bin((string) $entryid));
 			}
 			catch (Exception) {
-				$distlist = $this->openMessage($GLOBALS["mapisession"]->getPublicMessageStore(), hex2bin((string) $entryid));
+				$distlist = false;
+			}
+			if ($distlist === false) {
+				$store = $GLOBALS["mapisession"]->getPublicMessageStore();
+				$distlist = $store === false ? false : $this->openMessage($store, hex2bin((string) $entryid));
+			}
+			if ($distlist === false) {
+				return [];
 			}
 
 			$abProps = $this->getProps($distlist, $GLOBALS['properties']->getRecipientProperties());

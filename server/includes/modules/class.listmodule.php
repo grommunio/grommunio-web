@@ -266,6 +266,13 @@ class ListModule extends Module {
 			// When searching in the To-do list we will actually always search in the IPM subtree, so
 			// set the entryid to that.
 			$userStore = WebAppAuthentication::getMAPISession()->getDefaultMessageStore();
+			if ($userStore === false) {
+				$errorInfo = [];
+				$errorInfo["error_message"] = _("Error in search, please try again") . ".";
+				$errorInfo["original_error_message"] = _("Could not open the store.");
+
+				return $this->sendSearchErrorToClient($store, $entryid, $action, $errorInfo);
+			}
 			$props = mapi_getprops($userStore, [PR_IPM_SUBTREE_ENTRYID]);
 			$entryid = $props[PR_IPM_SUBTREE_ENTRYID];
 		}

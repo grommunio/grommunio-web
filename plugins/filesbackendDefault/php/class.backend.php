@@ -417,6 +417,8 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing, 
 	 * @param string[] $patharray paths to files or folders
 	 *
 	 * @return array|false sharing details, or false when no paths were supplied
+	 *
+	 * @throws ConnectionException if sharing data cannot be loaded
 	 */
 	public function sharingDetails($patharray) {
 		$result = [];
@@ -424,17 +426,22 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing, 
 		// performance optimization
 		// fetch all shares - so we only need one request
 		if (count($patharray) > 1) {
+			foreach ($patharray as $path) {
+				$result[$path] = [];
+			}
+
 			try {
 				$this->ocs_client->loadShares();
 			}
 			catch (ConnectionException $e) {
 				$this->log('[SHARINGDETAILS]: connection exception while loading shares: ' . $e->getMessage() . " " . $e->getCode());
+
+				throw $e;
 			}
 
 			/** @var ocsshare[] $shares */
 			$shares = $this->ocs_client->getAllShares();
 			foreach ($patharray as $path) {
-				$result[$path] = [];
 				foreach ($shares as $id => $details) {
 					if ($details->getPath() == $path) {
 						$result[$path][$id] = [

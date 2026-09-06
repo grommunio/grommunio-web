@@ -54,6 +54,17 @@ class DownloadHandler {
 
 		// initialize the backend
 		$initializedBackend = $backendStore->getInstanceOfBackend($account->getBackend());
+		if ($initializedBackend === false) {
+			Logger::error(self::LOG_CONTEXT, "Unknown backend: " . $account->getBackend());
+			if ((isset($_GET["inline"]) && $_GET["inline"] == "false") || (isset($_GET["contentDispositionType"]) && $_GET["contentDispositionType"] == "attachment")) {
+				echo "<script>alert('" . _('File backend not responding. Please try again later.') . "');</script>";
+			}
+			else {
+				echo _('File backend not responding. Please try again later.');
+			}
+
+			exit;
+		}
 		$initializedBackend->init_backend($account->getBackendConfig());
 
 		try {

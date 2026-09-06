@@ -247,7 +247,11 @@ class DownloadAttachment extends DownloadBase {
 		// If the inline image was in a submessage, we have to open that first
 		if ($attachment !== false) {
 			$this->message = mapi_attach_openobj($attachment);
+			if ($this->message === false) {
+				return false;
+			}
 		}
+		$attachment = false;
 
 		/**
 		 * restriction to find inline image attachment with matching cid passed.
@@ -310,9 +314,14 @@ class DownloadAttachment extends DownloadBase {
 		for ($index = 0; $index < $len - 1; ++$index) {
 			// Open the attachment
 			$tempattach = mapi_message_openattach($this->message, $this->attachNum[$index]);
-			if ($tempattach) {
-				// Open the object in the attachment
-				$this->message = mapi_attach_openobj($tempattach);
+			if ($tempattach === false) {
+				return false;
+			}
+
+			// Open the object in the attachment
+			$this->message = mapi_attach_openobj($tempattach);
+			if ($this->message === false) {
+				return false;
 			}
 		}
 
@@ -711,10 +720,14 @@ class DownloadAttachment extends DownloadBase {
 	 * Function will get the attachment and import it to the given MAPIFolder as webapp item.
 	 */
 	public function importAttachment() {
+		$attachment = $this->getAttachmentByAttachNum();
+		if ($attachment === false) {
+			throw new ZarafaException(_("Could not find attachment."));
+		}
+
 		$addrBook = $GLOBALS['mapisession']->getAddressbook();
 
 		$newMessage = mapi_folder_createmessage($this->destinationFolder);
-		$attachment = $this->getAttachmentByAttachNum();
 		$attachmentProps = mapi_attach_getprops($attachment, [PR_ATTACH_LONG_FILENAME]);
 		$attachmentStream = streamProperty($attachment, PR_ATTACH_DATA_BIN);
 		$extension = strtolower((string) pathinfo((string) $attachmentProps[PR_ATTACH_LONG_FILENAME], PATHINFO_EXTENSION));
@@ -983,10 +996,15 @@ class DownloadAttachment extends DownloadBase {
 		// check if inline image is requested
 		}
 		elseif ($this->attachCid) {
+			$attachment = false;
+
 			// check if the inline image is in a embedded message
 			if (count($this->attachNum) > 0) {
 				// get the embedded message attachment
 				$attachment = $this->getAttachmentByAttachNum();
+				if ($attachment === false) {
+					return;
+				}
 			}
 
 			// now get the actual attachment object that should be sent back to client
