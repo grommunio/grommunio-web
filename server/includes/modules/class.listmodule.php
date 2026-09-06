@@ -22,7 +22,7 @@ class ListModule extends Module {
 	public $start;
 
 	/**
-	 * @var array contains (when needed) a restriction used when searching and filtering the records
+	 * @var array|false contains (when needed) a restriction used when searching and filtering the records
 	 */
 	public $restriction;
 
@@ -88,6 +88,11 @@ class ListModule extends Module {
 					$store = $this->getActionStore($action);
 					$parententryid = $this->getActionParentEntryID($action);
 					$entryid = $this->getActionEntryID($action);
+					if ($store === false || is_array($store)) {
+						$this->sendFeedback(false);
+
+						continue;
+					}
 
 					switch ($actionType) {
 						case "list":
@@ -141,15 +146,15 @@ class ListModule extends Module {
 	/**
 	 * Function which retrieves a list of messages in a folder.
 	 *
-	 * @param object $store      MAPI Message Store Object
-	 * @param string $entryid    entryid of the folder
-	 * @param array  $action     the action data, sent by the client
-	 * @param string $actionType the action type, sent by the client
+	 * @param false|resource $store      MAPI message store, or false when unavailable
+	 * @param false|string   $entryid    entryid of the folder, or false when unavailable
+	 * @param array          $action     the action data, sent by the client
+	 * @param string         $actionType the action type, sent by the client
 	 */
 	public function messageList($store, $entryid, $action, $actionType) {
 		$this->searchFolderList = false; // Set to indicate this is not the search result, but a normal folder content
 
-		if (!$store || !$entryid) {
+		if ($store === false || $entryid === false) {
 			return;
 		}
 
@@ -792,13 +797,13 @@ class ListModule extends Module {
 	/**
 	 *	Function will send error message to client if any error has occurred in search.
 	 *
-	 * @param object    $store     MAPI Message Store Object
-	 * @param string $entryid   folder entry ID in hexadecimal form
-	 * @param object    $action    the action data, sent by the client
-	 * @param object    $errorInfo the error information object
+	 * @param resource $store     MAPI message store
+	 * @param string   $entryid   folder entry ID in hexadecimal form
+	 * @param array    $action    action data sent by the client
+	 * @param array    $errorInfo error information
 	 */
 	public function sendSearchErrorToClient($store, $entryid, $action, $errorInfo) {
-		if ($errorInfo) {
+		if ($errorInfo !== []) {
 			$exception = new SearchException($errorInfo["original_error_message"] ?? $errorInfo['error_message'], mapi_last_hresult());
 			$exception->setDisplayMessage($errorInfo['error_message']);
 
@@ -811,7 +816,7 @@ class ListModule extends Module {
 	/**
 	 *	Function will create restriction based on restriction array.
 	 *
-	 * @param object $action the action data, sent by the client
+	 * @param array $action the action data, sent by the client
 	 */
 	public function parseRestriction($action) {
 		if (isset($action["restriction"]) && is_array($action['restriction'])) {
@@ -922,8 +927,12 @@ class ListModule extends Module {
 		$this->storeProviderGuid = false;
 
 		try {
-			$this->storeProviderGuid = mapi_getprops($store, [PR_MDB_PROVIDER]);
-			$this->storeProviderGuid = $this->storeProviderGuid[PR_MDB_PROVIDER];
+			$storeProperties = mapi_getprops($store, [PR_MDB_PROVIDER]);
+			$providerGuid = $storeProperties[PR_MDB_PROVIDER] ?? false;
+			if (!is_string($providerGuid)) {
+				return;
+			}
+			$this->storeProviderGuid = $providerGuid;
 
 			if ($this->storeProviderGuid !== ZARAFA_STORE_DELEGATE_GUID) {
 				// user is not a delegate, so no point of processing further

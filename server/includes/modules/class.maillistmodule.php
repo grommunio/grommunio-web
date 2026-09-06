@@ -64,6 +64,11 @@ class MailListModule extends ListModule {
 				try {
 					$this->store = $this->getActionStore($action);
 					$entryid = $this->getActionEntryID($action);
+					if ($this->store === false || is_array($this->store)) {
+						$this->sendFeedback(false);
+
+						continue;
+					}
 
 					// Reset variables
 					$this->_inbox = null;

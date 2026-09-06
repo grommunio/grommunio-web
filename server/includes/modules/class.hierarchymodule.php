@@ -79,6 +79,19 @@ class HierarchyModule extends Module {
 				$parententryid = $this->getActionParentEntryID($action);
 				$entryid = $this->getActionEntryID($action);
 				$this->store_entryid = $action["store_entryid"] ?? '';
+				if (is_array($store)) {
+					if (!in_array($actionType, ['keepalive', 'destroysession', 'list'], true)) {
+						$this->sendFeedback(false);
+
+						continue;
+					}
+					$store = false;
+				}
+				if ($store === false && !in_array($actionType, ['keepalive', 'destroysession', 'list'], true)) {
+					$this->sendFeedback(false);
+
+					continue;
+				}
 
 				switch ($actionType) {
 					case "keepalive":
@@ -112,6 +125,11 @@ class HierarchyModule extends Module {
 						break;
 
 					case "foldersize":
+						if ($store === false) {
+							$this->sendFeedback(false);
+
+							break;
+						}
 						$folders = [];
 						$folder = mapi_msgstore_openentry($store, $entryid);
 						$data = $this->getFolderProps($store, $folder);
@@ -890,7 +908,7 @@ class HierarchyModule extends Module {
 	/**
 	 * Function is used to get the IPM_COMMON_VIEWS folder from defaults store.
 	 *
-	 * @return object MAPI folder object
+	 * @return resource MAPI folder
 	 */
 	public function getCommonViewsFolder() {
 		$defaultStore = $GLOBALS["mapisession"]->getDefaultMessageStore();
@@ -904,11 +922,11 @@ class HierarchyModule extends Module {
 	 * Remove favorites link message from associated contains table of IPM_COMMON_VIEWS.
 	 * It will also remove favorites search folders of given store.
 	 *
-	 * @param string $entryid  entryid of the folder
-	 * @param object $store    MAPI object of the store
-	 * @param string $prop     property which is used to find record from associated contains table of
-	 *                         IPM_COMMON_VIEWS folder
-	 * @param bool   $doNotify true to notify the IPM_COMMO_VIEWS folder on client side
+	 * @param string         $entryid  entryid of the folder
+	 * @param false|resource $store    MAPI message store, or false
+	 * @param string         $prop     property which is used to find record from associated contains table of
+	 *                                 IPM_COMMON_VIEWS folder
+	 * @param bool           $doNotify true to notify the IPM_COMMO_VIEWS folder on client side
 	 */
 	public function removeFromFavorite($entryid, $store = false, $prop = PR_WLINK_ENTRYID, $doNotify = true) {
 		$commonViewsFolder = $this->getCommonViewsFolder();
@@ -933,7 +951,7 @@ class HierarchyModule extends Module {
 			],
 		];
 		$finderHierarchyTables = [];
-		if (!empty($store)) {
+		if ($store !== false) {
 			$props = mapi_getprops($store, [PR_FINDER_ENTRYID]);
 
 			try {
@@ -956,7 +974,7 @@ class HierarchyModule extends Module {
 
 		if (!empty($messages)) {
 			foreach ($messages as $message) {
-				if ($message[PR_MESSAGE_CLASS] === "IPM.Microsoft.WunderBar.SFInfo" && !empty($finderHierarchyTables)) {
+				if ($message[PR_MESSAGE_CLASS] === "IPM.Microsoft.WunderBar.SFInfo" && $store !== false && $finderHierarchyTables !== []) {
 					$props = $GLOBALS["operations"]->getFavoritesLinkedSearchFolderProps($message[PR_WB_SF_ID], $finderHierarchyTables);
 					if (!empty($props)) {
 						$this->deleteSearchFolder($store, $props[PR_PARENT_ENTRYID], $props[PR_ENTRYID], []);
@@ -1110,9 +1128,9 @@ class HierarchyModule extends Module {
 	/**
 	 * Modifies a folder off the hierarchylist.
 	 *
-	 * @param object $store   message Store Object
-	 * @param string $entryid entryid of the folder
-	 * @param string $name    name of the folder
+	 * @param resource $store   MAPI message store
+	 * @param string   $entryid entryid of the folder
+	 * @param string   $name    name of the folder
 	 */
 	public function modifyFolder($store, $entryid, $name) {
 		$props = [];
@@ -1184,8 +1202,8 @@ class HierarchyModule extends Module {
 	/**
 	 * Deletes all messages in a folder.
 	 *
-	 * @param object $store   message Store Object
-	 * @param string $entryid entryid of the folder
+	 * @param resource $store   MAPI message store
+	 * @param string   $entryid entryid of the folder
 	 */
 	public function emptyFolder($store, $entryid) {
 		$props = [];
@@ -1291,8 +1309,8 @@ class HierarchyModule extends Module {
 	 * Performs final cleanup after all messages have been batch-deleted from a folder.
 	 * For Wastebasket and Junk folders, this also removes subfolders and associated content.
 	 *
-	 * @param object $store   message Store Object
-	 * @param string $entryid entryid of the folder
+	 * @param resource $store   MAPI message store
+	 * @param string   $entryid entryid of the folder
 	 */
 	private function emptyFolderBatchFinalize($store, $entryid) {
 		$emptySubFolders = false;

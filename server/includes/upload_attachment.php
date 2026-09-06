@@ -627,7 +627,7 @@ class UploadAttachment {
 	 * @param string $filename         an actual file name
 	 * @param mixed  $attachmentStream
 	 *
-	 * @return bool true if the import is successful, false otherwise
+	 * @return false|string entry ID of the imported message, or false on failure
 	 */
 	public function importEMLFile($attachmentStream, $filename) {
 		$this->destinationFolder = $this->getDestinationFolder();

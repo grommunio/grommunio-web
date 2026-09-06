@@ -229,9 +229,9 @@ class RestoreItemsListModule extends ListModule {
 	/**
 	 * Function to retrieve the list of messages or folder of particular folder.
 	 *
-	 * @param object $store   store object
-	 * @param string $entryid entry ID of the folder
-	 * @param object $action  request data
+	 * @param resource $store   MAPI message store
+	 * @param string   $entryid entry ID of the folder
+	 * @param array    $action  request data
 	 */
 	public function itemList($store, $entryid, $action) {
 		// Restriction
@@ -391,9 +391,9 @@ class RestoreItemsListModule extends ListModule {
 	/**
 	 * Notify the parent folder about restoration.
 	 *
-	 * @param object $store        store object
-	 * @param object $folder       mapi folder which contain particular folder to be restored
-	 * @param object $parentFolder mapi folder which is going to notify
+	 * @param resource $store        MAPI message store
+	 * @param resource $folder       folder containing the restored folder
+	 * @param resource $parentFolder folder to notify
 	 */
 	public function notifyParentFolder($store, $folder, $parentFolder) {
 		/* when we restore any folder from soft deleted system then we are actually copying the folder, so at that time entryid of

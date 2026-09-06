@@ -289,6 +289,11 @@ class ItemModule extends Module {
 						 */
 						switch ($subActionType) {
 							case "removeFromCalendar":
+								if ($store === false || $entryid === false) {
+									$this->sendFeedback(false);
+
+									break;
+								}
 								$basedate = (isset($action['basedate']) && !empty($action['basedate'])) ? $action['basedate'] : false;
 
 								$this->removeFromCalendar($store, $entryid, $basedate, $this->directBookingMeetingRequest);
@@ -296,11 +301,21 @@ class ItemModule extends Module {
 								break;
 
 							case "cancelInvitation":
+								if ($store === false || $entryid === false) {
+									$this->sendFeedback(false);
+
+									break;
+								}
 								$this->cancelInvitation($store, $entryid, $action, $this->directBookingMeetingRequest);
 								$this->sendFeedback(true);
 								break;
 
 							case "declineMeeting":
+								if ($store === false || $entryid === false) {
+									$this->sendFeedback(false);
+
+									break;
+								}
 								// @FIXME can we somehow merge declineMeeting and declineMeetingRequest sub actions?
 								$message = $GLOBALS["operations"]->openMessage($store, $entryid);
 								$basedate = (isset($action['basedate']) && !empty($action['basedate'])) ? $action['basedate'] : false;
@@ -825,11 +840,11 @@ class ItemModule extends Module {
 	 *
 	 * Must be called before the delete, while the items still exist.
 	 *
-	 * @param object $store         MAPI Message Store Object
-	 * @param string $parententryid parent entryid of the message(s)
-	 * @param mixed  $entryid       one entryid or a list of entryids
-	 * @param array  $action        the action data, sent by the client
-	 * @param bool   $soft          whether this is a soft delete
+	 * @param resource     $store         MAPI message store
+	 * @param string       $parententryid parent entryid of the message(s)
+	 * @param array|string $entryid       one entryid or a list of entryids
+	 * @param array        $action        the action data, sent by the client
+	 * @param bool         $soft          whether this is a soft delete
 	 *
 	 * @return null|array the undo snapshot, or null when not trackable
 	 */
@@ -936,10 +951,10 @@ class ItemModule extends Module {
 	/**
 	 * Function which returns the entryid of a default folder.
 	 *
-	 * @param object $store        MAPI Message Store Object
-	 * @param string $messageClass the class of the folder
+	 * @param false|resource $store        MAPI message store, or false when unavailable
+	 * @param string         $messageClass the class of the folder
 	 *
-	 * @return string entryid of a default folder, false if not found
+	 * @return false|string entryid of a default folder, or false if not found
 	 */
 	public function getDefaultFolderEntryID($store, $messageClass) {
 		$entryid = false;
@@ -1236,10 +1251,10 @@ class ItemModule extends Module {
 	 * This function searches the default calendar for all meeting requests for the specified
 	 * meeting. All those appointments are then removed.
 	 *
-	 * @param resource $store                       MAPI store containing the meeting request and calendar
-	 * @param string    $entryid                     Entryid of the meeting request or appointment for which all items should be deleted
-	 * @param string    $basedate                    if specified contains starttime of day of an occurrence
-	 * @param bool      $directBookingMeetingRequest Indicates if a Meeting Request should use direct booking or not
+	 * @param resource     $store                       MAPI store containing the meeting request and calendar
+	 * @param string       $entryid                     Entryid of the meeting request or appointment for which all items should be deleted
+	 * @param false|string $basedate                    if specified contains starttime of day of an occurrence
+	 * @param bool         $directBookingMeetingRequest Indicates if a Meeting Request should use direct booking or not
 	 */
 	public function removeFromCalendar($store, $entryid, $basedate, $directBookingMeetingRequest) {
 		$message = $GLOBALS["operations"]->openMessage($store, $entryid);

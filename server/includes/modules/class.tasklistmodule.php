@@ -38,6 +38,11 @@ class TaskListModule extends ListModule {
 				try {
 					$store = $this->getActionStore($action);
 					$entryid = $this->getActionEntryID($action);
+					if ($store === false || is_array($store)) {
+						$this->sendFeedback(false);
+
+						continue;
+					}
 
 					switch ($actionType) {
 						case "list":
