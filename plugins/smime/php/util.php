@@ -41,7 +41,7 @@ function getCertEmail($certificate) {
  * @param string   $type         of message_class
  * @param string   $emailAddress email address to specify
  *
- * @return array<int, array<int, mixed>>|false certificate message rows, or false if no certificate is found
+ * @return array<int, array<int, mixed>> certificate message rows
  */
 function getMAPICert($store, $type = 'WebApp.Security.Private', $emailAddress = '') {
 	$root = mapi_msgstore_openentry($store);
@@ -71,13 +71,7 @@ function getMAPICert($store, $type = 'WebApp.Security.Private', $emailAddress = 
 	mapi_table_restrict($table, $restrict, TBL_BATCH);
 	mapi_table_sort($table, [PR_MESSAGE_DELIVERY_TIME => TABLE_SORT_DESCEND], TBL_BATCH);
 
-	$privateCerts = mapi_table_queryallrows($table, [PR_ENTRYID, PR_SUBJECT, PR_SUBJECT_PREFIX, PR_MESSAGE_DELIVERY_TIME, PR_CLIENT_SUBMIT_TIME], $restrict);
-
-	if ($privateCerts && count($privateCerts) > 0) {
-		return $privateCerts;
-	}
-
-	return false;
+	return mapi_table_queryallrows($table, [PR_ENTRYID, PR_SUBJECT, PR_SUBJECT_PREFIX, PR_MESSAGE_DELIVERY_TIME, PR_CLIENT_SUBMIT_TIME], $restrict);
 }
 
 /**
@@ -95,7 +89,7 @@ function readPrivateCert($store, $passphrase, $singleCert = true) {
 	$unlockedCerts = [];
 	// Get all private certificates saved in the store
 	$privateCerts = getMAPICert($store);
-	if (!is_array($privateCerts)) {
+	if ($privateCerts === []) {
 		return [];
 	}
 	if ($singleCert) {
@@ -556,19 +550,22 @@ function fetchSmimeHttpResource($url, $method = 'GET', $content = '', $headers =
 
 	// HTTP Proxy settings. When configured, the trusted proxy controls the
 	// ultimate name resolution and must enforce the same egress policy.
-	if (defined('PLUGIN_SMIME_PROXY') && PLUGIN_SMIME_PROXY != '') {
-		curl_setopt($ch, CURLOPT_PROXY, PLUGIN_SMIME_PROXY);
+	$proxy = defined('PLUGIN_SMIME_PROXY') ? (string) constant('PLUGIN_SMIME_PROXY') : '';
+	if ($proxy !== '') {
+		curl_setopt($ch, CURLOPT_PROXY, $proxy);
 	}
 	else {
 		// Do not silently inherit HTTP(S)_PROXY from the PHP-FPM environment:
 		// a proxy performs its own DNS lookup and would bypass CURLOPT_RESOLVE.
 		curl_setopt($ch, CURLOPT_PROXY, '');
 	}
-	if (defined('PLUGIN_SMIME_PROXY_PORT') && PLUGIN_SMIME_PROXY_PORT != '') {
-		curl_setopt($ch, CURLOPT_PROXYPORT, PLUGIN_SMIME_PROXY_PORT);
+	$proxyPort = defined('PLUGIN_SMIME_PROXY_PORT') ? (string) constant('PLUGIN_SMIME_PROXY_PORT') : '';
+	if ($proxyPort !== '') {
+		curl_setopt($ch, CURLOPT_PROXYPORT, (int) $proxyPort);
 	}
-	if (defined('PLUGIN_SMIME_PROXY_USERPWD') && PLUGIN_SMIME_PROXY_USERPWD != '') {
-		curl_setopt($ch, CURLOPT_PROXYUSERPWD, PLUGIN_SMIME_PROXY_USERPWD);
+	$proxyCredentials = defined('PLUGIN_SMIME_PROXY_USERPWD') ? (string) constant('PLUGIN_SMIME_PROXY_USERPWD') : '';
+	if ($proxyCredentials !== '') {
+		curl_setopt($ch, CURLOPT_PROXYUSERPWD, $proxyCredentials);
 	}
 
 	$result = curl_exec($ch);
@@ -590,7 +587,7 @@ function fetchSmimeHttpResource($url, $method = 'GET', $content = '', $headers =
  * loopback and link-local destinations are rejected unless
  * PLUGIN_SMIME_AIA_ALLOW_PRIVATE is enabled (internal PKI).
  *
- * @param string $url CA Issuers URI
+ * @param mixed $url CA Issuers URI
  *
  * @return array list of PEM certificates, empty on failure
  */
@@ -826,7 +823,7 @@ function validateUploadedPKCS($certificate, $passphrase, $emailAddress) {
 	$publickeyData = openssl_x509_parse($publickey);
 	$imported = false;
 
-	if ($publickeyData) {
+	if ($publickeyData !== false) {
 		$certEmailAddress = getCertEmail($publickeyData);
 		$validFrom = $publickeyData['validFrom_time_t'];
 		$validTo = $publickeyData['validTo_time_t'];

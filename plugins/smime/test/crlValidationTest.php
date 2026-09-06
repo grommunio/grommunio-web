@@ -116,7 +116,6 @@ class CrlValidationTest extends SMIMETest {
 	private function managerWithMaxAge(int $maxAge): CrlManager {
 		$manager = new CrlManager();
 		$property = new ReflectionProperty($manager, 'maxAge');
-		$property->setAccessible(true);
 		$property->setValue($manager, $maxAge);
 
 		return $manager;

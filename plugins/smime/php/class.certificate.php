@@ -21,34 +21,40 @@ define('OCSP_RESPONSE_MALFORMED', 11);
 
 define('OCSP_CERT_STATUS_GOOD', 1);
 define('OCSP_CERT_STATUS_REVOKED', 2);
-define('OCSP_CERT_STATUS_UNKOWN', 3);
+define('OCSP_CERT_STATUS_UNKNOWN', 3);
+// Kept for compatibility with integrations using the original misspelling.
+define('OCSP_CERT_STATUS_UNKOWN', OCSP_CERT_STATUS_UNKNOWN);
 
 class OCSPException extends Exception {
 	/** @var null|string OCSP certificate status from the response */
-	private $status;
+	private ?string $certStatus;
 
-	public function setCertStatus($status) {
-		$this->status = $status;
+	/**
+	 * @param null|string $certStatus OCSP certificate status from the response
+	 */
+	public function __construct(string $message = '', int $code = 0, ?Throwable $previous = null, ?string $certStatus = null) {
+		parent::__construct($message, $code, $previous);
+		$this->certStatus = $certStatus;
+	}
+
+	public function setCertStatus(string $status): void {
+		$this->certStatus = $status;
 	}
 
 	/**
 	 * Return the normalized certificate status for an OCSP status exception.
 	 *
-	 * @return null|int one of OCSP_CERT_STATUS_*, or null for other exceptions
+	 * @return null|int one of OCSP_CERT_STATUS_*, or null when no status was recorded
 	 */
-	public function getCertStatus() {
-		if (!$this->status) {
-			return;
+	public function getCertStatus(): ?int {
+		if ($this->certStatus === null) {
+			return null;
 		}
 
-		if ($this->code !== OCSP_CERT_STATUS) {
-			return;
-		}
-
-		return match ($this->status) {
+		return match ($this->certStatus) {
 			'good' => OCSP_CERT_STATUS_GOOD,
 			'revoked' => OCSP_CERT_STATUS_REVOKED,
-			default => OCSP_CERT_STATUS_UNKOWN,
+			default => OCSP_CERT_STATUS_UNKNOWN,
 		};
 	}
 }
@@ -348,7 +354,7 @@ class Certificate {
 		if (function_exists('openssl_x509_fingerprint')) {
 			$fp = openssl_x509_fingerprint($this->cert, $hash_algorithm);
 			if ($fp !== false) {
-				return strtoupper(implode(':', str_split($fp, 2)));
+				return strtoupper(rtrim(chunk_split($fp, 2, ':'), ':'));
 			}
 		}
 
@@ -358,7 +364,7 @@ class Certificate {
 		$fingerprint = hash($hash_algorithm, $body);
 
 		// Format 1000AB as 10:00:AB
-		return strtoupper(implode(':', str_split($fingerprint, 2)));
+		return strtoupper(rtrim(chunk_split($fingerprint, 2, ':'), ':'));
 	}
 
 	/**
@@ -512,10 +518,8 @@ class Certificate {
 		$this->validateOcspTimes($basicResponse['tbsResponseData'], $matchingResponse);
 		if (($matchingResponse['certStatus'] ?? null) !== 'good') {
 			$certStatus = (string) ($matchingResponse['certStatus'] ?? 'unknown');
-			$exception = new OCSPException('Certificate status ' . $certStatus, OCSP_CERT_STATUS);
-			$exception->setCertStatus($certStatus);
 
-			throw $exception;
+			throw new OCSPException('Certificate status ' . $certStatus, OCSP_CERT_STATUS, null, $certStatus);
 		}
 
 		return $matchingResponse;

@@ -39,7 +39,6 @@ class Der extends Oids {
 		$byte = ord($this->buffer[$this->i++]);
 		$tag = $byte & 0x1F;
 		$class = $byte & 0xC0;
-		$constructed = $byte & 0x20;
 		$len = $this->vallen();
 		$this->i = $savei;
 		print_r("{$note}\n");

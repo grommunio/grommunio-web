@@ -56,6 +56,12 @@ class CertificateTest extends SMIMETest {
 		$this->assertEquals($this->cert->emailAddress(), $this->emailAddress);
 	}
 
+	public function testOcspExceptionStatus() {
+		$revoked = new OCSPException('revoked', OCSP_CERT_STATUS, null, 'revoked');
+		$this->assertSame(OCSP_CERT_STATUS_REVOKED, $revoked->getCertStatus());
+		$this->assertNull((new OCSPException('no issuer', OCSP_NO_ISSUER))->getCertStatus());
+	}
+
 	public function testDerPem() {
 		$pem = $this->cert->pem();
 		$der = $this->cert->der();
