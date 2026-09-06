@@ -833,11 +833,28 @@ class MAPISession {
 	 * @return int|string user entry ID on success, otherwise the HRESULT error code
 	 */
 	public function resolveStrictUserName($username) {
-		$storeEntryid = mapi_msgstore_createentryid($this->getDefaultMessageStore(), $username);
+		$defaultStore = $this->getDefaultMessageStore();
+		if ($defaultStore === false) {
+			$error = mapi_last_hresult();
+
+			return $error === NOERROR ? MAPI_E_NOT_FOUND : $error;
+		}
+
+		$storeEntryid = mapi_msgstore_createentryid($defaultStore, $username);
+		if ($storeEntryid === false) {
+			$error = mapi_last_hresult();
+
+			return $error === NOERROR ? MAPI_E_NOT_FOUND : $error;
+		}
 		$store = $this->openMessageStore($storeEntryid, $username);
+		if ($store === false) {
+			$error = mapi_last_hresult();
+
+			return $error === NOERROR ? MAPI_E_NOT_FOUND : $error;
+		}
 		$storeProps = mapi_getprops($store, [PR_MAILBOX_OWNER_ENTRYID]);
 
-		return $storeProps[PR_MAILBOX_OWNER_ENTRYID];
+		return $storeProps[PR_MAILBOX_OWNER_ENTRYID] ?? MAPI_E_NOT_FOUND;
 	}
 
 	/**
@@ -982,6 +999,9 @@ class MAPISession {
 		if ($profsect) {
 			// Get information about all contact folders from own store, shared stores and public store
 			$defaultStore = $this->getDefaultMessageStore();
+			if ($defaultStore === false) {
+				return;
+			}
 			$contactFolders = $this->getContactFoldersForABContactProvider($defaultStore);
 
 			// include shared contact folders in addressbook if shared contact folders are enabled
@@ -996,6 +1016,9 @@ class MAPISession {
 					$userContactFolders = [];
 					$sharedUserSetting = [];
 					$openedUserStore = $this->openMessageStore($storeEntryID, $username);
+					if ($openedUserStore === false) {
+						continue;
+					}
 
 					// Get settings of respective shared folder of given user
 					if (array_key_exists(strtolower(bin2hex($username)), $sharedSetting)) {

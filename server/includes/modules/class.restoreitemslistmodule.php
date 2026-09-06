@@ -24,14 +24,27 @@ class RestoreItemsListModule extends ListModule {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
 				try {
+					if (!is_array($action)) {
+						throw new MAPIException(_("Could not process request data properly."), MAPI_E_INVALID_PARAMETER);
+					}
 					$store = $this->getActionStore($action);
 					$parententryid = $this->getActionParentEntryID($action);
 					$folderentryid = $this->getActionEntryID($action);
+					if ($store === false || is_array($store)) {
+						throw new MAPIException(_("Could not process request data properly."), MAPI_E_INVALID_PARAMETER);
+					}
 
 					switch ($actionType) {
 						case "list":
 						case "updatelist":
-							if (isset($action["message_action"], $action["message_action"]["action_type"])) {
+							if (!is_string($folderentryid)) {
+								throw new MAPIException(_("Could not process request data properly."), MAPI_E_INVALID_PARAMETER);
+							}
+							if (isset($action["message_action"])) {
+								if (!is_array($action["message_action"]) || !isset($action["message_action"]["action_type"]) ||
+									!is_string($action["message_action"]["action_type"])) {
+									throw new MAPIException(_("Could not process request data properly."), MAPI_E_INVALID_PARAMETER);
+								}
 								$subActionType = $action["message_action"]["action_type"];
 
 								switch ($subActionType) {
@@ -50,10 +63,17 @@ class RestoreItemsListModule extends ListModule {
 							break;
 
 						case "delete":
+							if ($parententryid === false || !isset($action["message_action"]["action_type"]) ||
+								!is_string($action["message_action"]["action_type"])) {
+								throw new MAPIException(_("Could not process request data properly."), MAPI_E_INVALID_PARAMETER);
+							}
 							$itemType = $action["message_action"]["action_type"];
 
 							switch ($itemType) {
 								case "restorefolder":
+									if (!is_string($folderentryid)) {
+										throw new MAPIException(_("Could not process request data properly."), MAPI_E_INVALID_PARAMETER);
+									}
 									$this->restoreFolder($store, $parententryid, $folderentryid);
 									break;
 

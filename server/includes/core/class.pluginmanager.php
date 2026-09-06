@@ -172,7 +172,7 @@ class PluginManager {
 		if (!DEBUG_PLUGINS_DISABLE_CACHE && $pluginState->read("version") === getWebappVersion()) {
 			$this->plugindata = $pluginState->read("plugindata");
 			$pluginOrder = $pluginState->read("pluginorder");
-			$this->plugindata = $this->normalizePluginData($this->plugindata ?? []);
+			$this->plugindata = $this->normalizePluginData(is_array($this->plugindata) ? $this->plugindata : []);
 			$this->pluginorder = $this->normalizePluginOrder(empty($pluginOrder) ? [] : $pluginOrder);
 		}
 
@@ -245,17 +245,20 @@ class PluginManager {
 			$legacyData = $plugindata[$legacy] ?? null;
 			$canonicalData = $plugindata[$canonical] ?? null;
 			$freshData = $this->processPlugin($canonical);
-			if ($freshData !== null) {
+			if (is_array($freshData)) {
 				$canonicalData = $freshData;
 			}
-			elseif ($canonicalData === null && $legacyData !== null) {
+			elseif (!is_array($canonicalData) && is_array($legacyData)) {
 				$canonicalData = $legacyData;
 			}
 
-			if ($canonicalData !== null) {
+			if (is_array($canonicalData)) {
 				$canonicalData['pluginname'] = $canonical;
 				$canonicalData = $this->migrateLegacyFileReferences($canonicalData, $legacy, $canonical);
 				$plugindata[$canonical] = $canonicalData;
+			}
+			else {
+				unset($plugindata[$canonical]);
 			}
 
 			if ($legacyData !== null) {
@@ -342,7 +345,9 @@ class PluginManager {
 					if (is_dir($this->pluginpath . DIRECTORY_SEPARATOR . $plugin)) {
 						if (is_file($this->pluginpath . DIRECTORY_SEPARATOR . $plugin . DIRECTORY_SEPARATOR . 'manifest.xml')) {
 							$processed = $this->processPlugin($plugin);
-							$data[$processed['pluginname']] = $processed;
+							if (is_array($processed)) {
+								$data[$processed['pluginname']] = $processed;
+							}
 						}
 					}
 				}

@@ -59,6 +59,12 @@ class UploadHandler {
 
 		// initialize the backend
 		$initializedBackend = $backendStore->getInstanceOfBackend($account->getBackend());
+		if ($initializedBackend === false) {
+			Logger::error(self::LOG_CONTEXT, "upload failed: Unknown backend: " . $account->getBackend());
+			echo json_encode(['success' => false, 'response' => 'Unknown backend', 'message' => _('File backend not responding. Please try again later.')]);
+
+			exit;
+		}
 		$initializedBackend->init_backend($account->getBackendConfig());
 
 		try {

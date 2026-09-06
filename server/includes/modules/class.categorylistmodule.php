@@ -60,12 +60,10 @@ class CategoryListModule extends Module {
 	 * @return resource the message store to operate on
 	 */
 	private function getStoreForAction($action) {
-		if (empty($action["store_entryid"])) {
-			return $GLOBALS["mapisession"]->getDefaultMessageStore();
-		}
-
-		$store = $this->getActionStore($action);
-		if (!$store) {
+		$store = empty($action["store_entryid"])
+			? $GLOBALS["mapisession"]->getDefaultMessageStore()
+			: $this->getActionStore($action);
+		if ($store === false || is_array($store)) {
 			throw new MAPIException("Could not open the requested mailbox.", MAPI_E_NOT_FOUND, null, _("Could not open the requested mailbox."));
 		}
 

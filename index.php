@@ -66,9 +66,12 @@ if (isset($_GET['logout']) || isset($_POST['logout'])) {
 		// The user value is normally POSTed after a session timeout or logout in
 		// another window. Same-origin legacy GET requests remain supported without
 		// accepting cross-site logout navigations.
-		$username = $legacyGet
-			? sanitizeGetValue('user', '', USERNAME_REGEX)
-			: sanitizePostValue('user', '', USERNAME_REGEX);
+		if ($requestMethod === 'POST') {
+			$username = sanitizePostValue('user', '', USERNAME_REGEX);
+		}
+		else {
+			$username = sanitizeGetValue('user', '', USERNAME_REGEX);
+		}
 		$location = getIndexRedirectPath();
 		header('Location: ' . $location . ($username ? '?user=' . rawurlencode((string) $username) : ''), true, 303);
 	}

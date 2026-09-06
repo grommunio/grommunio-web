@@ -1435,6 +1435,10 @@ final class SeafileApi {
 			throw JsonDecodeException::create(sprintf('json decode accept %5d error [%s] of %s', decbin($accept), \gettype($result), JsonDecodeException::shorten($jsonText)), $jsonText);
 		}
 
+		if (!is_string($result) && !is_array($result) && !is_object($result)) {
+			throw JsonDecodeException::create(sprintf('json decode type %s not accepted; of %s', \gettype($result), JsonDecodeException::shorten($jsonText)), $jsonText);
+		}
+
 		if (is_string($result) && (self::JSON_DECODE_ACCEPT_STRING !== ($accept & self::JSON_DECODE_ACCEPT_STRING))) {
 			throw JsonDecodeException::create(sprintf('json decode type %s not accepted; of %s', \gettype($result), JsonDecodeException::shorten($jsonText)), $jsonText);
 		}

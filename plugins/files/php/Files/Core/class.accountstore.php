@@ -46,6 +46,9 @@ class AccountStore {
 		$backendStore = BackendStore::getInstance();
 		$backend = $backendStore->normalizeBackendName($backend);
 		$backendInstance = $backendStore->getInstanceOfBackend($backend);
+		if ($backendInstance === false) {
+			throw new Exception(_("Unknown backend"));
+		}
 		$features = $backendInstance->getAvailableFeatures();
 
 		// check backend_config for validity
@@ -100,6 +103,9 @@ class AccountStore {
 		$normalizedBackend = $backendStore->normalizeBackendName($account->getBackend());
 		$account->setBackend($normalizedBackend);
 		$backendInstance = $backendStore->getInstanceOfBackend($normalizedBackend);
+		if ($backendInstance === false) {
+			throw new Exception(_("Unknown backend"));
+		}
 		$features = $backendInstance->getAvailableFeatures();
 		$account->setFeatures($features);
 
