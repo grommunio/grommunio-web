@@ -1083,7 +1083,6 @@ body.Safari input[type="radio"] {
 .x-form-text.x-form-focus:not(.x-trigger-noedit),
 .x-form-field-wrap.x-trigger-wrap-focus:not(.x-freebusy-userlist-container) {
   border-color: var(--theme-primary-color) !important;
-  position: relative;
   z-index: 99 }
 
 .x-form-text.x-form-focus:not(.x-trigger-noedit) {
