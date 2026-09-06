@@ -205,12 +205,13 @@ class Language {
 		$base = strtolower($p->language);
 		$aliases = ['no' => 'nb', 'in' => 'id', 'iw' => 'he', 'tl' => 'fil'];
 		$base = $aliases[$base] ?? $base;
-		if (!preg_match('/^[a-z]{2,3}$/', $base)) {
-			return false;
-		}
 		$admin = new XpgLocale(LANG);
 		$admin->codeset = "";
-		if (strtolower($admin->language) === $base && is_dir(LANGUAGE_DIR . "/{$admin}")) {
+		$adminInstalled = is_dir(LANGUAGE_DIR . "/{$admin}");
+		if (!preg_match('/^[a-z]{2,3}$/', $base)) {
+			return $adminInstalled ? $admin : false;
+		}
+		if (strtolower($admin->language) === $base && $adminInstalled) {
 			return $admin;
 		}
 		$candidates = glob(LANGUAGE_DIR . '/' . $base . '_' . strtoupper($base)) ?: glob(LANGUAGE_DIR . '/' . $base . '_*') ?: [];
@@ -219,7 +220,8 @@ class Language {
 			return new XpgLocale(basename($candidates[0]));
 		}
 
-		return false;
+		// An unknown language falls back to the administrator's, as before.
+		return $adminInstalled ? $admin : false;
 	}
 
 	/**
@@ -333,6 +335,9 @@ class Language {
 	 * @return string the selected language in RFC 5646 notation
 	 */
 	public function getSelectedIetf() {
+		if (!is_object($this->lang)) {
+			return 'en';
+		}
 		$l = clone $this->lang;
 		$l->codeset = $l->modifier = "";
 
