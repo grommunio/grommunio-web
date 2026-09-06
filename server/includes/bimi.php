@@ -44,7 +44,9 @@ class BimiLogo {
 
 		if ($cacheReady) {
 			$this->writeCacheFile($dir, $logo, $data);
-			@unlink($miss);
+			if (is_file($miss) && !@unlink($miss)) {
+				error_log("[bimi] Could not remove negative cache entry: {$miss}");
+			}
 		}
 		$this->output($data);
 	}

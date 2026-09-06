@@ -170,11 +170,11 @@ class KendoxModule extends Module {
 			throw $ex;
 		}
 		finally {
-			if ($emlFile !== null && is_file($emlFile) && !@unlink($emlFile)) {
+			if ($emlFile !== null && (is_file($emlFile) || is_link($emlFile)) && !@unlink($emlFile)) {
 				error_log('Unable to remove temporary Kendox message file: ' . $emlFile);
 			}
 			foreach ($uploadFiles as $uploadFile) {
-				if (is_file($uploadFile->tempFile) && !@unlink($uploadFile->tempFile)) {
+				if ((is_file($uploadFile->tempFile) || is_link($uploadFile->tempFile)) && !@unlink($uploadFile->tempFile)) {
 					error_log('Unable to remove temporary Kendox attachment file: ' . $uploadFile->tempFile);
 				}
 			}
@@ -191,11 +191,13 @@ class KendoxModule extends Module {
 			$response["kendoxFiles"] = $uploadFiles;
 		}
 		catch (Exception $ex) {
-			if ($emlFile !== null) {
-				@unlink($emlFile);
+			if ($emlFile !== null && (is_file($emlFile) || is_link($emlFile)) && !@unlink($emlFile)) {
+				error_log('Unable to remove temporary Kendox message file: ' . $emlFile);
 			}
 			foreach ($uploadFiles as $uploadFile) {
-				@unlink($uploadFile->tempFile);
+				if ((is_file($uploadFile->tempFile) || is_link($uploadFile->tempFile)) && !@unlink($uploadFile->tempFile)) {
+					error_log('Unable to remove temporary Kendox attachment file: ' . $uploadFile->tempFile);
+				}
 			}
 			$this->logErrorAndThrow("Error on building response message", $ex);
 		}
@@ -221,6 +223,8 @@ class KendoxModule extends Module {
 	}
 
 	private function createTempEmlFileFromMapiMessage() {
+		$stat = null;
+
 		// Read message properties
 		try {
 			$messageProps = mapi_getprops($this->mapiMessage, [PR_SUBJECT, PR_MESSAGE_CLASS]);
@@ -236,6 +240,9 @@ class KendoxModule extends Module {
 		}
 		catch (Exception $ex) {
 			$this->logErrorAndThrow("Error on reading EML stream from MAPI Message", $ex);
+		}
+		if (!is_array($stat) || !isset($stat['cb'])) {
+			throw new Exception('MAPI returned an invalid EML stream status');
 		}
 
 		// Create temporary file
@@ -492,7 +499,7 @@ class KendoxModule extends Module {
 		$result = addslashes((string) $value);
 		if ($regex) {
 			$match = preg_match_all($regex, $result);
-			if (!$match) {
+			if ($match === false || $match === 0) {
 				$result = $default;
 			}
 		}

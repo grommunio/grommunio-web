@@ -364,7 +364,8 @@ class Language {
 		// sysvshm is an optional PHP extension. Hosts without it can still read
 		// the selected catalog from disk; they merely miss the shared cache.
 		$memid = function_exists('shm_attach') ? @shm_attach(self::CACHE_KEY, self::CACHE_SIZE, 0644) : false;
-		if ($memid && @shm_has_var($memid, 0)) {
+		$memid = $memid instanceof SysvSharedMemory ? $memid : false;
+		if ($memid !== false && @shm_has_var($memid, 0)) {
 			$cache_table = @shm_get_var($memid, 0);
 			// An empty array is a valid table: a host without compiled catalogs
 			// would otherwise destroy and rebuild the segment on every request.
@@ -372,7 +373,7 @@ class Language {
 				if (!empty($cache_table[$selected_lang])) {
 					$translations = @shm_get_var($memid, $cache_table[$selected_lang]);
 					if (!empty($translations)) {
-						@shm_detach($memid);
+						$this->detachCache($memid);
 
 						return $translations;
 					}
@@ -395,7 +396,7 @@ class Language {
 				 * disk rather than rebuilding: a rebuild would write a second copy of
 				 * every other language into a segment that already holds them.
 				 */
-				@shm_detach($memid);
+				$this->detachCache($memid);
 
 				return $this->selectedTranslations($this->parseLanguage($selected_lang));
 			}
@@ -414,21 +415,36 @@ class Language {
 	 * is in a state the code cannot read: the payloads stay allocated and the next
 	 * rebuild has nowhere to put its own. Removing the segment releases everything.
 	 *
-	 * @param resource|SysvSharedMemory $memid the segment to discard
+	 * @param SysvSharedMemory $memid the segment to discard
 	 *
-	 * @return bool|resource|SysvSharedMemory a fresh segment, or false without one
+	 * @return false|SysvSharedMemory a fresh segment, or false without one
 	 */
 	private function resetCache($memid) {
-		@shm_remove($memid);
-		@shm_detach($memid);
+		if (!@shm_remove($memid)) {
+			error_log('Unable to remove the translation cache segment');
+		}
+		$this->detachCache($memid);
 
-		return @shm_attach(self::CACHE_KEY, self::CACHE_SIZE, 0644);
+		$replacement = @shm_attach(self::CACHE_KEY, self::CACHE_SIZE, 0644);
+
+		return $replacement instanceof SysvSharedMemory ? $replacement : false;
+	}
+
+	/**
+	 * Detach a shared-memory translation cache and report cleanup failures.
+	 *
+	 * @param SysvSharedMemory $memid the segment to detach
+	 */
+	private function detachCache($memid) {
+		if (!@shm_detach($memid)) {
+			error_log('Unable to detach the translation cache segment');
+		}
 	}
 
 	/**
 	 * Read every installed language from disk, caching what fits in the segment.
 	 *
-	 * @param bool|resource|SysvSharedMemory $memid the segment to fill, or false to skip caching
+	 * @param false|SysvSharedMemory $memid the segment to fill, or false to skip caching
 	 *
 	 * @return array the translations for the selected language
 	 */
@@ -436,8 +452,8 @@ class Language {
 		$handle = opendir(LANGUAGE_DIR);
 		if ($handle === false) {
 			error_log(sprintf("Cannot read translations from '%s'", LANGUAGE_DIR));
-			if ($memid) {
-				@shm_detach($memid);
+			if ($memid !== false) {
+				$this->detachCache($memid);
 			}
 
 			return ['grommunio_web' => []];
@@ -458,7 +474,7 @@ class Language {
 			if (strcmp($entry, (string) $this->getSelected()) == 0) {
 				$ret_val = $translations;
 			}
-			if (!$memid) {
+			if ($memid === false) {
 				continue;
 			}
 			// Advertise only what the segment really holds. An entry pointing at a
@@ -470,9 +486,11 @@ class Language {
 			}
 		}
 		closedir($handle);
-		if ($memid) {
-			@shm_put_var($memid, 0, $cache_table);
-			@shm_detach($memid);
+		if ($memid !== false) {
+			if (!@shm_put_var($memid, 0, $cache_table)) {
+				error_log('Unable to write the translation cache index');
+			}
+			$this->detachCache($memid);
 		}
 
 		return $this->selectedTranslations($ret_val);
@@ -501,7 +519,8 @@ class Language {
 				$plugin_translations = $this->getTranslationsFromFile($pluginFile);
 				if ($plugin_translations) {
 					$translations['plugin_' . $pluginname] = $plugin_translations;
-					$etag[] = $pluginname . '@' . @filemtime($pluginFile);
+					$pluginMtime = @filemtime($pluginFile);
+					$etag[] = $pluginname . '@' . ($pluginMtime === false ? 0 : $pluginMtime);
 				}
 			}
 		}
