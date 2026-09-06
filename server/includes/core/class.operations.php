@@ -2231,10 +2231,7 @@ class Operations {
 
 			if ($property != false) {
 				// Stream the body to the PR_BODY or PR_HTML property
-				$stream = mapi_openproperty($message, $property, IID_IStream, 0, MAPI_CREATE | MAPI_MODIFY);
-				mapi_stream_setsize($stream, strlen((string) $body));
-				mapi_stream_write($stream, $body);
-				mapi_stream_commit($stream);
+				writeMapiPropStream($message, $property, (string) $body);
 			}
 
 			/*
@@ -5494,10 +5491,7 @@ class Operations {
 
 		$l_sNewRecipientHistoryJSON = json_encode($recipient_history);
 
-		$stream = mapi_openproperty($store, PR_EC_RECIPIENT_HISTORY_JSON, IID_IStream, 0, MAPI_CREATE | MAPI_MODIFY);
-		mapi_stream_setsize($stream, strlen($l_sNewRecipientHistoryJSON));
-		mapi_stream_write($stream, $l_sNewRecipientHistoryJSON);
-		mapi_stream_commit($stream);
+		writeMapiPropStream($store, PR_EC_RECIPIENT_HISTORY_JSON, $l_sNewRecipientHistoryJSON);
 		mapi_savechanges($store);
 	}
 
@@ -5839,10 +5833,7 @@ class Operations {
 					];
 					mapi_setprops($inlineImage, $props);
 
-					$stream = mapi_openproperty($inlineImage, PR_ATTACH_DATA_BIN, IID_IStream, 0, MAPI_CREATE | MAPI_MODIFY);
-					mapi_stream_setsize($stream, strlen($rawImage));
-					mapi_stream_write($stream, $rawImage);
-					mapi_stream_commit($stream);
+					writeMapiPropStream($inlineImage, PR_ATTACH_DATA_BIN, $rawImage);
 					mapi_savechanges($inlineImage);
 				}
 				elseif (str_contains($src, "cid:")) {
@@ -5858,10 +5849,7 @@ class Operations {
 			if ($saveChanges) {
 				// Write the <img src="cid:data"> changes to the HTML property
 				$body = $doc->saveHTML();
-				$stream = mapi_openproperty($message, PR_HTML, IID_IStream, 0, MAPI_MODIFY);
-				mapi_stream_setsize($stream, strlen($body));
-				mapi_stream_write($stream, $body);
-				mapi_stream_commit($stream);
+				writeMapiPropStream($message, PR_HTML, $body);
 				mapi_savechanges($message);
 			}
 		}

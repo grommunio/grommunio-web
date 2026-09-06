@@ -127,10 +127,7 @@ class suggestEmailAddressModule extends Module {
 			// Write new recipient history to property
 			$l_sNewRecipientHistoryJSON = json_encode($recipient_history);
 
-			$stream = mapi_openproperty($GLOBALS["mapisession"]->getDefaultMessageStore(), PR_EC_RECIPIENT_HISTORY_JSON, IID_IStream, 0, MAPI_CREATE | MAPI_MODIFY);
-			mapi_stream_setsize($stream, strlen($l_sNewRecipientHistoryJSON));
-			mapi_stream_write($stream, $l_sNewRecipientHistoryJSON);
-			mapi_stream_commit($stream);
+			writeMapiPropStream($GLOBALS["mapisession"]->getDefaultMessageStore(), PR_EC_RECIPIENT_HISTORY_JSON, $l_sNewRecipientHistoryJSON);
 			mapi_savechanges($GLOBALS["mapisession"]->getDefaultMessageStore());
 		}
 
