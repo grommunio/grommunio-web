@@ -6473,9 +6473,6 @@ body .k-category-block {
 .x-grid3-cell-inner > .k-category-block {
   margin-bottom: 0; }
 
-.zarafa-appointment-tooltip .k-category-block {
-  max-width: 221px; }
-
 /* In the mail grid */
 .grid_compact_left {
   padding-left: 29px; }
@@ -6935,9 +6932,14 @@ body .k-category-block {
 .x-tip .x-tip-header-text {
   color: #ffffff; }
 
-/* The tooltip for the calendar appointments */
+/* The tooltip for the calendar appointments: a card whose header carries the
+   calendar colour (text colour follows its luminance) above details on the
+   theme surface */
 .x-tip.zarafa-appointment-tooltip {
-  z-index: 9000 !important; }
+  z-index: 9000 !important;
+  background: transparent;
+  border: none;
+  box-shadow: none; }
   .x-tip.zarafa-appointment-tooltip .x-tip-tc,
   .x-tip.zarafa-appointment-tooltip .x-tip-tl,
   .x-tip.zarafa-appointment-tooltip .x-tip-tr,
@@ -6945,20 +6947,111 @@ body .k-category-block {
   .x-tip.zarafa-appointment-tooltip .x-tip-bl,
   .x-tip.zarafa-appointment-tooltip .x-tip-br,
   .x-tip.zarafa-appointment-tooltip .x-tip-ml,
-  .x-tip.zarafa-appointment-tooltip .x-tip-mr {
-    background-color: transparent; }
-  .x-tip.zarafa-appointment-tooltip .x-tip-tc {
-    padding-top: 6px; }
+  .x-tip.zarafa-appointment-tooltip .x-tip-mr,
+  .x-tip.zarafa-appointment-tooltip .x-tip-mc {
+    background: transparent;
+    padding: 0; }
   .x-tip.zarafa-appointment-tooltip .x-tip-body {
-    color: #ffffff;
+    padding: 0;
+    color: var(--ui-text);
     white-space: normal; }
-  .x-tip.zarafa-appointment-tooltip h2 {
-    line-height: 20px;
-    font-weight: bold;
-    margin-bottom: 3px; }
-  .x-tip.zarafa-appointment-tooltip p {
-    line-height: 20px;
-    padding-bottom: 6px; }
+
+.k-appt-tip {
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--ui-surface);
+  color: var(--ui-text);
+  border: 1px solid var(--ui-border);
+  box-shadow: var(--ui-shadow-2);
+  font-size: 13px;
+  line-height: 18px; }
+  .k-appt-tip .k-appt-tip-head {
+    padding: 10px 14px 9px;
+    background: var(--ui-surface-3);
+    color: var(--ui-text); }
+  .k-appt-tip.k-light .k-appt-tip-head {
+    color: #1d2939; }
+  .k-appt-tip.k-dark .k-appt-tip-head {
+    color: #ffffff; }
+  .k-appt-tip .k-appt-tip-title {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px; }
+    .k-appt-tip .k-appt-tip-title > span:last-child {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      word-break: break-word; }
+  .k-appt-tip .k-appt-tip-icons {
+    display: inline-flex;
+    gap: 4px;
+    flex: none;
+    padding-top: 2px; }
+    .k-appt-tip .k-appt-tip-icons .k-icon {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      -webkit-mask-size: contain;
+      mask-size: contain; }
+  .k-appt-tip .k-appt-tip-when {
+    margin-top: 2px;
+    font-size: 12.5px;
+    line-height: 17px;
+    opacity: 0.85; }
+  .k-appt-tip .k-appt-tip-body {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    column-gap: 12px;
+    row-gap: 6px;
+    padding: 10px 14px 12px; }
+  .k-appt-tip .k-appt-tip-body.k-appt-tip-plain {
+    display: block; }
+  .k-appt-tip .k-appt-tip-row {
+    display: contents; }
+  .k-appt-tip .k-appt-tip-label {
+    max-width: 96px;
+    color: var(--ui-text-3);
+    font-size: 12px;
+    line-height: 18px; }
+  .k-appt-tip .k-appt-tip-value {
+    min-width: 0;
+    color: var(--ui-text);
+    word-break: break-word; }
+    .k-appt-tip .k-appt-tip-value.k-clamp {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden; }
+  .k-appt-tip .k-appt-tip-link {
+    display: block;
+    color: var(--theme-primary-color);
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+    .k-appt-tip .k-appt-tip-link:hover {
+      text-decoration: underline; }
+  .k-appt-tip .k-appt-tip-chip {
+    display: inline-block;
+    padding: 0 8px;
+    border-radius: 9px;
+    background: var(--ui-surface-3);
+    color: var(--ui-text-2);
+    font-size: 12px;
+    line-height: 18px; }
+  .k-appt-tip .k-appt-tip-cats {
+    grid-column: 1 / -1;
+    padding-top: 2px; }
+    .k-appt-tip .k-appt-tip-cats .k-category-block {
+      max-width: 100%; }
+  .k-appt-tip .k-appt-tip-text {
+    line-height: 18px; }
 
 .x-tip .x-tip-body {
   word-wrap: break-word;

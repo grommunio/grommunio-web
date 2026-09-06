@@ -8,6 +8,10 @@ Ext.namespace('Zarafa.calendar.ui');
  * Because we will only show one tooltip at a time, only one instance of this class will
  * be created by the {@link Zarafa.calendar.ui.CalendarMultiView calendar view} and that
  * instance will be used for all appointments.
+ *
+ * The tip is a card: the header carries the calendar colour with the subject and the
+ * date, the body lists the details on the theme surface, so the text stays readable
+ * whatever colour the calendar has.
  */
 Zarafa.calendar.ui.ToolTip = Ext.extend(Ext.ToolTip, {
 	/**
@@ -46,7 +50,7 @@ Zarafa.calendar.ui.ToolTip = Ext.extend(Ext.ToolTip, {
 
 		Ext.applyIf(config, {
 			cls: 'zarafa-appointment-tooltip',
-			width: 250,
+			width: 322,
 			target: Ext.get(document.body),
 			autoHide: true, // Needed to not hide on click
 			dismissDelay: 0,
@@ -64,8 +68,9 @@ Zarafa.calendar.ui.ToolTip = Ext.extend(Ext.ToolTip, {
 	 * Show the Tooltip, this will {@link Ext.Element#show show} the {@link #el tooltip}.
 	 *
 	 * @param {String} id The Object id referring to the Object on which we are showing the Tooltip
-	 * @param {Object} config The properties used for creating the tooltop, this should at least contain
-	 * either a 'title' or 'text' property.
+	 * @param {Object} config The properties used for creating the tooltip. Either a 'record'
+	 * ({@link Zarafa.calendar.AppointmentRecord}) or a 'title' and/or 'text', and optionally
+	 * the 'color' of the calendar the appointment belongs to.
 	 * @param {Ext.EventObject} event The event object
 	 */
 	show: function(id, config, event)
@@ -90,22 +95,7 @@ Zarafa.calendar.ui.ToolTip = Ext.extend(Ext.ToolTip, {
 		}
 
 		this.appointmentId = id;
-
-		var html = '';
-
-		if ( !Ext.isEmpty(config.title) ){
-			html += '<h2>' + config.title + '</h2>';
-		}
-		if ( !Ext.isEmpty(config.text) ){
-			html += '<p>' + config.text.replace("\n", '<br>') + '</p>';
-		}
-		if ( !Ext.isEmpty(config.categories) ){
-			html += Zarafa.common.categories.Util.getCategoriesHtml(config.categories);
-		}
-
-        this.body.dom.innerHTML = html;
-		// the tip takes the colour of the calendar the appointment belongs to
-		this.el.setStyle('background-color', config.color || '');
+		this.body.dom.innerHTML = this.buildHtml(config);
 
 		Zarafa.calendar.ui.ToolTip.superclass.show.call(this);
 
@@ -125,6 +115,248 @@ Zarafa.calendar.ui.ToolTip = Ext.extend(Ext.ToolTip, {
 			newPosition[1] = bodyHeight - tipHeight;
 		}
 		this.setPosition(newPosition[0], newPosition[1]);
+	},
+
+	/**
+	 * Build the markup of the card.
+	 * @param {Object} config The config passed to {@link #show}
+	 * @return {String} html
+	 * @private
+	 */
+	buildHtml: function(config)
+	{
+		var color = Ext.isEmpty(config.color) ? undefined : config.color;
+		// The header text follows the luminance of the calendar colour; without
+		// a colour the header keeps the neutral tone of the theme.
+		var tone = '';
+		if ( color ) {
+			tone = Zarafa.core.ColorSchemes.isDark(color) ? ' k-dark' : ' k-light';
+		}
+		var head = '';
+		var body = '';
+
+		if ( config.record ) {
+			head = this.renderTitle(config.record) +
+				'<div class="k-appt-tip-when">' + this.formatWhen(config.record) + '</div>';
+			body = this.renderRows(config.record);
+			if ( body ) {
+				body = '<div class="k-appt-tip-body">' + body + '</div>';
+			}
+		} else {
+			if ( !Ext.isEmpty(config.title) ){
+				head = '<div class="k-appt-tip-title"><span>' + config.title + '</span></div>';
+			}
+			if ( !Ext.isEmpty(config.text) ){
+				body += '<div class="k-appt-tip-text">' + config.text.replace(/\n/g, '<br>') + '</div>';
+			}
+			if ( !Ext.isEmpty(config.categories) ){
+				body += '<div class="k-appt-tip-cats">' + Zarafa.common.categories.Util.getCategoriesHtml(config.categories) + '</div>';
+			}
+			if ( body ) {
+				body = '<div class="k-appt-tip-body k-appt-tip-plain">' + body + '</div>';
+			}
+		}
+
+		var style = color ? ' style="background-color:' + Ext.util.Format.htmlEncode(color) + '"' : '';
+
+		return '<div class="k-appt-tip' + tone + '">' +
+			'<div class="k-appt-tip-head"' + style + '>' + head + '</div>' +
+			body +
+		'</div>';
+	},
+
+	/**
+	 * Render the subject with the icons the appointment shows in the calendar.
+	 * @param {Zarafa.calendar.AppointmentRecord} record The appointment
+	 * @return {String} html
+	 * @private
+	 */
+	renderTitle: function(record)
+	{
+		var icons = [];
+		if ( record.get('private') === true ) {
+			icons.push('icon_private');
+		}
+		if ( record.get('importance') === Zarafa.core.mapi.Importance.URGENT ) {
+			icons.push('icon_importance');
+		}
+		if ( Ext.isFunction(record.isRecurringOccurrence) && record.isRecurringOccurrence() ) {
+			icons.push(record.isRecurringException() ? 'icon_exception' : 'icon_calendar_appt_recurring');
+		}
+
+		var html = '<div class="k-appt-tip-title">';
+		if ( icons.length ) {
+			html += '<span class="k-appt-tip-icons">';
+			Ext.each(icons, function(icon) {
+				html += '<span class="k-icon ' + icon + '" aria-hidden="true"></span>';
+			});
+			html += '</span>';
+		}
+		html += '<span>' + Ext.util.Format.htmlEncode(record.get('subject') || '') + '</span></div>';
+
+		return html;
+	},
+
+	/**
+	 * Format the date and time of the appointment.
+	 * @param {Zarafa.calendar.AppointmentRecord} record The appointment
+	 * @return {String} html
+	 * @private
+	 */
+	formatWhen: function(record)
+	{
+		var start = record.get('startdate');
+		var due = record.get('duedate');
+		if ( !Ext.isDate(start) || !Ext.isDate(due) ) {
+			return '';
+		}
+
+		// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+		var dateFormat = _('jS F Y');
+		var separator = ' · ';
+
+		if ( record.get('alldayevent') === true ) {
+			// The due date of an all-day event is the midnight after its last day.
+			var last = due.add(Date.HOUR, -1);
+			var dates = start.format(dateFormat) + ' – ' + last.format(dateFormat);
+			if ( Date.diff(Date.DAY, last, start) <= 1 ) {
+				dates = this.formatDay(start, dateFormat);
+			}
+
+			return Ext.util.Format.htmlEncode(dates + separator + _('All Day'));
+		}
+
+		if ( start.clearTime(true).getTime() === due.clearTime(true).getTime() ) {
+			return Ext.util.Format.htmlEncode(this.formatDay(start, dateFormat) + separator +
+				start.formatDefaultTime() + ' – ' + due.formatDefaultTime());
+		}
+
+		return Ext.util.Format.htmlEncode(start.format(dateFormat) + ' ' + start.formatDefaultTime() +
+			' – ' + due.format(dateFormat) + ' ' + due.formatDefaultTime());
+	},
+
+	/**
+	 * Format a date with its weekday.
+	 * @param {Date} date The date
+	 * @param {String} dateFormat The translated date format
+	 * @return {String} the formatted date
+	 * @private
+	 */
+	formatDay: function(date, dateFormat)
+	{
+		// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+		return date.format(_('l')) + ', ' + date.format(dateFormat);
+	},
+
+	/**
+	 * Render the detail rows of the appointment.
+	 * @param {Zarafa.calendar.AppointmentRecord} record The appointment
+	 * @return {String} html, empty when there is nothing to show
+	 * @private
+	 */
+	renderRows: function(record)
+	{
+		var rows = '';
+		var location = record.get('location');
+		var online = record.get('onlinemeetingurl');
+
+		if ( !Ext.isEmpty(location) ) {
+			rows += this.renderRow(_('Location'), this.formatPlace(location));
+		}
+		if ( !Ext.isEmpty(online) && online !== location ) {
+			rows += this.renderRow(_('Online meeting'), this.formatPlace(online));
+		}
+
+		if ( record.get('meeting') !== Zarafa.core.mapi.MeetingStatus.NONMEETING ) {
+			var organizer = record.get('sent_representing_name') || record.get('sender_name');
+			if ( !Ext.isEmpty(organizer) ) {
+				rows += this.renderRow(_('Organizer'), Ext.util.Format.htmlEncode(organizer));
+			}
+			var attendees = this.formatPeople(record.get('display_to'), organizer);
+			if ( attendees ) {
+				rows += this.renderRow(_('Attendees'), attendees, 'k-clamp');
+			}
+			var optional = this.formatPeople(record.get('display_cc'));
+			if ( optional ) {
+				rows += this.renderRow(_('Optional attendees'), optional, 'k-clamp');
+			}
+		}
+
+		if ( !Ext.isEmpty(record.get('recurring_pattern')) ) {
+			rows += this.renderRow(_('Recurrence'), Ext.util.Format.htmlEncode(record.get('recurring_pattern')));
+		}
+
+		var busy = record.get('busystatus');
+		if ( busy !== Zarafa.core.mapi.BusyStatus.BUSY ) {
+			rows += this.renderRow(_('Show as'), '<span class="k-appt-tip-chip">' +
+				Ext.util.Format.htmlEncode(Zarafa.core.mapi.BusyStatus.getDisplayName(busy)) + '</span>');
+		}
+
+		var categories = Zarafa.common.categories.Util.getCategories(record);
+		if ( !Ext.isEmpty(categories) ) {
+			rows += '<div class="k-appt-tip-cats">' + Zarafa.common.categories.Util.getCategoriesHtml(categories) + '</div>';
+		}
+
+		return rows;
+	},
+
+	/**
+	 * Render one labelled row.
+	 * @param {String} label The (translated) label
+	 * @param {String} html The value, already encoded
+	 * @param {String} cls Optional class for the value cell
+	 * @return {String} html
+	 * @private
+	 */
+	renderRow: function(label, html, cls)
+	{
+		return '<div class="k-appt-tip-row">' +
+			'<span class="k-appt-tip-label">' + Ext.util.Format.htmlEncode(label) + '</span>' +
+			'<span class="k-appt-tip-value' + (cls ? ' ' + cls : '') + '">' + html + '</span>' +
+		'</div>';
+	},
+
+	/**
+	 * Format a location. A web address becomes a link showing only the
+	 * part after the scheme, on one line.
+	 * @param {String} value The location
+	 * @return {String} html
+	 * @private
+	 */
+	formatPlace: function(value)
+	{
+		value = String(value).trim();
+		if ( !/^https?:\/\/\S+$/i.test(value) ) {
+			return Ext.util.Format.htmlEncode(value);
+		}
+
+		var url = Ext.util.Format.htmlEncode(value);
+		return '<a class="k-appt-tip-link" href="' + url + '" title="' + url + '" target="_blank" rel="noopener noreferrer">' +
+			Ext.util.Format.htmlEncode(value.replace(/^https?:\/\//i, '')) + '</a>';
+	},
+
+	/**
+	 * Format a list of recipients as it is stored in display_to/display_cc.
+	 * @param {String} value The names separated by semicolons
+	 * @param {String} exclude Optional name to leave out (the organizer)
+	 * @return {String} html, empty when nobody remains
+	 * @private
+	 */
+	formatPeople: function(value, exclude)
+	{
+		if ( Ext.isEmpty(value) ) {
+			return '';
+		}
+
+		var names = [];
+		Ext.each(String(value).split(';'), function(name) {
+			name = name.trim();
+			if ( name && name !== exclude ) {
+				names.push(name);
+			}
+		});
+
+		return Ext.util.Format.htmlEncode(names.join(', '));
 	},
 
 	/**
