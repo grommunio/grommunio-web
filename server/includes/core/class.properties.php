@@ -194,8 +194,6 @@ class Properties {
 	 * @return string PR_MAPPING_SIGNATURE of the given MAPI Message Store if exists else 0
 	 */
 	private function getStoreMappingSignature($store) {
-		$storeProps = [];
-
 		try {
 			$storeProps = mapi_getprops($store, [PR_MAPPING_SIGNATURE, PR_ENTRYID]);
 		}
