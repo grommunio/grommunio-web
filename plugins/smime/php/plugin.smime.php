@@ -1381,7 +1381,7 @@ class Pluginsmime extends Plugin {
 		if ($gabUser) {
 			$user = $this->getGABUser($emailAddress);
 			$gabCert = $this->getGABCert($user);
-			if ($user && !empty($gabCert)) {
+			if (!empty($gabCert)) {
 				return true;
 			}
 		}
@@ -1799,7 +1799,7 @@ class Pluginsmime extends Plugin {
 	 */
 	public function getGABCert($user) {
 		$cert = '';
-		if (!$user) {
+		if ($user === false) {
 			return $cert;
 		}
 		$userCertArray = mapi_getprops($user, [PR_EMS_AB_X509_CERT]);

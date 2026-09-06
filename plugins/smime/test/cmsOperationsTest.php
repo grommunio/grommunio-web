@@ -80,11 +80,17 @@ class CmsOperationsTest extends SMIMETest {
 			'private_key_type' => OPENSSL_KEYTYPE_RSA,
 		];
 		$key = openssl_pkey_new($options);
+		if (!$key instanceof OpenSSLAsymmetricKey) {
+			throw new RuntimeException('Unable to create an OAEP test key');
+		}
 		$csr = openssl_csr_new(['commonName' => $commonName], $key, $options);
+		if ($csr === false) {
+			throw new RuntimeException('Unable to create an OAEP test certificate request');
+		}
 		$certificate = openssl_csr_sign($csr, null, $key, 2, $options, random_int(1, PHP_INT_MAX));
-		if ($key === false || $csr === false || $certificate === false ||
-			!openssl_x509_export($certificate, $certificatePem)) {
-			$this->fail('Unable to create an OAEP test certificate');
+		$certificatePem = '';
+		if ($certificate === false || !openssl_x509_export($certificate, $certificatePem)) {
+			throw new RuntimeException('Unable to create an OAEP test certificate');
 		}
 
 		return [$key, $certificatePem];
