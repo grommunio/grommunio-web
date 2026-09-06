@@ -17,12 +17,13 @@ class ReminderItemModule extends ItemModule {
 	}
 
 	/**
-	 * Function is use to set message flags for flagged mail item.
+	 * Set message flags for a flagged mail item.
 	 *
-	 * @param object $store         MAPI Message Store Object
-	 * @param string $parententryid parent entryid of the message
-	 * @param string $entryid       entryid of the message
-	 * @param array  $action        the action data, sent by the client
+	 * @param false|resource     $store         MAPI message store, or false when unavailable
+	 * @param false|string       $parententryid binary parent entry ID, or false when absent
+	 * @param array|false|string $entryid       binary message entry ID or IDs, or false when absent
+	 * @param array              $action        the action data, sent by the client
+	 * @param string             $actionType    the action type which triggered this action
 	 */
 	#[Override]
 	public function save($store, $parententryid, $entryid, $action, $actionType = 'save') {
@@ -53,12 +54,12 @@ class ReminderItemModule extends ItemModule {
 	}
 
 	/**
-	 * Function which is use to dismiss or snooze the reminder item.
+	 * Dismiss or snooze a reminder item.
 	 *
-	 * @param object $store         MAPI Message Store Object
-	 * @param string $parententryid parent entryid of the message
-	 * @param string $entryid       entryid of the message
-	 * @param array  $action        the action data, sent by the client
+	 * @param false|resource     $store         MAPI message store, or false when unavailable
+	 * @param false|string       $parententryid binary parent entry ID, or false when absent
+	 * @param array|false|string $entryid       binary message entry ID or IDs, or false when absent
+	 * @param array              $action        the action data, sent by the client
 	 */
 	#[Override]
 	public function delete($store, $parententryid, $entryid, $action) {
@@ -90,13 +91,19 @@ class ReminderItemModule extends ItemModule {
 	}
 
 	/**
-	 * Function which is use to snooze the reminder for given time.
+	 * Snooze a reminder for the requested time.
 	 *
-	 * @param object $store   MAPI Message Store Object
-	 * @param string $entryid entryid of the message
-	 * @param array  $action  the action data, sent by the client
+	 * @param false|resource $store   MAPI message store, or false when unavailable
+	 * @param false|string   $entryid entryid of the message, or false when absent
+	 * @param array          $action  the action data, sent by the client
 	 */
 	public function snoozeItem($store, $entryid, $action) {
+		if ($store === false || !is_string($entryid) || $entryid === '') {
+			$this->sendFeedback(false);
+
+			return;
+		}
+
 		$result = false;
 		$message = mapi_msgstore_openentry($store, $entryid);
 		if ($message) {
@@ -151,12 +158,18 @@ class ReminderItemModule extends ItemModule {
 	}
 
 	/**
-	 * Function which is use to dismiss the reminder.
+	 * Dismiss a reminder.
 	 *
-	 * @param object $store   MAPI Message Store Object
-	 * @param string $entryid entryid of the message
+	 * @param false|resource $store   MAPI message store, or false when unavailable
+	 * @param false|string   $entryid entryid of the message, or false when absent
 	 */
 	public function dismissItem($store, $entryid) {
+		if ($store === false || !is_string($entryid) || $entryid === '') {
+			$this->sendFeedback(false);
+
+			return;
+		}
+
 		$result = false;
 		$message = mapi_msgstore_openentry($store, $entryid);
 		if ($message) {
@@ -168,7 +181,7 @@ class ReminderItemModule extends ItemModule {
 					$recurrence = new Recurrence($store, $message);
 					// check for next reminder after "now" for the next instance
 					$nextReminder = $recurrence->getNextReminderTime(time());
-					if ($nextReminder) {
+					if ($nextReminder !== false) {
 						$newProps[$this->properties["flagdueby"]] = $nextReminder;
 					}
 					else {

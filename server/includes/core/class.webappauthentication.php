@@ -28,12 +28,12 @@ class WebAppAuthentication {
 	/**
 	 * @var null|WebAppSession A reference to the php session object
 	 */
-	private static $_phpSession;
+	private static ?WebAppSession $_phpSession = null;
 
 	/**
 	 * @var null|MAPISession A reference to the MAPISession object
 	 */
-	private static $_mapiSession;
+	private static ?MAPISession $_mapiSession = null;
 
 	/**
 	 * @var int code that reflects the latest error
@@ -46,6 +46,27 @@ class WebAppAuthentication {
 	private static $_sessionSaveSupport = false;
 
 	/**
+	 * Initialize and return the PHP and MAPI session helpers.
+	 *
+	 * @return array{0: WebAppSession, 1: MAPISession}
+	 */
+	private static function initializeSessions(): array {
+		$phpSession = WebAppAuthentication::$_phpSession;
+		if ($phpSession === null) {
+			$phpSession = WebAppSession::getInstance();
+			WebAppAuthentication::$_phpSession = $phpSession;
+		}
+
+		$mapiSession = WebAppAuthentication::$_mapiSession;
+		if ($mapiSession === null) {
+			$mapiSession = new MAPISession();
+			WebAppAuthentication::$_mapiSession = $mapiSession;
+		}
+
+		return [$phpSession, $mapiSession];
+	}
+
+	/**
 	 * Returns the only instance of the WebAppAuthentication class.
 	 * If it does not exist yet, it will create an instance, and
 	 * also an MAPISession object, and it will start a php session
@@ -55,14 +76,10 @@ class WebAppAuthentication {
 	 */
 	public static function getInstance() {
 		if (is_null(WebAppAuthentication::$_instance)) {
-			// Make sure a php session is started
-			WebAppAuthentication::$_phpSession = WebAppSession::getInstance();
+			WebAppAuthentication::initializeSessions();
 
 			// Instantiate this class
 			WebAppAuthentication::$_instance = new WebAppAuthentication();
-
-			// Instantiate the mapiSession
-			WebAppAuthentication::$_mapiSession = new MAPISession();
 
 			// Check if MAPI Saving session support exists
 			WebAppAuthentication::$_sessionSaveSupport = function_exists('kc_session_save') && function_exists('kc_session_restore');
@@ -99,20 +116,20 @@ class WebAppAuthentication {
 
 	/**
 	 * Returns the MAPISession instance.
-	 *
-	 * @return MAPISession
 	 */
-	public static function getMAPISession() {
-		return WebAppAuthentication::$_mapiSession;
+	public static function getMAPISession(): MAPISession {
+		[, $mapiSession] = WebAppAuthentication::initializeSessions();
+
+		return $mapiSession;
 	}
 
 	/**
 	 * Set the underlying MAPI session handle.
 	 *
-	 * @param false|resource $session the MAPI session handle to set
+	 * @param false|resource $session the MAPI session resource to set, or false to clear it
 	 */
 	public static function setMAPISession($session) {
-		WebAppAuthentication::$_mapiSession->setSession($session);
+		WebAppAuthentication::getMAPISession()->setSession($session);
 	}
 
 	/**
@@ -221,13 +238,14 @@ class WebAppAuthentication {
 		if (session_status() === PHP_SESSION_ACTIVE) {
 			session_write_close();
 		}
+		$mapiSession = WebAppAuthentication::getMAPISession();
 
 		if (!WebAppAuthentication::_restoreMAPISession()) {
 			// TODO: move logon from MAPISession to here
 
 			WebAppAuthentication::$_errorCode = isset($_SESSION['_keycloak_auth']) ?
-				WebAppAuthentication::$_mapiSession->logon_token($username, $pass) :
-				WebAppAuthentication::$_mapiSession->logon($username, $pass, DEFAULT_SERVER);
+				$mapiSession->logon_token($username, $pass) :
+				$mapiSession->logon($username, $pass, DEFAULT_SERVER);
 
 			// Include external login plugins to be loaded
 			if (file_exists(BASE_PATH . 'extlogin.php')) {
@@ -235,13 +253,13 @@ class WebAppAuthentication {
 			}
 			if (WebAppAuthentication::$_errorCode === NOERROR) {
 				WebAppAuthentication::$_authenticated = true;
-				WebAppAuthentication::_storeMAPISession(WebAppAuthentication::$_mapiSession->getSession());
+				WebAppAuthentication::_storeMAPISession($mapiSession->getSession());
 				$tmp = explode('@', $username);
 				if (count($tmp) == 2) {
 					setcookie('domainname', $tmp[1], ['expires' => time() + 31536000, 'path' => '/', 'domain' => '', 'secure' => true, 'httponly' => true, 'samesite' => 'Lax']);
 				}
-				$wa_title = (string) WebAppAuthentication::$_mapiSession->getFullName();
-				$companyname = (string) WebAppAuthentication::$_mapiSession->getCompanyName();
+				$wa_title = (string) $mapiSession->getFullName();
+				$companyname = (string) $mapiSession->getCompanyName();
 				if ($companyname !== '') {
 					$wa_title .= " ({$companyname})";
 				}
@@ -349,7 +367,8 @@ class WebAppAuthentication {
 		if (!is_null($username) && !is_null($password)) {
 			if ($username != $email || $password != $_POST['password']) {
 				WebAppAuthentication::$_errorCode = MAPI_E_INVALID_WORKSTATION_ACCOUNT;
-				WebAppAuthentication::$_phpSession->destroy();
+				[$phpSession] = WebAppAuthentication::initializeSessions();
+				$phpSession->destroy();
 
 				return WebAppAuthentication::getErrorCode();
 			}
@@ -406,7 +425,8 @@ class WebAppAuthentication {
 					if (!is_null($username) && !is_null($password)) {
 						if ($username != $email || $password != $token) {
 							WebAppAuthentication::$_errorCode = MAPI_E_INVALID_WORKSTATION_ACCOUNT;
-							WebAppAuthentication::$_phpSession->destroy();
+							[$phpSession] = WebAppAuthentication::initializeSessions();
+							$phpSession->destroy();
 
 							return WebAppAuthentication::getErrorCode();
 						}
@@ -466,7 +486,8 @@ class WebAppAuthentication {
 			session_write_close();
 		}
 
-		WebAppAuthentication::$_errorCode = WebAppAuthentication::getMAPISession()->logon(
+		$mapiSession = WebAppAuthentication::getMAPISession();
+		WebAppAuthentication::$_errorCode = $mapiSession->logon(
 			$_POST['username'],
 			$_POST['token'],
 			DEFAULT_SERVER,
@@ -478,7 +499,7 @@ class WebAppAuthentication {
 		// Store the credentials in the session if logging in was successful
 		if (WebAppAuthentication::$_errorCode === NOERROR) {
 			WebAppAuthentication::_storeCredentialsInSession($_POST['username'], $_POST['token']);
-			WebAppAuthentication::_storeMAPISession(WebAppAuthentication::$_mapiSession->getSession());
+			WebAppAuthentication::_storeMAPISession($mapiSession->getSession());
 		}
 
 		return WebAppAuthentication::getErrorCode();
@@ -496,8 +517,10 @@ class WebAppAuthentication {
 	 * @return int|void
 	 */
 	private static function _authenticateWithSession() {
+		[$phpSession] = WebAppAuthentication::initializeSessions();
+
 		// Check if the session hasn't timed out
-		if (WebAppAuthentication::$_phpSession->hasTimedOut()) {
+		if ($phpSession->hasTimedOut()) {
 			// Using a MAPI error code here, while it is not really a MAPI session timeout
 			// However to the user this should make no difference, so the MAPI error will do.
 			WebAppAuthentication::$_errorCode = MAPI_E_END_OF_SESSION;
@@ -518,7 +541,7 @@ class WebAppAuthentication {
 		if (!DISABLE_FINGERPRINT_CHECK && $_SESSION['fingerprint'] !== BrowserFingerprint::getFingerprint()) {
 			// Another browser presents this session cookie; end the session the way a
 			// timeout does, every entry point answers that with its login or 401 path
-			WebAppAuthentication::$_phpSession->destroy();
+			$phpSession->destroy();
 			WebAppAuthentication::$_errorCode = MAPI_E_END_OF_SESSION;
 
 			return WebAppAuthentication::getErrorCode();

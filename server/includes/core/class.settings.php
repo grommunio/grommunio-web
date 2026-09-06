@@ -171,7 +171,7 @@ class Settings {
 
 		$settings = (bool) $persistent ? $this->persistentSettings : $this->settings;
 
-		if ($path == null) {
+		if ($path === null) {
 			return $settings;
 		}
 

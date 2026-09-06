@@ -1413,15 +1413,15 @@ class Operations {
 	 *
 	 * The output from this function is an XML array structure which can be sent directly to XML serialisation.
 	 *
-	 * @param object $store        MAPI Message Store Object
-	 * @param string $entryid      The entryid of the folder to read the table from
-	 * @param array  $properties   The set of properties which will be read
-	 * @param array  $sort         The set properties which the table will be sort on (formatted as a MAPI sort order)
-	 * @param int    $start        Starting row at which to start reading rows
-	 * @param int    $rowcount     Number of rows which should be read
-	 * @param array  $restriction  Table restriction to apply to the table (formatted as MAPI restriction)
-	 * @param mixed  $getHierarchy
-	 * @param mixed  $flags
+	 * @param object    $store        MAPI Message Store Object
+	 * @param string    $entryid      The entryid of the folder to read the table from
+	 * @param array     $properties   The set of properties which will be read
+	 * @param array     $sort         The set properties which the table will be sort on (formatted as a MAPI sort order)
+	 * @param int       $start        Starting row at which to start reading rows
+	 * @param false|int $rowcount     Number of rows which should be read, or false to use the configured page size
+	 * @param array     $restriction  Table restriction to apply to the table (formatted as MAPI restriction)
+	 * @param mixed     $getHierarchy
+	 * @param mixed     $flags
 	 *
 	 * @return array XML array structure with row data
 	 */
@@ -1442,7 +1442,7 @@ class Operations {
 			return $data;
 		}
 
-		if (!$rowcount) {
+		if ($rowcount === false) {
 			$rowcount = $GLOBALS['settings']->get('zarafa/v1/main/page_size', 50);
 		}
 
@@ -4600,7 +4600,7 @@ class Operations {
 	 *
 	 * @param string $entryid entryid of the shared folder record
 	 *
-	 * @return false|mapistore store of the shared folder if found, otherwise false
+	 * @return false|resource store of the shared folder if found, otherwise false
 	 *
 	 * FIXME: this function is pretty inefficient, since it opens the store for every
 	 * shared user in the worst case. Might be that we could extract the guid from
