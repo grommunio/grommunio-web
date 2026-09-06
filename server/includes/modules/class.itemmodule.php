@@ -516,15 +516,15 @@ class ItemModule extends Module {
 	 * Function which opens an item.
 	 *
 	 * @param false|resource $store   MAPI message store, or false if it was not supplied
-	 * @param false|string   $entryid entryid of the message, or false if it was not supplied
-	 * @param array          $action  the action data, sent by the client
+	 * @param false|string   $entryid entry ID of the message, or false if it was not supplied
+	 * @param array          $action  action data sent by the client
 	 */
 	public function open($store, $entryid, $action) {
 		$data = [];
 		$message = false;
 
 		if ($entryid) {
-			if ($store) {
+			if ($store !== false) {
 				$message = $GLOBALS['operations']->openMessage($store, $entryid);
 			}
 			else {
@@ -761,7 +761,7 @@ class ItemModule extends Module {
 		$result = false;
 
 		if (isset($action["props"])) {
-			if (!$store) {
+			if ($store === false) {
 				$store = $GLOBALS['mapisession']->getDefaultMessageStore();
 			}
 			if (!$parententryid) {
@@ -773,7 +773,7 @@ class ItemModule extends Module {
 				}
 			}
 
-			if ($store && $parententryid) {
+			if ($store !== false && $parententryid) {
 				$props = Conversion::mapXML2MAPI($this->properties, $action["props"]);
 
 				$messageProps = []; // props returned from saveMessage
@@ -799,13 +799,13 @@ class ItemModule extends Module {
 	/**
 	 * Function which deletes an item.
 	 *
-	 * @param false|resource     $store         MAPI message store, or false
-	 * @param false|string       $parententryid parent entryid of the message, or false
-	 * @param array|false|string $entryid      entryid or entryids of the message, or false
-	 * @param array              $action        the action data, sent by the client
+	 * @param false|resource     $store         MAPI message store, or false when unavailable
+	 * @param false|string       $parententryid parent entry ID, or false when unavailable
+	 * @param array|false|string $entryid       entry ID or IDs, or false when unavailable
+	 * @param array              $action        action data sent by the client
 	 */
 	public function delete($store, $parententryid, $entryid, $action) {
-		if (!$store || !$parententryid || !$entryid) {
+		if ($store === false || !$parententryid || !$entryid) {
 			return;
 		}
 		$props = [];
@@ -956,14 +956,14 @@ class ItemModule extends Module {
 	 * Function which returns the entryid of a default folder.
 	 *
 	 * @param false|resource $store        MAPI message store, or false when unavailable
-	 * @param string         $messageClass the class of the folder
+	 * @param string $messageClass the class of the folder
 	 *
-	 * @return false|string entryid of a default folder, or false if not found
+	 * @return false|string entry ID of a default folder, or false if not found
 	 */
 	public function getDefaultFolderEntryID($store, $messageClass) {
 		$entryid = false;
 
-		if ($store) {
+		if ($store !== false) {
 			$rootcontainer = mapi_msgstore_openentry($store);
 			$rootcontainerprops = mapi_getprops($rootcontainer, [PR_IPM_DRAFTS_ENTRYID, PR_IPM_APPOINTMENT_ENTRYID, PR_IPM_CONTACT_ENTRYID, PR_IPM_JOURNAL_ENTRYID, PR_IPM_NOTE_ENTRYID, PR_IPM_TASK_ENTRYID]);
 

@@ -151,7 +151,7 @@ class ContactItemModule extends ItemModule {
 		$isCopyGABToContact = false;
 		// this array is passed to $GLOBALS['operations']->saveMessage() function
 
-		if (!$store && !$parententryid) {
+		if ($store === false && !$parententryid) {
 			if (isset($action['props']['message_class'])) {
 				$store = $GLOBALS['mapisession']->getDefaultMessageStore();
 				$parententryid = $this->getDefaultFolderEntryID($store, $action['props']['message_class']);
@@ -168,7 +168,7 @@ class ContactItemModule extends ItemModule {
 			}
 		}
 
-		if ($store && $parententryid && isset($action['props'])) {
+		if ($store !== false && $parententryid && isset($action['props'])) {
 			if (isset($action['members'])) {
 				// DistList
 
@@ -413,20 +413,20 @@ class ContactItemModule extends ItemModule {
 	 *
 	 * @param false|resource $store         MAPI message store, or false to infer it
 	 * @param false|string   $parententryid parent folder entry ID, or false to infer it
-	 * @param string         $entryid       entry ID of the message
+	 * @param false|string   $entryid       entry ID of the message, or false when unavailable
 	 * @param array          $action        action data sent by the client
 	 */
 	#[Override]
 	public function delete($store, $parententryid, $entryid, $action) {
 		$message = false;
-		if (!$store && !$parententryid && $entryid) {
+		if ($store === false && !$parententryid && $entryid) {
 			$data = $this->getStoreParentEntryIdFromEntryId($entryid);
 			$store = $data["store"];
 			$message = $data["message"];
 			$parententryid = $data["parent_entryid"];
 		}
 
-		if ($store && $entryid) {
+		if ($store !== false && $entryid) {
 			try {
 				if ($message === false) {
 					$message = $GLOBALS["operations"]->openMessage($store, $entryid);

@@ -115,7 +115,12 @@ class CategoryList {
 	 * @return int
 	 */
 	private static function roamingXmlStreamTag() {
-		return mapi_prop_tag(PT_BINARY, 0x7C08);
+		$propertyTag = mapi_prop_tag(PT_BINARY, 0x7C08);
+		if ($propertyTag === false) {
+			throw new RuntimeException('Unable to create the category-list property tag.');
+		}
+
+		return $propertyTag;
 	}
 
 	/**
@@ -127,14 +132,16 @@ class CategoryList {
 		if ($this->calendar === false) {
 			try {
 				$root = mapi_msgstore_openentry($this->store);
-				if (!$root) {
+				if ($root === false) {
 					return false;
 				}
 				$props = mapi_getprops($root, [PR_IPM_APPOINTMENT_ENTRYID]);
 				if (empty($props[PR_IPM_APPOINTMENT_ENTRYID])) {
 					return false;
 				}
-				$calendar = mapi_msgstore_openentry($this->store, $props[PR_IPM_APPOINTMENT_ENTRYID]);
+
+				/** @var false|resource $calendar php-mapi Calendar folder */
+				$calendar = /** @scrutinizer ignore-type */ mapi_msgstore_openentry($this->store, $props[PR_IPM_APPOINTMENT_ENTRYID]);
 				if ($calendar === false) {
 					return false;
 				}
@@ -149,7 +156,7 @@ class CategoryList {
 			}
 		}
 
-		return $this->calendar;
+		return /** @scrutinizer ignore-type */ $this->calendar;
 	}
 
 	/**
@@ -161,7 +168,7 @@ class CategoryList {
 	 */
 	private function findConfigMessage($create = false) {
 		$calendar = $this->getCalendarFolder();
-		if (!$calendar) {
+		if (/** @scrutinizer ignore-type */ $calendar === false) {
 			return false;
 		}
 
@@ -224,7 +231,7 @@ class CategoryList {
 	 */
 	public function getXml() {
 		$message = $this->findConfigMessage(false);
-		if (!$message) {
+		if ($message === false) {
 			return '';
 		}
 
@@ -236,7 +243,7 @@ class CategoryList {
 
 		// Large binaries come back as an error placeholder; read via a stream.
 		$stream = mapi_openproperty($message, $tag, IID_IStream, 0, 0);
-		if (!$stream) {
+		if ($stream === false) {
 			return '';
 		}
 		$xml = '';
@@ -261,7 +268,7 @@ class CategoryList {
 	 */
 	public function setXml($xml) {
 		$message = $this->findConfigMessage(true);
-		if (!$message) {
+		if ($message === false) {
 			// no accessible Calendar folder, the save must not silently no-op
 			throw new MAPIException("Cannot store the category list.", MAPI_E_NOT_FOUND, null, _("Cannot store the category list in this mailbox."));
 		}

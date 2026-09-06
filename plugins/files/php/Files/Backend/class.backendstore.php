@@ -176,10 +176,24 @@ class BackendStore {
 		if ($this->backendExists($canonical)) {
 			$class = "\\Files\\Backend\\{$canonical}\\Backend";
 
-			return new $class();
+			return $this->instantiateBackend($class);
 		}
 
 		return false; // return false if the backend does not exist
+	}
+
+	/**
+	 * Instantiate a dynamically registered backend.
+	 *
+	 * Backend registration guarantees that the resolved class extends
+	 * AbstractBackend; the dynamic class name prevents static inference.
+	 *
+	 * @param string $class fully qualified backend class name
+	 *
+	 * @return AbstractBackend backend instance
+	 */
+	private function instantiateBackend($class) {
+		return /** @scrutinizer ignore-type */ new $class();
 	}
 
 	/**

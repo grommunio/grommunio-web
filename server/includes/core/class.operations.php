@@ -1342,21 +1342,25 @@ class Operations {
 	/**
 	 * Copy or move a folder.
 	 *
-	 * @param resource $store               MAPI message store
-	 * @param string   $parentfolderentryid The parent entryid of the folder which will be copied or moved
-	 * @param string   $sourcefolderentryid The entryid of the folder which will be copied or moved
-	 * @param string   $destfolderentryid   The entryid of the folder which the folder will be copied or moved to
-	 * @param bool     $moveFolder          true - move folder, false - copy folder
-	 * @param array    $folderProps         reference to an array which will be filled with entryids
-	 * @param resource $deststore           destination MAPI message store
+	 * @param resource       $store               MAPI message store
+	 * @param string         $parentfolderentryid The parent entryid of the folder which will be copied or moved
+	 * @param string         $sourcefolderentryid The entryid of the folder which will be copied or moved
+	 * @param string         $destfolderentryid   The entryid of the folder which the folder will be copied or moved to
+	 * @param false|resource $deststore           destination MAPI store, or false when unavailable
+	 * @param bool           $moveFolder          true - move folder, false - copy folder
+	 * @param array          $folderProps         reference to an array which will be filled with entryids
 	 *
 	 * @return bool true if action succeeded, false if not
 	 */
 	public function copyFolder($store, $parentfolderentryid, $sourcefolderentryid, $destfolderentryid, $deststore, $moveFolder, &$folderProps) {
 		$result = false;
+		if ($deststore === false) {
+			return false;
+		}
+
 		$sourceparentfolder = mapi_msgstore_openentry($store, $parentfolderentryid);
 		$destfolder = mapi_msgstore_openentry($deststore, $destfolderentryid);
-		if (!$this->isSpecialFolder($store, $sourcefolderentryid) && $sourceparentfolder && $destfolder && $deststore) {
+		if (!$this->isSpecialFolder($store, $sourcefolderentryid) && $sourceparentfolder && $destfolder) {
 			$folder = mapi_msgstore_openentry($store, $sourcefolderentryid);
 			$props = mapi_getprops($folder, [PR_DISPLAY_NAME]);
 
@@ -1544,9 +1548,9 @@ class Operations {
 	 * code pages and extracting both the HTML and plain text bodies. It can be
 	 * called independently to lazily fetch body data when required.
 	 *
-	 * @param resource $message   MAPI message
-	 * @param bool     $html2text true - body will be converted from html to text,
-	 *                            false - html body will be returned
+	 * @param false|resource $message   MAPI message, or false when unavailable
+	 * @param bool           $html2text true - body will be converted from html to text,
+	 *                                  false - html body will be returned
 	 *
 	 * @return array associative array containing keys 'body', 'html_body' and 'isHTML'
 	 */
@@ -1556,7 +1560,7 @@ class Operations {
 			'isHTML' => false,
 		];
 
-		if (!$message) {
+		if ($message === false) {
 			return $result;
 		}
 
@@ -1613,11 +1617,11 @@ class Operations {
 	 * Reads a message and returns the data as an XML array structure with all data from the message that is needed
 	 * to show a message (for example in the preview pane)
 	 *
-	 * @param resource $store      MAPI message store
-	 * @param resource $message    MAPI message
-	 * @param array    $properties Mapping of properties that should be read
-	 * @param bool     $html2text  true - body will be converted from html to text, false - html body will be returned
-	 * @param bool     $loadBody   true - fetch body content, false - skip body retrieval
+	 * @param resource       $store      MAPI message store
+	 * @param false|resource $message    MAPI message, or false when unavailable
+	 * @param array          $properties Mapping of properties that should be read
+	 * @param bool           $html2text  true - body will be converted from html to text, false - html body will be returned
+	 * @param bool           $loadBody   true - fetch body content, false - skip body retrieval
 	 *
 	 * @return array item properties
 	 *
@@ -1626,7 +1630,7 @@ class Operations {
 	public function getMessageProps($store, $message, $properties, $html2text = false, $loadBody = false) {
 		$props = [];
 
-		if ($message) {
+		if ($message !== false) {
 			$itemprops = mapi_getprops($message, $properties);
 
 			/* If necessary stream the property, if it's > 8KB */
@@ -1836,7 +1840,7 @@ class Operations {
 	public function getProps($item, $properties) {
 		$props = [];
 
-		if ($item) {
+		if ($item !== false) {
 			$itemprops = mapi_getprops($item, $properties);
 			$props = Conversion::mapMAPI2XML($properties, $itemprops);
 		}
@@ -1884,7 +1888,7 @@ class Operations {
 	 * @param resource $store         MAPI message store
 	 * @param string   $parententryid The entryid of the folder in which the new message is to be created
 	 *
-	 * @return resource created MAPI message
+	 * @return false|resource created MAPI message, or false when creation fails
 	 */
 	public function createMessage($store, $parententryid) {
 		$folder = mapi_msgstore_openentry($store, $parententryid);
@@ -2151,7 +2155,12 @@ class Operations {
 	 * @return array|false PR_ENTRYID, PR_PARENT_ENTRYID and PR_STORE_ENTRYID properties of the modified item, or false for an invalid target
 	 */
 	public function saveAppointment($store, $entryid, $parententryid, $action, $actionType = 'save', $directBookingMeetingRequest = true) {
+		if ($store === false || !is_string($parententryid) || $parententryid === '') {
+			return false;
+		}
+
 		$messageProps = [];
+		$message = false;
 		// It stores the values that is exception allowed or not false -> not allowed
 		$isExceptionAllowed = true;
 		$delete = $actionType == 'delete';	// Flag for MeetingRequest Class whether to send update or cancel mail.
@@ -2161,10 +2170,6 @@ class Operations {
 		$send = false;
 		$oldProps = [];
 		$pasteRecord = false;
-		if (!$store || !$parententryid) {
-			return false;
-		}
-
 		if (isset($action['message_action'], $action['message_action']['send'])) {
 			$send = $action['message_action']['send'];
 		}
@@ -2198,7 +2203,7 @@ class Operations {
 			}
 		}
 
-		if ($store && $parententryid) {
+		if ($parententryid) {
 			// @FIXME: check for $action['props'] array
 			if (isset($entryid) && $entryid) {
 				// Modify existing or add/change exception
@@ -2407,6 +2412,10 @@ class Operations {
 			}
 		}
 
+		if ($message === false) {
+			return false;
+		}
+
 		$result = false;
 		// Check to see if it should be sent as a meeting request
 		if ($send === true && $isExceptionAllowed) {
@@ -2475,13 +2484,11 @@ class Operations {
 			if ($recips) {
 				if (isset($action['message_action']['send_update']) && $action['message_action']['send_update'] == 'modified') {
 					if (isset($recips['add']) && !empty($recips['add'])) {
-						$modifiedRecipients = $modifiedRecipients ?: [];
-						$modifiedRecipients = array_merge($modifiedRecipients, $this->createRecipientList($recips['add'], 'add'));
+						$modifiedRecipients = $this->createRecipientList($recips['add'], 'add');
 					}
 
 					if (isset($recips['modify']) && !empty($recips['modify'])) {
-						$modifiedRecipients = $modifiedRecipients ?: [];
-						$modifiedRecipients = array_merge($modifiedRecipients, $this->createRecipientList($recips['modify'], 'modify'));
+						$modifiedRecipients = array_merge(is_array($modifiedRecipients) ? $modifiedRecipients : [], $this->createRecipientList($recips['modify'], 'modify'));
 					}
 				}
 
@@ -2489,10 +2496,9 @@ class Operations {
 				$lastUpdateCounter = $request->getLastUpdateCounter();
 				if ($lastUpdateCounter !== false && $lastUpdateCounter > 0) {
 					if (isset($recips['remove']) && !empty($recips['remove'])) {
-						$deletedRecipients = $deletedRecipients ?: [];
-						$deletedRecipients = array_merge($deletedRecipients, $this->createRecipientList($recips['remove'], 'remove'));
+						$deletedRecipients = $this->createRecipientList($recips['remove'], 'remove');
 						if (isset($action['message_action']['send_update']) && $action['message_action']['send_update'] != 'all') {
-							$modifiedRecipients = $modifiedRecipients ?: [];
+							$modifiedRecipients = is_array($modifiedRecipients) ? $modifiedRecipients : [];
 						}
 					}
 				}
@@ -3337,14 +3343,15 @@ class Operations {
 					]];
 					mapi_table_restrict($sentTable, $restriction);
 					$sentMessageProps = mapi_table_queryallrows($sentTable, [PR_ENTRYID, PR_SEARCH_KEY]);
-					if (mapi_table_getrowcount($sentTable) == 1) {
+					$sentRowCount = mapi_table_getrowcount($sentTable);
+					if ($sentRowCount === 1) {
 						mapi_folder_deletemessages($sentFolder, [$sentMessageProps[0][PR_ENTRYID]], DELETE_HARD_DELETE);
 					}
 					else {
 						error_log(sprintf(
-							"Found multiple entries in Sent Items with the same PR_SEARCH_KEY (%d)." .
+							"Found an unexpected number of entries in Sent Items with the same PR_SEARCH_KEY (%s)." .
 							" Impossible to delete email from the delegate's Sent Items folder.",
-							mapi_table_getrowcount($sentTable)
+							$sentRowCount === false ? 'unknown' : (string) $sentRowCount
 						));
 					}
 				}
@@ -3777,9 +3784,9 @@ class Operations {
 	/**
 	 * Set the recipients of a MAPI message.
 	 *
-	 * @param object $message    MAPI Message Object
-	 * @param array  $recipients XML array structure of recipients
-	 * @param bool   $send       true if we are going to send this message else false
+	 * @param resource $message    MAPI message
+	 * @param array    $recipients XML array structure of recipients
+	 * @param bool     $send       true if we are going to send this message else false
 	 */
 	public function setRecipients($message, $recipients, $send = false) {
 		if (empty($recipients)) {
@@ -3845,7 +3852,7 @@ class Operations {
 	 *
 	 * @see Operations::saveMessage()
 	 *
-	 * @param object          $message          MAPI Message Object
+	 * @param resource        $message          MAPI message
 	 * @param array           $attachments      XML array structure of attachments
 	 * @param AttachmentState $attachment_state the state object in which the attachments are saved
 	 *                                          between different requests
@@ -4347,8 +4354,8 @@ class Operations {
 	/**
 	 * get recipients information of a particular message.
 	 *
-	 * @param MapiMessage $message        MAPI Message Object
-	 * @param bool        $excludeDeleted exclude deleted recipients
+	 * @param resource $message        MAPI message
+	 * @param bool     $excludeDeleted exclude deleted recipients
 	 */
 	public function getRecipientsInfo($message, $excludeDeleted = true) {
 		$recipientsInfo = [];
