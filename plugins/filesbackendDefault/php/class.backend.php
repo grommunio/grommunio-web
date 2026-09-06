@@ -21,7 +21,6 @@ use OCSAPI\ocsclient;
 use OCSAPI\ocsshare;
 use Sabre\DAV\Client;
 use Sabre\DAV\Exception;
-use Sabre\HTTP\ClientException;
 
 /**
  * This is a file backend for ownCloud servers.
@@ -188,62 +187,6 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing, 
 			}
 			$e = new BackendException($this->parseErrorCodeToMessage(self::WD_ERR_UNREACHABLE), $e->getHTTPCode());
 			$e->setTitle($this->backendTransName . _('Connection failed'));
-
-			throw $e;
-		}
-	}
-
-	/**
-	 * /**
-	 * Copy a collection on webdav server
-	 * Duplicates a collection on the webdav server (serverside).
-	 * All work is done on the webdav server. If you set param overwrite as true,
-	 * the target will be overwritten.
-	 *
-	 * @param string $src_path  Source path
-	 * @param string $dst_path  Destination path
-	 * @param bool   $overwrite Overwrite if collection exists in $dst_path
-	 * @param bool   $coll      set this to true if you want to copy a folder
-	 *
-	 * @return bool true if action succeeded
-	 *
-	 * @throws BackendException if request is not successful
-	 */
-	private function copy($src_path, $dst_path, $overwrite, $coll) {
-		$time_start = microtime(true);
-		$src_path = $this->removeSlash($src_path);
-		$dst_path = $this->webdavUrl() . $this->removeSlash($dst_path);
-		$this->log("[COPY] start for dir: {$src_path} -> {$dst_path}");
-		if ($overwrite) {
-			$overwrite = 'T';
-		}
-		else {
-			$overwrite = 'F';
-		}
-
-		$settings = ["Destination" => $dst_path, 'Overwrite' => $overwrite];
-		if ($coll) {
-			$settings = ["Destination" => $dst_path, 'Depth' => 'Infinity'];
-		}
-
-		try {
-			$response = $this->sabre_client->request("COPY", $src_path, null, $settings);
-			$time_end = microtime(true);
-			$time = $time_end - $time_start;
-			$this->log("[COPY] done in {$time} seconds: " . $response['statusCode']);
-
-			return true;
-		}
-		catch (ClientException $e) {
-			$e = new BackendException($this->parseErrorCodeToMessage($e->getCode()), $e->getCode());
-			$e->setTitle($this->backendTransName . _('Sabre error'));
-
-			throw $e;
-		}
-		catch (Exception $e) {
-			$this->log('[COPY] fatal: ' . $e->getMessage());
-			$e = new BackendException($this->parseErrorCodeToMessage($e->getHTTPCode()), $e->getHTTPCode());
-			$e->setTitle($this->backendTransName . _('Copying failed'));
 
 			throw $e;
 		}
