@@ -270,7 +270,11 @@ class FilesAccountModule extends ListModule {
 			$currentAccount->setBackend(strip_tags($actionData['props']['backend']));
 		}
 		if (isset($actionData['props']['backend_config'])) { // we always get the whole backend config
-			$currentAccount->setBackendConfig($actionData['props']['backend_config']);
+			$backendConfig = $actionData['props']['backend_config'];
+			// The client sends plain values; mark them for the current encryption
+			// so the store does not mistake them for an undecryptable legacy account.
+			$backendConfig['version'] = AccountStore::ACCOUNT_VERSION;
+			$currentAccount->setBackendConfig($backendConfig);
 		}
 		if (isset($actionData['props']['account_sequence'])) {
 			$currentAccount->setSequence($actionData['props']['account_sequence']);
