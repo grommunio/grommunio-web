@@ -8,6 +8,8 @@
 
 namespace Files\Backend;
 
+use Files\Core\Account;
+
 require_once __DIR__ . "/interface.quota.php";
 require_once __DIR__ . "/interface.version.php";
 require_once __DIR__ . "/interface.streaming.php";
@@ -356,11 +358,13 @@ abstract class AbstractBackend {
 	}
 
 	/**
-	 * This function gets called before the backend-account is deleted.
+	 * Hook invoked before a backend account is deleted.
 	 *
-	 * @param mixed $account
+	 * Backends may override this method to clean up account-specific data.
+	 *
+	 * @param Account $account account being deleted
 	 */
-	public function beforeDeleteAccount($account) {
+	public function beforeDeleteAccount(/* @scrutinizer ignore-unused */ $account) {
 		// do nothing by default
 	}
 

@@ -279,11 +279,11 @@ class DelegatesModule extends Module {
 	 * Function will return information of a particular delegate from current user's store.
 	 *
 	 * @param string      $userEntryId         entryid of the delegate
-	 * @param array|false $delegateMeetingRule optional meeting-rule information, or false when no rule exists
+	 * @param array|false $delegateMeetingRule meeting rule retained for caller compatibility
 	 *
 	 * @return array delegate information
 	 */
-	public function getDelegatePermissions($userEntryId, $delegateMeetingRule = false) {
+	public function getDelegatePermissions($userEntryId, /* @scrutinizer ignore-unused */ $delegateMeetingRule = false) {
 		$delegateProps = $this->getDelegateProps();
 		$delegateIndex = $this->getDelegateIndex($userEntryId);
 		$userinfo = $this->getUserInfo($userEntryId);

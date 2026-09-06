@@ -683,15 +683,13 @@ class MAPISession {
 	/**
 	 * Get single store if we are opening full store.
 	 *
-	 * @param object $store        the store of the user
-	 * @param array  $storeOptions contains folder_type of which folder to open
-	 *                             It is mapped to username, If folder_type is 'all' (i.e. Open Entire Inbox)
-	 *                             then we will open full store.
-	 * @param string $username     The username
+	 * @param resource    $store        the store of the user
+	 * @param null|array  $storeOptions hierarchy options retained for caller compatibility
+	 * @param null|string $username     store owner retained for caller compatibility
 	 *
 	 * @return array storeArray The array of stores containing user's store
 	 */
-	public function getSingleMessageStores($store, $storeOptions, $username) {
+	public function getSingleMessageStores($store, /* @scrutinizer ignore-unused */ $storeOptions, /* @scrutinizer ignore-unused */ $username) {
 		return [$store];
 	}
 
