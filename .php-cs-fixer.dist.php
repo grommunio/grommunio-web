@@ -32,6 +32,7 @@ return $config->
 		'operator_linebreak' => ['only_booleans' => true, 'position' => 'end'],
 		'ordered_class_elements' => false,
 		'phpdoc_align' => false,
+		'phpdoc_to_comment' => ['ignored_tags' => ['scrutinizer']],
 		'single_line_comment_style' => false,
 		'single_quote' => false,
 		'ternary_operator_spaces' => false,
