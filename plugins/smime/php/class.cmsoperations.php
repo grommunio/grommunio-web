@@ -216,39 +216,50 @@ class CmsOperations {
 		?string $extraCertsFile = null,
 		string $digest = 'sha256'
 	): bool {
-		$tmpCert = tempnam(sys_get_temp_dir(), 'smime_sign_cert_');
-		$tmpKey = tempnam(sys_get_temp_dir(), 'smime_sign_key_');
+		$tmpFiles = [];
 
-		$this->exportCertAndKey($certificate, $privateKey, $tmpCert, $tmpKey, $passArg);
+		try {
+			$tmpCert = $this->createTemporaryFile('smime_sign_cert_');
+			if ($tmpCert === null) {
+				return false;
+			}
+			$tmpFiles[] = $tmpCert;
+			$tmpKey = $this->createTemporaryFile('smime_sign_key_');
+			if ($tmpKey === null) {
+				return false;
+			}
+			$tmpFiles[] = $tmpKey;
+			if (!$this->exportCertAndKey($certificate, $privateKey, $tmpCert, $tmpKey)) {
+				return false;
+			}
 
-		$extraArg = '';
-		if ($extraCertsFile !== null) {
-			$extraArg = sprintf(' -certfile %s', escapeshellarg($extraCertsFile));
+			$extraArg = '';
+			if ($extraCertsFile !== null) {
+				$extraArg = sprintf(' -certfile %s', escapeshellarg($extraCertsFile));
+			}
+
+			$nodetach = '';
+			if (!($flags & PKCS7_DETACHED)) {
+				$nodetach = ' -nodetach';
+			}
+
+			$cmd = sprintf(
+				'%s cms -sign -in %s -out %s -signer %s -inkey %s -md %s -outform SMIME%s%s 2>&1',
+				escapeshellarg($this->opensslBin),
+				escapeshellarg($infile),
+				escapeshellarg($outfile),
+				escapeshellarg($tmpCert),
+				escapeshellarg($tmpKey),
+				escapeshellarg($digest),
+				$extraArg,
+				$nodetach
+			);
+
+			return $this->execCli($cmd);
 		}
-
-		$nodetach = '';
-		if (!($flags & PKCS7_DETACHED)) {
-			$nodetach = ' -nodetach';
+		finally {
+			$this->removeTemporaryFiles($tmpFiles);
 		}
-
-		$cmd = sprintf(
-			'%s cms -sign -in %s -out %s -signer %s -inkey %s -md %s -outform SMIME%s%s%s 2>&1',
-			escapeshellarg($this->opensslBin),
-			escapeshellarg($infile),
-			escapeshellarg($outfile),
-			escapeshellarg($tmpCert),
-			escapeshellarg($tmpKey),
-			escapeshellarg($digest),
-			$passArg,
-			$extraArg,
-			$nodetach
-		);
-
-		$result = $this->execCli($cmd);
-		@unlink($tmpCert);
-		@unlink($tmpKey);
-
-		return $result;
 	}
 
 	/**
@@ -548,13 +559,18 @@ class CmsOperations {
 			$ref = new ReflectionFunction('openssl_cms_encrypt');
 			$params = $ref->getParameters();
 			// The cipher parameter is the 7th parameter (index 6)
-			foreach ($params as $param) {
-				if ($param->getName() === 'cipher') {
-					$type = $param->getType();
-					if ($type instanceof ReflectionUnionType) {
-						return true;
-					}
-					if ($type instanceof ReflectionNamedType && $type->getName() === 'string') {
+			$param = $params[6] ?? null;
+			if (!$param instanceof ReflectionParameter ||
+				!in_array($param->getName(), ['cipher', 'cipher_algo'], true)) {
+				return false;
+			}
+			$type = $param->getType();
+			if ($type instanceof ReflectionNamedType) {
+				return $type->getName() === 'string';
+			}
+			if ($type instanceof ReflectionUnionType) {
+				foreach ($type->getTypes() as $namedType) {
+					if ($namedType->getName() === 'string') {
 						return true;
 					}
 				}
@@ -587,7 +603,7 @@ class CmsOperations {
 
 		// Try PATH
 		$which = @shell_exec('which openssl 2>/dev/null');
-		if ($which !== null) {
+		if (is_string($which)) {
 			$which = trim($which);
 			if (!empty($which) && is_executable($which)) {
 				$this->opensslBin = $which;
@@ -627,37 +643,39 @@ class CmsOperations {
 		string $cipher
 	): bool {
 		$tmpCerts = [];
-		$recipArgs = '';
 
-		foreach ($certs as $cert) {
-			$tmpFile = tempnam(sys_get_temp_dir(), 'smime_cert_');
-			if (is_resource($cert) || (is_object($cert) && $cert instanceof OpenSSLCertificate)) {
-				openssl_x509_export($cert, $pem);
-				file_put_contents($tmpFile, $pem);
+		try {
+			if (empty($certs)) {
+				return false;
 			}
-			else {
-				file_put_contents($tmpFile, $cert);
+
+			$recipArgs = '';
+			foreach ($certs as $cert) {
+				$tmpFile = $this->createTemporaryFile('smime_cert_');
+				if ($tmpFile === null) {
+					return false;
+				}
+				$tmpCerts[] = $tmpFile;
+				if (!$this->exportCertificate($cert, $tmpFile)) {
+					return false;
+				}
+				$recipArgs .= ' -recip ' . escapeshellarg($tmpFile);
 			}
-			$tmpCerts[] = $tmpFile;
-			$recipArgs .= ' -recip ' . escapeshellarg($tmpFile);
+
+			$cmd = sprintf(
+				'%s cms -encrypt -%s -in %s -out %s -outform SMIME %s 2>&1',
+				escapeshellarg($this->opensslBin),
+				escapeshellarg($cipher),
+				escapeshellarg($infile),
+				escapeshellarg($outfile),
+				$recipArgs
+			);
+
+			return $this->execCli($cmd);
 		}
-
-		$cmd = sprintf(
-			'%s cms -encrypt -%s -in %s -out %s -outform SMIME %s 2>&1',
-			escapeshellarg($this->opensslBin),
-			escapeshellarg($cipher),
-			escapeshellarg($infile),
-			escapeshellarg($outfile),
-			$recipArgs
-		);
-
-		$result = $this->execCli($cmd);
-
-		foreach ($tmpCerts as $tmp) {
-			@unlink($tmp);
+		finally {
+			$this->removeTemporaryFiles($tmpCerts);
 		}
-
-		return $result;
 	}
 
 	/**
@@ -672,57 +690,37 @@ class CmsOperations {
 		$certificate,
 		$privateKey
 	): bool {
-		$tmpCert = tempnam(sys_get_temp_dir(), 'smime_dcert_');
-		$tmpKey = tempnam(sys_get_temp_dir(), 'smime_dkey_');
+		$tmpFiles = [];
 
-		// Export cert
-		if (is_resource($certificate) || (is_object($certificate) && $certificate instanceof OpenSSLCertificate)) {
-			openssl_x509_export($certificate, $certPem);
-			file_put_contents($tmpCert, $certPem);
+		try {
+			$tmpCert = $this->createTemporaryFile('smime_dcert_');
+			if ($tmpCert === null) {
+				return false;
+			}
+			$tmpFiles[] = $tmpCert;
+			$tmpKey = $this->createTemporaryFile('smime_dkey_');
+			if ($tmpKey === null) {
+				return false;
+			}
+			$tmpFiles[] = $tmpKey;
+			if (!$this->exportCertAndKey($certificate, $privateKey, $tmpCert, $tmpKey)) {
+				return false;
+			}
+
+			$cmd = sprintf(
+				'%s cms -decrypt -in %s -out %s -recip %s -inkey %s 2>&1',
+				escapeshellarg($this->opensslBin),
+				escapeshellarg($infile),
+				escapeshellarg($outfile),
+				escapeshellarg($tmpCert),
+				escapeshellarg($tmpKey)
+			);
+
+			return $this->execCli($cmd);
 		}
-		else {
-			file_put_contents($tmpCert, $certificate);
+		finally {
+			$this->removeTemporaryFiles($tmpFiles);
 		}
-
-		// Export key
-		$passphrase = '';
-		if (is_array($privateKey)) {
-			$key = $privateKey[0];
-			$passphrase = $privateKey[1] ?? '';
-		}
-		else {
-			$key = $privateKey;
-		}
-
-		if (is_resource($key) || (is_object($key) && $key instanceof OpenSSLAsymmetricKey)) {
-			openssl_pkey_export($key, $keyPem, $passphrase);
-			file_put_contents($tmpKey, $keyPem);
-		}
-		else {
-			file_put_contents($tmpKey, $key);
-		}
-
-		$passArg = '';
-		if (!empty($passphrase)) {
-			$passArg = sprintf(' -passin pass:%s', escapeshellarg($passphrase));
-		}
-
-		$cmd = sprintf(
-			'%s cms -decrypt -in %s -out %s -recip %s -inkey %s%s 2>&1',
-			escapeshellarg($this->opensslBin),
-			escapeshellarg($infile),
-			escapeshellarg($outfile),
-			escapeshellarg($tmpCert),
-			escapeshellarg($tmpKey),
-			$passArg
-		);
-
-		$result = $this->execCli($cmd);
-
-		@unlink($tmpCert);
-		@unlink($tmpKey);
-
-		return $result;
 	}
 
 	/**
@@ -754,33 +752,49 @@ class CmsOperations {
 			return false;
 		}
 
-		$tmpCert = tempnam(sys_get_temp_dir(), 'smime_pss_cert_');
-		$tmpKey = tempnam(sys_get_temp_dir(), 'smime_pss_key_');
+		$tmpFiles = [];
 
-		$this->exportCertAndKey($certificate, $privateKey, $tmpCert, $tmpKey, $passArg);
+		try {
+			$tmpCert = $this->createTemporaryFile('smime_pss_cert_');
+			if ($tmpCert === null) {
+				return false;
+			}
+			$tmpFiles[] = $tmpCert;
+			$tmpKey = $this->createTemporaryFile('smime_pss_key_');
+			if ($tmpKey === null) {
+				return false;
+			}
+			$tmpFiles[] = $tmpKey;
+			if (!$this->exportCertAndKey($certificate, $privateKey, $tmpCert, $tmpKey)) {
+				return false;
+			}
 
-		$extraArg = '';
-		if ($extraCertsFile !== null) {
-			$extraArg = sprintf(' -certfile %s', escapeshellarg($extraCertsFile));
+			$extraArg = '';
+			if ($extraCertsFile !== null) {
+				$extraArg = sprintf(' -certfile %s', escapeshellarg($extraCertsFile));
+			}
+			$nodetach = '';
+			if (!($flags & PKCS7_DETACHED)) {
+				$nodetach = ' -nodetach';
+			}
+
+			$cmd = sprintf(
+				'%s cms -sign -in %s -out %s -signer %s -inkey %s -keyopt rsa_padding_mode:pss -md %s -outform SMIME%s%s 2>&1',
+				escapeshellarg($this->opensslBin),
+				escapeshellarg($infile),
+				escapeshellarg($outfile),
+				escapeshellarg($tmpCert),
+				escapeshellarg($tmpKey),
+				escapeshellarg($digest),
+				$extraArg,
+				$nodetach
+			);
+
+			return $this->execCli($cmd);
 		}
-
-		$cmd = sprintf(
-			'%s cms -sign -in %s -out %s -signer %s -inkey %s -keyopt rsa_padding_mode:pss -md %s -outform SMIME%s%s 2>&1',
-			escapeshellarg($this->opensslBin),
-			escapeshellarg($infile),
-			escapeshellarg($outfile),
-			escapeshellarg($tmpCert),
-			escapeshellarg($tmpKey),
-			escapeshellarg($digest),
-			$passArg,
-			$extraArg
-		);
-
-		$result = $this->execCli($cmd);
-		@unlink($tmpCert);
-		@unlink($tmpKey);
-
-		return $result;
+		finally {
+			$this->removeTemporaryFiles($tmpFiles);
+		}
 	}
 
 	/**
@@ -807,37 +821,39 @@ class CmsOperations {
 		}
 
 		$tmpCerts = [];
-		$recipArgs = '';
 
-		foreach ($certs as $cert) {
-			$tmpFile = tempnam(sys_get_temp_dir(), 'smime_oaep_cert_');
-			if (is_resource($cert) || (is_object($cert) && $cert instanceof OpenSSLCertificate)) {
-				openssl_x509_export($cert, $pem);
-				file_put_contents($tmpFile, $pem);
+		try {
+			if (empty($certs)) {
+				return false;
 			}
-			else {
-				file_put_contents($tmpFile, $cert);
+
+			$recipArgs = '';
+			foreach ($certs as $cert) {
+				$tmpFile = $this->createTemporaryFile('smime_oaep_cert_');
+				if ($tmpFile === null) {
+					return false;
+				}
+				$tmpCerts[] = $tmpFile;
+				if (!$this->exportCertificate($cert, $tmpFile)) {
+					return false;
+				}
+				$recipArgs .= ' -recip ' . escapeshellarg($tmpFile) . ' -keyopt rsa_padding_mode:oaep';
 			}
-			$tmpCerts[] = $tmpFile;
-			$recipArgs .= ' -recip ' . escapeshellarg($tmpFile);
+
+			$cmd = sprintf(
+				'%s cms -encrypt -%s -in %s -out %s -outform SMIME %s 2>&1',
+				escapeshellarg($this->opensslBin),
+				escapeshellarg($cipher),
+				escapeshellarg($infile),
+				escapeshellarg($outfile),
+				$recipArgs
+			);
+
+			return $this->execCli($cmd);
 		}
-
-		$cmd = sprintf(
-			'%s cms -encrypt -%s -keyopt rsa_padding_mode:oaep -in %s -out %s -outform SMIME %s 2>&1',
-			escapeshellarg($this->opensslBin),
-			escapeshellarg($cipher),
-			escapeshellarg($infile),
-			escapeshellarg($outfile),
-			$recipArgs
-		);
-
-		$result = $this->execCli($cmd);
-
-		foreach ($tmpCerts as $tmp) {
-			@unlink($tmp);
+		finally {
+			$this->removeTemporaryFiles($tmpCerts);
 		}
-
-		return $result;
 	}
 
 	/**
@@ -854,39 +870,38 @@ class CmsOperations {
 			return false;
 		}
 
-		$tmpCerts = [];
-		$certArgs = '';
-		foreach ($certPems as $i => $pem) {
-			$tmpFile = tempnam(sys_get_temp_dir(), 'smime_co_');
-			file_put_contents($tmpFile, $pem);
-			$tmpCerts[] = $tmpFile;
-			if ($i === 0) {
-				$certArgs .= ' -certfile ' . escapeshellarg($tmpFile);
-			}
-			else {
-				$certArgs .= ' -certfile ' . escapeshellarg($tmpFile);
-			}
-		}
-
-		if (empty($tmpCerts)) {
+		if (empty($certPems)) {
 			return false;
 		}
 
-		// Use the first cert as the primary
-		$cmd = sprintf(
-			'%s crl2pkcs7 -nocrl %s -out %s -outform PEM 2>&1',
-			escapeshellarg($this->opensslBin),
-			$certArgs,
-			escapeshellarg($outfile)
-		);
+		$tmpCerts = [];
 
-		$result = $this->execCli($cmd);
+		try {
+			$certArgs = '';
+			foreach ($certPems as $pem) {
+				$tmpFile = $this->createTemporaryFile('smime_co_');
+				if ($tmpFile === null) {
+					return false;
+				}
+				$tmpCerts[] = $tmpFile;
+				if (!$this->exportCertificate($pem, $tmpFile)) {
+					return false;
+				}
+				$certArgs .= ' -certfile ' . escapeshellarg($tmpFile);
+			}
 
-		foreach ($tmpCerts as $tmp) {
-			@unlink($tmp);
+			$cmd = sprintf(
+				'%s crl2pkcs7 -nocrl %s -out %s -outform PEM 2>&1',
+				escapeshellarg($this->opensslBin),
+				$certArgs,
+				escapeshellarg($outfile)
+			);
+
+			return $this->execCli($cmd);
 		}
-
-		return $result;
+		finally {
+			$this->removeTemporaryFiles($tmpCerts);
+		}
 	}
 
 	/**
@@ -927,38 +942,104 @@ class CmsOperations {
 	 * @param mixed  $privateKey  private key (or [key, passphrase])
 	 * @param string $tmpCert     output cert file path
 	 * @param string $tmpKey      output key file path
-	 * @param string $passArg     output CLI passphrase argument
+	 *
+	 * @return bool true when both files were exported
 	 */
-	private function exportCertAndKey($certificate, $privateKey, string $tmpCert, string $tmpKey, ?string &$passArg): void {
-		$passArg = '';
-
-		if (is_resource($certificate) || (is_object($certificate) && $certificate instanceof OpenSSLCertificate)) {
-			openssl_x509_export($certificate, $certPem);
-			file_put_contents($tmpCert, $certPem);
-		}
-		else {
-			file_put_contents($tmpCert, $certificate);
-		}
-
+	private function exportCertAndKey($certificate, $privateKey, string $tmpCert, string $tmpKey): bool {
 		$passphrase = '';
 		if (is_array($privateKey)) {
+			if (!array_key_exists(0, $privateKey)) {
+				return false;
+			}
 			$key = $privateKey[0];
-			$passphrase = $privateKey[1] ?? '';
+			$passphrase = (string) ($privateKey[1] ?? '');
 		}
 		else {
 			$key = $privateKey;
 		}
 
 		if (is_resource($key) || (is_object($key) && $key instanceof OpenSSLAsymmetricKey)) {
-			openssl_pkey_export($key, $keyPem, $passphrase);
-			file_put_contents($tmpKey, $keyPem);
+			$keyObject = $key;
+		}
+		elseif (is_string($key)) {
+			$keyObject = @openssl_pkey_get_private($key, $passphrase);
 		}
 		else {
-			file_put_contents($tmpKey, $key);
+			return false;
 		}
 
-		if (!empty($passphrase)) {
-			$passArg = sprintf(' -passin pass:%s', escapeshellarg($passphrase));
+		$keyPem = '';
+		if ($keyObject === false || !@openssl_pkey_export($keyObject, $keyPem)) {
+			return false;
+		}
+		if (!$this->exportCertificate($certificate, $tmpCert)) {
+			return false;
+		}
+
+		return $this->writeTemporaryFile($tmpKey, $keyPem);
+	}
+
+	/**
+	 * Export a certificate to a temporary PEM file.
+	 *
+	 * @param mixed  $certificate certificate in a form accepted by OpenSSL
+	 * @param string $tmpCert     output certificate path
+	 */
+	private function exportCertificate($certificate, string $tmpCert): bool {
+		if (is_resource($certificate) || (is_object($certificate) && $certificate instanceof OpenSSLCertificate)) {
+			$certObject = $certificate;
+		}
+		elseif (is_string($certificate)) {
+			$certObject = @openssl_x509_read($certificate);
+		}
+		else {
+			return false;
+		}
+
+		$certPem = '';
+		if ($certObject === false || !@openssl_x509_export($certObject, $certPem)) {
+			return false;
+		}
+
+		return $this->writeTemporaryFile($tmpCert, $certPem);
+	}
+
+	/**
+	 * Create a private temporary file for an OpenSSL CLI operation.
+	 */
+	private function createTemporaryFile(string $prefix): ?string {
+		$tmpFile = tempnam(sys_get_temp_dir(), $prefix);
+		if ($tmpFile === false) {
+			return null;
+		}
+		if (!@chmod($tmpFile, 0600)) {
+			@unlink($tmpFile);
+
+			return null;
+		}
+
+		return $tmpFile;
+	}
+
+	/**
+	 * Write all data to an existing temporary file.
+	 */
+	private function writeTemporaryFile(string $tmpFile, string $data): bool {
+		return file_put_contents($tmpFile, $data, LOCK_EX) === strlen($data);
+	}
+
+	/**
+	 * Remove temporary files, including on early returns and exceptions.
+	 *
+	 * @param string[] $tmpFiles
+	 */
+	private function removeTemporaryFiles(array $tmpFiles): void {
+		foreach ($tmpFiles as $tmpFile) {
+			if ((is_file($tmpFile) || is_link($tmpFile)) && !@unlink($tmpFile)) {
+				// Best-effort truncation prevents a failed unlink from leaving key material behind.
+				@file_put_contents($tmpFile, '', LOCK_EX);
+				error_log("[smime] Could not remove temporary OpenSSL file: {$tmpFile}");
+			}
 		}
 	}
 }

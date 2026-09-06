@@ -3,6 +3,7 @@
 include_once 'util.php';
 require_once 'class.certificate.php';
 require_once 'class.cmsoperations.php';
+require_once 'class.crl.php';
 require_once 'class.smimecapabilities.php';
 require_once 'class.signedattributes.php';
 
@@ -54,6 +55,8 @@ class Pluginsmime extends Plugin {
 
 	/**
 	 * Default MAPI Message Store.
+	 *
+	 * @var null|resource
 	 */
 	private $store;
 
@@ -124,7 +127,7 @@ class Pluginsmime extends Plugin {
 	/**
 	 * Default message store.
 	 *
-	 * @return object MAPI Message store
+	 * @return resource MAPI message store
 	 */
 	public function getStore() {
 		if (!$this->store) {
@@ -487,7 +490,7 @@ class Pluginsmime extends Plugin {
 				($parsedImport['validTo_time_t'] ?? 0) > ($parsedUser['validTo_time_t'] ?? 0) &&
 				($parsedImport['validFrom_time_t'] ?? 0) > ($parsedUser['validFrom_time_t'] ?? 0) &&
 				strcasecmp(getCertEmail($parsedImport), getCertEmail($parsedUser)) === 0 &&
-				verifyOCSP($importCert, $caCerts, $this->message)
+				verifyRevocation($importCert, $caCerts, $this->message)
 			) {
 				return [
 					'status' => 'import',
@@ -497,7 +500,7 @@ class Pluginsmime extends Plugin {
 				];
 			}
 
-			verifyOCSP($cert, $caCerts, $this->message);
+			verifyRevocation($cert, $caCerts, $this->message);
 
 			return ['status' => 'skip', 'importCert' => null, 'parsedImportCert' => null, 'caCerts' => $caCerts];
 		}
@@ -558,7 +561,7 @@ class Pluginsmime extends Plugin {
 			$caCerts = $this->extractCAs($messageFile);
 		}
 
-		if ($parsedImport === false || !verifyOCSP($importCert, $caCerts, $this->message)) {
+		if ($parsedImport === false || !verifyRevocation($importCert, $caCerts, $this->message)) {
 			return ['status' => 'skip', 'importCert' => null, 'parsedImportCert' => null, 'caCerts' => $caCerts];
 		}
 
@@ -954,11 +957,11 @@ class Pluginsmime extends Plugin {
 	}
 
 	/**
-	 * Handles the uploaded certificate in the settingsmenu in grommunio Web
+	 * Handles the uploaded certificate in the settings menu in grommunio Web.
 	 * - Opens the certificate with provided passphrase
 	 * - Checks if it can be used for signing/decrypting
 	 * - Verifies that the email address is equal to the
-	 * - Verifies that the certificate isn't expired and inform user.
+	 * - Verifies that the certificate is not expired and informs the user.
 	 *
 	 * @param mixed $data
 	 */
@@ -1335,7 +1338,7 @@ class Pluginsmime extends Plugin {
 	 * @param string $emailAddress
 	 * @param bool   $multiple     return all matching certificates when true
 	 *
-	 * @return array|string matching certificates, or an empty string when none exist
+	 * @return string|string[] matching certificates, or an empty string when none exist
 	 */
 	public function getPublicKey($emailAddress, $multiple = false) {
 		$certificates = [];
@@ -1349,7 +1352,7 @@ class Pluginsmime extends Plugin {
 				if ($pubkey === false) {
 					continue;
 				}
-				// retrieve pkcs#11 certificate from body
+				// Retrieve the PKCS#12 certificate from the message body.
 				$stream = mapi_openproperty($pubkey, PR_BODY, IID_IStream, 0, 0);
 				if (!$stream) {
 					continue;
@@ -1769,7 +1772,7 @@ class Pluginsmime extends Plugin {
 	 *
 	 * @param string $email the email address of the user
 	 *
-	 * @return mixed $user boolean if false else MAPIObject
+	 * @return false|resource GAB user entry, or false when it cannot be resolved
 	 */
 	public function getGABUser($email) {
 		$addrbook = $GLOBALS["mapisession"]->getAddressbook();
@@ -1790,7 +1793,7 @@ class Pluginsmime extends Plugin {
 	/**
 	 * Retrieve the PR_EMS_AB_X509_CERT.
 	 *
-	 * @param MAPIObject $user the GAB user
+	 * @param false|resource $user GAB user entry
 	 *
 	 * @return string $cert the certificate, empty if not found
 	 */
@@ -1858,7 +1861,7 @@ class Pluginsmime extends Plugin {
 	/**
 	 * Get sender structure of the MAPI Message.
 	 *
-	 * @param mapimessage $mapiMessage MAPI Message resource from which we need to get the sender
+	 * @param resource $mapiMessage MAPI message from which to get the sender
 	 *
 	 * @return array with properties
 	 */
