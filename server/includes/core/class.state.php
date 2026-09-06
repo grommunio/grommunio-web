@@ -21,16 +21,18 @@
  * Currently the subsystem is equal to the module ID. This means that if you have two requests from the same
  * module, they will have to wait for each other. In practice this should hardly ever happen.
  *
- * It can also support to create global state which can be access by all PHP request.
+ * It can also create global state that can be accessed by every PHP request.
  */
 class State {
 	/**
 	 * The file pointer of the state file.
+	 *
+	 * @var false|resource
 	 */
 	private $fp = false;
 
 	/**
-	 * The basedir in which the statefiles are found.
+	 * The base directory in which the state files are found.
 	 */
 	private $basedir;
 
@@ -56,11 +58,15 @@ class State {
 
 	/**
 	 * The unserialized data as it has been read from the file.
+	 *
+	 * @var array<string, mixed>
 	 */
 	public $sessioncache = [];
 
 	/**
 	 * The raw data as it has been read from the file.
+	 *
+	 * @var null|string
 	 */
 	public $contents;
 
@@ -88,7 +94,7 @@ class State {
 	/**
 	 * Open the session file.
 	 *
-	 * The session file is opened and locked so that other processes can not access the state information
+	 * The session file is opened and locked so that other processes cannot access the state information.
 	 *
 	 * @param int $retry Reopen attempts when clean() replaced the file while waiting for its lock
 	 *
@@ -154,8 +160,12 @@ class State {
 	 * @return bool true when the locked handle still is the file at $this->filename
 	 */
 	private function isLinked() {
+		if (!is_resource($this->fp)) {
+			return false;
+		}
+		$handle = $this->fp;
 		clearstatcache(true, $this->filename);
-		$open = fstat($this->fp);
+		$open = fstat($handle);
 		$disk = @stat($this->filename);
 
 		return $open !== false && $disk !== false && $open['ino'] === $disk['ino'] && $open['dev'] === $disk['dev'];
@@ -169,25 +179,30 @@ class State {
 	 * @return mixed Value of the state value, or null if not found
 	 */
 	public function read($name) {
-		if ($this->fp !== false) {
-			// If the file has already been read, we only have to access
-			// our cache to obtain the requeste data.
+		if (!is_resource($this->fp)) {
+			dump('[STATE ERROR] State file "' . $this->filename . '" is not open. Open it before reading.');
 			if (empty($this->sessioncache)) {
-				rewind($this->fp);
-				$contents = stream_get_contents($this->fp);
-				$this->contents = $contents === false ? '' : $contents;
-				$this->sessioncache = $this->contents === '' ? [] : unserialize($this->contents);
-				if (!is_array($this->sessioncache)) {
-					$this->sessioncache = [];
-				}
+				$this->sessioncache = [];
 			}
 
-			if (isset($this->sessioncache[$name])) {
-				return $this->sessioncache[$name];
+			return null;
+		}
+		$handle = $this->fp;
+
+		// If the file has already been read, we only have to access
+		// our cache to obtain the requested data.
+		if (empty($this->sessioncache)) {
+			rewind($handle);
+			$contents = stream_get_contents($handle);
+			$this->contents = $contents === false ? '' : $contents;
+			$this->sessioncache = $this->contents === '' ? [] : unserialize($this->contents);
+			if (!is_array($this->sessioncache)) {
+				$this->sessioncache = [];
 			}
 		}
-		else {
-			dump('[STATE ERROR] State file "' . $this->filename . '" isn\'t opened, Please open state file before reading it."');
+
+		if (isset($this->sessioncache[$name])) {
+			return $this->sessioncache[$name];
 		}
 		if (empty($this->sessioncache)) {
 			$this->sessioncache = [];
@@ -202,10 +217,10 @@ class State {
 	 * @param string $name   Name of the setting to write
 	 * @param mixed  $object Value of the object to be written to the setting
 	 * @param bool   $flush  false to prevent the changes written to disk
-	 *                       This requires a call to $flush() to write the changes to disk
+	 *                       This requires a call to flush() to write the changes to disk
 	 */
 	public function write($name, $object, $flush = true) {
-		if ($this->fp !== false) {
+		if (is_resource($this->fp)) {
 			// If the file has already been read, then we don't
 			// need to read the entire file again.
 			if (empty($this->sessioncache)) {
@@ -219,30 +234,31 @@ class State {
 			}
 		}
 		else {
-			dump('[STATE ERROR] State file "' . $this->filename . '" isn\'t opened, Please open state file before writing on it."');
+			dump('[STATE ERROR] State file "' . $this->filename . '" is not open. Open it before writing.');
 		}
 	}
 
 	/**
 	 * Flushes all changes to disk.
 	 *
-	 * This flushes all changed made to the $this->sessioncache to disk
+	 * This flushes all changes made to $this->sessioncache to disk.
 	 */
 	public function flush() {
-		if ($this->fp !== false) {
-			if (!empty($this->sessioncache)) {
-				$contents = serialize($this->sessioncache);
+		if (!is_resource($this->fp)) {
+			dump('[STATE ERROR] State file "' . $this->filename . '" is not open. Open it before writing.');
 
-				if ($contents !== $this->contents) {
-					ftruncate($this->fp, 0);
-					fseek($this->fp, 0);
-					fwrite($this->fp, $contents);
-					$this->contents = $contents;
-				}
-			}
+			return;
 		}
-		else {
-			dump('[STATE ERROR] State file "' . $this->filename . '" isn\'t opened, Please open state file before writing on it."');
+		$handle = $this->fp;
+		if (!empty($this->sessioncache)) {
+			$contents = serialize($this->sessioncache);
+
+			if ($contents !== $this->contents) {
+				ftruncate($handle, 0);
+				fseek($handle, 0);
+				fwrite($handle, $contents);
+				$this->contents = $contents;
+			}
 		}
 	}
 
@@ -252,13 +268,15 @@ class State {
 	 * This closes and unlocks the state file so that other processes can access the state
 	 */
 	public function close() {
-		if ($this->fp !== false) {
-			// release write lock -- fclose does this automatically
-			// but only in PHP <= 5.3.2
-			flock($this->fp, LOCK_UN);
-			fclose($this->fp);
-			$this->fp = false;
+		if (!is_resource($this->fp)) {
+			return;
 		}
+		$handle = $this->fp;
+		// release write lock -- fclose does this automatically
+		// but only in PHP <= 5.3.2
+		flock($handle, LOCK_UN);
+		fclose($handle);
+		$this->fp = false;
 	}
 
 	public function __destruct() {
