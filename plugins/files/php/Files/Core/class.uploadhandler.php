@@ -81,7 +81,8 @@ class UploadHandler {
 		if (isset($_SERVER['HTTP_X_FILE_NAME'], $_SERVER['HTTP_X_FILE_SIZE'])) { // use the ajax method
 			$targetPath = stringToUTF8Encode($relNodeId . $_SERVER['HTTP_X_FILE_NAME']);
 			// check if backend supports streaming - this is the preferred way to upload files!
-			if ($initializedBackend instanceof iFeatureStreaming) {
+			// Backends are loaded dynamically, so their optional interfaces cannot be inferred statically.
+			if (/** @scrutinizer ignore-type */ $initializedBackend instanceof iFeatureStreaming) {
 				$fileReader = fopen('php://input', "r");
 				$targetPath = UploadHandler::checkFilesNameConflict($targetPath, $initializedBackend, $relNodeId);
 				$fileWriter = $initializedBackend->getStreamwriter($targetPath);

@@ -633,6 +633,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 	 */
 	public function getRecipients($search): array|false {
 		$search = trim((string) $search);
+		$groups = [];
 
 		try {
 			$userSearch = $this->seafapi->searchUser($search);

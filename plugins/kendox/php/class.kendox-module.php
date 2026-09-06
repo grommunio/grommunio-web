@@ -277,6 +277,8 @@ class KendoxModule extends Module {
 		}
 
 		// Create EML stream from the attachment-stripped message
+		$stat = ['cb' => 0];
+
 		try {
 			$stream = $this->getEmlStream($messageProps);
 			$stat = mapi_stream_stat($stream);

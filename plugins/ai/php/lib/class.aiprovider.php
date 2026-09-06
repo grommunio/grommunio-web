@@ -205,12 +205,9 @@ abstract class AIProvider {
 	 * message. Never includes credentials.
 	 */
 	protected function httpError(int $code, ?array $json): string {
-		$providerMsg = '';
-		if ($json !== null) {
-			// OpenAI: {error:{message}}; Anthropic: {error:{message}} or {message}
-			$providerMsg = (string) ($json['error']['message'] ?? $json['message'] ?? '');
-			$providerMsg = mb_substr(trim($providerMsg), 0, 200);
-		}
+		// OpenAI: {error:{message}}; Anthropic: {error:{message}} or {message}
+		$providerMsg = (string) ($json['error']['message'] ?? $json['message'] ?? '');
+		$providerMsg = mb_substr(trim($providerMsg), 0, 200);
 
 		$base = match (true) {
 			$code === 401, $code === 403 => _('The AI service rejected the credentials. Check the API key and endpoint.'),

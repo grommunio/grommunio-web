@@ -40,7 +40,10 @@ class RecipientHandler {
 
 		// initialize the backend
 		$initializedBackend = $backendStore->getInstanceOfBackend($account->getBackend());
-		if (!$initializedBackend || (!$initializedBackend instanceof iFeatureRecipientSearch && !is_callable([$initializedBackend, 'getRecipients']))) {
+		// Backends are loaded dynamically, so their optional interfaces cannot be inferred statically.
+		if ($initializedBackend === false ||
+			!(/** @scrutinizer ignore-type */ $initializedBackend instanceof iFeatureRecipientSearch) &&
+			!is_callable([$initializedBackend, 'getRecipients'])) {
 			Logger::error(self::LOG_CONTEXT, "Recipient search is not supported by backend: " . $account->getBackend());
 			header('Content-Type: application/json');
 			echo json_encode(['success' => false, 'response' => 'Unsupported backend feature', 'message' => _('Recipient search is not supported by this backend')]);
@@ -51,6 +54,9 @@ class RecipientHandler {
 		try {
 			$initializedBackend->init_backend($account->getBackendConfig());
 			$initializedBackend->open();
+			// The interface or callability check above guarantees this optional backend method.
+
+			/** @scrutinizer ignore-call */
 			$responsedata = $initializedBackend->getRecipients((string) ($_GET["query"] ?? ''));
 		}
 		catch (\Throwable $e) {

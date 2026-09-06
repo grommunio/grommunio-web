@@ -70,7 +70,6 @@ class HierarchyModule extends Module {
 				continue;
 			}
 
-			$store = null;
 			$parententryid = null;
 			$entryid = null;
 

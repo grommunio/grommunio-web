@@ -80,7 +80,6 @@ class ListModule extends Module {
 	public function execute() {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
-				$store = null;
 				$parententryid = null;
 				$entryid = null;
 
@@ -774,8 +773,6 @@ class ListModule extends Module {
 	 * @return false|resource finder root folder, or false when search folders are unsupported
 	 */
 	public function getSearchFoldersRoot($store) {
-		$searchRootFolder = false;
-
 		// check if we can create search folders
 		$storeProps = mapi_getprops($store, [PR_STORE_SUPPORT_MASK, PR_FINDER_ENTRYID, PR_DISPLAY_NAME]);
 		if (($storeProps[PR_STORE_SUPPORT_MASK] & STORE_SEARCH_OK) !== STORE_SEARCH_OK) {
@@ -791,6 +788,8 @@ class ListModule extends Module {
 			error_log(sprintf($msg, $storeProps[PR_DISPLAY_NAME]) . ": " . $e->getMessage());
 			// don't propagate the event to higher level exception handlers
 			$e->setHandled();
+
+			return false;
 		}
 
 		return $searchRootFolder;

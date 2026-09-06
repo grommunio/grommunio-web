@@ -31,7 +31,6 @@ class AddressbookListModule extends ListModule {
 	public function execute() {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
-				$store = null;
 				$parententryid = null;
 				$entryid = null;
 				$subActionType = '';
