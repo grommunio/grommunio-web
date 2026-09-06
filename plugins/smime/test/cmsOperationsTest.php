@@ -67,7 +67,6 @@ class CmsOperationsTest extends SMIMETest {
 		$expected = $this->runtimeAcceptsStringCipher();
 		$cms = new CmsOperations();
 		$property = new ReflectionProperty($cms, 'hasCmsStringCipher');
-		$property->setAccessible(true);
 
 		$this->assertSame($expected, $property->getValue($cms));
 		SmimeCapabilities::reset();

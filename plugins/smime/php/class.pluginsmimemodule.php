@@ -129,11 +129,14 @@ class PluginSmimeModule extends Module {
 	 * 3. No certificate
 	 * FIXME: in the future we might support multiple private certs.
 	 *
-	 * @param array $data which contains the data send from JavaScript
+	 * @param array $data reserved certificate action data
 	 *
-	 * @return array $data which returns two keys containing the certificate
+	 * @return array certificate status, message and metadata
 	 */
 	public function verifyCertificate($data) {
+		// Keep the action payload in the public signature for module callers.
+		unset($data);
+
 		$message = '';
 		$status = false;
 
@@ -141,7 +144,7 @@ class PluginSmimeModule extends Module {
 		$certIdx = -1;
 
 		// No certificates
-		if (!$privateCerts || count($privateCerts) === 0) {
+		if ($privateCerts === []) {
 			$message = _('No certificate available');
 		}
 		else {
@@ -329,9 +332,9 @@ class PluginSmimeModule extends Module {
 			return CHANGE_PASSPHRASE_WRONG;
 		}
 
-		$cert = $this->pkcs12_change_passphrase($certs, $actionData['new_passphrase']);
+		$cert = (string) $this->pkcs12_change_passphrase($certs, $actionData['new_passphrase']);
 
-		if ($cert === false) {
+		if ($cert === '') {
 			return CHANGE_PASSPHRASE_ERROR;
 		}
 
@@ -477,7 +480,7 @@ class PluginSmimeModule extends Module {
 
 		// Collect public certs for this email
 		$certs = getMAPICert($this->store, 'WebApp.Security.Public', $email);
-		if (!$certs || count($certs) === 0) {
+		if ($certs === []) {
 			return ['status' => false, 'message' => _('No certificates found for this email address')];
 		}
 

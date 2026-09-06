@@ -88,11 +88,13 @@ class SmimeCapabilities {
 	 * Get the singleton instance.
 	 */
 	public static function getInstance(): self {
-		if (self::$instance === null) {
-			self::$instance = new self();
+		$instance = self::$instance;
+		if ($instance === null) {
+			$instance = new self();
+			self::$instance = $instance;
 		}
 
-		return self::$instance;
+		return $instance;
 	}
 
 	/**

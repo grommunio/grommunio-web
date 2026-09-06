@@ -540,7 +540,7 @@ function sanitizePostValue($key, $default = '', $regex = false) {
 
 function parse_smime__join_xph(&$prop, $msg) {
 	$a = mapi_getprops($msg, [PR_TRANSPORT_MESSAGE_HEADERS]);
-	$a = $a === false ? "" : ($a[PR_TRANSPORT_MESSAGE_HEADERS] ?? "");
+	$a = $a[PR_TRANSPORT_MESSAGE_HEADERS] ?? "";
 	$prop[PR_TRANSPORT_MESSAGE_HEADERS] =
 		"# Outer headers:\n" . ($prop[PR_TRANSPORT_MESSAGE_HEADERS] ?? "") .
 		"# Inner headers:\n" . $a;
