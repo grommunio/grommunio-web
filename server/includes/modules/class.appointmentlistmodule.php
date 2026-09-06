@@ -5,12 +5,12 @@
  */
 class AppointmentListModule extends ListModule {
 	/**
-	 * @var date start interval of view visible
+	 * @var false|int start of the visible interval as a Unix timestamp
 	 */
 	private $startdate;
 
 	/**
-	 * @var date end interval of view visible
+	 * @var false|int end of the visible interval as a Unix timestamp
 	 */
 	private $enddate;
 
@@ -85,14 +85,27 @@ class AppointmentListModule extends ListModule {
 				$store = $this->getActionStore($action);
 				$entryid = $this->getActionEntryID($action);
 
-				match ($actionType) {
-					"list" => $this->messageList($store, $entryid, $action, $actionType),
-					// @FIXME add functionality to handle private items
-					"search" => $this->search($store, $entryid, $action, $actionType),
-					"updatesearch" => $this->updatesearch($store, $entryid, $action),
-					"stopsearch" => $this->stopSearch($store, $entryid, $action),
-					default => $this->handleUnknownActionType($actionType),
-				};
+				switch ($actionType) {
+					case "list":
+						$this->messageList($store, $entryid, $action, $actionType);
+						break;
+
+					case "search":
+						// @FIXME add functionality to handle private items
+						$this->search($store, $entryid, $action, $actionType);
+						break;
+
+					case "updatesearch":
+						$this->updatesearch($store, $entryid, $action);
+						break;
+
+					case "stopsearch":
+						$this->stopSearch($store, $entryid, $action);
+						break;
+
+					default:
+						$this->handleUnknownActionType($actionType);
+				}
 			}
 			catch (MAPIException $e) {
 				if (isset($action['suppress_exception']) && $action['suppress_exception'] === true) {
@@ -139,6 +152,7 @@ class AppointmentListModule extends ListModule {
 				$this->tzdef = mapi_ianatz_to_tzdef($action['timezone_iana']);
 			}
 			catch (Exception) {
+				$this->tzdef = false;
 			}
 		}
 

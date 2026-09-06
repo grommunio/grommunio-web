@@ -1314,7 +1314,6 @@ class PluginManager {
 							LOAD_RELEASE => [],
 						];
 						foreach ($component->files->client->clientfile as $clientfile) {
-							$filename = false;
 							$load = LOAD_RELEASE;
 							$filename = (string) $clientfile;
 							if (isset($clientfile['load'])) {

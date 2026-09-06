@@ -273,7 +273,6 @@ class AccountStore {
 	 * @return array
 	 */
 	private function checkBackendConfig($backendInstance, $backendConfig) {
-		$status = Account::STATUS_NEW;
 		$description = _('Account is ready to use.');
 
 		try {

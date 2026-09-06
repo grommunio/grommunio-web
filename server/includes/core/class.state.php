@@ -142,7 +142,9 @@ class State {
 
 				return $this->open($retry - 1);
 			}
-			@touch($this->filename);
+			if (!@touch($this->filename)) {
+				error_log('[STATE ERROR] State file for "' . $this->subsystem . '" could not be timestamped.');
+			}
 		}
 
 		return true;
@@ -317,8 +319,8 @@ class State {
 			if (flock($handle, LOCK_EX | LOCK_NB)) {
 				clearstatcache(true, $path);
 				$fileInfo = @stat($path);
-				if ($fileInfo !== false && $this->isStale($fileInfo, $maxLifeTime)) {
-					@unlink($path);
+				if ($fileInfo !== false && $this->isStale($fileInfo, $maxLifeTime) && !@unlink($path) && file_exists($path)) {
+					error_log('[STATE ERROR] Stale state file "' . $path . '" could not be removed.');
 				}
 				flock($handle, LOCK_UN);
 			}

@@ -28,11 +28,18 @@ class JunkMailModule extends Module {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
 				try {
-					match ($actionType) {
-						"list" => $this->getJunkSettings(),
-						"save" => $this->saveJunkSettings($action),
-						default => $this->handleUnknownActionType($actionType),
-					};
+					switch ($actionType) {
+						case "list":
+							$this->getJunkSettings();
+							break;
+
+						case "save":
+							$this->saveJunkSettings($action);
+							break;
+
+						default:
+							$this->handleUnknownActionType($actionType);
+					}
 				}
 				catch (MAPIException $e) {
 					$this->processException($e, $actionType);

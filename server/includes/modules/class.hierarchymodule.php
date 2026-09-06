@@ -941,7 +941,13 @@ class HierarchyModule extends Module {
 				$hierarchyTable = mapi_folder_gethierarchytable($finderFolder, MAPI_DEFERRED_ERRORS);
 				$finderHierarchyTables[$props[PR_FINDER_ENTRYID]] = $hierarchyTable;
 			}
-			catch (Exception) {
+			catch (Exception $e) {
+				if ($e instanceof MAPIException) {
+					$e->setHandled();
+				}
+				else {
+					error_log('Unable to open a finder folder: ' . $e->getMessage());
+				}
 			}
 		}
 
@@ -1184,8 +1190,6 @@ class HierarchyModule extends Module {
 	public function emptyFolder($store, $entryid) {
 		$props = [];
 
-		$result = false;
-
 		// False will only remove the message of
 		// selected folder only and can't remove the
 		// child folders.
@@ -1411,12 +1415,14 @@ class HierarchyModule extends Module {
 			$GLOBALS["bus"]->notify(bin2hex((string) $folderProps[PR_ENTRYID]), OBJECT_SAVE, $folderProps);
 		}
 		else {
-			if ($moveFolder) {
-				$this->sendFeedback(false, _('Could not move folder'));
-			}
-			else {
-				$this->sendFeedback(false, _('Could not copy folder'));
-			}
+			$message = $moveFolder ? _('Could not move folder') : _('Could not copy folder');
+			$this->sendFeedback(false, [
+				'type' => ERROR_ZARAFA,
+				'info' => [
+					'display_message' => $message,
+					'original_message' => $message,
+				],
+			]);
 		}
 	}
 
@@ -1427,7 +1433,6 @@ class HierarchyModule extends Module {
 	 * @param string $entryid entryid of the folder
 	 */
 	public function setReadFlags($store, $entryid) {
-		$props = [];
 		$folder = mapi_msgstore_openentry($store, $entryid);
 
 		if (!$folder) {

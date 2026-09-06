@@ -573,6 +573,9 @@ class ContactItemModule extends ItemModule {
 				$e->setHandled();
 				$messageProps = $GLOBALS['operations']->saveAppointment($store, false, hex2bin($parentEntryId), $data);
 			}
+			else {
+				throw $e;
+			}
 		}
 
 		// Notify the bus if the save was OK

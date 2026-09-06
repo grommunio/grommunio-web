@@ -13,10 +13,14 @@ class PasswdModule extends Module {
 		foreach ($this->data as $actionType => $actionData) {
 			if (isset($actionType)) {
 				try {
-					match ($actionType) {
-						'save' => $this->save($actionData),
-						default => $this->handleUnknownActionType($actionType),
-					};
+					switch ($actionType) {
+						case 'save':
+							$this->save($actionData);
+							break;
+
+						default:
+							$this->handleUnknownActionType($actionType);
+					}
 				}
 				catch (MAPIException $e) {
 					$this->sendFeedback(false, $this->errorDetailsFromException($e));

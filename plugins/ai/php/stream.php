@@ -124,7 +124,9 @@ try {
 		$entryidBin = hex2bin($entryidHex);
 	}
 
-	@set_time_limit($config->timeout + 30);
+	if (!@set_time_limit($config->timeout + 30)) {
+		error_log('Unable to extend the AI request time limit.');
+	}
 
 	$built = AIRequest::build($feature, $config, $store, $entryidBin, $input);
 	$provider = AIProvider::create($config);

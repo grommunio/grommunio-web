@@ -158,7 +158,7 @@ class WebAppSession {
 
 		$starttime = $this->getStartTime();
 		// let's add 5 seconds to the CLIENT_TIMEOUT to handle possible latency
-		if ($starttime && (time() - $starttime > CLIENT_TIMEOUT + 5)) {
+		if ($starttime !== false && (time() - $starttime > CLIENT_TIMEOUT + 5)) {
 			$this->destroy();
 			$this->timeout = true;
 		}

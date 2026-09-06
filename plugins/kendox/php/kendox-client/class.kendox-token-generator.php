@@ -3,6 +3,7 @@
 namespace Kendox;
 
 use phpseclib3\Crypt\RSA;
+use phpseclib3\Crypt\RSA\PrivateKey;
 
 class TokenGenerator {
 	/**
@@ -149,6 +150,8 @@ class TokenGenerator {
 	public function SignXmlString($signedInfoXml) {
 		try {
 			$data = iconv('utf-8', 'utf-16le', (string) $signedInfoXml);
+
+			/** @var PrivateKey $privateKey */
 			$privateKey = RSA::loadFormat('PKCS8', $this->CertPrivateKey)->
 				withPadding(RSA::SIGNATURE_PKCS1)->
 				withHash('sha512');

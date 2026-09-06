@@ -86,6 +86,7 @@ class AppointmentItemModule extends ItemModule {
 					$this->tzdef = mapi_ianatz_to_tzdef($action['timezone_iana']);
 				}
 				catch (Exception) {
+					$this->tzdef = false;
 				}
 			}
 
@@ -382,7 +383,6 @@ class AppointmentItemModule extends ItemModule {
 		}
 
 		$duration = $calendaritem['props']['duedate'] - $calendaritem['props']['startdate'];
-		$localStart = $calendaritem['props']['startdate'];
 		if (!$isTzdefstartSet) {
 			$localStart = getLocalStart($calendaritem['props']['startdate'], $this->tziana);
 		}

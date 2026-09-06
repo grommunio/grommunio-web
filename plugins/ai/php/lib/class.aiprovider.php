@@ -58,9 +58,7 @@ abstract class AIProvider {
 	 * over an HTTP-200 connection (e.g. Anthropic overloaded_error). Returns a
 	 * user-safe message when the payload is an error, otherwise null.
 	 */
-	protected function parseStreamError(string $data): ?string {
-		return null;
-	}
+	abstract protected function parseStreamError(string $data): ?string;
 
 	/**
 	 * Send a chat request and return the generated text.

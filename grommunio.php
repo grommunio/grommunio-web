@@ -134,7 +134,7 @@ $GLOBALS["operations"] = new Operations();
 $Language = new Language();
 
 // Create global settings object
-$GLOBALS["settings"] = new Settings($Language);
+$GLOBALS["settings"] = new Settings();
 
 // Set the correct language
 $Language->setLanguage($session_lang);

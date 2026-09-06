@@ -2,7 +2,7 @@
 
 class Log {
 	/**
-	 * @var Log
+	 * @var Logger
 	 */
 	private static $logger;
 
@@ -10,7 +10,7 @@ class Log {
 	 * Returns the logger object. If no logger has been initialized,
 	 * FileLog will be initialized and returned.
 	 *
-	 * @return Log
+	 * @return Logger
 	 *
 	 * @throws Exception thrown if the logger class cannot be instantiated
 	 */

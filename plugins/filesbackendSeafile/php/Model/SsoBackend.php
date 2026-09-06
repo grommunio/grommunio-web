@@ -14,19 +14,6 @@ class SsoBackend {
 	private ?Config $backendConfig = null;
 
 	/**
-	 * Bind an SsoBackend.
-	 *
-	 * @psalm-param-out SsoBackend $self
-	 */
-	public static function bind(?SsoBackend &$self = null): SsoBackend {
-		if ($self === null) {
-			$self = new self();
-		}
-
-		return $self;
-	}
-
-	/**
 	 * hook for {@see Backend::init_backend()}.
 	 */
 	public function initBackend(Config $config): void {

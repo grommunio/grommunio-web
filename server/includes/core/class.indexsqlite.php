@@ -121,7 +121,7 @@ class IndexSqlite extends SQLite3 {
 		if (empty($row['entryid'])) {
 			$results = $this->query("SELECT entryid FROM msg_content WHERE message_id=" . $row['message_id']);
 			$row1 = $results->fetchArray(SQLITE3_NUM);
-			if ($row1 && !empty($row1[0])) {
+			if ($row1 !== false && !empty($row1[0])) {
 				$row['entryid'] = $row1[0];
 				$this->logDebug('Recovered missing entryid from msg_content', [
 					'message_id' => $row['message_id'],

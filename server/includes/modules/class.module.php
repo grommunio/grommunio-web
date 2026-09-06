@@ -372,6 +372,7 @@ class Module {
 			}
 		}
 		catch (Exception) {
+			return false;
 		}
 
 		return $store;

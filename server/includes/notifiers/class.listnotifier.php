@@ -86,8 +86,8 @@ class ListNotifier extends Notifier {
 					if (is_array($props[PR_ENTRYID])) {
 						$data["entryid"] = [];
 
-						foreach ($props[PR_ENTRYID] as $entryid) {
-							array_push($data["entryid"], bin2hex((string) $entryid));
+						foreach ($props[PR_ENTRYID] as $deletedEntryId) {
+							array_push($data["entryid"], bin2hex((string) $deletedEntryId));
 						}
 					}
 					else {

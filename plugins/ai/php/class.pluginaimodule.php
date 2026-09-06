@@ -36,15 +36,34 @@ class PluginAIModule extends Module {
 			}
 
 			try {
-				match ($actionType) {
-					'test_connection' => $this->testConnection(),
-					'summarize' => $this->summarize($actionData),
-					'translate' => $this->translate($actionData),
-					'compose' => $this->compose($actionData),
-					'draft_reply' => $this->runTextFeature('draft_reply', $actionData),
-					'suggest_actions' => $this->suggestActions($actionData),
-					default => $this->handleUnknownActionType($actionType),
-				};
+				switch ($actionType) {
+					case 'test_connection':
+						$this->testConnection();
+						break;
+
+					case 'summarize':
+						$this->summarize($actionData);
+						break;
+
+					case 'translate':
+						$this->translate($actionData);
+						break;
+
+					case 'compose':
+						$this->compose($actionData);
+						break;
+
+					case 'draft_reply':
+						$this->runTextFeature('draft_reply', $actionData);
+						break;
+
+					case 'suggest_actions':
+						$this->suggestActions($actionData);
+						break;
+
+					default:
+						$this->handleUnknownActionType($actionType);
+				}
 			}
 			catch (AIException $e) {
 				$this->sendFeedback(false, [
