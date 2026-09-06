@@ -477,7 +477,6 @@ class DownloadAttachment extends DownloadBase {
 
 			if ($stream !== false && $bodysize > 0 && $_SERVER['REQUEST_METHOD'] == 'GET' && isset($_SERVER['HTTP_RANGE']) && $range = stristr(trim((string) $_SERVER['HTTP_RANGE']), 'bytes=')) {
 				$range = substr($range, 6);
-				$boundary = bin2hex(random_bytes(48));
 				$ranges = explode(',', $range);
 			}
 
@@ -486,6 +485,7 @@ class DownloadAttachment extends DownloadBase {
 				header("Accept-Ranges: bytes");
 				if (count($ranges) > 1) {
 					// More than one range specified
+					$boundary = bin2hex(random_bytes(48));
 					$content_length = 0;
 					foreach ($ranges as $range) {
 						$this->downloadSetRange($range, $bodysize, $first, $last);

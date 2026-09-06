@@ -95,7 +95,7 @@ class ResolveNamesModule extends Module {
 	 *
 	 * @param resource $ab               The addressbook
 	 * @param resource $ab_dir           The addressbook container
-	 * @param string   $query            The search query, case is ignored
+	 * @param array    $query            The search query, case is ignored
 	 * @param bool     $excludeGABGroups flag to exclude groups from resolving
 	 */
 	public function searchAddressBook($ab, $ab_dir, $query, $excludeGABGroups) {

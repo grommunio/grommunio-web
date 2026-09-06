@@ -177,7 +177,7 @@ class PluginManager {
 		}
 
 		// If no plugindata has been stored yet, get it from the plugins dir.
-		if (!$this->plugindata || !$this->pluginorder) {
+		if ($this->plugindata === [] || $this->pluginorder === []) {
 			$disabledPlugins = [];
 			if (!empty($disabled)) {
 				$disabledPlugins = array_map([$this, 'normalizePluginName'], explode(';', $disabled));
@@ -189,10 +189,10 @@ class PluginManager {
 
 			// Check if any plugin directories found or not
 			if (!empty($this->plugindata)) {
-				// Not we update plugindata and pluginorder based on the configured dependencies.
+				// Now we update plugindata and pluginorder based on the configured dependencies.
 				// Note that each change to plugindata requires the requirements and dependencies
 				// to be recalculated.
-				while (!$this->pluginorder || !$this->validatePluginRequirements()) {
+				while ($this->pluginorder === [] || !$this->validatePluginRequirements()) {
 					// Generate the order in which the plugins should be loaded,
 					// this uses the $this->plugindata as base.
 					$pluginOrder = $this->buildPluginDependencyOrder();
@@ -1347,7 +1347,6 @@ class PluginManager {
 							LOAD_RELEASE => [],
 						];
 						foreach ($component->files->resources->resourcefile as $resourcefile) {
-							$filename = false;
 							$load = LOAD_RELEASE;
 							$filename = (string) $resourcefile;
 							if (isset($resourcefile['load'])) {

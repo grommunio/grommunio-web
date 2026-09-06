@@ -76,7 +76,7 @@ class HierarchyModule extends Module {
 			try {
 				$store = $this->getActionStore($action);
 				$parententryid = $this->getActionParentEntryID($action);
-				$entryid = $this->getActionEntryID($action);
+				$entryid = $this->getActionSingleEntryID($action);
 				$this->store_entryid = $action["store_entryid"] ?? '';
 				if (is_array($store)) {
 					if (!in_array($actionType, ['keepalive', 'destroysession', 'list'], true)) {
@@ -115,6 +115,11 @@ class HierarchyModule extends Module {
 						break;
 
 					case "open":
+						if ($entryid === false) {
+							$this->sendFeedback(false);
+
+							break;
+						}
 						$folder = mapi_msgstore_openentry($store, $entryid);
 						$data = $this->getFolderProps($store, $folder);
 
@@ -124,7 +129,7 @@ class HierarchyModule extends Module {
 						break;
 
 					case "foldersize":
-						if ($store === false) {
+						if ($store === false || $entryid === false) {
 							$this->sendFeedback(false);
 
 							break;
@@ -1435,12 +1440,10 @@ class HierarchyModule extends Module {
 			mapi_table_restrict($hierarchyTable, $restriction, TBL_BATCH);
 			$subfolders = mapi_table_queryallrows($hierarchyTable, [PR_ENTRYID]);
 
-			if (is_array($subfolders)) {
-				foreach ($subfolders as $subfolder) {
-					$folderObject = mapi_msgstore_openentry($deststore, $subfolder[PR_ENTRYID]);
-					$folderProps = mapi_getprops($folderObject, [PR_ENTRYID, PR_STORE_ENTRYID]);
-					$GLOBALS["bus"]->notify(bin2hex((string) $subfolder[PR_ENTRYID]), OBJECT_SAVE, $folderProps);
-				}
+			foreach ($subfolders as $subfolder) {
+				$folderObject = mapi_msgstore_openentry($deststore, $subfolder[PR_ENTRYID]);
+				$folderProps = mapi_getprops($folderObject, [PR_ENTRYID, PR_STORE_ENTRYID]);
+				$GLOBALS["bus"]->notify(bin2hex((string) $subfolder[PR_ENTRYID]), OBJECT_SAVE, $folderProps);
 			}
 
 			// Now update destination folder

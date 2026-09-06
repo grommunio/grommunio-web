@@ -23,12 +23,12 @@ class Module {
 	public $errors;
 
 	/**
-	 * @var State The state object which refers to the statefile
+	 * @var false|State The state object which refers to the statefile
 	 */
 	public $sessionState;
 
 	/**
-	 * @var array data stored in session for this module
+	 * @var mixed data stored in session for this module
 	 */
 	public $sessionData;
 
@@ -38,7 +38,7 @@ class Module {
 	public $properties;
 
 	/**
-	 * @var list of the folder list properties
+	 * @var array list of the folder list properties
 	 */
 	public $list_properties;
 
@@ -402,7 +402,7 @@ class Module {
 	 *
 	 * @param array $action the XML data retrieved from the client
 	 *
-	 * @return mixed MAPI Message Store Object, false if entryid is not found in the $action variable
+	 * @return array<int, false|string>|false|string binary folder entry ID or IDs, or false when absent or invalid
 	 */
 	public function getActionEntryID($action) {
 		$entryid = false;
@@ -420,6 +420,23 @@ class Module {
 		}
 
 		return $entryid;
+	}
+
+	/**
+	 * Return the single entry ID expected by scalar actions.
+	 *
+	 * Calendar list requests may address several stores and therefore use
+	 * getActionEntryID() directly. Other actions accept one item or folder and
+	 * reject an array instead of passing it to scalar MAPI calls.
+	 *
+	 * @param array $action the XML data retrieved from the client
+	 *
+	 * @return false|string binary entry ID, or false when absent, invalid, or multiple
+	 */
+	protected function getActionSingleEntryID($action) {
+		$entryid = $this->getActionEntryID($action);
+
+		return is_string($entryid) ? $entryid : false;
 	}
 
 	/**

@@ -30,11 +30,11 @@ class ReminderItemModule extends ItemModule {
 		$this->properties = $GLOBALS['properties']->getMailProperties();
 		$result = false;
 
-		if (!$store) {
+		if ($store === false) {
 			$store = $GLOBALS['mapisession']->getDefaultMessageStore();
 		}
 
-		if ($store) {
+		if ($store !== false) {
 			// Reference to an array which will be filled with PR_ENTRYID, PR_STORE_ENTRYID and PR_PARENT_ENTRYID of the message
 			$messageProps = [];
 
@@ -65,7 +65,7 @@ class ReminderItemModule extends ItemModule {
 	public function delete($store, $parententryid, $entryid, $action) {
 		$this->properties = $GLOBALS["properties"]->getReminderProperties();
 
-		if (!$store) {
+		if ($store === false) {
 			$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
 		}
 
@@ -76,12 +76,12 @@ class ReminderItemModule extends ItemModule {
 
 		switch ($subActionType) {
 			case "snooze":
-				$entryid = $this->getActionEntryID($action);
+				$entryid = $this->getActionSingleEntryID($action);
 				$this->snoozeItem($store, $entryid, $action);
 				break;
 
 			case "dismiss":
-				$entryid = $this->getActionEntryID($action);
+				$entryid = $this->getActionSingleEntryID($action);
 				$this->dismissItem($store, $entryid);
 				break;
 

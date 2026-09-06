@@ -271,6 +271,7 @@ class Properties {
 		$this->Init();
 
 		if (!isset($this->mapping[$this->storeMapping]['oofsettings'])) {
+			$properties = [];
 			$properties["set"] = PR_EC_OUTOFOFFICE;
 			$properties["entryid"] = PR_MAILBOX_OWNER_ENTRYID;
 			$properties["store_entryid"] = PR_ENTRYID;
@@ -295,6 +296,7 @@ class Properties {
 		$this->Init();
 
 		if (!isset($this->mapping[$this->storeMapping]['meeting'])) {
+			$properties = [];
 			$properties["goid"] = "PT_BINARY:PSETID_Meeting:0x3";
 			$properties["goid2"] = "PT_BINARY:PSETID_Meeting:0x23";
 			$properties["type"] = "PT_STRING8:PSETID_Meeting:0x24";

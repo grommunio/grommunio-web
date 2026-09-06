@@ -86,7 +86,7 @@ class ListModule extends Module {
 				try {
 					$store = $this->getActionStore($action);
 					$parententryid = $this->getActionParentEntryID($action);
-					$entryid = $this->getActionEntryID($action);
+					$entryid = $this->getActionSingleEntryID($action);
 					if ($store === false || is_array($store)) {
 						$this->sendFeedback(false);
 
@@ -223,10 +223,10 @@ class ListModule extends Module {
 	 *	Function will set search restrictions on search folder and start search process
 	 *	and it will also parse visible columns and sorting data when sending results to client.
 	 *
-	 * @param resource $store      MAPI message store
-	 * @param string   $entryid    entryid of the folder
-	 * @param array    $action     action data sent by the client
-	 * @param string   $actionType the action type, sent by the client
+	 * @param array<int, false|resource>|false|resource $store      MAPI message store or stores
+	 * @param array<int, false|string>|false|string     $entryid    entryid of the folder or folders
+	 * @param array                                     $action     action data sent by the client
+	 * @param string                                    $actionType the action type, sent by the client
 	 */
 	public function search($store, $entryid, $action, $actionType) {
 		$useSearchFolder = $action["use_searchfolder"] ?? false;
@@ -237,6 +237,11 @@ class ListModule extends Module {
 			 * it will give us the restricted results
 			 */
 			$this->messageList($store, $entryid, $action, "list");
+
+			return;
+		}
+		if ($store === false || is_array($store) || !is_string($entryid)) {
+			$this->sendFeedback(false);
 
 			return;
 		}
