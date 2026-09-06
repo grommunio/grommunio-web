@@ -39,8 +39,14 @@ define('PLUGIN_SMIME_PASSPHRASE_REMEMBER_BROWSER', true);
 // Enable OCSP verification (recommended for S/MIME 4.0 compliance)
 define('PLUGIN_SMIME_ENABLE_OCSP', true);
 
-// Reject OCSP status data older than this, even if nextUpdate is later.
+// Reject OCSP status data older than this when the responder gives no nextUpdate.
 define('PLUGIN_SMIME_OCSP_MAX_AGE', 86400);
+
+// Fail a verified signature when the revocation status of a certificate in
+// its chain cannot be determined (no OCSP URL, unreachable responder, no
+// CRL). Disabled by default: an inconclusive check is logged and the
+// signature keeps its verification result.
+define('PLUGIN_SMIME_REVOCATION_FAIL_CLOSED', false);
 
 // Clock tolerance for OCSP response timestamps.
 define('PLUGIN_SMIME_OCSP_CLOCK_SKEW', 300);

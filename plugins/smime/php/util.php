@@ -791,17 +791,28 @@ function verifyOCSP($certificate, $extracerts, &$message, &$failedCertificates =
 		}
 	}
 
-	if (!empty($failedCertificates)) {
+	if (!empty($failedCertificates) && smimeRevocationFailsClosed()) {
 		$message['info'] = SMIME_OCSP_FAILED;
 		$message['success'] = SMIME_STATUS_FAIL;
 
 		return false;
 	}
 
+	// An inconclusive answer (no responder, no OCSP URL, unreachable) does not
+	// invalidate a verified signature unless the administrator opted in.
 	$message['info'] = SMIME_SUCCESS;
 	$message['success'] = SMIME_STATUS_SUCCESS;
 
 	return true;
+}
+
+/**
+ * Whether an inconclusive revocation check fails the signature.
+ *
+ * @return bool
+ */
+function smimeRevocationFailsClosed() {
+	return defined('PLUGIN_SMIME_REVOCATION_FAIL_CLOSED') && PLUGIN_SMIME_REVOCATION_FAIL_CLOSED;
 }
 
 /* Validate the certificate of a user, set an error message.
@@ -1023,10 +1034,11 @@ function verifyRevocation($certificate, $extracerts, &$message) {
 	$ocspFailures = [];
 	$ocspResult = verifyOCSP($certificate, $extracerts, $message, $ocspFailures);
 
-	// A positive OCSP response is conclusive. If OCSP is disabled, continue
-	// into CRL validation when it has been enabled explicitly.
+	// A positive OCSP response for the whole chain is conclusive. If OCSP is
+	// disabled or was inconclusive for a certificate, continue into CRL
+	// validation when it has been enabled explicitly.
 	$crlEnabled = defined('PLUGIN_SMIME_ENABLE_CRL') && PLUGIN_SMIME_ENABLE_CRL;
-	if ($ocspResult && (($message['info'] ?? null) !== SMIME_OCSP_DISABLED || !$crlEnabled)) {
+	if ($ocspResult && (empty($ocspFailures) || !$crlEnabled) && (($message['info'] ?? null) !== SMIME_OCSP_DISABLED || !$crlEnabled)) {
 		return true;
 	}
 
@@ -1057,7 +1069,7 @@ function verifyRevocation($certificate, $extracerts, &$message) {
 
 					return false;
 				}
-				if ($revoked === null) {
+				if ($revoked === null && smimeRevocationFailsClosed()) {
 					$message['info'] = SMIME_CRL_UNAVAILABLE;
 					$message['success'] = SMIME_STATUS_FAIL;
 
