@@ -99,19 +99,9 @@ Zarafa.plugins.smime.settings.UploadCertificateWidget = Ext.extend(Zarafa.settin
 	uploadCertificate : function()
 	{
 		if(Ext.isEmpty(this.passphrase.getValue())) {
-			Ext.MessageBox.show({
-				title: _('S/MIME Plugin'),
-                                msg: _('You must fill in the certificate passphrase to upload your certificate.'),
-                                buttons: Ext.MessageBox.OK,
-                                icon: Ext.MessageBox.INFO
-                        });
+			container.getNotifier().notify('warning.smime', _('S/MIME Plugin'), _('You must fill in the certificate passphrase to upload your certificate.'));
 		} else if(Ext.isEmpty(this.files)) {
-			Ext.MessageBox.show({
-                                title: _('S/MIME Plugin'),
-                                msg: _('You must first select a valid private certificate in PKCS#12 format.'),
-                                buttons: Ext.MessageBox.OK,
-                                icon: Ext.MessageBox.INFO
-                        });
+			container.getNotifier().notify('warning.smime', _('S/MIME Plugin'), _('You must first select a valid private certificate in PKCS#12 format.'));
 		} else {
 			var attachmentStore = this.record.getAttachmentStore();
 			this.mon(attachmentStore, 'update', this.onUpdate, this);

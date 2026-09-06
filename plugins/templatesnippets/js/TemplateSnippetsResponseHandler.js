@@ -27,7 +27,7 @@ Zarafa.plugins.templatesnippets.TemplateSnippetsResponseHandler = Ext.extend(Zar
 		if (response && response.info && response.info.display_message) {
 			msg = response.info.display_message;
 		}
-		Ext.MessageBox.alert(_('Error'), msg);
+		container.getNotifier().notify('error.templatesnippets', _('Error'), Ext.util.Format.htmlEncode(msg));
 	},
 
 	/**

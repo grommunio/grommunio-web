@@ -118,12 +118,8 @@ Zarafa.plugins.files.ui.dialogs.AttachFromFilesPanel = Ext.extend(Ext.Panel, {
 
 		Ext.each(selectedNodes, function (node, index) {
 			if (node.get('message_size') > max_attachment_size) {
-				Zarafa.common.dialogs.MessageBox.show({
-					title  : _('Warning'),
-					msg    : String.format(_('The file {0} is too large!'), node.get('filename')) + ' (' + _('max') + ': ' + Ext.util.Format.fileSize(max_attachment_size) + ')',
-					icon   : Zarafa.common.dialogs.MessageBox.WARNING,
-					buttons: Zarafa.common.dialogs.MessageBox.OK
-				});
+				container.getNotifier().notify('warning.files', _('Warning'),
+					String.format(_('The file {0} is too large!'), Ext.util.Format.htmlEncode(node.get('filename'))) + ' (' + _('max') + ': ' + Ext.util.Format.fileSize(max_attachment_size) + ')');
 				size_exceeded = true;
 				return false;
 			}
@@ -132,12 +128,7 @@ Zarafa.plugins.files.ui.dialogs.AttachFromFilesPanel = Ext.extend(Ext.Panel, {
 
 		if (!size_exceeded) {
 			if (idsList.length < 1) {
-				Ext.MessageBox.show({
-					title  : _('Warning'),
-					msg    : _('You have to choose at least one file!'),
-					icon   : Zarafa.common.dialogs.MessageBox.WARNING,
-					buttons: Zarafa.common.dialogs.MessageBox.OK
-				});
+				container.getNotifier().notify('warning.files', _('Warning'), _('You have to choose at least one file!'));
 			} else {
 				try {
 					this.disable();
@@ -154,12 +145,7 @@ Zarafa.plugins.files.ui.dialogs.AttachFromFilesPanel = Ext.extend(Ext.Panel, {
 						})
 					);
 				} catch (e) {
-					Zarafa.common.dialogs.MessageBox.show({
-						title  : _('Warning'),
-						msg    : e.getMessage(),
-						icon   : Zarafa.common.dialogs.MessageBox.WARNING,
-						buttons: Zarafa.common.dialogs.MessageBox.OK
-					});
+					container.getNotifier().notify('warning.files', _('Warning'), Ext.util.Format.htmlEncode(e.getMessage()));
 				}
 			}
 		}

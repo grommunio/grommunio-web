@@ -129,13 +129,7 @@ Zarafa.plugins.files.ui.dialogs.CreateFilePanel = Ext.extend(Ext.Panel, {
 		dir = dir.substr(dir.indexOf('/'));
 
 		if (Ext.isEmpty(fileName.trim())) {
-			Ext.MessageBox.show({
-				title: _('grommunio Web'),
-				msg: _('You must specify a name.'),
-				buttons: Ext.MessageBox.OK,
-				icon: Ext.MessageBox.INFO,
-				scope : this
-			});
+			container.getNotifier().notify('warning.files', _('Files'), _('You must specify a name.'));
 			return;
 		}
 
@@ -147,13 +141,7 @@ Zarafa.plugins.files.ui.dialogs.CreateFilePanel = Ext.extend(Ext.Panel, {
 		const url = Zarafa.plugins.files.data.Utils.File.getNewFileUrl(accId);
 
 		if(!url) {
-			Ext.MessageBox.show({
-				title: _('grommunio Web'),
-				msg: _('Error reaching office backend'),
-				buttons: Ext.MessageBox.OK,
-				icon: Ext.MessageBox.INFO,
-				scope : this
-			});
+			container.getNotifier().notify('error.files', _('Files'), _('Error reaching office backend'));
 			return;
 		}
 

@@ -84,13 +84,7 @@ Zarafa.plugins.files.ui.OnlyofficePanel = Ext.extend(Ext.Panel, {
 			return;
 		}
 
-		Ext.MessageBox.show({
-			title: _('grommunio Web'),
-			msg: _('Authentication required, when using grommunio-files for the first time'),
-			buttons: Ext.MessageBox.OK,
-			icon: Ext.MessageBox.INFO,
-			scope : this
-		});
+		container.getNotifier().notify('info.files', _('Files'), _('Authentication required, when using grommunio-files for the first time'));
 	},
 
 	/**

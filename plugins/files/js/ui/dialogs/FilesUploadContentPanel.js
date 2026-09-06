@@ -149,12 +149,8 @@ Zarafa.plugins.files.ui.dialogs.FilesUploadContentPanel = Ext.extend(Zarafa.core
 
 					this.mainuploadfield.reset();
 
-					Zarafa.common.dialogs.MessageBox.show({
-						title  : _('Error'),
-						msg    : String.format(_('File "{0}" is too large! Maximum allowed filesize: {1}.'), file.name, Zarafa.plugins.files.data.Utils.Format.fileSize(Zarafa.plugins.files.data.Utils.Core.getMaxUploadFilesize())),
-						icon   : Zarafa.common.dialogs.MessageBox.ERROR,
-						buttons: Zarafa.common.dialogs.MessageBox.OK
-					});
+					container.getNotifier().notify('error.files', _('Error'),
+						String.format(_('File "{0}" is too large! Maximum allowed filesize: {1}.'), Ext.util.Format.htmlEncode(file.name), Zarafa.plugins.files.data.Utils.Format.fileSize(Zarafa.plugins.files.data.Utils.Core.getMaxUploadFilesize())));
 
 					this.mainuploadbutton.setDisabled(true);
 					filesTooLarge = true;

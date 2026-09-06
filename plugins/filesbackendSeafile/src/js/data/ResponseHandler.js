@@ -21,12 +21,7 @@ Zarafa.plugins.files.backend.Seafile.data.ResponseHandler = Ext.extend(
 			this.successCallback(e);
 		},
 		doError: function (e) {
-			Zarafa.common.dialogs.MessageBox.show({
-				title: e.header,
-				msg: e.message,
-				icon: Zarafa.common.dialogs.MessageBox.ERROR,
-				buttons: Zarafa.common.dialogs.MessageBox.OK,
-			});
+			container.getNotifier().notify('error.files', Ext.util.Format.htmlEncode(e.header), Ext.util.Format.htmlEncode(e.message));
 			this.failureCallback(e);
 		},
 	},

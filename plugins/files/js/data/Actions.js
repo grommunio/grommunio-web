@@ -415,14 +415,8 @@ Zarafa.plugins.files.data.Actions = {
 		if (button === "ok") {
 			// Show alert message box if new name of file is empty.
 			if (Ext.isEmpty(text)) {
-				Ext.Msg.alert(
-					_('Rename record'),
-					_('A file name should not be empty.'),
-					function (button) {
-						this.openRenameDialog(record);
-					},
-					this
-				);
+				container.getNotifier().notify('warning.files', _('Rename record'), _('A file name should not be empty.'));
+				this.openRenameDialog(record);
 				return;
 			}
 
@@ -438,14 +432,9 @@ Zarafa.plugins.files.data.Actions = {
 			}
 
 			if (index > -1) {
-				Ext.Msg.alert(
-					_('Rename item'),
-					String.format(_('A file named \"{0}\" already exists. Please enter a different name.'), text),
-					function () {
-						this.openRenameDialog(record);
-					},
-					this
-				);
+				container.getNotifier().notify('warning.files', _('Rename item'),
+					String.format(_('A file named \"{0}\" already exists. Please enter a different name.'), Ext.util.Format.htmlEncode(text)));
+				this.openRenameDialog(record);
 			} else {
 				this.doRename(text, record);
 			}
@@ -530,12 +519,8 @@ Zarafa.plugins.files.data.Actions = {
 		});
 
 		if (fileTooLarge) {
-			Zarafa.common.dialogs.MessageBox.show({
-				title  : _('Upload'),
-				msg    : String.format(_('At least one file is too large! Maximum allowed filesize: {0}.'), Zarafa.plugins.files.data.Utils.Format.fileSize(Zarafa.plugins.files.data.Utils.Core.getMaxUploadFilesize())),
-				icon   : Zarafa.common.dialogs.MessageBox.ERROR,
-				buttons: Zarafa.common.dialogs.MessageBox.OK
-			});
+			container.getNotifier().notify('error.files', _('Upload'),
+				String.format(_('At least one file is too large! Maximum allowed filesize: {0}.'), Zarafa.plugins.files.data.Utils.Format.fileSize(Zarafa.plugins.files.data.Utils.Core.getMaxUploadFilesize())));
 		} else {
 			// check for duplicates
 			container.getRequest().singleRequest(
@@ -661,17 +646,12 @@ Zarafa.plugins.files.data.Actions = {
 	},
 
 	/**
-	 * This will display a messagebox with warning icons to the user.
+	 * Show a warning notification to the user.
 	 *
 	 * @param {String} errorMessage The error message to display
 	 */
 	msgWarning: function (errorMessage) {
-		Zarafa.common.dialogs.MessageBox.show({
-			title  : _('Warning'),
-			msg    : errorMessage,
-			icon   : Zarafa.common.dialogs.MessageBox.WARNING,
-			buttons: Zarafa.common.dialogs.MessageBox.OK
-		});
+		container.getNotifier().notify('warning.files', _('Warning'), errorMessage);
 	},
 
 	/**

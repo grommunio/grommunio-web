@@ -98,15 +98,6 @@ class Pluginfiles extends Plugin {
 		$data['settingsObj']->addSysAdminDefaults([
 			'zarafa' => [
 				'v1' => [
-					'main' => [
-						'notifier' => [
-							'info' => [
-								'files' => [
-									'value' => "dropdown",
-								],
-							],
-						],
-					],
 					'contexts' => [
 						'files' => [
 							'ask_before_delete' => PLUGIN_FILES_ASK_BEFORE_DELETE,
