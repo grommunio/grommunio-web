@@ -109,7 +109,8 @@ class CrlManager {
 			$stat = stat($cacheFile);
 			if ($stat !== false && (time() - $stat['mtime']) < $this->maxAge && $stat['size'] <= $this->maxBytes) {
 				$content = file_get_contents($cacheFile);
-				if (is_string($content)) {
+				// file_get_contents() can fail despite Scrutinizer's string-only model.
+				if (/** @scrutinizer ignore-type */ $content !== false) {
 					$parsed = $this->parseCurrentCrl($content);
 					if ($parsed !== null && ($issuer === null || $this->authenticateCrl($parsed, $issuer))) {
 						return $content;
@@ -138,7 +139,8 @@ class CrlManager {
 				return null;
 			}
 			$data = base64_decode(preg_replace('/\s+/', '', $matches[1]), true);
-			if (!is_string($data)) {
+			// Strict base64 decoding can fail despite Scrutinizer's string-only model.
+			if (/** @scrutinizer ignore-type */ $data === false) {
 				return null;
 			}
 		}

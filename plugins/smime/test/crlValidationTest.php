@@ -30,11 +30,17 @@ class CrlValidationTest extends SMIMETest {
 			'private_key_bits' => 2048,
 			'private_key_type' => OPENSSL_KEYTYPE_RSA,
 		]);
+		if (!$this->issuerKey instanceof OpenSSLAsymmetricKey) {
+			throw new RuntimeException('Unable to create the CRL test key');
+		}
 		$csr = openssl_csr_new(
 			['commonName' => 'CRL test CA'],
 			$this->issuerKey,
 			['config' => $this->configFile, 'digest_alg' => 'sha256']
 		);
+		if ($csr === false) {
+			throw new RuntimeException('Unable to create the CRL test certificate request');
+		}
 		$certificate = openssl_csr_sign(
 			$csr,
 			null,
@@ -43,8 +49,9 @@ class CrlValidationTest extends SMIMETest {
 			['config' => $this->configFile, 'x509_extensions' => 'v3_ca', 'digest_alg' => 'sha256'],
 			random_int(1, PHP_INT_MAX)
 		);
+		$this->issuerPem = '';
 		if ($certificate === false || !openssl_x509_export($certificate, $this->issuerPem)) {
-			$this->fail('Unable to create the CRL test certificate');
+			throw new RuntimeException('Unable to create the CRL test certificate');
 		}
 	}
 

@@ -290,11 +290,17 @@ class OcspValidationTest extends SMIMETest {
 			'private_key_bits' => 2048,
 			'private_key_type' => OPENSSL_KEYTYPE_RSA,
 		]);
+		if (!$key instanceof OpenSSLAsymmetricKey) {
+			throw new RuntimeException('Unable to create an OCSP test key');
+		}
 		$csr = openssl_csr_new(
 			['commonName' => $commonName],
 			$key,
 			['config' => $this->configFile, 'digest_alg' => 'sha256']
 		);
+		if ($csr === false) {
+			throw new RuntimeException('Unable to create an OCSP test certificate request');
+		}
 		$certificate = openssl_csr_sign(
 			$csr,
 			$issuer,
@@ -305,7 +311,7 @@ class OcspValidationTest extends SMIMETest {
 		);
 		$pem = '';
 		if ($certificate === false || !openssl_x509_export($certificate, $pem)) {
-			$this->fail('Unable to create an OCSP test certificate');
+			throw new RuntimeException('Unable to create an OCSP test certificate');
 		}
 
 		return [$key, $certificate, $pem];

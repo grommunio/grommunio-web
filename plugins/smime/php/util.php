@@ -723,9 +723,6 @@ function buildSmimeCertificateChain($certificate, $extracerts) {
 	$pubcert = new Certificate($certificate);
 	$parent = $pubcert;
 	$chain = [$pubcert];
-	if (!is_array($extracerts)) {
-		$extracerts = [];
-	}
 	$remaining = [];
 	foreach ($extracerts as $pem) {
 		$cert = new Certificate($pem);
