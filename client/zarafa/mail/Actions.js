@@ -188,7 +188,7 @@ Zarafa.mail.Actions = {
 			}
 			Zarafa.core.data.UIFactory.openCreateRecord(response, config);
 		};
-		if (!info) { return open(); }
+		if (!info || info.unverifiable) { return open(); }
 		record.browserResponsePending = true;
 		var transport = Zarafa.plugins && Zarafa.plugins.pgp && Zarafa.plugins.pgp.PgpTransport;
 		var ready = Promise.resolve().then(function() {

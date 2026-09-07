@@ -103,7 +103,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		responseRecord.addMessageAction('source_store_entryid', record.get('store_entryid'));
 
 		var pgp = record.get('pgp');
-		if (actionType !== Zarafa.mail.data.ActionTypes.FORWARD_ATTACH && pgp && !pgp.pending) {
+		if (actionType !== Zarafa.mail.data.ActionTypes.FORWARD_ATTACH && pgp && !pgp.pending && pgp.mime && !pgp.unverifiable) {
 			if (!pgp.inline && pgp.format !== 'inline' && (pgp.decrypted || pgp.signed)) {
 				// Original MAPI attachments contain the protected MIME envelope;
 				// the usable files exist only in the browser attachment store.

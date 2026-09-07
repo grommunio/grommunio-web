@@ -434,7 +434,7 @@ test('public key updates merge certification, use revisions, preserve private ar
 });
 
 test('reply waits for browser decryption and attachment uploads before opening compose', async () => {
-	const {context} = runtime(), mail = record({pgp: {pending: true, encrypted: true}}), events = [];
+	const {context} = runtime(), mail = record({pgp: {pending: true, encrypted: true, mime: 'AA=='}}), events = [];
 	let releaseAttachments;
 	const response = {browserAttachmentsReady: new Promise(resolve => { releaseAttachments = resolve; })};
 	context.Zarafa.core.data.UIFactory = {openCreateRecord: result => { assert.equal(result, response); events.push('compose'); }};
@@ -451,8 +451,38 @@ test('reply waits for browser decryption and attachment uploads before opening c
 	assert.equal(mail.browserResponsePending, false);
 });
 
+test('advisory statuses without an envelope use the normal response and badge paths', async () => {
+	const {context, plugin, alerts} = runtime(), events = [];
+	const advisory = {advisory: true, unverifiable: true, encrypted: true, signed: false, pending: false, decrypted: false, locked: false, mime: '', format: 'mime', inline: false};
+	const response = record();
+	context.Zarafa.core.data.UIFactory = {openCreateRecord: () => { events.push('compose'); }};
+	context.Zarafa.plugins.pgp.PgpTransport = {open: async () => { events.push('open'); }, unlockAndOpen: async () => { events.push('unlock'); }};
+	await context.Zarafa.mail.Actions.openReadyMailResponse(record({pgp: advisory}), {createResponseRecord() { events.push('quote'); return response; }}, 'forward');
+	assert.deepEqual(events, ['quote', 'compose']);
+	const model = Object.create(context.Zarafa.mail.MailContextModel.prototype);
+	for (const shape of [advisory, {...advisory, encrypted: false, signed: true}]) {
+		const actions = {};
+		const result = record();
+		result.addMessageAction = (name, value) => { actions[name] = value; };
+		result.getMessageActions = () => actions;
+		const source = record({pgp: shape, entryid: 'aa', store_entryid: 'bb'});
+		source.getAttachmentStore = () => ({each() {}});
+		model.setSourceMessageInfo = () => {};
+		model.initRecordAttachments = () => {};
+		model.initRecordBody = () => {};
+		context.Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass = () => result;
+		try { model.createResponseRecord(source, 'forward'); } catch (error) { /* stubs stop after the protection decision */ }
+		assert.equal(actions.browser_decrypted, undefined);
+		assert.equal(result.get('pgp_encrypt'), false);
+	}
+	plugin.onPreviewInfo({record: record({pgp: advisory})});
+	assert.deepEqual(events, ['quote', 'compose']);
+	assert.equal(alerts.length, 1);
+	assert.match(alerts[0].message, /decrypt it with an OpenPGP tool/);
+});
+
 test('reply to a tampered encrypted message fails closed with an encoded error', async () => {
-	const {context} = runtime(), mail = record({pgp: {encrypted: true}}), notices = [];
+	const {context} = runtime(), mail = record({pgp: {encrypted: true, mime: 'AA=='}}), notices = [];
 	context.container.getNotifier = () => ({notify: (...args) => notices.push(args)});
 	context.Zarafa.plugins.pgp.PgpTransport = {open: async () => { throw new Error('<img src=x onerror=bad()>'); }};
 	await context.Zarafa.mail.Actions.openReadyMailResponse(mail, {createResponseRecord() { assert.fail('Must not quote failed plaintext'); }}, 'forward');

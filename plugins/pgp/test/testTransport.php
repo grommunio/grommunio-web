@@ -215,6 +215,10 @@ $plugin = new Pluginpgp(); $draft = fixture(); unset($draft->props[PR_SENT_REPRE
 [$data, $prepared] = preparation($plugin, $draft); accept($plugin, $data);
 $copy = unserialize(serialize($GLOBALS['draft'])); $plugin->protect($GLOBALS['store'], $copy);
 transportCheck($prepared['sender'] === 'sender@example.test' && $copy->saves === 1 && !isset($copy->props[PR_BODY]), 'Draft without a From identity is protected with the logon address');
+$plugin = new Pluginpgp(); [$data] = preparation($plugin); accept($plugin, $data);
+$copy = unserialize(serialize($GLOBALS['draft'])); $copy->props[0x8001000b] = false; $copy->props[0x8002000b] = false;
+transportRejects(fn () => $plugin->protect($GLOBALS['store'], $copy), 'Accepted receipt with intent missing from the outbox copy fails closed', 'did not reach');
+transportCheck($copy->saves === 0 && isset($copy->props[PR_BODY]), 'Intent-less copy after an accepted receipt is not submitted as plaintext');
 $plugin = new Pluginpgp(); [$data] = preparation($plugin);
 foreach ([
 	'changed store' => static function (&$data) { $data['action']['store_entryid'] = '44'; },

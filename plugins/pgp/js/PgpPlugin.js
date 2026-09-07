@@ -106,7 +106,7 @@ Zarafa.plugins.pgp.PgpPlugin = Ext.extend(Zarafa.core.Plugin, {
 	{
 		var record = button.record, info = record && record.get('pgp'), utils = Zarafa.plugins.pgp.PgpUtils;
 		if (!info) { return; }
-		if (info.encrypted && !info.decrypted) {
+		if (info.encrypted && !info.decrypted && info.mime && !info.unverifiable) {
 			Zarafa.plugins.pgp.PgpTransport.unlockAndOpen(record).catch(function(error) { if (!error.cancelled) { utils.notify(error.message, true); } });
 			return;
 		}

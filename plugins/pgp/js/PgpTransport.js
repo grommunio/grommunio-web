@@ -423,13 +423,14 @@ Zarafa.plugins.pgp.PgpTransport = (function() {
 			return state.promise;
 		},
 		unlockAndOpen: async function(record) {
+			var info = record && record.get('pgp');
+			if (!info || !info.mime) { return record; }
 			var listing = await utils().api('list', {});
 			// Old/revoked keys may still be needed to read historical mail.
 			// They remain forbidden for new signing/encryption operations.
 			var keys = (listing.keys || []).filter(function(key) { return key.secret; });
 			var key = await dialogs().chooseKeyAsync(keys, listing.default_key);
 			await dialogs().unlockAsync(key.fingerprint);
-			var info = record.get('pgp');
 			info.pending = true;
 			return this.open(record);
 		},

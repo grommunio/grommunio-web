@@ -216,7 +216,13 @@ class Pluginpgp extends Plugin {
 		if (!is_array($props)) { throw new RuntimeException('Cannot read OpenPGP protection intent.'); }
 		$sign = !empty($props[$map['pgp_sign']]);
 		$encrypt = !empty($props[$map['pgp_encrypt']]);
-		if (!$sign && !$encrypt) { return; }
+		if (!$sign && !$encrypt) {
+			// Named properties are numbered per store; a draft from another store
+			// can lose its intent on the way to the outbox. The accepted receipt says
+			// protection was requested, so never let that copy leave in the clear.
+			if ($this->preparedSend !== null) { throw new RuntimeException('The OpenPGP protection did not reach the outgoing message. Please send again.'); }
+			return;
+		}
 		$this->assertExclusive($props[PR_MESSAGE_CLASS] ?? '');
 		$state = $this->preparedSend;
 		$recipientDetails = $this->recipientDetails($message);
