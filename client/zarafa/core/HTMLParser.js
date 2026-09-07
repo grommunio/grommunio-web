@@ -1052,8 +1052,18 @@ Zarafa.core.HTMLParser = (function() {
 
 			var urlToCid = function(match, srcStart, imgCid, srcEnd, offset, str) {
 				if(imgCid) {
+					// The cid was percent-encoded into the download url, so decode it
+					// again: cid:local%40domain matches no attachment.
+					var cid = imgCid;
+
+					try {
+						cid = decodeURIComponent(imgCid);
+					} catch (e) {
+						// not valid percent-encoding, keep it as it came in
+					}
+
 					// return img src with just cid: tag
-					return srcStart + 'cid:' + imgCid + srcEnd;
+					return srcStart + 'cid:' + cid + srcEnd;
 				}
 
 				// return match as it is but in a real world this is not going to happen
