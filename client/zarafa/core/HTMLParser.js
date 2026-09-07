@@ -26,6 +26,9 @@ Zarafa.core.HTMLParser = (function() {
 	// regular expression to convert url for inline images to outlook style url
 	var urlToCidRe = /(src\s*=\s*[\"\']?)\S*attachCid=([^ &\"\']*)[^ \"\']*([\"\']?)/igm;
 
+	// regular expression to strip the editor's own copy of an image src
+	var dataMceSrcRe = /\s+data-mce-src\s*=\s*(?:\"[^\"]*\"|\'[^\']*\'|[^\s>]*)/igm;
+
 	var cssUrlRe = /url\(\s*(['"]?)([^'")]+)\1\s*\)/igm;
 	var cssImportRe = /@import\s+(?:url\(\s*)?(['"]?)([^'")\s;]+)\1\s*\)?/igm;
 	var hrefResourceTags = {
@@ -1025,6 +1028,11 @@ Zarafa.core.HTMLParser = (function() {
 				// return match as it is but in a real world this is not going to happen
 				return match;
 			};
+
+			// A stored data-mce-src overrides src when the editor serializes the body
+			// again, so the image would go back out as a bare <img>. Older grommunio
+			// Web wrote an empty one next to every inline image it created.
+			body = body.replace(dataMceSrcRe, '');
 
 			// replace cid: with our own url to get inline attachment
 			return body.replace(cidToUrlRe, cidToUrl);
