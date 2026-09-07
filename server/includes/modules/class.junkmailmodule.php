@@ -16,7 +16,7 @@ class JunkMailModule extends Module {
 	public const MAX_ENTRY_LENGTH = 256;
 
 	/**
-	 * Per-request cache of parsed lists, shared with Operations::isSafeSender.
+	 * Per-request cache of parsed lists.
 	 */
 	private static $cachedLists;
 

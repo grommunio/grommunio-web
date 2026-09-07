@@ -4122,8 +4122,6 @@ class Operations {
 					}
 				}
 
-				// No PR_BLOCK_STATUS or safe-sender check here: external content owns no
-				// attachment, and these bytes are already in the message being copied.
 				$new = mapi_message_createattach($message);
 
 				try {
@@ -4167,69 +4165,6 @@ class Operations {
 				}
 			}
 		}
-	}
-
-	/**
-	 * Function was used to identify the sender or domain of original mail in safe sender list.
-	 *
-	 * @param resource $copyFromMessage message from which to obtain sender information
-	 *                                     the sender of message
-	 *
-	 * @return bool true if sender of original mail was safe sender else false
-	 */
-	public function isSafeSender($copyFromMessage) {
-		require_once BASE_PATH . 'server/includes/modules/class.junkmailmodule.php';
-
-		$senderEntryid = mapi_getprops($copyFromMessage, [PR_SENT_REPRESENTING_ENTRYID]);
-		$senderEntryid = $senderEntryid[PR_SENT_REPRESENTING_ENTRYID];
-
-		// If sender is user himself (which happens in case of "Send as New message") consider sender as safe
-		if ($GLOBALS['entryid']->compareEntryIds($senderEntryid, $GLOBALS["mapisession"]->getUserEntryID())) {
-			return true;
-		}
-
-		try {
-			$mailuser = mapi_ab_openentry($GLOBALS["mapisession"]->getAddressbook(), $senderEntryid);
-		}
-		catch (MAPIException) {
-			// The user might have a new uidNumber, which makes the user not resolve, see WA-7673
-			// FIXME: Lookup the user by PR_SENDER_NAME or another attribute if PR_SENDER_ADDRTYPE is "EX"
-			return false;
-		}
-
-		$addressType = mapi_getprops($mailuser, [PR_ADDRTYPE]);
-		$address = '';
-
-		// Here it will check that sender of original mail was address book user.
-		// If PR_ADDRTYPE is ZARAFA, it means sender of original mail was address book contact.
-		if (($addressType[PR_ADDRTYPE] ?? null) === 'EX') {
-			$addressProps = mapi_getprops($mailuser, [PR_SMTP_ADDRESS]);
-			$address = $addressProps[PR_SMTP_ADDRESS] ?? '';
-		}
-		elseif (($addressType[PR_ADDRTYPE] ?? null) === 'SMTP') {
-			// If PR_ADDRTYPE is SMTP, it means sender of original mail was external sender.
-			$addressProps = mapi_getprops($mailuser, [PR_EMAIL_ADDRESS]);
-			$address = $addressProps[PR_EMAIL_ADDRESS] ?? '';
-		}
-
-		$address = strtolower((string) $address);
-		if ($address === '' || strpos($address, '@') === false) {
-			return false;
-		}
-		$domain = '@' . substr($address, strpos($address, '@') + 1);
-
-		// getSenderLists already folds in the
-		// old webapp setting until it is retired, and caches per request.
-		$store = $GLOBALS['mapisession']->getDefaultMessageStore();
-		$lists = JunkMailModule::getSenderLists($store);
-		foreach ($lists['safe_senders'] as $entry) {
-			$entry = strtolower($entry);
-			if ($entry === $address || $entry === $domain) {
-				return true;
-			}
-		}
-
-		return false;
 	}
 
 	/**
