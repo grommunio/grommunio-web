@@ -4072,17 +4072,6 @@ class Operations {
 
 			$plainText = $this->isPlainText($message);
 
-			$properties = $GLOBALS['properties']->getMailProperties();
-			$blockStatus = mapi_getprops($copyFromMessage, [PR_BLOCK_STATUS]);
-			$blockStatus = Conversion::mapMAPI2XML($properties, $blockStatus);
-			$isSafeSender = false;
-
-			// Here if message is HTML and block status is empty then and then call isSafeSender function
-			// to check that sender or sender's domain of original message was part of safe sender list.
-			if (!$plainText && empty($blockStatus)) {
-				$isSafeSender = $this->isSafeSender($copyFromMessage);
-			}
-
 			$body = false;
 			foreach ($existingAttachments as $props) {
 				// check if this attachment is "deleted"
@@ -4133,20 +4122,8 @@ class Operations {
 					}
 				}
 
-				/*
-				 * if message is reply/reply all or forward and format of message is HTML but
-				 * - inline attachments are not downloaded from external source
-				 * - sender of original message is not safe sender
-				 * - domain of sender is not part of safe sender list
-				 * then ignore inline attachments from original message.
-				 *
-				 * NOTE : blockStatus is only generated when user has download inline image from external source.
-				 * it should remains empty if user add the sender in to safe sender list.
-				 */
-				if (!$plainText && $isInlineAttachment && empty($blockStatus) && !$isSafeSender) {
-					continue;
-				}
-
+				// No PR_BLOCK_STATUS or safe-sender check here: external content owns no
+				// attachment, and these bytes are already in the message being copied.
 				$new = mapi_message_createattach($message);
 
 				try {
