@@ -689,7 +689,7 @@ function Viewer( viewerPlugin, parameters ) {
  * @source: http://github.com/kogmbh/ViewerJS
  */
 
-/*global document, window, Viewer, ViewerSupport, ODFViewerPlugin, DocViewerPlugin, DocxViewerPlugin, RtfViewerPlugin, SheetViewerPlugin, PptxViewerPlugin, ImageViewerPlugin, MultimediaViewerPlugin, TextViewerPlugin, UnknownFilePlugin*/
+/*global document, window, Viewer, ViewerSupport, ODFViewerPlugin, DocViewerPlugin, DocxViewerPlugin, RtfViewerPlugin, SheetViewerPlugin, PptxViewerPlugin, MessageViewerPlugin, ImageViewerPlugin, MultimediaViewerPlugin, TextViewerPlugin, UnknownFilePlugin*/
 
 (function () {
     "use strict";
@@ -758,6 +758,12 @@ function Viewer( viewerPlugin, parameters ) {
                 'application/vnd.openxmlformats-officedocument.presentationml.template',
                 'application/vnd.openxmlformats-officedocument.presentationml.slideshow'
             ]
+        },
+        message: {
+            path:        "./MessageViewerPlugin.js",
+            getClass:    function () { return MessageViewerPlugin; },
+            extensions:  ['eml'],
+            mimetypes:   ['message/rfc822']
         },
         image: {
             path:        "./ImageViewerPlugin.js",

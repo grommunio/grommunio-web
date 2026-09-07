@@ -125,7 +125,7 @@ $(JSDEPLOY)/$(1)/$(2): $$(shell find client/$(1) -type f -o -type d)
 	$(if $(3),rm -f $(addprefix $(JSDEPLOY)/$(1)/,$(3)))
 VENDORED += $(JSDEPLOY)/$(1)/$(2)
 endef
-VIEWERJS = $(addprefix ViewerJS/,Support.js Cfb.js ImageViewerPlugin.js MultimediaViewerPlugin.js ODFViewerPlugin.js DocViewerPlugin.js DocxViewerPlugin.js RtfViewerPlugin.js SheetViewerPlugin.js PptxViewerPlugin.js TextViewerPlugin.js UnknownFilePlugin.js viewer.js video-js/video.js vendor/jszip.min.js vendor/docx-preview.min.js vendor/xlsx.full.min.js)
+VIEWERJS = $(addprefix ViewerJS/,Support.js Cfb.js ImageViewerPlugin.js MultimediaViewerPlugin.js ODFViewerPlugin.js DocViewerPlugin.js DocxViewerPlugin.js RtfViewerPlugin.js SheetViewerPlugin.js PptxViewerPlugin.js TextViewerPlugin.js MessageViewerPlugin.js UnknownFilePlugin.js viewer.js video-js/video.js vendor/jszip.min.js vendor/docx-preview.min.js vendor/xlsx.full.min.js)
 PREVIEWERDERIVED = $(VIEWERJS) ViewerJS/index.html pdfjs/web/viewer.html pdfjs/web/viewer.mjs
 $(eval $(call vendor_tree,tinymce,tinymce.min.js))
 $(eval $(call vendor_tree,tinymce-languages,de.js))
@@ -191,7 +191,7 @@ $(JSDEPLOY)/resize.js: client/resize.js
 # SheetJS ship minified and are copied verbatim.
 $(JSDEPLOY)/filepreviewer/ViewerJS/%.js: client/filepreviewer/ViewerJS/%.js
 	mkdir -p $(@D)
-	sed -E "s#([\"'])(\./[A-Za-z0-9_./-]+\.js)\1#\1\2?version=$(WEBAPPVERSION)\1#g" $< > $(@:.js=-debug.js)
+	sed -E "s#([\"'])(\.\.?/[A-Za-z0-9_./-]+\.js)\1#\1\2?version=$(WEBAPPVERSION)\1#g" $< > $(@:.js=-debug.js)
 	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
 		--source-map "base='$(@D)',url='$(@F).map'" \
 	        $(JSOPTIONS)
