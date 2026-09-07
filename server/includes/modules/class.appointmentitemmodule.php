@@ -415,7 +415,7 @@ class AppointmentItemModule extends ItemModule {
 			// Find TZRULE_FLAG_EFFECTIVE_TZREG rule for the appointment's timezone
 			$appTzEffRuleIdx = getEffectiveTzreg($appTzDefStart['rules']);
 
-			if (is_null($this->tzEffRuleIdx) && !is_null($appTzEffRuleIdx)) {
+			if (is_null($this->tzEffRuleIdx) || is_null($appTzEffRuleIdx)) {
 				return;
 			}
 			// first apply the bias of the appointment timezone and the bias of the browser
