@@ -165,7 +165,9 @@ Zarafa.core.plugins.AutoSaveMessagePlugin = Ext.extend(Object, {
 	{
 		if (this.record) {
 			if (Zarafa.common.ui.SecurityButtons.suspendsAutoSave(this.record)) {
+				// Keep polling so autosave resumes once encryption is deselected.
 				this.resetMessageAutoSaveTimer();
+				this.startMessageAutoSaveTimer();
 				return;
 			}
 

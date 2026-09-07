@@ -42,6 +42,7 @@ function runtime() {
 		},
 		grid: {RowSelectionModel: function(config) { Object.assign(this, config); }},
 		reg() {},
+		preg() {},
 		id() { return 'test'; }
 	};
 	context.Zarafa = {core: {Plugin: function() {}, ContextModel: function() {}, ui: {Toolbar: function() {}}, data: {
@@ -51,6 +52,8 @@ function runtime() {
 	vm.createContext(context);
 	vm.runInContext("String.format = function(text, value) { return text.replace('{0}', value); };", context);
 	vm.runInContext(fs.readFileSync(path.join(__dirname, '../../../client/zarafa/common/ui/SecurityButtons.js'), 'utf8'), context);
+	vm.runInContext("Function.prototype.defer = function() { return 'timer'; }; var window = {clearTimeout() {}};", context);
+	vm.runInContext(fs.readFileSync(path.join(__dirname, '../../../client/zarafa/core/plugins/AutoSaveMessagePlugin.js'), 'utf8'), context);
 	for (const filename of ['data/PgpResponseHandler.js', 'PgpUtils.js', 'PgpPlugin.js', 'dialogs/PgpDialogs.js', 'settings/SettingsPgpWidget.js']) {
 		vm.runInContext(fs.readFileSync(path.join(__dirname, '../js', filename), 'utf8'), context, {filename});
 	}
@@ -70,7 +73,7 @@ function record(values = {}) {
 function buttonFor(mail, action) {
 	return {pgpAction: action, ownerCt: {dialog: {record: mail}}, iconCls: 'icon_pgp_' + action,
 		setDisabled(value) { this.disabled = value; }, disable() { this.disabled = true; },
-		setIconClass(value) { this.iconCls = value; }, setTooltip() {}};
+		setIconClass(value) { this.iconCls = value; }, setTooltip(text) { this.tooltip = text; }};
 }
 
 const fingerprint = '1234567890ABCDEF1234567890ABCDEF12345678';
@@ -92,6 +95,8 @@ test('decryption and valid cryptography do not falsely authenticate the sender',
 	assert.equal(utils.status({signed: true, signature_valid: true, sender_match: true, signer_trusted: false}).severity, 'warning');
 	assert.equal(utils.status({signed: true, signature_valid: true, sender_match: true, signer_trusted: true}).severity, 'good');
 	assert.match(utils.status({signed: true, signature_valid: true, sender_match: true, signer_trusted: true, inline: true}).text, /body only; attachments are not covered/);
+	assert.equal(utils.status({unverifiable: true, signed: true}).severity, 'warning');
+	assert.match(utils.status({unverifiable: true, encrypted: true}).text, /decrypt it with an OpenPGP tool/);
 });
 
 test('OpenPGP column distinguishes ambiguous S/MIME classes using protocol metadata', () => {
@@ -245,6 +250,34 @@ test('autosave pauses while a provider has encryption selected', () => {
 	assert.equal(buttons.suspendsAutoSave(record({enc: true})), true);
 	context.container.getSettingsModel = () => ({get: key => key === 'zarafa/v1/contexts/mail/autosave_encrypted_enable'});
 	assert.equal(buttons.suspendsAutoSave(record({enc: true})), false);
+});
+
+test('autosave skips its tick while encryption is selected, re-arms, and says so on the button', () => {
+	const {context} = runtime();
+	const buttons = context.Zarafa.common.ui.SecurityButtons;
+	buttons.providers = [{id: 'x', label: 'X', isSelected: (mail, action) => action === 'encrypt' && mail.get('enc') === true}];
+	const mail = record({enc: true});
+	mail.getSubStore = () => ({each() {}});
+	mail.isUnsent = () => true;
+	let saves = 0;
+	const plugin = new context.Zarafa.core.plugins.AutoSaveMessagePlugin({});
+	plugin.field = {autoSave: true, isSending: false, saveRecord() { saves++; }};
+	plugin.record = mail;
+	plugin.messageAutoSave();
+	assert.equal(saves, 0);
+	assert.equal(plugin.messageAutoSaveTimer, 'timer');
+	const button = buttonFor(mail, 'encrypt');
+	button.securityAction = 'encrypt';
+	buttons.updateButton(button, mail);
+	assert.match(button.tooltip, /Autosave is paused/);
+	mail.data.enc = false;
+	plugin.messageAutoSaveTimer = null;
+	plugin.messageAutoSave();
+	assert.equal(saves, 1);
+	mail.data.enc = true;
+	context.container.getSettingsModel = () => ({get: key => key === 'zarafa/v1/contexts/mail/autosave_encrypted_enable' ? true : 60});
+	plugin.messageAutoSave();
+	assert.equal(saves, 2);
 });
 
 test('protocol exclusion covers sign, encrypt and cross-protocol combinations', () => {

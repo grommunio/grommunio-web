@@ -342,11 +342,16 @@ foreach (['headers_only', 'hint_only', 'hint_encrypted'] as $case) {
 }
 // Drafts, other item types and users who switched the plugin off are never touched.
 $envelope = PgpMime::signed("Content-Type: text/plain\r\n\r\nExact signed body", 'signature', 'pgp-sha256');
-foreach (['draft', 'meeting', 'bad_sender', 'user_off', 'user_on'] as $case) {
+foreach (['draft', 'note', 'meeting', 'bad_sender', 'user_off', 'user_on'] as $case) {
 	$plugin = new Pluginpgp(); $message = fixture(false, false); $message->props[PR_MESSAGE_FLAGS] = $case === 'draft' ? MSGFLAG_UNSENT : 0;
-	if ($case === 'draft') { $message->props[PR_BODY] = "-----BEGIN PGP MESSAGE-----\r\nopaque\r\n-----END PGP MESSAGE-----"; }
+	if ($case === 'draft' || $case === 'note') {
+		$message->props[PR_BODY] = "-----BEGIN PGP MESSAGE-----\r\nopaque\r\n-----END PGP MESSAGE-----";
+		if ($case === 'note') { $message->props[PR_MESSAGE_CLASS] = 'IPM.StickyNote'; }
+	}
 	else {
+		// The patched converter keeps the transport headers on every class it imports.
 		$message->props[PR_MESSAGE_CLASS] = $case === 'meeting' ? 'IPM.Schedule.Meeting.Request' : 'IPM.Note.SMIME.MultipartSigned';
+		$message->props[PR_TRANSPORT_MESSAGE_HEADERS] = "Content-Type: multipart/signed; protocol=\"application/pgp-signature\"; boundary=\"b\"\r\n\r\n";
 		$item = attachment($envelope); $item->props[PR_ATTACH_MIME_TAG] = 'multipart/signed'; $message->attachments = [$item];
 	}
 	if ($case === 'bad_sender') { $message->props[PR_SENT_REPRESENTING_SMTP_ADDRESS] = 'not an address'; }

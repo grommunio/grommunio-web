@@ -183,6 +183,11 @@ async function main() {
 	const attachment = record.attachments.records[0], attachmentBytes = attachment.localContent.bytes;
 	equal(attachmentBytes, Uint8Array.from([0, 255, 128, 65, 13, 10]), 'Local decrypted attachment bytes exact');
 	equal(Object.keys(record.modified), [], 'Opening plaintext does not dirty persisted message properties');
+	const cidSource = BrowserCrypto.utf8('Content-Type: multipart/related; boundary=rel\r\n\r\n--rel\r\nContent-Type: text/html; charset=utf-8\r\n\r\n<p>Logo</p><img src="cid:logo@qa">\r\n--rel\r\nContent-Type: image/png\r\nContent-ID: <logo@qa>\r\nContent-Disposition: inline; filename="logo.png"\r\nContent-Transfer-Encoding: base64\r\n\r\nAA==\r\n--rel\r\nContent-Type: application/pdf\r\nContent-ID: <report@qa>\r\nContent-Disposition: inline; filename="report.pdf"\r\nContent-Transfer-Encoding: base64\r\n\r\nAA==\r\n--rel--\r\n');
+	const cidRecord = readRecord(Mime.encrypted(await crypto.encrypt(cidSource, [own.public_key])), true, false);
+	await transport.open(cidRecord);
+	const byCid = Object.fromEntries(cidRecord.attachments.records.map(item => [item.get('cid'), item]));
+	check(byCid['logo@qa'] && byCid['logo@qa'].get('hidden') === true && byCid['report@qa'] && byCid['report@qa'].get('hidden') === false, 'Only a body-referenced Content-ID makes a decrypted file inline');
 	crypto.lock();
 	check(!record.data.body && !record.data.html_body && record.data.pgp.locked && record.attachments.records.length === 0, 'Lock removes displayed plaintext and attachment rows');
 	check(attachment.localContent.blob === null && attachment.localContent.url === '' && attachmentBytes.every(byte => byte === 0), 'Lock destroys attachment object references and byte buffers');
@@ -284,6 +289,11 @@ async function testCore(context) {
 	equal(inline.call(message, '<img src="cid:picture"><img src="cid:missing">'), '<img src="data:image/png;base64,AA=="><img src="">', 'Core CID replacement uses only exact local attachments and suppresses missing CID');
 	attachStore.getRange = () => [attach, attach];
 	equal(inline.call(message, '<img src="cid:picture">'), '<img src="">', 'Ambiguous duplicate CID is not rendered');
+	const advisory = new Record({pgp: {advisory: true, unverifiable: true, mime: ''}, entryid: 'e1', store_entryid: 's1'});
+	advisory.getAttachmentStore = () => ({getRange() { throw new Error('Advisory records must use the server inline-image path'); }});
+	advisory.getMessageAction = () => undefined;
+	context.Zarafa.core.HTMLParser.inlineImgOutlookToZarafa = (body, store, entryid) => body.replace('cid:', 'server:' + store + ':' + entryid + ':');
+	equal(inline.call(advisory, '<img src="cid:picture">'), '<img src="server:s1:e1:picture">', 'Advisory OpenPGP records keep the server inline-image path');
 	equal(context.Zarafa.core.data.IPMAttachmentRecord.canBeImported.call(attach), false, 'Local decrypted attachment cannot trigger server-side import');
 	equal(context.Zarafa.core.data.IPMAttachmentRecord.isUploaded.call(attach), true, 'Usable browser attachment recognized without upload');
 	attach.localContent.blob = null;
