@@ -1046,14 +1046,15 @@ Zarafa.core.HTMLParser = (function() {
 
 			var urlToCid = function(match, srcStart, imgCid, srcEnd, offset, str) {
 				if(imgCid) {
-					// The cid was percent-encoded into the download url, so decode it
-					// again: cid:local%40domain matches no attachment.
+					// undo the encoding of inlineImgOutlookToZarafa, but never let the value end the attribute
 					var cid = imgCid;
-
 					try {
 						cid = decodeURIComponent(imgCid);
 					} catch (e) {
-						// not valid percent-encoding, keep it as it came in
+						cid = imgCid;
+					}
+					if (/[\s"'<>]/.test(cid)) {
+						cid = imgCid;
 					}
 
 					// return img src with just cid: tag
