@@ -4128,6 +4128,10 @@ class Operations {
 
 				try {
 					mapi_copyto($old, [], [], $new, 0);
+					if ($isInlineAttachment) {
+						// MIME import leaves inline attachments visible; hide the copy like our own
+						mapi_setprops($new, [PR_ATTACHMENT_HIDDEN => true]);
+					}
 					mapi_savechanges($new);
 				}
 				catch (MAPIException $e) {
@@ -4145,7 +4149,7 @@ class Operations {
 							PR_ATTACH_METHOD => $props[PR_ATTACH_METHOD] ?? ATTACH_BY_VALUE,
 							PR_ATTACH_FILENAME => $props[PR_ATTACH_FILENAME] ?? '',
 							PR_ATTACH_DATA_BIN => "",
-							PR_ATTACHMENT_HIDDEN => $props[PR_ATTACHMENT_HIDDEN] ?? false,
+							PR_ATTACHMENT_HIDDEN => $isInlineAttachment || ($props[PR_ATTACHMENT_HIDDEN] ?? false),
 							PR_ATTACH_EXTENSION => $props[PR_ATTACH_EXTENSION] ?? '',
 							PR_ATTACH_FLAGS => $props[PR_ATTACH_FLAGS] ?? 0,
 						]);
@@ -5456,6 +5460,12 @@ class Operations {
 				mapi_stream_write($stream, $body);
 				mapi_stream_commit($stream);
 				mapi_savechanges($message);
+			}
+		}
+		// keep every attachment the body still points at, however it is referenced
+		if (preg_match_all('/cid:([^"\'\s<>()]+)/i', (string) $body, $refs)) {
+			foreach ($refs[1] as $cid) {
+				$imageIDs[] = $cid;
 			}
 		}
 		$this->clearDeletedInlineAttachments($message, $imageIDs);
