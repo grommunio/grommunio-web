@@ -5416,8 +5416,7 @@ class Operations {
 
 					$uniqueId = uniqid();
 					$image->setAttribute('src', 'cid:' . $uniqueId);
-					// Never stored: TinyMCE serializes src *from* data-mce-src on any
-					// later edit, so an empty stored value drops the src.
+					// an empty stored data-mce-src makes TinyMCE drop the src on serialize
 					$image->removeAttribute('data-mce-src');
 
 					array_push($imageIDs, $uniqueId);
