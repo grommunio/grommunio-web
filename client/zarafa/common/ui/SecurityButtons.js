@@ -36,6 +36,16 @@ Zarafa.common.ui.SecurityButtons = {
 		var active = this.activeProvider(record);
 		return !!record && (!active || active.id === provider.id);
 	},
+	encryptionSelected: function(record)
+	{
+		return !!record && this.providers.some(function(provider) { return provider.isSelected(record, 'encrypt'); });
+	},
+	/** Autosave would store the plaintext of a message meant to be encrypted. */
+	suspendsAutoSave: function(record)
+	{
+		return this.encryptionSelected(record) &&
+			container.getSettingsModel().get('zarafa/v1/contexts/mail/autosave_encrypted_enable', false) !== true;
+	},
 	setAction: function(provider, dialog, action, enabled, button)
 	{
 		if (!dialog || !dialog.record || (enabled && !this.canSelect(provider, dialog.record))) { return; }
@@ -65,8 +75,9 @@ Zarafa.common.ui.SecurityButtons = {
 		var selected = active && active.isSelected(record, action);
 		if (button.setIconClass) { button.setIconClass('icon_security_' + action + (selected ? '_selected' : '')); }
 		if (button.setTooltip) {
-			button.setTooltip((action === 'sign' ? _('Digitally sign this message') : _('Encrypt this message')) +
-				(selected ? ' (' + active.label + ')' : ''));
+			var tooltip = (action === 'sign' ? _('Digitally sign this message') : _('Encrypt this message')) + (selected ? ' (' + active.label + ')' : '');
+			if (action === 'encrypt' && selected && this.suspendsAutoSave(record)) { tooltip += ' ' + _('Autosave is paused while encryption is selected.'); }
+			button.setTooltip(tooltip);
 		}
 	},
 	mainClick: function(button)

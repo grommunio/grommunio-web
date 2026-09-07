@@ -751,6 +751,15 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								'autosave_time': 60,
 
 								/**
+								 * zarafa/v1/contexts/mail/autosave_encrypted_enable
+								 * Keep autosaving while S/MIME or OpenPGP encryption is
+								 * selected, although autosaved drafts are stored unencrypted.
+								 * @property
+								 * @type Boolean
+								 */
+								'autosave_encrypted_enable': false,
+
+								/**
 								 * zarafa/v1/contexts/mail/readflag_time_enable
 								 * @property
 								 * @type Boolean

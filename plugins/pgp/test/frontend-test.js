@@ -236,6 +236,17 @@ test('key actions stay disabled until a suitable key is selected', () => {
 	for (const action of Object.values(actions)) { assert.equal(action.disabled, true); }
 });
 
+test('autosave pauses while a provider has encryption selected', () => {
+	const {context} = runtime();
+	const buttons = context.Zarafa.common.ui.SecurityButtons;
+	buttons.providers = [{id: 'x', label: 'X', isSelected: (mail, action) => action === 'encrypt' && mail.get('enc') === true}];
+	assert.equal(buttons.suspendsAutoSave(undefined), false);
+	assert.equal(buttons.suspendsAutoSave(record({enc: false})), false);
+	assert.equal(buttons.suspendsAutoSave(record({enc: true})), true);
+	context.container.getSettingsModel = () => ({get: key => key === 'zarafa/v1/contexts/mail/autosave_encrypted_enable'});
+	assert.equal(buttons.suspendsAutoSave(record({enc: true})), false);
+});
+
 test('protocol exclusion covers sign, encrypt and cross-protocol combinations', () => {
 	const {plugin, context} = runtime(), manager = context.Zarafa.common.ui.SecurityButtons;
 	const smime = new context.Zarafa.plugins.smime.SmimePlugin();
