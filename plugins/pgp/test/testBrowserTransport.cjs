@@ -31,6 +31,7 @@ class Record {
 	set(name, value, forced) { if (forced || this.data[name] !== value) { this.modified[name] = this.data[name]; } this.data[name] = value; }
 	deleteMessageAction(name) { delete this.actions[name]; }
 	addMessageAction(name, value) { this.actions[name] = value; }
+	applyData(source) { Object.assign(this.data, source.data); }
 	getStore() { return this.store; }
 	getAttachmentStore() { return this.attachments; }
 	clearSanitizedHtmlBody() { this.sanitizedCleared = true; }
@@ -42,8 +43,10 @@ function dialogFor(record, modal = false) {
 		forceSendAsIdentityTransmission() { this.identityForced = true; },
 		lockPendingAction() { this.locks++; },
 		saveRecord() {
-			check(!record.actions.send && !record.actions.pgp && this.isSending === false, 'Snapshot is a draft save without send/protected actions');
 			const saved = this.modalRecord || record;
+			// Like RecordContentPanel.saveRecord: nothing happens for an unmodified record.
+			if (!saved.phantom && saved.store.modified.indexOf(saved) < 0) { return undefined; }
+			check(!record.actions.send && !record.actions.pgp && this.isSending === false, 'Snapshot is a draft save without send/protected actions');
 			setTimeout(() => {
 				record.data.entryid = 'aa';
 				record.modified = {};
@@ -55,7 +58,7 @@ function dialogFor(record, modal = false) {
 			}, 0);
 			return true;
 		}});
-	if (modal) { dialog.modalRecord = new Record({...record.data}); }
+	if (modal) { dialog.modalRecord = new Record({...record.data}); dialog.modalRecord.store.modified.push(dialog.modalRecord); }
 	return dialog;
 }
 
@@ -86,7 +89,7 @@ async function main() {
 		_: value => value, PostalMime, fflate,
 		URL: {createObjectURL: () => { const url = 'blob:qa-' + urls.length; urls.push(url); return url; }, revokeObjectURL: url => revokedUrls.push(url)},
 		DOMPurify: {sanitize: html => html.replace(/<script[\s\S]*?<\/script>/gi, '')},
-		Ext: {namespace() {}, apply: (target, source) => Object.assign(target, source), data: {Record: {COMMIT: 'commit'}}},
+		Ext: {namespace() {}, apply: (target, source) => Object.assign(target, source), isFunction: value => typeof value === 'function', data: {Record: {COMMIT: 'commit'}}},
 		container: {getUser: () => ({getSMTPAddress: () => 'qa@example.test'})},
 		Zarafa: {plugins: {pgp: {PgpUtils: utils, crypto: {BrowserCrypto, PgpMime: Mime}, dialogs: {PgpDialogs: {
 			chooseKeyAsync: async keys => { if (!keys.length) { throw new Error('No key'); } return keys[0]; },
@@ -102,7 +105,19 @@ async function main() {
 			pgp_sign: sign, pgp_encrypt: encrypt, sent_representing_smtp_address: 'qa@example.test'});
 		prepared = {token: 'a'.repeat(48), sign, encrypt, sender: 'qa@example.test', key: own, mime: BrowserCrypto.toBase64(source),
 			recipients: [own, peer].map(key => ({email: key.metadata.uids[0].email, fingerprint: key.fingerprint, public_key: key.public_key}))};
+		record.store.modified.push(record);
 		return {record, dialog: dialogFor(record, modal)};
+	}
+	{
+		// Autosaved, reopened or retried drafts have no pending modifications.
+		const {record, dialog} = setup(true, false);
+		record.store.modified.length = 0;
+		record.data.entryid = 'aa';
+		let saveCalls = 0;
+		dialog.saveRecord = () => { saveCalls++; return undefined; };
+		await transport._protect(dialog, record);
+		check(saveCalls === 0 && record.actions.pgp && dialog.isSending && dialog.locks === 1 && dialog.closeOnSave, 'Committed draft skips the snapshot save and still prepares the stored copy');
+		equal(record.store.listeners(), 0, 'Committed-draft path leaves no store listeners');
 	}
 	for (const modal of [false, true]) {
 		const {record, dialog} = setup(true, false, modal);

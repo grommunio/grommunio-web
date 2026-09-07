@@ -94,6 +94,10 @@ Zarafa.plugins.pgp.PgpTransport = (function() {
 				record.deleteMessageAction('send');
 				forceIntent(record);
 				dialog.forceSendAsIdentityTransmission();
+				if (saved !== record && Ext.isFunction(saved.applyData)) { saved.applyData(record); }
+				// saveRecord() issues no request for an unmodified draft; prepare()
+				// then reads the stored copy, which already equals this record.
+				if (!saved.phantom && store.modified.indexOf(saved) === -1) { finish(); return; }
 				dialog.closeOnSave = false;
 				dialog.isSending = false;
 				if (dialog.saveRecord() === false) { finish(error(_('The draft could not be saved. Nothing was sent.'))); }
