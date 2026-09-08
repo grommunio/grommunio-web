@@ -163,7 +163,8 @@
 			var first = split(parts[0]), firstHeaders = headers(first[0]), firstType = contentType(firstHeaders['content-type'] || '').type;
 			var version = decode(first[1], firstHeaders['content-transfer-encoding'] || '7bit');
 			if (firstType !== 'application/pgp-encrypted' || !/^Version:\s*1\s*$/i.test(version.trim()) || secondType !== 'application/octet-stream') { invalid('Invalid OpenPGP encrypted MIME parts.'); }
-			return {type: type, kind: type, ciphertext: decoded.startsWith('-----BEGIN PGP MESSAGE-----') ? decoded : Crypto.fromBinaryString(decoded)};
+			var armored = decoded.replace(/^\s+/, '');
+			return {type: type, kind: type, ciphertext: armored.startsWith('-----BEGIN PGP MESSAGE-----') ? armored : Crypto.fromBinaryString(decoded)};
 		},
 		unwrap: function(input) { return PgpMime.parse(input); }
 	};

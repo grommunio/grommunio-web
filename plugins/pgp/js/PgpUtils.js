@@ -144,12 +144,18 @@ Zarafa.plugins.pgp.PgpUtils = {
 				parts.push(_('Valid signature from a verified sender'));
 				severity = 'good';
 			}
+			if (info.signer_expired) {
+				parts.push(_('The signing key has since expired'));
+				if (severity === 'good') { severity = 'warning'; }
+			}
 		} else if (info.decrypted) {
 			parts.push(_('Message is not signed'));
 		}
 		if (info.inline) {
 			parts.push(_('Inline OpenPGP protects the body only; attachments are not covered'));
 		}
+		if (info.trailer) { parts.push(_('Unprotected text after the OpenPGP block is not shown')); }
+		if (info.bundle_error) { parts.push(_('Your public keys could not be loaded, so signatures could not be checked')); }
 		if (info.error && info.message) { parts.push(String(info.message)); }
 		if (severity !== 'bad' && (info.error || (info.encrypted && !info.decrypted && !info.locked))) {
 			severity = 'warning';

@@ -32,6 +32,7 @@ function runtime() {
 			return target;
 		},
 		each(values, callback, scope) { values.forEach((value, index) => callback.call(scope, value, index)); },
+		urlAppend(url, query) { return url + (url.indexOf('?') === -1 ? '?' : '&') + query; },
 		util: {Format: {htmlEncode(value) {
 			return String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 		}}},
@@ -96,6 +97,9 @@ test('decryption and valid cryptography do not falsely authenticate the sender',
 	assert.equal(utils.status({signed: true, signature_valid: true, sender_match: true, signer_trusted: true}).severity, 'good');
 	assert.match(utils.status({signed: true, signature_valid: true, sender_match: true, signer_trusted: true, inline: true}).text, /body only; attachments are not covered/);
 	assert.equal(utils.status({unverifiable: true, signed: true}).severity, 'warning');
+	assert.equal(utils.status({signed: true, signature_valid: true, sender_match: true, signer_trusted: true, signer_expired: true}).severity, 'warning');
+	assert.match(utils.status({signed: true, signature_valid: true, trailer: true}).text, /not shown/);
+	assert.match(utils.status({encrypted: true, decrypted: true, bundle_error: true}).text, /could not be loaded/);
 	assert.match(utils.status({unverifiable: true, encrypted: true}).text, /decrypt it with an OpenPGP tool/);
 });
 
@@ -278,6 +282,21 @@ test('autosave skips its tick while encryption is selected, re-arms, and says so
 	context.container.getSettingsModel = () => ({get: key => key === 'zarafa/v1/contexts/mail/autosave_encrypted_enable' ? true : 60});
 	plugin.messageAutoSave();
 	assert.equal(saves, 2);
+});
+
+test('protocol menu resolves its button when toolbar overflow hides the owner', () => {
+	const {context} = runtime();
+	const buttons = context.Zarafa.common.ui.SecurityButtons;
+	buttons.providers = [{id: 'x', label: 'X', priority: 1, isSelected: () => false, getOptions: () => []}];
+	const mail = record();
+	const [signButton] = buttons.createButtons();
+	const fake = {menu: {}, securityAction: 'sign', ownerCt: {dialog: {record: mail}}, setDisabled() {}, setIconClass() {}, setTooltip() {}};
+	signButton.listeners.afterrender(fake);
+	assert.equal(fake.menu.securityButton, fake);
+	const added = [];
+	signButton.menu.listeners.beforeshow({securityButton: fake, ownerCt: undefined, removeAll() {}, add: item => added.push(item)});
+	assert.equal(added.length, 1);
+	assert.equal(added[0].disabled, false);
 });
 
 test('protocol exclusion covers sign, encrypt and cross-protocol combinations', () => {
@@ -562,6 +581,7 @@ test('decrypted response attachment selection keeps inline replies and full forw
 test('decrypted attachment uploads preserve bytes and CID without a source message reference', async () => {
 	const {context} = runtime(), listeners = {}, bytes = new Uint8Array([0, 255, 128, 10]), uploaded = record();
 	uploaded.setInline = value => { uploaded.inline = value; };
+	uploaded.getInlineImageUrl = () => 'http://x/dl?tmpname=up';
 	const win = {File: class { constructor(parts, name, options) { this.parts = parts; this.name = name; this.type = options.type; } },
 		DataTransfer: class { constructor() { this.files = []; this.items = {add: file => this.files.push(file)}; } }, setTimeout, clearTimeout};
 	context.Zarafa.core.BrowserWindowMgr = {getActive: () => win};
@@ -581,7 +601,7 @@ test('decrypted attachment uploads preserve bytes and CID without a source messa
 	await model.uploadLocalResponseAttachment(response, source, true);
 	assert.equal(uploaded.get('cid'), 'image@example.test');
 	assert.equal(uploaded.inline, true);
-	assert.equal(response.get('html_body'), '<img src="cid:image@example.test">');
+	assert.equal(response.get('html_body'), '<img src="http://x/dl?tmpname=up&amp;attachCid=image%40example.test">');
 	assert.equal(Object.keys(listeners).length, 0);
 });
 

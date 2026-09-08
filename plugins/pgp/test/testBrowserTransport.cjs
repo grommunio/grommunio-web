@@ -9,6 +9,7 @@ const BrowserCrypto = require('../js/crypto/BrowserCrypto.js');
 const Mime = require('../js/crypto/PgpMime.js');
 const PostalMime = require('postal-mime');
 const fflate = require('fflate');
+const pgp = require('openpgp');
 if (!globalThis.crypto) { globalThis.crypto = webcrypto; }
 let assertions = 0;
 function check(value, message) { assert.ok(value, message); assertions++; }
@@ -68,7 +69,7 @@ async function main() {
 	const peer = await crypto.generate({name: 'Browser Transport Peer', email: 'peer@example.test', passphrase: password, algorithm: 'curve25519'});
 	const source = BrowserCrypto.utf8('Content-Type: multipart/mixed; boundary=inner\r\n\r\n--inner\r\nContent-Type: text/plain; charset=utf-8\r\n\r\nTransport body 日本語\r\n--inner\r\nContent-Type: application/octet-stream\r\nContent-Disposition: attachment; filename="binary.bin"\r\nContent-Transfer-Encoding: base64\r\n\r\nAP+AQQ0K\r\n--inner--\r\n');
 	let prepared, apiOverride, unlockCount = 0, blockCount = 0;
-	const calls = [], notifications = [], revokedUrls = [], urls = [];
+	const calls = [], notifications = [], revokedUrls = [], urls = [], purifiers = [];
 	const utils = {
 		crypto: () => crypto,
 		isSmime: record => /SMIME/.test(record.get('message_class') || ''),
@@ -88,10 +89,16 @@ async function main() {
 		Uint8Array, ArrayBuffer, WeakMap, Map, Promise, Set, Blob, setTimeout, clearTimeout, console,
 		_: value => value, PostalMime, fflate,
 		URL: {createObjectURL: () => { const url = 'blob:qa-' + urls.length; urls.push(url); return url; }, revokeObjectURL: url => revokedUrls.push(url)},
-		DOMPurify: {sanitize: html => html.replace(/<script[\s\S]*?<\/script>/gi, '')},
-		Ext: {namespace() {}, apply: (target, source) => Object.assign(target, source), isFunction: value => typeof value === 'function', data: {Record: {COMMIT: 'commit'}}},
+		DOMPurify: Object.assign(function() {
+			const instance = {config: null, calls: 0, setConfig(config) { instance.config = config; }, sanitize(html) { instance.calls++; return html.replace(/<script[\s\S]*?<\/script>/gi, ''); }};
+			purifiers.push(instance);
+			return instance;
+		}, {sanitize: html => html.replace(/<script[\s\S]*?<\/script>/gi, '')}),
+		window: {},
+		Ext: {namespace() {}, apply: Object.assign, isFunction: value => typeof value === 'function', data: {Record: {COMMIT: 'commit'}},
+			urlAppend: (url, query) => url + (url.indexOf('?') === -1 ? '?' : '&') + query},
 		container: {getUser: () => ({getSMTPAddress: () => 'qa@example.test'})},
-		Zarafa: {plugins: {pgp: {PgpUtils: utils, crypto: {BrowserCrypto, PgpMime: Mime}, dialogs: {PgpDialogs: {
+		Zarafa: {sanitizerConfig: {FORBID_TAGS: ['iframe', 'meta'], ADD_TAGS: ['svg', 'use', 'symbol'], ALLOW_DATA_ATTR: true}, plugins: {pgp: {PgpUtils: utils, crypto: {BrowserCrypto, PgpMime: Mime}, dialogs: {PgpDialogs: {
 			chooseKeyAsync: async keys => { if (!keys.length) { throw new Error('No key'); } return keys[0]; },
 			unlockAsync: async () => { unlockCount++; await crypto.unlock(own.encrypted_private_key, password, undefined, own.public_key); }
 		}}}}, core: {HTMLParser: {blockExternalContent: html => { blockCount++; return html; }},
@@ -190,12 +197,27 @@ async function main() {
 	check(record.attachments.localOnly && record.attachments.records.length === 1, 'Decrypted attachments are local-only records');
 	const attachment = record.attachments.records[0], attachmentBytes = attachment.localContent.bytes;
 	equal(attachmentBytes, Uint8Array.from([0, 255, 128, 65, 13, 10]), 'Local decrypted attachment bytes exact');
+	check(attachment.localContent.blob.type === 'application/octet-stream' && attachment.get('filetype') === 'application/octet-stream', 'Decrypted attachment blobs are opaque binary while the record keeps the MIME type');
 	equal(Object.keys(record.modified), [], 'Opening plaintext does not dirty persisted message properties');
 	const cidSource = BrowserCrypto.utf8('Content-Type: multipart/related; boundary=rel\r\n\r\n--rel\r\nContent-Type: text/html; charset=utf-8\r\n\r\n<p>Logo</p><img src="cid:logo@qa">\r\n--rel\r\nContent-Type: image/png\r\nContent-ID: <logo@qa>\r\nContent-Disposition: inline; filename="logo.png"\r\nContent-Transfer-Encoding: base64\r\n\r\nAA==\r\n--rel\r\nContent-Type: application/pdf\r\nContent-ID: <report@qa>\r\nContent-Disposition: inline; filename="report.pdf"\r\nContent-Transfer-Encoding: base64\r\n\r\nAA==\r\n--rel--\r\n');
 	const cidRecord = readRecord(Mime.encrypted(await crypto.encrypt(cidSource, [own.public_key])), true, false);
 	await transport.open(cidRecord);
 	const byCid = Object.fromEntries(cidRecord.attachments.records.map(item => [item.get('cid'), item]));
 	check(byCid['logo@qa'] && byCid['logo@qa'].get('hidden') === true && byCid['report@qa'] && byCid['report@qa'].get('hidden') === false, 'Only a body-referenced Content-ID makes a decrypted file inline');
+	check(purifiers.length === 1 && purifiers[0].calls > 0 && purifiers[0].config.FORBID_TAGS.includes('form') && purifiers[0].config.FORBID_TAGS.includes('iframe') && purifiers[0].config.ADD_TAGS.length === 0 && purifiers[0].config.FORBID_ATTR.includes('srcset'), 'Decrypted HTML uses a dedicated sanitizer built on the application policy without SVG or forms');
+	check(cidRecord.data.html_body.includes('<img src="cid:logo@qa">'), 'Remote-content blocking is left to the renderer so pictures can be shown on request');
+	const publicFetches = () => calls.filter(call => call.operation === 'public').length;
+	check(publicFetches() === 1, 'Verification bundle is fetched once per keyring state');
+	transport.keysChanged();
+	await transport.open(readRecord(encrypted, true, false));
+	check(publicFetches() === 2, 'Key changes refresh the verification bundle');
+	const ownPrivate = await pgp.decryptKey({privateKey: await pgp.readPrivateKey({armoredKey: own.encrypted_private_key}), passphrase: password});
+	const cleartext = await pgp.sign({message: await pgp.createCleartextMessage({text: 'Inline body text'}), signingKeys: ownPrivate});
+	const inlineRecord = new Record({body: '', html_body: '', pgp: {mime: BrowserCrypto.toBase64(BrowserCrypto.utf8(cleartext + '\r\n-- \r\nSent from my mailer\r\n')),
+		format: 'inline', inline: true, pending: true, encrypted: false, signed: true, sender: 'qa@example.test', decrypted: false, locked: false}});
+	await transport.open(inlineRecord);
+	check(inlineRecord.data.body.includes('Inline body text') && !inlineRecord.data.body.includes('Sent from my mailer') && inlineRecord.data.pgp.trailer === true && inlineRecord.data.pgp.signature_valid === true,
+		'Inline OpenPGP keeps the verified text and flags an unprotected trailer instead of failing');
 	crypto.lock();
 	check(!record.data.body && !record.data.html_body && record.data.pgp.locked && record.attachments.records.length === 0, 'Lock removes displayed plaintext and attachment rows');
 	check(attachment.localContent.blob === null && attachment.localContent.url === '' && attachmentBytes.every(byte => byte === 0), 'Lock destroys attachment object references and byte buffers');
@@ -205,12 +227,14 @@ async function main() {
 	check(!locked.data.body && locked.data.pgp.pending, 'Locked ciphertext is never rendered');
 	await crypto.unlock(own.encrypted_private_key, password, undefined, own.public_key);
 	let release;
+	transport.keysChanged();
 	apiOverride = operation => operation === 'public' ? new Promise(resolve => { release = () => resolve({keys: [{...own.metadata, public_key: own.public_key}]}); }) : undefined;
 	const pendingRecord = readRecord(encrypted, true, false), pending = transport.open(pendingRecord);
 	crypto.lock(); release();
 	await rejects(() => pending, 'Lock during pending open cancels plaintext release');
 	check(!pendingRecord.data.body && pendingRecord.data.pgp.error, 'Cancelled open contains no decrypted preview');
 	apiOverride = undefined;
+	transport.keysChanged();
 	const wrongSignature = Mime.signed(BrowserCrypto.utf8('Content-Type: text/plain\r\n\r\nModified data'), signature.signature, signature.micalg);
 	const invalid = readRecord(wrongSignature, false, true);
 	await transport.open(invalid);
@@ -227,16 +251,19 @@ async function main() {
 	const newerSource = BrowserCrypto.utf8('Content-Type: text/plain\r\n\r\nNewest message revision');
 	const newerSignature = await crypto.sign(newerSource, own.fingerprint);
 	const newerEnvelope = Mime.signed(newerSource, newerSignature.signature, newerSignature.micalg);
-	const releases = [];
-	apiOverride = operation => operation === 'public' ? new Promise(resolve => releases.push(() => resolve({keys: [{...own.metadata, public_key: own.public_key}]}))) : undefined;
+	// Both opens share one held verification-bundle fetch; only the newer revision may land.
+	let releaseBundle;
+	transport.keysChanged();
+	apiOverride = operation => operation === 'public' ? new Promise(resolve => { releaseBundle = () => resolve({keys: [{...own.metadata, public_key: own.public_key}]}); }) : undefined;
 	const revisionRecord = readRecord(signed, false, true), oldOpen = transport.open(revisionRecord);
 	revisionRecord.data.pgp = readRecord(newerEnvelope, false, true).data.pgp;
 	const newOpen = transport.open(revisionRecord);
-	releases[1](); await newOpen;
-	check(revisionRecord.data.body.includes('Newest message revision'), 'Newer message revision is decoded');
-	releases[0](); await Promise.allSettled([oldOpen]);
-	check(revisionRecord.data.body.includes('Newest message revision'), 'Stale open completion cannot overwrite or clear newer plaintext');
+	releaseBundle();
+	const outcomes = await Promise.allSettled([oldOpen, newOpen]);
+	check(outcomes[1].status === 'fulfilled' && revisionRecord.data.body.includes('Newest message revision'), 'Newer message revision is decoded');
+	check(outcomes[0].status === 'rejected' && revisionRecord.data.body.includes('Newest message revision'), 'Stale open completion cannot overwrite or clear newer plaintext');
 	apiOverride = undefined;
+	transport.keysChanged();
 	const badCipher = readRecord(Mime.encrypted('-----BEGIN PGP MESSAGE-----\n\nbad\n-----END PGP MESSAGE-----'), true, false);
 	await rejects(() => transport.open(badCipher), 'Invalid ciphertext fails closed');
 	check(!badCipher.data.body && !badCipher.attachments.records.length && badCipher.data.pgp.error, 'Failed decryption clears message content');
@@ -317,6 +344,7 @@ async function testCore(context) {
 	const uploadRecord = new Record({attach_num: -1, tmpname: 'response-cache'});
 	uploadRecord.setInline = context.Zarafa.core.data.IPMAttachmentRecord.setInline;
 	uploadRecord.isInline = context.Zarafa.core.data.IPMAttachmentRecord.isInline;
+	uploadRecord.getInlineImageUrl = () => 'http://x/dl?tmpname=response-cache';
 	let uploadedFile;
 	uploadEvents.canUploadFiles = () => true;
 	uploadEvents.uploadFiles = files => {
@@ -330,7 +358,7 @@ async function testCore(context) {
 	const uploadResponse = context.Zarafa.mail.MailContextModel.uploadLocalResponseAttachment;
 	equal(await uploadResponse.call({}, responseRecord, sourceAttachment, true), uploadRecord, 'Reply/forward local upload correlates the exact completed record');
 	check(uploadRecord.isInline() && uploadRecord.get('cid') === 'response-cid' && uploadRecord.get('hidden'), 'Reply/forward helper restores inline state and CID after upload');
-	equal(responseRecord.get('html_body'), '<img src="cid:response-cid"><img src="cid:response-cid">', 'Reply/forward HTML replaces only local attachment URLs with original CID');
+	equal(responseRecord.get('html_body'), '<img src="http://x/dl?tmpname=response-cache&amp;attachCid=response-cid"><img src="http://x/dl?tmpname=response-cache&amp;attachCid=response-cid">', 'Reply/forward HTML points quoted images at the uploaded copy with the CID the save path restores');
 	check(uploadedFile.name === 'inline.png' && uploadedFile.parts[0] === sourceAttachment.localContent.blob, 'Reply/forward upload uses local attachment bytes rather than server source IDs');
 	equal(uploadEvents.listeners(), 0, 'Local upload listeners removed after successful completion');
 	sourceAttachment.localContent.blob = null;

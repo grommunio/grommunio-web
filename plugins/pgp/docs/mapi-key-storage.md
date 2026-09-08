@@ -42,7 +42,7 @@ The browser parses and cryptographically validates OpenPGP keys using OpenPGP.js
 
 Stored expiration, capability, revocation, and user-ID display fields are advisory, not server-certified identity assertions. Before signing, encryption, verification, or trusting an address, the browser must recompute the relevant cryptographic facts from the actual key material. A matching fingerprint string or a database boolean does not replace certification/revocation checks.
 
-`listKeys()` returns metadata, private-key presence, trust bindings, and revisions without key armor. `publicKeys()` returns public armor with that metadata, never private armor; it explicitly rejects more than 100 keys rather than truncating the browser verification bundle. `key(fingerprint)` returns the public armor and, when present, its encrypted private armor. `importKey()` accepts:
+`listKeys()` returns metadata, private-key presence, trust bindings, and revisions without key armor. `publicKeys()` returns public armor with that metadata, never private armor; it refuses a keyring above the 200-record bound rather than truncating the browser verification bundle, and the browser fetches that bundle once per keyring state. `key(fingerprint)` returns the public armor and, when present, its encrypted private armor. `importKey()` accepts:
 
 ```text
 {fingerprint, public_key, encrypted_private_key?, metadata, revision?}

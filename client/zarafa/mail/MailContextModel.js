@@ -722,9 +722,11 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 					uploaded.set('cid', cid);
 					uploaded.set('hidden', true);
 					uploaded.setInline(true);
+					// The editor loads the uploaded copy; saving converts attachCid URLs back to cid:.
+					var target = Ext.urlAppend(uploaded.getInlineImageUrl(), 'attachCid=' + encodeURIComponent(cid));
 					var html = record.get('html_body') || '';
 					Ext.each([local.inlineUrl, local.url], function(url) {
-						if (url) { html = html.split(url).join('cid:' + Ext.util.Format.htmlEncode(cid)); }
+						if (url) { html = html.split(url).join(Ext.util.Format.htmlEncode(target)); }
 					});
 					record.set('html_body', html);
 				}

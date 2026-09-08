@@ -90,6 +90,16 @@ async function main() {
 	await service.unlock(rsa.private_key, password);
 	await service.unlock(curve.private_key, password2);
 	equal(service.unlocked().length, 2, 'Independent private keys unlocked only in memory');
+	const expiredPrivate = await pgp.decryptKey({privateKey: await pgp.readPrivateKey({armoredKey: expired.privateKey}), passphrase: password});
+	const backThen = new Date(Date.now() - 86400000 + 10000);
+	const oldSignature = await pgp.sign({message: await pgp.createMessage({binary: BrowserCrypto.utf8('signed back then')}), signingKeys: expiredPrivate, detached: true, format: 'armored', date: backThen});
+	const late = await service.verify(BrowserCrypto.utf8('signed back then'), oldSignature, [expired.publicKey]);
+	check(late.valid && late.signatures[0].expired && late.signatures[0].status === 'expired', 'A good signature by a key that expired later stays valid and is marked expired');
+	check(!(await service.verify(BrowserCrypto.utf8('tampered'), oldSignature, [expired.publicKey])).valid, 'Re-verification at signing time still rejects tampered data');
+	const rsaPrivate = await pgp.decryptKey({privateKey: await pgp.readPrivateKey({armoredKey: rsa.private_key}), passphrase: password});
+	const grown = await rsaPrivate.addSubkey({type: 'ecc', curve: 'curve25519Legacy'});
+	await service.unlock(rsa.private_key, password, undefined, grown.toPublic().armor());
+	check(service.unlocked().some(entry => entry.fingerprint === rsa.fingerprint), 'Unlock survives a refreshed certificate carrying a subkey the stored key lacks');
 	equal(Object.keys(service), [], 'No secret state on serializable instance');
 	equal(JSON.stringify(service), '{}', 'Private key and password are not serializable');
 	const data = Uint8Array.from([0, 255, 128, 65, 13, 10, 9, 32, 13, 66, 10, 0]);
@@ -247,6 +257,8 @@ async function testMime(service, key) {
 	const incoming = BrowserCrypto.fromBinaryString('From: sender@example.test\r\nContent-Type: application/octet-stream\r\nContent-Transfer-Encoding: binary\r\n\r\n\x00\xff\rraw\nline  \t');
 	equal(BrowserCrypto.binaryString(Mime.entity(incoming, false)).split('\r\n\r\n')[1], '\x00\xff\rraw\nline  \t', 'Incoming binary MIME body never canonicalized');
 	equal(BrowserCrypto.binaryString(Mime.entity(BrowserCrypto.utf8('Subject: x\n\nbody  \n'))), 'Content-Type: text/plain; charset=utf-8\r\n\r\nbody\r\n', 'Outgoing CRLF/trailing whitespace canonicalization');
+	const padded = BrowserCrypto.binaryString(Mime.encrypted('-----BEGIN PGP MESSAGE-----\r\n\r\nabc\r\n-----END PGP MESSAGE-----')).replace('\r\n\r\n-----BEGIN', '\r\n\r\n\r\n-----BEGIN');
+	check(typeof Mime.parse(BrowserCrypto.fromBinaryString(padded)).ciphertext === 'string', 'Armored ciphertext after a blank line is still recognized as armor');
 	const parameters = Mime.parseContentType('multipart/signed; boundary="has;semi\\\"quote"; protocol="application/pgp-signature"');
 	equal(parameters.params.boundary, 'has;semi"quote', 'Escaped quoted MIME parameters parsed');
 	throws(() => Mime.parseContentType('multipart/signed; boundary=a; BOUNDARY=b'), 'Duplicate MIME boundary rejected');

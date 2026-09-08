@@ -135,13 +135,17 @@ Zarafa.common.ui.SecurityButtons = {
 				handler: function(button) { manager.mainClick(button); },
 				listeners: {
 					added: function(button) { button.update = function(record) { manager.updateButton(button, record); }; },
-					afterrender: function(button) { manager.attach(button); },
+					afterrender: function(button) {
+						// Toolbar overflow moves the menu into a clone; keep the real button reachable.
+						if (button.menu) { button.menu.securityButton = button; }
+						manager.attach(button);
+					},
 					beforeshow: function(button) { manager.attach(button); }
 				},
 				menu: {
 					cls: 'message-security-menu',
 					items: [],
-					listeners: {beforeshow: function(menu) { manager.populateMenu(menu, menu.ownerCt); }}
+					listeners: {beforeshow: function(menu) { manager.populateMenu(menu, menu.securityButton || menu.ownerCt); }}
 				}
 			};
 			return config;

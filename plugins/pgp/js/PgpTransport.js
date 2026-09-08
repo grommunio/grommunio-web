@@ -11,6 +11,27 @@ Zarafa.plugins.pgp.PgpTransport = (function() {
 	'use strict';
 	var states = new WeakMap(), displayed = new Map(), subscribed, epoch = 0, certificateEpoch = 0;
 	var LIMIT = 50 * 1024 * 1024;
+	var purifier = null, publicBundle = null;
+	/** Decrypted HTML gets a stricter policy than ordinary mail, on an instance of its own. */
+	function sanitize(html) {
+		var strict = {FORBID_TAGS: ['style', 'form', 'input', 'button', 'svg', 'use', 'symbol', 'math'], FORBID_ATTR: ['srcset', 'background']};
+		if (!purifier) {
+			purifier = typeof DOMPurify === 'function' && typeof window !== 'undefined' ? DOMPurify(window) : DOMPurify;
+			if (purifier !== DOMPurify && purifier.setConfig) {
+				var base = (typeof Zarafa !== 'undefined' && Zarafa.sanitizerConfig) || {};
+				purifier.setConfig(Ext.apply({}, base, {FORBID_TAGS: (base.FORBID_TAGS || []).concat(strict.FORBID_TAGS), FORBID_ATTR: strict.FORBID_ATTR, ADD_TAGS: []}));
+			}
+		}
+		return purifier === DOMPurify ? DOMPurify.sanitize(html, strict) : purifier.sanitize(html);
+	}
+	/** One verification bundle per keyring state; a failed load never blocks decryption. */
+	function publicKeysBundle() {
+		if (!publicBundle) {
+			publicBundle = utils().api('public', {}).then(function(response) { return response.keys || []; });
+			publicBundle.catch(function() { publicBundle = null; });
+		}
+		return publicBundle;
+	}
 	function utils() { return Zarafa.plugins.pgp.PgpUtils; }
 	function crypto() {
 		var service = utils().crypto();
@@ -240,7 +261,8 @@ Zarafa.plugins.pgp.PgpTransport = (function() {
 		var content = item.content instanceof Uint8Array ? item.content : new Uint8Array(item.content);
 		var type = String(item.mimeType || 'application/octet-stream').toLowerCase();
 		var name = safeName(item.filename), cid = String(item.contentId || '').replace(/^<|>$/g, '');
-		var blob = new Blob([content], {type: type});
+		// A same-origin blob: URL must never be a navigable document of the sender's choosing.
+		var blob = new Blob([content], {type: 'application/octet-stream'});
 		var url = URL.createObjectURL(blob);
 		state.urls.push(url);
 		var attachment = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.mapi.ObjectType.MAPI_ATTACH, {
@@ -266,12 +288,20 @@ Zarafa.plugins.pgp.PgpTransport = (function() {
 	}
 	async function decode(record, state) {
 		var service = crypto(), startEpoch = epoch, startCertificateEpoch = certificateEpoch, info = Ext.apply({}, state.info);
-		var keyResponse = await utils().api('public', {}), keys = keyResponse.keys || [];
+		var keys = [];
+		try { keys = await publicKeysBundle(); }
+		catch (failure) { info.bundle_error = true; }
 		var publicArmors = keys.map(function(key) { return key.public_key; });
 		var data = bytes().fromBase64(info.mime), signatures = [], result, inline = info.format === 'inline';
 		if (data.length > LIMIT) { throw error(_('This message is too large for browser OpenPGP processing.')); }
 		if (inline) {
-			var armored = bytes().decodeUtf8(data);
+			var armored = bytes().decodeUtf8(data), marker = info.encrypted ? '-----END PGP MESSAGE-----' : '-----END PGP SIGNATURE-----';
+			var end = armored.indexOf(marker);
+			if (end !== -1) {
+				// Mailer footers after the block are unprotected and stay hidden.
+				info.trailer = armored.slice(end + marker.length).trim() !== '';
+				armored = armored.slice(0, end + marker.length);
+			}
 			if (info.encrypted) { result = await service.decrypt(armored, publicArmors); info.decrypted = true; }
 			else { result = await service.verifyCleartext(armored, publicArmors); }
 			data = result.data;
@@ -299,6 +329,7 @@ Zarafa.plugins.pgp.PgpTransport = (function() {
 		}
 		info.signed = info.signed || signatures.length > 0;
 		info.signature_valid = signatures.length > 0 && signatures.every(function(signature) { return signature.valid === true; });
+		info.signer_expired = signatures.some(function(signature) { return signature.valid === true && signature.expired === true; });
 		info.sender_match = info.signature_valid && signatures.every(function(signature) { return matches(signature, info.sender); });
 		info.signer_trusted = info.sender_match && signatures.every(function(signature) {
 			return keys.some(function(key) {
@@ -320,9 +351,9 @@ Zarafa.plugins.pgp.PgpTransport = (function() {
 		(parsed.attachments || []).forEach(function(item) { total += item.content.byteLength; });
 		if (total > LIMIT) { throw error(_('The decoded attachments are too large.')); }
 		// Sanitization is mandatory for OpenPGP regardless of the global mail
-		// setting. Existing remote-content blocking adds a second layer below.
-		var html = parsed.html ? DOMPurify.sanitize(parsed.html, {FORBID_TAGS: ['style', 'form', 'input', 'button', 'svg', 'math'], FORBID_ATTR: ['srcset', 'background']}) : '';
-		html = html ? Zarafa.core.HTMLParser.blockExternalContent(html) : '';
+		// setting. Remote pictures are blocked when rendered, like ordinary mail,
+		// so the usual per-message download choice stays available.
+		var html = parsed.html ? sanitize(parsed.html) : '';
 		revoke(state);
 		state.attachments = (parsed.attachments || []).map(function(item) { return localAttachment(item, state, html); });
 		record.data.body = parsed.text || '';
@@ -343,6 +374,7 @@ Zarafa.plugins.pgp.PgpTransport = (function() {
 		/** Recheck cached security badges after a certificate or fingerprint pin changes. */
 		keysChanged: function() {
 			certificateEpoch++;
+			publicBundle = null;
 			displayed.forEach(function(state, record) {
 				if (record.isUnsent && record.isUnsent()) { return; }
 				var info = record.get('pgp');
