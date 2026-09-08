@@ -4072,17 +4072,6 @@ class Operations {
 
 			$plainText = $this->isPlainText($message);
 
-			$properties = $GLOBALS['properties']->getMailProperties();
-			$blockStatus = mapi_getprops($copyFromMessage, [PR_BLOCK_STATUS]);
-			$blockStatus = Conversion::mapMAPI2XML($properties, $blockStatus);
-			$isSafeSender = false;
-
-			// Here if message is HTML and block status is empty then and then call isSafeSender function
-			// to check that sender or sender's domain of original message was part of safe sender list.
-			if (!$plainText && empty($blockStatus)) {
-				$isSafeSender = $this->isSafeSender($copyFromMessage);
-			}
-
 			$body = false;
 			foreach ($existingAttachments as $props) {
 				// check if this attachment is "deleted"
@@ -4127,30 +4116,20 @@ class Operations {
 						$body = streamProperty($message, PR_HTML);
 					}
 
-					$contentID = $props[PR_ATTACH_CONTENT_ID];
-					if (!str_contains((string) $body, (string) $contentID)) {
+					$contentID = (string) $props[PR_ATTACH_CONTENT_ID];
+					if (!str_contains((string) $body, $contentID) && !str_contains((string) $body, rawurlencode($contentID))) {
 						continue;
 					}
-				}
-
-				/*
-				 * if message is reply/reply all or forward and format of message is HTML but
-				 * - inline attachments are not downloaded from external source
-				 * - sender of original message is not safe sender
-				 * - domain of sender is not part of safe sender list
-				 * then ignore inline attachments from original message.
-				 *
-				 * NOTE : blockStatus is only generated when user has download inline image from external source.
-				 * it should remains empty if user add the sender in to safe sender list.
-				 */
-				if (!$plainText && $isInlineAttachment && empty($blockStatus) && !$isSafeSender) {
-					continue;
 				}
 
 				$new = mapi_message_createattach($message);
 
 				try {
 					mapi_copyto($old, [], [], $new, 0);
+					if ($isInlineAttachment) {
+						// MIME import leaves inline attachments visible; hide the copy like our own
+						mapi_setprops($new, [PR_ATTACHMENT_HIDDEN => true]);
+					}
 					mapi_savechanges($new);
 				}
 				catch (MAPIException $e) {
@@ -4168,7 +4147,7 @@ class Operations {
 							PR_ATTACH_METHOD => $props[PR_ATTACH_METHOD] ?? ATTACH_BY_VALUE,
 							PR_ATTACH_FILENAME => $props[PR_ATTACH_FILENAME] ?? '',
 							PR_ATTACH_DATA_BIN => "",
-							PR_ATTACHMENT_HIDDEN => $props[PR_ATTACHMENT_HIDDEN] ?? false,
+							PR_ATTACHMENT_HIDDEN => $isInlineAttachment || ($props[PR_ATTACHMENT_HIDDEN] ?? false),
 							PR_ATTACH_EXTENSION => $props[PR_ATTACH_EXTENSION] ?? '',
 							PR_ATTACH_FLAGS => $props[PR_ATTACH_FLAGS] ?? 0,
 						]);
@@ -4186,69 +4165,6 @@ class Operations {
 				}
 			}
 		}
-	}
-
-	/**
-	 * Function was used to identify the sender or domain of original mail in safe sender list.
-	 *
-	 * @param resource $copyFromMessage message from which to obtain sender information
-	 *                                     the sender of message
-	 *
-	 * @return bool true if sender of original mail was safe sender else false
-	 */
-	public function isSafeSender($copyFromMessage) {
-		require_once BASE_PATH . 'server/includes/modules/class.junkmailmodule.php';
-
-		$senderEntryid = mapi_getprops($copyFromMessage, [PR_SENT_REPRESENTING_ENTRYID]);
-		$senderEntryid = $senderEntryid[PR_SENT_REPRESENTING_ENTRYID];
-
-		// If sender is user himself (which happens in case of "Send as New message") consider sender as safe
-		if ($GLOBALS['entryid']->compareEntryIds($senderEntryid, $GLOBALS["mapisession"]->getUserEntryID())) {
-			return true;
-		}
-
-		try {
-			$mailuser = mapi_ab_openentry($GLOBALS["mapisession"]->getAddressbook(), $senderEntryid);
-		}
-		catch (MAPIException) {
-			// The user might have a new uidNumber, which makes the user not resolve, see WA-7673
-			// FIXME: Lookup the user by PR_SENDER_NAME or another attribute if PR_SENDER_ADDRTYPE is "EX"
-			return false;
-		}
-
-		$addressType = mapi_getprops($mailuser, [PR_ADDRTYPE]);
-		$address = '';
-
-		// Here it will check that sender of original mail was address book user.
-		// If PR_ADDRTYPE is ZARAFA, it means sender of original mail was address book contact.
-		if (($addressType[PR_ADDRTYPE] ?? null) === 'EX') {
-			$addressProps = mapi_getprops($mailuser, [PR_SMTP_ADDRESS]);
-			$address = $addressProps[PR_SMTP_ADDRESS] ?? '';
-		}
-		elseif (($addressType[PR_ADDRTYPE] ?? null) === 'SMTP') {
-			// If PR_ADDRTYPE is SMTP, it means sender of original mail was external sender.
-			$addressProps = mapi_getprops($mailuser, [PR_EMAIL_ADDRESS]);
-			$address = $addressProps[PR_EMAIL_ADDRESS] ?? '';
-		}
-
-		$address = strtolower((string) $address);
-		if ($address === '' || strpos($address, '@') === false) {
-			return false;
-		}
-		$domain = '@' . substr($address, strpos($address, '@') + 1);
-
-		// getSenderLists already folds in the
-		// old webapp setting until it is retired, and caches per request.
-		$store = $GLOBALS['mapisession']->getDefaultMessageStore();
-		$lists = JunkMailModule::getSenderLists($store);
-		foreach ($lists['safe_senders'] as $entry) {
-			$entry = strtolower($entry);
-			if ($entry === $address || $entry === $domain) {
-				return true;
-			}
-		}
-
-		return false;
 	}
 
 	/**
@@ -5439,8 +5355,8 @@ class Operations {
 
 					$uniqueId = uniqid();
 					$image->setAttribute('src', 'cid:' . $uniqueId);
-					// TinyMCE adds an extra inline image for some reason, remove it.
-					$image->setAttribute('data-mce-src', '');
+					// an empty stored data-mce-src makes TinyMCE drop the src on serialize
+					$image->removeAttribute('data-mce-src');
 
 					array_push($imageIDs, $uniqueId);
 
@@ -5479,6 +5395,15 @@ class Operations {
 				mapi_stream_write($stream, $body);
 				mapi_stream_commit($stream);
 				mapi_savechanges($message);
+			}
+		}
+		// keep every attachment the body still points at, however it is referenced
+		if (preg_match_all('/cid:([^"\'\s<>()]+)/i', (string) $body, $refs)) {
+			foreach ($refs[1] as $cid) {
+				$imageIDs[] = $cid;
+				if (rawurldecode($cid) !== $cid) {
+					$imageIDs[] = rawurldecode($cid);
+				}
 			}
 		}
 		$this->clearDeletedInlineAttachments($message, $imageIDs);

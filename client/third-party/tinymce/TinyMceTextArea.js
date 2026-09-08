@@ -262,7 +262,7 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 			var body = doc.body;
 			// Create a range and insert the HTML directly at the cursor
 			var range = ed.selection.getRng();
-			var fragment = range.createContextualFragment(value);
+			var fragment = range.createContextualFragment(this.normalizeEditorContent(value));
 			// Insert the fragment at the current range
 			range.insertNode(fragment);
 			ed.undoManager.clear();
@@ -419,8 +419,9 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	},
 
 	/**
-	 * Replaces empty inline image data URIs with a valid transparent PNG so
-	 * TinyMCE does not fail while converting images to blob info.
+	 * Drops stored data-mce-src attributes from images and replaces empty inline
+	 * image data URIs with a valid transparent PNG so TinyMCE does not fail while
+	 * converting images to blob info.
 	 * @param {String} value The raw editor HTML.
 	 * @return {String} Normalized HTML.
 	 */
@@ -429,7 +430,18 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 		if (value === null || value === undefined) {
 			return "";
 		}
-		if (!Ext.isString(value) || value.indexOf("data:image/") === -1) {
+		if (!Ext.isString(value)) {
+			return value;
+		}
+
+		if (value.indexOf("data-mce-src") !== -1) {
+			// raw setContent skips the parser and the serializer prefers a stored data-mce-src over src
+			value = value.replace(/<img\b[^>]*>/ig, function(tag) {
+				return tag.replace(/\sdata-mce-src\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]*)/ig, "");
+			});
+		}
+
+		if (value.indexOf("data:image/") === -1) {
 			return value;
 		}
 
