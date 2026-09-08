@@ -222,6 +222,14 @@ if (attachmentNames($message) !== ['report.pdf']) {
 	throw new RuntimeException('Plain text forward copied inline attachments: ' . json_encode(attachmentNames($message)));
 }
 
+// a percent-encoded reference (RFC 2392) still names the attachment, on the copy and on the cleanup
+$message = new InlineTestObject([PR_HTML => '<p><img src="cid:kept%40example.org"></p>', PR_NATIVE_BODY_INFO => 3, PR_INTERNET_CPID => 65001]);
+$operations->copyAttachments($message, $attachments, sourceMessage(), true, $state);
+$operations->convertInlineImage($message);
+if (attachmentNames($message) !== ['kept@example.org']) {
+	throw new RuntimeException('An encoded reference did not keep its inline attachment: ' . json_encode(attachmentNames($message)));
+}
+
 // convertInlineImage: a pasted data: image becomes a hidden cid attachment without data-mce-src; hidden inline
 // attachments stay when the body references them in any way, a visible one is never touched
 $message = new InlineTestObject([

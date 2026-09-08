@@ -4116,8 +4116,8 @@ class Operations {
 						$body = streamProperty($message, PR_HTML);
 					}
 
-					$contentID = $props[PR_ATTACH_CONTENT_ID];
-					if (!str_contains((string) $body, (string) $contentID)) {
+					$contentID = (string) $props[PR_ATTACH_CONTENT_ID];
+					if (!str_contains((string) $body, $contentID) && !str_contains((string) $body, rawurlencode($contentID))) {
 						continue;
 					}
 				}
@@ -5401,6 +5401,9 @@ class Operations {
 		if (preg_match_all('/cid:([^"\'\s<>()]+)/i', (string) $body, $refs)) {
 			foreach ($refs[1] as $cid) {
 				$imageIDs[] = $cid;
+				if (rawurldecode($cid) !== $cid) {
+					$imageIDs[] = rawurldecode($cid);
+				}
 			}
 		}
 		$this->clearDeletedInlineAttachments($message, $imageIDs);
