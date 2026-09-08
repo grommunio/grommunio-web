@@ -266,6 +266,11 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 			if (Ext.isFunction(record.inlineImgOutlookToZarafa)) {
 				rawHtmlBody = record.inlineImgOutlookToZarafa(rawHtmlBody);
 			}
+			// quote what the reading pane shows: no external content the user has not downloaded
+			var unsent = Ext.isFunction(record.isUnsent) && record.isUnsent();
+			if (!unsent && Ext.isFunction(record.shouldBlockExternalContent) && record.shouldBlockExternalContent()) {
+				rawHtmlBody = Zarafa.core.HTMLParser.blockExternalContent(rawHtmlBody);
+			}
 			if (container.getServerConfig().getDOMPurifyEnabled()) {
 				rawHtmlBody = DOMPurify.sanitize(rawHtmlBody);
 			}
