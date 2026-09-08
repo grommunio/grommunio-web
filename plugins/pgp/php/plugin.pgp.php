@@ -433,7 +433,8 @@ class Pluginpgp extends Plugin {
 		}
 	}
 
-	private function readStream($stream): string {
+	/** @param int $limit read only the first $limit bytes when positive */
+	private function readStream($stream, int $limit = 0): string {
 		if (!$stream) {
 			throw new RuntimeException('Cannot read the OpenPGP message stream.');
 		}
@@ -441,10 +442,11 @@ class Pluginpgp extends Plugin {
 		if (!is_array($stat) || !is_int($stat['cb'] ?? null) || $stat['cb'] < 0 || $stat['cb'] > PLUGIN_PGP_MAX_MESSAGE_BYTES) {
 			throw new RuntimeException('The OpenPGP message exceeds the administrator size limit.');
 		}
+		$wanted = $limit > 0 ? min($limit, $stat['cb']) : $stat['cb'];
 		$result = '';
-		while (strlen($result) < $stat['cb']) {
-			$chunk = mapi_stream_read($stream, min(65536, $stat['cb'] - strlen($result)));
-			if (!is_string($chunk) || $chunk === '' || strlen($chunk) > $stat['cb'] - strlen($result)) {
+		while (strlen($result) < $wanted) {
+			$chunk = mapi_stream_read($stream, min(65536, $wanted - strlen($result)));
+			if (!is_string($chunk) || $chunk === '' || strlen($chunk) > $wanted - strlen($result)) {
 				throw new RuntimeException('The OpenPGP message stream was truncated.');
 			}
 			$result .= $chunk;
@@ -452,12 +454,12 @@ class Pluginpgp extends Plugin {
 		return $result;
 	}
 
-	private function attachmentData($message, int $number): string {
+	private function attachmentData($message, int $number, int $limit = 0): string {
 		$attachment = mapi_message_openattach($message, $number);
 		if (!$attachment) {
 			throw new RuntimeException('Cannot open the OpenPGP MIME attachment.');
 		}
-		return $this->readStream(mapi_openproperty($attachment, PR_ATTACH_DATA_BIN, IID_IStream, 0, 0));
+		return $this->readStream(mapi_openproperty($attachment, PR_ATTACH_DATA_BIN, IID_IStream, 0, 0), $limit);
 	}
 
 	private function messageId($message): string {
@@ -487,6 +489,8 @@ class Pluginpgp extends Plugin {
 		$kind = $hint ? (in_array(strtolower($match[1]), ['multipartencrypted', 'pgpmessage'], true) ? 'encrypted' : 'signed') : null;
 		try { $kind = PgpMime::kind(rtrim($props[PR_TRANSPORT_MESSAGE_HEADERS] ?? '')) ?: $kind; }
 		catch (RuntimeException $error) { /* Unrelated transport headers are not a MIME entity. */ }
+		// Without the plugin only envelopes matter; skip the body probe for such users.
+		if (!$present && !$kind && stripos($class, 'SMIME.MultipartSigned') === false) { return; }
 		$mime = null;
 		$inline = false;
 		$error = null;
@@ -496,12 +500,15 @@ class Pluginpgp extends Plugin {
 				if (!is_array($rows)) { throw new RuntimeException('Cannot read the protected MIME attachment table.'); }
 				foreach ($rows as $row) {
 					if (in_array(strtolower($row[PR_ATTACH_MIME_TAG] ?? ''), ['multipart/signed', 'multipart/encrypted'], true)) {
-						$raw = $this->attachmentData($message, $row[PR_ATTACH_NUM]);
-						[$headers] = PgpMime::split($raw);
-						$rawKind = PgpMime::kind($headers);
+						// Classify from the headers alone before reading a possibly large S/MIME blob.
+						$raw = $this->attachmentData($message, $row[PR_ATTACH_NUM], 16384);
+						$complete = strlen($raw) < 16384;
+						if (!$complete && !str_contains($raw, "\r\n\r\n") && !str_contains($raw, "\n\n")) { $raw = $this->attachmentData($message, $row[PR_ATTACH_NUM]); $complete = true; }
+						$rawKind = PgpMime::kind(PgpMime::split($raw)[0]);
 						if ($rawKind) {
 							$kind = $rawKind;
 							if (count($rows) !== 1) { throw new RuntimeException('Attachments exist outside the protected OpenPGP envelope.'); }
+							if (!$complete) { $raw = $this->attachmentData($message, $row[PR_ATTACH_NUM]); }
 							PgpMime::unwrap($raw);
 							$mime = $raw;
 							break;
@@ -514,7 +521,7 @@ class Pluginpgp extends Plugin {
 				}
 			}
 			// An editable draft keeps a pasted armor block as text.
-			if (!$mime && !$unsent && stripos($class, 'SMIME') === false) {
+			if (!$mime && !$unsent && $present && stripos($class, 'SMIME') === false) {
 				$bodyProps = mapi_getprops($message, [PR_BODY]);
 				if (!is_array($bodyProps)) { throw new RuntimeException('Cannot inspect the inline OpenPGP body.'); }
 				$body = $bodyProps[PR_BODY] ?? '';

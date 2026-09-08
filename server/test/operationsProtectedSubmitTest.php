@@ -43,15 +43,29 @@ function mapi_prop_type($tag) { return $tag & 0xffff; }
 function mapi_prop_tag($type, $id) { return ($id << 16) | $type; }
 function mapi_getnamesfromids($store, $tags) {
 	$GLOBALS['submitEvents'][] = 'names-from-' . $store;
-	return $store === 'delegate-store' && in_array(0x8123000b, $tags, true) ? [0x8123000b => ['guid' => 'G', 'name' => 'sign']] : [];
+	if ($store !== 'delegate-store') {
+		return [];
+	}
+	// php-mapi keys the result with signed 32-bit integers ("%i") and reports
+	// PT_UNICODE requests as PT_STRING8, as observed on gromox 3.10.
+	$signed = static fn ($tag) => unpack('l', pack('L', $tag))[1];
+	$names = [];
+	foreach ([0x8123000b => 'sign', 0x8124000b => 'encrypt', 0x8125001f => 'note'] as $tag => $name) {
+		if (in_array($tag, $tags, true)) {
+			$names[$signed(($tag & 0xffff) === 0x001f ? ($tag & 0xffff0000) | 0x001e : $tag)] = ['guid' => 'G', 'name' => $name];
+		}
+	}
+	return $names;
 }
 function mapi_getidsfromnames($store, $names, $guids) {
-	return $store === 'store' && $names === ['sign'] && $guids === ['G'] ? [0x83210000] : [];
+	$ids = ['sign' => 0x83210000, 'encrypt' => 0x83220000, 'note' => 0x83230000];
+	return $store === 'store' ? array_map(static fn ($name) => $ids[$name], $names) : [];
 }
 
+// util.php's version returns a boolean, unlike gromox's C++ helper.
 function class_match_prefix($h, $n) {
 	$z = strlen($n);
-	return strncasecmp((string) $h, $n, $z) === 0 && (strlen((string) $h) === $z || $h[$z] === '.') ? 0 : 1;
+	return strncasecmp((string) $h, $n, $z) === 0 && (strlen((string) $h) === $z || $h[$z] === '.');
 }
 
 function get_mapi_error_name($code) {
@@ -76,6 +90,10 @@ function mapi_getprops($object, $properties = null) {
 }
 
 function mapi_msgstore_openentry($store, $entryid) {
+	// zcore refuses to open an own-store draft through another user's store.
+	if (!empty($GLOBALS['ownDraft']) && $store === 'delegate-store' && $entryid === 'draft-id') {
+		throw new MAPIException('Not found', 0x8004010f);
+	}
 	return $GLOBALS['submitMessages'][$entryid] ?? $entryid;
 }
 
@@ -142,6 +160,11 @@ function mapi_message_submitmessage($message) {
 	if ($GLOBALS['submitMode'] === 'submit-error') {
 		throw new MAPIException('Submit failed', 42);
 	}
+	if ($GLOBALS['submitMode'] === 'submit-warn') {
+		// Handed to SMTP, then a warning (ecWarnWithErrors): the unsent flag is gone.
+		$message->props[PR_MESSAGE_FLAGS] = 0;
+		throw new MAPIException('Submit warned', 42);
+	}
 	if ($GLOBALS['submitMode'] === 'submit-false') {
 		return false;
 	}
@@ -177,6 +200,9 @@ $GLOBALS['entryid'] = new class {
 		return $first === $second;
 	}
 };
+$GLOBALS['properties'] = new class {
+	public function getStore() { return $GLOBALS['propertiesStore']; }
+};
 $GLOBALS['PluginManager'] = new class {
 	public function triggerHook($name, $data) {
 		$GLOBALS['submitEvents'][] = 'protect';
@@ -207,10 +233,14 @@ class ProtectedSubmitOperations extends Operations {
 	public function addRecipientsToRecipientHistory($recipients) {}
 }
 
-foreach (['store', 'delegate-store', 'own-store-delegate'] as $store) {
-	foreach (['plugin-error', 'unhandled-pgp', 'submit-error', 'submit-false', 'success', 'cleanup-error', 'smime', 'repr-copy-false', 'repr-props-false', 'repr-save-false'] as $mode) {
+foreach (['store', 'delegate-store', 'own-store-delegate', 'own-keyed-delegate'] as $store) {
+	foreach (['plugin-error', 'unhandled-pgp', 'submit-error', 'submit-false', 'submit-warn', 'success', 'cleanup-error', 'smime', 'repr-copy-false', 'repr-props-false', 'repr-save-false'] as $mode) {
 		$GLOBALS['submitMode'] = $mode;
 		$GLOBALS['submitEvents'] = [];
+		// own-keyed-delegate: compose in the own mailbox on behalf of the delegator, so the
+		// draft and the client properties are keyed by the own store although $origStore differs.
+		$GLOBALS['ownDraft'] = $store === 'own-keyed-delegate';
+		$GLOBALS['propertiesStore'] = $store === 'delegate-store' ? 'delegate-store' : 'store';
 		$GLOBALS['submitMessages'] = ['draft-id' => (object) ['props' => [
 			PR_ENTRYID => 'draft-id', PR_PARENT_ENTRYID => 'drafts-id', PR_MESSAGE_CLASS => $mode === 'smime' ? 'IPM.Note.deferSMIME' : 'IPM.Note',
 			PR_BODY => 'original plaintext', PR_HTML => '<p>original html</p>', PR_NATIVE_BODY_INFO => $mode === 'cleanup-error' ? 1 : 3,
@@ -222,9 +252,9 @@ foreach (['store', 'delegate-store', 'own-store-delegate'] as $store) {
 		$props = $store === 'own-store-delegate' ? [
 			PR_SENT_REPRESENTING_SMTP_ADDRESS => 'bob@example.test', PR_SENT_REPRESENTING_EMAIL_ADDRESS => 'bob@example.test',
 			PR_SENT_REPRESENTING_ENTRYID => 'bob-id', PR_SENT_REPRESENTING_ADDRTYPE => 'SMTP', PR_SENDER_EMAIL_ADDRESS => 'alice@example.test',
-		] : [];
+		] : [0x8124000b => 'client', 0x8125001f => 'unicode'];
 		try {
-			$result = (new ProtectedSubmitOperations())->submitMessage($store === 'own-store-delegate' ? 'store' : $store, 'draft-id', $props, $messageProps);
+			$result = (new ProtectedSubmitOperations())->submitMessage(in_array($store, ['own-store-delegate'], true) ? 'store' : ($store === 'own-keyed-delegate' ? 'delegate-store' : $store), 'draft-id', $props, $messageProps);
 			if ($mode === 'plugin-error' || $mode === 'unhandled-pgp') {
 				throw new RuntimeException('The protection-hook exception was swallowed.');
 			}
@@ -239,13 +269,13 @@ foreach (['store', 'delegate-store', 'own-store-delegate'] as $store) {
 				throw $exception;
 			}
 		}
-		$failed = in_array($mode, ['plugin-error', 'unhandled-pgp', 'submit-error', 'submit-false'], true);
+		$failed = in_array($mode, ['plugin-error', 'unhandled-pgp', 'submit-error', 'submit-false', 'submit-warn'], true);
 		if ($failed) {
 			if (!isset($GLOBALS['submitMessages']['draft-id']) || in_array('delete-draft', $GLOBALS['submitEvents'], true)) {
 				throw new RuntimeException("{$store}/{$mode}: original draft was removed after a failed send.");
 			}
-			if (isset($GLOBALS['submitMessages']['outgoing-id']) || isset($GLOBALS['submitMessages']['repr-id'])) {
-				throw new RuntimeException("{$store}/{$mode}: a failed send left an outbox or Sent Items copy behind.");
+			if ($mode === 'submit-warn' ? !isset($GLOBALS['submitMessages']['outgoing-id']) : (isset($GLOBALS['submitMessages']['outgoing-id']) || isset($GLOBALS['submitMessages']['repr-id']))) {
+				throw new RuntimeException("{$store}/{$mode}: outbox cleanup after a failed send is wrong (delivered mail must stay, undelivered copies must go).");
 			}
 			if (isset($GLOBALS['submitMessages']['repr-id']) && $GLOBALS['submitMessages']['repr-id']->saved) {
 				throw new RuntimeException('An unsent message was saved into representee Sent Items.');
@@ -279,8 +309,11 @@ foreach (['store', 'delegate-store', 'own-store-delegate'] as $store) {
 					throw new RuntimeException("{$mode}: delegate outbox copy did not keep HTML exactly for a native HTML draft.");
 				}
 				$outgoing = $GLOBALS['submitMessages']['outgoing-id']->props;
-				if ($store === 'delegate-store' && (($outgoing[0x8321000b] ?? null) !== true || isset($outgoing[0x8123000b]))) {
-					throw new RuntimeException("{$mode}: named properties of the delegator's draft were not translated to the sender's store.");
+				if ($store === 'delegate-store' && (($outgoing[0x8321000b] ?? null) !== true || isset($outgoing[0x8123000b]) || ($outgoing[0x8322000b] ?? null) !== 'client' || isset($outgoing[0x8124000b]) || ($outgoing[0x8323001f] ?? null) !== 'unicode' || isset($outgoing[0x8125001f]))) {
+					throw new RuntimeException("{$mode}: named properties of the delegator's draft and request were not translated to the sender's store.");
+				}
+				if ($store === 'own-keyed-delegate' && (($outgoing[0x8123000b] ?? null) !== true || isset($outgoing[0x8321000b]) || ($outgoing[0x8124000b] ?? null) !== 'client')) {
+					throw new RuntimeException("{$mode}: own-store keyed properties were translated although they already address the sender's store.");
 				}
 				if (!(array_search('protect', $events, true) < array_search('copy-representee', $events, true) &&
 					array_search('copy-representee', $events, true) < array_search('submit', $events, true) &&

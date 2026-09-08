@@ -2819,13 +2819,15 @@ class Operations {
 			if (!is_array($names) || $names === []) {
 				return $props;
 			}
-			$sourceTags = array_map('intval', array_keys($names));
+			// php-mapi keys the result by signed 32-bit tag and may report PT_UNICODE
+			// requests as PT_STRING8, so only the property id identifies a source.
+			$sourceIds = array_map(static fn ($key) => (((int) $key) & 0xffffffff) >> 16, array_keys($names));
 			$ids = mapi_getidsfromnames(
 				$toStore,
 				array_map(static fn ($name) => $name['id'] ?? $name['name'], array_values($names)),
 				array_column(array_values($names), 'guid')
 			);
-			if (!is_array($ids) || count($ids) !== count($sourceTags)) {
+			if (!is_array($ids) || count($ids) !== count($sourceIds)) {
 				return $props;
 			}
 		}
@@ -2837,11 +2839,25 @@ class Operations {
 		}
 		$translated = [];
 		foreach ($props as $tag => $value) {
-			$index = array_search((int) $tag, $sourceTags, true);
+			$index = mapi_prop_id($tag) >= 0x8000 ? array_search(mapi_prop_id($tag), $sourceIds, true) : false;
 			$translated[$index === false ? $tag : mapi_prop_tag(mapi_prop_type($tag), mapi_prop_id($ids[$index]))] = $value;
 		}
 
 		return $translated;
+	}
+
+	/** Whether two store handles refer to different stores; unknown compares as the same. */
+	private function storesDiffer($first, $second): bool {
+		if ($first === $second || !$first || !$second) {
+			return false;
+		}
+		$a = mapi_getprops($first, [PR_ENTRYID]);
+		$b = mapi_getprops($second, [PR_ENTRYID]);
+		if (!isset($a[PR_ENTRYID], $b[PR_ENTRYID])) {
+			return false;
+		}
+
+		return !$GLOBALS['entryid']->compareEntryIds(bin2hex((string) $a[PR_ENTRYID]), bin2hex((string) $b[PR_ENTRYID]));
 	}
 
 	/**
@@ -2878,8 +2894,13 @@ class Operations {
 	 */
 	private function discardUnsentSubmission($store, $message, $origStore, $reprMessage): void {
 		try {
-			$cleanupProps = mapi_getprops($message, [PR_ENTRYID, PR_PARENT_ENTRYID]);
-			if (isset($cleanupProps[PR_ENTRYID], $cleanupProps[PR_PARENT_ENTRYID])) {
+			$cleanupProps = mapi_getprops($message, [PR_ENTRYID, PR_PARENT_ENTRYID, PR_MESSAGE_FLAGS]);
+			// A submit that failed after handing the mail to SMTP clears the unsent
+			// flag; that copy is the only record of a delivered message and stays.
+			if (isset($cleanupProps[PR_MESSAGE_FLAGS]) && !($cleanupProps[PR_MESSAGE_FLAGS] & MSGFLAG_UNSENT)) {
+				error_log('submitMessage: keeping the outbox copy of a message that was already handed over');
+			}
+			elseif (isset($cleanupProps[PR_ENTRYID], $cleanupProps[PR_PARENT_ENTRYID])) {
 				$cleanupFolder = mapi_msgstore_openentry($store, $cleanupProps[PR_PARENT_ENTRYID]);
 				mapi_folder_deletemessages($cleanupFolder, [$cleanupProps[PR_ENTRYID]], DELETE_HARD_DELETE);
 			}
@@ -3071,6 +3092,8 @@ class Operations {
 			 */
 			$oldParentEntryId = false;
 			$copyIsDraft = false;
+			// A source message passed in came from the store the module acted on.
+			$copySourceStore = $origStore;
 			if ($entryid) {
 				$oldEntryId = $entryid;
 				$entryid = false;
@@ -3081,6 +3104,7 @@ class Operations {
 				if ($copyFromMessage === false) {
 					try {
 						$copyFromMessage = mapi_msgstore_openentry($origStore, $oldEntryId);
+						$copySourceStore = $origStore;
 						$copyRecipients = true;
 						$copyIsDraft = true;
 
@@ -3093,6 +3117,7 @@ class Operations {
 						// the message might be in the default store, try to open it there
 						try {
 							$copyFromMessage = mapi_msgstore_openentry($store, $oldEntryId);
+							$copySourceStore = $store;
 							$copyRecipients = true;
 							$copyIsDraft = true;
 
@@ -3124,11 +3149,21 @@ class Operations {
 				}
 			}
 
+			// Named properties are numbered per store: translate each input from the
+			// store it was resolved against into the sender's own store.
+			$propertyStore = isset($GLOBALS['properties']) && method_exists($GLOBALS['properties'], 'getStore') ? $GLOBALS['properties']->getStore() : false;
+			if ($propertyStore && $this->storesDiffer($propertyStore, $store)) {
+				$props = $this->remapNamedProperties($propertyStore, $store, $props);
+			}
+
 			if ($copyFromMessage) {
 				// Get properties of original message, to copy recipients and attachments in new message
 				$copyMessageProps = mapi_getprops($copyFromMessage);
 				if ($oldParentEntryId === false && $copyIsDraft) {
 					$oldParentEntryId = $copyMessageProps[PR_PARENT_ENTRYID] ?? false;
+				}
+				if ($this->storesDiffer($copySourceStore, $store)) {
+					$copyMessageProps = $this->remapNamedProperties($copySourceStore, $store, $copyMessageProps);
 				}
 
 				// unset id properties before merging the props, so we will be creating new item instead of sending same item
@@ -3136,9 +3171,9 @@ class Operations {
 
 				// gromox synthesizes PR_HTML for plain-text drafts; drop that. A native
 				// HTML draft keeps its HTML (and only that body form) when the client
-				// did not resend it, otherwise the copy would degrade to plain text.
+				// sent no body at all, otherwise the copy would degrade to plain text.
 				if (!isset($props[PR_HTML]) && isset($copyMessageProps[PR_HTML])) {
-					if (($copyMessageProps[PR_NATIVE_BODY_INFO] ?? 0) == 3) {
+					if (!isset($props[PR_BODY]) && ($copyMessageProps[PR_NATIVE_BODY_INFO] ?? 0) == 3) {
 						unset($copyMessageProps[PR_BODY], $copyMessageProps[PR_RTF_COMPRESSED]);
 					}
 					else {
@@ -3152,9 +3187,6 @@ class Operations {
 				// Merge original message props with props sent by client
 				$props = $props + $copyMessageProps;
 			}
-			// Client properties and the draft were addressed through the delegator's
-			// store; the outbox copy lives in the user's own store.
-			$props = $this->remapNamedProperties($origStore, $store, $props);
 
 			// Save the new message properties
 			$message = $this->saveMessage($store, $entryid, $storeprops[PR_IPM_OUTBOX_ENTRYID], $props, $messageProps, $recipients, $attachments, [], $copyFromMessage, $copyAttachments, $copyRecipients, $copyInlineAttachmentsOnly, true, true, $isPlainText);
@@ -3357,10 +3389,11 @@ class Operations {
 		$reprCopied = false;
 		if ($reprMessage !== false) {
 			$classProps = mapi_getprops($message, [PR_MESSAGE_CLASS]);
-			$reprCopied = class_match_prefix((string) ($classProps[PR_MESSAGE_CLASS] ?? ''), 'IPM.Note.deferSMIME') === 0 &&
-				$this->copyRepresenteeMessage($message, $reprMessage);
-			if ($reprCopied === null) {
-				$reprMessage = false;
+			if (class_match_prefix((string) ($classProps[PR_MESSAGE_CLASS] ?? ''), 'IPM.Note.deferSMIME')) {
+				$reprCopied = $this->copyRepresenteeMessage($message, $reprMessage) === true;
+				if (!$reprCopied) {
+					$reprMessage = false;
+				}
 			}
 		}
 

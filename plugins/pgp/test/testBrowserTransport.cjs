@@ -212,12 +212,12 @@ async function main() {
 	await transport.open(readRecord(encrypted, true, false));
 	check(publicFetches() === 2, 'Key changes refresh the verification bundle');
 	const ownPrivate = await pgp.decryptKey({privateKey: await pgp.readPrivateKey({armoredKey: own.encrypted_private_key}), passphrase: password});
-	const cleartext = await pgp.sign({message: await pgp.createCleartextMessage({text: 'Inline body text'}), signingKeys: ownPrivate});
+	const cleartext = await pgp.sign({message: await pgp.createCleartextMessage({text: 'Inline body text\n> -----END PGP SIGNATURE-----\n-----END PGP SIGNATURE----- quoted\nlast line'}), signingKeys: ownPrivate});
 	const inlineRecord = new Record({body: '', html_body: '', pgp: {mime: BrowserCrypto.toBase64(BrowserCrypto.utf8(cleartext + '\r\n-- \r\nSent from my mailer\r\n')),
 		format: 'inline', inline: true, pending: true, encrypted: false, signed: true, sender: 'qa@example.test', decrypted: false, locked: false}});
 	await transport.open(inlineRecord);
-	check(inlineRecord.data.body.includes('Inline body text') && !inlineRecord.data.body.includes('Sent from my mailer') && inlineRecord.data.pgp.trailer === true && inlineRecord.data.pgp.signature_valid === true,
-		'Inline OpenPGP keeps the verified text and flags an unprotected trailer instead of failing');
+	check(inlineRecord.data.body.includes('Inline body text') && inlineRecord.data.body.includes('last line') && !inlineRecord.data.body.includes('Sent from my mailer') && inlineRecord.data.pgp.trailer === true && inlineRecord.data.pgp.signature_valid === true,
+		'Inline OpenPGP keeps the verified text, including quoted END markers, and flags an unprotected trailer');
 	crypto.lock();
 	check(!record.data.body && !record.data.html_body && record.data.pgp.locked && record.attachments.records.length === 0, 'Lock removes displayed plaintext and attachment rows');
 	check(attachment.localContent.blob === null && attachment.localContent.url === '' && attachmentBytes.every(byte => byte === 0), 'Lock destroys attachment object references and byte buffers');

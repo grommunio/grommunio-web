@@ -162,6 +162,16 @@ try {
 	keyCheck(!str_contains(serialize($store->saved), 'MUST NOT STORE') && !str_contains(serialize($store->saved), 'fixture passphrase only'), 'no passphrase or unknown metadata enters MAPI');
 	$bloated = array_replace($record, ['metadata' => ['uids' => array_fill(0, 98, ['uid' => str_repeat('u', 620)])]]);
 	keyRejects(fn () => $otherKeys->importKey($bloated), 'metadata that only fits before normalisation is rejected instead of stored unreadably');
+	// Metadata that fits after normalisation but not once importKey adds the packet-derived fields.
+	$normalise = new ReflectionMethod(PgpKeyStore::class, 'metadata');
+	$filler = 600;
+	do {
+		$edge = ['uids' => array_fill(0, 96, ['uid' => str_repeat('e', $filler)])];
+		$size = strlen(json_encode($normalise->invoke($otherKeys, $edge)));
+		++$filler;
+	} while ($size < 65536 - 40);
+	keyRejects(fn () => $otherKeys->importKey(array_replace($record, ['metadata' => $edge])), 'metadata is bounded in its final stored form');
+	keyCheck($otherKeys->listKeys() === [], 'a rejected oversized record is never persisted');
 	keyCheck(count($store->saved) === 1 && reset($store->saved)['associated'], 'key stored as root folder-associated information');
 	$tags = getPropIdsFromStrings($store, PgpKeyStore::propertyNames());
 	keyCheck(reset($store->saved)['props'][PR_MESSAGE_CLASS] === PgpKeyStore::KEY_CLASS, 'dedicated OpenPGP class never reuses S/MIME certificate class');

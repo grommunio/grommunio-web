@@ -295,12 +295,16 @@ Zarafa.plugins.pgp.PgpTransport = (function() {
 		var data = bytes().fromBase64(info.mime), signatures = [], result, inline = info.format === 'inline';
 		if (data.length > LIMIT) { throw error(_('This message is too large for browser OpenPGP processing.')); }
 		if (inline) {
-			var armored = bytes().decodeUtf8(data), marker = info.encrypted ? '-----END PGP MESSAGE-----' : '-----END PGP SIGNATURE-----';
-			var end = armored.indexOf(marker);
-			if (end !== -1) {
+			var armored = bytes().decodeUtf8(data);
+			// The END line is searched from the signature armor on, at a line start, so
+			// quoted or dash-escaped markers inside the signed text are not mistaken.
+			var from = info.encrypted ? 0 : Math.max(0, armored.indexOf('\n-----BEGIN PGP SIGNATURE-----'));
+			var end = (info.encrypted ? /^-----END PGP MESSAGE-----[ \t]*(?:\r?\n|$)/m : /^-----END PGP SIGNATURE-----[ \t]*(?:\r?\n|$)/m).exec(armored.slice(from));
+			if (end) {
+				var cut = from + end.index + end[0].length;
 				// Mailer footers after the block are unprotected and stay hidden.
-				info.trailer = armored.slice(end + marker.length).trim() !== '';
-				armored = armored.slice(0, end + marker.length);
+				info.trailer = armored.slice(cut).trim() !== '';
+				armored = armored.slice(0, cut);
 			}
 			if (info.encrypted) { result = await service.decrypt(armored, publicArmors); info.decrypted = true; }
 			else { result = await service.verifyCleartext(armored, publicArmors); }

@@ -601,7 +601,7 @@ test('decrypted attachment uploads preserve bytes and CID without a source messa
 	await model.uploadLocalResponseAttachment(response, source, true);
 	assert.equal(uploaded.get('cid'), 'image@example.test');
 	assert.equal(uploaded.inline, true);
-	assert.equal(response.get('html_body'), '<img src="http://x/dl?tmpname=up&amp;attachCid=image%40example.test">');
+	assert.equal(response.get('html_body'), '<img src="http://x/dl?tmpname=up&amp;attachCid=image@example.test">');
 	assert.equal(Object.keys(listeners).length, 0);
 });
 

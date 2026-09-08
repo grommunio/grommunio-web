@@ -130,25 +130,24 @@ Zarafa.ABOUT = "" +
 
 	"<h1>OpenPGP.js</h1>" +
 
-	"<p>Copyright (C) 2011-2026 OpenPGP.js contributors</p>" +
-
 	"<p>OpenPGP.js is free software: you can redistribute it and/or modify it " +
 	"under the terms of the GNU Lesser General Public License version 3.0 or " +
-	"later as published by the Free Software Foundation. It is bundled unmodified " +
-	"from the pinned npm release by the OpenPGP plugin; see " +
+	"later as published by the Free Software Foundation. The OpenPGP plugin bundles " +
+	"the unmodified pinned npm release together with its MIT-licensed noble-ciphers, " +
+	"noble-hashes and noble-curves components (c) Paul Miller; see " +
 	"<a href=\"https://www.gnu.org/licenses/lgpl-3.0.html\" target=\"_blank\">https://www.gnu.org/licenses/lgpl-3.0.html</a></p>" +
 
 
 	"<h1>postal-mime</h1>" +
 
-	"<p>Copyright (c) 2021 Postal Systems OÜ</p>" +
+	"<p>Copyright (c) 2021-2025 Andris Reinman</p>" +
 
-	"<p>postal-mime is released under the MIT License.</p>" +
+	"<p>postal-mime is released under the MIT No Attribution License (MIT-0).</p>" +
 
 
 	"<h1>fflate</h1>" +
 
-	"<p>Copyright (c) 2023 Arjun Barrett</p>" +
+	"<p>Copyright (c) 2026 Arjun Barrett</p>" +
 
 	"<p>fflate is released under the MIT License.</p>" +
 

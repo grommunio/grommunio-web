@@ -128,9 +128,12 @@ class PgpKeyStore {
 			$hasPrivate = $private !== null || !empty($existing[$this->tags['has_private']]);
 		}
 		if (!$message) { throw new RuntimeException('Cannot create the mailbox OpenPGP key record.'); }
+		// Bound the stored form: readBlob() refuses anything larger for good.
+		$encodedMetadata = json_encode($metadata, JSON_THROW_ON_ERROR);
+		if (strlen($encodedMetadata) > self::MAX_JSON) { throw new InvalidArgumentException('OpenPGP key metadata is too large.'); }
 		$this->writeBlob($message, $this->tags['public_key'], $public);
 		if ($private !== null) { $this->writeBlob($message, $this->tags['encrypted_private_key'], $private); }
-		$this->writeBlob($message, $this->tags['metadata'], json_encode($metadata, JSON_THROW_ON_ERROR));
+		$this->writeBlob($message, $this->tags['metadata'], $encodedMetadata);
 		if (mapi_setprops($message, [PR_MESSAGE_CLASS => self::KEY_CLASS, PR_SUBJECT => 'OpenPGP ' . $fingerprint,
 			$this->tags['schema'] => self::SCHEMA, $this->tags['fingerprint'] => $fingerprint,
 			$this->tags['has_private'] => $hasPrivate, $this->tags['revision'] => bin2hex(random_bytes(16))]) === false ||
@@ -143,7 +146,10 @@ class PgpKeyStore {
 		$fingerprint = self::fingerprint($fingerprint);
 		$rows = array_values(array_filter($this->rows(self::KEY_CLASS), fn ($row) => ($row[$this->tags['fingerprint']] ?? null) === $fingerprint));
 		if ($rows === []) { throw new RuntimeException('The requested OpenPGP key is not stored in your mailbox.'); }
-		if ($this->readKey($rows[0], false)['secret'] && !$secret) {
+		// Deletion must work even when the record's metadata can no longer be read.
+		$stored = mapi_getprops($this->openRow($rows[0], self::KEY_CLASS), [$this->tags['has_private']]);
+		if (!is_array($stored)) { throw new RuntimeException('Cannot read the stored OpenPGP key state.'); }
+		if (!empty($stored[$this->tags['has_private']]) && !$secret) {
 			throw new InvalidArgumentException('Explicit confirmation is required to delete an encrypted private key.');
 		}
 		// Remove trust first: failure cannot leave a trusted-but-deleted key.
@@ -272,8 +278,6 @@ class PgpKeyStore {
 			$clean['expired'] = !empty($uid['expired']);
 			$result['uids'][] = $clean;
 		}
-		// The stored form carries the added flags; it must stay readable under the same bound.
-		if (strlen(json_encode($result, JSON_THROW_ON_ERROR)) > self::MAX_JSON) { throw new InvalidArgumentException('OpenPGP key metadata is too large.'); }
 		return $result;
 	}
 	private function policy(): array {

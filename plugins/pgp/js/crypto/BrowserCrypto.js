@@ -211,16 +211,12 @@
 			fail('The OpenPGP key was locked while the operation was running.', 'OPENPGP_LOCKED');
 		}
 	}
-	function signatureDate(packets) {
-		var dates = (packets || []).map(function(packet) { return packet.created; }).filter(function(date) { return date instanceof Date; });
-		return dates.length ? new Date(Math.min.apply(null, dates)) : null;
-	}
 	/**
-	 * @param {Function} reverify (signature, key) -> Promise<boolean>: check the
-	 * signature against the key as it was when the signature was made, so a
-	 * good signature by a key that expired later is reported as such.
+	 * OpenPGP.js validates the signing key as of the signature's creation time,
+	 * so a good signature by a key that expired later verifies and is reported
+	 * as valid but expired.
 	 */
-	async function signatureResults(signatures, keys, cfg, reverify) {
+	async function signatureResults(signatures, keys, cfg) {
 		return Promise.all(signatures.map(async function(signature) {
 			var keyid = signature.keyID.toHex().toUpperCase();
 			var candidates = keys.filter(function(key) { return key.getKeyIDs().some(function(id) { return id.toHex().toUpperCase() === keyid; }); });
@@ -229,9 +225,6 @@
 			// it when exactly one supplied certificate matches.
 			var key = candidates.length === 1 ? candidates[0] : null;
 			var info = key ? await metadata(key, cfg) : null;
-			if (!valid && info && info.expired && !info.revoked && !info.disabled && reverify) {
-				valid = await reverify(signature, key).catch(function() { return false; });
-			}
 			var accepted = valid && !!key && !info.revoked && !info.disabled;
 			return {keyid: keyid, fingerprint: info ? info.fingerprint : '', primary_fingerprint: info ? info.fingerprint : '',
 				valid: accepted, status: accepted ? (info.expired ? 'expired' : 'valid') : (candidates.length ? 'invalid' : 'missing-key'),
@@ -415,12 +408,7 @@
 			var message = await pgp.readMessage(options);
 			var result = await pgp.decrypt({message: message, decryptionKeys: keys, verificationKeys: verification, format: 'binary', config: state.config});
 			bytes(result.data, state.limit);
-			var signatures = await signatureResults(result.signatures, verification, state.config, async function(signature, key) {
-				var packet = await signature.signature;
-				var again = await pgp.verify({message: await pgp.createMessage({binary: result.data}), signature: packet, verificationKeys: [key],
-					date: signatureDate(packet.packets), format: 'binary', config: state.config});
-				return again.signatures[0].verified.then(function() { return true; }, function() { return false; });
-			});
+			var signatures = await signatureResults(result.signatures, verification, state.config);
 			checkEpoch(this, epoch, entries.map(function(entry) { return entry.fingerprint; }), result.data);
 			return {data: result.data, signatures: signatures, valid: signatures.length > 0 && signatures.every(function(sig) { return sig.valid; }), integrity: true};
 		}
@@ -431,11 +419,7 @@
 			var parsed = await pgp.readSignature({armoredSignature: armor(signature, 'SIGNATURE', KEY_LIMIT), config: state.config});
 			var result = await pgp.verify({message: await pgp.createMessage({binary: bytes(data, state.limit)}), signature: parsed,
 				verificationKeys: keys, format: 'binary', config: state.config});
-			var signatures = await signatureResults(result.signatures, keys, state.config, async function(signature, key) {
-				var again = await pgp.verify({message: await pgp.createMessage({binary: data}), signature: parsed, verificationKeys: [key],
-					date: signatureDate(parsed.packets), format: 'binary', config: state.config});
-				return again.signatures[0].verified.then(function() { return true; }, function() { return false; });
-			});
+			var signatures = await signatureResults(result.signatures, keys, state.config);
 			return {data: data, signatures: signatures, valid: signatures.length > 0 && signatures.every(function(sig) { return sig.valid; })};
 		}
 
@@ -449,10 +433,7 @@
 			var keys = await publicKeys(verificationArmors || [], state.config);
 			var message = await pgp.readCleartextMessage({cleartextMessage: input, config: state.config});
 			var result = await pgp.verify({message: message, verificationKeys: keys, config: state.config});
-			var signatures = await signatureResults(result.signatures, keys, state.config, async function(signature, key) {
-				var again = await pgp.verify({message: message, verificationKeys: [key], date: signatureDate(message.signature.packets), config: state.config});
-				return again.signatures[0].verified.then(function() { return true; }, function() { return false; });
-			});
+			var signatures = await signatureResults(result.signatures, keys, state.config);
 			return {data: new TextEncoder().encode(result.data), signatures: signatures, valid: signatures.length > 0 && signatures.every(function(sig) { return sig.valid; })};
 		}
 

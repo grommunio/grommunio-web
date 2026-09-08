@@ -93,6 +93,7 @@ class TransportStream {
 class TransportTable { public function __construct(public $rows) {} }
 function getPropIdsFromStrings($store, $names): array { return ['pgp_sign' => 0x8001000b, 'pgp_encrypt' => 0x8002000b, 'pgp_key' => 0x8003001e, 'pgp_message_class' => 0x8004001e]; }
 function mapi_getprops($object, $tags) {
+	if (in_array(PR_BODY, $tags, true)) { $GLOBALS['bodyReads'] = ($GLOBALS['bodyReads'] ?? 0) + 1; }
 	if (!empty($object->faults['getprops'])) { return false; }
 	$result = [];
 	foreach ($tags as $tag) {
@@ -352,9 +353,10 @@ foreach (['headers_only', 'hint_only', 'hint_encrypted'] as $case) {
 }
 // Drafts, other item types and users who switched the plugin off are never touched.
 $envelope = PgpMime::signed("Content-Type: text/plain\r\n\r\nExact signed body", 'signature', 'pgp-sha256');
-foreach (['draft', 'note', 'meeting', 'bad_sender', 'user_off', 'user_on', 'unsent_envelope'] as $case) {
+foreach (['draft', 'note', 'meeting', 'bad_sender', 'user_off', 'user_off_plain', 'user_on', 'unsent_envelope'] as $case) {
 	$plugin = new Pluginpgp(); $message = fixture(false, false); $message->props[PR_MESSAGE_FLAGS] = in_array($case, ['draft', 'unsent_envelope'], true) ? MSGFLAG_UNSENT : 0;
-	if ($case === 'draft' || $case === 'note') {
+	if ($case === 'user_off_plain') { $message->props[PR_BODY] = "-----BEGIN PGP MESSAGE-----\r\nopaque\r\n-----END PGP MESSAGE-----"; $message->faults['stat'] = true; }
+	elseif ($case === 'draft' || $case === 'note') {
 		$message->props[PR_BODY] = "-----BEGIN PGP MESSAGE-----\r\nopaque\r\n-----END PGP MESSAGE-----";
 		if ($case === 'note') { $message->props[PR_MESSAGE_CLASS] = 'IPM.StickyNote'; }
 	}
@@ -367,7 +369,9 @@ foreach (['draft', 'note', 'meeting', 'bad_sender', 'user_off', 'user_on', 'unse
 	if ($case === 'bad_sender') { $message->props[PR_SENT_REPRESENTING_SMTP_ADDRESS] = 'not an address'; }
 	$GLOBALS['settings']->values['zarafa/v1/plugins/pgp/enable'] = $case === 'user_on';
 	$event = ['message' => $message, 'handled' => false];
+	$bodyReadsBefore = $GLOBALS['bodyReads'] ?? 0;
 	if (str_starts_with($case, 'user_')) { $plugin->execute('server.util.parse_secure.before', $event); } else { $plugin->open($event); }
+	if ($case === 'user_off_plain') { transportCheck(($GLOBALS['bodyReads'] ?? 0) === $bodyReadsBefore, 'A user without the plugin never pays the inline body probe'); }
 	$opened = ['message' => $message, 'data' => ['item' => ['props' => ['body' => 'stored'], 'attachments' => ['item' => [['old' => true]]]]]];
 	$plugin->execute('server.module.itemmodule.open.after', $opened);
 	// A user who switched the plugin off still must not have the S/MIME parser misread the envelope.

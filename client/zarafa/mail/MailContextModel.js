@@ -722,8 +722,9 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 					uploaded.set('cid', cid);
 					uploaded.set('hidden', true);
 					uploaded.setInline(true);
-					// The editor loads the uploaded copy; saving converts attachCid URLs back to cid:.
-					var target = Ext.urlAppend(uploaded.getInlineImageUrl(), 'attachCid=' + encodeURIComponent(cid));
+					// The editor loads the uploaded copy; saving turns the attachCid URL back
+					// into the literal cid:, so the id must not be percent-encoded here.
+					var target = Ext.urlAppend(uploaded.getInlineImageUrl(), 'attachCid=' + String(cid).replace(/[\s"'<>&]/g, ''));
 					var html = record.get('html_body') || '';
 					Ext.each([local.inlineUrl, local.url], function(url) {
 						if (url) { html = html.split(url).join(Ext.util.Format.htmlEncode(target)); }
