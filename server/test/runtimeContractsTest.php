@@ -48,24 +48,6 @@ require_once dirname(__DIR__) . '/includes/core/class.categorylist.php';
 require_once dirname(__DIR__) . '/includes/core/class.mapisession.php';
 require_once dirname(__DIR__) . '/includes/core/class.operations.php';
 
-$propertyTag = new ReflectionMethod(CategoryList::class, 'roamingXmlStreamTag');
-if ($propertyTag->invoke(null) !== 0x7C080102) {
-	throw new RuntimeException('The category-list property tag was not returned.');
-}
-
-$GLOBALS['runtimeContractPropertyTag'] = false;
-
-try {
-	$propertyTag->invoke(null);
-
-	throw new RuntimeException('A failed property-tag lookup was accepted.');
-}
-catch (RuntimeException $e) {
-	if ($e->getMessage() === 'A failed property-tag lookup was accepted.') {
-		throw $e;
-	}
-}
-
 $calendarFolder = new ReflectionMethod(CategoryList::class, 'getCalendarFolder');
 $GLOBALS['runtimeContractOpenEntries'] = [false];
 $categoryList = new CategoryList('store');

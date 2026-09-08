@@ -109,21 +109,6 @@ class CategoryList {
 	}
 
 	/**
-	 * The proptag for PR_ROAMING_XMLSTREAM (Pt_BINARY, 0x7C08). php-mapi does
-	 * not predefine it, so compute it once here.
-	 *
-	 * @return int
-	 */
-	private static function roamingXmlStreamTag() {
-		$propertyTag = mapi_prop_tag(PT_BINARY, 0x7C08);
-		if ($propertyTag === false) {
-			throw new RuntimeException('Unable to create the category-list property tag.');
-		}
-
-		return $propertyTag;
-	}
-
-	/**
 	 * Open the store's Calendar folder, where the list is stored.
 	 *
 	 * @return false|resource the Calendar folder, or false when unavailable
@@ -235,14 +220,13 @@ class CategoryList {
 			return '';
 		}
 
-		$tag = self::roamingXmlStreamTag();
-		$props = mapi_getprops($message, [$tag]);
-		if (isset($props[$tag]) && is_string($props[$tag])) {
-			return $props[$tag];
+		$props = mapi_getprops($message, [PR_ROAMING_XMLSTREAM]);
+		if (isset($props[PR_ROAMING_XMLSTREAM]) && is_string($props[PR_ROAMING_XMLSTREAM])) {
+			return $props[PR_ROAMING_XMLSTREAM];
 		}
 
 		// Large binaries come back as an error placeholder; read via a stream.
-		$stream = mapi_openproperty($message, $tag, IID_IStream, 0, 0);
+		$stream = mapi_openproperty($message, PR_ROAMING_XMLSTREAM, IID_IStream, 0, 0);
 		if ($stream === false) {
 			return '';
 		}
@@ -274,7 +258,7 @@ class CategoryList {
 		}
 		mapi_setprops($message, [
 			PR_MESSAGE_CLASS => self::MESSAGE_CLASS,
-			self::roamingXmlStreamTag() => $xml,
+			PR_ROAMING_XMLSTREAM => $xml,
 		]);
 		mapi_savechanges($message);
 		$this->exists = true;
