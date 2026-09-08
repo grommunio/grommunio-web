@@ -75,10 +75,11 @@ to preserve binary MIME body octets. `signed(entity,signature,micalg)` and
 byte. Do not use a general MIME parser to recreate bytes for verification.
 
 Only after full decryption integrity verification should `PostalMime.parse` see
-the plaintext. Suggested options are `attachmentEncoding:'arraybuffer'`,
-`maxNestingDepth:32`, `maxHeadersSize:65536`, `forceRfc822Attachments:true` and
-`maxRfc822NestingDepth:0`. Sanitize HTML, block remote URLs, isolate document
-rendering and make attachment downloads entirely local. Unauthenticated MIME
+the plaintext. The transport uses `attachmentEncoding:'arraybuffer'`,
+`maxNestingDepth:32`, `maxHeadersSize:65536` and `forceRfc822Attachments:true`.
+Sanitize HTML with a dedicated DOMPurify instance, leave remote-picture blocking
+to the renderer, isolate document rendering and make attachment downloads
+entirely local. Unauthenticated MIME
 preamble/epilogue is never rendered by this parser. S/MIME/OpenPGP nesting is
 unsupported; a message must use exactly one protection protocol.
 

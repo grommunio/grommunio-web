@@ -17,7 +17,10 @@ COPYFILESDEST = $(addprefix $(DESTDIR)/, $(COPYFILES))
 
 all: $(COPYFILESDEST) $(JSDEPLOY)/pgp.js $(DESTDIR)/resources/css/pgp.css
 
-$(VENDORFILES) &: ../../package-lock.json js/crypto/vendor.mjs ../../tools/build-pgp-vendor.mjs
+# The vendor bundle is committed; regenerate it explicitly after changing the
+# pinned dependencies (npm run build:pgp-vendor), never as part of the build.
+.PHONY: vendor
+vendor:
 	cd ../.. && node tools/build-pgp-vendor.mjs
 
 $(JSDEPLOY)/pgp.js: $(JSFILES)
