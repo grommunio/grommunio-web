@@ -30,7 +30,10 @@ final class PgpKeyMaterial {
 				++$secretCount;
 				$cursor = $publicLength;
 				$usage = self::number($body, $cursor, 1);
-				if (!in_array($usage, [253, 254], true) || strlen($body) - $cursor < 16) {
+				// GnuPG offline-primary exports carry a "GNU" stub (S2K type 101) without secret material.
+				$stub = in_array($usage, [254, 255], true) && strlen($body) - $cursor === 7 &&
+					ord($body[$cursor + 1]) === 101 && substr($body, $cursor + 3, 3) === 'GNU' && in_array(ord($body[$cursor + 6]), [1, 2], true);
+				if (!$stub && (!in_array($usage, [253, 254], true) || strlen($body) - $cursor < 16)) {
 					throw new InvalidArgumentException('Private keys must already be encrypted with a passphrase in the browser before upload.');
 				}
 			}

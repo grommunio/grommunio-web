@@ -34,7 +34,7 @@ Every property below is a string-named property in the plugin's private GUID `{9
 
 `PR_MESSAGE_CLASS` identifies the record class, and `PR_SUBJECT` is only a readable record label. Key armor is never stored in `PR_BODY`, ordinary mail attachments, contact certificate fields, or the global address book. There are no passphrase or unlocked-key properties. Keyservers come from the administrator HTTPS allowlist. Import and lookup never create a trust pin.
 
-The implementation bounds key armor by `PLUGIN_PGP_MAX_KEY_BYTES`, metadata/policy JSON by 64 KiB, and the key count by 200. It rejects duplicate records rather than silently selecting one. Associated-table or stream errors fail closed without falling back to filesystem storage.
+The implementation bounds key armor by `PLUGIN_PGP_MAX_KEY_BYTES`, metadata/policy JSON by 64 KiB, and the key count by 200. Duplicate records for one fingerprint, which two devices can create by importing concurrently, resolve to the first record; deleting the key removes them all. Associated-table or stream errors fail closed without falling back to filesystem storage.
 
 ## Validation and update contract
 

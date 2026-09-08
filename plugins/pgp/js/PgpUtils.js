@@ -33,6 +33,7 @@ Zarafa.plugins.pgp.PgpUtils = {
 					if (response.success !== true) { reject(new Error(response.message || _('The OpenPGP operation failed.'))); }
 					else {
 						if (operation === 'list' && response.unlock_ttl) { Zarafa.plugins.pgp.PgpUtils.unlockTtl = Number(response.unlock_ttl); }
+						if (operation === 'list' && response.max_envelope_bytes) { Zarafa.plugins.pgp.PgpUtils.maxEnvelopeBytes = Number(response.max_envelope_bytes); }
 						var transport = Zarafa.plugins.pgp.PgpTransport;
 						if (['put', 'delete', 'trust', 'keyservers'].indexOf(operation) !== -1 && transport && transport.keysChanged) {
 							transport.keysChanged();

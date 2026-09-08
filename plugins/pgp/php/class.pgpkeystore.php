@@ -69,7 +69,8 @@ class PgpKeyStore {
 		$keys = [];
 		foreach ($this->rows(self::KEY_CLASS) as $row) {
 			$fingerprint = self::fingerprint($row[$this->tags['fingerprint']] ?? '');
-			if (isset($seen[$fingerprint])) { throw new RuntimeException('Duplicate mailbox OpenPGP key records require administrator repair.'); }
+			// Two devices can race the same import; the first record wins, delete() removes all.
+			if (isset($seen[$fingerprint])) { continue; }
 			$seen[$fingerprint] = true;
 			$keys[] = $this->readKey($row, $includeMaterial);
 		}
@@ -83,12 +84,12 @@ class PgpKeyStore {
 	/** Bounded browser verification/recipient bundle, never private armor. */
 	public function publicKeys(): array {
 		$rows = $this->rows(self::KEY_CLASS);
-		if (count($rows) > 100) { throw new RuntimeException('At most 100 OpenPGP public keys can be loaded at once. Remove unused keys before loading the verification bundle.'); }
+		if (count($rows) > self::MAX_KEYS) { throw new RuntimeException('Too many OpenPGP public keys are stored to load the verification bundle. Remove unused keys.'); }
 		$keys = [];
 		foreach ($rows as $row) {
-			$key = $this->readKey($row, true, false);
-			if (isset($keys[$key['fingerprint']])) { throw new RuntimeException('Duplicate mailbox OpenPGP key records require administrator repair.'); }
-			$keys[$key['fingerprint']] = $key;
+			$fingerprint = self::fingerprint($row[$this->tags['fingerprint']] ?? '');
+			if (isset($keys[$fingerprint])) { continue; }
+			$keys[$fingerprint] = $this->readKey($row, true, false);
 		}
 		return array_values($keys);
 	}
@@ -140,16 +141,16 @@ class PgpKeyStore {
 	}
 	public function delete(string $fingerprint, bool $secret = false): void {
 		$fingerprint = self::fingerprint($fingerprint);
-		$row = $this->findKey($fingerprint);
-		if ($row === null) { throw new RuntimeException('The requested OpenPGP key is not stored in your mailbox.'); }
-		if ($this->readKey($row, false)['secret'] && !$secret) {
+		$rows = array_values(array_filter($this->rows(self::KEY_CLASS), fn ($row) => ($row[$this->tags['fingerprint']] ?? null) === $fingerprint));
+		if ($rows === []) { throw new RuntimeException('The requested OpenPGP key is not stored in your mailbox.'); }
+		if ($this->readKey($rows[0], false)['secret'] && !$secret) {
 			throw new InvalidArgumentException('Explicit confirmation is required to delete an encrypted private key.');
 		}
 		// Remove trust first: failure cannot leave a trusted-but-deleted key.
 		$policy = $this->policy();
 		$policy['trusted'] = array_filter($policy['trusted'], static fn ($value) => $value !== $fingerprint);
 		$this->savePolicy($policy);
-		if (mapi_folder_deletemessages($this->root, [$row[PR_ENTRYID]]) === false) {
+		if (mapi_folder_deletemessages($this->root, array_column($rows, PR_ENTRYID)) === false) {
 			throw new RuntimeException('Cannot delete the mailbox OpenPGP key record.');
 		}
 	}
@@ -204,13 +205,10 @@ class PgpKeyStore {
 		return $rows;
 	}
 	private function findKey(string $fingerprint): ?array {
-		$found = null;
 		foreach ($this->rows(self::KEY_CLASS) as $row) {
-			if (($row[$this->tags['fingerprint']] ?? null) !== $fingerprint) { continue; }
-			if ($found !== null) { throw new RuntimeException('Duplicate mailbox OpenPGP key records require administrator repair.'); }
-			$found = $row;
+			if (($row[$this->tags['fingerprint']] ?? null) === $fingerprint) { return $row; }
 		}
-		return $found;
+		return null;
 	}
 	private function openRow(array $row, string $class) {
 		$message = mapi_msgstore_openentry($this->store, $row[PR_ENTRYID]);
@@ -274,6 +272,8 @@ class PgpKeyStore {
 			$clean['expired'] = !empty($uid['expired']);
 			$result['uids'][] = $clean;
 		}
+		// The stored form carries the added flags; it must stay readable under the same bound.
+		if (strlen(json_encode($result, JSON_THROW_ON_ERROR)) > self::MAX_JSON) { throw new InvalidArgumentException('OpenPGP key metadata is too large.'); }
 		return $result;
 	}
 	private function policy(): array {

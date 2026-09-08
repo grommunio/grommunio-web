@@ -138,6 +138,8 @@ try {
 	$naked = array_values(array_filter($gpg->listKeys(), static fn ($key) => $key['fingerprint'] !== $fingerprint))[0];
 	$nakedPrivate = $raw->invoke($gpg, ['--armor', '--export-secret-keys', $naked['fingerprint']])['output'];
 	keyRejects(fn () => PgpKeyMaterial::inspect($nakedPrivate, true, 1048576), 'unencrypted private packet rejected without decrypting it');
+	$stub = $raw->invoke($gpg, ['--armor', '--export-secret-subkeys', $fingerprint], '', 'fixture passphrase only')['output'];
+	keyCheck(str_contains($stub, 'PRIVATE KEY BLOCK') && PgpKeyMaterial::inspect($stub, true, 1048576)['fingerprint'] === $fingerprint, 'GnuPG offline-primary export with a GNU stub counts as protected material');
 	// Synthetic version-6 public packet: storage parsing checks the RFC fingerprint
 	// envelope, not whether an invented public point is a usable signing identity.
 	$v6body = "\x06" . pack('N', 1700000000) . "\x1b" . pack('N', 32) . str_repeat('x', 32);
@@ -158,6 +160,8 @@ try {
 	keyCheck($saved['secret'] && $saved['fingerprint'] === $fingerprint && $saved['metadata_advisory'], 'saved record returns private-presence and explicit advisory metadata');
 	keyCheck(!isset($saved['public_key']) && !isset($saved['encrypted_private_key']), 'list/import responses omit bulk public and private armor');
 	keyCheck(!str_contains(serialize($store->saved), 'MUST NOT STORE') && !str_contains(serialize($store->saved), 'fixture passphrase only'), 'no passphrase or unknown metadata enters MAPI');
+	$bloated = array_replace($record, ['metadata' => ['uids' => array_fill(0, 98, ['uid' => str_repeat('u', 620)])]]);
+	keyRejects(fn () => $otherKeys->importKey($bloated), 'metadata that only fits before normalisation is rejected instead of stored unreadably');
 	keyCheck(count($store->saved) === 1 && reset($store->saved)['associated'], 'key stored as root folder-associated information');
 	$tags = getPropIdsFromStrings($store, PgpKeyStore::propertyNames());
 	keyCheck(reset($store->saved)['props'][PR_MESSAGE_CLASS] === PgpKeyStore::KEY_CLASS, 'dedicated OpenPGP class never reuses S/MIME certificate class');
@@ -166,7 +170,7 @@ try {
 	keyCheck(count($publicBundle) === 1 && $publicBundle[0]['public_key'] === $public && !isset($publicBundle[0]['encrypted_private_key']), 'public verification bundle contains public armor only');
 	$bulkStore = clone $store;
 	$originalRecord = reset($store->saved);
-	for ($i = 0; $i < 101; ++$i) { $bulkStore->saved['bulk-' . $i] = $originalRecord; }
+	for ($i = 0; $i < 201; ++$i) { $bulkStore->saved['bulk-' . $i] = $originalRecord; }
 	keyRejects(fn () => (new PgpKeyStore($bulkStore))->publicKeys(), 'oversized public bundle fails explicitly instead of silently truncating keys');
 	keyCheck($otherKeys->listKeys() === [], 'a second mailbox cannot see stored keys');
 	$v6Fingerprint = PgpKeyMaterial::inspect($v6, false, 1048576)['fingerprint'];
@@ -207,7 +211,12 @@ try {
 		unset($store->faults[$fault]);
 		keyCheck($before === $store->saved, $fault . ' leaves saved encrypted key data untouched');
 	}
+	// Two devices importing concurrently can leave two records for one fingerprint.
+	$original = current(array_filter($store->saved, static fn ($entry) => ($entry['props'][PR_MESSAGE_CLASS] ?? null) === PgpKeyStore::KEY_CLASS));
+	$store->saved['id-duplicate'] = ['associated' => true, 'props' => array_replace($original['props'], [PR_ENTRYID => 'id-duplicate'])];
+	keyCheck(count($keys->listKeys()) === 1 && count($keys->publicKeys()) === 1 && $keys->key($fingerprint)['fingerprint'] === $fingerprint, 'duplicate key records resolve to one key instead of locking the keyring');
 	$keys->delete($fingerprint, true);
+	keyCheck(!isset($store->saved['id-duplicate']), 'deleting a key removes its duplicate records too');
 	keyCheck($keys->listKeys() === [] && !$keys->trusted($fingerprint, 'keys@example.test'), 'explicit deletion removes only own key and its trust pins');
 	keyCheck(count($store->saved) === 1 && reset($store->saved)['props'][PR_MESSAGE_CLASS] === PgpKeyStore::POLICY_CLASS, 'key deletion preserves separate associated policy');
 	keyCheck(!str_contains(file_get_contents(__DIR__ . '/../php/class.pgpkeystore.php'), 'class.gpg.php') && !method_exists(PgpKeyStore::class, 'crypto'), 'production keystore has no GnuPG dependency or crypto operation');

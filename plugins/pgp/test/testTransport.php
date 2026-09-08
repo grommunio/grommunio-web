@@ -215,6 +215,16 @@ $plugin = new Pluginpgp(); $draft = fixture(); unset($draft->props[PR_SENT_REPRE
 [$data, $prepared] = preparation($plugin, $draft); accept($plugin, $data);
 $copy = unserialize(serialize($GLOBALS['draft'])); $plugin->protect($GLOBALS['store'], $copy);
 transportCheck($prepared['sender'] === 'sender@example.test' && $copy->saves === 1 && !isset($copy->props[PR_BODY]), 'Draft without a From identity is protected with the logon address');
+// prepare() refuses what the browser must not protect.
+$plugin = new Pluginpgp(); $bad = fixture(); $bad->props[PR_MESSAGE_FLAGS] = 0; $GLOBALS['draft'] = $bad;
+transportRejects(fn () => $plugin->prepare(['store_entryid' => '11', 'entryid' => '22']), 'Prepare requires an unsent saved draft', 'Save the current draft');
+$bad = fixture(); $bad->props[PR_MESSAGE_CLASS] = 'IPM.Note.deferSMIME'; $GLOBALS['draft'] = $bad;
+transportRejects(fn () => $plugin->prepare(['store_entryid' => '11', 'entryid' => '22']), 'Prepare refuses an S/MIME draft', 'not both');
+$GLOBALS['draft'] = fixture(false, false);
+transportRejects(fn () => $plugin->prepare(['store_entryid' => '11', 'entryid' => '22']), 'Prepare requires selected protection', 'No OpenPGP protection');
+$bad = fixture(true, true); $bad->recipients[] = [PR_OBJECT_TYPE => MAPI_DISTLIST, PR_RECIPIENT_TYPE => MAPI_TO, PR_SMTP_ADDRESS => 'list@example.test']; $GLOBALS['draft'] = $bad;
+transportRejects(fn () => $plugin->prepare(['store_entryid' => '11', 'entryid' => '22']), 'Prepare refuses unexpanded distribution lists', 'Expand distribution lists');
+transportRejects(fn () => $plugin->prepare(['store_entryid' => '11', 'entryid' => 'zz']), 'Prepare validates the entry ID', 'valid MAPI entry ID');
 $plugin = new Pluginpgp(); [$data] = preparation($plugin); accept($plugin, $data);
 $copy = unserialize(serialize($GLOBALS['draft'])); $copy->props[0x8001000b] = false; $copy->props[0x8002000b] = false;
 transportRejects(fn () => $plugin->protect($GLOBALS['store'], $copy), 'Accepted receipt with intent missing from the outbox copy fails closed', 'did not reach');
@@ -342,8 +352,8 @@ foreach (['headers_only', 'hint_only', 'hint_encrypted'] as $case) {
 }
 // Drafts, other item types and users who switched the plugin off are never touched.
 $envelope = PgpMime::signed("Content-Type: text/plain\r\n\r\nExact signed body", 'signature', 'pgp-sha256');
-foreach (['draft', 'note', 'meeting', 'bad_sender', 'user_off', 'user_on'] as $case) {
-	$plugin = new Pluginpgp(); $message = fixture(false, false); $message->props[PR_MESSAGE_FLAGS] = $case === 'draft' ? MSGFLAG_UNSENT : 0;
+foreach (['draft', 'note', 'meeting', 'bad_sender', 'user_off', 'user_on', 'unsent_envelope'] as $case) {
+	$plugin = new Pluginpgp(); $message = fixture(false, false); $message->props[PR_MESSAGE_FLAGS] = in_array($case, ['draft', 'unsent_envelope'], true) ? MSGFLAG_UNSENT : 0;
 	if ($case === 'draft' || $case === 'note') {
 		$message->props[PR_BODY] = "-----BEGIN PGP MESSAGE-----\r\nopaque\r\n-----END PGP MESSAGE-----";
 		if ($case === 'note') { $message->props[PR_MESSAGE_CLASS] = 'IPM.StickyNote'; }
@@ -360,8 +370,11 @@ foreach (['draft', 'note', 'meeting', 'bad_sender', 'user_off', 'user_on'] as $c
 	if (str_starts_with($case, 'user_')) { $plugin->execute('server.util.parse_secure.before', $event); } else { $plugin->open($event); }
 	$opened = ['message' => $message, 'data' => ['item' => ['props' => ['body' => 'stored'], 'attachments' => ['item' => [['old' => true]]]]]];
 	$plugin->execute('server.module.itemmodule.open.after', $opened);
-	$expectHandled = in_array($case, ['bad_sender', 'user_on'], true);
-	transportCheck($event['handled'] === $expectHandled && isset($opened['data']['item']['props']['pgp']) === $expectHandled && isset($message->props[PR_BODY]), 'Case ' . $case . ' is ' . ($expectHandled ? 'decoded in the browser' : 'left alone'));
+	// A user who switched the plugin off still must not have the S/MIME parser misread the envelope.
+	$expectHandled = in_array($case, ['bad_sender', 'user_on', 'user_off', 'unsent_envelope'], true);
+	$expectStatus = in_array($case, ['bad_sender', 'user_on', 'unsent_envelope'], true);
+	transportCheck($event['handled'] === $expectHandled && isset($opened['data']['item']['props']['pgp']) === $expectStatus && isset($message->props[PR_BODY]), 'Case ' . $case . ' is ' . ($expectStatus ? 'decoded in the browser' : 'left alone'));
+	if ($case === 'user_off') { transportCheck($opened['data']['item']['props']['body'] === 'stored' && $opened['data']['item']['attachments']['item'] === [['old' => true]], 'Envelope renders as stored for a user without the plugin'); }
 	if ($case === 'bad_sender') { transportCheck($opened['data']['item']['props']['pgp']['sender'] === '' && $opened['data']['item']['props']['pgp']['pending'], 'A malformed From address does not fail the open'); }
 }
 unset($GLOBALS['settings']->values['zarafa/v1/plugins/pgp/enable']);
@@ -374,6 +387,7 @@ foreach (['generate', 'unlock', 'sign', 'decrypt', 'export', 'changePassphrase']
 	transportRejects(fn () => $module->request(['operation' => $operation]), 'No production private operation ' . $operation);
 }
 transportCheck($module->request(['operation' => 'list'])['unlock_ttl'] === 3600, 'Browser unlock TTL is clamped');
+transportCheck($module->request(['operation' => 'list'])['max_envelope_bytes'] === PluginPgpModule::maxEnvelopeBytes() && PluginPgpModule::maxEnvelopeBytes() === 1398105, 'List reports the effective envelope limit below post_max_size');
 transportCheck(!isset($module->request(['operation' => 'list'])['keys'][0]['encrypted_private_key']), 'List endpoint omits protected private material');
 transportCheck($module->request(['operation' => 'public'])['keys'] === [['public_key' => 'public armor']], 'Verifier public-bundle endpoint omits private material');
 transportCheck(isset($module->request(['operation' => 'get', 'fingerprint' => PgpKeyStore::$keyFingerprint])['key']['encrypted_private_key']), 'Explicit get returns protected browser key');

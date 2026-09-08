@@ -98,6 +98,7 @@ async function main() {
 			mapi: {ObjectType: {MAPI_ATTACH: 7}, AttachMethod: {ATTACH_BY_VALUE: 1}},
 			data: {RecordFactory: {createRecordObjectByCustomType: (type, data) => new Record(data)}}}}
 	});
+	vm.runInContext('String.format = function(text) { var values = Array.prototype.slice.call(arguments, 1); return text.replace(/\\{(\\d+)\\}/g, function(match, index) { return values[index]; }); };', context);
 	vm.runInContext(fs.readFileSync(require.resolve('../js/PgpTransport.js'), 'utf8'), context);
 	const transport = context.Zarafa.plugins.pgp.PgpTransport;
 	function setup(sign = true, encrypt = false, modal = false) {
@@ -151,6 +152,13 @@ async function main() {
 		const {record, dialog} = setup(true, true); mutation();
 		await rejects(() => transport._protect(dialog, record), 'Untrusted prepared metadata/material mismatch aborts send');
 		check(!record.actions.pgp, 'Invalid prepared data cannot leave a send receipt');
+	}
+	{
+		const {record, dialog} = setup(true, false);
+		utils.maxEnvelopeBytes = 16;
+		await rejects(() => transport._protect(dialog, record), 'Envelope above the server upload limit aborts before the send request');
+		check(!record.actions.pgp, 'Oversized envelope leaves no send receipt');
+		delete utils.maxEnvelopeBytes;
 	}
 	{
 		const {record, dialog} = setup(); dialog.saveRecord = () => false;

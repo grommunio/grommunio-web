@@ -165,8 +165,13 @@ Zarafa.plugins.pgp.PgpTransport = (function() {
 		if (record.get('pgp_sign') !== sign || record.get('pgp_encrypt') !== encrypt || record.get('pgp_key') !== key.fingerprint) {
 			throw error(_('Message protection changed while preparing the message. Please send again.'));
 		}
+		var encoded = bytes().toBase64(envelope), maximum = Number(utils().maxEnvelopeBytes) || 0;
+		if (maximum && encoded.length > maximum) {
+			throw error(String.format(_('The protected message is {0} MB, more than this server accepts in one request ({1} MB). Remove attachments or ask the administrator to raise the upload limit.'),
+				(encoded.length / 1048576).toFixed(1), (maximum / 1048576).toFixed(1)));
+		}
 		forceIntent(record);
-		record.addMessageAction('pgp', {token: prepared.token, envelope: bytes().toBase64(envelope)});
+		record.addMessageAction('pgp', {token: prepared.token, envelope: encoded});
 	}
 	function refresh(record) {
 		if (record.clearSanitizedHtmlBody) { record.clearSanitizedHtmlBody(); }

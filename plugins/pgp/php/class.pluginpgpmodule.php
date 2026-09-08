@@ -36,6 +36,7 @@ class PluginPgpModule extends Module {
 					'keys' => $store->listKeys(), 'keyservers' => $store->servers(),
 					'allowed_keyservers' => PLUGIN_PGP_KEYSERVER_ALLOWLIST,
 					'unlock_ttl' => max(30, min(3600, (int) PLUGIN_PGP_UNLOCK_TTL)),
+					'max_envelope_bytes' => self::maxEnvelopeBytes(),
 					'default_key' => $GLOBALS['settings']->get('zarafa/v1/plugins/pgp/default_key', ''),
 					'default_sign' => $GLOBALS['settings']->get('zarafa/v1/plugins/pgp/default_sign', false),
 					'default_encrypt' => $GLOBALS['settings']->get('zarafa/v1/plugins/pgp/default_encrypt', false),
@@ -72,6 +73,17 @@ class PluginPgpModule extends Module {
 			default:
 				throw new InvalidArgumentException('This OpenPGP operation is not supported. Key creation and unlocking run in your browser.');
 		}
+	}
+
+	/** The largest base64 envelope a send request can carry through PHP's post_max_size. */
+	public static function maxEnvelopeBytes(): int {
+		$limit = (int) (PLUGIN_PGP_MAX_MESSAGE_BYTES * 4 / 3) + 4;
+		$post = trim((string) ini_get('post_max_size'));
+		if ($post !== '' && preg_match('/^(\d+)\s*([kmg]?)$/i', $post, $match) && (int) $match[1] > 0) {
+			$bytes = (int) $match[1] * (1024 ** strpos('bkmg', strtolower($match[2] ?: 'b')));
+			$limit = min($limit, max(0, $bytes - 262144));
+		}
+		return $limit;
 	}
 
 	private static function string(array $data, string $name, string $default = ''): string {

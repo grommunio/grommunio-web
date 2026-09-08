@@ -48,7 +48,7 @@ class Pluginpgp extends Plugin {
 					$this->protect($data['store'], $data['message']);
 					break;
 				case 'server.util.parse_secure.before':
-					if ($this->enabledForUser()) { $this->open($data); }
+					if (PLUGIN_PGP_ENABLE) { $this->open($data, $this->enabledForUser()); }
 					break;
 				case 'server.module.itemmodule.open.after':
 					$id = $this->messageId($data['message']);
@@ -465,8 +465,12 @@ class Pluginpgp extends Plugin {
 	}
 
 
-	/** Preserve raw signed/ciphertext bytes for browser verification and decryption. */
-	public function open(array &$data): void {
+	/**
+	 * Preserve raw signed/ciphertext bytes for browser verification and decryption.
+	 * With $present false (plugin switched off by this user) an envelope is only
+	 * claimed away from the S/MIME parser and renders as stored.
+	 */
+	public function open(array &$data, bool $present = true): void {
 		$message = $data['message'];
 		$id = $this->messageId($message);
 		if (isset($this->status[$id])) {
@@ -476,8 +480,9 @@ class Pluginpgp extends Plugin {
 		$props = mapi_getprops($message, [PR_MESSAGE_CLASS, PR_MESSAGE_FLAGS, PR_TRANSPORT_MESSAGE_HEADERS]);
 		if (!is_array($props)) { return; }
 		$class = $props[PR_MESSAGE_CLASS] ?? '';
-		// Drafts keep their editable body; other item types have no OpenPGP presentation.
-		if (!preg_match('/^IPM\.Note(?:\.|$)/i', $class) || (($props[PR_MESSAGE_FLAGS] ?? 0) & MSGFLAG_UNSENT)) { return; }
+		// Other item types have no OpenPGP presentation.
+		if (!preg_match('/^IPM\.Note(?:\.|$)/i', $class)) { return; }
+		$unsent = (($props[PR_MESSAGE_FLAGS] ?? 0) & MSGFLAG_UNSENT) !== 0;
 		$hint = preg_match('/^IPM\.Note\.GpgOL\.(MultipartEncrypted|MultipartSigned|PGPMessage|ClearSigned)(?:\.|$)/i', $class, $match) === 1;
 		$kind = $hint ? (in_array(strtolower($match[1]), ['multipartencrypted', 'pgpmessage'], true) ? 'encrypted' : 'signed') : null;
 		try { $kind = PgpMime::kind(rtrim($props[PR_TRANSPORT_MESSAGE_HEADERS] ?? '')) ?: $kind; }
@@ -508,7 +513,8 @@ class Pluginpgp extends Plugin {
 					if (count($candidates) === 1) { $mime = PgpMime::encrypted($this->attachmentData($message, $candidates[0][PR_ATTACH_NUM])); }
 				}
 			}
-			if (!$mime && stripos($class, 'SMIME') === false) {
+			// An editable draft keeps a pasted armor block as text.
+			if (!$mime && !$unsent && stripos($class, 'SMIME') === false) {
 				$bodyProps = mapi_getprops($message, [PR_BODY]);
 				if (!is_array($bodyProps)) { throw new RuntimeException('Cannot inspect the inline OpenPGP body.'); }
 				$body = $bodyProps[PR_BODY] ?? '';
@@ -528,7 +534,11 @@ class Pluginpgp extends Plugin {
 			}
 		}
 		catch (Throwable $failure) { $error = $failure; }
-		if (!$kind) { return; }
+		if (!$kind || ($unsent && $mime === null)) { return; }
+		if (!$present) {
+			if ($mime !== null && !$inline && $error === null) { $data['handled'] = true; }
+			return;
+		}
 		$sender = '';
 		try { $sender = $this->senderEmail($message, true); }
 		catch (Throwable $ignored) { /* A malformed From address only loses the sender comparison. */ }
