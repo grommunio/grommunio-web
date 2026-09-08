@@ -39,6 +39,17 @@ class HierarchyNotifier extends Notifier {
 		return OBJECT_SAVE | OBJECT_DELETE | TABLE_SAVE | TABLE_DELETE | REQUEST_START | REQUEST_END;
 	}
 
+	#[Override]
+	public function reset() {
+		parent::reset();
+		$this->reopenStore = false;
+	}
+
+	#[Override]
+	public function usePersistentStateLock($event = null) {
+		return $event === REQUEST_END;
+	}
+
 	/**
 	 * If an event elsewhere has occurred, it enters in this method. This method
 	 * executes one or more actions, depends on the event.
@@ -71,7 +82,8 @@ class HierarchyNotifier extends Notifier {
 				// We won't send notifiers for changes to the todolist folder, since there is nothing to
 				// be updated by the client.
 				$entryIdUtil = new EntryId();
-				if ($entryIdUtil->compareEntryIds(bin2hex($folderEntryid), bin2hex(TodoList::getEntryId()))) {
+				$todoListEntryId = TodoList::getEntryId();
+				if ($folderEntryid !== false && $todoListEntryId !== false && $entryIdUtil->compareEntryIds(bin2hex($folderEntryid), bin2hex($todoListEntryId))) {
 					return;
 				}
 

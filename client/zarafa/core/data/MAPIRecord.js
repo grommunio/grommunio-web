@@ -866,7 +866,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	},
 
 	/**
-	 * Event handler which is fired when data in this subStore has changed. This will markt the subStore as
+	 * Event handler which is fired when data in this subStore has changed. This will mark the subStore as
 	 * changed and force the {@link Ext.data.Store#update} event of the store of this record.
 	 * @param {Zarafa.core.data.MAPISubStore} store The store which was changed
 	 * @param {Zarafa.core.data.MAPIRecord[]} records The records which were added/modified/removed
@@ -965,7 +965,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	},
 
 	/**
-	 * Obtain the list of of identification properties ({@link #idProperties}).
+	 * Obtain the list of identification properties ({@link #idProperties}).
 	 * These properties will be placed inside the identification section of
 	 * the protocol during the communication with the server.
 	 *

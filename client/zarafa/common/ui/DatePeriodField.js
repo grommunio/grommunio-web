@@ -98,7 +98,7 @@ Zarafa.common.ui.DatePeriodField = Ext.extend(Zarafa.common.ui.DateRangeField, {
 	/**
 	 * Event handler which is raised when the start date has been changed,
 	 * this will update the end date to maintain the currently active period settings.
-	 * this will also honor the {#allowBlank} config and do calculation according to it.
+	 * this will also honor the {@link #allowBlank} config and do calculation according to it.
 	 *
 	 * @param {Ext.form.Field} field The field which has changed
 	 * @param {Mixed} newValue The new value for the field
@@ -152,7 +152,7 @@ Zarafa.common.ui.DatePeriodField = Ext.extend(Zarafa.common.ui.DateRangeField, {
 	 * Event handler which is raised when the end date has been changed,
 	 * this will update the start date when the end date is earlier then
 	 * the start date.
-	 * this will also honor the {#allowBlank} config and do calculation according to it.
+	 * this will also honor the {@link #allowBlank} config and do calculation according to it.
 	 *
 	 * @param {Ext.form.Field} field The field which has changed
 	 * @param {Mixed} newValue The new value for the field

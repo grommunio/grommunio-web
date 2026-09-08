@@ -84,7 +84,7 @@ Zarafa.common.ui.TimePeriodField = Ext.extend(Zarafa.common.ui.DateRangeField, {
 	},
 
 	/**
-	 * Event handler fired when the {@link #startField} has spinned. This will call
+	 * Event handler fired when the {@link #startField} has spun. This will call
 	 * the {@link #onStartChange} function to fix the duration of the entire field
 	 * appropriately.
 	 * @param {Zarafa.common.plugins.TimeSpinner} spinner The spinner which fired the event
@@ -96,7 +96,7 @@ Zarafa.common.ui.TimePeriodField = Ext.extend(Zarafa.common.ui.DateRangeField, {
 	},
 
 	/**
-	 * Event handler fired when the {@link #endField} has spinned. This will call
+	 * Event handler fired when the {@link #endField} has spun. This will call
 	 * the {@link #onEndChange} function to fix the duration of the entire field
 	 * appropriately.
 	 * @param {Zarafa.common.plugins.TimeSpinner} spinner The spinner which fired the event

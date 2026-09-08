@@ -16,7 +16,7 @@ class WebAppSession {
 	// Use public static method getInstance() to retrieve its value
 	private static $instance;
 
-	// Set to true when the the session has timed out
+	// Set to true when the session has timed out
 	// Use public method hasTimedOut() to retrieve its value
 	private $timeout = false;
 
@@ -55,7 +55,9 @@ class WebAppSession {
 
 		// For grommunio.php, release the session file lock early so parallel
 		// requests from the same browser session are not serialized behind it;
-		// a later write reopens it with updateSession()
+		// a later write reopens it with updateSession(). Service requests
+		// (authenticate, token, fingerprint) write the session themselves, so
+		// they keep it open until the controller finishes.
 		$isGrommunioPhp = basename((string) $_SERVER['PHP_SELF']) === 'grommunio.php';
 		if (!$isGrommunioPhp) {
 			// We will only check for timeout in the grommunio.php page
@@ -63,7 +65,9 @@ class WebAppSession {
 		}
 		else {
 			$this->checkForTimeout();
-			session_write_close();
+			if (!isset($_GET['service'])) {
+				session_write_close();
+			}
 		}
 	}
 
@@ -158,7 +162,7 @@ class WebAppSession {
 
 		$starttime = $this->getStartTime();
 		// let's add 5 seconds to the CLIENT_TIMEOUT to handle possible latency
-		if ($starttime && (time() - $starttime > CLIENT_TIMEOUT + 5)) {
+		if ($starttime !== false && (time() - $starttime > CLIENT_TIMEOUT + 5)) {
 			$this->destroy();
 			$this->timeout = true;
 		}

@@ -17,17 +17,17 @@ class DelegatesModule extends Module {
 	private $delegateProps;
 
 	/**
-	 * @var resource of LocalFreeBusy Message. This contains for delegates.
+	 * @var false|resource LocalFreeBusy message, or false before it is opened
 	 */
 	private $localFreeBusyMessage;
 
 	/**
-	 * @var resource of FreeBusy Folder in IPM_SUBTREE. This permissions for freebusy folder used in calendar.
+	 * @var false|resource FreeBusy folder in IPM_SUBTREE, or false before it is opened
 	 */
 	private $freeBusyFolder;
 
 	/**
-	 * @var resource of default store of the current user
+	 * @var false|resource default store of the current user, or false before it is opened
 	 */
 	private $defaultStore;
 
@@ -52,16 +52,43 @@ class DelegatesModule extends Module {
 	 */
 	#[Override]
 	public function execute() {
+		$delegatesLock = State::forStore('delegates-write');
+		if (!$delegatesLock->open()) {
+			throw new RuntimeException('Unable to lock the delegate settings');
+		}
+
+		try {
+			$this->executeLocked();
+		}
+		finally {
+			$delegatesLock->close();
+		}
+	}
+
+	private function executeLocked() {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
 				try {
-					match ($actionType) {
-						'list' => $this->delegateList(),
-						'open' => $this->openDelegate($action),
-						'save' => $this->saveDelegates($action),
-						'delete' => $this->deleteDelegates($action),
-						default => $this->handleUnknownActionType($actionType),
-					};
+					switch ($actionType) {
+						case 'list':
+							$this->delegateList();
+							break;
+
+						case 'open':
+							$this->openDelegate($action);
+							break;
+
+						case 'save':
+							$this->saveDelegates($action);
+							break;
+
+						case 'delete':
+							$this->deleteDelegates($action);
+							break;
+
+						default:
+							$this->handleUnknownActionType($actionType);
+					}
 				}
 				catch (MAPIException $e) {
 					$this->processException($e, $actionType);
@@ -149,7 +176,7 @@ class DelegatesModule extends Module {
 	 *
 	 * @param string $entryId entryid of delegate
 	 *
-	 * @return int index of the delegate information
+	 * @return false|int|string index of the delegate information, or false when it is absent
 	 */
 	public function getDelegateIndex($entryId) {
 		$delegateProps = $this->getDelegateProps();
@@ -251,13 +278,12 @@ class DelegatesModule extends Module {
 	/**
 	 * Function will return information of a particular delegate from current user's store.
 	 *
-	 * @param string $userEntryId         entryid of the delegate
-	 * @param array  $delegateMeetingRule (optional) information of the delegate meeting rule that can be used to check if
-	 *                                    current delegate exists in the meeting rule
+	 * @param string      $userEntryId         entryid of the delegate
+	 * @param array|false $delegateMeetingRule meeting rule retained for caller compatibility
 	 *
 	 * @return array delegate information
 	 */
-	public function getDelegatePermissions($userEntryId, $delegateMeetingRule = false) {
+	public function getDelegatePermissions($userEntryId, /* @scrutinizer ignore-unused */ $delegateMeetingRule = false) {
 		$delegateProps = $this->getDelegateProps();
 		$delegateIndex = $this->getDelegateIndex($userEntryId);
 		$userinfo = $this->getUserInfo($userEntryId);
@@ -305,7 +331,7 @@ class DelegatesModule extends Module {
 	/**
 	 * Function will return properties of meeting rule that is used to send meeting related messages to delegate.
 	 *
-	 * @return array delegate meeting rule information
+	 * @return array|false delegate meeting rule information, or false when no rule exists
 	 */
 	public function getDelegateMeetingRule() {
 		$inbox = mapi_msgstore_getreceivefolder($this->getDefaultStore());
@@ -745,7 +771,7 @@ class DelegatesModule extends Module {
 	 *
 	 * @param object     $e             Exception object
 	 * @param string     $actionType    the action type, sent by the client
-	 * @param MAPIobject $store         store object of the current user
+	 * @param resource   $store         current user's MAPI store
 	 * @param string     $parententryid parent entryid of the message
 	 * @param string     $entryid       entryid of the message/folder
 	 * @param array      $action        the action data, sent by the client

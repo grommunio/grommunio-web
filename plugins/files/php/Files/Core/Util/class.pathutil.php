@@ -18,15 +18,48 @@ class PathUtil {
 	 * @static
 	 *
 	 * @param string $filename Filename to get the mime type from
-	 * @param int    $mode     0 = full check, 1 = extension check only
+	 * @param int    $mode     0 = full check, any other value = extension check only
 	 *
 	 * @return string the found mimetype or 'application/octet-stream' as fallback
 	 */
 	public static function get_mime($filename, $mode = 0) {
-		// mode 0 = full check
-		// mode 1 = extension check only
+		if ($mode != 0) {
+			return self::getMimeFromExtension($filename);
+		}
 
-		$mime_types = [
+		if (function_exists('mime_content_type') && is_file($filename)) {
+			$mimetype = mime_content_type($filename);
+			if (is_string($mimetype) && $mimetype !== '') {
+				return $mimetype;
+			}
+		}
+		if (function_exists('finfo_open') && is_file($filename)) {
+			$finfo = finfo_open(FILEINFO_MIME_TYPE);
+			$mimetype = finfo_file($finfo, $filename);
+			finfo_close($finfo);
+
+			if (is_string($mimetype) && $mimetype !== '') {
+				return $mimetype;
+			}
+		}
+
+		return self::getMimeFromExtension($filename);
+	}
+
+	/**
+	 * Returns a MIME type based only on the filename extension.
+	 *
+	 * This method never probes the local filesystem, so it is safe to use with
+	 * backend node IDs and other remote paths.
+	 *
+	 * @static
+	 *
+	 * @param string $filename Filename or remote path to inspect
+	 *
+	 * @return string the mapped MIME type or 'application/octet-stream' as fallback
+	 */
+	public static function getMimeFromExtension($filename) {
+		$mimeTypes = [
 			'txt' => 'text/plain',
 			'htm' => 'text/html',
 			'html' => 'text/html',
@@ -91,18 +124,8 @@ class PathUtil {
 		$last = array_pop($exploded);
 		$ext = strtolower($last);
 
-		if (function_exists('mime_content_type') && is_file($filename) && $mode == 0) {
-			return mime_content_type($filename);
-		}
-		if (function_exists('finfo_open') && is_file($filename) && $mode == 0) {
-			$finfo = finfo_open(FILEINFO_MIME);
-			$mimetype = finfo_file($finfo, $filename);
-			finfo_close($finfo);
-
-			return $mimetype;
-		}
-		if (array_key_exists($ext, $mime_types)) {
-			return $mime_types[$ext];
+		if (array_key_exists($ext, $mimeTypes)) {
+			return $mimeTypes[$ext];
 		}
 
 		return 'application/octet-stream';
@@ -145,9 +168,8 @@ class PathUtil {
 	 *
 	 * @static
 	 *
-	 * @param string secid A random id
-	 * @param mixed $basepath
-	 * @param mixed $secid
+	 * @param string $basepath base directory for the security file
+	 * @param string $secid    random identifier
 	 */
 	public static function createSecIDFile($basepath, $secid) {
 		$lockFile = $basepath . DIRECTORY_SEPARATOR . "secid." . $secid;

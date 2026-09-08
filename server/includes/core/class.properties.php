@@ -27,11 +27,11 @@
  * Please also note that removing or adding properties to these lists have a profound effect on the rest of the code;
  * If a property is listed here, the code will read that property from the item, and send it via XML. If that property
  * contains megabytes of data, this will mean that you'll be sending megabytes of redundant data over the wire each time
- * one of the objects (or, wores, an entire table) is retrieved by the client.
+ * one of the objects (or, worse, an entire table) is retrieved by the client.
  */
 class Properties {
 	/**
-	 * MAPI Message Store object.
+	 * @var false|resource current MAPI message store, or false before initialization
 	 */
 	private $store = false;
 
@@ -66,6 +66,10 @@ class Properties {
 		}
 
 		$this->store = $this->getStore();
+		if ($this->store === false) {
+			return;
+		}
+
 		$storeMapping = $this->getStoreMappingSignature($this->store);
 
 		if ($this->storeMapping !== $storeMapping) {
@@ -93,10 +97,54 @@ class Properties {
 	}
 
 	/**
+	 * Merge named-property mappings created by another request.
+	 * Mappings are append-only and isolated by store mapping signature.
+	 *
+	 * @param Properties $properties request-local property cache
+	 */
+	public function mergePersistentState($properties) {
+		if (!($properties instanceof self) || !is_array($properties->mapping)) {
+			return;
+		}
+
+		if (!is_array($this->mapping)) {
+			$this->mapping = [];
+		}
+
+		foreach ($properties->mapping as $storeMapping => $mappings) {
+			if (!is_array($mappings)) {
+				continue;
+			}
+			if (!isset($this->mapping[$storeMapping])) {
+				$this->mapping[$storeMapping] = $mappings;
+
+				continue;
+			}
+			if (!is_array($this->mapping[$storeMapping])) {
+				continue;
+			}
+
+			foreach ($mappings as $name => $mapping) {
+				if (!isset($this->mapping[$storeMapping][$name])) {
+					$this->mapping[$storeMapping][$name] = $mapping;
+				}
+				elseif (is_array($mapping) && is_array($this->mapping[$storeMapping][$name])) {
+					foreach ($mapping as $property => $tag) {
+						if (!isset($this->mapping[$storeMapping][$name][$property])) {
+							$this->mapping[$storeMapping][$name][$property] = $tag;
+						}
+					}
+				}
+			}
+		}
+
+		$this->reset();
+	}
+
+	/**
 	 * Setter function which set the store.
 	 *
-	 * @param array|bool|object MAPI Message Store Object or array of MAPI Message Store Objects, false if storeid is not found in the request
-	 * @param mixed $store
+	 * @param false|resource|resource[] $store MAPI store or stores, or false when no store ID is present
 	 */
 	public function setStore($store = false) {
 		$stores = [];
@@ -126,29 +174,31 @@ class Properties {
 	}
 
 	/**
-	 * Getter function which get the store.
+	 * Get the current message store.
 	 *
-	 * @return object MAPI Message Store Object
+	 * @return false|resource MAPI message store, or false if none is available
 	 */
 	public function getStore() {
-		return $this->store !== false ? $this->store : $GLOBALS["mapisession"]->getDefaultMessageStore();
+		if ($this->store !== false) {
+			return /** @scrutinizer ignore-type */ $this->store;
+		}
+
+		return /** @scrutinizer ignore-type */ $GLOBALS["mapisession"]->getDefaultMessageStore();
 	}
 
 	/**
-	 * Function which used to get the PR_MAPPING_SIGNATURE value from given store.
+	 * Get the PR_MAPPING_SIGNATURE value from the given store.
 	 *
-	 * @param object MAPI Message Store Object
-	 * @param mixed $store
+	 * @param resource $store MAPI message store
 	 *
 	 * @return string PR_MAPPING_SIGNATURE of the given MAPI Message Store if exists else 0
 	 */
 	private function getStoreMappingSignature($store) {
-		$storeProps = [];
-
 		try {
 			$storeProps = mapi_getprops($store, [PR_MAPPING_SIGNATURE, PR_ENTRYID]);
 		}
 		catch (Exception) {
+			return '0';
 		}
 
 		$signature = isset($storeProps[PR_MAPPING_SIGNATURE]) ? bin2hex((string) $storeProps[PR_MAPPING_SIGNATURE]) : '';
@@ -166,8 +216,7 @@ class Properties {
 	/**
 	 * Helper function which set the store as a active store and storeMapping.
 	 *
-	 * @param object MAPI Message Store Object
-	 * @param mixed $store
+	 * @param resource $store MAPI message store
 	 */
 	public function setActiveStore($store) {
 		$storeMapping = $this->getStoreMappingSignature($store);
@@ -222,6 +271,7 @@ class Properties {
 		$this->Init();
 
 		if (!isset($this->mapping[$this->storeMapping]['oofsettings'])) {
+			$properties = [];
 			$properties["set"] = PR_EC_OUTOFOFFICE;
 			$properties["entryid"] = PR_MAILBOX_OWNER_ENTRYID;
 			$properties["store_entryid"] = PR_ENTRYID;
@@ -246,6 +296,7 @@ class Properties {
 		$this->Init();
 
 		if (!isset($this->mapping[$this->storeMapping]['meeting'])) {
+			$properties = [];
 			$properties["goid"] = "PT_BINARY:PSETID_Meeting:0x3";
 			$properties["goid2"] = "PT_BINARY:PSETID_Meeting:0x23";
 			$properties["type"] = "PT_STRING8:PSETID_Meeting:0x24";

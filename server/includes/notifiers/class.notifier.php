@@ -39,6 +39,33 @@ class Notifier {
 	}
 
 	/**
+	 * Whether updates need serialized persistent notifier state.
+	 *
+	 * Specialized notifiers may make this decision based on the event.
+	 *
+	 * @param null|mixed $event
+	 */
+	public function usePersistentStateLock(/* @scrutinizer ignore-unused */ $event = null) {
+		static $statefulClasses = [];
+		$className = get_class($this);
+		if (isset($statefulClasses[$className])) {
+			return $statefulClasses[$className];
+		}
+
+		$reflection = new ReflectionObject($this);
+		while ($reflection !== false && $reflection->getName() !== self::class) {
+			foreach ($reflection->getProperties() as $property) {
+				if ($property->getDeclaringClass()->getName() === $reflection->getName() && !$property->isStatic()) {
+					return $statefulClasses[$className] = true;
+				}
+			}
+			$reflection = $reflection->getParentClass();
+		}
+
+		return $statefulClasses[$className] = false;
+	}
+
+	/**
 	 * Function which returns name of the notifier class.
 	 *
 	 * @return string notifier name
@@ -63,7 +90,7 @@ class Notifier {
 	 * Function which returns notification data that will be sent to client. If there isn't any data added
 	 * to response data then it will return a blank array.
 	 *
-	 * @return object response data
+	 * @return array response data
 	 */
 	protected function createNotificationResponseData() {
 		if (!empty($this->responseNotificationData)) {
@@ -90,11 +117,13 @@ class Notifier {
 	 * If an event elsewhere has occurred, it enters in this method. This method
 	 * executes one or more actions, depends on the event.
 	 *
+	 * Implementations receive all three values; the default hook is intentionally empty.
+	 *
 	 * @param int    $event   event
 	 * @param string $entryid entryid
 	 * @param array  $data    array of data
 	 */
-	public function update($event, $entryid, $data) {
+	public function update(/* @scrutinizer ignore-unused */ $event, /* @scrutinizer ignore-unused */ $entryid, /* @scrutinizer ignore-unused */ $data) {
 		// you must implement this function for each notifier
 	}
 }

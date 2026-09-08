@@ -153,8 +153,6 @@ abstract class DownloadBase {
 	 * @return string $messageClass message type to prepare exception message
 	 */
 	public function getMessageType($mapiMessageClass) {
-		$messageClass = '';
-
 		// Convert message class into human readable format, so user can easily understand the display message.
 		return match ($this->getTrimmedMessageClass($mapiMessageClass)) {
 			'Appointment' => _('Appointment'),

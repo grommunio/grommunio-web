@@ -83,7 +83,7 @@ Zarafa.common.recurrence.dialogs.RecurrenceSubPanel = Ext.extend(Ext.Panel, {
 			var pattern = field.patternValue;
 
 			// The recurrence properties use 'forceProtocol' on the field definition, this means
-			// that they will always be markked as changed when we set them. So to be safe,
+			// that they will always be marked as changed when we set them. So to be safe,
 			// we manually check if we are about to set a different value or not.
 			//
 			// We also apply a full update of all properties, because when the subtype changes,

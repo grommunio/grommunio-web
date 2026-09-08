@@ -7,7 +7,7 @@ Ext.namespace('Zarafa.addressbook.dialogs');
  */
 Zarafa.addressbook.dialogs.ABUserSelectionContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPanel, {
 	/**
-	 * @cfg {Function} callback the callback function to return to after selecting user from AdressBook.
+	 * @cfg {Function} callback the callback function to return to after selecting a user from the Address Book.
 	 */
 	callback: Ext.emptyFn,
 

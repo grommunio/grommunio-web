@@ -11,7 +11,7 @@ header('Pragma: cache');
 $translations = $Language->getTranslations();
 if ($translations && array_key_exists("_etag", $translations)) {
 	$etag = $translations["_etag"];
-	header("Etag: $etag");
+	header("Etag: {$etag}");
 	if (isset($_GET['v']) && $_GET['v'] === $etag) {
 		// The page puts this fingerprint in the URL, so the URL changes with the content
 		header('Expires: ' . gmdate('D, d M Y H:i:s', time() + EXPIRES_TIME_HI) . ' GMT');
@@ -25,10 +25,12 @@ if ($translations && array_key_exists("_etag", $translations)) {
 		$client_etags = array_map("trim", explode(",", $_SERVER["HTTP_IF_NONE_MATCH"]));
 		if (in_array($etag, $client_etags, true) || in_array("*", $client_etags, true)) {
 			http_response_code(304);
+
 			exit;
 		}
 	}
-} else {
+}
+else {
 	/*
 	 * No strings to hand out. Do not let this answer be stored: a client that keeps
 	 * it shows an untranslated interface until it revalidates, even though the
@@ -39,18 +41,16 @@ if ($translations && array_key_exists("_etag", $translations)) {
 	header('Expires: 0');
 }
 
-
 // compress output
 ob_start("ob_gzhandler");
 
 /**
- * Convert the charset to UTF-8. If it is an array it will loop through all it's
- * items and encodes each item.
+ * Convert the charset to UTF-8. If the source is an array, convert each item.
  *
- * @param $source  String|Array Input string or array with strings
- * @param $charset String Original charset of the source string(s)
+ * @param array|false|string $source  input string, array of strings, or false
+ * @param string             $charset original charset of the source string(s)
  *
- * @return string Source string encoded with the new charset
+ * @return array|false|string source data encoded with the new charset
  */
 function changeTranslationCharsetToUTF8($source, $charset) {
 	if (is_array($source)) {
@@ -85,8 +85,9 @@ Translations.prototype.setTranslations = function()
 	// BEGIN TRANSLATIONS
 <?php
 foreach ($translations as $domain => $translation_list) {
-	if (substr($domain, 0, 1) == '_')
+	if (substr($domain, 0, 1) == '_') {
 		continue;
+	}
 	$pluralForms = false;
 	// Find the translation that contains the charset.
 	foreach ($translations[$domain] as $key => $translationdomain) {

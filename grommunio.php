@@ -8,6 +8,25 @@
 // Bootstrap the script
 require_once 'server/includes/bootstrap.grommunio.php';
 
+// Reject foreign service requests before authentication or a controller can
+// refresh, create, or destroy session state. Requests without Origin remain
+// available to legacy and non-browser clients.
+if (isset($_GET['service'])) {
+	require_once BASE_PATH . 'server/includes/core/class.response.php';
+	$service = $_GET['service'];
+	$serviceMethods = [
+		'authenticate' => 'POST',
+		'authenticated' => 'GET',
+		'fingerprint' => 'POST',
+		'logout' => 'POST',
+		'token' => 'POST',
+	];
+	if (!is_string($service) || !isset($serviceMethods[$service])) {
+		Response::notFound();
+	}
+	Response::enforceCors($serviceMethods[$service]);
+}
+
 // Callback function for unserialize
 // Notifier objects of the previous request are stored in the session. With this
 // function they are restored to PHP objects.
@@ -124,7 +143,7 @@ $GLOBALS["operations"] = new Operations();
 $Language = new Language();
 
 // Create global settings object
-$GLOBALS["settings"] = new Settings($Language);
+$GLOBALS["settings"] = new Settings();
 
 // Set the correct language
 $Language->setLanguage($session_lang);
@@ -145,19 +164,43 @@ if (DEBUG_JSONOUT) {
 	dump_json($json, "in"); // debugging
 }
 
-// Get the state information for this subsystem
-$subsystem = sanitizeGetValue('subsystem', 'anonymous', ID_REGEX);
+// Keep custom request identifiers separate from internal state names.
+if (!array_key_exists('subsystem', $_GET)) {
+	$subsystem = 'anonymous';
+}
+elseif (!is_string($_GET['subsystem']) || preg_match('/\A[a-z0-9_]{1,128}\z/iD', $_GET['subsystem']) !== 1) {
+	http_response_code(400);
 
+	exit;
+}
+elseif ($_GET['subsystem'] === 'anonymous' || preg_match('/\Awebapp_[0-9]{1,20}\z/D', $_GET['subsystem']) === 1) {
+	$subsystem = $_GET['subsystem'];
+}
+else {
+	$subsystem = 'request-' . hash('sha256', $_GET['subsystem']);
+}
+$GLOBALS['request_state_id'] = $subsystem;
+
+// Load a snapshot under a short lock. Request execution must not hold the
+// per-tab state lock across backend I/O.
 $state = new State($subsystem);
+$bus = false;
+$properties = false;
+if (!$state->open()) {
+	http_response_code(503);
 
-// Lock the state of this subsystem
-$state->open();
+	exit;
+}
 
-// Get the bus object for this subsystem
-$bus = $state->read("bus");
+try {
+	$bus = $state->read("bus");
+	$properties = $state->read("properties");
+}
+finally {
+	$state->close();
+}
 
-if (!$bus) {
-	// Create global bus object
+if (!$bus instanceof Bus) {
 	$bus = new Bus();
 }
 
@@ -166,17 +209,19 @@ $GLOBALS["bus"] = $bus;
 
 // Reset any spurious information in the bus state
 $GLOBALS["bus"]->reset();
+$busSnapshot = serialize($GLOBALS["bus"]);
+$baseBus = unserialize($busSnapshot);
+$GLOBALS['request_bus_base'] = $baseBus;
 
 // Create global properties object
-$properties = $state->read("properties");
-
-if (!$properties) {
+if (!$properties instanceof Properties) {
 	$properties = new Properties();
 }
 $GLOBALS["properties"] = $properties;
 
 // Reset any spurious information in the properties state
 $GLOBALS["properties"]->reset();
+$propertiesSnapshot = serialize($GLOBALS["properties"]);
 
 // Execute the request
 try {
@@ -187,17 +232,41 @@ catch (Exception $e) {
 	dump($e);
 }
 
-// Save bus and properties back to state, flush to disk, and release the
-// lock before doing any I/O (gzip + echo).  This lets the next request
-// from the same subsystem proceed while we compress and transmit.
+// Merge with requests that completed while this one was executing, then
+// persist under a short lock. Response data is already encoded in $json.
 $GLOBALS["bus"]->reset();
-$state->write("bus", $GLOBALS["bus"], false);
-
 $GLOBALS["properties"]->reset();
-$state->write("properties", $GLOBALS["properties"], false);
 
-$state->flush();
-$state->close();
+$state = new State($subsystem);
+if ($state->open()) {
+	try {
+		$currentBus = $state->read("bus");
+		if ($currentBus instanceof Bus) {
+			$currentBus->reset();
+			if (serialize($currentBus) !== $busSnapshot) {
+				$baseBus = $GLOBALS['request_bus_base'] ?? $baseBus;
+				$currentBus->mergePersistentState($GLOBALS["bus"], $baseBus instanceof Bus ? $baseBus : null);
+				$GLOBALS["bus"] = $currentBus;
+			}
+		}
+
+		$currentProperties = $state->read("properties");
+		if ($currentProperties instanceof Properties) {
+			$currentProperties->reset();
+			if (serialize($currentProperties) !== $propertiesSnapshot) {
+				$currentProperties->mergePersistentState($GLOBALS["properties"]);
+				$GLOBALS["properties"] = $currentProperties;
+			}
+		}
+
+		$state->write("bus", $GLOBALS["bus"], false);
+		$state->write("properties", $GLOBALS["properties"], false);
+		$state->flush();
+	}
+	finally {
+		$state->close();
+	}
+}
 
 if (DEBUG_JSONOUT) {
 	dump_json($json, "out"); // debugging

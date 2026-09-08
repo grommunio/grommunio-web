@@ -23,18 +23,17 @@ class CreateMailItemModule extends ItemModule {
 	/**
 	 * Function which saves and/or sends an item.
 	 *
-	 * @param object $store         MAPI Message Store Object
-	 * @param string $parententryid parent entryid of the message
-	 * @param string $entryid       entryid of the message
-	 * @param array  $action        the action data, sent by the client
+	 * @param false|resource $store         MAPI message store, or false when unavailable
+	 * @param false|string   $parententryid parent entry ID of the message
+	 * @param false|string   $entryid       entry ID of the message
+	 * @param array          $action        the action data, sent by the client
 	 */
 	#[Override]
 	public function save($store, $parententryid, $entryid, $action, $actionType = 'save') {
 		$messageProps = [];
-		$result = false;
 
-		$store = $this->resolveStore($store, $action);
-		if (!$store) {
+		$store = $this->resolveStore($store);
+		if ($store === false) {
 			return;
 		}
 
@@ -92,12 +91,12 @@ class CreateMailItemModule extends ItemModule {
 	/**
 	 * Resolve the message store that should be used for the save operation.
 	 *
-	 * @param mixed $store
+	 * @param false|resource $store MAPI message store, or false when unavailable
 	 *
-	 * @return mixed
+	 * @return false|resource resolved MAPI message store, or false when unavailable
 	 */
-	private function resolveStore($store, array $action) {
-		if ($store) {
+	private function resolveStore($store) {
+		if ($store !== false) {
 			return $store;
 		}
 
@@ -107,10 +106,10 @@ class CreateMailItemModule extends ItemModule {
 	/**
 	 * Resolve parent entry id based on provided data or defaults.
 	 *
-	 * @param mixed  $store
-	 * @param string $parententryid
+	 * @param resource     $store         MAPI message store
+	 * @param false|string $parententryid parent entry ID, or false when unspecified
 	 *
-	 * @return string
+	 * @return false|string resolved parent entry ID, or false when unavailable
 	 */
 	private function resolveParentEntryId($store, $parententryid, array $action) {
 		if ($parententryid) {
@@ -193,8 +192,8 @@ class CreateMailItemModule extends ItemModule {
 	 * address. Read the identity back from the stored draft and treat it as
 	 * if the client had supplied it.
 	 *
-	 * @param mixed  $store   store containing the draft
-	 * @param string $entryid entryid of the draft, empty for an unsaved message
+	 * @param resource     $store   store containing the draft
+	 * @param false|string $entryid entryid of the draft, false for an unsaved message
 	 */
 	private function restoreSendAsPropsFromDraft($store, $entryid, array &$action) {
 		if (!$entryid) {
@@ -336,6 +335,7 @@ class CreateMailItemModule extends ItemModule {
 					$e->setTitle(_('Unknown error'));
 					$e->setDisplayMessage(sprintf("Unable to add store: '%s'. Please check if you have the necessary permissions.",
 						$action['props']['sent_representing_email_address']));
+
 					throw $e;
 				}
 				if ($otherStore && $send) {
@@ -384,7 +384,6 @@ class CreateMailItemModule extends ItemModule {
 		if ($entryid) {
 			// $store may already have been switched to the delegator's store
 			// while the draft lives in the user's own store.
-			$message = false;
 			try {
 				$message = $GLOBALS['operations']->openMessage($store, $entryid);
 			}
@@ -392,10 +391,17 @@ class CreateMailItemModule extends ItemModule {
 				$e->setHandled();
 
 				try {
-					$message = $GLOBALS['operations']->openMessage($GLOBALS['mapisession']->getDefaultMessageStore(), $entryid);
+					$defaultStore = $GLOBALS['mapisession']->getDefaultMessageStore();
+					if ($defaultStore === false) {
+						$message = false;
+					}
+					else {
+						$message = $GLOBALS['operations']->openMessage($defaultStore, $entryid);
+					}
 				}
 				catch (MAPIException $e) {
 					$e->setHandled();
+					$message = false;
 				}
 			}
 			if ($message) {
@@ -630,8 +636,8 @@ class CreateMailItemModule extends ItemModule {
 
 	/**
 	 * Function is used to get the shared or delegate store entryid where
-	 * source message was stored on which we have to set replay/forward arrow
-	 * when draft(saved mail) is send.
+	 * source message was stored, so the reply/forward arrow can be set when
+	 * the draft (saved mail) is sent.
 	 *
 	 * @param array $props the $props data, which get from saved mail
 	 *
@@ -651,20 +657,18 @@ class CreateMailItemModule extends ItemModule {
 	 * @param array $action the action data, sent by the client
 	 */
 	public function setReplyForwardInfo($action) {
-		$message = false;
 		$sourceMsgInfo = $this->getSourceMsgInfo($action);
 		if (isset($sourceMsgInfo['source_message_info']) && $sourceMsgInfo['source_message_info']) {
 			/**
-			 * $sourceMsgInfo['source_message_info'] contains the hex value, where first 24byte contains action type
-			 * and next 48byte contains entryid of original mail. so we have to extract the action type
-			 * from this hex value.
+			 * $sourceMsgInfo['source_message_info'] contains a hexadecimal record. The action type occupies
+			 * two hexadecimal characters starting at offset 24 (byte 12), and the original message entry ID
+			 * begins at offset 48, after the 24-byte metadata prefix.
 			 *
-			 * Example : 01000E000C00000005010000660000000200000030000000 + record entryid
-			 * Here 66 represents the REPLY action type. same way 67 and 68 is represent
-			 * REPLY ALL and FORWARD respectively.
+			 * Example: 01000E000C00000005010000660000000200000030000000 + record entry ID
+			 * Here, 66 represents REPLY; similarly, 67 and 68 represent REPLY ALL and FORWARD, respectively.
 			 */
 			$mailActionType = substr((string) $sourceMsgInfo['source_message_info'], 24, 2);
-			// get the entry id of origanal mail's.
+			// Get the entry ID of the original message.
 			$originalEntryid = substr((string) $sourceMsgInfo['source_message_info'], 48);
 			$entryid = hex2bin($originalEntryid);
 
@@ -677,6 +681,8 @@ class CreateMailItemModule extends ItemModule {
 			}
 			catch (MAPIException $e) {
 				$e->setHandled();
+
+				return;
 			}
 
 			if ($message) {

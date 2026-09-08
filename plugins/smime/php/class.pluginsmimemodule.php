@@ -9,6 +9,7 @@ define('CHANGE_PASSPHRASE_ERROR', 2);
 define('CHANGE_PASSPHRASE_WRONG', 3);
 
 class PluginSmimeModule extends Module {
+	/** @var resource MAPI message store */
 	private $store;
 
 	/**
@@ -121,18 +122,21 @@ class PluginSmimeModule extends Module {
 	}
 
 	/**
-	 * Verifies the users private certificate,
+	 * Verifies the user's private certificate,
 	 * returns array with three statuses and a message key containing a message for the user.
 	 * 1. There is a certificate and valid
 	 * 2. There is a certificate and not valid
 	 * 3. No certificate
 	 * FIXME: in the future we might support multiple private certs.
 	 *
-	 * @param array $data which contains the data send from JavaScript
+	 * @param array $data reserved certificate action data
 	 *
-	 * @return array $data which returns two keys containing the certificate
+	 * @return array certificate status, message and metadata
 	 */
 	public function verifyCertificate($data) {
+		// Keep the action payload in the public signature for module callers.
+		unset($data);
+
 		$message = '';
 		$status = false;
 
@@ -140,7 +144,7 @@ class PluginSmimeModule extends Module {
 		$certIdx = -1;
 
 		// No certificates
-		if (!$privateCerts || count($privateCerts) === 0) {
+		if ($privateCerts === []) {
 			$message = _('No certificate available');
 		}
 		else {
@@ -243,7 +247,7 @@ class PluginSmimeModule extends Module {
 	 */
 	public function getPublicCertificates() {
 		$items = [];
-		$data['page'] = [];
+		$data = ['page' => []];
 
 		$root = mapi_msgstore_openentry($this->store);
 		$table = mapi_folder_getcontentstable($root, MAPI_ASSOCIATED);
@@ -328,15 +332,15 @@ class PluginSmimeModule extends Module {
 			return CHANGE_PASSPHRASE_WRONG;
 		}
 
-		$cert = $this->pkcs12_change_passphrase($certs, $actionData['new_passphrase']);
+		$cert = (string) $this->pkcs12_change_passphrase($certs, $actionData['new_passphrase']);
 
-		if ($cert === false) {
+		if ($cert === '') {
 			return CHANGE_PASSPHRASE_ERROR;
 		}
 
 		$mapiCerts = getMAPICert($this->store);
 		$mapiCert = $mapiCerts[0] ?? [];
-		if (!$mapiCert || empty($mapiCert)) {
+		if (empty($mapiCert)) {
 			return CHANGE_PASSPHRASE_ERROR;
 		}
 		$privateCert = mapi_msgstore_openentry($this->store, $mapiCert[PR_ENTRYID]);
@@ -476,7 +480,7 @@ class PluginSmimeModule extends Module {
 
 		// Collect public certs for this email
 		$certs = getMAPICert($this->store, 'WebApp.Security.Public', $email);
-		if (!$certs || count($certs) === 0) {
+		if ($certs === []) {
 			return ['status' => false, 'message' => _('No certificates found for this email address')];
 		}
 
@@ -508,22 +512,31 @@ class PluginSmimeModule extends Module {
 
 		$cms = new CmsOperations();
 		$tmpOut = tempnam(sys_get_temp_dir(), 'smime_co_');
-		$ok = $cms->generateCertsOnly($certPems, $tmpOut);
-
-		if (!$ok) {
-			@unlink($tmpOut);
-
+		if ($tmpOut === false) {
 			return ['status' => false, 'message' => _('Unable to generate certs-only message')];
 		}
 
-		$content = file_get_contents($tmpOut);
-		@unlink($tmpOut);
+		try {
+			if (!$cms->generateCertsOnly($certPems, $tmpOut)) {
+				return ['status' => false, 'message' => _('Unable to generate certs-only message')];
+			}
 
-		return [
-			'status' => true,
-			'data' => base64_encode($content),
-			'content_type' => 'application/pkcs7-mime; smime-type=certs-only; name="smime.p7c"',
-		];
+			$content = file_get_contents($tmpOut);
+			if ($content === false) {
+				return ['status' => false, 'message' => _('Unable to read certs-only message')];
+			}
+
+			return [
+				'status' => true,
+				'data' => base64_encode($content),
+				'content_type' => 'application/pkcs7-mime; smime-type=certs-only; name="smime.p7c"',
+			];
+		}
+		finally {
+			if (is_file($tmpOut) && !@unlink($tmpOut)) {
+				error_log("[smime] Could not remove certs-only temporary file: {$tmpOut}");
+			}
+		}
 	}
 
 	/**
@@ -605,10 +618,10 @@ class PluginSmimeModule extends Module {
 	/**
 	 * Generate a new  PKCS#12 certificate store file with a new passphrase.
 	 *
-	 * @param array $certs          the original certificate
-	 * @param mixed $new_passphrase
+	 * @param array  $certs         original PKCS#12 certificate data
+	 * @param string $new_passphrase new passphrase
 	 *
-	 * @return mixed boolean or string certificate
+	 * @return false|string PKCS#12 data, or false when export fails
 	 */
 	public function pkcs12_change_passphrase($certs, $new_passphrase) {
 		$cert = "";

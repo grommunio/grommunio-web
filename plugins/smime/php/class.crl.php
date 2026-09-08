@@ -1,5 +1,8 @@
 <?php
 
+use WAYF\CrlParser;
+use WAYF\X509;
+
 require_once __DIR__ . '/lib/Crl.php';
 
 /**
@@ -15,13 +18,32 @@ class CrlManager {
 	/** @var int maximum cache age in seconds */
 	private int $maxAge;
 
+	/** @var int maximum downloaded CRL size in bytes */
+	private int $maxBytes;
+
+	private const SIGNATURE_DIGESTS = [
+		'sha1WithRSAEncryption' => 'sha1',
+		'sha224WithRSAEncryption' => 'sha224',
+		'sha256WithRSAEncryption' => 'sha256',
+		'sha384WithRSAEncryption' => 'sha384',
+		'sha512WithRSAEncryption' => 'sha512',
+		'ecdsaWithSHA1' => 'sha1',
+		'ecdsaWithSHA224' => 'sha224',
+		'ecdsaWithSHA256' => 'sha256',
+		'ecdsaWithSHA384' => 'sha384',
+		'ecdsaWithSHA512' => 'sha512',
+	];
+
 	public function __construct() {
 		$this->cacheDir = defined('PLUGIN_SMIME_CRL_CACHE_DIR')
 			? PLUGIN_SMIME_CRL_CACHE_DIR
-			: '/tmp/grommunio-web-crl';
+			: (defined('TMP_PATH') ? TMP_PATH : sys_get_temp_dir()) . '/smime/crl';
 		$this->maxAge = defined('PLUGIN_SMIME_CRL_MAX_AGE')
-			? (int) PLUGIN_SMIME_CRL_MAX_AGE
+			? max(0, (int) PLUGIN_SMIME_CRL_MAX_AGE)
 			: 86400;
+		$this->maxBytes = defined('PLUGIN_SMIME_CRL_MAX_BYTES')
+			? max(1, (int) PLUGIN_SMIME_CRL_MAX_BYTES)
+			: 8388608;
 	}
 
 	/**
@@ -45,89 +67,92 @@ class CrlManager {
 		if (empty($serial)) {
 			return null;
 		}
+		$issuer = $cert->issuer();
+		if (!$issuer instanceof Certificate || openssl_x509_verify($cert->pem(), $issuer->pem()) !== 1) {
+			return null;
+		}
 
+		$checked = false;
 		foreach ($cdpUrls as $url) {
-			$crlDer = $this->fetchCrl($url);
+			$crlDer = $this->fetchCrl($url, $issuer);
 			if ($crlDer === null) {
 				continue;
 			}
 
-			if ($this->checkCrlForSerial($crlDer, $serial)) {
+			$revoked = $this->checkCrlForSerial($crlDer, (string) $serial, $issuer);
+			if ($revoked === null) {
+				continue;
+			}
+			$checked = true;
+			if ($revoked) {
 				return true;
 			}
-
-			return false;
 		}
 
-		return null;
+		return $checked ? false : null;
 	}
 
 	/**
 	 * Fetch a CRL from a URL, using cache if available.
 	 *
 	 * @param string $url CRL distribution point URL
+	 * @param null|Certificate $issuer issuer used to authenticate cached/downloaded CRLs
 	 *
 	 * @return null|string raw DER CRL data, or null on failure
 	 */
-	public function fetchCrl(string $url): ?string {
+	public function fetchCrl(string $url, ?Certificate $issuer = null): ?string {
 		$cacheFile = $this->getCachePath($url);
 
-		// Check cache
-		if ($cacheFile !== null && file_exists($cacheFile)) {
+		// Only use a structurally valid, current cache entry. Signature and
+		// issuer checks are performed by checkCrlForSerial() before it is trusted.
+		if ($cacheFile !== null && is_file($cacheFile) && !is_link($cacheFile)) {
 			$stat = stat($cacheFile);
-			if ($stat !== false && (time() - $stat['mtime']) < $this->maxAge) {
+			if ($stat !== false && (time() - $stat['mtime']) < $this->maxAge && $stat['size'] <= $this->maxBytes) {
 				$content = file_get_contents($cacheFile);
-				if ($content !== false) {
-					return $content;
+				// file_get_contents() can fail despite Scrutinizer's string-only model.
+				if (/** @scrutinizer ignore-type */ $content !== false) {
+					$parsed = $this->parseCurrentCrl($content);
+					if ($parsed !== null && ($issuer === null || $this->authenticateCrl($parsed, $issuer))) {
+						return $content;
+					}
 				}
 			}
 		}
 
-		// Download
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL, $url);
-		curl_setopt($ch, CURLOPT_FAILONERROR, true);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_TIMEOUT, 15);
-		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-		curl_setopt($ch, CURLOPT_MAXREDIRS, 3);
-
-		// Proxy settings
-		if (defined('PLUGIN_SMIME_PROXY') && PLUGIN_SMIME_PROXY !== '') {
-			curl_setopt($ch, CURLOPT_PROXY, PLUGIN_SMIME_PROXY);
+		// CRL URLs come from untrusted certificates. Reuse the AIA/OCSP
+		// transport so private destinations, redirects and oversized responses
+		// are rejected and the checked DNS result is pinned.
+		if (!function_exists('fetchSmimeHttpResource')) {
+			return null;
 		}
-		if (defined('PLUGIN_SMIME_PROXY_PORT') && PLUGIN_SMIME_PROXY_PORT !== '') {
-			curl_setopt($ch, CURLOPT_PROXYPORT, (int) PLUGIN_SMIME_PROXY_PORT);
-		}
-		if (defined('PLUGIN_SMIME_PROXY_USERPWD') && PLUGIN_SMIME_PROXY_USERPWD !== '') {
-			curl_setopt($ch, CURLOPT_PROXYUSERPWD, PLUGIN_SMIME_PROXY_USERPWD);
-		}
-
-		$data = curl_exec($ch);
-		$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-		$error = curl_error($ch);
-
-		if ($data === false || $httpCode !== 200 || empty($data)) {
-			error_log(sprintf("[smime] CRL download failed for %s: HTTP %d, error: %s", $url, $httpCode, $error));
+		$data = fetchSmimeHttpResource($url, 'GET', '', [], 15, $this->maxBytes);
+		if (!is_string($data) || $data === '') {
+			$logUrl = preg_replace('/[^\x20-\x7e]/', '?', $url);
+			error_log(sprintf("[smime] Refused or failed to fetch CRL from '%s'", $logUrl));
 
 			return null;
 		}
 
 		// Detect PEM vs DER
 		if (str_contains($data, '-----BEGIN X509 CRL-----')) {
-			$pem = $data;
-			$begin = strpos($pem, '-----BEGIN X509 CRL-----');
-			$end = strpos($pem, '-----END X509 CRL-----');
-			if ($begin !== false && $end !== false) {
-				$b64 = substr($pem, $begin + 24, $end - $begin - 24);
-				$data = base64_decode(trim($b64));
+			if (preg_match('/-----BEGIN X509 CRL-----\s*([A-Za-z0-9+\/=\r\n]+)\s*-----END X509 CRL-----/', $data, $matches) !== 1) {
+				return null;
+			}
+			$data = base64_decode(preg_replace('/\s+/', '', $matches[1]), true);
+			// Strict base64 decoding can fail despite Scrutinizer's string-only model.
+			if (/** @scrutinizer ignore-type */ $data === false) {
+				return null;
 			}
 		}
+		$parsed = $this->parseCurrentCrl($data);
+		if ($parsed === null || ($issuer !== null && !$this->authenticateCrl($parsed, $issuer))) {
+			return null;
+		}
 
-		// Cache
-		if ($cacheFile !== null) {
-			$this->ensureCacheDir();
-			file_put_contents($cacheFile, $data);
+		// Cache atomically. The entry remains untrusted until its signature is
+		// checked against the certificate issuer by the caller.
+		if ($cacheFile !== null && $issuer !== null) {
+			$this->writeCacheFile($cacheFile, $data);
 		}
 
 		return $data;
@@ -138,24 +163,27 @@ class CrlManager {
 	 *
 	 * @param string $crlDer raw DER CRL data
 	 * @param string $serial certificate serial number (decimal)
+	 * @param null|Certificate $issuer certificate that issued both the CRL and certificate
 	 *
-	 * @return bool true if serial is revoked
+	 * @return null|bool true if revoked, false if not revoked, null if the CRL cannot be authenticated
 	 */
-	public function checkCrlForSerial(string $crlDer, string $serial): bool {
-		try {
-			// Suppress errors from the DER parser for malformed CRLs
-			set_error_handler(function () { return true; });
-			$parser = new \WAYF\CrlParser();
-			$result = $parser->checkSerial($crlDer, $serial);
-			restore_error_handler();
-
-			return $result;
+	public function checkCrlForSerial(string $crlDer, string $serial, ?Certificate $issuer = null): ?bool {
+		if ($issuer === null) {
+			return null;
 		}
-		catch (\Throwable $e) {
-			restore_error_handler();
+
+		try {
+			$parsed = $this->parseCurrentCrl($crlDer);
+			if ($parsed === null || !$this->authenticateCrl($parsed, $issuer)) {
+				return null;
+			}
+
+			return in_array($serial, $parsed['revokedSerials'], true);
+		}
+		catch (Throwable $e) {
 			error_log(sprintf("[smime] CRL parsing error: %s", $e->getMessage()));
 
-			return false;
+			return null;
 		}
 	}
 
@@ -183,28 +211,28 @@ class CrlManager {
 	 * @return bool true if cached successfully
 	 */
 	public function cacheCrlFromDer(string $crlDer, string $issuer = ''): bool {
-		if (empty($this->cacheDir) || empty($crlDer)) {
+		if (empty($this->cacheDir) || empty($crlDer) || $this->parseCurrentCrl($crlDer) === null) {
 			return false;
 		}
 
-		$this->ensureCacheDir();
-
-		// Use hash of CRL data as filename to avoid duplicates
-		$cacheKey = empty($issuer) ? sha1($crlDer) : sha1($issuer);
+		// Use a content-derived filename when no issuer hint is available. CRLs
+		// obtained from messages remain untrusted and are verified when read.
+		$cacheKey = hash('sha256', empty($issuer) ? $crlDer : $issuer);
 		$cacheFile = $this->cacheDir . '/' . $cacheKey . '_msg.crl';
 
-		return file_put_contents($cacheFile, $crlDer) !== false;
+		return $this->writeCacheFile($cacheFile, $crlDer);
 	}
 
 	/**
 	 * Check a certificate against all cached CRLs (including those from messages).
 	 *
 	 * @param string $serial certificate serial number
+	 * @param null|Certificate $issuer certificate that issued the relevant CRLs
 	 *
 	 * @return null|bool true = revoked, false = not found in any CRL, null = no CRLs available
 	 */
-	public function checkAgainstCachedCrls(string $serial): ?bool {
-		if (empty($this->cacheDir) || !is_dir($this->cacheDir)) {
+	public function checkAgainstCachedCrls(string $serial, ?Certificate $issuer = null): ?bool {
+		if ($issuer === null || empty($this->cacheDir) || !is_dir($this->cacheDir) || is_link($this->cacheDir)) {
 			return null;
 		}
 
@@ -213,37 +241,169 @@ class CrlManager {
 			return null;
 		}
 
+		$checked = false;
 		foreach ($files as $file) {
+			if (!is_file($file) || is_link($file) || filesize($file) > $this->maxBytes) {
+				continue;
+			}
 			$crlDer = file_get_contents($file);
 			if ($crlDer === false || empty($crlDer)) {
 				continue;
 			}
 
-			if ($this->checkCrlForSerial($crlDer, $serial)) {
+			$revoked = $this->checkCrlForSerial($crlDer, $serial, $issuer);
+			if ($revoked === null) {
+				continue;
+			}
+			$checked = true;
+			if ($revoked) {
 				return true;
 			}
 		}
 
-		return false;
+		return $checked ? false : null;
 	}
 
 	/**
 	 * Derive a cache file path from a URL.
 	 */
 	private function getCachePath(string $url): ?string {
-		if (empty($this->cacheDir)) {
+		if (empty($this->cacheDir) || is_link($this->cacheDir)) {
 			return null;
 		}
 
-		return $this->cacheDir . '/' . sha1($url) . '.crl';
+		return $this->cacheDir . '/' . hash('sha256', $url) . '.crl';
 	}
 
 	/**
 	 * Ensure the cache directory exists.
 	 */
-	private function ensureCacheDir(): void {
-		if (!is_dir($this->cacheDir)) {
-			@mkdir($this->cacheDir, 0750, true);
+	private function ensureCacheDir(): bool {
+		if (is_link($this->cacheDir)) {
+			return false;
 		}
+		if (!is_dir($this->cacheDir) && !@mkdir($this->cacheDir, 0750, true) && !is_dir($this->cacheDir)) {
+			return false;
+		}
+		$permissions = fileperms($this->cacheDir);
+		if ($permissions === false || ($permissions & 0002) !== 0) {
+			return false;
+		}
+
+		return is_writable($this->cacheDir);
+	}
+
+	/**
+	 * Atomically replace a cache file without following a pre-created file link.
+	 */
+	private function writeCacheFile(string $cacheFile, string $data): bool {
+		if (!$this->ensureCacheDir()) {
+			return false;
+		}
+		$tmpFile = tempnam($this->cacheDir, '.crl-');
+		if ($tmpFile === false) {
+			return false;
+		}
+
+		try {
+			$written = file_put_contents($tmpFile, $data, LOCK_EX);
+			if ($written !== strlen($data) || !@chmod($tmpFile, 0640)) {
+				return false;
+			}
+
+			return @rename($tmpFile, $cacheFile);
+		}
+		finally {
+			if ((is_file($tmpFile) || is_link($tmpFile)) && !@unlink($tmpFile)) {
+				error_log("[smime] Could not remove temporary CRL cache file: {$tmpFile}");
+			}
+		}
+	}
+
+	/**
+	 * Verify the CRL issuer, signature algorithm and signature.
+	 */
+	private function authenticateCrl(array $parsed, Certificate $issuer): bool {
+		try {
+			if (($parsed['tbsSignatureAlgorithm'] ?? null) !== ($parsed['signatureAlgorithm'] ?? null)) {
+				return false;
+			}
+			$x509 = new X509();
+			$issuerData = $x509->certificate($issuer->der());
+			if (($issuerData['tbsCertificate']['subject_'] ?? null) !== ($parsed['issuer'] ?? null)) {
+				return false;
+			}
+			$issuerExtensions = $issuerData['tbsCertificate']['extensions'] ?? [];
+			if (isset($issuerExtensions['keyUsage']) && empty($issuerExtensions['keyUsage']['extnValue']['cRLSign'])) {
+				return false;
+			}
+
+			$signature = $parsed['signature'] ?? null;
+			$signatureAlgorithm = $parsed['signatureAlgorithm'] ?? null;
+			$digest = is_string($signatureAlgorithm) ? (self::SIGNATURE_DIGESTS[$signatureAlgorithm] ?? null) : null;
+			if (!is_string($signature) || strlen($signature) < 2 || ord($signature[0]) !== 0 || $digest === null ||
+				!isset($parsed['tbsCertList_der']) || !is_string($parsed['tbsCertList_der'])) {
+				return false;
+			}
+			$publicKey = openssl_pkey_get_public($issuer->pem());
+
+			return $publicKey !== false && openssl_verify($parsed['tbsCertList_der'], substr($signature, 1), $publicKey, $digest) === 1;
+		}
+		catch (Throwable $e) {
+			error_log(sprintf("[smime] CRL authentication error: %s", $e->getMessage()));
+
+			return false;
+		}
+	}
+
+	/**
+	 * Parse a CRL and require a currently usable update window.
+	 *
+	 * @return null|array decoded CRL, or null if malformed/stale
+	 */
+	private function parseCurrentCrl(string $crlDer): ?array {
+		try {
+			$parsed = (new CrlParser())->parseCrl($crlDer);
+			$thisUpdate = $this->parseCrlTime($parsed['thisUpdate'] ?? null);
+			$nextUpdate = isset($parsed['nextUpdate'])
+				? $this->parseCrlTime($parsed['nextUpdate'])
+				: null;
+			$now = time();
+			$clockSkew = defined('PLUGIN_SMIME_CRL_CLOCK_SKEW') ? max(0, (int) PLUGIN_SMIME_CRL_CLOCK_SKEW) : 300;
+			if ($thisUpdate > $now + $clockSkew) {
+				return null;
+			}
+			if ($nextUpdate !== null && ($nextUpdate <= $thisUpdate || $nextUpdate < $now - $clockSkew)) {
+				return null;
+			}
+			if ($nextUpdate === null && $thisUpdate < $now - $this->maxAge - $clockSkew) {
+				return null;
+			}
+
+			return $parsed;
+		}
+		catch (Throwable $e) {
+			error_log(sprintf("[smime] Invalid CRL: %s", $e->getMessage()));
+
+			return null;
+		}
+	}
+
+	/**
+	 * Parse the normalized DER time emitted by CrlParser.
+	 *
+	 * @param mixed $value
+	 */
+	private function parseCrlTime($value): int {
+		if (!is_string($value)) {
+			throw new UnexpectedValueException('CRL does not contain nextUpdate');
+		}
+		$time = DateTimeImmutable::createFromFormat('!YmdHis\Z', $value, new DateTimeZone('UTC'));
+		$errors = DateTimeImmutable::getLastErrors();
+		if ($time === false || ($errors !== false && ($errors['warning_count'] > 0 || $errors['error_count'] > 0))) {
+			throw new UnexpectedValueException('Invalid CRL update time');
+		}
+
+		return $time->getTimestamp();
 	}
 }

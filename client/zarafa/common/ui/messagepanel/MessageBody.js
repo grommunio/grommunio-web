@@ -499,7 +499,7 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 		for(var i = 0; i < node.childNodes.length; i++) {
 			var cnode = node.childNodes[i];
 			if(cnode.nodeType == 1) { // Tag-node
-				if(cnode.nodeName != 'A') { // Igonre Anchor-node as they are already linified
+				if(cnode.nodeName != 'A') { // Ignore anchor nodes as they are already linkified
 					this.scanDOMForLinks(cnode);
 				}
 			} else if(cnode.nodeType == 3) { // Text-node

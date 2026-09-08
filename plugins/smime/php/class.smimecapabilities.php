@@ -88,11 +88,13 @@ class SmimeCapabilities {
 	 * Get the singleton instance.
 	 */
 	public static function getInstance(): self {
-		if (self::$instance === null) {
-			self::$instance = new self();
+		$instance = self::$instance;
+		if ($instance === null) {
+			$instance = new self();
+			self::$instance = $instance;
 		}
 
-		return self::$instance;
+		return $instance;
 	}
 
 	/**
@@ -185,13 +187,18 @@ class SmimeCapabilities {
 		try {
 			$ref = new ReflectionFunction('openssl_cms_encrypt');
 			$params = $ref->getParameters();
-			foreach ($params as $param) {
-				if ($param->getName() === 'cipher') {
-					$type = $param->getType();
-					if ($type instanceof ReflectionUnionType) {
-						return true;
-					}
-					if ($type instanceof ReflectionNamedType && $type->getName() === 'string') {
+			$param = $params[6] ?? null;
+			if (!$param instanceof ReflectionParameter ||
+				!in_array($param->getName(), ['cipher', 'cipher_algo'], true)) {
+				return false;
+			}
+			$type = $param->getType();
+			if ($type instanceof ReflectionNamedType) {
+				return $type->getName() === 'string';
+			}
+			if ($type instanceof ReflectionUnionType) {
+				foreach ($type->getTypes() as $namedType) {
+					if ($namedType->getName() === 'string') {
 						return true;
 					}
 				}
@@ -216,7 +223,7 @@ class SmimeCapabilities {
 		}
 
 		$which = @shell_exec('which openssl 2>/dev/null');
-		if ($which !== null) {
+		if (is_string($which)) {
 			$which = trim($which);
 			if (!empty($which) && is_executable($which)) {
 				return true;

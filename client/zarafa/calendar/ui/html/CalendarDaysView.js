@@ -392,7 +392,7 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 	 */
 	eventInHeader: function(event)
 	{
-		// Calculate the x,y position of the mouse relative the the body layer.
+		// Calculate the x,y position of the mouse relative to the body layer.
 		var element = this.getHeaderActionLayer();
 		var x = event.getPageX() - element.getX();
 		var y = event.getPageY() - element.getY();

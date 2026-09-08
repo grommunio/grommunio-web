@@ -223,7 +223,7 @@ Zarafa.hierarchy.ui.FolderNode = Ext.extend(Ext.tree.AsyncTreeNode, {
 				});
 			};
 		
-			// If children are available then focefully expand this node to get the data.
+			// If children are available then forcibly expand this node to get the data.
 			if(this.hasChildNodes() && Ext.isEmpty(cs)) {
 				// Collapse the node which was forcefully expanded.
 				var expandCallback = function(node) {

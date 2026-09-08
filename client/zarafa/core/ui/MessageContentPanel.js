@@ -229,7 +229,7 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	},
 
 	/**
-	 * Event handler which is fired when the the {@link Ext.data.Store store} for the {@link #record}
+	 * Event handler which is fired when the {@link Ext.data.Store store} for the {@link #record}
 	 * fires the {@link Ext.data.Store#beforesave} event. This will check if the event was really regarding
 	 * {@link #record} and will update the {@link #isSaving} or {@link #isSending} property and
 	 * {@link #displayInfoMask display the infobox}.
@@ -572,7 +572,7 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	 * can be send to the recipients.
 	 *
 	 * This validates if all recipients were resolved in the message. If not, then
-	 * the the recipientStore will resolve everything.
+	 * the recipientStore will resolve everything.
 	 *
 	 * @param {Function} callback The callback to call to continue in the queue
 	 * @private

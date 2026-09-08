@@ -38,9 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 	Response::wrongMethod();
 }
 
-// Add CORS headers if necessary
-Response::addCorsHeaders();
-
 if (isset($_POST['username'], $_POST['password'])) {
 	WebAppAuthentication::authenticateWithPostedCredentials();
 }

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Icelandic (Iceland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-04 14:41+0200\n"
+"POT-Creation-Date: 2026-09-06 21:29+0200\n"
 "PO-Revision-Date: 2019-12-01 02:07+0000\n"
 "Last-Translator: import\n"
 "Language: is_IS\n"
@@ -1934,6 +1934,25 @@ msgstr "Þú hefur ekki nægar heimildir til að færa þessi atriði. Viltu fre
 msgid "You have insufficient privileges to move this item. Would you like to copy instead?"
 msgstr "Þú hefur ekki nægar heimildir til að færa þetta atriði. Viltu frekar afrita það?"
 
+msgid "Untitled"
+msgstr "Án titils"
+
+msgid "The attachments could not be saved."
+msgstr ""
+
+msgid "This attachment could not be saved: {0}"
+msgid_plural "These attachments could not be saved: {0}"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "{0} attachment was saved."
+msgid_plural "{0} attachments were saved."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Save attachments"
+msgstr ""
+
 msgid "Insert item"
 msgstr "Setja inn"
 
@@ -1979,11 +1998,17 @@ msgstr "Hengja við"
 msgid "Preview"
 msgstr "Forsýn"
 
+msgid "Preview in a dialog"
+msgstr ""
+
 msgid "Download"
 msgstr "Niðurhal"
 
 msgid "Download all as ZIP"
 msgstr "Hala öllu niður sem ZIP skrá"
+
+msgid "Save selection to folder"
+msgstr ""
 
 msgid "Import to folder"
 msgstr "Lesa inn í möppu"
@@ -1993,6 +2018,12 @@ msgstr "Til að nota vCard-innflutningsaðgerðina skaltu uppfæra Gromox í út
 
 msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to version 0 or higher."
 msgstr "Til að nota ICS/VCS innflutningsaðgerðina skaltu uppfæra Gromox í útgáfu 0 eða nýrri."
+
+msgid "Preview in a grommunio Web tab"
+msgstr ""
+
+msgid "Preview in a browser window"
+msgstr ""
 
 msgid "Attachment error"
 msgstr "Viðhengisvilla"
@@ -3095,9 +3126,6 @@ msgstr "Ekki tókst að hlaða skilaboðum"
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "Viðhengi"
-
-msgid "Untitled"
-msgstr "Án titils"
 
 msgid "Download Pictures"
 msgstr "Hlaða niður myndum"
@@ -5242,6 +5270,12 @@ msgstr "Sjálfgefinn aðdráttur skjals"
 
 msgid "PDF zoom"
 msgstr "PDF aðdráttur"
+
+msgid "Dialog"
+msgstr ""
+
+msgid "Open a preview in a"
+msgstr ""
 
 msgid "File previewing"
 msgstr "Forskoðun skráa"
@@ -7530,12 +7564,6 @@ msgstr "Aðgangi hafnað"
 msgid "Connection failed"
 msgstr "Tenging mistókst"
 
-msgid "Sabre error"
-msgstr "Sabre villa"
-
-msgid "Copying failed"
-msgstr "Afritun mistókst"
-
 msgid "Unknown error"
 msgstr "Óþekkt villa"
 
@@ -7662,6 +7690,9 @@ msgstr "Skrár WebDAV bakendi:"
 msgid "PHP-CURL is not installed"
 msgstr "PHP-CURL er ekki uppsett"
 
+msgid "Sabre error"
+msgstr "Sabre villa"
+
 msgid "Directory creation failed"
 msgstr "Ekki tókst að búa til möppu"
 
@@ -7677,8 +7708,8 @@ msgstr "Tímabundin skráarvandamál"
 msgid "File or folder not found"
 msgstr "Skrá eða mappa fannst ekki"
 
-msgid "Not implemented"
-msgstr "Ekki komið til framkvæmda"
+msgid "Copying failed"
+msgstr "Afritun mistókst"
 
 msgid "Please contact your system administrator"
 msgstr "Vinsamlegast hafðu samband við kerfisstjórann þinn"
@@ -7688,6 +7719,9 @@ msgstr "Ekki er hægt að ná í skráaþjón. Vinsamlegast staðfestu tengingun
 
 msgid "PHP-CURL not installed"
 msgstr "PHP-CURL ekki uppsett"
+
+msgid "Unknown backend"
+msgstr ""
 
 msgid "Account is ready to use."
 msgstr "Reikningurinn er tilbúinn til notkunar."
@@ -7700,6 +7734,12 @@ msgstr "Mistókst að búa til zip-skrá. Vinsamlegast láttu stjórnanda vita."
 
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Þessi skrá er ekki lengur tiltæk. Vinsamlegast endurhlaðið möppuna."
+
+msgid "Recipient search is not supported by this backend"
+msgstr ""
+
+msgid "Unable to look up recipients"
+msgstr ""
 
 msgid "Kendox certificate path is not configured."
 msgstr "Slóð Kendox-vottorðs er ekki stillt."
@@ -7719,6 +7759,9 @@ msgstr "Íbót snjalltækjastjórnunar"
 #, php-format
 msgid "Unexpected error occurred. Please contact your system administrator. Error code: %s"
 msgstr "Óviðbúin villa kom upp. Hafðu samband við kerfisstjórn. Villunúmer: %s"
+
+msgid "Managing shared folders is not supported by this server."
+msgstr ""
 
 msgid "No data received."
 msgstr "Engin gögn móttekin."
@@ -7762,8 +7805,14 @@ msgstr "Get ekki lesið skilríki"
 msgid "Unable to generate certs-only message"
 msgstr "Ekki er hægt að búa til skilaboð sem eru eingöngu fyrir vottorð"
 
+msgid "Unable to read certs-only message"
+msgstr ""
+
 msgid "LDAP not configured"
 msgstr "LDAP ekki stillt"
+
+msgid "Invalid LDAP configuration"
+msgstr ""
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "Vantar opinber vottorð fyrir eftirfarandi viðtakendur:"
@@ -7808,6 +7857,9 @@ msgstr "Vottorð hefur ekki verið flutt inn"
 msgid "Certificate is revoked, but was imported."
 msgstr "Vottorð er afturkallað, en var flutt inn."
 
+msgid "Certificate revocation status could not be verified. Certificate was imported."
+msgstr ""
+
 msgid "Unable to read public certificate"
 msgstr "Ekki er hægt að lesa opinbert vottorð"
 
@@ -7837,6 +7889,9 @@ msgstr "Ekki tókst að eyða sniðmátsskrá."
 
 msgid "Template deleted successfully."
 msgstr "Sniðmát eytt með góðum árangri."
+
+msgid "Could not attach item as an attachment."
+msgstr "Gat ekki bætt við viðhengi."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "Ekki er hægt að bæta gögnum við strætó, sama aðgerðagerð er til staðar í strætó"
@@ -7893,6 +7948,9 @@ msgstr "Óþekkt MAPI-villa"
 msgid "Destination folder not found."
 msgstr "Áfangamappa fannst ekki."
 
+msgid "Could not find attachment."
+msgstr "Fann ekki viðhengi."
+
 msgid "Eml is corrupted"
 msgstr "Eml er skemmd"
 
@@ -7930,9 +7988,6 @@ msgstr "ZIP er ekki búið til"
 
 msgid "Attachments can not be downloaded"
 msgstr "Ekki er hægt að hlaða niður viðhengjum"
-
-msgid "Could not find attachment."
-msgstr "Fann ekki viðhengi."
 
 msgid "Operation failed"
 msgstr "Aðgerð mistókst"
@@ -8218,9 +8273,6 @@ msgstr "Þú ert ekki með réttindi til að eyða atriðum í þessari möppu"
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "Þú ert ekki með réttindi til að bæta við viðhengi."
-
-msgid "Could not attach item as an attachment."
-msgstr "Gat ekki bætt við viðhengi."
 
 msgid "You have insufficient privileges to reclaim the ownership for the Task Request."
 msgstr "Þú ert ekki með réttindi til að slá eignarhaldi á verkbeiðni."

@@ -122,11 +122,12 @@ Zarafa.note.ui.NoteGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	},
 
 	/**
-	 *@Private
-	 *Event handler which is triggered when user double click on row
-	 *@param {Ext.grid.GridPanel} grid grid panel object
-	 *@param {Number} rowIndex	index of row
-	 *@param {Ext.event} eventObj eventObj object of the event
+	 * @private
+	 * Handles a double-click on a note row.
+	 *
+	 * @param {Ext.grid.GridPanel} grid The grid panel.
+	 * @param {Number} rowIndex The clicked row index.
+	 * @param {Ext.EventObject} event The double-click event.
 	 */
 	onNoteRowDblClick: function(grid, rowIndex, event)
 	{

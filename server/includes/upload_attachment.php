@@ -256,20 +256,36 @@ class UploadAttachment {
 	 * @param string $attachTempName a temporary file name of server location where it actually saved/available
 	 * @param string $filename       an actual file name
 	 *
-	 * @return bool true if the import is successful, false otherwise
+	 * @return array|false|string imported entry ID(s) on success, otherwise false
 	 */
 	public function importFiles($attachTempName, $filename) {
 		$filepath = $this->attachment_state->getAttachmentPath($attachTempName);
-		$handle = fopen($filepath, "r");
-		$attachmentStream = '';
-		while (!feof($handle)) {
-			$attachmentStream .= fread($handle, BLOCK_SIZE);
+		$handle = fopen($filepath, "rb");
+		if ($handle === false) {
+			throw new ZarafaException(_("File is not imported successfully"));
 		}
 
-		fclose($handle);
-		unlink($filepath);
+		$attachmentStream = '';
 
-		$extension = pathinfo($filename, PATHINFO_EXTENSION);
+		try {
+			while (!feof($handle)) {
+				$chunk = fread($handle, BLOCK_SIZE);
+				if ($chunk === false) {
+					throw new ZarafaException(_("File is not imported successfully"));
+				}
+				$attachmentStream .= $chunk;
+			}
+		}
+		finally {
+			if (!fclose($handle)) {
+				error_log("Unable to close uploaded attachment: {$filepath}");
+			}
+			if (is_file($filepath) && !unlink($filepath)) {
+				error_log("Unable to remove uploaded attachment: {$filepath}");
+			}
+		}
+
+		$extension = (string) pathinfo($filename, PATHINFO_EXTENSION);
 
 		// Set the module id of the notifier according to the file type
 		switch (strtoupper($extension)) {
@@ -277,20 +293,17 @@ class UploadAttachment {
 				$this->notifierModule = 'maillistnotifier';
 
 				return $this->importEMLFile($attachmentStream, $filename);
-				break;
 
 			case 'ICS':
 			case 'VCS':
 				$this->notifierModule = 'appointmentlistnotifier';
 
 				return $this->importICSFile($attachmentStream, $filename);
-				break;
 
 			case 'VCF':
 				$this->notifierModule = 'contactlistnotifier';
 
 				return $this->importVCFFile($attachmentStream, $filename);
-				break;
 		}
 
 		return false;
@@ -303,7 +316,7 @@ class UploadAttachment {
 	 * @param string $attachmentStream the attachment as a stream
 	 * @param string $filename         an actual file name
 	 *
-	 * @return array the new contact to be imported
+	 * @return array|false imported contact entry IDs, or false when none were imported
 	 */
 	public function importVCFFile($attachmentStream, $filename) {
 		$this->destinationFolder = $this->getDestinationFolder();
@@ -376,7 +389,7 @@ class UploadAttachment {
 	 * @param object $destinationFolder the folder which holds the message which we need to import from file
 	 * @param string $attachmentStream  the attachment as a stream
 	 *
-	 * @return array $contacts the array of contact(s) to be imported
+	 * @return array|false contacts to import, or false when none could be parsed
 	 */
 	public function convertVCFContactsToMapi($destinationFolder, $attachmentStream) {
 		$contacts = [];
@@ -495,7 +508,7 @@ class UploadAttachment {
 	 * @param string $attachmentStream the attachment as a stream
 	 * @param string $filename         an actual file name
 	 *
-	 * @return bool true if the import is successful, false otherwise
+	 * @return array|false imported appointment entry IDs, or false when none were imported
 	 */
 	public function importICSFile($attachmentStream, $filename) {
 		$this->destinationFolder = $this->getDestinationFolder();
@@ -630,7 +643,7 @@ class UploadAttachment {
 	 * @param string $filename         an actual file name
 	 * @param mixed  $attachmentStream
 	 *
-	 * @return bool true if the import is successful, false otherwise
+	 * @return false|string entry ID of the imported message, or false on failure
 	 */
 	public function importEMLFile($attachmentStream, $filename) {
 		$this->destinationFolder = $this->getDestinationFolder();
@@ -638,7 +651,7 @@ class UploadAttachment {
 		$newMessage = mapi_folder_createmessage($this->destinationFolder);
 		$addrBook = $GLOBALS['mapisession']->getAddressbook();
 		// Convert an RFC822-formatted e-mail to a MAPI Message
-		$ok = mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $this->store, $addrBook, $newMessage, $attachmentStream, ["add_rcvd_timestamp"=>1]);
+		$ok = mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $this->store, $addrBook, $newMessage, $attachmentStream, ["add_rcvd_timestamp" => 1]);
 
 		if ($ok === true) {
 			mapi_message_savechanges($newMessage);
@@ -656,8 +669,6 @@ class UploadAttachment {
 	 * @return object folder object in which item gets imported
 	 */
 	public function getDestinationFolder() {
-		$destinationFolder = null;
-
 		try {
 			$destinationFolder = mapi_msgstore_openentry($this->store, hex2bin((string) $this->destinationFolderId));
 		}
@@ -720,7 +731,7 @@ class UploadAttachment {
 			'attach_id' => $attachID,
 		]);
 
-		$returnfiles[] = [
+		$returnfiles = [[
 			'props' => [
 				'attach_num' => -1,
 				'tmpname' => $attachTampName,
@@ -729,7 +740,7 @@ class UploadAttachment {
 				// this is only needed to identify response for a particular attachment record on client side
 				'name' => $_POST['name'],
 			],
-		];
+		]];
 
 		$return = [
 			// 'success' property is needed for Extjs Ext.form.Action.Submit#success handler
@@ -864,8 +875,6 @@ class UploadAttachment {
 	 * @param string $title     title which used to show as title of exception dialog
 	 */
 	public function handleUploadException($exception, $title = null) {
-		$return = [];
-
 		// MAPI_E_NOT_FOUND exception contains generalize exception message.
 		// Set proper exception message as display message should be user understandable.
 		if ($exception->getCode() == MAPI_E_NOT_FOUND) {

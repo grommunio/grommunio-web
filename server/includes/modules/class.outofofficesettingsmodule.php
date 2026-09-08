@@ -24,11 +24,18 @@ class OutOfOfficeSettingsModule extends Module {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
 				try {
-					match ($actionType) {
-						"list" => $this->getOofSettings(),
-						"save" => $this->saveOofSettings($action),
-						default => $this->handleUnknownActionType($actionType),
-					};
+					switch ($actionType) {
+						case "list":
+							$this->getOofSettings();
+							break;
+
+						case "save":
+							$this->saveOofSettings($action);
+							break;
+
+						default:
+							$this->handleUnknownActionType($actionType);
+					}
 				}
 				catch (MAPIException|SettingsException $e) {
 					$this->processException($e, $actionType);
@@ -48,6 +55,7 @@ class OutOfOfficeSettingsModule extends Module {
 
 		$oofSettings = [];
 		foreach ($otherStores as $storeEntryId => $storeObj) {
+			$externalProps = ['props' => []];
 			$props = mapi_getprops($storeObj, $this->properties);
 			if (!isset($props[PR_EC_OUTOFOFFICE])) {
 				$props[PR_EC_OUTOFOFFICE] = false;
@@ -120,6 +128,7 @@ class OutOfOfficeSettingsModule extends Module {
 				// Skip stores that are inaccessible or where we
 				// don't have rights to open the folder.
 				$e->setHandled();
+
 				continue;
 			}
 

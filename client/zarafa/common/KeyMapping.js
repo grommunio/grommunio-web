@@ -794,8 +794,13 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 	 * Opens or closes the {@link Zarafa.core.ui.CommandPalette command palette}.
 	 * @private
 	 */
-	onCommandPalette: function()
+	onCommandPalette: function(key, event)
 	{
+		// TinyMCE binds Ctrl+K to "Insert link" in the editable body.
+		var target = event ? event.getTarget() : null;
+		if (target && target.isContentEditable === true) {
+			return;
+		}
 		Zarafa.core.ui.CommandPalette.toggle();
 	}
 });

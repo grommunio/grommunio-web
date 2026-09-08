@@ -6,7 +6,7 @@
  */
 class RulesModule extends Module {
 	/**
-	 * @var MAPITable contains resource of rules modify table
+	 * @var resource rules modification table
 	 */
 	private $rulesFolder;
 
@@ -28,6 +28,45 @@ class RulesModule extends Module {
 	 */
 	#[Override]
 	public function execute() {
+		$locks = [];
+		foreach ($this->storeEntryIds() as $storeEntryId) {
+			$lock = new State('rules-write', 'store_' . hash('sha256', $storeEntryId));
+			if (!$lock->open()) {
+				throw new RuntimeException('Unable to lock the mail filters');
+			}
+			$locks[] = $lock;
+		}
+
+		try {
+			$this->executeLocked();
+		}
+		finally {
+			foreach (array_reverse($locks) as $lock) {
+				$lock->close();
+			}
+		}
+	}
+
+	/**
+	 * Sorted hex entryids of the stores addressed by this request.
+	 */
+	private function storeEntryIds() {
+		$ids = [];
+		foreach ($this->data as $action) {
+			if (!isset($action[0]) && isset($action['props'])) {
+				$action = [$action];
+			}
+			$id = isset($action[0]) ? ($action[0]['message_action']['store_entryid'] ?? null) : ($action['store_entryid'] ?? null);
+			if (is_string($id) && $id !== '') {
+				$ids[strtolower($id)] = strtolower($id);
+			}
+		}
+		sort($ids);
+
+		return $ids;
+	}
+
+	private function executeLocked() {
 		foreach ($this->data as $actionType => $action) {
 			// The client proxy may send rule data as an indexed array
 			// (multiple rules) or as a single associative array (one
@@ -57,13 +96,8 @@ class RulesModule extends Module {
 				switch ($actionType) {
 					case 'list':
 						$rules = $this->getRules($store);
-						if ($rules) {
-							$this->addActionData('list', $rules);
-							$GLOBALS['bus']->addData($this->getResponseData());
-						}
-						else {
-							$this->sendFeedback(false);
-						}
+						$this->addActionData('list', $rules);
+						$GLOBALS['bus']->addData($this->getResponseData());
 						break;
 
 					case 'save':
@@ -83,13 +117,8 @@ class RulesModule extends Module {
 
 						// Respond with the full set of rules.
 						$rules = $this->getRules($store);
-						if ($rules) {
-							$this->addActionData('update', $rules);
-							$GLOBALS['bus']->addData($this->getResponseData());
-						}
-						else {
-							$this->sendFeedback(false);
-						}
+						$this->addActionData('update', $rules);
+						$GLOBALS['bus']->addData($this->getResponseData());
 						break;
 
 					default:
@@ -314,7 +343,7 @@ class RulesModule extends Module {
 	 *
 	 * @param object     $e             exception object
 	 * @param string     $actionType    the action type, sent by the client
-	 * @param MAPIobject $store         store object of the message
+	 * @param resource   $store         MAPI store containing the message
 	 * @param string     $parententryid parent entryid of the message
 	 * @param string     $entryid       entryid of the message/folder
 	 * @param array      $action        the action data, sent by the client

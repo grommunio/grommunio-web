@@ -10,7 +10,7 @@ Ext.namespace('Zarafa.advancesearch.dialogs');
 Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 
 	/**
-	 * @cfg{Object} searchContentPanel which contains {@link Zarafa.advancesearch.dialogs.SearchPanel searchPanel}
+	 * @cfg {Object} searchContentPanel The panel containing the search content.
 	 */
 	searchContentPanel: undefined,
 
@@ -231,7 +231,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	 * Event handler triggers when context was switch successfully.
 	 * It was set the parent search field because after the switching context
 	 * search field of parent context gets destroy so we need to update the parent
-	 * search field object and also required to {#reinitializeEvents}
+	 * search field object and also required to {@link #reinitializeEvents}
 	 *
 	 * @param {Object} folders contains folder details
 	 * @param {Context} oldParentContext previously selected context
@@ -252,7 +252,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 
 	/**
 	 * Event handler triggered before {@link Zarafa.advancesearch.dialogs.SearchContentPanel searchcontentpanel}
-	 * gets close. it will call the {#onSearchStop} which stop the search.
+	 * gets close. it will call {@link #onSearchStop}, which stops the search.
 	 * @param {Zarafa.advancesearch.dialogs.SearchContentPanel} contentPanel which gets the close
 	 */
 	onBeforeCloseContentPanel: function(contentPanel)

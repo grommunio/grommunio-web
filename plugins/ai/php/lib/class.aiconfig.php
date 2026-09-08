@@ -180,8 +180,6 @@ class AIConfig {
 
 	/**
 	 * Information that is safe to expose to the browser. NEVER contains the key.
-	 *
-	 * @return array
 	 */
 	public function getPublicInfo(): array {
 		return [

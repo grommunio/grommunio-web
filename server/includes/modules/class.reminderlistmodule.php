@@ -6,6 +6,10 @@
  * TODO: add description
  */
 class ReminderListModule extends ListModule {
+	#[Override]
+	protected function getExecutionLockName() {
+		return null;
+	}
 	private $reminderEntryId;
 
 	/**
@@ -28,10 +32,14 @@ class ReminderListModule extends ListModule {
 
 			if (isset($actionType)) {
 				try {
-					match ($actionType) {
-						"list" => $this->getReminders(),
-						default => $this->handleUnknownActionType($actionType),
-					};
+					switch ($actionType) {
+						case "list":
+							$this->getReminders();
+							break;
+
+						default:
+							$this->handleUnknownActionType($actionType);
+					}
 				}
 				catch (MAPIException $e) {
 					$this->processException($e, $actionType, $store, null, null, $action);
@@ -263,14 +271,14 @@ class ReminderListModule extends ListModule {
 				/**
 				 * FlagDueBy == PidLidReminderSignalTime.
 				 * FlagDueBy handles whether we should be showing the item; if now() is after FlagDueBy, then we should show a reminder
-				 * for this recurrence. However, the item we will show is either the last passed occurrence (overdue), or the next occurrence, depending
+				 * for this recurrence. However, the item we will show is either the most recent past occurrence (overdue), or the next occurrence, depending
 				 * on whether we have reached the next occurrence yet (the reminder_time of the next item is ignored).
 				 *
 				 * The way we handle this is to get all occurrences between the 'flagdueby' moment and the current time. This will
-				 * yield N items (may be a lot of it was not dismissed for a long time). We can then take the last item in this list, and this is the item
+				 * yield N items (possibly many if it was not dismissed for a long time). We can then take the last item in this list, and this is the item
 				 * we will show to the user. The idea here is:
 				 *
-				 * The item we want to show is the last item in that list (new occurrences that have started uptil now should override old ones)
+				 * The item we want to show is the last item in that list (new occurrences that have started up to now should override old ones).
 				 *
 				 * Add the reminder_minutes (default 15 minutes for calendar, 0 for tasks) to check over the gap between FlagDueBy and the start time of the
 				 * occurrence, if "now" would be in between these values.
@@ -278,9 +286,9 @@ class ReminderListModule extends ListModule {
 				$remindertimeinseconds = (int) ($row[$this->properties["reminder_minutes"]] ?? 0) * 60;
 				$flagDueBy = $row[$this->properties["flagdueby"]] ?? null;
 				if (!is_numeric($flagDueBy)) {
-					$flagDueBy = $row[$this->properties["reminder_time"]]
-						?? $row[$this->properties["appointment_startdate"]]
-						?? null;
+					$flagDueBy = $row[$this->properties["reminder_time"]] ??
+						$row[$this->properties["appointment_startdate"]] ??
+						null;
 				}
 				$flagDueBy = is_numeric($flagDueBy) ? (int) $flagDueBy : null;
 
@@ -295,7 +303,7 @@ class ReminderListModule extends ListModule {
 					// More than one occurrence, use the last one instead of the first one after flagdueby
 					$occ = $occurrences[count($occurrences) - 1];
 
-					// Bydefault, on occurrence reminder is true but if reminder value is set to false then we don't send popup reminder for this occurrence
+					// By default, occurrence reminders are enabled. A false reminder value suppresses the popup for this occurrence.
 					if (!(isset($occ[$this->properties['reminder']]) && $occ[$this->properties['reminder']] == 0)) {
 						$row[$this->properties["reminder_time"]] = $occ[$this->properties["appointment_startdate"]];
 						$row[$this->properties["appointment_startdate"]] = $occ[$this->properties["appointment_startdate"]];

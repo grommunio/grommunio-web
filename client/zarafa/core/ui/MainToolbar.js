@@ -117,7 +117,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 			'-');
 		}
 
-		// Add the item list to to the menu
+		// Add the item list to the menu
 		if (itemMenu.length !== 0) {
 			menu = menu.concat(itemMenu);
 		}

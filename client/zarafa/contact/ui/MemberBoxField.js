@@ -113,11 +113,11 @@ Zarafa.contact.ui.MemberBoxField = Ext.extend(Zarafa.common.recipientfield.ui.Re
 	handleInput: function(value)
 	{
 		// FIXME: Disallow typing in HTML formatting...
-		var splitted = value.split(this.delimiterCharacter);
+		var splitMembers = value.split(this.delimiterCharacter);
 		var newRecords = [];
 
-		for (var i = 0; i < splitted.length; i++) {
-			var str = splitted[i].trim();
+		for (var i = 0; i < splitMembers.length; i++) {
+			var str = splitMembers[i].trim();
 			if (!Ext.isEmpty(str)) {
 				var record = this.boxStore.parseMember(str);
 				newRecords.push(record);

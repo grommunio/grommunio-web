@@ -46,8 +46,7 @@ class StringUtil {
 	 *
 	 * @static
 	 *
-	 * @param int length The length of the random string
-	 * @param mixed $length
+	 * @param int $length the length of the random string
 	 *
 	 * @return string a random string
 	 */
@@ -55,7 +54,7 @@ class StringUtil {
 		// $chars - all allowed characters
 		$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
-		mt_srand((float) microtime() * 1000000);
+		mt_srand((int) ((float) microtime() * 1000000));
 		$i = 0;
 		$pass = "";
 		while ($i < $length) {

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Korean (Korea)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-04 14:41+0200\n"
+"POT-Creation-Date: 2026-09-06 21:29+0200\n"
 "PO-Revision-Date: 2017-10-05 20:07+0200\n"
 "Last-Translator: import\n"
 "Language: ko_KR\n"
@@ -1920,6 +1920,23 @@ msgstr "이 항목을 이동할 수 있는 권한이 부족합니다. 대신 복
 msgid "You have insufficient privileges to move this item. Would you like to copy instead?"
 msgstr "이 항목을 이동할 수 있는 권한이 부족합니다. 대신 복사하시겠습니까?"
 
+msgid "Untitled"
+msgstr "제목 없음"
+
+msgid "The attachments could not be saved."
+msgstr ""
+
+msgid "This attachment could not be saved: {0}"
+msgid_plural "These attachments could not be saved: {0}"
+msgstr[0] ""
+
+msgid "{0} attachment was saved."
+msgid_plural "{0} attachments were saved."
+msgstr[0] ""
+
+msgid "Save attachments"
+msgstr ""
+
 msgid "Insert item"
 msgstr "항목 삽입"
 
@@ -1965,11 +1982,17 @@ msgstr "항목 첨부"
 msgid "Preview"
 msgstr "미리 보기"
 
+msgid "Preview in a dialog"
+msgstr ""
+
 msgid "Download"
 msgstr "다운로드"
 
 msgid "Download all as ZIP"
 msgstr "모두 ZIP으로 다운로드"
+
+msgid "Save selection to folder"
+msgstr ""
 
 msgid "Import to folder"
 msgstr "폴더로 가져오기"
@@ -1979,6 +2002,12 @@ msgstr "vCard 가져오기 기능을 사용하려면 Gromox를 버전 0 이상�
 
 msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to version 0 or higher."
 msgstr "ICS/VCS 가져오기 기능을 사용하려면 Gromox를 버전 0 이상으로 업그레이드하세요."
+
+msgid "Preview in a grommunio Web tab"
+msgstr ""
+
+msgid "Preview in a browser window"
+msgstr ""
 
 msgid "Attachment error"
 msgstr "첨부 파일 오류"
@@ -3076,9 +3105,6 @@ msgstr "메시지를 로드할 수 없습니다."
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "첨부 파일"
-
-msgid "Untitled"
-msgstr "제목 없음"
 
 msgid "Download Pictures"
 msgstr "사진 다운로드"
@@ -5219,6 +5245,12 @@ msgstr "문서 기본 확대/축소"
 
 msgid "PDF zoom"
 msgstr "PDF 확대/축소"
+
+msgid "Dialog"
+msgstr ""
+
+msgid "Open a preview in a"
+msgstr ""
 
 msgid "File previewing"
 msgstr "파일 미리 보기"
@@ -7505,12 +7537,6 @@ msgstr "액세스 거부됨"
 msgid "Connection failed"
 msgstr "연결 실패"
 
-msgid "Sabre error"
-msgstr "Sabre 오류"
-
-msgid "Copying failed"
-msgstr "복사 실패"
-
 msgid "Unknown error"
 msgstr "알 수 없는 오류"
 
@@ -7637,6 +7663,9 @@ msgstr "파일 WebDAV 백엔드:"
 msgid "PHP-CURL is not installed"
 msgstr "PHP-CURL이 설치되지 않았습니다."
 
+msgid "Sabre error"
+msgstr "Sabre 오류"
+
 msgid "Directory creation failed"
 msgstr "디렉터리 생성 실패"
 
@@ -7652,8 +7681,8 @@ msgstr "임시 디렉터리 문제"
 msgid "File or folder not found"
 msgstr "파일 또는 폴더를 찾을 수 없음"
 
-msgid "Not implemented"
-msgstr "구현되지 않음"
+msgid "Copying failed"
+msgstr "복사 실패"
 
 msgid "Please contact your system administrator"
 msgstr "시스템 관리자에게 문의하세요."
@@ -7663,6 +7692,9 @@ msgstr "파일 서버에 연결할 수 없습니다. 연결을 확인하세요."
 
 msgid "PHP-CURL not installed"
 msgstr "PHP-CURL이 설치되지 않았습니다."
+
+msgid "Unknown backend"
+msgstr ""
 
 msgid "Account is ready to use."
 msgstr "계정을 사용할 준비가 되었습니다."
@@ -7675,6 +7707,12 @@ msgstr "Zip 파일 생성에 실패했습니다. 관리자에게 알려주세요
 
 msgid "This file is no longer available. Please reload the folder."
 msgstr "이 파일은 더 이상 사용할 수 없습니다. 폴더를 다시 로드하세요."
+
+msgid "Recipient search is not supported by this backend"
+msgstr ""
+
+msgid "Unable to look up recipients"
+msgstr ""
 
 msgid "Kendox certificate path is not configured."
 msgstr "Kendox 인증서 경로가 구성되지 않았습니다."
@@ -7694,6 +7732,9 @@ msgstr "모바일 기기 관리 플러그인"
 #, php-format
 msgid "Unexpected error occurred. Please contact your system administrator. Error code: %s"
 msgstr "예기치 않은 오류가 발생했습니다. 시스템 관리자에게 문의하세요. 오류 코드: %s"
+
+msgid "Managing shared folders is not supported by this server."
+msgstr ""
 
 msgid "No data received."
 msgstr "수신된 데이터가 없습니다."
@@ -7737,8 +7778,14 @@ msgstr "인증서를 읽을 수 없습니다"
 msgid "Unable to generate certs-only message"
 msgstr "인증서 전용 메시지를 생성할 수 없습니다"
 
+msgid "Unable to read certs-only message"
+msgstr ""
+
 msgid "LDAP not configured"
 msgstr "LDAP가 구성되지 않음"
+
+msgid "Invalid LDAP configuration"
+msgstr ""
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "다음 수신자에 대한 누락된 공인 인증서가 있습니다:"
@@ -7783,6 +7830,9 @@ msgstr "인증서를 가져오지 않았습니다."
 msgid "Certificate is revoked, but was imported."
 msgstr "인증서가 해지되었지만 가져온 인증서입니다."
 
+msgid "Certificate revocation status could not be verified. Certificate was imported."
+msgstr ""
+
 msgid "Unable to read public certificate"
 msgstr "공인 인증서를 읽을 수 없습니다."
 
@@ -7812,6 +7862,9 @@ msgstr "템플릿 파일을 삭제하지 못했습니다."
 
 msgid "Template deleted successfully."
 msgstr "템플릿이 성공적으로 삭제되었습니다."
+
+msgid "Could not attach item as an attachment."
+msgstr "항목을 첨부 파일로 첨부할 수 없습니다."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "버스에 데이터를 추가할 수 없음, 버스에 동일한 작업 유형이 있음"
@@ -7868,6 +7921,9 @@ msgstr "알 수 없는 MAPI 오류"
 msgid "Destination folder not found."
 msgstr "대상 폴더를 찾을 수 없습니다."
 
+msgid "Could not find attachment."
+msgstr "첨부 파일을 찾을 수 없습니다."
+
 msgid "Eml is corrupted"
 msgstr "Eml이 손상되었습니다."
 
@@ -7905,9 +7961,6 @@ msgstr "ZIP이 성공적으로 생성되지 않았습니다."
 
 msgid "Attachments can not be downloaded"
 msgstr "첨부 파일을 다운로드할 수 없습니다."
-
-msgid "Could not find attachment."
-msgstr "첨부 파일을 찾을 수 없습니다."
 
 msgid "Operation failed"
 msgstr "작업 실패"
@@ -8193,9 +8246,6 @@ msgstr "이 폴더의 항목을 삭제할 수 있는 권한이 부족합니다."
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "항목을 첨부 파일로 첨부할 수 있는 권한이 부족합니다."
-
-msgid "Could not attach item as an attachment."
-msgstr "항목을 첨부 파일로 첨부할 수 없습니다."
 
 msgid "You have insufficient privileges to reclaim the ownership for the Task Request."
 msgstr "작업 요청에 대한 소유권을 되찾을 수 있는 권한이 충분하지 않습니다."

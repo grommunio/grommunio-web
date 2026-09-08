@@ -39,7 +39,7 @@ Zarafa.contact.dialogs.ContactToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	},
 
 	/**
-	 * Create all buttons which should be added by default the the 'Action' Buttons
+	 * Create all buttons which should be added by default to the 'Action' buttons
 	 * This contains the buttons to save the message or delete it.
 	 *
 	 * @return {Array} The {@link Ext.Button Button} elements which should be
@@ -107,7 +107,7 @@ Zarafa.contact.dialogs.ContactToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	},
 
 	/**
-	 * Create all buttons which should be added by default the the 'Options' Buttons.
+	 * Create all buttons which should be added by default to the 'Options' buttons.
 	 * This contains the buttons to change categories and private property.
 	 *
 	 * @return {Array} The {@link Ext.Button Button} elements which should be

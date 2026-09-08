@@ -13,7 +13,6 @@ class SignedReceipts {
 	public const OID_CONTENT_IDENTIFIER  = '1.2.840.113549.1.9.16.2.7';
 	public const OID_MSG_SIG_DIGEST      = '1.2.840.113549.1.9.16.2.5';
 
-	/** @var CmsOperations */
 	private CmsOperations $cms;
 
 	public function __construct(CmsOperations $cms) {
@@ -38,7 +37,7 @@ class SignedReceipts {
 		string $keyFile,
 		string $outputFile
 	): bool {
-		if (!$this->cms->hasCmsCli()) {
+		if (!$this->cms->hasCmsCli() || !function_exists('exec')) {
 			error_log("[smime] Signed receipts require OpenSSL CLI");
 
 			return false;
@@ -56,9 +55,9 @@ class SignedReceipts {
 
 		$output = [];
 		$exitCode = -1;
-		@exec($cmd, $output, $exitCode);
+		$result = @exec($cmd, $output, $exitCode);
 
-		return $exitCode === 0;
+		return $result !== false && $exitCode === 0 && is_file($outputFile);
 	}
 
 	/**
@@ -70,7 +69,7 @@ class SignedReceipts {
 	 * @return bool true if receipt is valid
 	 */
 	public function verifyReceipt(string $receiptFile, string $messageFile): bool {
-		if (!$this->cms->hasCmsCli()) {
+		if (!$this->cms->hasCmsCli() || !function_exists('exec')) {
 			return false;
 		}
 
@@ -84,9 +83,9 @@ class SignedReceipts {
 
 		$output = [];
 		$exitCode = -1;
-		@exec($cmd, $output, $exitCode);
+		$result = @exec($cmd, $output, $exitCode);
 
-		return $exitCode === 0;
+		return $result !== false && $exitCode === 0;
 	}
 
 	/**

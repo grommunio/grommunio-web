@@ -814,7 +814,7 @@ Zarafa.common.Actions = {
 	/**
 	 * Deletes all {@link Zarafa.core.data.IPMRecord records} from the {@link Zarafa.core.data.IPMStore store}.
 	 * If the records are deleted from the To-do list the deleting is delegated to
-	 * {@link Zarafa.task.Actions.deleteRecordsFromTodoList} otherwise it is delegated to {#doDeleteRecords}
+	 * {@link Zarafa.task.Actions.deleteRecordsFromTodoList}; otherwise, it is delegated to {@link #doDeleteRecords}.
 	 *
 	 * @param {Array} records The array of records which must be deleted.
 	 * @param {Boolean} askOcc (private) False to prevent a dialog to appear to ask if the occurrence or series must
@@ -925,8 +925,8 @@ Zarafa.common.Actions = {
 				}
 			} else if (record.isMessageClass('IPM.TaskRequest') || (Ext.isFunction(record.isTaskReceived) && record.isTaskReceived())) {
 				// If task is assigned task by assigner and it is not completed then
-				// ask for the user conformation like "Delete", "Mark complete and delete"
-				// or "Mark decline and delete" and if task is already completed then we dont
+				// ask for user confirmation like "Delete", "Mark complete and delete"
+				// or "Mark decline and delete" and if the task is already completed then we don't
 				// require any confirmation from user.
 				if (!record.get('complete')) {
 					this.deleteAssignedTaskConfirmationContent(record, this.declineTask, record);
@@ -1170,7 +1170,7 @@ Zarafa.common.Actions = {
 	 * Callback function for {@link Zarafa.addressbook.dialogs.ABUserSelectionContent AddressBook}
 	 * This callback is used in {@link Zarafa.common.sendas.ui.SendAsPanel SendAsPanel}
 	 * and {@link Zarafa.common.manageCc.ui.ManageCcPanel ManageCcPanel} to display a message
-	 * that recipeint already exists if selected recipeint from adressbook is already present in the store.
+	 * that the recipient already exists if the recipient selected from the address book is already present in the store.
 	 * @param {Ext.data.Record} record user selected from AddressBook
 	 * @private
 	 */

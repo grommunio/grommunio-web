@@ -318,7 +318,7 @@ Zarafa.calendar.ui.html.CalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstract
 
 	/**
 	 * Event handler for the mouse click event on header or the expand button of a day. Will fire the
-	 * {#dayclick} event that will be relayed by the parent views until the
+	 * {@link #dayclick} event that will be relayed by the parent views until the
 	 * {@link Zarafa.calendar.ui.CalendarBlockPanel#onDayCLick onDayCLick} handler will process it.
 	 * @param {Date} date The date of the day that needs to be shown
 	 */

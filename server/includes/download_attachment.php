@@ -126,7 +126,9 @@ class DownloadAttachment extends DownloadBase {
 		}
 
 		if (isset($data['contentDispositionType'])) {
-			$this->contentDispositionType = sanitizeValue($data['contentDispositionType'], 'attachment', STRING_REGEX);
+			$this->contentDispositionType = in_array($data['contentDispositionType'], ['inline', 'attachment'], true)
+				? $data['contentDispositionType']
+				: 'attachment';
 		}
 
 		if (!empty($data['attachNum'])) {
@@ -237,15 +239,19 @@ class DownloadAttachment extends DownloadBase {
 	 * we need to compare passed attachCid with PR_ATTACH_CONTENT_ID, PR_ATTACH_CONTENT_LOCATION or
 	 * PR_ATTACH_FILENAME and if that matches then we can get that attachment.
 	 *
-	 * @param MAPIAttach $attachment (optional) embedded message attachment from where we need to get the inline image
+	 * @param false|resource $attachment embedded message attachment from which to get the inline image
 	 *
-	 * @return MAPIAttach attachment that is requested and will be sent to client
+	 * @return false|resource requested attachment, or false when it cannot be opened
 	 */
 	public function getAttachmentByAttachCid($attachment = false) {
 		// If the inline image was in a submessage, we have to open that first
 		if ($attachment !== false) {
 			$this->message = mapi_attach_openobj($attachment);
+			if ($this->message === false) {
+				return false;
+			}
 		}
+		$attachment = false;
 
 		/**
 		 * restriction to find inline image attachment with matching cid passed.
@@ -299,20 +305,23 @@ class DownloadAttachment extends DownloadBase {
 	 * Returns attachment based on specified attachNum, additionally it will also get embedded message
 	 * if we want to get the inline image attachment.
 	 *
-	 * @return MAPIAttach embedded message attachment or attachment that is requested
+	 * @return false|resource embedded message attachment or requested attachment, or false on failure
 	 */
 	public function getAttachmentByAttachNum() {
-		$attachment = false;
-
 		$len = count($this->attachNum);
 
 		// Loop through the attachNums, message in message in message ...
 		for ($index = 0; $index < $len - 1; ++$index) {
 			// Open the attachment
 			$tempattach = mapi_message_openattach($this->message, $this->attachNum[$index]);
-			if ($tempattach) {
-				// Open the object in the attachment
-				$this->message = mapi_attach_openobj($tempattach);
+			if ($tempattach === false) {
+				return false;
+			}
+
+			// Open the object in the attachment
+			$this->message = mapi_attach_openobj($tempattach);
+			if ($this->message === false) {
+				return false;
 			}
 		}
 
@@ -371,6 +380,11 @@ class DownloadAttachment extends DownloadBase {
 			$bytes_to_read = min($buffer_size, $bytes_left);
 			$bytes_left -= $bytes_to_read;
 			$contents = mapi_stream_read($stream, $bytes_to_read);
+			if ($contents === false) {
+				error_log('Unable to read attachment stream');
+
+				break;
+			}
 			echo $contents;
 			flush();
 		}
@@ -380,12 +394,12 @@ class DownloadAttachment extends DownloadBase {
 	 * Function will open passed attachment and generate response for that attachment to send it to client.
 	 * This should only be used to download attachment that is already saved in MAPIMessage.
 	 *
-	 * @param MAPIAttach $attachment attachment which will be dumped to client side
-	 * @param bool       $inline     inline attachment or not
+	 * @param false|resource $attachment attachment to send to the client, or false if unavailable
+	 * @param bool           $inline     inline attachment or not
 	 */
 	public function downloadSavedAttachment($attachment, $inline = false) {
 		// Check if the attachment is opened
-		if ($attachment) {
+		if ($attachment !== false) {
 			// Get the props of the attachment
 			$props = mapi_attach_getprops($attachment, [PR_ATTACH_FILENAME, PR_ATTACH_LONG_FILENAME, PR_ATTACH_MIME_TAG, PR_DISPLAY_NAME, PR_ATTACH_METHOD, PR_ATTACH_CONTENT_ID]);
 			// Content Type
@@ -422,7 +436,7 @@ class DownloadAttachment extends DownloadBase {
 
 			// Set content type if available, otherwise it will be default to application/octet-stream
 			if (isset($props[PR_ATTACH_MIME_TAG])) {
-				$contentType = $props[PR_ATTACH_MIME_TAG];
+				$contentType = normalizeHTTPContentType($props[PR_ATTACH_MIME_TAG]);
 			}
 
 			// Open the stream before sending headers so a missing
@@ -450,16 +464,19 @@ class DownloadAttachment extends DownloadBase {
 				header('Expires: 0'); // set expiration time
 				header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 			}
-			header('Content-Disposition: ' . $this->contentDispositionType . '; filename="' . addslashes(browserDependingHTTPHeaderEncode($filename)) . '"');
+			$contentDisposition = getDownloadContentDisposition($this->contentDispositionType, $contentType);
+			sendDownloadSecurityHeaders();
+			header('Content-Disposition: ' . $contentDisposition . '; filename="' . addslashes(browserDependingHTTPHeaderEncode($filename)) . '"');
 			header('Content-Type: ' . $contentType);
 			header('Content-Transfer-Encoding: binary');
 
 			$bodyoffset = 0;
 			$ranges = null;
+			$first = 0;
+			$last = 0;
 
 			if ($stream !== false && $bodysize > 0 && $_SERVER['REQUEST_METHOD'] == 'GET' && isset($_SERVER['HTTP_RANGE']) && $range = stristr(trim((string) $_SERVER['HTTP_RANGE']), 'bytes=')) {
 				$range = substr($range, 6);
-				$boundary = bin2hex(random_bytes(48));
 				$ranges = explode(',', $range);
 			}
 
@@ -468,6 +485,7 @@ class DownloadAttachment extends DownloadBase {
 				header("Accept-Ranges: bytes");
 				if (count($ranges) > 1) {
 					// More than one range specified
+					$boundary = bin2hex(random_bytes(48));
 					$content_length = 0;
 					foreach ($ranges as $range) {
 						$this->downloadSetRange($range, $bodysize, $first, $last);
@@ -529,12 +547,15 @@ class DownloadAttachment extends DownloadBase {
 		$subject = isset($this->messageSubject) ? ' ' . $this->messageSubject : '';
 
 		// Set the headers
+		$contentType = 'application/zip';
+		$contentDisposition = getDownloadContentDisposition($this->contentDispositionType, $contentType);
+		sendDownloadSecurityHeaders();
 		header('Pragma: public');
 		header('Expires: 0'); // set expiration time
 		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-		header('Content-Disposition: ' . $this->contentDispositionType . '; filename="' . addslashes(browserDependingHTTPHeaderEncode(sprintf($this->zipFileName, $subject))) . '"');
+		header('Content-Disposition: ' . $contentDisposition . '; filename="' . addslashes(browserDependingHTTPHeaderEncode(sprintf($this->zipFileName, $subject))) . '"');
 		header('Content-Transfer-Encoding: binary');
-		header('Content-Type:  application/zip');
+		header('Content-Type: ' . $contentType);
 		header('Content-Length: ' . filesize($randomZipName));
 
 		// Send the actual response as ZIP file
@@ -617,13 +638,18 @@ class DownloadAttachment extends DownloadBase {
 
 		// Check if the file still exists
 		if (is_file($tmpname)) {
+			$contentType = function_exists('mime_content_type') ? mime_content_type($tmpname) : false;
+			$contentType = normalizeHTTPContentType($contentType);
+			$contentDisposition = getDownloadContentDisposition($this->contentDispositionType, $contentType);
+
 			// Set the headers
+			sendDownloadSecurityHeaders();
 			header('Pragma: public');
 			header('Expires: 0'); // set expiration time
 			header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-			header('Content-Disposition: ' . $this->contentDispositionType . '; filename="' . addslashes(browserDependingHTTPHeaderEncode($fileinfo['name'])) . '"');
+			header('Content-Disposition: ' . $contentDisposition . '; filename="' . addslashes(browserDependingHTTPHeaderEncode($fileinfo['name'])) . '"');
 			header('Content-Transfer-Encoding: binary');
-			header('Content-Type: application/octet-stream');
+			header('Content-Type: ' . $contentType);
 			header('Content-Length: ' . filesize($tmpname));
 
 			// Open the uploaded file and print it
@@ -646,19 +672,25 @@ class DownloadAttachment extends DownloadBase {
 
 			// Read the appointment as RFC2445-formatted ics stream.
 			$appointmentStream = mapi_mapitoical($GLOBALS['mapisession']->getSession(), $addrBook, $message, []);
+			if ($appointmentStream === false) {
+				throw new RuntimeException('Unable to convert appointment');
+			}
 
 			$filename = (!empty($messageProps[PR_SUBJECT])) ? $messageProps[PR_SUBJECT] : _('Untitled');
 			$filename .= '.ics';
+			$contentType = 'application/octet-stream';
+			$contentDisposition = getDownloadContentDisposition($this->contentDispositionType, $contentType);
 			// Set the headers
+			sendDownloadSecurityHeaders();
 			header('Pragma: public');
 			header('Expires: 0'); // set expiration time
 			header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 			header('Content-Transfer-Encoding: binary');
 
 			// Set Content Disposition header
-			header('Content-Disposition: ' . $this->contentDispositionType . '; filename="' . addslashes(browserDependingHTTPHeaderEncode($filename)) . '"');
+			header('Content-Disposition: ' . $contentDisposition . '; filename="' . addslashes(browserDependingHTTPHeaderEncode($filename)) . '"');
 			// Set content type header
-			header('Content-Type: application/octet-stream');
+			header('Content-Type: ' . $contentType);
 
 			// Set the file length
 			header('Content-Length: ' . strlen($appointmentStream));
@@ -696,14 +728,20 @@ class DownloadAttachment extends DownloadBase {
 	 * Function will get the attachment and import it to the given MAPIFolder as webapp item.
 	 */
 	public function importAttachment() {
+		$attachment = $this->getAttachmentByAttachNum();
+		if ($attachment === false) {
+			throw new ZarafaException(_("Could not find attachment."));
+		}
+
 		$addrBook = $GLOBALS['mapisession']->getAddressbook();
 
 		$newMessage = mapi_folder_createmessage($this->destinationFolder);
-		$attachment = $this->getAttachmentByAttachNum();
 		$attachmentProps = mapi_attach_getprops($attachment, [PR_ATTACH_LONG_FILENAME]);
 		$attachmentStream = streamProperty($attachment, PR_ATTACH_DATA_BIN);
+		$extension = strtolower((string) pathinfo((string) $attachmentProps[PR_ATTACH_LONG_FILENAME], PATHINFO_EXTENSION));
+		$ok = false;
 
-		switch (pathinfo((string) $attachmentProps[PR_ATTACH_LONG_FILENAME], PATHINFO_EXTENSION)) {
+		switch ($extension) {
 			case 'eml':
 				if (isBrokenEml($attachmentStream)) {
 					throw new ZarafaException(_("Eml is corrupted"));
@@ -800,7 +838,7 @@ class DownloadAttachment extends DownloadBase {
 			];
 
 			// send hierarchy notification only in case of 'eml'
-			if (pathinfo((string) $attachmentProps[PR_ATTACH_LONG_FILENAME], PATHINFO_EXTENSION) === 'eml') {
+			if ($extension === 'eml') {
 				$hierarchynotifier = [
 					'hierarchynotifier1' => [
 						'folders' => [
@@ -885,7 +923,7 @@ class DownloadAttachment extends DownloadBase {
 	 *
 	 * @param string $attachment content fetched from PR_ATTACH_DATA_BIN property of an attachment
 	 *
-	 * @return true if eml is broken, false otherwise
+	 * @return bool true if eml is broken, false otherwise
 	 */
 	public function isBroken($attachment) {
 		// Get header part to process further
@@ -952,22 +990,29 @@ class DownloadAttachment extends DownloadBase {
 			// A selection that matched nothing must not become an empty archive on disk.
 			if (!empty($this->selectedAttachNum) && $zip->numFiles === 0) {
 				$zip->close();
-				@unlink($randomZipName);
+				if (is_file($randomZipName) && !@unlink($randomZipName)) {
+					error_log('Unable to remove empty attachment archive: ' . $randomZipName);
+				}
 
 				throw new ZarafaException(_("ZIP is not created successfully"));
 			}
 
 			$zip->close();
+			$attachment_state->close();
 
 			$this->sendZipResponse($randomZipName);
-			$attachment_state->close();
 		// check if inline image is requested
 		}
 		elseif ($this->attachCid) {
+			$attachment = false;
+
 			// check if the inline image is in a embedded message
 			if (count($this->attachNum) > 0) {
 				// get the embedded message attachment
 				$attachment = $this->getAttachmentByAttachNum();
+				if ($attachment === false) {
+					return;
+				}
 			}
 
 			// now get the actual attachment object that should be sent back to client

@@ -633,7 +633,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	},
 
 	/**
-	 * Fires on selecting 'Emtpy Folder' menu option from {@link Zarafa.hierarchy.ui.ContextMenu ContextMenu}
+	 * Fires on selecting the 'Empty Folder' menu option from {@link Zarafa.hierarchy.ui.ContextMenu ContextMenu}
 	 * Asks user to confirm deletion of all contents of selected folder and if true then calls {@link Zarafa.hierarchy.data.HierarchyStore HierarchyStore}
 	 * to empty that folder.
 	 * @private

@@ -1,5 +1,7 @@
 <?php
 
+require_once BASE_PATH . 'server/includes/core/class.publichttpsresource.php';
+
 /**
  * Serves the BIMI logo of a sender domain (RFC draft-brand-indicators-for-message-identification).
  * The logo is looked up once per domain and cached in TMP_PATH, so a mailbox full of mails from
@@ -12,22 +14,19 @@ class BimiLogo {
 
 	public function serve($domain) {
 		$dir = TMP_PATH . DIRECTORY_SEPARATOR . 'bimi';
-		if (!is_dir($dir) && !mkdir($dir, 0770, true)) {
-			$this->notFound();
-
-			return;
-		}
-
 		$base = $dir . DIRECTORY_SEPARATOR . hash('sha256', $domain);
 		$logo = $base . '.svg';
 		$miss = $base . '.miss';
+		$cacheReady = $this->ensureCacheDir($dir);
 
-		if (is_file($logo) && filemtime($logo) > time() - self::TTL) {
-			$this->output($logo);
+		$cachedLogo = $cacheReady ? $this->readCacheFile($logo, self::TTL, self::MAX_SIZE) : null;
+		if ($cachedLogo !== null && $this->isLogo($cachedLogo)) {
+			$this->output($cachedLogo);
 
 			return;
 		}
-		if (is_file($miss) && filemtime($miss) > time() - self::NEGATIVE_TTL) {
+		$cachedMiss = $cacheReady ? $this->readCacheFile($miss, self::NEGATIVE_TTL, 0) : null;
+		if ($cachedMiss !== null) {
 			$this->notFound();
 
 			return;
@@ -35,15 +34,88 @@ class BimiLogo {
 
 		$data = $this->fetch($domain);
 		if ($data === null) {
-			touch($miss);
+			if ($cacheReady) {
+				$this->writeCacheFile($dir, $miss, '');
+			}
 			$this->notFound();
 
 			return;
 		}
 
-		file_put_contents($logo, $data, LOCK_EX);
-		@unlink($miss);
-		$this->output($logo);
+		if ($cacheReady) {
+			$this->writeCacheFile($dir, $logo, $data);
+			if (is_file($miss) && !@unlink($miss)) {
+				error_log("[bimi] Could not remove negative cache entry: {$miss}");
+			}
+		}
+		$this->output($data);
+	}
+
+	private function ensureCacheDir($dir) {
+		if (is_link($dir)) {
+			return false;
+		}
+		if (!is_dir($dir) && !@mkdir($dir, 0700, true) && !is_dir($dir)) {
+			return false;
+		}
+
+		// Tighten directories made group-writable by older releases. If the
+		// process does not own the directory, never trust entries from it.
+		if (!@chmod($dir, 0700)) {
+			return false;
+		}
+		clearstatcache(true, $dir);
+		$stat = @lstat($dir);
+		if ($stat === false || ($stat['mode'] & 0170000) !== 0040000 || ($stat['mode'] & 0077) !== 0 ||
+			(function_exists('posix_geteuid') && $stat['uid'] !== posix_geteuid())) {
+			return false;
+		}
+
+		return is_writable($dir);
+	}
+
+	private function readCacheFile($file, $maxAge, $maxSize) {
+		if (!is_file($file) || is_link($file)) {
+			return null;
+		}
+		$stat = @lstat($file);
+		$dirStat = @lstat(dirname($file));
+		if ($stat === false || $dirStat === false ||
+			($stat['mode'] & 0170000) !== 0100000 ||
+			($dirStat['mode'] & 0170000) !== 0040000 ||
+			($stat['mode'] & 0077) !== 0 || ($dirStat['mode'] & 0077) !== 0 ||
+			$stat['uid'] !== $dirStat['uid'] || $stat['size'] > $maxSize ||
+			time() - $stat['mtime'] >= $maxAge) {
+			return null;
+		}
+
+		$data = @file_get_contents($file);
+
+		return is_string($data) && strlen($data) <= $maxSize ? $data : null;
+	}
+
+	private function writeCacheFile($dir, $file, $data) {
+		if (!$this->ensureCacheDir($dir)) {
+			return false;
+		}
+		$tmpFile = tempnam($dir, '.bimi-');
+		if ($tmpFile === false) {
+			return false;
+		}
+
+		try {
+			$written = file_put_contents($tmpFile, $data, LOCK_EX);
+			if ($written !== strlen($data) || !@chmod($tmpFile, 0600)) {
+				return false;
+			}
+
+			return @rename($tmpFile, $file);
+		}
+		finally {
+			if ((is_file($tmpFile) || is_link($tmpFile)) && !@unlink($tmpFile)) {
+				error_log("[bimi] Could not remove temporary cache file: {$tmpFile}");
+			}
+		}
 	}
 
 	private function fetch($domain) {
@@ -69,27 +141,12 @@ class BimiLogo {
 			return null;
 		}
 
-		$data = '';
-		$ch = curl_init($url);
-		curl_setopt_array($ch, [
-			CURLOPT_FOLLOWLOCATION => true,
-			CURLOPT_MAXREDIRS => 2,
-			CURLOPT_PROTOCOLS => CURLPROTO_HTTPS,
-			CURLOPT_REDIR_PROTOCOLS => CURLPROTO_HTTPS,
-			CURLOPT_CONNECTTIMEOUT => 3,
-			CURLOPT_TIMEOUT => 5,
-			CURLOPT_USERAGENT => 'grommunio-web',
-			CURLOPT_HTTPHEADER => ['Accept: image/svg+xml'],
-			CURLOPT_WRITEFUNCTION => function ($ch, $chunk) use (&$data) {
-				$data .= $chunk;
-
-				return strlen($data) > self::MAX_SIZE ? 0 : strlen($chunk);
-			},
+		$data = PublicHttpsResource::fetch($url, self::MAX_SIZE, 2, [
+			'Accept: image/svg+xml',
+			'User-Agent: grommunio-web',
 		]);
-		$ok = curl_exec($ch) && curl_getinfo($ch, CURLINFO_RESPONSE_CODE) === 200;
-		curl_close($ch);
 
-		return $ok && $this->isLogo($data) ? $data : null;
+		return $data !== null && $this->isLogo($data) ? $data : null;
 	}
 
 	private function isLogo($data) {
@@ -105,14 +162,14 @@ class BimiLogo {
 		return $ok;
 	}
 
-	private function output($file) {
+	private function output($data) {
 		header('Content-Type: image/svg+xml');
-		header('Content-Length: ' . filesize($file));
+		header('Content-Length: ' . strlen($data));
 		header('Content-Disposition: inline; filename="bimi.svg"');
 		header('Cache-Control: private, max-age=86400');
 		header('X-Content-Type-Options: nosniff');
 		header("Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'");
-		readfile($file);
+		echo $data;
 	}
 
 	private function notFound() {

@@ -13,10 +13,14 @@ class PasswdModule extends Module {
 		foreach ($this->data as $actionType => $actionData) {
 			if (isset($actionType)) {
 				try {
-					match ($actionType) {
-						'save' => $this->save($actionData),
-						default => $this->handleUnknownActionType($actionType),
-					};
+					switch ($actionType) {
+						case 'save':
+							$this->save($actionData);
+							break;
+
+						default:
+							$this->handleUnknownActionType($actionType);
+					}
 				}
 				catch (MAPIException $e) {
 					$this->sendFeedback(false, $this->errorDetailsFromException($e));
@@ -26,7 +30,7 @@ class PasswdModule extends Module {
 	}
 
 	/**
-	 * Change the password of user. Do some calidation and call proper methods based on
+	 * Change the user's password. Perform validation and call the appropriate methods based on the
 	 * zarafa setup.
 	 *
 	 * @param array $data data sent by client

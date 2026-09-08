@@ -14,19 +14,21 @@ require_once __DIR__ . "/../vendor/autoload.php";
 use Files\Backend\BackendStore;
 use Files\Core\Account;
 use Files\Core\AccountStore;
-use Files\Core\Util\Logger;
+use Files\Core\Util\Logger as FilesLogger;
 use Files\Core\Util\StringUtil;
 use Phpfastcache\CacheManager;
+use Phpfastcache\Core\Pool\ExtendedCacheItemPoolInterface;
 use Phpfastcache\Drivers\Redis\Config as RedisConfig;
 
 /**
  * This module handles all list and change requests for the files browser.
- *
- * @class FilesListModule
- *
- * @extends ListModule
  */
 class FilesListModule extends ListModule {
+	#[Override]
+	protected function getExecutionLockName() {
+		return 'files';
+	}
+
 	public const LOG_CONTEXT = "FilesListModule"; // Context for the Logger
 
 	// Unauthorized errors of different backends.
@@ -37,7 +39,7 @@ class FilesListModule extends ListModule {
 	public const ALL_BACKEND_ERR_NOTFOUND = 404;
 
 	/**
-	 * @var phpFastCache cache handler
+	 * @var ExtendedCacheItemPoolInterface cache handler
 	 */
 	public $cache;
 
@@ -57,22 +59,19 @@ class FilesListModule extends ListModule {
 	public $backendStore;
 
 	/**
-	 * @constructor
-	 *
 	 * @param mixed $id
 	 * @param mixed $data
 	 */
 	public function __construct($id, $data) {
 		parent::__construct($id, $data);
 
-		// Initialize the account and backendstore
-		$this->accountStore = new AccountStore();
+		// Initialize the backend store
 		$this->backendStore = BackendStore::getInstance();
 
 		// Setup the cache
 		$config = new RedisConfig();
 		$config->setHost(PLUGIN_FILES_REDIS_HOST);
-		$config->setPort(PLUGIN_FILES_REDIS_PORT);
+		$config->setPort((int) PLUGIN_FILES_REDIS_PORT);
 		$config->setPassword(PLUGIN_FILES_REDIS_AUTH);
 
 		$this->cache = CacheManager::getInstance('Redis', $config);
@@ -93,7 +92,13 @@ class FilesListModule extends ListModule {
 		// @see https://github.com/PHPSocialNetwork/phpfastcache/blob/8.1.2/docs/migration/MigratingFromV5ToV6.md
 		$this->uid = str_replace(['{', '}', '(', ')', '/', '\\', '@'], '_', $this->uid);
 
-		Logger::debug(self::LOG_CONTEXT, "[constructor]: executing the module as uid: " . $this->uid);
+		FilesLogger::debug(self::LOG_CONTEXT, "[constructor]: executing the module as uid: " . $this->uid);
+	}
+
+	#[Override]
+	protected function afterLoadSessionData() {
+		$GLOBALS['settings']->refreshSettings();
+		$this->accountStore = new AccountStore();
 	}
 
 	/**
@@ -155,8 +160,8 @@ class FilesListModule extends ListModule {
 				// Get sub folder of root folder.
 				$subFolders = $this->getSubFolders($realNodeId, $initializedBackend);
 			}
-			catch (\Exception $e) {
-				Logger::error(self::LOG_CONTEXT, "Failed to load account '{$accountName}': " . $e->getMessage());
+			catch (Exception $e) {
+				FilesLogger::error(self::LOG_CONTEXT, "Failed to load account '{$accountName}': " . $e->getMessage());
 				$nodes["props"]["status"] = Account::STATUS_ERROR;
 				$nodes["props"]["status_description"] = $e->getMessage();
 				$subFolders = [];
@@ -252,7 +257,7 @@ class FilesListModule extends ListModule {
 					continue;
 				}
 
-				// Check if foldernames have a trailing slash, if not, add one!
+				// Check if folder names have a trailing slash, if not, add one!
 				if (!StringUtil::endsWith($id, "/")) {
 					unset($dir[$id]);
 					$id .= "/";
@@ -260,7 +265,7 @@ class FilesListModule extends ListModule {
 				}
 
 				$size = $node['getcontentlength'] === null ? -1 : intval($node['getcontentlength']);
-				// folder's dont have a size
+				// Folders do not have a size
 				$size = $objectType == FILES_FILE ? $size : -1;
 
 				$realID = $nodeIdPrefix . $id;
@@ -397,10 +402,10 @@ class FilesListModule extends ListModule {
 				$errorCode === self::FTP_WD_OWNCLOUD_ERR_FORBIDDEN ||
 				$errorCode === self::ALL_BACKEND_ERR_NOTFOUND) {
 					if ($errorCode === self::ALL_BACKEND_ERR_NOTFOUND) {
-						Logger::error(self::LOG_CONTEXT, '[hasSubFolder]: folder ' . $id . ' not found');
+						FilesLogger::error(self::LOG_CONTEXT, '[hasSubFolder]: folder ' . $id . ' not found');
 					}
 					else {
-						Logger::error(self::LOG_CONTEXT, '[hasSubFolder]: Access denied for folder ' . $id);
+						FilesLogger::error(self::LOG_CONTEXT, '[hasSubFolder]: Access denied for folder ' . $id);
 					}
 
 					return null;
@@ -412,7 +417,7 @@ class FilesListModule extends ListModule {
 		}
 
 		if ($dir) {
-			foreach ($dir as $id => $node) {
+			foreach ($dir as $node) {
 				if (strcmp((string) $node['resourcetype'], "collection") === 0) {
 					// we have a folder
 					return true;
@@ -546,7 +551,7 @@ class FilesListModule extends ListModule {
 				/* create the response object */
 				$folder = [];
 
-				// some requests might not contain a new filename... so dont update the store
+				// Some requests might not contain a new filename, so do not update the store
 				if (isset($props['filename'])) {
 					$folder = [
 						'props' => [
@@ -641,7 +646,21 @@ class FilesListModule extends ListModule {
 	 * @return object The account for $nodeId
 	 */
 	public function accountFromNode($nodeID) {
-		return $this->accountStore->getAccount($this->accountIDFromNode($nodeID));
+		return $this->accountFromId($this->accountIDFromNode($nodeID));
+	}
+
+	/**
+	 * Get an account or report a stale client-side identifier.
+	 *
+	 * @param mixed $accountID
+	 */
+	public function accountFromId($accountID) {
+		$account = $this->accountStore->getAccount($accountID);
+		if ($account === null) {
+			throw new Files\Core\Exception(_("Unknown account ID"));
+		}
+
+		return $account;
 	}
 
 	/**
@@ -662,7 +681,7 @@ class FilesListModule extends ListModule {
 	 * @param string $displayName display name of the backend or file plugin
 	 * @param string $accountID   Id of the account of the data to cache
 	 *
-	 * @return string version data or null if nothing was found
+	 * @return null|string version data or null if nothing was found
 	 */
 	public function getVersionFromCache($displayName, $accountID = '') {
 		$key = $this->uid . $accountID . $displayName;
@@ -715,11 +734,11 @@ class FilesListModule extends ListModule {
 	 *
 	 * @param string $accountID Id of the account of the data to cache
 	 * @param string $path      Path of the file or folder to create the cache element for
-	 * @param string $data      Data to be cached
+	 * @param array  $data      Data to be cached
 	 */
 	public function setCache($accountID, $path, $data) {
 		$key = $this->makeCacheKey($accountID, $path);
-		Logger::debug(self::LOG_CONTEXT, "Setting cache for node: " . $accountID . $path . " ## " . $key);
+		FilesLogger::debug(self::LOG_CONTEXT, "Setting cache for node: " . $accountID . $path . " ## " . $key);
 		$this->cache->save($this->cache->getItem($key)->set($data));
 	}
 
@@ -729,11 +748,11 @@ class FilesListModule extends ListModule {
 	 * @param string $accountID Id of the account of the data to get
 	 * @param string $path      Path of the file or folder to retrieve the cache element for
 	 *
-	 * @return iterable The directory data or null if nothing was found
+	 * @return null|array The directory data or null if nothing was found
 	 */
 	public function getCache($accountID, $path) {
 		$key = $this->makeCacheKey($accountID, $path);
-		Logger::debug(self::LOG_CONTEXT, "Getting cache for node: " . $accountID . $path . " ## " . $key);
+		FilesLogger::debug(self::LOG_CONTEXT, "Getting cache for node: " . $accountID . $path . " ## " . $key);
 
 		return $this->cache->getItem($key)->get();
 	}
@@ -746,7 +765,7 @@ class FilesListModule extends ListModule {
 	 */
 	public function deleteCache($accountID, $path) {
 		$key = $this->makeCacheKey($accountID, $path);
-		Logger::debug(self::LOG_CONTEXT, "Removing cache for node: " . $accountID . $path . " ## " . $key);
+		FilesLogger::debug(self::LOG_CONTEXT, "Removing cache for node: " . $accountID . $path . " ## " . $key);
 		$this->cache->deleteItem($key);
 	}
 

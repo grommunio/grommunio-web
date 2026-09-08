@@ -30,10 +30,11 @@
 	<body class="login theme-<?php echo strtolower((string) $theme ?: 'basic'); ?>">
 
 	<?php
-		$keycloak = KeyCloak::getInstance();
+		$keycloak = WebAppKeyCloak::getInstance();
 		if (!is_null($keycloak) && (!defined('DISABLE_KEYCLOAK') || !DISABLE_KEYCLOAK)) {
+			$keycloakLoginUrl = $keycloak->login_url($keycloak->redirect_url);
 			?>
-	<meta http-equiv='Refresh' content="1;URL='<?php echo $keycloak->login_url($keycloak->redirect_url); ?>'"/>
+	<meta http-equiv="refresh" content="1; url=<?php echo htmlspecialchars($keycloakLoginUrl, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); ?>">
 	<?php
 					echo "<div id='form-container' class='loading' >";
 		}
@@ -49,9 +50,13 @@
 				<div class="right">
 					<form action="<?php echo $url; ?>" method="post" aria-label="<?php echo _("Sign in"); ?>">
 						<label for="username" class="sr-only"><?php echo _("Username"); ?></label>
-						<input type="text" name="username" id="username" value="<?php echo $user; ?>" placeholder="<?php echo _("Username"); ?>" autocomplete="username" required<?php if (isset($error)) { echo ' aria-describedby="error"'; } ?>>
+						<input type="text" name="username" id="username" value="<?php echo $user; ?>" placeholder="<?php echo _("Username"); ?>" autocomplete="username" required<?php if (isset($error)) {
+							echo ' aria-describedby="error"';
+						} ?>>
 						<label for="password" class="sr-only"><?php echo _("Password"); ?></label>
-						<input type="password" name="password" id="password" placeholder="<?php echo _("Password"); ?>" autocomplete="current-password" required<?php if (isset($error)) { echo ' aria-describedby="error"'; } ?>>
+						<input type="password" name="password" id="password" placeholder="<?php echo _("Password"); ?>" autocomplete="current-password" required<?php if (isset($error)) {
+							echo ' aria-describedby="error"';
+						} ?>>
 
 						<?php if (isset($error)) { ?>
 						<div id="error" role="alert"><?php echo $error; ?></div>

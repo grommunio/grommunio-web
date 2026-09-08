@@ -81,111 +81,6 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 	showTooltip: true,
 
 	/**
-	 * @cfg {String/Ext.XTemplate} tooltipTitleTpl If {@link #showTooltip tooltips are enabled},
-	 * this template is used for the title of the tooltip. The data for the template will
-	 * be the data object from the {@link Zarafa.calendar.AppointmentRecord appointment}.
-	 */
-	tooltipTitleTpl: new Ext.XTemplate(
-		'<tpl if="!Ext.isEmpty(values.subject)">',
-			'{values.subject:htmlEncode}',
-		'</tpl>',
-		{
-			compiled: true
-		}
-	),
-
-	/**
-	 * @cfg {String/Ext.XTemplate} tooltipTextTpl If {@link #showTooltip tooltips are enabled},
-	 * this template is used for the main contents of the tooltip. The data for the template will
-	 * be the data object from the {@link Zarafa.calendar.AppointmentRecord appointment}.
-	 */
-	tooltipTextTpl: new Ext.XTemplate(
-		'<tpl if="values.meeting !== Zarafa.core.mapi.MeetingStatus.NONMEETING && !Ext.isEmpty(this.formatOrganizer(values))">',
-			_('Organizer') + ': {[this.formatOrganizer(values)]}<br>',
-		'</tpl>',
-		'<tpl if="values.meeting !== Zarafa.core.mapi.MeetingStatus.NONMEETING && !Ext.isEmpty(this.formatAttendees(values))">',
-			_('Attendees') + ': {[this.formatAttendees(values)]}<br>',
-		'</tpl>',
-		'<tpl if="values.meeting !== Zarafa.core.mapi.MeetingStatus.NONMEETING && !Ext.isEmpty(this.formatOptionalAttendees(values))">',
-			_('Optional attendees') + ': {[this.formatOptionalAttendees(values)]}<br>',
-		'</tpl>',
-		'<tpl if="values.alldayevent != true">',
-			_('Time') + ': {[this.formatTime(values.startdate, values.duedate)]}<br>',
-		'</tpl>',
-		'<tpl if="values.alldayevent == true">',
-			_('Date') + ': {[this.formatDate(values.startdate, values.duedate)]}<br>',
-		'</tpl>',
-		'<tpl if="!Ext.isEmpty(values.location)">',
-			_('Location') + ': {values.location:htmlEncode}<br>',
-		'</tpl>',
-		'<tpl if="!Ext.isEmpty(values.recurring_pattern)">',
-			_('Recurrence') + ': {values.recurring_pattern:htmlEncode}<br>',
-		'</tpl>',
-		{
-			compiled: true,
-			// Format the organizer of the meeting
-			formatOrganizer: function(values)
-			{
-				var value = values.sent_representing_name;
-				if (Ext.isEmpty(value)) {
-					value = values.sender_name;
-				}
-
-				return Ext.util.Format.htmlEncode(value);
-			},
-
-			// Format the attendees of the meeting
-			formatAttendees: function(values)
-			{
-				var organizer = this.formatOrganizer(values);
-				var value = values.display_to;
-
-				// If the value is empty or value is only the organizer
-				// Set value to empty
-				if (Ext.isEmpty(value) || value === organizer) {
-					value = "";
-				} else {
-					// Remove the organizer from the "display_to" user
-					value = value.replace("; "+organizer,'');
-				}
-
-				return Ext.util.Format.htmlEncode(value);
-			},
-
-			// Format the attendees of the meeting
-			formatOptionalAttendees: function(values)
-			{
-				var value = values.display_cc;
-				return Ext.isEmpty(value) === false ?  Ext.util.Format.htmlEncode(value) : "";
-			},
-			// Format the times for a normal appointment.
-			formatTime: function(start, due)
-			{
-				if (start.clearTime(true).getTime() == due.clearTime(true).getTime()) {
-					// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-					return start.formatDefaultTime() + ' - ' + due.formatDefaultTime();
-				} else {
-					// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-					return start.formatDefaultTime(_('jS F {0}')) + ' - ' + due.formatDefaultTime(_('jS F {0}'));
-				}
-			},
-			// Format the dates for an allday appointment, this requires the duedate
-			// to be reduced by one day, and doesn't print times.
-			formatDate: function(start, due)
-			{
-				due = due.add(Date.HOUR, -1);
-				if (Date.diff(Date.DAY, due, start) <= 1) {
-					// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-					return start.format(_('jS F Y'));
-				} else {
-					// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-					return start.format(_('jS F Y')) + ' - ' + due.format(_('jS F Y'));
-				}
-			}
-		}
-	),
-
-	/**
 	 * @constructor
 	 * @param {Object} config configuration object
 	 */
@@ -593,14 +488,11 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 				}
 
 				var id = appointment.store.data.getKey(appointment);
-				var title = this.tooltipTitleTpl.apply(appointment.data);
-				var text = this.tooltipTextTpl.apply(appointment.data);
-				var categories = Zarafa.common.categories.Util.getCategories(appointment);
 				var scheme = this.model.getColorScheme(appointment.get('parent_entryid'));
 
 				// As component ID we use the RecordKey, use the MixedCollection#getKey,
 				// as that will generate a fully unique ID in case of recurring series.
-				tooltip.show(id, { title: title, text: text, categories: categories, color: scheme ? scheme.header : undefined }, event);
+				tooltip.show(id, { record: appointment, color: scheme ? scheme.header : undefined }, event);
 			}
 		}
 

@@ -46,7 +46,7 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 
 	/**
 	 * Called automatically when the {@link Zarafa.mail.dialogs.MailCreateContentPanel content panel}
-	 * is being rendered. This will add a listener to to the {@link Zarafa.mail.dialogs.MailCreateContentPanel#bcctoggle} button.
+	 * is being rendered. This will add a listener to the {@link Zarafa.mail.dialogs.MailCreateContentPanel#bcctoggle} button.
 	 * @private
 	 */
 	onRender: function()
@@ -509,7 +509,7 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 	 * Event handler that is fired when the BCC field visibility must be changed.
 	 * This will update UI of the {@link Zarafa.mail.dialogs.MailCreateContentPanel}
 	 * @param {Zarafa.core.ui.ContentPanel} contentpanel
-	 * @param {Boolean} enabled true if the the BCC field should be shown
+	 * @param {Boolean} enabled true if the BCC field should be shown
 	 * @private
 	 */
 	onDialogBccToggle: function(contentpanel, enabled)
@@ -522,7 +522,7 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 	 * Event handler that is fired when the BCC field visibility must be changed.
 	 * This will update UI of the {@link Zarafa.mail.dialogs.MailCreateContentPanel}
 	 * @param {Zarafa.core.ui.ContentPanel} contentpanel
-	 * @param {Boolean} enabled true if the the BCC field should be shown
+	 * @param {Boolean} enabled true if the BCC field should be shown
 	 * @private
 	 */
 	onDialogFromToggle: function(contentpanel, enabled)

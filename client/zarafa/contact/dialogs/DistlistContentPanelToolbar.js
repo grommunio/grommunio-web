@@ -39,7 +39,7 @@ Zarafa.contact.dialogs.DistlistContentPanelToolbar = Ext.extend(Zarafa.core.ui.C
 	},
 
 	/**
-	 * Create all buttons which should be added by default the the 'Action' buttons.
+	 * Create all buttons which should be added by default to the 'Action' buttons.
 	 * This contains the buttons to save the message or delete it.
 	 *
 	 * @return {Array} The {@link Ext.Button Buttons} elements which should be
@@ -77,7 +77,7 @@ Zarafa.contact.dialogs.DistlistContentPanelToolbar = Ext.extend(Zarafa.core.ui.C
 	},
 
 	/**
-	 * Create all buttons which should be added by default the the 'Options' buttons.
+	 * Create all buttons which should be added by default to the 'Options' buttons.
 	 * This contains the buttons to change categories and private property.
 	 *
 	 * @return {Array} The {@link Ext.Button Buttons} elements which should be

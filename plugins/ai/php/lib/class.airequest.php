@@ -18,6 +18,8 @@ class AIRequest {
 	}
 
 	/**
+	 * @param mixed $store
+	 *
 	 * @return array{messages: array, model: string}
 	 *
 	 * @throws AIException when the message is empty or the feature is unknown
@@ -83,7 +85,7 @@ class AIRequest {
 				self::assertNotEmpty($mailText);
 				$allowed = array_values(array_filter(
 					['meeting', 'task', 'contact', 'reply'],
-					static fn(string $type): bool => $config->actionEnabled($type)
+					static fn (string $type): bool => $config->actionEnabled($type)
 				));
 
 				return [

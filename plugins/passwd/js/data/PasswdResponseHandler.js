@@ -30,7 +30,7 @@ Zarafa.plugins.passwd.data.PasswdResponseHandler = Ext.extend(Zarafa.core.data.A
 			displayMessage = response.info.display_message;
 		}
 
-		Ext.MessageBox.alert(_('Error'), displayMessage);
+		container.getNotifier().notify('error.passwd', _('Error'), Ext.util.Format.htmlEncode(displayMessage));
 
 		this.callbackFn.apply(this.scope || this, [ false, response ]);
 	},
@@ -47,7 +47,7 @@ Zarafa.plugins.passwd.data.PasswdResponseHandler = Ext.extend(Zarafa.core.data.A
 			displayMessage = response.info.display_message;
 		}
 
-		Ext.MessageBox.alert(_('Success'), displayMessage);
+		container.getNotifier().notify('info.passwd', _('Success'), Ext.util.Format.htmlEncode(displayMessage));
 
 		this.callbackFn.apply(this.scope || this, [ true, response ]);
 	}

@@ -10,7 +10,7 @@ Ext.namespace('Zarafa.plugins.files.data');
 Zarafa.plugins.files.data.ResponseHandler = Ext.extend(Zarafa.core.data.IPMResponseHandler, {
 
 	/**
-	 * @cgf {String} The id of the opened node in fuile tree received from the Files
+	 * @cfg {String} nodeId The ID of the opened node in the file tree received from Files.
 	 */
 	nodeId: undefined,
 
@@ -106,12 +106,7 @@ Zarafa.plugins.files.data.ResponseHandler = Ext.extend(Zarafa.core.data.IPMRespo
 	 * @param {Object} response Object contained the response data.
 	 */
 	doError: function (response) {
-		Zarafa.common.dialogs.MessageBox.show({
-			title  : _('Error'),
-			msg    : response.info.original_message,
-			icon   : Zarafa.common.dialogs.MessageBox.ERROR,
-			buttons: Zarafa.common.dialogs.MessageBox.OK
-		});
+		container.getNotifier().notify('error.files', _('Error'), Ext.util.Format.htmlEncode(response.info.original_message));
 	}
 });
 

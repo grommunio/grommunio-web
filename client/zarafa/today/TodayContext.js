@@ -32,7 +32,7 @@ Zarafa.today.TodayContext = Ext.extend(Zarafa.core.Context, {
 	},
 
 	/**
-	 * @return {Zarafa.taday.TodayContextModel} the today context model
+	 * @return {Zarafa.today.TodayContextModel} The today context model
 	 */
 	getModel: function()
 	{

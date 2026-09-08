@@ -141,7 +141,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 
 	/**
 	 * @cfg {Boolean} enableAnim Enable special {@link Ext.Fx FX} effects for
-	 * this this field and all container {@link #items boxes}.
+	 * this field and all container {@link #items boxes}.
 	 */
 	enableAnim: true,
 
@@ -606,7 +606,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * on various locations in the field depending on the number of {@link #items boxes}
 	 * which have been rendered.
 	 *
-	 * The width must fall within the the {@link #minListWidth} and the {@link #container}
+	 * The width must fall within the {@link #minListWidth} and the {@link #container}
 	 * width range. Depending on the width, and the position of the input element, we
 	 * also have to force the list a few pixels to the left of the {@link #el} if by
 	 * that we can prevent the list to exceed the limits of the field itself.

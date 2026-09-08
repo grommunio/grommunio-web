@@ -302,7 +302,7 @@ Zarafa.core.KeyMapMgr = Ext.extend(Object, {
 	},
 
 	/**
-	 * Can be used to enable the keymaps globally and works in conjucture with {@link #disable} that
+	 * Can be used to enable the keymaps globally and works in conjunction with {@link #disable}, which
 	 * is able to disable all the keymaps globally.
 	 * Will enable the all the registered keymaps that have an originallyEnabled flag set to true.
 	 * After that each keymap, including the ones that have the originallyEnabled flag set to false,
@@ -321,7 +321,7 @@ Zarafa.core.KeyMapMgr = Ext.extend(Object, {
 	},
 
 	/**
-	 * Can be used to disable the keymaps globally and works in conjucture with {@link #enable} that
+	 * Can be used to disable the keymaps globally and works in conjunction with {@link #enable}, which
 	 * is able to enable all the keymaps globally.
 	 * Will enable the all the registered keymaps that have an originallyEnabled flag set to true.
 	 * After that each keymap, including the ones that have the originallyEnabled flag set to false,

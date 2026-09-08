@@ -7,6 +7,10 @@
  * - Check the code at deleteFolder and at copyFolder. Looks the same.
  */
 class HierarchyModule extends Module {
+	#[Override]
+	protected function getExecutionLockName() {
+		return null;
+	}
 	private $store_entryid;
 
 	/**
@@ -66,11 +70,31 @@ class HierarchyModule extends Module {
 				continue;
 			}
 
+			$parententryid = null;
+			$entryid = null;
+
 			try {
 				$store = $this->getActionStore($action);
 				$parententryid = $this->getActionParentEntryID($action);
-				$entryid = $this->getActionEntryID($action);
+				$entryid = $this->getActionSingleEntryID($action);
 				$this->store_entryid = $action["store_entryid"] ?? '';
+				// These actions address the session, not a store, and are sent
+				// without store_entryid. A shared store is closed from the session
+				// even when it can no longer be opened.
+				$storelessActions = ['keepalive', 'destroysession', 'list', 'opensharedfolder', 'closesharedfolder', 'sharedstoreupdate'];
+				if (is_array($store)) {
+					if (!in_array($actionType, $storelessActions, true)) {
+						$this->sendFeedback(false);
+
+						continue;
+					}
+					$store = false;
+				}
+				if ($store === false && !in_array($actionType, $storelessActions, true)) {
+					$this->sendFeedback(false);
+
+					continue;
+				}
 
 				switch ($actionType) {
 					case "keepalive":
@@ -95,6 +119,11 @@ class HierarchyModule extends Module {
 						break;
 
 					case "open":
+						if ($entryid === false) {
+							$this->sendFeedback(false);
+
+							break;
+						}
 						$folder = mapi_msgstore_openentry($store, $entryid);
 						$data = $this->getFolderProps($store, $folder);
 
@@ -104,6 +133,11 @@ class HierarchyModule extends Module {
 						break;
 
 					case "foldersize":
+						if ($store === false || $entryid === false) {
+							$this->sendFeedback(false);
+
+							break;
+						}
 						$folders = [];
 						$folder = mapi_msgstore_openentry($store, $entryid);
 						$data = $this->getFolderProps($store, $folder);
@@ -152,7 +186,8 @@ class HierarchyModule extends Module {
 							//   - emptyfolder: Delete all items within the folder
 							//   - readflags: Mark all items within the folder as read
 							//   - addtofavorites: Add the folder to "favorites"
-							if (!isset($action["message_action"]["isSearchFolder"])) {
+							$data = null;
+							if (empty($action["message_action"]["isSearchFolder"])) {
 								$folder = mapi_msgstore_openentry($store, $entryid);
 								$data = $this->getFolderProps($store, $folder);
 							}
@@ -173,7 +208,7 @@ class HierarchyModule extends Module {
 										if ($destentryid && $deststore) {
 											$this->copyFolder($store, $parententryid, $entryid, $destentryid, $deststore, $action["message_action"]["action_type"] == "move");
 										}
-										if ($data["props"]["container_class"] === "IPF.Contact") {
+										if (isset($data["props"]["container_class"]) && $data["props"]["container_class"] === "IPF.Contact") {
 											$GLOBALS["bus"]->notify(ADDRESSBOOK_ENTRYID, OBJECT_SAVE);
 										}
 										break;
@@ -357,7 +392,7 @@ class HierarchyModule extends Module {
 	 *
 	 * @param object     $e             Exception object
 	 * @param string     $actionType    the action type, sent by the client
-	 * @param MAPIobject $store         store object of the folder
+	 * @param resource   $store         MAPI store containing the folder
 	 * @param string     $parententryid parent entryid of the message
 	 * @param string     $entryid       entryid of the folder
 	 * @param array      $action        the action data, sent by the client
@@ -528,10 +563,10 @@ class HierarchyModule extends Module {
 	/**
 	 * Adds a folder to the hierarchylist.
 	 *
-	 * @param object $store         message Store Object
-	 * @param string $parententryid entryid of the parent folder
-	 * @param string $name          name of the new folder
-	 * @param string $type          type of the folder (calendar, mail, ...).
+	 * @param resource $store         MAPI message store
+	 * @param string   $parententryid entryid of the parent folder
+	 * @param string   $name          name of the new folder
+	 * @param string   $type          type of the folder (calendar, mail, ...).
 	 *
 	 * @return bool true on success or false on failure
 	 */
@@ -569,12 +604,13 @@ class HierarchyModule extends Module {
 		}
 
 		$permissions = $this->getFolderPermissions($folder);
+		$permissions = is_array($permissions) ? $permissions : [];
 
 		// replace "IPM_SUBTREE" with the display name of the store, and use the store message size
 		$store_props = mapi_getprops($store, [PR_IPM_SUBTREE_ENTRYID]);
 		if ($data["entryid"] == bin2hex((string) $store_props[PR_IPM_SUBTREE_ENTRYID])) {
 			$store_props = mapi_getprops($store, [PR_MAILBOX_OWNER_ENTRYID, PR_DISPLAY_NAME, PR_MESSAGE_SIZE_EXTENDED,
-			PR_CONTENT_COUNT, PR_QUOTA_WARNING_THRESHOLD, PR_PROHIBIT_SEND_QUOTA, PR_PROHIBIT_RECEIVE_QUOTA, ]);
+				PR_CONTENT_COUNT, PR_QUOTA_WARNING_THRESHOLD, PR_PROHIBIT_SEND_QUOTA, PR_PROHIBIT_RECEIVE_QUOTA, ]);
 			if (!$GLOBALS['entryid']->compareEntryIds($store_props[PR_MAILBOX_OWNER_ENTRYID], $GLOBALS['mapisession']->getUserEntryID())) {
 				$permissions = $this->getStoreGrants($permissions);
 			}
@@ -610,8 +646,8 @@ class HierarchyModule extends Module {
 	/**
 	 * Returns the size and total_size of the given folder.
 	 *
-	 * @param mapistore  $store       The store to which the folder belongs
-	 * @param mapifolder $folder      The folder for which the size must be calculated
+	 * @param resource   $store       store to which the folder belongs
+	 * @param resource   $folder      folder for which the size must be calculated
 	 * @param string     $pathname    The path of the current folder
 	 * @param array      &$subfolders The array in which all information for the subfolders are stored
 	 * @param bool       $hidden      True to prevent the subfolders to be stored into the $subfolders argument
@@ -664,9 +700,9 @@ class HierarchyModule extends Module {
 	/**
 	 * Function which saves changed properties to a folder.
 	 *
-	 * @param object $store  MAPI object of the store
-	 * @param object $folder MAPI object of the folder
-	 * @param mixed  $action
+	 * @param resource $store  MAPI message store
+	 * @param resource $folder MAPI folder
+	 * @param array    $action action data sent by the client
 	 */
 	public function save($store, $folder, $action) {
 		// Rename folder
@@ -694,11 +730,21 @@ class HierarchyModule extends Module {
 		mapi_savechanges($folder);
 	}
 
+	/**
+	 * Read and format a folder's permission rules.
+	 *
+	 * @param mixed $folder
+	 *
+	 * @return array|false formatted permissions, or false when the rules cannot be read
+	 */
 	public function getFolderPermissions($folder) {
 		$eidObj = $GLOBALS["entryid"]->createMsgStoreEntryIdObj(hex2bin((string) $this->store_entryid));
 		$cnUserPos = strrpos((string) $eidObj['MailboxDN'], '/cn=');
 		$cnUserBase = ($cnUserPos !== false) ? substr((string) $eidObj['MailboxDN'], 0, $cnUserPos) : '';
 		$grants = mapi_zarafa_getpermissionrules($folder, ACCESS_TYPE_GRANT);
+		if ($grants === false) {
+			return false;
+		}
 		foreach ($grants as $id => $grant) {
 			// The mapi_zarafa_getpermissionrules returns the entryid in the userid key
 			$userinfo = $this->getUserInfo($grant, $cnUserBase);
@@ -723,6 +769,9 @@ class HierarchyModule extends Module {
 		$folderProps = mapi_getprops($folder, [PR_DISPLAY_NAME, PR_STORE_ENTRYID, PR_ENTRYID]);
 		$store = $GLOBALS["mapisession"]->openMessageStore($folderProps[PR_STORE_ENTRYID]);
 		$currentPermissions = $this->getFolderPermissions($folder);
+		if ($currentPermissions === false) {
+			throw new RuntimeException('Unable to read folder permissions');
+		}
 
 		// check if the folder is the default calendar, if so we also need to set the same permissions on the freebusy folder
 		$root = mapi_msgstore_openentry($store);
@@ -735,6 +784,9 @@ class HierarchyModule extends Module {
 
 		// first, get the current permissions because we need to delete all current acl's
 		$curAcls = mapi_zarafa_getpermissionrules($folder, ACCESS_TYPE_GRANT);
+		if ($curAcls === false) {
+			throw new RuntimeException('Unable to read folder permissions');
+		}
 		$eidObj = $GLOBALS["entryid"]->createMsgStoreEntryIdObj(hex2bin((string) $this->store_entryid));
 		$cnUserPos = strrpos((string) $eidObj['MailboxDN'], '/cn=');
 		$cnUserBase = ($cnUserPos !== false) ? substr((string) $eidObj['MailboxDN'], 0, $cnUserPos) : '';
@@ -882,7 +934,7 @@ class HierarchyModule extends Module {
 	/**
 	 * Function is used to get the IPM_COMMON_VIEWS folder from defaults store.
 	 *
-	 * @return object MAPI folder object
+	 * @return resource MAPI folder
 	 */
 	public function getCommonViewsFolder() {
 		$defaultStore = $GLOBALS["mapisession"]->getDefaultMessageStore();
@@ -896,11 +948,11 @@ class HierarchyModule extends Module {
 	 * Remove favorites link message from associated contains table of IPM_COMMON_VIEWS.
 	 * It will also remove favorites search folders of given store.
 	 *
-	 * @param string $entryid  entryid of the folder
-	 * @param object $store    MAPI object of the store
-	 * @param string $prop     property which is used to find record from associated contains table of
-	 *                         IPM_COMMON_VIEWS folder
-	 * @param bool   $doNotify true to notify the IPM_COMMO_VIEWS folder on client side
+	 * @param string         $entryid  entryid of the folder
+	 * @param false|resource $store    MAPI message store, or false
+	 * @param string         $prop     property which is used to find record from associated contains table of
+	 *                                 IPM_COMMON_VIEWS folder
+	 * @param bool           $doNotify true to notify the IPM_COMMO_VIEWS folder on client side
 	 */
 	public function removeFromFavorite($entryid, $store = false, $prop = PR_WLINK_ENTRYID, $doNotify = true) {
 		$commonViewsFolder = $this->getCommonViewsFolder();
@@ -925,7 +977,7 @@ class HierarchyModule extends Module {
 			],
 		];
 		$finderHierarchyTables = [];
-		if (!empty($store)) {
+		if ($store !== false) {
 			$props = mapi_getprops($store, [PR_FINDER_ENTRYID]);
 
 			try {
@@ -933,7 +985,13 @@ class HierarchyModule extends Module {
 				$hierarchyTable = mapi_folder_gethierarchytable($finderFolder, MAPI_DEFERRED_ERRORS);
 				$finderHierarchyTables[$props[PR_FINDER_ENTRYID]] = $hierarchyTable;
 			}
-			catch (Exception) {
+			catch (Exception $e) {
+				if ($e instanceof MAPIException) {
+					$e->setHandled();
+				}
+				else {
+					error_log('Unable to open a finder folder: ' . $e->getMessage());
+				}
 			}
 		}
 
@@ -942,7 +1000,7 @@ class HierarchyModule extends Module {
 
 		if (!empty($messages)) {
 			foreach ($messages as $message) {
-				if ($message[PR_MESSAGE_CLASS] === "IPM.Microsoft.WunderBar.SFInfo" && !empty($finderHierarchyTables)) {
+				if ($message[PR_MESSAGE_CLASS] === "IPM.Microsoft.WunderBar.SFInfo" && $store !== false && $finderHierarchyTables !== []) {
 					$props = $GLOBALS["operations"]->getFavoritesLinkedSearchFolderProps($message[PR_WB_SF_ID], $finderHierarchyTables);
 					if (!empty($props)) {
 						$this->deleteSearchFolder($store, $props[PR_PARENT_ENTRYID], $props[PR_ENTRYID], []);
@@ -1005,8 +1063,8 @@ class HierarchyModule extends Module {
 	 * Function is used to create link message for the selected folder
 	 * in associated contains of IPM_COMMON_VIEWS folder.
 	 *
-	 * @param string $store   $store entryid of the store
-	 * @param string $entryid $entryid entryid of the MAPI folder
+	 * @param resource $store   MAPI message store
+	 * @param string   $entryid entryid of the MAPI folder
 	 */
 	public function addToFavorite($store, $entryid) {
 		$commonViewsFolder = $this->getCommonViewsFolder();
@@ -1024,13 +1082,12 @@ class HierarchyModule extends Module {
 	}
 
 	/**
-	 * Function which is used delete the search folder from respective store.
+	 * Delete a search folder from its store.
 	 *
-	 * @param object $store         $store $store MAPI store in which search folder is belongs
-	 * @param array  $parententryid $parententryid parent folder to search folder it is FIND_ROOT folder which
-	 *                              treated as search root folder
-	 * @param string $entryid       $entryid search folder entryid which is going to remove
-	 * @param array  $action        the action data, sent by the client
+	 * @param resource $store         MAPI store containing the search folder
+	 * @param string   $parententryid FINDER_ROOT parent folder entry ID
+	 * @param string   $entryid       search folder entry ID to remove
+	 * @param array    $action        action data sent by the client
 	 */
 	public function deleteSearchFolder($store, $parententryid, $entryid, $action) {
 		$folder = mapi_msgstore_openentry($store, $entryid);
@@ -1096,9 +1153,9 @@ class HierarchyModule extends Module {
 	/**
 	 * Modifies a folder off the hierarchylist.
 	 *
-	 * @param object $store   message Store Object
-	 * @param string $entryid entryid of the folder
-	 * @param string $name    name of the folder
+	 * @param resource $store   MAPI message store
+	 * @param string   $entryid entryid of the folder
+	 * @param string   $name    name of the folder
 	 */
 	public function modifyFolder($store, $entryid, $name) {
 		$props = [];
@@ -1112,10 +1169,10 @@ class HierarchyModule extends Module {
 	/**
 	 * Deletes a folder in the hierarchylist.
 	 *
-	 * @param object $store         message Store Object
-	 * @param string $parententryid entryid of the parent folder
-	 * @param string $entryid       entryid of the folder
-	 * @param array  $action        the action data, sent by the client
+	 * @param resource $store         MAPI message store
+	 * @param string   $parententryid entryid of the parent folder
+	 * @param string   $entryid       entryid of the folder
+	 * @param array    $action        the action data, sent by the client
 	 */
 	public function deleteFolder($store, $parententryid, $entryid, $action) {
 		$props = [];
@@ -1170,13 +1227,11 @@ class HierarchyModule extends Module {
 	/**
 	 * Deletes all messages in a folder.
 	 *
-	 * @param object $store   message Store Object
-	 * @param string $entryid entryid of the folder
+	 * @param resource $store   MAPI message store
+	 * @param string   $entryid entryid of the folder
 	 */
 	public function emptyFolder($store, $entryid) {
 		$props = [];
-
-		$result = false;
 
 		// False will only remove the message of
 		// selected folder only and can't remove the
@@ -1218,9 +1273,9 @@ class HierarchyModule extends Module {
 	/**
 	 * Deletes messages in a folder in batches, reporting progress after each batch.
 	 *
-	 * @param object $store     message Store Object
-	 * @param string $entryid   entryid of the folder
-	 * @param int    $batchSize number of messages to delete per batch
+	 * @param resource $store     MAPI message store
+	 * @param string   $entryid   entryid of the folder
+	 * @param int      $batchSize number of messages to delete per batch
 	 */
 	public function emptyFolderBatch($store, $entryid, $batchSize) {
 		$folder = mapi_msgstore_openentry($store, $entryid);
@@ -1279,8 +1334,8 @@ class HierarchyModule extends Module {
 	 * Performs final cleanup after all messages have been batch-deleted from a folder.
 	 * For Wastebasket and Junk folders, this also removes subfolders and associated content.
 	 *
-	 * @param object $store   message Store Object
-	 * @param string $entryid entryid of the folder
+	 * @param resource $store   MAPI message store
+	 * @param string   $entryid entryid of the folder
 	 */
 	private function emptyFolderBatchFinalize($store, $entryid) {
 		$emptySubFolders = false;
@@ -1304,14 +1359,14 @@ class HierarchyModule extends Module {
 	}
 
 	/**
-	 * Copies of moves a folder in the hierarchylist.
+	 * Copies or moves a folder in the hierarchy list.
 	 *
-	 * @param object $store               message Store Object
-	 * @param string $parententryid       entryid of the parent folder
-	 * @param string $sourcefolderentryid entryid of the folder to be copied of moved
-	 * @param string $destfolderentryid   entryid of the destination folder
-	 * @param mixed  $deststore
-	 * @param mixed  $moveFolder
+	 * @param resource $store               source MAPI message store
+	 * @param string   $parententryid       entryid of the parent folder
+	 * @param string   $sourcefolderentryid entryid of the folder to be copied or moved
+	 * @param string   $destfolderentryid   entryid of the destination folder
+	 * @param resource $deststore           destination MAPI message store
+	 * @param bool     $moveFolder          whether to move instead of copy
 	 */
 	public function copyFolder($store, $parententryid, $sourcefolderentryid, $destfolderentryid, $deststore, $moveFolder) {
 		$props = [];
@@ -1389,12 +1444,10 @@ class HierarchyModule extends Module {
 			mapi_table_restrict($hierarchyTable, $restriction, TBL_BATCH);
 			$subfolders = mapi_table_queryallrows($hierarchyTable, [PR_ENTRYID]);
 
-			if (is_array($subfolders)) {
-				foreach ($subfolders as $subfolder) {
-					$folderObject = mapi_msgstore_openentry($deststore, $subfolder[PR_ENTRYID]);
-					$folderProps = mapi_getprops($folderObject, [PR_ENTRYID, PR_STORE_ENTRYID]);
-					$GLOBALS["bus"]->notify(bin2hex((string) $subfolder[PR_ENTRYID]), OBJECT_SAVE, $folderProps);
-				}
+			foreach ($subfolders as $subfolder) {
+				$folderObject = mapi_msgstore_openentry($deststore, $subfolder[PR_ENTRYID]);
+				$folderProps = mapi_getprops($folderObject, [PR_ENTRYID, PR_STORE_ENTRYID]);
+				$GLOBALS["bus"]->notify(bin2hex((string) $subfolder[PR_ENTRYID]), OBJECT_SAVE, $folderProps);
 			}
 
 			// Now update destination folder
@@ -1403,23 +1456,24 @@ class HierarchyModule extends Module {
 			$GLOBALS["bus"]->notify(bin2hex((string) $folderProps[PR_ENTRYID]), OBJECT_SAVE, $folderProps);
 		}
 		else {
-			if ($moveFolder) {
-				$this->sendFeedback(false, _('Could not move folder'));
-			}
-			else {
-				$this->sendFeedback(false, _('Could not copy folder'));
-			}
+			$message = $moveFolder ? _('Could not move folder') : _('Could not copy folder');
+			$this->sendFeedback(false, [
+				'type' => ERROR_ZARAFA,
+				'info' => [
+					'display_message' => $message,
+					'original_message' => $message,
+				],
+			]);
 		}
 	}
 
 	/**
 	 * Set all messages read.
 	 *
-	 * @param object $store   message Store Object
-	 * @param string $entryid entryid of the folder
+	 * @param resource $store   MAPI message store
+	 * @param string   $entryid entryid of the folder
 	 */
 	public function setReadFlags($store, $entryid) {
-		$props = [];
 		$folder = mapi_msgstore_openentry($store, $entryid);
 
 		if (!$folder) {
@@ -1443,8 +1497,6 @@ class HierarchyModule extends Module {
 	/**
 	 * Returns the visible permissions of the store for the current user.
 	 *
-	 * @param array $permissions
-	 *
 	 * @return array of grants
 	 */
 	public function getStoreGrants(array $permissions): array {
@@ -1455,6 +1507,7 @@ class HierarchyModule extends Module {
 				// user has owner rights, return all permissions
 				if (($grant['props']['rights'] & ecRightsFolderAccess) || ($grant['props']['rights'] & ecRightsGromoxStoreOwner)) {
 					unset($grants);
+
 					return $permissions;
 				}
 				$grants[] = $grant;

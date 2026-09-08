@@ -8,7 +8,7 @@ require_once __DIR__ . "/Util/class.pathutil.php";
 require_once __DIR__ . "/Util/class.logger.php";
 
 use Files\Backend\BackendStore;
-use Files\Backend\Exception;
+use Files\Backend\iFeatureRecipientSearch;
 use Files\Core\Util\Logger;
 
 class RecipientHandler {
@@ -31,21 +31,41 @@ class RecipientHandler {
 		$backendStore = BackendStore::getInstance();
 
 		$account = $accountStore->getAccount($accountID);
-
-		// initialize the backend
-		$initializedBackend = $backendStore->getInstanceOfBackend($account->getBackend());
-		$initializedBackend->init_backend($account->getBackendConfig());
-
-		try {
-			$initializedBackend->open();
-		}
-		catch (Exception $e) {
-			Logger::error(self::LOG_CONTEXT, "Could not open the backend: " . $e->getMessage());
-			echo json_encode(['success' => false, 'response' => $e->getCode(), 'message' => $e->getMessage()]);
+		if ($account === null) {
+			Logger::error(self::LOG_CONTEXT, "Unknown account ID: " . $accountID);
+			echo json_encode(['success' => false, 'response' => 'Unknown account ID', 'message' => _('Unknown account ID')]);
 
 			exit;
 		}
-		$responsedata = $initializedBackend->getRecipients($_GET["query"]);
+
+		// initialize the backend
+		$initializedBackend = $backendStore->getInstanceOfBackend($account->getBackend());
+		// Backends are loaded dynamically, so their optional interfaces cannot be inferred statically.
+		if ($initializedBackend === false ||
+			!(/** @scrutinizer ignore-type */ $initializedBackend instanceof iFeatureRecipientSearch) &&
+			!is_callable([$initializedBackend, 'getRecipients'])) {
+			Logger::error(self::LOG_CONTEXT, "Recipient search is not supported by backend: " . $account->getBackend());
+			header('Content-Type: application/json');
+			echo json_encode(['success' => false, 'response' => 'Unsupported backend feature', 'message' => _('Recipient search is not supported by this backend')]);
+
+			return;
+		}
+
+		try {
+			$initializedBackend->init_backend($account->getBackendConfig());
+			$initializedBackend->open();
+			// The interface or callability check above guarantees this optional backend method.
+
+			/** @scrutinizer ignore-call */
+			$responsedata = $initializedBackend->getRecipients((string) ($_GET["query"] ?? ''));
+		}
+		catch (\Throwable $e) {
+			Logger::error(self::LOG_CONTEXT, "Recipient lookup failed: " . $e->getMessage());
+			header('Content-Type: application/json');
+			echo json_encode(['success' => false, 'response' => 'Recipient lookup failed', 'message' => _('Unable to look up recipients')]);
+
+			return;
+		}
 		header('Content-Type: application/json');
 		echo json_encode($responsedata);
 	}

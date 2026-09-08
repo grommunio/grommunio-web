@@ -21,14 +21,13 @@ class KendoxModule extends Module {
 	public $kendoxClient;
 
 	/**
-	 * @constructor
+	 * Initialize the module and its Kendox connection settings.
 	 *
 	 * @param mixed $id
 	 * @param mixed $data
 	 */
 	public function __construct($id, $data) {
 		parent::__construct($id, $data);
-		$this->store = $GLOBALS['mapisession']->getDefaultMessageStore();
 		$this->pfxFile = $this->resolvePfxPath($this->getConfigValue('PLUGIN_KENDOX_PFX_FILE'));
 		$this->pfxPw = $this->getConfigValue('PLUGIN_KENDOX_PFX_PASSWORD');
 		$this->pfxFileTest = $this->resolvePfxPath($this->getConfigValue('PLUGIN_KENDOX_PFX_FILE_TEST'));
@@ -126,7 +125,7 @@ class KendoxModule extends Module {
 	 * @param mixed  $apiUrl
 	 * @param mixed  $userEMail
 	 *
-	 * @return object
+	 * @return array upload result
 	 */
 	private function upload($storeId, $mailEntryId, $uploadType, $selectedAttachments, $environment, $apiUrl, $userEMail) {
 		$emlFile = null;
@@ -135,7 +134,7 @@ class KendoxModule extends Module {
 		// Send to Kendox InfoShare
 		$uploadFiles = [];
 		if ($uploadType == "fullEmail") {
-			$emlFile = $this->createTempEmlFileFromMapiMessage($mailEntryId);
+			$emlFile = $this->createTempEmlFileFromMapiMessage();
 			if (!file_exists($emlFile)) {
 				throw new Exception("EML file " . $emlFile . " not available.");
 			}
@@ -171,11 +170,13 @@ class KendoxModule extends Module {
 			throw $ex;
 		}
 		finally {
-			if ($emlFile != null) {
-				@unlink($emlFile);
+			if ($emlFile !== null && (is_file($emlFile) || is_link($emlFile)) && !@unlink($emlFile)) {
+				error_log('Unable to remove temporary Kendox message file: ' . $emlFile);
 			}
 			foreach ($uploadFiles as $uploadFile) {
-				@unlink($uploadFile->tempFile);
+				if ((is_file($uploadFile->tempFile) || is_link($uploadFile->tempFile)) && !@unlink($uploadFile->tempFile)) {
+					error_log('Unable to remove temporary Kendox attachment file: ' . $uploadFile->tempFile);
+				}
 			}
 		}
 
@@ -190,12 +191,12 @@ class KendoxModule extends Module {
 			$response["kendoxFiles"] = $uploadFiles;
 		}
 		catch (Exception $ex) {
-			if ($emlFile != null) {
-				@unlink($emlFile);
+			if ($emlFile !== null && (is_file($emlFile) || is_link($emlFile)) && !@unlink($emlFile)) {
+				error_log('Unable to remove temporary Kendox message file: ' . $emlFile);
 			}
-			if ($uploadFiles != null) {
-				foreach ($uploadFiles as $uploadFile) {
-					@unlink($uploadFile->tempFile);
+			foreach ($uploadFiles as $uploadFile) {
+				if ((is_file($uploadFile->tempFile) || is_link($uploadFile->tempFile)) && !@unlink($uploadFile->tempFile)) {
+					error_log('Unable to remove temporary Kendox attachment file: ' . $uploadFile->tempFile);
 				}
 			}
 			$this->logErrorAndThrow("Error on building response message", $ex);
@@ -221,7 +222,9 @@ class KendoxModule extends Module {
 		}
 	}
 
-	private function createTempEmlFileFromMapiMessage($mailEntryId) {
+	private function createTempEmlFileFromMapiMessage() {
+		$stat = null;
+
 		// Read message properties
 		try {
 			$messageProps = mapi_getprops($this->mapiMessage, [PR_SUBJECT, PR_MESSAGE_CLASS]);
@@ -232,12 +235,14 @@ class KendoxModule extends Module {
 
 		// Get EML-Stream
 		try {
-			$fileName = $this->sanitizeValue($mailEntryId, '', ID_REGEX) . '.eml';
 			$stream = $this->getEmlStream($messageProps);
 			$stat = mapi_stream_stat($stream);
 		}
 		catch (Exception $ex) {
 			$this->logErrorAndThrow("Error on reading EML stream from MAPI Message", $ex);
+		}
+		if (!is_array($stat) || !isset($stat['cb'])) {
+			throw new Exception('MAPI returned an invalid EML stream status');
 		}
 
 		// Create temporary file
@@ -279,6 +284,8 @@ class KendoxModule extends Module {
 		}
 
 		// Create EML stream from the attachment-stripped message
+		$stat = ['cb' => 0];
+
 		try {
 			$stream = $this->getEmlStream($messageProps);
 			$stat = mapi_stream_stat($stream);
@@ -312,7 +319,7 @@ class KendoxModule extends Module {
 		if (function_exists('com_create_guid')) {
 			return com_create_guid();
 		}
-		mt_srand((float) microtime() * 10000); // optional for php 4.2.0 and up.
+		mt_srand((int) ((float) microtime() * 10000)); // optional for php 4.2.0 and up.
 		$charid = strtoupper(md5(uniqid(random_int(0, mt_getrandmax()), true)));
 		$hyphen = chr(45); // "-"
 
@@ -344,7 +351,9 @@ class KendoxModule extends Module {
 					$uploadFiles[] = $file;
 				}
 				catch (Exception $exFile) {
-					@unlink($tmpFile);
+					if (is_file($tmpFile) && !@unlink($tmpFile)) {
+						error_log('Unable to remove temporary Kendox attachment file: ' . $tmpFile);
+					}
 
 					throw $exFile;
 				}
@@ -386,7 +395,7 @@ class KendoxModule extends Module {
 				throw new Exception(_("Kendox certificate is not readable."));
 			}
 			$this->kendoxClient = new Client($apiUrl);
-			$uid = $this->kendoxClient->loginWithToken($pfx, $pfxPw, "svc_grommunio");
+			$this->kendoxClient->loginWithToken($pfx, $pfxPw, "svc_grommunio");
 			$query = [
 				[
 					"ColumnName" => "email",
@@ -430,7 +439,7 @@ class KendoxModule extends Module {
 			return '';
 		}
 
-		if ($path[0] === '/' || preg_match('/^[A-Za-z]:[\\\\\\/]/', $path) === 1) {
+		if ($path[0] === '/' || preg_match('/^[A-Za-z]:[\\\\\/]/', $path) === 1) {
 			return $path;
 		}
 
@@ -457,7 +466,7 @@ class KendoxModule extends Module {
 	 *
 	 * @param array $messageProps properties of this particular message
 	 *
-	 * @return Stream $stream the eml stream obtained from message
+	 * @return resource EML stream obtained from the message
 	 */
 	public function getEmlStream($messageProps) {
 		$addrBook = $GLOBALS['mapisession']->getAddressbook();
@@ -490,7 +499,7 @@ class KendoxModule extends Module {
 		$result = addslashes((string) $value);
 		if ($regex) {
 			$match = preg_match_all($regex, $result);
-			if (!$match) {
+			if ($match === false || $match === 0) {
 				$result = $default;
 			}
 		}

@@ -173,7 +173,6 @@ class SignedAttributes {
 	 */
 	public function parseSmimeCapabilities(string $der): array {
 		$caps = [];
-		$parser = new \WAYF\Der();
 
 		try {
 			set_error_handler(function () { return true; });
@@ -199,7 +198,7 @@ class SignedAttributes {
 			}
 			restore_error_handler();
 		}
-		catch (\Throwable $e) {
+		catch (Throwable $e) {
 			restore_error_handler();
 		}
 
@@ -270,28 +269,13 @@ class SignedAttributes {
 	 * Build IssuerSerial structure.
 	 */
 	private function buildIssuerSerial(array $parsed): string {
-		// We need issuer DN and serial number
+		// The issuer DN's original DER is not available in OpenSSL's parsed data.
+		// IssuerSerial is optional in ESSCertIDv2, so omit it rather than attempt
+		// to reconstruct a potentially different distinguished name encoding.
 		if (!isset($parsed['issuer']) || !isset($parsed['serialNumber'])) {
 			return '';
 		}
 
-		// Build a simple issuer GeneralNames containing directoryName
-		// For simplicity, we encode serial as INTEGER
-		$serialHex = $parsed['serialNumberHex'] ?? dechex((int) $parsed['serialNumber']);
-		if (strlen($serialHex) % 2 !== 0) {
-			$serialHex = '0' . $serialHex;
-		}
-		$serialBytes = hex2bin($serialHex);
-		// Ensure positive encoding
-		if (ord($serialBytes[0]) & 0x80) {
-			$serialBytes = "\x00" . $serialBytes;
-		}
-		$serialDer = DerEncoder::integer($serialBytes);
-
-		// IssuerSerial: SEQUENCE { issuer GeneralNames, serialNumber INTEGER }
-		// For the issuer, we'd need the full DER encoding of the issuer DN.
-		// This is complex to reconstruct from parsed data, so we omit IssuerSerial
-		// when we can't get the raw DER. The field is OPTIONAL in ESSCertIDv2.
 		return '';
 	}
 

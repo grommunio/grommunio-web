@@ -23,7 +23,7 @@ Zarafa.core.Events = {
 	 * {@link Ext.form.Field}/{@link Ext.Element} pair to the {@link #listeners}
 	 * object.
 	 * @param {Ext.form.Field} field The register for which the observable is added
-	 * @param {Ext.Element} el The element for which the the observable is added
+	 * @param {Ext.Element} el The element for which the observable is added
 	 * @param {Ext.util.Observable} observable The observable to register
 	 * @private
 	 */

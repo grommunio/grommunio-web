@@ -34,7 +34,7 @@ function readData() {
  * Add in config specified default domain to email if no domain is set in form.
  * If no default domain is set in config, the input string will be return without changes.
  *
- * @param string user the user to append domain to
+ * @param string $user the user to append the domain to
  * @return string email
  */
 function appendDefaultDomain($user) {
@@ -52,8 +52,7 @@ function appendDefaultDomain($user) {
  * Function which is called every time the "session_start" method is called.
  * It unserializes the objects in the session. This function called by PHP.
  *
- * @param string @className the className of the object in the session
- * @param mixed $className
+ * @param string $className the class name of the object in the session
  */
 function sessionNotifierLoader($className) {
 	$className = strtolower((string) $className); // for PHP5 set className to lower case to find the file (see ticket #839 for more information)
@@ -96,7 +95,7 @@ function is_assoc_array($data) {
  * gets maximum upload size of attachment from php ini settings
  * important settings are upload_max_filesize and post_max_size
  * upload_max_filesize specifies maximum upload size for attachments
- * post_max_size must be larger then upload_max_filesize.
+ * post_max_size must be larger than upload_max_filesize.
  * these values are overwritten in .htaccess file of WA.
  *
  * @param mixed $as_string
@@ -108,9 +107,8 @@ function getMaxUploadSize($as_string = false) {
 	$post_max_value = getMaxPostRequestSize();
 
 	/*
-	 * if POST_MAX_SIZE is lower then UPLOAD_MAX_FILESIZE, then we have to check based on that value
-	 * as we will not be able to upload attachment larger then POST_MAX_SIZE (file size + header data)
-	 * so set POST_MAX_SIZE value to higher then UPLOAD_MAX_FILESIZE
+	 * If POST_MAX_SIZE is lower than UPLOAD_MAX_FILESIZE, it becomes the
+	 * effective upload limit because the request also contains header data.
 	 */
 
 	// calculate upload_max_value value to bytes
@@ -242,7 +240,7 @@ function cleanTemp($directory = TMP_PATH, $maxLifeTime = STATE_FILE_MAX_LIFETIME
 		else {
 			$fileinfo = stat($path);
 
-			if ($fileinfo && $fileinfo["atime"] < time() - $maxLifeTime) {
+			if ($fileinfo !== false && $fileinfo["atime"] < time() - $maxLifeTime) {
 				unlink($path);
 			}
 			else {
@@ -315,12 +313,102 @@ function dechex_32($dec) {
  * @return string Encoded string
  */
 function browserDependingHTTPHeaderEncode($input) {
-	$input = preg_replace("/\r|\n/", "", $input);
+	$input = removeHTTPControlCharacters($input);
 	if (!isEdge()) {
 		return $input;
 	}
 
 	return rawurlencode((string) $input);
+}
+
+/**
+ * Remove characters which cannot safely occur in an HTTP response header.
+ *
+ * @param mixed $value
+ *
+ * @return string
+ */
+function removeHTTPControlCharacters($value) {
+	return (string) preg_replace('/[\x00-\x1f\x7f]/', '', (string) $value);
+}
+
+/**
+ * Normalize an untrusted MIME type for use in a Content-Type header.
+ *
+ * Parameters are deliberately discarded. Download responses do not need
+ * them, and accepting only the media type keeps the header grammar small.
+ *
+ * @param mixed  $contentType MIME type to normalize
+ * @param string $fallback    MIME type returned for invalid input
+ *
+ * @return string normalized lowercase MIME type
+ */
+function normalizeHTTPContentType($contentType, $fallback = 'application/octet-stream') {
+	$contentType = trim(explode(';', (string) $contentType, 2)[0]);
+	if (preg_match('/\A[a-z0-9][a-z0-9.+_-]*\/[a-z0-9][a-z0-9.+_-]*\z/i', $contentType) !== 1) {
+		return $fallback;
+	}
+
+	return strtolower($contentType);
+}
+
+/**
+ * Check whether a MIME type is safe to render inline in the webapp origin.
+ *
+ * Scriptable document formats such as HTML, XML and SVG are intentionally not
+ * included. Keep this list aligned with the file preview components.
+ *
+ * @param mixed $contentType normalized or raw MIME type
+ *
+ * @return bool true when inline rendering is allowed
+ */
+function isSafeInlineContentType($contentType) {
+	return in_array(normalizeHTTPContentType($contentType), [
+		'application/pdf',
+		'audio/aac',
+		'audio/flac',
+		'audio/mp4',
+		'audio/mpeg',
+		'audio/ogg',
+		'audio/wav',
+		'audio/webm',
+		'audio/x-wav',
+		'image/avif',
+		'image/bmp',
+		'image/gif',
+		'image/jpeg',
+		'image/png',
+		'image/tiff',
+		'image/vnd.microsoft.icon',
+		'image/webp',
+		'image/x-icon',
+		'text/plain',
+		'video/mp4',
+		'video/mpeg',
+		'video/ogg',
+		'video/quicktime',
+		'video/webm',
+	], true);
+}
+
+/**
+ * Select a safe Content-Disposition value for a download response.
+ *
+ * @param mixed $requestedDisposition requested value
+ * @param mixed $contentType          response MIME type
+ *
+ * @return string "inline" for safe preview types, otherwise "attachment"
+ */
+function getDownloadContentDisposition($requestedDisposition, $contentType) {
+	return $requestedDisposition === 'inline' && isSafeInlineContentType($contentType) ? 'inline' : 'attachment';
+}
+
+/**
+ * Prevent downloaded content from being promoted to an executable document.
+ */
+function sendDownloadSecurityHeaders() {
+	header('X-Content-Type-Options: nosniff');
+	header("Content-Security-Policy: sandbox; default-src 'none'");
 }
 
 /**
@@ -387,26 +475,30 @@ function storeURLDataToSession() {
 }
 
 // Constants for regular expressions which are used in get method to verify the input string
-define("ID_REGEX", "/^[a-z0-9_]+$/im");
-define("STRING_REGEX", "/^[a-z0-9_\\s()@]+$/im");
-define("USERNAME_REGEX", "/^[a-z0-9\\-\\.\\'_@]+$/im");
-define("ALLOWED_EMAIL_CHARS_REGEX", "/^[-a-z0-9_\\.@!#\$%&'\\*\\+\\/\\=\\?\\^_`\\{\\|\\}~]+$/im");
-define("NUMERIC_REGEX", "/^[0-9]+$/im");
+define("ID_REGEX", "/\\A[a-z0-9_]+\\z/i");
+define("STRING_REGEX", "/\\A[a-z0-9_\\s()@]+\\z/i");
+define("USERNAME_REGEX", "/\\A[a-z0-9\\-\\.\\'_@]+\\z/i");
+define("ALLOWED_EMAIL_CHARS_REGEX", "/\\A[-a-z0-9_\\.@!#\$%&'\\*\\+\\/\\=\\?\\^_`\\{\\|\\}~]+\\z/i");
+define("NUMERIC_REGEX", "/\\A[0-9]+\\z/i");
 // Don't allow "\/:*?"<>|" characters in filename.
-define("FILENAME_REGEX", "/^[^\\/\\:\\*\\?\"\\<\\>\\|]+$/im");
+define("FILENAME_REGEX", "/\\A[^\\/\\:\\*\\?\"\\<\\>\\|]+\\z/i");
 
 /**
  * Function to sanitize user input values to prevent XSS attacks.
  *
- * @param mixed  $value   value that should be sanitized
- * @param mixed  $default default value to return when value is not safe
- * @param string $regex   regex to validate values based on type of value passed
+ * @param mixed        $value   value that should be sanitized
+ * @param mixed        $default default value to return when value is not safe
+ * @param false|string $regex   regex to validate values based on type of value passed
  */
 function sanitizeValue($value, $default = '', $regex = false) {
-	$result = addslashes((string) $value);
+	$value = (string) $value;
+	if (preg_match('/[\x00-\x1f\x7f]/', $value)) {
+		return $default;
+	}
+
+	$result = addslashes($value);
 	if ($regex) {
-		$match = preg_match_all($regex, $result);
-		if (!$match) {
+		if (preg_match($regex, $result) !== 1) {
 			$result = $default;
 		}
 	}
@@ -417,9 +509,9 @@ function sanitizeValue($value, $default = '', $regex = false) {
 /**
  * Function to sanitize user input values to prevent XSS attacks.
  *
- * @param string $key     key that should be used to get value from $_GET to sanitize value
- * @param mixed  $default default value to return when value is not safe
- * @param string $regex   regex to validate values based on type of value passed
+ * @param string       $key     key that should be used to get value from $_GET to sanitize value
+ * @param mixed        $default default value to return when value is not safe
+ * @param false|string $regex   regex to validate values based on type of value passed
  */
 function sanitizeGetValue($key, $default = '', $regex = false) {
 	// check if value really exists
@@ -433,9 +525,9 @@ function sanitizeGetValue($key, $default = '', $regex = false) {
 /**
  * Function to sanitize user input values to prevent XSS attacks.
  *
- * @param string $key     key that should be used to get value from $_POST to sanitize value
- * @param mixed  $default default value to return when value is not safe
- * @param string $regex   regex to validate values based on type of value passed
+ * @param string       $key     key that should be used to get value from $_POST to sanitize value
+ * @param mixed        $default default value to return when value is not safe
+ * @param false|string $regex   regex to validate values based on type of value passed
  */
 function sanitizePostValue($key, $default = '', $regex = false) {
 	// check if value really exists
@@ -448,7 +540,7 @@ function sanitizePostValue($key, $default = '', $regex = false) {
 
 function parse_smime__join_xph(&$prop, $msg) {
 	$a = mapi_getprops($msg, [PR_TRANSPORT_MESSAGE_HEADERS]);
-	$a = $a === false ? "" : ($a[PR_TRANSPORT_MESSAGE_HEADERS] ?? "");
+	$a = $a[PR_TRANSPORT_MESSAGE_HEADERS] ?? "";
 	$prop[PR_TRANSPORT_MESSAGE_HEADERS] =
 		"# Outer headers:\n" . ($prop[PR_TRANSPORT_MESSAGE_HEADERS] ?? "") .
 		"# Inner headers:\n" . $a;
@@ -457,8 +549,8 @@ function parse_smime__join_xph(&$prop, $msg) {
 /**
  * Function will be used to decode smime messages and convert it to normal messages.
  *
- * @param MAPIStore   $store   user's store
- * @param MAPIMessage $message smime message
+ * @param resource $store   user's store
+ * @param resource $message S/MIME message
  */
 function parse_smime($store, $message) {
 	$props = mapi_getprops($message, [PR_MESSAGE_CLASS, PR_MESSAGE_FLAGS,
@@ -561,8 +653,9 @@ function parse_smime($store, $message) {
 			// deleting an attachment removes an actual attachment of the message
 			$mprops = mapi_getprops($message, [PR_MESSAGE_CLASS]);
 			if (isSmimePluginEnabled() &&
-			    class_match_prefix($mprops[PR_MESSAGE_CLASS], "IPM.Note.SMIME"))
+				class_match_prefix($mprops[PR_MESSAGE_CLASS], "IPM.Note.SMIME")) {
 				mapi_message_deleteattach($message, $attnum);
+			}
 
 			$decapRcptTable = mapi_message_getrecipienttable($message);
 			$decapRecipients = mapi_table_queryallrows($decapRcptTable, $GLOBALS["properties"]->getRecipientProperties());
@@ -591,8 +684,8 @@ function isSmimePluginEnabled() {
 /**
  * Helper to stream a MAPI property.
  *
- * @param MAPIObject $mapiobj mapi message or store
- * @param mixed      $proptag
+ * @param resource $mapiobj MAPI message or store
+ * @param int      $proptag MAPI property tag
  *
  * @return string $datastring the streamed data
  */
@@ -634,7 +727,7 @@ function streamProperty($mapiobj, $proptag) {
  *                           returned as objects or arrays, true means it will return associative array as arrays and
  *                           false will return associative arrays as objects
  *
- * @return object decoded data
+ * @return mixed decoded data
  */
 function json_decode_data($jsonString, $toAssoc = false) {
 	$data = json_decode($jsonString, $toAssoc);
@@ -922,7 +1015,7 @@ function useSecureCookies() {
  *
  * @param string $attachment content fetched from PR_ATTACH_DATA_BIN property of an attachment
  *
- * @return true if eml is broken, false otherwise
+ * @return bool true if the EML is broken, false otherwise
  */
 function isBrokenEml($attachment) {
 	// Get header part to process further
@@ -958,8 +1051,6 @@ function getWebappVersion() {
 /**
  * Runs $fn with the PHP session open. Authentication closes the session before
  * the MAPI logon, so later writes to $_SESSION are lost without this.
- *
- * @param callable $fn
  */
 function updateSession(callable $fn) {
 	$wasActive = session_status() === PHP_SESSION_ACTIVE;
@@ -1041,7 +1132,8 @@ function formatDateTimeString($relDayofWeek, $dayOfWeek, $month, $year, $hour, $
  * @return string PHP TimeZone offset
  */
 function convertOffset($minutes) {
-	$m = abs($minutes);
+	$minutes = (int) $minutes;
+	$m = (int) abs($minutes);
 
 	return sprintf("%s%02d%02d", $minutes > 0 ? '-' : '+', intdiv($m, 60), $m % 60);
 }
@@ -1149,7 +1241,7 @@ function getLocalStart($ts, $tz) {
 		);
 		$interval = $clientDate->getTimestamp() - $clientMidnight->getTimestamp();
 		// The code here is based on assumption that if the interval
-		// is greater than 12 hours then the appointment takes place
+		// is greater than 12 hours, the appointment takes place
 		// on the day before or after. This should be fine for all the
 		// timezones which do not exceed 12 hour difference to UTC.
 		$ts = $interval > 0 ?
@@ -1161,16 +1253,20 @@ function getLocalStart($ts, $tz) {
 }
 
 /**
- * @h:	PR_MESSAGE_CLASS value
- * @n:	prefix to test for
+ * Check whether a message class matches a prefix at a component boundary.
+ *
+ * @param mixed $h PR_MESSAGE_CLASS value
+ * @param mixed $n prefix to test for
  */
-function class_match_prefix($h, $n)
-{
-	if (!isset($h))
+function class_match_prefix($h, $n) {
+	if (!isset($h)) {
 		return false;
+	}
 	$z = strlen($n);
 	$r = strncasecmp($h, $n, $z);
-	if ($r != 0)
+	if ($r != 0) {
 		return false;
+	}
+
 	return strlen($h) == $z || $h[$z] == '.' ? true : false;
 }

@@ -160,7 +160,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
-	 * @reutn {Number} The maximum attachment size allowed to attach in single request.
+	 * @return {Number} The maximum attachment size allowed in a single request.
 	 */
 	getMaxPostRequestSize: function()
 	{

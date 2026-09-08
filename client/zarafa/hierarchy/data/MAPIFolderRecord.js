@@ -282,7 +282,7 @@ Zarafa.hierarchy.data.MAPIFolderRecord = Ext.extend(Zarafa.core.data.IPFRecord, 
 	 * Helper function to obtain the fully qualified display name. For normal folders, this will return
 	 * the same value as {@link #getDisplayName}, but for folders inside a shared store, this will return
 	 * a string which includes the owner of the folder store. e.g.
-	 * 'Calender of John Doe' or 'Contacts in Public Folders'
+	 * 'Calendar of John Doe' or 'Contacts in Public Folders'
 	 * @return {String} name of the folder
 	 */
 	getFullyQualifiedDisplayName: function()
@@ -330,7 +330,7 @@ Zarafa.hierarchy.data.MAPIFolderRecord = Ext.extend(Zarafa.core.data.IPFRecord, 
 
 	/**
 	 * Function is used to check the {@link Zarafa.hierarchy.data.MAPIFolderRecord MAPIFolder}
-	 * is a <b>descendent</b> folder of the default folders 'Deleted Items' or 'Junk Mails'.
+	 * is a <b>descendant</b> folder of the default folders 'Deleted Items' or 'Junk Mails'.
 	 * @return {Boolean} returns true if given folder belongs to 'Deleted Items' or 'Junk Mails' folder.
 	 */
 	isInDeletedItems: function()
@@ -341,7 +341,7 @@ Zarafa.hierarchy.data.MAPIFolderRecord = Ext.extend(Zarafa.core.data.IPFRecord, 
 			// then the item is definitely not in the deleted items.
 			return false;
 		} else if (parentFolder.isSpecialFolder('wastebasket') || parentFolder.isSpecialFolder('junk')) {
-			// The item is in the wastebasker or junk folder.
+			// The item is in the wastebasket or junk folder.
 			// It is considered to be deleted.
 			return true;
 		} else {

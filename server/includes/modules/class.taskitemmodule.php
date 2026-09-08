@@ -61,18 +61,19 @@ class TaskItemModule extends ItemModule {
 	}
 
 	/**
-	 * Function which used to open and get the all properties of the message. if message_action
-	 * "open_task" is true then it will open the associated task of task request and return its data item
-	 * else return the task request data item.
+	 * Open a task request and collect its message properties. If message_action
+	 * "open_task" is true, open the associated task and return its data;
+	 * otherwise, return the task-request data.
 	 *
-	 * @param object $store   MAPI Message Store Object
-	 * @param string $entryid entryid of the message
-	 * @param object $task    associated task of task request
-	 * @param mixed  $action
+	 * @param resource       $store   MAPI message store
+	 * @param string         $entryid entry ID of the message
+	 * @param array          $action  action data sent by the client
+	 * @param false|resource $task    associated task, or false when unavailable
 	 *
 	 * @return array $data item properties of given message
 	 */
 	public function getMessageProps($store, $entryid, $action, $task) {
+		$data = [];
 		if (isset($action["message_action"]["open_task"]) && $action["message_action"]["open_task"] && $task !== false) {
 			$taskProps = mapi_getprops($task, [PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID]);
 			$message = $GLOBALS['operations']->openMessage($store, $taskProps[PR_ENTRYID]);
@@ -88,22 +89,23 @@ class TaskItemModule extends ItemModule {
 	/**
 	 * Function which saves an item.
 	 *
-	 * @param object $store         MAPI Message Store Object
-	 * @param string $parententryid parent entryid of the message
-	 * @param array  $action        the action data, sent by the client
-	 * @param mixed  $entryid
+	 * @param false|resource $store         MAPI message store, or false to use the default
+	 * @param false|string   $parententryid parent entry ID, or false to infer it
+	 * @param false|string   $entryid       entry ID of the message, or false for a new item
+	 * @param array          $action        action data sent by the client
+	 * @param string         $actionType    action type that triggered the save
 	 */
 	#[Override]
 	public function save($store, $parententryid, $entryid, $action, $actionType = 'save') {
 		if (isset($action["props"])) {
-			if (!$store && !$parententryid) {
+			if ($store === false && !$parententryid) {
 				if (isset($action["props"]["message_class"])) {
 					$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
 					$parententryid = $this->getDefaultFolderEntryID($store, $action["props"]["message_class"]);
 				}
 			}
 
-			if ($store && $parententryid) {
+			if ($store !== false && $parententryid) {
 				// Set the message flag for the item
 				if (isset($action['props']['message_flags']) && $entryid) {
 					$GLOBALS['operations']->setMessageFlag($store, $entryid, $action['props']['message_flags']);
@@ -130,7 +132,10 @@ class TaskItemModule extends ItemModule {
 						$GLOBALS["bus"]->notify(bin2hex($parententryid), TABLE_SAVE, $messageProps);
 					}
 					// Notify To-Do list folder as new task item was created.
-					$GLOBALS["bus"]->notify(bin2hex(TodoList::getEntryId()), OBJECT_SAVE, $messageProps);
+					$todoListEntryId = TodoList::getEntryId();
+					if ($todoListEntryId !== false) {
+						$GLOBALS["bus"]->notify(bin2hex($todoListEntryId), OBJECT_SAVE, $messageProps);
+					}
 					$this->addActionData("update", ["item" => $data]);
 					$GLOBALS["bus"]->addData($this->getResponseData());
 				}
@@ -141,14 +146,18 @@ class TaskItemModule extends ItemModule {
 	/**
 	 * Function which deletes an item.
 	 *
-	 * @param object $store         MAPI Message Store Object
-	 * @param string $parententryid parent entryid of the message
-	 * @param mixed  $entryids
-	 * @param array  $action        the action data, sent by the client
+	 * @param false|resource     $store         MAPI message store, or false when unavailable
+	 * @param false|string       $parententryid parent entry ID, or false when unavailable
+	 * @param array|false|string $entryids      entry IDs to delete, or false when unavailable
+	 * @param array              $action        action data sent by the client
 	 */
 	#[Override]
 	public function delete($store, $parententryid, $entryids, $action) {
-		if ($store && $parententryid) {
+		if ($entryids === false) {
+			return;
+		}
+
+		if ($store !== false && $parententryid) {
 			$props = [];
 			$props[PR_PARENT_ENTRYID] = $parententryid;
 			$props[PR_ENTRYID] = $entryids;
@@ -185,19 +194,19 @@ class TaskItemModule extends ItemModule {
 	 *
 	 * deletes occurrence if task is a recurring item.
 	 *
-	 * @param mapistore $store         MAPI Message Store Object
-	 * @param string    $parententryid parent entryid of the messages to be deleted
-	 * @param array     $entryids      a list of entryids which will be deleted
-	 * @param mixed     $action
+	 * @param resource     $store         MAPI message store
+	 * @param string       $parententryid parent entry ID of the messages to delete
+	 * @param array|string $entryids      entry ID or list of entry IDs to delete
+	 * @param array        $action        action data from the client
 	 *
-	 * @return bool true if action succeeded, false if not
+	 * @return array|bool occurrence result, or whether deleting the task succeeded
 	 */
 	public function deleteTask($store, $parententryid, $entryids, $action) {
 		$result = false;
-		$message = mapi_msgstore_openentry($store, $entryids);
 		$messageAction = $action["message_action"]["action_type"] ?? false;
 		// If user wants to delete only occurrence then delete this occurrence
 		if (!is_array($entryids) && $messageAction) {
+			$message = mapi_msgstore_openentry($store, $entryids);
 			if ($message) {
 				if ($messageAction == 'occurrence') {
 					$recur = new TaskRecurrence($store, $message);
@@ -218,15 +227,21 @@ class TaskItemModule extends ItemModule {
 		// Deleting occurrence failed, maybe that was its last occurrence, so now we delete whole series.
 		if (!isset($occurrenceDeleted) || !$occurrenceDeleted) {
 			$properties = $GLOBALS["properties"]->getTaskProperties();
-			$goid = mapi_getprops($message, [$properties["task_goid"]]);
-			// If task is assigned task to assignee and user is trying to delete the task.
-			// then we have to remove respective task request(IPM.TaskRequest.Accept/Decline/Update)
-			// notification mail from inbox.
-			if (isset($goid[$properties["task_goid"]]) && !empty($goid[$properties["task_goid"]])) {
-				$taskReq = new TaskRequest($store, $message, $GLOBALS["mapisession"]->getSession());
-				$result = $taskReq->deleteReceivedTR();
-				if ($result) {
-					$GLOBALS["bus"]->notify(bin2hex((string) $result[PR_PARENT_ENTRYID]), TABLE_DELETE, $result);
+			foreach (is_array($entryids) ? $entryids : [$entryids] as $entryid) {
+				$message = mapi_msgstore_openentry($store, $entryid);
+				if (!$message) {
+					continue;
+				}
+
+				$goid = mapi_getprops($message, [$properties["task_goid"]]);
+				// If task is assigned task to assignee and user is trying to delete the task,
+				// remove the corresponding task request notification from the inbox.
+				if (!empty($goid[$properties["task_goid"]])) {
+					$taskReq = new TaskRequest($store, $message, $GLOBALS["mapisession"]->getSession());
+					$taskRequestProps = $taskReq->deleteReceivedTR();
+					if ($taskRequestProps) {
+						$GLOBALS["bus"]->notify(bin2hex((string) $taskRequestProps[PR_PARENT_ENTRYID]), TABLE_DELETE, $taskRequestProps);
+					}
 				}
 			}
 
@@ -248,10 +263,10 @@ class TaskItemModule extends ItemModule {
 	 * to regenerate task if it is recurring and client has changed either set as complete or delete or
 	 * given new start or end date.
 	 *
-	 * @param mapistore $store         MAPI store of the message
-	 * @param string    $parententryid Parent entryid of the message (folder entryid, NOT message entryid)
-	 * @param array     $action        Action array containing XML request
-	 * @param mixed     $entryid
+	 * @param false|resource $store         MAPI store of the message, or false
+	 * @param false|string   $parententryid parent folder entry ID, or false
+	 * @param false|string   $entryid       entry ID of the message, or false for a new item
+	 * @param array          $action        action data sent by the client
 	 *
 	 * @return array of PR_ENTRYID, PR_PARENT_ENTRYID and PR_STORE_ENTRYID properties of modified item
 	 */
@@ -260,7 +275,7 @@ class TaskItemModule extends ItemModule {
 		$messageProps = [];
 		$send = $action["message_action"]["send"] ?? false;
 
-		if ($store && $parententryid) {
+		if ($store !== false && $parententryid) {
 			if (isset($action["props"])) {
 				if (isset($action["entryid"]) && empty($action["entryid"])) {
 					$GLOBALS["operations"]->setSenderAddress($store, $action);

@@ -69,29 +69,39 @@ class FilesWebDavClient extends Client {
 		$url = $this->getAbsoluteUrl($url);
 		$file_handle = fopen($dstpath, "w");
 
-		if (!$file_handle) {
+		if (!is_resource($file_handle)) {
 			throw new Exception('[CURL] Error writing to temporary file! (' . $dstpath . ')');
 		}
 
-		// straight up curl instead of sabredav here, sabredav put's the entire get result in memory
-		$curl = curl_init($url);
+		try {
+			// straight up curl instead of sabredav here, sabredav puts the entire get result in memory
+			$curl = curl_init($url);
+			if ($curl === false) {
+				throw new Exception('[CURL] Unable to initialize request');
+			}
 
-		if ($this->verifyPeer !== null) {
-			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, $this->verifyPeer);
+			if (array_key_exists(CURLOPT_SSL_VERIFYPEER, $this->curlSettings)) {
+				curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, $this->curlSettings[CURLOPT_SSL_VERIFYPEER]);
+			}
+			if (array_key_exists(CURLOPT_CAINFO, $this->curlSettings)) {
+				curl_setopt($curl, CURLOPT_CAINFO, $this->curlSettings[CURLOPT_CAINFO]);
+			}
+
+			curl_setopt($curl, CURLOPT_USERPWD, $this->userName . ":" . $this->password);
+			curl_setopt($curl, CURLOPT_FILE, $file_handle);
+			curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+			curl_setopt($curl, CURLOPT_PROTOCOLS, CURLPROTO_HTTP | CURLPROTO_HTTPS);
+			curl_setopt($curl, CURLOPT_REDIR_PROTOCOLS, CURLPROTO_HTTP | CURLPROTO_HTTPS);
+
+			if (curl_exec($curl) === false) {
+				throw new Exception('[CURL] ' . curl_error($curl));
+			}
+
+			$statusCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 		}
-		if ($this->trustedCertificates) {
-			curl_setopt($curl, CURLOPT_CAINFO, $this->trustedCertificates);
+		finally {
+			fclose($file_handle);
 		}
-
-		curl_setopt($curl, CURLOPT_USERPWD, $this->userName . ":" . $this->password);
-		curl_setopt($curl, CURLOPT_FILE, $file_handle);
-		curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-		curl_setopt($curl, CURLOPT_PROTOCOLS, CURLPROTO_HTTP | CURLPROTO_HTTPS);
-		curl_setopt($curl, CURLOPT_REDIR_PROTOCOLS, CURLPROTO_HTTP | CURLPROTO_HTTPS);
-
-		curl_exec($curl);
-
-		$statusCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
 		$response = [
 			'statusCode' => $statusCode,

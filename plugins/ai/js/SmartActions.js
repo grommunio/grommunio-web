@@ -57,7 +57,7 @@ Zarafa.plugins.ai.SmartActions = {
 	{
 		var folder = this.defaultFolder(key);
 		if (!folder) {
-			Ext.MessageBox.alert(_('AI Assistant'),
+			container.getNotifier().notify('warning.ai', _('AI Assistant'),
 				String.format(_('No default {0} folder is available for this account.'), label));
 		}
 		return folder;
@@ -311,7 +311,7 @@ Zarafa.plugins.ai.SmartActions = {
 		};
 		failed = function() {
 			cleanup.call(this);
-			Ext.MessageBox.alert(_('Draft reply'), _('The message could not be opened to draft a reply.'));
+			container.getNotifier().notify('error.ai', _('Draft reply'), _('The message could not be opened to draft a reply.'));
 		};
 		onOpen = function(openedStore, openedRecord) {
 			if (openedRecord !== record) {

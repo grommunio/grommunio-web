@@ -73,13 +73,10 @@ class AccountStoreV1Encoder {
 			throw new \UnexpectedValueException(sprintf('Not an envelope of an encrypted value. Raw binary length of envelope is %d.', strlen($valueInHex)));
 		}
 		$nonce = substr($value, 0, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES);
-		if (!is_string($nonce) || strlen($nonce) !== SODIUM_CRYPTO_SECRETBOX_NONCEBYTES) {
+		if (strlen($nonce) !== SODIUM_CRYPTO_SECRETBOX_NONCEBYTES) {
 			throw new \UnexpectedValueException(sprintf('Not an encrypted value. Raw binary length is %d which is below %d.', strlen($value), SODIUM_CRYPTO_SECRETBOX_NONCEBYTES));
 		}
 		$encrypted = substr($value, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES, strlen($value));
-		if (!is_string($encrypted)) {
-			throw new \UnexpectedValueException(sprintf('Not an encrypted value. Raw binary length is %d.', strlen($value)));
-		}
 		$result = sodium_crypto_secretbox_open($encrypted, $nonce, self::getSecretKey());
 		// Decryption failed, password might have changed
 		if ($result === false) {

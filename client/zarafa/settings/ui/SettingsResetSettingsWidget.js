@@ -104,7 +104,7 @@ Zarafa.settings.ui.SettingsResetSettingsWidget= Ext.extend(Zarafa.settings.ui.Se
 
 	/**
 	 * Called when the {@link Zarafa.settings.SettingsModel} fires the {@link Zarafa.settings.SettingsModel#save save}
-	 * event to indicate the settings were successfully saved and it will forcefully realod the webapp.
+	 * event to indicate the settings were successfully saved and it will forcibly reload the webapp.
 	 * @param {Zarafa.settings.SettingsModel} model The model which fired the event.
 	 * @param {Object} parameters The key-value object containing the action and the corresponding
 	 * settings which were saved to the server.

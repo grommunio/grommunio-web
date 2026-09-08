@@ -474,7 +474,9 @@ Zarafa.core.DarkMode = {
 	 */
 	protectEmoji: function(doc)
 	{
-		var pattern = /\p{Extended_Pictographic}(?:\uFE0F|\u20E3|[\u{1F3FB}-\u{1F3FF}]|\u200D\p{Extended_Pictographic})*/gu;
+		// Only characters rendered as colour emoji are protected. Text symbols such
+		// as © or ✔ follow the text colour and must stay inverted with it.
+		var pattern = /(?:\p{Regional_Indicator}{2}|\p{Emoji_Presentation}|\p{Extended_Pictographic}\uFE0F|[0-9#*]\uFE0F?\u20E3)(?:\uFE0F|\u20E3|[\u{1F3FB}-\u{1F3FF}]|\u200D\p{Extended_Pictographic}\uFE0F?)*/gu;
 		var walker = doc.createTreeWalker(doc.body, NodeFilter.SHOW_TEXT, null, false);
 		var nodes = [];
 		var node;

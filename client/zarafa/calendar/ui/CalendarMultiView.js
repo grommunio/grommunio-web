@@ -1159,7 +1159,7 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 	 * and adds new views for folders that are not yet represented.
 	 *
 	 * @param {Zarafa.core.data.IPFRecord[]} folders Array of the folders that are shown in the view. Normally
-	 * this function will use this.folders, but when we are calling this function from {#bindStore} we will pass
+	 * this function will use this.folders, but when we are calling this function from {@link #bindStore} we will pass
 	 * the folders of the store when available. That way we will immediately have the folders when we switch the view.
 	 * @private
 	 */
@@ -1218,7 +1218,7 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 		this.showBorder = true;
 
 		// Only create the views here when the groupings have changed
-		// Compare the goupings by caching a stringified version
+		// Compare the groupings by caching a stringified version
 		const groupingsString = JSON.stringify(this.model.getGroupings());
 
 		if ( groupingsString !== this.cachedGroupingsString ) {

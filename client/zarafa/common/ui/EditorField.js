@@ -138,7 +138,7 @@ Zarafa.common.ui.EditorField = Ext.extend(Ext.Container, {
 		// Apply some defaults
 		Ext.applyIf(componentConfig, {
 			// By default the HtmlEditor has hideMode: 'offsets',
-			// which doesn't work with with the CardLayout as that
+			// which doesn't work with the CardLayout as that
 			// hides the Form element, but preserves the height
 			// causing the other components to displayed at a weird
 			// offset.

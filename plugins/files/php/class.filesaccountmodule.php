@@ -10,19 +10,29 @@ require_once __DIR__ . "/Files/Core/Util/class.arrayutil.php";
 require_once __DIR__ . "/Files/Core/Util/class.logger.php";
 
 use Files\Backend\BackendStore;
-use Files\Backend\Exception;
 use Files\Backend\Exception as BackendException;
+use Files\Backend\iFeatureOAUTH;
+use Files\Backend\iFeatureQuota;
+use Files\Backend\iFeatureVersionInfo;
 use Files\Core\AccountStore;
 use Files\Core\Exception as AccountException;
 use Files\Core\Util\ArrayUtil;
-use Files\Core\Util\Logger;
+use Files\Core\Util\Logger as FilesLogger;
 
 class FilesAccountModule extends ListModule {
+	#[Override]
+	protected function getExecutionLockName() {
+		return 'files';
+	}
+
+	#[Override]
+	protected function afterLoadSessionData() {
+		$GLOBALS['settings']->refreshSettings();
+	}
+
 	public const LOG_CONTEXT = "FilesAccountModule"; // Context for the Logger
 
 	/**
-	 * @constructor
-	 *
 	 * @param mixed $id
 	 * @param mixed $data
 	 */
@@ -157,13 +167,17 @@ class FilesAccountModule extends ListModule {
 	 */
 	public function accountDelete($actionType, $actionData) {
 		$response = [];
+		$accountStore = new AccountStore();
+		$account = $accountStore->getAccount($actionData['entryid']);
+		if ($account === null) {
+			throw new AccountException(_("Unknown account ID"));
+		}
 
 		// check if account needs to clean things up before it gets deleted
 		try {
-			$accountStore = new AccountStore();
-			$accountStore->getAccount($actionData['entryid'])->beforeDelete();
+			$account->beforeDelete();
 		}
-		catch (Exception) {
+		catch (BackendException) {
 			// ignore errors here
 		}
 
@@ -189,27 +203,25 @@ class FilesAccountModule extends ListModule {
 		$accounts = $accountStore->getAllAccounts();
 		$accountList = [];
 
-		if (is_array($accounts)) {
-			foreach ($accounts as $account) {
-				$account = $accountStore->updateAccount($account);
-				$accountList[$account->getId()] = [
-					"props" => [
-						"id" => $account->getId(),
-						"name" => $account->getName(),
-						"type" => "account", // to prevent warning while sorting
-						"status" => $account->getStatus(),
-						"status_description" => $account->getStatusDescription(),
-						"backend" => $account->getBackend(),
-						"backend_config" => $account->getBackendConfig(),
-						'backend_features' => $account->getFeatures(),
-						'account_sequence' => $account->getSequence(),
-						'cannot_change' => $account->getCannotChangeFlag(),
-					],
-					'entryid' => $account->getId(),
-					'store_entryid' => 'filesaccount',
-					'parent_entryid' => 'accountstoreroot',
-				];
-			}
+		foreach ($accounts as $account) {
+			$account = $accountStore->updateAccount($account);
+			$accountList[$account->getId()] = [
+				"props" => [
+					"id" => $account->getId(),
+					"name" => $account->getName(),
+					"type" => "account", // to prevent warning while sorting
+					"status" => $account->getStatus(),
+					"status_description" => $account->getStatusDescription(),
+					"backend" => $account->getBackend(),
+					"backend_config" => $account->getBackendConfig(),
+					'backend_features' => $account->getFeatures(),
+					'account_sequence' => $account->getSequence(),
+					'cannot_change' => $account->getCannotChangeFlag(),
+				],
+				'entryid' => $account->getId(),
+				'store_entryid' => 'filesaccount',
+				'parent_entryid' => 'accountstoreroot',
+			];
 		}
 
 		// sort the accounts
@@ -221,7 +233,7 @@ class FilesAccountModule extends ListModule {
 			$sortDir = $actionData['sort'][0]['direction'];
 		}
 
-		Logger::debug(self::LOG_CONTEXT, "Sorting by " . $sortKey . " in direction: " . $sortDir);
+		FilesLogger::debug(self::LOG_CONTEXT, "Sorting by " . $sortKey . " in direction: " . $sortDir);
 
 		$accountList = ArrayUtil::sort_props_by_key($accountList, $sortKey, $sortDir);
 
@@ -246,6 +258,9 @@ class FilesAccountModule extends ListModule {
 		// create a new account in our backend
 		$accountStore = new AccountStore();
 		$currentAccount = $accountStore->getAccount($actionData['entryid']);
+		if ($currentAccount === null) {
+			throw new AccountException(_("Unknown account ID"));
+		}
 
 		// apply changes to the account object
 		if (isset($actionData['props']['name'])) {
@@ -255,7 +270,11 @@ class FilesAccountModule extends ListModule {
 			$currentAccount->setBackend(strip_tags($actionData['props']['backend']));
 		}
 		if (isset($actionData['props']['backend_config'])) { // we always get the whole backend config
-			$currentAccount->setBackendConfig($actionData['props']['backend_config']);
+			$backendConfig = $actionData['props']['backend_config'];
+			// The client sends plain values; mark them for the current encryption
+			// so the store does not mistake them for an undecryptable legacy account.
+			$backendConfig['version'] = AccountStore::ACCOUNT_VERSION;
+			$currentAccount->setBackendConfig($backendConfig);
 		}
 		if (isset($actionData['props']['account_sequence'])) {
 			$currentAccount->setSequence($actionData['props']['account_sequence']);
@@ -344,15 +363,19 @@ class FilesAccountModule extends ListModule {
 		$backendStore = BackendStore::getInstance();
 		$backendInstance = $backendStore->getInstanceOfBackend($currentAccount->getBackend());
 
-		// check if backend really supports this feature
-		if (!$backendInstance->supports(BackendStore::FEATURE_QUOTA)) {
+		// Backends are loaded dynamically, so their optional interfaces cannot be inferred statically.
+		if (!/** @scrutinizer ignore-type */ $backendInstance instanceof iFeatureQuota) {
 			throw new AccountException(_('Feature "Quota Information" is not supported by this backend!'));
 		}
 
-		// init backend instance
+		// Feature interfaces are additive; concrete backends also inherit the shared lifecycle methods.
+
+		/** @scrutinizer ignore-call */
 		$backendInstance->init_backend($currentAccount->getBackendConfig());
 
 		// get quota info
+
+		/** @scrutinizer ignore-call */
 		$backendInstance->open();
 		$qUsed = $backendInstance->getQuotaBytesUsed($rootPath);
 		$qAvailable = $backendInstance->getQuotaBytesAvailable($rootPath);
@@ -392,17 +415,23 @@ class FilesAccountModule extends ListModule {
 		$backendStore = BackendStore::getInstance();
 		$backendInstance = $backendStore->getInstanceOfBackend($currentAccount->getBackend());
 
-		// check if backend really supports this feature
-		if (!$backendInstance->supports(BackendStore::FEATURE_VERSION)) {
+		// Backends are loaded dynamically, so their optional interfaces cannot be inferred statically.
+		if (!/** @scrutinizer ignore-type */ $backendInstance instanceof iFeatureVersionInfo) {
 			throw new AccountException(_('Feature "Version Information" is not supported by this backend!'));
 		}
 
-		// init backend instance
+		// Feature interfaces are additive; concrete backends also inherit the shared lifecycle methods.
+
+		/** @scrutinizer ignore-call */
 		$backendInstance->init_backend($currentAccount->getBackendConfig());
 
 		// get quota info
+
+		/** @scrutinizer ignore-call */
 		$backendInstance->open();
 		$serverVersion = $backendInstance->getServerVersion();
+
+		/** @scrutinizer ignore-call */
 		$backendVersion = $backendInstance->getBackendVersion();
 
 		$response['status'] = true;
@@ -440,12 +469,14 @@ class FilesAccountModule extends ListModule {
 		$backendStore = BackendStore::getInstance();
 		$backendInstance = $backendStore->getInstanceOfBackend($currentAccount->getBackend());
 
-		// check if backend really supports this feature
-		if (!$backendInstance->supports(BackendStore::FEATURE_OAUTH)) {
+		// Backends are loaded dynamically, so their optional interfaces cannot be inferred statically.
+		if (!/** @scrutinizer ignore-type */ $backendInstance instanceof iFeatureOAUTH) {
 			throw new AccountException(_('Feature "OAUTH" is not supported by this backend!'));
 		}
 
-		// init backend instance
+		// Feature interfaces are additive; concrete backends also inherit the shared lifecycle methods.
+
+		/** @scrutinizer ignore-call */
 		$backendInstance->init_backend($currentAccount->getBackendConfig());
 		$backendInstance->changeAccessToken($actionData["access_token"]);
 

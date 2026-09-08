@@ -24,14 +24,27 @@ class RestoreItemsListModule extends ListModule {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
 				try {
+					if (!is_array($action)) {
+						throw new MAPIException(_("Could not process request data properly."), MAPI_E_INVALID_PARAMETER);
+					}
 					$store = $this->getActionStore($action);
 					$parententryid = $this->getActionParentEntryID($action);
-					$folderentryid = $this->getActionEntryID($action);
+					$folderentryid = $this->getActionSingleEntryID($action);
+					if ($store === false || is_array($store)) {
+						throw new MAPIException(_("Could not process request data properly."), MAPI_E_INVALID_PARAMETER);
+					}
 
 					switch ($actionType) {
 						case "list":
 						case "updatelist":
-							if (isset($action["message_action"], $action["message_action"]["action_type"])) {
+							if (!is_string($folderentryid)) {
+								throw new MAPIException(_("Could not process request data properly."), MAPI_E_INVALID_PARAMETER);
+							}
+							if (isset($action["message_action"])) {
+								if (!is_array($action["message_action"]) || !isset($action["message_action"]["action_type"]) ||
+									!is_string($action["message_action"]["action_type"])) {
+									throw new MAPIException(_("Could not process request data properly."), MAPI_E_INVALID_PARAMETER);
+								}
 								$subActionType = $action["message_action"]["action_type"];
 
 								switch ($subActionType) {
@@ -50,15 +63,35 @@ class RestoreItemsListModule extends ListModule {
 							break;
 
 						case "delete":
+							if ($parententryid === false || !isset($action["message_action"]["action_type"]) ||
+								!is_string($action["message_action"]["action_type"])) {
+								throw new MAPIException(_("Could not process request data properly."), MAPI_E_INVALID_PARAMETER);
+							}
 							$itemType = $action["message_action"]["action_type"];
 
-							match ($itemType) {
-								"restorefolder" => $this->restoreFolder($store, $parententryid, $folderentryid),
-								"deletefolder" => $this->deleteFolder($store, $parententryid, $action),
-								"restoremessage" => $this->restoreItems($store, $parententryid, $action),
-								"deletemessage" => $this->deleteItems($store, $parententryid, $action),
-								default => $this->handleUnknownActionType($itemType),
-							};
+							switch ($itemType) {
+								case "restorefolder":
+									if (!is_string($folderentryid)) {
+										throw new MAPIException(_("Could not process request data properly."), MAPI_E_INVALID_PARAMETER);
+									}
+									$this->restoreFolder($store, $parententryid, $folderentryid);
+									break;
+
+								case "deletefolder":
+									$this->deleteFolder($store, $parententryid, $action);
+									break;
+
+								case "restoremessage":
+									$this->restoreItems($store, $parententryid, $action);
+									break;
+
+								case "deletemessage":
+									$this->deleteItems($store, $parententryid, $action);
+									break;
+
+								default:
+									$this->handleUnknownActionType($itemType);
+							}
 							break;
 
 						default:
@@ -75,9 +108,9 @@ class RestoreItemsListModule extends ListModule {
 	/**
 	 * Function which permanently delete all folder or message items.
 	 *
-	 * @param object $store         store object
-	 * @param string $folderentryid entry id of that particular folder
-	 * @param object $action        request data
+	 * @param resource $store         MAPI message store
+	 * @param string   $folderentryid entry ID of the target folder
+	 * @param array    $action        action data sent by the client
 	 */
 	public function deleteAll($store, $folderentryid, $action) {
 		$folder = mapi_msgstore_openentry($store, $folderentryid);
@@ -115,8 +148,8 @@ class RestoreItemsListModule extends ListModule {
 	/**
 	 * Function used to restore all folders.
 	 *
-	 * @param object $store  store object
-	 * @param object $folder folder data which needs to restore
+	 * @param resource $store  MAPI message store
+	 * @param resource $folder folder whose contents need to be restored
 	 *
 	 * @throws MAPIException
 	 */
@@ -156,9 +189,9 @@ class RestoreItemsListModule extends ListModule {
 	}
 
 	/**
-	 * Function which used to restore and message for give folder.
+	 * Restore every message in the given folder.
 	 *
-	 * @param object $folder the content of this folder is going to restored
+	 * @param resource $folder folder whose contents need to be restored
 	 */
 	public function restoreAllItems($folder) {
 		$table = mapi_folder_getcontentstable($folder, MAPI_DEFERRED_ERRORS | SHOW_SOFT_DELETES);
@@ -179,6 +212,7 @@ class RestoreItemsListModule extends ListModule {
 		 * that particular item gets changed, so to notify client about changes we need to
 		 * notify parent folder where we have restored the message
 		 */
+		$props = [];
 		$props[PR_PARENT_ENTRYID] = $folderProps[PR_ENTRYID];
 		$props[PR_STORE_ENTRYID] = $folderProps[PR_STORE_ENTRYID];
 
@@ -186,11 +220,11 @@ class RestoreItemsListModule extends ListModule {
 	}
 
 	/**
-	 * Function restored restore all folder or message based on give itemType.
+	 * Restore all folders or messages according to the requested item type.
 	 *
-	 * @param object $store         store object
-	 * @param string $folderentryid entry id of that particular folder
-	 * @param object $action        request data
+	 * @param resource $store         MAPI message store
+	 * @param string   $folderentryid entry ID of the target folder
+	 * @param array    $action        action data sent by the client
 	 *
 	 * @throws MAPIException
 	 */
@@ -216,9 +250,9 @@ class RestoreItemsListModule extends ListModule {
 	/**
 	 * Function to retrieve the list of messages or folder of particular folder.
 	 *
-	 * @param object $store   store object
-	 * @param binary $entryid entry id of that particular folder
-	 * @param object $action  request data
+	 * @param resource $store   MAPI message store
+	 * @param string   $entryid entry ID of the folder
+	 * @param array    $action  request data
 	 */
 	public function itemList($store, $entryid, $action) {
 		// Restriction
@@ -255,9 +289,9 @@ class RestoreItemsListModule extends ListModule {
 	/**
 	 * Function to delete selected items of particular folder.
 	 *
-	 * @param object $store         store object
-	 * @param binary $parententryid entry id of the folder which contain particular item to be deleted
-	 * @param object $items         request data
+	 * @param resource $store         MAPI message store
+	 * @param string   $parententryid entry ID of the folder containing the item to delete
+	 * @param array    $items         items to delete
 	 */
 	public function deleteItems($store, $parententryid, $items) {
 		if (is_assoc_array($items)) {
@@ -276,9 +310,9 @@ class RestoreItemsListModule extends ListModule {
 	/**
 	 * Function to restore message present into the selected folder.
 	 *
-	 * @param object $store         store object
-	 * @param binary $parententryid entry id of the folder which contain particular item to be restored
-	 * @param object $items         request data
+	 * @param resource $store         MAPI message store
+	 * @param string   $parententryid entry ID of the folder containing the item to restore
+	 * @param array    $items         items to restore
 	 */
 	public function restoreItems($store, $parententryid, $items) {
 		if (is_assoc_array($items)) {
@@ -300,6 +334,7 @@ class RestoreItemsListModule extends ListModule {
 		 * that particular item gets changed, so to notify client about changes we need to
 		 * notify parent folder where we have restored the message
 		 */
+		$props = [];
 		$props[PR_PARENT_ENTRYID] = $folderProps[PR_ENTRYID];
 		$props[PR_STORE_ENTRYID] = $folderProps[PR_STORE_ENTRYID];
 		$GLOBALS["bus"]->notify(bin2hex((string) $folderProps[PR_ENTRYID]), TABLE_SAVE, $props);
@@ -309,9 +344,9 @@ class RestoreItemsListModule extends ListModule {
 	/**
 	 * Function to delete selected folders.
 	 *
-	 * @param object $store         store object
-	 * @param binary $parententryid entry id of the folder which contain particular folder to be deleted
-	 * @param object $folders       request data
+	 * @param resource $store         MAPI message store
+	 * @param string   $parententryid entry ID of the parent folder
+	 * @param array    $folders       folders to delete
 	 */
 	public function deleteFolder($store, $parententryid, $folders) {
 		if (is_assoc_array($folders)) {
@@ -333,15 +368,14 @@ class RestoreItemsListModule extends ListModule {
 	 * restore action involves two operations: copy the folder marked as deleted
 	 * as a new one and then delete the source folder.
 	 *
-	 * @param object $store         store object
-	 * @param object $parententryid entry id of the folder which contain particular folder to be restored
-	 * @param object $folderentryid entry id of the folder to be restored
+	 * @param resource $store         MAPI message store
+	 * @param string   $parententryid entry ID of the parent folder
+	 * @param string   $folderentryid entry ID of the folder to restore
 	 */
 	public function restoreFolder($store, $parententryid, $folderentryid) {
 		$sfolder = mapi_msgstore_openentry($store, $parententryid);
 		$folder = mapi_msgstore_openentry($store, $folderentryid, SHOW_SOFT_DELETES);
 		$folderNameProps = mapi_getprops($folder, [PR_DISPLAY_NAME]);
-		$delSrfFld = false;
 
 		try {
 			/*
@@ -350,13 +384,11 @@ class RestoreItemsListModule extends ListModule {
 			 * and restore folder with the generated name.
 			 */
 			mapi_folder_copyfolder($sfolder, $folderentryid, $sfolder, $folderNameProps[PR_DISPLAY_NAME]);
-			$delSrfFld = true;
 		}
 		catch (MAPIException $e) {
 			if ($e->getCode() == MAPI_E_COLLISION) {
 				$foldername = $GLOBALS["operations"]->checkFolderNameConflict($store, $sfolder, $folderNameProps[PR_DISPLAY_NAME]);
 				mapi_folder_copyfolder($sfolder, $folderentryid, $sfolder, $foldername);
-				$delSrfFld = true;
 			}
 			else {
 				// all other errors should be propagated to higher level exception handlers
@@ -364,10 +396,8 @@ class RestoreItemsListModule extends ListModule {
 			}
 		}
 
-		// Hard delete the folder previously marked as deleted only if restoring succeeds.
-		if ($delSrfFld) {
-			mapi_folder_deletefolder($sfolder, $folderentryid, DEL_MESSAGES | DEL_FOLDERS | DELETE_HARD_DELETE);
-		}
+		// Reaching this point means the folder was copied successfully.
+		mapi_folder_deletefolder($sfolder, $folderentryid, DEL_MESSAGES | DEL_FOLDERS | DELETE_HARD_DELETE);
 
 		// notify the parent folder
 		$parentFolder = mapi_msgstore_openentry($store, $parententryid);
@@ -378,9 +408,9 @@ class RestoreItemsListModule extends ListModule {
 	/**
 	 * Notify the parent folder about restoration.
 	 *
-	 * @param object $store        store object
-	 * @param object $folder       mapi folder which contain particular folder to be restored
-	 * @param object $parentFolder mapi folder which is going to notify
+	 * @param resource $store        MAPI message store
+	 * @param resource $folder       folder containing the restored folder
+	 * @param resource $parentFolder folder to notify
 	 */
 	public function notifyParentFolder($store, $folder, $parentFolder) {
 		/* when we restore any folder from soft deleted system then we are actually copying the folder, so at that time entryid of
@@ -392,12 +422,10 @@ class RestoreItemsListModule extends ListModule {
 
 		$subfolders = mapi_table_queryallrows($hierarchyTable, [PR_ENTRYID]);
 
-		if (is_array($subfolders)) {
-			foreach ($subfolders as $subfolder) {
-				$folderObject = mapi_msgstore_openentry($store, $subfolder[PR_ENTRYID]);
-				$folderProps = mapi_getprops($folderObject, [PR_ENTRYID, PR_STORE_ENTRYID]);
-				$GLOBALS["bus"]->notify(bin2hex((string) $subfolder[PR_ENTRYID]), OBJECT_SAVE, $folderProps);
-			}
+		foreach ($subfolders as $subfolder) {
+			$folderObject = mapi_msgstore_openentry($store, $subfolder[PR_ENTRYID]);
+			$folderProps = mapi_getprops($folderObject, [PR_ENTRYID, PR_STORE_ENTRYID]);
+			$GLOBALS["bus"]->notify(bin2hex((string) $subfolder[PR_ENTRYID]), OBJECT_SAVE, $folderProps);
 		}
 
 		$folderProps = mapi_getprops($parentFolder, [PR_ENTRYID, PR_STORE_ENTRYID]);

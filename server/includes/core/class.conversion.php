@@ -27,7 +27,7 @@ class Conversion {
 	 *
 	 * @param int $unixtime The unix timestamp to convert
 	 *
-	 * @return int COleDateTime binary string representing the same day
+	 * @return string COleDateTime binary string representing the same day
 	 */
 	public static function UnixTimeToCOleDateTime($unixtime) {
 		$days = ($unixtime / (60 * 60 * 24)) + 25569;
@@ -271,10 +271,9 @@ class Conversion {
 	 *
 	 * @example property2json(0x0037001e) => 'PR_SUBJECT'
 	 *
-	 * @param int The property tag
-	 * @param mixed $property
+	 * @param int|string $property property tag or an already converted value
 	 *
-	 * @return string the symbolic name of the property tag
+	 * @return string the symbolic name or original string value
 	 */
 	public static function property2json($property) {
 		if (is_integer($property)) {
@@ -295,9 +294,9 @@ class Conversion {
 	 * Convert an JSON restriction structure into a MAPI SRestriction array.
 	 *
 	 * @param array $mapping An associative array mapping property keys to MAPI proptags
-	 * @param array $json    The parsed JSON array data
+	 * @param mixed $json    The parsed JSON restriction data
 	 *
-	 * @return array MAPI restriction array compatible with MAPI extension restriction format
+	 * @return mixed MAPI restriction data compatible with MAPI extension restriction format
 	 */
 	public static function json2restriction($mapping, $json) {
 		if (!is_array($json)) {
@@ -483,9 +482,9 @@ class Conversion {
 	 * Multivalued properties has different property tags in VALUES part
 	 * so we need to find that singlevalued property tag
 	 *
-	 * @param int $propTag The multivalued property tag in string
+	 * @param int|string $propTag The multivalued property tag
 	 *
-	 * @return int The singlevalued property tag
+	 * @return int|string The singlevalued property tag
 	 */
 	public static function convertToSingleValuedProperty($propTag) {
 		if (is_string($propTag)) {
@@ -613,7 +612,7 @@ class Conversion {
 	 * it isn't in. Because this mostly happens with iso-8859-1 that says they are in
 	 * utf-8, we use this order to first check if it isn't iso-8859-1.
 	 *
-	 * @property
+	 * @var array<int, string>
 	 */
 	private static $_CODEPAGES = [
 		37 => "IBM037",
@@ -762,7 +761,6 @@ class Conversion {
 	/**
 	 * Get charset name from a codepage.
 	 *
-	 * @param int codepage Codepage
 	 * @param mixed $codepage
 	 *
 	 * @return string iconv-compatible charset name

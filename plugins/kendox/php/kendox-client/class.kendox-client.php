@@ -8,7 +8,7 @@ class Client {
 	/**
 	 * Generated token for user.
 	 *
-	 * @var StdClass
+	 * @var null|string XML token, or null before login
 	 */
 	public $Token;
 
@@ -22,7 +22,7 @@ class Client {
 	/**
 	 * Connection Id returned from service on successful login.
 	 *
-	 * @var string
+	 * @var null|string
 	 */
 	public $ConnectionId;
 
@@ -72,7 +72,7 @@ class Client {
 			$logoutParameters = [
 				"connectionId" => $this->ConnectionId,
 			];
-			$result = $this->post("Authentication/Logout", $logoutParameters);
+			$this->post("Authentication/Logout", $logoutParameters);
 			$this->ConnectionId = null;
 
 			return true;
@@ -85,9 +85,9 @@ class Client {
 	/**
 	 * Performs a user table query and fetch the result records.
 	 *
-	 * @param $userTableName       The name of the user table
-	 * @param $whereClauseElements Array with fields "ColumnName", "RelationalOperator" and "Value" for filter definition of the query
-	 * @param $addColumnHeaders    Add column headers to result?
+	 * @param string $userTableName       name of the user table
+	 * @param array  $whereClauseElements fields used to filter the query
+	 * @param bool   $addColumnHeaders    whether to include column headers
 	 *
 	 * @return array The data result as an array
 	 */
@@ -125,7 +125,7 @@ class Client {
 	/**
 	 * Uploading a stream of data.
 	 *
-	 * @param Stream $stream Stream of content to upload
+	 * @param resource $stream stream of content to upload
 	 */
 	public function uploadStream($stream) {
 		$content = stream_get_contents($stream);
@@ -147,9 +147,8 @@ class Client {
 	/**
 	 * Performing a post request to service.
 	 *
-	 * @param string $path the route to the API endpoint (without service endpoint url)
-	 * @param string Associated array with data to post
-	 * @param mixed $data
+	 * @param string $path route to the API endpoint, without the service endpoint URL
+	 * @param array  $data associative data to post
 	 *
 	 * @return object Returns object with data. If service returns an error an exception will be thrown with detailed information
 	 */

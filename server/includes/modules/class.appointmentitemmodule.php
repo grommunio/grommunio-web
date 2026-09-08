@@ -86,6 +86,7 @@ class AppointmentItemModule extends ItemModule {
 					$this->tzdef = mapi_ianatz_to_tzdef($action['timezone_iana']);
 				}
 				catch (Exception) {
+					$this->tzdef = false;
 				}
 			}
 
@@ -178,19 +179,6 @@ class AppointmentItemModule extends ItemModule {
 						$data['item']['props']['commonstart'] = $data['item']['props']['startdate'];
 						$data['item']['props']['commonend'] = $data['item']['props']['duedate'];
 						unset($data['item']['props']['reminder_time']);
-
-						/*
-						 * If recurring item has set reminder to true then
-						 * all occurrences before the 'flagdueby' value(of recurring item)
-						 * should not show that reminder is set.
-						 */
-						if (isset($exceptionProps['props']['reminder']) && $data['item']['props']['reminder'] == true) {
-							$flagDueByDay = $recur->dayStartOf($data['item']['props']['flagdueby']);
-
-							if ($flagDueByDay > $basedate) {
-								$exceptionProps['props']['reminder'] = false;
-							}
-						}
 					}
 				}
 				else {
@@ -229,7 +217,7 @@ class AppointmentItemModule extends ItemModule {
 	 *
 	 * @param object     $e             Exception object
 	 * @param string     $actionType    the action type, sent by the client
-	 * @param MAPIobject $store         store object of message
+	 * @param resource   $store         MAPI store containing the message
 	 * @param string     $parententryid parent entryid of the message
 	 * @param string     $entryid       entryid of the message
 	 * @param array      $action        the action data, sent by the client
@@ -240,6 +228,9 @@ class AppointmentItemModule extends ItemModule {
 			switch ($actionType) {
 				case "save":
 					if ($e->getCode() == MAPI_E_NO_ACCESS) {
+						if ($store === null || $store === false || !$entryid) {
+							break;
+						}
 						$message = mapi_msgstore_openentry($store, $entryid);
 						$messageProps = mapi_getprops($message, [PR_MESSAGE_CLASS, PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID]);
 						$messageClass = $messageProps[PR_MESSAGE_CLASS];
@@ -262,7 +253,7 @@ class AppointmentItemModule extends ItemModule {
 	/**
 	 * Save the give appointment or meeting request to the calendar.
 	 *
-	 * @param mapistore $store         MAPI store of the message
+	 * @param resource  $store         MAPI store of the message
 	 * @param string    $parententryid Parent entryid of the message (folder entryid, NOT message entryid)
 	 * @param string    $entryid       entryid of the message
 	 * @param array     $action        Action array containing json request
@@ -362,11 +353,11 @@ class AppointmentItemModule extends ItemModule {
 	/**
 	 * Processes an all-day item and calculates the correct starttime if necessary.
 	 *
-	 * @param object $store
-	 * @param array  $calendaritem
-	 * @param object $message
+	 * @param resource $store
+	 * @param array    $calendaritem
+	 * @param resource $message
 	 */
-	private function processAllDayItem($store, &$calendaritem, $message) {
+	private function processAllDayItem(/* @scrutinizer ignore-unused */ $store, &$calendaritem, /* @scrutinizer ignore-unused */ $message) {
 		// If the appointment doesn't have tzdefstart property, it was probably
 		// created on a mobile device (mobile devices do not send a timezone for
 		// all-day events).
@@ -382,7 +373,6 @@ class AppointmentItemModule extends ItemModule {
 		}
 
 		$duration = $calendaritem['props']['duedate'] - $calendaritem['props']['startdate'];
-		$localStart = $calendaritem['props']['startdate'];
 		if (!$isTzdefstartSet) {
 			$localStart = getLocalStart($calendaritem['props']['startdate'], $this->tziana);
 		}

@@ -46,6 +46,35 @@ class ItemModule extends Module {
 	}
 
 	/**
+	 * Create a meeting-request helper against either the four- or five-argument
+	 * mapi-header-php constructor.
+	 *
+	 * The remove-on-response option was added as a fifth constructor argument.
+	 * Older supported mapi-header-php releases do not expose it, so they retain
+	 * their original behavior while newer releases receive the configured value.
+	 *
+	 * @param resource $store
+	 * @param resource $message
+	 *
+	 * @return Meetingrequest
+	 */
+	protected function createMeetingRequest($store, $message) {
+		$reflection = new ReflectionClass(Meetingrequest::class);
+		$arguments = [
+			$store,
+			$message,
+			$GLOBALS['mapisession']->getSession(),
+			$this->directBookingMeetingRequest,
+		];
+		$constructor = $reflection->getConstructor();
+		if ($constructor !== null && $constructor->getNumberOfParameters() >= 5) {
+			$arguments[] = $this->removeRequestOnResponse;
+		}
+
+		return $reflection->newInstanceArgs($arguments);
+	}
+
+	/**
 	 * Executes all the actions in the $data variable.
 	 */
 	#[Override]
@@ -55,14 +84,24 @@ class ItemModule extends Module {
 				continue;
 			}
 
+			$parententryid = null;
+			$entryid = null;
+			$singleEntryid = null;
+
 			try {
 				$store = $this->getActionStore($action);
+				if (is_array($store)) {
+					$this->sendFeedback(false);
+
+					continue;
+				}
 				$parententryid = $this->getActionParentEntryID($action);
 				$entryid = $this->getActionEntryID($action);
+				$singleEntryid = is_string($entryid) ? $entryid : false;
 
 				switch ($actionType) {
 					case "open":
-						$this->open($store, $entryid, $action);
+						$this->open($store, $singleEntryid, $action);
 						break;
 
 					case "save":
@@ -74,7 +113,7 @@ class ItemModule extends Module {
 							 *
 							 * we can also assume that user has permission to right in his own store
 							 */
-							$this->save($store, $parententryid, $entryid, $action);
+							$this->save($store, $parententryid, $singleEntryid, $action);
 							break;
 						}
 						/*
@@ -85,14 +124,19 @@ class ItemModule extends Module {
 						 *   - declineMeetingRequest: attendee has declined mr
 						 */
 						if (!isset($action["message_action"], $action["message_action"]["action_type"])) {
-							$this->save($store, $parententryid, $entryid, $action);
+							$this->save($store, $parententryid, $singleEntryid, $action);
 							break;
 						}
 
 						switch ($action["message_action"]["action_type"]) {
 							case "declineMeetingRequest":
 							case "acceptMeetingRequest":
-								$message = $GLOBALS["operations"]->openMessage($store, $entryid);
+								if ($singleEntryid === false) {
+									$this->sendFeedback(false);
+
+									break;
+								}
+								$message = $GLOBALS["operations"]->openMessage($store, $singleEntryid);
 								$basedate = ($action['basedate'] ?? false);
 								$delete = false;
 
@@ -121,7 +165,7 @@ class ItemModule extends Module {
 								// auto-processing in open().
 								mapi_deleteprops($message, [PR_PROCESSED]);
 
-								$req = new Meetingrequest($store, $message, $GLOBALS["mapisession"]->getSession(), $this->directBookingMeetingRequest, $this->removeRequestOnResponse);
+								$req = $this->createMeetingRequest($store, $message);
 
 								// Update extra body information
 								if (isset($action["message_action"]['meetingTimeInfo']) && !empty($action["message_action"]['meetingTimeInfo'])) {
@@ -192,7 +236,12 @@ class ItemModule extends Module {
 
 							case "acceptTaskRequest":
 							case "declineTaskRequest":
-								$message = $GLOBALS["operations"]->openMessage($store, $entryid);
+								if ($singleEntryid === false) {
+									$this->sendFeedback(false);
+
+									break;
+								}
+								$message = $GLOBALS["operations"]->openMessage($store, $singleEntryid);
 
 								if (isset($action["props"]) && !empty($action["props"])) {
 									$properties = $GLOBALS["properties"]->getTaskProperties();
@@ -230,14 +279,19 @@ class ItemModule extends Module {
 								break;
 
 							case "forwardMeetingRequest":
-								$this->forwardMeetingRequest($store, $entryid, $action, $this->directBookingMeetingRequest);
+								if ($singleEntryid === false) {
+									$this->sendFeedback(false);
+
+									break;
+								}
+								$this->forwardMeetingRequest($store, $singleEntryid, $action, $this->directBookingMeetingRequest);
 								break;
 
 							case "reply":
 							case "replyall":
 							case "forward":
 							default:
-								$this->save($store, $parententryid, $entryid, $action);
+								$this->save($store, $parententryid, $singleEntryid, $action);
 						}
 						break;
 
@@ -256,23 +310,38 @@ class ItemModule extends Module {
 						 */
 						switch ($subActionType) {
 							case "removeFromCalendar":
+								if ($store === false || $singleEntryid === false) {
+									$this->sendFeedback(false);
+
+									break;
+								}
 								$basedate = (isset($action['basedate']) && !empty($action['basedate'])) ? $action['basedate'] : false;
 
-								$this->removeFromCalendar($store, $entryid, $basedate, $this->directBookingMeetingRequest);
+								$this->removeFromCalendar($store, $singleEntryid, $basedate, $this->directBookingMeetingRequest);
 								$this->sendFeedback(true);
 								break;
 
 							case "cancelInvitation":
-								$this->cancelInvitation($store, $entryid, $action, $this->directBookingMeetingRequest);
+								if ($store === false || $singleEntryid === false) {
+									$this->sendFeedback(false);
+
+									break;
+								}
+								$this->cancelInvitation($store, $singleEntryid, $action, $this->directBookingMeetingRequest);
 								$this->sendFeedback(true);
 								break;
 
 							case "declineMeeting":
+								if ($store === false || $singleEntryid === false) {
+									$this->sendFeedback(false);
+
+									break;
+								}
 								// @FIXME can we somehow merge declineMeeting and declineMeetingRequest sub actions?
-								$message = $GLOBALS["operations"]->openMessage($store, $entryid);
+								$message = $GLOBALS["operations"]->openMessage($store, $singleEntryid);
 								$basedate = (isset($action['basedate']) && !empty($action['basedate'])) ? $action['basedate'] : false;
 
-								$req = new Meetingrequest($store, $message, $GLOBALS["mapisession"]->getSession(), $this->directBookingMeetingRequest, $this->removeRequestOnResponse);
+								$req = $this->createMeetingRequest($store, $message);
 
 								// @FIXME: may be we can remove this body check any get it while declining meeting 'body'
 								$body = false;
@@ -291,7 +360,7 @@ class ItemModule extends Module {
 
 							case "snooze":
 							case "dismiss":
-								$this->delete($store, $parententryid, $entryid, $action);
+								$this->delete($store, $parententryid, $singleEntryid, $action);
 								break;
 
 							default:
@@ -299,7 +368,7 @@ class ItemModule extends Module {
 								// generate an exception. So when the basedate is provided, we actually
 								// perform a save rather then delete.
 								if (isset($action['basedate']) && !empty($action['basedate'])) {
-									$this->save($store, $parententryid, $entryid, $action, "delete");
+									$this->save($store, $parententryid, $singleEntryid, $action, "delete");
 								}
 								else {
 									$this->delete($store, $parententryid, $entryid, $action);
@@ -313,7 +382,7 @@ class ItemModule extends Module {
 				}
 			}
 			catch (MAPIException $e) {
-				$this->processException($e, $actionType, $store, $parententryid, $entryid, $action);
+				$this->processException($e, $actionType, $store, $parententryid, $singleEntryid, $action);
 			}
 		}
 	}
@@ -325,7 +394,7 @@ class ItemModule extends Module {
 	 *
 	 * @param object     $e             Exception object
 	 * @param string     $actionType    the action type, sent by the client
-	 * @param MAPIobject $store         store object of message
+	 * @param resource   $store         MAPI store containing the message
 	 * @param string     $parententryid parent entryid of the message
 	 * @param string     $entryid       entryid of the message
 	 * @param array      $action        the action data, sent by the client
@@ -463,15 +532,16 @@ class ItemModule extends Module {
 	/**
 	 * Function which opens an item.
 	 *
-	 * @param object $store   MAPI Message Store Object
-	 * @param string $entryid entryid of the message
-	 * @param array  $action  the action data, sent by the client
+	 * @param false|resource $store   MAPI message store, or false if it was not supplied
+	 * @param false|string   $entryid entry ID of the message, or false if it was not supplied
+	 * @param array          $action  action data sent by the client
 	 */
 	public function open($store, $entryid, $action) {
 		$data = [];
+		$message = false;
 
 		if ($entryid) {
-			if ($store) {
+			if ($store !== false) {
 				$message = $GLOBALS['operations']->openMessage($store, $entryid);
 			}
 			else {
@@ -483,7 +553,7 @@ class ItemModule extends Module {
 			}
 		}
 
-		if (empty($message)) {
+		if (empty($message) || $store === false) {
 			return;
 		}
 
@@ -643,7 +713,7 @@ class ItemModule extends Module {
 					}
 				}
 				catch (MAPIException $e) {
-					// if quota is exceeded or or we don't have permission to write in calendar folder than ignore the exception.
+					// If the quota is exceeded or we cannot write to the calendar folder, ignore the exception.
 					if ($e->getCode() !== MAPI_E_STORE_FULL && $e->getCode() !== MAPI_E_NO_ACCESS) {
 						// re-throw the exception if it is not one of quota/calendar permission.
 						throw $e;
@@ -698,17 +768,17 @@ class ItemModule extends Module {
 	/**
 	 * Function which saves an item.
 	 *
-	 * @param object $store         MAPI Message Store Object
-	 * @param string $parententryid parent entryid of the message
-	 * @param mixed  $entryid       entryid of the message
-	 * @param array  $action        the action data, sent by the client
-	 * @param string $actionType    The action type which triggered this action
+	 * @param false|resource $store         MAPI message store, or false to use the default
+	 * @param false|string   $parententryid parent entry ID, or false to infer it
+	 * @param false|string   $entryid       entry ID of the message, or false for a new item
+	 * @param array          $action        the action data, sent by the client
+	 * @param string         $actionType    The action type which triggered this action
 	 */
 	public function save($store, $parententryid, $entryid, $action, $actionType = 'save') {
 		$result = false;
 
 		if (isset($action["props"])) {
-			if (!$store) {
+			if ($store === false) {
 				$store = $GLOBALS['mapisession']->getDefaultMessageStore();
 			}
 			if (!$parententryid) {
@@ -720,7 +790,7 @@ class ItemModule extends Module {
 				}
 			}
 
-			if ($store && $parententryid) {
+			if ($store !== false && $parententryid) {
 				$props = Conversion::mapXML2MAPI($this->properties, $action["props"]);
 
 				$messageProps = []; // props returned from saveMessage
@@ -746,13 +816,13 @@ class ItemModule extends Module {
 	/**
 	 * Function which deletes an item.
 	 *
-	 * @param object $store         MAPI Message Store Object
-	 * @param string $parententryid parent entryid of the message
-	 * @param string $entryid       entryid of the message
-	 * @param array  $action        the action data, sent by the client
+	 * @param false|resource     $store         MAPI message store, or false when unavailable
+	 * @param false|string       $parententryid parent entry ID, or false when unavailable
+	 * @param array|false|string $entryid       entry ID or IDs, or false when unavailable
+	 * @param array              $action        action data sent by the client
 	 */
 	public function delete($store, $parententryid, $entryid, $action) {
-		if (!$store || !$parententryid || !$entryid) {
+		if ($store === false || !$parententryid || !$entryid) {
 			return;
 		}
 		$props = [];
@@ -791,11 +861,11 @@ class ItemModule extends Module {
 	 *
 	 * Must be called before the delete, while the items still exist.
 	 *
-	 * @param object $store         MAPI Message Store Object
-	 * @param string $parententryid parent entryid of the message(s)
-	 * @param mixed  $entryid       one entryid or a list of entryids
-	 * @param array  $action        the action data, sent by the client
-	 * @param bool   $soft          whether this is a soft delete
+	 * @param resource     $store         MAPI message store
+	 * @param string       $parententryid parent entryid of the message(s)
+	 * @param array|string $entryid       one entryid or a list of entryids
+	 * @param array        $action        the action data, sent by the client
+	 * @param bool         $soft          whether this is a soft delete
 	 *
 	 * @return null|array the undo snapshot, or null when not trackable
 	 */
@@ -902,15 +972,15 @@ class ItemModule extends Module {
 	/**
 	 * Function which returns the entryid of a default folder.
 	 *
-	 * @param object $store        MAPI Message Store Object
+	 * @param false|resource $store        MAPI message store, or false when unavailable
 	 * @param string $messageClass the class of the folder
 	 *
-	 * @return string entryid of a default folder, false if not found
+	 * @return false|string entry ID of a default folder, or false if not found
 	 */
 	public function getDefaultFolderEntryID($store, $messageClass) {
 		$entryid = false;
 
-		if ($store) {
+		if ($store !== false) {
 			$rootcontainer = mapi_msgstore_openentry($store);
 			$rootcontainerprops = mapi_getprops($rootcontainer, [PR_IPM_DRAFTS_ENTRYID, PR_IPM_APPOINTMENT_ENTRYID, PR_IPM_CONTACT_ENTRYID, PR_IPM_JOURNAL_ENTRYID, PR_IPM_NOTE_ENTRYID, PR_IPM_TASK_ENTRYID]);
 
@@ -954,25 +1024,46 @@ class ItemModule extends Module {
 	/**
 	 * Function which copies or moves one or more items.
 	 *
-	 * @param resource $store         MAPI Message Store Object
-	 * @param string   $parententryid entryid of the folder
-	 * @param mixed    $entryids      list of entryids which will be copied or moved (in binary format)
-	 * @param array    $action        the action data, sent by the client
+	 * @param false|resource $store         MAPI message store, or false when it was not resolved
+	 * @param string         $parententryid entryid of the folder
+	 * @param mixed          $entryids      list of entryids which will be copied or moved (in binary format)
+	 * @param array          $action        the action data, sent by the client
 	 */
 	public function copy($store, $parententryid, $entryids, $action) {
-		$result = false;
+		if ($store !== false && $parententryid && $entryids) {
+			$destinationParentEntryid = $action["message_action"]["destination_parent_entryid"] ?? null;
+			if (!is_string($destinationParentEntryid) || $destinationParentEntryid === '' ||
+				(strlen($destinationParentEntryid) % 2) !== 0 || !ctype_xdigit($destinationParentEntryid)) {
+				$this->sendFeedback(false);
 
-		if ($store && $parententryid && $entryids) {
+				return;
+			}
+			$dest_folderentryid = hex2bin($destinationParentEntryid);
+
 			$dest_store = $store;
 			if (isset($action["message_action"]["destination_store_entryid"])) {
-				$dest_storeentryid = hex2bin($action["message_action"]["destination_store_entryid"]);
+				$destinationStoreEntryid = $action["message_action"]["destination_store_entryid"];
+				if (!is_string($destinationStoreEntryid) || $destinationStoreEntryid === '' ||
+					(strlen($destinationStoreEntryid) % 2) !== 0 || !ctype_xdigit($destinationStoreEntryid)) {
+					$this->sendFeedback(false);
+
+					return;
+				}
+				$dest_storeentryid = hex2bin($destinationStoreEntryid);
 				$dest_store = $GLOBALS["mapisession"]->openMessageStore($dest_storeentryid);
 			}
+			if (!$dest_store) {
+				$this->sendFeedback(false);
 
-			$dest_folderentryid = false;
-			if (isset($action["message_action"]["destination_parent_entryid"])) {
-				$dest_folderentryid = hex2bin($action["message_action"]["destination_parent_entryid"]);
+				return;
 			}
+			$destStoreProps = mapi_getprops($dest_store, [PR_ENTRYID]);
+			if (!isset($destStoreProps[PR_ENTRYID])) {
+				$this->sendFeedback(false);
+
+				return;
+			}
+			$dest_storeentryid = $destStoreProps[PR_ENTRYID];
 
 			$moveMessages = false;
 			if (isset($action["message_action"]["action_type"]) && $action["message_action"]["action_type"] == "move") {
@@ -1043,11 +1134,10 @@ class ItemModule extends Module {
 				try {
 					$newEntryids = $GLOBALS["operations"]->resolveNewEntryids($dest_store, $dest_folderentryid, $searchKeys, $existingEntryids);
 					if (!empty($newEntryids)) {
-						$destStoreProps = mapi_getprops($dest_store, [PR_ENTRYID]);
 						$feedback['undo'] = [
 							'new_entryids' => $newEntryids,
 							'destination_parent_entryid' => bin2hex($dest_folderentryid),
-							'destination_store_entryid' => bin2hex((string) $destStoreProps[PR_ENTRYID]),
+							'destination_store_entryid' => bin2hex($dest_storeentryid),
 						];
 					}
 				}
@@ -1113,7 +1203,7 @@ class ItemModule extends Module {
 	 * This function reads the necessary properties from the passed message and constructs
 	 * a user-readable NDR message from those properties
 	 *
-	 * @param mapimessage $message The NDR message to read the information from
+	 * @param resource $message NDR message to read
 	 *
 	 * @return string NDR body message as plaintext message
 	 */
@@ -1149,7 +1239,7 @@ class ItemModule extends Module {
 	 * This function sends a meeting cancellation for the meeting references by the passed entryid. It
 	 * will send the meeting cancellation and move the item itself to the waste basket.
 	 *
-	 * @param mapistore $store                       The store in which the meeting request resides
+	 * @param resource $store                       store containing the meeting request
 	 * @param string    $entryid                     entryid of the appointment for which the cancellation should be sent
 	 * @param object    $action                      data sent by client
 	 * @param bool      $directBookingMeetingRequest Indicates if a Meeting Request should use direct booking or not
@@ -1191,10 +1281,10 @@ class ItemModule extends Module {
 	 * This function searches the default calendar for all meeting requests for the specified
 	 * meeting. All those appointments are then removed.
 	 *
-	 * @param mapistore $store                       Mapi store in which the meeting request and the calendar reside
-	 * @param string    $entryid                     Entryid of the meeting request or appointment for which all items should be deleted
-	 * @param string    $basedate                    if specified contains starttime of day of an occurrence
-	 * @param bool      $directBookingMeetingRequest Indicates if a Meeting Request should use direct booking or not
+	 * @param resource     $store                       MAPI store containing the meeting request and calendar
+	 * @param string       $entryid                     Entryid of the meeting request or appointment for which all items should be deleted
+	 * @param false|string $basedate                    if specified contains starttime of day of an occurrence
+	 * @param bool         $directBookingMeetingRequest Indicates if a Meeting Request should use direct booking or not
 	 */
 	public function removeFromCalendar($store, $entryid, $basedate, $directBookingMeetingRequest) {
 		$message = $GLOBALS["operations"]->openMessage($store, $entryid);
@@ -1214,7 +1304,7 @@ class ItemModule extends Module {
 	 * Creates a new IPM.Schedule.Meeting.Request message addressed to the
 	 * specified recipients and sends a forward notification to the organizer.
 	 *
-	 * @param mapistore $store                       MAPI store of the appointment
+	 * @param resource $store                       MAPI store of the appointment
 	 * @param string    $entryid                     entryid of the appointment to forward
 	 * @param array     $action                      action data from the client
 	 * @param bool      $directBookingMeetingRequest direct-booking flag
@@ -1385,12 +1475,12 @@ class ItemModule extends Module {
 	 * Send a forward notification to the meeting organizer informing them
 	 * that the meeting was forwarded to additional recipients.
 	 *
-	 * @param mapistore $store          MAPI store containing the appointment
+	 * @param resource $store          MAPI store containing the appointment
 	 * @param resource  $message        original appointment MAPI message
 	 * @param array     $messageProps   properties of the source message
 	 * @param array     $recipientRows  MAPI recipient rows of forward targets
 	 * @param array     $props          property tag mapping
-	 * @param mapistore $userStore      current user's default store
+	 * @param resource $userStore      current user's default store
 	 */
 	private function sendForwardNotification($store, $message, $messageProps, $recipientRows, $props, $userStore) {
 		// Do not notify if the current user is the organizer
@@ -1417,7 +1507,8 @@ class ItemModule extends Module {
 			$email = $recip[PR_SMTP_ADDRESS] ?? $recip[PR_EMAIL_ADDRESS] ?? '';
 			if (!empty($name) && !empty($email) && $name !== $email) {
 				$forwardedTo[] = $name . ' (' . $email . ')';
-			} else {
+			}
+			else {
 				$forwardedTo[] = !empty($name) ? $name : $email;
 			}
 		}
@@ -1507,7 +1598,8 @@ class ItemModule extends Module {
 		];
 		if (!empty($messageProps[PR_SENT_REPRESENTING_ENTRYID])) {
 			$organizerRecip[PR_ENTRYID] = $messageProps[PR_SENT_REPRESENTING_ENTRYID];
-		} else {
+		}
+		else {
 			$organizerRecip[PR_ENTRYID] = mapi_createoneoff($organizerName, $addrType, $organizerEmail);
 		}
 		if (!empty($messageProps[PR_SENT_REPRESENTING_SEARCH_KEY])) {

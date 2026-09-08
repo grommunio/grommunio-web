@@ -16,7 +16,8 @@ require_once __DIR__ . "/Util/util.php";
 require_once __DIR__ . "/Util/class.logger.php";
 
 use Files\Backend\BackendStore;
-use Files\Backend\Exception;
+use Files\Backend\Exception as BackendException;
+use Files\Backend\iFeatureStreaming;
 use Files\Core\Util\Logger;
 
 class UploadHandler {
@@ -49,15 +50,27 @@ class UploadHandler {
 		$backendStore = BackendStore::getInstance();
 
 		$account = $accountStore->getAccount($accountID);
+		if ($account === null) {
+			Logger::error(self::LOG_CONTEXT, "upload failed: Unknown account ID: " . $accountID);
+			echo json_encode(['success' => false, 'response' => 'Unknown account ID', 'message' => _('Unknown account ID')]);
+
+			exit;
+		}
 
 		// initialize the backend
 		$initializedBackend = $backendStore->getInstanceOfBackend($account->getBackend());
+		if ($initializedBackend === false) {
+			Logger::error(self::LOG_CONTEXT, "upload failed: Unknown backend: " . $account->getBackend());
+			echo json_encode(['success' => false, 'response' => 'Unknown backend', 'message' => _('File backend not responding. Please try again later.')]);
+
+			exit;
+		}
 		$initializedBackend->init_backend($account->getBackendConfig());
 
 		try {
 			$initializedBackend->open();
 		}
-		catch (Exception $e) {
+		catch (BackendException $e) {
 			Logger::error(self::LOG_CONTEXT, "backend initialization failed: " . $e->getMessage());
 			echo json_encode(['success' => false, 'response' => $e->getCode(), 'message' => $e->getMessage()]);
 
@@ -68,7 +81,8 @@ class UploadHandler {
 		if (isset($_SERVER['HTTP_X_FILE_NAME'], $_SERVER['HTTP_X_FILE_SIZE'])) { // use the ajax method
 			$targetPath = stringToUTF8Encode($relNodeId . $_SERVER['HTTP_X_FILE_NAME']);
 			// check if backend supports streaming - this is the preferred way to upload files!
-			if ($initializedBackend->supports(BackendStore::FEATURE_STREAMING)) {
+			// Backends are loaded dynamically, so their optional interfaces cannot be inferred statically.
+			if (/** @scrutinizer ignore-type */ $initializedBackend instanceof iFeatureStreaming) {
 				$fileReader = fopen('php://input', "r");
 				$targetPath = UploadHandler::checkFilesNameConflict($targetPath, $initializedBackend, $relNodeId);
 				$fileWriter = $initializedBackend->getStreamwriter($targetPath);
@@ -89,14 +103,33 @@ class UploadHandler {
 				$targetPath = UploadHandler::checkFilesNameConflict($targetPath, $initializedBackend, $relNodeId);
 				$targetPath = rawurldecode($targetPath);
 				$temp_file = tempnam(TMP_PATH, "{$targetPath}");
+				if ($temp_file === false) {
+					Logger::error(self::LOG_CONTEXT, "upload failed: Could not create a temporary file");
+					echo json_encode(['success' => false, 'response' => 'Temporary file error', 'message' => _('Upload failed!')]);
+
+					exit;
+				}
 				$fileReader = fopen('php://input', "r");
 				$fileWriter = fopen($temp_file, "w");
+				if ($fileReader === false || $fileWriter === false) {
+					if (is_resource($fileReader)) {
+						fclose($fileReader);
+					}
+					if (is_resource($fileWriter)) {
+						fclose($fileWriter);
+					}
+					unlink($temp_file);
+					Logger::error(self::LOG_CONTEXT, "upload failed: Could not open the temporary upload stream");
+					echo json_encode(['success' => false, 'response' => 'Temporary file error', 'message' => _('Upload failed!')]);
+
+					exit;
+				}
 
 				// store post data to tmp file
 				while (true) {
 					set_time_limit(0);
 					$buffer = fgets($fileReader, 4096);
-					if (strlen($buffer) == 0) {
+					if ($buffer === false || $buffer === '') {
 						fclose($fileReader);
 						fclose($fileWriter);
 						break;
@@ -106,9 +139,13 @@ class UploadHandler {
 				}
 
 				// upload tmp file to backend
-				$initializedBackend->put_file($targetPath, $temp_file);
-				// clean up tmp file
-				unlink($temp_file);
+				try {
+					$initializedBackend->put_file($targetPath, $temp_file);
+				}
+				finally {
+					// The backend only reads this file; retain no upload data locally.
+					unlink($temp_file);
+				}
 			}
 			echo json_encode(['success' => true, 'parent' => $dstID, 'item' => $targetPath]);
 
@@ -123,7 +160,7 @@ class UploadHandler {
 
 				// upload the file
 				// check if backend supports streaming - this is the preferred way to upload files!
-				if ($initializedBackend->supports(BackendStore::FEATURE_STREAMING)) {
+				if ($initializedBackend instanceof iFeatureStreaming) {
 					$fileReader = fopen($_FILES['attachments']['tmp_name'][$i], "r");
 					$fileWriter = $initializedBackend->getStreamwriter($targetPath);
 
@@ -149,7 +186,7 @@ class UploadHandler {
 
 			exit;
 		}
-		catch (Exception $e) {
+		catch (BackendException $e) {
 			Logger::error(self::LOG_CONTEXT, "upload failed: " . $e->getMessage());
 			echo json_encode(['success' => false, 'response' => $e->getCode(), 'message' => $e->getMessage()]);
 

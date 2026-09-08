@@ -79,7 +79,7 @@ Zarafa.hierarchy.ui.HierarchyTreeDropZone = Ext.extend(Ext.tree.TreeDropZone, {
 	{
 		var ret = Zarafa.hierarchy.ui.HierarchyTreeDropZone.superclass.onNodeOver.apply(this, arguments);
 
-		// If the Ctrl-key is pressed, return the pecial class
+		// If the Ctrl key is pressed, return the special class
 		// to have the correct icon displayed which represents
 		// a copy rather then a move.
 		if (e.ctrlKey) {

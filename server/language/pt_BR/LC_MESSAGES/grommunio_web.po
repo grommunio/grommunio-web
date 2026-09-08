@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Portuguese (Brazil)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-04 14:41+0200\n"
+"POT-Creation-Date: 2026-09-06 21:29+0200\n"
 "PO-Revision-Date: 2017-10-03 21:54+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -1936,6 +1936,25 @@ msgstr "Você não tem privilégios suficientes para mover esses itens. Em vez d
 msgid "You have insufficient privileges to move this item. Would you like to copy instead?"
 msgstr "Você não tem privilégios suficientes para mover este item. Em vez disso, gostaria de copiar?"
 
+msgid "Untitled"
+msgstr "Sem título"
+
+msgid "The attachments could not be saved."
+msgstr ""
+
+msgid "This attachment could not be saved: {0}"
+msgid_plural "These attachments could not be saved: {0}"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "{0} attachment was saved."
+msgid_plural "{0} attachments were saved."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Save attachments"
+msgstr ""
+
 msgid "Insert item"
 msgstr "Inserir item"
 
@@ -1981,11 +2000,17 @@ msgstr "Anexar Ítem"
 msgid "Preview"
 msgstr "Visualização"
 
+msgid "Preview in a dialog"
+msgstr ""
+
 msgid "Download"
 msgstr "Download"
 
 msgid "Download all as ZIP"
 msgstr "Baixar tudo como ZIP"
+
+msgid "Save selection to folder"
+msgstr ""
 
 msgid "Import to folder"
 msgstr "Importar para a pasta"
@@ -1995,6 +2020,12 @@ msgstr "Para usar o recurso de importação de vCard, atualize seu Gromox para a
 
 msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to version 0 or higher."
 msgstr "Para usar o recurso de importação ICS / VCS, atualize seu Gromox para a versão 0 ou superior."
+
+msgid "Preview in a grommunio Web tab"
+msgstr ""
+
+msgid "Preview in a browser window"
+msgstr ""
 
 msgid "Attachment error"
 msgstr "Erro de anexo"
@@ -3097,9 +3128,6 @@ msgstr "A mensagem não pôde ser carregada"
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "Anexos"
-
-msgid "Untitled"
-msgstr "Sem título"
 
 msgid "Download Pictures"
 msgstr "Baixar Figuras"
@@ -5244,6 +5272,12 @@ msgstr "Zoom padrão do documento"
 
 msgid "PDF zoom"
 msgstr "Zoom em PDF"
+
+msgid "Dialog"
+msgstr ""
+
+msgid "Open a preview in a"
+msgstr ""
 
 msgid "File previewing"
 msgstr "Visualização de arquivos"
@@ -7532,12 +7566,6 @@ msgstr "Acesso negado"
 msgid "Connection failed"
 msgstr "Falha na conexão"
 
-msgid "Sabre error"
-msgstr "Erro do Sabre"
-
-msgid "Copying failed"
-msgstr "Falha na cópia"
-
 msgid "Unknown error"
 msgstr "Erro desconhecido"
 
@@ -7664,6 +7692,9 @@ msgstr "Backend WebDAV de arquivos:"
 msgid "PHP-CURL is not installed"
 msgstr "O PHP-CURL não está instalado"
 
+msgid "Sabre error"
+msgstr "Erro do Sabre"
+
 msgid "Directory creation failed"
 msgstr "Falha na criação do diretório"
 
@@ -7679,8 +7710,8 @@ msgstr "Problemas com o diretório temporário"
 msgid "File or folder not found"
 msgstr "Arquivo ou pasta não encontrado"
 
-msgid "Not implemented"
-msgstr "Não implementado"
+msgid "Copying failed"
+msgstr "Falha na cópia"
 
 msgid "Please contact your system administrator"
 msgstr "Entre em contato com o administrador do sistema"
@@ -7690,6 +7721,9 @@ msgstr "O servidor de arquivos não pode ser acessado. Verifique a conexão."
 
 msgid "PHP-CURL not installed"
 msgstr "PHP-CURL não instalado"
+
+msgid "Unknown backend"
+msgstr ""
 
 msgid "Account is ready to use."
 msgstr "Conta pronta para uso."
@@ -7702,6 +7736,12 @@ msgstr "Falha na geração do arquivo Zip. Por favor, informe o administrador."
 
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Este arquivo não está mais disponível. Por favor, recarregue a pasta."
+
+msgid "Recipient search is not supported by this backend"
+msgstr ""
+
+msgid "Unable to look up recipients"
+msgstr ""
 
 msgid "Kendox certificate path is not configured."
 msgstr "O caminho do certificado Kendox não está configurado."
@@ -7721,6 +7761,9 @@ msgstr "Plug-in de gerenciamento de dispositivos móveis"
 #, php-format
 msgid "Unexpected error occurred. Please contact your system administrator. Error code: %s"
 msgstr "Ocorreu um erro inesperado. Entre em contato com o administrador do sistema. Código de erro: %s"
+
+msgid "Managing shared folders is not supported by this server."
+msgstr ""
 
 msgid "No data received."
 msgstr "Nenhum dado recebido."
@@ -7764,8 +7807,14 @@ msgstr "Não é possível ler certificados"
 msgid "Unable to generate certs-only message"
 msgstr "Não é possível gerar uma mensagem somente para certificados"
 
+msgid "Unable to read certs-only message"
+msgstr ""
+
 msgid "LDAP not configured"
 msgstr "LDAP não configurado"
+
+msgid "Invalid LDAP configuration"
+msgstr ""
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "Falta de certificados públicos para os seguintes destinatários:"
@@ -7810,6 +7859,9 @@ msgstr "O certificado não foi importado"
 msgid "Certificate is revoked, but was imported."
 msgstr "O certificado foi revogado, mas foi importado."
 
+msgid "Certificate revocation status could not be verified. Certificate was imported."
+msgstr ""
+
 msgid "Unable to read public certificate"
 msgstr "Não é possível ler o certificado público"
 
@@ -7839,6 +7891,9 @@ msgstr "Não foi possível excluir o arquivo de modelo."
 
 msgid "Template deleted successfully."
 msgstr "Modelo excluído com sucesso."
+
+msgid "Could not attach item as an attachment."
+msgstr "Não foi possível anexar item como anexo."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "Não é possível adicionar dados ao barramento, pois o mesmo tipo de ação está presente no barramento"
@@ -7895,6 +7950,9 @@ msgstr "Erro MAPI desconhecido"
 msgid "Destination folder not found."
 msgstr "Pasta de destino não encontrada."
 
+msgid "Could not find attachment."
+msgstr "Não foi possível encontrar o anexo."
+
 msgid "Eml is corrupted"
 msgstr "O Eml está corrompido"
 
@@ -7932,9 +7990,6 @@ msgstr "O ZIP não foi criado com êxito"
 
 msgid "Attachments can not be downloaded"
 msgstr "Os anexos não podem ser baixados"
-
-msgid "Could not find attachment."
-msgstr "Não foi possível encontrar o anexo."
 
 msgid "Operation failed"
 msgstr "Falha na operação"
@@ -8220,9 +8275,6 @@ msgstr "Você não tem privilégios suficientes para excluir itens desta pasta"
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "Você possui privilégios insuficientes para anexar item como anexo."
-
-msgid "Could not attach item as an attachment."
-msgstr "Não foi possível anexar item como anexo."
 
 msgid "You have insufficient privileges to reclaim the ownership for the Task Request."
 msgstr "Você não possui os privilégios suficientes para recuperar a titularidade desta Solicitação de Tarefa."

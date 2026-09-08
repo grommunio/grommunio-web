@@ -16,22 +16,39 @@
  * }
  */
 class suggestEmailAddressModule extends Module {
+	#[Override]
+	protected function getExecutionLockName() {
+		return null;
+	}
+
 	public function __construct($id, $data) {
 		parent::__construct($id, $data);
 	}
 
 	#[Override]
 	public function execute() {
+		$actionType = null;
+		$historyState = false;
+		if (isset($this->data['delete'])) {
+			$historyState = State::forStore('recipient-history-write');
+			if (!$historyState->open()) {
+				throw new RuntimeException('Unable to lock recipient history for writing');
+			}
+		}
+
 		try {
 			// Retrieve the recipient history
 			$storeProps = mapi_getprops($GLOBALS["mapisession"]->getDefaultMessageStore(), [PR_EC_RECIPIENT_HISTORY_JSON]);
-			$recipient_history = false;
+			$recipient_history = [];
 
 			if (isset($storeProps[PR_EC_RECIPIENT_HISTORY_JSON]) || propIsError(PR_EC_RECIPIENT_HISTORY_JSON, $storeProps) == MAPI_E_NOT_ENOUGH_MEMORY) {
 				$datastring = streamProperty($GLOBALS["mapisession"]->getDefaultMessageStore(), PR_EC_RECIPIENT_HISTORY_JSON);
 
 				if ($datastring !== "") {
-					$recipient_history = json_decode_data($datastring, true);
+					$decodedHistory = json_decode_data($datastring, true);
+					if (is_array($decodedHistory)) {
+						$recipient_history = $decodedHistory;
+					}
 				}
 			}
 
@@ -56,6 +73,11 @@ class suggestEmailAddressModule extends Module {
 		}
 		catch (MAPIException $e) {
 			$this->processException($e, $actionType);
+		}
+		finally {
+			if ($historyState instanceof State) {
+				$historyState->close();
+			}
 		}
 	}
 
@@ -119,7 +141,7 @@ class suggestEmailAddressModule extends Module {
 	 * @param array $action            action data in associative array format
 	 * @param array $recipient_history recipient history stored in mapi property
 	 *
-	 * @returns {Array} data holding recipients that matched the query.
+	 * @return array data holding recipients that matched the query
 	 */
 	public function getRecipientList($action, $recipient_history) {
 		if (!empty($action["query"]) && !empty($recipient_history) && !empty($recipient_history['recipients'])) {
@@ -131,6 +153,7 @@ class suggestEmailAddressModule extends Module {
 
 			// Track seen email addresses to skip duplicates
 			$seen = [];
+			$l_sSearchString = strtolower((string) $action["query"]);
 
 			// Loop through all the recipients
 
@@ -140,8 +163,6 @@ class suggestEmailAddressModule extends Module {
 				// Prepare strings for case sensitive search
 				$l_sName = strtolower((string) $entry['display_name']);
 				$l_sEmail = strtolower((string) $entry['smtp_address']);
-				$l_sSearchString = strtolower((string) $action["query"]);
-
 				// Deduplicate by smtp_address (case-insensitive)
 				$dedupeKey = $l_sEmail !== '' ? $l_sEmail : strtolower((string) $entry['email_address']);
 				if ($dedupeKey !== '' && isset($seen[$dedupeKey])) {
@@ -152,7 +173,8 @@ class suggestEmailAddressModule extends Module {
 					if (($entry['count'] ?? 0) > $prevCount) {
 						// Replace previous entry with this one
 						unset($l_aResult[$prevLevel][$prevIndex]);
-					} else {
+					}
+					else {
 						continue;
 					}
 				}
@@ -218,7 +240,7 @@ class suggestEmailAddressModule extends Module {
 				 * email address), name and finally on the email address. This is done
 				 * by a natural sort. When this first list already contains the maximum
 				 * number of returned items the second list needs no sorting. If it has
-				 * less, then the second list is sorted and included in the first list
+				 * fewer items, the second list is sorted and included in the first list
 				 * as well. At the end the final list is sorted on name and email again.
 				 */
 				$l_iMaxNumListItems = 10;

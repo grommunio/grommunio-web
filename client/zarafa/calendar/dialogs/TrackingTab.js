@@ -65,7 +65,7 @@ Zarafa.calendar.dialogs.TrackingTab = Ext.extend(Ext.Panel, {
 
 	/**
 	 * Update the {@link Ext.Panel Panel} with the given {@link Zarafa.core.data.IPMRecord IPMRecord}
-	 * Also it will build the tracking information data of attendees and pass it the the store
+	 * It will also build the attendee tracking data and pass it to the store
 	 * @param {Zarafa.core.data.IPMRecord} record The record to update the panel with
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */

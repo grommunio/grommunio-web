@@ -3,6 +3,7 @@
 namespace Kendox;
 
 use phpseclib3\Crypt\RSA;
+use phpseclib3\Crypt\RSA\PrivateKey;
 
 class TokenGenerator {
 	/**
@@ -96,9 +97,12 @@ class TokenGenerator {
 			throw new \Exception("Password not set for PFX-File.");
 		}
 		$pfxContent = file_get_contents($this->PfxFile);
+		if ($pfxContent === false) {
+			throw new \Exception("PFX-File could not be read.");
+		}
 		$results = [];
 		$read = openssl_pkcs12_read($pfxContent, $results, $this->PfxPassword);
-		if ($read == false) {
+		if ($read === false) {
 			throw new \Exception("Error on reading PFX-File: " . openssl_error_string());
 		}
 		$this->Certificate = $results['pkey'] . $results['cert'];
@@ -149,6 +153,8 @@ class TokenGenerator {
 	public function SignXmlString($signedInfoXml) {
 		try {
 			$data = iconv('utf-8', 'utf-16le', (string) $signedInfoXml);
+
+			/** @var PrivateKey $privateKey */
 			$privateKey = RSA::loadFormat('PKCS8', $this->CertPrivateKey)->
 				withPadding(RSA::SIGNATURE_PKCS1)->
 				withHash('sha512');

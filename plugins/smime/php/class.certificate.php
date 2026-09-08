@@ -2,6 +2,7 @@
 
 use WAYF\OCSP;
 use WAYF\X509;
+use WAYF\X509Helper;
 
 include_once 'lib/X509.php';
 include_once 'lib/Ocsp.php';
@@ -14,43 +15,67 @@ define('OCSP_CERT_STATUS', 5);
 define('OCSP_CERT_MISMATCH', 6);
 define('OCSP_RESPONSE_TIME_EARLY', 7);
 define('OCSP_RESPONSE_TIME_INVALID', 8);
+define('OCSP_RESPONSE_SIGNATURE_INVALID', 9);
+define('OCSP_RESPONDER_UNAUTHORIZED', 10);
+define('OCSP_RESPONSE_MALFORMED', 11);
 
 define('OCSP_CERT_STATUS_GOOD', 1);
 define('OCSP_CERT_STATUS_REVOKED', 2);
-define('OCSP_CERT_STATUS_UNKOWN', 3);
+define('OCSP_CERT_STATUS_UNKNOWN', 3);
+// Kept for compatibility with integrations using the original misspelling.
+define('OCSP_CERT_STATUS_UNKOWN', OCSP_CERT_STATUS_UNKNOWN);
 
 class OCSPException extends Exception {
-	private $status;
+	/** @var null|string OCSP certificate status from the response */
+	private ?string $certStatus;
 
-	public function setCertStatus($status) {
-		$this->status = $status;
+	/**
+	 * @param null|string $certStatus OCSP certificate status from the response
+	 */
+	public function __construct(string $message = '', int $code = 0, ?Throwable $previous = null, ?string $certStatus = null) {
+		parent::__construct($message, $code, $previous);
+		$this->certStatus = $certStatus;
 	}
 
-	public function getCertStatus() {
-		if (!$this->status) {
-			return;
+	public function setCertStatus(string $status): void {
+		$this->certStatus = $status;
+	}
+
+	/**
+	 * Return the normalized certificate status for an OCSP status exception.
+	 *
+	 * @return null|int one of OCSP_CERT_STATUS_*, or null when no status was recorded
+	 */
+	public function getCertStatus(): ?int {
+		if ($this->certStatus === null) {
+			return null;
 		}
 
-		if ($this->code !== OCSP_CERT_STATUS) {
-			return;
-		}
-
-		return match ($this->status) {
+		return match ($this->certStatus) {
 			'good' => OCSP_CERT_STATUS_GOOD,
 			'revoked' => OCSP_CERT_STATUS_REVOKED,
-			default => OCSP_CERT_STATUS_UNKOWN,
+			default => OCSP_CERT_STATUS_UNKNOWN,
 		};
 	}
-}
-
-function tempErrorHandler($errno, $errstr, $errfile, $errline) {
-	return true;
 }
 
 class Certificate {
 	private $cert;
 	private $data;
 	private $issuer;
+
+	private const OCSP_SIGNATURE_DIGESTS = [
+		'sha1WithRSAEncryption' => 'sha1',
+		'sha224WithRSAEncryption' => 'sha224',
+		'sha256WithRSAEncryption' => 'sha256',
+		'sha384WithRSAEncryption' => 'sha384',
+		'sha512WithRSAEncryption' => 'sha512',
+		'ecdsaWithSHA1' => 'sha1',
+		'ecdsaWithSHA224' => 'sha224',
+		'ecdsaWithSHA256' => 'sha256',
+		'ecdsaWithSHA384' => 'sha384',
+		'ecdsaWithSHA512' => 'sha512',
+	];
 
 	public function __construct($cert, $issuer = '') {
 		// XXX: error handling
@@ -85,10 +110,9 @@ class Certificate {
 	/**
 	 * Converts X509 DER format string to PEM format.
 	 *
-	 * @param string X509 Certificate in DER format
-	 * @param mixed $cert
+	 * @param string $cert X.509 certificate in DER format
 	 *
-	 * @return string X509 Certificate in PEM format
+	 * @return string X.509 certificate in PEM format
 	 */
 	protected function der2pem($cert) {
 		return "-----BEGIN CERTIFICATE-----\n" . chunk_split(base64_encode((string) $cert), 64, "\n") . "-----END CERTIFICATE-----\n";
@@ -97,10 +121,9 @@ class Certificate {
 	/**
 	 * Converts X509 PEM format string to DER format.
 	 *
-	 * @param string X509 Certificate in PEM format
-	 * @param mixed $pem_data
+	 * @param string $pem_data X.509 certificate in PEM format
 	 *
-	 * @return string X509 Certificate in DER format
+	 * @return string X.509 certificate in DER format
 	 */
 	protected function pem2der($pem_data) {
 		$begin = "CERTIFICATE-----";
@@ -331,7 +354,7 @@ class Certificate {
 		if (function_exists('openssl_x509_fingerprint')) {
 			$fp = openssl_x509_fingerprint($this->cert, $hash_algorithm);
 			if ($fp !== false) {
-				return strtoupper(implode(':', str_split($fp, 2)));
+				return strtoupper(rtrim(chunk_split($fp, 2, ':'), ':'));
 			}
 		}
 
@@ -341,7 +364,7 @@ class Certificate {
 		$fingerprint = hash($hash_algorithm, $body);
 
 		// Format 1000AB as 10:00:AB
-		return strtoupper(implode(':', str_split($fingerprint, 2)));
+		return strtoupper(rtrim(chunk_split($fingerprint, 2, ':'), ':'));
 	}
 
 	/**
@@ -375,11 +398,10 @@ class Certificate {
 	/**
 	 * Set the issuer of a certificate.
 	 *
-	 * @param string the issuer certificate
-	 * @param mixed $issuer
+	 * @param mixed $issuer candidate issuer certificate
 	 */
 	public function setIssuer($issuer) {
-		if (is_object($issuer)) {
+		if ($issuer instanceof self) {
 			$this->issuer = $issuer;
 		}
 	}
@@ -390,28 +412,21 @@ class Certificate {
 	 * @return bool verification succeeded or failed
 	 */
 	public function verify() {
-		$message = [];
-
 		if (!$this->valid()) {
 			throw new OCSPException('Certificate expired', OCSP_CERT_EXPIRED);
 		}
 
-		$issuer = $this->issuer();
-		if (!is_object($issuer)) {
+		$issuerCertificate = $this->issuer();
+		if (!$issuerCertificate instanceof self) {
 			throw new OCSPException('No issuer', OCSP_NO_ISSUER);
 		}
+		if (openssl_x509_verify($this->pem(), $issuerCertificate->pem()) !== 1) {
+			throw new OCSPException('Certificate issuer signature mismatch', OCSP_NO_ISSUER);
+		}
 
-		/* Set custom error handler since the nemid ocsp library uses
-		 * trigger_error() to throw errors when it cannot parse certain
-		 * x509 fields which are not required for the OCSP Request.
-		 * Also when receiving the OCSP request, the OCSP library
-		 * triggers errors when the request does not adhere to the
-		 * standard.
-		 */
-		set_error_handler("tempErrorHandler");
 		try {
 			$x509 = new X509();
-			$issuer = $x509->certificate($issuer->der());
+			$issuer = $x509->certificate($issuerCertificate->der(), true);
 			$certificate = $x509->certificate($this->der());
 
 			$ocspclient = new OCSP();
@@ -422,6 +437,7 @@ class Certificate {
 					// unused bits and it is always 0 for keys and certificates
 					'issuerKey' => substr((string) $issuer['tbsCertificate']['subjectPublicKeyInfo']['subjectPublicKey'], 1),
 					'serialNumber_der' => $certificate['tbsCertificate']['serialNumber_der'],
+					'serialNumber' => $certificate['tbsCertificate']['serialNumber'],
 				],
 				'sha1'
 			);
@@ -447,61 +463,346 @@ class Certificate {
 				throw new OCSPException('No response', OCSP_NO_RESPONSE);
 			}
 			$ocspresponse = $ocspclient->response($derresponse);
-		}
-		finally {
-			// Do not leave the request-wide warning handler installed when an
-			// OCSP endpoint is refused or unavailable.
-			restore_error_handler();
-		}
 
-		// responseStatuses: successful, malformedRequest,
-		// internalError, tryLater, sigRequired, unauthorized.
-		if (isset($ocspresponse['responseStatus']) &&
-			$ocspresponse['responseStatus'] !== 'successful') {
-			throw new OCSPException('Response status' . $ocspresponse['responseStatus'], OCSP_RESPONSE_STATUS);
+			$this->validateOcspResponse($ocspresponse, $certID, $issuerCertificate);
+		}
+		catch (OCSPException $e) {
+			throw $e;
+		}
+		catch (Throwable $e) {
+			throw new OCSPException('Malformed OCSP response: ' . $e->getMessage(), OCSP_RESPONSE_MALFORMED, $e);
 		}
 
-		$resp = $ocspresponse['responseBytes']['BasicOCSPResponse']['tbsResponseData']['responses'][0];
-		/*
-		 * OCSP response status, possible values are: good, revoked,
-		 * unknown according to the RFC
-		 * https://www.ietf.org/rfc/rfc2560.txt
-		 */
-		if ($resp['certStatus'] !== 'good') {
-			// Certificate status is not good, revoked or unknown
-			$exception = new OCSPException('Certificate status ' . $resp['certStatus'], OCSP_CERT_STATUS);
-			$exception->setCertStatus($resp['certStatus']);
+		return true;
+	}
 
-			throw $exception;
+	/**
+	 * Authenticate an OCSP response and return the matching SingleResponse.
+	 *
+	 * @param array $ocspResponse decoded OCSPResponse
+	 * @param array $certId      identifier sent in the request
+	 * @param self  $issuer      certificate issuer and responder trust anchor
+	 *
+	 * @return array matching SingleResponse
+	 */
+	protected function validateOcspResponse(array $ocspResponse, array $certId, self $issuer): array {
+		$status = $ocspResponse['responseStatus'] ?? null;
+		if ($status !== 'successful') {
+			throw new OCSPException('Response status ' . (string) $status, OCSP_RESPONSE_STATUS);
+		}
+		if (($ocspResponse['responseBytes']['responseType'] ?? null) !== 'ocspBasic' ||
+			!isset($ocspResponse['responseBytes']['BasicOCSPResponse']) ||
+			!is_array($ocspResponse['responseBytes']['BasicOCSPResponse'])) {
+			throw new OCSPException('Unsupported or missing BasicOCSPResponse', OCSP_RESPONSE_MALFORMED);
 		}
 
-		/* Check if:
-		 * - hash algorithm is equal
-		 * - check if issuerNamehash is the same from response
-		 * - check if issuerKeyHash is the same from response
-		 * - check if serialNumber is the same from response
-		 */
-		if ($resp['certID']['hashAlgorithm'] !== 'sha1' ||
-			$resp['certID']['issuerNameHash'] !== $certID['issuerNameHash'] ||
-			$resp['certID']['issuerKeyHash'] !== $certID['issuerKeyHash'] ||
-			$resp['certID']['serialNumber'] !== $certID['serialNumber']) {
-			// OCSP Revocation, mismatch between original and checked certificate
+		$basicResponse = $ocspResponse['responseBytes']['BasicOCSPResponse'];
+		$this->verifyOcspResponseSignature($basicResponse, $issuer);
+
+		$responses = $basicResponse['tbsResponseData']['responses'] ?? null;
+		if (!is_array($responses) || $responses === []) {
+			throw new OCSPException('OCSP response contains no certificate status', OCSP_RESPONSE_MALFORMED);
+		}
+
+		$matchingResponse = null;
+		foreach ($responses as $response) {
+			if (is_array($response) && $this->ocspCertIdMatches($response['certID'] ?? null, $certId)) {
+				$matchingResponse = $response;
+				break;
+			}
+		}
+		if ($matchingResponse === null) {
 			throw new OCSPException('Certificate mismatch', OCSP_CERT_MISMATCH);
 		}
 
-		// RFC 2560: response is current if thisUpdate <= now <= nextUpdate
-		$now = new DateTime(gmdate('YmdHis\Z'));
-		$thisUpdate = new DateTime($resp['thisUpdate']);
+		$this->validateOcspTimes($basicResponse['tbsResponseData'], $matchingResponse);
+		if (($matchingResponse['certStatus'] ?? null) !== 'good') {
+			$certStatus = (string) ($matchingResponse['certStatus'] ?? 'unknown');
 
-		if ($thisUpdate > $now) {
-			throw new OCSPException('OCSP response thisUpdate is in the future', OCSP_RESPONSE_TIME_EARLY);
+			throw new OCSPException('Certificate status ' . $certStatus, OCSP_CERT_STATUS, null, $certStatus);
 		}
 
-		if (isset($resp['nextUpdate'])) {
-			$nextUpdate = new DateTime($resp['nextUpdate']);
-			if ($now > $nextUpdate) {
-				throw new OCSPException('OCSP response has expired (now > nextUpdate)', OCSP_RESPONSE_TIME_INVALID);
+		return $matchingResponse;
+	}
+
+	/**
+	 * Verify the BasicOCSPResponse signature and responder authorization.
+	 */
+	private function verifyOcspResponseSignature(array $basicResponse, self $issuer): void {
+		$tbsResponseData = $basicResponse['tbsResponseData'] ?? null;
+		$tbsDer = $basicResponse['tbsResponseData_der'] ?? null;
+		$signature = $basicResponse['signature'] ?? null;
+		$signatureAlgorithm = $basicResponse['signatureAlgorithm'] ?? null;
+		if (!is_array($tbsResponseData) || !is_string($tbsDer) || !is_string($signature) ||
+			strlen($signature) < 2 || ord($signature[0]) !== 0 || !is_string($signatureAlgorithm)) {
+			throw new OCSPException('Invalid BasicOCSPResponse signature fields', OCSP_RESPONSE_MALFORMED);
+		}
+
+		$digest = self::OCSP_SIGNATURE_DIGESTS[$signatureAlgorithm] ?? null;
+		$pssParameters = null;
+		if ($signatureAlgorithm === 'rsaPSS') {
+			$parametersDer = $basicResponse['signatureAlgorithmParameters'] ?? null;
+			if (!is_string($parametersDer)) {
+				throw new OCSPException('RSASSA-PSS response has no parameters', OCSP_RESPONSE_SIGNATURE_INVALID);
+			}
+
+			try {
+				$pssParameters = (new OCSP())->rsaPssParameters($parametersDer);
+			}
+			catch (Throwable $e) {
+				throw new OCSPException('Invalid RSASSA-PSS parameters: ' . $e->getMessage(), OCSP_RESPONSE_SIGNATURE_INVALID, $e);
+			}
+			if ($pssParameters['trailerField'] !== 1) {
+				throw new OCSPException('Unsupported RSASSA-PSS trailer field', OCSP_RESPONSE_SIGNATURE_INVALID);
 			}
 		}
+		elseif ($digest === null) {
+			throw new OCSPException("Unsupported OCSP signature algorithm {$signatureAlgorithm}", OCSP_RESPONSE_SIGNATURE_INVALID);
+		}
+
+		$x509 = new X509();
+		// OpenSSL checked the issuer relationship before OCSP decoding. The
+		// minimal decoder may leave name constraints uninterpreted, but unknown
+		// critical and delegated-responder extensions remain fail-closed.
+		$issuerData = $x509->certificate($issuer->der(), true);
+		$candidates = [[
+			'certificate' => $issuer->pem(),
+			'data' => $issuerData,
+			'isIssuer' => true,
+		]];
+		foreach ($basicResponse['certs'] ?? [] as $certificateData) {
+			if (!is_array($certificateData) || !isset($certificateData['certificate_der'])) {
+				throw new OCSPException('Malformed embedded OCSP responder certificate', OCSP_RESPONSE_MALFORMED);
+			}
+			$certificateDer = $certificateData['certificate_der'];
+			if (!is_string($certificateDer)) {
+				throw new OCSPException('Malformed embedded OCSP responder certificate', OCSP_RESPONSE_MALFORMED);
+			}
+			$candidates[] = [
+				'certificate' => $this->der2pem($certificateDer),
+				'data' => $certificateData,
+				'isIssuer' => hash_equals(hash('sha256', $issuer->der(), true), hash('sha256', $certificateDer, true)),
+			];
+		}
+
+		$responderId = $tbsResponseData['responderID'] ?? null;
+		$signer = null;
+		foreach ($candidates as $candidate) {
+			if ($this->ocspResponderMatches($responderId, $candidate['data'])) {
+				$signer = $candidate;
+				break;
+			}
+		}
+		if ($signer === null) {
+			throw new OCSPException('OCSP responderID does not match a signer certificate', OCSP_RESPONDER_UNAUTHORIZED);
+		}
+
+		$this->authorizeOcspResponder($signer, $issuer);
+		$publicKey = openssl_pkey_get_public($signer['certificate']);
+		$signatureValue = substr($signature, 1);
+		if ($publicKey === false || ($pssParameters === null
+			? openssl_verify($tbsDer, $signatureValue, $publicKey, $digest) !== 1
+			: !$this->verifyRsaPssSignature($tbsDer, $signatureValue, $publicKey, $pssParameters))) {
+			throw new OCSPException('Invalid OCSP response signature', OCSP_RESPONSE_SIGNATURE_INVALID);
+		}
+	}
+
+	/**
+	 * Verify an RSASSA-PSS signature without relying on version-specific PHP padding APIs.
+	 *
+	 * @param OpenSSLAsymmetricKey|resource $publicKey
+	 * @param array{hash: string, mgfHash: string, saltLength: int, trailerField: int} $parameters
+	 */
+	private function verifyRsaPssSignature(string $data, string $signature, $publicKey, array $parameters): bool {
+		$keyDetails = openssl_pkey_get_details($publicKey);
+		if ($keyDetails === false || ($keyDetails['type'] ?? null) !== OPENSSL_KEYTYPE_RSA ||
+			!isset($keyDetails['bits']) || $keyDetails['bits'] < 512) {
+			return false;
+		}
+
+		$modulusBits = (int) $keyDetails['bits'];
+		$encodedLength = intdiv($modulusBits - 1 + 7, 8);
+		if (strlen($signature) !== intdiv($modulusBits + 7, 8) ||
+			!@openssl_public_decrypt($signature, $encoded, $publicKey, OPENSSL_NO_PADDING)) {
+			return false;
+		}
+		if (strlen($encoded) > $encodedLength &&
+			trim(substr($encoded, 0, -$encodedLength), "\x00") !== '') {
+			return false;
+		}
+		if (strlen($encoded) > $encodedLength) {
+			$encoded = substr($encoded, -$encodedLength);
+		}
+
+		$hash = $parameters['hash'];
+		$mgfHash = $parameters['mgfHash'];
+		$saltLength = $parameters['saltLength'];
+		$hashLength = strlen(hash($hash, '', true));
+		if (strlen($encoded) !== $encodedLength || $saltLength < 0 ||
+			$encodedLength < $hashLength + $saltLength + 2 ||
+			$encoded[$encodedLength - 1] !== "\xBC") {
+			return false;
+		}
+
+		$dataBlockLength = $encodedLength - $hashLength - 1;
+		$maskedDataBlock = substr($encoded, 0, $dataBlockLength);
+		$encodedHash = substr($encoded, $dataBlockLength, $hashLength);
+		$unusedBits = (8 * $encodedLength) - ($modulusBits - 1);
+		if ($unusedBits > 0 && (ord($maskedDataBlock[0]) & (0xFF << (8 - $unusedBits))) !== 0) {
+			return false;
+		}
+
+		$dataBlock = $maskedDataBlock ^ $this->mgf1($encodedHash, $dataBlockLength, $mgfHash);
+		if ($unusedBits > 0) {
+			$dataBlock[0] = chr(ord($dataBlock[0]) & (0xFF >> $unusedBits));
+		}
+		$paddingLength = $encodedLength - $hashLength - $saltLength - 2;
+		if (substr($dataBlock, 0, $paddingLength) !== str_repeat("\x00", $paddingLength) ||
+			$dataBlock[$paddingLength] !== "\x01") {
+			return false;
+		}
+
+		$salt = $saltLength === 0 ? '' : substr($dataBlock, -$saltLength);
+		$messageHash = hash($hash, $data, true);
+		$expectedHash = hash($hash, str_repeat("\x00", 8) . $messageHash . $salt, true);
+
+		return hash_equals($expectedHash, $encodedHash);
+	}
+
+	private function mgf1(string $seed, int $length, string $algorithm): string {
+		$mask = '';
+		for ($counter = 0; strlen($mask) < $length; ++$counter) {
+			$mask .= hash($algorithm, $seed . pack('N', $counter), true);
+		}
+
+		return substr($mask, 0, $length);
+	}
+
+	/**
+	 * Require either the issuing CA or a directly delegated OCSP signing certificate.
+	 *
+	 * @param array $signer candidate certificate and decoded fields
+	 */
+	private function authorizeOcspResponder(array $signer, self $issuer): void {
+		$parsed = openssl_x509_parse($signer['certificate']);
+		$now = time();
+		if ($parsed === false || ($parsed['validFrom_time_t'] ?? PHP_INT_MAX) > $now ||
+			($parsed['validTo_time_t'] ?? 0) < $now) {
+			throw new OCSPException('OCSP responder certificate is not currently valid', OCSP_RESPONDER_UNAUTHORIZED);
+		}
+		if ($signer['isIssuer']) {
+			return;
+		}
+
+		if (openssl_x509_verify($signer['certificate'], $issuer->pem()) !== 1) {
+			throw new OCSPException('OCSP responder was not issued by the certificate issuer', OCSP_RESPONDER_UNAUTHORIZED);
+		}
+		$extensions = $signer['data']['tbsCertificate']['extensions'] ?? [];
+		if (empty($extensions['extKeyUsage']['extnValue']['ocspSigning'])) {
+			throw new OCSPException('Delegated OCSP responder lacks the OCSPSigning EKU', OCSP_RESPONDER_UNAUTHORIZED);
+		}
+		if (isset($extensions['keyUsage']) && empty($extensions['keyUsage']['extnValue']['digitalSignature'])) {
+			throw new OCSPException('Delegated OCSP responder cannot sign digitally', OCSP_RESPONDER_UNAUTHORIZED);
+		}
+	}
+
+	/**
+	 * Check that a responderID identifies the certificate used to sign the response.
+	 *
+	 * @param mixed $responderId
+	 */
+	private function ocspResponderMatches($responderId, array $certificateData): bool {
+		if (!is_array($responderId)) {
+			return false;
+		}
+		if (isset($responderId['byName']) && is_array($responderId['byName'])) {
+			$helper = new X509Helper();
+			$subject = $certificateData['tbsCertificate']['subject_'] ?? null;
+
+			return is_string($subject) && hash_equals($subject, $helper->nameasstring($responderId['byName']));
+		}
+		if (isset($responderId['byKey']) && is_string($responderId['byKey'])) {
+			$subjectPublicKey = $certificateData['tbsCertificate']['subjectPublicKeyInfo']['subjectPublicKey'] ?? null;
+			if (!is_string($subjectPublicKey) || strlen($subjectPublicKey) < 2 || ord($subjectPublicKey[0]) !== 0) {
+				return false;
+			}
+			$expected = strtolower((string) preg_replace('/[^0-9a-f]/i', '', $responderId['byKey']));
+			$actual = sha1(substr($subjectPublicKey, 1));
+
+			return strlen($expected) === 40 && hash_equals($expected, $actual);
+		}
+
+		return false;
+	}
+
+	/**
+	 * Compare a decoded CertID with the request without timing-dependent hash comparisons.
+	 *
+	 * @param mixed $responseCertId
+	 */
+	private function ocspCertIdMatches($responseCertId, array $requestCertId): bool {
+		if (!is_array($responseCertId) ||
+			!isset($requestCertId['hash_alg_name'], $requestCertId['issuerNameHash'],
+				$requestCertId['issuerKeyHash'], $requestCertId['serialNumber'])) {
+			return false;
+		}
+		$responseAlgorithm = str_replace('-', '', strtolower((string) ($responseCertId['hashAlgorithm'] ?? '')));
+		$requestAlgorithm = str_replace('-', '', strtolower((string) $requestCertId['hash_alg_name']));
+
+		return $responseAlgorithm === $requestAlgorithm &&
+			$this->ocspValueMatches($responseCertId['issuerNameHash'] ?? null, $requestCertId['issuerNameHash']) &&
+			$this->ocspValueMatches($responseCertId['issuerKeyHash'] ?? null, $requestCertId['issuerKeyHash']) &&
+			(string) ($responseCertId['serialNumber'] ?? '') === (string) $requestCertId['serialNumber'];
+	}
+
+	private function ocspValueMatches($actual, $expected): bool {
+		return is_string($actual) && is_string($expected) && strlen($actual) === strlen($expected) && hash_equals($expected, $actual);
+	}
+
+	/**
+	 * Enforce the OCSP production/status validity window and local replay limit.
+	 */
+	private function validateOcspTimes(array $responseData, array $singleResponse): void {
+		$producedAt = $this->parseOcspTime($responseData['producedAt'] ?? null);
+		$thisUpdate = $this->parseOcspTime($singleResponse['thisUpdate'] ?? null);
+		$now = time();
+		$clockSkew = defined('PLUGIN_SMIME_OCSP_CLOCK_SKEW') ? max(0, (int) PLUGIN_SMIME_OCSP_CLOCK_SKEW) : 300;
+		$maxAge = defined('PLUGIN_SMIME_OCSP_MAX_AGE') ? max(1, (int) PLUGIN_SMIME_OCSP_MAX_AGE) : 86400;
+
+		if ($producedAt > $now + $clockSkew || $thisUpdate > $now + $clockSkew) {
+			throw new OCSPException('OCSP response time is in the future', OCSP_RESPONSE_TIME_EARLY);
+		}
+		if ($thisUpdate > $producedAt + $clockSkew) {
+			throw new OCSPException('OCSP thisUpdate is later than producedAt', OCSP_RESPONSE_TIME_INVALID);
+		}
+		if (isset($singleResponse['nextupdate'])) {
+			// The responder states how long its answer is valid; CA level
+			// responses commonly live for days.
+			$nextUpdate = $this->parseOcspTime($singleResponse['nextupdate']);
+			if ($nextUpdate < $thisUpdate || $nextUpdate < $now - $clockSkew) {
+				throw new OCSPException('OCSP response has expired', OCSP_RESPONSE_TIME_INVALID);
+			}
+		}
+		elseif ($thisUpdate < $now - $maxAge - $clockSkew) {
+			throw new OCSPException('OCSP response is older than the configured maximum age', OCSP_RESPONSE_TIME_INVALID);
+		}
+	}
+
+	/**
+	 * Parse the normalized DER GeneralizedTime emitted by the OCSP decoder.
+	 *
+	 * @param mixed $value
+	 */
+	private function parseOcspTime($value): int {
+		if (!is_string($value)) {
+			throw new OCSPException('Missing OCSP response time', OCSP_RESPONSE_MALFORMED);
+		}
+		$time = DateTimeImmutable::createFromFormat('!YmdHis\Z', $value, new DateTimeZone('UTC'));
+		$errors = DateTimeImmutable::getLastErrors();
+		if ($time === false || ($errors !== false && ($errors['warning_count'] > 0 || $errors['error_count'] > 0))) {
+			throw new OCSPException('Invalid OCSP response time', OCSP_RESPONSE_MALFORMED);
+		}
+
+		return $time->getTimestamp();
 	}
 }

@@ -72,7 +72,7 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 	},
 
 	/**
-	 * @return {Zarafa.note.NoteContextModel} the notet context model
+	 * @return {Zarafa.note.NoteContextModel} The note context model
 	 */
 	getModel: function()
 	{

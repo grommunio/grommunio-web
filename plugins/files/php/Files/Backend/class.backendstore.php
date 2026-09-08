@@ -38,7 +38,7 @@ class BackendStore {
 	public const FEATURE_OAUTH = "OAUTH";
 
 	/**
-	 * @var AbstractBackend
+	 * @var string[]
 	 */
 	private $backends = [];
 	protected static $_instance;
@@ -169,17 +169,31 @@ class BackendStore {
 	 *
 	 * @param mixed $backend
 	 *
-	 * @return AbstractBackend
+	 * @return AbstractBackend|false backend instance, or false when the backend is not registered
 	 */
 	public function getInstanceOfBackend($backend) {
 		$canonical = $this->normalizeBackendName($backend);
 		if ($this->backendExists($canonical)) {
 			$class = "\\Files\\Backend\\{$canonical}\\Backend";
 
-			return new $class();
+			return $this->instantiateBackend($class);
 		}
 
 		return false; // return false if the backend does not exist
+	}
+
+	/**
+	 * Instantiate a dynamically registered backend.
+	 *
+	 * Backend registration guarantees that the resolved class extends
+	 * AbstractBackend; the dynamic class name prevents static inference.
+	 *
+	 * @param string $class fully qualified backend class name
+	 *
+	 * @return AbstractBackend backend instance
+	 */
+	private function instantiateBackend($class) {
+		return /** @scrutinizer ignore-type */ new $class();
 	}
 
 	/**
@@ -196,7 +210,7 @@ class BackendStore {
 	/**
 	 * Return all registered backend internal names.
 	 *
-	 * @return array
+	 * @return string[]
 	 */
 	public function getRegisteredBackendNames() {
 		return $this->backends;

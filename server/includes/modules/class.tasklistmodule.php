@@ -25,7 +25,10 @@ class TaskListModule extends ListModule {
 	public function createNotifiers() {
 		$entryid = $this->getEntryID();
 		$GLOBALS["bus"]->registerNotifier('tasklistnotifier', $entryid);
-		$GLOBALS["bus"]->registerNotifier('newtodotasknotifier', bin2hex(TodoList::getEntryId()));
+		$todoListEntryId = TodoList::getEntryId();
+		if ($todoListEntryId !== false) {
+			$GLOBALS["bus"]->registerNotifier('newtodotasknotifier', bin2hex($todoListEntryId));
+		}
 	}
 
 	/**
@@ -37,7 +40,12 @@ class TaskListModule extends ListModule {
 			if (isset($actionType)) {
 				try {
 					$store = $this->getActionStore($action);
-					$entryid = $this->getActionEntryID($action);
+					$entryid = $this->getActionSingleEntryID($action);
+					if ($store === false || is_array($store)) {
+						$this->sendFeedback(false);
+
+						continue;
+					}
 
 					switch ($actionType) {
 						case "list":

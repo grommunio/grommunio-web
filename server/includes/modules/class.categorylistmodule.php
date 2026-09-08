@@ -29,11 +29,18 @@ class CategoryListModule extends Module {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
 				try {
-					match ($actionType) {
-						"list" => $this->listCategories($action),
-						"save" => $this->saveCategories($action),
-						default => $this->handleUnknownActionType($actionType),
-					};
+					switch ($actionType) {
+						case "list":
+							$this->listCategories($action);
+							break;
+
+						case "save":
+							$this->saveCategories($action);
+							break;
+
+						default:
+							$this->handleUnknownActionType($actionType);
+					}
 				}
 				catch (MAPIException $e) {
 					$this->processException($e, $actionType);
@@ -49,15 +56,14 @@ class CategoryListModule extends Module {
 	 * would silently read or overwrite the wrong mailbox's list.
 	 *
 	 * @param array $action the action data sent by the client
+	 *
 	 * @return resource the message store to operate on
 	 */
 	private function getStoreForAction($action) {
-		if (empty($action["store_entryid"])) {
-			return $GLOBALS["mapisession"]->getDefaultMessageStore();
-		}
-
-		$store = $this->getActionStore($action);
-		if (!$store) {
+		$store = empty($action["store_entryid"])
+			? $GLOBALS["mapisession"]->getDefaultMessageStore()
+			: $this->getActionStore($action);
+		if ($store === false || is_array($store)) {
 			throw new MAPIException("Could not open the requested mailbox.", MAPI_E_NOT_FOUND, null, _("Could not open the requested mailbox."));
 		}
 

@@ -9,12 +9,12 @@ class ZarafaErrorException extends BaseException {
 	/**
 	 * Constructs the Exception.
 	 *
-	 * @param string     $errorMessage   The exception message
-	 * @param int        $code           The Exception code
-	 * @param string     $filename       the filename where the exception is thrown
-	 * @param string     $lineno         the line number where the exception is thrown
-	 * @param string     $displayMessage the exception message to show at client side
-	 * @param null|mixed $errorContext
+	 * @param string      $errorMessage   The exception message
+	 * @param int         $code           The Exception code
+	 * @param string      $filename       the filename where the exception is thrown
+	 * @param int         $lineno         the line number where the exception is thrown
+	 * @param mixed       $errorContext
+	 * @param null|string $displayMessage the exception message to show at client side
 	 */
 	public function __construct($errorMessage, $code, $filename, $lineno, protected $errorContext = null, $displayMessage = null) {
 		if (!$displayMessage) {
@@ -29,8 +29,7 @@ class ZarafaErrorException extends BaseException {
 	/**
 	 * Function sets the filename where the exception was thrown.
 	 *
-	 * @param string filename name of the file where exception was thrown
-	 * @param mixed $filename
+	 * @param string $filename name of the file where the exception was thrown
 	 */
 	protected function setFile($filename = '') {
 		$this->file = $filename;
@@ -39,10 +38,9 @@ class ZarafaErrorException extends BaseException {
 	/**
 	 * Function sets the line where the exception was thrown.
 	 *
-	 * @param string lineno no of the line in file where exception was thrown
-	 * @param mixed $lineno
+	 * @param int $lineno line number where the exception was thrown
 	 */
-	protected function setLineNo($lineno = '') {
+	protected function setLineNo($lineno = 0) {
 		$this->line = $lineno;
 	}
 }

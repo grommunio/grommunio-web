@@ -1290,7 +1290,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Function is use to retive the message class based on the selected
+	 * Function used to retrieve the message class based on the selected
 	 * {@link #createMessageTypeFieldset}.
 	 * @param {String} checkBoxName The checkBoxName of the selected check box from check box list
 	 * @return {Array} return and array of message classes.

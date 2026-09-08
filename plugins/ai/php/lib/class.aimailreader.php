@@ -19,6 +19,8 @@ class AIMailReader {
 	/**
 	 * Open a message and return its normalized fields.
 	 *
+	 * @param mixed $store
+	 *
 	 * @return array{subject:string, from:string, to:string, date:string, body:string}
 	 *
 	 * @throws AIException if the message cannot be opened
@@ -34,6 +36,8 @@ class AIMailReader {
 
 	/**
 	 * Render a single message as a text block (header + body), within budget.
+	 *
+	 * @param mixed $store
 	 */
 	public function readAsText($store, string $entryidBin): string {
 		return $this->formatBlock($this->read($store, $entryidBin), $this->maxChars);
@@ -42,6 +46,8 @@ class AIMailReader {
 	/**
 	 * Return only the subject and body of a message — used for translation,
 	 * where the From/To/Date metadata is noise.
+	 *
+	 * @param mixed $store
 	 */
 	public function readBodyWithSubject($store, string $entryidBin): string {
 		$message = $this->read($store, $entryidBin);
@@ -57,6 +63,8 @@ class AIMailReader {
 	/**
 	 * Render the whole conversation thread as text. Falls back to the single
 	 * message when the thread cannot be determined.
+	 *
+	 * @param mixed $store
 	 */
 	public function readThreadAsText($store, string $entryidBin): string {
 		$message = mapi_msgstore_openentry($store, $entryidBin);
@@ -109,6 +117,8 @@ class AIMailReader {
 	/**
 	 * Query the sibling messages of a conversation, oldest first. Returns [] on
 	 * any MAPI failure so the caller can degrade gracefully.
+	 *
+	 * @param mixed $store
 	 */
 	private function queryThreadRows($store, string $parentEntryid, int $topicTag, string $topic): array {
 		try {
@@ -123,9 +133,8 @@ class AIMailReader {
 				VALUE => [$topicTag => $topic],
 			]];
 			mapi_table_sort($table, [PR_MESSAGE_DELIVERY_TIME => TABLE_SORT_ASCEND]);
-			$rows = mapi_table_queryallrows($table, [PR_ENTRYID], $restriction);
 
-			return is_array($rows) ? $rows : [];
+			return mapi_table_queryallrows($table, [PR_ENTRYID], $restriction);
 		}
 		catch (Throwable) {
 			return [];
@@ -149,6 +158,8 @@ class AIMailReader {
 
 	/**
 	 * Extract the fields of interest from an opened message.
+	 *
+	 * @param mixed $message
 	 */
 	private function messageToArray($message): array {
 		$tags = [
@@ -183,6 +194,8 @@ class AIMailReader {
 
 	/**
 	 * Read the best available body: plain text, else HTML converted to text.
+	 *
+	 * @param mixed $message
 	 */
 	private function readBody($message): string {
 		$body = $this->streamProperty($message, PR_BODY);
@@ -202,6 +215,8 @@ class AIMailReader {
 
 	/**
 	 * Read a property as a stream and return its contents (bounded).
+	 *
+	 * @param mixed $message
 	 */
 	private function streamProperty($message, int $tag): string {
 		try {

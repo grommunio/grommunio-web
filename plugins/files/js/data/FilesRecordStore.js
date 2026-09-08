@@ -252,7 +252,7 @@ Zarafa.plugins.files.data.FilesRecordStore = Ext.extend(Zarafa.core.data.ListMod
 	 * @param arg
 	 */
 	onLoadException: function (proxy, type, action, options, response, arg) {
-		// handle unauthorized messages of plugins that need fronten authorization (dropbox, google,...)
+		// Handle unauthorized messages from plugins that need frontend authorization (Dropbox, Google, ...)
 		if(response.error && response.error.info.code) {
 			if(parseInt(response.error.info.code) == 401) {
 				// recall the auth procedure

@@ -20,13 +20,13 @@ Zarafa.core.data.PresenceCache = Ext.extend(Object, {
 	cache: {},
 
 	/**
-	 * Returns the entry of the user in the {#cache presence cache} for the passed user, or
+	 * Returns the entry of the user in the {@link #cache presence cache} for the passed user, or
 	 * undefined if the user is not found.
 	 * @param {Zarafa.core.data.UserIdObject} user The user for which the entry in the
-	 * {#cache presence cache} will be returned.
+	 * {@link #cache presence cache} will be returned.
 	 * @param {Boolean} noSync If set to true then the given user will not be used to
 	 * update the cache. Note: this is a very ugly way to prevent infinite recursion
-	 * when this function is called from {#syncUsers}
+	 * when this function is called from {@link #syncUsers}
 	 * @return {Object|undefined}
 	 * @private
 	 */

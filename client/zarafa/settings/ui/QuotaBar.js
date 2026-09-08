@@ -104,7 +104,7 @@ Zarafa.settings.ui.QuotaBar = Ext.extend(Ext.BoxComponent, {
 					quota.push({size: storeSize});
 				}
 
-				// Count the factor by 'total width of qouta bar'/'max qouta limit'
+				// Calculate the factor as 'total width of quota bar' / 'maximum quota limit'.
 				var maxAvailableWidth = this.el.child('div.zarafa-quotabar').getWidth(true);
 				var factor = maxAvailableWidth/maxLimit;
 
@@ -120,7 +120,7 @@ Zarafa.settings.ui.QuotaBar = Ext.extend(Ext.BoxComponent, {
 					}
 
 					/*
-					 * get absolute difference between qouta levels in blockSize
+					 * Get the absolute difference between quota levels in blockSize
 					 *
 					 * |--------|                           first
 					 * |-------------------|                second
@@ -157,7 +157,7 @@ Zarafa.settings.ui.QuotaBar = Ext.extend(Ext.BoxComponent, {
 					 * This variable will maintain that which quota is till now displayed,
 					 * e.g. we have set soft quota and hard quota only, then first it will
 					 * draw normal green block till soft-quota limit, then it will get
-					 * element of soft quota i.e. orange element, then it will draw ornage
+					 * element of soft quota i.e. orange element, then it will draw the orange
 					 * element till hard-quota and now it reached hard quota so it will draw
 					 * red element.
 					 */

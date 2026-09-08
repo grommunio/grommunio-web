@@ -18,7 +18,7 @@ Zarafa.calendar.dialogs.AppointmentPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * @cfg {Number} activeTab, the tab which should be active in {Zarafa.calendar.dialogs.AppointmentPanel tabs}
 	 * 0 opens Appointment tab{@link Zarafa.calendar.dialogs.AppointmentTab}, this is defaultValue, we also want this tab when we accept any proposed time from attendee,
-	 * 1 opens Freebusy tab{@link Zarafa.calendar.dialogs.FreebusyTab}, we want this tab to be opened when we view all propsed time from Attendees
+	 * 1 opens Freebusy tab{@link Zarafa.calendar.dialogs.FreebusyTab}; we want this tab opened when viewing all proposed times from attendees
 	 * 2 opens Tracking tab{@link Zarafa.calendar.dialogs.TrackingTab}
 	 */
 	activeTab: undefined,

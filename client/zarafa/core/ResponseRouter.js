@@ -86,7 +86,7 @@ Zarafa.core.ResponseRouter = Ext.extend(Ext.util.Observable, {
 	 * Response Router. This handler will be used to handle the Response for the request
 	 * with the given identifier.
 	 * @param {String} id The unique request identifier on which the ResponseHandler
-	 * must be registerdd.
+	 * must be registered.
 	 * @param {Zarafa.core.data.AbstractResponseHandler} handler The ResponseHandler
 	 * which must be registered for the given id.
 	 */

@@ -1,7 +1,6 @@
 <?php
 
 class Plugintemplatesnippets extends Plugin {
-
 	/**
 	 * Register hooks.
 	 */

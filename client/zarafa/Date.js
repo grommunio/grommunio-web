@@ -145,7 +145,7 @@ Ext.apply(Date.prototype, {
 		}
 
 		switch(interval.toLowerCase()) {
-			// Changing the time is done more accuretely then
+			// Changing the time is done more accurately than
 			// changing the date. This is because we have to work
 			// around DST issues (which we don't care for when
 			// changing the day). In JS, we have the following

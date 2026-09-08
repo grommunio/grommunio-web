@@ -322,12 +322,12 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 	/**
 	 * Function which collects all the recipients smtp_addresses in a list and sets them as 'smime'
 	 * property in the mailrecord. Because the hook in PHP doesn't have updated recipienttable yet.
-	 * Always append the logged in user, so the user is able to to view the sent encrypted mail in
+	 * Always append the logged-in user, so the user is able to view the sent encrypted mail in
 	 * 'Sent Items'.
 	 *
 	 * @param {Zarafa.mailcreatecontentpanel} dialog
-	 * @param {Zarfa.core.data.IPMRecord} record The record which is going to be send
-	 * @return {Boolean} returns false if public key isn't find and stops the record from being send
+	 * @param {Zarafa.core.data.IPMRecord} record The record which is going to be sent
+	 * @return {Boolean} Returns false if a public key is not found and stops the record from being sent
 	 *
 	 */
 	onBeforeSendRecord : function(dialog, record) {
@@ -449,7 +449,7 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 	/**
 	 * Handler for the sign button, when clicked it checks if the private certificate exists.
 	 * If we have signing already set and click it again, we unset it.
-	 * If we already set have encryption set, we set a special message_class for both sign+ecnrypt.
+	 * If encryption is already set, we set a special message_class for both signing and encryption.
 	 *
 	 * @param {Ext.button} button
 	 */

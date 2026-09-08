@@ -50,10 +50,10 @@ $serverConfig = array_merge($serverConfig, [
 	'show_logout_button' => SHOW_LOGOUT_BUTTON,
 ]);
 if (CONTACT_PREFIX) {
-	$serverConfig['contact_prefix'] = json_decode(CONTACT_PREFIX);
+	$serverConfig['contact_prefix'] = json_decode((string) CONTACT_PREFIX);
 }
 if (CONTACT_SUFFIX) {
-	$serverConfig['contact_suffix'] = json_decode(CONTACT_SUFFIX);
+	$serverConfig['contact_suffix'] = json_decode((string) CONTACT_SUFFIX);
 }
 if (defined('ADDITIONAL_COLOR_SCHEMES')) {
 	$serverConfig['additional_color_schemes'] = json_decode((string) ADDITIONAL_COLOR_SCHEMES);

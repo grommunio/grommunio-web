@@ -290,8 +290,8 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 	 */
 	getHTMLEditorPlugins: function()
 	{
-		return container.getPlugins().filter(function (htmlEditorPlguin)  {
-			return htmlEditorPlguin instanceof Zarafa.core.HtmlEditorPlugin;
+		return container.getPlugins().filter(function (htmlEditorPlugin)  {
+			return htmlEditorPlugin instanceof Zarafa.core.HtmlEditorPlugin;
 		});
 	},
 

@@ -58,9 +58,7 @@ abstract class AIProvider {
 	 * over an HTTP-200 connection (e.g. Anthropic overloaded_error). Returns a
 	 * user-safe message when the payload is an error, otherwise null.
 	 */
-	protected function parseStreamError(string $data): ?string {
-		return null;
-	}
+	abstract protected function parseStreamError(string $data): ?string;
 
 	/**
 	 * Send a chat request and return the generated text.
@@ -95,6 +93,8 @@ abstract class AIProvider {
 
 	/**
 	 * Execute a buffered (non-streaming) request.
+	 *
+	 * @param mixed $ch
 	 */
 	private function execBuffered($ch): string {
 		$resp = curl_exec($ch);
@@ -117,6 +117,8 @@ abstract class AIProvider {
 
 	/**
 	 * Execute a streaming request, dispatching each text fragment to $onDelta.
+	 *
+	 * @param mixed $ch
 	 */
 	private function execStreaming($ch, callable $onDelta): string {
 		$buffer = '';
@@ -171,6 +173,7 @@ abstract class AIProvider {
 
 		if ($code >= 400) {
 			$json = json_decode($raw, true);
+
 			throw new AIException($this->httpError($code, is_array($json) ? $json : null));
 		}
 		// Surface a mid-stream provider error rather than presenting a blank or
@@ -202,12 +205,9 @@ abstract class AIProvider {
 	 * message. Never includes credentials.
 	 */
 	protected function httpError(int $code, ?array $json): string {
-		$providerMsg = '';
-		if ($json !== null) {
-			// OpenAI: {error:{message}}; Anthropic: {error:{message}} or {message}
-			$providerMsg = (string) ($json['error']['message'] ?? $json['message'] ?? '');
-			$providerMsg = mb_substr(trim($providerMsg), 0, 200);
-		}
+		// OpenAI: {error:{message}}; Anthropic: {error:{message}} or {message}
+		$providerMsg = (string) ($json['error']['message'] ?? $json['message'] ?? '');
+		$providerMsg = mb_substr(trim($providerMsg), 0, 200);
 
 		$base = match (true) {
 			$code === 401, $code === 403 => _('The AI service rejected the credentials. Check the API key and endpoint.'),

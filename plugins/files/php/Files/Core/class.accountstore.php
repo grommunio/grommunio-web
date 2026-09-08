@@ -13,6 +13,7 @@ require_once __DIR__ . "/class.exception.php";
 require_once __DIR__ . "/../Backend/class.backendstore.php";
 require_once __DIR__ . "/../Backend/class.exception.php";
 
+use Files\Backend\AbstractBackend;
 use Files\Backend\BackendStore;
 use Files\Core\Util\Logger;
 
@@ -45,6 +46,9 @@ class AccountStore {
 		$backendStore = BackendStore::getInstance();
 		$backend = $backendStore->normalizeBackendName($backend);
 		$backendInstance = $backendStore->getInstanceOfBackend($backend);
+		if ($backendInstance === false) {
+			throw new Exception(_("Unknown backend"));
+		}
 		$features = $backendInstance->getAvailableFeatures();
 
 		// check backend_config for validity
@@ -99,6 +103,9 @@ class AccountStore {
 		$normalizedBackend = $backendStore->normalizeBackendName($account->getBackend());
 		$account->setBackend($normalizedBackend);
 		$backendInstance = $backendStore->getInstanceOfBackend($normalizedBackend);
+		if ($backendInstance === false) {
+			throw new Exception(_("Unknown backend"));
+		}
 		$features = $backendInstance->getAvailableFeatures();
 		$account->setFeatures($features);
 
@@ -163,6 +170,9 @@ class AccountStore {
 	 */
 	public function deleteAccount($accountId) {
 		$account = $this->getAccount($accountId);
+		if ($account === null) {
+			throw new Exception(_("Unknown account ID"));
+		}
 		// Do not allow deleting administrative accounts, but fail silently.
 		if (!$account->getCannotChangeFlag()) {
 			$GLOBALS["settings"]->delete(self::ACCOUNT_STORAGE_PATH . "/" . $accountId);
@@ -177,10 +187,10 @@ class AccountStore {
 	 *
 	 * @param mixed $accountId
 	 *
-	 * @return Account
+	 * @return null|Account
 	 */
 	public function getAccount($accountId) {
-		return $this->accounts[$accountId];
+		return $this->accounts[$accountId] ?? null;
 	}
 
 	/**
@@ -269,7 +279,6 @@ class AccountStore {
 	 * @return array
 	 */
 	private function checkBackendConfig($backendInstance, $backendConfig) {
-		$status = Account::STATUS_NEW;
 		$description = _('Account is ready to use.');
 
 		try {
@@ -292,7 +301,7 @@ class AccountStore {
 	 * @param array $backendConfig Backend specific account settings
 	 *                             like username, password, serveraddress, ...
 	 *
-	 * @return an unique id
+	 * @return string unique account identifier
 	 */
 	private function createNewId($backendConfig) {
 		// lets create a hash
@@ -344,10 +353,10 @@ class AccountStore {
 	/**
 	 * Encrypt the given string.
 	 *
-	 * @param       $version the storage version used to identify what encryption to use
-	 * @param mixed $value
+	 * @param mixed $value   value to encrypt
+	 * @param int   $version storage version used to identify the encryption scheme
 	 *
-	 * @return string
+	 * @return mixed encrypted value, or an unchanged boolean value
 	 */
 	private function encryptBackendConfigProperty($value, $version = 0) {
 		if ($version == self::ACCOUNT_VERSION && !is_bool($value)) {
@@ -374,10 +383,10 @@ class AccountStore {
 	/**
 	 * Decrypt the given string.
 	 *
-	 * @param       $version the storage version used to identify what encryption to use
-	 * @param mixed $value
+	 * @param mixed $value   value to decrypt
+	 * @param int   $version storage version used to identify the encryption scheme
 	 *
-	 * @return string
+	 * @return mixed decrypted value, or an unchanged boolean value
 	 */
 	private function decryptBackendConfigProperty($value, $version = 0) {
 		if (is_bool($value)) {

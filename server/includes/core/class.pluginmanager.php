@@ -73,6 +73,11 @@ class PluginManager {
 	public $sessionData;
 
 	/**
+	 * Serialized plugin session data at load time, keyed by plugin name.
+	 */
+	private $sessionDataSnapshots;
+
+	/**
 	 * Plugins whose client files are not sent to the current user,
 	 * see getUnloadedPlugins().
 	 * [pluginname] = true.
@@ -125,6 +130,7 @@ class PluginManager {
 		$this->modules = [];
 		$this->notifiers = [];
 		$this->sessionData = false;
+		$this->sessionDataSnapshots = [];
 		if ($this->enabled) {
 			$this->pluginpath = PATH_PLUGIN_DIR;
 			$this->pluginconfigpath = PATH_PLUGIN_CONFIG_DIR;
@@ -166,12 +172,12 @@ class PluginManager {
 		if (!DEBUG_PLUGINS_DISABLE_CACHE && $pluginState->read("version") === getWebappVersion()) {
 			$this->plugindata = $pluginState->read("plugindata");
 			$pluginOrder = $pluginState->read("pluginorder");
-			$this->plugindata = $this->normalizePluginData($this->plugindata ?? []);
+			$this->plugindata = $this->normalizePluginData(is_array($this->plugindata) ? $this->plugindata : []);
 			$this->pluginorder = $this->normalizePluginOrder(empty($pluginOrder) ? [] : $pluginOrder);
 		}
 
 		// If no plugindata has been stored yet, get it from the plugins dir.
-		if (!$this->plugindata || !$this->pluginorder) {
+		if ($this->plugindata === [] || $this->pluginorder === []) {
 			$disabledPlugins = [];
 			if (!empty($disabled)) {
 				$disabledPlugins = array_map([$this, 'normalizePluginName'], explode(';', $disabled));
@@ -183,10 +189,10 @@ class PluginManager {
 
 			// Check if any plugin directories found or not
 			if (!empty($this->plugindata)) {
-				// Not we update plugindata and pluginorder based on the configured dependencies.
+				// Now we update plugindata and pluginorder based on the configured dependencies.
 				// Note that each change to plugindata requires the requirements and dependencies
 				// to be recalculated.
-				while (!$this->pluginorder || !$this->validatePluginRequirements()) {
+				while ($this->pluginorder === [] || !$this->validatePluginRequirements()) {
 					// Generate the order in which the plugins should be loaded,
 					// this uses the $this->plugindata as base.
 					$pluginOrder = $this->buildPluginDependencyOrder();
@@ -239,17 +245,20 @@ class PluginManager {
 			$legacyData = $plugindata[$legacy] ?? null;
 			$canonicalData = $plugindata[$canonical] ?? null;
 			$freshData = $this->processPlugin($canonical);
-			if ($freshData !== null) {
+			if (is_array($freshData)) {
 				$canonicalData = $freshData;
 			}
-			elseif ($canonicalData === null && $legacyData !== null) {
+			elseif (!is_array($canonicalData) && is_array($legacyData)) {
 				$canonicalData = $legacyData;
 			}
 
-			if ($canonicalData !== null) {
+			if (is_array($canonicalData)) {
 				$canonicalData['pluginname'] = $canonical;
 				$canonicalData = $this->migrateLegacyFileReferences($canonicalData, $legacy, $canonical);
 				$plugindata[$canonical] = $canonicalData;
+			}
+			else {
+				unset($plugindata[$canonical]);
 			}
 
 			if ($legacyData !== null) {
@@ -336,7 +345,9 @@ class PluginManager {
 					if (is_dir($this->pluginpath . DIRECTORY_SEPARATOR . $plugin)) {
 						if (is_file($this->pluginpath . DIRECTORY_SEPARATOR . $plugin . DIRECTORY_SEPARATOR . 'manifest.xml')) {
 							$processed = $this->processPlugin($plugin);
-							$data[$processed['pluginname']] = $processed;
+							if (is_array($processed)) {
+								$data[$processed['pluginname']] = $processed;
+							}
 						}
 					}
 				}
@@ -470,7 +481,7 @@ class PluginManager {
 				++$failedCount;
 			}
 
-			// If the $failedCount matches the the number of items in the $plugins array,
+			// If the $failedCount matches the number of items in the $plugins array,
 			// it means that all unordered plugins have unmet dependencies. This could only
 			// happen for circular dependencies. In that case we will refuse to load those plugins.
 			if ($failedCount === count($plugins)) {
@@ -526,9 +537,9 @@ class PluginManager {
 	 * Read in the manifest and get the files that need to be included
 	 * for placing hooks, defining modules, etc.
 	 *
-	 * @param $dirname string name of the directory of the plugin
+	 * @param string $dirname name of the directory of the plugin
 	 *
-	 * @return array The plugin data read from the given directory
+	 * @return array|false the plugin data, or false for an invalid manifest
 	 */
 	public function processPlugin($dirname) {
 		// Read XML manifest file of plugin
@@ -562,20 +573,27 @@ class PluginManager {
 	 * To improve performance the data is only loaded if a
 	 * plugin requests (reads or saves) the data.
 	 *
-	 * @param $pluginname string Identifier of the plugin
+	 * @param string $pluginname Identifier of the plugin
 	 */
 	public function loadSessionData($pluginname) {
 		$canonicalName = $this->normalizePluginName($pluginname);
 
 		// lazy reading of sessionData
-		if (!$this->sessionData) {
+		if ($this->sessionData === false) {
 			$sessState = new State('plugin_sessiondata');
-			$sessState->open();
-			$this->sessionData = $sessState->read("sessionData");
+			if (!$sessState->open()) {
+				throw new RuntimeException('Unable to read plugin session state');
+			}
+
+			try {
+				$this->sessionData = $sessState->read("sessionData");
+			}
+			finally {
+				$sessState->close();
+			}
 			if (!isset($this->sessionData) || $this->sessionData == "") {
 				$this->sessionData = [];
 			}
-			$sessState->close();
 		}
 
 		if ($pluginname !== $canonicalName && isset($this->sessionData[$pluginname])) {
@@ -588,6 +606,7 @@ class PluginManager {
 			if (!isset($this->sessionData[$canonicalName])) {
 				$this->sessionData[$canonicalName] = [];
 			}
+			$this->sessionDataSnapshots[$canonicalName] = serialize($this->sessionData[$canonicalName]);
 			$this->plugins[$canonicalName]->setSessionData($this->sessionData[$canonicalName]);
 		}
 	}
@@ -597,19 +616,87 @@ class PluginManager {
 	 *
 	 * Saves sessiondata of the plugins to the disk.
 	 *
-	 * @param $pluginname string Identifier of the plugin
+	 * @param string $pluginname Identifier of the plugin
 	 */
 	public function saveSessionData($pluginname) {
 		$canonicalName = $this->normalizePluginName($pluginname);
-		if ($this->pluginExists($canonicalName)) {
-			$this->sessionData[$canonicalName] = $this->plugins[$canonicalName]->getSessionData();
+		if (!$this->pluginExists($canonicalName)) {
+			return;
 		}
-		if ($this->sessionData) {
-			$sessState = new State('plugin_sessiondata');
-			$sessState->open();
-			$sessState->write("sessionData", $this->sessionData);
+
+		$pluginSessionData = $this->plugins[$canonicalName]->getSessionData();
+		if (isset($this->sessionDataSnapshots[$canonicalName])) {
+			$baseSessionData = unserialize($this->sessionDataSnapshots[$canonicalName]);
+		}
+		else {
+			$baseSessionData = is_array($this->sessionData) && array_key_exists($canonicalName, $this->sessionData) ?
+				$this->sessionData[$canonicalName] : [];
+		}
+		if (!is_array($this->sessionData)) {
+			$this->sessionData = [];
+		}
+
+		$sessState = new State('plugin_sessiondata');
+		if (!$sessState->open()) {
+			error_log('Unable to save plugin session state: ' . $canonicalName);
+
+			return;
+		}
+
+		try {
+			$currentSessionData = $sessState->read("sessionData");
+			if (!is_array($currentSessionData)) {
+				$currentSessionData = [];
+			}
+			if ($pluginname !== $canonicalName) {
+				if (!isset($currentSessionData[$canonicalName]) && isset($currentSessionData[$pluginname])) {
+					$currentSessionData[$canonicalName] = $currentSessionData[$pluginname];
+				}
+				unset($currentSessionData[$pluginname]);
+			}
+			$currentPluginData = $currentSessionData[$canonicalName] ?? [];
+			$currentSessionData[$canonicalName] = $this->mergePluginSessionData(
+				$currentPluginData,
+				$pluginSessionData,
+				$baseSessionData
+			);
+			$sessState->write("sessionData", $currentSessionData);
+			$this->sessionData = $currentSessionData;
+			$this->plugins[$canonicalName]->setSessionData($currentSessionData[$canonicalName]);
+			$this->sessionDataSnapshots[$canonicalName] = serialize($currentSessionData[$canonicalName]);
+		}
+		finally {
 			$sessState->close();
 		}
+	}
+
+	/**
+	 * Merge keys changed by one plugin instance into the latest state.
+	 *
+	 * @param mixed $current
+	 * @param mixed $local
+	 * @param mixed $base
+	 */
+	private function mergePluginSessionData($current, $local, $base) {
+		if (!is_array($current) || !is_array($local) || !is_array($base)) {
+			return $local;
+		}
+
+		foreach ($base as $key => $value) {
+			if (!array_key_exists($key, $local)) {
+				unset($current[$key]);
+			}
+			elseif (serialize($local[$key]) !== serialize($value)) {
+				$current[$key] = $local[$key];
+			}
+		}
+		foreach ($local as $key => $value) {
+			if (!array_key_exists($key, $base)) {
+				$current[$key] = $value;
+			}
+		}
+
+		return $current;
 	}
 
 	/**
@@ -617,7 +704,7 @@ class PluginManager {
 	 *
 	 * Checks if plugin exists.
 	 *
-	 * @param $pluginname string Identifier of the plugin
+	 * @param string $pluginname identifier of the plugin
 	 *
 	 * @return bool true when plugin exists, false when it does not
 	 */
@@ -635,9 +722,9 @@ class PluginManager {
 	 *
 	 * Obtain the filepath of the given modulename
 	 *
-	 * @param $modulename string Identifier of the modulename
+	 * @param string $modulename identifier of the module
 	 *
-	 * @return string The path to the file for the module
+	 * @return false|string path to the module file, or false when it is unknown
 	 */
 	public function getModuleFilePath($modulename) {
 		return $this->modules[$modulename] ?? false;
@@ -648,9 +735,9 @@ class PluginManager {
 	 *
 	 * Obtain the filepath of the given notifiername
 	 *
-	 * @param $notifiername string Identifier of the notifiername
+	 * @param string $notifiername identifier of the notifier
 	 *
-	 * @return string The path to the file for the notifier
+	 * @return false|string path to the notifier file, or false when it is unknown
 	 */
 	public function getNotifierFilePath($notifiername) {
 		return $this->notifiers[$notifiername] ?? false;
@@ -1031,7 +1118,7 @@ class PluginManager {
 	/**
 	 * getTranslationFilePaths.
 	 *
-	 * Returning an array of paths to to the translations files. This will be
+	 * Returning an array of paths to the translation files. This will be
 	 * used by the gettext functionality.
 	 *
 	 * @return array list of paths to translations
@@ -1059,10 +1146,10 @@ class PluginManager {
 	 *
 	 * Extracts all the data from the Plugin XML manifest.
 	 *
-	 * @param $xml     string XML manifest of plugin
-	 * @param $dirname string name of the directory of the plugin
+	 * @param string $xml     plugin XML manifest
+	 * @param string $dirname plugin directory name
 	 *
-	 * @return array data from XML converted into array that the PluginManager can use
+	 * @return array|false plugin data, or false when the manifest is unsupported or incomplete
 	 */
 	public function extractPluginDataFromXML($xml, $dirname) {
 		$plugindata = [
@@ -1232,7 +1319,6 @@ class PluginManager {
 							LOAD_RELEASE => [],
 						];
 						foreach ($component->files->client->clientfile as $clientfile) {
-							$filename = false;
 							$load = LOAD_RELEASE;
 							$filename = (string) $clientfile;
 							if (isset($clientfile['load'])) {
@@ -1261,7 +1347,6 @@ class PluginManager {
 							LOAD_RELEASE => [],
 						];
 						foreach ($component->files->resources->resourcefile as $resourcefile) {
-							$filename = false;
 							$load = LOAD_RELEASE;
 							$filename = (string) $resourcefile;
 							if (isset($resourcefile['load'])) {

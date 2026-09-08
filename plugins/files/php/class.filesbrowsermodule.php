@@ -16,22 +16,17 @@ require_once __DIR__ . "/Files/Core/Util/class.pathutil.php";
 require_once __DIR__ . "/vendor/autoload.php";
 
 use Files\Backend\AbstractBackend;
-use Files\Backend\BackendStore;
 use Files\Backend\Exception as BackendException;
 use Files\Backend\iFeatureSharing;
 use Files\Core\Account;
 use Files\Core\Exception as AccountException;
 use Files\Core\Util\ArrayUtil;
-use Files\Core\Util\Logger;
+use Files\Core\Util\Logger as FilesLogger;
 use Files\Core\Util\PathUtil;
 use Files\Core\Util\StringUtil;
 
 /**
  * This module handles all list and change requests for the files browser.
- *
- * @class FilesBrowserModule
- *
- * @extends ListModule
  */
 class FilesBrowserModule extends FilesListModule {
 	public const LOG_CONTEXT = "FilesBrowserModule"; // Context for the Logger
@@ -265,7 +260,7 @@ class FilesBrowserModule extends FilesListModule {
 
 			$starttime = microtime(true);
 			$nodes = $this->getFolderContent($nodeId, $initializedBackend, $onlyFiles);
-			Logger::debug(self::LOG_CONTEXT, "[loadfiles]: getFolderContent took: " . (microtime(true) - $starttime) . " seconds");
+			FilesLogger::debug(self::LOG_CONTEXT, "[loadfiles]: getFolderContent took: " . (microtime(true) - $starttime) . " seconds");
 
 			$nodes = $this->sortFolderContent($nodes, $actionData, false);
 		}
@@ -314,22 +309,21 @@ class FilesBrowserModule extends FilesListModule {
 			$this->setCache($accountID, $cachePath, $dir);
 		}
 
-		// FIXME: There is something issue with getting sharing information from owncloud.
+		// FIXME: There is an issue with getting sharing information from ownCloud.
 		// check if backend supports sharing and load the information
-		if ($backendInstance->supports(BackendStore::FEATURE_SHARING)) {
-			Logger::debug(self::LOG_CONTEXT, "Checking for shared folders! ({$relNodeId})");
+		if ($backendInstance instanceof iFeatureSharing) {
+			FilesLogger::debug(self::LOG_CONTEXT, "Checking for shared folders! ({$relNodeId})");
 
 			$time_start = microtime(true);
 
-			/** @var iFeatureSharing $backendInstance */
 			$sharingInfo = $backendInstance->getShares($relNodeId);
 			$time_end = microtime(true);
 			$time = $time_end - $time_start;
 
-			Logger::debug(self::LOG_CONTEXT, "Checking for shared took {$time} s!");
+			FilesLogger::debug(self::LOG_CONTEXT, "Checking for shared took {$time} s!");
 		}
 
-		if ($dir) {
+		if ($dir !== []) {
 			$updateCache = false;
 			foreach ($dir as $id => $node) {
 				$type = FILES_FILE;
@@ -342,19 +336,19 @@ class FilesBrowserModule extends FilesListModule {
 					continue;
 				}
 
-				// Check if foldernames have a trailing slash, if not, add one!
+				// Check if folder names have a trailing slash, if not, add one!
 				if ($type === FILES_FOLDER && !StringUtil::endsWith($id, "/")) {
 					$id .= "/";
 				}
 
 				$realID = $nodeIdPrefix . $id;
 
-				Logger::debug(self::LOG_CONTEXT, "parsing: " . $id . " in base: " . $nodeId);
+				FilesLogger::debug(self::LOG_CONTEXT, "parsing: " . $id . " in base: " . $nodeId);
 
 				$filename = stringToUTF8Encode(basename((string) $id));
 
 				$size = $node['getcontentlength'] === null ? -1 : intval($node['getcontentlength']);
-				$size = $type == FILES_FOLDER ? -1 : $size; // folder's dont have a size
+				$size = $type == FILES_FOLDER ? -1 : $size; // Folders do not have a size
 
 				$fileid = $node['fileid'] === "-1" ? -1 : intval($node['fileid']);
 
@@ -420,7 +414,7 @@ class FilesBrowserModule extends FilesListModule {
 			}
 		}
 		else {
-			Logger::debug(self::LOG_CONTEXT, "dir was empty");
+			FilesLogger::debug(self::LOG_CONTEXT, "dir was empty");
 		}
 
 		return $nodes;
@@ -446,7 +440,7 @@ class FilesBrowserModule extends FilesListModule {
 			$sortdir = $data['sort'][0]['direction'];
 		}
 
-		Logger::debug(self::LOG_CONTEXT, "sorting by " . $sortkey . " in direction: " . $sortdir);
+		FilesLogger::debug(self::LOG_CONTEXT, "sorting by " . $sortkey . " in direction: " . $sortdir);
 
 		if ($navtree) {
 			$sortednodes = ArrayUtil::sort_by_key($nodes, $sortkey, $sortdir);
@@ -472,6 +466,7 @@ class FilesBrowserModule extends FilesListModule {
 		// TODO: function is duplicate of class.hierarchylistmodule.php of delete function.
 		$result = false;
 		if (isset($actionData['records']) && is_array($actionData['records'])) {
+			$response = [];
 			foreach ($actionData['records'] as $record) {
 				$nodeId = $record['folder_id'];
 				$relNodeId = substr((string) $nodeId, strpos((string) $nodeId, '/'));
@@ -482,7 +477,7 @@ class FilesBrowserModule extends FilesListModule {
 				$initializedBackend = $this->initializeBackend($account);
 
 				$result = $initializedBackend->delete($relNodeId);
-				Logger::debug(self::LOG_CONTEXT, "deleted: " . $nodeId . ", worked: " . $result);
+				FilesLogger::debug(self::LOG_CONTEXT, "deleted: " . $nodeId . ", worked: " . $result);
 
 				// clear the cache
 				$this->deleteCache($account->getId(), dirname($relNodeId));
@@ -516,9 +511,9 @@ class FilesBrowserModule extends FilesListModule {
 			catch (BackendException) {
 				// TODO: this might fails because the file was already deleted.
 				// fire error message if any other error occurred.
-				Logger::debug(self::LOG_CONTEXT, "deleted a directory that was no longer available");
+				FilesLogger::debug(self::LOG_CONTEXT, "deleted a directory that was no longer available");
 			}
-			Logger::debug(self::LOG_CONTEXT, "deleted: " . $nodeId . ", worked: " . $result);
+			FilesLogger::debug(self::LOG_CONTEXT, "deleted: " . $nodeId . ", worked: " . $result);
 
 			// Get old cached data.
 			$cachedDir = $this->getCache($accountId, dirname($relNodeId));
@@ -558,6 +553,7 @@ class FilesBrowserModule extends FilesListModule {
 	 * @return bool if the backend request failed
 	 */
 	private function move($actionType, $actionData) {
+		$response = [];
 		$dst = rtrim((string) $actionData['message_action']["destination_folder_id"], '/');
 
 		$overwrite = $actionData['message_action']["overwrite"] ?? true;
@@ -671,13 +667,15 @@ class FilesBrowserModule extends FilesListModule {
 				$this->notifySubFolders($messageProps["props"]["folder_id"]);
 			}
 		}
+
+		return !empty($messageProps);
 	}
 
 	/**
 	 * Check if given filename or folder already exists on server.
 	 *
-	 * @param array $records     which needs to be check for existence
-	 * @param array $destination where the given records needs to be moved, uploaded, or renamed
+	 * @param array        $records     which needs to be check for existence
+	 * @param false|string $destination destination node ID, or false to use the records' folder
 	 *
 	 * @return bool True if duplicate found, false otherwise
 	 *
@@ -686,20 +684,20 @@ class FilesBrowserModule extends FilesListModule {
 	private function checkIfExists($records, $destination) {
 		$duplicate = false;
 
-		if (isset($records) && is_array($records)) {
-			if (!isset($destination) || $destination == false) {
+		if (is_array($records) && $records !== []) {
+			if ($destination === false) {
 				$destination = reset($records);
 				$destination = $destination["id"]; // we can only check files in the same folder, so one request will be enough
-				Logger::debug(self::LOG_CONTEXT, "Resetting destination to check.");
+				FilesLogger::debug(self::LOG_CONTEXT, "Resetting destination to check.");
 			}
-			Logger::debug(self::LOG_CONTEXT, "Checking: " . $destination);
+			FilesLogger::debug(self::LOG_CONTEXT, "Checking: " . $destination);
 			$account = $this->accountFromNode($destination);
 
 			// initialize the backend
 			$initializedBackend = $this->initializeBackend($account);
 
 			$relDirname = substr((string) $destination, strpos((string) $destination, '/'));
-			Logger::debug(self::LOG_CONTEXT, "Getting content for: " . $relDirname);
+			FilesLogger::debug(self::LOG_CONTEXT, "Getting content for: " . $relDirname);
 
 			try {
 				$lsdata = $initializedBackend->ls($relDirname); // we can only check files in the same folder, so one request will be enough
@@ -710,15 +708,15 @@ class FilesBrowserModule extends FilesListModule {
 			if (isset($lsdata) && is_array($lsdata)) {
 				foreach ($records as $record) {
 					$relRecId = substr((string) $record["id"], strpos((string) $record["id"], '/'));
-					Logger::debug(self::LOG_CONTEXT, "Checking rec: " . $relRecId);
+					FilesLogger::debug(self::LOG_CONTEXT, "Checking rec: " . $relRecId);
 					foreach ($lsdata as $argsid => $args) {
 						if (strcmp((string) $args['resourcetype'], "collection") == 0 && $record["isFolder"] && strcmp(basename($argsid), basename($relRecId)) == 0) { // we have a folder
-							Logger::debug(self::LOG_CONTEXT, "Duplicate folder found: " . $argsid);
+							FilesLogger::debug(self::LOG_CONTEXT, "Duplicate folder found: " . $argsid);
 							$duplicate = true;
 							break;
 						}
 						if (strcmp((string) $args['resourcetype'], "collection") != 0 && !$record["isFolder"] && strcmp(basename($argsid), basename($relRecId)) == 0) {
-							Logger::debug(self::LOG_CONTEXT, "Duplicate file found: " . $argsid);
+							FilesLogger::debug(self::LOG_CONTEXT, "Duplicate file found: " . $argsid);
 							$duplicate = true;
 							break;
 						}
@@ -726,7 +724,7 @@ class FilesBrowserModule extends FilesListModule {
 					}
 
 					if ($duplicate) {
-						Logger::debug(self::LOG_CONTEXT, "Duplicate entry: " . $relRecId);
+						FilesLogger::debug(self::LOG_CONTEXT, "Duplicate entry: " . $relRecId);
 						break;
 					}
 				}
@@ -743,6 +741,8 @@ class FilesBrowserModule extends FilesListModule {
 	 * @param array $actionData
 	 * @param mixed $actionType
 	 *
+	 * @return bool true after the downloaded files have been registered
+	 *
 	 * @throws BackendException if the backend request fails
 	 */
 	private function downloadSelectedFilesToTmp($actionType, $actionData) {
@@ -751,24 +751,26 @@ class FilesBrowserModule extends FilesListModule {
 		$response = [];
 
 		$attachment_state = new AttachmentState();
-		$attachment_state->open();
+		$downloaded = [];
 
 		$account = $this->accountFromNode($ids[0]);
 
 		// initialize the backend
 		$initializedBackend = $this->initializeBackend($account);
 
+		// Download without the attachment state lock: the backend transfer must not
+		// stall attachment uploads and message saves elsewhere in the session.
 		foreach ($ids as $file) {
 			$filename = basename((string) $file);
 			$tmpname = $attachment_state->getAttachmentTmpPath($filename);
 
 			// download file from the backend
 			$relRecId = substr((string) $file, strpos((string) $file, '/'));
-			$http_status = $initializedBackend->get_file($relRecId, $tmpname);
+			$initializedBackend->get_file($relRecId, $tmpname);
 
 			$filesize = filesize($tmpname);
 
-			Logger::debug(self::LOG_CONTEXT, "Downloading: " . $filename . " to: " . $tmpname);
+			FilesLogger::debug(self::LOG_CONTEXT, "Downloading: " . $filename . " to: " . $tmpname);
 
 			$attach_id = uniqid();
 			$response['items'][] = [
@@ -778,21 +780,27 @@ class FilesBrowserModule extends FilesListModule {
 				'tmpname' => PathUtil::getFilenameFromPath($tmpname),
 			];
 
-			$attachment_state->addAttachmentFile($dialogAttachmentId, PathUtil::getFilenameFromPath($tmpname), [
+			$downloaded[PathUtil::getFilenameFromPath($tmpname)] = [
 				"name" => $filename,
 				"size" => $filesize,
 				"type" => PathUtil::get_mime($tmpname),
 				"attach_id" => $attach_id,
 				"sourcetype" => 'default',
-			]);
+			];
 
-			Logger::debug(self::LOG_CONTEXT, "filesize: " . $filesize);
+			FilesLogger::debug(self::LOG_CONTEXT, "filesize: " . $filesize);
 		}
 
+		$attachment_state->open();
+		foreach ($downloaded as $tmpname => $fileinfo) {
+			$attachment_state->addAttachmentFile($dialogAttachmentId, $tmpname, $fileinfo);
+		}
 		$attachment_state->close();
 		$response['status'] = true;
 		$this->addActionData($actionType, $response);
 		$GLOBALS["bus"]->addData($this->getResponseData());
+
+		return true;
 	}
 
 	/**
@@ -801,10 +809,12 @@ class FilesBrowserModule extends FilesListModule {
 	 * @param array $actionData
 	 * @param mixed $actionType
 	 *
+	 * @return bool true when every file was prepared and uploaded
+	 *
 	 * @throws BackendException if the backend request fails
 	 */
 	private function uploadToBackend($actionType, $actionData) {
-		Logger::debug(self::LOG_CONTEXT, "preparing attachment");
+		FilesLogger::debug(self::LOG_CONTEXT, "preparing attachment");
 
 		$account = $this->accountFromNode($actionData["destdir"]);
 
@@ -815,35 +825,52 @@ class FilesBrowserModule extends FilesListModule {
 
 		if ($actionData["type"] === "attachment") {
 			foreach ($actionData["items"] as $item) {
-				[$tmpname, $filename] = $this->prepareAttachmentForUpload($item);
+				$prepared = $this->prepareAttachmentForUpload($item);
+				if ($prepared === false) {
+					$result = false;
+
+					continue;
+				}
+				[$tmpname, $filename] = $prepared;
 
 				$dirName = substr((string) $actionData["destdir"], strpos((string) $actionData["destdir"], '/'));
 				$filePath = $dirName . $filename;
 
-				Logger::debug(self::LOG_CONTEXT, "Uploading to: " . $filePath . " tmpfile: " . $tmpname);
+				FilesLogger::debug(self::LOG_CONTEXT, "Uploading to: " . $filePath . " tmpfile: " . $tmpname);
 
 				$result = $result && $initializedBackend->put_file($filePath, $tmpname);
-				unlink($tmpname);
+				if (!@unlink($tmpname)) {
+					FilesLogger::error(self::LOG_CONTEXT, "Unable to remove temporary file: " . $tmpname);
+				}
 
 				$this->updateDirCache($initializedBackend, $dirName, $filePath, $actionData);
 			}
 		}
 		elseif ($actionData["type"] === "mail") {
 			foreach ($actionData["items"] as $item) {
-				[$tmpname, $filename] = $this->prepareEmailForUpload($item);
+				$prepared = $this->prepareEmailForUpload($item);
+				if ($prepared === false) {
+					$result = false;
+
+					continue;
+				}
+				[$tmpname, $filename] = $prepared;
 
 				$dirName = substr((string) $actionData["destdir"], strpos((string) $actionData["destdir"], '/'));
 				$filePath = $dirName . $filename;
 
-				Logger::debug(self::LOG_CONTEXT, "Uploading to: " . $filePath . " tmpfile: " . $tmpname);
+				FilesLogger::debug(self::LOG_CONTEXT, "Uploading to: " . $filePath . " tmpfile: " . $tmpname);
 
 				$result = $result && $initializedBackend->put_file($filePath, $tmpname);
-				unlink($tmpname);
+				if (!@unlink($tmpname)) {
+					FilesLogger::error(self::LOG_CONTEXT, "Unable to remove temporary file: " . $tmpname);
+				}
 
 				$this->updateDirCache($initializedBackend, $dirName, $filePath, $actionData);
 			}
 		}
 		else {
+			$result = false;
 			$this->sendFeedback(false, [
 				'type' => ERROR_GENERAL,
 				'info' => [
@@ -858,6 +885,8 @@ class FilesBrowserModule extends FilesListModule {
 		$response['status'] = $result;
 		$this->addActionData($actionType, $response);
 		$GLOBALS["bus"]->addData($this->getResponseData());
+
+		return $result;
 	}
 
 	/**
@@ -890,12 +919,9 @@ class FilesBrowserModule extends FilesListModule {
 	 *
 	 * @param mixed $item
 	 *
-	 * @return array (tmpname, filename) or false on error
+	 * @return array|false temporary path and filename, or false on error
 	 */
 	private function prepareAttachmentForUpload($item) {
-		// Check which type isset
-		$openType = "attachment";
-
 		// Get store id
 		$storeid = false;
 		if (isset($item["store"])) {
@@ -913,9 +939,6 @@ class FilesBrowserModule extends FilesListModule {
 		if (isset($item["attachNum"])) {
 			$attachNum = $item["attachNum"];
 		}
-
-		$tmpname = "";
-		$filename = "";
 
 		// Check if storeid and entryid isset
 		if ($storeid && $entryid) {
@@ -948,9 +971,7 @@ class FilesBrowserModule extends FilesListModule {
 					// Check if the attachment is opened
 					if ($attachment) {
 						// Get the props of the attachment
-						$props = mapi_attach_getprops($attachment, [PR_ATTACH_LONG_FILENAME, PR_ATTACH_MIME_TAG, PR_DISPLAY_NAME, PR_ATTACH_METHOD]);
-						// Content Type
-						$contentType = "application/octet-stream";
+						$props = mapi_attach_getprops($attachment, [PR_ATTACH_LONG_FILENAME, PR_ATTACH_FILENAME, PR_DISPLAY_NAME]);
 						// Filename
 						$filename = "ERROR";
 
@@ -969,31 +990,6 @@ class FilesBrowserModule extends FilesListModule {
 							}
 						}
 
-						// Set content type
-						if (isset($props[PR_ATTACH_MIME_TAG])) {
-							$contentType = $props[PR_ATTACH_MIME_TAG];
-						}
-						else {
-							// Parse the extension of the filename to get the content type
-							if (strrpos($filename, ".") !== false) {
-								$extension = strtolower(substr($filename, strrpos($filename, ".")));
-								$contentType = "application/octet-stream";
-								if (is_readable("mimetypes.dat")) {
-									$fh = fopen("mimetypes.dat", "r");
-									$ext_found = false;
-									while (!feof($fh) && !$ext_found) {
-										$line = fgets($fh);
-										preg_match("/(\\.[a-z0-9]+)[ \t]+([^ \t\n\r]*)/i", $line, $result);
-										if ($extension == $result[1]) {
-											$ext_found = true;
-											$contentType = $result[2];
-										}
-									}
-									fclose($fh);
-								}
-							}
-						}
-
 						$tmpname = tempnam(TMP_PATH, stripslashes($filename));
 
 						// Open a stream to get the attachment data
@@ -1001,29 +997,35 @@ class FilesBrowserModule extends FilesListModule {
 						$stat = mapi_stream_stat($stream);
 						// File length =  $stat["cb"]
 
-						Logger::debug(self::LOG_CONTEXT, "filesize: " . $stat["cb"]);
+						FilesLogger::debug(self::LOG_CONTEXT, "filesize: " . $stat["cb"]);
 
 						$fhandle = fopen($tmpname, 'w');
-						$buffer = null;
 						for ($i = 0; $i < $stat["cb"]; $i += BLOCK_SIZE) {
 							// Write stream
 							$buffer = mapi_stream_read($stream, BLOCK_SIZE);
+							if ($buffer === false) {
+								fclose($fhandle);
+								unlink($tmpname);
+								FilesLogger::error(self::LOG_CONTEXT, "attachment stream could not be read");
+
+								return false;
+							}
 							fwrite($fhandle, $buffer, strlen($buffer));
 						}
 						fclose($fhandle);
 
-						Logger::debug(self::LOG_CONTEXT, "temp attachment written to " . $tmpname);
+						FilesLogger::debug(self::LOG_CONTEXT, "temp attachment written to " . $tmpname);
 
 						return [$tmpname, $filename];
 					}
 				}
 			}
 			else {
-				Logger::error(self::LOG_CONTEXT, "store could not be opened");
+				FilesLogger::error(self::LOG_CONTEXT, "store could not be opened");
 			}
 		}
 		else {
-			Logger::error(self::LOG_CONTEXT, "wrong call, store and entryid have to be set");
+			FilesLogger::error(self::LOG_CONTEXT, "wrong call, store and entryid have to be set");
 		}
 
 		return false;
@@ -1034,7 +1036,7 @@ class FilesBrowserModule extends FilesListModule {
 	 *
 	 * @param mixed $item
 	 *
-	 * @return array (tmpname, filename) or false on error
+	 * @return array|false temporary path and filename, or false on error
 	 */
 	private function prepareEmailForUpload($item) {
 		// Get store id
@@ -1049,9 +1051,6 @@ class FilesBrowserModule extends FilesListModule {
 			$entryid = $item["entryid"];
 		}
 
-		$tmpname = "";
-		$filename = "";
-
 		$store = $GLOBALS['mapisession']->openMessageStore(hex2bin($storeid));
 		$message = mapi_msgstore_openentry($store, hex2bin($entryid));
 
@@ -1063,8 +1062,8 @@ class FilesBrowserModule extends FilesListModule {
 			$messageProps = mapi_getprops($message, [PR_SUBJECT, PR_MESSAGE_CLASS]);
 			$cls = $messageProps[PR_MESSAGE_CLASS];
 			$isSupportedMessage = class_match_prefix($cls, "IPM.Note") ||
-			                      class_match_prefix($cls, "Report.IPM.Note") ||
-			                      class_match_prefix($cls, "IPM.Schedule");
+								  class_match_prefix($cls, "Report.IPM.Note") ||
+								  class_match_prefix($cls, "IPM.Schedule");
 
 			if ($isSupportedMessage) {
 				// Get addressbook for current session
@@ -1086,10 +1085,16 @@ class FilesBrowserModule extends FilesListModule {
 				$stat = mapi_stream_stat($stream);
 
 				$fhandle = fopen($tmpname, 'w');
-				$buffer = null;
 				for ($i = 0; $i < $stat["cb"]; $i += BLOCK_SIZE) {
 					// Write stream
 					$buffer = mapi_stream_read($stream, BLOCK_SIZE);
+					if ($buffer === false) {
+						fclose($fhandle);
+						unlink($tmpname);
+						FilesLogger::error(self::LOG_CONTEXT, "message stream could not be read");
+
+						return false;
+					}
 					fwrite($fhandle, $buffer, strlen($buffer));
 				}
 				fclose($fhandle);
@@ -1122,6 +1127,8 @@ class FilesBrowserModule extends FilesListModule {
 					'display_message' => _("No record given!"),
 				],
 			]);
+
+			return false;
 		}
 
 		$account = $this->accountFromNode($records[0]);
@@ -1138,6 +1145,7 @@ class FilesBrowserModule extends FilesListModule {
 			$sInfo = $initializedBackend->sharingDetails($relRecords);
 		}
 		catch (Exception $e) {
+			$response = [];
 			$response['status'] = false;
 			$response['header'] = _('Fetching sharing information failed');
 			$response['message'] = $e->getMessage();
@@ -1182,6 +1190,8 @@ class FilesBrowserModule extends FilesListModule {
 					'display_message' => _("No record given!"),
 				],
 			]);
+
+			return false;
 		}
 
 		$account = $this->accountFromNode($records[0]);
@@ -1199,6 +1209,7 @@ class FilesBrowserModule extends FilesListModule {
 			$sInfo = $initializedBackend->share($sharingRecords);
 		}
 		catch (Exception $e) {
+			$response = [];
 			$response['status'] = false;
 			$response['header'] = _('Sharing failed');
 			$response['message'] = $e->getMessage();
@@ -1245,9 +1256,11 @@ class FilesBrowserModule extends FilesListModule {
 					'display_message' => _("No record given!"),
 				],
 			]);
+
+			return false;
 		}
 
-		$account = $this->accountStore->getAccount($accountID);
+		$account = $this->accountFromId($accountID);
 
 		// initialize the backend
 		$initializedBackend = $this->initializeBackend($account);
@@ -1261,6 +1274,7 @@ class FilesBrowserModule extends FilesListModule {
 			$sInfo = $initializedBackend->share($sharingRecords, true);
 		}
 		catch (Exception $e) {
+			$response = [];
 			$response['status'] = false;
 			$response['header'] = _('Updating share failed');
 			$response['message'] = $e->getMessage();
@@ -1300,17 +1314,20 @@ class FilesBrowserModule extends FilesListModule {
 					'display_message' => _("No record given!"),
 				],
 			]);
+
+			return false;
 		}
 
-		$account = $this->accountStore->getAccount($accountID);
+		$account = $this->accountFromId($accountID);
 
 		// initialize the backend
 		$initializedBackend = $this->initializeBackend($account);
 
 		try {
-			$sInfo = $initializedBackend->unshare($records);
+			$initializedBackend->unshare($records);
 		}
 		catch (Exception $e) {
+			$response = [];
 			$response['status'] = false;
 			$response['header'] = _('Deleting share failed');
 			$response['message'] = $e->getMessage();
@@ -1339,7 +1356,7 @@ class FilesBrowserModule extends FilesListModule {
 	public function updateCache($actionType, $actionData) {
 		$nodeId = $actionData['id'];
 		$accountID = $this->accountIDFromNode($nodeId);
-		$account = $this->accountStore->getAccount($accountID);
+		$account = $this->accountFromId($accountID);
 		// initialize the backend
 		$initializedBackend = $this->initializeBackend($account, true);
 		$relNodeId = substr((string) $nodeId, strpos((string) $nodeId, '/'));

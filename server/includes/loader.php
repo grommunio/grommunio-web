@@ -59,11 +59,14 @@ class FileLoader {
 	/**
 	 * Obtain the list of Extjs & UX CSS files.
 	 *
-	 * @param number $load the LOAD_RELEASE | LOAD_DEBUG | LOAD_SOURCE flag
+	 * The stylesheet is shared by all load modes, but this method follows the
+	 * same mode-aware public contract as the other loader methods.
+	 *
+	 * @param int $load the LOAD_RELEASE | LOAD_DEBUG | LOAD_SOURCE flag
 	 *
 	 * @return array The array of CSS files
 	 */
-	public function getExtjsCSSFiles($load) {
+	public function getExtjsCSSFiles(/* @scrutinizer ignore-unused */ $load) {
 		return ["client/extjs/resources/css/ext-all-ux.css"];
 	}
 
@@ -79,7 +82,7 @@ class FileLoader {
 		if ($load == LOAD_RELEASE) {
 			return ["client/grommunio.js"];
 		}
-		elseif ($load == LOAD_DEBUG) {
+		if ($load == LOAD_DEBUG) {
 			return ["client/grommunio-debug.js"];
 		}
 

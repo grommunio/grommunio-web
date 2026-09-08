@@ -44,8 +44,12 @@ class AdvancedSearchListModule extends ListModule {
 			if (isset($actionType)) {
 				try {
 					$store = $this->getActionStore($action);
-					$parententryid = $this->getActionParentEntryID($action);
-					$entryid = $this->getActionEntryID($action);
+					$entryid = $this->getActionSingleEntryID($action);
+					if ($store === false || is_array($store)) {
+						$this->sendFeedback(false);
+
+						continue;
+					}
 
 					switch ($actionType) {
 						case "list":
@@ -94,17 +98,17 @@ class AdvancedSearchListModule extends ListModule {
 	/**
 	 * Function which retrieves a list of messages in a folder.
 	 *
-	 * @param object $store      MAPI Message Store Object
-	 * @param string $entryid    entryid of the folder
-	 * @param array  $action     the action data, sent by the client
-	 * @param string $actionType the action type, sent by the client
+	 * @param false|resource $store      MAPI message store, or false when unavailable
+	 * @param false|string   $entryid    entryid of the folder, or false when unavailable
+	 * @param array          $action     the action data, sent by the client
+	 * @param string         $actionType the action type, sent by the client
 	 */
 	#[Override]
 	public function messageList($store, $entryid, $action, $actionType) {
 		$this->searchFolderList = false; // Set to indicate this is not the search result, but a normal folder content
 		$data = [];
 
-		if ($store && $entryid) {
+		if ($store !== false && $entryid !== false) {
 			// Restriction
 			$this->parseRestriction($action);
 
@@ -119,7 +123,6 @@ class AdvancedSearchListModule extends ListModule {
 			if ($actionType == 'search') {
 				$rows = [[PR_ENTRYID => $entryid]];
 				if (isset($action['subfolders']) && $action['subfolders']) {
-					$folder = null;
 					$inboxEntryId = null;
 
 					try {
@@ -261,6 +264,7 @@ class AdvancedSearchListModule extends ListModule {
 		}
 
 		$type = $restriction[0];
+
 		switch ($type) {
 			case RES_AND:
 			case RES_OR:
@@ -281,6 +285,7 @@ class AdvancedSearchListModule extends ListModule {
 				if (count($children) === 1) {
 					return [$children[0], $filters];
 				}
+
 				return [[
 					'op' => $type == RES_AND ? 'AND' : 'OR',
 					'children' => $children,
@@ -293,6 +298,7 @@ class AdvancedSearchListModule extends ListModule {
 				if ($childAst === null) {
 					return [null, $filters];
 				}
+
 				return [[
 					'op' => 'NOT',
 					'children' => [$childAst],
@@ -310,6 +316,7 @@ class AdvancedSearchListModule extends ListModule {
 					if ($value !== null) {
 						$filters['message_classes'][] = $value;
 					}
+
 					return [null, $filters];
 				}
 
@@ -330,7 +337,8 @@ class AdvancedSearchListModule extends ListModule {
 							];
 						}
 					}
-				} else {
+				}
+				else {
 					$terms[] = [
 						'type' => 'term',
 						'fields' => $fields,
@@ -344,6 +352,7 @@ class AdvancedSearchListModule extends ListModule {
 				if (count($terms) === 1) {
 					return [$terms[0], $filters];
 				}
+
 				return [[
 					'op' => 'OR',
 					'children' => $terms,
@@ -361,10 +370,12 @@ class AdvancedSearchListModule extends ListModule {
 					if ($value !== null) {
 						if ($subres[RELOP] == RELOP_LT || $subres[RELOP] == RELOP_LE) {
 							$filters['date_end'] = $value;
-						} elseif ($subres[RELOP] == RELOP_GT || $subres[RELOP] == RELOP_GE) {
+						}
+						elseif ($subres[RELOP] == RELOP_GT || $subres[RELOP] == RELOP_GE) {
 							$filters['date_start'] = $value;
 						}
 					}
+
 					return [null, $filters];
 				}
 
@@ -379,6 +390,7 @@ class AdvancedSearchListModule extends ListModule {
 				if (($subres[ULPROPTAG] ?? null) == PR_MESSAGE_FLAGS && ($subres[ULTYPE] ?? null) == BMR_EQZ) {
 					$filters['unread'] = true;
 				}
+
 				return [null, $filters];
 
 			case RES_SUBRESTRICTION:
@@ -389,23 +401,27 @@ class AdvancedSearchListModule extends ListModule {
 					$inner = $subres[RESTRICTION] ?? null;
 					[$childAst, $childFilters] = $this->convertRestrictionToAst($inner, 'attachments');
 					$filters = $this->mergeFtsFilterState($filters, $childFilters);
+
 					return [$childAst, $filters];
 				}
 				if ($propTag == PR_MESSAGE_RECIPIENTS) {
 					$inner = $subres[RESTRICTION] ?? null;
 					[$childAst, $childFilters] = $this->convertRestrictionToAst($inner, 'recipients');
 					$filters = $this->mergeFtsFilterState($filters, $childFilters);
+
 					return [$childAst, $filters];
 				}
 				$inner = $subres[RESTRICTION] ?? null;
 				[$childAst, $childFilters] = $this->convertRestrictionToAst($inner, $context);
 				$filters = $this->mergeFtsFilterState($filters, $childFilters);
+
 				return [$childAst, $filters];
 
 			case RES_COMMENT:
 				$inner = $restriction[1][RESTRICTION] ?? null;
 				[$childAst, $childFilters] = $this->convertRestrictionToAst($inner, $context);
 				$filters = $this->mergeFtsFilterState($filters, $childFilters);
+
 				return [$childAst, $filters];
 
 			default:
@@ -453,10 +469,10 @@ class AdvancedSearchListModule extends ListModule {
 	 *	Function will set search restrictions on search folder and start search process
 	 *	and it will also parse visible columns and sorting data when sending results to client.
 	 *
-	 * @param object $store      MAPI Message Store Object
-	 * @param string $entryid    entryid of the folder
-	 * @param object $action     the action data, sent by the client
-	 * @param string $actionType the action type, sent by the client
+	 * @param resource     $store      MAPI message store
+	 * @param false|string $entryid    entryid of the folder scope, or false when absent
+	 * @param array        $action     the action data, sent by the client
+	 * @param string       $actionType the action type, sent by the client
 	 */
 	#[Override]
 	public function search($store, $entryid, $action, $actionType) {
@@ -470,12 +486,20 @@ class AdvancedSearchListModule extends ListModule {
 		]);
 		if (!$useSearchFolder) {
 			$this->logFtsDebug('Search fallback: store does not support search folders', []);
+
 			/*
 			 * store doesn't support search folders so we can't use this
 			 * method instead we will pass restriction to messageList and
 			 * it will give us the restricted results
 			 */
-			return parent::messageList($store, $entryid, $action, "list");
+			parent::messageList($store, $entryid, $action, "list");
+
+			return;
+		}
+		if (!is_string($entryid) || $entryid === '') {
+			$this->sendFeedback(false);
+
+			return;
 		}
 		$store_props = mapi_getprops($store, [PR_MDB_PROVIDER, PR_DEFAULT_STORE, PR_IPM_SUBTREE_ENTRYID]);
 		$this->logFtsDebug('Resolved store properties for search', [
@@ -484,13 +508,20 @@ class AdvancedSearchListModule extends ListModule {
 		]);
 		if ($store_props[PR_MDB_PROVIDER] == ZARAFA_STORE_PUBLIC_GUID) {
 			$this->logFtsDebug('Search fallback: public store does not support search folders', []);
+
 			// public store does not support search folders
-			return parent::messageList($store, $entryid, $action, "search");
+			parent::messageList($store, $entryid, $action, "search");
+
+			return;
 		}
-		if ($GLOBALS['entryid']->compareEntryIds(bin2hex($entryid), bin2hex(TodoList::getEntryId()))) {
+		$todoListEntryId = TodoList::getEntryId();
+		if ($todoListEntryId !== false && $GLOBALS['entryid']->compareEntryIds(bin2hex($entryid), bin2hex($todoListEntryId))) {
 			$this->logFtsDebug('Search fallback: todo list uses legacy restriction path', []);
+
 			// todo list do not need to perform full text index search
-			return parent::messageList($store, $entryid, $action, "list");
+			parent::messageList($store, $entryid, $action, "list");
+
+			return;
 		}
 
 		$this->searchFolderList = true; // Set to indicate this is not the normal folder, but a search folder
@@ -527,13 +558,8 @@ class AdvancedSearchListModule extends ListModule {
 			'fts_descriptor' => $ftsDescriptor,
 		]);
 
-		$isSetSearchFolderEntryId = isset($action['search_folder_entryid']);
-		if ($isSetSearchFolderEntryId) {
+		if (isset($action['search_folder_entryid'])) {
 			$this->sessionData['searchFolderEntryId'] = $action['search_folder_entryid'];
-		}
-
-		if (isset($action['forceCreateSearchFolder']) && $action['forceCreateSearchFolder']) {
-			$isSetSearchFolderEntryId = false;
 		}
 
 		// Each search gets its own freshly created search folder. We populate
@@ -585,12 +611,7 @@ class AdvancedSearchListModule extends ListModule {
 			$subfolder_flag = RECURSIVE_SEARCH;
 		}
 
-		if (!is_array($entryid)) {
-			$entryids = [$entryid];
-		}
-		else {
-			$entryids = $entryid;
-		}
+		$entryids = (array) $entryid;
 
 		$searchFolderEntryId = $this->sessionData['searchFolderEntryId'];
 
@@ -652,6 +673,7 @@ class AdvancedSearchListModule extends ListModule {
 		}
 
 		$username = null;
+		$indexDB = null;
 		if ($store_props[PR_MDB_PROVIDER] == ZARAFA_STORE_DELEGATE_GUID) {
 			$eidObj = $GLOBALS["entryid"]->createMsgStoreEntryIdObj(hex2bin((string) $action['store_entryid']));
 			$username = $eidObj['ServerShortname'];
@@ -664,8 +686,9 @@ class AdvancedSearchListModule extends ListModule {
 		else {
 			$indexDB = new IndexSqlite();
 		}
-		if (!$indexDB->is_open())
+		if (!($indexDB instanceof IndexSqlite) || !$indexDB->is_open()) {
 			return parent::search($store, $entryid, $action, $actionType);
+		}
 
 		$this->logFtsDebug('Dispatching search to index backend', [
 			'search_folder_entryid' => $searchFolderEntryId,
@@ -683,7 +706,7 @@ class AdvancedSearchListModule extends ListModule {
 		]);
 
 		$search_result = $indexDB->search(hex2bin((string) $searchFolderEntryId), $ftsDescriptor, $entryid, $recursive);
-		if ($search_result == false) {
+		if ($search_result === false) {
 			$this->logFtsDebug('Index search returned no data', [
 				'search_folder_entryid' => $searchFolderEntryId,
 				'restriction_signature' => $restrictionSignature,
@@ -766,6 +789,7 @@ class AdvancedSearchListModule extends ListModule {
 			'items_returned' => isset($data['item']) ? count($data['item']) : null,
 			'search_meta' => $data['search_meta'] ?? null,
 		]);
+
 		return true;
 	}
 

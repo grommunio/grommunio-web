@@ -8,10 +8,11 @@ require_once __DIR__ . "/../../files/php/Files/Backend/class.exception.php";
 require_once __DIR__ . "/../../files/php/Files/Backend/interface.quota.php";
 require_once __DIR__ . "/../../files/php/Files/Backend/interface.version.php";
 require_once __DIR__ . "/../../files/php/Files/Backend/interface.sharing.php";
+require_once __DIR__ . "/../../files/php/Files/Backend/interface.recipient.php";
 require_once __DIR__ . "/lib/ocsapi/class.ocsclient.php";
 
-use Files\Backend\AbstractBackend;
 use Files\Backend\Exception as BackendException;
+use Files\Backend\iFeatureRecipientSearch;
 use Files\Backend\iFeatureSharing;
 use Files\Backend\Webdav\sabredav\FilesWebDavClient;
 use OCSAPI\Exception\ConnectionException;
@@ -20,24 +21,19 @@ use OCSAPI\ocsclient;
 use OCSAPI\ocsshare;
 use Sabre\DAV\Client;
 use Sabre\DAV\Exception;
-use Sabre\HTTP\ClientException;
 
 /**
- * This is a file backend for owncloud servers.
- * It requires the Webdav File Backend!
- *
- * @class   Backend
- *
- * @extends AbstractBackend
+ * This is a file backend for ownCloud servers.
+ * It requires the WebDAV file backend.
  */
-class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
+class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing, iFeatureRecipientSearch {
 	/**
 	 * @var ocsclient the OCS Api client
 	 */
 	public $ocs_client;
 
 	/**
-	 * @constructor
+	 * Initialize the default WebDAV backend.
 	 */
 	public function __construct() {
 		// initialization
@@ -66,7 +62,7 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 		$this->formConfig = [
 			"labelAlign" => "left",
 			"columnCount" => 1,
-			"labelWidth" => 80,
+			"labelWidth" => 180,
 			"defaults" => [
 				"width" => 292,
 			],
@@ -197,62 +193,6 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 	}
 
 	/**
-	 * /**
-	 * Copy a collection on webdav server
-	 * Duplicates a collection on the webdav server (serverside).
-	 * All work is done on the webdav server. If you set param overwrite as true,
-	 * the target will be overwritten.
-	 *
-	 * @param string $src_path  Source path
-	 * @param string $dst_path  Destination path
-	 * @param bool   $overwrite Overwrite if collection exists in $dst_path
-	 * @param bool   $coll      set this to true if you want to copy a folder
-	 *
-	 * @return bool true if action succeeded
-	 *
-	 * @throws BackendException if request is not successful
-	 */
-	private function copy($src_path, $dst_path, $overwrite, $coll) {
-		$time_start = microtime(true);
-		$src_path = $this->removeSlash($src_path);
-		$dst_path = $this->webdavUrl() . $this->removeSlash($dst_path);
-		$this->log("[COPY] start for dir: {$src_path} -> {$dst_path}");
-		if ($overwrite) {
-			$overwrite = 'T';
-		}
-		else {
-			$overwrite = 'F';
-		}
-
-		$settings = ["Destination" => $dst_path, 'Overwrite' => $overwrite];
-		if ($coll) {
-			$settings = ["Destination" => $dst_path, 'Depth' => 'Infinity'];
-		}
-
-		try {
-			$response = $this->sabre_client->request("COPY", $src_path, null, $settings);
-			$time_end = microtime(true);
-			$time = $time_end - $time_start;
-			$this->log("[COPY] done in {$time} seconds: " . $response['statusCode']);
-
-			return true;
-		}
-		catch (ClientException $e) {
-			$e = new BackendException($this->parseErrorCodeToMessage($e->getCode()), $e->getCode());
-			$e->setTitle($this->backendTransName . _('Sabre error'));
-
-			throw $e;
-		}
-		catch (Exception $e) {
-			$this->log('[COPY] fatal: ' . $e->getMessage());
-			$e = new BackendException($this->parseErrorCodeToMessage($e->getHTTPCode()), $e->getHTTPCode());
-			$e->setTitle($this->backendTransName . _('Copying failed'));
-
-			throw $e;
-		}
-	}
-
-	/**
 	 * This function will return a user friendly error string.
 	 *
 	 * @param number $error_code A error code
@@ -338,15 +278,14 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 		$versiondata = curl_exec($ch);
 		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
-		if ($httpcode && $httpcode == "200" && $versiondata) {
-			$versions = json_decode($versiondata);
-			$version = $versions->versionstring;
-		}
-		else {
-			$version = "Undetected (no ownCloud?)";
+		if ($httpcode === 200) {
+			$version = $this->parseServerVersionResponse($versiondata);
+			if ($version !== null) {
+				return $version;
+			}
 		}
 
-		return $version;
+		return "Undetected (no ownCloud?)";
 	}
 
 	/**
@@ -382,21 +321,19 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 		$shares = $this->ocs_client->getAllShares();
 
 		$result[$path] = [];
-		if ($shares !== false) {
-			foreach ($shares as $id => $options) {
-				$result[$path][$id] = [
-					"shared" => true,
-					"id" => $options->getId(),
-					"path" => $options->getPath(),
-					"shareType" => $options->getShareType(),
-					"permissions" => $options->getPermissions(),
-					"expiration" => $options->getExpiration(),
-					"token" => $options->getToken(),
-					"url" => $options->getUrl(),
-					"shareWith" => $options->getShareWith(),
-					"shareWithDisplayname" => $options->getShareWithDisplayname(),
-				];
-			}
+		foreach ($shares ?: [] as $id => $options) {
+			$result[$path][$id] = [
+				"shared" => true,
+				"id" => $options->getId(),
+				"path" => $options->getPath(),
+				"shareType" => $options->getShareType(),
+				"permissions" => $options->getPermissions(),
+				"expiration" => $options->getExpiration(),
+				"token" => $options->getToken(),
+				"url" => $options->getUrl(),
+				"shareWith" => $options->getShareWith(),
+				"shareWithDisplayname" => $options->getShareWithDisplayname(),
+			];
 		}
 
 		return $result;
@@ -417,9 +354,11 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 	 *  )
 	 * )
 	 *
-	 * @param $patharray Simple array with path's to files or folders
+	 * @param string[] $patharray paths to files or folders
 	 *
-	 * @return array
+	 * @return array|false sharing details, or false when no paths were supplied
+	 *
+	 * @throws ConnectionException if sharing data cannot be loaded
 	 */
 	public function sharingDetails($patharray) {
 		$result = [];
@@ -427,17 +366,22 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 		// performance optimization
 		// fetch all shares - so we only need one request
 		if (count($patharray) > 1) {
+			foreach ($patharray as $path) {
+				$result[$path] = [];
+			}
+
 			try {
 				$this->ocs_client->loadShares();
 			}
 			catch (ConnectionException $e) {
 				$this->log('[SHARINGDETAILS]: connection exception while loading shares: ' . $e->getMessage() . " " . $e->getCode());
+
+				throw $e;
 			}
 
 			/** @var ocsshare[] $shares */
 			$shares = $this->ocs_client->getAllShares();
 			foreach ($patharray as $path) {
-				$result[$path] = [];
 				foreach ($shares as $id => $details) {
 					if ($details->getPath() == $path) {
 						$result[$path][$id] = [
@@ -466,20 +410,18 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 
 				$result[$patharray[0]] = [];
 
-				if ($shares !== false) {
-					foreach ($shares as $id => $share) {
-						$result[$patharray[0]][$id] = [
-							"shared" => true,
-							"id" => $share->getId(),
-							"shareType" => $share->getShareType(),
-							"permissions" => $share->getPermissions(),
-							"expiration" => $share->getExpiration(),
-							"token" => $share->getToken(),
-							"url" => $share->getUrl(),
-							"shareWith" => $share->getShareWith(),
-							"shareWithDisplayname" => $share->getShareWithDisplayName(),
-						];
-					}
+				foreach ($shares ?: [] as $id => $share) {
+					$result[$patharray[0]][$id] = [
+						"shared" => true,
+						"id" => $share->getId(),
+						"shareType" => $share->getShareType(),
+						"permissions" => $share->getPermissions(),
+						"expiration" => $share->getExpiration(),
+						"token" => $share->getToken(),
+						"url" => $share->getUrl(),
+						"shareWith" => $share->getShareWith(),
+						"shareWithDisplayname" => $share->getShareWithDisplayName(),
+					];
 				}
 			}
 			else {
@@ -507,10 +449,10 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 	 *      "id1" => options1 (ONLY if $update = true)
 	 * )
 	 *
+	 * @param array $shareparams
 	 * @param bool  $update
-	 * @param mixed $shareparams
 	 *
-	 * @return bool
+	 * @return array|false sharing results, or false when no parameters were supplied
 	 */
 	public function share($shareparams, $update = false) {
 		$result = [];
@@ -565,13 +507,14 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 		return true;
 	}
 
-	/*
-	 * Get Recipients that could be shared with, matching the search string
+	/**
+	 * Get Recipients that could be shared with, matching the search string.
 	 *
-	 * @param $search Searchstring to use
-	 * @return The response from the osc client API
+	 * @param string $search Search string to use
+	 *
+	 * @return array|false The response from the OCS client API
 	 */
-	public function getRecipients($search) {
+	public function getRecipients($search): array|false {
 		return $this->ocs_client->getRecipients($search);
 	}
 }

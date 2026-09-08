@@ -16,11 +16,7 @@ use Sabre\DAV\Exception;
 use Sabre\HTTP\ClientException;
 
 /**
- * This is a file backend for webdav servers.
- *
- * @class   Backend
- *
- * @extends AbstractBackend
+ * This is a file backend for WebDAV servers.
  */
 class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionInfo {
 	/**
@@ -98,7 +94,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	public $backendTransName;
 
 	/**
-	 * @constructor
+	 * Initialize the generic WebDAV backend.
 	 */
 	public function __construct() {
 		// initialization
@@ -127,7 +123,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 		$this->formConfig = [
 			"labelAlign" => "left",
 			"columnCount" => 1,
-			"labelWidth" => 80,
+			"labelWidth" => 180,
 			"defaults" => [
 				"width" => 292,
 			],
@@ -162,8 +158,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			[
 				"name" => "server_path",
 				"fieldLabel" => _('Webdav base path'),
-				"editor" => [
-				],
+				"editor" => [],
 			],
 			[
 				"name" => "user",
@@ -778,18 +773,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	 * @throws BackendException if request is not successful
 	 */
 	public function options() {
-		$features = $this->sabre_client->options();
-
-		// be sure it is an array
-		if (is_array($features)) {
-			return $features;
-		}
-
-		$this->log('[OPTIONS] - ERROR - Error getting server features');
-		$e = new BackendException($this->parseErrorCodeToMessage(self::WD_ERR_FEATURES), self::WD_ERR_FEATURES);
-		$e->setTitle($this->backendTransName . _('Not implemented'));
-
-		throw $e;
+		return $this->sabre_client->options();
 	}
 
 	/**
@@ -800,9 +784,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	 * @return bool true if path points to a file, false otherwise
 	 */
 	public function is_file($path) {
-		$item = $this->gpi($path);
-
-		return $item === false ? false : ($item['resourcetype'] != 'collection');
+		return $this->gpi($path)['resourcetype'] != 'collection';
 	}
 
 	/**
@@ -813,9 +795,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	 * @return bool true if path points to a directory, false otherwise
 	 */
 	public function is_dir($path) {
-		$item = $this->gpi($path);
-
-		return $item === false ? false : ($item['resourcetype'] == 'collection');
+		return $this->gpi($path)['resourcetype'] == 'collection';
 	}
 
 	/**
@@ -854,9 +834,10 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 		}
 		else {
 			$overwrite = 'F';
-		}["Destination" => $dst_path, 'Overwrite' => $overwrite];
+		}
+		$settings = ["Destination" => $dst_path, 'Overwrite' => $overwrite];
 		if ($coll) {
-			$settings = ["Destination" => $dst_path, 'Depth' => 'Infinity'];
+			$settings['Depth'] = 'Infinity';
 		}
 
 		try {
@@ -1080,14 +1061,33 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 		$versiondata = curl_exec($ch);
 		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
-		if ($httpcode && $httpcode == "200" && $versiondata) {
-			$versions = json_decode($versiondata);
-			$version = $versions->versionstring;
-		}
-		else {
-			$version = "Undetected (no Owncloud?)";
+		if ($httpcode === 200) {
+			$version = $this->parseServerVersionResponse($versiondata);
+			if ($version !== null) {
+				return $version;
+			}
 		}
 
-		return $version;
+		return "Undetected (no Owncloud?)";
+	}
+
+	/**
+	 * Parse the version string returned by an ownCloud-compatible status endpoint.
+	 *
+	 * @param bool|string $response response body returned by cURL
+	 *
+	 * @return null|string the version string, or null for an invalid response
+	 */
+	protected function parseServerVersionResponse($response) {
+		if (!is_string($response)) {
+			return null;
+		}
+
+		$versionData = json_decode($response);
+		if (!is_object($versionData) || !isset($versionData->versionstring) || !is_string($versionData->versionstring)) {
+			return null;
+		}
+
+		return $versionData->versionstring;
 	}
 }

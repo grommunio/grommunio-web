@@ -58,10 +58,7 @@ class AttachmentState {
 	 * The session file is opened and locked so that other processes can not access the state information
 	 */
 	public function open() {
-		if (!is_dir($this->sessiondir)) {
-			mkdir($this->sessiondir, 0755, true /* recursive */);
-		}
-
+		$this->ensureSessionDir();
 		$this->state->open();
 		$this->files = $this->state->read('files');
 		$this->deleteattachment = $this->state->read('deleteattachment');
@@ -71,6 +68,15 @@ class AttachmentState {
 		if (!empty($this->abortedattachment)) {
 			// Remove aborted attachments
 			$this->removeAbortedAttachments();
+		}
+	}
+
+	/**
+	 * Create the session attachment folder when it does not exist yet.
+	 */
+	private function ensureSessionDir() {
+		if (!is_dir($this->sessiondir)) {
+			mkdir($this->sessiondir, 0755, true /* recursive */);
 		}
 	}
 
@@ -114,13 +120,14 @@ class AttachmentState {
 	 * @return string The full path to the attachment file
 	 */
 	public function getAttachmentTmpPath($filename) {
+		$this->ensureSessionDir();
 		$attachmentPath = tempnam($this->getAttachmentFolder(), mb_basename($filename));
 		if ($attachmentPath === false) {
 			throw new ZarafaException(_('Could not attach item as an attachment.'));
 		}
 
 		// Convert in UTF-8 properly if any Malformed UTF-8 characters.
-		return mb_convert_encoding($attachmentPath, 'UTF-8');
+		return (string) mb_convert_encoding($attachmentPath, 'UTF-8');
 	}
 
 	/**
@@ -132,6 +139,15 @@ class AttachmentState {
 	 */
 	public function getAttachmentPath($filename) {
 		return $this->getAttachmentFolder() . DIRECTORY_SEPARATOR . mb_basename($filename);
+	}
+
+	/**
+	 * Remove a temporary attachment and report cleanup failures.
+	 */
+	private function deleteTemporaryFile(string $filepath): void {
+		if ((is_file($filepath) || is_link($filepath)) && !@unlink($filepath)) {
+			error_log("Unable to remove temporary attachment file: {$filepath}");
+		}
 	}
 
 	/**
@@ -160,9 +176,9 @@ class AttachmentState {
 	/**
 	 * Function which identifies whether an attachment is an inline or normal attachment.
 	 *
-	 * @param MAPIAttach $attachment MAPI attachment Object
+	 * @param resource $attachment MAPI attachment object
 	 *
-	 * @return return true if attachment was inline attachment else return false
+	 * @return bool true if the attachment is inline, otherwise false
 	 */
 	public function isInlineAttachment($attachment) {
 		$props = mapi_attach_getprops($attachment, [PR_ATTACH_CONTENT_ID, PR_ATTACHMENT_HIDDEN, PR_ATTACH_FLAGS]);
@@ -174,9 +190,9 @@ class AttachmentState {
 	/**
 	 * Function which identifies whether an attachment is contact photo or normal attachment.
 	 *
-	 * @param MAPIAttach $attachment MAPI attachment Object
+	 * @param resource $attachment MAPI attachment object
 	 *
-	 * @return return true if attachment is contact photo else return false
+	 * @return bool true if the attachment is a contact photo, otherwise false
 	 */
 	public function isContactPhoto($attachment) {
 		$attachmentProps = mapi_attach_getprops($attachment, [PR_ATTACHMENT_CONTACTPHOTO, PR_ATTACHMENT_HIDDEN]);
@@ -196,7 +212,7 @@ class AttachmentState {
 	 * @param string $uploadedfile The file which was uploaded and will be moved to the attachments directory
 	 * @param array  $fileinfo     The attachment data
 	 *
-	 * @return The attachment identifier to be used for referencing the file in the tmp folder
+	 * @return string attachment identifier used to reference the file in the temporary folder
 	 */
 	public function addUploadedAttachmentFile($message_id, $filename, $uploadedfile, $fileinfo) {
 		// Create the destination path, the attachment must
@@ -223,7 +239,7 @@ class AttachmentState {
 	 * @param string $sourcefile The path of the file to move to the attachments directory
 	 * @param array  $fileinfo   The attachment data
 	 *
-	 * @return The attachment identifier to be used for referencing the file in the tmp folder
+	 * @return string attachment identifier used to reference the file in the temporary folder
 	 */
 	public function addProvidedAttachmentFile($message_id, $filename, $sourcefile, $fileinfo) {
 		// Create the destination path, the attachment must
@@ -243,7 +259,7 @@ class AttachmentState {
 			$attachmentFolderStat === false || ($attachmentFolderStat['mode'] & 0170000) !== 0040000 ||
 			dirname($attachmentFolder) !== $attachmentBase || realpath(dirname($filepath)) !== $attachmentFolder ||
 			$sourceStat === false || ($sourceStat['mode'] & 0170000) !== 0100000) {
-			@unlink($filepath);
+			$this->deleteTemporaryFile($filepath);
 
 			throw new ZarafaException(_('Could not attach item as an attachment.'));
 		}
@@ -251,7 +267,7 @@ class AttachmentState {
 		// Move the provided regular file into the session directory. Only register
 		// it after both the move and the post-move file type check succeeded.
 		if (!@rename($sourcefile, $filepath)) {
-			@unlink($filepath);
+			$this->deleteTemporaryFile($filepath);
 
 			throw new ZarafaException(_('Could not attach item as an attachment.'));
 		}
@@ -259,7 +275,7 @@ class AttachmentState {
 		clearstatcache(true, $filepath);
 		$movedFileStat = @lstat($filepath);
 		if ($movedFileStat === false || ($movedFileStat['mode'] & 0170000) !== 0100000) {
-			@unlink($filepath);
+			$this->deleteTemporaryFile($filepath);
 
 			throw new ZarafaException(_('Could not attach item as an attachment.'));
 		}
@@ -276,7 +292,7 @@ class AttachmentState {
 	 *                           attachments for a single message
 	 * @param array  $fileinfo   The attachment data
 	 *
-	 * @return The attachment identifier to be used for referencing the file in the tmp folder
+	 * @return string attachment identifier used to reference the file in the temporary folder
 	 */
 	public function addEmbeddedAttachment($message_id, $fileinfo) {
 		// generate a random number to be used as unique id of attachment
@@ -301,7 +317,7 @@ class AttachmentState {
 		// previously been placed in the attachment folder
 		$filepath = $this->getAttachmentPath($filename);
 		if (is_file($filepath)) {
-			unlink($filepath);
+			$this->deleteTemporaryFile($filepath);
 		}
 
 		$this->removeAttachmentFile($message_id, mb_basename($filepath), $attachID);
@@ -313,7 +329,7 @@ class AttachmentState {
 	 * @param string $message_id The unique identifier for referencing the
 	 *                           attachments for a single message
 	 *
-	 * @return array The array of attachments
+	 * @return array|false the attachments, or false when no attachments are registered
 	 */
 	public function getAttachmentFiles($message_id) {
 		if ($this->files && isset($this->files[$message_id])) {
@@ -332,7 +348,7 @@ class AttachmentState {
 	 * @param string $attachid   The unique identifier for referencing the
 	 *                           attachment
 	 *
-	 * @return array The attachment description for the requested attachment
+	 * @return array|false the attachment description, or false when it is not registered
 	 */
 	public function getAttachmentFile($message_id, $attachid) {
 		if ($this->files && isset($this->files[$message_id], $this->files[$message_id][$attachid])) {
@@ -386,7 +402,7 @@ class AttachmentState {
 							$found = true;
 							$filepath = $this->getAttachmentPath($tmpName);
 							if (is_file($filepath)) {
-								unlink($filepath);
+								$this->deleteTemporaryFile($filepath);
 							}
 							unset($this->files[$tmpDir][$tmpName]);
 						}
@@ -423,7 +439,7 @@ class AttachmentState {
 	 * @param string $message_id The unique identifier for referencing the
 	 *                           attachments for a single message
 	 *
-	 * @return array The array of attachments
+	 * @return array|false the deleted attachments, or false when none are registered
 	 */
 	public function getDeletedAttachments($message_id) {
 		if ($this->deleteattachment && isset($this->deleteattachment[$message_id])) {
@@ -511,7 +527,7 @@ class AttachmentState {
 					// If respective file is still there in tmp directory then remove
 					$filepath = $this->getAttachmentPath($tmpName);
 					if (is_file($filepath)) {
-						unlink($filepath);
+						$this->deleteTemporaryFile($filepath);
 					}
 
 					// Remove attachment from state as well

@@ -11,33 +11,71 @@ require_once 'server/includes/bootstrap.php';
 /*
  * Get the favicon either from theme or use the default.
  *
- * @param string theme the users theme
+ * @param string $theme the user's theme
  * @return string favicon
  */
 function getFavicon($theme) {
 	$favicon = Theming::getFavicon($theme);
 
-	if (!isset($favicon) || $favicon === false) {
+	if ($favicon === false) {
 		$favicon = versionedUrl('client/resources/images/favicon.ico');
 	}
 
 	return $favicon;
+}
+
+/**
+ * Return the local directory of the entry script for a redirect.
+ *
+ * SCRIPT_NAME avoids appended PATH_INFO on common SAPIs. The normalization
+ * guarantees that a malformed server value cannot turn a local redirect into
+ * a scheme-relative URL.
+ *
+ * @return string root-relative directory with a trailing slash
+ */
+function getIndexRedirectPath() {
+	$scriptName = (string) ($_SERVER['SCRIPT_NAME'] ?? '/index.php');
+	$scriptName = preg_replace('/[\x00-\x1f\x7f]/', '', str_replace('\\', '/', $scriptName));
+	$scriptName = '/' . ltrim($scriptName, '/');
+	$directory = preg_replace('#/+#', '/', dirname($scriptName));
+
+	return rtrim($directory, '/') . '/';
 }
 $webappTitle = defined('WEBAPP_TITLE') && WEBAPP_TITLE ? WEBAPP_TITLE : 'grommunio Web';
 // If the user wants to logout (and is not using single-signon)
 // then destroy the session and redirect to this page, so the login page
 // will be shown
 
-if (isset($_GET['logout'])) {
+if (isset($_GET['logout']) || isset($_POST['logout'])) {
+	require_once BASE_PATH . 'server/includes/core/class.response.php';
+	$requestMethod = strtoupper((string) ($_SERVER['REQUEST_METHOD'] ?? ''));
+	$legacyGet = $requestMethod === 'GET' && Response::isSameOriginRequestSource();
+	if ($requestMethod === 'POST') {
+		Response::enforceCors('POST');
+	}
+	elseif (!$legacyGet) {
+		header('Allow: POST');
+		Response::wrongMethod();
+	}
+
 	if (isset($_SESSION['_keycloak_auth'])) {
 		$keycloak_auth = $_SESSION['_keycloak_auth']->logout();
-		header("Location:" . $keycloak_auth . "");
+		header('Location:' . $keycloak_auth, true, 303);
 	}
 	else {
-		// GET variable user will be set when the user was logged out because of session timeout
-		// or because he logged out in another window.
-		$username = sanitizeGetValue('user', '', USERNAME_REGEX);
-		$location = rtrim(dirname((string) $_SERVER['PHP_SELF']), '/') . '/';
+		// The user value is normally POSTed after a session timeout or logout in
+		// another window. Same-origin legacy GET requests remain supported without
+		// accepting cross-site logout navigations.
+		if ($requestMethod === 'POST') {
+			$username = sanitizePostValue('user', '', USERNAME_REGEX);
+		}
+		else {
+			$username = sanitizeGetValue('user', '', USERNAME_REGEX);
+		}
+		$location = getIndexRedirectPath();
+
+		// Both values are normalized above; Scrutinizer does not recognize those sanitizers.
+		/** @scrutinizer ignore-call */
 		header('Location: ' . $location . ($username ? '?user=' . rawurlencode((string) $username) : ''), true, 303);
 	}
 	$webappSession->destroy();
@@ -136,7 +174,7 @@ if (!WebAppAuthentication::isAuthenticated()) {
 // the credentials again, and that the url data is taken away from the
 // url in the address bar (so a browser refresh will not pass them again)
 if (isset($_GET['code']) || (WebAppAuthentication::isUsingLoginForm() || isset($_GET['action']) && !empty($_GET['action']))) {
-	$location = rtrim(dirname((string) $_SERVER['PHP_SELF']), '/') . '/';
+	$location = getIndexRedirectPath();
 	header('Location: ' . $location, true, 303);
 
 	exit;
@@ -279,10 +317,24 @@ else {
 	$state->clean();
 
 	// Fetch the hierarchy state cache for unread counters notifications for subfolders
-	$counterState = new State('counters_sessiondata');
-	$counterState->open();
-	$counterState->write("sessionData", updateHierarchyCounters());
-	$counterState->close();
+	$counterLock = new State('counter-lock-' . hash('sha256', 'sessionData'));
+	if ($counterLock->open()) {
+		try {
+			$hierarchyCounters = updateHierarchyCounters();
+			$counterState = new State('counters_sessiondata');
+			if ($counterState->open()) {
+				try {
+					$counterState->write("sessionData", $hierarchyCounters);
+				}
+				finally {
+					$counterState->close();
+				}
+			}
+		}
+		finally {
+			$counterLock->close();
+		}
+	}
 
 	// clean search folders
 	cleanSearchFolders();

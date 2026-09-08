@@ -23,12 +23,12 @@ class Module {
 	public $errors;
 
 	/**
-	 * @var State The state object which refers to the statefile
+	 * @var false|State The state object which refers to the statefile
 	 */
 	public $sessionState;
 
 	/**
-	 * @var array data stored in session for this module
+	 * @var mixed data stored in session for this module
 	 */
 	public $sessionData;
 
@@ -38,7 +38,7 @@ class Module {
 	public $properties;
 
 	/**
-	 * @var list of the folder list properties
+	 * @var array list of the folder list properties
 	 */
 	public $list_properties;
 
@@ -46,6 +46,16 @@ class Module {
 	 * @var bool whether the session state is shared
 	 */
 	public $_sharedSessionState;
+
+	/**
+	 * @var false|State per-module execution lock
+	 */
+	private $sessionExecutionLock = false;
+
+	/**
+	 * @var null|string serialized module state loaded before execution
+	 */
+	private $sessionDataSnapshot;
 
 	/**
 	 * Constructor.
@@ -58,6 +68,8 @@ class Module {
 		$this->responseData = [];
 		$this->sessionState = false;
 		$this->sessionData = false;
+		$this->_sharedSessionState = false;
+		$this->sessionDataSnapshot = null;
 
 		$this->createNotifiers();
 
@@ -86,12 +98,12 @@ class Module {
 	 * This will call $handleException of updating the MAPIException based in the module data.
 	 * When this is done, $sendFeedback will be called to send the message to the client.
 	 *
-	 * @param object     $e             exception object
-	 * @param string     $actionType    the action type, sent by the client
-	 * @param MAPIobject $store         store object of the store
-	 * @param string     $parententryid parent entryid of the message
-	 * @param string     $entryid       entryid of the message/folder
-	 * @param array      $action        the action data, sent by the client
+	 * @param object                    $e             exception object
+	 * @param null|string               $actionType    the action type, sent by the client
+	 * @param null|array|false|resource $store         MAPI store or stores
+	 * @param null|false|string         $parententryid parent entryid of the message
+	 * @param null|false|string         $entryid       entryid of the message/folder
+	 * @param null|array                $action        the action data, sent by the client
 	 */
 	public function processException(&$e, $actionType = null, $store = null, $parententryid = null, $entryid = null, $action = null) {
 		$this->handleException($e, $actionType, $store, $parententryid, $entryid, $action);
@@ -105,7 +117,7 @@ class Module {
 	 *
 	 * @param object     $e             exception object
 	 * @param string     $actionType    the action type, sent by the client
-	 * @param MAPIobject $store         store object of the message
+	 * @param resource   $store         MAPI store containing the message
 	 * @param string     $parententryid parent entryid of the message
 	 * @param string     $entryid       entryid of the message/folder
 	 * @param array      $action        the action data, sent by the client
@@ -339,9 +351,9 @@ class Module {
 	 * Function which returns MAPI Message Store Object. It
 	 * searches in the variable $action for a storeid.
 	 *
-	 * @param array $action the XML data retrieved from the client
+	 * @param array|false $action XML action data, or false when none is present
 	 *
-	 * @return object MAPI Message Store Object, false if storeid is not found in the $action variable
+	 * @return array<int, false|resource>|false|resource MAPI store or stores, or false when no store ID is present
 	 */
 	public function getActionStore($action) {
 		$store = false;
@@ -360,6 +372,7 @@ class Module {
 			}
 		}
 		catch (Exception) {
+			return false;
 		}
 
 		return $store;
@@ -371,7 +384,7 @@ class Module {
 	 *
 	 * @param array $action the XML data retrieved from the client
 	 *
-	 * @return object MAPI Message Store Object, false if parententryid is not found in the $action variable
+	 * @return false|string binary parent entry ID, or false when it is not present
 	 */
 	public function getActionParentEntryID($action) {
 		$parententryid = false;
@@ -389,7 +402,7 @@ class Module {
 	 *
 	 * @param array $action the XML data retrieved from the client
 	 *
-	 * @return mixed MAPI Message Store Object, false if entryid is not found in the $action variable
+	 * @return array<int, false|string>|false|string binary folder entry ID or IDs, or false when absent or invalid
 	 */
 	public function getActionEntryID($action) {
 		$entryid = false;
@@ -410,11 +423,28 @@ class Module {
 	}
 
 	/**
+	 * Return the single entry ID expected by scalar actions.
+	 *
+	 * Calendar list requests may address several stores and therefore use
+	 * getActionEntryID() directly. Other actions accept one item or folder and
+	 * reject an array instead of passing it to scalar MAPI calls.
+	 *
+	 * @param array $action the XML data retrieved from the client
+	 *
+	 * @return false|string binary entry ID, or false when absent, invalid, or multiple
+	 */
+	protected function getActionSingleEntryID($action) {
+		$entryid = $this->getActionEntryID($action);
+
+		return is_string($entryid) ? $entryid : false;
+	}
+
+	/**
 	 * Helper function which used to get the action data from request.
 	 *
 	 * @param array $data list of all actions
 	 *
-	 * @return array $action the json data retrieved from the client
+	 * @return array|false JSON action data, or false when no action is present
 	 */
 	public function getActionData($data) {
 		$actionData = false;
@@ -443,7 +473,7 @@ class Module {
 	 * Function which returns response data that will be sent to client. If there isn't any data added
 	 * to response data then it will return a blank array.
 	 *
-	 * @return object response data
+	 * @return array response data
 	 */
 	public function getResponseData() {
 		if (!empty($this->responseData)) {
@@ -466,6 +496,18 @@ class Module {
 	public function getModuleName() {
 		return strtolower(static::class);
 	}
+
+	/**
+	 * Resource group whose requests must execute serially, null to run unlocked.
+	 */
+	protected function getExecutionLockName() {
+		return $this->getModuleName();
+	}
+
+	/**
+	 * Initialize resources that need the module execution lock.
+	 */
+	protected function afterLoadSessionData() {}
 
 	/**
 	 * Function which will handle unknown action type for all modules.
@@ -494,32 +536,99 @@ class Module {
 	 *
 	 * @param State $sharedState optional shared State object so that
 	 *                           multiple modules can reuse a single lock
-	 *                           and avoid repeated open/serialize/close cycles.
+	 *                           and avoid repeated open/serialize/close cycles
 	 */
 	public function loadSessionData($sharedState = null) {
 		if ($sharedState) {
 			$this->sessionState = $sharedState;
 			$this->_sharedSessionState = true;
+			$this->sessionData = $this->sessionState->read($this->getModuleName());
+			$this->sessionDataSnapshot = serialize($this->sessionData);
+			$this->afterLoadSessionData();
+
+			return;
 		}
-		else {
-			$this->sessionState = new State('module_sessiondata');
-			$this->sessionState->open();
-			$this->_sharedSessionState = false;
+
+		$moduleName = $this->getModuleName();
+		$lockName = $this->getExecutionLockName();
+		if ($lockName === null) {
+			$this->sessionData = null;
+			$this->sessionDataSnapshot = serialize(null);
+			$this->afterLoadSessionData();
+
+			return;
 		}
-		$this->sessionData = $this->sessionState->read($this->getModuleName());
+		$this->sessionExecutionLock = new State('module-lock-' . hash('sha256', $lockName));
+		if (!$this->sessionExecutionLock->open()) {
+			throw new RuntimeException('Unable to lock module session state');
+		}
+
+		$this->sessionState = new State('module_sessiondata');
+		if (!$this->sessionState->open()) {
+			throw new RuntimeException('Unable to read module session state');
+		}
+
+		try {
+			$this->sessionData = $this->sessionState->read($moduleName);
+			$this->sessionDataSnapshot = serialize($this->sessionData);
+		}
+		finally {
+			$this->sessionState->close();
+		}
+		$this->afterLoadSessionData();
 	}
 
 	/**
 	 * Saves sessiondata of the module to the state file on disk.
 	 */
 	public function saveSessionData() {
-		if ($this->sessionData !== false) {
-			// When using a shared state, defer flush to the caller.
-			$this->sessionState->write($this->getModuleName(), $this->sessionData, false);
+		if ($this->_sharedSessionState) {
+			if ($this->sessionData !== false) {
+				$this->sessionState->write($this->getModuleName(), $this->sessionData, false);
+			}
+
+			return;
 		}
-		if (empty($this->_sharedSessionState)) {
-			$this->sessionState->flush();
-			$this->sessionState->close();
+
+		if ($this->sessionData !== false) {
+			$sessionData = serialize($this->sessionData);
+			if ($sessionData === $this->sessionDataSnapshot) {
+				return;
+			}
+
+			$moduleName = $this->getModuleName();
+			$this->sessionState = new State('module_sessiondata');
+			if (!$this->sessionState->open()) {
+				error_log('Unable to save module session state: ' . $moduleName);
+
+				return;
+			}
+
+			try {
+				$currentSessionData = $this->sessionState->read($moduleName);
+				if ($this->sessionDataSnapshot !== null && serialize($currentSessionData) !== $this->sessionDataSnapshot) {
+					error_log('Module session state changed without its execution lock: ' . $moduleName);
+					$this->sessionData = $currentSessionData;
+					$this->sessionDataSnapshot = serialize($currentSessionData);
+
+					return;
+				}
+				$this->sessionState->write($moduleName, $this->sessionData);
+				$this->sessionDataSnapshot = $sessionData;
+			}
+			finally {
+				$this->sessionState->close();
+			}
+		}
+	}
+
+	/**
+	 * Release this module's execution lock.
+	 */
+	public function closeSessionData() {
+		if (!$this->_sharedSessionState && $this->sessionExecutionLock instanceof State) {
+			$this->sessionExecutionLock->close();
+			$this->sessionExecutionLock = false;
 		}
 	}
 }

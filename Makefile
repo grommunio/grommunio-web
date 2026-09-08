@@ -1,6 +1,8 @@
 # Tools
 
 PHPMD ?= phpmd
+PHPDOC ?= phpdoc
+PHPDOC_CONFIG ?= phpdoc.dist.xml
 NPM ?= npm
 MSGFMT ?= msgfmt
 PHP ?= php
@@ -28,7 +30,6 @@ HTMLOPTIONS = --collapse-whitespace --remove-comments
 # Server files
 
 DISTFILES = $(addprefix $(DESTDIR)/,config.php.dist debug.php.dist)
-ROBOTS = $(addprefix $(DESTDIR)/, robots.txt)
 LANGTXT = $(wildcard server/language/*/language.txt)
 LANGTXTDEST = $(addprefix $(DESTDIR)/, $(LANGTXT))
 POS = $(wildcard server/language/*/LC_MESSAGES/grommunio_web.po)
@@ -36,7 +37,6 @@ MOS = $(patsubst %.po,$(DESTDIR)/%.mo,$(POS))
 INCLUDES = $(sort $(shell find server/includes -name '*.php'))
 PHPFILES = $(filter-out $(DESTDIR)/config.php, $(filter-out $(DESTDIR)/debug.php, $(patsubst %.php,$(DESTDIR)/%.php,$(wildcard *.php) $(INCLUDES))))
 SERVERROOTFILES = $(addprefix $(DESTDIR)/,server/manifest.dtd manifest.webmanifest)
-IS_SUPPORTED_BUILD ?= $(if $(filter 1, $(SUPPORTED_BUILD)), supported validate-supported)
 
 # Client files
 
@@ -47,9 +47,7 @@ IMAGEDIR = client/resources/images
 IMAGES = $(filter-out client/resources/images/app-icons.extensions.json, $(wildcard $(IMAGEDIR)/*.*))
 IMAGESDEST = $(addprefix $(DESTDIR)/, $(IMAGES))
 EXTJSMODFILES = $(wildcard client/extjs-mod/*.js)
-ICONEXTENSIONSFILE = client/resources/iconsets/extensions.json
 ICONSETS = $(notdir $(filter-out client/resources/iconsets/extensions.json, $(wildcard client/resources/iconsets/*)))
-ICONS = $(foreach iconsetdir,$(ICONSETS),$(wildcard client/resources/iconsets/$(iconsetdir)/src/png/*/*.png))
 ICONSETSDEST = $(addprefix $(DESTDIR)/client/resources/iconsets/, $(ICONSETS))
 ICONSETSCSS = $(foreach iconsetdir,$(ICONSETS),client/resources/iconsets/$(iconsetdir)/$(iconsetdir)-icons.css)
 ICONSETSCSSDEST = $(addprefix $(DESTDIR)/, $(ICONSETSCSS))
@@ -60,7 +58,6 @@ THIRDPARTY = $(sort $(shell find client/third-party -name '*.js')) client/third-
 PURIFYJS = client/dompurify/purify.min.js
 DEPLOYPURIFYJS = $(DEPLOYPURIFY)/purify.js
 
-POFILES = $(wildcard server/language/*/*/*.po)
 JSFILES = $(sort $(shell find client/zarafa -name '*.js'))
 
 # Build
@@ -72,8 +69,6 @@ all: deploy
 deploy: node_modules server client plugins css clearartifacts precompress
 
 build: node_modules deploy
-
-test: jstest
 
 local-mos:
 	# Use this target to enable translations in case
@@ -248,7 +243,7 @@ $(DESTDIR)/client/filepreviewer/ViewerJS/index.html: client/filepreviewer/Viewer
 config:
 	cp $(DESTDIR)/config.php.dist $(DESTDIR)/config.php
 
-# Test
+# Quality checks
 
 .PHONY: lint
 lint: vendor
@@ -258,28 +253,17 @@ lint: vendor
 lintci: vendor
 	$(NPM) run lint -- --quiet -f junit -o eslint.xml client/zarafa/ || true
 
-.PHONY: jstest
-jstest: build
-	$(NPM) run jsunit
-
-.PHONY: jstestci
-jstestci: build
-	$(NPM) run jsunit -- --reporters junit
-
-.PHONY: jstestcov
-jstestcov: build
-	$(NPM) run jsunit -- --reporters coverage
-
-open-coverage: jstestcov
-	${BROWSER} test/js/coverage/report-html/index.html
-
 .PHONY: phplint
 phplint:
 	$(PHPMD) server text .phpmd.xml
 
-.PHONY: phplintcli
+.PHONY: phplintci
 phplintci:
 	$(PHPMD) server xml .phpmd.xml --ignore-violations-on-exit | python tools/violations_to_junit.py > phpmd.xml
+
+.PHONY: phpdoc
+phpdoc:
+	$(PHPDOC) run --config $(PHPDOC_CONFIG)
 
 # NPM
 
@@ -299,28 +283,6 @@ $(ICONSETSDEST): $$(patsubst $(DESTDIR)/%,%,$$@)/iconset.json $$@/$$(notdir $$@)
 $(ICONSETSCSSDEST): $$(patsubst $(DESTDIR)/%,%,$$@)
 	mkdir -p $(@D)
 	cp $< $@
-
-.PHONY: iconsets
-iconsets: $(ICONS) node_modules
-	$(NPM) run iconsets
-
-# This rule should not be enabled until our build server supports nodejs.
-# Just create the iconsets locally by running `npm run iconsets` whenever
-# something has changed.
-#$(ICONSETSCSS): $$(@D)/src/png/*/*.png $(ICONEXTENSIONSFILE) node_modules
-#	$(NPM) run iconsets:$(notdir $(@D))
-
-# Tokenizr library
-
-# This rule should not be enabled until our build server supports nodejs.
-# Just build the tokenizr library locally by running `make tokenizr` whenever
-# something has changed. (i.e. the tokenizr lib has been updated)
-#client/third-party/tokenizr/tokenizr.js: tokenizr
-#	$(NPM) run build:tokenizr
-
-.PHONY: tokenizr
-tokenizr: node_modules
-	$(NPM) run build:tokenizr
 
 # Plugins
 

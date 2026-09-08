@@ -4,6 +4,11 @@
  * FreeBusyModule Module.
  */
 class FreeBusyModule extends Module {
+	#[Override]
+	protected function getExecutionLockName() {
+		return null;
+	}
+
 	public function __construct($id, $data) {
 		parent::__construct($id, $data);
 	}
@@ -13,10 +18,14 @@ class FreeBusyModule extends Module {
 		foreach ($this->data as $actionType => $selUser) {
 			if (isset($actionType)) {
 				try {
-					match ($actionType) {
-						'list' => $this->addUserData($selUser),
-						default => $this->handleUnknownActionType($actionType),
-					};
+					switch ($actionType) {
+						case 'list':
+							$this->addUserData($selUser);
+							break;
+
+						default:
+							$this->handleUnknownActionType($actionType);
+					}
 				}
 				catch (MAPIException $e) {
 					$this->processException($e, $actionType);
@@ -64,9 +73,10 @@ class FreeBusyModule extends Module {
 	 */
 	public function getFreeBusyInfo($entryID, $start, $end) {
 		$result = [];
+
 		try {
 			$fbdata = mapi_getuserfreebusy($GLOBALS['mapisession']->getSession(), hex2bin($entryID), $start, $end);
-	
+
 			foreach ($fbdata['fbevents'] as $event) {
 				$result[] = [
 					'start' => $event['start'],

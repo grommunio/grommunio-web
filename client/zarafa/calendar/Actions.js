@@ -408,8 +408,8 @@ Zarafa.calendar.Actions = {
 		if(!mapiStoreRecord) {
 			/*
 			 * If we don't have correspondent appointment's store then get user id from one of this
-			 * 1) received_representing_entryid, Meeting request reciever's id for delegate
-			 * 2) received_by_entryid, Meeting request reciever's id
+			 * 1) received_representing_entryid, meeting request receiver's id for delegate
+			 * 2) received_by_entryid, meeting request receiver's id
 			 * 3) sent_representing_entryid, if it is in sent items, then delegator's id,
 			 *    where delegator is organizer
 			 * 4) sender_entryid, if it is in sent items, then organizer's id

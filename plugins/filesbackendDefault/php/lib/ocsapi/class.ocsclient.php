@@ -116,9 +116,9 @@ class ocsclient {
 	/**
 	 * Shortcut for curl get requests.
 	 *
-	 * @param $url string URL for the request
+	 * @param string $url URL for the request
 	 *
-	 * @return curl response data
+	 * @return string response body
 	 */
 	private function doCurlGetRequest($url) {
 		return $this->doCurlRequest($url, []);
@@ -127,10 +127,10 @@ class ocsclient {
 	/**
 	 * Execute curl request with parameters.
 	 *
-	 * @param       $url         string URL for the request
-	 * @param mixed $curlOptions
+	 * @param string $url         URL for the request
+	 * @param array  $curlOptions additional cURL options
 	 *
-	 * @return curl responsedata
+	 * @return string response body
 	 *
 	 * @throws ConnectionException
 	 * @throws InvalidResponseException
@@ -151,20 +151,25 @@ class ocsclient {
 		$responsedata = curl_exec($ch);
 		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
-		if ($httpcode == 0) {
+		if ($httpcode === 0) {
 			$message = curl_errno($ch);
 		}
 		else {
 			$message = $httpcode;
 		}
 
-		if ($httpcode && $httpcode == "200") {
+		if ($httpcode === 200) {
+			if (!is_string($responsedata)) {
+				$this->loaded = false;
+
+				throw new InvalidResponseException('Invalid response body');
+			}
 			$this->loaded = true;
 
 			return $responsedata;
 		}
 		$this->loaded = false;
-		if ($httpcode == "0") {
+		if ($httpcode === 0) {
 			throw new ConnectionException($message, $httpcode);
 		}
 
@@ -199,7 +204,7 @@ class ocsclient {
 	 *
 	 * @param mixed $id
 	 *
-	 * @return ocsshare or FALSE
+	 * @return false|ocsshare
 	 *
 	 * @throws ConnectionException
 	 * @throws InvalidResponseException
@@ -217,7 +222,7 @@ class ocsclient {
 	 *
 	 * @param mixed $path
 	 *
-	 * @return ocsshare[] or FALSE
+	 * @return false|ocsshare[]
 	 *
 	 * @throws ConnectionException
 	 * @throws InvalidResponseException
@@ -245,7 +250,7 @@ class ocsclient {
 	 *
 	 * @param mixed $search
 	 *
-	 * @return [] or FALSE
+	 * @return array|false matching recipients, or false for an invalid response
 	 *
 	 * @throws ConnectionException
 	 * @throws InvalidResponseException
@@ -264,14 +269,9 @@ class ocsclient {
 		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
 		if ($httpcode === 200) {
-			try {
-				$xmldata = new \SimpleXMLElement($responsedata);
-			}
-			catch (\Exception) {
-				throw new InvalidResponseException($responsedata);
-			}
+			$xmldata = $this->parseXMLResponse($responsedata);
 
-			if (!$xmldata || !isset($xmldata->meta) || !$this->parseResponseMeta($xmldata->meta) || !isset($xmldata->data)) {
+			if (!isset($xmldata->meta) || !$this->parseResponseMeta($xmldata->meta) || !isset($xmldata->data)) {
 				return false;
 			}
 
@@ -284,7 +284,7 @@ class ocsclient {
 	/**
 	 * Get all loaded shares. Will return FALSE if the store is not loaded yet.
 	 *
-	 * @return ocsshare or FALSE
+	 * @return false|ocsshare[]
 	 */
 	public function getAllShares() {
 		if (!$this->loaded) {
@@ -299,7 +299,7 @@ class ocsclient {
 	 *
 	 * @param mixed $id
 	 *
-	 * @return ocsshare or bool
+	 * @return false|ocsshare
 	 */
 	public function getShareByID($id) {
 		if (!$this->loaded) {
@@ -314,7 +314,7 @@ class ocsclient {
 	 *
 	 * @param mixed $path
 	 *
-	 * @return ocsshare[] or bool
+	 * @return false|ocsshare[]
 	 */
 	public function getShareByPath($path) {
 		if (!$this->loaded) {
@@ -347,7 +347,7 @@ class ocsclient {
 	 * @param mixed $path
 	 * @param mixed $options
 	 *
-	 * @return ocsshare
+	 * @return false|ocsshare
 	 *
 	 * @throws ConnectionException
 	 * @throws InvalidResponseException
@@ -384,7 +384,7 @@ class ocsclient {
 	 * @param mixed $key
 	 * @param mixed $value
 	 *
-	 * @return ocsshare Returns a empty share
+	 * @return false|ocsshare an empty share, or false for an invalid response
 	 *
 	 * @throws ConnectionException
 	 * @throws InvalidResponseException
@@ -418,7 +418,7 @@ class ocsclient {
 	 *
 	 * @param mixed $id
 	 *
-	 * @return ocsshare Returns a empty share
+	 * @return false|ocsshare an empty share, or false for an invalid response
 	 *
 	 * @throws ConnectionException
 	 * @throws InvalidResponseException
@@ -436,9 +436,9 @@ class ocsclient {
 	/**
 	 * Parse the response of a create or modify request.
 	 *
-	 * @param mixed $response
+	 * @param string $response
 	 *
-	 * @return ocsshare
+	 * @return false|ocsshare
 	 *
 	 * @throws FileNotFoundException
 	 * @throws InvalidArgumentException
@@ -447,32 +447,15 @@ class ocsclient {
 	 * @throws PermissionDeniedException
 	 */
 	private function parseModificationResponse($response) {
-		if ($response) {
-			try {
-				$xmldata = new \SimpleXMLElement($response);
-			}
-			catch (\Exception) {
-				throw new InvalidResponseException($response);
-			}
-
-			if ($xmldata) {
-				$ok = false;
-				if (isset($xmldata->meta)) {
-					$ok = $this->parseResponseMeta($xmldata->meta);
-				}
-
-				if ($ok) {
-					// create a new ocsshare
-					if (isset($xmldata->data)) {
-						return new ocsshare($xmldata->data);
-					}
-
-					return false;
-				}
-			}
-		}
-		else {
+		if (!$response) {
 			throw new InvalidResponseException($response);
+		}
+		$xmldata = $this->parseXMLResponse($response);
+		if (!isset($xmldata->meta) || !$this->parseResponseMeta($xmldata->meta)) {
+			return false;
+		}
+		if (isset($xmldata->data)) {
+			return new ocsshare($xmldata->data);
 		}
 
 		return false;
@@ -481,7 +464,7 @@ class ocsclient {
 	/**
 	 * Parse the request response.
 	 *
-	 * @param mixed $response
+	 * @param string $response
 	 *
 	 * @throws FileNotFoundException
 	 * @throws InvalidArgumentException
@@ -494,24 +477,34 @@ class ocsclient {
 			throw new InvalidResponseException($response);
 		}
 
+		$xmldata = $this->parseXMLResponse($response);
+		if (!isset($xmldata->meta) || !$this->parseResponseMeta($xmldata->meta)) {
+			return;
+		}
+		if (isset($xmldata->data)) {
+			$this->parseResponseData($xmldata->data);
+		}
+	}
+
+	/**
+	 * Convert an OCS response body into XML.
+	 *
+	 * @param bool|string $response response body returned by cURL
+	 *
+	 * @return \SimpleXMLElement parsed response
+	 *
+	 * @throws InvalidResponseException
+	 */
+	private function parseXMLResponse($response) {
+		if (!is_string($response)) {
+			throw new InvalidResponseException('Invalid response body');
+		}
+
 		try {
-			$xmldata = new \SimpleXMLElement($response);
+			return new \SimpleXMLElement($response);
 		}
 		catch (\Exception) {
 			throw new InvalidResponseException($response);
-		}
-
-		if ($xmldata) {
-			$ok = false;
-			if (isset($xmldata->meta)) {
-				$ok = $this->parseResponseMeta($xmldata->meta);
-			}
-
-			if ($ok) {
-				if (isset($xmldata->data)) {
-					$this->parseResponseData($xmldata->data);
-				}
-			}
 		}
 	}
 
@@ -554,7 +547,7 @@ class ocsclient {
 	/**
 	 * Parse the response data block.
 	 *
-	 * @param SimpleXMLElement $response from owncloud server
+	 * @param \SimpleXMLElement $response from ownCloud server
 	 */
 	private function parseResponseData($response) {
 		// parse each element in the data section
@@ -575,7 +568,7 @@ class ocsclient {
 	 *  - shareWith is the user or group id
 	 *  - shareType is type of the recipient: user or group.
 	 *
-	 * @param SimpleXMLElement $response the response data from the request
+	 * @param \SimpleXMLElement $response the response data from the request
 	 *
 	 * @return array array of recipients
 	 */

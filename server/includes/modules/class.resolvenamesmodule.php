@@ -4,6 +4,11 @@
  * ResolveNames Module.
  */
 class ResolveNamesModule extends Module {
+	#[Override]
+	protected function getExecutionLockName() {
+		return null;
+	}
+
 	/**
 	 * Constructor.
 	 *
@@ -22,10 +27,14 @@ class ResolveNamesModule extends Module {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
 				try {
-					match ($actionType) {
-						'checknames' => $this->checkNames($action),
-						default => $this->handleUnknownActionType($actionType),
-					};
+					switch ($actionType) {
+						case 'checknames':
+							$this->checkNames($action);
+							break;
+
+						default:
+							$this->handleUnknownActionType($actionType);
+					}
 				}
 				catch (MAPIException $e) {
 					$this->processException($e, $actionType);
@@ -86,7 +95,7 @@ class ResolveNamesModule extends Module {
 	 *
 	 * @param resource $ab               The addressbook
 	 * @param resource $ab_dir           The addressbook container
-	 * @param string   $query            The search query, case is ignored
+	 * @param array    $query            The search query, case is ignored
 	 * @param bool     $excludeGABGroups flag to exclude groups from resolving
 	 */
 	public function searchAddressBook($ab, $ab_dir, $query, $excludeGABGroups) {
@@ -116,7 +125,13 @@ class ResolveNamesModule extends Module {
 		catch (MAPIException $e) {
 			if ($e->getCode() == MAPI_E_AMBIGUOUS_RECIP) {
 				$ab_entryid = mapi_ab_getdefaultdir($ab);
+				if ($ab_entryid === false) {
+					throw $e;
+				}
 				$ab_dir = mapi_ab_openentry($ab, $ab_entryid);
+				if ($ab_dir === false) {
+					throw $e;
+				}
 				// Ambiguous, show possibilities:
 				$table = mapi_folder_getcontentstable($ab_dir, MAPI_DEFERRED_ERRORS);
 				$restriction = $this->getAmbigiousContactRestriction($searchstr, $excludeGABGroups, PR_ACCOUNT);
@@ -148,12 +163,15 @@ class ResolveNamesModule extends Module {
 					// we can generate a oneoff entry which contains the information of the user.
 					// Only for an actual address, else the one-off would be undeliverable.
 					if ($GLOBALS['operations']->isEmailAddressLike($searchstr)) {
-						$rows[] = [
-							PR_ACCOUNT => $searchstr, PR_ADDRTYPE => 'SMTP', PR_EMAIL_ADDRESS => $searchstr,
-							PR_DISPLAY_NAME => $query['display_name'], PR_DISPLAY_TYPE_EX => DT_REMOTE_MAILUSER, PR_DISPLAY_TYPE => DT_MAILUSER,
-							PR_SMTP_ADDRESS => $searchstr, PR_OBJECT_TYPE => MAPI_MAILUSER,
-							PR_ENTRYID => mapi_createoneoff($query['display_name'], 'SMTP', $searchstr),
-						];
+						$entryId = mapi_createoneoff($query['display_name'], 'SMTP', $searchstr);
+						if ($entryId !== false) {
+							$rows[] = [
+								PR_ACCOUNT => $searchstr, PR_ADDRTYPE => 'SMTP', PR_EMAIL_ADDRESS => $searchstr,
+								PR_DISPLAY_NAME => $query['display_name'], PR_DISPLAY_TYPE_EX => DT_REMOTE_MAILUSER, PR_DISPLAY_TYPE => DT_MAILUSER,
+								PR_SMTP_ADDRESS => $searchstr, PR_OBJECT_TYPE => MAPI_MAILUSER,
+								PR_ENTRYID => $entryId,
+							];
+						}
 					}
 					// Check also the user's contacts folders
 					else {
@@ -423,6 +441,7 @@ class ResolveNamesModule extends Module {
 		// Get the 'Contact Folders'
 		$hierarchyTable = mapi_folder_gethierarchytable($abRootContainer, MAPI_DEFERRED_ERRORS);
 		$abHierarchyRows = mapi_table_queryallrows($hierarchyTable, [PR_AB_PROVIDER_ID, PR_ENTRYID]);
+		$abContactContainerEntryid = null;
 
 		// Look for the 'Contacts Folders'
 		for ($i = 0,$len = count($abHierarchyRows); $i < $len; ++$i) {
@@ -530,7 +549,7 @@ class ResolveNamesModule extends Module {
 	 *
 	 * @param object     $e             Exception object
 	 * @param string     $actionType    the action type, sent by the client
-	 * @param MAPIobject $store         store object of message
+	 * @param resource   $store         MAPI store containing the message
 	 * @param string     $parententryid parent entryid of the message
 	 * @param string     $entryid       entryid of the message
 	 * @param array      $action        the action data, sent by the client

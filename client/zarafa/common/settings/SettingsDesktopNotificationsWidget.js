@@ -166,7 +166,7 @@ Zarafa.common.settings.SettingsDesktopNotificationsWidget = Ext.extend(Zarafa.se
 			return;
 		}
 
-		var notifier = container.getSettingsModel().get(checkbox.name, false, true) || 'popup';
+		var notifier = container.getSettingsModel().get(checkbox.name, false, true) || 'toast';
 		if (checked) {
 			notifier = 'desktopnotifier';
 		}

@@ -9,7 +9,7 @@ class Iconsets {
 	/**
 	 * A hash that is used to cache the properties of iconsets.
 	 *
-	 * @property
+	 * @var array
 	 */
 	private static $iconsetsCache = [];
 
@@ -137,20 +137,33 @@ class Iconsets {
 	 * @param string $dir The directory of the iconset for which the properties should be retrieved
 	 * @param mixed  $id
 	 *
-	 * @return array The array of properties defined in the iconset.json file or false if the json
-	 *               was unparsable.
+	 * @return array<string, mixed>|false The properties defined in iconset.json, or false when the
+	 *                                    file cannot be read or does not contain an array of properties
 	 */
 	public static function getProps($dir, $id) {
 		// Check if we have the props in the cache before reading the file
-		if (!isset(Iconsets::$iconsetsCache[$id])) {
-			$json = file_get_contents($dir . DIRECTORY_SEPARATOR . '/iconset.json');
-			$props = json_decode($json, true);
+		if (isset(Iconsets::$iconsetsCache[$id])) {
+			return Iconsets::$iconsetsCache[$id];
+		}
 
-			if (json_last_error() !== JSON_ERROR_NONE) {
-				error_log("The iconset '{$id}' does not have a valid iconset.json file. " . json_last_error_msg());
+		$json = @file_get_contents($dir . DIRECTORY_SEPARATOR . '/iconset.json');
+		if ($json === false) {
+			error_log("The iconset '{$id}' does not have a readable iconset.json file.");
 
-				return false;
-			}
+			return false;
+		}
+
+		$props = json_decode($json, true);
+
+		if (json_last_error() !== JSON_ERROR_NONE) {
+			error_log("The iconset '{$id}' does not have a valid iconset.json file. " . json_last_error_msg());
+
+			return false;
+		}
+		if (!is_array($props)) {
+			error_log("The iconset '{$id}' iconset.json file must contain an array of properties.");
+
+			return false;
 		}
 
 		return $props;

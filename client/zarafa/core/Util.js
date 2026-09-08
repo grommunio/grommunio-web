@@ -489,7 +489,7 @@ Zarafa.core.Util =
 	 *
 	 * @param {Object} target The object with event handlers into which the new
 	 * handlers will be merged.
-	 * @param {Object} sourcec The object with event handlers which will be merged
+	 * @param {Object} source The object with event handlers which will be merged
 	 * into the target
 	 * @param {Boolean} intercept (optional) False to use {@link Function#createSequence}
 	 * rather then {@link Function#createInterceptor}.
@@ -638,7 +638,7 @@ Zarafa.core.Util =
 
 	/**
 	 * Function which is show confirm dialog when user trying to leave the page.
-	 * It will also check the value of {#Zarafa.core.Util.skipRequester skipRequester}
+	 * It will also check the value of {@link Zarafa.core.Util#skipRequester skipRequester}
 	 * If it's true then it will not show the confirm dialog.
 	 * It only shows the confirm dialog when there are unsaved changes.
 	 */

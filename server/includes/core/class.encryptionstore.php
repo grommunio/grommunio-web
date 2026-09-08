@@ -20,7 +20,7 @@ class EncryptionStore {
 	/**
 	 * Holds the only instance of this class.
 	 *
-	 * @property
+	 * @var null|EncryptionStore
 	 */
 	private static $_instance;
 
@@ -56,7 +56,7 @@ class EncryptionStore {
 		else {
 			// If there is a encryption store in the session then we
 			// can get the encryption key from the cookie.
-			EncryptionStore::getEncryptionKey();
+			$this->getEncryptionKey();
 		}
 
 		$this->removeExpiredEntries();
@@ -210,8 +210,7 @@ class EncryptionStore {
 	/**
 	 * Returns the value that has been stored for the given $key.
 	 *
-	 * @param string The key for which the value will be retrieved\
-	 * @param mixed $key
+	 * @param string $key key whose value should be retrieved
 	 *
 	 * @return null|string
 	 */
@@ -246,6 +245,8 @@ class EncryptionStore {
 	/**
 	 * Open the php session if it isn't open.
 	 *
+	 * @param mixed $forWrite
+	 *
 	 * @return bool return if the session was opened or not
 	 */
 	private function open_session($forWrite = false) {
@@ -267,8 +268,7 @@ class EncryptionStore {
 	/**
 	 * Close session if it was explicitly opened.
 	 *
-	 * @param bool True if session was opened, false if not
-	 * @param mixed $opened
+	 * @param bool $opened whether the session was opened
 	 */
 	private function close_session($opened) {
 		if ($this->session_exists() && $opened) {

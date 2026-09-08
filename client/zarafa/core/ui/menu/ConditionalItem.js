@@ -39,7 +39,7 @@ Zarafa.core.ui.menu.ConditionalItem = Ext.extend(Ext.menu.Item, {
 	 * Override of {@link Ext.menu.Item#itemTpl} to add the possibility of
 	 * styling the icon.
 	 * @property
-	 * @Type Ext.XTemplate
+	 * @type Ext.XTemplate
 	 */
   itemTpl: new Ext.XTemplate(
     '<a id="{id}" class="{cls} x-unselectable" hidefocus="true" unselectable="on" href="{href}"',

@@ -10,8 +10,9 @@ require_once 'php/util.php';
  */
 class OCSPCertificateTest extends PHPUnit_Framework_TestCase {
 	protected $cert;
+	protected $certdata;
 
-	protected function setUp() {
+	protected function setUp(): void {
 		$this->certdata = file_get_contents('./test/user.crt');
 		$this->cert = new Certificate($this->certdata);
 	}

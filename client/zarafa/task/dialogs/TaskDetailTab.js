@@ -184,7 +184,7 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 	},
 
 	/**
-	 * Function called before the 'blur' event triggred. It will process the companies name
+	 * Function called before the 'blur' event is triggered. It will process the company name
 	 * to '; ' separated and set the value to {@link Ext.form.Filed companies} text field.
 	 */
 	onBeforeBlurCompanies : function()

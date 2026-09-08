@@ -22,7 +22,7 @@ class ListModule extends Module {
 	public $start;
 
 	/**
-	 * @var array contains (when needed) a restriction used when searching and filtering the records
+	 * @var array|false contains (when needed) a restriction used when searching and filtering the records
 	 */
 	public $restriction;
 
@@ -38,14 +38,14 @@ class ListModule extends Module {
 	public $searchResults;
 
 	/**
-	 * @var MAPIMessage resource of the freebusy message which holds
+	 * @var false|resource free/busy message which holds
 	 *                  information regarding delegation details, this variable will
 	 *                  only be populated when user is a delegate
 	 */
 	public $localFreeBusyMessage;
 
 	/**
-	 * @var BinString binary string of PR_MDB_PROVIDER property
+	 * @var false|string binary value of the PR_MDB_PROVIDER property
 	 *                of a store, this variable will only be populated when user is a delegate
 	 */
 	public $storeProviderGuid;
@@ -80,10 +80,18 @@ class ListModule extends Module {
 	public function execute() {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
+				$parententryid = null;
+				$entryid = null;
+
 				try {
 					$store = $this->getActionStore($action);
 					$parententryid = $this->getActionParentEntryID($action);
-					$entryid = $this->getActionEntryID($action);
+					$entryid = $this->getActionSingleEntryID($action);
+					if ($store === false || is_array($store)) {
+						$this->sendFeedback(false);
+
+						continue;
+					}
 
 					switch ($actionType) {
 						case "list":
@@ -109,7 +117,7 @@ class ListModule extends Module {
 	 *
 	 * @param object     $e             Exception object
 	 * @param string     $actionType    the action type, sent by the client
-	 * @param MAPIobject $store         store object of the current user
+	 * @param resource   $store         current user's MAPI store
 	 * @param string     $parententryid parent entryid of the message
 	 * @param string     $entryid       entryid of the message/folder
 	 * @param array      $action        the action data, sent by the client
@@ -117,7 +125,7 @@ class ListModule extends Module {
 	#[Override]
 	public function handleException(&$e, $actionType = null, $store = null, $parententryid = null, $entryid = null, $action = null) {
 		if (is_null($e->displayMessage)) {
-			$hexEntryid = $entryid != null ? bin2hex($entryid) : 'null';
+			$hexEntryid = $entryid !== null ? bin2hex($entryid) : 'null';
 
 			switch ($actionType) {
 				case "list":
@@ -137,15 +145,15 @@ class ListModule extends Module {
 	/**
 	 * Function which retrieves a list of messages in a folder.
 	 *
-	 * @param object $store      MAPI Message Store Object
-	 * @param string $entryid    entryid of the folder
-	 * @param array  $action     the action data, sent by the client
-	 * @param string $actionType the action type, sent by the client
+	 * @param false|resource $store      MAPI message store, or false when unavailable
+	 * @param false|string   $entryid    entryid of the folder, or false when unavailable
+	 * @param array          $action     the action data, sent by the client
+	 * @param string         $actionType the action type, sent by the client
 	 */
 	public function messageList($store, $entryid, $action, $actionType) {
 		$this->searchFolderList = false; // Set to indicate this is not the search result, but a normal folder content
 
-		if (!$store || !$entryid) {
+		if ($store === false || $entryid === false) {
 			return;
 		}
 
@@ -215,10 +223,10 @@ class ListModule extends Module {
 	 *	Function will set search restrictions on search folder and start search process
 	 *	and it will also parse visible columns and sorting data when sending results to client.
 	 *
-	 * @param object $store      MAPI Message Store Object
-	 * @param string $entryid    entryid of the folder
-	 * @param object $action     the action data, sent by the client
-	 * @param string $actionType the action type, sent by the client
+	 * @param array<int, false|resource>|false|resource $store      MAPI message store or stores
+	 * @param array<int, false|string>|false|string     $entryid    entryid of the folder or folders
+	 * @param array                                     $action     action data sent by the client
+	 * @param string                                    $actionType the action type, sent by the client
 	 */
 	public function search($store, $entryid, $action, $actionType) {
 		$useSearchFolder = $action["use_searchfolder"] ?? false;
@@ -228,12 +236,20 @@ class ListModule extends Module {
 			 * method instead we will pass restriction to messageList and
 			 * it will give us the restricted results
 			 */
-			return $this->messageList($store, $entryid, $action, "list");
+			$this->messageList($store, $entryid, $action, "list");
+
+			return;
+		}
+		if ($store === false || is_array($store) || !is_string($entryid)) {
+			$this->sendFeedback(false);
+
+			return;
 		}
 
 		$this->searchFolderList = true; // Set to indicate this is not the normal folder, but a search folder
 		$this->restriction = false;
-		$searchInTodoList = $GLOBALS['entryid']->compareEntryIds(bin2hex($entryid), bin2hex(TodoList::getEntryId()));
+		$todoListEntryId = TodoList::getEntryId();
+		$searchInTodoList = $todoListEntryId !== false && $GLOBALS['entryid']->compareEntryIds(bin2hex($entryid), bin2hex($todoListEntryId));
 
 		// Parse Restriction
 		$this->parseRestriction($action);
@@ -260,6 +276,13 @@ class ListModule extends Module {
 			// When searching in the To-do list we will actually always search in the IPM subtree, so
 			// set the entryid to that.
 			$userStore = WebAppAuthentication::getMAPISession()->getDefaultMessageStore();
+			if ($userStore === false) {
+				$errorInfo = [];
+				$errorInfo["error_message"] = _("Error in search, please try again") . ".";
+				$errorInfo["original_error_message"] = _("Could not open the store.");
+
+				return $this->sendSearchErrorToClient($store, $entryid, $action, $errorInfo);
+			}
 			$props = mapi_getprops($userStore, [PR_IPM_SUBTREE_ENTRYID]);
 			$entryid = $props[PR_IPM_SUBTREE_ENTRYID];
 		}
@@ -312,7 +335,7 @@ class ListModule extends Module {
 			if (!empty($this->sessionData['searchOriginalEntryids'])) {
 				// get entryids of original folders, and use it to set new search criteria
 				$entryids = [];
-				for ($index = 0; $index < count($this->sessionData['searchOriginalEntryids']); ++$index) {
+				for ($index = 0, $len = count($this->sessionData['searchOriginalEntryids']); $index < $len; ++$index) {
 					$entryids[] = hex2bin((string) $this->sessionData['searchOriginalEntryids'][$index]);
 				}
 			}
@@ -343,7 +366,6 @@ class ListModule extends Module {
 
 		// Create the data array, which will be sent back to the client
 		$data = [];
-		$start = time();
 		$table = mapi_folder_getcontentstable($searchFolder, MAPI_DEFERRED_ERRORS);
 
 		/*
@@ -351,8 +373,8 @@ class ListModule extends Module {
 		 * $result["searchstate"] alone is already valuable information
 		 * for the client.
 		 */
-		$count = mapi_table_getrowcount($table);
-		$result = mapi_folder_getsearchcriteria($searchFolder);
+		mapi_table_getrowcount($table);
+		mapi_folder_getsearchcriteria($searchFolder);
 
 		// Get the table and merge the arrays
 		$table = $GLOBALS["operations"]->getTable($store, hex2bin((string) $searchFolderEntryId), $this->properties, $this->sort, $this->start);
@@ -401,9 +423,9 @@ class ListModule extends Module {
 	 *	and it will also send intermediate results of search, so we don't have to wait
 	 *	until search is finished on server to send results.
 	 *
-	 * @param object    $store   MAPI Message Store Object
-	 * @param hexString $entryid entryid of the folder
-	 * @param object    $action  the action data, sent by the client
+	 * @param false|resource $store   MAPI Message Store Object, or false when unavailable
+	 * @param false|string   $entryid binary folder entry ID, or false when absent
+	 * @param array          $action  the action data, sent by the client
 	 */
 	public function updatesearch($store, $entryid, $action) {
 		if (!isset($entryid) || !$entryid) {
@@ -412,8 +434,13 @@ class ListModule extends Module {
 		}
 
 		$listData = [];
-		if (isset($action['search_folder_entryid'])) {
-			$entryid = hex2bin($action['search_folder_entryid']);
+		if (array_key_exists('search_folder_entryid', $action)) {
+			$searchFolderEntryid = $action['search_folder_entryid'];
+			if (!is_string($searchFolderEntryid) || $searchFolderEntryid === '' ||
+				(strlen($searchFolderEntryid) % 2) !== 0 || !ctype_xdigit($searchFolderEntryid)) {
+				return;
+			}
+			$entryid = hex2bin($searchFolderEntryid);
 		}
 		$searchFolder = mapi_msgstore_openentry($store, $entryid);
 		$searchResult = mapi_folder_getsearchcriteria($searchFolder);
@@ -521,9 +548,9 @@ class ListModule extends Module {
 	/**
 	 *	Function will stop search on the server if search folder exists.
 	 *
-	 * @param object    $store   MAPI Message Store Object
-	 * @param hexString $entryid entryid of the folder
-	 * @param object    $action  the action data, sent by the client
+	 * @param false|resource $store   MAPI Message Store Object, or false when unavailable
+	 * @param false|string   $entryid binary folder entry ID, or false when absent
+	 * @param array          $action  the action data, sent by the client
 	 */
 	public function stopSearch($store, $entryid, $action) {
 		// if no entryid is present in the request then get the search folder entryid from session data
@@ -562,9 +589,9 @@ class ListModule extends Module {
 	/**
 	 * Function will delete search folder.
 	 *
-	 * @param object    $store   MAPI Message Store Object
-	 * @param hexString $entryid entryid of the folder
-	 * @param array     $action  the action data, sent by the client
+	 * @param false|resource $store   MAPI Message Store Object, or false when unavailable
+	 * @param false|string   $entryid binary folder entry ID, or false when absent
+	 * @param array          $action  the action data, sent by the client
 	 *
 	 * @return bool true on success or false on failure
 	 */
@@ -575,7 +602,7 @@ class ListModule extends Module {
 			$finderFolder = mapi_msgstore_openentry($store, $storeProps[PR_FINDER_ENTRYID]);
 
 			if (mapi_last_hresult() != NOERROR) {
-				return;
+				return false;
 			}
 
 			$hierarchyTable = mapi_folder_gethierarchytable($finderFolder, MAPI_DEFERRED_ERRORS);
@@ -595,7 +622,7 @@ class ListModule extends Module {
 			$folders = mapi_table_queryrows($hierarchyTable, [PR_ENTRYID], 0, 1);
 
 			// delete search folder
-			if (is_array($folders) && is_array($folders[0])) {
+			if (is_array($folders) && isset($folders[0]) && is_array($folders[0]) && isset($folders[0][PR_ENTRYID])) {
 				mapi_folder_deletefolder($finderFolder, $folders[0][PR_ENTRYID]);
 			}
 
@@ -625,10 +652,10 @@ class ListModule extends Module {
 	 *	is removed automatically, as well as legacy folders named exactly
 	 *	"grommunio Web Search Folder".
 	 *
-	 * @param object $store        MAPI Message Store Object
+	 * @param resource $store        MAPI message store
 	 * @param bool   $openIfExists open if folder exists
 	 *
-	 * @return bool|resource $folder created search folder
+	 * @return false|resource created search folder, or false when it cannot be created
 	 */
 	public function createSearchFolder($store, $openIfExists = true) {
 		if (isset($this->sessionData['searchFolderEntryId']) && $openIfExists) {
@@ -757,14 +784,11 @@ class ListModule extends Module {
 	 *	Function will open FINDER_ROOT folder in root container
 	 *	public folder's don't have FINDER_ROOT folder.
 	 *
-	 *	@param		object			store MAPI message store object
-	 * @param mixed $store
+	 * @param resource $store MAPI message store
 	 *
-	 * @return bool|resource finder root folder for search folders
+	 * @return false|resource finder root folder, or false when search folders are unsupported
 	 */
 	public function getSearchFoldersRoot($store) {
-		$searchRootFolder = false;
-
 		// check if we can create search folders
 		$storeProps = mapi_getprops($store, [PR_STORE_SUPPORT_MASK, PR_FINDER_ENTRYID, PR_DISPLAY_NAME]);
 		if (($storeProps[PR_STORE_SUPPORT_MASK] & STORE_SEARCH_OK) !== STORE_SEARCH_OK) {
@@ -780,6 +804,8 @@ class ListModule extends Module {
 			error_log(sprintf($msg, $storeProps[PR_DISPLAY_NAME]) . ": " . $e->getMessage());
 			// don't propagate the event to higher level exception handlers
 			$e->setHandled();
+
+			return false;
 		}
 
 		return $searchRootFolder;
@@ -788,18 +814,15 @@ class ListModule extends Module {
 	/**
 	 *	Function will send error message to client if any error has occurred in search.
 	 *
-	 * @param object    $store     MAPI Message Store Object
-	 * @param hexString $entryid   entryid of the folder
-	 * @param object    $action    the action data, sent by the client
-	 * @param object    $errorInfo the error information object
+	 * @param resource $store     MAPI message store
+	 * @param string   $entryid   folder entry ID in hexadecimal form
+	 * @param array    $action    action data sent by the client
+	 * @param array    $errorInfo error information
 	 */
 	public function sendSearchErrorToClient($store, $entryid, $action, $errorInfo) {
-		if ($errorInfo) {
+		if ($errorInfo !== []) {
 			$exception = new SearchException($errorInfo["original_error_message"] ?? $errorInfo['error_message'], mapi_last_hresult());
 			$exception->setDisplayMessage($errorInfo['error_message']);
-
-			// after sending error, remove error data
-			$errorInfo = [];
 
 			throw $exception;
 		}
@@ -810,7 +833,7 @@ class ListModule extends Module {
 	/**
 	 *	Function will create restriction based on restriction array.
 	 *
-	 * @param object $action the action data, sent by the client
+	 * @param array $action the action data, sent by the client
 	 */
 	public function parseRestriction($action) {
 		if (isset($action["restriction"]) && is_array($action['restriction'])) {
@@ -921,8 +944,12 @@ class ListModule extends Module {
 		$this->storeProviderGuid = false;
 
 		try {
-			$this->storeProviderGuid = mapi_getprops($store, [PR_MDB_PROVIDER]);
-			$this->storeProviderGuid = $this->storeProviderGuid[PR_MDB_PROVIDER];
+			$storeProperties = mapi_getprops($store, [PR_MDB_PROVIDER]);
+			$providerGuid = $storeProperties[PR_MDB_PROVIDER] ?? false;
+			if (!is_string($providerGuid)) {
+				return;
+			}
+			$this->storeProviderGuid = $providerGuid;
 
 			if ($this->storeProviderGuid !== ZARAFA_STORE_DELEGATE_GUID) {
 				// user is not a delegate, so no point of processing further
@@ -945,7 +972,6 @@ class ListModule extends Module {
 	 * Helper function which loop through each item and filter out
 	 * private items, if any.
 	 *
-	 * @param array array structure with row search data
 	 * @param mixed $data
 	 *
 	 * @return array array structure with row search data
@@ -972,9 +998,9 @@ class ListModule extends Module {
 	 * hide the data. This function will entirely remove the private message but
 	 * if any child class needs different behavior then this can be overridden.
 	 *
-	 * @param object $item item properties
+	 * @param array $item item properties
 	 *
-	 * @return object item properties if its non private item otherwise empty array
+	 * @return array item properties, or an empty array for a private item
 	 */
 	public function processPrivateItem($item) {
 		if ($this->checkPrivateItem($item)) {
@@ -992,7 +1018,7 @@ class ListModule extends Module {
 	 * This function will check we are dealing with delegate stores or not if it is then
 	 * the delegator has permission to see private items of delegate.
 	 *
-	 * @param object $item item properties
+	 * @param array $item item properties
 	 *
 	 * @return bool true if items should be processed as private else false
 	 */
@@ -1015,7 +1041,7 @@ class ListModule extends Module {
 						$localFreeBusyMessageProps = mapi_getprops($this->localFreeBusyMessage, [PR_SCHDINFO_DELEGATE_ENTRYIDS, PR_DELEGATE_FLAGS]);
 
 						if (isset($localFreeBusyMessageProps[PR_SCHDINFO_DELEGATE_ENTRYIDS], $localFreeBusyMessageProps[PR_DELEGATE_FLAGS])) {
-							// if more then one delegates info is stored then find index of
+							// If information for more than one delegate is stored, find the index of the
 							// current user
 							$userEntryId = $GLOBALS['mapisession']->getUserEntryID();
 

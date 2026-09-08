@@ -151,7 +151,7 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
    * </ul></p></div></li>
    * </ul>
    *
-   * @param {Object} config The configuration options of the the MessageBox. See above and {@link Ext.MessageBox.show}
+   * @param {Object} config The configuration options of the MessageBox. See above and {@link Ext.MessageBox.show}
    * for more information.
    * @return {Zarafa.common.dialogs.MessageBox} this
    */

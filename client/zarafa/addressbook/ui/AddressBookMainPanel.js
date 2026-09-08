@@ -55,7 +55,7 @@ Zarafa.addressbook.ui.AddressBookMainPanel = Ext.extend(Ext.Panel, {
 	constructor: function(config)
 	{
 		// Let's remove the state settings of the address book panel once so
-		// everyone will start again with the new default settings (januari 2017)
+		// everyone will start again with the new default settings (January 2017)
 		var sm = container.getSettingsModel();
 		var stateUpdated = sm.get('zarafa/v1/contexts/addressbook/stateUpdated');
 		if ( Ext.isEmpty(stateUpdated) ) {
@@ -517,8 +517,8 @@ Zarafa.addressbook.ui.AddressBookMainPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * Returns the currently selected folder in the hierarchy combobox
 	 *
-	 *@return {Zarafa.core.data.IPMRecord IPMRecord} The selected record from the
-	 * {#hierarchyStore}
+	 * @return {Zarafa.core.data.IPMRecord IPMRecord} The selected record from the
+	 * {@link #hierarchyStore}.
 	 */
 	getSelectedFolderRecord: function()
 	{

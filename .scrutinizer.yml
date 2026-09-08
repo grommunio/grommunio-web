@@ -7,7 +7,7 @@ build:
       ini:
         xdebug.mode: coverage
     node:
-      version: 20.19.5
+      version: 20.19.0
   nodes:
     analysis:
       dependencies:
@@ -15,15 +15,19 @@ build:
           - 'mkdir -p analysis-deps'
           - 'git clone --depth 1 --branch 2.2 https://github.com/grommunio/mapi-header-php.git analysis-deps/mapi-header-php'
           - 'test "$(git -C analysis-deps/mapi-header-php rev-parse HEAD)" = 4af93f0248f84fcb435535be8daedea7da939859'
+          - 'php tools/normalize-mapi-analysis-stub.php analysis-deps/mapi-header-php/dev/php-mapi-stub.php'
+          - 'php tools/normalize-mapi-analysis-stub.php --check analysis-deps/mapi-header-php/dev/php-mapi-stub.php'
+          - 'php -l analysis-deps/mapi-header-php/dev/php-mapi-stub.php'
           - 'sudo ln -sfnT "$PWD/analysis-deps/mapi-header-php" /usr/share/php-mapi'
       environment:
-        node: 20.19.5
+        node: 20.19.0
       project_setup:
         override: true
       tests:
         override:
           - php-scrutinizer-run --enable-security-analysis
-          - command: phpcs-run
+          # Override the vulnerable PHPCS 3.6.0 default used by phpcs-run.
+          - command: 'SCRUTINIZER_TOOLCONFIG_PHPCS_VERSION=3.13.6 phpcs-run'
             use_website_config: true
     tests:
       dependencies:
@@ -38,6 +42,11 @@ filter:
     - "*/vendor/**"
     - "plugins/files/php/Files/Backend/Webdav/sabredav/"
   excluded_paths:
+    - ".php-cs-fixer.dist.php"
+    - "tools/normalize-mapi-analysis-stub.php"
+    - "server/test/**"
+    - "plugins/*/test/**"
+    - "plugins/filesbackendDefault/php/lib/ocsapi/test/**"
     - "*/build/**"
     - "*.min.js"
     - "client/dompurify/**"
@@ -48,5 +57,7 @@ checks:
   php:
     code_rating: true
     duplication: true
+    # Endpoint controllers intentionally stop after emitting their response.
+    no_exit: false
     excluded_dependencies:
       - phpunit/phpunit

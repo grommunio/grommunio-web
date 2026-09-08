@@ -133,7 +133,7 @@ Zarafa.common.delegates.ui.DelegatesGrid = Ext.extend(Ext.grid.GridPanel, {
 
 		Ext.apply(config, {
 			recordComponentPluginConfig: {
-				// we will open records ourself
+				// We will open the records ourselves.
 				enableOpenLoadTask: false
 			}
 		});

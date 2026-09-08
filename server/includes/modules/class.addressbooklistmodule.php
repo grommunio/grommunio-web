@@ -31,23 +31,38 @@ class AddressbookListModule extends ListModule {
 	public function execute() {
 		foreach ($this->data as $actionType => $action) {
 			if (isset($actionType)) {
+				$parententryid = null;
+				$entryid = null;
+				$subActionType = '';
+
 				try {
 					$store = $this->getActionStore($action);
 					$parententryid = $this->getActionParentEntryID($action);
-					$entryid = $this->getActionEntryID($action);
+					$entryid = $this->getActionSingleEntryID($action);
 
-					if (isset($action['subActionType']) && $action['subActionType'] != '') {
+					if (isset($action['subActionType']) && $action['subActionType'] !== '') {
 						$subActionType = $action['subActionType'];
 					}
 
-					match ($actionType) {
-						'list' => match ($subActionType) {
-							'hierarchy' => $this->getHierarchy($action),
-							'globaladdressbook' => $this->GABUsers($action, $subActionType),
-							default => $this->handleUnknownActionType($actionType),
-						},
-						default => $this->handleUnknownActionType($actionType),
-					};
+					switch ($actionType) {
+						case 'list':
+							switch ($subActionType) {
+								case 'hierarchy':
+									$this->getHierarchy($action);
+									break;
+
+								case 'globaladdressbook':
+									$this->GABUsers($action, $subActionType);
+									break;
+
+								default:
+									$this->handleUnknownActionType($actionType);
+							}
+							break;
+
+						default:
+							$this->handleUnknownActionType($actionType);
+					}
 				}
 				catch (MAPIException $e) {
 					$this->processException($e, $actionType, $store, $parententryid, $entryid, $action);
@@ -77,7 +92,6 @@ class AddressbookListModule extends ListModule {
 		$sortingDir = $action["sort"][0]["direction"] ?? 'ASC';
 		$sortingField = $this->getSortingField($action, $map, $sortingDir);
 		$folderType = $action['folderType'];
-		$sharedStore = null;
 		$isSharedFolder = $folderType === 'sharedcontacts' && isset($action["sharedFolder"]["store_entryid"]);
 		$isContactFolder = ($folderType === 'contacts' || $folderType === 'sharedcontacts');
 
@@ -86,7 +100,7 @@ class AddressbookListModule extends ListModule {
 			$ab = $GLOBALS['mapisession']->getAddressbook(false, true);
 			$entryid = !empty($action['entryid']) ? hex2bin((string) $action['entryid']) : mapi_ab_getdefaultdir($ab);
 
-			if ($folderType === 'contacts') {
+			if ($entryid !== false && $folderType === 'contacts') {
 				// Personal contact folder: open directly from the default store.
 				// These use raw entry IDs (not AB-wrapped), so we must not go
 				// through mapi_ab_openentry which may partially succeed but
@@ -97,7 +111,7 @@ class AddressbookListModule extends ListModule {
 				$table = mapi_folder_getcontentstable($contactsFolder, MAPI_DEFERRED_ERRORS);
 				$this->properties = $GLOBALS['properties']->getContactProperties();
 			}
-			elseif ($isSharedFolder) {
+			elseif ($entryid !== false && $isSharedFolder) {
 				// Shared/public contact folder: open from the specified store
 				$sharedStore = $GLOBALS["mapisession"]->openMessageStore(
 					hex2bin((string) $action["sharedFolder"]["store_entryid"])
@@ -106,17 +120,19 @@ class AddressbookListModule extends ListModule {
 				$table = mapi_folder_getcontentstable($sharedContactsFolder, MAPI_DEFERRED_ERRORS);
 				$this->properties = $GLOBALS['properties']->getContactProperties();
 			}
-			else {
+			elseif ($entryid !== false) {
 				// GAB or other AB entry: open through the address book
 				try {
 					$dir = mapi_ab_openentry($ab, $entryid);
 
-					/**
+					/*
 					 * @TODO: 'All Address Lists' on IABContainer gives MAPI_E_INVALID_PARAMETER,
 					 * as it contains subfolders only. When #7344 is fixed, MAPI will return error here,
 					 * handle it here and return false.
 					 */
-					$table = mapi_folder_getcontentstable($dir, MAPI_DEFERRED_ERRORS);
+					if ($dir !== false) {
+						$table = mapi_folder_getcontentstable($dir, MAPI_DEFERRED_ERRORS);
+					}
 				}
 				catch (MAPIException) {
 					// AB entry could not be opened
@@ -443,7 +459,7 @@ class AddressbookListModule extends ListModule {
 	/**
 	 *	Function will create a restriction based on parameters passed for hiding users.
 	 *
-	 * @param array $hide_users list of users that should not be shown
+	 * @param array|bool|string $hide_users list of hidden user types, a single type, or true to hide every user
 	 *
 	 * @return null|array restriction for hiding provided users
 	 */
@@ -648,7 +664,7 @@ class AddressbookListModule extends ListModule {
 	/**
 	 *	Function will create a restriction based on parameters passed for hiding groups.
 	 *
-	 * @param array $hide_groups list of groups that should not be shown
+	 * @param array|bool|string $hide_groups list of hidden group types, a single type, or true to hide every group
 	 *
 	 * @return null|array restriction for hiding provided users
 	 */
@@ -1039,6 +1055,7 @@ class AddressbookListModule extends ListModule {
 			}
 			catch (MAPIException $e) {
 				$e->setHandled();
+
 				continue;
 			}
 		}
@@ -1171,10 +1188,10 @@ class AddressbookListModule extends ListModule {
 	/**
 	 * Returns the restriction for the ab items.
 	 *
-	 * @param string $searchstring
-	 * @param bool   $hide_users
-	 * @param bool   $hide_groups
-	 * @param bool   $hide_companies
+	 * @param string            $searchstring
+	 * @param array|bool|string $hide_users
+	 * @param array|bool|string $hide_groups
+	 * @param bool              $hide_companies
 	 *
 	 * @return array
 	 */
@@ -1279,9 +1296,9 @@ class AddressbookListModule extends ListModule {
 	/**
 	 * Returns the hiding users/groups restriction for the ab items.
 	 *
-	 * @param bool $hide_users
-	 * @param bool $hide_groups
-	 * @param bool $hide_companies
+	 * @param array|bool|string $hide_users
+	 * @param array|bool|string $hide_groups
+	 * @param bool              $hide_companies
 	 *
 	 * @return array
 	 */
@@ -1292,19 +1309,19 @@ class AddressbookListModule extends ListModule {
 			$userRestrictions = [];
 			if ($hide_users) {
 				$tmp = $this->createUsersRestriction($hide_users);
-				if ($tmp) {
+				if (!empty($tmp)) {
 					$userRestrictions[] = $tmp;
 				}
 			}
 			if ($hide_groups) {
 				$tmp = $this->createGroupsRestriction($hide_groups);
-				if ($tmp) {
+				if (!empty($tmp)) {
 					$userRestrictions[] = $tmp;
 				}
 			}
 			if ($hide_companies) {
 				$tmp = $this->createCompanyRestriction($hide_companies);
-				if ($tmp) {
+				if (!empty($tmp)) {
 					$userRestrictions[] = $tmp;
 				}
 			}
@@ -1319,10 +1336,10 @@ class AddressbookListModule extends ListModule {
 	 * This allows finding users that are hidden from the GAB when the search string exactly matches
 	 * their display name, email address, or account name.
 	 *
-	 * @param resource $ab          The addressbook resource
-	 * @param string   $searchstr   The search string to match exactly
-	 * @param bool     $hide_users  Whether to exclude users from results
-	 * @param bool     $hide_groups Whether to exclude groups from results
+	 * @param resource          $ab          The addressbook resource
+	 * @param string            $searchstr   The search string to match exactly
+	 * @param array|bool|string $hide_users  User types to exclude from results
+	 * @param array|bool|string $hide_groups Group types to exclude from results
 	 *
 	 * @return array Array of user rows in the same format as table query results
 	 */
@@ -1359,6 +1376,7 @@ class AddressbookListModule extends ListModule {
 						}
 						$filteredRows[] = $row;
 					}
+
 					return $filteredRows;
 				}
 			}

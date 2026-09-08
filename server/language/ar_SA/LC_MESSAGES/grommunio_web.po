@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Arabic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-04 14:41+0200\n"
+"POT-Creation-Date: 2026-09-06 21:29+0200\n"
 "PO-Revision-Date: 2022-12-11 16:35+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Arabic (Saudi Arabia) <https://hosted.weblate.org/projects/grommunio/grommunio-web/ar_SA/>\n"
@@ -1995,6 +1995,33 @@ msgstr "لا تملك الصلاحيات الكافية لنقل هذه العن
 msgid "You have insufficient privileges to move this item. Would you like to copy instead?"
 msgstr "لا تملك الصلاحيات الكافية لنقل هذا العنصر. هل تريد نسخه بدلاً من ذلك؟"
 
+msgid "Untitled"
+msgstr "بدون عنوان"
+
+msgid "The attachments could not be saved."
+msgstr ""
+
+msgid "This attachment could not be saved: {0}"
+msgid_plural "These attachments could not be saved: {0}"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+msgid "{0} attachment was saved."
+msgid_plural "{0} attachments were saved."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+msgid "Save attachments"
+msgstr ""
+
 msgid "Insert item"
 msgstr "إدراج عنصر"
 
@@ -2040,11 +2067,17 @@ msgstr "إرفاق العنصر"
 msgid "Preview"
 msgstr "معاينة"
 
+msgid "Preview in a dialog"
+msgstr ""
+
 msgid "Download"
 msgstr "تحميل"
 
 msgid "Download all as ZIP"
 msgstr "قم بتنزيل الكل بصيغة ZIP"
+
+msgid "Save selection to folder"
+msgstr ""
 
 msgid "Import to folder"
 msgstr "استيراد إلى المجلد"
@@ -2054,6 +2087,12 @@ msgstr "لاستخدام ميزة استيراد vCard، قم بترقية Gromo
 
 msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to version 0 or higher."
 msgstr "لاستخدام ميزة استيراد ICS / VCS، قم بترقية Gromox إلى الإصدار 0 أو أعلى."
+
+msgid "Preview in a grommunio Web tab"
+msgstr ""
+
+msgid "Preview in a browser window"
+msgstr ""
 
 msgid "Attachment error"
 msgstr "خطأ في المرفقات"
@@ -3176,9 +3215,6 @@ msgstr "لا يمكن تحميل الرسالة"
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "المرفقات"
-
-msgid "Untitled"
-msgstr "بدون عنوان"
 
 msgid "Download Pictures"
 msgstr "تحميل الصور"
@@ -5339,6 +5375,12 @@ msgstr "التكبير الافتراضي للمستند"
 
 msgid "PDF zoom"
 msgstr "تكبير قوات الدفاع الشعبي"
+
+msgid "Dialog"
+msgstr ""
+
+msgid "Open a preview in a"
+msgstr ""
 
 msgid "File previewing"
 msgstr "معاينة الملف"
@@ -7635,12 +7677,6 @@ msgstr "تم الرفض"
 msgid "Connection failed"
 msgstr "فشل الاتصال"
 
-msgid "Sabre error"
-msgstr "خطأ Sabre"
-
-msgid "Copying failed"
-msgstr "فشل النسخ"
-
 msgid "Unknown error"
 msgstr "خطأ غير معروف"
 
@@ -7767,6 +7803,9 @@ msgstr "ملفات WebDAV الخلفية:"
 msgid "PHP-CURL is not installed"
 msgstr "لم يتم تثبيت PHP-CURL"
 
+msgid "Sabre error"
+msgstr "خطأ Sabre"
+
 msgid "Directory creation failed"
 msgstr "فشل إنشاء الدليل"
 
@@ -7782,8 +7821,8 @@ msgstr "مشاكل الدليل المؤقتة"
 msgid "File or folder not found"
 msgstr "لم يتم العثور على الملف أو المجلد"
 
-msgid "Not implemented"
-msgstr "لم يتم تنفيذه"
+msgid "Copying failed"
+msgstr "فشل النسخ"
 
 msgid "Please contact your system administrator"
 msgstr "الرجاء الاتصال بمسؤول النظام الخاص بك"
@@ -7793,6 +7832,9 @@ msgstr "خادم الملفات غير قابل للوصول. الرجاء ال�
 
 msgid "PHP-CURL not installed"
 msgstr "لم يتم تثبيت PHP-CURL"
+
+msgid "Unknown backend"
+msgstr ""
 
 msgid "Account is ready to use."
 msgstr "الحساب جاهز للاستخدام."
@@ -7805,6 +7847,12 @@ msgstr "فشل إنشاء ملف مضغوط. يرجى إبلاغ المسؤول.
 
 msgid "This file is no longer available. Please reload the folder."
 msgstr "هذا الملف لم يعد متوفرا. الرجاء إعادة تحميل المجلد."
+
+msgid "Recipient search is not supported by this backend"
+msgstr ""
+
+msgid "Unable to look up recipients"
+msgstr ""
 
 msgid "Kendox certificate path is not configured."
 msgstr "لم يتم تكوين مسار شهادة Kendox."
@@ -7824,6 +7872,9 @@ msgstr "البرنامج المساعد لإدارة الأجهزة المحمو
 #, php-format
 msgid "Unexpected error occurred. Please contact your system administrator. Error code: %s"
 msgstr "حدث خطأ غير متوقع. يرجى الاتصال بمسؤول النظام. رمز الخطأ: %s"
+
+msgid "Managing shared folders is not supported by this server."
+msgstr ""
 
 msgid "No data received."
 msgstr "لم يتم تلقي أي بيانات."
@@ -7867,8 +7918,14 @@ msgstr "غير قادر على قراءة الشهادات"
 msgid "Unable to generate certs-only message"
 msgstr "غير قادر على إنشاء رسالة الشهادات فقط"
 
+msgid "Unable to read certs-only message"
+msgstr ""
+
 msgid "LDAP not configured"
 msgstr "لم يتم تكوين LDAP"
+
+msgid "Invalid LDAP configuration"
+msgstr ""
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "الشهادات العامة المفقودة للمستلمين التاليين:"
@@ -7913,6 +7970,9 @@ msgstr "لم يتم استيراد الشهادة"
 msgid "Certificate is revoked, but was imported."
 msgstr "تم إبطال الشهادة، ولكن تم استيرادها."
 
+msgid "Certificate revocation status could not be verified. Certificate was imported."
+msgstr ""
+
 msgid "Unable to read public certificate"
 msgstr "غير قادر على قراءة الشهادة العامة"
 
@@ -7942,6 +8002,9 @@ msgstr "فشل حذف ملف القالب."
 
 msgid "Template deleted successfully."
 msgstr "تم حذف القالب بنجاح."
+
+msgid "Could not attach item as an attachment."
+msgstr "لا يمكن إرفاق العنصر كمرفق."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "لا يمكن إضافة البيانات إلى الناقل، نفس نوع الإجراء موجود في الناقل"
@@ -7998,6 +8061,9 @@ msgstr "خطأ MAPI غير معروف"
 msgid "Destination folder not found."
 msgstr "لم يتم العثور على المجلد الوجهة."
 
+msgid "Could not find attachment."
+msgstr "تعذر العثور على المرفق."
+
 msgid "Eml is corrupted"
 msgstr "Eml تالف"
 
@@ -8035,9 +8101,6 @@ msgstr "لم يتم إنشاء ملف ZIP بنجاح"
 
 msgid "Attachments can not be downloaded"
 msgstr "لا يمكن تحميل المرفقات"
-
-msgid "Could not find attachment."
-msgstr "تعذر العثور على المرفق."
 
 msgid "Operation failed"
 msgstr "فشلت العملية"
@@ -8323,9 +8386,6 @@ msgstr "ليس لديك امتيازات كافية لحذف العناصر ال
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "ليس لديك امتيازات كافية لإرفاق العنصر كمرفق."
-
-msgid "Could not attach item as an attachment."
-msgstr "لا يمكن إرفاق العنصر كمرفق."
 
 msgid "You have insufficient privileges to reclaim the ownership for the Task Request."
 msgstr "لا تملك الصلاحيات الكافية لاستعادة ملكية طلب المهمة."

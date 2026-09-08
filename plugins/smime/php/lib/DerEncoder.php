@@ -169,24 +169,80 @@ class DerEncoder {
 	 */
 	public static function oid(string $oid): string {
 		$arcs = explode('.', $oid);
-		$der = chr(40 * (int) $arcs[0] + (int) $arcs[1]);
+		if (count($arcs) < 2 || !ctype_digit($arcs[0]) || !ctype_digit($arcs[1])) {
+			throw new \InvalidArgumentException("Invalid object identifier: {$oid}");
+		}
+		$first = (int) $arcs[0];
+		$second = ltrim($arcs[1], '0') ?: '0';
+		if ($first < 0 || $first > 2 || ($first < 2 && (strlen($second) > 2 || (int) $second > 39))) {
+			throw new \InvalidArgumentException("Invalid object identifier: {$oid}");
+		}
+		$firstSubidentifier = $first === 2 ? self::addToDecimalString($second, 80) : (string) (40 * $first + (int) $second);
+		$der = self::encodeOidArc($firstSubidentifier);
 
 		foreach (array_slice($arcs, 2) as $arc) {
-			$mask = 0;
-			$rev = '';
-			$c = $arc;
-			while ($c > 0) {
-				$rev .= chr(bcmod($c, '128') + $mask);
-				$c = bcdiv($c, '128', 0);
-				$mask = 128;
+			if ($arc === '' || !ctype_digit($arc)) {
+				throw new \InvalidArgumentException("Invalid object identifier: {$oid}");
 			}
-			if ($rev === '') {
-				$rev = "\x00";
-			}
-			$der .= strrev($rev);
+			$der .= self::encodeOidArc(ltrim($arc, '0') ?: '0');
 		}
 
 		return "\x06" . self::len($der) . $der;
+	}
+
+	/**
+	 * Encode one normalized decimal OID subidentifier in base 128.
+	 */
+	private static function encodeOidArc(string $arc): string {
+		$mask = 0;
+		$reversed = '';
+		while ($arc !== '0') {
+			[$arc, $remainder] = self::divideDecimalString($arc, 128);
+			$reversed .= chr($remainder + $mask);
+			$mask = 128;
+		}
+
+		return $reversed === '' ? "\x00" : strrev($reversed);
+	}
+
+	/**
+	 * Add a small integer to an unsigned decimal string.
+	 */
+	private static function addToDecimalString(string $number, int $addend): string {
+		$result = '';
+		$carry = $addend;
+		for ($i = strlen($number) - 1; $i >= 0; --$i) {
+			$value = (ord($number[$i]) - 48) + ($carry % 10);
+			$carry = intdiv($carry, 10);
+			if ($value >= 10) {
+				$value -= 10;
+				++$carry;
+			}
+			$result = $value . $result;
+		}
+		while ($carry > 0) {
+			$result = ($carry % 10) . $result;
+			$carry = intdiv($carry, 10);
+		}
+
+		return ltrim($result, '0') ?: '0';
+	}
+
+	/**
+	 * Divide an unsigned decimal string by a small integer.
+	 *
+	 * @return array{0: string, 1: int} quotient and remainder
+	 */
+	private static function divideDecimalString(string $number, int $divisor): array {
+		$quotient = '';
+		$remainder = 0;
+		foreach (str_split($number) as $digit) {
+			$value = ($remainder * 10) + (ord($digit) - 48);
+			$quotient .= intdiv($value, $divisor);
+			$remainder = $value % $divisor;
+		}
+
+		return [ltrim($quotient, '0') ?: '0', $remainder];
 	}
 
 	/**
@@ -194,6 +250,7 @@ class DerEncoder {
 	 */
 	public static function enumerated(int $value): string {
 		$inner = self::integer($value);
+
 		// Replace integer tag with enumerated tag
 		return "\x0A" . substr($inner, 1);
 	}
@@ -314,7 +371,7 @@ class DerEncoder {
 	// ----------------------------------------------------------------
 
 	/**
-	 * AlgorithmIdentifier ::= SEQUENCE { algorithm OID, parameters ANY OPTIONAL }
+	 * AlgorithmIdentifier ::= SEQUENCE { algorithm OID, parameters ANY OPTIONAL }.
 	 *
 	 * @param string      $algorithmOid dotted notation
 	 * @param null|string $parameters   DER-encoded parameters (null = absent, '' = NULL)
@@ -332,7 +389,7 @@ class DerEncoder {
 	}
 
 	/**
-	 * Attribute ::= SEQUENCE { attrType OID, attrValues SET OF ANY }
+	 * Attribute ::= SEQUENCE { attrType OID, attrValues SET OF ANY }.
 	 *
 	 * @param string $oid    dotted notation
 	 * @param string $values DER-encoded concatenation of attribute values

@@ -38,7 +38,7 @@ Zarafa.common.categories.Util = {
 		'</tpl>',
 
 	/**
-	 * Will (re)create the {#categoriesStore}, so it will have the latest changes
+	 * Will (re)create the {@link #categoriesStore}, so it will have the latest changes
 	 * If any changes are done to the categories, the code that did the change must
 	 * call this function!
 	 */

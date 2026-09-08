@@ -12,7 +12,7 @@ Zarafa.contact.dialogs.ContactNamePanel = Ext.extend(Ext.form.FormPanel, {
 	parser: null,
 	/**
 	 * @cfg {Zarafa.contact.dialogs.parsedNameRecord} parsedData if data is already parsed then it can be passed here,
-	 * so no need to prase same data again
+	 * so there is no need to parse the same data again
 	 */
 	parsedData: null,
 	/**

@@ -2,17 +2,9 @@
 
 The tokenizr library can be found at https://github.com/rse/tokenizr
 
-To build the library and copy it into grommunio Web simply run:
+``tokenizr.js`` is a vendored browser build. During the grommunio Web build it
+is concatenated with the other third-party libraries and minified by Terser.
 
-make tokenizr
-
-The needed node_modules will be installed and the library will be build
-into client/third-party/tokenizr (the same directory where this README
-is located)
-
-During grommunio Web build the library will be concatenated to the other
-third-party libraries and compiled by the closure compiler.
-
-Note: Since our build server cannot (yet?) run node scripts, the building
-of the tokenizr library must be done by the developer when he changes the
-source!
+When updating it, replace the checked-in browser bundle with a tested upstream
+build and retain the upstream license header. The project no longer carries the
+Tokenizr source toolchain.

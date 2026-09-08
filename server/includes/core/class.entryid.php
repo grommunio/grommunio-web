@@ -437,7 +437,6 @@ class EntryId {
 		$zeroBytePos = strpos((string) $entryId, "\0", $offset);
 		if ($zeroBytePos !== false) {
 			$res['MailboxDN'] = trim(substr((string) $entryId, $offset, $zeroBytePos - $offset));
-			$offset = $zeroBytePos + 1;
 		}
 
 		// TODO V2 and V3 structs
@@ -472,7 +471,7 @@ class EntryId {
 					bin2hex($entryId),
 					$key,
 					$val,
-					print_r(array_map('bin2hex', $checkValue), 1)
+					implode(', ', array_map('bin2hex', $checkValue))
 				));
 
 				return false;
@@ -670,7 +669,6 @@ class EntryId {
 		$offset += $cchKeyName + 2;
 
 		for ($i = 0; $i < $res['crules']; ++$i) {
-			$rule = [];
 			$rule = unpack(
 				"Cmajorver/Cminorver/vreserved/vtzruleflags/vwyear/a14x/lbias/lstdbias/ldstbias/",
 				substr($tzdef, $offset, 34)

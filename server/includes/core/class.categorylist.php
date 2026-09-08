@@ -23,13 +23,13 @@ class CategoryList {
 	/**
 	 * Message class of the FAI configuration message holding the list.
 	 */
-	const MESSAGE_CLASS = 'IPM.Configuration.CategoryList';
+	public const MESSAGE_CLASS = 'IPM.Configuration.CategoryList';
 
 	/**
 	 * grommunio Web's placeholder colour for "no colour chosen". Categories
 	 * carrying it are treated as uncoloured rather than mapped to the palette.
 	 */
-	const DEFAULT_COLOR = '#BDC3C7';
+	public const DEFAULT_COLOR = '#BDC3C7';
 
 	/**
 	 * Outlook OlCategoryColor palette: index (as written in the XML `color`
@@ -81,19 +81,19 @@ class CategoryList {
 	];
 
 	/**
-	 * @var resource The message store whose category list this instance manages.
+	 * @var resource the message store whose category list this instance manages
 	 */
 	private $store;
 
 	/**
-	 * @var resource|false Cached Calendar folder, or false before it is opened.
+	 * @var false|resource cached Calendar folder, or false before it is opened
 	 */
 	private $calendar = false;
 
 	/**
-	 * @var null|bool Whether the FAI config message exists; null until known.
+	 * @var null|bool whether the FAI config message exists; null until known
 	 */
-	private $exists = null;
+	private $exists;
 
 	/**
 	 * @var array Root element attributes of the stored XML (e.g. Outlook's
@@ -102,7 +102,7 @@ class CategoryList {
 	private $rootAttributes = [];
 
 	/**
-	 * @param resource $store The (own or shared) message store to operate on.
+	 * @param resource $store the (own or shared) message store to operate on
 	 */
 	public function __construct($store) {
 		$this->store = $store;
@@ -115,26 +115,37 @@ class CategoryList {
 	 * @return int
 	 */
 	private static function roamingXmlStreamTag() {
-		return mapi_prop_tag(PT_BINARY, 0x7C08);
+		$propertyTag = mapi_prop_tag(PT_BINARY, 0x7C08);
+		if ($propertyTag === false) {
+			throw new RuntimeException('Unable to create the category-list property tag.');
+		}
+
+		return $propertyTag;
 	}
 
 	/**
 	 * Open the store's Calendar folder, where the list is stored.
 	 *
-	 * @return resource|false The Calendar folder, or false when unavailable.
+	 * @return false|resource the Calendar folder, or false when unavailable
 	 */
 	private function getCalendarFolder() {
 		if ($this->calendar === false) {
 			try {
 				$root = mapi_msgstore_openentry($this->store);
-				if (!$root) {
+				if ($root === false) {
 					return false;
 				}
 				$props = mapi_getprops($root, [PR_IPM_APPOINTMENT_ENTRYID]);
 				if (empty($props[PR_IPM_APPOINTMENT_ENTRYID])) {
 					return false;
 				}
-				$this->calendar = mapi_msgstore_openentry($this->store, $props[PR_IPM_APPOINTMENT_ENTRYID]);
+
+				/** @var false|resource $calendar php-mapi Calendar folder */
+				$calendar = /** @scrutinizer ignore-type */ mapi_msgstore_openentry($this->store, $props[PR_IPM_APPOINTMENT_ENTRYID]);
+				if ($calendar === false) {
+					return false;
+				}
+				$this->calendar = $calendar;
 			}
 			catch (MAPIException $e) {
 				// A store without an accessible Calendar (e.g. the public
@@ -145,18 +156,19 @@ class CategoryList {
 			}
 		}
 
-		return $this->calendar;
+		return /** @scrutinizer ignore-type */ $this->calendar;
 	}
 
 	/**
 	 * Find the FAI configuration message that holds the list.
 	 *
 	 * @param bool $create create the message when it does not exist yet
-	 * @return resource|false the message, or false when absent (and not created)
+	 *
+	 * @return false|resource the message, or false when absent (and not created)
 	 */
 	private function findConfigMessage($create = false) {
 		$calendar = $this->getCalendarFolder();
-		if (!$calendar) {
+		if (/** @scrutinizer ignore-type */ $calendar === false) {
 			return false;
 		}
 
@@ -219,7 +231,7 @@ class CategoryList {
 	 */
 	public function getXml() {
 		$message = $this->findConfigMessage(false);
-		if (!$message) {
+		if ($message === false) {
 			return '';
 		}
 
@@ -231,13 +243,13 @@ class CategoryList {
 
 		// Large binaries come back as an error placeholder; read via a stream.
 		$stream = mapi_openproperty($message, $tag, IID_IStream, 0, 0);
-		if (!$stream) {
+		if ($stream === false) {
 			return '';
 		}
 		$xml = '';
 		$stat = mapi_stream_stat($stream);
 		mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
-		for ($read = 0; $read < $stat['cb']; ) {
+		for ($read = 0; $read < $stat['cb'];) {
 			$chunk = mapi_stream_read($stream, 8192);
 			if ($chunk === '' || $chunk === false) {
 				break;
@@ -256,7 +268,7 @@ class CategoryList {
 	 */
 	public function setXml($xml) {
 		$message = $this->findConfigMessage(true);
-		if (!$message) {
+		if ($message === false) {
 			// no accessible Calendar folder, the save must not silently no-op
 			throw new MAPIException("Cannot store the category list.", MAPI_E_NOT_FOUND, null, _("Cannot store the category list in this mailbox."));
 		}
@@ -380,6 +392,7 @@ class CategoryList {
 	 * Map an Outlook colour index to an RGB hex string.
 	 *
 	 * @param int $index palette index, or -1 for no colour
+	 *
 	 * @return string hex colour (grommunio's default placeholder when unmapped)
 	 */
 	public static function colorIndexToHex($index) {
@@ -394,6 +407,7 @@ class CategoryList {
 	 * Map an RGB hex string to the nearest Outlook colour index.
 	 *
 	 * @param string $hex the RGB hex string (with or without leading #)
+	 *
 	 * @return int the matching or nearest palette index
 	 */
 	public static function hexToColorIndex($hex) {
@@ -428,10 +442,12 @@ class CategoryList {
 	 * the six standard flag colours.
 	 *
 	 * @param string $hex the RGB hex string
-	 * @return int|null the standardIndex, or null when not a standard colour
+	 *
+	 * @return null|int the standardIndex, or null when not a standard colour
 	 */
 	public static function hexToStandardIndex($hex) {
 		$hex = strtolower($hex);
+
 		return isset(self::$standardIndexByHex[$hex]) ? self::$standardIndexByHex[$hex] : null;
 	}
 
@@ -439,7 +455,8 @@ class CategoryList {
 	 * Convert a hex colour to an [r, g, b] triplet.
 	 *
 	 * @param string $hex hex string without a leading #
-	 * @return array|null [r, g, b], or null when malformed
+	 *
+	 * @return null|array [r, g, b], or null when malformed
 	 */
 	private static function hexToRgb($hex) {
 		if (strlen($hex) !== 6 || !ctype_xdigit($hex)) {
@@ -472,6 +489,7 @@ class CategoryList {
 	 * <category>), keeping every attribute so nothing is lost on a round trip.
 	 *
 	 * @param string $xml the XML document
+	 *
 	 * @return array a list of associative arrays of attribute name => value
 	 */
 	private function parseXml($xml) {
@@ -518,6 +536,7 @@ class CategoryList {
 	 * Build the category-list XML from a list of attribute maps.
 	 *
 	 * @param array $nodes a list of associative arrays of attribute name => value
+	 *
 	 * @return string the XML document
 	 */
 	private function buildXml($nodes) {
@@ -552,6 +571,7 @@ class CategoryList {
 	 * passes through and which would make the whole document unparseable.
 	 *
 	 * @param string $value the attribute value
+	 *
 	 * @return string the escaped value
 	 */
 	private static function xmlAttribute($value) {

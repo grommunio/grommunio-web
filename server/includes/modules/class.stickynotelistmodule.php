@@ -36,15 +36,33 @@ class StickyNoteListModule extends ListModule {
 			if (isset($actionType)) {
 				try {
 					$store = $this->getActionStore($action);
-					$entryid = $this->getActionEntryID($action);
+					$entryid = $this->getActionSingleEntryID($action);
+					if ($store === false || is_array($store)) {
+						$this->sendFeedback(false);
 
-					match ($actionType) {
-						"list" => $this->messageList($store, $entryid, $action, $actionType),
-						"search" => $this->search($store, $entryid, $action, $actionType),
-						"updatesearch" => $this->updatesearch($store, $entryid, $action),
-						"stopsearch" => $this->stopSearch($store, $entryid, $action),
-						default => $this->handleUnknownActionType($actionType),
-					};
+						continue;
+					}
+
+					switch ($actionType) {
+						case "list":
+							$this->messageList($store, $entryid, $action, $actionType);
+							break;
+
+						case "search":
+							$this->search($store, $entryid, $action, $actionType);
+							break;
+
+						case "updatesearch":
+							$this->updatesearch($store, $entryid, $action);
+							break;
+
+						case "stopsearch":
+							$this->stopSearch($store, $entryid, $action);
+							break;
+
+						default:
+							$this->handleUnknownActionType($actionType);
+					}
 				}
 				catch (MAPIException $e) {
 					$this->processException($e, $actionType);
@@ -58,9 +76,9 @@ class StickyNoteListModule extends ListModule {
 	 * sticky notes doesn't have private items so function is overridden to not do
 	 * any processing.
 	 *
-	 * @param object $item item properties
+	 * @param array $item item properties
 	 *
-	 * @return object item properties if its non private item otherwise empty array
+	 * @return array unchanged item properties
 	 */
 	#[Override]
 	public function processPrivateItem($item) {

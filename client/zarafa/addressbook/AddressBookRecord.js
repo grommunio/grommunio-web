@@ -77,12 +77,12 @@ Zarafa.core.data.RecordFactory.setSubStoreToObjectType(Zarafa.core.mapi.ObjectTy
 Zarafa.core.data.RecordFactory.setSubStoreToObjectType(Zarafa.core.mapi.ObjectType.MAPI_DISTLIST, 'members', Zarafa.addressbook.AddressBookSubStore);
 
 Zarafa.core.data.RecordFactory.addListenerToObjectType(Zarafa.core.mapi.ObjectType.MAPI_MAILUSER, 'createphantom', function(record) {
-	// Phantom records must lways be marked as opened (they contain the full set of data)
+	// Phantom records must always be marked as opened (they contain the full set of data)
 	record.afterOpen();
 });
 
 Zarafa.core.data.RecordFactory.addListenerToObjectType(Zarafa.core.mapi.ObjectType.MAPI_DISTLIST, 'createphantom', function(record) {
-	// Phantom records must lways be marked as opened (they contain the full set of data)
+	// Phantom records must always be marked as opened (they contain the full set of data)
 	record.afterOpen();
 });
 

@@ -21,16 +21,36 @@ class ContactItemModule extends ItemModule {
 	}
 
 	/**
+	 * Create a one-off entry ID and fail the save if MAPI cannot produce one.
+	 *
+	 * @param mixed $displayName
+	 * @param mixed $addressType
+	 * @param mixed $emailAddress
+	 * @param mixed $flags
+	 *
+	 * @return string binary one-off entry ID
+	 */
+	private function createOneOffEntryId($displayName, $addressType, $emailAddress, $flags = 0) {
+		$entryId = mapi_createoneoff($displayName, $addressType, $emailAddress, $flags);
+		if ($entryId === false) {
+			throw new RuntimeException('Unable to create one-off entry ID');
+		}
+
+		return $entryId;
+	}
+
+	/**
 	 * Function which opens an item.
 	 *
-	 * @param object $store   MAPI Message Store Object
-	 * @param string $entryid entryid of the message
-	 * @param array  $action  the action data, sent by the client
+	 * @param resource $store   MAPI message store
+	 * @param string   $entryid entryid of the message
+	 * @param array    $action  the action data, sent by the client
 	 */
 	#[Override]
 	public function open($store, $entryid, $action) {
 		$data = [];
 		$orEntryid = $entryid;
+		$message = false;
 
 		if ($entryid) {
 			// Check if OneOff entryid is a local contact
@@ -119,17 +139,19 @@ class ContactItemModule extends ItemModule {
 	 * Function which saves an item. It sets the right properties for a contact
 	 * item (address book properties).
 	 *
-	 * @param object $store         MAPI Message Store Object
-	 * @param string $parententryid parent entryid of the message
-	 * @param string $entryid       entryid of the message
-	 * @param array  $action        the action data, sent by the client
+	 * @param false|resource $store         MAPI message store, or false to use the default
+	 * @param false|string   $parententryid parent folder entry ID, or false to infer it
+	 * @param false|string   $entryid       entry ID of the message, or false for a new item
+	 * @param array          $action        action data sent by the client
+	 * @param string         $actionType    action type that triggered the save
 	 */
 	#[Override]
 	public function save($store, $parententryid, $entryid, $action, $actionType = 'save') {
-		$properiesToDelete = []; // create an array of properties which should be deleted
+		$propertiesToDelete = []; // create an array of properties which should be deleted
+		$isCopyGABToContact = false;
 		// this array is passed to $GLOBALS['operations']->saveMessage() function
 
-		if (!$store && !$parententryid) {
+		if ($store === false && !$parententryid) {
 			if (isset($action['props']['message_class'])) {
 				$store = $GLOBALS['mapisession']->getDefaultMessageStore();
 				$parententryid = $this->getDefaultFolderEntryID($store, $action['props']['message_class']);
@@ -146,7 +168,7 @@ class ContactItemModule extends ItemModule {
 			}
 		}
 
-		if ($store && $parententryid && isset($action['props'])) {
+		if ($store !== false && $parententryid && isset($action['props'])) {
 			if (isset($action['members'])) {
 				// DistList
 
@@ -172,7 +194,7 @@ class ContactItemModule extends ItemModule {
 						$item['address_type'] = 'MAPIPDL';
 					}
 
-					$oneoff = mapi_createoneoff($item['display_name'], $item['address_type'], $item['email_address']);
+					$oneoff = $this->createOneOffEntryId($item['display_name'], $item['address_type'], $item['email_address']);
 
 					if ($item['distlist_type'] == DL_EXTERNAL_MEMBER) {
 						$member = $oneoff;
@@ -194,8 +216,8 @@ class ContactItemModule extends ItemModule {
 					$props[$this->properties['oneoff_members']] = $oneoff_members;
 				}
 				else {
-					$properiesToDelete[] = $this->properties['members'];
-					$properiesToDelete[] = $this->properties['oneoff_members'];
+					$propertiesToDelete[] = $this->properties['members'];
+					$propertiesToDelete[] = $this->properties['oneoff_members'];
 				}
 
 				unset($action['members']);
@@ -212,42 +234,42 @@ class ContactItemModule extends ItemModule {
 				// generate one-off entryids for email addresses
 				for ($index = 1; $index < 4; ++$index) {
 					if (!empty($action['props']['email_address_' . $index]) && !empty($action['props']['email_address_display_name_' . $index])) {
-						$action['props']['email_address_entryid_' . $index] = bin2hex(mapi_createoneoff($action['props']['email_address_display_name_' . $index], $action['props']['email_address_type_' . $index], $action['props']['email_address_' . $index]));
+						$action['props']['email_address_entryid_' . $index] = bin2hex($this->createOneOffEntryId($action['props']['email_address_display_name_' . $index], $action['props']['email_address_type_' . $index], $action['props']['email_address_' . $index]));
 					}
 				}
 
 				// set properties for primary fax number
 				if (isset($action['props']['fax_1_email_address']) && !empty($action['props']['fax_1_email_address'])) {
-					$action['props']['fax_1_original_entryid'] = bin2hex(mapi_createoneoff($action['props']['fax_1_original_display_name'], $action['props']['fax_1_address_type'], $action['props']['fax_1_email_address'], MAPI_UNICODE));
+					$action['props']['fax_1_original_entryid'] = bin2hex($this->createOneOffEntryId($action['props']['fax_1_original_display_name'], $action['props']['fax_1_address_type'], $action['props']['fax_1_email_address'], MAPI_UNICODE));
 				}
 				else {
 					// delete properties to remove previous values
-					$properiesToDelete[] = $this->properties['fax_1_address_type'];
-					$properiesToDelete[] = $this->properties['fax_1_original_display_name'];
-					$properiesToDelete[] = $this->properties['fax_1_email_address'];
-					$properiesToDelete[] = $this->properties['fax_1_original_entryid'];
+					$propertiesToDelete[] = $this->properties['fax_1_address_type'];
+					$propertiesToDelete[] = $this->properties['fax_1_original_display_name'];
+					$propertiesToDelete[] = $this->properties['fax_1_email_address'];
+					$propertiesToDelete[] = $this->properties['fax_1_original_entryid'];
 				}
 
 				// set properties for business fax number
 				if (isset($action['props']['fax_2_email_address']) && !empty($action['props']['fax_2_email_address'])) {
-					$action['props']['fax_2_original_entryid'] = bin2hex(mapi_createoneoff($action['props']['fax_2_original_display_name'], $action['props']['fax_2_address_type'], $action['props']['fax_2_email_address'], MAPI_UNICODE));
+					$action['props']['fax_2_original_entryid'] = bin2hex($this->createOneOffEntryId($action['props']['fax_2_original_display_name'], $action['props']['fax_2_address_type'], $action['props']['fax_2_email_address'], MAPI_UNICODE));
 				}
 				else {
-					$properiesToDelete[] = $this->properties['fax_2_address_type'];
-					$properiesToDelete[] = $this->properties['fax_2_original_display_name'];
-					$properiesToDelete[] = $this->properties['fax_2_email_address'];
-					$properiesToDelete[] = $this->properties['fax_2_original_entryid'];
+					$propertiesToDelete[] = $this->properties['fax_2_address_type'];
+					$propertiesToDelete[] = $this->properties['fax_2_original_display_name'];
+					$propertiesToDelete[] = $this->properties['fax_2_email_address'];
+					$propertiesToDelete[] = $this->properties['fax_2_original_entryid'];
 				}
 
 				// set properties for home fax number
 				if (isset($action['props']['fax_3_email_address']) && !empty($action['props']['fax_3_email_address'])) {
-					$action['props']['fax_3_original_entryid'] = bin2hex(mapi_createoneoff($action['props']['fax_3_original_display_name'], $action['props']['fax_3_address_type'], $action['props']['fax_3_email_address'], MAPI_UNICODE));
+					$action['props']['fax_3_original_entryid'] = bin2hex($this->createOneOffEntryId($action['props']['fax_3_original_display_name'], $action['props']['fax_3_address_type'], $action['props']['fax_3_email_address'], MAPI_UNICODE));
 				}
 				else {
-					$properiesToDelete[] = $this->properties['fax_3_address_type'];
-					$properiesToDelete[] = $this->properties['fax_3_original_display_name'];
-					$properiesToDelete[] = $this->properties['fax_3_email_address'];
-					$properiesToDelete[] = $this->properties['fax_3_original_entryid'];
+					$propertiesToDelete[] = $this->properties['fax_3_address_type'];
+					$propertiesToDelete[] = $this->properties['fax_3_original_display_name'];
+					$propertiesToDelete[] = $this->properties['fax_3_email_address'];
+					$propertiesToDelete[] = $this->properties['fax_3_original_entryid'];
 				}
 
 				// check for properties which should be deleted
@@ -255,32 +277,32 @@ class ContactItemModule extends ItemModule {
 					// check for empty email address properties
 					for ($i = 1; $i < 4; ++$i) {
 						if (isset($action['props']['email_address_' . $i]) && empty($action['props']['email_address_' . $i])) {
-							array_push($properiesToDelete, $this->properties['email_address_entryid_' . $i]);
-							array_push($properiesToDelete, $this->properties['email_address_' . $i]);
-							array_push($properiesToDelete, $this->properties['email_address_display_name_' . $i]);
-							array_push($properiesToDelete, $this->properties['email_address_display_name_email_' . $i]);
-							array_push($properiesToDelete, $this->properties['email_address_type_' . $i]);
+							array_push($propertiesToDelete, $this->properties['email_address_entryid_' . $i]);
+							array_push($propertiesToDelete, $this->properties['email_address_' . $i]);
+							array_push($propertiesToDelete, $this->properties['email_address_display_name_' . $i]);
+							array_push($propertiesToDelete, $this->properties['email_address_display_name_email_' . $i]);
+							array_push($propertiesToDelete, $this->properties['email_address_type_' . $i]);
 						}
 					}
 
 					// check for empty address_book_mv and address_book_long properties
 					if (isset($action['props']['address_book_long']) && $action['props']['address_book_long'] === 0) {
-						$properiesToDelete[] = $this->properties['address_book_mv'];
-						$properiesToDelete[] = $this->properties['address_book_long'];
+						$propertiesToDelete[] = $this->properties['address_book_mv'];
+						$propertiesToDelete[] = $this->properties['address_book_long'];
 					}
 
 					// Check if the birthday and anniversary properties are empty. If so delete them.
 					if (array_key_exists('birthday', $action['props']) && empty($action['props']['birthday'])) {
-						array_push($properiesToDelete, $this->properties['birthday']);
-						array_push($properiesToDelete, $this->properties['birthday_eventid']);
+						array_push($propertiesToDelete, $this->properties['birthday']);
+						array_push($propertiesToDelete, $this->properties['birthday_eventid']);
 						if (!empty($action['props']['birthday_eventid'])) {
 							$this->deleteSpecialDateAppointment($store, $action['props']['birthday_eventid']);
 						}
 					}
 
 					if (array_key_exists('wedding_anniversary', $action['props']) && empty($action['props']['wedding_anniversary'])) {
-						array_push($properiesToDelete, $this->properties['wedding_anniversary']);
-						array_push($properiesToDelete, $this->properties['anniversary_eventid']);
+						array_push($propertiesToDelete, $this->properties['wedding_anniversary']);
+						array_push($propertiesToDelete, $this->properties['anniversary_eventid']);
 						if (!empty($action['props']['anniversary_eventid'])) {
 							$this->deleteSpecialDateAppointment($store, $action['props']['anniversary_eventid']);
 						}
@@ -320,7 +342,7 @@ class ContactItemModule extends ItemModule {
 
 			$messageProps = [];
 
-			$result = $GLOBALS['operations']->saveMessage($store, $entryid, $parententryid, $props, $messageProps, [], $action['attachments'] ?? [], $properiesToDelete);
+			$result = $GLOBALS['operations']->saveMessage($store, $entryid, $parententryid, $props, $messageProps, [], $action['attachments'] ?? [], $propertiesToDelete);
 
 			if ($result) {
 				$GLOBALS['bus']->notify(bin2hex($parententryid), TABLE_SAVE, $messageProps);
@@ -389,22 +411,22 @@ class ContactItemModule extends ItemModule {
 	 * Function which deletes an item. Extended here to also delete corresponding birthday/anniversary
 	 * appointments from calendar.
 	 *
-	 * @param object $store         MAPI Message Store Object
-	 * @param string $parententryid parent entryid of the message
-	 * @param string $entryid       entryid of the message
-	 * @param array  $action        the action data, sent by the client
+	 * @param false|resource $store         MAPI message store, or false to infer it
+	 * @param false|string   $parententryid parent folder entry ID, or false to infer it
+	 * @param false|string   $entryid       entry ID of the message, or false when unavailable
+	 * @param array          $action        action data sent by the client
 	 */
 	#[Override]
 	public function delete($store, $parententryid, $entryid, $action) {
 		$message = false;
-		if (!$store && !$parententryid && $entryid) {
+		if ($store === false && !$parententryid && $entryid) {
 			$data = $this->getStoreParentEntryIdFromEntryId($entryid);
 			$store = $data["store"];
 			$message = $data["message"];
 			$parententryid = $data["parent_entryid"];
 		}
 
-		if ($store && $entryid) {
+		if ($store !== false && $entryid) {
 			try {
 				if ($message === false) {
 					$message = $GLOBALS["operations"]->openMessage($store, $entryid);
@@ -448,13 +470,32 @@ class ContactItemModule extends ItemModule {
 	}
 
 	/**
+	 * Calculate the number of minutes from the start of a timestamp's year to its month.
+	 *
+	 * @param int $timestamp
+	 *
+	 * @return int
+	 */
+	private static function getMonthOffset($timestamp) {
+		$month = (int) date('m', $timestamp);
+		$year = (int) date('Y', $timestamp);
+
+		$yearStart = new DateTime();
+		$yearStart->setDate($year, 1, 1);
+		$monthStart = clone $yearStart;
+		$monthStart->setDate($year, $month, 1);
+
+		return $monthStart->diff($yearStart)->days * 24 * 60;
+	}
+
+	/**
 	 * Function will create/update a yearly recurring appointment on the respective date of birthday or anniversary in user's calendar.
 	 *
-	 * @param object $store  MAPI Message Store Object
-	 * @param array  $action the action data, sent by the client
-	 * @param string $type   type of appointment that should be created/updated, valid values are 'birthday' and 'wedding_anniversary'
+	 * @param resource $store  MAPI message store
+	 * @param array    $action the action data, sent by the client
+	 * @param string   $type   type of appointment that should be created/updated, valid values are 'birthday' and 'wedding_anniversary'
 	 *
-	 * @return HexString entryid of the newly created appointment in hex format
+	 * @return false|string entry ID of the newly created appointment in hexadecimal form, or false
 	 */
 	public function updateAppointments($store, $action, $type) {
 		$result = false;
@@ -479,16 +520,7 @@ class ContactItemModule extends ItemModule {
 
 		// Find the number of minutes since the start of the year to the given month,
 		// taking leap years into account.
-		$month = date('m', $startDate);
-		$year = date('y', $startDate);
-
-		$d1 = new DateTime();
-		$d1->setDate($year, 1, 1);
-		$d2 = new DateTime();
-		$d2->setDate($year, $month, 1);
-
-		$diff = $d2->diff($d1);
-		$month = $diff->days * 24 * 60;
+		$month = self::getMonthOffset($startDate);
 
 		$defAllDayReminder = $GLOBALS['settings']->get('zarafa/v1/contexts/calendar/default_allday_reminder_time', 1080);
 
@@ -571,6 +603,12 @@ class ContactItemModule extends ItemModule {
 				$e->setHandled();
 				$messageProps = $GLOBALS['operations']->saveAppointment($store, false, hex2bin($parentEntryId), $data);
 			}
+			else {
+				// The calendar entry is a convenience; the contact is saved regardless.
+				$e->setHandled();
+				error_log(sprintf('Unable to save the %s appointment of a contact: %s', $type, $e->getMessage()));
+				$messageProps = false;
+			}
 		}
 
 		// Notify the bus if the save was OK
@@ -585,8 +623,8 @@ class ContactItemModule extends ItemModule {
 	/**
 	 * Function will delete the appointment on the respective date of birthday or anniversary in user's calendar.
 	 *
-	 * @param object $store   MAPI Message Store Object
-	 * @param        $entryid of the message with will be deleted,sent by the client
+	 * @param resource $store   MAPI message store
+	 * @param string   $entryid entry ID of the message to delete
 	 */
 	public function deleteSpecialDateAppointment($store, $entryid) {
 		$root = mapi_msgstore_openentry($store);

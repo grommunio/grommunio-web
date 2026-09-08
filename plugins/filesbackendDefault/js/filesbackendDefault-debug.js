@@ -280,12 +280,7 @@ Zarafa.plugins.files.backend.Default.data.ResponseHandler = Ext.extend(
 		 * @param {Object} response Object contained the response data.
 		 */
 		doError: function (response) {
-			Zarafa.common.dialogs.MessageBox.show({
-				title: response.header,
-				msg: response.message,
-				icon: Zarafa.common.dialogs.MessageBox.ERROR,
-				buttons: Zarafa.common.dialogs.MessageBox.OK,
-			});
+			container.getNotifier().notify('error.files', Ext.util.Format.htmlEncode(response.header), Ext.util.Format.htmlEncode(response.message));
 			this.failureCallback(response);
 		},
 	},

@@ -467,5 +467,11 @@ Zarafa.core.ui.notifier.ToastPlugin = Ext.extend(Zarafa.core.ui.notifier.NotifyP
 });
 
 Zarafa.onReady(function() {
-	container.getNotifier().registerPlugin('toast', new Zarafa.core.ui.notifier.ToastPlugin());
+	var notifier = container.getNotifier();
+	var toast = new Zarafa.core.ui.notifier.ToastPlugin();
+	notifier.registerPlugin('toast', toast);
+	// settings saved by earlier versions still name the retired notifiers
+	Ext.each(['popup', 'dropdown', 'eventdropdown', 'persistentmessageplugin', 'dialognotifier', 'messagebox', 'toolbarnotifierplugin'], function(name) {
+		notifier.registerPlugin(name, toast);
+	});
 });
