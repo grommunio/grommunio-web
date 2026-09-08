@@ -287,7 +287,9 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 			if (this.useHtml) {
 				// Prefer explicit html_body for compose to avoid timing races on isOpened/isHTML.
 				body = record.get('html_body');
-				if (Ext.isEmpty(body) && Ext.isFunction(record.getBody)) {
+				if (!Ext.isEmpty(body) && Ext.isFunction(record.inlineImgOutlookToZarafa)) {
+					body = record.inlineImgOutlookToZarafa(body);
+				} else if (Ext.isEmpty(body) && Ext.isFunction(record.getBody)) {
 					body = record.getBody(true);
 				}
 				if (Ext.isEmpty(body)) {
