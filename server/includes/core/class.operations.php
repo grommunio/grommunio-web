@@ -2753,6 +2753,158 @@ class Operations {
 	}
 
 	/**
+	 * Threading properties a response inherits from the message it answers.
+	 * Stored on the draft at the first save as well, so they survive autosaves
+	 * that clear the client's message actions before the send.
+	 *
+	 * @param resource $source message being replied to or forwarded
+	 * @param bool     $reply  true for reply/reply-all, which also sets In-Reply-To/References
+	 * @param array    $props  properties already set for the response
+	 */
+	public function threadingProperties($source, bool $reply, array $props): array {
+		$origMsgProps = mapi_getprops($source, [
+			PR_CONVERSATION_INDEX,
+			PR_CONVERSATION_TOPIC,
+			PR_NORMALIZED_SUBJECT,
+			PR_INTERNET_MESSAGE_ID,
+			PR_INTERNET_REFERENCES,
+		]);
+		if (!is_array($origMsgProps)) {
+			return $props;
+		}
+		if ($reply && isset($origMsgProps[PR_INTERNET_MESSAGE_ID])) {
+			// The references header should indicate the message-id of the original
+			// header plus any of the references which were set on the previous mail.
+			$props[PR_INTERNET_REFERENCES] = $origMsgProps[PR_INTERNET_MESSAGE_ID];
+			if (isset($origMsgProps[PR_INTERNET_REFERENCES])) {
+				$props[PR_INTERNET_REFERENCES] = $origMsgProps[PR_INTERNET_REFERENCES] . ' ' . $props[PR_INTERNET_REFERENCES];
+			}
+			$props[PR_IN_REPLY_TO_ID] = $origMsgProps[PR_INTERNET_MESSAGE_ID];
+		}
+		if (empty($props[PR_CONVERSATION_INDEX]) &&
+			isset($origMsgProps[PR_CONVERSATION_INDEX]) &&
+			strlen((string) $origMsgProps[PR_CONVERSATION_INDEX]) >= 22) {
+			// The child block only conveys response ordering; the conversation
+			// id is derived from the (unchanged) header block.
+			$props[PR_CONVERSATION_INDEX] = $origMsgProps[PR_CONVERSATION_INDEX] .
+				pack('NC', time() & 0x7FFFFFFF, random_int(0, 255));
+		}
+		if (empty($props[PR_CONVERSATION_TOPIC])) {
+			$topic = $origMsgProps[PR_CONVERSATION_TOPIC] ?? $origMsgProps[PR_NORMALIZED_SUBJECT] ?? null;
+			if ($topic !== null && $topic !== '') {
+				$props[PR_CONVERSATION_TOPIC] = $topic;
+			}
+		}
+
+		return $props;
+	}
+
+	/**
+	 * Named properties are numbered per store. Translate property tags that were
+	 * resolved against $fromStore so the same names address $toStore. Unmappable
+	 * tags are left as they are.
+	 */
+	private function remapNamedProperties($fromStore, $toStore, array $props): array {
+		$named = [];
+		foreach (array_keys($props) as $tag) {
+			if (mapi_prop_id($tag) >= 0x8000) {
+				$named[] = $tag;
+			}
+		}
+		if ($named === []) {
+			return $props;
+		}
+		try {
+			$names = mapi_getnamesfromids($fromStore, $named);
+			if (!is_array($names) || $names === []) {
+				return $props;
+			}
+			$sourceTags = array_map('intval', array_keys($names));
+			$ids = mapi_getidsfromnames(
+				$toStore,
+				array_map(static fn ($name) => $name['id'] ?? $name['name'], array_values($names)),
+				array_column(array_values($names), 'guid')
+			);
+			if (!is_array($ids) || count($ids) !== count($sourceTags)) {
+				return $props;
+			}
+		}
+		catch (MAPIException $e) {
+			error_log('submitMessage: cannot translate named properties between stores: ' . get_mapi_error_name($e->getCode()));
+			$e->setHandled();
+
+			return $props;
+		}
+		$translated = [];
+		foreach ($props as $tag => $value) {
+			$index = array_search((int) $tag, $sourceTags, true);
+			$translated[$index === false ? $tag : mapi_prop_tag(mapi_prop_type($tag), mapi_prop_id($ids[$index]))] = $value;
+		}
+
+		return $translated;
+	}
+
+	/**
+	 * Copy the outgoing message into the representee's Sent Items copy.
+	 *
+	 * @return bool|null true when copied, null when the copy failed and must be dropped
+	 */
+	private function copyRepresenteeMessage($message, $reprMessage): ?bool {
+		try {
+			if (mapi_copyto($message, [], [], $reprMessage, 0) === false) {
+				error_log('submitMessage: unable to copy the message to representee Sent Items');
+
+				return null;
+			}
+		}
+		catch (MAPIException $e) {
+			error_log('submitMessage: unable to copy the message to representee Sent Items: ' . get_mapi_error_name($e->getCode()));
+			$e->setHandled();
+
+			return null;
+		}
+
+		return true;
+	}
+
+	/**
+	 * Remove an outbox copy that was never submitted, plus an unsaved representee
+	 * copy, so a failed send leaves only the retained draft behind.
+	 *
+	 * @param resource       $store       the sender's store holding the outbox copy
+	 * @param resource       $message     the outbox copy
+	 * @param resource       $origStore   store of the representee copy
+	 * @param false|resource $reprMessage representee Sent Items copy, if any
+	 */
+	private function discardUnsentSubmission($store, $message, $origStore, $reprMessage): void {
+		try {
+			$cleanupProps = mapi_getprops($message, [PR_ENTRYID, PR_PARENT_ENTRYID]);
+			if (isset($cleanupProps[PR_ENTRYID], $cleanupProps[PR_PARENT_ENTRYID])) {
+				$cleanupFolder = mapi_msgstore_openentry($store, $cleanupProps[PR_PARENT_ENTRYID]);
+				mapi_folder_deletemessages($cleanupFolder, [$cleanupProps[PR_ENTRYID]], DELETE_HARD_DELETE);
+			}
+		}
+		catch (MAPIException $e) {
+			error_log('submitMessage: failed to clean up the unsent outbox copy: ' . get_mapi_error_name($e->getCode()) . ': ' . $e->getMessage());
+			$e->setHandled();
+		}
+		if ($reprMessage === false) {
+			return;
+		}
+		try {
+			$reprCleanupProps = mapi_getprops($reprMessage, [PR_ENTRYID, PR_PARENT_ENTRYID]);
+			if (isset($reprCleanupProps[PR_ENTRYID], $reprCleanupProps[PR_PARENT_ENTRYID])) {
+				$reprCleanupFolder = mapi_msgstore_openentry($origStore, $reprCleanupProps[PR_PARENT_ENTRYID]);
+				mapi_folder_deletemessages($reprCleanupFolder, [$reprCleanupProps[PR_ENTRYID]], DELETE_HARD_DELETE);
+			}
+		}
+		catch (MAPIException $e) {
+			error_log('submitMessage: failed to clean up the Sent Items copy of an unsent message: ' . get_mapi_error_name($e->getCode()) . ': ' . $e->getMessage());
+			$e->setHandled();
+		}
+	}
+
+	/**
 	 * Submit a message for sending.
 	 *
 	 * This function is an extension of the saveMessage() function, with the extra functionality
@@ -2847,38 +2999,7 @@ class Operations {
 		// a new conversation id and the thread falls apart, both here and for
 		// counterparts that thread by the exported Thread-Index header.
 		if ($copyFromMessage !== false) {
-			$origMsgProps = mapi_getprops($copyFromMessage, [
-				PR_CONVERSATION_INDEX,
-				PR_CONVERSATION_TOPIC,
-				PR_NORMALIZED_SUBJECT,
-				PR_INTERNET_MESSAGE_ID,
-				PR_INTERNET_REFERENCES,
-			]);
-			// Check if replying then set PR_INTERNET_REFERENCES and PR_IN_REPLY_TO_ID properties in props.
-			// flag is probably used wrong here but the same flag indicates if this is reply or replyall
-			if ($copyInlineAttachmentsOnly && isset($origMsgProps[PR_INTERNET_MESSAGE_ID])) {
-				// The references header should indicate the message-id of the original
-				// header plus any of the references which were set on the previous mail.
-				$props[PR_INTERNET_REFERENCES] = $origMsgProps[PR_INTERNET_MESSAGE_ID];
-				if (isset($origMsgProps[PR_INTERNET_REFERENCES])) {
-					$props[PR_INTERNET_REFERENCES] = $origMsgProps[PR_INTERNET_REFERENCES] . ' ' . $props[PR_INTERNET_REFERENCES];
-				}
-				$props[PR_IN_REPLY_TO_ID] = $origMsgProps[PR_INTERNET_MESSAGE_ID];
-			}
-			if (empty($props[PR_CONVERSATION_INDEX]) &&
-				isset($origMsgProps[PR_CONVERSATION_INDEX]) &&
-				strlen((string) $origMsgProps[PR_CONVERSATION_INDEX]) >= 22) {
-				// The child block only conveys response ordering; the conversation
-				// id is derived from the (unchanged) header block.
-				$props[PR_CONVERSATION_INDEX] = $origMsgProps[PR_CONVERSATION_INDEX] .
-					pack('NC', time() & 0x7FFFFFFF, random_int(0, 255));
-			}
-			if (empty($props[PR_CONVERSATION_TOPIC])) {
-				$topic = $origMsgProps[PR_CONVERSATION_TOPIC] ?? $origMsgProps[PR_NORMALIZED_SUBJECT] ?? null;
-				if ($topic !== null && $topic !== '') {
-					$props[PR_CONVERSATION_TOPIC] = $topic;
-				}
-			}
+			$props = $this->threadingProperties($copyFromMessage, (bool) $copyInlineAttachmentsOnly, $props);
 		}
 
 		if (!$GLOBALS["entryid"]->compareEntryIds(bin2hex((string) $origStoreprops[PR_ENTRYID]), bin2hex((string) $storeprops[PR_ENTRYID]))) {
@@ -3013,10 +3134,16 @@ class Operations {
 				// unset id properties before merging the props, so we will be creating new item instead of sending same item
 				unset($copyMessageProps[PR_ENTRYID], $copyMessageProps[PR_PARENT_ENTRYID], $copyMessageProps[PR_STORE_ENTRYID], $copyMessageProps[PR_SEARCH_KEY]);
 
-				// grommunio generates PR_HTML on the fly, but it's necessary to unset it
-				// if the original message didn't have PR_HTML property.
+				// gromox synthesizes PR_HTML for plain-text drafts; drop that. A native
+				// HTML draft keeps its HTML (and only that body form) when the client
+				// did not resend it, otherwise the copy would degrade to plain text.
 				if (!isset($props[PR_HTML]) && isset($copyMessageProps[PR_HTML])) {
-					unset($copyMessageProps[PR_HTML]);
+					if (($copyMessageProps[PR_NATIVE_BODY_INFO] ?? 0) == 3) {
+						unset($copyMessageProps[PR_BODY], $copyMessageProps[PR_RTF_COMPRESSED]);
+					}
+					else {
+						unset($copyMessageProps[PR_HTML]);
+					}
 				}
 				// New EMAIL_ADDRESSes were set (various cases above), kill off old SMTP_ADDRESS.
 				// Clear PR_SUBJECT_PREFIX and let gromox do the work
@@ -3025,6 +3152,9 @@ class Operations {
 				// Merge original message props with props sent by client
 				$props = $props + $copyMessageProps;
 			}
+			// Client properties and the draft were addressed through the delegator's
+			// store; the outbox copy lives in the user's own store.
+			$props = $this->remapNamedProperties($origStore, $store, $props);
 
 			// Save the new message properties
 			$message = $this->saveMessage($store, $entryid, $storeprops[PR_IPM_OUTBOX_ENTRYID], $props, $messageProps, $recipients, $attachments, [], $copyFromMessage, $copyAttachments, $copyRecipients, $copyInlineAttachmentsOnly, true, true, $isPlainText);
@@ -3220,14 +3350,37 @@ class Operations {
 			}
 		}
 
+		// The S/MIME hook encrypts to the recipients and the delegate only, so the
+		// representee copy of S/MIME mail is taken beforehand, as it always was.
+		// Other protocols copy after the hook so that no plaintext reaches the
+		// representee's Sent Items when the sent mail is encrypted.
+		$reprCopied = false;
+		if ($reprMessage !== false) {
+			$classProps = mapi_getprops($message, [PR_MESSAGE_CLASS]);
+			$reprCopied = class_match_prefix((string) ($classProps[PR_MESSAGE_CLASS] ?? ''), 'IPM.Note.deferSMIME') === 0 &&
+				$this->copyRepresenteeMessage($message, $reprMessage);
+			if ($reprCopied === null) {
+				$reprMessage = false;
+			}
+		}
+
 		// Allowing to hook in just before the data sent away to be sent to the client
-		$GLOBALS['PluginManager']->triggerHook('server.core.operations.submitmessage', [
-			'moduleObject' => $this,
-			'store' => $store,
-			'entryid' => $entryid,
-			'message' => &$message,
-		]);
-		self::assertOpenPgpApplied($store, $message);
+		try {
+			$GLOBALS['PluginManager']->triggerHook('server.core.operations.submitmessage', [
+				'moduleObject' => $this,
+				'store' => $store,
+				'entryid' => $entryid,
+				'message' => &$message,
+			]);
+			self::assertOpenPgpApplied($store, $message);
+		}
+		catch (Throwable $hookError) {
+			// Nothing was submitted: remove the outbox copy so retries do not
+			// accumulate plaintext there. The draft is retained.
+			$this->discardUnsentSubmission($store, $message, $origStore, $reprMessage);
+
+			throw $hookError;
+		}
 
 		// Verify that a requested SendAs / on-behalf identity actually made it onto the
 		// message before submitting. The representing-sender assignment above is conditional
@@ -3296,66 +3449,30 @@ class Operations {
 				));
 
 				// The (not yet submitted) message already sits in the outbox. The original
-				// draft is retained. Remove the orphaned outbox copy so the abort does not
-				// leave a stray, un-submitted message behind; the client keeps the compose dialog
-				// open because the send is reported as failed.
-				try {
-					$cleanupProps = mapi_getprops($message, [PR_ENTRYID, PR_PARENT_ENTRYID]);
-					if (isset($cleanupProps[PR_ENTRYID], $cleanupProps[PR_PARENT_ENTRYID])) {
-						$cleanupFolder = mapi_msgstore_openentry($store, $cleanupProps[PR_PARENT_ENTRYID]);
-						mapi_folder_deletemessages($cleanupFolder, [$cleanupProps[PR_ENTRYID]], DELETE_HARD_DELETE);
-					}
-				}
-				catch (MAPIException $e) {
-					error_log('submitMessage: failed to clean up message after SendAs mismatch: ' . get_mapi_error_name($e->getCode()) . ': ' . $e->getMessage());
-					$e->setHandled();
-				}
-
-				// A copy may already have been placed in the representee's/delegate's Sent Items
-				// folder (delegate_sent_items_style). Remove it too, otherwise the abort leaves a
-				// "sent" copy behind for a message that was never actually sent.
-				if ($reprMessage !== false) {
-					try {
-						$reprCleanupProps = mapi_getprops($reprMessage, [PR_ENTRYID, PR_PARENT_ENTRYID]);
-						if (isset($reprCleanupProps[PR_ENTRYID], $reprCleanupProps[PR_PARENT_ENTRYID])) {
-							$reprCleanupFolder = mapi_msgstore_openentry($origStore, $reprCleanupProps[PR_PARENT_ENTRYID]);
-							mapi_folder_deletemessages($reprCleanupFolder, [$reprCleanupProps[PR_ENTRYID]], DELETE_HARD_DELETE);
-						}
-					}
-					catch (MAPIException $e) {
-						error_log('submitMessage: failed to clean up Sent Items copy after SendAs mismatch: ' . get_mapi_error_name($e->getCode()) . ': ' . $e->getMessage());
-						$e->setHandled();
-					}
-				}
+				// draft is retained; remove the outbox copy and any representee copy so the
+				// abort leaves nothing behind. The client keeps the compose dialog open
+				// because the send is reported as failed.
+				$this->discardUnsentSubmission($store, $message, $origStore, $reprMessage);
 
 				return 'SENDAS_IDENTITY_MISMATCH';
 			}
 		}
 
-		// Copy the final protected message. Copying before submit hooks would leave
-		// plaintext in the representee's Sent Items even when the sent mail is encrypted.
-		// Keep this copy unsaved until submission itself has succeeded.
-		if ($reprMessage !== false) {
-			try {
-				if (mapi_copyto($message, [], [], $reprMessage, 0) === false) {
-					error_log('submitMessage: unable to copy the protected message to representee Sent Items');
-					$reprMessage = false;
-				}
-			}
-			catch (MAPIException $e) {
-				error_log('submitMessage: unable to copy the protected message to representee Sent Items: ' . get_mapi_error_name($e->getCode()));
-				$e->setHandled();
-				$reprMessage = false;
-			}
+		// Keep the representee copy unsaved until submission itself has succeeded.
+		if ($reprMessage !== false && !$reprCopied && $this->copyRepresenteeMessage($message, $reprMessage) === null) {
+			$reprMessage = false;
 		}
 
 		// Submit the message (send)
 		try {
 			if (mapi_message_submitmessage($message) === false) {
+				$this->discardUnsentSubmission($store, $message, $origStore, $reprMessage);
+
 				return get_mapi_error_name(mapi_last_hresult());
 			}
 		}
 		catch (MAPIException $e) {
+			$this->discardUnsentSubmission($store, $message, $origStore, $reprMessage);
 			$username = $GLOBALS["mapisession"]->getUserName();
 			$errorName = get_mapi_error_name($e->getCode());
 			error_log(sprintf(

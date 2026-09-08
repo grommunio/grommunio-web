@@ -17,6 +17,7 @@ foreach ([
 	'PR_CLIENT_SUBMIT_TIME', 'PR_SEARCH_KEY', 'PR_STORE_ENTRYID', 'PR_HTML', 'PR_BODY',
 	'PR_SUBJECT_PREFIX', 'PR_DISPLAY_NAME', 'PR_EMAIL_ADDRESS', 'PR_SMTP_ADDRESS',
 	'PR_MDB_PROVIDER', 'PR_MAILBOX_OWNER_ENTRYID', 'PR_EMS_AB_PROXY_ADDRESSES',
+	'PR_NATIVE_BODY_INFO', 'PR_RTF_COMPRESSED', 'PR_IN_REPLY_TO_ID',
 ] as $index => $constant) {
 	define($constant, $index + 100);
 }
@@ -35,6 +36,22 @@ class MAPIException extends Exception {
 if (!function_exists('mapi_msgstore_openentry')) {
 function getPropIdsFromStrings($store, $names) {
 	return ['pgp_sign' => 10001, 'pgp_encrypt' => 10002];
+}
+
+function mapi_prop_id($tag) { return ($tag >> 16) & 0xffff; }
+function mapi_prop_type($tag) { return $tag & 0xffff; }
+function mapi_prop_tag($type, $id) { return ($id << 16) | $type; }
+function mapi_getnamesfromids($store, $tags) {
+	$GLOBALS['submitEvents'][] = 'names-from-' . $store;
+	return $store === 'delegate-store' && in_array(0x8123000b, $tags, true) ? [0x8123000b => ['guid' => 'G', 'name' => 'sign']] : [];
+}
+function mapi_getidsfromnames($store, $names, $guids) {
+	return $store === 'store' && $names === ['sign'] && $guids === ['G'] ? [0x83210000] : [];
+}
+
+function class_match_prefix($h, $n) {
+	$z = strlen($n);
+	return strncasecmp((string) $h, $n, $z) === 0 && (strlen((string) $h) === $z || $h[$z] === '.') ? 0 : 1;
 }
 
 function get_mapi_error_name($code) {
@@ -77,7 +94,7 @@ function mapi_copyto($source, $exclude, $properties, $destination, $flags = 0) {
 	$destination->props += $source->props;
 	if ($destination->props[PR_ENTRYID] === 'repr-id') {
 		$GLOBALS['submitEvents'][] = 'copy-representee';
-		if (($source->props[PR_BODY] ?? '') !== 'encrypted MIME') {
+		if ($GLOBALS['submitMode'] !== 'smime' && ($source->props[PR_BODY] ?? '') !== 'encrypted MIME') {
 			throw new RuntimeException('The representee copy received plaintext before the protection hook.');
 		}
 	}
@@ -109,7 +126,7 @@ function mapi_setprops($message, $props) {
 }
 
 function mapi_folder_deletemessages($folder, $ids, $flags = 0) {
-	$GLOBALS['submitEvents'][] = 'delete-draft';
+	$GLOBALS['submitEvents'][] = in_array('draft-id', $ids, true) ? 'delete-draft' : 'delete-' . $ids[0];
 	if ($GLOBALS['submitMode'] === 'cleanup-error') {
 		throw new MAPIException('Cleanup failed', 43);
 	}
@@ -170,7 +187,7 @@ $GLOBALS['PluginManager'] = new class {
 			throw new RuntimeException('Signing key locked');
 		}
 		$data['message']->props[PR_BODY] = 'encrypted MIME';
-		$data['message']->props[PR_MESSAGE_CLASS] = 'IPM.Note.GpgOL.MultipartEncrypted';
+		$data['message']->props[PR_MESSAGE_CLASS] = $GLOBALS['submitMode'] === 'smime' ? 'IPM.Note.SMIME' : 'IPM.Note.GpgOL.MultipartEncrypted';
 	}
 };
 
@@ -191,13 +208,15 @@ class ProtectedSubmitOperations extends Operations {
 }
 
 foreach (['store', 'delegate-store', 'own-store-delegate'] as $store) {
-	foreach (['plugin-error', 'unhandled-pgp', 'submit-error', 'submit-false', 'success', 'cleanup-error', 'repr-copy-false', 'repr-props-false', 'repr-save-false'] as $mode) {
+	foreach (['plugin-error', 'unhandled-pgp', 'submit-error', 'submit-false', 'success', 'cleanup-error', 'smime', 'repr-copy-false', 'repr-props-false', 'repr-save-false'] as $mode) {
 		$GLOBALS['submitMode'] = $mode;
 		$GLOBALS['submitEvents'] = [];
 		$GLOBALS['submitMessages'] = ['draft-id' => (object) ['props' => [
-			PR_ENTRYID => 'draft-id', PR_PARENT_ENTRYID => 'drafts-id', PR_MESSAGE_CLASS => 'IPM.Note',
-			PR_BODY => 'original plaintext', PR_MESSAGE_FLAGS => MSGFLAG_UNSENT,
+			PR_ENTRYID => 'draft-id', PR_PARENT_ENTRYID => 'drafts-id', PR_MESSAGE_CLASS => $mode === 'smime' ? 'IPM.Note.deferSMIME' : 'IPM.Note',
+			PR_BODY => 'original plaintext', PR_HTML => '<p>original html</p>', PR_NATIVE_BODY_INFO => $mode === 'cleanup-error' ? 1 : 3,
+			PR_MESSAGE_FLAGS => MSGFLAG_UNSENT,
 			10002 => $mode === 'unhandled-pgp',
+			0x8123000b => true,
 		]]];
 		$messageProps = [];
 		$props = $store === 'own-store-delegate' ? [
@@ -225,6 +244,9 @@ foreach (['store', 'delegate-store', 'own-store-delegate'] as $store) {
 			if (!isset($GLOBALS['submitMessages']['draft-id']) || in_array('delete-draft', $GLOBALS['submitEvents'], true)) {
 				throw new RuntimeException("{$store}/{$mode}: original draft was removed after a failed send.");
 			}
+			if (isset($GLOBALS['submitMessages']['outgoing-id']) || isset($GLOBALS['submitMessages']['repr-id'])) {
+				throw new RuntimeException("{$store}/{$mode}: a failed send left an outbox or Sent Items copy behind.");
+			}
 			if (isset($GLOBALS['submitMessages']['repr-id']) && $GLOBALS['submitMessages']['repr-id']->saved) {
 				throw new RuntimeException('An unsent message was saved into representee Sent Items.');
 			}
@@ -244,8 +266,22 @@ foreach (['store', 'delegate-store', 'own-store-delegate'] as $store) {
 					throw new RuntimeException('A failed representee copy removed the sender copy or saved an incomplete copy.');
 				}
 			}
+			elseif ($mode === 'smime') {
+				$events = $GLOBALS['submitEvents'];
+				if ($store !== 'store' && !(array_search('copy-representee', $events, true) < array_search('protect', $events, true) &&
+					$GLOBALS['submitMessages']['repr-id']->props[PR_BODY] === 'original plaintext')) {
+					throw new RuntimeException('The S/MIME representee copy is no longer the readable pre-hook copy.');
+				}
+			}
 			elseif ($store !== 'store') {
 				$events = $GLOBALS['submitEvents'];
+				if ($store === 'delegate-store' && isset($GLOBALS['submitMessages']['outgoing-id']->props[PR_HTML]) !== ($mode === 'success')) {
+					throw new RuntimeException("{$mode}: delegate outbox copy did not keep HTML exactly for a native HTML draft.");
+				}
+				$outgoing = $GLOBALS['submitMessages']['outgoing-id']->props;
+				if ($store === 'delegate-store' && (($outgoing[0x8321000b] ?? null) !== true || isset($outgoing[0x8123000b]))) {
+					throw new RuntimeException("{$mode}: named properties of the delegator's draft were not translated to the sender's store.");
+				}
 				if (!(array_search('protect', $events, true) < array_search('copy-representee', $events, true) &&
 					array_search('copy-representee', $events, true) < array_search('submit', $events, true) &&
 					array_search('submit', $events, true) < array_search('save-representee', $events, true))) {

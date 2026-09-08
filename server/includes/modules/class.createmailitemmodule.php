@@ -56,6 +56,7 @@ class CreateMailItemModule extends ItemModule {
 			$copyFromMessage = $copyContext['copyFromMessage'];
 			$copyAttachments = $copyContext['copyAttachments'];
 			$copyInlineAttachmentsOnly = $copyContext['copyInlineAttachmentsOnly'];
+			$this->threadingSource = $copyContext['threadingSource'];
 
 			if ($send) {
 				$sendOutcome = $this->handleSend($store, $entryid, $parententryid, $action, $recipients, $messageProps, $copyFromMessage, $copyAttachments, $copyInlineAttachmentsOnly);
@@ -280,12 +281,25 @@ class CreateMailItemModule extends ItemModule {
 	 *
 	 * @return array
 	 */
+	/** Source message whose threading headers the response inherits, or false. */
+	private $threadingSource = false;
+
+	/** Persist threading headers with the first save so later sends keep them. */
+	private function withThreadingProperties(array $props, $reply): array {
+		if ($this->threadingSource === false) {
+			return $props;
+		}
+
+		return $GLOBALS['operations']->threadingProperties($this->threadingSource, (bool) $reply, $props);
+	}
+
 	private function createCopyContext($store, array $action, $send) {
 		$context = [
 			'store' => $store,
 			'copyAttachments' => false,
 			'copyFromMessage' => false,
 			'copyInlineAttachmentsOnly' => false,
+			'threadingSource' => false,
 		];
 
 		if (isset($action['message_action']['action_type'])) {
@@ -315,15 +329,16 @@ class CreateMailItemModule extends ItemModule {
 					$context['store'] = $copyFromStore;
 				}
 
+				if ($copyFromStore && $copyFromMessage) {
+					parse_smime($copyFromStore, $copyFromMessage);
+				}
+				// Threading headers are inherited even when nothing is copied.
+				$context['threadingSource'] = $copyFromMessage;
 				if (($action['message_action']['browser_decrypted'] ?? false) === true) {
 					// The browser has uploaded the selected decrypted attachments
 					// through the normal attachment pipeline. Copying the source
 					// here would duplicate its opaque encrypted MIME envelope.
-					// Source IDs remain available for the reply/forward marker.
 					$copyFromMessage = false;
-				}
-				if ($copyFromStore && $copyFromMessage) {
-					parse_smime($copyFromStore, $copyFromMessage);
 				}
 
 				$context['copyAttachments'] = true;
@@ -439,7 +454,7 @@ class CreateMailItemModule extends ItemModule {
 		$error = $GLOBALS['operations']->submitMessage(
 			$store,
 			$entryid,
-			Conversion::mapXML2MAPI($this->properties, $action['props']),
+			$this->withThreadingProperties(Conversion::mapXML2MAPI($this->properties, $action['props']), $copyInlineAttachmentsOnly),
 			$messageProps,
 			$action['recipients'] ?? [],
 			$action['attachments'] ?? [],
@@ -505,7 +520,7 @@ class CreateMailItemModule extends ItemModule {
 	 */
 	private function handleDraftSave($store, $entryid, $parententryid, array $action, array &$messageProps, $copyFromMessage, $copyAttachments, $copyInlineAttachmentsOnly) {
 		$propertiesToDelete = [];
-		$mapiProps = Conversion::mapXML2MAPI($this->properties, $action['props']);
+		$mapiProps = $this->withThreadingProperties(Conversion::mapXML2MAPI($this->properties, $action['props']), $copyInlineAttachmentsOnly);
 		if (isset($action['props']['sent_representing_entryid']) && empty($action['props']['sent_representing_entryid'])) {
 			$propertiesToDelete[] = PR_SENT_REPRESENTING_ENTRYID;
 			$propertiesToDelete[] = PR_SENT_REPRESENTING_SEARCH_KEY;
