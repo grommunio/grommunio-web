@@ -64,6 +64,15 @@ class CategoryList {
 	];
 
 	/**
+	 * Return the Outlook category colour palette in display order.
+	 *
+	 * @return string[] RGB hex colours
+	 */
+	public static function getPalette() {
+		return array_values(self::$palette);
+	}
+
+	/**
 	 * Hex colour => grommunio Web standardIndex (the colour-flag mapping used to
 	 * show an old-style coloured flag as a category). Only the six standard
 	 * flag colours have one.

@@ -1,6 +1,7 @@
 <?php
 include BASE_PATH . 'server/includes/loader.php';
 include BASE_PATH . 'server/includes/templates/serverinfo.php';
+require_once BASE_PATH . 'server/includes/core/class.categorylist.php';
 
 $loader = new FileLoader();
 
@@ -34,6 +35,7 @@ $serverConfig = array_merge($serverConfig, [
 	'is_icsimport_supported' => function_exists('mapi_mapitoical'),
 	'color_schemes' => json_decode(COLOR_SCHEMES),
 	'default_categories' => json_decode(DEFAULT_CATEGORIES),
+	'category_color_palette' => CategoryList::getPalette(),
 	'maximum_eml_files_in_zip' => MAX_EML_FILES_IN_ZIP,
 	'powerpaste' => [
 		'powerpaste_word_import' => POWERPASTE_WORD_IMPORT,
