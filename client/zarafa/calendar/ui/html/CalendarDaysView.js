@@ -227,11 +227,52 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 	 * @param {Array} dayPositions The array of {@link Zarafa.calendar.data.DayLayoutPosition LayoutPositions} for the various days.
 	 * @private
 	 */
+	/**
+	 * @cfg {Number} maxDrawRetries How often a draw is retried while its element
+	 * has not been given a width yet.
+	 */
+	maxDrawRetries: 20,
+
+	/**
+	 * Whether a draw may proceed. Drawing at zero width stamps width:0 on the grid
+	 * layers, collapsing every calc(100%/n) column, and no later pass redraws them.
+	 *
+	 * @param {String} fn Name of the draw function which is asking
+	 * @param {Number} width The width measured for that draw
+	 * @param {Array} dayPositions The positions the draw was called with
+	 * @return {Boolean} True when the caller may draw
+	 * @private
+	 */
+	readyToDraw: function(fn, width, dayPositions)
+	{
+		if (!this.drawRetries) {
+			this.drawRetries = {};
+		}
+
+		if (width > 0) {
+			this.drawRetries[fn] = 0;
+
+			return true;
+		}
+
+		if ((this.drawRetries[fn] || 0) < this.maxDrawRetries) {
+			this.drawRetries[fn]++;
+			this[fn].defer(60, this, [dayPositions]);
+		}
+
+		return false;
+	},
+
 	drawHeader: function(dayPositions)
 	{
 		// Resize the header
 		var width = this.header.getWidth();
 		var height = this.header.getHeight();
+
+		if (!this.readyToDraw('drawHeader', width, dayPositions)) {
+			return;
+		}
+
 		this.headerBackgroundLayer.setSize(width, height);
 		this.headerBackgroundLayer.dom.innerHTML = '';
 		this.headerAppointmentLayer.setSize(width, height);
@@ -293,6 +334,11 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 		//var todayPosition;
 		var width = this.body.getWidth();
 		var height = this.body.getHeight();
+
+		if (!this.readyToDraw('drawBody', width, dayPositions)) {
+			return;
+		}
+
 		this.bodyBackground.setSize(width, height);
 		this.bodyBackground.dom.innerHTML = '';
 		this.bodyAppointment.setSize(width, height);
