@@ -193,6 +193,10 @@
 	// Time that static files may exist in the client's cache (13 weeks)
 	define("EXPIRES_TIME", 60*60*24*7*13);
 
+	// Messages a mailbox may submit per minute. Sending is one click, so this only
+	// ever stops a script replaying the request; 0 turns the limit off.
+	define("MAX_SUBMITS_PER_MINUTE", 20);
+
 	/**********************************************************************************
 	 *  Logging settings
 	 *

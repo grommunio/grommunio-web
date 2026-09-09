@@ -2872,6 +2872,55 @@ class Operations {
 		}
 	}
 
+	/**
+	 * Refuses a submission once the mailbox has sent MAX_SUBMITS_PER_MINUTE
+	 * messages within the last minute.
+	 *
+	 * Sending is a single click, so nobody reaches the limit by hand; what it
+	 * stops is a captured send request being replayed in a loop. The tally is
+	 * kept per mailbox rather than per session, so a second session does not
+	 * come with a second allowance.
+	 *
+	 * @throws ZarafaException when the mailbox is over the limit
+	 */
+	public static function assertSubmitRateLimit(): void {
+		$limit = defined('MAX_SUBMITS_PER_MINUTE') ? (int) MAX_SUBMITS_PER_MINUTE : 0;
+		if ($limit <= 0) {
+			return;
+		}
+
+		$state = State::forStore('submitrate');
+		if (!$state->open()) {
+			// Without the lock the tally cannot be trusted; sending is more
+			// important than the limit.
+			return;
+		}
+
+		$now = time();
+		$stored = $state->read('submits');
+		$recent = array_values(array_filter(
+			is_array($stored) ? $stored : [],
+			static fn ($moment): bool => is_int($moment) && $moment > $now - 60
+		));
+
+		if (count($recent) >= $limit) {
+			$state->close();
+			$error = new ZarafaException(
+				sprintf('submit rate limit of %d per minute reached', $limit),
+				0,
+				null,
+				_('Too many messages were sent in a short time. Please wait a moment and send again.')
+			);
+			$error->setTitle(_('Message was not sent'));
+
+			throw $error;
+		}
+
+		$recent[] = $now;
+		$state->write('submits', $recent);
+		$state->close();
+	}
+
 	/** Check saved draft intent even when the optional plugin is no longer loaded. */
 	public static function assertOpenPgpApplied($store, $message): void {
 		// These identifiers are also used by Pluginpgp::propertyNames(). Core

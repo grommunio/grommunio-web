@@ -24,6 +24,16 @@ define('PR_DISPLAY_NAME', 9);
 define('ZARAFA_STORE_PUBLIC_GUID', 'public-store');
 define('STORE_SEARCH_OK', 1);
 
+if (!class_exists('Operations')) {
+	// The send flow consults these guards before doing any work; this test is
+	// about the exception paths behind them.
+	class Operations {
+		public static function assertSubmitRateLimit(): void {}
+
+		public static function assertOpenPgpAvailable(array $props): void {}
+	}
+}
+
 if (!function_exists('_')) {
 	function _($message) {
 		return $message;
