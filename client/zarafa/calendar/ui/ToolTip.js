@@ -70,7 +70,8 @@ Zarafa.calendar.ui.ToolTip = Ext.extend(Ext.ToolTip, {
 	 * @param {String} id The Object id referring to the Object on which we are showing the Tooltip
 	 * @param {Object} config The properties used for creating the tooltip. Either a 'record'
 	 * ({@link Zarafa.calendar.AppointmentRecord}) or a 'title' and/or 'text', and optionally
-	 * the 'color' of the calendar the appointment belongs to.
+	 * the 'color' of the calendar the appointment belongs to. When categories are
+	 * supplied without a record, 'storeEntryId' identifies their mailbox category list.
 	 * @param {Ext.EventObject} event The event object
 	 */
 	show: function(id, config, event)
@@ -150,7 +151,7 @@ Zarafa.calendar.ui.ToolTip = Ext.extend(Ext.ToolTip, {
 				body += '<div class="k-appt-tip-text">' + config.text.replace(/\n/g, '<br>') + '</div>';
 			}
 			if ( !Ext.isEmpty(config.categories) ){
-				body += '<div class="k-appt-tip-cats">' + Zarafa.common.categories.Util.getCategoriesHtml(config.categories) + '</div>';
+				body += '<div class="k-appt-tip-cats">' + Zarafa.common.categories.Util.getCategoriesHtml(config.categories, config.storeEntryId) + '</div>';
 			}
 			if ( body ) {
 				body = '<div class="k-appt-tip-body k-appt-tip-plain">' + body + '</div>';
@@ -294,7 +295,7 @@ Zarafa.calendar.ui.ToolTip = Ext.extend(Ext.ToolTip, {
 
 		var categories = Zarafa.common.categories.Util.getCategories(record);
 		if ( !Ext.isEmpty(categories) ) {
-			rows += '<div class="k-appt-tip-cats">' + Zarafa.common.categories.Util.getCategoriesHtml(categories) + '</div>';
+			rows += '<div class="k-appt-tip-cats">' + Zarafa.common.categories.Util.getCategoriesHtml(categories, record.get('store_entryid')) + '</div>';
 		}
 
 		return rows;
