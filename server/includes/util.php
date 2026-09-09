@@ -1226,23 +1226,6 @@ function convertOffset($minutes) {
 }
 
 /**
- * Returns the index of effective rule (TZRULE_FLAG_EFFECTIVE_TZREG).
- *
- * @param array $tzrules
- *
- * @return null|int
- */
-function getEffectiveTzreg($tzrules) {
-	foreach ($tzrules as $idx => $tzDefRule) {
-		if ($tzDefRule['tzruleflags'] & TZRULE_FLAG_EFFECTIVE_TZREG) {
-			return $idx;
-		}
-	}
-
-	return null;
-}
-
-/**
  * Returns the timestamp of std or dst start.
  *
  * @param array  $tzrule
