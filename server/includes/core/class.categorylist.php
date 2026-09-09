@@ -300,6 +300,44 @@ class CategoryList {
 	}
 
 	/**
+	 * Merge categories used by the legacy WebApp settings into this mailbox's
+	 * master category list. Existing categories remain authoritative; missing
+	 * categories are appended and {@link setCategories} maps their colours to
+	 * the nearest Outlook palette entry.
+	 *
+	 * @param array $categories legacy grommunio Web category dicts
+	 */
+	public function migrateUsedCategories($categories) {
+		$merged = $this->getCategories();
+		$knownNames = [];
+		foreach ($merged as $category) {
+			if (!empty($category['name'])) {
+				$knownNames[strtolower($category['name'])] = true;
+			}
+		}
+
+		$changed = false;
+		foreach ($categories as $category) {
+			if (!is_array($category) || empty($category['used'])) {
+				continue;
+			}
+			$name = isset($category['name']) ? trim((string) $category['name']) : '';
+			$key = strtolower($name);
+			if ($name === '' || isset($knownNames[$key])) {
+				continue;
+			}
+			$category['name'] = $name;
+			$merged[] = $category;
+			$knownNames[$key] = true;
+			$changed = true;
+		}
+
+		if ($changed) {
+			$this->setCategories($merged);
+		}
+	}
+
+	/**
 	 * Store the given categories, preserving each existing category's Outlook
 	 * bookkeeping (matched by guid, then by case-insensitive name).
 	 *

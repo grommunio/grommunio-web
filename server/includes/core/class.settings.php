@@ -1,6 +1,7 @@
 <?php
 
 require __DIR__ . '/../exceptions/class.SettingsException.php';
+require_once __DIR__ . '/class.categorylist.php';
 
 /**
  * Generic settings class.
@@ -125,6 +126,7 @@ class Settings {
 
 			// this object will only be initialized when we are able to retrieve existing settings correctly
 			$this->init = true;
+			$this->migrateLegacyCategories();
 		}
 		catch (SettingsException $e) {
 			$e->setHandled();
@@ -400,6 +402,27 @@ class Settings {
 
 				$this->persistentSettings = $persistentSettings['settings'];
 			}
+		}
+	}
+
+	/**
+	 * Move legacy categories from persistent WebApp settings to the default
+	 * mailbox's Outlook-compatible master category list. The persistent value
+	 * is removed only after the category write completed successfully.
+	 */
+	private function migrateLegacyCategories() {
+		$categories = $this->getPersistent('grommunio/main/categories');
+		if (!is_array($categories)) {
+			return;
+		}
+
+		try {
+			$categoryList = new CategoryList($this->store);
+			$categoryList->migrateUsedCategories($categories);
+		}
+		catch (Throwable $e) {
+			$msg = 'Settings::migrateLegacyCategories(): category migration failed: ' . $e->getMessage();
+			error_log($msg);
 		}
 	}
 
