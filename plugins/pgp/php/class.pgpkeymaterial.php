@@ -12,6 +12,7 @@ final class PgpKeyMaterial {
 		$primary = null;
 		$secretCount = 0;
 		$packetCount = 0;
+		$uidEmails = [];
 		while ($offset < strlen($binary)) {
 			if (++$packetCount > 10000) { throw new InvalidArgumentException('Too many OpenPGP key packets.'); }
 			[$tag, $body] = self::packet($binary, $offset);
@@ -20,6 +21,14 @@ final class PgpKeyMaterial {
 			}
 			if ($primary === null && !in_array($tag, [5, 6, 10], true)) {
 				throw new InvalidArgumentException('The OpenPGP primary key must precede its other packets.');
+			}
+			if ($tag === 13 && count($uidEmails) < 256 && strlen($body) <= 4096 && !str_contains($body, "\0")) {
+				// The pinned address must be a real User ID packet on the key, not
+				// client-supplied metadata; the browser verifies the certification.
+				$candidate = strtolower(preg_match('/<([^<>\s]+@[^<>\s]+)>/', $body, $match) ? $match[1] : trim($body));
+				if (preg_match('/\A[^\s@<>]+@[^\s@<>]+\z/', $candidate) && !in_array($candidate, $uidEmails, true)) {
+					$uidEmails[] = $candidate;
+				}
 			}
 			if (!in_array($tag, [5, 6, 7, 14], true)) { continue; }
 			$secret = $tag === 5 || $tag === 7;
@@ -51,6 +60,7 @@ final class PgpKeyMaterial {
 		if ($primary === null || ($private && $secretCount === 0)) {
 			throw new InvalidArgumentException('The supplied block does not contain the requested OpenPGP key material.');
 		}
+		$primary['uid_emails'] = $uidEmails;
 		return $primary;
 	}
 

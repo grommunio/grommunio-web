@@ -200,6 +200,14 @@ try {
 	$keys->trust($fingerprint, 'KEYS@example.test', true);
 	keyCheck($keys->trusted($fingerprint, 'keys@example.test') && $keys->recipientKey('KEYS@example.test') === $fingerprint, 'explicit trust binding round-trips with case-normalized address');
 	keyRejects(fn () => $keys->trust($fingerprint, 'wrong@example.test', true), 'wrong metadata identity cannot be pinned');
+	// A client that imports the real public key with a forged UID in its metadata
+	// still cannot pin an address that is not a User ID packet on the key itself.
+	$forgedStore = new KeyTestStore();
+	$forgedKeys = new PgpKeyStore($forgedStore);
+	$forgedKeys->importKey(['fingerprint' => $fingerprint, 'public_key' => $public, 'metadata' => ['uids' => [['email' => 'mallory@example.test', 'validity' => 'u']]]]);
+	keyRejects(fn () => $forgedKeys->trust($fingerprint, 'mallory@example.test', true), 'a forged metadata User ID cannot pin an address absent from the key packets');
+	$forgedKeys->trust($fingerprint, 'keys@example.test', true);
+	keyCheck($forgedKeys->trusted($fingerprint, 'keys@example.test'), 'the packet User ID is authoritative and pinnable even when client metadata omits it');
 	$keys->setServers([]);
 	keyCheck((new PgpKeyStore($store))->servers() === [], 'keyserver choices persist in mailbox policy');
 	keyRejects(fn () => $keys->setServers(['http://127.0.0.1']), 'arbitrary keyserver origin rejected');

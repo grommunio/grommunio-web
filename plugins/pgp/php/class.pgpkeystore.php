@@ -163,9 +163,13 @@ class PgpKeyStore {
 	public function trust(string $fingerprint, string $email, bool $trusted): void {
 		$fingerprint = self::fingerprint($fingerprint);
 		$email = self::email($email);
-		$key = $this->key($fingerprint, false);
-		if ($trusted && (!self::hasUid($key, $email) || !empty($key['revoked']) || !empty($key['expired']) || !empty($key['disabled']))) {
-			throw new InvalidArgumentException('Verify a usable key with a user ID matching this email address in the browser first.');
+		$key = $this->key($fingerprint, $trusted);
+		if ($trusted) {
+			// Validate against the stored User ID packets, not client metadata, so a client cannot bind an arbitrary address.
+			$onKey = in_array($email, PgpKeyMaterial::inspect($key['public_key'], false, PLUGIN_PGP_MAX_KEY_BYTES)['uid_emails'], true);
+			if (!$onKey || !empty($key['revoked']) || !empty($key['expired']) || !empty($key['disabled'])) {
+				throw new InvalidArgumentException('Verify a usable key with a user ID matching this email address in the browser first.');
+			}
 		}
 		$policy = $this->policy();
 		if ($trusted) { $policy['trusted'][$email] = $fingerprint; }
