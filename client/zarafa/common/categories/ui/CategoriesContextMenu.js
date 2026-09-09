@@ -83,14 +83,30 @@ Zarafa.common.categories.ui.CategoriesContextMenu = Ext.extend(Ext.menu.Menu, {
 		// Add categories that are set on the record(s) but don't exist in the categoryStore
 		categoriesStore.addCategoriesFromMapiRecords(this.records);
 
-		// Only show the quick access categories and selected categories in the submenu
+		// Show all categories, with selected categories first, followed by quick access
+		// categories and then the remaining categories.
 		var selectedCategories = Zarafa.common.categories.Util.getAllCategories(this.records);
-		categoriesStore.filterBy(function(category){
-			return category.get('quickAccess') || selectedCategories.indexOf(category.get('category'))>-1;
+		var categories = categoriesStore.getRange();
+		categories.sort(function(c1, c2) {
+			var c1Name = c1.get('category');
+			var c2Name = c2.get('category');
+			var c1Group = selectedCategories.indexOf(c1Name) > -1 ? 0 : (c1.get('quickAccess') ? 1 : 2);
+			var c2Group = selectedCategories.indexOf(c2Name) > -1 ? 0 : (c2.get('quickAccess') ? 1 : 2);
+
+			if (c1Group !== c2Group) {
+				return c1Group - c2Group;
+			}
+
+			var sortIndexDiff = c1.get('sortIndex') - c2.get('sortIndex');
+			if (sortIndexDiff !== 0) {
+				return sortIndexDiff;
+			}
+
+			return c1Name.localeCompare(c2Name);
 		});
 
 		// Map all categories to a config object for a menu item
-		return categoriesStore.getRange().map(function(category){
+		return categories.map(function(category){
 			return {
 				text: '<span class="k-category-in-menu">' + Ext.util.Format.htmlEncode(category.get('category')) + '</span>',
 				plainText: category.get('category'),
