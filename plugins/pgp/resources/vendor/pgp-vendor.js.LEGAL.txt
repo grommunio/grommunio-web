@@ -1,0 +1,7 @@
+Bundled license information:
+
+openpgp/dist/openpgp.min.mjs:
+  /*! OpenPGP.js v6.3.1 - 2026-06-04 - this is LGPL licensed code, see LICENSE/our website https://openpgpjs.org/ for more information. */
+  /*! noble-ciphers - MIT License (c) 2023 Paul Miller (paulmillr.com) */
+  /*! noble-hashes - MIT License (c) 2022 Paul Miller (paulmillr.com) */
+  /*! noble-curves - MIT License (c) 2022 Paul Miller (paulmillr.com) */

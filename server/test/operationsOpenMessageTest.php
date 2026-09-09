@@ -9,6 +9,7 @@ if (function_exists('mapi_msgstore_openentry')) {
 $GLOBALS['operationsOpenMessageGetPropsCalls'] = 0;
 $GLOBALS['operationsOpenMessageParseSmimeCalls'] = 0;
 $GLOBALS['operationsOpenMessageResult'] = false;
+$GLOBALS['operationsOpenMessageClass'] = 'IPM.Note.SMIME.MultipartSigned';
 $GLOBALS['operationsOpenAttachmentResult'] = false;
 $GLOBALS['operationsOpenAttachmentObjectResult'] = false;
 $GLOBALS['operationsOpenAttachmentCalls'] = 0;
@@ -22,7 +23,7 @@ if (!function_exists('mapi_msgstore_openentry')) {
 	function mapi_getprops($message, $properties = null) {
 		++$GLOBALS['operationsOpenMessageGetPropsCalls'];
 
-		return [PR_MESSAGE_CLASS => 'IPM.Note.SMIME.MultipartSigned'];
+		return [PR_MESSAGE_CLASS => $GLOBALS['operationsOpenMessageClass']];
 	}
 
 	function parse_smime($store, $message) {
@@ -56,6 +57,16 @@ if ($operations->openMessage('store', 'entryid', false, true) !== 'message') {
 }
 if ($GLOBALS['operationsOpenMessageGetPropsCalls'] !== 1 || $GLOBALS['operationsOpenMessageParseSmimeCalls'] !== 1) {
 	throw new RuntimeException('A successful S/MIME message open did not retain its parsing path.');
+}
+
+define('PLUGIN_PGP_ENABLE', true);
+foreach (['IPM.Note.GpgOL.MultipartEncrypted', 'IPM.Note'] as $messageClass) {
+	$GLOBALS['operationsOpenMessageClass'] = $messageClass;
+	$before = $GLOBALS['operationsOpenMessageParseSmimeCalls'];
+	$operations->openMessage('store', 'entryid', false, true);
+	if ($GLOBALS['operationsOpenMessageParseSmimeCalls'] !== $before + 1) {
+		throw new RuntimeException('OpenPGP decoding was skipped for ' . $messageClass);
+	}
 }
 
 $GLOBALS['operationsOpenAttachmentResult'] = 'attachment';

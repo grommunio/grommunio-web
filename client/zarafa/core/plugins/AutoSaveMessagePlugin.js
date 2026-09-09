@@ -164,6 +164,12 @@ Zarafa.core.plugins.AutoSaveMessagePlugin = Ext.extend(Object, {
 	messageAutoSave: function()
 	{
 		if (this.record) {
+			if (Zarafa.common.ui.SecurityButtons.suspendsAutoSave(this.record)) {
+				// Keep polling so autosave resumes once encryption is deselected.
+				this.resetMessageAutoSaveTimer();
+				this.startMessageAutoSaveTimer();
+				return;
+			}
 
 			// Check if the response received after resolve-attempt is ambiguous or not, if this is the case then "check names" dialog is still opened,
 			// just halt the auto-saving mechanism until user select any record from suggestion.

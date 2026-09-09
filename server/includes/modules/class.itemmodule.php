@@ -564,7 +564,7 @@ class ItemModule extends Module {
 		$requiresMeeting = class_match_prefix($messageClass, "IPM.Schedule.Meeting");
 
 		// Decode S/MIME signed messages only when needed
-		if ($requiresSmime) {
+		if ($requiresSmime || (defined('PLUGIN_PGP_ENABLE') && PLUGIN_PGP_ENABLE)) {
 			parse_smime($store, $message);
 		}
 

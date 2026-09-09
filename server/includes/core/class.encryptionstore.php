@@ -168,7 +168,7 @@ class EncryptionStore {
 	*/
 	private function removeExpiredEntries() {
 		// Remove expired entries
-		foreach ($_SESSION[EncryptionStore::_SESSION_KEY] as $key => $value) {
+		foreach ($_SESSION[EncryptionStore::_SESSION_KEY] ?? [] as $key => $value) {
 			if (!isset($value['exp'])) {
 				continue;
 			}
@@ -216,18 +216,45 @@ class EncryptionStore {
 	 */
 	public function get($key) {
 		$session_did_exists = $this->open_session();
-		// Remove expired entries before checking the $_SESSION
-		$this->removeExpiredEntries();
-		$values = $_SESSION[EncryptionStore::_SESSION_KEY][$key] ?? null;
-		if (!isset($values['val']) || is_null($values['val'])) {
-			return null;
+		try {
+			$this->removeExpiredEntries();
+			$values = $_SESSION[EncryptionStore::_SESSION_KEY][$key] ?? null;
+			if (!isset($values['val'])) {
+				return null;
+			}
+			return openssl_decrypt($values['val'], EncryptionStore::_CIPHER_METHOD, EncryptionStore::$_encryptionKey, 0, EncryptionStore::$_initializionVector);
 		}
-		$encrypted = $values['val'];
+		finally {
+			$this->close_session($session_did_exists);
+		}
+	}
 
-		$value = openssl_decrypt($encrypted, EncryptionStore::_CIPHER_METHOD, EncryptionStore::$_encryptionKey, 0, EncryptionStore::$_initializionVector);
-		$this->close_session($session_did_exists);
-
-		return $value;
+	/**
+	 * Atomically consume a value under the PHP session handler's exclusive lock.
+	 * Unlike get(), this must reload a previously closed session: its cached
+	 * snapshot may contain a receipt already consumed by another request.
+	 * The entry is removed even when decryption fails. A caller that already
+	 * owns the session lock retains it until its usual session close.
+	 *
+	 * @return false|null|string
+	 */
+	public function take($key) {
+		$opened = $this->open_session(true);
+		try {
+			if (!$this->session_exists()) {
+				throw new RuntimeException('Cannot lock the encrypted session store.');
+			}
+			$this->removeExpiredEntries();
+			$values = $_SESSION[EncryptionStore::_SESSION_KEY][$key] ?? null;
+			unset($_SESSION[EncryptionStore::_SESSION_KEY][$key]);
+			if (!isset($values['val'])) {
+				return null;
+			}
+			return openssl_decrypt($values['val'], EncryptionStore::_CIPHER_METHOD, EncryptionStore::$_encryptionKey, 0, EncryptionStore::$_initializionVector);
+		}
+		finally {
+			$this->close_session($opened);
+		}
 	}
 
 	/**

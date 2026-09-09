@@ -287,7 +287,7 @@ $(ICONSETSCSSDEST): $$(patsubst $(DESTDIR)/%,%,$$@)
 # Plugins
 
 .PHONY: plugins
-plugins:
+plugins: node_modules
 	${MAKE} -C plugins DESTDIR=$(abspath $(DESTDIR))/plugins
 
 .PHONY: clean

@@ -9,18 +9,24 @@
 		"lint": "eslint client/zarafa",
 		"phplintci": "phpmd server xml .phpmd.xml --ignore-violations-on-exit | python tools/violations_to_junit.py > phpmd.xml",
 		"build:icons": "node tools/build-icons.js",
+		"build:pgp-vendor": "node tools/build-pgp-vendor.mjs",
+		"test:pgp-browser": "node plugins/pgp/test/testBrowserCrypto.cjs && node plugins/pgp/test/testBrowserTransport.cjs",
 		"sync:images": "node tools/sync-images.js --extract",
 		"sync:images:report": "node tools/sync-images.js --report"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.22.0",
+		"esbuild": "0.25.12",
 		"eslint": "^9.22.0",
 		"globals": "^16.0.0"
 	},
 	"dependencies": {
 		"cssnano": "^6.0.1",
+		"fflate": "0.8.3",
 		"glob": "^11.0.1",
 		"html-minifier-terser": "^7.2.0",
+		"openpgp": "6.3.1",
+		"postal-mime": "2.7.5",
 		"postcss": "^8.4.31",
 		"postcss-cli": "^10.1.0",
 		"postcss-preset-env": "^9.2.0",

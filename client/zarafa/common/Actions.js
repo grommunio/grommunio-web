@@ -1320,6 +1320,10 @@ Zarafa.common.Actions = {
 	 */
 	downloadAttachment: function(record, allAsZip)
 	{
+		if (record.localContent) {
+			record.localContent.download(allAsZip);
+			return;
+		}
 		if (this.downloadFrame) {
 			// If download frame is not available in active browser window then
 			// create new download frame under active browser window.
@@ -1355,6 +1359,11 @@ Zarafa.common.Actions = {
 	{
 		var modal = false;
 		var layerType;
+		if (record.localContent) {
+			// The previewer fetches from the server; a browser-decrypted file is saved instead.
+			this.downloadAttachment(record);
+			return;
+		}
 		if(record.isEmbeddedMessage()) {
 			// if we are going to open embedded message then we need to first convert it into mail record
 			record = record.convertToIPMRecord();

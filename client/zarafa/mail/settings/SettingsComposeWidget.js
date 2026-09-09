@@ -253,6 +253,16 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 					},
 					plugins: ['zarafa.numberspinner']
 				}]
+			},{
+				xtype: 'checkbox',
+				name: 'zarafa/v1/contexts/mail/autosave_encrypted_enable',
+				ref: 'autoSaveEncryptedBox',
+				boxLabel: _('Also autosave while encryption is selected (drafts are stored unencrypted)'),
+				hideLabel: true,
+				listeners: {
+					check: this.onFieldChange,
+					scope: this
+				}
 			}]
 		});
 
@@ -336,6 +346,8 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 
 		this.autoSaveBox.setValue(enabled);
 		this.autoSaveTimeSpinner.setValue(settingsModel.get(this.autoSaveTimeSpinner.name) / 60);
+		this.autoSaveEncryptedBox.setValue(settingsModel.get(this.autoSaveEncryptedBox.name));
+		this.autoSaveEncryptedBox.setDisabled(enabled !== true);
 
 	},
 
@@ -360,6 +372,7 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 		settingsModel.set(this.editorCombo.name, this.editorCombo.getValue());
 		settingsModel.set(this.readBox.name, this.readBox.getValue());
 		settingsModel.set(this.autoSaveTimeSpinner.name, spinnerValue);
+		settingsModel.set(this.autoSaveEncryptedBox.name, this.autoSaveEncryptedBox.getValue());
 		settingsModel.endEdit();
 
 	},
@@ -418,6 +431,7 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 		// chrome and IE browser, so calling onFieldChange event manually.
 		this.onFieldChange(checkbox, check);
 		this.autoSaveTimeSpinner.setDisabled(!check);
+		this.autoSaveEncryptedBox.setDisabled(!check);
 	},
 
 	/**

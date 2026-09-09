@@ -303,6 +303,12 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	 */
 	openPreviewIn: function(layerType)
 	{
+		var record = this.getPrimaryRecord();
+		if (record.localContent) {
+			// The previewer fetches from the server; a browser-decrypted file is saved instead.
+			Zarafa.common.Actions.downloadAttachment(record);
+			return;
+		}
 		// 'modal' would force the dialog layer, so it and layerType are exclusive.
 		// autoResize sizes the panel from the main window's viewport, which fits the dialog layer alone.
 		var config = {modal: layerType === 'dialogs', autoResize: layerType === 'dialogs'};
@@ -310,7 +316,7 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 			config.layerType = layerType;
 		}
 
-		Zarafa.core.data.UIFactory.openViewRecord(this.getPrimaryRecord(), config);
+		Zarafa.core.data.UIFactory.openViewRecord(record, config);
 	},
 
 	/**

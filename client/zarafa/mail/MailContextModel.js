@@ -102,6 +102,16 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		responseRecord.addMessageAction('source_entryid', record.get('entryid'));
 		responseRecord.addMessageAction('source_store_entryid', record.get('store_entryid'));
 
+		var pgp = record.get('pgp');
+		if (actionType !== Zarafa.mail.data.ActionTypes.FORWARD_ATTACH && pgp && !pgp.pending && pgp.mime && !pgp.unverifiable) {
+			if (!pgp.inline && pgp.format !== 'inline' && (pgp.decrypted || pgp.signed)) {
+				// Original MAPI attachments contain the protected MIME envelope;
+				// the usable files exist only in the browser attachment store.
+				responseRecord.addMessageAction('browser_decrypted', true);
+			}
+			if (pgp.encrypted && pgp.decrypted) { responseRecord.set('pgp_encrypt', true); }
+		}
+
 		this.setSourceMessageInfo(record, actionType, responseRecord);
 
 		var attachNum = record.get('attach_num');
@@ -640,6 +650,24 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	initRecordAttachments: function(record, origRecord, actionType)
 	{
 		var store = record.getAttachmentStore();
+		if (record.getMessageActions().browser_decrypted === true) {
+			var model = this, files = [], reply = actionType === Zarafa.mail.data.ActionTypes.REPLY || actionType === Zarafa.mail.data.ActionTypes.REPLYALL;
+			var html = String(origRecord.get('html_body') || '');
+			origRecord.getAttachmentStore().each(function(attach) {
+				if (!attach.localContent) { return; }
+				// A Content-ID alone does not make a file inline; the body must use it.
+				var cid = attach.get('cid'), inline = !!cid && html.indexOf('cid:' + cid) !== -1;
+				if (!reply || (inline && record.get('isHTML'))) { files.push({attachment: attach, inline: inline}); }
+			});
+			// Sequential uploads keep duplicate filenames and response correlation
+			// unambiguous. Open compose only after all files are accounted for.
+			record.browserAttachmentsReady = files.reduce(function(previous, file) {
+				return previous.then(function() { return model.uploadLocalResponseAttachment(record, file.attachment, file.inline); });
+			}, Promise.resolve()).then(function() {
+				record.set('hasattach', store.getCount() > 0);
+			});
+			return;
+		}
 
 		switch (actionType)
 		{
@@ -659,6 +687,63 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 				// TODO: handle inline image attachments
 				break;
 		}
+	},
+
+	/** Upload a decrypted file without sending a server-side source attachment ID. */
+	uploadLocalResponseAttachment: function(record, source, inline)
+	{
+		var store = record.getAttachmentStore(), local = source.localContent;
+		return new Promise(function(resolve, reject) {
+			var win = Zarafa.core.BrowserWindowMgr.getActive() || window;
+			if (!win.File || !win.DataTransfer || !local || !local.blob) {
+				reject(new Error(_('This browser cannot attach the decrypted file. Download it before forwarding.')));
+				return;
+			}
+			var transfer = new win.DataTransfer();
+			transfer.items.add(new win.File([local.blob], source.get('name'), {type: source.get('filetype') || 'application/octet-stream'}));
+			if (!store.canUploadFiles(transfer.files)) {
+				reject(new Error(_('A decrypted attachment exceeds the upload limits. No incomplete response was created.')));
+				return;
+			}
+			var uploaded, timeout;
+			var cleanup = function() {
+				store.un('add', onAdd);
+				store.un('write', onWrite);
+				store.un('exception', onError);
+				win.clearTimeout(timeout);
+			};
+			var onAdd = function(attachmentStore, added) { uploaded = added[0]; };
+			var onWrite = function(attachmentStore, action, result, response, uploadedRecords) {
+				if (action !== 'create' || !uploaded) { return; }
+				if (uploadedRecords && (Array.isArray(uploadedRecords) ? uploadedRecords.indexOf(uploaded) === -1 : uploadedRecords !== uploaded)) { return; }
+				cleanup();
+				var cid = source.get('cid');
+				if (inline === true && cid) {
+					uploaded.set('cid', cid);
+					uploaded.set('hidden', true);
+					uploaded.setInline(true);
+					// The editor loads the uploaded copy; saving turns the attachCid URL back
+					// into the literal cid:, so the id must not be percent-encoded here.
+					var target = Ext.urlAppend(uploaded.getInlineImageUrl(), 'attachCid=' + String(cid).replace(/[\s"'<>&]/g, ''));
+					var html = record.get('html_body') || '';
+					Ext.each([local.inlineUrl, local.url], function(url) {
+						if (url) { html = html.split(url).join(Ext.util.Format.htmlEncode(target)); }
+					});
+					record.set('html_body', html);
+				}
+				resolve(uploaded);
+			};
+			var onError = function() {
+				cleanup();
+				reject(new Error(_('A decrypted attachment could not be uploaded. No incomplete response was created.')));
+			};
+			store.on('add', onAdd);
+			store.on('write', onWrite);
+			store.on('exception', onError);
+			timeout = win.setTimeout(onError, 120000);
+			try { store.uploadFiles(transfer.files, undefined, inline === true); }
+			catch (error) { cleanup(); reject(error); }
+		});
 	},
 
 	/**

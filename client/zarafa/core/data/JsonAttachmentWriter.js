@@ -44,7 +44,8 @@ Zarafa.core.data.JsonAttachmentWriter = Ext.extend(Zarafa.core.data.JsonWriter, 
 				}
 
 				// FIXME: serialize?
-				var data = attach.data;
+				var data = Ext.apply({}, attach.data);
+				data.inline = true;
 
 				hash.attachments.add.push(data);
 			}
@@ -57,7 +58,8 @@ Zarafa.core.data.JsonAttachmentWriter = Ext.extend(Zarafa.core.data.JsonWriter, 
 				}
 
 				// FIXME: serialize?
-				var data = attach.data;
+				var data = Ext.apply({}, attach.data);
+				data.inline = true;
 
 				hash.attachments.remove.push(data);
 			}
