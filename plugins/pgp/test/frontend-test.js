@@ -245,21 +245,25 @@ test('key actions stay disabled until a suitable key is selected', () => {
 	for (const action of Object.values(actions)) { assert.equal(action.disabled, true); }
 });
 
-test('autosave pauses while a provider has encryption selected', () => {
+test('autosave pauses only for a provider that opts in with encryption selected', () => {
 	const {context} = runtime();
 	const buttons = context.Zarafa.common.ui.SecurityButtons;
-	buttons.providers = [{id: 'x', label: 'X', isSelected: (mail, action) => action === 'encrypt' && mail.get('enc') === true}];
+	buttons.providers = [{id: 'x', label: 'X', suspendsAutoSave: true, isSelected: (mail, action) => action === 'encrypt' && mail.get('enc') === true}];
 	assert.equal(buttons.suspendsAutoSave(undefined), false);
 	assert.equal(buttons.suspendsAutoSave(record({enc: false})), false);
 	assert.equal(buttons.suspendsAutoSave(record({enc: true})), true);
 	context.container.getSettingsModel = () => ({get: key => key === 'zarafa/v1/contexts/mail/autosave_encrypted_enable'});
+	assert.equal(buttons.suspendsAutoSave(record({enc: true})), false);
+	// A provider that does not opt in keeps periodic autosave.
+	context.container.getSettingsModel = () => ({get: () => false});
+	buttons.providers = [{id: 'smime', label: 'S/MIME', isSelected: (mail, action) => action === 'encrypt' && mail.get('enc') === true}];
 	assert.equal(buttons.suspendsAutoSave(record({enc: true})), false);
 });
 
 test('autosave skips its tick while encryption is selected, re-arms, and says so on the button', () => {
 	const {context} = runtime();
 	const buttons = context.Zarafa.common.ui.SecurityButtons;
-	buttons.providers = [{id: 'x', label: 'X', isSelected: (mail, action) => action === 'encrypt' && mail.get('enc') === true}];
+	buttons.providers = [{id: 'x', label: 'X', suspendsAutoSave: true, isSelected: (mail, action) => action === 'encrypt' && mail.get('enc') === true}];
 	const mail = record({enc: true});
 	mail.getSubStore = () => ({each() {}});
 	mail.isUnsent = () => true;

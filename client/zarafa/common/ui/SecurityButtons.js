@@ -40,10 +40,15 @@ Zarafa.common.ui.SecurityButtons = {
 	{
 		return !!record && this.providers.some(function(provider) { return provider.isSelected(record, 'encrypt'); });
 	},
-	/** Autosave would store the plaintext of a message meant to be encrypted. */
+	/**
+	 * Autosave would persist the plaintext of an encrypted message; only a provider
+	 * that opts in (suspendsAutoSave: true, e.g. OpenPGP) pauses it, S/MIME does not.
+	 */
 	suspendsAutoSave: function(record)
 	{
-		return this.encryptionSelected(record) &&
+		if (!record) { return false; }
+		var provider = this.activeProvider(record);
+		return !!provider && provider.suspendsAutoSave === true && provider.isSelected(record, 'encrypt') &&
 			container.getSettingsModel().get('zarafa/v1/contexts/mail/autosave_encrypted_enable', false) !== true;
 	},
 	setAction: function(provider, dialog, action, enabled, button)

@@ -19,6 +19,8 @@ Zarafa.plugins.pgp.PgpPlugin = Ext.extend(Zarafa.core.Plugin, {
 	{
 		var plugin = this;
 		return {id: 'pgp', label: 'OpenPGP', priority: 20,
+			// OpenPGP drafts hold plaintext, so pause autosave while encryption is selected.
+			suspendsAutoSave: true,
 			isSelected: function(record, action) { return record.get('pgp_' + action) === true; },
 			setAction: function(dialog, action, enabled) { plugin.setProtection(dialog, action, enabled); },
 			attach: function(dialog) { plugin.attachCompose(dialog); },
