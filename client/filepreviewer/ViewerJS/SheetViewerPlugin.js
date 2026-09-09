@@ -386,15 +386,13 @@ function SheetViewerPlugin() {
 
     this.initialize = function ( viewerElement, documentUrl ) {
         injectStyle();
-        ViewerSupport.loadScripts(['./vendor/xlsx.full.min.js'], function () {
-            ViewerSupport.fetchDocument(documentUrl).then(function ( buffer ) {
-                render(buffer);
-                self.ready();
-            }).catch(function ( err ) {
-                console.log('SheetViewerPlugin: failed to render workbook: ' + (err && err.stack || err));
-                ViewerSupport.showError(ViewerSupport.canvas());
-                self.ready();
-            });
+        ViewerSupport.fetchDocument(documentUrl).then(function ( buffer ) {
+            render(buffer);
+            self.ready();
+        }).catch(function ( err ) {
+            console.log('SheetViewerPlugin: failed to render workbook: ' + (err && err.stack || err));
+            ViewerSupport.showError(ViewerSupport.canvas());
+            self.ready();
         });
     };
 

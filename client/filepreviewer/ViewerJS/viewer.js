@@ -715,12 +715,14 @@ function Viewer( viewerPlugin, parameters ) {
         },
         doc: {
             path:        "./DocViewerPlugin.js",
+            libs:        ["./Cfb.js"],
             getClass:    function () { return DocViewerPlugin; },
             extensions:  ['doc', 'dot'],
             mimetypes:   ['application/msword']
         },
         docx: {
             path:        "./DocxViewerPlugin.js",
+            libs:        ["./vendor/jszip.min.js", "./vendor/docx-preview.min.js"],
             getClass:    function () { return DocxViewerPlugin; },
             extensions:  ['docx', 'docm', 'dotx', 'dotm'],
             mimetypes:   [
@@ -736,6 +738,7 @@ function Viewer( viewerPlugin, parameters ) {
         },
         sheet: {
             path:        "./SheetViewerPlugin.js",
+            libs:        ["./vendor/xlsx.full.min.js"],
             getClass:    function () { return SheetViewerPlugin; },
             extensions:  ['xls', 'xlt', 'xlsx', 'xlsm', 'xltx', 'xltm', 'xlsb',
                           'csv', 'tsv', 'dbf', 'dif', 'slk', 'prn'],
@@ -751,6 +754,7 @@ function Viewer( viewerPlugin, parameters ) {
         },
         pptx: {
             path:        "./PptxViewerPlugin.js",
+            libs:        ["./vendor/jszip.min.js"],
             getClass:    function () { return PptxViewerPlugin; },
             extensions:  ['pptx', 'pptm', 'potx', 'ppsx', 'ppsm'],
             mimetypes:   [
@@ -761,6 +765,7 @@ function Viewer( viewerPlugin, parameters ) {
         },
         message: {
             path:        "./MessageViewerPlugin.js",
+            libs:        ["../../dompurify/purify.js"],
             getClass:    function () { return MessageViewerPlugin; },
             extensions:  ['eml'],
             mimetypes:   ['message/rfc822']
@@ -777,6 +782,7 @@ function Viewer( viewerPlugin, parameters ) {
         },
         media: {
             path:        "./MultimediaViewerPlugin.js",
+            libs:        ["video-js/video.js"],
             getClass:    function () { return MultimediaViewerPlugin; },
             extensions:  ['aac', 'mp3', 'm4a', 'oga', 'ogg', 'opus', 'wav', 'flac',
                           'mp1', 'mp2', 'mp4', 'm4v', 'mpg', 'mpeg', 'ogv', 'webm', 'mov'],
@@ -953,7 +959,8 @@ function Viewer( viewerPlugin, parameters ) {
             var data = match ? match.data : unknownFileType;
 
             parameters.renderer = match ? match.name : 'unknown';
-            ViewerSupport.loadScripts([data.path], function () {
+            // The renderer and its libraries are asked for together.
+            ViewerSupport.loadScripts([data.path].concat(data.libs || []), function () {
                 Plugin = data.getClass();
                 viewer = new Viewer(new Plugin(), parameters);
             });

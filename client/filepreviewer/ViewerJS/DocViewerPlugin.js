@@ -1048,7 +1048,7 @@ function DocViewerPlugin() {
 
                 // A tab has no meaning of its own in HTML.
                 if ( character === '\t' ) {
-                    character = '    ';
+                    character = '\u00A0\u00A0\u00A0\u00A0';
                 }
 
                 if ( last && last.nodeName === (linkUrl ? 'A' : 'SPAN') &&
@@ -1148,18 +1148,16 @@ function DocViewerPlugin() {
 
     this.initialize = function ( viewerElement, documentUrl ) {
         injectStyle();
-        ViewerSupport.loadScripts(['./Cfb.js'], function () {
-            ViewerSupport.fetchDocument(documentUrl).then(function ( buffer ) {
-                var wrapper = render(buffer);
+        ViewerSupport.fetchDocument(documentUrl).then(function ( buffer ) {
+            var wrapper = render(buffer);
 
-                ViewerSupport.canvas().appendChild(wrapper);
-                self.wrapper = wrapper;
-                self.ready();
-            }).catch(function ( err ) {
-                console.log('DocViewerPlugin: failed to render document: ' + (err && err.stack || err));
-                ViewerSupport.showError(ViewerSupport.canvas());
-                self.ready();
-            });
+            ViewerSupport.canvas().appendChild(wrapper);
+            self.wrapper = wrapper;
+            self.ready();
+        }).catch(function ( err ) {
+            console.log('DocViewerPlugin: failed to render document: ' + (err && err.stack || err));
+            ViewerSupport.showError(ViewerSupport.canvas());
+            self.ready();
         });
     };
 }

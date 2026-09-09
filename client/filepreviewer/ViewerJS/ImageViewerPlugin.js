@@ -1,7 +1,12 @@
 /**
- * Image Viewer Plugin
+ * Image viewer plugin. An SVG goes through an image element like every other
+ * format, so the scripts it may carry never run.
+ *
  * @author grommunio GmbH <dev@grommunio.com>
  */
+
+/*global document, ViewerSupport*/
+
 function ImageViewerPlugin() {
     "use strict";
 
@@ -35,11 +40,11 @@ function ImageViewerPlugin() {
 
         var rotateLeft = document.createElement("button");
         rotateLeft.setAttribute('class', 'toolbarButton pageDown flipHorizontal');
-        rotateLeft.setAttribute('title', 'Rotate left');
+        rotateLeft.setAttribute('title', ViewerSupport.t('Rotate left'));
 
         var rotateRight = document.createElement("button");
         rotateRight.setAttribute('class', 'toolbarButton pageDown');
-        rotateRight.setAttribute('title', 'Rotate right');
+        rotateRight.setAttribute('title', ViewerSupport.t('Rotate right'));
 
         leftToolbar.appendChild(rotateLeft);
         leftToolbar.appendChild(buttonSeperator);
@@ -103,12 +108,14 @@ function ImageViewerPlugin() {
         imgElement.height = height;
     };
 
-    this.fitToPage = function ( width, height ) {
+    this.fitToPage = function ( width ) {
         imgElement.width = width;
     };
 
     this.fitSmart = function ( width ) {
-        imgElement.width = width;
+        // A picture smaller than the frame is shown at its own size rather
+        // than blown up to fill it.
+        imgElement.width = Math.min(width, imgElement.naturalWidth || width);
     };
 
     this.getZoomLevel = function () {

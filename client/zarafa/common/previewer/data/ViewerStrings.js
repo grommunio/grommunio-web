@@ -33,8 +33,11 @@ Zarafa.common.previewer.data.ViewerStrings = {
 			'Zoom': _('Zoom'),
 			'Automatic': _('Automatic'),
 			'Actual size': _('Actual size'),
-			'Full width': _('Full width'),
+			// The same wording the file preview settings use.
+			'Page width': _('Page width'),
 			'Close': _('Close'),
+			'Rotate left': _('Rotate left'),
+			'Rotate right': _('Rotate right'),
 
 			// Shared by the renderers
 			'This document could not be previewed.': _('This document could not be previewed.'),

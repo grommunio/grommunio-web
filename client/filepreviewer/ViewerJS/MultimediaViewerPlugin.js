@@ -14,17 +14,16 @@ function MultimediaViewerPlugin() {
         self         = this;
 
     /**
-     * Video.js is a 2 MB bundle that only this renderer needs, so it is
-     * fetched when a media file is actually opened.
+     * The Video.js stylesheets, which only this renderer needs. Its script is
+     * loaded with the renderer itself.
      */
-    function loadVideoJs( callback ) {
+    function loadStyles() {
         ['video-js/video-js.css', 'video-js/sea.css'].forEach(function ( href ) {
             var link  = document.createElement('link');
             link.rel  = 'stylesheet';
             link.href = href;
             document.head.appendChild(link);
         });
-        ViewerSupport.loadScripts(['video-js/video.js'], callback);
     }
 
     function render( viewerElement, documentUrl ) {
@@ -63,9 +62,8 @@ function MultimediaViewerPlugin() {
     }
 
     this.initialize = function ( viewerElement, documentUrl ) {
-        loadVideoJs(function () {
-            render(viewerElement, documentUrl);
-        });
+        loadStyles();
+        render(viewerElement, documentUrl);
     };
 
     this.isSlideshow = function () {

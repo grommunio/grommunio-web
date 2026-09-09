@@ -1036,33 +1036,31 @@ function PptxViewerPlugin() {
 
     this.initialize = function ( viewerElement, documentUrl ) {
         injectStyle();
-        ViewerSupport.loadScripts(['./vendor/jszip.min.js'], function () {
-            ViewerSupport.fetchDocument(documentUrl).then(render).then(function ( built ) {
-                var canvas = ViewerSupport.canvas();
+        ViewerSupport.fetchDocument(documentUrl).then(render).then(function ( built ) {
+            var canvas = ViewerSupport.canvas();
 
-                if ( !built.length ) {
-                    throw new Error('no slides');
-                }
+            if ( !built.length ) {
+                throw new Error('no slides');
+            }
 
-                deck = document.createElement('div');
-                deck.className = 'pptx-deck';
-                built.forEach(function ( slide, index ) {
-                    slide.style.display = index === 0 ? '' : 'none';
-                    deck.appendChild(slide);
-                });
-                slides       = built;
-                self.wrapper = deck;
-                canvas.style.overflow = 'visible';
-                canvas.appendChild(deck);
-
-                layout();
-                window.addEventListener('resize', layout);
-                self.ready();
-            }).catch(function ( err ) {
-                console.log('PptxViewerPlugin: failed to render presentation: ' + (err && err.stack || err));
-                ViewerSupport.showError(ViewerSupport.canvas());
-                self.ready();
+            deck = document.createElement('div');
+            deck.className = 'pptx-deck';
+            built.forEach(function ( slide, index ) {
+                slide.style.display = index === 0 ? '' : 'none';
+                deck.appendChild(slide);
             });
+            slides       = built;
+            self.wrapper = deck;
+            canvas.style.overflow = 'visible';
+            canvas.appendChild(deck);
+
+            layout();
+            window.addEventListener('resize', layout);
+            self.ready();
+        }).catch(function ( err ) {
+            console.log('PptxViewerPlugin: failed to render presentation: ' + (err && err.stack || err));
+            ViewerSupport.showError(ViewerSupport.canvas());
+            self.ready();
         });
     };
 

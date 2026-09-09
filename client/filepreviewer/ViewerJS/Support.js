@@ -92,33 +92,41 @@ var ViewerSupport = (function () {
     }
 
     /**
-     * Load scripts one after the other; a library that reads a global another
-     * one exports has to see it defined already.
+     * Load scripts. They are all asked for at once, so the network does the
+     * work in parallel, but they are evaluated in the order given - a library
+     * that reads a global another one exports has to see it defined already.
      *
      * @param {String[]} sources The script URLs
      * @param {Function} callback Called once they have all been evaluated
      */
     function loadScripts( sources, callback ) {
-        function next( index ) {
-            if ( index >= sources.length ) {
-                callback();
+        var pending = sources.length;
 
-                return;
-            }
-            var script    = document.createElement('script');
-            script.async  = false;
-            script.type   = 'text/javascript';
-            script.src    = sources[index];
-            script.onload = function () {
-                next(index + 1);
-            };
-            script.onerror = function () {
-                throw new Error('failed to load ' + sources[index]);
-            };
-            document.head.appendChild(script);
+        if ( !pending ) {
+            callback();
+
+            return;
         }
 
-        next(0);
+        sources.forEach(function ( source ) {
+            var script = document.createElement('script');
+
+            // Not async: the browser fetches these in parallel but runs them
+            // in document order.
+            script.async  = false;
+            script.type   = 'text/javascript';
+            script.src    = source;
+            script.onload = function () {
+                pending -= 1;
+                if ( pending === 0 ) {
+                    callback();
+                }
+            };
+            script.onerror = function () {
+                throw new Error('failed to load ' + source);
+            };
+            document.head.appendChild(script);
+        });
     }
 
     /**
@@ -146,7 +154,12 @@ var ViewerSupport = (function () {
      * @return {Promise} The document
      */
     function fetchDocument( url, as ) {
-        return fetch(url, { credentials: 'same-origin' }).then(function ( response ) {
+        // The viewer page asks for the document as soon as it is parsed; that
+        // request is the one to wait for rather than making a second.
+        var started = window.documentRequest && window.documentRequest.url === url ?
+            window.documentRequest.response : fetch(url, { credentials: 'same-origin' });
+
+        return started.then(function ( response ) {
             if ( !response.ok ) {
                 throw new Error('HTTP ' + response.status);
             }

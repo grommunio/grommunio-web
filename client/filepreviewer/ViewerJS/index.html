@@ -43,7 +43,25 @@
     <title>Document Viewer</title>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+    <link rel="icon" href="data:,">
     <link href="viewer.css" rel="stylesheet">
+    <script>
+        // The document is the one thing every renderer needs, and it is the
+        // slowest to arrive. Ask for it here, before a single script has been
+        // fetched, and let the renderer pick up the request that is already
+        // running.
+        (function () {
+            "use strict";
+            var url = document.location.hash.substring(1);
+
+            if (url) {
+                window.documentRequest = {
+                    url: url,
+                    response: fetch(url, { credentials: 'same-origin' })
+                };
+            }
+        }());
+    </script>
 </head>
 <body>
 <div id="viewer">

@@ -407,16 +407,13 @@ function MessageViewerPlugin() {
 
     this.initialize = function ( viewerElement, documentUrl ) {
         injectStyle();
-        // DOMPurify ships with grommunio Web, next to the viewer.
-        ViewerSupport.loadScripts(['../../dompurify/purify.js'], function () {
-            ViewerSupport.fetchDocument(documentUrl).then(function ( buffer ) {
-                render(buffer);
-                self.ready();
-            }).catch(function ( err ) {
-                console.log('MessageViewerPlugin: failed to render message: ' + (err && err.stack || err));
-                ViewerSupport.showError(ViewerSupport.canvas());
-                self.ready();
-            });
+        ViewerSupport.fetchDocument(documentUrl).then(function ( buffer ) {
+            render(buffer);
+            self.ready();
+        }).catch(function ( err ) {
+            console.log('MessageViewerPlugin: failed to render message: ' + (err && err.stack || err));
+            ViewerSupport.showError(ViewerSupport.canvas());
+            self.ready();
         });
     };
 
