@@ -1024,6 +1024,12 @@ class Properties {
 			$properties["flag_due_by"] = "PT_SYSTIME:PSETID_Common:" . PidLidReminderSignalTime;
 			$properties["duedate"] = "PT_SYSTIME:PSETID_Task:" . PidLidTaskDueDate;
 			$properties["startdate"] = "PT_SYSTIME:PSETID_Task:" . PidLidTaskStartDate;
+			// The follow-up flag is a task in Outlook's eyes, so its task state
+			// travels with it.
+			$properties["complete"] = "PT_BOOLEAN:PSETID_Task:" . PidLidTaskComplete;
+			$properties["task_status"] = "PT_LONG:PSETID_Task:" . PidLidTaskStatus;
+			$properties["percent_complete"] = "PT_DOUBLE:PSETID_Task:" . PidLidPercentComplete;
+			$properties["date_completed"] = "PT_SYSTIME:PSETID_Task:" . PidLidTaskDateCompleted;
 			$properties["reply_requested"] = PR_REPLY_REQUESTED;
 			$properties["reply_time"] = PR_REPLY_TIME;
 			$properties["response_requested"] = PR_RESPONSE_REQUESTED;
