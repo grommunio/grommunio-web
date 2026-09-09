@@ -28,9 +28,9 @@ Zarafa.common.ui.ColorPicker = Ext.extend(Ext.form.Field, {
   fieldClass: 'x-form-field k-colorpicker',
 
 	/**
-   * @cfg {String[]} colors The colors that will be used for the colorpicker. Colors
-   * should be in RGB hex format without the #. E.g. 'AA0000' for red. Defaults to
-   * the default calendar colors used by grommunio Web.
+	 * @cfg {String[]} colors The colors that will be used for the colorpicker. Colors
+	 * should be in RGB hex format without the #. E.g. 'AA0000' for red. By default,
+	 * the server-provided Outlook category palette replaces this fallback list.
 	 */
 	colors: [
 		'E30022', // cadmium red
@@ -102,6 +102,16 @@ Zarafa.common.ui.ColorPicker = Ext.extend(Ext.form.Field, {
 	);
 
 	config = config || {};
+	var serverConfig = container.getServerConfig();
+	var categoryPalette = serverConfig && Ext.isFunction(serverConfig.getCategoryColorPalette) ?
+		serverConfig.getCategoryColorPalette() : [];
+	if (!Ext.isEmpty(categoryPalette)) {
+		Ext.applyIf(config, {
+			colors: categoryPalette.map(function(color) {
+				return color.replace(/^#/, '').toUpperCase();
+			})
+		});
+	}
 	Ext.applyIf(config, {
 		// setting defaultAutoCreate to true to have a simple div as element
 		// and not have Ext.form.Field create an input.

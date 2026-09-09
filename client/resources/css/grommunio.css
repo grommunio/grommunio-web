@@ -2044,7 +2044,7 @@ li.x-menu-item-active {
 
 /* Color picker */
 .x-color-palette.k-colorpicker-menu {
-  width: 108px; }
+  width: 115px; }
 
 .x-menu-check-item.showGroups .k-hide-img {
   display: none !important; }
@@ -6328,7 +6328,7 @@ body.zarafa-webclient > .ext-el-mask {
   padding-bottom: 4px; }
 
 .x-color-palette.k-colorpicker-menu {
-  width: 92px; }
+  width: 115px; }
 
 .x-color-palette a {
   padding: 3px;
