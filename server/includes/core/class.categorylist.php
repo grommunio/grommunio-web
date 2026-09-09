@@ -33,37 +33,34 @@ class CategoryList {
 
 	/**
 	 * Outlook OlCategoryColor palette: index (as written in the XML `color`
-	 * attribute) => RGB hex used to render the swatch. The first entries reuse
-	 * grommunio Web's own hex values for the six flag-mapped colours so the UI
-	 * renders them unchanged; the remainder are close approximations of
-	 * Outlook's palette and can be tuned without touching any other code.
+	 * attribute) => RGB hex used to render the swatch.
 	 */
 	private static $palette = [
-		0  => '#e40023', // Red
-		1  => '#f99406', // Orange
-		2  => '#fbd5a6', // Peach
-		3  => '#f7ca17', // Yellow
-		4  => '#5ab556', // Green
-		5  => '#26a0a0', // Teal
-		6  => '#a4b34d', // Olive
-		7  => '#0f70bd', // Blue
-		8  => '#912887', // Purple
-		9  => '#a6014e', // Maroon
-		10 => '#9da3af', // Steel
-		11 => '#64738b', // Dark Steel
-		12 => '#b0b0b0', // Gray
-		13 => '#6e6e6e', // Dark Gray
-		14 => '#4c4c4c', // Black
-		15 => '#8c1015', // Dark Red
-		16 => '#c15a00', // Dark Orange
-		17 => '#c79860', // Dark Peach
-		18 => '#b8860b', // Dark Yellow
-		19 => '#2e7d32', // Dark Green
-		20 => '#00695c', // Dark Teal
-		21 => '#6b7a2e', // Dark Olive
-		22 => '#0a4c88', // Dark Blue
-		23 => '#5e1a59', // Dark Purple
-		24 => '#6e0033', // Dark Maroon
+		0  => '#d6252e', // Red
+		1  => '#f06c15', // Orange
+		2  => '#ffca4c', // Peach
+		3  => '#fffe3d', // Yellow
+		4  => '#4ab63f', // Green
+		5  => '#40bd95', // Teal
+		6  => '#859a52', // Olive
+		7  => '#3267b8', // Blue
+		8  => '#613db4', // Purple
+		9  => '#a34e78', // maroon
+		10 => '#c4ccdd', // Steel
+		11 => '#8c9cbd', // Dark Steel
+		12 => '#c4c4c4', // Gray
+		13 => '#a5a5a5', // Dark Gray
+		14 => '#1c1c1c', // Black
+		15 => '#af1e25', // Dark Red
+		16 => '#b14f0d', // Dark Orange
+		17 => '#ab7b05', // Dark Peach
+		18 => '#999400', // Dark Yellow
+		19 => '#35792b', // Dark Green
+		20 => '#2e7d64', // Dark Teal
+		21 => '#5f6c3a', // Dark Olive
+		22 => '#2a5191', // Dark Blue
+		23 => '#50328f', // Dark Purple
+		24 => '#82375f', // Dark Maroon
 	];
 
 	/**
