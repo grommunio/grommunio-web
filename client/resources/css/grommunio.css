@@ -8565,10 +8565,13 @@ body.k-keyboard .zarafa-settings-category-tab:focus-visible {
   background-position: center center !important;
 }
 
-/* Honour the reduced motion preference */
+/* Honour the reduced motion preference. A zero duration, not a near-zero one: a
+ * 0.01ms transition of `all` still starts, and within one script task it has not
+ * advanced, so ExtJS reads back the old position or size right after writing the
+ * new one and places menus, dialogs and the calendar grid off the page. */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
+    transition-duration: 0s !important;
+    animation-duration: 0s !important;
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important; } }
