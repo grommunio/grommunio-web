@@ -105,7 +105,10 @@ Zarafa.common.categories.ui.CategoriesContextMenu = Ext.extend(Ext.menu.Menu, {
 			return c1Name.localeCompare(c2Name);
 		});
 
-		// Map all categories to a config object for a menu item
+		// Keep the categories context menu to 15 items like in Outlook.
+		categories = categories.slice(0, 15);
+
+		// Map the visible categories to config objects for menu items.
 		return categories.map(function(category){
 			return {
 				text: '<span class="k-category-in-menu">' + Ext.util.Format.htmlEncode(category.get('category')) + '</span>',
