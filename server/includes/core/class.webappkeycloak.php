@@ -187,10 +187,12 @@ class WebAppKeyCloak extends KeyCloak {
 	/**
 	 * Choose and normalize the OAuth callback URL.
 	 *
-	 * A fixed SERVER_NAME is preferred. The stock nginx configuration serves
-	 * grommunio Web from a catch-all server block (server_name _;), so the Host
-	 * header is used when SERVER_NAME is not a usable host name. Set redirect-url
-	 * in keycloak.json to pin the callback explicitly.
+	 * The callback is the deployment directory (https://host/web), which is the
+	 * redirect URI the grommunio-auth client template registers; nginx sends the
+	 * browser on to index.php. A fixed SERVER_NAME is preferred. The stock nginx
+	 * configuration serves grommunio Web from a catch-all server block
+	 * (server_name _;), so the Host header is used when SERVER_NAME is not a
+	 * usable host name. Set redirect-url in keycloak.json to pin the callback.
 	 *
 	 * @param array $config keycloak.json configuration
 	 *
@@ -203,19 +205,21 @@ class WebAppKeyCloak extends KeyCloak {
 
 		$scriptName = (string) ($_SERVER['SCRIPT_NAME'] ?? '/index.php');
 		$scriptName = preg_replace('/[\x00-\x1f\x7f]/', '', str_replace('\\', '/', $scriptName));
-		$scriptName = '/' . ltrim($scriptName, '/');
-		// OAuth callbacks are handled by the HTML entry point. Refresh can run
-		// from grommunio.php, so retain its deployment directory, not its name.
-		if (strtolower(basename($scriptName)) !== 'index.php') {
-			$scriptName = rtrim(dirname($scriptName), '/') . '/index.php';
+		$directory = rtrim(dirname('/' . ltrim($scriptName, '/')), '/');
+
+		$serverName = (string) ($_SERVER['SERVER_NAME'] ?? '');
+		$host = (string) ($_SERVER['HTTP_HOST'] ?? '');
+		// SERVER_NAME never carries the port the browser used
+		if ($serverName !== '' && preg_match('~\A' . preg_quote($serverName, '~') . '(:\d{1,5})\z~i', $host, $match) === 1) {
+			$serverName .= $match[1];
 		}
 
-		foreach ([$_SERVER['SERVER_NAME'] ?? '', $_SERVER['HTTP_HOST'] ?? ''] as $authority) {
-			$authority = (string) $authority;
-			if ($authority === '') {
+		foreach ([$serverName, $host] as $authority) {
+			// a host with an optional port, nothing that could smuggle in a path
+			if ($authority === '' || preg_match('~[^A-Za-z0-9.:\[\]-]~', $authority) === 1) {
 				continue;
 			}
-			$url = self::normalizeCallbackUrl('https://' . $authority . $scriptName);
+			$url = self::normalizeCallbackUrl('https://' . $authority . $directory);
 			if ($url !== null) {
 				return $url;
 			}
@@ -261,10 +265,8 @@ class WebAppKeyCloak extends KeyCloak {
 		if ($port !== 443) {
 			$authority .= ':' . $port;
 		}
-		$path = $parts['path'] ?? '/';
-		if ($path === '') {
-			$path = '/';
-		}
+		// Keycloak matches the string exactly, so keep the path as given
+		$path = $parts['path'] ?? '';
 		$query = isset($parts['query']) ? '?' . $parts['query'] : '';
 
 		return 'https://' . $authority . $path . $query;
