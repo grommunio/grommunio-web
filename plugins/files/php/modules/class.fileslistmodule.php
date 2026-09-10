@@ -118,14 +118,11 @@ class FilesListModule extends ListModule {
 		$filesVersion = $versions['files'];
 
 		$filesVersionFromCache = $this->getVersionFromCache('files');
-		if (!is_string($filesVersionFromCache)) {
-			$filesVersionFromCache = '0';
-		}
 		// Clear cache when version gets changed and update 'files' version in cache.
-		if ($isReload || version_compare($filesVersionFromCache, $filesVersion) !== 0) {
+		if ($isReload || (is_string($filesVersionFromCache) && version_compare($filesVersionFromCache, $filesVersion) !== 0)) {
 			$this->clearCache();
-			$this->setVersionInCache('files', $filesVersion);
 		}
+		$this->setVersionInCache('files', $filesVersion);
 
 		$accounts = $this->accountStore->getAllAccounts();
 		foreach ($accounts as $account) {
@@ -239,8 +236,9 @@ class FilesListModule extends ListModule {
 		$backendDisplayName = $backend->backendDisplayName;
 		$backendVersion = $backend->backendVersion;
 		$cacheVersion = $this->getVersionFromCache($backendDisplayName, $accountID);
+		// no marker yet is not a version change
 		if (!is_string($cacheVersion)) {
-			$cacheVersion = '0';
+			$cacheVersion = $backendVersion;
 		}
 		$dir = $this->getCache($accountID, $cachePath);
 
@@ -668,7 +666,8 @@ class FilesListModule extends ListModule {
 		}
 
 		$key = $this->uid . $accountID . $displayName;
-		$this->cache->save($this->cache->getItem($key)->set($version));
+		// markers must outlive the listings they guard
+		$this->cache->save($this->cache->getItem($key)->set($version)->expiresAfter(365 * 86400));
 	}
 
 	/**
