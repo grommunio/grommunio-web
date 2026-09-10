@@ -276,17 +276,14 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			fixed: true,
 			tooltip: _('Sort by: flag')
 		},{
-			// A sort handle, not a data column. Compact view already renders
-			// every mail's categories as chips in the row body, so rendering
-			// them here as well would show each one twice - this column exists
-			// only to give the compact layout a header to sort the list by
-			// category, which is why it is one of the narrow icon columns and
-			// draws nothing in its cells. Hidden until switched on from the
-			// header menu, the way the Size column is.
-			// It must stay LAST: the grid persists per-column width and hidden
-			// state keyed by the column's ordinal position, so inserting a
-			// column further up would shift the saved state of every column
-			// after it.
+			// A sort handle, not a data column: compact view already shows the
+			// categories as chips in the row body, so the cells stay empty and
+			// the column is hidden until switched on from the header menu.
+			// Saved column state is keyed by column id, which defaults to the
+			// ordinal position. The column is appended so the other columns keep
+			// their ids, and its own fixed id keeps a layout saved before it
+			// existed from applying a plugin column's entry to it.
+			id: 'categories',
 			header: '<p class="icon_categories">&nbsp;<span class="title">' + _('Categories') + '</span></p>',
 			headerCls: 'zarafa-icon-column categories',
 			dataIndex: 'categories',
