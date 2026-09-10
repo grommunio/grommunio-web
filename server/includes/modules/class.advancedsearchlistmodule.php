@@ -664,8 +664,8 @@ class AdvancedSearchListModule extends ListModule {
 			}
 		}
 
-		// Sort
-		$this->parseSortOrder($action);
+		// Sort; multi-instance is folded back into one row per item by getTable()
+		$this->parseSortOrder($action, null, true);
 		// Initialize search patterns with default values
 		if (is_array($ftsDescriptor['message_classes']) &&
 			count($ftsDescriptor['message_classes']) >= 7) {
