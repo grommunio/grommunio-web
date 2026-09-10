@@ -322,6 +322,14 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
+	 * @return {String[]} returns the Outlook-compatible category color palette.
+	 */
+	getCategoryColorPalette: function()
+	{
+		return this.meta.category_color_palette;
+	},
+
+	/**
 	 * @return {Array} returns the additional categories defined in config.php/default.php.
 	 */
 	getAdditionalDefaultCategories: function()

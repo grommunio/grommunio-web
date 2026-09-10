@@ -80,11 +80,21 @@ Zarafa.settings.ui.SettingsVersionWidget = Ext.extend(Zarafa.settings.ui.Setting
 					}]
 				}
 			},{
-				xtype: 'button',
-				cls: 'k-settings-about-reset-btn',
-				text: _('Reset all settings to defaults'),
-				handler: this.onResetSettings,
-				scope: this
+				xtype: 'container',
+				cls: 'k-settings-about-actions',
+				layout: 'hbox',
+				items: [{
+					xtype: 'button',
+					text: _('Reset all settings to defaults'),
+					handler: this.onResetSettings,
+					scope: this
+				},{
+					xtype: 'button',
+					cls: 'k-settings-about-migrate-btn',
+					text: _('Migrate legacy categories'),
+					handler: this.onMigrateLegacyCategories,
+					scope: this
+				}]
 			},
 				container.populateInsertionPoint('settings.versioninformation')
 			]
@@ -142,6 +152,76 @@ Zarafa.settings.ui.SettingsVersionWidget = Ext.extend(Zarafa.settings.ui.Setting
 			}],
 			scope: this
 		});
+	},
+
+	/**
+	 * Confirm migration of categories assigned to items into the mailbox master
+	 * category list.
+	 * @private
+	 */
+	onMigrateLegacyCategories: function()
+	{
+		var message = _('This will scan all folders and migrate the categories assigned to items.');
+		message += '<br/><br/>';
+		message += _('The legacy category settings will remain unchanged.');
+
+		Zarafa.common.dialogs.MessageBox.addCustomButtons({
+			title: _('Migrate legacy categories'),
+			msg: message,
+			cls: Ext.MessageBox.WARNING_CLS,
+			fn: this.confirmLegacyCategoryMigration,
+			customButton: [{
+				text: _('Migrate'),
+				name: 'migrate'
+			}, {
+				text: _('Cancel'),
+				name: 'cancel'
+			}],
+			scope: this
+		});
+	},
+
+	/**
+	 * Start the confirmed legacy category migration.
+	 * @param {String} button The button which user pressed.
+	 * @private
+	 */
+	confirmLegacyCategoryMigration: function(button)
+	{
+		if (button !== 'migrate') {
+			return;
+		}
+
+		var responseHandler = new Zarafa.core.data.AbstractResponseHandler({
+			doMigrate: this.onCategoryMigrationSuccess.createDelegate(this),
+			doError: this.onCategoryMigrationFailure.createDelegate(this),
+			responseFailure: this.onCategoryMigrationFailure.createDelegate(this)
+		});
+		container.getRequest().singleRequest('categorylistmodule', 'migrate', {}, responseHandler);
+	},
+
+	/**
+	 * Update the category cache and report a successful migration.
+	 * @param {Object} response The migrated category list
+	 * @private
+	 */
+	onCategoryMigrationSuccess: function(response)
+	{
+		Zarafa.common.categories.CategoryListManager.onListResponse(response);
+		container.getNotifier().notify('info.categorymigration', _('Categories'),
+			_('Legacy categories migrated successfully.'));
+	},
+
+	/**
+	 * Report a failed migration and leave the legacy data available for retry.
+	 * @param {Object} response The server or transport response
+	 * @private
+	 */
+	onCategoryMigrationFailure: function(response)
+	{
+		var message = response && response.info ? response.info.display_message : undefined;
+		container.getNotifier().notify('error', _('Categories'),
+			message || _('Could not migrate legacy categories.'));
 	},
 
 	/**

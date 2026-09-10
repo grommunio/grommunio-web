@@ -2044,7 +2044,7 @@ li.x-menu-item-active {
 
 /* Color picker */
 .x-color-palette.k-colorpicker-menu {
-  width: 108px; }
+  width: 115px; }
 
 .x-menu-check-item.showGroups .k-hide-img {
   display: none !important; }
@@ -5922,8 +5922,10 @@ body.zarafa-webclient > .ext-el-mask {
     .k-settings-about-info b {
       color: var(--ui-text);
       margin-right: 5px; }
-    .k-settings-about-reset-btn {
+    .k-settings-about-actions {
       margin: 0 16px 12px; }
+    .k-settings-about-migrate-btn {
+      margin-left: 12px; }
 
     /* Password settings: align displayfield label with input field labels */
     #zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-form-display-field {
@@ -6328,7 +6330,7 @@ body.zarafa-webclient > .ext-el-mask {
   padding-bottom: 4px; }
 
 .x-color-palette.k-colorpicker-menu {
-  width: 92px; }
+  width: 115px; }
 
 .x-color-palette a {
   padding: 3px;
