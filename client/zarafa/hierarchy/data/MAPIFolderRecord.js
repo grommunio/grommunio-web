@@ -507,7 +507,7 @@ Zarafa.hierarchy.data.MAPIFolderRecord = Ext.extend(Zarafa.core.data.IPFRecord, 
 
 			if (isSpecial && this.get('content_count') > 0) {
 				return Zarafa.hierarchy.data.CounterTypes.TOTAL;
-			} else if (!isSpecial && this.get('content_unread') > 0 && !this.isSearchFolder()) {
+			} else if (!isSpecial && this.hasUnreadItems() && !this.isSearchFolder()) {
 				return Zarafa.hierarchy.data.CounterTypes.UNREAD;
 			}
 		} else if ((extendedFlags & Zarafa.core.mapi.FolderExtendedFlags.USE_UNREAD_COUNT) === Zarafa.core.mapi.FolderExtendedFlags.USE_UNREAD_COUNT &&
@@ -521,6 +521,17 @@ Zarafa.hierarchy.data.MAPIFolderRecord = Ext.extend(Zarafa.core.data.IPFRecord, 
 		}
 
 		return Zarafa.hierarchy.data.CounterTypes.NONE;
+	},
+
+	/**
+	 * Whether the folder holds unread items in a sense worth showing. Only mail
+	 * keeps a read state; an appointment, contact or task merely counts as unread
+	 * because someone else created it.
+	 * @return {Boolean} True for a mail folder with unread items
+	 */
+	hasUnreadItems: function()
+	{
+		return this.get('content_unread') > 0 && this.isContainerClass('IPF.Note', true);
 	},
 
 	/**
