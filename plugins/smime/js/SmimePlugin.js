@@ -14,9 +14,8 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 	{
 		Zarafa.plugins.smime.SmimePlugin.superclass.initPlugin.apply(this, arguments);
 
-		// S/MIME button in mailcreatecontentpanel
-		this.registerInsertionPoint('context.mail.mailcreatecontentpanel.toolbar.options', this.showSignButton, this);
-		this.registerInsertionPoint('context.mail.mailcreatecontentpanel.toolbar.options', this.showEncryptButton, this);
+		// One compose toolbar is shared by all available security protocols.
+		Zarafa.common.ui.SecurityButtons.register(this.securityProvider());
 
 		// S/MIME Settings widget insertion point
 		this.registerInsertionPoint('context.settings.categories', this.createSettingsCategories, this);
@@ -30,6 +29,48 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 
 		Zarafa.core.data.SharedComponentType.addProperty('plugin.smime.dialog.passphrasewindow');
 		Zarafa.core.data.SharedComponentType.addProperty('plugin.smime.dialog.changepassphrasecontentpanel');
+	},
+
+	securityProvider: function()
+	{
+		var plugin = this;
+		return {id: 'smime', label: 'S/MIME', priority: 10,
+			isSelected: function(record, action) { return plugin.isProtectionSelected(record, action); },
+			attach: function(dialog) { plugin.attachCompose(dialog); },
+			setAction: function(dialog, action, enabled) {
+				if (plugin.isProtectionSelected(dialog.record, action) === enabled) { return; }
+				// Keep the existing certificate/passphrase flow without changing the
+				// icon of the shared button; its record updater supplies that state.
+				var button = {securityDialog: dialog, ownerCt: {record: dialog.record, dialog: dialog}, setIconClass: Ext.emptyFn};
+				if (action === 'sign') { plugin.onSignButton(button); }
+				else { plugin.onEncryptButton(button); }
+			},
+			getOptions: function(action, dialog) {
+				var property = action === 'sign' ? 'digest' : 'cipher';
+				var fallback = action === 'sign' ? 'sha256' : 'aes-256-gcm';
+				var selected = dialog.record.get('smime_' + property) || container.getSettingsModel().get('zarafa/v1/plugins/smime/default_' + property, fallback);
+				var choices = action === 'sign' ? [['sha256', 'SHA-256'], ['sha384', 'SHA-384'], ['sha512', 'SHA-512']] :
+					[['aes-256-gcm', 'AES-256-GCM'], ['aes-128-gcm', 'AES-128-GCM'], ['aes-256-cbc', 'AES-256-CBC (' + _('Legacy') + ')']];
+				var group = 'security-smime-' + Ext.id();
+				return choices.map(function(choice) {
+					return {xtype: 'menucheckitem', text: choice[1], checked: selected === choice[0], group: group,
+						checkHandler: function(item, checked) { if (checked) { dialog.record.set('smime_' + property, choice[0]); } }};
+				});
+			}
+		};
+	},
+	isProtectionSelected: function(record, action)
+	{
+		var messageClass = record.get('message_class');
+		return messageClass === 'IPM.Note.deferSMIME.SignedEncrypt' ||
+			messageClass === (action === 'sign' ? 'IPM.Note.deferSMIME.MultipartSigned' : 'IPM.Note.deferSMIME');
+	},
+	attachCompose: function(dialog)
+	{
+		if (!dialog.smimeSendHook) {
+			dialog.smimeSendHook = true;
+			dialog.on('beforesendrecord', this.onBeforeSendRecord, this);
+		}
 	},
 
 	/**
@@ -78,6 +119,12 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 		var groupId = 'smime-digest-' + Ext.id();
 		return {
 			xtype : 'splitbutton',
+			smimePlugin : this,
+			plugins : ['zarafa.recordcomponentupdaterplugin'],
+			update : function(record) {
+				this.record = record;
+				this.smimePlugin.onAfterRenderSmimeButton(this);
+			},
 			text : _('Sign'),
 			tooltip: {
 				cls: 'smime-tooltip',
@@ -86,6 +133,9 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 			},
 			iconCls : 'icon_smime_sign',
 			listeners : {
+				added : function(button) {
+					button.update = function(record) { this.record = record; this.smimePlugin.onAfterRenderSmimeButton(this); };
+				},
 				afterrender : this.onAfterRenderSmimeButton,
 				beforeshow : this.onAfterRenderSmimeButton,
 				scope : this
@@ -134,6 +184,12 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 		var groupId = 'smime-cipher-' + Ext.id();
 		return {
 			xtype : 'splitbutton',
+			smimePlugin : this,
+			plugins : ['zarafa.recordcomponentupdaterplugin'],
+			update : function(record) {
+				this.record = record;
+				this.smimePlugin.onAfterRenderSmimeButton(this);
+			},
 			text : _('Encrypt'),
 			tooltip: {
 				cls: 'smime-tooltip',
@@ -142,6 +198,9 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 			},
 			iconCls : 'icon_smime_encrypt',
 			listeners : {
+				added : function(button) {
+					button.update = function(record) { this.record = record; this.smimePlugin.onAfterRenderSmimeButton(this); };
+				},
 				afterrender : this.onAfterRenderSmimeButton,
 				beforeshow : this.onAfterRenderSmimeButton,
 				scope : this
@@ -188,7 +247,16 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 	onAfterRenderSmimeButton : function(button)
 	{
 		var dialog = this.getRespectiveDialog(button);
-		var record = dialog.record;
+		var record = button.record || (dialog && dialog.record);
+		if (!record) {
+			return;
+		}
+		button.setDisabled(!!(record.get('pgp_sign') || record.get('pgp_encrypt')));
+		if (button.iconCls === 'icon_smime_sign_selected') {
+			button.setIconClass('icon_smime_sign');
+		} else if (button.iconCls === 'icon_smime_encrypt_selected') {
+			button.setIconClass('icon_smime_encrypt');
+		}
 		switch(record.get('message_class')) {
 		case 'IPM.Note.deferSMIME':
 			if (button.iconCls === 'icon_smime_encrypt') {
@@ -270,7 +338,7 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 		smimeInfoBox.removeClass('smime-info-partial');
 		smimeInfoBox.removeClass('smime-info-info');
 
-		if (!record) {
+		if (!record || record.get('pgp') || record.get('pgp_message_class') || record.get('pgp_signed') || record.get('pgp_encrypted')) {
 			return;
 		}
 
@@ -331,6 +399,10 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 	 *
 	 */
 	onBeforeSendRecord : function(dialog, record) {
+		if (!/^IPM\.Note\.deferSMIME(?:\.|$)/i.test(record.get('message_class') || '')) { return true; }
+		if (record.get('pgp_sign') || record.get('pgp_encrypt')) {
+			return false;
+		}
 		// Always append the currently logged in user.
 		var user = container.getUser();
 		var myself = {
@@ -379,6 +451,9 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 		var record = dialog.record;
 		if (!record)
 			return;
+		if (record.get('pgp_sign') || record.get('pgp_encrypt')) {
+			return;
+		}
 
 		switch (record.get('message_class')) {
 		// Unselecting encrypt functionality
@@ -396,8 +471,6 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 			// Reset send action, otherwise the saveRecord will trigger a send when the user deselects encryption
 			record.actions = {};
 
-			// Remove event
-			dialog.un('beforesendrecord', this.onBeforeSendRecord ,this);
 			dialog.saveRecord();
 			break;
 
@@ -435,11 +508,14 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 	* @param {Object} response Json object containing the response from PHP
 	*/
 	onEncryptCertificateCallback : function(dialog, button, messageClass, response) {
+		if (dialog.isDestroyed || !dialog.record || dialog.record.get('pgp_sign') || dialog.record.get('pgp_encrypt')) {
+			return;
+		}
 		if (response.status) {
 			var record = dialog.record;
 			record.set('message_class', messageClass);
 			button.setIconClass('icon_smime_encrypt_selected');
-			dialog.on('beforesendrecord', this.onBeforeSendRecord ,this);
+			this.attachCompose(dialog);
 			dialog.saveRecord();
 		} else {
 			container.getNotifier().notify('info.saved', _('S/MIME Message'), response.message);
@@ -459,6 +535,9 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 		var record = dialog.record;
 		if (!record) {
 			dialog.saveRecord();
+			return;
+		}
+		if (record.get('pgp_sign') || record.get('pgp_encrypt')) {
 			return;
 		}
 		var plugin = this;
@@ -507,6 +586,8 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 	onCertificateCallback : function(response) {
 		// TODO: improve functionality with less callbacks
 		var btn = this;
+		var dialog = btn.securityDialog;
+		if (dialog && (dialog.isDestroyed || dialog.record.get('pgp_sign') || dialog.record.get('pgp_encrypt'))) { return; }
 		if(response.status) {
 			Zarafa.core.data.UIFactory.openLayerComponent(Zarafa.core.data.SharedComponentType['plugin.smime.dialog.passphrasewindow'], btn, {manager: Ext.WindowMgr});
 		} else {
@@ -568,6 +649,9 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 			width : 24,
 			sortable : false,
 			renderer :  function(value, p, record) {
+				if (record.get('pgp') || record.get('pgp_message_class') || record.get('pgp_signed') || record.get('pgp_encrypted')) {
+					return '';
+				}
 				var messageClass = record.get('message_class');
 				if (messageClass === 'IPM.Note.SMIME' ||
 				    messageClass === 'IPM.Note.deferSMIME' ||
@@ -594,6 +678,9 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 	 *
 	 */
 	showMessageClass : function(insertionPoint, record) {
+		if (record.get('pgp') || record.get('pgp_message_class') || record.get('pgp_signed') || record.get('pgp_encrypted')) {
+			return '<td style="width: 24px"></td>';
+		}
 		var messageClass = record.get('message_class');
 		var icon = "";
 		if (messageClass === 'IPM.Note.SMIME' ||
@@ -660,6 +747,7 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 	 * @return {Zarafa.mailcreatecontentpanel} dialog which contains the button passed as parameter
 	 */
 	getRespectiveDialog : function(button) {
+		if (button.securityDialog) { return button.securityDialog; }
 		var parentToolbar = false;
 
 		if (button.ownerCt instanceof Zarafa.core.ui.Toolbar) {

@@ -272,7 +272,10 @@
             if(this.useDisplay === true) {
                 this.setDisplayed(false);
             } else {
-                this.setLeftTop(-10000,-10000);
+                // Park it with the Element method: this.setLeftTop would record
+                // -10000 as the position to restore, and showAction would then put
+                // the layer back off screen instead of where it was.
+                supr.setLeftTop.call(this, -10000, -10000);
             }
         },
 

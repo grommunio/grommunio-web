@@ -553,6 +553,19 @@ function parse_smime__join_xph(&$prop, $msg) {
  * @param resource $message S/MIME message
  */
 function parse_smime($store, $message) {
+	// OpenPGP and S/MIME share the request-local secure-message lifecycle.
+	// Give a protocol plugin the original MIME before the S/MIME parser unwraps
+	// it; OpenPGP also uses MultipartSigned in standards-compliant MAPI stores.
+	$handled = false;
+	$GLOBALS['PluginManager']->triggerHook('server.util.parse_secure.before', [
+		'store' => $store,
+		'message' => &$message,
+		'handled' => &$handled,
+	]);
+	if ($handled) {
+		return;
+	}
+
 	$props = mapi_getprops($message, [PR_MESSAGE_CLASS, PR_MESSAGE_FLAGS,
 		PR_SENT_REPRESENTING_NAME, PR_SENT_REPRESENTING_ENTRYID, PR_SENT_REPRESENTING_SEARCH_KEY,
 		PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENT_REPRESENTING_SMTP_ADDRESS,

@@ -1,0 +1,61 @@
+/* Shared signing/encryption icons use native vector shapes, independent of plugins. */
+.icon_security_sign, .icon_security_sign_selected {
+	--security-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M11%2021H5.75A1.75%201.75%200%200%201%204%2019.25V4.75C4%203.78%204.78%203%205.75%203h8.5L20%208.75V11M14%203v4.25c0%20.97.78%201.75%201.75%201.75H20M7.5%208h3M7.5%2012h3M7.5%2016H9%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2215.5%22%20r%3D%223.5%22%2F%3E%3Cpath%20d%3D%22m13.5%2018-1%204%203.5-1.5%203.5%201.5-1-4m-4-2.5%201%201%202-2%22%2F%3E%3C%2Fsvg%3E");
+	background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%233c4147%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M11%2021H5.75A1.75%201.75%200%200%201%204%2019.25V4.75C4%203.78%204.78%203%205.75%203h8.5L20%208.75V11M14%203v4.25c0%20.97.78%201.75%201.75%201.75H20M7.5%208h3M7.5%2012h3M7.5%2016H9%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2215.5%22%20r%3D%223.5%22%2F%3E%3Cpath%20d%3D%22m13.5%2018-1%204%203.5-1.5%203.5%201.5-1-4m-4-2.5%201%201%202-2%22%2F%3E%3C%2Fsvg%3E");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 20px 20px;
+}
+body.dark-mode .icon_security_sign, body.dark-mode .icon_security_sign_selected {
+	background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23d4d4d4%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M11%2021H5.75A1.75%201.75%200%200%201%204%2019.25V4.75C4%203.78%204.78%203%205.75%203h8.5L20%208.75V11M14%203v4.25c0%20.97.78%201.75%201.75%201.75H20M7.5%208h3M7.5%2012h3M7.5%2016H9%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2215.5%22%20r%3D%223.5%22%2F%3E%3Cpath%20d%3D%22m13.5%2018-1%204%203.5-1.5%203.5%201.5-1-4m-4-2.5%201%201%202-2%22%2F%3E%3C%2Fsvg%3E");
+}
+.icon_security_encrypt, .icon_security_encrypt_selected {
+	--security-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%224.5%22%20y%3D%2210%22%20width%3D%2215%22%20height%3D%2211%22%20rx%3D%222%22%2F%3E%3Cpath%20d%3D%22M8%2010V7a4%204%200%200%201%208%200v3m-4%206v2%22%2F%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2215%22%20r%3D%221%22%20fill%3D%22%23000%22%20stroke%3D%22none%22%2F%3E%3C%2Fsvg%3E");
+	background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%233c4147%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%224.5%22%20y%3D%2210%22%20width%3D%2215%22%20height%3D%2211%22%20rx%3D%222%22%2F%3E%3Cpath%20d%3D%22M8%2010V7a4%204%200%200%201%208%200v3m-4%206v2%22%2F%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2215%22%20r%3D%221%22%20fill%3D%22%233c4147%22%20stroke%3D%22none%22%2F%3E%3C%2Fsvg%3E");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 20px 20px;
+}
+body.dark-mode .icon_security_encrypt, body.dark-mode .icon_security_encrypt_selected {
+	background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23d4d4d4%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%224.5%22%20y%3D%2210%22%20width%3D%2215%22%20height%3D%2211%22%20rx%3D%222%22%2F%3E%3Cpath%20d%3D%22M8%2010V7a4%204%200%200%201%208%200v3m-4%206v2%22%2F%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2215%22%20r%3D%221%22%20fill%3D%22%23d4d4d4%22%20stroke%3D%22none%22%2F%3E%3C%2Fsvg%3E");
+}
+.x-btn-text.icon_security_sign, .x-btn-text.icon_security_sign_selected,
+.x-btn-text.icon_security_encrypt, .x-btn-text.icon_security_encrypt_selected {
+	position: relative;
+	background-image: none !important;
+	padding-left: 27px !important;
+}
+.x-btn-text.icon_security_sign::before, .x-btn-text.icon_security_sign_selected::before,
+.x-btn-text.icon_security_encrypt::before, .x-btn-text.icon_security_encrypt_selected::before {
+	content: "";
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	left: 3px;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: currentColor;
+	-webkit-mask: var(--security-icon) center / contain no-repeat;
+	mask: var(--security-icon) center / contain no-repeat;
+}
+.x-btn-text.icon_security_sign_selected::before, .x-btn-text.icon_security_encrypt_selected::before {
+	background-color: #16803b;
+}
+body.dark-mode .x-btn-text.icon_security_sign_selected::before,
+body.dark-mode .x-btn-text.icon_security_encrypt_selected::before {
+	background-color: #7bd99b;
+}
+
+/* These masks already follow the theme. Do not use the legacy dark text
+ * compensation intended for bitmap buttons whose entire contents are inverted. */
+body.zarafa-webclient.dark-mode .x-btn.x-btn-text-icon:not(.zarafa-action) :is(.x-btn-small, .x-btn-medium, .x-btn-large) button.x-btn-text:is(.icon_security_sign, .icon_security_sign_selected, .icon_security_encrypt, .icon_security_encrypt_selected) {
+	color: var(--dm-fg, #d4d4d4) !important;
+	filter: none !important;
+}
+
+/* Reserve a separate gutter for submenu arrows, including long translations.
+ * The iconset's background-size: contain would otherwise stretch the arrow. */
+.x-menu.message-security-menu .x-menu-list li.x-menu-list-item a.x-menu-item-arrow {
+	padding-right: 32px;
+	background-size: 5px 9px;
+}

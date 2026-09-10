@@ -1904,7 +1904,7 @@ class Operations {
 	 * @param resource    $store       MAPI message store
 	 * @param string      $entryid     entryid of the message
 	 * @param array|false $attach_num  a list of attachment numbers, or false
-	 * @param bool        $parse_smime whether to parse an S/MIME message
+	 * @param bool        $parse_smime whether to parse a protected S/MIME or OpenPGP message
 	 *
 	 * @return false|resource MAPI message, or false when it cannot be opened
 	 */
@@ -1914,10 +1914,11 @@ class Operations {
 			return false;
 		}
 
-		// Needed for S/MIME messages with embedded message attachments
+		// Protected MIME must be decoded before looking up embedded attachments.
 		if ($parse_smime) {
 			$p = mapi_getprops($message, [PR_MESSAGE_CLASS]);
-			if (isset($p[PR_MESSAGE_CLASS]) && stripos((string) $p[PR_MESSAGE_CLASS], "SMIME") !== false) {
+			if ((defined('PLUGIN_PGP_ENABLE') && PLUGIN_PGP_ENABLE) ||
+				(isset($p[PR_MESSAGE_CLASS]) && stripos((string) $p[PR_MESSAGE_CLASS], "SMIME") !== false)) {
 				parse_smime($store, $message);
 			}
 		}
@@ -2718,6 +2719,213 @@ class Operations {
 	}
 
 	/**
+	 * Check raw compose protection intent before mapping optional plugin fields.
+	 * An unloaded plugin must never silently turn a protected send into plaintext.
+	 */
+	public static function assertOpenPgpAvailable(array $props): void {
+		if (empty($props['pgp_sign']) && empty($props['pgp_encrypt'])) {
+			return;
+		}
+		$plugin = $GLOBALS['PluginManager']->plugins['pgp'] ?? null;
+		if (!defined('PLUGIN_PGP_ENABLE') || !PLUGIN_PGP_ENABLE || !($plugin instanceof Pluginpgp)) {
+			$error = new MAPIException('OpenPGP protection is unavailable', MAPI_E_NO_SUPPORT);
+			$error->setTitle(_('OpenPGP: message was not sent'));
+			$error->setDisplayMessage(_('OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption.'));
+			throw $error;
+		}
+	}
+
+	/** Check saved draft intent even when the optional plugin is no longer loaded. */
+	public static function assertOpenPgpApplied($store, $message): void {
+		// These identifiers are also used by Pluginpgp::propertyNames(). Core
+		// must resolve them independently so removed plugins cannot hide intent.
+		$map = getPropIdsFromStrings($store, [
+			'pgp_sign' => 'PT_BOOLEAN:{9ae1e2cd-14c9-4d51-a235-3a19ccff9d34}:sign',
+			'pgp_encrypt' => 'PT_BOOLEAN:{9ae1e2cd-14c9-4d51-a235-3a19ccff9d34}:encrypt',
+		]);
+		$props = is_array($map) && isset($map['pgp_sign'], $map['pgp_encrypt']) ? mapi_getprops($message, array_values($map)) : false;
+		if (!is_array($props) || !empty($props[$map['pgp_sign']]) || !empty($props[$map['pgp_encrypt']])) {
+			$error = new MAPIException('OpenPGP protection was not applied', MAPI_E_NO_SUPPORT);
+			$error->setTitle(_('OpenPGP: message was not sent'));
+			$error->setDisplayMessage(_('This draft requests OpenPGP protection, but it was not applied. The message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption.'));
+			throw $error;
+		}
+	}
+
+	/**
+	 * Threading properties a response inherits from the message it answers.
+	 * Stored on the draft at the first save as well, so they survive autosaves
+	 * that clear the client's message actions before the send.
+	 *
+	 * @param resource $source message being replied to or forwarded
+	 * @param bool     $reply  true for reply/reply-all, which also sets In-Reply-To/References
+	 * @param array    $props  properties already set for the response
+	 */
+	public function threadingProperties($source, bool $reply, array $props): array {
+		$origMsgProps = mapi_getprops($source, [
+			PR_CONVERSATION_INDEX,
+			PR_CONVERSATION_TOPIC,
+			PR_NORMALIZED_SUBJECT,
+			PR_INTERNET_MESSAGE_ID,
+			PR_INTERNET_REFERENCES,
+		]);
+		if (!is_array($origMsgProps)) {
+			return $props;
+		}
+		if ($reply && isset($origMsgProps[PR_INTERNET_MESSAGE_ID])) {
+			// The references header should indicate the message-id of the original
+			// header plus any of the references which were set on the previous mail.
+			$props[PR_INTERNET_REFERENCES] = $origMsgProps[PR_INTERNET_MESSAGE_ID];
+			if (isset($origMsgProps[PR_INTERNET_REFERENCES])) {
+				$props[PR_INTERNET_REFERENCES] = $origMsgProps[PR_INTERNET_REFERENCES] . ' ' . $props[PR_INTERNET_REFERENCES];
+			}
+			$props[PR_IN_REPLY_TO_ID] = $origMsgProps[PR_INTERNET_MESSAGE_ID];
+		}
+		if (empty($props[PR_CONVERSATION_INDEX]) &&
+			isset($origMsgProps[PR_CONVERSATION_INDEX]) &&
+			strlen((string) $origMsgProps[PR_CONVERSATION_INDEX]) >= 22) {
+			// The child block only conveys response ordering; the conversation
+			// id is derived from the (unchanged) header block.
+			$props[PR_CONVERSATION_INDEX] = $origMsgProps[PR_CONVERSATION_INDEX] .
+				pack('NC', time() & 0x7FFFFFFF, random_int(0, 255));
+		}
+		if (empty($props[PR_CONVERSATION_TOPIC])) {
+			$topic = $origMsgProps[PR_CONVERSATION_TOPIC] ?? $origMsgProps[PR_NORMALIZED_SUBJECT] ?? null;
+			if ($topic !== null && $topic !== '') {
+				$props[PR_CONVERSATION_TOPIC] = $topic;
+			}
+		}
+
+		return $props;
+	}
+
+	/**
+	 * Named properties are numbered per store. Translate property tags that were
+	 * resolved against $fromStore so the same names address $toStore. Unmappable
+	 * tags are left as they are.
+	 */
+	private function remapNamedProperties($fromStore, $toStore, array $props): array {
+		$named = [];
+		foreach (array_keys($props) as $tag) {
+			if (mapi_prop_id($tag) >= 0x8000) {
+				$named[] = $tag;
+			}
+		}
+		if ($named === []) {
+			return $props;
+		}
+		try {
+			$names = mapi_getnamesfromids($fromStore, $named);
+			if (!is_array($names) || $names === []) {
+				return $props;
+			}
+			// php-mapi keys the result by signed 32-bit tag and may report PT_UNICODE
+			// requests as PT_STRING8, so only the property id identifies a source.
+			$sourceIds = array_map(static fn ($key) => (((int) $key) & 0xffffffff) >> 16, array_keys($names));
+			$ids = mapi_getidsfromnames(
+				$toStore,
+				array_map(static fn ($name) => $name['id'] ?? $name['name'], array_values($names)),
+				array_column(array_values($names), 'guid')
+			);
+			if (!is_array($ids) || count($ids) !== count($sourceIds)) {
+				return $props;
+			}
+		}
+		catch (MAPIException $e) {
+			error_log('submitMessage: cannot translate named properties between stores: ' . get_mapi_error_name($e->getCode()));
+			$e->setHandled();
+
+			return $props;
+		}
+		$translated = [];
+		foreach ($props as $tag => $value) {
+			$index = mapi_prop_id($tag) >= 0x8000 ? array_search(mapi_prop_id($tag), $sourceIds, true) : false;
+			$translated[$index === false ? $tag : mapi_prop_tag(mapi_prop_type($tag), mapi_prop_id($ids[$index]))] = $value;
+		}
+
+		return $translated;
+	}
+
+	/** Whether two store handles refer to different stores; unknown compares as the same. */
+	private function storesDiffer($first, $second): bool {
+		if ($first === $second || !$first || !$second) {
+			return false;
+		}
+		$a = mapi_getprops($first, [PR_ENTRYID]);
+		$b = mapi_getprops($second, [PR_ENTRYID]);
+		if (!isset($a[PR_ENTRYID], $b[PR_ENTRYID])) {
+			return false;
+		}
+
+		return !$GLOBALS['entryid']->compareEntryIds(bin2hex((string) $a[PR_ENTRYID]), bin2hex((string) $b[PR_ENTRYID]));
+	}
+
+	/**
+	 * Copy the outgoing message into the representee's Sent Items copy.
+	 *
+	 * @return bool|null true when copied, null when the copy failed and must be dropped
+	 */
+	private function copyRepresenteeMessage($message, $reprMessage): ?bool {
+		try {
+			if (mapi_copyto($message, [], [], $reprMessage, 0) === false) {
+				error_log('submitMessage: unable to copy the message to representee Sent Items');
+
+				return null;
+			}
+		}
+		catch (MAPIException $e) {
+			error_log('submitMessage: unable to copy the message to representee Sent Items: ' . get_mapi_error_name($e->getCode()));
+			$e->setHandled();
+
+			return null;
+		}
+
+		return true;
+	}
+
+	/**
+	 * Remove an outbox copy that was never submitted, plus an unsaved representee
+	 * copy, so a failed send leaves only the retained draft behind.
+	 *
+	 * @param resource       $store       the sender's store holding the outbox copy
+	 * @param resource       $message     the outbox copy
+	 * @param resource       $origStore   store of the representee copy
+	 * @param false|resource $reprMessage representee Sent Items copy, if any
+	 */
+	private function discardUnsentSubmission($store, $message, $origStore, $reprMessage): void {
+		try {
+			$cleanupProps = mapi_getprops($message, [PR_ENTRYID, PR_PARENT_ENTRYID, PR_MESSAGE_FLAGS]);
+			// A submit that failed after handing the mail to SMTP clears the unsent
+			// flag; that copy is the only record of a delivered message and stays.
+			if (isset($cleanupProps[PR_MESSAGE_FLAGS]) && !($cleanupProps[PR_MESSAGE_FLAGS] & MSGFLAG_UNSENT)) {
+				error_log('submitMessage: keeping the outbox copy of a message that was already handed over');
+			}
+			elseif (isset($cleanupProps[PR_ENTRYID], $cleanupProps[PR_PARENT_ENTRYID])) {
+				$cleanupFolder = mapi_msgstore_openentry($store, $cleanupProps[PR_PARENT_ENTRYID]);
+				mapi_folder_deletemessages($cleanupFolder, [$cleanupProps[PR_ENTRYID]], DELETE_HARD_DELETE);
+			}
+		}
+		catch (MAPIException $e) {
+			error_log('submitMessage: failed to clean up the unsent outbox copy: ' . get_mapi_error_name($e->getCode()) . ': ' . $e->getMessage());
+			$e->setHandled();
+		}
+		if ($reprMessage === false) {
+			return;
+		}
+		try {
+			$reprCleanupProps = mapi_getprops($reprMessage, [PR_ENTRYID, PR_PARENT_ENTRYID]);
+			if (isset($reprCleanupProps[PR_ENTRYID], $reprCleanupProps[PR_PARENT_ENTRYID])) {
+				$reprCleanupFolder = mapi_msgstore_openentry($origStore, $reprCleanupProps[PR_PARENT_ENTRYID]);
+				mapi_folder_deletemessages($reprCleanupFolder, [$reprCleanupProps[PR_ENTRYID]], DELETE_HARD_DELETE);
+			}
+		}
+		catch (MAPIException $e) {
+			error_log('submitMessage: failed to clean up the Sent Items copy of an unsent message: ' . get_mapi_error_name($e->getCode()) . ': ' . $e->getMessage());
+			$e->setHandled();
+		}
+	}
+
+	/**
 	 * Submit a message for sending.
 	 *
 	 * This function is an extension of the saveMessage() function, with the extra functionality
@@ -2745,6 +2953,8 @@ class Operations {
 		$message = false;
 		$origStore = $store;
 		$reprMessage = false;
+		$oldDraftFolder = false;
+		$oldDraftDeleteFlags = 0;
 		$delegateSentItemsStyle = $GLOBALS['settings']->get('zarafa/v1/contexts/mail/delegate_sent_items_style');
 		$saveBoth = strcasecmp((string) $delegateSentItemsStyle, 'both') == 0;
 		$saveRepresentee = strcasecmp((string) $delegateSentItemsStyle, 'representee') == 0;
@@ -2810,38 +3020,7 @@ class Operations {
 		// a new conversation id and the thread falls apart, both here and for
 		// counterparts that thread by the exported Thread-Index header.
 		if ($copyFromMessage !== false) {
-			$origMsgProps = mapi_getprops($copyFromMessage, [
-				PR_CONVERSATION_INDEX,
-				PR_CONVERSATION_TOPIC,
-				PR_NORMALIZED_SUBJECT,
-				PR_INTERNET_MESSAGE_ID,
-				PR_INTERNET_REFERENCES,
-			]);
-			// Check if replying then set PR_INTERNET_REFERENCES and PR_IN_REPLY_TO_ID properties in props.
-			// flag is probably used wrong here but the same flag indicates if this is reply or replyall
-			if ($copyInlineAttachmentsOnly && isset($origMsgProps[PR_INTERNET_MESSAGE_ID])) {
-				// The references header should indicate the message-id of the original
-				// header plus any of the references which were set on the previous mail.
-				$props[PR_INTERNET_REFERENCES] = $origMsgProps[PR_INTERNET_MESSAGE_ID];
-				if (isset($origMsgProps[PR_INTERNET_REFERENCES])) {
-					$props[PR_INTERNET_REFERENCES] = $origMsgProps[PR_INTERNET_REFERENCES] . ' ' . $props[PR_INTERNET_REFERENCES];
-				}
-				$props[PR_IN_REPLY_TO_ID] = $origMsgProps[PR_INTERNET_MESSAGE_ID];
-			}
-			if (empty($props[PR_CONVERSATION_INDEX]) &&
-				isset($origMsgProps[PR_CONVERSATION_INDEX]) &&
-				strlen((string) $origMsgProps[PR_CONVERSATION_INDEX]) >= 22) {
-				// The child block only conveys response ordering; the conversation
-				// id is derived from the (unchanged) header block.
-				$props[PR_CONVERSATION_INDEX] = $origMsgProps[PR_CONVERSATION_INDEX] .
-					pack('NC', time() & 0x7FFFFFFF, random_int(0, 255));
-			}
-			if (empty($props[PR_CONVERSATION_TOPIC])) {
-				$topic = $origMsgProps[PR_CONVERSATION_TOPIC] ?? $origMsgProps[PR_NORMALIZED_SUBJECT] ?? null;
-				if ($topic !== null && $topic !== '') {
-					$props[PR_CONVERSATION_TOPIC] = $topic;
-				}
-			}
+			$props = $this->threadingProperties($copyFromMessage, (bool) $copyInlineAttachmentsOnly, $props);
 		}
 
 		if (!$GLOBALS["entryid"]->compareEntryIds(bin2hex((string) $origStoreprops[PR_ENTRYID]), bin2hex((string) $storeprops[PR_ENTRYID]))) {
@@ -2913,6 +3092,8 @@ class Operations {
 			 */
 			$oldParentEntryId = false;
 			$copyIsDraft = false;
+			// A source message passed in came from the store the module acted on.
+			$copySourceStore = $origStore;
 			if ($entryid) {
 				$oldEntryId = $entryid;
 				$entryid = false;
@@ -2923,6 +3104,7 @@ class Operations {
 				if ($copyFromMessage === false) {
 					try {
 						$copyFromMessage = mapi_msgstore_openentry($origStore, $oldEntryId);
+						$copySourceStore = $origStore;
 						$copyRecipients = true;
 						$copyIsDraft = true;
 
@@ -2935,6 +3117,7 @@ class Operations {
 						// the message might be in the default store, try to open it there
 						try {
 							$copyFromMessage = mapi_msgstore_openentry($store, $oldEntryId);
+							$copySourceStore = $store;
 							$copyRecipients = true;
 							$copyIsDraft = true;
 
@@ -2966,20 +3149,36 @@ class Operations {
 				}
 			}
 
+			// Named properties are numbered per store: translate each input from the
+			// store it was resolved against into the sender's own store.
+			$propertyStore = isset($GLOBALS['properties']) && method_exists($GLOBALS['properties'], 'getStore') ? $GLOBALS['properties']->getStore() : false;
+			if ($propertyStore && $this->storesDiffer($propertyStore, $store)) {
+				$props = $this->remapNamedProperties($propertyStore, $store, $props);
+			}
+
 			if ($copyFromMessage) {
 				// Get properties of original message, to copy recipients and attachments in new message
 				$copyMessageProps = mapi_getprops($copyFromMessage);
 				if ($oldParentEntryId === false && $copyIsDraft) {
 					$oldParentEntryId = $copyMessageProps[PR_PARENT_ENTRYID] ?? false;
 				}
+				if ($this->storesDiffer($copySourceStore, $store)) {
+					$copyMessageProps = $this->remapNamedProperties($copySourceStore, $store, $copyMessageProps);
+				}
 
 				// unset id properties before merging the props, so we will be creating new item instead of sending same item
 				unset($copyMessageProps[PR_ENTRYID], $copyMessageProps[PR_PARENT_ENTRYID], $copyMessageProps[PR_STORE_ENTRYID], $copyMessageProps[PR_SEARCH_KEY]);
 
-				// grommunio generates PR_HTML on the fly, but it's necessary to unset it
-				// if the original message didn't have PR_HTML property.
+				// gromox synthesizes PR_HTML for plain-text drafts; drop that. A native
+				// HTML draft keeps its HTML (and only that body form) when the client
+				// sent no body at all, otherwise the copy would degrade to plain text.
 				if (!isset($props[PR_HTML]) && isset($copyMessageProps[PR_HTML])) {
-					unset($copyMessageProps[PR_HTML]);
+					if (!isset($props[PR_BODY]) && ($copyMessageProps[PR_NATIVE_BODY_INFO] ?? 0) == 3) {
+						unset($copyMessageProps[PR_BODY], $copyMessageProps[PR_RTF_COMPRESSED]);
+					}
+					else {
+						unset($copyMessageProps[PR_HTML]);
+					}
 				}
 				// New EMAIL_ADDRESSes were set (various cases above), kill off old SMTP_ADDRESS.
 				// Clear PR_SUBJECT_PREFIX and let gromox do the work
@@ -2995,10 +3194,8 @@ class Operations {
 				return false;
 			}
 
-			// FIXME: currently message is deleted from original store and new message is created
-			// in current user's store, but message should be moved
-
-			// delete message from it's original location
+			// Locate the original draft, but retain it until cryptographic hooks and
+			// submission succeed. A failed send must leave the draft recoverable.
 			if (!empty($oldEntryId) && !empty($oldParentEntryId)) {
 				try {
 					$folder = mapi_msgstore_openentry($origStore, $oldParentEntryId);
@@ -3013,12 +3210,8 @@ class Operations {
 					}
 				}
 				if ($folder) {
-					try {
-						mapi_folder_deletemessages($folder, [$oldEntryId], DELETE_HARD_DELETE);
-					}
-					catch (MAPIException $e) {
-						$e->setHandled();
-					}
+					$oldDraftFolder = $folder;
+					$oldDraftDeleteFlags = DELETE_HARD_DELETE;
 				}
 			}
 			if ($saveBoth || $saveRepresentee) {
@@ -3033,7 +3226,6 @@ class Operations {
 					if ($origStore && isset($origStoreprops[PR_IPM_SENTMAIL_ENTRYID])) {
 						$destfolder = mapi_msgstore_openentry($origStore, $origStoreprops[PR_IPM_SENTMAIL_ENTRYID]);
 						$reprMessage = mapi_folder_createmessage($destfolder);
-						mapi_copyto($message, [], [], $reprMessage, 0);
 					}
 				}
 				catch (MAPIException $e) {
@@ -3165,9 +3357,6 @@ class Operations {
 			if ($message === false) {
 				return false;
 			}
-			if ($oldDraftFolder && !empty($oldEntryId)) {
-				mapi_folder_deletemessages($oldDraftFolder, [$oldEntryId]);
-			}
 			// Sending as delegate from drafts folder
 			if ($sendingAsDelegate && ($saveBoth || $saveRepresentee)) {
 				try {
@@ -3182,7 +3371,6 @@ class Operations {
 						if (!$ownStore && isset($origStoreprops[PR_IPM_SENTMAIL_ENTRYID])) {
 							$destfolder = mapi_msgstore_openentry($origStore, $origStoreprops[PR_IPM_SENTMAIL_ENTRYID]);
 							$reprMessage = mapi_folder_createmessage($destfolder);
-							mapi_copyto($message, [], [], $reprMessage, 0);
 						}
 					}
 				}
@@ -3194,13 +3382,38 @@ class Operations {
 			}
 		}
 
+		// The S/MIME hook encrypts to the recipients and the delegate only, so the
+		// representee copy of S/MIME mail is taken beforehand, as it always was.
+		// Other protocols copy after the hook so that no plaintext reaches the
+		// representee's Sent Items when the sent mail is encrypted.
+		$reprCopied = false;
+		if ($reprMessage !== false) {
+			$classProps = mapi_getprops($message, [PR_MESSAGE_CLASS]);
+			if (class_match_prefix((string) ($classProps[PR_MESSAGE_CLASS] ?? ''), 'IPM.Note.deferSMIME')) {
+				$reprCopied = $this->copyRepresenteeMessage($message, $reprMessage) === true;
+				if (!$reprCopied) {
+					$reprMessage = false;
+				}
+			}
+		}
+
 		// Allowing to hook in just before the data sent away to be sent to the client
-		$GLOBALS['PluginManager']->triggerHook('server.core.operations.submitmessage', [
-			'moduleObject' => $this,
-			'store' => $store,
-			'entryid' => $entryid,
-			'message' => &$message,
-		]);
+		try {
+			$GLOBALS['PluginManager']->triggerHook('server.core.operations.submitmessage', [
+				'moduleObject' => $this,
+				'store' => $store,
+				'entryid' => $entryid,
+				'message' => &$message,
+			]);
+			self::assertOpenPgpApplied($store, $message);
+		}
+		catch (Throwable $hookError) {
+			// Nothing was submitted: remove the outbox copy so retries do not
+			// accumulate plaintext there. The draft is retained.
+			$this->discardUnsentSubmission($store, $message, $origStore, $reprMessage);
+
+			throw $hookError;
+		}
 
 		// Verify that a requested SendAs / on-behalf identity actually made it onto the
 		// message before submitting. The representing-sender assignment above is conditional
@@ -3268,48 +3481,31 @@ class Operations {
 					$userOwnAddress !== '' ? $userOwnAddress : '(none)'
 				));
 
-				// The (not yet submitted) message already sits in the outbox and the original
-				// draft has been deleted. Remove the orphaned outbox copy so the abort does not
-				// leave a stray, un-submitted message behind; the client keeps the compose dialog
-				// open because the send is reported as failed.
-				try {
-					$cleanupProps = mapi_getprops($message, [PR_ENTRYID, PR_PARENT_ENTRYID]);
-					if (isset($cleanupProps[PR_ENTRYID], $cleanupProps[PR_PARENT_ENTRYID])) {
-						$cleanupFolder = mapi_msgstore_openentry($store, $cleanupProps[PR_PARENT_ENTRYID]);
-						mapi_folder_deletemessages($cleanupFolder, [$cleanupProps[PR_ENTRYID]], DELETE_HARD_DELETE);
-					}
-				}
-				catch (MAPIException $e) {
-					error_log('submitMessage: failed to clean up message after SendAs mismatch: ' . get_mapi_error_name($e->getCode()) . ': ' . $e->getMessage());
-					$e->setHandled();
-				}
-
-				// A copy may already have been placed in the representee's/delegate's Sent Items
-				// folder (delegate_sent_items_style). Remove it too, otherwise the abort leaves a
-				// "sent" copy behind for a message that was never actually sent.
-				if ($reprMessage !== false) {
-					try {
-						$reprCleanupProps = mapi_getprops($reprMessage, [PR_ENTRYID, PR_PARENT_ENTRYID]);
-						if (isset($reprCleanupProps[PR_ENTRYID], $reprCleanupProps[PR_PARENT_ENTRYID])) {
-							$reprCleanupFolder = mapi_msgstore_openentry($origStore, $reprCleanupProps[PR_PARENT_ENTRYID]);
-							mapi_folder_deletemessages($reprCleanupFolder, [$reprCleanupProps[PR_ENTRYID]], DELETE_HARD_DELETE);
-						}
-					}
-					catch (MAPIException $e) {
-						error_log('submitMessage: failed to clean up Sent Items copy after SendAs mismatch: ' . get_mapi_error_name($e->getCode()) . ': ' . $e->getMessage());
-						$e->setHandled();
-					}
-				}
+				// The (not yet submitted) message already sits in the outbox. The original
+				// draft is retained; remove the outbox copy and any representee copy so the
+				// abort leaves nothing behind. The client keeps the compose dialog open
+				// because the send is reported as failed.
+				$this->discardUnsentSubmission($store, $message, $origStore, $reprMessage);
 
 				return 'SENDAS_IDENTITY_MISMATCH';
 			}
 		}
 
+		// Keep the representee copy unsaved until submission itself has succeeded.
+		if ($reprMessage !== false && !$reprCopied && $this->copyRepresenteeMessage($message, $reprMessage) === null) {
+			$reprMessage = false;
+		}
+
 		// Submit the message (send)
 		try {
-			mapi_message_submitmessage($message);
+			if (mapi_message_submitmessage($message) === false) {
+				$this->discardUnsentSubmission($store, $message, $origStore, $reprMessage);
+
+				return get_mapi_error_name(mapi_last_hresult());
+			}
 		}
 		catch (MAPIException $e) {
+			$this->discardUnsentSubmission($store, $message, $origStore, $reprMessage);
 			$username = $GLOBALS["mapisession"]->getUserName();
 			$errorName = get_mapi_error_name($e->getCode());
 			error_log(sprintf(
@@ -3323,19 +3519,34 @@ class Operations {
 			return $errorName;
 		}
 
+		// Cleanup failures after a successful send must not encourage a duplicate send.
+		if ($oldDraftFolder && !empty($oldEntryId)) {
+			try {
+				if (mapi_folder_deletemessages($oldDraftFolder, [$oldEntryId], $oldDraftDeleteFlags) === false) {
+					error_log('submitMessage: unable to remove original draft after submission');
+				}
+			}
+			catch (MAPIException $e) {
+				error_log('submitMessage: unable to remove original draft after submission: ' . get_mapi_error_name($e->getCode()));
+				$e->setHandled();
+			}
+		}
+
 		$tmp_props = mapi_getprops($message, [PR_PARENT_ENTRYID, PR_MESSAGE_DELIVERY_TIME, PR_CLIENT_SUBMIT_TIME, PR_SEARCH_KEY, PR_MESSAGE_FLAGS]);
 		$messageProps[PR_PARENT_ENTRYID] = $tmp_props[PR_PARENT_ENTRYID];
 		if ($reprMessage !== false) {
 			// The message is already submitted; a failing sent copy must not
 			// report the send as failed.
 			try {
-				mapi_setprops($reprMessage, [
+				$reprSaved = mapi_setprops($reprMessage, [
 					PR_CLIENT_SUBMIT_TIME => $tmp_props[PR_CLIENT_SUBMIT_TIME] ?? time(),
 					PR_MESSAGE_DELIVERY_TIME => $tmp_props[PR_MESSAGE_DELIVERY_TIME] ?? time(),
 					PR_MESSAGE_FLAGS => ($tmp_props[PR_MESSAGE_FLAGS] | MSGFLAG_READ) & ~MSGFLAG_UNSENT,
-				]);
-				mapi_savechanges($reprMessage);
-				if ($saveRepresentee) {
+				]) !== false && mapi_savechanges($reprMessage) !== false;
+				if (!$reprSaved) {
+					error_log('submitMessage: unable to finalize the representee sent copy; retaining the sender sent copy');
+				}
+				elseif ($saveRepresentee) {
 					// delete the message in the delegate's Sent Items folder
 					$sentFolder = mapi_msgstore_openentry($store, $storeprops[PR_IPM_SENTMAIL_ENTRYID]);
 					$sentTable = mapi_folder_getcontentstable($sentFolder, MAPI_DEFERRED_ERRORS);
@@ -3880,9 +4091,19 @@ class Operations {
 			// Set contentId to saved attachments.
 			if (isset($attachments['add']) && is_array($attachments['add']) && !empty($attachments['add'])) {
 				foreach ($attachments['add'] as $key => $attach) {
-					if ($attach && isset($attach['inline']) && $attach['inline']) {
-						$addedInlineAttachmentCidMapping[$attach['attach_num']] = $attach['cid'];
-						$msgattachment = mapi_message_openattach($message, $attach['attach_num']);
+					if (is_array($attach) && !empty($attach['inline']) && is_string($attach['cid'] ?? null) && $attach['cid'] !== '') {
+						$number = $attach['attach_num'] ?? -1;
+						$savedNumber = (is_int($number) || (is_string($number) && ctype_digit($number))) && $number >= 0 && $number <= 0x7fffffff;
+						if (!$savedNumber) {
+							// Newly uploaded attachments are indexed by their cache
+							// filename until they receive a real MAPI attachment number.
+							$tmpname = $attach['tmpname'] ?? (is_string($number) ? $number : '');
+							if (is_string($tmpname) && $tmpname !== '') {
+								$addedInlineAttachmentCidMapping[$tmpname] = $attach['cid'];
+							}
+							continue;
+						}
+						$msgattachment = mapi_message_openattach($message, (int) $number);
 						if ($msgattachment) {
 							$props = [PR_ATTACH_CONTENT_ID => $attach['cid'], PR_ATTACHMENT_HIDDEN => true];
 							mapi_setprops($msgattachment, $props);
@@ -3895,10 +4116,12 @@ class Operations {
 			// Delete saved inline images if removed from body.
 			if (isset($attachments['remove']) && is_array($attachments['remove']) && !empty($attachments['remove'])) {
 				foreach ($attachments['remove'] as $key => $attach) {
-					if ($attach && isset($attach['inline']) && $attach['inline']) {
-						$msgattachment = mapi_message_openattach($message, $attach['attach_num']);
+					$number = is_array($attach) ? ($attach['attach_num'] ?? -1) : -1;
+					$savedNumber = (is_int($number) || (is_string($number) && ctype_digit($number))) && $number >= 0 && $number <= 0x7fffffff;
+					if (is_array($attach) && !empty($attach['inline']) && $savedNumber) {
+						$msgattachment = mapi_message_openattach($message, (int) $number);
 						if ($msgattachment) {
-							mapi_message_deleteattach($message, $attach['attach_num']);
+							mapi_message_deleteattach($message, (int) $number);
 							mapi_savechanges($message);
 						}
 					}
@@ -4072,17 +4295,6 @@ class Operations {
 
 			$plainText = $this->isPlainText($message);
 
-			$properties = $GLOBALS['properties']->getMailProperties();
-			$blockStatus = mapi_getprops($copyFromMessage, [PR_BLOCK_STATUS]);
-			$blockStatus = Conversion::mapMAPI2XML($properties, $blockStatus);
-			$isSafeSender = false;
-
-			// Here if message is HTML and block status is empty then and then call isSafeSender function
-			// to check that sender or sender's domain of original message was part of safe sender list.
-			if (!$plainText && empty($blockStatus)) {
-				$isSafeSender = $this->isSafeSender($copyFromMessage);
-			}
-
 			$body = false;
 			foreach ($existingAttachments as $props) {
 				// check if this attachment is "deleted"
@@ -4127,30 +4339,20 @@ class Operations {
 						$body = streamProperty($message, PR_HTML);
 					}
 
-					$contentID = $props[PR_ATTACH_CONTENT_ID];
-					if (!str_contains((string) $body, (string) $contentID)) {
+					$contentID = (string) $props[PR_ATTACH_CONTENT_ID];
+					if (!str_contains((string) $body, $contentID) && !str_contains((string) $body, rawurlencode($contentID))) {
 						continue;
 					}
-				}
-
-				/*
-				 * if message is reply/reply all or forward and format of message is HTML but
-				 * - inline attachments are not downloaded from external source
-				 * - sender of original message is not safe sender
-				 * - domain of sender is not part of safe sender list
-				 * then ignore inline attachments from original message.
-				 *
-				 * NOTE : blockStatus is only generated when user has download inline image from external source.
-				 * it should remains empty if user add the sender in to safe sender list.
-				 */
-				if (!$plainText && $isInlineAttachment && empty($blockStatus) && !$isSafeSender) {
-					continue;
 				}
 
 				$new = mapi_message_createattach($message);
 
 				try {
 					mapi_copyto($old, [], [], $new, 0);
+					if ($isInlineAttachment) {
+						// MIME import leaves inline attachments visible; hide the copy like our own
+						mapi_setprops($new, [PR_ATTACHMENT_HIDDEN => true]);
+					}
 					mapi_savechanges($new);
 				}
 				catch (MAPIException $e) {
@@ -4168,7 +4370,7 @@ class Operations {
 							PR_ATTACH_METHOD => $props[PR_ATTACH_METHOD] ?? ATTACH_BY_VALUE,
 							PR_ATTACH_FILENAME => $props[PR_ATTACH_FILENAME] ?? '',
 							PR_ATTACH_DATA_BIN => "",
-							PR_ATTACHMENT_HIDDEN => $props[PR_ATTACHMENT_HIDDEN] ?? false,
+							PR_ATTACHMENT_HIDDEN => $isInlineAttachment || ($props[PR_ATTACHMENT_HIDDEN] ?? false),
 							PR_ATTACH_EXTENSION => $props[PR_ATTACH_EXTENSION] ?? '',
 							PR_ATTACH_FLAGS => $props[PR_ATTACH_FLAGS] ?? 0,
 						]);
@@ -4186,69 +4388,6 @@ class Operations {
 				}
 			}
 		}
-	}
-
-	/**
-	 * Function was used to identify the sender or domain of original mail in safe sender list.
-	 *
-	 * @param resource $copyFromMessage message from which to obtain sender information
-	 *                                     the sender of message
-	 *
-	 * @return bool true if sender of original mail was safe sender else false
-	 */
-	public function isSafeSender($copyFromMessage) {
-		require_once BASE_PATH . 'server/includes/modules/class.junkmailmodule.php';
-
-		$senderEntryid = mapi_getprops($copyFromMessage, [PR_SENT_REPRESENTING_ENTRYID]);
-		$senderEntryid = $senderEntryid[PR_SENT_REPRESENTING_ENTRYID];
-
-		// If sender is user himself (which happens in case of "Send as New message") consider sender as safe
-		if ($GLOBALS['entryid']->compareEntryIds($senderEntryid, $GLOBALS["mapisession"]->getUserEntryID())) {
-			return true;
-		}
-
-		try {
-			$mailuser = mapi_ab_openentry($GLOBALS["mapisession"]->getAddressbook(), $senderEntryid);
-		}
-		catch (MAPIException) {
-			// The user might have a new uidNumber, which makes the user not resolve, see WA-7673
-			// FIXME: Lookup the user by PR_SENDER_NAME or another attribute if PR_SENDER_ADDRTYPE is "EX"
-			return false;
-		}
-
-		$addressType = mapi_getprops($mailuser, [PR_ADDRTYPE]);
-		$address = '';
-
-		// Here it will check that sender of original mail was address book user.
-		// If PR_ADDRTYPE is ZARAFA, it means sender of original mail was address book contact.
-		if (($addressType[PR_ADDRTYPE] ?? null) === 'EX') {
-			$addressProps = mapi_getprops($mailuser, [PR_SMTP_ADDRESS]);
-			$address = $addressProps[PR_SMTP_ADDRESS] ?? '';
-		}
-		elseif (($addressType[PR_ADDRTYPE] ?? null) === 'SMTP') {
-			// If PR_ADDRTYPE is SMTP, it means sender of original mail was external sender.
-			$addressProps = mapi_getprops($mailuser, [PR_EMAIL_ADDRESS]);
-			$address = $addressProps[PR_EMAIL_ADDRESS] ?? '';
-		}
-
-		$address = strtolower((string) $address);
-		if ($address === '' || strpos($address, '@') === false) {
-			return false;
-		}
-		$domain = '@' . substr($address, strpos($address, '@') + 1);
-
-		// getSenderLists already folds in the
-		// old webapp setting until it is retired, and caches per request.
-		$store = $GLOBALS['mapisession']->getDefaultMessageStore();
-		$lists = JunkMailModule::getSenderLists($store);
-		foreach ($lists['safe_senders'] as $entry) {
-			$entry = strtolower($entry);
-			if ($entry === $address || $entry === $domain) {
-				return true;
-			}
-		}
-
-		return false;
 	}
 
 	/**
@@ -5439,8 +5578,8 @@ class Operations {
 
 					$uniqueId = uniqid();
 					$image->setAttribute('src', 'cid:' . $uniqueId);
-					// TinyMCE adds an extra inline image for some reason, remove it.
-					$image->setAttribute('data-mce-src', '');
+					// an empty stored data-mce-src makes TinyMCE drop the src on serialize
+					$image->removeAttribute('data-mce-src');
 
 					array_push($imageIDs, $uniqueId);
 
@@ -5479,6 +5618,15 @@ class Operations {
 				mapi_stream_write($stream, $body);
 				mapi_stream_commit($stream);
 				mapi_savechanges($message);
+			}
+		}
+		// keep every attachment the body still points at, however it is referenced
+		if (preg_match_all('/cid:([^"\'\s<>()]+)/i', (string) $body, $refs)) {
+			foreach ($refs[1] as $cid) {
+				$imageIDs[] = $cid;
+				if (rawurldecode($cid) !== $cid) {
+					$imageIDs[] = rawurldecode($cid);
+				}
 			}
 		}
 		$this->clearDeletedInlineAttachments($message, $imageIDs);

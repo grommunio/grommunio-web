@@ -342,6 +342,17 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	{
 		var entryid;
 		var store;
+		var attachments = this.getAttachmentStore();
+		var pgp = this.get('pgp');
+		if (attachments && (attachments.localOnly || this.getMessageAction('browser_decrypted') || (pgp && pgp.mime && !this.isUnsent()))) {
+			// Decrypted inline images exist only in this browser. A missing or
+			// unsafe CID must never fall back to fetching the encrypted source.
+			return body.replace(/(src\s*=\s*["']?)cid:([^ "'>]*)(["']?)/igm, function(match, start, cid, end) {
+				var found = attachments.getRange().filter(function(attachment) { return attachment.get('cid') === cid; });
+				var url = found.length === 1 ? found[0].getInlineImageUrl() : '';
+				return start + (url || '') + end;
+			});
+		}
 
 		var action_type = this.getMessageAction('action_type');
 		var attachNum = this.get('attach_num');

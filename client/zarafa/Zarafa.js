@@ -228,8 +228,8 @@ Ext.apply(Zarafa, {
 		container.setLanguages(languages);
 		delete languages;
 
-		// Set up DOMPurify
-		DOMPurify.setConfig({
+		// Set up DOMPurify. Plugins that sanitize with their own instance start from this policy.
+		Zarafa.sanitizerConfig = {
 			FORBID_TAGS: ['iframe', 'webview', 'meta', 'html', 'head', 'link'],
 			WHOLE_DOCUMENT: false,
 			// Keep email <style> elements in the returned fragment. DOMPurify's
@@ -241,7 +241,8 @@ Ext.apply(Zarafa, {
 			ALLOWED_URI_REGEXP: Object.seal(/^(?:(?:(?:f|ht)tps?|mailto|elodms|msteams|webexteams|zoommtg|zoomus|gotomeeting|tel|callto|cid|xmpp|smb|file):|[^a-z]|[a-z]:|[a-z+.-]+(?:[^a-z+.\-:]|$))/i),
 			ALLOW_DATA_ATTR: true,
 			ADD_TAGS: ['svg', 'use', 'symbol']
-		});
+		};
+		DOMPurify.setConfig(Zarafa.sanitizerConfig);
 
 		DOMPurify.addHook('afterSanitizeAttributes', function(node) {
 			// Set all elements owning target to target=_blank.

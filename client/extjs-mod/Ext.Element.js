@@ -346,8 +346,10 @@
 
 				var s = el.getScroll();
 
-				vx += offsets.left + s.left ? s.left : 0;
-				vy += offsets.top + s.top ? s.top : 0 ;
+				// '+' binds tighter than '?:', so writing this without the brackets
+				// drops the offset from the sum and only tests it for truthiness.
+				vx += offsets.left + (s.left ? s.left : 0);
+				vy += offsets.top + (s.top ? s.top : 0);
 
 				vw -= offsets.right ? offsets.right : 0;
 				vh -= offsets.bottom ? offsets.bottom : 0;

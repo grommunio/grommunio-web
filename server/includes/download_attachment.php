@@ -173,7 +173,7 @@ class DownloadAttachment extends DownloadBase {
 		}
 
 		if (isset($data['attachCid'])) {
-			$this->attachCid = rawurldecode($data['attachCid']);
+			$this->attachCid = (string) $data['attachCid'];
 		}
 
 		if (isset($data['AllAsZip'])) {
@@ -253,41 +253,24 @@ class DownloadAttachment extends DownloadBase {
 		}
 		$attachment = false;
 
-		/**
-		 * restriction to find inline image attachment with matching cid passed.
-		 */
-		$restriction = [RES_OR,
-			[
-				[RES_CONTENT,
+		// the body may reference a content id percent-encoded (RFC 2392) or literally
+		$cids = [$this->attachCid];
+		if (rawurldecode((string) $this->attachCid) !== $this->attachCid) {
+			$cids[] = rawurldecode((string) $this->attachCid);
+		}
+		$clauses = [];
+		foreach ($cids as $cid) {
+			foreach ([PR_ATTACH_CONTENT_ID, PR_ATTACH_CONTENT_LOCATION, PR_ATTACH_FILENAME, PR_ATTACH_LONG_FILENAME] as $tag) {
+				$clauses[] = [RES_CONTENT,
 					[
 						FUZZYLEVEL => FL_FULLSTRING | FL_IGNORECASE,
-						ULPROPTAG => PR_ATTACH_CONTENT_ID,
-						VALUE => [PR_ATTACH_CONTENT_ID => $this->attachCid],
+						ULPROPTAG => $tag,
+						VALUE => [$tag => $cid],
 					],
-				],
-				[RES_CONTENT,
-					[
-						FUZZYLEVEL => FL_FULLSTRING | FL_IGNORECASE,
-						ULPROPTAG => PR_ATTACH_CONTENT_LOCATION,
-						VALUE => [PR_ATTACH_CONTENT_LOCATION => $this->attachCid],
-					],
-				],
-				[RES_CONTENT,
-					[
-						FUZZYLEVEL => FL_FULLSTRING | FL_IGNORECASE,
-						ULPROPTAG => PR_ATTACH_FILENAME,
-						VALUE => [PR_ATTACH_FILENAME => $this->attachCid],
-					],
-				],
-				[RES_CONTENT,
-					[
-						FUZZYLEVEL => FL_FULLSTRING | FL_IGNORECASE,
-						ULPROPTAG => PR_ATTACH_LONG_FILENAME,
-						VALUE => [PR_ATTACH_LONG_FILENAME => $this->attachCid],
-					],
-				],
-			],
-		];
+				];
+			}
+		}
+		$restriction = [RES_OR, $clauses];
 
 		// Get the attachment table
 		$attachTable = mapi_message_getattachmenttable($this->message);

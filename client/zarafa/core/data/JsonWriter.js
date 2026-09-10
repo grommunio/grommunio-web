@@ -196,6 +196,14 @@ Zarafa.core.data.JsonWriter = Ext.extend(Ext.data.JsonWriter, {
 
 		this.addMessageActionsHash(hash, record);
 
+		// A protected read view is transient browser data, not a message edit.
+		// In particular, mark-read, flags and categories must never persist its
+		// locally decrypted body, attachment metadata or security-status MIME.
+		if (record.get('pgp') && record.isUnsent && !record.isUnsent()) {
+			['body', 'html_body', 'isHTML', 'hasattach', 'pgp'].forEach(function(name) { delete hash.props[name]; });
+			delete hash.attachments;
+		}
+
 		return hash;
 	},
 

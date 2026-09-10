@@ -326,6 +326,14 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 */
 	shouldBlockExternalContent: function()
 	{
+		// Opening protected mail must not contact remote senders merely because
+		// they are on the safe-sender list. The normal per-message picture action
+		// remains available as an explicit user decision.
+		var pgp = this.get('pgp');
+		if (pgp && pgp.encrypted && !this.checkBlockStatus()) {
+			return true;
+		}
+
 		var senderSMTPAddress = (this.get('sent_representing_email_address') || this.get('sender_email_address') || '').toLowerCase();
 		var junkStore = Zarafa.mail.data.JunkMailStore;
 

@@ -155,6 +155,11 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 		if(this.indicatorTask){
 			Ext.TaskMgr.stop(this.indicatorTask);
 		}
+
+		if (Ext.isDefined(this.drawRetryTask)) {
+			clearTimeout(this.drawRetryTask);
+			delete this.drawRetryTask;
+		}
 	},
 
 	/**
@@ -220,6 +225,62 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 	},
 
 	/**
+	 * @cfg {Number} maxDrawRetries How often the layout is retried while the calendar
+	 * has not been given a width yet.
+	 */
+	maxDrawRetries: 20,
+
+	/**
+	 * @cfg {Number} drawRetryInterval Delay in milliseconds between those retries.
+	 */
+	drawRetryInterval: 60,
+
+	/**
+	 * Whether a draw may proceed. Drawing at zero width stamps width:0 on the grid
+	 * layers, collapsing every calc(100%/n) column, and no later pass redraws them.
+	 *
+	 * The width is stamped on {@link #header} and {@link #body} by
+	 * {@link Zarafa.calendar.ui.AbstractCalendarView#onLayout} from the {@link #width}
+	 * the {@link Zarafa.calendar.ui.CalendarMultiView multiview} handed out, so calling
+	 * the draw again would measure the very same zero. Only laying out the multiview
+	 * takes the width from the scrollable element again, which is what a window resize
+	 * does to repair the collapse.
+	 *
+	 * @param {Number} width The width measured for the draw
+	 * @return {Boolean} True when the caller may draw
+	 * @private
+	 */
+	readyToDraw: function(width)
+	{
+		if (width > 0) {
+			this.drawRetries = 0;
+
+			return true;
+		}
+
+		if (!Ext.isDefined(this.drawRetryTask) && (this.drawRetries || 0) < this.maxDrawRetries) {
+			this.drawRetries = (this.drawRetries || 0) + 1;
+			this.drawRetryTask = this.retryDraw.defer(this.drawRetryInterval, this);
+		}
+
+		return false;
+	},
+
+	/**
+	 * Lays out the {@link #parentView} again after a draw was skipped for want of a
+	 * width. Scheduled by {@link #readyToDraw}.
+	 * @private
+	 */
+	retryDraw: function()
+	{
+		delete this.drawRetryTask;
+
+		if (!this.isDestroyed) {
+			this.parentView.layout();
+		}
+	},
+
+	/**
 	 * Basically draws the rendered header. Creates the CSS grid columns for the calendar header.
 	 * Sets the background color. Sets the text on the headers for each day.
 	 * The header title is generated using the {@link #getDayHeaderTitle} function.
@@ -232,6 +293,11 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 		// Resize the header
 		var width = this.header.getWidth();
 		var height = this.header.getHeight();
+
+		if (!this.readyToDraw(width)) {
+			return;
+		}
+
 		this.headerBackgroundLayer.setSize(width, height);
 		this.headerBackgroundLayer.dom.innerHTML = '';
 		this.headerAppointmentLayer.setSize(width, height);
@@ -293,6 +359,11 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 		//var todayPosition;
 		var width = this.body.getWidth();
 		var height = this.body.getHeight();
+
+		if (!this.readyToDraw(width)) {
+			return;
+		}
+
 		this.bodyBackground.setSize(width, height);
 		this.bodyBackground.dom.innerHTML = '';
 		this.bodyAppointment.setSize(width, height);

@@ -1046,8 +1046,19 @@ Zarafa.core.HTMLParser = (function() {
 
 			var urlToCid = function(match, srcStart, imgCid, srcEnd, offset, str) {
 				if(imgCid) {
+					// undo the encoding of inlineImgOutlookToZarafa, but never let the value end the attribute
+					var cid = imgCid;
+					try {
+						cid = decodeURIComponent(imgCid);
+					} catch (e) {
+						cid = imgCid;
+					}
+					if (/[\s"'<>]/.test(cid)) {
+						cid = imgCid;
+					}
+
 					// return img src with just cid: tag
-					return srcStart + 'cid:' + imgCid + srcEnd;
+					return srcStart + 'cid:' + cid + srcEnd;
 				}
 
 				// return match as it is but in a real world this is not going to happen

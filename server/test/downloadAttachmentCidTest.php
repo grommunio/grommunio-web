@@ -67,6 +67,8 @@ if (!function_exists('mapi_message_getattachmenttable')) {
 	}
 
 	function mapi_table_queryallrows($table, $properties, $restriction) {
+		$GLOBALS['attachmentCidLastRestriction'] = $restriction;
+
 		return $GLOBALS['attachmentCidTestRows'];
 	}
 
@@ -91,6 +93,17 @@ $message = new ReflectionProperty(DownloadBase::class, 'message');
 $message->setValue($download, 'outer-message');
 
 $attachCid = $reflection->getProperty('attachCid');
+
+$download->init(['attachCid' => 'img2/plus+x%41@example.org']);
+if ($attachCid->getValue($download) !== 'img2/plus+x%41@example.org') {
+	throw new RuntimeException('The content id from the query string was decoded a second time.');
+}
+$download->getAttachmentByAttachCid();
+$lookedUp = array_unique(array_map(fn ($clause) => reset($clause[1][VALUE]), $GLOBALS['attachmentCidLastRestriction'][1]));
+if (array_values($lookedUp) !== ['img2/plus+x%41@example.org', 'img2/plus+xA@example.org']) {
+	throw new RuntimeException('The lookup does not try the literal and the decoded content id: ' . json_encode($lookedUp));
+}
+
 $attachCid->setValue($download, 'missing-content-id');
 
 if ($download->getAttachmentByAttachCid('container-attachment') !== false) {

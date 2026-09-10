@@ -314,7 +314,7 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 		if (Ext.isDefined(record) && !recordIsOpened) {
 			// Avoid rendering speculative plain-text body before the full message body is loaded.
 			// This prevents text-to-HTML flicker when the opened record later provides HTML content.
-			if (!sameRecordAsBefore) {
+			if (!sameRecordAsBefore || record.get('pgp')) {
 				var pendingHtmlBody = iframeDocument.getElementsByTagName('body')[0];
 				if (pendingHtmlBody) {
 					pendingHtmlBody.innerHTML = '';
@@ -399,9 +399,11 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 					});
 			}
 
-			if (html !== true && sameRecordAsBefore && this.currentRenderInfo.renderedHtml === true) {
+			if (html !== true && sameRecordAsBefore && this.currentRenderInfo.renderedHtml === true && !record.get('pgp')) {
 				// Keep the previously rendered HTML instead of flashing the plain-text fallback
-				// while the HTML body is still loading.
+				// while the HTML body is still loading. Protected browser views are
+				// updated atomically: retaining their old HTML would leave decrypted
+				// content visible after a private-key lock or a failed verification.
 				return;
 			}
 
