@@ -26,12 +26,6 @@ define('PLUGIN_FILES_ONLYOFFICE_FILETYPES', ".doc,.docx,.docxf,.oform,.odp,.ods,
 define('PLUGIN_FILES_ASK_BEFORE_DELETE', true);
 
 /*
- * The directory where to save cache files for phpfastcache.
- * This is a fallback setting, redis should be always available.
- */
-define('PLUGIN_FILES_CACHE_DIR', "/var/lib/grommunio-web/plugin_files");
-
-/*
  * Set the verbosity of the plugin.
  *
  * Possible values: DEBUG, NORMAL, ERROR, NONE
@@ -54,3 +48,8 @@ define('PLUGIN_FILES_REDIS_PORT', '6379');
  * Redis authentication for phpFastCache - leave empty to connect without authentication (default)
  */
 define('PLUGIN_FILES_REDIS_AUTH', '');
+
+/*
+ * Seconds a folder listing stays cached before the backend is asked again, a positive number.
+ */
+define('PLUGIN_FILES_CACHE_TTL', 900);

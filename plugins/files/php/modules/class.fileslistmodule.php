@@ -73,6 +73,9 @@ class FilesListModule extends ListModule {
 		$config->setHost(PLUGIN_FILES_REDIS_HOST);
 		$config->setPort((int) PLUGIN_FILES_REDIS_PORT);
 		$config->setPassword(PLUGIN_FILES_REDIS_AUTH);
+		if (defined('PLUGIN_FILES_CACHE_TTL') && (int) PLUGIN_FILES_CACHE_TTL > 0) {
+			$config->setDefaultTtl((int) PLUGIN_FILES_CACHE_TTL);
+		}
 
 		$this->cache = CacheManager::getInstance('Redis', $config);
 
