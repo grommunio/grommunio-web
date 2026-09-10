@@ -469,10 +469,12 @@ class AppointmentListModule extends ListModule {
 			return $this->processItems($calendaritems, $store, $entryid, $start, $end);
 		}
 		catch (Exception $e) {
-			// MAPI_E_NOT_FOUND means missing permissions, try to get items via freebusy
-			if ($e->getCode() == MAPI_E_NOT_FOUND) {
+			// Without read rights the table is refused (gromox answers MAPI_E_NOT_FOUND);
+			// the owner's free/busy data is all that may be shown then.
+			if ($e->getCode() == MAPI_E_NOT_FOUND || $e->getCode() == MAPI_E_NO_ACCESS) {
 				return $this->getFreebusyItems($store, $entryid, $start, $end);
 			}
+			error_log(sprintf("getCalendarItems: unable to list folder %s: %s (0x%08X)", bin2hex((string) $entryid), $e->getMessage(), $e->getCode()));
 		}
 
 		return [];
@@ -760,6 +762,10 @@ class AppointmentListModule extends ListModule {
 	public function getFreebusyItems($store, $folderEntryid, $start, $end) {
 		$items = [];
 		$storeProps = mapi_getprops($store, [PR_ENTRYID, PR_MAILBOX_OWNER_ENTRYID]);
+		// A public store has no owner whose free/busy could stand in for the folder
+		if (empty($storeProps[PR_MAILBOX_OWNER_ENTRYID])) {
+			return $items;
+		}
 		$folderEntryid = bin2hex((string) $folderEntryid);
 		$storeEntryid = bin2hex((string) $storeProps[PR_ENTRYID]);
 		// if start was not set, get items one month back
@@ -770,7 +776,17 @@ class AppointmentListModule extends ListModule {
 		if ($end === false) {
 			$end = time() + 7776000;
 		}
-		$fbdata = mapi_getuserfreebusy($GLOBALS['mapisession']->getSession(), $storeProps[PR_MAILBOX_OWNER_ENTRYID], $start, $end);
+		try {
+			$fbdata = mapi_getuserfreebusy($GLOBALS['mapisession']->getSession(), $storeProps[PR_MAILBOX_OWNER_ENTRYID], $start, $end);
+		}
+		catch (MAPIException $e) {
+			// No free/busy rights either: the calendar is simply empty for this user
+			if ($e->getCode() != MAPI_E_NO_ACCESS) {
+				error_log(sprintf("getFreebusyItems: %s (0x%08X)", $e->getMessage(), $e->getCode()));
+			}
+
+			return $items;
+		}
 		$fbEvents = $fbdata['fbevents'] ?? [];
 		foreach ($fbEvents as $fbEvent) {
 			// check if the event is in start - end range
