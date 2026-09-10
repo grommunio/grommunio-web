@@ -2076,7 +2076,9 @@ class Operations {
 					return false;
 				}
 
-				$message = mapi_attach_openobj($attachment);
+				// An .eml attachment holds a mail as a file; it is converted on
+				// the fly so it opens like an embedded message.
+				$message = openAttachedMessage($attachment);
 				if ($message === false) {
 					return false;
 				}
