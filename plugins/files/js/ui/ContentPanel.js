@@ -23,6 +23,10 @@ Zarafa.plugins.files.ui.ContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 			items : [{
 				xtype: 'zarafa.plugins.files.ui.onlyofficepanel',
 				url: config.url,
+				src: config.src,
+				origin: config.origin,
+				callback: config.callback,
+				scope: config.scope,
 				record: config.record,
 				tabOrder: config.tabOrder
 			}]

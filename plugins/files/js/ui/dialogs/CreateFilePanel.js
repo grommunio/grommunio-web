@@ -123,12 +123,12 @@ Zarafa.plugins.files.ui.dialogs.CreateFilePanel = Ext.extend(Ext.Panel, {
 	 */
 	onOk : function (button, event)
 	{
-		var fileName = this.newNameField.getValue();
+		var fileName = this.newNameField.getValue().trim();
 		var dir = this.parentFolder.get('folder_id');
-		var accId = dir.substr(0, dir.indexOf('/') + 1);
+		var accId = dir.substr(0, dir.indexOf('/'));
 		dir = dir.substr(dir.indexOf('/'));
 
-		if (Ext.isEmpty(fileName.trim())) {
+		if (Ext.isEmpty(fileName)) {
 			container.getNotifier().notify('warning.files', _('Files'), _('You must specify a name.'));
 			return;
 		}
@@ -138,38 +138,32 @@ Zarafa.plugins.files.ui.dialogs.CreateFilePanel = Ext.extend(Ext.Panel, {
 			return;
 		}
 
-		const url = Zarafa.plugins.files.data.Utils.File.getNewFileUrl(accId);
+		fileName += this.filetype;
+		var record = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_FILES, {
+			'object_type': Zarafa.plugins.files.data.FileTypes.FILE,
+			'folder_id': accId + dir + fileName,
+			'display_name': fileName,
+			'path': dir + fileName
+		});
 
-		if(!url) {
+		// The editor creates the file; the listing is refreshed once it has.
+		var opened = Zarafa.plugins.files.data.Actions.openTab(record, {
+			create: true,
+			callback: function() {
+				Zarafa.plugins.files.data.Actions.updateCache(accId + dir);
+				if (this.model) {
+					this.model.reload();
+				}
+			},
+			scope: this
+		});
+
+		if (!opened) {
 			container.getNotifier().notify('error.files', _('Files'), _('Error reaching office backend'));
 			return;
 		}
 
-		fetch(url, {
-			method: "POST",
-			headers: {'Content-Type': 'application/json'}, 
-			body: JSON.stringify({ "name": fileName + this.filetype, "dir": dir }),
-		}).then(async res => {
-			const result = await res.json();
-			const { id, name, size, type } = result;
-			var record = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_FILES, {
-				"object_type": Zarafa.plugins.files.data.FileTypes.FILE,
-				'folder_id': dir,
-				'fileid': id,
-				'display_name': name,
-				'message_size': size,
-				'type': type,
-				'path': dir + name,
-			});
-			if(record) {
-				Zarafa.plugins.files.data.Actions.openTab(record);
-				Zarafa.plugins.files.data.Actions.updateCache(accId.slice(0, -1) + dir);
-				if (this.model) {
-					this.model.reload();
-				}
-				this.dialog.close();
-			}
-		});
+		this.dialog.close();
 	},
 
 	/**

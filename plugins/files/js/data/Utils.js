@@ -454,22 +454,39 @@ Zarafa.plugins.files.data.Utils = {
 			return path.replace(/\\/g, '/').replace(/\/[^\/]*\/?$/, '');
 		},
 
-		getNewFileUrl: function (folderId) {
-			var accId = Zarafa.plugins.files.data.Utils.File.getAccountId(folderId);
-			var store = container.getCurrentContext().getAccountsStore();
-			if(!accId || !store) {
+		/**
+		 * The OnlyOffice app of the Nextcloud behind an account, derived from the
+		 * backend configuration: the WebDAV base path minus its remote.php endpoint
+		 * is the web root, so "/files/remote.php/webdav" gives "/files" and a
+		 * root-level "/remote.php/webdav" gives "".
+		 *
+		 * @param {Zarafa.plugins.files.data.AccountRecord} account The files account
+		 * @return {Object|Boolean} { origin, app } with app ending in "/index.php/apps/onlyoffice/",
+		 * false when the account does not point at a Nextcloud.
+		 */
+		getOfficeUrls: function (account) {
+			var config = (account && account.get('backend_config')) || {};
+			var match = String(config.server_path || '').match(/^(.*?)\/?remote\.php(\/|$)/);
+			if (!match || Ext.isEmpty(config.server_address)) {
 				return false;
 			}
-			var account = store.getById(accId);
-			if(!account) {
-				return false;
+
+			var ssl = !!config.server_ssl;
+			var port = String(config.server_port || '');
+			var origin = (ssl ? 'https://' : 'http://') + config.server_address;
+			if (!Ext.isEmpty(port) && port !== (ssl ? '443' : '80')) {
+				origin += ':' + port;
 			}
-			const backendConfig = account.get("backend_config") || {};
-			const { server_address, server_path, server_ssl } = backendConfig;
-			var owncloudLocation = server_path.substr(1);
-			owncloudLocation = owncloudLocation.substr(0, owncloudLocation.indexOf('/'));
-			const url = (server_ssl ? 'https:' : 'http:') + '//' + server_address + "/" + owncloudLocation + "/index.php/apps/onlyoffice/ajax/new";
-			return url;
+
+			var webroot = match[1].replace(/\/+$/, '');
+			if (webroot && webroot.charAt(0) !== '/') {
+				webroot = '/' + webroot;
+			}
+
+			return {
+				origin: origin,
+				app: origin + webroot + '/index.php/apps/onlyoffice/'
+			};
 		}
 	},
 

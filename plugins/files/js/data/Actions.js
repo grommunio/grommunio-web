@@ -753,13 +753,44 @@ Zarafa.plugins.files.data.Actions = {
 	},
 
 	/**
-	 * Event handler for the click event of the tabbar buttons. It will
-	 * open the tab if it already exists, or create it otherwise.
-	 * @param {Zarafa.core.ui.MainTab} btn The button in the
-	 * {@link Zarafa.core.ui.MainTabBar main tabbar}
+	 * Open a file the way a double click does: office documents go to the
+	 * OnlyOffice tab when the plugin and the account allow it, everything
+	 * else is downloaded.
+	 *
+	 * @param {Zarafa.plugins.files.data.FilesRecord} record The file to open
 	 */
-	openTab: function(record)
+	openFile: function(record)
 	{
+		var settings = container.getSettingsModel();
+		var name = String(record.get('folder_id') || '').toLowerCase();
+		var types = String(settings.get('zarafa/v1/plugins/files/onlyoffice_filetypes') || '').split(',');
+		var office = settings.get('zarafa/v1/plugins/files/onlyoffice_enabled') && types.some(function(type) {
+			type = type.trim().toLowerCase();
+			return type && name.endsWith(type);
+		});
+
+		if (!office || !this.openTab(record)) {
+			this.downloadItem(record);
+		}
+	},
+
+	/**
+	 * Open the OnlyOffice tab for a file, or activate the tab that already
+	 * shows it. With config.create the file does not exist yet: the editor
+	 * is asked to create it and config.callback runs once it has.
+	 *
+	 * @param {Zarafa.plugins.files.data.FilesRecord} record The file, its folder_id carrying the account
+	 * @param {Object} config Optional create, callback and scope
+	 * @return {Boolean} False when the account is not a Nextcloud with an OnlyOffice app
+	 */
+	openTab: function(record, config)
+	{
+		config = config || {};
+		var office = Zarafa.plugins.files.data.Utils.File.getOfficeUrls(record.getAccount());
+		if (!office) {
+			return false;
+		}
+
 		var tabIndex;
 		var url = record.get('folder_id');
 		var displayName = record.get('display_name');
@@ -769,23 +800,33 @@ Zarafa.plugins.files.data.Actions = {
 			}
 		});
 
-		if ( Ext.isDefined(tabIndex) ){
-			// open the existing tab
-			var mainContentTabPanel = container.getMainPanel().contentPanel;
-			mainContentTabPanel.activate(tabIndex);
-		} else {
-			// Create a new tab
-			var component = Zarafa.core.data.SharedComponentType['plugins.files.onlyofficepanel'];
-			Zarafa.core.data.UIFactory.openLayerComponent(
-				component,
-				record,
-				{
-					url: url,
-					tabId: 'onlyoffice',
-					title: displayName || 'office',
-					tabOrder: 10
-				}
-			);
+		if (Ext.isDefined(tabIndex)) {
+			container.getMainPanel().contentPanel.activate(tabIndex);
+			return true;
 		}
+
+		var path = Zarafa.plugins.files.data.Utils.File.stripAccountId(url);
+		var src;
+		if (config.create) {
+			// The GET route creates the file and redirects into the editor; unlike
+			// ajax/new it needs neither a CSRF token nor a cross-origin request.
+			var dir = Zarafa.plugins.files.data.Utils.File.getDirName(path) || '/';
+			src = office.app + 'new?name=' + encodeURIComponent(displayName) + '&dir=' + encodeURIComponent(dir);
+		} else {
+			src = office.app + record.getFileid() + '?filePath=' + encodeURIComponent(path);
+		}
+
+		var component = Zarafa.core.data.SharedComponentType['plugins.files.onlyofficepanel'];
+		Zarafa.core.data.UIFactory.openLayerComponent(component, record, {
+			url: url,
+			src: src,
+			origin: office.origin,
+			callback: config.callback,
+			scope: config.scope,
+			tabId: 'onlyoffice',
+			title: displayName || 'office',
+			tabOrder: 10
+		});
+		return true;
 	}
 };
