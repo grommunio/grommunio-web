@@ -20,6 +20,11 @@ if (!WebAppAuthentication::isAuthenticated()) {
 	exit;
 }
 
+// Enforce the second factor (e.g. passkey) before serving any download/upload.
+// A half-authenticated session must not be able to fetch attachments, messages,
+// contacts or appointments via index.php?load=...
+WebAppAuthentication::enforceSecondFactor('json');
+
 // index.php has the plugins loaded already for an authenticated user
 if (!isset($GLOBALS['PluginManager'])) {
 	$disabledPlugins = getDisabledPluginsList();

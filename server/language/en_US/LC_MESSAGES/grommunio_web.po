@@ -8489,3 +8489,220 @@ msgstr "Malformed UTF-8 characters, possibly incorrectly encoded"
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
 msgstr "Some problem encountered when encoding/decoding JSON data: - %s"
+
+msgid "Legal Information"
+msgstr "Legal Information"
+
+msgid "Undo and redo"
+msgstr "Undo and redo"
+
+msgid "Enable undo and redo of message actions"
+msgstr "Enable undo and redo of message actions"
+
+msgid "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+msgstr "Undo (Ctrl+Z) and redo (Ctrl+Y) of actions such as deleting, moving or flagging messages. Recording these actions adds a small overhead, therefore the feature is disabled by default."
+
+msgid "Undo"
+msgstr "Undo"
+
+msgid "Redo"
+msgstr "Redo"
+
+msgid "Undo: {0}"
+msgstr "Undo: {0}"
+
+msgid "Redo: {0}"
+msgstr "Redo: {0}"
+
+msgid "Nothing to undo"
+msgstr "Nothing to undo"
+
+msgid "Undo the last action"
+msgstr "Undo the last action"
+
+msgid "Redo the last undone action"
+msgstr "Redo the last undone action"
+
+msgid "Undo failed"
+msgstr "Undo failed"
+
+msgid "Redo failed"
+msgstr "Redo failed"
+
+msgid "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Could not undo {0}. The item may have been moved, changed or removed in the meantime."
+
+msgid "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+msgstr "Could not redo {0}. The item may have been moved, changed or removed in the meantime."
+
+msgid "Delete {0}"
+msgstr "Delete {0}"
+
+msgid "Delete {0} items"
+msgstr "Delete {0} items"
+
+msgid "Move {0} to {1}"
+msgstr "Move {0} to {1}"
+
+msgid "Move {0} items to {1}"
+msgstr "Move {0} items to {1}"
+
+msgid "Copy {0} to {1}"
+msgstr "Copy {0} to {1}"
+
+msgid "Copy {0} items to {1}"
+msgstr "Copy {0} items to {1}"
+
+msgid "Create {0}"
+msgstr "Create {0}"
+
+msgid "Change flag"
+msgstr "Change flag"
+
+msgid "Change categories"
+msgstr "Change categories"
+
+msgid "Change appointment time"
+msgstr "Change appointment time"
+
+msgid "another folder"
+msgstr "another folder"
+
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+msgid "{0}: {1} items"
+msgstr "{0}: {1} items"
+
+msgid "New mail from {0}"
+msgstr "New mail from {0}"
+
+msgid "{0} new message in folder {1}"
+msgid_plural "{0} new messages in folder {1}"
+msgstr[0] "{0} new message in folder {1}"
+msgstr[1] "{0} new messages in folder {1}"
+
+msgid "{0} new message in folder {1} of {2}"
+msgid_plural "{0} new messages in folder {1} of {2}"
+msgstr[0] "{0} new message in folder {1} of {2}"
+msgstr[1] "{0} new messages in folder {1} of {2}"
+
+msgid "In folder {0}"
+msgstr "In folder {0}"
+
+msgid "In folder {0} of {1}"
+msgstr "In folder {0} of {1}"
+
+msgid "New Mail Notifications"
+msgstr "New Mail Notifications"
+
+msgid "Only my own mailbox"
+msgstr "Only my own mailbox"
+
+msgid "Only the folders I choose"
+msgstr "Only the folders I choose"
+
+msgid "Unknown folder"
+msgstr "Unknown folder"
+
+msgid "No folders selected, no new mail notification is shown."
+msgstr "No folders selected, no new mail notification is shown."
+
+msgid "Show favorites in the mail folder list only"
+msgstr "Show favourites in the mail folder list only"
+
+msgid "Show favorites of the same type in every folder list"
+msgstr "Show favourites of the same type in every folder list"
+
+msgid "Show all favorites in every folder list"
+msgstr "Show all favourites in every folder list"
+# passkey plugin
+msgid "Passkey Plugin"
+msgstr "Passkey Plugin"
+
+msgid "Activated"
+msgstr "Activated"
+
+msgid "Deactivated"
+msgstr "Deactivated"
+
+msgid "Passkey authentication"
+msgstr "Passkey authentication"
+
+msgid "Configure passkey authentication"
+msgstr "Configure passkey authentication"
+
+msgid "Passkeys provide a secure and convenient way to authenticate without passwords. You can register multiple passkeys and use them to log into your account."
+msgstr "Passkeys provide a secure and convenient way to authenticate without passwords. You can register multiple passkeys and use them to log into your account."
+
+msgid "WebAuthn Support"
+msgstr "WebAuthn Support"
+
+msgid "Browser Support"
+msgstr "Browser Support"
+
+msgid "Activate or deactivate passkey authentication."
+msgstr "Activate or deactivate passkey authentication."
+
+msgid "Current status"
+msgstr "Current status"
+
+msgid "Activation/Deactivation"
+msgstr "Activation/Deactivation"
+
+msgid "Registered Passkeys"
+msgstr "Registered Passkeys"
+
+msgid "Register new Passkey"
+msgstr "Register new Passkey"
+
+msgid "Delete Passkey"
+msgstr "Delete Passkey"
+
+msgid "No passkeys registered"
+msgstr "No passkeys registered"
+
+msgid "Supported"
+msgstr "Supported"
+
+msgid "Not supported - Please use a modern browser"
+msgstr "Not supported - Please use a modern browser"
+
+msgid "WebAuthn not Supported"
+msgstr "WebAuthn not Supported"
+
+msgid "Your browser does not support WebAuthn."
+msgstr "Your browser does not support WebAuthn."
+
+msgid "Register Passkey"
+msgstr "Register Passkey"
+
+msgid "Enter a name for this passkey:"
+msgstr "Enter a name for this passkey:"
+
+msgid "Failed to create passkey: "
+msgstr "Failed to create passkey: "
+
+msgid "Are you sure you want to delete the passkey \"{0}\"?"
+msgstr "Are you sure you want to delete the passkey \"{0}\"?"
+
+msgid "Passkey registered successfully"
+msgstr "Passkey registered successfully"
+
+msgid "Failed to register passkey"
+msgstr "Failed to register passkey"
+
+msgid "Authentication successful"
+msgstr "Authentication successful"
+
+msgid "Authentication failed"
+msgstr "Authentication failed"
+
+msgid "Passkey deleted successfully"
+msgstr "Passkey deleted successfully"
+
+msgid "Failed to delete passkey"
+msgstr "Failed to delete passkey"
+
+msgid "Failed to load passkeys"
+msgstr "Failed to load passkeys"

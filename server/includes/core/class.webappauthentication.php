@@ -222,6 +222,114 @@ class WebAppAuthentication {
 	}
 
 	/**
+	 * Second-factor gate.
+	 *
+	 * A password/MAPI login makes isAuthenticated() true, but that is only the
+	 * first factor. When a second factor (currently the passkey plugin) applies,
+	 * the mailbox must stay inaccessible until the factor is satisfied. This is a
+	 * SEPARATE flag layered on top of authentication, not a mutation of
+	 * isAuthenticated(): the pages that run the second-factor ceremony themselves
+	 * need a live, authenticated MAPI session.
+	 *
+	 * Core stays plugin-agnostic. It only reads/writes two EncryptionStore flags
+	 * (encrypted, bound to the session, same store as the MAPI credentials):
+	 *   - 'secondFactorRequired'  : set by the plugin when the factor applies to
+	 *                               this user/session.
+	 *   - 'passkeySecondFactorOK' : set here once the factor has been satisfied.
+	 * It never includes plugin code, so a disabled/absent plugin simply never
+	 * sets the requirement and the gate is a no-op.
+	 */
+
+	/**
+	 * Returns true if the second factor has been satisfied for this session.
+	 *
+	 * @return bool
+	 */
+	public static function secondFactorSatisfied() {
+		return EncryptionStore::getInstance()->get('passkeySecondFactorOK') === '1';
+	}
+
+	/**
+	 * Marks the second factor as satisfied (or not) for this session.
+	 *
+	 * @param bool $satisfied
+	 */
+	public static function setSecondFactorSatisfied($satisfied) {
+		EncryptionStore::getInstance()->add('passkeySecondFactorOK', $satisfied ? '1' : '0');
+	}
+
+	/**
+	 * Returns true when the user is authenticated, a second factor is required
+	 * for this session, and it has not yet been satisfied.
+	 *
+	 * @return bool
+	 */
+	public static function secondFactorPending() {
+		if (!WebAppAuthentication::isAuthenticated()) {
+			return false;
+		}
+		if (EncryptionStore::getInstance()->get('secondFactorRequired') !== '1') {
+			return false;
+		}
+
+		return !WebAppAuthentication::secondFactorSatisfied();
+	}
+
+	/**
+	 * Requests that must be allowed to run while the second factor is pending,
+	 * so the user can always complete the factor or escape (log out / keep the
+	 * session alive). The ceremony pages (plugins/passkey/php/login.php and
+	 * logon.php) are hit directly and never routed through the gated dispatchers,
+	 * so they need no entry here. Only the shared service/ping endpoints do.
+	 *
+	 * Passkey MODULE actions (activate/register/delete/list) are deliberately NOT
+	 * exempt: they flow through grommunio.php and must stay blocked while pending.
+	 *
+	 * @return bool
+	 */
+	public static function isSecondFactorExemptRequest() {
+		if (isset($_GET['ping'])) {
+			return true;
+		}
+		if (isset($_GET['service'])) {
+			return in_array($_GET['service'], ['authenticate', 'token', 'logout', 'fingerprint', 'authenticated'], true);
+		}
+
+		return false;
+	}
+
+	/**
+	 * Central enforcement of the second factor. Called by every authenticated
+	 * entry point (grommunio.php, load.php) so a half-authenticated session
+	 * cannot reach mailbox data. No-op when nothing is pending or when the
+	 * request is on the exempt allowlist.
+	 *
+	 * @param string $mode 'json' for API/dispatcher traffic (emit 401 + exit),
+	 *                      'html' for the HTML shell (redirect + exit)
+	 */
+	public static function enforceSecondFactor($mode = 'json') {
+		if (!WebAppAuthentication::secondFactorPending()) {
+			return;
+		}
+		if (WebAppAuthentication::isSecondFactorExemptRequest()) {
+			return;
+		}
+
+		if ($mode === 'html') {
+			header('Location: index.php', true, 303);
+			exit;
+		}
+
+		// JSON / dispatcher traffic: refuse with an unambiguous marker the
+		// client can key on, without leaking any mailbox data.
+		header('HTTP/1.1 401 Unauthorized');
+		header('X-grommunio-SecondFactor: required');
+		header('Content-Type: application/json; charset=utf-8');
+		echo json_encode(['success' => false, 'error' => 'SECOND_FACTOR_REQUIRED']);
+		exit;
+	}
+
+	/**
 	 * Tries to logon to Gromox with the given username and password/token. Returns
 	 * the error code that was given back.
 	 *
