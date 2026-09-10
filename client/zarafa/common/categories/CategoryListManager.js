@@ -247,8 +247,7 @@ Zarafa.common.categories.CategoryListManagerClass = Ext.extend(Ext.util.Observab
 			this.fireEvent('load', this, ids[0], categoriesStore);
 		}
 
-		// Give the user's own mailbox a real list when neither a roaming list nor
-		// migrated legacy categories exist.
+		// Give the user's own mailbox a real list when no roaming list exists.
 		this.seedOwnStoreIfEmpty(ids, response);
 	},
 
@@ -256,8 +255,7 @@ Zarafa.common.categories.CategoryListManagerClass = Ext.extend(Ext.util.Observab
 	 * If the just-loaded store is the user's own default store and no list is
 	 * STORED in it at all (response.exists === false, as opposed to a
 	 * deliberately emptied list), seed it from the configured defaults and save
-	 * it back to the mailbox. Legacy used categories are migrated server-side
-	 * during logon. Runs at most once per session.
+	 * it back to the mailbox. Runs at most once per session.
 	 * @param {String[]} ids The (normalised) entryids the loaded list was cached under
 	 * @param {Object} response The server response ({categories, exists})
 	 * @private
