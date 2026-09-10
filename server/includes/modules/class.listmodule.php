@@ -361,8 +361,15 @@ class ListModule extends Module {
 
 		unset($action["restriction"]);
 
-		// Sort
-		$this->parseSortOrder($action);
+		/*
+		 * Sort. Multi-instance is allowed for the same reason as in
+		 * messageList(): a multi-value property such as "categories" cannot be
+		 * sorted on any other way - the server rejects a plain multi-value sort
+		 * with MAPI_E_NO_SUPPORT, which reaches the user as "Error in search.
+		 * Try again." - and getTable() folds the extra rows back into one row
+		 * per item.
+		 */
+		$this->parseSortOrder($action, null, true);
 
 		// Create the data array, which will be sent back to the client
 		$data = [];

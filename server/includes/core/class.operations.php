@@ -13,6 +13,13 @@
  */
 class Operations {
 	/**
+	 * Number of table rows read per call while folding a multi-instance sort
+	 * back into one row per item. Large enough that an ordinary page needs a
+	 * single call, small enough that no single read is unbounded.
+	 */
+	private const MULTI_INSTANCE_CHUNK = 512;
+
+	/**
 	 * Gets the hierarchy list of all required stores.
 	 *
 	 * getHierarchyList builds an entire hierarchy list of all folders that should be shown in various places. Most importantly,
@@ -1452,6 +1459,13 @@ class Operations {
 			mapi_table_restrict($table, $restriction, TBL_BATCH);
 		}
 
+		/*
+		 * Read the row count while it still counts items. A multi-instance sort
+		 * (see below) makes the table report one row per value instead, which
+		 * would tell the client there are more items than it can ever be shown.
+		 */
+		$totalrowcount = mapi_table_getrowcount($table);
+
 		if (is_array($sort) && !empty($sort)) {
 			/*
 			 * If the sort array contains the PR_SUBJECT column we should change this to
@@ -1477,7 +1491,21 @@ class Operations {
 			mapi_table_sort($table, $sort, TBL_BATCH);
 		}
 
-		$rows = mapi_table_queryrows($table, $properties, $start, $rowcount);
+		/*
+		 * A multi-value property cannot be sorted on directly - the server
+		 * rejects it with MAPI_E_NO_SUPPORT - so parseSortOrder() asks for a
+		 * multi-instance sort instead, which emits one row per value. Sorting
+		 * the mail list on "categories" therefore returns a mail once per
+		 * category it carries. Fold those rows back into one row per item, so
+		 * such a sort behaves like every other one and the total below counts
+		 * items, not values.
+		 */
+		if (self::isMultiInstanceSort($sort)) {
+			$rows = $this->queryDeduplicatedRows($table, $properties, $start, $rowcount);
+		}
+		else {
+			$rows = mapi_table_queryrows($table, $properties, $start, $rowcount);
+		}
 
 		foreach ($rows as $row) {
 			$itemData = Conversion::mapMAPI2XML($properties, $row);
@@ -1511,9 +1539,118 @@ class Operations {
 		$data["page"] = [];
 		$data["page"]["start"] = $start;
 		$data["page"]["rowcount"] = $rowcount;
-		$data["page"]["totalrowcount"] = mapi_table_getrowcount($table);
+		$data["page"]["totalrowcount"] = $totalrowcount;
 
 		return $data;
+	}
+
+	/**
+	 * Tells whether a MAPI sort order asks the server for multiple instances of
+	 * an item - one row per value of a multi-value property.
+	 *
+	 * @param array|bool $sort The sort order handed to getTable()
+	 *
+	 * @return bool TRUE when at least one sort key carries MV_INSTANCE
+	 */
+	private static function isMultiInstanceSort($sort) {
+		if (!is_array($sort)) {
+			return false;
+		}
+
+		foreach (array_keys($sort) as $propTag) {
+			if (((int) $propTag & MV_INSTANCE) === MV_INSTANCE) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	 * Reads one page of a multi-instance sorted table as one row per item.
+	 *
+	 * An item is kept at the position of the FIRST row it appears in, which is
+	 * its place under the first of its values in the sort direction - a mail
+	 * categorised "Anfrage; Zzz" sorts under "Anfrage" ascending, the way
+	 * Outlook shows it. The rows in between belong to items that sorted earlier
+	 * and are skipped.
+	 *
+	 * @param resource $table      The restricted and sorted MAPI table
+	 * @param array    $properties The set of properties to read per row
+	 * @param int      $start      Starting item (not row) to read from
+	 * @param int      $rowcount   Number of items to read
+	 *
+	 * @return array The rows for the requested page, in table order
+	 */
+	private function queryDeduplicatedRows($table, $properties, $start, $rowcount) {
+		$instanceCount = mapi_table_getrowcount($table);
+		$needed = $start + $rowcount;
+		if ($instanceCount < 1 || $needed < 1) {
+			return [];
+		}
+
+		/*
+		 * Pass one: walk the rows reading the entryid alone and remember the
+		 * first row each item appears in. Reading one narrow column is cheap,
+		 * and the walk stops as soon as the requested page has been located -
+		 * so the cost follows how far the user has scrolled, not how big the
+		 * folder is.
+		 */
+		$firstRowOfItem = [];
+		$offset = 0;
+		while ($offset < $instanceCount && count($firstRowOfItem) < $needed) {
+			$idRows = mapi_table_queryrows($table, [PR_ENTRYID], $offset, self::MULTI_INSTANCE_CHUNK);
+			if (empty($idRows)) {
+				break;
+			}
+
+			foreach ($idRows as $index => $idRow) {
+				if (!isset($idRow[PR_ENTRYID])) {
+					continue;
+				}
+
+				$item = bin2hex((string) $idRow[PR_ENTRYID]);
+				if (!isset($firstRowOfItem[$item])) {
+					$firstRowOfItem[$item] = $offset + $index;
+				}
+			}
+
+			$offset += count($idRows);
+		}
+
+		// Insertion order is ascending row order, so this is the order the
+		// client must end up with.
+		$wantedRows = array_slice(array_values($firstRowOfItem), $start, $rowcount);
+		if (empty($wantedRows)) {
+			return [];
+		}
+
+		/*
+		 * Pass two: read the full property set for the wanted rows only. They
+		 * are not contiguous - the rows in between belong to items that sorted
+		 * earlier - so walk the span they cover in chunks and keep what was
+		 * asked for.
+		 */
+		$wanted = array_flip($wantedRows);
+		$last = $wantedRows[count($wantedRows) - 1];
+		$rows = [];
+		$offset = $wantedRows[0];
+		while ($offset <= $last) {
+			$chunk = mapi_table_queryrows($table, $properties, $offset, min(self::MULTI_INSTANCE_CHUNK, $last - $offset + 1));
+			if (empty($chunk)) {
+				break;
+			}
+
+			foreach ($chunk as $index => $row) {
+				if (isset($wanted[$offset + $index])) {
+					$rows[] = $row;
+				}
+			}
+
+			$offset += count($chunk);
+		}
+
+		return $rows;
 	}
 
 	/**
