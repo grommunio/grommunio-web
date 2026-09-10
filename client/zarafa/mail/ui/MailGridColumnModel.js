@@ -275,6 +275,21 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			renderer: Zarafa.common.ui.grid.Renderers.flag,
 			fixed: true,
 			tooltip: _('Sort by: flag')
+		},{
+			// Compact view renders the categories in the row body, so this
+			// column is hidden by default and exists to make the list sortable
+			// by category without leaving the compact layout - switch it on
+			// from the header menu, the way the Size column works.
+			// It must stay LAST: the grid persists per-column width and hidden
+			// state keyed by the column's ordinal position, so inserting a
+			// column further up would shift the saved state of every column
+			// after it.
+			header: _('Categories'),
+			dataIndex: 'categories',
+			width: 160,
+			hidden: true,
+			renderer: Zarafa.common.ui.grid.Renderers.categories,
+			tooltip: _('Sort by: Categories')
 		}];
 	},
 
