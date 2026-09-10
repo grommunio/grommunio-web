@@ -300,41 +300,114 @@ class CategoryList {
 	}
 
 	/**
-	 * Merge categories used by the legacy WebApp settings into this mailbox's
-	 * master category list. Existing categories remain authoritative; missing
-	 * categories are appended and {@link setCategories} maps their colours to
-	 * the nearest Outlook palette entry.
+	 * Add every category currently assigned to an item in this mailbox to the
+	 * master category list. Legacy category definitions provide the colours for
+	 * categories not already present; {@link setCategories} maps those colours
+	 * to the nearest Outlook palette entry.
 	 *
-	 * @param array $categories legacy grommunio Web category dicts
+	 * @param array $legacyCategories legacy grommunio Web category definitions
+	 *
+	 * @return int number of distinct category names found on items
 	 */
-	public function migrateUsedCategories($categories) {
-		$merged = $this->getCategories();
-		$knownNames = [];
-		foreach ($merged as $category) {
+	public function migrateItemCategories($legacyCategories) {
+		$itemCategories = $this->getItemCategoryNames();
+		$categories = $this->getCategories();
+		$knownCategories = [];
+		foreach ($categories as $category) {
 			if (!empty($category['name'])) {
-				$knownNames[strtolower($category['name'])] = true;
+				$knownCategories[strtolower($category['name'])] = true;
+			}
+		}
+
+		$legacyByName = [];
+		foreach ($legacyCategories as $category) {
+			if (is_array($category) && !empty($category['name'])) {
+				$legacyByName[strtolower($category['name'])] = $category;
 			}
 		}
 
 		$changed = false;
-		foreach ($categories as $category) {
-			if (!is_array($category) || empty($category['used'])) {
-				continue;
-			}
-			$name = isset($category['name']) ? trim((string) $category['name']) : '';
+		foreach ($itemCategories as $name) {
 			$key = strtolower($name);
-			if ($name === '' || isset($knownNames[$key])) {
+			if (isset($knownCategories[$key])) {
 				continue;
 			}
+			$category = isset($legacyByName[$key]) ? $legacyByName[$key] : [];
 			$category['name'] = $name;
-			$merged[] = $category;
-			$knownNames[$key] = true;
+			$category['used'] = true;
+			if (!isset($category['color'])) {
+				$category['color'] = self::DEFAULT_COLOR;
+			}
+			$categories[] = $category;
+			$knownCategories[$key] = true;
 			$changed = true;
 		}
 
 		if ($changed) {
-			$this->setCategories($merged);
+			$this->setCategories($categories);
 		}
+
+		return count($itemCategories);
+	}
+
+	/**
+	 * Scan the normal contents of every folder below the IPM subtree and return
+	 * the distinct category names assigned to those items.
+	 *
+	 * @return string[] category names in first-seen order
+	 */
+	protected function getItemCategoryNames() {
+		$storeProps = mapi_getprops($this->store, [PR_IPM_SUBTREE_ENTRYID]);
+		if (empty($storeProps[PR_IPM_SUBTREE_ENTRYID])) {
+			throw new MAPIException('Cannot open the mailbox folder tree.', MAPI_E_NOT_FOUND, null, _('Cannot scan this mailbox for categories.'));
+		}
+
+		$subtreeEntryId = $storeProps[PR_IPM_SUBTREE_ENTRYID];
+		$subtree = mapi_msgstore_openentry($this->store, $subtreeEntryId);
+		if ($subtree === false) {
+			throw new MAPIException('Cannot open the mailbox folder tree.', MAPI_E_NOT_FOUND, null, _('Cannot scan this mailbox for categories.'));
+		}
+
+		$folderEntryIds = [$subtreeEntryId];
+		$hierarchy = mapi_folder_gethierarchytable($subtree, CONVENIENT_DEPTH | MAPI_DEFERRED_ERRORS);
+		foreach (mapi_table_queryallrows($hierarchy, [PR_ENTRYID]) as $folderRow) {
+			if (!empty($folderRow[PR_ENTRYID])) {
+				$folderEntryIds[] = $folderRow[PR_ENTRYID];
+			}
+		}
+
+		$properties = getPropIdsFromStrings($this->store, [
+			'categories' => 'PT_MV_STRING8:PS_PUBLIC_STRINGS:Keywords',
+		]);
+		$categoriesProperty = $properties['categories'];
+		$restriction = [RES_EXIST, [ULPROPTAG => $categoriesProperty]];
+		$names = [];
+		$knownNames = [];
+
+		foreach ($folderEntryIds as $folderEntryId) {
+			$folder = mapi_msgstore_openentry($this->store, $folderEntryId);
+			if ($folder === false) {
+				continue;
+			}
+			$table = mapi_folder_getcontentstable($folder, MAPI_DEFERRED_ERRORS);
+			mapi_table_restrict($table, $restriction, TBL_BATCH);
+			$rows = mapi_table_queryallrows($table, [$categoriesProperty]);
+			foreach ($rows as $row) {
+				if (!isset($row[$categoriesProperty]) || !is_array($row[$categoriesProperty])) {
+					continue;
+				}
+				foreach ($row[$categoriesProperty] as $name) {
+					$name = trim((string) $name);
+					$key = strtolower($name);
+					if ($name !== '' && !isset($knownNames[$key])) {
+						$names[] = $name;
+						$knownNames[$key] = true;
+					}
+				}
+			}
+		}
+
+		return $names;
 	}
 
 	/**
