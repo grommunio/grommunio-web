@@ -242,13 +242,15 @@ class FilesListModule extends ListModule {
 		$dir = $this->getCache($accountID, $cachePath);
 
 		// Get new data from backend when cache is empty or the version of backend got changed.
+		$updateCache = false;
 		if (is_null($dir) || version_compare($backendVersion, $cacheVersion) !== 0) {
 			$this->setVersionInCache($backendDisplayName, $backendVersion, $accountID);
 			$dir = $backend->ls($relNodeId);
+			// a listing without folders is worth remembering too
+			$updateCache = true;
 		}
 
 		if ($dir) {
-			$updateCache = false;
 			foreach ($dir as $id => $node) {
 				$objectType = strcmp((string) $node['resourcetype'], "collection") !== 0 ? FILES_FILE : FILES_FOLDER;
 
@@ -290,33 +292,24 @@ class FilesListModule extends ListModule {
 					$storeEntryid = $node['store_entryid'];
 				}
 
-				$nodeHasSubFolder = $this->hasSubFolder($id, $accountID, $backend);
-				// Skip displaying folder whose data is unaccesable.
-				// Also update the cache.
-				if (is_null($nodeHasSubFolder)) {
-					unset($dir[$id]);
-					$updateCache = true;
-				}
-				else {
-					array_push($nodes, [
-						'id' => $realID,
-						'folder_id' => $realID,
-						'entryid' => $entryid,
-						'parent_entryid' => $parentEntryid,
-						'store_entryid' => $storeEntryid,
-						'props' => [
-							'path' => $nodeId,
-							'message_size' => $size,
-							'text' => $filename,
-							'object_type' => $objectType,
-							'icon_index' => ICON_FOLDER,
-							'filename' => $filename,
-							'display_name' => $filename,
-							'lastmodified' => strtotime((string) $node['getlastmodified']) * 1000,
-							'has_subfolder' => $nodeHasSubFolder,
-						],
-					]);
-				}
+				array_push($nodes, [
+					'id' => $realID,
+					'folder_id' => $realID,
+					'entryid' => $entryid,
+					'parent_entryid' => $parentEntryid,
+					'store_entryid' => $storeEntryid,
+					'props' => [
+						'path' => $nodeId,
+						'message_size' => $size,
+						'text' => $filename,
+						'object_type' => $objectType,
+						'icon_index' => ICON_FOLDER,
+						'filename' => $filename,
+						'display_name' => $filename,
+						'lastmodified' => strtotime((string) $node['getlastmodified']) * 1000,
+						'has_subfolder' => $this->hasCachedSubFolder($id, $accountID),
+					],
+				]);
 
 				// We need to call this function recursively when user rename the folder.
 				// we have to send all sub folder as server side notification so grommunio Web
@@ -326,9 +319,10 @@ class FilesListModule extends ListModule {
 				}
 			}
 
-			if ($updateCache) {
-				$this->setCache($accountID, $cachePath, $dir);
-			}
+		}
+
+		if ($updateCache) {
+			$this->setCache($accountID, $cachePath, $dir);
 		}
 
 		return $nodes;
@@ -371,57 +365,21 @@ class FilesListModule extends ListModule {
 	}
 
 	/**
-	 * Function will check that given folder has sub folder or not.
-	 * This will retrurn null when there's an exception retrieving folder data.
+	 * Whether a cached listing shows sub folders; an unknown folder counts as expandable.
 	 *
-	 * @param string $id        The $id is id of selected folder
-	 * @param mixed  $accountID
-	 * @param mixed  $backend
+	 * @param string $id        folder id relative to the account
+	 * @param string $accountID account id
 	 *
-	 * @return bool or null when unable to access folder data
+	 * @return bool
 	 */
-	public function hasSubFolder($id, $accountID, $backend) {
-		$cachePath = rtrim($id, '/');
-		if ($cachePath === "") {
-			$cachePath = "/";
+	public function hasCachedSubFolder($id, $accountID) {
+		$dir = $this->getCache($accountID, rtrim($id, '/') ?: '/');
+		if (!is_array($dir)) {
+			return true;
 		}
-
-		$dir = $this->getCache($accountID, $cachePath);
-		if (is_null($dir)) {
-			try {
-				$dir = $backend->ls($id);
-				$this->setCache($accountID, $cachePath, $dir);
-			}
-			catch (Exception $e) {
-				$errorCode = $e->getCode();
-
-				// If folder not found or folder doesn't have enough access then don't display that folder.
-				if ($errorCode === self::SMB_ERR_UNAUTHORIZED ||
-				$errorCode === self::SMB_ERR_FORBIDDEN ||
-				$errorCode === self::FTP_WD_OWNCLOUD_ERR_UNAUTHORIZED ||
-				$errorCode === self::FTP_WD_OWNCLOUD_ERR_FORBIDDEN ||
-				$errorCode === self::ALL_BACKEND_ERR_NOTFOUND) {
-					if ($errorCode === self::ALL_BACKEND_ERR_NOTFOUND) {
-						FilesLogger::error(self::LOG_CONTEXT, '[hasSubFolder]: folder ' . $id . ' not found');
-					}
-					else {
-						FilesLogger::error(self::LOG_CONTEXT, '[hasSubFolder]: Access denied for folder ' . $id);
-					}
-
-					return null;
-				}
-
-				// rethrow exception if its not related to access permission.
-				throw $e;
-			}
-		}
-
-		if ($dir) {
-			foreach ($dir as $node) {
-				if (strcmp((string) $node['resourcetype'], "collection") === 0) {
-					// we have a folder
-					return true;
-				}
+		foreach ($dir as $node) {
+			if (strcmp((string) $node['resourcetype'], "collection") === 0) {
+				return true;
 			}
 		}
 

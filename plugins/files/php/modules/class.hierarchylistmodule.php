@@ -4,6 +4,7 @@ require_once __DIR__ . "/class.fileslistmodule.php";
 
 use Files\Backend\Exception as BackendException;
 use Files\Core\Exception as AccountException;
+use Files\Core\Util\Logger as FilesLogger;
 
 /**
  * This module handles all list and change requests for the files browser.
@@ -111,7 +112,21 @@ class HierarchyListModule extends FilesListModule {
 		$nodeId = $action["folder_id"];
 		$account = $this->accountFromNode($nodeId);
 		$backend = $this->initializeBackend($account, true);
-		$subFolders = $this->getSubFolders($nodeId, $backend);
+
+		try {
+			$subFolders = $this->getSubFolders($nodeId, $backend);
+		}
+		catch (MAPIException|AccountException $e) {
+			throw $e;
+		}
+		catch (Exception $e) {
+			// a folder the parent listed but the user may not enter stays a leaf
+			if (!in_array($e->getCode(), [self::FTP_WD_OWNCLOUD_ERR_UNAUTHORIZED, self::FTP_WD_OWNCLOUD_ERR_FORBIDDEN, self::ALL_BACKEND_ERR_NOTFOUND], true)) {
+				throw $e;
+			}
+			FilesLogger::error(self::LOG_CONTEXT, '[updateHierarchy]: folder ' . $nodeId . ' is not accessible: ' . $e->getMessage());
+			$subFolders = [];
+		}
 
 		$this->addActionData("updatelist", ["item" => $subFolders]);
 		$GLOBALS["bus"]->addData($this->getResponseData());
