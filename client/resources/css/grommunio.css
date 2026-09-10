@@ -6904,6 +6904,24 @@ body .k-category-block {
   border: 0;
 }
 
+/* ExtJS still ships gif loaders for tree nodes and loading texts */
+.x-tree-node-loading .x-tree-node-icon {
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  background-color: transparent !important;
+  background-image: url(../images/spinner.svg) !important;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 16px 16px; }
+
+.loading-indicator {
+  background-image: url(../images/spinner.svg);
+  background-repeat: no-repeat;
+  background-position: 0 center;
+  background-size: 16px 16px;
+  padding-left: 20px;
+  line-height: 16px; }
+
 .x-mask-row {
   background-color: var(--ui-surface); }
 
