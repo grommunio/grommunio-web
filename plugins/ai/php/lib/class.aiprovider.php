@@ -18,11 +18,18 @@ class AIException extends Exception {}
  *   $provider = AIProvider::create(AIConfig::get());
  *   $text = $provider->chat($messages, $opts);             // buffered
  *   $text = $provider->chat($messages, $opts, $onDelta);   // streamed
+ *   $result = $provider->chatFull($messages, $opts);       // continued if cut off
  *
  * When $onDelta is supplied it is invoked with each text fragment as it
  * arrives; the full concatenated text is also returned.
  */
 abstract class AIProvider {
+	/** How often chatFull() may ask the model to carry on after hitting the cap. */
+	private const MAX_CONTINUATIONS = 3;
+
+	/** Why the provider stopped generating; 'length' once the cap was reached. */
+	protected ?string $finishReason = null;
+
 	public function __construct(protected readonly AIConfig $config) {}
 
 	/**
@@ -61,6 +68,18 @@ abstract class AIProvider {
 	abstract protected function parseStreamError(string $data): ?string;
 
 	/**
+	 * The reason the provider stopped generating, taken from a complete
+	 * response. Normalized to 'length' when the output limit was reached.
+	 */
+	abstract protected function parseFinishReason(array $json): ?string;
+
+	/**
+	 * The same reason taken from one SSE "data:" payload, or null when the
+	 * event does not carry it (only the final event usually does).
+	 */
+	abstract protected function parseStreamFinish(string $data): ?string;
+
+	/**
 	 * Send a chat request and return the generated text.
 	 *
 	 * @param array         $messages list of ['role' => ..., 'content' => ...]
@@ -72,6 +91,7 @@ abstract class AIProvider {
 	public function chat(array $messages, array $opts = [], ?callable $onDelta = null): string {
 		$stream = $onDelta !== null;
 		$body = $this->buildBody($messages, $opts, $stream);
+		$this->finishReason = null;
 
 		$ch = curl_init();
 		curl_setopt_array($ch, [
@@ -89,6 +109,36 @@ abstract class AIProvider {
 		}
 
 		return $this->execBuffered($ch);
+	}
+
+	/**
+	 * Send a chat request and return the whole answer.
+	 *
+	 * A model that runs into the output cap stops mid-sentence, which is how a
+	 * long mail came back cut off. Raising the cap past what the model accepts
+	 * is not an option, so an answer that ended on the limit is continued in a
+	 * few follow-up requests until the model finishes on its own.
+	 *
+	 * @return array{text: string, truncated: bool}
+	 *
+	 * @throws AIException on transport or HTTP error
+	 */
+	public function chatFull(array $messages, array $opts = [], ?callable $onDelta = null): array {
+		$text = $this->chat($messages, $opts, $onDelta);
+
+		for ($round = 0; $round < self::MAX_CONTINUATIONS && $this->finishReason === 'length' && $text !== ''; ++$round) {
+			$more = $this->chat(array_merge($messages, [
+				['role' => 'assistant', 'content' => $text],
+				['role' => 'user', 'content' => 'Continue the answer exactly where it stopped. Do not repeat anything you already wrote, do not restart, and do not add any preamble.'],
+			]), $opts, $onDelta);
+
+			if (trim($more) === '') {
+				break;
+			}
+			$text .= $more;
+		}
+
+		return ['text' => $text, 'truncated' => $this->finishReason === 'length'];
 	}
 
 	/**
@@ -111,6 +161,8 @@ abstract class AIProvider {
 		if ($code >= 400 || !is_array($json)) {
 			throw new AIException($this->httpError($code, is_array($json) ? $json : null));
 		}
+
+		$this->finishReason = $this->parseFinishReason($json);
 
 		return $this->extractContent($json);
 	}
@@ -154,6 +206,10 @@ abstract class AIProvider {
 					$streamError = $error;
 
 					continue;
+				}
+				$finish = $this->parseStreamFinish($payload);
+				if ($finish !== null) {
+					$this->finishReason = $finish;
 				}
 				$delta = $this->parseStreamEvent($payload);
 				if ($delta !== null && $delta !== '') {

@@ -413,6 +413,9 @@ Zarafa.plugins.ai.AIClient = {
 			panel.appendDelta(payload.text || '');
 		} else if (event === 'done') {
 			panel.setResult(payload.text ? payload.text : panel.getText());
+			if (payload.truncated) {
+				panel.markTruncated();
+			}
 			state.finalized = true;
 		} else if (event === 'error') {
 			panel.setError(payload.message || _('The AI request failed.'));
@@ -435,6 +438,9 @@ Zarafa.plugins.ai.AIClient = {
 			new Zarafa.plugins.ai.data.AIResponseHandler({
 				successCallback: function(response) {
 					panel.setResult(response.text || '');
+					if (response.truncated) {
+						panel.markTruncated();
+					}
 				},
 				errorCallback: function(message) {
 					panel.setError(message);

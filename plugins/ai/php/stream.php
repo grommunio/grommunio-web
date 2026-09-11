@@ -131,7 +131,7 @@ try {
 	$built = AIRequest::build($feature, $config, $store, $entryidBin, $input);
 	$provider = AIProvider::create($config);
 
-	$full = $provider->chat(
+	$full = $provider->chatFull(
 		$built['messages'],
 		['model' => $built['model']],
 		static function (string $piece) use ($emit): void {
@@ -139,7 +139,7 @@ try {
 		}
 	);
 
-	$emit('done', ['text' => $full, 'model' => $config->model]);
+	$emit('done', ['text' => $full['text'], 'truncated' => $full['truncated'], 'model' => $config->model]);
 }
 catch (AIException $e) {
 	$emit('error', ['message' => $e->getMessage()]);
