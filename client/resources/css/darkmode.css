@@ -325,9 +325,11 @@ body.dark-mode .x-grid3-hd-row td {
 	background: transparent !important;
 }
 
+/* The column menu trigger is a black glyph from the iconset */
 body.dark-mode .x-grid3-hd-row td .x-grid3-hd-inner .x-grid3-hd-btn {
 	border-color: transparent !important;
 	background-color: transparent !important;
+	filter: invert(0.88);
 }
 
 body.dark-mode .x-grid3-hd-row td.sort-desc .x-grid3-sort-icon,
