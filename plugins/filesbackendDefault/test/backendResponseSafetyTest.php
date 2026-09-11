@@ -114,6 +114,10 @@ namespace {
 	$ocsClient->loadShares();
 	assertBackendResponse($ocsClient->getAllShares() === [], 'A valid empty OCS response was not parsed.');
 
+	$GLOBALS['ocsTestCurlOptions'] = [];
+	$ocsClient->createShare('/Documents', ['shareType' => 3, 'permissions' => 1]);
+	assertBackendResponse($GLOBALS['ocsTestCurlOptions'][CURLOPT_POSTFIELDS] === 'path=%2FDocuments&shareType=3&permissions=1', 'The share request fields were not encoded as expected.');
+
 	$GLOBALS['ocsTestCurlResponse'] = true;
 
 	try {
