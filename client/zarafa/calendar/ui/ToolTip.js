@@ -293,6 +293,11 @@ Zarafa.calendar.ui.ToolTip = Ext.extend(Ext.ToolTip, {
 				Ext.util.Format.htmlEncode(Zarafa.core.mapi.BusyStatus.getDisplayName(busy)) + '</span>');
 		}
 
+		var bodyPreview = record.get('body_preview');
+		if ( !Ext.isEmpty(bodyPreview) ) {
+			rows += this.renderRow(_('Body'), Ext.util.Format.htmlEncode(bodyPreview));
+		}
+
 		var categories = Zarafa.common.categories.Util.getCategories(record);
 		if ( !Ext.isEmpty(categories) ) {
 			rows += '<div class="k-appt-tip-cats">' + Zarafa.common.categories.Util.getCategoriesHtml(categories, record.get('store_entryid')) + '</div>';
