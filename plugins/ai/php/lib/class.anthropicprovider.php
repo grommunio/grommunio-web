@@ -87,6 +87,24 @@ class AnthropicProvider extends AIProvider {
 		return null;
 	}
 
+	/** The Messages API says 'max_tokens' where the OpenAI dialect says 'length'. */
+	protected function parseFinishReason(array $json): ?string {
+		$reason = $json['stop_reason'] ?? null;
+
+		return $reason === 'max_tokens' ? 'length' : $reason;
+	}
+
+	protected function parseStreamFinish(string $data): ?string {
+		$json = json_decode($data, true);
+		if (!is_array($json)) {
+			return null;
+		}
+		// The stop reason arrives on the message_delta event near the end.
+		$reason = $json['delta']['stop_reason'] ?? ($json['message']['stop_reason'] ?? null);
+
+		return $reason === 'max_tokens' ? 'length' : $reason;
+	}
+
 	protected function parseStreamError(string $data): ?string {
 		$json = json_decode($data, true);
 		if (is_array($json) && ($json['type'] ?? '') === 'error') {
