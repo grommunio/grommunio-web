@@ -4809,16 +4809,21 @@ class Operations {
 
 				// check if EX-type recipients are really in the address book
 				if ($props['address_type'] === 'EX') {
-					try {
-						mapi_ab_openentry($addrBook, hex2bin($props['entryid']));
-					}
-					catch (MAPIException $e) {
-						if ($e->getCode() == MAPI_E_NOT_FOUND || $e->getCode() == MAPI_E_INVALID_PARAMETER) {
-							$props['email_address'] = $props['smtp_address'];
-							$props['address_type'] = 'SMTP';
-							$oneOffEntryId = mapi_createoneoff($props['display_name'], $props['address_type'], $props['smtp_address'], MAPI_UNICODE);
-							$props['entryid'] = $oneOffEntryId === false ? '' : bin2hex($oneOffEntryId);
+					$inAddressBook = false;
+					if (!empty($props['entryid'])) {
+						try {
+							mapi_ab_openentry($addrBook, hex2bin($props['entryid']));
+							$inAddressBook = true;
 						}
+						catch (MAPIException $e) {
+							$inAddressBook = $e->getCode() != MAPI_E_NOT_FOUND && $e->getCode() != MAPI_E_INVALID_PARAMETER;
+						}
+					}
+					if (!$inAddressBook) {
+						$props['email_address'] = $props['smtp_address'];
+						$props['address_type'] = 'SMTP';
+						$oneOffEntryId = mapi_createoneoff($props['display_name'], $props['address_type'], $props['smtp_address'], MAPI_UNICODE);
+						$props['entryid'] = $oneOffEntryId === false ? '' : bin2hex($oneOffEntryId);
 					}
 				}
 				array_push($recipientsInfo, ["props" => $props]);
