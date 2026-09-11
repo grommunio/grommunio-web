@@ -201,6 +201,7 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 				flex: 1,
 				border: true,
 				treeSorter: true,
+				plugins: ['zarafa.treetypeahead'],
 				hideTodoList: true,
 				hideSearchFolders: true,
 				enableDD: false,
