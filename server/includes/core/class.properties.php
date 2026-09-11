@@ -463,7 +463,6 @@ class Properties {
 			$properties["goid2"],
 			$properties["deleted_on"],
 			$properties["message_size"],
-			$properties["message_flags"],
 			$properties["intendedbusystatus"],
 			$properties["last_modification_time"],
 			$properties["updatecounter"],

@@ -272,7 +272,7 @@ Zarafa.hierarchy.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 		this.currentCounterType = newCounterType;
 
 		// Bold is driven by unread count, independent of counter type.
-		var hasUnread = folder.hasUnreadItems();
+		var hasUnread = folder.get('content_unread') > 0;
 		if (hasUnread) {
 			elNode.addClass('zarafa-hierarchy-node-withcounter');
 		} else {

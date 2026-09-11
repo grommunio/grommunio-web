@@ -4295,6 +4295,8 @@ span.preview-header-sender-image {
     word-break: break-word;
     padding-right: 3px;
     display: block; }
+  .k-appointment-box.k-unread .k-title {
+    font-weight: bold; }
 
 .k-html-header-appointment .k-appointment-box {
   /* selection in the header of the days view has the handles on the left and tight sides */ }
