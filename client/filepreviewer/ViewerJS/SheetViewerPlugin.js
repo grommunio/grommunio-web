@@ -29,19 +29,24 @@ function SheetViewerPlugin() {
 
     function injectStyle() {
         ViewerSupport.style('sheet-viewer-style',
-            '.sheet-wrapper{background:#fff;text-align:left;font-family:Arial,Helvetica,sans-serif;font-size:13px;}' +
-            '.sheet-tabs{position:sticky;top:0;z-index:3;background:#f3f3f3;border-bottom:1px solid #ccc;' +
+            // A document keeps its own colours, whichever theme is around it.
+            '.sheet-wrapper{display:flex;flex-direction:column;height:100%;' +
+                'background:#fff;color:#1d2939;text-align:left;' +
+                'font-family:Arial,Helvetica,sans-serif;font-size:13px;}' +
+            '.sheet-tabs{flex:none;background:#f3f3f3;border-bottom:1px solid #ccc;' +
                 'padding:4px 8px 0;white-space:nowrap;overflow-x:auto;}' +
             '.sheet-tab{display:inline-block;padding:5px 14px;margin-right:4px;border:1px solid #ccc;' +
                 'border-bottom:none;background:#e4e4e4;cursor:pointer;border-radius:4px 4px 0 0;}' +
             '.sheet-tab.active{background:#fff;font-weight:bold;}' +
-            '.sheet-body{overflow:auto;}' +
+            // The only thing that scrolls, which is what keeps the headers put.
+            '.sheet-body{flex:1 1 auto;min-height:0;overflow:auto;}' +
             '.sheet-body table{border-collapse:separate;border-spacing:0;table-layout:fixed;}' +
             '.sheet-body td,.sheet-body th{border-right:1px solid #dcdcdc;border-bottom:1px solid #dcdcdc;' +
                 'padding:2px 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;vertical-align:bottom;}' +
             '.sheet-head{background:#f3f3f3;color:#555;font-weight:normal;text-align:center;' +
-                'border-top:1px solid #dcdcdc;position:sticky;z-index:1;}' +
-            '.sheet-body thead .sheet-head{top:0;}' +
+                'border-top:1px solid #dcdcdc;position:sticky;}' +
+            // Where the frozen bands cross, the column headers win, the corner over both.
+            '.sheet-body thead .sheet-head{top:0;z-index:3;}' +
             '.sheet-body .sheet-rowhead{left:0;z-index:2;border-left:1px solid #dcdcdc;' +
                 'text-align:right;width:44px;background:#f3f3f3;}' +
             '.sheet-body thead .sheet-corner{top:0;left:0;z-index:4;}' +
@@ -316,7 +321,7 @@ function SheetViewerPlugin() {
     }
 
     function render( buffer ) {
-        var canvas  = ViewerSupport.canvas(),
+        var canvas  = ViewerSupport.fillFrame(),
             wrapper = document.createElement('div'),
             names,
             tabs;
@@ -356,32 +361,13 @@ function SheetViewerPlugin() {
         content.className = 'sheet-body';
         wrapper.appendChild(content);
 
-        // The document area clips its overflow, which would both hide the
-        // right hand columns of a wide sheet and stop the row and column
-        // headers from sticking to the edge while it is scrolled.
+        // The document area clips its overflow, which would hide the right
+        // hand columns of a wide sheet.
         canvas.style.overflow = 'visible';
         canvas.appendChild(wrapper);
         self.wrapper = wrapper;
 
         showSheet(names[0]);
-        layout();
-        window.addEventListener('resize', layout);
-    }
-
-    /**
-     * Give the sheet the height that is left below the tab bar. The sheet
-     * scrolls inside that box, which is what keeps the row and column
-     * headers at the edge while it is scrolled.
-     */
-    function layout() {
-        var container = document.getElementById('canvasContainer'),
-            tabs      = self.wrapper && self.wrapper.querySelector('.sheet-tabs');
-
-        if ( !container || !content ) {
-            return;
-        }
-        content.style.height = Math.max(120,
-            container.clientHeight - (tabs ? tabs.offsetHeight : 0) - 14) + 'px';
     }
 
     this.initialize = function ( viewerElement, documentUrl ) {

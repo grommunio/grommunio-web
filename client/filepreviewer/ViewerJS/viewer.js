@@ -62,7 +62,6 @@ function Viewer( viewerPlugin, parameters ) {
         viewerElement      = document.getElementById('viewer'),
         canvasContainer    = document.getElementById('canvasContainer'),
         overlayNavigator   = document.getElementById('overlayNavigator'),
-        titlebar           = document.getElementById('titlebar'),
         toolbar            = document.getElementById('toolbarContainer'),
         pageSwitcher       = document.getElementById('toolbarLeft'),
         zoomWidget         = document.getElementById('toolbarMiddleContainer'),
@@ -246,13 +245,11 @@ function Viewer( viewerPlugin, parameters ) {
         var initialScale;
 
         localize();
+        ViewerSupport.followHostTheme();
         initialScale = readZoomParameter(parameters.zoom);
 
-        url                    = parameters.documentUrl;
-        document.title         = parameters.title;
-        var documentName       = document.getElementById('documentName');
-        documentName.innerHTML = "";
-        documentName.appendChild(documentName.ownerDocument.createTextNode(parameters.title));
+        url            = parameters.documentUrl;
+        document.title = parameters.title;
 
         viewerPlugin.onLoad = function () {
 
@@ -388,7 +385,7 @@ function Viewer( viewerPlugin, parameters ) {
         var overlayCloseButton = document.getElementById('overlayCloseButton');
 
         if ( !presentationMode ) {
-            titlebar.style.display = toolbar.style.display = 'none';
+            toolbar.style.display = 'none';
             overlayCloseButton.style.display = 'block';
             canvasContainer.classList.add('presentationMode');
             canvasContainer.onmousedown   = function ( event ) {
@@ -410,7 +407,7 @@ function Viewer( viewerPlugin, parameters ) {
             if ( isBlankedOut() ) {
                 leaveBlankOut();
             }
-            titlebar.style.display = toolbar.style.display = 'block';
+            toolbar.style.display = 'block';
             overlayCloseButton.style.display = 'none';
             canvasContainer.classList.remove('presentationMode');
             canvasContainer.onmouseup     = function () {
@@ -488,7 +485,6 @@ function Viewer( viewerPlugin, parameters ) {
     /**
      */
     function showToolbars() {
-        titlebar.classList.add('viewer-touched');
         toolbar.classList.add('viewer-touched');
         window.clearTimeout(toolbarTouchTimer);
         toolbarTouchTimer = window.setTimeout(function () {
@@ -497,12 +493,11 @@ function Viewer( viewerPlugin, parameters ) {
     }
 
     function hideToolbars() {
-        titlebar.classList.remove('viewer-touched');
         toolbar.classList.remove('viewer-touched');
     }
 
     function toggleToolbars() {
-        if ( titlebar.classList.contains('viewer-touched') ) {
+        if ( toolbar.classList.contains('viewer-touched') ) {
             hideToolbars();
         } else {
             showToolbars();
@@ -576,7 +571,6 @@ function Viewer( viewerPlugin, parameters ) {
             canvasContainer.addEventListener('click', showOverlayNavigator);
             overlayNavigator.addEventListener('click', showOverlayNavigator);
             canvasContainer.addEventListener('click', toggleToolbars);
-            titlebar.addEventListener('click', showToolbars);
             toolbar.addEventListener('click', showToolbars);
 
             window.addEventListener('scalechange', function ( evt ) {

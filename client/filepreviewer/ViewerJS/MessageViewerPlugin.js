@@ -21,8 +21,9 @@ function MessageViewerPlugin() {
 
     function injectStyle() {
         ViewerSupport.style('message-viewer-style',
-            '.eml-wrapper{background:#fff;text-align:left;color:#222;margin:0 auto;padding:24px 32px;' +
-                'max-width:900px;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;}' +
+            '.eml-wrapper{background:#fff;text-align:left;color:#222;margin:16px auto;padding:24px 32px;' +
+                'max-width:900px;border-radius:4px;box-shadow:var(--page-shadow);' +
+                'font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;}' +
             '.eml-subject{font-size:20px;font-weight:bold;margin:0 0 12px;}' +
             '.eml-headers{display:grid;grid-template-columns:max-content 1fr;gap:2px 12px;' +
                 'margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #e0e0e0;}' +
@@ -294,10 +295,10 @@ function MessageViewerPlugin() {
                 // Remote content stays unloaded: fetching it would tell the
                 // sender the message has been read.
                 if ( /^https?:/i.test(source) ) {
+                    // No address on the element: a broken picture draws whatever text it has.
                     image.removeAttribute('src');
                     image.removeAttribute('alt');
                     image.className = 'eml-blocked';
-                    image.title     = source;
                 }
 
                 return;
@@ -324,7 +325,7 @@ function MessageViewerPlugin() {
     }
 
     function render( buffer ) {
-        var canvas   = ViewerSupport.canvas(),
+        var canvas   = ViewerSupport.canvas(true),
             wrapper  = document.createElement('div'),
             message  = parsePart(decodeBytes(new Uint8Array(buffer), 'windows-1252')),
             headers  = message.headers,

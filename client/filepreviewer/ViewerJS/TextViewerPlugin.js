@@ -23,17 +23,17 @@ function TextViewerPlugin() {
 
     function injectStyle() {
         ViewerSupport.style('text-viewer-style',
-            '.text-wrapper{display:flex;align-items:flex-start;background:#fff;text-align:left;' +
-                'font-family:Consolas,"Liberation Mono",Menlo,monospace;font-size:13px;line-height:1.5;}' +
+            // A document keeps its own colours, whichever theme is around it.
+            '.text-wrapper{display:flex;align-items:flex-start;background:#fff;color:#1d2939;' +
+                'text-align:left;font-family:Consolas,"Liberation Mono",Menlo,monospace;' +
+                'font-size:13px;line-height:1.5;}' +
             '.text-gutter{flex:none;padding:12px 8px 12px 12px;text-align:right;color:#999;' +
                 'background:#f6f6f6;border-right:1px solid #e0e0e0;user-select:none;}' +
             '.text-body{flex:1 1 auto;min-width:0;padding:12px 16px;margin:0;' +
                 'white-space:pre;overflow-wrap:normal;}' +
             '.text-body.wrapped{white-space:pre-wrap;overflow-wrap:anywhere;}' +
-            '.text-toggle{margin-left:8px;color:#fff;background:transparent;border:1px solid #6b6b6b;' +
-                'border-radius:3px;padding:2px 8px;font-size:12px;cursor:pointer;}' +
-            '.text-toggle.on{background:#6b6b6b;}' +
-            '.markdown-wrapper{background:#fff;padding:24px 32px;max-width:52em;margin:0 auto;text-align:left;' +
+            '.markdown-wrapper{background:#fff;padding:24px 32px;max-width:52em;margin:16px auto;text-align:left;' +
+                'border-radius:4px;box-shadow:var(--page-shadow);' +
                 'font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.6;color:#222;}' +
             '.markdown-wrapper h1,.markdown-wrapper h2,.markdown-wrapper h3{line-height:1.25;margin:1.2em 0 .5em;}' +
             '.markdown-wrapper h1{font-size:1.8em;border-bottom:1px solid #eee;padding-bottom:.2em;}' +
@@ -270,26 +270,30 @@ function TextViewerPlugin() {
 
     /**
      * A switch in the toolbar for line wrapping, which long log lines and
-     * unwrapped source need.
+     * unwrapped source need. It is one of the viewer's own toolbar buttons,
+     * so it looks and behaves like the rest of them.
      */
     function addWrapToggle() {
         var button = document.createElement('button');
-        button.className   = 'text-toggle';
-        button.textContent = ViewerSupport.t('Wrap lines');
+        button.className = 'toolbarButton wrap';
+        button.title     = ViewerSupport.t('Wrap lines');
         button.addEventListener('click', function () {
             wrapped = !wrapped;
-            button.classList.toggle('on', wrapped);
+            button.classList.toggle('toggled', wrapped);
+            button.setAttribute('aria-pressed', String(wrapped));
             body.classList.toggle('wrapped', wrapped);
             if ( gutter ) {
                 // Wrapped lines no longer line up with the gutter.
                 gutter.style.display = wrapped ? 'none' : '';
             }
         });
-        document.getElementById('toolbarRight').appendChild(button);
+        button.setAttribute('aria-pressed', 'false');
+        document.getElementById('toolbarRight').insertBefore(button,
+            document.getElementById('toolbarRight').firstChild);
     }
 
     function render( text, extension ) {
-        var canvas  = ViewerSupport.canvas(),
+        var canvas  = ViewerSupport.canvas(true),
             wrapper = document.createElement('div'),
             numbers,
             count,

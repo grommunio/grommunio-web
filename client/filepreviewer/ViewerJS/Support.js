@@ -66,6 +66,47 @@ var ViewerSupport = (function () {
     }
 
     /**
+     * Wear the theme grommunio Web is wearing, and keep wearing it: the user
+     * can switch between light and dark with a preview open, and the viewer
+     * is a page of its own that would otherwise keep the theme it was opened
+     * with until it is reloaded.
+     *
+     * The page it is embedded in has already put a theme on the document from
+     * the address it was opened with, which is what keeps the viewer from
+     * appearing in the wrong colours for a moment; this only follows changes.
+     */
+    function followHostTheme() {
+        var host = hostWindow();
+
+        if ( !host ) {
+            return;
+        }
+
+        function apply() {
+            var accent;
+
+            try {
+                document.documentElement.dataset.theme =
+                    host.Zarafa.core.DarkMode.isDark() ? 'dark' : 'light';
+                accent = host.getComputedStyle(host.document.body)
+                    .getPropertyValue('--theme-primary-color').trim();
+                if ( (/^#[0-9a-f]{6}$/i).test(accent) ) {
+                    document.documentElement.style.setProperty('--accent', accent);
+                }
+            } catch ( e ) {
+                // The window went away while the preview was open.
+            }
+        }
+
+        apply();
+        // Dark mode is turned on and off by a class on the body of the page.
+        new MutationObserver(apply).observe(host.document.body, {
+            attributes:      true,
+            attributeFilter: ['class']
+        });
+    }
+
+    /**
      * Translate a string of the viewer chrome. The English text is the key,
      * so an untranslated string still reads correctly.
      *
@@ -207,10 +248,48 @@ var ViewerSupport = (function () {
     /**
      * The element the renderers draw into.
      *
+     * @param {Boolean} fill True for a renderer that paints its own surface
+     * over the whole document area, rather than one whose content is a page
+     * that should be set off from the background.
      * @return {HTMLElement} The canvas element of the viewer page
      */
-    function canvas() {
-        return document.getElementById('canvas');
+    function canvas( fill ) {
+        var element = document.getElementById('canvas');
+
+        if ( fill ) {
+            element.classList.add('canvas-fill');
+        }
+
+        return element;
+    }
+
+    /**
+     * Give the document area over to a renderer that scrolls its own content,
+     * so that it is the only thing that scrolls.
+     *
+     * @return {HTMLElement} The canvas element, filling the frame
+     */
+    function fillFrame() {
+        document.getElementById('canvasContainer').classList.add('container-fill');
+
+        return canvas(true);
+    }
+
+    /**
+     * The space a renderer has to draw in, without the padding around it.
+     *
+     * @return {Object} width and height in pixels
+     */
+    function contentBox() {
+        var container = document.getElementById('canvasContainer'),
+            style     = window.getComputedStyle(container);
+
+        return {
+            width: container.clientWidth -
+                parseFloat(style.paddingLeft) - parseFloat(style.paddingRight),
+            height: container.clientHeight -
+                parseFloat(style.paddingTop) - parseFloat(style.paddingBottom)
+        };
     }
 
     /**
@@ -360,13 +439,16 @@ var ViewerSupport = (function () {
     }
 
     return {
-        t:             t,
-        format:        format,
-        loadScripts:   loadScripts,
-        style:         style,
-        fetchDocument: fetchDocument,
-        showError:     showError,
-        canvas:        canvas,
-        flow:          flow
+        t:               t,
+        followHostTheme: followHostTheme,
+        format:          format,
+        loadScripts:     loadScripts,
+        style:           style,
+        fetchDocument:   fetchDocument,
+        showError:       showError,
+        canvas:          canvas,
+        fillFrame:       fillFrame,
+        contentBox:      contentBox,
+        flow:            flow
     };
 }());

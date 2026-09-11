@@ -19,8 +19,9 @@ function DocViewerPlugin() {
 
     function injectStyle() {
         ViewerSupport.style('doc-viewer-style',
-            '.doc-wrapper{background:#fff;text-align:left;color:#000;margin:0 auto;padding:56px 72px;' +
-                'max-width:860px;font-family:"Times New Roman",Times,serif;font-size:12pt;line-height:1.35;}' +
+            '.doc-wrapper{background:#fff;text-align:left;color:#000;margin:16px auto;padding:56px 72px;' +
+                'max-width:860px;border-radius:4px;box-shadow:var(--page-shadow);' +
+                'font-family:"Times New Roman",Times,serif;font-size:12pt;line-height:1.35;}' +
             '.doc-wrapper p{margin:0 0 .35em;min-height:1em;}' +
             '.doc-wrapper h1,.doc-wrapper h2,.doc-wrapper h3,.doc-wrapper h4,' +
                 '.doc-wrapper h5,.doc-wrapper h6{font-family:Arial,Helvetica,sans-serif;' +
@@ -1151,7 +1152,7 @@ function DocViewerPlugin() {
         ViewerSupport.fetchDocument(documentUrl).then(function ( buffer ) {
             var wrapper = render(buffer);
 
-            ViewerSupport.canvas().appendChild(wrapper);
+            ViewerSupport.canvas(true).appendChild(wrapper);
             self.wrapper = wrapper;
             self.ready();
         }).catch(function ( err ) {

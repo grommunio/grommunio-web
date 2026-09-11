@@ -89,24 +89,6 @@
     -ms-transform: rotate(270deg) translateX(-100%);
 }
 
-.flipHorizontal {
-    -moz-transform: scaleX(-1);
-    -o-transform: scaleX(-1);
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-    filter: FlipH;
-    -ms-filter: "FlipH";
-}
-.unknown-file {
-    color:            white;
-    font-size:        1em;
-    background-color: rgb(69, 69, 69);
-    margin:           auto;
-    padding:          10px;
-    width:            300px;
-    height:           100px;
-}
-
 .unknown-file .download-button {
     -moz-box-shadow:       inset 0px 1px 0px 0px #54a3f7;
     -webkit-box-shadow:    inset 0px 1px 0px 0px #54a3f7;
@@ -198,6 +180,41 @@
 * {
     padding: 0;
     margin:  0;
+}
+
+/* The frame cannot inherit the colours of grommunio Web, so it carries the
+   same tokens; the embedding page says which theme and accent to wear. */
+:root {
+    --surface:        #ffffff;
+    --surface-2:      #f7f8fa;
+    --surface-sunken:  #eceef2;
+    --text:           #1d2939;
+    --text-2:         #475467;
+    --text-3:         #667085;
+    --border:         #e4e7ec;
+    --border-strong:  #d0d5dd;
+    --input:          #ffffff;
+    --hover:          rgba(29, 41, 57, 0.06);
+    --active:         rgba(29, 41, 57, 0.12);
+    --page-shadow:    0 1px 3px rgba(16, 24, 40, 0.1), 0 6px 18px rgba(16, 24, 40, 0.08);
+    --accent:         #1976d2;
+    color-scheme:     light;
+}
+
+:root[data-theme="dark"] {
+    --surface:        #1e1e1e;
+    --surface-2:      #121212;
+    --surface-sunken:  #0d0d0d;
+    --text:           #d4d4d4;
+    --text-2:         #b0b0b0;
+    --text-3:         #919191;
+    --border:         #3a3a3a;
+    --border-strong:  #555555;
+    --input:          #252525;
+    --hover:          rgba(255, 255, 255, 0.08);
+    --active:         rgba(255, 255, 255, 0.16);
+    --page-shadow:    0 1px 3px rgba(0, 0, 0, 0.5), 0 6px 18px rgba(0, 0, 0, 0.45);
+    color-scheme:     dark;
 }
 
 html > body {
@@ -621,11 +638,9 @@ html[dir='rtl'] .splitToolbarButtonSeparator {
 }
 
 .dropdownToolbarButton {
-    min-width:  120px;
-    max-width:  120px;
-    padding:    4px 2px 4px;
-    overflow:   hidden;
-    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTguMjMzIDEwLjQ2NmwzLjYxNC0zLjYxM2EuNS41IDAgMCAwIC4xMDktLjE2MmMuMDI1LS4wNjEuMDM4LS4xMjYuMDM4LS4xOTFzLS4wMTMtLjEzMS0uMDM4LS4xOTFBLjUuNSAwIDAgMCAxMS40OTQgNmEuNS41IDAgMCAwLS4zNTQuMTQ2TDcuOTkyIDkuMjkzIDQuODQ3IDYuMTQ3YS41LjUgMCAwIDAtLjcwMS4wMDYuNS41IDAgMCAwLS4wMDYuNzAxbDMuNjEyIDMuNjEzLjQ4MS0uMDAxeiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPgo=) no-repeat;
+    position:  relative;
+    overflow:  hidden;
+    --chevron: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTguMjMzIDEwLjQ2NmwzLjYxNC0zLjYxM2EuNS41IDAgMCAwIC4xMDktLjE2MmMuMDI1LS4wNjEuMDM4LS4xMjYuMDM4LS4xOTFzLS4wMTMtLjEzMS0uMDM4LS4xOTFBLjUuNSAwIDAgMCAxMS40OTQgNmEuNS41IDAgMCAwLS4zNTQuMTQ2TDcuOTkyIDkuMjkzIDQuODQ3IDYuMTQ3YS41LjUgMCAwIDAtLjcwMS4wMDYuNS41IDAgMCAwLS4wMDYuNzAxbDMuNjEyIDMuNjEzLjQ4MS0uMDAxeiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPgo=);
 }
 
 .dropdownToolbarButton > select {
@@ -656,19 +671,16 @@ html[dir='rtl'] .dropdownToolbarButton {
     background-position: 5%;
 }
 
-.toolbarButton.presentation::before {
-    display: inline-block;
-    content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTEuNSAzYS41LjUgMCAwIDEgLjUtLjVoMTJhLjUuNSAwIDAgMSAuNS41djhhLjUuNSAwIDAgMS0uNS41SDJhLjUuNSAwIDAgMS0uNS0uNVYzek0yIDFhMiAyIDAgMCAwLTIgMnY4YTIgMiAwIDAgMCAyIDJoLjY1bC0xLjI5OSAyLjI1IDEuMjk5Ljc1IDEuNzMyLTNoNy4yNTdsMS43MzIgMyAxLjI5OS0uNzVMMTMuMzcxIDEzSDE0YTIgMiAwIDAgMCAyLTJWM2EyIDIgMCAwIDAtMi0ySDJ6bTMuNzk1IDMuNjQ0djQuNzEyYzAgLjQ5NC41MzQuODAzLjk2Mi41NThsNC4xMjMtMi4zNTZjLjQzMi0uMjQ2LjQzMi0uODY5IDAtMS4xMTZMNi43NTcgNC4wODZjLS40MjktLjI0NS0uOTYyLjA2NC0uOTYyLjU1OHoiIGZpbGw9IiNmZmYiLz48L3N2Zz4K);
+.toolbarButton.presentation {
+    --icon: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTEuNSAzYS41LjUgMCAwIDEgLjUtLjVoMTJhLjUuNSAwIDAgMSAuNS41djhhLjUuNSAwIDAgMS0uNS41SDJhLjUuNSAwIDAgMS0uNS0uNVYzek0yIDFhMiAyIDAgMCAwLTIgMnY4YTIgMiAwIDAgMCAyIDJoLjY1bC0xLjI5OSAyLjI1IDEuMjk5Ljc1IDEuNzMyLTNoNy4yNTdsMS43MzIgMyAxLjI5OS0uNzVMMTMuMzcxIDEzSDE0YTIgMiAwIDAgMCAyLTJWM2EyIDIgMCAwIDAtMi0ySDJ6bTMuNzk1IDMuNjQ0djQuNzEyYzAgLjQ5NC41MzQuODAzLjk2Mi41NThsNC4xMjMtMi4zNTZjLjQzMi0uMjQ2LjQzMi0uODY5IDAtMS4xMTZMNi43NTcgNC4wODZjLS40MjktLjI0NS0uOTYyLjA2NC0uOTYyLjU1OHoiIGZpbGw9IiNmZmYiLz48L3N2Zz4K);
 }
 
-.toolbarButton.download::before {
-    display: inline-block;
-    content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iI2ZmZiI+PHBhdGggZD0iTTkuNzk0IDcuMzE4SDcuODYzYS41LjUgMCAwIDAtLjM1NC44NTRsMi42ODIgMi42ODJhLjUuNSAwIDAgMCAuNzA3IDBsMi42ODItMi42ODJhLjUuNSAwIDAgMC0uMzU0LS44NTRoLTEuOTMyVjQuMzgyaC4wMDJ2LTEuMjVoLS4wMDJ2LS44MjRoLTEuNXYuODI0aC0uMDAzdjEuMjVoLjAwNHYyLjkzNmgtLjAwMXpNMTQgMy4xMzJoLTEuMjA0djEuMjVIMTRjLjM0NSAwIC42MjUuMjguNjI1LjYyNXY4YzAgLjM0NS0uMjguNjI1LS42MjUuNjI1SDJjLS4zNDUgMC0uNjI1LS4yOC0uNjI1LS42MjV2LTEwYzAtLjM0NS4yOC0uNjI1LjYyNS0uNjI1aDMuNjQzYS42My42MyAwIDAgMSAuNDY1LjIwN2wxLjQyOCAxLjU4NkEuNjIuNjIgMCAwIDAgOCA0LjM4MmguMjkxdi0xLjI1aC0uMDEzbC0xLjI0Mi0xLjM4YTEuODggMS44OCAwIDAgMC0xLjM5NC0uNjJIMkExLjg4IDEuODggMCAwIDAgLjEyNSAzLjAwN3YxMEExLjg4IDEuODggMCAwIDAgMiAxNC44ODJoMTJhMS44OCAxLjg4IDAgMCAwIDEuODc1LTEuODc1di04QTEuODggMS44OCAwIDAgMCAxNCAzLjEzMnoiLz48L3N2Zz4K);
+.toolbarButton.download {
+    --icon: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iI2ZmZiI+PHBhdGggZD0iTTkuNzk0IDcuMzE4SDcuODYzYS41LjUgMCAwIDAtLjM1NC44NTRsMi42ODIgMi42ODJhLjUuNSAwIDAgMCAuNzA3IDBsMi42ODItMi42ODJhLjUuNSAwIDAgMC0uMzU0LS44NTRoLTEuOTMyVjQuMzgyaC4wMDJ2LTEuMjVoLS4wMDJ2LS44MjRoLTEuNXYuODI0aC0uMDAzdjEuMjVoLjAwNHYyLjkzNmgtLjAwMXpNMTQgMy4xMzJoLTEuMjA0djEuMjVIMTRjLjM0NSAwIC42MjUuMjguNjI1LjYyNXY4YzAgLjM0NS0uMjguNjI1LS42MjUuNjI1SDJjLS4zNDUgMC0uNjI1LS4yOC0uNjI1LS42MjV2LTEwYzAtLjM0NS4yOC0uNjI1LjYyNS0uNjI1aDMuNjQzYS42My42MyAwIDAgMSAuNDY1LjIwN2wxLjQyOCAxLjU4NkEuNjIuNjIgMCAwIDAgOCA0LjM4MmguMjkxdi0xLjI1aC0uMDEzbC0xLjI0Mi0xLjM4YTEuODggMS44OCAwIDAgMC0xLjM5NC0uNjJIMkExLjg4IDEuODggMCAwIDAgLjEyNSAzLjAwN3YxMEExLjg4IDEuODggMCAwIDAgMiAxNC44ODJoMTJhMS44OCAxLjg4IDAgMCAwIDEuODc1LTEuODc1di04QTEuODggMS44OCAwIDAgMCAxNCAzLjEzMnoiLz48L3N2Zz4K);
 }
 
-.toolbarButton.print::before {
-    display: inline-block;
-    content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTEzIDRoLTFWMmEyIDIgMCAwIDAtLjU4Ni0xLjQxNEEyIDIgMCAwIDAgMTAgMEg2YTIgMiAwIDAgMC0yIDJ2MkgzYTIgMiAwIDAgMC0yIDJ2NWEyIDIgMCAwIDAgMiAyaDF2MWEyIDIgMCAwIDAgMiAyaDRhMiAyIDAgMCAwIDItMnYtMWgxYTIgMiAwIDAgMCAyLTJWNmEyIDIgMCAwIDAtMi0yaDB6bS0yLjI1IDEwLjE1bC0uNi42aC00LjNsLS42LS42VjEwaDUuNXY0LjE1em0wLTEwLjE1aC01LjVWMS44NWwuNi0uNmg0LjNsLjYuNlY0aDB6TTEzIDcuNmwtLjQuNGgtMS4ybC0uNC0uNFY2LjRsLjQtLjRoMS4ybC40LjR2MS4yeiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPgo=);
+.toolbarButton.print {
+    --icon: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTEzIDRoLTFWMmEyIDIgMCAwIDAtLjU4Ni0xLjQxNEEyIDIgMCAwIDAgMTAgMEg2YTIgMiAwIDAgMC0yIDJ2MkgzYTIgMiAwIDAgMC0yIDJ2NWEyIDIgMCAwIDAgMiAyaDF2MWEyIDIgMCAwIDAgMiAyaDRhMiAyIDAgMCAwIDItMnYtMWgxYTIgMiAwIDAgMCAyLTJWNmEyIDIgMCAwIDAtMi0yaDB6bS0yLjI1IDEwLjE1bC0uNi42aC00LjNsLS42LS42VjEwaDUuNXY0LjE1em0wLTEwLjE1aC01LjVWMS44NWwuNi0uNmg0LjNsLjYuNlY0aDB6TTEzIDcuNmwtLjQuNGgtMS4ybC0uNC0uNFY2LjRsLjQtLjRoMS4ybC40LjR2MS4yeiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPgo=);
 }
 
 .toolbarButton.about {
@@ -683,24 +695,20 @@ html[dir='rtl'] .dropdownToolbarButton {
     display: inline-block;
 }
 
-.toolbarButton.zoomOut::before {
-    display: inline-block;
-    content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTEzLjM3NSA5LjI1Yy4xNjYgMCAuMzI1LS4wNjYuNDQyLS4xODNTMTQgOC43OTEgMTQgOC42MjVzLS4wNjYtLjMyNS0uMTgzLS40NDJTMTMuNTQxIDggMTMuMzc1IDhIMi42MjVjLS4xNjYgMC0uMzI1LjA2Ni0uNDQyLjE4M1MyIDguNDU5IDIgOC42MjVzLjA2Ni4zMjUuMTgzLjQ0Mi4yNzYuMTgzLjQ0Mi4xODNoMTAuNzV6IiBmaWxsPSIjZmZmIi8+PC9zdmc+Cg==);
+.toolbarButton.zoomOut {
+    --icon: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTEzLjM3NSA5LjI1Yy4xNjYgMCAuMzI1LS4wNjYuNDQyLS4xODNTMTQgOC43OTEgMTQgOC42MjVzLS4wNjYtLjMyNS0uMTgzLS40NDJTMTMuNTQxIDggMTMuMzc1IDhIMi42MjVjLS4xNjYgMC0uMzI1LjA2Ni0uNDQyLjE4M1MyIDguNDU5IDIgOC42MjVzLjA2Ni4zMjUuMTgzLjQ0Mi4yNzYuMTgzLjQ0Mi4xODNoMTAuNzV6IiBmaWxsPSIjZmZmIi8+PC9zdmc+Cg==);
 }
 
-.toolbarButton.zoomIn::before {
-    display: inline-block;
-    content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTcuMDA1IDkuNzVWMTRjMCAuMTY2LjA2Ni4zMjUuMTgzLjQ0MnMuMjc2LjE4My40NDIuMTgzLjMyNS0uMDY2LjQ0Mi0uMTgzLjE4My0uMjc2LjE4My0uNDQyVjkuNzVsLjUtLjVoNC4yNWMuMTY2IDAgLjMyNS0uMDY2LjQ0Mi0uMTgzcy4xODMtLjI3Ni4xODMtLjQ0Mi0uMDY2LS4zMjUtLjE4My0uNDQyUzEzLjE3MSA4IDEzLjAwNSA4aC00LjI1bC0uNS0uNVYzLjI1YzAtLjE2Ni0uMDY2LS4zMjUtLjE4My0uNDQycy0uMjc2LS4xODMtLjQ0Mi0uMTgzLS4zMjUuMDY2LS40NDIuMTgzLS4xODMuMjc2LS4xODMuNDQyVjcuNWwtLjUuNWgtNC4yNWMtLjE2NiAwLS4zMjUuMDY2LS40NDIuMTgzcy0uMTgzLjI3Ni0uMTgzLjQ0Mi4wNjYuMzI1LjE4My40NDIuMjc2LjE4My40NDIuMTgzaDQuMTM3bC42MTMuNXoiIGZpbGw9IiNmZmYiLz48L3N2Zz4K);
+.toolbarButton.zoomIn {
+    --icon: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTcuMDA1IDkuNzVWMTRjMCAuMTY2LjA2Ni4zMjUuMTgzLjQ0MnMuMjc2LjE4My40NDIuMTgzLjMyNS0uMDY2LjQ0Mi0uMTgzLjE4My0uMjc2LjE4My0uNDQyVjkuNzVsLjUtLjVoNC4yNWMuMTY2IDAgLjMyNS0uMDY2LjQ0Mi0uMTgzcy4xODMtLjI3Ni4xODMtLjQ0Mi0uMDY2LS4zMjUtLjE4My0uNDQyUzEzLjE3MSA4IDEzLjAwNSA4aC00LjI1bC0uNS0uNVYzLjI1YzAtLjE2Ni0uMDY2LS4zMjUtLjE4My0uNDQycy0uMjc2LS4xODMtLjQ0Mi0uMTgzLS4zMjUuMDY2LS40NDIuMTgzLS4xODMuMjc2LS4xODMuNDQyVjcuNWwtLjUuNWgtNC4yNWMtLjE2NiAwLS4zMjUuMDY2LS40NDIuMTgzcy0uMTgzLjI3Ni0uMTgzLjQ0Mi4wNjYuMzI1LjE4My40NDIuMjc2LjE4My40NDIuMTgzaDQuMTM3bC42MTMuNXoiIGZpbGw9IiNmZmYiLz48L3N2Zz4K);
 }
 
-.toolbarButton.pageUp::before {
-    display: inline-block;
-    content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTEyLjU5IDQuODM2bC0xLjM1OSAxLjM2Yy0uMjk3LjI5Ni0uMDg3LjgwNC4zMzMuODA0aDMuNTc1YS40Ny40NyAwIDAgMCAuNDcxLS40NzFWMi45NTRjMC0uNDItLjUwOC0uNjMtLjgwNS0uMzMzbC0xLjEzMiAxLjEzMkMxMi4zMiAxLjc5IDEwLjA2LjUgNy41LjVBNy41MSA3LjUxIDAgMCAwIDAgOGE3LjUxIDcuNTEgMCAwIDAgNy41IDcuNWMzLjc5NiAwIDYuOTM0LTIuODM3IDcuNDI1LTYuNUgxMy40MWMtLjQ3OCAyLjgzMy0yLjk0MiA1LTUuOTEgNWE2LjAxIDYuMDEgMCAwIDEtNi02IDYuMDEgNi4wMSAwIDAgMSA2LTYgNS45OSA1Ljk5IDAgMCAxIDUuMDg5IDIuODM2eiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPgo=);
+.toolbarButton.pageUp {
+    --icon: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTEyLjIgMTAuNWEuNi42IDAgMCAwIDAtLjg1TDguNDIgNS44OGEuNi42IDAgMCAwLS44NCAwTDMuOCA5LjY1YS42LjYgMCAxIDAgLjg0Ljg1TDggNy4xNWwzLjM2IDMuMzVhLjYuNiAwIDAgMCAuODQgMFoiIGZpbGw9IiNmZmYiLz48L3N2Zz4=);
 }
 
-.toolbarButton.pageDown::before {
-    display: inline-block;
-    content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTMuNDExIDQuODM2bDEuMzYgMS4zNmMuMjk3LjI5Ni4wODcuODA0LS4zMzMuODA0SC44NjJhLjQ3LjQ3IDAgMCAxLS40NzEtLjQ3MVYyLjk1NGMwLS40Mi41MDgtLjYzLjgwNS0uMzMzbDEuMTMyIDEuMTMyQzMuNjggMS43OSA1Ljk0LjUgOC41LjVBNy41MSA3LjUxIDAgMCAxIDE2IDhhNy41MSA3LjUxIDAgMCAxLTcuNSA3LjVjLTMuNzk2IDAtNi45MzQtMi44MzctNy40MjUtNi41SDIuNTljLjQ3OCAyLjgzMyAyLjk0MiA1IDUuOTEgNWE2LjAxIDYuMDEgMCAwIDAgNi02IDYuMDEgNi4wMSAwIDAgMC02LTYgNS45OSA1Ljk5IDAgMCAwLTUuMDg5IDIuODM2eiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPgo=);
+.toolbarButton.pageDown {
+    --icon: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTMuOCA1LjVhLjYuNiAwIDAgMCAwIC44NWwzLjc4IDMuNzdhLjYuNiAwIDAgMCAuODQgMGwzLjc4LTMuNzdhLjYuNiAwIDEgMC0uODQtLjg1TDggOC44NSA0LjY0IDUuNWEuNi42IDAgMCAwLS44NCAwWiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==);
 }
 
 .toolbarField.pageNumber {
@@ -950,10 +958,6 @@ html[dir='rtl'] .dropdownToolbarButton {
     height: 100% !important;
 }
 
-select#scaleSelect {
-    color: #aaa;
-}
-
 @media print {
     .no-print, .no-print * {
         display: none !important;
@@ -990,4 +994,326 @@ select#scaleSelect {
     to {
         transform: rotate(360deg);
     }
+}
+
+/* The grommunio Web look: everything below restyles the chrome with the
+   tokens above, for both themes. */
+
+html > body {
+    font-family: Arial, Helvetica, sans-serif;
+    color:       var(--text);
+    background:  var(--surface-2);
+}
+
+/* A document is dark on light whichever theme is around it; only what it
+   leaves unsaid is taken from here. */
+#canvas {
+    color: #1d2939;
+}
+
+/* One toolbar rather than two. */
+#toolbarContainer {
+    top:           0;
+    bottom:        auto;
+    height:        40px;
+    background:    var(--surface);
+    border-bottom: 1px solid var(--border);
+    border-top:    none;
+    box-shadow:    none;
+}
+
+#toolbarRight {
+    padding-right: 8px;
+}
+
+html[dir='ltr'] #toolbarLeft {
+    margin-left: 8px;
+}
+
+.toolbarButton,
+.dropdownToolbarButton {
+    height:        30px;
+    min-width:     30px;
+    margin:        5px 2px;
+    padding:       0 6px;
+    border:        1px solid transparent;
+    border-radius: 4px;
+    background:    none;
+    box-shadow:    none;
+    color:         var(--text-2);
+    transition:    background-color 120ms ease, color 120ms ease;
+}
+
+/* The icons ship as white SVGs; drawn as masks they take the text colour. */
+.toolbarButton::before {
+    content:            '';
+    display:            inline-block;
+    width:              16px;
+    height:             16px;
+    vertical-align:     middle;
+    background-color:   currentColor;
+    -webkit-mask:       var(--icon) no-repeat center / 16px 16px;
+    mask:               var(--icon) no-repeat center / 16px 16px;
+}
+
+.toolbarButton:hover,
+.toolbarButton:focus,
+.splitToolbarButton:hover > .toolbarButton,
+.splitToolbarButton:focus > .toolbarButton {
+    background:   var(--hover);
+    background-image: none;
+    border-color: transparent;
+    box-shadow:   none;
+    color:        var(--text);
+}
+
+.toolbarButton:hover:active,
+.splitToolbarButton > .toolbarButton:hover:active {
+    background:       var(--active);
+    background-image: none;
+    border-color:     transparent;
+    box-shadow:       none;
+}
+
+.toolbarButton:focus-visible,
+.toolbarField:focus-visible,
+.dropdownToolbarButton:focus-within {
+    outline:        2px solid var(--accent);
+    outline-offset: -1px;
+}
+
+/* The two halves of the page and zoom controls sit in one pill. */
+.splitToolbarButton {
+    margin: 5px 4px;
+}
+
+.splitToolbarButton > .toolbarButton {
+    margin:        0;
+    border-radius: 4px;
+}
+
+.splitToolbarButtonSeparator,
+.splitToolbarButton:hover > .splitToolbarButtonSeparator,
+.splitToolbarButton.toggled > .splitToolbarButtonSeparator {
+    width:      1px;
+    height:     18px;
+    margin:     6px 0;
+    padding:    0;
+    background: var(--border);
+    box-shadow: none;
+}
+
+.dropdownToolbarButton {
+    min-width:     136px;
+    max-width:     136px;
+    padding:       0 8px;
+    border:        1px solid var(--border-strong);
+    border-radius: 4px;
+    background:    var(--input);
+    color:         var(--text);
+}
+
+.dropdownToolbarButton::after {
+    content:          '';
+    position:         absolute;
+    top:              50%;
+    right:            8px;
+    width:            12px;
+    height:           12px;
+    margin-top:       -6px;
+    pointer-events:   none;
+    background-color: var(--text-3);
+    -webkit-mask:     var(--chevron) no-repeat center / 12px 12px;
+    mask:             var(--chevron) no-repeat center / 12px 12px;
+}
+
+.dropdownToolbarButton:hover {
+    border-color: var(--border-strong);
+    background:   var(--hover);
+}
+
+.dropdownToolbarButton > select {
+    width:       100%;
+    height:      28px;
+    min-width:   0;
+    color:       var(--text);
+    font-size:   12px;
+    background:  none;
+    cursor:      pointer;
+}
+
+.dropdownToolbarButton > select > option {
+    background: var(--surface);
+    color:      var(--text);
+}
+
+#pageWidthOption {
+    border-bottom: 1px solid var(--border);
+}
+
+.toolbarField {
+    height:        28px;
+    margin:        6px 2px;
+    padding:       0 6px;
+    border:        1px solid var(--border-strong);
+    border-radius: 4px;
+    background:    var(--input);
+    background-image: none;
+    box-shadow:    none;
+    color:         var(--text);
+    font-size:     12px;
+}
+
+.toolbarField:hover {
+    border-color: var(--text-3);
+    background:   var(--input);
+}
+
+.toolbarField:focus {
+    border-color: var(--accent);
+    background:   var(--input);
+}
+
+.toolbarLabel {
+    margin:      0 4px;
+    padding:     0;
+    line-height: 40px;
+    color:       var(--text-3);
+    font-size:   12px;
+}
+
+
+/* The switch for line wrapping, and the buttons that turn a picture. */
+.toolbarButton.wrap {
+    --icon: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iI2ZmZiI+PHBhdGggZD0iTTIgMy4zaDEyYS43LjcgMCAwIDEgMCAxLjRIMmEuNy43IDAgMCAxIDAtMS40WiIvPjxwYXRoIGQ9Ik0yIDcuM2g5LjhhMy4yIDMuMiAwIDAgMSAwIDYuNEg5LjF2LTEuNGgyLjdhMS44IDEuOCAwIDAgMCAwLTMuNkgyYS43LjcgMCAwIDEgMC0xLjRaIi8+PHBhdGggZD0iTTkuNiAxMC4xIDYuNCAxMi40YS41LjUgMCAwIDAgMCAuOGwzLjIgMi4zYS40LjQgMCAwIDAgLjYtLjR2LTQuNmEuNC40IDAgMCAwLS42LS40WiIvPjxwYXRoIGQ9Ik0yIDExLjloNC4xYS43LjcgMCAwIDEgMCAxLjRIMmEuNy43IDAgMCAxIDAtMS40WiIvPjwvc3ZnPg==);
+}
+
+.toolbarButton.rotateLeft {
+    --icon: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTEyLjU5IDQuODM2bC0xLjM1OSAxLjM2Yy0uMjk3LjI5Ni0uMDg3LjgwNC4zMzMuODA0aDMuNTc1YS40Ny40NyAwIDAgMCAuNDcxLS40NzFWMi45NTRjMC0uNDItLjUwOC0uNjMtLjgwNS0uMzMzbC0xLjEzMiAxLjEzMkMxMi4zMiAxLjc5IDEwLjA2LjUgNy41LjVBNy41MSA3LjUxIDAgMCAwIDAgOGE3LjUxIDcuNTEgMCAwIDAgNy41IDcuNWMzLjc5NiAwIDYuOTM0LTIuODM3IDcuNDI1LTYuNUgxMy40MWMtLjQ3OCAyLjgzMy0yLjk0MiA1LTUuOTEgNWE2LjAxIDYuMDEgMCAwIDEtNi02IDYuMDEgNi4wMSAwIDAgMSA2LTYgNS45OSA1Ljk5IDAgMCAxIDUuMDg5IDIuODM2eiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPgo=);
+}
+
+.toolbarButton.rotateRight {
+    --icon: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTMuNDExIDQuODM2bDEuMzYgMS4zNmMuMjk3LjI5Ni4wODcuODA0LS4zMzMuODA0SC44NjJhLjQ3LjQ3IDAgMCAxLS40NzEtLjQ3MVYyLjk1NGMwLS40Mi41MDgtLjYzLjgwNS0uMzMzbDEuMTMyIDEuMTMyQzMuNjggMS43OSA1Ljk0LjUgOC41LjVBNy41MSA3LjUxIDAgMCAxIDE2IDhhNy41MSA3LjUxIDAgMCAxLTcuNSA3LjVjLTMuNzk2IDAtNi45MzQtMi44MzctNy40MjUtNi41SDIuNTljLjQ3OCAyLjgzMyAyLjk0MiA1IDUuOTEgNWE2LjAxIDYuMDEgMCAwIDAgNi02IDYuMDEgNi4wMSAwIDAgMC02LTYgNS45OSA1Ljk5IDAgMCAwLTUuMDg5IDIuODM2eiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPgo=);
+}
+
+/* A button that stays pressed while what it switches on is on. */
+.toolbarButton.toggled,
+.toolbarButton.toggled:hover {
+    background: var(--active);
+    color:      var(--text);
+}
+
+/* The area the document itself is shown in. */
+#canvasContainer {
+    top:        40px;
+    bottom:     0;
+    padding:    16px 0;
+    background: var(--surface-2);
+}
+
+#canvas {
+    border-radius: 4px;
+    box-shadow:    var(--page-shadow);
+}
+
+#canvasContainer.slideshow {
+    background: var(--surface-sunken);
+}
+
+/* The message shown for a file that has no preview. */
+#canvasContainer > .unknown-file {
+    position: absolute;
+    inset:    0;
+}
+
+.unknown-file {
+    display:        flex;
+    flex-direction: column;
+    align-items:    center;
+    justify-content: center;
+    gap:            16px;
+    height:         100%;
+    padding:        32px;
+    background:     var(--surface);
+    color:          var(--text-2);
+    font-size:      14px;
+    text-align:     center;
+}
+
+.unknown-file .download-button {
+    display:          inline-block;
+    padding:          8px 18px;
+    border:           1px solid transparent;
+    border-radius:    4px;
+    background:       var(--accent);
+    background-image: none;
+    box-shadow:       none;
+    color:            #ffffff;
+    font-size:        13px;
+    font-weight:      600;
+    text-decoration:  none;
+    text-shadow:      none;
+}
+
+.unknown-file .download-button:hover,
+.unknown-file .download-button:active {
+    background:       var(--accent);
+    background-image: none;
+    filter:           brightness(0.92);
+    box-shadow:       none;
+}
+
+.unknown-file .download-button::before {
+    content: none;
+}
+
+/* The arrows over a presentation, and the button that leaves full screen. */
+#previousPage,
+#nextPage {
+    border-right-color: var(--text);
+    border-left-color:  var(--text);
+    opacity:            0.25;
+}
+
+#previousPage:active,
+#nextPage:active {
+    opacity: 0.45;
+}
+
+#overlayCloseButton {
+    background-color: var(--surface);
+    color:            var(--text);
+    opacity:          0.85;
+    font-size:        24px;
+    line-height:      40px;
+    box-shadow:       var(--page-shadow);
+}
+
+#overlayCloseButton:active {
+    background-color: var(--surface);
+    opacity:          1;
+}
+
+/* The image renderer draws straight into the document area. */
+#image {
+    border-radius: 4px;
+    box-shadow:    var(--page-shadow);
+}
+
+/* A renderer that paints its own surface wants no page shadow; only one
+   whose content is the page itself does. */
+#canvas.canvas-fill {
+    border-radius: 0;
+    box-shadow:    none;
+}
+
+/* A renderer that scrolls its own content takes the whole area and keeps
+   the only scrollbar. Sized here so it cannot drift past its box. */
+#canvasContainer.container-fill {
+    padding:  0;
+    overflow: hidden;
+}
+
+#canvasContainer.container-fill > #canvas {
+    height: 100%;
 }

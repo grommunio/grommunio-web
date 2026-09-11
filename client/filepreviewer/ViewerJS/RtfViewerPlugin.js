@@ -19,8 +19,9 @@ function RtfViewerPlugin() {
 
     function injectStyle() {
         ViewerSupport.style('rtf-viewer-style',
-            '.rtf-wrapper{background:#fff;text-align:left;color:#000;margin:0 auto;padding:48px 60px;' +
-                'max-width:820px;font-family:"Times New Roman",Times,serif;font-size:12pt;line-height:1.35;}' +
+            '.rtf-wrapper{background:#fff;text-align:left;color:#000;margin:16px auto;padding:48px 60px;' +
+                'max-width:820px;border-radius:4px;box-shadow:var(--page-shadow);' +
+                'font-family:"Times New Roman",Times,serif;font-size:12pt;line-height:1.35;}' +
             '.rtf-wrapper p{margin:0 0 .35em;min-height:1em;}' +
             '.rtf-wrapper table{border-collapse:collapse;margin:.5em 0;}' +
             '.rtf-wrapper td{border:1px solid #b5b5b5;padding:2px 6px;vertical-align:top;}' +
@@ -578,7 +579,7 @@ function RtfViewerPlugin() {
     }
 
     function render( buffer ) {
-        var canvas  = ViewerSupport.canvas(),
+        var canvas  = ViewerSupport.canvas(true),
             wrapper = document.createElement('div'),
             // RTF is ASCII with escapes for everything else, so the bytes
             // map one to one onto characters here.

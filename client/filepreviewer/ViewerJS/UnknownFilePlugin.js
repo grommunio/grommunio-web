@@ -12,20 +12,14 @@ function UnknownFilePlugin() {
     var divElement = undefined,
         self       = this;
 
-    function initCSS() {
-    }
-
+    /**
+     * There is nothing to page through, zoom or print, so the toolbar is put
+     * away and the message gets the whole frame.
+     */
     function initButtons() {
-        var leftToolbar                                          = document.getElementById('toolbarLeft');
-        // hide unused elements
-        document.getElementById("navButtons").style.display      = 'none';
-        document.getElementById("pageNumberLabel").style.display = 'none';
-        document.getElementById("pageNumber").style.display      = 'none';
-        document.getElementById("numPages").style.display        = 'none';
-        document.getElementById("toolbar").style.display         = 'none';
-        document.getElementById("titlebarRight").style.display   = 'none';
-        leftToolbar.style.visibility                             = "visible";
-
+        document.getElementById('toolbarContainer').style.display = 'none';
+        document.getElementById('canvasContainer').style.top      = '0';
+        document.getElementById('canvas').style.display           = 'none';
     }
 
     this.initialize = function ( viewerElement, documentUrl ) {
@@ -44,10 +38,8 @@ function UnknownFilePlugin() {
         viewerElement.appendChild(divElement);
         viewerElement.style.overflow = "auto";
 
-        self.onLoad();
-
-        initCSS();
         initButtons();
+        self.onLoad();
     };
 
     this.isSlideshow = function () {

@@ -149,16 +149,21 @@ Zarafa.common.previewer.ui.ViewerPanel = Ext.extend(Ext.BoxComponent, {
 		if (renderer === 'pdf') {
 			// pdf.js takes the file name from the URL when the document is
 			// downloaded from the viewer. A hash would truncate it there.
-			url += '&filename=' + name.replace('#', '-') + '&locale=' + language;
+			url += '&filename=' + name.replace('#', '-');
 
 			return root + this.pdfjsPath + '?file=' + encodeURIComponent(url) +
 				'&version=' + container.getVersion().getWebApp() +
+				'&theme=' + this.getTheme() +
+				'&locale=' + language +
 				'#zoom=' + settings.get('zarafa/v1/main/file_previewer/pdf_zoom');
 		}
 
 		var options = '?version=' + container.getVersion().getWebApp() +
 			'&locale=' + language +
-			'&type=' + extension;
+			'&type=' + extension +
+			// The viewer cannot see the stylesheet of grommunio Web.
+			'&theme=' + this.getTheme() +
+			'&accent=' + this.getAccentColour();
 
 		if (renderer) {
 			options += '&plugin=' + renderer;
@@ -170,6 +175,31 @@ Zarafa.common.previewer.ui.ViewerPanel = Ext.extend(Ext.BoxComponent, {
 		options += '&zoom=' + (fitsFrame ? 'auto' : settings.get('zarafa/v1/main/file_previewer/odf_zoom'));
 
 		return root + this.viewerjsPath + options + '#' + url;
+	},
+
+	/**
+	 * Whether grommunio Web is being shown light or dark at the moment.
+	 *
+	 * @return {String} 'dark' or 'light'
+	 */
+	getTheme: function ()
+	{
+		return Zarafa.core.DarkMode && Zarafa.core.DarkMode.isDark() ? 'dark' : 'light';
+	},
+
+	/**
+	 * The accent colour of the theme the user is running, as six hexadecimal
+	 * digits, so the viewer can highlight with the same colour.
+	 *
+	 * @return {String} The colour, without its leading hash
+	 */
+	getAccentColour: function ()
+	{
+		var value = window.getComputedStyle(document.body)
+			.getPropertyValue('--theme-primary-color').trim();
+		var match = (/^#([0-9a-f]{6})$/i).exec(value);
+
+		return match ? match[1] : '1976d2';
 	},
 
 	/**
@@ -223,19 +253,13 @@ Zarafa.common.previewer.ui.ViewerPanel = Ext.extend(Ext.BoxComponent, {
 	{
 		var dom = this.getEl().dom;
 		var frameDom = dom.contentDocument;
-		var frameWindow = dom.contentWindow;
 
 		if (!frameDom) {
 			return;
 		}
 
-		frameDom.addEventListener('webviewerloaded', function () {
-			if (frameWindow.PDFViewerApplicationOptions) {
-				frameWindow.PDFViewerApplicationOptions.set('externalLinkTarget', 2);
-				frameWindow.PDFViewerApplicationOptions.set('disablePreferences', true);
-			}
-		});
-
+		// The pdf.js viewer settles itself; this runs on the load event of the
+		// frame, long after it has started.
 		frameDom.addEventListener('keydown', function (origEvent) {
 			if (origEvent.keyCode === 27) {
 				dom.dispatchEvent(new KeyboardEvent(origEvent.type, origEvent));

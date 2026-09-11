@@ -64,8 +64,21 @@ function DocxViewerPlugin() {
         });
     }
 
+    /**
+     * docx-preview paints a grey backdrop of its own behind the pages, which
+     * is not the colour the rest of the previewer uses.
+     */
+    function injectStyle() {
+        ViewerSupport.style('docx-viewer-style',
+            '.docx-wrapper{background:var(--surface-2);padding:0;}' +
+            '.docx-wrapper > section.docx{margin-bottom:16px;border-radius:4px;' +
+                'box-shadow:var(--page-shadow);}');
+    }
+
     this.initialize = function ( viewerElement, documentUrl ) {
-        var container = ViewerSupport.canvas();
+        var container = ViewerSupport.canvas(true);
+
+        injectStyle();
 
         ViewerSupport.fetchDocument(documentUrl, 'blob').then(function ( blob ) {
             return docx.renderAsync(blob, container, null, {

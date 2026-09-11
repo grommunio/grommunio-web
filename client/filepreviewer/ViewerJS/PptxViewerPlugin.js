@@ -1015,14 +1015,14 @@ function PptxViewerPlugin() {
      * Fit the slide that is showing into the frame.
      */
     function layout() {
-        var container = document.getElementById('canvasContainer'),
+        var box = ViewerSupport.contentBox(),
             available;
 
-        if ( !deck || !container ) {
+        if ( !deck ) {
             return;
         }
-        available = Math.min((container.clientWidth - 24) / slideWidth,
-            (container.clientHeight - 24) / slideHeight);
+        // Without the padding, or the slide overflows the frame by a few pixels.
+        available = Math.min(box.width / slideWidth, box.height / slideHeight);
         scaleTo(available * zoomLevel);
     }
 
@@ -1037,7 +1037,7 @@ function PptxViewerPlugin() {
     this.initialize = function ( viewerElement, documentUrl ) {
         injectStyle();
         ViewerSupport.fetchDocument(documentUrl).then(render).then(function ( built ) {
-            var canvas = ViewerSupport.canvas();
+            var canvas = ViewerSupport.canvas(true);
 
             if ( !built.length ) {
                 throw new Error('no slides');
