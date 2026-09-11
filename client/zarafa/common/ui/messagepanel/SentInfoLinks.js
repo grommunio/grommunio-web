@@ -54,8 +54,8 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 					'<span class="zarafa-presence-status {[Zarafa.core.data.PresenceStatus.getCssClass(values.sent_representing_presence_status)]}">'+
 						'<span class="zarafa-presence-status-icon" aria-hidden="true"></span>' +
 						'{sent_representing_name:htmlEncodeElide(this.ellipsisStringStartLength, this.ellipsisStringEndLength)}&nbsp;' +
-						'<tpl if="this.shouldRenderAddress(values.sent_representing_email_address, values.record_is_opened)">' +
-							'<span class="preview-sender-address">&lt;{sent_representing_email_address:htmlEncode}&gt;</span>'+
+						'<tpl if="this.shouldRenderAddress(values.sent_representing_smtp_address, values.record_is_opened)">' +
+							'<span class="preview-sender-address">&lt;{sent_representing_smtp_address:htmlEncode}&gt;</span>'+
 						'</tpl>' +
 					'</span>' +
 				'</span>' +
