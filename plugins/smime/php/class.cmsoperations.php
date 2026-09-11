@@ -274,7 +274,7 @@ class CmsOperations {
 	 * @param int         $flags       CMS/PKCS7 flags
 	 * @param null|string $outCertFile path to write signer certificates
 	 * @param array       $caInfo      list of CA bundle paths
-	 * @param null|string $signerCert  path to expected signer certificate
+	 * @param null|string $signerCert  path to extra untrusted certificates for building the signer chain
 	 * @param null|string $contentFile path to write verified content
 	 * @param null|string $p7bFile     path to write PKCS#7 structure
 	 *
@@ -296,7 +296,7 @@ class CmsOperations {
 			$encoding = OPENSSL_ENCODING_SMIME;
 			$result = @openssl_cms_verify(
 				$infile, $cmsFlags, $outCertFile, $caInfo,
-				$signerCert, $contentFile, $p7bFile, $encoding
+				$signerCert, $contentFile, $p7bFile, null, $encoding
 			);
 			if ($result !== -1) {
 				return $result;
