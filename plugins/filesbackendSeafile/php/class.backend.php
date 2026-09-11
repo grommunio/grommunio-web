@@ -71,7 +71,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 	private const SFA_ERR_NOTALLOWED = 405;
 	private const SFA_ERR_TIMEOUT = 408;
 	private const SFA_ERR_LOCKED = 423;
-	private const SFA_ERR_FAILED_DEPENDENCY = 423;
+	private const SFA_ERR_FAILED_DEPENDENCY = 424;
 	private const SFA_ERR_INTERNAL = 500;
 	private const SFA_ERR_UNREACHABLE = 800;
 	private const SFA_ERR_TMP = 801;

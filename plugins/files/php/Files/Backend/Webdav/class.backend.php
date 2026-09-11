@@ -34,7 +34,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	public const WD_ERR_NOTALLOWED = 405;
 	public const WD_ERR_TIMEOUT = 408;
 	public const WD_ERR_LOCKED = 423;
-	public const WD_ERR_FAILED_DEPENDENCY = 423;
+	public const WD_ERR_FAILED_DEPENDENCY = 424;
 	public const WD_ERR_INTERNAL = 500;
 	public const WD_ERR_UNREACHABLE = 800;
 	public const WD_ERR_TMP = 801;
