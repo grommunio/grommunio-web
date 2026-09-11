@@ -279,14 +279,19 @@ class DelegatesModule extends Module {
 	 * Function will return information of a particular delegate from current user's store.
 	 *
 	 * @param string      $userEntryId         entryid of the delegate
-	 * @param array|false $delegateMeetingRule meeting rule retained for caller compatibility
+	 * @param array|false $delegateMeetingRule (optional) delegate meeting rule, fetched when omitted
 	 *
 	 * @return array delegate information
 	 */
-	public function getDelegatePermissions($userEntryId, /* @scrutinizer ignore-unused */ $delegateMeetingRule = false) {
+	public function getDelegatePermissions($userEntryId, $delegateMeetingRule = false) {
 		$delegateProps = $this->getDelegateProps();
 		$delegateIndex = $this->getDelegateIndex($userEntryId);
 		$userinfo = $this->getUserInfo($userEntryId);
+
+		if ($delegateMeetingRule === false) {
+			$delegateMeetingRule = $this->getDelegateMeetingRule();
+		}
+		$ruleUsers = $this->getDelegateMeetingRuleUsers($delegateMeetingRule);
 
 		$delegate = [];
 		$delegate['entryid'] = bin2hex($userEntryId);
@@ -294,6 +299,7 @@ class DelegatesModule extends Module {
 		$delegate['props'] = [];
 		$delegate['props']['display_name'] = $userinfo['display_name'];
 		$delegate['props']['can_see_private'] = isset($delegateProps[PR_DELEGATE_FLAGS][$delegateIndex]) ? ($delegateProps[PR_DELEGATE_FLAGS][$delegateIndex] == 1) : false;
+		$delegate['props']['has_meeting_rule'] = $this->findDelegateMeetingRuleUser($ruleUsers, $userEntryId) !== false;
 
 		$delegate['props'] = array_merge($delegate['props'], $this->getFolderPermissions($userEntryId));
 
@@ -351,6 +357,31 @@ class DelegatesModule extends Module {
 		$delegateMeetingRule = mapi_table_queryrows($rulesTable, $GLOBALS['properties']->getRulesProperties(), 0, 1);
 
 		return !empty($delegateMeetingRule) ? $delegateMeetingRule[0] : false;
+	}
+
+	/**
+	 * @param array|false $delegateMeetingRule delegate meeting rule
+	 *
+	 * @return array recipients of the rule's delegate action
+	 */
+	private function getDelegateMeetingRuleUsers($delegateMeetingRule) {
+		return $delegateMeetingRule !== false ? ($delegateMeetingRule[PR_RULE_ACTIONS][0]['adrlist'] ?? []) : [];
+	}
+
+	/**
+	 * @param array  $users       recipients of the delegate meeting rule
+	 * @param string $userEntryId entryid of the delegate
+	 *
+	 * @return false|int position of the delegate in $users, or false when absent
+	 */
+	private function findDelegateMeetingRuleUser($users, $userEntryId) {
+		foreach ($users as $index => $user) {
+			if (isset($user[PR_ENTRYID]) && $GLOBALS['entryid']->compareEntryIds(bin2hex((string) $user[PR_ENTRYID]), bin2hex($userEntryId))) {
+				return $index;
+			}
+		}
+
+		return false;
 	}
 
 	/* Functions to update delegates information */
@@ -490,41 +521,50 @@ class DelegatesModule extends Module {
 	 */
 	public function setDelegateMeetingRule($delegates) {
 		$delegateMeetingRule = $this->getDelegateMeetingRule();
-		if ($delegateMeetingRule !== false) {
-			$users = $delegateMeetingRule[PR_RULE_ACTIONS][0]['adrlist'];
-		}
-		else {
-			$users = [];
-		}
-		// open addressbook to get information of all users
+		$users = $this->getDelegateMeetingRuleUsers($delegateMeetingRule);
 		$addrBook = $GLOBALS['mapisession']->getAddressbook();
-		$len = count($delegates);
-		for ($i = 0; $i < $len; ++$i) {
-			$delegate = $delegates[$i];
-			// get user info, using entryid
-			$user = mapi_ab_openentry($addrBook, hex2bin((string) $delegate['entryid']));
-			$userProps = mapi_getprops($user, [PR_ENTRYID, PR_ADDRTYPE, PR_EMAIL_ADDRESS, PR_DISPLAY_NAME, PR_SEARCH_KEY, PR_SMTP_ADDRESS, PR_OBJECT_TYPE, PR_DISPLAY_TYPE, PR_DISPLAY_TYPE_EX]);
+		$changed = false;
 
-			if (is_array($userProps)) {
-				// add recipient type prop, to specify type of recipient in mail
-				$userProps[PR_RECIPIENT_TYPE] = MAPI_TO;
-				$len1 = count($users);
-				for ($j = 0; $j < $len1; ++$j) {
-					if ($userProps[PR_ENTRYID] == $users[$j][PR_ENTRYID]) {
-						break;
-					}
-				}
-				$users[$j] = $userProps;
+		foreach ($delegates as $delegate) {
+			// existing delegates only send the flag when the checkbox changed
+			if (!isset($delegate['props']['has_meeting_rule'])) {
+				continue;
 			}
-		}
-		// only continue if any delegate has set the flag
-		if (!empty($users)) {
-			if ($delegateMeetingRule === false) {
-				$this->createDelegateMeetingRule($users);
+			$userEntryId = hex2bin((string) $delegate['entryid']);
+			$index = $this->findDelegateMeetingRuleUser($users, $userEntryId);
+
+			if (!$delegate['props']['has_meeting_rule']) {
+				if ($index !== false) {
+					array_splice($users, $index, 1);
+					$changed = true;
+				}
+
+				continue;
+			}
+
+			$user = mapi_ab_openentry($addrBook, $userEntryId);
+			$userProps = mapi_getprops($user, [PR_ENTRYID, PR_ADDRTYPE, PR_EMAIL_ADDRESS, PR_DISPLAY_NAME, PR_SEARCH_KEY, PR_SMTP_ADDRESS, PR_OBJECT_TYPE, PR_DISPLAY_TYPE, PR_DISPLAY_TYPE_EX]);
+			if (!is_array($userProps)) {
+				continue;
+			}
+			$userProps[PR_RECIPIENT_TYPE] = MAPI_TO;
+			if ($index === false) {
+				$users[] = $userProps;
 			}
 			else {
-				$this->modifyDelegateMeetingRule($delegateMeetingRule, $users);
+				$users[$index] = $userProps;
 			}
+			$changed = true;
+		}
+
+		if (!$changed) {
+			return;
+		}
+		if ($delegateMeetingRule === false) {
+			$this->createDelegateMeetingRule($users);
+		}
+		else {
+			$this->modifyDelegateMeetingRule($delegateMeetingRule, $users);
 		}
 	}
 
@@ -743,23 +783,20 @@ class DelegatesModule extends Module {
 	public function removeDelegatesFromDelegateMeetingRule($delegates) {
 		$delegateMeetingRule = $this->getDelegateMeetingRule();
 		if ($delegateMeetingRule === false) {
-			// no delegate rule exists, nothing to do
 			return;
 		}
-		$len = count($delegates);
-		$old_users = $delegateMeetingRule[PR_RULE_ACTIONS][0]['adrlist'];
-		$new_users = [];
-		foreach ($old_users as $user) {
-			for ($index = 0; $index < $len; ++$index) {
-				if ($user[PR_ENTRYID] == hex2bin((string) $delegates[$index]['entryid'])) {
-					break;
-				}
-			}
-			if ($index == $len) {
-				$new_users[] = $user;
+		$users = $this->getDelegateMeetingRuleUsers($delegateMeetingRule);
+		$changed = false;
+		foreach ($delegates as $delegate) {
+			$index = $this->findDelegateMeetingRuleUser($users, hex2bin((string) $delegate['entryid']));
+			if ($index !== false) {
+				array_splice($users, $index, 1);
+				$changed = true;
 			}
 		}
-		$this->modifyDelegateMeetingRule($delegateMeetingRule, $new_users);
+		if ($changed) {
+			$this->modifyDelegateMeetingRule($delegateMeetingRule, $users);
+		}
 	}
 
 	/* Functions for exception handling */
