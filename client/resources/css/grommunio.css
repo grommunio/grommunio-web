@@ -4688,6 +4688,13 @@ body.zarafa-webclient > .ext-el-mask {
   .x-window .copymove-panel .copymove-tree-panel .x-form-item,
   .x-panel-ghost .copymove-panel .copymove-tree-panel .x-form-item {
     margin-bottom: 0; }
+  .x-window .copymove-panel .copymove-suggestions,
+  .x-panel-ghost .copymove-panel .copymove-suggestions {
+    padding-bottom: 8px; }
+    .x-window .copymove-panel .copymove-suggestions .x-btn,
+    .x-panel-ghost .copymove-panel .copymove-suggestions .x-btn {
+      display: inline-block;
+      margin: 0 6px 4px 0; }
   .x-window .x-form-display-field.tree-header,
   .x-panel-ghost .x-form-display-field.tree-header {
     line-height: 20px;
