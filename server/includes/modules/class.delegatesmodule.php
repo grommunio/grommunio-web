@@ -279,16 +279,16 @@ class DelegatesModule extends Module {
 	 * Function will return information of a particular delegate from current user's store.
 	 *
 	 * @param string      $userEntryId         entryid of the delegate
-	 * @param array|false $delegateMeetingRule (optional) delegate meeting rule, fetched when omitted
+	 * @param null|array|false $delegateMeetingRule (optional) delegate meeting rule or false when none exists, fetched when null
 	 *
 	 * @return array delegate information
 	 */
-	public function getDelegatePermissions($userEntryId, $delegateMeetingRule = false) {
+	public function getDelegatePermissions($userEntryId, $delegateMeetingRule = null) {
 		$delegateProps = $this->getDelegateProps();
 		$delegateIndex = $this->getDelegateIndex($userEntryId);
 		$userinfo = $this->getUserInfo($userEntryId);
 
-		if ($delegateMeetingRule === false) {
+		if ($delegateMeetingRule === null) {
 			$delegateMeetingRule = $this->getDelegateMeetingRule();
 		}
 		$ruleUsers = $this->getDelegateMeetingRuleUsers($delegateMeetingRule);
@@ -298,7 +298,7 @@ class DelegatesModule extends Module {
 
 		$delegate['props'] = [];
 		$delegate['props']['display_name'] = $userinfo['display_name'];
-		$delegate['props']['can_see_private'] = isset($delegateProps[PR_DELEGATE_FLAGS][$delegateIndex]) ? ($delegateProps[PR_DELEGATE_FLAGS][$delegateIndex] == 1) : false;
+		$delegate['props']['can_see_private'] = $delegateIndex !== false && isset($delegateProps[PR_DELEGATE_FLAGS][$delegateIndex]) ? ($delegateProps[PR_DELEGATE_FLAGS][$delegateIndex] == 1) : false;
 		$delegate['props']['has_meeting_rule'] = $this->findDelegateMeetingRuleUser($ruleUsers, $userEntryId) !== false;
 
 		$delegate['props'] = array_merge($delegate['props'], $this->getFolderPermissions($userEntryId));
