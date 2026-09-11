@@ -1014,6 +1014,7 @@ class ListModule extends Module {
 			// hide the item by returning empty array, that can be removed from response
 			return [];
 		}
+		$this->prepareBodyPreview($item);
 
 		return $item;
 	}
@@ -1079,5 +1080,29 @@ class ListModule extends Module {
 		}
 
 		return $private;
+	}
+
+	/**
+	 * Normalize and Unicode-safely limit the plain-text body used by calendar
+	 * hover cards. PR_BODY is plain text, so no HTML is sent to the client.
+	 *
+	 * @param array $item appointment response item
+	 */
+	public function prepareBodyPreview(&$item) {
+		if (empty($item['props']['body_preview'])) {
+			return;
+		}
+
+		$preview = preg_replace('/\R/u', ' ', (string) $item['props']['body_preview']);
+		if ($preview === null) {
+			$item['props']['body_preview'] = '';
+
+			return;
+		}
+
+		$truncated = function_exists('grapheme_substr') ? grapheme_substr($preview, 0, 128) : false;
+		$item['props']['body_preview'] = $truncated === false
+			? mb_substr($preview, 0, 128, 'UTF-8')
+			: $truncated;
 	}
 }

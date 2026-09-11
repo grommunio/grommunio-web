@@ -457,6 +457,9 @@ class Properties {
 	 */
 	public function getAppointmentListProperties() {
 		$properties = $this->getAppointmentProperties();
+		// Keep the list preview separate from the full body loaded when opening an
+		// appointment.
+		$properties["body_preview"] = PR_BODY;
 
 		unset(
 			$properties["goid"],
