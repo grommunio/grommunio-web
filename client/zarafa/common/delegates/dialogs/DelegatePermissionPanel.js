@@ -169,13 +169,12 @@ Zarafa.common.delegates.dialogs.DelegatePermissionPanel = Ext.extend(Ext.form.Fo
 	 */
 	updateUI: function(record, contentReset)
 	{
-		if(contentReset || record.isModifiedSinceLastUpdate('rights_calendar')) {
+		if(contentReset || record.isModifiedSinceLastUpdate('rights_calendar') || record.isModifiedSinceLastUpdate('has_meeting_rule')) {
 			var calendarRights = record.get('rights_calendar');
-			if(!calendarRights || calendarRights === Zarafa.core.mapi.Rights.RIGHTS_NONE || calendarRights === Zarafa.core.mapi.Rights.RIGHTS_READONLY) {
-				this.delegateMeetingRuleCheck.setDisabled(true);
-			} else {
-				this.delegateMeetingRuleCheck.setDisabled(false);
-			}
+			var lowRights = !calendarRights || calendarRights === Zarafa.core.mapi.Rights.RIGHTS_NONE || calendarRights === Zarafa.core.mapi.Rights.RIGHTS_READONLY;
+
+			// a delegate who is already in the rule must be able to leave it
+			this.delegateMeetingRuleCheck.setDisabled(lowRights && !record.get('has_meeting_rule'));
 		}
 	},
 
