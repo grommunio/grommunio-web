@@ -263,6 +263,26 @@ class AppointmentItemModule extends ItemModule {
 	public function save($store, $parententryid, $entryid, $action, $actionType = 'save') {
 		$result = false;
 
+		// The read flag belongs to the message itself, so it is set directly: going
+		// through saveAppointment() would write an exception into a series as soon as
+		// one of its occurrences is marked read.
+		if ($entryid && isset($action['props']['message_flags'])) {
+			$flagProps = [];
+			$GLOBALS['operations']->setMessageFlag($store, $entryid, $action['props']['message_flags'], $action['message_action'] ?? false, $flagProps);
+			unset($action['props']['message_flags']);
+
+			// the client sends its timezone along with every save, it is not a change
+			$changed = $action['props'];
+			unset($changed['timezone_iana']);
+
+			if (empty($changed) && empty($action['recipients']) && empty($action['attachments'])) {
+				$GLOBALS['bus']->notify(bin2hex((string) $parententryid), TABLE_SAVE, $flagProps);
+				$this->sendFeedback(true);
+
+				return true;
+			}
+		}
+
 		// Save appointment (saveAppointment takes care of creating/modifying exceptions to recurring
 		// items if necessary)
 		$messageProps = $GLOBALS['operations']->saveAppointment($store, $entryid, $parententryid, $action, $actionType, $this->directBookingMeetingRequest);
