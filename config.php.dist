@@ -27,6 +27,10 @@
 	// Enable shared rules
 	define("ENABLE_SHARED_RULES", TRUE);
 
+	// Allow users to remove an attachment from a message which is already stored.
+	// Set to FALSE where received mail has to stay as it arrived.
+	define("ENABLE_ATTACHMENT_REMOVAL", TRUE);
+
 	// Allow users to enable the conversation (threaded) view for their inbox.
 	// Set to 'false' to disable the feature server-wide regardless of user settings.
 	define("ENABLE_CONVERSATION_VIEW", TRUE);

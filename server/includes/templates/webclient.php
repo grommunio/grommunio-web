@@ -14,6 +14,7 @@ $serverConfig = array_merge($serverConfig, [
 	'disable_full_gab' => !ENABLE_FULL_GAB,
 	'plugin_webappmanual_url' => PLUGIN_WEBAPPMANUAL_URL,
 	'enable_shared_rules' => ENABLE_SHARED_RULES,
+	'enable_attachment_removal' => ENABLE_ATTACHMENT_REMOVAL,
 	'enable_conversation_view' => !defined('ENABLE_CONVERSATION_VIEW') || ENABLE_CONVERSATION_VIEW,
 	'enable_attachment_drag_out' => !defined('ENABLE_ATTACHMENT_DRAG_OUT') || ENABLE_ATTACHMENT_DRAG_OUT,
 	'attachment_drag_out_max_size' => defined('ATTACHMENT_DRAG_OUT_MAX_SIZE') ? (int) ATTACHMENT_DRAG_OUT_MAX_SIZE : 26214400,

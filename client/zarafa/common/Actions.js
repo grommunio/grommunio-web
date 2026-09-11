@@ -1256,6 +1256,40 @@ Zarafa.common.Actions = {
 	},
 
 	/**
+	 * Remove an attachment from the message it belongs to. The message is stored
+	 * without it, which cannot be undone, so the user is asked first.
+	 *
+	 * @param {Zarafa.core.data.IPMAttachmentRecord} attachment The attachment to remove
+	 */
+	removeAttachment: function(attachment)
+	{
+		var store = attachment ? attachment.getStore() : undefined;
+		var message = store ? store.getParentRecord() : undefined;
+		var attachNum = attachment ? attachment.get('attach_num') : undefined;
+
+		if (!message || !Ext.isNumber(attachNum)) {
+			return;
+		}
+
+		Ext.MessageBox.show({
+			title: _('Remove attachment'),
+			msg: String.format(_('Remove \'{0}\' from this message? The attachment cannot be restored afterwards.'),
+				Ext.util.Format.htmlEncode(attachment.get('name'))),
+			buttons: Ext.MessageBox.YESNO,
+			fn: function(button) {
+				if (button !== 'yes') {
+					return;
+				}
+
+				message.addMessageAction('action_type', 'removeAttachments');
+				message.addMessageAction('attach_num', [attachNum]);
+				message.save();
+			},
+			scope: this
+		});
+	},
+
+	/**
 	 * Mark the given messages as read or unread. When a read receipt was requested
 	 * for this message, the settings are consulted to see if we must automatically
 	 * send the receipt or not, or if we should ask the user.

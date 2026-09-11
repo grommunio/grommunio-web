@@ -435,6 +435,14 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
+	 * @return {Boolean} True when a user may remove an attachment from a stored message
+	 */
+	isAttachmentRemovalEnabled: function()
+	{
+		return this.meta.enable_attachment_removal !== false;
+	},
+
+	/**
 	 * @return {String} The authentication method used: 'oidc' or 'basic'.
 	 */
 	getAuthMethod: function()
