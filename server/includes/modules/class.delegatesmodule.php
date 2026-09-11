@@ -441,7 +441,7 @@ class DelegatesModule extends Module {
 			if (isset($delegate['props']['display_name'])) {
 				$delegateProps[PR_SCHDINFO_DELEGATE_NAMES][$j] = $delegate['props']['display_name'];
 			}
-			else {
+			elseif (!isset($delegateProps[PR_SCHDINFO_DELEGATE_NAMES][$j])) {
 				$addrBook = $GLOBALS['mapisession']->getAddressbook();
 				$user = mapi_ab_openentry($addrBook, hex2bin((string) $delegate['entryid']));
 				if (empty($user)) {
@@ -460,7 +460,7 @@ class DelegatesModule extends Module {
 			if (isset($delegate['props']['can_see_private'])) {
 				$delegateProps[PR_DELEGATE_FLAGS][$j] = $delegate['props']['can_see_private'];
 			}
-			else {
+			elseif (!isset($delegateProps[PR_DELEGATE_FLAGS][$j])) {
 				$delegateProps[PR_DELEGATE_FLAGS][$j] = false;
 			}
 		}
