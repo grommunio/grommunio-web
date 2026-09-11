@@ -3669,7 +3669,8 @@ class Operations {
 			}
 		}
 
-		$tmp_props = mapi_getprops($message, [PR_PARENT_ENTRYID, PR_MESSAGE_DELIVERY_TIME, PR_CLIENT_SUBMIT_TIME, PR_SEARCH_KEY, PR_MESSAGE_FLAGS]);
+		$tmp_props = mapi_getprops($message, [PR_PARENT_ENTRYID, PR_MESSAGE_DELIVERY_TIME, PR_CLIENT_SUBMIT_TIME, PR_SEARCH_KEY, PR_MESSAGE_FLAGS,
+			PR_SENDER_ENTRYID, PR_SENDER_NAME, PR_SENDER_EMAIL_ADDRESS, PR_SENDER_ADDRTYPE, PR_SENDER_SEARCH_KEY]);
 		$messageProps[PR_PARENT_ENTRYID] = $tmp_props[PR_PARENT_ENTRYID];
 		if ($reprMessage !== false) {
 			// The message is already submitted; a failing sent copy must not
@@ -3679,6 +3680,11 @@ class Operations {
 					PR_CLIENT_SUBMIT_TIME => $tmp_props[PR_CLIENT_SUBMIT_TIME] ?? time(),
 					PR_MESSAGE_DELIVERY_TIME => $tmp_props[PR_MESSAGE_DELIVERY_TIME] ?? time(),
 					PR_MESSAGE_FLAGS => ($tmp_props[PR_MESSAGE_FLAGS] | MSGFLAG_READ) & ~MSGFLAG_UNSENT,
+					PR_SENDER_ENTRYID => $tmp_props[PR_SENDER_ENTRYID] ?? $props[PR_SENDER_ENTRYID],
+					PR_SENDER_NAME => $tmp_props[PR_SENDER_NAME] ?? $props[PR_SENDER_NAME],
+					PR_SENDER_EMAIL_ADDRESS => $tmp_props[PR_SENDER_EMAIL_ADDRESS] ?? $props[PR_SENDER_EMAIL_ADDRESS],
+					PR_SENDER_ADDRTYPE => $tmp_props[PR_SENDER_ADDRTYPE] ?? $props[PR_SENDER_ADDRTYPE],
+					PR_SENDER_SEARCH_KEY => $tmp_props[PR_SENDER_SEARCH_KEY] ?? $props[PR_SENDER_SEARCH_KEY],
 				]) !== false && mapi_savechanges($reprMessage) !== false;
 				if (!$reprSaved) {
 					error_log('submitMessage: unable to finalize the representee sent copy; retaining the sender sent copy');
