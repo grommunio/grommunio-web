@@ -8496,3 +8496,8 @@ msgstr "Bei der En-/Dekodierung von JSON-Daten ist ein Problem aufgetreten: - %s
 
 msgid "Online meeting"
 msgstr "Online-Besprechung"
+
+msgid "You have insufficient privileges to delete one of the selected items."
+msgid_plural "You have insufficient privileges to delete {0} of the selected items."
+msgstr[0] "Sie haben keine Berechtigung, eines der ausgewählten Elemente zu löschen."
+msgstr[1] "Sie haben keine Berechtigung, {0} der ausgewählten Elemente zu löschen."

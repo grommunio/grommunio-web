@@ -859,6 +859,30 @@ Zarafa.common.Actions = {
 			return;
 		}
 
+		// A folder may only grant deleting one's own items; PR_ACCESS tells per item
+		// what the store will accept, and gromox silently keeps what it refuses.
+		var denied = records.filter(function(record) {
+			return !record.phantom && record.get('access') > 0 && Ext.isFunction(record.hasDeleteAccess) && !record.hasDeleteAccess();
+		});
+		if (!Ext.isEmpty(denied)) {
+			var msg = _("You have insufficient privileges to delete items in this folder.");
+			if (denied.length < records.length) {
+				msg = String.format(ngettext('You have insufficient privileges to delete one of the selected items.', 'You have insufficient privileges to delete {0} of the selected items.', denied.length), denied.length);
+			}
+			Ext.MessageBox.show({
+				title : _('Insufficient permissions'),
+				msg : msg,
+				cls: Ext.MessageBox.ERROR_CLS,
+				buttons: Ext.MessageBox.OK
+			});
+			records = records.filter(function(record) {
+				return denied.indexOf(record) === -1;
+			});
+			if (Ext.isEmpty(records)) {
+				return;
+			}
+		}
+
 		this.doDeleteRecords(records, askOcc, softDelete);
 	},
 

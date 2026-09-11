@@ -3823,7 +3823,41 @@ class Operations {
 				break;
 		}
 
+		if ($result) {
+			$this->assertMessagesDeleted($store, $folder, $entryids);
+		}
+
 		return $result;
+	}
+
+	/**
+	 * gromox skips the items a user may not delete and reports success anyway, so in
+	 * a folder that only grants deleting one's own items the outcome must be checked.
+	 *
+	 * @param resource $store    MAPI message store
+	 * @param resource $folder   the folder the items were deleted from
+	 * @param array    $entryids the entryids that were passed to the delete
+	 *
+	 * @throws MAPIException MAPI_E_NO_ACCESS when an item is still there
+	 */
+	private function assertMessagesDeleted($store, $folder, $entryids) {
+		$props = mapi_getprops($folder, [PR_RIGHTS]);
+		if (!isset($props[PR_RIGHTS]) || ($props[PR_RIGHTS] & (ecRightsDeleteAny | ecRightsFolderAccess))) {
+			return;
+		}
+
+		foreach ($entryids as $entryid) {
+			try {
+				mapi_msgstore_openentry($store, $entryid);
+			}
+			catch (MAPIException $e) {
+				$e->setHandled();
+
+				continue;
+			}
+
+			throw new MAPIException(_("Insufficient permissions"), MAPI_E_NO_ACCESS);
+		}
 	}
 
 	/**
