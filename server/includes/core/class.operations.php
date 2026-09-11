@@ -5938,22 +5938,23 @@ class Operations {
 	/**
 	 * Function used to compressed the image.
 	 *
-	 * @param string $image the image which is going to compress
-	 * @param int $compressedQuality compression factor from 0 (high quality) to 100 (low quality)
+	 * @param string $image             the image which is going to compress
+	 * @param int    $compressedQuality compression factor from 0 (high quality) to 100 (low quality)
 	 *
-	 * @return string A base64 encoded string (data url)
+	 * @return string A base64 encoded string (data url), empty if the image cannot be read
 	 */
 	public function compressedImage($image, $compressedQuality = 10) {
 		// Proceed only when GD library's functions and user image data are available.
-		if (function_exists('imagecreatefromstring')) {
+		if (function_exists('imagecreatefromstring') && is_string($image) && $image !== '') {
 			try {
 				$image = imagecreatefromstring($image);
 			}
-			catch (Exception $e) {
+			catch (Throwable $e) {
 				$msg = "Problem while creating image from string. Error %s : %s.";
 				$formattedMsg = sprintf($msg, $e->getCode(), $e->getMessage());
 				error_log($formattedMsg);
 				Log::Write(LOGLEVEL_ERROR, "Operations:compressedImage() " . $formattedMsg);
+				$image = false;
 			}
 
 			if ($image !== false) {
