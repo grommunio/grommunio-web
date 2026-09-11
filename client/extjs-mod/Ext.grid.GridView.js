@@ -1,6 +1,7 @@
 (function() {
 	var orig_onColConfigChange = Ext.grid.GridView.prototype.onColConfigChange;
 	var orig_initTemplates = Ext.grid.GridView.prototype.initTemplates;
+	var orig_beforeColMenuShow = Ext.grid.GridView.prototype.beforeColMenuShow;
 
 	Ext.override(Ext.grid.GridView, {
 		/*
@@ -156,6 +157,21 @@
 
 				headerStyle.cursor = cursor;
 			}
+		},
+
+		/**
+		 * Override to list the plain column names in the column menu. The header of an icon
+		 * column is markup, which drags the icon and its spacing into the menu.
+		 * @private
+		 */
+		beforeColMenuShow: function()
+		{
+			orig_beforeColMenuShow.apply(this, arguments);
+
+			this.colMenu.items.each(function(item) {
+				var parsed = new DOMParser().parseFromString(item.text || '', 'text/html');
+				item.setText(Ext.util.Format.htmlEncode(parsed.body.textContent.trim()));
+			});
 		},
 
 	    /**
