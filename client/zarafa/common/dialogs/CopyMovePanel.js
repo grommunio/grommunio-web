@@ -187,6 +187,12 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 			bodyStyle: 'background-color: inherit;',
 			items: [{
 				xtype: 'container',
+				ref: '../suggestionBox',
+				cls: 'copymove-suggestions',
+				hidden: true,
+				autoHeight: true
+			},{
+				xtype: 'container',
 				ref: 'displayfieldContainer',
 				items: [{
 					xtype: 'displayfield',
@@ -236,11 +242,61 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 	{
 		Zarafa.common.dialogs.CopyMovePanel.superclass.onRender.call(this, ct, position);
 
+		this.showSuggestions();
+
 		if (this.objectType == Zarafa.core.mapi.ObjectType.MAPI_MESSAGE) {
 			this.setTitle(String.format(ngettext('There is {0} message selected.', 'There are {0} messages selected.', this.record.length), this.record.length));
 		} else if (this.objectType == Zarafa.core.mapi.ObjectType.MAPI_FOLDER) {
 			this.setTitle(String.format(_('Folder \'{0}\' selected.'), Ext.util.Format.htmlEncode(this.record[0].getDisplayName())));
 		}
+	},
+
+	/**
+	 * Offer the folders in which mail of this sender was filed before, so a folder
+	 * deep in the hierarchy does not have to be looked up again.
+	 * @private
+	 */
+	showSuggestions: function()
+	{
+		if (this.objectType !== Zarafa.core.mapi.ObjectType.MAPI_MESSAGE) {
+			return;
+		}
+
+		var folders = Zarafa.common.data.FolderSuggestions.get(this.record);
+		if (Ext.isEmpty(folders)) {
+			return;
+		}
+
+		this.suggestionBox.add({
+			xtype: 'displayfield',
+			value: _('Suggested folders') + ':',
+			hideLabel: true,
+			cls: 'tree-header'
+		});
+
+		Ext.each(folders, function(folder) {
+			this.suggestionBox.add({
+				xtype: 'button',
+				text: Ext.util.Format.htmlEncode(folder.getDisplayName()),
+				iconCls: Zarafa.common.ui.IconClass.getIconClass(folder),
+				cls: 'copymove-suggestion',
+				handler: this.onSuggestionClick.createDelegate(this, [folder]),
+				scope: this
+			});
+		}, this);
+
+		this.suggestionBox.show();
+		this.suggestionBox.doLayout();
+	},
+
+	/**
+	 * Select the suggested folder in the tree, the user still picks copy or move.
+	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The suggested folder
+	 * @private
+	 */
+	onSuggestionClick: function(folder)
+	{
+		this.hierarchyTree.selectFolderInTree(folder);
 	},
 
 	/**
@@ -648,6 +704,7 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 			Ext.each(moveRecords, function(record) {
 				record.moveTo(folder);
 			});
+			Zarafa.common.data.FolderSuggestions.remember(moveRecords, folder);
 		}
 
 		// Show detailed warning message when record have no access to delete
