@@ -1744,9 +1744,8 @@ body.k-density-compact {
 .x-grid3 .x-grid3-row-over .zarafa-grid-button {
   display: block; }
 
-/* Fixed categories cannot be edited or deleted because they are used
-   to map old flags to categories */
-.x-grid3-row-over .k-category-fixed .k-grid-button-edit,
+/* Fixed categories remain mapped to old flags and cannot be deleted, but
+   their names can be edited again after the first-use rename prompt. */
 .x-grid3-row-over .k-category-fixed .k-grid-button-delete {
   display: none; }
 
