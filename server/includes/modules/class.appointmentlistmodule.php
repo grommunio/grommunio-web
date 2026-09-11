@@ -611,6 +611,7 @@ class AppointmentListModule extends ListModule {
 		$item['props']['display_to'] = '';
 		$item['props']['display_cc'] = '';
 		$item['props']['display_bcc'] = '';
+		$item['props']['body_preview'] = '';
 
 		return $item;
 	}
@@ -732,6 +733,7 @@ class AppointmentListModule extends ListModule {
 		if (empty($item)) {
 			return;
 		}
+		$this->prepareBodyPreview($item);
 		if (empty($item["props"]["commonstart"]) && isset($item["props"]["startdate"])) {
 			$item["props"]["commonstart"] = $item["props"]["startdate"];
 		}
