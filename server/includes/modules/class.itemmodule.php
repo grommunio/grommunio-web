@@ -287,6 +287,15 @@ class ItemModule extends Module {
 								$this->forwardMeetingRequest($store, $singleEntryid, $action, $this->directBookingMeetingRequest);
 								break;
 
+							case "removeAttachments":
+								if ($singleEntryid === false) {
+									$this->sendFeedback(false);
+
+									break;
+								}
+								$this->removeAttachments($store, $singleEntryid, $action);
+								break;
+
 							case "reply":
 							case "replyall":
 							case "forward":
@@ -1296,6 +1305,53 @@ class ItemModule extends Module {
 		// Notify the bus that the message has been deleted
 		$messageProps = mapi_getprops($message, [PR_ENTRYID, PR_STORE_ENTRYID, PR_PARENT_ENTRYID]);
 		$GLOBALS["bus"]->notify(bin2hex((string) $messageProps[PR_PARENT_ENTRYID]), $basedate ? TABLE_SAVE : TABLE_DELETE, $messageProps);
+	}
+
+	/**
+	 * Remove attachments from a message which is already stored.
+	 *
+	 * The numbers are deleted from the highest down, because deleting an attachment
+	 * renumbers the ones behind it.
+	 *
+	 * @param resource $store   MAPI store of the message
+	 * @param string   $entryid entryid of the message
+	 * @param array    $action  action data from the client
+	 */
+	public function removeAttachments($store, $entryid, $action) {
+		if (!ENABLE_ATTACHMENT_REMOVAL) {
+			$this->sendFeedback(false, [
+				'type' => ERROR_GENERAL,
+				'info' => [
+					'display_message' => _('Removing attachments has been disabled by the administrator.'),
+				],
+			]);
+
+			return;
+		}
+
+		$numbers = $action['message_action']['attach_num'] ?? [];
+		$numbers = array_filter(array_map('intval', (array) $numbers), fn ($number) => $number >= 0);
+		$message = $GLOBALS['operations']->openMessage($store, $entryid);
+
+		if (empty($message) || empty($numbers)) {
+			$this->sendFeedback(false);
+
+			return;
+		}
+
+		rsort($numbers);
+		foreach ($numbers as $number) {
+			mapi_message_deleteattach($message, $number);
+		}
+		mapi_savechanges($message);
+
+		$messageProps = mapi_getprops($message, [PR_ENTRYID, PR_STORE_ENTRYID, PR_PARENT_ENTRYID]);
+		$GLOBALS['bus']->notify(bin2hex((string) $messageProps[PR_PARENT_ENTRYID]), TABLE_SAVE, $messageProps);
+
+		$data = $GLOBALS['operations']->getMessageProps($store, $message, $this->properties, $this->plaintext, true);
+		$data['attachments'] = ['item' => $GLOBALS['operations']->getAttachmentsInfo($message)];
+		$this->addActionData('update', ['item' => $data]);
+		$GLOBALS['bus']->addData($this->getResponseData());
 	}
 
 	/**
