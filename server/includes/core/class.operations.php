@@ -2453,7 +2453,16 @@ class Operations {
 						if (isset($action['props']['recurring_reset']) && $action['props']['recurring_reset'] == true) {
 							$recur = new Recurrence($store, $message);
 
-							if (isset($action['props']['timezone'])) {
+							// The series became a single appointment. Clearing the flag alone would
+							// leave the recurrence blob behind, and an attendee of a meeting would
+							// keep seeing a series. An older mapi-header-php keeps the old behaviour.
+							$removed = isset($action['props']['recurring']) && !$action['props']['recurring'] &&
+								method_exists($recur, 'deleteRecurrence');
+							if ($removed) {
+								$recur->deleteRecurrence();
+							}
+
+							if (!$removed && isset($action['props']['timezone'])) {
 								$tzprops = ['timezone', 'timezonedst', 'dststartmonth', 'dststartweek', 'dststartday', 'dststarthour', 'dstendmonth', 'dstendweek', 'dstendday', 'dstendhour'];
 
 								// Get timezone info
@@ -2472,7 +2481,7 @@ class Operations {
 							 * Note : this is a special case of changing the time of
 							 * recurrence meeting from scheduling tab.
 							 */
-							$recurrence = $recur->getRecurrence();
+							$recurrence = $removed ? null : $recur->getRecurrence();
 							if (isset($recurrence)) {
 								unset($recurrence['changed_occurrences'], $recurrence['deleted_occurrences']);
 
@@ -2484,7 +2493,9 @@ class Operations {
 							}
 							// Act like the 'props' are the recurrence pattern; it has more information but that
 							// is ignored
-							$recur->setRecurrence($tz ?? false, $action['props']);
+							if (!$removed) {
+								$recur->setRecurrence($tz ?? false, $action['props']);
+							}
 						}
 					}
 
