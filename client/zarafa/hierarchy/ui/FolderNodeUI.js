@@ -349,6 +349,20 @@ Zarafa.hierarchy.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 	},
 
 	/**
+	 * Event handler triggered when the mouse enters the folder node. Offers the full
+	 * name as a tooltip while it is cut off by the width of the tree.
+	 * @param {Ext.EventObject} e The event object
+	 */
+	onOver: function(e)
+	{
+		var name = this.textNode.textContent + this.folderOwnerNode.textContent;
+		Zarafa.core.Util.setOverflowTooltip(this.textNode, name);
+		Zarafa.core.Util.setOverflowTooltip(this.folderOwnerNode, name);
+
+		Zarafa.hierarchy.ui.FolderNodeUI.superclass.onOver.apply(this, arguments);
+	},
+
+	/**
 	 * Event handler triggered when folder node has been clicked by the user.
 	 */
 	onClick : function(e)

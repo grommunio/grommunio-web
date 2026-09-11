@@ -154,6 +154,19 @@ Zarafa.plugins.files.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 	},
 
 	/**
+	 * Event handler triggered when the mouse enters the folder node. Offers the full
+	 * name as a tooltip while it is cut off by the width of the tree.
+	 * @param {Ext.EventObject} e The event object
+	 */
+	onOver: function (e) {
+		var name = this.textNode.textContent + this.folderBackendNode.textContent;
+		Zarafa.core.Util.setOverflowTooltip(this.textNode, name);
+		Zarafa.core.Util.setOverflowTooltip(this.folderBackendNode, name);
+
+		Zarafa.plugins.files.ui.FolderNodeUI.superclass.onOver.apply(this, arguments);
+	},
+
+	/**
 	 * Called when the node is going to change the class.
 	 * @param {Ext.tree.Node} node The node which must be updated
 	 * @param {String} cls The class which must be applied to the {@link #iconNode}

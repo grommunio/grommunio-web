@@ -2543,14 +2543,6 @@ Note: Does not work in IE11 */
 .zarafa-tree-ipm-subtree-container:last-child, .zarafa-tree-ipm-subtree-favorites-container:last-child {
   padding-bottom: 12px; }
 
-/* Fix for the background-color when the titles are longer than the width of the box */
-.zarafa-hierarchy-treepanel .x-tree-root-ct {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  min-width: 100%; }
-
 /* Override -- lines in hierarchytree */
 .x-tree-lines .x-tree-elbow,
 .x-tree-lines .x-tree-elbow-line,
@@ -2564,7 +2556,8 @@ Note: Does not work in IE11 */
   overflow: hidden !important; }
 
 .zarafa-hierarchy-treepanel-body:hover {
-  overflow: auto !important; }
+  overflow-x: hidden !important;
+  overflow-y: auto !important; }
 
 .zarafa-hierarchy-treepanel-bottombar {
   border-top: 1px solid var(--ui-border);
@@ -2598,6 +2591,48 @@ Note: Does not work in IE11 */
   .x-tree-node-el a {
     margin-left: 6px;
     font-size: 14px; }
+
+/* One flex line per row: only the folder name gives way, so a name which does not
+   fit is cut off instead of widening the tree */
+.x-tree-node-el.zarafa-hierarchy-node {
+  display: flex;
+  align-items: center;
+  min-height: 25px; }
+  .x-tree-node-el.zarafa-hierarchy-node > * {
+    flex: 0 0 auto; }
+  .x-tree-node-el.zarafa-hierarchy-node > .zarafa-hierarchy-node-anchor {
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden; }
+
+.x-tree-node .zarafa-hierarchy-node-anchor > span {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
+/* The extjs text padding becomes a margin, so it does not count as room for the
+   text and hide small truncations from the tooltip check */
+.x-tree-node .zarafa-hierarchy-node-anchor > span:not(.zarafa-hierarchy-node-counter) {
+  padding: 0;
+  margin-right: 3px; }
+
+/* Counters are never cut off, and the owner suffix of a favorite or a shared
+   folder only takes the space the name leaves over */
+.x-tree-node .zarafa-hierarchy-node-anchor > .zarafa-hierarchy-node-counter {
+  flex: 0 0 auto; }
+
+.x-tree-node .zarafa-hierarchy-node-anchor > .zarafa-hierarchy-node-owner,
+.x-tree-node .zarafa-hierarchy-node-anchor > .zarafa-hierarchy-node-backend {
+  flex: 1 0 0;
+  max-width: max-content; }
+
+/* The drag ghost is sized by its content */
+.x-dd-drag-ghost .x-tree-node-el.zarafa-hierarchy-node {
+  display: block; }
 
 .x-tree-node a span, .x-dd-drag-ghost a span {
   padding-left: 0; }
