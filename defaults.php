@@ -808,3 +808,8 @@ if (!defined('ADMIN_API_DISABLEDPLUGINS_RETRY_TIME')) {
 if (!defined('ADMIN_API_TIMEOUT')) {
 	define('ADMIN_API_TIMEOUT', 2);
 }
+
+// Messages a mailbox may submit per minute, 0 for no limit
+if (!defined('MAX_SUBMITS_PER_MINUTE')) {
+	define('MAX_SUBMITS_PER_MINUTE', 20);
+}
