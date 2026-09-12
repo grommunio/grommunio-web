@@ -72,6 +72,13 @@ Zarafa.core.ui.notifier.PagingSliderPlugin = Ext.extend(Zarafa.core.ui.notifier.
 	slideOutDirection: 'b',
 
 	/**
+	 * @cfg {Array} sliderOffsets The [x, y] offsets with which the slider is aligned
+	 * to its {@link #parentEl}. The vertical one keeps it clear of the bottom edge,
+	 * which in a full height grid is also the bottom of the window.
+	 */
+	sliderOffsets: [-8, -12],
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
@@ -81,7 +88,8 @@ Zarafa.core.ui.notifier.PagingSliderPlugin = Ext.extend(Zarafa.core.ui.notifier.
 			sliderCls: 'k-slider',
 			sliderContainerPosition: 'b',
 			slideInDirection: 'b',
-			slideOutDirection: 'b'
+			slideOutDirection: 'b',
+			sliderOffsets: [-8, -12]
 		});
 
 		Zarafa.core.ui.notifier.PagingSliderPlugin.superclass.constructor.call(this, config);
@@ -108,7 +116,7 @@ Zarafa.core.ui.notifier.PagingSliderPlugin = Ext.extend(Zarafa.core.ui.notifier.
 		if (config.destroy) {
 			this.setSliderTimeOut();
 		} else if (config.update) {
-			this.slider.alignTo(this.parentEl, this.sliderContainerPosition + '-' + this.sliderContainerPosition, [-8, 0]);
+			this.alignSlider(this.slider);
 		} else {
 			clearTimeout(this.timer);
 			this.slider = this.getSlider();
@@ -205,12 +213,25 @@ Zarafa.core.ui.notifier.PagingSliderPlugin = Ext.extend(Zarafa.core.ui.notifier.
 				});
 				store.on('load', this.onStoreLoad, this);
 			}
-			element.alignTo(this.parentEl, this.sliderContainerPosition + '-' + this.sliderContainerPosition, [-8, 0]);
+			this.alignSlider(element);
 			element = element.slideIn(this.slideInDirection);
 		} else if (!this.pagingEnabled) {
 			element.dom.innerHTML = sliderCfg.html;
 		}
 		return element;
+	},
+
+	/**
+	 * Places the slider against the {@link #parentEl}, lifted off its edge by
+	 * the {@link #sliderOffsets}.
+	 *
+	 * @param {Ext.Element} slider The slider to place
+	 */
+	alignSlider: function(slider)
+	{
+		var position = this.sliderContainerPosition + '-' + this.sliderContainerPosition;
+
+		slider.alignTo(this.parentEl, position, this.sliderOffsets);
 	},
 
 	/**
