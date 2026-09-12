@@ -343,6 +343,23 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 			// not specifying settingsCfg as Ctrl+Y is already listed for redo
 		}];
 
+		var searchKeys = [{
+			key: Ext.EventObject.F,
+			ctrl: true,
+			alt: false,
+			shift: false,
+			// The handler decides: it takes the event for the search box, and
+			// leaves it to the browser once the box already has the cursor.
+			stopEvent: false,
+			handler: this.onSearch,
+			scope: this,
+			settingsCfg: {
+				description: _('Jump to the search box, press again for the browser search'),
+				category: _('Basic navigation')
+			},
+			basic: true
+		}];
+
 		var paletteKeys = [{
 			key: Ext.EventObject.K,
 			ctrl: true,
@@ -361,6 +378,7 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 		Zarafa.core.KeyMapMgr.register('global', mainTabBar);
 		Zarafa.core.KeyMapMgr.register('global', mainToolbarKeys);
 		Zarafa.core.KeyMapMgr.register('global', paletteKeys);
+		Zarafa.core.KeyMapMgr.register('global', searchKeys);
 		Zarafa.core.KeyMapMgr.register('global', undoRedoKeys);
 
 		Zarafa.core.KeyMapMgr.register('grid', selectionKey);
@@ -788,6 +806,76 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 				selectionModel.selectAll();
 			}
 		}
+	},
+
+	/**
+	 * Puts the cursor in the search box of the current view, which opens its
+	 * dropdown as a click would.
+	 *
+	 * The event is only taken when there is somewhere to go: with the cursor
+	 * already in the box, or in a view that has no search box at all, it is left
+	 * to the browser, so a second press opens the browser's own find.
+	 * @private
+	 */
+	onSearch: function(key, event)
+	{
+		// The editable body has a find of its own, and the cursor is in text.
+		var target = event ? event.getTarget() : null;
+		if (target && target.isContentEditable === true) {
+			return;
+		}
+
+		var field = this.getVisibleSearchField();
+		if (!field || this.hasSearchFocus(field)) {
+			return;
+		}
+
+		if (event) {
+			event.stopEvent();
+		}
+		field.focus();
+	},
+
+	/**
+	 * The search box of the view the user is looking at, or false when that view
+	 * has none. Only one context is visible at a time, so at most one of the
+	 * rendered search boxes is.
+	 *
+	 * @return {Zarafa.common.searchfield.ui.SearchTextField|Boolean} the field
+	 * @private
+	 */
+	getVisibleSearchField: function()
+	{
+		var field = false;
+
+		Ext.ComponentMgr.all.each(function(component) {
+			if (field || !component.isXType || !component.isXType('zarafa.searchtextfield')) {
+				return;
+			}
+			// The token container is what the user sees; the component's own
+			// element is the hidden input behind it.
+			var wrap = component.tokenWrapEl;
+			if (component.rendered && wrap && wrap.isVisible(true)) {
+				field = component;
+			}
+		});
+
+		return field;
+	},
+
+	/**
+	 * Whether the cursor is already inside the given search box, which is also
+	 * true while a search token is being edited.
+	 *
+	 * @param {Zarafa.common.searchfield.ui.SearchTextField} field the search box
+	 * @return {Boolean}
+	 * @private
+	 */
+	hasSearchFocus: function(field)
+	{
+		var wrap = field.tokenWrapEl;
+
+		return !!wrap && !!document.activeElement && wrap.dom.contains(document.activeElement);
 	},
 
 	/**
