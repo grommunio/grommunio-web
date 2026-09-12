@@ -21,8 +21,8 @@ elseif ($darkMode === 'system') {
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<title><?php echo $webappTitle; ?></title>
-		<link rel="icon" href="<?php echo versionedUrl('client/resources/images/favicon.ico'); ?>" type="image/x-icon">
-		<link rel="shortcut icon" href="<?php echo versionedUrl('client/resources/images/favicon.ico'); ?>" type="image/x-icon">
+		<link rel="icon" href="<?php echo $favicon; ?>" type="image/x-icon">
+		<link rel="shortcut icon" href="<?php echo $favicon; ?>" type="image/x-icon">
 		<link rel="manifest" href="<?php echo versionedUrl('manifest.webmanifest'); ?>">
 
 		<link rel="stylesheet" href="client/resources/css/darkmode.css?version=<?php echo getWebappVersion(); ?>" >
