@@ -246,7 +246,7 @@ class DownloadAttachment extends DownloadBase {
 	public function getAttachmentByAttachCid($attachment = false) {
 		// If the inline image was in a submessage, we have to open that first
 		if ($attachment !== false) {
-			$this->message = mapi_attach_openobj($attachment);
+			$this->message = openAttachedMessage($attachment);
 			if ($this->message === false) {
 				return false;
 			}
@@ -302,7 +302,7 @@ class DownloadAttachment extends DownloadBase {
 			}
 
 			// Open the object in the attachment
-			$this->message = mapi_attach_openobj($tempattach);
+			$this->message = openAttachedMessage($tempattach);
 			if ($this->message === false) {
 				return false;
 			}
@@ -955,7 +955,7 @@ class DownloadAttachment extends DownloadBase {
 							$tempattach = mapi_message_openattach($this->message, $this->attachNum[$index]);
 							if ($tempattach) {
 								// Open the object in the attachment
-								$this->message = mapi_attach_openobj($tempattach);
+								$this->message = openAttachedMessage($tempattach);
 							}
 						}
 					}

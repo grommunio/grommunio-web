@@ -586,7 +586,8 @@ class ItemModule extends Module {
 			$message = $GLOBALS['operations']->openMessage($store, $entryid, $attachNum, true);
 
 			if (empty($message)) {
-				return;
+				// Without this the client is left with an empty item and no reason.
+				throw new ZarafaException('attachment ' . implode('.', (array) $attachNum) . ' holds no message', 0, null, _("Could not open the attachment."));
 			}
 
 			$data['item'] = $GLOBALS['operations']->getEmbeddedMessageProps($store, $message, $this->properties, $parentMessage, $attachNum);

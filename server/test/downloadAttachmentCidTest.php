@@ -60,6 +60,11 @@ if (!function_exists('mapi_message_getattachmenttable')) {
 		return $GLOBALS['attachmentObjectResult'];
 	}
 
+	// util.php is not loaded here; only the opened message matters.
+	function openAttachedMessage($attachment) {
+		return $GLOBALS['attachmentObjectResult'];
+	}
+
 	function mapi_message_getattachmenttable($message) {
 		++$GLOBALS['attachmentCidTableCalls'];
 
