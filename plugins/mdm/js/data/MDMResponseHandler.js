@@ -47,16 +47,19 @@ Zarafa.plugins.mdm.data.MDMResponseHandler = Ext.extend(Zarafa.core.data.Abstrac
 	},
 
 	/**
-	 * Call the successCallback callback function if device was successfully removed from
-	 * grommunio-sync server else check and handle an authentication failure for grommunio-sync server.
+	 * If the remove request was successful, drop the device and say so, else check
+	 * and handle an authentication failure for grommunio-sync server.
 	 * @param {Object} response Object contained the response data.
 	 */
 	doRemove : function(response)
 	{
-		if(response.remove){
+		if (response.remove === true) {
+			container.getNotifier().notify('info.mdm', _('Mobile Device Manager'), _('Device removed'));
 			this.successCallback();
+		} else if (!response.remove) {
+			container.getNotifier().notify('info.mdm', _('Mobile Device Manager'), _('The device was not removed. Check your password and try again.'));
 		} else {
-			this.processAuthResponse (response, this.failureCallback, 'remove');
+			this.processAuthResponse(response, this.failureCallback, 'remove');
 		}
 	},
 
