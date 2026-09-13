@@ -241,8 +241,7 @@ class EntryId {
 	 * @return bool Result of the comparison
 	 */
 	public function compareEntryIds($entryId1, $entryId2) {
-		// if normal comparison succeeds then we can directly say that entryids are same
-		return is_string($entryId1) && is_string($entryId2) && $entryId1 === $entryId2;
+		return \compareEntryIds($entryId1, $entryId2);
 	}
 
 	/**
