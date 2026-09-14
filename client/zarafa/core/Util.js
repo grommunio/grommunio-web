@@ -694,6 +694,20 @@ Zarafa.core.Util =
 	},
 
 	/**
+	 * The icon the page shows for itself. A theme may replace it, and the template
+	 * gives the URL a cache buster, so read it from the document rather than
+	 * naming a file.
+	 *
+	 * @return {String} the favicon URL
+	 */
+	getFaviconUrl: function ()
+	{
+		var link = document.querySelector('link[rel="icon"]');
+
+		return link ? link.href : 'client/resources/images/favicon.ico';
+	},
+
+	/**
 	 * Function which will convert given input into Bytes.
 	 * @param {Number} input the number which needs to be converted in bytes.
 	 * @param {String} sizeUnit string which indicates given input is in which unit.
