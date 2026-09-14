@@ -327,6 +327,9 @@ class Theming {
 		$colorKeys = [
 			'primary-color',
 			'primary-color:hover',
+			'primary-color:dark',
+			'gradient-start',
+			'gradient-end',
 			'mainbar-text-color',
 			'action-color',
 			'action-color:hover',
@@ -354,6 +357,44 @@ class Theming {
 		}
 
 		return versionedUrl(PATH_PLUGIN_DIR . '/' . $theme . '/' . $url);
+	}
+
+	/**
+	 * The custom properties a theme feeds. grommunio.css is written against these and
+	 * uses them far more widely than the fixed selectors below, so a theme that sets
+	 * none of them only reaches the handful of places those selectors name.
+	 *
+	 * The built-in themes declare the same properties in grommunio.css; a json theme
+	 * gets no rule of its own there, so they are emitted here instead. One theme is
+	 * active per request, which is why plain "body" is specific enough.
+	 *
+	 * @param array $themeProps A hash with the properties defined in a theme.json file
+	 *
+	 * @return string a css rule, or an empty string when the theme sets no colors
+	 */
+	private static function getVariables($themeProps) {
+		$variables = [
+			'--theme-primary-color' => $themeProps['primary-color'] ?? null,
+			'--theme-primary-hover' => $themeProps['primary-color:hover'] ?? null,
+			'--theme-primary-dark' => $themeProps['primary-color:dark'] ?? null,
+			'--theme-gradient-start' => $themeProps['gradient-start'] ?? null,
+			'--theme-gradient-end' => $themeProps['gradient-end'] ?? null,
+			'--theme-selection-bg' => $themeProps['selection-color'] ?? null,
+			'--theme-spinner-image' => isset($themeProps['spinner-image']) ? 'url(' . $themeProps['spinner-image'] . ')' : null,
+		];
+
+		$declarations = '';
+		foreach ($variables as $name => $value) {
+			if ($value) {
+				$declarations .= "\n\t\t\t\t" . $name . ': ' . htmlspecialchars((string) $value) . ';';
+			}
+		}
+
+		if (empty($declarations)) {
+			return '';
+		}
+
+		return "\n\t\t\t/* The palette grommunio.css is written against */\n\t\t\tbody {" . $declarations . "\n\t\t\t}\n";
 	}
 
 	/**
@@ -403,6 +444,19 @@ class Theming {
 			if (!$themeProps['selection-color']) {
 				$themeProps['selection-color'] = Colors::setLuminance($themeProps['primary-color'], 80);
 			}
+
+			if (!$themeProps['primary-color:dark']) {
+				$themeProps['primary-color:dark'] = Colors::darker($themeProps['primary-color'], 20);
+			}
+
+			// The top bar is a flat primary-color unless the theme asks for a gradient,
+			// which is what the key has always promised.
+			if (!$themeProps['gradient-start']) {
+				$themeProps['gradient-start'] = $themeProps['primary-color'];
+			}
+			if (!$themeProps['gradient-end']) {
+				$themeProps['gradient-end'] = $themeProps['gradient-start'];
+			}
 		}
 		if ($themeProps['action-color'] && !$themeProps['action-color:hover']) {
 			$themeProps['action-color:hover'] = Colors::darker($themeProps['action-color'], 10);
@@ -431,10 +485,16 @@ class Theming {
 		if (isset($themeProps['logo-large']) && !isset($themeProps['logo-small'])) {
 			$themeProps['logo-small'] = $themeProps['logo-large'];
 		}
+		if (isset($themeProps['logo-small:dark'])) {
+			$themeProps['logo-small:dark'] = Theming::fixUrl($themeProps['logo-small:dark'], $theme);
+		}
+		elseif (isset($themeProps['logo-small'])) {
+			$themeProps['logo-small:dark'] = $themeProps['logo-small'];
+		}
 		if (isset($themeProps['spinner-image'])) {
 			$themeProps['spinner-image'] = Theming::fixUrl($themeProps['spinner-image'], $theme);
 		}
-		$styles = '<style>';
+		$styles = '<style>' . Theming::getVariables($themeProps);
 		foreach ($themeProps as $k => $v) {
 			if ($v && isset(Theming::$styles[$k])) {
 				$styles .= str_replace("{{{$k}}}", htmlspecialchars((string) $v), Theming::$styles[$k]);
@@ -792,6 +852,16 @@ class Theming {
 			}
 		',
 
+		/* Dark mode gives the stock logo a light variant; a branded deployment has its
+		   own. The selector matches the one in darkmode.css and this block comes after
+		   it, so it wins without !important. */
+		'logo-small:dark' => '
+			body.dark-mode .zarafa-maintoolbar {
+				background-image: url({{logo-small:dark}});
+				background-size: auto 38px;
+			}
+		',
+
 		'background-image' => '
 			/*********************************************************************************************
 			 * The Login screen and the Welcome screen
@@ -809,7 +879,8 @@ class Theming {
 		',
 
 		'spinner-image' => '
-			/* The spinner of the login/loading screen */
+			/* The spinner of the login/loading screen. The one inside the application
+			   is drawn from --theme-spinner-image, which getVariables() sets. */
 			body.login #form-container.loading .right,
 			#loading-mask #form-container.loading .right {
 				background: url({{spinner-image}}) no-repeat center center;
