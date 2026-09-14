@@ -4,6 +4,18 @@ require_once BASE_PATH . 'server/includes/core/class.indexsqlite.php';
 
 class AdvancedSearchListModule extends ListModule {
 	/**
+	 * Length gromox truncates PT_UNICODE cells of a table row to. Applied to
+	 * properties read off an opened message so both paths return equal rows.
+	 */
+	private const LIST_STRING_CAP = 255;
+
+	/**
+	 * Set once publicStoreSearch() has run for this request, so the
+	 * messageList() fallback below does not try the same index again.
+	 */
+	private $publicSearchAttempted = false;
+
+	/**
 	 * Constructor.
 	 *
 	 * @param int   $id   unique id
@@ -33,6 +45,182 @@ class AdvancedSearchListModule extends ListModule {
 		$this->sort = [
 			PR_MESSAGE_DELIVERY_TIME => TABLE_SORT_DESCEND,
 		];
+	}
+
+	/**
+	 * Returns the domain a public store entryid points at, or null when the
+	 * action does not address a public store.
+	 *
+	 * This reads the store entryid the client already sent instead of asking
+	 * the server for PR_MDB_PROVIDER, so recognising the (far more common)
+	 * private store costs no extra round trip.
+	 *
+	 * @param array $action the action data, sent by the client
+	 *
+	 * @return null|string
+	 */
+	private function publicStoreDomain($action) {
+		if (empty($action['store_entryid'])) {
+			return null;
+		}
+		$eidObj = $GLOBALS["entryid"]->createMsgStoreEntryIdObj(hex2bin((string) $action['store_entryid']));
+		if (($eidObj['WrappedProviderUID'] ?? '') !== MUID_STORE_PUBLIC_GUID) {
+			return null;
+		}
+		$domain = $eidObj['ServerShortname'] ?? '';
+
+		return $domain === '' ? null : $domain;
+	}
+
+	/**
+	 * Answers a search in a public store from the fulltext index.
+	 *
+	 * The index is keyed by the domain name, which is what gromox puts into
+	 * the public store entryid as the server shortname, and grommunio-index
+	 * writes it to the same place as the per-user indexes.
+	 *
+	 * @param resource    $store      MAPI message store
+	 * @param string      $entryid    entryid of the folder to search in
+	 * @param array       $action     the action data, sent by the client
+	 * @param string      $actionType the action type to answer with
+	 * @param null|string $domain     domain owning the public store
+	 *
+	 * @return bool true when the response was sent, false to fall back
+	 */
+	private function publicStoreSearch($store, $entryid, $action, $actionType, $domain) {
+		$this->publicSearchAttempted = true;
+		if ($domain === null) {
+			return false;
+		}
+
+		$this->searchFolderList = true;
+		$this->restriction = false;
+		$this->parseRestriction($action);
+		if ($this->restriction === false) {
+			return false;
+		}
+		$ftsDescriptor = $this->buildFtsDescriptor($this->restriction);
+		if (empty($ftsDescriptor['ast'])) {
+			return false;
+		}
+		if (is_array($ftsDescriptor['message_classes']) &&
+			count($ftsDescriptor['message_classes']) >= 7) {
+			$ftsDescriptor['message_classes'] = null;
+		}
+
+		$indexDB = new IndexSqlite($domain, $GLOBALS["mapisession"]->getSession(), $store);
+		if (!$indexDB->is_open()) {
+			return false;
+		}
+
+		/*
+		 * "subfolders" only rides along with the initial search request, so
+		 * remember it for the paging requests that follow.
+		 */
+		$recursive = isset($action["subfolders"]) && $action["subfolders"] == "true";
+		$scopeKey = md5(bin2hex($entryid) . $domain);
+		if (!is_array($this->sessionData)) {
+			$this->sessionData = [];
+		}
+		if (isset($action["subfolders"])) {
+			$this->sessionData['publicSearchRecursive'][$scopeKey] = $recursive;
+		}
+		else {
+			$recursive = $this->sessionData['publicSearchRecursive'][$scopeKey] ?? false;
+		}
+
+		$this->logFtsDebug('Dispatching public store search to index backend', [
+			'domain' => $domain,
+			'recursive' => $recursive,
+			'message_classes' => $ftsDescriptor['message_classes'] ?? null,
+			'ast' => $ftsDescriptor['ast'] ?? null,
+		]);
+		$entryids = $indexDB->searchEntryIds($ftsDescriptor, $entryid, $recursive);
+		if ($entryids === false) {
+			return false;
+		}
+
+		$this->parseSortOrder($action, null, true);
+		$limit = $action['restriction']['limit'] ?? $GLOBALS['settings']->get('zarafa/v1/main/page_size', 50);
+		$limit = max(1, (int) $limit);
+		$start = max(0, (int) $this->start);
+		$data = ["item" => []];
+		/*
+		 * The index hands back the hits ordered by date, newest first, and the
+		 * page is cut from that list so only the messages actually shown have
+		 * to be opened. A sort on any other column therefore only orders the
+		 * page, not the whole result set - the index has no data to sort the
+		 * rest by.
+		 */
+		foreach (array_slice($entryids, $start, $limit) as $messageEntryid) {
+			try {
+				$message = mapi_msgstore_openentry($store, $messageEntryid);
+			}
+			catch (Exception $e) {
+				$this->logFtsDebug('Skipping unreadable search hit', [
+					'error' => $e->getMessage(),
+				]);
+
+				continue;
+			}
+			if ($message === false) {
+				continue;
+			}
+			$row = mapi_getprops($message, $this->properties);
+			/*
+			 * A table row arrives with its string cells already truncated by
+			 * the server; reading the properties off an opened message does
+			 * not, which would put whole message bodies into a list response.
+			 * Cut them to the same length the table would have returned.
+			 */
+			foreach ($row as $tag => $value) {
+				$type = $tag & 0xFFFF;
+				if (($type === PT_UNICODE || $type === PT_STRING8) &&
+					is_string($value) && mb_strlen($value) > self::LIST_STRING_CAP) {
+					$row[$tag] = mb_substr($value, 0, self::LIST_STRING_CAP);
+				}
+			}
+			$item = Conversion::mapMAPI2XML($this->properties, $row);
+			// Mirror getTable(): the list view expects the *_username aliases
+			if (isset($item['props']["sent_representing_email_address"])) {
+				$item['props']["sent_representing_username"] = $item['props']["sent_representing_email_address"];
+			}
+			if (isset($item['props']["sender_email_address"])) {
+				$item['props']["sender_username"] = $item['props']["sender_email_address"];
+			}
+			if (isset($item['props']["received_by_email_address"])) {
+				$item['props']["received_by_username"] = $item['props']["received_by_email_address"];
+			}
+			$data["item"][] = $item;
+		}
+
+		$data["page"] = [
+			"start" => $start,
+			"rowcount" => $limit,
+			"totalrowcount" => count($entryids),
+		];
+		$this->getDelegateFolderInfo($store);
+		$data = $this->filterPrivateItems($data);
+		$data["item"] = array_values($data["item"]);
+		$data["search_meta"] = [
+			// No searchfolder_entryid: there is no search folder to page
+			// through, which also tells the client to keep sending the
+			// restriction along with the next page.
+			"search_store_entryid" => $action["store_entryid"],
+			"searchstate" => 0,
+			"results" => count($data["item"]),
+		];
+
+		$this->addActionData($actionType, $data);
+		$GLOBALS["bus"]->addData($this->getResponseData());
+		$this->logFtsDebug('Public store search response dispatched', [
+			'domain' => $domain,
+			'total_hits' => count($entryids),
+			'items_returned' => count($data["item"]),
+			'start' => $start,
+		]);
+
+		return true;
 	}
 
 	/**
@@ -105,6 +293,20 @@ class AdvancedSearchListModule extends ListModule {
 	 */
 	#[Override]
 	public function messageList($store, $entryid, $action, $actionType) {
+		/*
+		 * A public-store search has no search folder for the client to page
+		 * through, so the client re-sends the search restriction as a plain
+		 * list request. Answer those from the index as well, otherwise page 2
+		 * would come from a different search than page 1.
+		 */
+		if (!$this->publicSearchAttempted && $store !== false && !is_array($store) &&
+			is_string($entryid) && $entryid !== '' &&
+			!empty($action['restriction']['search']) && !isset($action['search_folder_entryid']) &&
+			$this->publicStoreSearch($store, $entryid, $action, $actionType,
+				$this->publicStoreDomain($action))) {
+			return;
+		}
+
 		$this->searchFolderList = false; // Set to indicate this is not the search result, but a normal folder content
 		$data = [];
 
@@ -507,10 +709,25 @@ class AdvancedSearchListModule extends ListModule {
 			'default_store' => $store_props[PR_DEFAULT_STORE] ?? null,
 		]);
 		if ($store_props[PR_MDB_PROVIDER] == ZARAFA_STORE_PUBLIC_GUID) {
-			$this->logFtsDebug('Search fallback: public store does not support search folders', []);
-
-			// public store does not support search folders
-			parent::messageList($store, $entryid, $action, "search");
+			/*
+			 * A public store cannot host a search folder (gromox answers
+			 * ecNotSupported), and public messages cannot be linked into a
+			 * private one either, so the usual "link the hits into a search
+			 * folder and read that folder" route is closed. Serve the hits
+			 * straight from the index instead; if there is no usable index,
+			 * fall back to the server-side restriction as before.
+			 */
+			if ($this->publicStoreSearch($store, $entryid, $action, "search", $this->publicStoreDomain($action))) {
+				return true;
+			}
+			$this->logFtsDebug('Search fallback: public store without usable index', []);
+			/*
+			 * Our own messageList() walks the folder hierarchy when the
+			 * request asks for subfolders; ListModule's does not and would
+			 * silently search the one folder, which is what made "include
+			 * subfolders" look broken on public folders.
+			 */
+			$this->messageList($store, $entryid, $action, "search");
 
 			return;
 		}
