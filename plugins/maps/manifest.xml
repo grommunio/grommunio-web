@@ -2,7 +2,7 @@
 <!DOCTYPE plugin SYSTEM "manifest.dtd">
 <plugin version="2">
 	<info>
-		<version>1.1</version>
+		<version>1.2</version>
 		<name>maps</name>
 		<title>Openstreetmap</title>
 		<author>grommunio GmbH</author>

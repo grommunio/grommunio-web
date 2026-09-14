@@ -2,7 +2,7 @@
 <!DOCTYPE plugin SYSTEM "manifest.dtd">
 <plugin version="2">
 	<info>
-		<version>5.0</version>
+		<version>5.1</version>
 		<name>files</name>
 		<title>Files Plugin</title>
 		<author>grommunio GmbH</author>
