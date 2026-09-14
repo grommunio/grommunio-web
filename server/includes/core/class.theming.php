@@ -384,8 +384,8 @@ class Theming {
 
 		if ($themeProps['primary-color']) {
 			if (!$themeProps['primary-color:hover']) {
-				[, , $l] = Colors::rgb2hsl(Colors::colorString2Object($themeProps['primary-color']));
-				if ($l > 20) {
+				$hsl = Colors::rgb2hsl($themeProps['primary-color']);
+				if ($hsl['l'] > 20) {
 					$themeProps['primary-color:hover'] = Colors::darker($themeProps['primary-color'], 10);
 				}
 				else {
