@@ -43,22 +43,34 @@
     <title>Document Viewer</title>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
-    <link href="video-js/video-js.css" rel="stylesheet">
-    <link href="video-js/sea.css" rel="stylesheet">
-    <script src="video-js/video.js"></script>
+    <link rel="icon" href="data:,">
     <link href="viewer.css" rel="stylesheet">
+    <script>
+        // The document is the one thing every renderer needs, and it is the
+        // slowest to arrive. Ask for it here, before a single script has been
+        // fetched, and let the renderer pick up the request that is already
+        // running. The theme is applied from here too, so the viewer does not
+        // flash in the wrong colours before its scripts have loaded.
+        (function () {
+            "use strict";
+            var url = document.location.hash.substring(1),
+                parameters = new URLSearchParams(document.location.search);
+
+            if (url) {
+                window.documentRequest = {
+                    url: url,
+                    response: fetch(url, { credentials: 'same-origin' })
+                };
+            }
+            document.documentElement.dataset.theme = parameters.get('theme') === 'dark' ? 'dark' : 'light';
+            if (/^[0-9a-fA-F]{6}$/.test(parameters.get('accent') || '')) {
+                document.documentElement.style.setProperty('--accent', '#' + parameters.get('accent'));
+            }
+        }());
+    </script>
 </head>
 <body>
 <div id="viewer">
-    <div id="titlebar" class="no-print">
-        <div id="documentName" style="display:none;"></div>
-        <div id="titlebarRight">
-            <button id="print" class="toolbarButton print" title="Print"></button>
-            <button id="presentation" class="toolbarButton presentation" title="Presentation"></button>
-            <button id="fullscreen" class="toolbarButton fullscreen" title="Fullscreen" style="display: none;"></button>
-            <button id="download" class="toolbarButton download" title="Download"></button>
-        </div>
-    </div>
     <div id="toolbarContainer" class="no-print">
         <div id="toolbar">
             <div id="toolbarLeft">
@@ -98,6 +110,10 @@
                 </div>
             </div>
             <div id="toolbarRight">
+                <button id="presentation" class="toolbarButton presentation" title="Presentation"></button>
+                <button id="fullscreen" class="toolbarButton fullscreen" title="Fullscreen" style="display: none;"></button>
+                <button id="print" class="toolbarButton print" title="Print"></button>
+                <button id="download" class="toolbarButton download" title="Download"></button>
             </div>
         </div>
     </div>
@@ -116,6 +132,7 @@
     <div id="blanked" class="no-print"></div>
 </div>
 
-<script src="viewer.js" type="text/javascript" charset="utf-8"></script>
+<script src="./Support.js" type="text/javascript" charset="utf-8"></script>
+<script src="./viewer.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

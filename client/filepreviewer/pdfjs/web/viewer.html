@@ -34,6 +34,10 @@ See https://github.com/adobe-type-tools/cmap-resources
 
 <!-- This snippet is used in production (included from viewer.html) -->
 <link rel="resource" type="application/l10n" href="locale/locale.json" />
+<!-- Deferred: it only has to run before the viewer paints. Preloading the
+     worker or the message catalogue has been measured and does not pay - both
+     are fetched a second time rather than reused. -->
+<script src="grommunio-theme.js" defer></script>
 <script src="../build/pdf.mjs" type="module"></script>
 
     <link rel="stylesheet" href="viewer.css" />

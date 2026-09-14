@@ -1,14 +1,4 @@
 ViewerJS_version = '0.7.0';
-
-function loadPlugin( pluginFile, callback ) {
-    "use strict";
-    var script    = document.createElement('script');
-    script.async  = false;
-    script.onload = callback;
-    script.src    = pluginFile;
-    script.type   = 'text/javascript';
-    document.head.appendChild(script);
-}
 /**
  * Copyright (C) 2012-2015 KO GmbH <copyright@kogmbh.com>
  * Copyright (C) 2020-2026 grommunio GmbH <dev@grommunio.com>
@@ -72,7 +62,6 @@ function Viewer( viewerPlugin, parameters ) {
         viewerElement      = document.getElementById('viewer'),
         canvasContainer    = document.getElementById('canvasContainer'),
         overlayNavigator   = document.getElementById('overlayNavigator'),
-        titlebar           = document.getElementById('titlebar'),
         toolbar            = document.getElementById('toolbarContainer'),
         pageSwitcher       = document.getElementById('toolbarLeft'),
         zoomWidget         = document.getElementById('toolbarMiddleContainer'),
@@ -214,16 +203,53 @@ function Viewer( viewerPlugin, parameters ) {
         return isNaN(result) ? 1 : result;
     }
 
+    /**
+     * Put the user's language on the buttons and labels of the viewer. The
+     * viewer page ships English text, which is what is translated here.
+     */
+    function localize() {
+        var titles = {
+                print:        'Print',
+                presentation: 'Presentation',
+                fullscreen:   'Fullscreen',
+                download:     'Download',
+                previous:     'Previous page',
+                next:         'Next page',
+                zoomOut:      'Zoom out',
+                zoomIn:       'Zoom in',
+                scaleSelect:  'Zoom'
+            },
+            options = {
+                pageAutoOption:   'Automatic',
+                pageActualOption: 'Actual size',
+                pageWidthOption:  'Page width'
+            };
+
+        Object.keys(titles).forEach(function ( id ) {
+            var element = document.getElementById(id);
+            if ( element ) {
+                element.title = ViewerSupport.t(titles[id]);
+            }
+        });
+        Object.keys(options).forEach(function ( id ) {
+            var element = document.getElementById(id);
+            if ( element ) {
+                element.textContent = ViewerSupport.t(options[id]);
+            }
+        });
+        document.getElementById('pageNumberLabel').textContent = ViewerSupport.t('Page:');
+        document.getElementById('overlayCloseButton').title    = ViewerSupport.t('Close');
+    }
+
     this.initialize = function () {
         var initialScale;
 
+        localize();
+        ViewerSupport.followHostTheme();
         initialScale = readZoomParameter(parameters.zoom);
 
-        url                    = parameters.documentUrl;
-        document.title         = parameters.title;
-        var documentName       = document.getElementById('documentName');
-        documentName.innerHTML = "";
-        documentName.appendChild(documentName.ownerDocument.createTextNode(parameters.title));
+        url            = parameters.documentUrl;
+        document.title = parameters.title;
 
         viewerPlugin.onLoad = function () {
 
@@ -241,9 +267,9 @@ function Viewer( viewerPlugin, parameters ) {
                 }
             }
 
-            initialized                                   = true;
-            pages                                         = getPages();
-            document.getElementById('numPages').innerHTML = 'of ' + pages.length;
+            initialized = true;
+            pages       = getPages();
+            document.getElementById('numPages').textContent = ViewerSupport.format('of {0}', pages.length);
 
             self.showPage(readStartPageParameter(parameters.startpage));
 
@@ -359,7 +385,7 @@ function Viewer( viewerPlugin, parameters ) {
         var overlayCloseButton = document.getElementById('overlayCloseButton');
 
         if ( !presentationMode ) {
-            titlebar.style.display = toolbar.style.display = 'none';
+            toolbar.style.display = 'none';
             overlayCloseButton.style.display = 'block';
             canvasContainer.classList.add('presentationMode');
             canvasContainer.onmousedown   = function ( event ) {
@@ -381,7 +407,7 @@ function Viewer( viewerPlugin, parameters ) {
             if ( isBlankedOut() ) {
                 leaveBlankOut();
             }
-            titlebar.style.display = toolbar.style.display = 'block';
+            toolbar.style.display = 'block';
             overlayCloseButton.style.display = 'none';
             canvasContainer.classList.remove('presentationMode');
             canvasContainer.onmouseup     = function () {
@@ -459,7 +485,6 @@ function Viewer( viewerPlugin, parameters ) {
     /**
      */
     function showToolbars() {
-        titlebar.classList.add('viewer-touched');
         toolbar.classList.add('viewer-touched');
         window.clearTimeout(toolbarTouchTimer);
         toolbarTouchTimer = window.setTimeout(function () {
@@ -468,12 +493,11 @@ function Viewer( viewerPlugin, parameters ) {
     }
 
     function hideToolbars() {
-        titlebar.classList.remove('viewer-touched');
         toolbar.classList.remove('viewer-touched');
     }
 
     function toggleToolbars() {
-        if ( titlebar.classList.contains('viewer-touched') ) {
+        if ( toolbar.classList.contains('viewer-touched') ) {
             hideToolbars();
         } else {
             showToolbars();
@@ -547,7 +571,6 @@ function Viewer( viewerPlugin, parameters ) {
             canvasContainer.addEventListener('click', showOverlayNavigator);
             overlayNavigator.addEventListener('click', showOverlayNavigator);
             canvasContainer.addEventListener('click', toggleToolbars);
-            titlebar.addEventListener('click', showToolbars);
             toolbar.addEventListener('click', showToolbars);
 
             window.addEventListener('scalechange', function ( evt ) {
@@ -660,175 +683,172 @@ function Viewer( viewerPlugin, parameters ) {
  * @source: http://github.com/kogmbh/ViewerJS
  */
 
-/*global document, window, Viewer, ODFViewerPlugin, DocxViewerPlugin, XlsxViewerPlugin, ImageViewerPlugin, MultimediaViewerPlugin, UnknownFilePlugin, PDFViewerPlugin*/
+/*global document, window, Viewer, ViewerSupport, ODFViewerPlugin, DocViewerPlugin, DocxViewerPlugin, RtfViewerPlugin, SheetViewerPlugin, PptxViewerPlugin, MessageViewerPlugin, ImageViewerPlugin, MultimediaViewerPlugin, TextViewerPlugin, UnknownFilePlugin*/
 
 (function () {
     "use strict";
 
-    var css,
-        pluginRegistry  = [
-            (function () {
-                var odfMimetypes      = [
-                    'application/vnd.oasis.opendocument.text',
-                    'application/vnd.oasis.opendocument.text-flat-xml',
-                    'application/vnd.oasis.opendocument.text-template',
-                    'application/vnd.oasis.opendocument.presentation',
-                    'application/vnd.oasis.opendocument.presentation-flat-xml',
-                    'application/vnd.oasis.opendocument.presentation-template',
-                    'application/vnd.oasis.opendocument.spreadsheet',
-                    'application/vnd.oasis.opendocument.spreadsheet-flat-xml',
-                    'application/vnd.oasis.opendocument.spreadsheet-template'];
-                var odfFileExtensions = [
-                    'odt',
-                    'fodt',
-                    'ott',
-                    'odp',
-                    'fodp',
-                    'otp',
-                    'ods',
-                    'fods',
-                    'ots'];
+    // The renderers, by the name grommunio Web knows them under. The
+    // extensions and content types are for a viewer opened on its own.
+    var pluginRegistry = {
+        odf: {
+            path:        "./ODFViewerPlugin.js",
+            getClass:    function () { return ODFViewerPlugin; },
+            extensions:  ['odt', 'fodt', 'ott', 'odp', 'fodp', 'otp', 'ods', 'fods', 'ots'],
+            mimetypes:   [
+                'application/vnd.oasis.opendocument.text',
+                'application/vnd.oasis.opendocument.text-flat-xml',
+                'application/vnd.oasis.opendocument.text-template',
+                'application/vnd.oasis.opendocument.presentation',
+                'application/vnd.oasis.opendocument.presentation-flat-xml',
+                'application/vnd.oasis.opendocument.presentation-template',
+                'application/vnd.oasis.opendocument.spreadsheet',
+                'application/vnd.oasis.opendocument.spreadsheet-flat-xml',
+                'application/vnd.oasis.opendocument.spreadsheet-template'
+            ]
+        },
+        doc: {
+            path:        "./DocViewerPlugin.js",
+            libs:        ["./Cfb.js"],
+            getClass:    function () { return DocViewerPlugin; },
+            extensions:  ['doc', 'dot'],
+            mimetypes:   ['application/msword']
+        },
+        docx: {
+            path:        "./DocxViewerPlugin.js",
+            libs:        ["./vendor/jszip.min.js", "./vendor/docx-preview.min.js"],
+            getClass:    function () { return DocxViewerPlugin; },
+            extensions:  ['docx', 'docm', 'dotx', 'dotm'],
+            mimetypes:   [
+                'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                'application/vnd.openxmlformats-officedocument.wordprocessingml.template'
+            ]
+        },
+        rtf: {
+            path:        "./RtfViewerPlugin.js",
+            getClass:    function () { return RtfViewerPlugin; },
+            extensions:  ['rtf'],
+            mimetypes:   ['application/rtf', 'text/rtf']
+        },
+        sheet: {
+            path:        "./SheetViewerPlugin.js",
+            libs:        ["./vendor/xlsx.full.min.js"],
+            getClass:    function () { return SheetViewerPlugin; },
+            extensions:  ['xls', 'xlt', 'xlsx', 'xlsm', 'xltx', 'xltm', 'xlsb',
+                          'csv', 'tsv', 'dbf', 'dif', 'slk', 'prn'],
+            mimetypes:   [
+                'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                'application/vnd.openxmlformats-officedocument.spreadsheetml.template',
+                'application/vnd.ms-excel',
+                'application/vnd.ms-excel.sheet.macroenabled.12',
+                'application/vnd.ms-excel.sheet.binary.macroenabled.12',
+                'text/csv',
+                'text/tab-separated-values'
+            ]
+        },
+        pptx: {
+            path:        "./PptxViewerPlugin.js",
+            libs:        ["./vendor/jszip.min.js"],
+            getClass:    function () { return PptxViewerPlugin; },
+            extensions:  ['pptx', 'pptm', 'potx', 'ppsx', 'ppsm'],
+            mimetypes:   [
+                'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+                'application/vnd.openxmlformats-officedocument.presentationml.template',
+                'application/vnd.openxmlformats-officedocument.presentationml.slideshow'
+            ]
+        },
+        message: {
+            path:        "./MessageViewerPlugin.js",
+            libs:        ["../../dompurify/purify.js"],
+            getClass:    function () { return MessageViewerPlugin; },
+            extensions:  ['eml'],
+            mimetypes:   ['message/rfc822']
+        },
+        image: {
+            path:        "./ImageViewerPlugin.js",
+            getClass:    function () { return ImageViewerPlugin; },
+            extensions:  ['png', 'jpg', 'jpeg', 'jpe', 'gif', 'bmp', 'webp', 'avif', 'ico', 'svg'],
+            mimetypes:   [
+                'image/jpeg', 'image/pjpeg', 'image/gif', 'image/png', 'image/bmp',
+                'image/webp', 'image/avif', 'image/x-icon', 'image/vnd.microsoft.icon',
+                'image/svg+xml'
+            ]
+        },
+        media: {
+            path:        "./MultimediaViewerPlugin.js",
+            libs:        ["video-js/video.js"],
+            getClass:    function () { return MultimediaViewerPlugin; },
+            extensions:  ['aac', 'mp3', 'm4a', 'oga', 'ogg', 'opus', 'wav', 'flac',
+                          'mp1', 'mp2', 'mp4', 'm4v', 'mpg', 'mpeg', 'ogv', 'webm', 'mov'],
+            mimetypes:   [
+                'video/mp4', 'video/ogg', 'video/webm', 'video/mpeg', 'video/quicktime',
+                'audio/aac', 'audio/mp4', 'audio/mpeg', 'audio/ogg', 'audio/wav',
+                'audio/webm', 'audio/flac', 'audio/opus'
+            ]
+        },
+        text: {
+            path:        "./TextViewerPlugin.js",
+            getClass:    function () { return TextViewerPlugin; },
+            extensions:  ['txt', 'text', 'log', 'md', 'markdown', 'json', 'xml', 'yaml',
+                          'yml', 'ini', 'cfg', 'conf', 'diff', 'patch', 'sql', 'htm',
+                          'html', 'css', 'js', 'ts', 'php', 'py', 'pl', 'rb', 'sh',
+                          'bat', 'ps1', 'c', 'h', 'cpp', 'hpp', 'cs', 'java', 'go',
+                          'rs', 'tex', 'toml', 'properties'],
+            mimetypes:   ['text/plain', 'text/markdown', 'application/json', 'text/xml',
+                          'application/xml']
+        }
+    };
 
-                return {
-                    supportsMimetype:      function ( mimetype ) {
-                        return (odfMimetypes.indexOf(mimetype) !== -1);
-                    },
-                    supportsFileExtension: function ( extension ) {
-                        return (odfFileExtensions.indexOf(extension) !== -1);
-                    },
-                    path:                  "./ODFViewerPlugin.js",
-                    getClass:              function () {
-                        return ODFViewerPlugin;
-                    }
-                };
-            }()),
-            (function () {
-                var docxMimetypes      = [
-                    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-                    'application/vnd.openxmlformats-officedocument.wordprocessingml.template'];
-                var docxFileExtensions = [
-                    'docx',
-                    'dotx'];
+    var unknownFileType = {
+        path:     "./UnknownFilePlugin.js",
+        getClass: function () {
+            return UnknownFilePlugin;
+        }
+    };
 
-                return {
-                    supportsMimetype:      function ( mimetype ) {
-                        return (docxMimetypes.indexOf(mimetype) !== -1);
-                    },
-                    supportsFileExtension: function ( extension ) {
-                        return (docxFileExtensions.indexOf(extension) !== -1);
-                    },
-                    path:                  "./DocxViewerPlugin.js",
-                    getClass:              function () {
-                        return DocxViewerPlugin;
-                    }
-                };
-            }()),
-            (function () {
-                var xlsxMimetypes      = [
-                    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-                    'application/vnd.openxmlformats-officedocument.spreadsheetml.template'];
-                var xlsxFileExtensions = [
-                    'xlsx',
-                    'xltx'];
+    // Content types a server rarely labels correctly, for the multimedia
+    // renderer, which needs one to put on its source element.
+    var extensionMimetypes = {
+        'aac':  'audio/aac',
+        'mp4':  'video/mp4',
+        'm4a':  'audio/mp4',
+        'm4v':  'video/mp4',
+        'mp3':  'audio/mpeg',
+        'mp1':  'audio/mpeg',
+        'mp2':  'audio/mpeg',
+        'mpg':  'video/mpeg',
+        'mpeg': 'video/mpeg',
+        'mov':  'video/quicktime',
+        'ogg':  'video/ogg',
+        'ogv':  'video/ogg',
+        'oga':  'audio/ogg',
+        'opus': 'audio/ogg',
+        'wav':  'audio/wav',
+        'flac': 'audio/flac',
+        'webm': 'video/webm'
+    };
 
-                return {
-                    supportsMimetype:      function ( mimetype ) {
-                        return (xlsxMimetypes.indexOf(mimetype) !== -1);
-                    },
-                    supportsFileExtension: function ( extension ) {
-                        return (xlsxFileExtensions.indexOf(extension) !== -1);
-                    },
-                    path:                  "./XlsxViewerPlugin.js",
-                    getClass:              function () {
-                        return XlsxViewerPlugin;
-                    }
-                };
-            }()),
-            (function () {
-                var imageMimetypes      = [
-                    'image/jpeg',
-                    'image/pjpeg',
-                    'image/gif',
-                    'image/png',
-                    'image/bmp'];
-                var imageFileExtensions = [
-                    'png',
-                    'jpg',
-                    'jpeg',
-                    'gif',
-                    'bmp'];
+    function findPlugin( match ) {
+        var name, found;
 
-                return {
-                    supportsMimetype:      function ( mimetype ) {
-                        return (imageMimetypes.indexOf(mimetype) !== -1);
-                    },
-                    supportsFileExtension: function ( extension ) {
-                        return (imageFileExtensions.indexOf(extension) !== -1);
-                    },
-                    path:                  "./ImageViewerPlugin.js",
-                    getClass:              function () {
-                        return ImageViewerPlugin;
-                    }
-                };
-            }()),
-            (function () {
-                var multimediaMimetypes      = [
-                    'video/mp4',
-                    'video/ogg',
-                    'video/webm',
-                    'audio/aac',
-                    'audio/mp4',
-                    'audio/mpeg',
-                    'audio/ogg',
-                    'audio/wav',
-                    'audio/webm'];
-                var multimediaFileExtensions = [
-                    'aac',
-                    'mp4',
-                    'm4a',
-                    'mp3',
-                    'mpg',
-                    'mpeg',
-                    'ogg',
-                    'wav',
-                    'webm',
-                    'm4v',
-                    'ogv',
-                    'oga',
-                    'mp1',
-                    'mp2'];
+        Object.keys(pluginRegistry).some(function ( key ) {
+            if ( match(pluginRegistry[key]) ) {
+                name  = key;
+                found = pluginRegistry[key];
 
-                return {
-                    supportsMimetype:      function ( mimetype ) {
-                        return (multimediaMimetypes.indexOf(mimetype) !== -1);
-                    },
-                    supportsFileExtension: function ( extension ) {
-                        return (multimediaFileExtensions.indexOf(extension) !== -1);
-                    },
-                    path:                  "./MultimediaViewerPlugin.js",
-                    getClass:              function () {
-                        return MultimediaViewerPlugin;
-                    }
-                };
-            }())
-        ],
-        unknownFileType = {
-            supportsMimetype:      function () {
                 return true;
-            },
-            supportsFileExtension: function () {
-                return true;
-            },
-            path:                  "./UnknownFilePlugin.js",
-            getClass:              function () {
-                return UnknownFilePlugin;
             }
-        };
+
+            return false;
+        });
+
+        return found ? { name: name, data: found } : undefined;
+    }
 
     function estimateTypeByHeaderContentType( documentUrl, cb ) {
         var xhr                = new XMLHttpRequest();
         xhr.onreadystatechange = function () {
-            var mimetype, matchingPluginData;
+            var mimetype, match;
             if ( xhr.readyState === 4 ) {
                 if ( (xhr.status >= 200 && xhr.status < 300) || xhr.status === 0 ) {
                     mimetype = xhr.getResponseHeader('content-type');
@@ -836,68 +856,51 @@ function Viewer( viewerPlugin, parameters ) {
                     if ( mimetype ) {
                         // The content-type header may carry parameters
                         // (e.g. "; charset=..."); strip them before matching.
-                        mimetype = mimetype.split(';')[0].trim();
-                        pluginRegistry.some(function ( pluginData ) {
-                            if ( pluginData.supportsMimetype(mimetype) ) {
-                                matchingPluginData = pluginData;
-                                console.log('Found plugin by mimetype and xhr head: ' + mimetype);
-                                // store the mimetype globally
-                                window.mimetype = mimetype;
-                                return true;
-                            }
-                            return false;
+                        mimetype = mimetype.split(';')[0].trim().toLowerCase();
+                        match    = findPlugin(function ( plugin ) {
+                            return plugin.mimetypes.indexOf(mimetype) !== -1;
                         });
+                        if ( match ) {
+                            console.log('Found plugin by mimetype and xhr head: ' + mimetype);
+                            // store the mimetype globally
+                            window.mimetype = mimetype;
+                        }
                     }
                 }
-                // Leave matchingPluginData undefined when the server
-                // content-type matches no plugin, so the caller can fall back
-                // to detection by file extension before resorting to the
-                // unknown-file handler.
-                cb(matchingPluginData);
+                // Leave the match undefined so the caller can fall back to the file
+                // extension; attachments are routinely stored as octet-stream.
+                cb(match);
             }
         };
         xhr.open("HEAD", documentUrl, true);
         xhr.send();
     }
 
-    function doEstimateTypeByFileExtension( extension ) {
-        var matchingPluginData;
-
-        pluginRegistry.some(function ( pluginData ) {
-            if ( pluginData.supportsFileExtension(extension) ) {
-                matchingPluginData = pluginData;
-                return true;
-            }
-            return false;
-        });
-
-        return matchingPluginData;
-    }
-
     function estimateTypeByFileExtension( extension ) {
-        var matchingPluginData = doEstimateTypeByFileExtension(extension)
+        var match;
 
-        if ( matchingPluginData ) {
-            console.log('Found plugin by parameter type: ' + extension);
-
-            // this is needed for the Multimedia Plugin
-            window.mimetype = getMimeByExtension(extension);
+        if ( !extension ) {
+            return undefined;
         }
 
-        return matchingPluginData;
+        extension = extension.toLowerCase();
+        match     = findPlugin(function ( plugin ) {
+            return plugin.extensions.indexOf(extension) !== -1;
+        });
+
+        if ( match ) {
+            console.log('Found plugin by file extension: ' + extension);
+            window.mimetype = extensionMimetypes[extension] || window.mimetype;
+        }
+
+        return match;
     }
 
     function estimateTypeByFileExtensionFromPath( documentUrl ) {
         // See to get any path from the url and grep what could be a file extension
-        var documentPath       = documentUrl.split('?')[0],
-            extension          = documentPath.split('.').pop(),
-            matchingPluginData = doEstimateTypeByFileExtension(extension)
+        var documentPath = documentUrl.split('?')[0];
 
-        if ( matchingPluginData ) {
-            console.log('Found plugin by file extension from path: ' + extension);
-        }
-
-        return matchingPluginData;
+        return estimateTypeByFileExtension(documentPath.split('.').pop());
     }
 
     function parseSearchParameters( location ) {
@@ -917,29 +920,11 @@ function Viewer( viewerPlugin, parameters ) {
         return parameters;
     }
 
-    function getMimeByExtension( ext ) {
-        var extToMimes = {
-            'aac':  'audio/aac',
-            'mp4':  'video/mp4',
-            'm4a':  'audio/mp4',
-            'mp3':  'audio/mpeg',
-            'mpg':  'video/mpeg',
-            'mpeg': 'video/mpeg',
-            'ogg':  'video/ogg',
-            'wav':  'audio/wav',
-            'webm': 'video/webm',
-            'm4v':  'video/mp4',
-            'ogv':  'video/ogg',
-            'oga':  'audio/ogg',
-            'mp1':  'audio/mpeg',
-            'mp2':  'audio/mpeg'
-        };
-
-        if ( extToMimes.hasOwnProperty(ext) ) {
-            return extToMimes[ext];
-        }
-        return false;
-    }
+    // Another document of the same type differs only in the fragment,
+    // which would not reload the page.
+    window.addEventListener('hashchange', function () {
+        window.location.reload();
+    });
 
     window.onload = function () {
         var viewer,
@@ -947,60 +932,47 @@ function Viewer( viewerPlugin, parameters ) {
             parameters  = parseSearchParameters(document.location),
             Plugin;
 
-        if ( documentUrl ) {
-            // try to guess the title as filename from the location, if not set by parameter
-            if ( !parameters.title ) {
-                parameters.title = documentUrl.replace(/^.*[\\\/]/, '');
-            }
-
-            parameters.documentUrl = documentUrl;
-
-            // trust the server most
-            estimateTypeByHeaderContentType(documentUrl, function ( pluginData ) {
-                // The server content-type did not identify a supported plugin
-                // (e.g. attachments stored with a generic
-                // "application/octet-stream" mime tag). Fall back to detection
-                // by the file extension passed as the "type" parameter, and
-                // finally by the extension guessed from the path.
-                if ( !pluginData && parameters.type ) {
-                    pluginData = estimateTypeByFileExtension(parameters.type);
-                }
-                if ( !pluginData ) {
-                    pluginData = estimateTypeByFileExtensionFromPath(documentUrl);
-                }
-
-                // If nothing recognised the file, fall back to the generic
-                // handler that offers a download link.
-                if ( !pluginData ) {
-                    pluginData = unknownFileType;
-                }
-
-                if ( String(typeof loadPlugin) !== "undefined" ) {
-                    loadPlugin(pluginData.path, function () {
-                        Plugin = pluginData.getClass();
-                        viewer = new Viewer(new Plugin(), parameters);
-                    });
-                } else {
-                    Plugin = pluginData.getClass();
-                    viewer = new Viewer(new Plugin(), parameters);
-                }
-            });
-        } else {
+        if ( !documentUrl ) {
             viewer = new Viewer();
+
+            return;
         }
+
+        // try to guess the title as filename from the location, if not set by parameter
+        if ( !parameters.title ) {
+            parameters.title = documentUrl.replace(/^.*[\\\/]/, '');
+        }
+
+        parameters.documentUrl = documentUrl;
+        parameters.extension   = (parameters.type || '').toLowerCase();
+
+        // The renderers read the file name and extension from here.
+        window.viewerParameters = parameters;
+
+        function start( match ) {
+            var data = match ? match.data : unknownFileType;
+
+            parameters.renderer = match ? match.name : 'unknown';
+            // The renderer and its libraries are asked for together.
+            ViewerSupport.loadScripts([data.path].concat(data.libs || []), function () {
+                Plugin = data.getClass();
+                viewer = new Viewer(new Plugin(), parameters);
+            });
+        }
+
+        // Only a viewer opened on its own has to work the format out itself.
+        if ( parameters.plugin && pluginRegistry[parameters.plugin] ) {
+            window.mimetype = extensionMimetypes[parameters.extension] || window.mimetype;
+            start({ name: parameters.plugin, data: pluginRegistry[parameters.plugin] });
+
+            return;
+        }
+
+        // Trust the server, then the type parameter, then the path.
+        estimateTypeByHeaderContentType(documentUrl, function ( match ) {
+            start(match ||
+                estimateTypeByFileExtension(parameters.extension) ||
+                estimateTypeByFileExtensionFromPath(documentUrl));
+        });
     };
-
-    /*css = (document.createElementNS(document.head.namespaceURI, 'style'));
-     css.setAttribute('media', 'screen');
-     css.setAttribute('type', 'text/css');
-     css.appendChild(document.createTextNode(viewer_css));
-     document.head.appendChild(css);
-
-     css = (document.createElementNS(document.head.namespaceURI, 'style'));
-     css.setAttribute('media', 'only screen and (max-device-width: 800px) and (max-device-height: 800px)');
-     css.setAttribute('type', 'text/css');
-     css.setAttribute('viewerTouch', '1');
-     css.appendChild(document.createTextNode(viewerTouch_css));
-     document.head.appendChild(css);
-     */
 }());

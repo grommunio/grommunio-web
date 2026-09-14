@@ -156,183 +156,68 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
 
 
 	fieldSetFilePreview: function () {
-		var context = Zarafa.plugins.files.data.ComponentBox.getContext();
-		var viewMode = context.getCurrentViewMode();
-
-		var css = "width: 100%;";
-		switch (viewMode) {
-			case Zarafa.plugins.files.data.ViewModes.RIGHT_PREVIEW:
-				css = "width: 100%;";
-				break;
-			case Zarafa.plugins.files.data.ViewModes.BOTTOM_PREVIEW:
-				css = "height: 100%;";
-				break;
-			default:
-				break;
-		}
-
 		return {
 			xtype: 'fieldset',
 			title: _('File preview'),
 			ref  : 'filepreview',
 			flex : 1,
-			autoScroll: true,
-
-			defaultType: 'textfield',
-			items      : [{
-				xtype : 'component',
-				id    : 'previewimage',
-				autoEl: {tag: 'img', src: this.defaultPreviewImage, style: css}
-			}]
+			layout: 'fit',
+			items      : [this.placeholder()]
 		};
 	},
 
-	setPreviewPanel: function (record, extension) {
-		var context = Zarafa.plugins.files.data.ComponentBox.getContext();
-		var viewMode = context.getCurrentViewMode();
-		var fileviewerEnabled = Ext.isDefined(container.getPluginByName('filepreviewer')) ? true: false;
-		var pdfEnabled = Ext.isDefined(container.getPluginByName('pdfbox')) ? true: false;
-		var odfEnabled = Ext.isDefined(container.getPluginByName('webodf')) ? true: false;
+	/**
+	 * The image shown instead of a preview, for a file grommunio Web cannot
+	 * render and for a folder.
+	 *
+	 * @return {Object} The configuration of the placeholder component
+	 * @private
+	 */
+	placeholder: function () {
+		// A box, not a plain component: the fit layout of the preview area
+		// sizes whatever it holds.
+		return {
+			xtype : 'box',
+			cls   : 'files-preview-placeholder',
+			autoEl: {tag: 'div', cn: [{tag: 'img', src: this.defaultPreviewImage}]}
+		};
+	},
 
-		var css = "width: 100%;";
-		var cssNone = "width: 20%; position: relative; top: 50%; transform: translate(-50%) translateY(-50%); left: 50%;";
-		switch (viewMode) {
-			case Zarafa.plugins.files.data.ViewModes.RIGHT_PREVIEW:
-				css = "width: 100%;";
-				break;
-			case Zarafa.plugins.files.data.ViewModes.BOTTOM_PREVIEW:
-				css = "height: 100%;";
-				break;
-			default:
-				break;
+	/**
+	 * Show the file in the preview area, using the same previewer that shows
+	 * an attachment of a mail. A file of a format grommunio Web cannot render,
+	 * and a folder, get the placeholder image instead.
+	 *
+	 * @param {Zarafa.plugins.files.data.FilesRecord} record The selected file
+	 * @param {Boolean} previewable Whether the previewer can render it
+	 */
+	setPreviewPanel: function (record, previewable) {
+		var current = this.filepreview.get(0);
+		var viewer = current instanceof Zarafa.common.previewer.ui.ViewerPanel;
+
+		if (previewable) {
+			// Reuse the frame that is already there, so that switching
+			// between files does not rebuild it every time.
+			if (viewer) {
+				current.setRecord(record);
+			} else {
+				this.replacePreview({
+					xtype : 'zarafa.viewerpanel',
+					record: record
+				});
+			}
+		} else if (viewer || !current) {
+			this.replacePreview(this.placeholder());
 		}
+	},
 
-		var component = {};
-
-		if (!fileviewerEnabled && !Ext.isEmpty(extension) && (/\.(gif|jpg|jpeg|tiff|png|bmp)$/i).test(extension)) {
-			component = {
-				xtype : 'component',
-				autoEl: {tag: 'img', src: Zarafa.plugins.files.data.Actions.getDownloadLink(record), style: css}
-			}
-		} else if (fileviewerEnabled && !Ext.isEmpty(extension) && (new RegExp(container.getSettingsModel().get("zarafa/v1/plugins/filepreviewer/supported_filetypes"), "i")).test(extension)) {
-			component = {
-				xtype   : 'filepreviewer.viewerpanel',
-				record: record,
-				defaultScale: 1,
-				autoResize: this.filepreview, // autoresize on this element
-				height: this.filepreview.getInnerHeight()
-			}
-		} else if (!fileviewerEnabled && pdfEnabled && !Ext.isEmpty(extension) && (/\.(pdf)$/i).test(extension)) {
-			component = {
-				xtype   : 'filesplugin.pdfjspanel',
-				src     : Zarafa.plugins.files.data.Actions.getDownloadLink(record),
-				title: record.get('filename')
-			}
-		} else if (!fileviewerEnabled && !pdfEnabled && !Ext.isEmpty(extension) && (/\.(pdf)$/i).test(extension)) { // if the pdfjs plugin is not available
-			// show the pdf file in an iframe
-			component = {
-				xtype  : 'component',
-				autoEl : {
-					tag: 'iframe',
-					width: '98%',
-					height: '98%',
-					frameborder: 'none',
-					seamless: '',
-					src: Zarafa.plugins.files.data.Actions.getDownloadLink(record)
-				}
-			}
-		} else if (!Ext.isEmpty(extension) && (/\.(txt|html|php|js|c|cpp|h|java|sh|bat|log|cfg|conf|tex|py|pl)$/i).test(extension)) {
-			component = {
-				xtype    : 'textarea',
-				hideLabel: true,
-				fieldLabel: _('File content'),
-				readOnly : true,
-				anchor   : '0, 0',
-				listeners: {
-					'afterrender': function () {
-						Ext.Ajax.request({
-							method : 'GET',
-							url    : Zarafa.plugins.files.data.Actions.getDownloadLink(record),
-							success: function (result, request) {
-								var responsetext = result.responseText;
-
-								this.setRawValue(responsetext);
-							},
-							scope  : this
-						});
-					}
-				}
-			}
-		} else if (!Ext.isEmpty(extension) && (/\.(mp3|wav)$/i).test(extension)) {
-			var audioType = '';
-			switch(extension.toLowerCase()) {
-				case '.wav':
-					audioType = 'audio/wav';
-					break;
-				default:
-					audioType = 'audio/mpeg';
-			}
-
-			component = {
-				xtype : 'component',
-				autoEl: {
-					tag: 'audio',
-					style: css,
-					controls: 'controls',
-					cn    : [
-						{
-							tag: 'source',
-							src: Zarafa.plugins.files.data.Actions.getDownloadLink(record),
-							type: audioType
-						},
-						_('Your browser does not support previewing of audio files!')
-					]
-				}
-			}
-		} else if (!Ext.isEmpty(extension) && (/\.(mp4|ogg|webm)$/i).test(extension)) {
-			var videoType = '';
-			switch(extension.toLowerCase()) {
-				case '.ogg':
-					videoType = 'video/ogg';
-					break;
-				case '.webm':
-					videoType = 'video/webm';
-					break;
-				default:
-					videoType = 'audio/mp4';
-			}
-
-			component = {
-				xtype : 'component',
-				autoEl: {
-					tag: 'video',
-					style: css + 'height: auto;',
-					poster: 'plugins/files/resources/images/preview/video_loader.gif',
-					preload: 'metadata',
-					controls: 'controls',
-					cn    : [
-						{
-							tag: 'source',
-							src: Zarafa.plugins.files.data.Actions.getDownloadLink(record),
-							type: videoType
-						},
-						_('Your browser does not support previewing of video files!')
-					]
-				}
-			}
-		} else if (odfEnabled && !Ext.isEmpty(extension) && (/\.(odp|odt|ods)$/i).test(extension)) {
-			component = {
-				xtype : 'filesplugin.webodfpanel',
-				src   : Zarafa.plugins.files.data.Actions.getDownloadLink(record),
-				title : record.get('filename')
-			}
-		} else {
-			component = {
-				xtype : 'component',
-				autoEl: {tag: 'img', src: this.defaultPreviewImage, style: cssNone}
-			}
-		}
-
+	/**
+	 * Put a component into the preview area, in place of the one shown now.
+	 *
+	 * @param {Object} component The configuration of the new component
+	 * @private
+	 */
+	replacePreview: function (component) {
 		this.filepreview.removeAll(true);
 		this.filepreview.add(component);
 		this.filepreview.doLayout();
@@ -353,8 +238,7 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
 
 		var type = _('Folder');
 		if (recordType) {
-			var extension = this.getExtension(record.get('filename'));
-			type = String.format(_('File ({0})'), extension);
+			type = String.format(_('File ({0})'), this.getExtension(record.get('filename')));
 		}
 		this.type.setValue(type);
 
@@ -363,7 +247,9 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
 		if (supportSharing) {
 			this.shared.setValue(record.get("isshared") ? _('Yes') : _('No'));
 		}
-		this.setPreviewPanel(record, extension);
+		this.setPreviewPanel(record, recordType &&
+			Zarafa.common.Actions.isFilePreviewerEnabled() &&
+			Zarafa.common.previewer.data.Formats.isSupported(record.get('filename')));
 	},
 
 	onRender: function (ct, position) {

@@ -1545,15 +1545,15 @@ Zarafa.common.Actions = {
 	},
 
 	/**
-	 * Check if the given file is either a PDF file or a ODF file.
+	 * Check whether the previewer can render the given file.
 	 *
-	 * @param path
+	 * @param {String} path A file name or path
 	 * @returns {boolean}
 	 * @private
 	 */
 	isSupportedDocument: function (path)
 	{
-		return !!path.match(/^.*\.(pdf|od[tps]|docx|xlsx|jpg|jpeg|png|bmp|gif|mp4|mp3|ogg|webm|wav)$/i);
+		return Zarafa.common.previewer.data.Formats.isSupported(path);
 	},
 
 	/**

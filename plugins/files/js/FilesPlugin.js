@@ -37,6 +37,7 @@ Zarafa.plugins.files.FilesPlugin = Ext.extend(Zarafa.core.Plugin, {
 		Zarafa.core.data.SharedComponentType.addProperty('plugins.files.onlyofficepanel');
 
 		Zarafa.core.data.SharedComponentType.addProperty('filesplugin.accountedit');
+		Zarafa.core.data.SharedComponentType.addProperty('filesplugin.documentpreview');
 		Zarafa.core.data.SharedComponentType.addProperty('filesplugin.featurequotainfo');
 		Zarafa.core.data.SharedComponentType.addProperty('filesplugin.featureversioninfo');
 		Zarafa.core.data.SharedComponentType.addProperty('common.dialog.attachments.savetofiles');
@@ -67,6 +68,7 @@ Zarafa.plugins.files.FilesPlugin = Ext.extend(Zarafa.core.Plugin, {
 			case Zarafa.core.data.SharedComponentType['filesplugin.featureversioninfo']:
 			case Zarafa.core.data.SharedComponentType['common.dialog.attachments.savetofiles']:
 			case Zarafa.core.data.SharedComponentType['plugins.files.onlyofficepanel']:
+			case Zarafa.core.data.SharedComponentType['filesplugin.documentpreview']:
 				bid = 1;
 				break;
 		}
@@ -95,6 +97,11 @@ Zarafa.plugins.files.FilesPlugin = Ext.extend(Zarafa.core.Plugin, {
 				break;
 			case Zarafa.core.data.SharedComponentType['plugins.files.onlyofficepanel']:
 				component = Zarafa.plugins.files.ui.ContentPanel;
+				break;
+			case Zarafa.core.data.SharedComponentType['filesplugin.documentpreview']:
+				// A file is previewed by the same viewer that shows an
+				// attachment of a mail.
+				component = Zarafa.common.previewer.ui.ViewerContainer;
 				break;
 		}
 

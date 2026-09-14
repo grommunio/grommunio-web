@@ -1,0 +1,454 @@
+/**
+ * Shared helpers for the viewer plugins.
+ *
+ * @author grommunio GmbH <dev@grommunio.com>
+ */
+
+/*global window, document, fetch*/
+
+var ViewerSupport = (function () {
+    "use strict";
+
+    var strings = null;
+
+    /**
+     * The window grommunio Web runs in, seen from inside the viewer frame. A
+     * preview opened in a tab or a dialog sits in the main window, one opened
+     * in a browser window sits in that window, and a viewer opened on its own
+     * has no such window at all.
+     */
+    function hostWindow() {
+        var candidates = [window.parent, window.top],
+            i,
+            candidate;
+
+        if ( window.parent && window.parent !== window ) {
+            candidates.push(window.parent.opener);
+        }
+
+        for ( i = 0; i < candidates.length; i += 1 ) {
+            candidate = candidates[i];
+            try {
+                // Reading across an origin boundary throws.
+                if ( candidate && candidate !== window && candidate.Zarafa &&
+                        candidate.Zarafa.common && candidate.Zarafa.common.previewer ) {
+                    return candidate;
+                }
+            } catch ( e ) {
+                // Not reachable from here, try the next one.
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * The translated strings of the viewer chrome, taken from grommunio Web,
+     * which has the user's language and the message catalogue. An English
+     * fallback is used where the viewer runs on its own.
+     */
+    function translations() {
+        var host;
+
+        if ( strings === null ) {
+            strings = {};
+            host = hostWindow();
+            if ( host ) {
+                try {
+                    strings = host.Zarafa.common.previewer.data.ViewerStrings.get();
+                } catch ( e ) {
+                    strings = {};
+                }
+            }
+        }
+
+        return strings;
+    }
+
+    /**
+     * Wear the theme grommunio Web is wearing, and keep wearing it: the user
+     * can switch between light and dark with a preview open, and the viewer
+     * is a page of its own that would otherwise keep the theme it was opened
+     * with until it is reloaded.
+     *
+     * The page it is embedded in has already put a theme on the document from
+     * the address it was opened with, which is what keeps the viewer from
+     * appearing in the wrong colours for a moment; this only follows changes.
+     */
+    function followHostTheme() {
+        var host = hostWindow();
+
+        if ( !host ) {
+            return;
+        }
+
+        function apply() {
+            var accent;
+
+            try {
+                document.documentElement.dataset.theme =
+                    host.Zarafa.core.DarkMode.isDark() ? 'dark' : 'light';
+                accent = host.getComputedStyle(host.document.body)
+                    .getPropertyValue('--theme-primary-color').trim();
+                if ( (/^#[0-9a-f]{6}$/i).test(accent) ) {
+                    document.documentElement.style.setProperty('--accent', accent);
+                }
+            } catch ( e ) {
+                // The window went away while the preview was open.
+            }
+        }
+
+        apply();
+        // Dark mode is turned on and off by a class on the body of the page.
+        new MutationObserver(apply).observe(host.document.body, {
+            attributes:      true,
+            attributeFilter: ['class']
+        });
+    }
+
+    /**
+     * Translate a string of the viewer chrome. The English text is the key,
+     * so an untranslated string still reads correctly.
+     *
+     * @param {String} text The English text
+     * @return {String} The translation, or the English text
+     */
+    function t( text ) {
+        return translations()[text] || text;
+    }
+
+    /**
+     * Substitute {0}, {1}, ... in a translated string with the remaining
+     * arguments.
+     *
+     * @param {String} text The English text
+     * @return {String} The formatted translation
+     */
+    function format( text ) {
+        var values = Array.prototype.slice.call(arguments, 1);
+
+        return t(text).replace(/\{(\d+)\}/g, function ( match, index ) {
+            return values[index] === undefined ? match : values[index];
+        });
+    }
+
+    /**
+     * Load scripts. They are all asked for at once, so the network does the
+     * work in parallel, but they are evaluated in the order given - a library
+     * that reads a global another one exports has to see it defined already.
+     *
+     * @param {String[]} sources The script URLs
+     * @param {Function} callback Called once they have all been evaluated
+     */
+    function loadScripts( sources, callback ) {
+        var pending = sources.length;
+
+        if ( !pending ) {
+            callback();
+
+            return;
+        }
+
+        sources.forEach(function ( source ) {
+            var script = document.createElement('script');
+
+            // Not async: the browser fetches these in parallel but runs them
+            // in document order.
+            script.async  = false;
+            script.type   = 'text/javascript';
+            script.src    = source;
+            script.onload = function () {
+                pending -= 1;
+                if ( pending === 0 ) {
+                    callback();
+                }
+            };
+            script.onerror = function () {
+                throw new Error('failed to load ' + source);
+            };
+            document.head.appendChild(script);
+        });
+    }
+
+    /**
+     * Add a stylesheet to the viewer page, once.
+     *
+     * @param {String} id The identifier of the stylesheet
+     * @param {String} css The rules
+     */
+    function style( id, css ) {
+        if ( document.getElementById(id) ) {
+            return;
+        }
+        var element = document.createElement('style');
+        element.id  = id;
+        element.appendChild(document.createTextNode(css));
+        document.head.appendChild(element);
+    }
+
+    /**
+     * Fetch the document. The request carries the session cookies, the
+     * previewer and the document being same origin.
+     *
+     * @param {String} url The document URL
+     * @param {String} as 'arraybuffer', 'blob' or 'text'
+     * @return {Promise} The document
+     */
+    function fetchDocument( url, as ) {
+        // The viewer page asks for the document as soon as it is parsed; that
+        // request is the one to wait for rather than making a second.
+        var started = window.documentRequest && window.documentRequest.url === url ?
+            window.documentRequest.response : fetch(url, { credentials: 'same-origin' });
+
+        return started.then(function ( response ) {
+            if ( !response.ok ) {
+                throw new Error('HTTP ' + response.status);
+            }
+            if ( as === 'blob' ) {
+                return response.blob();
+            }
+            if ( as === 'text' ) {
+                return response.arrayBuffer();
+            }
+
+            return response.arrayBuffer();
+        });
+    }
+
+    /**
+     * Replace the content of a container with a message, for a document that
+     * could not be rendered.
+     *
+     * @param {HTMLElement} container The element the renderer draws into
+     * @param {String} message The message to show
+     */
+    function showError( container, message ) {
+        var box   = document.createElement('div'),
+            text  = document.createElement('p'),
+            url   = window.viewerParameters && window.viewerParameters.documentUrl,
+            link;
+
+        box.className = 'unknown-file';
+        text.appendChild(document.createTextNode(message || t('This document could not be previewed.')));
+        box.appendChild(text);
+
+        // A preview that could not be made is still a file the reader wants.
+        if ( url ) {
+            link = document.createElement('a');
+            link.className   = 'download-button';
+            link.href        = url + (url.indexOf('?') === -1 ? '?' : '&') + 'contentDispositionType=attachment';
+            link.textContent = t('Download');
+            box.appendChild(link);
+        }
+
+        container.innerHTML = '';
+        container.appendChild(box);
+    }
+
+    /**
+     * The element the renderers draw into.
+     *
+     * @param {Boolean} fill True for a renderer that paints its own surface
+     * over the whole document area, rather than one whose content is a page
+     * that should be set off from the background.
+     * @return {HTMLElement} The canvas element of the viewer page
+     */
+    function canvas( fill ) {
+        var element = document.getElementById('canvas');
+
+        if ( fill ) {
+            element.classList.add('canvas-fill');
+        }
+
+        return element;
+    }
+
+    /**
+     * Give the document area over to a renderer that scrolls its own content,
+     * so that it is the only thing that scrolls.
+     *
+     * @return {HTMLElement} The canvas element, filling the frame
+     */
+    function fillFrame() {
+        document.getElementById('canvasContainer').classList.add('container-fill');
+
+        return canvas(true);
+    }
+
+    /**
+     * The space a renderer has to draw in, without the padding around it.
+     *
+     * @return {Object} width and height in pixels
+     */
+    function contentBox() {
+        var container = document.getElementById('canvasContainer'),
+            style     = window.getComputedStyle(container);
+
+        return {
+            width: container.clientWidth -
+                parseFloat(style.paddingLeft) - parseFloat(style.paddingRight),
+            height: container.clientHeight -
+                parseFloat(style.paddingTop) - parseFloat(style.paddingBottom)
+        };
+    }
+
+    /**
+     * A base for the renderers that produce a flow of pages in the document
+     * area: it carries the zoom and the page navigation, and leaves the
+     * rendering itself to the renderer.
+     *
+     * The renderer sets this.wrapper to the element it rendered into and
+     * this.pageSelector to the selector matching one page of it, then calls
+     * this.ready().
+     *
+     * @param {Object} plugin The renderer
+     * @param {Object} options name, url and pageSelector of the renderer
+     */
+    function flow( plugin, options ) {
+        var zoomLevel = 1;
+
+        plugin.wrapper      = null;
+        plugin.pageSelector = options.pageSelector || null;
+
+        /**
+         * The pages of the rendered document, one element each.
+         */
+        function pageElements() {
+            if ( !plugin.wrapper || !plugin.pageSelector ) {
+                return [];
+            }
+
+            return Array.prototype.slice.call(plugin.wrapper.querySelectorAll(plugin.pageSelector));
+        }
+
+        /**
+         * The width one page takes at zoom level 1.
+         */
+        function naturalWidth() {
+            var pages = pageElements();
+
+            if ( pages.length ) {
+                return pages[0].offsetWidth;
+            }
+
+            return plugin.wrapper ? plugin.wrapper.scrollWidth : 0;
+        }
+
+        plugin.isSlideshow = function () {
+            return !!options.slideshow;
+        };
+
+        plugin.onLoad = function () {
+        };
+
+        plugin.ready = function () {
+            // A document of a single page has no use for a page switcher.
+            if ( options.pageSelector && pageElements().length > 1 ) {
+                plugin.getPageInView = pageInView;
+            }
+            plugin.onLoad();
+        };
+
+        // A height fit means nothing for content that flows downwards.
+        plugin.fitToWidth = function ( width ) {
+            var natural = naturalWidth();
+            if ( natural > 0 && width > 0 ) {
+                plugin.setZoomLevel(width / natural);
+            }
+        };
+
+        plugin.fitToHeight = function () {
+        };
+
+        plugin.fitToPage = function ( width ) {
+            plugin.fitToWidth(width);
+        };
+
+        plugin.fitSmart = function ( width ) {
+            // Never blow a page up past its own size.
+            var natural = naturalWidth();
+            if ( natural > 0 && width > 0 ) {
+                plugin.setZoomLevel(Math.min(1, width / natural));
+            }
+        };
+
+        plugin.getZoomLevel = function () {
+            return zoomLevel;
+        };
+
+        plugin.setZoomLevel = function ( value ) {
+            zoomLevel = value;
+            if ( plugin.wrapper ) {
+                // Zooming reflows the content, which keeps the scrollbars right.
+                plugin.wrapper.style.zoom = value;
+            }
+        };
+
+        plugin.getPages = function () {
+            var pages = pageElements();
+
+            return pages.length ? pages : [1];
+        };
+
+        plugin.showPage = function ( n ) {
+            var pages = pageElements();
+            if ( pages.length >= n && n > 0 ) {
+                pages[n - 1].scrollIntoView({ block: 'start' });
+            }
+        };
+
+        plugin.getPluginName = function () {
+            return options.name;
+        };
+
+        plugin.getPluginVersion = function () {
+            return "From Source";
+        };
+
+        plugin.getPluginURL = function () {
+            return options.url || "https://grommunio.com";
+        };
+
+        /**
+         * The page the reader is looking at: the last one that starts above
+         * the upper third of the document area.
+         */
+        function pageInView() {
+            var pages     = pageElements(),
+                container = document.getElementById('canvasContainer'),
+                middle,
+                i,
+                box;
+
+            if ( !pages.length || !container ) {
+                return null;
+            }
+
+            middle = container.getBoundingClientRect().top + container.clientHeight / 3;
+            for ( i = pages.length - 1; i >= 0; i -= 1 ) {
+                box = pages[i].getBoundingClientRect();
+                if ( box.top <= middle ) {
+                    return i + 1;
+                }
+            }
+
+            return 1;
+        }
+
+        return plugin;
+    }
+
+    return {
+        t:               t,
+        followHostTheme: followHostTheme,
+        format:          format,
+        loadScripts:     loadScripts,
+        style:           style,
+        fetchDocument:   fetchDocument,
+        showError:       showError,
+        canvas:          canvas,
+        fillFrame:       fillFrame,
+        contentBox:      contentBox,
+        flow:            flow
+    };
+}());

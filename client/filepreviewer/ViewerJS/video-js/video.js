@@ -47054,7 +47054,6 @@
      * @see https://www.gpo.gov/fdsys/pkg/CFR-2007-title47-vol1/pdf/CFR-2007-title47-vol1-sec15-119.pdf
      */
     // Link To Transport
-    // -----------------
 
     var Stream$7 = stream;
     var cea708Parser = captionPacketParser;
@@ -47237,7 +47236,6 @@
       }
     }; // ----------------------
     // Session to Application
-    // ----------------------
     // This hash maps special and extended character codes to their
     // proper Unicode equivalent. The first one-byte key is just a
     // non-standard character code. The two-byte keys that follow are

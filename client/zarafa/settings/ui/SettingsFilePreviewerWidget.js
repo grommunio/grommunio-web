@@ -42,7 +42,7 @@ Zarafa.settings.ui.SettingsFilePreviewerWidget = Ext.extend(Zarafa.settings.ui.S
 	        name: 'zarafa/v1/main/file_previewer/enable',
 	        pluginSettingPath: 'zarafa/v1/plugins/filepreviewer/enable',
 	        ref: 'enableFilePreviewer',
-	        boxLabel: _('Attachment preview (PDF and Open formats)'),
+	        boxLabel: _('Preview documents and files in grommunio Web'),
 			handler: this.onClickEnableFilePreviewer,
 	        hideLabel: true,
 			scope: this,

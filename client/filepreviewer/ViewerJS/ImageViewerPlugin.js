@@ -1,7 +1,12 @@
 /**
- * Image Viewer Plugin
+ * Image viewer plugin. An SVG goes through an image element like every other
+ * format, so the scripts it may carry never run.
+ *
  * @author grommunio GmbH <dev@grommunio.com>
  */
+
+/*global document, ViewerSupport*/
+
 function ImageViewerPlugin() {
     "use strict";
 
@@ -9,17 +14,6 @@ function ImageViewerPlugin() {
         self        = this,
         rotation    = 0,
         currentPage = 1;
-
-    function initCSS() {
-        /*var pluginCSS;
-
-         pluginCSS = (document.createElementNS(document.head.namespaceURI, 'style'));
-         pluginCSS.setAttribute('media', 'screen, print, handheld, projection');
-         pluginCSS.setAttribute('type', 'text/css');
-         pluginCSS.appendChild(document.createTextNode(ImageViewerPlugin_css));
-         document.head.appendChild(pluginCSS);
-         */
-    }
 
     function initButtons() {
         var leftToolbar                                          = document.getElementById('toolbarLeft');
@@ -34,12 +28,12 @@ function ImageViewerPlugin() {
         buttonSeperator.setAttribute('class', 'splitToolbarButtonSeparator');
 
         var rotateLeft = document.createElement("button");
-        rotateLeft.setAttribute('class', 'toolbarButton pageDown flipHorizontal');
-        rotateLeft.setAttribute('title', 'Rotate left');
+        rotateLeft.setAttribute('class', 'toolbarButton rotateLeft');
+        rotateLeft.setAttribute('title', ViewerSupport.t('Rotate left'));
 
         var rotateRight = document.createElement("button");
-        rotateRight.setAttribute('class', 'toolbarButton pageDown');
-        rotateRight.setAttribute('title', 'Rotate right');
+        rotateRight.setAttribute('class', 'toolbarButton rotateRight');
+        rotateRight.setAttribute('title', ViewerSupport.t('Rotate right'));
 
         leftToolbar.appendChild(rotateLeft);
         leftToolbar.appendChild(buttonSeperator);
@@ -73,18 +67,23 @@ function ImageViewerPlugin() {
     }
 
     this.initialize = function ( viewerElement, documentUrl ) {
-        // If the URL has a fragment (#...), try to load the file it represents
         imgElement = document.createElement("img");
-        imgElement.setAttribute('src', documentUrl);
-        imgElement.setAttribute('alt', 'na');
         imgElement.setAttribute('id', 'image');
+
+        // The viewer scales as soon as this renderer is ready, and can only
+        // do that once the picture has a size.
+        imgElement.addEventListener('load', function () {
+            self.onLoad();
+        });
+        imgElement.addEventListener('error', function () {
+            ViewerSupport.showError(viewerElement);
+            self.onLoad();
+        });
+        imgElement.setAttribute('src', documentUrl);
 
         viewerElement.appendChild(imgElement);
         viewerElement.style.overflow = "auto";
 
-        self.onLoad();
-
-        initCSS();
         initButtons();
     };
 
@@ -103,12 +102,14 @@ function ImageViewerPlugin() {
         imgElement.height = height;
     };
 
-    this.fitToPage = function ( width, height ) {
+    this.fitToPage = function ( width ) {
         imgElement.width = width;
     };
 
     this.fitSmart = function ( width ) {
-        imgElement.width = width;
+        // A picture smaller than the frame is shown at its own size rather
+        // than blown up to fill it.
+        imgElement.width = Math.min(width, imgElement.naturalWidth || width);
     };
 
     this.getZoomLevel = function () {

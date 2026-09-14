@@ -125,6 +125,16 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(
 					scope: this,
 				},
 				{
+					ref: 'previewBtn',
+					cls: 'files_icon_actionbutton',
+					text: _('Preview'),
+					overflowText: _('Preview file'),
+					iconCls: 'files_icon_action files_icon_action_preview',
+					handler: this.onFilePreview,
+					disabled: true,
+					scope: this,
+				},
+				{
 					ref: 'downloadBtn',
 					cls: 'files_icon_actionbutton',
 					text: _('Download'),
@@ -227,6 +237,11 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(
 					true,
 				);
 			this.downloadBtn.setDisabled(!isVisible);
+			var selected = Ext.isArray(records) ? records : [records].filter(Boolean);
+			this.previewBtn.setDisabled(
+				selected.length !== 1 ||
+				!Zarafa.plugins.files.data.Actions.isPreviewable(selected[0]),
+			);
 			this.attachToMailBtn.setDisabled(!isVisible);
 			this.attachLinkToMailBtn.setDisabled(!linkShareVisible);
 
@@ -277,6 +292,17 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(
 				this.createFolderButton.setDisabled(false);
 				this.createFileButton.setDisabled(false);
 				this.uploadButton.setDisabled(false);
+			}
+		},
+
+		/**
+		 * Event handler for the preview button, shows the selected file in
+		 * the previewer.
+		 */
+		onFilePreview: function () {
+			var records = this.model.getSelectedRecords();
+			if (!Ext.isEmpty(records)) {
+				Zarafa.plugins.files.data.Actions.previewFile(records[0]);
 			}
 		},
 

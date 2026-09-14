@@ -81,8 +81,6 @@ JSFILES = js/FilesContext.js \
           js/ui/dialogs/UploadStatusPanel.js \
           js/ui/snippets/FilesNavigationBar.js \
           js/ui/snippets/FilesQuotaBar.js \
-          js/ui/snippets/PDFjsPanel.js \
-          js/ui/snippets/WebODFPanel.js \
           js/ui/FilesFolderNode.js \
           js/ui/NavigatorTreePanel.js \
           js/ui/FilesRootFolderNode.js
@@ -94,9 +92,7 @@ COPYFILES = manifest.xml config.php \
 
 CSSFILES = resources/css/files-main.css \
         resources/css/icons.css \
-        resources/css/navbar.css \
-        resources/css/pdfjspanel.css \
-        resources/css/webodfpanel.css
+        resources/css/navbar.css
 
 CSSDEPLOY = $(DESTDIR)/resources/css/
 

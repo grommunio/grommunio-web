@@ -578,3 +578,19 @@ span.error_files {
 #files-gridview .x-grid3-row {
 	border-left: none;
 }
+
+/* The image shown where a file has no preview, centred in the preview area. */
+.files-preview-placeholder {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	opacity: 0.5;
+}
+
+.files-preview-placeholder img {
+	width: 64px;
+	height: 64px;
+	margin: auto;
+	display: block;
+}

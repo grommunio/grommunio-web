@@ -754,24 +754,91 @@ Zarafa.plugins.files.data.Actions = {
 
 	/**
 	 * Open a file the way a double click does: office documents go to the
-	 * OnlyOffice tab when the plugin and the account allow it, everything
-	 * else is downloaded.
+	 * OnlyOffice tab when the plugin and the account allow it, because that
+	 * is where a file is edited. Everything grommunio Web can render is
+	 * previewed, and what is left over is downloaded.
 	 *
 	 * @param {Zarafa.plugins.files.data.FilesRecord} record The file to open
 	 */
 	openFile: function(record)
 	{
-		var settings = container.getSettingsModel();
-		var name = String(record.get('folder_id') || '').toLowerCase();
-		var types = String(settings.get('zarafa/v1/plugins/files/onlyoffice_filetypes') || '').split(',');
-		var office = settings.get('zarafa/v1/plugins/files/onlyoffice_enabled') && types.some(function(type) {
-			type = type.trim().toLowerCase();
-			return type && name.endsWith(type);
-		});
+		if (this.isEditableInOffice(record) && this.openTab(record)) {
+			return;
+		}
 
-		if (!office || !this.openTab(record)) {
+		if (!this.previewFile(record)) {
 			this.downloadItem(record);
 		}
+	},
+
+	/**
+	 * Whether the OnlyOffice editor is configured for this file type. The
+	 * editor edits documents; reading one is the previewer's job.
+	 *
+	 * @param {Zarafa.plugins.files.data.FilesRecord} record The file
+	 * @return {Boolean} True when the file can be opened in OnlyOffice
+	 */
+	isEditableInOffice: function(record)
+	{
+		var settings = container.getSettingsModel();
+		if (!settings.get('zarafa/v1/plugins/files/onlyoffice_enabled')) {
+			return false;
+		}
+
+		var name = String(record.get('folder_id') || '').toLowerCase();
+
+		return String(settings.get('zarafa/v1/plugins/files/onlyoffice_filetypes') || '').split(',').some(function(type) {
+			type = type.trim().toLowerCase();
+
+			return type && name.endsWith(type);
+		});
+	},
+
+	/**
+	 * Whether the previewer can render this file.
+	 *
+	 * @param {Zarafa.plugins.files.data.FilesRecord} record The file
+	 * @return {Boolean} True when the file has a preview
+	 */
+	isPreviewable: function(record)
+	{
+		return record.get('type') === Zarafa.plugins.files.data.FileTypes.FILE &&
+			Zarafa.common.Actions.isFilePreviewerEnabled() &&
+			Zarafa.common.previewer.data.Formats.isSupported(record.get('filename'));
+	},
+
+	/**
+	 * Open a file in the previewer, in the layer the file preview setting
+	 * asks for.
+	 *
+	 * @param {Zarafa.plugins.files.data.FilesRecord} record The file to preview
+	 * @return {Boolean} False when the file has no preview
+	 */
+	previewFile: function(record)
+	{
+		if (!this.isPreviewable(record)) {
+			return false;
+		}
+
+		// 'modal' is accepted by the dialog layer alone, and passing it forces
+		// that layer whatever the setting asks for.
+		var layerType = Zarafa.common.Actions.getFilePreviewerTarget();
+		var modal = layerType === 'dialogs';
+		var config = {
+			modal: modal,
+			// autoResize sizes the panel from the main window's viewport,
+			// which fits the dialog layer alone.
+			autoResize: modal
+		};
+
+		if (!modal) {
+			config.layerType = layerType;
+		}
+
+		Zarafa.core.data.UIFactory.openLayerComponent(
+			Zarafa.core.data.SharedComponentType['filesplugin.documentpreview'], record, config);
+
+		return true;
 	},
 
 	/**
