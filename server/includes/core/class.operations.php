@@ -4701,7 +4701,8 @@ class Operations {
 				}
 
 				if (isset($attachmentRow[PR_ATTACH_EXTENSION]) && $attachmentRow[PR_ATTACH_EXTENSION]) {
-					$props["extension"] = $attachmentRow[PR_ATTACH_EXTENSION];
+					// PR_ATTACH_EXTENSION carries the leading period, the fallback below does not.
+					$props["extension"] = ltrim((string) $attachmentRow[PR_ATTACH_EXTENSION], '.');
 				}
 				else {
 					// For backward compatibility where attachments doesn't have the extension property

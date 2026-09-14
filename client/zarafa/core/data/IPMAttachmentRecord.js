@@ -211,19 +211,49 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	},
 
 	/**
+	 * The file extension in lower case and without the leading period.
+	 * PR_ATTACH_EXTENSION carries the period, the filename fallback does not.
+	 *
+	 * @return {String} the extension, or an empty string if there is none
+	 */
+	getFileExtension: function()
+	{
+		var fileExtension = this.get('extension');
+		if (Ext.isEmpty(fileExtension)) {
+			return '';
+		}
+
+		return fileExtension.split('.').pop().toLowerCase();
+	},
+
+	/**
+	 * The MIME type of the attachment, without any parameters.
+	 *
+	 * @return {String} the MIME type in lower case, or an empty string if there is none
+	 */
+	getMimeType: function()
+	{
+		var mimeType = this.get('filetype');
+		if (Ext.isEmpty(mimeType)) {
+			return '';
+		}
+
+		return mimeType.split(';')[0].trim().toLowerCase();
+	},
+
+	/**
 	 * Function used to check that attachment is ICS or VCS file or not.
 	 *
 	 * @return {boolean} true if attachment is ICS Or VCS else false
 	 */
 	isICSAttachment: function()
 	{
-		var fileExtension = this.get('extension');
+		var fileExtension = this.getFileExtension();
 		if (!Ext.isEmpty(fileExtension)) {
-			fileExtension = fileExtension.split(".").pop().toLowerCase();
 			return fileExtension === 'ics' || fileExtension === 'vcs';
 		}
 
-		return this.get('type') === 'text/calendar';
+		return this.getMimeType() === 'text/calendar';
 	},
 
 	/**
@@ -233,12 +263,12 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	 */
 	isEmlAttachment: function()
 	{
-		var fileExtension = this.get('extension').toLowerCase();
+		var fileExtension = this.getFileExtension();
 		if (!Ext.isEmpty(fileExtension)) {
 			return fileExtension === 'eml';
 		}
 
-		return this.get('type') === 'application/octet-stream';
+		return this.getMimeType() === 'message/rfc822';
 	},
 
 	/**
@@ -248,12 +278,12 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	 */
 	isVCFAttachment: function()
 	{
-		var fileExtension = this.get('extension').toLowerCase();
+		var fileExtension = this.getFileExtension();
 		if (!Ext.isEmpty(fileExtension)) {
 			return fileExtension === 'vcf';
 		}
 
-		return this.get('type') === 'text/vcard';
+		return this.getMimeType() === 'text/vcard';
 	},
 
 	/**
