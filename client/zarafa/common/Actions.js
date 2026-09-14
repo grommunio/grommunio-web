@@ -861,9 +861,15 @@ Zarafa.common.Actions = {
 
 		// A folder may only grant deleting one's own items; PR_ACCESS tells per item
 		// what the store will accept, and gromox silently keeps what it refuses.
-		var denied = records.filter(function(record) {
-			return !record.phantom && record.get('access') > 0 && Ext.isFunction(record.hasDeleteAccess) && !record.hasDeleteAccess();
-		});
+		// Anywhere else the store takes the delete, so asking would only produce
+		// refusals the server would not have made.
+		var denied = [];
+		if (folder && !folder.hasDeleteAnyRights()) {
+			denied = records.filter(function(record) {
+				return !record.phantom && Ext.isFunction(record.hasAccessProperty) &&
+					record.hasAccessProperty() && !record.hasDeleteAccess();
+			});
+		}
 		if (!Ext.isEmpty(denied)) {
 			var msg = _("You have insufficient privileges to delete items in this folder.");
 			if (denied.length < records.length) {

@@ -1015,6 +1015,20 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	},
 
 	/**
+	 * PR_ACCESS is not part of every property set - the mail list leaves it out - and
+	 * the field default cannot tell "read only" apart from "never asked for". Callers
+	 * that refuse an action must therefore know whether the server said anything.
+	 *
+	 * @returns {boolean} true if the server sent an access value for this record
+	 */
+	hasAccessProperty: function ()
+	{
+		var raw = this.json;
+
+		return !!raw && Ext.isDefined((raw.props || raw).access);
+	},
+
+	/**
 	 * @returns {boolean} return true only if record has delete access else false.
 	 */
 	hasDeleteAccess: function ()

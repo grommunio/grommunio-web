@@ -1110,7 +1110,6 @@ class Properties {
 		$properties['internet_message_id'] = PR_INTERNET_MESSAGE_ID;
 
 		unset(
-			$properties['access'],
 			$properties['appointment_duedate'],
 			$properties['appointment_enddate_recurring'],
 			$properties['appointment_exception'],
