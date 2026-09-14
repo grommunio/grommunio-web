@@ -30,7 +30,7 @@ Zarafa.core.ui.notifier.DesktopNotifier = Ext.extend(Zarafa.core.ui.notifier.Not
 		Zarafa.common.Actions.notify(title, {
 			tag: category,
 			body: Ext.util.Format.htmlDecode(message),
-			icon: 'client/resources/images/grommunio.ico'
+			icon: Zarafa.core.Util.getFaviconUrl()
 		}, {
 			click: function() {
 				// focus window which generated this notification

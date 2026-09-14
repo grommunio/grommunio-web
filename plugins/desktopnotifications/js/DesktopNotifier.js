@@ -40,7 +40,7 @@ Zarafa.plugins.desktopnotifications.js.DesktopNotifier = Ext.extend(Zarafa.core.
 		Zarafa.plugins.desktopnotifications.js.DesktopNotification.notify(title, {
 			tag : category,
 			body : Ext.util.Format.htmlDecode(message),
-			icon : 'client/resources/images/favicon.ico?kv2.2.0'
+			icon : Zarafa.core.Util.getFaviconUrl()
 		}, {
 			click : function() {
 				// focus window which generated this notification
