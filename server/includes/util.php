@@ -1048,6 +1048,95 @@ function isBrokenEml($attachment) {
 }
 
 /**
+ * Whether an attachment carries a whole mail as a file rather than as an
+ * embedded message, i.e. an .eml.
+ *
+ * @param array $attachProps properties of the attachment
+ */
+function isEmlAttachment($attachProps) {
+	if (strcasecmp(trim((string) ($attachProps[PR_ATTACH_MIME_TAG] ?? '')), 'message/rfc822') === 0) {
+		return true;
+	}
+
+	$name = (string) ($attachProps[PR_ATTACH_LONG_FILENAME] ?? $attachProps[PR_ATTACH_FILENAME] ?? '');
+
+	return strcasecmp((string) pathinfo($name, PATHINFO_EXTENSION), 'eml') === 0;
+}
+
+/**
+ * Opens the message an attachment holds: the embedded message of a
+ * message-in-message attachment, or an .eml file turned into one.
+ *
+ * The converted message is created but never saved, so it exists for this
+ * request only and leaves nothing behind in the mailbox.
+ *
+ * @param resource $attachment the attachment to open
+ *
+ * @return false|resource the message, or false when the attachment holds none
+ */
+function openAttachedMessage($attachment) {
+	$props = mapi_attach_getprops($attachment, [PR_ATTACH_METHOD, PR_ATTACH_MIME_TAG,
+		PR_ATTACH_LONG_FILENAME, PR_ATTACH_FILENAME, ]);
+
+	if (($props[PR_ATTACH_METHOD] ?? ATTACH_BY_VALUE) == ATTACH_EMBEDDED_MSG) {
+		return mapi_attach_openobj($attachment);
+	}
+	if (!isEmlAttachment($props)) {
+		return false;
+	}
+
+	try {
+		$eml = streamProperty($attachment, PR_ATTACH_DATA_BIN);
+	}
+	catch (MAPIException $e) {
+		$e->setHandled();
+
+		return false;
+	}
+
+	return convertEmlToMessage($eml);
+}
+
+/**
+ * Turns an RFC822 mail into a MAPI message living in the user's own store.
+ *
+ * The message is deliberately not saved: callers read it and drop it, which
+ * keeps a preview from filing a copy of the mail in a folder.
+ *
+ * @param string $eml the raw mail
+ *
+ * @return false|resource the message, or false when it cannot be converted
+ */
+function convertEmlToMessage($eml) {
+	if (empty($eml) || isBrokenEml($eml)) {
+		return false;
+	}
+
+	$store = $GLOBALS['mapisession']->getDefaultMessageStore();
+
+	try {
+		// The drafts entryid sits on the root container, not on the store.
+		$root = mapi_msgstore_openentry($store);
+		$rootProps = mapi_getprops($root, [PR_IPM_DRAFTS_ENTRYID]);
+		if (empty($rootProps[PR_IPM_DRAFTS_ENTRYID])) {
+			return false;
+		}
+
+		$folder = mapi_msgstore_openentry($store, $rootProps[PR_IPM_DRAFTS_ENTRYID]);
+		$message = mapi_folder_createmessage($folder);
+		$ok = mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $store,
+			$GLOBALS['mapisession']->getAddressbook(), $message, $eml, []);
+	}
+	catch (MAPIException $e) {
+		$e->setHandled();
+
+		return false;
+	}
+
+	return $ok === true ? $message : false;
+}
+
+/**
  * Helper function which return the webapp version.
  *
  * @return string webapp version

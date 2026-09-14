@@ -177,6 +177,8 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 				cls:'x-font-select',
 				fieldLabel: _('Save emails sent by delegate'),
 				width: 400,
+				// The options are long sentences; let the list grow past the field
+				plugins: ['zarafa.combolistautowidth'],
 				ref: 'delegateSentItemsStyleCombo',
 				store: delegateSentItemsStore,
 				triggerAction: 'all',

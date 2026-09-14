@@ -169,6 +169,19 @@ Zarafa.plugins.ai.ui.AIAssistantPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
+	 * Append a notice that the model ran into the configured output limit, so
+	 * the answer stops early however far the automatic continuation got.
+	 */
+	markTruncated: function()
+	{
+		var contentEl = this.rendered && this.body ? this.body.child('.k-ai-content', true) : null;
+		if (contentEl) {
+			contentEl.innerHTML += '<div class="k-ai-note">' +
+				Ext.util.Format.htmlEncode(_('The answer reached the output limit configured for this model and stops here.')) + '</div>';
+		}
+	},
+
+	/**
 	 * @return {String} The current text.
 	 */
 	getText: function()

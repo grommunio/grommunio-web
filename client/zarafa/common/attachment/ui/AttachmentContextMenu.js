@@ -99,6 +99,12 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 			beforeShow: this.onImportToFolderBeforeShow,
 			afterRender: this.onImportToFolderAfterRender,
 			scope: this
+		}, {
+			text: _('Remove attachment'),
+			iconCls: 'icon_delete',
+			handler: this.onRemoveItem,
+			beforeShow: this.onRemoveBeforeShow,
+			scope: this
 		}];
 	},
 
@@ -166,6 +172,42 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 		disabled = disabled || record.isEmbeddedMessage();
 
 		item.setDisabled(disabled);
+	},
+
+	/**
+	 * Only a stored mail the user may change can lose an attachment, and only when
+	 * the administrator allows it.
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} item context menu item
+	 * @param {Zarafa.core.data.IPMAttachmentRecord|Zarafa.core.data.IPMAttachmentRecord[]} records attachment record(s) on which context menu is shown
+	 */
+	onRemoveBeforeShow: function(item, records)
+	{
+		var record = this.getPrimaryRecord(records);
+		var store = record ? record.getStore() : undefined;
+		var message = store ? store.getParentRecord() : undefined;
+
+		// The attachments of an S/MIME mail are the ones of the message inside the
+		// signature, their numbers do not address the stored message at all.
+		var messageClass = message ? message.get('message_class') : '';
+		var allowed = container.getServerConfig().isAttachmentRemovalEnabled() &&
+			Ext.isNumber(record.get('attach_num')) &&
+			message && message.phantom !== true &&
+			Zarafa.core.MessageClass.isClass(messageClass, 'IPM.Note', true) &&
+			!Zarafa.core.MessageClass.isClass(messageClass, 'IPM.Note.SMIME', true) &&
+			(message.get('access') & Zarafa.core.mapi.Access.ACCESS_MODIFY) > 0;
+
+		item.setVisible(!!allowed);
+	},
+
+	/**
+	 * Remove the attachment from the message it belongs to.
+	 * @param {Ext.Button} item The clicked item
+	 * @param {Ext.EventObject} event The event object
+	 * @private
+	 */
+	onRemoveItem: function(item, event)
+	{
+		Zarafa.common.Actions.removeAttachment(this.getPrimaryRecord());
 	},
 
 	/**

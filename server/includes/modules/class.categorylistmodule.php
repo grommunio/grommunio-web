@@ -38,6 +38,10 @@ class CategoryListModule extends Module {
 							$this->saveCategories($action);
 							break;
 
+						case "migrate":
+							$this->migrateCategories();
+							break;
+
 						default:
 							$this->handleUnknownActionType($actionType);
 					}
@@ -92,6 +96,19 @@ class CategoryListModule extends Module {
 		$categoryList = new CategoryList($store);
 		$categoryList->setCategories($categories);
 		$this->sendCategories("update", $store, $categoryList);
+	}
+
+	/**
+	 * Migrate every category assigned to an item in the user's mailbox to the
+	 * Outlook-compatible master list.
+	 */
+	private function migrateCategories() {
+		$store = $this->getStoreForAction([]);
+		$legacyCategories = $GLOBALS['settings']->getPersistent('grommunio/main/categories', []);
+		$categoryList = new CategoryList($store);
+		$categoryList->migrateItemCategories(is_array($legacyCategories) ? $legacyCategories : []);
+
+		$this->sendCategories("migrate", $store, $categoryList);
 	}
 
 	/**

@@ -113,6 +113,22 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 			scope: this
 		},{
 			xtype: 'zarafa.conditionalitem',
+			text: _('Mark Read'),
+			name: 'mark_read',
+			iconCls: 'icon_mail icon_mail_read',
+			beforeShow: this.onReadFlagItemBeforeShow,
+			handler: this.onReadFlagItemClicked,
+			scope: this
+		},{
+			xtype: 'zarafa.conditionalitem',
+			text: _('Mark Unread'),
+			name: 'mark_unread',
+			iconCls: 'icon_mail icon_mail_unread',
+			beforeShow: this.onReadFlagItemBeforeShow,
+			handler: this.onReadFlagItemClicked,
+			scope: this
+		},{
+			xtype: 'zarafa.conditionalitem',
 			text: _('Reply'),
 			iconCls: 'icon_reply',
 			singleSelectOnly: true,
@@ -334,6 +350,36 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 		} else {
 			item.setVisible(false);
 		}
+	},
+
+	/**
+	 * Makes the given menuitem invisible for a phantom record, and disables it when none
+	 * of the records is in the read state it would change (Mark Read and Mark Unread).
+	 *
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The item to enable/disable
+	 * @param {Zarafa.core.data.IPMRecord[]} records The records which must be checked
+	 * @private
+	 */
+	onReadFlagItemBeforeShow: function(item, records)
+	{
+		this.beforeShowNonPhantom(item, records);
+
+		var read = item.name !== 'mark_read';
+		item.setDisabled(!records.some(function(record) {
+			return record.isRead() === read;
+		}));
+	},
+
+	/**
+	 * Event handler which is called when the item has been clicked.
+	 * This will mark all selected records as read or unread.
+	 *
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The item which has been clicked
+	 * @private
+	 */
+	onReadFlagItemClicked: function(item)
+	{
+		Zarafa.common.Actions.markAsRead(this.records, item.name === 'mark_read');
 	},
 
 	/**

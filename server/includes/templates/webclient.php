@@ -1,6 +1,7 @@
 <?php
 include BASE_PATH . 'server/includes/loader.php';
 include BASE_PATH . 'server/includes/templates/serverinfo.php';
+require_once BASE_PATH . 'server/includes/core/class.categorylist.php';
 
 $loader = new FileLoader();
 
@@ -13,6 +14,7 @@ $serverConfig = array_merge($serverConfig, [
 	'disable_full_gab' => !ENABLE_FULL_GAB,
 	'plugin_webappmanual_url' => PLUGIN_WEBAPPMANUAL_URL,
 	'enable_shared_rules' => ENABLE_SHARED_RULES,
+	'enable_attachment_removal' => ENABLE_ATTACHMENT_REMOVAL,
 	'enable_conversation_view' => !defined('ENABLE_CONVERSATION_VIEW') || ENABLE_CONVERSATION_VIEW,
 	'enable_attachment_drag_out' => !defined('ENABLE_ATTACHMENT_DRAG_OUT') || ENABLE_ATTACHMENT_DRAG_OUT,
 	'attachment_drag_out_max_size' => defined('ATTACHMENT_DRAG_OUT_MAX_SIZE') ? (int) ATTACHMENT_DRAG_OUT_MAX_SIZE : 26214400,
@@ -34,6 +36,7 @@ $serverConfig = array_merge($serverConfig, [
 	'is_icsimport_supported' => function_exists('mapi_mapitoical'),
 	'color_schemes' => json_decode(COLOR_SCHEMES),
 	'default_categories' => json_decode(DEFAULT_CATEGORIES),
+	'category_color_palette' => CategoryList::getPalette(),
 	'maximum_eml_files_in_zip' => MAX_EML_FILES_IN_ZIP,
 	'powerpaste' => [
 		'powerpaste_word_import' => POWERPASTE_WORD_IMPORT,

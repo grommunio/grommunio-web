@@ -22,10 +22,6 @@ the plugin by itself in the web settings. (Settings -> Plugins -> Check the file
 
 If this flag is true, a confirmation dialog will be shown before a file gets deleted. Otherwise the file is deleted instantly (dangerous!).
 
-```define('PLUGIN_FILES_CACHE_DIR', "/var/lib/grommunio-web/plugin_files");```
-
-The directory where to save cache files for phpfastcache, if redis is not available.
-
 ```define('PLUGIN_FILESBROWSER_LOGLEVEL', "ERROR");```
 
 If you experience any problems with the plugin, set this flag to **'DEBUG'** and send your nginx/php-fpm/grommunio web error log to the grommunio developers.
@@ -41,3 +37,7 @@ Redis port for phpFastCache.
 ```define('PLUGIN_FILES_REDIS_AUTH', '');```
 
 Redis authentication for phpFastCache - leave empty to connect without authentication (default)
+
+```define('PLUGIN_FILES_CACHE_TTL', 900);```
+
+Seconds a folder listing stays cached in Redis before the backend is asked again, a positive number.

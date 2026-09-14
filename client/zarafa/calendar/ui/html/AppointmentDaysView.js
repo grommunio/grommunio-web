@@ -44,6 +44,7 @@ Zarafa.calendar.ui.html.AppointmentDaysView = Ext.extend(Zarafa.calendar.ui.Appo
 		var isDarkColor = Zarafa.core.ColorSchemes.isDark(color);
 		var colorClass = this.isActive() && isDarkColor ? ' k-dark' : ' k-light';
 		var activeClass = this.isActive() ? '' : ' k-inactive';
+		var unreadClass = Ext.isFunction(this.record.isRead) && !this.record.isRead() ? ' k-unread' : '';
 		var stripWidth = this.getStripWidth();
 		var titleText = this.mainTextRenderer() + ' '+ this.subTextRenderer();
 		var icons = this.iconRenderer();
@@ -99,7 +100,7 @@ Zarafa.calendar.ui.html.AppointmentDaysView = Ext.extend(Zarafa.calendar.ui.Appo
 				resizeHandleEnd = '<div class="k-resizehandle k-resizehandle-end" aria-hidden="true"></div>';
 			}
 			var appointmentBox = layer.createChild({
-				cls: 'k-appointment-box' + colorClass + activeClass + orderClass,
+				cls: 'k-appointment-box' + colorClass + activeClass + orderClass + unreadClass,
 				html: resizeHandleStart + resizeHandleEnd + '<div class="k-status'  + busyClass + '" style="width:' + stripWidth + 'px; border-color:' + color + ';" aria-hidden="true"></div>' +
 						iconsHtml + '<span class="k-title">' + titleText + '</span>',
 				style: 'background-color:' + color + ';' +

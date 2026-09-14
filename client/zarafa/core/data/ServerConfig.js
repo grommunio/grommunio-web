@@ -322,6 +322,14 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
+	 * @return {String[]} returns the Outlook-compatible category color palette.
+	 */
+	getCategoryColorPalette: function()
+	{
+		return this.meta.category_color_palette;
+	},
+
+	/**
 	 * @return {Array} returns the additional categories defined in config.php/default.php.
 	 */
 	getAdditionalDefaultCategories: function()
@@ -424,6 +432,14 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	getAttachmentReminderKeywords: function()
 	{
 		return this.meta.attachment_reminder_keywords || '';
+	},
+
+	/**
+	 * @return {Boolean} True when a user may remove an attachment from a stored message
+	 */
+	isAttachmentRemovalEnabled: function()
+	{
+		return this.meta.enable_attachment_removal !== false;
 	},
 
 	/**

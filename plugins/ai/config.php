@@ -96,8 +96,11 @@ define('PLUGIN_AI_MODEL_FAST', 'gemini-3.5-flash-lite');
 // --- Generation limits -----------------------------------------------------
 // Email bodies longer than this many characters are truncated before sending.
 define('PLUGIN_AI_MAX_INPUT_CHARS', 24000);
-// Upper bound on tokens the model may generate per request.
-define('PLUGIN_AI_MAX_OUTPUT_TOKENS', 1024);
+// Upper bound on tokens the model may generate per request. A reasoning model
+// (Gemini 2.5+, GPT-5, o-series, ...) spends part of this budget on internal
+// thinking tokens that never reach the user, so keep it generous. An answer
+// that still ends on the limit is continued automatically.
+define('PLUGIN_AI_MAX_OUTPUT_TOKENS', 4096);
 // Sampling temperature (0 = deterministic, 1 = creative).
 define('PLUGIN_AI_TEMPERATURE', 0.3);
 // Network timeout (seconds) for a request to the LLM endpoint.

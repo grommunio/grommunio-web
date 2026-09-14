@@ -33,38 +33,44 @@ class CategoryList {
 
 	/**
 	 * Outlook OlCategoryColor palette: index (as written in the XML `color`
-	 * attribute) => RGB hex used to render the swatch. The first entries reuse
-	 * grommunio Web's own hex values for the six flag-mapped colours so the UI
-	 * renders them unchanged; the remainder are close approximations of
-	 * Outlook's palette and can be tuned without touching any other code.
+	 * attribute) => RGB hex used to render the swatch.
 	 */
 	private static $palette = [
-		0  => '#e40023', // Red
-		1  => '#f99406', // Orange
-		2  => '#fbd5a6', // Peach
-		3  => '#f7ca17', // Yellow
-		4  => '#5ab556', // Green
-		5  => '#26a0a0', // Teal
-		6  => '#a4b34d', // Olive
-		7  => '#0f70bd', // Blue
-		8  => '#912887', // Purple
-		9  => '#a6014e', // Maroon
-		10 => '#9da3af', // Steel
-		11 => '#64738b', // Dark Steel
-		12 => '#b0b0b0', // Gray
-		13 => '#6e6e6e', // Dark Gray
-		14 => '#4c4c4c', // Black
-		15 => '#8c1015', // Dark Red
-		16 => '#c15a00', // Dark Orange
-		17 => '#c79860', // Dark Peach
-		18 => '#b8860b', // Dark Yellow
-		19 => '#2e7d32', // Dark Green
-		20 => '#00695c', // Dark Teal
-		21 => '#6b7a2e', // Dark Olive
-		22 => '#0a4c88', // Dark Blue
-		23 => '#5e1a59', // Dark Purple
-		24 => '#6e0033', // Dark Maroon
+		0  => '#d6252e', // Red
+		1  => '#f06c15', // Orange
+		2  => '#ffca4c', // Peach
+		3  => '#fffe3d', // Yellow
+		4  => '#4ab63f', // Green
+		5  => '#40bd95', // Teal
+		6  => '#859a52', // Olive
+		7  => '#3267b8', // Blue
+		8  => '#613db4', // Purple
+		9  => '#a34e78', // maroon
+		10 => '#c4ccdd', // Steel
+		11 => '#8c9cbd', // Dark Steel
+		12 => '#c4c4c4', // Gray
+		13 => '#a5a5a5', // Dark Gray
+		14 => '#1c1c1c', // Black
+		15 => '#af1e25', // Dark Red
+		16 => '#b14f0d', // Dark Orange
+		17 => '#ab7b05', // Dark Peach
+		18 => '#999400', // Dark Yellow
+		19 => '#35792b', // Dark Green
+		20 => '#2e7d64', // Dark Teal
+		21 => '#5f6c3a', // Dark Olive
+		22 => '#2a5191', // Dark Blue
+		23 => '#50328f', // Dark Purple
+		24 => '#82375f', // Dark Maroon
 	];
+
+	/**
+	 * Return the Outlook category colour palette in display order.
+	 *
+	 * @return string[] RGB hex colours
+	 */
+	public static function getPalette() {
+		return array_values(self::$palette);
+	}
 
 	/**
 	 * Hex colour => grommunio Web standardIndex (the colour-flag mapping used to
@@ -106,21 +112,6 @@ class CategoryList {
 	 */
 	public function __construct($store) {
 		$this->store = $store;
-	}
-
-	/**
-	 * The proptag for PR_ROAMING_XMLSTREAM (Pt_BINARY, 0x7C08). php-mapi does
-	 * not predefine it, so compute it once here.
-	 *
-	 * @return int
-	 */
-	private static function roamingXmlStreamTag() {
-		$propertyTag = mapi_prop_tag(PT_BINARY, 0x7C08);
-		if ($propertyTag === false) {
-			throw new RuntimeException('Unable to create the category-list property tag.');
-		}
-
-		return $propertyTag;
 	}
 
 	/**
@@ -235,14 +226,13 @@ class CategoryList {
 			return '';
 		}
 
-		$tag = self::roamingXmlStreamTag();
-		$props = mapi_getprops($message, [$tag]);
-		if (isset($props[$tag]) && is_string($props[$tag])) {
-			return $props[$tag];
+		$props = mapi_getprops($message, [PR_ROAMING_XMLSTREAM]);
+		if (isset($props[PR_ROAMING_XMLSTREAM]) && is_string($props[PR_ROAMING_XMLSTREAM])) {
+			return $props[PR_ROAMING_XMLSTREAM];
 		}
 
 		// Large binaries come back as an error placeholder; read via a stream.
-		$stream = mapi_openproperty($message, $tag, IID_IStream, 0, 0);
+		$stream = mapi_openproperty($message, PR_ROAMING_XMLSTREAM, IID_IStream, 0, 0);
 		if ($stream === false) {
 			return '';
 		}
@@ -274,7 +264,7 @@ class CategoryList {
 		}
 		mapi_setprops($message, [
 			PR_MESSAGE_CLASS => self::MESSAGE_CLASS,
-			self::roamingXmlStreamTag() => $xml,
+			PR_ROAMING_XMLSTREAM => $xml,
 		]);
 		mapi_savechanges($message);
 		$this->exists = true;
@@ -307,6 +297,117 @@ class CategoryList {
 		}
 
 		return $categories;
+	}
+
+	/**
+	 * Add every category currently assigned to an item in this mailbox to the
+	 * master category list. Legacy category definitions provide the colours for
+	 * categories not already present; {@link setCategories} maps those colours
+	 * to the nearest Outlook palette entry.
+	 *
+	 * @param array $legacyCategories legacy grommunio Web category definitions
+	 *
+	 * @return int number of distinct category names found on items
+	 */
+	public function migrateItemCategories($legacyCategories) {
+		$itemCategories = $this->getItemCategoryNames();
+		$categories = $this->getCategories();
+		$knownCategories = [];
+		foreach ($categories as $category) {
+			if (!empty($category['name'])) {
+				$knownCategories[strtolower($category['name'])] = true;
+			}
+		}
+
+		$legacyByName = [];
+		foreach ($legacyCategories as $category) {
+			if (is_array($category) && !empty($category['name'])) {
+				$legacyByName[strtolower($category['name'])] = $category;
+			}
+		}
+
+		$changed = false;
+		foreach ($itemCategories as $name) {
+			$key = strtolower($name);
+			if (isset($knownCategories[$key])) {
+				continue;
+			}
+			$category = isset($legacyByName[$key]) ? $legacyByName[$key] : [];
+			$category['name'] = $name;
+			$category['used'] = true;
+			if (!isset($category['color'])) {
+				$category['color'] = self::DEFAULT_COLOR;
+			}
+			$categories[] = $category;
+			$knownCategories[$key] = true;
+			$changed = true;
+		}
+
+		if ($changed) {
+			$this->setCategories($categories);
+		}
+
+		return count($itemCategories);
+	}
+
+	/**
+	 * Scan the normal contents of every folder below the IPM subtree and return
+	 * the distinct category names assigned to those items.
+	 *
+	 * @return string[] category names in first-seen order
+	 */
+	protected function getItemCategoryNames() {
+		$storeProps = mapi_getprops($this->store, [PR_IPM_SUBTREE_ENTRYID]);
+		if (empty($storeProps[PR_IPM_SUBTREE_ENTRYID])) {
+			throw new MAPIException('Cannot open the mailbox folder tree.', MAPI_E_NOT_FOUND, null, _('Cannot scan this mailbox for categories.'));
+		}
+
+		$subtreeEntryId = $storeProps[PR_IPM_SUBTREE_ENTRYID];
+		$subtree = mapi_msgstore_openentry($this->store, $subtreeEntryId);
+		if ($subtree === false) {
+			throw new MAPIException('Cannot open the mailbox folder tree.', MAPI_E_NOT_FOUND, null, _('Cannot scan this mailbox for categories.'));
+		}
+
+		$folderEntryIds = [$subtreeEntryId];
+		$hierarchy = mapi_folder_gethierarchytable($subtree, CONVENIENT_DEPTH | MAPI_DEFERRED_ERRORS);
+		foreach (mapi_table_queryallrows($hierarchy, [PR_ENTRYID]) as $folderRow) {
+			if (!empty($folderRow[PR_ENTRYID])) {
+				$folderEntryIds[] = $folderRow[PR_ENTRYID];
+			}
+		}
+
+		$properties = getPropIdsFromStrings($this->store, [
+			'categories' => 'PT_MV_STRING8:PS_PUBLIC_STRINGS:Keywords',
+		]);
+		$categoriesProperty = $properties['categories'];
+		$restriction = [RES_EXIST, [ULPROPTAG => $categoriesProperty]];
+		$names = [];
+		$knownNames = [];
+
+		foreach ($folderEntryIds as $folderEntryId) {
+			$folder = mapi_msgstore_openentry($this->store, $folderEntryId);
+			if ($folder === false) {
+				continue;
+			}
+			$table = mapi_folder_getcontentstable($folder, MAPI_DEFERRED_ERRORS);
+			mapi_table_restrict($table, $restriction, TBL_BATCH);
+			$rows = mapi_table_queryallrows($table, [$categoriesProperty]);
+			foreach ($rows as $row) {
+				if (!isset($row[$categoriesProperty]) || !is_array($row[$categoriesProperty])) {
+					continue;
+				}
+				foreach ($row[$categoriesProperty] as $name) {
+					$name = trim((string) $name);
+					$key = strtolower($name);
+					if ($name !== '' && !isset($knownNames[$key])) {
+						$names[] = $name;
+						$knownNames[$key] = true;
+					}
+				}
+			}
+		}
+
+		return $names;
 	}
 
 	/**

@@ -37,8 +37,8 @@ Zarafa.common.categories.CategoryListManagerClass = Ext.extend(Ext.util.Observab
 	loading: null,
 
 	/**
-	 * True once the one-time migration of the own mailbox's list has been
-	 * attempted this session, so it is not repeated.
+	 * True once seeding the own mailbox's list has been attempted this session,
+	 * so it is not repeated.
 	 * @property
 	 * @type Boolean
 	 * @private
@@ -247,17 +247,15 @@ Zarafa.common.categories.CategoryListManagerClass = Ext.extend(Ext.util.Observab
 			this.fireEvent('load', this, ids[0], categoriesStore);
 		}
 
-		// One-time migration: give the user's own mailbox a real list by seeding
-		// it from the per-user categories the user already has.
+		// Give the user's own mailbox a real list when no roaming list exists.
 		this.seedOwnStoreIfEmpty(ids, response);
 	},
 
 	/**
 	 * If the just-loaded store is the user's own default store and no list is
 	 * STORED in it at all (response.exists === false, as opposed to a
-	 * deliberately emptied list), seed it from the existing per-user WebApp
-	 * categories (which already include the defaults) and save it back to the
-	 * mailbox. Runs at most once per session.
+	 * deliberately emptied list), seed it from the configured defaults and save
+	 * it back to the mailbox. Runs at most once per session.
 	 * @param {String[]} ids The (normalised) entryids the loaded list was cached under
 	 * @param {Object} response The server response ({categories, exists})
 	 * @private
@@ -281,10 +279,7 @@ Zarafa.common.categories.CategoryListManagerClass = Ext.extend(Ext.util.Observab
 
 		this.seeded = true;
 
-		var seed = container.getPersistentSettingsModel().get('grommunio/main/categories') || [];
-		if ( !seed.length ){
-			seed = container.getServerConfig().getDefaultCategories() || [];
-		}
+		var seed = container.getServerConfig().getDefaultCategories() || [];
 		if ( seed.length ){
 			this.save(ownEntryId, seed);
 		}

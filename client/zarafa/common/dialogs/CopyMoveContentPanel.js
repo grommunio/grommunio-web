@@ -60,8 +60,8 @@ Zarafa.common.dialogs.CopyMoveContentPanel = Ext.extend(Zarafa.core.ui.ContentPa
 			useInputAutoFocusPlugin: false,
 			layout: 'fit',
 			title: title,
-			width: 400,
-			height: 350,
+			width: 480,
+			height: 520,
 			cls: 'copymove-panel',
 			items: [{
 				xtype: 'zarafa.copymovepanel',
@@ -150,6 +150,13 @@ Zarafa.common.dialogs.CopyMoveContentPanel = Ext.extend(Zarafa.core.ui.ContentPa
 		if (state && state.last_selected_folder) {
 			this.last_selected_folder = container.getHierarchyStore().getFolder(state.last_selected_folder);
 			delete state.last_selected_folder;
+		}
+
+		// Never restore a size below the one the dialog ships with, the state written
+		// by the earlier and smaller dialog would stick forever
+		if (state) {
+			state.width = Math.max(state.width || 0, this.initialConfig.width);
+			state.height = Math.max(state.height || 0, this.initialConfig.height);
 		}
 
 		Zarafa.common.dialogs.CopyMoveContentPanel.superclass.applyState.call(this, state);

@@ -388,12 +388,12 @@ td.sort-asc .x-grid3-sort-icon {
   background-position: center center !important; }
 
 .triangle_left_stop, .x-tbar-page-first {
-  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PHBhdGggZmlsbD0iIzIxMjEyMSIgZD0iTTEwIDExLjkzNGEuODMzLjgzMyAwIDAgMS0xLjM4My42MjVMNC40MSA4Ljg3OWExLjE2OSAxLjE2OSAwIDAgMSAwLTEuNzU4bDQuMjA3LTMuNjhBLjgzMy44MzMgMCAwIDEgMTAgNC4wNjZabTAgMCIvPjwvc3ZnPg==) !important;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjEyMTIxIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTExLjUgMy41IDcgOGw0LjUgNC41Ii8+PHBhdGggZD0iTTQuNyAzLjN2OS40Ii8+PC9zdmc+) !important;
   background-repeat: no-repeat !important;
   background-position: center center !important; }
 
 .triangle_left_stop_outline, .x-item-disabled .x-tbar-page-first {
-  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PHBhdGggZmlsbD0iIzIxMjEyMSIgZD0iTTguNjE3IDEyLjU1OUEuODMzLjgzMyAwIDAgMCAxMCAxMS45MzRWNC4wNjZhLjgzMy44MzMgMCAwIDAtMS4zODMtLjYyNUw0LjQxIDcuMTIxYTEuMTY5IDEuMTY5IDAgMCAwIDAgMS43NThaTTkgMTEuNTY2IDUuMDcgOC4xMjVBLjE3Mi4xNzIgMCAwIDEgNS4wMTIgOGMwLS4wNDcuMDIzLS4wOTQuMDU4LS4xMjVMOSA0LjQzNFptMCAwIi8+PC9zdmc+) !important;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjEyMTIxIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTExLjUgMy41IDcgOGw0LjUgNC41Ii8+PHBhdGggZD0iTTQuNyAzLjN2OS40Ii8+PC9zdmc+) !important;
   background-repeat: no-repeat !important;
   background-position: center center !important; }
 
@@ -408,12 +408,12 @@ td.sort-asc .x-grid3-sort-icon {
   background-position: center center !important; }
 
 .triangle_right_stop, .x-tbar-page-last {
-  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PHBhdGggZmlsbD0iIzIxMjEyMSIgZD0iTTYgMTEuOTM0YS44MzMuODMzIDAgMCAwIDEuMzgzLjYyNWw0LjIwNy0zLjY4YTEuMTY5IDEuMTY5IDAgMCAwIDAtMS43NThsLTQuMjA3LTMuNjhBLjgzMy44MzMgMCAwIDAgNiA0LjA2NlptMCAwIi8+PC9zdmc+) !important;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjEyMTIxIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTQuNSAzLjUgOSA4bC00LjUgNC41Ii8+PHBhdGggZD0iTTExLjMgMy4zdjkuNCIvPjwvc3ZnPg==) !important;
   background-repeat: no-repeat !important;
   background-position: center center !important; }
 
 .triangle_right_stop_outline, .x-item-disabled .x-tbar-page-last {
-  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PHBhdGggZmlsbD0iIzIxMjEyMSIgZD0iTTcuMzgzIDEyLjU1OUEuODMzLjgzMyAwIDAgMSA2IDExLjkzNFY0LjA2NmEuODMzLjgzMyAwIDAgMSAxLjM4My0uNjI1bDQuMjA3IDMuNjhhMS4xNjkgMS4xNjkgMCAwIDEgMCAxLjc1OFpNNyAxMS41NjZsMy45My0zLjQ0MUEuMTcyLjE3MiAwIDAgMCAxMC45ODggOGEuMTcyLjE3MiAwIDAgMC0uMDU4LS4xMjVMNyA0LjQzNFptMCAwIi8+PC9zdmc+) !important;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjEyMTIxIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTQuNSAzLjUgOSA4bC00LjUgNC41Ii8+PHBhdGggZD0iTTExLjMgMy4zdjkuNCIvPjwvc3ZnPg==) !important;
   background-repeat: no-repeat !important;
   background-position: center center !important; }
 
@@ -1744,9 +1744,8 @@ body.k-density-compact {
 .x-grid3 .x-grid3-row-over .zarafa-grid-button {
   display: block; }
 
-/* Fixed categories cannot be edited or deleted because they are used
-   to map old flags to categories */
-.x-grid3-row-over .k-category-fixed .k-grid-button-edit,
+/* Fixed categories remain mapped to old flags and cannot be deleted, but
+   their names can be edited again after the first-use rename prompt. */
 .x-grid3-row-over .k-category-fixed .k-grid-button-delete {
   display: none; }
 
@@ -1778,15 +1777,35 @@ body.k-density-compact {
 .k-categories-grid .x-grid3-col-color.k-menu-visible .k-colorpicker-ct {
   display: block; }
 
+/* Floating pagination / live scroll indicator above the bottom of a grid */
 .k-slider {
   position: absolute;
   z-index: 9001;
-  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.35);
-  padding-left: 12px;
-  padding-right: 12px;
-  background-color: var(--ui-surface);
-  height: 30px;
-  line-height: 2.5; }
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  /* the height follows the content, a fixed one cut the toolbar in half */
+  min-height: 32px;
+  max-width: calc(100% - 16px);
+  padding: 0 8px;
+  border: 1px solid var(--ui-border);
+  border-radius: 8px;
+  box-shadow: var(--ui-shadow-2);
+  background-color: var(--ui-surface); }
+  .k-slider .x-toolbar.zarafa-paging-toolbar {
+    padding: 3px 0;
+    border: none;
+    background-color: transparent; }
+  .k-slider .x-toolbar.zarafa-paging-toolbar .x-form-text {
+    height: 22px !important;
+    margin: 0 6px;
+    padding: 0 4px !important;
+    text-align: center; }
+  /* the live scroll variant is a single line of text */
+  .k-slider > div:not(.x-toolbar) {
+    padding: 0 4px;
+    line-height: 30px;
+    white-space: nowrap; }
 
 /* Read items */
 .x-grid3-row.x-grid3-row-expanded.mail_read > table, .x-grid3-row.x-grid3-row-collapsed.mail_read > table {
@@ -2044,7 +2063,7 @@ li.x-menu-item-active {
 
 /* Color picker */
 .x-color-palette.k-colorpicker-menu {
-  width: 108px; }
+  width: 115px; }
 
 .x-menu-check-item.showGroups .k-hide-img {
   display: none !important; }
@@ -2543,14 +2562,6 @@ Note: Does not work in IE11 */
 .zarafa-tree-ipm-subtree-container:last-child, .zarafa-tree-ipm-subtree-favorites-container:last-child {
   padding-bottom: 12px; }
 
-/* Fix for the background-color when the titles are longer than the width of the box */
-.zarafa-hierarchy-treepanel .x-tree-root-ct {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  min-width: 100%; }
-
 /* Override -- lines in hierarchytree */
 .x-tree-lines .x-tree-elbow,
 .x-tree-lines .x-tree-elbow-line,
@@ -2564,7 +2575,8 @@ Note: Does not work in IE11 */
   overflow: hidden !important; }
 
 .zarafa-hierarchy-treepanel-body:hover {
-  overflow: auto !important; }
+  overflow-x: hidden !important;
+  overflow-y: auto !important; }
 
 .zarafa-hierarchy-treepanel-bottombar {
   border-top: 1px solid var(--ui-border);
@@ -2598,6 +2610,48 @@ Note: Does not work in IE11 */
   .x-tree-node-el a {
     margin-left: 6px;
     font-size: 14px; }
+
+/* One flex line per row: only the folder name gives way, so a name which does not
+   fit is cut off instead of widening the tree */
+.x-tree-node-el.zarafa-hierarchy-node {
+  display: flex;
+  align-items: center;
+  min-height: 25px; }
+  .x-tree-node-el.zarafa-hierarchy-node > * {
+    flex: 0 0 auto; }
+  .x-tree-node-el.zarafa-hierarchy-node > .zarafa-hierarchy-node-anchor {
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden; }
+
+.x-tree-node .zarafa-hierarchy-node-anchor > span {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
+/* The extjs text padding becomes a margin, so it does not count as room for the
+   text and hide small truncations from the tooltip check */
+.x-tree-node .zarafa-hierarchy-node-anchor > span:not(.zarafa-hierarchy-node-counter) {
+  padding: 0;
+  margin-right: 3px; }
+
+/* Counters are never cut off, and the owner suffix of a favorite or a shared
+   folder only takes the space the name leaves over */
+.x-tree-node .zarafa-hierarchy-node-anchor > .zarafa-hierarchy-node-counter {
+  flex: 0 0 auto; }
+
+.x-tree-node .zarafa-hierarchy-node-anchor > .zarafa-hierarchy-node-owner,
+.x-tree-node .zarafa-hierarchy-node-anchor > .zarafa-hierarchy-node-backend {
+  flex: 1 0 0;
+  max-width: max-content; }
+
+/* The drag ghost is sized by its content */
+.x-dd-drag-ghost .x-tree-node-el.zarafa-hierarchy-node {
+  display: block; }
 
 .x-tree-node a span, .x-dd-drag-ghost a span {
   padding-left: 0; }
@@ -4261,6 +4315,8 @@ span.preview-header-sender-image {
     word-break: break-word;
     padding-right: 3px;
     display: block; }
+  .k-appointment-box.k-unread .k-title {
+    font-weight: bold; }
 
 .k-html-header-appointment .k-appointment-box {
   /* selection in the header of the days view has the handles on the left and tight sides */ }
@@ -4688,6 +4744,13 @@ body.zarafa-webclient > .ext-el-mask {
   .x-window .copymove-panel .copymove-tree-panel .x-form-item,
   .x-panel-ghost .copymove-panel .copymove-tree-panel .x-form-item {
     margin-bottom: 0; }
+  .x-window .copymove-panel .copymove-suggestions,
+  .x-panel-ghost .copymove-panel .copymove-suggestions {
+    padding-bottom: 8px; }
+    .x-window .copymove-panel .copymove-suggestions .x-btn,
+    .x-panel-ghost .copymove-panel .copymove-suggestions .x-btn {
+      display: inline-block;
+      margin: 0 6px 4px 0; }
   .x-window .x-form-display-field.tree-header,
   .x-panel-ghost .x-form-display-field.tree-header {
     line-height: 20px;
@@ -5922,8 +5985,10 @@ body.zarafa-webclient > .ext-el-mask {
     .k-settings-about-info b {
       color: var(--ui-text);
       margin-right: 5px; }
-    .k-settings-about-reset-btn {
+    .k-settings-about-actions {
       margin: 0 16px 12px; }
+    .k-settings-about-migrate-btn {
+      margin-left: 12px; }
 
     /* Password settings: align displayfield label with input field labels */
     #zarafa-mainpanel-contentpanel-settings .zarafa-settings-widget .x-form-display-field {
@@ -6328,7 +6393,7 @@ body.zarafa-webclient > .ext-el-mask {
   padding-bottom: 4px; }
 
 .x-color-palette.k-colorpicker-menu {
-  width: 92px; }
+  width: 115px; }
 
 .x-color-palette a {
   padding: 3px;
@@ -6903,6 +6968,24 @@ body .k-category-block {
   overflow: hidden;
   border: 0;
 }
+
+/* ExtJS still ships gif loaders for tree nodes and loading texts */
+.x-tree-node-loading .x-tree-node-icon {
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  background-color: transparent !important;
+  background-image: url(../images/spinner.svg) !important;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 16px 16px; }
+
+.loading-indicator {
+  background-image: url(../images/spinner.svg);
+  background-repeat: no-repeat;
+  background-position: 0 center;
+  background-size: 16px 16px;
+  padding-left: 20px;
+  line-height: 16px; }
 
 .x-mask-row {
   background-color: var(--ui-surface); }
@@ -8547,10 +8630,13 @@ body.k-keyboard .zarafa-settings-category-tab:focus-visible {
   background-position: center center !important;
 }
 
-/* Honour the reduced motion preference */
+/* Honour the reduced motion preference. A zero duration, not a near-zero one: a
+ * 0.01ms transition of `all` still starts, and within one script task it has not
+ * advanced, so ExtJS reads back the old position or size right after writing the
+ * new one and places menus, dialogs and the calendar grid off the page. */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
+    transition-duration: 0s !important;
+    animation-duration: 0s !important;
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important; } }

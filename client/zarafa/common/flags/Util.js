@@ -48,7 +48,12 @@ Zarafa.common.flags.Util = {
 			flag_request: 		'Follow up',
 			flag_status: 		Zarafa.core.mapi.FlagStatus.flagged,
 			flag_complete_time:	null,
-			reminder:		true
+			reminder:		true,
+			// Outlook reads a flagged mail as an unfinished task.
+			complete:		false,
+			task_status:		Zarafa.core.mapi.TaskStatus.NOT_STARTED,
+			percent_complete:	0,
+			date_completed:		null
 			// TODO: Do we need to set is_marked_as_task for Outlook???
 			// (here and in the functions below)
 		};
@@ -207,13 +212,19 @@ Zarafa.common.flags.Util = {
 	 */
 	getFlagPropertiesComplete: function()
 	{
+		var completionTime = new Date();
+
 		return {
 			flag_icon: 			Zarafa.core.mapi.FlagIcon.clear,
-			flag_complete_time:	new Date(),
+			flag_complete_time:	completionTime,
 			complete:			true,
 			flag_request: 		'',
 			flag_status: 		Zarafa.core.mapi.FlagStatus.completed,
-			reminder:		false
+			reminder:		false,
+			// Without the task state Outlook still shows the mail as open.
+			task_status:		Zarafa.core.mapi.TaskStatus.COMPLETE,
+			percent_complete:	1,
+			date_completed:		completionTime
 		};
 	},
 
@@ -233,7 +244,12 @@ Zarafa.common.flags.Util = {
 			startdate:     null,
 			duedate:      null,
 			reminder_time:		null,
-			flag_due_by:		null
+			flag_due_by:		null,
+			flag_complete_time:	null,
+			complete:		false,
+			task_status:		Zarafa.core.mapi.TaskStatus.NOT_STARTED,
+			percent_complete:	0,
+			date_completed:		null
 		};
 	},
 

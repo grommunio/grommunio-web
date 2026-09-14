@@ -70,6 +70,16 @@ class OpenAIProvider extends AIProvider {
 		return $json['choices'][0]['delta']['content'] ?? null;
 	}
 
+	protected function parseFinishReason(array $json): ?string {
+		return $json['choices'][0]['finish_reason'] ?? null;
+	}
+
+	protected function parseStreamFinish(string $data): ?string {
+		$json = json_decode($data, true);
+
+		return is_array($json) ? ($json['choices'][0]['finish_reason'] ?? null) : null;
+	}
+
 	protected function parseStreamError(string $data): ?string {
 		$json = json_decode($data, true);
 		if (is_array($json) && isset($json['error'])) {

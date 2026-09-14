@@ -353,11 +353,23 @@ Zarafa.plugins.files.data.NavigatorTreeLoader = Ext.extend(Ext.tree.TreeLoader, 
 			if (Ext.isEmpty(data) && treeNode.isExpandable() && !treeNode.isExpanded()) {
 				var folder = treeNode.getFolder();
 				var store = folder.getStore();
+				var tree = this.tree;
 				store.load({
 					folder : folder,
 					actionType : Zarafa.core.Actions['updatelist'],
 					cancelPreviousRequest : false,
-					add:true
+					add:true,
+					callback : function(records, options, success) {
+						// the node may be gone with its dialog by now
+						if (!treeNode.childNodes || treeNode.getOwnerTree() !== tree) {
+							return;
+						}
+						// nothing came back: finish the load so the node turns into a leaf
+						if (treeNode.childNodes.length === 0) {
+							treeNode.leaf = success;
+							fn([], { status: success });
+						}
+					}
 				});
 				return;
 			}

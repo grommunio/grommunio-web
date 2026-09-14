@@ -229,16 +229,10 @@ Zarafa.plugins.files.ui.FilesRecordGridView = Ext.extend(Zarafa.common.ui.grid.G
 	{
 		var store = this.getStore();
 		var record = store.getAt(rowIndex);
-		var officeFiletypes = container.getSettingsModel().get('zarafa/v1/plugins/files/onlyoffice_filetypes');
-		var officeEnabled = container.getSettingsModel().get('zarafa/v1/plugins/files/onlyoffice_enabled');
-		officeFiletypes = (officeFiletypes || '').split(',');
-
 		if (record.get('type') === Zarafa.plugins.files.data.FileTypes.FOLDER) {
 			Zarafa.plugins.files.data.Actions.openFolder(this.model, record.get('entryid'));
-		} else if(officeEnabled && officeFiletypes.some((type) => record.get('folder_id').endsWith(type))) { // If onlyoffice document
-			Zarafa.plugins.files.data.Actions.openTab(record);
 		} else {
-			Zarafa.plugins.files.data.Actions.downloadItem(record);
+			Zarafa.plugins.files.data.Actions.openFile(record);
 		}
 	},
 

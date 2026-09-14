@@ -169,7 +169,13 @@ Zarafa.calendar.ui.CalendarGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessa
 	 */
 	getRowClass: function(record, index, rowParams, store)
 	{
-		return 'zarafa-calendar-grid-row';
+		var cssClass = 'zarafa-calendar-grid-row';
+
+		if (Ext.isFunction(record.isRead)) {
+			cssClass += record.isRead() ? ' mail_read' : ' mail_unread';
+		}
+
+		return cssClass;
 	}
 });
 

@@ -382,6 +382,9 @@ class CreateMailItemModule extends ItemModule {
 	 * @return array
 	 */
 	private function handleSend($store, $entryid, $parententryid, array &$action, array $recipients, array &$messageProps, $copyFromMessage, $copyAttachments, $copyInlineAttachmentsOnly) {
+		// Before any work is done, so a replayed request costs nothing.
+		Operations::assertSubmitRateLimit();
+
 		// Keep this check in core: disabled/removed plugins cannot register hooks
 		// or property mappings, but a previously opened compose tab retains intent.
 		if (!empty($action['props']['pgp_sign']) || !empty($action['props']['pgp_encrypt'])) {

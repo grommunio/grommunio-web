@@ -175,6 +175,14 @@ if (!defined("ENABLE_FULL_GAB")) {
 }
 
 /*
+ * Whether a user may remove an attachment from a message which is already stored.
+ * Set it to false where received mail has to stay as it arrived.
+ */
+if (!defined("ENABLE_ATTACHMENT_REMOVAL")) {
+	define("ENABLE_ATTACHMENT_REMOVAL", true);
+}
+
+/*
  * Set a maximum number of (search) results for the addressbook
  * When more results are found no results will be displayed in the client.
  * Set to 0 to disable this feature and show all results.
@@ -799,4 +807,9 @@ if (!defined('ADMIN_API_DISABLEDPLUGINS_RETRY_TIME')) {
 // Seconds to wait for an answer of the admin API
 if (!defined('ADMIN_API_TIMEOUT')) {
 	define('ADMIN_API_TIMEOUT', 2);
+}
+
+// Messages a mailbox may submit per minute, 0 for no limit
+if (!defined('MAX_SUBMITS_PER_MINUTE')) {
+	define('MAX_SUBMITS_PER_MINUTE', 20);
 }

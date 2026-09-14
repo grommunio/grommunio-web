@@ -13,6 +13,13 @@
  */
 class Operations {
 	/**
+	 * Number of table rows read per call while folding a multi-instance sort
+	 * back into one row per item. Large enough that an ordinary page needs a
+	 * single call, small enough that no single read is unbounded.
+	 */
+	private const MULTI_INSTANCE_CHUNK = 512;
+
+	/**
 	 * Gets the hierarchy list of all required stores.
 	 *
 	 * getHierarchyList builds an entire hierarchy list of all folders that should be shown in various places. Most importantly,
@@ -1452,6 +1459,13 @@ class Operations {
 			mapi_table_restrict($table, $restriction, TBL_BATCH);
 		}
 
+		/*
+		 * Read the row count while it still counts items. A multi-instance sort
+		 * (see below) makes the table report one row per value instead, which
+		 * would tell the client there are more items than it can ever be shown.
+		 */
+		$totalrowcount = mapi_table_getrowcount($table);
+
 		if (is_array($sort) && !empty($sort)) {
 			/*
 			 * If the sort array contains the PR_SUBJECT column we should change this to
@@ -1477,7 +1491,21 @@ class Operations {
 			mapi_table_sort($table, $sort, TBL_BATCH);
 		}
 
-		$rows = mapi_table_queryrows($table, $properties, $start, $rowcount);
+		/*
+		 * A multi-value property cannot be sorted on directly - the server
+		 * rejects it with MAPI_E_NO_SUPPORT - so parseSortOrder() asks for a
+		 * multi-instance sort instead, which emits one row per value. Sorting
+		 * the mail list on "categories" therefore returns a mail once per
+		 * category it carries. Fold those rows back into one row per item, so
+		 * such a sort behaves like every other one and the total below counts
+		 * items, not values.
+		 */
+		if (self::isMultiInstanceSort($sort)) {
+			$rows = $this->queryDeduplicatedRows($table, $properties, $start, $rowcount);
+		}
+		else {
+			$rows = mapi_table_queryrows($table, $properties, $start, $rowcount);
+		}
 
 		foreach ($rows as $row) {
 			$itemData = Conversion::mapMAPI2XML($properties, $row);
@@ -1511,9 +1539,118 @@ class Operations {
 		$data["page"] = [];
 		$data["page"]["start"] = $start;
 		$data["page"]["rowcount"] = $rowcount;
-		$data["page"]["totalrowcount"] = mapi_table_getrowcount($table);
+		$data["page"]["totalrowcount"] = $totalrowcount;
 
 		return $data;
+	}
+
+	/**
+	 * Tells whether a MAPI sort order asks the server for multiple instances of
+	 * an item - one row per value of a multi-value property.
+	 *
+	 * @param array|bool $sort The sort order handed to getTable()
+	 *
+	 * @return bool TRUE when at least one sort key carries MV_INSTANCE
+	 */
+	private static function isMultiInstanceSort($sort) {
+		if (!is_array($sort)) {
+			return false;
+		}
+
+		foreach (array_keys($sort) as $propTag) {
+			if (((int) $propTag & MV_INSTANCE) === MV_INSTANCE) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	 * Reads one page of a multi-instance sorted table as one row per item.
+	 *
+	 * An item is kept at the position of the FIRST row it appears in, which is
+	 * its place under the first of its values in the sort direction - a mail
+	 * categorised "Anfrage; Zzz" sorts under "Anfrage" ascending, the way
+	 * Outlook shows it. The rows in between belong to items that sorted earlier
+	 * and are skipped.
+	 *
+	 * @param resource $table      The restricted and sorted MAPI table
+	 * @param array    $properties The set of properties to read per row
+	 * @param int      $start      Starting item (not row) to read from
+	 * @param int      $rowcount   Number of items to read
+	 *
+	 * @return array The rows for the requested page, in table order
+	 */
+	private function queryDeduplicatedRows($table, $properties, $start, $rowcount) {
+		$instanceCount = mapi_table_getrowcount($table);
+		$needed = $start + $rowcount;
+		if ($instanceCount < 1 || $needed < 1) {
+			return [];
+		}
+
+		/*
+		 * Pass one: walk the rows reading the entryid alone and remember the
+		 * first row each item appears in. Reading one narrow column is cheap,
+		 * and the walk stops as soon as the requested page has been located -
+		 * so the cost follows how far the user has scrolled, not how big the
+		 * folder is.
+		 */
+		$firstRowOfItem = [];
+		$offset = 0;
+		while ($offset < $instanceCount && count($firstRowOfItem) < $needed) {
+			$idRows = mapi_table_queryrows($table, [PR_ENTRYID], $offset, self::MULTI_INSTANCE_CHUNK);
+			if (empty($idRows)) {
+				break;
+			}
+
+			foreach ($idRows as $index => $idRow) {
+				if (!isset($idRow[PR_ENTRYID])) {
+					continue;
+				}
+
+				$item = bin2hex((string) $idRow[PR_ENTRYID]);
+				if (!isset($firstRowOfItem[$item])) {
+					$firstRowOfItem[$item] = $offset + $index;
+				}
+			}
+
+			$offset += count($idRows);
+		}
+
+		// Insertion order is ascending row order, so this is the order the
+		// client must end up with.
+		$wantedRows = array_slice(array_values($firstRowOfItem), $start, $rowcount);
+		if (empty($wantedRows)) {
+			return [];
+		}
+
+		/*
+		 * Pass two: read the full property set for the wanted rows only. They
+		 * are not contiguous - the rows in between belong to items that sorted
+		 * earlier - so walk the span they cover in chunks and keep what was
+		 * asked for.
+		 */
+		$wanted = array_flip($wantedRows);
+		$last = $wantedRows[count($wantedRows) - 1];
+		$rows = [];
+		$offset = $wantedRows[0];
+		while ($offset <= $last) {
+			$chunk = mapi_table_queryrows($table, $properties, $offset, min(self::MULTI_INSTANCE_CHUNK, $last - $offset + 1));
+			if (empty($chunk)) {
+				break;
+			}
+
+			foreach ($chunk as $index => $row) {
+				if (isset($wanted[$offset + $index])) {
+					$rows[] = $row;
+				}
+			}
+
+			$offset += count($chunk);
+		}
+
+		return $rows;
 	}
 
 	/**
@@ -1939,7 +2076,9 @@ class Operations {
 					return false;
 				}
 
-				$message = mapi_attach_openobj($attachment);
+				// An .eml attachment holds a mail as a file; it is converted on
+				// the fly so it opens like an embedded message.
+				$message = openAttachedMessage($attachment);
 				if ($message === false) {
 					return false;
 				}
@@ -2316,7 +2455,16 @@ class Operations {
 						if (isset($action['props']['recurring_reset']) && $action['props']['recurring_reset'] == true) {
 							$recur = new Recurrence($store, $message);
 
-							if (isset($action['props']['timezone'])) {
+							// The series became a single appointment. Clearing the flag alone would
+							// leave the recurrence blob behind, and an attendee of a meeting would
+							// keep seeing a series. An older mapi-header-php keeps the old behaviour.
+							$removed = isset($action['props']['recurring']) && !$action['props']['recurring'] &&
+								method_exists($recur, 'deleteRecurrence');
+							if ($removed) {
+								$recur->deleteRecurrence();
+							}
+
+							if (!$removed && isset($action['props']['timezone'])) {
 								$tzprops = ['timezone', 'timezonedst', 'dststartmonth', 'dststartweek', 'dststartday', 'dststarthour', 'dstendmonth', 'dstendweek', 'dstendday', 'dstendhour'];
 
 								// Get timezone info
@@ -2335,7 +2483,7 @@ class Operations {
 							 * Note : this is a special case of changing the time of
 							 * recurrence meeting from scheduling tab.
 							 */
-							$recurrence = $recur->getRecurrence();
+							$recurrence = $removed ? null : $recur->getRecurrence();
 							if (isset($recurrence)) {
 								unset($recurrence['changed_occurrences'], $recurrence['deleted_occurrences']);
 
@@ -2347,7 +2495,9 @@ class Operations {
 							}
 							// Act like the 'props' are the recurrence pattern; it has more information but that
 							// is ignored
-							$recur->setRecurrence($tz ?? false, $action['props']);
+							if (!$removed) {
+								$recur->setRecurrence($tz ?? false, $action['props']);
+							}
 						}
 					}
 
@@ -2733,6 +2883,55 @@ class Operations {
 			$error->setDisplayMessage(_('OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption.'));
 			throw $error;
 		}
+	}
+
+	/**
+	 * Refuses a submission once the mailbox has sent MAX_SUBMITS_PER_MINUTE
+	 * messages within the last minute.
+	 *
+	 * Sending is a single click, so nobody reaches the limit by hand; what it
+	 * stops is a captured send request being replayed in a loop. The tally is
+	 * kept per mailbox rather than per session, so a second session does not
+	 * come with a second allowance.
+	 *
+	 * @throws ZarafaException when the mailbox is over the limit
+	 */
+	public static function assertSubmitRateLimit(): void {
+		$limit = defined('MAX_SUBMITS_PER_MINUTE') ? (int) MAX_SUBMITS_PER_MINUTE : 0;
+		if ($limit <= 0) {
+			return;
+		}
+
+		$state = State::forStore('submitrate');
+		if (!$state->open()) {
+			// Without the lock the tally cannot be trusted; sending is more
+			// important than the limit.
+			return;
+		}
+
+		$now = time();
+		$stored = $state->read('submits');
+		$recent = array_values(array_filter(
+			is_array($stored) ? $stored : [],
+			static fn ($moment): bool => is_int($moment) && $moment > $now - 60
+		));
+
+		if (count($recent) >= $limit) {
+			$state->close();
+			$error = new ZarafaException(
+				sprintf('submit rate limit of %d per minute reached', $limit),
+				0,
+				null,
+				_('Too many messages were sent in a short time. Please wait a moment and send again.')
+			);
+			$error->setTitle(_('Message was not sent'));
+
+			throw $error;
+		}
+
+		$recent[] = $now;
+		$state->write('submits', $recent);
+		$state->close();
 	}
 
 	/** Check saved draft intent even when the optional plugin is no longer loaded. */
@@ -3532,7 +3731,8 @@ class Operations {
 			}
 		}
 
-		$tmp_props = mapi_getprops($message, [PR_PARENT_ENTRYID, PR_MESSAGE_DELIVERY_TIME, PR_CLIENT_SUBMIT_TIME, PR_SEARCH_KEY, PR_MESSAGE_FLAGS]);
+		$tmp_props = mapi_getprops($message, [PR_PARENT_ENTRYID, PR_MESSAGE_DELIVERY_TIME, PR_CLIENT_SUBMIT_TIME, PR_SEARCH_KEY, PR_MESSAGE_FLAGS,
+			PR_SENDER_ENTRYID, PR_SENDER_NAME, PR_SENDER_EMAIL_ADDRESS, PR_SENDER_ADDRTYPE, PR_SENDER_SEARCH_KEY]);
 		$messageProps[PR_PARENT_ENTRYID] = $tmp_props[PR_PARENT_ENTRYID];
 		if ($reprMessage !== false) {
 			// The message is already submitted; a failing sent copy must not
@@ -3542,6 +3742,11 @@ class Operations {
 					PR_CLIENT_SUBMIT_TIME => $tmp_props[PR_CLIENT_SUBMIT_TIME] ?? time(),
 					PR_MESSAGE_DELIVERY_TIME => $tmp_props[PR_MESSAGE_DELIVERY_TIME] ?? time(),
 					PR_MESSAGE_FLAGS => ($tmp_props[PR_MESSAGE_FLAGS] | MSGFLAG_READ) & ~MSGFLAG_UNSENT,
+					PR_SENDER_ENTRYID => $tmp_props[PR_SENDER_ENTRYID] ?? $props[PR_SENDER_ENTRYID],
+					PR_SENDER_NAME => $tmp_props[PR_SENDER_NAME] ?? $props[PR_SENDER_NAME],
+					PR_SENDER_EMAIL_ADDRESS => $tmp_props[PR_SENDER_EMAIL_ADDRESS] ?? $props[PR_SENDER_EMAIL_ADDRESS],
+					PR_SENDER_ADDRTYPE => $tmp_props[PR_SENDER_ADDRTYPE] ?? $props[PR_SENDER_ADDRTYPE],
+					PR_SENDER_SEARCH_KEY => $tmp_props[PR_SENDER_SEARCH_KEY] ?? $props[PR_SENDER_SEARCH_KEY],
 				]) !== false && mapi_savechanges($reprMessage) !== false;
 				if (!$reprSaved) {
 					error_log('submitMessage: unable to finalize the representee sent copy; retaining the sender sent copy');
@@ -3686,7 +3891,41 @@ class Operations {
 				break;
 		}
 
+		if ($result) {
+			$this->assertMessagesDeleted($store, $folder, $entryids);
+		}
+
 		return $result;
+	}
+
+	/**
+	 * gromox skips the items a user may not delete and reports success anyway, so in
+	 * a folder that only grants deleting one's own items the outcome must be checked.
+	 *
+	 * @param resource $store    MAPI message store
+	 * @param resource $folder   the folder the items were deleted from
+	 * @param array    $entryids the entryids that were passed to the delete
+	 *
+	 * @throws MAPIException MAPI_E_NO_ACCESS when an item is still there
+	 */
+	private function assertMessagesDeleted($store, $folder, $entryids) {
+		$props = mapi_getprops($folder, [PR_RIGHTS]);
+		if (!isset($props[PR_RIGHTS]) || ($props[PR_RIGHTS] & (ecRightsDeleteAny | ecRightsFolderAccess))) {
+			return;
+		}
+
+		foreach ($entryids as $entryid) {
+			try {
+				mapi_msgstore_openentry($store, $entryid);
+			}
+			catch (MAPIException $e) {
+				$e->setHandled();
+
+				continue;
+			}
+
+			throw new MAPIException(_("Insufficient permissions"), MAPI_E_NO_ACCESS);
+		}
 	}
 
 	/**

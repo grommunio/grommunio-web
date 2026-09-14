@@ -100,9 +100,11 @@ class PluginAIModule extends Module {
 
 		$provider = AIProvider::create($config);
 		$start = microtime(true);
+		// Not 16: a reasoning model spends its first tokens on thinking and would
+		// answer with an empty string, making a working provider look broken.
 		$reply = $provider->chat(
 			[['role' => 'user', 'content' => 'Reply with the single word: OK']],
-			['max_tokens' => 16, 'temperature' => 0.0]
+			['max_tokens' => 256, 'temperature' => 0.0]
 		);
 		$latencyMs = (int) round((microtime(true) - $start) * 1000);
 
@@ -147,9 +149,13 @@ class PluginAIModule extends Module {
 		[$config, $provider] = $resolved;
 
 		$built = AIRequest::build('compose', $config, false, '', $action);
-		$text = $provider->chat($built['messages'], ['model' => $built['model']]);
+		$result = $provider->chatFull($built['messages'], ['model' => $built['model']]);
 
-		$this->sendFeedback(true, ['text' => $text, 'model' => $config->model]);
+		$this->sendFeedback(true, [
+			'text' => $result['text'],
+			'truncated' => $result['truncated'],
+			'model' => $config->model,
+		]);
 	}
 
 	/**
@@ -179,7 +185,7 @@ class PluginAIModule extends Module {
 			return;
 		}
 
-		$raw = $provider->chat($built['messages'], ['model' => $built['model'], 'temperature' => 0.1]);
+		$raw = $provider->chatFull($built['messages'], ['model' => $built['model'], 'temperature' => 0.1])['text'];
 
 		$this->sendFeedback(true, [
 			'actions' => $this->parseActions($raw, $built['allowed']),
@@ -340,9 +346,13 @@ class PluginAIModule extends Module {
 		[$store, $entryidBin] = $message;
 
 		$built = AIRequest::build($feature, $config, $store, $entryidBin, $action);
-		$text = $provider->chat($built['messages'], ['model' => $built['model']]);
+		$result = $provider->chatFull($built['messages'], ['model' => $built['model']]);
 
-		$this->sendFeedback(true, ['text' => $text, 'model' => $config->model]);
+		$this->sendFeedback(true, [
+			'text' => $result['text'],
+			'truncated' => $result['truncated'],
+			'model' => $config->model,
+		]);
 	}
 
 	/**

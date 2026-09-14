@@ -678,6 +678,22 @@ Zarafa.core.Util =
 	},
 
 	/**
+	 * Show a {@link Ext.QuickTip quicktip} with the given text on an element while its
+	 * content is cut off. Call it again whenever the available width may have changed.
+	 *
+	 * @param {HTMLElement} element The element which might be truncated.
+	 * @param {String} text The tooltip text.
+	 */
+	setOverflowTooltip: function (element, text)
+	{
+		if (element.offsetWidth < element.scrollWidth) {
+			element.setAttribute('ext:qtip', Ext.util.Format.htmlEncode(text));
+		} else {
+			element.removeAttribute('ext:qtip');
+		}
+	},
+
+	/**
 	 * Function which will convert given input into Bytes.
 	 * @param {Number} input the number which needs to be converted in bytes.
 	 * @param {String} sizeUnit string which indicates given input is in which unit.

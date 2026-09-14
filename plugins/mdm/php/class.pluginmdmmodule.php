@@ -136,9 +136,19 @@ class PluginMDMModule extends Module {
 		],
 		];
 		$ret = file_get_contents(PLUGIN_MDM_ADMIN_API_WIPE_ENDPOINT . $GLOBALS["mapisession"]->getUserName() . "?devices=" . $deviceid, false, stream_context_create($opts));
-		$ret = json_decode($ret, true);
 
-		return strncasecmp('success', (string) $ret['message'], 7) === 0;
+		return $this->apiReportedSuccess($ret);
+	}
+
+	/**
+	 * Whether the admin API answered a wipe or remove request with success.
+	 *
+	 * @param bool|string $response the raw answer of the endpoint
+	 */
+	private function apiReportedSuccess($response): bool {
+		$decoded = json_decode((string) $response, true);
+
+		return is_array($decoded) && strncasecmp('success', (string) ($decoded['message'] ?? ''), 7) === 0;
 	}
 
 	/**
@@ -147,7 +157,7 @@ class PluginMDMModule extends Module {
 	 * @param string $deviceid of phone which has to be removed
 	 * @param string $password user password
 	 *
-	 * @return bool|string $response object contains the response of the soap request from grommunio-sync or false on failure
+	 * @return bool true if the device was removed, false otherwise
 	 */
 	public function removeDevice($deviceid, $password) {
 		// TODO remove the device from device / user list
@@ -175,7 +185,7 @@ class PluginMDMModule extends Module {
 				];
 				$ret = file_get_contents(PLUGIN_MDM_ADMIN_API_WIPE_ENDPOINT . $GLOBALS["mapisession"]->getUserName() . "?devices=" . $deviceid, false, stream_context_create($opts));
 
-				return $ret;
+				return $this->apiReportedSuccess($ret);
 			}
 			catch (Exception $e) {
 				error_log(sprintf("mdm plugin removeDevice Exception: %s", $e));

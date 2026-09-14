@@ -39,6 +39,11 @@ if (!function_exists('mapi_msgstore_openentry')) {
 	function mapi_attach_openobj($attachment) {
 		return $GLOBALS['operationsOpenAttachmentObjectResult'];
 	}
+
+	// util.php is not loaded here; the traversal only cares about its result.
+	function openAttachedMessage($attachment) {
+		return $GLOBALS['operationsOpenAttachmentObjectResult'];
+	}
 }
 
 require_once dirname(__DIR__) . '/includes/core/class.operations.php';

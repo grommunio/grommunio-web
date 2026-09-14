@@ -859,6 +859,30 @@ Zarafa.common.Actions = {
 			return;
 		}
 
+		// A folder may only grant deleting one's own items; PR_ACCESS tells per item
+		// what the store will accept, and gromox silently keeps what it refuses.
+		var denied = records.filter(function(record) {
+			return !record.phantom && record.get('access') > 0 && Ext.isFunction(record.hasDeleteAccess) && !record.hasDeleteAccess();
+		});
+		if (!Ext.isEmpty(denied)) {
+			var msg = _("You have insufficient privileges to delete items in this folder.");
+			if (denied.length < records.length) {
+				msg = String.format(ngettext('You have insufficient privileges to delete one of the selected items.', 'You have insufficient privileges to delete {0} of the selected items.', denied.length), denied.length);
+			}
+			Ext.MessageBox.show({
+				title : _('Insufficient permissions'),
+				msg : msg,
+				cls: Ext.MessageBox.ERROR_CLS,
+				buttons: Ext.MessageBox.OK
+			});
+			records = records.filter(function(record) {
+				return denied.indexOf(record) === -1;
+			});
+			if (Ext.isEmpty(records)) {
+				return;
+			}
+		}
+
 		this.doDeleteRecords(records, askOcc, softDelete);
 	},
 
@@ -1232,6 +1256,40 @@ Zarafa.common.Actions = {
 	},
 
 	/**
+	 * Remove an attachment from the message it belongs to. The message is stored
+	 * without it, which cannot be undone, so the user is asked first.
+	 *
+	 * @param {Zarafa.core.data.IPMAttachmentRecord} attachment The attachment to remove
+	 */
+	removeAttachment: function(attachment)
+	{
+		var store = attachment ? attachment.getStore() : undefined;
+		var message = store ? store.getParentRecord() : undefined;
+		var attachNum = attachment ? attachment.get('attach_num') : undefined;
+
+		if (!message || !Ext.isNumber(attachNum)) {
+			return;
+		}
+
+		Ext.MessageBox.show({
+			title: _('Remove attachment'),
+			msg: String.format(_('Remove \'{0}\' from this message? The attachment cannot be restored afterwards.'),
+				Ext.util.Format.htmlEncode(attachment.get('name'))),
+			buttons: Ext.MessageBox.YESNO,
+			fn: function(button) {
+				if (button !== 'yes') {
+					return;
+				}
+
+				message.addMessageAction('action_type', 'removeAttachments');
+				message.addMessageAction('attach_num', [attachNum]);
+				message.save();
+			},
+			scope: this
+		});
+	},
+
+	/**
 	 * Mark the given messages as read or unread. When a read receipt was requested
 	 * for this message, the settings are consulted to see if we must automatically
 	 * send the receipt or not, or if we should ask the user.
@@ -1364,8 +1422,9 @@ Zarafa.common.Actions = {
 			this.downloadAttachment(record);
 			return;
 		}
-		if(record.isEmbeddedMessage()) {
-			// if we are going to open embedded message then we need to first convert it into mail record
+		if(record.isEmbeddedMessage() || record.isEmlAttachment()) {
+			// An embedded message opens as a mail record; an .eml attachment is a
+			// mail in a file, which the server converts along the same path.
 			record = record.convertToIPMRecord();
 		} else if (Zarafa.common.Actions.isSupportedDocument(record.get("name"))) {
 			// 'modal' is accepted by the dialog layer alone, and passing it forces

@@ -58,7 +58,7 @@ class AIConfig {
 			model: $model,
 			fastModel: trim((string) self::readConst('PLUGIN_AI_MODEL_FAST', '')),
 			maxInputChars: max(500, (int) self::readConst('PLUGIN_AI_MAX_INPUT_CHARS', 24000)),
-			maxOutputTokens: max(64, (int) self::readConst('PLUGIN_AI_MAX_OUTPUT_TOKENS', 1024)),
+			maxOutputTokens: max(64, (int) self::readConst('PLUGIN_AI_MAX_OUTPUT_TOKENS', 4096)),
 			temperature: (float) self::readConst('PLUGIN_AI_TEMPERATURE', 0.3),
 			timeout: max(5, (int) self::readConst('PLUGIN_AI_TIMEOUT', 120)),
 			streaming: (bool) self::readConst('PLUGIN_AI_STREAMING', true)
