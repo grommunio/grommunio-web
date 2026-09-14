@@ -564,6 +564,19 @@ Zarafa.hierarchy.data.MAPIFolderRecord = Ext.extend(Zarafa.core.data.IPFRecord, 
 	hasDeleteOwnRights: function ()
 	{
 		return (this.get('rights') & Zarafa.core.mapi.Rights.RIGHTS_DELETE_OWNED) > 0;
+	},
+
+	/**
+	 * Owning the folder weighs the same as the delete-any right, which is how the
+	 * store decides. RIGHTS_CREATE_FOLDER is that ownership bit (ecRightsFolderAccess).
+	 *
+	 * @returns {Boolean} true if the user may delete items that are not their own
+	 */
+	hasDeleteAnyRights: function ()
+	{
+		var rights = Zarafa.core.mapi.Rights;
+
+		return (this.get('rights') & (rights.RIGHTS_DELETE_ANY | rights.RIGHTS_CREATE_FOLDER)) > 0;
 	}
 });
 
