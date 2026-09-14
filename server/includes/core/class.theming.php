@@ -180,7 +180,9 @@ class Theming {
 			$themePath = BASE_PATH . PATH_PLUGIN_DIR . '/' . $theme;
 		}
 
-		if (isset($themePath)) {
+		// A theme does not have to bring style sheets - one which only replaces the
+		// favicon is enough - and the iterator below throws on a missing directory.
+		if (isset($themePath) && is_dir($themePath . '/css/')) {
 			// Use SPL iterators to recursively traverse the css directory and find all css files
 			$directoryIterator = new RecursiveDirectoryIterator($themePath . '/css/', FilesystemIterator::SKIP_DOTS);
 			$iterator = new RecursiveIteratorIterator($directoryIterator, RecursiveIteratorIterator::SELF_FIRST);
