@@ -12,3 +12,5 @@
  * are generated and handled by our application only.
  */
 class GrommunioException extends BaseException {}
+
+class_alias(GrommunioException::class, 'ZarafaException');

@@ -176,7 +176,7 @@
 		{
 			var name = this.statefulName;
 			if (!name) {
-				name = this.getXType().match(/(?:grommunio\.)?(.*)/)[1];
+				name = this.getXType().match(/(?:grommunio\.|zarafa\.)?(.*)/)[1];
 			}
 
 			return name;

@@ -51,3 +51,5 @@ class GrommunioErrorException extends BaseException {
 		$this->line = $lineno;
 	}
 }
+
+class_alias(GrommunioErrorException::class, 'ZarafaErrorException');

@@ -717,7 +717,12 @@ Grommunio.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 			return '';
 		} else {
 			// Remove any trailing, and ending / characters.
-			return path.replace(/^\/*|\/*$/g, '');
+			path = path.replace(/^\/*|\/*$/g, '');
+			// Deprecated settings root of plugins written before the rename.
+			if (path.indexOf('zarafa/') === 0 || path === 'zarafa') {
+				path = 'grommunio' + path.substr(6);
+			}
+			return path;
 		}
 	},
 

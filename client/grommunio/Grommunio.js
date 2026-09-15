@@ -7,6 +7,18 @@
 
 Ext.namespace('Grommunio');
 
+// Deprecated alias for plugins written against the Zarafa namespace.
+Object.defineProperty(window, 'Zarafa', {
+	configurable: true,
+	get: function() {
+		if (!Grommunio.zarafaAliasWarned) {
+			Grommunio.zarafaAliasWarned = true;
+			console.warn('The Zarafa namespace is deprecated, use Grommunio instead');
+		}
+		return Grommunio;
+	}
+});
+
 /**
  * @class Grommunio
  * Global convenience methods.

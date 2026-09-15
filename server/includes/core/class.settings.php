@@ -196,6 +196,7 @@ class Settings {
 	 * @return mixed setting data, the complete settings array when no path is supplied, or the default
 	 */
 	public function get($path = null, $default = null, $persistent = false) {
+		$path = $this->aliasPath($path);
 		if (!$this->init) {
 			$this->Init();
 		}
@@ -248,6 +249,7 @@ class Settings {
 	 * @param bool   $persistent true to set a persistent setting, false otherwise
 	 */
 	public function set($path, $value, $autoSave = false, $persistent = false) {
+		$path = $this->aliasPath($path);
 		if (!$this->init) {
 			$this->Init();
 		}
@@ -295,6 +297,7 @@ class Settings {
 	 *                         this defaults to false as the settings will be saved at the end of the request
 	 */
 	public function delete($path, $autoSave = false) {
+		$path = $this->aliasPath($path);
 		if (!$this->init) {
 			$this->Init();
 		}
@@ -353,6 +356,21 @@ class Settings {
 	 *
 	 * @return array the tree rooted at {@link self::SETTINGS_ROOT}
 	 */
+	/**
+	 * Accept the legacy settings root plugins written before the rename still use.
+	 *
+	 * @param null|string $path
+	 *
+	 * @return null|string
+	 */
+	private function aliasPath($path) {
+		if (is_string($path) && preg_match('#^/?' . self::LEGACY_SETTINGS_ROOT . '(?=/|$)#', $path)) {
+			return preg_replace('#^/?' . self::LEGACY_SETTINGS_ROOT . '#', self::SETTINGS_ROOT, $path, 1);
+		}
+
+		return $path;
+	}
+
 	private function migrateLegacyRoot($settings) {
 		if (!isset($settings[self::LEGACY_SETTINGS_ROOT])) {
 			return $settings;
@@ -484,7 +502,7 @@ class Settings {
 	 * @param array $settings The default settings
 	 */
 	public function addSysAdminDefaults($settings) {
-		$this->sysAdminDefaults = array_replace_recursive($this->sysAdminDefaults, $settings);
+		$this->sysAdminDefaults = array_replace_recursive($this->sysAdminDefaults, $this->migrateLegacyRoot($settings));
 	}
 
 	/**
