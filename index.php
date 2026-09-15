@@ -151,6 +151,18 @@ if (!WebAppAuthentication::isAuthenticated()) {
 	// Set a template variable for the favicon of the login, welcome, and webclient page
 	$theme = Theming::getActiveTheme();
 	$favicon = getFavicon(Theming::getActiveTheme());
+
+	// Initialize the plugin manager before rendering the login page so
+	// plugins can inject login-page content (e.g. a passkey button) via the
+	// pre-auth hook. No user is authenticated here, so hooked plugins must
+	// only rely on public admin/default settings, never per-user MAPI data.
+	if (!isset($GLOBALS['PluginManager'])) {
+		$GLOBALS['PluginManager'] = new PluginManager(ENABLE_PLUGINS);
+		$GLOBALS['PluginManager']->detectPlugins(DISABLED_PLUGINS_LIST);
+		ob_start();
+		$GLOBALS['PluginManager']->initPlugins(DEBUG_LOADER);
+		ob_end_clean();
+	}
 	include BASE_PATH . 'server/includes/templates/login.php';
 
 	exit;
@@ -269,6 +281,12 @@ $favicon = getFavicon(Theming::getActiveTheme());
 $hideFavorites = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/hide_favorites") ? 'hideFavorites' : '';
 $scrollFavorites = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/scroll_favorites") ? 'scrollFavorites' : '';
 $unreadBorders = $GLOBALS["settings"]->get("zarafa/v1/main/unread_borders") === false ? '' : 'k-unreadborders';
+
+// Enforce the second factor (e.g. passkey) before rendering the HTML shell.
+// The passkey plugin also redirects from its own hook, but gating here through
+// the plugin-agnostic core keeps every entry point consistent. The ?load=
+// branch below defers to load.php, which runs its own enforceSecondFactor('json').
+WebAppAuthentication::enforceSecondFactor('html');
 
 // If GET parameter 'load' is defined, we defer handling to the load.php script
 if (isset($_GET['load'])) {
