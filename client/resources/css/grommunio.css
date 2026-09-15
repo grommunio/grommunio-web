@@ -8664,3 +8664,59 @@ body.k-keyboard .grommunio-settings-category-tab:focus-visible {
     animation-duration: 0s !important;
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important; } }
+
+/* Profile picture: the crop dialog and the hint of the profile url action */
+.k-image-crop .x-window-body {
+  padding: 14px 16px 6px;
+  text-align: center;
+}
+
+.k-image-crop-frame {
+  display: inline-block;
+  line-height: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--ui-border);
+}
+
+.k-image-crop-canvas {
+  display: block;
+  cursor: grab;
+  touch-action: none;
+  outline-offset: 2px;
+}
+
+.k-image-crop-canvas:active {
+  cursor: grabbing;
+}
+
+.k-image-crop-zoom {
+  margin: 12px auto 0;
+  width: 300px;
+}
+
+.k-image-crop-note,
+.k-image-crop-status {
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--ui-text-3);
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.k-image-crop-status:empty {
+  display: none;
+}
+
+.k-settings-profile-photo-hint {
+  border-color: var(--theme-primary-color) !important;
+  animation: k-profile-photo-pulse 1.6s ease-out infinite;
+}
+
+@keyframes k-profile-photo-pulse {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--theme-primary-color) 55%, transparent); }
+  70% { box-shadow: 0 0 0 12px color-mix(in srgb, var(--theme-primary-color) 0%, transparent); }
+  100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--theme-primary-color) 0%, transparent); }
+}
