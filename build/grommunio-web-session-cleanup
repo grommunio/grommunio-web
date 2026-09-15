@@ -1,0 +1,63 @@
+#!/bin/sh
+# Remove expired grommunio-web session files.
+#
+# config.php points session.save_path at a directory of its own with ini_set().
+# A distribution session cleaner cannot see that: it reads the static php.ini and
+# never executes config.php, so where PHP's own garbage collection is disabled
+# (Debian and Ubuntu set session.gc_probability to 0) nothing ever cleans the
+# directory and every login that ever happened leaves a file behind.
+#
+# Ask PHP for the values the web application really uses and apply them here:
+# the path, the handler, and SESSION_MAX_LIFETIME.
+#
+# --dry-run lists what would be removed instead of removing it.
+
+set -eu
+
+config=${GROMMUNIO_WEB_CONFIG:-/etc/grommunio-web/config.php}
+root=${GROMMUNIO_WEB_ROOT:-/usr/share/grommunio-web}
+dry_run=0
+if [ "${1:-}" = "--dry-run" ]; then
+	dry_run=1
+fi
+
+[ -r "$config" ] || exit 0
+
+# config.php is read the way the web application reads it, after the constants it
+# is allowed to refer to. It may still fail on something else, so the values are
+# printed from a shutdown handler, which runs even then.
+settings=$(php -d error_reporting=0 -d display_errors=0 -r '
+	$root = $argv[2];
+	if (is_readable($root . "/server/includes/core/constants.php")) {
+		include_once $root . "/server/includes/core/constants.php";
+	}
+	register_shutdown_function(function () {
+		echo defined("SESSION_SAVE_HANDLER") ? SESSION_SAVE_HANDLER : ini_get("session.save_handler"), "\n";
+		echo defined("SESSION_SAVE_PATH") ? SESSION_SAVE_PATH : ini_get("session.save_path"), "\n";
+		// Not session.gc_maxlifetime: that is a few minutes on most systems and
+		// would end sessions the web application still considers current. An
+		// installation whose config.php predates the constant gets the same
+		// default as a new one.
+		$lifetime = defined("SESSION_MAX_LIFETIME") ? (int) SESSION_MAX_LIFETIME : 0;
+		echo $lifetime > 0 ? $lifetime : 14 * 24 * 60 * 60, "\n";
+	});
+	include $argv[1];
+' "$config" "$root" 2>/dev/null) || :
+
+handler=$(printf '%s\n' "$settings" | sed -n 1p)
+path=$(printf '%s\n' "$settings" | sed -n 2p)
+lifetime=$(printf '%s\n' "$settings" | sed -n 3p)
+
+# Only the files handler leaves anything behind to remove.
+[ "$handler" = "files" ] || exit 0
+[ -n "$path" ] || exit 0
+[ -d "$path" ] || exit 0
+
+# find counts whole minutes, and must not round a short lifetime down to zero.
+minutes=$(( (lifetime + 59) / 60 ))
+
+if [ "$dry_run" -eq 1 ]; then
+	find "$path" -maxdepth 1 -type f -name 'sess_*' -mmin "+$minutes" -print
+else
+	find "$path" -maxdepth 1 -type f -name 'sess_*' -mmin "+$minutes" -delete
+fi

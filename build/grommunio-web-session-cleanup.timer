@@ -1,0 +1,11 @@
+[Unit]
+Description=Remove expired grommunio-web sessions
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=15min
+AccuracySec=1min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

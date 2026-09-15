@@ -1,0 +1,3 @@
+# Without this the timer would be installed but left disabled on distributions
+# whose default preset policy is to disable everything.
+enable grommunio-web-session-cleanup.timer
