@@ -2,8 +2,8 @@
 	"spdxVersion": "SPDX-2.3",
 	"dataLicense": "CC0-1.0",
 	"SPDXID": "SPDXRef-DOCUMENT",
-	"name": "grommunio-web-3.17",
-	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/3.17-7edc5481491d63d3",
+	"name": "grommunio-web-5.0",
+	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.0-7edc5481491d63d3",
 	"creationInfo": {
 		"created": "2026-09-15T13:09:03Z",
 		"creators": [
@@ -15,7 +15,7 @@
 		{
 			"SPDXID": "SPDXRef-Package-grommunio-web",
 			"name": "grommunio-web",
-			"versionInfo": "3.17",
+			"versionInfo": "5.0",
 			"downloadLocation": "https://github.com/grommunio/grommunio-web",
 			"filesAnalyzed": false,
 			"licenseConcluded": "AGPL-3.0-or-later",
