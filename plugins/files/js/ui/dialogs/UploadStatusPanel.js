@@ -258,11 +258,11 @@ Grommunio.plugins.files.ui.dialogs.UploadStatusPanel = Ext.extend(Ext.form.FormP
 
 			// calc ETA
 			var eta = (total - loaded) / speed; // seconds
-			var eta_unit = _(' seconds left');
+			var eta_format = _('{0} seconds left');
 
 			if (eta > 60) {
 				eta = eta / 60; // minutes
-				eta_unit = _(' minutes left');
+				eta_format = _('{0} minutes left');
 			}
 
 			// transform speed units
@@ -281,7 +281,7 @@ Grommunio.plugins.files.ui.dialogs.UploadStatusPanel = Ext.extend(Ext.form.FormP
 				if (Ext.isDefined(oldloaded) && loaded != 0 && total != 0) {
 					if (loaded != oldloaded) {
 						filesUploaderPanel.speed.setValue(speed.toFixed(2) + speed_unit);
-						filesUploaderPanel.eta.setValue(parseInt(eta) + eta_unit);
+						filesUploaderPanel.eta.setValue(String.format(eta_format, parseInt(eta)));
 					}
 				} else {
 					filesUploaderPanel.speed.setValue('- kB/s');
@@ -307,7 +307,7 @@ Grommunio.plugins.files.ui.dialogs.UploadStatusPanel = Ext.extend(Ext.form.FormP
 				this.xhr[index].cust_total = event.total;
 
 				var finished = ((event.loaded / event.total) * 100).toFixed(2);
-				filesUploaderPanel.progress.updateProgress((event.loaded / event.total), _('Uploading: ') + finished + '%', true);
+				filesUploaderPanel.progress.updateProgress((event.loaded / event.total), String.format(_('Uploading: {0}%'), finished), true);
 				filesUploaderPanel.uploaded.setValue(Grommunio.plugins.files.data.Utils.Format.fileSizeList(event.loaded));
 			} else {
 				filesUploaderPanel.progress.updateProgress(0.5, _('Upload status unavailable... please wait.'), true);

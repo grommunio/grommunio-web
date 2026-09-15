@@ -350,7 +350,7 @@ Grommunio.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 		var infoMessage = this.getExtraInfoMessage();
 
 		if (infoMessage) {
-			el.createChild({tag: 'div', html: pgettext('calendar.dialog', infoMessage)});
+			el.createChild({tag: 'div', html: infoMessage});
 		}
 
 		this.extraInfoPanel.setVisible(infoMessage !== false);
@@ -370,11 +370,12 @@ Grommunio.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 		}
 
 		var configuredFlag = Grommunio.common.flags.Util.getConfiguredFlag(this.record);
-		if (configuredFlag === 'no_date') {
+		if (configuredFlag === 'no_date' || Ext.isEmpty(configuredFlag)) {
 			return _("This message will be flagged for follow up when it is sent.");
-		} else {
-			return String.format("This message will be flagged for follow up {0} when it is sent.", configuredFlag);
 		}
+
+		// # TRANSLATORS: {0} is the follow-up period, e.g. 'today' or 'next week'
+		return String.format(_("This message will be flagged for follow up {0} when it is sent."), configuredFlag);
 	},
 
 	/**

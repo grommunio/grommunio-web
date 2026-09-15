@@ -22,7 +22,7 @@ Grommunio.plugins.files.ui.dialogs.UploadStatusContentPanel = Ext.extend(Grommun
 		config = config || {};
 		Ext.applyIf(config, {
 			layout : 'fit',
-			title : _('Uploading files to ') + Grommunio.plugins.files.data.Utils.File.stripAccountId(config.destination) + ' &hellip;',
+			title : String.format(_('Uploading files to {0}'), Grommunio.plugins.files.data.Utils.File.stripAccountId(config.destination)) + ' &hellip;',
 			closeOnSave : true,
 			width : 480,
 			height : 445,

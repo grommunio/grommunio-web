@@ -72,7 +72,8 @@ Grommunio.calendar.printer.ListViewRenderer = Ext.extend(Grommunio.common.printe
 			'<table id="k-printlistbottom">'	+
 			'<tr>'		+
 					// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-		'<td class="nowrap" align="left">'+_('Printed by') + ' ' + '{fullname}' + ' '+_('at') + ' ' + '{currenttime:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}</td>'	+
+					// TRANSLATORS: {0} is the name of the user printing, {1} the current date and time
+		'<td class="nowrap" align="left">' + String.format(_('Printed by {0} at {1}'), '{fullname}', '{currenttime:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}') + '</td>'	+
 			'</tr>' +
 			'</table>' +
 		'</div>';
@@ -100,7 +101,7 @@ Grommunio.calendar.printer.ListViewRenderer = Ext.extend(Grommunio.common.printe
             if (folders[i].getMAPIStore().get('display_name') === container.getUser().getDisplayName()) {
                 foldernames.push(folders[i].get('display_name'));
             } else {
-                foldernames.push(folders[i].get('display_name') + ' ' + _('of') + ' ' + folders[i].getMAPIStore().get('display_name'));
+                foldernames.push(String.format(_('{0} of {1}'), folders[i].get('display_name'), folders[i].getMAPIStore().get('display_name')));
             }
         }
 

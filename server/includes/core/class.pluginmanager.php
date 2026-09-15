@@ -1113,6 +1113,10 @@ class PluginManager {
 			$plugin = $this->plugindata[$pluginname];
 			$info[] = [
 				'name' => $pluginname,
+				// The manifest title is not extractable (xgettext cannot read XML); it resolves
+				// only because every plugin repeats the same title as a literal _() in its own
+				// JS registration. Keep plugins/*/manifest.xml <title> and that literal in sync,
+				// or the plugin name falls back to English here.
 				'display_name' => _($plugin['title'] ?? $pluginname),
 				'allow_disable' => isset($plugin['optional']),
 				'settings_base' => 'grommunio/v1/plugins/' . ($plugin['optional'] ?? $pluginname),

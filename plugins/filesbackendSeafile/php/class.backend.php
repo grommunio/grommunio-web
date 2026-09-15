@@ -125,7 +125,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 		$this->backendVersion = "2.0.69";
 
 		// set backend name used in translations
-		$this->backendTransName = _('Files ' . $this->backendDisplayName . ' Backend: ');
+		$this->backendTransName = _('Files Seafile Backend: ');
 	}
 
 	// //////////////////////////////////////////////////////////////////////////
@@ -333,7 +333,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 
 		// check if the move operation would move src into itself - error condition
 		if (str_starts_with($dst_path, $src_path . '/')) {
-			$this->backendError(self::SFA_ERR_FORBIDDEN, 'Moving failed');
+			$this->backendError(self::SFA_ERR_FORBIDDEN, _('Moving failed'));
 		}
 
 		// move library/file/directory is one of in the following order:
@@ -350,7 +350,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 		if ($src->path === null && $dst->path === null) {
 			if ($dst->lib !== null) {
 				// rename to an existing library name (not allowed as not supported)
-				$this->backendError(self::SFA_ERR_NOTALLOWED, 'Moving failed');
+				$this->backendError(self::SFA_ERR_NOTALLOWED, _('Moving failed'));
 			}
 
 			try {
@@ -403,7 +403,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 
 		// 5/5: every other operation (move library into another library, not implemented)
 		if ($result === null) {
-			$this->backendError(self::SFA_ERR_UNIMPLEMENTED, 'Not implemented.');
+			$this->backendError(self::SFA_ERR_UNIMPLEMENTED);
 		}
 
 		$this->log("[MOVE] done in {$timer} seconds.");
@@ -734,7 +734,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 	 * @noinspection PhpReturnDocTypeMismatchInspection Upstream Interface Issue
 	 */
 	public function copy_coll($src_path, $dst_path, $overwrite = false) {
-		$this->backendError(self::SFA_ERR_UNIMPLEMENTED, 'Not implemented');
+		$this->backendError(self::SFA_ERR_UNIMPLEMENTED);
 	}
 
 	/**
@@ -751,7 +751,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 	 * @noinspection PhpReturnDocTypeMismatchInspection Upstream Interface Issue
 	 */
 	public function copy_file($src_path, $dst_path, $overwrite = false) {
-		$this->backendError(self::SFA_ERR_UNIMPLEMENTED, 'Not implemented');
+		$this->backendError(self::SFA_ERR_UNIMPLEMENTED);
 	}
 
 	/**
@@ -766,7 +766,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 	 * @noinspection PhpReturnDocTypeMismatchInspection Upstream Interface Issue
 	 */
 	public function exists($path) {
-		$this->backendError(self::SFA_ERR_UNIMPLEMENTED, 'Not implemented');
+		$this->backendError(self::SFA_ERR_UNIMPLEMENTED);
 	}
 
 	/**
@@ -787,7 +787,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 		}
 
 		$this->log('[GPI] wrong response from ls');
-		$this->backendError(self::SFA_ERR_FAILED_DEPENDENCY, 'Connection failed');
+		$this->backendError(self::SFA_ERR_FAILED_DEPENDENCY, _('Connection failed'));
 	}
 
 	/**
@@ -802,7 +802,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 	 * @noinspection PhpReturnDocTypeMismatchInspection Upstream Interface Issue
 	 */
 	public function is_dir($path) {
-		$this->backendError(self::SFA_ERR_UNIMPLEMENTED, 'Not implemented');
+		$this->backendError(self::SFA_ERR_UNIMPLEMENTED);
 	}
 
 	/**
@@ -817,7 +817,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 	 * @noinspection PhpReturnDocTypeMismatchInspection Upstream Interface Issue
 	 */
 	public function is_file($path) {
-		$this->backendError(self::SFA_ERR_UNIMPLEMENTED, 'Not implemented');
+		$this->backendError(self::SFA_ERR_UNIMPLEMENTED);
 	}
 
 	// ///////////////////////////////////////////////////////////
@@ -1014,14 +1014,13 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 	 * Turn a Backend error code into a Backend exception.
 	 *
 	 * @param int     $errorCode one of the Backend::SFA_ERR_* codes, e.g. {@see Backend::SFA_ERR_INTERNAL}
-	 * @param ?string $title     msg-id from the plugin_files domain, e.g. 'PHP-CURL not installed'
+	 * @param ?string $title     already translated headline, appended to the backend name, e.g. _('Moving failed')
 	 *
 	 * @throws BackendException
 	 */
 	private function backendError(int $errorCode, ?string $title = null): never {
 		$message = $this->parseErrorCodeToMessage($errorCode);
-		$title = $this->backendTransName;
-		$this->backendErrorThrow($title, $message, $errorCode);
+		$this->backendErrorThrow($this->backendTransName . ($title ?? ''), $message, $errorCode);
 	}
 
 	/**

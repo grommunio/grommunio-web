@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Swedish (Sweden)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 16:52+0200\n"
+"POT-Creation-Date: 2026-09-15 20:54+0200\n"
 "PO-Revision-Date: 2026-02-17 22:26+0000\n"
 "Last-Translator: DeepL <noreply-mt-deepl@weblate.org>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/grommunio/grommunio-web/se/>\n"
@@ -40,6 +40,13 @@ msgstr "Värdet måste vara mellan 0% to 100 %"
 
 msgid "Number must be higher than zero"
 msgstr "Antalet måste vara högre än noll"
+
+#. TRANSLATORS: punctuation appended to every form label, {0} is the label
+#. itself. French puts a space before the colon, Chinese the full-width one.
+#. TRANSLATORS: punctuation appended to a field label, {0} is the label itself
+msgctxt "label separator"
+msgid "{0}:"
+msgstr "{0}:"
 
 msgid "More options"
 msgstr "Fler alternativ"
@@ -258,8 +265,8 @@ msgstr "Ja"
 msgid "No"
 msgstr "Inga"
 
-msgid "Loading"
-msgstr "Belastning"
+msgid "Loading…"
+msgstr "Belastning…"
 
 msgid "The value in this field is invalid"
 msgstr "Värdet i det här fältet är ogiltigt"
@@ -333,9 +340,6 @@ msgstr "Detta fält ska bara innehålla bokstäver och _"
 
 msgid "This field should only contain letters, numbers and _"
 msgstr "Detta fält ska bara innehålla bokstäver, siffror och _"
-
-msgid "Email Addresses"
-msgstr "E-postadresser"
 
 msgid "Email addresses"
 msgstr "E-postadresser"
@@ -817,8 +821,9 @@ msgstr "vecka"
 msgid "weeks"
 msgstr "veckor"
 
-msgid " on "
-msgstr " på "
+#. TRANSLATORS: {0} is the period ('week' or 'weeks'), {1} the list of weekdays
+msgid "{0} on {1}"
+msgstr "{0} på {1}"
 
 msgid "month"
 msgstr "månad"
@@ -1366,18 +1371,18 @@ msgid "End"
 msgstr "Avsluta"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: {0} is the name of the user printing, {1} the current date and time
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
-msgid "Printed by"
-msgstr "Tryckt av"
+#. TRANSLATORS: {0} is the name of the user printing, {1} the current date and time
+msgid "Printed by {0} at {1}"
+msgstr "Tryckt av {0} på {1}"
 
-msgid "at"
-msgstr "på"
+#. TRANSLATORS: {0} is a folder name, {1} the name of the mailbox it lives in
+msgid "{0} of {1}"
+msgstr "{0} av {1}"
 
-msgid "of"
-msgstr "av"
-
-msgid "Location: "
-msgstr "Plats: "
+msgid "Location: {0}"
+msgstr "Plats: {0}"
 
 msgid "j M {0}"
 msgstr "j M {0}"
@@ -1385,8 +1390,8 @@ msgstr "j M {0}"
 msgid "l jS M Y {0}"
 msgstr "l j M Y {0}"
 
-msgid "All day: "
-msgstr "Hela dagen: "
+msgid "All day: {0}"
+msgstr "Hela dagen: {0}"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
@@ -1526,10 +1531,6 @@ msgstr "Mötet hittades inte"
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Det här mötet har flyttats eller tagits bort, vill du fortsätta?"
 
-msgctxt "calendar.contextmenu"
-msgid "Use Reply All to reply to all attendees of your meeting."
-msgstr "Använd funktionen ”Svara alla” för att svara alla deltagare i mötet."
-
 msgid "Options"
 msgstr "Alternativ"
 
@@ -1620,8 +1621,8 @@ msgstr "Sortera efter: Betydelse"
 msgid "Appointments list"
 msgstr "Lista över möten"
 
-msgid "Loading appointments"
-msgstr "Laddar möten"
+msgid "Loading appointments…"
+msgstr "Läser in möten…"
 
 msgid "You have insufficient privileges to move and copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
 msgstr "Du har inte tillräckliga rättigheter för att flytta och kopiera det här objektet. Be mappägaren att ge dig behörigheter eller kontakta din systemadministratör."
@@ -1717,9 +1718,6 @@ msgstr "Deltagare"
 msgid "Optional attendees"
 msgstr "Valfria deltagare"
 
-msgid "Loading appointments…"
-msgstr "Läser in möten…"
-
 msgid "Please select a calendar via widget settings"
 msgstr "Välj en kalender via widgetinställningar"
 
@@ -1785,8 +1783,8 @@ msgstr "Utskrift av flera artiklar har inte implementerats."
 msgid "Printing of this item is not yet available"
 msgstr "Utskrift av denna artikel är ännu inte tillgänglig"
 
-msgid "Item type: "
-msgstr "Artikeltyp: "
+msgid "Item type: {0}"
+msgstr "Artikeltyp: {0}"
 
 msgid "Printing of this view is not yet available"
 msgstr "Utskrift av denna vy är ännu inte tillgänglig"
@@ -2055,14 +2053,8 @@ msgstr "Det går inte att ladda ner"
 msgid "Drop files here to attach them"
 msgstr "Släpp filer här för att bifoga dem"
 
-msgid "Picture format is not supported. "
-msgstr "Bildformat stöds inte. "
-
-msgid "Supported format for contact pictures are"
-msgstr "Format som stöds för kontaktbilder är"
-
-msgid "Attachment Error"
-msgstr "Bifogat fel"
+msgid "Picture format is not supported. Supported format for contact pictures are"
+msgstr "Bildformat stöds inte. Format som stöds för kontaktbilder är"
 
 msgid "Could not save the category list."
 msgstr "Det gick inte att spara kategorilistan."
@@ -2091,8 +2083,8 @@ msgstr "Är du säker på att du vill ta bort kategorin \"{0}\"? Andra föremål
 msgid "Rename Category"
 msgstr "Byt namn på kategori"
 
-msgid "A category named \""
-msgstr "En kategori som heter \""
+msgid "You already have a category named '{0}'. Please use another name."
+msgstr "Du har redan en kategori som heter '{0}'. Använd ett annat namn."
 
 msgid "Create New Category"
 msgstr "Skapa ny kategori"
@@ -2108,9 +2100,6 @@ msgstr "Skapa"
 
 msgid "You must apply the changes you have made to the categories before you can create this category."
 msgstr "Du måste tillämpa de ändringar du har gjort i kategorierna innan du kan skapa denna kategori."
-
-msgid "You already have a category named '{0}'. Please use another name."
-msgstr "Du har redan en kategori som heter '{0}'. Använd ett annat namn."
 
 msgid "You already have a category named '{0}' in your pending changes. Please use another name."
 msgstr "Du har redan en kategori som heter '{0}' i dina väntande ändringar. Använd ett annat namn."
@@ -2683,7 +2672,7 @@ msgstr "Varje {A} vecka(r) på"
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr "Återskapa ny uppgift {A} vecka(r) efter att varje uppgift är klar"
 
-msgid "Every {A} years(s) on"
+msgid "Every {A} year(s) on"
 msgstr "Varje {A} år"
 
 msgid "{A} {B}"
@@ -3012,6 +3001,12 @@ msgstr "Flytta alltid meddelanden med detta ämne"
 msgid "Create rule…"
 msgstr "Skapa regel…"
 
+msgid "Saved"
+msgstr "Sparad"
+
+msgid "Saved successfully"
+msgstr "Sparad framgångsrikt"
+
 msgid "myself"
 msgstr "själv"
 
@@ -3114,8 +3109,10 @@ msgstr "Aktivera skrivbordsaviseringar för ny e-post"
 msgid "Enable desktop notifications for reminders"
 msgstr "Aktivera skrivbordsaviseringar för påminnelser"
 
-msgid "{A} Auto-hide desktop notification after second(s) {B}"
-msgstr "{A} Dölj skrivbordsavisering automatiskt efter sekund(er) {B}"
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of seconds which the user will type in.
+msgid "{A}Auto-hide desktop notification after {B} second(s)"
+msgstr "{A}Dölj skrivbordsavisering automatiskt efter {B} sekund(er)"
 
 msgid "Disable sound"
 msgstr "Inaktivera ljud"
@@ -3208,9 +3205,6 @@ msgstr "{0} försenad"
 
 msgid "Message body editor"
 msgstr "Redigerare för meddelandetext"
-
-msgid "Loading…"
-msgstr "Belastning…"
 
 msgid "Message could not be loaded"
 msgstr "Meddelandet kunde inte laddas"
@@ -3686,9 +3680,6 @@ msgstr "Lokalt nummer"
 
 msgid "Extension"
 msgstr "Förlängning"
-
-msgid "Add Attachment"
-msgstr "Lägg till bilaga"
 
 msgid "Add attachments to this contact"
 msgstr "Lägg till bilagor till den här kontakten"
@@ -4232,14 +4223,8 @@ msgstr "Dölj detaljer"
 msgid "Copied!"
 msgstr "Kopierat!"
 
-msgid "Saving"
-msgstr "Sparande"
-
-msgid "Saved"
-msgstr "Sparad"
-
-msgid "Saved successfully"
-msgstr "Sparad framgångsrikt"
+msgid "Saving…"
+msgstr "Sparande…"
 
 msgid "You will lose all unsaved work. Are you sure you want to close this window?"
 msgstr "Du kommer att förlora allt osparat arbete. Är du säker på att du vill stänga det här fönstret?"
@@ -4352,8 +4337,10 @@ msgstr "Återautentisering krävs, klicka här för att gå tillbaka till inlogg
 msgid "Connection problem"
 msgstr "Anslutningsproblem"
 
-msgid "Could not connect to server, retrying in {0} second(s)"
-msgstr "Det gick inte att ansluta till servern, försöker igen om {0} sekund(er)"
+msgid "Could not connect to server, retrying in {0} second"
+msgid_plural "Could not connect to server, retrying in {0} seconds"
+msgstr[0] "Det gick inte att ansluta till servern, försöker igen om {0} sekund(er)"
+msgstr[1] "Det gick inte att ansluta till servern, försöker igen om {0} sekund(er)"
 
 msgid "Click to retry now"
 msgstr "Klicka för att försöka igen nu"
@@ -4449,9 +4436,6 @@ msgstr "Inte tillräckligt med behörigheter för att öppna den här butiken, v
 
 msgid "Not enough permissions to open this folder, do you want to remove it from the hierarchy?"
 msgstr "Inte tillräckligt med behörigheter för att öppna den här mappen, vill du ta bort den från hierarkin?"
-
-msgid "Insufficient Permissions"
-msgstr "Otillräckliga behörigheter"
 
 msgid "Not enough permissions to open this folder."
 msgstr "Inte tillräckliga behörigheter för att öppna den här mappen."
@@ -4822,8 +4806,8 @@ msgstr "Schemalägg mail som ska skickas ut"
 msgid "Scheduled Items"
 msgstr "Schemalagda objekt"
 
-msgid "Your message will be sent at "
-msgstr "Ditt meddelande kommer att skickas "
+msgid "Your message will be sent at {0}."
+msgstr "Ditt meddelande kommer att skickas {0}."
 
 msgid "Go to your Outbox to edit your email."
 msgstr "Gå till din utkorg för att redigera din e-post."
@@ -4840,23 +4824,19 @@ msgstr "vid en viss tidpunkt"
 msgid "The time you entered is in the past. Please reschedule your mail."
 msgstr "Tiden du angav är i det förflutna. Vänligen boka om din e-post."
 
-msgid "today  at "
-msgstr "idag kl. "
+msgid "Your email will be sent today at {0}"
+msgstr "Din e-post kommer att skickas i dag kl. {0}"
 
-msgid "tomorrow  at "
-msgstr "imorgon kl. "
+msgid "Your email will be sent tomorrow at {0}"
+msgstr "Din e-post kommer att skickas i morgon kl. {0}"
 
-msgid "{0} at "
-msgstr "{0} kl. "
+#. TRANSLATORS: {0} is a weekday name, {1} a time of day
+msgid "Your email will be sent {0} at {1}"
+msgstr "Din e-post kommer att skickas på {0} kl. {1}"
 
-msgid "at {0}"
-msgstr "på {0}"
-
-msgid "Your email will be sent {0}{1}"
-msgstr "Din e-post kommer att skickas {0}{1}"
-
-msgid "Saving…"
-msgstr "Sparande…"
+#. TRANSLATORS: {0} is a full date, {1} a time of day
+msgid "Your email will be sent at {0}, {1}"
+msgstr "Din e-post kommer att skickas {0} kl. {1}"
 
 msgid "Saved at {0}"
 msgstr "Sparad kl. {0}"
@@ -4866,6 +4846,10 @@ msgstr "Det gick inte att spara"
 
 msgid "This message will be flagged for follow up when it is sent."
 msgstr "Detta meddelande kommer att flaggas för uppföljning när det skickas."
+
+#. TRANSLATORS: {0} is the follow-up period, e.g. 'today' or 'next week'
+msgid "This message will be flagged for follow up {0} when it is sent."
+msgstr "Detta meddelande kommer att flaggas för uppföljning {0} när det skickas."
 
 msgid "Send Later"
 msgstr "Skicka senare"
@@ -5292,9 +5276,6 @@ msgstr "Flytta till skräppostmappen"
 msgid "Not Junk Email"
 msgstr "Inte skräppost"
 
-msgid "Send to"
-msgstr "Skicka till"
-
 msgid "Message list"
 msgstr "Meddelandelista"
 
@@ -5368,9 +5349,6 @@ msgstr "Sortera efter: Färg"
 
 msgid "Notes list"
 msgstr "Anteckningslista"
-
-msgid "Loading Notes"
-msgstr "Laddar anteckningar"
 
 msgid "Loading notes"
 msgstr "Laddar anteckningar"
@@ -5701,17 +5679,23 @@ msgstr "Det gick inte att migrera de äldre kategorierna."
 msgid "Changes to assigned task"
 msgstr "Ändringar av tilldelad uppgift"
 
-msgid "Please note that assigned task(s) will be overwritten when the assignee makes changes."
-msgstr "Observera att tilldelade uppgifter kommer att skrivas över när mottagaren gör ändringar."
+msgid "Please note that the assigned task will be overwritten when the assignee makes changes."
+msgid_plural "Please note that the assigned tasks will be overwritten when the assignee makes changes."
+msgstr[0] "Observera att tilldelade uppgifter kommer att skrivas över när mottagaren gör ändringar."
+msgstr[1] "Observera att tilldelade uppgifter kommer att skrivas över när mottagaren gör ändringar."
 
 msgid "Delete confirmation"
 msgstr "Ta bort bekräftelse"
 
-msgid "Deleting the item(s) will also delete the original item(s)."
-msgstr "Om du tar bort objektet/objekten raderas också originalobjektet/erna."
+msgid "Deleting the item will also delete the original item."
+msgid_plural "Deleting the items will also delete the original items."
+msgstr[0] "Om du tar bort objektet/objekten raderas också originalobjektet/erna."
+msgstr[1] "Om du tar bort objektet/objekten raderas också originalobjektet/erna."
 
-msgid "Do you want to delete the item(s)?"
-msgstr "Vill du ta bort objektet/objekten?"
+msgid "Do you want to delete the item?"
+msgid_plural "Do you want to delete the items?"
+msgstr[0] "Vill du ta bort objektet/objekten?"
+msgstr[1] "Vill du ta bort objektet/objekten?"
 
 msgid "Sort by: Priority"
 msgstr "Sortera efter: Prioritet"
@@ -5848,12 +5832,12 @@ msgstr "Ny uppgift"
 msgid "Completed"
 msgstr "Avslutad"
 
-msgid "Printed by: "
-msgstr "Utskriven av: "
+msgid "Printed by: {0}"
+msgstr "Utskriven av: {0}"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "Printed on: "
-msgstr "Utskriven: "
+#. TRANSLATORS: {0} is the date the list was printed on
+msgid "Printed on: {0}"
+msgstr "Utskriven: {0}"
 
 msgid "Percent complete"
 msgstr "Procent klar"
@@ -6353,14 +6337,8 @@ msgstr "Urklipp"
 msgid "Could not copy link automatically. Please copy it manually."
 msgstr "Det gick inte att kopiera länken automatiskt. Kopiera det manuellt."
 
-msgid "Loading details..."
-msgstr "Läser in detaljer..."
-
 msgid "Share"
 msgstr "Dela"
-
-msgid "Loading..."
-msgstr "Belastning..."
 
 msgid "Add attachment from {0}"
 msgstr "Lägg till bilaga från {0}"
@@ -6557,8 +6535,12 @@ msgstr "max"
 msgid "You have to choose at least one file!"
 msgstr "Du måste välja minst en fil!"
 
-msgid "Create New "
-msgstr "Skapa nytt "
+msgid "Document"
+msgstr "Dokumentera"
+
+#. TRANSLATORS: {0} is a translated file type such as Document, Presentation or Spreadsheet
+msgid "Create New {0}"
+msgstr "Skapa nytt {0}"
 
 msgid "Incorrect filename"
 msgstr "Felaktigt filnamn"
@@ -6605,14 +6587,14 @@ msgstr "Bilagan har lagrats i filer"
 msgid "Upload Failed"
 msgstr "Uppladdningen misslyckades"
 
-msgid "Attachment could not be stored in Files! Error: "
-msgstr "Bilagan kunde inte lagras i filer! Fel: "
+msgid "Attachment could not be stored in Files!"
+msgstr "Bilagan kunde inte lagras i filer!"
 
 msgid "Share Files"
 msgstr "Dela filer"
 
-msgid "Uploading files to "
-msgstr "Laddar upp filer till "
+msgid "Uploading files to {0}"
+msgstr "Laddar upp filer till {0}"
 
 msgid "Starting upload"
 msgstr "Startar uppladdning"
@@ -6623,14 +6605,14 @@ msgstr "Avbryt uppladdningen"
 msgid "- seconds left"
 msgstr "- sekunder kvar"
 
-msgid " seconds left"
-msgstr " sekunder kvar"
+msgid "{0} seconds left"
+msgstr "{0} sekunder kvar"
 
-msgid " minutes left"
-msgstr " minuter kvar"
+msgid "{0} minutes left"
+msgstr "{0} minuter kvar"
 
-msgid "Uploading: "
-msgstr "Laddar upp: "
+msgid "Uploading: {0}%"
+msgstr "Laddar upp: {0}%"
 
 msgid "Upload status unavailable... please wait."
 msgstr "Uppladdningsstatus är inte tillgänglig... vänta."
@@ -6643,9 +6625,6 @@ msgstr "Uppladdningen avbröts!"
 
 msgid "Upload failed!"
 msgstr "Uppladdningen misslyckades!"
-
-msgid "Document"
-msgstr "Dokumentera"
 
 msgid "Spreadsheet"
 msgstr "Kalkylblad"
@@ -6701,6 +6680,9 @@ msgstr "d.m.Y G:i"
 msgid "File ({0})"
 msgstr "Fil ({0})"
 
+msgid "Path"
+msgstr "Sökväg"
+
 msgid "Sort by: Path"
 msgstr "Sortera efter: Sökväg"
 
@@ -6724,6 +6706,9 @@ msgstr "Intranät"
 
 msgid "Archive to InfoShare"
 msgstr "Arkivera till InfoShare"
+
+msgid "Kendox InfoShare plugin"
+msgstr "Kendox InfoShare plugin"
 
 msgid "Kendox InfoShare"
 msgstr "Kendox InfoShare"
@@ -7135,6 +7120,66 @@ msgstr "Ett eller flera fält innehåller fel."
 msgid "Password is weak. Password should contain capital, non-capital letters and numbers. Password should have 8 to 20 characters."
 msgstr "Lösenordet är svagt. Lösenordet ska innehålla versaler, icke versaler och siffror. Lösenordet bör ha 8 till 20 tecken."
 
+msgid "Invalid or oversized OpenPGP armor."
+msgstr "Ogiltig eller för stor OpenPGP-armering."
+
+msgid "Expected a single OpenPGP public key block."
+msgstr "Exakt ett OpenPGP-block med offentlig nyckel förväntades."
+
+msgid "Expected a single OpenPGP private key block."
+msgstr "Exakt ett OpenPGP-block med privat nyckel förväntades."
+
+msgid "Expected a single OpenPGP signature block."
+msgstr "Exakt ett OpenPGP-signaturblock förväntades."
+
+msgid "Expected a single OpenPGP message block."
+msgstr "Exakt ett OpenPGP-meddelandeblock förväntades."
+
+msgid "Expected a single OpenPGP armor block."
+msgstr "Exakt ett OpenPGP-armeringsblock förväntades."
+
+msgid "Additional data outside the OpenPGP armor is not allowed."
+msgstr "Ytterligare data utanför OpenPGP-armeringen tillåts inte."
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "Importera en fullständig OpenPGP-nyckel i taget."
+
+msgid "This key exceeds the supported subkey or identity limit."
+msgstr "Den här nyckeln överskrider gränsen för antalet undernycklar eller identiteter som stöds."
+
+msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
+msgstr "Privata nycklar måste vara lösenfrasskyddade före uppladdning. Skydda först den här nyckeln lokalt."
+
+msgid "The public certificate must match the private key fingerprint."
+msgstr "Det offentliga certifikatet måste matcha den privata nyckelns fingeravtryck."
+
+msgid "Unlock your OpenPGP private key in this browser tab first."
+msgstr "Lås först upp din privata OpenPGP-nyckel i den här webbläsarfliken."
+
+msgid "The OpenPGP key was locked while the operation was running."
+msgstr "OpenPGP-nyckeln låstes medan åtgärden pågick."
+
+msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
+msgstr "OpenPGP kräver en modern webbläsare och en säker HTTPS-anslutning."
+
+msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
+msgstr "Åtgärden Skydda kräver en oskyddad privat nyckel. Använd Ändra lösenfras för skyddade nycklar."
+
+msgid "The passphrase could not unlock this private key."
+msgstr "Lösenfrasen kunde inte låsa upp den här privata nyckeln."
+
+msgid "Every recipient needs a verified OpenPGP public key."
+msgstr "Varje mottagare behöver en verifierad offentlig OpenPGP-nyckel."
+
+msgid "Encrypted message exceeds the size limit."
+msgstr "Det krypterade meddelandet överskrider storleksgränsen."
+
+msgid "Expected one complete clear-signed OpenPGP message."
+msgstr "Exakt ett fullständigt klartextsignerat OpenPGP-meddelande förväntades."
+
+msgid "Invalid clear-signed OpenPGP signature."
+msgstr "Ogiltig klartextsignerad OpenPGP-signatur."
+
 msgid "The OpenPGP request failed. Please try again."
 msgstr "OpenPGP-begäran misslyckades. Försök igen."
 
@@ -7189,8 +7234,8 @@ msgstr "Hantera OpenPGP-nycklar…"
 msgid "Lock private keys"
 msgstr "Lås privata nycklar"
 
-msgid "Signing key: "
-msgstr "Signeringsnyckel: "
+msgid "Signing key: {0}"
+msgstr "Signeringsnyckel: {0}"
 
 msgid "Decryption alone does not authenticate the sender."
 msgstr "Enbart dekryptering autentiserar inte avsändaren."
@@ -7567,8 +7612,8 @@ msgstr "Nyckelservrarna har uppdaterats."
 msgid "Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically."
 msgstr "Endast HTTPS-nyckelservrar som godkänts av administratören kan användas. Sökningar kräver ett fullständigt fingeravtryck. Nycklar laddas aldrig upp automatiskt."
 
-msgid "Approved servers: "
-msgstr "Godkända servrar: "
+msgid "Approved servers: {0}"
+msgstr "Godkända servrar: {0}"
 
 msgid "Find OpenPGP public key"
 msgstr "Sök offentlig OpenPGP-nyckel"
@@ -7765,14 +7810,12 @@ msgstr "CBC-läge"
 msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you that the message has not been tampered with and validates the identity of the sender."
 msgstr "grommunio Web kan verifiera digitala signaturer av e-postmeddelanden. En lyckad verifiering försäkrar dig om att meddelandet inte har manipulerats och validerar avsändarens identitet."
 
-msgid "You are seeing this message because the verification of the digital signature"
-msgstr "Du ser det här meddelandet på grund av verifieringen av den digitala signaturen"
+#. TRANSLATORS: {0} is the bolded phrase 'has failed'
+msgid "You are seeing this message because the verification of the digital signature {0} for this message."
+msgstr "Du ser det här meddelandet på grund av verifieringen av den digitala signaturen {0} för detta meddelande."
 
-msgid " has failed"
-msgstr " har misslyckats"
-
-msgid " for this message."
-msgstr " för detta meddelande."
+msgid "has failed"
+msgstr "har misslyckats"
 
 msgid "What caused this issue?"
 msgstr "Vad orsakade detta problem?"
@@ -7785,12 +7828,6 @@ msgstr "Du kan fortsätta arbeta. Du bör dock komma ihåg att identiteten och �
 
 msgid "You can contact your helpdesk or system administrator if you are not sure what to do next."
 msgstr "Du kan kontakta din helpdesk eller systemadministratör om du inte är säker på vad du ska göra härnäst."
-
-msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you "
-msgstr "grommunio Web kan verifiera digitala signaturer av e-postmeddelanden. En lyckad verifiering försäkrar dig om "
-
-msgid "that the message has not been tampered with and validates the identity of the sender."
-msgstr "att meddelandet inte har manipulerats och validerar avsändarens identitet."
 
 msgid "The verification of the digital signature was successful for this email message."
 msgstr "Verifieringen av den digitala signaturen lyckades för det här e-postmeddelandet."
@@ -8185,8 +8222,11 @@ msgstr "PHP-Curl är inte tillgängligt."
 msgid "With this backend, you can connect to any Seafile server."
 msgstr "Med denna backend kan du ansluta till vilken Seafile-server som helst."
 
-msgid "Files "
-msgstr "Filer "
+msgid "Files Seafile Backend: "
+msgstr "Filer Seafile Backend: "
+
+msgid "Moving failed"
+msgstr "Flytten misslyckades"
 
 msgid "Use SSL"
 msgstr "Använd SSL"
@@ -8278,9 +8318,6 @@ msgstr "Det gick inte att skapa katalog"
 msgid "Deletion failed"
 msgstr "Raderingen misslyckades"
 
-msgid "Moving failed"
-msgstr "Flytten misslyckades"
-
 msgid "Temporary directory problems"
 msgstr "Tillfälliga katalogproblem"
 
@@ -8290,14 +8327,8 @@ msgstr "Fil eller mapp hittades inte"
 msgid "Copying failed"
 msgstr "Kopieringen misslyckades"
 
-msgid "Please contact your system administrator"
-msgstr "Kontakta din systemadministratör"
-
 msgid "File server is not reachable. Please verify the connection."
 msgstr "Filservern är inte tillgänglig. Vänligen verifiera anslutningen."
-
-msgid "PHP-CURL not installed"
-msgstr "PHP-CURL inte installerat"
 
 msgid "Unknown backend"
 msgstr "Okänd backend"
@@ -8402,11 +8433,10 @@ msgstr "LDAP är inte konfigurerad"
 msgid "Invalid LDAP configuration"
 msgstr "Ogiltig LDAP-konfiguration"
 
-msgid "Missing public certificates for the following recipients: "
-msgstr "Offentliga certifikat saknas för följande mottagare: "
-
-msgid ". Please contact your system administrator for details"
-msgstr ". Kontakta din systemadministratör för mer information"
+#. TRANSLATORS: %s is a comma-separated list of email addresses
+#, php-format
+msgid "Missing public certificates for the following recipients: %s. Please contact your system administrator for details"
+msgstr "Offentliga certifikat saknas för följande mottagare: %s. Kontakta din systemadministratör för mer information"
 
 msgid "Your public certificate is not installed. Without this certificate, you will not be able to read encrypted messages you have sent to others."
 msgstr "Ditt offentliga certifikat är inte installerat. Utan detta certifikat kommer du inte att kunna läsa krypterade meddelanden som du har skickat till andra."
@@ -8420,8 +8450,9 @@ msgstr "Det gick inte att dekryptera certifikatet"
 msgid "Private key can't be used to sign email"
 msgstr "Privat nyckel kan inte användas för att signera e-post"
 
-msgid "Certificate email address doesn't match grommunio Web account "
-msgstr "Certifikatets e-postadress matchar inte grommunio Web-kontot "
+#, php-format
+msgid "Certificate email address doesn't match grommunio Web account %s"
+msgstr "Certifikatets e-postadress matchar inte grommunio Web-kontot %s"
 
 #, php-format
 msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."
@@ -8430,14 +8461,17 @@ msgstr "RSA-nyckelstorleken %d bitar ligger under det rekommenderade minimumet p
 msgid "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully supported. Certificate was imported."
 msgstr "EdDSA-certifikat (Ed25519) kräver PHP 8.4+ och stöds kanske inte fullt ut. Certifikatet har importerats."
 
-msgid "Certificate was expired on "
-msgstr "Certifikatet gick ut den "
+#, php-format
+msgid "Certificate was expired on %s."
+msgstr "Certifikatet gick ut den %s."
 
 msgid "Certificate was imported."
 msgstr "Certifikatet importerades."
 
-msgid "Certificate is not yet valid "
-msgstr "Certifikatet är inte giltigt förrän "
+#. TRANSLATORS: %s is the date the certificate becomes valid
+#, php-format
+msgid "Certificate is not yet valid %s."
+msgstr "Certifikatet är inte giltigt förrän %s."
 
 msgid "Certificate has not been imported"
 msgstr "Certifikatet har inte importerats"
@@ -8625,8 +8659,8 @@ msgstr "Delade kontaktmappar"
 msgid "Public Contact Folders"
 msgstr "Offentliga kontaktmappar"
 
-msgid "Error in search, please try again"
-msgstr "Fel vid sökning, försök igen"
+msgid "Error in search, please try again."
+msgstr "Fel vid sökning, försök igen."
 
 msgid "Unable to perform search query, no permissions to create search folder."
 msgstr "Det gick inte att utföra sökfrågan, inga behörigheter att skapa sökmapp."
@@ -8646,14 +8680,11 @@ msgstr "Det gick inte att öppna förekomsten."
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr "Det gick inte att öppna förekomsten, specifik förekomst har förmodligen tagits bort."
 
-msgid "a meeting request"
-msgstr "en mötesförfrågan"
+msgid "You have insufficient privileges to move a meeting request in this calendar. The calendar owner can set these using the 'permissions'-tab of the folder properties (right click the calendar folder > properties > permissions)"
+msgstr "Du har inte tillräckliga rättigheter för att flytta en mötesförfrågan i den här kalendern. Kalenderägaren kan ställa in dessa med hjälp av 'behörigheter'-fliken i mappegenskaperna (högerklicka på kalendermappen > egenskaper > behörigheter)"
 
-msgid "an appointment"
-msgstr "ett möte"
-
-msgid "You have insufficient privileges to move "
-msgstr "Du har otillräckliga rättigheter att flytta "
+msgid "You have insufficient privileges to move an appointment in this calendar. The calendar owner can set these using the 'permissions'-tab of the folder properties (right click the calendar folder > properties > permissions)"
+msgstr "Du har inte tillräckliga rättigheter för att flytta ett möte i den här kalendern. Kalenderägaren kan ställa in dessa med hjälp av 'behörigheter'-fliken i mappegenskaperna (högerklicka på kalendermappen > egenskaper > behörigheter)"
 
 msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
 msgstr "Det går inte att ställa in en påminnelse så att den ska visas före föregående förekomst. Återställ påminnelsen för att spara ändringen"
@@ -8687,8 +8718,10 @@ msgid "Meeting could not be saved."
 msgstr "Det gick inte att spara mötet."
 
 #, php-format
-msgid "There were %d skipped appointment(s):"
-msgstr "Överhoppade möten (%d):"
+msgid "There was %d skipped appointment:"
+msgid_plural "There were %d skipped appointments:"
+msgstr[0] "Överhoppade möten (%d):"
+msgstr[1] "Överhoppade möten (%d):"
 
 msgid "More skipped appointments are not shown."
 msgstr "Fler överhoppade möten visas inte."
@@ -8706,6 +8739,10 @@ msgstr "%s födelsedag"
 #, php-format
 msgid "%s's Anniversary"
 msgstr "%ss årsdag"
+
+#, php-format
+msgid "Unable to add store: '%s'. Please check if you have the necessary permissions."
+msgstr "Det går inte att lägga till postlådan: '%s'. Kontrollera om du har nödvändiga behörigheter."
 
 msgid "You don't have the permission to complete this action"
 msgstr "Du har inte behörighet att slutföra den här åtgärden"
@@ -8841,26 +8878,26 @@ msgstr "Det gick inte att hitta meddelandet, antingen har det flyttats eller tag
 msgid "Could not open message."
 msgstr "Det gick inte att öppna meddelandet."
 
-msgid "You have insufficient privileges to decline this Meeting Request"
-msgstr "Du har inte tillräckliga rättigheter för att avslå denna mötesförfrågan"
+msgid "You have insufficient privileges to decline this Meeting Request."
+msgstr "Du har inte tillräckliga rättigheter för att avslå denna mötesförfrågan."
 
-msgid "You have insufficient privileges to accept this Meeting Request"
-msgstr "Du har inte tillräckliga rättigheter för att acceptera denna mötesförfrågan"
+msgid "You have insufficient privileges to accept this Meeting Request."
+msgstr "Du har inte tillräckliga rättigheter för att acceptera denna mötesförfrågan."
 
-msgid "Could not copy message"
-msgstr "Kunde inte kopiera meddelandet"
+msgid "Could not copy message."
+msgstr "Kunde inte kopiera meddelandet."
 
-msgid "Could not move message"
-msgstr "Det gick inte att flytta meddelandet"
+msgid "Could not move message."
+msgstr "Det gick inte att flytta meddelandet."
 
-msgid "Could not forward meeting request"
-msgstr "Det gick inte att vidarebefordra mötesförfrågan"
+msgid "Could not forward meeting request."
+msgstr "Det gick inte att vidarebefordra mötesförfrågan."
 
-msgid "You have insufficient privileges to save items in this folder"
-msgstr "Du har inte tillräckliga rättigheter för att spara objekt i den här mappen"
+msgid "You have insufficient privileges to save items in this folder."
+msgstr "Du har inte tillräckliga rättigheter för att spara objekt i den här mappen."
 
-msgid "Could not save message"
-msgstr "Det gick inte att spara meddelandet"
+msgid "Could not save message."
+msgstr "Det gick inte att spara meddelandet."
 
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr "Du har inte tillräckliga rättigheter för att ta bort objekt från kalendern."
@@ -8870,9 +8907,6 @@ msgstr "Meddelandet finns inte längre i utgående kö, vanligtvis för att det 
 
 msgid "Message cannot be aborted"
 msgstr "Meddelandet kan inte avbrytas"
-
-msgid "You have insufficient privileges to delete items in this folder"
-msgstr "Du har inte tillräckliga rättigheter för att ta bort objekt i den här mappen"
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "Du har inte tillräckliga rättigheter för att bifoga objekt som en bilaga."
@@ -8946,9 +8980,6 @@ msgstr "Det gick inte att stoppa sökoperationen."
 msgid "You have insufficient privileges to save this message."
 msgstr "Du har inte tillräckliga rättigheter för att spara det här meddelandet."
 
-msgid "Could not save message."
-msgstr "Det gick inte att spara meddelandet."
-
 msgid "You have insufficient privileges to delete this message."
 msgstr "Du har inte tillräckliga rättigheter för att ta bort det här meddelandet."
 
@@ -8961,14 +8992,8 @@ msgstr "Du har inte tillräckliga rättigheter för att avbryta denna mötesför
 msgid "Could not cancel Meeting Request."
 msgstr "Det gick inte att avbryta mötesförfrågan."
 
-msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr "Du har inte tillräckliga rättigheter för att avslå denna mötesförfrågan."
-
 msgid "Could not decline Meeting Request."
 msgstr "Det gick inte att avslå mötesbegäran."
-
-msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr "Du har inte tillräckliga rättigheter för att acceptera denna mötesförfrågan."
 
 msgid "Could not accept Meeting Request."
 msgstr "Kunde inte acceptera mötesförfrågan."
@@ -8981,9 +9006,6 @@ msgstr "Det gick inte att avbryta mötesförfrågan."
 
 msgid "You can not continue search operation on this folder."
 msgstr "Du kan inte fortsätta sökningen i den här mappen."
-
-msgid "Error in search, please try again."
-msgstr "Fel vid sökning, försök igen."
 
 msgid "Error in distribution list expansion."
 msgstr "Fel vid expansion av distributionslistan."
@@ -9034,6 +9056,9 @@ msgstr "Uppgiftsbegäran:"
 msgid "Sign in"
 msgstr "Logga in"
 
+msgid "Loading"
+msgstr "Belastning"
+
 msgid "File is not imported successfully"
 msgstr "Filen har inte importerats"
 
@@ -9046,8 +9071,8 @@ msgstr "Den uppladdade filen överskrider MAX_FILE_SIZE-direktivet som angavs i 
 msgid "The uploaded file was only partially uploaded."
 msgstr "Den uppladdade filen laddades bara upp delvis."
 
-msgid "No file was uploaded. ."
-msgstr "Ingen fil laddades upp. ."
+msgid "No file was uploaded."
+msgstr "Ingen fil laddades upp."
 
 msgid "Missing a temporary folder."
 msgstr "Saknar en tillfällig mapp."

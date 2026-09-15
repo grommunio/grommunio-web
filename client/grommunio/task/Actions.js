@@ -132,7 +132,7 @@ Grommunio.task.Actions = {
 			store: store,
 			selectionCfg: [{
 				xtype: 'grommunio.recipientfield',
-				fieldLabel: _('To') + ':',
+				fieldLabel: Grommunio.util.Translations.Label(_('To')),
 				boxStore: store,
 				filterRecipientType: Grommunio.core.mapi.RecipientType.MAPI_TO,
 				defaultRecipientType: Grommunio.core.mapi.RecipientType.MAPI_TO,
@@ -156,7 +156,7 @@ Grommunio.task.Actions = {
 			return;
 		}
 
-		var showWarning = false;
+		var warningCount = 0;
 		Ext.each(records, function(record) {
 			record.beginEdit();
 			record.set('complete', complete);
@@ -171,17 +171,17 @@ Grommunio.task.Actions = {
 
 			if (!record.isNormalTask()) {
 				if (!record.isTaskOwner() && !record.isTaskRequest()) {
-					showWarning = true;
+					warningCount++;
 				} else {
 					record.addMessageAction('response_type', Grommunio.core.mapi.TaskMode.UPDATE);
 				}
 			}
 		});
 
-		if (showWarning) {
+		if (warningCount > 0) {
 			Ext.MessageBox.show({
 				title: _('Changes to assigned task'),
-				msg: _('Please note that assigned task(s) will be overwritten when the assignee makes changes.'),
+				msg: ngettext('Please note that the assigned task will be overwritten when the assignee makes changes.', 'Please note that the assigned tasks will be overwritten when the assignee makes changes.', warningCount),
 				buttons: Ext.MessageBox.OK
 			});
 		}
@@ -227,7 +227,7 @@ Grommunio.task.Actions = {
 				container.getSettingsModel().set(settingsKey, checked);
 				Grommunio.common.Actions.doDeleteRecords(records);
 			},
-			msg: _('Deleting the item(s) will also delete the original item(s).') + '<br />' + _('Do you want to delete the item(s)?')
+			msg: ngettext('Deleting the item will also delete the original item.', 'Deleting the items will also delete the original items.', records.length) + '<br />' + ngettext('Do you want to delete the item?', 'Do you want to delete the items?', records.length)
 		});
 	},
 

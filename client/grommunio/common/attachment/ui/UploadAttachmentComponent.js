@@ -135,12 +135,11 @@ Grommunio.common.attachment.ui.UploadAttachmentComponent = Ext.extend(Ext.Compon
 	 */
 	showAttachmentError: function()
 	{
-		var message = _('Picture format is not supported. ');
-		message += _('Supported format for contact pictures are');
+		var message = _('Picture format is not supported. Supported format for contact pictures are');
 		message += '<br/>';
 		message += 'JPEG, GIF, PNG, BMP';
 		Ext.MessageBox.show({
-			title: _('Attachment Error'),
+			title: _('Attachment error'),
 			msg: message,
 			cls: Ext.MessageBox.ERROR_CLS,
 			buttons: Ext.MessageBox.OK

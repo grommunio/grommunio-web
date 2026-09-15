@@ -112,7 +112,7 @@ Grommunio.onReady(function () {
 	container.registerPlugin(
 		new Grommunio.core.PluginMetaData({
 			name: "kendox",
-			displayName: _("Kendox InfoShare") + " plugin",
+			displayName: _("Kendox InfoShare plugin"),
 			about: Grommunio.plugins.kendox.ABOUT,
 			pluginConstructor: Grommunio.plugins.kendox.KendoxPlugin,
 		}),

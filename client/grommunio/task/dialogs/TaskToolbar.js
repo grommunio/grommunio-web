@@ -103,7 +103,7 @@ Grommunio.task.dialogs.TaskToolbar = Ext.extend(Grommunio.core.ui.ContentPanelTo
 		},{
 			xtype: 'grommunio.attachmentbutton',
 			plugins: [ 'grommunio.recordcomponentupdaterplugin' ],
-			overflowText: _('Add Attachment'),
+			overflowText: _('Add attachment'),
 			tooltip: _('Add attachments to this task'),
 			iconCls: 'icon_paperclip',
 			ref: 'attachmentButton',

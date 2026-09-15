@@ -57,7 +57,7 @@ Grommunio.common.manageCc.ui.ManageCcGrid = Ext.extend(Ext.grid.GridPanel, {
 		return [{
 			dataIndex: 'icon_index',
 			headerCls: 'grommunio-icon-column',
-			header: '<p class="icon_index">&nbsp;<span class="title">Icon</span></p>',
+			header: '<p class="icon_index">&nbsp;<span class="title">' + _('Icon') + '</span></p>',
 			width: 25,
 			sortable: false,
 			menuDisabled:true,

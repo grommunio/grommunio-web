@@ -92,7 +92,8 @@ Grommunio.calendar.printer.DaysViewRenderer = Ext.extend(Grommunio.calendar.prin
 			if (folders[i].getMAPIStore().get('display_name') === container.getUser().getDisplayName()) {
 				foldernames.push(folders[i].get('display_name'));
 			} else {
-				foldernames.push(folders[i].get('display_name') + ' ' + _('of') + ' ' + folders[i].getMAPIStore().get('display_name'));
+				// TRANSLATORS: {0} is a folder name, {1} the name of the mailbox it lives in
+				foldernames.push(String.format(_('{0} of {1}'), folders[i].get('display_name'), folders[i].getMAPIStore().get('display_name')));
 			}
 		}
 		data['foldernames'] = foldernames.join(', ');
@@ -154,13 +155,13 @@ Grommunio.calendar.printer.DaysViewRenderer = Ext.extend(Grommunio.calendar.prin
 				var calendarFolder = store.getFolder(items[i].get('parent_entryid')).get('display_name');
 				var storeName = store.getFolder(items[i].get('parent_entryid')).getMAPIStore().get('display_name');
 				if (storeName != container.getUser().getDisplayName()) {
-					folderLocation = '- '+ calendarFolder + ' ' + _('of') + ' ' + storeName;
+					folderLocation = '- ' + String.format(_('{0} of {1}'), calendarFolder, storeName);
 				}
 			}
 
 			// Obtain the location of the appointment/meeting
 			var location = items[i].get('location');
-			location = Ext.isString(location) && !Ext.isEmpty(location) ? ' ' + _('Location: ') + location : ' ';
+			location = Ext.isString(location) && !Ext.isEmpty(location) ? ' ' + String.format(_('Location: {0}'), location) : ' ';
 
 			var showDays = Math.floor(Date.diff(Date.DAY, showEnd, showStart));
 			var allday = items[i].get('alldayevent');
@@ -208,7 +209,7 @@ Grommunio.calendar.printer.DaysViewRenderer = Ext.extend(Grommunio.calendar.prin
 			// Add string before all day appointment
 			// to indicate appointment last an entire day
 			if (allday) {
-				subject = _('All day: ') + subject;
+				subject = String.format(_('All day: {0}'), subject);
 			}
 			append += '<td class="calendar-item" colspan='+ (allday ? '3' : '2') +'>' +
 				Ext.util.Format.htmlEncode(subject) + Ext.util.Format.htmlEncode(location) + '<i class="folder-location">'+Ext.util.Format.htmlEncode(folderLocation) + '</i></td></tr>';
@@ -270,7 +271,8 @@ Grommunio.calendar.printer.DaysViewRenderer = Ext.extend(Grommunio.calendar.prin
 			'<table class="bottom">'		+
 			'<tr>'			+
 						// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
-			'<td>'+_('Printed by') + ' {fullname} ' + _('at') + ' {currenttime:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}</td>'		+
+						// TRANSLATORS: {0} is the name of the user printing, {1} the current date and time
+			'<td>' + String.format(_('Printed by {0} at {1}'), '{fullname}', '{currenttime:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}') + '</td>'		+
 			'</tr>' +
 			'</table>';
 	}

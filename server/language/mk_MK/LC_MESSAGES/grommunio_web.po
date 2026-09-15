@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 16:52+0200\n"
+"POT-Creation-Date: 2026-09-15 20:54+0200\n"
 "PO-Revision-Date: 2025-03-30 04:00+0000\n"
 "Language: mk_MK\n"
 "MIME-Version: 1.0\n"
@@ -36,6 +36,13 @@ msgid "Value must be between 0% to 100%"
 msgstr ""
 
 msgid "Number must be higher than zero"
+msgstr ""
+
+#. TRANSLATORS: punctuation appended to every form label, {0} is the label
+#. itself. French puts a space before the colon, Chinese the full-width one.
+#. TRANSLATORS: punctuation appended to a field label, {0} is the label itself
+msgctxt "label separator"
+msgid "{0}:"
 msgstr ""
 
 msgid "More options"
@@ -255,7 +262,7 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-msgid "Loading"
+msgid "Loading…"
 msgstr ""
 
 msgid "The value in this field is invalid"
@@ -329,9 +336,6 @@ msgid "This field should only contain letters and _"
 msgstr ""
 
 msgid "This field should only contain letters, numbers and _"
-msgstr ""
-
-msgid "Email Addresses"
 msgstr ""
 
 msgid "Email addresses"
@@ -814,7 +818,8 @@ msgstr ""
 msgid "weeks"
 msgstr ""
 
-msgid " on "
+#. TRANSLATORS: {0} is the period ('week' or 'weeks'), {1} the list of weekdays
+msgid "{0} on {1}"
 msgstr ""
 
 msgid "month"
@@ -1363,17 +1368,17 @@ msgid "End"
 msgstr ""
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: {0} is the name of the user printing, {1} the current date and time
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
-msgid "Printed by"
+#. TRANSLATORS: {0} is the name of the user printing, {1} the current date and time
+msgid "Printed by {0} at {1}"
 msgstr ""
 
-msgid "at"
+#. TRANSLATORS: {0} is a folder name, {1} the name of the mailbox it lives in
+msgid "{0} of {1}"
 msgstr ""
 
-msgid "of"
-msgstr ""
-
-msgid "Location: "
+msgid "Location: {0}"
 msgstr ""
 
 msgid "j M {0}"
@@ -1382,7 +1387,7 @@ msgstr ""
 msgid "l jS M Y {0}"
 msgstr ""
 
-msgid "All day: "
+msgid "All day: {0}"
 msgstr ""
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
@@ -1523,10 +1528,6 @@ msgstr ""
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr ""
 
-msgctxt "calendar.contextmenu"
-msgid "Use Reply All to reply to all attendees of your meeting."
-msgstr ""
-
 msgid "Options"
 msgstr ""
 
@@ -1617,7 +1618,7 @@ msgstr ""
 msgid "Appointments list"
 msgstr ""
 
-msgid "Loading appointments"
+msgid "Loading appointments…"
 msgstr ""
 
 msgid "You have insufficient privileges to move and copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
@@ -1714,9 +1715,6 @@ msgstr ""
 msgid "Optional attendees"
 msgstr ""
 
-msgid "Loading appointments…"
-msgstr ""
-
 msgid "Please select a calendar via widget settings"
 msgstr ""
 
@@ -1782,7 +1780,7 @@ msgstr ""
 msgid "Printing of this item is not yet available"
 msgstr ""
 
-msgid "Item type: "
+msgid "Item type: {0}"
 msgstr ""
 
 msgid "Printing of this view is not yet available"
@@ -2052,13 +2050,7 @@ msgstr ""
 msgid "Drop files here to attach them"
 msgstr ""
 
-msgid "Picture format is not supported. "
-msgstr ""
-
-msgid "Supported format for contact pictures are"
-msgstr ""
-
-msgid "Attachment Error"
+msgid "Picture format is not supported. Supported format for contact pictures are"
 msgstr ""
 
 msgid "Could not save the category list."
@@ -2088,7 +2080,7 @@ msgstr ""
 msgid "Rename Category"
 msgstr ""
 
-msgid "A category named \""
+msgid "You already have a category named '{0}'. Please use another name."
 msgstr ""
 
 msgid "Create New Category"
@@ -2104,9 +2096,6 @@ msgid "Create"
 msgstr ""
 
 msgid "You must apply the changes you have made to the categories before you can create this category."
-msgstr ""
-
-msgid "You already have a category named '{0}'. Please use another name."
 msgstr ""
 
 msgid "You already have a category named '{0}' in your pending changes. Please use another name."
@@ -2680,7 +2669,7 @@ msgstr ""
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr ""
 
-msgid "Every {A} years(s) on"
+msgid "Every {A} year(s) on"
 msgstr ""
 
 msgid "{A} {B}"
@@ -3009,6 +2998,12 @@ msgstr ""
 msgid "Create rule…"
 msgstr ""
 
+msgid "Saved"
+msgstr ""
+
+msgid "Saved successfully"
+msgstr ""
+
 msgid "myself"
 msgstr ""
 
@@ -3111,7 +3106,9 @@ msgstr ""
 msgid "Enable desktop notifications for reminders"
 msgstr ""
 
-msgid "{A} Auto-hide desktop notification after second(s) {B}"
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of seconds which the user will type in.
+msgid "{A}Auto-hide desktop notification after {B} second(s)"
 msgstr ""
 
 msgid "Disable sound"
@@ -3204,9 +3201,6 @@ msgid "{0} overdue"
 msgstr ""
 
 msgid "Message body editor"
-msgstr ""
-
-msgid "Loading…"
 msgstr ""
 
 msgid "Message could not be loaded"
@@ -3682,9 +3676,6 @@ msgid "Local number"
 msgstr ""
 
 msgid "Extension"
-msgstr ""
-
-msgid "Add Attachment"
 msgstr ""
 
 msgid "Add attachments to this contact"
@@ -4229,13 +4220,7 @@ msgstr ""
 msgid "Copied!"
 msgstr ""
 
-msgid "Saving"
-msgstr ""
-
-msgid "Saved"
-msgstr ""
-
-msgid "Saved successfully"
+msgid "Saving…"
 msgstr ""
 
 msgid "You will lose all unsaved work. Are you sure you want to close this window?"
@@ -4349,8 +4334,10 @@ msgstr ""
 msgid "Connection problem"
 msgstr ""
 
-msgid "Could not connect to server, retrying in {0} second(s)"
-msgstr ""
+msgid "Could not connect to server, retrying in {0} second"
+msgid_plural "Could not connect to server, retrying in {0} seconds"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Click to retry now"
 msgstr ""
@@ -4445,9 +4432,6 @@ msgid "Not enough permissions to open this store, do you want to remove it from 
 msgstr ""
 
 msgid "Not enough permissions to open this folder, do you want to remove it from the hierarchy?"
-msgstr ""
-
-msgid "Insufficient Permissions"
 msgstr ""
 
 msgid "Not enough permissions to open this folder."
@@ -4819,7 +4803,7 @@ msgstr ""
 msgid "Scheduled Items"
 msgstr ""
 
-msgid "Your message will be sent at "
+msgid "Your message will be sent at {0}."
 msgstr ""
 
 msgid "Go to your Outbox to edit your email."
@@ -4837,22 +4821,18 @@ msgstr ""
 msgid "The time you entered is in the past. Please reschedule your mail."
 msgstr ""
 
-msgid "today  at "
+msgid "Your email will be sent today at {0}"
 msgstr ""
 
-msgid "tomorrow  at "
+msgid "Your email will be sent tomorrow at {0}"
 msgstr ""
 
-msgid "{0} at "
+#. TRANSLATORS: {0} is a weekday name, {1} a time of day
+msgid "Your email will be sent {0} at {1}"
 msgstr ""
 
-msgid "at {0}"
-msgstr ""
-
-msgid "Your email will be sent {0}{1}"
-msgstr ""
-
-msgid "Saving…"
+#. TRANSLATORS: {0} is a full date, {1} a time of day
+msgid "Your email will be sent at {0}, {1}"
 msgstr ""
 
 msgid "Saved at {0}"
@@ -4862,6 +4842,10 @@ msgid "Saving failed"
 msgstr ""
 
 msgid "This message will be flagged for follow up when it is sent."
+msgstr ""
+
+#. TRANSLATORS: {0} is the follow-up period, e.g. 'today' or 'next week'
+msgid "This message will be flagged for follow up {0} when it is sent."
 msgstr ""
 
 msgid "Send Later"
@@ -5289,9 +5273,6 @@ msgstr ""
 msgid "Not Junk Email"
 msgstr ""
 
-msgid "Send to"
-msgstr ""
-
 msgid "Message list"
 msgstr ""
 
@@ -5364,9 +5345,6 @@ msgid "Sort by: Color"
 msgstr ""
 
 msgid "Notes list"
-msgstr ""
-
-msgid "Loading Notes"
 msgstr ""
 
 msgid "Loading notes"
@@ -5698,17 +5676,23 @@ msgstr ""
 msgid "Changes to assigned task"
 msgstr ""
 
-msgid "Please note that assigned task(s) will be overwritten when the assignee makes changes."
-msgstr ""
+msgid "Please note that the assigned task will be overwritten when the assignee makes changes."
+msgid_plural "Please note that the assigned tasks will be overwritten when the assignee makes changes."
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Delete confirmation"
 msgstr ""
 
-msgid "Deleting the item(s) will also delete the original item(s)."
-msgstr ""
+msgid "Deleting the item will also delete the original item."
+msgid_plural "Deleting the items will also delete the original items."
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "Do you want to delete the item(s)?"
-msgstr ""
+msgid "Do you want to delete the item?"
+msgid_plural "Do you want to delete the items?"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Sort by: Priority"
 msgstr ""
@@ -5845,11 +5829,11 @@ msgstr ""
 msgid "Completed"
 msgstr ""
 
-msgid "Printed by: "
+msgid "Printed by: {0}"
 msgstr ""
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "Printed on: "
+#. TRANSLATORS: {0} is the date the list was printed on
+msgid "Printed on: {0}"
 msgstr ""
 
 msgid "Percent complete"
@@ -6350,13 +6334,7 @@ msgstr ""
 msgid "Could not copy link automatically. Please copy it manually."
 msgstr ""
 
-msgid "Loading details..."
-msgstr ""
-
 msgid "Share"
-msgstr ""
-
-msgid "Loading..."
 msgstr ""
 
 msgid "Add attachment from {0}"
@@ -6554,7 +6532,11 @@ msgstr ""
 msgid "You have to choose at least one file!"
 msgstr ""
 
-msgid "Create New "
+msgid "Document"
+msgstr ""
+
+#. TRANSLATORS: {0} is a translated file type such as Document, Presentation or Spreadsheet
+msgid "Create New {0}"
 msgstr ""
 
 msgid "Incorrect filename"
@@ -6602,13 +6584,13 @@ msgstr ""
 msgid "Upload Failed"
 msgstr ""
 
-msgid "Attachment could not be stored in Files! Error: "
+msgid "Attachment could not be stored in Files!"
 msgstr ""
 
 msgid "Share Files"
 msgstr ""
 
-msgid "Uploading files to "
+msgid "Uploading files to {0}"
 msgstr ""
 
 msgid "Starting upload"
@@ -6620,13 +6602,13 @@ msgstr ""
 msgid "- seconds left"
 msgstr ""
 
-msgid " seconds left"
+msgid "{0} seconds left"
 msgstr ""
 
-msgid " minutes left"
+msgid "{0} minutes left"
 msgstr ""
 
-msgid "Uploading: "
+msgid "Uploading: {0}%"
 msgstr ""
 
 msgid "Upload status unavailable... please wait."
@@ -6639,9 +6621,6 @@ msgid "Upload aborted!"
 msgstr ""
 
 msgid "Upload failed!"
-msgstr ""
-
-msgid "Document"
 msgstr ""
 
 msgid "Spreadsheet"
@@ -6698,6 +6677,9 @@ msgstr ""
 msgid "File ({0})"
 msgstr ""
 
+msgid "Path"
+msgstr ""
+
 msgid "Sort by: Path"
 msgstr ""
 
@@ -6720,6 +6702,9 @@ msgid "Intranet"
 msgstr ""
 
 msgid "Archive to InfoShare"
+msgstr ""
+
+msgid "Kendox InfoShare plugin"
 msgstr ""
 
 msgid "Kendox InfoShare"
@@ -7121,6 +7106,66 @@ msgstr ""
 msgid "Password is weak. Password should contain capital, non-capital letters and numbers. Password should have 8 to 20 characters."
 msgstr ""
 
+msgid "Invalid or oversized OpenPGP armor."
+msgstr ""
+
+msgid "Expected a single OpenPGP public key block."
+msgstr ""
+
+msgid "Expected a single OpenPGP private key block."
+msgstr ""
+
+msgid "Expected a single OpenPGP signature block."
+msgstr ""
+
+msgid "Expected a single OpenPGP message block."
+msgstr ""
+
+msgid "Expected a single OpenPGP armor block."
+msgstr ""
+
+msgid "Additional data outside the OpenPGP armor is not allowed."
+msgstr ""
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr ""
+
+msgid "This key exceeds the supported subkey or identity limit."
+msgstr ""
+
+msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
+msgstr ""
+
+msgid "The public certificate must match the private key fingerprint."
+msgstr ""
+
+msgid "Unlock your OpenPGP private key in this browser tab first."
+msgstr ""
+
+msgid "The OpenPGP key was locked while the operation was running."
+msgstr ""
+
+msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
+msgstr ""
+
+msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
+msgstr ""
+
+msgid "The passphrase could not unlock this private key."
+msgstr ""
+
+msgid "Every recipient needs a verified OpenPGP public key."
+msgstr ""
+
+msgid "Encrypted message exceeds the size limit."
+msgstr ""
+
+msgid "Expected one complete clear-signed OpenPGP message."
+msgstr ""
+
+msgid "Invalid clear-signed OpenPGP signature."
+msgstr ""
+
 msgid "The OpenPGP request failed. Please try again."
 msgstr ""
 
@@ -7175,7 +7220,7 @@ msgstr ""
 msgid "Lock private keys"
 msgstr ""
 
-msgid "Signing key: "
+msgid "Signing key: {0}"
 msgstr ""
 
 msgid "Decryption alone does not authenticate the sender."
@@ -7553,7 +7598,7 @@ msgstr ""
 msgid "Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically."
 msgstr ""
 
-msgid "Approved servers: "
+msgid "Approved servers: {0}"
 msgstr ""
 
 msgid "Find OpenPGP public key"
@@ -7751,13 +7796,11 @@ msgstr ""
 msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you that the message has not been tampered with and validates the identity of the sender."
 msgstr ""
 
-msgid "You are seeing this message because the verification of the digital signature"
+#. TRANSLATORS: {0} is the bolded phrase 'has failed'
+msgid "You are seeing this message because the verification of the digital signature {0} for this message."
 msgstr ""
 
-msgid " has failed"
-msgstr ""
-
-msgid " for this message."
+msgid "has failed"
 msgstr ""
 
 msgid "What caused this issue?"
@@ -7770,12 +7813,6 @@ msgid "You can continue to work. However, you should keep in mind that the ident
 msgstr ""
 
 msgid "You can contact your helpdesk or system administrator if you are not sure what to do next."
-msgstr ""
-
-msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you "
-msgstr ""
-
-msgid "that the message has not been tampered with and validates the identity of the sender."
 msgstr ""
 
 msgid "The verification of the digital signature was successful for this email message."
@@ -8171,7 +8208,10 @@ msgstr ""
 msgid "With this backend, you can connect to any Seafile server."
 msgstr ""
 
-msgid "Files "
+msgid "Files Seafile Backend: "
+msgstr ""
+
+msgid "Moving failed"
 msgstr ""
 
 msgid "Use SSL"
@@ -8264,9 +8304,6 @@ msgstr ""
 msgid "Deletion failed"
 msgstr ""
 
-msgid "Moving failed"
-msgstr ""
-
 msgid "Temporary directory problems"
 msgstr ""
 
@@ -8276,13 +8313,7 @@ msgstr ""
 msgid "Copying failed"
 msgstr ""
 
-msgid "Please contact your system administrator"
-msgstr ""
-
 msgid "File server is not reachable. Please verify the connection."
-msgstr ""
-
-msgid "PHP-CURL not installed"
 msgstr ""
 
 msgid "Unknown backend"
@@ -8388,10 +8419,9 @@ msgstr ""
 msgid "Invalid LDAP configuration"
 msgstr ""
 
-msgid "Missing public certificates for the following recipients: "
-msgstr ""
-
-msgid ". Please contact your system administrator for details"
+#. TRANSLATORS: %s is a comma-separated list of email addresses
+#, php-format
+msgid "Missing public certificates for the following recipients: %s. Please contact your system administrator for details"
 msgstr ""
 
 msgid "Your public certificate is not installed. Without this certificate, you will not be able to read encrypted messages you have sent to others."
@@ -8406,7 +8436,8 @@ msgstr ""
 msgid "Private key can't be used to sign email"
 msgstr ""
 
-msgid "Certificate email address doesn't match grommunio Web account "
+#, php-format
+msgid "Certificate email address doesn't match grommunio Web account %s"
 msgstr ""
 
 #, php-format
@@ -8416,13 +8447,16 @@ msgstr ""
 msgid "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully supported. Certificate was imported."
 msgstr ""
 
-msgid "Certificate was expired on "
+#, php-format
+msgid "Certificate was expired on %s."
 msgstr ""
 
 msgid "Certificate was imported."
 msgstr ""
 
-msgid "Certificate is not yet valid "
+#. TRANSLATORS: %s is the date the certificate becomes valid
+#, php-format
+msgid "Certificate is not yet valid %s."
 msgstr ""
 
 msgid "Certificate has not been imported"
@@ -8611,7 +8645,7 @@ msgstr ""
 msgid "Public Contact Folders"
 msgstr ""
 
-msgid "Error in search, please try again"
+msgid "Error in search, please try again."
 msgstr ""
 
 msgid "Unable to perform search query, no permissions to create search folder."
@@ -8632,13 +8666,10 @@ msgstr ""
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr ""
 
-msgid "a meeting request"
+msgid "You have insufficient privileges to move a meeting request in this calendar. The calendar owner can set these using the 'permissions'-tab of the folder properties (right click the calendar folder > properties > permissions)"
 msgstr ""
 
-msgid "an appointment"
-msgstr ""
-
-msgid "You have insufficient privileges to move "
+msgid "You have insufficient privileges to move an appointment in this calendar. The calendar owner can set these using the 'permissions'-tab of the folder properties (right click the calendar folder > properties > permissions)"
 msgstr ""
 
 msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
@@ -8673,8 +8704,10 @@ msgid "Meeting could not be saved."
 msgstr ""
 
 #, php-format
-msgid "There were %d skipped appointment(s):"
-msgstr ""
+msgid "There was %d skipped appointment:"
+msgid_plural "There were %d skipped appointments:"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "More skipped appointments are not shown."
 msgstr ""
@@ -8691,6 +8724,10 @@ msgstr ""
 
 #, php-format
 msgid "%s's Anniversary"
+msgstr ""
+
+#, php-format
+msgid "Unable to add store: '%s'. Please check if you have the necessary permissions."
 msgstr ""
 
 msgid "You don't have the permission to complete this action"
@@ -8827,25 +8864,25 @@ msgstr ""
 msgid "Could not open message."
 msgstr ""
 
-msgid "You have insufficient privileges to decline this Meeting Request"
+msgid "You have insufficient privileges to decline this Meeting Request."
 msgstr ""
 
-msgid "You have insufficient privileges to accept this Meeting Request"
+msgid "You have insufficient privileges to accept this Meeting Request."
 msgstr ""
 
-msgid "Could not copy message"
+msgid "Could not copy message."
 msgstr ""
 
-msgid "Could not move message"
+msgid "Could not move message."
 msgstr ""
 
-msgid "Could not forward meeting request"
+msgid "Could not forward meeting request."
 msgstr ""
 
-msgid "You have insufficient privileges to save items in this folder"
+msgid "You have insufficient privileges to save items in this folder."
 msgstr ""
 
-msgid "Could not save message"
+msgid "Could not save message."
 msgstr ""
 
 msgid "You have insufficient privileges to remove item from the calendar."
@@ -8855,9 +8892,6 @@ msgid "Message is no longer in the outgoing queue, typically because it has alre
 msgstr ""
 
 msgid "Message cannot be aborted"
-msgstr ""
-
-msgid "You have insufficient privileges to delete items in this folder"
 msgstr ""
 
 msgid "You have insufficient privileges to attach item as an attachment."
@@ -8932,9 +8966,6 @@ msgstr ""
 msgid "You have insufficient privileges to save this message."
 msgstr ""
 
-msgid "Could not save message."
-msgstr ""
-
 msgid "You have insufficient privileges to delete this message."
 msgstr ""
 
@@ -8947,13 +8978,7 @@ msgstr ""
 msgid "Could not cancel Meeting Request."
 msgstr ""
 
-msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr ""
-
 msgid "Could not decline Meeting Request."
-msgstr ""
-
-msgid "You have insufficient privileges to accept this Meeting Request."
 msgstr ""
 
 msgid "Could not accept Meeting Request."
@@ -8966,9 +8991,6 @@ msgid "Could not cancel Meeting Request invitations."
 msgstr ""
 
 msgid "You can not continue search operation on this folder."
-msgstr ""
-
-msgid "Error in search, please try again."
 msgstr ""
 
 msgid "Error in distribution list expansion."
@@ -9020,6 +9042,9 @@ msgstr ""
 msgid "Sign in"
 msgstr ""
 
+msgid "Loading"
+msgstr ""
+
 msgid "File is not imported successfully"
 msgstr ""
 
@@ -9032,7 +9057,7 @@ msgstr ""
 msgid "The uploaded file was only partially uploaded."
 msgstr ""
 
-msgid "No file was uploaded. ."
+msgid "No file was uploaded."
 msgstr ""
 
 msgid "Missing a temporary folder."

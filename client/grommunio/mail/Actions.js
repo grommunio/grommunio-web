@@ -267,21 +267,21 @@ Grommunio.mail.Actions = {
 			store: store,
 			selectionCfg: [{
 				xtype: 'grommunio.recipientfield',
-				fieldLabel: _('To') + ':',
+				fieldLabel: Grommunio.util.Translations.Label(_('To')),
 				boxStore: store,
 				filterRecipientType: Grommunio.core.mapi.RecipientType.MAPI_TO,
 				defaultRecipientType: Grommunio.core.mapi.RecipientType.MAPI_TO,
 				flex: 1
 			},{
 				xtype: 'grommunio.recipientfield',
-				fieldLabel: _('CC') + ':',
+				fieldLabel: Grommunio.util.Translations.Label(_('CC')),
 				boxStore: store,
 				filterRecipientType: Grommunio.core.mapi.RecipientType.MAPI_CC,
 				defaultRecipientType: Grommunio.core.mapi.RecipientType.MAPI_CC,
 				flex: 1
 			},{
 				xtype: 'grommunio.recipientfield',
-				fieldLabel: _('BCC') + ':',
+				fieldLabel: Grommunio.util.Translations.Label(_('BCC')),
 				boxStore: store,
 				filterRecipientType: Grommunio.core.mapi.RecipientType.MAPI_BCC,
 				defaultRecipientType: Grommunio.core.mapi.RecipientType.MAPI_BCC,

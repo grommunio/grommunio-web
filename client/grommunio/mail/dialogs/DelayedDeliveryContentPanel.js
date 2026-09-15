@@ -141,11 +141,11 @@ Grommunio.mail.dialogs.DelayedDeliveryContentPanel = Ext.extend(Grommunio.core.u
     sendLaterMessage: function ()
     {
         var messageDateTime = this.deferredSendTime.format('d/m/y H:i');
-        var upperMessage = _('Your message will be sent at ');
+        var upperMessage = String.format(_('Your message will be sent at {0}.'), '<b>' + messageDateTime + '</b>');
         var lowerMessage = _('Go to your Outbox to edit your email.');
 
         // return html string which show message and close button
-        return String.format("{0}<b>{1}.</b> <br>{2}", upperMessage, messageDateTime, lowerMessage);
+        return String.format("{0} <br>{1}", upperMessage, lowerMessage);
     }
 });
 

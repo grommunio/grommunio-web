@@ -21,6 +21,20 @@ Grommunio.util.Translations = {
 	msg: _('The quick brown fox jumps over the lazy dog'),
 
 	/**
+	 * Compose a label with the locale's label separator. Never write
+	 * _('To') + ':', the colon is punctuation the translator must control.
+	 *
+	 * @param {String} label The translated label
+	 * @return {String} The label followed by its separator
+	 * @static
+	 */
+	Label: function(label)
+	{
+		// TRANSLATORS: punctuation appended to a field label, {0} is the label itself
+		return String.format(pgettext('label separator', '{0}:'), label);
+	},
+
+	/**
 	 * This will split a translation string up into different sections.
 	 * The intention is to fix problems which might occur when two labels
 	 * are used to construct a full sentence, this could happen with for example
@@ -235,11 +249,11 @@ Grommunio.util.Translations = {
 	Ext.MessageBox.buttonText.no = _('No');
 
 	Ext.override(Ext.LoadMask, {
-		msg: _('Loading') + '...'
+		msg: _('Loading…')
 	});
 
 	Ext.override(Ext.form.ComboBox, {
-		loadingText: _('Loading') + '...'
+		loadingText: _('Loading…')
 	});
 
 	Ext.override(Ext.form.Field, {

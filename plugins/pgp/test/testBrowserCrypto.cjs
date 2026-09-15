@@ -15,6 +15,8 @@ const {webcrypto} = require('node:crypto');
 const vm = require('node:vm');
 const pgp = require('openpgp');
 if (!globalThis.crypto) { globalThis.crypto = webcrypto; }
+// The page provides the gettext helper; the module under test is loaded bare here.
+if (!globalThis._) { globalThis._ = value => value; }
 const BrowserCrypto = require('../js/crypto/BrowserCrypto.js');
 const Mime = require('../js/crypto/PgpMime.js');
 const PostalMime = require('postal-mime');

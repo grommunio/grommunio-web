@@ -35,7 +35,7 @@ Grommunio.plugins.files.ui.FilesRecordGridColumnModel = Ext.extend(Grommunio.com
 		return [{
 			id       : 'type',
 			dataIndex: 'type',
-			header   : '<p class="icon_index">&nbsp;<span class="title">Icon</span></p>',
+			header   : '<p class="icon_index">&nbsp;<span class="title">' + _('Icon') + '</span></p>',
 			headerCls: 'grommunio-icon-column icon',
 			renderer : Grommunio.plugins.files.data.Utils.Renderer.typeRenderer,
 			width    : 24,
@@ -43,14 +43,14 @@ Grommunio.plugins.files.ui.FilesRecordGridColumnModel = Ext.extend(Grommunio.com
 			tooltip  : _('Sort by: Type')
 		},
 			{
-				header   : 'ID',
+				header   : _('ID'),
 				dataIndex: 'id',
 				width    : 50,
 				hidden   : true,
 				tooltip  : _('Sort by: ID')
 			},
 			{
-				header   : 'Path',
+				header   : _('Path'),
 				dataIndex: 'path',
 				width    : 100,
 				hidden   : true,
@@ -96,7 +96,7 @@ Grommunio.plugins.files.ui.FilesRecordGridColumnModel = Ext.extend(Grommunio.com
 		return [{
 			id       : 'column_type',
 			dataIndex: 'type',
-			header   : '<p class="icon_index">&nbsp;<span class="title">Icon</span></p>',
+			header   : '<p class="icon_index">&nbsp;<span class="title">' + _('Icon') + '</span></p>',
 			headerCls: 'grommunio-icon-column icon',
 			renderer : Grommunio.plugins.files.data.Utils.Renderer.typeRenderer,
 			width    : 24,

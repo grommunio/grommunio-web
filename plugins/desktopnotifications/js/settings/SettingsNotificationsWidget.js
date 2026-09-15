@@ -93,7 +93,9 @@ Grommunio.plugins.desktopnotifications.js.settings.SettingsNotificationsWidget =
 			}, {
 				xtype: 'grommunio.compositefield',
 				plugins: [ 'grommunio.splitfieldlabeler' ],
-				fieldLabel: _('{A} Auto-hide desktop notification after second(s) {B}'),
+				// # TRANSLATORS: The {A} _must_ always be at the start of the translation
+				// # The '{B}' represents the number of seconds which the user will type in.
+				fieldLabel: _('{A}Auto-hide desktop notification after {B} second(s)'),
 				labelWidth: 300,
 				combineErrors: false,
 				items: [{

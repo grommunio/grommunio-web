@@ -118,7 +118,7 @@ Grommunio.common.plugins.FieldLabeler = Ext.extend(Ext.util.Observable, {
 			style: {
 				width: this.labelWidth
 			},
-			html: this.fieldLabel + (this.labelSeparator || ':')
+			html: this.fieldLabel + (Ext.isDefined(this.labelSeparator) ? this.labelSeparator : Ext.layout.FormLayout.prototype.labelSeparator)
 		});
 	},
 

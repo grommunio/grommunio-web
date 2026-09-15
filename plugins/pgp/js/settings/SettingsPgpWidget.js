@@ -313,7 +313,7 @@ Grommunio.plugins.pgp.settings.SettingsPgpWidget = Ext.extend(Grommunio.settings
 			var servers = values.servers.split(/\r?\n/).map(function(server) { return server.trim(); }).filter(function(server) { return !!server; });
 			widget.complete(Grommunio.plugins.pgp.PgpUtils.api('keyservers', {servers: servers}), done, _('Keyservers updated.'));
 		}, _('Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically.') +
-			(this.allowedKeyservers.length ? ' ' + _('Approved servers: ') + this.allowedKeyservers.join(', ') : ''));
+			(this.allowedKeyservers.length ? ' ' + String.format(_('Approved servers: {0}'), this.allowedKeyservers.join(', ')) : ''));
 	},
 	lookupKey: function()
 	{

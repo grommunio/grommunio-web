@@ -218,7 +218,7 @@ Grommunio.plugins.meet.Plugin = Ext.extend(Grommunio.core.Plugin, {
 Grommunio.onReady(function(){
   container.registerPlugin(new Grommunio.core.PluginMetaData({
     name: 'meet',
-    displayName: 'Meet',
+    displayName: _('Meet'),
     //about: Grommunio.plugins.meet.ABOUT,
     pluginConstructor: Grommunio.plugins.meet.Plugin
   }));

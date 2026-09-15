@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Icelandic (Iceland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 16:52+0200\n"
+"POT-Creation-Date: 2026-09-15 20:54+0200\n"
 "PO-Revision-Date: 2019-12-01 02:07+0000\n"
 "Last-Translator: import\n"
 "Language: is_IS\n"
@@ -38,6 +38,13 @@ msgstr "Gildi þarf að vera milli 0% og 100%"
 
 msgid "Number must be higher than zero"
 msgstr "Tala þarf að vera hærri en núll"
+
+#. TRANSLATORS: punctuation appended to every form label, {0} is the label
+#. itself. French puts a space before the colon, Chinese the full-width one.
+#. TRANSLATORS: punctuation appended to a field label, {0} is the label itself
+msgctxt "label separator"
+msgid "{0}:"
+msgstr "{0}:"
 
 msgid "More options"
 msgstr "Fleiri möguleikar"
@@ -256,8 +263,8 @@ msgstr "Já"
 msgid "No"
 msgstr "Nei"
 
-msgid "Loading"
-msgstr "Hleð"
+msgid "Loading…"
+msgstr "Hleð…"
 
 msgid "The value in this field is invalid"
 msgstr "Gildið í þessum reit er ógilt"
@@ -331,9 +338,6 @@ msgstr "Þessi reitur ætti einungis að innihalda bókstafi og _"
 
 msgid "This field should only contain letters, numbers and _"
 msgstr "Þessi reitur ætti einungis að innihalda bókstafi, tölustafi og _"
-
-msgid "Email Addresses"
-msgstr "Tölvupóstföng"
 
 msgid "Email addresses"
 msgstr "Tölvupóstföng"
@@ -815,8 +819,9 @@ msgstr "vika"
 msgid "weeks"
 msgstr "vikur"
 
-msgid " on "
-msgstr " á "
+#. TRANSLATORS: {0} is the period ('week' or 'weeks'), {1} the list of weekdays
+msgid "{0} on {1}"
+msgstr "{0} á {1}"
 
 msgid "month"
 msgstr "mánuður"
@@ -1364,18 +1369,18 @@ msgid "End"
 msgstr "Lok"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: {0} is the name of the user printing, {1} the current date and time
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
-msgid "Printed by"
-msgstr "Prentað af"
+#. TRANSLATORS: {0} is the name of the user printing, {1} the current date and time
+msgid "Printed by {0} at {1}"
+msgstr "Prentað af {0} kl {1}"
 
-msgid "at"
-msgstr "kl"
+#. TRANSLATORS: {0} is a folder name, {1} the name of the mailbox it lives in
+msgid "{0} of {1}"
+msgstr "{0} af {1}"
 
-msgid "of"
-msgstr "af"
-
-msgid "Location: "
-msgstr "Staðsetning: "
+msgid "Location: {0}"
+msgstr "Staðsetning: {0}"
 
 msgid "j M {0}"
 msgstr "j M{0}"
@@ -1383,8 +1388,8 @@ msgstr "j M{0}"
 msgid "l jS M Y {0}"
 msgstr "l jS M Y{0}"
 
-msgid "All day: "
-msgstr "Allan daginn: "
+msgid "All day: {0}"
+msgstr "Allan daginn: {0}"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
@@ -1524,10 +1529,6 @@ msgstr "Tímabókun fannst ekki"
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Þessi tímabókun hefur verið færð eða henni eytt, viltu halda áfram?"
 
-msgctxt "calendar.contextmenu"
-msgid "Use Reply All to reply to all attendees of your meeting."
-msgstr "Notaðu Svara öllum til að svara öllum þátttakendum í fundinum þínum."
-
 msgid "Options"
 msgstr "Valmöguleikar"
 
@@ -1618,8 +1619,8 @@ msgstr "Raða eftir mikilvægi"
 msgid "Appointments list"
 msgstr "Listi yfir fundi"
 
-msgid "Loading appointments"
-msgstr "Hleð tímabókunum"
+msgid "Loading appointments…"
+msgstr "Hleð tímabókunum…"
 
 msgid "You have insufficient privileges to move and copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
 msgstr "Þú hefur ekki nægar heimildir til að færa og afrita þetta atriði. Þú getur beðið eigandann um réttindin eða haft samband við kerfisstjórn."
@@ -1715,9 +1716,6 @@ msgstr "Fundarmenn"
 msgid "Optional attendees"
 msgstr "Valfrjálsir fundarmenn"
 
-msgid "Loading appointments…"
-msgstr "Hleð tímabókunum…"
-
 msgid "Please select a calendar via widget settings"
 msgstr "Vinsamlegast veldu dagatal með stillingum græju"
 
@@ -1783,8 +1781,8 @@ msgstr "Útprentun fjölda atriða er ekki studd í augnablikinu."
 msgid "Printing of this item is not yet available"
 msgstr "Útprentun þessa atriðis er ekki möguleg"
 
-msgid "Item type: "
-msgstr "Gerð atriðis: "
+msgid "Item type: {0}"
+msgstr "Gerð atriðis: {0}"
 
 msgid "Printing of this view is not yet available"
 msgstr "Útprentun á þessari sýn er ekki möguleg"
@@ -2053,14 +2051,8 @@ msgstr "Gat ekki halað niður"
 msgid "Drop files here to attach them"
 msgstr "Slepptu skrám hér til að hengja þær við"
 
-msgid "Picture format is not supported. "
-msgstr "Myndasnið er ekki stutt. "
-
-msgid "Supported format for contact pictures are"
-msgstr "Studd snið fyrir tengiliðamyndir eru"
-
-msgid "Attachment Error"
-msgstr "Viðhengisvilla"
+msgid "Picture format is not supported. Supported format for contact pictures are"
+msgstr "Myndasnið er ekki stutt. Studd snið fyrir tengiliðamyndir eru"
 
 msgid "Could not save the category list."
 msgstr "Ekki tókst að vista flokkalistann."
@@ -2089,8 +2081,8 @@ msgstr "Viltu vera viss um að þú viljir eyða flokknum \"{0}\"? Aðrir hlutir
 msgid "Rename Category"
 msgstr "Endurnefna flokk"
 
-msgid "A category named \""
-msgstr "Flokkur sem heitir \""
+msgid "You already have a category named '{0}'. Please use another name."
+msgstr "Þú ert nú þegar með flokk sem heitir '{0}'. Vinsamlegast veldu annað nafn."
 
 msgid "Create New Category"
 msgstr "Búa til nýjan flokk"
@@ -2106,9 +2098,6 @@ msgstr "Búa til"
 
 msgid "You must apply the changes you have made to the categories before you can create this category."
 msgstr "Þú verður fyrst að virkja breytingarnar sem þú hefur gert á flokkum áður en þú getur búið til þennan flokk."
-
-msgid "You already have a category named '{0}'. Please use another name."
-msgstr "Þú ert nú þegar með flokk sem heitir '{0}'. Vinsamlegast veldu annað nafn."
 
 msgid "You already have a category named '{0}' in your pending changes. Please use another name."
 msgstr "Þú ert nú þegar með flokk sem heitir '{0}' í óvirkjuðum breytingum. Vinsamlegast veldu annað nafn."
@@ -2681,7 +2670,7 @@ msgstr "Á {A} viku/vikna fresti á"
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr "Endurframleiða nýtt verk {A} viku(m) eftir að verk klárast"
 
-msgid "Every {A} years(s) on"
+msgid "Every {A} year(s) on"
 msgstr "Á {A} ára fresti þann"
 
 msgid "{A} {B}"
@@ -3010,6 +2999,12 @@ msgstr "Alltaf færa skilaboð með þessu málefni"
 msgid "Create rule…"
 msgstr "Búa til reglu…"
 
+msgid "Saved"
+msgstr "Vistað"
+
+msgid "Saved successfully"
+msgstr "Tókst að vista"
+
 msgid "myself"
 msgstr "mig"
 
@@ -3112,8 +3107,10 @@ msgstr "Virkjaðu skjáborðstilkynningar fyrir nýjan póst"
 msgid "Enable desktop notifications for reminders"
 msgstr "Virkjaðu skjáborðstilkynningar fyrir áminningar"
 
-msgid "{A} Auto-hide desktop notification after second(s) {B}"
-msgstr "{A} Fela skjáborðstilkynningu sjálfkrafa eftir sekúndu(r) {B}"
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of seconds which the user will type in.
+msgid "{A}Auto-hide desktop notification after {B} second(s)"
+msgstr "{A}Fela skjáborðstilkynningu sjálfkrafa eftir {B} sekúndu(r)"
 
 msgid "Disable sound"
 msgstr "Slökktu á hljóði"
@@ -3206,9 +3203,6 @@ msgstr "{0} í vanskilum"
 
 msgid "Message body editor"
 msgstr "Ritill fyrir skilaboðatexta"
-
-msgid "Loading…"
-msgstr "Hleð…"
 
 msgid "Message could not be loaded"
 msgstr "Ekki tókst að hlaða skilaboðum"
@@ -3684,9 +3678,6 @@ msgstr "Staðbundið símanúmer"
 
 msgid "Extension"
 msgstr "Framlenging"
-
-msgid "Add Attachment"
-msgstr "Bæta við viðhengi"
 
 msgid "Add attachments to this contact"
 msgstr "Bæta viðhengjum við þennan tengilið"
@@ -4230,14 +4221,8 @@ msgstr "Fela nánari upplýsingar"
 msgid "Copied!"
 msgstr "Afritað!"
 
-msgid "Saving"
-msgstr "Vista"
-
-msgid "Saved"
-msgstr "Vistað"
-
-msgid "Saved successfully"
-msgstr "Tókst að vista"
+msgid "Saving…"
+msgstr "Vista…"
 
 msgid "You will lose all unsaved work. Are you sure you want to close this window?"
 msgstr "Þú munt glata allri óvistaðri vinnu. Ertu viss um að þú viljir loka þessum glugga?"
@@ -4350,8 +4335,10 @@ msgstr "Endurauðkenning nauðsynleg, smelltu hér til að fara aftur á innskr�
 msgid "Connection problem"
 msgstr "Tengivilla"
 
-msgid "Could not connect to server, retrying in {0} second(s)"
-msgstr "Gat ekki tengst netþjóni, reyni aftur eftir {0} sekúndu(r)"
+msgid "Could not connect to server, retrying in {0} second"
+msgid_plural "Could not connect to server, retrying in {0} seconds"
+msgstr[0] "Gat ekki tengst netþjóni, reyni aftur eftir {0} sekúndu(r)"
+msgstr[1] "Gat ekki tengst netþjóni, reyni aftur eftir {0} sekúndu(r)"
 
 msgid "Click to retry now"
 msgstr "Smelltu til að reyna núna"
@@ -4447,9 +4434,6 @@ msgstr "Þú hefur ekki réttindi til að opna þessa geymslu, viltu halda áfra
 
 msgid "Not enough permissions to open this folder, do you want to remove it from the hierarchy?"
 msgstr "Þú hefur ekki næg réttindi til að opna þessa möppu, viltu halda áfram og fjarlægja hana úr stigveldinu?"
-
-msgid "Insufficient Permissions"
-msgstr "Ónæg réttindi"
 
 msgid "Not enough permissions to open this folder."
 msgstr "Þú hefur ekki næg réttindi til að opna þessa möppu."
@@ -4820,8 +4804,8 @@ msgstr "Tímasetja sendingu pósts"
 msgid "Scheduled Items"
 msgstr "Tímasett atriði"
 
-msgid "Your message will be sent at "
-msgstr "Skilaboðin þín verða send "
+msgid "Your message will be sent at {0}."
+msgstr "Skilaboðin þín verða send {0}."
 
 msgid "Go to your Outbox to edit your email."
 msgstr "Farðu í úthólfið til að breyta tölvupóstinum."
@@ -4838,23 +4822,19 @@ msgstr "á tilgreindum tíma"
 msgid "The time you entered is in the past. Please reschedule your mail."
 msgstr "Tíminn sem þú tilgreindir er í fortíðinni. Vinsamlegast tilgreindu nýjan tíma fyrir póstinn þinn."
 
-msgid "today  at "
-msgstr "í dag  klukkan "
+msgid "Your email will be sent today at {0}"
+msgstr "Tölvupósturinn verður sendur í dag klukkan {0}"
 
-msgid "tomorrow  at "
-msgstr "á morgun  klukkan "
+msgid "Your email will be sent tomorrow at {0}"
+msgstr "Tölvupósturinn verður sendur á morgun klukkan {0}"
 
-msgid "{0} at "
-msgstr "{0} klukkan "
+#. TRANSLATORS: {0} is a weekday name, {1} a time of day
+msgid "Your email will be sent {0} at {1}"
+msgstr "Tölvupósturinn verður sendur {0} klukkan {1}"
 
-msgid "at {0}"
-msgstr "klukkan {0}"
-
-msgid "Your email will be sent {0}{1}"
-msgstr "Tölvupósturinn verður sendur {0}{1}"
-
-msgid "Saving…"
-msgstr "Vista…"
+#. TRANSLATORS: {0} is a full date, {1} a time of day
+msgid "Your email will be sent at {0}, {1}"
+msgstr "Tölvupósturinn verður sendur {0} klukkan {1}"
 
 msgid "Saved at {0}"
 msgstr "Vistað klukkan {0}"
@@ -4864,6 +4844,10 @@ msgstr "Mistókst að vista"
 
 msgid "This message will be flagged for follow up when it is sent."
 msgstr "Þessi skilaboð verða skráð í eftirfylgni þegar þau eru send."
+
+#. TRANSLATORS: {0} is the follow-up period, e.g. 'today' or 'next week'
+msgid "This message will be flagged for follow up {0} when it is sent."
+msgstr "Þessi skilaboð verða skráð í eftirfylgni {0} þegar þau eru send."
 
 msgid "Send Later"
 msgstr "Senda seinna"
@@ -5290,9 +5274,6 @@ msgstr "Færa í ruslpóst"
 msgid "Not Junk Email"
 msgstr "Ekki ruslpóstur"
 
-msgid "Send to"
-msgstr "Senda til"
-
 msgid "Message list"
 msgstr "Skilaboðalisti"
 
@@ -5366,9 +5347,6 @@ msgstr "Raða eftir lit"
 
 msgid "Notes list"
 msgstr "Athugasemdalisti"
-
-msgid "Loading Notes"
-msgstr "Hleð minnisatriðum"
 
 msgid "Loading notes"
 msgstr "Hleð minnisatriðum"
@@ -5699,17 +5677,23 @@ msgstr "Ekki tókst að yfirfæra eldri flokka."
 msgid "Changes to assigned task"
 msgstr "Breytingar á úthlutuðu verki"
 
-msgid "Please note that assigned task(s) will be overwritten when the assignee makes changes."
-msgstr "Vinsamlegast athugaðu að úthlutuð verk verða yfirskrifuð þegar verktakinn gerir breytingar."
+msgid "Please note that the assigned task will be overwritten when the assignee makes changes."
+msgid_plural "Please note that the assigned tasks will be overwritten when the assignee makes changes."
+msgstr[0] "Vinsamlegast athugaðu að úthlutuð verk verða yfirskrifuð þegar verktakinn gerir breytingar."
+msgstr[1] "Vinsamlegast athugaðu að úthlutuð verk verða yfirskrifuð þegar verktakinn gerir breytingar."
 
 msgid "Delete confirmation"
 msgstr "Staðfesting á eyðingu"
 
-msgid "Deleting the item(s) will also delete the original item(s)."
-msgstr "Eyðing atriðisins/atriðanna mun einnig eyða upprunalegu atriði/atriðum."
+msgid "Deleting the item will also delete the original item."
+msgid_plural "Deleting the items will also delete the original items."
+msgstr[0] "Eyðing atriðisins/atriðanna mun einnig eyða upprunalegu atriði/atriðum."
+msgstr[1] "Eyðing atriðisins/atriðanna mun einnig eyða upprunalegu atriði/atriðum."
 
-msgid "Do you want to delete the item(s)?"
-msgstr "Viltu eyða atriðinu/atriðunum?"
+msgid "Do you want to delete the item?"
+msgid_plural "Do you want to delete the items?"
+msgstr[0] "Viltu eyða atriðinu/atriðunum?"
+msgstr[1] "Viltu eyða atriðinu/atriðunum?"
 
 msgid "Sort by: Priority"
 msgstr "Raða eftir forgangi"
@@ -5846,12 +5830,12 @@ msgstr "Nýtt verk"
 msgid "Completed"
 msgstr "Klárað"
 
-msgid "Printed by: "
-msgstr "Umbeiðandi prentunar: "
+msgid "Printed by: {0}"
+msgstr "Umbeiðandi prentunar: {0}"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "Printed on: "
-msgstr "Prentunardagsetning: "
+#. TRANSLATORS: {0} is the date the list was printed on
+msgid "Printed on: {0}"
+msgstr "Prentunardagsetning: {0}"
 
 msgid "Percent complete"
 msgstr "Hlutfall kláraðra"
@@ -6351,14 +6335,8 @@ msgstr "Klemmuspjald"
 msgid "Could not copy link automatically. Please copy it manually."
 msgstr "Gat ekki afritað tengil sjálfkrafa. Vinsamlegast afritaðu það handvirkt."
 
-msgid "Loading details..."
-msgstr "Hleður upplýsingum..."
-
 msgid "Share"
 msgstr "Deila"
-
-msgid "Loading..."
-msgstr "Hleður..."
 
 msgid "Add attachment from {0}"
 msgstr "Bættu við viðhengi frá{0}"
@@ -6555,8 +6533,12 @@ msgstr "hámark"
 msgid "You have to choose at least one file!"
 msgstr "Þú verður að velja að minnsta kosti eina skrá!"
 
-msgid "Create New "
-msgstr "Búa til nýtt "
+msgid "Document"
+msgstr "Skjal"
+
+#. TRANSLATORS: {0} is a translated file type such as Document, Presentation or Spreadsheet
+msgid "Create New {0}"
+msgstr "Búa til nýtt {0}"
 
 msgid "Incorrect filename"
 msgstr "Rangt skráarnafn"
@@ -6603,14 +6585,14 @@ msgstr "Viðhengi var geymt í Files"
 msgid "Upload Failed"
 msgstr "Upphleðsla mistókst"
 
-msgid "Attachment could not be stored in Files! Error: "
-msgstr "Ekki var hægt að geyma viðhengi í Files! Villa: "
+msgid "Attachment could not be stored in Files!"
+msgstr "Ekki var hægt að geyma viðhengi í Files!"
 
 msgid "Share Files"
 msgstr "Deila skrám"
 
-msgid "Uploading files to "
-msgstr "Hleður upp skrám í "
+msgid "Uploading files to {0}"
+msgstr "Hleður upp skrám í {0}"
 
 msgid "Starting upload"
 msgstr "Er að hefja upphleðslu"
@@ -6621,14 +6603,14 @@ msgstr "Hætta við upphleðslu"
 msgid "- seconds left"
 msgstr "- sekúndur eftir"
 
-msgid " seconds left"
-msgstr " sekúndur eftir"
+msgid "{0} seconds left"
+msgstr "{0} sekúndur eftir"
 
-msgid " minutes left"
-msgstr " mínútur eftir"
+msgid "{0} minutes left"
+msgstr "{0} mínútur eftir"
 
-msgid "Uploading: "
-msgstr "Hleður upp: "
+msgid "Uploading: {0}%"
+msgstr "Hleður upp: {0}%"
 
 msgid "Upload status unavailable... please wait."
 msgstr "Upphleðslustaða ekki tiltæk... vinsamlegast bíðið."
@@ -6641,9 +6623,6 @@ msgstr "Upphleðsla hætt!"
 
 msgid "Upload failed!"
 msgstr "Upphleðsla mistókst!"
-
-msgid "Document"
-msgstr "Skjal"
 
 msgid "Spreadsheet"
 msgstr "Töflureiknir"
@@ -6699,6 +6678,9 @@ msgstr "d.m.Y G:i"
 msgid "File ({0})"
 msgstr "Skrá ({0})"
 
+msgid "Path"
+msgstr "Slóð"
+
 msgid "Sort by: Path"
 msgstr "Raða eftir: Slóð"
 
@@ -6722,6 +6704,9 @@ msgstr "Innra net"
 
 msgid "Archive to InfoShare"
 msgstr "Geymdu í InfoShare"
+
+msgid "Kendox InfoShare plugin"
+msgstr "Kendox InfoShare plugin"
 
 msgid "Kendox InfoShare"
 msgstr "Kendox InfoShare"
@@ -7133,6 +7118,66 @@ msgstr "Einn eða fleiri reitir innihalda villur."
 msgid "Password is weak. Password should contain capital, non-capital letters and numbers. Password should have 8 to 20 characters."
 msgstr "Auðkennið er veikt. Auðkennið ætti að innihalda stórstafi, smástafi og tölur. Auðkennið ætti að vera 8 til 20 stafir."
 
+msgid "Invalid or oversized OpenPGP armor."
+msgstr "Ógild eða of stór OpenPGP-blokk á ASCII-sniði."
+
+msgid "Expected a single OpenPGP public key block."
+msgstr "Búist var við nákvæmlega einni OpenPGP-blokk með opinberum lykli."
+
+msgid "Expected a single OpenPGP private key block."
+msgstr "Búist var við nákvæmlega einni OpenPGP-blokk með einkalykli."
+
+msgid "Expected a single OpenPGP signature block."
+msgstr "Búist var við nákvæmlega einni OpenPGP-blokk með undirskrift."
+
+msgid "Expected a single OpenPGP message block."
+msgstr "Búist var við nákvæmlega einni OpenPGP-blokk með skilaboðum."
+
+msgid "Expected a single OpenPGP armor block."
+msgstr "Búist var við nákvæmlega einni OpenPGP-blokk á ASCII-sniði."
+
+msgid "Additional data outside the OpenPGP armor is not allowed."
+msgstr "Viðbótargögn utan OpenPGP-blokkarinnar eru óheimil."
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "Flyttu inn einn heilan OpenPGP-lykil í einu."
+
+msgid "This key exceeds the supported subkey or identity limit."
+msgstr "Þessi lykill fer yfir studd mörk fyrir fjölda undirlykla eða auðkenna."
+
+msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
+msgstr "Einkalyklar verða að vera varðir með aðgangsorði áður en þeim er hlaðið upp. Verndaðu þennan lykil fyrst í vafranum."
+
+msgid "The public certificate must match the private key fingerprint."
+msgstr "Opinbera vottorðið verður að passa við fingrafar einkalykilsins."
+
+msgid "Unlock your OpenPGP private key in this browser tab first."
+msgstr "Aflæstu fyrst OpenPGP-einkalyklinum þínum í þessum vafraflipa."
+
+msgid "The OpenPGP key was locked while the operation was running."
+msgstr "OpenPGP-lyklinum var læst á meðan aðgerðin var í gangi."
+
+msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
+msgstr "OpenPGP krefst nýlegs vafra og öruggrar HTTPS-tengingar."
+
+msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
+msgstr "Aðgerðin „Vernda“ gerir ráð fyrir óvörðum einkalykli. Notaðu „Breyta aðgangsorði“ fyrir varða lykla."
+
+msgid "The passphrase could not unlock this private key."
+msgstr "Aðgangsorðið gat ekki aflæst þessum einkalykli."
+
+msgid "Every recipient needs a verified OpenPGP public key."
+msgstr "Hver einasti viðtakandi þarf staðfestan opinberan OpenPGP-lykil."
+
+msgid "Encrypted message exceeds the size limit."
+msgstr "Dulkóðuðu skilaboðin fara yfir stærðarmörkin."
+
+msgid "Expected one complete clear-signed OpenPGP message."
+msgstr "Búist var við nákvæmlega einum heilum OpenPGP-skilaboðum með undirskrift í hreinum texta."
+
+msgid "Invalid clear-signed OpenPGP signature."
+msgstr "Ógild OpenPGP-undirskrift í hreinum texta."
+
 msgid "The OpenPGP request failed. Please try again."
 msgstr "OpenPGP-beiðnin mistókst. Vinsamlegast reyndu aftur."
 
@@ -7187,8 +7232,8 @@ msgstr "Umsjón OpenPGP-lykla…"
 msgid "Lock private keys"
 msgstr "Læsa einkalyklum"
 
-msgid "Signing key: "
-msgstr "Undirritunarlykill: "
+msgid "Signing key: {0}"
+msgstr "Undirritunarlykill: {0}"
 
 msgid "Decryption alone does not authenticate the sender."
 msgstr "Afkóðun ein og sér sannreynir ekki auðkenni sendandans."
@@ -7565,8 +7610,8 @@ msgstr "Lyklaþjónar uppfærðir."
 msgid "Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically."
 msgstr "Aðeins má nota HTTPS-lyklaþjóna sem kerfisstjóri hefur samþykkt. Leit krefst fulls fingrafars. Lyklum er aldrei hlaðið upp sjálfkrafa."
 
-msgid "Approved servers: "
-msgstr "Samþykktir þjónar: "
+msgid "Approved servers: {0}"
+msgstr "Samþykktir þjónar: {0}"
 
 msgid "Find OpenPGP public key"
 msgstr "Finna opinberan OpenPGP-lykil"
@@ -7763,14 +7808,12 @@ msgstr "CBC háttur"
 msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you that the message has not been tampered with and validates the identity of the sender."
 msgstr "grommunio Web getur staðfest stafrænar undirskriftir tölvupósta. Árangursrík staðfesting fullvissar þig um að skilaboðunum hafi ekki verið breytt og staðfestir hver sendandinn er."
 
-msgid "You are seeing this message because the verification of the digital signature"
-msgstr "Þú sérð þessa tilkynningu vegna þess að staðfesting stafrænna undirskriftar"
+#. TRANSLATORS: {0} is the bolded phrase 'has failed'
+msgid "You are seeing this message because the verification of the digital signature {0} for this message."
+msgstr "Þú sérð þessa tilkynningu vegna þess að staðfesting stafrænna undirskriftar {0} fyrir þessi skilaboð."
 
-msgid " has failed"
-msgstr " hefur mistekist"
-
-msgid " for this message."
-msgstr " fyrir þessi skilaboð."
+msgid "has failed"
+msgstr "hefur mistekist"
 
 msgid "What caused this issue?"
 msgstr "Hvað olli þessu vandamáli?"
@@ -7783,12 +7826,6 @@ msgstr "Þú getur haldið áfram að vinna. Hins vegar skaltu hafa í huga að 
 
 msgid "You can contact your helpdesk or system administrator if you are not sure what to do next."
 msgstr "Þú getur haft samband við þjónustuborð eða kerfisstjóra ef þú ert ekki viss um hvað þú átt að gera næst."
-
-msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you "
-msgstr "grommunio Web getur staðfest stafrænar undirskriftir tölvupósta. Árangursrík staðfesting veitir þér öryggistilfinningu "
-
-msgid "that the message has not been tampered with and validates the identity of the sender."
-msgstr "að skilaboðunum hafi ekki verið hnikað og staðfestir auðkenni sendandans."
 
 msgid "The verification of the digital signature was successful for this email message."
 msgstr "Staðfesting stafrænna undirskriftar tókst fyrir þessa tölvupóstskilaboð."
@@ -8183,8 +8220,11 @@ msgstr "PHP-Curl er ekki í boði."
 msgid "With this backend, you can connect to any Seafile server."
 msgstr "Með þessum bakenda geturðu tengst hvaða Seafile netþjóni sem er."
 
-msgid "Files "
-msgstr "Skrár "
+msgid "Files Seafile Backend: "
+msgstr "Skrár Seafile-bakendi: "
+
+msgid "Moving failed"
+msgstr "Flutningur mistókst"
 
 msgid "Use SSL"
 msgstr "Notaðu SSL"
@@ -8276,9 +8316,6 @@ msgstr "Ekki tókst að búa til möppu"
 msgid "Deletion failed"
 msgstr "Ekki tókst að eyða"
 
-msgid "Moving failed"
-msgstr "Flutningur mistókst"
-
 msgid "Temporary directory problems"
 msgstr "Tímabundin skráarvandamál"
 
@@ -8288,14 +8325,8 @@ msgstr "Skrá eða mappa fannst ekki"
 msgid "Copying failed"
 msgstr "Afritun mistókst"
 
-msgid "Please contact your system administrator"
-msgstr "Vinsamlegast hafðu samband við kerfisstjórann þinn"
-
 msgid "File server is not reachable. Please verify the connection."
 msgstr "Ekki er hægt að ná í skráaþjón. Vinsamlegast staðfestu tenginguna."
-
-msgid "PHP-CURL not installed"
-msgstr "PHP-CURL ekki uppsett"
 
 msgid "Unknown backend"
 msgstr "Óþekktur bakendi"
@@ -8400,11 +8431,10 @@ msgstr "LDAP ekki stillt"
 msgid "Invalid LDAP configuration"
 msgstr "Ógildar LDAP-stillingar"
 
-msgid "Missing public certificates for the following recipients: "
-msgstr "Vantar opinber vottorð fyrir eftirfarandi viðtakendur: "
-
-msgid ". Please contact your system administrator for details"
-msgstr ". Vinsamlegast hafðu samband við kerfisstjórann þinn til að fá upplýsingar"
+#. TRANSLATORS: %s is a comma-separated list of email addresses
+#, php-format
+msgid "Missing public certificates for the following recipients: %s. Please contact your system administrator for details"
+msgstr "Vantar opinber vottorð fyrir eftirfarandi viðtakendur: %s. Vinsamlegast hafðu samband við kerfisstjórann þinn til að fá upplýsingar"
 
 msgid "Your public certificate is not installed. Without this certificate, you will not be able to read encrypted messages you have sent to others."
 msgstr "Opinbera vottorðið þitt er ekki uppsett. Án þessa vottorðs munt þú ekki geta lesið dulkóðuð skilaboð sem þú hefur sent öðrum."
@@ -8418,8 +8448,9 @@ msgstr "Ekki tókst að afkóða vottorð"
 msgid "Private key can't be used to sign email"
 msgstr "Ekki er hægt að nota einkalykil til að undirrita tölvupóst"
 
-msgid "Certificate email address doesn't match grommunio Web account "
-msgstr "Netfang vottorðs passar ekki við grommunio Web-reikninginn "
+#, php-format
+msgid "Certificate email address doesn't match grommunio Web account %s"
+msgstr "Netfang vottorðs passar ekki við grommunio Web-reikninginn %s"
 
 #, php-format
 msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."
@@ -8428,14 +8459,17 @@ msgstr "RSA-lyklastærð %d bitar er undir ráðlögðu lágmarki %d bita. Votto
 msgid "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully supported. Certificate was imported."
 msgstr "EdDSA (Ed25519) vottorð krefjast PHP 8.4+ og kunna að vera ekki fullkomlega studd. Vottorðið var flutt inn."
 
-msgid "Certificate was expired on "
-msgstr "Skírteini rann út þann "
+#, php-format
+msgid "Certificate was expired on %s."
+msgstr "Skírteini rann út þann %s."
 
 msgid "Certificate was imported."
 msgstr "Vottorð var flutt inn."
 
-msgid "Certificate is not yet valid "
-msgstr "Vottorð er ekki enn gilt "
+#. TRANSLATORS: %s is the date the certificate becomes valid
+#, php-format
+msgid "Certificate is not yet valid %s."
+msgstr "Vottorð er ekki enn gilt %s."
 
 msgid "Certificate has not been imported"
 msgstr "Vottorð hefur ekki verið flutt inn"
@@ -8623,8 +8657,8 @@ msgstr "Samnýttar tengiliðamöppur"
 msgid "Public Contact Folders"
 msgstr "Opinberar tengiliðamöppur"
 
-msgid "Error in search, please try again"
-msgstr "Villa í leit, vinsamlegast reyndu aftur"
+msgid "Error in search, please try again."
+msgstr "Villa í leit, vinsamlegast reyndu aftur."
 
 msgid "Unable to perform search query, no permissions to create search folder."
 msgstr "Ekki hægt að framkvæma leitarfyrirspurn, engar heimildir til að búa til leitarmöppu."
@@ -8644,14 +8678,11 @@ msgstr "Gat ekki opnað tilvik."
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr "Gat ekki opnað tilvik, tilteknu tilviki er líklega eytt."
 
-msgid "a meeting request"
-msgstr "fundarboði"
+msgid "You have insufficient privileges to move a meeting request in this calendar. The calendar owner can set these using the 'permissions'-tab of the folder properties (right click the calendar folder > properties > permissions)"
+msgstr "Þú hefur ekki nægar heimildir til að færa fundarboð í þessu dagatali. Eigandi dagatalsins getur stillt þessar heimildir á flipanum 'Réttindi' í eigindum möppunnar (hægri-smelltu á dagatalsmöppuna > eigindi > réttindi)"
 
-msgid "an appointment"
-msgstr "stefnumót"
-
-msgid "You have insufficient privileges to move "
-msgstr "Þú hefur ekki nægar heimildir til að færa "
+msgid "You have insufficient privileges to move an appointment in this calendar. The calendar owner can set these using the 'permissions'-tab of the folder properties (right click the calendar folder > properties > permissions)"
+msgstr "Þú hefur ekki nægar heimildir til að færa tímabókun í þessu dagatali. Eigandi dagatalsins getur stillt þessar heimildir á flipanum 'Réttindi' í eigindum möppunnar (hægri-smelltu á dagatalsmöppuna > eigindi > réttindi)"
 
 msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
 msgstr "Ekki er hægt að stilla áminningu til að birtast á undan síðasta atburði. Endurstilltu áminninguna til að vista breytinguna."
@@ -8685,8 +8716,10 @@ msgid "Meeting could not be saved."
 msgstr "Ekki tókst að vista fundinn."
 
 #, php-format
-msgid "There were %d skipped appointment(s):"
-msgstr "Tímabókanir sem var sleppt (%d):"
+msgid "There was %d skipped appointment:"
+msgid_plural "There were %d skipped appointments:"
+msgstr[0] "Tímabókanir sem var sleppt (%d):"
+msgstr[1] "Tímabókanir sem var sleppt (%d):"
 
 msgid "More skipped appointments are not shown."
 msgstr "Fleiri tímabókanir sem sleppt var eru ekki sýndar."
@@ -8704,6 +8737,10 @@ msgstr "Afmæli %s"
 #, php-format
 msgid "%s's Anniversary"
 msgstr "Brúðkaupsafmæli %s"
+
+#, php-format
+msgid "Unable to add store: '%s'. Please check if you have the necessary permissions."
+msgstr "Ekki tókst að bæta við geymslu: '%s'. Vinsamlegast athugaðu hvort þú hafir nauðsynlegar heimildir."
 
 msgid "You don't have the permission to complete this action"
 msgstr "Þú hefur ekki leyfi til að ljúka þessari aðgerð"
@@ -8839,26 +8876,26 @@ msgstr "Ekki var hægt að finna skilaboðin, annaðhvort hafa þau verið fær�
 msgid "Could not open message."
 msgstr "Gat ekki opnað skilaboð."
 
-msgid "You have insufficient privileges to decline this Meeting Request"
-msgstr "Þú ert ekki með réttindi til að hafna þessu fundarboði"
+msgid "You have insufficient privileges to decline this Meeting Request."
+msgstr "Þú hefur ófullnægjandi réttindi til að hafna þessari fundarbeiðni."
 
-msgid "You have insufficient privileges to accept this Meeting Request"
-msgstr "Þú ert ekki með réttindi til að samþykkja þetta fundarboð"
+msgid "You have insufficient privileges to accept this Meeting Request."
+msgstr "Þú hefur ófullnægjandi réttindi til að samþykkja þessa fundarbeiðni."
 
-msgid "Could not copy message"
-msgstr "Gat ekki afritað skilaboð"
+msgid "Could not copy message."
+msgstr "Gat ekki afritað skilaboð."
 
-msgid "Could not move message"
-msgstr "Gat ekki fært skilaboð"
+msgid "Could not move message."
+msgstr "Gat ekki fært skilaboð."
 
-msgid "Could not forward meeting request"
-msgstr "Ekki var hægt að senda áfram fundarbeiðni"
+msgid "Could not forward meeting request."
+msgstr "Ekki var hægt að senda áfram fundarbeiðni."
 
-msgid "You have insufficient privileges to save items in this folder"
-msgstr "Þú ert ekki með réttindi til að vista í þessa möppu"
+msgid "You have insufficient privileges to save items in this folder."
+msgstr "Þú ert ekki með réttindi til að vista í þessa möppu."
 
-msgid "Could not save message"
-msgstr "Gat ekki vistað skilaboð"
+msgid "Could not save message."
+msgstr "Ekki tókst að vista skilaboðin."
 
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr "Þú ert ekki með réttindi til að fjarlægja atriði úr dagatalinu."
@@ -8868,9 +8905,6 @@ msgstr "Skilaboðin eru ekki lengur í sendingarbiðröð, vanalega vegna þess 
 
 msgid "Message cannot be aborted"
 msgstr "Ekki hægt að hætta við skilaboð"
-
-msgid "You have insufficient privileges to delete items in this folder"
-msgstr "Þú ert ekki með réttindi til að eyða atriðum í þessari möppu"
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "Þú ert ekki með réttindi til að bæta við viðhengi."
@@ -8944,9 +8978,6 @@ msgstr "Gat ekki stöðvað leitaraðgerð."
 msgid "You have insufficient privileges to save this message."
 msgstr "Þú hefur ófullnægjandi réttindi til að vista þessi skilaboð."
 
-msgid "Could not save message."
-msgstr "Ekki tókst að vista skilaboðin."
-
 msgid "You have insufficient privileges to delete this message."
 msgstr "Þú hefur ófullnægjandi réttindi til að eyða þessum skilaboðum."
 
@@ -8959,14 +8990,8 @@ msgstr "Þú hefur ófullnægjandi réttindi til að hætta við þessa fundarbe
 msgid "Could not cancel Meeting Request."
 msgstr "Ekki tókst að hætta við fundarbeiðni."
 
-msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr "Þú hefur ófullnægjandi réttindi til að hafna þessari fundarbeiðni."
-
 msgid "Could not decline Meeting Request."
 msgstr "Ekki tókst að hafna fundarbeiðni."
-
-msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr "Þú hefur ófullnægjandi réttindi til að samþykkja þessa fundarbeiðni."
 
 msgid "Could not accept Meeting Request."
 msgstr "Gat ekki samþykkt fundarbeiðni."
@@ -8979,9 +9004,6 @@ msgstr "Ekki tókst að hætta við fundarboð."
 
 msgid "You can not continue search operation on this folder."
 msgstr "Þú getur ekki haldið áfram leitinni í þessari möppu."
-
-msgid "Error in search, please try again."
-msgstr "Villa í leit, vinsamlegast reyndu aftur."
 
 msgid "Error in distribution list expansion."
 msgstr "Villa í stækkun dreifingarlista."
@@ -9032,6 +9054,9 @@ msgstr "Verkefnabeiðni:"
 msgid "Sign in"
 msgstr "Skráðu þig inn"
 
+msgid "Loading"
+msgstr "Hleð"
+
 msgid "File is not imported successfully"
 msgstr "Skrá var ekki flutt inn"
 
@@ -9044,8 +9069,8 @@ msgstr "Upphlaðna skráin fer yfir MAX_FILE_SIZE-tilskipunina sem var tilgreind
 msgid "The uploaded file was only partially uploaded."
 msgstr "Skránni sem hlaðið var upp var aðeins hlaðið upp að hluta."
 
-msgid "No file was uploaded. ."
-msgstr "Engin skrá var hlaðið upp. ."
+msgid "No file was uploaded."
+msgstr "Engin skrá var hlaðið upp."
 
 msgid "Missing a temporary folder."
 msgstr "Vantar tímabundna möppu."

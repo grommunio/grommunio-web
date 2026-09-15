@@ -919,7 +919,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 		$error = intval($error_code);
 
 		$msg = _('Unknown error');
-		$contactAdmin = _('Please contact your system administrator');
+		$contactAdmin = _('Please contact your system administrator.');
 
 		// Avoid referencing CURLE_* constants if curl extension isn't loaded (PHP 8.1/8.2 fatal otherwise)
 		if ((defined('CURLE_BAD_PASSWORD_ENTERED') && $error === CURLE_BAD_PASSWORD_ENTERED) || $error === self::WD_ERR_UNAUTHORIZED) {
@@ -1043,7 +1043,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 		$serverHasCurl = function_exists('curl_version');
 		if (!$serverHasCurl) {
 			$e = new BackendException($this->parseErrorCodeToMessage(self::WD_ERR_NO_CURL), 500);
-			$e->setTitle($this->backendTransName . _('PHP-CURL not installed'));
+			$e->setTitle($this->backendTransName . _('PHP-CURL is not installed'));
 
 			throw $e;
 		}

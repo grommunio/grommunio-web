@@ -77,7 +77,7 @@ Grommunio.contact.dialogs.ContactToolbar = Ext.extend(Grommunio.core.ui.ContentP
 			xtype: 'grommunio.attachmentbutton',
 			ref: 'addAttachment',
 			plugins: [ 'grommunio.recordcomponentupdaterplugin' ],
-			overflowText: _('Add Attachment'),
+			overflowText: _('Add attachment'),
 			tooltip: _('Add attachments to this contact'),
 			iconCls: 'icon_paperclip',
 			// Add a listener to the component added event to set use the correct update function when the toolbar overflows

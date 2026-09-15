@@ -330,7 +330,7 @@ class AppointmentListModule extends ListModule {
 			return;
 		}
 
-		$displayMessage = sprintf(_("There were %d skipped appointment(s):"), $this->skippedCount);
+		$displayMessage = sprintf(ngettext("There was %d skipped appointment:", "There were %d skipped appointments:", $this->skippedCount), $this->skippedCount);
 
 		if (!empty($this->skippedInfo)) {
 			$displayMessage .= $this->skippedInfo;

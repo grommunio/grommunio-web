@@ -22,12 +22,13 @@ Grommunio.plugins.files.ui.dialogs.CreateFileContentPanel = Ext.extend(Grommunio
 	constructor : function(config)
 	{
 		config = config || {};
-		const filetypeTitle = config.button.text || 'Document';
+		const filetypeTitle = config.button.text || _('Document');
 
 		Ext.applyIf(config, {
 			xtype : 'grommunio.createfilecontentpanel',
 			layout: 'fit',
-			title : _('Create New ' + filetypeTitle),
+			// TRANSLATORS: {0} is a translated file type such as Document, Presentation or Spreadsheet
+			title : String.format(_('Create New {0}'), filetypeTitle),
 			showLoadMask: false,
 			showInfoMask: false,
 			width: 300,

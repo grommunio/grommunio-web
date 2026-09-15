@@ -143,7 +143,7 @@ Grommunio.common.rules.ui.RulesContextMenu = Ext.extend(Grommunio.core.ui.menu.C
 	 */
 	onSaveRecord: function()
 	{
-		container.getNotifier().notify('info.saved','Saved', 'Rule saved successfully');
+		container.getNotifier().notify('info.saved', _('Saved'), _('Saved successfully'));
 	},
 
 	/**

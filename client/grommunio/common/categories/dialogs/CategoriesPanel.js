@@ -494,7 +494,10 @@ Grommunio.common.categories.dialogs.CategoriesPanel = Ext.extend(Ext.Panel, {
 		if ( categoryExists ){
 			Grommunio.common.dialogs.MessageBox.alert(
 				_('Rename Category'),
-				_('A category named "' + Ext.util.Format.htmlEncode(event.value) + '" already exists. Please enter a different category name.'),
+				String.format(
+					_("You already have a category named '{0}'. Please use another name."),
+					Ext.util.Format.htmlEncode(event.value)
+				),
 				function(){
 					// Open the editor again so the user can change the name again
 					this.categoriesGrid.startEditing(event.row, 2);

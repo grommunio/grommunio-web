@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 16:52+0200\n"
+"POT-Creation-Date: 2026-09-15 20:54+0200\n"
 "PO-Revision-Date: 2022-12-12 13:00+0200\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/grommunio/grommunio-web/ja/>\n"
@@ -40,6 +40,13 @@ msgstr "値は0%から100%の間でなければならない"
 
 msgid "Number must be higher than zero"
 msgstr "ゼロより大きい数値であること"
+
+#. TRANSLATORS: punctuation appended to every form label, {0} is the label
+#. itself. French puts a space before the colon, Chinese the full-width one.
+#. TRANSLATORS: punctuation appended to a field label, {0} is the label itself
+msgctxt "label separator"
+msgid "{0}:"
+msgstr "{0}："
 
 msgid "More options"
 msgstr "詳細オプション"
@@ -256,8 +263,8 @@ msgstr "はい"
 msgid "No"
 msgstr "いいえ"
 
-msgid "Loading"
-msgstr "読み込み中"
+msgid "Loading…"
+msgstr "読み込み中…"
 
 msgid "The value in this field is invalid"
 msgstr "この項目の値は無効です"
@@ -331,9 +338,6 @@ msgstr "文字とアンダースコアのみ"
 
 msgid "This field should only contain letters, numbers and _"
 msgstr "文字と数字とアンダースコアのみ"
-
-msgid "Email Addresses"
-msgstr "電子メールアドレス"
 
 msgid "Email addresses"
 msgstr "電子メールアドレス"
@@ -815,8 +819,9 @@ msgstr "週"
 msgid "weeks"
 msgstr "週"
 
-msgid " on "
-msgstr " on "
+#. TRANSLATORS: {0} is the period ('week' or 'weeks'), {1} the list of weekdays
+msgid "{0} on {1}"
+msgstr "{0} on {1}"
 
 msgid "month"
 msgstr "月"
@@ -1359,18 +1364,18 @@ msgid "End"
 msgstr "終了"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: {0} is the name of the user printing, {1} the current date and time
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
-msgid "Printed by"
-msgstr "印刷"
+#. TRANSLATORS: {0} is the name of the user printing, {1} the current date and time
+msgid "Printed by {0} at {1}"
+msgstr "印刷 {0} で {1}"
 
-msgid "at"
-msgstr "で"
+#. TRANSLATORS: {0} is a folder name, {1} the name of the mailbox it lives in
+msgid "{0} of {1}"
+msgstr "{0} の {1}"
 
-msgid "of"
-msgstr "の"
-
-msgid "Location: "
-msgstr "場所: "
+msgid "Location: {0}"
+msgstr "場所: {0}"
 
 msgid "j M {0}"
 msgstr "j M{0}"
@@ -1378,8 +1383,8 @@ msgstr "j M{0}"
 msgid "l jS M Y {0}"
 msgstr "l jS M Y{0}"
 
-msgid "All day: "
-msgstr "終日: "
+msgid "All day: {0}"
+msgstr "終日: {0}"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
@@ -1518,10 +1523,6 @@ msgstr "予約が見つかりません"
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "この予定は変更になったか削除されました。続行しますか？"
 
-msgctxt "calendar.contextmenu"
-msgid "Use Reply All to reply to all attendees of your meeting."
-msgstr "「全員に返信」を使用すると、会議の参加者全員に返信できます。"
-
 # オプション
 msgid "Options"
 msgstr "オプション"
@@ -1613,8 +1614,8 @@ msgstr "並べ替え: 重要度"
 msgid "Appointments list"
 msgstr "予定一覧"
 
-msgid "Loading appointments"
-msgstr "予定を読み込み中"
+msgid "Loading appointments…"
+msgstr "予定を読み込む…"
 
 msgid "You have insufficient privileges to move and copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
 msgstr "この項目を移動およびコピーするための十分な権限がありません。フォルダの所有者に権限を付与してもらうか、システム管理者に連絡してください。"
@@ -1710,9 +1711,6 @@ msgstr "参加者"
 msgid "Optional attendees"
 msgstr "任意出席者"
 
-msgid "Loading appointments…"
-msgstr "予定を読み込む…"
-
 msgid "Please select a calendar via widget settings"
 msgstr "ウィジェット設定でカレンダーを選択してください"
 
@@ -1778,8 +1776,8 @@ msgstr "複数項目を印刷することはできません。"
 msgid "Printing of this item is not yet available"
 msgstr "このアイテムの印刷はできません"
 
-msgid "Item type: "
-msgstr "アイテムタイプ: "
+msgid "Item type: {0}"
+msgstr "アイテムタイプ: {0}"
 
 msgid "Printing of this view is not yet available"
 msgstr "このビューの印刷をすることはできません"
@@ -2045,14 +2043,8 @@ msgstr "ダウンロードできない"
 msgid "Drop files here to attach them"
 msgstr "添付するファイルをここにドロップ"
 
-msgid "Picture format is not supported. "
-msgstr "ピクチャーフォーマットに対応していません。"
-
-msgid "Supported format for contact pictures are"
-msgstr "連絡先写真のフォーマット"
-
-msgid "Attachment Error"
-msgstr "添付ファイルエラー"
+msgid "Picture format is not supported. Supported format for contact pictures are"
+msgstr "ピクチャーフォーマットに対応していません。連絡先写真のフォーマット"
 
 msgid "Could not save the category list."
 msgstr "カテゴリ一覧を保存できませんでした。"
@@ -2081,8 +2073,8 @@ msgstr "本当にカテゴリ「{0}」を削除しますか？他の項目はこ
 msgid "Rename Category"
 msgstr "カテゴリー名の変更"
 
-msgid "A category named \""
-msgstr "というカテゴリーがある。"
+msgid "You already have a category named '{0}'. Please use another name."
+msgstr "すでに「{0} 」という名前のカテゴリーがあります。別の名前を使用してください。"
 
 msgid "Create New Category"
 msgstr "新しいカテゴリの作成"
@@ -2098,9 +2090,6 @@ msgstr "作成"
 
 msgid "You must apply the changes you have made to the categories before you can create this category."
 msgstr "このカテゴリーを作成する前に、カテゴリーに行った変更を適用する必要があります。"
-
-msgid "You already have a category named '{0}'. Please use another name."
-msgstr "すでに「{0} 」という名前のカテゴリーがあります。別の名前を使用してください。"
 
 msgid "You already have a category named '{0}' in your pending changes. Please use another name."
 msgstr "保留中の変更に、すでに「{0}」という名前のカテゴリがあります。別の名前を使用してください。"
@@ -2672,7 +2661,7 @@ msgstr "毎{A}週毎に"
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr "全タスクが完了してから{A}週間後に新しいタスクを再生成する"
 
-msgid "Every {A} years(s) on"
+msgid "Every {A} year(s) on"
 msgstr "毎{A}年の"
 
 msgid "{A} {B}"
@@ -2999,6 +2988,12 @@ msgstr "常にこの件名でメッセージを移動する"
 msgid "Create rule…"
 msgstr "ルールを作る…"
 
+msgid "Saved"
+msgstr "保存しました"
+
+msgid "Saved successfully"
+msgstr "正常に保存しました"
+
 msgid "myself"
 msgstr "私自身"
 
@@ -3101,8 +3096,10 @@ msgstr "新着メールのデスクトップ通知を有効にする"
 msgid "Enable desktop notifications for reminders"
 msgstr "リマインダーのデスクトップ通知を有効にする"
 
-msgid "{A} Auto-hide desktop notification after second(s) {B}"
-msgstr "{A}秒後にデスクトップ通知を自動非表示にする{B}。"
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of seconds which the user will type in.
+msgid "{A}Auto-hide desktop notification after {B} second(s)"
+msgstr "{A}{B}秒後にデスクトップ通知を自動非表示にする"
 
 msgid "Disable sound"
 msgstr "サウンドを無効にする"
@@ -3194,9 +3191,6 @@ msgstr "{0}期限切れ"
 
 msgid "Message body editor"
 msgstr "メッセージ本文エディタ"
-
-msgid "Loading…"
-msgstr "読み込み中…"
 
 msgid "Message could not be loaded"
 msgstr "メッセージが読み込めませんでした"
@@ -3672,9 +3666,6 @@ msgstr "市内局番"
 
 msgid "Extension"
 msgstr "内線番号"
-
-msgid "Add Attachment"
-msgstr "添付ファイルの追加"
 
 msgid "Add attachments to this contact"
 msgstr "この連絡先に添付ファイルを追加する"
@@ -4218,14 +4209,8 @@ msgstr "詳細を非表示"
 msgid "Copied!"
 msgstr "コピーした！"
 
-msgid "Saving"
-msgstr "保存中"
-
-msgid "Saved"
-msgstr "保存しました"
-
-msgid "Saved successfully"
-msgstr "正常に保存しました"
+msgid "Saving…"
+msgstr "保存中…"
 
 msgid "You will lose all unsaved work. Are you sure you want to close this window?"
 msgstr "保存されていない変更は全て失われてしまいますが、このウィンドウを閉じてもよろしいですか？"
@@ -4338,8 +4323,9 @@ msgstr "再度、ユーザー認証が必要です。ログオンページに戻
 msgid "Connection problem"
 msgstr "接続の問題"
 
-msgid "Could not connect to server, retrying in {0} second(s)"
-msgstr "サーバーに接続することができませんでした。{0}秒後に再試行します。"
+msgid "Could not connect to server, retrying in {0} second"
+msgid_plural "Could not connect to server, retrying in {0} seconds"
+msgstr[0] "サーバーに接続することができませんでした。{0}秒後に再試行します。"
 
 msgid "Click to retry now"
 msgstr "今すぐ再実行ボタンをクリック"
@@ -4434,9 +4420,6 @@ msgstr "このデータストアを開くための十分な権限がありませ
 
 msgid "Not enough permissions to open this folder, do you want to remove it from the hierarchy?"
 msgstr "このフォルダを開くための十分な権限がありません。このヒエラルキーから取り除きますか？"
-
-msgid "Insufficient Permissions"
-msgstr "不十分なパーミッション"
 
 msgid "Not enough permissions to open this folder."
 msgstr "このフォルダを開く権限がありません。"
@@ -4803,8 +4786,8 @@ msgstr "送信される予定されたメール"
 msgid "Scheduled Items"
 msgstr "予定項目"
 
-msgid "Your message will be sent at "
-msgstr "メッセージは次の時間に送信されます "
+msgid "Your message will be sent at {0}."
+msgstr "メッセージは次の時間に送信されます {0}."
 
 msgid "Go to your Outbox to edit your email."
 msgstr "送信トレイに移動して、メールを編集します。"
@@ -4821,23 +4804,19 @@ msgstr "次に指定されています"
 msgid "The time you entered is in the past. Please reschedule your mail."
 msgstr "入力された時間は過去になっています。メールを再スケジュールしてください。"
 
-msgid "today  at "
-msgstr "本日の "
+msgid "Your email will be sent today at {0}"
+msgstr "あなたのメールは本日 {0} に送信されます"
 
-msgid "tomorrow  at "
-msgstr "明日の "
+msgid "Your email will be sent tomorrow at {0}"
+msgstr "あなたのメールは明日 {0} に送信されます"
 
-msgid "{0} at "
-msgstr "{0} の "
+#. TRANSLATORS: {0} is a weekday name, {1} a time of day
+msgid "Your email will be sent {0} at {1}"
+msgstr "あなたのメールは{0}の {1} に送信されます"
 
-msgid "at {0}"
-msgstr "の {0}"
-
-msgid "Your email will be sent {0}{1}"
-msgstr "あなたのメールは {0}{1} に送信されます"
-
-msgid "Saving…"
-msgstr "保存中…"
+#. TRANSLATORS: {0} is a full date, {1} a time of day
+msgid "Your email will be sent at {0}, {1}"
+msgstr "あなたのメールは{0} {1} に送信されます"
 
 msgid "Saved at {0}"
 msgstr "{0}に保存されました"
@@ -4847,6 +4826,10 @@ msgstr "保存に失敗しました"
 
 msgid "This message will be flagged for follow up when it is sent."
 msgstr "このメッセージは、送信時にフォローアップのためにフラグが立てられます。"
+
+#. TRANSLATORS: {0} is the follow-up period, e.g. 'today' or 'next week'
+msgid "This message will be flagged for follow up {0} when it is sent."
+msgstr "このメッセージは、送信時に{0}のフォローアップのためにフラグが立てられます。"
 
 msgid "Send Later"
 msgstr "後で送信"
@@ -5273,9 +5256,6 @@ msgstr "ジャンクフォルダに移動"
 msgid "Not Junk Email"
 msgstr "迷惑メールではない"
 
-msgid "Send to"
-msgstr "送信先"
-
 msgid "Message list"
 msgstr "メッセージ一覧"
 
@@ -5349,9 +5329,6 @@ msgstr "並べ替え：色"
 
 msgid "Notes list"
 msgstr "メモ一覧"
-
-msgid "Loading Notes"
-msgstr "メモ読み込む"
 
 msgid "Loading notes"
 msgstr "メモ読み込み"
@@ -5681,17 +5658,20 @@ msgstr "旧形式のカテゴリーを移行できませんでした。"
 msgid "Changes to assigned task"
 msgstr "担当タスクの変更"
 
-msgid "Please note that assigned task(s) will be overwritten when the assignee makes changes."
-msgstr "なお、割り当てられたタスクは、割り当てられた人が変更すると上書きされます。"
+msgid "Please note that the assigned task will be overwritten when the assignee makes changes."
+msgid_plural "Please note that the assigned tasks will be overwritten when the assignee makes changes."
+msgstr[0] "なお、割り当てられたタスクは、割り当てられた人が変更すると上書きされます。"
 
 msgid "Delete confirmation"
 msgstr "削除確認"
 
-msgid "Deleting the item(s) will also delete the original item(s)."
-msgstr "アイテムを削除すると、元のアイテムも削除されます。"
+msgid "Deleting the item will also delete the original item."
+msgid_plural "Deleting the items will also delete the original items."
+msgstr[0] "アイテムを削除すると、元のアイテムも削除されます。"
 
-msgid "Do you want to delete the item(s)?"
-msgstr "アイテムを削除しますか？"
+msgid "Do you want to delete the item?"
+msgid_plural "Do you want to delete the items?"
+msgstr[0] "アイテムを削除しますか？"
 
 msgid "Sort by: Priority"
 msgstr "並べ替え：優先度"
@@ -5828,12 +5808,12 @@ msgstr "新しいタスク"
 msgid "Completed"
 msgstr "完了"
 
-msgid "Printed by: "
-msgstr "印刷者: "
+msgid "Printed by: {0}"
+msgstr "印刷者: {0}"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "Printed on: "
-msgstr "印刷日時: "
+#. TRANSLATORS: {0} is the date the list was printed on
+msgid "Printed on: {0}"
+msgstr "印刷日時: {0}"
 
 msgid "Percent complete"
 msgstr "完成度"
@@ -6333,14 +6313,8 @@ msgstr "クリップボード"
 msgid "Could not copy link automatically. Please copy it manually."
 msgstr "リンクを自動的にコピーできませんでした。手動でコピーしてください。"
 
-msgid "Loading details..."
-msgstr "詳細を読み込む..."
-
 msgid "Share"
 msgstr "共有"
-
-msgid "Loading..."
-msgstr "読み込み中..."
 
 msgid "Add attachment from {0}"
 msgstr "{0} から添付ファイルを追加"
@@ -6537,8 +6511,12 @@ msgstr "最大"
 msgid "You have to choose at least one file!"
 msgstr "少なくとも１つのファイルを選択してください!"
 
-msgid "Create New "
-msgstr "新規作成 "
+msgid "Document"
+msgstr "ドキュメント"
+
+#. TRANSLATORS: {0} is a translated file type such as Document, Presentation or Spreadsheet
+msgid "Create New {0}"
+msgstr "新規作成 {0}"
 
 msgid "Incorrect filename"
 msgstr "不正なファイル名"
@@ -6585,14 +6563,14 @@ msgstr "共有フォルダへ添付ファイルを保存しました"
 msgid "Upload Failed"
 msgstr "アップロードに失敗しました"
 
-msgid "Attachment could not be stored in Files! Error: "
-msgstr "添付ファイルがファイル共有へ保存されませんでした "
+msgid "Attachment could not be stored in Files!"
+msgstr "添付ファイルがファイル共有へ保存されませんでした"
 
 msgid "Share Files"
 msgstr "共有ファイル"
 
-msgid "Uploading files to "
-msgstr "ファイルを次へアップロード中 "
+msgid "Uploading files to {0}"
+msgstr "ファイルを次へアップロード中 {0}"
 
 msgid "Starting upload"
 msgstr "アップロードを開始"
@@ -6603,14 +6581,14 @@ msgstr "アップロードをキャンセル"
 msgid "- seconds left"
 msgstr "- 秒残り"
 
-msgid " seconds left"
-msgstr " 秒残り"
+msgid "{0} seconds left"
+msgstr "{0} 秒残り"
 
-msgid " minutes left"
-msgstr " 分残り"
+msgid "{0} minutes left"
+msgstr "{0} 分残り"
 
-msgid "Uploading: "
-msgstr "アップロード中 "
+msgid "Uploading: {0}%"
+msgstr "アップロード中 {0}%"
 
 msgid "Upload status unavailable... please wait."
 msgstr "アップロード状況が不明です... しばらくお待ちください。"
@@ -6623,9 +6601,6 @@ msgstr "アップロードが中断されました!"
 
 msgid "Upload failed!"
 msgstr "アップロードが失敗しました!"
-
-msgid "Document"
-msgstr "ドキュメント"
 
 msgid "Spreadsheet"
 msgstr "メディア スプレッドシート"
@@ -6681,6 +6656,9 @@ msgstr "Y.m.d G:i"
 msgid "File ({0})"
 msgstr "ファイル ({0})"
 
+msgid "Path"
+msgstr "パス"
+
 msgid "Sort by: Path"
 msgstr "並べ替え順 : パス"
 
@@ -6704,6 +6682,9 @@ msgstr "イントラネット"
 
 msgid "Archive to InfoShare"
 msgstr "インフォシェアへのアーカイブ"
+
+msgid "Kendox InfoShare plugin"
+msgstr "ケンドックス・インフォシェア plugin"
 
 msgid "Kendox InfoShare"
 msgstr "ケンドックス・インフォシェア"
@@ -7115,6 +7096,66 @@ msgstr "1つ以上のフィールドにエラーがある。"
 msgid "Password is weak. Password should contain capital, non-capital letters and numbers. Password should have 8 to 20 characters."
 msgstr "パスワードが脆弱です。パスワードには大文字、小文字、数字を含める必要があります。パスワードは8文字から20文字にしてください。"
 
+msgid "Invalid or oversized OpenPGP armor."
+msgstr "OpenPGP アーマーが無効であるか、サイズが大きすぎます。"
+
+msgid "Expected a single OpenPGP public key block."
+msgstr "OpenPGP 公開鍵ブロックが1つだけ必要です。"
+
+msgid "Expected a single OpenPGP private key block."
+msgstr "OpenPGP 秘密鍵ブロックが1つだけ必要です。"
+
+msgid "Expected a single OpenPGP signature block."
+msgstr "OpenPGP 署名ブロックが1つだけ必要です。"
+
+msgid "Expected a single OpenPGP message block."
+msgstr "OpenPGP メッセージブロックが1つだけ必要です。"
+
+msgid "Expected a single OpenPGP armor block."
+msgstr "OpenPGP アーマーブロックが1つだけ必要です。"
+
+msgid "Additional data outside the OpenPGP armor is not allowed."
+msgstr "OpenPGP アーマーの外側にあるデータは許可されていません。"
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "完全な OpenPGP 鍵を1つずつインポートしてください。"
+
+msgid "This key exceeds the supported subkey or identity limit."
+msgstr "この鍵は、サポートされているサブ鍵またはユーザー ID の上限を超えています。"
+
+msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
+msgstr "秘密鍵は、アップロードする前にパスフレーズで保護されている必要があります。先にこのブラウザ内で鍵を保護してください。"
+
+msgid "The public certificate must match the private key fingerprint."
+msgstr "公開証明書は、秘密鍵のフィンガープリントと一致している必要があります。"
+
+msgid "Unlock your OpenPGP private key in this browser tab first."
+msgstr "先にこのブラウザタブで OpenPGP 秘密鍵のロックを解除してください。"
+
+msgid "The OpenPGP key was locked while the operation was running."
+msgstr "操作の実行中に OpenPGP 鍵がロックされました。"
+
+msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
+msgstr "OpenPGP には、最新のブラウザと安全な HTTPS 接続が必要です。"
+
+msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
+msgstr "「未暗号化の鍵の保護」には、保護されていない秘密鍵が必要です。保護済みの鍵には「パスフレーズの変更」を使用してください。"
+
+msgid "The passphrase could not unlock this private key."
+msgstr "パスフレーズでこの秘密鍵のロックを解除できませんでした。"
+
+msgid "Every recipient needs a verified OpenPGP public key."
+msgstr "すべての受信者に、確認済みの OpenPGP 公開鍵が必要です。"
+
+msgid "Encrypted message exceeds the size limit."
+msgstr "暗号化されたメッセージがサイズの上限を超えています。"
+
+msgid "Expected one complete clear-signed OpenPGP message."
+msgstr "完全なクリア署名の OpenPGP メッセージが1つだけ必要です。"
+
+msgid "Invalid clear-signed OpenPGP signature."
+msgstr "クリア署名の OpenPGP 署名が無効です。"
+
 msgid "The OpenPGP request failed. Please try again."
 msgstr "OpenPGP の要求に失敗しました。もう一度お試しください。"
 
@@ -7169,8 +7210,8 @@ msgstr "OpenPGP 鍵を管理…"
 msgid "Lock private keys"
 msgstr "秘密鍵をロック"
 
-msgid "Signing key: "
-msgstr "署名鍵: "
+msgid "Signing key: {0}"
+msgstr "署名鍵: {0}"
 
 msgid "Decryption alone does not authenticate the sender."
 msgstr "復号化できたというだけでは、送信者を認証したことにはなりません。"
@@ -7547,8 +7588,8 @@ msgstr "鍵サーバーを更新しました。"
 msgid "Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically."
 msgstr "管理者が承認した HTTPS 鍵サーバーのみ使用できます。検索には完全なフィンガープリントが必要です。鍵が自動的にアップロードされることはありません。"
 
-msgid "Approved servers: "
-msgstr "承認済みサーバー: "
+msgid "Approved servers: {0}"
+msgstr "承認済みサーバー: {0}"
 
 msgid "Find OpenPGP public key"
 msgstr "OpenPGP 公開鍵の検索"
@@ -7745,14 +7786,12 @@ msgstr "CBCモード"
 msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you that the message has not been tampered with and validates the identity of the sender."
 msgstr "grommunio Webは、電子メールのデジタル署名を検証することができます。検証に成功すると、メッセージが改ざんされていないことが確認でき、送信者の身元も証明されます。"
 
-msgid "You are seeing this message because the verification of the digital signature"
-msgstr "このメッセージが表示されるのは、電子署名の検証のためです。"
+#. TRANSLATORS: {0} is the bolded phrase 'has failed'
+msgid "You are seeing this message because the verification of the digital signature {0} for this message."
+msgstr "このメッセージが表示されるのは、電子署名の検証のためです。 {0}しました。"
 
-msgid " has failed"
+msgid "has failed"
 msgstr "失敗"
-
-msgid " for this message."
-msgstr "しました。"
 
 msgid "What caused this issue?"
 msgstr "この問題が発生している理由は何ですか?"
@@ -7765,12 +7804,6 @@ msgstr "あなたは継続してメール作成を行えます。しかし、メ
 
 msgid "You can contact your helpdesk or system administrator if you are not sure what to do next."
 msgstr "対応方法が不明な場合、ヘルプデスク、もしくはシステム管理者へお問い合わせください。"
-
-msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you "
-msgstr "grommunio Webは、電子メールのデジタル署名を検証することができます。検証に成功すると、"
-
-msgid "that the message has not been tampered with and validates the identity of the sender."
-msgstr "送信者認証が完了と共に内容が改ざんされていないことを確認いたしました。"
 
 msgid "The verification of the digital signature was successful for this email message."
 msgstr "デジタル証明書の認証は正しく成功しました。"
@@ -8165,8 +8198,11 @@ msgstr "PHP-Curlは使用できません。"
 msgid "With this backend, you can connect to any Seafile server."
 msgstr "このバックエンドを使えば、どのSeafileサーバーにも接続できます。"
 
-msgid "Files "
-msgstr "ファイル "
+msgid "Files Seafile Backend: "
+msgstr "ファイル Seafile バックエンド: "
+
+msgid "Moving failed"
+msgstr "引越し失敗"
 
 msgid "Use SSL"
 msgstr "SSLを使用する"
@@ -8258,9 +8294,6 @@ msgstr "ディレクトリの作成に失敗しました"
 msgid "Deletion failed"
 msgstr "削除に失敗"
 
-msgid "Moving failed"
-msgstr "引越し失敗"
-
 msgid "Temporary directory problems"
 msgstr "一時ディレクトリの問題"
 
@@ -8270,14 +8303,8 @@ msgstr "ファイルまたはフォルダが見つかりません"
 msgid "Copying failed"
 msgstr "コピー失敗"
 
-msgid "Please contact your system administrator"
-msgstr "システム管理者にお問い合わせください。"
-
 msgid "File server is not reachable. Please verify the connection."
 msgstr "ファイルサーバーにアクセスできません。接続を確認してください。"
-
-msgid "PHP-CURL not installed"
-msgstr "PHP-CURLがインストールされていない"
 
 msgid "Unknown backend"
 msgstr "不明なバックエンド"
@@ -8382,11 +8409,10 @@ msgstr "LDAPが設定されていない"
 msgid "Invalid LDAP configuration"
 msgstr "無効な LDAP 設定"
 
-msgid "Missing public certificates for the following recipients: "
-msgstr "次の受信者への公開証明書がありません : "
-
-msgid ". Please contact your system administrator for details"
-msgstr "詳細についてはシステム管理者へお問い合わせください"
+#. TRANSLATORS: %s is a comma-separated list of email addresses
+#, php-format
+msgid "Missing public certificates for the following recipients: %s. Please contact your system administrator for details"
+msgstr "次の受信者への公開証明書がありません : %s。詳細についてはシステム管理者へお問い合わせください"
 
 msgid "Your public certificate is not installed. Without this certificate, you will not be able to read encrypted messages you have sent to others."
 msgstr "公開証明書がインストールされていません。この証明書がないと、あなたが他の人に送った暗号化されたメッセージを読むことができません。"
@@ -8400,8 +8426,9 @@ msgstr "証明書を復号することができませんでした"
 msgid "Private key can't be used to sign email"
 msgstr "メールを署名するために公開鍵は利用されていません"
 
-msgid "Certificate email address doesn't match grommunio Web account "
-msgstr "証明書のメールアドレスが grommunio Web アカウントと一致しません "
+#, php-format
+msgid "Certificate email address doesn't match grommunio Web account %s"
+msgstr "証明書のメールアドレスが grommunio Web アカウントと一致しません %s"
 
 #, php-format
 msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."
@@ -8410,14 +8437,17 @@ msgstr "RSA鍵のサイズは%dビットで、推奨される最小値の%dビ�
 msgid "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully supported. Certificate was imported."
 msgstr "EdDSA (Ed25519) 証明書には PHP 8.4 以降が必要であり、完全にサポートされていない可能性があります。証明書がインポートされました。"
 
-msgid "Certificate was expired on "
-msgstr "証明書の有効期限は次の通りです "
+#, php-format
+msgid "Certificate was expired on %s."
+msgstr "証明書の有効期限は次の通りです %s."
 
 msgid "Certificate was imported."
 msgstr "証明書がインポートされた。"
 
-msgid "Certificate is not yet valid "
-msgstr "証明書はまだ有効ではありません "
+#. TRANSLATORS: %s is the date the certificate becomes valid
+#, php-format
+msgid "Certificate is not yet valid %s."
+msgstr "証明書はまだ有効ではありません %s."
 
 msgid "Certificate has not been imported"
 msgstr "証明書はインポートされていません"
@@ -8605,7 +8635,7 @@ msgstr "共有連絡先フォルダー"
 msgid "Public Contact Folders"
 msgstr "公開連絡先フォルダー"
 
-msgid "Error in search, please try again"
+msgid "Error in search, please try again."
 msgstr "検索でエラーが発生しました。"
 
 msgid "Unable to perform search query, no permissions to create search folder."
@@ -8626,14 +8656,11 @@ msgstr "オカレンスを開けませんでした。"
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr "オカレンスを開けませんでした。特定のオカレンスはおそらく削除されています。"
 
-msgid "a meeting request"
-msgstr "会議の要請"
+msgid "You have insufficient privileges to move a meeting request in this calendar. The calendar owner can set these using the 'permissions'-tab of the folder properties (right click the calendar folder > properties > permissions)"
+msgstr "このカレンダーで会議出席依頼を移動するための十分な権限がありません。カレンダーの所有者は、フォルダのプロパティの「許可」タブでこれらを設定できます（カレンダーフォルダを右クリック > プロパティ > 許可）"
 
-msgid "an appointment"
-msgstr "アポイントメント"
-
-msgid "You have insufficient privileges to move "
-msgstr "移動するための十分な権限がありません "
+msgid "You have insufficient privileges to move an appointment in this calendar. The calendar owner can set these using the 'permissions'-tab of the folder properties (right click the calendar folder > properties > permissions)"
+msgstr "このカレンダーで予定を移動するための十分な権限がありません。カレンダーの所有者は、フォルダのプロパティの「許可」タブでこれらを設定できます（カレンダーフォルダを右クリック > プロパティ > 許可）"
 
 msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
 msgstr "前の回の予定より前にリマインダーが表示されるように設定することはできません。変更を保存するには、リマインダーをリセットしてください。"
@@ -8667,8 +8694,9 @@ msgid "Meeting could not be saved."
 msgstr "ミーティングは救われなかった。"
 
 #, php-format
-msgid "There were %d skipped appointment(s):"
-msgstr "%d 件の予定がスキップされました："
+msgid "There was %d skipped appointment:"
+msgid_plural "There were %d skipped appointments:"
+msgstr[0] "%d 件の予定がスキップされました："
 
 msgid "More skipped appointments are not shown."
 msgstr "その他のスキップされた予定は表示されません。"
@@ -8686,6 +8714,10 @@ msgstr "%sさんの誕生日"
 #, php-format
 msgid "%s's Anniversary"
 msgstr "%sさんの記念日"
+
+#, php-format
+msgid "Unable to add store: '%s'. Please check if you have the necessary permissions."
+msgstr "データストア「%s」を追加できませんでした。必要な権限があるかどうかを確認してください。"
 
 msgid "You don't have the permission to complete this action"
 msgstr "このアクションを完了する権限がありません"
@@ -8821,26 +8853,26 @@ msgstr "メッセージが見つかりません。移動されたか削除され
 msgid "Could not open message."
 msgstr "メッセージを開くことができませんでした。"
 
-msgid "You have insufficient privileges to decline this Meeting Request"
-msgstr "この会議出席依頼を辞退するための充分な権限がありません"
+msgid "You have insufficient privileges to decline this Meeting Request."
+msgstr "このミーティング リクエストを拒否するには、十分な権限がありません。"
 
-msgid "You have insufficient privileges to accept this Meeting Request"
-msgstr "この会議出席依頼を承諾するための充分な権限がありません"
+msgid "You have insufficient privileges to accept this Meeting Request."
+msgstr "このミーティング リクエストを承認するには、十分な権限がありません。"
 
-msgid "Could not copy message"
-msgstr "メッセージをコピーできません"
+msgid "Could not copy message."
+msgstr "メッセージをコピーできません。"
 
-msgid "Could not move message"
-msgstr "メッセージを移動することができません"
+msgid "Could not move message."
+msgstr "メッセージを移動することができません。"
 
-msgid "Could not forward meeting request"
-msgstr "会議の招待を転送できませんでした"
+msgid "Could not forward meeting request."
+msgstr "会議の招待を転送できませんでした。"
 
-msgid "You have insufficient privileges to save items in this folder"
-msgstr "フォルダのアイテムを保存するための十分な権限がありません"
+msgid "You have insufficient privileges to save items in this folder."
+msgstr "フォルダのアイテムを保存するための十分な権限がありません。"
 
-msgid "Could not save message"
-msgstr "メッセージを保存することができません"
+msgid "Could not save message."
+msgstr "メッセージを保存できませんでした。"
 
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr "カレンダのアイテムを削除するための十分な権限がありません。"
@@ -8850,9 +8882,6 @@ msgstr "メッセージは送信キューに存在しません。通常は、す
 
 msgid "Message cannot be aborted"
 msgstr "このプラグインは無効にできません"
-
-msgid "You have insufficient privileges to delete items in this folder"
-msgstr "フォルダのアイテムを保存するための十分な権限がありません"
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "添付ファイルを添付するための十分な権限がありません。"
@@ -8925,9 +8954,6 @@ msgstr "検索操作を停止できませんでした。"
 msgid "You have insufficient privileges to save this message."
 msgstr "このメッセージを保存するには十分な権限がありません。"
 
-msgid "Could not save message."
-msgstr "メッセージを保存できませんでした。"
-
 msgid "You have insufficient privileges to delete this message."
 msgstr "このメッセージを削除するには十分な権限がありません。"
 
@@ -8940,14 +8966,8 @@ msgstr "このミーティング リクエストをキャンセルするには�
 msgid "Could not cancel Meeting Request."
 msgstr "ミーティングリクエストをキャンセルできませんでした。"
 
-msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr "このミーティング リクエストを拒否するには、十分な権限がありません。"
-
 msgid "Could not decline Meeting Request."
 msgstr "ミーティングリクエストを拒否できませんでした。"
-
-msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr "このミーティング リクエストを承認するには、十分な権限がありません。"
 
 msgid "Could not accept Meeting Request."
 msgstr "ミーティングリクエストを受け付けられませんでした。"
@@ -8960,9 +8980,6 @@ msgstr "ミーティングリクエストの招待をキャンセルできませ
 
 msgid "You can not continue search operation on this folder."
 msgstr "このフォルダで検索操作を続行することはできません。"
-
-msgid "Error in search, please try again."
-msgstr "検索でエラーが発生しました。"
 
 msgid "Error in distribution list expansion."
 msgstr "配布リストの展開でエラーが発生しました。"
@@ -9013,6 +9030,9 @@ msgstr "タスクの依頼:"
 msgid "Sign in"
 msgstr "サインイン"
 
+msgid "Loading"
+msgstr "読み込み中"
+
 msgid "File is not imported successfully"
 msgstr "ファイルが正常にインポートされない"
 
@@ -9025,7 +9045,7 @@ msgstr "アップロードされたファイルが、HTMLフォームで指定�
 msgid "The uploaded file was only partially uploaded."
 msgstr "アップロードされたファイルは部分的にしかアップロードされませんでした。"
 
-msgid "No file was uploaded. ."
+msgid "No file was uploaded."
 msgstr "ファイルがアップロードされませんでした。."
 
 msgid "Missing a temporary folder."

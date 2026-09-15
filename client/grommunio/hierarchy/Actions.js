@@ -49,7 +49,7 @@ Grommunio.hierarchy.Actions = {
 			});
 		} else {
 			Ext.MessageBox.show({
-				title: _('Insufficient Permissions'),
+				title: _('Insufficient permissions'),
 				msg: _('Not enough permissions to open this folder.'),
 				buttons: Ext.MessageBox.OK
 			});

@@ -382,7 +382,7 @@ Grommunio.plugins.files.backend.Seafile.ui.FilesShareDialogPanel = Ext.extend(
 		 */
 		checkSharedRecord: function () {
 			this.loadMask = new Ext.LoadMask(this.getEl(), {
-				msg: _('Loading details...'),
+				msg: _('Loading details…'),
 			});
 			if (Ext.isDefined(this.parentRecord)) {
 				if (

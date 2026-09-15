@@ -220,7 +220,8 @@ Grommunio.calendar.AppointmentRecord = Ext.extend(Grommunio.core.data.MessageRec
 				}
 
 				// Append selected week days related information, if any
-				type += _(' on ') + this.prepareWeekDaysString();
+				// # TRANSLATORS: {0} is the period ('week' or 'weeks'), {1} the list of weekdays
+				type = String.format(_('{0} on {1}'), type, this.prepareWeekDaysString());
 				break;
 			case Grommunio.common.recurrence.data.RecurrenceType.MONTHLY:
 				if (everyn == 1) {

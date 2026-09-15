@@ -107,7 +107,8 @@ Grommunio.calendar.printer.WorkWeekViewRenderer = Ext.extend(Grommunio.calendar.
 			'<table class="bottom">'		+
 			'<tr>'			+
 						// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
-			'<td>'+_('Printed by') + ' {fullname} ' + _('at') + ' {currenttime:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}</td>'		+
+						// TRANSLATORS: {0} is the name of the user printing, {1} the current date and time
+			'<td>' + String.format(_('Printed by {0} at {1}'), '{fullname}', '{currenttime:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}') + '</td>'		+
 			'</tr>' +
 			'</table>';
 	}

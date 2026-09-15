@@ -83,7 +83,7 @@ Grommunio.plugins.files.ui.dialogs.SaveToFilesPanel = Ext.extend(Ext.Panel, {
 			flex : 2,
 			columns: [{
 				dataIndex: 'type',
-				header   : '<p class="icon_index">&nbsp;<span class="title">Icon</span></p>',
+				header   : '<p class="icon_index">&nbsp;<span class="title">' + _('Icon') + '</span></p>',
 				headerCls: 'grommunio-icon-column icon',
 				renderer : Grommunio.plugins.files.data.Utils.Renderer.typeRenderer,
 				width    : 24,
@@ -263,7 +263,7 @@ Grommunio.plugins.files.ui.dialogs.SaveToFilesPanel = Ext.extend(Ext.Panel, {
 		if (response.status === true) {
 			container.getNotifier().notify('info.files', _('Uploaded'), _('Attachment successfully stored in Files'));
 		} else {
-			container.getNotifier().notify('error', _('Upload Failed'), _('Attachment could not be stored in Files! Error: ' + response.status));
+			container.getNotifier().notify('error', _('Upload Failed'), _('Attachment could not be stored in Files!'));
 		}
 
 		this.dialog.close();

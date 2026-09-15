@@ -853,7 +853,7 @@ function validateUploadedPKCS($certificate, $passphrase, $emailAddress) {
 		}
 		// Check if the certificate owner matches the grommunio Web users email address
 		elseif (!emailMatchesCert((string) $certEmailAddress, (string) $emailAddress)) {
-			$message = _('Certificate email address doesn\'t match grommunio Web account ') . $certEmailAddress;
+			$message = sprintf(_('Certificate email address doesn\'t match grommunio Web account %s'), $certEmailAddress);
 		}
 		// Check RSA key size
 		elseif (defined('PLUGIN_SMIME_WARN_WEAK_RSA') && PLUGIN_SMIME_WARN_WEAK_RSA) {
@@ -870,12 +870,13 @@ function validateUploadedPKCS($certificate, $passphrase, $emailAddress) {
 		// Check if certificate is not expired, still import the certificate since a user wants to decrypt his old email
 		if (!$imported && $message === '') {
 			if ($validTo < time()) {
-				$message = _('Certificate was expired on ') . date('Y-m-d', $validTo) . '. ' . _('Certificate was imported.');
+				$message = sprintf(_('Certificate was expired on %s.'), date('Y-m-d', $validTo)) . ' ' . _('Certificate was imported.');
 				$imported = true;
 			}
 			// Check if the certificate is validFrom date is not in the future
 			elseif ($validFrom > time()) {
-				$message = _('Certificate is not yet valid ') . date('Y-m-d', $validFrom) . '. ' . _('Certificate has not been imported');
+				// TRANSLATORS: %s is the date the certificate becomes valid
+				$message = sprintf(_('Certificate is not yet valid %s.'), date('Y-m-d', $validFrom)) . ' ' . _('Certificate has not been imported');
 			}
 			// Allow importing a private certificate even when its revocation status
 			// cannot be established; message verification still fails closed.

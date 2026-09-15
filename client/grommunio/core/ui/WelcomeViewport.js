@@ -121,7 +121,7 @@ Grommunio.core.ui.WelcomeViewport = Ext.extend(Ext.Viewport, {
 		this.mon(model, 'exception', this.onSettingsException, this, { single: true });
 
 		// Show an information box indicating that the settings are being saved.
-		this.savingEl = container.getNotifier().notify('info.saving', '', _('Saving') + '...', {
+		this.savingEl = container.getNotifier().notify('info.saving', '', _('Saving…'), {
 			container: this.getEl(),
 			persistent: true
 		});

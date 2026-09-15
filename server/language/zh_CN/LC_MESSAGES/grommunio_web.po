@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Simplified)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 16:52+0200\n"
+"POT-Creation-Date: 2026-09-15 20:54+0200\n"
 "PO-Revision-Date: 2022-07-26 18:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -40,6 +40,13 @@ msgstr "数值必须介于0％至100％之间"
 
 msgid "Number must be higher than zero"
 msgstr "数字必须大于零"
+
+#. TRANSLATORS: punctuation appended to every form label, {0} is the label
+#. itself. French puts a space before the colon, Chinese the full-width one.
+#. TRANSLATORS: punctuation appended to a field label, {0} is the label itself
+msgctxt "label separator"
+msgid "{0}:"
+msgstr "{0}："
 
 msgid "More options"
 msgstr "更多选项"
@@ -251,8 +258,8 @@ msgstr "是"
 msgid "No"
 msgstr "否"
 
-msgid "Loading"
-msgstr "正在加载"
+msgid "Loading…"
+msgstr "正在加载…"
 
 msgid "The value in this field is invalid"
 msgstr "该字段内的数值无效"
@@ -326,9 +333,6 @@ msgstr "此字段只能包含字母和_"
 
 msgid "This field should only contain letters, numbers and _"
 msgstr "此字段只能包含字母、数字和_"
-
-msgid "Email Addresses"
-msgstr "电子邮件地址"
 
 msgid "Email addresses"
 msgstr "电子邮件地址"
@@ -810,8 +814,9 @@ msgstr "周"
 msgid "weeks"
 msgstr "周"
 
-msgid " on "
-msgstr " 时间 "
+#. TRANSLATORS: {0} is the period ('week' or 'weeks'), {1} the list of weekdays
+msgid "{0} on {1}"
+msgstr "{0} 时间 {1}"
 
 msgid "month"
 msgstr "月"
@@ -1354,18 +1359,18 @@ msgid "End"
 msgstr "结束"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: {0} is the name of the user printing, {1} the current date and time
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
-msgid "Printed by"
-msgstr "印刷者"
+#. TRANSLATORS: {0} is the name of the user printing, {1} the current date and time
+msgid "Printed by {0} at {1}"
+msgstr "印刷者 {0} 在 {1}"
 
-msgid "at"
-msgstr "在"
+#. TRANSLATORS: {0} is a folder name, {1} the name of the mailbox it lives in
+msgid "{0} of {1}"
+msgstr "{0} 的 {1}"
 
-msgid "of"
-msgstr "的"
-
-msgid "Location: "
-msgstr "地点： "
+msgid "Location: {0}"
+msgstr "地点： {0}"
 
 msgid "j M {0}"
 msgstr "j M{0}"
@@ -1373,8 +1378,8 @@ msgstr "j M{0}"
 msgid "l jS M Y {0}"
 msgstr "l jS M Y{0}"
 
-msgid "All day: "
-msgstr "全天： "
+msgid "All day: {0}"
+msgstr "全天： {0}"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
@@ -1513,10 +1518,6 @@ msgstr "未找到任何预约"
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "此预约已被移动或删除，您是否继续？"
 
-msgctxt "calendar.contextmenu"
-msgid "Use Reply All to reply to all attendees of your meeting."
-msgstr "使用“回复所有”功能回复会议的所有与会者。"
-
 msgid "Options"
 msgstr "选项"
 
@@ -1607,8 +1608,8 @@ msgstr "排序方式：重要性"
 msgid "Appointments list"
 msgstr "日程列表"
 
-msgid "Loading appointments"
-msgstr "加载预约"
+msgid "Loading appointments…"
+msgstr "正在加载预约…"
 
 msgid "You have insufficient privileges to move and copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
 msgstr "您无足够的权限移动和复制此项目。请文件夹所有者授予您权限或与您的系统管理员联系。"
@@ -1704,9 +1705,6 @@ msgstr "参与者"
 msgid "Optional attendees"
 msgstr "可选与会者"
 
-msgid "Loading appointments…"
-msgstr "正在加载预约…"
-
 msgid "Please select a calendar via widget settings"
 msgstr "请通过小部件设置选择日历"
 
@@ -1772,8 +1770,8 @@ msgstr "尚未打印多个项目。"
 msgid "Printing of this item is not yet available"
 msgstr "尚无法打印此项目"
 
-msgid "Item type: "
-msgstr "项目类型： "
+msgid "Item type: {0}"
+msgstr "项目类型： {0}"
 
 msgid "Printing of this view is not yet available"
 msgstr "尚无法打印此视图"
@@ -2039,14 +2037,8 @@ msgstr "无法下载"
 msgid "Drop files here to attach them"
 msgstr "将文件拖放到此处以添加为附件"
 
-msgid "Picture format is not supported. "
-msgstr "不支持图片格式。 "
-
-msgid "Supported format for contact pictures are"
-msgstr "支持的联系人图片格式为"
-
-msgid "Attachment Error"
-msgstr "附件错误"
+msgid "Picture format is not supported. Supported format for contact pictures are"
+msgstr "不支持图片格式。 支持的联系人图片格式为"
 
 msgid "Could not save the category list."
 msgstr "无法保存类别列表。"
@@ -2075,8 +2067,8 @@ msgstr "您确定要删除类别“{0}”吗？其他项目会保留此类别，
 msgid "Rename Category"
 msgstr "重命名类别"
 
-msgid "A category named \""
-msgstr "名为\"的一个类别"
+msgid "You already have a category named '{0}'. Please use another name."
+msgstr "您已经有一个名为'{0}'的类别。请使用另一个名称。"
 
 msgid "Create New Category"
 msgstr "建立新类别"
@@ -2092,9 +2084,6 @@ msgstr "创建"
 
 msgid "You must apply the changes you have made to the categories before you can create this category."
 msgstr "在创建此类别之前，您必须应用您已对各类别所做的更改。"
-
-msgid "You already have a category named '{0}'. Please use another name."
-msgstr "您已经有一个名为'{0}'的类别。请使用另一个名称。"
 
 msgid "You already have a category named '{0}' in your pending changes. Please use another name."
 msgstr "您的待定更改中已经有一个名为'{0}'的类别。请使用另一个名称。"
@@ -2666,7 +2655,7 @@ msgstr "每{A}周"
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr "每项任务完成后{A}周重新生成新任务"
 
-msgid "Every {A} years(s) on"
+msgid "Every {A} year(s) on"
 msgstr "每 {A} 年的"
 
 msgid "{A} {B}"
@@ -2992,6 +2981,12 @@ msgstr "始终移动包含此主题的消息"
 msgid "Create rule…"
 msgstr "正在创建规则…"
 
+msgid "Saved"
+msgstr "已保存"
+
+msgid "Saved successfully"
+msgstr "已成功保存"
+
 msgid "myself"
 msgstr "我本人"
 
@@ -3094,8 +3089,10 @@ msgstr "启用新邮件桌面通知"
 msgid "Enable desktop notifications for reminders"
 msgstr "启用桌面提醒通知"
 
-msgid "{A} Auto-hide desktop notification after second(s) {B}"
-msgstr "{A}秒后自动隐藏桌面通知 {B}"
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of seconds which the user will type in.
+msgid "{A}Auto-hide desktop notification after {B} second(s)"
+msgstr "{A}{B}秒后自动隐藏桌面通知"
 
 msgid "Disable sound"
 msgstr "禁用声音"
@@ -3187,9 +3184,6 @@ msgstr "{0}已过期"
 
 msgid "Message body editor"
 msgstr "邮件正文编辑器"
-
-msgid "Loading…"
-msgstr "正在加载…"
 
 msgid "Message could not be loaded"
 msgstr "无法加载消息"
@@ -3665,9 +3659,6 @@ msgstr "本地号码"
 
 msgid "Extension"
 msgstr "扩展名"
-
-msgid "Add Attachment"
-msgstr "添加附件"
 
 msgid "Add attachments to this contact"
 msgstr "添加附件至此联系人"
@@ -4211,14 +4202,8 @@ msgstr "隐藏详细信息"
 msgid "Copied!"
 msgstr "已复制！"
 
-msgid "Saving"
-msgstr "正在保存"
-
-msgid "Saved"
-msgstr "已保存"
-
-msgid "Saved successfully"
-msgstr "已成功保存"
+msgid "Saving…"
+msgstr "正在保存…"
 
 msgid "You will lose all unsaved work. Are you sure you want to close this window?"
 msgstr "您将丢失所有未保存的工作。您是否确定关闭此窗口？"
@@ -4331,8 +4316,9 @@ msgstr "需重新验证，请点击此处返回登录页面。"
 msgid "Connection problem"
 msgstr "连接问题"
 
-msgid "Could not connect to server, retrying in {0} second(s)"
-msgstr "无法连接服务器，请于{0}秒后重试"
+msgid "Could not connect to server, retrying in {0} second"
+msgid_plural "Could not connect to server, retrying in {0} seconds"
+msgstr[0] "无法连接服务器，请于{0}秒后重试"
 
 msgid "Click to retry now"
 msgstr "点击以立即重试"
@@ -4427,9 +4413,6 @@ msgstr "无足够权限打开此存储器，您是否欲从层次结构中将其
 
 msgid "Not enough permissions to open this folder, do you want to remove it from the hierarchy?"
 msgstr "无足够权限打开此文件夹，您是否欲从层次结构将其删除？"
-
-msgid "Insufficient Permissions"
-msgstr "权限不足"
 
 msgid "Not enough permissions to open this folder."
 msgstr "无足够权限打开此文件夹。"
@@ -4796,8 +4779,8 @@ msgstr "安排待发出的邮件"
 msgid "Scheduled Items"
 msgstr "已安排的项目"
 
-msgid "Your message will be sent at "
-msgstr "将按下列条件发送您的消息 "
+msgid "Your message will be sent at {0}."
+msgstr "将按下列条件发送您的消息 {0}."
 
 msgid "Go to your Outbox to edit your email."
 msgstr "进入您的发件箱，以编辑您的电子邮件。"
@@ -4814,23 +4797,19 @@ msgstr "按特定时间"
 msgid "The time you entered is in the past. Please reschedule your mail."
 msgstr "您输入的时间是过去的时间。请重新安排您的邮件。"
 
-msgid "today  at "
-msgstr "今天的时间 "
+msgid "Your email will be sent today at {0}"
+msgstr "您的电子邮件将于今天 {0} 发送"
 
-msgid "tomorrow  at "
-msgstr "明天的时间 "
+msgid "Your email will be sent tomorrow at {0}"
+msgstr "您的电子邮件将于明天 {0} 发送"
 
-msgid "{0} at "
-msgstr "{0}的时间 "
+#. TRANSLATORS: {0} is a weekday name, {1} a time of day
+msgid "Your email will be sent {0} at {1}"
+msgstr "您的电子邮件将于{0} {1} 发送"
 
-msgid "at {0}"
-msgstr "于{0}时"
-
-msgid "Your email will be sent {0}{1}"
-msgstr "将发送您的电子邮件{0}{1}"
-
-msgid "Saving…"
-msgstr "正在保存…"
+#. TRANSLATORS: {0} is a full date, {1} a time of day
+msgid "Your email will be sent at {0}, {1}"
+msgstr "您的电子邮件将于{0} {1} 发送"
 
 msgid "Saved at {0}"
 msgstr "已于 {0} 保存"
@@ -4840,6 +4819,10 @@ msgstr "保存失败"
 
 msgid "This message will be flagged for follow up when it is sent."
 msgstr "发送此消息时，通过标记跟进此消息。"
+
+#. TRANSLATORS: {0} is the follow-up period, e.g. 'today' or 'next week'
+msgid "This message will be flagged for follow up {0} when it is sent."
+msgstr "此消息在发送时会被标记为{0}跟进。"
 
 msgid "Send Later"
 msgstr "稍后发送"
@@ -5266,9 +5249,6 @@ msgstr "移至垃圾邮件文件夹"
 msgid "Not Junk Email"
 msgstr "非垃圾邮件"
 
-msgid "Send to"
-msgstr "发送至"
-
 msgid "Message list"
 msgstr "邮件列表"
 
@@ -5342,9 +5322,6 @@ msgstr "排序方式：颜色"
 
 msgid "Notes list"
 msgstr "备忘录列表"
-
-msgid "Loading Notes"
-msgstr "正在加载便签"
 
 msgid "Loading notes"
 msgstr "正在加载便签"
@@ -5674,17 +5651,20 @@ msgstr "无法迁移旧版类别。"
 msgid "Changes to assigned task"
 msgstr "更改分配任务"
 
-msgid "Please note that assigned task(s) will be overwritten when the assignee makes changes."
-msgstr "请注意，当代理人进行更改时，分配任务将被覆盖。"
+msgid "Please note that the assigned task will be overwritten when the assignee makes changes."
+msgid_plural "Please note that the assigned tasks will be overwritten when the assignee makes changes."
+msgstr[0] "请注意，当代理人进行更改时，分配任务将被覆盖。"
 
 msgid "Delete confirmation"
 msgstr "删除确认"
 
-msgid "Deleting the item(s) will also delete the original item(s)."
-msgstr "删除项目也会删除原始项目。"
+msgid "Deleting the item will also delete the original item."
+msgid_plural "Deleting the items will also delete the original items."
+msgstr[0] "删除项目也会删除原始项目。"
 
-msgid "Do you want to delete the item(s)?"
-msgstr "您是否欲删除项目？"
+msgid "Do you want to delete the item?"
+msgid_plural "Do you want to delete the items?"
+msgstr[0] "您是否欲删除项目？"
 
 msgid "Sort by: Priority"
 msgstr "排序方式：优先级"
@@ -5821,12 +5801,12 @@ msgstr "新任务"
 msgid "Completed"
 msgstr "已完成"
 
-msgid "Printed by: "
-msgstr "\"打印机构： "
+msgid "Printed by: {0}"
+msgstr "\"打印机构： {0}"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "Printed on: "
-msgstr "打印日期： "
+#. TRANSLATORS: {0} is the date the list was printed on
+msgid "Printed on: {0}"
+msgstr "打印日期： {0}"
 
 msgid "Percent complete"
 msgstr "已完成比例"
@@ -6326,14 +6306,8 @@ msgstr "剪贴板"
 msgid "Could not copy link automatically. Please copy it manually."
 msgstr "无法自动复制链接。请手动复制。"
 
-msgid "Loading details..."
-msgstr "加载详细信息..."
-
 msgid "Share"
 msgstr "分享"
-
-msgid "Loading..."
-msgstr "正在加载..."
 
 msgid "Add attachment from {0}"
 msgstr "从{0}"
@@ -6530,8 +6504,12 @@ msgstr "最大"
 msgid "You have to choose at least one file!"
 msgstr "您必须至少选择一个文件！"
 
-msgid "Create New "
-msgstr "新建 "
+msgid "Document"
+msgstr "文档"
+
+#. TRANSLATORS: {0} is a translated file type such as Document, Presentation or Spreadsheet
+msgid "Create New {0}"
+msgstr "新建 {0}"
 
 msgid "Incorrect filename"
 msgstr "文件名不正确"
@@ -6578,14 +6556,14 @@ msgstr "附件成功存储在文件中"
 msgid "Upload Failed"
 msgstr "文件上传失败"
 
-msgid "Attachment could not be stored in Files! Error: "
-msgstr "附件无法存储在文件中！错误： "
+msgid "Attachment could not be stored in Files!"
+msgstr "附件无法存储在文件中！"
 
 msgid "Share Files"
 msgstr "共享文件"
 
-msgid "Uploading files to "
-msgstr "将文件上传到 "
+msgid "Uploading files to {0}"
+msgstr "将文件上传到 {0}"
 
 msgid "Starting upload"
 msgstr "开始上传"
@@ -6596,14 +6574,14 @@ msgstr "取消上传"
 msgid "- seconds left"
 msgstr "- 剩余秒数"
 
-msgid " seconds left"
-msgstr " 还剩几秒钟"
+msgid "{0} seconds left"
+msgstr "{0} 还剩几秒钟"
 
-msgid " minutes left"
-msgstr " 还剩几分钟"
+msgid "{0} minutes left"
+msgstr "{0} 还剩几分钟"
 
-msgid "Uploading: "
-msgstr "正在上传： "
+msgid "Uploading: {0}%"
+msgstr "正在上传： {0}%"
 
 msgid "Upload status unavailable... please wait."
 msgstr "上传状态不可用......请稍候。"
@@ -6616,9 +6594,6 @@ msgstr "上传中止！"
 
 msgid "Upload failed!"
 msgstr "上传失败！"
-
-msgid "Document"
-msgstr "文档"
 
 msgid "Spreadsheet"
 msgstr "电子表格"
@@ -6674,6 +6649,9 @@ msgstr "d.m.Y G:i"
 msgid "File ({0})"
 msgstr "文件 ({0})"
 
+msgid "Path"
+msgstr "路径"
+
 msgid "Sort by: Path"
 msgstr "排序方式路径"
 
@@ -6697,6 +6675,9 @@ msgstr "内联网"
 
 msgid "Archive to InfoShare"
 msgstr "存档至 InfoShare"
+
+msgid "Kendox InfoShare plugin"
+msgstr "Kendox InfoShare plugin"
 
 msgid "Kendox InfoShare"
 msgstr "Kendox InfoShare"
@@ -7108,6 +7089,66 @@ msgstr "一个或多个字段确实包含错误。"
 msgid "Password is weak. Password should contain capital, non-capital letters and numbers. Password should have 8 to 20 characters."
 msgstr "密码强度弱。密码应包含大写字母、小写字母和数字。密码长度应为8到20个字符。"
 
+msgid "Invalid or oversized OpenPGP armor."
+msgstr "OpenPGP 铠装数据无效或过大。"
+
+msgid "Expected a single OpenPGP public key block."
+msgstr "应为单个 OpenPGP 公钥数据块。"
+
+msgid "Expected a single OpenPGP private key block."
+msgstr "应为单个 OpenPGP 私钥数据块。"
+
+msgid "Expected a single OpenPGP signature block."
+msgstr "应为单个 OpenPGP 签名数据块。"
+
+msgid "Expected a single OpenPGP message block."
+msgstr "应为单个 OpenPGP 消息数据块。"
+
+msgid "Expected a single OpenPGP armor block."
+msgstr "应为单个 OpenPGP 铠装数据块。"
+
+msgid "Additional data outside the OpenPGP armor is not allowed."
+msgstr "不允许在 OpenPGP 铠装数据之外包含其他数据。"
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "请一次导入一个完整的 OpenPGP 密钥。"
+
+msgid "This key exceeds the supported subkey or identity limit."
+msgstr "此密钥的子密钥或身份数量超出了支持的上限。"
+
+msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
+msgstr "私钥必须先受口令保护才能上传。请先在本地保护此密钥。"
+
+msgid "The public certificate must match the private key fingerprint."
+msgstr "公共证书必须与私钥的指纹匹配。"
+
+msgid "Unlock your OpenPGP private key in this browser tab first."
+msgstr "请先在此浏览器选项卡中解锁您的 OpenPGP 私钥。"
+
+msgid "The OpenPGP key was locked while the operation was running."
+msgstr "操作执行期间，OpenPGP 密钥已被锁定。"
+
+msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
+msgstr "OpenPGP 需要现代浏览器和安全的 HTTPS 连接。"
+
+msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
+msgstr "“保护”操作需要未受保护的私钥。对于已受保护的密钥，请使用“更改口令”。"
+
+msgid "The passphrase could not unlock this private key."
+msgstr "该口令无法解锁此私钥。"
+
+msgid "Every recipient needs a verified OpenPGP public key."
+msgstr "每位收件人都需要一个已核验的 OpenPGP 公钥。"
+
+msgid "Encrypted message exceeds the size limit."
+msgstr "加密后的邮件超出大小上限。"
+
+msgid "Expected one complete clear-signed OpenPGP message."
+msgstr "应为单个完整的明文签名 OpenPGP 消息。"
+
+msgid "Invalid clear-signed OpenPGP signature."
+msgstr "OpenPGP 明文签名无效。"
+
 msgid "The OpenPGP request failed. Please try again."
 msgstr "OpenPGP 请求失败。请重试。"
 
@@ -7162,8 +7203,8 @@ msgstr "管理 OpenPGP 密钥…"
 msgid "Lock private keys"
 msgstr "锁定私钥"
 
-msgid "Signing key: "
-msgstr "签名密钥： "
+msgid "Signing key: {0}"
+msgstr "签名密钥： {0}"
 
 msgid "Decryption alone does not authenticate the sender."
 msgstr "仅凭解密成功并不能验证发件人的身份。"
@@ -7540,8 +7581,8 @@ msgstr "密钥服务器已更新。"
 msgid "Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically."
 msgstr "只能使用管理员批准的 HTTPS 密钥服务器。搜索时必须提供完整指纹。系统绝不会自动上传密钥。"
 
-msgid "Approved servers: "
-msgstr "已批准的服务器： "
+msgid "Approved servers: {0}"
+msgstr "已批准的服务器： {0}"
 
 msgid "Find OpenPGP public key"
 msgstr "查找 OpenPGP 公钥"
@@ -7738,14 +7779,12 @@ msgstr "CBC 模式"
 msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you that the message has not been tampered with and validates the identity of the sender."
 msgstr "grommunio Web可以验证电子邮件的数字签名。验证成功后，您就可以放心：该信息未被篡改，且发件人的身份已得到验证。"
 
-msgid "You are seeing this message because the verification of the digital signature"
-msgstr "您看到此消息是因为数字签名的验证"
+#. TRANSLATORS: {0} is the bolded phrase 'has failed'
+msgid "You are seeing this message because the verification of the digital signature {0} for this message."
+msgstr "您看到此消息是因为数字签名的验证 {0} 为这个消息。"
 
-msgid " has failed"
-msgstr " 已经失败"
-
-msgid " for this message."
-msgstr " 为这个消息。"
+msgid "has failed"
+msgstr "已经失败"
 
 msgid "What caused this issue?"
 msgstr "是什么导致了这个问题？"
@@ -7758,12 +7797,6 @@ msgstr "您可以继续工作。但请注意，发件人身份和信息内容的
 
 msgid "You can contact your helpdesk or system administrator if you are not sure what to do next."
 msgstr "如果您不确定下一步该怎么做，可以联系服务台或系统管理员。"
-
-msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you "
-msgstr "grommunio Web可以验证电子邮件的数字签名。验证成功后，您就可以放心"
-
-msgid "that the message has not been tampered with and validates the identity of the sender."
-msgstr "：该信息未被篡改，且发件人的身份已得到验证。"
 
 msgid "The verification of the digital signature was successful for this email message."
 msgstr "该邮件的数字签名验证成功。"
@@ -8158,8 +8191,11 @@ msgstr "PHP-Curl 不可用。"
 msgid "With this backend, you can connect to any Seafile server."
 msgstr "通过该后台，您可以连接到任何 Seafile 服务器。"
 
-msgid "Files "
-msgstr "文件 "
+msgid "Files Seafile Backend: "
+msgstr "文件Seafile后端： "
+
+msgid "Moving failed"
+msgstr "搬家失败"
 
 msgid "Use SSL"
 msgstr "使用 SSL"
@@ -8251,9 +8287,6 @@ msgstr "目录创建失败"
 msgid "Deletion failed"
 msgstr "删除失败"
 
-msgid "Moving failed"
-msgstr "搬家失败"
-
 msgid "Temporary directory problems"
 msgstr "临时目录问题"
 
@@ -8263,14 +8296,8 @@ msgstr "未找到文件或文件夹"
 msgid "Copying failed"
 msgstr "复制失败"
 
-msgid "Please contact your system administrator"
-msgstr "请联系您的系统管理员"
-
 msgid "File server is not reachable. Please verify the connection."
 msgstr "文件服务器无法连接。请验证连接。"
-
-msgid "PHP-CURL not installed"
-msgstr "未安装 PHP-CURL"
 
 msgid "Unknown backend"
 msgstr "未知后端"
@@ -8375,11 +8402,10 @@ msgstr "未配置 LDAP"
 msgid "Invalid LDAP configuration"
 msgstr "LDAP 配置无效"
 
-msgid "Missing public certificates for the following recipients: "
-msgstr "缺少以下收件人的公共证书。 "
-
-msgid ". Please contact your system administrator for details"
-msgstr ".详情请咨询系统管理员"
+#. TRANSLATORS: %s is a comma-separated list of email addresses
+#, php-format
+msgid "Missing public certificates for the following recipients: %s. Please contact your system administrator for details"
+msgstr "缺少以下收件人的公共证书。 %s.详情请咨询系统管理员"
 
 msgid "Your public certificate is not installed. Without this certificate, you will not be able to read encrypted messages you have sent to others."
 msgstr "您的公共证书尚未安装。没有该证书，您将无法阅读您发送给他人的加密信息。"
@@ -8393,8 +8419,9 @@ msgstr "无法解密证书"
 msgid "Private key can't be used to sign email"
 msgstr "私人密钥不能用于签署电子邮件"
 
-msgid "Certificate email address doesn't match grommunio Web account "
-msgstr "证书的电子邮件地址与 grommunio Web 账户不一致 "
+#, php-format
+msgid "Certificate email address doesn't match grommunio Web account %s"
+msgstr "证书的电子邮件地址与 grommunio Web 账户不一致 %s"
 
 #, php-format
 msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."
@@ -8403,14 +8430,17 @@ msgstr "%d 位的 RSA 密钥长度低于 %d 位的推荐最小值。证书已导
 msgid "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully supported. Certificate was imported."
 msgstr "EdDSA（Ed25519）证书需要 PHP 8.4 及以上版本，且可能无法完全支持。证书已导入。"
 
-msgid "Certificate was expired on "
-msgstr "证书过期时间为 "
+#, php-format
+msgid "Certificate was expired on %s."
+msgstr "证书过期时间为 %s."
 
 msgid "Certificate was imported."
 msgstr "证书已导入。"
 
-msgid "Certificate is not yet valid "
-msgstr "证书尚未生效 "
+#. TRANSLATORS: %s is the date the certificate becomes valid
+#, php-format
+msgid "Certificate is not yet valid %s."
+msgstr "证书尚未生效 %s."
 
 msgid "Certificate has not been imported"
 msgstr "证书尚未导入"
@@ -8598,8 +8628,8 @@ msgstr "共享联系人文件夹"
 msgid "Public Contact Folders"
 msgstr "公共联系人文件夹"
 
-msgid "Error in search, please try again"
-msgstr "搜索出错，请重试"
+msgid "Error in search, please try again."
+msgstr "搜索出错，请重试。"
 
 msgid "Unable to perform search query, no permissions to create search folder."
 msgstr "无法执行搜索查询，没有创建搜索文件夹的权限。"
@@ -8619,14 +8649,11 @@ msgstr "无法打开。"
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr "无法打开事件，特定事件可能已删除。"
 
-msgid "a meeting request"
-msgstr "一个会议请求"
+msgid "You have insufficient privileges to move a meeting request in this calendar. The calendar owner can set these using the 'permissions'-tab of the folder properties (right click the calendar folder > properties > permissions)"
+msgstr "您没有足够的权限在此日历中移动会议请求。日历所有者可以通过文件夹属性中的“权限”选项卡设置这些权限（右击日历文件夹 > 属性 > 权限）"
 
-msgid "an appointment"
-msgstr "一个事件"
-
-msgid "You have insufficient privileges to move "
-msgstr "权限不足 无法移动 "
+msgid "You have insufficient privileges to move an appointment in this calendar. The calendar owner can set these using the 'permissions'-tab of the folder properties (right click the calendar folder > properties > permissions)"
+msgstr "您没有足够的权限在此日历中移动预约。日历所有者可以通过文件夹属性中的“权限”选项卡设置这些权限（右击日历文件夹 > 属性 > 权限）"
 
 msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
 msgstr "无法将提醒设置为在上一个事件之前出现。请重置提醒以保存更改"
@@ -8660,8 +8687,9 @@ msgid "Meeting could not be saved."
 msgstr "会议无法挽救。"
 
 #, php-format
-msgid "There were %d skipped appointment(s):"
-msgstr "已跳过 %d 个预约："
+msgid "There was %d skipped appointment:"
+msgid_plural "There were %d skipped appointments:"
+msgstr[0] "已跳过 %d 个预约："
 
 msgid "More skipped appointments are not shown."
 msgstr "其余已跳过的预约未显示。"
@@ -8679,6 +8707,10 @@ msgstr "%s生日"
 #, php-format
 msgid "%s's Anniversary"
 msgstr "%s周年纪念"
+
+#, php-format
+msgid "Unable to add store: '%s'. Please check if you have the necessary permissions."
+msgstr "无法添加存储器：“%s”。请检查您是否具有必要的权限。"
 
 msgid "You don't have the permission to complete this action"
 msgstr "您没有权限完成此操作"
@@ -8814,26 +8846,26 @@ msgstr "找不到该消息，它可能已被移动或删除，或者您没有权
 msgid "Could not open message."
 msgstr "无法打开消息。"
 
-msgid "You have insufficient privileges to decline this Meeting Request"
-msgstr "您无足够的权限拒绝此会议请求"
+msgid "You have insufficient privileges to decline this Meeting Request."
+msgstr "您没有足够的权限拒绝此会议请求。"
 
-msgid "You have insufficient privileges to accept this Meeting Request"
-msgstr "您无足够的权限接受此会议请求"
+msgid "You have insufficient privileges to accept this Meeting Request."
+msgstr "您没有足够的权限接受此会议请求。"
 
-msgid "Could not copy message"
-msgstr "无法复制消息"
+msgid "Could not copy message."
+msgstr "无法复制消息。"
 
-msgid "Could not move message"
-msgstr "无法移动消息"
+msgid "Could not move message."
+msgstr "无法移动消息。"
 
-msgid "Could not forward meeting request"
-msgstr "无法转发会议请求"
+msgid "Could not forward meeting request."
+msgstr "无法转发会议请求。"
 
-msgid "You have insufficient privileges to save items in this folder"
-msgstr "您无足够的权限将项目保存到此文件夹中"
+msgid "You have insufficient privileges to save items in this folder."
+msgstr "您无足够的权限将项目保存到此文件夹中。"
 
-msgid "Could not save message"
-msgstr "无法保存消息"
+msgid "Could not save message."
+msgstr "无法保存信息。"
 
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr "您无足够的权限从日历中删除项目。"
@@ -8843,9 +8875,6 @@ msgstr "消息不会再出现在传出队列中，通常是因为已发送此消
 
 msgid "Message cannot be aborted"
 msgstr "消息无法中止"
-
-msgid "You have insufficient privileges to delete items in this folder"
-msgstr "您无足够的权限删除此文件夹中的项目"
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "您无足够的权限将项目作为附件添加。"
@@ -8918,9 +8947,6 @@ msgstr "无法停止搜索操作。"
 msgid "You have insufficient privileges to save this message."
 msgstr "您没有足够的权限保存此信息。"
 
-msgid "Could not save message."
-msgstr "无法保存信息。"
-
 msgid "You have insufficient privileges to delete this message."
 msgstr "您没有足够的权限删除此信息。"
 
@@ -8933,14 +8959,8 @@ msgstr "您没有足够的权限取消此会议申请。"
 msgid "Could not cancel Meeting Request."
 msgstr "无法取消会议请求。"
 
-msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr "您没有足够的权限拒绝此会议请求。"
-
 msgid "Could not decline Meeting Request."
 msgstr "无法拒绝会议请求。"
-
-msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr "您没有足够的权限接受此会议请求。"
 
 msgid "Could not accept Meeting Request."
 msgstr "无法接受会议请求。"
@@ -8953,9 +8973,6 @@ msgstr "无法取消会议申请邀请。"
 
 msgid "You can not continue search operation on this folder."
 msgstr "无法继续对该文件夹进行搜索操作。"
-
-msgid "Error in search, please try again."
-msgstr "搜索出错，请重试。"
 
 msgid "Error in distribution list expansion."
 msgstr "分发列表扩展错误。"
@@ -9006,6 +9023,9 @@ msgstr "任务请求："
 msgid "Sign in"
 msgstr "登录"
 
+msgid "Loading"
+msgstr "正在加载"
+
 msgid "File is not imported successfully"
 msgstr "文件未成功导入"
 
@@ -9018,7 +9038,7 @@ msgstr "上传的文件超出了 HTML 表格中指定的 MAX_FILE_SIZE 指令。
 msgid "The uploaded file was only partially uploaded."
 msgstr "上传的文件只上传了一部分。"
 
-msgid "No file was uploaded. ."
+msgid "No file was uploaded."
 msgstr "未上传文件。."
 
 msgid "Missing a temporary folder."

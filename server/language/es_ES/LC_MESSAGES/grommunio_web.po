@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Spanish (Spain)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 16:52+0200\n"
+"POT-Creation-Date: 2026-09-15 20:54+0200\n"
 "PO-Revision-Date: 2024-01-03 16:10+0000\n"
 "Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/grommunio/grommunio-web/es/>\n"
@@ -40,6 +40,13 @@ msgstr "El valor debe estar entre 0% y 100%"
 
 msgid "Number must be higher than zero"
 msgstr "El número tiene que ser mayor que cero"
+
+#. TRANSLATORS: punctuation appended to every form label, {0} is the label
+#. itself. French puts a space before the colon, Chinese the full-width one.
+#. TRANSLATORS: punctuation appended to a field label, {0} is the label itself
+msgctxt "label separator"
+msgid "{0}:"
+msgstr "{0}:"
 
 msgid "More options"
 msgstr "Más opciones"
@@ -258,8 +265,8 @@ msgstr "Si"
 msgid "No"
 msgstr "No"
 
-msgid "Loading"
-msgstr "Cargando"
+msgid "Loading…"
+msgstr "Cargando…"
 
 msgid "The value in this field is invalid"
 msgstr "El valor de este campo no es válido"
@@ -333,9 +340,6 @@ msgstr "Este campo sólo debe contener letras y _"
 
 msgid "This field should only contain letters, numbers and _"
 msgstr "Este campo sólo debe contener letras, números y _"
-
-msgid "Email Addresses"
-msgstr "Correos electrónicos"
 
 msgid "Email addresses"
 msgstr "Direcciones de email"
@@ -817,8 +821,9 @@ msgstr "semana"
 msgid "weeks"
 msgstr "semanas"
 
-msgid " on "
-msgstr " en "
+#. TRANSLATORS: {0} is the period ('week' or 'weeks'), {1} the list of weekdays
+msgid "{0} on {1}"
+msgstr "{0} en {1}"
 
 msgid "month"
 msgstr "mes"
@@ -1367,18 +1372,18 @@ msgid "End"
 msgstr "Fin"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: {0} is the name of the user printing, {1} the current date and time
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
-msgid "Printed by"
-msgstr "Impreso por"
+#. TRANSLATORS: {0} is the name of the user printing, {1} the current date and time
+msgid "Printed by {0} at {1}"
+msgstr "Impreso por {0} en {1}"
 
-msgid "at"
-msgstr "en"
+#. TRANSLATORS: {0} is a folder name, {1} the name of the mailbox it lives in
+msgid "{0} of {1}"
+msgstr "{0} de {1}"
 
-msgid "of"
-msgstr "de"
-
-msgid "Location: "
-msgstr "Ubicación: "
+msgid "Location: {0}"
+msgstr "Ubicación: {0}"
 
 msgid "j M {0}"
 msgstr "j M {0}"
@@ -1386,8 +1391,8 @@ msgstr "j M {0}"
 msgid "l jS M Y {0}"
 msgstr "l jS M Y {0}"
 
-msgid "All day: "
-msgstr "Todo el día: "
+msgid "All day: {0}"
+msgstr "Todo el día: {0}"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
@@ -1527,10 +1532,6 @@ msgstr "Turno no encontrado"
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Esta cita ha sido movida o borrada, ¿desea continuar?"
 
-msgctxt "calendar.contextmenu"
-msgid "Use Reply All to reply to all attendees of your meeting."
-msgstr "Utiliza la opción «Responder a todos» para responder a todos los participantes de la reunión."
-
 msgid "Options"
 msgstr "Opciones"
 
@@ -1621,8 +1622,8 @@ msgstr "Ordenar por: Importancia"
 msgid "Appointments list"
 msgstr "Lista de citas"
 
-msgid "Loading appointments"
-msgstr "Cargando citas"
+msgid "Loading appointments…"
+msgstr "Cargando citas…"
 
 msgid "You have insufficient privileges to move and copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
 msgstr "No tiene suficientes privilegios para mover y copiar este elemento. Pida al propietario de la carpeta que le conceda permisos o póngase en contacto con el administrador del sistema."
@@ -1718,9 +1719,6 @@ msgstr "Asistentes"
 msgid "Optional attendees"
 msgstr "Asistentes opcionales"
 
-msgid "Loading appointments…"
-msgstr "Cargando citas…"
-
 msgid "Please select a calendar via widget settings"
 msgstr "Seleccione un calendario a través de la configuración del widget"
 
@@ -1786,8 +1784,8 @@ msgstr "La impresión de múltiples elementos no esta soportada."
 msgid "Printing of this item is not yet available"
 msgstr "La impresión de este elemento aún no esta disponible"
 
-msgid "Item type: "
-msgstr "Tipo de elemento: "
+msgid "Item type: {0}"
+msgstr "Tipo de elemento: {0}"
 
 msgid "Printing of this view is not yet available"
 msgstr "La impresión de esta vista aún no esta disponible"
@@ -2045,7 +2043,7 @@ msgid "Preview in a browser window"
 msgstr "Vista previa en una ventana del navegador"
 
 msgid "Attachment error"
-msgstr "Error"
+msgstr "Error de adjunto"
 
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
 msgstr "No se puede crear ZIP, El tamaño máximo permitido es de 30 MB."
@@ -2056,14 +2054,8 @@ msgstr "No se puede descargar"
 msgid "Drop files here to attach them"
 msgstr "Suelte aquí los archivos para adjuntarlos"
 
-msgid "Picture format is not supported. "
-msgstr "Formato de imagen no soportado. "
-
-msgid "Supported format for contact pictures are"
-msgstr "Los formatos soportados para las imágenes de los contactos son"
-
-msgid "Attachment Error"
-msgstr "Error de adjunto"
+msgid "Picture format is not supported. Supported format for contact pictures are"
+msgstr "Formato de imagen no soportado. Los formatos soportados para las imágenes de los contactos son"
 
 msgid "Could not save the category list."
 msgstr "No se pudo guardar la lista de categorías."
@@ -2092,8 +2084,8 @@ msgstr "¿Está seguro de que quiere eliminar la categoría \"{0}\"? Los demás 
 msgid "Rename Category"
 msgstr "Renombrar categoría"
 
-msgid "A category named \""
-msgstr "Una categoría denominada \""
+msgid "You already have a category named '{0}'. Please use another name."
+msgstr "Ya tiene una categoría llamada '{0}'. Por favor, utilice otro nombre."
 
 msgid "Create New Category"
 msgstr "Crear Nueva Categoría"
@@ -2109,9 +2101,6 @@ msgstr "Crear"
 
 msgid "You must apply the changes you have made to the categories before you can create this category."
 msgstr "Debe aplicar los cambios que ha realizado en las categorías antes de poder crear esta categoría."
-
-msgid "You already have a category named '{0}'. Please use another name."
-msgstr "Ya tiene una categoría llamada '{0}'. Por favor, utilice otro nombre."
 
 msgid "You already have a category named '{0}' in your pending changes. Please use another name."
 msgstr "Ya tiene una categoría llamada '{0}' en sus cambios pendientes. Por favor, utilice otro nombre."
@@ -2684,7 +2673,7 @@ msgstr "Cada {A} semana(s) en"
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr "Regenerar una nueva tarea {A} semana(s) después que cada tarea sea completada"
 
-msgid "Every {A} years(s) on"
+msgid "Every {A} year(s) on"
 msgstr "Cada {A} año(s) el"
 
 msgid "{A} {B}"
@@ -3015,6 +3004,12 @@ msgstr "Mueva siempre los mensajes con este asunto"
 msgid "Create rule…"
 msgstr "Crear regla…"
 
+msgid "Saved"
+msgstr "Guardado"
+
+msgid "Saved successfully"
+msgstr "Grabación finalizada"
+
 msgid "myself"
 msgstr "yo mismo"
 
@@ -3117,8 +3112,10 @@ msgstr "Activar las notificaciones de correo nuevo en el escritorio"
 msgid "Enable desktop notifications for reminders"
 msgstr "Activar las notificaciones de escritorio para los recordatorios"
 
-msgid "{A} Auto-hide desktop notification after second(s) {B}"
-msgstr "{A} Ocultar automáticamente la notificación del escritorio después de segundo(s) {B}"
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of seconds which the user will type in.
+msgid "{A}Auto-hide desktop notification after {B} second(s)"
+msgstr "{A}Ocultar automáticamente la notificación de escritorio después de {B} segundo(s)"
 
 msgid "Disable sound"
 msgstr "Desactivar sonido"
@@ -3211,9 +3208,6 @@ msgstr "{0} vencido(s)"
 
 msgid "Message body editor"
 msgstr "Editor del cuerpo del mensaje"
-
-msgid "Loading…"
-msgstr "Cargando…"
 
 msgid "Message could not be loaded"
 msgstr "No se ha podido cargar el mensaje"
@@ -3693,9 +3687,6 @@ msgstr "Número local"
 
 msgid "Extension"
 msgstr "Extensión"
-
-msgid "Add Attachment"
-msgstr "Añadir adjunto"
 
 msgid "Add attachments to this contact"
 msgstr "Añadir archivos adjuntos a este contacto"
@@ -4239,14 +4230,8 @@ msgstr "Ocultar detalles"
 msgid "Copied!"
 msgstr "¡Copiado!"
 
-msgid "Saving"
-msgstr "Grabando"
-
-msgid "Saved"
-msgstr "Guardado"
-
-msgid "Saved successfully"
-msgstr "Grabación finalizada"
+msgid "Saving…"
+msgstr "Guardando…"
 
 msgid "You will lose all unsaved work. Are you sure you want to close this window?"
 msgstr "Perderá todo el trabajo que no haya guardado. ¿Está seguro de que desea cerrar esta ventana?"
@@ -4359,8 +4344,10 @@ msgstr "Re autenticacion necesaria, haga click acá para volver a la página de 
 msgid "Connection problem"
 msgstr "Problema de conexión"
 
-msgid "Could not connect to server, retrying in {0} second(s)"
-msgstr "No se puede conectar con el servidor, reintentar en {0} segundo(s)"
+msgid "Could not connect to server, retrying in {0} second"
+msgid_plural "Could not connect to server, retrying in {0} seconds"
+msgstr[0] "No se puede conectar con el servidor, reintentar en {0} segundo(s)"
+msgstr[1] "No se puede conectar con el servidor, reintentar en {0} segundo(s)"
 
 msgid "Click to retry now"
 msgstr "Haga click para ntentar de nuevo"
@@ -4456,9 +4443,6 @@ msgstr "No dispone de suficientes permisos para abrir el buzón, ¿desea elimina
 
 msgid "Not enough permissions to open this folder, do you want to remove it from the hierarchy?"
 msgstr "No dispone de suficientes permisos para abrir la carpeta, ¿desea eliminarla de la jerarquía?"
-
-msgid "Insufficient Permissions"
-msgstr "Permisos insuficientes"
 
 msgid "Not enough permissions to open this folder."
 msgstr "Privilegios insuficientes para abrir la carpeta."
@@ -4829,8 +4813,8 @@ msgstr "Programar el envío del correo"
 msgid "Scheduled Items"
 msgstr "Partidas programadas"
 
-msgid "Your message will be sent at "
-msgstr "Su mensaje se enviará a "
+msgid "Your message will be sent at {0}."
+msgstr "Su mensaje se enviará a {0}."
 
 msgid "Go to your Outbox to edit your email."
 msgstr "Vaya a su bandeja de salida para editar su correo electrónico."
@@ -4847,23 +4831,19 @@ msgstr "en un momento determinado"
 msgid "The time you entered is in the past. Please reschedule your mail."
 msgstr "La hora que ha introducido ya ha pasado. Por favor, reprograme su correo."
 
-msgid "today  at "
-msgstr "hoy en "
+msgid "Your email will be sent today at {0}"
+msgstr "Su correo electrónico será enviado hoy a las {0}"
 
-msgid "tomorrow  at "
-msgstr "mañana en "
+msgid "Your email will be sent tomorrow at {0}"
+msgstr "Su correo electrónico será enviado mañana a las {0}"
 
-msgid "{0} at "
-msgstr "{0} en "
+#. TRANSLATORS: {0} is a weekday name, {1} a time of day
+msgid "Your email will be sent {0} at {1}"
+msgstr "Su correo electrónico será enviado el {0} a las {1}"
 
-msgid "at {0}"
-msgstr "en {0}"
-
-msgid "Your email will be sent {0}{1}"
-msgstr "Su correo electrónico será enviado {0}{1}"
-
-msgid "Saving…"
-msgstr "Guardando…"
+#. TRANSLATORS: {0} is a full date, {1} a time of day
+msgid "Your email will be sent at {0}, {1}"
+msgstr "Su correo electrónico será enviado {0} a las {1}"
 
 msgid "Saved at {0}"
 msgstr "Guardado a las {0}"
@@ -4873,6 +4853,10 @@ msgstr "Error al guardar"
 
 msgid "This message will be flagged for follow up when it is sent."
 msgstr "Este mensaje se marcará para seguimiento cuando se envíe."
+
+#. TRANSLATORS: {0} is the follow-up period, e.g. 'today' or 'next week'
+msgid "This message will be flagged for follow up {0} when it is sent."
+msgstr "Este mensaje se marcará para seguimiento {0} cuando se envíe."
 
 msgid "Send Later"
 msgstr "Enviar más tarde"
@@ -5299,9 +5283,6 @@ msgstr "Mover a Papelera"
 msgid "Not Junk Email"
 msgstr "No es correo no deseado"
 
-msgid "Send to"
-msgstr "Enviar a"
-
 msgid "Message list"
 msgstr "Lista de mensajes"
 
@@ -5375,9 +5356,6 @@ msgstr "Ordenar por. Color"
 
 msgid "Notes list"
 msgstr "Lista de notas"
-
-msgid "Loading Notes"
-msgstr "Cargando notas"
 
 msgid "Loading notes"
 msgstr "Cargando notas"
@@ -5708,17 +5686,23 @@ msgstr "No se han podido migrar las categorías heredadas."
 msgid "Changes to assigned task"
 msgstr "Cambios en la tarea asignada"
 
-msgid "Please note that assigned task(s) will be overwritten when the assignee makes changes."
-msgstr "Tenga en cuenta que las tareas asignadas se sobrescribirán cuando la persona asignada realice cambios."
+msgid "Please note that the assigned task will be overwritten when the assignee makes changes."
+msgid_plural "Please note that the assigned tasks will be overwritten when the assignee makes changes."
+msgstr[0] "Tenga en cuenta que las tareas asignadas se sobrescribirán cuando la persona asignada realice cambios."
+msgstr[1] "Tenga en cuenta que las tareas asignadas se sobrescribirán cuando la persona asignada realice cambios."
 
 msgid "Delete confirmation"
 msgstr "Borrar confirmación"
 
-msgid "Deleting the item(s) will also delete the original item(s)."
-msgstr "Al eliminar los elementos, también se eliminarán los elementos originales."
+msgid "Deleting the item will also delete the original item."
+msgid_plural "Deleting the items will also delete the original items."
+msgstr[0] "Al eliminar los elementos, también se eliminarán los elementos originales."
+msgstr[1] "Al eliminar los elementos, también se eliminarán los elementos originales."
 
-msgid "Do you want to delete the item(s)?"
-msgstr "¿Desea eliminar los artículos?"
+msgid "Do you want to delete the item?"
+msgid_plural "Do you want to delete the items?"
+msgstr[0] "¿Desea eliminar los artículos?"
+msgstr[1] "¿Desea eliminar los artículos?"
 
 msgid "Sort by: Priority"
 msgstr "Ordenar por. Prioridad"
@@ -5855,12 +5839,12 @@ msgstr "Nueva tarea"
 msgid "Completed"
 msgstr "Completado"
 
-msgid "Printed by: "
-msgstr "Impreso por: "
+msgid "Printed by: {0}"
+msgstr "Impreso por: {0}"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "Printed on: "
-msgstr "Impreso el: "
+#. TRANSLATORS: {0} is the date the list was printed on
+msgid "Printed on: {0}"
+msgstr "Impreso el: {0}"
 
 msgid "Percent complete"
 msgstr "Porcentaje completado"
@@ -6360,14 +6344,8 @@ msgstr "Portapapeles"
 msgid "Could not copy link automatically. Please copy it manually."
 msgstr "No se ha podido copiar el enlace automáticamente. Por favor, cópielo manualmente."
 
-msgid "Loading details..."
-msgstr "Cargando detalles..."
-
 msgid "Share"
 msgstr "Compartir"
-
-msgid "Loading..."
-msgstr "Cargando..."
 
 msgid "Add attachment from {0}"
 msgstr "Añadir archivo adjunto de {0}"
@@ -6564,8 +6542,12 @@ msgstr "max"
 msgid "You have to choose at least one file!"
 msgstr "Tiene que elegir al menos un archivo!"
 
-msgid "Create New "
-msgstr "Crear nuevo "
+msgid "Document"
+msgstr "Documento"
+
+#. TRANSLATORS: {0} is a translated file type such as Document, Presentation or Spreadsheet
+msgid "Create New {0}"
+msgstr "Crear nuevo {0}"
 
 msgid "Incorrect filename"
 msgstr "Nombre de archivo incorrecto"
@@ -6612,14 +6594,14 @@ msgstr "Archivo adjunto almacenado correctamente en Archivos"
 msgid "Upload Failed"
 msgstr "Error al cargar"
 
-msgid "Attachment could not be stored in Files! Error: "
-msgstr "¡El archivo adjunto no pudo ser almacenado en Archivos! Error: "
+msgid "Attachment could not be stored in Files!"
+msgstr "¡El archivo adjunto no pudo ser almacenado en Archivos!"
 
 msgid "Share Files"
 msgstr "Compartir archivos"
 
-msgid "Uploading files to "
-msgstr "Carga de archivos en "
+msgid "Uploading files to {0}"
+msgstr "Carga de archivos en {0}"
 
 msgid "Starting upload"
 msgstr "Inicio de la carga"
@@ -6630,14 +6612,14 @@ msgstr "Cancelar la subida"
 msgid "- seconds left"
 msgstr "- segundos restantes"
 
-msgid " seconds left"
-msgstr " segundos"
+msgid "{0} seconds left"
+msgstr "{0} segundos"
 
-msgid " minutes left"
-msgstr " minutos restantes"
+msgid "{0} minutes left"
+msgstr "{0} minutos restantes"
 
-msgid "Uploading: "
-msgstr "Cargando: "
+msgid "Uploading: {0}%"
+msgstr "Cargando: {0}%"
 
 msgid "Upload status unavailable... please wait."
 msgstr "Estado de carga no disponible... por favor espere."
@@ -6650,9 +6632,6 @@ msgstr "¡Carga abortada!"
 
 msgid "Upload failed!"
 msgstr "¡Carga fallida!"
-
-msgid "Document"
-msgstr "Documento"
 
 msgid "Spreadsheet"
 msgstr "Hoja de cálculo"
@@ -6708,6 +6687,9 @@ msgstr "d.m.Y G:i"
 msgid "File ({0})"
 msgstr "Archivo ({0})"
 
+msgid "Path"
+msgstr "Ruta"
+
 msgid "Sort by: Path"
 msgstr "Ordenar por: Ruta"
 
@@ -6731,6 +6713,9 @@ msgstr "Intranet"
 
 msgid "Archive to InfoShare"
 msgstr "Archivo a InfoShare"
+
+msgid "Kendox InfoShare plugin"
+msgstr "Kendox InfoShare plugin"
 
 msgid "Kendox InfoShare"
 msgstr "Kendox InfoShare"
@@ -7142,6 +7127,66 @@ msgstr "Uno o más campos contienen errores."
 msgid "Password is weak. Password should contain capital, non-capital letters and numbers. Password should have 8 to 20 characters."
 msgstr "La contraseña es débil. Debe tener entre 8 y 20 caracteres e incluir letras mayúsculas, letras minúsculas y números."
 
+msgid "Invalid or oversized OpenPGP armor."
+msgstr "Armadura OpenPGP no válida o demasiado grande."
+
+msgid "Expected a single OpenPGP public key block."
+msgstr "Se esperaba un único bloque de clave pública OpenPGP."
+
+msgid "Expected a single OpenPGP private key block."
+msgstr "Se esperaba un único bloque de clave privada OpenPGP."
+
+msgid "Expected a single OpenPGP signature block."
+msgstr "Se esperaba un único bloque de firma OpenPGP."
+
+msgid "Expected a single OpenPGP message block."
+msgstr "Se esperaba un único bloque de mensaje OpenPGP."
+
+msgid "Expected a single OpenPGP armor block."
+msgstr "Se esperaba un único bloque de armadura OpenPGP."
+
+msgid "Additional data outside the OpenPGP armor is not allowed."
+msgstr "No se permiten datos adicionales fuera de la armadura OpenPGP."
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "Importe una única clave OpenPGP completa cada vez."
+
+msgid "This key exceeds the supported subkey or identity limit."
+msgstr "Esta clave supera el límite admitido de subclaves o identidades."
+
+msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
+msgstr "Las claves privadas deben estar protegidas con una frase de contraseña antes de subirlas. Proteja primero esta clave localmente."
+
+msgid "The public certificate must match the private key fingerprint."
+msgstr "El certificado público debe coincidir con la huella digital de la clave privada."
+
+msgid "Unlock your OpenPGP private key in this browser tab first."
+msgstr "Desbloquee primero su clave privada OpenPGP en esta pestaña del navegador."
+
+msgid "The OpenPGP key was locked while the operation was running."
+msgstr "La clave OpenPGP se bloqueó mientras se ejecutaba la operación."
+
+msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
+msgstr "OpenPGP requiere un navegador moderno y una conexión HTTPS segura."
+
+msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
+msgstr "\"Proteger\" requiere una clave privada sin cifrar. Para las claves protegidas, use \"Cambiar frase de contraseña\"."
+
+msgid "The passphrase could not unlock this private key."
+msgstr "La frase de contraseña no ha podido desbloquear esta clave privada."
+
+msgid "Every recipient needs a verified OpenPGP public key."
+msgstr "Cada destinatario necesita una clave pública OpenPGP verificada."
+
+msgid "Encrypted message exceeds the size limit."
+msgstr "El mensaje cifrado supera el límite de tamaño."
+
+msgid "Expected one complete clear-signed OpenPGP message."
+msgstr "Se esperaba un único mensaje OpenPGP completo con firma en claro."
+
+msgid "Invalid clear-signed OpenPGP signature."
+msgstr "Firma en claro de OpenPGP no válida."
+
 msgid "The OpenPGP request failed. Please try again."
 msgstr "La solicitud de OpenPGP ha fallado. Vuelva a intentarlo."
 
@@ -7196,8 +7241,8 @@ msgstr "Gestionar claves OpenPGP…"
 msgid "Lock private keys"
 msgstr "Bloquear claves privadas"
 
-msgid "Signing key: "
-msgstr "Clave de firma: "
+msgid "Signing key: {0}"
+msgstr "Clave de firma: {0}"
 
 msgid "Decryption alone does not authenticate the sender."
 msgstr "El descifrado por sí solo no autentica al remitente."
@@ -7574,8 +7619,8 @@ msgstr "Se han actualizado los servidores de claves."
 msgid "Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically."
 msgstr "Solo se pueden usar servidores de claves HTTPS aprobados por el administrador. Las búsquedas requieren una huella digital completa. Las claves nunca se suben automáticamente."
 
-msgid "Approved servers: "
-msgstr "Servidores aprobados: "
+msgid "Approved servers: {0}"
+msgstr "Servidores aprobados: {0}"
 
 msgid "Find OpenPGP public key"
 msgstr "Buscar clave pública OpenPGP"
@@ -7772,14 +7817,12 @@ msgstr "Modo CBC"
 msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you that the message has not been tampered with and validates the identity of the sender."
 msgstr "grommunio Web puede verificar las firmas digitales de los correos. Una verificación correcta confirma que el mensaje no ha sido manipulado y valida la identidad del remitente."
 
-msgid "You are seeing this message because the verification of the digital signature"
-msgstr "Ve este mensaje porque la verificación de la firma digital"
+#. TRANSLATORS: {0} is the bolded phrase 'has failed'
+msgid "You are seeing this message because the verification of the digital signature {0} for this message."
+msgstr "Ve este mensaje porque la verificación de la firma digital {0} para este mensaje."
 
-msgid " has failed"
-msgstr " ha fracasado"
-
-msgid " for this message."
-msgstr " para este mensaje."
+msgid "has failed"
+msgstr "ha fracasado"
 
 msgid "What caused this issue?"
 msgstr "¿Cuál es la causa de este problema?"
@@ -7792,12 +7835,6 @@ msgstr "Puede seguir trabajando. No obstante, tenga en cuenta que no se pudieron
 
 msgid "You can contact your helpdesk or system administrator if you are not sure what to do next."
 msgstr "Puede ponerse en contacto con el servicio de asistencia técnica o con el administrador del sistema si no está seguro de qué hacer a continuación."
-
-msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you "
-msgstr "grommunio Web puede verificar las firmas digitales de los correos electrónicos. Una verificación exitosa le asegura "
-
-msgid "that the message has not been tampered with and validates the identity of the sender."
-msgstr "que el mensaje no ha sido manipulado y valida la identidad del remitente."
 
 msgid "The verification of the digital signature was successful for this email message."
 msgstr "La firma digital de este mensaje se ha verificado correctamente."
@@ -8192,8 +8229,11 @@ msgstr "PHP-Curl no está disponible."
 msgid "With this backend, you can connect to any Seafile server."
 msgstr "Con este backend, puede conectarse a cualquier servidor Seafile."
 
-msgid "Files "
-msgstr "Archivos "
+msgid "Files Seafile Backend: "
+msgstr "Archivos Seafile Backend: "
+
+msgid "Moving failed"
+msgstr "Error al mover"
 
 msgid "Use SSL"
 msgstr "Utilizar SSL"
@@ -8285,9 +8325,6 @@ msgstr "Error en la creación del directorio"
 msgid "Deletion failed"
 msgstr "Error al borrar"
 
-msgid "Moving failed"
-msgstr "Error al mover"
-
 msgid "Temporary directory problems"
 msgstr "Problemas con los directorios temporales"
 
@@ -8297,14 +8334,8 @@ msgstr "Archivo o carpeta no encontrados"
 msgid "Copying failed"
 msgstr "Error de copia"
 
-msgid "Please contact your system administrator"
-msgstr "Póngase en contacto con el administrador del sistema"
-
 msgid "File server is not reachable. Please verify the connection."
 msgstr "No se puede acceder al servidor de archivos. Por favor, verifique la conexión."
-
-msgid "PHP-CURL not installed"
-msgstr "PHP-CURL no instalado"
 
 msgid "Unknown backend"
 msgstr "Backend desconocido"
@@ -8409,11 +8440,10 @@ msgstr "LDAP no configurado"
 msgid "Invalid LDAP configuration"
 msgstr "Configuración LDAP no válida"
 
-msgid "Missing public certificates for the following recipients: "
-msgstr "Faltan los certificados públicos de los siguientes destinatarios: "
-
-msgid ". Please contact your system administrator for details"
-msgstr ". Póngase en contacto con el administrador del sistema para obtener más información"
+#. TRANSLATORS: %s is a comma-separated list of email addresses
+#, php-format
+msgid "Missing public certificates for the following recipients: %s. Please contact your system administrator for details"
+msgstr "Faltan los certificados públicos de los siguientes destinatarios: %s. Póngase en contacto con el administrador del sistema para obtener más información"
 
 msgid "Your public certificate is not installed. Without this certificate, you will not be able to read encrypted messages you have sent to others."
 msgstr "Su certificado público no está instalado. Sin este certificado, no podrá leer los mensajes cifrados que haya enviado a otras personas."
@@ -8427,8 +8457,9 @@ msgstr "No se puede descifrar el certificado"
 msgid "Private key can't be used to sign email"
 msgstr "La clave privada no puede utilizarse para firmar correos electrónicos"
 
-msgid "Certificate email address doesn't match grommunio Web account "
-msgstr "La dirección de correo electrónico del certificado no coincide con la cuenta de grommunio Web "
+#, php-format
+msgid "Certificate email address doesn't match grommunio Web account %s"
+msgstr "La dirección de correo electrónico del certificado no coincide con la cuenta de grommunio Web %s"
 
 #, php-format
 msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."
@@ -8437,14 +8468,17 @@ msgstr "El tamaño de la clave RSA de %d bits está por debajo del mínimo recom
 msgid "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully supported. Certificate was imported."
 msgstr "Los certificados EdDSA (Ed25519) requieren PHP 8.4+ y es posible que no sean totalmente compatibles. Se ha importado el certificado."
 
-msgid "Certificate was expired on "
-msgstr "El certificado ha caducado el "
+#, php-format
+msgid "Certificate was expired on %s."
+msgstr "El certificado ha caducado el %s."
 
 msgid "Certificate was imported."
 msgstr "Se ha importado el certificado."
 
-msgid "Certificate is not yet valid "
-msgstr "El certificado aún no es válido "
+#. TRANSLATORS: %s is the date the certificate becomes valid
+#, php-format
+msgid "Certificate is not yet valid %s."
+msgstr "El certificado aún no es válido %s."
 
 msgid "Certificate has not been imported"
 msgstr "No se ha importado el certificado"
@@ -8632,8 +8666,8 @@ msgstr "Carpetas de contactos compartidas"
 msgid "Public Contact Folders"
 msgstr "Carpetas de contactos públicas"
 
-msgid "Error in search, please try again"
-msgstr "Error en la búsqueda, inténtelo de nuevo"
+msgid "Error in search, please try again."
+msgstr "Error en la búsqueda, por favor inténtelo de nuevo."
 
 msgid "Unable to perform search query, no permissions to create search folder."
 msgstr "No se puede realizar la consulta de búsqueda, no hay permisos para crear la carpeta de búsqueda."
@@ -8653,14 +8687,11 @@ msgstr "No se ha podido abrir la incidencia."
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr "No se ha podido abrir la incidencia, probablemente se ha eliminado la incidencia específica."
 
-msgid "a meeting request"
-msgstr "una solicitud de reunión"
+msgid "You have insufficient privileges to move a meeting request in this calendar. The calendar owner can set these using the 'permissions'-tab of the folder properties (right click the calendar folder > properties > permissions)"
+msgstr "No tiene suficientes privilegios para mover una solicitud de reunión en este calendario. El propietario del calendario puede establecerlos mediante la pestaña \"permisos\" de las propiedades de la carpeta (haga clic con el botón derecho en la carpeta del calendario > propiedades > permisos)"
 
-msgid "an appointment"
-msgstr "una cita"
-
-msgid "You have insufficient privileges to move "
-msgstr "No tiene suficientes privilegios para mover "
+msgid "You have insufficient privileges to move an appointment in this calendar. The calendar owner can set these using the 'permissions'-tab of the folder properties (right click the calendar folder > properties > permissions)"
+msgstr "No tiene suficientes privilegios para mover una cita en este calendario. El propietario del calendario puede establecerlos mediante la pestaña \"permisos\" de las propiedades de la carpeta (haga clic con el botón derecho en la carpeta del calendario > propiedades > permisos)"
 
 msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
 msgstr "No se puede configurar un recordatorio para que aparezca antes de la repetición anterior. Restablezca el recordatorio para guardar el cambio"
@@ -8694,8 +8725,10 @@ msgid "Meeting could not be saved."
 msgstr "La reunión no pudo salvarse."
 
 #, php-format
-msgid "There were %d skipped appointment(s):"
-msgstr "Citas omitidas (%d):"
+msgid "There was %d skipped appointment:"
+msgid_plural "There were %d skipped appointments:"
+msgstr[0] "Citas omitidas (%d):"
+msgstr[1] "Citas omitidas (%d):"
 
 msgid "More skipped appointments are not shown."
 msgstr "No se muestran las demás citas omitidas."
@@ -8713,6 +8746,10 @@ msgstr "%scumpleaños"
 #, php-format
 msgid "%s's Anniversary"
 msgstr "%saniversario"
+
+#, php-format
+msgid "Unable to add store: '%s'. Please check if you have the necessary permissions."
+msgstr "No se ha podido añadir el buzón: '%s'. Compruebe si tiene los permisos necesarios."
 
 msgid "You don't have the permission to complete this action"
 msgstr "No tienes permiso para completar esta acción"
@@ -8848,26 +8885,26 @@ msgstr "No se pudo encontrar el mensaje: puede haberse movido o eliminado, o qui
 msgid "Could not open message."
 msgstr "No se puede abrir mensaje."
 
-msgid "You have insufficient privileges to decline this Meeting Request"
-msgstr "No tiene suficientes privilegios para rechazar esta convocatoria de reunión"
+msgid "You have insufficient privileges to decline this Meeting Request."
+msgstr "No tiene suficientes privilegios para rechazar esta convocatoria de reunión."
 
-msgid "You have insufficient privileges to accept this Meeting Request"
-msgstr "No tiene privilegios suficientes para aceptar esta convocatoria de reunión"
+msgid "You have insufficient privileges to accept this Meeting Request."
+msgstr "No tiene suficientes privilegios para aceptar esta convocatoria de reunión."
 
-msgid "Could not copy message"
-msgstr "No se puede copiar el mensaje"
+msgid "Could not copy message."
+msgstr "No se puede copiar el mensaje."
 
-msgid "Could not move message"
-msgstr "No se puede mover el mensaje"
+msgid "Could not move message."
+msgstr "No se puede mover el mensaje."
 
-msgid "Could not forward meeting request"
-msgstr "No se ha podido reenviar la solicitud de reunión"
+msgid "Could not forward meeting request."
+msgstr "No se ha podido reenviar la solicitud de reunión."
 
-msgid "You have insufficient privileges to save items in this folder"
-msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta"
+msgid "You have insufficient privileges to save items in this folder."
+msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta."
 
-msgid "Could not save message"
-msgstr "No se puede guardar el mensaje"
+msgid "Could not save message."
+msgstr "No se ha podido guardar el mensaje."
 
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr "No tiene privilegios necesarios para borrar objetos en esta carpeta."
@@ -8877,9 +8914,6 @@ msgstr "El mensaje ya no está en la cola de salida, normalmente porque ya se ha
 
 msgid "Message cannot be aborted"
 msgstr "No se puede cancelar el mensaje"
-
-msgid "You have insufficient privileges to delete items in this folder"
-msgstr "No tiene privilegios suficientes para eliminar elementos de esta carpeta"
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "No tiene privilegios necesarios para añadir objeto como un adjunto."
@@ -8953,9 +8987,6 @@ msgstr "No se ha podido detener la operación de búsqueda."
 msgid "You have insufficient privileges to save this message."
 msgstr "No tienes privilegios suficientes para guardar este mensaje."
 
-msgid "Could not save message."
-msgstr "No se ha podido guardar el mensaje."
-
 msgid "You have insufficient privileges to delete this message."
 msgstr "No tienes privilegios suficientes para borrar este mensaje."
 
@@ -8968,14 +8999,8 @@ msgstr "No tiene suficientes privilegios para cancelar esta convocatoria de reun
 msgid "Could not cancel Meeting Request."
 msgstr "No se ha podido cancelar la convocatoria de reunión."
 
-msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr "No tiene suficientes privilegios para rechazar esta convocatoria de reunión."
-
 msgid "Could not decline Meeting Request."
 msgstr "No se ha podido rechazar la convocatoria de reunión."
-
-msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr "No tiene suficientes privilegios para aceptar esta convocatoria de reunión."
 
 msgid "Could not accept Meeting Request."
 msgstr "No se ha podido aceptar la convocatoria de reunión."
@@ -8988,9 +9013,6 @@ msgstr "No se han podido cancelar las invitaciones a las convocatorias de reuni�
 
 msgid "You can not continue search operation on this folder."
 msgstr "No puede continuar la operación de búsqueda en esta carpeta."
-
-msgid "Error in search, please try again."
-msgstr "Error en la búsqueda, por favor inténtelo de nuevo."
 
 msgid "Error in distribution list expansion."
 msgstr "Error en la expansión de la lista de distribución."
@@ -9041,6 +9063,9 @@ msgstr "Solicitud de tarea:"
 msgid "Sign in"
 msgstr "Iniciar sesión"
 
+msgid "Loading"
+msgstr "Cargando"
+
 msgid "File is not imported successfully"
 msgstr "El archivo no se importa correctamente"
 
@@ -9053,8 +9078,8 @@ msgstr "El archivo cargado supera la directiva MAX_FILE_SIZE especificada en el 
 msgid "The uploaded file was only partially uploaded."
 msgstr "El archivo cargado sólo se ha cargado parcialmente."
 
-msgid "No file was uploaded. ."
-msgstr "No se ha cargado ningún archivo. ."
+msgid "No file was uploaded."
+msgstr "No se ha cargado ningún archivo."
 
 msgid "Missing a temporary folder."
 msgstr "Falta una carpeta temporal."

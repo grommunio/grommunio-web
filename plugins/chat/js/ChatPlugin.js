@@ -54,7 +54,7 @@ Grommunio.plugins.chat.Chat = Ext.extend(Grommunio.core.Plugin, {
 	createMainTab: function(site)
 	{
 		return {
-			text: 'Chat',
+			text: _('Chat'),
 			url: site.url,
 			tabOrderIndex: site.tabOrder,
 			cls: 'mainmenu-button-chat',
@@ -148,7 +148,7 @@ Grommunio.plugins.chat.Chat = Ext.extend(Grommunio.core.Plugin, {
 Grommunio.onReady(function() {
 	container.registerPlugin(new Grommunio.core.PluginMetaData({
 		name : 'chat',
-		displayName : 'Chat',
+		displayName : _('Chat'),
 		allowUserVisible : true,
 		pluginConstructor : Grommunio.plugins.chat.Chat
 	}));

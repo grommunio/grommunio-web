@@ -441,36 +441,36 @@ class ItemModule extends Module {
 						if (!empty($action["message_action"]["action_type"])) {
 							switch ($action["message_action"]["action_type"]) {
 								case "declineMeetingRequest":
-									$e->setDisplayMessage(_("You have insufficient privileges to decline this Meeting Request") . ".");
+									$e->setDisplayMessage(_("You have insufficient privileges to decline this Meeting Request."));
 									break;
 
 								case "acceptMeetingRequest":
-									$e->setDisplayMessage(_("You have insufficient privileges to accept this Meeting Request") . ".");
+									$e->setDisplayMessage(_("You have insufficient privileges to accept this Meeting Request."));
 									break;
 
 								case "copy":
-									$e->setDisplayMessage(_("Could not copy message") . ".");
+									$e->setDisplayMessage(_("Could not copy message."));
 									break;
 
 								case "move":
-									$e->setDisplayMessage(_("Could not move message") . ".");
+									$e->setDisplayMessage(_("Could not move message."));
 									break;
 
 								case "forwardMeetingRequest":
-									$e->setDisplayMessage(_("Could not forward meeting request") . ".");
+									$e->setDisplayMessage(_("Could not forward meeting request."));
 									break;
 							}
 						}
 
 						if (empty($e->displayMessage)) {
-							$e->setDisplayMessage(_("You have insufficient privileges to save items in this folder") . ".");
+							$e->setDisplayMessage(_("You have insufficient privileges to save items in this folder."));
 						}
 					}
 					elseif ($e->getCode() == MAPI_E_STORE_FULL) {
 						$e->setDisplayMessage($this->getOverQuotaMessage($store));
 					}
 					else {
-						$e->setDisplayMessage(_("Could not save message") . ".");
+						$e->setDisplayMessage(_("Could not save message."));
 						$e->allowToShowDetailsMessage = true;
 					}
 					break;
@@ -496,7 +496,7 @@ class ItemModule extends Module {
 							break;
 					}
 					if (empty($e->displayMessage)) {
-						$e->setDisplayMessage(_("You have insufficient privileges to delete items in this folder") . ".");
+						$e->setDisplayMessage(_("You have insufficient privileges to delete items in this folder."));
 					}
 					break;
 
