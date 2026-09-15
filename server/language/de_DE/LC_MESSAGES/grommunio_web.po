@@ -4012,7 +4012,7 @@ msgid "High"
 msgstr "Hoch"
 
 msgid "Canceled"
-msgstr "Abgebrochen"
+msgstr "Abgesagt"
 
 msgid "Blue"
 msgstr "Blau"

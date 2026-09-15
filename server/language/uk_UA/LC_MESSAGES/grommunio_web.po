@@ -845,7 +845,7 @@ msgstr[2] "кожні {0} тижнів"
 
 #. TRANSLATORS: {0} is the frequency ('every week'), {1} the list of weekdays
 msgid "{0} on {1}"
-msgstr "{0} на {1}"
+msgstr "{0} у {1}"
 
 msgctxt "recurrence"
 msgid "every month"

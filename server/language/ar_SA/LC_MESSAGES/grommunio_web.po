@@ -259,7 +259,7 @@ msgstr "هذا التاريخ بعد التاريخ الأقصى"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "d/m/Y"
-msgstr "د / م / ص"
+msgstr "d/m/Y"
 
 msgid "Disabled"
 msgstr "عاجز"
@@ -350,7 +350,7 @@ msgstr "{0}ليس وقتًا صالحًا"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "G:i"
-msgstr "ز: أنا"
+msgstr "G:i"
 
 msgid "Name"
 msgstr "اسم"
@@ -944,7 +944,7 @@ msgstr "وقت الاجتماع الجديد المقترح"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y {0}"
-msgstr "ل شبيبة F Y{0}"
+msgstr "l jS F Y {0}"
 
 msgid "Fwd"
 msgstr "إعادة توجيه"
@@ -1094,7 +1094,7 @@ msgstr "واو"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l"
-msgstr "ل"
+msgstr "l"
 
 msgid "All text fields"
 msgstr "كافة الحقول النصية"
@@ -1258,7 +1258,7 @@ msgstr "إظهار أقل"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y {0}"
-msgstr "شبيبة F Y{0}"
+msgstr "jS F Y {0}"
 
 msgid "None"
 msgstr "لا أحد"
@@ -1462,12 +1462,12 @@ msgstr "طوال اليوم: {0}"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
-msgstr "ل شبيبة F Y"
+msgstr "l jS F Y"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F"
-msgstr "ل ش.ف"
+msgstr "l jS F"
 
 msgid "Organiser"
 msgstr "منظم"
@@ -1555,7 +1555,7 @@ msgstr "الوقت الافتراضي للتذكير بالموعد طوال ا�
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS"
-msgstr "شبيبة"
+msgstr "jS"
 
 msgid "{0} selected item"
 msgid_plural "{0} selected items"
@@ -1778,7 +1778,7 @@ msgstr "موضوع الموعد الجديد"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y"
-msgstr "شبيبة F Y"
+msgstr "jS F Y"
 
 msgid "Online meeting"
 msgstr "اجتماع عبر الإنترنت"
@@ -4066,7 +4066,7 @@ msgstr "مجلد آخر"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F"
-msgstr "شبيبة ف"
+msgstr "jS F"
 
 msgid "Y"
 msgstr "ي"

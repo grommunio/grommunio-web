@@ -834,7 +834,7 @@ msgstr[1] "{0} haftada bir"
 
 #. TRANSLATORS: {0} is the frequency ('every week'), {1} the list of weekdays
 msgid "{0} on {1}"
-msgstr "{0} üzerinde {1}"
+msgstr "{0} {1} günü"
 
 msgctxt "recurrence"
 msgid "every month"
